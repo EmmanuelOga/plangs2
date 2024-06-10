@@ -1,0 +1,21 @@
+# https://github.com/github/gitignore/blob/main/Node.gitignore
+*.pid
+*.pid.lock
+*.seed
+*.tsbuildinfo
+
+.eslintcache
+.node_repl_history
+.npm
+.pnpm-debug.log*
+.yarn-integrity
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.bun/
+.yarn/
+jspm_packages/
+node_modules/
+web_modules/

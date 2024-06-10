@@ -1,0 +1,12 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+    },
+    // ---------------------------------------------------------------------------- 
+    // BunJS Environment.
+    //
+    "bun.runtime": "${workspaceFolder}/.bun/bin/bun",
+    "bun.debugTerminal.enabled": true,
+    "bun.debugTerminal.stopOnEntry": false,
+}
