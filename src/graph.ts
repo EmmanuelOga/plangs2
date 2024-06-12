@@ -26,12 +26,13 @@ export interface Edge<
     Type extends string = string,
     From extends string = Vertex['id'],
     To extends string = Vertex['id'],
-    Id extends string = `${Type}~${From}~${To}`
+    Id extends string = `${Type}~${From}~${To}`,
 > {
     type: Type;
     id: Id;
     from: From;
     to: To;
+    direction?: 'forward' | 'backward' | 'both';
 }
 
 /** A helper function to generate the id of an edge. */

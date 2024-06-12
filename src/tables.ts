@@ -3,17 +3,19 @@
  */
 
 import { Table } from "./graph";
-import { Designer, Person, ProgLang } from "./schemas";
+import { Designer, Person, PlangType as PlangType, Plang, TypeSystem } from "./schemas";
 
 export class VertexTables {
-    readonly plangs = new Table<ProgLang>();
+    readonly plangs = new Table<Plang>();
+    readonly typeSystems = new Table<TypeSystem>();
     readonly people = new Table<Person>();
 
-    readonly all = [this.plangs, this.people];
+    readonly all = [this.plangs, this.typeSystems, this.people];
 }
 
 export class EdgeTables {
     readonly designers = new Table<Designer>();
+    readonly plangTypes = new Table<PlangType>();
 
-    readonly all = [this.designers];
+    readonly all = [this.designers, this.plangTypes];
 }
