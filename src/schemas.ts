@@ -1,5 +1,3 @@
-import { Edge, Vertex } from './graph';
-
 ////////////////////////////////////////////////////////////////////////////////
 // Types starting with "V" are used for Vertex data.
 ////////////////////////////////////////////////////////////////////////////////
@@ -9,6 +7,10 @@ export interface VPlang {
     urls: Url[];
     firstAppeared: StrDate
     releases: Release[];
+}
+
+export interface VPlatform {
+    name: string;
 }
 
 export interface VTypeSystem {
@@ -28,6 +30,10 @@ export interface EPeople {
 }
 
 export interface EPlangTypeSystem {
+    // No additional data.
+}
+
+export interface EPlangPlatform {
     // No additional data.
 }
 

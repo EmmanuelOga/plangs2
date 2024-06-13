@@ -1,7 +1,9 @@
-import { ETables, VTables } from '../../tables';
+import { PlangsGraph } from '../../plangs_graph';
 
-export function define(vt: VTables, et: ETables) {
-    vt.plang.set('pl+python', {
+export const pythonVId = 'pl+python';
+
+export function define(g: PlangsGraph) {
+    g.v_pl.set(pythonVId, {
         name: 'Python',
         urls: [
             { kind: 'homepage', url: 'https://www.python.org/' },
@@ -16,15 +18,26 @@ export function define(vt: VTables, et: ETables) {
         ],
     });
 
-    vt.person.set('person+guido', { name: 'Guido van Rossum' });
+    g.v_person.set('person+guido', { name: 'Guido van Rossum' });
 
-    et.peopleAny.set({ from: 'person+guido', to: 'pl+python' }, { role: 'designer' });
+    g.e_people.set({ from: 'person+guido', to: pythonVId }, { role: 'designer' });
 
-    const types: `plts+${string}`[] = [
-        'plts+oop', 'plts+duck', 'plts+dynamic', 'plts+strong', 'plts+optional'
+    const types: `pl-tsys+${string}`[] = [
+        'pl-tsys+oop', 'pl-tsys+duck', 'pl-tsys+dynamic', 'pl-tsys+strong', 'pl-tsys+optional'
     ];
 
     for (const ts of types) {
-        et.plangTypesys.connect({ from: 'pl+python', to: ts });
+        g.e_pl_tsys.connect({ from: pythonVId, to: ts });
     }
+
+    const platforms: `platf+${string}`[] = [
+        'platf+linux64', 'platf+mac64', 'platf+windows10', 'platf+wasi32',
+        'platf+freebsd64', 'platf+ios', 'platf+rpi', 'platf+android'
+    ]
+
+    for (const pf of platforms) {
+        g.e_pl_platf.connect({ from: pythonVId, to: pf });
+    }
+
+    g.v_pl_impl.set('pl-impl+cpython', { name: 'CPython' });
 }

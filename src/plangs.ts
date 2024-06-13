@@ -1,20 +1,20 @@
 import { Glob } from "bun";
-import { VTables, ETables } from "./tables";
-import { toGraph } from "./graph";
+import { PlangsGraph } from "./plangs_graph";
 
+/**
+ * Scans the ./entities directory and loads all graph data from `define` functions.
+ */
 async function loadDefinitions() {
     const glob = new Glob("**/*.ts");
 
-    const vt = new VTables();
-    const et = new ETables();
+    const g = new PlangsGraph();
 
-    // Scans the current working directory and each of its sub-directories recursively
     for await (const path of glob.scan(__dirname + "/entities")) {
         const module = await import(`./entities/${path}`);
-        if (typeof module.define === "function") module.define(vt, et);
+        if (typeof module.define === "function") module.define(g);
     }
 
-    const { vertices, edges, adjacency } = toGraph(vt.allVertices(), et.allEdges());
+    const { vertices, edges, adjacency } = g.merge();
 
     console.log("Vertices: ", vertices);
     console.log("Edges: ", edges);
