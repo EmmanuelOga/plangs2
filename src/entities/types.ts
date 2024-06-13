@@ -1,9 +1,9 @@
-import { EdgeTables, VertexTables } from "../tables";
+import { ETables, VTables } from "../tables";
 
-export function define(vt: VertexTables, et: EdgeTables) {
-    vt.typeSystems.add({ type: "ts", id: "ts+oop", name: "Object-Oriented" });
-    vt.typeSystems.add({ type: "ts", id: "ts+duck", name: "Duck Typing" });
-    vt.typeSystems.add({ type: "ts", id: "ts+dynamic", name: "Dynamic Typing" });
-    vt.typeSystems.add({ type: "ts", id: "ts+strong", name: "Strong Typing" });
-    vt.typeSystems.add({ type: "ts", id: "ts+optional", name: "Optional Typing" });
+export function define(vt: VTables, et: ETables) {
+    vt.typesys.set("plts+oop", { name: "Object-Oriented" });
+    vt.typesys.set("plts+duck", { name: "Duck Typing" });
+    vt.typesys.set("plts+dynamic", { name: "Dynamic Typing" });
+    vt.typesys.set("plts+strong", { name: "Strong Typing" });
+    vt.typesys.set("plts+optional", { name: "Optional Typing" });
 }

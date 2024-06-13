@@ -1,12 +1,12 @@
 import { Glob } from "bun";
-import { toGraph } from './graph';
-import { EdgeTables, VertexTables } from "./tables";
+import { VTables, ETables } from "./tables";
+import { toGraph } from "./graph";
 
 async function loadDefinitions() {
     const glob = new Glob("**/*.ts");
 
-    const vt = new VertexTables();
-    const et = new EdgeTables();
+    const vt = new VTables();
+    const et = new ETables();
 
     // Scans the current working directory and each of its sub-directories recursively
     for await (const path of glob.scan(__dirname + "/entities")) {
@@ -14,7 +14,7 @@ async function loadDefinitions() {
         if (typeof module.define === "function") module.define(vt, et);
     }
 
-    const { vertices, edges, adjacency } = toGraph(vt.all, et.all);
+    const { vertices, edges, adjacency } = toGraph(vt.allVertices(), et.allEdges());
 
     console.log("Vertices: ", vertices);
     console.log("Edges: ", edges);
