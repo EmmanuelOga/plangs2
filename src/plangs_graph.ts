@@ -2,9 +2,9 @@
  * Define a collection of vertex and edge tables.
  */
 
-import { GraphManager, TK, VID } from "./graph";
+import { E_Empty, GraphManager, TK, VID } from "./graph";
 
-import { E_Empty, E_People, V_Implementation, V_Person, V_Plang, V_Platform, V_TypeSystem } from "./schemas";
+import { E_People, V_Implementation, V_Person, V_Plang, V_Platform, V_TypeSystem } from "./schemas";
 
 /**
  * Collection of related edge and vertex tables.
@@ -21,10 +21,10 @@ class PlangsTables extends GraphManager {
     readonly v_tsys = this.define<Partial<V_TypeSystem>, VID<`tsys`>>('tsys');
 
     // Edge Tables.
-    readonly e_people = this.connectToAny<E_People, TK<typeof this.v_person>>(this.v_person);
-    readonly e_pl_impl = this.connect<E_Empty, TK<typeof this.v_pl>, TK<typeof this.v_impl>>(this.v_pl, this.v_impl);
-    readonly e_pl_platf = this.connect<E_Empty, TK<typeof this.v_pl>, TK<typeof this.v_platf>>(this.v_pl, this.v_platf);
-    readonly e_pl_tsys = this.connect<E_Empty, TK<typeof this.v_pl>, TK<typeof this.v_tsys>>(this.v_pl, this.v_tsys);
+    readonly e_impl_pl = this.connect<E_Empty, TK<typeof this.v_impl>, TK<typeof this.v_pl>>(this.v_impl, this.v_pl, { type: 'impl', d: true });
+    readonly e_people = this.connectToAny<E_People, TK<typeof this.v_person>>(this.v_person, { d: true });
+    readonly e_pl_platf = this.connect<E_Empty, TK<typeof this.v_pl>, TK<typeof this.v_platf>>(this.v_pl, this.v_platf, { type: 'supports', d: true });
+    readonly e_pl_tsys = this.connect<E_Empty, TK<typeof this.v_pl>, TK<typeof this.v_tsys>>(this.v_pl, this.v_tsys, { type: 'type_system' });
 }
 
 /**
@@ -37,13 +37,13 @@ export class PlangsGraph extends PlangsTables {
      * @param vi the vertex id of the implementation.
      * @param implName the name of the implementation.
      */
-    defineImplOf(
-        vp: TK<PlangsGraph['v_pl']>,
+    defImpl(
         vi: TK<PlangsGraph['v_impl']>,
         implName: string,
+        vp: TK<PlangsGraph['v_pl']>,
     ): void {
         const { conflicts } = this.v_impl.merge(vi, { name: implName });
         if (conflicts.length > 0) console.log(`Warning, conflicting definition for ${vi}: ${JSON.stringify(conflicts)}.`)
-        this.e_pl_impl.connect({ from: vp, to: vi });
+        this.e_impl_pl.connect({ from: vi, to: vp, d: true, });
     }
 }

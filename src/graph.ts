@@ -145,10 +145,10 @@ export class Table<TKey, TData> {
 /**
  * Key to uniquely identify an edge of a graph.
  */
-export interface EdgeKey<
+export type EdgeKey<
     TVIdFrom extends string = VID<Any>,
     TVIdTo extends string = VID<Any>
-> {
+> = {
     from: TVIdFrom;
     to: TVIdTo;
 
@@ -156,7 +156,12 @@ export interface EdgeKey<
      * If true, the edge is directed from `from` to `to`.
      * If false or undefined, the edge is undirected.
      */
-    directed?: boolean;
+    d?: boolean;
+
+    /**
+     * Useful to quickly distinguish between edge types.
+     */
+    type?: string;
 
     /**
      * A suffix can be used to distinguish between parallel edges.
@@ -174,27 +179,34 @@ export function validateEdgeKey(ek: EdgeKey, fromPattern: RegExp, toPattern: Reg
 /**
  * Convert an edge key to a string, for use as a key in a Map.
  */
-export function edge(ek: EdgeKey): string {
-    return `${ek.directed ? 'd' : 'u'}~${ek.from}~${ek.to}~${ek.suffix ?? ''}`;
+export function toStr({ d, from, to, suffix, type }: EdgeKey, defaults?: Partial<EdgeKey>): string {
+    if (defaults) {
+        d = d ?? defaults.d;
+        from = from ?? defaults.from;
+        to = to ?? defaults.to;
+        type = type ?? defaults.type;
+        suffix = suffix ?? defaults.suffix;
+    }
+    return `${d ? 'd' : 'u'}~${from}~${to}~${type ?? ''}~${suffix ?? ''}`;
 }
 
 /**
  * Reverse a string key back to an EdgeKey.
  * Note that the Edge key from/to types cannot be inferred.
  */
-export function toKey(ek: string): EdgeKey | { errors: string[] } {
-    const [directed, from, to, suffix] = ek.split('~');
+export function toEdge(ek: string): EdgeKey | { errors: string[] } {
+    const [d, from, to, type, suffix] = ek.split('~');
 
     const errors: string[] = [];
-    if (directed !== 'd' && directed !== 'u') errors.push(`invalid direction '${directed}' in '${ek}'`);
+    if (d !== 'd' && d !== 'u') errors.push(`invalid direction '${d}' in '${ek}'`);
     if (!AnyVidP.test(from)) errors.push(`invalid from id '${from}' in '${ek}'`);
     if (!AnyVidP.test(to)) errors.push(`invalid to id '${to}' in '${ek}'`);
     if (errors.length) return { errors };
 
-    return { from, to, directed: directed === 'd', suffix: suffix || undefined } as EdgeKey;
+    return { from, to, d: d === 'd', type: type || undefined, suffix: suffix || undefined } as EdgeKey;
 }
 
-interface SimpleGraph {
+type SimpleGraph = {
     vertices: Map<string, V>;
     edges: Map<string, unknown>;
     adjacency: Map<string, string[]>;
@@ -227,36 +239,45 @@ export class GraphManager {
     protected connect<
         TEData,
         TFromVId extends string,
-        TToVId extends string
-    >(from: Table<TFromVId, unknown>, to: Table<TToVId, unknown>)
-        : Table<EdgeKey<TFromVId, TToVId>, TEData> {
+        TToVId extends string,
+        EK = EdgeKey<TFromVId, TToVId>,
+    >(
+        from: Table<TFromVId, unknown>,
+        to: Table<TToVId, unknown>,
+        edgeDefaults?: Partial<EK>,
+    ): Table<EK, TEData> {
         if (!this.vtables.has(from.key)) throw new Error(`Table ${from.key} does not exist.`);
         if (!this.vtables.has(to.key)) throw new Error(`Table ${to.key} does not exist.`);
         const tkey = `${from.key}~${to.key}`;
         if (this.etables.has(tkey)) throw new Error(`Table ${tkey} already exists.`);
 
-        const mapper = (key: EdgeKey<TFromVId, TToVId>) => edge(key as EdgeKey);
-        const validator = (key: EdgeKey<TFromVId, TToVId>) =>
-            validateEdgeKey(key as EdgeKey, new RegExp(`^${from.key}`), new RegExp(`^${to.key}`));
-        const table = new Table<EdgeKey<TFromVId, TToVId>, TEData>(tkey, mapper, validator);
+        const mapper = (ek: any) => toStr(ek, edgeDefaults);
+        const validator = (key: EK) => validateEdgeKey(key as EdgeKey, new RegExp(`^${from.key}`), new RegExp(`^${to.key}`));
+        const table = new Table<EK, TEData>(tkey, mapper, validator);
 
         this.etables.set(tkey, table);
         return table;
     }
 
+    /**
+     * @param defaultDirected default to use for `edge.d` if the user did not supply one.
+     */
     protected connectToAny<
         TEData,
-        TFromVId extends string
-    >(from: Table<TFromVId, unknown>)
-        : Table<EdgeKey<TFromVId, VID<Any>>, TEData> {
+        TFromVId extends string,
+        EK = EdgeKey<TFromVId, VID<Any>>,
+    >(
+        from: Table<TFromVId, unknown>,
+        edgeDefaults?: Partial<EK>,
+    )
+        : Table<EK, TEData> {
         if (!this.vtables.has(from.key)) throw new Error(`Table ${from.key} does not exist.`);
         const tkey = `${from.key}~*`;
         if (this.etables.has(tkey)) throw new Error(`Table ${tkey} already exists.`);
 
-        const mapper = (key: EdgeKey<TFromVId, VID<Any>>) => edge(key as EdgeKey);
-        const validator = (key: EdgeKey<TFromVId, VID<Any>>) =>
-            validateEdgeKey(key as EdgeKey, new RegExp(`^${from.key}`), AnyVidP);
-        const table = new Table<EdgeKey<TFromVId, VID<Any>>, TEData>(tkey, mapper, validator);
+        const mapper = (ek: any) => toStr(ek, edgeDefaults);
+        const validator = (key: EK) => validateEdgeKey(key as EdgeKey, new RegExp(`^${from.key}`), AnyVidP);
+        const table = new Table<EK, TEData>(tkey, mapper, validator);
 
         this.etables.set(tkey, table);
         return table;
@@ -271,7 +292,7 @@ export class GraphManager {
 
     /**
      * Iterate over all pairs `[eid: string, data: unknown]`.
-     * The edge id is a string but can be parsed into an {@link EdgeKey} with {@link toKey}.
+     * The edge id is a string but can be parsed into an {@link EdgeKey} with {@link toEdge}.
      */
     *edges(): Iterable<[string, unknown]> {
         for (const table of this.etables.values()) yield* table.entries();
@@ -298,7 +319,7 @@ export class GraphManager {
         for (const [eid, data] of this.edges()) {
             g.edges.set(eid, data);
 
-            const edge = toKey(eid);
+            const edge = toEdge(eid);
 
             if ('errors' in edge) {
                 errors.push(`Invalid edge key ${eid}: ${edge.errors.join(', ')}`);
@@ -310,7 +331,7 @@ export class GraphManager {
 
             g.adjacency.get(edge.from)!.push(edge.to);
 
-            if (!edge.directed) {
+            if (!edge.d) {
                 g.adjacency.get(edge.to)!.push(edge.from);
             }
         }

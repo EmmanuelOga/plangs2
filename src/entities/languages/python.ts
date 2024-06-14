@@ -37,5 +37,5 @@ export function define(g: PlangsGraph) {
         ['circuit-py', 'CircuitPython'],
         ['iron-py', 'IronPython'],
         ['jython', 'Jython']
-    ]) g.defineImplOf(v_py, `impl+${p}`, name);
+    ]) g.defImpl(`impl+${p}`, name, v_py);
 }

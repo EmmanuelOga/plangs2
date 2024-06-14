@@ -2,6 +2,8 @@
 // Types starting with "V_" are used for Vertex data.
 ////////////////////////////////////////////////////////////////////////////////
 
+import { V } from "./graph";
+
 export interface V_Plang extends V {
     urls: Url[];
     firstAppeared: StrDate
