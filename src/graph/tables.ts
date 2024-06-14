@@ -1,31 +1,5 @@
-/**
- * At minimal, a vertex has a name.
- */
-export interface V {
-    name: string;
-}
-
-/**
- * Edges many not need additional data.
- */
-export type E_Empty = {};
-
-/**
- * A vertext id format is a string with format: `type+id`.
- * Examples: `pl+python`, `person+guido`, `plts+oop`, etc.
- * See {@link AnyVidP} for the matching pattern.
- */
-export type VID<Type extends string> = `${Type}+${string}`
-
-/**
- * An alias such that we can say: VID<Any> to match any vertex id.
- */
-export type Any = string;
-
-/**
- * RegExp Pattern for string literals matching any valid {@link VID }.
- */
-export const AnyVidP = /^[^\+]+\+[a-z-A-Z0-9\-_]+$/;
+import { EdgeKey, toEdge, toStr, validateEdgeKey } from "./edge";
+import { Any, AnyVidP, V, VID } from "./vertex";
 
 /**
  * When a {@link Table} is used to store vertices,
@@ -41,22 +15,20 @@ export const AnyVidP = /^[^\+]+\+[a-z-A-Z0-9\-_]+$/;
 export type TK<T> = T extends Table<infer TVId, any> ? TVId : never;
 
 /**
- * We'll use this to store Edges and Vertices.
+ * We'll use tables to store Edges and Vertices.
  * 
- * Similar to a Map but also:
- * - Accepts a key validator function.
+ * A Table is similar to a {@link Map} but also:
  * - Accetps a key mapper function to convert the keys to strings.
+ * - Accepts a key validator function.
  */
-export class Table<TKey, TData> {
+export class Table<TKey = any, TData = any> {
     private _map = new Map<string, TData>();
 
     /**
-     * @param key is useful when storing a table on a Map, for identifying the table.
      * @param mapper is used to convert the key to a string, so it can be used to index the Map.
      * @param validator rejects invalid keys.
      */
     constructor(
-        readonly key: string,
         readonly mapper: (key: TKey) => string,
         readonly validator: (key: TKey) => boolean,
     ) { }
@@ -127,6 +99,10 @@ export class Table<TKey, TData> {
             }
         }
 
+        if (conflicts.length > 0) {
+            console.log(`Warning, conflicting definition for ${key}: ${JSON.stringify(conflicts)}.`)
+        }
+
         return { conflicts };
     }
 
@@ -143,69 +119,8 @@ export class Table<TKey, TData> {
 }
 
 /**
- * Key to uniquely identify an edge of a graph.
+ * Very simple aggregate type for Graphs.
  */
-export type EdgeKey<
-    TVIdFrom extends string = VID<Any>,
-    TVIdTo extends string = VID<Any>
-> = {
-    from: TVIdFrom;
-    to: TVIdTo;
-
-    /**
-     * If true, the edge is directed from `from` to `to`.
-     * If false or undefined, the edge is undirected.
-     */
-    d?: boolean;
-
-    /**
-     * Useful to quickly distinguish between edge types.
-     */
-    type?: string;
-
-    /**
-     * A suffix can be used to distinguish between parallel edges.
-     */
-    suffix?: string;
-}
-
-/**
- * @returns true only if both from and to keys match the respective patterns.
- */
-export function validateEdgeKey(ek: EdgeKey, fromPattern: RegExp, toPattern: RegExp): boolean {
-    return fromPattern.test(ek.from) && toPattern.test(ek.to);
-}
-
-/**
- * Convert an edge key to a string, for use as a key in a Map.
- */
-export function toStr({ d, from, to, suffix, type }: EdgeKey, defaults?: Partial<EdgeKey>): string {
-    if (defaults) {
-        d = d ?? defaults.d;
-        from = from ?? defaults.from;
-        to = to ?? defaults.to;
-        type = type ?? defaults.type;
-        suffix = suffix ?? defaults.suffix;
-    }
-    return `${d ? 'd' : 'u'}~${from}~${to}~${type ?? ''}~${suffix ?? ''}`;
-}
-
-/**
- * Reverse a string key back to an EdgeKey.
- * Note that the Edge key from/to types cannot be inferred.
- */
-export function toEdge(ek: string): EdgeKey | { errors: string[] } {
-    const [d, from, to, type, suffix] = ek.split('~');
-
-    const errors: string[] = [];
-    if (d !== 'd' && d !== 'u') errors.push(`invalid direction '${d}' in '${ek}'`);
-    if (!AnyVidP.test(from)) errors.push(`invalid from id '${from}' in '${ek}'`);
-    if (!AnyVidP.test(to)) errors.push(`invalid to id '${to}' in '${ek}'`);
-    if (errors.length) return { errors };
-
-    return { from, to, d: d === 'd', type: type || undefined, suffix: suffix || undefined } as EdgeKey;
-}
-
 type SimpleGraph = {
     vertices: Map<string, V>;
     edges: Map<string, unknown>;
@@ -213,73 +128,78 @@ type SimpleGraph = {
 }
 
 /**
- * Helper Table-of-Tables class to simplify collecting entries from many tables.
+ * Since a Graph consists of Vertices and Edges,
+ * we can use a GraphManager to manage both.
  */
 export class GraphManager {
-    // We'll store all tables in maps by their id prefix.
-    readonly vtables: Map<string, Table<any, unknown>> = new Map();
+    readonly meta: Map<Table, { prefix: string }> = new Map();
 
-    // Edge tables are stored in a separate map, keyed by the prefixes of both from and to vertex ids.
-    readonly etables: Map<string, Table<any, unknown>> = new Map();
+    readonly vtables: Table[] = [];
+    readonly etables: Table[] = [];
 
-    protected define<TVData, TVId extends string>(idPrefix: string): Table<TVId, TVData> {
-        if (!AnyVidP.test(`${idPrefix}+dummy-id`)) throw new Error(`Invalid id prefix: ${idPrefix}.`);
-        if (this.vtables.has(idPrefix)) throw new Error(`Table with prefix '${idPrefix}' already exists.`);
-
+    /**
+     * Define a vertex table.
+     * @param idPrefix is used to validate the keys.
+     */
+    protected v_table<TVData, TVId extends string>(idPrefix: string): Table<TVId, TVData> {
         const mapper = (key: TVId) => key; // No need to map the key.
         const idPattern = new RegExp(`^${idPrefix}+`);
         const validator = (key: TVId) => idPattern.test(key);
-        const table = new Table<TVId, TVData>(idPrefix, mapper, validator);
+        const table = new Table<TVId, TVData>(mapper, validator);
 
-        this.vtables.set(idPrefix, table);
-        return table;
-    }
+        this.vtables.push(table);
+        this.meta.set(table, { prefix: idPrefix });
 
-    // TODO: why can't the type of the from/to parameters be inferred?
-    protected connect<
-        TEData,
-        TFromVId extends string,
-        TToVId extends string,
-        EK = EdgeKey<TFromVId, TToVId>,
-    >(
-        from: Table<TFromVId, unknown>,
-        to: Table<TToVId, unknown>,
-        edgeDefaults?: Partial<EK>,
-    ): Table<EK, TEData> {
-        if (!this.vtables.has(from.key)) throw new Error(`Table ${from.key} does not exist.`);
-        if (!this.vtables.has(to.key)) throw new Error(`Table ${to.key} does not exist.`);
-        const tkey = `${from.key}~${to.key}`;
-        if (this.etables.has(tkey)) throw new Error(`Table ${tkey} already exists.`);
-
-        const mapper = (ek: any) => toStr(ek, edgeDefaults);
-        const validator = (key: EK) => validateEdgeKey(key as EdgeKey, new RegExp(`^${from.key}`), new RegExp(`^${to.key}`));
-        const table = new Table<EK, TEData>(tkey, mapper, validator);
-
-        this.etables.set(tkey, table);
         return table;
     }
 
     /**
-     * @param defaultDirected default to use for `edge.d` if the user did not supply one.
+     * Define an edge table, where the edges are expected to match the keys of the vertex tables.
+     * @param edgeKeyDef can be used to provide edge key defaults.
      */
-    protected connectToAny<
-        TEData,
-        TFromVId extends string,
-        EK = EdgeKey<TFromVId, VID<Any>>,
-    >(
-        from: Table<TFromVId, unknown>,
-        edgeDefaults?: Partial<EK>,
-    )
+    protected e_tableFromTo<TEData, TFromVId extends string, TToVId extends string, EK = EdgeKey<TFromVId, TToVId>>
+        (from: Table<TFromVId, unknown>, to: Table<TToVId, unknown>, edgeKeyDef?: Partial<EK>)
         : Table<EK, TEData> {
-        if (!this.vtables.has(from.key)) throw new Error(`Table ${from.key} does not exist.`);
-        const tkey = `${from.key}~*`;
-        if (this.etables.has(tkey)) throw new Error(`Table ${tkey} already exists.`);
+        const fromP = this.meta.get(from)?.prefix;
+        const toP = this.meta.get(to)?.prefix;
+        if (!fromP) throw new Error(`Please use .define on Table ${from} before connecting it.`);
+        if (!toP) throw new Error(`Please use .define on Table ${to} before connecting it.`);
 
-        const mapper = (ek: any) => toStr(ek, edgeDefaults);
-        const validator = (key: EK) => validateEdgeKey(key as EdgeKey, new RegExp(`^${from.key}`), AnyVidP);
-        const table = new Table<EK, TEData>(tkey, mapper, validator);
+        const mapper = (ek: any) => toStr(ek, edgeKeyDef);
+        const validator = (key: EK) => validateEdgeKey(key as EdgeKey, new RegExp(`^${fromP}`), new RegExp(`^${toP}`));
+        const table = new Table<EK, TEData>(mapper, validator);
+        this.etables.push(table);
+        return table;
+    }
 
-        this.etables.set(tkey, table);
+    /**
+     * Define an edge table, where the ++source++ vertices are expected to match the keys of the source vertex table.
+     * @param edgeKeyDef can be used to provide edge key defaults.
+     */
+    protected e_tableTo<TEData, TFromVId extends string, EK = EdgeKey<TFromVId, VID<Any>>>
+        (from: Table<TFromVId, unknown>, edgeKeyDef?: Partial<EK>)
+        : Table<EK, TEData> {
+        const fromP = this.meta.get(from)?.prefix;
+        if (!fromP) throw new Error(`Please use .define on Table ${from} before connecting it.`);
+
+        const mapper = (ek: any) => toStr(ek, edgeKeyDef);
+        const validator = (key: EK) => validateEdgeKey(key as EdgeKey, new RegExp(`^${fromP}`), AnyVidP);
+        const table = new Table<EK, TEData>(mapper, validator);
+        this.etables.push(table);
+        return table;
+    }
+
+    /**
+     * Define an edge table, where the source and destination vertices can be any valid vertex id.
+     * @param edgeKeyDef can be used to provide edge key defaults.
+     */
+    protected e_table<TEData>
+        (edgeKeyDef?: Partial<EdgeKey>)
+        : Table<EdgeKey, TEData> {
+        const mapper = (ek: any) => toStr(ek, edgeKeyDef);
+        const validator = (key: EdgeKey) => validateEdgeKey(key as EdgeKey, AnyVidP, AnyVidP);
+        const table = new Table<EdgeKey, TEData>(mapper, validator);
+        this.etables.push(table);
         return table;
     }
 
@@ -299,7 +219,7 @@ export class GraphManager {
     }
 
     /**
-     * Merge all nodes and vertices into a single graph.
+     * Merge all nodes and vertices into a single simple graph.
      * @returns a simple graph with all vertices and edges merged, and an adjacency list.
      */
     merge(): SimpleGraph | never {
