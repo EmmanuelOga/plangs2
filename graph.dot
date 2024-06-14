@@ -1,0 +1,23 @@
+graph plangs {
+  "Guido van Rossum" -- "Python";
+  "Python" -- "CPython";
+  "Python" -- "PyPy";
+  "Python" -- "Stackless Python";
+  "Python" -- "MicroPython";
+  "Python" -- "CircuitPython";
+  "Python" -- "IronPython";
+  "Python" -- "Jython";
+  "Python" -- "Linux 64";
+  "Python" -- "MacOS 64";
+  "Python" -- "Windows 10";
+  "Python" -- "WASM/WASI 32";
+  "Python" -- "FreeBSD 64";
+  "Python" -- "iOS";
+  "Python" -- "Raspberry Pi";
+  "Python" -- "Android";
+  "Python" -- "Object-Oriented";
+  "Python" -- "Duck Typing";
+  "Python" -- "Dynamic Typing";
+  "Python" -- "Strong Typing";
+  "Python" -- "Optional Typing";
+}
