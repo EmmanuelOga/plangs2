@@ -1,40 +1,41 @@
 ////////////////////////////////////////////////////////////////////////////////
-// Types starting with "V" are used for Vertex data.
+// Types starting with "V_" are used for Vertex data.
 ////////////////////////////////////////////////////////////////////////////////
 
-export interface VPlang {
+export interface V_Plang {
     name: string;
     urls: Url[];
     firstAppeared: StrDate
     releases: Release[];
 }
 
-export interface VPlatform {
+export interface V_Implementation {
     name: string;
 }
 
-export interface VTypeSystem {
+export interface V_Platform {
     name: string;
 }
 
-export interface VPerson {
+export interface V_TypeSystem {
+    name: string;
+}
+
+export interface V_Person {
     name: string;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// Types starting with "E" are used for Edge data.
+// Types starting with "E_" are used for Edge data.
 ////////////////////////////////////////////////////////////////////////////////
 
-export interface EPeople {
+/**
+ * Some edges won't need additional data.
+ */
+export type E_Empty = {};
+
+export interface E_People {
     role: 'designer' | 'contributor' | 'maintainer';
-}
-
-export interface EPlangTypeSystem {
-    // No additional data.
-}
-
-export interface EPlangPlatform {
-    // No additional data.
 }
 
 ////////////////////////////////////////////////////////////////////////////////

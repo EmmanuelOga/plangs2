@@ -1,9 +1,9 @@
 import { PlangsGraph } from '../../plangs_graph';
 
-export const pythonVId = 'pl+python';
+export const v_py = 'pl+python';
 
 export function define(g: PlangsGraph) {
-    g.v_pl.set(pythonVId, {
+    g.v_pl.set(v_py, {
         name: 'Python',
         urls: [
             { kind: 'homepage', url: 'https://www.python.org/' },
@@ -19,25 +19,23 @@ export function define(g: PlangsGraph) {
     });
 
     g.v_person.set('person+guido', { name: 'Guido van Rossum' });
+    g.e_people.set({ from: 'person+guido', to: v_py }, { role: 'designer' });
 
-    g.e_people.set({ from: 'person+guido', to: pythonVId }, { role: 'designer' });
-
-    const types: `pl-tsys+${string}`[] = [
-        'pl-tsys+oop', 'pl-tsys+duck', 'pl-tsys+dynamic', 'pl-tsys+strong', 'pl-tsys+optional'
-    ];
-
-    for (const ts of types) {
-        g.e_pl_tsys.connect({ from: pythonVId, to: ts });
+    for (const tsys of ['oop', 'duck', 'dynamic', 'strong', 'optional']) {
+        g.e_pl_tsys.connect({ from: v_py, to: `tsys+${tsys}` });
     }
 
-    const platforms: `platf+${string}`[] = [
-        'platf+linux64', 'platf+mac64', 'platf+windows10', 'platf+wasi32',
-        'platf+freebsd64', 'platf+ios', 'platf+rpi', 'platf+android'
-    ]
-
-    for (const pf of platforms) {
-        g.e_pl_platf.connect({ from: pythonVId, to: pf });
+    for (const pf of ['linux64', 'mac64', 'windows10', 'wasi32', 'freebsd64', 'ios', 'rpi', 'android']) {
+        g.e_pl_platf.connect({ from: v_py, to: `platf+${pf}` });
     }
 
-    g.v_pl_impl.set('pl-impl+cpython', { name: 'CPython' });
+    for (const [p, name] of [
+        ['cpython', 'CPython'],
+        ['py-py', 'PyPy'],
+        ['stackless-py', 'Stackless Python'],
+        ['micro-py', 'MicroPython'],
+        ['circuit-py', 'CircuitPython'],
+        ['iron-py', 'IronPython'],
+        ['jython', 'Jython']
+    ]) g.defineImplOf(v_py, `impl+${p}`, name);
 }

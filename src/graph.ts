@@ -1,3 +1,32 @@
+/**
+ * A vertext id format is a string with format: `type+id`.
+ * Examples: `pl+python`, `person+guido`, `plts+oop`, etc.
+ * See {@link AnyVidP} for the matching pattern.
+ */
+export type VID<Type extends string> = `${Type}+${string}`
+
+/**
+ * An alias such that we can say: VID<Any> to match any vertex id.
+ */
+export type Any = string;
+
+/**
+ * RegExp Pattern for string literals matching any valid {@link VID }.
+ */
+export const AnyVidP = /^[^\+]+\+[a-z-A-Z0-9\-_]+$/;
+
+/**
+ * When a {@link Table} is used to store vertices,
+ * its key type should be a vertex type.
+ * 
+ * Example:
+ * 
+ * ```ts
+ * const table = new Table<VID<'person'>, PersonData>();
+ * type T = TK<typeof table> // => VID<'person'>
+ * ```
+ */
+export type TK<T> = T extends Table<infer TVId, any> ? TVId : never;
 
 /**
  * We'll use this to store Edges and Vertices.
@@ -42,10 +71,51 @@ export class Table<TKey, TData> {
     }
 
     /**
-     * Same as {@link set} but sets the value to an empty object.
+     * Ensures there's an entry for the key:
+     * - If the key is not in the table, it will be added with an empty object.
+     * - If the key is already in the table, it will be left unchanged.
      */
     connect(key: TKey): this {
-        return this.set(key, {} as TData);
+        if (!this.validator(key)) throw new Error(`invalid key: ${key}`);
+        if (!this._map.has(this.mapper(key))) this._map.set(this.mapper(key), {} as TData);
+        return this;
+    }
+
+    /**
+     * Merges new data into the table, keeping the old data if any.
+     * - `undefined` values of `newData` are ignored.
+     * - The default comparator is **shallow equality**.
+     */
+    merge(
+        key: TKey,
+        newData: Partial<TData>,
+        areEqual: (key: string, oldVal: any, newVal: any) => boolean = (k, o, n) => o === n,
+        onConflict: 'keepOld' | 'mergeNew' = 'keepOld'
+    ) {
+        if (!this.validator(key)) throw new Error(`invalid key: ${key}`);
+
+        const conflicts: { key: string, oldVal: any, newVal: any }[] = [];
+        const sk = this.mapper(key);
+
+        // Easy case: no conflict, just set the new data.
+        if (!this._map.has(sk)) {
+            this._map.set(sk, newData as TData);
+            return { conflicts };
+        }
+
+        const data = this._map.get(sk)! as Partial<TData>;
+        for (const [key, newVal] of Object.entries(newData)) {
+            if (newVal === undefined) continue;
+            const oldVal = data[key];
+            if (oldVal === undefined) {
+                data[key] = newVal;
+            } else if (!areEqual(key, oldVal, newVal)) {
+                conflicts.push({ key, oldVal, newVal });
+                if (onConflict === 'mergeNew') data[key] = newVal;
+            }
+        }
+
+        return { conflicts };
     }
 
     /**
@@ -61,24 +131,11 @@ export class Table<TKey, TData> {
 }
 
 /**
- * A vertext id type that can match any type of vertex.
- * We expect a vertex id to be a string with '+' in the middle:
- * Examples: `pl+python`, `person+guido`, `plts+oop`, etc.
- * See {@link P_ANY_VERTEX_ID} for the matching pattern.
- */
-type T_ANY_VERTEX_ID = `${string}+${string}`;
-
-/**
- * Matching id pattern for {@link T_ANY_VERTEX_ID}, matching any valid vertex id of any type.
- */
-const P_ANY_VERTEX_ID = /^[^\+]+\+.+/;
-
-/**
  * Key to uniquely identify an edge of a graph.
  */
 export interface EdgeKey<
-    TVIdFrom extends string = T_ANY_VERTEX_ID,
-    TVIdTo extends string = T_ANY_VERTEX_ID,
+    TVIdFrom extends string = VID<Any>,
+    TVIdTo extends string = VID<Any>
 > {
     from: TVIdFrom;
     to: TVIdTo;
@@ -118,8 +175,8 @@ export function toKey(ek: string): EdgeKey | { errors: string[] } {
 
     const errors: string[] = [];
     if (directed !== 'd' && directed !== 'u') errors.push(`invalid direction '${directed}' in '${ek}'`);
-    if (!P_ANY_VERTEX_ID.test(from)) errors.push(`invalid from id '${from}' in '${ek}'`);
-    if (!P_ANY_VERTEX_ID.test(to)) errors.push(`invalid to id '${to}' in '${ek}'`);
+    if (!AnyVidP.test(from)) errors.push(`invalid from id '${from}' in '${ek}'`);
+    if (!AnyVidP.test(to)) errors.push(`invalid to id '${to}' in '${ek}'`);
     if (errors.length) return { errors };
 
     return { from, to, directed: directed === 'd', suffix: suffix || undefined } as EdgeKey;
@@ -130,8 +187,6 @@ interface SimpleGraph {
     edges: Map<string, unknown>;
     adjacency: Map<string, string[]>;
 }
-
-export type TK<T> = T extends Table<infer TVId, any> ? TVId : never;
 
 /**
  * Helper Table-of-Tables class to simplify collecting entries from many tables.
@@ -144,10 +199,11 @@ export class GraphManager {
     readonly etables: Map<string, Table<any, unknown>> = new Map();
 
     protected define<TVData, TVId extends string>(idPrefix: string): Table<TVId, TVData> {
+        if (!AnyVidP.test(`${idPrefix}+dummy-id`)) throw new Error(`Invalid id prefix: ${idPrefix}.`);
         if (this.vtables.has(idPrefix)) throw new Error(`Table with prefix '${idPrefix}' already exists.`);
 
         const mapper = (key: TVId) => key; // No need to map the key.
-        const idPattern = new RegExp(`^${idPrefix}`);
+        const idPattern = new RegExp(`^${idPrefix}+`);
         const validator = (key: TVId) => idPattern.test(key);
         const table = new Table<TVId, TVData>(idPrefix, mapper, validator);
 
@@ -180,15 +236,15 @@ export class GraphManager {
         TEData,
         TFromVId extends string
     >(from: Table<TFromVId, unknown>)
-        : Table<EdgeKey<TFromVId, `${string}+${string}`>, TEData> {
+        : Table<EdgeKey<TFromVId, VID<Any>>, TEData> {
         if (!this.vtables.has(from.key)) throw new Error(`Table ${from.key} does not exist.`);
         const tkey = `${from.key}~*`;
         if (this.etables.has(tkey)) throw new Error(`Table ${tkey} already exists.`);
 
-        const mapper = (key: EdgeKey<TFromVId, T_ANY_VERTEX_ID>) => edge(key as EdgeKey);
-        const validator = (key: EdgeKey<TFromVId, T_ANY_VERTEX_ID>) =>
-            validateEdgeKey(key as EdgeKey, new RegExp(`^${from.key}`), P_ANY_VERTEX_ID);
-        const table = new Table<EdgeKey<TFromVId, T_ANY_VERTEX_ID>, TEData>(tkey, mapper, validator);
+        const mapper = (key: EdgeKey<TFromVId, VID<Any>>) => edge(key as EdgeKey);
+        const validator = (key: EdgeKey<TFromVId, VID<Any>>) =>
+            validateEdgeKey(key as EdgeKey, new RegExp(`^${from.key}`), AnyVidP);
+        const table = new Table<EdgeKey<TFromVId, VID<Any>>, TEData>(tkey, mapper, validator);
 
         this.etables.set(tkey, table);
         return table;
