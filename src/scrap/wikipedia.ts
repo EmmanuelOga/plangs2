@@ -1,13 +1,16 @@
-import * as cheerio from 'cheerio';
-import { mkdir } from "node:fs/promises";
-import { unlinkSync } from "node:fs";
-import { env } from 'bun';
-
 /**
  * Simple Wikipedia crawler for programming language pages.
  */
+
+import { env } from 'bun';
+import { Cheerio, Element, load } from 'cheerio';
+import { unlinkSync } from "node:fs";
+import { mkdir } from "node:fs/promises";
+
 const WIKIPEDIA_URL = 'https://en.wikipedia.org';
+
 const START_PAGE = '/wiki/List_of_programming_languages';
+const PYTHON_PAGE = '/wiki/Python_(programming_language)';
 
 const PAGE_CACHE = new Map<string, string>();
 const CACHE_PATH = Bun.fileURLToPath(`file:///${__dirname}/../../.cache`)
@@ -50,7 +53,7 @@ async function fetchWiki(url: string): Promise<string> {
  * Scrap the Wikipedia page for programming languages.
  */
 async function crawlWikipedia() {
-    const $ = cheerio.load(await fetchWiki(START_PAGE));
+    const $ = load(await fetchWiki(START_PAGE));
 
     // Name -> Page path
     const plangs = new Map<string, string>();
@@ -61,8 +64,56 @@ async function crawlWikipedia() {
     }
 
     for (const [name, url] of plangs) {
-        await fetchWiki(url);
+        scrapLanguagePage(name, await fetchWiki(url));
     }
+}
+
+function scrapLanguagePage(name: string, html: string) {
+    const $ = load(html);
+
+    const $infobox = $('table.infobox');
+
+    if ($infobox.length === 0) return;
+
+    const title = $infobox.find('.infobox-title.summary').text();
+    const img = cleanImgUrl($infobox.find('.infobox-image img').attr('src'));
+
+    function processA($a: Cheerio<Element>): { href?: string, title?: string } {
+        let title = $a.attr('title')?.trim();
+        if (!title) title = $a.text().trim();
+        return { href: $a.attr('href')?.trim(), title };
+    }
+
+    const data = new Map<string, any>();
+
+    for (const row of $infobox.find('tr')) {
+        const $row = $(row);
+        // Option (1): tr > td.key , td.val
+        let key = $row.find('.infobox-label').text().trim();
+        if (key) {
+            const $data = $row.find('.infobox-data');
+            data.set(key, $data.text().trim());
+        } else {
+            // Option (2): tr.key tr.val
+            key = $row.find('.infobox-header').text().trim();
+            if (title) {
+                const $data = $row.next().find('.infobox-full-data').first();
+                if ($data.length === 1) {
+                    data.set(key, $data.text().trim());
+                }
+            }
+        }
+    }
+
+    console.log({ name, title, img, data });
+}
+
+function cleanImgUrl(url: string | undefined): string {
+    if (!url) return '';
+    url = url.replace(/^\/\//, '');
+    if (url.indexOf('.svg') < 0) return `https://${url}`;
+    url = url.replace(/\/thumb\//, '/');
+    return `https://${url.split('.svg')[0]}.svg`;
 }
 
 async function main(refresh: boolean = false) {
@@ -77,3 +128,4 @@ async function main(refresh: boolean = false) {
 }
 
 await main(env.REFRESH === 'true');
+// scrapLanguagePage('Python', await fetchWiki(PYTHON_PAGE));
