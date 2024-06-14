@@ -1,4 +1,16 @@
 /**
+ * At minimal, a vertex has a name.
+ */
+export interface V {
+    name: string;
+}
+
+/**
+ * Edges many not need additional data.
+ */
+export type E_Empty = {};
+
+/**
  * A vertext id format is a string with format: `type+id`.
  * Examples: `pl+python`, `person+guido`, `plts+oop`, etc.
  * See {@link AnyVidP} for the matching pattern.
@@ -183,7 +195,7 @@ export function toKey(ek: string): EdgeKey | { errors: string[] } {
 }
 
 interface SimpleGraph {
-    vertices: Map<string, unknown>;
+    vertices: Map<string, V>;
     edges: Map<string, unknown>;
     adjacency: Map<string, string[]>;
 }
@@ -277,7 +289,7 @@ export class GraphManager {
         };
 
         for (const [vid, vdata] of this.vertices()) {
-            g.vertices.set(vid, vdata);
+            g.vertices.set(vid, vdata as V);
             g.adjacency.set(vid, []);
         }
 
