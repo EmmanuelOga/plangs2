@@ -1,6 +1,6 @@
 import { Glob } from "bun";
-import { toEdge } from "./graph";
 import { PlangsGraph } from "./plangs_graph";
+import { toEdge } from "./graph/edge";
 
 /**
  * Scans the ./entities directory and loads all graph data from `define` functions.
@@ -42,6 +42,9 @@ async function loadDefinitions() {
 
         const f = vertices.get(ek.from)!;
         const t = vertices.get(ek.to)!;
+
+        if (!f || !t) console.log(`Missing vertices: `, eid, ek);
+        if (!f || !t) continue;
 
         dot.push(`  "${f.name}" -> "${t.name}"${attrs};`);
     }

@@ -2,7 +2,7 @@
 // Types starting with "V_" are used for Vertex data.
 ////////////////////////////////////////////////////////////////////////////////
 
-import { V } from "./graph";
+import { V } from "./graph/vertex";
 
 export interface V_Plang extends V {
     urls: Url[];

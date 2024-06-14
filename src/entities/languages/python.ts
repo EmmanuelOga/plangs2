@@ -29,6 +29,7 @@ export function define(g: PlangsGraph) {
         g.e_pl_platf.connect({ from: v_py, to: `platf+${pf}` });
     }
 
+    // Implementations.
     for (const [p, name] of [
         ['cpython', 'CPython'],
         ['py-py', 'PyPy'],
@@ -37,5 +38,52 @@ export function define(g: PlangsGraph) {
         ['circuit-py', 'CircuitPython'],
         ['iron-py', 'IronPython'],
         ['jython', 'Jython']
-    ]) g.defImpl(`impl+${p}`, name, v_py);
+    ]) {
+        g.v_impl.merge(`impl+${p}`, { name });
+        g.e_impl_pl.connect({ from: `impl+${p}`, to: v_py, d: true, });
+    }
+
+    // Influeced by:
+    for (const [p, name] of [
+        ['abc', 'ABC'],
+        ['ada', 'Ada'],
+        ['algol', 'ALGOL'],
+        ['apl', 'APL'],
+        ['c', 'C'],
+        ['cpp', 'C++'],
+        ['clu', 'CLU'],
+        ['dylan', 'Dylan'],
+        ['haskell', 'Haskell'],
+        ['icon', 'Icon'],
+        ['lisp', 'Lisp'],
+        ['modula3', 'Modula-3'],
+        ['perl', 'Perl'],
+        ['sml', 'Standard ML']
+    ]) {
+        g.v_pl.merge(`pl+${p}`, { name });
+        g.e_influenced.connect({ from: `pl+${p}`, to: v_py, d: true, });
+    }
+
+    // Influenced:
+    for (const [p, name] of [
+        ['groovy', 'Groovy'],
+        ['boo', 'Boo'],
+        ['cobra', 'Cobra'],
+        ['coffee', 'CoffeeScript'],
+        ['d', 'D'],
+        ['fsharp', 'F#'],
+        ['gdscript', 'GDScript'],
+        ['genie', 'Genie'],
+        ['go', 'Go'],
+        ['js', 'JavaScript'],
+        ['julia', 'Julia'],
+        ['mojo', 'Mojo'],
+        ['nim', 'Nim'],
+        ['ring', 'Ring'],
+        ['ruby', 'Ruby'],
+        ['swift', 'Swift']
+    ]) {
+        g.v_pl.merge(`pl+${p}`, { name });
+        g.e_influenced.connect({ from: v_py, to: `pl+${p}`, d: true, });
+    }
 }
