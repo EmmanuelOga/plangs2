@@ -54,11 +54,11 @@ const REQUIRED_KEYS = new Set<string>(['influenced_by']);
 
 const CACHE_PATH = Bun.fileURLToPath(`file:///${__dirname}/../../.cache`)
 
-function cachePath(type: string, path: string = ''): string {
+export function cachePath(type: string, path: string = ''): string {
     return Bun.fileURLToPath(`file:///${CACHE_PATH}/${type}/${path}`);
 }
 
-function toBasename(str: string, type: string = 'html'): string {
+export function toBasename(str: string, type: string = 'html'): string {
     return `${str.replace(/\/|\\|\:/g, '_')}.${type}`;
 }
 
@@ -273,10 +273,10 @@ function cleanImgUrl(url: string | undefined): string {
  * Scrap the Wikipedia page for programming languages.
  */
 async function main(refresh: boolean = false) {
+    console.log('Scraping Wikipedia. Using cache: ', CACHE_PATH);
+
     await mkdir(cachePath('wiki'), { recursive: true }).catch((_) => { });
     await mkdir(cachePath('json'), { recursive: true }).catch((_) => { });
-
-    console.log('Using cache: ', CACHE_PATH);
 
     if (refresh) {
         // Delete starting cache files.
@@ -300,16 +300,16 @@ async function main(refresh: boolean = false) {
             await scrapLanguagePage(link.attribs.href);
         }
     }
+
+    console.log(`Writing ${STATE.plangs.size} programming languages to ${cachePath('json')}.`);
+    console.log(JSON.stringify([...STATE.plangs.keys()].sort()));
+
+    for (const [key, value] of STATE.plangs) {
+        Bun.write(
+            cachePath('json', toBasename(key, 'json')),
+            JSON.stringify(value, null, 2)
+        );
+    }
 }
 
-await main(env.REFRESH === 'true');
-
-console.log(`Writing ${STATE.plangs.size} programming languages to ${cachePath('json')}.`);
-console.log(JSON.stringify([...STATE.plangs.keys()].sort()));
-
-for (const [key, value] of STATE.plangs) {
-    Bun.write(
-        cachePath('json', toBasename(key, 'json')),
-        JSON.stringify(value, null, 2)
-    );
-}
+// await main(env.REFRESH === 'true');
