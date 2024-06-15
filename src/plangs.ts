@@ -5,7 +5,7 @@ import { toEdge } from "./graph/edge";
 /**
  * Scans the ./entities directory and loads all graph data from `define` functions.
  */
-async function loadDefinitions() {
+async function loadDefinitions(): Promise<PlangsGraph> {
     const glob = new Glob("**/*.ts");
 
     const g = new PlangsGraph();
@@ -15,11 +15,11 @@ async function loadDefinitions() {
         if (typeof module.define === "function") module.define(g);
     }
 
-    const { vertices, edges, adjacency } = g.merge();
+    return g;
+}
 
-    // console.log("Vertices: ", vertices.entries());
-    // console.log("Edges: ", edges);
-    // console.log("Adjacency: ", adjacency);
+export function genDot(g: PlangsGraph): string {
+    const { vertices, edges, adjacency } = g.merge();
 
     // Produce a simple graphviz dot file for now, as a demo.
     const dot: string[] = [`digraph plangs {`];
@@ -50,8 +50,7 @@ async function loadDefinitions() {
     }
     dot.push(`}`);
 
-    Bun.write("graph.dot", dot.join('\n'));
-    console.log("Wrote graph.dot");
+    return dot.join('\n');
 }
 
-await loadDefinitions();
+console.log(genDot(await loadDefinitions()));

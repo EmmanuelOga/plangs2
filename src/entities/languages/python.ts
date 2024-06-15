@@ -5,13 +5,6 @@ export const v_py = 'pl+python';
 export function define(g: PlangsGraph) {
     g.v_pl.set(v_py, {
         name: 'Python',
-        urls: [
-            { kind: 'homepage', url: 'https://www.python.org/' },
-            { kind: 'repository', url: 'https://github.com/python/cpython' },
-            { kind: 'releases', url: 'https://www.python.org/downloads/' },
-            { kind: 'apidocs', url: 'https://docs.python.org/3' },
-            { kind: 'other', url: 'https://en.wikipedia.org/wiki/Python_(programming_language)' }
-        ],
         firstAppeared: '1991-02-20',
         releases: [
             { version: '3.12.4', date: '2024-06-06', tags: ['stable'] },
