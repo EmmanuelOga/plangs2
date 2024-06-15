@@ -1,0 +1,15 @@
+body {
+  font: 'RecMonoDuotone Nerd Font', Menlo, Monaco;
+  background-color: #fee;
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  border: 5px solid orange;
+  margin: 2.5vh auto auto;
+
+  max-width: 90vw;
+  min-height: 90vh;
+}

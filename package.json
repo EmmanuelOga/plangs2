@@ -1,1 +1,21 @@
-{ "dependencies": { "bun-types": "^1.1.13", "flexsearch": "^0.7.43" } }
+{
+  "dependencies": {
+    "flexsearch": "^0.7.43",
+    "graphology": "^0.25.4",
+    "graphology-layout": "^0.6.1",
+    "graphology-layout-forceatlas2": "^0.10.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sigma": "^3.0.0-beta.19"
+  },
+  "name": "plangs2",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "bun-types": "^1.1.13"
+  },
+  "peerDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

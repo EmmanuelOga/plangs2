@@ -1,5 +1,5 @@
 import { EdgeKey, fromStr, toStr } from "./edge";
-import { Any, AnyVidP, V, VID } from "./vertex";
+import { V } from "./vertex";
 
 /**
  * We'll use tables to store Edges and Vertices.
