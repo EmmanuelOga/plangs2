@@ -2,7 +2,8 @@
 // Types starting with "V_" are used for Vertex data.
 ////////////////////////////////////////////////////////////////////////////////
 
-import { V, VID } from "./graph/vertex";
+import { EdgeKey } from "./graph/edge";
+import { Any, V, VID } from "./graph/vertex";
 
 export type ID_V_Plang = VID<`pl`>;
 export interface V_Plang extends V {
@@ -32,15 +33,20 @@ export interface V_Person extends V {
 // Types starting with "E_" are used for Edge data.
 ////////////////////////////////////////////////////////////////////////////////
 
-/**
- * For references documenting something about the edge.
- */
-export interface E_Reference {
-    references: Link[];
-}
-
 export interface E_People {
     role: 'designer' | 'contributor' | 'maintainer';
+}
+
+export interface E_Impl_Plang {
+}
+
+export interface E_Plang_Platf {
+}
+
+export interface E_Plang_Tsys {
+}
+
+export interface E_Influenced {
 }
 
 ////////////////////////////////////////////////////////////////////////////////

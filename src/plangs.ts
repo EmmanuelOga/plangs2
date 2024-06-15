@@ -1,6 +1,6 @@
 import { Glob } from "bun";
 import { PlangsGraph } from "./plangs_graph";
-import { toEdge } from "./graph/edge";
+import { fromStr } from "./graph/edge";
 
 /**
  * Scans the ./entities directory and loads all graph data from `define` functions.
@@ -29,7 +29,7 @@ export function genDot(g: PlangsGraph): string {
     }
 
     for (const [eid, edge] of edges) {
-        const ek = toEdge(eid);
+        const ek = fromStr(eid);
         if ('errors' in ek) {
             console.error(ek.errors);
             continue;

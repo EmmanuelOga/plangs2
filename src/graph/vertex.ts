@@ -11,9 +11,14 @@ export type VID<Type extends string> = `${Type}+${string}`
 export type Any = string;
 
 /**
- * RegExp Pattern for string literals matching any valid {@link VID }.
+ * RegExp Pattern for string literals matching {@link VID } (see {@link isAnyVid}).
  */
 export const AnyVidP = /^[^\+]+\+[a-z-A-Z0-9\-_]+$/;
+
+/**
+ * @returns true if the string is a valid {@link VID} (that is, matches {@link AnyVidP}).
+ */
+export const isAnyVid = (s: string): s is VID<Any> => AnyVidP.test(s);
 
 /**
  * In vertex tables, at minimal, a vertex is expected to have a name.

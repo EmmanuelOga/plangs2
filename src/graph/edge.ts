@@ -28,18 +28,6 @@ export type EdgeKey<
 }
 
 /**
- * Edges tables can store additional data, but the EdgeKey may carry enough information.
- */
-export type E_Empty = {};
-
-/**
- * @returns true only if both from and to keys match the respective patterns.
- */
-export function validateEdgeKey(ek: EdgeKey, fromPattern = AnyVidP, toPattern = AnyVidP): boolean {
-    return fromPattern.test(ek.from) && toPattern.test(ek.to);
-}
-
-/**
  * Convert an edge key to a string, for use as a key in a Map.
  */
 export function toStr({ d, from, to, suffix, type }: EdgeKey, defaults?: Partial<EdgeKey>): string {
@@ -57,7 +45,7 @@ export function toStr({ d, from, to, suffix, type }: EdgeKey, defaults?: Partial
  * Reverse a string key back to an EdgeKey.
  * Note that the Edge key from/to types cannot be inferred.
  */
-export function toEdge(ek: string): EdgeKey | { errors: string[] } {
+export function fromStr(ek: string): EdgeKey | { errors: string[] } {
     const [d, from, to, type, suffix] = ek.split('~');
 
     const errors: string[] = [];
