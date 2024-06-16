@@ -3,6 +3,8 @@
 Generates a Graph of curated programming language information.
 Uses a lot of information from Wikipedia.org.
 
+![Languages Graph](doc/graph.png)
+
 ## Generating the Graph
 
 * Run `script/install-bun` to install [BunJS](https://bun.sh) locally.
