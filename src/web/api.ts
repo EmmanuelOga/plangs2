@@ -1,12 +1,13 @@
 import { SerializedGraph } from 'graphology-types';
-import { loadDefinitions } from '../plangs';
 import { fromStr } from '../graph/edge';
+import { buildGraph } from '../scrap/wikipedia_process';
 
 async function plangsGraph(): Promise<SerializedGraph> {
     const grNodes: SerializedGraph['nodes'] = [];
     const grEdges: SerializedGraph['edges'] = [];
 
-    const g = await loadDefinitions();
+    // const g = await loadDefinitions();
+    const g = await buildGraph();
     const { vertices, edges, adjacency } = g.merge();
 
     for (const [vid, vertex] of vertices) {
@@ -44,7 +45,6 @@ const server = Bun.serve({
 
         if (url.pathname === "/data.json") {
             const graph = await plangsGraph();
-            console.log(graph);
             const resp = Response.json(graph);
             resp.headers.set('Access-Control-Allow-Origin', '*');
             return resp;

@@ -2,12 +2,11 @@
  * Simple Wikipedia crawler for programming language pages.
  */
 
-import { env } from 'bun';
 import { Cheerio, Element, load } from 'cheerio';
 import { unlinkSync } from 'node:fs';
 import { mkdir } from 'node:fs/promises';
 
-const WIKIPEDIA_URL = 'https://en.wikipedia.org';
+export const WIKIPEDIA_URL = 'https://en.wikipedia.org';
 
 const START_PAGES = [
     '/wiki/List_of_programming_languages',
@@ -73,41 +72,41 @@ const STATE = {
 /**
  * Fetches a page, caching both to disk and to memory.
  */
-async function fetchWiki(url: string): Promise<string> {
-    if (STATE.fetchCache.has(url)) return STATE.fetchCache.get(url)!;
+async function fetchWiki(wikiPath: string): Promise<string> {
+    if (STATE.fetchCache.has(wikiPath)) return STATE.fetchCache.get(wikiPath)!;
 
-    const cacheFile = cachePath('wiki', toBasename(url, 'html'));
+    const cacheFile = cachePath('wiki', toBasename(wikiPath, 'html'));
     const file = Bun.file(cacheFile);
     if (await file.exists()) {
         const text = await file.text();
-        STATE.fetchCache.set(url, text);
+        STATE.fetchCache.set(wikiPath, text);
         return text;
     }
 
-    const fullUrl = `${WIKIPEDIA_URL}${url}`;
+    const fullUrl = `${WIKIPEDIA_URL}${wikiPath}`;
     console.info(`Fetching ${fullUrl}`);
     STATE.reqCount++;
 
     const response = await fetch(fullUrl);
-    if (response.ok === false) throw new Error(`Failed to fetch ${url}`);
+    if (response.ok === false) throw new Error(`Failed to fetch ${wikiPath}`);
 
     const text = await response.text();
     Bun.write(cacheFile, text);
-    STATE.fetchCache.set(url, text);
+    STATE.fetchCache.set(wikiPath, text);
 
     return text;
 }
 
 // Do something with the language data.
-function emit({ title, img, data }: { title: string, img: string, data: {} }) {
-    STATE.plangs.set(title, { title, img, data });
+function emit({ title, wikiUrl, img, data }: { title: string, wikiUrl: string, img: string, data: {} }) {
+    STATE.plangs.set(title, { title, wikiUrl, img, data });
 }
 
-async function scrapLanguagePage(path: string) {
-    if (STATE.wikiPathScraped.has(path)) return;
-    STATE.wikiPathScraped.add(path);
+async function scrapLanguagePage(wikiPath: string) {
+    if (STATE.wikiPathScraped.has(wikiPath)) return;
+    STATE.wikiPathScraped.add(wikiPath);
 
-    const $ = load(await fetchWiki(path));
+    const $ = load(await fetchWiki(wikiPath));
     const $infobox = $('table.infobox');
     if ($infobox.length === 0) return;
 
@@ -258,7 +257,7 @@ async function scrapLanguagePage(path: string) {
     }
     if (req.size !== REQUIRED_KEYS.size) return;
 
-    emit({ title, img, data: infobox });
+    emit({ title, wikiUrl: `${WIKIPEDIA_URL}${wikiPath}`, img, data: infobox });
 }
 
 function cleanImgUrl(url: string | undefined): string {
@@ -312,4 +311,4 @@ async function main(refresh: boolean = false) {
     }
 }
 
-// await main(env.REFRESH === 'true');
+// await main(true);

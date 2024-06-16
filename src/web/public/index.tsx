@@ -18,7 +18,7 @@ async function render() {
   console.log(data);
 
   random.assign(graph);
-  forceAtlas2.assign(graph, { iterations: 5 });
+  forceAtlas2.assign(graph, { iterations: 50 });
 
   graph.forEachNode((node, attr) => {
     attr.size = 20;

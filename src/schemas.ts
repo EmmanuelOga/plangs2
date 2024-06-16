@@ -10,7 +10,7 @@ export interface V_Plang extends V {
     firstAppeared: StrDate
     releases: Release[];
     websites: Link[];
-    logos: Image[];
+    images: Image[];
 }
 
 export type ID_V_Implementation = VID<`impl`>;
@@ -60,7 +60,7 @@ export interface Release {
 }
 
 export interface Link {
-    kind: 'homepage' | 'repository' | 'releases' | 'apidocs' | 'other';
+    kind: 'homepage' | 'repository' | 'releases' | 'apidocs' | 'wikipedia' | 'other';
     href: string;
     title: string;
 }

@@ -3,9 +3,10 @@
  */
 
 import { Glob } from 'bun';
-import { PlangsGraph } from '../plangs_graph';
-import { cachePath } from './wikipedia_json';
 import { VID } from '../graph/vertex';
+import { PlangsGraph } from '../plangs_graph';
+import { Image, Link } from '../schemas';
+import { WIKIPEDIA_URL, cachePath } from './wikipedia_json';
 
 type DATA_ATTR =
     'designed_by' | 'developed_by' | 'developer' | 'developers' | 'dialects' | 'family' | 'filename_extension'
@@ -22,25 +23,43 @@ async function parseAll(g: PlangsGraph) {
         const j = JSON.parse(await Bun.file(cachePath('json', path)).text());
         const title: string = j.title;
         const image: string = j.image
+        const wikiUrl: string = j.wikiUrl;
         const data: Record<DATA_ATTR, Record<DATA_TYPE, any>> = j.data;
-        processLanguage(g, title, image, data);
+        processLanguage(g, title, wikiUrl, image, data);
     }
+}
+
+function toAlphaNum(s: string) {
+    return s.trim()
+        .replace(/\+/g, '-plus')
+        .replace(/\#/g, '-sharp')
+        .replace(/[\/\:]/g, '-')
+        .replace(/[^a-zA-Z0-9]/g, '');
 }
 
 function processLanguage(
     g: PlangsGraph,
     title: string,
-    image: string,
+    wikiUrl: string,
+    image: string | undefined,
     data: Record<DATA_ATTR, Record<DATA_TYPE, any>>
 ) {
+    const pid = toAlphaNum(title);
+    const images: Image[] = image ? [{ kind: 'logo', url: image }] : [];
+    const websites: Link[] = [{ kind: 'wikipedia', title: title, href: wikiUrl }];
+
+    g.v_pl.merge(`pl+${pid}`, { name: title, images, websites });
+
     for (const [attr, attrVal] of Object.entries(data)) {
         for (const [dataKey, dataVal] of Object.entries(attrVal)) {
-            assign(g, `pl+${title}`, attr as DATA_ATTR, dataKey as DATA_TYPE, dataVal);
+            assign(g, `pl+${pid}`, attr as DATA_ATTR, dataKey as DATA_TYPE, dataVal);
         }
     }
 }
 
 function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE, val: any) {
+    const pl = g.v_pl.get(pvid)!;
+
     switch (key) {
         case 'designed_by':             // text, links, refs
             break;
@@ -64,10 +83,12 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             break;
         case 'implementation_language': // text, links, refs
             break;
+
         case 'influenced':              // text, refs, links
             break;
         case 'influenced_by':           // links, refs
             break;
+
         case 'initial_release':         // release
             break;
         case 'internet_media_type':     // text
@@ -98,25 +119,13 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
         case 'type_of_format':          // links, text
             break;
 
-        case 'typing_discipline':
-            console.log(val);
-            switch (type) {
-                case 'refs':
-                    break;
-                case 'links':
-                    break;
-                case 'text':
-                    break;
-            }
-
+        case 'typing_discipline':       // refs, links
+            if (type === 'refs') { }
+            if (type === 'links') { }
             break;
 
         case 'website':
-            if (type === 'links') {
-                // for (const link of val)
-                //     if (link.href && link.title)
-                //         add(link);
-            }
+            if (type === 'links') pushLinks(pl.websites!, 'website', val);
             break;
     }
 }
@@ -127,3 +136,34 @@ export async function buildGraph(): Promise<PlangsGraph> {
     const { vertices, edges, adjacency } = g.merge();
     return g;
 }
+
+function pushLinks(container: Link[], key: 'website', links: { title: string, kind: string, href: string }[]) {
+    for (let { title, href } of links) {
+        if (!title || !href) continue
+
+        if (href.startsWith('//')) href = `https:${href}`;
+
+        let url: URL;
+        try {
+            url = new URL(href); url.hostname = url.hostname.toLowerCase();
+        } catch (e) {
+            console.error(`WARNING: Invalid URL: ${href}`);
+            continue;
+        }
+
+        let kind: Link['kind'] = 'other';
+        if (href.startsWith('/wiki/')) {
+            kind = 'wikipedia';
+            href = WIKIPEDIA_URL + href;
+        } else if (url.hostname.includes('wikipedia.org')) {
+            kind = 'wikipedia';
+        } else if (href.includes('git')) kind = 'repository';
+
+        if (key === 'website' && kind !== 'wikipedia') {
+            container.push({ kind: 'homepage', title, href });
+        } else {
+            container.push({ kind, title, href });
+        }
+    }
+}
+

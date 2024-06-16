@@ -7313,7 +7313,7 @@ async function render() {
   graph.import(data);
   console.log(data);
   $random.assign(graph);
-  import_graphology_layout_forceatlas2.default.assign(graph, { iterations: 5 });
+  import_graphology_layout_forceatlas2.default.assign(graph, { iterations: 50 });
   graph.forEachNode((node, attr) => {
     attr.size = 20;
   });

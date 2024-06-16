@@ -63,7 +63,7 @@ export class Table<TKey = any, TData = any> {
         newData: Partial<TData>,
         areEqual: (key: string, oldVal: any, newVal: any) => boolean = (k, o, n) => o === n,
         onConflict: 'keepOld' | 'mergeNew' = 'keepOld'
-    ) {
+    ): { conflicts: { key: string; oldVal: any; newVal: any; }[]; } {
         if (!this.validator(key)) throw new Error(`invalid key: ${key}`);
 
         const conflicts: { key: string, oldVal: any, newVal: any }[] = [];
