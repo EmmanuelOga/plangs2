@@ -1,11 +1,10 @@
-import { PlangsGraph } from '../../plangs_graph';
+import type { PlangsGraph } from '../../plangs_graph';
 
 export const v_py = 'pl+python';
 
 export function define(g: PlangsGraph) {
     g.v_pl.set(v_py, {
         name: 'Python',
-        firstAppeared: '1991-02-20',
         releases: [
             { version: '3.12.4', date: '2024-06-06', tags: ['stable'] },
         ],

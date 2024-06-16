@@ -3,9 +3,9 @@
  */
 
 import { Glob } from 'bun';
-import { VID } from '../graph/vertex';
+import type { VID } from '../graph/vertex';
 import { PlangsGraph } from '../plangs_graph';
-import { Image, Link } from '../schemas';
+import type { Image, Link, Release } from '../schemas';
 import { WIKIPEDIA_URL, cachePath } from './wikipedia_json';
 
 type DATA_ATTR =
@@ -109,7 +109,7 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             if (type !== 'links') return;
             for (const { title, href } of val.filter(({ href }) => href.startsWith('/wiki'))) {
                 const impl = toAlphaNum(title);
-                
+
                 if (g.v_pl.has(`pl+${impl}`) || pvid === `pl+${impl}`) {
                     pl.selfHosted = true;
                     continue;
@@ -174,12 +174,17 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             }
             return;
 
-        case 'dialects':                // links, text
+        case 'dialects':
+        case 'family':
             if (type === 'text') {
                 for (const dialect of val.split(',').filter((x: string) => !/[\(\)\[\]]/.test(x))) {
                     const did = toAlphaNum(dialect);
                     g.v_pl.merge(`pl+${did}`, { name: dialect.trim() }, 'skipIfExists');
-                    g.e_dialect_of.connect({ from: `pl+${did}`, to: pvid });
+                    if (key === 'dialects') {
+                        g.e_dialect_of.connect({ from: `pl+${did}`, to: pvid });
+                    } else {
+                        g.e_dialect_of.connect({ from: pvid, to: `pl+${did}`, });
+                    }
                 }
                 return;
             }
@@ -192,11 +197,12 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
                     name: title.trim(), websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
                 }, 'skipIfExists');
 
-                g.e_dialect_of.connect({ from: `pl+${did}`, to: pvid });
+                if (key === 'dialects') {
+                    g.e_dialect_of.connect({ from: `pl+${did}`, to: pvid });
+                } else {
+                    g.e_dialect_of.connect({ from: pvid, to: `pl+${did}` });
+                }
             }
-            return;
-
-        case 'family':                  // links
             return;
 
         case 'license':                 // links
@@ -237,14 +243,26 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
         //////////////////////////////////////////////////////////////////////////////// 
 
         case 'first_appeared':          // release
-            return;
         case 'initial_release':         // release
-            return;
         case 'latest_release':          // release
-            return;
         case 'preview_release':         // release
-            return;
         case 'stable_release':          // release
+            {
+                const KINDS: Record<string, Release['kind']> = {
+                    'first_appeared': 'first',
+                    'initial_release': 'first',
+                    'latest_release': 'other',
+                    'preview_release': 'preview',
+                    'stable_release': 'stable',
+                }
+                const rel: Release = {
+                    version: val.version ?? 'unknown',
+                    date: val.year ? `${val.year}-01-01` : val.date,
+                    kind: KINDS[key],
+                };
+                pl.releases ??= [];
+                pl.releases.push(rel);
+            }
             return;
     }
 }
@@ -252,7 +270,6 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
 export async function buildGraph(): Promise<PlangsGraph> {
     const g = new PlangsGraph();
     await parseAll(g);
-    const { vertices, edges, adjacency } = g.merge();
     return g;
 }
 

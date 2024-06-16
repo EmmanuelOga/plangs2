@@ -21,7 +21,7 @@ async function plangsGraph(): Promise<SerializedGraph> {
             continue;
         }
 
-        // if (ek.type !== 'dialect') continue;
+        if (ek.type !== 'dialect') continue;
 
         grEdges.push({
             key: eid,

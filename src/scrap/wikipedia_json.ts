@@ -2,7 +2,7 @@
  * Simple Wikipedia crawler for programming language pages.
  */
 
-import { Cheerio, Element, load } from 'cheerio';
+import { type Cheerio, type Element, load } from 'cheerio';
 import { unlinkSync } from 'node:fs';
 import { mkdir } from 'node:fs/promises';
 
@@ -30,7 +30,7 @@ const SHORTLIST = [
 ];
 
 // Some keys that seem consistent across pages.
-const INFOBOX_KEYS = new Set<String>([
+const INFOBOX_KEYS = new Set<string>([
     'available_in', 'bits', 'defunct', 'design', 'designed_by', 'designer', 'developed_by', 'developer',
     'developers', 'dialects', 'discontinued', 'encoding', 'endianness', 'family', 'filename_extension', 'filename_extensions',
     'final_release', 'first_appeared', 'floating_point', 'founded', 'founder', 'general-purpose', 'implementation_language',
@@ -53,11 +53,11 @@ const REQUIRED_KEYS = new Set<string>(['influenced_by']);
 
 const CACHE_PATH = Bun.fileURLToPath(`file:///${__dirname}/../../.cache`)
 
-export function cachePath(type: string, path: string = ''): string {
+export function cachePath(type: string, path = ''): string {
     return Bun.fileURLToPath(`file:///${CACHE_PATH}/${type}/${path}`);
 }
 
-export function toBasename(str: string, type: string = 'html'): string {
+export function toBasename(str: string, type = 'html'): string {
     return `${str.replace(/\/|\\|\:/g, '_')}.${type}`;
 }
 
@@ -73,6 +73,7 @@ const STATE = {
  * Fetches a page, caching both to disk and to memory.
  */
 async function fetchWiki(wikiPath: string): Promise<string> {
+    // biome-ignore lint/style/noNonNullAssertion: the map _has_ the key.
     if (STATE.fetchCache.has(wikiPath)) return STATE.fetchCache.get(wikiPath)!;
 
     const cacheFile = cachePath('wiki', toBasename(wikiPath, 'html'));
@@ -122,9 +123,9 @@ async function scrapLanguagePage(wikiPath: string) {
         return { href: $a.attr('href')?.trim(), title: $a.text().trim() };
     }
 
-    function getVersions(str: string): any[] {
+    function getVersion(str: string): { version: string; } | undefined {
         const match = str.match(/(\d+\.\d+(\.\d+)*)/);
-        return match && match[0] ? [{ version: match[0] }] : [];
+        if (match?.[0]) return { version: match[0] };
     }
 
     function getMonth(str: string): number {
@@ -136,24 +137,28 @@ async function scrapLanguagePage(wikiPath: string) {
         return 0;
     }
 
-    function date(year: number, month: number, day: number): any {
+    function date(year: number, month: number, day: number): { date: string; } | undefined {
         if (year < 1900 || year > 2100) return undefined;
         if (month < 1 || month > 12) return undefined;
         if (day < 1 || day > 31) return undefined;
         return { date: `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}` };
     }
 
-    function getDates(str: string): any[] {
-        const result: any[] = [];
+    function getDate(str: string): { date: string; } | { year: number; } | undefined {
         let match = str.match(/(\d{4}).(\d{2}).(\d{2})/);
-        if (match) result.push(date(parseInt(match[1]), parseInt(match[2]), parseInt(match[3])))
-        match = str.match(/(\d+)\s+([a-zA-Z]+)\s+(\d{4})/);
-        if (match) result.push(date(parseInt(match[1]), getMonth(match[2]), parseInt(match[3])))
-        if (result.length === 0) {
-            match = str.match(/(\d{4})/);
-            if (match) result.push({ year: parseInt(match[1]) });
+        if (match) {
+            const d = date(Number.parseInt(match[1]), Number.parseInt(match[2]), Number.parseInt(match[3]));
+            if (d) return d;
         }
-        return result;
+
+        match = str.match(/(\d+)\s+([a-zA-Z]+)\s+(\d{4})/);
+        if (match) {
+            const d = date(Number.parseInt(match[1]), getMonth(match[2]), Number.parseInt(match[3]));
+            if (d) return d;
+        }
+
+        match = str.match(/(\d{4})/);
+        if (match) return { year: Number.parseInt(match[1]) };
     }
 
     function unquote(title: string): string {
@@ -162,7 +167,7 @@ async function scrapLanguagePage(wikiPath: string) {
     }
 
     function extractData(type: string, el: Cheerio<Element>): {} {
-        const result = {};
+        const result: { [index: string]: any } = {};
 
         const sup = el.find('sup').remove();
         const links = el.find('a').remove();
@@ -183,18 +188,18 @@ async function scrapLanguagePage(wikiPath: string) {
         }
 
         if (type.includes('release') || type.includes('appear')) {
-            const data = [...getDates(el.text()), ...getVersions(el.text())].filter(Boolean);
-            if (data.length) result['release'] = data;
+            const data = { ...getDate(el.text()), ...getVersion(el.text()) };
+            if (Object.keys(data).length > 0) result.release = data;
         } else if (type.includes('extension')) {
             const data = el.text().split(',').map((s) => s.trim()).filter(Boolean);
-            if (data.length) result['extensions'] = data;
+            if (data.length) result.extensions = data;
         } else {
             if (links.length) {
-                result['links'] = links
+                result.links = links
                     .map((i, a) => processA($(a)))
                     .toArray().filter((a) => a.href);
             } else {
-                result['text'] = el.text().replace((/\n/g), ' ');
+                result.text = el.text().replace((/\n/g), ' ');
             }
         }
 
@@ -215,13 +220,13 @@ async function scrapLanguagePage(wikiPath: string) {
         try {
             const $row = $(row);
             // Option (1): tr > td.key , td.val
-            let key = toKey($row.find('.infobox-label').text());
+            const key = toKey($row.find('.infobox-label').text());
             if (key) {
                 if (!INFOBOX_KEYS.has(key)) continue;
                 infobox[key] = extractData(key, $row.find('.infobox-data'));
             } else {
                 // Option (2): tr.key tr.val
-                let key = toKey($row.find('.infobox-header').text());
+                const key = toKey($row.find('.infobox-header').text());
                 if (!INFOBOX_KEYS.has(key)) continue;
                 const $elem = $row.next().find('.infobox-full-data').first();
                 if ($elem.length) infobox[key] = extractData(key, $elem)
@@ -240,10 +245,10 @@ async function scrapLanguagePage(wikiPath: string) {
         'successor',
         'written_in',
     ]) {
-        if (Array.isArray(infobox[key]?.['links'])) {
-            for (const link of infobox[key]['links']) {
-                if (!link.href.startsWith('/wiki')) continue;
-                await scrapLanguagePage(link.href!);
+        if (Array.isArray(infobox[key]?.links)) {
+            for (const link of infobox[key].links) {
+                if (!link.href?.startsWith('/wiki')) continue;
+                await scrapLanguagePage(link.href);
             }
         }
     }
@@ -271,7 +276,7 @@ function cleanImgUrl(url: string | undefined): string {
 /**
  * Scrap the Wikipedia page for programming languages.
  */
-async function main(refresh: boolean = false) {
+async function main(refresh = false) {
     console.log('Scraping Wikipedia. Using cache: ', CACHE_PATH);
 
     await mkdir(cachePath('wiki'), { recursive: true }).catch((_) => { });

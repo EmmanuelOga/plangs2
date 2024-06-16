@@ -8,7 +8,6 @@ export type ID_V_Plang = VID<`pl`>;
 export interface V_Plang extends V {
     images: Image[];
     websites: Link[];
-    firstAppeared: StrDate
     releases: Release[];
     selfHosted: boolean;
     extensions: string[];
@@ -49,8 +48,8 @@ export interface E_People {
 
 export interface Release {
     version: string;
-    date: StrDate;
-    tags: string[];
+    date?: StrDate;
+    kind: 'first' | 'preview' | 'stable' | 'other';
 }
 
 export interface Link {
