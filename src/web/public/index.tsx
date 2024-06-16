@@ -34,9 +34,13 @@ async function render() {
     graph.setNodeAttribute(node, "size", size);
   });
 
+  graph.forEachEdge((edge) => {
+    graph.setEdgeAttribute(edge, "size", 3);
+  });
+
   circular.assign(graph);
   const settings = forceAtlas2.inferSettings(graph);
-  forceAtlas2.assign(graph, { settings, iterations: 600 });
+  forceAtlas2.assign(graph, { settings, iterations: 50 });
 
   const container = document.getElementById("app") as HTMLElement;
   const renderer = new Sigma(graph, container, { renderEdgeLabels: true });
@@ -80,10 +84,7 @@ function setupHover(graph: Graph, renderer: Sigma) {
 
     // Refresh rendering
     renderer.refresh({
-      partialGraph: {
-        nodes,
-        edges,
-      },
+      partialGraph: { nodes, edges },
       // We don't touch the graph data so we can skip its reindexation
       skipIndexation: true,
     });
@@ -98,9 +99,8 @@ function setupHover(graph: Graph, renderer: Sigma) {
   });
 
   // Render nodes accordingly to the internal state:
-  // 1. If a node is selected, it is highlighted
-  // 2. If there is query, all non-matching nodes are greyed
-  // 3. If there is a hovered node, all non-neighbor nodes are greyed
+  // - If a node is selected, it is highlighted
+  // - If there is a hovered node, all non-neighbor nodes are greyed
   renderer.setSetting("nodeReducer", (node, data) => {
     const res: Partial<NodeDisplayData> = { ...data };
 
@@ -121,10 +121,7 @@ function setupHover(graph: Graph, renderer: Sigma) {
   });
 
   // Render edges accordingly to the internal state:
-  // 1. If a node is hovered, the edge is hidden if it is not connected to the
-  //    node
-  // 2. If there is a query, the edge is only visible if it connects two
-  //    suggestions
+  // - If a node is hovered, the edge is hidden if it is not connected to the node
   renderer.setSetting("edgeReducer", (edge, data) => {
     const res: Partial<EdgeDisplayData> = { ...data };
 

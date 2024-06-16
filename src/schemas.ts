@@ -9,8 +9,11 @@ export type ID_V_Plang = VID<`pl`>;
 export interface V_Plang extends V {
     firstAppeared: StrDate
     releases: Release[];
-    websites: Link[];
     images: Image[];
+    websites: Link[];
+
+    // A map of references grouped by tag: #influences, #influenced_by, etc.
+    references: {[tag: string]: Link[]};
 }
 
 export type ID_V_Implementation = VID<`impl`>;

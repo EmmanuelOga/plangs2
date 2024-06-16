@@ -27,6 +27,7 @@ async function parseAll(g: PlangsGraph) {
         const data: Record<DATA_ATTR, Record<DATA_TYPE, any>> = j.data;
         processLanguage(g, title, wikiUrl, image, data);
     }
+    console.log('Done processing languages.', new Date());
 }
 
 function toAlphaNum(s: string) {
@@ -49,10 +50,11 @@ function processLanguage(
     image: string | undefined,
     data: Record<DATA_ATTR, Record<DATA_TYPE, any>>
 ) {
+    // console.log('------- Processing', title)
+
     const pid = toAlphaNum(title);
 
-    // Language may have been already as an influence.
-    g.v_pl.merge(`pl+${pid}`, { name: title });
+    g.v_pl.merge(`pl+${pid}`, { name: title }); // We may already have the language, from an influence.
 
     const pl = g.v_pl.get(`pl+${pid}`)!;
 
@@ -69,13 +71,23 @@ function processLanguage(
             assign(g, `pl+${pid}`, attr as DATA_ATTR, dataKey as DATA_TYPE, dataVal);
         }
     }
+
+    console.log(title, pl.references);
+    console.log('---');
 }
 
 function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE, val: any) {
     const pl = g.v_pl.get(pvid)!;
 
+    // Would be nice to map the reference to the exact edge it belongs to,
+    // but that would need more careful scraping... maybe later.
+    if (type === 'refs') {
+        pl.references ??= {};
+        (pl.references[key] ??= []).push(...val);
+    }
+
     switch (key) {
-        case 'designed_by':             // text, links, refs
+        case 'designed_by':             // text, links
             break;
         case 'developed_by':            // links
             break;
@@ -83,63 +95,41 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             break;
         case 'developers':              // text, links
             break;
-        case 'dialects':                // links, text, refs
+        case 'dialects':                // links, text
             break;
         case 'family':                  // links
             break;
         case 'filename_extension':      // extensions
             break;
-        case 'filename_extensions':     // extensions, refs
+        case 'filename_extensions':     // extensions
             break;
-        case 'first_appeared':          // release, refs
+        case 'first_appeared':          // release
             break;
         case 'founder':                 // refs, links
             break;
-        case 'implementation_language': // text, links, refs
+        case 'implementation_language': // text, links
             break;
 
-        case 'influenced':              // text, refs, links
-            if (type === 'text') {
-                // Ignore, just a few languages have text here.
-            }
-            if (type === 'links') {
-                for (const { title, href } of val) {
-                    if (!href.startsWith('/wiki')) continue; // Few occurrences.
-                    const who = toAlphaNum(title);
+        case 'influenced':
+        case 'influenced_by':
+            if (type !== 'links') break;
+            for (const { title, href } of val) {
+                if (!href.startsWith('/wiki')) continue; // Few occurrences.
+                const who = toAlphaNum(title);
 
-                    if (!g.v_pl.has(`pl+${who}`)) {
-                        g.v_pl.merge(`pl+${who}`, {
-                            name: title,
-                            websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
-                        });
-                    }
-
-                    g.e_influenced.connect({ from: pvid, to: `pl+${who}` });
+                if (!g.v_pl.has(`pl+${who}`)) {
+                    g.v_pl.merge(`pl+${who}`, {
+                        name: title,
+                        websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
+                    });
                 }
-            }
 
-            if (type === 'refs') { }
-
-            break;
-
-        case 'influenced_by':           // links, refs
-            if (type === 'links') {
-                for (const { title, href } of val) {
-                    if (!href.startsWith('/wiki')) continue; // Few occurrences.
-                    const who = toAlphaNum(title);
-
-                    if (!g.v_pl.has(`pl+${who}`)) {
-                        g.v_pl.merge(`pl+${who}`, {
-                            name: title,
-                            websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
-                        });
-                    }
-
+                if (key === 'influenced') {
+                    g.e_influenced.connect({ from: pvid, to: `pl+${who}` });
+                } else {
                     g.e_influenced.connect({ from: `pl+${who}`, to: pvid });
                 }
             }
-
-            if (type === 'refs') { }
             break;
 
         case 'initial_release':         // release
@@ -148,23 +138,23 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             break;
         case 'latest_release':          // release
             break;
-        case 'license':                 // links, refs
+        case 'license':                 // links
             break;
-        case 'major_implementations':   // refs, links, text
+        case 'major_implementations':   // links, text
             break;
-        case 'os':                      // links, refs, text
+        case 'os':                      // links, text
             break;
-        case 'paradigm':                // links, refs
+        case 'paradigm':                // links
             break;
-        case 'paradigms':               // links, refs
+        case 'paradigms':               // links
             break;
-        case 'platform':                // links, refs
+        case 'platform':                // links
             break;
-        case 'preview_release':         // release, refs
+        case 'preview_release':         // release
             break;
         case 'scope':                   // links, text
             break;
-        case 'stable_release':          // refs, release
+        case 'stable_release':          // release
             break;
         case 'type':                    // links
             break;
@@ -172,8 +162,7 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
         case 'type_of_format':          // links, text
             break;
 
-        case 'typing_discipline':       // refs, links
-            if (type === 'refs') { }
+        case 'typing_discipline':       // links
             if (type === 'links') { }
             break;
 
