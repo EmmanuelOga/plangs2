@@ -113,22 +113,17 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
 
         case 'website':
             if (type === 'links') {
-                if (!lang.websites) lang.websites = [];
-                for (const link of val)
-                    if (link.href && link.title)
-                        lang.websites.push(link);
+                // for (const link of val)
+                //     if (link.href && link.title)
+                //         add(link);
             }
             break;
     }
 }
 
-async function buildGraph() {
+export async function buildGraph(): Promise<PlangsGraph> {
     const g = new PlangsGraph();
     await parseAll(g);
     const { vertices, edges, adjacency } = g.merge();
-
-    console.log("Vertices: ", vertices.entries());
-    console.log("Edges: ", edges.entries());
+    return g;
 }
-
-await buildGraph();

@@ -3263,7 +3263,7 @@ var require_rotation = __commonJS((exports, module) => {
   module.exports = rotation;
 });
 
-// src/public/index.tsx
+// src/web/public/index.tsx
 var import_graphology = __toESM(require_graphology_umd_min(), 1);
 
 // node_modules/sigma/dist/inherits-8fbdedb5.esm.js
@@ -7297,7 +7297,7 @@ var Sigma$1 = function(_TypedEventEmitter) {
 }(TypedEventEmitter);
 var Sigma = Sigma$1;
 
-// src/public/index.tsx
+// src/web/public/index.tsx
 var import_graphology_layout_forceatlas2 = __toESM(require_graphology_layout_forceatlas2(), 1);
 
 // node_modules/graphology-layout/index.js
@@ -7306,28 +7306,24 @@ var $circular = require_circular();
 var $random = require_random2();
 var $rotation = require_rotation();
 
-// src/public/index.tsx
-var render = function() {
+// src/web/public/index.tsx
+async function render() {
   const graph = new import_graphology.default;
-  graph.addNode("a", { size: 20, label: "a" });
-  graph.addNode("b", { size: 20, label: "b" });
-  graph.addNode("c", { size: 20, label: "c" });
-  graph.addNode("d", { size: 20, label: "d" });
-  graph.addNode("e", { size: 20, label: "e" });
-  graph.addNode("f", { size: 20, label: "f" });
-  graph.addEdge("a", "b", { size: 10 });
-  graph.addEdge("b", "c", { size: 10 });
-  graph.addEdge("b", "d", { size: 10 });
-  graph.addEdge("c", "b", { size: 10 });
-  graph.addEdge("c", "e", { size: 10 });
-  graph.addEdge("d", "c", { size: 10 });
-  graph.addEdge("d", "e", { size: 10 });
-  graph.addEdge("e", "d", { size: 10 });
-  graph.addEdge("f", "e", { size: 10 });
+  const data = await fetch("http://localhost:3000/data.json").then((res) => res.json());
+  graph.import(data);
+  console.log(data);
   $random.assign(graph);
-  import_graphology_layout_forceatlas2.default.assign(graph, { iterations: 50 });
+  import_graphology_layout_forceatlas2.default.assign(graph, { iterations: 5 });
+  graph.forEachNode((node, attr) => {
+    attr.size = 20;
+  });
+  graph.forEachEdge((edge, attr) => {
+    attr.size = 10;
+  });
   const container = document.getElementById("app");
-  const renderer = new Sigma(graph, container, {});
+  const renderer = new Sigma(graph, container, {
+    renderEdgeLabels: true
+  });
   renderer.refresh();
-};
+}
 render();

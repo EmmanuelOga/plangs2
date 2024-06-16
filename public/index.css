@@ -7,9 +7,9 @@ body {
 }
 
 #app {
-  border: 5px solid orange;
-  margin: 2.5vh auto auto;
-
-  max-width: 90vw;
-  min-height: 90vh;
+  border: 2px solid orange;
+  margin: 1vh auto;
+  padding: 0;
+  max-width: 99vw;
+  min-height: 97vh;
 }
