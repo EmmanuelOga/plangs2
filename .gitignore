@@ -1,5 +1,6 @@
 .cache
 public/UPDATE
+public/index.js
 
 # https://github.com/github/gitignore/blob/main/Node.gitignore
 *.pid

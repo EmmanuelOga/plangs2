@@ -48,7 +48,7 @@ export class Table<TKey = any, TData = any> {
      * - If the key is already in the table, it will be left unchanged.
      */
     connect(key: TKey): this {
-        if (!this.validator(key)) throw new Error(`invalid key: ${key}`);
+        if (!this.validator(key)) throw new Error(`invalid key: ${JSON.stringify(key)}`);
         if (!this._map.has(this.mapper(key))) this._map.set(this.mapper(key), {} as TData);
         return this;
     }
@@ -195,6 +195,10 @@ export class GraphManager {
 
             if (!g.adjacency.has(edge.from)) g.adjacency.set(edge.from, []);
             if (!g.adjacency.has(edge.to)) g.adjacency.set(edge.to, []);
+
+            // Add missing vertices if needed. Since the name is missing, default it to the id.
+            if (!g.vertices.has(edge.from)) g.vertices.set(edge.from, {name: edge.from});
+            if (!g.vertices.has(edge.to)) g.vertices.set(edge.to, {name: edge.to});
 
             g.adjacency.get(edge.from)!.push(edge.to);
 

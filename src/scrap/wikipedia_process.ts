@@ -31,10 +31,15 @@ async function parseAll(g: PlangsGraph) {
 
 function toAlphaNum(s: string) {
     return s.trim()
-        .replace(/\+/g, '-plus')
-        .replace(/\#/g, '-sharp')
+        .replace(/\s+/g, ' ')
+        .replace(/\s/g, '-')
+        .replace(/\//g, 'Slash')
+        .replace(/\\/g, 'Backslash')
+        .replace(/\*/g, 'Star')
+        .replace(/\+/g, 'P')
+        .replace(/\#/g, 'Sharp')
         .replace(/[\/\:]/g, '-')
-        .replace(/[^a-zA-Z0-9]/g, '');
+        .replace(/[^a-zA-Z0-9]/g, '-');
 }
 
 function processLanguage(
@@ -45,10 +50,19 @@ function processLanguage(
     data: Record<DATA_ATTR, Record<DATA_TYPE, any>>
 ) {
     const pid = toAlphaNum(title);
-    const images: Image[] = image ? [{ kind: 'logo', url: image }] : [];
-    const websites: Link[] = [{ kind: 'wikipedia', title: title, href: wikiUrl }];
 
-    g.v_pl.merge(`pl+${pid}`, { name: title, images, websites });
+    // Language may have been already as an influence.
+    g.v_pl.merge(`pl+${pid}`, { name: title });
+
+    const pl = g.v_pl.get(`pl+${pid}`)!;
+
+    if (!pl.websites || !pl.websites.some((l: Link) => l.href === wikiUrl)) {
+        (pl.websites ??= []).push({ kind: 'wikipedia', title: title, href: wikiUrl });
+    }
+
+    if (image && (!pl.images || !pl.images?.some((i: Image) => i.url === image))) {
+        (pl.images ??= []).push({ kind: 'logo', url: image });
+    }
 
     for (const [attr, attrVal] of Object.entries(data)) {
         for (const [dataKey, dataVal] of Object.entries(attrVal)) {
@@ -85,8 +99,47 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             break;
 
         case 'influenced':              // text, refs, links
+            if (type === 'text') {
+                // Ignore, just a few languages have text here.
+            }
+            if (type === 'links') {
+                for (const { title, href } of val) {
+                    if (!href.startsWith('/wiki')) continue; // Few occurrences.
+                    const who = toAlphaNum(title);
+
+                    if (!g.v_pl.has(`pl+${who}`)) {
+                        g.v_pl.merge(`pl+${who}`, {
+                            name: title,
+                            websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
+                        });
+                    }
+
+                    g.e_influenced.connect({ from: pvid, to: `pl+${who}` });
+                }
+            }
+
+            if (type === 'refs') { }
+
             break;
+
         case 'influenced_by':           // links, refs
+            if (type === 'links') {
+                for (const { title, href } of val) {
+                    if (!href.startsWith('/wiki')) continue; // Few occurrences.
+                    const who = toAlphaNum(title);
+
+                    if (!g.v_pl.has(`pl+${who}`)) {
+                        g.v_pl.merge(`pl+${who}`, {
+                            name: title,
+                            websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
+                        });
+                    }
+
+                    g.e_influenced.connect({ from: `pl+${who}`, to: pvid });
+                }
+            }
+
+            if (type === 'refs') { }
             break;
 
         case 'initial_release':         // release

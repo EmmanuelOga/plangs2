@@ -304,6 +304,7 @@ async function main(refresh: boolean = false) {
     console.log(JSON.stringify([...STATE.plangs.keys()].sort()));
 
     for (const [key, value] of STATE.plangs) {
+        console.log(key);
         Bun.write(
             cachePath('json', toBasename(key, 'json')),
             JSON.stringify(value, null, 2)
@@ -311,4 +312,4 @@ async function main(refresh: boolean = false) {
     }
 }
 
-// await main(true);
+// await main(false);
