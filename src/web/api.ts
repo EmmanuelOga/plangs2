@@ -10,9 +10,7 @@ async function plangsGraph(): Promise<SerializedGraph> {
     const g = await buildGraph();
     const { vertices, edges, adjacency } = g.merge();
 
-    for (const [vid, vertex] of vertices) {
-        grNodes.push({ key: vid, attributes: { label: vertex.name } });
-    }
+    const linked = new Set<string>();
 
     for (const [eid, edge] of edges) {
         const ek = fromStr(eid);
@@ -21,15 +19,33 @@ async function plangsGraph(): Promise<SerializedGraph> {
             continue;
         }
 
-        if (ek.type !== 'dialect') continue;
+        if (ek.type !== 'type_system') continue;
 
         grEdges.push({
             key: eid,
             source: ek.from,
             target: ek.to,
-            attributes: {
-                label: ek.type,
-                type: ek.d ? 'arrow' : '',
+            attributes: { label: ek.type, type: ek.d ? 'arrow' : '', }
+        });
+        linked.add(ek.from);
+        linked.add(ek.to);
+    }
+
+    function color(vid: string) {
+        if (vid.startsWith('impl+')) return 'red';
+        if (vid.startsWith('license+')) return 'gray';
+        if (vid.startsWith('person+')) return 'green';
+        if (vid.startsWith('pl+')) return 'blue';
+        if (vid.startsWith('platf+')) return 'green';
+        if (vid.startsWith('tsys+')) return 'purple';
+    }
+
+    for (const [vid, vertex] of vertices) {
+        if (!linked.has(vid)) continue;
+        grNodes.push({
+            key: vid, attributes: {
+                label: vertex.name,
+                color: color(vid),
             }
         });
     }

@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@biomejs/biome": "^1.8.1",
+    "@sigma/edge-curve": "^3.0.0-beta.8",
     "cheerio": "^1.0.0-rc.12",
     "flexsearch": "^0.7.43",
     "graphology": "^0.25.4",

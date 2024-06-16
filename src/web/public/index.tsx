@@ -7,7 +7,8 @@
 // // root.render(<h1>Hello, world</h1>);
 
 import Graph from "graphology";
-import * as components from "graphology-components";
+import EdgeCurveProgram from "@sigma/edge-curve";
+import { random } from "graphology-layout";
 import forceAtlas2 from "graphology-layout-forceatlas2";
 import circlepack from "graphology-layout/circlepack";
 import Sigma from "sigma";
@@ -38,15 +39,17 @@ async function render() {
 		graph.setEdgeAttribute(edge, "size", 3);
 	});
 
-	circlepack.assign(graph, {
-		hierarchyAttributes: ["degree", "community"],
-	});
+	// random.assign(graph);
+	circlepack.assign(graph, { hierarchyAttributes: ["degree", "community"] });
 	const settings = forceAtlas2.inferSettings(graph);
 	forceAtlas2.assign(graph, { settings, iterations: 500 });
 
 	const container = document.getElementById("app") as HTMLElement;
 	const renderer = new Sigma(graph, container, {
 		defaultEdgeType: "curve",
+		edgeProgramClasses: {
+			curve: EdgeCurveProgram,
+		},
 		renderEdgeLabels: true,
 	});
 

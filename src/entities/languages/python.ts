@@ -3,7 +3,7 @@ import type { PlangsGraph } from '../../plangs_graph';
 export const v_py = 'pl+python';
 
 export function define(g: PlangsGraph) {
-    g.v_pl.set(v_py, {
+    g.v_plang.set(v_py, {
         name: 'Python',
         releases: [
             { version: '3.12.4', date: '2024-06-06', tags: ['stable'] },
@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
     g.e_people.set({ from: 'person+guido', to: v_py }, { role: 'designer' });
 
     for (const tsys of ['oop', 'duck', 'dynamic', 'strong', 'optional']) {
-        g.e_pl_tsys.connect({ from: v_py, to: `tsys+${tsys}` });
+        g.e_plang_tsys.connect({ from: v_py, to: `tsys+${tsys}` });
     }
 
     for (const pf of ['linux64', 'mac64', 'windows10', 'wasi32', 'freebsd64', 'ios', 'rpi', 'android']) {
@@ -52,7 +52,7 @@ export function define(g: PlangsGraph) {
         ['perl', 'Perl'],
         ['sml', 'Standard ML']
     ]) {
-        g.v_pl.merge(`pl+${p}`, { name });
+        g.v_plang.merge(`pl+${p}`, { name });
         g.e_influenced.connect({ from: `pl+${p}`, to: v_py, d: true, });
     }
 
@@ -75,7 +75,7 @@ export function define(g: PlangsGraph) {
         ['ruby', 'Ruby'],
         ['swift', 'Swift']
     ]) {
-        g.v_pl.merge(`pl+${p}`, { name });
+        g.v_plang.merge(`pl+${p}`, { name });
         g.e_influenced.connect({ from: v_py, to: `pl+${p}`, d: true, });
     }
 }

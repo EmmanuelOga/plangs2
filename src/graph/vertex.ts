@@ -11,6 +11,11 @@ export type VID<Type extends string> = `${Type}+${string}`
 export type Any = string;
 
 /**
+ * An alias for the most generic vertex id.
+ */
+export type ID_V_Any = VID<Any>;
+
+/**
  * RegExp Pattern for string literals matching {@link VID } (see {@link isAnyVid}).
  */
 export const AnyVidP = /^[^\+]+\+[a-z-A-Z0-9\-_]+$/;

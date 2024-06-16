@@ -24,14 +24,21 @@ export interface V_Implementation extends V {
 
 export type ID_V_Platform = VID<`platf`>;
 export interface V_Platform extends V {
+    websites: Link[];
 }
 
 export type ID_V_TypeSystem = VID<`tsys`>;
 export interface V_TypeSystem extends V {
+    websites: Link[];
 }
 
 export type ID_V_Person = VID<`person`>;
 export interface V_Person extends V {
+}
+
+export type ID_V_License = VID<`license`>;
+export interface V_License extends V {
+    websites: Link[];
 }
 
 ////////////////////////////////////////////////////////////////////////////////

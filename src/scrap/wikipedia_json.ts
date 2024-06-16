@@ -254,13 +254,13 @@ async function scrapLanguagePage(wikiPath: string) {
     }
 
     // Skip some languages.
-    if (SKIP.has(title)) return;
-    const req = new Set<string>();
-    for (const key of Object.keys(infobox)) {
-        if (FORBIDDEN_KEYS.has(key)) return;
-        if (REQUIRED_KEYS.has(key)) req.add(key);
-    }
-    if (req.size !== REQUIRED_KEYS.size) return;
+    // if (SKIP.has(title)) return;
+    // const req = new Set<string>();
+    // for (const key of Object.keys(infobox)) {
+    //     if (FORBIDDEN_KEYS.has(key)) return;
+    //     if (REQUIRED_KEYS.has(key)) req.add(key);
+    // }
+    // if (req.size !== REQUIRED_KEYS.size) return;
 
     emit({ title, wikiUrl: `${WIKIPEDIA_URL}${wikiPath}`, img, data: infobox });
 }
