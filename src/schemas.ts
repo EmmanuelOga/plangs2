@@ -2,22 +2,24 @@
 // Types starting with "V_" are used for Vertex data.
 ////////////////////////////////////////////////////////////////////////////////
 
-import { EdgeKey } from "./graph/edge";
-import { Any, V, VID } from "./graph/vertex";
+import type { V, VID } from "./graph/vertex";
 
 export type ID_V_Plang = VID<`pl`>;
 export interface V_Plang extends V {
-    firstAppeared: StrDate
-    releases: Release[];
     images: Image[];
     websites: Link[];
+    firstAppeared: StrDate
+    releases: Release[];
+    selfHosted: boolean;
 
     // A map of references grouped by tag: #influences, #influenced_by, etc.
-    references: {[tag: string]: Link[]};
+    references: { [tag: string]: Link[] };
 }
 
 export type ID_V_Implementation = VID<`impl`>;
 export interface V_Implementation extends V {
+    websites: Link[];
+    releases: Release[];
 }
 
 export type ID_V_Platform = VID<`platf`>;

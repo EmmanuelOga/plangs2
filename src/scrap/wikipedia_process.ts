@@ -50,8 +50,6 @@ function processLanguage(
     image: string | undefined,
     data: Record<DATA_ATTR, Record<DATA_TYPE, any>>
 ) {
-    // console.log('------- Processing', title)
-
     const pid = toAlphaNum(title);
 
     g.v_pl.merge(`pl+${pid}`, { name: title }); // We may already have the language, from an influence.
@@ -71,9 +69,6 @@ function processLanguage(
             assign(g, `pl+${pid}`, attr as DATA_ATTR, dataKey as DATA_TYPE, dataVal);
         }
     }
-
-    console.log(title, pl.references);
-    console.log('---');
 }
 
 function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE, val: any) {
@@ -84,9 +79,107 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
     if (type === 'refs') {
         pl.references ??= {};
         (pl.references[key] ??= []).push(...val);
+        return;
     }
 
     switch (key) {
+        case 'website':
+            if (type === 'links') pushLinks(pl.websites!, 'website', val);
+            break;
+
+        //////////////////////////////////////////////////////////////////////////////// 
+
+        case 'filename_extension':      // extensions
+        case 'filename_extensions':     // extensions
+            break;
+
+        case 'internet_media_type':     // text
+            break;
+
+        //////////////////////////////////////////////////////////////////////////////// 
+
+        case 'major_implementations':
+            if (type === 'links') {
+                for (const { title, href } of val) {
+                    if (!href.startsWith('/wiki')) { continue; } // Few occurrences.
+                    const impl = toAlphaNum(title);
+
+                    if (!g.v_impl.has(`impl+${impl}`)) {
+                        g.v_impl.merge(`impl+${impl}`, {
+                            name: title,
+                            websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
+                        });
+                    }
+
+                    g.e_impl_pl.connect({ from: `impl+${impl}`, to: pvid });
+                }
+            }
+            break;
+
+        case 'implementation_language': // text, links
+            if (type === 'links') {
+                console.log(key, val);
+            }
+            break;
+
+        case 'influenced':
+        case 'influenced_by':
+            if (type === 'text') {
+                for (const who of val.split(', ')) {
+                    const whoId = toAlphaNum(who);
+                    if (!g.v_pl.has(`pl+${whoId}`)) g.v_pl.merge(`pl+${whoId}`, { name: who });
+                    if (key === 'influenced') {
+                        g.e_influenced.connect({ from: pvid, to: `pl+${whoId}` });
+                    } else {
+                        g.e_influenced.connect({ from: `pl+${whoId}`, to: pvid });
+                    }
+                }
+                break;
+            }
+
+            if (type === 'links') {
+                for (const { title, href } of val) {
+                    if (!href.startsWith('/wiki')) { continue; } // Few occurrences.
+                    const who = toAlphaNum(title);
+
+                    if (!g.v_pl.has(`pl+${who}`)) {
+                        g.v_pl.merge(`pl+${who}`, {
+                            name: title,
+                            websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
+                        });
+                    }
+
+                    if (key === 'influenced') {
+                        g.e_influenced.connect({ from: pvid, to: `pl+${who}` });
+                    } else {
+                        g.e_influenced.connect({ from: `pl+${who}`, to: pvid });
+                    }
+                }
+            }
+            break;
+
+        case 'dialects':                // links, text
+            break;
+        case 'family':                  // links
+            break;
+
+        case 'license':                 // links
+            break;
+
+        case 'os':                      // links, text
+            break;
+        case 'platform':                // links
+            break;
+
+        case 'paradigm':                // links
+        case 'paradigms':               // links
+            break;
+
+        case 'scope':                   // links, text
+            break;
+        case 'type':                    // links
+            break;
+
         case 'designed_by':             // text, links
             break;
         case 'developed_by':            // links
@@ -95,68 +188,7 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             break;
         case 'developers':              // text, links
             break;
-        case 'dialects':                // links, text
-            break;
-        case 'family':                  // links
-            break;
-        case 'filename_extension':      // extensions
-            break;
-        case 'filename_extensions':     // extensions
-            break;
-        case 'first_appeared':          // release
-            break;
         case 'founder':                 // refs, links
-            break;
-        case 'implementation_language': // text, links
-            break;
-
-        case 'influenced':
-        case 'influenced_by':
-            if (type !== 'links') break;
-            for (const { title, href } of val) {
-                if (!href.startsWith('/wiki')) continue; // Few occurrences.
-                const who = toAlphaNum(title);
-
-                if (!g.v_pl.has(`pl+${who}`)) {
-                    g.v_pl.merge(`pl+${who}`, {
-                        name: title,
-                        websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
-                    });
-                }
-
-                if (key === 'influenced') {
-                    g.e_influenced.connect({ from: pvid, to: `pl+${who}` });
-                } else {
-                    g.e_influenced.connect({ from: `pl+${who}`, to: pvid });
-                }
-            }
-            break;
-
-        case 'initial_release':         // release
-            break;
-        case 'internet_media_type':     // text
-            break;
-        case 'latest_release':          // release
-            break;
-        case 'license':                 // links
-            break;
-        case 'major_implementations':   // links, text
-            break;
-        case 'os':                      // links, text
-            break;
-        case 'paradigm':                // links
-            break;
-        case 'paradigms':               // links
-            break;
-        case 'platform':                // links
-            break;
-        case 'preview_release':         // release
-            break;
-        case 'scope':                   // links, text
-            break;
-        case 'stable_release':          // release
-            break;
-        case 'type':                    // links
             break;
 
         case 'type_of_format':          // links, text
@@ -166,8 +198,17 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             if (type === 'links') { }
             break;
 
-        case 'website':
-            if (type === 'links') pushLinks(pl.websites!, 'website', val);
+        //////////////////////////////////////////////////////////////////////////////// 
+
+        case 'first_appeared':          // release
+            break;
+        case 'initial_release':         // release
+            break;
+        case 'latest_release':          // release
+            break;
+        case 'preview_release':         // release
+            break;
+        case 'stable_release':          // release
             break;
     }
 }

@@ -9,7 +9,7 @@
 import Graph from "graphology";
 import { cropToLargestConnectedComponent } from "graphology-components";
 import forceAtlas2 from "graphology-layout-forceatlas2";
-import circular from "graphology-layout/circular";
+import circlepack from "graphology-layout/circlepack";
 import Sigma from "sigma";
 import { EdgeDisplayData, NodeDisplayData } from "sigma/types";
 
@@ -38,12 +38,17 @@ async function render() {
     graph.setEdgeAttribute(edge, "size", 3);
   });
 
-  circular.assign(graph);
+  circlepack.assign(graph, {
+    hierarchyAttributes: ["degree", "community"],
+  });
   const settings = forceAtlas2.inferSettings(graph);
-  forceAtlas2.assign(graph, { settings, iterations: 50 });
+  forceAtlas2.assign(graph, { settings, iterations: 500 });
 
   const container = document.getElementById("app") as HTMLElement;
-  const renderer = new Sigma(graph, container, { renderEdgeLabels: true });
+  const renderer = new Sigma(graph, container, {
+    defaultEdgeType: "curve",
+    renderEdgeLabels: true,
+  });
 
   renderer.refresh();
 
