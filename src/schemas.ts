@@ -11,6 +11,7 @@ export interface V_Plang extends V {
     firstAppeared: StrDate
     releases: Release[];
     selfHosted: boolean;
+    extensions: string[];
 
     // A map of references grouped by tag: #influences, #influenced_by, etc.
     references: { [tag: string]: Link[] };
@@ -40,18 +41,6 @@ export interface V_Person extends V {
 
 export interface E_People {
     role: 'designer' | 'contributor' | 'maintainer';
-}
-
-export interface E_Impl_Plang {
-}
-
-export interface E_Plang_Platf {
-}
-
-export interface E_Plang_Tsys {
-}
-
-export interface E_Influenced {
 }
 
 ////////////////////////////////////////////////////////////////////////////////

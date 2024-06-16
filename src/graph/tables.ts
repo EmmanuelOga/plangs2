@@ -1,5 +1,5 @@
-import { EdgeKey, fromStr, toStr } from "./edge";
-import { V } from "./vertex";
+import { fromStr, toStr, type EdgeKey } from "./edge";
+import type { V } from "./vertex";
 
 /**
  * We'll use tables to store Edges and Vertices.
@@ -7,6 +7,7 @@ import { V } from "./vertex";
  * A Table is just a {@link Map} but also accetps a key mapper
  * function to convert the keys to strings.
  */
+// biome-ignore lint/suspicious/noExplicitAny: we don't know what kind of data TData/TData will be.
 export class Table<TKey = any, TData = any> {
     private _map = new Map<string, TData>();
 
@@ -57,15 +58,20 @@ export class Table<TKey = any, TData = any> {
      * Merges new data into the table, keeping the old data if any.
      * - `undefined` values of `newData` are ignored.
      * - The default comparator is **shallow equality**.
+     * @param onConflict can be 'skip', 'keepOld', or 'mergeNew'.
+     * - If `'skipIfExists'`, the whole merge op is skipped if the key already exists.
      */
     merge(
         key: TKey,
         newData: Partial<TData>,
+        onConflict: 'skipIfExists' | 'keepOld' | 'mergeNew' = 'keepOld',
+        // biome-ignore lint/suspicious/noExplicitAny: we don't know what kind of data TData is.
         areEqual: (key: string, oldVal: any, newVal: any) => boolean = (k, o, n) => o === n,
-        onConflict: 'keepOld' | 'mergeNew' = 'keepOld'
-    ): { conflicts: { key: string; oldVal: any; newVal: any; }[]; } {
+        // biome-ignore lint/suspicious/noExplicitAny: we don't know what kind of data TData is.
+    ): 'skipped' | { conflicts: { key: string; oldVal: any; newVal: any; }[]; } {
         if (!this.validator(key)) throw new Error(`invalid key: ${key}`);
 
+        // biome-ignore lint/suspicious/noExplicitAny: we don't know what kind of data TData is.
         const conflicts: { key: string, oldVal: any, newVal: any }[] = [];
         const sk = this.mapper(key);
 
@@ -74,8 +80,9 @@ export class Table<TKey = any, TData = any> {
             this._map.set(sk, newData as TData);
             return { conflicts };
         }
+        if (onConflict === 'skipIfExists') return 'skipped';
 
-        const data = this._map.get(sk)! as Partial<TData>;
+        const data = this._map.get(sk) as Partial<TData>;
         for (const [key, newVal] of Object.entries(newData)) {
             if (newVal === undefined) continue;
             const oldVal = data[key];
@@ -197,13 +204,13 @@ export class GraphManager {
             if (!g.adjacency.has(edge.to)) g.adjacency.set(edge.to, []);
 
             // Add missing vertices if needed. Since the name is missing, default it to the id.
-            if (!g.vertices.has(edge.from)) g.vertices.set(edge.from, {name: edge.from});
-            if (!g.vertices.has(edge.to)) g.vertices.set(edge.to, {name: edge.to});
+            if (!g.vertices.has(edge.from)) g.vertices.set(edge.from, { name: edge.from });
+            if (!g.vertices.has(edge.to)) g.vertices.set(edge.to, { name: edge.to });
 
-            g.adjacency.get(edge.from)!.push(edge.to);
+            g.adjacency.get(edge.from)?.push(edge.to);
 
             if (!edge.d) {
-                g.adjacency.get(edge.to)!.push(edge.from);
+                g.adjacency.get(edge.to)?.push(edge.from);
             }
         }
 

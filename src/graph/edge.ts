@@ -1,4 +1,4 @@
-import { Any, AnyVidP, VID } from "./vertex";
+import { type Any, AnyVidP, type VID } from "./vertex";
 
 /**
  * Key to uniquely identify an edge of a graph.
@@ -40,6 +40,9 @@ export function toStr({ d, from, to, suffix, type }: EdgeKey, defaults?: Partial
     }
     return `${d ? 'd' : 'u'}~${from}~${to}~${type ?? ''}~${suffix ?? ''}`;
 }
+
+// biome-ignore lint/complexity/noBannedTypes: we need to provide an interface for additional properties, but many times the interface is just empty since the edge key already has enough information.
+export type  E_Empty = {};
 
 /**
  * Reverse a string key back to an EdgeKey.

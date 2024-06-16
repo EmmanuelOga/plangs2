@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
         ['jython', 'Jython']
     ]) {
         g.v_impl.merge(`impl+${p}`, { name });
-        g.e_impl_pl.connect({ from: `impl+${p}`, to: v_py, d: true, });
+        g.e_implements.connect({ from: `impl+${p}`, to: v_py, d: true, });
     }
 
     // Influeced by:

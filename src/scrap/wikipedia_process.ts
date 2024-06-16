@@ -32,11 +32,14 @@ async function parseAll(g: PlangsGraph) {
 
 function toAlphaNum(s: string) {
     return s.trim()
+        // biome-ignore lint/suspicious/noMisleadingCharacterClass: removes accents/diacritics.
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, '')
         .replace(/\s+/g, ' ')
         .replace(/\s/g, '-')
+        .replace('.', 'dot')
         .replace(/\//g, 'Slash')
         .replace(/\\/g, 'Backslash')
-        .replace(/\*/g, 'Star')
+        .replace(/[\*]/g, 'Star')
         .replace(/\+/g, 'P')
         .replace(/\#/g, 'Sharp')
         .replace(/[\/\:]/g, '-')
@@ -51,17 +54,19 @@ function processLanguage(
     data: Record<DATA_ATTR, Record<DATA_TYPE, any>>
 ) {
     const pid = toAlphaNum(title);
+    g.v_pl.merge(`pl+${pid}`, { name: title }, 'skipIfExists'); // We may already have the language, from an influence.
 
-    g.v_pl.merge(`pl+${pid}`, { name: title }); // We may already have the language, from an influence.
-
-    const pl = g.v_pl.get(`pl+${pid}`)!;
+    const pl = g.v_pl.get(`pl+${pid}`);
+    if (!pl) throw new Error(`Language not found: ${pl}`);
 
     if (!pl.websites || !pl.websites.some((l: Link) => l.href === wikiUrl)) {
-        (pl.websites ??= []).push({ kind: 'wikipedia', title: title, href: wikiUrl });
+        pl.websites ??= [];
+        pl.websites.push({ kind: 'wikipedia', title: title, href: wikiUrl });
     }
 
     if (image && (!pl.images || !pl.images?.some((i: Image) => i.url === image))) {
-        (pl.images ??= []).push({ kind: 'logo', url: image });
+        pl.images ??= [];
+        pl.images.push({ kind: 'logo', url: image });
     }
 
     for (const [attr, attrVal] of Object.entries(data)) {
@@ -72,144 +77,175 @@ function processLanguage(
 }
 
 function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE, val: any) {
-    const pl = g.v_pl.get(pvid)!;
+    const pl = g.v_pl.get(pvid);
+    if (!pl) throw new Error(`Language not found: ${pl}`);
 
     // Would be nice to map the reference to the exact edge it belongs to,
     // but that would need more careful scraping... maybe later.
     if (type === 'refs') {
         pl.references ??= {};
-        (pl.references[key] ??= []).push(...val);
+        pl.references[key] ??= []
+        pl.references[key].push(...val);
         return;
     }
 
     switch (key) {
         case 'website':
-            if (type === 'links') pushLinks(pl.websites!, 'website', val);
-            break;
+            if (type !== 'links') return
+            pl.websites ??= [];
+            pushLinks(pl.websites, 'website', val);
+            return;
 
-        //////////////////////////////////////////////////////////////////////////////// 
+        case 'filename_extension':
+        case 'filename_extensions':
+            pl.extensions ??= [];
+            pl.extensions.push(...val.filter((x: string) => x.length < 8));
+            return;
 
-        case 'filename_extension':      // extensions
-        case 'filename_extensions':     // extensions
-            break;
-
-        case 'internet_media_type':     // text
-            break;
-
-        //////////////////////////////////////////////////////////////////////////////// 
+        case 'internet_media_type':
+            return; // Ignore.
 
         case 'major_implementations':
-            if (type === 'links') {
-                for (const { title, href } of val) {
-                    if (!href.startsWith('/wiki')) { continue; } // Few occurrences.
-                    const impl = toAlphaNum(title);
-
-                    if (!g.v_impl.has(`impl+${impl}`)) {
-                        g.v_impl.merge(`impl+${impl}`, {
-                            name: title,
-                            websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
-                        });
-                    }
-
-                    g.e_impl_pl.connect({ from: `impl+${impl}`, to: pvid });
+            if (type !== 'links') return;
+            for (const { title, href } of val.filter(({ href }) => href.startsWith('/wiki'))) {
+                const impl = toAlphaNum(title);
+                
+                if (g.v_pl.has(`pl+${impl}`) || pvid === `pl+${impl}`) {
+                    pl.selfHosted = true;
+                    continue;
                 }
-            }
-            break;
 
-        case 'implementation_language': // text, links
-            if (type === 'links') {
-                console.log(key, val);
+                g.v_impl.merge(`impl+${impl}`, {
+                    name: title.trim(), websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
+                }, 'skipIfExists');
+
+                g.e_implements.connect({ from: `impl+${impl}`, to: pvid });
             }
-            break;
+            return;
+
+        case 'implementation_language':
+            if (type !== 'links') return;
+
+            for (const { title, href } of val.filter(({ href }) => href.startsWith('/wiki'))) {
+                const otherpl = toAlphaNum(title);
+
+                if (g.v_pl.has(`pl+${otherpl}`) || pvid === `pl+${otherpl}`) {
+                    pl.selfHosted = true;
+                    continue;
+                }
+
+                g.v_impl.merge(`impl+${otherpl}`, {
+                    name: title.trim(), websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
+                }, 'skipIfExists');
+
+                g.e_implemented_with.connect({ from: pvid, to: `pl+${otherpl}` });
+            }
+            return;
 
         case 'influenced':
         case 'influenced_by':
             if (type === 'text') {
                 for (const who of val.split(', ')) {
                     const whoId = toAlphaNum(who);
-                    if (!g.v_pl.has(`pl+${whoId}`)) g.v_pl.merge(`pl+${whoId}`, { name: who });
+
+                    g.v_pl.merge(`pl+${whoId}`, { name: who.trim() }, 'skipIfExists');
+
                     if (key === 'influenced') {
                         g.e_influenced.connect({ from: pvid, to: `pl+${whoId}` });
                     } else {
                         g.e_influenced.connect({ from: `pl+${whoId}`, to: pvid });
                     }
                 }
-                break;
+                return;
             }
+            if (type !== 'links') return;
 
-            if (type === 'links') {
-                for (const { title, href } of val) {
-                    if (!href.startsWith('/wiki')) { continue; } // Few occurrences.
-                    const who = toAlphaNum(title);
+            for (const { title, href } of val.filter(({ href }) => href.startsWith('/wiki'))) {
+                const who = toAlphaNum(title);
+                g.v_pl.merge(`pl+${who}`, {
+                    name: title.trim(), websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
+                }, 'skipIfExists');
 
-                    if (!g.v_pl.has(`pl+${who}`)) {
-                        g.v_pl.merge(`pl+${who}`, {
-                            name: title,
-                            websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
-                        });
-                    }
-
-                    if (key === 'influenced') {
-                        g.e_influenced.connect({ from: pvid, to: `pl+${who}` });
-                    } else {
-                        g.e_influenced.connect({ from: `pl+${who}`, to: pvid });
-                    }
+                if (key === 'influenced') {
+                    g.e_influenced.connect({ from: pvid, to: `pl+${who}` });
+                } else {
+                    g.e_influenced.connect({ from: `pl+${who}`, to: pvid });
                 }
             }
-            break;
+            return;
 
         case 'dialects':                // links, text
-            break;
+            if (type === 'text') {
+                for (const dialect of val.split(',').filter((x: string) => !/[\(\)\[\]]/.test(x))) {
+                    const did = toAlphaNum(dialect);
+                    g.v_pl.merge(`pl+${did}`, { name: dialect.trim() }, 'skipIfExists');
+                    g.e_dialect_of.connect({ from: `pl+${did}`, to: pvid });
+                }
+                return;
+            }
+            if (type !== 'links') return
+
+            for (const { title, href } of val.filter(({ href }) => href.startsWith('/wiki'))) {
+                const did = toAlphaNum(title);
+
+                g.v_pl.merge(`pl+${did}`, {
+                    name: title.trim(), websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
+                }, 'skipIfExists');
+
+                g.e_dialect_of.connect({ from: `pl+${did}`, to: pvid });
+            }
+            return;
+
         case 'family':                  // links
-            break;
+            return;
 
         case 'license':                 // links
-            break;
+            return;
 
         case 'os':                      // links, text
-            break;
+            return;
         case 'platform':                // links
-            break;
+            return;
 
         case 'paradigm':                // links
         case 'paradigms':               // links
-            break;
+            return;
 
         case 'scope':                   // links, text
-            break;
+            return;
         case 'type':                    // links
-            break;
+            return;
 
         case 'designed_by':             // text, links
-            break;
+            return;
         case 'developed_by':            // links
-            break;
+            return;
         case 'developer':               // refs, text, links
-            break;
+            return;
         case 'developers':              // text, links
-            break;
+            return;
         case 'founder':                 // refs, links
-            break;
+            return;
 
         case 'type_of_format':          // links, text
-            break;
+            return;
 
         case 'typing_discipline':       // links
             if (type === 'links') { }
-            break;
+            return;
 
         //////////////////////////////////////////////////////////////////////////////// 
 
         case 'first_appeared':          // release
-            break;
+            return;
         case 'initial_release':         // release
-            break;
+            return;
         case 'latest_release':          // release
-            break;
+            return;
         case 'preview_release':         // release
-            break;
+            return;
         case 'stable_release':          // release
-            break;
+            return;
     }
 }
 

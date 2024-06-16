@@ -1,4 +1,4 @@
-import { SerializedGraph } from 'graphology-types';
+import type { SerializedGraph } from 'graphology-types';
 import { fromStr } from '../graph/edge';
 import { buildGraph } from '../scrap/wikipedia_process';
 
@@ -20,6 +20,9 @@ async function plangsGraph(): Promise<SerializedGraph> {
             console.error(ek.errors);
             continue;
         }
+
+        // if (ek.type !== 'dialect') continue;
+
         grEdges.push({
             key: eid,
             source: ek.from,

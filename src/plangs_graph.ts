@@ -4,7 +4,8 @@
 
 import { GraphManager } from "./graph/tables";
 import { isAnyVid, type Any, type VID } from "./graph/vertex";
-import type { E_Impl_Plang, E_Influenced, E_People, E_Plang_Platf, E_Plang_Tsys, ID_V_Implementation, ID_V_Person, ID_V_Plang, ID_V_Platform, ID_V_TypeSystem, V_Implementation, V_Person, V_Plang, V_Platform, V_TypeSystem } from "./schemas";
+import type { E_Empty } from "./graph/edge";
+import type { E_People, ID_V_Implementation, ID_V_Person, ID_V_Plang, ID_V_Platform, ID_V_TypeSystem, V_Implementation, V_Person, V_Plang, V_Platform, V_TypeSystem } from "./schemas";
 
 /**
  * Collection of related edge and vertex tables.
@@ -22,11 +23,13 @@ class PlangsBase extends GraphManager {
     readonly v_tsys = this.v_table<Partial<V_TypeSystem>, ID_V_TypeSystem>('tsys');
 
     // Edge Tables.
+    readonly e_dialect_of = this.e_table<E_Empty, ID_V_Plang, ID_V_Plang>(this.v_pl.v, this.v_pl.v, { type: 'dialect', d: true });
+    readonly e_implemented_with = this.e_table<E_Empty, ID_V_Plang, ID_V_Plang>(this.v_pl.v, this.v_pl.v, { type: 'implemented_with', d: true });
+    readonly e_implements = this.e_table<E_Empty, ID_V_Implementation, ID_V_Plang>(this.v_impl.v, this.v_pl.v, { type: 'impl', d: true });
+    readonly e_influenced = this.e_table<E_Empty, VID<Any>, VID<Any>>(isAnyVid, isAnyVid, { d: true, type: 'influenced' });
     readonly e_people = this.e_table<E_People, ID_V_Person, VID<Any>>(this.v_person.v, isAnyVid, { d: true });
-    readonly e_impl_pl = this.e_table<E_Impl_Plang, ID_V_Implementation, ID_V_Plang>(this.v_impl.v, this.v_pl.v, { type: 'impl', d: true });
-    readonly e_pl_platf = this.e_table<E_Plang_Platf, ID_V_Plang, ID_V_Platform>(this.v_pl.v, this.v_platf.v, { type: 'supports', d: true });
-    readonly e_pl_tsys = this.e_table<E_Plang_Tsys, ID_V_Plang, ID_V_TypeSystem>(this.v_pl.v, this.v_tsys.v, { type: 'type_system' });
-    readonly e_influenced = this.e_table<E_Influenced, VID<Any>, VID<Any>>(isAnyVid, isAnyVid, { d: true, type: 'influenced' });
+    readonly e_pl_platf = this.e_table<E_Empty, ID_V_Plang, ID_V_Platform>(this.v_pl.v, this.v_platf.v, { type: 'supports', d: true });
+    readonly e_pl_tsys = this.e_table<E_Empty, ID_V_Plang, ID_V_TypeSystem>(this.v_pl.v, this.v_tsys.v, { type: 'type_system' });
 }
 
 /**
