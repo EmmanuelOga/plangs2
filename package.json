@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
     "flexsearch": "^0.7.43",
     "graphology": "^0.25.4",
     "graphology-layout": "^0.6.1",

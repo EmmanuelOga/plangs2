@@ -5,7 +5,7 @@ import { fromStr } from "./graph/edge";
 /**
  * Scans the ./entities directory and loads all graph data from `define` functions.
  */
-async function loadDefinitions(): Promise<PlangsGraph> {
+export async function loadDefinitions(): Promise<PlangsGraph> {
     const glob = new Glob("**/*.ts");
 
     const g = new PlangsGraph();
