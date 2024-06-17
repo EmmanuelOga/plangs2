@@ -11,6 +11,7 @@ import EdgeCurveProgram from "@sigma/edge-curve";
 import { random } from "graphology-layout";
 import forceAtlas2 from "graphology-layout-forceatlas2";
 import circlepack from "graphology-layout/circlepack";
+import * as components from "graphology-components";
 import Sigma from "sigma";
 import type { EdgeDisplayData, NodeDisplayData } from "sigma/types";
 

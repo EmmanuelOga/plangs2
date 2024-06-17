@@ -129,10 +129,10 @@ async function scrapLanguagePage(wikiPath: string) {
     }
 
     function getMonth(str: string): number {
-        str = str.toLocaleLowerCase();
+        let s = str.toLocaleLowerCase();
         const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
         for (const [i, p] of months.entries()) {
-            if (str.includes(p)) return i + 1;
+            if (s.includes(p)) return i + 1;
         }
         return 0;
     }
@@ -167,10 +167,12 @@ async function scrapLanguagePage(wikiPath: string) {
     }
 
     function extractData(type: string, el: Cheerio<Element>): {} {
+        // biome-ignore lint/suspicious/noExplicitAny: who knows what the data is.
         const result: { [index: string]: any } = {};
 
         const sup = el.find('sup').remove();
         const links = el.find('a').remove();
+        el.find('br').replaceWith(',');
 
         for (const a of sup.find('a')) {
             const id = $(a).attr('href');
@@ -180,10 +182,16 @@ async function scrapLanguagePage(wikiPath: string) {
             // When archived the first contains the title, and the second the URL.
             if (ref1 && ref2 && ref2.title?.toLowerCase().includes('archived')) {
                 ref2.title = unquote(ref1.title ?? '');
-                if (ref2.title) (result['refs'] ||= []).push(ref2);
+                if (ref2.title) {
+                    result.refs ??= []
+                    result.refs.push(ref2);
+                }
             } else if (ref1) {
                 ref1.title = unquote(ref1.title ?? '');
-                if (ref1.title) (result['refs'] ||= []).push(ref1);
+                if (ref1.title) {
+                    result.refs ??= []
+                    result.refs.push(ref1);
+                }
             }
         }
 
@@ -267,10 +275,10 @@ async function scrapLanguagePage(wikiPath: string) {
 
 function cleanImgUrl(url: string | undefined): string {
     if (!url) return '';
-    url = url.replace(/^\/\//, '');
-    if (url.indexOf('.svg') < 0) return `https://${url}`;
-    url = url.replace(/\/thumb\//, '/');
-    return `https://${url.split('.svg')[0]}.svg`;
+    let u = url.replace(/^\/\//, '');
+    if (u.indexOf('.svg') < 0) return `https://${u}`;
+    u = u.replace(/\/thumb\//, '/');
+    return `https://${u.split('.svg')[0]}.svg`;
 }
 
 /**
@@ -306,10 +314,8 @@ async function main(refresh = false) {
     }
 
     console.log(`Writing ${STATE.plangs.size} programming languages to ${cachePath('json')}.`);
-    console.log(JSON.stringify([...STATE.plangs.keys()].sort()));
 
     for (const [key, value] of STATE.plangs) {
-        console.log(key);
         Bun.write(
             cachePath('json', toBasename(key, 'json')),
             JSON.stringify(value, null, 2)

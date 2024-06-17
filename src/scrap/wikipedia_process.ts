@@ -23,7 +23,7 @@ function addTsys(g: PlangsGraph, name: string, wiki: Link['href']) {
         { name, websites: [{ title: '${name} Type System', href: `${WIKIPEDIA_URL}${wiki}`, kind: 'wikipedia' }] });
 }
 
-
+const things = new Set<string>();
 async function parseAll(g: PlangsGraph) {
     addTsys(g, 'Affine', '/wiki/affine_type_system');
     addTsys(g, 'Dependent', '/wiki/dependent_type');
@@ -58,6 +58,7 @@ async function parseAll(g: PlangsGraph) {
         processLanguage(g, title, wikiUrl, image, data);
     }
     console.log('Done processing languages.', new Date());
+    console.log(Array.from(things).sort().join(', '));
 }
 
 function toAlphaNum(s: string) {
@@ -258,28 +259,48 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             }
             return;
 
-        case 'paradigm':                // links
-        case 'paradigms':               // links
+        case 'paradigm':
+        case 'paradigms':
+            // links: functional, imperative, etc.
             return;
 
         case 'scope':                   // links, text
-            return;
-        case 'type':                    // links
-            return;
-
-        case 'designed_by':             // text, links
-            return;
-        case 'developed_by':            // links
-            return;
-        case 'developer':               // text, links
-            return;
-        case 'developers':              // text, links
-            return;
-        case 'founder':                 // links
+            // lecical, dynamic, etc.
             return;
 
-        case 'type_of_format': // Only a handful "scripting", not very useful.
+        case 'type': // links
+            // programming, markup, etc. ... super random.... tags?
+            // if (type === 'text') things.add(val)
+            // else for (const {title, href} of val) {
+            //     if (href) things.add(href.toLocaleLowerCase());
+            // }
             return;
+
+        case 'founder':
+        case 'developer':
+        case 'designed_by':
+        case 'developed_by':
+        case 'developers':
+            {
+                function addPerson(name: string, link?: Link) {
+                    const pid = toAlphaNum(name);
+                    g.v_person.merge(`person+${pid}`, link ? { name, websites: [link] } : { name }, 'skipIfExists');
+                    g.e_people.merge(
+                        { from: `person+${pid}`, to: pvid },
+                        { role: key === 'developers' ? 'contributor' : 'designer' }, 'skipIfExists');
+                }
+
+                if (type === 'text') {
+                    for (const who of extractNames(val)) addPerson(who);
+                } else if (type === 'links') {
+                    for (const { title, href } of val.filter(({ href }) => href.startsWith('/wiki'))) {
+                        const names = extractNames(title);
+                        if (names.length !== 1) continue;
+                        addPerson(names[0], { title, href, kind: 'wikipedia' });
+                    }
+                }
+                return;
+            }
 
         case 'typing_discipline':
             {
@@ -318,8 +339,6 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             }
             return;
 
-        //////////////////////////////////////////////////////////////////////////////// 
-
         case 'first_appeared':
         case 'initial_release':
         case 'latest_release':
@@ -341,6 +360,9 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
                 pl.releases ??= [];
                 pl.releases.push(rel);
             }
+            return;
+
+        case 'type_of_format': // Only a handful, lke "scripting", not very useful.
             return;
     }
 }
@@ -379,3 +401,17 @@ function pushLinks(container: Link[], key: 'website', links: { title: string, ki
     }
 }
 
+const NON_PEOPLE = /\d|eth|commercial|community|consortium|hewlett-packard|honeywell|labs|ansi|center|academ.*|harvard|mit\b|ieee|ibm|huawei|xerox|wso2|w3c|iso\b|inria|institute|research|computer|science|foundation|tech.+|polytech.*|university|comittee|jetbrains|sap\b|sas\b|institute|original|contributors|others|open|source|students|nvidia|organization|group|comunity|project|corp|chair|galois|foundation|ltd|tech|core|team|inc|systems|university|software/i;
+
+function extractNames(str: string): string[] {
+    return str
+        .replace(/et\s+al.*/, '')
+        .split(/,|&|;|\sand\s/)
+        .map((s: string) => {
+            const match = s.match(/([^\()]+)\).*/i);
+            return (match ? match[1] : s).trim();
+        })
+        .filter((s: string) => s.length > 5 && s.length < 25)
+        .filter((s: string) => s.includes(' '))
+        .filter((s: string) => !NON_PEOPLE.test(s))
+}

@@ -34,6 +34,7 @@ export interface V_TypeSystem extends V {
 
 export type ID_V_Person = VID<`person`>;
 export interface V_Person extends V {
+    websites: Link[];
 }
 
 export type ID_V_License = VID<`license`>;
@@ -46,7 +47,7 @@ export interface V_License extends V {
 ////////////////////////////////////////////////////////////////////////////////
 
 export interface E_People {
-    role: 'designer' | 'contributor' | 'maintainer';
+    role: 'designer' | 'contributor';
 }
 
 ////////////////////////////////////////////////////////////////////////////////

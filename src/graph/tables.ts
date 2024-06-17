@@ -95,7 +95,7 @@ export class Table<TKey = any, TData = any> {
         }
 
         if (conflicts.length > 0) {
-            console.log(`Warning, conflicting definition for ${key}: ${JSON.stringify(conflicts)}.`)
+            console.log(`Warning, conflicting definition: ${JSON.stringify({ key, conflicts })}.`)
         }
 
         return { conflicts };
@@ -118,7 +118,8 @@ export class Table<TKey = any, TData = any> {
  */
 type SimpleGraph = {
     vertices: Map<string, V>;
-    edges: Map<string, unknown>;
+    // biome-ignore lint/suspicious/noExplicitAny: Can be any E_Edge interface.
+    edges: Map<string, any>;
     adjacency: Map<string, string[]>;
 }
 
