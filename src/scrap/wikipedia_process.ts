@@ -5,7 +5,7 @@
 import { Glob } from 'bun';
 import type { VID } from '../graph/vertex';
 import { PlangsGraph } from '../plangs_graph';
-import type { Image, Link, Release } from '../schemas';
+import type { Image, Link, Release, V_Plang } from '../schemas';
 import { WIKIPEDIA_URL, cachePath } from './wikipedia_json';
 
 type DATA_ATTR =
@@ -59,11 +59,16 @@ async function parseAll(g: PlangsGraph) {
         processLanguage(g, title, wikiUrl, image, data);
     }
 
+    for (const [key, val ] of g.v_plang) {
+        if (val.scoping) console.log(key, val.scoping)
+    }
+
     console.log('Done processing languages.', new Date());
     console.log(things.size)
     for (const [href, titles] of things) {
         if (titles.size > 1) console.log([...titles.values()].join(', '), '\t', href);
     }
+    console.log('all', things)
 }
 
 function toAlphaNum(s: string) {
@@ -113,7 +118,7 @@ function processLanguage(
 }
 
 function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE, val: any) {
-    const pl = g.v_plang.get(pvid);
+    const pl = g.v_plang.get(pvid) as Partial<V_Plang>;
     if (!pl) throw new Error(`Language not found: ${pl}`);
 
     // Would be nice to map the reference to the exact edge it belongs to,
@@ -266,7 +271,6 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
 
         case 'paradigm':
         case 'paradigms':
-            if (type === 'text') console.log('TEXT', pvid, val);
             if (type !== 'links') return;
             for (const { href, title } of val) {
                 for (let name of title.split(',').map((s: string) => s.replace('programming', '').trim().toLowerCase())) {
@@ -286,11 +290,19 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
                     g.e_plang_para.connect({ from: pvid, to: `para+${para}` });
                 }
             }
-            // links: functional, imperative, etc.
             return;
 
-        case 'scope':                   // links, text
-            // lecical, dynamic, etc.
+        case 'scope':
+            {
+                function processScope(scopes: string): void {
+                    if (scopes.includes('lexical')) { pl.scoping ??= []; pl.scoping.push('lexical'); }
+                    if (scopes.includes('static')) { pl.scoping ??= []; pl.scoping.push('static'); }
+                    if (scopes.includes('dynamic')) { pl.scoping ??= []; pl.scoping.push('dynamic'); }
+                }
+                if (type === 'text') processScope(val);
+                if (type !== 'links') return;
+                for (const { title, href } of val) { processScope(title); }
+            }
             return;
 
         case 'type': // links

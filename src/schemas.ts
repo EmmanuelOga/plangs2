@@ -11,6 +11,7 @@ export interface V_Plang extends V {
     releases: Release[];
     selfHosted: boolean;
     extensions: string[];
+    scoping: ('lexical' | 'static' | 'dynamic' | 'other')[];
 
     // A map of references grouped by tag: #influences, #influenced_by, etc.
     references: { [tag: string]: Link[] };

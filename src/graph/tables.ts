@@ -8,7 +8,7 @@ import type { V } from "./vertex";
  * function to convert the keys to strings.
  */
 // biome-ignore lint/suspicious/noExplicitAny: we don't know what kind of data TData/TData will be.
-export class Table<TKey = any, TData = any> {
+export class Table<TKey = any, TData = any> implements Iterable<[TKey extends string ? TKey : string, TData]> {
     private _map = new Map<string, TData>();
 
     /**
@@ -19,6 +19,10 @@ export class Table<TKey = any, TData = any> {
         readonly mapper: (key: TKey) => string,
         readonly validator: (key: TKey) => boolean,
     ) { }
+
+    [Symbol.iterator](): IterableIterator<[TKey extends string ? TKey : string, TData]> {
+        return this._map.entries() as IterableIterator<[TKey extends string ? TKey : string, TData]>;
+    }
 
     get v(): (key: TKey) => boolean { return this.validator; }
 
