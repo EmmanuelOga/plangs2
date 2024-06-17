@@ -32,6 +32,11 @@ export interface V_TypeSystem extends V {
     websites: Link[];
 }
 
+export type ID_V_Paradigm = VID<`para`>;
+export interface V_Paradigm extends V {
+    websites: Link[];
+}
+
 export type ID_V_Person = VID<`person`>;
 export interface V_Person extends V {
     websites: Link[];

@@ -2,10 +2,10 @@
  * Define a collection of vertex and edge tables.
  */
 
+import type { E_Empty } from "./graph/edge";
 import { GraphManager } from "./graph/tables";
 import { type ID_V_Any, isAnyVid } from "./graph/vertex";
-import type { E_Empty } from "./graph/edge";
-import type { E_People, ID_V_Implementation, ID_V_License, ID_V_Person, ID_V_Plang, ID_V_Platform, ID_V_TypeSystem, V_Implementation, V_License, V_Person, V_Plang, V_Platform, V_TypeSystem } from "./schemas";
+import type { E_People, ID_V_Implementation, ID_V_License, ID_V_Paradigm, ID_V_Person, ID_V_Plang, ID_V_Platform, ID_V_TypeSystem, V_Implementation, V_License, V_Paradigm, V_Person, V_Plang, V_Platform, V_TypeSystem } from "./schemas";
 
 /**
  * Collection of related edge and vertex tables.
@@ -18,6 +18,7 @@ class PlangsBase extends GraphManager {
     // Vertex tables.
     readonly v_impl = this.v_table<Partial<V_Implementation>, ID_V_Implementation>('impl');
     readonly v_license = this.v_table<Partial<V_License>, ID_V_License>('license');
+    readonly v_paradigm = this.v_table<Partial<V_Paradigm>, ID_V_Paradigm>('para');
     readonly v_person = this.v_table<Partial<V_Person>, ID_V_Person>('person');
     readonly v_plang = this.v_table<Partial<V_Plang>, ID_V_Plang>('pl');
     readonly v_platform = this.v_table<Partial<V_Platform>, ID_V_Platform>('platf');
@@ -31,6 +32,7 @@ class PlangsBase extends GraphManager {
     readonly e_influenced = this.e_table<E_Empty, ID_V_Any, ID_V_Any>(isAnyVid, isAnyVid, { d: true, type: 'influenced' });
     readonly e_people = this.e_table<E_People, ID_V_Person, ID_V_Any>(this.v_person.v, isAnyVid, { d: true });
     readonly e_plang_tsys = this.e_table<E_Empty, ID_V_Plang, ID_V_TypeSystem>(this.v_plang.v, this.v_tsystem.v, { type: 'type_system', d: true });
+    readonly e_plang_para = this.e_table<E_Empty, ID_V_Plang, ID_V_Paradigm>(this.v_plang.v, this.v_paradigm.v, { type: 'paradigm', d: true });
     readonly e_supports_platf = this.e_table<E_Empty, ID_V_Any, ID_V_Platform>(isAnyVid, this.v_platform.v, { type: 'supports', d: true });
 }
 

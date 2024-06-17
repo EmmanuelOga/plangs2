@@ -23,7 +23,8 @@ function addTsys(g: PlangsGraph, name: string, wiki: Link['href']) {
         { name, websites: [{ title: '${name} Type System', href: `${WIKIPEDIA_URL}${wiki}`, kind: 'wikipedia' }] });
 }
 
-const things = new Set<string>();
+const things = new Map<string, Set<string>>();
+
 async function parseAll(g: PlangsGraph) {
     addTsys(g, 'Affine', '/wiki/affine_type_system');
     addTsys(g, 'Dependent', '/wiki/dependent_type');
@@ -57,8 +58,12 @@ async function parseAll(g: PlangsGraph) {
         const data: Record<DATA_ATTR, Record<DATA_TYPE, any>> = j.data;
         processLanguage(g, title, wikiUrl, image, data);
     }
+
     console.log('Done processing languages.', new Date());
-    console.log(Array.from(things).sort().join(', '));
+    console.log(things.size)
+    for (const [href, titles] of things) {
+        if (titles.size > 1) console.log([...titles.values()].join(', '), '\t', href);
+    }
 }
 
 function toAlphaNum(s: string) {
@@ -261,6 +266,26 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
 
         case 'paradigm':
         case 'paradigms':
+            if (type === 'text') console.log('TEXT', pvid, val);
+            if (type !== 'links') return;
+            for (const { href, title } of val) {
+                for (let name of title.split(',').map((s: string) => s.replace('programming', '').trim().toLowerCase())) {
+                    if (name.includes('multi')) name = 'multi-paradigm';
+                    if (name.includes('procedural')) name = 'imperative';
+                    if (name.includes('generics')) name = 'generic';
+                    if (name.includes('declarative')) name = 'declarative';
+                    if (name.includes('visual') || name.includes('block-')) name = 'visual';
+                    if (name.includes('parallel')) name = 'parallel';
+                    if (name.includes('stack')) name = 'stack-oriented';
+                    if (name.includes('functional')) name = 'functional';
+
+                    const para = toAlphaNum(name);
+                    g.v_paradigm.merge(`para+${name}`, {
+                        name: name, websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
+                    }, 'skipIfExists');
+                    g.e_plang_para.connect({ from: pvid, to: `para+${para}` });
+                }
+            }
             // links: functional, imperative, etc.
             return;
 
@@ -270,10 +295,6 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
 
         case 'type': // links
             // programming, markup, etc. ... super random.... tags?
-            // if (type === 'text') things.add(val)
-            // else for (const {title, href} of val) {
-            //     if (href) things.add(href.toLocaleLowerCase());
-            // }
             return;
 
         case 'founder':

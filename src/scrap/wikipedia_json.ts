@@ -129,7 +129,7 @@ async function scrapLanguagePage(wikiPath: string) {
     }
 
     function getMonth(str: string): number {
-        let s = str.toLocaleLowerCase();
+        const s = str.toLocaleLowerCase();
         const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
         for (const [i, p] of months.entries()) {
             if (s.includes(p)) return i + 1;
