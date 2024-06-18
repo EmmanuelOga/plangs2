@@ -2,9 +2,9 @@
  * Simple Wikipedia crawler for programming language pages.
  */
 
-import { type Cheerio, type Element, load } from 'cheerio';
 import { unlinkSync } from 'node:fs';
 import { mkdir } from 'node:fs/promises';
+import { type Cheerio, type Element, load } from 'cheerio';
 
 export const WIKIPEDIA_URL = 'https://en.wikipedia.org';
 
@@ -46,10 +46,6 @@ const SKIP = new Set<string>([
     '.QL', 'A+', 'ABC', 'AIMACO', 'ALF', 'ALGOL 58', 'ALGOL 60', 'ALGOL 68', 'ALGOL W', 'AMPL', 'AWK', 'AdvPL', 'Agda', 'AgentCubes', 'Aldor', 'Alef', 'Alice', 'Alma-0', 'Analitik', 'Arc', 'ArkTS', 'AutoIt', 'AutoLISP', 'A♯', 'B', 'BASIC', 'BASIC-PLUS', 'BCPL', 'BETA', 'BLISS', 'BeanShell', 'Befunge', 'Boomerang', 'Bosque', 'Brainfuck', 'C*', 'C++Builder', 'C--', 'C/AL', 'CHILL', 'CLU', 'CMS-2', 'COBOL', 'COMAL', 'COMTRAN', 'CPL', 'Caml', 'Catrobat', 'Ceylon', 'Chapel', 'Charm', 'Ciao', 'Claire', 'Clean', 'CorVision', 'Coral 66', 'Cuneiform', 'Curl', 'Curry', 'Cyclone', 'DIBOL', 'DRAKON', 'Darwin', 'Draco', 'E', 'Ease', 'Eiffel', 'Elan', 'Emerald', 'Epigram', 'Etoys', 'EuLisp', 'Euclid', 'Euler', 'Euphoria', 'Ezhil', 'F language', 'F*', 'FL', 'FLOW-MATIC', 'FOCAL', 'FP', 'Fantom', 'FpgaC', 'GW-BASIC', 'Gambas', 'Genie', 'Go!', 'Gosu', 'Hack', 'Handel-C', 'Hop', 'Hume', 'HyperTalk', 'IMP', 'ISLISP', 'ISWIM', 'Icon', 'J', 'JOVIAL', 'JS++', 'Join Java', 'Joule', 'Joy', 'KRC', 'Kawa', 'Language H', 'Lasso', 'Le Lisp', 'Lean', 'Limbo', 'Lisp', 'Little b', 'LiveScript', 'Logo', 'Logtalk', 'Lucid', 'MAD', 'MATH-MATIC', 'ML', 'MSX BASIC', 'MUMPS', 'Maclisp', 'Malbolge', 'Mercury', 'Mesa[1]', 'Mirah', 'Miranda', 'Modula', 'Modula-2', 'Modula-2+', 'Modula-3', 'MultiLisp', 'NEWP', 'Napier88', 'Nemerle', 'NetRexx', 'Newspeak', 'Newsqueak', 'Nial', 'Nu', 'Oaklisp', 'Oberon', 'Oberon-2', 'Obliq', 'Opa', 'OpenLisp', 'OptimJ', 'Orc', 'Orwell', 'Oxygene', 'Oz', 'PCASTL', 'PL/C', 'PL/I', 'PL/M', 'PL360', 'POP-11', 'POP-2', 'PROMAL', 'PS-algol', 'ParaSail', 'Pict', 'Pipelines', 'Pizza', 'Plankalkül', 'Plus', 'Prograph', 'ProvideX', 'Pyomo', 'Q#', 'QuakeC', 'R', 'RAPID', 'RPL', 'RTL/2', 'Rapira', 'Ratfor', 'Rexx', 'S', 'S3', 'SAC', 'SAIL', 'SASL', 'SCM', 'SETL', 'SIOD', 'SISAL', 'SKILL', 'SNOBOL', 'SP/k', 'SPARK', 'SQL/PSM', 'STOIC', 'Sather', 'Scratch', 'Script.NET', 'Seed7', 'Self', 'SenseTalk', 'Short Code', 'Simula', 'Snap!', 'Source', 'Split-C', 'StarLogo', 'Strongtalk', 'Superplan', 'TELCOMP', 'TRAC', 'TTM', 'Tea', 'UCBLogo', 'Unicon', 'VHDL', 'Verse', 'X10', 'XOTcl', 'XSB', 'Xtend', 'ZPL', 'Zonnon', 'eC', 'newLISP', 'occam', 'occam-π', 'q', 'rc', 'sed', 'urbiscript', 'قلب', 'bs', 'PL/pgSQL',
 ]);
 
-
-// Try to avoid non-active languages.
-const FORBIDDEN_KEYS = new Set<string>(['defunct', 'discontinued', 'final_release', 'successor']);
-const REQUIRED_KEYS = new Set<string>(['influenced_by']);
 
 const CACHE_PATH = Bun.fileURLToPath(`file:///${__dirname}/../../.cache`)
 
@@ -261,15 +257,6 @@ async function scrapLanguagePage(wikiPath: string) {
         }
     }
 
-    // Skip some languages.
-    // if (SKIP.has(title)) return;
-    // const req = new Set<string>();
-    // for (const key of Object.keys(infobox)) {
-    //     if (FORBIDDEN_KEYS.has(key)) return;
-    //     if (REQUIRED_KEYS.has(key)) req.add(key);
-    // }
-    // if (req.size !== REQUIRED_KEYS.size) return;
-
     emit({ title, wikiUrl: `${WIKIPEDIA_URL}${wikiPath}`, img, data: infobox });
 }
 
@@ -284,7 +271,7 @@ function cleanImgUrl(url: string | undefined): string {
 /**
  * Scrap the Wikipedia page for programming languages.
  */
-async function main(refresh = false) {
+async function wikiScrape(refresh = false) {
     console.log('Scraping Wikipedia. Using cache: ', CACHE_PATH);
 
     await mkdir(cachePath('wiki'), { recursive: true }).catch((_) => { });
@@ -323,4 +310,4 @@ async function main(refresh = false) {
     }
 }
 
-// await main(false);
+if (process.env.WIKI_SCRAPE) wikiScrape(process.env.WIKI_SCRAPE === 'REFRESH');

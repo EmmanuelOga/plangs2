@@ -6,6 +6,7 @@ import { Glob } from 'bun';
 import type { VID } from '../graph/vertex';
 import { PlangsGraph } from '../plangs_graph';
 import type { Image, Link, Release, V_Plang } from '../schemas';
+import { toAlphaNum } from '../util';
 import { WIKIPEDIA_URL, cachePath } from './wikipedia_json';
 
 type DATA_ATTR =
@@ -17,37 +18,51 @@ type DATA_ATTR =
 
 type DATA_TYPE = 'extensions' | 'links' | 'refs' | 'release' | 'text';
 
-function addTsys(g: PlangsGraph, name: string, wiki: Link['href']) {
-    g.v_tsystem.set(
-        `tsys+${name.toLowerCase()}`,
-        { name, websites: [{ title: '${name} Type System', href: `${WIKIPEDIA_URL}${wiki}`, kind: 'wikipedia' }] });
+if (process.env.WIKI_PROCESS) {
+    const g = new PlangsGraph();
+    await parseAll(g)
+
+    for (const [_, pl] of g.v_plang) {
+        const keep = pl.releases?.some((r: Release) => {
+            const year = new Date(r.date ?? "1970-01-01").getFullYear();
+            return year === 2024;
+        })
+        if (keep) { console.log('Keep: ', pl.name, '\t', pl.websites?.map(w => w.href).join(', ')); }
+    }
 }
 
-const things = new Map<string, Set<string>>();
+/**
+ * Returns a graph out of reading the cached JSON files from the Wikipedia scraping.
+ */
+export async function parseAll(g: PlangsGraph) {
+    function addTsys(name: string, wiki: Link['href']) {
+        g.v_tsystem.set(
+            `tsys+${name.toLowerCase()}`,
+            { name, websites: [{ title: '${name} Type System', href: `${WIKIPEDIA_URL}${wiki}`, kind: 'wikipedia' }] });
+    }
 
-async function parseAll(g: PlangsGraph) {
-    addTsys(g, 'Affine', '/wiki/affine_type_system');
-    addTsys(g, 'Dependent', '/wiki/dependent_type');
-    addTsys(g, 'Duck', '/wiki/duck_typing');
-    addTsys(g, 'Dynamic', '/wiki/dynamic_typing');
-    addTsys(g, 'Flow-Sensitive', '/wiki/flow-sensitive_typing');
-    addTsys(g, 'Generic', '/wiki/generic_programming');
-    addTsys(g, 'Gradual', '/wiki/gradual_typing');
-    addTsys(g, 'Hindley-Milner', '/wiki/hindley%e2%80%93milner_type_system');
-    addTsys(g, 'Inferred', '/wiki/type_inference');
-    addTsys(g, 'Latent', '/wiki/latent_typing');
-    addTsys(g, 'Manifest', '/wiki/manifest_typing');
-    addTsys(g, 'Nominative', '/wiki/nominative_type_system');
-    addTsys(g, 'Object-Oriented', '/wiki/object_(computer_science)');
-    addTsys(g, 'Optional', '/wiki/optional_typing');
-    addTsys(g, 'Parametric', '/wiki/parametric_polymorphism');
-    addTsys(g, 'Polymorphic', '/wiki/polymorphism_(computer_science)');
-    addTsys(g, 'Safe', '/wiki/type_safety');
-    addTsys(g, 'Static', '/wiki/static_typing');
-    addTsys(g, 'Strong', '/wiki/strong_typing');
-    addTsys(g, 'Structural', '/wiki/structural_type_system');
-    addTsys(g, 'Uniqueness', '/wiki/uniqueness_type');
-    addTsys(g, 'Weak', '/wiki/weak_typing');
+    addTsys('Affine', '/wiki/affine_type_system');
+    addTsys('Dependent', '/wiki/dependent_type');
+    addTsys('Duck', '/wiki/duck_typing');
+    addTsys('Dynamic', '/wiki/dynamic_typing');
+    addTsys('Flow-Sensitive', '/wiki/flow-sensitive_typing');
+    addTsys('Generic', '/wiki/generic_programming');
+    addTsys('Gradual', '/wiki/gradual_typing');
+    addTsys('Hindley-Milner', '/wiki/hindley%e2%80%93milner_type_system');
+    addTsys('Inferred', '/wiki/type_inference');
+    addTsys('Latent', '/wiki/latent_typing');
+    addTsys('Manifest', '/wiki/manifest_typing');
+    addTsys('Nominative', '/wiki/nominative_type_system');
+    addTsys('Object-Oriented', '/wiki/object_(computer_science)');
+    addTsys('Optional', '/wiki/optional_typing');
+    addTsys('Parametric', '/wiki/parametric_polymorphism');
+    addTsys('Polymorphic', '/wiki/polymorphism_(computer_science)');
+    addTsys('Safe', '/wiki/type_safety');
+    addTsys('Static', '/wiki/static_typing');
+    addTsys('Strong', '/wiki/strong_typing');
+    addTsys('Structural', '/wiki/structural_type_system');
+    addTsys('Uniqueness', '/wiki/uniqueness_type');
+    addTsys('Weak', '/wiki/weak_typing');
 
     const glob = new Glob('**/*.json');
     for await (const path of glob.scan(cachePath('json'))) {
@@ -59,32 +74,7 @@ async function parseAll(g: PlangsGraph) {
         processLanguage(g, title, wikiUrl, image, data);
     }
 
-    for (const [key, val ] of g.v_plang) {
-        if (val.scoping) console.log(key, val.scoping)
-    }
-
     console.log('Done processing languages.', new Date());
-    console.log(things.size)
-    for (const [href, titles] of things) {
-        if (titles.size > 1) console.log([...titles.values()].join(', '), '\t', href);
-    }
-    console.log('all', things)
-}
-
-function toAlphaNum(s: string) {
-    return s.trim()
-        // biome-ignore lint/suspicious/noMisleadingCharacterClass: removes accents/diacritics.
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, '')
-        .replace(/\s+/g, ' ')
-        .replace(/\s/g, '-')
-        .replace('.', 'dot')
-        .replace(/\//g, 'Slash')
-        .replace(/\\/g, 'Backslash')
-        .replace(/[\*]/g, 'Star')
-        .replace(/\+/g, 'P')
-        .replace(/\#/g, 'Sharp')
-        .replace(/[\/\:]/g, '-')
-        .replace(/[^a-zA-Z0-9]/g, '-');
 }
 
 function processLanguage(
@@ -133,9 +123,33 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
     switch (key) {
         case 'website':
             if (type !== 'links') return
-            pl.websites ??= [];
-            pushLinks(pl.websites, 'website', val);
-            return;
+            {
+                pl.websites ??= [];
+                for (let { title, href } of val) {
+                    if (!title || !href) continue
+
+                    if (href.startsWith('//')) href = `https:${href}`;
+                    if (href.startsWith('/wiki')) href = WIKIPEDIA_URL + href;
+
+                    let url: URL;
+                    try {
+                        url = new URL(href); url.hostname = url.hostname.toLowerCase();
+                    } catch (e) {
+                        console.error(`WARNING: Invalid URL: ${href}`);
+                        continue;
+                    }
+
+                    let kind: Link['kind'];
+                    if (url.hostname.toLowerCase().includes('wikipedia.org')) {
+                        kind = 'wikipedia';
+                    } else if (href.includes('git')) kind = 'repository';
+                    else kind = 'homepage';
+
+                    const link: Link = { kind, title, href };
+                    pl.websites.push(link);
+                }
+                return;
+            }
 
         case 'filename_extension':
         case 'filename_extensions':
@@ -306,7 +320,7 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             return;
 
         case 'type': // links
-            // programming, markup, etc. ... super random.... tags?
+            // Things lile "educational", "markup", etc... not very useful (also present in very few languages).
             return;
 
         case 'founder':
@@ -315,6 +329,7 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
         case 'developed_by':
         case 'developers':
             {
+
                 function addPerson(name: string, link?: Link) {
                     const pid = toAlphaNum(name);
                     g.v_person.merge(`person+${pid}`, link ? { name, websites: [link] } : { name }, 'skipIfExists');
@@ -400,40 +415,6 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
     }
 }
 
-export async function buildGraph(): Promise<PlangsGraph> {
-    const g = new PlangsGraph();
-    await parseAll(g);
-    return g;
-}
-
-function pushLinks(container: Link[], key: 'website', links: { title: string, kind: string, href: string }[]) {
-    for (let { title, href } of links) {
-        if (!title || !href) continue
-
-        if (href.startsWith('//')) href = `https:${href}`;
-        if (href.startsWith('/wiki')) href = WIKIPEDIA_URL + href;
-
-        let url: URL;
-        try {
-            url = new URL(href); url.hostname = url.hostname.toLowerCase();
-        } catch (e) {
-            console.error(`WARNING: Invalid URL: ${href}`);
-            continue;
-        }
-
-        let kind: Link['kind'] = 'other';
-        if (url.hostname.toLowerCase().includes('wikipedia.org')) {
-            kind = 'wikipedia';
-        } else if (href.includes('git')) kind = 'repository';
-
-        if (key === 'website' && kind !== 'wikipedia') {
-            container.push({ kind: 'homepage', title, href });
-        } else {
-            container.push({ kind, title, href });
-        }
-    }
-}
-
 const NON_PEOPLE = /\d|eth|commercial|community|consortium|hewlett-packard|honeywell|labs|ansi|center|academ.*|harvard|mit\b|ieee|ibm|huawei|xerox|wso2|w3c|iso\b|inria|institute|research|computer|science|foundation|tech.+|polytech.*|university|comittee|jetbrains|sap\b|sas\b|institute|original|contributors|others|open|source|students|nvidia|organization|group|comunity|project|corp|chair|galois|foundation|ltd|tech|core|team|inc|systems|university|software/i;
 
 function extractNames(str: string): string[] {
@@ -446,5 +427,5 @@ function extractNames(str: string): string[] {
         })
         .filter((s: string) => s.length > 5 && s.length < 25)
         .filter((s: string) => s.includes(' '))
-        .filter((s: string) => !NON_PEOPLE.test(s))
+    // .filter((s: string) => !NON_PEOPLE.test(s))
 }
