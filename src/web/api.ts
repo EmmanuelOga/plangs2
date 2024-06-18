@@ -2,7 +2,7 @@ import type { SerializedGraph } from 'graphology-types';
 import { fromStr } from '../graph/edge';
 import { PlangsGraph } from '../plangs_graph';
 import { V_Plang } from '../schemas';
-import { parseAll } from '../scrap/wikipedia_process';
+import { parseAll } from '../bootstrap/wikipedia_process';
 
 async function plangsGraph(): Promise<SerializedGraph> {
     const grNodes: SerializedGraph['nodes'] = [];

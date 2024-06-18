@@ -18,19 +18,6 @@ type DATA_ATTR =
 
 type DATA_TYPE = 'extensions' | 'links' | 'refs' | 'release' | 'text';
 
-if (process.env.WIKI_PROCESS) {
-    const g = new PlangsGraph();
-    await parseAll(g)
-
-    for (const [_, pl] of g.v_plang) {
-        const keep = pl.releases?.some((r: Release) => {
-            const year = new Date(r.date ?? "1970-01-01").getFullYear();
-            return year === 2024;
-        })
-        if (keep) { console.log('Keep: ', pl.name, '\t', pl.websites?.map(w => w.href).join(', ')); }
-    }
-}
-
 /**
  * Returns a graph out of reading the cached JSON files from the Wikipedia scraping.
  */
@@ -73,8 +60,6 @@ export async function parseAll(g: PlangsGraph) {
         const data: Record<DATA_ATTR, Record<DATA_TYPE, any>> = j.data;
         processLanguage(g, title, wikiUrl, image, data);
     }
-
-    console.log('Done processing languages.', new Date());
 }
 
 function processLanguage(
