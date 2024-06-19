@@ -3,6 +3,7 @@
     "@biomejs/biome": "^1.8.1",
     "@sigma/edge-curve": "^3.0.0-beta.8",
     "cheerio": "^1.0.0-rc.12",
+    "eta": "^3.4.0",
     "flexsearch": "^0.7.43",
     "graphology": "^0.25.4",
     "graphology-components": "^1.5.4",

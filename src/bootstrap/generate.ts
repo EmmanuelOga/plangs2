@@ -1,6 +1,9 @@
 import { PlangsGraph } from "../entities/plangs_graph";
 import type { T_Id_V_Plang } from "../entities/schemas";
 import { parseAll } from "./wikipedia_process";
+import { Eta } from "eta"
+
+const Templ = new Eta({ views: __dirname, autoEscape: false });
 
 await generateAll();
 
@@ -10,12 +13,24 @@ async function generateAll() {
 
     console.log(new Date().toISOString());
 
-    genTsFile(g, "pl+Python");
+    genPlangTsFile(g, "pl+Python");
 }
 
-function genTsFile(g: PlangsGraph, plvid: T_Id_V_Plang) {
+function genPlangTsFile(g: PlangsGraph, plvid: T_Id_V_Plang) {
     const pl = g.v_plang.get(plvid);
     if (!pl) throw new Error("Language not found")
+
+    const res = Templ.render("./plang", {
+        name: "Python",
+        plangVid: "pl+Python",
+        image: "",
+        website: "",
+        extensions: [],
+        scoping: [],
+        references: [],
+        people: [],
+    })
+    console.log(res);
 
     pl.name
     pl.images // Image[];

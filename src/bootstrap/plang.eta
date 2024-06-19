@@ -1,0 +1,104 @@
+import type { PlangsGraph } from '../../entities/plangs_graph';
+
+export const lang_vid = '<%= it.vid %>';
+
+export function define(g: PlangsGraph) {
+    const pl = g.v_plang.merge(lang_vid, { name: '<%= it.name %>' });
+    const plb = g.plangBuilder(pl);
+
+    plb.addImage(<%= it.image %>);
+
+    plb.addWebsite(<%= it.website %>);
+
+    plb.addExtensions(<%= it.extensions %>);
+
+    plb.addScoping(<%= it.scoping %>);
+
+    <% for (const [tag, link] of it.references) { %>
+    plb.addReference(<%= name %>, <%= link %>);
+    <% } %>
+
+    // People
+
+    <% for (const [idperson, nameperson, role] of it.people) { %>
+    g.v_person.merge(<%=idperson%>, { name: <%=nameperson%> });
+    g.e_person_plang_role.set(<%=idperson%>, lang_vid, { role: <%= role %>' });
+    <% } %>
+
+    // Type Systems
+
+    for (const tsys of ['oop', 'duck', 'dynamic', 'strong', 'optional']) {
+        g.e_plang_tsys.connect(lang_vid, `tsys+${tsys}`);
+    }
+
+    // Supported Platforms
+
+    for (const pf of ['linux64', 'mac64', 'windows10', 'wasi32', 'freebsd64', 'ios', 'rpi', 'android']) {
+        g.e_supports_platf.connect(lang_vid, `platf+${pf}`);
+    }
+
+    // Implementations
+
+    for (const [p, name] of [
+        ['cpython', 'CPython'],
+        ['py-py', 'PyPy'],
+        ['stackless-py', 'Stackless Python'],
+        ['micro-py', 'MicroPython'],
+        ['circuit-py', 'CircuitPython'],
+        ['iron-py', 'IronPython'],
+        ['jython', 'Jython']
+    ]) {
+        g.v_plang.merge(`pl+${p}`, { name });
+        g.e_implements.connect(`pl+${p}`, lang_vid);
+    }
+
+    // Influences
+
+    for (const [p, name] of [
+        ['abc', 'ABC'],
+        ['ada', 'Ada'],
+        ['algol', 'ALGOL'],
+        ['apl', 'APL'],
+        ['c', 'C'],
+        ['cpp', 'C++'],
+        ['clu', 'CLU'],
+        ['dylan', 'Dylan'],
+        ['haskell', 'Haskell'],
+        ['icon', 'Icon'],
+        ['lisp', 'Lisp'],
+        ['modula3', 'Modula-3'],
+        ['perl', 'Perl'],
+        ['sml', 'Standard ML']
+    ]) {
+        g.v_plang.merge(`pl+${p}`, { name });
+        g.e_l_influenced_l.connect(`pl+${p}`, lang_vid);
+    }
+
+    // Influenced
+
+    for (const [p, name] of [
+        ['groovy', 'Groovy'],
+        ['boo', 'Boo'],
+        ['cobra', 'Cobra'],
+        ['coffee', 'CoffeeScript'],
+        ['d', 'D'],
+        ['fsharp', 'F#'],
+        ['gdscript', 'GDScript'],
+        ['genie', 'Genie'],
+        ['go', 'Go'],
+        ['js', 'JavaScript'],
+        ['julia', 'Julia'],
+        ['mojo', 'Mojo'],
+        ['nim', 'Nim'],
+        ['ring', 'Ring'],
+        ['ruby', 'Ruby'],
+        ['swift', 'Swift']
+    ]) {
+        g.v_plang.merge(`pl+${p}`, { name });
+        g.e_l_influenced_l.connect(lang_vid, `pl+${p}`);
+    }
+
+    // Releases
+
+    plb.addRelease({ version: '3.12.4', date: '2024-06-06', kind: 'stable' });
+}
