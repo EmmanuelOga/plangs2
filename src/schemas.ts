@@ -8,9 +8,10 @@ export type T_Id_V_Plang = VID<`pl`>;
 export interface V_Plang {
     name: string;
     images: Image[];
+
     websites: Link[];
     releases: Release[];
-    selfHosted: boolean;
+
     extensions: string[];
     scoping: ('lexical' | 'static' | 'dynamic' | 'other')[];
 

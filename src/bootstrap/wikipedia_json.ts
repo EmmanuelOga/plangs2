@@ -14,6 +14,7 @@ const START_PAGES = [
 ];
 
 const SHORTLIST = [
+    '/wiki/CircuitPython',
     '/wiki/C%2B%2B',
     '/wiki/C_(programming_language)',
     '/wiki/Crystal_(programming_language)',
@@ -109,7 +110,7 @@ async function scrapLanguagePage(wikiPath: string) {
 
     const title = $infobox.find('.infobox-title.summary').text();
 
-    if (!title || title.length > 10 || !/programming\s+language/ig.test($('#catlinks').text())) {
+    if (!title || !/programming/ig.test($('#catlinks').text())) {
         return;
     }
 

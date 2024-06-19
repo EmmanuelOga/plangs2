@@ -47,24 +47,25 @@ export class EdgeTable<
     set(from: T_Id_V_From, to: T_Id_V_To, value: T_EdgeData, suffix?: string): this {
         const [kft, data] = this._init(from, to, suffix);
         data.edge.set(kft, value);
-        this._updateAdjacent(data, from, to);
+        this._updateAdjacent(data, from, to, 'add');
         return this;
     }
 
     get(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): T_EdgeData | undefined {
-        const [kft, data] = this._init(from, to, suffix);
-        return data.edge.get(kft);
+        if (!this.validParams(from, to, suffix)) throw new Error(`Invalid id(s) in edge: ${from} -> ${to}${s ? ` ${s}` : ''}.`);
+        const data = this._perSuffix.get(suffix ?? '');
+        return data?.edge?.get(this._keyFromTo(from, to));
     }
 
     has(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): boolean {
-        if (!this.validParams(from, to, s)) return false;
+        if (!this.validParams(from, to, suffix)) return false;
         const data = this._perSuffix.get(suffix ?? '');
         return !!(data?.edge?.has(this._keyFromTo(from, to)));
     }
 
     delete(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): boolean {
         const [kft, data] = this._init(from, to, suffix);
-        this._updateAdjacent(data, from, to);
+        this._updateAdjacent(data, from, to, 'delete');
         return data.edge.delete(kft);
     }
 
@@ -76,16 +77,15 @@ export class EdgeTable<
             edata = {} as T_EdgeData;
             data.edge.set(kft, edata);
         }
-        this._updateAdjacent(data, from, to);
+        this._updateAdjacent(data, from, to, 'add');
         return edata as UW_Partial<T_EdgeData>;
     }
 
     merge(from: T_Id_V_From, to: T_Id_V_To, value: T_EdgeData, suffix?: string): UW_Partial<T_EdgeData> {
         const [kft, data] = this._init(from, to, suffix);
-
         if (!data.edge.has(kft)) { data.edge.set(kft, {} as T_EdgeData); }
         const edata = Object.assign(data.edge.get(kft) as any, value);
-        this._updateAdjacent(data, from, to);
+        this._updateAdjacent(data, from, to, 'add');
         return edata as UW_Partial<T_EdgeData>;
     }
 
@@ -188,13 +188,19 @@ export class EdgeTable<
         return [this._keyFromTo(from, to), d];
     }
 
-    private _updateAdjacent(data: _TableData<T_EdgeData>, from: T_Id_V_From, to: T_Id_V_To) {
-        if (this.directed) {
-            data.adjFrom.get(from)?.add(to);
-            data.adjTo.get(to)?.add(from);
+    private _updateAdjacent(data: _TableData<T_EdgeData>, from: T_Id_V_From, to: T_Id_V_To, operation: 'add' | 'delete') {
+        if (operation === 'add') {
+            if (this.directed) {
+                data.adjFrom.get(from)?.add(to); data.adjTo.get(to)?.add(from);
+            } else {
+                data.adjFrom.get(from)?.add(to); data.adjFrom.get(to)?.add(from);
+            }
         } else {
-            data.adjFrom.get(from)?.add(to);
-            data.adjFrom.get(to)?.add(from);
+            if (this.directed) {
+                data.adjFrom.get(from)?.delete(to); data.adjTo.get(to)?.delete(from);
+            } else {
+                data.adjFrom.get(from)?.delete(to); data.adjFrom.get(to)?.delete(from);
+            }
         }
     }
 }

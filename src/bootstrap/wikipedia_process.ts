@@ -4,10 +4,10 @@
 
 import { Glob } from 'bun';
 import type { VID } from '../graph/vertex';
-import type { Image, Link, Release, V_Person, V_Plang } from '../schemas';
-import { caller, toAlphaNum } from '../util';
-import { WIKIPEDIA_URL, cachePath } from './wikipedia_json';
 import type { PlangsGraph } from '../plangs_graph';
+import type { Image, Link, Release } from '../schemas';
+import { toAlphaNum } from '../util';
+import { WIKIPEDIA_URL, cachePath } from './wikipedia_json';
 
 // biome-ignore lint/suspicious/noExplicitAny: Wikipedia infoboxes really can have any data.
 type _Any = any;
@@ -318,7 +318,7 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
                 function addPerson(name: string, link?: Link) {
                     const key = toAlphaNum(name);
 
-                    const person = g.v_person.declare(`person+${key}`);
+                    const person = g.v_person.merge(`person+${key}`, { name: name });
                     if (link) {
                         person.websites ??= [];
                         if (!person.websites.some((w: Link) => w.href === link.href)) person.websites.push(link);

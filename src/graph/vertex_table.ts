@@ -65,6 +65,10 @@ export class VertexTable<T_VId extends string, T_VData> implements Iterable<[T_V
         return this.vidPattern.test(vid);
     }
 
+    keys(): IterableIterator<T_VId> {
+        return this._vdata.keys();
+    }
+
     [Symbol.iterator](): IterableIterator<[T_VId, T_VData]> {
         return this._vdata.entries();
     }
