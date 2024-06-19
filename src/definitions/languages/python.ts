@@ -1,27 +1,30 @@
-import type { PlangsGraph } from '../../plangs_graph';
+import type { PlangsGraph } from '../../entities/plangs_graph';
 
-export const v_py = 'pl+python';
+export const lang_vid = 'pl+python';
 
 export function define(g: PlangsGraph) {
-    g.v_plang.set(v_py, {
-        name: 'Python',
-        releases: [
-            { version: '3.12.4', date: '2024-06-06', kind: 'stable' },
-        ],
-    });
+    const pl = g.v_plang.merge(lang_vid, { name: 'Python' });
+
+    // People
 
     g.v_person.merge('person+guido', { name: 'Guido van Rossum' });
-    g.e_person_plang_role.set('person+guido', v_py, { role: 'designer' });
+
+    g.e_person_plang_role.set('person+guido', lang_vid, { role: 'designer' });
+
+    // Type Systems
 
     for (const tsys of ['oop', 'duck', 'dynamic', 'strong', 'optional']) {
-        g.e_plang_tsys.connect(v_py, `tsys+${tsys}`);
+        g.e_plang_tsys.connect(lang_vid, `tsys+${tsys}`);
     }
+
+    // Supported Platforms
 
     for (const pf of ['linux64', 'mac64', 'windows10', 'wasi32', 'freebsd64', 'ios', 'rpi', 'android']) {
-        g.e_supports_platf.connect(v_py, `platf+${pf}`);
+        g.e_supports_platf.connect(lang_vid, `platf+${pf}`);
     }
 
-    // Implementations.
+    // Implementations
+
     for (const [p, name] of [
         ['cpython', 'CPython'],
         ['py-py', 'PyPy'],
@@ -31,11 +34,12 @@ export function define(g: PlangsGraph) {
         ['iron-py', 'IronPython'],
         ['jython', 'Jython']
     ]) {
-        g.v_implem.merge(`impl+${p}`, { name });
-        g.e_implements.connect(`impl+${p}`, v_py);
+        g.v_plang.merge(`pl+${p}`, { name });
+        g.e_implements.connect(`pl+${p}`, lang_vid);
     }
 
-    // Influeced by:
+    // Influences
+
     for (const [p, name] of [
         ['abc', 'ABC'],
         ['ada', 'Ada'],
@@ -53,10 +57,11 @@ export function define(g: PlangsGraph) {
         ['sml', 'Standard ML']
     ]) {
         g.v_plang.merge(`pl+${p}`, { name });
-        g.e_l_influenced_l.connect(`pl+${p}`, v_py);
+        g.e_l_influenced_l.connect(`pl+${p}`, lang_vid);
     }
 
-    // Influenced:
+    // Influenced
+
     for (const [p, name] of [
         ['groovy', 'Groovy'],
         ['boo', 'Boo'],
@@ -76,6 +81,10 @@ export function define(g: PlangsGraph) {
         ['swift', 'Swift']
     ]) {
         g.v_plang.merge(`pl+${p}`, { name });
-        g.e_l_influenced_l.connect(v_py, `pl+${p}`);
+        g.e_l_influenced_l.connect(lang_vid, `pl+${p}`);
     }
+
+    // Known Releases
+
+    g.addRelease(pl, { version: '3.12.4', date: '2024-06-06', kind: 'stable' });
 }

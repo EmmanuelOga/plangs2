@@ -2,9 +2,9 @@
 // Types starting with "V_" are used for Vertex data.
 ////////////////////////////////////////////////////////////////////////////////
 
-import type { VID } from "./graph/vertex";
+import type { T_VId } from "../graph/vertex";
 
-export type T_Id_V_Plang = VID<`pl`>;
+export type T_Id_V_Plang = T_VId<`pl`>;
 export interface V_Plang {
     name: string;
     images: Image[];
@@ -19,31 +19,31 @@ export interface V_Plang {
     references: { [tag: string]: Link[] };
 }
 
-export type T_Id_V_Platform = VID<`platf`>;
+export type T_Id_V_Platform = T_VId<`platf`>;
 export interface V_Platform {
     name: string;
     websites: Link[];
 }
 
-export type T_Id_V_TypeSystem = VID<`tsys`>;
+export type T_Id_V_TypeSystem = T_VId<`tsys`>;
 export interface V_TypeSystem {
     name: string;
     websites: Link[];
 }
 
-export type T_Id_V_Paradigm = VID<`para`>;
+export type T_Id_V_Paradigm = T_VId<`para`>;
 export interface V_Paradigm {
     name: string;
     websites: Link[];
 }
 
-export type T_Id_V_Person = VID<`person`>;
+export type T_Id_V_Person = T_VId<`person`>;
 export interface V_Person {
     name: string;
     websites: Link[];
 }
 
-export type T_Id_V_License = VID<`license`>;
+export type T_Id_V_License = T_VId<`license`>;
 export interface V_License {
     name: string;
     websites: Link[];

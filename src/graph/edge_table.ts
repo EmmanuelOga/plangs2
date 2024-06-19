@@ -1,4 +1,4 @@
-import type { UW_Partial } from "../util";
+import type { NN_Partial } from "../util";
 import { validChars } from "./vertex";
 import type { VertexTable } from "./vertex_table";
 
@@ -70,7 +70,7 @@ export class EdgeTable<
     }
 
     /** Like set, stablishes a connection, but without setting any edge data (also won't overwrite any existing edge data). */
-    connect(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): UW_Partial<T_EdgeData> {
+    connect(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): NN_Partial<T_EdgeData> {
         const [kft, data] = this._init(from, to, suffix);
         let edata = data.edge.get(kft);
         if (!edata) {
@@ -78,15 +78,15 @@ export class EdgeTable<
             data.edge.set(kft, edata);
         }
         this._updateAdjacent(data, from, to, 'add');
-        return edata as UW_Partial<T_EdgeData>;
+        return edata as NN_Partial<T_EdgeData>;
     }
 
-    merge(from: T_Id_V_From, to: T_Id_V_To, value: T_EdgeData, suffix?: string): UW_Partial<T_EdgeData> {
+    merge(from: T_Id_V_From, to: T_Id_V_To, value: T_EdgeData, suffix?: string): NN_Partial<T_EdgeData> {
         const [kft, data] = this._init(from, to, suffix);
         if (!data.edge.has(kft)) { data.edge.set(kft, {} as T_EdgeData); }
         const edata = Object.assign(data.edge.get(kft) as any, value);
         this._updateAdjacent(data, from, to, 'add');
-        return edata as UW_Partial<T_EdgeData>;
+        return edata as NN_Partial<T_EdgeData>;
     }
 
     validParams(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): boolean {

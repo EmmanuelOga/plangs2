@@ -1,6 +1,6 @@
 import type { SerializedGraph } from 'graphology-types';
 import { parseAll } from '../bootstrap/wikipedia_process';
-import { PlangsGraph } from '../plangs_graph';
+import { PlangsGraph } from '../entities/plangs_graph';
 import { parseEdgeKey } from '../graph/edge_table';
 
 async function plangsGraph(): Promise<SerializedGraph> {

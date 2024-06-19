@@ -1,5 +1,5 @@
-import { Graph } from "./graph/base";
-import type { E_Empty, E_People, T_Id_V_License, T_Id_V_Paradigm, T_Id_V_Person, T_Id_V_Plang, T_Id_V_Platform, T_Id_V_TypeSystem, V_License, V_Paradigm, V_Person, V_Plang, V_Platform, V_TypeSystem } from "./schemas";
+import { Graph } from "../graph/base";
+import type { E_Empty, E_People, Release, T_Id_V_License, T_Id_V_Paradigm, T_Id_V_Person, T_Id_V_Plang, T_Id_V_Platform, T_Id_V_TypeSystem, V_License, V_Paradigm, V_Person, V_Plang, V_Platform, V_TypeSystem } from "./schemas";
 
 /**
  * Collection of related edge and vertex tables.
@@ -7,7 +7,7 @@ import type { E_Empty, E_People, T_Id_V_License, T_Id_V_Paradigm, T_Id_V_Person,
  * These repetitive definitions follow some simple conventions, are tightly coupled with the schemas in `schemas.ts`,
  * and could potentially be auto-generated in the future.
  */
-export class PlangsGraph extends Graph {
+export class PlangsBase extends Graph {
     // Vertex tables.
     readonly v_license = this.v_table<Partial<V_License>, T_Id_V_License>('license');
     readonly v_paradigm = this.v_table<Partial<V_Paradigm>, T_Id_V_Paradigm>('para');
@@ -25,4 +25,13 @@ export class PlangsGraph extends Graph {
     readonly e_plang_para = this.e_table<E_Empty, T_Id_V_Plang, T_Id_V_Paradigm>('paradigm', this.v_plang, this.v_paradigm);
     readonly e_plang_tsys = this.e_table<E_Empty, T_Id_V_Plang, T_Id_V_TypeSystem>('type-system', this.v_plang, this.v_tsystem);
     readonly e_supports_platf = this.e_table<E_Empty, T_Id_V_Plang, T_Id_V_Platform>('supports-platf', this.v_plang, this.v_platform);
+}
+
+export class PlangsGraph extends PlangsBase {
+    addRelease(pl: Partial<V_Plang>, release: Release) {
+        pl.releases ??= [];
+        if (!pl.releases.some(r => r.version === release.version)) {
+            pl.releases.push(release);
+        }
+    }
 }

@@ -1,4 +1,4 @@
-import type { PlangsGraph } from '../plangs_graph';
+import type { PlangsGraph } from '../entities/plangs_graph';
 
 export function define(g: PlangsGraph): void {
     g.v_tsystem.set('tsys+oop', { name: 'Object-Oriented' });

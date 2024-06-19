@@ -1,6 +1,5 @@
-import { V_Plang } from "../schemas";
-import { caller, type UW_Partial } from "../util";
-import { VIdPattern } from "./vertex";
+import type { NN_Partial } from "../util";
+import { vIdPattern } from "./vertex";
 
 /**
  * Containers for vertices.
@@ -11,7 +10,7 @@ export class VertexTable<T_VId extends string, T_VData> implements Iterable<[T_V
     public readonly vidPattern: RegExp;
 
     constructor(readonly vtype: string) {
-        this.vidPattern = VIdPattern(vtype);
+        this.vidPattern = vIdPattern(vtype);
     }
 
     set(key: T_VId, value: T_VData): this {
@@ -41,24 +40,24 @@ export class VertexTable<T_VId extends string, T_VData> implements Iterable<[T_V
      * - If the key is not in store, it will be set to an empty object.
      * - Returns the data for the key.
      */
-    declare(key: T_VId): UW_Partial<T_VData> {
+    declare(key: T_VId): NN_Partial<T_VData> {
         if (!this.validParams(key)) throw new Error(`invalid key: ${key}`);
         let v_data = this._vdata.get(key);
         if (v_data === undefined) {
             v_data = {} as T_VData;
             this._vdata.set(key, v_data);
         }
-        return v_data as UW_Partial<T_VData>;
+        return v_data as NN_Partial<T_VData>;
     }
 
-    merge(key: T_VId, value: T_VData): UW_Partial<T_VData> {
+    merge(key: T_VId, value: T_VData): NN_Partial<T_VData> {
         if (!this.validParams(key)) throw new Error(`invalid key: ${key}`);
 
         if (!this._vdata.has(key)) { this._vdata.set(key, {} as T_VData); }
         // biome-ignore lint/suspicious/noExplicitAny: it is ok.
         const vdata = Object.assign(this._vdata.get(key) as any, value);
 
-        return vdata as UW_Partial<T_VData>;
+        return vdata as NN_Partial<T_VData>;
     }
 
     validParams(vid: string): boolean {
