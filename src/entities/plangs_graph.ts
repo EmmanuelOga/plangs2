@@ -1,4 +1,5 @@
 import { Graph } from "../graph/base";
+import { PlangsBuilder } from "./builders";
 import type { E_Empty, E_People, Release, T_Id_V_License, T_Id_V_Paradigm, T_Id_V_Person, T_Id_V_Plang, T_Id_V_Platform, T_Id_V_TypeSystem, V_License, V_Paradigm, V_Person, V_Plang, V_Platform, V_TypeSystem } from "./schemas";
 
 /**
@@ -28,10 +29,9 @@ export class PlangsBase extends Graph {
 }
 
 export class PlangsGraph extends PlangsBase {
-    addRelease(pl: Partial<V_Plang>, release: Release) {
-        pl.releases ??= [];
-        if (!pl.releases.some(r => r.version === release.version)) {
-            pl.releases.push(release);
-        }
+
+    plangBuilder(pl: Partial<V_Plang>) {
+        return new PlangsBuilder(this, pl);
     }
+
 }

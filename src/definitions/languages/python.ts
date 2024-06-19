@@ -4,11 +4,21 @@ export const lang_vid = 'pl+python';
 
 export function define(g: PlangsGraph) {
     const pl = g.v_plang.merge(lang_vid, { name: 'Python' });
+    const plb = g.plangBuilder(pl);
+
+    plb.addImage({ kind: 'logo', url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/2048px-Python-logo-notext.svg.png' });
+
+    plb.addWebsite({ kind: 'homepage', href: 'https://www.python.org/', title: 'Python.org' });
+
+    plb.addExtensions([".py", ".pyc", ".pyd", ".pyo", ".pyw", ".pyz", ".pyx", ".pxd", ".pxi"]);
+
+    plb.addScoping(['lexical', 'dynamic']);
+
+    plb.addReference('influences', { kind: 'wikipedia', href: 'https://en.wikipedia.org/wiki/Python_(programming_language)', title: 'Python (programming language) - Wikipedia' });
 
     // People
 
     g.v_person.merge('person+guido', { name: 'Guido van Rossum' });
-
     g.e_person_plang_role.set('person+guido', lang_vid, { role: 'designer' });
 
     // Type Systems
@@ -84,7 +94,7 @@ export function define(g: PlangsGraph) {
         g.e_l_influenced_l.connect(lang_vid, `pl+${p}`);
     }
 
-    // Known Releases
+    // Releases
 
-    g.addRelease(pl, { version: '3.12.4', date: '2024-06-06', kind: 'stable' });
+    plb.addRelease({ version: '3.12.4', date: '2024-06-06', kind: 'stable' });
 }

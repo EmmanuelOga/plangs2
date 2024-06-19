@@ -29,7 +29,8 @@ function genTsFile(g: PlangsGraph, plvid: T_Id_V_Plang) {
     // A map of references grouped by tag: #influences, #influenced_by, etc.
     pl.references // { [tag: string]: Link[] };
 
-
+    // People.
+    //
     // for (const { from, to, edata } of g.e_person_plang_role.adjacentTo(plvid)) {
     //     const person = g.v_person.get(from);
     //     console.log(person, "was involved in", pl?.name, "as", edata?.role);
