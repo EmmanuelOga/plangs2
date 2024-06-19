@@ -2,10 +2,11 @@
 // Types starting with "V_" are used for Vertex data.
 ////////////////////////////////////////////////////////////////////////////////
 
-import type { V, VID } from "./graph/vertex";
+import type { VID } from "./graph/vertex";
 
-export type ID_V_Plang = VID<`pl`>;
-export interface V_Plang extends V {
+export type T_Id_V_Plang = VID<`pl`>;
+export interface V_Plang {
+    name: string;
     images: Image[];
     websites: Link[];
     releases: Release[];
@@ -17,34 +18,40 @@ export interface V_Plang extends V {
     references: { [tag: string]: Link[] };
 }
 
-export type ID_V_Implementation = VID<`impl`>;
-export interface V_Implementation extends V {
+export type T_Id_V_Implem = VID<`impl`>;
+export interface V_Implem {
+    name: string;
     websites: Link[];
     releases: Release[];
 }
 
-export type ID_V_Platform = VID<`platf`>;
-export interface V_Platform extends V {
+export type T_Id_V_Platform = VID<`platf`>;
+export interface V_Platform {
+    name: string;
     websites: Link[];
 }
 
-export type ID_V_TypeSystem = VID<`tsys`>;
-export interface V_TypeSystem extends V {
+export type T_Id_V_TypeSystem = VID<`tsys`>;
+export interface V_TypeSystem {
+    name: string;
     websites: Link[];
 }
 
-export type ID_V_Paradigm = VID<`para`>;
-export interface V_Paradigm extends V {
+export type T_Id_V_Paradigm = VID<`para`>;
+export interface V_Paradigm {
+    name: string;
     websites: Link[];
 }
 
-export type ID_V_Person = VID<`person`>;
-export interface V_Person extends V {
+export type T_Id_V_Person = VID<`person`>;
+export interface V_Person {
+    name: string;
     websites: Link[];
 }
 
-export type ID_V_License = VID<`license`>;
-export interface V_License extends V {
+export type T_Id_V_License = VID<`license`>;
+export interface V_License {
+    name: string;
     websites: Link[];
 }
 
@@ -54,6 +61,10 @@ export interface V_License extends V {
 
 export interface E_People {
     role: 'designer' | 'contributor';
+}
+
+// biome-ignore lint/suspicious/noEmptyInterface: some edges don't need additional data.
+export interface E_Empty {
 }
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -6,19 +6,19 @@ export function define(g: PlangsGraph) {
     g.v_plang.set(v_py, {
         name: 'Python',
         releases: [
-            { version: '3.12.4', date: '2024-06-06', tags: ['stable'] },
+            { version: '3.12.4', date: '2024-06-06', kind: 'stable' },
         ],
     });
 
-    g.v_person.set('person+guido', { name: 'Guido van Rossum' });
-    g.e_people.set({ from: 'person+guido', to: v_py }, { role: 'designer' });
+    g.v_person.merge('person+guido', { name: 'Guido van Rossum' });
+    g.e_person_plang_role.set('person+guido', v_py, { role: 'designer' });
 
     for (const tsys of ['oop', 'duck', 'dynamic', 'strong', 'optional']) {
-        g.e_plang_tsys.connect({ from: v_py, to: `tsys+${tsys}` });
+        g.e_plang_tsys.connect(v_py, `tsys+${tsys}`);
     }
 
     for (const pf of ['linux64', 'mac64', 'windows10', 'wasi32', 'freebsd64', 'ios', 'rpi', 'android']) {
-        g.e_pl_platf.connect({ from: v_py, to: `platf+${pf}` });
+        g.e_supports_platf.connect(v_py, `platf+${pf}`);
     }
 
     // Implementations.
@@ -31,8 +31,8 @@ export function define(g: PlangsGraph) {
         ['iron-py', 'IronPython'],
         ['jython', 'Jython']
     ]) {
-        g.v_impl.merge(`impl+${p}`, { name });
-        g.e_implements.connect({ from: `impl+${p}`, to: v_py, d: true, });
+        g.v_implem.merge(`impl+${p}`, { name });
+        g.e_implements.connect(`impl+${p}`, v_py);
     }
 
     // Influeced by:
@@ -53,7 +53,7 @@ export function define(g: PlangsGraph) {
         ['sml', 'Standard ML']
     ]) {
         g.v_plang.merge(`pl+${p}`, { name });
-        g.e_influenced.connect({ from: `pl+${p}`, to: v_py, d: true, });
+        g.e_l_influenced_l.connect(`pl+${p}`, v_py);
     }
 
     // Influenced:
@@ -76,6 +76,6 @@ export function define(g: PlangsGraph) {
         ['swift', 'Swift']
     ]) {
         g.v_plang.merge(`pl+${p}`, { name });
-        g.e_influenced.connect({ from: v_py, to: `pl+${p}`, d: true, });
+        g.e_l_influenced_l.connect(v_py, `pl+${p}`);
     }
 }

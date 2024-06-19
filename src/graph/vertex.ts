@@ -1,9 +1,11 @@
 /**
  * A vertext id format is a string with format: `type+id`.
- * Examples: `pl+python`, `person+guido`, `plts+oop`, etc.
- * See {@link AnyVidP} for the matching pattern.
+ * 
+ * Examples: `pl+python`, `person+guido`, `paradigm+oop`, etc.
+ * 
+ * See {@link PVIDAny} for the matching pattern.
  */
-export type VID<Type extends string> = `${Type}+${string}`
+export type VID<T_V_Prefix extends string> = `${T_V_Prefix}+${string}`
 
 /**
  * An alias such that we can say: VID<Any> to match any vertex id.
@@ -13,21 +15,21 @@ export type Any = string;
 /**
  * An alias for the most generic vertex id.
  */
-export type ID_V_Any = VID<Any>;
+export type T_VID_Any = VID<Any>;
 
-/**
- * RegExp Pattern for string literals matching {@link VID } (see {@link isAnyVid}).
- */
-export const AnyVidP = /^[^\+]+\+[a-z-A-Z0-9\-_]+$/;
+const NON_PLUS_ID_CHARS = '[a-z-A-Z0-9\-_]+';
+const NON_PLUS_ID_PATTERN = new RegExp(NON_PLUS_ID_CHARS);
 
-/**
- * @returns true if the string is a valid {@link VID} (that is, matches {@link AnyVidP}).
- */
-export const isAnyVid = (s: string): s is VID<Any> => AnyVidP.test(s);
+export function validChars(s: string): boolean {
+    return NON_PLUS_ID_PATTERN.test(s);
+}
 
-/**
- * In vertex tables, at minimal, a vertex is expected to have a name.
- */
-export interface V {
-    name: string;
+export function isAnyVid(s: string): s is VID<Any> {
+    const parts = s.split('+');
+    return parts.length === 2 && validChars(parts[0]) && validChars(parts[1]);
+}
+
+export function VIdPattern(vtype: string): RegExp {
+    if (!validChars(vtype)) throw new Error(`'${vtype}' is not valid as a vid prefix.`);
+    return new RegExp(`^${vtype}\\+${NON_PLUS_ID_CHARS}`);
 }
