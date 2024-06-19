@@ -1,9 +1,9 @@
 import { PlangsGraph } from "../plangs_graph";
 import { parseAll } from "./wikipedia_process";
 
-await main();
+// await generateAll();
 
-async function main() {
+async function generateAll() {
     const g = new PlangsGraph();
     await parseAll(g)
 

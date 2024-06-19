@@ -6,6 +6,12 @@ export function isRegExp(val: unknown): val is RegExp {
 }
 
 /**
+ * "Unwraps" a partial so we don't get types like
+ * `Partial<Partial<Partial<...>>>` which are redundant.
+ */
+export type UW_Partial<T> = T extends Partial<infer U> ? T : Partial<T>;
+
+/**
  * Convert the string to something usable as vertex id.
  */
 export function toAlphaNum(s: string) {

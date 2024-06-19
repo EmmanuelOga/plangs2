@@ -1,3 +1,4 @@
+import type { UW_Partial } from "../util";
 import { validChars } from "./vertex";
 import type { VertexTable } from "./vertex_table";
 
@@ -6,6 +7,12 @@ export type KFT = `${string}~${string}`;
 
 /** Key:          type   ~  from   ~  to     ~  dir.      ~ suffix */
 export type EdgeKey = `${string}~${string}~${string}~${'d' | 'u'}~${string}`;
+
+/** Extract the components off of an edge key. */
+export function parseEdgeKey(eid: string): { type: string; from: string; to: string; d: boolean; s: string; } {
+    const parts = eid.split('~');
+    return { type: parts[0], from: parts[1], to: parts[2], d: parts[3] === 'd', s: parts[4] }
+}
 
 // biome-ignore lint/suspicious/noExplicitAny: We don't care what kind of data the vertices have.
 type _T_Any_V_Data = any;
@@ -23,6 +30,10 @@ export class EdgeTable<
     T_Id_V_To extends string,
     T_EdgeData,
 > implements Iterable<[EdgeKey, T_EdgeData]> {
+    // Each suffix uses its own edge and adjacency map.
+    // If we ever find ourselves with a lot of suffix usage, we may need to change this.
+    private readonly _perSuffix: Map<string, _TableData<T_EdgeData>> = new Map();
+
     constructor(
         public readonly type: string,
         public readonly from_t: VertexTable<T_Id_V_From, _T_Any_V_Data>,
@@ -30,6 +41,83 @@ export class EdgeTable<
         public readonly directed: boolean,
     ) {
         if (!validChars(type)) throw new Error(`'${type}' is not valid as an edge type.`);
+    }
+
+    set(from: T_Id_V_From, to: T_Id_V_To, value: T_EdgeData, suffix?: string): this {
+        const [kft, data] = this.init(from, to, suffix);
+
+        data.edge.set(kft, value);
+        // biome-ignore lint/style/noNonNullAssertion: init ensures ajacent sets exist.
+        data.adjacency.get(from)!.add(to); if (!this.directed) data.adjacency.get(to)!.add(from);
+
+        return this;
+    }
+
+    get(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): T_EdgeData | undefined {
+        const [kft, data] = this.init(from, to, suffix);
+        return data.edge.get(kft);
+    }
+
+    has(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): boolean {
+        const [kft, data] = this.init(from, to, suffix);
+        return data.edge.has(kft);
+    }
+
+    delete(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): boolean {
+        const [kft, data] = this.init(from, to, suffix);
+        // biome-ignore lint/style/noNonNullAssertion: init ensures ajacent sets exist.
+        data.adjacency.get(from)!.delete(to); if (!this.directed) data.adjacency.get(to)!.delete(from);
+        return data.edge.delete(kft);
+    }
+
+    /** Like set, stablishes a connection, but without setting any edge data (also won't overwrite any existing edge data). */
+    connect(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): UW_Partial<T_EdgeData> {
+        const [kft, data] = this.init(from, to, suffix);
+
+        let edata = data.edge.get(kft);
+        if (!edata) {
+            edata = {} as T_EdgeData;
+            data.edge.set(kft, edata);
+        }
+        // biome-ignore lint/style/noNonNullAssertion: init ensures ajacent sets exist.
+        data.adjacency.get(from)!.add(to); if (!this.directed) data.adjacency.get(to)!.add(from);
+
+        return edata as UW_Partial<T_EdgeData>;
+    }
+
+    /** Shallow clone using spread operator: data = {...existing, ...value}. */
+    merge(from: T_Id_V_From, to: T_Id_V_To, value: T_EdgeData, suffix?: string): UW_Partial<T_EdgeData> {
+        const [kft, data] = this.init(from, to, suffix);
+
+        const edata = { ...data.edge.get(kft), ...value } as T_EdgeData;
+        data.edge.set(kft, edata);
+
+        // biome-ignore lint/style/noNonNullAssertion: init ensures ajacent sets exist.
+        data.adjacency.get(from)!.add(to); if (!this.directed) data.adjacency.get(to)!.add(from);
+
+        return edata as UW_Partial<T_EdgeData>;
+    }
+
+    validParams(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): boolean {
+        return this.from_t.validParams(from) && this.to_t.validParams(to) && (!suffix || validChars(suffix));
+    }
+
+    *[Symbol.iterator](): IterableIterator<[EdgeKey, T_EdgeData]> {
+        for (const [suffix, data] of this._perSuffix) {
+            for (const [kft, edge] of data.edge) {
+                const [from, to] = kft.split('~');
+                // type ~  from ~ to ~ dir ~ suffix
+                const edgeKey: EdgeKey = `${this.type}~${from}~${to}~${this.directed ? 'd' : 'u'}~${suffix}`;
+                yield [edgeKey, edge];
+            }
+        }
+    }
+
+    /** Number of edges. */
+    public get size(): number {
+        let size = 0;
+        for (const data of this._perSuffix.values()) { size += data.edge.size; }
+        return size;
     }
 
     /**
@@ -44,38 +132,7 @@ export class EdgeTable<
         return `${t}~${from}~${to}~${d}`;
     }
 
-    set(from: T_Id_V_From, to: T_Id_V_To, value: T_EdgeData, suffix?: string): this {
-        const [kft, data] = this.declare(from, to, suffix);
-
-        data.edge.set(kft, value);
-        // biome-ignore lint/style/noNonNullAssertion: declare ensures ajacent sets exist.
-        data.adjacency.get(from)!.add(to); if (!this.directed) data.adjacency.get(to)!.add(from);
-
-        return this;
-    }
-
-    get(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): T_EdgeData | undefined {
-        const [kft, data] = this.declare(from, to, suffix);
-        return data.edge.get(kft);
-    }
-
-    delete(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): boolean {
-        const [kft, data] = this.declare(from, to, suffix);
-        return data.edge.has(kft);
-    }
-
-    /** Like set, stablishes a connection, but without setting any edge data (also won't overwrite any existing edge data). */
-    connect(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): this {
-        const [kft, data] = this.declare(from, to, suffix);
-
-        if (!data.edge.has(kft)) data.edge.set(kft, {} as T_EdgeData);
-        // biome-ignore lint/style/noNonNullAssertion: declare ensures ajacent sets exist.
-        data.adjacency.get(from)!.add(to); if (!this.directed) data.adjacency.get(to)!.add(from);
-
-        return this;
-    }
-
-    private declare(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): [KFT, _TableData<T_EdgeData>] {
+    private init(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): [KFT, _TableData<T_EdgeData>] {
         const s = suffix ?? '';
         if (!this.validParams(from, to, s)) throw new Error(`Invalid id(s) in edge: ${from} -> ${to}${s ? ` ${s}` : ''}.`);
 
@@ -93,14 +150,6 @@ export class EdgeTable<
         return [this.keyFromTo(from, to), d];
     }
 
-    // Each suffix uses its own edge and adjacency map.
-    // If we ever find ourselves with a lot of suffix usage, we may need to change this.
-    private readonly _perSuffix: Map<string, _TableData<T_EdgeData>> = new Map();
-
-    validParams(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): boolean {
-        return this.from_t.validVid(from) && this.to_t.validVid(to) && (!suffix || validChars(suffix));
-    }
-
     keyFromTo(from: T_Id_V_From, to: T_Id_V_To): KFT {
         // When not directed, we want the same key for both directions,
         // this way the same data is stored in the edge map for both directions.
@@ -111,14 +160,4 @@ export class EdgeTable<
         return `${from_}~${to_}`;
     }
 
-    *[Symbol.iterator](): IterableIterator<[EdgeKey, T_EdgeData]> {
-        for (const [suffix, data] of this._perSuffix) {
-            for (const [kft, edge] of data.edge) {
-                const [from, to] = kft.split('~');
-                // type ~  from ~ to ~ dir ~ suffix
-                const edgeKey: EdgeKey = `${this.type}~${from}~${to}~${this.directed ? 'd' : 'u'}~${suffix}`;
-                yield [edgeKey, edge];
-            }
-        }
-    }
 }

@@ -1,8 +1,7 @@
 import type { SerializedGraph } from 'graphology-types';
-import { fromStr } from '../graph/edge';
-import { PlangsGraph } from '../plangs_graph';
-import { V_Plang } from '../schemas';
 import { parseAll } from '../bootstrap/wikipedia_process';
+import { PlangsGraph } from '../plangs_graph';
+import { parseEdgeKey } from '../graph/edge_table';
 
 async function plangsGraph(): Promise<SerializedGraph> {
     const grNodes: SerializedGraph['nodes'] = [];
@@ -11,10 +10,9 @@ async function plangsGraph(): Promise<SerializedGraph> {
     const g = new PlangsGraph();
     await parseAll(g);
 
-    const { vertices, edges, adjacency } = g.merge();
+    for (const [eid, edge] of g.allEdges()) {
+        const ek = parseEdgeKey(eid);
 
-    for (const [eid, edge] of edges) {
-        const ek = fromStr(eid);
         if ('errors' in ek) {
             console.error(ek.errors);
             continue;
@@ -41,7 +39,7 @@ async function plangsGraph(): Promise<SerializedGraph> {
         if (vid.startsWith('tsys+')) return 'yellow';
     }
 
-    for (const [vid, vertex] of vertices) {
+    for (const [vid, vertex] of g.allVertices()) {
         grNodes.push({
             key: vid,
             attributes: {

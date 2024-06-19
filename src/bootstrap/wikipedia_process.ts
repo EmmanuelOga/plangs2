@@ -4,10 +4,13 @@
 
 import { Glob } from 'bun';
 import type { VID } from '../graph/vertex';
-import { PlangsGraph } from '../plangs_graph';
-import type { Image, Link, Release, V_Plang } from '../schemas';
+import type { Image, Link, Release, V_Person, V_Plang } from '../schemas';
 import { toAlphaNum } from '../util';
 import { WIKIPEDIA_URL, cachePath } from './wikipedia_json';
+import type { PlangsGraph } from '../plangs_graph';
+
+// biome-ignore lint/suspicious/noExplicitAny: Wikipedia infoboxes really can have any data.
+type _Any = any;
 
 type DATA_ATTR =
     'designed_by' | 'developed_by' | 'developer' | 'developers' | 'dialects' | 'family' | 'filename_extension'
@@ -57,7 +60,7 @@ export async function parseAll(g: PlangsGraph) {
         const title: string = j.title;
         const image: string = j.image
         const wikiUrl: string = j.wikiUrl;
-        const data: Record<DATA_ATTR, Record<DATA_TYPE, any>> = j.data;
+        const data: Record<DATA_ATTR, Record<DATA_TYPE, _Any>> = j.data;
         processLanguage(g, title, wikiUrl, image, data);
     }
 }
@@ -67,10 +70,10 @@ function processLanguage(
     title: string,
     wikiUrl: string,
     image: string | undefined,
-    data: Record<DATA_ATTR, Record<DATA_TYPE, any>>
+    data: Record<DATA_ATTR, Record<DATA_TYPE, _Any>>
 ) {
     const pid = toAlphaNum(title);
-    g.v_plang.merge(`pl+${pid}`, { name: title }, 'skipIfExists'); // We may already have the language, from an influence.
+    g.v_plang.merge(`pl+${pid}`, { name: title }); // We may already have the language, from an influence.
 
     const pl = g.v_plang.get(`pl+${pid}`);
     if (!pl) throw new Error(`Language not found: ${pl}`);
@@ -92,7 +95,7 @@ function processLanguage(
     }
 }
 
-function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE, val: any) {
+function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE, val: _Any) {
     const pl = g.v_plang.get(pvid) as Partial<V_Plang>;
     if (!pl) throw new Error(`Language not found: ${pl}`);
 
@@ -155,11 +158,11 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
                     continue;
                 }
 
-                g.v_impl.merge(`impl+${impl}`, {
+                g.v_implem.merge(`impl+${impl}`, {
                     name: title.trim(), websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
-                }, 'skipIfExists');
+                });
 
-                g.e_implements.connect({ from: `impl+${impl}`, to: pvid });
+                g.e_implements.connect(`impl+${impl}`, pvid);
             }
             return;
 
@@ -167,18 +170,18 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             if (type !== 'links') return;
 
             for (const { title, href } of val.filter(({ href }) => href.startsWith('/wiki'))) {
-                const otherpl = toAlphaNum(title);
+                const key = toAlphaNum(title);
 
-                if (g.v_plang.has(`pl+${otherpl}`) || pvid === `pl+${otherpl}`) {
-                    pl.selfHosted = true;
-                    continue;
-                }
+                // Here we don't know:
+                // * If implem key is really an implementation or a language.
+                // * If implem is an implementation, we don't know which language it implements.
+                // We can use website data later to disambiguate.
 
-                g.v_impl.merge(`impl+${otherpl}`, {
+                g.v_implem.merge(`impl+${key}`, {
                     name: title.trim(), websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
-                }, 'skipIfExists');
+                });
 
-                g.e_implemented_with.connect({ from: pvid, to: `pl+${otherpl}` });
+                g.e_implements.connect(`impl+${key}`, pvid);
             }
             return;
 
@@ -186,30 +189,26 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
         case 'influenced_by':
             if (type === 'text') {
                 for (const who of val.split(', ')) {
-                    const whoId = toAlphaNum(who);
-
-                    g.v_plang.merge(`pl+${whoId}`, { name: who.trim() }, 'skipIfExists');
-
+                    const key = toAlphaNum(who);
+                    g.v_plang.merge(`pl+${key}`, { name: who.trim() });
                     if (key === 'influenced') {
-                        g.e_influenced.connect({ from: pvid, to: `pl+${whoId}` });
+                        g.e_l_influenced_l.connect(pvid, `pl+${key}`);
                     } else {
-                        g.e_influenced.connect({ from: `pl+${whoId}`, to: pvid });
+                        g.e_l_influenced_l.connect(`pl+${key}`, pvid);
                     }
                 }
                 return;
             }
             if (type !== 'links') return;
-
             for (const { title, href } of val.filter(({ href }) => href.startsWith('/wiki'))) {
-                const who = toAlphaNum(title);
-                g.v_plang.merge(`pl+${who}`, {
+                const key = toAlphaNum(title);
+                g.v_plang.merge(`pl+${key}`, {
                     name: title.trim(), websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
-                }, 'skipIfExists');
-
+                });
                 if (key === 'influenced') {
-                    g.e_influenced.connect({ from: pvid, to: `pl+${who}` });
+                    g.e_l_influenced_l.connect(pvid, `pl+${key}`);
                 } else {
-                    g.e_influenced.connect({ from: `pl+${who}`, to: pvid });
+                    g.e_l_influenced_l.connect(`pl+${key}`, pvid);
                 }
             }
             return;
@@ -218,12 +217,12 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
         case 'family':
             if (type === 'text') {
                 for (const dialect of val.split(',').filter((x: string) => !/[\(\)\[\]]/.test(x))) {
-                    const did = toAlphaNum(dialect);
-                    g.v_plang.merge(`pl+${did}`, { name: dialect.trim() }, 'skipIfExists');
+                    const key = toAlphaNum(dialect);
+                    g.v_plang.merge(`pl+${key}`, { name: dialect.trim() });
                     if (key === 'dialects') {
-                        g.e_dialect_of.connect({ from: `pl+${did}`, to: pvid });
+                        g.e_dialect_of.connect(`pl+${key}`, pvid);
                     } else {
-                        g.e_dialect_of.connect({ from: pvid, to: `pl+${did}`, });
+                        g.e_dialect_of.connect(pvid, `pl+${key}`);
                     }
                 }
                 return;
@@ -231,16 +230,15 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             if (type !== 'links') return
 
             for (const { title, href } of val.filter(({ href }) => href.startsWith('/wiki'))) {
-                const did = toAlphaNum(title);
-
-                g.v_plang.merge(`pl+${did}`, {
+                const key = toAlphaNum(title);
+                g.v_plang.merge(`pl+${key}`, {
                     name: title.trim(), websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
-                }, 'skipIfExists');
+                });
 
                 if (key === 'dialects') {
-                    g.e_dialect_of.connect({ from: `pl+${did}`, to: pvid });
+                    g.e_dialect_of.connect(`pl+${key}`, pvid);
                 } else {
-                    g.e_dialect_of.connect({ from: pvid, to: `pl+${did}` });
+                    g.e_dialect_of.connect(pvid, `pl+${key}`);
                 }
             }
             return;
@@ -248,11 +246,11 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
         case 'license':                 // links
             if (type !== 'links') return
             for (const { title, href } of val.filter(({ href }) => href.startsWith('/wiki'))) {
-                const lic = toAlphaNum(title);
-                g.v_license.merge(`license+${lic}`, {
+                const key = toAlphaNum(title);
+                g.v_license.merge(`license+${key}`, {
                     name: title.trim(), websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
-                }, 'skipIfExists');
-                g.e_has_license.connect({ from: pvid, to: `license+${lic}` });
+                });
+                g.e_has_license.connect(pvid, `license+${key}`);
             }
             return;
 
@@ -260,11 +258,11 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
         case 'platform':
             if (type !== 'links') return;
             for (const { title, href } of val.filter(({ href }) => href.startsWith('/wiki'))) {
-                const platf = toAlphaNum(title);
-                g.v_platform.merge(`platf+${platf}`, {
+                const key = toAlphaNum(title);
+                g.v_platform.merge(`platf+${key}`, {
                     name: title.trim(), websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
-                }, 'skipIfExists');
-                g.e_supports_platf.connect({ from: pvid, to: `platf+${platf}` });
+                });
+                g.e_supports_platf.connect(pvid, `platf+${key}`);
             }
             return;
 
@@ -282,11 +280,11 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
                     if (name.includes('stack')) name = 'stack-oriented';
                     if (name.includes('functional')) name = 'functional';
 
-                    const para = toAlphaNum(name);
+                    const key = toAlphaNum(name);
                     g.v_paradigm.merge(`para+${name}`, {
                         name: name, websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
-                    }, 'skipIfExists');
-                    g.e_plang_para.connect({ from: pvid, to: `para+${para}` });
+                    });
+                    g.e_plang_para.connect(pvid, `para+${key}`);
                 }
             }
             return;
@@ -316,11 +314,21 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             {
 
                 function addPerson(name: string, link?: Link) {
-                    const pid = toAlphaNum(name);
-                    g.v_person.merge(`person+${pid}`, link ? { name, websites: [link] } : { name }, 'skipIfExists');
-                    g.e_people.merge(
-                        { from: `person+${pid}`, to: pvid },
-                        { role: key === 'developers' ? 'contributor' : 'designer' }, 'skipIfExists');
+                    const key = toAlphaNum(name);
+
+                    const person = g.v_person.declare(`person+${key}`);
+                    if (link) {
+                        person.websites ??= [];
+                        if (!person.websites.some((w: Link) => w.href === link.href)) person.websites.push(link);
+                    }
+
+                    const rel = g.e_person_plang_role.connect(`person+${key}`, pvid);
+                    const inferred_role = key === 'developers' ? 'contributor' : 'designer';
+                    if (!rel.role) {
+                        rel.role = inferred_role;
+                    } else if (rel.role !== 'designer') { // Prefer the "designer" role if it is already there.
+                        rel.role = inferred_role;
+                    }
                 }
 
                 if (type === 'text') {
@@ -364,7 +372,7 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
                         else if (t.includes('uniqueness')) tsys = 'uniqueness';
                         else if (t.includes('weak')) tsys = 'weak';
 
-                        if (tsys) g.e_plang_tsys.connect({ from: pvid, to: `tsys+${tsys}` });
+                        if (tsys) g.e_plang_tsys.connect(pvid, `tsys+${tsys}`);
                     }
                 }
                 if (type === 'text') typeFromText(val);
@@ -412,5 +420,5 @@ function extractNames(str: string): string[] {
         })
         .filter((s: string) => s.length > 5 && s.length < 25)
         .filter((s: string) => s.includes(' '))
-    // .filter((s: string) => !NON_PEOPLE.test(s))
+        .filter((s: string) => !NON_PEOPLE.test(s))
 }

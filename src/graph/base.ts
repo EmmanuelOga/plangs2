@@ -31,6 +31,10 @@ export class Graph {
         return table;
     }
 
+    *allVertices(): IterableIterator<[string, _Any]> {
+        for (const vt of this.vtables.values()) { yield* vt; }
+    }
+
     *allEdges(): IterableIterator<[EdgeKey, _Any]> {
         for (const et of this.etables.values()) { yield* et; }
     }

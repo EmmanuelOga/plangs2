@@ -1,5 +1,6 @@
 import { Glob } from "bun";
 import { PlangsGraph } from "./plangs_graph";
+import { parseAll } from "./bootstrap/wikipedia_process";
 
 /**
  * Scans the ./entities directory and loads all graph data from `define` functions.
@@ -9,10 +10,12 @@ export async function loadDefinitions(): Promise<PlangsGraph> {
 
     const g = new PlangsGraph();
 
-    for await (const path of glob.scan(`${__dirname}/entities`)) {
-        const module = await import(`./entities/${path}`);
-        if (typeof module.define === "function") module.define(g);
-    }
+    await parseAll(g)
+
+    // for await (const path of glob.scan(`${__dirname}/entities`)) {
+    //     const module = await import(`./entities/${path}`);
+    //     if (typeof module.define === "function") module.define(g);
+    // }
 
     for (const [ek, data] of g.allEdges()) {
         console.log(ek, data);
@@ -20,5 +23,3 @@ export async function loadDefinitions(): Promise<PlangsGraph> {
 
     return g;
 }
-
-await loadDefinitions();

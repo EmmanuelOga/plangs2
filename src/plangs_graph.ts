@@ -20,7 +20,6 @@ export class PlangsGraph extends Graph {
     // Edge Tables.
     readonly e_dialect_of = this.e_table<E_Empty, T_Id_V_Plang, T_Id_V_Plang>('dialect-of', this.v_plang, this.v_plang);
     readonly e_has_license = this.e_table<E_Empty, T_Id_V_Plang, T_Id_V_License>('has-license', this.v_plang, this.v_license);
-    readonly e_implemented_with = this.e_table<E_Empty, T_Id_V_Implem, T_Id_V_Plang>('implemented-with', this.v_implem, this.v_plang,);
     readonly e_implements = this.e_table<E_Empty, T_Id_V_Implem, T_Id_V_Plang>('implements', this.v_implem, this.v_plang);
     readonly e_l_influenced_l = this.e_table<E_Empty, T_Id_V_Plang, T_Id_V_Plang>('influenced', this.v_plang, this.v_plang);
     readonly e_person_plang_role = this.e_table<E_People, T_Id_V_Person, T_Id_V_Plang>('had-role', this.v_person, this.v_plang);
