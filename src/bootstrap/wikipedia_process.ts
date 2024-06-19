@@ -65,7 +65,7 @@ export async function parseAll(g: PlangsGraph) {
     }
 }
 
-function mergeLink(pl: Partial<V_Plang>, newLink: Link) {
+function mergeLink(pl: { websites?: Link[] }, newLink: Link) {
     pl.websites ??= [];
     if (pl.websites.some((l: Link) => l.href === newLink.href)) return;
     pl.websites.push(newLink);
@@ -104,7 +104,11 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
     if (type === 'refs') {
         pl.references ??= {};
         pl.references[key] ??= []
-        pl.references[key].push(...val);
+        for (const newLink of val) {
+            if (!pl.references[key].some((l: Link) => l.href === newLink.href)) {
+                pl.references[key].push(newLink);
+            }
+        }
         return;
     }
 
@@ -150,9 +154,11 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             if (type !== 'links') return;
             for (const { title, href } of val.filter(({ href }) => href.startsWith('/wiki'))) {
                 const impl = toAlphaNum(title);
-                g.v_implem.merge(`impl+${impl}`, {
-                    name: title.trim(), websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
-                });
+
+                mergeLink(
+                    g.v_implem.merge(`impl+${impl}`, { name: title.trim() }),
+                    { kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }
+                );
 
                 g.e_implements.connect(`impl+${impl}`, pvid);
             }
@@ -169,9 +175,10 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
                 // * If implem is an implementation, we don't know which language it implements.
                 // We can use website data later to disambiguate.
 
-                g.v_implem.merge(`impl+${key}`, {
-                    name: title.trim(), websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
-                });
+                mergeLink(
+                    g.v_implem.merge(`impl+${key}`, { name: title.trim() }),
+                    { kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` },
+                );
 
                 g.e_implements.connect(`impl+${key}`, pvid);
             }
@@ -239,9 +246,10 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             if (type !== 'links') return
             for (const { title, href } of val.filter(({ href }) => href.startsWith('/wiki'))) {
                 const key = toAlphaNum(title);
-                g.v_license.merge(`license+${key}`, {
-                    name: title.trim(), websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
-                });
+                mergeLink(
+                    g.v_license.merge(`license+${key}`, { name: title.trim() }),
+                    { kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }
+                );
                 g.e_has_license.connect(pvid, `license+${key}`);
             }
             return;
@@ -251,9 +259,10 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             if (type !== 'links') return;
             for (const { title, href } of val.filter(({ href }) => href.startsWith('/wiki'))) {
                 const key = toAlphaNum(title);
-                g.v_platform.merge(`platf+${key}`, {
-                    name: title.trim(), websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
-                });
+                mergeLink(
+                    g.v_platform.merge(`platf+${key}`, { name: title.trim() }),
+                    { kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }
+                );
                 g.e_supports_platf.connect(pvid, `platf+${key}`);
             }
             return;
@@ -273,9 +282,10 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
                     if (name.includes('functional')) name = 'functional';
 
                     const key = toAlphaNum(name);
-                    g.v_paradigm.merge(`para+${name}`, {
-                        name: name, websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
-                    });
+                    mergeLink(
+                        g.v_paradigm.merge(`para+${name}`, { name: name }),
+                        { kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }
+                    )
                     g.e_plang_para.connect(pvid, `para+${key}`);
                 }
             }

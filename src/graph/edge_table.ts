@@ -19,7 +19,8 @@ type _T_Any_V_Data = any;
 
 type _TableData<T_EdgeData> = {
     edge: Map<string, T_EdgeData>,
-    adjacency: Map<string, Set<string>>,
+    adjFrom: Map<string, Set<string>>,
+    adjTo: Map<string, Set<string>>,
 }
 
 /**
@@ -44,57 +45,47 @@ export class EdgeTable<
     }
 
     set(from: T_Id_V_From, to: T_Id_V_To, value: T_EdgeData, suffix?: string): this {
-        const [kft, data] = this.init(from, to, suffix);
-
+        const [kft, data] = this._init(from, to, suffix);
         data.edge.set(kft, value);
-        // biome-ignore lint/style/noNonNullAssertion: init ensures ajacent sets exist.
-        data.adjacency.get(from)!.add(to); if (!this.directed) data.adjacency.get(to)!.add(from);
-
+        this._updateAdjacent(data, from, to);
         return this;
     }
 
     get(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): T_EdgeData | undefined {
-        const [kft, data] = this.init(from, to, suffix);
+        const [kft, data] = this._init(from, to, suffix);
         return data.edge.get(kft);
     }
 
     has(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): boolean {
-        const [kft, data] = this.init(from, to, suffix);
-        return data.edge.has(kft);
+        if (!this.validParams(from, to, s)) return false;
+        const data = this._perSuffix.get(suffix ?? '');
+        return !!(data?.edge?.has(this._keyFromTo(from, to)));
     }
 
     delete(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): boolean {
-        const [kft, data] = this.init(from, to, suffix);
-        // biome-ignore lint/style/noNonNullAssertion: init ensures ajacent sets exist.
-        data.adjacency.get(from)!.delete(to); if (!this.directed) data.adjacency.get(to)!.delete(from);
+        const [kft, data] = this._init(from, to, suffix);
+        this._updateAdjacent(data, from, to);
         return data.edge.delete(kft);
     }
 
     /** Like set, stablishes a connection, but without setting any edge data (also won't overwrite any existing edge data). */
     connect(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): UW_Partial<T_EdgeData> {
-        const [kft, data] = this.init(from, to, suffix);
-
+        const [kft, data] = this._init(from, to, suffix);
         let edata = data.edge.get(kft);
         if (!edata) {
             edata = {} as T_EdgeData;
             data.edge.set(kft, edata);
         }
-        // biome-ignore lint/style/noNonNullAssertion: init ensures ajacent sets exist.
-        data.adjacency.get(from)!.add(to); if (!this.directed) data.adjacency.get(to)!.add(from);
-
+        this._updateAdjacent(data, from, to);
         return edata as UW_Partial<T_EdgeData>;
     }
 
     merge(from: T_Id_V_From, to: T_Id_V_To, value: T_EdgeData, suffix?: string): UW_Partial<T_EdgeData> {
-        const [kft, data] = this.init(from, to, suffix);
+        const [kft, data] = this._init(from, to, suffix);
 
         if (!data.edge.has(kft)) { data.edge.set(kft, {} as T_EdgeData); }
-        // biome-ignore lint/suspicious/noExplicitAny: it is ok.
         const edata = Object.assign(data.edge.get(kft) as any, value);
-
-        // biome-ignore lint/style/noNonNullAssertion: init ensures ajacent sets exist.
-        data.adjacency.get(from)!.add(to); if (!this.directed) data.adjacency.get(to)!.add(from);
-
+        this._updateAdjacent(data, from, to);
         return edata as UW_Partial<T_EdgeData>;
     }
 
@@ -106,10 +97,31 @@ export class EdgeTable<
         for (const [suffix, data] of this._perSuffix) {
             for (const [kft, edge] of data.edge) {
                 const [from, to] = kft.split('~');
-                // type ~  from ~ to ~ dir ~ suffix
-                const edgeKey: EdgeKey = `${this.type}~${from}~${to}~${this.directed ? 'd' : 'u'}~${suffix}`;
-                yield [edgeKey, edge];
+                yield [this.edgeKey(from, to, suffix), edge];
             }
+        }
+    }
+
+    *adjacentTo(to: T_Id_V_To, suffix?: string) {
+        if (!this.to_t.validParams(to)) throw new Error(`Invalid id: ${to}.`);
+        const data = this._perSuffix.get(suffix ?? '');
+        if (!data) return;
+        const adjSet = (this.directed ? data.adjTo.get(to) : data.adjFrom.get(to)) ?? [];
+        for (const vid of adjSet) {
+            const from = vid as T_Id_V_From;
+            yield { from, to, edata: data.edge.get(this._keyFromTo(from, to)) };
+        }
+    }
+
+    *adjacentFrom(from: string, suffix?: string) {
+        if (!this.from_t.validParams(from)) throw new Error(`Invalid id: ${from}.`);
+        const data = this._perSuffix.get(suffix ?? '');
+        if (!data) return;
+        // We don't check this.directed since in both cases we want to return the same set.
+        const adjSet = data.adjFrom.get(from) ?? [];
+        for (const vid of adjSet) {
+            const to = vid as T_Id_V_To;
+            yield { from, to, edata: data.edge.get(this._keyFromTo(from, to)) };
         }
     }
 
@@ -132,25 +144,11 @@ export class EdgeTable<
         return `${t}~${from}~${to}~${d}`;
     }
 
-    private init(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): [KFT, _TableData<T_EdgeData>] {
-        const s = suffix ?? '';
-        if (!this.validParams(from, to, s)) throw new Error(`Invalid id(s) in edge: ${from} -> ${to}${s ? ` ${s}` : ''}.`);
-
-        // Initialize containers for the given vertices, but don't stablish any data or connections.
-        let d = this._perSuffix.get(s);
-        if (d === undefined) {
-            d = { edge: new Map<string, T_EdgeData>(), adjacency: new Map<string, Set<string>>() };
-            this._perSuffix.set(s, d);
-        }
-        this.from_t.declare(from);
-        this.to_t.declare(to);
-        if (!d.adjacency.has(from)) d.adjacency.set(from, new Set());
-        if (!d.adjacency.has(to)) d.adjacency.set(to, new Set());
-
-        return [this.keyFromTo(from, to), d];
+    edgeKey(from: string, to: string, suffix?: string): EdgeKey {
+        return `${this.type}~${from}~${to}~${this.directed ? 'd' : 'u'}~${suffix ?? ''}`;
     }
 
-    keyFromTo(from: T_Id_V_From, to: T_Id_V_To): KFT {
+    private _keyFromTo(from: string, to: string): KFT {
         // When not directed, we want the same key for both directions,
         // this way the same data is stored in the edge map for both directions.
         let from_ = from as string; let to_ = to as string;
@@ -160,4 +158,43 @@ export class EdgeTable<
         return `${from_}~${to_}`;
     }
 
+    private _init(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): [KFT, _TableData<T_EdgeData>] {
+        const s = suffix ?? '';
+        if (!this.validParams(from, to, s)) throw new Error(`Invalid id(s) in edge: ${from} -> ${to}${s ? ` ${s}` : ''}.`);
+
+        // Initialize containers for the given vertices, but don't stablish any data or connections.
+        let d = this._perSuffix.get(s);
+        if (d === undefined) {
+            d = {
+                edge: new Map<string, T_EdgeData>(),
+                adjFrom: new Map<string, Set<string>>(),
+                adjTo: new Map<string, Set<string>>()
+            };
+            this._perSuffix.set(s, d);
+        }
+
+        // Use one ore two adjacency sets as needed.
+        if (this.directed) {
+            if (!d.adjFrom.has(from)) d.adjFrom.set(from, new Set());
+            if (!d.adjTo.has(to)) d.adjTo.set(to, new Set());
+        } else {
+            if (!d.adjFrom.has(from)) d.adjFrom.set(from, new Set());
+            if (!d.adjFrom.has(to)) d.adjFrom.set(to, new Set());
+        }
+
+        this.from_t.declare(from);
+        this.to_t.declare(to);
+
+        return [this._keyFromTo(from, to), d];
+    }
+
+    private _updateAdjacent(data: _TableData<T_EdgeData>, from: T_Id_V_From, to: T_Id_V_To) {
+        if (this.directed) {
+            data.adjFrom.get(from)?.add(to);
+            data.adjTo.get(to)?.add(from);
+        } else {
+            data.adjFrom.get(from)?.add(to);
+            data.adjFrom.get(to)?.add(from);
+        }
+    }
 }
