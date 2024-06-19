@@ -1,9 +1,17 @@
-import { PlangsGraph } from "../entities/plangs_graph";
-import type { T_Id_V_Plang } from "../entities/schemas";
-import { parseAll } from "./wikipedia_process";
 import { Eta } from "eta"
+import { PlangsGraph } from "../entities/plangs_graph";
+import type { Image, Link, T_Id_V_Plang } from "../entities/schemas";
+import { toAlphaNum } from "../util";
+import { parseAll } from "./wikipedia_process";
 
 const Templ = new Eta({ views: __dirname, autoEscape: false });
+
+const DEF_PATH = Bun.fileURLToPath(`file:${__dirname}/../definitions`)
+
+function tsPath(type: string, name: string): string {
+    const p = toAlphaNum(name).toLowerCase();
+    return Bun.fileURLToPath(`file:${DEF_PATH}/${type}/${p[0]}/${p}.ts`);
+}
 
 await generateAll();
 
@@ -13,7 +21,7 @@ async function generateAll() {
 
     console.log(new Date().toISOString());
 
-    genPlangTsFile(g, "pl+Python"); // A def per each v_plang
+    await genPlangTsFile(g, "pl+Python"); // A def per each v_plang
 
     // TODO
     // v_license
@@ -23,50 +31,60 @@ async function generateAll() {
     // v_tsystem
 }
 
-function genPlangTsFile(g: PlangsGraph, plvid: T_Id_V_Plang) {
+async function genPlangTsFile(g: PlangsGraph, plvid: T_Id_V_Plang) {
     const pl = g.v_plang.get(plvid);
-    if (!pl) throw new Error("Language not found")
+    if (!pl) throw new Error(`${plvid}: Language not found!`);
+    if (!pl.name) throw new Error(`${plvid}: Language has no name!`);
 
     // Elements for the template.
-    const templ = {
+    const templ: Record<string, string | string[] | string[][]> = {
         plvid,
         dialects: [],
-        extensions: [],
-        images: [],
         implementations: [],
         influenced: [],
         influences: [],
-        licenses: [],
         name: pl.name,
-        paradigms: [],
-        people: [],
         platforms: [],
-        references: [],
-        releases: [],
-        scoping: [],
         typesys: [],
         websites: [],
     }
 
-    pl.images // Image[];
-    pl.websites // Link[];
-    pl.releases // Release[];
-    pl.extensions // string[];
-    pl.scoping //  ('lexical' | 'static' | 'dynamic' | 'other')[];
-
-    // References.
-    pl.references // { [tag: string]: Link[] };
+    templ.images = (pl.images ?? []).map((i: Image) => json(i));
+    templ.websites = (pl.websites ?? []).map((l: Link) => json(l));
+    templ.extensions = json(pl.extensions ?? [], false)
+    templ.scopings = json(pl.scoping ?? [], false);
+    templ.references = '{}'; // json(pl.references);
+    templ.releases = (pl.releases ?? []).map((r) => json(r, false))
 
     // People.
-    //
-    // for (const { from, to, edata } of g.e_person_plang_role.adjacentTo(plvid)) {
-    //     const person = g.v_person.get(from);
-    //     console.log(person, "was involved in", pl?.name, "as", edata?.role);
-    // }
 
+    templ.people = [] as string[][];
+    for (const { from, edata } of g.e_person_plang_role.adjacentTo(plvid)) {
+        const person = g.v_person.get(from);
+        templ.people.push([
+            json(from, false),
+            json(person?.name || from, false),
+            json(edata?.role || 'contributor', false)
+        ]);
+    }
 
-    // ////////////////////////////////////////////////////////////////////////////////
-    // console.log('--------')
+    // Licenses.
+
+    templ.licenses = [] as string[][];
+    for (const { from, to } of g.e_has_license.adjacentFrom(plvid)) {
+        const license = g.v_license.get(to);
+        templ.licenses.push([json(to), json(license?.name || to)]);
+    }
+
+    // Paradigms
+
+    templ.paradigms = [] as string[];
+    for (const { from, to } of g.e_plang_para.adjacentFrom(plvid)) {
+        const para = g.v_paradigm.get(to);
+        templ.paradigms.push(json(to));
+    }
+
+    // Dialects.
 
     // for (const { from, to } of g.e_dialect_of.adjacentTo(plvid)) {
     //     assert(to === plvid);
@@ -74,23 +92,11 @@ function genPlangTsFile(g: PlangsGraph, plvid: T_Id_V_Plang) {
     //     console.log(dialect?.name, "is a dialect of", pl?.name);
     // }
 
-
     // for (const { from, to } of g.e_dialect_of.adjacentFrom(plvid)) {
     //     assert(from === plvid);
     //     const dialectOf = g.v_plang.get(to);
     //     console.log(dialectOf?.name, "is a dialect of", pl?.name);
     // }
-
-    // ////////////////////////////////////////////////////////////////////////////////
-    // console.log('--------')
-
-    // for (const { from, to } of g.e_has_license.adjacentFrom(plvid)) {
-    //     const license = g.v_license.get(to);
-    //     console.log(from, "has license", `'${license?.name}'`);
-    // }
-
-    // ////////////////////////////////////////////////////////////////////////////////
-    // console.log('--------')
 
     // for (const { from, to } of g.e_implements.adjacentTo(plvid)) {
     //     assert(to === plvid);
@@ -104,9 +110,6 @@ function genPlangTsFile(g: PlangsGraph, plvid: T_Id_V_Plang) {
     //     console.log("<----", from, "implements", to, impl?.name);
     // }
 
-    // ////////////////////////////////////////////////////////////////////////////////
-    // console.log('--------')
-
     // // for (const { from, to } of g.e_l_influenced_l.adjacentTo(plvid)) {
     // //     assert(to === plvid);
     // //     const impl = g.v_plang.get(from);
@@ -119,26 +122,11 @@ function genPlangTsFile(g: PlangsGraph, plvid: T_Id_V_Plang) {
     // //     console.log("<----", from, "Influenced", to, impl?.name);
     // // }
 
-    // ////////////////////////////////////////////////////////////////////////////////
-    // console.log('--------')
-
-    // for (const { from, to } of g.e_plang_para.adjacentFrom(plvid)) {
-    //     assert(from === plvid);
-    //     const para = g.v_paradigm.get(to);
-    //     console.log("---->", from, "has paradigm", to, para?.name);
-    // }
-
-    // ////////////////////////////////////////////////////////////////////////////////
-    // console.log('--------')
-
     // for (const { from, to } of g.e_plang_tsys.adjacentFrom(plvid)) {
     //     assert(from === plvid);
     //     const tsys = g.v_tsystem.get(to);
     //     console.log("---->", from, "has type-sys", to, tsys?.name);
     // }
-
-    // ////////////////////////////////////////////////////////////////////////////////
-    // console.log('--------')
 
     // for (const { from, to } of g.e_supports_platf.adjacentFrom(plvid)) {
     //     assert(from === plvid);
@@ -148,6 +136,15 @@ function genPlangTsFile(g: PlangsGraph, plvid: T_Id_V_Plang) {
 
     const res = Templ.render("./plang", templ)
     console.log(res);
+
+    // await Bun.write(tsPath("plang", pl.name), res);
+}
+
+// biome-ignore lint/suspicious/noExplicitAny: it's ok.
+function json(v: any, pretty = true): string {
+    return pretty && typeof v !== 'string' ?
+        `${JSON.stringify(v, null, 2)}\n` :
+        JSON.stringify(v);
 }
 
 function assert(statement: boolean) {

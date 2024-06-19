@@ -1,84 +1,89 @@
-import type { PlangsGraph } from '../../entities/plangs_graph';
+import type { PlangsGraph } from '../../../entities/plangs_graph';
 
 export const lang_vid = '<%= it.plvid %>';
 
 export function define(g: PlangsGraph) {
-    const pl = g.v_plang.merge(lang_vid, { name: '<%= it.name %>' });
-    const plb = g.plangBuilder(pl);
+   const pl = g.v_plang.merge(lang_vid, { name: '<%= it.name %>' });
+   const plb = g.plangBuilder(pl);
 
-    plb.addImages(<%= it.images %>);
+   plb.addImages([
+     <%= it.images.join(",\n") %>
+   ]);
 
-    plb.addWebsites(<%= it.websites %>);
+   plb.addWebsites([
+     <%= it.websites.join(",\n") %>
+   ]);
 
-    plb.addScoping(<%= it.scoping %>);
+   plb.addScoping(<%= it.scopings %>);
 
-    plb.addExtensions(<%= it.extensions %>);
+   plb.addExtensions(<%= it.extensions %>);
 
-    plb.addReferences(<%= it.references %>);
+   plb.addReferences(<%= it.references %>);
 
-    // People
+   // People
 
-    <% for (const [idperson, nameperson, role] of it.people) { %>
-    g.v_person.merge(<%=idperson%>, { name: <%=nameperson%> });
-    g.e_person_plang_role.set(<%=idperson%>, lang_vid, { role: <%= role %>' });
-    <% } %>
+   <% for (const [idPerson, namePerson, role] of it.people) { %>
+   g.v_person.merge(<%= idPerson %>, { name: <%= namePerson %> });
+   g.e_person_plang_role.set(<%= idPerson %>, lang_vid, { role: <%= role %> });
 
-    // Licenses
+   <% } %>
 
-    <% for (const [key, name] of it.licenses) { %>
-    g.v_license.merge(`license+${key}`, { name });
-    g.e_has_license.connect(lang_vid, lang_vid);
-    <% } %>
+   // Licenses
 
-    // Paradigms
+   <% for (const [key, name] of it.licenses) { %>
+   g.v_license.merge(<%= key %>, { name: <%= name %> });
+   g.e_has_license.connect(lang_vid, <%= key %>);
+   <% } %>
 
-    <% for (const key of it.paradigms) { %>
-    g.e_plang_para.connect(lang_vid, `para+${key}`)
-    <% } %>
+   // Paradigms
 
-    // Type Systems
+   <% for (const key of it.paradigms) { %>
+   g.e_plang_para.connect(lang_vid, `para+${<%= key %>}`);
+   <% } %>
 
-    <% for (const key of it.typesys) { %>
-    g.e_plang_tsys.connect(lang_vid, `tsys+${key}`);
-    <% } %>
+   // Type Systems
 
-    // Supported Platforms
+   <% for (const key of it.typesys) { %>
+   g.e_plang_tsys.connect(lang_vid, `tsys+${key}`);
+   <% } %>
 
-    <% for (const key of it.platforms) { %>
-    g.e_supports_platf.connect(lang_vid, `platf+${key}`);
-    <% } %>
+   // Supported Platforms
 
-    // Implementations
+   <% for (const key of it.platforms) { %>
+   g.e_supports_platf.connect(lang_vid, `platf+${key}`);
+   <% } %>
 
-    <% for (const [key, name] of it.implementations) { %>
-    g.v_plang.merge(`pl+${key}`, { name });
-    g.e_implements.connect(`pl+${key}`, lang_vid);
-    <% } %>
+   // Implementations
 
-    // Dialects
+   <% for (const [key, name] of it.implementations) { %>
+   g.v_plang.merge(`pl+${key}`, { name });
+   g.e_implements.connect(`pl+${key}`, lang_vid);
+   <% } %>
 
-    <% for (const [key, name] of it.dialects) { %>
-    g.v_plang.merge(`pl+${key}`, { name });
-    g.e_dialect_of.connect(`pl+${key}`, lang_vid);
-    <% } %>
+   // Dialects
 
-    // Influences
+   <% for (const [key, name] of it.dialects) { %>
+   g.v_plang.merge(`pl+${key}`, { name });
+   g.e_dialect_of.connect(`pl+${key}`, lang_vid);
+   <% } %>
 
-    <% for (const [key, name] of it.influences) { %>
-    g.v_plang.merge(`pl+${key}`, { name });
-    g.e_l_influenced_l.connect(`pl+${key}`, lang_vid);
-    <% } %>
+   // Influences
 
-    // Influenced
+   <% for (const [key, name] of it.influences) { %>
+   g.v_plang.merge(`pl+${key}`, { name });
+   g.e_l_influenced_l.connect(`pl+${key}`, lang_vid);
+   <% } %>
 
-    <% for (const [key, name] of it.influenced) { %>
-    g.v_plang.merge(`pl+${key}`, { name });
-    g.e_l_influenced_l.connect(lang_vid, `pl+${key}`);
-    <% } %>
+   // Influenced
 
-    // Releases
+   <% for (const [key, name] of it.influenced) { %>
+   g.v_plang.merge(`pl+${key}`, { name });
+   g.e_l_influenced_l.connect(lang_vid, `pl+${key}`);
+   <% } %>
 
-    <% for (const release of it.releases) { %>
-    plb.addRelease(<%= release %>);
-    <% } %>
+   // Releases
+
+   <% for (const release of it.releases) { %>
+   plb.addRelease(<%= release %>);
+   <% } %>
 }
