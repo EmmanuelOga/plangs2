@@ -5,7 +5,7 @@
 import { Glob } from 'bun';
 import type { VID } from '../graph/vertex';
 import type { Image, Link, Release, V_Person, V_Plang } from '../schemas';
-import { toAlphaNum } from '../util';
+import { caller, toAlphaNum } from '../util';
 import { WIKIPEDIA_URL, cachePath } from './wikipedia_json';
 import type { PlangsGraph } from '../plangs_graph';
 
@@ -58,11 +58,17 @@ export async function parseAll(g: PlangsGraph) {
     for await (const path of glob.scan(cachePath('json'))) {
         const j = JSON.parse(await Bun.file(cachePath('json', path)).text());
         const title: string = j.title;
-        const image: string = j.image
         const wikiUrl: string = j.wikiUrl;
+        const image: string = j.img
         const data: Record<DATA_ATTR, Record<DATA_TYPE, _Any>> = j.data;
         processLanguage(g, title, wikiUrl, image, data);
     }
+}
+
+function mergeLink(pl: Partial<V_Plang>, newLink: Link) {
+    pl.websites ??= [];
+    if (pl.websites.some((l: Link) => l.href === newLink.href)) return;
+    pl.websites.push(newLink);
 }
 
 function processLanguage(
@@ -73,19 +79,14 @@ function processLanguage(
     data: Record<DATA_ATTR, Record<DATA_TYPE, _Any>>
 ) {
     const pid = toAlphaNum(title);
-    g.v_plang.merge(`pl+${pid}`, { name: title }); // We may already have the language, from an influence.
+    const pl = g.v_plang.merge(`pl+${pid}`, { name: title }); // We may already have the language, from an influence.
+    mergeLink(pl, { kind: 'wikipedia', title: title, href: wikiUrl });
 
-    const pl = g.v_plang.get(`pl+${pid}`);
-    if (!pl) throw new Error(`Language not found: ${pl}`);
-
-    if (!pl.websites || !pl.websites.some((l: Link) => l.href === wikiUrl)) {
-        pl.websites ??= [];
-        pl.websites.push({ kind: 'wikipedia', title: title, href: wikiUrl });
-    }
-
-    if (image && (!pl.images || !pl.images?.some((i: Image) => i.url === image))) {
+    if (image) {
         pl.images ??= [];
-        pl.images.push({ kind: 'logo', url: image });
+        if (!pl.images.some((i: Image) => i.url === image)) {
+            pl.images.push({ kind: 'logo', url: image });
+        }
     }
 
     for (const [attr, attrVal] of Object.entries(data)) {
@@ -96,8 +97,7 @@ function processLanguage(
 }
 
 function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE, val: _Any) {
-    const pl = g.v_plang.get(pvid) as Partial<V_Plang>;
-    if (!pl) throw new Error(`Language not found: ${pl}`);
+    const pl = g.v_plang.declare(pvid);
 
     // Would be nice to map the reference to the exact edge it belongs to,
     // but that would need more careful scraping... maybe later.
@@ -112,12 +112,11 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
         case 'website':
             if (type !== 'links') return
             {
-                pl.websites ??= [];
                 for (let { title, href } of val) {
                     if (!title || !href) continue
 
                     if (href.startsWith('//')) href = `https:${href}`;
-                    if (href.startsWith('/wiki')) href = WIKIPEDIA_URL + href;
+                    else if (href.startsWith('/wiki')) href = WIKIPEDIA_URL + href;
 
                     let url: URL;
                     try {
@@ -127,14 +126,13 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
                         continue;
                     }
 
-                    let kind: Link['kind'];
+                    let kind: Link['kind'] = 'homepage';
                     if (url.hostname.toLowerCase().includes('wikipedia.org')) {
                         kind = 'wikipedia';
                     } else if (href.includes('git')) kind = 'repository';
-                    else kind = 'homepage';
 
                     const link: Link = { kind, title, href };
-                    pl.websites.push(link);
+                    mergeLink(pl, link);
                 }
                 return;
             }
@@ -152,12 +150,6 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             if (type !== 'links') return;
             for (const { title, href } of val.filter(({ href }) => href.startsWith('/wiki'))) {
                 const impl = toAlphaNum(title);
-
-                if (g.v_plang.has(`pl+${impl}`) || pvid === `pl+${impl}`) {
-                    pl.selfHosted = true;
-                    continue;
-                }
-
                 g.v_implem.merge(`impl+${impl}`, {
                     name: title.trim(), websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
                 });
@@ -202,9 +194,10 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             if (type !== 'links') return;
             for (const { title, href } of val.filter(({ href }) => href.startsWith('/wiki'))) {
                 const key = toAlphaNum(title);
-                g.v_plang.merge(`pl+${key}`, {
-                    name: title.trim(), websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
-                });
+
+                const otherpl = g.v_plang.merge(`pl+${key}`, { name: title.trim() });
+                mergeLink(otherpl, { kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` });
+
                 if (key === 'influenced') {
                     g.e_l_influenced_l.connect(pvid, `pl+${key}`);
                 } else {
@@ -231,9 +224,8 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
 
             for (const { title, href } of val.filter(({ href }) => href.startsWith('/wiki'))) {
                 const key = toAlphaNum(title);
-                g.v_plang.merge(`pl+${key}`, {
-                    name: title.trim(), websites: [{ kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }]
-                });
+                const otherpl = g.v_plang.merge(`pl+${key}`, { name: title.trim() });
+                mergeLink(otherpl, { kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` });
 
                 if (key === 'dialects') {
                     g.e_dialect_of.connect(`pl+${key}`, pvid);

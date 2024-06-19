@@ -1,4 +1,5 @@
-import type { UW_Partial } from "../util";
+import { V_Plang } from "../schemas";
+import { caller, type UW_Partial } from "../util";
 import { VIdPattern } from "./vertex";
 
 /**
@@ -50,13 +51,14 @@ export class VertexTable<T_VId extends string, T_VData> implements Iterable<[T_V
         return v_data as UW_Partial<T_VData>;
     }
 
-    /** Shallow clone using spread operator: data = {...existing, ...value}. */
     merge(key: T_VId, value: T_VData): UW_Partial<T_VData> {
         if (!this.validParams(key)) throw new Error(`invalid key: ${key}`);
-        const existing = this._vdata.get(key);
-        const data = { ...existing, ...value };
-        this._vdata.set(key, data);
-        return data as UW_Partial<T_VData>;
+
+        if (!this._vdata.has(key)) { this._vdata.set(key, {} as T_VData); }
+        // biome-ignore lint/suspicious/noExplicitAny: it is ok.
+        const vdata = Object.assign(this._vdata.get(key) as any, value);
+
+        return vdata as UW_Partial<T_VData>;
     }
 
     validParams(vid: string): boolean {

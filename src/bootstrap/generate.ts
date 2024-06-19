@@ -1,11 +1,13 @@
 import { PlangsGraph } from "../plangs_graph";
 import { parseAll } from "./wikipedia_process";
 
-// await generateAll();
+await generateAll();
 
 async function generateAll() {
     const g = new PlangsGraph();
     await parseAll(g)
+
+    console.log(new Date().toISOString());
 
     genTsFile(g, 'Python');
 }
@@ -22,7 +24,7 @@ function genTsFile(g: PlangsGraph, v_plang: string) {
     // e_plang_para
     // e_supports_platv
 
-    // const people = g.e_people.connectedTo(`pl+${v_plang}`);
+    console.log(pl);
 
     // e_people
 }

@@ -85,12 +85,12 @@ export class EdgeTable<
         return edata as UW_Partial<T_EdgeData>;
     }
 
-    /** Shallow clone using spread operator: data = {...existing, ...value}. */
     merge(from: T_Id_V_From, to: T_Id_V_To, value: T_EdgeData, suffix?: string): UW_Partial<T_EdgeData> {
         const [kft, data] = this.init(from, to, suffix);
 
-        const edata = { ...data.edge.get(kft), ...value } as T_EdgeData;
-        data.edge.set(kft, edata);
+        if (!data.edge.has(kft)) { data.edge.set(kft, {} as T_EdgeData); }
+        // biome-ignore lint/suspicious/noExplicitAny: it is ok.
+        const edata = Object.assign(data.edge.get(kft) as any, value);
 
         // biome-ignore lint/style/noNonNullAssertion: init ensures ajacent sets exist.
         data.adjacency.get(from)!.add(to); if (!this.directed) data.adjacency.get(to)!.add(from);
