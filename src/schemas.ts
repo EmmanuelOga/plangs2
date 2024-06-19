@@ -19,13 +19,6 @@ export interface V_Plang {
     references: { [tag: string]: Link[] };
 }
 
-export type T_Id_V_Implem = VID<`impl`>;
-export interface V_Implem {
-    name: string;
-    websites: Link[];
-    releases: Release[];
-}
-
 export type T_Id_V_Platform = VID<`platf`>;
 export interface V_Platform {
     name: string;

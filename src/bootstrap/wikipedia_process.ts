@@ -154,13 +154,12 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
             if (type !== 'links') return;
             for (const { title, href } of val.filter(({ href }) => href.startsWith('/wiki'))) {
                 const impl = toAlphaNum(title);
-
                 mergeLink(
-                    g.v_implem.merge(`impl+${impl}`, { name: title.trim() }),
+                    g.v_plang.merge(`pl+${impl}`, { name: title.trim() }),
                     { kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` }
                 );
 
-                g.e_implements.connect(`impl+${impl}`, pvid);
+                g.e_implements.connect(`pl+${impl}`, pvid);
             }
             return;
 
@@ -176,11 +175,11 @@ function assign(g: PlangsGraph, pvid: VID<'pl'>, key: DATA_ATTR, type: DATA_TYPE
                 // We can use website data later to disambiguate.
 
                 mergeLink(
-                    g.v_implem.merge(`impl+${key}`, { name: title.trim() }),
+                    g.v_plang.merge(`pl+${key}`, { name: title.trim() }),
                     { kind: 'wikipedia', title, href: `${WIKIPEDIA_URL}${href}` },
                 );
 
-                g.e_implements.connect(`impl+${key}`, pvid);
+                g.e_implements.connect(`pl+${key}`, pvid);
             }
             return;
 
