@@ -1,22 +1,20 @@
 import type { PlangsGraph } from '../../entities/plangs_graph';
 
-export const lang_vid = '<%= it.vid %>';
+export const lang_vid = '<%= it.plvid %>';
 
 export function define(g: PlangsGraph) {
     const pl = g.v_plang.merge(lang_vid, { name: '<%= it.name %>' });
     const plb = g.plangBuilder(pl);
 
-    plb.addImage(<%= it.image %>);
+    plb.addImages(<%= it.images %>);
 
-    plb.addWebsite(<%= it.website %>);
-
-    plb.addExtensions(<%= it.extensions %>);
+    plb.addWebsites(<%= it.websites %>);
 
     plb.addScoping(<%= it.scoping %>);
 
-    <% for (const [tag, link] of it.references) { %>
-    plb.addReference(<%= name %>, <%= link %>);
-    <% } %>
+    plb.addExtensions(<%= it.extensions %>);
+
+    plb.addReferences(<%= it.references %>);
 
     // People
 
@@ -25,80 +23,62 @@ export function define(g: PlangsGraph) {
     g.e_person_plang_role.set(<%=idperson%>, lang_vid, { role: <%= role %>' });
     <% } %>
 
+    // Licenses
+
+    <% for (const [key, name] of it.licenses) { %>
+    g.v_license.merge(`license+${key}`, { name });
+    g.e_has_license.connect(lang_vid, lang_vid);
+    <% } %>
+
+    // Paradigms
+
+    <% for (const key of it.paradigms) { %>
+    g.e_plang_para.connect(lang_vid, `para+${key}`)
+    <% } %>
+
     // Type Systems
 
-    for (const tsys of ['oop', 'duck', 'dynamic', 'strong', 'optional']) {
-        g.e_plang_tsys.connect(lang_vid, `tsys+${tsys}`);
-    }
+    <% for (const key of it.typesys) { %>
+    g.e_plang_tsys.connect(lang_vid, `tsys+${key}`);
+    <% } %>
 
     // Supported Platforms
 
-    for (const pf of ['linux64', 'mac64', 'windows10', 'wasi32', 'freebsd64', 'ios', 'rpi', 'android']) {
-        g.e_supports_platf.connect(lang_vid, `platf+${pf}`);
-    }
+    <% for (const key of it.platforms) { %>
+    g.e_supports_platf.connect(lang_vid, `platf+${key}`);
+    <% } %>
 
     // Implementations
 
-    for (const [p, name] of [
-        ['cpython', 'CPython'],
-        ['py-py', 'PyPy'],
-        ['stackless-py', 'Stackless Python'],
-        ['micro-py', 'MicroPython'],
-        ['circuit-py', 'CircuitPython'],
-        ['iron-py', 'IronPython'],
-        ['jython', 'Jython']
-    ]) {
-        g.v_plang.merge(`pl+${p}`, { name });
-        g.e_implements.connect(`pl+${p}`, lang_vid);
-    }
+    <% for (const [key, name] of it.implementations) { %>
+    g.v_plang.merge(`pl+${key}`, { name });
+    g.e_implements.connect(`pl+${key}`, lang_vid);
+    <% } %>
+
+    // Dialects
+
+    <% for (const [key, name] of it.dialects) { %>
+    g.v_plang.merge(`pl+${key}`, { name });
+    g.e_dialect_of.connect(`pl+${key}`, lang_vid);
+    <% } %>
 
     // Influences
 
-    for (const [p, name] of [
-        ['abc', 'ABC'],
-        ['ada', 'Ada'],
-        ['algol', 'ALGOL'],
-        ['apl', 'APL'],
-        ['c', 'C'],
-        ['cpp', 'C++'],
-        ['clu', 'CLU'],
-        ['dylan', 'Dylan'],
-        ['haskell', 'Haskell'],
-        ['icon', 'Icon'],
-        ['lisp', 'Lisp'],
-        ['modula3', 'Modula-3'],
-        ['perl', 'Perl'],
-        ['sml', 'Standard ML']
-    ]) {
-        g.v_plang.merge(`pl+${p}`, { name });
-        g.e_l_influenced_l.connect(`pl+${p}`, lang_vid);
-    }
+    <% for (const [key, name] of it.influences) { %>
+    g.v_plang.merge(`pl+${key}`, { name });
+    g.e_l_influenced_l.connect(`pl+${key}`, lang_vid);
+    <% } %>
 
     // Influenced
 
-    for (const [p, name] of [
-        ['groovy', 'Groovy'],
-        ['boo', 'Boo'],
-        ['cobra', 'Cobra'],
-        ['coffee', 'CoffeeScript'],
-        ['d', 'D'],
-        ['fsharp', 'F#'],
-        ['gdscript', 'GDScript'],
-        ['genie', 'Genie'],
-        ['go', 'Go'],
-        ['js', 'JavaScript'],
-        ['julia', 'Julia'],
-        ['mojo', 'Mojo'],
-        ['nim', 'Nim'],
-        ['ring', 'Ring'],
-        ['ruby', 'Ruby'],
-        ['swift', 'Swift']
-    ]) {
-        g.v_plang.merge(`pl+${p}`, { name });
-        g.e_l_influenced_l.connect(lang_vid, `pl+${p}`);
-    }
+    <% for (const [key, name] of it.influenced) { %>
+    g.v_plang.merge(`pl+${key}`, { name });
+    g.e_l_influenced_l.connect(lang_vid, `pl+${key}`);
+    <% } %>
 
     // Releases
 
-    plb.addRelease({ version: '3.12.4', date: '2024-06-06', kind: 'stable' });
+    <% for (const release of it.releases) { %>
+    plb.addRelease(<%= release %>);
+    <% } %>
 }

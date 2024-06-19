@@ -15,7 +15,7 @@ export class PlangsBuilder {
         }
     }
 
-    addReference(key: string, ref: Link) {
+    addReferences(refs: Record<string, Link[]>) {
         const pl = this.pl;
     }
 
@@ -27,11 +27,11 @@ export class PlangsBuilder {
         const pl = this.pl;
     }
 
-    addWebsite(link: Link) {
+    addWebsites(links: Link[]) {
         const pl = this.pl;
     }
 
-    addImage(image: Image) {
+    addImages(image: Image[]) {
         const pl = this.pl;
     }
 }

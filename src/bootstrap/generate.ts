@@ -13,35 +13,48 @@ async function generateAll() {
 
     console.log(new Date().toISOString());
 
-    genPlangTsFile(g, "pl+Python");
+    genPlangTsFile(g, "pl+Python"); // A def per each v_plang
+
+    // TODO
+    // v_license
+    // v_paradigm
+    // v_person
+    // v_platform
+    // v_tsystem
 }
 
 function genPlangTsFile(g: PlangsGraph, plvid: T_Id_V_Plang) {
     const pl = g.v_plang.get(plvid);
     if (!pl) throw new Error("Language not found")
 
-    const res = Templ.render("./plang", {
-        name: "Python",
-        plangVid: "pl+Python",
-        image: "",
-        website: "",
+    // Elements for the template.
+    const templ = {
+        plvid,
+        dialects: [],
         extensions: [],
-        scoping: [],
-        references: [],
+        images: [],
+        implementations: [],
+        influenced: [],
+        influences: [],
+        licenses: [],
+        name: pl.name,
+        paradigms: [],
         people: [],
-    })
-    console.log(res);
+        platforms: [],
+        references: [],
+        releases: [],
+        scoping: [],
+        typesys: [],
+        websites: [],
+    }
 
-    pl.name
     pl.images // Image[];
-
     pl.websites // Link[];
     pl.releases // Release[];
-
     pl.extensions // string[];
     pl.scoping //  ('lexical' | 'static' | 'dynamic' | 'other')[];
 
-    // A map of references grouped by tag: #influences, #influenced_by, etc.
+    // References.
     pl.references // { [tag: string]: Link[] };
 
     // People.
@@ -51,6 +64,7 @@ function genPlangTsFile(g: PlangsGraph, plvid: T_Id_V_Plang) {
     //     console.log(person, "was involved in", pl?.name, "as", edata?.role);
     // }
 
+
     // ////////////////////////////////////////////////////////////////////////////////
     // console.log('--------')
 
@@ -59,6 +73,7 @@ function genPlangTsFile(g: PlangsGraph, plvid: T_Id_V_Plang) {
     //     const dialect = g.v_plang.get(from);
     //     console.log(dialect?.name, "is a dialect of", pl?.name);
     // }
+
 
     // for (const { from, to } of g.e_dialect_of.adjacentFrom(plvid)) {
     //     assert(from === plvid);
@@ -130,6 +145,9 @@ function genPlangTsFile(g: PlangsGraph, plvid: T_Id_V_Plang) {
     //     const platf = g.v_platform.get(to);
     //     console.log("---->", from, "supports platf", to, platf?.name);
     // }
+
+    const res = Templ.render("./plang", templ)
+    console.log(res);
 }
 
 function assert(statement: boolean) {
