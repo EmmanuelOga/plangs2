@@ -6,7 +6,7 @@ import { Glob } from "bun";
 import type { T_VId } from "../graph/vertex";
 import type { PlangsGraph } from "../entities/plangs_graph";
 import type { Image, Link, Release } from "../entities/schemas";
-import { toAlphaNum } from "../util";
+import { removeNonPrintable, toAlphaNum } from "../util";
 import { WIKIPEDIA_URL, cachePath } from "./wikipedia_json";
 
 // biome-ignore lint/suspicious/noExplicitAny: Wikipedia infoboxes really can have any data.
@@ -98,9 +98,7 @@ export async function parseAll(g: PlangsGraph) {
 
 function mergeLink(pl: { websites?: Link[] }, newLink: Link) {
 	pl.websites ??= [];
-
 	if (pl.websites.some((l: Link) => l.href === newLink.href)) return;
-
 	pl.websites.push(newLink);
 }
 
@@ -385,14 +383,10 @@ function assign(
 		case "developed_by":
 		case "developers": {
 			function addPerson(name: string, link?: Link) {
-				const key = toAlphaNum(name);
+				const key = toAlphaNum(name).replaceAll('.', '');
 
 				const person = g.v_person.merge(`person+${key}`, { name: name });
-				if (link) {
-					person.websites ??= [];
-					if (!person.websites.some((w: Link) => w.href === link.href))
-						person.websites.push(link);
-				}
+				if (link) { mergeLink(person, link); }
 
 				const rel = g.e_person_plang_role.connect(`person+${key}`, pvid);
 				const inferred_role = key === "developers" ? "contributor" : "designer";
@@ -412,7 +406,7 @@ function assign(
 				)) {
 					const names = extractNames(title);
 					if (names.length !== 1) continue;
-					addPerson(names[0], { title, href, kind: "wikipedia" });
+					addPerson(names[0], { title, href: `${WIKIPEDIA_URL}${href}`, kind: "wikipedia" });
 				}
 			}
 			return;
@@ -486,11 +480,12 @@ function assign(
 }
 
 const NON_PEOPLE =
-	/\d|eth|commercial|community|consortium|hewlett-packard|honeywell|labs|ansi|center|academ.*|harvard|mit\b|ieee|ibm|huawei|xerox|wso2|w3c|iso\b|inria|institute|research|computer|science|foundation|tech.+|polytech.*|university|comittee|jetbrains|sap\b|sas\b|institute|original|contributors|others|open|source|students|nvidia|organization|group|comunity|project|corp|chair|galois|foundation|ltd|tech|core|team|inc|systems|university|software/i;
+	/\d|authors|company|unicom|global|eth|texas|college|insa\-lyon|optimization|laboratories|games|itt\-|san\-diego|commercial|community|consortium|hewlett-packard|honeywell|labs|ansi|center|academ.*|harvard|mit\b|ieee|ibm|huawei|xerox|wso2|w3c|iso\b|inria|institute|research|computer|science|foundation|tech.+|polytech.*|university|comittee|jetbrains|sap\b|sas\b|institute|original|contributors|others|open|source|students|nvidia|organization|group|comunity|project|corp|chair|galois|foundation|ltd|tech|core|team|inc|systems|university|software/i;
 
 function extractNames(str: string): string[] {
 	return str
-		.replace(/et\s+al.*/, "")
+		.replaceAll(/\u00a0/g, " ")
+		.replaceAll(/et\s+al.*/g, "")
 		.split(/,|&|;|\sand\s/)
 		.map((s: string) => {
 			const match = s.match(/([^\()]+)\).*/i);
@@ -504,6 +499,7 @@ function extractNames(str: string): string[] {
 function cleanLicense(licenseId: string) {
 	const clean = licenseId
 		.toLowerCase()
+		.replaceAll(/\u00a0/g, " ")
 		.replaceAll(/\-since\-\d+/g, "")
 		.replaceAll(/\-until\-\d+/g, "")
 		.replaceAll(/\-\-+/g, "-")
