@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Ring";
+export const PL_V_Id = "pl+Ring" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Ring" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Ring";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ringlogo_transparent.png/121px-Ringlogo_transparent.png",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Ring",
@@ -27,17 +30,17 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".rform", ".rh", ".ring"]);
+	plb.addExtensions(pl, [".rform", ".rh", ".ring"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Mahmoud-Samir-Fayed", "designer"]]);
+	plb.addPeople(pl, [["person+Mahmoud-Samir-Fayed", "designer"]]);
 
-	plb.addLicenses(["license+MIT-License"]);
+	plb.addLicenses(pl, ["license+mit"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+declarative",
 		"para+functional",
 		"para+imperative",
@@ -47,18 +50,18 @@ export function define(g: PlangsGraph) {
 		"para+reflective",
 	]);
 
-	plb.addTypeSystems(["tsys+dynamic"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic"]);
 
-	plb.addPlatforms(["platf+Linux", "platf+Windows", "platf+macOS"]);
+	plb.addPlatforms(pl, ["platf+Linux", "platf+Windows", "platf+macOS"]);
 
-	plb.addImplementations(["pl+C"]);
+	plb.addImplementations(pl, ["pl+C"]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+BASIC",
 		"pl+C",
-		"pl+CSharp",
+		"pl+C-Sharp",
 		"pl+DragonLang",
 		"pl+Lua",
 		"pl+Python",
@@ -68,9 +71,9 @@ export function define(g: PlangsGraph) {
 		"pl+xBase",
 	]);
 
-	plb.addInfluenced(["pl+Python", "pl+QML", "pl+Ruby"]);
+	plb.addInfluenced(pl, ["pl+Python", "pl+QML", "pl+Ruby"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2016-01-25",

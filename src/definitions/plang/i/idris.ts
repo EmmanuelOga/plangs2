@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Idris";
+export const PL_V_Id = "pl+Idris" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Idris" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Idris";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Idris",
@@ -22,40 +25,46 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".idr", ".lidr"]);
+	plb.addExtensions(pl, [".idr", ".lidr"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Edwin-Brady", "designer"]]);
+	plb.addPeople(pl, [["person+Edwin-Brady", "designer"]]);
 
-	plb.addLicenses(["license+BSD"]);
+	plb.addLicenses(pl, ["license+bsd"]);
 
-	plb.addParadigms(["para+functional"]);
+	plb.addParadigms(pl, ["para+functional"]);
 
-	plb.addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
+	plb.addTypeSystems(pl, ["tsys+inferred", "tsys+static", "tsys+strong"]);
 
-	plb.addPlatforms(["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform"]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+Agda",
 		"pl+Clean",
 		"pl+Coq",
 		"pl+Epigram",
-		"pl+FSharp",
+		"pl+F-Sharp",
 		"pl+Haskell",
 		"pl+ML",
 		"pl+Rust",
 	]);
 
-	plb.addInfluenced(["pl+Agda", "pl+Clean", "pl+Epigram", "pl+ML", "pl+Rust"]);
+	plb.addInfluenced(pl, [
+		"pl+Agda",
+		"pl+Clean",
+		"pl+Epigram",
+		"pl+ML",
+		"pl+Rust",
+	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2007-01-01",

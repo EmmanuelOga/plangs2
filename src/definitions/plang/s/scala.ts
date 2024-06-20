@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Scala";
+export const PL_V_Id = "pl+Scala" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Scala" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Scala";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/3/39/Scala-full-color.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Scala",
@@ -32,17 +35,17 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".sc", ".scala"]);
+	plb.addExtensions(pl, [".sc", ".scala"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Martin-Odersky", "designer"]]);
+	plb.addPeople(pl, [["person+Martin-Odersky", "designer"]]);
 
-	plb.addLicenses(["license+Apache"]);
+	plb.addLicenses(pl, ["license+apache"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+concurrent",
 		"para+functional",
 		"para+imperative",
@@ -50,31 +53,31 @@ export function define(g: PlangsGraph) {
 		"para+object-oriented",
 	]);
 
-	plb.addTypeSystems([
+	plb.addTypeSystems(pl, [
 		"tsys+inferred",
 		"tsys+static",
 		"tsys+strong",
 		"tsys+structural",
 	]);
 
-	plb.addPlatforms([
+	plb.addPlatforms(pl, [
 		"platf+Java-virtual-machine",
 		"platf+JavaScript",
 		"platf+LLVM",
 	]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
-		"pl+CSharp",
+	plb.addInfluences(pl, [
+		"pl+C-Sharp",
 		"pl+Ceylon",
 		"pl+Chisel",
 		"pl+Common-Lisp",
 		"pl+Eiffel",
 		"pl+Erlang",
-		"pl+FSharp",
+		"pl+F-Sharp",
 		"pl+Fantom",
 		"pl+Flix",
 		"pl+Haskell",
@@ -90,7 +93,7 @@ export function define(g: PlangsGraph) {
 		"pl+Standard-ML",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+Ceylon",
 		"pl+Eiffel",
 		"pl+Erlang",
@@ -113,7 +116,7 @@ export function define(g: PlangsGraph) {
 		"pl+Xtend",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2004-01-20",

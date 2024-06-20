@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Tcl";
+export const PL_V_Id = "pl+Tcl" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Tcl" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Tcl";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Tcl-powered.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Tcl",
@@ -32,17 +35,17 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".tbc", ".tcl"]);
+	plb.addExtensions(pl, [".tbc", ".tcl"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+John-Ousterhout", "designer"]]);
+	plb.addPeople(pl, [["person+John-Ousterhout", "designer"]]);
 
-	plb.addLicenses(["license+BSD"]);
+	plb.addLicenses(pl, ["license+bsd"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+event-driven",
 		"para+functional",
 		"para+imperative",
@@ -50,17 +53,23 @@ export function define(g: PlangsGraph) {
 		"para+object-oriented",
 	]);
 
-	plb.addTypeSystems(["tsys+dynamic"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic"]);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+AWK", "pl+Lisp", "pl+PHP", "pl+PowerShell", "pl+Tea"]);
+	plb.addInfluences(pl, [
+		"pl+AWK",
+		"pl+Lisp",
+		"pl+PHP",
+		"pl+PowerShell",
+		"pl+Tea",
+	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+AWK",
 		"pl+Lisp",
 		"pl+PHP",
@@ -69,7 +78,7 @@ export function define(g: PlangsGraph) {
 		"pl+XOTcl",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1988-01-01",

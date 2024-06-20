@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Red";
+export const PL_V_Id = "pl+Red" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Red" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Red";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/en/thumb/e/e9/Red_Language_Tower_Logo.png/150px-Red_Language_Tower_Logo.png",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Red",
@@ -27,36 +30,36 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".red", ".reds"]);
+	plb.addExtensions(pl, [".red", ".reds"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Nenad-Rakocevic", "designer"]]);
+	plb.addPeople(pl, [["person+Nenad-Rakocevic", "designer"]]);
 
-	plb.addLicenses(["license+Boost", "license+modified-BSD"]);
+	plb.addLicenses(pl, ["license+boost", "license+modified-bsd"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+imperative",
 		"para+multi-paradigm",
 		"para+symbolic",
 	]);
 
-	plb.addTypeSystems([]);
+	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms(["platf+Linux", "platf+OS-X", "platf+Windows"]);
+	plb.addPlatforms(pl, ["platf+Linux", "platf+OS-X", "platf+Windows"]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+Lisp", "pl+Lua", "pl+Rebol", "pl+Scala"]);
+	plb.addInfluences(pl, ["pl+Lisp", "pl+Lua", "pl+Rebol", "pl+Scala"]);
 
-	plb.addInfluenced(["pl+Lisp", "pl+Rebol", "pl+Scala"]);
+	plb.addInfluenced(pl, ["pl+Lisp", "pl+Rebol", "pl+Scala"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2011-01-01",

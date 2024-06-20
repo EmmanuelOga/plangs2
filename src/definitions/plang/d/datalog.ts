@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Datalog";
+export const PL_V_Id = "pl+Datalog" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Datalog" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Datalog";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Datalog",
@@ -17,29 +20,31 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([]);
+	plb.addPeople(pl, []);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms(["para+declarative", "para+logic"]);
+	plb.addParadigms(pl, ["para+declarative", "para+logic"]);
 
-	plb.addTypeSystems(["tsys+weak"]);
+	plb.addTypeSystems(pl, ["tsys+weak"]);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+Prolog", "pl+SQL"]);
+	plb.addInfluences(pl, ["pl+Prolog", "pl+SQL"]);
 
-	plb.addInfluenced(["pl+Prolog", "pl+SQL--Structured-Query-Language-"]);
+	plb.addInfluenced(pl, ["pl+Prolog", "pl+SQL--Structured-Query-Language-"]);
 
-	plb.addReleases([{ version: "unknown", date: "1977-01-01", kind: "first" }]);
+	plb.addReleases(pl, [
+		{ version: "unknown", date: "1977-01-01", kind: "first" },
+	]);
 }

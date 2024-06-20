@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Dart";
+export const PL_V_Id = "pl+Dart" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Dart" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Dart";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Dart_programming_language_logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Dart",
@@ -27,17 +30,17 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".dart"]);
+	plb.addExtensions(pl, [".dart"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Lars-Bak", "designer"]]);
+	plb.addPeople(pl, [["person+Lars-Bak", "designer"]]);
 
-	plb.addLicenses(["license+BSD"]);
+	plb.addLicenses(pl, ["license+bsd"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+imperative",
 		"para+multi-paradigm",
@@ -45,23 +48,23 @@ export function define(g: PlangsGraph) {
 		"para+reflective",
 	]);
 
-	plb.addTypeSystems([
+	plb.addTypeSystems(pl, [
 		"tsys+inferred",
 		"tsys+optional",
 		"tsys+static",
 		"tsys+strong",
 	]);
 
-	plb.addPlatforms(["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform"]);
 
-	plb.addImplementations(["pl+Flutter"]);
+	plb.addImplementations(pl, ["pl+Flutter"]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+C",
-		"pl+CPP",
-		"pl+CSharp",
+		"pl+C-Plus-Plus",
+		"pl+C-Sharp",
 		"pl+Erlang",
 		"pl+Java",
 		"pl+JavaScript",
@@ -71,9 +74,9 @@ export function define(g: PlangsGraph) {
 		"pl+TypeScript",
 	]);
 
-	plb.addInfluenced(["pl+Erlang", "pl+JavaScript", "pl+Smalltalk"]);
+	plb.addInfluenced(pl, ["pl+Erlang", "pl+JavaScript", "pl+Smalltalk"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2011-10-10",

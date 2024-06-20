@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Squeak";
+export const PL_V_Id = "pl+Squeak" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Squeak" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Squeak";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Squeak.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Squeak",
@@ -27,25 +30,25 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".image", ".st"]);
+	plb.addExtensions(pl, [".image", ".st"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([
+	plb.addPeople(pl, [
 		["person+Adele-Goldberg", "designer"],
 		["person+Alan-Kay", "designer"],
 		["person+Dan-Ingalls", "designer"],
 	]);
 
-	plb.addLicenses(["license+Apache", "license+MIT"]);
+	plb.addLicenses(pl, ["license+apache", "license+mit"]);
 
-	plb.addParadigms(["para+object-oriented"]);
+	plb.addParadigms(pl, ["para+object-oriented"]);
 
-	plb.addTypeSystems(["tsys+dynamic"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic"]);
 
-	plb.addPlatforms([
+	plb.addPlatforms(pl, [
 		"platf+Cross-platform",
 		"platf+Unix-like",
 		"platf+Windows",
@@ -53,11 +56,11 @@ export function define(g: PlangsGraph) {
 		"platf+macOS",
 	]);
 
-	plb.addImplementations(["pl+Croquet"]);
+	plb.addImplementations(pl, ["pl+Croquet"]);
 
-	plb.addDialects(["pl+Pharo"]);
+	plb.addDialects(pl, ["pl+Pharo"]);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+Croquet",
 		"pl+Etoys",
 		"pl+Lisp",
@@ -69,9 +72,9 @@ export function define(g: PlangsGraph) {
 		"pl+Smalltalk",
 	]);
 
-	plb.addInfluenced(["pl+Pharo", "pl+Self"]);
+	plb.addInfluenced(pl, ["pl+Pharo", "pl+Self"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1996-01-01",

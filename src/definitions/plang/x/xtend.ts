@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Xtend";
+export const PL_V_Id = "pl+Xtend" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Xtend" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Xtend";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Xtend-logo-c.png",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Xtend",
@@ -27,38 +30,38 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([
+	plb.addPeople(pl, [
 		["person+Sebastian-Zarnekow", "designer"],
 		["person+Sven-Efftinge", "designer"],
 	]);
 
-	plb.addLicenses(["license+Eclipse-Public-License"]);
+	plb.addLicenses(pl, ["license+eclipse-public"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+imperative",
 		"para+object-oriented",
 	]);
 
-	plb.addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
+	plb.addTypeSystems(pl, ["tsys+inferred", "tsys+static", "tsys+strong"]);
 
-	plb.addPlatforms(["platf+Cross-platform", "platf+Java-Virtual-Machine"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform", "platf+Java-Virtual-Machine"]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+Groovy", "pl+Java", "pl+Scala", "pl+Smalltalk"]);
+	plb.addInfluences(pl, ["pl+Groovy", "pl+Java", "pl+Scala", "pl+Smalltalk"]);
 
-	plb.addInfluenced([]);
+	plb.addInfluenced(pl, []);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2011-01-01",

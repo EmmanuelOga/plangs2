@@ -1,67 +1,36 @@
 import type { PlangsGraph } from "./plangs_graph";
 import type { Image, Link, Release, T_Id_V_Paradigm, V_Plang } from "./schemas";
 
-// Helpers to add data to Programming Language Vertex data.
 export class PlangsBuilder {
-    constructor(readonly g: PlangsGraph, readonly pl: Partial<V_Plang>) { }
+	constructor(readonly g: PlangsGraph) {}
 
-    addParadigms(arg0: string[]) {
-        const pl = this.pl;
-    }
+	addDialects(pl: Partial<V_Plang>, vids: string[]) {}
 
-    addReferences(arg0: {}) {
-        const pl = this.pl;
-    }
+	addExtensions(pl: Partial<V_Plang>, arg0: string[]) {}
 
-    addExtensions(arg0: string[]) {
-        const pl = this.pl;
-    }
+	addImages(pl: Partial<V_Plang>, images: Image[]) {}
 
-    addScoping(arg0: never[]) {
-        const pl = this.pl;
-    }
+	addImplementations(pl: Partial<V_Plang>, vids: string[]) {}
 
-    addWebsites(arg0: { kind: string; title: string; href: string; }[]) {
-        const pl = this.pl;
-    }
+	addInfluenced(pl: Partial<V_Plang>, vids: string[]) {}
 
-    addImages(arg0: { kind: string; url: string; }[]) {
-        const pl = this.pl;
-    }
+	addInfluences(pl: Partial<V_Plang>, vids: string[]) {}
 
-    addReleases(arg0: { version: string; date: string; kind: string; }[]) {
-        const pl = this.pl;
-    }
+	addLicenses(pl: Partial<V_Plang>, vids: string[]) {}
 
-    addInfluenced(arg0: string[]) {
-        const pl = this.pl;
-    }
+	addParadigms(pl: Partial<V_Plang>, arg0: string[]) {}
 
-    addInfluences(arg0: string[]) {
-        const pl = this.pl;
-    }
+	addPeople(pl: Partial<V_Plang>, vids: string[][]) {}
 
-    addDialects(arg0: string[]) {
-        const pl = this.pl;
-    }
+	addPlatforms(pl: Partial<V_Plang>, vids: string[]) {}
 
-    addImplementations(arg0: string[]) {
-        const pl = this.pl;
-    }
+	addReferences(pl: Partial<V_Plang>, references: Record<string, Link[]>) {}
 
-    addPlatforms(arg0: string[]) {
-        const pl = this.pl;
-    }
+	addReleases(pl: Partial<V_Plang>, releases: Release[]) {}
 
-    addTypeSystems(arg0: string[]) {
-        const pl = this.pl;
-    }
+	addScoping(pl: Partial<V_Plang>, vids: string[]) {}
 
-    addLicenses(arg0: string[]) {
-        const pl = this.pl;
-    }
+	addTypeSystems(pl: Partial<V_Plang>, vids: string[]) {}
 
-    addPeople(arg0: string[][]) {
-        const pl = this.pl;
-    }
+	addWebsites(pl: Partial<V_Plang>, websites: Link[]) {}
 }

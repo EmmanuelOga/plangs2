@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Xojo";
+export const PL_V_Id = "pl+Xojo" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Xojo" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Xojo";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/3/31/Logomark_Xojo_Company.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Xojo",
@@ -27,29 +30,29 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([]);
+	plb.addPeople(pl, []);
 
-	plb.addLicenses(["license+Freemium"]);
+	plb.addLicenses(pl, ["license+freemium"]);
 
-	plb.addParadigms([]);
+	plb.addParadigms(pl, []);
 
-	plb.addTypeSystems([]);
+	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([]);
+	plb.addInfluences(pl, []);
 
-	plb.addInfluenced(["pl+BASIC", "pl+Visual-Basic"]);
+	plb.addInfluenced(pl, ["pl+BASIC", "pl+Visual-Basic"]);
 
-	plb.addReleases([{ version: "3.1", date: "2023-10-25", kind: "stable" }]);
+	plb.addReleases(pl, [{ version: "3.1", date: "2023-10-25", kind: "stable" }]);
 }

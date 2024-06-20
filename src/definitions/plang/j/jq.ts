@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+jq";
+export const PL_V_Id = "pl+jq" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "jq" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "jq";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Jq_logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "jq",
@@ -27,31 +30,31 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Stephen-Dolan", "designer"]]);
+	plb.addPeople(pl, [["person+Stephen-Dolan", "designer"]]);
 
-	plb.addLicenses(["license+MIT"]);
+	plb.addLicenses(pl, ["license+mit"]);
 
-	plb.addParadigms(["para+functional", "para+json", "para+tacit"]);
+	plb.addParadigms(pl, ["para+functional", "para+json", "para+tacit"]);
 
-	plb.addTypeSystems([]);
+	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms(["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform"]);
 
-	plb.addImplementations(["pl+C", "pl+Go", "pl+Rust"]);
+	plb.addImplementations(pl, ["pl+C", "pl+Go", "pl+Rust"]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([]);
+	plb.addInfluences(pl, []);
 
-	plb.addInfluenced(["pl+Icon"]);
+	plb.addInfluenced(pl, ["pl+Icon"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2012-08-21",

@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Common-Lisp";
+export const PL_V_Id = "pl+Common-Lisp" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Common Lisp" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Common Lisp";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/4/48/Lisp_logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Common Lisp",
@@ -27,24 +30,24 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping(["dynamic"]);
+	plb.addScoping(pl, ["dynamic"]);
 
-	plb.addExtensions([".cl", ".fasl", ".l", ".lisp", ".lsp"]);
+	plb.addExtensions(pl, [".cl", ".fasl", ".l", ".lisp", ".lsp"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([
+	plb.addPeople(pl, [
 		["person+Dan-Weinreb", "designer"],
-		["person+David-Adot-Moon", "designer"],
+		["person+David-A.-Moon", "designer"],
 		["person+Guy-Steele", "designer"],
 		["person+Kent-Pitman", "designer"],
-		["person+Richard-Pdot-Gabriel", "designer"],
+		["person+Richard-P.-Gabriel", "designer"],
 		["person+Scott-Fahlman", "designer"],
 	]);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+generic",
 		"para+imperative",
@@ -54,11 +57,11 @@ export function define(g: PlangsGraph) {
 		"para+reflective",
 	]);
 
-	plb.addTypeSystems(["tsys+dynamic", "tsys+strong"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+strong"]);
 
-	plb.addPlatforms(["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform"]);
 
-	plb.addImplementations([
+	plb.addImplementations(pl, [
 		"pl+ABCL",
 		"pl+Allegro-CL",
 		"pl+CLISP",
@@ -71,9 +74,10 @@ export function define(g: PlangsGraph) {
 		"pl+Symbolics-Common-Lisp",
 	]);
 
-	plb.addDialects(["pl+Lisp"]);
+	plb.addDialects(pl, ["pl+Lisp"]);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
+		"pl+-StarLisp",
 		"pl+AutoLisp",
 		"pl+Clojure",
 		"pl+Dylan",
@@ -89,11 +93,11 @@ export function define(g: PlangsGraph) {
 		"pl+R",
 		"pl+SKILL",
 		"pl+Scheme",
-		"pl+StarLisp",
 		"pl+SubL",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
+		"pl+-StarLisp--StarLisp-",
 		"pl+Clojure",
 		"pl+Emacs-Lisp",
 		"pl+Embeddable-Common-Lisp",
@@ -110,9 +114,10 @@ export function define(g: PlangsGraph) {
 		"pl+Sather",
 		"pl+Scala",
 		"pl+Scheme",
-		"pl+StarLisp--StarLisp-",
 		"pl+newLISP",
 	]);
 
-	plb.addReleases([{ version: "unknown", date: "1984-01-01", kind: "first" }]);
+	plb.addReleases(pl, [
+		{ version: "unknown", date: "1984-01-01", kind: "first" },
+	]);
 }

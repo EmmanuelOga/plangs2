@@ -1,39 +1,42 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+GNU-Awk-gawk";
+export const PL_V_Id = "pl+GNU-Awk-gawk" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "GNU Awk gawk" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "GNU Awk gawk";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([]);
+	plb.addImages(pl, []);
 
-	plb.addScoping([]);
+	plb.addWebsites(pl, []);
 
-	plb.addExtensions([]);
+	plb.addScoping(pl, []);
 
-	plb.addReferences({});
+	plb.addExtensions(pl, []);
 
-	plb.addPeople([]);
+	plb.addReferences(pl, {});
 
-	plb.addLicenses([]);
+	plb.addPeople(pl, []);
 
-	plb.addParadigms([]);
+	plb.addLicenses(pl, []);
 
-	plb.addTypeSystems([]);
+	plb.addParadigms(pl, []);
 
-	plb.addPlatforms([]);
+	plb.addTypeSystems(pl, []);
 
-	plb.addImplementations([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addDialects(["pl+AWK"]);
+	plb.addImplementations(pl, []);
 
-	plb.addInfluences([]);
+	plb.addDialects(pl, ["pl+AWK"]);
 
-	plb.addInfluenced([]);
+	plb.addInfluences(pl, []);
 
-	plb.addReleases([]);
+	plb.addInfluenced(pl, []);
+
+	plb.addReleases(pl, []);
 }

@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Groovy";
+export const PL_V_Id = "pl+Groovy" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Groovy" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Groovy";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/3/36/Groovy-logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Groovy",
@@ -32,21 +35,21 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([
+	plb.addPeople(pl, [
 		["person+Cedric-Champeau", "designer"],
 		["person+James-Strachan", "designer"],
 		["person+Paul-King", "designer"],
 	]);
 
-	plb.addLicenses(["license+Apache-License-2dot0"]);
+	plb.addLicenses(pl, ["license+apache-2"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+aspect-oriented",
 		"para+functional",
 		"para+imperative",
@@ -55,20 +58,20 @@ export function define(g: PlangsGraph) {
 		"para+scripting",
 	]);
 
-	plb.addTypeSystems([
+	plb.addTypeSystems(pl, [
 		"tsys+duck",
 		"tsys+dynamic",
 		"tsys+static",
 		"tsys+strong",
 	]);
 
-	plb.addPlatforms(["platf+Java-SE"]);
+	plb.addPlatforms(pl, ["platf+Java-SE"]);
 
-	plb.addImplementations(["pl+Gradle", "pl+Grails"]);
+	plb.addImplementations(pl, ["pl+Gradle", "pl+Grails"]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+Java",
 		"pl+Kotlin",
 		"pl+Python",
@@ -76,7 +79,7 @@ export function define(g: PlangsGraph) {
 		"pl+Smalltalk",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+Java",
 		"pl+Kotlin",
 		"pl+Objective-C",
@@ -85,7 +88,7 @@ export function define(g: PlangsGraph) {
 		"pl+Xtend",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2003-01-01",

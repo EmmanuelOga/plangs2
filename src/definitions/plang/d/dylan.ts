@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Dylan";
+export const PL_V_Id = "pl+Dylan" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Dylan" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Dylan";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/en/thumb/2/25/Dylan_logo.png/121px-Dylan_logo.png",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Dylan",
@@ -32,31 +35,31 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions(["dylan", "lid"]);
+	plb.addExtensions(pl, ["dylan", "lid"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([]);
+	plb.addPeople(pl, []);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+multi-paradigm",
 		"para+object-oriented",
 	]);
 
-	plb.addTypeSystems(["tsys+gradual", "tsys+strong"]);
+	plb.addTypeSystems(pl, ["tsys+gradual", "tsys+strong"]);
 
-	plb.addPlatforms(["platf+Cross-platform", "platf+IA-32", "platf+x86-64"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform", "platf+IA-32", "platf+x86-64"]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+ALGOL",
 		"pl+CLOS",
 		"pl+EuLisp",
@@ -67,7 +70,7 @@ export function define(g: PlangsGraph) {
 		"pl+Scheme",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+Common-Lisp",
 		"pl+EuLisp",
 		"pl+Julia",
@@ -81,7 +84,7 @@ export function define(g: PlangsGraph) {
 		"pl+Smalltalk",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1992-01-01",

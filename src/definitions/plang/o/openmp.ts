@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+OpenMP";
+export const PL_V_Id = "pl+OpenMP" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "OpenMP" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "OpenMP";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/OpenMP_logo.png/180px-OpenMP_logo.png",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "OpenMP",
@@ -27,29 +30,29 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([]);
+	plb.addPeople(pl, []);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms([]);
+	plb.addParadigms(pl, []);
 
-	plb.addTypeSystems([]);
+	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([]);
+	plb.addInfluences(pl, []);
 
-	plb.addInfluenced(["pl+CilkOpenCilkCilk-Plus"]);
+	plb.addInfluenced(pl, ["pl+CilkOpenCilkCilk-Plus"]);
 
-	plb.addReleases([{ version: "5.2", date: "2021-01-01", kind: "stable" }]);
+	plb.addReleases(pl, [{ version: "5.2", date: "2021-01-01", kind: "stable" }]);
 }

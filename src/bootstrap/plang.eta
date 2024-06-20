@@ -1,39 +1,42 @@
-import type { PlangsGraph } from '../../../entities/plangs_graph';
+import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = '<%= it.plvid %>';
+export const PL_V_Id = <%= it.plvid %> as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-   const pl = g.v_plang.merge(lang_vid, { name: '<%= it.name %>' });
+   const pl = g.v_plang.declare(PL_V_Id);
 
-   const plb = g.plangBuilder(pl);
+   pl.name = <%= it.name %>;
 
-   plb.addImages(<%= it.images %>);
+   const plb = g.plangBuilder;
 
-   plb.addWebsites(<%= it.websites %>);
+   plb.addImages(pl, <%= it.images %>);
 
-   plb.addScoping(<%= it.scopings %>);
+   plb.addWebsites(pl, <%= it.websites %>);
 
-   plb.addExtensions(<%= it.extensions %>);
+   plb.addScoping(pl, <%= it.scopings %>);
 
-   plb.addReferences(<%= it.references %>);
+   plb.addExtensions(pl, <%= it.extensions %>);
 
-   plb.addPeople(<%= it.people %>);
+   plb.addReferences(pl, <%= it.references %>);
 
-   plb.addLicenses(<%= it.licenses %>);
+   plb.addPeople(pl, <%= it.people %>);
 
-   plb.addParadigms(<%= it.paradigms %>);
+   plb.addLicenses(pl, <%= it.licenses %>);
 
-   plb.addTypeSystems(<%= it.typeSystems %>);
+   plb.addParadigms(pl, <%= it.paradigms %>);
 
-   plb.addPlatforms(<%= it.platforms %>);
+   plb.addTypeSystems(pl, <%= it.typeSystems %>);
 
-   plb.addImplementations(<%= it.implementations %>);
+   plb.addPlatforms(pl, <%= it.platforms %>);
 
-   plb.addDialects(<%= it.dialects %>);
+   plb.addImplementations(pl, <%= it.implementations %>);
 
-   plb.addInfluences(<%= it.influences %>);
+   plb.addDialects(pl, <%= it.dialects %>);
 
-   plb.addInfluenced(<%= it.influenced %>);
+   plb.addInfluences(pl, <%= it.influences %>);
 
-   plb.addReleases(<%= it.releases %>);
+   plb.addInfluenced(pl, <%= it.influenced %>);
+
+   plb.addReleases(pl, <%= it.releases %>);
 }

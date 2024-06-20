@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Clojure";
+export const PL_V_Id = "pl+Clojure" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Clojure" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Clojure";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Clojure_logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Clojure",
@@ -32,17 +35,17 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Rich-Hickey", "designer"]]);
+	plb.addPeople(pl, [["person+Rich-Hickey", "designer"]]);
 
-	plb.addLicenses(["license+Eclipse-Public"]);
+	plb.addLicenses(pl, ["license+eclipse-public"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+agent-oriented",
 		"para+concurrent",
 		"para+functional",
@@ -52,17 +55,17 @@ export function define(g: PlangsGraph) {
 		"para+pipeline",
 	]);
 
-	plb.addTypeSystems(["tsys+dynamic", "tsys+strong"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+strong"]);
 
-	plb.addPlatforms(["platf+Java", "platf+JavaScript", "platf+dotNET"]);
+	plb.addPlatforms(pl, ["platf+.NET", "platf+Java", "platf+JavaScript"]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects(["pl+Lisp"]);
+	plb.addDialects(pl, ["pl+Lisp"]);
 
-	plb.addInfluences([
-		"pl+CPP",
-		"pl+CSharp",
+	plb.addInfluences(pl, [
+		"pl+C-Plus-Plus",
+		"pl+C-Sharp",
 		"pl+Common-Lisp",
 		"pl+Elixir",
 		"pl+Erlang",
@@ -78,8 +81,8 @@ export function define(g: PlangsGraph) {
 		"pl+Wolfram-Language",
 	]);
 
-	plb.addInfluenced([
-		"pl+CPP",
+	plb.addInfluenced(pl, [
+		"pl+C-Plus-Plus",
 		"pl+Common-Lisp",
 		"pl+Elixir",
 		"pl+Erlang",
@@ -94,7 +97,7 @@ export function define(g: PlangsGraph) {
 		"pl+Wolfram-Language",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2007-01-01",

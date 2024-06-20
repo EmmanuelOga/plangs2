@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Mercury";
+export const PL_V_Id = "pl+Mercury" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Mercury" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Mercury";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/en/thumb/2/21/Mercury_%28programming_language%29_logo.jpg/121px-Mercury_%28programming_language%29_logo.jpg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Mercury",
@@ -27,21 +30,21 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".m"]);
+	plb.addExtensions(pl, [".m"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Zoltan-Somogyi", "designer"]]);
+	plb.addPeople(pl, [["person+Zoltan-Somogyi", "designer"]]);
 
-	plb.addLicenses(["license+GPL", "license+LGPL"]);
+	plb.addLicenses(pl, ["license+gpl", "license+lgpl"]);
 
-	plb.addParadigms([]);
+	plb.addParadigms(pl, []);
 
-	plb.addTypeSystems(["tsys+polymorphic", "tsys+static", "tsys+strong"]);
+	plb.addTypeSystems(pl, ["tsys+polymorphic", "tsys+static", "tsys+strong"]);
 
-	plb.addPlatforms([
+	plb.addPlatforms(pl, [
 		"platf+Android",
 		"platf+Arm",
 		"platf+CLI",
@@ -59,15 +62,15 @@ export function define(g: PlangsGraph) {
 		"platf+x86-64",
 	]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+Haskell", "pl+Hope", "pl+Prolog"]);
+	plb.addInfluences(pl, ["pl+Haskell", "pl+Hope", "pl+Prolog"]);
 
-	plb.addInfluenced(["pl+Prolog"]);
+	plb.addInfluenced(pl, ["pl+Prolog"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1995-04-08",

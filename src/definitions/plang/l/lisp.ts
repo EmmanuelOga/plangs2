@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Lisp";
+export const PL_V_Id = "pl+Lisp" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Lisp" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Lisp";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/4/48/Lisp_logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Lisp",
@@ -27,20 +30,20 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([
+	plb.addPeople(pl, [
 		["person+John-McCarthy", "designer"],
 		["person+Steve-Russell", "designer"],
 	]);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+imperative",
 		"para+meta",
@@ -48,13 +51,14 @@ export function define(g: PlangsGraph) {
 		"para+reflective",
 	]);
 
-	plb.addTypeSystems(["tsys+dynamic", "tsys+strong"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+strong"]);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([
+	plb.addDialects(pl, [
+		"pl+-StarLisp--StarLisp-",
 		"pl+Allegro-Common-Lisp",
 		"pl+Arc",
 		"pl+AutoLISP",
@@ -90,14 +94,13 @@ export function define(g: PlangsGraph) {
 		"pl+SCM",
 		"pl+SIOD",
 		"pl+Scheme",
-		"pl+StarLisp--StarLisp-",
 		"pl+StarLogo",
 		"pl+T",
 		"pl+UCBLogo",
 		"pl+newLISP",
 	]);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+11",
 		"pl+CLIPS",
 		"pl+CLU",
@@ -131,7 +134,8 @@ export function define(g: PlangsGraph) {
 		"pl+Wolfram-Language",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
+		"pl+-StarLisp--StarLisp-",
 		"pl+AgentCubes",
 		"pl+AgentSheets",
 		"pl+Allegro-Common-Lisp",
@@ -187,7 +191,6 @@ export function define(g: PlangsGraph) {
 		"pl+Scheme",
 		"pl+Smalltalk",
 		"pl+Squeak",
-		"pl+StarLisp--StarLisp-",
 		"pl+Tcl",
 		"pl+UCBLogo",
 		"pl+VisualWorks",
@@ -195,5 +198,7 @@ export function define(g: PlangsGraph) {
 		"pl+Wolfram-Language",
 	]);
 
-	plb.addReleases([{ version: "unknown", date: "1960-01-01", kind: "first" }]);
+	plb.addReleases(pl, [
+		{ version: "unknown", date: "1960-01-01", kind: "first" },
+	]);
 }

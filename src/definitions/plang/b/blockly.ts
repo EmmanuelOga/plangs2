@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Blockly";
+export const PL_V_Id = "pl+Blockly" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Blockly" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Blockly";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Blockly-Demo.png/220px-Blockly-Demo.png",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Blockly",
@@ -27,31 +30,31 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([]);
+	plb.addPeople(pl, []);
 
-	plb.addLicenses(["license+Apache-License-2dot0"]);
+	plb.addLicenses(pl, ["license+apache-2"]);
 
-	plb.addParadigms([]);
+	plb.addParadigms(pl, []);
 
-	plb.addTypeSystems([]);
+	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms(["platf+Web-browser"]);
+	plb.addPlatforms(pl, ["platf+Web-browser"]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([]);
+	plb.addInfluences(pl, []);
 
-	plb.addInfluenced([]);
+	plb.addInfluenced(pl, []);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2012-01-01",

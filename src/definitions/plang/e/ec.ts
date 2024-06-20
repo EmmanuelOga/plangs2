@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+eC";
+export const PL_V_Id = "pl+eC" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "eC" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "eC";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "eC",
@@ -22,36 +25,36 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".ec", ".eh"]);
+	plb.addExtensions(pl, [".ec", ".eh"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([]);
+	plb.addPeople(pl, []);
 
-	plb.addLicenses(["license+BSD-3"]);
+	plb.addLicenses(pl, ["license+bsd-3"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+generic",
 		"para+imperative",
 		"para+multi-paradigm",
 		"para+object-oriented",
 	]);
 
-	plb.addTypeSystems(["tsys+inferred", "tsys+nominative", "tsys+static"]);
+	plb.addTypeSystems(pl, ["tsys+inferred", "tsys+nominative", "tsys+static"]);
 
-	plb.addPlatforms(["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform"]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+C", "pl+CPP", "pl+Python"]);
+	plb.addInfluences(pl, ["pl+C", "pl+C-Plus-Plus", "pl+Python"]);
 
-	plb.addInfluenced([]);
+	plb.addInfluenced(pl, []);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2004-01-01",

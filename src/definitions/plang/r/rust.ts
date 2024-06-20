@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Rust";
+export const PL_V_Id = "pl+Rust" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Rust" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Rust";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Rust_programming_language_black_logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Rust",
@@ -27,17 +30,17 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".rlib", ".rs"]);
+	plb.addExtensions(pl, [".rlib", ".rs"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([]);
+	plb.addPeople(pl, []);
 
-	plb.addLicenses(["license+Apache-2dot0", "license+MIT"]);
+	plb.addLicenses(pl, ["license+apache-2", "license+mit"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+concurrent",
 		"para+functional",
 		"para+generic",
@@ -45,7 +48,7 @@ export function define(g: PlangsGraph) {
 		"para+structured",
 	]);
 
-	plb.addTypeSystems([
+	plb.addTypeSystems(pl, [
 		"tsys+affine",
 		"tsys+inferred",
 		"tsys+nominative",
@@ -53,16 +56,16 @@ export function define(g: PlangsGraph) {
 		"tsys+strong",
 	]);
 
-	plb.addPlatforms(["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform"]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects(["pl+Project-Verona"]);
+	plb.addDialects(pl, ["pl+Project-Verona"]);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+Alef",
-		"pl+CPP",
-		"pl+CSharp",
+		"pl+C-Plus-Plus",
+		"pl+C-Sharp",
 		"pl+Cyclone",
 		"pl+Elm",
 		"pl+Erlang",
@@ -81,11 +84,11 @@ export function define(g: PlangsGraph) {
 		"pl+Zig",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+Alef",
 		"pl+Ballerina",
 		"pl+C",
-		"pl+CPP",
+		"pl+C-Plus-Plus",
 		"pl+CilkOpenCilkCilk-Plus",
 		"pl+Crystal",
 		"pl+Cyclone",
@@ -108,7 +111,7 @@ export function define(g: PlangsGraph) {
 		"pl+Whiley",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2015-05-15",

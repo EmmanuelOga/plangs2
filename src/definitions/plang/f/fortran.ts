@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Fortran";
+export const PL_V_Id = "pl+Fortran" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Fortran" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Fortran";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Fortran",
@@ -27,17 +30,17 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".f", ".f90", ".for"]);
+	plb.addExtensions(pl, [".f", ".f90", ".for"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+John-Backus", "designer"]]);
+	plb.addPeople(pl, [["person+John-Backus", "designer"]]);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+array",
 		"para+generic",
 		"para+imperative",
@@ -46,11 +49,11 @@ export function define(g: PlangsGraph) {
 		"para+structured",
 	]);
 
-	plb.addTypeSystems(["tsys+manifest", "tsys+static", "tsys+strong"]);
+	plb.addTypeSystems(pl, ["tsys+manifest", "tsys+static", "tsys+strong"]);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations([
+	plb.addImplementations(pl, [
 		"pl+Absoft",
 		"pl+Cray",
 		"pl+G95",
@@ -66,9 +69,9 @@ export function define(g: PlangsGraph) {
 		"pl+Silverfrost",
 	]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+ALGOL-58",
 		"pl+BASIC",
 		"pl+C",
@@ -80,12 +83,12 @@ export function define(g: PlangsGraph) {
 		"pl+MATLAB",
 		"pl+MUMPS",
 		"pl+PACT-I",
-		"pl+PLSlashI",
+		"pl+PL-SlashI",
 		"pl+Ratfor",
 		"pl+Speedcoding",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+CMS-2",
 		"pl+Chapel",
 		"pl+Coral-66",
@@ -93,7 +96,7 @@ export function define(g: PlangsGraph) {
 		"pl+DOPE--Dartmouth-Oversimplified-Programming-Experiment-",
 		"pl+Fortress",
 		"pl+MATLAB--programming-language-MATLAB--software-",
-		"pl+PLSlashI",
+		"pl+PL-SlashI",
 		"pl+Ratfor",
 		"pl+S",
 		"pl+SISAL",
@@ -101,7 +104,7 @@ export function define(g: PlangsGraph) {
 		"pl+Verilog",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1957-01-01",

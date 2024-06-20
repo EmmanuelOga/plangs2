@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+LiveScript";
+export const PL_V_Id = "pl+LiveScript" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "LiveScript" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "LiveScript";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "LiveScript",
@@ -22,44 +25,44 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".ls"]);
+	plb.addExtensions(pl, [".ls"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([
+	plb.addPeople(pl, [
 		["person+George-Zahariev", "designer"],
 		["person+Jeremy-Ashkenas", "designer"],
 		["person+Satoshi-Murakami", "designer"],
 	]);
 
-	plb.addLicenses(["license+MIT"]);
+	plb.addLicenses(pl, ["license+mit"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+multi-paradigm",
 		"para+object-oriented",
 	]);
 
-	plb.addTypeSystems(["tsys+dynamic", "tsys+weak"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+weak"]);
 
-	plb.addPlatforms(["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform"]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+CoffeeScript",
-		"pl+FSharp",
+		"pl+F-Sharp",
 		"pl+Haskell",
 		"pl+JavaScript",
 	]);
 
-	plb.addInfluenced(["pl+CoffeeScript"]);
+	plb.addInfluenced(pl, ["pl+CoffeeScript"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2011-01-01",

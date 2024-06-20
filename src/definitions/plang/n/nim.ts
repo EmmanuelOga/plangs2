@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Nim";
+export const PL_V_Id = "pl+Nim" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Nim" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Nim";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Nim_logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Nim",
@@ -27,17 +30,17 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".nim", ".nimble", ".nims"]);
+	plb.addExtensions(pl, [".nim", ".nimble", ".nims"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Andreas-Rumpf", "designer"]]);
+	plb.addPeople(pl, [["person+Andreas-Rumpf", "designer"]]);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+compiled",
 		"para+concurrent",
 		"para+functional",
@@ -47,14 +50,14 @@ export function define(g: PlangsGraph) {
 		"para+object-oriented",
 	]);
 
-	plb.addTypeSystems([
+	plb.addTypeSystems(pl, [
 		"tsys+inferred",
 		"tsys+static",
 		"tsys+strong",
 		"tsys+structural",
 	]);
 
-	plb.addPlatforms([
+	plb.addPlatforms(pl, [
 		"platf+ARM",
 		"platf+Aarch64",
 		"platf+Cross-platform",
@@ -64,13 +67,13 @@ export function define(g: PlangsGraph) {
 		"platf+x86-64",
 	]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+Ada",
-		"pl+CPP",
+		"pl+C-Plus-Plus",
 		"pl+Lisp",
 		"pl+Modula-3",
 		"pl+Oberon",
@@ -80,10 +83,10 @@ export function define(g: PlangsGraph) {
 		"pl+Rust",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+Ada",
 		"pl+C",
-		"pl+CPP",
+		"pl+C-Plus-Plus",
 		"pl+Lisp",
 		"pl+Modula-3",
 		"pl+Oberon",
@@ -93,7 +96,7 @@ export function define(g: PlangsGraph) {
 		"pl+Python",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2008-01-01",

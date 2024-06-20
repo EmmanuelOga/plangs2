@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+ML";
+export const PL_V_Id = "pl+ML" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "ML" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "ML";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "ML",
@@ -17,34 +20,34 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Robin-Milner", "designer"]]);
+	plb.addPeople(pl, [["person+Robin-Milner", "designer"]]);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+generic",
 		"para+imperative",
 		"para+multi-paradigm",
 	]);
 
-	plb.addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
+	plb.addTypeSystems(pl, ["tsys+inferred", "tsys+static", "tsys+strong"]);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([
+	plb.addDialects(pl, [
 		"pl+ATS",
 		"pl+Alice",
 		"pl+Caml",
-		"pl+FStar",
+		"pl+F-Star",
 		"pl+Futhark",
 		"pl+MLton",
 		"pl+OCaml",
@@ -53,15 +56,15 @@ export function define(g: PlangsGraph) {
 		"pl+Standard-ML-of-New-Jersey",
 	]);
 
-	plb.addInfluences([
-		"pl+CPP",
+	plb.addInfluences(pl, [
+		"pl+C-Plus-Plus",
 		"pl+Clojure",
 		"pl+Coq",
 		"pl+Cyclone",
 		"pl+Elm",
 		"pl+Erlang",
-		"pl+FSharp",
-		"pl+FStar",
+		"pl+F-Sharp",
+		"pl+F-Star",
 		"pl+Haskell",
 		"pl+ISWIM",
 		"pl+Idris",
@@ -75,11 +78,11 @@ export function define(g: PlangsGraph) {
 		"pl+Standard-ML",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+ATS",
 		"pl+Alice",
 		"pl+Bosque",
-		"pl+CPP",
+		"pl+C-Plus-Plus",
 		"pl+Caml",
 		"pl+Ceylon",
 		"pl+Claire",
@@ -98,5 +101,7 @@ export function define(g: PlangsGraph) {
 		"pl+Standard-ML",
 	]);
 
-	plb.addReleases([{ version: "unknown", date: "1973-01-01", kind: "first" }]);
+	plb.addReleases(pl, [
+		{ version: "unknown", date: "1973-01-01", kind: "first" },
+	]);
 }

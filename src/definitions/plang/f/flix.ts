@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Flix";
+export const PL_V_Id = "pl+Flix" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Flix" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Flix";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Flix",
@@ -22,45 +25,45 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([]);
+	plb.addPeople(pl, []);
 
-	plb.addLicenses(["license+Apache-License-2dot0"]);
+	plb.addLicenses(pl, ["license+apache-2"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+imperative",
 		"para+logic",
 		"para+multi-paradigm",
 	]);
 
-	plb.addTypeSystems([
+	plb.addTypeSystems(pl, [
 		"tsys+inferred",
 		"tsys+static",
 		"tsys+strong",
 		"tsys+structural",
 	]);
 
-	plb.addPlatforms(["platf+JVM"]);
+	plb.addPlatforms(pl, ["platf+JVM"]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
-		"pl+FSharp",
+	plb.addInfluences(pl, [
+		"pl+F-Sharp",
 		"pl+Go",
 		"pl+Haskell",
 		"pl+OCaml",
 		"pl+Scala",
 	]);
 
-	plb.addInfluenced(["pl+Scala"]);
+	plb.addInfluenced(pl, ["pl+Scala"]);
 
-	plb.addReleases([]);
+	plb.addReleases(pl, []);
 }

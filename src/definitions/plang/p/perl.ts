@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Perl";
+export const PL_V_Id = "pl+Perl" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Perl" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Perl";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/en/5/56/Perl_language_logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Perl",
@@ -27,9 +30,9 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([
+	plb.addExtensions(pl, [
 		".cgi",
 		".pl",
 		".pls",
@@ -41,40 +44,37 @@ export function define(g: PlangsGraph) {
 		".xs",
 	]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Larry-Wall", "designer"]]);
+	plb.addPeople(pl, [["person+Larry-Wall", "designer"]]);
 
-	plb.addLicenses([
-		"license+Artistic-License",
-		"license+GNU-General-Public-License",
-	]);
+	plb.addLicenses(pl, ["license+artistic", "license+gnu-gpl"]);
 
-	plb.addParadigms(["para+multi-paradigm"]);
+	plb.addParadigms(pl, ["para+multi-paradigm"]);
 
-	plb.addTypeSystems(["tsys+dynamic"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic"]);
 
-	plb.addPlatforms(["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform"]);
 
-	plb.addImplementations(["pl+C"]);
+	plb.addImplementations(pl, ["pl+C"]);
 
-	plb.addDialects(["pl+Raku"]);
+	plb.addDialects(pl, ["pl+Raku"]);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+AWK",
 		"pl+BASIC",
 		"pl+C",
-		"pl+CPP",
+		"pl+C-Plus-Plus",
 		"pl+Lisp",
 		"pl+Unix-shell",
 		"pl+sed",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+AWK",
 		"pl+BeanShell",
 		"pl+C",
-		"pl+CPP",
+		"pl+C-Plus-Plus",
 		"pl+ECMAScript",
 		"pl+Julia",
 		"pl+Lisp",
@@ -89,7 +89,7 @@ export function define(g: PlangsGraph) {
 		"pl+sed",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1987-12-18",

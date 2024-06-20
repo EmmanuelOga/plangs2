@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+APL";
+export const PL_V_Id = "pl+APL" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "APL" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "APL";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/b/b6/APL_%28programming_language%29_logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "APL",
@@ -32,38 +35,38 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([
+	plb.addPeople(pl, [
 		["person+Dick-Lathwell", "designer"],
 		["person+Larry-Breed", "designer"],
 		["person+Roger-Moore", "designer"],
 	]);
 
-	plb.addLicenses(["license+Proprietary", "license+open-source"]);
+	plb.addLicenses(pl, ["license+open-source", "license+proprietary"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+array",
 		"para+functional",
 		"para+modular",
 		"para+structured",
 	]);
 
-	plb.addTypeSystems(["tsys+dynamic"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic"]);
 
-	plb.addPlatforms(["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform"]);
 
-	plb.addImplementations(["pl+APLX"]);
+	plb.addImplementations(pl, ["pl+APLX"]);
 
-	plb.addDialects(["pl+APLX"]);
+	plb.addDialects(pl, ["pl+APLX"]);
 
-	plb.addInfluences([
-		"pl+A-and-AP",
-		"pl+CPP",
+	plb.addInfluences(pl, [
+		"pl+A-and-A-Plus",
+		"pl+C-Plus-Plus",
 		"pl+FP",
 		"pl+J",
 		"pl+K",
@@ -79,8 +82,8 @@ export function define(g: PlangsGraph) {
 		"pl+q--kdb-",
 	]);
 
-	plb.addInfluenced([
-		"pl+AP",
+	plb.addInfluenced(pl, [
+		"pl+A-Plus",
 		"pl+FP",
 		"pl+Futhark",
 		"pl+Go",
@@ -99,7 +102,7 @@ export function define(g: PlangsGraph) {
 		"pl+q",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1966-11-27",

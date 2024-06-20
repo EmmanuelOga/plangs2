@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Ruby";
+export const PL_V_Id = "pl+Ruby" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Ruby" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Ruby";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/7/73/Ruby_logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Ruby",
@@ -27,17 +30,17 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping(["dynamic"]);
+	plb.addScoping(pl, ["dynamic"]);
 
-	plb.addExtensions([".rb", ".ru"]);
+	plb.addExtensions(pl, [".rb", ".ru"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Yukihiro-Matsumoto", "designer"]]);
+	plb.addPeople(pl, [["person+Yukihiro-Matsumoto", "designer"]]);
 
-	plb.addLicenses(["license+Ruby-License"]);
+	plb.addLicenses(pl, ["license+ruby"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+imperative",
 		"para+multi-paradigm",
@@ -45,11 +48,11 @@ export function define(g: PlangsGraph) {
 		"para+reflective",
 	]);
 
-	plb.addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"]);
+	plb.addTypeSystems(pl, ["tsys+duck", "tsys+dynamic", "tsys+strong"]);
 
-	plb.addPlatforms(["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform"]);
 
-	plb.addImplementations([
+	plb.addImplementations(pl, [
 		"pl+C",
 		"pl+JRuby",
 		"pl+Rubinius",
@@ -60,13 +63,13 @@ export function define(g: PlangsGraph) {
 		"pl+mruby",
 	]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+Ada",
 		"pl+Basic",
+		"pl+C-Plus-Plus",
 		"pl+CLU",
-		"pl+CPP",
 		"pl+Clojure",
 		"pl+CoffeeScript",
 		"pl+Crystal",
@@ -88,7 +91,7 @@ export function define(g: PlangsGraph) {
 		"pl+Swift",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+Ada",
 		"pl+CLU",
 		"pl+Clojure",
@@ -112,7 +115,7 @@ export function define(g: PlangsGraph) {
 		"pl+Umple",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1995-01-01",

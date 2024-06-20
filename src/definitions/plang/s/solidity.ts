@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Solidity";
+export const PL_V_Id = "pl+Solidity" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Solidity" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Solidity";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/9/98/Solidity_logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Solidity",
@@ -27,31 +30,31 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".sol"]);
+	plb.addExtensions(pl, [".sol"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Gavin-Wood", "designer"]]);
+	plb.addPeople(pl, [["person+Gavin-Wood", "designer"]]);
 
-	plb.addLicenses(["license+GNU-General-Public-License-v3dot0"]);
+	plb.addLicenses(pl, ["license+gnu-gpl-3"]);
 
-	plb.addParadigms(["para+imperative"]);
+	plb.addParadigms(pl, ["para+imperative"]);
 
-	plb.addTypeSystems([]);
+	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations(["pl+CPP"]);
+	plb.addImplementations(pl, ["pl+C-Plus-Plus"]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+CPP", "pl+JavaScript", "pl+Python"]);
+	plb.addInfluences(pl, ["pl+C-Plus-Plus", "pl+JavaScript", "pl+Python"]);
 
-	plb.addInfluenced([]);
+	plb.addInfluenced(pl, []);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2014-01-01",

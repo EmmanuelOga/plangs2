@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Forth";
+export const PL_V_Id = "pl+Forth" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Forth" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Forth";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Forth",
@@ -22,32 +25,32 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Charles-Hdot-Moore", "designer"]]);
+	plb.addPeople(pl, [["person+Charles-H.-Moore", "designer"]]);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+concatenative",
 		"para+imperative",
 		"para+reflective",
 		"para+stack-oriented",
 	]);
 
-	plb.addTypeSystems([]);
+	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations(["pl+Gforth"]);
+	plb.addImplementations(pl, ["pl+Gforth"]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+Bitcoin-Script",
 		"pl+Factor",
 		"pl+Joy",
@@ -56,7 +59,7 @@ export function define(g: PlangsGraph) {
 		"pl+STOIC",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+Befunge",
 		"pl+Factor",
 		"pl+Joy",
@@ -66,5 +69,7 @@ export function define(g: PlangsGraph) {
 		"pl+STOIC",
 	]);
 
-	plb.addReleases([{ version: "unknown", date: "1970-01-01", kind: "first" }]);
+	plb.addReleases(pl, [
+		{ version: "unknown", date: "1970-01-01", kind: "first" },
+	]);
 }

@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Gosu";
+export const PL_V_Id = "pl+Gosu" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Gosu" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Gosu";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Gosu",
@@ -22,29 +25,31 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".gs", ".gsp", ".gst", ".gsx"]);
+	plb.addExtensions(pl, [".gs", ".gsp", ".gst", ".gsx"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([]);
+	plb.addPeople(pl, []);
 
-	plb.addLicenses(["license+Apache-License-2dot0"]);
+	plb.addLicenses(pl, ["license+apache-2"]);
 
-	plb.addParadigms([]);
+	plb.addParadigms(pl, []);
 
-	plb.addTypeSystems(["tsys+static"]);
+	plb.addTypeSystems(pl, ["tsys+static"]);
 
-	plb.addPlatforms(["platf+Java-Virtual-Machine", "platf+bytecode"]);
+	plb.addPlatforms(pl, ["platf+Java-Virtual-Machine", "platf+bytecode"]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+CSharp", "pl+Java", "pl+Kotlin"]);
+	plb.addInfluences(pl, ["pl+C-Sharp", "pl+Java", "pl+Kotlin"]);
 
-	plb.addInfluenced(["pl+Kotlin"]);
+	plb.addInfluenced(pl, ["pl+Kotlin"]);
 
-	plb.addReleases([{ version: "1.17.10", date: "2024-01-01", kind: "stable" }]);
+	plb.addReleases(pl, [
+		{ version: "1.17.10", date: "2024-01-01", kind: "stable" },
+	]);
 }

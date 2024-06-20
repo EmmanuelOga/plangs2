@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+XSLT";
+export const PL_V_Id = "pl+XSLT" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "XSLT" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "XSLT";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "XSLT",
@@ -22,31 +25,31 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".xslt"]);
+	plb.addExtensions(pl, [".xslt"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([]);
+	plb.addPeople(pl, []);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms(["para+declarative"]);
+	plb.addParadigms(pl, ["para+declarative"]);
 
-	plb.addTypeSystems([]);
+	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations(["pl+Saxon", "pl+Xalan", "pl+libxslt"]);
+	plb.addImplementations(pl, ["pl+Saxon", "pl+Xalan", "pl+libxslt"]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+DSSSL"]);
+	plb.addInfluences(pl, ["pl+DSSSL"]);
 
-	plb.addInfluenced(["pl+Boomerang", "pl+XQuery"]);
+	plb.addInfluenced(pl, ["pl+Boomerang", "pl+XQuery"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1998-01-01",

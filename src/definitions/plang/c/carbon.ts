@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Carbon";
+export const PL_V_Id = "pl+Carbon" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Carbon" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Carbon";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Carbon_logo.png/121px-Carbon_logo.png",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Carbon",
@@ -27,29 +30,29 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".carbon"]);
+	plb.addExtensions(pl, [".carbon"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([]);
+	plb.addPeople(pl, []);
 
-	plb.addLicenses(["license+Apache-2dot0-with-LLVM-Exception"]);
+	plb.addLicenses(pl, ["license+apache-2-with-llvm-exception"]);
 
-	plb.addParadigms([]);
+	plb.addParadigms(pl, []);
 
-	plb.addTypeSystems(["tsys+inferred", "tsys+nominative", "tsys+static"]);
+	plb.addTypeSystems(pl, ["tsys+inferred", "tsys+nominative", "tsys+static"]);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations(["pl+CPP"]);
+	plb.addImplementations(pl, ["pl+C-Plus-Plus"]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([]);
+	plb.addInfluences(pl, []);
 
-	plb.addInfluenced(["pl+CPP"]);
+	plb.addInfluenced(pl, ["pl+C-Plus-Plus"]);
 
-	plb.addReleases([]);
+	plb.addReleases(pl, []);
 }

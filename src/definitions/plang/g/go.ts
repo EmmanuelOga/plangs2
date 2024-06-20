@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Go";
+export const PL_V_Id = "pl+Go" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Go" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Go";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Go",
@@ -27,22 +30,22 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".go"]);
+	plb.addExtensions(pl, [".go"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([
+	plb.addPeople(pl, [
 		["person+Ken-Thompson", "designer"],
 		["person+Rob-Pike", "designer"],
 		["person+Robert-Griesemer", "designer"],
 		["person+The-Go-Authors", "designer"],
 	]);
 
-	plb.addLicenses(["license+3-clause-BSD", "license+patent"]);
+	plb.addLicenses(pl, ["license+3-clause-bsd", "license+patent"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+concurrent",
 		"para+functional",
 		"para+imperative",
@@ -50,7 +53,7 @@ export function define(g: PlangsGraph) {
 		"para+object-oriented",
 	]);
 
-	plb.addTypeSystems([
+	plb.addTypeSystems(pl, [
 		"tsys+inferred",
 		"tsys+nominative",
 		"tsys+static",
@@ -58,7 +61,7 @@ export function define(g: PlangsGraph) {
 		"tsys+structural",
 	]);
 
-	plb.addPlatforms([
+	plb.addPlatforms(pl, [
 		"platf+DragonFly-BSD",
 		"platf+FreeBSD",
 		"platf+Linux",
@@ -70,11 +73,11 @@ export function define(g: PlangsGraph) {
 		"platf+macOS",
 	]);
 
-	plb.addImplementations(["pl+Assembly-language", "pl+CPP"]);
+	plb.addImplementations(pl, ["pl+Assembly-language", "pl+C-Plus-Plus"]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+APL",
 		"pl+Active-Oberon",
 		"pl+Alef",
@@ -94,7 +97,7 @@ export function define(g: PlangsGraph) {
 		"pl+occam",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+Alef",
 		"pl+BCPL",
 		"pl+Ballerina",
@@ -116,7 +119,7 @@ export function define(g: PlangsGraph) {
 		"pl+occam",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2009-11-10",

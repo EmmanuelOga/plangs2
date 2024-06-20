@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Haxe";
+export const PL_V_Id = "pl+Haxe" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Haxe" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Haxe";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/8/89/Haxe_logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Haxe",
@@ -27,26 +30,26 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping(["lexical"]);
+	plb.addScoping(pl, ["lexical"]);
 
-	plb.addExtensions([".hx", ".hxml"]);
+	plb.addExtensions(pl, [".hx", ".hxml"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([]);
+	plb.addPeople(pl, []);
 
-	plb.addLicenses(["license+GPL", "license+MIT"]);
+	plb.addLicenses(pl, ["license+gpl", "license+mit"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+generic",
 		"para+multi-paradigm",
 		"para+object-oriented",
 	]);
 
-	plb.addTypeSystems(["tsys+dynamic", "tsys+nominative", "tsys+static"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+nominative", "tsys+static"]);
 
-	plb.addPlatforms([
+	plb.addPlatforms(pl, [
 		"platf+AArch64",
 		"platf+Android",
 		"platf+IA-32",
@@ -61,14 +64,14 @@ export function define(g: PlangsGraph) {
 		"platf+x86-64",
 	]);
 
-	plb.addImplementations(["pl+OCaml"]);
+	plb.addImplementations(pl, ["pl+OCaml"]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+ActionScript",
-		"pl+CPP",
-		"pl+CSharp",
+		"pl+C-Plus-Plus",
+		"pl+C-Sharp",
 		"pl+ECMAScript",
 		"pl+Java",
 		"pl+JavaScript",
@@ -79,14 +82,14 @@ export function define(g: PlangsGraph) {
 		"pl+Python",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+ActionScript",
 		"pl+Java",
 		"pl+JavaScript",
 		"pl+OCaml",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2005-11-14",

@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Source";
+export const PL_V_Id = "pl+Source" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Source" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Source";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Source",
@@ -22,36 +25,36 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".js"]);
+	plb.addExtensions(pl, [".js"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([]);
+	plb.addPeople(pl, []);
 
-	plb.addLicenses(["license+Apache"]);
+	plb.addLicenses(pl, ["license+apache"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+imperative",
 		"para+multi-paradigm",
 		"para+scripting",
 	]);
 
-	plb.addTypeSystems(["tsys+duck", "tsys+dynamic"]);
+	plb.addTypeSystems(pl, ["tsys+duck", "tsys+dynamic"]);
 
-	plb.addPlatforms(["platf+browser-based"]);
+	plb.addPlatforms(pl, ["platf+browser-based"]);
 
-	plb.addImplementations(["pl+Safari", "pl+properly-tail-recursive"]);
+	plb.addImplementations(pl, ["pl+Safari", "pl+properly-tail-recursive"]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+JavaScript", "pl+Scheme"]);
+	plb.addInfluences(pl, ["pl+JavaScript", "pl+Scheme"]);
 
-	plb.addInfluenced([]);
+	plb.addInfluenced(pl, []);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2017-01-01",

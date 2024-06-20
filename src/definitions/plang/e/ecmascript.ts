@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+ECMAScript";
+export const PL_V_Id = "pl+ECMAScript" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "ECMAScript" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "ECMAScript";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Crystal_source.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "ECMAScript",
@@ -27,31 +30,31 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([
+	plb.addPeople(pl, [
 		["person+Brendan-Eich", "designer"],
 		["person+Ecma-International", "designer"],
 	]);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+imperative",
 		"para+multi-paradigm",
 		"para+prototype-based",
 	]);
 
-	plb.addTypeSystems(["tsys+dynamic", "tsys+weak"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+weak"]);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations([
+	plb.addImplementations(pl, [
 		"pl+ActionScript",
 		"pl+Google-Apps-Script",
 		"pl+InScript",
@@ -60,9 +63,9 @@ export function define(g: PlangsGraph) {
 		"pl+QtScript",
 	]);
 
-	plb.addDialects(["pl+Haxe"]);
+	plb.addDialects(pl, ["pl+Haxe"]);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+AWK",
 		"pl+C",
 		"pl+CoffeeScript",
@@ -74,14 +77,14 @@ export function define(g: PlangsGraph) {
 		"pl+Self",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+Haxe",
 		"pl+HyperTalk",
-		"pl+JScript-dotNET",
+		"pl+JScript-.NET",
 		"pl+Java",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1997-01-01",

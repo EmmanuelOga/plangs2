@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Pascal";
+export const PL_V_Id = "pl+Pascal" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Pascal" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Pascal";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Pascal",
@@ -17,29 +20,29 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Niklaus-Wirth", "designer"]]);
+	plb.addPeople(pl, [["person+Niklaus-Wirth", "designer"]]);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms(["para+imperative", "para+structured"]);
+	plb.addParadigms(pl, ["para+imperative", "para+structured"]);
 
-	plb.addTypeSystems(["tsys+safe", "tsys+static", "tsys+strong"]);
+	plb.addTypeSystems(pl, ["tsys+safe", "tsys+static", "tsys+strong"]);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations([
+	plb.addImplementations(pl, [
 		"pl+BSD",
 		"pl+CDC-6000",
 		"pl+Embarcadero-Delphi",
 		"pl+Free-Pascal",
 		"pl+GNU-Pascal",
-		"pl+IBM-SystemSlash370",
+		"pl+IBM-System-Slash370",
 		"pl+ICL-1900",
 		"pl+PDP-10",
 		"pl+PDP-11",
@@ -47,7 +50,7 @@ export function define(g: PlangsGraph) {
 		"pl+VSI-Pascal",
 	]);
 
-	plb.addDialects([
+	plb.addDialects(pl, [
 		"pl+Ada",
 		"pl+Clarion",
 		"pl+Concurrent-Pascal",
@@ -55,13 +58,13 @@ export function define(g: PlangsGraph) {
 		"pl+PLANC",
 	]);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+-2",
 		"pl+-3",
 		"pl+ALGOL-W",
 		"pl+Ada",
-		"pl+CSharp",
-		"pl+CSlashAL",
+		"pl+C-Sharp",
+		"pl+C-SlashAL",
 		"pl+Component-Pascal",
 		"pl+Go",
 		"pl+Java",
@@ -77,15 +80,15 @@ export function define(g: PlangsGraph) {
 		"pl+VHDL",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+A-",
 		"pl+ALGOL",
 		"pl+ALGOL-60",
 		"pl+ALGOL-W",
 		"pl+Ada",
 		"pl+Aldor",
+		"pl+C-SlashAL",
 		"pl+COMAL",
-		"pl+CSlashAL",
 		"pl+Charm",
 		"pl+Component-Pascal",
 		"pl+Concurrent-Pascal",
@@ -100,7 +103,7 @@ export function define(g: PlangsGraph) {
 		"pl+Microsoft-Power-Fx",
 		"pl+Modula",
 		"pl+Modula-2",
-		"pl+Modula-2P",
+		"pl+Modula-2-Plus",
 		"pl+Modula-3",
 		"pl+OCaml",
 		"pl+Object-Pascal",
@@ -118,5 +121,7 @@ export function define(g: PlangsGraph) {
 		"pl+Zonnon",
 	]);
 
-	plb.addReleases([{ version: "unknown", date: "1970-01-01", kind: "first" }]);
+	plb.addReleases(pl, [
+		{ version: "unknown", date: "1970-01-01", kind: "first" },
+	]);
 }

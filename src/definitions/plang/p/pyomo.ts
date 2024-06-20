@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Pyomo";
+export const PL_V_Id = "pl+Pyomo" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Pyomo" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Pyomo";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Pyomo_Logo_Without_Text.png/121px-Pyomo_Logo_Without_Text.png",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Pyomo",
@@ -27,47 +30,47 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".py"]);
+	plb.addExtensions(pl, [".py"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([
+	plb.addPeople(pl, [
 		["person+Carl-Laird", "designer"],
 		["person+David-Woodruff", "designer"],
 		["person+Gabriel-Hackebeil", "designer"],
 		["person+Jean-Paul-Watson", "designer"],
 		["person+John-Siirola", "designer"],
-		["person+William-Edot-Hart", "designer"],
+		["person+William-E.-Hart", "designer"],
 	]);
 
-	plb.addLicenses(["license+BSD-license"]);
+	plb.addLicenses(pl, ["license+bsd"]);
 
-	plb.addParadigms([]);
+	plb.addParadigms(pl, []);
 
-	plb.addTypeSystems([]);
+	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms([
+	plb.addPlatforms(pl, [
 		"platf+Cross-platform",
 		"platf+Linux",
 		"platf+Mac-OS-X",
 		"platf+Windows",
 	]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+AMPL",
 		"pl+General-Algebraic-Modeling-System",
 		"pl+Python",
 	]);
 
-	plb.addInfluenced(["pl+AMPL"]);
+	plb.addInfluenced(pl, ["pl+AMPL"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2008-01-01",

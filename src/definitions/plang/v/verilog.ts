@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Verilog";
+export const PL_V_Id = "pl+Verilog" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Verilog" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Verilog";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Verilog",
@@ -22,30 +25,30 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".v"]);
+	plb.addExtensions(pl, [".v"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([
+	plb.addPeople(pl, [
 		["person+Phil-Moorby", "designer"],
 		["person+Prabhu-Goel", "designer"],
 	]);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms(["para+structured"]);
+	plb.addParadigms(pl, ["para+structured"]);
 
-	plb.addTypeSystems(["tsys+static", "tsys+weak"]);
+	plb.addTypeSystems(pl, ["tsys+static", "tsys+weak"]);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+Ada",
 		"pl+C",
 		"pl+Fortran",
@@ -53,9 +56,9 @@ export function define(g: PlangsGraph) {
 		"pl+SystemVerilog",
 	]);
 
-	plb.addInfluenced(["pl+C", "pl+SystemVerilog"]);
+	plb.addInfluenced(pl, ["pl+C", "pl+SystemVerilog"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1984-01-01",

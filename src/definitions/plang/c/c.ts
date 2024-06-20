@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+C";
+export const PL_V_Id = "pl+C" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "C" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "C";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/3/35/The_C_Programming_Language_logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "C",
@@ -37,62 +40,62 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".c", ".h"]);
+	plb.addExtensions(pl, [".c", ".h"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Dennis-Ritchie", "designer"]]);
+	plb.addPeople(pl, [["person+Dennis-Ritchie", "designer"]]);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+imperative",
 		"para+multi-paradigm",
 		"para+structured",
 	]);
 
-	plb.addTypeSystems([
+	plb.addTypeSystems(pl, [
 		"tsys+manifest",
 		"tsys+nominative",
 		"tsys+static",
 		"tsys+weak",
 	]);
 
-	plb.addPlatforms(["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform"]);
 
-	plb.addImplementations([
-		"pl+CPPBuilder",
+	plb.addImplementations(pl, [
+		"pl+C-Plus-PlusBuilder",
 		"pl+Clang",
 		"pl+GCC",
 		"pl+Intel-C",
-		"pl+Microsoft-Visual-CPP",
+		"pl+Microsoft-Visual-C-Plus-Plus",
 		"pl+Watcom-C",
 		"pl+pcc",
 	]);
 
-	plb.addDialects([
-		"pl+CPP",
+	plb.addDialects(pl, [
+		"pl+C-Plus-Plus",
 		"pl+Carbon",
 		"pl+Objective-C",
-		"pl+OpenCL-APIOpenCL-CSlashCPP-and-CPP-for-OpenCL",
+		"pl+OpenCL-APIOpenCL-C-SlashC-Plus-Plus-and-C-Plus-Plus-for-OpenCL",
 	]);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+ALGOL-68",
 		"pl+AMPL",
 		"pl+AWK",
 		"pl+B",
 		"pl+BCPL",
 		"pl+C--",
+		"pl+C-Plus-Plus",
+		"pl+C-Sharp",
 		"pl+CPL",
-		"pl+CPP",
-		"pl+CSharp",
 		"pl+D",
 		"pl+FORTRAN",
 		"pl+Go",
-		"pl+JSPP",
+		"pl+JS-Plus-Plus",
 		"pl+Java",
 		"pl+JavaScript",
 		"pl+Julia",
@@ -102,7 +105,7 @@ export function define(g: PlangsGraph) {
 		"pl+Numerous",
 		"pl+Objective-C",
 		"pl+PHP",
-		"pl+PLSlashI",
+		"pl+PL-SlashI",
 		"pl+Perl",
 		"pl+Pike",
 		"pl+Processing",
@@ -116,7 +119,7 @@ export function define(g: PlangsGraph) {
 		"pl+csh",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+ALGOL",
 		"pl+ALGOL-60",
 		"pl+AMPL",
@@ -125,8 +128,8 @@ export function define(g: PlangsGraph) {
 		"pl+B",
 		"pl+BCPL",
 		"pl+C--",
-		"pl+CPP",
-		"pl+CgSlashHLSL",
+		"pl+C-Plus-Plus",
+		"pl+Cg-SlashHLSL",
 		"pl+Chapel",
 		"pl+Charm",
 		"pl+CilkOpenCilkCilk-Plus",
@@ -144,7 +147,7 @@ export function define(g: PlangsGraph) {
 		"pl+Go",
 		"pl+Godot-EngineGDScript",
 		"pl+Handel-C",
-		"pl+JSPP",
+		"pl+JS-Plus-Plus",
 		"pl+Limbo",
 		"pl+Newsqueak",
 		"pl+OCaml",
@@ -178,7 +181,7 @@ export function define(g: PlangsGraph) {
 		"pl+newLISP",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1972-01-01",

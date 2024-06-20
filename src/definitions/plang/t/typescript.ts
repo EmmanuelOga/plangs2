@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+TypeScript";
+export const PL_V_Id = "pl+TypeScript" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "TypeScript" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "TypeScript";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Typescript.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "TypeScript",
@@ -27,17 +30,17 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".cts", ".mts", ".ts", ".tsx"]);
+	plb.addExtensions(pl, [".cts", ".mts", ".ts", ".tsx"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([]);
+	plb.addPeople(pl, []);
 
-	plb.addLicenses(["license+Apache-License-2dot0"]);
+	plb.addLicenses(pl, ["license+apache-2"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+generic",
 		"para+imperative",
@@ -45,26 +48,26 @@ export function define(g: PlangsGraph) {
 		"para+object-oriented",
 	]);
 
-	plb.addTypeSystems(["tsys+duck", "tsys+gradual", "tsys+structural"]);
+	plb.addTypeSystems(pl, ["tsys+duck", "tsys+gradual", "tsys+structural"]);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects(["pl+AssemblyScript"]);
+	plb.addDialects(pl, ["pl+AssemblyScript"]);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+ActionScript",
 		"pl+ArkTS",
 		"pl+AssemblyScript",
 		"pl+AtScript",
-		"pl+CSharp",
-		"pl+FSharp",
+		"pl+C-Sharp",
+		"pl+F-Sharp",
 		"pl+Java",
 		"pl+JavaScript",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+ActionScript",
 		"pl+ArkTS",
 		"pl+AssemblyScript",
@@ -73,7 +76,7 @@ export function define(g: PlangsGraph) {
 		"pl+JavaScript",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2012-10-01",

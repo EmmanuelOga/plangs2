@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Futhark";
+export const PL_V_Id = "pl+Futhark" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Futhark" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Futhark";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Futhark",
@@ -22,23 +25,23 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([
+	plb.addPeople(pl, [
 		["person+Cosmin-Oancea", "designer"],
 		["person+Martin-Elsman", "designer"],
 		["person+Troels-Henriksen", "designer"],
 	]);
 
-	plb.addLicenses(["license+ISC"]);
+	plb.addLicenses(pl, ["license+isc"]);
 
-	plb.addParadigms(["para+array", "para+functional"]);
+	plb.addParadigms(pl, ["para+array", "para+functional"]);
 
-	plb.addTypeSystems([
+	plb.addTypeSystems(pl, [
 		"tsys+dependent",
 		"tsys+inferred",
 		"tsys+static",
@@ -46,15 +49,17 @@ export function define(g: PlangsGraph) {
 		"tsys+uniqueness",
 	]);
 
-	plb.addPlatforms(["platf+cross-platform"]);
+	plb.addPlatforms(pl, ["platf+cross-platform"]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+APL", "pl+Haskell", "pl+NESL", "pl+Standard-ML"]);
+	plb.addInfluences(pl, ["pl+APL", "pl+Haskell", "pl+NESL", "pl+Standard-ML"]);
 
-	plb.addInfluenced([]);
+	plb.addInfluenced(pl, []);
 
-	plb.addReleases([{ version: "unknown", date: "2014-01-01", kind: "first" }]);
+	plb.addReleases(pl, [
+		{ version: "unknown", date: "2014-01-01", kind: "first" },
+	]);
 }

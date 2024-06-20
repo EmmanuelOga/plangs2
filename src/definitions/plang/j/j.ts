@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+J";
+export const PL_V_Id = "pl+J" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "J" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "J";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/en/thumb/6/65/J_%28programming_language%29_icon.png/121px-J_%28programming_language%29_icon.png",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "J",
@@ -27,17 +30,17 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Roger-Hui", "designer"]]);
+	plb.addPeople(pl, [["person+Roger-Hui", "designer"]]);
 
-	plb.addLicenses(["license+GPLv3"]);
+	plb.addLicenses(pl, ["license+gpl-3"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+array",
 		"para+class-based",
 		"para+function-level",
@@ -47,9 +50,9 @@ export function define(g: PlangsGraph) {
 		"para+tacit",
 	]);
 
-	plb.addTypeSystems(["tsys+dynamic"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic"]);
 
-	plb.addPlatforms([
+	plb.addPlatforms(pl, [
 		"platf+Android",
 		"platf+Cross-platform",
 		"platf+Linux",
@@ -59,15 +62,15 @@ export function define(g: PlangsGraph) {
 		"platf+macOS",
 	]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+APL", "pl+FL", "pl+NumPy", "pl+SuperCollider"]);
+	plb.addInfluences(pl, ["pl+APL", "pl+FL", "pl+NumPy", "pl+SuperCollider"]);
 
-	plb.addInfluenced(["pl+APL", "pl+FL"]);
+	plb.addInfluenced(pl, ["pl+APL", "pl+FL"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1990-01-01",

@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+GNU-Guile";
+export const PL_V_Id = "pl+GNU-Guile" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "GNU Guile" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "GNU Guile";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/b/b3/GNU-Guile-logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "GNU Guile",
@@ -27,25 +30,25 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([
+	plb.addPeople(pl, [
 		["person+Aubrey-Jaffer", "designer"],
 		["person+Miles-Bader", "designer"],
 		["person+Tom-Lord", "designer"],
 	]);
 
-	plb.addLicenses(["license+LGPL-3dot0-or-later"]);
+	plb.addLicenses(pl, ["license+lgpl-3"]);
 
-	plb.addParadigms([]);
+	plb.addParadigms(pl, []);
 
-	plb.addTypeSystems([]);
+	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms([
+	plb.addPlatforms(pl, [
 		"platf+AArch64",
 		"platf+BSD",
 		"platf+Cygwin",
@@ -63,15 +66,15 @@ export function define(g: PlangsGraph) {
 		"platf+x86-64",
 	]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+Lisp", "pl+SCM", "pl+Scheme"]);
+	plb.addInfluences(pl, ["pl+Lisp", "pl+SCM", "pl+Scheme"]);
 
-	plb.addInfluenced(["pl+SCM"]);
+	plb.addInfluenced(pl, ["pl+SCM"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1993-01-01",

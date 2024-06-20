@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Objective-C";
+export const PL_V_Id = "pl+Objective-C" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Objective-C" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Objective-C";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Objective-C",
@@ -27,27 +30,27 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".M", ".h", ".m", ".mm"]);
+	plb.addExtensions(pl, [".M", ".h", ".m", ".mm"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Brad-Cox", "designer"]]);
+	plb.addPeople(pl, [["person+Brad-Cox", "designer"]]);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms([]);
+	plb.addParadigms(pl, []);
 
-	plb.addTypeSystems(["tsys+dynamic", "tsys+static", "tsys+weak"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+static", "tsys+weak"]);
 
-	plb.addPlatforms(["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform"]);
 
-	plb.addImplementations(["pl+Clang", "pl+GCC"]);
+	plb.addImplementations(pl, ["pl+Clang", "pl+GCC"]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+C",
 		"pl+Groovy",
 		"pl+Java",
@@ -56,7 +59,7 @@ export function define(g: PlangsGraph) {
 		"pl+Swift",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+ArkTS",
 		"pl+C",
 		"pl+Cobra",
@@ -66,7 +69,7 @@ export function define(g: PlangsGraph) {
 		"pl+Smalltalk",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1984-01-01",

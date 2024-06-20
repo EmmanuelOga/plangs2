@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Crystal";
+export const PL_V_Id = "pl+Crystal" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Crystal" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Crystal";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Crystal_language_logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Crystal",
@@ -27,34 +30,34 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".cr"]);
+	plb.addExtensions(pl, [".cr"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([
+	plb.addPeople(pl, [
 		["person+Ary-Borenszweig", "designer"],
 		["person+Brian-Cardiff", "designer"],
 		["person+Juan-Wajnerman", "designer"],
 	]);
 
-	plb.addLicenses(["license+Apache-License-2dot0"]);
+	plb.addLicenses(pl, ["license+apache-2"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+concurrent",
 		"para+multi-paradigm",
 		"para+object-oriented",
 	]);
 
-	plb.addTypeSystems([
+	plb.addTypeSystems(pl, [
 		"tsys+duck",
 		"tsys+inferred",
 		"tsys+nominative",
 		"tsys+static",
 	]);
 
-	plb.addPlatforms([
+	plb.addPlatforms(pl, [
 		"platf+AArch64",
 		"platf+FreeBSD",
 		"platf+IA-32",
@@ -65,22 +68,22 @@ export function define(g: PlangsGraph) {
 		"platf+x86-64",
 	]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+C",
-		"pl+CSharp",
+		"pl+C-Sharp",
 		"pl+Go",
 		"pl+Python",
 		"pl+Ruby",
 		"pl+Rust",
 	]);
 
-	plb.addInfluenced(["pl+Go", "pl+Ruby"]);
+	plb.addInfluenced(pl, ["pl+Go", "pl+Ruby"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2014-06-19",

@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Agda";
+export const PL_V_Id = "pl+Agda" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Agda" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Agda";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/7/71/Agda%27s_official_logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Agda",
@@ -32,19 +35,19 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".agda", ".lagda"]);
+	plb.addExtensions(pl, [".agda", ".lagda"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Ulf-Norell", "designer"]]);
+	plb.addPeople(pl, [["person+Ulf-Norell", "designer"]]);
 
-	plb.addLicenses(["license+BSD-like"]);
+	plb.addLicenses(pl, ["license+bsd-like"]);
 
-	plb.addParadigms(["para+functional"]);
+	plb.addParadigms(pl, ["para+functional"]);
 
-	plb.addTypeSystems([
+	plb.addTypeSystems(pl, [
 		"tsys+dependent",
 		"tsys+inferred",
 		"tsys+manifest",
@@ -53,17 +56,17 @@ export function define(g: PlangsGraph) {
 		"tsys+strong",
 	]);
 
-	plb.addPlatforms(["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform"]);
 
-	plb.addImplementations(["pl+Haskell"]);
+	plb.addImplementations(pl, ["pl+Haskell"]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+Coq", "pl+Epigram", "pl+Haskell", "pl+Idris"]);
+	plb.addInfluences(pl, ["pl+Coq", "pl+Epigram", "pl+Haskell", "pl+Idris"]);
 
-	plb.addInfluenced(["pl+Epigram", "pl+Idris"]);
+	plb.addInfluenced(pl, ["pl+Epigram", "pl+Idris"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "1.0",
 			date: "2007-01-01",

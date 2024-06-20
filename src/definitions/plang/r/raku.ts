@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Raku";
+export const PL_V_Id = "pl+Raku" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Raku" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Raku";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/8/85/Camelia.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Raku",
@@ -27,30 +30,27 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".raku", ".t"]);
+	plb.addExtensions(pl, [".raku", ".t"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Larry-Wall", "designer"]]);
+	plb.addPeople(pl, [["person+Larry-Wall", "designer"]]);
 
-	plb.addLicenses([
-		"license+Artistic-License-2",
-		"license+GNU-General-Public-License",
-	]);
+	plb.addLicenses(pl, ["license+artistic-2", "license+gnu-gpl"]);
 
-	plb.addParadigms(["para+multi-paradigm"]);
+	plb.addParadigms(pl, ["para+multi-paradigm"]);
 
-	plb.addTypeSystems(["tsys+dynamic", "tsys+gradual"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+gradual"]);
 
-	plb.addPlatforms(["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform"]);
 
-	plb.addImplementations(["pl+Rakudo"]);
+	plb.addImplementations(pl, ["pl+Rakudo"]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+Haskell",
 		"pl+JavaScript",
 		"pl+Perl",
@@ -58,9 +58,9 @@ export function define(g: PlangsGraph) {
 		"pl+Smalltalk",
 	]);
 
-	plb.addInfluenced(["pl+Smalltalk"]);
+	plb.addInfluenced(pl, ["pl+Smalltalk"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2015-12-25",

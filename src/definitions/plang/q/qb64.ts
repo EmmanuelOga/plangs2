@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+QB64";
+export const PL_V_Id = "pl+QB64" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "QB64" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "QB64";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/f/f5/QB64-1-4-logo-hd-transparency.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "QB64",
@@ -27,31 +30,35 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Rob-Galleon", "designer"]]);
+	plb.addPeople(pl, [["person+Rob-Galleon", "designer"]]);
 
-	plb.addLicenses(["license+MIT"]);
+	plb.addLicenses(pl, ["license+mit"]);
 
-	plb.addParadigms([]);
+	plb.addParadigms(pl, []);
 
-	plb.addTypeSystems([]);
+	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms(["platf+Linux", "platf+Microsoft-Windows", "platf+macOS"]);
+	plb.addPlatforms(pl, [
+		"platf+Linux",
+		"platf+Microsoft-Windows",
+		"platf+macOS",
+	]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+QBASIC", "pl+QuickBASIC"]);
+	plb.addInfluences(pl, ["pl+QBASIC", "pl+QuickBASIC"]);
 
-	plb.addInfluenced(["pl+QBasic"]);
+	plb.addInfluenced(pl, ["pl+QBasic"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2007-09-08",

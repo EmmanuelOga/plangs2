@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+CPP";
+export const PL_V_Id = "pl+CPP" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "C++" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "C++";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "C++",
@@ -27,9 +30,9 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([
+	plb.addExtensions(pl, [
 		".C",
 		".H",
 		".c++",
@@ -43,13 +46,13 @@ export function define(g: PlangsGraph) {
 		".ixx",
 	]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Bjarne-Stroustrup", "designer"]]);
+	plb.addPeople(pl, [["person+Bjarne-Stroustrup", "designer"]]);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+generic",
 		"para+imperative",
@@ -58,16 +61,16 @@ export function define(g: PlangsGraph) {
 		"para+object-oriented",
 	]);
 
-	plb.addTypeSystems([
+	plb.addTypeSystems(pl, [
 		"tsys+inferred",
 		"tsys+nominative",
 		"tsys+static",
 		"tsys+strong",
 	]);
 
-	plb.addPlatforms(["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform"]);
 
-	plb.addImplementations([
+	plb.addImplementations(pl, [
 		"pl+EDG",
 		"pl+Embarcadero-CPPBuilder",
 		"pl+GCC",
@@ -77,9 +80,9 @@ export function define(g: PlangsGraph) {
 		"pl+Microsoft-Visual-CPP",
 	]);
 
-	plb.addDialects(["pl+CPPBuilder"]);
+	plb.addDialects(pl, ["pl+CPPBuilder"]);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+ALGOL-68",
 		"pl+Ada",
 		"pl+Ada-95",
@@ -110,7 +113,7 @@ export function define(g: PlangsGraph) {
 		"pl+Smalltalk",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+APL",
 		"pl+ATS",
 		"pl+Ada",
@@ -150,7 +153,7 @@ export function define(g: PlangsGraph) {
 		"pl+urbiscript",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1985-01-01",

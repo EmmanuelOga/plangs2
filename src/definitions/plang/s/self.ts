@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Self";
+export const PL_V_Id = "pl+Self" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Self" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Self";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/8/88/Self-logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Self",
@@ -27,32 +30,32 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+David-Ungar", "designer"]]);
+	plb.addPeople(pl, [["person+David-Ungar", "designer"]]);
 
-	plb.addLicenses(["license+BSD"]);
+	plb.addLicenses(pl, ["license+bsd"]);
 
-	plb.addParadigms(["para+object-oriented", "para+prototype-based"]);
+	plb.addParadigms(pl, ["para+object-oriented", "para+prototype-based"]);
 
-	plb.addTypeSystems(["tsys+dynamic", "tsys+strong"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+strong"]);
 
-	plb.addPlatforms([
+	plb.addPlatforms(pl, [
 		"platf+Cross-platform",
 		"platf+Unix-like",
 		"platf+Windows",
 		"platf+macOS",
 	]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects(["pl+Newspeak"]);
+	plb.addDialects(pl, ["pl+Newspeak"]);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+APL",
 		"pl+Agora",
 		"pl+Factor",
@@ -65,7 +68,7 @@ export function define(g: PlangsGraph) {
 		"pl+Squeak",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+AmbientTalk",
 		"pl+ECMAScript",
 		"pl+Factor",
@@ -81,7 +84,7 @@ export function define(g: PlangsGraph) {
 		"pl+urbiscript",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1987-01-01",

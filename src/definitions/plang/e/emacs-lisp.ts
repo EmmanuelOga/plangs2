@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Emacs-Lisp";
+export const PL_V_Id = "pl+Emacs-Lisp" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Emacs Lisp" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Emacs Lisp";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/0/08/EmacsIcon.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Emacs Lisp",
@@ -27,34 +30,34 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping(["lexical"]);
+	plb.addScoping(pl, ["lexical"]);
 
-	plb.addExtensions([".el", ".elc", ".eln"]);
+	plb.addExtensions(pl, [".el", ".elc", ".eln"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([
-		["person+Guy-Ldot-Steele", "designer"],
+	plb.addPeople(pl, [
+		["person+Guy-L.-Steele", "designer"],
 		["person+Richard-Stallman", "designer"],
 	]);
 
-	plb.addLicenses(["license+GPLv3"]);
+	plb.addLicenses(pl, ["license+gpl-3"]);
 
-	plb.addParadigms(["para+functional", "para+meta", "para+reflective"]);
+	plb.addParadigms(pl, ["para+functional", "para+meta", "para+reflective"]);
 
-	plb.addTypeSystems(["tsys+dynamic", "tsys+strong"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+strong"]);
 
-	plb.addPlatforms(["platf+Emacs"]);
+	plb.addPlatforms(pl, ["platf+Emacs"]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects(["pl+Lisp"]);
+	plb.addDialects(pl, ["pl+Lisp"]);
 
-	plb.addInfluences(["pl+Common-Lisp", "pl+Maclisp"]);
+	plb.addInfluences(pl, ["pl+Common-Lisp", "pl+Maclisp"]);
 
-	plb.addInfluenced(["pl+Common-Lisp"]);
+	plb.addInfluenced(pl, ["pl+Common-Lisp"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1985-01-01",

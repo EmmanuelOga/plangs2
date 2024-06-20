@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+XSB";
+export const PL_V_Id = "pl+XSB" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "XSB" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "XSB";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "XSB",
@@ -22,33 +25,33 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".P"]);
+	plb.addExtensions(pl, [".P"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([
-		["person+David-Sdot-Warren", "designer"],
+	plb.addPeople(pl, [
+		["person+David-S.-Warren", "designer"],
 		["person+Kostis-Sagonas", "designer"],
 		["person+Terrance-Swift", "designer"],
 	]);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms(["para+logic-programming"]);
+	plb.addParadigms(pl, ["para+logic-programming"]);
 
-	plb.addTypeSystems([]);
+	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms(["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform"]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+Prolog"]);
+	plb.addInfluences(pl, ["pl+Prolog"]);
 
-	plb.addInfluenced([]);
+	plb.addInfluenced(pl, []);
 
-	plb.addReleases([{ version: "5.0", date: "2022-05-12", kind: "stable" }]);
+	plb.addReleases(pl, [{ version: "5.0", date: "2022-05-12", kind: "stable" }]);
 }

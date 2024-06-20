@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Elixir";
+export const PL_V_Id = "pl+Elixir" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Elixir" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Elixir";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/en/a/a4/Elixir_programming_language_logo.png",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Elixir",
@@ -27,17 +30,17 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".ex", ".exs"]);
+	plb.addExtensions(pl, [".ex", ".exs"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Jose-Valim", "designer"]]);
+	plb.addPeople(pl, [["person+Jose-Valim", "designer"]]);
 
-	plb.addLicenses(["license+Apache-License-2dot0"]);
+	plb.addLicenses(pl, ["license+apache-2"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+concurrent",
 		"para+distributed",
 		"para+functional",
@@ -45,15 +48,15 @@ export function define(g: PlangsGraph) {
 		"para+process-oriented",
 	]);
 
-	plb.addTypeSystems(["tsys+dynamic", "tsys+strong"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+strong"]);
 
-	plb.addPlatforms(["platf+Erlang"]);
+	plb.addPlatforms(pl, ["platf+Erlang"]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+Clojure",
 		"pl+Erlang",
 		"pl+Gleam",
@@ -61,7 +64,7 @@ export function define(g: PlangsGraph) {
 		"pl+Ruby",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+Clojure",
 		"pl+Erlang",
 		"pl+Gleam",
@@ -70,7 +73,7 @@ export function define(g: PlangsGraph) {
 		"pl+Ruby",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2012-01-01",

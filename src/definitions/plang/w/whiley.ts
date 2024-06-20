@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Whiley";
+export const PL_V_Id = "pl+Whiley" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Whiley" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Whiley";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Whiley",
@@ -22,36 +25,36 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+David-Jdot-Pearce", "designer"]]);
+	plb.addPeople(pl, [["person+David-J.-Pearce", "designer"]]);
 
-	plb.addLicenses(["license+BSD"]);
+	plb.addLicenses(pl, ["license+bsd"]);
 
-	plb.addParadigms(["para+functional", "para+imperative"]);
+	plb.addParadigms(pl, ["para+functional", "para+imperative"]);
 
-	plb.addTypeSystems([
+	plb.addTypeSystems(pl, [
 		"tsys+flow-sensitive",
 		"tsys+safe",
 		"tsys+strong",
 		"tsys+structural",
 	]);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+C", "pl+Java", "pl+Python", "pl+Rust"]);
+	plb.addInfluences(pl, ["pl+C", "pl+Java", "pl+Python", "pl+Rust"]);
 
-	plb.addInfluenced(["pl+Ceylon"]);
+	plb.addInfluenced(pl, ["pl+Ceylon"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2010-01-01",

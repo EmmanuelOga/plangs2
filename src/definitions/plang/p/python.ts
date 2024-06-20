@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Python";
+export const PL_V_Id = "pl+Python" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Python" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Python";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Python",
@@ -27,17 +30,17 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".py", ".pyc", ".pyd", ".pyi", ".pyw", ".pyz"]);
+	plb.addExtensions(pl, [".py", ".pyc", ".pyd", ".pyi", ".pyw", ".pyz"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Guido-van-Rossum", "designer"]]);
+	plb.addPeople(pl, [["person+Guido-van-Rossum", "designer"]]);
 
-	plb.addLicenses(["license+Python-Software-Foundation-License"]);
+	plb.addLicenses(pl, ["license+python-software-foundation"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+imperative",
 		"para+multi-paradigm",
@@ -46,14 +49,14 @@ export function define(g: PlangsGraph) {
 		"para+structured",
 	]);
 
-	plb.addTypeSystems([
+	plb.addTypeSystems(pl, [
 		"tsys+duck",
 		"tsys+dynamic",
 		"tsys+optional",
 		"tsys+strong",
 	]);
 
-	plb.addPlatforms([
+	plb.addPlatforms(pl, [
 		"platf+Android",
 		"platf+BSD",
 		"platf+FreeBSD",
@@ -66,7 +69,7 @@ export function define(g: PlangsGraph) {
 		"platf+macOS",
 	]);
 
-	plb.addImplementations([
+	plb.addImplementations(pl, [
 		"pl+CPython",
 		"pl+CircuitPython",
 		"pl+IronPython",
@@ -76,9 +79,9 @@ export function define(g: PlangsGraph) {
 		"pl+Stackless-Python",
 	]);
 
-	plb.addDialects(["pl+Mojo"]);
+	plb.addDialects(pl, ["pl+Mojo"]);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+ABC",
 		"pl+ALGOL-68",
 		"pl+APL",
@@ -86,13 +89,13 @@ export function define(g: PlangsGraph) {
 		"pl+Apache-Groovy",
 		"pl+Boo",
 		"pl+C",
+		"pl+C-Plus-Plus",
 		"pl+CLU",
-		"pl+CPP",
 		"pl+Cobra",
 		"pl+CoffeeScript",
 		"pl+D",
 		"pl+Dylan",
-		"pl+FSharp",
+		"pl+F-Sharp",
 		"pl+GDScript",
 		"pl+Genie",
 		"pl+Go",
@@ -111,14 +114,14 @@ export function define(g: PlangsGraph) {
 		"pl+Swift",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+ABC",
 		"pl+APL",
 		"pl+Ada",
 		"pl+Boo",
 		"pl+C",
+		"pl+C-Plus-Plus",
 		"pl+CLU",
-		"pl+CPP",
 		"pl+Cobra",
 		"pl+Crystal",
 		"pl+Cython",
@@ -153,7 +156,7 @@ export function define(g: PlangsGraph) {
 		"pl+occam",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1991-02-20",

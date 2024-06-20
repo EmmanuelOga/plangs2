@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+PHP";
+export const PL_V_Id = "pl+PHP" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "PHP" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "PHP";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "PHP",
@@ -27,21 +30,17 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".phar", ".php", ".phps", ".pht", ".phtml"]);
+	plb.addExtensions(pl, [".phar", ".php", ".phps", ".pht", ".phtml"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Rasmus-Lerdorf", "designer"]]);
+	plb.addPeople(pl, [["person+Rasmus-Lerdorf", "designer"]]);
 
-	plb.addLicenses([
-		"license+GNU-General-Public-License",
-		"license+PHP-License",
-		"license+Zend-Engine-License",
-	]);
+	plb.addLicenses(pl, ["license+gnu-gpl", "license+php", "license+zend"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+imperative",
 		"para+multi-paradigm",
@@ -49,9 +48,9 @@ export function define(g: PlangsGraph) {
 		"para+reflective",
 	]);
 
-	plb.addTypeSystems(["tsys+dynamic", "tsys+gradual", "tsys+weak"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+gradual", "tsys+weak"]);
 
-	plb.addPlatforms([
+	plb.addPlatforms(pl, [
 		"platf+IBM-Z",
 		"platf+IBM-i",
 		"platf+OpenVMS",
@@ -60,9 +59,9 @@ export function define(g: PlangsGraph) {
 		"platf+macOS",
 	]);
 
-	plb.addImplementations([
+	plb.addImplementations(pl, [
 		"pl+C",
-		"pl+CPP",
+		"pl+C-Plus-Plus",
 		"pl+HHVM",
 		"pl+Parrot",
 		"pl+PeachPie",
@@ -70,12 +69,12 @@ export function define(g: PlangsGraph) {
 		"pl+Zend-Engine",
 	]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+ASP",
 		"pl+C",
-		"pl+CPP",
+		"pl+C-Plus-Plus",
 		"pl+Hack",
 		"pl+JSP",
 		"pl+Java",
@@ -85,9 +84,9 @@ export function define(g: PlangsGraph) {
 		"pl+Tcl",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+C",
-		"pl+CPP",
+		"pl+C-Plus-Plus",
 		"pl+Hack",
 		"pl+Haxe",
 		"pl+Java",
@@ -96,7 +95,7 @@ export function define(g: PlangsGraph) {
 		"pl+Umple",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1995-06-08",

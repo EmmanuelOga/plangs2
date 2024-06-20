@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Brainfuck";
+export const PL_V_Id = "pl+Brainfuck" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Brainfuck" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Brainfuck";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Brainfuck",
@@ -17,29 +20,31 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".b", ".bf"]);
+	plb.addExtensions(pl, [".b", ".bf"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Urban-Muller", "designer"]]);
+	plb.addPeople(pl, [["person+Urban-Muller", "designer"]]);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms(["para+esoteric", "para+imperative", "para+structured"]);
+	plb.addParadigms(pl, ["para+esoteric", "para+imperative", "para+structured"]);
 
-	plb.addTypeSystems([]);
+	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects(["pl+P--"]);
+	plb.addDialects(pl, ["pl+P--"]);
 
-	plb.addInfluences(["pl+FALSE", "pl+Malbolge", "pl+P--"]);
+	plb.addInfluences(pl, ["pl+FALSE", "pl+Malbolge", "pl+P--"]);
 
-	plb.addInfluenced(["pl+Malbolge", "pl+P--"]);
+	plb.addInfluenced(pl, ["pl+Malbolge", "pl+P--"]);
 
-	plb.addReleases([{ version: "unknown", date: "1993-01-01", kind: "first" }]);
+	plb.addReleases(pl, [
+		{ version: "unknown", date: "1993-01-01", kind: "first" },
+	]);
 }

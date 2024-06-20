@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+rc";
+export const PL_V_Id = "pl+rc" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "rc" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "rc";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "rc",
@@ -22,34 +25,36 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Tom-Duff", "designer"]]);
+	plb.addPeople(pl, [["person+Tom-Duff", "designer"]]);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms(["para+imperative", "para+pipeline"]);
+	plb.addParadigms(pl, ["para+imperative", "para+pipeline"]);
 
-	plb.addTypeSystems(["tsys+weak"]);
+	plb.addTypeSystems(pl, ["tsys+weak"]);
 
-	plb.addPlatforms([
+	plb.addPlatforms(pl, [
 		"platf+Cross-platform",
 		"platf+Plan-9",
 		"platf+Plan-9-from-User-Space",
 		"platf+Version-10-Unix",
 	]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+Bourne-shell", "pl+Inferno"]);
+	plb.addInfluences(pl, ["pl+Bourne-shell", "pl+Inferno"]);
 
-	plb.addInfluenced([]);
+	plb.addInfluenced(pl, []);
 
-	plb.addReleases([{ version: "unknown", date: "1989-01-01", kind: "first" }]);
+	plb.addReleases(pl, [
+		{ version: "unknown", date: "1989-01-01", kind: "first" },
+	]);
 }

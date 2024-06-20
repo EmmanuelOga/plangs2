@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+FreeBASIC";
+export const PL_V_Id = "pl+FreeBASIC" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "FreeBASIC" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "FreeBASIC";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Fblogo.gif/121px-Fblogo.gif",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "FreeBASIC",
@@ -27,39 +30,36 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Andre-Victor", "designer"]]);
+	plb.addPeople(pl, [["person+Andre-Victor", "designer"]]);
 
-	plb.addLicenses([
-		"license+GNU-GPLv2P",
-		"license+Standard-libraries-licensed-under-the-GNU-LGPLv2P",
-	]);
+	plb.addLicenses(pl, ["license+gnu-gpl-2-plus", "license+gnu-lgpl-2-plus"]);
 
-	plb.addParadigms(["para+imperative", "para+object-oriented"]);
+	plb.addParadigms(pl, ["para+imperative", "para+object-oriented"]);
 
-	plb.addTypeSystems(["tsys+static"]);
+	plb.addTypeSystems(pl, ["tsys+static"]);
 
-	plb.addPlatforms([
+	plb.addPlatforms(pl, [
 		"platf+FreeBSD",
 		"platf+Linux",
 		"platf+MS-DOS",
 		"platf+Microsoft-Windows",
 	]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+C", "pl+QuickBASIC"]);
+	plb.addInfluences(pl, ["pl+C", "pl+QuickBASIC"]);
 
-	plb.addInfluenced(["pl+QBasic"]);
+	plb.addInfluenced(pl, ["pl+QBasic"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2004-01-01",

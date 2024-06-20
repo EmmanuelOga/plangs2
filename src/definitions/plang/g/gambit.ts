@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Gambit";
+export const PL_V_Id = "pl+Gambit" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Gambit" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Gambit";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Gambit",
@@ -22,41 +25,41 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Marc-Feeley", "designer"]]);
+	plb.addPeople(pl, [["person+Marc-Feeley", "designer"]]);
 
-	plb.addLicenses(["license+Apache", "license+LGPL"]);
+	plb.addLicenses(pl, ["license+apache", "license+lgpl"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+imperative",
 		"para+meta",
 		"para+multi-paradigm",
 	]);
 
-	plb.addTypeSystems(["tsys+dynamic", "tsys+latent", "tsys+strong"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+latent", "tsys+strong"]);
 
-	plb.addPlatforms(["platf+Cross-platform", "platf+IA-32", "platf+x86-64"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform", "platf+IA-32", "platf+x86-64"]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+Gerbil-Scheme",
 		"pl+Lisp",
 		"pl+Scheme",
 		"pl+Termite-Scheme",
 	]);
 
-	plb.addInfluenced(["pl+MultiLisp"]);
+	plb.addInfluenced(pl, ["pl+MultiLisp"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1988-01-01",

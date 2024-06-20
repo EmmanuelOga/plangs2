@@ -1,115 +1,172 @@
-import { Eta } from "eta"
+import { Eta } from "eta";
 import { PlangsGraph } from "../entities/plangs_graph";
-import type { Image, Link, T_Id_V_Plang } from "../entities/schemas";
+import type {
+	T_Id_V_License,
+	T_Id_V_Plang,
+	V_License,
+} from "../entities/schemas";
 import { toAlphaNum } from "../util";
-import { parseAll } from "./wikipedia_process";
 import { PLANG_IDS } from "./plang_ids";
+import { parseAll } from "./wikipedia_process";
+import { groupBy } from "lodash-es";
 
 const Templ = new Eta({ views: __dirname, autoEscape: false });
 
-const DEF_PATH = Bun.fileURLToPath(`file:${__dirname}/../definitions`)
+const DEF_PATH = Bun.fileURLToPath(`file:${__dirname}/../definitions`);
 
-function tsPath(type: string, name: string): string {
-    const p = toAlphaNum(name).toLowerCase();
-    return Bun.fileURLToPath(`file:${DEF_PATH}/${type}/${p[0]}/${p}.ts`);
+function longTsPath(type: string, name: string): string {
+	const p = toAlphaNum(name).toLowerCase();
+	return Bun.fileURLToPath(`file:${DEF_PATH}/${type}/${p[0]}/${p}.ts`);
 }
 
-// await generateAll();
+function alphaTsPath(type: string, name: string): string {
+	const p = toAlphaNum(name).toLowerCase();
+	return Bun.fileURLToPath(`file:${DEF_PATH}/${type}/${p[0]}.ts`);
+}
 
 async function generateAll() {
-    const g = new PlangsGraph();
-    await parseAll(g)
+	const g = new PlangsGraph();
+	await parseAll(g);
 
-    console.log(new Date().toISOString());
+	console.log(new Date().toISOString());
 
-    for (const vid of PLANG_IDS) {
-        if (!await genPlangTsFile(g, vid)) {
-            console.log(`Failed to generate ${vid}`);
-        }
-    }
+	await genLicenses(g);
+	genParadigms(g);
+	genPeople(g);
+	genPlatforms(g);
+	genTypeSystems(g);
 
-    // TODO
-    // v_license
-    // v_paradigm
-    // v_person
-    // v_platform
-    // v_tsystem
+	for (const vid of PLANG_IDS) {
+		if (!(await genPlang(g, vid))) {
+			console.log(`Failed to generate ${vid}`);
+		}
+	}
+
+	console.log("Finished generating definitions.");
 }
 
-async function genPlangTsFile(g: PlangsGraph, plvid: T_Id_V_Plang): Promise<boolean> {
-    const pl = g.v_plang.get(plvid);
+async function genPlang(g: PlangsGraph, plvid: T_Id_V_Plang): Promise<boolean> {
+	const pl = g.v_plang.get(plvid);
 
-    if (!pl || !pl.name) return false;
+	if (!pl || !pl.name) return false;
 
-    // Elements for the template.
-    const templ: Record<string, string | string[] | string[][]> = {
-        plvid,
-        name: pl.name,
-    }
+	const templ: Record<string, string | string[] | string[][]> = {
+		plvid: json(plvid),
+		name: json(pl.name),
+	};
 
-    templ.images = json(pl.images ?? []);
+	templ.images = json(pl.images ?? []);
 
-    templ.websites = json(pl.websites ?? []);
+	templ.websites = json(pl.websites ?? []);
 
-    templ.extensions = json(pl.extensions ?? [])
+	templ.extensions = json(pl.extensions ?? []);
 
-    templ.scopings = json(pl.scoping ?? []);
+	templ.scopings = json(pl.scoping ?? []);
 
-    templ.references = '{}'; // json(pl.references);
+	templ.references = "{}"; // json(pl.references);
 
-    templ.releases = json(pl.releases ?? []);
+	templ.releases = json(pl.releases ?? []);
 
-    templ.people = json([...g.e_person_plang_role.adjacentTo(plvid)]
-        .map(({ from, edata }) => [from, edata?.role]));
+	templ.people = json(
+		[...g.e_person_plang_role.adjacentTo(plvid)].map(({ from, edata }) => [
+			from,
+			edata?.role,
+		]),
+	);
 
-    templ.licenses = json([...g.e_has_license.adjacentFrom(plvid)]
-        .map(({ to }) => to));
+	templ.licenses = json(
+		[...g.e_has_license.adjacentFrom(plvid)].map(({ to }) => to),
+	);
 
-    templ.paradigms = json([...g.e_plang_para.adjacentFrom(plvid)]
-        .map(({ to }) => to));
+	templ.paradigms = json(
+		[...g.e_plang_para.adjacentFrom(plvid)].map(({ to }) => to),
+	);
 
-    templ.typeSystems = json([...g.e_plang_tsys.adjacentFrom(plvid)]
-        .map(({ to }) => to));
+	templ.typeSystems = json(
+		[...g.e_plang_tsys.adjacentFrom(plvid)].map(({ to }) => to),
+	);
 
-    templ.platforms = json([...g.e_supports_platf.adjacentFrom(plvid)]
-        .map(({ to }) => to));
+	templ.platforms = json(
+		[...g.e_supports_platf.adjacentFrom(plvid)].map(({ to }) => to),
+	);
 
-    templ.implementations = json([...g.e_implements.adjacentTo(plvid)]
-        .map(({ from }) => from));
+	templ.implementations = json(
+		[...g.e_implements.adjacentTo(plvid)].map(({ from }) => from),
+	);
 
-    templ.dialects = json([...g.e_dialect_of.adjacentTo(plvid)]
-        .map(({ from }) => from));
+	templ.dialects = json(
+		[...g.e_dialect_of.adjacentTo(plvid)].map(({ from }) => from),
+	);
 
-    templ.influences = json([...g.e_l_influenced_l.adjacentTo(plvid)]
-        .map(({ from }) => from));
+	templ.influences = json(
+		[...g.e_l_influenced_l.adjacentTo(plvid)].map(({ from }) => from),
+	);
 
-    templ.influenced = json([...g.e_l_influenced_l.adjacentFrom(plvid)]
-        .map(({ to }) => to));
+	templ.influenced = json(
+		[...g.e_l_influenced_l.adjacentFrom(plvid)].map(({ to }) => to),
+	);
 
-    const res = Templ.render("./plang", templ)
-    const path = tsPath("plang", pl.name)
-    await Bun.write(path, res);
+	const res = Templ.render("./plang", templ);
+	const path = longTsPath("plang", pl.name);
+	await Bun.write(path, res);
 
-    return true;
+	return true;
 }
+
+async function genLicenses(g: PlangsGraph) {
+	const allIds = [...g.v_license.keys()].sort((id0, id1) =>
+		id0.toLowerCase().localeCompare(id1.toLowerCase()),
+	);
+
+	const grouped: Record<string, string[]> = groupBy(allIds, (id: string) =>
+		id["license+".length].toLowerCase(),
+	);
+
+	for (const [prefix, ids] of Object.entries(grouped)) {
+		const templ: Record<string, string[][]> = { licenses: [] };
+		for (const lid of ids) {
+			const lic = g.v_license.get(lid as T_Id_V_License);
+			if (!lic) {
+				console.log("License not found:", lid);
+				continue;
+			}
+
+			templ.licenses.push([
+				json(lid),
+				json(lic.name),
+				json(lic.websites ?? []),
+			]);
+		}
+
+		const res = Templ.render("./licenses", templ);
+		const path = alphaTsPath("licenses", prefix);
+		await Bun.write(path, res);
+	}
+}
+
+function genParadigms(g: PlangsGraph) {}
+
+function genPeople(g: PlangsGraph) {}
+
+function genPlatforms(g: PlangsGraph) {}
+
+function genTypeSystems(g: PlangsGraph) {}
 
 // biome-ignore lint/suspicious/noExplicitAny: it's ok.
 function json(v: any): string {
-    if (typeof v === 'string') return JSON.stringify(v);
+	if (typeof v === "string") return JSON.stringify(v);
 
-    if (Array.isArray(v)) {
-        if (v.length > 1) {
-            v.sort();
-            const uninndented = JSON.stringify(v);
-            if (uninndented.length < 70) return uninndented;
-            return JSON.stringify(v, null, 2);
-        }
-        return JSON.stringify(v);
-    }
+	if (Array.isArray(v)) {
+		if (v.length > 1) {
+			v.sort();
+			const uninndented = JSON.stringify(v);
+			if (uninndented.length < 70) return uninndented;
+			return JSON.stringify(v, null, 2);
+		}
+		return JSON.stringify(v);
+	}
 
-    return JSON.stringify(v, null, 2);
+	return JSON.stringify(v, null, 2);
 }
 
-function assert(statement: boolean) {
-    if (!statement) throw new Error("Assertion failed");
-}
+await generateAll();

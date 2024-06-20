@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Smalltalk";
+export const PL_V_Id = "pl+Smalltalk" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Smalltalk" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Smalltalk";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Smalltalk_Balloon.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Smalltalk",
@@ -22,13 +25,13 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([
+	plb.addPeople(pl, [
 		["person+Adele-Goldberg", "designer"],
 		["person+Alan-Kay", "designer"],
 		["person+Dan-Ingalls", "designer"],
@@ -37,26 +40,34 @@ export function define(g: PlangsGraph) {
 		["person+Ted-Kaehler", "designer"],
 	]);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms(["para+object-oriented"]);
+	plb.addParadigms(pl, ["para+object-oriented"]);
 
-	plb.addTypeSystems(["tsys+dynamic", "tsys+object-oriented", "tsys+strong"]);
+	plb.addTypeSystems(pl, [
+		"tsys+dynamic",
+		"tsys+object-oriented",
+		"tsys+strong",
+	]);
 
-	plb.addPlatforms(["platf+74181", "platf+Cross-platform", "platf+Xerox-Alto"]);
+	plb.addPlatforms(pl, [
+		"platf+74181",
+		"platf+Cross-platform",
+		"platf+Xerox-Alto",
+	]);
 
-	plb.addImplementations([
+	plb.addImplementations(pl, [
 		"pl+Amber",
 		"pl+Dolphin-Smalltalk",
 		"pl+GNU-Smalltalk",
-		"pl+GemStoneSlashS",
+		"pl+GemStone-SlashS",
 		"pl+Pharo",
 		"pl+Squeak",
 		"pl+VA-Smalltalk",
 		"pl+VisualWorks",
 	]);
 
-	plb.addDialects([
+	plb.addDialects(pl, [
 		"pl+Dolphin-Smalltalk",
 		"pl+Newspeak",
 		"pl+Pharo",
@@ -64,7 +75,7 @@ export function define(g: PlangsGraph) {
 		"pl+Strongtalk",
 	]);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+ARPAnet",
 		"pl+AppleScript",
 		"pl+Burroughs-B5000",
@@ -100,13 +111,13 @@ export function define(g: PlangsGraph) {
 		"pl+Swift",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+Ada",
 		"pl+AgentCubes",
 		"pl+AgentSheets",
 		"pl+AmbientTalk",
+		"pl+C-Plus-Plus",
 		"pl+COBOL",
-		"pl+CPP",
 		"pl+Ceylon",
 		"pl+Claire",
 		"pl+Dart",
@@ -114,7 +125,7 @@ export function define(g: PlangsGraph) {
 		"pl+Emerald",
 		"pl+Erlang",
 		"pl+Etoys",
-		"pl+GemStoneSlashS-Object-Server",
+		"pl+GemStone-SlashS-Object-Server",
 		"pl+Go",
 		"pl+Groovy",
 		"pl+Io",
@@ -147,7 +158,7 @@ export function define(g: PlangsGraph) {
 		"pl+Xtend",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1972-01-01",

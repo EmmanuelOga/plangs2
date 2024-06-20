@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+JavaScript";
+export const PL_V_Id = "pl+JavaScript" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "JavaScript" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "JavaScript";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/JavaScript_code.png/300px-JavaScript_code.png",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "JavaScript",
@@ -33,17 +36,17 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Brendan-Eich", "designer"]]);
+	plb.addPeople(pl, [["person+Brendan-Eich", "designer"]]);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+event-driven",
 		"para+functional",
 		"para+imperative",
@@ -51,20 +54,20 @@ export function define(g: PlangsGraph) {
 		"para+object-oriented",
 	]);
 
-	plb.addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+weak"]);
+	plb.addTypeSystems(pl, ["tsys+duck", "tsys+dynamic", "tsys+weak"]);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations([
+	plb.addImplementations(pl, [
 		"pl+Chakra",
 		"pl+JavaScriptCore",
 		"pl+SpiderMonkey",
 		"pl+V8",
 	]);
 
-	plb.addDialects(["pl+AssemblyScript"]);
+	plb.addDialects(pl, ["pl+AssemblyScript"]);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+AWK",
 		"pl+ActionScript",
 		"pl+ArkTS",
@@ -73,7 +76,7 @@ export function define(g: PlangsGraph) {
 		"pl+Dart",
 		"pl+Haxe",
 		"pl+HyperTalk",
-		"pl+JSPP",
+		"pl+JS-Plus-Plus",
 		"pl+Java",
 		"pl+Opa",
 		"pl+Scheme",
@@ -81,7 +84,7 @@ export function define(g: PlangsGraph) {
 		"pl+TypeScript",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+ActionScript",
 		"pl+ArkTS",
 		"pl+AssemblyScript",
@@ -93,7 +96,7 @@ export function define(g: PlangsGraph) {
 		"pl+Gleam",
 		"pl+Haxe",
 		"pl+HyperTalk",
-		"pl+JSPP",
+		"pl+JS-Plus-Plus",
 		"pl+Java",
 		"pl+Kotlin",
 		"pl+Lisp",
@@ -106,16 +109,16 @@ export function define(g: PlangsGraph) {
 		"pl+Raku",
 		"pl+Reason",
 		"pl+Scheme",
-		"pl+ScriptdotNET",
+		"pl+Script.NET",
 		"pl+Self",
 		"pl+Solidity",
 		"pl+Source",
 		"pl+Squirrel",
 		"pl+TypeScript",
-		"pl+asmdotjs",
+		"pl+asm.js",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1995-12-04",

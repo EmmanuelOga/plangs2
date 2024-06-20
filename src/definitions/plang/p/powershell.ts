@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+PowerShell";
+export const PL_V_Id = "pl+PowerShell" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "PowerShell" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "PowerShell";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/PowerShell_Core_6.0_icon.png/121px-PowerShell_Core_6.0_icon.png",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "PowerShell",
@@ -32,17 +35,17 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Jeffrey-Snover", "designer"]]);
+	plb.addPeople(pl, [["person+Jeffrey-Snover", "designer"]]);
 
-	plb.addLicenses(["license+MIT-License", "license+proprietary"]);
+	plb.addLicenses(pl, ["license+mit", "license+proprietary"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+imperative",
 		"para+object-oriented",
@@ -50,14 +53,16 @@ export function define(g: PlangsGraph) {
 		"para+reflective",
 	]);
 
-	plb.addTypeSystems([
+	plb.addTypeSystems(pl, [
 		"tsys+dynamic",
 		"tsys+inferred",
 		"tsys+safe",
 		"tsys+strong",
 	]);
 
-	plb.addPlatforms([
+	plb.addPlatforms(pl, [
+		"platf+.NET",
+		"platf+.NET-Framework",
 		"platf+CentOS",
 		"platf+Debian",
 		"platf+Fedora",
@@ -65,19 +70,17 @@ export function define(g: PlangsGraph) {
 		"platf+Ubuntu",
 		"platf+Windows-7",
 		"platf+Windows-Server-2008-R2",
-		"platf+dotNET",
-		"platf+dotNET-Framework",
-		"platf+macOS-10dot12",
+		"platf+macOS-10.12",
 		"platf+openSUSE",
 	]);
 
-	plb.addImplementations(["pl+CSharp"]);
+	plb.addImplementations(pl, ["pl+C-Sharp"]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
+		"pl+C-Sharp",
 		"pl+CL",
-		"pl+CSharp",
 		"pl+Chef",
 		"pl+DCL",
 		"pl+Ksh",
@@ -89,9 +92,9 @@ export function define(g: PlangsGraph) {
 		"pl+Tk",
 	]);
 
-	plb.addInfluenced(["pl+SQL--Structured-Query-Language-", "pl+Tcl"]);
+	plb.addInfluenced(pl, ["pl+SQL--Structured-Query-Language-", "pl+Tcl"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2006-11-14",

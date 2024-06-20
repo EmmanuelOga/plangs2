@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Swift";
+export const PL_V_Id = "pl+Swift" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Swift" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Swift";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/en/thumb/8/86/Swift_%28programing_language%29_logo.png/150px-Swift_%28programing_language%29_logo.png",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Swift",
@@ -32,17 +35,17 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([]);
+	plb.addPeople(pl, []);
 
-	plb.addLicenses(["license+Apache"]);
+	plb.addLicenses(pl, ["license+apache"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+concurrent",
 		"para+dataflow",
 		"para+distributed",
@@ -51,17 +54,17 @@ export function define(g: PlangsGraph) {
 		"para+scripting",
 	]);
 
-	plb.addTypeSystems(["tsys+strong"]);
+	plb.addTypeSystems(pl, ["tsys+strong"]);
 
-	plb.addPlatforms(["platf+Cross-platform", "platf+Java"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform", "platf+Java"]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+C", "pl+Cuneiform", "pl+functional-programming"]);
+	plb.addInfluences(pl, ["pl+C", "pl+Cuneiform", "pl+functional-programming"]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+ArkTS",
 		"pl+CLU",
 		"pl+D-programming-language",
@@ -74,7 +77,7 @@ export function define(g: PlangsGraph) {
 		"pl+V",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2007-01-01",

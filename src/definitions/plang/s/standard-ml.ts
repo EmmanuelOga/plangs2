@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Standard-ML";
+export const PL_V_Id = "pl+Standard-ML" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Standard ML" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Standard ML";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Standard ML",
@@ -22,40 +25,40 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".sml"]);
+	plb.addExtensions(pl, [".sml"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([]);
+	plb.addPeople(pl, []);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+imperative",
 		"para+modular",
 		"para+multi-paradigm",
 	]);
 
-	plb.addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
+	plb.addTypeSystems(pl, ["tsys+inferred", "tsys+static", "tsys+strong"]);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations(["pl+MLton", "pl+PolySlashML", "pl+SMLSlashNJ"]);
+	plb.addImplementations(pl, ["pl+MLton", "pl+Poly-SlashML", "pl+SML-SlashNJ"]);
 
-	plb.addDialects([
+	plb.addDialects(pl, [
 		"pl+Alice",
 		"pl+ML",
 		"pl+MLton",
 		"pl+Standard-ML-of-New-Jersey",
 	]);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+Elm",
-		"pl+FSharp",
-		"pl+FStar",
+		"pl+F-Sharp",
+		"pl+F-Star",
 		"pl+Haskell",
 		"pl+Hope",
 		"pl+ML",
@@ -66,10 +69,10 @@ export function define(g: PlangsGraph) {
 		"pl+Scala",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+Elm",
 		"pl+EuLisp",
-		"pl+FStar",
+		"pl+F-Star",
 		"pl+Futhark",
 		"pl+Haskell",
 		"pl+ML",
@@ -82,7 +85,7 @@ export function define(g: PlangsGraph) {
 		"pl+Standard-ML-of-New-Jersey",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1983-01-01",

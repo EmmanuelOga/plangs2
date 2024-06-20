@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Prolog";
+export const PL_V_Id = "pl+Prolog" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Prolog" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Prolog";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Prolog",
@@ -27,23 +30,23 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".P", ".pl", ".pro"]);
+	plb.addExtensions(pl, [".P", ".pl", ".pro"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Alain-Colmerauer", "designer"]]);
+	plb.addPeople(pl, [["person+Alain-Colmerauer", "designer"]]);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms(["para+logic"]);
+	plb.addParadigms(pl, ["para+logic"]);
 
-	plb.addTypeSystems([]);
+	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations([
+	plb.addImplementations(pl, [
 		"pl+B-Prolog",
 		"pl+Ciao",
 		"pl+ECLiPSe",
@@ -56,9 +59,9 @@ export function define(g: PlangsGraph) {
 		"pl+YAP",
 	]);
 
-	plb.addDialects(["pl+Datalog"]);
+	plb.addDialects(pl, ["pl+Datalog"]);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+CHR",
 		"pl+Clojure",
 		"pl+Datalog",
@@ -73,7 +76,7 @@ export function define(g: PlangsGraph) {
 		"pl+Visual-Prolog",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+ALF",
 		"pl+Ciao",
 		"pl+Clojure",
@@ -91,7 +94,7 @@ export function define(g: PlangsGraph) {
 		"pl+XSB",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1972-01-01",

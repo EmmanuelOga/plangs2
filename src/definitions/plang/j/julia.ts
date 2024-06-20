@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Julia";
+export const PL_V_Id = "pl+Julia" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Julia" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Julia";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Julia_Programming_Language_Logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Julia",
@@ -27,22 +30,22 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".jl"]);
+	plb.addExtensions(pl, [".jl"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([
+	plb.addPeople(pl, [
 		["person+Alan-Edelman", "designer"],
 		["person+Jeff-Bezanson", "designer"],
 		["person+Stefan-Karpinski", "designer"],
-		["person+Viral-Bdot-Shah", "designer"],
+		["person+Viral-B.-Shah", "designer"],
 	]);
 
-	plb.addLicenses(["license+MIT"]);
+	plb.addLicenses(pl, ["license+mit"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+array",
 		"para+functional",
 		"para+imperative",
@@ -53,7 +56,7 @@ export function define(g: PlangsGraph) {
 		"para+structured",
 	]);
 
-	plb.addTypeSystems([
+	plb.addTypeSystems(pl, [
 		"tsys+dynamic",
 		"tsys+inferred",
 		"tsys+nominative",
@@ -62,7 +65,7 @@ export function define(g: PlangsGraph) {
 		"tsys+strong",
 	]);
 
-	plb.addPlatforms([
+	plb.addPlatforms(pl, [
 		"platf+64-bit",
 		"platf+64-bit-Arm",
 		"platf+Apple-silicon",
@@ -79,11 +82,16 @@ export function define(g: PlangsGraph) {
 		"platf+x86-64",
 	]);
 
-	plb.addImplementations(["pl+C", "pl+CPP", "pl+LLVM", "pl+Scheme"]);
+	plb.addImplementations(pl, [
+		"pl+C",
+		"pl+C-Plus-Plus",
+		"pl+LLVM",
+		"pl+Scheme",
+	]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+Dylan",
 		"pl+Fortress",
 		"pl+Lisp",
@@ -96,7 +104,7 @@ export function define(g: PlangsGraph) {
 		"pl+Ruby",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+C",
 		"pl+Common-Lisp",
 		"pl+Dylan",
@@ -109,7 +117,7 @@ export function define(g: PlangsGraph) {
 		"pl+Wolfram-Language",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2012-01-01",

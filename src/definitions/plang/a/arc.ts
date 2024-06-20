@@ -1,15 +1,18 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Arc";
+export const PL_V_Id = "pl+Arc" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Arc" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Arc";
 
-	plb.addImages([]);
+	const plb = g.plangBuilder;
 
-	plb.addWebsites([
+	plb.addImages(pl, []);
+
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Arc",
@@ -22,36 +25,36 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".arc"]);
+	plb.addExtensions(pl, [".arc"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Paul-Graham", "designer"]]);
+	plb.addPeople(pl, [["person+Paul-Graham", "designer"]]);
 
-	plb.addLicenses(["license+Artistic-License"]);
+	plb.addLicenses(pl, ["license+artistic"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+imperative",
 		"para+meta",
 		"para+multi-paradigm",
 	]);
 
-	plb.addTypeSystems(["tsys+dynamic"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic"]);
 
-	plb.addPlatforms(["platf+IA-32", "platf+Linux", "platf+x86-64"]);
+	plb.addPlatforms(pl, ["platf+IA-32", "platf+Linux", "platf+x86-64"]);
 
-	plb.addImplementations(["pl+Racket"]);
+	plb.addImplementations(pl, ["pl+Racket"]);
 
-	plb.addDialects(["pl+Lisp"]);
+	plb.addDialects(pl, ["pl+Lisp"]);
 
-	plb.addInfluences(["pl+Lisp", "pl+Scheme"]);
+	plb.addInfluences(pl, ["pl+Lisp", "pl+Scheme"]);
 
-	plb.addInfluenced([]);
+	plb.addInfluenced(pl, []);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2008-01-29",

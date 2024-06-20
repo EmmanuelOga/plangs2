@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+CoffeeScript";
+export const PL_V_Id = "pl+CoffeeScript" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "CoffeeScript" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "CoffeeScript";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/d/d3/CoffeeScript-logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "CoffeeScript",
@@ -27,17 +30,17 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Jeremy-Ashkenas", "designer"]]);
+	plb.addPeople(pl, [["person+Jeremy-Ashkenas", "designer"]]);
 
-	plb.addLicenses(["license+MIT-License"]);
+	plb.addLicenses(pl, ["license+mit"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+functional",
 		"para+imperative",
 		"para+multi-paradigm",
@@ -45,17 +48,17 @@ export function define(g: PlangsGraph) {
 		"para+scripting",
 	]);
 
-	plb.addTypeSystems(["tsys+dynamic"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic"]);
 
-	plb.addPlatforms(["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+Cross-platform"]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+LiveScript", "pl+MoonScript"]);
+	plb.addInfluences(pl, ["pl+LiveScript", "pl+MoonScript"]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+ECMAScript",
 		"pl+JavaScript",
 		"pl+LiveScript",
@@ -63,7 +66,7 @@ export function define(g: PlangsGraph) {
 		"pl+Ruby",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2009-12-13",

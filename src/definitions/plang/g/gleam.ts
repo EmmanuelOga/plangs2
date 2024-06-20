@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Gleam";
+export const PL_V_Id = "pl+Gleam" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Gleam" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Gleam";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Gleam_Lucy.png/220px-Gleam_Lucy.png",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Gleam",
@@ -27,25 +30,25 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".gleam"]);
+	plb.addExtensions(pl, [".gleam"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+Louis-Pilfold", "designer"]]);
+	plb.addPeople(pl, [["person+Louis-Pilfold", "designer"]]);
 
-	plb.addLicenses(["license+Apache-License-2dot0"]);
+	plb.addLicenses(pl, ["license+apache-2"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+concurrent",
 		"para+functional",
 		"para+multi-paradigm",
 	]);
 
-	plb.addTypeSystems(["tsys+inferred", "tsys+safe", "tsys+static"]);
+	plb.addTypeSystems(pl, ["tsys+inferred", "tsys+safe", "tsys+static"]);
 
-	plb.addPlatforms([
+	plb.addPlatforms(pl, [
 		"platf+FreeBSD",
 		"platf+Linux",
 		"platf+OpenBSD",
@@ -53,11 +56,11 @@ export function define(g: PlangsGraph) {
 		"platf+macOS",
 	]);
 
-	plb.addImplementations(["pl+Rust"]);
+	plb.addImplementations(pl, ["pl+Rust"]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+Elixir",
 		"pl+Elm",
 		"pl+Erlang",
@@ -67,9 +70,9 @@ export function define(g: PlangsGraph) {
 		"pl+Rust",
 	]);
 
-	plb.addInfluenced(["pl+Elixir"]);
+	plb.addInfluenced(pl, ["pl+Elixir"]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "2016-06-13",

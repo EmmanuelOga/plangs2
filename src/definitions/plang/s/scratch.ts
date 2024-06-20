@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Scratch";
+export const PL_V_Id = "pl+Scratch" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Scratch" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Scratch";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/f/f1/Scratchlogo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Scratch",
@@ -27,21 +30,21 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".sb", ".sb2", ".sb3"]);
+	plb.addExtensions(pl, [".sb", ".sb2", ".sb3"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([]);
+	plb.addPeople(pl, []);
 
-	plb.addLicenses(["license+BSD-3-Clause", "license+GPLv2"]);
+	plb.addLicenses(pl, ["license+bsd-3-clause", "license+gpl-2"]);
 
-	plb.addParadigms(["para+event-driven", "para+visual"]);
+	plb.addParadigms(pl, ["para+event-driven", "para+visual"]);
 
-	plb.addTypeSystems([]);
+	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms([
+	plb.addPlatforms(pl, [
 		"platf+Android",
 		"platf+HTML5",
 		"platf+Linux",
@@ -51,16 +54,16 @@ export function define(g: PlangsGraph) {
 		"platf+macOS",
 	]);
 
-	plb.addImplementations([
+	plb.addImplementations(pl, [
 		"pl+ActionScript",
 		"pl+HTML5",
 		"pl+JavaScript",
 		"pl+Squeak",
 	]);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+AgentCubes",
 		"pl+AgentSheets",
 		"pl+Catrobat",
@@ -75,7 +78,7 @@ export function define(g: PlangsGraph) {
 		"pl+mBlock",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+AgentCubes",
 		"pl+AgentSheets",
 		"pl+Etoys",
@@ -87,7 +90,7 @@ export function define(g: PlangsGraph) {
 		"pl+UCBLogo",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "0.1",
 			date: "2003-10-11",

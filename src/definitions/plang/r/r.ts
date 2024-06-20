@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+R";
+export const PL_V_Id = "pl+R" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "R" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "R";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "R",
@@ -27,20 +30,20 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([]);
+	plb.addExtensions(pl, []);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([
+	plb.addPeople(pl, [
 		["person+Robert-Gentleman", "designer"],
 		["person+Ross-Ihaka", "designer"],
 	]);
 
-	plb.addLicenses(["license+GNU-GPL-v2"]);
+	plb.addLicenses(pl, ["license+gnu-gpl-2"]);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+array",
 		"para+functional",
 		"para+imperative",
@@ -49,17 +52,17 @@ export function define(g: PlangsGraph) {
 		"para+reflective",
 	]);
 
-	plb.addTypeSystems(["tsys+dynamic"]);
+	plb.addTypeSystems(pl, ["tsys+dynamic"]);
 
-	plb.addPlatforms(["platf+arm64", "platf+x86-64"]);
+	plb.addPlatforms(pl, ["platf+arm64", "platf+x86-64"]);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences(["pl+Julia", "pl+Lisp", "pl+S", "pl+Scheme"]);
+	plb.addInfluences(pl, ["pl+Julia", "pl+Lisp", "pl+S", "pl+Scheme"]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+Common-Lisp",
 		"pl+Julia",
 		"pl+Lisp",
@@ -68,7 +71,7 @@ export function define(g: PlangsGraph) {
 		"pl+Scheme",
 	]);
 
-	plb.addReleases([
+	plb.addReleases(pl, [
 		{
 			version: "unknown",
 			date: "1993-01-01",

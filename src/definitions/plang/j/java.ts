@@ -1,20 +1,23 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Plang } from "../../../entities/schemas";
 
-export const lang_vid = "pl+Java";
+export const PL_V_Id = "pl+Java" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.merge(lang_vid, { name: "Java" });
+	const pl = g.v_plang.declare(PL_V_Id);
 
-	const plb = g.plangBuilder(pl);
+	pl.name = "Java";
 
-	plb.addImages([
+	const plb = g.plangBuilder;
+
+	plb.addImages(pl, [
 		{
 			kind: "logo",
 			url: "https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg",
 		},
 	]);
 
-	plb.addWebsites([
+	plb.addWebsites(pl, [
 		{
 			kind: "wikipedia",
 			title: "Java",
@@ -37,17 +40,17 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	plb.addScoping([]);
+	plb.addScoping(pl, []);
 
-	plb.addExtensions([".java", ".jmod"]);
+	plb.addExtensions(pl, [".java", ".jmod"]);
 
-	plb.addReferences({});
+	plb.addReferences(pl, {});
 
-	plb.addPeople([["person+James-Gosling", "designer"]]);
+	plb.addPeople(pl, [["person+James-Gosling", "designer"]]);
 
-	plb.addLicenses([]);
+	plb.addLicenses(pl, []);
 
-	plb.addParadigms([
+	plb.addParadigms(pl, [
 		"para+class-based",
 		"para+concurrent",
 		"para+functional",
@@ -58,7 +61,7 @@ export function define(g: PlangsGraph) {
 		"para+reflective",
 	]);
 
-	plb.addTypeSystems([
+	plb.addTypeSystems(pl, [
 		"tsys+manifest",
 		"tsys+nominative",
 		"tsys+safe",
@@ -66,20 +69,20 @@ export function define(g: PlangsGraph) {
 		"tsys+strong",
 	]);
 
-	plb.addPlatforms([]);
+	plb.addPlatforms(pl, []);
 
-	plb.addImplementations([]);
+	plb.addImplementations(pl, []);
 
-	plb.addDialects([]);
+	plb.addDialects(pl, []);
 
-	plb.addInfluences([
+	plb.addInfluences(pl, [
 		"pl+Ada-2005",
 		"pl+Ada-83",
 		"pl+ArkTS",
 		"pl+BeanShell",
+		"pl+C-Plus-Plus",
+		"pl+C-Sharp",
 		"pl+CLU",
-		"pl+CPP",
-		"pl+CSharp",
 		"pl+Chapel",
 		"pl+Clojure",
 		"pl+ECMAScript",
@@ -89,8 +92,8 @@ export function define(g: PlangsGraph) {
 		"pl+Groovy",
 		"pl+Hack",
 		"pl+Haxe",
-		"pl+JSPP",
-		"pl+JSharp",
+		"pl+J-Sharp",
+		"pl+JS-Plus-Plus",
 		"pl+JavaScript",
 		"pl+Kotlin",
 		"pl+Lisp",
@@ -109,14 +112,14 @@ export function define(g: PlangsGraph) {
 		"pl+Vala",
 	]);
 
-	plb.addInfluenced([
+	plb.addInfluenced(pl, [
 		"pl+ActionScript",
 		"pl+Ada",
 		"pl+ArkTS",
 		"pl+Ballerina",
 		"pl+BeanShell",
 		"pl+C",
-		"pl+CPP",
+		"pl+C-Plus-Plus",
 		"pl+Ceylon",
 		"pl+Chapel",
 		"pl+Clojure",
@@ -132,7 +135,7 @@ export function define(g: PlangsGraph) {
 		"pl+Groovy",
 		"pl+Hack",
 		"pl+Haxe",
-		"pl+JSPP",
+		"pl+JS-Plus-Plus",
 		"pl+JavaScript",
 		"pl+Join-Java",
 		"pl+Kotlin",
@@ -163,5 +166,7 @@ export function define(g: PlangsGraph) {
 		"pl+Xtend",
 	]);
 
-	plb.addReleases([{ version: "unknown", date: "1995-05-23", kind: "first" }]);
+	plb.addReleases(pl, [
+		{ version: "unknown", date: "1995-05-23", kind: "first" },
+	]);
 }
