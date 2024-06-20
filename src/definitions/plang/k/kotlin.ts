@@ -55,19 +55,17 @@ export function define(g: PlangsGraph) {
 	plb.addTypeSystems(pl, ["tsys+inferred", "tsys+static", "tsys+strong"]);
 
 	plb.addPlatforms(pl, [
-		"platf+Android",
-		"platf+Apple-silicon",
-		"platf+Cross-platform",
-		"platf+JVM",
-		"platf+JavaScript",
-		"platf+LLVM",
-		"platf+Linux",
-		"platf+WebAssembly",
-		"platf+Windows",
-		"platf+iOS",
-		"platf+macOS",
-		"platf+tvOS",
-		"platf+watchOS",
+		"platf+android",
+		"platf+cross-platform",
+		"platf+ios",
+		"platf+jvm",
+		"platf+linux",
+		"platf+llvm",
+		"platf+macos",
+		"platf+tvos",
+		"platf+watchos",
+		"platf+web",
+		"platf+windows",
 	]);
 
 	plb.addImplementations(pl, []);
@@ -84,7 +82,7 @@ export function define(g: PlangsGraph) {
 		"pl+ML",
 		"pl+Python",
 		"pl+Scala",
-		"pl+V--Vlang-",
+		"pl+V-(Vlang)",
 	]);
 
 	plb.addInfluenced(pl, [

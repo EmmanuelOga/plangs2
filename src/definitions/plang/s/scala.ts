@@ -60,11 +60,7 @@ export function define(g: PlangsGraph) {
 		"tsys+structural",
 	]);
 
-	plb.addPlatforms(pl, [
-		"platf+Java-virtual-machine",
-		"platf+JavaScript",
-		"platf+LLVM",
-	]);
+	plb.addPlatforms(pl, ["platf+jvm", "platf+llvm"]);
 
 	plb.addImplementations(pl, []);
 

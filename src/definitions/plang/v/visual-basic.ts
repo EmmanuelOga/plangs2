@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, ["tsys+static", "tsys+strong"]);
 
-	plb.addPlatforms(pl, ["platf+MS-DOS", "platf+Microsoft-Windows"]);
+	plb.addPlatforms(pl, ["platf+dos", "platf+windows"]);
 
 	plb.addImplementations(pl, ["pl+Microsoft-Visual-Studio"]);
 

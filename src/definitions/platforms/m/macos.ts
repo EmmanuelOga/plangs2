@@ -58,6 +58,11 @@ export function define(g: PlangsGraph) {
 		},
 		{
 			kind: "wikipedia",
+			title: "Macintosh",
+			href: "https://en.wikipedia.org/wiki/Macintosh",
+		},
+		{
+			kind: "wikipedia",
 			title: "macOS 10.12",
 			href: "https://en.wikipedia.org/wiki/MacOS_10.12",
 		},

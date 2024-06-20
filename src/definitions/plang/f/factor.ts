@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+strong"]);
 
-	plb.addPlatforms(pl, ["platf+Linux", "platf+Windows", "platf+macOS"]);
+	plb.addPlatforms(pl, ["platf+linux", "platf+macos", "platf+windows"]);
 
 	plb.addImplementations(pl, []);
 

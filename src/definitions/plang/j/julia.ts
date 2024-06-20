@@ -66,19 +66,16 @@ export function define(g: PlangsGraph) {
 	]);
 
 	plb.addPlatforms(pl, [
-		"platf+64-bit",
-		"platf+64-bit-Arm",
-		"platf+Apple-silicon",
-		"platf+Arm",
-		"platf+CUDA",
-		"platf+FreeBSD",
-		"platf+IA-32",
-		"platf+Linux",
-		"platf+PowerPC",
-		"platf+ROCm",
-		"platf+Windows",
-		"platf+macOS",
-		"platf+oneAPI",
+		"platf+aarch64",
+		"platf+arm",
+		"platf+bsd",
+		"platf+cuda",
+		"platf+ia-32",
+		"platf+linux",
+		"platf+macos",
+		"platf+oneapi",
+		"platf+rocm",
+		"platf+windows",
 		"platf+x86-64",
 	]);
 
@@ -109,7 +106,7 @@ export function define(g: PlangsGraph) {
 		"pl+Common-Lisp",
 		"pl+Dylan",
 		"pl+Lisp",
-		"pl+MATLAB--programming-language-MATLAB--software-",
+		"pl+MATLAB-(programming-language)MATLAB-(software)",
 		"pl+Python",
 		"pl+R",
 		"pl+Ruby",

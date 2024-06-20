@@ -42,7 +42,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addInfluences(pl, ["pl+Prolog", "pl+SQL"]);
 
-	plb.addInfluenced(pl, ["pl+Prolog", "pl+SQL--Structured-Query-Language-"]);
+	plb.addInfluenced(pl, ["pl+Prolog", "pl+SQL-(Structured-Query-Language)"]);
 
 	plb.addReleases(pl, [
 		{ version: "unknown", date: "1977-01-01", kind: "first" },

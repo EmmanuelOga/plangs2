@@ -58,7 +58,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, ["tsys+dynamic"]);
 
-	plb.addPlatforms(pl, ["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+cross-platform"]);
 
 	plb.addImplementations(pl, ["pl+APLX"]);
 
@@ -79,7 +79,7 @@ export function define(g: PlangsGraph) {
 		"pl+Snap-",
 		"pl+Speakeasy",
 		"pl+Wolfram-Language",
-		"pl+q--kdb-",
+		"pl+q-(kdb)",
 	]);
 
 	plb.addInfluenced(pl, [
@@ -89,15 +89,15 @@ export function define(g: PlangsGraph) {
 		"pl+Go",
 		"pl+J",
 		"pl+K",
-		"pl+MATLAB--programming-language-MATLAB--software-",
+		"pl+MATLAB-(programming-language)MATLAB-(software)",
 		"pl+Nial",
-		"pl+Perl-Data-Language--PDL-",
+		"pl+Perl-Data-Language-(PDL)",
 		"pl+Python",
 		"pl+S",
 		"pl+SAC",
 		"pl+Self",
 		"pl+Snap-",
-		"pl+SpeakeasySpeakeasy--the-interpreted-programming-language-",
+		"pl+SpeakeasySpeakeasy-(the-interpreted-programming-language)",
 		"pl+Wolfram-Language",
 		"pl+q",
 	]);

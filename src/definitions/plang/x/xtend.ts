@@ -47,7 +47,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, ["tsys+inferred", "tsys+static", "tsys+strong"]);
 
-	plb.addPlatforms(pl, ["platf+Cross-platform", "platf+Java-Virtual-Machine"]);
+	plb.addPlatforms(pl, ["platf+cross-platform", "platf+jvm"]);
 
 	plb.addImplementations(pl, []);
 

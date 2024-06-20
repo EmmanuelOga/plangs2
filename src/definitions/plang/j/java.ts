@@ -140,7 +140,7 @@ export function define(g: PlangsGraph) {
 		"pl+Join-Java",
 		"pl+Kotlin",
 		"pl+MDL",
-		"pl+Mesa-1-",
+		"pl+Mesa[1]",
 		"pl+Mirah",
 		"pl+Modula-3",
 		"pl+NetRexx",

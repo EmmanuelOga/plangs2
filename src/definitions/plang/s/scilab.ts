@@ -57,7 +57,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addInfluences(pl, []);
 
-	plb.addInfluenced(pl, ["pl+MATLAB--programming-language-MATLAB--software-"]);
+	plb.addInfluenced(pl, ["pl+MATLAB-(programming-language)MATLAB-(software)"]);
 
 	plb.addReleases(pl, [
 		{ version: "2024.1.0", date: "2024-01-01", kind: "stable" },

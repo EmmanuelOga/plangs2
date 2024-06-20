@@ -45,10 +45,10 @@ export function define(g: PlangsGraph) {
 	plb.addTypeSystems(pl, ["tsys+static"]);
 
 	plb.addPlatforms(pl, [
-		"platf+FreeBSD",
-		"platf+Linux",
-		"platf+MS-DOS",
-		"platf+Microsoft-Windows",
+		"platf+bsd",
+		"platf+dos",
+		"platf+linux",
+		"platf+windows",
 	]);
 
 	plb.addImplementations(pl, []);

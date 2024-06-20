@@ -581,7 +581,11 @@ function cleanPlatform(platf: string): string | undefined {
 		.replaceAll("fire_tv", "firetv");
 
 	if (/\.net/i.test(p)) return ".net";
-	if (/^darwin|^mac_os|^os_x|^mac_operating|^macos|apple_silicon/i.test(p))
+	if (
+		/^darwin|^mac_os|^os_x|^mac_operating|^macos|apple_silicon|macintosh/i.test(
+			p,
+		)
+	)
 		return "macos";
 	if (/amiga/i.test(p)) return "amiga";
 	if (/android/i.test(p)) return "android";

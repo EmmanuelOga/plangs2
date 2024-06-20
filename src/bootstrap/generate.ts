@@ -4,11 +4,12 @@ import type {
 	T_Id_V_License,
 	T_Id_V_Paradigm,
 	T_Id_V_Plang,
+	T_Id_V_TypeSystem,
 } from "../entities/schemas";
 import { toAlphaNum } from "../util";
-import { PLANG_IDS } from "./plang_ids";
 import { parseAll } from "./wikipedia_process";
 import { groupBy } from "lodash-es";
+import { PLANG_IDS } from "./plang_ids";
 
 const Templ = new Eta({ views: __dirname, autoEscape: false });
 
@@ -30,15 +31,17 @@ async function generateAll() {
 
 	console.log(new Date().toISOString());
 
-	// await genLicenses(g);
-	// await genParadigms(g);
-	// await genPeople(g);
+	await genLicenses(g);
+	await genParadigms(g);
+	await genPeople(g);
 	await genPlatforms(g);
-	// await genTypeSystems(g);
+	await genTypeSystems(g);
 
-	// for (const vid of PLANG_IDS) {
-	//     if (!(await genPlang(g, vid))) { console.log(`Failed to generate ${vid}`); }
-	// }
+	for (const vid of PLANG_IDS) {
+		if (!(await genPlang(g, vid))) {
+			console.log(`Failed to generate ${vid}`);
+		}
+	}
 
 	console.log("Finished generating definitions.");
 }
@@ -197,7 +200,35 @@ async function genPlatforms(g: PlangsGraph) {
 	}
 }
 
-async function genTypeSystems(g: PlangsGraph) {}
+async function genTypeSystems(g: PlangsGraph) {
+	const allIds = [...g.v_tsystem.keys()].sort((id0, id1) =>
+		id0.toLowerCase().localeCompare(id1.toLowerCase()),
+	);
+
+	const grouped: Record<string, string[]> = groupBy(allIds, (id: string) =>
+		id["tsys+".length].toLowerCase(),
+	);
+
+	for (const [prefix, ids] of Object.entries(grouped)) {
+		const templ: Record<string, string[][]> = { licenses: [] };
+		for (const tsid of ids) {
+			const tsys = g.v_tsystem.get(tsid as T_Id_V_TypeSystem);
+			if (!tsys) {
+				console.log("Type system not found:", tsid);
+				continue;
+			}
+			templ.licenses.push([
+				json(tsid),
+				json(tsys.name),
+				json(tsys.websites ?? []),
+			]);
+		}
+
+		const res = Templ.render("./type_system", templ);
+		const path = alphaTsPath("type_systems", prefix);
+		await Bun.write(path, res);
+	}
+}
 
 // biome-ignore lint/suspicious/noExplicitAny: it's ok.
 function json(v: any): string {

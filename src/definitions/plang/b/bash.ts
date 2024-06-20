@@ -44,7 +44,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms(pl, ["platf+GNU"]);
+	plb.addPlatforms(pl, ["platf+gnu"]);
 
 	plb.addImplementations(pl, []);
 

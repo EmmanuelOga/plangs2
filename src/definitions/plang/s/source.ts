@@ -44,7 +44,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, ["tsys+duck", "tsys+dynamic"]);
 
-	plb.addPlatforms(pl, ["platf+browser-based"]);
+	plb.addPlatforms(pl, ["platf+web"]);
 
 	plb.addImplementations(pl, ["pl+Safari", "pl+properly-tail-recursive"]);
 

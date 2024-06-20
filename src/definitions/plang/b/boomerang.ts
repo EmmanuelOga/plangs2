@@ -42,7 +42,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms(pl, ["platf+Linux", "platf+Mac-OS-X"]);
+	plb.addPlatforms(pl, ["platf+linux", "platf+macos"]);
 
 	plb.addImplementations(pl, []);
 

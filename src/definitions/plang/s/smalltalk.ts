@@ -50,11 +50,7 @@ export function define(g: PlangsGraph) {
 		"tsys+strong",
 	]);
 
-	plb.addPlatforms(pl, [
-		"platf+74181",
-		"platf+Cross-platform",
-		"platf+Xerox-Alto",
-	]);
+	plb.addPlatforms(pl, ["platf+74181", "platf+cross-platform"]);
 
 	plb.addImplementations(pl, [
 		"pl+Amber",

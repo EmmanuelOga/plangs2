@@ -80,7 +80,7 @@ export function define(g: PlangsGraph) {
 		"pl+ALF",
 		"pl+Ciao",
 		"pl+Clojure",
-		"pl+Constraint-Handling-Rules--CHR-",
+		"pl+Constraint-Handling-Rules-(CHR)",
 		"pl+Curry",
 		"pl+Datalog",
 		"pl+Erlang",

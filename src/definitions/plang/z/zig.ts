@@ -56,19 +56,16 @@ export function define(g: PlangsGraph) {
 	]);
 
 	plb.addPlatforms(pl, [
-		"platf+ARM",
-		"platf+ARM64",
-		"platf+Cross-platform",
-		"platf+FreeBSD",
-		"platf+IA-32",
-		"platf+Linux",
-		"platf+MIPS64",
-		"platf+POWERPC64",
-		"platf+RISC-V",
-		"platf+SPARC64",
-		"platf+WebAssembly",
-		"platf+Windows",
-		"platf+standalone-programs",
+		"platf+aarch64",
+		"platf+arm",
+		"platf+bsd",
+		"platf+cross-platform",
+		"platf+ia-32",
+		"platf+linux",
+		"platf+mips",
+		"platf+risc-v",
+		"platf+web",
+		"platf+windows",
 		"platf+x86-64",
 	]);
 

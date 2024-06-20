@@ -54,7 +54,7 @@ export function define(g: PlangsGraph) {
 		"tsys+weak",
 	]);
 
-	plb.addPlatforms(pl, ["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+cross-platform"]);
 
 	plb.addImplementations(pl, []);
 

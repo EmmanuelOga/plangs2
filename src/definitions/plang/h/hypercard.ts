@@ -39,7 +39,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms(pl, ["platf+Apple-IIGS", "platf+Macintosh"]);
+	plb.addPlatforms(pl, ["platf+apple_ii", "platf+macos"]);
 
 	plb.addImplementations(pl, []);
 

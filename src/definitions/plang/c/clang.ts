@@ -45,10 +45,9 @@ export function define(g: PlangsGraph) {
 	plb.addTypeSystems(pl, []);
 
 	plb.addPlatforms(pl, [
-		"platf+AArch64",
-		"platf+ARMv7",
-		"platf+IA-32",
-		"platf+ppc64le",
+		"platf+aarch64",
+		"platf+arm",
+		"platf+ia-32",
 		"platf+x86-64",
 	]);
 

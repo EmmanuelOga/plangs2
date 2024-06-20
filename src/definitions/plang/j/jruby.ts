@@ -53,7 +53,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms(pl, ["platf+Java-Virtual-Machine"]);
+	plb.addPlatforms(pl, ["platf+jvm"]);
 
 	plb.addImplementations(pl, []);
 

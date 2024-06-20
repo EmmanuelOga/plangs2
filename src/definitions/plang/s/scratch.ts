@@ -45,13 +45,13 @@ export function define(g: PlangsGraph) {
 	plb.addTypeSystems(pl, []);
 
 	plb.addPlatforms(pl, [
-		"platf+Android",
-		"platf+HTML5",
-		"platf+Linux",
-		"platf+Microsoft-Windows",
-		"platf+iOS",
-		"platf+iPadOS",
-		"platf+macOS",
+		"platf+android",
+		"platf+dos",
+		"platf+ios",
+		"platf+linux",
+		"platf+macos",
+		"platf+web",
+		"platf+windows",
 	]);
 
 	plb.addImplementations(pl, [

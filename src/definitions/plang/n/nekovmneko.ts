@@ -53,7 +53,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, ["tsys+dynamic"]);
 
-	plb.addPlatforms(pl, ["platf+Linux", "platf+Windows", "platf+macOS"]);
+	plb.addPlatforms(pl, ["platf+linux", "platf+macos", "platf+windows"]);
 
 	plb.addImplementations(pl, ["pl+OCaml"]);
 

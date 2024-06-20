@@ -44,7 +44,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms(pl, ["platf+Android", "platf+ChromeOS", "platf+iOS"]);
+	plb.addPlatforms(pl, ["platf+android", "platf+chromeos", "platf+ios"]);
 
 	plb.addImplementations(pl, []);
 

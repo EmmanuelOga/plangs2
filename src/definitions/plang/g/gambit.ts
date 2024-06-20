@@ -44,7 +44,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+latent", "tsys+strong"]);
 
-	plb.addPlatforms(pl, ["platf+Cross-platform", "platf+IA-32", "platf+x86-64"]);
+	plb.addPlatforms(pl, ["platf+cross-platform", "platf+ia-32", "platf+x86-64"]);
 
 	plb.addImplementations(pl, []);
 

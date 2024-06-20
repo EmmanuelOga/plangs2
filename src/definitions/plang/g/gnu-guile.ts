@@ -49,20 +49,15 @@ export function define(g: PlangsGraph) {
 	plb.addTypeSystems(pl, []);
 
 	plb.addPlatforms(pl, [
-		"platf+AArch64",
-		"platf+BSD",
-		"platf+Cygwin",
-		"platf+IA-32",
-		"platf+Linux",
-		"platf+MinGW",
-		"platf+Windows",
-		"platf+armel",
-		"platf+armhf",
+		"platf+aarch64",
+		"platf+arm",
+		"platf+bsd",
+		"platf+cygwin",
+		"platf+ia-32",
+		"platf+linux",
+		"platf+mingw",
 		"platf+mips",
-		"platf+mips64el",
-		"platf+mipsel",
-		"platf+ppc64el",
-		"platf+s390x",
+		"platf+windows",
 		"platf+x86-64",
 	]);
 

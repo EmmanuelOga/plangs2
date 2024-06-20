@@ -58,13 +58,12 @@ export function define(g: PlangsGraph) {
 	]);
 
 	plb.addPlatforms(pl, [
-		"platf+AArch64",
-		"platf+FreeBSD",
-		"platf+IA-32",
-		"platf+Linux",
-		"platf+OpenBSD",
-		"platf+Windows",
-		"platf+macOS",
+		"platf+aarch64",
+		"platf+bsd",
+		"platf+ia-32",
+		"platf+linux",
+		"platf+macos",
+		"platf+windows",
 		"platf+x86-64",
 	]);
 

@@ -61,17 +61,11 @@ export function define(g: PlangsGraph) {
 	]);
 
 	plb.addPlatforms(pl, [
-		"platf+.NET",
-		"platf+.NET-Framework",
-		"platf+CentOS",
-		"platf+Debian",
-		"platf+Fedora",
-		"platf+Red-Hat-Enterprise-Linux",
-		"platf+Ubuntu",
-		"platf+Windows-7",
-		"platf+Windows-Server-2008-R2",
-		"platf+macOS-10.12",
-		"platf+openSUSE",
+		"platf+.net",
+		"platf+centos",
+		"platf+linux",
+		"platf+macos",
+		"platf+windows",
 	]);
 
 	plb.addImplementations(pl, ["pl+C-Sharp"]);
@@ -92,7 +86,7 @@ export function define(g: PlangsGraph) {
 		"pl+Tk",
 	]);
 
-	plb.addInfluenced(pl, ["pl+SQL--Structured-Query-Language-", "pl+Tcl"]);
+	plb.addInfluenced(pl, ["pl+SQL-(Structured-Query-Language)", "pl+Tcl"]);
 
 	plb.addReleases(pl, [
 		{

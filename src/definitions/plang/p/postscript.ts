@@ -56,7 +56,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addInfluences(pl, ["pl+Interpress", "pl+Lisp", "pl+Mesa", "pl+PDF"]);
 
-	plb.addInfluenced(pl, ["pl+Mesa-1-"]);
+	plb.addInfluenced(pl, ["pl+Mesa[1]"]);
 
 	plb.addReleases(pl, [
 		{

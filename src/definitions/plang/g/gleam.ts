@@ -49,11 +49,10 @@ export function define(g: PlangsGraph) {
 	plb.addTypeSystems(pl, ["tsys+inferred", "tsys+safe", "tsys+static"]);
 
 	plb.addPlatforms(pl, [
-		"platf+FreeBSD",
-		"platf+Linux",
-		"platf+OpenBSD",
-		"platf+Windows",
-		"platf+macOS",
+		"platf+bsd",
+		"platf+linux",
+		"platf+macos",
+		"platf+windows",
 	]);
 
 	plb.addImplementations(pl, ["pl+Rust"]);

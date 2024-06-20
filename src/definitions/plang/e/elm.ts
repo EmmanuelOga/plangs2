@@ -44,7 +44,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, ["tsys+inferred", "tsys+static", "tsys+strong"]);
 
-	plb.addPlatforms(pl, ["platf+Windows", "platf+macOS", "platf+x86-64"]);
+	plb.addPlatforms(pl, ["platf+macos", "platf+windows", "platf+x86-64"]);
 
 	plb.addImplementations(pl, []);
 

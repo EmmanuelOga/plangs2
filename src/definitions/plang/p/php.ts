@@ -51,12 +51,10 @@ export function define(g: PlangsGraph) {
 	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+gradual", "tsys+weak"]);
 
 	plb.addPlatforms(pl, [
-		"platf+IBM-Z",
-		"platf+IBM-i",
-		"platf+OpenVMS",
-		"platf+Unix-like",
-		"platf+Windows",
-		"platf+macOS",
+		"platf+macos",
+		"platf+openvms",
+		"platf+unix",
+		"platf+windows",
 	]);
 
 	plb.addImplementations(pl, [

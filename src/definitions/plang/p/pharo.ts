@@ -45,11 +45,11 @@ export function define(g: PlangsGraph) {
 	plb.addTypeSystems(pl, ["tsys+dynamic"]);
 
 	plb.addPlatforms(pl, [
-		"platf+ARM",
-		"platf+IA-32",
-		"platf+Linux",
-		"platf+Windows",
-		"platf+macOS",
+		"platf+arm",
+		"platf+ia-32",
+		"platf+linux",
+		"platf+macos",
+		"platf+windows",
 		"platf+x86-64",
 	]);
 

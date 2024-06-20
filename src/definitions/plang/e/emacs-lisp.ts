@@ -47,7 +47,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+strong"]);
 
-	plb.addPlatforms(pl, ["platf+Emacs"]);
+	plb.addPlatforms(pl, ["platf+emacs"]);
 
 	plb.addImplementations(pl, []);
 

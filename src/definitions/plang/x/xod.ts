@@ -44,7 +44,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms(pl, ["platf+Arduino", "platf+Raspberry-Pi"]);
+	plb.addPlatforms(pl, ["platf+arduino", "platf+rpi"]);
 
 	plb.addImplementations(pl, []);
 

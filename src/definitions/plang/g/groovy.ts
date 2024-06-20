@@ -65,7 +65,7 @@ export function define(g: PlangsGraph) {
 		"tsys+strong",
 	]);
 
-	plb.addPlatforms(pl, ["platf+Java-SE"]);
+	plb.addPlatforms(pl, ["platf+jvm"]);
 
 	plb.addImplementations(pl, ["pl+Gradle", "pl+Grails"]);
 

@@ -57,16 +57,15 @@ export function define(g: PlangsGraph) {
 	]);
 
 	plb.addPlatforms(pl, [
-		"platf+Android",
-		"platf+BSD",
-		"platf+FreeBSD",
-		"platf+Linux",
-		"platf+Raspberry-Pi-OS",
-		"platf+Unix-like",
-		"platf+WebAssembly",
-		"platf+Windows",
-		"platf+iOS",
-		"platf+macOS",
+		"platf+android",
+		"platf+bsd",
+		"platf+ios",
+		"platf+linux",
+		"platf+macos",
+		"platf+rpi",
+		"platf+unix",
+		"platf+web",
+		"platf+windows",
 	]);
 
 	plb.addImplementations(pl, [

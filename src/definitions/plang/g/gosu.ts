@@ -39,7 +39,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, ["tsys+static"]);
 
-	plb.addPlatforms(pl, ["platf+Java-Virtual-Machine", "platf+bytecode"]);
+	plb.addPlatforms(pl, ["platf+jvm"]);
 
 	plb.addImplementations(pl, []);
 

@@ -50,18 +50,12 @@ export function define(g: PlangsGraph) {
 	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+static", "tsys+strong"]);
 
 	plb.addPlatforms(pl, [
-		"platf+ARM",
-		"platf+AmigaOS",
-		"platf+Atari-TOS",
-		"platf+Ceres",
-		"platf+IA-32",
-		"platf+Linux",
-		"platf+NS32032",
-		"platf+SPARC",
-		"platf+Solaris",
-		"platf+StrongARM",
-		"platf+Windows",
-		"platf+classic-Mac-OS",
+		"platf+amiga",
+		"platf+arm",
+		"platf+atari",
+		"platf+ia-32",
+		"platf+linux",
+		"platf+windows",
 		"platf+x86-64",
 	]);
 
@@ -76,7 +70,7 @@ export function define(g: PlangsGraph) {
 		"pl+Modula-2",
 		"pl+Nim",
 		"pl+Oberon-2",
-		"pl+V--Vlang-",
+		"pl+V-(Vlang)",
 		"pl+Zonnon",
 	]);
 

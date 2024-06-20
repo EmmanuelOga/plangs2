@@ -45,20 +45,16 @@ export function define(g: PlangsGraph) {
 	plb.addTypeSystems(pl, ["tsys+polymorphic", "tsys+static", "tsys+strong"]);
 
 	plb.addPlatforms(pl, [
-		"platf+Android",
-		"platf+Arm",
-		"platf+CLI",
-		"platf+Cross-platform",
-		"platf+FreeBSD",
-		"platf+IA-32",
-		"platf+Java",
-		"platf+Linux",
-		"platf+OpenBSD",
-		"platf+Solaris",
-		"platf+Sparc64",
-		"platf+Unix",
-		"platf+Windows",
-		"platf+macOS",
+		"platf+android",
+		"platf+arm",
+		"platf+bsd",
+		"platf+cross-platform",
+		"platf+ia-32",
+		"platf+jvm",
+		"platf+linux",
+		"platf+macos",
+		"platf+unix",
+		"platf+windows",
 		"platf+x86-64",
 	]);
 

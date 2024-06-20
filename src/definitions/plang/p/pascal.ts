@@ -114,7 +114,7 @@ export function define(g: PlangsGraph) {
 		"pl+Seed7",
 		"pl+Simula",
 		"pl+Standard-ML",
-		"pl+Transaction-Programming-Language--TAL-",
+		"pl+Transaction-Programming-Language-(TAL)",
 		"pl+VHDL",
 		"pl+Verilog",
 		"pl+Wolfram-Language",

@@ -39,12 +39,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, ["tsys+weak"]);
 
-	plb.addPlatforms(pl, [
-		"platf+Cross-platform",
-		"platf+Plan-9",
-		"platf+Plan-9-from-User-Space",
-		"platf+Version-10-Unix",
-	]);
+	plb.addPlatforms(pl, ["platf+cross-platform", "platf+plan9", "platf+unix"]);
 
 	plb.addImplementations(pl, []);
 

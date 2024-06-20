@@ -54,11 +54,9 @@ export function define(g: PlangsGraph) {
 	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+static", "tsys+strong"]);
 
 	plb.addPlatforms(pl, [
-		"platf+ARM",
-		"platf+Cross-platform",
-		"platf+MIPS",
-		"platf+PowerPC",
-		"platf+SPARC",
+		"platf+arm",
+		"platf+cross-platform",
+		"platf+mips",
 		"platf+x86",
 	]);
 
@@ -71,7 +69,7 @@ export function define(g: PlangsGraph) {
 		"pl+Eiffel",
 		"pl+Rust",
 		"pl+Scheme",
-		"pl+Scheme--R6RS-",
+		"pl+Scheme-(R6RS)",
 	]);
 
 	plb.addInfluenced(pl, ["pl+Clojure", "pl+Eiffel", "pl+Scheme"]);

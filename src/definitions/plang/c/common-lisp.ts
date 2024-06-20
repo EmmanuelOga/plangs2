@@ -59,7 +59,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+strong"]);
 
-	plb.addPlatforms(pl, ["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+cross-platform"]);
 
 	plb.addImplementations(pl, [
 		"pl+ABCL",
@@ -97,7 +97,7 @@ export function define(g: PlangsGraph) {
 	]);
 
 	plb.addInfluenced(pl, [
-		"pl+-StarLisp--StarLisp-",
+		"pl+-StarLisp-(StarLisp)",
 		"pl+Clojure",
 		"pl+Emacs-Lisp",
 		"pl+Embeddable-Common-Lisp",

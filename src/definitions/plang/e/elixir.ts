@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+strong"]);
 
-	plb.addPlatforms(pl, ["platf+Erlang"]);
+	plb.addPlatforms(pl, []);
 
 	plb.addImplementations(pl, []);
 

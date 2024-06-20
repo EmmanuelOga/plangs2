@@ -47,7 +47,7 @@ export function define(g: PlangsGraph) {
 		"pl+Fortran",
 		"pl+Julia",
 		"pl+Pure",
-		"pl+SpeakeasySpeakeasy--the-interpreted-programming-language-",
+		"pl+SpeakeasySpeakeasy-(the-interpreted-programming-language)",
 	]);
 
 	plb.addReleases(pl, []);

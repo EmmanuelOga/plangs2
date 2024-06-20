@@ -50,10 +50,10 @@ export function define(g: PlangsGraph) {
 	plb.addTypeSystems(pl, []);
 
 	plb.addPlatforms(pl, [
-		"platf+Cross-platform",
-		"platf+Mac-OS-X",
-		"platf+Unix",
-		"platf+Windows",
+		"platf+cross-platform",
+		"platf+macos",
+		"platf+unix",
+		"platf+windows",
 	]);
 
 	plb.addImplementations(pl, []);

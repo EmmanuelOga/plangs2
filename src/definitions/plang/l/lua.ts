@@ -53,7 +53,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, ["tsys+duck", "tsys+dynamic", "tsys+weak"]);
 
-	plb.addPlatforms(pl, ["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+cross-platform"]);
 
 	plb.addImplementations(pl, ["pl+ANSI-C", "pl+LuaJIT"]);
 

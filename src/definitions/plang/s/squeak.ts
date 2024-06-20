@@ -49,11 +49,11 @@ export function define(g: PlangsGraph) {
 	plb.addTypeSystems(pl, ["tsys+dynamic"]);
 
 	plb.addPlatforms(pl, [
-		"platf+Cross-platform",
-		"platf+Unix-like",
-		"platf+Windows",
-		"platf+iOS",
-		"platf+macOS",
+		"platf+cross-platform",
+		"platf+ios",
+		"platf+macos",
+		"platf+unix",
+		"platf+windows",
 	]);
 
 	plb.addImplementations(pl, ["pl+Croquet"]);

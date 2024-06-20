@@ -54,7 +54,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, ["tsys+dynamic"]);
 
-	plb.addPlatforms(pl, ["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+cross-platform"]);
 
 	plb.addImplementations(pl, ["pl+C"]);
 
@@ -79,7 +79,7 @@ export function define(g: PlangsGraph) {
 		"pl+Julia",
 		"pl+Lisp",
 		"pl+PHP",
-		"pl+Perl-Data-Language--PDL-",
+		"pl+Perl-Data-Language-(PDL)",
 		"pl+PowerShell",
 		"pl+Python",
 		"pl+Qore",

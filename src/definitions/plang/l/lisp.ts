@@ -58,7 +58,7 @@ export function define(g: PlangsGraph) {
 	plb.addImplementations(pl, []);
 
 	plb.addDialects(pl, [
-		"pl+-StarLisp--StarLisp-",
+		"pl+-StarLisp-(StarLisp)",
 		"pl+Allegro-Common-Lisp",
 		"pl+Arc",
 		"pl+AutoLISP",
@@ -135,7 +135,7 @@ export function define(g: PlangsGraph) {
 	]);
 
 	plb.addInfluenced(pl, [
-		"pl+-StarLisp--StarLisp-",
+		"pl+-StarLisp-(StarLisp)",
 		"pl+AgentCubes",
 		"pl+AgentSheets",
 		"pl+Allegro-Common-Lisp",
@@ -157,7 +157,7 @@ export function define(g: PlangsGraph) {
 		"pl+Game-Oriented-Assembly-Lisp",
 		"pl+Haskell",
 		"pl+ISWIM",
-		"pl+Information-Processing-Language--IPL-",
+		"pl+Information-Processing-Language-(IPL)",
 		"pl+Interlisp",
 		"pl+Io",
 		"pl+Java",

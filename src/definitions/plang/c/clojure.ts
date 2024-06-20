@@ -57,7 +57,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, ["tsys+dynamic", "tsys+strong"]);
 
-	plb.addPlatforms(pl, ["platf+.NET", "platf+Java", "platf+JavaScript"]);
+	plb.addPlatforms(pl, ["platf+.net", "platf+jvm"]);
 
 	plb.addImplementations(pl, []);
 

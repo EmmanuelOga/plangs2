@@ -58,7 +58,7 @@ export function define(g: PlangsGraph) {
 		"tsys+structural",
 	]);
 
-	plb.addPlatforms(pl, ["platf+Cross-platform", "platf+GLib"]);
+	plb.addPlatforms(pl, ["platf+cross-platform", "platf+glib"]);
 
 	plb.addImplementations(pl, []);
 

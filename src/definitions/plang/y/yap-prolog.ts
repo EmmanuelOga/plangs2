@@ -39,7 +39,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms(pl, ["platf+Programming-language"]);
+	plb.addPlatforms(pl, []);
 
 	plb.addImplementations(pl, []);
 

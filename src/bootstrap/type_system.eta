@@ -1,0 +1,13 @@
+import type { PlangsGraph } from '../../entities/plangs_graph';
+
+export function define(g: PlangsGraph) {
+   const tb = g.typeSystemBuilder;
+
+<% for (const [tid, name, websites] of it.licenses) { %>
+  tb.declare(
+    <%= tid %>,
+    <%= name %>,
+    <%= websites %>);
+
+<% } %>
+}

@@ -44,7 +44,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms(pl, ["platf+.NET", "platf+.NET-Framework", "platf+Mono"]);
+	plb.addPlatforms(pl, ["platf+.net", "platf+mono"]);
 
 	plb.addImplementations(pl, []);
 

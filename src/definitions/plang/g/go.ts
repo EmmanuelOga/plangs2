@@ -61,15 +61,11 @@ export function define(g: PlangsGraph) {
 	]);
 
 	plb.addPlatforms(pl, [
-		"platf+DragonFly-BSD",
-		"platf+FreeBSD",
-		"platf+Linux",
-		"platf+NetBSD",
-		"platf+OpenBSD",
-		"platf+Plan-9",
-		"platf+Solaris",
-		"platf+Windows",
-		"platf+macOS",
+		"platf+bsd",
+		"platf+linux",
+		"platf+macos",
+		"platf+plan9",
+		"platf+windows",
 	]);
 
 	plb.addImplementations(pl, ["pl+Assembly-language", "pl+C-Plus-Plus"]);
@@ -91,7 +87,7 @@ export function define(g: PlangsGraph) {
 		"pl+Oberon-2",
 		"pl+Pascal",
 		"pl+Smalltalk",
-		"pl+V--Vlang-",
+		"pl+V-(Vlang)",
 		"pl+communicating-sequential-processes",
 		"pl+occam",
 	]);

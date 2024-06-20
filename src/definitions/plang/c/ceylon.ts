@@ -44,7 +44,7 @@ export function define(g: PlangsGraph) {
 
 	plb.addTypeSystems(pl, ["tsys+safe", "tsys+static", "tsys+strong"]);
 
-	plb.addPlatforms(pl, ["platf+Java-virtual-machine", "platf+JavaScript"]);
+	plb.addPlatforms(pl, ["platf+jvm"]);
 
 	plb.addImplementations(pl, []);
 

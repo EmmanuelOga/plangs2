@@ -63,7 +63,7 @@ export function define(g: PlangsGraph) {
 		"tsys+weak",
 	]);
 
-	plb.addPlatforms(pl, ["platf+Cross-platform"]);
+	plb.addPlatforms(pl, ["platf+cross-platform"]);
 
 	plb.addImplementations(pl, [
 		"pl+C-Plus-PlusBuilder",
@@ -112,7 +112,7 @@ export function define(g: PlangsGraph) {
 		"pl+Python",
 		"pl+Rust",
 		"pl+Seed7",
-		"pl+V--Vlang-",
+		"pl+V-(Vlang)",
 		"pl+Vala",
 		"pl+Verilog",
 		"pl+Zig",
@@ -169,8 +169,8 @@ export function define(g: PlangsGraph) {
 		"pl+Speedcoding",
 		"pl+Split-C",
 		"pl+Swift",
-		"pl+Transaction-Programming-Language--TAL-",
-		"pl+Unified-Parallel-C--UPC-",
+		"pl+Transaction-Programming-Language-(TAL)",
+		"pl+Unified-Parallel-C-(UPC)",
 		"pl+Vala",
 		"pl+Verilog",
 		"pl+Whiley",
