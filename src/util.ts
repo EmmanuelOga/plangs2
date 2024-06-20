@@ -14,27 +14,27 @@ export type NN_Partial<T> = T extends Partial<infer U> ? T : Partial<T>;
  * Convert the string to something usable as vertex id.
  */
 export function toAlphaNum(s: string) {
-	return (
-		s
-			.trim()
-			// biome-ignore lint/suspicious/noMisleadingCharacterClass: removes accents/diacritics.
-			.normalize("NFD")
-			.replace(/[\u0300-\u036f]/g, "")
-			.replace(/\s+/g, " ")
-			.replace(/\s/g, "-")
-			.split(/[\*]/g)
-			.join("-Star")
-			.split(/\#/g)
-			.join("-Sharp")
-			.split(/\+/g)
-			.join("-Plus")
-			.split(/\//g)
-			.join("-Slash")
-			.split(/\\/g)
-			.join("-Backslash")
-			.replace(/[\/\:]/g, "-")
-			.replace(/[^a-zA-Z0-9\.]/g, "-")
-	);
+	const result = s
+		.trim()
+		.normalize("NFD")
+		// biome-ignore lint/suspicious/noMisleadingCharacterClass: removes accents/diacritics.
+		.replaceAll(/[\u0300-\u036f]/g, "")
+		.replaceAll(/\s+/g, " ")
+		.replaceAll(' ', "-")
+		.split(/[\*]/g)
+		.join("-Star")
+		.split(/\#/g)
+		.join("-Sharp")
+		.split(/\+/g)
+		.join("-Plus")
+		.split(/\//g)
+		.join("-Slash")
+		.split(/\\/g)
+		.join("-Backslash")
+		.replaceAll(/[\/\:]/g, "-")
+		.replaceAll(/[^a-zA-Z0-9\.]/g, "-")
+
+	return result
 }
 
 // Print caller line:no for debugging.

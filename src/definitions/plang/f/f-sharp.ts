@@ -4,60 +4,54 @@ import type { T_Id_V_Plang } from "../../../entities/schemas";
 export const PL_V_Id = "pl+F-Sharp" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.declare(PL_V_Id);
+   const pl = g.v_plang.declare(PL_V_Id);
 
-	pl.name = "F#";
+   pl.name = "F#";
 
-	const plb = g.plangBuilder;
+   const plb = g.plangBuilder;
 
-	plb.addImages(pl, []);
+   plb.addImages(pl, []);
 
-	plb.addWebsites(pl, [
-		{
-			kind: "wikipedia",
-			title: "F#",
-			href: "https://en.wikipedia.org/wiki/F_Sharp_(programming_language)",
-		},
-	]);
+   plb.addWebsites(pl, [{"kind":"wikipedia","title":"F#","href":"https://en.wikipedia.org/wiki/F_Sharp_(programming_language)"}]);
 
-	plb.addScoping(pl, []);
+   plb.addScoping(pl, []);
 
-	plb.addExtensions(pl, []);
+   plb.addExtensions(pl, []);
 
-	plb.addReferences(pl, {});
+   plb.addReferences(pl, {});
 
-	plb.addPeople(pl, []);
+   plb.addPeople(pl, []);
 
-	plb.addLicenses(pl, []);
+   plb.addLicenses(pl, []);
 
-	plb.addParadigms(pl, []);
+   plb.addParadigms(pl, []);
 
-	plb.addTypeSystems(pl, []);
+   plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms(pl, []);
+   plb.addPlatforms(pl, []);
 
-	plb.addImplementations(pl, []);
+   plb.addImplementations(pl, []);
 
-	plb.addDialects(pl, ["pl+ML"]);
+   plb.addDialects(pl, ["pl+ML"]);
 
-	plb.addInfluences(pl, []);
+   plb.addInfluences(pl, []);
 
-	plb.addInfluenced(pl, [
-		"pl+ArkTS",
-		"pl+C-Plus-Plus",
-		"pl+Elm",
-		"pl+Erlang",
-		"pl+F-Star",
-		"pl+Flix",
-		"pl+Idris",
-		"pl+LiveScript",
-		"pl+ML",
-		"pl+OCaml",
-		"pl+Python",
-		"pl+Scala",
-		"pl+Standard-ML",
-		"pl+TypeScript",
-	]);
+   plb.addInfluenced(pl, [
+  "pl+ArkTS",
+  "pl+C-Plus-Plus",
+  "pl+Elm",
+  "pl+Erlang",
+  "pl+F-Star",
+  "pl+Flix",
+  "pl+Idris",
+  "pl+LiveScript",
+  "pl+ML",
+  "pl+OCaml",
+  "pl+Python",
+  "pl+Scala",
+  "pl+Standard-ML",
+  "pl+TypeScript"
+]);
 
-	plb.addReleases(pl, []);
+   plb.addReleases(pl, []);
 }

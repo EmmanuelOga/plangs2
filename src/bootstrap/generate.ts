@@ -2,6 +2,7 @@ import { Eta } from "eta";
 import { PlangsGraph } from "../entities/plangs_graph";
 import type {
     T_Id_V_License,
+    T_Id_V_Paradigm,
     T_Id_V_Plang,
     V_License,
 } from "../entities/schemas";
@@ -144,13 +145,51 @@ async function genLicenses(g: PlangsGraph) {
     }
 }
 
-function genParadigms(g: PlangsGraph) { }
+async function genParadigms(g: PlangsGraph) {
+    const allIds = [...g.v_paradigm.keys()].sort((id0, id1) =>
+        id0.toLowerCase().localeCompare(id1.toLowerCase()),
+    );
 
-function genPeople(g: PlangsGraph) { }
+    const grouped: Record<string, string[]> = groupBy(allIds, (id: string) =>
+        id["para+".length].toLowerCase(),
+    );
 
-function genPlatforms(g: PlangsGraph) { }
+    for (const [prefix, ids] of Object.entries(grouped)) {
+        const templ: Record<string, string[][]> = { paradigms: [] };
+        for (const pid of ids) {
+            const para = g.v_paradigm.get(pid as T_Id_V_Paradigm);
+            if (!para) {
+                console.log("Paradigm not found:", pid);
+                continue;
+            }
 
-function genTypeSystems(g: PlangsGraph) { }
+            if (pid.includes('block')) console.log(pid);
+
+            templ.paradigms.push([
+                json(pid),
+                json(para.name ?? pid.split("+")[1]),
+                json(para.websites ?? []),
+            ]);
+        }
+
+        const res = Templ.render("./paradigms", templ);
+        const path = alphaTsPath("paradigms", prefix);
+        await Bun.write(path, res);
+    }
+
+}
+
+async function genPeople(g: PlangsGraph) {
+
+}
+
+async function genPlatforms(g: PlangsGraph) {
+
+}
+
+async function genTypeSystems(g: PlangsGraph) {
+
+}
 
 // biome-ignore lint/suspicious/noExplicitAny: it's ok.
 function json(v: any): string {

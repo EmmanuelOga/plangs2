@@ -1,13 +1,11 @@
-import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { PlangsGraph } from '../../entities/plangs_graph';
 
 export function define(g: PlangsGraph) {
-	const lb = g.licenseBuilder;
+   const lb = g.licenseBuilder;
 
-	lb.declare("license+trialware", "Trialware", [
-		{
-			kind: "wikipedia",
-			title: "Trialware",
-			href: "https://en.wikipedia.org/wiki/Trialware",
-		},
-	]);
+  lb.declare(
+    "license+trialware",
+    "Trialware",
+    [{"kind":"wikipedia","title":"Trialware","href":"https://en.wikipedia.org/wiki/Trialware"}]);
+
 }
