@@ -4,11 +4,17 @@ import type { T_Id_V_Person } from "../../../entities/schemas";
 export const PERSON_V_Id = "person+Tony-Hoare" as T_Id_V_Person;
 
 export function define(g: PlangsGraph) {
-   const p = g.v_person.declare(PERSON_V_Id);
+	const p = g.v_person.declare(PERSON_V_Id);
 
-   p.name = "Tony Hoare";
+	p.name = "Tony Hoare";
 
-   const pb = g.personBuilder;
+	const pb = g.personBuilder;
 
-   pb.addWebsites(p, [{"title":"Tony Hoare","href":"https://en.wikipedia.org/wiki/Tony_Hoare","kind":"wikipedia"}]);
+	pb.addWebsites(p, [
+		{
+			title: "Tony Hoare",
+			href: "https://en.wikipedia.org/wiki/Tony_Hoare",
+			kind: "wikipedia",
+		},
+	]);
 }

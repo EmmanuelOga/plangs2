@@ -4,11 +4,17 @@ import type { T_Id_V_Person } from "../../../entities/schemas";
 export const PERSON_V_Id = "person+James-Clark" as T_Id_V_Person;
 
 export function define(g: PlangsGraph) {
-   const p = g.v_person.declare(PERSON_V_Id);
+	const p = g.v_person.declare(PERSON_V_Id);
 
-   p.name = "James Clark";
+	p.name = "James Clark";
 
-   const pb = g.personBuilder;
+	const pb = g.personBuilder;
 
-   pb.addWebsites(p, [{"title":"James Clark","href":"https://en.wikipedia.org/wiki/James_Clark_(programmer)","kind":"wikipedia"}]);
+	pb.addWebsites(p, [
+		{
+			title: "James Clark",
+			href: "https://en.wikipedia.org/wiki/James_Clark_(programmer)",
+			kind: "wikipedia",
+		},
+	]);
 }

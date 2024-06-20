@@ -4,11 +4,17 @@ import type { T_Id_V_Person } from "../../../entities/schemas";
 export const PERSON_V_Id = "person+Guido-van-Rossum" as T_Id_V_Person;
 
 export function define(g: PlangsGraph) {
-   const p = g.v_person.declare(PERSON_V_Id);
+	const p = g.v_person.declare(PERSON_V_Id);
 
-   p.name = "Guido van Rossum";
+	p.name = "Guido van Rossum";
 
-   const pb = g.personBuilder;
+	const pb = g.personBuilder;
 
-   pb.addWebsites(p, [{"title":"Guido van Rossum","href":"https://en.wikipedia.org/wiki/Guido_van_Rossum","kind":"wikipedia"}]);
+	pb.addWebsites(p, [
+		{
+			title: "Guido van Rossum",
+			href: "https://en.wikipedia.org/wiki/Guido_van_Rossum",
+			kind: "wikipedia",
+		},
+	]);
 }

@@ -323,7 +323,8 @@ function assign(
 			for (const { title, href } of val.filter(({ href }) =>
 				href.startsWith("/wiki"),
 			)) {
-				const key = toAlphaNum(title);
+				const key = cleanPlatform(toAlphaNum(href.split("/wiki/")[1])); // Wiki Key works better here.
+				if (!key) continue; // We'll ignore some old platforms.
 				mergeLink(g.v_platform.merge(`platf+${key}`, { name: title.trim() }), {
 					kind: "wikipedia",
 					title,
@@ -383,10 +384,12 @@ function assign(
 		case "developed_by":
 		case "developers": {
 			function addPerson(name: string, link?: Link) {
-				const key = toAlphaNum(name).replaceAll('.', '');
+				const key = toAlphaNum(name).replaceAll(".", "");
 
 				const person = g.v_person.merge(`person+${key}`, { name: name });
-				if (link) { mergeLink(person, link); }
+				if (link) {
+					mergeLink(person, link);
+				}
 
 				const rel = g.e_person_plang_role.connect(`person+${key}`, pvid);
 				const inferred_role = key === "developers" ? "contributor" : "designer";
@@ -406,7 +409,11 @@ function assign(
 				)) {
 					const names = extractNames(title);
 					if (names.length !== 1) continue;
-					addPerson(names[0], { title, href: `${WIKIPEDIA_URL}${href}`, kind: "wikipedia" });
+					addPerson(names[0], {
+						title,
+						href: `${WIKIPEDIA_URL}${href}`,
+						kind: "wikipedia",
+					});
 				}
 			}
 			return;
@@ -552,4 +559,49 @@ function cleanParadigm(s: string): string {
 	if (name === "and-computing") name = "distributed";
 
 	return name;
+}
+
+const PLATFORM_SKIPS =
+	/parallel_computing|multiprocessing|64-bit_computing|standalone_program|calculator|integrity|^ict|^mach_|^sun|^lgp|^lisp_|multics|nd.500|nextstep|programming.language|honeywell|itanium|^atlas|connection|pa.risc|minicomputer|inferno|^ceres|^cell|hewlett|cray|^bos|conversational|facility|nd500|^ns3|motorola|^osx|powerpc|power_isa|pocket_pc|symbian|primos|^RS|^S390|indiana|harmony|time.sharing|common_language_|aegis|domain|^system|university|tenex|tops-|perkin|^OS.Slash|nord|nova|mainframe|michigan|^mvs|loongson|^lsi|lilith|johnniac|international|george|genera|general_electric|^hp-|^hp_|^icl|irix|incompatible|ferranti|eunice|ecomstation|epoc|eumel|elliot|brother|english|dec_|dartmouth|data_general_nova|digital_eq|classic|cocoa|limited|chippewa|cdc|cp-slash|besm|beos|amdhal|amdahl|agat|sintran|psion|ppc|sparc|solaris|Slash379|unicos|thinking|telecommunication|vax|ural|versados|^VM_\(|^VSE_|univac|unisys|burroughs|wang|timex|pdp|apple-ii|ibm|xerox|10-unix|VS-Slash9/i;
+
+function cleanPlatform(platf: string): string | undefined {
+	if (PLATFORM_SKIPS.test(platf)) return;
+
+	const p = platf
+		.toLowerCase()
+		.replaceAll(/_\([^\)]+\)/g, "")
+		.replaceAll("-sharpfloating-point", "")
+		.replaceAll("-family", "")
+		.replaceAll("field_programmable_gate_array", "fpga")
+		.replaceAll("advanced_micro_devices", "amd")
+		.replaceAll("_microcontrollers", "")
+		.replaceAll("_technology", "")
+		.replaceAll("_architecture", "")
+		.replaceAll("google_", "")
+		.replaceAll("fire_tv", "firetv");
+
+	if (/\.net/i.test(p)) return ".net";
+	if (/^darwin|^mac_os|^os_x|^mac_operating|^macos|apple_silicon/i.test(p))
+		return "macos";
+	if (/amiga/i.test(p)) return "amiga";
+	if (/android/i.test(p)) return "android";
+	if (/apple.?ii/i.test(p)) return "apple_ii";
+	if (/arm/i.test(p)) return "arm";
+	if (/cross|independent/i.test(p)) return "cross-platform";
+	if (/dos|ms.?dos|microsoft.?dos|pc.?dos|dr?.dos/i.test(p)) return "dos";
+	if (/java|jvm/i.test(p)) return "jvm";
+	if (/linux|debian|ubuntu|fedora|suse/i.test(p)) return "linux";
+	if (/plan.?9/i.test(p)) return "plan9";
+	if (/playstation/i.test(p)) return "playstation";
+	if (/raspberry/i.test(p)) return "rpi";
+	if (/unix/i.test(p)) return "unix";
+	if (/web|html/i.test(p)) return "web";
+	if (/windows/i.test(p)) return "windows";
+	if (/xbox/i.test(p)) return "xbox";
+	if (/atari/i.test(p)) return "atari";
+	if (/commodore/i.test(p)) return "commodore";
+
+	if (/Berkeley_Software_Distribution|^bsd|bsd$/i.test(p)) return "bsd";
+
+	return p;
 }

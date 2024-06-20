@@ -4,11 +4,17 @@ import type { T_Id_V_Person } from "../../../entities/schemas";
 export const PERSON_V_Id = "person+Casey-Reas" as T_Id_V_Person;
 
 export function define(g: PlangsGraph) {
-   const p = g.v_person.declare(PERSON_V_Id);
+	const p = g.v_person.declare(PERSON_V_Id);
 
-   p.name = "Casey Reas";
+	p.name = "Casey Reas";
 
-   const pb = g.personBuilder;
+	const pb = g.personBuilder;
 
-   pb.addWebsites(p, [{"title":"Casey Reas","href":"https://en.wikipedia.org/wiki/Casey_Reas","kind":"wikipedia"}]);
+	pb.addWebsites(p, [
+		{
+			title: "Casey Reas",
+			href: "https://en.wikipedia.org/wiki/Casey_Reas",
+			kind: "wikipedia",
+		},
+	]);
 }

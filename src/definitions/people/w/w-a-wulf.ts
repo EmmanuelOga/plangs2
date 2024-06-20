@@ -4,11 +4,17 @@ import type { T_Id_V_Person } from "../../../entities/schemas";
 export const PERSON_V_Id = "person+W-A-Wulf" as T_Id_V_Person;
 
 export function define(g: PlangsGraph) {
-   const p = g.v_person.declare(PERSON_V_Id);
+	const p = g.v_person.declare(PERSON_V_Id);
 
-   p.name = "W. A. Wulf";
+	p.name = "W. A. Wulf";
 
-   const pb = g.personBuilder;
+	const pb = g.personBuilder;
 
-   pb.addWebsites(p, [{"title":"W. A. Wulf","href":"https://en.wikipedia.org/wiki/William_Wulf","kind":"wikipedia"}]);
+	pb.addWebsites(p, [
+		{
+			title: "W. A. Wulf",
+			href: "https://en.wikipedia.org/wiki/William_Wulf",
+			kind: "wikipedia",
+		},
+	]);
 }

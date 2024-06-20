@@ -4,11 +4,17 @@ import type { T_Id_V_Person } from "../../../entities/schemas";
 export const PERSON_V_Id = "person+National-Security-Agency" as T_Id_V_Person;
 
 export function define(g: PlangsGraph) {
-   const p = g.v_person.declare(PERSON_V_Id);
+	const p = g.v_person.declare(PERSON_V_Id);
 
-   p.name = "National Security Agency";
+	p.name = "National Security Agency";
 
-   const pb = g.personBuilder;
+	const pb = g.personBuilder;
 
-   pb.addWebsites(p, [{"title":"National Security Agency","href":"https://en.wikipedia.org/wiki/National_Security_Agency","kind":"wikipedia"}]);
+	pb.addWebsites(p, [
+		{
+			title: "National Security Agency",
+			href: "https://en.wikipedia.org/wiki/National_Security_Agency",
+			kind: "wikipedia",
+		},
+	]);
 }

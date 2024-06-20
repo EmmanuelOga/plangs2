@@ -32,7 +32,7 @@ export function toAlphaNum(s: string) {
 		.split(/\\/g)
 		.join("-Backslash")
 		.replaceAll(/[\/\:]/g, "-")
-		.replaceAll(/[^a-zA-Z0-9\.]/g, "-");
+		.replaceAll(/[^a-zA-Z0-9\.\(\)\[\]_\-]/g, "-");
 
 	return result;
 }

@@ -4,11 +4,17 @@ import type { T_Id_V_Person } from "../../../entities/schemas";
 export const PERSON_V_Id = "person+Dan-Ingalls" as T_Id_V_Person;
 
 export function define(g: PlangsGraph) {
-   const p = g.v_person.declare(PERSON_V_Id);
+	const p = g.v_person.declare(PERSON_V_Id);
 
-   p.name = "Dan Ingalls";
+	p.name = "Dan Ingalls";
 
-   const pb = g.personBuilder;
+	const pb = g.personBuilder;
 
-   pb.addWebsites(p, [{"title":"Dan Ingalls","href":"https://en.wikipedia.org/wiki/Dan_Ingalls","kind":"wikipedia"}]);
+	pb.addWebsites(p, [
+		{
+			title: "Dan Ingalls",
+			href: "https://en.wikipedia.org/wiki/Dan_Ingalls",
+			kind: "wikipedia",
+		},
+	]);
 }

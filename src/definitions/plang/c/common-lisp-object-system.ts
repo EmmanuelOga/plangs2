@@ -4,39 +4,45 @@ import type { T_Id_V_Plang } from "../../../entities/schemas";
 export const PL_V_Id = "pl+Common-Lisp-Object-System" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-   const pl = g.v_plang.declare(PL_V_Id);
+	const pl = g.v_plang.declare(PL_V_Id);
 
-   pl.name = "Common Lisp Object System";
+	pl.name = "Common Lisp Object System";
 
-   const plb = g.plangBuilder;
+	const plb = g.plangBuilder;
 
-   plb.addImages(pl, []);
+	plb.addImages(pl, []);
 
-   plb.addWebsites(pl, [{"kind":"wikipedia","title":"Common Lisp Object System","href":"https://en.wikipedia.org/wiki/Common_Lisp_Object_System"}]);
+	plb.addWebsites(pl, [
+		{
+			kind: "wikipedia",
+			title: "Common Lisp Object System",
+			href: "https://en.wikipedia.org/wiki/Common_Lisp_Object_System",
+		},
+	]);
 
-   plb.addScoping(pl, []);
+	plb.addScoping(pl, []);
 
-   plb.addExtensions(pl, []);
+	plb.addExtensions(pl, []);
 
-   plb.addReferences(pl, {});
+	plb.addReferences(pl, {});
 
-   plb.addPeople(pl, []);
+	plb.addPeople(pl, []);
 
-   plb.addLicenses(pl, []);
+	plb.addLicenses(pl, []);
 
-   plb.addParadigms(pl, []);
+	plb.addParadigms(pl, []);
 
-   plb.addTypeSystems(pl, []);
+	plb.addTypeSystems(pl, []);
 
-   plb.addPlatforms(pl, []);
+	plb.addPlatforms(pl, []);
 
-   plb.addImplementations(pl, []);
+	plb.addImplementations(pl, []);
 
-   plb.addDialects(pl, []);
+	plb.addDialects(pl, []);
 
-   plb.addInfluences(pl, []);
+	plb.addInfluences(pl, []);
 
-   plb.addInfluenced(pl, ["pl+Smalltalk"]);
+	plb.addInfluenced(pl, ["pl+Smalltalk"]);
 
-   plb.addReleases(pl, []);
+	plb.addReleases(pl, []);
 }

@@ -4,11 +4,17 @@ import type { T_Id_V_Person } from "../../../entities/schemas";
 export const PERSON_V_Id = "person+Wally-Feurzeig" as T_Id_V_Person;
 
 export function define(g: PlangsGraph) {
-   const p = g.v_person.declare(PERSON_V_Id);
+	const p = g.v_person.declare(PERSON_V_Id);
 
-   p.name = "Wally Feurzeig";
+	p.name = "Wally Feurzeig";
 
-   const pb = g.personBuilder;
+	const pb = g.personBuilder;
 
-   pb.addWebsites(p, [{"title":"Wally Feurzeig","href":"https://en.wikipedia.org/wiki/Wally_Feurzeig","kind":"wikipedia"}]);
+	pb.addWebsites(p, [
+		{
+			title: "Wally Feurzeig",
+			href: "https://en.wikipedia.org/wiki/Wally_Feurzeig",
+			kind: "wikipedia",
+		},
+	]);
 }

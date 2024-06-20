@@ -4,11 +4,17 @@ import type { T_Id_V_Person } from "../../../entities/schemas";
 export const PERSON_V_Id = "person+David-J-Farber" as T_Id_V_Person;
 
 export function define(g: PlangsGraph) {
-   const p = g.v_person.declare(PERSON_V_Id);
+	const p = g.v_person.declare(PERSON_V_Id);
 
-   p.name = "David J. Farber";
+	p.name = "David J. Farber";
 
-   const pb = g.personBuilder;
+	const pb = g.personBuilder;
 
-   pb.addWebsites(p, [{"title":"David J. Farber","href":"https://en.wikipedia.org/wiki/David_J._Farber","kind":"wikipedia"}]);
+	pb.addWebsites(p, [
+		{
+			title: "David J. Farber",
+			href: "https://en.wikipedia.org/wiki/David_J._Farber",
+			kind: "wikipedia",
+		},
+	]);
 }

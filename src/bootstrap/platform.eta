@@ -1,0 +1,13 @@
+import type { PlangsGraph } from '../../entities/plangs_graph';
+
+export const PLATFORM_V_Id = <%= it.pfvid %> as T_Id_V_Platform;
+
+export function define(g: PlangsGraph) {
+   const pf = g.v_platform.declare(PLATFORM_V_Id);
+
+   pf.name = <%= it.name %>;
+
+   const pfb = g.platformBuilder;
+
+   pfb.addWebsites(pf, <%= it.websites %>);
+}

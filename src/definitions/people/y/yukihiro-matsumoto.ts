@@ -4,11 +4,17 @@ import type { T_Id_V_Person } from "../../../entities/schemas";
 export const PERSON_V_Id = "person+Yukihiro-Matsumoto" as T_Id_V_Person;
 
 export function define(g: PlangsGraph) {
-   const p = g.v_person.declare(PERSON_V_Id);
+	const p = g.v_person.declare(PERSON_V_Id);
 
-   p.name = "Yukihiro Matsumoto";
+	p.name = "Yukihiro Matsumoto";
 
-   const pb = g.personBuilder;
+	const pb = g.personBuilder;
 
-   pb.addWebsites(p, [{"title":"Yukihiro Matsumoto","href":"https://en.wikipedia.org/wiki/Yukihiro_Matsumoto","kind":"wikipedia"}]);
+	pb.addWebsites(p, [
+		{
+			title: "Yukihiro Matsumoto",
+			href: "https://en.wikipedia.org/wiki/Yukihiro_Matsumoto",
+			kind: "wikipedia",
+		},
+	]);
 }

@@ -4,11 +4,17 @@ import type { T_Id_V_Person } from "../../../entities/schemas";
 export const PERSON_V_Id = "person+Robert-M-Graham" as T_Id_V_Person;
 
 export function define(g: PlangsGraph) {
-   const p = g.v_person.declare(PERSON_V_Id);
+	const p = g.v_person.declare(PERSON_V_Id);
 
-   p.name = "Robert M. Graham";
+	p.name = "Robert M. Graham";
 
-   const pb = g.personBuilder;
+	const pb = g.personBuilder;
 
-   pb.addWebsites(p, [{"title":"Robert M. Graham","href":"https://en.wikipedia.org/wiki/Robert_M._Graham_(computer_scientist)","kind":"wikipedia"}]);
+	pb.addWebsites(p, [
+		{
+			title: "Robert M. Graham",
+			href: "https://en.wikipedia.org/wiki/Robert_M._Graham_(computer_scientist)",
+			kind: "wikipedia",
+		},
+	]);
 }
