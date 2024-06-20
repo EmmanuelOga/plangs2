@@ -4,50 +4,50 @@ import type { T_Id_V_Plang } from "../../../entities/schemas";
 export const PL_V_Id = "pl+Cryptol" as T_Id_V_Plang;
 
 export function define(g: PlangsGraph) {
-	const pl = g.v_plang.declare(PL_V_Id);
+  const pl = g.v_plang.declare(PL_V_Id);
 
-	pl.name = "Cryptol";
+  pl.name = "Cryptol";
 
-	const plb = g.plangBuilder;
+  const plb = g.plangBuilder;
 
-	plb.addImages(pl, []);
+  plb.addImages(pl, []);
 
-	plb.addWebsites(pl, [
-		{
-			kind: "wikipedia",
-			title: "Cryptol",
-			href: "https://en.wikipedia.org/wiki/Cryptol",
-		},
-		{
-			kind: "repository",
-			title: "galoisinc.github.io/cryptol/master/RefMan.html",
-			href: "https://galoisinc.github.io/cryptol/master/RefMan.html",
-		},
-	]);
+  plb.addWebsites(pl, [
+    {
+      kind: "wikipedia",
+      title: "Cryptol",
+      href: "https://en.wikipedia.org/wiki/Cryptol",
+    },
+    {
+      kind: "repository",
+      title: "galoisinc.github.io/cryptol/master/RefMan.html",
+      href: "https://galoisinc.github.io/cryptol/master/RefMan.html",
+    },
+  ]);
 
-	plb.addScoping(pl, []);
+  plb.addScoping(pl, []);
 
-	plb.addExtensions(pl, []);
+  plb.addExtensions(pl, []);
 
-	plb.addReferences(pl, {});
+  plb.addReferences(pl, {});
 
-	plb.addPeople(pl, []);
+  plb.addPeople(pl, []);
 
-	plb.addLicenses(pl, []);
+  plb.addLicenses(pl, []);
 
-	plb.addParadigms(pl, []);
+  plb.addParadigms(pl, []);
 
-	plb.addTypeSystems(pl, []);
+  plb.addTypeSystems(pl, []);
 
-	plb.addPlatforms(pl, []);
+  plb.addPlatforms(pl, []);
 
-	plb.addImplementations(pl, []);
+  plb.addImplementations(pl, []);
 
-	plb.addDialects(pl, []);
+  plb.addDialects(pl, []);
 
-	plb.addInfluences(pl, []);
+  plb.addInfluences(pl, []);
 
-	plb.addInfluenced(pl, []);
+  plb.addInfluenced(pl, []);
 
-	plb.addReleases(pl, []);
+  plb.addReleases(pl, []);
 }

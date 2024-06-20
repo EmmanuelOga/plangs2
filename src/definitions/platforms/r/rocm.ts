@@ -4,17 +4,17 @@ import type { T_Id_V_Platform } from "../../../entities/schemas";
 export const PLATFORM_V_Id = "platf+rocm" as T_Id_V_Platform;
 
 export function define(g: PlangsGraph) {
-	const pf = g.v_platform.declare(PLATFORM_V_Id);
+  const pf = g.v_platform.declare(PLATFORM_V_Id);
 
-	pf.name = "ROCm";
+  pf.name = "ROCm";
 
-	const pfb = g.platformBuilder;
+  const pfb = g.platformBuilder;
 
-	pfb.addWebsites(pf, [
-		{
-			kind: "wikipedia",
-			title: "ROCm",
-			href: "https://en.wikipedia.org/wiki/ROCm",
-		},
-	]);
+  pfb.addWebsites(pf, [
+    {
+      kind: "wikipedia",
+      title: "ROCm",
+      href: "https://en.wikipedia.org/wiki/ROCm",
+    },
+  ]);
 }

@@ -1,27 +1,27 @@
 import { Graph } from "../graph/base";
 import {
-	LicenseBuilder,
-	ParadigmBuilder,
-	PersonBuilder,
-	PlangsBuilder,
-	PlatformBuilder,
-	TypeSysBuilder,
+  LicenseBuilder,
+  ParadigmBuilder,
+  PersonBuilder,
+  PlangsBuilder,
+  PlatformBuilder,
+  TypeSysBuilder,
 } from "./builders";
 import type {
-	E_Empty,
-	E_People,
-	T_Id_V_License,
-	T_Id_V_Paradigm,
-	T_Id_V_Person,
-	T_Id_V_Plang,
-	T_Id_V_Platform,
-	T_Id_V_TypeSystem,
-	V_License,
-	V_Paradigm,
-	V_Person,
-	V_Plang,
-	V_Platform,
-	V_TypeSystem,
+  E_Empty,
+  E_People,
+  T_Id_V_License,
+  T_Id_V_Paradigm,
+  T_Id_V_Person,
+  T_Id_V_Plang,
+  T_Id_V_Platform,
+  T_Id_V_TypeSystem,
+  V_License,
+  V_Paradigm,
+  V_Person,
+  V_Plang,
+  V_Platform,
+  V_TypeSystem,
 } from "./schemas";
 
 /**
@@ -52,10 +52,10 @@ export class PlangsBase extends Graph {
 }
 
 export class PlangsGraph extends PlangsBase {
-	readonly licenseBuilder = new LicenseBuilder(this);
-	readonly paradigmBuilder = new ParadigmBuilder(this);
-	readonly personBuilder = new PersonBuilder(this);
-	readonly plangBuilder = new PlangsBuilder(this);
-	readonly platformBuilder = new PlatformBuilder(this);
-	readonly typeSystemBuilder = new TypeSysBuilder(this);
+  readonly licenseBuilder = new LicenseBuilder(this);
+  readonly paradigmBuilder = new ParadigmBuilder(this);
+  readonly personBuilder = new PersonBuilder(this);
+  readonly plangBuilder = new PlangsBuilder(this);
+  readonly platformBuilder = new PlatformBuilder(this);
+  readonly typeSystemBuilder = new TypeSysBuilder(this);
 }

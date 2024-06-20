@@ -4,17 +4,17 @@ import type { T_Id_V_Platform } from "../../../entities/schemas";
 export const PLATFORM_V_Id = "platf+mos_6502" as T_Id_V_Platform;
 
 export function define(g: PlangsGraph) {
-	const pf = g.v_platform.declare(PLATFORM_V_Id);
+  const pf = g.v_platform.declare(PLATFORM_V_Id);
 
-	pf.name = "MOS Technology 6502";
+  pf.name = "MOS Technology 6502";
 
-	const pfb = g.platformBuilder;
+  const pfb = g.platformBuilder;
 
-	pfb.addWebsites(pf, [
-		{
-			kind: "wikipedia",
-			title: "MOS Technology 6502",
-			href: "https://en.wikipedia.org/wiki/MOS_Technology_6502",
-		},
-	]);
+  pfb.addWebsites(pf, [
+    {
+      kind: "wikipedia",
+      title: "MOS Technology 6502",
+      href: "https://en.wikipedia.org/wiki/MOS_Technology_6502",
+    },
+  ]);
 }

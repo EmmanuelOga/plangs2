@@ -4,17 +4,17 @@ import type { T_Id_V_Platform } from "../../../entities/schemas";
 export const PLATFORM_V_Id = "platf+amd" as T_Id_V_Platform;
 
 export function define(g: PlangsGraph) {
-	const pf = g.v_platform.declare(PLATFORM_V_Id);
+  const pf = g.v_platform.declare(PLATFORM_V_Id);
 
-	pf.name = "AMD";
+  pf.name = "AMD";
 
-	const pfb = g.platformBuilder;
+  const pfb = g.platformBuilder;
 
-	pfb.addWebsites(pf, [
-		{
-			kind: "wikipedia",
-			title: "AMD",
-			href: "https://en.wikipedia.org/wiki/Advanced_Micro_Devices",
-		},
-	]);
+  pfb.addWebsites(pf, [
+    {
+      kind: "wikipedia",
+      title: "AMD",
+      href: "https://en.wikipedia.org/wiki/Advanced_Micro_Devices",
+    },
+  ]);
 }
