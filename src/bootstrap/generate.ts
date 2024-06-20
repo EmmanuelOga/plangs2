@@ -194,7 +194,6 @@ async function genPlatforms(g: PlangsGraph) {
 		const res = Templ.render("./platform", templ);
 		const path = longTsPath("platforms", pid.split("+")[1]);
 		await Bun.write(path, res);
-		return;
 	}
 }
 

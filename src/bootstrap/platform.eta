@@ -1,4 +1,5 @@
-import type { PlangsGraph } from '../../entities/plangs_graph';
+import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { T_Id_V_Platform } from "../../../entities/schemas";
 
 export const PLATFORM_V_Id = <%= it.pfvid %> as T_Id_V_Platform;
 
