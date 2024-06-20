@@ -3,6 +3,7 @@ import { PlangsGraph } from "../entities/plangs_graph";
 import type { Image, Link, T_Id_V_Plang } from "../entities/schemas";
 import { toAlphaNum } from "../util";
 import { parseAll } from "./wikipedia_process";
+import { PLANG_IDS } from "./plang_ids";
 
 const Templ = new Eta({ views: __dirname, autoEscape: false });
 
@@ -13,7 +14,7 @@ function tsPath(type: string, name: string): string {
     return Bun.fileURLToPath(`file:${DEF_PATH}/${type}/${p[0]}/${p}.ts`);
 }
 
-await generateAll();
+// await generateAll();
 
 async function generateAll() {
     const g = new PlangsGraph();
@@ -21,7 +22,11 @@ async function generateAll() {
 
     console.log(new Date().toISOString());
 
-    await genPlangTsFile(g, "pl+Python"); // A def per each v_plang
+    for (const vid of PLANG_IDS) {
+        if (!await genPlangTsFile(g, vid)) {
+            console.log(`Failed to generate ${vid}`);
+        }
+    }
 
     // TODO
     // v_license
@@ -31,120 +36,78 @@ async function generateAll() {
     // v_tsystem
 }
 
-async function genPlangTsFile(g: PlangsGraph, plvid: T_Id_V_Plang) {
+async function genPlangTsFile(g: PlangsGraph, plvid: T_Id_V_Plang): Promise<boolean> {
     const pl = g.v_plang.get(plvid);
-    if (!pl) throw new Error(`${plvid}: Language not found!`);
-    if (!pl.name) throw new Error(`${plvid}: Language has no name!`);
+
+    if (!pl || !pl.name) return false;
 
     // Elements for the template.
     const templ: Record<string, string | string[] | string[][]> = {
         plvid,
-        dialects: [],
-        implementations: [],
-        influenced: [],
-        influences: [],
         name: pl.name,
-        platforms: [],
-        typesys: [],
-        websites: [],
     }
 
-    templ.images = (pl.images ?? []).map((i: Image) => json(i));
-    templ.websites = (pl.websites ?? []).map((l: Link) => json(l));
-    templ.extensions = json(pl.extensions ?? [], false)
-    templ.scopings = json(pl.scoping ?? [], false);
+    templ.images = json(pl.images ?? []);
+
+    templ.websites = json(pl.websites ?? []);
+
+    templ.extensions = json(pl.extensions ?? [])
+
+    templ.scopings = json(pl.scoping ?? []);
+
     templ.references = '{}'; // json(pl.references);
-    templ.releases = (pl.releases ?? []).map((r) => json(r, false))
 
-    // People.
+    templ.releases = json(pl.releases ?? []);
 
-    templ.people = [] as string[][];
-    for (const { from, edata } of g.e_person_plang_role.adjacentTo(plvid)) {
-        const person = g.v_person.get(from);
-        templ.people.push([
-            json(from, false),
-            json(person?.name || from, false),
-            json(edata?.role || 'contributor', false)
-        ]);
-    }
+    templ.people = json([...g.e_person_plang_role.adjacentTo(plvid)]
+        .map(({ from, edata }) => [from, edata?.role]));
 
-    // Licenses.
+    templ.licenses = json([...g.e_has_license.adjacentFrom(plvid)]
+        .map(({ to }) => to));
 
-    templ.licenses = [] as string[][];
-    for (const { from, to } of g.e_has_license.adjacentFrom(plvid)) {
-        const license = g.v_license.get(to);
-        templ.licenses.push([json(to), json(license?.name || to)]);
-    }
+    templ.paradigms = json([...g.e_plang_para.adjacentFrom(plvid)]
+        .map(({ to }) => to));
 
-    // Paradigms
+    templ.typeSystems = json([...g.e_plang_tsys.adjacentFrom(plvid)]
+        .map(({ to }) => to));
 
-    templ.paradigms = [] as string[];
-    for (const { from, to } of g.e_plang_para.adjacentFrom(plvid)) {
-        const para = g.v_paradigm.get(to);
-        templ.paradigms.push(json(to));
-    }
+    templ.platforms = json([...g.e_supports_platf.adjacentFrom(plvid)]
+        .map(({ to }) => to));
 
-    // Dialects.
+    templ.implementations = json([...g.e_implements.adjacentTo(plvid)]
+        .map(({ from }) => from));
 
-    // for (const { from, to } of g.e_dialect_of.adjacentTo(plvid)) {
-    //     assert(to === plvid);
-    //     const dialect = g.v_plang.get(from);
-    //     console.log(dialect?.name, "is a dialect of", pl?.name);
-    // }
+    templ.dialects = json([...g.e_dialect_of.adjacentTo(plvid)]
+        .map(({ from }) => from));
 
-    // for (const { from, to } of g.e_dialect_of.adjacentFrom(plvid)) {
-    //     assert(from === plvid);
-    //     const dialectOf = g.v_plang.get(to);
-    //     console.log(dialectOf?.name, "is a dialect of", pl?.name);
-    // }
+    templ.influences = json([...g.e_l_influenced_l.adjacentTo(plvid)]
+        .map(({ from }) => from));
 
-    // for (const { from, to } of g.e_implements.adjacentTo(plvid)) {
-    //     assert(to === plvid);
-    //     const impl = g.v_plang.get(from);
-    //     console.log("---->", from, "implements", to, impl?.name);
-    // }
-
-    // for (const { from, to } of g.e_implements.adjacentFrom(plvid)) {
-    //     assert(from === plvid);
-    //     const impl = g.v_plang.get(to);
-    //     console.log("<----", from, "implements", to, impl?.name);
-    // }
-
-    // // for (const { from, to } of g.e_l_influenced_l.adjacentTo(plvid)) {
-    // //     assert(to === plvid);
-    // //     const impl = g.v_plang.get(from);
-    // //     console.log("---->", from, "Influenced", to, impl?.name);
-    // // }
-
-    // // for (const { from, to } of g.e_l_influenced_l.adjacentFrom(plvid)) {
-    // //     assert(from === plvid);
-    // //     const impl = g.v_plang.get(to);
-    // //     console.log("<----", from, "Influenced", to, impl?.name);
-    // // }
-
-    // for (const { from, to } of g.e_plang_tsys.adjacentFrom(plvid)) {
-    //     assert(from === plvid);
-    //     const tsys = g.v_tsystem.get(to);
-    //     console.log("---->", from, "has type-sys", to, tsys?.name);
-    // }
-
-    // for (const { from, to } of g.e_supports_platf.adjacentFrom(plvid)) {
-    //     assert(from === plvid);
-    //     const platf = g.v_platform.get(to);
-    //     console.log("---->", from, "supports platf", to, platf?.name);
-    // }
+    templ.influenced = json([...g.e_l_influenced_l.adjacentFrom(plvid)]
+        .map(({ to }) => to));
 
     const res = Templ.render("./plang", templ)
-    console.log(res);
+    const path = tsPath("plang", pl.name)
+    await Bun.write(path, res);
 
-    // await Bun.write(tsPath("plang", pl.name), res);
+    return true;
 }
 
 // biome-ignore lint/suspicious/noExplicitAny: it's ok.
-function json(v: any, pretty = true): string {
-    return pretty && typeof v !== 'string' ?
-        `${JSON.stringify(v, null, 2)}\n` :
-        JSON.stringify(v);
+function json(v: any): string {
+    if (typeof v === 'string') return JSON.stringify(v);
+
+    if (Array.isArray(v)) {
+        if (v.length > 1) {
+            v.sort();
+            const uninndented = JSON.stringify(v);
+            if (uninndented.length < 70) return uninndented;
+            return JSON.stringify(v, null, 2);
+        }
+        return JSON.stringify(v);
+    }
+
+    return JSON.stringify(v, null, 2);
 }
 
 function assert(statement: boolean) {

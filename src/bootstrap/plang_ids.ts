@@ -1,4 +1,4 @@
-export const LANG_IDS = [
+export const PLANG_IDS: T_Id_V_Plang = [
     'pl+APL',
     'pl+Agda',
     'pl+Arc',
@@ -102,7 +102,6 @@ export const LANG_IDS = [
     'pl+Max',
     'pl+Maxima',
     'pl+Mercury',
-    'pl+Microsoft-Basic',
     'pl+Modelica',
     'pl+Mojo',
     'pl+NekoVMNeko',
@@ -181,7 +180,6 @@ export const LANG_IDS = [
     'pl+Visual-Basic-dotNET',
     'pl+Visual-CPP',
     'pl+Whiley',
-    'pl+Wolfram',
     'pl+XAML',
     'pl+XOD',
     'pl+XPath',

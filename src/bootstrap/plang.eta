@@ -4,15 +4,12 @@ export const lang_vid = '<%= it.plvid %>';
 
 export function define(g: PlangsGraph) {
    const pl = g.v_plang.merge(lang_vid, { name: '<%= it.name %>' });
+
    const plb = g.plangBuilder(pl);
 
-   plb.addImages([
-     <%= it.images.join(",\n") %>
-   ]);
+   plb.addImages(<%= it.images %>);
 
-   plb.addWebsites([
-     <%= it.websites.join(",\n") %>
-   ]);
+   plb.addWebsites(<%= it.websites %>);
 
    plb.addScoping(<%= it.scopings %>);
 
@@ -20,70 +17,23 @@ export function define(g: PlangsGraph) {
 
    plb.addReferences(<%= it.references %>);
 
-   // People
+   plb.addPeople(<%= it.people %>);
 
-   <% for (const [idPerson, namePerson, role] of it.people) { %>
-   g.v_person.merge(<%= idPerson %>, { name: <%= namePerson %> });
-   g.e_person_plang_role.set(<%= idPerson %>, lang_vid, { role: <%= role %> });
+   plb.addLicenses(<%= it.licenses %>);
 
-   <% } %>
+   plb.addParadigms(<%= it.paradigms %>);
 
-   // Licenses
+   plb.addTypeSystems(<%= it.typeSystems %>);
 
-   <% for (const [key, name] of it.licenses) { %>
-   g.v_license.merge(<%= key %>, { name: <%= name %> });
-   g.e_has_license.connect(lang_vid, <%= key %>);
-   <% } %>
+   plb.addPlatforms(<%= it.platforms %>);
 
-   // Paradigms
+   plb.addImplementations(<%= it.implementations %>);
 
-   <% for (const key of it.paradigms) { %>
-   g.e_plang_para.connect(lang_vid, `para+${<%= key %>}`);
-   <% } %>
+   plb.addDialects(<%= it.dialects %>);
 
-   // Type Systems
+   plb.addInfluences(<%= it.influences %>);
 
-   <% for (const key of it.typesys) { %>
-   g.e_plang_tsys.connect(lang_vid, `tsys+${key}`);
-   <% } %>
+   plb.addInfluenced(<%= it.influenced %>);
 
-   // Supported Platforms
-
-   <% for (const key of it.platforms) { %>
-   g.e_supports_platf.connect(lang_vid, `platf+${key}`);
-   <% } %>
-
-   // Implementations
-
-   <% for (const [key, name] of it.implementations) { %>
-   g.v_plang.merge(`pl+${key}`, { name });
-   g.e_implements.connect(`pl+${key}`, lang_vid);
-   <% } %>
-
-   // Dialects
-
-   <% for (const [key, name] of it.dialects) { %>
-   g.v_plang.merge(`pl+${key}`, { name });
-   g.e_dialect_of.connect(`pl+${key}`, lang_vid);
-   <% } %>
-
-   // Influences
-
-   <% for (const [key, name] of it.influences) { %>
-   g.v_plang.merge(`pl+${key}`, { name });
-   g.e_l_influenced_l.connect(`pl+${key}`, lang_vid);
-   <% } %>
-
-   // Influenced
-
-   <% for (const [key, name] of it.influenced) { %>
-   g.v_plang.merge(`pl+${key}`, { name });
-   g.e_l_influenced_l.connect(lang_vid, `pl+${key}`);
-   <% } %>
-
-   // Releases
-
-   <% for (const release of it.releases) { %>
-   plb.addRelease(<%= release %>);
-   <% } %>
+   plb.addReleases(<%= it.releases %>);
 }
