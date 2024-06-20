@@ -3,7 +3,9 @@ import type {
 	Image,
 	Link,
 	Release,
+	T_Id_V_License,
 	T_Id_V_Paradigm,
+	T_Id_V_TypeSystem,
 	V_Person,
 	V_Plang,
 } from "./schemas";
@@ -44,12 +46,16 @@ export class PlangsBuilder {
 
 export class LicenseBuilder {
 	constructor(readonly g: PlangsGraph) {}
+
+	define(lvid: T_Id_V_License, name: string, websites: Link[]) {
+		throw new Error("Method not implemented.");
+	}
 }
 
 export class ParadigmBuilder {
 	constructor(readonly g: PlangsGraph) {}
 
-	declare(para: T_Id_V_Paradigm, name: string, websites: Link[]) {}
+	define(para: T_Id_V_Paradigm, name: string, websites: Link[]) {}
 }
 
 export class PersonBuilder {
@@ -64,4 +70,6 @@ export class PlatformBuilder {
 
 export class TypeSysBuilder {
 	constructor(readonly g: PlangsGraph) {}
+
+	define(tsysvid: T_Id_V_TypeSystem, name: string, websites: Link[]) {}
 }

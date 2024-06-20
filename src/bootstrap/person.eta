@@ -1,14 +1,13 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
-import type { T_Id_V_Person } from "../../../entities/schemas";
-
-export const PERSON_V_Id = <%= it.pvid %> as T_Id_V_Person;
 
 export function define(g: PlangsGraph) {
-   const p = g.v_person.declare(PERSON_V_Id);
+   const lb = g.personBuilder;
 
-   p.name = <%= it.name %>;
+<% for (const [pvid, name, websites] of it.people) { %>
+  lb.define(
+    <%= pvid %>,
+    <%= name %>,
+    <%= websites %>);
 
-   const pb = g.personBuilder;
-
-   pb.addWebsites(p, <%= it.websites %>);
+<% } %>
 }

@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.paradigmBuilder;
 
-	lb.declare("para+agent-based", "agent-based", [
+	lb.define("para+agent-based", "agent-based", [
 		{
 			kind: "wikipedia",
 			title: "agent-oriented",
@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+algebraic-types", "algebraic types", [
+	lb.define("para+algebraic-types", "algebraic types", [
 		{
 			kind: "wikipedia",
 			title: "algebraic types",
@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+algorithmic", "algorithmic", [
+	lb.define("para+algorithmic", "algorithmic", [
 		{
 			kind: "wikipedia",
 			title: "algorithmic",
@@ -37,7 +37,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+array", "array", [
+	lb.define("para+array", "array", [
 		{
 			kind: "wikipedia",
 			title: "array",
@@ -45,7 +45,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+aspect-oriented", "aspect-oriented", [
+	lb.define("para+aspect-oriented", "aspect-oriented", [
 		{
 			kind: "wikipedia",
 			title: "aspect-oriented",
@@ -53,7 +53,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+assembly", "assembly", [
+	lb.define("para+assembly", "Assembly", [
 		{
 			kind: "wikipedia",
 			title: "Assembly",

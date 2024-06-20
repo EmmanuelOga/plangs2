@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.paradigmBuilder;
 
-	lb.declare("para+general-purpose", "general-purpose", [
+	lb.define("para+general-purpose", "general-purpose", [
 		{
 			kind: "wikipedia",
 			title: "general-purpose",
@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+generic", "generic programming", [
+	lb.define("para+generic", "generic programming", [
 		{
 			kind: "wikipedia",
 			title: "generic",
@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+grid", "grid", [
+	lb.define("para+grid", "grid", [
 		{
 			kind: "wikipedia",
 			title: "grid",

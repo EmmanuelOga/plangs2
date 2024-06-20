@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.paradigmBuilder;
 
-	lb.declare("para+language-oriented", "language oriented programming", [
+	lb.define("para+language-oriented", "language oriented programming", [
 		{
 			kind: "wikipedia",
 			title: "language oriented programming",
@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+lazy", "lazy", [
+	lb.define("para+lazy", "Lazy", [
 		{
 			kind: "wikipedia",
 			title: "lazy",
@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+literate", "literate", [
+	lb.define("para+literate", "Literate", [
 		{
 			kind: "wikipedia",
 			title: "Literate",
@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+logic", "logic", [
+	lb.define("para+logic", "logic", [
 		{
 			kind: "wikipedia",
 			title: "logic",
@@ -40,7 +40,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+low-code", "low-code", [
+	lb.define("para+low-code", "Low-code", [
 		{
 			kind: "wikipedia",
 			title: "Low-code",

@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.licenseBuilder;
 
-	lb.declare("license+free-and-open-source", "free and open-source", [
+	lb.define("license+free-and-open-source", "free and open-source", [
 		{
 			kind: "wikipedia",
 			title: "free and open-source",
@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+free-software", "free software", [
+	lb.define("license+free-software", "free software", [
 		{
 			kind: "wikipedia",
 			title: "free software",
@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare(
+	lb.define(
 		"license+freely-redistributable-software",
 		"Freely redistributable software",
 		[
@@ -36,7 +36,7 @@ export function define(g: PlangsGraph) {
 		],
 	);
 
-	lb.declare("license+freemium", "Freemium", [
+	lb.define("license+freemium", "Freemium", [
 		{
 			kind: "wikipedia",
 			title: "Freemium",
@@ -44,7 +44,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+frees", "free licenses", [
+	lb.define("license+frees", "free licenses", [
 		{
 			kind: "wikipedia",
 			title: "free licenses",
@@ -52,7 +52,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+freeware", "freeware", [
+	lb.define("license+freeware", "freeware", [
 		{
 			kind: "wikipedia",
 			title: "freeware",

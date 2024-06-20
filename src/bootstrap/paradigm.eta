@@ -4,7 +4,7 @@ export function define(g: PlangsGraph) {
    const lb = g.paradigmBuilder;
 
 <% for (const [lid, name, websites] of it.paradigms) { %>
-  lb.declare(
+  lb.define(
     <%= lid %>,
     <%= name %>,
     <%= websites %>);

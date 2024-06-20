@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.paradigmBuilder;
 
-	lb.declare("para+scientific-workflow", "scientific workflow", [
+	lb.define("para+scientific-workflow", "scientific workflow", [
 		{
 			kind: "wikipedia",
 			title: "scientific workflow",
@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+scripting", "scripting", [
+	lb.define("para+scripting", "scripting", [
 		{
 			kind: "wikipedia",
 			title: "scripting",
@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+shared-memory", "shared memory", [
+	lb.define("para+shared-memory", "shared memory", [
 		{
 			kind: "wikipedia",
 			title: "shared memory",
@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+simulation", "simulation", [
+	lb.define("para+simulation", "simulation", [
 		{
 			kind: "wikipedia",
 			title: "simulation",
@@ -35,7 +35,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+stack-oriented", "stack-based", [
+	lb.define("para+stack-oriented", "stack-based", [
 		{
 			kind: "wikipedia",
 			title: "stack-based",
@@ -53,7 +53,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+strongly-typed", "strongly typed", [
+	lb.define("para+strongly-typed", "strongly typed", [
 		{
 			kind: "wikipedia",
 			title: "strongly typed",
@@ -61,7 +61,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+structured", "structured", [
+	lb.define("para+structured", "structured", [
 		{
 			kind: "wikipedia",
 			title: "Structured",
@@ -69,7 +69,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+style-language", "style language", [
+	lb.define("para+style-language", "Style language", [
 		{
 			kind: "wikipedia",
 			title: "Style language",
@@ -77,7 +77,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+symbolic", "symbolic", [
+	lb.define("para+symbolic", "symbolic", [
 		{
 			kind: "wikipedia",
 			title: "symbolic",

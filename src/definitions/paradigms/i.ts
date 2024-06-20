@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.paradigmBuilder;
 
-	lb.declare("para+imperative", "procedural", [
+	lb.define("para+imperative", "procedural", [
 		{
 			kind: "wikipedia",
 			title: "imperative",
@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+in-memory-database", "in-memory database", [
+	lb.define("para+in-memory-database", "in-memory database", [
 		{
 			kind: "wikipedia",
 			title: "in-memory database",
@@ -34,7 +34,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+interpreted", "interpreted", [
+	lb.define("para+interpreted", "interpreted", [
 		{
 			kind: "wikipedia",
 			title: "interpreted",

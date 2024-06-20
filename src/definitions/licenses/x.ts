@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.licenseBuilder;
 
-	lb.declare("license+x11", "X11", [
+	lb.define("license+x11", "X11", [
 		{
 			kind: "wikipedia",
 			title: "X11",
@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+xfree86", "XFree86", [
+	lb.define("license+xfree86", "XFree86", [
 		{
 			kind: "wikipedia",
 			title: "XFree86",

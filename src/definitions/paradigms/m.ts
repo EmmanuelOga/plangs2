@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.paradigmBuilder;
 
-	lb.declare("para+macros", "macros", [
+	lb.define("para+macros", "macros", [
 		{
 			kind: "wikipedia",
 			title: "general-purpose macro processor",
@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+markup", "markup", [
+	lb.define("para+markup", "markup", [
 		{
 			kind: "wikipedia",
 			title: "markup",
@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+message-passing", "message passing", [
+	lb.define("para+message-passing", "message passing", [
 		{
 			kind: "wikipedia",
 			title: "message passing",
@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+meta", "meta", [
+	lb.define("para+meta", "meta", [
 		{
 			kind: "wikipedia",
 			title: "meta",
@@ -40,7 +40,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+modular", "modular", [
+	lb.define("para+modular", "modular", [
 		{
 			kind: "wikipedia",
 			title: "modular",
@@ -48,7 +48,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+multi-paradigm", "multi-paradigm", [
+	lb.define("para+multi-paradigm", "multi-paradigm", [
 		{
 			kind: "wikipedia",
 			title: "Multi-paradigm",

@@ -57,5 +57,5 @@ export class PlangsGraph extends PlangsBase {
 	readonly personBuilder = new PersonBuilder(this);
 	readonly plangBuilder = new PlangsBuilder(this);
 	readonly platformBuilder = new PlatformBuilder(this);
-	readonly typeSysBuilder = new TypeSysBuilder(this);
+	readonly typeSystemBuilder = new TypeSysBuilder(this);
 }

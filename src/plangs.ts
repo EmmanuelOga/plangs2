@@ -26,3 +26,5 @@ export async function loadDefinitions(): Promise<PlangsGraph> {
 
 	return g;
 }
+
+if (process.env.LOAD_GRAPH) await loadDefinitions();

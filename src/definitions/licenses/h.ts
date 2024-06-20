@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.licenseBuilder;
 
-	lb.declare(
+	lb.define(
 		"license+historical-permission-notice-and-disclaimer",
 		"Historical Permission Notice and Disclaimer",
 		[

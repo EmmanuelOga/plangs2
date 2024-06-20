@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.licenseBuilder;
 
-	lb.declare("license+qpl", "QPL", [
+	lb.define("license+qpl", "QPL", [
 		{
 			kind: "wikipedia",
 			title: "QPL",
@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+qt-commercial", "Qt Commercial License", [
+	lb.define("license+qt-commercial", "Qt Commercial License", [
 		{
 			kind: "wikipedia",
 			title: "Qt Commercial License",

@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.licenseBuilder;
 
-	lb.declare("license+simplified-bsd", "Simplified BSD", [
+	lb.define("license+simplified-bsd", "Simplified BSD", [
 		{
 			kind: "wikipedia",
 			title: "Simplified BSD",
@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+spl-1", "SPL-1.0", [
+	lb.define("license+spl-1", "SPL-1.0", [
 		{
 			kind: "wikipedia",
 			title: "SPL-1.0",
@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare(
+	lb.define(
 		"license+sybase-open-watcom-public",
 		"Sybase Open Watcom Public License",
 		[

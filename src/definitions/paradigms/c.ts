@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.paradigmBuilder;
 
-	lb.declare("para+class-based", "class-based", [
+	lb.define("para+class-based", "class-based", [
 		{
 			kind: "wikipedia",
 			title: "class-based",
@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+compiled", "compiled", [
+	lb.define("para+compiled", "compiled", [
 		{
 			kind: "wikipedia",
 			title: "compiled",
@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+component-based", "component-based", [
+	lb.define("para+component-based", "component-based", [
 		{
 			kind: "wikipedia",
 			title: "component-based",
@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+concatenative", "concatenative", [
+	lb.define("para+concatenative", "concatenative", [
 		{
 			kind: "wikipedia",
 			title: "Concatenative",
@@ -45,7 +45,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+concurrent", "concurrent", [
+	lb.define("para+concurrent", "concurrent", [
 		{
 			kind: "wikipedia",
 			title: "concurrent",
@@ -73,7 +73,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+constraint", "constraint", [
+	lb.define("para+constraint", "constraint", [
 		{
 			kind: "wikipedia",
 			title: "constraint",
@@ -86,7 +86,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+csp", "communicating sequential processes", [
+	lb.define("para+csp", "communicating sequential processes", [
 		{
 			kind: "wikipedia",
 			title: "communicating sequential processes",

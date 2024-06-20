@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.licenseBuilder;
 
-	lb.declare("license+windows", "Windows", [
+	lb.define("license+windows", "Windows", [
 		{
 			kind: "wikipedia",
 			title: "Windows",

@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.paradigmBuilder;
 
-	lb.declare("para+natural-language", "natural-language", [
+	lb.define("para+natural-language", "natural-language", [
 		{
 			kind: "wikipedia",
 			title: "Natural language programming",
@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+non-structured", "non-structured", [
+	lb.define("para+non-structured", "Non-structured", [
 		{
 			kind: "wikipedia",
 			title: "non-structured",
@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+nondeterministic", "nondeterministic", [
+	lb.define("para+nondeterministic", "nondeterministic", [
 		{
 			kind: "wikipedia",
 			title: "nondeterministic",
@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+numerical-control", "numerical control", [
+	lb.define("para+numerical-control", "Numerical control", [
 		{
 			kind: "wikipedia",
 			title: "Numerical control",

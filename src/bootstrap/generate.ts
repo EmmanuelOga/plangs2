@@ -3,6 +3,7 @@ import { PlangsGraph } from "../entities/plangs_graph";
 import type {
 	T_Id_V_License,
 	T_Id_V_Paradigm,
+	T_Id_V_Person,
 	T_Id_V_Plang,
 	T_Id_V_TypeSystem,
 } from "../entities/schemas";
@@ -163,7 +164,7 @@ async function genParadigms(g: PlangsGraph) {
 			}
 			templ.paradigms.push([
 				json(pid),
-				json((para.name ?? pid.split("+")[1]).toLowerCase()),
+				json(para.name ?? pid.split("+")[1]),
 				json(para.websites ?? []),
 			]);
 		}
@@ -175,14 +176,30 @@ async function genParadigms(g: PlangsGraph) {
 }
 
 async function genPeople(g: PlangsGraph) {
-	for (const [pid, p] of g.v_person) {
-		const templ: Record<string, string | string[] | string[][]> = {
-			pvid: json(pid),
-			name: json(p.name),
-			websites: json(p.websites ?? []),
-		};
+	const allIds = [...g.v_person.keys()].sort((id0, id1) =>
+		id0.toLowerCase().localeCompare(id1.toLowerCase()),
+	);
+
+	const grouped: Record<string, string[]> = groupBy(allIds, (id: string) =>
+		id["person+".length].toLowerCase(),
+	);
+
+	for (const [prefix, ids] of Object.entries(grouped)) {
+		const templ: Record<string, string[][]> = { people: [] };
+		for (const pid of ids) {
+			const person = g.v_person.get(pid as T_Id_V_Person);
+			if (!person) {
+				console.log("Person not found:", pid);
+				continue;
+			}
+			templ.people.push([
+				json(pid),
+				json(person.name),
+				json(person.websites ?? []),
+			]);
+		}
 		const res = Templ.render("./person", templ);
-		const path = longTsPath("people", pid.split("+")[1]);
+		const path = alphaTsPath("people", prefix);
 		await Bun.write(path, res);
 	}
 }

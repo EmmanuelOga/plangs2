@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.paradigmBuilder;
 
-	lb.declare("para+educational", "educational", [
+	lb.define("para+educational", "educational", [
 		{
 			kind: "wikipedia",
 			title: "educational",
@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+embedded", "embedded", [
+	lb.define("para+embedded", "embedded", [
 		{
 			kind: "wikipedia",
 			title: "embedded",
@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+esoteric", "esoteric", [
+	lb.define("para+esoteric", "Esoteric", [
 		{
 			kind: "wikipedia",
 			title: "Esoteric",
@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+event-driven", "event-driven", [
+	lb.define("para+event-driven", "event-driven", [
 		{
 			kind: "wikipedia",
 			title: "Event-driven",
@@ -40,7 +40,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+exp-oriented", "exp-oriented", [
+	lb.define("para+exp-oriented", "exp-oriented", [
 		{
 			kind: "wikipedia",
 			title: "exp-oriented",
@@ -48,7 +48,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+expert-systems", "expert systems", [
+	lb.define("para+expert-systems", "expert systems", [
 		{
 			kind: "wikipedia",
 			title: "expert systems",
@@ -56,7 +56,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+extensible", "extensible", [
+	lb.define("para+extensible", "extensible", [
 		{
 			kind: "wikipedia",
 			title: "extensible",

@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.licenseBuilder;
 
-	lb.declare("license+3-clause-bsd", "3-clause BSD", [
+	lb.define("license+3-clause-bsd", "3-clause BSD", [
 		{
 			kind: "wikipedia",
 			title: "3-clause BSD",

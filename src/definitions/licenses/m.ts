@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.licenseBuilder;
 
-	lb.declare("license+mac", "Mac", [
+	lb.define("license+mac", "Mac", [
 		{
 			kind: "wikipedia",
 			title: "Mac",
@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+mit", "MIT", [
+	lb.define("license+mit", "MIT", [
 		{
 			kind: "wikipedia",
 			title: "MIT",
@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+mit-x11", "MIT X11", [
+	lb.define("license+mit-x11", "MIT X11", [
 		{
 			kind: "wikipedia",
 			title: "MIT X11",
@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+modified-bsd", "modified BSD", [
+	lb.define("license+modified-bsd", "modified BSD", [
 		{
 			kind: "wikipedia",
 			title: "modified BSD",
@@ -45,7 +45,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+mozilla-public", "Mozilla Public", [
+	lb.define("license+mozilla-public", "Mozilla Public", [
 		{
 			kind: "wikipedia",
 			title: "Mozilla Public",
@@ -58,7 +58,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+mpl", "MPL", [
+	lb.define("license+mpl", "MPL", [
 		{
 			kind: "wikipedia",
 			title: "MPL",
@@ -66,7 +66,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+mpl-1-1", "MPL-1-1", [
+	lb.define("license+mpl-1-1", "MPL-1-1", [
 		{
 			kind: "wikipedia",
 			title: "MPL-1-1",
@@ -74,7 +74,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+ms", "MS", [
+	lb.define("license+ms", "MS", [
 		{
 			kind: "wikipedia",
 			title: "MS",

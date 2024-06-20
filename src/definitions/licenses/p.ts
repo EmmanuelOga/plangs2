@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.licenseBuilder;
 
-	lb.declare("license+patent", "patent", [
+	lb.define("license+patent", "patent", [
 		{
 			kind: "wikipedia",
 			title: "patent",
@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+perl-artistic-2", "Perl Artistic License 2.0", [
+	lb.define("license+perl-artistic-2", "Perl Artistic License 2.0", [
 		{
 			kind: "wikipedia",
 			title: "Perl Artistic License 2.0",
@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+permissive", "Permissive", [
+	lb.define("license+permissive", "Permissive", [
 		{
 			kind: "wikipedia",
 			title: "Permissive",
@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+permissive-free-software", "Permissive free software", [
+	lb.define("license+permissive-free-software", "Permissive free software", [
 		{
 			kind: "wikipedia",
 			title: "Permissive free software licence",
@@ -40,7 +40,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+php", "PHP License", [
+	lb.define("license+php", "PHP License", [
 		{
 			kind: "wikipedia",
 			title: "PHP License",
@@ -48,7 +48,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+proprietary", "Proprietary", [
+	lb.define("license+proprietary", "Proprietary", [
 		{
 			kind: "wikipedia",
 			title: "Proprietary",
@@ -66,7 +66,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+proprietary-software", "proprietary software", [
+	lb.define("license+proprietary-software", "proprietary software", [
 		{
 			kind: "wikipedia",
 			title: "proprietary software",
@@ -74,7 +74,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+public-domain", "Public domain", [
+	lb.define("license+public-domain", "Public domain", [
 		{
 			kind: "wikipedia",
 			title: "Public domain",
@@ -87,7 +87,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare(
+	lb.define(
 		"license+python-software-foundation",
 		"Python Software Foundation License",
 		[

@@ -4,7 +4,7 @@ export function define(g: PlangsGraph) {
    const lb = g.licenseBuilder;
 
 <% for (const [lid, name, websites] of it.licenses) { %>
-  lb.declare(
+  lb.define(
     <%= lid %>,
     <%= name %>,
     <%= websites %>);

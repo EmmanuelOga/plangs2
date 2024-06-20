@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.licenseBuilder;
 
-	lb.declare("license+icu", "ICU", [
+	lb.define("license+icu", "ICU", [
 		{
 			kind: "wikipedia",
 			title: "ICU",
@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+ios", "iOS", [
+	lb.define("license+ios", "iOS", [
 		{
 			kind: "wikipedia",
 			title: "iOS",
@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("license+isc", "ISC", [
+	lb.define("license+isc", "ISC", [
 		{
 			kind: "wikipedia",
 			title: "ISC",

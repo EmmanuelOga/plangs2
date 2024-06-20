@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.paradigmBuilder;
 
-	lb.declare("para+reactive", "reactive", [
+	lb.define("para+reactive", "reactive", [
 		{
 			kind: "wikipedia",
 			title: "reactive",
@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+real-time", "real-time", [
+	lb.define("para+real-time", "real-time", [
 		{
 			kind: "wikipedia",
 			title: "real-time",
@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+reflective", "reflective", [
+	lb.define("para+reflective", "Reflective", [
 		{
 			kind: "wikipedia",
 			title: "reflective",
@@ -37,7 +37,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+reversible", "reversible", [
+	lb.define("para+reversible", "reversible", [
 		{
 			kind: "wikipedia",
 			title: "reversible",

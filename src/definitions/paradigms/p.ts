@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.paradigmBuilder;
 
-	lb.declare("para+parallel", "parallel", [
+	lb.define("para+parallel", "parallel", [
 		{
 			kind: "wikipedia",
 			title: "parallel",
@@ -21,9 +21,9 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare(
+	lb.define(
 		"para+partitioned-global-address-space",
-		"partitioned global address space",
+		"Partitioned global address space",
 		[
 			{
 				kind: "wikipedia",
@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
 		],
 	);
 
-	lb.declare("para+pattern-matching", "pattern-matching", [
+	lb.define("para+pattern-matching", "Pattern-matching", [
 		{
 			kind: "wikipedia",
 			title: "Pattern-matching",
@@ -41,7 +41,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+people-oriented", "people oriented programming", [
+	lb.define("para+people-oriented", "People Oriented Programming", [
 		{
 			kind: "wikipedia",
 			title: "People Oriented Programming",
@@ -49,7 +49,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+pipeline", "pipeline", [
+	lb.define("para+pipeline", "pipeline", [
 		{
 			kind: "wikipedia",
 			title: "pipeline",
@@ -62,7 +62,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+process-oriented", "processing", [
+	lb.define("para+process-oriented", "processing", [
 		{
 			kind: "wikipedia",
 			title: "process-oriented",
@@ -80,7 +80,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+prototypes", "prototype-based", [
+	lb.define("para+prototypes", "prototype-based", [
 		{
 			kind: "wikipedia",
 			title: "prototype-based",

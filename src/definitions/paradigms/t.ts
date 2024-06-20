@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
 	const lb = g.paradigmBuilder;
 
-	lb.declare("para+tacit", "tacit programming", [
+	lb.define("para+tacit", "tacit programming", [
 		{
 			kind: "wikipedia",
 			title: "tacit",
@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+term-rewriting", "term-rewriting", [
+	lb.define("para+term-rewriting", "Term-rewriting", [
 		{
 			kind: "wikipedia",
 			title: "term rewriting",
@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+thread-safe", "thread safe", [
+	lb.define("para+thread-safe", "thread safe", [
 		{
 			kind: "wikipedia",
 			title: "thread safe",
@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+transformation-language", "transformation language", [
+	lb.define("para+transformation-language", "Transformation language", [
 		{
 			kind: "wikipedia",
 			title: "Transformation language",
@@ -40,7 +40,7 @@ export function define(g: PlangsGraph) {
 		},
 	]);
 
-	lb.declare("para+typed-language", "typed language", [
+	lb.define("para+typed-language", "typed language", [
 		{
 			kind: "wikipedia",
 			title: "typed language",
