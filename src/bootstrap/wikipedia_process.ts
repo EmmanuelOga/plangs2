@@ -524,27 +524,24 @@ function cleanLicense(licenseId: string) {
 	return clean;
 }
 function cleanParadigm(s: string): string {
-	let name = s
-		.trim()
-		.replace("programming", "")
-		.toLowerCase();
+	let name = s.trim().replace("programming", "").toLowerCase();
 
-	if (name.startsWith("communicating-sequential-processes")) name = 'csp';
-	if (name.startsWith("constraint")) name = 'constraint';
-	if (name.startsWith("data-")) name = 'data-driven';
-	if (name.startsWith("dataflow")) name = 'dataflow';
-	if (name.startsWith("distributed")) name = 'distributed';
-	if (name.startsWith("event-driven")) name = 'event-driven';
-	if (name.startsWith("generic")) name = 'generic';
-	if (name.startsWith("imperative")) name = 'imperative';
-	if (name.startsWith("language-oriented")) name = 'language-oriented';
-	if (name.startsWith('agent')) name = 'agent-based';
+	if (name.startsWith("communicating-sequential-processes")) name = "csp";
+	if (name.startsWith("constraint")) name = "constraint";
+	if (name.startsWith("data-")) name = "data-driven";
+	if (name.startsWith("dataflow")) name = "dataflow";
+	if (name.startsWith("distributed")) name = "distributed";
+	if (name.startsWith("event-driven")) name = "event-driven";
+	if (name.startsWith("generic")) name = "generic";
+	if (name.startsWith("imperative")) name = "imperative";
+	if (name.startsWith("language-oriented")) name = "language-oriented";
+	if (name.startsWith("agent")) name = "agent-based";
 
 	if (name.includes("declarative")) name = "declarative";
 	if (name.includes("functional")) name = "functional";
 	if (name.includes("generics")) name = "generic";
-	if (name.includes("logic")) name = 'logic';
-	if (name.includes("macro")) name = 'macros';
+	if (name.includes("logic")) name = "logic";
+	if (name.includes("macro")) name = "macros";
 	if (name.includes("multi")) name = "multi-paradigm";
 	if (name.includes("object")) name = "objects";
 	if (name.includes("parallel")) name = "parallel";
@@ -554,9 +551,9 @@ function cleanParadigm(s: string): string {
 	if (name.includes("stack")) name = "stack-oriented";
 	if (name.includes("visual") || name.includes("block-")) name = "visual";
 
-	name = name.replace(/\-+$/, "").replace(/\-programming$/, '');
+	name = name.replace(/\-+$/, "").replace(/\-programming$/, "");
 
-	if (name === 'and-computing') name = 'distributed';
+	if (name === "and-computing") name = "distributed";
 
 	return name;
 }

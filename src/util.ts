@@ -20,7 +20,7 @@ export function toAlphaNum(s: string) {
 		// biome-ignore lint/suspicious/noMisleadingCharacterClass: removes accents/diacritics.
 		.replaceAll(/[\u0300-\u036f]/g, "")
 		.replaceAll(/\s+/g, " ")
-		.replaceAll(' ', "-")
+		.replaceAll(" ", "-")
 		.split(/[\*]/g)
 		.join("-Star")
 		.split(/\#/g)
@@ -32,9 +32,9 @@ export function toAlphaNum(s: string) {
 		.split(/\\/g)
 		.join("-Backslash")
 		.replaceAll(/[\/\:]/g, "-")
-		.replaceAll(/[^a-zA-Z0-9\.]/g, "-")
+		.replaceAll(/[^a-zA-Z0-9\.]/g, "-");
 
-	return result
+	return result;
 }
 
 // Print caller line:no for debugging.

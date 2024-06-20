@@ -1,5 +1,12 @@
 import type { PlangsGraph } from "./plangs_graph";
-import type { Image, Link, Release, T_Id_V_Paradigm, V_Plang } from "./schemas";
+import type {
+	Image,
+	Link,
+	Release,
+	T_Id_V_Paradigm,
+	V_Paradigm,
+	V_Plang,
+} from "./schemas";
 
 export class PlangsBuilder {
 	constructor(readonly g: PlangsGraph) {}
@@ -40,13 +47,18 @@ export class LicenseBuilder {
 }
 export class ParadigmBuilder {
 	constructor(readonly g: PlangsGraph) {}
+
+	declare(para: T_Id_V_Paradigm, name: string, websites: Link[]) {}
 }
+
 export class PersonBuilder {
 	constructor(readonly g: PlangsGraph) {}
 }
+
 export class PlatformBuilder {
 	constructor(readonly g: PlangsGraph) {}
 }
+
 export class TypeSysBuilder {
 	constructor(readonly g: PlangsGraph) {}
 }
