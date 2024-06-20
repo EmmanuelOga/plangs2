@@ -112,7 +112,9 @@ function genAtoZ(
   if (allVids.length === 0) return;
 
   const key0 = allVids[0].indexOf("+") + 1;
-  const grouped: Record<string, string[]> = groupBy(allVids, (id: string) => id[key0]);
+  const grouped: Record<string, string[]> = groupBy(allVids, (id: string) =>
+    id[key0] === "." ? id[key0 + 1] : id[key0],
+  );
 
   for (const [prefix, vids] of Object.entries(grouped)) {
     const data: string[][] = [];
