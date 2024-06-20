@@ -3,15 +3,11 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
 
-  lb.define("license+mac", "Mac", [
-    {
-      kind: "wikipedia",
-      title: "Mac",
-      href: "https://en.wikipedia.org/wiki/Mac_OS_X",
-    },
+  lb.define("lic+mac", "Mac", [
+    { kind: "wikipedia", title: "Mac", href: "https://en.wikipedia.org/wiki/Mac_OS_X" },
   ]);
 
-  lb.define("license+mit", "MIT", [
+  lb.define("lic+mit", "MIT", [
     {
       kind: "wikipedia",
       title: "MIT",
@@ -24,15 +20,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+mit-x11", "MIT X11", [
-    {
-      kind: "wikipedia",
-      title: "MIT X11",
-      href: "https://en.wikipedia.org/wiki/MIT_License",
-    },
+  lb.define("lic+mit-x11", "MIT X11", [
+    { kind: "wikipedia", title: "MIT X11", href: "https://en.wikipedia.org/wiki/MIT_License" },
   ]);
 
-  lb.define("license+modified-bsd", "modified BSD", [
+  lb.define("lic+modified-bsd", "modified BSD", [
     {
       kind: "wikipedia",
       title: "modified BSD",
@@ -45,7 +37,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+mozilla-public", "Mozilla Public", [
+  lb.define("lic+mozilla-public", "Mozilla Public", [
     {
       kind: "wikipedia",
       title: "Mozilla Public",
@@ -58,7 +50,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+mpl", "MPL", [
+  lb.define("lic+mpl", "MPL", [
     {
       kind: "wikipedia",
       title: "MPL",
@@ -66,7 +58,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+mpl-1-1", "MPL-1-1", [
+  lb.define("lic+mpl-1-1", "MPL-1-1", [
     {
       kind: "wikipedia",
       title: "MPL-1-1",
@@ -74,11 +66,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+ms", "MS", [
-    {
-      kind: "wikipedia",
-      title: "MS",
-      href: "https://en.wikipedia.org/wiki/Microsoft",
-    },
+  lb.define("lic+ms", "MS", [
+    { kind: "wikipedia", title: "MS", href: "https://en.wikipedia.org/wiki/Microsoft" },
   ]);
 }

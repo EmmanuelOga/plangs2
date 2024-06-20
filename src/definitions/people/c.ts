@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
@@ -24,11 +24,7 @@ export function define(g: PlangsGraph) {
   lb.define("person+Carl-Gundel", "Carl Gundel", []);
 
   lb.define("person+Carl-Hewitt", "Carl Hewitt", [
-    {
-      title: "Carl Hewitt",
-      href: "https://en.wikipedia.org/wiki/Carl_Hewitt",
-      kind: "wikipedia",
-    },
+    { title: "Carl Hewitt", href: "https://en.wikipedia.org/wiki/Carl_Hewitt", kind: "wikipedia" },
   ]);
 
   lb.define("person+Carl-Laird", "Carl Laird", []);
@@ -42,11 +38,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("person+Casey-Reas", "Casey Reas", [
-    {
-      title: "Casey Reas",
-      href: "https://en.wikipedia.org/wiki/Casey_Reas",
-      kind: "wikipedia",
-    },
+    { title: "Casey Reas", href: "https://en.wikipedia.org/wiki/Casey_Reas", kind: "wikipedia" },
   ]);
 
   lb.define("person+Cecil-Wayne-Ratliff", "Cecil Wayne Ratliff", [
@@ -142,19 +134,11 @@ export function define(g: PlangsGraph) {
   lb.define("person+Clemens-Grelck", "Clemens Grelck", []);
 
   lb.define("person+Cleve-Moler", "Cleve Moler", [
-    {
-      title: "Cleve Moler",
-      href: "https://en.wikipedia.org/wiki/Cleve_Moler",
-      kind: "wikipedia",
-    },
+    { title: "Cleve Moler", href: "https://en.wikipedia.org/wiki/Cleve_Moler", kind: "wikipedia" },
   ]);
 
   lb.define("person+Cliff-Shaw", "Cliff Shaw", [
-    {
-      title: "Cliff Shaw",
-      href: "https://en.wikipedia.org/wiki/Cliff_Shaw",
-      kind: "wikipedia",
-    },
+    { title: "Cliff Shaw", href: "https://en.wikipedia.org/wiki/Cliff_Shaw", kind: "wikipedia" },
   ]);
 
   lb.define("person+Clint-Jeffery", "Clint Jeffery", []);

@@ -33,7 +33,7 @@ import type {
 // biome-ignore format: it's artisanally formatted :-p.
 export class PlangsBase extends Graph {
 	// Vertex tables.
-	readonly v_license = this.v_table<Partial<V_License>, T_Id_V_License>("license",);
+	readonly v_license = this.v_table<Partial<V_License>, T_Id_V_License>("lic",);
 	readonly v_paradigm = this.v_table<Partial<V_Paradigm>, T_Id_V_Paradigm>("para",);
 	readonly v_person = this.v_table<Partial<V_Person>, T_Id_V_Person>("person");
 	readonly v_plang = this.v_table<Partial<V_Plang>, T_Id_V_Plang>("pl");

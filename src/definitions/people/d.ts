@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
@@ -14,11 +14,7 @@ export function define(g: PlangsGraph) {
   lb.define("person+Damien-P-George", "Damien P. George", []);
 
   lb.define("person+Dan-Ingalls", "Dan Ingalls", [
-    {
-      title: "Dan Ingalls",
-      href: "https://en.wikipedia.org/wiki/Dan_Ingalls",
-      kind: "wikipedia",
-    },
+    { title: "Dan Ingalls", href: "https://en.wikipedia.org/wiki/Dan_Ingalls", kind: "wikipedia" },
   ]);
 
   lb.define("person+Dan-Swinehart", "Dan Swinehart", []);
@@ -26,11 +22,7 @@ export function define(g: PlangsGraph) {
   lb.define("person+Dan-van-Blerkom", "Dan van Blerkom", []);
 
   lb.define("person+Dan-Weinreb", "Dan Weinreb", [
-    {
-      title: "Dan Weinreb",
-      href: "https://en.wikipedia.org/wiki/Dan_Weinreb",
-      kind: "wikipedia",
-    },
+    { title: "Dan Weinreb", href: "https://en.wikipedia.org/wiki/Dan_Weinreb", kind: "wikipedia" },
   ]);
 
   lb.define("person+Daniel-Diaz", "Daniel Diaz", []);
@@ -118,11 +110,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("person+David-Ungar", "David Ungar", [
-    {
-      title: "David Ungar",
-      href: "https://en.wikipedia.org/wiki/David_Ungar",
-      kind: "wikipedia",
-    },
+    { title: "David Ungar", href: "https://en.wikipedia.org/wiki/David_Ungar", kind: "wikipedia" },
   ]);
 
   lb.define("person+David-Woodruff", "David Woodruff", []);
@@ -146,11 +134,7 @@ export function define(g: PlangsGraph) {
   lb.define("person+Derek-Parnell", "Derek Parnell", []);
 
   lb.define("person+Diana-Merry", "Diana Merry", [
-    {
-      title: "Diana Merry",
-      href: "https://en.wikipedia.org/wiki/Diana_Merry",
-      kind: "wikipedia",
-    },
+    { title: "Diana Merry", href: "https://en.wikipedia.org/wiki/Diana_Merry", kind: "wikipedia" },
   ]);
 
   lb.define("person+Dick-Lathwell", "Dick Lathwell", [

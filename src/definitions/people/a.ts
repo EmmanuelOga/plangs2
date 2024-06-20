@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
@@ -54,19 +54,11 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("person+Alan-Kay", "Alan Kay", [
-    {
-      title: "Alan Kay",
-      href: "https://en.wikipedia.org/wiki/Alan_Kay",
-      kind: "wikipedia",
-    },
+    { title: "Alan Kay", href: "https://en.wikipedia.org/wiki/Alan_Kay", kind: "wikipedia" },
   ]);
 
   lb.define("person+Alan-Perlis", "Alan Perlis", [
-    {
-      title: "Alan Perlis",
-      href: "https://en.wikipedia.org/wiki/Alan_Perlis",
-      kind: "wikipedia",
-    },
+    { title: "Alan Perlis", href: "https://en.wikipedia.org/wiki/Alan_Perlis", kind: "wikipedia" },
   ]);
 
   lb.define("person+Albert-Graf", "Albert Gräf", []);
@@ -86,11 +78,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("person+Alfred-Aho", "Alfred Aho", [
-    {
-      title: "Alfred Aho",
-      href: "https://en.wikipedia.org/wiki/Alfred_Aho",
-      kind: "wikipedia",
-    },
+    { title: "Alfred Aho", href: "https://en.wikipedia.org/wiki/Alfred_Aho", kind: "wikipedia" },
   ]);
 
   lb.define("person+Allen-Newell", "Allen Newell", [
@@ -150,11 +138,7 @@ export function define(g: PlangsGraph) {
   lb.define("person+Andy-Frank", "Andy Frank", []);
 
   lb.define("person+Andy-Gavin", "Andy Gavin", [
-    {
-      title: "Andy Gavin",
-      href: "https://en.wikipedia.org/wiki/Andy_Gavin",
-      kind: "wikipedia",
-    },
+    { title: "Andy Gavin", href: "https://en.wikipedia.org/wiki/Andy_Gavin", kind: "wikipedia" },
   ]);
 
   lb.define("person+Andy-Wallace", "Andy Wallace", []);

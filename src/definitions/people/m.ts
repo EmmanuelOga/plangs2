@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
@@ -72,11 +72,7 @@ export function define(g: PlangsGraph) {
   lb.define("person+Max-Graey", "Max Graey", []);
 
   lb.define("person+Media-Lab", "Media Lab", [
-    {
-      title: "Media Lab",
-      href: "https://en.wikipedia.org/wiki/MIT_Media_Lab",
-      kind: "wikipedia",
-    },
+    { title: "Media Lab", href: "https://en.wikipedia.org/wiki/MIT_Media_Lab", kind: "wikipedia" },
   ]);
 
   lb.define("person+Meta-Platforms", "Meta Platforms", [
@@ -138,10 +134,6 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("person+Motion-Twin", "Motion Twin", [
-    {
-      title: "Motion Twin",
-      href: "https://en.wikipedia.org/wiki/Motion_Twin",
-      kind: "wikipedia",
-    },
+    { title: "Motion Twin", href: "https://en.wikipedia.org/wiki/Motion_Twin", kind: "wikipedia" },
   ]);
 }

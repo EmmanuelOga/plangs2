@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
@@ -22,11 +22,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("person+Naughty-Dog", "Naughty Dog", [
-    {
-      title: "Naughty Dog",
-      href: "https://en.wikipedia.org/wiki/Naughty_Dog",
-      kind: "wikipedia",
-    },
+    { title: "Naughty Dog", href: "https://en.wikipedia.org/wiki/Naughty_Dog", kind: "wikipedia" },
   ]);
 
   lb.define("person+Neil-Pappalardo", "Neil Pappalardo", [
@@ -58,10 +54,6 @@ export function define(g: PlangsGraph) {
   lb.define("person+Norman-I-Adams", "Norman I. Adams", []);
 
   lb.define("person+Norsk-Data", "Norsk Data", [
-    {
-      title: "Norsk Data",
-      href: "https://en.wikipedia.org/wiki/Norsk_Data",
-      kind: "wikipedia",
-    },
+    { title: "Norsk Data", href: "https://en.wikipedia.org/wiki/Norsk_Data", kind: "wikipedia" },
   ]);
 }

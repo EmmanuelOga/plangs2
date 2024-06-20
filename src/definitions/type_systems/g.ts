@@ -1,9 +1,9 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const tb = g.typeSystemBuilder;
+  const lb = g.typeSystemBuilder;
 
-  tb.define("tsys+generic", "Generic", [
+  lb.define("tsys+generic", "Generic", [
     {
       title: "${name} Type System",
       href: "https://en.wikipedia.org/wiki/generic_programming",
@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  tb.define("tsys+gradual", "Gradual", [
+  lb.define("tsys+gradual", "Gradual", [
     {
       title: "${name} Type System",
       href: "https://en.wikipedia.org/wiki/gradual_typing",

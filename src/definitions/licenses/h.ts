@@ -4,7 +4,7 @@ export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
 
   lb.define(
-    "license+historical-permission-notice-and-disclaimer",
+    "lic+historical-permission-notice-and-disclaimer",
     "Historical Permission Notice and Disclaimer",
     [
       {

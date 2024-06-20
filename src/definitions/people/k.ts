@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
@@ -41,11 +41,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("person+Kent-Pitman", "Kent Pitman", [
-    {
-      title: "Kent Pitman",
-      href: "https://en.wikipedia.org/wiki/Kent_Pitman",
-      kind: "wikipedia",
-    },
+    { title: "Kent Pitman", href: "https://en.wikipedia.org/wiki/Kent_Pitman", kind: "wikipedia" },
   ]);
 
   lb.define("person+Khang-Dao", "Khang Dao", []);
@@ -67,11 +63,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("person+Konrad-Zuse", "Konrad Zuse", [
-    {
-      title: "Konrad Zuse",
-      href: "https://en.wikipedia.org/wiki/Konrad_Zuse",
-      kind: "wikipedia",
-    },
+    { title: "Konrad Zuse", href: "https://en.wikipedia.org/wiki/Konrad_Zuse", kind: "wikipedia" },
   ]);
 
   lb.define("person+Kostis-Sagonas", "Kostis Sagonas", []);

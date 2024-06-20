@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
 
-  lb.define("license+cc-attribution", "Creative Commons Attribution", [
+  lb.define("lic+cc-attribution", "Creative Commons Attribution", [
     {
       kind: "wikipedia",
       title: "Creative Commons Attribution",
@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+cc-by-sa", "CC-BY-SA", [
+  lb.define("lic+cc-by-sa", "CC-BY-SA", [
     {
       kind: "wikipedia",
       title: "CC-BY-SA",
@@ -19,15 +19,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+cecill", "CeCILL", [
-    {
-      kind: "wikipedia",
-      title: "CeCILL",
-      href: "https://en.wikipedia.org/wiki/CeCILL",
-    },
+  lb.define("lic+cecill", "CeCILL", [
+    { kind: "wikipedia", title: "CeCILL", href: "https://en.wikipedia.org/wiki/CeCILL" },
   ]);
 
-  lb.define("license+closed-source", "Closed source", [
+  lb.define("lic+closed-source", "Closed source", [
     {
       kind: "wikipedia",
       title: "Closed source",
@@ -35,7 +31,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+commercial", "Commercial", [
+  lb.define("lic+commercial", "Commercial", [
     {
       kind: "wikipedia",
       title: "Commercial",
@@ -48,7 +44,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+commercial-software", "commercial software", [
+  lb.define("lic+commercial-software", "commercial software", [
     {
       kind: "wikipedia",
       title: "commercial software",
@@ -56,7 +52,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+cpl", "CPL", [
+  lb.define("lic+cpl", "CPL", [
     {
       kind: "wikipedia",
       title: "CPL",

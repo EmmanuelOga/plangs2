@@ -17,11 +17,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("para+markup", "markup", [
-    {
-      kind: "wikipedia",
-      title: "markup",
-      href: "https://en.wikipedia.org/wiki/Markup_language",
-    },
+    { kind: "wikipedia", title: "markup", href: "https://en.wikipedia.org/wiki/Markup_language" },
   ]);
 
   lb.define("para+message-passing", "message passing", [
@@ -33,11 +29,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("para+meta", "meta", [
-    {
-      kind: "wikipedia",
-      title: "meta",
-      href: "https://en.wikipedia.org/wiki/Metaprogramming",
-    },
+    { kind: "wikipedia", title: "meta", href: "https://en.wikipedia.org/wiki/Metaprogramming" },
   ]);
 
   lb.define("para+modular", "modular", [

@@ -38,11 +38,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("para+array", "array", [
-    {
-      kind: "wikipedia",
-      title: "array",
-      href: "https://en.wikipedia.org/wiki/Array_programming",
-    },
+    { kind: "wikipedia", title: "array", href: "https://en.wikipedia.org/wiki/Array_programming" },
   ]);
 
   lb.define("para+aspect-oriented", "aspect-oriented", [

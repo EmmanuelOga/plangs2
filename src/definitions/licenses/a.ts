@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
 
-  lb.define("license+academic-free", "Academic Free License", [
+  lb.define("lic+academic-free", "Academic Free License", [
     {
       kind: "wikipedia",
       title: "Academic Free License",
@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+agpl", "AGPL", [
+  lb.define("lic+agpl", "AGPL", [
     {
       kind: "wikipedia",
       title: "AGPL",
@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+agpl-3", "AGPLv3", [
+  lb.define("lic+agpl-3", "AGPLv3", [
     {
       kind: "wikipedia",
       title: "AGPL-3.0-or-later",
@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+apache", "APSL", [
+  lb.define("lic+apache", "APSL", [
     {
       kind: "wikipedia",
       title: "Apache",
@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+apache-2", "Apache 2", [
+  lb.define("lic+apache-2", "Apache 2", [
     {
       kind: "wikipedia",
       title: "Apache License 2.0",
@@ -73,7 +73,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+apache-2-with-llvm-exception", "Apache-2.0-with-LLVM-Exception", [
+  lb.define("lic+apache-2-with-llvm-exception", "Apache-2.0-with-LLVM-Exception", [
     {
       kind: "wikipedia",
       title: "Apache-2.0-with-LLVM-Exception",
@@ -81,7 +81,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+artistic", "Artistic License", [
+  lb.define("lic+artistic", "Artistic License", [
     {
       kind: "wikipedia",
       title: "Artistic License",
@@ -89,7 +89,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+artistic-2", "Artistic License 2", [
+  lb.define("lic+artistic-2", "Artistic License 2", [
     {
       kind: "wikipedia",
       title: "Artistic License 2.0",
@@ -102,7 +102,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+asl-2", "ASL 2.0", [
+  lb.define("lic+asl-2", "ASL 2.0", [
     {
       kind: "wikipedia",
       title: "ASL 2.0",

@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
@@ -42,11 +42,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("person+RC-Holt", "R.C. Holt", [
-    {
-      title: "R.C. Holt",
-      href: "https://en.wikipedia.org/wiki/Ric_Holt",
-      kind: "wikipedia",
-    },
+    { title: "R.C. Holt", href: "https://en.wikipedia.org/wiki/Ric_Holt", kind: "wikipedia" },
   ]);
 
   lb.define("person+Remington-Rand", "Remington Rand", [
@@ -58,19 +54,11 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("person+Ric-Holt", "Ric Holt", [
-    {
-      title: "Ric Holt",
-      href: "https://en.wikipedia.org/wiki/Ric_Holt",
-      kind: "wikipedia",
-    },
+    { title: "Ric Holt", href: "https://en.wikipedia.org/wiki/Ric_Holt", kind: "wikipedia" },
   ]);
 
   lb.define("person+Rich-Hickey", "Rich Hickey", [
-    {
-      title: "Rich Hickey",
-      href: "https://en.wikipedia.org/wiki/Rich_Hickey",
-      kind: "wikipedia",
-    },
+    { title: "Rich Hickey", href: "https://en.wikipedia.org/wiki/Rich_Hickey", kind: "wikipedia" },
   ]);
 
   lb.define("person+Richard-Blomme", "Richard Blomme", []);
@@ -128,11 +116,7 @@ export function define(g: PlangsGraph) {
   lb.define("person+Rob-Galleon", "Rob Galleon", []);
 
   lb.define("person+Rob-Pike", "Rob Pike", [
-    {
-      title: "Rob Pike",
-      href: "https://en.wikipedia.org/wiki/Rob_Pike",
-      kind: "wikipedia",
-    },
+    { title: "Rob Pike", href: "https://en.wikipedia.org/wiki/Rob_Pike", kind: "wikipedia" },
   ]);
 
   lb.define("person+Robert-A-Greenes", "Robert A. Greenes", [
@@ -236,11 +220,7 @@ export function define(g: PlangsGraph) {
   lb.define("person+Rodrigo-B-De-Oliveira", "Rodrigo B. De Oliveira", []);
 
   lb.define("person+Roger-Hui", "Roger Hui", [
-    {
-      title: "Roger Hui",
-      href: "https://en.wikipedia.org/wiki/Roger_Hui",
-      kind: "wikipedia",
-    },
+    { title: "Roger Hui", href: "https://en.wikipedia.org/wiki/Roger_Hui", kind: "wikipedia" },
   ]);
 
   lb.define("person+Roger-Moore", "Roger Moore", [
@@ -264,11 +244,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("person+Ross-Ihaka", "Ross Ihaka", [
-    {
-      title: "Ross Ihaka",
-      href: "https://en.wikipedia.org/wiki/Ross_Ihaka",
-      kind: "wikipedia",
-    },
+    { title: "Ross Ihaka", href: "https://en.wikipedia.org/wiki/Ross_Ihaka", kind: "wikipedia" },
   ]);
 
   lb.define("person+Roy-Levin", "Roy Levin", []);

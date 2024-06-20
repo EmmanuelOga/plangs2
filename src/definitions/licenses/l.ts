@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
 
-  lb.define("license+lgpl", "LGPL", [
+  lb.define("lic+lgpl", "LGPL", [
     {
       kind: "wikipedia",
       title: "LGPL",
@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+lgpl-2", "LGPLv2", [
+  lb.define("lic+lgpl-2", "LGPLv2", [
     {
       kind: "wikipedia",
       title: "LGPLv2",
@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+lgpl-2.1", "LGPLv2.1", [
+  lb.define("lic+lgpl-2.1", "LGPLv2.1", [
     {
       kind: "wikipedia",
       title: "LGPLv2.1",
@@ -37,7 +37,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+lgpl-2.1-only", "LGPL-2.1-only", [
+  lb.define("lic+lgpl-2.1-only", "LGPL-2.1-only", [
     {
       kind: "wikipedia",
       title: "LGPL-2.1-only",
@@ -45,7 +45,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+lgpl-2.1-plus", "LGPLv2.1+", [
+  lb.define("lic+lgpl-2.1-plus", "LGPLv2.1+", [
     {
       kind: "wikipedia",
       title: "LGPLv2.1+",
@@ -53,7 +53,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+lgpl-3", "LGPL 3.0", [
+  lb.define("lic+lgpl-3", "LGPL 3.0", [
     {
       kind: "wikipedia",
       title: "LGPL 3.0",
@@ -61,11 +61,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+linux", "Linux", [
-    {
-      kind: "wikipedia",
-      title: "Linux",
-      href: "https://en.wikipedia.org/wiki/Linux",
-    },
+  lb.define("lic+linux", "Linux", [
+    { kind: "wikipedia", title: "Linux", href: "https://en.wikipedia.org/wiki/Linux" },
   ]);
 }

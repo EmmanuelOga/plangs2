@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
 
-  lb.define("license+eclipse-public", "EPL", [
+  lb.define("lic+eclipse-public", "EPL", [
     {
       kind: "wikipedia",
       title: "EPL",
@@ -11,11 +11,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+eula", "EULA", [
-    {
-      kind: "wikipedia",
-      title: "EULA",
-      href: "https://en.wikipedia.org/wiki/EULA",
-    },
+  lb.define("lic+eula", "EULA", [
+    { kind: "wikipedia", title: "EULA", href: "https://en.wikipedia.org/wiki/EULA" },
   ]);
 }

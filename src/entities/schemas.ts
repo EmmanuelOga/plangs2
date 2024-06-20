@@ -76,7 +76,7 @@ export interface V_License {
   websites: Link[];
 }
 
-export type T_Id_V_License = T_VId<`license`>;
+export type T_Id_V_License = T_VId<`lic`>;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Types starting with "E_" are used for Edge data.

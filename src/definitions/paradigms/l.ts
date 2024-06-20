@@ -12,11 +12,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("para+lazy", "Lazy", [
-    {
-      kind: "wikipedia",
-      title: "lazy",
-      href: "https://en.wikipedia.org/wiki/Lazy_evaluation",
-    },
+    { kind: "wikipedia", title: "lazy", href: "https://en.wikipedia.org/wiki/Lazy_evaluation" },
   ]);
 
   lb.define("para+literate", "Literate", [

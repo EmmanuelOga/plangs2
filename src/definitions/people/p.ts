@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
@@ -24,11 +24,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("person+Paul-Hudak", "Paul Hudak", [
-    {
-      title: "Paul Hudak",
-      href: "https://en.wikipedia.org/wiki/Paul_Hudak",
-      kind: "wikipedia",
-    },
+    { title: "Paul Hudak", href: "https://en.wikipedia.org/wiki/Paul_Hudak", kind: "wikipedia" },
   ]);
 
   lb.define("person+Paul-King", "Paul King", []);
@@ -84,11 +80,7 @@ export function define(g: PlangsGraph) {
   lb.define("person+Phil-Freeman", "Phil Freeman", []);
 
   lb.define("person+Phil-Moorby", "Phil Moorby", [
-    {
-      title: "Phil Moorby",
-      href: "https://en.wikipedia.org/wiki/Phil_Moorby",
-      kind: "wikipedia",
-    },
+    { title: "Phil Moorby", href: "https://en.wikipedia.org/wiki/Phil_Moorby", kind: "wikipedia" },
   ]);
 
   lb.define("person+Philip-Wadler", "Philip Wadler", [
@@ -112,10 +104,6 @@ export function define(g: PlangsGraph) {
   lb.define("person+Pierre-Yves-Strub", "Pierre-Yves Strub", []);
 
   lb.define("person+Prabhu-Goel", "Prabhu Goel", [
-    {
-      title: "Prabhu Goel",
-      href: "https://en.wikipedia.org/wiki/Prabhu_Goel",
-      kind: "wikipedia",
-    },
+    { title: "Prabhu Goel", href: "https://en.wikipedia.org/wiki/Prabhu_Goel", kind: "wikipedia" },
   ]);
 }

@@ -1,14 +1,10 @@
-import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
 
   lb.define("person+W-A-Wulf", "W. A. Wulf", [
-    {
-      title: "W. A. Wulf",
-      href: "https://en.wikipedia.org/wiki/William_Wulf",
-      kind: "wikipedia",
-    },
+    { title: "W. A. Wulf", href: "https://en.wikipedia.org/wiki/William_Wulf", kind: "wikipedia" },
   ]);
 
   lb.define("person+Wally-Feurzeig", "Wally Feurzeig", [

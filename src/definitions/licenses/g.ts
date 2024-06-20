@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
 
-  lb.define("license+gnu-affero-gpl", "GNU Affero General Public License", [
+  lb.define("lic+gnu-affero-gpl", "GNU Affero General Public License", [
     {
       kind: "wikipedia",
       title: "GNU Affero General Public License",
@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+gnu-gpl", "GNU GPL", [
+  lb.define("lic+gnu-gpl", "GNU GPL", [
     {
       kind: "wikipedia",
       title: "GNU General Public License",
@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+gnu-gpl-2", "GNU GPLv2", [
+  lb.define("lic+gnu-gpl-2", "GNU GPLv2", [
     {
       kind: "wikipedia",
       title: "GNU GPL v2",
@@ -42,7 +42,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+gnu-gpl-2-plus", "GNU GPLv2+", [
+  lb.define("lic+gnu-gpl-2-plus", "GNU GPLv2+", [
     {
       kind: "wikipedia",
       title: "GNU GPLv2+",
@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+gnu-gpl-3", "GNU GPLv3", [
+  lb.define("lic+gnu-gpl-3", "GNU GPLv3", [
     {
       kind: "wikipedia",
       title: "GNU General Public License v3.0",
@@ -63,7 +63,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+gnu-gpl-3-plus", "GNU GPL 3+", [
+  lb.define("lic+gnu-gpl-3-plus", "GNU GPL 3+", [
     {
       kind: "wikipedia",
       title: "GNU GPL 3+",
@@ -71,7 +71,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+gnu-lesser-gpl", "GNU Lesser General Public License", [
+  lb.define("lic+gnu-lesser-gpl", "GNU Lesser General Public License", [
     {
       kind: "wikipedia",
       title: "GNU Lesser General Public License",
@@ -79,7 +79,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+gnu-lesser-public", "GNU Lesser Public License", [
+  lb.define("lic+gnu-lesser-public", "GNU Lesser Public License", [
     {
       kind: "wikipedia",
       title: "GNU Lesser Public License",
@@ -87,7 +87,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+gnu-lgpl-2-plus", "Standard libraries licensed under the GNU LGPLv2+", [
+  lb.define("lic+gnu-lgpl-2-plus", "Standard libraries licensed under the GNU LGPLv2+", [
     {
       kind: "wikipedia",
       title: "Standard libraries licensed under the GNU LGPLv2+",
@@ -95,7 +95,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+gpl", "GPL", [
+  lb.define("lic+gpl", "GPL", [
     {
       kind: "wikipedia",
       title: "GPL",
@@ -108,7 +108,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+gpl-1", "GPL-1.0-or-later", [
+  lb.define("lic+gpl-1", "GPL-1.0-or-later", [
     {
       kind: "wikipedia",
       title: "GPL-1.0-or-later",
@@ -116,7 +116,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+gpl-2", "GPLv2", [
+  lb.define("lic+gpl-2", "GPLv2", [
     {
       kind: "wikipedia",
       title: "GPLv2",
@@ -134,7 +134,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+gpl-2-3", "GPL 2.0, 3.0", [
+  lb.define("lic+gpl-2-3", "GPL 2.0, 3.0", [
     {
       kind: "wikipedia",
       title: "GPL 2.0, 3.0",
@@ -142,15 +142,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+gpl-2-plus", "GPL 2+", [
-    {
-      kind: "wikipedia",
-      title: "GPL 2+",
-      href: "https://en.wikipedia.org/wiki/GPL_3#Version_2",
-    },
+  lb.define("lic+gpl-2-plus", "GPL 2+", [
+    { kind: "wikipedia", title: "GPL 2+", href: "https://en.wikipedia.org/wiki/GPL_3#Version_2" },
   ]);
 
-  lb.define("license+gpl-3", "GPLv3", [
+  lb.define("lic+gpl-3", "GPLv3", [
     {
       kind: "wikipedia",
       title: "GPLv3",
@@ -168,7 +164,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+gpl-3-plus", "GPLv3+", [
+  lb.define("lic+gpl-3-plus", "GPLv3+", [
     {
       kind: "wikipedia",
       title: "GPLv3+",

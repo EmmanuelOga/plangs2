@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
 
-  lb.define("license+free-and-open-source", "free and open-source", [
+  lb.define("lic+free-and-open-source", "free and open-source", [
     {
       kind: "wikipedia",
       title: "free and open-source",
@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+free-software", "free software", [
+  lb.define("lic+free-software", "free software", [
     {
       kind: "wikipedia",
       title: "free software",
@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+freely-redistributable-software", "Freely redistributable software", [
+  lb.define("lic+freely-redistributable-software", "Freely redistributable software", [
     {
       kind: "wikipedia",
       title: "Freely redistributable software",
@@ -32,15 +32,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+freemium", "Freemium", [
-    {
-      kind: "wikipedia",
-      title: "Freemium",
-      href: "https://en.wikipedia.org/wiki/Freemium",
-    },
+  lb.define("lic+freemium", "Freemium", [
+    { kind: "wikipedia", title: "Freemium", href: "https://en.wikipedia.org/wiki/Freemium" },
   ]);
 
-  lb.define("license+frees", "free licenses", [
+  lb.define("lic+frees", "free licenses", [
     {
       kind: "wikipedia",
       title: "free licenses",
@@ -48,11 +44,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+freeware", "freeware", [
-    {
-      kind: "wikipedia",
-      title: "freeware",
-      href: "https://en.wikipedia.org/wiki/Freeware",
-    },
+  lb.define("lic+freeware", "freeware", [
+    { kind: "wikipedia", title: "freeware", href: "https://en.wikipedia.org/wiki/Freeware" },
   ]);
 }

@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
 
-  lb.define("license+boost", "Boost", [
+  lb.define("lic+boost", "Boost", [
     {
       kind: "wikipedia",
       title: "Boost",
@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+bsd", "BSD", [
+  lb.define("lic+bsd", "BSD", [
     {
       kind: "wikipedia",
       title: "BSD",
@@ -39,7 +39,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+bsd-2-clause", "BSD 2-Clause", [
+  lb.define("lic+bsd-2-clause", "BSD 2-Clause", [
     {
       kind: "wikipedia",
       title: "BSD 2-Clause",
@@ -47,15 +47,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+bsd-3", "BSD-3", [
-    {
-      kind: "wikipedia",
-      title: "BSD-3",
-      href: "https://en.wikipedia.org/wiki/BSD-3",
-    },
+  lb.define("lic+bsd-3", "BSD-3", [
+    { kind: "wikipedia", title: "BSD-3", href: "https://en.wikipedia.org/wiki/BSD-3" },
   ]);
 
-  lb.define("license+bsd-3-clause", "BSD-3-Clause", [
+  lb.define("lic+bsd-3-clause", "BSD-3-Clause", [
     {
       kind: "wikipedia",
       title: "BSD-3-Clause",
@@ -63,7 +59,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+bsd-like", "BSD-like", [
+  lb.define("lic+bsd-like", "BSD-like", [
     {
       kind: "wikipedia",
       title: "BSD-like",
@@ -76,7 +72,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+bsd-revised", "Revised BSD", [
+  lb.define("lic+bsd-revised", "Revised BSD", [
     {
       kind: "wikipedia",
       title: "Revised BSD",
@@ -89,7 +85,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  lb.define("license+bsds", "BSD licenses", [
+  lb.define("lic+bsds", "BSD licenses", [
     {
       kind: "wikipedia",
       title: "BSD licenses",

@@ -1,0 +1,13 @@
+import type { PlangsGraph } from '../../entities/plangs_graph';
+
+export function define(g: PlangsGraph) {
+   const lb = g.<%= it.builderName %>Builder;
+
+<% for (const [lid, name, websites] of it.data) { %>
+  lb.define(
+    <%= lid %>,
+    <%= name %>,
+    <%= websites %>);
+
+<% } %>
+}

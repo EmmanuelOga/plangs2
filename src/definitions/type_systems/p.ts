@@ -1,9 +1,9 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const tb = g.typeSystemBuilder;
+  const lb = g.typeSystemBuilder;
 
-  tb.define("tsys+parametric", "Parametric", [
+  lb.define("tsys+parametric", "Parametric", [
     {
       title: "${name} Type System",
       href: "https://en.wikipedia.org/wiki/parametric_polymorphism",
@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
-  tb.define("tsys+polymorphic", "Polymorphic", [
+  lb.define("tsys+polymorphic", "Polymorphic", [
     {
       title: "${name} Type System",
       href: "https://en.wikipedia.org/wiki/polymorphism_(computer_science)",

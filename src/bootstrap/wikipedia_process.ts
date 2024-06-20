@@ -287,14 +287,14 @@ function assign(g: PlangsGraph, pvid: T_VId<"pl">, key: DATA_ATTR, type: DATA_TY
       if (type !== "links") return;
       for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
         const key = cleanLicense(toAlphaNum(title));
-        const lic = g.v_license.declare(`license+${key}`);
+        const lic = g.v_license.declare(`lic+${key}`);
         if (!lic.name || lic.name.length > title.length) lic.name = title.trim(); // Keep the shortest name.
         mergeLink(lic, {
           kind: "wikipedia",
           title,
           href: `${WIKIPEDIA_URL}${href}`,
         });
-        g.e_has_license.connect(pvid, `license+${key}`);
+        g.e_has_license.connect(pvid, `lic+${key}`);
       }
       return;
 

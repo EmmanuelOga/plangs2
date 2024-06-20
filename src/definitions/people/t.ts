@@ -1,14 +1,10 @@
-import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
 
   lb.define("person+Ted-Kaehler", "Ted Kaehler", [
-    {
-      title: "Ted Kaehler",
-      href: "https://en.wikipedia.org/wiki/Ted_Kaehler",
-      kind: "wikipedia",
-    },
+    { title: "Ted Kaehler", href: "https://en.wikipedia.org/wiki/Ted_Kaehler", kind: "wikipedia" },
   ]);
 
   lb.define("person+Terrance-Swift", "Terrance Swift", []);
@@ -52,19 +48,11 @@ export function define(g: PlangsGraph) {
   lb.define("person+Tim-Burks", "Tim Burks", []);
 
   lb.define("person+Tim-Sweeney", "Tim Sweeney", [
-    {
-      title: "Tim Sweeney",
-      href: "https://en.wikipedia.org/wiki/Tim_Sweeney",
-      kind: "wikipedia",
-    },
+    { title: "Tim Sweeney", href: "https://en.wikipedia.org/wiki/Tim_Sweeney", kind: "wikipedia" },
   ]);
 
   lb.define("person+Tom-Duff", "Tom Duff", [
-    {
-      title: "Tom Duff",
-      href: "https://en.wikipedia.org/wiki/Tom_Duff",
-      kind: "wikipedia",
-    },
+    { title: "Tom Duff", href: "https://en.wikipedia.org/wiki/Tom_Duff", kind: "wikipedia" },
   ]);
 
   lb.define("person+Tom-Lord", "Tom Lord", []);
@@ -80,11 +68,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("person+Tony-Hoare", "Tony Hoare", [
-    {
-      title: "Tony Hoare",
-      href: "https://en.wikipedia.org/wiki/Tony_Hoare",
-      kind: "wikipedia",
-    },
+    { title: "Tony Hoare", href: "https://en.wikipedia.org/wiki/Tony_Hoare", kind: "wikipedia" },
   ]);
 
   lb.define("person+Trevor-Hastie", "Trevor Hastie", [

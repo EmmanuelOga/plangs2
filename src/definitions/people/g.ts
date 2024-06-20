@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
@@ -32,19 +32,11 @@ export function define(g: PlangsGraph) {
   lb.define("person+Gavin-King", "Gavin King", []);
 
   lb.define("person+Gavin-Wood", "Gavin Wood", [
-    {
-      title: "Gavin Wood",
-      href: "https://en.wikipedia.org/wiki/Gavin_Wood",
-      kind: "wikipedia",
-    },
+    { title: "Gavin Wood", href: "https://en.wikipedia.org/wiki/Gavin_Wood", kind: "wikipedia" },
   ]);
 
   lb.define("person+Ge-Wang", "Ge Wang", [
-    {
-      title: "Ge Wang",
-      href: "https://en.wikipedia.org/wiki/Ge_Wang",
-      kind: "wikipedia",
-    },
+    { title: "Ge Wang", href: "https://en.wikipedia.org/wiki/Ge_Wang", kind: "wikipedia" },
   ]);
 
   lb.define("person+Geoffrey-Gordon", "Geoffrey Gordon", [
@@ -167,10 +159,6 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("person+Guy-Steele", "Guy Steele", [
-    {
-      title: "Guy Steele",
-      href: "https://en.wikipedia.org/wiki/Guy_Steele",
-      kind: "wikipedia",
-    },
+    { title: "Guy Steele", href: "https://en.wikipedia.org/wiki/Guy_Steele", kind: "wikipedia" },
   ]);
 }

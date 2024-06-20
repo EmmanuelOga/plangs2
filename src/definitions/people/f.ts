@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
@@ -20,11 +20,7 @@ export function define(g: PlangsGraph) {
   lb.define("person+Fredrik-Hubinette", "Fredrik Hübinette", []);
 
   lb.define("person+Free-Pascal", "Free Pascal", [
-    {
-      title: "Free Pascal",
-      href: "https://en.wikipedia.org/wiki/Free_Pascal",
-      kind: "wikipedia",
-    },
+    { title: "Free Pascal", href: "https://en.wikipedia.org/wiki/Free_Pascal", kind: "wikipedia" },
   ]);
 
   lb.define("person+Friedrich-L-Bauer", "Friedrich L. Bauer", [

@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
@@ -30,11 +30,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("person+James-Cordy", "James Cordy", [
-    {
-      title: "James Cordy",
-      href: "https://en.wikipedia.org/wiki/James_Cordy",
-      kind: "wikipedia",
-    },
+    { title: "James Cordy", href: "https://en.wikipedia.org/wiki/James_Cordy", kind: "wikipedia" },
   ]);
 
   lb.define("person+James-Davenport", "James Davenport", []);
@@ -152,11 +148,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("person+Jim-Horning", "Jim Horning", [
-    {
-      title: "Jim Horning",
-      href: "https://en.wikipedia.org/wiki/Jim_Horning",
-      kind: "wikipedia",
-    },
+    { title: "Jim Horning", href: "https://en.wikipedia.org/wiki/Jim_Horning", kind: "wikipedia" },
   ]);
 
   lb.define("person+Joe-Armstrong", "Joe Armstrong", [
@@ -170,11 +162,7 @@ export function define(g: PlangsGraph) {
   lb.define("person+Johannes-J-Bisschop", "Johannes J. Bisschop", []);
 
   lb.define("person+John-Backus", "John Backus", [
-    {
-      title: "John Backus",
-      href: "https://en.wikipedia.org/wiki/John_Backus",
-      kind: "wikipedia",
-    },
+    { title: "John Backus", href: "https://en.wikipedia.org/wiki/John_Backus", kind: "wikipedia" },
   ]);
 
   lb.define("person+John-Bass", "John Bass", []);
@@ -290,11 +278,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("person+JR-Cordy", "J.R. Cordy", [
-    {
-      title: "J.R. Cordy",
-      href: "https://en.wikipedia.org/wiki/James_Cordy",
-      kind: "wikipedia",
-    },
+    { title: "J.R. Cordy", href: "https://en.wikipedia.org/wiki/James_Cordy", kind: "wikipedia" },
   ]);
 
   lb.define("person+Juan-Chen", "Juan Chen", []);

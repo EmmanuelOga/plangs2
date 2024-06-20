@@ -20,10 +20,6 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("para+grid", "grid", [
-    {
-      kind: "wikipedia",
-      title: "grid",
-      href: "https://en.wikipedia.org/wiki/Grid_computing",
-    },
+    { kind: "wikipedia", title: "grid", href: "https://en.wikipedia.org/wiki/Grid_computing" },
   ]);
 }

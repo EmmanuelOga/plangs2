@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
@@ -30,11 +30,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("person+Larry-Wall", "Larry Wall", [
-    {
-      title: "Larry Wall",
-      href: "https://en.wikipedia.org/wiki/Larry_Wall",
-      kind: "wikipedia",
-    },
+    { title: "Larry Wall", href: "https://en.wikipedia.org/wiki/Larry_Wall", kind: "wikipedia" },
   ]);
 
   lb.define("person+Lars-Bak", "Lars Bak", [

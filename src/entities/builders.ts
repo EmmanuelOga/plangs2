@@ -59,12 +59,18 @@ export class ParadigmBuilder {
 }
 
 export class PersonBuilder {
+  define(arg0: string, arg1: string, arg2: { title: string; href: string; kind: string }[]) {
+    throw new Error("Method not implemented.");
+  }
   constructor(readonly g: PlangsGraph) {}
 
   addWebsites(p: Partial<V_Person>, websites: Link[]) {}
 }
 
 export class PlatformBuilder {
+  define(arg0: string, arg1: string, arg2: { kind: string; title: string; href: string }[]) {
+    throw new Error("Method not implemented.");
+  }
   constructor(readonly g: PlangsGraph) {}
 }
 

@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
@@ -24,11 +24,7 @@ export function define(g: PlangsGraph) {
   lb.define("person+Barry-Trager", "Barry Trager", []);
 
   lb.define("person+Ben-Fry", "Ben Fry", [
-    {
-      title: "Ben Fry",
-      href: "https://en.wikipedia.org/wiki/Ben_Fry",
-      kind: "wikipedia",
-    },
+    { title: "Ben Fry", href: "https://en.wikipedia.org/wiki/Ben_Fry", kind: "wikipedia" },
   ]);
 
   lb.define("person+Ben-Olmstead", "Ben Olmstead", []);
@@ -94,11 +90,7 @@ export function define(g: PlangsGraph) {
   lb.define("person+Blair-McGlashan", "Blair McGlashan", []);
 
   lb.define("person+Bob-Bemer", "Bob Bemer", [
-    {
-      title: "Bob Bemer",
-      href: "https://en.wikipedia.org/wiki/Bob_Bemer",
-      kind: "wikipedia",
-    },
+    { title: "Bob Bemer", href: "https://en.wikipedia.org/wiki/Bob_Bemer", kind: "wikipedia" },
   ]);
 
   lb.define("person+Borland-International", "Borland International", []);
@@ -106,11 +98,7 @@ export function define(g: PlangsGraph) {
   lb.define("person+Brad-Chamberlain", "Brad Chamberlain", []);
 
   lb.define("person+Brad-Cox", "Brad Cox", [
-    {
-      title: "Brad Cox",
-      href: "https://en.wikipedia.org/wiki/Brad_Cox",
-      kind: "wikipedia",
-    },
+    { title: "Brad Cox", href: "https://en.wikipedia.org/wiki/Brad_Cox", kind: "wikipedia" },
   ]);
 
   lb.define("person+Brendan-Eich", "Brendan Eich", [
@@ -146,11 +134,7 @@ export function define(g: PlangsGraph) {
   lb.define("person+Brooke-Boering", "Brooke Boering", []);
 
   lb.define("person+Bruce-Arden", "Bruce Arden", [
-    {
-      title: "Bruce Arden",
-      href: "https://en.wikipedia.org/wiki/Bruce_Arden",
-      kind: "wikipedia",
-    },
+    { title: "Bruce Arden", href: "https://en.wikipedia.org/wiki/Bruce_Arden", kind: "wikipedia" },
   ]);
 
   lb.define("person+Bruce-Daniels", "Bruce Daniels", [

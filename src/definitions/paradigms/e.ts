@@ -17,11 +17,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("para+embedded", "embedded", [
-    {
-      kind: "wikipedia",
-      title: "embedded",
-      href: "https://en.wikipedia.org/wiki/Embedded_system",
-    },
+    { kind: "wikipedia", title: "embedded", href: "https://en.wikipedia.org/wiki/Embedded_system" },
   ]);
 
   lb.define("para+esoteric", "Esoteric", [

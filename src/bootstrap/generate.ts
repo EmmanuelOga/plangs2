@@ -11,6 +11,8 @@ import { toAlphaNum } from "../util";
 import { parseAll } from "./wikipedia_process";
 import { groupBy } from "lodash-es";
 import { PLANG_IDS } from "./plang_ids";
+import { VertexTable } from "../graph/vertex_table";
+import { T_VId_Any } from "../graph/vertex";
 
 const Templ = new Eta({ views: __dirname, autoEscape: false });
 
@@ -32,17 +34,17 @@ async function generateAll() {
 
   console.log(new Date().toISOString());
 
-  await genLicenses(g);
-  await genParadigms(g);
-  await genPeople(g);
-  await genPlatforms(g);
-  await genTypeSystems(g);
+  genAtoZ(g.v_license, "licenses", "license");
+  genAtoZ(g.v_paradigm, "paradigms", "paradigm");
+  genAtoZ(g.v_person, "people", "person");
+  genAtoZ(g.v_platform, "platforms", "platform");
+  genAtoZ(g.v_tsystem, "type_systems", "typeSystem");
 
-  for (const vid of PLANG_IDS) {
-    if (!(await genPlang(g, vid))) {
-      console.log(`Failed to generate ${vid}`);
-    }
-  }
+  // for (const vid of PLANG_IDS) {
+  //   if (!(await genPlang(g, vid))) {
+  //     console.log(`Failed to generate ${vid}`);
+  //   }
+  // }
 
   console.log("Finished generating definitions.");
 }
@@ -96,123 +98,35 @@ async function genPlang(g: PlangsGraph, plvid: T_Id_V_Plang): Promise<boolean> {
   return true;
 }
 
-async function genLicenses(g: PlangsGraph) {
-  const allIds = [...g.v_license.keys()].sort((id0, id1) =>
-    id0.toLowerCase().localeCompare(id1.toLowerCase()),
-  );
+// biome-ignore lint/suspicious/noExplicitAny: let me be.
+type _T_AnyVertex = any;
 
-  const grouped: Record<string, string[]> = groupBy(allIds, (id: string) =>
-    id["license+".length].toLowerCase(),
-  );
+function genAtoZ(
+  vtable: VertexTable<T_VId_Any, _T_AnyVertex>,
+  basename: string,
+  builderName: string,
+) {
+  const allVids = [...vtable.keys()]
+    .map((vid) => vid)
+    .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+  if (allVids.length === 0) return;
 
-  for (const [prefix, ids] of Object.entries(grouped)) {
-    const templ: Record<string, string[][]> = { licenses: [] };
-    for (const lid of ids) {
-      const lic = g.v_license.get(lid as T_Id_V_License);
-      if (!lic) {
-        console.log("License not found:", lid);
+  const key0 = allVids[0].indexOf("+") + 1;
+  const grouped: Record<string, string[]> = groupBy(allVids, (id: string) => id[key0]);
+
+  for (const [prefix, vids] of Object.entries(grouped)) {
+    const data: string[][] = [];
+    for (const vid of vids) {
+      const vertex = vtable.get(vid as T_VId_Any);
+      if (!vertex) {
+        console.log("Vertex not found:", vid);
         continue;
       }
-      templ.licenses.push([json(lid), json(lic.name), json(lic.websites ?? [])]);
+      data.push([json(vid), json(vertex.name), json(vertex.websites ?? [])]);
     }
-
-    const res = Templ.render("./license", templ);
-    const path = alphaTsPath("licenses", prefix);
-    await Bun.write(path, res);
-  }
-}
-
-async function genParadigms(g: PlangsGraph) {
-  const allIds = [...g.v_paradigm.keys()].sort((id0, id1) =>
-    id0.toLowerCase().localeCompare(id1.toLowerCase()),
-  );
-
-  const grouped: Record<string, string[]> = groupBy(allIds, (id: string) =>
-    id["para+".length].toLowerCase(),
-  );
-
-  for (const [prefix, ids] of Object.entries(grouped)) {
-    const templ: Record<string, string[][]> = { paradigms: [] };
-    for (const pid of ids) {
-      const para = g.v_paradigm.get(pid as T_Id_V_Paradigm);
-      if (!para) {
-        console.log("Paradigm not found:", pid);
-        continue;
-      }
-      templ.paradigms.push([
-        json(pid),
-        json(para.name ?? pid.split("+")[1]),
-        json(para.websites ?? []),
-      ]);
-    }
-
-    const res = Templ.render("./paradigm", templ);
-    const path = alphaTsPath("paradigms", prefix);
-    await Bun.write(path, res);
-  }
-}
-
-async function genPeople(g: PlangsGraph) {
-  const allIds = [...g.v_person.keys()].sort((id0, id1) =>
-    id0.toLowerCase().localeCompare(id1.toLowerCase()),
-  );
-
-  const grouped: Record<string, string[]> = groupBy(allIds, (id: string) =>
-    id["person+".length].toLowerCase(),
-  );
-
-  for (const [prefix, ids] of Object.entries(grouped)) {
-    const templ: Record<string, string[][]> = { people: [] };
-    for (const pid of ids) {
-      const person = g.v_person.get(pid as T_Id_V_Person);
-      if (!person) {
-        console.log("Person not found:", pid);
-        continue;
-      }
-      templ.people.push([json(pid), json(person.name), json(person.websites ?? [])]);
-    }
-    const res = Templ.render("./person", templ);
-    const path = alphaTsPath("people", prefix);
-    await Bun.write(path, res);
-  }
-}
-
-async function genPlatforms(g: PlangsGraph) {
-  for (const [pid, p] of g.v_platform) {
-    const templ: Record<string, string | string[] | string[][]> = {
-      pfvid: json(pid),
-      name: json(p.name),
-      websites: json(p.websites ?? []),
-    };
-    const res = Templ.render("./platform", templ);
-    const path = longTsPath("platforms", pid.split("+")[1]);
-    await Bun.write(path, res);
-  }
-}
-
-async function genTypeSystems(g: PlangsGraph) {
-  const allIds = [...g.v_tsystem.keys()].sort((id0, id1) =>
-    id0.toLowerCase().localeCompare(id1.toLowerCase()),
-  );
-
-  const grouped: Record<string, string[]> = groupBy(allIds, (id: string) =>
-    id["tsys+".length].toLowerCase(),
-  );
-
-  for (const [prefix, ids] of Object.entries(grouped)) {
-    const templ: Record<string, string[][]> = { licenses: [] };
-    for (const tsid of ids) {
-      const tsys = g.v_tsystem.get(tsid as T_Id_V_TypeSystem);
-      if (!tsys) {
-        console.log("Type system not found:", tsid);
-        continue;
-      }
-      templ.licenses.push([json(tsid), json(tsys.name), json(tsys.websites ?? [])]);
-    }
-
-    const res = Templ.render("./type_system", templ);
-    const path = alphaTsPath("type_systems", prefix);
-    await Bun.write(path, res);
+    const res = Templ.render("/a_to_z", { data, builderName });
+    const path = alphaTsPath(basename, prefix);
+    Bun.write(path, res);
   }
 }
 

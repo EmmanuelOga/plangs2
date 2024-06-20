@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
 
-  lb.define("license+ruby", "Ruby License", [
+  lb.define("lic+ruby", "Ruby License", [
     {
       kind: "wikipedia",
       title: "Ruby License",
