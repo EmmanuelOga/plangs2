@@ -12,11 +12,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("platf+commodore", "Commodore 128", [
-    {
-      kind: "wikipedia",
-      title: "PET",
-      href: "https://en.wikipedia.org/wiki/Commodore_PET",
-    },
+    { kind: "wikipedia", title: "PET", href: "https://en.wikipedia.org/wiki/Commodore_PET" },
     {
       kind: "wikipedia",
       title: "Commodore 128",

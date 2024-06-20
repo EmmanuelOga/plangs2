@@ -17,11 +17,7 @@ export function define(g: PlangsGraph) {
       title: "GNU General Public License",
       href: "https://en.wikipedia.org/wiki/GNU_General_Public_License",
     },
-    {
-      kind: "wikipedia",
-      title: "GNU GPL",
-      href: "https://en.wikipedia.org/wiki/GNU_GPL",
-    },
+    { kind: "wikipedia", title: "GNU GPL", href: "https://en.wikipedia.org/wiki/GNU_GPL" },
   ]);
 
   lb.define("lic+gnu-gpl-2", "GNU GPLv2", [
@@ -56,11 +52,7 @@ export function define(g: PlangsGraph) {
       title: "GNU General Public License v3.0",
       href: "https://en.wikipedia.org/wiki/GNU_General_Public_License#Version_3",
     },
-    {
-      kind: "wikipedia",
-      title: "GNU GPLv3",
-      href: "https://en.wikipedia.org/wiki/GNU_GPLv3",
-    },
+    { kind: "wikipedia", title: "GNU GPLv3", href: "https://en.wikipedia.org/wiki/GNU_GPLv3" },
   ]);
 
   lb.define("lic+gnu-gpl-3-plus", "GNU GPL 3+", [
@@ -101,11 +93,7 @@ export function define(g: PlangsGraph) {
       title: "GPL",
       href: "https://en.wikipedia.org/wiki/GNU_General_Public_License",
     },
-    {
-      kind: "wikipedia",
-      title: "GPL",
-      href: "https://en.wikipedia.org/wiki/GPL",
-    },
+    { kind: "wikipedia", title: "GPL", href: "https://en.wikipedia.org/wiki/GPL" },
   ]);
 
   lb.define("lic+gpl-1", "GPL-1.0-or-later", [
@@ -117,11 +105,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("lic+gpl-2", "GPLv2", [
-    {
-      kind: "wikipedia",
-      title: "GPLv2",
-      href: "https://en.wikipedia.org/wiki/GPLv2",
-    },
+    { kind: "wikipedia", title: "GPLv2", href: "https://en.wikipedia.org/wiki/GPLv2" },
     {
       kind: "wikipedia",
       title: "GPLv2",
@@ -157,11 +141,7 @@ export function define(g: PlangsGraph) {
       title: "GPLv3",
       href: "https://en.wikipedia.org/wiki/GNU_General_Public_License#Version_3",
     },
-    {
-      kind: "wikipedia",
-      title: "GPL 3",
-      href: "https://en.wikipedia.org/wiki/GPL3",
-    },
+    { kind: "wikipedia", title: "GPL 3", href: "https://en.wikipedia.org/wiki/GPL3" },
   ]);
 
   lb.define("lic+gpl-3-plus", "GPLv3+", [

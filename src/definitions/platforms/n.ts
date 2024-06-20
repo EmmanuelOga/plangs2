@@ -9,11 +9,7 @@ export function define(g: PlangsGraph) {
       title: ".NET Framework",
       href: "https://en.wikipedia.org/wiki/.NET_Framework",
     },
-    {
-      kind: "wikipedia",
-      title: ".NET",
-      href: "https://en.wikipedia.org/wiki/.NET",
-    },
+    { kind: "wikipedia", title: ".NET", href: "https://en.wikipedia.org/wiki/.NET" },
     {
       kind: "wikipedia",
       title: "Microsoft .NET",

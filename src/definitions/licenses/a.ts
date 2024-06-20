@@ -33,21 +33,13 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("lic+apache", "APSL", [
-    {
-      kind: "wikipedia",
-      title: "Apache",
-      href: "https://en.wikipedia.org/wiki/Apache_License",
-    },
+    { kind: "wikipedia", title: "Apache", href: "https://en.wikipedia.org/wiki/Apache_License" },
     {
       kind: "wikipedia",
       title: "APSL",
       href: "https://en.wikipedia.org/wiki/Apple_Public_Source_License",
     },
-    {
-      kind: "wikipedia",
-      title: "Apache",
-      href: "https://en.wikipedia.org/wiki/Apache_Licence",
-    },
+    { kind: "wikipedia", title: "Apache", href: "https://en.wikipedia.org/wiki/Apache_Licence" },
   ]);
 
   lb.define("lic+apache-2", "Apache 2", [
@@ -56,16 +48,8 @@ export function define(g: PlangsGraph) {
       title: "Apache License 2.0",
       href: "https://en.wikipedia.org/wiki/Apache_License_2.0",
     },
-    {
-      kind: "wikipedia",
-      title: "Apache 2",
-      href: "https://en.wikipedia.org/wiki/Apache_License",
-    },
-    {
-      kind: "wikipedia",
-      title: "Apache 2.0",
-      href: "https://en.wikipedia.org/wiki/Apache_2.0",
-    },
+    { kind: "wikipedia", title: "Apache 2", href: "https://en.wikipedia.org/wiki/Apache_License" },
+    { kind: "wikipedia", title: "Apache 2.0", href: "https://en.wikipedia.org/wiki/Apache_2.0" },
     {
       kind: "wikipedia",
       title: "Apache 2.0",

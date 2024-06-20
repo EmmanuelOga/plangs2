@@ -16,11 +16,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("platf+xbox", "Xbox Series X/S", [
-    {
-      kind: "wikipedia",
-      title: "Xbox One",
-      href: "https://en.wikipedia.org/wiki/Xbox_One",
-    },
+    { kind: "wikipedia", title: "Xbox One", href: "https://en.wikipedia.org/wiki/Xbox_One" },
     {
       kind: "wikipedia",
       title: "Xbox Series X/S",

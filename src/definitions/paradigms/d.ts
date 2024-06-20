@@ -27,11 +27,7 @@ export function define(g: PlangsGraph) {
       title: "Dataflow",
       href: "https://en.wikipedia.org/wiki/Dataflow_programming",
     },
-    {
-      kind: "wikipedia",
-      title: "dataflow",
-      href: "https://en.wikipedia.org/wiki/Dataflow",
-    },
+    { kind: "wikipedia", title: "dataflow", href: "https://en.wikipedia.org/wiki/Dataflow" },
   ]);
 
   lb.define("para+declarative", "declarative", [

@@ -14,11 +14,7 @@ export function define(g: PlangsGraph) {
       title: "LGPL",
       href: "https://en.wikipedia.org/wiki/GNU_Lesser_Public_License",
     },
-    {
-      kind: "wikipedia",
-      title: "LGPL",
-      href: "https://en.wikipedia.org/wiki/LGPL",
-    },
+    { kind: "wikipedia", title: "LGPL", href: "https://en.wikipedia.org/wiki/LGPL" },
   ]);
 
   lb.define("lic+lgpl-2", "LGPLv2", [

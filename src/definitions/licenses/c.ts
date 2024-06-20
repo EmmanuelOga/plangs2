@@ -37,11 +37,7 @@ export function define(g: PlangsGraph) {
       title: "Commercial",
       href: "https://en.wikipedia.org/wiki/Commercial_software",
     },
-    {
-      kind: "wikipedia",
-      title: "Commercial",
-      href: "https://en.wikipedia.org/wiki/Commerce",
-    },
+    { kind: "wikipedia", title: "Commercial", href: "https://en.wikipedia.org/wiki/Commerce" },
   ]);
 
   lb.define("lic+commercial-software", "commercial software", [

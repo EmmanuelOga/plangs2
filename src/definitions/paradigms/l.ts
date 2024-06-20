@@ -24,11 +24,7 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("para+logic", "logic", [
-    {
-      kind: "wikipedia",
-      title: "logic",
-      href: "https://en.wikipedia.org/wiki/Logic_programming",
-    },
+    { kind: "wikipedia", title: "logic", href: "https://en.wikipedia.org/wiki/Logic_programming" },
     {
       kind: "wikipedia",
       title: "Logic Programming",

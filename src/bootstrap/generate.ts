@@ -1,4 +1,5 @@
 import { Eta } from "eta";
+import { groupBy } from "lodash-es";
 import { PlangsGraph } from "../entities/plangs_graph";
 import type {
   T_Id_V_License,
@@ -6,22 +7,17 @@ import type {
   T_Id_V_Person,
   T_Id_V_Plang,
   T_Id_V_TypeSystem,
+  V_Plang,
 } from "../entities/schemas";
+import type { T_VId_Any } from "../graph/vertex";
+import type { VertexTable } from "../graph/vertex_table";
 import { toAlphaNum } from "../util";
-import { parseAll } from "./wikipedia_process";
-import { groupBy } from "lodash-es";
 import { PLANG_IDS } from "./plang_ids";
-import { VertexTable } from "../graph/vertex_table";
-import { T_VId_Any } from "../graph/vertex";
+import { parseAll } from "./wikipedia_process";
 
 const Templ = new Eta({ views: __dirname, autoEscape: false });
 
 const DEF_PATH = Bun.fileURLToPath(`file:${__dirname}/../definitions`);
-
-function longTsPath(type: string, name: string): string {
-  const p = toAlphaNum(name).toLowerCase();
-  return Bun.fileURLToPath(`file:${DEF_PATH}/${type}/${p[0]}/${p}.ts`);
-}
 
 function alphaTsPath(type: string, name: string): string {
   const p = toAlphaNum(name).toLowerCase();
@@ -40,62 +36,45 @@ async function generateAll() {
   genAtoZ(g.v_platform, "platforms", "platform");
   genAtoZ(g.v_tsystem, "type_systems", "typeSystem");
 
-  // for (const vid of PLANG_IDS) {
-  //   if (!(await genPlang(g, vid))) {
-  //     console.log(`Failed to generate ${vid}`);
-  //   }
-  // }
+  genAtoZ(
+    g.v_plang,
+    "plangs",
+    "plang",
+    (vid: T_VId_Any) => plangMapper(g, vid as T_Id_V_Plang),
+    PLANG_IDS,
+  );
 
   console.log("Finished generating definitions.");
 }
 
-async function genPlang(g: PlangsGraph, plvid: T_Id_V_Plang): Promise<boolean> {
+function plangMapper(g: PlangsGraph, plvid: T_Id_V_Plang): string {
   const pl = g.v_plang.get(plvid);
-
-  if (!pl || !pl.name) return false;
-
-  const templ: Record<string, string | string[] | string[][]> = {
-    plvid: json(plvid),
-    name: json(pl.name),
+  if (!pl || !pl.name) {
+    throw new Error(`Missing plang data: ${plvid}`);
+  }
+  const data = {
+    ...pl,
+    people: [...g.e_person_plang_role.adjacentTo(plvid)].map(({ from, edata }) => [
+      from,
+      edata?.role,
+    ]),
+    licenses: [...g.e_has_license.adjacentFrom(plvid)].map(({ to }) => to),
+    paradigms: [...g.e_plang_para.adjacentFrom(plvid)].map(({ to }) => to),
+    typeSystems: [...g.e_plang_tsys.adjacentFrom(plvid)].map(({ to }) => to),
+    platforms: [...g.e_supports_platf.adjacentFrom(plvid)].map(({ to }) => to),
+    implementations: [...g.e_implements.adjacentTo(plvid)].map(({ from }) => from),
+    dialects: [...g.e_dialect_of.adjacentTo(plvid)].map(({ from }) => from),
+    influences: [...g.e_l_influenced_l.adjacentTo(plvid)].map(({ from }) => from),
+    influenced: [...g.e_l_influenced_l.adjacentFrom(plvid)].map(({ to }) => to),
   };
 
-  templ.images = json(pl.images ?? []);
+  for (const [key, val] of Object.entries(data)) {
+    if (Array.isArray(val) && val.length === 0) {
+      delete data[key];
+    }
+  }
 
-  templ.websites = json(pl.websites ?? []);
-
-  templ.extensions = json(pl.extensions ?? []);
-
-  templ.scopings = json(pl.scoping ?? []);
-
-  templ.references = "{}"; // json(pl.references);
-
-  templ.releases = json(pl.releases ?? []);
-
-  templ.people = json(
-    [...g.e_person_plang_role.adjacentTo(plvid)].map(({ from, edata }) => [from, edata?.role]),
-  );
-
-  templ.licenses = json([...g.e_has_license.adjacentFrom(plvid)].map(({ to }) => to));
-
-  templ.paradigms = json([...g.e_plang_para.adjacentFrom(plvid)].map(({ to }) => to));
-
-  templ.typeSystems = json([...g.e_plang_tsys.adjacentFrom(plvid)].map(({ to }) => to));
-
-  templ.platforms = json([...g.e_supports_platf.adjacentFrom(plvid)].map(({ to }) => to));
-
-  templ.implementations = json([...g.e_implements.adjacentTo(plvid)].map(({ from }) => from));
-
-  templ.dialects = json([...g.e_dialect_of.adjacentTo(plvid)].map(({ from }) => from));
-
-  templ.influences = json([...g.e_l_influenced_l.adjacentTo(plvid)].map(({ from }) => from));
-
-  templ.influenced = json([...g.e_l_influenced_l.adjacentFrom(plvid)].map(({ to }) => to));
-
-  const res = Templ.render("./plang", templ);
-  const path = longTsPath("plang", plvid.split("+")[1]);
-  await Bun.write(path, res);
-
-  return true;
+  return json(data);
 }
 
 // biome-ignore lint/suspicious/noExplicitAny: let me be.
@@ -105,15 +84,20 @@ function genAtoZ(
   vtable: VertexTable<T_VId_Any, _T_AnyVertex>,
   basename: string,
   builderName: string,
+  mapper = (_: T_VId_Any, vertex: _T_AnyVertex) => json(vertex.websites ?? []),
+  vidWhitelist?: Set<string>,
 ) {
-  const allVids = [...vtable.keys()]
+  let allVids = [...vtable.keys()]
     .map((vid) => vid)
     .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+  if (vidWhitelist) {
+    allVids = allVids.filter((vid) => vidWhitelist.has(vid.toLowerCase()));
+  }
   if (allVids.length === 0) return;
 
   const key0 = allVids[0].indexOf("+") + 1;
   const grouped: Record<string, string[]> = groupBy(allVids, (id: string) =>
-    id[key0] === "." ? id[key0 + 1] : id[key0],
+    (id[key0] === "." ? id[key0 + 1] : id[key0]).toLowerCase(),
   );
 
   for (const [prefix, vids] of Object.entries(grouped)) {
@@ -124,29 +108,16 @@ function genAtoZ(
         console.log("Vertex not found:", vid);
         continue;
       }
-      data.push([json(vid), json(vertex.name), json(vertex.websites ?? [])]);
+      data.push([json(vid), json(vertex.name), mapper(vid as T_VId_Any, vertex)]);
     }
     const res = Templ.render("/a_to_z", { data, builderName });
     const path = alphaTsPath(basename, prefix);
     Bun.write(path, res);
   }
+  console.log(`${basename}: ${allVids.length} entries in ${Object.keys(grouped).length} files.`);
 }
 
 // biome-ignore lint/suspicious/noExplicitAny: it's ok.
-function json(v: any): string {
-  if (typeof v === "string") return JSON.stringify(v);
-
-  if (Array.isArray(v)) {
-    if (v.length > 1) {
-      v.sort();
-      const uninndented = JSON.stringify(v);
-      if (uninndented.length < 70) return uninndented;
-      return JSON.stringify(v, null, 2);
-    }
-    return JSON.stringify(v);
-  }
-
-  return JSON.stringify(v, null, 2);
-}
+const json = (v: any) => JSON.stringify(v);
 
 await generateAll();

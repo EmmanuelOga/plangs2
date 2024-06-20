@@ -8,16 +8,8 @@ export function define(g: PlangsGraph) {
   ]);
 
   lb.define("lic+mit", "MIT", [
-    {
-      kind: "wikipedia",
-      title: "MIT",
-      href: "https://en.wikipedia.org/wiki/MIT_License",
-    },
-    {
-      kind: "wikipedia",
-      title: "MIT",
-      href: "https://en.wikipedia.org/wiki/MIT_license",
-    },
+    { kind: "wikipedia", title: "MIT", href: "https://en.wikipedia.org/wiki/MIT_License" },
+    { kind: "wikipedia", title: "MIT", href: "https://en.wikipedia.org/wiki/MIT_license" },
   ]);
 
   lb.define("lic+mit-x11", "MIT X11", [
