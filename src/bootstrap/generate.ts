@@ -2,14 +2,14 @@ import { Eta } from "eta";
 import { groupBy } from "lodash-es";
 import { PlangsGraph } from "../entities/plangs_graph";
 import type {
-  T_Id_V_License,
-  T_Id_V_Paradigm,
-  T_Id_V_Person,
-  T_Id_V_Plang,
-  T_Id_V_TypeSystem,
+  VID_License,
+  VID_Paradigm,
+  VID_Person,
+  VID_Plang,
+  VID_TypeSystem,
   V_Plang,
 } from "../entities/schemas";
-import type { T_VId_Any } from "../graph/vertex";
+import type { T_VID_ANY } from "../graph/vertex";
 import type { VertexTable } from "../graph/vertex_table";
 import { toAlphaNum } from "../util";
 import { PLANG_IDS } from "./plang_ids";
@@ -40,14 +40,14 @@ async function generateAll() {
     g.v_plang,
     "plangs",
     "plang",
-    (vid: T_VId_Any) => plangMapper(g, vid as T_Id_V_Plang),
+    (vid: T_VID_ANY) => plangMapper(g, vid as VID_Plang),
     PLANG_IDS,
   );
 
   console.log("Finished generating definitions.");
 }
 
-function plangMapper(g: PlangsGraph, plvid: T_Id_V_Plang): string {
+function plangMapper(g: PlangsGraph, plvid: VID_Plang): string {
   const pl = g.v_plang.get(plvid);
   if (!pl || !pl.name) {
     throw new Error(`Missing plang data: ${plvid}`);
@@ -81,10 +81,10 @@ function plangMapper(g: PlangsGraph, plvid: T_Id_V_Plang): string {
 type _T_AnyVertex = any;
 
 function genAtoZ(
-  vtable: VertexTable<T_VId_Any, _T_AnyVertex>,
+  vtable: VertexTable<T_VID_ANY, _T_AnyVertex>,
   basename: string,
   builderName: string,
-  mapper = (_: T_VId_Any, vertex: _T_AnyVertex) => json(vertex.websites ?? []),
+  mapper = (_: T_VID_ANY, vertex: _T_AnyVertex) => json(vertex.websites ?? []),
   vidWhitelist?: Set<string>,
 ) {
   let allVids = [...vtable.keys()]
@@ -103,12 +103,12 @@ function genAtoZ(
   for (const [prefix, vids] of Object.entries(grouped)) {
     const data: string[][] = [];
     for (const vid of vids) {
-      const vertex = vtable.get(vid as T_VId_Any);
+      const vertex = vtable.get(vid as T_VID_ANY);
       if (!vertex) {
         console.log("Vertex not found:", vid);
         continue;
       }
-      data.push([json(vid), json(vertex.name), mapper(vid as T_VId_Any, vertex)]);
+      data.push([json(vid), json(vertex.name), mapper(vid as T_VID_ANY, vertex)]);
     }
     const res = Templ.render("/a_to_z", { data, builderName });
     const path = alphaTsPath(basename, prefix);

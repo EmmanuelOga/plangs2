@@ -3,7 +3,7 @@
  */
 
 import { Glob } from "bun";
-import type { T_VId } from "../graph/vertex";
+import type { T_VID } from "../graph/vertex";
 import type { PlangsGraph } from "../entities/plangs_graph";
 import type { Image, Link, Release } from "../entities/schemas";
 import { removeNonPrintable, toAlphaNum } from "../util";
@@ -127,7 +127,7 @@ function processLanguage(
   }
 }
 
-function assign(g: PlangsGraph, pvid: T_VId<"pl">, key: DATA_ATTR, type: DATA_TYPE, val: _Any) {
+function assign(g: PlangsGraph, pvid: T_VID<"pl">, key: DATA_ATTR, type: DATA_TYPE, val: _Any) {
   const pl = g.v_plang.declare(pvid);
 
   // Would be nice to map the reference to the exact edge it belongs to,

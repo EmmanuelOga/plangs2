@@ -1,6 +1,6 @@
-import type { T_Id_V_Plang } from "../entities/schemas";
+import type { VID_Plang } from "../entities/schemas";
 
-export const PLANG_IDS: Set<T_Id_V_Plang> = new Set(
+export const PLANG_IDS: Set<VID_Plang> = new Set(
   [
     "pl+APL",
     "pl+Agda",
@@ -200,4 +200,4 @@ export const PLANG_IDS: Set<T_Id_V_Plang> = new Set(
     "pl+q",
     "pl+rc",
   ].map((id) => id.toLowerCase()),
-) as Set<T_Id_V_Plang>;
+) as Set<VID_Plang>;

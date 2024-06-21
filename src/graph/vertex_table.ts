@@ -1,5 +1,5 @@
 import type { NN_Partial } from "../util";
-import { vIdPattern } from "./vertex";
+import { vIDPattern } from "./vertex";
 
 /**
  * Containers for vertices.
@@ -10,7 +10,7 @@ export class VertexTable<T_VId extends string, T_VData> implements Iterable<[T_V
   public readonly vidPattern: RegExp;
 
   constructor(readonly vtype: string) {
-    this.vidPattern = vIdPattern(vtype);
+    this.vidPattern = vIDPattern(vtype);
   }
 
   set(key: T_VId, value: T_VData): this {

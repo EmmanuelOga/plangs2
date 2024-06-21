@@ -1,7 +1,7 @@
 /**
  * To define the Vertex ID for each Vertex type (using a template literal type).
  */
-import type { T_VId } from "../graph/vertex";
+import type { T_VID } from "../graph/vertex";
 
 ////////////////////////////////////////////////////////////////////////////////
 // Types starting with "V_" are used for Vertex data.
@@ -26,7 +26,7 @@ export interface V_Plang {
   references: Record<string, Link[]>;
 }
 
-export type T_Id_V_Plang = T_VId<`pl`>;
+export type VID_Plang = T_VID<`pl`>;
 
 /**
  * A platform Vertex, e.g., Linux, Windows, etc.
@@ -36,7 +36,7 @@ export interface V_Platform {
   websites: Link[];
 }
 
-export type T_Id_V_Platform = T_VId<`platf`>;
+export type VID_Platform = T_VID<`platf`>;
 
 /**
  * A type system Vertex, e.g., OOP, Duck, Dynamic, etc.
@@ -46,7 +46,7 @@ export interface V_TypeSystem {
   websites: Link[];
 }
 
-export type T_Id_V_TypeSystem = T_VId<`tsys`>;
+export type VID_TypeSystem = T_VID<`tsys`>;
 
 /**
  * A programming paradigm Vertex, e.g., Functional, Imperative, etc.
@@ -56,7 +56,7 @@ export interface V_Paradigm {
   websites: Link[];
 }
 
-export type T_Id_V_Paradigm = T_VId<`para`>;
+export type VID_Paradigm = T_VID<`para`>;
 
 /**
  * A person Vertex, for people involved in the development of a programming language.
@@ -66,7 +66,7 @@ export interface V_Person {
   websites: Link[];
 }
 
-export type T_Id_V_Person = T_VId<`person`>;
+export type VID_Person = T_VID<`person`>;
 
 /**
  * A license Vertex, e.g., MIT, GPL, etc.
@@ -76,7 +76,7 @@ export interface V_License {
   websites: Link[];
 }
 
-export type T_Id_V_License = T_VId<`lic`>;
+export type VID_License = T_VID<`lic`>;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Types starting with "E_" are used for Edge data.
