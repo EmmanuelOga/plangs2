@@ -1,5 +1,6 @@
 import type { PlangsGraph } from "./plangs_graph";
 import type {
+  E_People,
   Image,
   Link,
   Release,
@@ -9,63 +10,59 @@ import type {
   VID_Plang,
   VID_Platform,
   VID_TypeSystem,
-  V_Person,
-  V_Plang,
 } from "./schemas";
 
 export class PlangsBuilder {
-  constructor(readonly g: PlangsGraph) {}
+  constructor(readonly g: PlangsGraph) { }
 
   define(
     vid: VID_Plang,
-    {
-      websites,
-    }: {
+    name: string,
+    { websites, images, releases, extensions, people, licenses, platforms, influences, influenced }: {
       websites: Link[];
       images: Image[];
       releases: Release[];
       extensions: string[];
-      people: [VID_Person, string][];
+      people: [VID_Person, E_People['role']][];
       licenses: VID_License[];
       platforms: VID_Platform[];
       influences: VID_Plang[];
       influenced: VID_Plang[];
     },
-  ) {}
+  ) { }
 }
 
 export class LicenseBuilder {
-  constructor(readonly g: PlangsGraph) {}
+  constructor(readonly g: PlangsGraph) { }
 
-  define(lvid: VID_License, name: string, websites: Link[]) {
-    throw new Error("Method not implemented.");
+  define(vid: VID_License, name: string, { websites }: { websites: Link[] }) {
   }
 }
 
 export class ParadigmBuilder {
-  constructor(readonly g: PlangsGraph) {}
+  constructor(readonly g: PlangsGraph) { }
 
-  define(para: VID_Paradigm, name: string, websites: Link[]) {}
+  define(vid: VID_Paradigm, name: string, { websites }: { websites: Link[] }) {
+  }
 }
 
 export class PersonBuilder {
-  define(arg0: string, arg1: string, arg2: { title: string; href: string; kind: string }[]) {
-    throw new Error("Method not implemented.");
-  }
-  constructor(readonly g: PlangsGraph) {}
+  constructor(readonly g: PlangsGraph) { }
 
-  addWebsites(p: Partial<V_Person>, websites: Link[]) {}
+  define(vid: VID_Person, name: string, { websites }: { websites: Link[] }) {
+  }
 }
 
 export class PlatformBuilder {
-  define(arg0: string, arg1: string, arg2: { kind: string; title: string; href: string }[]) {
-    throw new Error("Method not implemented.");
+  constructor(readonly g: PlangsGraph) { }
+
+  define(vid: VID_Platform, name: string, { websites }: { websites: Link[] }) {
   }
-  constructor(readonly g: PlangsGraph) {}
 }
 
 export class TypeSysBuilder {
-  constructor(readonly g: PlangsGraph) {}
+  constructor(readonly g: PlangsGraph) { }
 
-  define(tsysvid: VID_TypeSystem, name: string, websites: Link[]) {}
+  define(vid: VID_TypeSystem, name: string, { websites }: { websites: Link[] }) {
+  }
 }
