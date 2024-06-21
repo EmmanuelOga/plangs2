@@ -31,6 +31,18 @@ export class Graph {
     return table;
   }
 
+  get numEdges(): number {
+    let count = 0;
+    for (const et of this.etables.values()) { count += et.size; }
+    return count;
+  }
+
+  get numVertices(): number {
+    let count = 0;
+    for (const vt of this.vtables.values()) { count += vt.size; }
+    return count;
+  }
+
   *allVertices(): IterableIterator<[string, _Any]> {
     for (const vt of this.vtables.values()) {
       yield* vt;

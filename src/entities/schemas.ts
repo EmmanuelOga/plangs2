@@ -12,13 +12,12 @@ import type { VID } from "../graph/vertex";
  */
 export interface V_Plang {
   name: string;
-  images: Image[];
-
-  websites: Link[];
-  releases: Release[];
 
   extensions: string[];
+  images: Image[];
+  releases: Release[];
   scoping: ("lexical" | "static" | "dynamic" | "other")[];
+  websites: Link[];
 
   /**
    * A map of references grouped by tag: #influences, #influenced_by, etc.

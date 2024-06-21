@@ -11,18 +11,15 @@ export async function loadDefinitions(): Promise<PlangsGraph> {
 
   const glob = new Glob("**/*.ts");
 
+  let i = 0;
   for await (const path of glob.scan(`${__dirname}/definitions`)) {
     const module = await import(`./definitions/${path}`);
-    if (typeof module.define === "function") module.define(g);
+    if (typeof module.define === "function") { module.define(g); i++; }
   }
 
-  for (const [ek, data] of g.allEdges()) {
-    console.log(ek, data);
-  }
-
-  for (const [vk, e] of g.allEdges()) {
-    console.log(vk, e);
-  }
+  console.info(
+    new Date().toISOString(),
+    `Loaded ${i} definitions, ${g.numVertices} vertices, ${g.numEdges} edges.`);
 
   return g;
 }

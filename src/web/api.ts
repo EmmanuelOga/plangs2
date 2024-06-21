@@ -1,14 +1,14 @@
 import type { SerializedGraph } from "graphology-types";
-import { parseAll } from "../bootstrap/wikipedia_process";
 import { PlangsGraph } from "../entities/plangs_graph";
 import { parseEdgeKey } from "../graph/edge_table";
+import { loadDefinitions } from "../plangs";
 
 async function plangsGraph(): Promise<SerializedGraph> {
   const grNodes: SerializedGraph["nodes"] = [];
   const grEdges: SerializedGraph["edges"] = [];
 
   const g = new PlangsGraph();
-  await parseAll(g);
+  await loadDefinitions(g);
 
   for (const [eid, edge] of g.allEdges()) {
     const ek = parseEdgeKey(eid);
@@ -49,12 +49,14 @@ async function plangsGraph(): Promise<SerializedGraph> {
     });
   }
 
-  return {
+  const data = {
     nodes: grNodes,
     edges: grEdges,
     options: {},
     attributes: { name: "Programming Languages" },
   };
+
+  return data;
 }
 
 const server = Bun.serve({
