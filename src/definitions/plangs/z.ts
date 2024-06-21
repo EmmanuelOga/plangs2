@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Zig", "Zig", {
-    name: "Zig",
     websites: [
       {
         kind: "wikipedia",

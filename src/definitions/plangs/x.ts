@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+XAML", "XAML", {
-    name: "XAML",
     websites: [{ kind: "wikipedia", title: "XAML", href: "https://en.wikipedia.org/wiki/XAML" }],
     influenced: ["pl+QML"],
   });
@@ -14,7 +13,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+XOD", "XOD", {
-    name: "XOD",
     websites: [
       {
         kind: "wikipedia",
@@ -35,7 +33,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Xojo", "Xojo", {
-    name: "Xojo",
     websites: [
       { kind: "wikipedia", title: "Xojo", href: "https://en.wikipedia.org/wiki/Xojo" },
       { kind: "homepage", title: "xojo.com", href: "http://xojo.com" },
@@ -57,7 +54,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+XPath", "XPath", {
-    name: "XPath",
     websites: [{ kind: "wikipedia", title: "XPath", href: "https://en.wikipedia.org/wiki/XPath" }],
     influenced: ["pl+XQuery"],
   });
@@ -65,7 +61,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+XQuery", "XQuery", {
-    name: "XQuery",
     websites: [
       { kind: "wikipedia", title: "XQuery", href: "https://en.wikipedia.org/wiki/XQuery" },
       { kind: "homepage", title: "www.w3.org/XML/Query/", href: "http://www.w3.org/XML/Query/" },
@@ -99,7 +94,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+XSB", "XSB", {
-    name: "XSB",
     websites: [
       { kind: "wikipedia", title: "XSB", href: "https://en.wikipedia.org/wiki/XSB" },
       { kind: "homepage", title: "Sourceforge.net", href: "https://xsb.sourceforge.net/" },
@@ -119,7 +113,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+XSLT", "XSLT", {
-    name: "XSLT",
     websites: [
       { kind: "wikipedia", title: "XSLT", href: "https://en.wikipedia.org/wiki/XSLT" },
       { kind: "homepage", title: "www.w3.org/TR/xslt-30/", href: "https://www.w3.org/TR/xslt-30/" },
@@ -138,7 +131,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Xtend", "Xtend", {
-    name: "Xtend",
     websites: [
       { kind: "wikipedia", title: "Xtend", href: "https://en.wikipedia.org/wiki/Xtend" },
       {

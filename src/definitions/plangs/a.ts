@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Agda", "Agda", {
-    name: "Agda",
     websites: [
       {
         kind: "wikipedia",
@@ -58,7 +57,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+APL", "APL", {
-    name: "APL",
     websites: [
       {
         kind: "wikipedia",
@@ -145,7 +143,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Arc", "Arc", {
-    name: "Arc",
     websites: [
       {
         kind: "wikipedia",
@@ -177,7 +174,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+AssemblyScript", "AssemblyScript", {
-    name: "AssemblyScript",
     websites: [
       {
         kind: "wikipedia",

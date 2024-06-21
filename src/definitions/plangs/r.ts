@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+R", "R", {
-    name: "R",
     websites: [
       {
         kind: "wikipedia",
@@ -90,7 +89,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Racket", "Racket", {
-    name: "Racket",
     websites: [
       {
         kind: "wikipedia",
@@ -165,7 +163,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Raku", "Raku", {
-    name: "Raku",
     websites: [
       {
         kind: "wikipedia",
@@ -218,7 +215,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Rakudo", "Rakudo", {
-    name: "Rakudo",
     websites: [
       { kind: "wikipedia", title: "Rakudo", href: "https://en.wikipedia.org/wiki/Rakudo" },
       { kind: "homepage", title: "rakudo.org", href: "http://rakudo.org/" },
@@ -241,7 +237,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+rc", "rc", {
-    name: "rc",
     websites: [
       { kind: "wikipedia", title: "rc", href: "https://en.wikipedia.org/wiki/Rc_(Unix_shell)" },
       {
@@ -261,7 +256,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Reason", "Reason", {
-    name: "Reason",
     websites: [
       {
         kind: "wikipedia",
@@ -305,7 +299,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Rebol", "Rebol", {
-    name: "Rebol",
     websites: [
       { kind: "wikipedia", title: "Rebol", href: "https://en.wikipedia.org/wiki/Rebol" },
       { kind: "wikipedia", title: "Rebol", href: "https://en.wikipedia.org/wiki/REBOL" },
@@ -351,7 +344,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+REBOL", "REBOL", {
-    name: "REBOL",
     websites: [{ kind: "wikipedia", title: "REBOL", href: "https://en.wikipedia.org/wiki/REBOL" }],
     influenced: ["pl+Logo"],
   });
@@ -359,7 +351,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Red", "Red", {
-    name: "Red",
     websites: [
       {
         kind: "wikipedia",
@@ -396,7 +387,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Ring", "Ring", {
-    name: "Ring",
     websites: [
       {
         kind: "wikipedia",
@@ -463,7 +453,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+RPython", "RPython", {
-    name: "RPython",
     websites: [
       { kind: "wikipedia", title: "RPython", href: "https://en.wikipedia.org/wiki/PyPy#RPython" },
     ],
@@ -473,7 +462,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Ruby", "Ruby", {
-    name: "Ruby",
     websites: [
       {
         kind: "wikipedia",
@@ -599,7 +587,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Rust", "Rust", {
-    name: "Rust",
     websites: [
       {
         kind: "wikipedia",

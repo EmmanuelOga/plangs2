@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+J", "J", {
-    name: "J",
     websites: [
       {
         kind: "wikipedia",
@@ -72,7 +71,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Java", "Java", {
-    name: "Java",
     websites: [
       {
         kind: "wikipedia",
@@ -261,7 +259,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+JavaScript", "JavaScript", {
-    name: "JavaScript",
     websites: [
       { kind: "wikipedia", title: "JavaScript", href: "https://en.wikipedia.org/wiki/JavaScript" },
       {
@@ -385,7 +382,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Javascript", "Javascript", {
-    name: "Javascript",
     websites: [
       {
         kind: "wikipedia",
@@ -399,7 +395,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+jq", "jq", {
-    name: "jq",
     websites: [
       {
         kind: "wikipedia",
@@ -431,7 +426,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+JRuby", "JRuby", {
-    name: "JRuby",
     websites: [
       { kind: "wikipedia", title: "JRuby", href: "https://en.wikipedia.org/wiki/JRuby" },
       { kind: "homepage", title: "www.jruby.org", href: "https://www.jruby.org" },
@@ -464,7 +458,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+JSON", "JSON", {
-    name: "JSON",
     websites: [{ kind: "wikipedia", title: "JSON", href: "https://en.wikipedia.org/wiki/JSON" }],
     influenced: ["pl+QML", "pl+Rebol"],
   });
@@ -472,7 +465,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Julia", "Julia", {
-    name: "Julia",
     websites: [
       {
         kind: "wikipedia",

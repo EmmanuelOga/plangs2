@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Tcl", "Tcl", {
-    name: "Tcl",
     websites: [
       { kind: "wikipedia", title: "Tcl", href: "https://en.wikipedia.org/wiki/Tcl" },
       { kind: "homepage", title: "www.tcl-lang.org", href: "https://www.tcl-lang.org" },
@@ -72,7 +71,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Tom", "Tom", {
-    name: "Tom",
     websites: [
       {
         kind: "wikipedia",
@@ -102,7 +100,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Turbo-Pascal", "Turbo Pascal", {
-    name: "Turbo Pascal",
     websites: [
       {
         kind: "wikipedia",
@@ -116,7 +113,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+TXL", "TXL", {
-    name: "TXL",
     websites: [
       {
         kind: "wikipedia",
@@ -132,7 +128,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+TypeScript", "TypeScript", {
-    name: "TypeScript",
     websites: [
       { kind: "wikipedia", title: "TypeScript", href: "https://en.wikipedia.org/wiki/TypeScript" },
       { kind: "homepage", title: "www.typescriptlang.org", href: "https://www.typescriptlang.org" },

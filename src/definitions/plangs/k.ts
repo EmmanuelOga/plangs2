@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+K", "K", {
-    name: "K",
     websites: [
       {
         kind: "wikipedia",
@@ -26,7 +25,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+k", "k", {
-    name: "k",
     websites: [
       {
         kind: "wikipedia",
@@ -40,7 +38,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Korn-Shell", "Korn Shell", {
-    name: "Korn Shell",
     websites: [
       { kind: "wikipedia", title: "Korn Shell", href: "https://en.wikipedia.org/wiki/Korn_Shell" },
     ],
@@ -50,7 +47,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Kotlin", "Kotlin", {
-    name: "Kotlin",
     websites: [
       {
         kind: "wikipedia",

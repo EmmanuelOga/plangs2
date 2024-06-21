@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Idris", "Idris", {
-    name: "Idris",
     websites: [
       {
         kind: "wikipedia",
@@ -69,7 +68,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Inform", "Inform", {
-    name: "Inform",
     websites: [
       { kind: "wikipedia", title: "Inform", href: "https://en.wikipedia.org/wiki/Inform" },
     ],
@@ -79,7 +77,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Io", "Io", {
-    name: "Io",
     websites: [
       {
         kind: "wikipedia",
@@ -120,7 +117,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+IronPython", "IronPython", {
-    name: "IronPython",
     websites: [
       { kind: "wikipedia", title: "IronPython", href: "https://en.wikipedia.org/wiki/IronPython" },
       { kind: "homepage", title: "ironpython.net", href: "https://ironpython.net" },

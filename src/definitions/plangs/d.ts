@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Dart", "Dart", {
-    name: "Dart",
     websites: [
       {
         kind: "wikipedia",
@@ -87,7 +86,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+DataFlex", "DataFlex", {
-    name: "DataFlex",
     websites: [
       {
         kind: "wikipedia",
@@ -135,7 +133,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Datalog", "Datalog", {
-    name: "Datalog",
     websites: [
       { kind: "wikipedia", title: "Datalog", href: "https://en.wikipedia.org/wiki/Datalog" },
     ],
@@ -149,7 +146,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Delphi", "Delphi", {
-    name: "Delphi",
     websites: [
       {
         kind: "wikipedia",
@@ -194,7 +190,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Dylan", "Dylan", {
-    name: "Dylan",
     websites: [
       {
         kind: "wikipedia",

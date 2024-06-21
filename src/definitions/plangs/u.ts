@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Umple", "Umple", {
-    name: "Umple",
     websites: [
       { kind: "wikipedia", title: "Umple", href: "https://en.wikipedia.org/wiki/Umple" },
       { kind: "homepage", title: "www.umple.org", href: "http://www.umple.org/" },

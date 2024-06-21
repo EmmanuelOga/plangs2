@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Scala", "Scala", {
-    name: "Scala",
     websites: [
       {
         kind: "wikipedia",
@@ -115,7 +114,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Scheme", "Scheme", {
-    name: "Scheme",
     websites: [
       {
         kind: "wikipedia",
@@ -217,7 +215,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Scilab", "Scilab", {
-    name: "Scilab",
     websites: [
       { kind: "wikipedia", title: "Scilab", href: "https://en.wikipedia.org/wiki/Scilab" },
       { kind: "wikipedia", title: "Scilab", href: "https://en.wikipedia.org/wiki/Xcos" },
@@ -243,7 +240,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Scratch", "Scratch", {
-    name: "Scratch",
     websites: [
       {
         kind: "wikipedia",
@@ -326,7 +322,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+ScratchJr", "ScratchJr", {
-    name: "ScratchJr",
     websites: [
       { kind: "wikipedia", title: "ScratchJr", href: "https://en.wikipedia.org/wiki/ScratchJr" },
       { kind: "homepage", title: "www.scratchjr.org", href: "http://www.scratchjr.org" },
@@ -345,7 +340,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Self", "Self", {
-    name: "Self",
     websites: [
       {
         kind: "wikipedia",
@@ -404,7 +398,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+SmallBASIC", "SmallBASIC", {
-    name: "SmallBASIC",
     websites: [
       { kind: "wikipedia", title: "SmallBASIC", href: "https://en.wikipedia.org/wiki/SmallBasic" },
       { kind: "repository", title: "smallbasic.github.io", href: "https://smallbasic.github.io" },
@@ -429,7 +422,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+SmallBasic", "SmallBasic", {
-    name: "SmallBasic",
     websites: [
       { kind: "wikipedia", title: "SmallBasic", href: "https://en.wikipedia.org/wiki/SmallBasic" },
     ],
@@ -439,7 +431,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Smalltalk", "Smalltalk", {
-    name: "Smalltalk",
     websites: [
       { kind: "wikipedia", title: "Smalltalk", href: "https://en.wikipedia.org/wiki/Smalltalk" },
     ],
@@ -584,7 +575,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Solidity", "Solidity", {
-    name: "Solidity",
     websites: [
       { kind: "wikipedia", title: "Solidity", href: "https://en.wikipedia.org/wiki/Solidity" },
       { kind: "homepage", title: "soliditylang.org", href: "https://soliditylang.org" },
@@ -633,7 +623,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Souffle", "Soufflé", {
-    name: "Soufflé",
     websites: [
       {
         kind: "wikipedia",
@@ -647,7 +636,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Source", "Source", {
-    name: "Source",
     websites: [
       {
         kind: "wikipedia",
@@ -679,7 +667,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+SQL", "SQL", {
-    name: "SQL",
     websites: [{ kind: "wikipedia", title: "SQL", href: "https://en.wikipedia.org/wiki/SQL" }],
     influenced: ["pl+Datalog", "pl+PowerShell", "pl+XQuery"],
   });
@@ -687,7 +674,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Squeak", "Squeak", {
-    name: "Squeak",
     websites: [
       { kind: "wikipedia", title: "Squeak", href: "https://en.wikipedia.org/wiki/Squeak" },
       { kind: "homepage", title: "www.squeak.org", href: "http://www.squeak.org" },
@@ -728,7 +714,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Standard-ML", "Standard ML", {
-    name: "Standard ML",
     websites: [
       {
         kind: "wikipedia",
@@ -800,7 +785,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Starlark", "Starlark", {
-    name: "Starlark",
     websites: [
       {
         kind: "wikipedia",
@@ -814,7 +798,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Stateflow", "Stateflow", {
-    name: "Stateflow",
     websites: [
       { kind: "wikipedia", title: "Stateflow", href: "https://en.wikipedia.org/wiki/Stateflow" },
       {
@@ -848,7 +831,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+SuperCollider", "SuperCollider", {
-    name: "SuperCollider",
     websites: [
       {
         kind: "wikipedia",
@@ -862,7 +844,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+SWI-Prolog", "SWI-Prolog", {
-    name: "SWI-Prolog",
     websites: [
       { kind: "wikipedia", title: "SWI-Prolog", href: "https://en.wikipedia.org/wiki/SWI-Prolog" },
       { kind: "homepage", title: "swi-prolog.org", href: "http://swi-prolog.org" },
@@ -890,7 +871,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Swift", "Swift", {
-    name: "Swift",
     websites: [
       {
         kind: "wikipedia",
@@ -943,7 +923,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+SystemVerilog", "SystemVerilog", {
-    name: "SystemVerilog",
     websites: [
       {
         kind: "wikipedia",

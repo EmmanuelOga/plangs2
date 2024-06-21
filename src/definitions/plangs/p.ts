@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+P4", "P4", {
-    name: "P4",
     websites: [
       {
         kind: "wikipedia",
@@ -35,7 +34,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+PARI-SlashGP", "PARI/GP", {
-    name: "PARI/GP",
     websites: [
       { kind: "wikipedia", title: "PARI/GP", href: "https://en.wikipedia.org/wiki/PARI/GP" },
       {
@@ -63,7 +61,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Pascal", "Pascal", {
-    name: "Pascal",
     websites: [
       {
         kind: "wikipedia",
@@ -171,7 +168,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+PeachPie", "PeachPie", {
-    name: "PeachPie",
     websites: [
       { kind: "wikipedia", title: "PeachPie", href: "https://en.wikipedia.org/wiki/PeachPie" },
       { kind: "homepage", title: "www.peachpie.io", href: "http://www.peachpie.io" },
@@ -209,7 +205,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Perl", "Perl", {
-    name: "Perl",
     websites: [
       { kind: "wikipedia", title: "Perl", href: "https://en.wikipedia.org/wiki/Perl" },
       { kind: "homepage", title: "perl.org", href: "https://www.perl.org/" },
@@ -301,7 +296,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Pharo", "Pharo", {
-    name: "Pharo",
     websites: [
       { kind: "wikipedia", title: "Pharo", href: "https://en.wikipedia.org/wiki/Pharo" },
       { kind: "homepage", title: "pharo.org", href: "http://pharo.org" },
@@ -344,7 +338,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+PHP", "PHP", {
-    name: "PHP",
     websites: [
       { kind: "wikipedia", title: "PHP", href: "https://en.wikipedia.org/wiki/PHP" },
       { kind: "homepage", title: "https://thephp.foundation", href: "https://thephp.foundation" },
@@ -449,7 +442,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Picolisp", "Picolisp", {
-    name: "Picolisp",
     websites: [
       { kind: "wikipedia", title: "Picolisp", href: "https://en.wikipedia.org/wiki/Picolisp" },
     ],
@@ -459,7 +451,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+PicoLisp", "PicoLisp", {
-    name: "PicoLisp",
     websites: [
       { kind: "wikipedia", title: "PicoLisp", href: "https://en.wikipedia.org/wiki/Picolisp" },
       { kind: "homepage", title: "picolisp.com", href: "http://picolisp.com" },
@@ -493,7 +484,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+PL-SlashpgSQL", "PL/pgSQL", {
-    name: "PL/pgSQL",
     websites: [
       { kind: "wikipedia", title: "PL/pgSQL", href: "https://en.wikipedia.org/wiki/PL/pgSQL" },
       {
@@ -517,7 +507,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+PostScript", "PostScript", {
-    name: "PostScript",
     websites: [
       { kind: "wikipedia", title: "PostScript", href: "https://en.wikipedia.org/wiki/PostScript" },
     ],
@@ -554,7 +543,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+POV-Ray", "POV-Ray", {
-    name: "POV-Ray",
     websites: [
       { kind: "wikipedia", title: "POV-Ray", href: "https://en.wikipedia.org/wiki/POV-Ray" },
       { kind: "homepage", title: "www.povray.org", href: "https://www.povray.org" },
@@ -598,7 +586,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+PowerBASIC", "PowerBASIC", {
-    name: "PowerBASIC",
     websites: [
       { kind: "wikipedia", title: "PowerBASIC", href: "https://en.wikipedia.org/wiki/PowerBASIC" },
       { kind: "homepage", title: "www.powerbasic.com", href: "https://www.powerbasic.com/" },
@@ -627,7 +614,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+PowerShell", "PowerShell", {
-    name: "PowerShell",
     websites: [
       { kind: "wikipedia", title: "PowerShell", href: "https://en.wikipedia.org/wiki/PowerShell" },
       {
@@ -699,7 +685,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Processing", "Processing", {
-    name: "Processing",
     websites: [
       {
         kind: "wikipedia",
@@ -713,7 +698,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Prolog", "Prolog", {
-    name: "Prolog",
     websites: [
       { kind: "wikipedia", title: "Prolog", href: "https://en.wikipedia.org/wiki/Prolog" },
       {
@@ -783,7 +767,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Pure", "Pure", {
-    name: "Pure",
     websites: [
       {
         kind: "wikipedia",
@@ -817,7 +800,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+PureData", "PureData", {
-    name: "PureData",
     websites: [
       { kind: "wikipedia", title: "PureData", href: "https://en.wikipedia.org/wiki/PureData" },
     ],
@@ -827,7 +809,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+PureScript", "PureScript", {
-    name: "PureScript",
     websites: [
       { kind: "wikipedia", title: "PureScript", href: "https://en.wikipedia.org/wiki/PureScript" },
       { kind: "homepage", title: "www.purescript.org", href: "https://www.purescript.org/" },
@@ -861,7 +842,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Pyomo", "Pyomo", {
-    name: "Pyomo",
     websites: [
       { kind: "wikipedia", title: "Pyomo", href: "https://en.wikipedia.org/wiki/Pyomo" },
       { kind: "homepage", title: "www.pyomo.org", href: "https://www.pyomo.org" },
@@ -894,7 +874,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Python", "Python", {
-    name: "Python",
     websites: [
       {
         kind: "wikipedia",

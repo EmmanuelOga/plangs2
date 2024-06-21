@@ -69,7 +69,7 @@ function plangMapper(g: PlangsGraph, plvid: T_Id_V_Plang): string {
   };
 
   for (const [key, val] of Object.entries(data)) {
-    if (Array.isArray(val) && val.length === 0) {
+    if (key === "name" || (Array.isArray(val) && val.length === 0)) {
       delete data[key];
     }
   }

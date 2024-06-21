@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+NekoVMNeko", "NekoVMNeko", {
-    name: "NekoVMNeko",
     websites: [
       {
         kind: "wikipedia",
@@ -47,7 +46,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Nim", "Nim", {
-    name: "Nim",
     websites: [
       {
         kind: "wikipedia",

@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+F-Sharp", "F#", {
-    name: "F#",
     websites: [
       {
         kind: "wikipedia",
@@ -36,7 +35,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Factor", "Factor", {
-    name: "Factor",
     websites: [
       {
         kind: "wikipedia",
@@ -73,7 +71,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Fantom", "Fantom", {
-    name: "Fantom",
     websites: [
       {
         kind: "wikipedia",
@@ -119,7 +116,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+FAUST", "FAUST", {
-    name: "FAUST",
     websites: [
       {
         kind: "wikipedia",
@@ -146,7 +142,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Flix", "Flix", {
-    name: "Flix",
     websites: [
       {
         kind: "wikipedia",
@@ -174,7 +169,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Forth", "Forth", {
-    name: "Forth",
     websites: [
       {
         kind: "wikipedia",
@@ -194,7 +188,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Fortran", "Fortran", {
-    name: "Fortran",
     websites: [
       { kind: "wikipedia", title: "Fortran", href: "https://en.wikipedia.org/wiki/Fortran" },
       { kind: "wikipedia", title: "Fortran", href: "https://en.wikipedia.org/wiki/Fortran_95" },
@@ -274,7 +267,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+FORTRAN", "FORTRAN", {
-    name: "FORTRAN",
     websites: [
       { kind: "wikipedia", title: "FORTRAN", href: "https://en.wikipedia.org/wiki/FORTRAN" },
       { kind: "wikipedia", title: "FORTRAN", href: "https://en.wikipedia.org/wiki/Fortran" },
@@ -285,7 +277,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+FreeBASIC", "FreeBASIC", {
-    name: "FreeBASIC",
     websites: [
       { kind: "wikipedia", title: "FreeBASIC", href: "https://en.wikipedia.org/wiki/FreeBASIC" },
       { kind: "homepage", title: "www.freebasic.net", href: "http://www.freebasic.net" },
@@ -317,7 +308,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Futhark", "Futhark", {
-    name: "Futhark",
     websites: [
       {
         kind: "wikipedia",

@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Hack", "Hack", {
-    name: "Hack",
     websites: [
       {
         kind: "wikipedia",
@@ -55,7 +54,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Haskell", "Haskell", {
-    name: "Haskell",
     websites: [
       {
         kind: "wikipedia",
@@ -162,7 +160,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Haxe", "Haxe", {
-    name: "Haxe",
     websites: [
       { kind: "wikipedia", title: "Haxe", href: "https://en.wikipedia.org/wiki/Haxe" },
       { kind: "homepage", title: "haxe.org", href: "https://haxe.org" },
@@ -219,7 +216,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+HotSpot", "HotSpot", {
-    name: "HotSpot",
     websites: [
       {
         kind: "wikipedia",
@@ -233,7 +229,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Hy", "Hy", {
-    name: "Hy",
     websites: [
       {
         kind: "wikipedia",
@@ -279,7 +274,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+HyperCard", "HyperCard", {
-    name: "HyperCard",
     websites: [
       { kind: "wikipedia", title: "HyperCard", href: "https://en.wikipedia.org/wiki/HyperCard" },
     ],
@@ -307,7 +301,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+HyperTalk", "HyperTalk", {
-    name: "HyperTalk",
     websites: [
       { kind: "wikipedia", title: "HyperTalk", href: "https://en.wikipedia.org/wiki/HyperTalk" },
     ],

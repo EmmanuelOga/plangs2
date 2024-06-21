@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Gambit", "Gambit", {
-    name: "Gambit",
     websites: [
       {
         kind: "wikipedia",
@@ -36,7 +35,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+GDScript", "GDScript", {
-    name: "GDScript",
     websites: [
       {
         kind: "wikipedia",
@@ -50,7 +48,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Gforth", "Gforth", {
-    name: "Gforth",
     websites: [
       { kind: "wikipedia", title: "Gforth", href: "https://en.wikipedia.org/wiki/Gforth" },
       { kind: "homepage", title: "gnu.org/s/gforth/", href: "http://gnu.org/s/gforth/" },
@@ -83,7 +80,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Gleam", "Gleam", {
-    name: "Gleam",
     websites: [
       {
         kind: "wikipedia",
@@ -144,7 +140,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+GLSL", "GLSL", {
-    name: "GLSL",
     websites: [{ kind: "wikipedia", title: "GLSL", href: "https://en.wikipedia.org/wiki/GLSL" }],
     influenced: ["pl+Cg-SlashHLSL"],
   });
@@ -152,7 +147,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+GNAT", "GNAT", {
-    name: "GNAT",
     websites: [
       { kind: "wikipedia", title: "GNAT", href: "https://en.wikipedia.org/wiki/GNAT" },
       { kind: "homepage", title: "www.getadanow.com", href: "http://www.getadanow.com" },
@@ -192,12 +186,11 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("pl+GNU-Awk-gawk", "GNU Awk gawk", { name: "GNU Awk gawk", dialects: ["pl+AWK"] });
+  lb.define("pl+GNU-Awk-gawk", "GNU Awk gawk", { dialects: ["pl+AWK"] });
 
   //-------------------------------------------------------------------------------
 
   lb.define("pl+GNU-Guile", "GNU Guile", {
-    name: "GNU Guile",
     websites: [
       { kind: "wikipedia", title: "GNU Guile", href: "https://en.wikipedia.org/wiki/GNU_Guile" },
       { kind: "homepage", title: "gnu.org/software/guile", href: "https://gnu.org/software/guile" },
@@ -237,7 +230,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+GNU-Octave", "GNU Octave", {
-    name: "GNU Octave",
     websites: [
       { kind: "wikipedia", title: "GNU Octave", href: "https://en.wikipedia.org/wiki/GNU_Octave" },
       {
@@ -292,7 +284,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+GNU-Prolog", "GNU Prolog", {
-    name: "GNU Prolog",
     websites: [
       { kind: "wikipedia", title: "GNU Prolog", href: "https://en.wikipedia.org/wiki/GNU_Prolog" },
       { kind: "homepage", title: "www.gprolog.org", href: "http://www.gprolog.org" },
@@ -313,7 +304,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Go", "Go", {
-    name: "Go",
     websites: [
       {
         kind: "wikipedia",
@@ -437,7 +427,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Gosu", "Gosu", {
-    name: "Gosu",
     websites: [
       {
         kind: "wikipedia",
@@ -466,7 +455,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Groovy", "Groovy", {
-    name: "Groovy",
     websites: [
       {
         kind: "wikipedia",
@@ -519,7 +507,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Guile", "Guile", {
-    name: "Guile",
     websites: [
       { kind: "wikipedia", title: "Guile", href: "https://en.wikipedia.org/wiki/GNU_Guile" },
     ],

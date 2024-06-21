@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Whiley", "Whiley", {
-    name: "Whiley",
     websites: [
       {
         kind: "wikipedia",

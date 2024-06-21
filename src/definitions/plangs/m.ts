@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Magma", "Magma", {
-    name: "Magma",
     websites: [
       {
         kind: "wikipedia",
@@ -46,7 +45,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Maple", "Maple", {
-    name: "Maple",
     websites: [
       { kind: "wikipedia", title: "Maple", href: "https://en.wikipedia.org/wiki/Maple_(software)" },
       {
@@ -88,7 +86,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+MATLAB", "MATLAB", {
-    name: "MATLAB",
     websites: [
       { kind: "wikipedia", title: "MATLAB", href: "https://en.wikipedia.org/wiki/MATLAB" },
     ],
@@ -104,7 +101,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Max", "Max", {
-    name: "Max",
     websites: [
       { kind: "wikipedia", title: "Max", href: "https://en.wikipedia.org/wiki/Max_(software)" },
       {
@@ -134,7 +130,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Maxima", "Maxima", {
-    name: "Maxima",
     websites: [
       {
         kind: "wikipedia",
@@ -164,7 +159,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Mercury", "Mercury", {
-    name: "Mercury",
     websites: [
       {
         kind: "wikipedia",
@@ -215,7 +209,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+ML", "ML", {
-    name: "ML",
     websites: [
       {
         kind: "wikipedia",
@@ -287,7 +280,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Modelica", "Modelica", {
-    name: "Modelica",
     websites: [
       { kind: "wikipedia", title: "Modelica", href: "https://en.wikipedia.org/wiki/Modelica" },
       { kind: "homepage", title: "www.modelica.org", href: "https://www.modelica.org/" },
@@ -323,7 +315,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Mojo", "Mojo", {
-    name: "Mojo",
     websites: [
       {
         kind: "wikipedia",
@@ -355,7 +346,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+mruby", "mruby", {
-    name: "mruby",
     websites: [
       { kind: "wikipedia", title: "mruby", href: "https://en.wikipedia.org/wiki/Mruby" },
       { kind: "homepage", title: "mruby.org", href: "https://mruby.org" },

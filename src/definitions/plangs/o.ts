@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Oberon", "Oberon", {
-    name: "Oberon",
     websites: [
       {
         kind: "wikipedia",
@@ -67,7 +66,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Objective-C", "Objective-C", {
-    name: "Objective-C",
     websites: [
       {
         kind: "wikipedia",
@@ -115,7 +113,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+OCaml", "OCaml", {
-    name: "OCaml",
     websites: [
       { kind: "wikipedia", title: "OCaml", href: "https://en.wikipedia.org/wiki/OCaml" },
       { kind: "homepage", title: "ocaml.org", href: "https://ocaml.org/" },
@@ -211,7 +208,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+OpenACC", "OpenACC", {
-    name: "OpenACC",
     websites: [
       { kind: "wikipedia", title: "OpenACC", href: "https://en.wikipedia.org/wiki/OpenACC" },
       { kind: "homepage", title: "www.openacc.org", href: "https://www.openacc.org/" },
@@ -222,7 +218,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+OpenMP", "OpenMP", {
-    name: "OpenMP",
     websites: [
       { kind: "wikipedia", title: "OpenMP", href: "https://en.wikipedia.org/wiki/OpenMP" },
       { kind: "homepage", title: "openmp.org", href: "http://openmp.org" },

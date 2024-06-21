@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Ballerina", "Ballerina", {
-    name: "Ballerina",
     websites: [
       {
         kind: "wikipedia",
@@ -56,7 +55,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Bash", "Bash", {
-    name: "Bash",
     websites: [
       { kind: "wikipedia", title: "Bash", href: "https://en.wikipedia.org/wiki/Bash_(Unix_shell)" },
       {
@@ -86,7 +84,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+BASIC", "BASIC", {
-    name: "BASIC",
     websites: [{ kind: "wikipedia", title: "BASIC", href: "https://en.wikipedia.org/wiki/BASIC" }],
     images: [
       {
@@ -147,7 +144,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Basic", "Basic", {
-    name: "Basic",
     websites: [{ kind: "wikipedia", title: "Basic", href: "https://en.wikipedia.org/wiki/BASIC" }],
     influenced: ["pl+Ruby"],
   });
@@ -155,7 +151,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Blockly", "Blockly", {
-    name: "Blockly",
     websites: [
       { kind: "wikipedia", title: "Blockly", href: "https://en.wikipedia.org/wiki/Blockly" },
       {
@@ -189,7 +184,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Boomerang", "Boomerang", {
-    name: "Boomerang",
     websites: [
       {
         kind: "wikipedia",
@@ -217,7 +211,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Bosque", "Bosque", {
-    name: "Bosque",
     websites: [
       {
         kind: "wikipedia",
@@ -258,7 +251,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Bourne-shell", "Bourne shell", {
-    name: "Bourne shell",
     websites: [
       {
         kind: "wikipedia",
@@ -279,7 +271,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Brainfuck", "Brainfuck", {
-    name: "Brainfuck",
     websites: [
       { kind: "wikipedia", title: "Brainfuck", href: "https://en.wikipedia.org/wiki/Brainfuck" },
     ],

@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+C", "C", {
-    name: "C",
     websites: [
       {
         kind: "wikipedia",
@@ -176,7 +175,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+C-Plus-Plus", "C++", {
-    name: "C++",
     websites: [
       { kind: "wikipedia", title: "C++", href: "https://en.wikipedia.org/wiki/C%2B%2B" },
       { kind: "homepage", title: "isocpp.org", href: "https://isocpp.org/" },
@@ -341,7 +339,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+C-Sharp", "C#", {
-    name: "C#",
     websites: [
       {
         kind: "wikipedia",
@@ -387,7 +384,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+C99", "C99", {
-    name: "C99",
     websites: [{ kind: "wikipedia", title: "C99", href: "https://en.wikipedia.org/wiki/C99" }],
     influenced: [
       "pl+C-Plus-Plus",
@@ -398,7 +394,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Carbon", "Carbon", {
-    name: "Carbon",
     websites: [
       {
         kind: "wikipedia",
@@ -427,7 +422,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Ceylon", "Ceylon", {
-    name: "Ceylon",
     websites: [
       {
         kind: "wikipedia",
@@ -485,7 +479,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+ChucK", "ChucK", {
-    name: "ChucK",
     websites: [
       { kind: "wikipedia", title: "ChucK", href: "https://en.wikipedia.org/wiki/ChucK" },
       { kind: "homepage", title: "chuck.cs.princeton.edu", href: "http://chuck.cs.princeton.edu" },
@@ -521,7 +514,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Ciao", "Ciao", {
-    name: "Ciao",
     websites: [
       {
         kind: "wikipedia",
@@ -546,7 +538,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Clang", "Clang", {
-    name: "Clang",
     websites: [
       { kind: "wikipedia", title: "Clang", href: "https://en.wikipedia.org/wiki/Clang" },
       { kind: "homepage", title: "clang.llvm.org", href: "https://clang.llvm.org" },
@@ -598,7 +589,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Clojure", "Clojure", {
-    name: "Clojure",
     websites: [
       { kind: "wikipedia", title: "Clojure", href: "https://en.wikipedia.org/wiki/Clojure" },
       {
@@ -700,15 +690,11 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("pl+ClojureScript", "ClojureScript", {
-    name: "ClojureScript",
-    dialects: ["pl+Clojure"],
-  });
+  lb.define("pl+ClojureScript", "ClojureScript", { dialects: ["pl+Clojure"] });
 
   //-------------------------------------------------------------------------------
 
   lb.define("pl+CLOS", "CLOS", {
-    name: "CLOS",
     websites: [
       {
         kind: "wikipedia",
@@ -722,7 +708,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+CoffeeScript", "CoffeeScript", {
-    name: "CoffeeScript",
     websites: [
       {
         kind: "wikipedia",
@@ -764,7 +749,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Common-Lisp", "Common Lisp", {
-    name: "Common Lisp",
     websites: [
       {
         kind: "wikipedia",
@@ -855,7 +839,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Common-Lisp-Object-System", "Common Lisp Object System", {
-    name: "Common Lisp Object System",
     websites: [
       {
         kind: "wikipedia",
@@ -869,7 +852,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Coq", "Coq", {
-    name: "Coq",
     websites: [
       { kind: "wikipedia", title: "Coq", href: "https://en.wikipedia.org/wiki/Coq_(software)" },
     ],
@@ -879,7 +861,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+CPython", "CPython", {
-    name: "CPython",
     websites: [
       { kind: "wikipedia", title: "CPython", href: "https://en.wikipedia.org/wiki/CPython" },
       { kind: "homepage", title: "www.python.org", href: "https://www.python.org/" },
@@ -908,7 +889,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Cryptol", "Cryptol", {
-    name: "Cryptol",
     websites: [
       { kind: "wikipedia", title: "Cryptol", href: "https://en.wikipedia.org/wiki/Cryptol" },
       {
@@ -922,7 +902,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Crystal", "Crystal", {
-    name: "Crystal",
     websites: [
       {
         kind: "wikipedia",
@@ -992,7 +971,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Csound", "Csound", {
-    name: "Csound",
     websites: [
       { kind: "wikipedia", title: "Csound", href: "https://en.wikipedia.org/wiki/Csound" },
       { kind: "homepage", title: "csound.com", href: "http://csound.com" },
@@ -1019,7 +997,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+CSP", "CSP", {
-    name: "CSP",
     websites: [
       {
         kind: "wikipedia",
@@ -1033,7 +1010,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Cython", "Cython", {
-    name: "Cython",
     websites: [
       { kind: "wikipedia", title: "Cython", href: "https://en.wikipedia.org/wiki/Cython" },
       { kind: "homepage", title: "cython.org", href: "https://cython.org" },

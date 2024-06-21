@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Q", "Q", {
-    name: "Q",
     websites: [
       {
         kind: "wikipedia",
@@ -20,7 +19,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+q", "q", {
-    name: "q",
     websites: [
       {
         kind: "wikipedia",
@@ -53,7 +51,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+QB64", "QB64", {
-    name: "QB64",
     websites: [
       { kind: "wikipedia", title: "QB64", href: "https://en.wikipedia.org/wiki/QB64" },
       { kind: "homepage", title: "www.qb64.com", href: "http://www.qb64.com" },
@@ -78,7 +75,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+QML", "QML", {
-    name: "QML",
     websites: [
       { kind: "wikipedia", title: "QML", href: "https://en.wikipedia.org/wiki/QML" },
       {

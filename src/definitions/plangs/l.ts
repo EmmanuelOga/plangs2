@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+LabVIEW", "LabVIEW", {
-    name: "LabVIEW",
     websites: [
       { kind: "wikipedia", title: "LabVIEW", href: "https://en.wikipedia.org/wiki/LabVIEW" },
       { kind: "homepage", title: "www.ni.com/labview", href: "https://www.ni.com/labview" },
@@ -28,7 +27,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Lean", "Lean", {
-    name: "Lean",
     websites: [
       {
         kind: "wikipedia",
@@ -57,7 +55,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+LFE", "LFE", {
-    name: "LFE",
     websites: [
       {
         kind: "wikipedia",
@@ -100,7 +97,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Lisp", "Lisp", {
-    name: "Lisp",
     websites: [
       {
         kind: "wikipedia",
@@ -281,7 +277,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+LiveCode", "LiveCode", {
-    name: "LiveCode",
     websites: [
       { kind: "wikipedia", title: "LiveCode", href: "https://en.wikipedia.org/wiki/LiveCode" },
     ],
@@ -291,7 +286,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+LiveScript", "LiveScript", {
-    name: "LiveScript",
     websites: [
       {
         kind: "wikipedia",
@@ -326,7 +320,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Logo", "Logo", {
-    name: "Logo",
     websites: [
       {
         kind: "wikipedia",
@@ -389,7 +382,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Lua", "Lua", {
-    name: "Lua",
     websites: [
       {
         kind: "wikipedia",

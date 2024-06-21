@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+V", "V", {
-    name: "V",
     websites: [
       {
         kind: "wikipedia",
@@ -50,7 +49,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Vala", "Vala", {
-    name: "Vala",
     websites: [
       {
         kind: "wikipedia",
@@ -83,7 +81,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Verilog", "Verilog", {
-    name: "Verilog",
     websites: [
       { kind: "wikipedia", title: "Verilog", href: "https://en.wikipedia.org/wiki/Verilog" },
       {
@@ -110,7 +107,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Verse", "Verse", {
-    name: "Verse",
     websites: [
       {
         kind: "wikipedia",
@@ -149,7 +145,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+VHDL", "VHDL", {
-    name: "VHDL",
     websites: [
       { kind: "wikipedia", title: "VHDL", href: "https://en.wikipedia.org/wiki/VHDL" },
       { kind: "homepage", title: "IEEE VASG", href: "https://opensource.ieee.org/vasg" },
@@ -176,7 +171,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Visual-Basic", "Visual Basic", {
-    name: "Visual Basic",
     websites: [
       {
         kind: "wikipedia",
@@ -225,7 +219,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Visual-Basic-.NET", "Visual Basic .NET", {
-    name: "Visual Basic .NET",
     websites: [
       {
         kind: "wikipedia",
@@ -239,7 +232,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Visual-C-Plus-Plus", "Visual C++", {
-    name: "Visual C++",
     websites: [
       {
         kind: "wikipedia",

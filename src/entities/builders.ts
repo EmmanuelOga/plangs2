@@ -11,6 +11,24 @@ import type {
 } from "./schemas";
 
 export class PlangsBuilder {
+  define(
+    arg0: string,
+    arg1: string,
+    arg2: {
+      name: string;
+      websites: { kind: string; title: string; href: string }[];
+      images: { kind: string; url: string }[];
+      releases: { version: string; date: string; kind: string }[];
+      extensions: string[];
+      people: string[][];
+      licenses: string[];
+      platforms: string[];
+      influences: string[];
+      influenced: string[];
+    },
+  ) {
+    throw new Error("Method not implemented.");
+  }
   constructor(readonly g: PlangsGraph) {}
 
   addDialects(pl: Partial<V_Plang>, vids: string[]) {}

@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+eC", "eC", {
-    name: "eC",
     websites: [
       {
         kind: "wikipedia",
@@ -30,7 +29,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+ECMAScript", "ECMAScript", {
-    name: "ECMAScript",
     websites: [
       { kind: "wikipedia", title: "ECMAScript", href: "https://en.wikipedia.org/wiki/ECMAScript" },
       {
@@ -82,7 +80,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Elixir", "Elixir", {
-    name: "Elixir",
     websites: [
       {
         kind: "wikipedia",
@@ -133,7 +130,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Elm", "Elm", {
-    name: "Elm",
     websites: [
       {
         kind: "wikipedia",
@@ -207,7 +203,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Emacs-Lisp", "Emacs Lisp", {
-    name: "Emacs Lisp",
     websites: [
       { kind: "wikipedia", title: "Emacs Lisp", href: "https://en.wikipedia.org/wiki/Emacs_Lisp" },
       {
@@ -241,7 +236,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Erlang", "Erlang", {
-    name: "Erlang",
     websites: [
       {
         kind: "wikipedia",
@@ -323,7 +317,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("pl+Euphoria", "Euphoria", {
-    name: "Euphoria",
     websites: [
       {
         kind: "wikipedia",
