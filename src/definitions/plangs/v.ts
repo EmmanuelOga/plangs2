@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+V", "V", {
     name: "V",
     websites: [
@@ -45,6 +47,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Rust"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Vala", "Vala", {
     name: "Vala",
     websites: [
@@ -76,6 +80,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Java", "pl+C", "pl+Boo", "pl+D-programming-language"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Verilog", "Verilog", {
     name: "Verilog",
     websites: [
@@ -100,6 +106,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+Pascal", "pl+Ada", "pl+C", "pl+Fortran", "pl+SystemVerilog"],
     influenced: ["pl+SystemVerilog", "pl+C"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Verse", "Verse", {
     name: "Verse",
@@ -138,6 +146,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+VHDL", "VHDL", {
     name: "VHDL",
     websites: [
@@ -162,6 +172,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+Ada", "pl+Pascal"],
     influenced: ["pl+Ada", "pl+SystemVerilog", "pl+Pascal"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Visual-Basic", "Visual Basic", {
     name: "Visual Basic",
@@ -210,6 +222,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+B4x", "pl+Visual-Basic-for-Applications", "pl+Gambas", "pl+BASIC"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Visual-Basic-.NET", "Visual Basic .NET", {
     name: "Visual Basic .NET",
     websites: [
@@ -221,6 +235,8 @@ export function define(g: PlangsGraph) {
     ],
     influenced: ["pl+Visual-Basic", "pl+Microsoft-Small-Basic", "pl+BASIC"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Visual-C-Plus-Plus", "Visual C++", {
     name: "Visual C++",

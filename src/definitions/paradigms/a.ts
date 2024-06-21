@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.paradigmBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+agent-based", "agent-based", [
     {
       kind: "wikipedia",
@@ -21,6 +23,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+algebraic-types", "algebraic types", [
     {
       kind: "wikipedia",
@@ -28,6 +32,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Algebraic_types",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+algorithmic", "algorithmic", [
     {
@@ -37,9 +43,13 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+array", "array", [
     { kind: "wikipedia", title: "array", href: "https://en.wikipedia.org/wiki/Array_programming" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+aspect-oriented", "aspect-oriented", [
     {
@@ -48,6 +58,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Aspect-oriented_programming",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+assembly", "Assembly", [
     {

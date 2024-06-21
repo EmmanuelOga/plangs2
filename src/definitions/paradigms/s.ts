@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.paradigmBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+scientific-workflow", "scientific workflow", [
     {
       kind: "wikipedia",
@@ -10,6 +12,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Scientific_workflow_system",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+scripting", "scripting", [
     {
@@ -19,6 +23,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+shared-memory", "shared memory", [
     {
       kind: "wikipedia",
@@ -27,6 +33,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+simulation", "simulation", [
     {
       kind: "wikipedia",
@@ -34,6 +42,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Simulation_language",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+stack-oriented", "stack-based", [
     {
@@ -53,6 +63,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+strongly-typed", "strongly typed", [
     {
       kind: "wikipedia",
@@ -60,6 +72,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Strongly_typed",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+structured", "structured", [
     {
@@ -69,6 +83,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+style-language", "Style language", [
     {
       kind: "wikipedia",
@@ -76,6 +92,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Style_language",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+symbolic", "symbolic", [
     {

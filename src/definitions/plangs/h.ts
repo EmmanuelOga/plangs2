@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Hack", "Hack", {
     name: "Hack",
     websites: [
@@ -49,6 +51,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+PHP", "pl+OCaml", "pl+Java", "pl+C-Sharp", "pl+Scala", "pl+Haskell"],
     influenced: ["pl+Java", "pl+PHP"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Haskell", "Haskell", {
     name: "Haskell",
@@ -155,6 +159,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Haxe", "Haxe", {
     name: "Haxe",
     websites: [
@@ -210,6 +216,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Java", "pl+OCaml", "pl+JavaScript", "pl+ActionScript"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+HotSpot", "HotSpot", {
     name: "HotSpot",
     websites: [
@@ -221,6 +229,8 @@ export function define(g: PlangsGraph) {
     ],
     influenced: ["pl+Strongtalk"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Hy", "Hy", {
     name: "Hy",
@@ -266,6 +276,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+LFE", "pl+Clojure"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+HyperCard", "HyperCard", {
     name: "HyperCard",
     websites: [
@@ -291,6 +303,8 @@ export function define(g: PlangsGraph) {
     platforms: ["platf+macos", "platf+apple_ii"],
     influenced: ["pl+Scratch", "pl+Etoys"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+HyperTalk", "HyperTalk", {
     name: "HyperTalk",

@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.typeSystemBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("tsys+safe", "Safe", [
     {
       title: "${name} Type System",
@@ -10,6 +12,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("tsys+static", "Static", [
     {
@@ -19,6 +23,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("tsys+strong", "Strong", [
     {
       title: "${name} Type System",
@@ -26,6 +32,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("tsys+structural", "Structural", [
     {

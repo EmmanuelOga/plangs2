@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Oberon", "Oberon", {
     name: "Oberon",
     websites: [
@@ -62,6 +64,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Objective-C", "Objective-C", {
     name: "Objective-C",
     websites: [
@@ -107,6 +111,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+C", "pl+Smalltalk", "pl+Groovy", "pl+Java", "pl+Nu", "pl+Swift"],
     influenced: ["pl+Java", "pl+Nu", "pl+Cobra", "pl+ArkTS", "pl+C", "pl+Logtalk", "pl+Smalltalk"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+OCaml", "OCaml", {
     name: "OCaml",
@@ -202,6 +208,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+OpenACC", "OpenACC", {
     name: "OpenACC",
     websites: [
@@ -210,6 +218,8 @@ export function define(g: PlangsGraph) {
     ],
     releases: [{ version: "3.2", date: "2021-01-01", kind: "stable" }],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+OpenMP", "OpenMP", {
     name: "OpenMP",

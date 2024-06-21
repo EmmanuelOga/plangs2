@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+J-E-L-Peck", "J. E. L. Peck", [
     {
       title: "J. E. L. Peck",
@@ -11,7 +13,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+J-R-Logan", "J. R. Logan", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Jacob-T-Schwartz", "Jacob T. Schwartz", [
     {
@@ -21,6 +27,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+James-Clark", "James Clark", [
     {
       title: "James Clark",
@@ -29,13 +37,21 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+James-Cordy", "James Cordy", [
     { title: "James Cordy", href: "https://en.wikipedia.org/wiki/James_Cordy", kind: "wikipedia" },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+James-Davenport", "James Davenport", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+James-E-Hendrix", "James E. Hendrix", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+James-G-Mitchell", "James G. Mitchell", [
     {
@@ -45,6 +61,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+James-Gosling", "James Gosling", [
     {
       title: "James Gosling",
@@ -53,7 +71,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+James-McGraw", "James McGraw", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+James-Strachan", "James Strachan", [
     {
@@ -63,11 +85,19 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Jamie-McCracken", "Jamie McCracken", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Jan-Wieck", "Jan Wieck", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Jan-Wielemaker", "Jan Wielemaker", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Jayadev-Misra", "Jayadev Misra", [
     {
@@ -77,6 +107,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Jean-Christophe-Baillie", "Jean-Christophe Baillie", [
     {
       title: "Jean-Christophe Baillie",
@@ -84,6 +116,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Jean-E-Sammet", "Jean E. Sammet", [
     {
@@ -93,6 +127,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Jean-Ichbiah", "Jean Ichbiah", [
     {
       title: "Jean Ichbiah",
@@ -101,11 +137,19 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Jean-Marie-Hullot", "Jean-Marie Hullot", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Jean-Paul-Watson", "Jean-Paul Watson", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Jean-Yang", "Jean Yang", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Jeff-Bezanson", "Jeff Bezanson", [
     {
@@ -115,6 +159,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Jeffrey-Snover", "Jeffrey Snover", [
     {
       title: "Jeffrey Snover",
@@ -122,6 +168,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Jeremy-Ashkenas", "Jeremy Ashkenas", [
     {
@@ -131,13 +179,23 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Jeremy-Cowgar", "Jeremy Cowgar", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Jeremy-Tregunna", "Jeremy Tregunna", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Jerome-Chailloux", "Jérôme Chailloux", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Jessie-Dedecker", "Jessie Dedecker", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+JGP-Barnes", "J.G.P. Barnes", [
     {
@@ -147,9 +205,13 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Jim-Horning", "Jim Horning", [
     { title: "Jim Horning", href: "https://en.wikipedia.org/wiki/Jim_Horning", kind: "wikipedia" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Joe-Armstrong", "Joe Armstrong", [
     {
@@ -159,13 +221,21 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Johannes-J-Bisschop", "Johannes J. Bisschop", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+John-Backus", "John Backus", [
     { title: "John Backus", href: "https://en.wikipedia.org/wiki/John_Backus", kind: "wikipedia" },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+John-Bass", "John Bass", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+John-Carmack", "John Carmack", [
     {
@@ -175,6 +245,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+John-Chambers", "John Chambers", [
     {
       title: "John Chambers",
@@ -183,11 +255,19 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+John-Cowan", "John Cowan", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+John-E-Davis", "John E. Davis", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+John-Foderaro", "John Foderaro", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+John-G-Kemeny", "John G. Kemeny", [
     {
@@ -197,6 +277,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+John-Hughes", "John Hughes", [
     {
       title: "John Hughes",
@@ -204,6 +286,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+John-Launchbury", "John Launchbury", [
     {
@@ -213,7 +297,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+John-Lloyd", "John Lloyd", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+John-McCarthy", "John McCarthy", [
     {
@@ -223,6 +311,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+John-Ousterhout", "John Ousterhout", [
     {
       title: "John Ousterhout",
@@ -231,11 +321,19 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+John-Plevyak", "John Plevyak", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+John-Siirola", "John Siirola", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+John-W-Eaton", "John W. Eaton", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+John-Warnock", "John Warnock", [
     {
@@ -245,11 +343,19 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+John-Wick", "John Wick", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Jonathan-A-Rees", "Jonathan A. Rees", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Jonathan-Bennett", "Jonathan Bennett", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Jonathan-Sachs", "Jonathan Sachs", [
     {
@@ -259,15 +365,27 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Jonathan-Wright", "Jonathan Wright", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Jordan-Walke", "Jordan Walke", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Jorge-Nunes", "Jorge Nunes", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Jorgen-Brandt", "Jörgen Brandt", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Jose-Valim", "José Valim", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Joseph-Henry-Wegstein", "Joseph Henry Wegstein", [
     {
@@ -277,17 +395,29 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+JR-Cordy", "J.R. Cordy", [
     { title: "J.R. Cordy", href: "https://en.wikipedia.org/wiki/James_Cordy", kind: "wikipedia" },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Juan-Chen", "Juan Chen", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Juan-Wajnerman", "Juan Wajnerman", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Julien-Verlaguet", "Julien Verlaguet", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Jurg-Billeter", "Jürg Billeter", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Jurg-Gutknecht", "Jürg Gutknecht", [
     {

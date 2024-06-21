@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+R", "R", {
     name: "R",
     websites: [
@@ -85,6 +87,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Scheme", "pl+Lisp", "pl+Julia", "pl+PCASTL", "pl+S", "pl+Common-Lisp"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Racket", "Racket", {
     name: "Racket",
     websites: [
@@ -158,6 +162,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Scheme", "pl+Clojure", "pl+Eiffel"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Raku", "Raku", {
     name: "Raku",
     websites: [
@@ -209,6 +215,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Smalltalk"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Rakudo", "Rakudo", {
     name: "Rakudo",
     websites: [
@@ -230,6 +238,8 @@ export function define(g: PlangsGraph) {
     licenses: ["lic+artistic"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+rc", "rc", {
     name: "rc",
     websites: [
@@ -247,6 +257,8 @@ export function define(g: PlangsGraph) {
     platforms: ["platf+cross-platform", "platf+unix", "platf+plan9"],
     influences: ["pl+Bourne-shell", "pl+Inferno"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Reason", "Reason", {
     name: "Reason",
@@ -289,6 +301,8 @@ export function define(g: PlangsGraph) {
     ],
     influences: ["pl+OCaml", "pl+JavaScript"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Rebol", "Rebol", {
     name: "Rebol",
@@ -334,11 +348,15 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Red", "pl+Lisp", "pl+Forth", "pl+Self", "pl+UCBLogo"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+REBOL", "REBOL", {
     name: "REBOL",
     websites: [{ kind: "wikipedia", title: "REBOL", href: "https://en.wikipedia.org/wiki/REBOL" }],
     influenced: ["pl+Logo"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Red", "Red", {
     name: "Red",
@@ -374,6 +392,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+Rebol", "pl+Lisp", "pl+Scala", "pl+Lua"],
     influenced: ["pl+Lisp", "pl+Scala", "pl+Rebol"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Ring", "Ring", {
     name: "Ring",
@@ -440,6 +460,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Ruby", "pl+QML", "pl+Python"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+RPython", "RPython", {
     name: "RPython",
     websites: [
@@ -447,6 +469,8 @@ export function define(g: PlangsGraph) {
     ],
     dialects: ["pl+Python"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Ruby", "Ruby", {
     name: "Ruby",
@@ -571,6 +595,8 @@ export function define(g: PlangsGraph) {
       "pl+Smalltalk",
     ],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Rust", "Rust", {
     name: "Rust",

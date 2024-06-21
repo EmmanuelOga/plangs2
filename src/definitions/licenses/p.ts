@@ -3,9 +3,13 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("lic+patent", "patent", [
     { kind: "wikipedia", title: "patent", href: "https://en.wikipedia.org/wiki/Software_patents" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("lic+perl-artistic-2", "Perl Artistic License 2.0", [
     {
@@ -15,6 +19,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("lic+permissive", "Permissive", [
     {
       kind: "wikipedia",
@@ -22,6 +28,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Permissive_license",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("lic+permissive-free-software", "Permissive free software", [
     {
@@ -36,9 +44,13 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("lic+php", "PHP License", [
     { kind: "wikipedia", title: "PHP License", href: "https://en.wikipedia.org/wiki/PHP_License" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("lic+proprietary", "Proprietary", [
     {
@@ -58,6 +70,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("lic+proprietary-software", "proprietary software", [
     {
       kind: "wikipedia",
@@ -65,6 +79,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Proprietary_software",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("lic+public-domain", "Public domain", [
     {
@@ -78,6 +94,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Public_Domain",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("lic+python-software-foundation", "Python Software Foundation License", [
     {

@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.paradigmBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+educational", "educational", [
     {
       kind: "wikipedia",
@@ -16,9 +18,13 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+embedded", "embedded", [
     { kind: "wikipedia", title: "embedded", href: "https://en.wikipedia.org/wiki/Embedded_system" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+esoteric", "Esoteric", [
     {
@@ -28,6 +34,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+event-driven", "event-driven", [
     {
       kind: "wikipedia",
@@ -35,6 +43,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Event-driven_programming",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+exp-oriented", "exp-oriented", [
     {
@@ -44,6 +54,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+expert-systems", "expert systems", [
     {
       kind: "wikipedia",
@@ -51,6 +63,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Expert_systems",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+extensible", "extensible", [
     {

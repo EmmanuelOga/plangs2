@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.paradigmBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+vector-oriented", "vector-oriented programming", [
     {
       kind: "wikipedia",
@@ -10,6 +12,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Array_programming",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+visual", "block structured", [
     {

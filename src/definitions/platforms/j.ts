@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("platf+jvm", "JavaScript", [
     { kind: "wikipedia", title: "JVM", href: "https://en.wikipedia.org/wiki/JVM" },
     {

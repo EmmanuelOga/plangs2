@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Ballerina", "Ballerina", {
     name: "Ballerina",
     websites: [
@@ -51,6 +53,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+Java", "pl+Javascript", "pl+Go", "pl+Rust", "pl+C-Sharp"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Bash", "Bash", {
     name: "Bash",
     websites: [
@@ -78,6 +82,8 @@ export function define(g: PlangsGraph) {
     licenses: ["lic+gpl-3", "lic+gpl-2", "lic+gpl-1"],
     platforms: ["platf+gnu"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+BASIC", "BASIC", {
     name: "BASIC",
@@ -138,11 +144,15 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Basic", "Basic", {
     name: "Basic",
     websites: [{ kind: "wikipedia", title: "Basic", href: "https://en.wikipedia.org/wiki/BASIC" }],
     influenced: ["pl+Ruby"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Blockly", "Blockly", {
     name: "Blockly",
@@ -176,6 +186,8 @@ export function define(g: PlangsGraph) {
     platforms: ["platf+web"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Boomerang", "Boomerang", {
     name: "Boomerang",
     websites: [
@@ -201,6 +213,8 @@ export function define(g: PlangsGraph) {
     platforms: ["platf+linux", "platf+macos"],
     influences: ["pl+OCaml", "pl+XSLT"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Bosque", "Bosque", {
     name: "Bosque",
@@ -241,6 +255,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+JavaScript", "pl+TypeScript", "pl+ML"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Bourne-shell", "Bourne shell", {
     name: "Bourne shell",
     websites: [
@@ -259,6 +275,8 @@ export function define(g: PlangsGraph) {
     releases: [{ version: "unknown", date: "1979-01-01", kind: "first" }],
     influenced: ["pl+rc"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Brainfuck", "Brainfuck", {
     name: "Brainfuck",

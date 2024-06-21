@@ -3,11 +3,15 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+XAML", "XAML", {
     name: "XAML",
     websites: [{ kind: "wikipedia", title: "XAML", href: "https://en.wikipedia.org/wiki/XAML" }],
     influenced: ["pl+QML"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+XOD", "XOD", {
     name: "XOD",
@@ -27,6 +31,8 @@ export function define(g: PlangsGraph) {
     paradigms: ["para+declarative", "para+dataflow", "para+functional", "para+visual"],
     platforms: ["platf+arduino", "platf+rpi"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Xojo", "Xojo", {
     name: "Xojo",
@@ -48,11 +54,15 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Visual-Basic", "pl+BASIC"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+XPath", "XPath", {
     name: "XPath",
     websites: [{ kind: "wikipedia", title: "XPath", href: "https://en.wikipedia.org/wiki/XPath" }],
     influenced: ["pl+XQuery"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+XQuery", "XQuery", {
     name: "XQuery",
@@ -86,6 +96,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+XPath", "pl+SQL", "pl+XSLT"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+XSB", "XSB", {
     name: "XSB",
     websites: [
@@ -104,6 +116,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+Prolog"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+XSLT", "XSLT", {
     name: "XSLT",
     websites: [
@@ -120,6 +134,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+DSSSL"],
     influenced: ["pl+Boomerang", "pl+XQuery"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Xtend", "Xtend", {
     name: "Xtend",

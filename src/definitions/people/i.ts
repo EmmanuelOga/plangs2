@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+INSA-Lyon", "INSA Lyon", [
     {
       title: "INSA Lyon",
@@ -10,6 +12,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+ITT-VIS", "ITT VIS", [
     {

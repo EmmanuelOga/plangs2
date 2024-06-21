@@ -3,7 +3,11 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+M-M-Barritt", "M. M. Barritt", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Mahmoud-Samir-Fayed", "Mahmoud Samir Fayed", [
     {
@@ -13,7 +17,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Manfred-von-Thun", "Manfred von Thun", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Manuel-Serrano", "Manuel Serrano", [
     {
@@ -23,15 +31,27 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Marc-Feeley", "Marc Feeley", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Marc-Schellens", "Marc Schellens", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Marcel-Roelofs", "Marcel Roelofs", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Marius-Gerbershagen", "Marius Gerbershagen", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Mark-Marron", "Mark Marron", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Mark-S-Miller", "Mark S. Miller", [
     {
@@ -41,7 +61,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Martin-Elsman", "Martin Elsman", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Martin-Odersky", "Martin Odersky", [
     {
@@ -51,7 +75,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Martin-Raskovsky", "Martin Raskovsky", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Martin-Richards", "Martin Richards", [
     {
@@ -61,19 +89,33 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Martin-Stamp", "Martin Stamp", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Mason-Wheeler", "Mason Wheeler", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Matt-Lewis", "Matt Lewis", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Matthieu-Devin", "Matthieu Devin", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Max-Graey", "Max Graey", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Media-Lab", "Media Lab", [
     { title: "Media Lab", href: "https://en.wikipedia.org/wiki/MIT_Media_Lab", kind: "wikipedia" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Meta-Platforms", "Meta Platforms", [
     {
@@ -83,15 +125,27 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Michael-F-King", "Michael F. King", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Michael-Hanus", "Michael Hanus", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Michael-J-Roberts", "Michael J. Roberts", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Michael-Katz", "Michael Katz", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Michael-Nielsen", "Michael Nielsen", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Mike-Cowlishaw", "Mike Cowlishaw", [
     {
@@ -101,11 +155,19 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Mike-Jenkins", "Mike Jenkins", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Mike-Stall", "Mike Stall", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Miles-Bader", "Miles Bader", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Miller-S-Puckette", "Miller S. Puckette", [
     {
@@ -115,6 +177,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Mitchel-Resnick", "Mitchel Resnick", [
     {
       title: "Mitchel Resnick",
@@ -123,7 +187,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Modelon-AB", "Modelon AB", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Morgan-Stanley", "Morgan Stanley", [
     {
@@ -132,6 +200,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Motion-Twin", "Motion Twin", [
     { title: "Motion Twin", href: "https://en.wikipedia.org/wiki/Motion_Twin", kind: "wikipedia" },

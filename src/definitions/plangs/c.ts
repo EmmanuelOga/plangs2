@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+C", "C", {
     name: "C",
     websites: [
@@ -171,6 +173,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+C-Plus-Plus", "C++", {
     name: "C++",
     websites: [
@@ -334,6 +338,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+C-Sharp", "C#", {
     name: "C#",
     websites: [
@@ -378,6 +384,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+C99", "C99", {
     name: "C99",
     websites: [{ kind: "wikipedia", title: "C99", href: "https://en.wikipedia.org/wiki/C99" }],
@@ -386,6 +394,8 @@ export function define(g: PlangsGraph) {
       "pl+OpenCL-APIOpenCL-C-SlashC-Plus-Plus-and-C-Plus-Plus-for-OpenCL",
     ],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Carbon", "Carbon", {
     name: "Carbon",
@@ -413,6 +423,8 @@ export function define(g: PlangsGraph) {
     implementations: ["pl+C-Plus-Plus"],
     influenced: ["pl+C-Plus-Plus"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Ceylon", "Ceylon", {
     name: "Ceylon",
@@ -470,6 +482,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Scala"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+ChucK", "ChucK", {
     name: "ChucK",
     websites: [
@@ -504,6 +518,8 @@ export function define(g: PlangsGraph) {
     platforms: ["platf+cross-platform"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Ciao", "Ciao", {
     name: "Ciao",
     websites: [
@@ -526,6 +542,8 @@ export function define(g: PlangsGraph) {
     platforms: ["platf+cross-platform", "platf+unix", "platf+macos", "platf+windows"],
     influences: ["pl+Prolog"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Clang", "Clang", {
     name: "Clang",
@@ -576,6 +594,8 @@ export function define(g: PlangsGraph) {
     licenses: ["lic+apache-2"],
     platforms: ["platf+aarch64", "platf+arm", "platf+ia-32", "platf+x86-64"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Clojure", "Clojure", {
     name: "Clojure",
@@ -678,10 +698,14 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+ClojureScript", "ClojureScript", {
     name: "ClojureScript",
     dialects: ["pl+Clojure"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+CLOS", "CLOS", {
     name: "CLOS",
@@ -694,6 +718,8 @@ export function define(g: PlangsGraph) {
     ],
     influenced: ["pl+Dylan", "pl+EuLisp", "pl+SKILL"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+CoffeeScript", "CoffeeScript", {
     name: "CoffeeScript",
@@ -734,6 +760,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+MoonScript", "pl+LiveScript"],
     influenced: ["pl+Ruby", "pl+ECMAScript", "pl+LiveScript", "pl+JavaScript", "pl+Python"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Common-Lisp", "Common Lisp", {
     name: "Common Lisp",
@@ -824,6 +852,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Common-Lisp-Object-System", "Common Lisp Object System", {
     name: "Common Lisp Object System",
     websites: [
@@ -836,6 +866,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Smalltalk"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Coq", "Coq", {
     name: "Coq",
     websites: [
@@ -843,6 +875,8 @@ export function define(g: PlangsGraph) {
     ],
     influenced: ["pl+Idris", "pl+OCaml", "pl+ML", "pl+F-Star", "pl+Agda", "pl+Lean"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+CPython", "CPython", {
     name: "CPython",
@@ -871,6 +905,8 @@ export function define(g: PlangsGraph) {
     licenses: ["lic+python-software-foundation"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Cryptol", "Cryptol", {
     name: "Cryptol",
     websites: [
@@ -882,6 +918,8 @@ export function define(g: PlangsGraph) {
       },
     ],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Crystal", "Crystal", {
     name: "Crystal",
@@ -951,6 +989,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Go", "pl+Ruby"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Csound", "Csound", {
     name: "Csound",
     websites: [
@@ -976,6 +1016,8 @@ export function define(g: PlangsGraph) {
     licenses: ["lic+lgpl-2.1"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+CSP", "CSP", {
     name: "CSP",
     websites: [
@@ -987,6 +1029,8 @@ export function define(g: PlangsGraph) {
     ],
     influenced: ["pl+Newsqueak", "pl+Handel-C", "pl+Limbo"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Cython", "Cython", {
     name: "Cython",

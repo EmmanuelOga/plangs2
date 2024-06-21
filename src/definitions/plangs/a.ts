@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Agda", "Agda", {
     name: "Agda",
     websites: [
@@ -52,6 +54,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+Coq", "pl+Epigram", "pl+Haskell", "pl+Idris"],
     influenced: ["pl+Idris", "pl+Epigram"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+APL", "APL", {
     name: "APL",
@@ -138,6 +142,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Arc", "Arc", {
     name: "Arc",
     websites: [
@@ -167,6 +173,8 @@ export function define(g: PlangsGraph) {
     dialects: ["pl+Lisp"],
     influences: ["pl+Lisp", "pl+Scheme"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+AssemblyScript", "AssemblyScript", {
     name: "AssemblyScript",

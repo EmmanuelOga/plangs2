@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Tcl", "Tcl", {
     name: "Tcl",
     websites: [
@@ -67,6 +69,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Lisp", "pl+XOTcl", "pl+PHP", "pl+AWK", "pl+Tea", "pl+PowerShell"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Tom", "Tom", {
     name: "Tom",
     websites: [
@@ -95,6 +99,8 @@ export function define(g: PlangsGraph) {
     licenses: ["lic+gpl", "lic+bsds"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Turbo-Pascal", "Turbo Pascal", {
     name: "Turbo Pascal",
     websites: [
@@ -106,6 +112,8 @@ export function define(g: PlangsGraph) {
     ],
     dialects: ["pl+Object-Pascal", "pl+Pascal"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+TXL", "TXL", {
     name: "TXL",
@@ -120,6 +128,8 @@ export function define(g: PlangsGraph) {
     people: [["person+James-Cordy", "designer"]],
     paradigms: ["para+pattern-matching", "para+term-rewriting"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+TypeScript", "TypeScript", {
     name: "TypeScript",

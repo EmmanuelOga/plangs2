@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+F-Sharp", "F#", {
     name: "F#",
     websites: [
@@ -30,6 +32,8 @@ export function define(g: PlangsGraph) {
       "pl+Python",
     ],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Factor", "Factor", {
     name: "Factor",
@@ -65,6 +69,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+Joy", "pl+Forth", "pl+Lisp", "pl+Self"],
     influenced: ["pl+Forth", "pl+Joy", "pl+Self"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Fantom", "Fantom", {
     name: "Fantom",
@@ -110,6 +116,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Java", "pl+Scala"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+FAUST", "FAUST", {
     name: "FAUST",
     websites: [
@@ -134,6 +142,8 @@ export function define(g: PlangsGraph) {
     },
     licenses: ["lic+gpl"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Flix", "Flix", {
     name: "Flix",
@@ -161,6 +171,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Scala"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Forth", "Forth", {
     name: "Forth",
     websites: [
@@ -178,6 +190,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+Bitcoin-Script", "pl+Factor", "pl+Joy", "pl+RPL", "pl+Rebol", "pl+STOIC"],
     influenced: ["pl+Lisp", "pl+RPL", "pl+STOIC", "pl+Joy", "pl+Befunge", "pl+Factor", "pl+Rebol"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Fortran", "Fortran", {
     name: "Fortran",
@@ -257,6 +271,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+FORTRAN", "FORTRAN", {
     name: "FORTRAN",
     websites: [
@@ -265,6 +281,8 @@ export function define(g: PlangsGraph) {
     ],
     influenced: ["pl+Wolfram-Language", "pl+Dartmouth-BASIC", "pl+ALGOL-58", "pl+C"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+FreeBASIC", "FreeBASIC", {
     name: "FreeBASIC",
@@ -295,6 +313,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+QuickBASIC", "pl+C"],
     influenced: ["pl+QBasic"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Futhark", "Futhark", {
     name: "Futhark",

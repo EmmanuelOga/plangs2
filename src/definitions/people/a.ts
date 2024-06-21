@@ -3,7 +3,11 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+A-B-Tonik", "A. B. Tonik", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+A-K-Dewdney", "A. K. Dewdney", [
     {
@@ -13,6 +17,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+A-N-Habermann", "A. N. Habermann", [
     {
       title: "A. N. Habermann",
@@ -20,6 +26,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+A-van-Wijngaarden", "A. van Wijngaarden", [
     {
@@ -29,6 +37,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Adele-Goldberg", "Adele Goldberg", [
     {
       title: "Adele Goldberg",
@@ -36,6 +46,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Alain-Colmerauer", "Alain Colmerauer", [
     {
@@ -45,6 +57,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Alan-Edelman", "Alan Edelman", [
     {
       title: "Alan Edelman",
@@ -53,21 +67,35 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Alan-Kay", "Alan Kay", [
     { title: "Alan Kay", href: "https://en.wikipedia.org/wiki/Alan_Kay", kind: "wikipedia" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Alan-Perlis", "Alan Perlis", [
     { title: "Alan Perlis", href: "https://en.wikipedia.org/wiki/Alan_Perlis", kind: "wikipedia" },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Albert-Graf", "Albert Gräf", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Alberto-Demichelis", "Alberto Demichelis", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Alexander-Burger", "Alexander Burger", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Alexander-Medvednikov", "Alexander Medvednikov", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Alexander-Repenning", "Alexander Repenning", [
     {
@@ -77,9 +105,13 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Alfred-Aho", "Alfred Aho", [
     { title: "Alfred Aho", href: "https://en.wikipedia.org/wiki/Alfred_Aho", kind: "wikipedia" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Allen-Newell", "Allen Newell", [
     {
@@ -89,7 +121,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Alok-Menghrajani", "Alok Menghrajani", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Anders-Hejlsberg", "Anders Hejlsberg", [
     {
@@ -99,9 +135,15 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Andre-Victor", "Andre Victor", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Andreas-Falkenhahn", "Andreas Falkenhahn", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Andreas-Raab", "Andreas Raab", [
     {
@@ -111,7 +153,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Andreas-Rumpf", "Andreas Rumpf", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Andrei-Alexandrescu", "Andrei Alexandrescu", [
     {
@@ -121,9 +167,15 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Andrew-Ireland", "Andrew Ireland", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Andrew-Kelley", "Andrew Kelley", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Andrey-Ershov", "Andrey Ershov", [
     {
@@ -133,21 +185,37 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Andy-Bower", "Andy Bower", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Andy-Frank", "Andy Frank", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Andy-Gavin", "Andy Gavin", [
     { title: "Andy Gavin", href: "https://en.wikipedia.org/wiki/Andy_Gavin", kind: "wikipedia" },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Andy-Wallace", "Andy Wallace", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Aneil-Mallavarapu", "Aneil Mallavarapu", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Anjo-Anjewierden", "Anjo Anjewierden", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Anselm-Kruis", "Anselm Kruis", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Anthony-W-Knapp", "Anthony W. Knapp", [
     {
@@ -157,11 +225,19 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Anton-Rapetov", "Anton Rapetov", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Antonio-Linares", "Antonio Linares", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Arkady-DZakrevskij", "Arkady D.Zakrevskij", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Arthur-Whitney", "Arthur Whitney", [
     {
@@ -171,7 +247,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Ary-Borenszweig", "Ary Borenszweig", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Aubrey-Jaffer", "Aubrey Jaffer", []);
 }

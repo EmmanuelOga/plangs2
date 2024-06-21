@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+P4", "P4", {
     name: "P4",
     websites: [
@@ -30,6 +32,8 @@ export function define(g: PlangsGraph) {
     paradigms: ["para+compiled", "para+domain-specific", "para+imperative"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+PARI-SlashGP", "PARI/GP", {
     name: "PARI/GP",
     websites: [
@@ -55,6 +59,8 @@ export function define(g: PlangsGraph) {
     people: [["person+Henri-Cohen", "designer"]],
     licenses: ["lic+gnu-gpl"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Pascal", "Pascal", {
     name: "Pascal",
@@ -162,6 +168,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+PeachPie", "PeachPie", {
     name: "PeachPie",
     websites: [
@@ -197,6 +205,8 @@ export function define(g: PlangsGraph) {
     releases: [{ version: "unknown", date: "2016-07-18", kind: "first" }],
     licenses: ["lic+apache-2"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Perl", "Perl", {
     name: "Perl",
@@ -288,6 +298,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Pharo", "Pharo", {
     name: "Pharo",
     websites: [
@@ -328,6 +340,8 @@ export function define(g: PlangsGraph) {
     dialects: ["pl+Squeak"],
     influences: ["pl+Smalltalk", "pl+Squeak"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+PHP", "PHP", {
     name: "PHP",
@@ -432,6 +446,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Picolisp", "Picolisp", {
     name: "Picolisp",
     websites: [
@@ -439,6 +455,8 @@ export function define(g: PlangsGraph) {
     ],
     dialects: ["pl+Lisp"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+PicoLisp", "PicoLisp", {
     name: "PicoLisp",
@@ -472,6 +490,8 @@ export function define(g: PlangsGraph) {
     implementations: ["pl+LLVM"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+PL-SlashpgSQL", "PL/pgSQL", {
     name: "PL/pgSQL",
     websites: [
@@ -493,6 +513,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+PL-SlashSQL", "pl+Ada"],
     influenced: ["pl+Ada"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+PostScript", "PostScript", {
     name: "PostScript",
@@ -528,6 +550,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+Mesa", "pl+Interpress", "pl+Lisp", "pl+PDF"],
     influenced: ["pl+Mesa[1]"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+POV-Ray", "POV-Ray", {
     name: "POV-Ray",
@@ -571,6 +595,8 @@ export function define(g: PlangsGraph) {
     licenses: ["lic+agpl-3"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+PowerBASIC", "PowerBASIC", {
     name: "PowerBASIC",
     websites: [
@@ -597,6 +623,8 @@ export function define(g: PlangsGraph) {
     },
     influences: ["pl+Turbo-Basic"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+PowerShell", "PowerShell", {
     name: "PowerShell",
@@ -668,6 +696,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+SQL-(Structured-Query-Language)", "pl+Tcl"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Processing", "Processing", {
     name: "Processing",
     websites: [
@@ -679,6 +709,8 @@ export function define(g: PlangsGraph) {
     ],
     influenced: ["pl+The-Kojo-Learning-Environment", "pl+C"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Prolog", "Prolog", {
     name: "Prolog",
@@ -748,6 +780,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Pure", "Pure", {
     name: "Pure",
     websites: [
@@ -780,6 +814,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+Q", "pl+Haskell", "pl+Lisp", "pl+Alice", "pl+MATLAB"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+PureData", "PureData", {
     name: "PureData",
     websites: [
@@ -787,6 +823,8 @@ export function define(g: PlangsGraph) {
     ],
     influenced: ["pl+Lucid"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+PureScript", "PureScript", {
     name: "PureScript",
@@ -820,6 +858,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+Haskell", "pl+JavaScript"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Pyomo", "Pyomo", {
     name: "Pyomo",
     websites: [
@@ -850,6 +890,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+Python", "pl+AMPL", "pl+General-Algebraic-Modeling-System"],
     influenced: ["pl+AMPL"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Python", "Python", {
     name: "Python",

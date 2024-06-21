@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("lic+boost", "Boost", [
     {
       kind: "wikipedia",
@@ -10,6 +12,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Boost_Software_License",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("lic+bsd", "BSD", [
     { kind: "wikipedia", title: "BSD", href: "https://en.wikipedia.org/wiki/BSD_licenses" },
@@ -19,6 +23,8 @@ export function define(g: PlangsGraph) {
     { kind: "wikipedia", title: "BSD License", href: "https://en.wikipedia.org/wiki/BSD_License" },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("lic+bsd-2-clause", "BSD 2-Clause", [
     {
       kind: "wikipedia",
@@ -27,9 +33,13 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("lic+bsd-3", "BSD-3", [
     { kind: "wikipedia", title: "BSD-3", href: "https://en.wikipedia.org/wiki/BSD-3" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("lic+bsd-3-clause", "BSD-3-Clause", [
     {
@@ -38,6 +48,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/BSD_licenses",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("lic+bsd-like", "BSD-like", [
     {
@@ -48,10 +60,14 @@ export function define(g: PlangsGraph) {
     { kind: "wikipedia", title: "BSD-like", href: "https://en.wikipedia.org/wiki/BSD_licenses" },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("lic+bsd-revised", "Revised BSD", [
     { kind: "wikipedia", title: "Revised BSD", href: "https://en.wikipedia.org/wiki/BSD_license" },
     { kind: "wikipedia", title: "BSD revised", href: "https://en.wikipedia.org/wiki/BSD_licenses" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("lic+bsds", "BSD licenses", [
     {

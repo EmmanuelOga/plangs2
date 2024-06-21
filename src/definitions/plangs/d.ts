@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Dart", "Dart", {
     name: "Dart",
     websites: [
@@ -82,6 +84,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Erlang", "pl+JavaScript", "pl+Smalltalk"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+DataFlex", "DataFlex", {
     name: "DataFlex",
     websites: [
@@ -128,6 +132,8 @@ export function define(g: PlangsGraph) {
     licenses: ["lic+commercial", "lic+proprietary-software"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Datalog", "Datalog", {
     name: "Datalog",
     websites: [
@@ -139,6 +145,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+Prolog", "pl+SQL"],
     influenced: ["pl+SQL-(Structured-Query-Language)", "pl+Prolog"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Delphi", "Delphi", {
     name: "Delphi",
@@ -182,6 +190,8 @@ export function define(g: PlangsGraph) {
     dialects: ["pl+Object-Pascal", "pl+Pascal"],
     influenced: ["pl+Oxygene", "pl+C-Plus-PlusBuilder"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Dylan", "Dylan", {
     name: "Dylan",

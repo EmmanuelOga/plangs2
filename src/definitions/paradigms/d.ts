@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.paradigmBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+data-driven", "data exchange", [
     {
       kind: "wikipedia",
@@ -21,6 +23,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+dataflow", "Dataflow", [
     {
       kind: "wikipedia",
@@ -30,6 +34,8 @@ export function define(g: PlangsGraph) {
     { kind: "wikipedia", title: "dataflow", href: "https://en.wikipedia.org/wiki/Dataflow" },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+declarative", "declarative", [
     {
       kind: "wikipedia",
@@ -38,6 +44,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+dependent-typed", "dependent typed", [
     {
       kind: "wikipedia",
@@ -45,6 +53,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Dependent_type",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+distributed", "distributed", [
     {
@@ -63,6 +73,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Distributed_cache",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+domain-specific", "domain-specific", [
     {

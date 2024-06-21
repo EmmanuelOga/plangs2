@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("lic+academic-free", "Academic Free License", [
     {
       kind: "wikipedia",
@@ -11,6 +13,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("lic+agpl", "AGPL", [
     {
       kind: "wikipedia",
@@ -18,6 +22,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Affero_General_Public_License",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("lic+agpl-3", "AGPLv3", [
     {
@@ -32,6 +38,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("lic+apache", "APSL", [
     { kind: "wikipedia", title: "Apache", href: "https://en.wikipedia.org/wiki/Apache_License" },
     {
@@ -41,6 +49,8 @@ export function define(g: PlangsGraph) {
     },
     { kind: "wikipedia", title: "Apache", href: "https://en.wikipedia.org/wiki/Apache_Licence" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("lic+apache-2", "Apache 2", [
     {
@@ -57,6 +67,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("lic+apache-2-with-llvm-exception", "Apache-2.0-with-LLVM-Exception", [
     {
       kind: "wikipedia",
@@ -65,6 +77,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("lic+artistic", "Artistic License", [
     {
       kind: "wikipedia",
@@ -72,6 +86,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Artistic_License",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("lic+artistic-2", "Artistic License 2", [
     {
@@ -85,6 +101,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Artistic_License",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("lic+asl-2", "ASL 2.0", [
     {

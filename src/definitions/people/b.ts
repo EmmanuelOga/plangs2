@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+B-J-Mailloux", "B. J. Mailloux", [
     {
       title: "B. J. Mailloux",
@@ -11,7 +13,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+B-rge-R-Christensen", "Børge R. Christensen", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Barbara-Liskov", "Barbara Liskov", [
     {
@@ -21,15 +27,25 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Barry-Trager", "Barry Trager", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Ben-Fry", "Ben Fry", [
     { title: "Ben Fry", href: "https://en.wikipedia.org/wiki/Ben_Fry", kind: "wikipedia" },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Ben-Olmstead", "Ben Olmstead", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Benedict-L-fstedt", "Benedict Løfstedt", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Benjamin-C-Pierce", "Benjamin C. Pierce", [
     {
@@ -39,6 +55,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Benoit-Minisini", "Benoît Minisini", [
     {
       title: "Benoît Minisini",
@@ -46,6 +64,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Bernard-Galler", "Bernard Galler", [
     {
@@ -55,6 +75,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Bertrand-Meyer", "Bertrand Meyer", [
     {
       title: "Bertrand Meyer",
@@ -62,6 +84,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Bill-Paxton", "Bill Paxton", [
     {
@@ -71,6 +95,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Birger-M-ller-Pedersen", "Birger Møller-Pedersen", [
     {
       title: "Birger Møller-Pedersen",
@@ -78,6 +104,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Bjarne-Stroustrup", "Bjarne Stroustrup", [
     {
@@ -87,19 +115,31 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Blair-McGlashan", "Blair McGlashan", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Bob-Bemer", "Bob Bemer", [
     { title: "Bob Bemer", href: "https://en.wikipedia.org/wiki/Bob_Bemer", kind: "wikipedia" },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Borland-International", "Borland International", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Brad-Chamberlain", "Brad Chamberlain", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Brad-Cox", "Brad Cox", [
     { title: "Brad Cox", href: "https://en.wikipedia.org/wiki/Brad_Cox", kind: "wikipedia" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Brendan-Eich", "Brendan Eich", [
     {
@@ -109,9 +149,15 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Brian-Cardiff", "Brian Cardiff", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Brian-Frank", "Brian Frank", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Brian-Harvey", "Brian Harvey", [
     {
@@ -121,6 +167,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Brian-Kernighan", "Brian Kernighan", [
     {
       title: "Brian Kernighan",
@@ -129,13 +177,21 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Brian-Shirai", "Brian Shirai", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Brooke-Boering", "Brooke Boering", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Bruce-Arden", "Bruce Arden", [
     { title: "Bruce Arden", href: "https://en.wikipedia.org/wiki/Bruce_Arden", kind: "wikipedia" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Bruce-Daniels", "Bruce Daniels", [
     {
@@ -144,6 +200,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Butler-Lampson", "Butler Lampson", [
     {

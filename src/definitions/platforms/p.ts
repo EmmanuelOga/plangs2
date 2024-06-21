@@ -3,9 +3,13 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("platf+pic", "PIC", [
     { kind: "wikipedia", title: "PIC", href: "https://en.wikipedia.org/wiki/PIC_microcontrollers" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("platf+pip", "pip (package manager)", [
     {
@@ -14,6 +18,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Pip_(package_manager)",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("platf+plan9", "Plan 9 from User Space", [
     {
@@ -27,6 +33,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Plan_9_from_User_Space",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("platf+playstation", "PlayStation 3", [
     {
@@ -55,6 +63,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/PlayStation_3",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("platf+posix", "POSIX", [
     { kind: "wikipedia", title: "POSIX", href: "https://en.wikipedia.org/wiki/POSIX" },

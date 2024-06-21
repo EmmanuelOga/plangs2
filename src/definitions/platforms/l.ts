@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("platf+linux", "Linux", [
     { kind: "wikipedia", title: "Linux", href: "https://en.wikipedia.org/wiki/Linux" },
     {
@@ -28,6 +30,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Fedora_(operating_system)",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("platf+llvm", "LLVM", [
     { kind: "wikipedia", title: "LLVM", href: "https://en.wikipedia.org/wiki/LLVM" },

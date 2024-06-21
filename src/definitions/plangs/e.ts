@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+eC", "eC", {
     name: "eC",
     websites: [
@@ -24,6 +26,8 @@ export function define(g: PlangsGraph) {
     platforms: ["platf+cross-platform"],
     influences: ["pl+C", "pl+C-Plus-Plus", "pl+Python"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+ECMAScript", "ECMAScript", {
     name: "ECMAScript",
@@ -75,6 +79,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Haxe", "pl+Java", "pl+HyperTalk", "pl+JScript-.NET"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Elixir", "Elixir", {
     name: "Elixir",
     websites: [
@@ -123,6 +129,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+Clojure", "pl+Erlang", "pl+Ruby", "pl+Gleam", "pl+LFE"],
     influenced: ["pl+LFE", "pl+Lisp", "pl+Clojure", "pl+Erlang", "pl+Ruby", "pl+Gleam"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Elm", "Elm", {
     name: "Elm",
@@ -196,6 +204,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Standard-ML", "pl+OCaml", "pl+ML", "pl+Rust", "pl+Gleam"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Emacs-Lisp", "Emacs Lisp", {
     name: "Emacs Lisp",
     websites: [
@@ -227,6 +237,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+Common-Lisp", "pl+Maclisp"],
     influenced: ["pl+Common-Lisp"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Erlang", "Erlang", {
     name: "Erlang",
@@ -307,6 +319,8 @@ export function define(g: PlangsGraph) {
       "pl+Smalltalk",
     ],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Euphoria", "Euphoria", {
     name: "Euphoria",

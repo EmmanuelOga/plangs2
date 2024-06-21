@@ -3,7 +3,11 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Lalit-Pant", "Lalit Pant", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Lambert-Meertens", "Lambert Meertens", [
     {
@@ -13,6 +17,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Larry-Breed", "Larry Breed", [
     {
       title: "Larry Breed",
@@ -20,6 +26,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Larry-Tesler", "Larry Tesler", [
     {
@@ -29,9 +37,13 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Larry-Wall", "Larry Wall", [
     { title: "Larry Wall", href: "https://en.wikipedia.org/wiki/Larry_Wall", kind: "wikipedia" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Lars-Bak", "Lars Bak", [
     {
@@ -41,6 +53,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Lee-E-McMahon", "Lee E. McMahon", [
     {
       title: "Lee E. McMahon",
@@ -48,6 +62,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Lennart-Augustsson", "Lennart Augustsson", [
     {
@@ -57,7 +73,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Li-Chen-Wang", "Li Chen Wang", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Lisp-Machines", "Lisp Machines", [
     {
@@ -67,6 +87,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Lorinda-Cherry", "Lorinda Cherry", [
     {
       title: "Lorinda Cherry",
@@ -75,7 +97,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Louis-Pilfold", "Louis Pilfold", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Luca-Cardelli", "Luca Cardelli", [
     {
@@ -84,6 +110,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Lutz-Mueller", "Lutz Mueller", []);
 }

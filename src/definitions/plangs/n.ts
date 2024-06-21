@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+NekoVMNeko", "NekoVMNeko", {
     name: "NekoVMNeko",
     websites: [
@@ -41,6 +43,8 @@ export function define(g: PlangsGraph) {
     platforms: ["platf+windows", "platf+macos", "platf+linux"],
     implementations: ["pl+OCaml"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Nim", "Nim", {
     name: "Nim",

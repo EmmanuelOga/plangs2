@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.paradigmBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+function-level", "Function-level", [
     {
       kind: "wikipedia",
@@ -10,6 +12,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Function-level_programming",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+functional", "Functional", [
     {

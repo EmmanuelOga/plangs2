@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+H-Peter-Anvin", "H. Peter Anvin", [
     {
       title: "H. Peter Anvin",
@@ -11,9 +13,15 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Hamish-Dewar", "Hamish Dewar", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Hans-Zima", "Hans Zima", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Hanspeter-Mossenbock", "Hanspeter Mössenböck", [
     {
@@ -23,6 +31,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Heinz-Rutishauser", "Heinz Rutishauser", [
     {
       title: "Heinz Rutishauser",
@@ -30,6 +40,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Henri-Cohen", "Henri Cohen", [
     {
@@ -39,6 +51,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Henry-M-Levy", "Henry M. Levy", [
     {
       title: "Henry M. Levy",
@@ -46,6 +60,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Herbert-A-Simon", "Herbert A. Simon", [
     {
@@ -55,6 +71,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Hermann-Bottenbruch", "Hermann Bottenbruch", [
     {
       title: "Hermann Bottenbruch",
@@ -63,7 +81,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Hongwei-Xi", "Hongwei Xi", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Howard-Derby", "Howard Derby", []);
 }

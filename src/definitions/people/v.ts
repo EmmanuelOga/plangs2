@@ -3,9 +3,15 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+V-Olyunin", "V. Olyunin", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Vagabondo-Enterprises", "Vagabondo Enterprises", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Valentin-Turchin", "Valentin Turchin", [
     {
@@ -15,6 +21,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+van-Wijngaarden", "van Wijngaarden", [
     {
       title: "van Wijngaarden",
@@ -23,7 +31,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Vassili-Bykov", "Vassili Bykov", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Victor-Glushkov", "Victor Glushkov", [
     {
@@ -33,6 +45,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Victor-Yngve", "Victor Yngve", [
     {
       title: "Victor Yngve",
@@ -41,11 +55,19 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Vijay-Mital", "Vijay Mital", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Vijay-Saraswat", "Vijay Saraswat", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Viktor-Szakats", "Viktor Szakáts", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Viral-B-Shah", "Viral B. Shah", [
     {
@@ -54,6 +76,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Vivek-Sarkar", "Vivek Sarkar", []);
 }

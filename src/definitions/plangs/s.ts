@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Scala", "Scala", {
     name: "Scala",
     websites: [
@@ -110,6 +112,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Scheme", "Scheme", {
     name: "Scheme",
     websites: [
@@ -210,6 +214,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Scilab", "Scilab", {
     name: "Scilab",
     websites: [
@@ -233,6 +239,8 @@ export function define(g: PlangsGraph) {
     licenses: ["lic+gpl-2", "lic+cecill"],
     influenced: ["pl+MATLAB-(programming-language)MATLAB-(software)"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Scratch", "Scratch", {
     name: "Scratch",
@@ -315,6 +323,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+ScratchJr", "ScratchJr", {
     name: "ScratchJr",
     websites: [
@@ -331,6 +341,8 @@ export function define(g: PlangsGraph) {
     platforms: ["platf+android", "platf+ios", "platf+chromeos"],
     influenced: ["pl+Scratch"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Self", "Self", {
     name: "Self",
@@ -389,6 +401,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+SmallBASIC", "SmallBASIC", {
     name: "SmallBASIC",
     websites: [
@@ -412,6 +426,8 @@ export function define(g: PlangsGraph) {
     implementations: ["pl+BASIC"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+SmallBasic", "SmallBasic", {
     name: "SmallBasic",
     websites: [
@@ -419,6 +435,8 @@ export function define(g: PlangsGraph) {
     ],
     influenced: ["pl+QBasic"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Smalltalk", "Smalltalk", {
     name: "Smalltalk",
@@ -563,6 +581,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Solidity", "Solidity", {
     name: "Solidity",
     websites: [
@@ -610,6 +630,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+JavaScript", "pl+C-Plus-Plus", "pl+Python"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Souffle", "Soufflé", {
     name: "Soufflé",
     websites: [
@@ -621,6 +643,8 @@ export function define(g: PlangsGraph) {
     ],
     dialects: ["pl+Datalog"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Source", "Source", {
     name: "Source",
@@ -652,11 +676,15 @@ export function define(g: PlangsGraph) {
     influences: ["pl+JavaScript", "pl+Scheme"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+SQL", "SQL", {
     name: "SQL",
     websites: [{ kind: "wikipedia", title: "SQL", href: "https://en.wikipedia.org/wiki/SQL" }],
     influenced: ["pl+Datalog", "pl+PowerShell", "pl+XQuery"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Squeak", "Squeak", {
     name: "Squeak",
@@ -696,6 +724,8 @@ export function define(g: PlangsGraph) {
     ],
     influenced: ["pl+Self", "pl+Pharo"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Standard-ML", "Standard ML", {
     name: "Standard ML",
@@ -767,6 +797,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Starlark", "Starlark", {
     name: "Starlark",
     websites: [
@@ -778,6 +810,8 @@ export function define(g: PlangsGraph) {
     ],
     dialects: ["pl+Python"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Stateflow", "Stateflow", {
     name: "Stateflow",
@@ -811,6 +845,8 @@ export function define(g: PlangsGraph) {
     platforms: ["platf+x64"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+SuperCollider", "SuperCollider", {
     name: "SuperCollider",
     websites: [
@@ -822,6 +858,8 @@ export function define(g: PlangsGraph) {
     ],
     influenced: ["pl+J"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+SWI-Prolog", "SWI-Prolog", {
     name: "SWI-Prolog",
@@ -848,6 +886,8 @@ export function define(g: PlangsGraph) {
     ],
     licenses: ["lic+simplified-bsd", "lic+lgpl"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Swift", "Swift", {
     name: "Swift",
@@ -899,6 +939,8 @@ export function define(g: PlangsGraph) {
       "pl+D-programming-language",
     ],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+SystemVerilog", "SystemVerilog", {
     name: "SystemVerilog",

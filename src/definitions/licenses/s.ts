@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("lic+simplified-bsd", "Simplified BSD", [
     {
       kind: "wikipedia",
@@ -16,6 +18,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("lic+spl-1", "SPL-1.0", [
     {
       kind: "wikipedia",
@@ -23,6 +27,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Sun_Public_License",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("lic+sybase-open-watcom-public", "Sybase Open Watcom Public License", [
     {

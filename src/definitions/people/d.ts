@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Damien-Doligez", "Damien Doligez", [
     {
       title: "Damien Doligez",
@@ -11,25 +13,43 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Damien-P-George", "Damien P. George", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Dan-Ingalls", "Dan Ingalls", [
     { title: "Dan Ingalls", href: "https://en.wikipedia.org/wiki/Dan_Ingalls", kind: "wikipedia" },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Dan-Swinehart", "Dan Swinehart", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Dan-van-Blerkom", "Dan van Blerkom", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Dan-Weinreb", "Dan Weinreb", [
     { title: "Dan Weinreb", href: "https://en.wikipedia.org/wiki/Dan_Weinreb", kind: "wikipedia" },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Daniel-Diaz", "Daniel Diaz", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Daniel-G-Bobrow", "Daniel G. Bobrow", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Daniel-Kochmanski", "Daniel Kochmański", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Daniel-Weinreb", "Daniel Weinreb", [
     {
@@ -39,9 +59,15 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Daniel-Wirtz", "Daniel Wirtz", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Darryl-Rubin", "Darryl Rubin", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Dassault-Systemes", "Dassault Systèmes", [
     {
@@ -51,9 +77,15 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Data-Access-Worldwide", "Data Access Worldwide", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Data-Geekery-GmbH", "Data Geekery GmbH", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+David-A-Moon", "David A. Moon", [
     {
@@ -63,9 +95,15 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+David-Betz", "David Betz", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+David-Callahan", "David Callahan", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+David-H-Munro", "David H. Munro", [
     {
@@ -75,6 +113,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+David-J-Farber", "David J. Farber", [
     {
       title: "David J. Farber",
@@ -83,7 +123,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+David-J-Pearce", "David J. Pearce", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+David-May", "David May", [
     {
@@ -93,13 +137,23 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+David-Nichols", "David Nichols", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+David-Rees", "David Rees", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+David-S-Warren", "David S. Warren", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+David-Stern", "David Stern", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+David-Turner", "David Turner", [
     {
@@ -109,11 +163,17 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+David-Ungar", "David Ungar", [
     { title: "David Ungar", href: "https://en.wikipedia.org/wiki/David_Ungar", kind: "wikipedia" },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+David-Woodruff", "David Woodruff", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Dennis-Allison", "Dennis Allison", [
     {
@@ -123,6 +183,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Dennis-Ritchie", "Dennis Ritchie", [
     {
       title: "Dennis Ritchie",
@@ -131,11 +193,17 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Derek-Parnell", "Derek Parnell", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Diana-Merry", "Diana Merry", [
     { title: "Diana Merry", href: "https://en.wikipedia.org/wiki/Diana_Merry", kind: "wikipedia" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Dick-Lathwell", "Dick Lathwell", [
     {
@@ -145,6 +213,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Donald-D-Chamberlin", "Donald D. Chamberlin", [
     {
       title: "Donald D. Chamberlin",
@@ -152,6 +222,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Donald-Knuth", "Donald Knuth", [
     {
@@ -161,7 +233,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Doug-Orleans", "Doug Orleans.", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Douglas-McIlroy", "Douglas McIlroy", [
     {
@@ -171,7 +247,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Douglas-Simons", "Douglas Simons", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Douglas-T-Ross", "Douglas T. Ross", [
     {
@@ -181,11 +261,19 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Dr-Brad-Nemanich", "Dr. Brad Nemanich", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Dr-Daniel-Cooke", "Dr. Daniel Cooke", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Dr-Nelson-Rushton", "Dr. Nelson Rushton", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Drew-Paroski", "Drew Paroski", []);
 }

@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.paradigmBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+macros", "macros", [
     {
       kind: "wikipedia",
@@ -16,9 +18,13 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+markup", "markup", [
     { kind: "wikipedia", title: "markup", href: "https://en.wikipedia.org/wiki/Markup_language" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+message-passing", "message passing", [
     {
@@ -28,9 +34,13 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+meta", "meta", [
     { kind: "wikipedia", title: "meta", href: "https://en.wikipedia.org/wiki/Metaprogramming" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+modular", "modular", [
     {
@@ -39,6 +49,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Modular_programming",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+multi-paradigm", "multi-paradigm", [
     {

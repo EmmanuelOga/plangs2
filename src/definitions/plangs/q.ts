@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Q", "Q", {
     name: "Q",
     websites: [
@@ -14,6 +16,8 @@ export function define(g: PlangsGraph) {
     ],
     influenced: ["pl+Pure", "pl+K"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+q", "q", {
     name: "q",
@@ -46,6 +50,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+A-Plus", "pl+APL", "pl+Scheme", "pl+k"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+QB64", "QB64", {
     name: "QB64",
     websites: [
@@ -68,6 +74,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+QuickBASIC", "pl+QBASIC"],
     influenced: ["pl+QBasic"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+QML", "QML", {
     name: "QML",

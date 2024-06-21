@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Magma", "Magma", {
     name: "Magma",
     websites: [
@@ -40,6 +42,8 @@ export function define(g: PlangsGraph) {
     releases: [{ version: "2.27", date: "2023-02-22", kind: "stable" }],
     people: [["person+School-of-Mathematics", "designer"]],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Maple", "Maple", {
     name: "Maple",
@@ -81,6 +85,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Darwin"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+MATLAB", "MATLAB", {
     name: "MATLAB",
     websites: [
@@ -94,6 +100,8 @@ export function define(g: PlangsGraph) {
       "pl+APL",
     ],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Max", "Max", {
     name: "Max",
@@ -123,6 +131,8 @@ export function define(g: PlangsGraph) {
     licenses: ["lic+proprietary"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Maxima", "Maxima", {
     name: "Maxima",
     websites: [
@@ -150,6 +160,8 @@ export function define(g: PlangsGraph) {
     },
     licenses: ["lic+gpl"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Mercury", "Mercury", {
     name: "Mercury",
@@ -199,6 +211,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+Prolog", "pl+Hope", "pl+Haskell"],
     influenced: ["pl+Prolog"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+ML", "ML", {
     name: "ML",
@@ -270,6 +284,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Modelica", "Modelica", {
     name: "Modelica",
     websites: [
@@ -304,6 +320,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Mojo", "Mojo", {
     name: "Mojo",
     websites: [
@@ -333,6 +351,8 @@ export function define(g: PlangsGraph) {
     platforms: ["platf+cross-platform"],
     influenced: ["pl+Python"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+mruby", "mruby", {
     name: "mruby",

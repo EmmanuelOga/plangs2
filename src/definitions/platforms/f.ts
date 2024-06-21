@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("platf+fpga", "FPGA", [
     {
       kind: "wikipedia",
@@ -10,6 +12,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Field_Programmable_Gate_Array",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("platf+fuchsia", "Google Fuchsia", [
     {

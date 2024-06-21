@@ -3,10 +3,14 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("platf+aarch64", "AArch64", [
     { kind: "wikipedia", title: "Aarch64", href: "https://en.wikipedia.org/wiki/Aarch64" },
     { kind: "wikipedia", title: "AArch64", href: "https://en.wikipedia.org/wiki/AArch64" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("platf+amazon_firetv", "Amazon Fire TV", [
     {
@@ -16,6 +20,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("platf+amd", "AMD", [
     {
       kind: "wikipedia",
@@ -24,18 +30,26 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("platf+amd_am2900", "2901", [
     { kind: "wikipedia", title: "2901", href: "https://en.wikipedia.org/wiki/AMD_Am2900" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("platf+amd64", "AMD64", [
     { kind: "wikipedia", title: "AMD64", href: "https://en.wikipedia.org/wiki/AMD64" },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("platf+amiga", "Amiga", [
     { kind: "wikipedia", title: "AmigaOS", href: "https://en.wikipedia.org/wiki/AmigaOS" },
     { kind: "wikipedia", title: "Amiga", href: "https://en.wikipedia.org/wiki/Amiga" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("platf+android", "Android", [
     {
@@ -47,6 +61,8 @@ export function define(g: PlangsGraph) {
     { kind: "wikipedia", title: "Android", href: "https://en.wikipedia.org/wiki/Google_Android" },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("platf+apple_ii", "Apple IIGS", [
     {
       kind: "wikipedia",
@@ -57,17 +73,25 @@ export function define(g: PlangsGraph) {
     { kind: "wikipedia", title: "Apple IIGS", href: "https://en.wikipedia.org/wiki/Apple_IIGS" },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("platf+apple_ios", "iOS", [
     { kind: "wikipedia", title: "iOS", href: "https://en.wikipedia.org/wiki/Apple_iOS" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("platf+arcaos", "ArcaOS", [
     { kind: "wikipedia", title: "ArcaOS", href: "https://en.wikipedia.org/wiki/ArcaOS" },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("platf+arduino", "Arduino", [
     { kind: "wikipedia", title: "Arduino", href: "https://en.wikipedia.org/wiki/Arduino" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("platf+arm", "ARM Cortex-M", [
     { kind: "wikipedia", title: "ARM", href: "https://en.wikipedia.org/wiki/ARM_architecture" },
@@ -95,6 +119,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("platf+atari", "Atari TOS", [
     {
       kind: "wikipedia",
@@ -109,6 +135,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Atari_ST#Operating_system",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("platf+axiom", "Axiom computer algebra system", [
     {

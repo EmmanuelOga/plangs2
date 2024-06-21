@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+J", "J", {
     name: "J",
     websites: [
@@ -66,6 +68,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+APL", "pl+FL", "pl+NumPy", "pl+SuperCollider"],
     influenced: ["pl+APL", "pl+FL"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Java", "Java", {
     name: "Java",
@@ -254,6 +258,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+JavaScript", "JavaScript", {
     name: "JavaScript",
     websites: [
@@ -376,6 +382,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Javascript", "Javascript", {
     name: "Javascript",
     websites: [
@@ -387,6 +395,8 @@ export function define(g: PlangsGraph) {
     ],
     influenced: ["pl+Ballerina"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+jq", "jq", {
     name: "jq",
@@ -417,6 +427,8 @@ export function define(g: PlangsGraph) {
     implementations: ["pl+C", "pl+Go", "pl+Rust"],
     influenced: ["pl+Icon"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+JRuby", "JRuby", {
     name: "JRuby",
@@ -449,11 +461,15 @@ export function define(g: PlangsGraph) {
     platforms: ["platf+jvm"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+JSON", "JSON", {
     name: "JSON",
     websites: [{ kind: "wikipedia", title: "JSON", href: "https://en.wikipedia.org/wiki/JSON" }],
     influenced: ["pl+QML", "pl+Rebol"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Julia", "Julia", {
     name: "Julia",

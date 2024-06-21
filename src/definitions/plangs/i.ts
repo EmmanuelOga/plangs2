@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Idris", "Idris", {
     name: "Idris",
     websites: [
@@ -64,6 +66,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+ML", "pl+Epigram", "pl+Rust", "pl+Agda", "pl+Clean"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Inform", "Inform", {
     name: "Inform",
     websites: [
@@ -71,6 +75,8 @@ export function define(g: PlangsGraph) {
     ],
     influenced: ["pl+CorVision"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Io", "Io", {
     name: "Io",
@@ -110,6 +116,8 @@ export function define(g: PlangsGraph) {
     ],
     influenced: ["pl+Lisp", "pl+NewtonScript", "pl+urbiscript", "pl+Self", "pl+Smalltalk"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+IronPython", "IronPython", {
     name: "IronPython",

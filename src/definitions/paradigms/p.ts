@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.paradigmBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+parallel", "parallel", [
     {
       kind: "wikipedia",
@@ -21,6 +23,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+partitioned-global-address-space", "Partitioned global address space", [
     {
       kind: "wikipedia",
@@ -28,6 +32,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Partitioned_global_address_space",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+pattern-matching", "Pattern-matching", [
     {
@@ -37,6 +43,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+people-oriented", "People Oriented Programming", [
     {
       kind: "wikipedia",
@@ -44,6 +52,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/w/index.php?title=People_Oriented_Programming&action=edit&redlink=1",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+pipeline", "pipeline", [
     {
@@ -57,6 +67,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Pipeline_programming",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+process-oriented", "processing", [
     {
@@ -75,6 +87,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/In-memory_processing",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+prototypes", "prototype-based", [
     {

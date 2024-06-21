@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+LabVIEW", "LabVIEW", {
     name: "LabVIEW",
     websites: [
@@ -22,6 +24,8 @@ export function define(g: PlangsGraph) {
     people: [["person+National-Instruments", "designer"]],
     licenses: ["lic+proprietary"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Lean", "Lean", {
     name: "Lean",
@@ -49,6 +53,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+ML", "pl+Coq", "pl+Haskell"],
     influenced: ["pl+F-Star"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+LFE", "LFE", {
     name: "LFE",
@@ -90,6 +96,8 @@ export function define(g: PlangsGraph) {
     ],
     influenced: ["pl+Elixir", "pl+Clojure"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Lisp", "Lisp", {
     name: "Lisp",
@@ -270,6 +278,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+LiveCode", "LiveCode", {
     name: "LiveCode",
     websites: [
@@ -277,6 +287,8 @@ export function define(g: PlangsGraph) {
     ],
     influenced: ["pl+HyperTalk"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+LiveScript", "LiveScript", {
     name: "LiveScript",
@@ -310,6 +322,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+JavaScript", "pl+Haskell", "pl+CoffeeScript", "pl+F-Sharp"],
     influenced: ["pl+CoffeeScript"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Logo", "Logo", {
     name: "Logo",
@@ -371,6 +385,8 @@ export function define(g: PlangsGraph) {
       "pl+Smalltalk",
     ],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Lua", "Lua", {
     name: "Lua",

@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.paradigmBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+class-based", "class-based", [
     {
       kind: "wikipedia",
@@ -16,6 +18,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+compiled", "compiled", [
     {
       kind: "wikipedia",
@@ -24,6 +28,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+component-based", "component-based", [
     {
       kind: "wikipedia",
@@ -31,6 +37,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Component-based_software_engineering",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+concatenative", "concatenative", [
     {
@@ -44,6 +52,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Concatenative_programming_language",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+concurrent", "concurrent", [
     {
@@ -73,6 +83,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("para+constraint", "constraint", [
     {
       kind: "wikipedia",
@@ -85,6 +97,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/Constraint_logic_programming",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("para+csp", "communicating sequential processes", [
     {

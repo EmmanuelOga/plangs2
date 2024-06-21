@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("platf+macos", "macOS", [
     { kind: "wikipedia", title: "macOS", href: "https://en.wikipedia.org/wiki/MacOS" },
     {
@@ -29,9 +31,13 @@ export function define(g: PlangsGraph) {
     { kind: "wikipedia", title: "macOS 10.12", href: "https://en.wikipedia.org/wiki/MacOS_10.12" },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("platf+mingw", "MinGW", [
     { kind: "wikipedia", title: "MinGW", href: "https://en.wikipedia.org/wiki/MinGW" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("platf+mips", "MIPS", [
     {
@@ -41,9 +47,13 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("platf+mono", "Mono", [
     { kind: "wikipedia", title: "Mono", href: "https://en.wikipedia.org/wiki/Mono_(software)" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("platf+mos_6502", "MOS Technology 6502", [
     {

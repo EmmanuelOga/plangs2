@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+K", "K", {
     name: "K",
     websites: [
@@ -21,6 +23,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+A-Plus", "pl+APL"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+k", "k", {
     name: "k",
     websites: [
@@ -33,6 +37,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+q"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Korn-Shell", "Korn Shell", {
     name: "Korn Shell",
     websites: [
@@ -40,6 +46,8 @@ export function define(g: PlangsGraph) {
     ],
     influenced: ["pl+AWK"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Kotlin", "Kotlin", {
     name: "Kotlin",

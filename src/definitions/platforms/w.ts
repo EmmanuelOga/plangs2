@@ -3,9 +3,13 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("platf+watchos", "watchOS", [
     { kind: "wikipedia", title: "watchOS", href: "https://en.wikipedia.org/wiki/WatchOS" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("platf+web", "WebAssembly", [
     { kind: "wikipedia", title: "Web browser", href: "https://en.wikipedia.org/wiki/Web_browser" },
@@ -27,6 +31,8 @@ export function define(g: PlangsGraph) {
     { kind: "wikipedia", title: "WebAssembly", href: "https://en.wikipedia.org/wiki/WebAssembly" },
     { kind: "wikipedia", title: "HTML5", href: "https://en.wikipedia.org/wiki/HTML5" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("platf+windows", "Microsoft Windows", [
     {

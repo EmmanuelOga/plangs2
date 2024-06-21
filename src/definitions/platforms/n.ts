@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("platf+.net", ".NET Framework", [
     {
       kind: "wikipedia",
@@ -21,6 +23,8 @@ export function define(g: PlangsGraph) {
       href: "https://en.wikipedia.org/wiki/.NET_Framework_4.5",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("platf+nintendo_switch", "Nintendo Switch", [
     {

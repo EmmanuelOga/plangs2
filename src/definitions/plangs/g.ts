@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Gambit", "Gambit", {
     name: "Gambit",
     websites: [
@@ -31,6 +33,8 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+MultiLisp"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+GDScript", "GDScript", {
     name: "GDScript",
     websites: [
@@ -42,6 +46,8 @@ export function define(g: PlangsGraph) {
     ],
     influenced: ["pl+Python"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Gforth", "Gforth", {
     name: "Gforth",
@@ -73,6 +79,8 @@ export function define(g: PlangsGraph) {
     ],
     licenses: ["lic+gnu-gpl-3"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Gleam", "Gleam", {
     name: "Gleam",
@@ -133,11 +141,15 @@ export function define(g: PlangsGraph) {
     influenced: ["pl+Elixir"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+GLSL", "GLSL", {
     name: "GLSL",
     websites: [{ kind: "wikipedia", title: "GLSL", href: "https://en.wikipedia.org/wiki/GLSL" }],
     influenced: ["pl+Cg-SlashHLSL"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+GNAT", "GNAT", {
     name: "GNAT",
@@ -178,7 +190,11 @@ export function define(g: PlangsGraph) {
     licenses: ["lic+gnu-gpl-3-plus"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+GNU-Awk-gawk", "GNU Awk gawk", { name: "GNU Awk gawk", dialects: ["pl+AWK"] });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+GNU-Guile", "GNU Guile", {
     name: "GNU Guile",
@@ -217,6 +233,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+Lisp", "pl+Scheme", "pl+SCM"],
     influenced: ["pl+SCM"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+GNU-Octave", "GNU Octave", {
     name: "GNU Octave",
@@ -271,6 +289,8 @@ export function define(g: PlangsGraph) {
     licenses: ["lic+gpl-3", "lic+gpl-2"],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+GNU-Prolog", "GNU Prolog", {
     name: "GNU Prolog",
     websites: [
@@ -289,6 +309,8 @@ export function define(g: PlangsGraph) {
     people: [["person+Daniel-Diaz", "designer"]],
     licenses: ["lic+gnu-gpl", "lic+gnu-lesser-gpl"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Go", "Go", {
     name: "Go",
@@ -412,6 +434,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  //-------------------------------------------------------------------------------
+
   lb.define("pl+Gosu", "Gosu", {
     name: "Gosu",
     websites: [
@@ -438,6 +462,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+Java", "pl+C-Sharp", "pl+Kotlin"],
     influenced: ["pl+Kotlin"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Groovy", "Groovy", {
     name: "Groovy",
@@ -489,6 +515,8 @@ export function define(g: PlangsGraph) {
     influences: ["pl+Java", "pl+Python", "pl+Ruby", "pl+Smalltalk", "pl+Kotlin"],
     influenced: ["pl+Objective-C", "pl+Java", "pl+Xtend", "pl+Ruby", "pl+Kotlin", "pl+Smalltalk"],
   });
+
+  //-------------------------------------------------------------------------------
 
   lb.define("pl+Guile", "Guile", {
     name: "Guile",

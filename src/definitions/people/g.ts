@@ -3,7 +3,11 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Gabriel-Hackebeil", "Gabriel Hackebeil", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Gary-Grossman", "Gary Grossman", [
     {
@@ -13,6 +17,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Gary-Kildall", "Gary Kildall", [
     {
       title: "Gary Kildall",
@@ -20,6 +26,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Gaston-Gonnet", "Gaston Gonnet", [
     {
@@ -29,15 +37,23 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Gavin-King", "Gavin King", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Gavin-Wood", "Gavin Wood", [
     { title: "Gavin Wood", href: "https://en.wikipedia.org/wiki/Gavin_Wood", kind: "wikipedia" },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Ge-Wang", "Ge Wang", [
     { title: "Ge Wang", href: "https://en.wikipedia.org/wiki/Ge_Wang", kind: "wikipedia" },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Geoffrey-Gordon", "Geoffrey Gordon", [
     {
@@ -47,11 +63,19 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+George-J-Carrette", "George J. Carrette", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+George-Mills", "George Mills", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+George-Zahariev", "George Zahariev", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Gerald-J-Popek", "Gerald J. Popek", [
     {
@@ -61,6 +85,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Gerald-Jay-Sussman", "Gerald Jay Sussman", [
     {
       title: "Gerald Jay Sussman",
@@ -68,6 +94,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Gerald-Sussman", "Gerald Sussman", [
     {
@@ -77,6 +105,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Gerard-Huet", "Gérard Huet", [
     {
       title: "Gérard Huet",
@@ -85,7 +115,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Gert-Smolka", "Gert Smolka", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Gilad-Bracha", "Gilad Bracha", [
     {
@@ -95,7 +129,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Giuseppe-Attardi", "Giuseppe Attardi", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Google-scholar", "Google scholar", [
     {
@@ -105,7 +143,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Goran-Hemdahl", "Göran Hemdahl", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Grace-Hopper", "Grace Hopper", [
     {
@@ -115,6 +157,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Graham-Nelson", "Graham Nelson", [
     {
       title: "Graham Nelson",
@@ -123,9 +167,15 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Greg-Lindhorst", "Greg Lindhorst", []);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Greg-Michaelson", "Greg Michaelson", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Greg-Nelson", "Greg Nelson", [
     {
@@ -135,6 +185,8 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Guido-van-Rossum", "Guido van Rossum", [
     {
       title: "Guido van Rossum",
@@ -143,7 +195,11 @@ export function define(g: PlangsGraph) {
     },
   ]);
 
+  //-------------------------------------------------------------------------------
+
   lb.define("person+Gustaf-Neumann", "Gustaf Neumann", []);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Guy-L-Steele", "Guy L. Steele", [
     {
@@ -157,6 +213,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("person+Guy-Steele", "Guy Steele", [
     { title: "Guy Steele", href: "https://en.wikipedia.org/wiki/Guy_Steele", kind: "wikipedia" },

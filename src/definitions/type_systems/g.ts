@@ -3,6 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.typeSystemBuilder;
 
+  //-------------------------------------------------------------------------------
+
   lb.define("tsys+generic", "Generic", [
     {
       title: "${name} Type System",
@@ -10,6 +12,8 @@ export function define(g: PlangsGraph) {
       kind: "wikipedia",
     },
   ]);
+
+  //-------------------------------------------------------------------------------
 
   lb.define("tsys+gradual", "Gradual", [
     {
