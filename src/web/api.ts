@@ -9,15 +9,14 @@ async function plangsGraph(): Promise<SerializedGraph> {
 
   const g = new PlangsGraph();
   await loadDefinitions(g);
+  console.info(new Date().toISOString(), `-> Loaded ${g.numVertices} vertices, ${g.numEdges} edges.`);
 
   for (const [eid, edge] of g.allEdges()) {
     const ek = parseEdgeKey(eid);
-
     if ("errors" in ek) {
       console.error(ek.errors);
       continue;
     }
-
     grEdges.push({
       key: eid,
       source: ek.from,

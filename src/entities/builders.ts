@@ -52,9 +52,11 @@ export class PlangsBuilder {
 
     for (const otherVid of vrelations.licenses ?? []) g.e_has_license.connect(vid, otherVid);
     for (const otherVid of vrelations.platforms ?? []) g.e_supports_platf.connect(vid, otherVid);
-    for (const otherVid of vrelations.influences ?? []) g.e_l_influenced_l.connect(vid, otherVid);
-    for (const otherVid of vrelations.influenced ?? []) g.e_l_influenced_l.connect(otherVid, vid);
-    for (const otherVid of vrelations.dialects ?? []) g.e_dialect_of.connect(otherVid, vid);
+
+    for (const otherVid of vrelations.influences ?? []) g.e_l_influenced_l.connect(otherVid, vid);
+    for (const otherVid of vrelations.influenced ?? []) g.e_l_influenced_l.connect(vid, otherVid);
+    for (const otherVid of vrelations.dialects ?? []) g.e_dialect_of.connect(vid, otherVid);
+
     for (const otherVid of vrelations.implementations ?? []) g.e_implements.connect(otherVid, vid);
     for (const otherVid of vrelations.paradigms ?? []) g.e_plang_para.connect(vid, otherVid);
     for (const otherVid of vrelations.typeSystems ?? []) g.e_plang_tsys.connect(vid, otherVid);

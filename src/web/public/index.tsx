@@ -20,7 +20,7 @@ async function render() {
 
   const graph = new Graph({ multi: true, type: "mixed" });
   graph.import(data);
-  if (false) components.cropToLargestConnectedComponent(graph);
+  components.cropToLargestConnectedComponent(graph);
 
   // Assign node size by degree.
   const degrees = graph.nodes().map((node) => graph.degree(node));
