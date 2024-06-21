@@ -14,12 +14,13 @@ export async function loadDefinitions(): Promise<PlangsGraph> {
   let i = 0;
   for await (const path of glob.scan(`${__dirname}/definitions`)) {
     const module = await import(`./definitions/${path}`);
-    if (typeof module.define === "function") { module.define(g); i++; }
+    if (typeof module.define === "function") {
+      module.define(g);
+      i++;
+    }
   }
 
-  console.info(
-    new Date().toISOString(),
-    `Loaded ${i} definitions, ${g.numVertices} vertices, ${g.numEdges} edges.`);
+  console.info(new Date().toISOString(), `Loaded ${i} definitions, ${g.numVertices} vertices, ${g.numEdges} edges.`);
 
   return g;
 }

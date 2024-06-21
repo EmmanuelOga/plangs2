@@ -141,7 +141,9 @@ export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_E
   /** Number of edges. */
   public get size(): number {
     let size = 0;
-    for (const data of this._perSuffix.values()) { size += data.edge.size; }
+    for (const data of this._perSuffix.values()) {
+      size += data.edge.size;
+    }
     return size;
   }
 

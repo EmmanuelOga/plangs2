@@ -33,13 +33,17 @@ export class Graph {
 
   get numEdges(): number {
     let count = 0;
-    for (const et of this.etables.values()) { count += et.size; }
+    for (const et of this.etables.values()) {
+      count += et.size;
+    }
     return count;
   }
 
   get numVertices(): number {
     let count = 0;
-    for (const vt of this.vtables.values()) { count += vt.size; }
+    for (const vt of this.vtables.values()) {
+      count += vt.size;
+    }
     return count;
   }
 

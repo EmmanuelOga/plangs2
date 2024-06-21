@@ -15,7 +15,7 @@ import type {
 import { caller } from "../util";
 
 export class PlangsBuilder {
-  constructor(readonly g: PlangsGraph) { }
+  constructor(readonly g: PlangsGraph) {}
 
   define(
     vid: VID_Plang,
@@ -34,76 +34,89 @@ export class PlangsBuilder {
     },
   ) {
     const v = this.g.v_plang.merge(vid, { name });
-    v.websites ??= []; mergeWebsites(v.websites, websites);
-    v.extensions ??= []; mergeExtensions(v.extensions, extensions);
-    v.images ??= []; mergeImages(v.images, images);
-    v.releases ??= []; mergeReleases(v.releases, releases);
-    v.scoping ??= []; mergeScoping(v.scoping, scoping);
-    v.references ??= {}; mergeReferences(v.references, references);
+    v.websites ??= [];
+    mergeWebsites(v.websites, websites);
+    v.extensions ??= [];
+    mergeExtensions(v.extensions, extensions);
+    v.images ??= [];
+    mergeImages(v.images, images);
+    v.releases ??= [];
+    mergeReleases(v.releases, releases);
+    v.scoping ??= [];
+    mergeScoping(v.scoping, scoping);
+    v.references ??= {};
+    mergeReferences(v.references, references);
   }
 }
 
 export class LicenseBuilder {
-  constructor(readonly g: PlangsGraph) { }
+  constructor(readonly g: PlangsGraph) {}
 
   define(vid: VID_License, name: string, { websites }: { websites: Link[] }) {
     const v = this.g.v_license.merge(vid, { name });
-    v.websites ??= []; mergeWebsites(v.websites, websites);
+    v.websites ??= [];
+    mergeWebsites(v.websites, websites);
   }
 }
 
 export class ParadigmBuilder {
-  constructor(readonly g: PlangsGraph) { }
+  constructor(readonly g: PlangsGraph) {}
 
   define(vid: VID_Paradigm, name: string, { websites }: { websites: Link[] }) {
     const v = this.g.v_paradigm.merge(vid, { name });
-    v.websites ??= []; mergeWebsites(v.websites, websites);
+    v.websites ??= [];
+    mergeWebsites(v.websites, websites);
   }
 }
 
 export class PersonBuilder {
-  constructor(readonly g: PlangsGraph) { }
+  constructor(readonly g: PlangsGraph) {}
 
   define(vid: VID_Person, name: string, { websites }: { websites: Link[] }) {
     const v = this.g.v_person.merge(vid, { name });
-    v.websites ??= []; mergeWebsites(v.websites, websites);
+    v.websites ??= [];
+    mergeWebsites(v.websites, websites);
   }
 }
 
 export class PlatformBuilder {
-  constructor(readonly g: PlangsGraph) { }
+  constructor(readonly g: PlangsGraph) {}
 
   define(vid: VID_Platform, name: string, { websites }: { websites: Link[] }) {
     const v = this.g.v_platform.merge(vid, { name });
-    v.websites ??= []; mergeWebsites(v.websites, websites);
+    v.websites ??= [];
+    mergeWebsites(v.websites, websites);
   }
 }
 
 export class TypeSysBuilder {
-  constructor(readonly g: PlangsGraph) { }
+  constructor(readonly g: PlangsGraph) {}
 
   define(vid: VID_TypeSystem, name: string, { websites }: { websites: Link[] }) {
     const v = this.g.v_tsystem.merge(vid, { name });
-    v.websites ??= []; mergeWebsites(v.websites, websites);
+    v.websites ??= [];
+    mergeWebsites(v.websites, websites);
   }
 }
 
-//--------------------------------------------------------------------------------  
+//--------------------------------------------------------------------------------
 
-const _SITE = 'definitions';
+const _SITE = "definitions";
 
 function mergeWebsites(dst: Link[], newLinks?: Link[]) {
   for (const newLink of newLinks ?? []) {
     const found = dst.find((link) => link.href === newLink.href);
     if (found) {
       console.warn(`${caller(_SITE)}: Duplicate Link: ${JSON.stringify(newLink)}`);
-      if (found.title.length > newLink.title.length) { found.title = newLink.title; }
+      if (found.title.length > newLink.title.length) {
+        found.title = newLink.title;
+      }
       found.kind ??= newLink.kind;
     } else {
       dst.push(newLink);
     }
     const link = found ?? newLink;
-    if (!link.kind && link.href.includes('wikipedia.org')) link.kind = 'wikipedia';
+    if (!link.kind && link.href.includes("wikipedia.org")) link.kind = "wikipedia";
   }
 }
 
@@ -122,8 +135,7 @@ function mergeImages(dst: Image[], newImages?: Image[]) {
 
 function mergeReleases(dst: Release[], newReleases?: Release[]) {
   for (const newRel of newReleases ?? []) {
-    const found = dst.find(
-      (rel) => rel.version === newRel.version && rel.date === newRel.date);
+    const found = dst.find((rel) => rel.version === newRel.version && rel.date === newRel.date);
     if (found) {
       console.warn(`${caller(_SITE)}: Duplicate Release: ${JSON.stringify(newRel)}`);
       found.date ??= newRel.date;
@@ -133,7 +145,7 @@ function mergeReleases(dst: Release[], newReleases?: Release[]) {
   }
 }
 
-function mergeScoping(dst: V_Plang['scoping'], newScopings?: V_Plang['scoping']) {
+function mergeScoping(dst: V_Plang["scoping"], newScopings?: V_Plang["scoping"]) {
   for (const newScope of newScopings ?? []) {
     const found = dst.find((scope) => scope === newScope);
     if (found) {
@@ -155,7 +167,7 @@ function mergeExtensions(dst: string[], newExtensions?: string[]) {
   }
 }
 
-function mergeReferences(dst: V_Plang['references'], references?: V_Plang['references']) {
+function mergeReferences(dst: V_Plang["references"], references?: V_Plang["references"]) {
   for (const [key, val] of Object.entries(references ?? {})) {
     dst[key] ??= [];
     mergeWebsites(dst[key], val);
