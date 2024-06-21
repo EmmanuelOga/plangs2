@@ -3,13 +3,15 @@ import type { PlangsGraph } from '../../entities/plangs_graph';
 export function define(g: PlangsGraph) {
    const lb = g.<%= it.builderName %>Builder;
 
-<% for (const [lid, name, data] of it.data) { %>
+<% for (const [lid, name, values] of it.data) { %>
   //------------------------------------------------------------------------------- 
 
   lb.define(
     <%= lid %>,
     <%= name %>,
-    <%= data %>);
+    <%= values.data %><% if (values.vrelations) { %>,
+    <%= values.vrelations %>
+    <% } %>);
 
 <% } %>
 }

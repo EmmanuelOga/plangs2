@@ -10,11 +10,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Karl-Glazebrook", "Karl Glazebrook", [
-    {
-      title: "Karl Glazebrook",
-      href: "https://en.wikipedia.org/wiki/Karl_Glazebrook",
-      kind: "wikipedia",
-    },
+    { title: "Karl Glazebrook", href: "https://en.wikipedia.org/wiki/Karl_Glazebrook", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -28,11 +24,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Keith-Clark", "Keith Clark", [
-    {
-      title: "Keith Clark",
-      href: "https://en.wikipedia.org/wiki/Keith_Clark_(computer_scientist)",
-      kind: "wikipedia",
-    },
+    { title: "Keith Clark", href: "https://en.wikipedia.org/wiki/Keith_Clark_(computer_scientist)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -42,11 +34,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Ken-Thompson", "Ken Thompson", [
-    {
-      title: "Ken Thompson",
-      href: "https://en.wikipedia.org/wiki/Ken_Thompson",
-      kind: "wikipedia",
-    },
+    { title: "Ken Thompson", href: "https://en.wikipedia.org/wiki/Ken_Thompson", kind: "wikipedia" },
     {
       title: "Ken Thompson",
       href: "https://en.wikipedia.org/wiki/Ken_Thompson_(computer_programmer)",
@@ -67,21 +55,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Klaus-Samelson", "Klaus Samelson", [
-    {
-      title: "Klaus Samelson",
-      href: "https://en.wikipedia.org/wiki/Klaus_Samelson",
-      kind: "wikipedia",
-    },
+    { title: "Klaus Samelson", href: "https://en.wikipedia.org/wiki/Klaus_Samelson", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Koichi-Sasada", "Koichi Sasada", [
-    {
-      title: "Koichi Sasada",
-      href: "https://en.wikipedia.org/wiki/Koichi_Sasada",
-      kind: "wikipedia",
-    },
+    { title: "Koichi Sasada", href: "https://en.wikipedia.org/wiki/Koichi_Sasada", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -97,21 +77,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Kristen-Nygaard", "Kristen Nygaard", [
-    {
-      title: "Kristen Nygaard",
-      href: "https://en.wikipedia.org/wiki/Kristen_Nygaard",
-      kind: "wikipedia",
-    },
+    { title: "Kristen Nygaard", href: "https://en.wikipedia.org/wiki/Kristen_Nygaard", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Krzysztof-Apt", "Krzysztof Apt", [
-    {
-      title: "Krzysztof Apt",
-      href: "https://en.wikipedia.org/wiki/Krzysztof_R._Apt",
-      kind: "wikipedia",
-    },
+    { title: "Krzysztof Apt", href: "https://en.wikipedia.org/wiki/Krzysztof_R._Apt", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------

@@ -14,10 +14,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Ole-Johan-Dahl", "Ole-Johan Dahl", [
-    {
-      title: "Ole-Johan Dahl",
-      href: "https://en.wikipedia.org/wiki/Ole-Johan_Dahl",
-      kind: "wikipedia",
-    },
+    { title: "Ole-Johan Dahl", href: "https://en.wikipedia.org/wiki/Ole-Johan_Dahl", kind: "wikipedia" },
   ]);
 }

@@ -6,11 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+boost", "Boost", [
-    {
-      kind: "wikipedia",
-      title: "Boost",
-      href: "https://en.wikipedia.org/wiki/Boost_Software_License",
-    },
+    { kind: "wikipedia", title: "Boost", href: "https://en.wikipedia.org/wiki/Boost_Software_License" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -26,37 +22,23 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+bsd-2-clause", "BSD 2-Clause", [
-    {
-      kind: "wikipedia",
-      title: "BSD 2-Clause",
-      href: "https://en.wikipedia.org/wiki/BSD_licenses",
-    },
+    { kind: "wikipedia", title: "BSD 2-Clause", href: "https://en.wikipedia.org/wiki/BSD_licenses" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+bsd-3", "BSD-3", [
-    { kind: "wikipedia", title: "BSD-3", href: "https://en.wikipedia.org/wiki/BSD-3" },
-  ]);
+  lb.define("lic+bsd-3", "BSD-3", [{ kind: "wikipedia", title: "BSD-3", href: "https://en.wikipedia.org/wiki/BSD-3" }]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("lic+bsd-3-clause", "BSD-3-Clause", [
-    {
-      kind: "wikipedia",
-      title: "BSD-3-Clause",
-      href: "https://en.wikipedia.org/wiki/BSD_licenses",
-    },
+    { kind: "wikipedia", title: "BSD-3-Clause", href: "https://en.wikipedia.org/wiki/BSD_licenses" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("lic+bsd-like", "BSD-like", [
-    {
-      kind: "wikipedia",
-      title: "BSD-like",
-      href: "https://en.wikipedia.org/wiki/Permissive_software_license",
-    },
+    { kind: "wikipedia", title: "BSD-like", href: "https://en.wikipedia.org/wiki/Permissive_software_license" },
     { kind: "wikipedia", title: "BSD-like", href: "https://en.wikipedia.org/wiki/BSD_licenses" },
   ]);
 
@@ -70,10 +52,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+bsds", "BSD licenses", [
-    {
-      kind: "wikipedia",
-      title: "BSD licenses",
-      href: "https://en.wikipedia.org/wiki/BSD_licenses",
-    },
+    { kind: "wikipedia", title: "BSD licenses", href: "https://en.wikipedia.org/wiki/BSD_licenses" },
   ]);
 }

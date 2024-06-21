@@ -92,12 +92,7 @@ export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_E
     return edata as NN_Partial<T_EdgeData>;
   }
 
-  merge(
-    from: T_Id_V_From,
-    to: T_Id_V_To,
-    value: T_EdgeData,
-    suffix?: string,
-  ): NN_Partial<T_EdgeData> {
+  merge(from: T_Id_V_From, to: T_Id_V_To, value: T_EdgeData, suffix?: string): NN_Partial<T_EdgeData> {
     const [kft, data] = this._init(from, to, suffix);
     if (!data.edge.has(kft)) {
       data.edge.set(kft, {} as T_EdgeData);
@@ -108,9 +103,7 @@ export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_E
   }
 
   validParams(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): boolean {
-    return (
-      this.from_t.validParams(from) && this.to_t.validParams(to) && (!suffix || validChars(suffix))
-    );
+    return this.from_t.validParams(from) && this.to_t.validParams(to) && (!suffix || validChars(suffix));
   }
 
   *[Symbol.iterator](): IterableIterator<[EdgeKey, T_EdgeData]> {
@@ -185,8 +178,7 @@ export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_E
 
   private _init(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): [KFT, _TableData<T_EdgeData>] {
     const s = suffix ?? "";
-    if (!this.validParams(from, to, s))
-      throw new Error(`Invalid id(s) in edge: ${from} -> ${to}${s ? ` ${s}` : ""}.`);
+    if (!this.validParams(from, to, s)) throw new Error(`Invalid id(s) in edge: ${from} -> ${to}${s ? ` ${s}` : ""}.`);
 
     // Initialize containers for the given vertices, but don't stablish any data or connections.
     let d = this._perSuffix.get(s);
@@ -214,12 +206,7 @@ export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_E
     return [this._keyFromTo(from, to), d];
   }
 
-  private _updateAdjacent(
-    data: _TableData<T_EdgeData>,
-    from: T_Id_V_From,
-    to: T_Id_V_To,
-    operation: "add" | "delete",
-  ) {
+  private _updateAdjacent(data: _TableData<T_EdgeData>, from: T_Id_V_From, to: T_Id_V_To, operation: "add" | "delete") {
     if (operation === "add") {
       if (this.directed) {
         data.adjFrom.get(from)?.add(to);

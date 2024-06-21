@@ -10,31 +10,19 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+A-K-Dewdney", "A. K. Dewdney", [
-    {
-      title: "A. K. Dewdney",
-      href: "https://en.wikipedia.org/wiki/A._K._Dewdney",
-      kind: "wikipedia",
-    },
+    { title: "A. K. Dewdney", href: "https://en.wikipedia.org/wiki/A._K._Dewdney", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+A-N-Habermann", "A. N. Habermann", [
-    {
-      title: "A. N. Habermann",
-      href: "https://en.wikipedia.org/wiki/Nico_Habermann",
-      kind: "wikipedia",
-    },
+    { title: "A. N. Habermann", href: "https://en.wikipedia.org/wiki/Nico_Habermann", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+A-van-Wijngaarden", "A. van Wijngaarden", [
-    {
-      title: "A. van Wijngaarden",
-      href: "https://en.wikipedia.org/wiki/Adriaan_van_Wijngaarden",
-      kind: "wikipedia",
-    },
+    { title: "A. van Wijngaarden", href: "https://en.wikipedia.org/wiki/Adriaan_van_Wijngaarden", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -50,21 +38,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Alain-Colmerauer", "Alain Colmerauer", [
-    {
-      title: "Alain Colmerauer",
-      href: "https://en.wikipedia.org/wiki/Alain_Colmerauer",
-      kind: "wikipedia",
-    },
+    { title: "Alain Colmerauer", href: "https://en.wikipedia.org/wiki/Alain_Colmerauer", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Alan-Edelman", "Alan Edelman", [
-    {
-      title: "Alan Edelman",
-      href: "https://en.wikipedia.org/wiki/Alan_Edelman",
-      kind: "wikipedia",
-    },
+    { title: "Alan Edelman", href: "https://en.wikipedia.org/wiki/Alan_Edelman", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -98,11 +78,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Alexander-Repenning", "Alexander Repenning", [
-    {
-      title: "Alexander Repenning",
-      href: "https://en.wikipedia.org/wiki/Alexander_Repenning",
-      kind: "wikipedia",
-    },
+    { title: "Alexander Repenning", href: "https://en.wikipedia.org/wiki/Alexander_Repenning", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -114,11 +90,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Allen-Newell", "Allen Newell", [
-    {
-      title: "Allen Newell",
-      href: "https://en.wikipedia.org/wiki/Allen_Newell",
-      kind: "wikipedia",
-    },
+    { title: "Allen Newell", href: "https://en.wikipedia.org/wiki/Allen_Newell", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -128,11 +100,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Anders-Hejlsberg", "Anders Hejlsberg", [
-    {
-      title: "Anders Hejlsberg",
-      href: "https://en.wikipedia.org/wiki/Anders_Hejlsberg",
-      kind: "wikipedia",
-    },
+    { title: "Anders Hejlsberg", href: "https://en.wikipedia.org/wiki/Anders_Hejlsberg", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -146,11 +114,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Andreas-Raab", "Andreas Raab", [
-    {
-      title: "Andreas Raab",
-      href: "https://en.wikipedia.org/wiki/Andreas_Raab",
-      kind: "wikipedia",
-    },
+    { title: "Andreas Raab", href: "https://en.wikipedia.org/wiki/Andreas_Raab", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -160,11 +124,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Andrei-Alexandrescu", "Andrei Alexandrescu", [
-    {
-      title: "Andrei Alexandrescu",
-      href: "https://en.wikipedia.org/wiki/Andrei_Alexandrescu",
-      kind: "wikipedia",
-    },
+    { title: "Andrei Alexandrescu", href: "https://en.wikipedia.org/wiki/Andrei_Alexandrescu", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -178,11 +138,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Andrey-Ershov", "Andrey Ershov", [
-    {
-      title: "Andrey Ershov",
-      href: "https://en.wikipedia.org/wiki/Andrey_Ershov",
-      kind: "wikipedia",
-    },
+    { title: "Andrey Ershov", href: "https://en.wikipedia.org/wiki/Andrey_Ershov", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -218,11 +174,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Anthony-W-Knapp", "Anthony W. Knapp", [
-    {
-      title: "Anthony W. Knapp",
-      href: "https://en.wikipedia.org/wiki/Anthony_W._Knapp",
-      kind: "wikipedia",
-    },
+    { title: "Anthony W. Knapp", href: "https://en.wikipedia.org/wiki/Anthony_W._Knapp", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------

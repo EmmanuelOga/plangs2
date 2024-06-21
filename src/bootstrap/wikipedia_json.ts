@@ -8,10 +8,7 @@ import { type Cheerio, type Element, load } from "cheerio";
 
 export const WIKIPEDIA_URL = "https://en.wikipedia.org";
 
-const START_PAGES = [
-  "/wiki/List_of_programming_languages",
-  "/wiki/Category:C_programming_language_family",
-];
+const START_PAGES = ["/wiki/List_of_programming_languages", "/wiki/Category:C_programming_language_family"];
 
 const SHORTLIST = [
   "/wiki/CircuitPython",
@@ -143,12 +140,7 @@ async function fetchWiki(wikiPath: string): Promise<string> {
 }
 
 // Do something with the language data.
-function emit({
-  title,
-  wikiUrl,
-  img,
-  data,
-}: { title: string; wikiUrl: string; img: string; data: {} }) {
+function emit({ title, wikiUrl, img, data }: { title: string; wikiUrl: string; img: string; data: {} }) {
   STATE.plangs.set(title, { title, wikiUrl, img, data });
 }
 
@@ -179,20 +171,7 @@ async function scrapLanguagePage(wikiPath: string) {
 
   function getMonth(str: string): number {
     const s = str.toLocaleLowerCase();
-    const months = [
-      "jan",
-      "feb",
-      "mar",
-      "apr",
-      "may",
-      "jun",
-      "jul",
-      "aug",
-      "sep",
-      "oct",
-      "nov",
-      "dec",
-    ];
+    const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
     for (const [i, p] of months.entries()) {
       if (s.includes(p)) return i + 1;
     }
@@ -211,11 +190,7 @@ async function scrapLanguagePage(wikiPath: string) {
   function getDate(str: string): { date: string } | { year: number } | undefined {
     let match = str.match(/(\d{4}).(\d{2}).(\d{2})/);
     if (match) {
-      const d = date(
-        Number.parseInt(match[1]),
-        Number.parseInt(match[2]),
-        Number.parseInt(match[3]),
-      );
+      const d = date(Number.parseInt(match[1]), Number.parseInt(match[2]), Number.parseInt(match[3]));
       if (d) return d;
     }
 

@@ -14,21 +14,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Paul-Cockshott", "Paul Cockshott", [
-    {
-      title: "Paul Cockshott",
-      href: "https://en.wikipedia.org/wiki/Paul_Cockshott",
-      kind: "wikipedia",
-    },
+    { title: "Paul Cockshott", href: "https://en.wikipedia.org/wiki/Paul_Cockshott", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Paul-Graham", "Paul Graham", [
-    {
-      title: "Paul Graham",
-      href: "https://en.wikipedia.org/wiki/Paul_Graham_(programmer)",
-      kind: "wikipedia",
-    },
+    { title: "Paul Graham", href: "https://en.wikipedia.org/wiki/Paul_Graham_(programmer)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -80,21 +72,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Peter-Deutsch", "Peter Deutsch", [
-    {
-      title: "Peter Deutsch",
-      href: "https://en.wikipedia.org/wiki/L._Peter_Deutsch",
-      kind: "wikipedia",
-    },
+    { title: "Peter Deutsch", href: "https://en.wikipedia.org/wiki/L._Peter_Deutsch", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Peter-Landin", "Peter Landin", [
-    {
-      title: "Peter Landin",
-      href: "https://en.wikipedia.org/wiki/Peter_Landin",
-      kind: "wikipedia",
-    },
+    { title: "Peter Landin", href: "https://en.wikipedia.org/wiki/Peter_Landin", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -108,11 +92,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Peter-Weinberger", "Peter Weinberger", [
-    {
-      title: "Peter Weinberger",
-      href: "https://en.wikipedia.org/wiki/Peter_J._Weinberger",
-      kind: "wikipedia",
-    },
+    { title: "Peter Weinberger", href: "https://en.wikipedia.org/wiki/Peter_J._Weinberger", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -132,21 +112,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Philip-Wadler", "Philip Wadler", [
-    {
-      title: "Philip Wadler",
-      href: "https://en.wikipedia.org/wiki/Philip_Wadler",
-      kind: "wikipedia",
-    },
+    { title: "Philip Wadler", href: "https://en.wikipedia.org/wiki/Philip_Wadler", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Philip-Woodward", "Philip Woodward", [
-    {
-      title: "Philip Woodward",
-      href: "https://en.wikipedia.org/wiki/Philip_Woodward",
-      kind: "wikipedia",
-    },
+    { title: "Philip Woodward", href: "https://en.wikipedia.org/wiki/Philip_Woodward", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------

@@ -5,7 +5,5 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("para+json", "JSON", [
-    { kind: "wikipedia", title: "JSON", href: "https://en.wikipedia.org/wiki/JSON" },
-  ]);
+  lb.define("para+json", "JSON", [{ kind: "wikipedia", title: "JSON", href: "https://en.wikipedia.org/wiki/JSON" }]);
 }

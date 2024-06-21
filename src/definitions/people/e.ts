@@ -14,11 +14,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Ecma-International", "Ecma International", [
-    {
-      title: "Ecma International",
-      href: "https://en.wikipedia.org/wiki/Ecma_International",
-      kind: "wikipedia",
-    },
+    { title: "Ecma International", href: "https://en.wikipedia.org/wiki/Ecma_International", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -44,11 +40,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Erik-Meijer", "Erik Meijer", [
-    {
-      title: "Erik Meijer",
-      href: "https://en.wikipedia.org/wiki/Erik_Meijer_(computer_scientist)",
-      kind: "wikipedia",
-    },
+    { title: "Erik Meijer", href: "https://en.wikipedia.org/wiki/Erik_Meijer_(computer_scientist)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------

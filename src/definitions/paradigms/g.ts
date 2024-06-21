@@ -16,11 +16,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("para+generic", "generic programming", [
-    {
-      kind: "wikipedia",
-      title: "generic",
-      href: "https://en.wikipedia.org/wiki/Generic_programming",
-    },
+    { kind: "wikipedia", title: "generic", href: "https://en.wikipedia.org/wiki/Generic_programming" },
   ]);
 
   //-------------------------------------------------------------------------------

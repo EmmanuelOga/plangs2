@@ -6,11 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+J-E-L-Peck", "J. E. L. Peck", [
-    {
-      title: "J. E. L. Peck",
-      href: "https://en.wikipedia.org/wiki/John_E._L._Peck",
-      kind: "wikipedia",
-    },
+    { title: "J. E. L. Peck", href: "https://en.wikipedia.org/wiki/John_E._L._Peck", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -20,21 +16,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Jacob-T-Schwartz", "Jacob T. Schwartz", [
-    {
-      title: "Jacob T. Schwartz",
-      href: "https://en.wikipedia.org/wiki/Jacob_T._Schwartz",
-      kind: "wikipedia",
-    },
+    { title: "Jacob T. Schwartz", href: "https://en.wikipedia.org/wiki/Jacob_T._Schwartz", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+James-Clark", "James Clark", [
-    {
-      title: "James Clark",
-      href: "https://en.wikipedia.org/wiki/James_Clark_(programmer)",
-      kind: "wikipedia",
-    },
+    { title: "James Clark", href: "https://en.wikipedia.org/wiki/James_Clark_(programmer)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -54,21 +42,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+James-G-Mitchell", "James G. Mitchell", [
-    {
-      title: "James G. Mitchell",
-      href: "https://en.wikipedia.org/wiki/James_G._Mitchell",
-      kind: "wikipedia",
-    },
+    { title: "James G. Mitchell", href: "https://en.wikipedia.org/wiki/James_G._Mitchell", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+James-Gosling", "James Gosling", [
-    {
-      title: "James Gosling",
-      href: "https://en.wikipedia.org/wiki/James_Gosling",
-      kind: "wikipedia",
-    },
+    { title: "James Gosling", href: "https://en.wikipedia.org/wiki/James_Gosling", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -78,11 +58,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+James-Strachan", "James Strachan", [
-    {
-      title: "James Strachan",
-      href: "https://en.wikipedia.org/wiki/James_Strachan_(programmer)",
-      kind: "wikipedia",
-    },
+    { title: "James Strachan", href: "https://en.wikipedia.org/wiki/James_Strachan_(programmer)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -100,11 +76,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Jayadev-Misra", "Jayadev Misra", [
-    {
-      title: "Jayadev Misra",
-      href: "https://en.wikipedia.org/wiki/Jayadev_Misra",
-      kind: "wikipedia",
-    },
+    { title: "Jayadev Misra", href: "https://en.wikipedia.org/wiki/Jayadev_Misra", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -120,21 +92,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Jean-E-Sammet", "Jean E. Sammet", [
-    {
-      title: "Jean E. Sammet",
-      href: "https://en.wikipedia.org/wiki/Jean_E._Sammet",
-      kind: "wikipedia",
-    },
+    { title: "Jean E. Sammet", href: "https://en.wikipedia.org/wiki/Jean_E._Sammet", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Jean-Ichbiah", "Jean Ichbiah", [
-    {
-      title: "Jean Ichbiah",
-      href: "https://en.wikipedia.org/wiki/Jean_Ichbiah",
-      kind: "wikipedia",
-    },
+    { title: "Jean Ichbiah", href: "https://en.wikipedia.org/wiki/Jean_Ichbiah", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -152,31 +116,19 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Jeff-Bezanson", "Jeff Bezanson", [
-    {
-      title: "Jeff Bezanson",
-      href: "https://en.wikipedia.org/wiki/Jeff_Bezanson_(programmer)",
-      kind: "wikipedia",
-    },
+    { title: "Jeff Bezanson", href: "https://en.wikipedia.org/wiki/Jeff_Bezanson_(programmer)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Jeffrey-Snover", "Jeffrey Snover", [
-    {
-      title: "Jeffrey Snover",
-      href: "https://en.wikipedia.org/wiki/Jeffrey_Snover",
-      kind: "wikipedia",
-    },
+    { title: "Jeffrey Snover", href: "https://en.wikipedia.org/wiki/Jeffrey_Snover", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Jeremy-Ashkenas", "Jeremy Ashkenas", [
-    {
-      title: "Jeremy Ashkenas",
-      href: "https://en.wikipedia.org/wiki/Jeremy_Ashkenas",
-      kind: "wikipedia",
-    },
+    { title: "Jeremy Ashkenas", href: "https://en.wikipedia.org/wiki/Jeremy_Ashkenas", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -214,11 +166,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Joe-Armstrong", "Joe Armstrong", [
-    {
-      title: "Joe Armstrong",
-      href: "https://en.wikipedia.org/wiki/Joe_Armstrong_(programmer)",
-      kind: "wikipedia",
-    },
+    { title: "Joe Armstrong", href: "https://en.wikipedia.org/wiki/Joe_Armstrong_(programmer)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -238,21 +186,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+John-Carmack", "John Carmack", [
-    {
-      title: "John Carmack",
-      href: "https://en.wikipedia.org/wiki/John_Carmack",
-      kind: "wikipedia",
-    },
+    { title: "John Carmack", href: "https://en.wikipedia.org/wiki/John_Carmack", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+John-Chambers", "John Chambers", [
-    {
-      title: "John Chambers",
-      href: "https://en.wikipedia.org/wiki/John_Chambers_(statistician)",
-      kind: "wikipedia",
-    },
+    { title: "John Chambers", href: "https://en.wikipedia.org/wiki/John_Chambers_(statistician)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -270,31 +210,19 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+John-G-Kemeny", "John G. Kemeny", [
-    {
-      title: "John G. Kemeny",
-      href: "https://en.wikipedia.org/wiki/John_G._Kemeny",
-      kind: "wikipedia",
-    },
+    { title: "John G. Kemeny", href: "https://en.wikipedia.org/wiki/John_G._Kemeny", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+John-Hughes", "John Hughes", [
-    {
-      title: "John Hughes",
-      href: "https://en.wikipedia.org/wiki/John_Hughes_(computer_scientist)",
-      kind: "wikipedia",
-    },
+    { title: "John Hughes", href: "https://en.wikipedia.org/wiki/John_Hughes_(computer_scientist)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+John-Launchbury", "John Launchbury", [
-    {
-      title: "John Launchbury",
-      href: "https://en.wikipedia.org/wiki/John_Launchbury",
-      kind: "wikipedia",
-    },
+    { title: "John Launchbury", href: "https://en.wikipedia.org/wiki/John_Launchbury", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -314,11 +242,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+John-Ousterhout", "John Ousterhout", [
-    {
-      title: "John Ousterhout",
-      href: "https://en.wikipedia.org/wiki/John_Ousterhout",
-      kind: "wikipedia",
-    },
+    { title: "John Ousterhout", href: "https://en.wikipedia.org/wiki/John_Ousterhout", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -336,11 +260,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+John-Warnock", "John Warnock", [
-    {
-      title: "John Warnock",
-      href: "https://en.wikipedia.org/wiki/John_Warnock",
-      kind: "wikipedia",
-    },
+    { title: "John Warnock", href: "https://en.wikipedia.org/wiki/John_Warnock", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -358,11 +278,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Jonathan-Sachs", "Jonathan Sachs", [
-    {
-      title: "Jonathan Sachs",
-      href: "https://en.wikipedia.org/wiki/Jonathan_Sachs",
-      kind: "wikipedia",
-    },
+    { title: "Jonathan Sachs", href: "https://en.wikipedia.org/wiki/Jonathan_Sachs", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -388,11 +304,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Joseph-Henry-Wegstein", "Joseph Henry Wegstein", [
-    {
-      title: "Joseph Henry Wegstein",
-      href: "https://en.wikipedia.org/wiki/Joseph_Henry_Wegstein",
-      kind: "wikipedia",
-    },
+    { title: "Joseph Henry Wegstein", href: "https://en.wikipedia.org/wiki/Joseph_Henry_Wegstein", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -420,10 +332,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Jurg-Gutknecht", "Jürg Gutknecht", [
-    {
-      title: "Jürg Gutknecht",
-      href: "https://en.wikipedia.org/wiki/J%C3%BCrg_Gutknecht",
-      kind: "wikipedia",
-    },
+    { title: "Jürg Gutknecht", href: "https://en.wikipedia.org/wiki/J%C3%BCrg_Gutknecht", kind: "wikipedia" },
   ]);
 }

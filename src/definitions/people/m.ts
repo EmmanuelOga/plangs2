@@ -10,11 +10,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Mahmoud-Samir-Fayed", "Mahmoud Samir Fayed", [
-    {
-      title: "Mahmoud Samir Fayed",
-      href: "https://en.wikipedia.org/wiki/Mahmoud_Samir_Fayed",
-      kind: "wikipedia",
-    },
+    { title: "Mahmoud Samir Fayed", href: "https://en.wikipedia.org/wiki/Mahmoud_Samir_Fayed", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -24,11 +20,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Manuel-Serrano", "Manuel Serrano", [
-    {
-      title: "Manuel Serrano",
-      href: "https://en.wikipedia.org/wiki/Manuel_Serrano",
-      kind: "wikipedia",
-    },
+    { title: "Manuel Serrano", href: "https://en.wikipedia.org/wiki/Manuel_Serrano", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -54,11 +46,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Mark-S-Miller", "Mark S. Miller", [
-    {
-      title: "Mark S. Miller",
-      href: "https://en.wikipedia.org/wiki/Mark_S._Miller",
-      kind: "wikipedia",
-    },
+    { title: "Mark S. Miller", href: "https://en.wikipedia.org/wiki/Mark_S._Miller", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -68,11 +56,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Martin-Odersky", "Martin Odersky", [
-    {
-      title: "Martin Odersky",
-      href: "https://en.wikipedia.org/wiki/Martin_Odersky",
-      kind: "wikipedia",
-    },
+    { title: "Martin Odersky", href: "https://en.wikipedia.org/wiki/Martin_Odersky", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -118,11 +102,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Meta-Platforms", "Meta Platforms", [
-    {
-      title: "Meta Platforms",
-      href: "https://en.wikipedia.org/wiki/Meta_Platforms",
-      kind: "wikipedia",
-    },
+    { title: "Meta Platforms", href: "https://en.wikipedia.org/wiki/Meta_Platforms", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -148,11 +128,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Mike-Cowlishaw", "Mike Cowlishaw", [
-    {
-      title: "Mike Cowlishaw",
-      href: "https://en.wikipedia.org/wiki/Mike_Cowlishaw",
-      kind: "wikipedia",
-    },
+    { title: "Mike Cowlishaw", href: "https://en.wikipedia.org/wiki/Mike_Cowlishaw", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -170,21 +146,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Miller-S-Puckette", "Miller S. Puckette", [
-    {
-      title: "Miller S. Puckette",
-      href: "https://en.wikipedia.org/wiki/Miller_Puckette",
-      kind: "wikipedia",
-    },
+    { title: "Miller S. Puckette", href: "https://en.wikipedia.org/wiki/Miller_Puckette", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Mitchel-Resnick", "Mitchel Resnick", [
-    {
-      title: "Mitchel Resnick",
-      href: "https://en.wikipedia.org/wiki/Mitchel_Resnick",
-      kind: "wikipedia",
-    },
+    { title: "Mitchel Resnick", href: "https://en.wikipedia.org/wiki/Mitchel_Resnick", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -194,11 +162,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Morgan-Stanley", "Morgan Stanley", [
-    {
-      title: "Morgan Stanley",
-      href: "https://en.wikipedia.org/wiki/Morgan_Stanley",
-      kind: "wikipedia",
-    },
+    { title: "Morgan Stanley", href: "https://en.wikipedia.org/wiki/Morgan_Stanley", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------

@@ -16,10 +16,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("tsys+optional", "Optional", [
-    {
-      title: "${name} Type System",
-      href: "https://en.wikipedia.org/wiki/optional_typing",
-      kind: "wikipedia",
-    },
+    { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/optional_typing", kind: "wikipedia" },
   ]);
 }

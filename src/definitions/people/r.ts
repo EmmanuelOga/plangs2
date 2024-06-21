@@ -14,21 +14,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Ralph-Griswold", "Ralph Griswold", [
-    {
-      title: "Ralph Griswold",
-      href: "https://en.wikipedia.org/wiki/Ralph_Griswold",
-      kind: "wikipedia",
-    },
+    { title: "Ralph Griswold", href: "https://en.wikipedia.org/wiki/Ralph_Griswold", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Randall-Hyde", "Randall Hyde", [
-    {
-      title: "Randall Hyde",
-      href: "https://en.wikipedia.org/wiki/Randall_Hyde",
-      kind: "wikipedia",
-    },
+    { title: "Randall Hyde", href: "https://en.wikipedia.org/wiki/Randall_Hyde", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -38,21 +30,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Rasmus-Lerdorf", "Rasmus Lerdorf", [
-    {
-      title: "Rasmus Lerdorf",
-      href: "https://en.wikipedia.org/wiki/Rasmus_Lerdorf",
-      kind: "wikipedia",
-    },
+    { title: "Rasmus Lerdorf", href: "https://en.wikipedia.org/wiki/Rasmus_Lerdorf", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Raymond-F-Boyce", "Raymond F. Boyce", [
-    {
-      title: "Raymond F. Boyce",
-      href: "https://en.wikipedia.org/wiki/Raymond_F._Boyce",
-      kind: "wikipedia",
-    },
+    { title: "Raymond F. Boyce", href: "https://en.wikipedia.org/wiki/Raymond_F._Boyce", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -64,11 +48,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Remington-Rand", "Remington Rand", [
-    {
-      title: "Remington Rand",
-      href: "https://en.wikipedia.org/wiki/Remington_Rand",
-      kind: "wikipedia",
-    },
+    { title: "Remington Rand", href: "https://en.wikipedia.org/wiki/Remington_Rand", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -98,21 +78,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Richard-E-Pattis", "Richard E. Pattis", [
-    {
-      title: "Richard E. Pattis",
-      href: "https://en.wikipedia.org/wiki/Richard_E._Pattis",
-      kind: "wikipedia",
-    },
+    { title: "Richard E. Pattis", href: "https://en.wikipedia.org/wiki/Richard_E._Pattis", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Richard-Fateman", "Richard Fateman", [
-    {
-      title: "Richard Fateman",
-      href: "https://en.wikipedia.org/wiki/Richard_Fateman",
-      kind: "wikipedia",
-    },
+    { title: "Richard Fateman", href: "https://en.wikipedia.org/wiki/Richard_Fateman", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -136,21 +108,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Richard-P-Gabriel", "Richard P. Gabriel", [
-    {
-      title: "Richard P. Gabriel",
-      href: "https://en.wikipedia.org/wiki/Richard_P._Gabriel",
-      kind: "wikipedia",
-    },
+    { title: "Richard P. Gabriel", href: "https://en.wikipedia.org/wiki/Richard_P._Gabriel", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Richard-Stallman", "Richard Stallman", [
-    {
-      title: "Richard Stallman",
-      href: "https://en.wikipedia.org/wiki/Richard_Stallman",
-      kind: "wikipedia",
-    },
+    { title: "Richard Stallman", href: "https://en.wikipedia.org/wiki/Richard_Stallman", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -170,11 +134,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Robert-A-Greenes", "Robert A. Greenes", [
-    {
-      title: "Robert A. Greenes",
-      href: "https://en.wikipedia.org/wiki/Robert_A._Greenes",
-      kind: "wikipedia",
-    },
+    { title: "Robert A. Greenes", href: "https://en.wikipedia.org/wiki/Robert_A._Greenes", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -184,11 +144,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Robert-Fourer", "Robert Fourer", [
-    {
-      title: "Robert Fourer",
-      href: "https://en.wikipedia.org/wiki/Robert_Fourer",
-      kind: "wikipedia",
-    },
+    { title: "Robert Fourer", href: "https://en.wikipedia.org/wiki/Robert_Fourer", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -208,11 +164,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Robert-Griesemer", "Robert Griesemer", [
-    {
-      title: "Robert Griesemer",
-      href: "https://en.wikipedia.org/wiki/Robert_Griesemer",
-      kind: "wikipedia",
-    },
+    { title: "Robert Griesemer", href: "https://en.wikipedia.org/wiki/Robert_Griesemer", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -236,11 +188,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Robert-Morris", "Robert Morris", [
-    {
-      title: "Robert Morris",
-      href: "https://en.wikipedia.org/wiki/Robert_Morris_(cryptographer)",
-      kind: "wikipedia",
-    },
+    { title: "Robert Morris", href: "https://en.wikipedia.org/wiki/Robert_Morris_(cryptographer)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -258,11 +206,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Roberto-Ierusalimschy", "Roberto Ierusalimschy", [
-    {
-      title: "Roberto Ierusalimschy",
-      href: "https://en.wikipedia.org/wiki/Roberto_Ierusalimschy",
-      kind: "wikipedia",
-    },
+    { title: "Roberto Ierusalimschy", href: "https://en.wikipedia.org/wiki/Roberto_Ierusalimschy", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -272,31 +216,19 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Robin-Milner", "Robin Milner", [
-    {
-      title: "Robin Milner",
-      href: "https://en.wikipedia.org/wiki/Robin_Milner",
-      kind: "wikipedia",
-    },
+    { title: "Robin Milner", href: "https://en.wikipedia.org/wiki/Robin_Milner", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Robin-Popplestone", "Robin Popplestone", [
-    {
-      title: "Robin Popplestone",
-      href: "https://en.wikipedia.org/wiki/Robin_Popplestone",
-      kind: "wikipedia",
-    },
+    { title: "Robin Popplestone", href: "https://en.wikipedia.org/wiki/Robin_Popplestone", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Rod-Burstall", "Rod Burstall", [
-    {
-      title: "Rod Burstall",
-      href: "https://en.wikipedia.org/wiki/Rod_Burstall",
-      kind: "wikipedia",
-    },
+    { title: "Rod Burstall", href: "https://en.wikipedia.org/wiki/Rod_Burstall", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -316,11 +248,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Roger-Moore", "Roger Moore", [
-    {
-      title: "Roger Moore",
-      href: "https://en.wikipedia.org/wiki/Roger_Moore_(computer_scientist)",
-      kind: "wikipedia",
-    },
+    { title: "Roger Moore", href: "https://en.wikipedia.org/wiki/Roger_Moore_(computer_scientist)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -334,11 +262,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Ron-Morrison", "Ron Morrison", [
-    {
-      title: "Ron Morrison",
-      href: "https://en.wikipedia.org/wiki/Ron_Morrison",
-      kind: "wikipedia",
-    },
+    { title: "Ron Morrison", href: "https://en.wikipedia.org/wiki/Ron_Morrison", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------

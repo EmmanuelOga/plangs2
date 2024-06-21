@@ -6,11 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("tsys+parametric", "Parametric", [
-    {
-      title: "${name} Type System",
-      href: "https://en.wikipedia.org/wiki/parametric_polymorphism",
-      kind: "wikipedia",
-    },
+    { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/parametric_polymorphism", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------

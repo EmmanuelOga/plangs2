@@ -23,9 +23,7 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("platf+rocm", "ROCm", [
-    { kind: "wikipedia", title: "ROCm", href: "https://en.wikipedia.org/wiki/ROCm" },
-  ]);
+  lb.define("platf+rocm", "ROCm", [{ kind: "wikipedia", title: "ROCm", href: "https://en.wikipedia.org/wiki/ROCm" }]);
 
   //-------------------------------------------------------------------------------
 
@@ -36,15 +34,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("platf+rpi", "Raspberry Pi OS", [
-    {
-      kind: "wikipedia",
-      title: "Raspberry Pi",
-      href: "https://en.wikipedia.org/wiki/Raspberry_Pi",
-    },
-    {
-      kind: "wikipedia",
-      title: "Raspberry Pi OS",
-      href: "https://en.wikipedia.org/wiki/Raspberry_Pi_OS",
-    },
+    { kind: "wikipedia", title: "Raspberry Pi", href: "https://en.wikipedia.org/wiki/Raspberry_Pi" },
+    { kind: "wikipedia", title: "Raspberry Pi OS", href: "https://en.wikipedia.org/wiki/Raspberry_Pi_OS" },
   ]);
 }

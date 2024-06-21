@@ -11,21 +11,13 @@ export function define(g: PlangsGraph) {
       title: "Simplified BSD",
       href: "https://en.wikipedia.org/wiki/BSD_licenses#2-clause_license_.28.22Simplified_BSD_License.22_or_.22FreeBSD_License.22.29",
     },
-    {
-      kind: "wikipedia",
-      title: "Simplified BSD",
-      href: "https://en.wikipedia.org/wiki/Simplified_BSD_License",
-    },
+    { kind: "wikipedia", title: "Simplified BSD", href: "https://en.wikipedia.org/wiki/Simplified_BSD_License" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("lic+spl-1", "SPL-1.0", [
-    {
-      kind: "wikipedia",
-      title: "SPL-1.0",
-      href: "https://en.wikipedia.org/wiki/Sun_Public_License",
-    },
+    { kind: "wikipedia", title: "SPL-1.0", href: "https://en.wikipedia.org/wiki/Sun_Public_License" },
   ]);
 
   //-------------------------------------------------------------------------------

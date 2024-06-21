@@ -5,15 +5,11 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define(
-    "lic+historical-permission-notice-and-disclaimer",
-    "Historical Permission Notice and Disclaimer",
-    [
-      {
-        kind: "wikipedia",
-        title: "Historical Permission Notice and Disclaimer",
-        href: "https://en.wikipedia.org/wiki/Historical_Permission_Notice_and_Disclaimer",
-      },
-    ],
-  );
+  lb.define("lic+historical-permission-notice-and-disclaimer", "Historical Permission Notice and Disclaimer", [
+    {
+      kind: "wikipedia",
+      title: "Historical Permission Notice and Disclaimer",
+      href: "https://en.wikipedia.org/wiki/Historical_Permission_Notice_and_Disclaimer",
+    },
+  ]);
 }

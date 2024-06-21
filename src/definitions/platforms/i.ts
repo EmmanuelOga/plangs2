@@ -29,7 +29,5 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("platf+ios", "iOS", [
-    { kind: "wikipedia", title: "iOS", href: "https://en.wikipedia.org/wiki/IOS" },
-  ]);
+  lb.define("platf+ios", "iOS", [{ kind: "wikipedia", title: "iOS", href: "https://en.wikipedia.org/wiki/IOS" }]);
 }

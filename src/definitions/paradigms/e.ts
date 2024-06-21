@@ -6,11 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("para+educational", "educational", [
-    {
-      kind: "wikipedia",
-      title: "educational",
-      href: "https://en.wikipedia.org/wiki/Educational_programming_language",
-    },
+    { kind: "wikipedia", title: "educational", href: "https://en.wikipedia.org/wiki/Educational_programming_language" },
     {
       kind: "wikipedia",
       title: "educational",
@@ -27,21 +23,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("para+esoteric", "Esoteric", [
-    {
-      kind: "wikipedia",
-      title: "Esoteric",
-      href: "https://en.wikipedia.org/wiki/Esoteric_programming_language",
-    },
+    { kind: "wikipedia", title: "Esoteric", href: "https://en.wikipedia.org/wiki/Esoteric_programming_language" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("para+event-driven", "event-driven", [
-    {
-      kind: "wikipedia",
-      title: "Event-driven",
-      href: "https://en.wikipedia.org/wiki/Event-driven_programming",
-    },
+    { kind: "wikipedia", title: "Event-driven", href: "https://en.wikipedia.org/wiki/Event-driven_programming" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -57,20 +45,12 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("para+expert-systems", "expert systems", [
-    {
-      kind: "wikipedia",
-      title: "expert systems",
-      href: "https://en.wikipedia.org/wiki/Expert_systems",
-    },
+    { kind: "wikipedia", title: "expert systems", href: "https://en.wikipedia.org/wiki/Expert_systems" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("para+extensible", "extensible", [
-    {
-      kind: "wikipedia",
-      title: "extensible",
-      href: "https://en.wikipedia.org/wiki/Extensible_programming",
-    },
+    { kind: "wikipedia", title: "extensible", href: "https://en.wikipedia.org/wiki/Extensible_programming" },
   ]);
 }

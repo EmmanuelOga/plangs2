@@ -10,11 +10,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+National-Instruments", "National Instruments", [
-    {
-      title: "National Instruments",
-      href: "https://en.wikipedia.org/wiki/National_Instruments",
-      kind: "wikipedia",
-    },
+    { title: "National Instruments", href: "https://en.wikipedia.org/wiki/National_Instruments", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -36,11 +32,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Neil-Pappalardo", "Neil Pappalardo", [
-    {
-      title: "Neil Pappalardo",
-      href: "https://en.wikipedia.org/wiki/Neil_Pappalardo",
-      kind: "wikipedia",
-    },
+    { title: "Neil Pappalardo", href: "https://en.wikipedia.org/wiki/Neil_Pappalardo", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -66,11 +58,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Niklaus-Wirth", "Niklaus Wirth", [
-    {
-      title: "Niklaus Wirth",
-      href: "https://en.wikipedia.org/wiki/Niklaus_Wirth",
-      kind: "wikipedia",
-    },
+    { title: "Niklaus Wirth", href: "https://en.wikipedia.org/wiki/Niklaus_Wirth", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------

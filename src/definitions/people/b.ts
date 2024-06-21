@@ -6,11 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+B-J-Mailloux", "B. J. Mailloux", [
-    {
-      title: "B. J. Mailloux",
-      href: "https://en.wikipedia.org/wiki/Barry_J._Mailloux",
-      kind: "wikipedia",
-    },
+    { title: "B. J. Mailloux", href: "https://en.wikipedia.org/wiki/Barry_J._Mailloux", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -20,11 +16,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Barbara-Liskov", "Barbara Liskov", [
-    {
-      title: "Barbara Liskov",
-      href: "https://en.wikipedia.org/wiki/Barbara_Liskov",
-      kind: "wikipedia",
-    },
+    { title: "Barbara Liskov", href: "https://en.wikipedia.org/wiki/Barbara_Liskov", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -48,51 +40,31 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Benjamin-C-Pierce", "Benjamin C. Pierce", [
-    {
-      title: "Benjamin C. Pierce",
-      href: "https://en.wikipedia.org/wiki/Benjamin_C._Pierce",
-      kind: "wikipedia",
-    },
+    { title: "Benjamin C. Pierce", href: "https://en.wikipedia.org/wiki/Benjamin_C._Pierce", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Benoit-Minisini", "Benoît Minisini", [
-    {
-      title: "Benoît Minisini",
-      href: "https://en.wikipedia.org/wiki/Beno%C3%AEt_Minisini",
-      kind: "wikipedia",
-    },
+    { title: "Benoît Minisini", href: "https://en.wikipedia.org/wiki/Beno%C3%AEt_Minisini", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Bernard-Galler", "Bernard Galler", [
-    {
-      title: "Bernard Galler",
-      href: "https://en.wikipedia.org/wiki/Bernard_Galler",
-      kind: "wikipedia",
-    },
+    { title: "Bernard Galler", href: "https://en.wikipedia.org/wiki/Bernard_Galler", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Bertrand-Meyer", "Bertrand Meyer", [
-    {
-      title: "Bertrand Meyer",
-      href: "https://en.wikipedia.org/wiki/Bertrand_Meyer",
-      kind: "wikipedia",
-    },
+    { title: "Bertrand Meyer", href: "https://en.wikipedia.org/wiki/Bertrand_Meyer", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Bill-Paxton", "Bill Paxton", [
-    {
-      title: "Bill Paxton",
-      href: "https://en.wikipedia.org/wiki/Bill_Paxton_(computer_scientist)",
-      kind: "wikipedia",
-    },
+    { title: "Bill Paxton", href: "https://en.wikipedia.org/wiki/Bill_Paxton_(computer_scientist)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -108,11 +80,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Bjarne-Stroustrup", "Bjarne Stroustrup", [
-    {
-      title: "Bjarne Stroustrup",
-      href: "https://en.wikipedia.org/wiki/Bjarne_Stroustrup",
-      kind: "wikipedia",
-    },
+    { title: "Bjarne Stroustrup", href: "https://en.wikipedia.org/wiki/Bjarne_Stroustrup", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -142,11 +110,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Brendan-Eich", "Brendan Eich", [
-    {
-      title: "Brendan Eich",
-      href: "https://en.wikipedia.org/wiki/Brendan_Eich",
-      kind: "wikipedia",
-    },
+    { title: "Brendan Eich", href: "https://en.wikipedia.org/wiki/Brendan_Eich", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -160,21 +124,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Brian-Harvey", "Brian Harvey", [
-    {
-      title: "Brian Harvey",
-      href: "https://en.wikipedia.org/wiki/Brian_Harvey_(lecturer)",
-      kind: "wikipedia",
-    },
+    { title: "Brian Harvey", href: "https://en.wikipedia.org/wiki/Brian_Harvey_(lecturer)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Brian-Kernighan", "Brian Kernighan", [
-    {
-      title: "Brian Kernighan",
-      href: "https://en.wikipedia.org/wiki/Brian_Kernighan",
-      kind: "wikipedia",
-    },
+    { title: "Brian Kernighan", href: "https://en.wikipedia.org/wiki/Brian_Kernighan", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -194,20 +150,12 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Bruce-Daniels", "Bruce Daniels", [
-    {
-      title: "Bruce Daniels",
-      href: "https://en.wikipedia.org/wiki/Bruce_Daniels",
-      kind: "wikipedia",
-    },
+    { title: "Bruce Daniels", href: "https://en.wikipedia.org/wiki/Bruce_Daniels", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Butler-Lampson", "Butler Lampson", [
-    {
-      title: "Butler Lampson",
-      href: "https://en.wikipedia.org/wiki/Butler_Lampson",
-      kind: "wikipedia",
-    },
+    { title: "Butler Lampson", href: "https://en.wikipedia.org/wiki/Butler_Lampson", kind: "wikipedia" },
   ]);
 }

@@ -16,15 +16,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("para+visual", "block structured", [
-    {
-      kind: "wikipedia",
-      title: "Visual",
-      href: "https://en.wikipedia.org/wiki/Visual_programming_language",
-    },
-    {
-      kind: "wikipedia",
-      title: "block structured",
-      href: "https://en.wikipedia.org/wiki/Block_(programming)",
-    },
+    { kind: "wikipedia", title: "Visual", href: "https://en.wikipedia.org/wiki/Visual_programming_language" },
+    { kind: "wikipedia", title: "block structured", href: "https://en.wikipedia.org/wiki/Block_(programming)" },
   ]);
 }

@@ -2,14 +2,14 @@ import { Eta } from "eta";
 import { groupBy } from "lodash-es";
 import { PlangsGraph } from "../entities/plangs_graph";
 import type {
-  VID_License,
-  VID_Paradigm,
-  VID_Person,
-  VID_Plang,
-  VID_TypeSystem,
+  T_Id_V_License,
+  T_Id_V_Paradigm,
+  T_Id_V_Person,
+  T_Id_V_Plang,
+  T_Id_V_TypeSystem,
   V_Plang,
 } from "../entities/schemas";
-import type { T_VID_ANY } from "../graph/vertex";
+import type { T_VId_Any } from "../graph/vertex";
 import type { VertexTable } from "../graph/vertex_table";
 import { toAlphaNum } from "../util";
 import { PLANG_IDS } from "./plang_ids";
@@ -36,60 +36,45 @@ async function generateAll() {
   genAtoZ(g.v_platform, "platforms", "platform");
   genAtoZ(g.v_tsystem, "type_systems", "typeSystem");
 
-  genAtoZ(
-    g.v_plang,
-    "plangs",
-    "plang",
-    (vid: T_VID_ANY) => plangMapper(g, vid as VID_Plang),
-    PLANG_IDS,
-  );
+  genAtoZ(g.v_plang, "plangs", "plang", (vid: T_VId_Any) => plangMapper(g, vid as T_Id_V_Plang), PLANG_IDS);
 
   console.log("Finished generating definitions.");
 }
 
-function plangMapper(g: PlangsGraph, plvid: VID_Plang): string {
+function plangMapper(g: PlangsGraph, plvid: T_Id_V_Plang): { data: string; vrelations?: string } {
   const pl = g.v_plang.get(plvid);
   if (!pl || !pl.name) {
     throw new Error(`Missing plang data: ${plvid}`);
   }
-  const data = {
-    ...pl,
-    people: [...g.e_person_plang_role.adjacentTo(plvid)].map(({ from, edata }) => [
-      from,
-      edata?.role,
-    ]),
+  const vrelations = {
+    dialects: [...g.e_dialect_of.adjacentTo(plvid)].map(({ from }) => from),
+    implementations: [...g.e_implements.adjacentTo(plvid)].map(({ from }) => from),
+    influenced: [...g.e_l_influenced_l.adjacentFrom(plvid)].map(({ to }) => to),
+    influences: [...g.e_l_influenced_l.adjacentTo(plvid)].map(({ from }) => from),
     licenses: [...g.e_has_license.adjacentFrom(plvid)].map(({ to }) => to),
     paradigms: [...g.e_plang_para.adjacentFrom(plvid)].map(({ to }) => to),
-    typeSystems: [...g.e_plang_tsys.adjacentFrom(plvid)].map(({ to }) => to),
+    people: [...g.e_person_plang_role.adjacentTo(plvid)].map(({ from, edata }) => [from, edata?.role]),
     platforms: [...g.e_supports_platf.adjacentFrom(plvid)].map(({ to }) => to),
-    implementations: [...g.e_implements.adjacentTo(plvid)].map(({ from }) => from),
-    dialects: [...g.e_dialect_of.adjacentTo(plvid)].map(({ from }) => from),
-    influences: [...g.e_l_influenced_l.adjacentTo(plvid)].map(({ from }) => from),
-    influenced: [...g.e_l_influenced_l.adjacentFrom(plvid)].map(({ to }) => to),
+    typeSystems: [...g.e_plang_tsys.adjacentFrom(plvid)].map(({ to }) => to),
   };
-
-  for (const [key, val] of Object.entries(data)) {
-    if (key === "name" || (Array.isArray(val) && val.length === 0)) {
-      delete data[key];
-    }
+  for (const [key, val] of Object.entries(vrelations)) {
+    if (key === "name" || (Array.isArray(val) && val.length === 0)) delete vrelations[key];
   }
-
-  return json(data);
+  if (Object.keys(vrelations).length === 0) return { data: json(pl) };
+  return { data: json(pl), vrelations: json(vrelations) };
 }
 
 // biome-ignore lint/suspicious/noExplicitAny: let me be.
 type _T_AnyVertex = any;
 
 function genAtoZ(
-  vtable: VertexTable<T_VID_ANY, _T_AnyVertex>,
+  vtable: VertexTable<T_VId_Any, _T_AnyVertex>,
   basename: string,
   builderName: string,
-  mapper = (_: T_VID_ANY, vertex: _T_AnyVertex) => json(vertex.websites ?? []),
+  mapper = (_: T_VId_Any, vertex: _T_AnyVertex) => ({ data: json(vertex.websites ?? []) }),
   vidWhitelist?: Set<string>,
 ) {
-  let allVids = [...vtable.keys()]
-    .map((vid) => vid)
-    .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+  let allVids = [...vtable.keys()].map((vid) => vid).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
   if (vidWhitelist) {
     allVids = allVids.filter((vid) => vidWhitelist.has(vid.toLowerCase()));
   }
@@ -103,12 +88,12 @@ function genAtoZ(
   for (const [prefix, vids] of Object.entries(grouped)) {
     const data: string[][] = [];
     for (const vid of vids) {
-      const vertex = vtable.get(vid as T_VID_ANY);
+      const vertex = vtable.get(vid as T_VId_Any);
       if (!vertex) {
         console.log("Vertex not found:", vid);
         continue;
       }
-      data.push([json(vid), json(vertex.name), mapper(vid as T_VID_ANY, vertex)]);
+      data.push([json(vid), json(vertex.name), mapper(vid as T_VId_Any, vertex)]);
     }
     const res = Templ.render("/a_to_z", { data, builderName });
     const path = alphaTsPath(basename, prefix);

@@ -6,11 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Damien-Doligez", "Damien Doligez", [
-    {
-      title: "Damien Doligez",
-      href: "https://en.wikipedia.org/wiki/Damien_Doligez",
-      kind: "wikipedia",
-    },
+    { title: "Damien Doligez", href: "https://en.wikipedia.org/wiki/Damien_Doligez", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -52,11 +48,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Daniel-Weinreb", "Daniel Weinreb", [
-    {
-      title: "Daniel Weinreb",
-      href: "https://en.wikipedia.org/wiki/Daniel_Weinreb",
-      kind: "wikipedia",
-    },
+    { title: "Daniel Weinreb", href: "https://en.wikipedia.org/wiki/Daniel_Weinreb", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -70,11 +62,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Dassault-Systemes", "Dassault Systèmes", [
-    {
-      title: "Dassault Systèmes",
-      href: "https://en.wikipedia.org/wiki/Dassault_Syst%C3%A8mes",
-      kind: "wikipedia",
-    },
+    { title: "Dassault Systèmes", href: "https://en.wikipedia.org/wiki/Dassault_Syst%C3%A8mes", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -88,11 +76,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+David-A-Moon", "David A. Moon", [
-    {
-      title: "David A. Moon",
-      href: "https://en.wikipedia.org/wiki/David_A._Moon",
-      kind: "wikipedia",
-    },
+    { title: "David A. Moon", href: "https://en.wikipedia.org/wiki/David_A._Moon", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -106,21 +90,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+David-H-Munro", "David H. Munro", [
-    {
-      title: "David H. Munro",
-      href: "https://en.wikipedia.org/wiki/David_H._Munro",
-      kind: "wikipedia",
-    },
+    { title: "David H. Munro", href: "https://en.wikipedia.org/wiki/David_H._Munro", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+David-J-Farber", "David J. Farber", [
-    {
-      title: "David J. Farber",
-      href: "https://en.wikipedia.org/wiki/David_J._Farber",
-      kind: "wikipedia",
-    },
+    { title: "David J. Farber", href: "https://en.wikipedia.org/wiki/David_J._Farber", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -130,11 +106,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+David-May", "David May", [
-    {
-      title: "David May",
-      href: "https://en.wikipedia.org/wiki/David_May_(computer_scientist)",
-      kind: "wikipedia",
-    },
+    { title: "David May", href: "https://en.wikipedia.org/wiki/David_May_(computer_scientist)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -176,21 +148,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Dennis-Allison", "Dennis Allison", [
-    {
-      title: "Dennis Allison",
-      href: "https://en.wikipedia.org/wiki/Dennis_Allison",
-      kind: "wikipedia",
-    },
+    { title: "Dennis Allison", href: "https://en.wikipedia.org/wiki/Dennis_Allison", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Dennis-Ritchie", "Dennis Ritchie", [
-    {
-      title: "Dennis Ritchie",
-      href: "https://en.wikipedia.org/wiki/Dennis_Ritchie",
-      kind: "wikipedia",
-    },
+    { title: "Dennis Ritchie", href: "https://en.wikipedia.org/wiki/Dennis_Ritchie", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -206,31 +170,19 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Dick-Lathwell", "Dick Lathwell", [
-    {
-      title: "Dick Lathwell",
-      href: "https://en.wikipedia.org/wiki/Richard_H._Lathwell",
-      kind: "wikipedia",
-    },
+    { title: "Dick Lathwell", href: "https://en.wikipedia.org/wiki/Richard_H._Lathwell", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Donald-D-Chamberlin", "Donald D. Chamberlin", [
-    {
-      title: "Donald D. Chamberlin",
-      href: "https://en.wikipedia.org/wiki/Donald_D._Chamberlin",
-      kind: "wikipedia",
-    },
+    { title: "Donald D. Chamberlin", href: "https://en.wikipedia.org/wiki/Donald_D._Chamberlin", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Donald-Knuth", "Donald Knuth", [
-    {
-      title: "Donald Knuth",
-      href: "https://en.wikipedia.org/wiki/Donald_Knuth",
-      kind: "wikipedia",
-    },
+    { title: "Donald Knuth", href: "https://en.wikipedia.org/wiki/Donald_Knuth", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -240,11 +192,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Douglas-McIlroy", "Douglas McIlroy", [
-    {
-      title: "Douglas McIlroy",
-      href: "https://en.wikipedia.org/wiki/Douglas_McIlroy",
-      kind: "wikipedia",
-    },
+    { title: "Douglas McIlroy", href: "https://en.wikipedia.org/wiki/Douglas_McIlroy", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -254,11 +202,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Douglas-T-Ross", "Douglas T. Ross", [
-    {
-      title: "Douglas T. Ross",
-      href: "https://en.wikipedia.org/wiki/Douglas_T._Ross",
-      kind: "wikipedia",
-    },
+    { title: "Douglas T. Ross", href: "https://en.wikipedia.org/wiki/Douglas_T._Ross", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------

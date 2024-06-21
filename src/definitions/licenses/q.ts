@@ -12,10 +12,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+qt-commercial", "Qt Commercial License", [
-    {
-      kind: "wikipedia",
-      title: "Qt Commercial License",
-      href: "https://en.wikipedia.org/wiki/Qt_Commercial_License",
-    },
+    { kind: "wikipedia", title: "Qt Commercial License", href: "https://en.wikipedia.org/wiki/Qt_Commercial_License" },
   ]);
 }

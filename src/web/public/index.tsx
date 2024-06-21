@@ -76,9 +76,7 @@ function setupHover(graph: Graph, renderer: Sigma) {
     }
 
     // Compute the partial that we need to re-render to optimize the refresh
-    const nodes = graph.filterNodes(
-      (n) => n !== state.hoveredNode && !state.hoveredNeighbors?.has(n),
-    );
+    const nodes = graph.filterNodes((n) => n !== state.hoveredNode && !state.hoveredNeighbors?.has(n));
     const nodesIndex = new Set(nodes);
     const edges = graph.filterEdges((e) => graph.extremities(e).some((n) => nodesIndex.has(n)));
 

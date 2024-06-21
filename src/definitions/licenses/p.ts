@@ -12,21 +12,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+perl-artistic-2", "Perl Artistic License 2.0", [
-    {
-      kind: "wikipedia",
-      title: "Perl Artistic License 2.0",
-      href: "https://en.wikipedia.org/wiki/Artistic_License",
-    },
+    { kind: "wikipedia", title: "Perl Artistic License 2.0", href: "https://en.wikipedia.org/wiki/Artistic_License" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("lic+permissive", "Permissive", [
-    {
-      kind: "wikipedia",
-      title: "Permissive",
-      href: "https://en.wikipedia.org/wiki/Permissive_license",
-    },
+    { kind: "wikipedia", title: "Permissive", href: "https://en.wikipedia.org/wiki/Permissive_license" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -53,46 +45,22 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+proprietary", "Proprietary", [
-    {
-      kind: "wikipedia",
-      title: "Proprietary",
-      href: "https://en.wikipedia.org/wiki/Proprietary_software",
-    },
-    {
-      kind: "wikipedia",
-      title: "Proprietary",
-      href: "https://en.wikipedia.org/wiki/Proprietary_license",
-    },
-    {
-      kind: "wikipedia",
-      title: "Proprietary",
-      href: "https://en.wikipedia.org/wiki/Proprietary_Software",
-    },
+    { kind: "wikipedia", title: "Proprietary", href: "https://en.wikipedia.org/wiki/Proprietary_software" },
+    { kind: "wikipedia", title: "Proprietary", href: "https://en.wikipedia.org/wiki/Proprietary_license" },
+    { kind: "wikipedia", title: "Proprietary", href: "https://en.wikipedia.org/wiki/Proprietary_Software" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("lic+proprietary-software", "proprietary software", [
-    {
-      kind: "wikipedia",
-      title: "proprietary software",
-      href: "https://en.wikipedia.org/wiki/Proprietary_software",
-    },
+    { kind: "wikipedia", title: "proprietary software", href: "https://en.wikipedia.org/wiki/Proprietary_software" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("lic+public-domain", "Public domain", [
-    {
-      kind: "wikipedia",
-      title: "Public domain",
-      href: "https://en.wikipedia.org/wiki/Public_domain",
-    },
-    {
-      kind: "wikipedia",
-      title: "Public Domain",
-      href: "https://en.wikipedia.org/wiki/Public_Domain",
-    },
+    { kind: "wikipedia", title: "Public domain", href: "https://en.wikipedia.org/wiki/Public_domain" },
+    { kind: "wikipedia", title: "Public Domain", href: "https://en.wikipedia.org/wiki/Public_Domain" },
   ]);
 
   //-------------------------------------------------------------------------------

@@ -27,31 +27,19 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+gnu-gpl-2", "GNU GPLv2", [
-    {
-      kind: "wikipedia",
-      title: "GNU GPL v2",
-      href: "https://en.wikipedia.org/wiki/GNU_GPL#Version_2",
-    },
+    { kind: "wikipedia", title: "GNU GPL v2", href: "https://en.wikipedia.org/wiki/GNU_GPL#Version_2" },
     {
       kind: "wikipedia",
       title: "GNU GPL-2.0",
       href: "https://en.wikipedia.org/wiki/GNU_General_Public_License#Version_2",
     },
-    {
-      kind: "wikipedia",
-      title: "GNU GPLv2",
-      href: "https://en.wikipedia.org/wiki/GNU_General_Public_License",
-    },
+    { kind: "wikipedia", title: "GNU GPLv2", href: "https://en.wikipedia.org/wiki/GNU_General_Public_License" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("lic+gnu-gpl-2-plus", "GNU GPLv2+", [
-    {
-      kind: "wikipedia",
-      title: "GNU GPLv2+",
-      href: "https://en.wikipedia.org/wiki/GNU_General_Public_License",
-    },
+    { kind: "wikipedia", title: "GNU GPLv2+", href: "https://en.wikipedia.org/wiki/GNU_General_Public_License" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -108,11 +96,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+gpl", "GPL", [
-    {
-      kind: "wikipedia",
-      title: "GPL",
-      href: "https://en.wikipedia.org/wiki/GNU_General_Public_License",
-    },
+    { kind: "wikipedia", title: "GPL", href: "https://en.wikipedia.org/wiki/GNU_General_Public_License" },
     { kind: "wikipedia", title: "GPL", href: "https://en.wikipedia.org/wiki/GPL" },
   ]);
 
@@ -130,11 +114,7 @@ export function define(g: PlangsGraph) {
 
   lb.define("lic+gpl-2", "GPLv2", [
     { kind: "wikipedia", title: "GPLv2", href: "https://en.wikipedia.org/wiki/GPLv2" },
-    {
-      kind: "wikipedia",
-      title: "GPLv2",
-      href: "https://en.wikipedia.org/wiki/GNU_General_Public_License",
-    },
+    { kind: "wikipedia", title: "GPLv2", href: "https://en.wikipedia.org/wiki/GNU_General_Public_License" },
     {
       kind: "wikipedia",
       title: "GPL-2.0-or-later",
@@ -145,11 +125,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+gpl-2-3", "GPL 2.0, 3.0", [
-    {
-      kind: "wikipedia",
-      title: "GPL 2.0, 3.0",
-      href: "https://en.wikipedia.org/wiki/GNU_General_Public_License",
-    },
+    { kind: "wikipedia", title: "GPL 2.0, 3.0", href: "https://en.wikipedia.org/wiki/GNU_General_Public_License" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -161,26 +137,14 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+gpl-3", "GPLv3", [
-    {
-      kind: "wikipedia",
-      title: "GPLv3",
-      href: "https://en.wikipedia.org/wiki/GNU_General_Public_License",
-    },
-    {
-      kind: "wikipedia",
-      title: "GPLv3",
-      href: "https://en.wikipedia.org/wiki/GNU_General_Public_License#Version_3",
-    },
+    { kind: "wikipedia", title: "GPLv3", href: "https://en.wikipedia.org/wiki/GNU_General_Public_License" },
+    { kind: "wikipedia", title: "GPLv3", href: "https://en.wikipedia.org/wiki/GNU_General_Public_License#Version_3" },
     { kind: "wikipedia", title: "GPL 3", href: "https://en.wikipedia.org/wiki/GPL3" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("lic+gpl-3-plus", "GPLv3+", [
-    {
-      kind: "wikipedia",
-      title: "GPLv3+",
-      href: "https://en.wikipedia.org/wiki/GNU_General_Public_License",
-    },
+    { kind: "wikipedia", title: "GPLv3+", href: "https://en.wikipedia.org/wiki/GNU_General_Public_License" },
   ]);
 }

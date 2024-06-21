@@ -6,31 +6,15 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("para+agent-based", "agent-based", [
-    {
-      kind: "wikipedia",
-      title: "agent-oriented",
-      href: "https://en.wikipedia.org/wiki/Agent-oriented_programming",
-    },
-    {
-      kind: "wikipedia",
-      title: "agent-based",
-      href: "https://en.wikipedia.org/wiki/Computer_simulation#Types",
-    },
-    {
-      kind: "wikipedia",
-      title: "agent-based",
-      href: "https://en.wikipedia.org/wiki/Agent-based_model",
-    },
+    { kind: "wikipedia", title: "agent-oriented", href: "https://en.wikipedia.org/wiki/Agent-oriented_programming" },
+    { kind: "wikipedia", title: "agent-based", href: "https://en.wikipedia.org/wiki/Computer_simulation#Types" },
+    { kind: "wikipedia", title: "agent-based", href: "https://en.wikipedia.org/wiki/Agent-based_model" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("para+algebraic-types", "algebraic types", [
-    {
-      kind: "wikipedia",
-      title: "algebraic types",
-      href: "https://en.wikipedia.org/wiki/Algebraic_types",
-    },
+    { kind: "wikipedia", title: "algebraic types", href: "https://en.wikipedia.org/wiki/Algebraic_types" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -52,20 +36,12 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("para+aspect-oriented", "aspect-oriented", [
-    {
-      kind: "wikipedia",
-      title: "aspect-oriented",
-      href: "https://en.wikipedia.org/wiki/Aspect-oriented_programming",
-    },
+    { kind: "wikipedia", title: "aspect-oriented", href: "https://en.wikipedia.org/wiki/Aspect-oriented_programming" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("para+assembly", "Assembly", [
-    {
-      kind: "wikipedia",
-      title: "Assembly",
-      href: "https://en.wikipedia.org/wiki/Assembly_language",
-    },
+    { kind: "wikipedia", title: "Assembly", href: "https://en.wikipedia.org/wiki/Assembly_language" },
   ]);
 }

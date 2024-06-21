@@ -12,21 +12,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Wally-Feurzeig", "Wally Feurzeig", [
-    {
-      title: "Wally Feurzeig",
-      href: "https://en.wikipedia.org/wiki/Wally_Feurzeig",
-      kind: "wikipedia",
-    },
+    { title: "Wally Feurzeig", href: "https://en.wikipedia.org/wiki/Wally_Feurzeig", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Walter-Bright", "Walter Bright", [
-    {
-      title: "Walter Bright",
-      href: "https://en.wikipedia.org/wiki/Walter_Bright",
-      kind: "wikipedia",
-    },
+    { title: "Walter Bright", href: "https://en.wikipedia.org/wiki/Walter_Bright", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -36,11 +28,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Waterloo-Maple", "Waterloo Maple", [
-    {
-      title: "Waterloo Maple",
-      href: "https://en.wikipedia.org/wiki/Waterloo_Maple",
-      kind: "wikipedia",
-    },
+    { title: "Waterloo Maple", href: "https://en.wikipedia.org/wiki/Waterloo_Maple", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -68,11 +56,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+William-S-Cleveland", "William S. Cleveland", [
-    {
-      title: "William S. Cleveland",
-      href: "https://en.wikipedia.org/wiki/William_S._Cleveland",
-      kind: "wikipedia",
-    },
+    { title: "William S. Cleveland", href: "https://en.wikipedia.org/wiki/William_S._Cleveland", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------

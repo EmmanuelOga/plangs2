@@ -6,10 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("tsys+latent", "Latent", [
-    {
-      title: "${name} Type System",
-      href: "https://en.wikipedia.org/wiki/latent_typing",
-      kind: "wikipedia",
-    },
+    { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/latent_typing", kind: "wikipedia" },
   ]);
 }

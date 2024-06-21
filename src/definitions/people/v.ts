@@ -14,21 +14,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Valentin-Turchin", "Valentin Turchin", [
-    {
-      title: "Valentin Turchin",
-      href: "https://en.wikipedia.org/wiki/Valentin_Turchin",
-      kind: "wikipedia",
-    },
+    { title: "Valentin Turchin", href: "https://en.wikipedia.org/wiki/Valentin_Turchin", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+van-Wijngaarden", "van Wijngaarden", [
-    {
-      title: "van Wijngaarden",
-      href: "https://en.wikipedia.org/wiki/Adriaan_van_Wijngaarden",
-      kind: "wikipedia",
-    },
+    { title: "van Wijngaarden", href: "https://en.wikipedia.org/wiki/Adriaan_van_Wijngaarden", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -38,21 +30,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Victor-Glushkov", "Victor Glushkov", [
-    {
-      title: "Victor Glushkov",
-      href: "https://en.wikipedia.org/wiki/Victor_Glushkov",
-      kind: "wikipedia",
-    },
+    { title: "Victor Glushkov", href: "https://en.wikipedia.org/wiki/Victor_Glushkov", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Victor-Yngve", "Victor Yngve", [
-    {
-      title: "Victor Yngve",
-      href: "https://en.wikipedia.org/wiki/Victor_Yngve",
-      kind: "wikipedia",
-    },
+    { title: "Victor Yngve", href: "https://en.wikipedia.org/wiki/Victor_Yngve", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -70,11 +54,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Viral-B-Shah", "Viral B. Shah", [
-    {
-      title: "Viral B. Shah",
-      href: "https://en.wikipedia.org/wiki/Viral_B._Shah",
-      kind: "wikipedia",
-    },
+    { title: "Viral B. Shah", href: "https://en.wikipedia.org/wiki/Viral_B._Shah", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------

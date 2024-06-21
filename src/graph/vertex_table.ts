@@ -14,8 +14,7 @@ export class VertexTable<T_VId extends string, T_VData> implements Iterable<[T_V
   }
 
   set(key: T_VId, value: T_VData): this {
-    if (!this.validParams(key))
-      throw new Error(`invalid key: ${key} (pattern: ${this.vidPattern})`);
+    if (!this.validParams(key)) throw new Error(`invalid key: ${key} (pattern: ${this.vidPattern})`);
     this._vdata.set(key, value);
     return this;
   }

@@ -6,10 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+ruby", "Ruby License", [
-    {
-      kind: "wikipedia",
-      title: "Ruby License",
-      href: "https://en.wikipedia.org/wiki/Ruby_License",
-    },
+    { kind: "wikipedia", title: "Ruby License", href: "https://en.wikipedia.org/wiki/Ruby_License" },
   ]);
 }

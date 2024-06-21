@@ -6,37 +6,21 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+lgpl", "LGPL", [
-    {
-      kind: "wikipedia",
-      title: "LGPL",
-      href: "https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License",
-    },
-    {
-      kind: "wikipedia",
-      title: "LGPL",
-      href: "https://en.wikipedia.org/wiki/GNU_Lesser_Public_License",
-    },
+    { kind: "wikipedia", title: "LGPL", href: "https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License" },
+    { kind: "wikipedia", title: "LGPL", href: "https://en.wikipedia.org/wiki/GNU_Lesser_Public_License" },
     { kind: "wikipedia", title: "LGPL", href: "https://en.wikipedia.org/wiki/LGPL" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("lic+lgpl-2", "LGPLv2", [
-    {
-      kind: "wikipedia",
-      title: "LGPLv2",
-      href: "https://en.wikipedia.org/wiki/GNU_Library_General_Public_License",
-    },
+    { kind: "wikipedia", title: "LGPLv2", href: "https://en.wikipedia.org/wiki/GNU_Library_General_Public_License" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("lic+lgpl-2.1", "LGPLv2.1", [
-    {
-      kind: "wikipedia",
-      title: "LGPLv2.1",
-      href: "https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License",
-    },
+    { kind: "wikipedia", title: "LGPLv2.1", href: "https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -52,26 +36,16 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+lgpl-2.1-plus", "LGPLv2.1+", [
-    {
-      kind: "wikipedia",
-      title: "LGPLv2.1+",
-      href: "https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License",
-    },
+    { kind: "wikipedia", title: "LGPLv2.1+", href: "https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("lic+lgpl-3", "LGPL 3.0", [
-    {
-      kind: "wikipedia",
-      title: "LGPL 3.0",
-      href: "https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License",
-    },
+    { kind: "wikipedia", title: "LGPL 3.0", href: "https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+linux", "Linux", [
-    { kind: "wikipedia", title: "Linux", href: "https://en.wikipedia.org/wiki/Linux" },
-  ]);
+  lb.define("lic+linux", "Linux", [{ kind: "wikipedia", title: "Linux", href: "https://en.wikipedia.org/wiki/Linux" }]);
 }

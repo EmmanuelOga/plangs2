@@ -6,10 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+2-clause-bsd", "2-clause BSD License since 2020", [
-    {
-      kind: "wikipedia",
-      title: "2-clause BSD License since 2020",
-      href: "https://en.wikipedia.org/wiki/BSD_licenses",
-    },
+    { kind: "wikipedia", title: "2-clause BSD License since 2020", href: "https://en.wikipedia.org/wiki/BSD_licenses" },
   ]);
 }

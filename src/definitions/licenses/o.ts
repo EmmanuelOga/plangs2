@@ -6,15 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+open-source", "Open-source", [
-    {
-      kind: "wikipedia",
-      title: "Open-source",
-      href: "https://en.wikipedia.org/wiki/Open-source_license",
-    },
-    {
-      kind: "wikipedia",
-      title: "Open-source",
-      href: "https://en.wikipedia.org/wiki/Open-source_software",
-    },
+    { kind: "wikipedia", title: "Open-source", href: "https://en.wikipedia.org/wiki/Open-source_license" },
+    { kind: "wikipedia", title: "Open-source", href: "https://en.wikipedia.org/wiki/Open-source_software" },
   ]);
 }

@@ -6,15 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+zend", "Zend License", [
-    {
-      kind: "wikipedia",
-      title: "Zend Engine License",
-      href: "https://en.wikipedia.org/wiki/Zend_Engine_License",
-    },
-    {
-      kind: "wikipedia",
-      title: "Zend License",
-      href: "https://en.wikipedia.org/wiki/Zend_License",
-    },
+    { kind: "wikipedia", title: "Zend Engine License", href: "https://en.wikipedia.org/wiki/Zend_Engine_License" },
+    { kind: "wikipedia", title: "Zend License", href: "https://en.wikipedia.org/wiki/Zend_License" },
   ]);
 }

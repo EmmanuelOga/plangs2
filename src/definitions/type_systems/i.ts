@@ -6,10 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("tsys+inferred", "Inferred", [
-    {
-      title: "${name} Type System",
-      href: "https://en.wikipedia.org/wiki/type_inference",
-      kind: "wikipedia",
-    },
+    { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/type_inference", kind: "wikipedia" },
   ]);
 }

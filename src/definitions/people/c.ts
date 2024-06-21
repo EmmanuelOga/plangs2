@@ -6,11 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+C-H-A-Koster", "C. H. A. Koster", [
-    {
-      title: "C. H. A. Koster",
-      href: "https://en.wikipedia.org/wiki/Cornelis_H._A._Koster",
-      kind: "wikipedia",
-    },
+    { title: "C. H. A. Koster", href: "https://en.wikipedia.org/wiki/Cornelis_H._A._Koster", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -20,11 +16,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Calvin-Mooers", "Calvin Mooers", [
-    {
-      title: "Calvin Mooers",
-      href: "https://en.wikipedia.org/wiki/Calvin_Mooers",
-      kind: "wikipedia",
-    },
+    { title: "Calvin Mooers", href: "https://en.wikipedia.org/wiki/Calvin_Mooers", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -44,11 +36,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Carl-Sassenrath", "Carl Sassenrath", [
-    {
-      title: "Carl Sassenrath",
-      href: "https://en.wikipedia.org/wiki/Carl_Sassenrath",
-      kind: "wikipedia",
-    },
+    { title: "Carl Sassenrath", href: "https://en.wikipedia.org/wiki/Carl_Sassenrath", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -60,11 +48,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Cecil-Wayne-Ratliff", "Cecil Wayne Ratliff", [
-    {
-      title: "Cecil Wayne Ratliff",
-      href: "https://en.wikipedia.org/wiki/C._Wayne_Ratliff",
-      kind: "wikipedia",
-    },
+    { title: "Cecil Wayne Ratliff", href: "https://en.wikipedia.org/wiki/C._Wayne_Ratliff", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -88,11 +72,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+CHA-Koster", "C.H.A. Koster", [
-    {
-      title: "C.H.A. Koster",
-      href: "https://en.wikipedia.org/wiki/Cornelis_H._A._Koster",
-      kind: "wikipedia",
-    },
+    { title: "C.H.A. Koster", href: "https://en.wikipedia.org/wiki/Cornelis_H._A._Koster", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -102,31 +82,19 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Charles-H-Lindsey", "Charles H. Lindsey", [
-    {
-      title: "Charles H. Lindsey",
-      href: "https://en.wikipedia.org/wiki/Charles_H._Lindsey",
-      kind: "wikipedia",
-    },
+    { title: "Charles H. Lindsey", href: "https://en.wikipedia.org/wiki/Charles_H._Lindsey", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Charles-H-Moore", "Charles H. Moore", [
-    {
-      title: "Charles H. Moore",
-      href: "https://en.wikipedia.org/wiki/Charles_H._Moore",
-      kind: "wikipedia",
-    },
+    { title: "Charles H. Moore", href: "https://en.wikipedia.org/wiki/Charles_H._Moore", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Charles-Katz", "Charles Katz", [
-    {
-      title: "Charles Katz",
-      href: "https://en.wikipedia.org/wiki/Charles_Katz",
-      kind: "wikipedia",
-    },
+    { title: "Charles Katz", href: "https://en.wikipedia.org/wiki/Charles_Katz", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -140,11 +108,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Chris-Lattner", "Chris Lattner", [
-    {
-      title: "Chris Lattner",
-      href: "https://en.wikipedia.org/wiki/Chris_Lattner",
-      kind: "wikipedia",
-    },
+    { title: "Chris Lattner", href: "https://en.wikipedia.org/wiki/Chris_Lattner", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -162,21 +126,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Christopher-Strachey", "Christopher Strachey", [
-    {
-      title: "Christopher Strachey",
-      href: "https://en.wikipedia.org/wiki/Christopher_Strachey",
-      kind: "wikipedia",
-    },
+    { title: "Christopher Strachey", href: "https://en.wikipedia.org/wiki/Christopher_Strachey", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Chuck-Geschke", "Chuck Geschke", [
-    {
-      title: "Chuck Geschke",
-      href: "https://en.wikipedia.org/wiki/Chuck_Geschke",
-      kind: "wikipedia",
-    },
+    { title: "Chuck Geschke", href: "https://en.wikipedia.org/wiki/Chuck_Geschke", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -218,21 +174,13 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Conor-McBride", "Conor McBride", [
-    {
-      title: "Conor McBride",
-      href: "https://en.wikipedia.org/wiki/Conor_McBride",
-      kind: "wikipedia",
-    },
+    { title: "Conor McBride", href: "https://en.wikipedia.org/wiki/Conor_McBride", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Corrado-Bohm", "Corrado Böhm", [
-    {
-      title: "Corrado Böhm",
-      href: "https://en.wikipedia.org/wiki/Corrado_B%C3%B6hm",
-      kind: "wikipedia",
-    },
+    { title: "Corrado Böhm", href: "https://en.wikipedia.org/wiki/Corrado_B%C3%B6hm", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -242,20 +190,12 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Craig-Chambers", "Craig Chambers", [
-    {
-      title: "Craig Chambers",
-      href: "https://en.wikipedia.org/wiki/Craig_Chambers",
-      kind: "wikipedia",
-    },
+    { title: "Craig Chambers", href: "https://en.wikipedia.org/wiki/Craig_Chambers", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("person+Cynthia-Solomon", "Cynthia Solomon", [
-    {
-      title: "Cynthia Solomon",
-      href: "https://en.wikipedia.org/wiki/Cynthia_Solomon",
-      kind: "wikipedia",
-    },
+    { title: "Cynthia Solomon", href: "https://en.wikipedia.org/wiki/Cynthia_Solomon", kind: "wikipedia" },
   ]);
 }

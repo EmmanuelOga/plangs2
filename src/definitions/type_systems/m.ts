@@ -6,10 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("tsys+manifest", "Manifest", [
-    {
-      title: "${name} Type System",
-      href: "https://en.wikipedia.org/wiki/manifest_typing",
-      kind: "wikipedia",
-    },
+    { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/manifest_typing", kind: "wikipedia" },
   ]);
 }

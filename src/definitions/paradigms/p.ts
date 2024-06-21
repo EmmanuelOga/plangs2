@@ -6,16 +6,8 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("para+parallel", "parallel", [
-    {
-      kind: "wikipedia",
-      title: "parallel",
-      href: "https://en.wikipedia.org/wiki/Parallel_programming",
-    },
-    {
-      kind: "wikipedia",
-      title: "parallel",
-      href: "https://en.wikipedia.org/wiki/Parallel_computing",
-    },
+    { kind: "wikipedia", title: "parallel", href: "https://en.wikipedia.org/wiki/Parallel_programming" },
+    { kind: "wikipedia", title: "parallel", href: "https://en.wikipedia.org/wiki/Parallel_computing" },
     {
       kind: "wikipedia",
       title: "Parallel programming",
@@ -36,11 +28,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("para+pattern-matching", "Pattern-matching", [
-    {
-      kind: "wikipedia",
-      title: "Pattern-matching",
-      href: "https://en.wikipedia.org/wiki/Pattern-matching",
-    },
+    { kind: "wikipedia", title: "Pattern-matching", href: "https://en.wikipedia.org/wiki/Pattern-matching" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -56,16 +44,8 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("para+pipeline", "pipeline", [
-    {
-      kind: "wikipedia",
-      title: "pipeline",
-      href: "https://en.wikipedia.org/wiki/Pipeline_(software)",
-    },
-    {
-      kind: "wikipedia",
-      title: "pipeline",
-      href: "https://en.wikipedia.org/wiki/Pipeline_programming",
-    },
+    { kind: "wikipedia", title: "pipeline", href: "https://en.wikipedia.org/wiki/Pipeline_(software)" },
+    { kind: "wikipedia", title: "pipeline", href: "https://en.wikipedia.org/wiki/Pipeline_programming" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -81,21 +61,13 @@ export function define(g: PlangsGraph) {
       title: "rule processing",
       href: "https://en.wikipedia.org/wiki/Production_system_(computer_science)",
     },
-    {
-      kind: "wikipedia",
-      title: "processing",
-      href: "https://en.wikipedia.org/wiki/In-memory_processing",
-    },
+    { kind: "wikipedia", title: "processing", href: "https://en.wikipedia.org/wiki/In-memory_processing" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("para+prototypes", "prototype-based", [
-    {
-      kind: "wikipedia",
-      title: "prototype-based",
-      href: "https://en.wikipedia.org/wiki/Prototype-based_programming",
-    },
+    { kind: "wikipedia", title: "prototype-based", href: "https://en.wikipedia.org/wiki/Prototype-based_programming" },
     {
       kind: "wikipedia",
       title: "prototype-based",

@@ -12,16 +12,8 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("para+term-rewriting", "Term-rewriting", [
-    {
-      kind: "wikipedia",
-      title: "term rewriting",
-      href: "https://en.wikipedia.org/wiki/Term_rewriting",
-    },
-    {
-      kind: "wikipedia",
-      title: "term-rewriting",
-      href: "https://en.wikipedia.org/wiki/Term-rewriting",
-    },
+    { kind: "wikipedia", title: "term rewriting", href: "https://en.wikipedia.org/wiki/Term_rewriting" },
+    { kind: "wikipedia", title: "term-rewriting", href: "https://en.wikipedia.org/wiki/Term-rewriting" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -43,10 +35,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("para+typed-language", "typed language", [
-    {
-      kind: "wikipedia",
-      title: "typed language",
-      href: "https://en.wikipedia.org/wiki/Typed_language",
-    },
+    { kind: "wikipedia", title: "typed language", href: "https://en.wikipedia.org/wiki/Typed_language" },
   ]);
 }

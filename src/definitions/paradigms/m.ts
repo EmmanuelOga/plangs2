@@ -11,11 +11,7 @@ export function define(g: PlangsGraph) {
       title: "general-purpose macro processor",
       href: "https://en.wikipedia.org/wiki/General-purpose_macro_processor",
     },
-    {
-      kind: "wikipedia",
-      title: "macro",
-      href: "https://en.wikipedia.org/wiki/Macro_(computer_science)",
-    },
+    { kind: "wikipedia", title: "macro", href: "https://en.wikipedia.org/wiki/Macro_(computer_science)" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -27,11 +23,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("para+message-passing", "message passing", [
-    {
-      kind: "wikipedia",
-      title: "message passing",
-      href: "https://en.wikipedia.org/wiki/Message_passing",
-    },
+    { kind: "wikipedia", title: "message passing", href: "https://en.wikipedia.org/wiki/Message_passing" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -43,11 +35,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("para+modular", "modular", [
-    {
-      kind: "wikipedia",
-      title: "modular",
-      href: "https://en.wikipedia.org/wiki/Modular_programming",
-    },
+    { kind: "wikipedia", title: "modular", href: "https://en.wikipedia.org/wiki/Modular_programming" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -68,16 +56,8 @@ export function define(g: PlangsGraph) {
       title: "Multi-paradigm",
       href: "https://en.wikipedia.org/wiki/Programming_paradigm#Multi-paradigm",
     },
-    {
-      kind: "wikipedia",
-      title: "multi-paradigm",
-      href: "https://en.wikipedia.org/wiki/Multi-paradigm",
-    },
-    {
-      kind: "wikipedia",
-      title: "Multi-paradigm",
-      href: "https://en.wikipedia.org/wiki/Programming_paradigm",
-    },
+    { kind: "wikipedia", title: "multi-paradigm", href: "https://en.wikipedia.org/wiki/Multi-paradigm" },
+    { kind: "wikipedia", title: "Multi-paradigm", href: "https://en.wikipedia.org/wiki/Programming_paradigm" },
     {
       kind: "wikipedia",
       title: "Multi-paradigm",
@@ -88,16 +68,8 @@ export function define(g: PlangsGraph) {
       title: "Multiparadigm",
       href: "https://en.wikipedia.org/wiki/Multiparadigm_programming_language",
     },
-    {
-      kind: "wikipedia",
-      title: "multiple dispatch",
-      href: "https://en.wikipedia.org/wiki/Multiple_dispatch",
-    },
-    {
-      kind: "wikipedia",
-      title: "multistaged",
-      href: "https://en.wikipedia.org/wiki/Multistaged_programming",
-    },
+    { kind: "wikipedia", title: "multiple dispatch", href: "https://en.wikipedia.org/wiki/Multiple_dispatch" },
+    { kind: "wikipedia", title: "multistaged", href: "https://en.wikipedia.org/wiki/Multistaged_programming" },
     {
       kind: "wikipedia",
       title: "Multi-paradigm",

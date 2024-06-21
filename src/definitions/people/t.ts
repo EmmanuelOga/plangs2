@@ -24,11 +24,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+The-Byte-Works", "The Byte Works", [
-    {
-      title: "The Byte Works",
-      href: "https://en.wikipedia.org/wiki/The_Byte_Works",
-      kind: "wikipedia",
-    },
+    { title: "The Byte Works", href: "https://en.wikipedia.org/wiki/The_Byte_Works", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -52,11 +48,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Thomas-E-Kurtz", "Thomas E. Kurtz", [
-    {
-      title: "Thomas E. Kurtz",
-      href: "https://en.wikipedia.org/wiki/Thomas_E._Kurtz",
-      kind: "wikipedia",
-    },
+    { title: "Thomas E. Kurtz", href: "https://en.wikipedia.org/wiki/Thomas_E._Kurtz", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -94,11 +86,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Tony-Brooker", "Tony Brooker", [
-    {
-      title: "Tony Brooker",
-      href: "https://en.wikipedia.org/wiki/Tony_Brooker",
-      kind: "wikipedia",
-    },
+    { title: "Tony Brooker", href: "https://en.wikipedia.org/wiki/Tony_Brooker", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -110,11 +98,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Trevor-Hastie", "Trevor Hastie", [
-    {
-      title: "Trevor Hastie",
-      href: "https://en.wikipedia.org/wiki/Trevor_Hastie",
-      kind: "wikipedia",
-    },
+    { title: "Trevor Hastie", href: "https://en.wikipedia.org/wiki/Trevor_Hastie", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------

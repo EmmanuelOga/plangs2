@@ -16,11 +16,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+cc-by-sa", "CC-BY-SA", [
-    {
-      kind: "wikipedia",
-      title: "CC-BY-SA",
-      href: "https://en.wikipedia.org/wiki/Creative_Commons_licenses",
-    },
+    { kind: "wikipedia", title: "CC-BY-SA", href: "https://en.wikipedia.org/wiki/Creative_Commons_licenses" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -32,41 +28,25 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+closed-source", "Closed source", [
-    {
-      kind: "wikipedia",
-      title: "Closed source",
-      href: "https://en.wikipedia.org/wiki/Closed_source",
-    },
+    { kind: "wikipedia", title: "Closed source", href: "https://en.wikipedia.org/wiki/Closed_source" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("lic+commercial", "Commercial", [
-    {
-      kind: "wikipedia",
-      title: "Commercial",
-      href: "https://en.wikipedia.org/wiki/Commercial_software",
-    },
+    { kind: "wikipedia", title: "Commercial", href: "https://en.wikipedia.org/wiki/Commercial_software" },
     { kind: "wikipedia", title: "Commercial", href: "https://en.wikipedia.org/wiki/Commerce" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("lic+commercial-software", "commercial software", [
-    {
-      kind: "wikipedia",
-      title: "commercial software",
-      href: "https://en.wikipedia.org/wiki/Commercial_software",
-    },
+    { kind: "wikipedia", title: "commercial software", href: "https://en.wikipedia.org/wiki/Commercial_software" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("lic+cpl", "CPL", [
-    {
-      kind: "wikipedia",
-      title: "CPL",
-      href: "https://en.wikipedia.org/wiki/Common_Public_License",
-    },
+    { kind: "wikipedia", title: "CPL", href: "https://en.wikipedia.org/wiki/Common_Public_License" },
   ]);
 }

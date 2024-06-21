@@ -28,11 +28,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Sanjiva-Weerawarana", "Sanjiva Weerawarana", [
-    {
-      title: "Sanjiva Weerawarana",
-      href: "https://en.wikipedia.org/wiki/Sanjiva_Weerawarana",
-      kind: "wikipedia",
-    },
+    { title: "Sanjiva Weerawarana", href: "https://en.wikipedia.org/wiki/Sanjiva_Weerawarana", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -56,11 +52,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Scott-Fahlman", "Scott Fahlman", [
-    {
-      title: "Scott Fahlman",
-      href: "https://en.wikipedia.org/wiki/Scott_Fahlman",
-      kind: "wikipedia",
-    },
+    { title: "Scott Fahlman", href: "https://en.wikipedia.org/wiki/Scott_Fahlman", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -78,11 +70,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Seymour-Papert", "Seymour Papert", [
-    {
-      title: "Seymour Papert",
-      href: "https://en.wikipedia.org/wiki/Seymour_Papert",
-      kind: "wikipedia",
-    },
+    { title: "Seymour Papert", href: "https://en.wikipedia.org/wiki/Seymour_Papert", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -106,11 +94,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Simon-Peyton-Jones", "Simon Peyton Jones", [
-    {
-      title: "Simon Peyton Jones",
-      href: "https://en.wikipedia.org/wiki/Simon_Peyton_Jones",
-      kind: "wikipedia",
-    },
+    { title: "Simon Peyton Jones", href: "https://en.wikipedia.org/wiki/Simon_Peyton_Jones", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -124,11 +108,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Stanley-Cohen", "Stanley Cohen", [
-    {
-      title: "Stanley Cohen",
-      href: "https://en.wikipedia.org/wiki/Stanley_Cohen_(physicist)",
-      kind: "wikipedia",
-    },
+    { title: "Stanley Cohen", href: "https://en.wikipedia.org/wiki/Stanley_Cohen_(physicist)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -138,11 +118,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Stefan-Karpinski", "Stefan Karpinski", [
-    {
-      title: "Stefan Karpinski",
-      href: "https://en.wikipedia.org/wiki/Stefan_Karpinski",
-      kind: "wikipedia",
-    },
+    { title: "Stefan Karpinski", href: "https://en.wikipedia.org/wiki/Stefan_Karpinski", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -152,11 +128,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Stephen-M-Watt", "Stephen M. Watt", [
-    {
-      title: "Stephen M. Watt",
-      href: "https://en.wikipedia.org/wiki/Stephen_M._Watt",
-      kind: "wikipedia",
-    },
+    { title: "Stephen M. Watt", href: "https://en.wikipedia.org/wiki/Stephen_M._Watt", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -166,11 +138,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Stephen-Wolfram", "Stephen Wolfram", [
-    {
-      title: "Stephen Wolfram",
-      href: "https://en.wikipedia.org/wiki/Stephen_Wolfram",
-      kind: "wikipedia",
-    },
+    { title: "Stephen Wolfram", href: "https://en.wikipedia.org/wiki/Stephen_Wolfram", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -184,11 +152,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Steve-Omohundro", "Steve Omohundro", [
-    {
-      title: "Steve Omohundro",
-      href: "https://en.wikipedia.org/wiki/Steve_Omohundro",
-      kind: "wikipedia",
-    },
+    { title: "Steve Omohundro", href: "https://en.wikipedia.org/wiki/Steve_Omohundro", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -214,11 +178,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Steve-Ward", "Steve Ward", [
-    {
-      title: "Steve Ward",
-      href: "https://en.wikipedia.org/wiki/Steve_Ward_(computer_scientist)",
-      kind: "wikipedia",
-    },
+    { title: "Steve Ward", href: "https://en.wikipedia.org/wiki/Steve_Ward_(computer_scientist)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -232,11 +192,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Steven-Pemberton", "Steven Pemberton", [
-    {
-      title: "Steven Pemberton",
-      href: "https://en.wikipedia.org/wiki/Steven_Pemberton",
-      kind: "wikipedia",
-    },
+    { title: "Steven Pemberton", href: "https://en.wikipedia.org/wiki/Steven_Pemberton", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------

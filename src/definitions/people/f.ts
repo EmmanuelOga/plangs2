@@ -6,11 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Frank-Leymann", "Frank Leymann", [
-    {
-      title: "Frank Leymann",
-      href: "https://en.wikipedia.org/wiki/Frank_Leymann",
-      kind: "wikipedia",
-    },
+    { title: "Frank Leymann", href: "https://en.wikipedia.org/wiki/Frank_Leymann", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -38,10 +34,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Friedrich-L-Bauer", "Friedrich L. Bauer", [
-    {
-      title: "Friedrich L. Bauer",
-      href: "https://en.wikipedia.org/wiki/Friedrich_L._Bauer",
-      kind: "wikipedia",
-    },
+    { title: "Friedrich L. Bauer", href: "https://en.wikipedia.org/wiki/Friedrich_L._Bauer", kind: "wikipedia" },
   ]);
 }

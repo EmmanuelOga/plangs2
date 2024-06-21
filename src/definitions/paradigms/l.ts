@@ -22,31 +22,19 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("para+literate", "Literate", [
-    {
-      kind: "wikipedia",
-      title: "Literate",
-      href: "https://en.wikipedia.org/wiki/Literate_programming",
-    },
+    { kind: "wikipedia", title: "Literate", href: "https://en.wikipedia.org/wiki/Literate_programming" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("para+logic", "logic", [
     { kind: "wikipedia", title: "logic", href: "https://en.wikipedia.org/wiki/Logic_programming" },
-    {
-      kind: "wikipedia",
-      title: "Logic Programming",
-      href: "https://en.wikipedia.org/wiki/Logic_Programming",
-    },
+    { kind: "wikipedia", title: "Logic Programming", href: "https://en.wikipedia.org/wiki/Logic_Programming" },
   ]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("para+low-code", "Low-code", [
-    {
-      kind: "wikipedia",
-      title: "Low-code",
-      href: "https://en.wikipedia.org/wiki/Low-code_development_platform",
-    },
+    { kind: "wikipedia", title: "Low-code", href: "https://en.wikipedia.org/wiki/Low-code_development_platform" },
   ]);
 }

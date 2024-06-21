@@ -14,10 +14,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("person+Yukihiro-Matsumoto", "Yukihiro Matsumoto", [
-    {
-      title: "Yukihiro Matsumoto",
-      href: "https://en.wikipedia.org/wiki/Yukihiro_Matsumoto",
-      kind: "wikipedia",
-    },
+    { title: "Yukihiro Matsumoto", href: "https://en.wikipedia.org/wiki/Yukihiro_Matsumoto", kind: "wikipedia" },
   ]);
 }

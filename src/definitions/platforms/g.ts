@@ -5,13 +5,9 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("platf+glib", "GLib", [
-    { kind: "wikipedia", title: "GLib", href: "https://en.wikipedia.org/wiki/GLib" },
-  ]);
+  lb.define("platf+glib", "GLib", [{ kind: "wikipedia", title: "GLib", href: "https://en.wikipedia.org/wiki/GLib" }]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("platf+gnu", "GNU", [
-    { kind: "wikipedia", title: "GNU", href: "https://en.wikipedia.org/wiki/GNU" },
-  ]);
+  lb.define("platf+gnu", "GNU", [{ kind: "wikipedia", title: "GNU", href: "https://en.wikipedia.org/wiki/GNU" }]);
 }

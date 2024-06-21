@@ -6,11 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("platf+oneapi", "oneAPI", [
-    {
-      kind: "wikipedia",
-      title: "oneAPI",
-      href: "https://en.wikipedia.org/wiki/OneAPI_(compute_acceleration)",
-    },
+    { kind: "wikipedia", title: "oneAPI", href: "https://en.wikipedia.org/wiki/OneAPI_(compute_acceleration)" },
   ]);
 
   //-------------------------------------------------------------------------------

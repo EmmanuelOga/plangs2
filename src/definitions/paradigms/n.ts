@@ -21,11 +21,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("para+non-structured", "Non-structured", [
-    {
-      kind: "wikipedia",
-      title: "non-structured",
-      href: "https://en.wikipedia.org/wiki/Non-structured_programming",
-    },
+    { kind: "wikipedia", title: "non-structured", href: "https://en.wikipedia.org/wiki/Non-structured_programming" },
   ]);
 
   //-------------------------------------------------------------------------------
@@ -41,10 +37,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("para+numerical-control", "Numerical control", [
-    {
-      kind: "wikipedia",
-      title: "Numerical control",
-      href: "https://en.wikipedia.org/wiki/Numerical_control",
-    },
+    { kind: "wikipedia", title: "Numerical control", href: "https://en.wikipedia.org/wiki/Numerical_control" },
   ]);
 }

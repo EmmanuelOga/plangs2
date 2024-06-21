@@ -6,10 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+windows", "Windows", [
-    {
-      kind: "wikipedia",
-      title: "Windows",
-      href: "https://en.wikipedia.org/wiki/Microsoft_Windows",
-    },
+    { kind: "wikipedia", title: "Windows", href: "https://en.wikipedia.org/wiki/Microsoft_Windows" },
   ]);
 }

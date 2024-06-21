@@ -5,7 +5,5 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("platf+tvos", "tvOS", [
-    { kind: "wikipedia", title: "tvOS", href: "https://en.wikipedia.org/wiki/TvOS" },
-  ]);
+  lb.define("platf+tvos", "tvOS", [{ kind: "wikipedia", title: "tvOS", href: "https://en.wikipedia.org/wiki/TvOS" }]);
 }

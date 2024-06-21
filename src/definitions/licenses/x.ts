@@ -5,9 +5,7 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+x11", "X11", [
-    { kind: "wikipedia", title: "X11", href: "https://en.wikipedia.org/wiki/MIT_License" },
-  ]);
+  lb.define("lic+x11", "X11", [{ kind: "wikipedia", title: "X11", href: "https://en.wikipedia.org/wiki/MIT_License" }]);
 
   //-------------------------------------------------------------------------------
 
