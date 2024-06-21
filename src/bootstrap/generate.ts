@@ -1,15 +1,8 @@
 import { Eta } from "eta";
 import { groupBy } from "lodash-es";
 import { PlangsGraph } from "../entities/plangs_graph";
-import type {
-  T_Id_V_License,
-  T_Id_V_Paradigm,
-  T_Id_V_Person,
-  T_Id_V_Plang,
-  T_Id_V_TypeSystem,
-  V_Plang,
-} from "../entities/schemas";
-import type { T_VId_Any } from "../graph/vertex";
+import type { VID_Plang } from "../entities/schemas";
+import type { VID_Any } from "../graph/vertex";
 import type { VertexTable } from "../graph/vertex_table";
 import { toAlphaNum } from "../util";
 import { PLANG_IDS } from "./plang_ids";
@@ -35,13 +28,12 @@ async function generateAll() {
   genAtoZ(g.v_person, "people", "person");
   genAtoZ(g.v_platform, "platforms", "platform");
   genAtoZ(g.v_tsystem, "type_systems", "typeSystem");
-
-  genAtoZ(g.v_plang, "plangs", "plang", (vid: T_VId_Any) => plangMapper(g, vid as T_Id_V_Plang), PLANG_IDS);
+  genAtoZ(g.v_plang, "plangs", "plang", (vid: VID_Any) => plangMapper(g, vid as VID_Plang), PLANG_IDS);
 
   console.log("Finished generating definitions.");
 }
 
-function plangMapper(g: PlangsGraph, plvid: T_Id_V_Plang): { data: string; vrelations?: string } {
+function plangMapper(g: PlangsGraph, plvid: VID_Plang): { data: string; vrelations?: string } {
   const pl = g.v_plang.get(plvid);
   if (!pl || !pl.name) {
     throw new Error(`Missing plang data: ${plvid}`);

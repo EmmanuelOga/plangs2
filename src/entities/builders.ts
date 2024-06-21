@@ -24,9 +24,10 @@ export class PlangsBuilder {
       influences?: VID_Plang[];
       influenced?: VID_Plang[];
       dialects?: VID_Plang[];
-      implementations: VID_Plang[];
-      paradigms: VID_Paradigm[];
+      implementations?: VID_Plang[];
+      paradigms?: VID_Paradigm[];
       people?: [VID_Person, E_People["role"]][];
+      typeSystems?: VID_TypeSystem[];
     },
   ) {}
 }

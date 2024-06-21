@@ -1,7 +1,7 @@
 /**
  * To define the Vertex ID for each Vertex type (using a template literal type).
  */
-import type { T_VID } from "../graph/vertex";
+import type { VID } from "../graph/vertex";
 
 ////////////////////////////////////////////////////////////////////////////////
 // Types starting with "V_" are used for Vertex data.
@@ -26,7 +26,7 @@ export interface V_Plang {
   references: Record<string, Link[]>;
 }
 
-export type VID_Plang = T_VID<`pl`>;
+export type VID_Plang = VID<`pl`>;
 
 /**
  * A platform Vertex, e.g., Linux, Windows, etc.
@@ -36,7 +36,7 @@ export interface V_Platform {
   websites: Link[];
 }
 
-export type VID_Platform = T_VID<`platf`>;
+export type VID_Platform = VID<`platf`>;
 
 /**
  * A type system Vertex, e.g., OOP, Duck, Dynamic, etc.
@@ -46,7 +46,7 @@ export interface V_TypeSystem {
   websites: Link[];
 }
 
-export type VID_TypeSystem = T_VID<`tsys`>;
+export type VID_TypeSystem = VID<`tsys`>;
 
 /**
  * A programming paradigm Vertex, e.g., Functional, Imperative, etc.
@@ -56,7 +56,7 @@ export interface V_Paradigm {
   websites: Link[];
 }
 
-export type VID_Paradigm = T_VID<`para`>;
+export type VID_Paradigm = VID<`para`>;
 
 /**
  * A person Vertex, for people involved in the development of a programming language.
@@ -66,7 +66,7 @@ export interface V_Person {
   websites: Link[];
 }
 
-export type VID_Person = T_VID<`person`>;
+export type VID_Person = VID<`person`>;
 
 /**
  * A license Vertex, e.g., MIT, GPL, etc.
@@ -76,7 +76,7 @@ export interface V_License {
   websites: Link[];
 }
 
-export type VID_License = T_VID<`lic`>;
+export type VID_License = VID<`lic`>;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Types starting with "E_" are used for Edge data.
@@ -112,7 +112,7 @@ export interface Release {
  * A reference to a web page.
  */
 export interface Link {
-  kind: "homepage" | "repository" | "releases" | "apidocs" | "wikipedia" | "other";
+  kind?: "homepage" | "repository" | "releases" | "apidocs" | "wikipedia" | "other";
   href: string;
   title: string;
 }

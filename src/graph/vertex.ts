@@ -5,7 +5,7 @@
  *
  * See {@link PVIDAny} for the matching pattern.
  */
-export type T_VID<T extends string> = `${T}+${string}`;
+export type VID<T extends string> = `${T}+${string}`;
 
 /**
  * An alias such that we can say: VID<Any> to match any vertex id.
@@ -15,7 +15,7 @@ export type Any = string;
 /**
  * An alias for the most generic vertex id.
  */
-export type T_VID_ANY = T_VID<Any>;
+export type VID_Any = VID<Any>;
 
 const NON_PLUS_ID_CHARS = "[a-z-A-Z0-9\\-\\(\\)\\[\\]_.]+$";
 const NON_PLUS_ID_PATTERN = new RegExp(NON_PLUS_ID_CHARS);
@@ -24,7 +24,7 @@ export function validChars(s: string): boolean {
   return NON_PLUS_ID_PATTERN.test(s);
 }
 
-export function isAnyVID(s: string): s is T_VID<Any> {
+export function isAnyVID(s: string): s is VID<Any> {
   const parts = s.split("+");
   return parts.length === 2 && validChars(parts[0]) && validChars(parts[1]);
 }
