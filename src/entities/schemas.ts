@@ -85,7 +85,7 @@ export type VID_License = VID<`lic`>;
  * Additional information about people involved in the development of a programming language.
  */
 export interface E_People {
-  role: "designer" | "contributor";
+  role: "designer" | "developer";
 }
 
 /**

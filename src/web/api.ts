@@ -49,14 +49,12 @@ async function plangsGraph(): Promise<SerializedGraph> {
     });
   }
 
-  const data = {
+  return {
     nodes: grNodes,
     edges: grEdges,
     options: {},
     attributes: { name: "Programming Languages" },
   };
-
-  return data;
 }
 
 const server = Bun.serve({

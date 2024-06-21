@@ -358,8 +358,8 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
       return;
 
     case "founder":
-    case "developer":
     case "designed_by":
+    case "developer":
     case "developed_by":
     case "developers": {
       function addPerson(name: string, link?: Link) {
@@ -371,7 +371,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
         }
 
         const rel = g.e_person_plang_role.connect(`person+${key}`, pvid);
-        const inferred_role = key === "developers" ? "contributor" : "designer";
+        const inferred_role = key.includes("developer") ? "developer" : "designer";
         if (!rel.role) {
           rel.role = inferred_role;
         } else if (rel.role !== "designer") {

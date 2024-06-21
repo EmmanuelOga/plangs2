@@ -47,7 +47,6 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Crystal_source.svg" }],
       releases: [
         { version: "unknown", date: "1997-01-01", kind: "first" },
-        { version: "unknown", date: "1997-01-01", kind: "first" },
         { version: "unknown", date: "2023-01-01", kind: "other" },
       ],
       extensions: [],

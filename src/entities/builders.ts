@@ -1,8 +1,9 @@
+import { caller } from "../util";
 import type { PlangsGraph } from "./plangs_graph";
 import type {
   E_People,
-  Link,
   Image,
+  Link,
   Release,
   VID_License,
   VID_Paradigm,
@@ -12,7 +13,6 @@ import type {
   VID_TypeSystem,
   V_Plang,
 } from "./schemas";
-import { caller } from "../util";
 
 export class PlangsBuilder {
   constructor(readonly g: PlangsGraph) {}
@@ -21,7 +21,7 @@ export class PlangsBuilder {
     vid: VID_Plang,
     name: string,
     { extensions, images, releases, scoping, websites, references }: Partial<V_Plang>,
-    vrelations: {
+    vrelations?: {
       licenses?: VID_License[];
       platforms?: VID_Platform[];
       influences?: VID_Plang[];
@@ -33,7 +33,8 @@ export class PlangsBuilder {
       typeSystems?: VID_TypeSystem[];
     },
   ) {
-    const v = this.g.v_plang.merge(vid, { name });
+    const g = this.g;
+    const v = g.v_plang.merge(vid, { name });
     v.websites ??= [];
     mergeWebsites(v.websites, websites);
     v.extensions ??= [];
@@ -46,6 +47,25 @@ export class PlangsBuilder {
     mergeScoping(v.scoping, scoping);
     v.references ??= {};
     mergeReferences(v.references, references);
+
+    if (!vrelations) return;
+
+    for (const otherVid of vrelations.licenses ?? []) g.e_has_license.connect(vid, otherVid);
+    for (const otherVid of vrelations.platforms ?? []) g.e_supports_platf.connect(vid, otherVid);
+    for (const otherVid of vrelations.influences ?? []) g.e_l_influenced_l.connect(vid, otherVid);
+    for (const otherVid of vrelations.influenced ?? []) g.e_l_influenced_l.connect(otherVid, vid);
+    for (const otherVid of vrelations.dialects ?? []) g.e_dialect_of.connect(otherVid, vid);
+    for (const otherVid of vrelations.implementations ?? []) g.e_implements.connect(otherVid, vid);
+    for (const otherVid of vrelations.paradigms ?? []) g.e_plang_para.connect(vid, otherVid);
+    for (const otherVid of vrelations.typeSystems ?? []) g.e_plang_tsys.connect(vid, otherVid);
+
+    for (const [otherVid, role] of vrelations.people ?? []) {
+      if (role === "developer" || role === "designer") {
+        g.e_person_plang_role.merge(otherVid, vid, { role });
+      } else {
+        console.warn(`${caller(_SITE)}: Invalid role: ${role}`);
+      }
+    }
   }
 }
 
