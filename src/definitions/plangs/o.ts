@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Oberon",
+    "pl+oberon",
     "Oberon",
     {
       name: "Oberon",
@@ -26,31 +26,31 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      dialects: ["pl+Oberon-2", "pl+Obliq", "pl+Active-Oberon"],
+      dialects: ["pl+oberon-2", "pl+obliq", "pl+active-oberon"],
       influenced: [
-        "pl+Nim",
-        "pl+Java",
-        "pl+Component-Pascal",
-        "pl+Modula-2",
-        "pl+Oberon-2",
-        "pl+Go",
-        "pl+Object-Oberon",
-        "pl+Obliq",
-        "pl+Modula-3",
-        "pl+Pascal",
-        "pl+V",
-        "pl+Zonnon",
-        "pl+Active-Oberon",
+        "pl+nim",
+        "pl+java",
+        "pl+component-pascal",
+        "pl+modula-2",
+        "pl+oberon-2",
+        "pl+go",
+        "pl+object-oberon",
+        "pl+obliq",
+        "pl+modula-3",
+        "pl+pascal",
+        "pl+v",
+        "pl+zonnon",
+        "pl+active-oberon",
       ],
       influences: [
-        "pl+Modula-2",
-        "pl+Oberon-2",
-        "pl+Active-Oberon",
-        "pl+Component-Pascal",
-        "pl+Zonnon",
-        "pl+Go",
-        "pl+V-(Vlang)",
-        "pl+Nim",
+        "pl+modula-2",
+        "pl+oberon-2",
+        "pl+active-oberon",
+        "pl+component-pascal",
+        "pl+zonnon",
+        "pl+go",
+        "pl+v-(vlang)",
+        "pl+nim",
       ],
       paradigms: ["para+imperative", "para+structured", "para+modular", "para+objects"],
       platforms: [
@@ -69,7 +69,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Objective-C",
+    "pl+objective-c",
     "Objective-C",
     {
       name: "Objective-C",
@@ -103,10 +103,10 @@ export function define(g: PlangsGraph) {
       extensions: [".h", ".m", ".mm", ".M"],
     },
     {
-      implementations: ["pl+Clang", "pl+GCC"],
-      influenced: ["pl+Java", "pl+Nu", "pl+Cobra", "pl+ArkTS", "pl+C", "pl+Logtalk", "pl+Smalltalk"],
-      influences: ["pl+C", "pl+Smalltalk", "pl+Groovy", "pl+Java", "pl+Nu", "pl+Swift"],
-      people: [["person+Brad-Cox", "designer"]],
+      implementations: ["pl+clang", "pl+gcc"],
+      influenced: ["pl+java", "pl+nu", "pl+cobra", "pl+arkts", "pl+c", "pl+logtalk", "pl+smalltalk"],
+      influences: ["pl+c", "pl+smalltalk", "pl+groovy", "pl+java", "pl+nu", "pl+swift"],
+      people: [["person+brad-cox", "designer"]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+static", "tsys+dynamic", "tsys+weak"],
     },
@@ -115,7 +115,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+OCaml",
+    "pl+ocaml",
     "OCaml",
     {
       name: "OCaml",
@@ -141,47 +141,47 @@ export function define(g: PlangsGraph) {
       extensions: [".ml", ".mli"],
     },
     {
-      dialects: ["pl+Reason", "pl+ML", "pl+F-Star", "pl+ATS"],
-      implementations: ["pl+C"],
+      dialects: ["pl+reason", "pl+ml", "pl+f-star", "pl+ats"],
+      implementations: ["pl+c"],
       influenced: [
-        "pl+Haxe",
-        "pl+Standard-ML",
-        "pl+Boomerang",
-        "pl+Caml",
-        "pl+Flix",
-        "pl+Reason",
-        "pl+ML",
-        "pl+F-Star",
-        "pl+Modula-3",
-        "pl+Scala",
-        "pl+Opa",
-        "pl+Rust",
-        "pl+Elm",
-        "pl+Hack",
-        "pl+Gleam",
-        "pl+ATS",
+        "pl+haxe",
+        "pl+standard-ml",
+        "pl+boomerang",
+        "pl+caml",
+        "pl+flix",
+        "pl+reason",
+        "pl+ml",
+        "pl+f-star",
+        "pl+modula-3",
+        "pl+scala",
+        "pl+opa",
+        "pl+rust",
+        "pl+elm",
+        "pl+hack",
+        "pl+gleam",
+        "pl+ats",
       ],
       influences: [
-        "pl+C",
-        "pl+Caml",
-        "pl+Modula-3",
-        "pl+Pascal",
-        "pl+Standard-ML",
-        "pl+ATS",
-        "pl+Coq",
-        "pl+Elm",
-        "pl+F-Sharp",
-        "pl+F-Star",
-        "pl+Haxe",
-        "pl+Opa",
-        "pl+Rust",
-        "pl+Scala",
+        "pl+c",
+        "pl+caml",
+        "pl+modula-3",
+        "pl+pascal",
+        "pl+standard-ml",
+        "pl+ats",
+        "pl+coq",
+        "pl+elm",
+        "pl+f-sharp",
+        "pl+f-star",
+        "pl+haxe",
+        "pl+opa",
+        "pl+rust",
+        "pl+scala",
       ],
       licenses: ["lic+lgpl-2.1"],
       paradigms: ["para+multi-paradigm", "para+functional", "para+imperative", "para+modular", "para+objects"],
       people: [
-        ["person+Xavier-Leroy", "designer"],
-        ["person+Damien-Doligez", "designer"],
+        ["person+xavier-leroy", "designer"],
+        ["person+damien-doligez", "designer"],
       ],
       platforms: [
         "platf+ia-32",
@@ -200,7 +200,7 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("pl+OpenACC", "OpenACC", {
+  lb.define("pl+openacc", "OpenACC", {
     name: "OpenACC",
     websites: [
       { kind: "wikipedia", title: "OpenACC", href: "https://en.wikipedia.org/wiki/OpenACC" },
@@ -212,7 +212,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+OpenMP",
+    "pl+openmp",
     "OpenMP",
     {
       name: "OpenMP",
@@ -242,6 +242,6 @@ export function define(g: PlangsGraph) {
       },
       releases: [{ version: "5.2", date: "2021-01-01", kind: "stable" }],
     },
-    { influenced: ["pl+CilkOpenCilkCilk-Plus"] },
+    { influenced: ["pl+cilkopencilkcilk-plus"] },
   );
 }

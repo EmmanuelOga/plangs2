@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Tcl",
+    "pl+tcl",
     "Tcl",
     {
       name: "Tcl",
@@ -48,11 +48,11 @@ export function define(g: PlangsGraph) {
       extensions: [".tcl", ".tbc"],
     },
     {
-      influenced: ["pl+Lisp", "pl+XOTcl", "pl+PHP", "pl+AWK", "pl+Tea", "pl+PowerShell"],
-      influences: ["pl+AWK", "pl+Lisp", "pl+PHP", "pl+PowerShell", "pl+Tea"],
+      influenced: ["pl+lisp", "pl+xotcl", "pl+php", "pl+awk", "pl+tea", "pl+powershell"],
+      influences: ["pl+awk", "pl+lisp", "pl+php", "pl+powershell", "pl+tea"],
       licenses: ["lic+bsd"],
       paradigms: ["para+multi-paradigm", "para+event-driven", "para+functional", "para+imperative", "para+objects"],
-      people: [["person+John-Ousterhout", "designer"]],
+      people: [["person+john-ousterhout", "designer"]],
       typeSystems: ["tsys+dynamic"],
     },
   );
@@ -60,7 +60,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Tom",
+    "pl+tom",
     "Tom",
     {
       name: "Tom",
@@ -90,19 +90,19 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Turbo-Pascal",
+    "pl+turbo-pascal",
     "Turbo Pascal",
     {
       name: "Turbo Pascal",
       websites: [{ kind: "wikipedia", title: "Turbo Pascal", href: "https://en.wikipedia.org/wiki/Turbo_Pascal" }],
     },
-    { dialects: ["pl+Object-Pascal", "pl+Pascal"] },
+    { dialects: ["pl+object-pascal", "pl+pascal"] },
   );
 
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+TXL",
+    "pl+txl",
     "TXL",
     {
       name: "TXL",
@@ -111,13 +111,13 @@ export function define(g: PlangsGraph) {
         { kind: "homepage", title: "www.txl.ca", href: "https://www.txl.ca/" },
       ],
     },
-    { paradigms: ["para+pattern-matching", "para+term-rewriting"], people: [["person+James-Cordy", "designer"]] },
+    { paradigms: ["para+pattern-matching", "para+term-rewriting"], people: [["person+james-cordy", "designer"]] },
   );
 
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+TypeScript",
+    "pl+typescript",
     "TypeScript",
     {
       name: "TypeScript",
@@ -157,17 +157,17 @@ export function define(g: PlangsGraph) {
       extensions: [".ts", ".tsx", ".mts", ".cts"],
     },
     {
-      dialects: ["pl+AssemblyScript"],
-      influenced: ["pl+Bosque", "pl+AssemblyScript", "pl+ArkTS", "pl+JavaScript", "pl+Dart", "pl+ActionScript"],
+      dialects: ["pl+assemblyscript"],
+      influenced: ["pl+bosque", "pl+assemblyscript", "pl+arkts", "pl+javascript", "pl+dart", "pl+actionscript"],
       influences: [
-        "pl+C-Sharp",
-        "pl+F-Sharp",
-        "pl+Java",
-        "pl+JavaScript",
-        "pl+ActionScript",
-        "pl+AtScript",
-        "pl+AssemblyScript",
-        "pl+ArkTS",
+        "pl+c-sharp",
+        "pl+f-sharp",
+        "pl+java",
+        "pl+javascript",
+        "pl+actionscript",
+        "pl+atscript",
+        "pl+assemblyscript",
+        "pl+arkts",
       ],
       licenses: ["lic+apache-2"],
       paradigms: ["para+multi-paradigm", "para+functional", "para+generic", "para+imperative", "para+objects"],

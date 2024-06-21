@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+F-Sharp",
+    "pl+f-sharp",
     "F#",
     {
       name: "F#",
@@ -15,22 +15,22 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      dialects: ["pl+ML"],
+      dialects: ["pl+ml"],
       influenced: [
-        "pl+Idris",
-        "pl+Standard-ML",
-        "pl+C-Plus-Plus",
-        "pl+Erlang",
-        "pl+Flix",
-        "pl+OCaml",
-        "pl+ML",
-        "pl+ArkTS",
-        "pl+F-Star",
-        "pl+LiveScript",
-        "pl+Scala",
-        "pl+Elm",
-        "pl+TypeScript",
-        "pl+Python",
+        "pl+idris",
+        "pl+standard-ml",
+        "pl+c-plus-plus",
+        "pl+erlang",
+        "pl+flix",
+        "pl+ocaml",
+        "pl+ml",
+        "pl+arkts",
+        "pl+f-star",
+        "pl+livescript",
+        "pl+scala",
+        "pl+elm",
+        "pl+typescript",
+        "pl+python",
       ],
     },
   );
@@ -38,7 +38,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Factor",
+    "pl+factor",
     "Factor",
     {
       name: "Factor",
@@ -58,8 +58,8 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+Forth", "pl+Joy", "pl+Self"],
-      influences: ["pl+Joy", "pl+Forth", "pl+Lisp", "pl+Self"],
+      influenced: ["pl+forth", "pl+joy", "pl+self"],
+      influences: ["pl+joy", "pl+forth", "pl+lisp", "pl+self"],
       licenses: ["lic+bsd"],
       paradigms: [
         "para+multi-paradigm",
@@ -68,7 +68,7 @@ export function define(g: PlangsGraph) {
         "para+functional",
         "para+objects",
       ],
-      people: [["person+Slava-Pestov", "designer"]],
+      people: [["person+slava-pestov", "designer"]],
       platforms: ["platf+windows", "platf+macos", "platf+linux"],
       typeSystems: ["tsys+strong", "tsys+dynamic"],
     },
@@ -77,7 +77,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Fantom",
+    "pl+fantom",
     "Fantom",
     {
       name: "Fantom",
@@ -98,13 +98,13 @@ export function define(g: PlangsGraph) {
       extensions: [".fan", ".fwt", ".pod"],
     },
     {
-      influenced: ["pl+Java", "pl+Scala"],
-      influences: ["pl+C-Sharp", "pl+Java", "pl+Scala", "pl+Ruby", "pl+Erlang"],
+      influenced: ["pl+java", "pl+scala"],
+      influences: ["pl+c-sharp", "pl+java", "pl+scala", "pl+ruby", "pl+erlang"],
       licenses: ["lic+academic-free"],
       paradigms: ["para+multi-paradigm"],
       people: [
-        ["person+Brian-Frank", "designer"],
-        ["person+Andy-Frank", "designer"],
+        ["person+brian-frank", "designer"],
+        ["person+andy-frank", "designer"],
       ],
       typeSystems: ["tsys+static", "tsys+dynamic"],
     },
@@ -113,7 +113,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+FAUST",
+    "pl+faust",
     "FAUST",
     {
       name: "FAUST",
@@ -137,7 +137,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Flix",
+    "pl+flix",
     "Flix",
     {
       name: "Flix",
@@ -151,8 +151,8 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      influenced: ["pl+Scala"],
-      influences: ["pl+F-Sharp", "pl+Go", "pl+Haskell", "pl+OCaml", "pl+Scala"],
+      influenced: ["pl+scala"],
+      influences: ["pl+f-sharp", "pl+go", "pl+haskell", "pl+ocaml", "pl+scala"],
       licenses: ["lic+apache-2"],
       paradigms: ["para+multi-paradigm", "para+functional", "para+imperative", "para+logic"],
       platforms: ["platf+jvm"],
@@ -163,7 +163,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Forth",
+    "pl+forth",
     "Forth",
     {
       name: "Forth",
@@ -174,23 +174,24 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1970-01-01", kind: "first" }],
     },
     {
-      implementations: ["pl+Gforth"],
-      influenced: ["pl+Lisp", "pl+RPL", "pl+STOIC", "pl+Joy", "pl+Befunge", "pl+Factor", "pl+Rebol"],
-      influences: ["pl+Bitcoin-Script", "pl+Factor", "pl+Joy", "pl+RPL", "pl+Rebol", "pl+STOIC"],
+      implementations: ["pl+gforth"],
+      influenced: ["pl+lisp", "pl+rpl", "pl+stoic", "pl+joy", "pl+befunge", "pl+factor", "pl+rebol"],
+      influences: ["pl+bitcoin-script", "pl+factor", "pl+joy", "pl+rpl", "pl+rebol", "pl+stoic"],
       paradigms: ["para+concatenative", "para+stack-oriented", "para+imperative", "para+reflective"],
-      people: [["person+Charles-H-Moore", "designer"]],
+      people: [["person+charles-h-moore", "designer"]],
     },
   );
 
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Fortran",
+    "pl+fortran",
     "Fortran",
     {
       name: "Fortran",
       websites: [
         { kind: "wikipedia", title: "Fortran", href: "https://en.wikipedia.org/wiki/Fortran" },
+        { kind: "wikipedia", title: "FORTRAN", href: "https://en.wikipedia.org/wiki/FORTRAN" },
         { kind: "wikipedia", title: "Fortran", href: "https://en.wikipedia.org/wiki/Fortran_95" },
         { kind: "homepage", title: "fortran-lang.org", href: "https://fortran-lang.org" },
       ],
@@ -210,50 +211,54 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: [
-        "pl+Absoft",
-        "pl+Cray",
-        "pl+GFortran",
-        "pl+G95",
-        "pl+IBM",
-        "pl+Intel",
-        "pl+Hitachi",
-        "pl+Numerical-Algorithms-Group",
-        "pl+Open-Watcom",
-        "pl+PathScale",
-        "pl+PGI",
-        "pl+Silverfrost",
-        "pl+Oracle-Solaris-Studio",
+        "pl+absoft",
+        "pl+cray",
+        "pl+gfortran",
+        "pl+g95",
+        "pl+ibm",
+        "pl+intel",
+        "pl+hitachi",
+        "pl+numerical-algorithms-group",
+        "pl+open-watcom",
+        "pl+pathscale",
+        "pl+pgi",
+        "pl+silverfrost",
+        "pl+oracle-solaris-studio",
       ],
       influenced: [
-        "pl+Coral-66",
-        "pl+SISAL",
-        "pl+Chapel",
-        "pl+MATLAB-(programming-language)MATLAB-(software)",
-        "pl+PL-SlashI",
-        "pl+CMS-2",
-        "pl+S",
-        "pl+DIBOL",
-        "pl+DOPE-(Dartmouth-Oversimplified-Programming-Experiment)",
-        "pl+Ratfor",
-        "pl+Speedcoding",
-        "pl+Verilog",
-        "pl+Fortress",
+        "pl+coral-66",
+        "pl+sisal",
+        "pl+wolfram-language",
+        "pl+dartmouth-basic",
+        "pl+chapel",
+        "pl+matlab-(programming-language)matlab-(software)",
+        "pl+pl-slashi",
+        "pl+cms-2",
+        "pl+s",
+        "pl+algol-58",
+        "pl+dibol",
+        "pl+dope-(dartmouth-oversimplified-programming-experiment)",
+        "pl+ratfor",
+        "pl+speedcoding",
+        "pl+c",
+        "pl+verilog",
+        "pl+fortress",
       ],
       influences: [
-        "pl+Speedcoding",
-        "pl+ALGOL-58",
-        "pl+BASIC",
-        "pl+C",
-        "pl+Chapel",
-        "pl+CMS-2",
-        "pl+DOPE",
-        "pl+Fortress",
-        "pl+MATLAB",
-        "pl+PL-SlashI",
-        "pl+PACT-I",
-        "pl+MUMPS",
-        "pl+IDL",
-        "pl+Ratfor",
+        "pl+speedcoding",
+        "pl+algol-58",
+        "pl+basic",
+        "pl+c",
+        "pl+chapel",
+        "pl+cms-2",
+        "pl+dope",
+        "pl+fortress",
+        "pl+matlab",
+        "pl+pl-slashi",
+        "pl+pact-i",
+        "pl+mumps",
+        "pl+idl",
+        "pl+ratfor",
       ],
       paradigms: [
         "para+multi-paradigm",
@@ -263,7 +268,7 @@ export function define(g: PlangsGraph) {
         "para+generic",
         "para+array",
       ],
-      people: [["person+John-Backus", "designer"]],
+      people: [["person+john-backus", "designer"]],
       typeSystems: ["tsys+strong", "tsys+static", "tsys+manifest"],
     },
   );
@@ -271,22 +276,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+FORTRAN",
-    "FORTRAN",
-    {
-      name: "FORTRAN",
-      websites: [
-        { kind: "wikipedia", title: "FORTRAN", href: "https://en.wikipedia.org/wiki/FORTRAN" },
-        { kind: "wikipedia", title: "FORTRAN", href: "https://en.wikipedia.org/wiki/Fortran" },
-      ],
-    },
-    { influenced: ["pl+Wolfram-Language", "pl+Dartmouth-BASIC", "pl+ALGOL-58", "pl+C"] },
-  );
-
-  //-------------------------------------------------------------------------------
-
-  lb.define(
-    "pl+FreeBASIC",
+    "pl+freebasic",
     "FreeBASIC",
     {
       name: "FreeBASIC",
@@ -304,11 +294,11 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+QBasic"],
-      influences: ["pl+QuickBASIC", "pl+C"],
+      influenced: ["pl+qbasic"],
+      influences: ["pl+quickbasic", "pl+c"],
       licenses: ["lic+gnu-gpl-2-plus", "lic+gnu-lgpl-2-plus"],
       paradigms: ["para+imperative", "para+objects"],
-      people: [["person+Andre-Victor", "designer"]],
+      people: [["person+andre-victor", "designer"]],
       platforms: ["platf+dos", "platf+bsd", "platf+linux", "platf+windows"],
       typeSystems: ["tsys+static"],
     },
@@ -317,7 +307,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Futhark",
+    "pl+futhark",
     "Futhark",
     {
       name: "Futhark",
@@ -329,13 +319,13 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "2014-01-01", kind: "first" }],
     },
     {
-      influences: ["pl+APL", "pl+Haskell", "pl+NESL", "pl+Standard-ML"],
+      influences: ["pl+apl", "pl+haskell", "pl+nesl", "pl+standard-ml"],
       licenses: ["lic+isc"],
       paradigms: ["para+array", "para+functional"],
       people: [
-        ["person+Troels-Henriksen", "designer"],
-        ["person+Cosmin-Oancea", "designer"],
-        ["person+Martin-Elsman", "designer"],
+        ["person+troels-henriksen", "designer"],
+        ["person+cosmin-oancea", "designer"],
+        ["person+martin-elsman", "designer"],
       ],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong", "tsys+uniqueness", "tsys+dependent"],

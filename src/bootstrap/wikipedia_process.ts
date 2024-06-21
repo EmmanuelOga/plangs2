@@ -6,7 +6,7 @@ import { Glob } from "bun";
 import type { VID } from "../graph/vertex";
 import type { PlangsGraph } from "../entities/plangs_graph";
 import type { Image, Link, Release } from "../entities/schemas";
-import { removeNonPrintable, toAlphaNum } from "../util";
+import { toAlphaNum } from "../util";
 import { WIKIPEDIA_URL, cachePath } from "./wikipedia_json";
 
 // biome-ignore lint/suspicious/noExplicitAny: Wikipedia infoboxes really can have any data.

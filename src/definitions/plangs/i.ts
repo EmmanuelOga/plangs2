@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Idris",
+    "pl+idris",
     "Idris",
     {
       name: "Idris",
@@ -40,11 +40,11 @@ export function define(g: PlangsGraph) {
       extensions: [".idr", ".lidr"],
     },
     {
-      influenced: ["pl+ML", "pl+Epigram", "pl+Rust", "pl+Agda", "pl+Clean"],
-      influences: ["pl+Agda", "pl+Clean", "pl+Coq", "pl+Epigram", "pl+F-Sharp", "pl+Haskell", "pl+ML", "pl+Rust"],
+      influenced: ["pl+ml", "pl+epigram", "pl+rust", "pl+agda", "pl+clean"],
+      influences: ["pl+agda", "pl+clean", "pl+coq", "pl+epigram", "pl+f-sharp", "pl+haskell", "pl+ml", "pl+rust"],
       licenses: ["lic+bsd"],
       paradigms: ["para+functional"],
-      people: [["person+Edwin-Brady", "designer"]],
+      people: [["person+edwin-brady", "designer"]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
@@ -53,19 +53,19 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Inform",
+    "pl+inform",
     "Inform",
     {
       name: "Inform",
       websites: [{ kind: "wikipedia", title: "Inform", href: "https://en.wikipedia.org/wiki/Inform" }],
     },
-    { influenced: ["pl+CorVision"] },
+    { influenced: ["pl+corvision"] },
   );
 
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Io",
+    "pl+io",
     "Io",
     {
       name: "Io",
@@ -81,13 +81,13 @@ export function define(g: PlangsGraph) {
       references: { stable_release: [{ href: "https://github.com/IoLanguage/io/releases", title: "Io Releases" }] },
     },
     {
-      influenced: ["pl+Lisp", "pl+NewtonScript", "pl+urbiscript", "pl+Self", "pl+Smalltalk"],
-      influences: ["pl+Smalltalk", "pl+NewtonScript", "pl+Self", "pl+Lua", "pl+Lisp", "pl+Python", "pl+Act1"],
+      influenced: ["pl+lisp", "pl+newtonscript", "pl+urbiscript", "pl+self", "pl+smalltalk"],
+      influences: ["pl+smalltalk", "pl+newtonscript", "pl+self", "pl+lua", "pl+lisp", "pl+python", "pl+act1"],
       paradigms: ["para+objects", "para+prototypes"],
       people: [
-        ["person+Steve-Dekorte", "designer"],
-        ["person+Jonathan-Wright", "designer"],
-        ["person+Jeremy-Tregunna", "designer"],
+        ["person+steve-dekorte", "designer"],
+        ["person+jonathan-wright", "designer"],
+        ["person+jeremy-tregunna", "designer"],
       ],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
@@ -96,7 +96,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+IronPython",
+    "pl+ironpython",
     "IronPython",
     {
       name: "IronPython",

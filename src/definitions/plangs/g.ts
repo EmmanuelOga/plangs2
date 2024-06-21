@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Gambit",
+    "pl+gambit",
     "Gambit",
     {
       name: "Gambit",
@@ -23,11 +23,11 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+MultiLisp"],
-      influences: ["pl+Lisp", "pl+Scheme", "pl+Gerbil-Scheme", "pl+Termite-Scheme"],
+      influenced: ["pl+multilisp"],
+      influences: ["pl+lisp", "pl+scheme", "pl+gerbil-scheme", "pl+termite-scheme"],
       licenses: ["lic+lgpl", "lic+apache"],
       paradigms: ["para+multi-paradigm", "para+functional", "para+imperative", "para+meta"],
-      people: [["person+Marc-Feeley", "designer"]],
+      people: [["person+marc-feeley", "designer"]],
       platforms: ["platf+ia-32", "platf+x86-64", "platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+latent", "tsys+strong"],
     },
@@ -36,7 +36,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+GDScript",
+    "pl+gdscript",
     "GDScript",
     {
       name: "GDScript",
@@ -44,13 +44,13 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "GDScript", href: "https://en.wikipedia.org/wiki/Godot_(game_engine)#GDScript" },
       ],
     },
-    { influenced: ["pl+Python"] },
+    { influenced: ["pl+python"] },
   );
 
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Gforth",
+    "pl+gforth",
     "Gforth",
     {
       name: "Gforth",
@@ -82,7 +82,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Gleam",
+    "pl+gleam",
     "Gleam",
     {
       name: "Gleam",
@@ -116,12 +116,12 @@ export function define(g: PlangsGraph) {
       extensions: [".gleam"],
     },
     {
-      implementations: ["pl+Rust"],
-      influenced: ["pl+Elixir"],
-      influences: ["pl+Go", "pl+JavaScript", "pl+Elm", "pl+Erlang", "pl+Elixir", "pl+OCaml", "pl+Rust"],
+      implementations: ["pl+rust"],
+      influenced: ["pl+elixir"],
+      influences: ["pl+go", "pl+javascript", "pl+elm", "pl+erlang", "pl+elixir", "pl+ocaml", "pl+rust"],
       licenses: ["lic+apache-2"],
       paradigms: ["para+multi-paradigm", "para+functional", "para+concurrent"],
-      people: [["person+Louis-Pilfold", "designer"]],
+      people: [["person+louis-pilfold", "designer"]],
       platforms: ["platf+bsd", "platf+linux", "platf+macos", "platf+windows"],
       typeSystems: ["tsys+safe", "tsys+static", "tsys+inferred"],
     },
@@ -130,16 +130,16 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+GLSL",
+    "pl+glsl",
     "GLSL",
     { name: "GLSL", websites: [{ kind: "wikipedia", title: "GLSL", href: "https://en.wikipedia.org/wiki/GLSL" }] },
-    { influenced: ["pl+Cg-SlashHLSL"] },
+    { influenced: ["pl+cg-slashhlsl"] },
   );
 
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+GNAT",
+    "pl+gnat",
     "GNAT",
     {
       name: "GNAT",
@@ -166,12 +166,12 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("pl+GNU-Awk-gawk", "GNU Awk gawk", { name: "GNU Awk gawk" }, { dialects: ["pl+AWK"] });
+  lb.define("pl+gnu-awk-gawk", "GNU Awk gawk", { name: "GNU Awk gawk" }, { dialects: ["pl+awk"] });
 
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+GNU-Guile",
+    "pl+gnu-guile",
     "GNU Guile",
     {
       name: "GNU Guile",
@@ -187,13 +187,13 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      influenced: ["pl+SCM"],
-      influences: ["pl+Lisp", "pl+Scheme", "pl+SCM"],
+      influenced: ["pl+scm"],
+      influences: ["pl+lisp", "pl+scheme", "pl+scm"],
       licenses: ["lic+lgpl-3"],
       people: [
-        ["person+Aubrey-Jaffer", "designer"],
-        ["person+Tom-Lord", "designer"],
-        ["person+Miles-Bader", "designer"],
+        ["person+aubrey-jaffer", "designer"],
+        ["person+tom-lord", "designer"],
+        ["person+miles-bader", "designer"],
       ],
       platforms: [
         "platf+ia-32",
@@ -213,7 +213,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+GNU-Octave",
+    "pl+gnu-octave",
     "GNU Octave",
     {
       name: "GNU Octave",
@@ -256,13 +256,13 @@ export function define(g: PlangsGraph) {
         { version: "9.1.0", date: "2024-01-01", kind: "stable" },
       ],
     },
-    { licenses: ["lic+gpl-3", "lic+gpl-2"], people: [["person+John-W-Eaton", "designer"]] },
+    { licenses: ["lic+gpl-3", "lic+gpl-2"], people: [["person+john-w-eaton", "designer"]] },
   );
 
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+GNU-Prolog",
+    "pl+gnu-prolog",
     "GNU Prolog",
     {
       name: "GNU Prolog",
@@ -274,13 +274,13 @@ export function define(g: PlangsGraph) {
       references: { developers: [{ href: "http://cri-dist.univ-paris1.fr/diaz/", title: "Daniel Diaz's Home Page" }] },
       releases: [{ version: "1.5.0", date: "2021-07-08", kind: "stable" }],
     },
-    { licenses: ["lic+gnu-gpl", "lic+gnu-lesser-gpl"], people: [["person+Daniel-Diaz", "designer"]] },
+    { licenses: ["lic+gnu-gpl", "lic+gnu-lesser-gpl"], people: [["person+daniel-diaz", "designer"]] },
   );
 
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Go",
+    "pl+go",
     "Go",
     {
       name: "Go",
@@ -330,53 +330,53 @@ export function define(g: PlangsGraph) {
       extensions: [".go"],
     },
     {
-      implementations: ["pl+Assembly-language", "pl+C-Plus-Plus"],
+      implementations: ["pl+assembly-language", "pl+c-plus-plus"],
       influenced: [
-        "pl+BCPL",
-        "pl+Modula",
-        "pl+Erlang",
-        "pl+Flix",
-        "pl+Oberon-2",
-        "pl+Alef",
-        "pl+Ballerina",
-        "pl+Oberon",
-        "pl+Newsqueak",
-        "pl+Crystal",
+        "pl+bcpl",
+        "pl+modula",
+        "pl+erlang",
+        "pl+flix",
+        "pl+oberon-2",
+        "pl+alef",
+        "pl+ballerina",
+        "pl+oberon",
+        "pl+newsqueak",
+        "pl+crystal",
         "pl+occam",
-        "pl+Pascal",
-        "pl+C",
-        "pl+V",
-        "pl+Gleam",
-        "pl+Limbo",
-        "pl+Python",
-        "pl+Smalltalk",
-        "pl+D-programming-language",
+        "pl+pascal",
+        "pl+c",
+        "pl+v",
+        "pl+gleam",
+        "pl+limbo",
+        "pl+python",
+        "pl+smalltalk",
+        "pl+d-programming-language",
       ],
       influences: [
-        "pl+C",
-        "pl+Oberon-2",
-        "pl+Limbo",
-        "pl+Active-Oberon",
+        "pl+c",
+        "pl+oberon-2",
+        "pl+limbo",
+        "pl+active-oberon",
         "pl+communicating-sequential-processes",
-        "pl+Pascal",
-        "pl+Oberon",
-        "pl+Smalltalk",
-        "pl+Newsqueak",
-        "pl+Modula-2",
-        "pl+Alef",
-        "pl+APL",
-        "pl+BCPL",
-        "pl+Modula",
+        "pl+pascal",
+        "pl+oberon",
+        "pl+smalltalk",
+        "pl+newsqueak",
+        "pl+modula-2",
+        "pl+alef",
+        "pl+apl",
+        "pl+bcpl",
+        "pl+modula",
         "pl+occam",
-        "pl+Crystal",
-        "pl+V-(Vlang)",
+        "pl+crystal",
+        "pl+v-(vlang)",
       ],
       licenses: ["lic+3-clause-bsd", "lic+patent"],
       paradigms: ["para+multi-paradigm", "para+concurrent", "para+imperative", "para+functional", "para+objects"],
       people: [
-        ["person+Robert-Griesemer", "designer"],
-        ["person+Rob-Pike", "designer"],
-        ["person+Ken-Thompson", "designer"],
+        ["person+robert-griesemer", "designer"],
+        ["person+rob-pike", "designer"],
+        ["person+ken-thompson", "designer"],
       ],
       platforms: ["platf+bsd", "platf+linux", "platf+macos", "platf+plan9", "platf+windows"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural", "tsys+nominative"],
@@ -386,7 +386,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Gosu",
+    "pl+gosu",
     "Gosu",
     {
       name: "Gosu",
@@ -403,8 +403,8 @@ export function define(g: PlangsGraph) {
       extensions: [".gs", ".gsp", ".gst", ".gsx"],
     },
     {
-      influenced: ["pl+Kotlin"],
-      influences: ["pl+Java", "pl+C-Sharp", "pl+Kotlin"],
+      influenced: ["pl+kotlin"],
+      influences: ["pl+java", "pl+c-sharp", "pl+kotlin"],
       licenses: ["lic+apache-2"],
       platforms: ["platf+jvm"],
       typeSystems: ["tsys+static"],
@@ -414,7 +414,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Groovy",
+    "pl+groovy",
     "Groovy",
     {
       name: "Groovy",
@@ -437,9 +437,9 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      implementations: ["pl+Gradle", "pl+Grails"],
-      influenced: ["pl+Objective-C", "pl+Java", "pl+Xtend", "pl+Ruby", "pl+Kotlin", "pl+Smalltalk"],
-      influences: ["pl+Java", "pl+Python", "pl+Ruby", "pl+Smalltalk", "pl+Kotlin"],
+      implementations: ["pl+gradle", "pl+grails"],
+      influenced: ["pl+objective-c", "pl+java", "pl+xtend", "pl+ruby", "pl+kotlin", "pl+smalltalk"],
+      influences: ["pl+java", "pl+python", "pl+ruby", "pl+smalltalk", "pl+kotlin"],
       licenses: ["lic+apache-2"],
       paradigms: [
         "para+multi-paradigm",
@@ -450,9 +450,9 @@ export function define(g: PlangsGraph) {
         "para+scripting",
       ],
       people: [
-        ["person+James-Strachan", "designer"],
-        ["person+Paul-King", "designer"],
-        ["person+Cedric-Champeau", "designer"],
+        ["person+james-strachan", "designer"],
+        ["person+paul-king", "designer"],
+        ["person+cedric-champeau", "designer"],
       ],
       platforms: ["platf+jvm"],
       typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong", "tsys+duck"],
@@ -462,12 +462,12 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Guile",
+    "pl+guile",
     "Guile",
     {
       name: "Guile",
       websites: [{ kind: "wikipedia", title: "Guile", href: "https://en.wikipedia.org/wiki/GNU_Guile" }],
     },
-    { influenced: ["pl+SIOD"] },
+    { influenced: ["pl+siod"] },
   );
 }

@@ -5,5 +5,5 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Zoltan-Somogyi", "Zoltan Somogyi", []);
+  lb.define("person+zoltan-somogyi", "Zoltan Somogyi", []);
 }

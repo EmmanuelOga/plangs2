@@ -5,15 +5,15 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Yaron-Kashai", "Yaron Kashai", []);
+  lb.define("person+yaron-kashai", "Yaron Kashai", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Yehuda-Katz", "Yehuda Katz", []);
+  lb.define("person+yehuda-katz", "Yehuda Katz", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Yukihiro-Matsumoto", "Yukihiro Matsumoto", [
+  lb.define("person+yukihiro-matsumoto", "Yukihiro Matsumoto", [
     { title: "Yukihiro Matsumoto", href: "https://en.wikipedia.org/wiki/Yukihiro_Matsumoto", kind: "wikipedia" },
   ]);
 }

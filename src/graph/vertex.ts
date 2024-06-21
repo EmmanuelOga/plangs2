@@ -17,7 +17,7 @@ export type Any = string;
  */
 export type VID_Any = VID<Any>;
 
-const NON_PLUS_ID_CHARS = "[a-z-A-Z0-9\\-\\(\\)\\[\\]_.]+$";
+const NON_PLUS_ID_CHARS = "[a-z-0-9\\-\\(\\)\\[\\]_.]+$";
 const NON_PLUS_ID_PATTERN = new RegExp(NON_PLUS_ID_CHARS);
 
 export function validChars(s: string): boolean {

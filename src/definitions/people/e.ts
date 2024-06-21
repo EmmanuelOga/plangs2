@@ -5,49 +5,49 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+E-Dean-Tribble", "E. Dean Tribble", []);
+  lb.define("person+e-dean-tribble", "E. Dean Tribble", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+E-Kent-Gordon", "E. Kent Gordon", []);
+  lb.define("person+e-kent-gordon", "E. Kent Gordon", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Ecma-International", "Ecma International", [
+  lb.define("person+ecma-international", "Ecma International", [
     { title: "Ecma International", href: "https://en.wikipedia.org/wiki/Ecma_International", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Edgar-T-Irons", "Edgar T. Irons", []);
+  lb.define("person+edgar-t-irons", "Edgar T. Irons", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Edward-A-Ashcroft", "Edward A. Ashcroft", []);
+  lb.define("person+edward-a-ashcroft", "Edward A. Ashcroft", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Edwin-Brady", "Edwin Brady", []);
+  lb.define("person+edwin-brady", "Edwin Brady", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Eliot-Miranda", "Eliot Miranda", []);
+  lb.define("person+eliot-miranda", "Eliot Miranda", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Emmanuel-St-James", "Emmanuel St. James", []);
+  lb.define("person+emmanuel-st-james", "Emmanuel St. James", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Erik-Meijer", "Erik Meijer", [
+  lb.define("person+erik-meijer", "Erik Meijer", [
     { title: "Erik Meijer", href: "https://en.wikipedia.org/wiki/Erik_Meijer_(computer_scientist)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Evan-Czaplicki", "Evan Czaplicki", []);
+  lb.define("person+evan-czaplicki", "Evan Czaplicki", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Evan-Phoenix", "Evan Phoenix", []);
+  lb.define("person+evan-phoenix", "Evan Phoenix", []);
 }

@@ -5,35 +5,35 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+K-Rustan-M-Leino", "K. Rustan M. Leino", []);
+  lb.define("person+k-rustan-m-leino", "K. Rustan M. Leino", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Karl-Glazebrook", "Karl Glazebrook", [
+  lb.define("person+karl-glazebrook", "Karl Glazebrook", [
     { title: "Karl Glazebrook", href: "https://en.wikipedia.org/wiki/Karl_Glazebrook", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Karthikeyan-Bhargavan", "Karthikeyan Bhargavan", []);
+  lb.define("person+karthikeyan-bhargavan", "Karthikeyan Bhargavan", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Kathleen-O-Brien", "Kathleen O'Brien", []);
+  lb.define("person+kathleen-o-brien", "Kathleen O'Brien", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Keith-Clark", "Keith Clark", [
+  lb.define("person+keith-clark", "Keith Clark", [
     { title: "Keith Clark", href: "https://en.wikipedia.org/wiki/Keith_Clark_(computer_scientist)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Kemal-Ebcioglu", "Kemal Ebcioğlu", []);
+  lb.define("person+kemal-ebcioglu", "Kemal Ebcioğlu", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Ken-Thompson", "Ken Thompson", [
+  lb.define("person+ken-thompson", "Ken Thompson", [
     { title: "Ken Thompson", href: "https://en.wikipedia.org/wiki/Ken_Thompson", kind: "wikipedia" },
     {
       title: "Ken Thompson",
@@ -44,49 +44,49 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Kent-Pitman", "Kent Pitman", [
+  lb.define("person+kent-pitman", "Kent Pitman", [
     { title: "Kent Pitman", href: "https://en.wikipedia.org/wiki/Kent_Pitman", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Khang-Dao", "Khang Dao", []);
+  lb.define("person+khang-dao", "Khang Dao", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Klaus-Samelson", "Klaus Samelson", [
+  lb.define("person+klaus-samelson", "Klaus Samelson", [
     { title: "Klaus Samelson", href: "https://en.wikipedia.org/wiki/Klaus_Samelson", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Koichi-Sasada", "Koichi Sasada", [
+  lb.define("person+koichi-sasada", "Koichi Sasada", [
     { title: "Koichi Sasada", href: "https://en.wikipedia.org/wiki/Koichi_Sasada", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Konrad-Zuse", "Konrad Zuse", [
+  lb.define("person+konrad-zuse", "Konrad Zuse", [
     { title: "Konrad Zuse", href: "https://en.wikipedia.org/wiki/Konrad_Zuse", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Kostis-Sagonas", "Kostis Sagonas", []);
+  lb.define("person+kostis-sagonas", "Kostis Sagonas", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Kristen-Nygaard", "Kristen Nygaard", [
+  lb.define("person+kristen-nygaard", "Kristen Nygaard", [
     { title: "Kristen Nygaard", href: "https://en.wikipedia.org/wiki/Kristen_Nygaard", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Krzysztof-Apt", "Krzysztof Apt", [
+  lb.define("person+krzysztof-apt", "Krzysztof Apt", [
     { title: "Krzysztof Apt", href: "https://en.wikipedia.org/wiki/Krzysztof_R._Apt", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Kyle-Jessup", "Kyle Jessup", []);
+  lb.define("person+kyle-jessup", "Kyle Jessup", []);
 }

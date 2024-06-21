@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+eC",
+    "pl+ec",
     "eC",
     {
       name: "eC",
@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       extensions: [".ec", ".eh"],
     },
     {
-      influences: ["pl+C", "pl+C-Plus-Plus", "pl+Python"],
+      influences: ["pl+c", "pl+c-plus-plus", "pl+python"],
       licenses: ["lic+bsd-3"],
       paradigms: ["para+multi-paradigm", "para+imperative", "para+objects", "para+generic"],
       platforms: ["platf+cross-platform"],
@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+ECMAScript",
+    "pl+ecmascript",
     "ECMAScript",
     {
       name: "ECMAScript",
@@ -53,31 +53,31 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      dialects: ["pl+Haxe"],
+      dialects: ["pl+haxe"],
       implementations: [
-        "pl+JavaScript",
-        "pl+ActionScript",
-        "pl+JScript",
-        "pl+QtScript",
-        "pl+InScript",
-        "pl+Google-Apps-Script",
+        "pl+javascript",
+        "pl+actionscript",
+        "pl+jscript",
+        "pl+qtscript",
+        "pl+inscript",
+        "pl+google-apps-script",
       ],
-      influenced: ["pl+Haxe", "pl+Java", "pl+HyperTalk", "pl+JScript-.NET"],
+      influenced: ["pl+haxe", "pl+java", "pl+hypertalk", "pl+jscript-.net"],
       influences: [
-        "pl+Self",
-        "pl+HyperTalk",
-        "pl+AWK",
-        "pl+C",
-        "pl+CoffeeScript",
-        "pl+Perl",
-        "pl+Python",
-        "pl+Java",
-        "pl+Scheme",
+        "pl+self",
+        "pl+hypertalk",
+        "pl+awk",
+        "pl+c",
+        "pl+coffeescript",
+        "pl+perl",
+        "pl+python",
+        "pl+java",
+        "pl+scheme",
       ],
       paradigms: ["para+multi-paradigm", "para+prototypes", "para+functional", "para+imperative"],
       people: [
-        ["person+Brendan-Eich", "designer"],
-        ["person+Ecma-International", "designer"],
+        ["person+brendan-eich", "designer"],
+        ["person+ecma-international", "designer"],
       ],
       typeSystems: ["tsys+weak", "tsys+dynamic"],
     },
@@ -86,7 +86,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Elixir",
+    "pl+elixir",
     "Elixir",
     {
       name: "Elixir",
@@ -115,8 +115,8 @@ export function define(g: PlangsGraph) {
       extensions: [".ex", ".exs"],
     },
     {
-      influenced: ["pl+LFE", "pl+Lisp", "pl+Clojure", "pl+Erlang", "pl+Ruby", "pl+Gleam"],
-      influences: ["pl+Clojure", "pl+Erlang", "pl+Ruby", "pl+Gleam", "pl+LFE"],
+      influenced: ["pl+lfe", "pl+lisp", "pl+clojure", "pl+erlang", "pl+ruby", "pl+gleam"],
+      influences: ["pl+clojure", "pl+erlang", "pl+ruby", "pl+gleam", "pl+lfe"],
       licenses: ["lic+apache-2"],
       paradigms: [
         "para+multi-paradigm",
@@ -125,7 +125,7 @@ export function define(g: PlangsGraph) {
         "para+distributed",
         "para+process-oriented",
       ],
-      people: [["person+Jose-Valim", "designer"]],
+      people: [["person+jose-valim", "designer"]],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );
@@ -133,7 +133,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Elm",
+    "pl+elm",
     "Elm",
     {
       name: "Elm",
@@ -176,11 +176,11 @@ export function define(g: PlangsGraph) {
       extensions: [".elm"],
     },
     {
-      influenced: ["pl+Standard-ML", "pl+OCaml", "pl+ML", "pl+Rust", "pl+Gleam"],
-      influences: ["pl+Haskell", "pl+Standard-ML", "pl+OCaml", "pl+F-Sharp", "pl+Redux", "pl+Rust", "pl+Vue"],
+      influenced: ["pl+standard-ml", "pl+ocaml", "pl+ml", "pl+rust", "pl+gleam"],
+      influences: ["pl+haskell", "pl+standard-ml", "pl+ocaml", "pl+f-sharp", "pl+redux", "pl+rust", "pl+vue"],
       licenses: ["lic+permissive", "lic+bsd-revised"],
       paradigms: ["para+functional"],
-      people: [["person+Evan-Czaplicki", "designer"]],
+      people: [["person+evan-czaplicki", "designer"]],
       platforms: ["platf+x86-64", "platf+macos", "platf+windows"],
       typeSystems: ["tsys+static", "tsys+strong", "tsys+inferred"],
     },
@@ -189,7 +189,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Emacs-Lisp",
+    "pl+emacs-lisp",
     "Emacs Lisp",
     {
       name: "Emacs Lisp",
@@ -206,14 +206,14 @@ export function define(g: PlangsGraph) {
       extensions: [".el", ".elc", ".eln"],
     },
     {
-      dialects: ["pl+Lisp"],
-      influenced: ["pl+Common-Lisp"],
-      influences: ["pl+Common-Lisp", "pl+Maclisp"],
+      dialects: ["pl+lisp"],
+      influenced: ["pl+common-lisp"],
+      influences: ["pl+common-lisp", "pl+maclisp"],
       licenses: ["lic+gpl-3"],
       paradigms: ["para+functional", "para+meta", "para+reflective"],
       people: [
-        ["person+Richard-Stallman", "designer"],
-        ["person+Guy-L-Steele", "designer"],
+        ["person+richard-stallman", "designer"],
+        ["person+guy-l-steele", "designer"],
       ],
       platforms: ["platf+emacs"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
@@ -223,7 +223,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Erlang",
+    "pl+erlang",
     "Erlang",
     {
       name: "Erlang",
@@ -256,43 +256,43 @@ export function define(g: PlangsGraph) {
       extensions: [".erl", ".hrl"],
     },
     {
-      dialects: ["pl+LFE"],
+      dialects: ["pl+lfe"],
       influenced: [
-        "pl+LFE",
-        "pl+Elixir",
-        "pl+Clojure",
-        "pl+Fantom",
-        "pl+ML",
-        "pl+Oz",
-        "pl+Scala",
-        "pl+Opa",
-        "pl+Rust",
-        "pl+Prolog",
-        "pl+Dart",
-        "pl+Gleam",
-        "pl+Plex",
-        "pl+Smalltalk",
+        "pl+lfe",
+        "pl+elixir",
+        "pl+clojure",
+        "pl+fantom",
+        "pl+ml",
+        "pl+oz",
+        "pl+scala",
+        "pl+opa",
+        "pl+rust",
+        "pl+prolog",
+        "pl+dart",
+        "pl+gleam",
+        "pl+plex",
+        "pl+smalltalk",
       ],
       influences: [
-        "pl+Lisp",
-        "pl+PLEX",
-        "pl+Prolog",
-        "pl+Smalltalk",
-        "pl+Akka",
-        "pl+Clojure",
-        "pl+Dart",
-        "pl+Elixir",
-        "pl+F-Sharp",
-        "pl+Opa",
-        "pl+Oz",
-        "pl+Reia",
-        "pl+Rust",
-        "pl+Scala",
-        "pl+Go",
+        "pl+lisp",
+        "pl+plex",
+        "pl+prolog",
+        "pl+smalltalk",
+        "pl+akka",
+        "pl+clojure",
+        "pl+dart",
+        "pl+elixir",
+        "pl+f-sharp",
+        "pl+opa",
+        "pl+oz",
+        "pl+reia",
+        "pl+rust",
+        "pl+scala",
+        "pl+go",
       ],
       licenses: ["lic+apache-2"],
       paradigms: ["para+multi-paradigm", "para+concurrent", "para+functional", "para+objects"],
-      people: [["person+Joe-Armstrong", "designer"]],
+      people: [["person+joe-armstrong", "designer"]],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );
@@ -300,7 +300,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Euphoria",
+    "pl+euphoria",
     "Euphoria",
     {
       name: "Euphoria",
@@ -316,13 +316,13 @@ export function define(g: PlangsGraph) {
       extensions: [".e", ".ex", ".exw", ".edb"],
     },
     {
-      influences: ["pl+BASIC"],
+      influences: ["pl+basic"],
       licenses: ["lic+bsd"],
       paradigms: ["para+imperative"],
       people: [
-        ["person+Jeremy-Cowgar", "designer"],
-        ["person+Matt-Lewis", "designer"],
-        ["person+Derek-Parnell", "designer"],
+        ["person+jeremy-cowgar", "designer"],
+        ["person+matt-lewis", "designer"],
+        ["person+derek-parnell", "designer"],
       ],
       platforms: ["platf+cross-platform", "platf+windows", "platf+linux", "platf+macos", "platf+bsd"],
       typeSystems: ["tsys+static", "tsys+dynamic"],

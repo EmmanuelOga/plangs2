@@ -60,13 +60,13 @@ function plangMapper(g: PlangsGraph, plvid: VID_Plang): { data: string; vrelatio
 type _T_AnyVertex = any;
 
 function genAtoZ(
-  vtable: VertexTable<T_VId_Any, _T_AnyVertex>,
+  vtable: VertexTable<VID_Any, _T_AnyVertex>,
   basename: string,
   builderName: string,
-  mapper = (_: T_VId_Any, vertex: _T_AnyVertex) => ({ data: json(vertex.websites ?? []) }),
+  mapper = (_: VID_Any, vertex: _T_AnyVertex) => ({ data: json(vertex.websites ?? []) }),
   vidWhitelist?: Set<string>,
 ) {
-  let allVids = [...vtable.keys()].map((vid) => vid).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+  let allVids = [...vtable.keys()].map((vid) => vid).sort();
   if (vidWhitelist) {
     allVids = allVids.filter((vid) => vidWhitelist.has(vid.toLowerCase()));
   }
@@ -78,14 +78,14 @@ function genAtoZ(
   );
 
   for (const [prefix, vids] of Object.entries(grouped)) {
-    const data: string[][] = [];
+    const data: [string, string, Record<string, string>][] = [];
     for (const vid of vids) {
-      const vertex = vtable.get(vid as T_VId_Any);
+      const vertex = vtable.get(vid as VID_Any);
       if (!vertex) {
         console.log("Vertex not found:", vid);
         continue;
       }
-      data.push([json(vid), json(vertex.name), mapper(vid as T_VId_Any, vertex)]);
+      data.push([json(vid), json(vertex.name), mapper(vid as VID_Any, vertex)]);
     }
     const res = Templ.render("/a_to_z", { data, builderName });
     const path = alphaTsPath(basename, prefix);

@@ -5,13 +5,13 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Ulf-Norell", "Ulf Norell", []);
+  lb.define("person+ulf-norell", "Ulf Norell", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Urban-Muller", "Urban Müller", []);
+  lb.define("person+urban-muller", "Urban Müller", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Uwe-Zdun", "Uwe Zdun", []);
+  lb.define("person+uwe-zdun", "Uwe Zdun", []);
 }

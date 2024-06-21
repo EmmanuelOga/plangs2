@@ -5,15 +5,15 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+S-Florentsev", "S. Florentsev", []);
+  lb.define("person+s-florentsev", "S. Florentsev", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+S-Tucker-Taft", "S. Tucker Taft", []);
+  lb.define("person+s-tucker-taft", "S. Tucker Taft", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+San-Diego", "San Diego", [
+  lb.define("person+san-diego", "San Diego", [
     {
       title: "University of California, San Diego",
       href: "https://en.wikipedia.org/wiki/University_of_California,_San_Diego",
@@ -23,25 +23,25 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Sanford-Owings", "Sanford Owings", []);
+  lb.define("person+sanford-owings", "Sanford Owings", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Sanjiva-Weerawarana", "Sanjiva Weerawarana", [
+  lb.define("person+sanjiva-weerawarana", "Sanjiva Weerawarana", [
     { title: "Sanjiva Weerawarana", href: "https://en.wikipedia.org/wiki/Sanjiva_Weerawarana", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Saravanan-Arumugam", "Saravanan Arumugam", []);
+  lb.define("person+saravanan-arumugam", "Saravanan Arumugam", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Satoshi-Murakami", "Satoshi Murakami", []);
+  lb.define("person+satoshi-murakami", "Satoshi Murakami", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+School-of-Mathematics", "School of Mathematics", [
+  lb.define("person+school-of-mathematics", "School of Mathematics", [
     {
       title: "School of Mathematics and Statistics",
       href: "https://en.wikipedia.org/wiki/Sydney_School_of_Mathematics_and_Statistics",
@@ -51,39 +51,39 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Scott-Fahlman", "Scott Fahlman", [
+  lb.define("person+scott-fahlman", "Scott Fahlman", [
     { title: "Scott Fahlman", href: "https://en.wikipedia.org/wiki/Scott_Fahlman", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Scott-Morrison", "Scott Morrison", []);
+  lb.define("person+scott-morrison", "Scott Morrison", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Sebastian-Zarnekow", "Sebastian Zarnekow", []);
+  lb.define("person+sebastian-zarnekow", "Sebastian Zarnekow", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Sergio-Antoy", "Sergio Antoy", []);
+  lb.define("person+sergio-antoy", "Sergio Antoy", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Seymour-Papert", "Seymour Papert", [
+  lb.define("person+seymour-papert", "Seymour Papert", [
     { title: "Seymour Papert", href: "https://en.wikipedia.org/wiki/Seymour_Papert", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Shon-Katzenberger", "Shon Katzenberger", []);
+  lb.define("person+shon-katzenberger", "Shon Katzenberger", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Sidney-Marshall", "Sidney Marshall", []);
+  lb.define("person+sidney-marshall", "Sidney Marshall", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Siemens-EDA", "Siemens EDA", [
+  lb.define("person+siemens-eda", "Siemens EDA", [
     {
       title: "Siemens EDA",
       href: "https://en.wikipedia.org/wiki/Siemens_Digital_Industries_Software",
@@ -93,71 +93,71 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Simon-Peyton-Jones", "Simon Peyton Jones", [
+  lb.define("person+simon-peyton-jones", "Simon Peyton Jones", [
     { title: "Simon Peyton Jones", href: "https://en.wikipedia.org/wiki/Simon_Peyton_Jones", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Slava-Pestov", "Slava Pestov", []);
+  lb.define("person+slava-pestov", "Slava Pestov", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Snorri-Agnarsson", "Snorri Agnarsson", []);
+  lb.define("person+snorri-agnarsson", "Snorri Agnarsson", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Stanley-Cohen", "Stanley Cohen", [
+  lb.define("person+stanley-cohen", "Stanley Cohen", [
     { title: "Stanley Cohen", href: "https://en.wikipedia.org/wiki/Stanley_Cohen_(physicist)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Stefan-Behnel", "Stefan Behnel", []);
+  lb.define("person+stefan-behnel", "Stefan Behnel", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Stefan-Karpinski", "Stefan Karpinski", [
+  lb.define("person+stefan-karpinski", "Stefan Karpinski", [
     { title: "Stefan Karpinski", href: "https://en.wikipedia.org/wiki/Stefan_Karpinski", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Stephen-Dolan", "Stephen Dolan", []);
+  lb.define("person+stephen-dolan", "Stephen Dolan", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Stephen-M-Watt", "Stephen M. Watt", [
+  lb.define("person+stephen-m-watt", "Stephen M. Watt", [
     { title: "Stephen M. Watt", href: "https://en.wikipedia.org/wiki/Stephen_M._Watt", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Stephen-Watt", "Stephen Watt", []);
+  lb.define("person+stephen-watt", "Stephen Watt", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Stephen-Wolfram", "Stephen Wolfram", [
+  lb.define("person+stephen-wolfram", "Stephen Wolfram", [
     { title: "Stephen Wolfram", href: "https://en.wikipedia.org/wiki/Stephen_Wolfram", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Steve-Dekorte", "Steve Dekorte", []);
+  lb.define("person+steve-dekorte", "Steve Dekorte", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Steve-Leininger", "Steve Leininger", []);
+  lb.define("person+steve-leininger", "Steve Leininger", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Steve-Omohundro", "Steve Omohundro", [
+  lb.define("person+steve-omohundro", "Steve Omohundro", [
     { title: "Steve Omohundro", href: "https://en.wikipedia.org/wiki/Steve_Omohundro", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Steve-Russell", "Steve Russell", [
+  lb.define("person+steve-russell", "Steve Russell", [
     {
       title: "Steve Russell",
       href: "https://en.wikipedia.org/wiki/Steve_Russell_(computer_scientist)",
@@ -167,7 +167,7 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Steve-Vickers", "Steve Vickers", [
+  lb.define("person+steve-vickers", "Steve Vickers", [
     {
       title: "Steve Vickers",
       href: "https://en.wikipedia.org/wiki/Steve_Vickers_(computer_scientist)",
@@ -177,29 +177,29 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Steve-Ward", "Steve Ward", [
+  lb.define("person+steve-ward", "Steve Ward", [
     { title: "Steve Ward", href: "https://en.wikipedia.org/wiki/Steve_Ward_(computer_scientist)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Steven-Ericsson-Zenith", "Steven Ericsson-Zenith", []);
+  lb.define("person+steven-ericsson-zenith", "Steven Ericsson-Zenith", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Steven-M-Caine", "Steven M. Caine", []);
+  lb.define("person+steven-m-caine", "Steven M. Caine", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Steven-Pemberton", "Steven Pemberton", [
+  lb.define("person+steven-pemberton", "Steven Pemberton", [
     { title: "Steven Pemberton", href: "https://en.wikipedia.org/wiki/Steven_Pemberton", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Sven-Bodo-Scholz", "Sven-Bodo Scholz", []);
+  lb.define("person+sven-bodo-scholz", "Sven-Bodo Scholz", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Sven-Efftinge", "Sven Efftinge", []);
+  lb.define("person+sven-efftinge", "Sven Efftinge", []);
 }

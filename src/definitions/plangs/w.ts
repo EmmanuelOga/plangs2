@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Whiley",
+    "pl+whiley",
     "Whiley",
     {
       name: "Whiley",
@@ -20,11 +20,11 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+Ceylon"],
-      influences: ["pl+Java", "pl+C", "pl+Python", "pl+Rust"],
+      influenced: ["pl+ceylon"],
+      influences: ["pl+java", "pl+c", "pl+python", "pl+rust"],
       licenses: ["lic+bsd"],
       paradigms: ["para+imperative", "para+functional"],
-      people: [["person+David-J-Pearce", "designer"]],
+      people: [["person+david-j-pearce", "designer"]],
       typeSystems: ["tsys+strong", "tsys+safe", "tsys+structural", "tsys+flow-sensitive"],
     },
   );

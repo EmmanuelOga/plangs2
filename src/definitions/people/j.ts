@@ -5,83 +5,83 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+J-E-L-Peck", "J. E. L. Peck", [
+  lb.define("person+j-e-l-peck", "J. E. L. Peck", [
     { title: "J. E. L. Peck", href: "https://en.wikipedia.org/wiki/John_E._L._Peck", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+J-R-Logan", "J. R. Logan", []);
+  lb.define("person+j-r-logan", "J. R. Logan", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jacob-T-Schwartz", "Jacob T. Schwartz", [
+  lb.define("person+jacob-t-schwartz", "Jacob T. Schwartz", [
     { title: "Jacob T. Schwartz", href: "https://en.wikipedia.org/wiki/Jacob_T._Schwartz", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+James-Clark", "James Clark", [
+  lb.define("person+james-clark", "James Clark", [
     { title: "James Clark", href: "https://en.wikipedia.org/wiki/James_Clark_(programmer)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+James-Cordy", "James Cordy", [
+  lb.define("person+james-cordy", "James Cordy", [
     { title: "James Cordy", href: "https://en.wikipedia.org/wiki/James_Cordy", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+James-Davenport", "James Davenport", []);
+  lb.define("person+james-davenport", "James Davenport", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+James-E-Hendrix", "James E. Hendrix", []);
+  lb.define("person+james-e-hendrix", "James E. Hendrix", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+James-G-Mitchell", "James G. Mitchell", [
+  lb.define("person+james-g-mitchell", "James G. Mitchell", [
     { title: "James G. Mitchell", href: "https://en.wikipedia.org/wiki/James_G._Mitchell", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+James-Gosling", "James Gosling", [
+  lb.define("person+james-gosling", "James Gosling", [
     { title: "James Gosling", href: "https://en.wikipedia.org/wiki/James_Gosling", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+James-McGraw", "James McGraw", []);
+  lb.define("person+james-mcgraw", "James McGraw", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+James-Strachan", "James Strachan", [
+  lb.define("person+james-strachan", "James Strachan", [
     { title: "James Strachan", href: "https://en.wikipedia.org/wiki/James_Strachan_(programmer)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jamie-McCracken", "Jamie McCracken", []);
+  lb.define("person+jamie-mccracken", "Jamie McCracken", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jan-Wieck", "Jan Wieck", []);
+  lb.define("person+jan-wieck", "Jan Wieck", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jan-Wielemaker", "Jan Wielemaker", []);
+  lb.define("person+jan-wielemaker", "Jan Wielemaker", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jayadev-Misra", "Jayadev Misra", [
+  lb.define("person+jayadev-misra", "Jayadev Misra", [
     { title: "Jayadev Misra", href: "https://en.wikipedia.org/wiki/Jayadev_Misra", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jean-Christophe-Baillie", "Jean-Christophe Baillie", [
+  lb.define("person+jean-christophe-baillie", "Jean-Christophe Baillie", [
     {
       title: "Jean-Christophe Baillie",
       href: "https://en.wikipedia.org/wiki/Jean-Christophe_Baillie",
@@ -91,65 +91,65 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jean-E-Sammet", "Jean E. Sammet", [
+  lb.define("person+jean-e-sammet", "Jean E. Sammet", [
     { title: "Jean E. Sammet", href: "https://en.wikipedia.org/wiki/Jean_E._Sammet", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jean-Ichbiah", "Jean Ichbiah", [
+  lb.define("person+jean-ichbiah", "Jean Ichbiah", [
     { title: "Jean Ichbiah", href: "https://en.wikipedia.org/wiki/Jean_Ichbiah", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jean-Marie-Hullot", "Jean-Marie Hullot", []);
+  lb.define("person+jean-marie-hullot", "Jean-Marie Hullot", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jean-Paul-Watson", "Jean-Paul Watson", []);
+  lb.define("person+jean-paul-watson", "Jean-Paul Watson", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jean-Yang", "Jean Yang", []);
+  lb.define("person+jean-yang", "Jean Yang", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jeff-Bezanson", "Jeff Bezanson", [
+  lb.define("person+jeff-bezanson", "Jeff Bezanson", [
     { title: "Jeff Bezanson", href: "https://en.wikipedia.org/wiki/Jeff_Bezanson_(programmer)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jeffrey-Snover", "Jeffrey Snover", [
+  lb.define("person+jeffrey-snover", "Jeffrey Snover", [
     { title: "Jeffrey Snover", href: "https://en.wikipedia.org/wiki/Jeffrey_Snover", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jeremy-Ashkenas", "Jeremy Ashkenas", [
+  lb.define("person+jeremy-ashkenas", "Jeremy Ashkenas", [
     { title: "Jeremy Ashkenas", href: "https://en.wikipedia.org/wiki/Jeremy_Ashkenas", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jeremy-Cowgar", "Jeremy Cowgar", []);
+  lb.define("person+jeremy-cowgar", "Jeremy Cowgar", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jeremy-Tregunna", "Jeremy Tregunna", []);
+  lb.define("person+jeremy-tregunna", "Jeremy Tregunna", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jerome-Chailloux", "Jérôme Chailloux", []);
+  lb.define("person+jerome-chailloux", "Jérôme Chailloux", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jessie-Dedecker", "Jessie Dedecker", []);
+  lb.define("person+jessie-dedecker", "Jessie Dedecker", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+JGP-Barnes", "J.G.P. Barnes", [
+  lb.define("person+jgp-barnes", "J.G.P. Barnes", [
     {
       title: "J.G.P. Barnes",
       href: "https://en.wikipedia.org/wiki/John_Barnes_(computer_scientist)",
@@ -159,79 +159,79 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jim-Horning", "Jim Horning", [
+  lb.define("person+jim-horning", "Jim Horning", [
     { title: "Jim Horning", href: "https://en.wikipedia.org/wiki/Jim_Horning", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Joe-Armstrong", "Joe Armstrong", [
+  lb.define("person+joe-armstrong", "Joe Armstrong", [
     { title: "Joe Armstrong", href: "https://en.wikipedia.org/wiki/Joe_Armstrong_(programmer)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Johannes-J-Bisschop", "Johannes J. Bisschop", []);
+  lb.define("person+johannes-j-bisschop", "Johannes J. Bisschop", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+John-Backus", "John Backus", [
+  lb.define("person+john-backus", "John Backus", [
     { title: "John Backus", href: "https://en.wikipedia.org/wiki/John_Backus", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+John-Bass", "John Bass", []);
+  lb.define("person+john-bass", "John Bass", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+John-Carmack", "John Carmack", [
+  lb.define("person+john-carmack", "John Carmack", [
     { title: "John Carmack", href: "https://en.wikipedia.org/wiki/John_Carmack", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+John-Chambers", "John Chambers", [
+  lb.define("person+john-chambers", "John Chambers", [
     { title: "John Chambers", href: "https://en.wikipedia.org/wiki/John_Chambers_(statistician)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+John-Cowan", "John Cowan", []);
+  lb.define("person+john-cowan", "John Cowan", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+John-E-Davis", "John E. Davis", []);
+  lb.define("person+john-e-davis", "John E. Davis", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+John-Foderaro", "John Foderaro", []);
+  lb.define("person+john-foderaro", "John Foderaro", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+John-G-Kemeny", "John G. Kemeny", [
+  lb.define("person+john-g-kemeny", "John G. Kemeny", [
     { title: "John G. Kemeny", href: "https://en.wikipedia.org/wiki/John_G._Kemeny", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+John-Hughes", "John Hughes", [
+  lb.define("person+john-hughes", "John Hughes", [
     { title: "John Hughes", href: "https://en.wikipedia.org/wiki/John_Hughes_(computer_scientist)", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+John-Launchbury", "John Launchbury", [
+  lb.define("person+john-launchbury", "John Launchbury", [
     { title: "John Launchbury", href: "https://en.wikipedia.org/wiki/John_Launchbury", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+John-Lloyd", "John Lloyd", []);
+  lb.define("person+john-lloyd", "John Lloyd", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+John-McCarthy", "John McCarthy", [
+  lb.define("person+john-mccarthy", "John McCarthy", [
     {
       title: "John McCarthy",
       href: "https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)",
@@ -241,97 +241,97 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+John-Ousterhout", "John Ousterhout", [
+  lb.define("person+john-ousterhout", "John Ousterhout", [
     { title: "John Ousterhout", href: "https://en.wikipedia.org/wiki/John_Ousterhout", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+John-Plevyak", "John Plevyak", []);
+  lb.define("person+john-plevyak", "John Plevyak", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+John-Siirola", "John Siirola", []);
+  lb.define("person+john-siirola", "John Siirola", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+John-W-Eaton", "John W. Eaton", []);
+  lb.define("person+john-w-eaton", "John W. Eaton", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+John-Warnock", "John Warnock", [
+  lb.define("person+john-warnock", "John Warnock", [
     { title: "John Warnock", href: "https://en.wikipedia.org/wiki/John_Warnock", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+John-Wick", "John Wick", []);
+  lb.define("person+john-wick", "John Wick", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jonathan-A-Rees", "Jonathan A. Rees", []);
+  lb.define("person+jonathan-a-rees", "Jonathan A. Rees", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jonathan-Bennett", "Jonathan Bennett", []);
+  lb.define("person+jonathan-bennett", "Jonathan Bennett", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jonathan-Sachs", "Jonathan Sachs", [
+  lb.define("person+jonathan-sachs", "Jonathan Sachs", [
     { title: "Jonathan Sachs", href: "https://en.wikipedia.org/wiki/Jonathan_Sachs", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jonathan-Wright", "Jonathan Wright", []);
+  lb.define("person+jonathan-wright", "Jonathan Wright", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jordan-Walke", "Jordan Walke", []);
+  lb.define("person+jordan-walke", "Jordan Walke", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jorge-Nunes", "Jorge Nunes", []);
+  lb.define("person+jorge-nunes", "Jorge Nunes", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jorgen-Brandt", "Jörgen Brandt", []);
+  lb.define("person+jorgen-brandt", "Jörgen Brandt", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jose-Valim", "José Valim", []);
+  lb.define("person+jose-valim", "José Valim", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Joseph-Henry-Wegstein", "Joseph Henry Wegstein", [
+  lb.define("person+joseph-henry-wegstein", "Joseph Henry Wegstein", [
     { title: "Joseph Henry Wegstein", href: "https://en.wikipedia.org/wiki/Joseph_Henry_Wegstein", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+JR-Cordy", "J.R. Cordy", [
+  lb.define("person+jr-cordy", "J.R. Cordy", [
     { title: "J.R. Cordy", href: "https://en.wikipedia.org/wiki/James_Cordy", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Juan-Chen", "Juan Chen", []);
+  lb.define("person+juan-chen", "Juan Chen", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Juan-Wajnerman", "Juan Wajnerman", []);
+  lb.define("person+juan-wajnerman", "Juan Wajnerman", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Julien-Verlaguet", "Julien Verlaguet", []);
+  lb.define("person+julien-verlaguet", "Julien Verlaguet", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jurg-Billeter", "Jürg Billeter", []);
+  lb.define("person+jurg-billeter", "Jürg Billeter", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Jurg-Gutknecht", "Jürg Gutknecht", [
+  lb.define("person+jurg-gutknecht", "Jürg Gutknecht", [
     { title: "Jürg Gutknecht", href: "https://en.wikipedia.org/wiki/J%C3%BCrg_Gutknecht", kind: "wikipedia" },
   ]);
 }

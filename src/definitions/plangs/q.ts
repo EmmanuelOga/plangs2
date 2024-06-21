@@ -6,24 +6,6 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Q",
-    "Q",
-    {
-      name: "Q",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "Q",
-          href: "https://en.wikipedia.org/wiki/Q_(programming_language_from_Kx_Systems)",
-        },
-      ],
-    },
-    { influenced: ["pl+Pure", "pl+K"] },
-  );
-
-  //-------------------------------------------------------------------------------
-
-  lb.define(
     "pl+q",
     "q",
     {
@@ -31,7 +13,7 @@ export function define(g: PlangsGraph) {
       websites: [
         {
           kind: "wikipedia",
-          title: "q",
+          title: "Q",
           href: "https://en.wikipedia.org/wiki/Q_(programming_language_from_Kx_Systems)",
         },
         { kind: "homepage", title: "code.kx.com", href: "http://code.kx.com" },
@@ -51,9 +33,10 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influences: ["pl+A-Plus", "pl+APL", "pl+Scheme", "pl+k"],
+      influenced: ["pl+pure", "pl+k"],
+      influences: ["pl+a-plus", "pl+apl", "pl+scheme", "pl+k"],
       paradigms: ["para+array", "para+functional"],
-      people: [["person+Arthur-Whitney", "designer"]],
+      people: [["person+arthur-whitney", "designer"]],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );
@@ -61,7 +44,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+QB64",
+    "pl+qb64",
     "QB64",
     {
       name: "QB64",
@@ -78,10 +61,10 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+QBasic"],
-      influences: ["pl+QuickBASIC", "pl+QBASIC"],
+      influenced: ["pl+qbasic"],
+      influences: ["pl+quickbasic", "pl+qbasic"],
       licenses: ["lic+mit"],
-      people: [["person+Rob-Galleon", "designer"]],
+      people: [["person+rob-galleon", "designer"]],
       platforms: ["platf+windows", "platf+linux", "platf+macos"],
     },
   );
@@ -89,7 +72,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+QML",
+    "pl+qml",
     "QML",
     {
       name: "QML",
@@ -123,8 +106,8 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      influenced: ["pl+Ring"],
-      influences: ["pl+XAML", "pl+JSON", "pl+JavaScript", "pl+Qt", "pl+Ring"],
+      influenced: ["pl+ring"],
+      influences: ["pl+xaml", "pl+json", "pl+javascript", "pl+qt", "pl+ring"],
       paradigms: ["para+multi-paradigm", "para+declarative", "para+reactive", "para+scripting"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

@@ -11,14 +11,14 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("platf+risc_os", "RISC OS", [
-    { kind: "wikipedia", title: "RISC OS", href: "https://en.wikipedia.org/wiki/RISC_OS" },
+  lb.define("platf+risc-v", "RISC-V", [
+    { kind: "wikipedia", title: "RISC-V", href: "https://en.wikipedia.org/wiki/RISC-V" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("platf+risc-v", "RISC-V", [
-    { kind: "wikipedia", title: "RISC-V", href: "https://en.wikipedia.org/wiki/RISC-V" },
+  lb.define("platf+risc_os", "RISC OS", [
+    { kind: "wikipedia", title: "RISC OS", href: "https://en.wikipedia.org/wiki/RISC_OS" },
   ]);
 
   //-------------------------------------------------------------------------------

@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+NekoVMNeko",
+    "pl+nekovmneko",
     "NekoVMNeko",
     {
       name: "NekoVMNeko",
@@ -23,12 +23,12 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      implementations: ["pl+OCaml"],
+      implementations: ["pl+ocaml"],
       licenses: ["lic+mit"],
       paradigms: ["para+multi-paradigm", "para+objects", "para+structured", "para+prototypes", "para+scripting"],
       people: [
-        ["person+Motion-Twin", "designer"],
-        ["person+Nicolas-Cannasse", "designer"],
+        ["person+motion-twin", "designer"],
+        ["person+nicolas-cannasse", "designer"],
       ],
       platforms: ["platf+windows", "platf+macos", "platf+linux"],
       typeSystems: ["tsys+dynamic"],
@@ -38,7 +38,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Nim",
+    "pl+nim",
     "Nim",
     {
       name: "Nim",
@@ -74,27 +74,27 @@ export function define(g: PlangsGraph) {
     },
     {
       influenced: [
-        "pl+Ada",
-        "pl+Object-Pascal",
-        "pl+Lisp",
-        "pl+C-Plus-Plus",
-        "pl+Oberon-2",
-        "pl+Modula-3",
-        "pl+ParaSail",
-        "pl+Oberon",
-        "pl+C",
-        "pl+Python",
+        "pl+ada",
+        "pl+object-pascal",
+        "pl+lisp",
+        "pl+c-plus-plus",
+        "pl+oberon-2",
+        "pl+modula-3",
+        "pl+parasail",
+        "pl+oberon",
+        "pl+c",
+        "pl+python",
       ],
       influences: [
-        "pl+Ada",
-        "pl+Modula-3",
-        "pl+Lisp",
-        "pl+C-Plus-Plus",
-        "pl+Object-Pascal",
-        "pl+Python",
-        "pl+Oberon",
-        "pl+Rust",
-        "pl+ParaSail",
+        "pl+ada",
+        "pl+modula-3",
+        "pl+lisp",
+        "pl+c-plus-plus",
+        "pl+object-pascal",
+        "pl+python",
+        "pl+oberon",
+        "pl+rust",
+        "pl+parasail",
       ],
       paradigms: [
         "para+multi-paradigm",
@@ -105,7 +105,7 @@ export function define(g: PlangsGraph) {
         "para+objects",
         "para+meta",
       ],
-      people: [["person+Andreas-Rumpf", "designer"]],
+      people: [["person+andreas-rumpf", "designer"]],
       platforms: ["platf+ia-32", "platf+x86-64", "platf+arm", "platf+aarch64", "platf+risc-v", "platf+cross-platform"],
       typeSystems: ["tsys+static", "tsys+strong", "tsys+inferred", "tsys+structural"],
     },

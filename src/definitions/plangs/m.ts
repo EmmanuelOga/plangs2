@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Magma",
+    "pl+magma",
     "Magma",
     {
       name: "Magma",
@@ -36,13 +36,13 @@ export function define(g: PlangsGraph) {
       },
       releases: [{ version: "2.27", date: "2023-02-22", kind: "stable" }],
     },
-    { people: [["person+School-of-Mathematics", "designer"]] },
+    { people: [["person+school-of-mathematics", "designer"]] },
   );
 
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Maple",
+    "pl+maple",
     "Maple",
     {
       name: "Maple",
@@ -72,9 +72,9 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+Darwin"],
+      influenced: ["pl+darwin"],
       licenses: ["lic+proprietary", "lic+commercial-software"],
-      people: [["person+Waterloo-Maple", "designer"]],
+      people: [["person+waterloo-maple", "designer"]],
       platforms: ["platf+windows", "platf+macos", "platf+linux"],
     },
   );
@@ -82,7 +82,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+MATLAB",
+    "pl+matlab",
     "MATLAB",
     {
       name: "MATLAB",
@@ -90,11 +90,11 @@ export function define(g: PlangsGraph) {
     },
     {
       influenced: [
-        "pl+Pure",
-        "pl+Fortran",
-        "pl+SpeakeasySpeakeasy-(the-interpreted-programming-language)",
-        "pl+Julia",
-        "pl+APL",
+        "pl+pure",
+        "pl+fortran",
+        "pl+speakeasyspeakeasy-(the-interpreted-programming-language)",
+        "pl+julia",
+        "pl+apl",
       ],
     },
   );
@@ -102,7 +102,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Max",
+    "pl+max",
     "Max",
     {
       name: "Max",
@@ -129,7 +129,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Maxima",
+    "pl+maxima",
     "Maxima",
     {
       name: "Maxima",
@@ -154,7 +154,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Mercury",
+    "pl+mercury",
     "Mercury",
     {
       name: "Mercury",
@@ -183,10 +183,10 @@ export function define(g: PlangsGraph) {
       extensions: [".m"],
     },
     {
-      influenced: ["pl+Prolog"],
-      influences: ["pl+Prolog", "pl+Hope", "pl+Haskell"],
+      influenced: ["pl+prolog"],
+      influences: ["pl+prolog", "pl+hope", "pl+haskell"],
       licenses: ["lic+gpl", "lic+lgpl"],
-      people: [["person+Zoltan-Somogyi", "designer"]],
+      people: [["person+zoltan-somogyi", "designer"]],
       platforms: [
         "platf+ia-32",
         "platf+x86-64",
@@ -207,7 +207,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+ML",
+    "pl+ml",
     "ML",
     {
       name: "ML",
@@ -216,62 +216,62 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: [
-        "pl+Futhark",
-        "pl+Standard-ML",
-        "pl+Alice",
-        "pl+MLton",
-        "pl+Caml",
-        "pl+Reason",
-        "pl+OCaml",
-        "pl+F-Star",
-        "pl+Standard-ML-of-New-Jersey",
-        "pl+ATS",
+        "pl+futhark",
+        "pl+standard-ml",
+        "pl+alice",
+        "pl+mlton",
+        "pl+caml",
+        "pl+reason",
+        "pl+ocaml",
+        "pl+f-star",
+        "pl+standard-ml-of-new-jersey",
+        "pl+ats",
       ],
       influenced: [
-        "pl+Idris",
-        "pl+Standard-ML",
-        "pl+Claire",
-        "pl+Alice",
-        "pl+Pict",
-        "pl+Lisp",
-        "pl+Caml",
-        "pl+Bosque",
-        "pl+Nemerle",
-        "pl+Clojure",
-        "pl+C-Plus-Plus",
-        "pl+Orc",
-        "pl+Miranda",
-        "pl+ParaSail",
-        "pl+ISWIM",
-        "pl+Lean",
-        "pl+Haskell",
-        "pl+Kotlin",
-        "pl+Ceylon",
-        "pl+ATS",
+        "pl+idris",
+        "pl+standard-ml",
+        "pl+claire",
+        "pl+alice",
+        "pl+pict",
+        "pl+lisp",
+        "pl+caml",
+        "pl+bosque",
+        "pl+nemerle",
+        "pl+clojure",
+        "pl+c-plus-plus",
+        "pl+orc",
+        "pl+miranda",
+        "pl+parasail",
+        "pl+iswim",
+        "pl+lean",
+        "pl+haskell",
+        "pl+kotlin",
+        "pl+ceylon",
+        "pl+ats",
       ],
       influences: [
-        "pl+ISWIM",
-        "pl+Clojure",
-        "pl+Coq",
-        "pl+Cyclone",
-        "pl+C-Plus-Plus",
-        "pl+Elm",
-        "pl+F-Sharp",
-        "pl+F-Star",
-        "pl+Haskell",
-        "pl+Idris",
-        "pl+Kotlin",
-        "pl+Miranda",
-        "pl+Nemerle",
-        "pl+OCaml",
-        "pl+Opa",
-        "pl+Erlang",
-        "pl+Rust",
-        "pl+Scala",
-        "pl+Standard-ML",
+        "pl+iswim",
+        "pl+clojure",
+        "pl+coq",
+        "pl+cyclone",
+        "pl+c-plus-plus",
+        "pl+elm",
+        "pl+f-sharp",
+        "pl+f-star",
+        "pl+haskell",
+        "pl+idris",
+        "pl+kotlin",
+        "pl+miranda",
+        "pl+nemerle",
+        "pl+ocaml",
+        "pl+opa",
+        "pl+erlang",
+        "pl+rust",
+        "pl+scala",
+        "pl+standard-ml",
       ],
       paradigms: ["para+multi-paradigm", "para+functional", "para+generic", "para+imperative"],
-      people: [["person+Robin-Milner", "designer"]],
+      people: [["person+robin-milner", "designer"]],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );
@@ -279,7 +279,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Modelica",
+    "pl+modelica",
     "Modelica",
     {
       name: "Modelica",
@@ -301,16 +301,16 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: [
-        "pl+AMESim",
-        "pl+CATIA",
-        "pl+Dymola",
-        "pl+JModelica.org",
-        "pl+MapleSim",
-        "pl+Wolfram-SystemModeler",
-        "pl+OpenModelica",
-        "pl+Scicos",
-        "pl+SimulationX",
-        "pl+Xcos",
+        "pl+amesim",
+        "pl+catia",
+        "pl+dymola",
+        "pl+jmodelica.org",
+        "pl+maplesim",
+        "pl+wolfram-systemmodeler",
+        "pl+openmodelica",
+        "pl+scicos",
+        "pl+simulationx",
+        "pl+xcos",
       ],
       licenses: ["lic+cc-by-sa"],
       paradigms: ["para+declarative"],
@@ -321,7 +321,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Mojo",
+    "pl+mojo",
     "Mojo",
     {
       name: "Mojo",
@@ -336,10 +336,10 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      influenced: ["pl+Python"],
+      influenced: ["pl+python"],
       licenses: ["lic+proprietary"],
       paradigms: ["para+multi-paradigm", "para+imperative", "para+functional", "para+generic"],
-      people: [["person+Chris-Lattner", "designer"]],
+      people: [["person+chris-lattner", "designer"]],
       platforms: ["platf+cross-platform"],
       typeSystems: [
         "tsys+affine",
@@ -377,6 +377,6 @@ export function define(g: PlangsGraph) {
         license: [{ href: "https://github.com/mruby/mruby/blob/master/LICENSE", title: "LICENSE" }],
       },
     },
-    { licenses: ["lic+mit"], people: [["person+Yukihiro-Matsumoto", "designer"]] },
+    { licenses: ["lic+mit"], people: [["person+yukihiro-matsumoto", "designer"]] },
   );
 }

@@ -24,14 +24,14 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("platf+amd_am2900", "2901", [
-    { kind: "wikipedia", title: "2901", href: "https://en.wikipedia.org/wiki/AMD_Am2900" },
+  lb.define("platf+amd64", "AMD64", [
+    { kind: "wikipedia", title: "AMD64", href: "https://en.wikipedia.org/wiki/AMD64" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("platf+amd64", "AMD64", [
-    { kind: "wikipedia", title: "AMD64", href: "https://en.wikipedia.org/wiki/AMD64" },
+  lb.define("platf+amd_am2900", "2901", [
+    { kind: "wikipedia", title: "2901", href: "https://en.wikipedia.org/wiki/AMD_Am2900" },
   ]);
 
   //-------------------------------------------------------------------------------

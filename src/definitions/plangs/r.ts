@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+R",
+    "pl+r",
     "R",
     {
       name: "R",
@@ -63,8 +63,8 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      influenced: ["pl+Scheme", "pl+Lisp", "pl+Julia", "pl+PCASTL", "pl+S", "pl+Common-Lisp"],
-      influences: ["pl+Lisp", "pl+S", "pl+Scheme", "pl+Julia"],
+      influenced: ["pl+scheme", "pl+lisp", "pl+julia", "pl+pcastl", "pl+s", "pl+common-lisp"],
+      influences: ["pl+lisp", "pl+s", "pl+scheme", "pl+julia"],
       licenses: ["lic+gnu-gpl-2"],
       paradigms: [
         "para+multi-paradigm",
@@ -75,8 +75,8 @@ export function define(g: PlangsGraph) {
         "para+array",
       ],
       people: [
-        ["person+Ross-Ihaka", "designer"],
-        ["person+Robert-Gentleman", "designer"],
+        ["person+ross-ihaka", "designer"],
+        ["person+robert-gentleman", "designer"],
       ],
       platforms: ["platf+arm", "platf+x86-64"],
       typeSystems: ["tsys+dynamic"],
@@ -86,7 +86,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Racket",
+    "pl+racket",
     "Racket",
     {
       name: "Racket",
@@ -128,9 +128,9 @@ export function define(g: PlangsGraph) {
       extensions: [".rkt"],
     },
     {
-      dialects: ["pl+Lisp"],
-      influenced: ["pl+Scheme", "pl+Clojure", "pl+Eiffel"],
-      influences: ["pl+Eiffel", "pl+Scheme", "pl+Clojure", "pl+Rust", "pl+Scheme-(R6RS)"],
+      dialects: ["pl+lisp"],
+      influenced: ["pl+scheme", "pl+clojure", "pl+eiffel"],
+      influences: ["pl+eiffel", "pl+scheme", "pl+clojure", "pl+rust", "pl+scheme-(r6rs)"],
       licenses: ["lic+mit", "lic+apache-2"],
       paradigms: [
         "para+multi-paradigm",
@@ -150,7 +150,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Raku",
+    "pl+raku",
     "Raku",
     {
       name: "Raku",
@@ -187,12 +187,12 @@ export function define(g: PlangsGraph) {
       extensions: [".raku", ".t"],
     },
     {
-      implementations: ["pl+Rakudo"],
-      influenced: ["pl+Smalltalk"],
-      influences: ["pl+Perl", "pl+Ruby", "pl+Smalltalk", "pl+Haskell", "pl+JavaScript"],
+      implementations: ["pl+rakudo"],
+      influenced: ["pl+smalltalk"],
+      influences: ["pl+perl", "pl+ruby", "pl+smalltalk", "pl+haskell", "pl+javascript"],
       licenses: ["lic+gnu-gpl", "lic+artistic-2"],
       paradigms: ["para+multi-paradigm"],
-      people: [["person+Larry-Wall", "designer"]],
+      people: [["person+larry-wall", "designer"]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+gradual"],
     },
@@ -201,7 +201,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Rakudo",
+    "pl+rakudo",
     "Rakudo",
     {
       name: "Rakudo",
@@ -241,9 +241,9 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1989-01-01", kind: "first" }],
     },
     {
-      influences: ["pl+Bourne-shell", "pl+Inferno"],
+      influences: ["pl+bourne-shell", "pl+inferno"],
       paradigms: ["para+imperative", "para+pipeline"],
-      people: [["person+Tom-Duff", "designer"]],
+      people: [["person+tom-duff", "designer"]],
       platforms: ["platf+cross-platform", "platf+unix", "platf+plan9"],
       typeSystems: ["tsys+weak"],
     },
@@ -252,7 +252,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Reason",
+    "pl+reason",
     "Reason",
     {
       name: "Reason",
@@ -277,23 +277,23 @@ export function define(g: PlangsGraph) {
       extensions: [".re", ".rei"],
     },
     {
-      influences: ["pl+OCaml", "pl+JavaScript"],
+      influences: ["pl+ocaml", "pl+javascript"],
       licenses: ["lic+mit"],
       paradigms: ["para+multi-paradigm", "para+functional", "para+imperative", "para+modular", "para+objects"],
-      people: [["person+Jordan-Walke", "designer"]],
+      people: [["person+jordan-walke", "designer"]],
     },
   );
 
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Rebol",
+    "pl+rebol",
     "Rebol",
     {
       name: "Rebol",
       websites: [
         { kind: "wikipedia", title: "Rebol", href: "https://en.wikipedia.org/wiki/Rebol" },
-        { kind: "wikipedia", title: "Rebol", href: "https://en.wikipedia.org/wiki/REBOL" },
+        { kind: "wikipedia", title: "REBOL", href: "https://en.wikipedia.org/wiki/REBOL" },
         { kind: "homepage", title: "www.rebol.com", href: "http://www.rebol.com" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Rebol_logo.png" }],
@@ -315,8 +315,8 @@ export function define(g: PlangsGraph) {
       extensions: [".r", ".reb"],
     },
     {
-      influenced: ["pl+Red", "pl+Lisp", "pl+Forth", "pl+Self", "pl+UCBLogo"],
-      influences: ["pl+Self", "pl+Forth", "pl+Lisp", "pl+Logo", "pl+JSON", "pl+Red"],
+      influenced: ["pl+red", "pl+lisp", "pl+forth", "pl+logo", "pl+self", "pl+ucblogo"],
+      influences: ["pl+self", "pl+forth", "pl+lisp", "pl+logo", "pl+json", "pl+red"],
       licenses: ["lic+freely-redistributable-software", "lic+apache-2"],
       paradigms: [
         "para+language-oriented",
@@ -325,7 +325,7 @@ export function define(g: PlangsGraph) {
         "para+prototypes",
         "para+imperative",
       ],
-      people: [["person+Carl-Sassenrath", "designer"]],
+      people: [["person+carl-sassenrath", "designer"]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
@@ -334,16 +334,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+REBOL",
-    "REBOL",
-    { name: "REBOL", websites: [{ kind: "wikipedia", title: "REBOL", href: "https://en.wikipedia.org/wiki/REBOL" }] },
-    { influenced: ["pl+Logo"] },
-  );
-
-  //-------------------------------------------------------------------------------
-
-  lb.define(
-    "pl+Red",
+    "pl+red",
     "Red",
     {
       name: "Red",
@@ -368,11 +359,11 @@ export function define(g: PlangsGraph) {
       extensions: [".red", ".reds"],
     },
     {
-      influenced: ["pl+Lisp", "pl+Scala", "pl+Rebol"],
-      influences: ["pl+Rebol", "pl+Lisp", "pl+Scala", "pl+Lua"],
+      influenced: ["pl+lisp", "pl+scala", "pl+rebol"],
+      influences: ["pl+rebol", "pl+lisp", "pl+scala", "pl+lua"],
       licenses: ["lic+modified-bsd", "lic+boost"],
       paradigms: ["para+multi-paradigm", "para+imperative", "para+functional", "para+symbolic"],
-      people: [["person+Nenad-Rakocevic", "designer"]],
+      people: [["person+nenad-rakocevic", "designer"]],
       platforms: ["platf+linux", "platf+windows", "platf+macos"],
     },
   );
@@ -380,7 +371,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Ring",
+    "pl+ring",
     "Ring",
     {
       name: "Ring",
@@ -414,19 +405,19 @@ export function define(g: PlangsGraph) {
       extensions: [".ring", ".rh", ".rform"],
     },
     {
-      implementations: ["pl+C"],
-      influenced: ["pl+Ruby", "pl+QML", "pl+Python"],
+      implementations: ["pl+c"],
+      influenced: ["pl+ruby", "pl+qml", "pl+python"],
       influences: [
-        "pl+Lua",
-        "pl+Python",
-        "pl+Ruby",
-        "pl+C",
-        "pl+C-Sharp",
-        "pl+BASIC",
-        "pl+QML",
-        "pl+xBase",
-        "pl+SimpleLang",
-        "pl+DragonLang",
+        "pl+lua",
+        "pl+python",
+        "pl+ruby",
+        "pl+c",
+        "pl+c-sharp",
+        "pl+basic",
+        "pl+qml",
+        "pl+xbase",
+        "pl+simplelang",
+        "pl+dragonlang",
       ],
       licenses: ["lic+mit"],
       paradigms: [
@@ -438,7 +429,7 @@ export function define(g: PlangsGraph) {
         "para+declarative",
         "para+natural-language",
       ],
-      people: [["person+Mahmoud-Samir-Fayed", "designer"]],
+      people: [["person+mahmoud-samir-fayed", "designer"]],
       platforms: ["platf+windows", "platf+linux", "platf+macos"],
       typeSystems: ["tsys+dynamic"],
     },
@@ -447,19 +438,19 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+RPython",
+    "pl+rpython",
     "RPython",
     {
       name: "RPython",
       websites: [{ kind: "wikipedia", title: "RPython", href: "https://en.wikipedia.org/wiki/PyPy#RPython" }],
     },
-    { dialects: ["pl+Python"] },
+    { dialects: ["pl+python"] },
   );
 
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Ruby",
+    "pl+ruby",
     "Ruby",
     {
       name: "Ruby",
@@ -508,66 +499,66 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: [
-        "pl+C",
-        "pl+Ruby-MRI",
-        "pl+TruffleRuby",
-        "pl+YARV",
-        "pl+Rubinius",
-        "pl+JRuby",
-        "pl+RubyMotion",
+        "pl+c",
+        "pl+ruby-mri",
+        "pl+truffleruby",
+        "pl+yarv",
+        "pl+rubinius",
+        "pl+jruby",
+        "pl+rubymotion",
         "pl+mruby",
       ],
       influenced: [
-        "pl+Ada",
-        "pl+Elixir",
-        "pl+Umple",
-        "pl+Scheme",
-        "pl+Lisp",
-        "pl+Nu",
-        "pl+Clojure",
-        "pl+Mirah",
-        "pl+Fantom",
-        "pl+Dylan",
-        "pl+Julia",
-        "pl+Crystal",
-        "pl+Eiffel",
-        "pl+Rust",
-        "pl+Dart",
-        "pl+Ring",
-        "pl+CLU",
-        "pl+Raku",
-        "pl+Groovy",
-        "pl+Python",
-        "pl+Smalltalk",
+        "pl+ada",
+        "pl+elixir",
+        "pl+umple",
+        "pl+scheme",
+        "pl+lisp",
+        "pl+nu",
+        "pl+clojure",
+        "pl+mirah",
+        "pl+fantom",
+        "pl+dylan",
+        "pl+julia",
+        "pl+crystal",
+        "pl+eiffel",
+        "pl+rust",
+        "pl+dart",
+        "pl+ring",
+        "pl+clu",
+        "pl+raku",
+        "pl+groovy",
+        "pl+python",
+        "pl+smalltalk",
       ],
       influences: [
-        "pl+Ada",
-        "pl+Basic",
-        "pl+C-Plus-Plus",
-        "pl+CLU",
-        "pl+Dylan",
-        "pl+Eiffel",
-        "pl+Lisp",
-        "pl+Lua",
-        "pl+Perl",
-        "pl+Python",
-        "pl+Smalltalk",
-        "pl+Clojure",
-        "pl+CoffeeScript",
-        "pl+Crystal",
-        "pl+D",
-        "pl+Elixir",
-        "pl+Groovy",
-        "pl+Julia",
-        "pl+Mirah",
-        "pl+Nu",
-        "pl+Ring",
-        "pl+Rust",
-        "pl+Swift",
+        "pl+ada",
+        "pl+basic",
+        "pl+c-plus-plus",
+        "pl+clu",
+        "pl+dylan",
+        "pl+eiffel",
+        "pl+lisp",
+        "pl+lua",
+        "pl+perl",
+        "pl+python",
+        "pl+smalltalk",
+        "pl+clojure",
+        "pl+coffeescript",
+        "pl+crystal",
+        "pl+d",
+        "pl+elixir",
+        "pl+groovy",
+        "pl+julia",
+        "pl+mirah",
+        "pl+nu",
+        "pl+ring",
+        "pl+rust",
+        "pl+swift",
       ],
       licenses: ["lic+ruby"],
       paradigms: ["para+multi-paradigm", "para+functional", "para+imperative", "para+objects", "para+reflective"],
-      people: [["person+Yukihiro-Matsumoto", "designer"]],
+      people: [["person+yukihiro-matsumoto", "designer"]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+strong"],
     },
@@ -576,7 +567,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Rust",
+    "pl+rust",
     "Rust",
     {
       name: "Rust",
@@ -629,53 +620,53 @@ export function define(g: PlangsGraph) {
       extensions: [".rs", ".rlib"],
     },
     {
-      dialects: ["pl+Project-Verona"],
+      dialects: ["pl+project-verona"],
       influenced: [
-        "pl+Nim",
-        "pl+Idris",
-        "pl+Standard-ML",
-        "pl+Scheme",
-        "pl+Whiley",
-        "pl+C-Plus-Plus",
-        "pl+Erlang",
-        "pl+Alef",
-        "pl+Ruby",
-        "pl+Ballerina",
-        "pl+OCaml",
-        "pl+ML",
-        "pl+Project-Verona",
-        "pl+Modula-3",
-        "pl+Newsqueak",
-        "pl+Crystal",
-        "pl+Cyclone",
-        "pl+Elm",
-        "pl+C",
-        "pl+Racket",
-        "pl+V",
-        "pl+Gleam",
-        "pl+Limbo",
-        "pl+CilkOpenCilkCilk-Plus",
+        "pl+nim",
+        "pl+idris",
+        "pl+standard-ml",
+        "pl+scheme",
+        "pl+whiley",
+        "pl+c-plus-plus",
+        "pl+erlang",
+        "pl+alef",
+        "pl+ruby",
+        "pl+ballerina",
+        "pl+ocaml",
+        "pl+ml",
+        "pl+project-verona",
+        "pl+modula-3",
+        "pl+newsqueak",
+        "pl+crystal",
+        "pl+cyclone",
+        "pl+elm",
+        "pl+c",
+        "pl+racket",
+        "pl+v",
+        "pl+gleam",
+        "pl+limbo",
+        "pl+cilkopencilkcilk-plus",
       ],
       influences: [
-        "pl+Alef",
-        "pl+C-Sharp",
-        "pl+C-Plus-Plus",
-        "pl+Cyclone",
-        "pl+Elm",
-        "pl+Erlang",
-        "pl+Haskell",
-        "pl+Limbo",
-        "pl+Newsqueak",
-        "pl+OCaml",
-        "pl+Ruby",
-        "pl+Scheme",
-        "pl+Standard-ML",
-        "pl+Swift",
-        "pl+Idris",
-        "pl+Project-Verona",
-        "pl+Spark",
-        "pl+V",
-        "pl+Zig",
+        "pl+alef",
+        "pl+c-sharp",
+        "pl+c-plus-plus",
+        "pl+cyclone",
+        "pl+elm",
+        "pl+erlang",
+        "pl+haskell",
+        "pl+limbo",
+        "pl+newsqueak",
+        "pl+ocaml",
+        "pl+ruby",
+        "pl+scheme",
+        "pl+standard-ml",
+        "pl+swift",
+        "pl+idris",
+        "pl+project-verona",
+        "pl+spark",
+        "pl+v",
+        "pl+zig",
       ],
       licenses: ["lic+mit", "lic+apache-2"],
       paradigms: ["para+concurrent", "para+functional", "para+generic", "para+imperative", "para+structured"],

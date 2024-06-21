@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Zig",
+    "pl+zig",
     "Zig",
     {
       name: "Zig",
@@ -31,10 +31,10 @@ export function define(g: PlangsGraph) {
       extensions: [".zig", ".zir"],
     },
     {
-      influenced: ["pl+Rust", "pl+C"],
+      influenced: ["pl+rust", "pl+c"],
       licenses: ["lic+mit"],
       paradigms: ["para+multi-paradigm", "para+imperative", "para+concurrent", "para+functional"],
-      people: [["person+Andrew-Kelley", "designer"]],
+      people: [["person+andrew-kelley", "designer"]],
       platforms: [
         "platf+x86-64",
         "platf+aarch64",

@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Ballerina",
+    "pl+ballerina",
     "Ballerina",
     {
       name: "Ballerina",
@@ -41,12 +41,12 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "2017-01-01", kind: "first" }],
     },
     {
-      influences: ["pl+Java", "pl+Javascript", "pl+Go", "pl+Rust", "pl+C-Sharp"],
+      influences: ["pl+java", "pl+javascript", "pl+go", "pl+rust", "pl+c-sharp"],
       licenses: ["lic+apache"],
       people: [
-        ["person+Sanjiva-Weerawarana", "designer"],
-        ["person+James-Clark", "designer"],
-        ["person+Frank-Leymann", "designer"],
+        ["person+sanjiva-weerawarana", "designer"],
+        ["person+james-clark", "designer"],
+        ["person+frank-leymann", "designer"],
       ],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+structural", "tsys+strong", "tsys+static", "tsys+inferred"],
@@ -56,7 +56,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Bash",
+    "pl+bash",
     "Bash",
     {
       name: "Bash",
@@ -73,7 +73,7 @@ export function define(g: PlangsGraph) {
     },
     {
       licenses: ["lic+gpl-3", "lic+gpl-2", "lic+gpl-1"],
-      people: [["person+Chet-Ramey", "designer"]],
+      people: [["person+chet-ramey", "designer"]],
       platforms: ["platf+gnu"],
     },
   );
@@ -81,7 +81,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+BASIC",
+    "pl+basic",
     "BASIC",
     {
       name: "BASIC",
@@ -95,52 +95,53 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1964-05-01", kind: "first" }],
     },
     {
-      dialects: ["pl+Atari-BASIC", "pl+Vilnius-Basic", "pl+Open-Programming-Language-(OPL)"],
+      dialects: ["pl+atari-basic", "pl+vilnius-basic", "pl+open-programming-language-(opl)"],
       implementations: [
-        "pl+Dartmouth-BASIC",
-        "pl+Tiny-BASIC",
-        "pl+Applesoft-BASIC",
-        "pl+Atari-BASIC",
-        "pl+Sinclair-BASIC",
-        "pl+Commodore-BASIC",
-        "pl+BBC-BASIC",
-        "pl+TI-BASIC",
-        "pl+Casio-BASIC",
-        "pl+Microsoft-BASIC",
-        "pl+QB64",
-        "pl+FreeBASIC",
-        "pl+Liberty-BASIC",
-        "pl+PowerBASIC",
-        "pl+QuickBASIC",
+        "pl+dartmouth-basic",
+        "pl+tiny-basic",
+        "pl+applesoft-basic",
+        "pl+atari-basic",
+        "pl+sinclair-basic",
+        "pl+commodore-basic",
+        "pl+bbc-basic",
+        "pl+ti-basic",
+        "pl+casio-basic",
+        "pl+microsoft-basic",
+        "pl+qb64",
+        "pl+freebasic",
+        "pl+liberty-basic",
+        "pl+powerbasic",
+        "pl+quickbasic",
       ],
       influenced: [
-        "pl+COMAL",
-        "pl+AutoIt",
-        "pl+Fortran",
-        "pl+Ezhil",
-        "pl+DIBOL",
+        "pl+comal",
+        "pl+autoit",
+        "pl+fortran",
+        "pl+ruby",
+        "pl+ezhil",
+        "pl+dibol",
         "pl+bs",
-        "pl+Visual-Basic",
-        "pl+Euphoria",
-        "pl+Speedcoding",
-        "pl+Ring",
-        "pl+Perl",
-        "pl+D-programming-language",
+        "pl+visual-basic",
+        "pl+euphoria",
+        "pl+speedcoding",
+        "pl+ring",
+        "pl+perl",
+        "pl+d-programming-language",
       ],
       influences: [
-        "pl+ALGOL-60",
-        "pl+FORTRAN-II",
-        "pl+JOSS",
-        "pl+COMAL",
-        "pl+Visual-Basic",
-        "pl+Visual-Basic-.NET",
-        "pl+GRASS",
-        "pl+Xojo",
+        "pl+algol-60",
+        "pl+fortran-ii",
+        "pl+joss",
+        "pl+comal",
+        "pl+visual-basic",
+        "pl+visual-basic-.net",
+        "pl+grass",
+        "pl+xojo",
       ],
       paradigms: ["para+non-structured", "para+imperative", "para+objects"],
       people: [
-        ["person+John-G-Kemeny", "designer"],
-        ["person+Thomas-E-Kurtz", "designer"],
+        ["person+john-g-kemeny", "designer"],
+        ["person+thomas-e-kurtz", "designer"],
       ],
     },
   );
@@ -148,16 +149,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Basic",
-    "Basic",
-    { name: "Basic", websites: [{ kind: "wikipedia", title: "Basic", href: "https://en.wikipedia.org/wiki/BASIC" }] },
-    { influenced: ["pl+Ruby"] },
-  );
-
-  //-------------------------------------------------------------------------------
-
-  lb.define(
-    "pl+Blockly",
+    "pl+blockly",
     "Blockly",
     {
       name: "Blockly",
@@ -190,7 +182,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Boomerang",
+    "pl+boomerang",
     "Boomerang",
     {
       name: "Boomerang",
@@ -208,10 +200,10 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influences: ["pl+OCaml", "pl+XSLT"],
+      influences: ["pl+ocaml", "pl+xslt"],
       people: [
-        ["person+Nate-Foster", "designer"],
-        ["person+Benjamin-C-Pierce", "designer"],
+        ["person+nate-foster", "designer"],
+        ["person+benjamin-c-pierce", "designer"],
       ],
       platforms: ["platf+linux", "platf+macos"],
     },
@@ -220,7 +212,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Bosque",
+    "pl+bosque",
     "Bosque",
     {
       name: "Bosque",
@@ -248,17 +240,17 @@ export function define(g: PlangsGraph) {
       extensions: [".bsq"],
     },
     {
-      influences: ["pl+JavaScript", "pl+TypeScript", "pl+ML"],
+      influences: ["pl+javascript", "pl+typescript", "pl+ml"],
       licenses: ["lic+mit"],
       paradigms: ["para+multi-paradigm", "para+functional", "para+typed-language"],
-      people: [["person+Mark-Marron", "designer"]],
+      people: [["person+mark-marron", "designer"]],
     },
   );
 
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Bourne-shell",
+    "pl+bourne-shell",
     "Bourne shell",
     {
       name: "Bourne shell",
@@ -277,7 +269,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Brainfuck",
+    "pl+brainfuck",
     "Brainfuck",
     {
       name: "Brainfuck",
@@ -286,11 +278,11 @@ export function define(g: PlangsGraph) {
       extensions: [".b", ".bf"],
     },
     {
-      dialects: ["pl+P--"],
-      influenced: ["pl+P--", "pl+Malbolge"],
-      influences: ["pl+P--", "pl+FALSE", "pl+Malbolge"],
+      dialects: ["pl+p--"],
+      influenced: ["pl+p--", "pl+malbolge"],
+      influences: ["pl+p--", "pl+false", "pl+malbolge"],
       paradigms: ["para+esoteric", "para+imperative", "para+structured"],
-      people: [["person+Urban-Muller", "designer"]],
+      people: [["person+urban-muller", "designer"]],
     },
   );
 }

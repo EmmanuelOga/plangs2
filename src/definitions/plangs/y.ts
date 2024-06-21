@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+YAP-Prolog",
+    "pl+yap-prolog",
     "YAP Prolog",
     {
       name: "YAP Prolog",

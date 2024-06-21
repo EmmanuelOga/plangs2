@@ -29,15 +29,15 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("platf+zx_spectrum", "ZX Spectrum, +, 128, +2, +3", [
-    { kind: "wikipedia", title: "ZX Spectrum, +, 128, +2, +3", href: "https://en.wikipedia.org/wiki/ZX_Spectrum" },
-  ]);
-
-  //-------------------------------------------------------------------------------
-
   lb.define("platf+zx80", "ZX80", [{ kind: "wikipedia", title: "ZX80", href: "https://en.wikipedia.org/wiki/ZX80" }]);
 
   //-------------------------------------------------------------------------------
 
   lb.define("platf+zx81", "ZX81", [{ kind: "wikipedia", title: "ZX81", href: "https://en.wikipedia.org/wiki/ZX81" }]);
+
+  //-------------------------------------------------------------------------------
+
+  lb.define("platf+zx_spectrum", "ZX Spectrum, +, 128, +2, +3", [
+    { kind: "wikipedia", title: "ZX Spectrum, +, 128, +2, +3", href: "https://en.wikipedia.org/wiki/ZX_Spectrum" },
+  ]);
 }

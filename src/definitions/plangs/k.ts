@@ -6,10 +6,10 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+K",
-    "K",
+    "pl+k",
+    "k",
     {
-      name: "K",
+      name: "k",
       websites: [
         { kind: "wikipedia", title: "K", href: "https://en.wikipedia.org/wiki/K_(programming_language)" },
         { kind: "homepage", title: "kx.com", href: "http://kx.com" },
@@ -17,10 +17,10 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1993-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+A-Plus", "pl+APL"],
-      influences: ["pl+A-Plus", "pl+APL", "pl+Scheme", "pl+Q"],
+      influenced: ["pl+a-plus", "pl+apl", "pl+q"],
+      influences: ["pl+a-plus", "pl+apl", "pl+scheme", "pl+q"],
       paradigms: ["para+array", "para+functional"],
-      people: [["person+Arthur-Whitney", "designer"]],
+      people: [["person+arthur-whitney", "designer"]],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );
@@ -28,31 +28,19 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+k",
-    "k",
-    {
-      name: "k",
-      websites: [{ kind: "wikipedia", title: "k", href: "https://en.wikipedia.org/wiki/K_(programming_language)" }],
-    },
-    { influenced: ["pl+q"] },
-  );
-
-  //-------------------------------------------------------------------------------
-
-  lb.define(
-    "pl+Korn-Shell",
+    "pl+korn-shell",
     "Korn Shell",
     {
       name: "Korn Shell",
       websites: [{ kind: "wikipedia", title: "Korn Shell", href: "https://en.wikipedia.org/wiki/Korn_Shell" }],
     },
-    { influenced: ["pl+AWK"] },
+    { influenced: ["pl+awk"] },
   );
 
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Kotlin",
+    "pl+kotlin",
     "Kotlin",
     {
       name: "Kotlin",
@@ -76,18 +64,18 @@ export function define(g: PlangsGraph) {
       extensions: [".kt", ".kts", ".kexe", ".klib"],
     },
     {
-      influenced: ["pl+Java", "pl+ML", "pl+Scala", "pl+Gosu", "pl+V", "pl+Groovy"],
+      influenced: ["pl+java", "pl+ml", "pl+scala", "pl+gosu", "pl+v", "pl+groovy"],
       influences: [
-        "pl+C-Sharp",
-        "pl+Eiffel",
-        "pl+Gosu",
-        "pl+Groovy",
-        "pl+Java",
-        "pl+JavaScript",
-        "pl+ML",
-        "pl+Python",
-        "pl+Scala",
-        "pl+V-(Vlang)",
+        "pl+c-sharp",
+        "pl+eiffel",
+        "pl+gosu",
+        "pl+groovy",
+        "pl+java",
+        "pl+javascript",
+        "pl+ml",
+        "pl+python",
+        "pl+scala",
+        "pl+v-(vlang)",
       ],
       licenses: ["lic+apache-2"],
       paradigms: [

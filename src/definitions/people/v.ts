@@ -5,59 +5,59 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+V-Olyunin", "V. Olyunin", []);
+  lb.define("person+v-olyunin", "V. Olyunin", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Vagabondo-Enterprises", "Vagabondo Enterprises", []);
+  lb.define("person+vagabondo-enterprises", "Vagabondo Enterprises", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Valentin-Turchin", "Valentin Turchin", [
+  lb.define("person+valentin-turchin", "Valentin Turchin", [
     { title: "Valentin Turchin", href: "https://en.wikipedia.org/wiki/Valentin_Turchin", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+van-Wijngaarden", "van Wijngaarden", [
+  lb.define("person+van-wijngaarden", "van Wijngaarden", [
     { title: "van Wijngaarden", href: "https://en.wikipedia.org/wiki/Adriaan_van_Wijngaarden", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Vassili-Bykov", "Vassili Bykov", []);
+  lb.define("person+vassili-bykov", "Vassili Bykov", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Victor-Glushkov", "Victor Glushkov", [
+  lb.define("person+victor-glushkov", "Victor Glushkov", [
     { title: "Victor Glushkov", href: "https://en.wikipedia.org/wiki/Victor_Glushkov", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Victor-Yngve", "Victor Yngve", [
+  lb.define("person+victor-yngve", "Victor Yngve", [
     { title: "Victor Yngve", href: "https://en.wikipedia.org/wiki/Victor_Yngve", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Vijay-Mital", "Vijay Mital", []);
+  lb.define("person+vijay-mital", "Vijay Mital", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Vijay-Saraswat", "Vijay Saraswat", []);
+  lb.define("person+vijay-saraswat", "Vijay Saraswat", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Viktor-Szakats", "Viktor Szakáts", []);
+  lb.define("person+viktor-szakats", "Viktor Szakáts", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Viral-B-Shah", "Viral B. Shah", [
+  lb.define("person+viral-b-shah", "Viral B. Shah", [
     { title: "Viral B. Shah", href: "https://en.wikipedia.org/wiki/Viral_B._Shah", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Vivek-Sarkar", "Vivek Sarkar", []);
+  lb.define("person+vivek-sarkar", "Vivek Sarkar", []);
 }

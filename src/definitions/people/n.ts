@@ -5,17 +5,17 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Nate-Foster", "Nate Foster", []);
+  lb.define("person+nate-foster", "Nate Foster", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+National-Instruments", "National Instruments", [
+  lb.define("person+national-instruments", "National Instruments", [
     { title: "National Instruments", href: "https://en.wikipedia.org/wiki/National_Instruments", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+National-Security-Agency", "National Security Agency", [
+  lb.define("person+national-security-agency", "National Security Agency", [
     {
       title: "National Security Agency",
       href: "https://en.wikipedia.org/wiki/National_Security_Agency",
@@ -25,49 +25,49 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Naughty-Dog", "Naughty Dog", [
+  lb.define("person+naughty-dog", "Naughty Dog", [
     { title: "Naughty Dog", href: "https://en.wikipedia.org/wiki/Naughty_Dog", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Neil-Pappalardo", "Neil Pappalardo", [
+  lb.define("person+neil-pappalardo", "Neil Pappalardo", [
     { title: "Neil Pappalardo", href: "https://en.wikipedia.org/wiki/Neil_Pappalardo", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Nenad-Rakocevic", "Nenad Rakočević", []);
+  lb.define("person+nenad-rakocevic", "Nenad Rakočević", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Nevil-Brownlee", "Nevil Brownlee", []);
+  lb.define("person+nevil-brownlee", "Nevil Brownlee", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Nick-Sieger", "Nick Sieger", []);
+  lb.define("person+nick-sieger", "Nick Sieger", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Nicolas-Cannasse", "Nicolas Cannasse", []);
+  lb.define("person+nicolas-cannasse", "Nicolas Cannasse", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Nikhil-Swamy", "Nikhil Swamy", []);
+  lb.define("person+nikhil-swamy", "Nikhil Swamy", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Niklaus-Wirth", "Niklaus Wirth", [
+  lb.define("person+niklaus-wirth", "Niklaus Wirth", [
     { title: "Niklaus Wirth", href: "https://en.wikipedia.org/wiki/Niklaus_Wirth", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Norman-I-Adams", "Norman I. Adams", []);
+  lb.define("person+norman-i-adams", "Norman I. Adams", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Norsk-Data", "Norsk Data", [
+  lb.define("person+norsk-data", "Norsk Data", [
     { title: "Norsk Data", href: "https://en.wikipedia.org/wiki/Norsk_Data", kind: "wikipedia" },
   ]);
 }

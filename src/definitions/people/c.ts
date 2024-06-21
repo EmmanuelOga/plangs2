@@ -5,63 +5,63 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+C-H-A-Koster", "C. H. A. Koster", [
+  lb.define("person+c-h-a-koster", "C. H. A. Koster", [
     { title: "C. H. A. Koster", href: "https://en.wikipedia.org/wiki/Cornelis_H._A._Koster", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Calerga-Sarl", "Calerga Sarl", []);
+  lb.define("person+calerga-sarl", "Calerga Sarl", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Calvin-Mooers", "Calvin Mooers", [
+  lb.define("person+calvin-mooers", "Calvin Mooers", [
     { title: "Calvin Mooers", href: "https://en.wikipedia.org/wiki/Calvin_Mooers", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Carl-Gundel", "Carl Gundel", []);
+  lb.define("person+carl-gundel", "Carl Gundel", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Carl-Hewitt", "Carl Hewitt", [
+  lb.define("person+carl-hewitt", "Carl Hewitt", [
     { title: "Carl Hewitt", href: "https://en.wikipedia.org/wiki/Carl_Hewitt", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Carl-Laird", "Carl Laird", []);
+  lb.define("person+carl-laird", "Carl Laird", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Carl-Sassenrath", "Carl Sassenrath", [
+  lb.define("person+carl-sassenrath", "Carl Sassenrath", [
     { title: "Carl Sassenrath", href: "https://en.wikipedia.org/wiki/Carl_Sassenrath", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Casey-Reas", "Casey Reas", [
+  lb.define("person+casey-reas", "Casey Reas", [
     { title: "Casey Reas", href: "https://en.wikipedia.org/wiki/Casey_Reas", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Cecil-Wayne-Ratliff", "Cecil Wayne Ratliff", [
+  lb.define("person+cecil-wayne-ratliff", "Cecil Wayne Ratliff", [
     { title: "Cecil Wayne Ratliff", href: "https://en.wikipedia.org/wiki/C._Wayne_Ratliff", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Cedric-Champeau", "Cedric Champeau", []);
+  lb.define("person+cedric-champeau", "Cedric Champeau", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Cedric-Fournet", "Cédric Fournet", []);
+  lb.define("person+cedric-fournet", "Cédric Fournet", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Centrum-Wiskunde", "Centrum Wiskunde", [
+  lb.define("person+centrum-wiskunde", "Centrum Wiskunde", [
     {
       title: "Centrum Wiskunde & Informatica",
       href: "https://en.wikipedia.org/wiki/Centrum_Wiskunde_%26_Informatica",
@@ -71,131 +71,131 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+CHA-Koster", "C.H.A. Koster", [
+  lb.define("person+cha-koster", "C.H.A. Koster", [
     { title: "C.H.A. Koster", href: "https://en.wikipedia.org/wiki/Cornelis_H._A._Koster", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Charles-Esterbrook", "Charles Esterbrook", []);
+  lb.define("person+charles-esterbrook", "Charles Esterbrook", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Charles-H-Lindsey", "Charles H. Lindsey", [
+  lb.define("person+charles-h-lindsey", "Charles H. Lindsey", [
     { title: "Charles H. Lindsey", href: "https://en.wikipedia.org/wiki/Charles_H._Lindsey", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Charles-H-Moore", "Charles H. Moore", [
+  lb.define("person+charles-h-moore", "Charles H. Moore", [
     { title: "Charles H. Moore", href: "https://en.wikipedia.org/wiki/Charles_H._Moore", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Charles-Katz", "Charles Katz", [
+  lb.define("person+charles-katz", "Charles Katz", [
     { title: "Charles Katz", href: "https://en.wikipedia.org/wiki/Charles_Katz", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Charles-Oliver-Nutter", "Charles Oliver Nutter", []);
+  lb.define("person+charles-oliver-nutter", "Charles Oliver Nutter", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Chet-Ramey", "Chet Ramey", []);
+  lb.define("person+chet-ramey", "Chet Ramey", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Chris-Lattner", "Chris Lattner", [
+  lb.define("person+chris-lattner", "Chris Lattner", [
     { title: "Chris Lattner", href: "https://en.wikipedia.org/wiki/Chris_Lattner", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Chris-Pressey", "Chris Pressey", []);
+  lb.define("person+chris-pressey", "Chris Pressey", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Christian-Jullien", "Christian Jullien", []);
+  lb.define("person+christian-jullien", "Christian Jullien", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Christopher-Lutz", "Christopher Lutz", []);
+  lb.define("person+christopher-lutz", "Christopher Lutz", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Christopher-Strachey", "Christopher Strachey", [
+  lb.define("person+christopher-strachey", "Christopher Strachey", [
     { title: "Christopher Strachey", href: "https://en.wikipedia.org/wiki/Christopher_Strachey", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Chuck-Geschke", "Chuck Geschke", [
+  lb.define("person+chuck-geschke", "Chuck Geschke", [
     { title: "Chuck Geschke", href: "https://en.wikipedia.org/wiki/Chuck_Geschke", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Clarion-International", "Clarion International", []);
+  lb.define("person+clarion-international", "Clarion International", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Clemens-Grelck", "Clemens Grelck", []);
+  lb.define("person+clemens-grelck", "Clemens Grelck", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Cleve-Moler", "Cleve Moler", [
+  lb.define("person+cleve-moler", "Cleve Moler", [
     { title: "Cleve Moler", href: "https://en.wikipedia.org/wiki/Cleve_Moler", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Cliff-Shaw", "Cliff Shaw", [
+  lb.define("person+cliff-shaw", "Cliff Shaw", [
     { title: "Cliff Shaw", href: "https://en.wikipedia.org/wiki/Cliff_Shaw", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Clint-Jeffery", "Clint Jeffery", []);
+  lb.define("person+clint-jeffery", "Clint Jeffery", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Clozure-Associates", "Clozure Associates", []);
+  lb.define("person+clozure-associates", "Clozure Associates", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Cobra-Language-LLC", "Cobra Language LLC", []);
+  lb.define("person+cobra-language-llc", "Cobra Language LLC", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Colly-Myers", "Colly Myers", []);
+  lb.define("person+colly-myers", "Colly Myers", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Conor-McBride", "Conor McBride", [
+  lb.define("person+conor-mcbride", "Conor McBride", [
     { title: "Conor McBride", href: "https://en.wikipedia.org/wiki/Conor_McBride", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Corrado-Bohm", "Corrado Böhm", [
+  lb.define("person+corrado-bohm", "Corrado Böhm", [
     { title: "Corrado Böhm", href: "https://en.wikipedia.org/wiki/Corrado_B%C3%B6hm", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Cosmin-Oancea", "Cosmin Oancea", []);
+  lb.define("person+cosmin-oancea", "Cosmin Oancea", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Craig-Chambers", "Craig Chambers", [
+  lb.define("person+craig-chambers", "Craig Chambers", [
     { title: "Craig Chambers", href: "https://en.wikipedia.org/wiki/Craig_Chambers", kind: "wikipedia" },
   ]);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Cynthia-Solomon", "Cynthia Solomon", [
+  lb.define("person+cynthia-solomon", "Cynthia Solomon", [
     { title: "Cynthia Solomon", href: "https://en.wikipedia.org/wiki/Cynthia_Solomon", kind: "wikipedia" },
   ]);
 }

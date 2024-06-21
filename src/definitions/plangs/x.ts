@@ -6,16 +6,16 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+XAML",
+    "pl+xaml",
     "XAML",
     { name: "XAML", websites: [{ kind: "wikipedia", title: "XAML", href: "https://en.wikipedia.org/wiki/XAML" }] },
-    { influenced: ["pl+QML"] },
+    { influenced: ["pl+qml"] },
   );
 
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+XOD",
+    "pl+xod",
     "XOD",
     {
       name: "XOD",
@@ -38,7 +38,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Xojo",
+    "pl+xojo",
     "Xojo",
     {
       name: "Xojo",
@@ -50,22 +50,22 @@ export function define(g: PlangsGraph) {
       references: { stable_release: [{ href: "https://www.xojo.com/download/", title: "Xojo: Downloads" }] },
       releases: [{ version: "3.1", date: "2023-10-25", kind: "stable" }],
     },
-    { influenced: ["pl+Visual-Basic", "pl+BASIC"], licenses: ["lic+freemium"] },
+    { influenced: ["pl+visual-basic", "pl+basic"], licenses: ["lic+freemium"] },
   );
 
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+XPath",
+    "pl+xpath",
     "XPath",
     { name: "XPath", websites: [{ kind: "wikipedia", title: "XPath", href: "https://en.wikipedia.org/wiki/XPath" }] },
-    { influenced: ["pl+XQuery"] },
+    { influenced: ["pl+xquery"] },
   );
 
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+XQuery",
+    "pl+xquery",
     "XQuery",
     {
       name: "XQuery",
@@ -90,7 +90,7 @@ export function define(g: PlangsGraph) {
       extensions: [".xq", ".xql", ".xqm", ".xqy", ".xquery"],
     },
     {
-      influences: ["pl+XPath", "pl+SQL", "pl+XSLT"],
+      influences: ["pl+xpath", "pl+sql", "pl+xslt"],
       paradigms: ["para+declarative", "para+functional", "para+modular"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
@@ -100,7 +100,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+XSB",
+    "pl+xsb",
     "XSB",
     {
       name: "XSB",
@@ -112,12 +112,12 @@ export function define(g: PlangsGraph) {
       extensions: [".P"],
     },
     {
-      influences: ["pl+Prolog"],
+      influences: ["pl+prolog"],
       paradigms: ["para+logic"],
       people: [
-        ["person+David-S-Warren", "designer"],
-        ["person+Terrance-Swift", "designer"],
-        ["person+Kostis-Sagonas", "designer"],
+        ["person+david-s-warren", "designer"],
+        ["person+terrance-swift", "designer"],
+        ["person+kostis-sagonas", "designer"],
       ],
       platforms: ["platf+cross-platform"],
     },
@@ -126,7 +126,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+XSLT",
+    "pl+xslt",
     "XSLT",
     {
       name: "XSLT",
@@ -141,9 +141,9 @@ export function define(g: PlangsGraph) {
       extensions: [".xslt"],
     },
     {
-      implementations: ["pl+libxslt", "pl+Saxon", "pl+Xalan"],
-      influenced: ["pl+Boomerang", "pl+XQuery"],
-      influences: ["pl+DSSSL"],
+      implementations: ["pl+libxslt", "pl+saxon", "pl+xalan"],
+      influenced: ["pl+boomerang", "pl+xquery"],
+      influences: ["pl+dsssl"],
       paradigms: ["para+declarative"],
     },
   );
@@ -151,7 +151,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Xtend",
+    "pl+xtend",
     "Xtend",
     {
       name: "Xtend",
@@ -169,12 +169,12 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influences: ["pl+Java", "pl+Scala", "pl+Groovy", "pl+Smalltalk"],
+      influences: ["pl+java", "pl+scala", "pl+groovy", "pl+smalltalk"],
       licenses: ["lic+eclipse-public"],
       paradigms: ["para+objects", "para+imperative", "para+functional"],
       people: [
-        ["person+Sven-Efftinge", "designer"],
-        ["person+Sebastian-Zarnekow", "designer"],
+        ["person+sven-efftinge", "designer"],
+        ["person+sebastian-zarnekow", "designer"],
       ],
       platforms: ["platf+jvm", "platf+cross-platform"],
       typeSystems: ["tsys+static", "tsys+strong", "tsys+inferred"],

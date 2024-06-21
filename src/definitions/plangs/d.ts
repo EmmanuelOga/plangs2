@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Dart",
+    "pl+dart",
     "Dart",
     {
       name: "Dart",
@@ -50,23 +50,23 @@ export function define(g: PlangsGraph) {
       extensions: [".dart"],
     },
     {
-      implementations: ["pl+Flutter"],
-      influenced: ["pl+Erlang", "pl+JavaScript", "pl+Smalltalk"],
+      implementations: ["pl+flutter"],
+      influenced: ["pl+erlang", "pl+javascript", "pl+smalltalk"],
       influences: [
-        "pl+C",
-        "pl+C-Plus-Plus",
-        "pl+C-Sharp",
-        "pl+Erlang",
-        "pl+Java",
-        "pl+JavaScript",
-        "pl+Ruby",
-        "pl+Smalltalk",
-        "pl+Strongtalk",
-        "pl+TypeScript",
+        "pl+c",
+        "pl+c-plus-plus",
+        "pl+c-sharp",
+        "pl+erlang",
+        "pl+java",
+        "pl+javascript",
+        "pl+ruby",
+        "pl+smalltalk",
+        "pl+strongtalk",
+        "pl+typescript",
       ],
       licenses: ["lic+bsd"],
       paradigms: ["para+multi-paradigm", "para+functional", "para+imperative", "para+objects", "para+reflective"],
-      people: [["person+Lars-Bak", "designer"]],
+      people: [["person+lars-bak", "designer"]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+optional", "tsys+inferred", "tsys+static", "tsys+strong"],
     },
@@ -75,7 +75,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+DataFlex",
+    "pl+dataflex",
     "DataFlex",
     {
       name: "DataFlex",
@@ -111,14 +111,14 @@ export function define(g: PlangsGraph) {
     },
     {
       licenses: ["lic+commercial", "lic+proprietary-software"],
-      people: [["person+Data-Access-Worldwide", "designer"]],
+      people: [["person+data-access-worldwide", "designer"]],
     },
   );
 
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Datalog",
+    "pl+datalog",
     "Datalog",
     {
       name: "Datalog",
@@ -126,8 +126,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1977-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+SQL-(Structured-Query-Language)", "pl+Prolog"],
-      influences: ["pl+Prolog", "pl+SQL"],
+      influenced: ["pl+sql-(structured-query-language)", "pl+prolog"],
+      influences: ["pl+prolog", "pl+sql"],
       paradigms: ["para+logic", "para+declarative"],
       typeSystems: ["tsys+weak"],
     },
@@ -136,7 +136,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Delphi",
+    "pl+delphi",
     "Delphi",
     {
       name: "Delphi",
@@ -174,8 +174,8 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      dialects: ["pl+Object-Pascal", "pl+Pascal"],
-      influenced: ["pl+Oxygene", "pl+C-Plus-PlusBuilder"],
+      dialects: ["pl+object-pascal", "pl+pascal"],
+      influenced: ["pl+oxygene", "pl+c-plus-plusbuilder"],
       licenses: ["lic+freemium"],
     },
   );
@@ -183,7 +183,7 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define(
-    "pl+Dylan",
+    "pl+dylan",
     "Dylan",
     {
       name: "Dylan",
@@ -214,19 +214,19 @@ export function define(g: PlangsGraph) {
     },
     {
       influenced: [
-        "pl+Scheme",
-        "pl+Lisp",
-        "pl+NewtonScript",
-        "pl+Ruby",
-        "pl+Julia",
-        "pl+Lasso",
-        "pl+Common-Lisp",
-        "pl+EuLisp",
-        "pl+Oaklisp",
-        "pl+Python",
-        "pl+Smalltalk",
+        "pl+scheme",
+        "pl+lisp",
+        "pl+newtonscript",
+        "pl+ruby",
+        "pl+julia",
+        "pl+lasso",
+        "pl+common-lisp",
+        "pl+eulisp",
+        "pl+oaklisp",
+        "pl+python",
+        "pl+smalltalk",
       ],
-      influences: ["pl+CLOS", "pl+ALGOL", "pl+Scheme", "pl+EuLisp", "pl+Lasso", "pl+Python", "pl+Ruby", "pl+Julia"],
+      influences: ["pl+clos", "pl+algol", "pl+scheme", "pl+eulisp", "pl+lasso", "pl+python", "pl+ruby", "pl+julia"],
       paradigms: ["para+multi-paradigm", "para+functional", "para+objects"],
       platforms: ["platf+ia-32", "platf+x86-64", "platf+cross-platform"],
       typeSystems: ["tsys+strong", "tsys+gradual"],

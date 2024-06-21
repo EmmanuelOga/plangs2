@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+INSA-Lyon", "INSA Lyon", [
+  lb.define("person+insa-lyon", "INSA Lyon", [
     {
       title: "INSA Lyon",
       href: "https://en.wikipedia.org/wiki/Institut_national_des_sciences_appliqu%C3%A9es_de_Lyon",
@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+ITT-VIS", "ITT VIS", [
+  lb.define("person+itt-vis", "ITT VIS", [
     {
       title: "ITT Visual Information Solutions (ITT VIS)",
       href: "https://en.wikipedia.org/wiki/ITT_Visual_Information_Solutions",

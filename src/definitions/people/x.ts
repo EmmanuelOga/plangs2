@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Xavier-Leroy", "Xavier Leroy", [
+  lb.define("person+xavier-leroy", "Xavier Leroy", [
     { title: "Xavier Leroy", href: "https://en.wikipedia.org/wiki/Xavier_Leroy", kind: "wikipedia" },
   ]);
 }

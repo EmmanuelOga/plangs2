@@ -5,15 +5,15 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Object-Arts", "Object Arts", []);
+  lb.define("person+object-arts", "Object Arts", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Ola-Bini", "Ola Bini", []);
+  lb.define("person+ola-bini", "Ola Bini", []);
 
   //-------------------------------------------------------------------------------
 
-  lb.define("person+Ole-Johan-Dahl", "Ole-Johan Dahl", [
+  lb.define("person+ole-johan-dahl", "Ole-Johan Dahl", [
     { title: "Ole-Johan Dahl", href: "https://en.wikipedia.org/wiki/Ole-Johan_Dahl", kind: "wikipedia" },
   ]);
 }
