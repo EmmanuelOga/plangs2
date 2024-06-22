@@ -23,21 +23,32 @@ async function generateAll() {
 
   console.log(new Date().toISOString());
 
-  genAtoZ(g.v_license, "licenses", "license");
-  genAtoZ(g.v_paradigm, "paradigms", "paradigm");
-  genAtoZ(g.v_person, "people", "person");
-  genAtoZ(g.v_platform, "platforms", "platform");
-  genAtoZ(g.v_tsystem, "type_systems", "typeSystem");
+  const mapper = (vid: VID_Any, vertex: _T_AnyV_Data) => ({
+    vid: json(vid),
+    name: json(vertex.name),
+    data: json(vertex.websites ?? []),
+  });
+  genAtoZ(g.v_license, "licenses", "license", mapper);
+  genAtoZ(g.v_paradigm, "paradigms", "paradigm", mapper);
+  genAtoZ(g.v_person, "people", "person", mapper);
+  genAtoZ(g.v_platform, "platforms", "platform", mapper);
+  genAtoZ(g.v_tsystem, "type_systems", "typeSystem", mapper);
+
   genAtoZ(g.v_plang, "plangs", "plang", (vid: VID_Any) => plangMapper(g, vid as VID_Plang), PLANG_IDS);
 
   console.log("Finished generating definitions.");
 }
 
-function plangMapper(g: PlangsGraph, plvid: VID_Plang): { data: string; vrelations?: string } {
+function plangMapper(g: PlangsGraph, plvid: VID_Plang): AtoZData {
   const pl = g.v_plang.get(plvid);
   if (!pl || !pl.name) {
     throw new Error(`Missing plang data: ${plvid}`);
   }
+  const bundle: AtoZData = {
+    vid: json(plvid),
+    name: json(pl.name),
+    data: json(pl),
+  };
   const vrelations = {
     dialects: [...g.e_dialect_of.adjacentTo(plvid)].map(({ from }) => from),
     implementations: [...g.e_implements.adjacentTo(plvid)].map(({ from }) => from),
@@ -53,18 +64,30 @@ function plangMapper(g: PlangsGraph, plvid: VID_Plang): { data: string; vrelatio
     if (Array.isArray(val)) val.sort();
     if (key === "name" || (Array.isArray(val) && val.length === 0)) delete vrelations[key];
   }
-  if (Object.keys(vrelations).length === 0) return { data: json(pl) };
-  return { data: json(pl), vrelations: json(vrelations) };
+  if (Object.keys(vrelations).length > 0) {
+    bundle.vrelations = json(vrelations);
+  }
+  return bundle;
 }
 
 // biome-ignore lint/suspicious/noExplicitAny: let me be.
-type _T_AnyVertex = any;
+type _T_AnyV_Data = any;
+
+// a_to_z.eta template data:
+type AtoZData = {
+  vid: string; // json vertex id
+  name: string; // json vertex name
+  data: string; // json vertex data
+  vrelations?: string; // json vertex relations
+};
+
+type DataMapper = (vid: VID_Any, vertex: _T_AnyV_Data) => AtoZData;
 
 function genAtoZ(
-  vtable: VertexTable<VID_Any, _T_AnyVertex>,
+  vtable: VertexTable<VID_Any, _T_AnyV_Data>,
   basename: string,
   builderName: string,
-  mapper = (_: VID_Any, vertex: _T_AnyVertex) => ({ data: json(vertex.websites ?? []) }),
+  mapper: DataMapper,
   vidWhitelist?: Set<string>,
 ) {
   let allVids = [...vtable.keys()].map((vid) => vid).sort();
@@ -79,14 +102,14 @@ function genAtoZ(
   );
 
   for (const [prefix, vids] of Object.entries(grouped)) {
-    const data: [string, string, Record<string, string>][] = [];
+    const data: AtoZData[] = [];
     for (const vid of vids) {
       const vertex = vtable.get(vid as VID_Any);
       if (!vertex) {
         console.log("Vertex not found:", vid);
         continue;
       }
-      data.push([json(vid), json(vertex.name), mapper(vid as VID_Any, vertex)]);
+      data.push(mapper(vid as VID_Any, vertex));
     }
     const res = Templ.render("/a_to_z", { data, builderName });
     const path = alphaTsPath(basename, prefix);
