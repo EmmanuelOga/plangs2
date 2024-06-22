@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
       extensions: [".ump"],
     },
     {
-      influences: ["pl+java", "pl+c-plus-plus", "pl+uml", "pl+ruby", "pl+php"],
+      influences: ["pl+c-plus-plus", "pl+java", "pl+php", "pl+ruby", "pl+uml"],
       licenses: ["lic+mit"],
       paradigms: ["para+objects"],
       platforms: ["platf+jvm"],

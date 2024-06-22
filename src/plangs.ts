@@ -19,4 +19,4 @@ if (process.env.LOAD_GRAPH) {
   const g = new PlangsGraph();
   await loadDefinitions(g);
   console.info(new Date().toISOString(), `Loaded ${g.numVertices} vertices, ${g.numEdges} edges.`);
-} 
+}

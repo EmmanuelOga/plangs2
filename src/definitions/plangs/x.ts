@@ -30,7 +30,7 @@ export function define(g: PlangsGraph) {
     },
     {
       licenses: ["lic+gnu-affero-gpl"],
-      paradigms: ["para+declarative", "para+dataflow", "para+functional", "para+visual"],
+      paradigms: ["para+dataflow", "para+declarative", "para+functional", "para+visual"],
       platforms: ["platf+arduino", "platf+rpi"],
     },
   );
@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
       references: { stable_release: [{ href: "https://www.xojo.com/download/", title: "Xojo: Downloads" }] },
       releases: [{ version: "3.1", date: "2023-10-25", kind: "stable" }],
     },
-    { influenced: ["pl+visual-basic", "pl+basic"], licenses: ["lic+freemium"] },
+    { influenced: ["pl+basic", "pl+visual-basic"], licenses: ["lic+freemium"] },
   );
 
   //-------------------------------------------------------------------------------
@@ -90,7 +90,7 @@ export function define(g: PlangsGraph) {
       extensions: [".xq", ".xql", ".xqm", ".xqy", ".xquery"],
     },
     {
-      influences: ["pl+xpath", "pl+sql", "pl+xslt"],
+      influences: ["pl+sql", "pl+xpath", "pl+xslt"],
       paradigms: ["para+declarative", "para+functional", "para+modular"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
@@ -116,8 +116,8 @@ export function define(g: PlangsGraph) {
       paradigms: ["para+logic"],
       people: [
         ["person+david-s-warren", "designer"],
-        ["person+terrance-swift", "designer"],
         ["person+kostis-sagonas", "designer"],
+        ["person+terrance-swift", "designer"],
       ],
       platforms: ["platf+cross-platform"],
     },
@@ -169,15 +169,15 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influences: ["pl+java", "pl+scala", "pl+groovy", "pl+smalltalk"],
+      influences: ["pl+groovy", "pl+java", "pl+scala", "pl+smalltalk"],
       licenses: ["lic+eclipse-public"],
-      paradigms: ["para+objects", "para+imperative", "para+functional"],
+      paradigms: ["para+functional", "para+imperative", "para+objects"],
       people: [
-        ["person+sven-efftinge", "designer"],
         ["person+sebastian-zarnekow", "designer"],
+        ["person+sven-efftinge", "designer"],
       ],
-      platforms: ["platf+jvm", "platf+cross-platform"],
-      typeSystems: ["tsys+static", "tsys+strong", "tsys+inferred"],
+      platforms: ["platf+cross-platform", "platf+jvm"],
+      typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );
 }

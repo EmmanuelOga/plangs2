@@ -30,10 +30,10 @@ export function define(g: PlangsGraph) {
       influenced: ["pl+rust"],
       influences: ["pl+go", "pl+kotlin", "pl+oberon", "pl+python", "pl+rust", "pl+swift"],
       licenses: ["lic+mit"],
-      paradigms: ["para+multi-paradigm", "para+functional", "para+imperative", "para+structured", "para+concurrent"],
+      paradigms: ["para+concurrent", "para+functional", "para+imperative", "para+multi-paradigm", "para+structured"],
       people: [["person+alexander-medvednikov", "designer"]],
-      platforms: ["platf+x86-64", "platf+linux", "platf+macos", "platf+windows", "platf+bsd"],
-      typeSystems: ["tsys+static", "tsys+strong", "tsys+inferred"],
+      platforms: ["platf+bsd", "platf+linux", "platf+macos", "platf+windows", "platf+x86-64"],
+      typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );
 
@@ -56,17 +56,17 @@ export function define(g: PlangsGraph) {
       extensions: [".vala", ".vapi"],
     },
     {
-      influenced: ["pl+java", "pl+c", "pl+boo", "pl+d-programming-language"],
-      influences: ["pl+c", "pl+c-plus-plus", "pl+c-sharp", "pl+d", "pl+java", "pl+boo"],
+      influenced: ["pl+boo", "pl+c", "pl+d-programming-language", "pl+java"],
+      influences: ["pl+boo", "pl+c", "pl+c-plus-plus", "pl+c-sharp", "pl+d", "pl+java"],
       licenses: ["lic+lgpl-2.1-plus"],
-      paradigms: ["para+multi-paradigm", "para+imperative", "para+structured", "para+objects"],
+      paradigms: ["para+imperative", "para+multi-paradigm", "para+objects", "para+structured"],
       people: [
         ["person+jurg-billeter", "designer"],
         ["person+raffaele-sandrini", "designer"],
         ["person+rico-tzschichholz", "designer"],
       ],
       platforms: ["platf+cross-platform", "platf+glib"],
-      typeSystems: ["tsys+static", "tsys+strong", "tsys+inferred", "tsys+structural"],
+      typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"],
     },
   );
 
@@ -92,12 +92,12 @@ export function define(g: PlangsGraph) {
       extensions: [".v"],
     },
     {
-      influenced: ["pl+systemverilog", "pl+c"],
-      influences: ["pl+pascal", "pl+ada", "pl+c", "pl+fortran", "pl+systemverilog"],
+      influenced: ["pl+c", "pl+systemverilog"],
+      influences: ["pl+ada", "pl+c", "pl+fortran", "pl+pascal", "pl+systemverilog"],
       paradigms: ["para+structured"],
       people: [
-        ["person+prabhu-goel", "designer"],
         ["person+phil-moorby", "designer"],
+        ["person+prabhu-goel", "designer"],
       ],
       typeSystems: ["tsys+static", "tsys+weak"],
     },
@@ -129,13 +129,13 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+uefn", "pl+visual-studio-code"],
-      influences: ["pl+functional-logic-programming", "pl+object-oriented-programming", "pl+lambda-calculus"],
+      influences: ["pl+functional-logic-programming", "pl+lambda-calculus", "pl+object-oriented-programming"],
       paradigms: ["para+objects"],
       people: [
+        ["person+guy-steele", "designer"],
+        ["person+lennart-augustsson", "designer"],
         ["person+simon-peyton-jones", "designer"],
         ["person+tim-sweeney", "designer"],
-        ["person+lennart-augustsson", "designer"],
-        ["person+guy-steele", "designer"],
       ],
       typeSystems: ["tsys+strong"],
     },
@@ -162,9 +162,9 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+ada", "pl+systemverilog", "pl+pascal"],
+      influenced: ["pl+ada", "pl+pascal", "pl+systemverilog"],
       influences: ["pl+ada", "pl+pascal"],
-      paradigms: ["para+concurrent", "para+reactive", "para+dataflow"],
+      paradigms: ["para+concurrent", "para+dataflow", "para+reactive"],
       typeSystems: ["tsys+strong"],
     },
   );
@@ -196,22 +196,22 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+microsoft-visual-studio"],
-      influenced: ["pl+b4x", "pl+visual-basic-for-applications", "pl+gambas", "pl+basic"],
+      influenced: ["pl+b4x", "pl+basic", "pl+gambas", "pl+visual-basic-for-applications"],
       influences: [
         "pl+basic",
+        "pl+basic4android",
+        "pl+basic4ppc",
+        "pl+gambas",
         "pl+microsoft-basic",
+        "pl+ns-basic",
         "pl+qbasic",
         "pl+visual-basic-.net",
         "pl+visual-basic-for-applications",
         "pl+windows-forms",
-        "pl+gambas",
         "pl+xojo",
-        "pl+basic4ppc",
-        "pl+basic4android",
-        "pl+ns-basic",
       ],
-      paradigms: ["para+objects", "para+event-driven"],
-      platforms: ["platf+windows", "platf+dos"],
+      paradigms: ["para+event-driven", "para+objects"],
+      platforms: ["platf+dos", "platf+windows"],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
   );
@@ -227,7 +227,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Visual Basic .NET", href: "https://en.wikipedia.org/wiki/Visual_Basic_.NET" },
       ],
     },
-    { influenced: ["pl+visual-basic", "pl+microsoft-small-basic", "pl+basic"] },
+    { influenced: ["pl+basic", "pl+microsoft-small-basic", "pl+visual-basic"] },
   );
 
   //-------------------------------------------------------------------------------
@@ -254,6 +254,6 @@ export function define(g: PlangsGraph) {
         ],
       },
     },
-    { licenses: ["lic+trialware", "lic+freeware"], platforms: ["platf+ia-32", "platf+x86-64", "platf+arm"] },
+    { licenses: ["lic+freeware", "lic+trialware"], platforms: ["platf+arm", "platf+ia-32", "platf+x86-64"] },
   );
 }

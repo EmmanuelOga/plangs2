@@ -40,7 +40,7 @@ export function define(g: PlangsGraph) {
       extensions: [".idr", ".lidr"],
     },
     {
-      influenced: ["pl+ml", "pl+epigram", "pl+rust", "pl+agda", "pl+clean"],
+      influenced: ["pl+agda", "pl+clean", "pl+epigram", "pl+ml", "pl+rust"],
       influences: ["pl+agda", "pl+clean", "pl+coq", "pl+epigram", "pl+f-sharp", "pl+haskell", "pl+ml", "pl+rust"],
       licenses: ["lic+bsd"],
       paradigms: ["para+functional"],
@@ -81,13 +81,13 @@ export function define(g: PlangsGraph) {
       references: { stable_release: [{ href: "https://github.com/IoLanguage/io/releases", title: "Io Releases" }] },
     },
     {
-      influenced: ["pl+lisp", "pl+newtonscript", "pl+urbiscript", "pl+self", "pl+smalltalk"],
-      influences: ["pl+smalltalk", "pl+newtonscript", "pl+self", "pl+lua", "pl+lisp", "pl+python", "pl+act1"],
+      influenced: ["pl+lisp", "pl+newtonscript", "pl+self", "pl+smalltalk", "pl+urbiscript"],
+      influences: ["pl+act1", "pl+lisp", "pl+lua", "pl+newtonscript", "pl+python", "pl+self", "pl+smalltalk"],
       paradigms: ["para+objects", "para+prototypes"],
       people: [
-        ["person+steve-dekorte", "designer"],
-        ["person+jonathan-wright", "designer"],
         ["person+jeremy-tregunna", "designer"],
+        ["person+jonathan-wright", "designer"],
+        ["person+steve-dekorte", "designer"],
       ],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

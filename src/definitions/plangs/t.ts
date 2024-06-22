@@ -48,10 +48,10 @@ export function define(g: PlangsGraph) {
       extensions: [".tcl", ".tbc"],
     },
     {
-      influenced: ["pl+lisp", "pl+xotcl", "pl+php", "pl+awk", "pl+tea", "pl+powershell"],
+      influenced: ["pl+awk", "pl+lisp", "pl+php", "pl+powershell", "pl+tea", "pl+xotcl"],
       influences: ["pl+awk", "pl+lisp", "pl+php", "pl+powershell", "pl+tea"],
       licenses: ["lic+bsd"],
-      paradigms: ["para+multi-paradigm", "para+event-driven", "para+functional", "para+imperative", "para+objects"],
+      paradigms: ["para+event-driven", "para+functional", "para+imperative", "para+multi-paradigm", "para+objects"],
       people: [["person+john-ousterhout", "designer"]],
       typeSystems: ["tsys+dynamic"],
     },
@@ -84,7 +84,7 @@ export function define(g: PlangsGraph) {
       },
       releases: [{ version: "2.10", date: "2013-03-21", kind: "stable" }],
     },
-    { licenses: ["lic+gpl", "lic+bsds"] },
+    { licenses: ["lic+bsds", "lic+gpl"] },
   );
 
   //-------------------------------------------------------------------------------
@@ -158,19 +158,19 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+assemblyscript"],
-      influenced: ["pl+bosque", "pl+assemblyscript", "pl+arkts", "pl+javascript", "pl+dart", "pl+actionscript"],
+      influenced: ["pl+actionscript", "pl+arkts", "pl+assemblyscript", "pl+bosque", "pl+dart", "pl+javascript"],
       influences: [
+        "pl+actionscript",
+        "pl+arkts",
+        "pl+assemblyscript",
+        "pl+atscript",
         "pl+c-sharp",
         "pl+f-sharp",
         "pl+java",
         "pl+javascript",
-        "pl+actionscript",
-        "pl+atscript",
-        "pl+assemblyscript",
-        "pl+arkts",
       ],
       licenses: ["lic+apache-2"],
-      paradigms: ["para+multi-paradigm", "para+functional", "para+generic", "para+imperative", "para+objects"],
+      paradigms: ["para+functional", "para+generic", "para+imperative", "para+multi-paradigm", "para+objects"],
       typeSystems: ["tsys+duck", "tsys+gradual", "tsys+structural"],
     },
   );

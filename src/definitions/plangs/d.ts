@@ -65,10 +65,10 @@ export function define(g: PlangsGraph) {
         "pl+typescript",
       ],
       licenses: ["lic+bsd"],
-      paradigms: ["para+multi-paradigm", "para+functional", "para+imperative", "para+objects", "para+reflective"],
+      paradigms: ["para+functional", "para+imperative", "para+multi-paradigm", "para+objects", "para+reflective"],
       people: [["person+lars-bak", "designer"]],
       platforms: ["platf+cross-platform"],
-      typeSystems: ["tsys+optional", "tsys+inferred", "tsys+static", "tsys+strong"],
+      typeSystems: ["tsys+inferred", "tsys+optional", "tsys+static", "tsys+strong"],
     },
   );
 
@@ -126,9 +126,9 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1977-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+sql-(structured-query-language)", "pl+prolog"],
+      influenced: ["pl+prolog", "pl+sql-(structured-query-language)"],
       influences: ["pl+prolog", "pl+sql"],
-      paradigms: ["para+logic", "para+declarative"],
+      paradigms: ["para+declarative", "para+logic"],
       typeSystems: ["tsys+weak"],
     },
   );
@@ -175,7 +175,7 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+object-pascal", "pl+pascal"],
-      influenced: ["pl+oxygene", "pl+c-plus-plusbuilder"],
+      influenced: ["pl+c-plus-plusbuilder", "pl+oxygene"],
       licenses: ["lic+freemium"],
     },
   );
@@ -214,22 +214,22 @@ export function define(g: PlangsGraph) {
     },
     {
       influenced: [
-        "pl+scheme",
-        "pl+lisp",
-        "pl+newtonscript",
-        "pl+ruby",
-        "pl+julia",
-        "pl+lasso",
         "pl+common-lisp",
         "pl+eulisp",
+        "pl+julia",
+        "pl+lasso",
+        "pl+lisp",
+        "pl+newtonscript",
         "pl+oaklisp",
         "pl+python",
+        "pl+ruby",
+        "pl+scheme",
         "pl+smalltalk",
       ],
-      influences: ["pl+clos", "pl+algol", "pl+scheme", "pl+eulisp", "pl+lasso", "pl+python", "pl+ruby", "pl+julia"],
-      paradigms: ["para+multi-paradigm", "para+functional", "para+objects"],
-      platforms: ["platf+ia-32", "platf+x86-64", "platf+cross-platform"],
-      typeSystems: ["tsys+strong", "tsys+gradual"],
+      influences: ["pl+algol", "pl+clos", "pl+eulisp", "pl+julia", "pl+lasso", "pl+python", "pl+ruby", "pl+scheme"],
+      paradigms: ["para+functional", "para+multi-paradigm", "para+objects"],
+      platforms: ["platf+cross-platform", "platf+ia-32", "platf+x86-64"],
+      typeSystems: ["tsys+gradual", "tsys+strong"],
     },
   );
 }

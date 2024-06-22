@@ -21,11 +21,11 @@ export function define(g: PlangsGraph) {
     },
     {
       influenced: ["pl+ceylon"],
-      influences: ["pl+java", "pl+c", "pl+python", "pl+rust"],
+      influences: ["pl+c", "pl+java", "pl+python", "pl+rust"],
       licenses: ["lic+bsd"],
-      paradigms: ["para+imperative", "para+functional"],
+      paradigms: ["para+functional", "para+imperative"],
       people: [["person+david-j-pearce", "designer"]],
-      typeSystems: ["tsys+strong", "tsys+safe", "tsys+structural", "tsys+flow-sensitive"],
+      typeSystems: ["tsys+flow-sensitive", "tsys+safe", "tsys+strong", "tsys+structural"],
     },
   );
 }

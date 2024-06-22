@@ -50,6 +50,7 @@ function plangMapper(g: PlangsGraph, plvid: VID_Plang): { data: string; vrelatio
     typeSystems: [...g.e_plang_tsys.adjacentFrom(plvid)].map(({ to }) => to),
   };
   for (const [key, val] of Object.entries(vrelations)) {
+    if (Array.isArray(val)) val.sort();
     if (key === "name" || (Array.isArray(val) && val.length === 0)) delete vrelations[key];
   }
   if (Object.keys(vrelations).length === 0) return { data: json(pl) };

@@ -33,8 +33,8 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+pure", "pl+k"],
-      influences: ["pl+a-plus", "pl+apl", "pl+scheme", "pl+k"],
+      influenced: ["pl+k", "pl+pure"],
+      influences: ["pl+a-plus", "pl+apl", "pl+k", "pl+scheme"],
       paradigms: ["para+array", "para+functional"],
       people: [["person+arthur-whitney", "designer"]],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
@@ -62,10 +62,10 @@ export function define(g: PlangsGraph) {
     },
     {
       influenced: ["pl+qbasic"],
-      influences: ["pl+quickbasic", "pl+qbasic"],
+      influences: ["pl+qbasic", "pl+quickbasic"],
       licenses: ["lic+mit"],
       people: [["person+rob-galleon", "designer"]],
-      platforms: ["platf+windows", "platf+linux", "platf+macos"],
+      platforms: ["platf+linux", "platf+macos", "platf+windows"],
     },
   );
 
@@ -107,8 +107,8 @@ export function define(g: PlangsGraph) {
     },
     {
       influenced: ["pl+ring"],
-      influences: ["pl+xaml", "pl+json", "pl+javascript", "pl+qt", "pl+ring"],
-      paradigms: ["para+multi-paradigm", "para+declarative", "para+reactive", "para+scripting"],
+      influences: ["pl+javascript", "pl+json", "pl+qt", "pl+ring", "pl+xaml"],
+      paradigms: ["para+declarative", "para+multi-paradigm", "para+reactive", "para+scripting"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );
