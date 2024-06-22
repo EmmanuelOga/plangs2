@@ -266,7 +266,7 @@ export function define(g: PlangsGraph) {
     {
       implementations: ["pl+c-plus-plus"],
       influences: ["pl+c-plus-plus", "pl+javascript", "pl+python"],
-      licenses: ["lic+gnu-gpl-3"],
+      licenses: ["lic+gpl-3"],
       paradigms: ["para+imperative"],
       people: [["person+gavin-wood", "designer"]],
     },

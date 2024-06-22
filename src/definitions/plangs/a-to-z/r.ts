@@ -46,7 +46,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+rakudo"],
       influenced: ["pl+smalltalk"],
       influences: ["pl+haskell", "pl+javascript", "pl+perl", "pl+ruby", "pl+smalltalk"],
-      licenses: ["lic+artistic-2", "lic+gnu-gpl"],
+      licenses: ["lic+artistic-2", "lic+gpl"],
       paradigms: ["para+multi-paradigm"],
       people: [["person+larry-wall", "designer"]],
       platforms: ["platf+cross-platform"],

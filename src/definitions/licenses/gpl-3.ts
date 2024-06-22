@@ -8,7 +8,12 @@ export function define(g: PlangsGraph) {
   lb.define("lic+gpl-3", "GPLv3", {
     websites: [
       { kind: "wikipedia", title: "GPLv3", href: "https://en.wikipedia.org/wiki/GNU_General_Public_License" },
-      { kind: "wikipedia", title: "GPLv3", href: "https://en.wikipedia.org/wiki/GNU_General_Public_License#Version_3" },
+      {
+        kind: "wikipedia",
+        title: "GNU General Public License v3.0",
+        href: "https://en.wikipedia.org/wiki/GNU_General_Public_License#Version_3",
+      },
+      { kind: "wikipedia", title: "GNU GPLv3", href: "https://en.wikipedia.org/wiki/GNU_GPLv3" },
       { kind: "wikipedia", title: "GPL 3", href: "https://en.wikipedia.org/wiki/GPL3" },
     ],
   });

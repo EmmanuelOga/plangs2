@@ -494,7 +494,8 @@ function cleanLicense(licenseId: string) {
     .replaceAll("-license", "")
     .replaceAll("-licence", "")
     .replaceAll(".0", "")
-    .replaceAll("standard-librariesd-under-the-", "");
+    .replaceAll("standard-librariesd-under-the-", "")
+    .replaceAll("gnu-gpl", "gpl");
 
   if (clean === "apsl") return "apache";
   if (clean === "epl") return "eclipse-public";
@@ -530,7 +531,6 @@ function cleanParadigm(s: string): string {
   if (name.includes("visual") || name.includes("block-")) name = "visual";
 
   name = name.replace(/\-+$/, "").replace(/\-programming$/, "");
-  name = name.replace("gnu-gpl", "gpl");
 
   if (name === "and-computing") name = "distributed";
 

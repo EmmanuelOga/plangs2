@@ -77,7 +77,7 @@ export function define(g: PlangsGraph) {
         "pl+sed",
       ],
       influences: ["pl+awk", "pl+basic", "pl+c", "pl+c-plus-plus", "pl+lisp", "pl+sed", "pl+unix-shell"],
-      licenses: ["lic+artistic", "lic+gnu-gpl"],
+      licenses: ["lic+artistic", "lic+gpl"],
       paradigms: ["para+multi-paradigm"],
       people: [["person+larry-wall", "designer"]],
       platforms: ["platf+cross-platform"],

@@ -65,7 +65,7 @@ export function define(g: PlangsGraph) {
     {
       influenced: ["pl+common-lisp", "pl+julia", "pl+lisp", "pl+pcastl", "pl+s", "pl+scheme"],
       influences: ["pl+julia", "pl+lisp", "pl+s", "pl+scheme"],
-      licenses: ["lic+gnu-gpl-2"],
+      licenses: ["lic+gpl-2"],
       paradigms: [
         "para+array",
         "para+functional",

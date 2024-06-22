@@ -76,7 +76,7 @@ export function define(g: PlangsGraph) {
         { version: "0.7.9", date: "2020-02-13", kind: "preview" },
       ],
     },
-    { licenses: ["lic+gnu-gpl-3"] },
+    { licenses: ["lic+gpl-3"] },
   );
 
   //-------------------------------------------------------------------------------
@@ -161,7 +161,7 @@ export function define(g: PlangsGraph) {
         license: [{ href: "https://www.gnu.org/licenses/gcc-exception.html", title: "GCC Runtime Library Exception" }],
       },
     },
-    { licenses: ["lic+gnu-gpl-3-plus"] },
+    { licenses: ["lic+gpl-3-plus"] },
   );
 
   //-------------------------------------------------------------------------------
@@ -274,7 +274,7 @@ export function define(g: PlangsGraph) {
       references: { developers: [{ href: "http://cri-dist.univ-paris1.fr/diaz/", title: "Daniel Diaz's Home Page" }] },
       releases: [{ version: "1.5.0", date: "2021-07-08", kind: "stable" }],
     },
-    { licenses: ["lic+gnu-gpl", "lic+gnu-lesser-gpl"], people: [["person+daniel-diaz", "designer"]] },
+    { licenses: ["lic+gnu-lesser-gpl", "lic+gpl"], people: [["person+daniel-diaz", "designer"]] },
   );
 
   //-------------------------------------------------------------------------------

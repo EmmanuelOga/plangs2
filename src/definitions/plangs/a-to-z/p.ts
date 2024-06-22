@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
       },
       releases: [{ version: "2.15.5", date: "2024-01-01", kind: "stable" }],
     },
-    { licenses: ["lic+gnu-gpl"], people: [["person+henri-cohen", "designer"]] },
+    { licenses: ["lic+gpl"], people: [["person+henri-cohen", "designer"]] },
   );
 
   //-------------------------------------------------------------------------------

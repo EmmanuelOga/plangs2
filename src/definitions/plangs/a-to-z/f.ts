@@ -296,7 +296,7 @@ export function define(g: PlangsGraph) {
     {
       influenced: ["pl+qbasic"],
       influences: ["pl+c", "pl+quickbasic"],
-      licenses: ["lic+gnu-gpl-2-plus", "lic+gnu-lgpl-2-plus"],
+      licenses: ["lic+gnu-lgpl-2-plus", "lic+gpl-2-plus"],
       paradigms: ["para+imperative", "para+objects"],
       people: [["person+andre-victor", "designer"]],
       platforms: ["platf+bsd", "platf+dos", "platf+linux", "platf+windows"],

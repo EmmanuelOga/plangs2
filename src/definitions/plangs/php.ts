@@ -86,7 +86,7 @@ export function define(g: PlangsGraph) {
         "pl+react-js",
         "pl+tcl",
       ],
-      licenses: ["lic+gnu-gpl", "lic+php", "lic+zend"],
+      licenses: ["lic+gpl", "lic+php", "lic+zend"],
       paradigms: ["para+functional", "para+imperative", "para+multi-paradigm", "para+objects", "para+reflective"],
       people: [["person+rasmus-lerdorf", "designer"]],
       platforms: ["platf+macos", "platf+openvms", "platf+unix", "platf+windows"],

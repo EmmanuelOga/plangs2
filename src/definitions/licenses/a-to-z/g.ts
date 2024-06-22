@@ -17,52 +17,6 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+gnu-gpl", "GNU GPL", {
-    websites: [
-      {
-        kind: "wikipedia",
-        title: "GNU General Public License",
-        href: "https://en.wikipedia.org/wiki/GNU_General_Public_License",
-      },
-      { kind: "wikipedia", title: "GNU GPL", href: "https://en.wikipedia.org/wiki/GNU_GPL" },
-    ],
-  });
-
-  //-------------------------------------------------------------------------------
-
-  lb.define("lic+gnu-gpl-2-plus", "GNU GPLv2+", {
-    websites: [
-      { kind: "wikipedia", title: "GNU GPLv2+", href: "https://en.wikipedia.org/wiki/GNU_General_Public_License" },
-    ],
-  });
-
-  //-------------------------------------------------------------------------------
-
-  lb.define("lic+gnu-gpl-3", "GNU GPLv3", {
-    websites: [
-      {
-        kind: "wikipedia",
-        title: "GNU General Public License v3.0",
-        href: "https://en.wikipedia.org/wiki/GNU_General_Public_License#Version_3",
-      },
-      { kind: "wikipedia", title: "GNU GPLv3", href: "https://en.wikipedia.org/wiki/GNU_GPLv3" },
-    ],
-  });
-
-  //-------------------------------------------------------------------------------
-
-  lb.define("lic+gnu-gpl-3-plus", "GNU GPL 3+", {
-    websites: [
-      {
-        kind: "wikipedia",
-        title: "GNU GPL 3+",
-        href: "https://en.wikipedia.org/wiki/GNU_General_Public_License#Version_3",
-      },
-    ],
-  });
-
-  //-------------------------------------------------------------------------------
-
   lb.define("lic+gnu-lesser-gpl", "GNU Lesser General Public License", {
     websites: [
       {
@@ -103,6 +57,7 @@ export function define(g: PlangsGraph) {
     websites: [
       { kind: "wikipedia", title: "GPL", href: "https://en.wikipedia.org/wiki/GNU_General_Public_License" },
       { kind: "wikipedia", title: "GPL", href: "https://en.wikipedia.org/wiki/GPL" },
+      { kind: "wikipedia", title: "GNU GPL", href: "https://en.wikipedia.org/wiki/GNU_GPL" },
     ],
   });
 
@@ -129,7 +84,10 @@ export function define(g: PlangsGraph) {
   //-------------------------------------------------------------------------------
 
   lb.define("lic+gpl-2-plus", "GPL 2+", {
-    websites: [{ kind: "wikipedia", title: "GPL 2+", href: "https://en.wikipedia.org/wiki/GPL_3#Version_2" }],
+    websites: [
+      { kind: "wikipedia", title: "GNU GPLv2+", href: "https://en.wikipedia.org/wiki/GNU_General_Public_License" },
+      { kind: "wikipedia", title: "GPL 2+", href: "https://en.wikipedia.org/wiki/GPL_3#Version_2" },
+    ],
   });
 
   //-------------------------------------------------------------------------------
@@ -137,6 +95,11 @@ export function define(g: PlangsGraph) {
   lb.define("lic+gpl-3-plus", "GPLv3+", {
     websites: [
       { kind: "wikipedia", title: "GPLv3+", href: "https://en.wikipedia.org/wiki/GNU_General_Public_License" },
+      {
+        kind: "wikipedia",
+        title: "GNU GPL 3+",
+        href: "https://en.wikipedia.org/wiki/GNU_General_Public_License#Version_3",
+      },
     ],
   });
 }
