@@ -505,34 +505,34 @@ function cleanLicense(licenseId: string) {
 function cleanParadigm(s: string): string {
   let name = s.trim().replace("programming", "").toLowerCase();
 
-  if (name.startsWith("communicating-sequential-processes")) name = "csp";
-  if (name.startsWith("constraint")) name = "constraint";
-  if (name.startsWith("data-")) name = "data-driven";
-  if (name.startsWith("dataflow")) name = "dataflow";
-  if (name.startsWith("distributed")) name = "distributed";
-  if (name.startsWith("event-driven")) name = "event-driven";
-  if (name.startsWith("generic")) name = "generic";
-  if (name.startsWith("imperative")) name = "imperative";
-  if (name.startsWith("language-oriented")) name = "language-oriented";
-  if (name.startsWith("agent")) name = "agent-based";
-
-  if (name.includes("declarative")) name = "declarative";
-  if (name.includes("functional")) name = "functional";
-  if (name.includes("generics")) name = "generic";
-  if (name.includes("logic")) name = "logic";
-  if (name.includes("macro")) name = "macros";
-  if (name.includes("multi")) name = "multi-paradigm";
-  if (name.includes("object")) name = "objects";
-  if (name.includes("parallel")) name = "parallel";
-  if (name.includes("procedural")) name = "imperative";
-  if (name.includes("prototype")) name = "prototypes";
-  if (name.includes("processing")) name = "process-oriented";
-  if (name.includes("stack")) name = "stack-oriented";
-  if (name.includes("visual") || name.includes("block-")) name = "visual";
-
   name = name.replace(/\-+$/, "").replace(/\-programming$/, "");
 
-  if (name === "and-computing") name = "distributed";
+  if (name === "and-computing") return "distributed";
+
+  if (name.startsWith("agent")) return "agent-based";
+  if (name.startsWith("block-based")) return "visual";
+  if (name.startsWith("communicating-sequential-processes")) return "csp";
+  if (name.startsWith("constraint")) return "constraint";
+  if (name.startsWith("data-")) return "data-driven";
+  if (name.startsWith("dataflow")) return "dataflow";
+  if (name.startsWith("distributed")) return "distributed";
+  if (name.startsWith("event-driven")) return "event-driven";
+  if (name.startsWith("generic")) return "generic";
+  if (name.startsWith("imperative")) return "imperative";
+  if (name.startsWith("language-oriented")) return "language-oriented";
+
+  if (name.includes("declarative")) return "declarative";
+  if (name.includes("functional")) return "functional";
+  if (name.includes("generics")) return "generic";
+  if (name.includes("logic")) return "logic";
+  if (name.includes("macro")) return "macros";
+  if (name.includes("multi")) return "multi-paradigm";
+  if (name.includes("object")) return "objects";
+  if (name.includes("parallel")) return "parallel";
+  if (name.includes("procedural")) return "imperative";
+  if (name.includes("processing")) return "process-oriented";
+  if (name.includes("prototype")) return "prototypes";
+  if (name.includes("stack")) return "stack-oriented";
 
   return name;
 }

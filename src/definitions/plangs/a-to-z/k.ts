@@ -77,6 +77,7 @@ export function define(g: PlangsGraph) {
       ],
       licenses: ["lic+apache-2"],
       paradigms: [
+        "para+block-structured",
         "para+concurrent",
         "para+declarative",
         "para+functional",
@@ -85,7 +86,6 @@ export function define(g: PlangsGraph) {
         "para+multi-paradigm",
         "para+objects",
         "para+reflective",
-        "para+visual",
       ],
       platforms: [
         "platf+android",

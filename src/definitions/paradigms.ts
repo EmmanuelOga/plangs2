@@ -55,6 +55,14 @@ export function define(g: PlangsGraph) {
 
   /**/
 
+  lb.define("para+block-structured", "block structured", {
+    websites: [
+      { kind: "wikipedia", title: "block structured", href: "https://en.wikipedia.org/wiki/Block_(programming)" },
+    ],
+  });
+
+  /**/
+
   lb.define("para+class-based", "class-based", {
     websites: [
       { kind: "wikipedia", title: "class-based", href: "https://en.wikipedia.org/wiki/Class-based_programming" },
@@ -806,10 +814,9 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("para+visual", "block structured", {
+  lb.define("para+visual", "block-based", {
     websites: [
       { kind: "wikipedia", title: "Visual", href: "https://en.wikipedia.org/wiki/Visual_programming_language" },
-      { kind: "wikipedia", title: "block structured", href: "https://en.wikipedia.org/wiki/Block_(programming)" },
     ],
   });
 
