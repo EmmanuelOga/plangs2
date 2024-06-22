@@ -120,7 +120,7 @@ function genAtoZ(
       if (JSON.stringify(bundle).length > 2048) {
         big.push(bundle);
       } else {
-        data.push();
+        data.push(bundle);
       }
     }
     const res = Templ.render("/a_to_z", { data, builderName });
