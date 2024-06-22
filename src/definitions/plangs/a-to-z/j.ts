@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define(
     "pl+j",
@@ -68,7 +66,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+jq",
@@ -98,7 +96,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+jruby",
@@ -135,7 +133,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+json",
@@ -143,4 +141,6 @@ export function define(g: PlangsGraph) {
     { name: "JSON", websites: [{ kind: "wikipedia", title: "JSON", href: "https://en.wikipedia.org/wiki/JSON" }] },
     { influenced: ["pl+qml", "pl+rebol"] },
   );
+
+  /**/
 }

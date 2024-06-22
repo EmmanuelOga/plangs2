@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define(
     "pl+k",
@@ -25,7 +23,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+korn-shell",
@@ -37,7 +35,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+awk"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+kotlin",
@@ -105,4 +103,6 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );
+
+  /**/
 }

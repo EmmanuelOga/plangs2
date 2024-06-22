@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("platf+web", "WebAssembly", {
     websites: [
@@ -15,4 +13,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "HTML5", href: "https://en.wikipedia.org/wiki/HTML5" },
     ],
   });
+
+  /**/
 }

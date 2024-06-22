@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define(
     "pl+f-sharp",
@@ -35,7 +33,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+factor",
@@ -74,7 +72,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+fantom",
@@ -110,7 +108,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+faust",
@@ -134,7 +132,7 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+gpl"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+flix",
@@ -160,7 +158,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+forth",
@@ -182,7 +180,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+fortran",
@@ -273,7 +271,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+freebasic",
@@ -304,7 +302,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+futhark",
@@ -331,4 +329,6 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+uniqueness"],
     },
   );
+
+  /**/
 }

@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define(
     "pl+gambit",
@@ -33,7 +31,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+gdscript",
@@ -47,7 +45,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+python"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+gforth",
@@ -79,7 +77,7 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+gpl-3"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+gleam",
@@ -127,7 +125,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+glsl",
@@ -136,7 +134,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+cg-slashhlsl"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+gnat",
@@ -164,11 +162,11 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+gpl-3-plus"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("pl+gnu-awk-gawk", "GNU Awk gawk", { name: "GNU Awk gawk" }, { dialects: ["pl+awk"] });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+gnu-guile",
@@ -210,7 +208,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+gnu-octave",
@@ -259,7 +257,7 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+gpl-2", "lic+gpl-3"], people: [["person+john-w-eaton", "designer"]] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+gnu-prolog",
@@ -277,7 +275,7 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+gnu-lesser-gpl", "lic+gpl"], people: [["person+daniel-diaz", "designer"]] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+gosu",
@@ -305,7 +303,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+groovy",
@@ -353,7 +351,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+guile",
@@ -364,4 +362,6 @@ export function define(g: PlangsGraph) {
     },
     { influenced: ["pl+siod"] },
   );
+
+  /**/
 }

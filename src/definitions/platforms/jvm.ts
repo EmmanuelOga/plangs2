@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("platf+jvm", "JavaScript", {
     websites: [
@@ -24,4 +22,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Java SE", href: "https://en.wikipedia.org/wiki/Java_SE" },
     ],
   });
+
+  /**/
 }

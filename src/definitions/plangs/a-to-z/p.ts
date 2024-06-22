@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define(
     "pl+p4",
@@ -28,7 +26,7 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+apache"], paradigms: ["para+compiled", "para+domain-specific", "para+imperative"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+pari-slashgp",
@@ -53,7 +51,7 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+gpl"], people: [["person+henri-cohen", "designer"]] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+peachpie",
@@ -87,7 +85,7 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+apache-2"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+pharo",
@@ -124,7 +122,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+picolisp",
@@ -158,7 +156,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+pl-slashpgsql",
@@ -179,7 +177,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+ada"], influences: ["pl+ada", "pl+pl-slashsql"], people: [["person+jan-wieck", "designer"]] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+postscript",
@@ -211,7 +209,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+pov-ray",
@@ -254,7 +252,7 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+agpl-3"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+powerbasic",
@@ -287,7 +285,7 @@ export function define(g: PlangsGraph) {
     { influences: ["pl+turbo-basic"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+powershell",
@@ -350,7 +348,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+processing",
@@ -368,7 +366,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+c", "pl+the-kojo-learning-environment"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+prolog",
@@ -436,7 +434,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+pure",
@@ -468,7 +466,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+puredata",
@@ -480,7 +478,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+lucid"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+purescript",
@@ -517,7 +515,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+pyomo",
@@ -555,4 +553,6 @@ export function define(g: PlangsGraph) {
       platforms: ["platf+cross-platform", "platf+linux", "platf+macos", "platf+windows"],
     },
   );
+
+  /**/
 }

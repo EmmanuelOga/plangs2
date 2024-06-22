@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("lic+lgpl-2", "LGPLv2", {
     websites: [
@@ -11,7 +9,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+lgpl-2.1", "LGPLv2.1", {
     websites: [
@@ -19,7 +17,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+lgpl-2.1-only", "LGPL-2.1-only", {
     websites: [
@@ -31,7 +29,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+lgpl-2.1-plus", "LGPLv2.1+", {
     websites: [
@@ -43,7 +41,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+lgpl-3", "LGPL 3.0", {
     websites: [
@@ -51,9 +49,11 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+linux", "Linux", {
     websites: [{ kind: "wikipedia", title: "Linux", href: "https://en.wikipedia.org/wiki/Linux" }],
   });
+
+  /**/
 }

@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("platf+macos", "macOS", {
     websites: [
@@ -24,4 +22,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "macOS 10.12", href: "https://en.wikipedia.org/wiki/MacOS_10.12" },
     ],
   });
+
+  /**/
 }

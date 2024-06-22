@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define(
     "pl+ocaml",
@@ -88,4 +86,6 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"],
     },
   );
+
+  /**/
 }

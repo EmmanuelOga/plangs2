@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("lic+gpl-3", "GPLv3", {
     websites: [
@@ -17,4 +15,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "GPL 3", href: "https://en.wikipedia.org/wiki/GPL3" },
     ],
   });
+
+  /**/
 }

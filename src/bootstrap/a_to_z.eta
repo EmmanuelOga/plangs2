@@ -1,17 +1,17 @@
-import type { PlangsGraph } from '../../entities/plangs_graph';
+import type { PlangsGraph } from '<%= '../' * it.depth %>entities/plangs_graph';
 
 export function define(g: PlangsGraph) {
    const lb = g.<%= it.builderName %>Builder;
 
 <% for (const bundle of it.data) { %>
-  //------------------------------------------------------------------------------- 
-
   lb.define(
     <%= bundle.vid %>,
     <%= bundle.name %>,
     <%= bundle.data %><% if (bundle.vrelations) { %>,
     <%= bundle.vrelations %>
     <% } %>);
+
+  /**/
 
 <% } %>
 }

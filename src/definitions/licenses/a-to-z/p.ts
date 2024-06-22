@@ -1,15 +1,13 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("lic+patent", "patent", {
     websites: [{ kind: "wikipedia", title: "patent", href: "https://en.wikipedia.org/wiki/Software_patents" }],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+perl-artistic-2", "Perl Artistic License 2.0", {
     websites: [
@@ -17,19 +15,19 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+permissive", "Permissive", {
     websites: [{ kind: "wikipedia", title: "Permissive", href: "https://en.wikipedia.org/wiki/Permissive_license" }],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+php", "PHP License", {
     websites: [{ kind: "wikipedia", title: "PHP License", href: "https://en.wikipedia.org/wiki/PHP_License" }],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+proprietary-software", "proprietary software", {
     websites: [
@@ -37,7 +35,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+public-domain", "Public domain", {
     websites: [
@@ -46,7 +44,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+python-software-foundation", "Python Software Foundation License", {
     websites: [
@@ -57,4 +55,6 @@ export function define(g: PlangsGraph) {
       },
     ],
   });
+
+  /**/
 }

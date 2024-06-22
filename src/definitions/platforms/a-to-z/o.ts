@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("platf+oneapi", "oneAPI", {
     websites: [
@@ -11,9 +9,11 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("platf+openvms", "VMS", {
     websites: [{ kind: "wikipedia", title: "OpenVMS", href: "https://en.wikipedia.org/wiki/OpenVMS" }],
   });
+
+  /**/
 }

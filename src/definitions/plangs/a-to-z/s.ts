@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define(
     "pl+scheme",
@@ -102,7 +100,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+scilab",
@@ -132,7 +130,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+scratchjr",
@@ -154,7 +152,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+scratch"], platforms: ["platf+android", "platf+chromeos", "platf+ios"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+self",
@@ -211,7 +209,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+smallbasic",
@@ -232,7 +230,7 @@ export function define(g: PlangsGraph) {
     { implementations: ["pl+basic"], influenced: ["pl+qbasic"], licenses: ["lic+gpl-3"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+solidity",
@@ -272,7 +270,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+souffle",
@@ -290,7 +288,7 @@ export function define(g: PlangsGraph) {
     { dialects: ["pl+datalog"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+source",
@@ -318,7 +316,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+sql",
@@ -327,7 +325,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+datalog", "pl+powershell", "pl+xquery"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+squeak",
@@ -372,7 +370,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+standard-ml",
@@ -442,7 +440,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+starlark",
@@ -454,7 +452,7 @@ export function define(g: PlangsGraph) {
     { dialects: ["pl+python"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+stateflow",
@@ -491,7 +489,7 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+proprietary"], platforms: ["platf+x64"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+supercollider",
@@ -503,7 +501,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+j"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+swi-prolog",
@@ -532,7 +530,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+swift",
@@ -587,7 +585,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+systemverilog",
@@ -608,4 +606,6 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+static", "tsys+weak"],
     },
   );
+
+  /**/
 }

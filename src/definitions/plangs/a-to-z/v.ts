@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define(
     "pl+v",
@@ -37,7 +35,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+vala",
@@ -70,7 +68,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+verilog",
@@ -103,7 +101,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+verse",
@@ -141,7 +139,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+vhdl",
@@ -169,7 +167,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+visual-basic",
@@ -216,7 +214,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+visual-basic-.net",
@@ -230,7 +228,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+basic", "pl+microsoft-small-basic", "pl+visual-basic"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+visual-c-plus-plus",
@@ -256,4 +254,6 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+freeware", "lic+trialware"], platforms: ["platf+arm", "platf+ia-32", "platf+x86-64"] },
   );
+
+  /**/
 }

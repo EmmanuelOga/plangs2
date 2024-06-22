@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("lic+historical-permission-notice-and-disclaimer", "Historical Permission Notice and Disclaimer", {
     websites: [
@@ -14,4 +12,6 @@ export function define(g: PlangsGraph) {
       },
     ],
   });
+
+  /**/
 }

@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("platf+unix", "UNIX", {
     websites: [
@@ -13,4 +11,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "UNIX", href: "https://en.wikipedia.org/wiki/UNIX" },
     ],
   });
+
+  /**/
 }

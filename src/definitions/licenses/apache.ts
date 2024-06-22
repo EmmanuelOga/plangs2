@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("lic+apache", "APSL", {
     websites: [
@@ -12,4 +10,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Apache", href: "https://en.wikipedia.org/wiki/Apache_Licence" },
     ],
   });
+
+  /**/
 }

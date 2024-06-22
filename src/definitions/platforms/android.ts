@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("platf+android", "Android", {
     websites: [
@@ -12,4 +10,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Android", href: "https://en.wikipedia.org/wiki/Google_Android" },
     ],
   });
+
+  /**/
 }

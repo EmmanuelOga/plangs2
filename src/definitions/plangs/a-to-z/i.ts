@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define(
     "pl+idris",
@@ -50,7 +48,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+inform",
@@ -62,7 +60,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+corvision"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+io",
@@ -93,7 +91,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+ironpython",
@@ -121,4 +119,6 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+apache-2"], platforms: ["platf+.net", "platf+mono"] },
   );
+
+  /**/
 }

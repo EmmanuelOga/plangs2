@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("platf+playstation", "PlayStation 3", {
     websites: [
@@ -14,4 +12,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "PlayStation 3", href: "https://en.wikipedia.org/wiki/PlayStation_3" },
     ],
   });
+
+  /**/
 }

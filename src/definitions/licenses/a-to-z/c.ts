@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("lic+cc-attribution", "Creative Commons Attribution", {
     websites: [
@@ -15,7 +13,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+cc-by-sa", "CC-BY-SA", {
     websites: [
@@ -23,19 +21,19 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+cecill", "CeCILL", {
     websites: [{ kind: "wikipedia", title: "CeCILL", href: "https://en.wikipedia.org/wiki/CeCILL" }],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+closed-source", "Closed source", {
     websites: [{ kind: "wikipedia", title: "Closed source", href: "https://en.wikipedia.org/wiki/Closed_source" }],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+commercial", "Commercial", {
     websites: [
@@ -44,7 +42,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+commercial-software", "commercial software", {
     websites: [
@@ -52,9 +50,11 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+cpl", "CPL", {
     websites: [{ kind: "wikipedia", title: "CPL", href: "https://en.wikipedia.org/wiki/Common_Public_License" }],
   });
+
+  /**/
 }

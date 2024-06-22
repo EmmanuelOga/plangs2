@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define(
     "pl+magma",
@@ -39,7 +37,7 @@ export function define(g: PlangsGraph) {
     { people: [["person+school-of-mathematics", "designer"]] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+maple",
@@ -79,7 +77,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+matlab",
@@ -99,7 +97,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+max",
@@ -126,7 +124,7 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+proprietary"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+maxima",
@@ -151,7 +149,7 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+gpl"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+mercury",
@@ -204,7 +202,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+ml",
@@ -276,7 +274,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+modelica",
@@ -318,7 +316,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+mojo",
@@ -353,7 +351,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+mruby",
@@ -379,4 +377,6 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+mit"], people: [["person+yukihiro-matsumoto", "designer"]] },
   );
+
+  /**/
 }

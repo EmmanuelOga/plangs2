@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("platf+windows", "Microsoft Windows", {
     websites: [
@@ -35,4 +33,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Windows Me", href: "https://en.wikipedia.org/wiki/Windows_Me" },
     ],
   });
+
+  /**/
 }

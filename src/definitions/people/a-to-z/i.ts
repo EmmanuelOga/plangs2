@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("person+insa-lyon", "INSA Lyon", {
     websites: [
@@ -15,7 +13,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("person+itt-vis", "ITT VIS", {
     websites: [
@@ -26,4 +24,6 @@ export function define(g: PlangsGraph) {
       },
     ],
   });
+
+  /**/
 }

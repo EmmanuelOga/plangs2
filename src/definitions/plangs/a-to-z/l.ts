@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define(
     "pl+labview",
@@ -28,7 +26,7 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+proprietary"], people: [["person+national-instruments", "designer"]] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+lean",
@@ -57,7 +55,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+lfe",
@@ -103,7 +101,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+livecode",
@@ -115,7 +113,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+hypertalk"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+livescript",
@@ -154,7 +152,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+logo",
@@ -213,7 +211,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+lua",
@@ -272,4 +270,6 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+weak"],
     },
   );
+
+  /**/
 }

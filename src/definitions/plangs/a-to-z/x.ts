@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define(
     "pl+xaml",
@@ -12,7 +10,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+qml"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+xod",
@@ -35,7 +33,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+xojo",
@@ -53,7 +51,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+basic", "pl+visual-basic"], licenses: ["lic+freemium"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+xpath",
@@ -62,7 +60,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+xquery"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+xquery",
@@ -97,7 +95,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+xsb",
@@ -123,7 +121,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+xslt",
@@ -148,7 +146,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+xtend",
@@ -180,4 +178,6 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );
+
+  /**/
 }

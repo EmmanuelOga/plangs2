@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("lic+gnu-affero-gpl", "GNU Affero General Public License", {
     websites: [
@@ -15,7 +13,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+gnu-lesser-gpl", "GNU Lesser General Public License", {
     websites: [
@@ -27,7 +25,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+gnu-lesser-public", "GNU Lesser Public License", {
     websites: [
@@ -39,7 +37,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+gnu-lgpl-2-plus", "Standard libraries licensed under the GNU LGPLv2+", {
     websites: [
@@ -51,7 +49,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+gpl", "GPL", {
     websites: [
@@ -61,7 +59,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+gpl-1", "GPL-1.0-or-later", {
     websites: [
@@ -73,7 +71,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+gpl-2-3", "GPL 2.0, 3.0", {
     websites: [
@@ -81,7 +79,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+gpl-2-plus", "GPL 2+", {
     websites: [
@@ -90,7 +88,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+gpl-3-plus", "GPLv3+", {
     websites: [
@@ -102,4 +100,6 @@ export function define(g: PlangsGraph) {
       },
     ],
   });
+
+  /**/
 }

@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define(
     "pl+yap-prolog",
@@ -21,4 +19,6 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+perl-artistic-2"] },
   );
+
+  /**/
 }

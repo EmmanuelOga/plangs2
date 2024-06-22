@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("platf+dos", "PC DOS", {
     websites: [
@@ -14,4 +12,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "PC DOS", href: "https://en.wikipedia.org/wiki/PC_DOS" },
     ],
   });
+
+  /**/
 }

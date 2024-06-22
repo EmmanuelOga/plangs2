@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("platf+atari", "Atari TOS", {
     websites: [
@@ -17,4 +15,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "GEMDOS", href: "https://en.wikipedia.org/wiki/Atari_ST#Operating_system" },
     ],
   });
+
+  /**/
 }

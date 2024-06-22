@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define(
     "pl+c-sharp",
@@ -51,7 +49,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+c99",
@@ -60,7 +58,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+c-plus-plus", "pl+opencl-apiopencl-c-slashc-plus-plus-and-c-plus-plus-for-opencl"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+carbon",
@@ -87,7 +85,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+ceylon",
@@ -141,7 +139,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+chuck",
@@ -178,7 +176,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+ciao",
@@ -205,7 +203,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+clang",
@@ -257,11 +255,11 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+apache-2"], platforms: ["platf+aarch64", "platf+arm", "platf+ia-32", "platf+x86-64"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("pl+clojurescript", "ClojureScript", { name: "ClojureScript" }, { dialects: ["pl+clojure"] });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+clos",
@@ -273,7 +271,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+dylan", "pl+eulisp", "pl+skill"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+coffeescript",
@@ -304,7 +302,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+common-lisp",
@@ -395,7 +393,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+common-lisp-object-system",
@@ -413,7 +411,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+smalltalk"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+coq",
@@ -425,7 +423,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+agda", "pl+f-star", "pl+idris", "pl+lean", "pl+ml", "pl+ocaml"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+cpython",
@@ -455,7 +453,7 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+python-software-foundation"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("pl+cryptol", "Cryptol", {
     name: "Cryptol",
@@ -469,7 +467,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+crystal",
@@ -522,7 +520,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+csound",
@@ -550,7 +548,7 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+lgpl-2.1"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+csp",
@@ -564,7 +562,7 @@ export function define(g: PlangsGraph) {
     { influenced: ["pl+handel-c", "pl+limbo", "pl+newsqueak"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+cython",
@@ -613,4 +611,6 @@ export function define(g: PlangsGraph) {
       platforms: ["platf+linux", "platf+macos", "platf+windows"],
     },
   );
+
+  /**/
 }

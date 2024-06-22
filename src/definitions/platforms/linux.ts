@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("platf+linux", "Linux", {
     websites: [
@@ -20,4 +18,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Fedora", href: "https://en.wikipedia.org/wiki/Fedora_(operating_system)" },
     ],
   });
+
+  /**/
 }

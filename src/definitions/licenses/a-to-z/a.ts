@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("lic+academic-free", "Academic Free License", {
     websites: [
@@ -15,7 +13,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+agpl", "AGPL", {
     websites: [
@@ -23,7 +21,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+agpl-3", "AGPLv3", {
     websites: [
@@ -36,7 +34,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+apache-2-with-llvm-exception", "Apache-2.0-with-LLVM-Exception", {
     websites: [
@@ -48,7 +46,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+artistic", "Artistic License", {
     websites: [
@@ -56,7 +54,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+artistic-2", "Artistic License 2", {
     websites: [
@@ -65,9 +63,11 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+asl-2", "ASL 2.0", {
     websites: [{ kind: "wikipedia", title: "ASL 2.0", href: "https://en.wikipedia.org/wiki/Apache_Software_License" }],
   });
+
+  /**/
 }

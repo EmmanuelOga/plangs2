@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define(
     "pl+oberon",
@@ -66,7 +64,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+objective-c",
@@ -112,7 +110,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("pl+openacc", "OpenACC", {
     name: "OpenACC",
@@ -123,7 +121,7 @@ export function define(g: PlangsGraph) {
     releases: [{ version: "3.2", date: "2021-01-01", kind: "stable" }],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+openmp",
@@ -158,4 +156,6 @@ export function define(g: PlangsGraph) {
     },
     { influenced: ["pl+cilkopencilkcilk-plus"] },
   );
+
+  /**/
 }

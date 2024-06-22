@@ -1,23 +1,21 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.personBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("person+h-peter-anvin", "H. Peter Anvin", {
     websites: [{ title: "H. Peter Anvin", href: "https://en.wikipedia.org/wiki/H._Peter_Anvin", kind: "wikipedia" }],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("person+hamish-dewar", "Hamish Dewar", {});
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("person+hans-zima", "Hans Zima", {});
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("person+hanspeter-mossenbock", "Hanspeter Mössenböck", {
     websites: [
@@ -29,7 +27,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("person+heinz-rutishauser", "Heinz Rutishauser", {
     websites: [
@@ -37,7 +35,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("person+henri-cohen", "Henri Cohen", {
     websites: [
@@ -45,7 +43,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("person+henry-m-levy", "Henry M. Levy", {
     websites: [
@@ -57,7 +55,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("person+herbert-a-simon", "Herbert A. Simon", {
     websites: [
@@ -65,7 +63,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("person+hermann-bottenbruch", "Hermann Bottenbruch", {
     websites: [
@@ -73,11 +71,13 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("person+hongwei-xi", "Hongwei Xi", {});
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("person+howard-derby", "Howard Derby", {});
+
+  /**/
 }

@@ -1,15 +1,13 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("lic+mac", "Mac", {
     websites: [{ kind: "wikipedia", title: "Mac", href: "https://en.wikipedia.org/wiki/Mac_OS_X" }],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+mit", "MIT", {
     websites: [
@@ -18,13 +16,13 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+mit-x11", "MIT X11", {
     websites: [{ kind: "wikipedia", title: "MIT X11", href: "https://en.wikipedia.org/wiki/MIT_License" }],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+modified-bsd", "modified BSD", {
     websites: [
@@ -33,7 +31,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+mozilla-public", "Mozilla Public", {
     websites: [
@@ -46,21 +44,23 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+mpl", "MPL", {
     websites: [{ kind: "wikipedia", title: "MPL", href: "https://en.wikipedia.org/wiki/Mozilla_Public_License" }],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+mpl-1-1", "MPL-1-1", {
     websites: [{ kind: "wikipedia", title: "MPL-1-1", href: "https://en.wikipedia.org/wiki/Mozilla_Public_License" }],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("lic+ms", "MS", {
     websites: [{ kind: "wikipedia", title: "MS", href: "https://en.wikipedia.org/wiki/Microsoft" }],
   });
+
+  /**/
 }

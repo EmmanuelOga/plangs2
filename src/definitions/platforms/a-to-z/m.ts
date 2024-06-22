@@ -1,15 +1,13 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("platf+mingw", "MinGW", {
     websites: [{ kind: "wikipedia", title: "MinGW", href: "https://en.wikipedia.org/wiki/MinGW" }],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("platf+mips", "MIPS", {
     websites: [
@@ -17,17 +15,19 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("platf+mono", "Mono", {
     websites: [{ kind: "wikipedia", title: "Mono", href: "https://en.wikipedia.org/wiki/Mono_(software)" }],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("platf+mos_6502", "MOS Technology 6502", {
     websites: [
       { kind: "wikipedia", title: "MOS Technology 6502", href: "https://en.wikipedia.org/wiki/MOS_Technology_6502" },
     ],
   });
+
+  /**/
 }

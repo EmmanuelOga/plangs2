@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define(
     "pl+ruby",
@@ -119,4 +117,6 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+strong"],
     },
   );
+
+  /**/
 }

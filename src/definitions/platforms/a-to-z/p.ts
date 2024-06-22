@@ -1,15 +1,13 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define("platf+pic", "PIC", {
     websites: [{ kind: "wikipedia", title: "PIC", href: "https://en.wikipedia.org/wiki/PIC_microcontrollers" }],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("platf+pip", "pip (package manager)", {
     websites: [
@@ -21,7 +19,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("platf+plan9", "Plan 9 from User Space", {
     websites: [
@@ -34,9 +32,11 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define("platf+posix", "POSIX", {
     websites: [{ kind: "wikipedia", title: "POSIX", href: "https://en.wikipedia.org/wiki/POSIX" }],
   });
+
+  /**/
 }

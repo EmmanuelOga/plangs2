@@ -1,9 +1,7 @@
-import type { PlangsGraph } from "../../entities/plangs_graph";
+import type { PlangsGraph } from "NaNentities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
-
-  //-------------------------------------------------------------------------------
 
   lb.define(
     "pl+tom",
@@ -33,7 +31,7 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+bsds", "lic+gpl"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+turbo-pascal",
@@ -45,7 +43,7 @@ export function define(g: PlangsGraph) {
     { dialects: ["pl+object-pascal", "pl+pascal"] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+txl",
@@ -60,7 +58,7 @@ export function define(g: PlangsGraph) {
     { paradigms: ["para+pattern-matching", "para+term-rewriting"], people: [["person+james-cordy", "designer"]] },
   );
 
-  //-------------------------------------------------------------------------------
+  /**/
 
   lb.define(
     "pl+typescript",
@@ -120,4 +118,6 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+duck", "tsys+gradual", "tsys+structural"],
     },
   );
+
+  /**/
 }
