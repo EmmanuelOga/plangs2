@@ -14,7 +14,12 @@ const DEF_PATH = Bun.fileURLToPath(`file:${__dirname}/../definitions`);
 
 function alphaTsPath(type: string, name: string): string {
   const p = toAlphaNum(name).toLowerCase();
-  return Bun.fileURLToPath(`file:${DEF_PATH}/${type}/${p[0]}.ts`);
+  return Bun.fileURLToPath(`file:${DEF_PATH}/${type}/a-to-z/${p[0]}.ts`);
+}
+
+function customTsPath(type: string, name: string): string {
+  const p = toAlphaNum(name).toLowerCase();
+  return Bun.fileURLToPath(`file:${DEF_PATH}/${type}/${name}.ts`);
 }
 
 async function generateAll() {
@@ -101,6 +106,8 @@ function genAtoZ(
     (id[key0] === "." ? id[key0 + 1] : id[key0]).toLowerCase(),
   );
 
+  // Move big data to their own files.
+  const big: AtoZData[] = [];
   for (const [prefix, vids] of Object.entries(grouped)) {
     const data: AtoZData[] = [];
     for (const vid of vids) {
@@ -109,12 +116,26 @@ function genAtoZ(
         console.log("Vertex not found:", vid);
         continue;
       }
-      data.push(mapper(vid as VID_Any, vertex));
+      const bundle = mapper(vid as VID_Any, vertex);
+      if (JSON.stringify(bundle).length > 2048) {
+        big.push(bundle);
+      } else {
+        data.push();
+      }
     }
     const res = Templ.render("/a_to_z", { data, builderName });
     const path = alphaTsPath(basename, prefix);
     Bun.write(path, res);
   }
+
+  // Write big data to their own files.
+  for (const bundle of big) {
+    const res = Templ.render("/a_to_z", { data: [bundle], builderName });
+    const vid = JSON.parse(bundle.vid); // :-)
+    const path = customTsPath(basename, vid.split("+")[1]);
+    Bun.write(path, res);
+  }
+
   console.log(`${basename}: ${allVids.length} entries in ${Object.keys(grouped).length} files.`);
 }
 
