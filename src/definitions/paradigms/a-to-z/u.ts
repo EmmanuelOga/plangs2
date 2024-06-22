@@ -5,7 +5,9 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("para+unstructured", "unstructured", [
-    { kind: "wikipedia", title: "unstructured", href: "https://en.wikipedia.org/wiki/Unstructured_programming" },
-  ]);
+  lb.define("para+unstructured", "unstructured", {
+    websites: [
+      { kind: "wikipedia", title: "unstructured", href: "https://en.wikipedia.org/wiki/Unstructured_programming" },
+    ],
+  });
 }

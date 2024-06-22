@@ -5,46 +5,45 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+free-and-open-source", "free and open-source", [
-    {
-      kind: "wikipedia",
-      title: "free and open-source",
-      href: "https://en.wikipedia.org/wiki/Free_and_open_source_software",
-    },
-  ]);
+  lb.define("lic+free-and-open-source", "free and open-source", {
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "free and open-source",
+        href: "https://en.wikipedia.org/wiki/Free_and_open_source_software",
+      },
+    ],
+  });
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+free-software", "free software", [
-    { kind: "wikipedia", title: "free software", href: "https://en.wikipedia.org/wiki/Free_software" },
-    { kind: "wikipedia", title: "free-software license", href: "https://en.wikipedia.org/wiki/Free-software_license" },
-  ]);
+  lb.define("lic+freely-redistributable-software", "Freely redistributable software", {
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "Freely redistributable software",
+        href: "https://en.wikipedia.org/wiki/Freely_redistributable_software",
+      },
+    ],
+  });
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+freely-redistributable-software", "Freely redistributable software", [
-    {
-      kind: "wikipedia",
-      title: "Freely redistributable software",
-      href: "https://en.wikipedia.org/wiki/Freely_redistributable_software",
-    },
-  ]);
+  lb.define("lic+freemium", "Freemium", {
+    websites: [{ kind: "wikipedia", title: "Freemium", href: "https://en.wikipedia.org/wiki/Freemium" }],
+  });
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+freemium", "Freemium", [
-    { kind: "wikipedia", title: "Freemium", href: "https://en.wikipedia.org/wiki/Freemium" },
-  ]);
+  lb.define("lic+frees", "free licenses", {
+    websites: [
+      { kind: "wikipedia", title: "free licenses", href: "https://en.wikipedia.org/wiki/Free-software_license" },
+    ],
+  });
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+frees", "free licenses", [
-    { kind: "wikipedia", title: "free licenses", href: "https://en.wikipedia.org/wiki/Free-software_license" },
-  ]);
-
-  //-------------------------------------------------------------------------------
-
-  lb.define("lic+freeware", "freeware", [
-    { kind: "wikipedia", title: "freeware", href: "https://en.wikipedia.org/wiki/Freeware" },
-  ]);
+  lb.define("lic+freeware", "freeware", {
+    websites: [{ kind: "wikipedia", title: "freeware", href: "https://en.wikipedia.org/wiki/Freeware" }],
+  });
 }

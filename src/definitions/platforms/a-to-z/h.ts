@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("platf+haiku", "Haiku", [
-    { kind: "wikipedia", title: "Haiku", href: "https://en.wikipedia.org/wiki/Haiku_(operating_system)" },
-  ]);
+  lb.define("platf+haiku", "Haiku", {
+    websites: [{ kind: "wikipedia", title: "Haiku", href: "https://en.wikipedia.org/wiki/Haiku_(operating_system)" }],
+  });
 }

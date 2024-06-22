@@ -1,0 +1,14 @@
+import type { PlangsGraph } from "../../entities/plangs_graph";
+
+export function define(g: PlangsGraph) {
+  const lb = g.licenseBuilder;
+
+  //-------------------------------------------------------------------------------
+
+  lb.define("lic+open-source", "Open-source", {
+    websites: [
+      { kind: "wikipedia", title: "Open-source", href: "https://en.wikipedia.org/wiki/Open-source_license" },
+      { kind: "wikipedia", title: "Open-source", href: "https://en.wikipedia.org/wiki/Open-source_software" },
+    ],
+  });
+}

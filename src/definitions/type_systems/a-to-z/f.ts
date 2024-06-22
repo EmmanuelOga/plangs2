@@ -5,7 +5,9 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("tsys+flow-sensitive", "Flow-Sensitive", [
-    { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/flow-sensitive_typing", kind: "wikipedia" },
-  ]);
+  lb.define("tsys+flow-sensitive", "Flow-Sensitive", {
+    websites: [
+      { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/flow-sensitive_typing", kind: "wikipedia" },
+    ],
+  });
 }

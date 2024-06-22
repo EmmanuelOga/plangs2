@@ -5,7 +5,9 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("tsys+affine", "Affine", [
-    { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/affine_type_system", kind: "wikipedia" },
-  ]);
+  lb.define("tsys+affine", "Affine", {
+    websites: [
+      { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/affine_type_system", kind: "wikipedia" },
+    ],
+  });
 }

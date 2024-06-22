@@ -5,15 +5,21 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+icu", "ICU", [
-    { kind: "wikipedia", title: "ICU", href: "https://en.wikipedia.org/wiki/International_Components_for_Unicode" },
-  ]);
+  lb.define("lic+icu", "ICU", {
+    websites: [
+      { kind: "wikipedia", title: "ICU", href: "https://en.wikipedia.org/wiki/International_Components_for_Unicode" },
+    ],
+  });
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+ios", "iOS", [{ kind: "wikipedia", title: "iOS", href: "https://en.wikipedia.org/wiki/IOS" }]);
+  lb.define("lic+ios", "iOS", {
+    websites: [{ kind: "wikipedia", title: "iOS", href: "https://en.wikipedia.org/wiki/IOS" }],
+  });
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+isc", "ISC", [{ kind: "wikipedia", title: "ISC", href: "https://en.wikipedia.org/wiki/ISC_license" }]);
+  lb.define("lic+isc", "ISC", {
+    websites: [{ kind: "wikipedia", title: "ISC", href: "https://en.wikipedia.org/wiki/ISC_license" }],
+  });
 }

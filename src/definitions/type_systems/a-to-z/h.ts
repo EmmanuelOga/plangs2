@@ -5,11 +5,13 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("tsys+hindley-milner", "Hindley-Milner", [
-    {
-      title: "${name} Type System",
-      href: "https://en.wikipedia.org/wiki/hindley%e2%80%93milner_type_system",
-      kind: "wikipedia",
-    },
-  ]);
+  lb.define("tsys+hindley-milner", "Hindley-Milner", {
+    websites: [
+      {
+        title: "${name} Type System",
+        href: "https://en.wikipedia.org/wiki/hindley%e2%80%93milner_type_system",
+        kind: "wikipedia",
+      },
+    ],
+  });
 }

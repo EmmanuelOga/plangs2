@@ -5,17 +5,25 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("tsys+parametric", "Parametric", [
-    { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/parametric_polymorphism", kind: "wikipedia" },
-  ]);
+  lb.define("tsys+parametric", "Parametric", {
+    websites: [
+      {
+        title: "${name} Type System",
+        href: "https://en.wikipedia.org/wiki/parametric_polymorphism",
+        kind: "wikipedia",
+      },
+    ],
+  });
 
   //-------------------------------------------------------------------------------
 
-  lb.define("tsys+polymorphic", "Polymorphic", [
-    {
-      title: "${name} Type System",
-      href: "https://en.wikipedia.org/wiki/polymorphism_(computer_science)",
-      kind: "wikipedia",
-    },
-  ]);
+  lb.define("tsys+polymorphic", "Polymorphic", {
+    websites: [
+      {
+        title: "${name} Type System",
+        href: "https://en.wikipedia.org/wiki/polymorphism_(computer_science)",
+        kind: "wikipedia",
+      },
+    ],
+  });
 }

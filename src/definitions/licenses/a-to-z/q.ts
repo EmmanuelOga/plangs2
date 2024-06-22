@@ -5,13 +5,19 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+qpl", "QPL", [
-    { kind: "wikipedia", title: "QPL", href: "https://en.wikipedia.org/wiki/Q_Public_License" },
-  ]);
+  lb.define("lic+qpl", "QPL", {
+    websites: [{ kind: "wikipedia", title: "QPL", href: "https://en.wikipedia.org/wiki/Q_Public_License" }],
+  });
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+qt-commercial", "Qt Commercial License", [
-    { kind: "wikipedia", title: "Qt Commercial License", href: "https://en.wikipedia.org/wiki/Qt_Commercial_License" },
-  ]);
+  lb.define("lic+qt-commercial", "Qt Commercial License", {
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "Qt Commercial License",
+        href: "https://en.wikipedia.org/wiki/Qt_Commercial_License",
+      },
+    ],
+  });
 }

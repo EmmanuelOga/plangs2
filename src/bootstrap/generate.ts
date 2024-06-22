@@ -28,20 +28,28 @@ async function generateAll() {
 
   console.log(new Date().toISOString());
 
-  const mapper = (vid: VID_Any, vertex: _T_AnyV_Data) => ({
-    vid: json(vid),
-    name: json(vertex.name),
-    data: json(vertex.websites ?? []),
-  });
-  genAtoZ(g.v_license, "licenses", "license", mapper);
-  genAtoZ(g.v_paradigm, "paradigms", "paradigm", mapper);
-  genAtoZ(g.v_person, "people", "person", mapper);
-  genAtoZ(g.v_platform, "platforms", "platform", mapper);
-  genAtoZ(g.v_tsystem, "type_systems", "typeSystem", mapper);
+  genAtoZ(g.v_license, "licenses", "license");
+  genAtoZ(g.v_paradigm, "paradigms", "paradigm");
+  genAtoZ(g.v_person, "people", "person");
+  genAtoZ(g.v_platform, "platforms", "platform");
+  genAtoZ(g.v_tsystem, "type_systems", "typeSystem");
 
-  genAtoZ(g.v_plang, "plangs", "plang", (vid: VID_Any) => plangMapper(g, vid as VID_Plang), PLANG_IDS);
+  genAtoZ(g.v_plang, "plangs", "plang", (vid: VID_Any) => plangMapper(g, vid as VID_Plang), 2048, PLANG_IDS);
 
   console.log("Finished generating definitions.");
+}
+
+function defaultMapper(vid: VID_Any, vertex: _T_AnyV_Data): AtoZData {
+  // Export everything but the name field.
+  const d = { ...vertex };
+  // biome-ignore lint/performance/noDelete: really need to exlude this one.
+  delete d.name;
+  const bundle = {
+    vid: json(vid),
+    name: json(vertex.name),
+    data: json(d),
+  };
+  return bundle;
 }
 
 function plangMapper(g: PlangsGraph, plvid: VID_Plang): AtoZData {
@@ -92,7 +100,8 @@ function genAtoZ(
   vtable: VertexTable<VID_Any, _T_AnyV_Data>,
   basename: string,
   builderName: string,
-  mapper: DataMapper,
+  mapper: DataMapper = defaultMapper,
+  bigThreshold = 300,
   vidWhitelist?: Set<string>,
 ) {
   let allVids = [...vtable.keys()].map((vid) => vid).sort();
@@ -117,15 +126,18 @@ function genAtoZ(
         continue;
       }
       const bundle = mapper(vid as VID_Any, vertex);
-      if (JSON.stringify(bundle).length > 2048) {
+      if (JSON.stringify(bundle).length > bigThreshold) {
         big.push(bundle);
       } else {
         data.push(bundle);
       }
     }
-    const res = Templ.render("/a_to_z", { data, builderName });
-    const path = alphaTsPath(basename, prefix);
-    Bun.write(path, res);
+    if (data.length > 0) {
+      // Maybe we have only big data.
+      const res = Templ.render("/a_to_z", { data, builderName });
+      const path = alphaTsPath(basename, prefix);
+      Bun.write(path, res);
+    }
   }
 
   // Write big data to their own files.

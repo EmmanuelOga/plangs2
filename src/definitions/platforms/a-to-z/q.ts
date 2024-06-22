@@ -5,5 +5,7 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("platf+qnx", "QNX", [{ kind: "wikipedia", title: "QNX", href: "https://en.wikipedia.org/wiki/QNX" }]);
+  lb.define("platf+qnx", "QNX", {
+    websites: [{ kind: "wikipedia", title: "QNX", href: "https://en.wikipedia.org/wiki/QNX" }],
+  });
 }

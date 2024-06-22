@@ -5,19 +5,19 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("platf+emacs", "Emacs", [
-    { kind: "wikipedia", title: "Emacs", href: "https://en.wikipedia.org/wiki/Emacs" },
-  ]);
+  lb.define("platf+emacs", "Emacs", {
+    websites: [{ kind: "wikipedia", title: "Emacs", href: "https://en.wikipedia.org/wiki/Emacs" }],
+  });
 
   //-------------------------------------------------------------------------------
 
-  lb.define("platf+esp32", "ESP32", [
-    { kind: "wikipedia", title: "ESP32", href: "https://en.wikipedia.org/wiki/ESP32" },
-  ]);
+  lb.define("platf+esp32", "ESP32", {
+    websites: [{ kind: "wikipedia", title: "ESP32", href: "https://en.wikipedia.org/wiki/ESP32" }],
+  });
 
   //-------------------------------------------------------------------------------
 
-  lb.define("platf+esp8266", "ESP8266", [
-    { kind: "wikipedia", title: "ESP8266", href: "https://en.wikipedia.org/wiki/ESP8266" },
-  ]);
+  lb.define("platf+esp8266", "ESP8266", {
+    websites: [{ kind: "wikipedia", title: "ESP8266", href: "https://en.wikipedia.org/wiki/ESP8266" }],
+  });
 }

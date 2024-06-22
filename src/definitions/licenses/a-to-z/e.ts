@@ -5,11 +5,13 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+eclipse-public", "EPL", [
-    { kind: "wikipedia", title: "EPL", href: "https://en.wikipedia.org/wiki/Eclipse_Public_License" },
-  ]);
+  lb.define("lic+eclipse-public", "EPL", {
+    websites: [{ kind: "wikipedia", title: "EPL", href: "https://en.wikipedia.org/wiki/Eclipse_Public_License" }],
+  });
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+eula", "EULA", [{ kind: "wikipedia", title: "EULA", href: "https://en.wikipedia.org/wiki/EULA" }]);
+  lb.define("lic+eula", "EULA", {
+    websites: [{ kind: "wikipedia", title: "EULA", href: "https://en.wikipedia.org/wiki/EULA" }],
+  });
 }

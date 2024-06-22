@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("platf+74181", "74181", [
-    { kind: "wikipedia", title: "74181", href: "https://en.wikipedia.org/wiki/74181" },
-  ]);
+  lb.define("platf+74181", "74181", {
+    websites: [{ kind: "wikipedia", title: "74181", href: "https://en.wikipedia.org/wiki/74181" }],
+  });
 }

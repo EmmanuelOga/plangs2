@@ -5,11 +5,13 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+x11", "X11", [{ kind: "wikipedia", title: "X11", href: "https://en.wikipedia.org/wiki/MIT_License" }]);
+  lb.define("lic+x11", "X11", {
+    websites: [{ kind: "wikipedia", title: "X11", href: "https://en.wikipedia.org/wiki/MIT_License" }],
+  });
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+xfree86", "XFree86", [
-    { kind: "wikipedia", title: "XFree86", href: "https://en.wikipedia.org/wiki/XFree86_License" },
-  ]);
+  lb.define("lic+xfree86", "XFree86", {
+    websites: [{ kind: "wikipedia", title: "XFree86", href: "https://en.wikipedia.org/wiki/XFree86_License" }],
+  });
 }

@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("tsys+weak", "Weak", [
-    { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/weak_typing", kind: "wikipedia" },
-  ]);
+  lb.define("tsys+weak", "Weak", {
+    websites: [{ title: "${name} Type System", href: "https://en.wikipedia.org/wiki/weak_typing", kind: "wikipedia" }],
+  });
 }

@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("platf+stm32", "STM32", [
-    { kind: "wikipedia", title: "STM32", href: "https://en.wikipedia.org/wiki/STM32" },
-  ]);
+  lb.define("platf+stm32", "STM32", {
+    websites: [{ kind: "wikipedia", title: "STM32", href: "https://en.wikipedia.org/wiki/STM32" }],
+  });
 }

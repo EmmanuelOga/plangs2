@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+trialware", "Trialware", [
-    { kind: "wikipedia", title: "Trialware", href: "https://en.wikipedia.org/wiki/Trialware" },
-  ]);
+  lb.define("lic+trialware", "Trialware", {
+    websites: [{ kind: "wikipedia", title: "Trialware", href: "https://en.wikipedia.org/wiki/Trialware" }],
+  });
 }

@@ -5,7 +5,9 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("tsys+uniqueness", "Uniqueness", [
-    { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/uniqueness_type", kind: "wikipedia" },
-  ]);
+  lb.define("tsys+uniqueness", "Uniqueness", {
+    websites: [
+      { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/uniqueness_type", kind: "wikipedia" },
+    ],
+  });
 }

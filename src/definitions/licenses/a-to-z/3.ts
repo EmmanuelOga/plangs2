@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("lic+3-clause-bsd", "3-clause BSD", [
-    { kind: "wikipedia", title: "3-clause BSD", href: "https://en.wikipedia.org/wiki/3-clause_BSD" },
-  ]);
+  lb.define("lic+3-clause-bsd", "3-clause BSD", {
+    websites: [{ kind: "wikipedia", title: "3-clause BSD", href: "https://en.wikipedia.org/wiki/3-clause_BSD" }],
+  });
 }

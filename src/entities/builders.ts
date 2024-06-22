@@ -11,7 +11,12 @@ import type {
   VID_Plang,
   VID_Platform,
   VID_TypeSystem,
+  V_License,
+  V_Paradigm,
+  V_Person,
   V_Plang,
+  V_Platform,
+  V_TypeSystem,
 } from "./schemas";
 
 export class PlangsBuilder {
@@ -74,50 +79,50 @@ export class PlangsBuilder {
 export class LicenseBuilder {
   constructor(readonly g: PlangsGraph) {}
 
-  define(vid: VID_License, name: string, { websites }: { websites: Link[] }) {
+  define(vid: VID_License, name: string, data: Partial<V_License>) {
     const v = this.g.v_license.merge(vid, { name });
     v.websites ??= [];
-    mergeWebsites(v.websites, websites);
+    mergeWebsites(v.websites, data.websites);
   }
 }
 
 export class ParadigmBuilder {
   constructor(readonly g: PlangsGraph) {}
 
-  define(vid: VID_Paradigm, name: string, { websites }: { websites: Link[] }) {
+  define(vid: VID_Paradigm, name: string, data: Partial<V_Paradigm>) {
     const v = this.g.v_paradigm.merge(vid, { name });
     v.websites ??= [];
-    mergeWebsites(v.websites, websites);
+    mergeWebsites(v.websites, data.websites);
   }
 }
 
 export class PersonBuilder {
   constructor(readonly g: PlangsGraph) {}
 
-  define(vid: VID_Person, name: string, { websites }: { websites: Link[] }) {
+  define(vid: VID_Person, name: string, data: Partial<V_Person>) {
     const v = this.g.v_person.merge(vid, { name });
     v.websites ??= [];
-    mergeWebsites(v.websites, websites);
+    mergeWebsites(v.websites, data.websites);
   }
 }
 
 export class PlatformBuilder {
   constructor(readonly g: PlangsGraph) {}
 
-  define(vid: VID_Platform, name: string, { websites }: { websites: Link[] }) {
+  define(vid: VID_Platform, name: string, data: Partial<V_Platform>) {
     const v = this.g.v_platform.merge(vid, { name });
     v.websites ??= [];
-    mergeWebsites(v.websites, websites);
+    mergeWebsites(v.websites, data.websites);
   }
 }
 
 export class TypeSysBuilder {
   constructor(readonly g: PlangsGraph) {}
 
-  define(vid: VID_TypeSystem, name: string, { websites }: { websites: Link[] }) {
+  define(vid: VID_TypeSystem, name: string, data: Partial<V_TypeSystem>) {
     const v = this.g.v_tsystem.merge(vid, { name });
     v.websites ??= [];
-    mergeWebsites(v.websites, websites);
+    mergeWebsites(v.websites, data.websites);
   }
 }
 

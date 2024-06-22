@@ -5,7 +5,9 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("tsys+nominative", "Nominative", [
-    { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/nominative_type_system", kind: "wikipedia" },
-  ]);
+  lb.define("tsys+nominative", "Nominative", {
+    websites: [
+      { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/nominative_type_system", kind: "wikipedia" },
+    ],
+  });
 }

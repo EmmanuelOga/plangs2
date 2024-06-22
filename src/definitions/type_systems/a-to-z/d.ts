@@ -5,19 +5,23 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("tsys+dependent", "Dependent", [
-    { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/dependent_type", kind: "wikipedia" },
-  ]);
+  lb.define("tsys+dependent", "Dependent", {
+    websites: [
+      { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/dependent_type", kind: "wikipedia" },
+    ],
+  });
 
   //-------------------------------------------------------------------------------
 
-  lb.define("tsys+duck", "Duck", [
-    { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/duck_typing", kind: "wikipedia" },
-  ]);
+  lb.define("tsys+duck", "Duck", {
+    websites: [{ title: "${name} Type System", href: "https://en.wikipedia.org/wiki/duck_typing", kind: "wikipedia" }],
+  });
 
   //-------------------------------------------------------------------------------
 
-  lb.define("tsys+dynamic", "Dynamic", [
-    { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/dynamic_typing", kind: "wikipedia" },
-  ]);
+  lb.define("tsys+dynamic", "Dynamic", {
+    websites: [
+      { title: "${name} Type System", href: "https://en.wikipedia.org/wiki/dynamic_typing", kind: "wikipedia" },
+    ],
+  });
 }

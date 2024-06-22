@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("para+query-language", "Query language", [
-    { kind: "wikipedia", title: "Query language", href: "https://en.wikipedia.org/wiki/Query_language" },
-  ]);
+  lb.define("para+query-language", "Query language", {
+    websites: [{ kind: "wikipedia", title: "Query language", href: "https://en.wikipedia.org/wiki/Query_language" }],
+  });
 }

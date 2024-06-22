@@ -5,11 +5,13 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
-  lb.define("para+knowledge-representation", "knowledge representation", [
-    {
-      kind: "wikipedia",
-      title: "knowledge representation",
-      href: "https://en.wikipedia.org/wiki/Knowledge_representation",
-    },
-  ]);
+  lb.define("para+knowledge-representation", "knowledge representation", {
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "knowledge representation",
+        href: "https://en.wikipedia.org/wiki/Knowledge_representation",
+      },
+    ],
+  });
 }
