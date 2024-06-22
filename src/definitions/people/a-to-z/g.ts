@@ -161,6 +161,15 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
+  lb.define("person+guy-l-steele", "Guy L. Steele", {
+    websites: [
+      { title: "Guy L. Steele", href: "https://en.wikipedia.org/wiki/Guy_L._Steele", kind: "wikipedia" },
+      { title: "Guy L. Steele, Jr.", href: "https://en.wikipedia.org/wiki/Guy_L._Steele,_Jr.", kind: "wikipedia" },
+    ],
+  });
+
+  //-------------------------------------------------------------------------------
+
   lb.define("person+guy-steele", "Guy Steele", {
     websites: [{ title: "Guy Steele", href: "https://en.wikipedia.org/wiki/Guy_Steele", kind: "wikipedia" }],
   });

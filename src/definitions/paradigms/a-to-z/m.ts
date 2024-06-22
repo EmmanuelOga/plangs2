@@ -5,6 +5,19 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
+  lb.define("para+macros", "macros", {
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "general-purpose macro processor",
+        href: "https://en.wikipedia.org/wiki/General-purpose_macro_processor",
+      },
+      { kind: "wikipedia", title: "macro", href: "https://en.wikipedia.org/wiki/Macro_(computer_science)" },
+    ],
+  });
+
+  //-------------------------------------------------------------------------------
+
   lb.define("para+markup", "markup", {
     websites: [{ kind: "wikipedia", title: "markup", href: "https://en.wikipedia.org/wiki/Markup_language" }],
   });

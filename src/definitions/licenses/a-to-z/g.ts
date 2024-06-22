@@ -17,9 +17,35 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
+  lb.define("lic+gnu-gpl", "GNU GPL", {
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "GNU General Public License",
+        href: "https://en.wikipedia.org/wiki/GNU_General_Public_License",
+      },
+      { kind: "wikipedia", title: "GNU GPL", href: "https://en.wikipedia.org/wiki/GNU_GPL" },
+    ],
+  });
+
+  //-------------------------------------------------------------------------------
+
   lb.define("lic+gnu-gpl-2-plus", "GNU GPLv2+", {
     websites: [
       { kind: "wikipedia", title: "GNU GPLv2+", href: "https://en.wikipedia.org/wiki/GNU_General_Public_License" },
+    ],
+  });
+
+  //-------------------------------------------------------------------------------
+
+  lb.define("lic+gnu-gpl-3", "GNU GPLv3", {
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "GNU General Public License v3.0",
+        href: "https://en.wikipedia.org/wiki/GNU_General_Public_License#Version_3",
+      },
+      { kind: "wikipedia", title: "GNU GPLv3", href: "https://en.wikipedia.org/wiki/GNU_GPLv3" },
     ],
   });
 

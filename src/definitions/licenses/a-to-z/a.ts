@@ -25,6 +25,19 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
+  lb.define("lic+agpl-3", "AGPLv3", {
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "AGPL-3.0-or-later",
+        href: "https://en.wikipedia.org/wiki/GNU_Affero_General_Public_License",
+      },
+      { kind: "wikipedia", title: "AGPLv3", href: "https://en.wikipedia.org/wiki/Affero_General_Public_License" },
+    ],
+  });
+
+  //-------------------------------------------------------------------------------
+
   lb.define("lic+apache-2-with-llvm-exception", "Apache-2.0-with-LLVM-Exception", {
     websites: [
       {
@@ -40,6 +53,15 @@ export function define(g: PlangsGraph) {
   lb.define("lic+artistic", "Artistic License", {
     websites: [
       { kind: "wikipedia", title: "Artistic License", href: "https://en.wikipedia.org/wiki/Artistic_License" },
+    ],
+  });
+
+  //-------------------------------------------------------------------------------
+
+  lb.define("lic+artistic-2", "Artistic License 2", {
+    websites: [
+      { kind: "wikipedia", title: "Artistic License 2.0", href: "https://en.wikipedia.org/wiki/Artistic_License_2.0" },
+      { kind: "wikipedia", title: "Artistic License 2", href: "https://en.wikipedia.org/wiki/Artistic_License" },
     ],
   });
 

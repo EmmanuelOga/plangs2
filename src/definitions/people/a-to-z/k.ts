@@ -39,6 +39,19 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
+  lb.define("person+ken-thompson", "Ken Thompson", {
+    websites: [
+      { title: "Ken Thompson", href: "https://en.wikipedia.org/wiki/Ken_Thompson", kind: "wikipedia" },
+      {
+        title: "Ken Thompson",
+        href: "https://en.wikipedia.org/wiki/Ken_Thompson_(computer_programmer)",
+        kind: "wikipedia",
+      },
+    ],
+  });
+
+  //-------------------------------------------------------------------------------
+
   lb.define("person+kent-pitman", "Kent Pitman", {
     websites: [{ title: "Kent Pitman", href: "https://en.wikipedia.org/wiki/Kent_Pitman", kind: "wikipedia" }],
   });

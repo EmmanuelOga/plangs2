@@ -101,7 +101,7 @@ function genAtoZ(
   basename: string,
   builderName: string,
   mapper: DataMapper = defaultMapper,
-  bigThreshold = 300,
+  bigThreshold = 384,
   vidWhitelist?: Set<string>,
 ) {
   let allVids = [...vtable.keys()].map((vid) => vid).sort();

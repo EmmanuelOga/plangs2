@@ -5,6 +5,23 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
+  lb.define("para+educational", "educational", {
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "educational",
+        href: "https://en.wikipedia.org/wiki/Educational_programming_language",
+      },
+      {
+        kind: "wikipedia",
+        title: "educational",
+        href: "https://en.wikipedia.org/wiki/List_of_educational_programming_languages",
+      },
+    ],
+  });
+
+  //-------------------------------------------------------------------------------
+
   lb.define("para+embedded", "embedded", {
     websites: [{ kind: "wikipedia", title: "embedded", href: "https://en.wikipedia.org/wiki/Embedded_system" }],
   });

@@ -530,6 +530,7 @@ function cleanParadigm(s: string): string {
   if (name.includes("visual") || name.includes("block-")) name = "visual";
 
   name = name.replace(/\-+$/, "").replace(/\-programming$/, "");
+  name = name.replace("gnu-gpl", "gpl");
 
   if (name === "and-computing") name = "distributed";
 

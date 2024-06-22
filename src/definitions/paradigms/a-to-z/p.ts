@@ -43,4 +43,21 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "pipeline", href: "https://en.wikipedia.org/wiki/Pipeline_programming" },
     ],
   });
+
+  //-------------------------------------------------------------------------------
+
+  lb.define("para+prototypes", "prototype-based", {
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "prototype-based",
+        href: "https://en.wikipedia.org/wiki/Prototype-based_programming",
+      },
+      {
+        kind: "wikipedia",
+        title: "prototype-based",
+        href: "https://en.wikipedia.org/wiki/Prototype-oriented_programming",
+      },
+    ],
+  });
 }

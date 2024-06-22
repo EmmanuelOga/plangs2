@@ -17,6 +17,19 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
+  lb.define("lic+free-software", "free software", {
+    websites: [
+      { kind: "wikipedia", title: "free software", href: "https://en.wikipedia.org/wiki/Free_software" },
+      {
+        kind: "wikipedia",
+        title: "free-software license",
+        href: "https://en.wikipedia.org/wiki/Free-software_license",
+      },
+    ],
+  });
+
+  //-------------------------------------------------------------------------------
+
   lb.define("lic+freely-redistributable-software", "Freely redistributable software", {
     websites: [
       {

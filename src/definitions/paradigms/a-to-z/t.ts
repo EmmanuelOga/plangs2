@@ -11,6 +11,15 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
+  lb.define("para+term-rewriting", "Term-rewriting", {
+    websites: [
+      { kind: "wikipedia", title: "term rewriting", href: "https://en.wikipedia.org/wiki/Term_rewriting" },
+      { kind: "wikipedia", title: "term-rewriting", href: "https://en.wikipedia.org/wiki/Term-rewriting" },
+    ],
+  });
+
+  //-------------------------------------------------------------------------------
+
   lb.define("para+thread-safe", "thread safe", {
     websites: [{ kind: "wikipedia", title: "thread safe", href: "https://en.wikipedia.org/wiki/Thread_safe" }],
   });

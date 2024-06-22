@@ -26,6 +26,28 @@ export function define(g: PlangsGraph) {
 
   //-------------------------------------------------------------------------------
 
+  lb.define("lic+modified-bsd", "modified BSD", {
+    websites: [
+      { kind: "wikipedia", title: "modified BSD", href: "https://en.wikipedia.org/wiki/Modified_BSD_license" },
+      { kind: "wikipedia", title: "Modified BSD License", href: "https://en.wikipedia.org/wiki/BSD_licenses" },
+    ],
+  });
+
+  //-------------------------------------------------------------------------------
+
+  lb.define("lic+mozilla-public", "Mozilla Public", {
+    websites: [
+      { kind: "wikipedia", title: "Mozilla Public", href: "https://en.wikipedia.org/wiki/Mozilla_Public_Licence" },
+      {
+        kind: "wikipedia",
+        title: "Mozilla Public License",
+        href: "https://en.wikipedia.org/wiki/Mozilla_Public_License",
+      },
+    ],
+  });
+
+  //-------------------------------------------------------------------------------
+
   lb.define("lic+mpl", "MPL", {
     websites: [{ kind: "wikipedia", title: "MPL", href: "https://en.wikipedia.org/wiki/Mozilla_Public_License" }],
   });
