@@ -14,14 +14,25 @@ export type NN_Partial<T> = T extends Partial<infer U> ? T : Partial<T>;
  * Convert the string to something usable as vertex id.
  */
 export function toAlphaNum(s: string) {
-  const result = s
+  // biome-ignore format: it's artisanally formatted :-p.
+  let result = s
     .trim()
-    .normalize("NFD")
+    .normalize("NFD");
+
+  if (result.startsWith("*")) result = `star-${result.slice(1)}`;
+  if (result.startsWith("+")) result = `plus-${result.slice(1)}`;
+
+  result = result
     // biome-ignore lint/suspicious/noMisleadingCharacterClass: removes accents/diacritics.
     .replaceAll(/[\u0300-\u036f]/g, "")
     .replaceAll(/\s+/g, " ")
     .replaceAll(" ", "-")
+
+    .replaceAll(/_/g, "-")
+    .replaceAll(/-+/g, "-")
+
     .toLowerCase()
+
     .split(/[\*]/g)
     .join("-star")
     .split(/\#/g)
@@ -32,6 +43,7 @@ export function toAlphaNum(s: string) {
     .join("-slash")
     .split(/\\/g)
     .join("-backslash")
+
     .replaceAll(/[\/\:]/g, "-")
     .replaceAll(/[^a-zA-Z0-9\.\(\)\[\]_\-]/g, "-");
 

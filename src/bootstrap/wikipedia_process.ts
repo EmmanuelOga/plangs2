@@ -54,7 +54,7 @@ export async function parseAll(g: PlangsGraph) {
       name,
       websites: [
         {
-          title: "${name} Type System",
+          title: `${name} Type System`,
           href: `${WIKIPEDIA_URL}${wiki}`,
           kind: "wikipedia",
         },
@@ -98,7 +98,7 @@ export async function parseAll(g: PlangsGraph) {
 
 function mergeLink(pl: { websites?: Link[] }, newLink: Link) {
   pl.websites ??= [];
-  if (pl.websites.some((l: Link) => l.href === newLink.href)) return;
+  if (pl.websites.some((l: Link) => l.href.toLowerCase() === newLink.href.toLowerCase())) return;
   pl.websites.push(newLink);
 }
 
@@ -109,7 +109,9 @@ function processLanguage(
   image: string | undefined,
   data: Record<DATA_ATTR, Record<DATA_TYPE, _Any>>,
 ) {
-  const pid = toAlphaNum(title);
+  const pid = keyFromWikiUrl(wikiUrl);
+  if (!pid) return;
+
   const pl = g.v_plang.merge(`pl+${pid}`, { name: title }); // We may already have the language, from an influence.
   mergeLink(pl, { kind: "wikipedia", title: title, href: wikiUrl });
 
@@ -185,7 +187,9 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
     case "major_implementations":
       if (type !== "links") return;
       for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
-        const impl = toAlphaNum(title);
+        const impl = keyFromWikiUrl(href);
+        if (!impl) continue;
+
         mergeLink(g.v_plang.merge(`pl+${impl}`, { name: title.trim() }), {
           kind: "wikipedia",
           title,
@@ -200,12 +204,8 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
       if (type !== "links") return;
 
       for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
-        const key = toAlphaNum(title);
-
-        // Here we don't know:
-        // * If implem key is really an implementation or a language.
-        // * If implem is an implementation, we don't know which language it implements.
-        // We can use website data later to disambiguate.
+        const key = keyFromWikiUrl(href);
+        if (!key) continue;
 
         mergeLink(g.v_plang.merge(`pl+${key}`, { name: title.trim() }), {
           kind: "wikipedia",
@@ -219,21 +219,10 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
 
     case "influenced":
     case "influenced_by":
-      if (type === "text") {
-        for (const who of val.split(", ")) {
-          const key = toAlphaNum(who);
-          g.v_plang.merge(`pl+${key}`, { name: who.trim() });
-          if (key === "influenced") {
-            g.e_l_influenced_l.connect(pvid, `pl+${key}`);
-          } else {
-            g.e_l_influenced_l.connect(`pl+${key}`, pvid);
-          }
-        }
-        return;
-      }
       if (type !== "links") return;
       for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
-        const key = toAlphaNum(title);
+        const key = keyFromWikiUrl(href);
+        if (!key) continue;
 
         const otherpl = g.v_plang.merge(`pl+${key}`, { name: title.trim() });
         mergeLink(otherpl, {
@@ -252,22 +241,11 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
 
     case "dialects":
     case "family":
-      if (type === "text") {
-        for (const dialect of val.split(",").filter((x: string) => !/[\(\)\[\]]/.test(x))) {
-          const key = toAlphaNum(dialect);
-          g.v_plang.merge(`pl+${key}`, { name: dialect.trim() });
-          if (key === "dialects") {
-            g.e_dialect_of.connect(`pl+${key}`, pvid);
-          } else {
-            g.e_dialect_of.connect(pvid, `pl+${key}`);
-          }
-        }
-        return;
-      }
       if (type !== "links") return;
-
       for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
-        const key = toAlphaNum(title);
+        const key = keyFromWikiUrl(href);
+        if (!key) continue;
+
         const otherpl = g.v_plang.merge(`pl+${key}`, { name: title.trim() });
         mergeLink(otherpl, {
           kind: "wikipedia",
@@ -286,7 +264,11 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
     case "license": // links
       if (type !== "links") return;
       for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
-        const key = cleanLicense(toAlphaNum(title));
+        let key = keyFromWikiUrl(href);
+        if (!key) continue;
+
+        key = cleanLicense(key);
+
         const lic = g.v_license.declare(`lic+${key}`);
         if (!lic.name || lic.name.length > title.length) lic.name = title.trim(); // Keep the shortest name.
         mergeLink(lic, {
@@ -302,8 +284,12 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
     case "platform":
       if (type !== "links") return;
       for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
-        const key = cleanPlatform(toAlphaNum(href.split("/wiki/")[1])); // Wiki Key works better here.
+        let key = keyFromWikiUrl(href);
         if (!key) continue; // We'll ignore some old platforms.
+
+        key = cleanPlatform(key);
+        if (!key) continue;
+
         mergeLink(g.v_platform.merge(`platf+${key}`, { name: title.trim() }), {
           kind: "wikipedia",
           title,
@@ -317,15 +303,21 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
     case "paradigms":
       if (type !== "links") return;
       for (const { href, title } of val) {
-        for (const name of title.split(",")) {
-          const key = cleanParadigm(toAlphaNum(name));
-          mergeLink(g.v_paradigm.merge(`para+${key}`, { name: name }), {
-            kind: "wikipedia",
-            title,
-            href: `${WIKIPEDIA_URL}${href}`,
-          });
-          g.e_plang_para.connect(pvid, `para+${key}`);
+        let key = keyFromWikiUrl(href);
+        if (key) key = cleanParadigm(key);
+        if (!key) key = cleanParadigm(title);
+
+        if (!key) {
+          console.warn(`Could not clean paradigm: ${title} (${href})`);
+          continue;
         }
+
+        mergeLink(g.v_paradigm.merge(`para+${key}`, { name: title.split(",")[0] }), {
+          kind: "wikipedia",
+          title,
+          href: `${WIKIPEDIA_URL}${href}`,
+        });
+        g.e_plang_para.connect(pvid, `para+${key}`);
       }
       return;
 
@@ -380,6 +372,8 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
         }
       }
 
+      // Under the "risk" of having duplicated people, we use the name of the person
+      // instead of the wiki url, since many people don't have a wikipedia page.
       if (type === "text") {
         for (const who of extractNames(val)) addPerson(who);
       } else if (type === "links") {
@@ -399,32 +393,8 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
     case "typing_discipline":
       {
         function typeFromText(str: string): void {
-          for (const t of str.split(",").map((s: string) => s.toLowerCase())) {
-            let tsys: string | undefined;
-
-            if (t.includes("affine")) tsys = "affine";
-            else if (t.includes("dependent")) tsys = "dependent";
-            else if (t.includes("duck")) tsys = "duck";
-            else if (t.includes("dynamic")) tsys = "dynamic";
-            else if (t.includes("flow")) tsys = "flow-sensitive";
-            else if (t.includes("generic")) tsys = "generic";
-            else if (t.includes("gradual")) tsys = "gradual";
-            else if (t.includes("hindley-milner")) tsys = "hindley-milner";
-            else if (t.includes("implicit") || t.includes("infer")) tsys = "inferred";
-            else if (t.includes("latent")) tsys = "latent";
-            else if (t.includes("manifest")) tsys = "manifest";
-            else if (t.includes("nomin")) tsys = "nominative";
-            else if (t.includes("object")) tsys = "object-oriented";
-            else if (t.includes("optional")) tsys = "optional";
-            else if (t.includes("parametric")) tsys = "parametric";
-            else if (t.includes("polymorphic")) tsys = "polymorphic";
-            else if (t.includes("safe")) tsys = "safe";
-            else if (t.includes("static")) tsys = "static";
-            else if (t.includes("strong")) tsys = "strong";
-            else if (t.includes("structural")) tsys = "structural";
-            else if (t.includes("uniqueness")) tsys = "uniqueness";
-            else if (t.includes("weak")) tsys = "weak";
-
+          for (const name of str.split(",").map((s: string) => s.toLowerCase())) {
+            const tsys = cleanTsys(name);
             if (tsys) g.e_plang_tsys.connect(pvid, `tsys+${tsys}`);
           }
         }
@@ -452,7 +422,9 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
           kind: KINDS[key],
         };
         pl.releases ??= [];
-        pl.releases.push(rel);
+        if (!pl.releases.some((r: Release) => r.version === rel.version && r.date === rel.date)) {
+          pl.releases.push(rel);
+        }
       }
       return;
 
@@ -478,7 +450,7 @@ function extractNames(str: string): string[] {
     .filter((s: string) => !NON_PEOPLE.test(s));
 }
 
-function cleanLicense(licenseId: string) {
+function cleanLicense(licenseId: string): string {
   const clean = licenseId
     .toLowerCase()
     .replaceAll(/\u00a0/g, " ")
@@ -492,49 +464,61 @@ function cleanLicense(licenseId: string) {
     .replaceAll("zend-engine", "zend")
     .replaceAll("-or-later", "")
     .replaceAll("-license", "")
-    .replaceAll("-licence", "")
+    .replaceAll("-licences", "")
+    .replaceAll("-software", "")
+    .replaceAll("software-", "")
     .replaceAll(".0", "")
     .replaceAll("standard-librariesd-under-the-", "")
     .replaceAll("gnu-gpl", "gpl");
 
+  const match = clean.match(/([^\-]+)-bsd/);
+  if (match) return `bsd-${match[1][0]}`;
+  if (clean === "bsds") return "bsd-s";
+
+  if (clean === "international-components-for-unicode") return "icu";
+  if (clean === "historical-permission-notice-and-disclaimer") return "hpnd";
+  if (clean.includes("apache")) return "apache";
+  if (clean.includes("lesser") || clean.includes("lgpl")) return "lgpl";
   if (clean === "apsl") return "apache";
   if (clean === "epl") return "eclipse-public";
 
   return clean;
 }
-function cleanParadigm(s: string): string {
-  let name = s.trim().replace("programming", "").toLowerCase();
 
-  name = name.replace(/\-+$/, "").replace(/\-programming$/, "");
+function cleanParadigm(str: string): string | undefined {
+  const name = str.trim().replace("programming", "").toLowerCase();
 
+  if (name.includes("multi")) return "multi";
   if (name === "and-computing") return "distributed";
 
-  if (name.startsWith("agent")) return "agent-based";
+  // This won't tell us much about the paradigm, maybe inspect the hash of the wiki url?
+  if (name === "-paradigm") return;
+
+  if (name.startsWith("agent")) return "agent";
   if (name.startsWith("block-based")) return "visual";
   if (name.startsWith("communicating-sequential-processes")) return "csp";
   if (name.startsWith("constraint")) return "constraint";
-  if (name.startsWith("data-")) return "data-driven";
+  if (name.startsWith("data-")) return "data";
   if (name.startsWith("dataflow")) return "dataflow";
   if (name.startsWith("distributed")) return "distributed";
-  if (name.startsWith("event-driven")) return "event-driven";
+  if (name.startsWith("event-driven")) return "event";
   if (name.startsWith("generic")) return "generic";
   if (name.startsWith("imperative")) return "imperative";
-  if (name.startsWith("language-oriented")) return "language-oriented";
+  if (name.startsWith("language-oriented")) return "language";
 
   if (name.includes("declarative")) return "declarative";
   if (name.includes("functional")) return "functional";
   if (name.includes("generics")) return "generic";
   if (name.includes("logic")) return "logic";
   if (name.includes("macro")) return "macros";
-  if (name.includes("multi")) return "multi-paradigm";
   if (name.includes("object")) return "objects";
   if (name.includes("parallel")) return "parallel";
   if (name.includes("procedural")) return "imperative";
-  if (name.includes("processing")) return "process-oriented";
+  if (name.includes("processing")) return "process";
   if (name.includes("prototype")) return "prototypes";
-  if (name.includes("stack")) return "stack-oriented";
+  if (name.includes("stack")) return "stack";
 
-  return name;
+  return name.split("-")[0]; // Keep it short.
 }
 
 const PLATFORM_SKIPS =
@@ -543,8 +527,7 @@ const PLATFORM_SKIPS =
 function cleanPlatform(platf: string): string | undefined {
   if (PLATFORM_SKIPS.test(platf)) return;
 
-  const p = platf
-    .toLowerCase()
+  const p = toAlphaNum(platf)
     .replaceAll(/_\([^\)]+\)/g, "")
     .replaceAll("-sharpfloating-point", "")
     .replaceAll("-family", "")
@@ -556,27 +539,83 @@ function cleanPlatform(platf: string): string | undefined {
     .replaceAll("google_", "")
     .replaceAll("fire_tv", "firetv");
 
+  // Order is important.
+  if (/wasm|web.?assembly|wasi/i.test(p)) return "wasm";
+
+  if (/web|html/i.test(p)) return "web";
+  if (/javascript/i.test(p)) return "javascript";
+
   if (/\.net/i.test(p)) return ".net";
-  if (/^darwin|^mac_os|^os_x|^mac_operating|^macos|apple_silicon|macintosh/i.test(p)) return "macos";
+  if (/^darwin|^mac-os|^os-x|^mac-operating|^macos|apple-silicon|macintosh/i.test(p)) return "mac";
   if (/amiga/i.test(p)) return "amiga";
   if (/android/i.test(p)) return "android";
-  if (/apple.?ii/i.test(p)) return "apple_ii";
+  if (/apple.?ii/i.test(p)) return "apple-ii";
   if (/arm/i.test(p)) return "arm";
   if (/cross|independent/i.test(p)) return "cross-platform";
   if (/dos|ms.?dos|microsoft.?dos|pc.?dos|dr?.dos/i.test(p)) return "dos";
-  if (/java|jvm/i.test(p)) return "jvm";
   if (/linux|debian|ubuntu|fedora|suse/i.test(p)) return "linux";
   if (/plan.?9/i.test(p)) return "plan9";
   if (/playstation/i.test(p)) return "playstation";
   if (/raspberry/i.test(p)) return "rpi";
   if (/unix/i.test(p)) return "unix";
-  if (/web|html/i.test(p)) return "web";
   if (/windows/i.test(p)) return "windows";
   if (/xbox/i.test(p)) return "xbox";
   if (/atari/i.test(p)) return "atari";
   if (/commodore/i.test(p)) return "commodore";
+  if (/java|jvm/i.test(p) && !/javas/i.test(p)) return "jvm";
 
-  if (/Berkeley_Software_Distribution|^bsd|bsd$/i.test(p)) return "bsd";
+  if (/Berkeley-Software-Distribution|^bsd|bsd$/i.test(p)) return "bsd";
 
   return p;
+}
+
+/**
+ * Create a key from the Wikipedia /wiki path, removing anchors and '_(...)' parts.
+ * @returns [key, anchor]
+ */
+function keyFromWikiUrl(wikiUrl: string): string | undefined {
+  const [prefix, hash] = wikiUrl.split("#");
+
+  const clean = (key: string) => toAlphaNum(key.replace(/\#.*$/, "").replace(/_\([^\)]+\)/, ""));
+
+  if (prefix.includes("/wiki/")) {
+    const path = decodeURIComponent(prefix);
+    const key = clean(path.split("/wiki/")[1]);
+    if (key && !/\-{3,}/.test(key)) return key;
+    console.warn(`Invalid wiki url: ${wikiUrl} -> ${path} -> ${key}`);
+  }
+
+  if (wikiUrl.includes("?")) {
+    const q = new URLSearchParams(wikiUrl.split("?")[1]);
+    const key = clean(q.get("title")?.trim() ?? "");
+    if (key && !/\-{3,}/.test(key)) return key;
+    console.warn(`Invalid wiki url: ${wikiUrl} -> ${q.get("title")} -> ${key}`);
+  }
+
+  console.warn(`Invalid wiki url: ${wikiUrl}`);
+}
+
+function cleanTsys(str: string): string | undefined {
+  if (str.includes("affine")) return "affine";
+  if (str.includes("dependent")) return "dependent";
+  if (str.includes("duck")) return "duck";
+  if (str.includes("dynamic")) return "dynamic";
+  if (str.includes("flow")) return "flow-sensitive";
+  if (str.includes("generic")) return "generic";
+  if (str.includes("gradual")) return "gradual";
+  if (str.includes("hindley-milner")) return "hindley-milner";
+  if (str.includes("implicit") || str.includes("infer")) return "inferred";
+  if (str.includes("latent")) return "latent";
+  if (str.includes("manifest")) return "manifest";
+  if (str.includes("nomin")) return "nominative";
+  if (str.includes("object")) return "object-oriented";
+  if (str.includes("optional")) return "optional";
+  if (str.includes("parametric")) return "parametric";
+  if (str.includes("polymorphic")) return "polymorphic";
+  if (str.includes("safe")) return "safe";
+  if (str.includes("static")) return "static";
+  if (str.includes("strong")) return "strong";
+  if (str.includes("structural")) return "structural";
+  if (str.includes("uniqueness")) return "uniqueness";
+  if (str.includes("weak")) return "weak";
 }

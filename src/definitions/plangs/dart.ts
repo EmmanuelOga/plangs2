@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
@@ -62,8 +62,8 @@ export function define(g: PlangsGraph) {
         "pl+strongtalk",
         "pl+typescript",
       ],
-      licenses: ["lic+bsd"],
-      paradigms: ["para+functional", "para+imperative", "para+multi-paradigm", "para+objects", "para+reflective"],
+      licenses: ["lic+bsd-s"],
+      paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects", "para+reflective"],
       people: [["person+lars-bak", "designer"]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+inferred", "tsys+optional", "tsys+static", "tsys+strong"],

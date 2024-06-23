@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
@@ -34,13 +34,13 @@ export function define(g: PlangsGraph) {
     {
       dialects: ["pl+dolphin-smalltalk", "pl+newspeak", "pl+pharo", "pl+self", "pl+strongtalk"],
       implementations: [
-        "pl+amber",
+        "pl+amber-smalltalk",
         "pl+dolphin-smalltalk",
-        "pl+gemstone-slashs",
+        "pl+gemstone",
         "pl+gnu-smalltalk",
+        "pl+ibm-visualage",
         "pl+pharo",
         "pl+squeak",
-        "pl+va-smalltalk",
         "pl+visualworks",
       ],
       influenced: [
@@ -48,6 +48,7 @@ export function define(g: PlangsGraph) {
         "pl+agentcubes",
         "pl+agentsheets",
         "pl+ambienttalk",
+        "pl+apache-groovy",
         "pl+c-plus-plus",
         "pl+ceylon",
         "pl+claire",
@@ -57,21 +58,20 @@ export function define(g: PlangsGraph) {
         "pl+emerald",
         "pl+erlang",
         "pl+etoys",
-        "pl+gemstone-slashs-object-server",
+        "pl+gemstone",
         "pl+go",
-        "pl+groovy",
         "pl+io",
         "pl+java",
         "pl+lasso",
-        "pl+lisp",
-        "pl+logo",
+        "pl+lisp-programming-language",
         "pl+logtalk",
         "pl+mdl",
         "pl+newspeak",
         "pl+oaklisp",
         "pl+object-pascal",
         "pl+object-rexx",
-        "pl+objective-c",
+        "pl+objective-c-plus-plus",
+        "pl+objectlogo",
         "pl+orc",
         "pl+pharo",
         "pl+pico",
@@ -81,7 +81,7 @@ export function define(g: PlangsGraph) {
         "pl+scala",
         "pl+scratch",
         "pl+self",
-        "pl+simula",
+        "pl+simula-67",
         "pl+snap-",
         "pl+squeak",
         "pl+strongtalk",

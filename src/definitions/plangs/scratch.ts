@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
@@ -41,8 +41,9 @@ export function define(g: PlangsGraph) {
       influenced: [
         "pl+agentcubes",
         "pl+agentsheets",
+        "pl+catrobat",
         "pl+etoys",
-        "pl+logo",
+        "pl+objectlogo",
         "pl+smalltalk",
         "pl+snap-",
         "pl+squeak",
@@ -63,17 +64,9 @@ export function define(g: PlangsGraph) {
         "pl+starlogo",
         "pl+turtlestitch",
       ],
-      licenses: ["lic+bsd-3-clause", "lic+gpl-2"],
-      paradigms: ["para+event-driven", "para+visual"],
-      platforms: [
-        "platf+android",
-        "platf+dos",
-        "platf+ios",
-        "platf+linux",
-        "platf+macos",
-        "platf+web",
-        "platf+windows",
-      ],
+      licenses: ["lic+bsd-s", "lic+gpl"],
+      paradigms: ["para+event", "para+visual"],
+      platforms: ["platf+android", "platf+dos", "platf+ios", "platf+linux", "platf+mac", "platf+web", "platf+windows"],
     },
   );
 

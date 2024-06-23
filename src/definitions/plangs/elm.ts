@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
@@ -48,11 +48,11 @@ export function define(g: PlangsGraph) {
     },
     {
       influenced: ["pl+gleam", "pl+ml", "pl+ocaml", "pl+rust", "pl+standard-ml"],
-      influences: ["pl+f-sharp", "pl+haskell", "pl+ocaml", "pl+redux", "pl+rust", "pl+standard-ml", "pl+vue"],
-      licenses: ["lic+bsd-revised", "lic+permissive"],
+      influences: ["pl+f-sharp", "pl+haskell", "pl+ocaml", "pl+redux", "pl+rust", "pl+standard-ml", "pl+vue.js"],
+      licenses: ["lic+bsd", "lic+permissive"],
       paradigms: ["para+functional"],
       people: [["person+evan-czaplicki", "designer"]],
-      platforms: ["platf+macos", "platf+windows", "platf+x86-64"],
+      platforms: ["platf+mac", "platf+windows", "platf+x86-64"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );

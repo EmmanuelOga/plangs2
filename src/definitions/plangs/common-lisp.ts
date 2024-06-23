@@ -1,0 +1,96 @@
+import type { PlangsGraph } from "../../entities/plangs_graph";
+
+export function define(g: PlangsGraph) {
+  const lb = g.plangBuilder;
+
+  lb.define(
+    "pl+common-lisp",
+    "Common Lisp",
+    {
+      name: "Common Lisp",
+      websites: [
+        { kind: "wikipedia", title: "Common Lisp", href: "https://en.wikipedia.org/wiki/Common_Lisp" },
+        { kind: "homepage", title: "common-lisp.net", href: "http://common-lisp.net" },
+      ],
+      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/4/48/Lisp_logo.svg" }],
+      releases: [{ version: "unknown", date: "1984-01-01", kind: "first" }],
+      scoping: ["dynamic"],
+      extensions: [".lisp", ".lsp", ".l", ".cl", ".fasl"],
+    },
+    {
+      dialects: ["pl+lisp-programming-language"],
+      implementations: [
+        "pl+allegro-common-lisp",
+        "pl+armed-bear-common-lisp",
+        "pl+clisp",
+        "pl+clozure-cl",
+        "pl+cmucl",
+        "pl+embeddable-common-lisp",
+        "pl+genera",
+        "pl+gnu-common-lisp",
+        "pl+lispworks",
+        "pl+sbcl",
+      ],
+      influenced: [
+        "pl+clojure",
+        "pl+emacs-lisp",
+        "pl+embeddable-common-lisp",
+        "pl+eulisp",
+        "pl+franz-lisp",
+        "pl+hy",
+        "pl+islisp",
+        "pl+lfe",
+        "pl+lispworks",
+        "pl+maclisp",
+        "pl+mdl",
+        "pl+newlisp",
+        "pl+sather",
+        "pl+scala",
+        "pl+scheme",
+        "pl+skill",
+        "pl+star-lisp",
+        "pl+zetalisp",
+      ],
+      influences: [
+        "pl+autolisp",
+        "pl+cadence-skill",
+        "pl+clojure",
+        "pl+dylan",
+        "pl+emacs-lisp",
+        "pl+eulisp",
+        "pl+interlisp",
+        "pl+islisp",
+        "pl+julia",
+        "pl+lisp",
+        "pl+lisp-machine-lisp",
+        "pl+maclisp",
+        "pl+moose",
+        "pl+r",
+        "pl+scheme",
+        "pl+star-lisp",
+        "pl+subl",
+      ],
+      paradigms: [
+        "para+functional",
+        "para+generic",
+        "para+imperative",
+        "para+meta",
+        "para+multi",
+        "para+objects",
+        "para+reflective",
+      ],
+      people: [
+        ["person+dan-weinreb", "designer"],
+        ["person+david-a-moon", "designer"],
+        ["person+guy-steele", "designer"],
+        ["person+kent-pitman", "designer"],
+        ["person+richard-p-gabriel", "designer"],
+        ["person+scott-fahlman", "designer"],
+      ],
+      platforms: ["platf+cross-platform"],
+      typeSystems: ["tsys+dynamic", "tsys+strong"],
+    },
+  );
+
+  /**/
+}

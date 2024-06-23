@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
@@ -83,7 +83,7 @@ export function define(g: PlangsGraph) {
         "pl+java",
         "pl+js-plus-plus",
         "pl+kotlin",
-        "pl+lisp",
+        "pl+lisp-programming-language",
         "pl+livescript",
         "pl+opa",
         "pl+php",
@@ -116,7 +116,7 @@ export function define(g: PlangsGraph) {
         "pl+self",
         "pl+typescript",
       ],
-      paradigms: ["para+event-driven", "para+functional", "para+imperative", "para+multi-paradigm", "para+objects"],
+      paradigms: ["para+event", "para+functional", "para+imperative", "para+multi", "para+objects"],
       people: [["person+brendan-eich", "designer"]],
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+weak"],
     },

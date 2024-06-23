@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
@@ -63,7 +63,7 @@ export function define(g: PlangsGraph) {
         "pl+ballerina",
         "pl+c",
         "pl+c-plus-plus",
-        "pl+cilkopencilkcilk-plus",
+        "pl+cilk-plus",
         "pl+crystal",
         "pl+cyclone",
         "pl+elm",
@@ -105,7 +105,7 @@ export function define(g: PlangsGraph) {
         "pl+v",
         "pl+zig",
       ],
-      licenses: ["lic+apache-2", "lic+mit"],
+      licenses: ["lic+apache", "lic+mit"],
       paradigms: ["para+concurrent", "para+functional", "para+generic", "para+imperative", "para+structured"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+affine", "tsys+inferred", "tsys+nominative", "tsys+static", "tsys+strong"],

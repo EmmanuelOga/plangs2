@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
@@ -71,14 +71,13 @@ export function define(g: PlangsGraph) {
       extensions: [".C", ".cc", ".cpp", ".cxx", ".c++", ".h", ".H", ".hh", ".hpp", ".hxx", ".ixx"],
     },
     {
-      dialects: ["pl+c-plus-plusbuilder"],
       implementations: [
-        "pl+edg",
-        "pl+embarcadero-c-plus-plusbuilder",
-        "pl+gcc",
+        "pl+c-plus-plusbuilder",
+        "pl+clang",
+        "pl+edison-design-group",
+        "pl+gnu-compiler-collection",
         "pl+ibm-xl-c-plus-plus",
         "pl+intel-c-plus-plus-compiler",
-        "pl+llvm-clang",
         "pl+microsoft-visual-c-plus-plus",
       ],
       influenced: [
@@ -92,11 +91,11 @@ export function define(g: PlangsGraph) {
         "pl+clojure",
         "pl+clu",
         "pl+cobol",
-        "pl+d-programming-language",
+        "pl+d",
         "pl+dart",
         "pl+ec",
         "pl+gnu-e",
-        "pl+godot-enginegdscript",
+        "pl+godot",
         "pl+haxe",
         "pl+java",
         "pl+js-plus-plus",
@@ -122,7 +121,6 @@ export function define(g: PlangsGraph) {
       ],
       influences: [
         "pl+ada",
-        "pl+ada-95",
         "pl+algol-68",
         "pl+bcpl",
         "pl+c",
@@ -150,14 +148,7 @@ export function define(g: PlangsGraph) {
         "pl+simula",
         "pl+smalltalk",
       ],
-      paradigms: [
-        "para+functional",
-        "para+generic",
-        "para+imperative",
-        "para+modular",
-        "para+multi-paradigm",
-        "para+objects",
-      ],
+      paradigms: ["para+functional", "para+generic", "para+imperative", "para+modular", "para+multi", "para+objects"],
       people: [["person+bjarne-stroustrup", "designer"]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+inferred", "tsys+nominative", "tsys+static", "tsys+strong"],

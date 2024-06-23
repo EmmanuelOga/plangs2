@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
@@ -61,7 +61,7 @@ export function define(g: PlangsGraph) {
         "pl+bcpl",
         "pl+c",
         "pl+crystal",
-        "pl+d-programming-language",
+        "pl+d",
         "pl+erlang",
         "pl+flix",
         "pl+gleam",
@@ -93,16 +93,16 @@ export function define(g: PlangsGraph) {
         "pl+occam",
         "pl+pascal",
         "pl+smalltalk",
-        "pl+v-(vlang)",
+        "pl+v",
       ],
-      licenses: ["lic+3-clause-bsd", "lic+patent"],
-      paradigms: ["para+concurrent", "para+functional", "para+imperative", "para+multi-paradigm", "para+objects"],
+      licenses: ["lic+bsd-c", "lic+patents"],
+      paradigms: ["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+objects"],
       people: [
         ["person+ken-thompson", "designer"],
         ["person+rob-pike", "designer"],
         ["person+robert-griesemer", "designer"],
       ],
-      platforms: ["platf+bsd", "platf+linux", "platf+macos", "platf+plan9", "platf+windows"],
+      platforms: ["platf+bsd", "platf+linux", "platf+mac", "platf+plan9", "platf+windows"],
       typeSystems: ["tsys+inferred", "tsys+nominative", "tsys+static", "tsys+strong", "tsys+structural"],
     },
   );

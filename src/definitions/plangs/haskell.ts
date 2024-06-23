@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
@@ -42,7 +42,7 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+elm", "pl+hume"],
-      implementations: ["pl+ghc", "pl+hugs", "pl+yhc"],
+      implementations: ["pl+glasgow-haskell-compiler", "pl+hugs", "pl+yhc"],
       influenced: [
         "pl+a-",
         "pl+agda",
@@ -52,16 +52,16 @@ export function define(g: PlangsGraph) {
         "pl+curry",
         "pl+elm",
         "pl+eulisp",
+        "pl+ffp",
         "pl+flix",
         "pl+fortress",
-        "pl+fp",
         "pl+futhark",
         "pl+hack",
         "pl+hume",
         "pl+idris",
         "pl+iswim",
         "pl+lean",
-        "pl+lisp",
+        "pl+lisp-programming-language",
         "pl+livescript",
         "pl+mercury",
         "pl+miranda",
@@ -85,7 +85,7 @@ export function define(g: PlangsGraph) {
         "pl+hope",
         "pl+id",
         "pl+iswim",
-        "pl+krc",
+        "pl+kent-recursive-calculator",
         "pl+lisp",
         "pl+miranda",
         "pl+ml",

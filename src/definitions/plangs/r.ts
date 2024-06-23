@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
@@ -61,17 +61,10 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      influenced: ["pl+common-lisp", "pl+julia", "pl+lisp", "pl+pcastl", "pl+s", "pl+scheme"],
+      influenced: ["pl+common-lisp", "pl+julia", "pl+lisp-programming-language", "pl+pcastl", "pl+s", "pl+scheme"],
       influences: ["pl+julia", "pl+lisp", "pl+s", "pl+scheme"],
-      licenses: ["lic+gpl-2"],
-      paradigms: [
-        "para+array",
-        "para+functional",
-        "para+imperative",
-        "para+multi-paradigm",
-        "para+objects",
-        "para+reflective",
-      ],
+      licenses: ["lic+gpl"],
+      paradigms: ["para+array", "para+functional", "para+imperative", "para+multi", "para+objects", "para+reflective"],
       people: [
         ["person+robert-gentleman", "designer"],
         ["person+ross-ihaka", "designer"],

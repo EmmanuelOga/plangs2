@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
@@ -102,8 +102,8 @@ export function define(g: PlangsGraph) {
         "pl+c",
         "pl+common-lisp",
         "pl+dylan",
-        "pl+lisp",
-        "pl+matlab-(programming-language)matlab-(software)",
+        "pl+lisp-programming-language",
+        "pl+matlab",
         "pl+python",
         "pl+r",
         "pl+ruby",
@@ -115,12 +115,12 @@ export function define(g: PlangsGraph) {
         "pl+fortress",
         "pl+lisp",
         "pl+lua",
-        "pl+mathematica",
         "pl+matlab",
         "pl+perl",
         "pl+python",
         "pl+r",
         "pl+ruby",
+        "pl+wolfram-language",
       ],
       licenses: ["lic+mit"],
       paradigms: [
@@ -128,7 +128,7 @@ export function define(g: PlangsGraph) {
         "para+functional",
         "para+imperative",
         "para+meta",
-        "para+multi-paradigm",
+        "para+multi",
         "para+objects",
         "para+reflective",
         "para+structured",
@@ -140,13 +140,14 @@ export function define(g: PlangsGraph) {
         ["person+viral-b-shah", "designer"],
       ],
       platforms: [
+        "platf+64-bit-computing",
         "platf+aarch64",
         "platf+arm",
         "platf+bsd",
         "platf+cuda",
         "platf+ia-32",
         "platf+linux",
-        "platf+macos",
+        "platf+mac",
         "platf+oneapi",
         "platf+rocm",
         "platf+windows",

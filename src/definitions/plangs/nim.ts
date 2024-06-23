@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
@@ -43,7 +43,7 @@ export function define(g: PlangsGraph) {
         "pl+ada",
         "pl+c",
         "pl+c-plus-plus",
-        "pl+lisp",
+        "pl+lisp-programming-language",
         "pl+modula-3",
         "pl+oberon",
         "pl+oberon-2",
@@ -68,7 +68,7 @@ export function define(g: PlangsGraph) {
         "para+functional",
         "para+imperative",
         "para+meta",
-        "para+multi-paradigm",
+        "para+multi",
         "para+objects",
       ],
       people: [["person+andreas-rumpf", "designer"]],

@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       name: "Scala",
       websites: [
         { kind: "wikipedia", title: "Scala", href: "https://en.wikipedia.org/wiki/Scala_(programming_language)" },
-        { kind: "wikipedia", title: "Scala", href: "https://en.wikipedia.org/wiki/Scala_programming_language" },
         { kind: "homepage", title: "www.scala-lang.org", href: "http://www.scala-lang.org" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/3/39/Scala-full-color.svg" }],
@@ -51,11 +50,10 @@ export function define(g: PlangsGraph) {
         "pl+java",
         "pl+kotlin",
         "pl+lasso",
-        "pl+lisp",
+        "pl+lisp-programming-language",
         "pl+ml",
         "pl+ocaml",
         "pl+oz",
-        "pl+pizza",
         "pl+red",
         "pl+scheme",
         "pl+smalltalk",
@@ -85,9 +83,9 @@ export function define(g: PlangsGraph) {
         "pl+standard-ml",
       ],
       licenses: ["lic+apache"],
-      paradigms: ["para+concurrent", "para+functional", "para+imperative", "para+multi-paradigm", "para+objects"],
+      paradigms: ["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+objects"],
       people: [["person+martin-odersky", "designer"]],
-      platforms: ["platf+jvm", "platf+llvm"],
+      platforms: ["platf+javascript", "platf+jvm", "platf+llvm"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"],
     },
   );

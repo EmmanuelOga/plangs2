@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
@@ -66,8 +66,8 @@ export function define(g: PlangsGraph) {
         "pl+scala",
         "pl+standard-ml",
       ],
-      licenses: ["lic+lgpl-2.1"],
-      paradigms: ["para+functional", "para+imperative", "para+modular", "para+multi-paradigm", "para+objects"],
+      licenses: ["lic+lgpl"],
+      paradigms: ["para+functional", "para+imperative", "para+modular", "para+multi", "para+objects"],
       people: [
         ["person+damien-doligez", "designer"],
         ["person+xavier-leroy", "designer"],
@@ -77,7 +77,8 @@ export function define(g: PlangsGraph) {
         "platf+cross-platform",
         "platf+ia-32",
         "platf+linux",
-        "platf+macos",
+        "platf+mac",
+        "platf+power-isa",
         "platf+risc-v",
         "platf+unix",
         "platf+windows",

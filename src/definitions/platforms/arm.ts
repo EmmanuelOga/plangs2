@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "ARM", href: "https://en.wikipedia.org/wiki/ARM_architecture" },
       { kind: "wikipedia", title: "ARM", href: "https://en.wikipedia.org/wiki/ARM_architecture_family" },
       { kind: "wikipedia", title: "ARM64", href: "https://en.wikipedia.org/wiki/ARM64" },
-      { kind: "wikipedia", title: "arm64", href: "https://en.wikipedia.org/wiki/Arm64" },
       { kind: "wikipedia", title: "64-bit Arm", href: "https://en.wikipedia.org/wiki/Armv8" },
       { kind: "wikipedia", title: "ARM32", href: "https://en.wikipedia.org/wiki/ARM32" },
       { kind: "wikipedia", title: "StrongARM", href: "https://en.wikipedia.org/wiki/StrongARM" },
@@ -18,7 +17,6 @@ export function define(g: PlangsGraph) {
         title: "armhf",
         href: "https://en.wikipedia.org/wiki/ARM_architecture#Floating-point_(VFP)",
       },
-      { kind: "wikipedia", title: "ARMv8", href: "https://en.wikipedia.org/wiki/ARMv8" },
       { kind: "wikipedia", title: "ARM Cortex-M", href: "https://en.wikipedia.org/wiki/ARM_Cortex-M" },
     ],
   });

@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      dialects: ["pl+lisp"],
+      dialects: ["pl+lisp-programming-language"],
       influenced: [
         "pl+c-plus-plus",
         "pl+common-lisp",
@@ -85,16 +85,16 @@ export function define(g: PlangsGraph) {
       ],
       licenses: ["lic+eclipse-public"],
       paradigms: [
-        "para+agent-based",
+        "para+agent",
         "para+concurrent",
         "para+functional",
         "para+logic",
         "para+macros",
-        "para+multi-paradigm",
+        "para+multi",
         "para+pipeline",
       ],
       people: [["person+rich-hickey", "designer"]],
-      platforms: ["platf+.net", "platf+jvm"],
+      platforms: ["platf+.net", "platf+javascript", "platf+jvm"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );

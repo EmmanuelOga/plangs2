@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
@@ -66,28 +66,28 @@ export function define(g: PlangsGraph) {
         "pl+c",
         "pl+c-plus-plus",
         "pl+hhvm",
-        "pl+parrot",
+        "pl+parrot-virtual-machine",
         "pl+peachpie",
         "pl+quercus",
         "pl+zend-engine",
       ],
       influenced: ["pl+c", "pl+c-plus-plus", "pl+hack", "pl+haxe", "pl+java", "pl+smalltalk", "pl+tcl", "pl+umple"],
       influences: [
-        "pl+asp",
+        "pl+active-server-pages",
         "pl+c",
         "pl+c-plus-plus",
         "pl+hack",
+        "pl+jakarta-server-pages",
         "pl+java",
         "pl+javascript",
-        "pl+jsp",
         "pl+perl",
-        "pl+react-js",
+        "pl+react",
         "pl+tcl",
       ],
       licenses: ["lic+gpl", "lic+php", "lic+zend"],
-      paradigms: ["para+functional", "para+imperative", "para+multi-paradigm", "para+objects", "para+reflective"],
+      paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects", "para+reflective"],
       people: [["person+rasmus-lerdorf", "designer"]],
-      platforms: ["platf+macos", "platf+openvms", "platf+unix", "platf+windows"],
+      platforms: ["platf+mac", "platf+openvms", "platf+unix", "platf+windows"],
       typeSystems: ["tsys+dynamic", "tsys+gradual", "tsys+weak"],
     },
   );

@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
@@ -54,16 +54,17 @@ export function define(g: PlangsGraph) {
     {
       implementations: [
         "pl+c",
+        "pl+graalvm",
         "pl+jruby",
         "pl+mruby",
         "pl+rubinius",
         "pl+ruby-mri",
         "pl+rubymotion",
-        "pl+truffleruby",
         "pl+yarv",
       ],
       influenced: [
         "pl+ada",
+        "pl+apache-groovy",
         "pl+clojure",
         "pl+clu",
         "pl+crystal",
@@ -72,9 +73,8 @@ export function define(g: PlangsGraph) {
         "pl+eiffel",
         "pl+elixir",
         "pl+fantom",
-        "pl+groovy",
         "pl+julia",
-        "pl+lisp",
+        "pl+lisp-programming-language",
         "pl+mirah",
         "pl+nu",
         "pl+python",
@@ -111,7 +111,7 @@ export function define(g: PlangsGraph) {
         "pl+swift",
       ],
       licenses: ["lic+ruby"],
-      paradigms: ["para+functional", "para+imperative", "para+multi-paradigm", "para+objects", "para+reflective"],
+      paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects", "para+reflective"],
       people: [["person+yukihiro-matsumoto", "designer"]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+strong"],

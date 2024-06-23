@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
@@ -46,10 +46,10 @@ export function define(g: PlangsGraph) {
       extensions: [".tcl", ".tbc"],
     },
     {
-      influenced: ["pl+awk", "pl+lisp", "pl+php", "pl+powershell", "pl+tea", "pl+xotcl"],
-      influences: ["pl+awk", "pl+lisp", "pl+php", "pl+powershell", "pl+tea"],
-      licenses: ["lic+bsd"],
-      paradigms: ["para+event-driven", "para+functional", "para+imperative", "para+multi-paradigm", "para+objects"],
+      influenced: ["pl+awk", "pl+lisp-programming-language", "pl+php", "pl+tea", "pl+windows-powershell", "pl+xotcl"],
+      influences: ["pl+awk", "pl+lisp", "pl+php", "pl+tea", "pl+windows-powershell"],
+      licenses: ["lic+bsd-s"],
+      paradigms: ["para+event", "para+functional", "para+imperative", "para+multi", "para+objects"],
       people: [["person+john-ousterhout", "designer"]],
       typeSystems: ["tsys+dynamic"],
     },

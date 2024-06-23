@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "NaNentities/plangs_graph";
+import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
@@ -63,20 +63,20 @@ export function define(g: PlangsGraph) {
         "pl+c-plus-plus",
         "pl+ecmascript",
         "pl+julia",
-        "pl+lisp",
+        "pl+lisp-programming-language",
         "pl+newlisp",
-        "pl+perl-data-language-(pdl)",
+        "pl+perl-data-language",
         "pl+php",
-        "pl+powershell",
         "pl+python",
         "pl+qore",
         "pl+raku",
         "pl+ruby",
         "pl+sed",
+        "pl+windows-powershell",
       ],
       influences: ["pl+awk", "pl+basic", "pl+c", "pl+c-plus-plus", "pl+lisp", "pl+sed", "pl+unix-shell"],
       licenses: ["lic+artistic", "lic+gpl"],
-      paradigms: ["para+multi-paradigm"],
+      paradigms: ["para+multi"],
       people: [["person+larry-wall", "designer"]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic"],
