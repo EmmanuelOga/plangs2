@@ -5415,7 +5415,7 @@ export function define(g: PlangsGraph) {
         "para+objects",
         "para+reflective",
       ],
-      platforms: ["platf+atari", "platf+mos-technology-6502"],
+      platforms: ["platf+6502", "platf+atari"],
     },
   );
 

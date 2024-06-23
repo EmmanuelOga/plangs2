@@ -542,6 +542,7 @@ function cleanPlatform(platf: string): string | undefined {
   // Order is important.
   if (/wasm|web.?assembly|wasi/i.test(p)) return "wasm";
 
+  if (/6502/.test(p)) return "6502";
   if (/web|html/i.test(p)) return "web";
   if (/javascript/i.test(p)) return "javascript";
 

@@ -9,6 +9,14 @@ export function define(g: PlangsGraph) {
 
   /**/
 
+  lb.define("platf+6502", "MOS Technology 6502", {
+    websites: [
+      { kind: "wikipedia", title: "MOS Technology 6502", href: "https://en.wikipedia.org/wiki/MOS_Technology_6502" },
+    ],
+  });
+
+  /**/
+
   lb.define("platf+74181", "74181", {
     websites: [{ kind: "wikipedia", title: "74181", href: "https://en.wikipedia.org/wiki/74181" }],
   });
