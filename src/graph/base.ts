@@ -58,4 +58,8 @@ export class Graph {
       yield* et;
     }
   }
+
+  toJSON(): string {
+    return "TODO: Implement toJSON."
+  }
 }

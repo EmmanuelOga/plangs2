@@ -15,8 +15,11 @@ export async function loadDefinitions(g: PlangsGraph): Promise<PlangsGraph> {
   return g;
 }
 
-if (process.env.LOAD_GRAPH) {
+export async function serializeToPublic() {
   const g = new PlangsGraph();
   await loadDefinitions(g);
-  console.info(new Date().toISOString(), `Loaded ${g.numVertices} vertices, ${g.numEdges} edges.`);
+  Bun.write(Bun.fileURLToPath(`file:///${__dirname}/../public/plangs.json`), JSON.stringify(g.toJSON()));
+  console.info(new Date().toISOString(), `Serialized ${g.numVertices} vertices, ${g.numEdges} edges.`);
 }
+
+if (process.env.SERIALIZE_PLANGS) { serializeToPublic(); }
