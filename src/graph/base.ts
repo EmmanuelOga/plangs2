@@ -59,7 +59,17 @@ export class Graph {
     }
   }
 
-  toJSON(): string {
-    return "TODO: Implement toJSON."
+  toJSON() {
+    const graph = { vtables: {}, etables: {} };
+
+    for (const vt of this.vtables.values()) {
+      graph.vtables[vt.vtype] = vt.toJSON();
+    }
+
+    for (const et of this.etables.values()) {
+      graph.etables[et.tableKey] = et.toJSON();
+    }
+
+    return graph;
   }
 }

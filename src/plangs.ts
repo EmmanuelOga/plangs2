@@ -4,7 +4,7 @@ import { PlangsGraph } from "./entities/plangs_graph";
 /**
  * Scans the ./entities directory and loads all graph data from `define` functions.
  */
-export async function loadDefinitions(g: PlangsGraph): Promise<PlangsGraph> {
+export async function loadDefinitions(g: PlangsGraph) {
   const glob = new Glob("**/*.ts");
   for await (const path of glob.scan(`${__dirname}/definitions`)) {
     const module = await import(`./definitions/${path}`);
@@ -12,7 +12,6 @@ export async function loadDefinitions(g: PlangsGraph): Promise<PlangsGraph> {
       module.define(g);
     }
   }
-  return g;
 }
 
 export async function serializeToPublic() {
@@ -22,4 +21,6 @@ export async function serializeToPublic() {
   console.info(new Date().toISOString(), `Serialized ${g.numVertices} vertices, ${g.numEdges} edges.`);
 }
 
-if (process.env.SERIALIZE_PLANGS) { serializeToPublic(); }
+if (process.env.SERIALIZE_PLANGS) {
+  serializeToPublic();
+}

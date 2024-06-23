@@ -39,8 +39,7 @@ type _TableData<T_EdgeData> = {
  * Stores edges between vertices.
  */
 export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_EdgeData>
-  implements Iterable<[EdgeKey, T_EdgeData]>
-{
+  implements Iterable<[EdgeKey, T_EdgeData]> {
   // Each suffix uses its own edge and adjacency map.
   // If we ever find ourselves with a lot of suffix usage, we may need to change this.
   private readonly _perSuffix: Map<string, _TableData<T_EdgeData>> = new Map();
@@ -115,6 +114,19 @@ export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_E
     }
   }
 
+  toJSON(): Record<string, [string, string, T_EdgeData][]> {
+    const perSuffix: Record<string, [string, string, T_EdgeData][]> = {};
+    for (const [key, edata] of this._perSuffix) {
+      const edges: [string, string, T_EdgeData][] = []
+      for (const [key, value] of edata.edge) {
+        const [from, to] = key.split("~");
+        edges.push([from, to, value]);
+      }
+      perSuffix[key] = edges;
+    }
+    return perSuffix;
+  }
+
   *adjacentTo(to: T_Id_V_To, suffix?: string) {
     if (!this.to_t.validParams(to)) throw new Error(`Invalid id: ${to}.`);
     const data = this._perSuffix.get(suffix ?? "");
@@ -164,10 +176,11 @@ export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_E
   }
 
   private _keyFromTo(from: string, to: string): KFT {
-    // When not directed, we want the same key for both directions,
-    // this way the same data is stored in the edge map for both directions.
     let from_ = from as string;
     let to_ = to as string;
+
+    // When not directed, we want the same key for both directions,
+    // this way the same data is stored in the edge map for both directions.
     if (!this.directed && to_ > from_) {
       const t_from_ = from_;
       from_ = to_;

@@ -74,6 +74,12 @@ export class VertexTable<T_VId extends string, T_VData> implements Iterable<[T_V
     return this._vdata.entries();
   }
 
+  toJSON(): Record<string, T_VData> {
+    const result : Record<string, T_VData> = {};
+    for (const [vid, vdata] of this._vdata) { result[vid] = vdata; }
+    return result;
+  }
+
   /** Number of vertices. */
   public get size(): number {
     return this._vdata.size;
