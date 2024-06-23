@@ -62,7 +62,7 @@ export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_E
 
   get(from: T_Id_V_From, to: T_Id_V_To, suffix?: string): T_EdgeData | undefined {
     if (!this.validParams(from, to, suffix))
-      throw new Error(`Invalid id(s) in edge: ${from} -> ${to}${s ? ` ${s}` : ""}.`);
+      throw new Error(`Invalid id(s) in edge: ${from} -> ${to}${suffix ? ` ${suffix}` : ""}.`);
     const data = this._perSuffix.get(suffix ?? "");
     return data?.edge?.get(this._keyFromTo(from, to));
   }
@@ -96,7 +96,8 @@ export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_E
     if (!data.edge.has(kft)) {
       data.edge.set(kft, {} as T_EdgeData);
     }
-    const edata = Object.assign(data.edge.get(kft) as any, value);
+    // biome-ignore lint/style/noNonNullAssertion: key is always set in the line above.
+    const edata = Object.assign(data.edge.get(kft)!, value);
     this._updateAdjacent(data, from, to, "add");
     return edata as NN_Partial<T_EdgeData>;
   }
