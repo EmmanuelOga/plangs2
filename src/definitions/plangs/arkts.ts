@@ -35,7 +35,7 @@ export function define(g: PlangsGraph) {
       ],
       licenses: ["lic+apache", "lic+proprietary"],
       paradigms: ["para+functional", "para+generic", "para+imperative", "para+multi", "para+objects"],
-      platforms: ["platf+android", "platf+ios", "platf+mac", "platf+windows"],
+      platforms: ["platf+android", "platf+ios", "platf+mac", "platf+win"],
       typeSystems: ["tsys+duck", "tsys+gradual", "tsys+structural"],
     },
   );

@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+gpl", "lic+lgpl"],
       paradigms: ["para+imperative", "para+objects"],
       people: [["person+andre-victor", "designer"]],
-      platforms: ["platf+bsd", "platf+dos", "platf+linux", "platf+windows"],
+      platforms: ["platf+bsd", "platf+dos", "platf+linux", "platf+win"],
       typeSystems: ["tsys+static"],
     },
   );

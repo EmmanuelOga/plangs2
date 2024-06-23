@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
     },
     {
       licenses: ["lic+gnu-affero-gpl"],
-      paradigms: ["para+dataflow", "para+declarative", "para+functional", "para+visual"],
+      paradigms: ["para+dataflow", "para+dec", "para+functional", "para+visual"],
       platforms: ["platf+arduino", "platf+rpi"],
     },
   );

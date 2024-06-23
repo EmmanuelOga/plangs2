@@ -36,7 +36,7 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+gpl"],
       paradigms: ["para+compiled", "para+concurrent", "para+imperative", "para+objects", "para+structured"],
       people: [["person+s-tucker-taft", "designer"]],
-      platforms: ["platf+linux", "platf+mac", "platf+windows", "platf+x86"],
+      platforms: ["platf+linux", "platf+mac", "platf+win", "platf+x86"],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
   );

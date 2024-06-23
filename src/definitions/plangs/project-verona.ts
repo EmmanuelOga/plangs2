@@ -35,7 +35,7 @@ export function define(g: PlangsGraph) {
       influenced: ["pl+cyclone", "pl+rust"],
       influences: ["pl+cyclone", "pl+rust"],
       licenses: ["lic+mit"],
-      platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+windows"],
+      platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
     },
   );
 

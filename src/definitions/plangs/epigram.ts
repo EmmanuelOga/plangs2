@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+mit"],
       paradigms: ["para+functional"],
       people: [["person+conor-mcbride", "designer"]],
-      platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+windows"],
+      platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+dependent", "tsys+static", "tsys+strong"],
     },
   );

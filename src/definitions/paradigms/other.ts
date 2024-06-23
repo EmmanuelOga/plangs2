@@ -153,7 +153,7 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("para+declarative", "declarative", {
+  lb.define("para+dec", "declarative", {
     websites: [
       { kind: "wikipedia", title: "declarative", href: "https://en.wikipedia.org/wiki/Declarative_programming" },
     ],

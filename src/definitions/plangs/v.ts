@@ -30,7 +30,7 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+mit"],
       paradigms: ["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+structured"],
       people: [["person+alexander-medvednikov", "designer"]],
-      platforms: ["platf+bsd", "platf+linux", "platf+mac", "platf+windows", "platf+x86-64"],
+      platforms: ["platf+bsd", "platf+linux", "platf+mac", "platf+win", "platf+x86-64"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );

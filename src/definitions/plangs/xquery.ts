@@ -30,7 +30,7 @@ export function define(g: PlangsGraph) {
     },
     {
       influences: ["pl+sql", "pl+xpath", "pl+xslt"],
-      paradigms: ["para+declarative", "para+functional", "para+modular"],
+      paradigms: ["para+dec", "para+functional", "para+modular"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

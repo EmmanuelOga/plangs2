@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
         ["person+gerard-huet", "designer"],
         ["person+xavier-leroy", "designer"],
       ],
-      platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+unix", "platf+windows"],
+      platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+unix", "platf+win"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );

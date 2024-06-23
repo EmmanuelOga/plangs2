@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "2014-01-01", kind: "first" }],
     },
     {
-      influences: ["pl+apl", "pl+haskell", "pl+nesl", "pl+standard-ml"],
+      influences: ["pl+apl", "pl+haskell", "pl+nesl", "pl+sml"],
       licenses: ["lic+isc"],
       paradigms: ["para+array", "para+functional"],
       people: [

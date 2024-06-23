@@ -4,13 +4,15 @@ export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
   lb.define(
-    "pl+standard-ml",
+    "pl+sml",
     "Standard ML",
     {
       name: "Standard ML",
       websites: [
         { kind: "wikipedia", title: "Standard ML", href: "https://en.wikipedia.org/wiki/Standard_ML" },
         { kind: "repository", title: "smlfamily.github.io", href: "https://smlfamily.github.io/" },
+        { kind: "wikipedia", title: "SML/NJ", href: "https://en.wikipedia.org/wiki/Standard_ML_of_New_Jersey" },
+        { kind: "homepage", title: "www.smlnj.org", href: "http://www.smlnj.org" },
       ],
       references: {
         paradigm: [
@@ -28,16 +30,20 @@ export function define(g: PlangsGraph) {
           },
           { href: "https://doc.rust-lang.org/reference/influences.html", title: "Influences - The Rust Reference" },
         ],
+        developers: [{ href: "https://www.smlnj.org/smlnj.html", title: "SML/NJ background information" }],
+        license: [{ href: "http://www.smlnj.org/license.html", title: "Standard ML of New Jersey License" }],
       },
       releases: [
         { version: "unknown", date: "1983-01-01", kind: "first" },
         { version: "unknown", date: "1997-01-01", kind: "stable" },
+        { version: "unknown", date: "1988-01-01", kind: "first" },
+        { version: "110.99.4", date: "2023-01-01", kind: "stable" },
       ],
-      extensions: [".sml"],
+      extensions: [".sml", ".sml"],
     },
     {
-      dialects: ["pl+alice", "pl+ml", "pl+mlton", "pl+standard-ml-of-new-jersey"],
-      implementations: ["pl+mlton", "pl+poly-slashml", "pl+standard-ml-of-new-jersey"],
+      dialects: ["pl+alice", "pl+ml", "pl+mlton", "pl+sml"],
+      implementations: ["pl+c", "pl+mlton", "pl+poly-slashml", "pl+sml"],
       influenced: [
         "pl+elm",
         "pl+eulisp",
@@ -51,7 +57,7 @@ export function define(g: PlangsGraph) {
         "pl+python",
         "pl+rust",
         "pl+scala",
-        "pl+standard-ml-of-new-jersey",
+        "pl+sml",
       ],
       influences: [
         "pl+elm",
@@ -65,7 +71,9 @@ export function define(g: PlangsGraph) {
         "pl+python",
         "pl+rust",
         "pl+scala",
+        "pl+sml",
       ],
+      licenses: ["lic+permissive"],
       paradigms: ["para+functional", "para+imperative", "para+modular", "para+multi"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },

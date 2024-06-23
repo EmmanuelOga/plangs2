@@ -34,8 +34,8 @@ export function define(g: PlangsGraph) {
       extensions: [".fst"],
     },
     {
-      influenced: ["pl+ml", "pl+ocaml", "pl+standard-ml"],
-      influences: ["pl+coq", "pl+dafny", "pl+f-sharp", "pl+lean", "pl+ocaml", "pl+standard-ml"],
+      influenced: ["pl+ml", "pl+ocaml", "pl+sml"],
+      influences: ["pl+coq", "pl+dafny", "pl+f-sharp", "pl+lean", "pl+ocaml", "pl+sml"],
       licenses: ["lic+apache"],
       paradigms: ["para+functional", "para+imperative", "para+multi"],
       people: [
@@ -46,7 +46,7 @@ export function define(g: PlangsGraph) {
         ["person+nikhil-swamy", "designer"],
         ["person+pierre-yves-strub", "designer"],
       ],
-      platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+windows"],
+      platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );

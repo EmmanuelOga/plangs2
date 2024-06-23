@@ -36,9 +36,9 @@ export function define(g: PlangsGraph) {
       influenced: ["pl+corvision"],
       influences: ["pl+natural-language-programming"],
       licenses: ["lic+artistic", "lic+freeware"],
-      paradigms: ["para+declarative", "para+imperative", "para+natural"],
+      paradigms: ["para+dec", "para+imperative", "para+natural"],
       people: [["person+graham-nelson", "designer"]],
-      platforms: ["platf+linux", "platf+mac", "platf+windows"],
+      platforms: ["platf+linux", "platf+mac", "platf+win"],
     },
   );
 

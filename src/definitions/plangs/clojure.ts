@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      dialects: ["pl+lisp-programming-language"],
+      dialects: ["pl+lisp"],
       influenced: [
         "pl+c-plus-plus",
         "pl+common-lisp",

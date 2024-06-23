@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
 
-  lb.define("platf+windows", "Microsoft Windows", {
+  lb.define("platf+win", "Microsoft Windows", {
     websites: [
       { kind: "wikipedia", title: "Microsoft Windows", href: "https://en.wikipedia.org/wiki/Microsoft_Windows" },
       { kind: "wikipedia", title: "Windows Mobile", href: "https://en.wikipedia.org/wiki/Windows_Mobile" },
@@ -20,6 +20,7 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Windows Vista", href: "https://en.wikipedia.org/wiki/Windows_Vista" },
       { kind: "wikipedia", title: "Windows Server 2008", href: "https://en.wikipedia.org/wiki/Windows_Server_2008" },
       { kind: "wikipedia", title: "Windows 7", href: "https://en.wikipedia.org/wiki/Windows_7" },
+      { kind: "wikipedia", title: "WSL", href: "https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux" },
       {
         kind: "wikipedia",
         title: "Windows Server 2008 R2",

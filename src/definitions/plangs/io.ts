@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       references: { stable_release: [{ href: "https://github.com/IoLanguage/io/releases", title: "Io Releases" }] },
     },
     {
-      influenced: ["pl+lisp-programming-language", "pl+newtonscript", "pl+self", "pl+smalltalk", "pl+urbiscript"],
+      influenced: ["pl+lisp", "pl+newtonscript", "pl+self", "pl+smalltalk", "pl+urbiscript"],
       influences: [
         "pl+actor-model-middle-history",
         "pl+lisp",

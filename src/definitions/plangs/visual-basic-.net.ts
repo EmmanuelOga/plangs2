@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Visual Basic .NET", href: "https://en.wikipedia.org/wiki/Visual_Basic_.NET" },
       ],
     },
-    { influenced: ["pl+basic", "pl+microsoft-small-basic", "pl+visual-basic"] },
+    { influenced: ["pl+basic", "pl+ms-small-basic", "pl+visual-basic"] },
   );
 
   /**/

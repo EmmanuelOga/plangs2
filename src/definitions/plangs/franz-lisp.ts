@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       scoping: ["lexical"],
     },
     {
-      dialects: ["pl+lisp-programming-language"],
+      dialects: ["pl+lisp"],
       implementations: ["pl+c"],
       influenced: ["pl+allegro-common-lisp"],
       influences: ["pl+allegro-common-lisp", "pl+common-lisp", "pl+lisp", "pl+maclisp"],

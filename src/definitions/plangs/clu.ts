@@ -38,7 +38,7 @@ export function define(g: PlangsGraph) {
         "pl+c-plus-plus",
         "pl+euclid",
         "pl+java",
-        "pl+lisp-programming-language",
+        "pl+lisp",
         "pl+lua",
         "pl+python",
         "pl+ruby",

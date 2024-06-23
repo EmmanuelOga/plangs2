@@ -39,7 +39,7 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+freeware"],
       paradigms: ["para+functional", "para+imperative", "para+reflective"],
       people: [["person+jonathan-bennett", "designer"]],
-      platforms: ["platf+ia-32", "platf+windows", "platf+x64"],
+      platforms: ["platf+ia-32", "platf+win", "platf+x64"],
     },
   );
 

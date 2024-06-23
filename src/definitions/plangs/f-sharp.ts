@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
         "pl+ocaml",
         "pl+python",
         "pl+scala",
-        "pl+standard-ml",
+        "pl+sml",
         "pl+typescript",
       ],
     },

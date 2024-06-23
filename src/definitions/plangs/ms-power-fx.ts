@@ -4,7 +4,7 @@ export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
   lb.define(
-    "pl+microsoft-power-fx",
+    "pl+ms-power-fx",
     "Microsoft Power Fx",
     {
       name: "Microsoft Power Fx",
@@ -28,14 +28,7 @@ export function define(g: PlangsGraph) {
       influenced: ["pl+miranda", "pl+pascal"],
       influences: ["pl+excel-function", "pl+excel-macro", "pl+mathematica", "pl+miranda", "pl+pascal"],
       licenses: ["lic+mit"],
-      paradigms: [
-        "para+declarative",
-        "para+functional",
-        "para+general",
-        "para+imperative",
-        "para+low",
-        "para+strongly",
-      ],
+      paradigms: ["para+dec", "para+functional", "para+general", "para+imperative", "para+low", "para+strongly"],
       people: [
         ["person+darryl-rubin", "designer"],
         ["person+greg-lindhorst", "designer"],

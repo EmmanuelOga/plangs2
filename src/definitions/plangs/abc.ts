@@ -34,7 +34,7 @@ export function define(g: PlangsGraph) {
         ["person+lambert-meertens", "designer"],
         ["person+steven-pemberton", "designer"],
       ],
-      platforms: ["platf+atari", "platf+mac", "platf+unix", "platf+windows"],
+      platforms: ["platf+atari", "platf+mac", "platf+unix", "platf+win"],
       typeSystems: ["tsys+polymorphic", "tsys+strong"],
     },
   );

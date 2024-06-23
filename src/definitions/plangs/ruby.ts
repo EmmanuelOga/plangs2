@@ -74,7 +74,7 @@ export function define(g: PlangsGraph) {
         "pl+elixir",
         "pl+fantom",
         "pl+julia",
-        "pl+lisp-programming-language",
+        "pl+lisp",
         "pl+mirah",
         "pl+nu",
         "pl+python",

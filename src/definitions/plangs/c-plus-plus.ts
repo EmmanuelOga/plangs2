@@ -75,10 +75,10 @@ export function define(g: PlangsGraph) {
         "pl+c-plus-plusbuilder",
         "pl+clang",
         "pl+edison-design-group",
-        "pl+gnu-compiler-collection",
+        "pl+gcc",
         "pl+ibm-xl-c-plus-plus",
         "pl+intel-c-plus-plus-compiler",
-        "pl+microsoft-visual-c-plus-plus",
+        "pl+ms-visual-c-plus-plus",
       ],
       influenced: [
         "pl+ada",

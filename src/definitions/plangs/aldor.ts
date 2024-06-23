@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
         ["person+scott-morrison", "designer"],
         ["person+stephen-watt", "designer"],
       ],
-      platforms: ["platf+axiom", "platf+linux", "platf+windows"],
+      platforms: ["platf+axiom", "platf+linux", "platf+win"],
     },
   );
 

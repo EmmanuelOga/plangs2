@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      dialects: ["pl+dsssl", "pl+lisp-programming-language"],
+      dialects: ["pl+dsssl", "pl+lisp"],
       implementations: ["pl+category-scheme-implementations"],
       influenced: [
         "pl+algol",
@@ -65,7 +65,7 @@ export function define(g: PlangsGraph) {
         "pl+skill",
         "pl+snap-",
         "pl+source",
-        "pl+t-programming-language",
+        "pl+t",
         "pl+tea",
       ],
       influences: [

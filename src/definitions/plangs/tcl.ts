@@ -46,8 +46,8 @@ export function define(g: PlangsGraph) {
       extensions: [".tcl", ".tbc"],
     },
     {
-      influenced: ["pl+awk", "pl+lisp-programming-language", "pl+php", "pl+tea", "pl+windows-powershell", "pl+xotcl"],
-      influences: ["pl+awk", "pl+lisp", "pl+php", "pl+tea", "pl+windows-powershell"],
+      influenced: ["pl+awk", "pl+lisp", "pl+php", "pl+powershell", "pl+tea", "pl+xotcl"],
+      influences: ["pl+awk", "pl+lisp", "pl+php", "pl+powershell", "pl+tea"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+event", "para+functional", "para+imperative", "para+multi", "para+objects"],
       people: [["person+john-ousterhout", "designer"]],

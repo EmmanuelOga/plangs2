@@ -34,7 +34,7 @@ export function define(g: PlangsGraph) {
         "pl+clu",
         "pl+cuneiform",
         "pl+d",
-        "pl+lisp-programming-language",
+        "pl+lisp",
         "pl+objective-c-plus-plus",
         "pl+python",
         "pl+ruby",

@@ -31,7 +31,7 @@ export function define(g: PlangsGraph) {
         ["person+mason-wheeler", "designer"],
         ["person+rodrigo-b-de-oliveira", "designer"],
       ],
-      platforms: ["platf+.net", "platf+common-language-infrastructure", "platf+mono"],
+      platforms: ["platf+.net", "platf+mono"],
       typeSystems: ["tsys+duck", "tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );

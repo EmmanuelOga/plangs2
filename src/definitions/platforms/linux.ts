@@ -7,7 +7,6 @@ export function define(g: PlangsGraph) {
     websites: [
       { kind: "wikipedia", title: "Linux", href: "https://en.wikipedia.org/wiki/Linux" },
       { kind: "wikipedia", title: "Ubuntu", href: "https://en.wikipedia.org/wiki/Ubuntu_(operating_system)" },
-      { kind: "wikipedia", title: "WSL", href: "https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux" },
       { kind: "wikipedia", title: "Debian", href: "https://en.wikipedia.org/wiki/Debian" },
       {
         kind: "wikipedia",

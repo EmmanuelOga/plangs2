@@ -34,7 +34,7 @@ export function define(g: PlangsGraph) {
         ["person+kristen-nygaard", "designer"],
         ["person+ole-johan-dahl", "designer"],
       ],
-      platforms: ["platf+unix", "platf+windows", "platf+z-slashos"],
+      platforms: ["platf+unix", "platf+win", "platf+z-slashos"],
       typeSystems: ["tsys+nominative", "tsys+static"],
     },
   );

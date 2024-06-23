@@ -26,9 +26,9 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      dialects: ["pl+icon-programming-language"],
+      dialects: ["pl+icon"],
       implementations: ["pl+spitbol"],
-      influenced: ["pl+awk", "pl+bs", "pl+comit", "pl+icon-programming-language", "pl+lua", "pl+tmg"],
+      influenced: ["pl+awk", "pl+bs", "pl+comit", "pl+icon", "pl+lua", "pl+tmg"],
       influences: ["pl+awk", "pl+bs", "pl+comit", "pl+icon", "pl+lua"],
       paradigms: ["para+imperative", "para+unstructured"],
       people: [

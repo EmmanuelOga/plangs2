@@ -10,6 +10,11 @@ export function define(g: PlangsGraph) {
       name: "C",
       websites: [
         { kind: "wikipedia", title: "C", href: "https://en.wikipedia.org/wiki/C_(programming_language)" },
+        {
+          kind: "wikipedia",
+          title: "C Programming Language",
+          href: "https://en.wikipedia.org/wiki/C_Programming_Language",
+        },
         { kind: "homepage", title: "www.iso.org/standard/74528.html", href: "https://www.iso.org/standard/74528.html" },
         {
           kind: "homepage",
@@ -49,9 +54,9 @@ export function define(g: PlangsGraph) {
       implementations: [
         "pl+c-plus-plusbuilder",
         "pl+clang",
-        "pl+gnu-compiler-collection",
+        "pl+gcc",
         "pl+intel-c-plus-plus-compiler",
-        "pl+microsoft-visual-c-plus-plus",
+        "pl+ms-visual-c-plus-plus",
         "pl+portable-c-compiler",
         "pl+watcom-c-slashc-plus-plus",
       ],
@@ -81,6 +86,7 @@ export function define(g: PlangsGraph) {
         "pl+ecmascript",
         "pl+embeddable-common-lisp",
         "pl+fortran-95",
+        "pl+fpgac",
         "pl+freebasic",
         "pl+go",
         "pl+godot",
@@ -101,7 +107,7 @@ export function define(g: PlangsGraph) {
         "pl+ratfiv",
         "pl+ring",
         "pl+s",
-        "pl+sac-programming-language",
+        "pl+sac",
         "pl+seed7",
         "pl+sisal",
         "pl+speedcoding",

@@ -29,11 +29,11 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      dialects: ["pl+lisp-programming-language"],
+      dialects: ["pl+lisp"],
       influences: ["pl+c", "pl+common-lisp", "pl+perl", "pl+scheme"],
       licenses: ["lic+gpl"],
       people: [["person+lutz-mueller", "designer"]],
-      platforms: ["platf+cross-platform", "platf+ia-32", "platf+unix", "platf+windows", "platf+x86-64"],
+      platforms: ["platf+cross-platform", "platf+ia-32", "platf+unix", "platf+win", "platf+x86-64"],
     },
   );
 

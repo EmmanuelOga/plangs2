@@ -44,7 +44,7 @@ export function define(g: PlangsGraph) {
         ["person+giuseppe-attardi", "designer"],
         ["person+marius-gerbershagen", "designer"],
       ],
-      platforms: ["platf+android", "platf+arm", "platf+unix", "platf+windows", "platf+x86"],
+      platforms: ["platf+android", "platf+arm", "platf+unix", "platf+win", "platf+x86"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );

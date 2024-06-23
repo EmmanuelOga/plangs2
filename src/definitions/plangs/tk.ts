@@ -30,7 +30,7 @@ export function define(g: PlangsGraph) {
         { version: "8.6.13", date: "2022-01-01", kind: "stable" },
       ],
     },
-    { influenced: ["pl+windows-powershell"], licenses: ["lic+bsd-s"], platforms: ["platf+cross-platform"] },
+    { influenced: ["pl+powershell"], licenses: ["lic+bsd-s"], platforms: ["platf+cross-platform"] },
   );
 
   /**/

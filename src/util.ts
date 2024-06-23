@@ -17,21 +17,19 @@ export function toAlphaNum(s: string) {
   // biome-ignore format: it's artisanally formatted :-p.
   let result = s
     .trim()
-    .normalize("NFD");
+    .toLowerCase()
+    .normalize("NFD")
+    // biome-ignore lint/suspicious/noMisleadingCharacterClass: removes accents/diacritics.
+    .replaceAll(/[\u0300-\u036f]/g, "");
 
   if (result.startsWith("*")) result = `star-${result.slice(1)}`;
   if (result.startsWith("+")) result = `plus-${result.slice(1)}`;
 
   result = result
-    // biome-ignore lint/suspicious/noMisleadingCharacterClass: removes accents/diacritics.
-    .replaceAll(/[\u0300-\u036f]/g, "")
-    .replaceAll(/\s+/g, " ")
     .replaceAll(" ", "-")
-
+    .replaceAll(/\s+/g, " ")
     .replaceAll(/_/g, "-")
-    .replaceAll(/-+/g, "-")
-
-    .toLowerCase()
+    .replaceAll(/\-\-+/g, "-")
 
     .split(/[\*]/g)
     .join("-star")

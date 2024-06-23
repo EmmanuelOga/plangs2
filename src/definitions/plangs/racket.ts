@@ -46,7 +46,7 @@ export function define(g: PlangsGraph) {
       extensions: [".rkt"],
     },
     {
-      dialects: ["pl+lisp-programming-language"],
+      dialects: ["pl+lisp"],
       influenced: ["pl+clojure", "pl+eiffel", "pl+scheme"],
       influences: ["pl+clojure", "pl+eiffel", "pl+rust", "pl+scheme"],
       licenses: ["lic+apache", "lic+mit"],
@@ -60,7 +60,7 @@ export function define(g: PlangsGraph) {
         "para+objects",
         "para+reflective",
       ],
-      platforms: ["platf+arm", "platf+cross-platform", "platf+mips-architecture", "platf+x86"],
+      platforms: ["platf+arm", "platf+cross-platform", "platf+mips", "platf+x86"],
       typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong"],
     },
   );

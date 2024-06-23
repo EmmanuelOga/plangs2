@@ -45,7 +45,7 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+wolfram-mathematica"],
-      influenced: ["pl+apl", "pl+clojure", "pl+julia", "pl+lisp-programming-language"],
+      influenced: ["pl+apl", "pl+clojure", "pl+julia", "pl+lisp"],
       influences: [
         "pl+apl",
         "pl+c",

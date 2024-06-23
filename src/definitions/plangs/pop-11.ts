@@ -22,17 +22,10 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+lisp-programming-language", "pl+pop-2"],
+      influenced: ["pl+lisp", "pl+pop-2"],
       influences: ["pl+pop-2"],
       licenses: ["lic+mit", "lic+open-source", "lic+proprietary", "lic+xfree86"],
-      paradigms: [
-        "para+declarative",
-        "para+functional",
-        "para+imperative",
-        "para+multi",
-        "para+reflective",
-        "para+structured",
-      ],
+      paradigms: ["para+dec", "para+functional", "para+imperative", "para+multi", "para+reflective", "para+structured"],
       people: [["person+robin-popplestone", "designer"]],
       platforms: [
         "platf+cross-platform",
@@ -41,7 +34,7 @@ export function define(g: PlangsGraph) {
         "platf+mac",
         "platf+openvms",
         "platf+unix",
-        "platf+windows",
+        "platf+win",
         "platf+x86-64",
       ],
       typeSystems: ["tsys+dynamic"],

@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+bsd"],
       paradigms: ["para+concatenative", "para+functional", "para+multi", "para+objects", "para+stack"],
       people: [["person+slava-pestov", "designer"]],
-      platforms: ["platf+linux", "platf+mac", "platf+windows"],
+      platforms: ["platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );

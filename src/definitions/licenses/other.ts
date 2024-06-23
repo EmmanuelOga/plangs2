@@ -137,14 +137,8 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("lic+microsoft", "MS", {
+  lb.define("lic+ms", "MS", {
     websites: [{ kind: "wikipedia", title: "MS", href: "https://en.wikipedia.org/wiki/Microsoft" }],
-  });
-
-  /**/
-
-  lb.define("lic+microsoft-windows", "Windows", {
-    websites: [{ kind: "wikipedia", title: "Windows", href: "https://en.wikipedia.org/wiki/Microsoft_Windows" }],
   });
 
   /**/
@@ -250,6 +244,12 @@ export function define(g: PlangsGraph) {
 
   lb.define("lic+trialware", "Trialware", {
     websites: [{ kind: "wikipedia", title: "Trialware", href: "https://en.wikipedia.org/wiki/Trialware" }],
+  });
+
+  /**/
+
+  lb.define("lic+win", "Windows", {
+    websites: [{ kind: "wikipedia", title: "Windows", href: "https://en.wikipedia.org/wiki/Microsoft_Windows" }],
   });
 
   /**/

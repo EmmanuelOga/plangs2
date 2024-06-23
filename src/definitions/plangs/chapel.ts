@@ -47,7 +47,7 @@ export function define(g: PlangsGraph) {
         ["person+hans-zima", "designer"],
         ["person+john-plevyak", "designer"],
       ],
-      platforms: ["platf+bsd", "platf+cygwin", "platf+linux", "platf+mac", "platf+posix", "platf+web", "platf+windows"],
+      platforms: ["platf+bsd", "platf+cygwin", "platf+linux", "platf+mac", "platf+posix", "platf+web", "platf+win"],
       typeSystems: ["tsys+inferred", "tsys+static"],
     },
   );

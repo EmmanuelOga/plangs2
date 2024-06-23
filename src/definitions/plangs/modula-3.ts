@@ -42,7 +42,7 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      implementations: ["pl+dec-systems-research-center"],
+      implementations: ["pl+dec"],
       influenced: [
         "pl+java",
         "pl+modula-2",

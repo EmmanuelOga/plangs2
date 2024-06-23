@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+smalltalk", "pl+squeak"],
       licenses: ["lic+apache", "lic+mit"],
       paradigms: ["para+objects"],
-      platforms: ["platf+arm", "platf+ia-32", "platf+linux", "platf+mac", "platf+windows", "platf+x86-64"],
+      platforms: ["platf+arm", "platf+ia-32", "platf+linux", "platf+mac", "platf+win", "platf+x86-64"],
       typeSystems: ["tsys+dynamic"],
     },
   );

@@ -37,7 +37,7 @@ export function define(g: PlangsGraph) {
       influenced: ["pl+pascal"],
       influences: ["pl+c-sharp", "pl+delphi", "pl+object-pascal"],
       licenses: ["lic+trialware"],
-      platforms: ["platf+common-language-infrastructure", "platf+jvm", "platf+linux", "platf+wasm", "platf+windows"],
+      platforms: ["platf+.net", "platf+jvm", "platf+linux", "platf+wasm", "platf+win"],
     },
   );
 

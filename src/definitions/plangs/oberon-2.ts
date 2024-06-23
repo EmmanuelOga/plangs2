@@ -34,7 +34,7 @@ export function define(g: PlangsGraph) {
       ],
       paradigms: ["para+imperative", "para+modular", "para+objects", "para+structured"],
       people: [["person+niklaus-wirth", "designer"]],
-      platforms: ["platf+ia-32", "platf+linux", "platf+mac", "platf+windows", "platf+x86-64"],
+      platforms: ["platf+ia-32", "platf+linux", "platf+mac", "platf+win", "platf+x86-64"],
       typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong"],
     },
   );

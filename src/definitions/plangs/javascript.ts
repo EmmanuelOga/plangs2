@@ -83,7 +83,7 @@ export function define(g: PlangsGraph) {
         "pl+java",
         "pl+js-plus-plus",
         "pl+kotlin",
-        "pl+lisp-programming-language",
+        "pl+lisp",
         "pl+livescript",
         "pl+opa",
         "pl+php",

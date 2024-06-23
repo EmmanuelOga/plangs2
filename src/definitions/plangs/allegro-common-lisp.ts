@@ -43,7 +43,7 @@ export function define(g: PlangsGraph) {
         "para+reflective",
       ],
       people: [["person+john-foderaro", "designer"]],
-      platforms: ["platf+arm", "platf+bsd", "platf+ia-32", "platf+linux", "platf+mac", "platf+windows", "platf+x86-64"],
+      platforms: ["platf+arm", "platf+bsd", "platf+ia-32", "platf+linux", "platf+mac", "platf+win", "platf+x86-64"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );

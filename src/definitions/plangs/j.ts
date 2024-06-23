@@ -60,7 +60,7 @@ export function define(g: PlangsGraph) {
         "platf+linux",
         "platf+mac",
         "platf+rpi",
-        "platf+windows",
+        "platf+win",
       ],
       typeSystems: ["tsys+dynamic"],
     },

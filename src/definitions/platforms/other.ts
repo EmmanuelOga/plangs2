@@ -29,14 +29,14 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("platf+advanced-micro-devices", "AMD", {
-    websites: [{ kind: "wikipedia", title: "AMD", href: "https://en.wikipedia.org/wiki/Advanced_Micro_Devices" }],
+  lb.define("platf+amazon-firetv", "Amazon Fire TV", {
+    websites: [{ kind: "wikipedia", title: "Amazon Fire TV", href: "https://en.wikipedia.org/wiki/Amazon_Fire_TV" }],
   });
 
   /**/
 
-  lb.define("platf+amazon-fire-tv", "Amazon Fire TV", {
-    websites: [{ kind: "wikipedia", title: "Amazon Fire TV", href: "https://en.wikipedia.org/wiki/Amazon_Fire_TV" }],
+  lb.define("platf+amd", "AMD", {
+    websites: [{ kind: "wikipedia", title: "AMD", href: "https://en.wikipedia.org/wiki/Advanced_Micro_Devices" }],
   });
 
   /**/
@@ -95,26 +95,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("platf+dec-alpha", "DEC Alpha", {
-    websites: [{ kind: "wikipedia", title: "DEC Alpha", href: "https://en.wikipedia.org/wiki/DEC_Alpha" }],
-  });
-
-  /**/
-
-  lb.define("platf+dec-prism", "PRISM", {
-    websites: [{ kind: "wikipedia", title: "PRISM", href: "https://en.wikipedia.org/wiki/DEC_PRISM" }],
-  });
-
-  /**/
-
-  lb.define("platf+digital-equipment-corporation", "DEC", {
-    websites: [
-      { kind: "wikipedia", title: "DEC", href: "https://en.wikipedia.org/wiki/Digital_Equipment_Corporation" },
-    ],
-  });
-
-  /**/
-
   lb.define("platf+emacs", "Emacs", {
     websites: [{ kind: "wikipedia", title: "Emacs", href: "https://en.wikipedia.org/wiki/Emacs" }],
   });
@@ -141,10 +121,16 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("platf+field-programmable-gate-array", "FPGA", {
+  lb.define("platf+fpga", "FPGA", {
     websites: [
       { kind: "wikipedia", title: "FPGA", href: "https://en.wikipedia.org/wiki/Field_Programmable_Gate_Array" },
     ],
+  });
+
+  /**/
+
+  lb.define("platf+fuchsia", "Google Fuchsia", {
+    websites: [{ kind: "wikipedia", title: "Google Fuchsia", href: "https://en.wikipedia.org/wiki/Google_Fuchsia" }],
   });
 
   /**/
@@ -157,12 +143,6 @@ export function define(g: PlangsGraph) {
 
   lb.define("platf+gnu", "GNU", {
     websites: [{ kind: "wikipedia", title: "GNU", href: "https://en.wikipedia.org/wiki/GNU" }],
-  });
-
-  /**/
-
-  lb.define("platf+google-fuchsia", "Google Fuchsia", {
-    websites: [{ kind: "wikipedia", title: "Google Fuchsia", href: "https://en.wikipedia.org/wiki/Google_Fuchsia" }],
   });
 
   /**/
@@ -227,7 +207,7 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("platf+mips-architecture", "MIPS", {
+  lb.define("platf+mips", "MIPS", {
     websites: [
       { kind: "wikipedia", title: "MIPS, MIPS64el, MIPSel", href: "https://en.wikipedia.org/wiki/MIPS_architecture" },
     ],
@@ -267,7 +247,7 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("platf+pic-microcontrollers", "PIC", {
+  lb.define("platf+pic", "PIC", {
     websites: [{ kind: "wikipedia", title: "PIC", href: "https://en.wikipedia.org/wiki/PIC_microcontrollers" }],
   });
 

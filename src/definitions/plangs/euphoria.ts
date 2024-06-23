@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
         ["person+jeremy-cowgar", "designer"],
         ["person+matt-lewis", "designer"],
       ],
-      platforms: ["platf+bsd", "platf+cross-platform", "platf+linux", "platf+mac", "platf+windows"],
+      platforms: ["platf+bsd", "platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+static"],
     },
   );

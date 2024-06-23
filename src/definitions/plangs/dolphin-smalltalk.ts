@@ -42,7 +42,7 @@ export function define(g: PlangsGraph) {
         ["person+blair-mcglashan", "designer"],
         ["person+object-arts", "designer"],
       ],
-      platforms: ["platf+ia-32", "platf+windows", "platf+x86-64"],
+      platforms: ["platf+ia-32", "platf+win", "platf+x86-64"],
       typeSystems: ["tsys+dynamic", "tsys+object-oriented"],
     },
   );

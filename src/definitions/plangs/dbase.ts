@@ -36,9 +36,9 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+c"],
       influences: ["pl+clipper", "pl+foxpro", "pl+harbour", "pl+vp-info"],
       licenses: ["lic+proprietary"],
-      paradigms: ["para+declarative", "para+imperative"],
+      paradigms: ["para+dec", "para+imperative"],
       people: [["person+cecil-wayne-ratliff", "designer"]],
-      platforms: ["platf+dos", "platf+windows"],
+      platforms: ["platf+dos", "platf+win"],
     },
   );
 

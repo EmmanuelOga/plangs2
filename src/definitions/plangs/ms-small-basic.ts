@@ -4,7 +4,7 @@ export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
   lb.define(
-    "pl+microsoft-small-basic",
+    "pl+ms-small-basic",
     "Microsoft Small Basic",
     {
       name: "Microsoft Small Basic",
@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+logo", "pl+qbasic", "pl+visual-basic-.net"],
       licenses: ["lic+mit"],
       paradigms: ["para+imperative", "para+objects", "para+structured"],
-      platforms: ["platf+.net", "platf+web", "platf+windows"],
+      platforms: ["platf+.net", "platf+web", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+weak"],
     },
   );

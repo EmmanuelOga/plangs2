@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+gpl"],
       paradigms: ["para+functional", "para+objects", "para+structured"],
       people: [["person+lalit-pant", "designer"]],
-      platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+windows"],
+      platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+strong"],
     },
   );

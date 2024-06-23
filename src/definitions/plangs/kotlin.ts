@@ -45,7 +45,7 @@ export function define(g: PlangsGraph) {
       paradigms: [
         "para+block",
         "para+concurrent",
-        "para+declarative",
+        "para+dec",
         "para+functional",
         "para+generic",
         "para+imperative",
@@ -65,7 +65,7 @@ export function define(g: PlangsGraph) {
         "platf+tvos",
         "platf+wasm",
         "platf+watchos",
-        "platf+windows",
+        "platf+win",
       ],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },

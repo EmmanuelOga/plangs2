@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
         ["person+william-maddox", "designer"],
         ["person+yaron-kashai", "designer"],
       ],
-      platforms: ["platf+android", "platf+linux", "platf+mac", "platf+web", "platf+windows"],
+      platforms: ["platf+android", "platf+linux", "platf+mac", "platf+web", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+optional"],
     },
   );

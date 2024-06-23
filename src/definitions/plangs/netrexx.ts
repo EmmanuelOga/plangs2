@@ -37,7 +37,7 @@ export function define(g: PlangsGraph) {
         "platf+cross-platform",
         "platf+linux",
         "platf+mac",
-        "platf+windows",
+        "platf+win",
         "platf+z-slashos",
         "platf+z-slashvm",
       ],

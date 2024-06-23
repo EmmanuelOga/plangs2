@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1964-05-01", kind: "first" }],
     },
     {
-      dialects: ["pl+atari-basic", "pl+open-programming-language", "pl+vilnius-basic"],
+      dialects: ["pl+atari-basic", "pl+open", "pl+vilnius-basic"],
       implementations: [
         "pl+applesoft-basic",
         "pl+atari-basic",
@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
         "pl+dartmouth-basic",
         "pl+freebasic",
         "pl+liberty-basic",
-        "pl+microsoft-basic",
+        "pl+ms-basic",
         "pl+powerbasic",
         "pl+qb64",
         "pl+quickbasic",

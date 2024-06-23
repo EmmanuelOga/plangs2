@@ -31,7 +31,7 @@ export function define(g: PlangsGraph) {
     {
       implementations: ["pl+active-scripting", "pl+jscript-.net"],
       influenced: ["pl+jscript-.net"],
-      platforms: ["platf+windows"],
+      platforms: ["platf+win"],
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+weak"],
     },
   );

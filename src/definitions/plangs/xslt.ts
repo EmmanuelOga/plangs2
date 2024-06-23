@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+libxslt", "pl+saxon-xslt", "pl+xalan"],
       influenced: ["pl+boomerang", "pl+xquery"],
       influences: ["pl+dsssl"],
-      paradigms: ["para+declarative"],
+      paradigms: ["para+dec"],
     },
   );
 

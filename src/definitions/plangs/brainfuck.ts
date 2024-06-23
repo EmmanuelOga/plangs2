@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
     {
       dialects: ["pl+p--"],
       influenced: ["pl+malbolge", "pl+p--"],
-      influences: ["pl+esoteric-programming-language", "pl+malbolge", "pl+p--"],
+      influences: ["pl+esoteric", "pl+malbolge", "pl+p--"],
       paradigms: ["para+esoteric", "para+imperative", "para+structured"],
       people: [["person+urban-muller", "designer"]],
     },

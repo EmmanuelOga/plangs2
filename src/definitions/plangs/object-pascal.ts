@@ -28,9 +28,9 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: [
+        "pl+.net",
         "pl+arm-architecture-family",
         "pl+cocoa",
-        "pl+common-language-infrastructure",
         "pl+delphi",
         "pl+free-pascal",
         "pl+java",
@@ -68,13 +68,7 @@ export function define(g: PlangsGraph) {
         ["person+larry-tesler", "designer"],
         ["person+niklaus-wirth", "designer"],
       ],
-      platforms: [
-        "platf+arm",
-        "platf+common-language-infrastructure",
-        "platf+jvm",
-        "platf+mips-architecture",
-        "platf+x86",
-      ],
+      platforms: ["platf+.net", "platf+arm", "platf+jvm", "platf+mips", "platf+x86"],
       typeSystems: ["tsys+dynamic", "tsys+safe", "tsys+strong"],
     },
   );

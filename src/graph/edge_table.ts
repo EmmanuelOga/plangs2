@@ -39,7 +39,8 @@ type _TableData<T_EdgeData> = {
  * Stores edges between vertices.
  */
 export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_EdgeData>
-  implements Iterable<[EdgeKey, T_EdgeData]> {
+  implements Iterable<[EdgeKey, T_EdgeData]>
+{
   // Each suffix uses its own edge and adjacency map.
   // If we ever find ourselves with a lot of suffix usage, we may need to change this.
   private readonly _perSuffix: Map<string, _TableData<T_EdgeData>> = new Map();
@@ -118,7 +119,7 @@ export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_E
   toJSON(): Record<string, [string, string, T_EdgeData][]> {
     const perSuffix: Record<string, [string, string, T_EdgeData][]> = {};
     for (const [key, edata] of this._perSuffix) {
-      const edges: [string, string, T_EdgeData][] = []
+      const edges: [string, string, T_EdgeData][] = [];
       for (const [key, value] of edata.edge) {
         const [from, to] = key.split("~");
         edges.push([from, to, value]);

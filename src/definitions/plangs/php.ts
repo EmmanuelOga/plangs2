@@ -87,7 +87,7 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+gpl", "lic+php", "lic+zend"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects", "para+reflective"],
       people: [["person+rasmus-lerdorf", "designer"]],
-      platforms: ["platf+mac", "platf+openvms", "platf+unix", "platf+windows"],
+      platforms: ["platf+mac", "platf+openvms", "platf+unix", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+gradual", "tsys+weak"],
     },
   );

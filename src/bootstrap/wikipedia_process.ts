@@ -451,12 +451,10 @@ function extractNames(str: string): string[] {
 }
 
 function cleanLicense(licenseId: string): string {
-  const clean = licenseId
-    .toLowerCase()
+  const clean = toAlphaNum(licenseId)
     .replaceAll(/\u00a0/g, " ")
     .replaceAll(/\-since\-\d+/g, "")
     .replaceAll(/\-until\-\d+/g, "")
-    .replaceAll(/\-\-+/g, "-")
     .replaceAll(/-?v(\d+)/g, (m, p1) => `-${p1}`)
     .replaceAll(/^revised\-(.+)$/g, "$1-revised")
     .replaceAll("general-public-license", "gpl")
@@ -528,16 +526,16 @@ function cleanPlatform(platf: string): string | undefined {
   if (PLATFORM_SKIPS.test(platf)) return;
 
   const p = toAlphaNum(platf)
-    .replaceAll(/_\([^\)]+\)/g, "")
+    .replaceAll(/\-\([^\)]+\)/g, "")
     .replaceAll("-sharpfloating-point", "")
     .replaceAll("-family", "")
     .replaceAll("field_programmable_gate_array", "fpga")
     .replaceAll("advanced_micro_devices", "amd")
-    .replaceAll("_microcontrollers", "")
-    .replaceAll("_technology", "")
-    .replaceAll("_architecture", "")
-    .replaceAll("google_", "")
-    .replaceAll("fire_tv", "firetv");
+    .replaceAll("-microcontrollers", "")
+    .replaceAll("-technology", "")
+    .replaceAll("-architecture", "")
+    .replaceAll("google-", "")
+    .replaceAll("fire-tv", "firetv");
 
   // Order is important.
   if (/wasm|web.?assembly|wasi/i.test(p)) return "wasm";
@@ -577,7 +575,35 @@ function cleanPlatform(platf: string): string | undefined {
 function keyFromWikiUrl(wikiUrl: string): string | undefined {
   const [prefix, hash] = wikiUrl.split("#");
 
-  const clean = (key: string) => toAlphaNum(key.replace(/\#.*$/, "").replace(/_\([^\)]+\)/, ""));
+  function clean(val: string): string | undefined {
+    let key = toAlphaNum(val);
+
+    if (key.includes("powershell")) return "powershell";
+    if (key.startsWith("win-")) return "win";
+
+    key = key
+      .replaceAll(/\-\([^\)]+\)/g, "") // Remove url parts like /wiki/lisp_(programming_language)
+      .replaceAll(/windows/g, "win")
+      .replaceAll(/microsoft/g, "ms")
+      .replaceAll(/ms\-win/g, "win")
+      .replaceAll("gnu-compiler-collection", "gcc")
+      .replaceAll(/standard-ml/g, "sml")
+      .replaceAll(/\-of\-new\-jersey/g, "")
+      .replaceAll(/digital\-equipment\-corporation/g, "dec");
+
+    if (key.startsWith("dec")) return "dec";
+    if (key.startsWith("win-") || key.startsWith("universal-win")) return "win";
+    if (key === "common-language-infrastructure") return ".net";
+
+    if (key === "allegro-common") return "common-lisp";
+    if (key === "field-programmable-gate-array") return "fpga";
+    if (key === "advanced-micro-devices") return "amd";
+    if (key === "standalone-program") return;
+    if (key === "systems-programming-language") return;
+    if (key === "polymorphic-programming-language") return;
+
+    return key.replace(/\-programming\-language$/, "");
+  }
 
   if (prefix.includes("/wiki/")) {
     const path = decodeURIComponent(prefix);

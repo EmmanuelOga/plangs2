@@ -53,7 +53,7 @@ export function define(g: PlangsGraph) {
         "platf+ia-32",
         "platf+linux",
         "platf+mac",
-        "platf+windows",
+        "platf+win",
         "platf+x86-64",
       ],
     },

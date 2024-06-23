@@ -37,15 +37,7 @@ export function define(g: PlangsGraph) {
     },
     {
       licenses: ["lic+bsd-n"],
-      platforms: [
-        "platf+android",
-        "platf+google-fuchsia",
-        "platf+ios",
-        "platf+linux",
-        "platf+mac",
-        "platf+web",
-        "platf+windows",
-      ],
+      platforms: ["platf+android", "platf+fuchsia", "platf+ios", "platf+linux", "platf+mac", "platf+web", "platf+win"],
     },
   );
 

@@ -55,7 +55,7 @@ export function define(g: PlangsGraph) {
       ],
       paradigms: ["para+class", "para+generic", "para+objects"],
       people: [["person+bertrand-meyer", "designer"]],
-      platforms: ["platf+bsd", "platf+cross-platform", "platf+linux", "platf+mac", "platf+windows"],
+      platforms: ["platf+bsd", "platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+static"],
     },
   );

@@ -43,7 +43,7 @@ export function define(g: PlangsGraph) {
         "pl+ada",
         "pl+c",
         "pl+c-plus-plus",
-        "pl+lisp-programming-language",
+        "pl+lisp",
         "pl+modula-3",
         "pl+oberon",
         "pl+oberon-2",

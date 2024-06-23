@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
       extensions: [".lisp", ".lsp", ".l", ".cl", ".fasl"],
     },
     {
-      dialects: ["pl+lisp-programming-language"],
+      dialects: ["pl+lisp"],
       implementations: [
         "pl+allegro-common-lisp",
         "pl+armed-bear-common-lisp",

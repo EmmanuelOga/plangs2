@@ -41,7 +41,7 @@ export function define(g: PlangsGraph) {
         ["person+alan-kay", "designer"],
         ["person+dan-ingalls", "designer"],
       ],
-      platforms: ["platf+cross-platform", "platf+ios", "platf+mac", "platf+unix", "platf+windows"],
+      platforms: ["platf+cross-platform", "platf+ios", "platf+mac", "platf+unix", "platf+win"],
       typeSystems: ["tsys+dynamic"],
     },
   );

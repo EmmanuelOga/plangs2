@@ -61,7 +61,7 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      influenced: ["pl+common-lisp", "pl+julia", "pl+lisp-programming-language", "pl+pcastl", "pl+s", "pl+scheme"],
+      influenced: ["pl+common-lisp", "pl+julia", "pl+lisp", "pl+pcastl", "pl+s", "pl+scheme"],
       influences: ["pl+julia", "pl+lisp", "pl+s", "pl+scheme"],
       licenses: ["lic+gpl"],
       paradigms: ["para+array", "para+functional", "para+imperative", "para+multi", "para+objects", "para+reflective"],

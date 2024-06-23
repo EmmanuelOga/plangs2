@@ -79,7 +79,7 @@ export function define(g: PlangsGraph) {
         ["person+andrei-alexandrescu", "designer"],
         ["person+walter-bright", "designer"],
       ],
-      platforms: ["platf+bsd", "platf+linux", "platf+mac", "platf+windows"],
+      platforms: ["platf+bsd", "platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );

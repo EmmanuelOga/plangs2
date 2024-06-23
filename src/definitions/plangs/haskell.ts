@@ -61,7 +61,7 @@ export function define(g: PlangsGraph) {
         "pl+idris",
         "pl+iswim",
         "pl+lean",
-        "pl+lisp-programming-language",
+        "pl+lisp",
         "pl+livescript",
         "pl+mercury",
         "pl+miranda",
@@ -76,7 +76,7 @@ export function define(g: PlangsGraph) {
         "pl+sasl",
         "pl+scala",
         "pl+scheme",
-        "pl+standard-ml",
+        "pl+sml",
       ],
       influences: [
         "pl+clean",
@@ -93,7 +93,7 @@ export function define(g: PlangsGraph) {
         "pl+sasl",
         "pl+scheme",
         "pl+sisal",
-        "pl+standard-ml",
+        "pl+sml",
       ],
       paradigms: ["para+functional"],
       people: [

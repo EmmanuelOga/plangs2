@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
       extensions: [".hy"],
     },
     {
-      dialects: ["pl+lisp-programming-language"],
+      dialects: ["pl+lisp"],
       influenced: ["pl+clojure", "pl+lfe"],
       influences: ["pl+clojure", "pl+common-lisp", "pl+kawa"],
       licenses: ["lic+mit"],

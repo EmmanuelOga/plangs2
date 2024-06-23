@@ -102,7 +102,7 @@ export function define(g: PlangsGraph) {
         ["person+rob-pike", "designer"],
         ["person+robert-griesemer", "designer"],
       ],
-      platforms: ["platf+bsd", "platf+linux", "platf+mac", "platf+plan9", "platf+windows"],
+      platforms: ["platf+bsd", "platf+linux", "platf+mac", "platf+plan9", "platf+win"],
       typeSystems: ["tsys+inferred", "tsys+nominative", "tsys+static", "tsys+strong", "tsys+structural"],
     },
   );

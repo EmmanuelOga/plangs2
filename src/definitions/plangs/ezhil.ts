@@ -42,7 +42,7 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+gpl"],
       paradigms: ["para+imperative", "para+interpreted", "para+structured"],
       people: [["person+google-scholar", "designer"]],
-      platforms: ["platf+linux", "platf+mac", "platf+pip", "platf+python", "platf+windows"],
+      platforms: ["platf+linux", "platf+mac", "platf+pip", "platf+python", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );

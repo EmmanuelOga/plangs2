@@ -53,7 +53,7 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+bsd-s"],
       paradigms: ["para+objects", "para+prototypes"],
       people: [["person+david-ungar", "designer"]],
-      platforms: ["platf+cross-platform", "platf+mac", "platf+unix", "platf+windows"],
+      platforms: ["platf+cross-platform", "platf+mac", "platf+unix", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );

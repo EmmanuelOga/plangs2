@@ -47,7 +47,7 @@ export function define(g: PlangsGraph) {
         ["person+robert-bradshaw", "designer"],
         ["person+stefan-behnel", "designer"],
       ],
-      platforms: ["platf+linux", "platf+mac", "platf+windows"],
+      platforms: ["platf+linux", "platf+mac", "platf+win"],
     },
   );
 

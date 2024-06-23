@@ -44,7 +44,7 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+apache"],
       paradigms: ["para+concurrent", "para+functional", "para+multi"],
       people: [["person+louis-pilfold", "designer"]],
-      platforms: ["platf+bsd", "platf+linux", "platf+mac", "platf+windows"],
+      platforms: ["platf+bsd", "platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+inferred", "tsys+safe", "tsys+static"],
     },
   );

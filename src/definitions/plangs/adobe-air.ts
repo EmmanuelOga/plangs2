@@ -40,10 +40,7 @@ export function define(g: PlangsGraph) {
         license: [{ href: "https://www.adobe.com/products/eulas/pdfs/Adobe_AIR.pdf", title: "Adobe AIR 1.1 EULA" }],
       },
     },
-    {
-      licenses: ["lic+proprietary"],
-      platforms: ["platf+arm", "platf+ia-32", "platf+mips-architecture", "platf+x86-64"],
-    },
+    { licenses: ["lic+proprietary"], platforms: ["platf+arm", "platf+ia-32", "platf+mips", "platf+x86-64"] },
   );
 
   /**/

@@ -41,15 +41,7 @@ export function define(g: PlangsGraph) {
         ["person+brian-cardiff", "designer"],
         ["person+juan-wajnerman", "designer"],
       ],
-      platforms: [
-        "platf+aarch64",
-        "platf+bsd",
-        "platf+ia-32",
-        "platf+linux",
-        "platf+mac",
-        "platf+windows",
-        "platf+x86-64",
-      ],
+      platforms: ["platf+aarch64", "platf+bsd", "platf+ia-32", "platf+linux", "platf+mac", "platf+win", "platf+x86-64"],
       typeSystems: ["tsys+duck", "tsys+inferred", "tsys+nominative", "tsys+static"],
     },
   );

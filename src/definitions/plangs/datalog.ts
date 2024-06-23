@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
     {
       influenced: ["pl+prolog", "pl+sql"],
       influences: ["pl+prolog", "pl+sql"],
-      paradigms: ["para+declarative", "para+logic"],
+      paradigms: ["para+dec", "para+logic"],
       typeSystems: ["tsys+weak"],
     },
   );

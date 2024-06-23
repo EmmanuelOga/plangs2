@@ -4,7 +4,7 @@ export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
   lb.define(
-    "pl+gnu-compiler-collection",
+    "pl+gcc",
     "GCC",
     {
       name: "GCC",

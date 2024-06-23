@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+erlang", "pl+javascript", "pl+ocaml"],
       licenses: ["lic+affero-gpl", "lic+mit"],
       paradigms: ["para+functional", "para+imperative", "para+multi"],
-      platforms: ["platf+linux", "platf+mac", "platf+windows"],
+      platforms: ["platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );

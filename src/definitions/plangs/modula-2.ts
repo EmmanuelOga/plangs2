@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
       ],
       paradigms: ["para+concurrent", "para+imperative", "para+information", "para+modular", "para+structured"],
       people: [["person+niklaus-wirth", "designer"]],
-      platforms: ["platf+advanced-micro-devices", "platf+amd-am2900", "platf+cross-platform"],
+      platforms: ["platf+amd", "platf+amd-am2900", "platf+cross-platform"],
       typeSystems: ["tsys+safe", "tsys+static", "tsys+strong"],
     },
   );

@@ -102,7 +102,7 @@ export function define(g: PlangsGraph) {
         "pl+c",
         "pl+common-lisp",
         "pl+dylan",
-        "pl+lisp-programming-language",
+        "pl+lisp",
         "pl+matlab",
         "pl+python",
         "pl+r",
@@ -150,7 +150,7 @@ export function define(g: PlangsGraph) {
         "platf+mac",
         "platf+oneapi",
         "platf+rocm",
-        "platf+windows",
+        "platf+win",
         "platf+x86-64",
       ],
       typeSystems: [

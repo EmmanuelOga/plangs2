@@ -43,7 +43,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+basic", "pl+c", "pl+c-sharp", "pl+lua", "pl+python", "pl+qml", "pl+ruby", "pl+xbase"],
       licenses: ["lic+mit"],
       paradigms: [
-        "para+declarative",
+        "para+dec",
         "para+functional",
         "para+imperative",
         "para+multi",
@@ -52,7 +52,7 @@ export function define(g: PlangsGraph) {
         "para+reflective",
       ],
       people: [["person+mahmoud-samir-fayed", "designer"]],
-      platforms: ["platf+linux", "platf+mac", "platf+windows"],
+      platforms: ["platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+dynamic"],
     },
   );

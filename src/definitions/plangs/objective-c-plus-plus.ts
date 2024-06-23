@@ -37,7 +37,7 @@ export function define(g: PlangsGraph) {
       extensions: [".h", ".m", ".mm", ".M"],
     },
     {
-      implementations: ["pl+clang", "pl+gnu-compiler-collection"],
+      implementations: ["pl+clang", "pl+gcc"],
       influenced: ["pl+c-plus-plus"],
       influences: ["pl+c", "pl+groovy", "pl+java", "pl+nu", "pl+smalltalk", "pl+swift"],
       people: [["person+brad-cox", "designer"]],

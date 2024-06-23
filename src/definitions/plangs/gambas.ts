@@ -40,7 +40,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+java", "pl+visual-basic"],
       licenses: ["lic+gpl"],
       people: [["person+benoit-minisini", "designer"]],
-      platforms: ["platf+bsd", "platf+cygwin", "platf+haiku", "platf+linux", "platf+mac", "platf+windows"],
+      platforms: ["platf+bsd", "platf+cygwin", "platf+haiku", "platf+linux", "platf+mac", "platf+win"],
     },
   );
 

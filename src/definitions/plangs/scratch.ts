@@ -66,7 +66,7 @@ export function define(g: PlangsGraph) {
       ],
       licenses: ["lic+bsd-s", "lic+gpl"],
       paradigms: ["para+event", "para+visual"],
-      platforms: ["platf+android", "platf+dos", "platf+ios", "platf+linux", "platf+mac", "platf+web", "platf+windows"],
+      platforms: ["platf+android", "platf+dos", "platf+ios", "platf+linux", "platf+mac", "platf+web", "platf+win"],
     },
   );
 

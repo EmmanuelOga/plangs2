@@ -34,7 +34,7 @@ export function define(g: PlangsGraph) {
         "pl+yap",
       ],
       influenced: [
-        "pl+algebraic-logic-functional-programming-language",
+        "pl+algebraic-logic-functional",
         "pl+ciao",
         "pl+clojure",
         "pl+constraint-handling-rules",

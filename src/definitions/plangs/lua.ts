@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
         "pl+haxe",
         "pl+io",
         "pl+julia",
-        "pl+lisp-programming-language",
+        "pl+lisp",
         "pl+modula-2",
         "pl+red",
         "pl+ring",

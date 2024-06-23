@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       extensions: [".el", ".elc", ".eln"],
     },
     {
-      dialects: ["pl+lisp-programming-language"],
+      dialects: ["pl+lisp"],
       influenced: ["pl+common-lisp"],
       influences: ["pl+common-lisp", "pl+maclisp"],
       licenses: ["lic+gpl"],

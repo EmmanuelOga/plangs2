@@ -35,7 +35,7 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+list-of-relational-database-management-systems"],
-      influenced: ["pl+datalog", "pl+windows-powershell", "pl+xquery"],
+      influenced: ["pl+datalog", "pl+powershell", "pl+xquery"],
       influences: [
         "pl+contextual-query-language",
         "pl+datalog",
@@ -46,7 +46,7 @@ export function define(g: PlangsGraph) {
         "pl+powershell",
         "pl+sparql",
       ],
-      paradigms: ["para+declarative"],
+      paradigms: ["para+dec"],
       people: [
         ["person+donald-d-chamberlin", "designer"],
         ["person+raymond-f-boyce", "designer"],

@@ -38,7 +38,7 @@ export function define(g: PlangsGraph) {
         "pl+xcos",
       ],
       licenses: ["lic+ccs"],
-      paradigms: ["para+declarative"],
+      paradigms: ["para+dec"],
       platforms: ["platf+cross-platform"],
     },
   );

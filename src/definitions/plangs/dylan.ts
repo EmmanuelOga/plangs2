@@ -11,6 +11,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Dylan", href: "https://en.wikipedia.org/wiki/Dylan_(programming_language)" },
         { kind: "homepage", title: "opendylan.org", href: "https://opendylan.org/" },
+        { kind: "wikipedia", title: "Dylan", href: "https://en.wikipedia.org/wiki/Dylan_programming_language" },
       ],
       images: [
         {
@@ -38,8 +39,9 @@ export function define(g: PlangsGraph) {
         "pl+eulisp",
         "pl+julia",
         "pl+lasso",
-        "pl+lisp-programming-language",
+        "pl+lisp",
         "pl+newtonscript",
+        "pl+oaklisp",
         "pl+python",
         "pl+ruby",
         "pl+scheme",

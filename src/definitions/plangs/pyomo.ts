@@ -36,7 +36,7 @@ export function define(g: PlangsGraph) {
         ["person+john-siirola", "designer"],
         ["person+william-e-hart", "designer"],
       ],
-      platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+windows"],
+      platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
     },
   );
 

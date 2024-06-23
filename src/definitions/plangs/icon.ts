@@ -4,13 +4,14 @@ export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
   lb.define(
-    "pl+icon-programming-language",
+    "pl+icon",
     "Icon",
     {
       name: "Icon",
       websites: [
         { kind: "wikipedia", title: "Icon", href: "https://en.wikipedia.org/wiki/Icon_programming_language" },
         { kind: "homepage", title: "www.cs.arizona.edu/icon", href: "http://www.cs.arizona.edu/icon" },
+        { kind: "wikipedia", title: "Icon", href: "https://en.wikipedia.org/wiki/Icon_(programming_language)" },
       ],
       images: [
         {
@@ -30,7 +31,7 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+unicon"],
+      influenced: ["pl+python", "pl+snobol", "pl+unicon"],
       influences: ["pl+algol", "pl+jq", "pl+python", "pl+snobol"],
       paradigms: ["para+multi", "para+structured"],
       people: [["person+ralph-griswold", "designer"]],

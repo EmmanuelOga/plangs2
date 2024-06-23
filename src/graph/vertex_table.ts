@@ -75,8 +75,10 @@ export class VertexTable<T_VId extends string, T_VData> implements Iterable<[T_V
   }
 
   toJSON(): Record<string, T_VData> {
-    const result : Record<string, T_VData> = {};
-    for (const [vid, vdata] of this._vdata) { result[vid] = vdata; }
+    const result: Record<string, T_VData> = {};
+    for (const [vid, vdata] of this._vdata) {
+      result[vid] = vdata;
+    }
     return result;
   }
 

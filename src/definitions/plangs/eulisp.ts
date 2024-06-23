@@ -27,8 +27,8 @@ export function define(g: PlangsGraph) {
       extensions: [".em"],
     },
     {
-      dialects: ["pl+lisp-programming-language"],
-      influenced: ["pl+common-lisp", "pl+dylan", "pl+islisp", "pl+oaklisp", "pl+scheme", "pl+t-programming-language"],
+      dialects: ["pl+lisp"],
+      influenced: ["pl+common-lisp", "pl+dylan", "pl+islisp", "pl+oaklisp", "pl+scheme", "pl+t"],
       influences: [
         "pl+common-lisp",
         "pl+common-lisp-object-system",
@@ -40,7 +40,7 @@ export function define(g: PlangsGraph) {
         "pl+oaklisp",
         "pl+objvlisp",
         "pl+scheme",
-        "pl+standard-ml",
+        "pl+sml",
         "pl+t",
       ],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi", "para+objects"],

@@ -40,7 +40,7 @@ export function define(g: PlangsGraph) {
     {
       influenced: ["pl+ring"],
       influences: ["pl+javascript", "pl+json", "pl+qt", "pl+ring", "pl+xaml"],
-      paradigms: ["para+declarative", "para+multi", "para+reactive", "para+scripting"],
+      paradigms: ["para+dec", "para+multi", "para+reactive", "para+scripting"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );

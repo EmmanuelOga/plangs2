@@ -31,7 +31,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+hypertalk"],
       licenses: ["lic+gpl", "lic+proprietary"],
       paradigms: ["para+objects"],
-      platforms: ["platf+linux", "platf+mac", "platf+rpi", "platf+unix", "platf+windows"],
+      platforms: ["platf+linux", "platf+mac", "platf+rpi", "platf+unix", "platf+win"],
     },
   );
 

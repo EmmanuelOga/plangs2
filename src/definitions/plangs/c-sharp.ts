@@ -39,12 +39,12 @@ export function define(g: PlangsGraph) {
         "pl+object-pascal",
         "pl+oxygene",
         "pl+pascal",
+        "pl+powershell",
         "pl+ring",
         "pl+rust",
         "pl+scala",
         "pl+typescript",
         "pl+vala",
-        "pl+windows-powershell",
       ],
     },
   );

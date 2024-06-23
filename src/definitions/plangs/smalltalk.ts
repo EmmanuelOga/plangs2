@@ -63,7 +63,7 @@ export function define(g: PlangsGraph) {
         "pl+io",
         "pl+java",
         "pl+lasso",
-        "pl+lisp-programming-language",
+        "pl+lisp",
         "pl+logtalk",
         "pl+mdl",
         "pl+newspeak",

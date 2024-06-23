@@ -47,12 +47,12 @@ export function define(g: PlangsGraph) {
       extensions: [".elm"],
     },
     {
-      influenced: ["pl+gleam", "pl+ml", "pl+ocaml", "pl+rust", "pl+standard-ml"],
-      influences: ["pl+f-sharp", "pl+haskell", "pl+ocaml", "pl+redux", "pl+rust", "pl+standard-ml", "pl+vue.js"],
+      influenced: ["pl+gleam", "pl+ml", "pl+ocaml", "pl+rust", "pl+sml"],
+      influences: ["pl+f-sharp", "pl+haskell", "pl+ocaml", "pl+redux", "pl+rust", "pl+sml", "pl+vue.js"],
       licenses: ["lic+bsd", "lic+permissive"],
       paradigms: ["para+functional"],
       people: [["person+evan-czaplicki", "designer"]],
-      platforms: ["platf+mac", "platf+windows", "platf+x86-64"],
+      platforms: ["platf+mac", "platf+win", "platf+x86-64"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );

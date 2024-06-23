@@ -10,6 +10,7 @@ export function define(g: PlangsGraph) {
       name: "APL",
       websites: [
         { kind: "wikipedia", title: "APL", href: "https://en.wikipedia.org/wiki/APL_(programming_language)" },
+        { kind: "wikipedia", title: "APL", href: "https://en.wikipedia.org/wiki/APL_programming_language" },
         { kind: "homepage", title: "aplwiki.com", href: "https://aplwiki.com/" },
       ],
       images: [
@@ -40,10 +41,12 @@ export function define(g: PlangsGraph) {
         "pl+j",
         "pl+k",
         "pl+matlab",
+        "pl+nial",
         "pl+perl-data-language",
         "pl+python",
         "pl+q",
         "pl+s",
+        "pl+sac",
         "pl+self",
         "pl+snap-",
         "pl+speakeasy",
@@ -58,7 +61,6 @@ export function define(g: PlangsGraph) {
         "pl+mathematical-notation",
         "pl+matlab",
         "pl+nial",
-        "pl+polymorphic-programming-language",
         "pl+python",
         "pl+q",
         "pl+s",

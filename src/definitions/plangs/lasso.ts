@@ -40,7 +40,7 @@ export function define(g: PlangsGraph) {
         "para+structured",
       ],
       people: [["person+kyle-jessup", "designer"]],
-      platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+windows"],
+      platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+nominative"],
     },
   );

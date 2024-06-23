@@ -54,9 +54,9 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+microsoft-power-fx"],
+      influenced: ["pl+ms-power-fx"],
       licenses: ["lic+proprietary"],
-      platforms: ["platf+linux", "platf+mac", "platf+rpi", "platf+windows"],
+      platforms: ["platf+linux", "platf+mac", "platf+rpi", "platf+win"],
     },
   );
 

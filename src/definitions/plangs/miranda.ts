@@ -9,6 +9,7 @@ export function define(g: PlangsGraph) {
     {
       name: "Miranda",
       websites: [
+        { kind: "wikipedia", title: "Miranda", href: "https://en.wikipedia.org/wiki/Miranda_programming_language" },
         { kind: "wikipedia", title: "Miranda", href: "https://en.wikipedia.org/wiki/Miranda_(programming_language)" },
         { kind: "homepage", title: "miranda.org.uk", href: "http://miranda.org.uk" },
       ],
@@ -32,18 +33,27 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+clean", "pl+haskell", "pl+iswim", "pl+microsoft-power-fx", "pl+ml", "pl+orwell", "pl+sasl"],
+      influenced: [
+        "pl+clean",
+        "pl+haskell",
+        "pl+iswim",
+        "pl+kent-recursive-calculator",
+        "pl+ml",
+        "pl+ms-power-fx",
+        "pl+orwell",
+        "pl+sasl",
+      ],
       influences: [
         "pl+clean",
         "pl+haskell",
         "pl+hope",
         "pl+kent-recursive-calculator",
-        "pl+microsoft-power-fx",
         "pl+ml",
+        "pl+ms-power-fx",
         "pl+orwell",
         "pl+sasl",
       ],
-      paradigms: ["para+declarative", "para+functional", "para+lazy"],
+      paradigms: ["para+dec", "para+functional", "para+lazy"],
       people: [["person+david-turner", "designer"]],
       typeSystems: ["tsys+static", "tsys+strong"],
     },

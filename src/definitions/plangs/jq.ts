@@ -23,7 +23,7 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+c", "pl+go", "pl+rust"],
-      influenced: ["pl+icon-programming-language"],
+      influenced: ["pl+icon"],
       licenses: ["lic+mit"],
       paradigms: ["para+functional", "para+json", "para+tacit"],
       people: [["person+stephen-dolan", "designer"]],
