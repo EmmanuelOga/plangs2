@@ -5,7 +5,7 @@ import { vIDPattern } from "./vertex";
  * Containers for vertices.
  */
 export class VertexTable<T_VId extends string, T_VData> implements Iterable<[T_VId, T_VData]> {
-  private _vdata = new Map<T_VId, T_VData>();
+  #vdata = new Map<T_VId, T_VData>();
 
   public readonly vidPattern: RegExp;
 
@@ -15,23 +15,23 @@ export class VertexTable<T_VId extends string, T_VData> implements Iterable<[T_V
 
   set(key: T_VId, value: T_VData): this {
     if (!this.validParams(key)) throw new Error(`invalid key: ${key} (pattern: ${this.vidPattern})`);
-    this._vdata.set(key, value);
+    this.#vdata.set(key, value);
     return this;
   }
 
   get(key: T_VId): T_VData | undefined {
     if (!this.validParams(key)) throw new Error(`invalid key: ${key}`);
-    return this._vdata.get(key);
+    return this.#vdata.get(key);
   }
 
   has(key: T_VId): boolean {
     if (!this.validParams(key)) throw new Error(`invalid key: ${key}`);
-    return this._vdata.has(key);
+    return this.#vdata.has(key);
   }
 
   delete(key: T_VId): boolean {
     if (!this.validParams(key)) throw new Error(`invalid key: ${key}`);
-    return this._vdata.delete(key);
+    return this.#vdata.delete(key);
   }
 
   /**
@@ -42,10 +42,10 @@ export class VertexTable<T_VId extends string, T_VData> implements Iterable<[T_V
    */
   declare(key: T_VId): NN_Partial<T_VData> {
     if (!this.validParams(key)) throw new Error(`invalid key: ${key}`);
-    let v_data = this._vdata.get(key);
+    let v_data = this.#vdata.get(key);
     if (v_data === undefined) {
       v_data = {} as T_VData;
-      this._vdata.set(key, v_data);
+      this.#vdata.set(key, v_data);
     }
     return v_data as NN_Partial<T_VData>;
   }
@@ -53,11 +53,11 @@ export class VertexTable<T_VId extends string, T_VData> implements Iterable<[T_V
   merge(key: T_VId, value: T_VData): NN_Partial<T_VData> {
     if (!this.validParams(key)) throw new Error(`invalid key: ${key}`);
 
-    if (!this._vdata.has(key)) {
-      this._vdata.set(key, {} as T_VData);
+    if (!this.#vdata.has(key)) {
+      this.#vdata.set(key, {} as T_VData);
     }
     // biome-ignore lint/suspicious/noExplicitAny: it is ok.
-    const vdata = Object.assign(this._vdata.get(key) as any, value);
+    const vdata = Object.assign(this.#vdata.get(key) as any, value);
 
     return vdata as NN_Partial<T_VData>;
   }
@@ -67,16 +67,16 @@ export class VertexTable<T_VId extends string, T_VData> implements Iterable<[T_V
   }
 
   keys(): IterableIterator<T_VId> {
-    return this._vdata.keys();
+    return this.#vdata.keys();
   }
 
   [Symbol.iterator](): IterableIterator<[T_VId, T_VData]> {
-    return this._vdata.entries();
+    return this.#vdata.entries();
   }
 
   toJSON(): Record<string, T_VData> {
     const result: Record<string, T_VData> = {};
-    for (const [vid, vdata] of this._vdata) {
+    for (const [vid, vdata] of this.#vdata) {
       result[vid] = vdata;
     }
     return result;
@@ -84,6 +84,6 @@ export class VertexTable<T_VId extends string, T_VData> implements Iterable<[T_V
 
   /** Number of vertices. */
   public get size(): number {
-    return this._vdata.size;
+    return this.#vdata.size;
   }
 }

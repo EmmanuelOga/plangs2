@@ -17,10 +17,10 @@ export async function loadDefinitions(g: PlangsGraph) {
 export async function serializeToPublic() {
   const g = new PlangsGraph();
   await loadDefinitions(g);
-  Bun.write(Bun.fileURLToPath(`file:///${__dirname}/../public/plangs.json`), JSON.stringify(g.toJSON()));
+  Bun.write(Bun.fileURLToPath(`file:///${__dirname}/../server/static/plangs.json`), JSON.stringify(g.toJSON()));
   console.info(new Date().toISOString(), `Serialized ${g.numVertices} vertices, ${g.numEdges} edges.`);
 }
 
 if (process.env.SERIALIZE_PLANGS) {
-  serializeToPublic();
+  await serializeToPublic();
 }
