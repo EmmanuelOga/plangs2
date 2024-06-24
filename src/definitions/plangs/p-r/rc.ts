@@ -19,7 +19,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1989-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+inferno"],
       influences: ["pl+bourne-shell"],
       paradigms: ["para+imperative", "para+pipeline"],
       people: [["person+tom-duff", "designer"]],

@@ -24,7 +24,6 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+verilog-ams"],
-      influenced: ["pl+systemverilog"],
       influences: ["pl+ada", "pl+c", "pl+fortran", "pl+pascal"],
       paradigms: ["para+structured"],
       people: [

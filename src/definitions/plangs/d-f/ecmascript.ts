@@ -33,7 +33,6 @@ export function define(g: PlangsGraph) {
         "pl+jscript",
         "pl+qtscript",
       ],
-      influenced: ["pl+haxe", "pl+jscript-.net"],
       influences: [
         "pl+awk",
         "pl+c",

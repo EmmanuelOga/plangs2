@@ -29,7 +29,6 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+arkts", "pl+cuneiform", "pl+rust", "pl+v"],
       influences: [
         "pl+c",
         "pl+clu",

@@ -50,7 +50,6 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      influenced: ["pl+elixir", "pl+hy", "pl+lfe"],
       influences: [
         "pl+c-sharp",
         "pl+common-lisp",

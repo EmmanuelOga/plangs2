@@ -53,11 +53,7 @@ export function define(g: PlangsGraph) {
         { version: "14.0.0", date: "2024-01-09", kind: "stable" },
       ],
     },
-    {
-      influenced: ["pl+ms-power-fx"],
-      licenses: ["lic+proprietary"],
-      platforms: ["platf+linux", "platf+mac", "platf+rpi", "platf+win"],
-    },
+    { licenses: ["lic+proprietary"], platforms: ["platf+linux", "platf+mac", "platf+rpi", "platf+win"] },
   );
 
   /**/

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Groovy", href: "https://en.wikipedia.org/wiki/Groovy_(programming_language)" },
       ],
     },
-    { influenced: ["pl+kotlin", "pl+xtend"], influences: ["pl+java", "pl+objective-cpp", "pl+ruby", "pl+smalltalk"] },
+    { influences: ["pl+java", "pl+objective-cpp", "pl+ruby", "pl+smalltalk"] },
   );
 
   /**/

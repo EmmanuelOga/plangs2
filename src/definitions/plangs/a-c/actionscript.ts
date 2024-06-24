@@ -39,7 +39,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+adobe-air", "pl+adobe-flash-player", "pl+apache-flex", "pl+scaleform-gfx"],
-      influenced: ["pl+arkts", "pl+haxe", "pl+typescript"],
       influences: ["pl+hypertalk", "pl+java", "pl+javascript"],
       paradigms: [
         "para+functional",

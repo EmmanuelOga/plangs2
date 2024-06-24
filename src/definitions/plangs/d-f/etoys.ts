@@ -19,7 +19,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+morphic", "pl+squeak", "pl+tweak"],
-      influenced: ["pl+croquet-project", "pl+scratch"],
       influences: [
         "pl+agentsheets",
         "pl+hypercard",

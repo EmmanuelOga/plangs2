@@ -28,7 +28,6 @@ export function define(g: PlangsGraph) {
       extensions: [".kt", ".kts", ".kexe", ".klib"],
     },
     {
-      influenced: ["pl+v"],
       influences: [
         "pl+apache-groovy",
         "pl+c-sharp",

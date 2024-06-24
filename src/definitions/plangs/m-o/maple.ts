@@ -34,7 +34,6 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+darwin"],
       licenses: ["lic+commercial", "lic+proprietary"],
       people: [["person+waterloo-maple", "developer"]],
       platforms: ["platf+linux", "platf+mac", "platf+win"],

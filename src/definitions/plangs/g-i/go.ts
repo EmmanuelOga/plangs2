@@ -55,7 +55,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+assembly", "pl+cpp"],
-      influenced: ["pl+ballerina", "pl+crystal", "pl+flix", "pl+gleam", "pl+v"],
       influences: [
         "pl+active-oberon",
         "pl+alef",

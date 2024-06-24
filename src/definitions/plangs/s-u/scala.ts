@@ -40,20 +40,6 @@ export function define(g: PlangsGraph) {
       extensions: [".scala", ".sc"],
     },
     {
-      influenced: [
-        "pl+c-sharp",
-        "pl+ceylon",
-        "pl+chisel",
-        "pl+f-sharp",
-        "pl+fantom",
-        "pl+flix",
-        "pl+fortress",
-        "pl+hack",
-        "pl+kotlin",
-        "pl+lasso",
-        "pl+red",
-        "pl+xtend",
-      ],
       influences: [
         "pl+common-lisp",
         "pl+eiffel",

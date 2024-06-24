@@ -38,7 +38,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+clang", "pl+gcc"],
-      influenced: ["pl+groovy", "pl+java", "pl+nu", "pl+swift"],
       influences: ["pl+c", "pl+cpp", "pl+smalltalk"],
       people: [["person+brad-cox", "designer"]],
       platforms: ["platf+cross-platform"],

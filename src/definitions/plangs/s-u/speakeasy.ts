@@ -45,7 +45,6 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+matlab"],
       influences: ["pl+apl"],
       licenses: ["lic+trialware"],
       paradigms: ["para+imperative"],

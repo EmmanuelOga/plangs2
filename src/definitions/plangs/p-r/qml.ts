@@ -38,7 +38,6 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      influenced: ["pl+qt", "pl+ring"],
       influences: ["pl+javascript", "pl+json", "pl+qt", "pl+xaml"],
       paradigms: ["para+dec", "para+multi", "para+reactive", "para+scripting"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],

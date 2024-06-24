@@ -46,7 +46,6 @@ export function define(g: PlangsGraph) {
       extensions: [".tcl", ".tbc"],
     },
     {
-      influenced: ["pl+php", "pl+powershell", "pl+tea", "pl+xotcl"],
       influences: ["pl+awk", "pl+lisp"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+event", "para+functional", "para+imperative", "para+multi", "para+objects"],

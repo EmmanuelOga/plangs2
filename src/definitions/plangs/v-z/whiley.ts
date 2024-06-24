@@ -18,7 +18,6 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+ceylon"],
       influences: ["pl+c", "pl+java", "pl+python", "pl+rust"],
       licenses: ["lic+bsd"],
       paradigms: ["para+functional", "para+imperative"],

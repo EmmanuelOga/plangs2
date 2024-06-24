@@ -33,7 +33,6 @@ export function define(g: PlangsGraph) {
       extensions: [".+", ".a", ".m"],
     },
     {
-      influenced: ["pl+k", "pl+q"],
       influences: ["pl+apl"],
       licenses: ["lic+gpl"],
       paradigms: ["para+array"],

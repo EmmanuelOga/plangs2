@@ -48,16 +48,6 @@ export function define(g: PlangsGraph) {
     {
       dialects: ["pl+watbol", "pl+x-slashopen"],
       implementations: ["pl+gnucobol", "pl+ibm-cobol", "pl+micro-focus"],
-      influenced: [
-        "pl+chill",
-        "pl+cobolscript",
-        "pl+dibol",
-        "pl+egl",
-        "pl+language-h",
-        "pl+pl-slash1",
-        "pl+pl-slashi",
-        "pl+programming-language-for-business",
-      ],
       influences: [
         "pl+aimaco",
         "pl+comtran",

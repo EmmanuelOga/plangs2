@@ -32,7 +32,6 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+basic-ap", "pl+basic-xl", "pl+turbo-basic-xl"],
       influences: ["pl+data-general-business-basic"],
       licenses: ["lic+commercial", "lic+proprietary"],
       people: [
@@ -78,22 +77,6 @@ export function define(g: PlangsGraph) {
         "pl+ti-basic",
         "pl+tiny-basic",
       ],
-      influenced: [
-        "pl+autoit",
-        "pl+bs",
-        "pl+comal",
-        "pl+d",
-        "pl+dibol",
-        "pl+euphoria",
-        "pl+ezhil",
-        "pl+grass",
-        "pl+perl",
-        "pl+ring",
-        "pl+ruby",
-        "pl+visual-basic",
-        "pl+visual-basic-.net",
-        "pl+xojo",
-      ],
       influences: ["pl+algol-60", "pl+fortran", "pl+fortran-95", "pl+joss", "pl+speedcoding"],
       paradigms: ["para+imperative", "para+non", "para+objects"],
       people: [
@@ -125,11 +108,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "BASIC-PLUS", href: "https://en.wikipedia.org/wiki/BASIC-PLUS" }],
       releases: [{ version: "unknown", date: "1970-01-01", kind: "first" }],
     },
-    {
-      influenced: ["pl+ms-basic"],
-      influences: ["pl+dartmouth-basic", "pl+focal", "pl+tymshare-super-basic"],
-      paradigms: ["para+imperative"],
-    },
+    { influences: ["pl+dartmouth-basic", "pl+focal", "pl+tymshare-super-basic"], paradigms: ["para+imperative"] },
   );
 
   /**/
@@ -187,15 +166,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+business-basic",
-    "Business Basic",
-    {
-      name: "Business Basic",
-      websites: [{ kind: "wikipedia", title: "Business Basic", href: "https://en.wikipedia.org/wiki/Business_Basic" }],
-    },
-    { influenced: ["pl+providex"] },
-  );
+  lb.define("pl+business-basic", "Business Basic", {
+    name: "Business Basic",
+    websites: [{ kind: "wikipedia", title: "Business Basic", href: "https://en.wikipedia.org/wiki/Business_Basic" }],
+  });
 
   /**/
 
@@ -236,7 +210,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1964-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+basic-plus", "pl+list-of-basic-dialects", "pl+tymshare-super-basic"],
       influences: ["pl+algol", "pl+darsimco", "pl+dope", "pl+fortran"],
       paradigms: ["para+array", "para+imperative"],
       people: [
@@ -248,21 +221,16 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+data-general-business-basic",
-    "Data General Business Basic",
-    {
-      name: "Data General Business Basic",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "Data General Business Basic",
-          href: "https://en.wikipedia.org/wiki/Data_General_Business_Basic",
-        },
-      ],
-    },
-    { influenced: ["pl+atari-basic"] },
-  );
+  lb.define("pl+data-general-business-basic", "Data General Business Basic", {
+    name: "Data General Business Basic",
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "Data General Business Basic",
+        href: "https://en.wikipedia.org/wiki/Data_General_Business_Basic",
+      },
+    ],
+  });
 
   /**/
 
@@ -364,7 +332,6 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+msx-basic", "pl+qbasic", "pl+quickbasic"],
       influences: ["pl+ibm-basica", "pl+ibm-cassette-basic", "pl+ibm-disk-basic"],
       licenses: ["lic+mit", "lic+proprietary"],
       platforms: ["platf+dos"],
@@ -373,54 +340,39 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+ibm-basica",
-    "IBM BASICA",
-    {
-      name: "IBM BASICA",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "IBM Cassette BASICIBM Disk BASICIBM Advanced BASIC (BASICA)",
-          href: "https://en.wikipedia.org/wiki/IBM_BASICA",
-        },
-      ],
-      images: [
-        {
-          kind: "logo",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/IBM_Cassette_BASIC.png/300px-IBM_Cassette_BASIC.png",
-        },
-      ],
-      releases: [{ version: "unknown", date: "1981-01-01", kind: "first" }],
-    },
-    { influenced: ["pl+gw-basic"] },
-  );
+  lb.define("pl+ibm-basica", "IBM BASICA", {
+    name: "IBM BASICA",
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "IBM Cassette BASICIBM Disk BASICIBM Advanced BASIC (BASICA)",
+        href: "https://en.wikipedia.org/wiki/IBM_BASICA",
+      },
+    ],
+    images: [
+      {
+        kind: "logo",
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/IBM_Cassette_BASIC.png/300px-IBM_Cassette_BASIC.png",
+      },
+    ],
+    releases: [{ version: "unknown", date: "1981-01-01", kind: "first" }],
+  });
 
   /**/
 
-  lb.define(
-    "pl+ibm-cassette-basic",
-    "IBM Cassette BASIC",
-    {
-      name: "IBM Cassette BASIC",
-      websites: [
-        { kind: "wikipedia", title: "IBM Cassette BASIC", href: "https://en.wikipedia.org/wiki/IBM_Cassette_BASIC" },
-      ],
-    },
-    { influenced: ["pl+gw-basic"] },
-  );
+  lb.define("pl+ibm-cassette-basic", "IBM Cassette BASIC", {
+    name: "IBM Cassette BASIC",
+    websites: [
+      { kind: "wikipedia", title: "IBM Cassette BASIC", href: "https://en.wikipedia.org/wiki/IBM_Cassette_BASIC" },
+    ],
+  });
 
   /**/
 
-  lb.define(
-    "pl+ibm-disk-basic",
-    "IBM Disk BASIC",
-    {
-      name: "IBM Disk BASIC",
-      websites: [{ kind: "wikipedia", title: "IBM Disk BASIC", href: "https://en.wikipedia.org/wiki/IBM_Disk_BASIC" }],
-    },
-    { influenced: ["pl+gw-basic"] },
-  );
+  lb.define("pl+ibm-disk-basic", "IBM Disk BASIC", {
+    name: "IBM Disk BASIC",
+    websites: [{ kind: "wikipedia", title: "IBM Disk BASIC", href: "https://en.wikipedia.org/wiki/IBM_Disk_BASIC" }],
+  });
 
   /**/
 
@@ -432,11 +384,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "Level I BASIC", href: "https://en.wikipedia.org/wiki/Level_I_BASIC" }],
       releases: [{ version: "unknown", date: "1977-01-01", kind: "first" }],
     },
-    {
-      influenced: ["pl+trs-80-level-ii-basic"],
-      influences: ["pl+li-chen-wang", "pl+tiny-basic"],
-      people: [["person+steve-leininger", "designer"]],
-    },
+    { influences: ["pl+li-chen-wang", "pl+tiny-basic"], people: [["person+steve-leininger", "designer"]] },
   );
 
   /**/
@@ -494,7 +442,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Microsoft BASIC", href: "https://en.wikipedia.org/wiki/Microsoft_BASIC" },
       ],
     },
-    { influenced: ["pl+visual-basic"], influences: ["pl+basic-plus"] },
+    { influences: ["pl+basic-plus"] },
   );
 
   /**/
@@ -566,12 +514,7 @@ export function define(g: PlangsGraph) {
         { version: "4.1", kind: "stable" },
       ],
     },
-    {
-      influenced: ["pl+vilnius-basic"],
-      influences: ["pl+gw-basic"],
-      licenses: ["lic+eula", "lic+ms"],
-      paradigms: ["para+imperative"],
-    },
+    { influences: ["pl+gw-basic"], licenses: ["lic+eula", "lic+ms"], paradigms: ["para+imperative"] },
   );
 
   /**/
@@ -640,7 +583,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1991-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+freebasic", "pl+ms-small-basic", "pl+qb64", "pl+smallbasic", "pl+visual-basic"],
       influences: ["pl+gw-basic", "pl+quickbasic"],
       licenses: ["lic+proprietary"],
       paradigms: ["para+imperative"],
@@ -671,12 +613,7 @@ export function define(g: PlangsGraph) {
         { version: "unknown", date: "1990-01-01", kind: "stable" },
       ],
     },
-    {
-      influenced: ["pl+freebasic", "pl+liberty-basic", "pl+qb64", "pl+qbasic", "pl+visual-basic-for-applications"],
-      influences: ["pl+gw-basic"],
-      licenses: ["lic+proprietary"],
-      platforms: ["platf+x86"],
-    },
+    { influences: ["pl+gw-basic"], licenses: ["lic+proprietary"], platforms: ["platf+x86"] },
   );
 
   /**/
@@ -736,7 +673,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1976-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+bally-astrocade", "pl+level-i-basic", "pl+sharp-pc-1211"],
       people: [
         ["person+dennis-allison", "designer"],
         ["person+li-chen-wang", "developer"],
@@ -768,15 +704,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+turbo-basic",
-    "Turbo Basic",
-    {
-      name: "Turbo Basic",
-      websites: [{ kind: "wikipedia", title: "Turbo Basic", href: "https://en.wikipedia.org/wiki/Turbo_Basic" }],
-    },
-    { influenced: ["pl+powerbasic"] },
-  );
+  lb.define("pl+turbo-basic", "Turbo Basic", {
+    name: "Turbo Basic",
+    websites: [{ kind: "wikipedia", title: "Turbo Basic", href: "https://en.wikipedia.org/wiki/Turbo_Basic" }],
+  });
 
   /**/
 
@@ -809,7 +740,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "1968-01-01", kind: "first" }],
     },
-    { influenced: ["pl+basic-plus"], influences: ["pl+cal", "pl+dartmouth-basic", "pl+joss"] },
+    { influences: ["pl+cal", "pl+dartmouth-basic", "pl+joss"] },
   );
 
   /**/
@@ -852,16 +783,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+ms-visual-studio"],
-      influenced: [
-        "pl+basic4android",
-        "pl+basic4ppc",
-        "pl+gambas",
-        "pl+ns-basic",
-        "pl+visual-basic-.net",
-        "pl+visual-basic-for-applications",
-        "pl+win",
-        "pl+xojo",
-      ],
       influences: ["pl+basic", "pl+ms-basic", "pl+qbasic"],
       paradigms: ["para+event", "para+objects"],
       platforms: ["platf+dos", "platf+win"],
@@ -880,7 +801,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Visual Basic .NET", href: "https://en.wikipedia.org/wiki/Visual_Basic_.NET" },
       ],
     },
-    { influenced: ["pl+ms-small-basic"], influences: ["pl+basic", "pl+visual-basic"] },
+    { influences: ["pl+basic", "pl+visual-basic"] },
   );
 
   /**/

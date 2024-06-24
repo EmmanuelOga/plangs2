@@ -7,7 +7,7 @@ export function define(g: PlangsGraph) {
     "pl+json",
     "JSON",
     { name: "JSON", websites: [{ kind: "wikipedia", title: "JSON", href: "https://en.wikipedia.org/wiki/JSON" }] },
-    { influenced: ["pl+qml"], influences: ["pl+rebol"] },
+    { influences: ["pl+rebol"] },
   );
 
   /**/

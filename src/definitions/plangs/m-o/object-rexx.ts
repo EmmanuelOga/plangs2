@@ -41,7 +41,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+cpp"],
-      influenced: ["pl+netrexx"],
       influences: ["pl+rexx", "pl+smalltalk"],
       licenses: ["lic+common-public", "lic+gpl"],
       paradigms: ["para+class", "para+objects"],

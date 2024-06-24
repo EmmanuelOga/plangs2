@@ -34,7 +34,6 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+julia", "pl+lasso", "pl+newtonscript", "pl+python", "pl+ruby"],
       influences: [
         "pl+algol",
         "pl+common-lisp",

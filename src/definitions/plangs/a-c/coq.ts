@@ -21,11 +21,7 @@ export function define(g: PlangsGraph) {
         stable_release: [{ href: "https://github.com/coq/coq/releases/tag/V8.19.1", title: "Release Coq 8.19.1" }],
       },
     },
-    {
-      influenced: ["pl+agda", "pl+f-star", "pl+idris", "pl+lean"],
-      influences: ["pl+ml", "pl+ocaml"],
-      licenses: ["lic+lgpl"],
-    },
+    { influences: ["pl+ml", "pl+ocaml"], licenses: ["lic+lgpl"] },
   );
 
   /**/

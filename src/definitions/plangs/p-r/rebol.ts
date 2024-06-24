@@ -31,7 +31,6 @@ export function define(g: PlangsGraph) {
       extensions: [".r", ".reb"],
     },
     {
-      influenced: ["pl+json", "pl+red"],
       influences: ["pl+forth", "pl+lisp", "pl+logo", "pl+objectlogo", "pl+self", "pl+ucblogo"],
       licenses: ["lic+apache", "lic+freely-redistributable"],
       paradigms: ["para+data", "para+functional", "para+imperative", "para+language", "para+prototypes"],

@@ -34,18 +34,6 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: [
-        "pl+ada",
-        "pl+argus",
-        "pl+cpp",
-        "pl+euclid",
-        "pl+java",
-        "pl+lua",
-        "pl+python",
-        "pl+ruby",
-        "pl+sather",
-        "pl+swift",
-      ],
       influences: ["pl+algol-60", "pl+alphard", "pl+lisp", "pl+simula", "pl+simula-67"],
       paradigms: ["para+imperative", "para+multi", "para+objects"],
       people: [["person+barbara-liskov", "designer"]],

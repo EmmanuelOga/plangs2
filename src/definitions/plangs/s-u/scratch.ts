@@ -38,7 +38,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+actionscript", "pl+html5", "pl+javascript", "pl+squeak"],
-      influenced: ["pl+catrobat", "pl+mblock", "pl+scratchjr", "pl+snap-", "pl+turtlestitch"],
       influences: [
         "pl+agentcubes",
         "pl+agentsheets",

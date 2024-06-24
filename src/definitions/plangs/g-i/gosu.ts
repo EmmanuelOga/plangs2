@@ -21,7 +21,6 @@ export function define(g: PlangsGraph) {
       extensions: [".gs", ".gsp", ".gst", ".gsx"],
     },
     {
-      influenced: ["pl+kotlin"],
       influences: ["pl+c-sharp", "pl+java"],
       licenses: ["lic+apache"],
       platforms: ["platf+jvm"],

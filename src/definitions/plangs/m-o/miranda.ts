@@ -33,7 +33,6 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+clean", "pl+haskell", "pl+ms-power-fx", "pl+orwell"],
       influences: ["pl+hope", "pl+iswim", "pl+kent-recursive-calculator", "pl+ml", "pl+sasl"],
       paradigms: ["para+dec", "para+functional", "para+lazy"],
       people: [["person+david-turner", "designer"]],

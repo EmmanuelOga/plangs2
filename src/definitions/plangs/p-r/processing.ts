@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
         },
       ],
     },
-    { influenced: ["pl+kojo"], influences: ["pl+c"] },
+    { influences: ["pl+c"] },
   );
 
   /**/

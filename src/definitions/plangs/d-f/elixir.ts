@@ -33,7 +33,6 @@ export function define(g: PlangsGraph) {
       extensions: [".ex", ".exs"],
     },
     {
-      influenced: ["pl+gleam", "pl+lfe"],
       influences: ["pl+clojure", "pl+erlang", "pl+lisp", "pl+ruby"],
       licenses: ["lic+apache"],
       paradigms: ["para+concurrent", "para+distributed", "para+functional", "para+multi", "para+process"],

@@ -47,7 +47,6 @@ export function define(g: PlangsGraph) {
       extensions: [".elm"],
     },
     {
-      influenced: ["pl+gleam", "pl+redux", "pl+rust", "pl+vue.js"],
       influences: ["pl+f-sharp", "pl+haskell", "pl+ml", "pl+ocaml", "pl+sml"],
       licenses: ["lic+bsd", "lic+permissive"],
       paradigms: ["para+functional"],

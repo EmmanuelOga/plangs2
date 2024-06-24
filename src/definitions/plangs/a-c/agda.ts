@@ -23,7 +23,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+haskell"],
-      influenced: ["pl+idris"],
       influences: ["pl+coq", "pl+epigram", "pl+haskell"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+functional"],

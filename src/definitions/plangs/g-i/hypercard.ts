@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
       },
       releases: [{ version: "unknown", date: "1987-01-01", kind: "first" }],
     },
-    { influenced: ["pl+etoys", "pl+scratch"], licenses: ["lic+proprietary"], platforms: ["platf+mac"] },
+    { licenses: ["lic+proprietary"], platforms: ["platf+mac"] },
   );
 
   /**/

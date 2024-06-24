@@ -40,7 +40,6 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+numpy", "pl+supercollider"],
       influences: ["pl+apl", "pl+fl"],
       licenses: ["lic+gpl"],
       paradigms: [

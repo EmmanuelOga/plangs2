@@ -26,7 +26,6 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+python"],
       influences: ["pl+algol-68", "pl+setl"],
       paradigms: ["para+imperative", "para+multi", "para+structured"],
       people: [

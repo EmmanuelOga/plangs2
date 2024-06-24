@@ -37,7 +37,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+c"],
-      influenced: ["pl+etoys", "pl+netlogo", "pl+rebol", "pl+scratch", "pl+smalltalk"],
       influences: ["pl+lisp"],
       licenses: ["lic+gpl"],
       paradigms: ["para+educational", "para+functional", "para+imperative", "para+multi", "para+reflection"],

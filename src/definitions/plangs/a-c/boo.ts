@@ -23,7 +23,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+c-sharp"],
-      influenced: ["pl+genie", "pl+mirah", "pl+vala"],
       influences: ["pl+c-sharp", "pl+python"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+objects"],

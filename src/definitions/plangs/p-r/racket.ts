@@ -46,7 +46,6 @@ export function define(g: PlangsGraph) {
       extensions: [".rkt"],
     },
     {
-      influenced: ["pl+clojure", "pl+rust", "pl+scheme"],
       influences: ["pl+eiffel", "pl+scheme"],
       licenses: ["lic+apache", "lic+mit"],
       paradigms: [

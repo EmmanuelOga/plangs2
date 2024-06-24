@@ -19,7 +19,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+oberon"],
-      influenced: ["pl+go"],
       influences: ["pl+oberon", "pl+oberon-2", "pl+object-oberon"],
       paradigms: ["para+concurrent", "para+imperative", "para+modular", "para+objects", "para+structured"],
       people: [
@@ -60,19 +59,6 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+active-oberon", "pl+oberon-2", "pl+obliq"],
-      influenced: [
-        "pl+active-oberon",
-        "pl+component-pascal",
-        "pl+go",
-        "pl+java",
-        "pl+modula-3",
-        "pl+nim",
-        "pl+oberon-2",
-        "pl+object-oberon",
-        "pl+obliq",
-        "pl+v",
-        "pl+zonnon",
-      ],
       influences: ["pl+modula-2", "pl+oberon-2", "pl+pascal"],
       paradigms: ["para+imperative", "para+modular", "para+objects", "para+structured"],
       platforms: ["platf+amiga", "platf+arm", "platf+atari", "platf+ia-32", "platf+linux", "platf+win", "platf+x86-64"],
@@ -100,7 +86,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1991-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+active-oberon", "pl+component-pascal", "pl+go", "pl+nim", "pl+oberon", "pl+zonnon"],
       influences: ["pl+modula-2", "pl+oberon", "pl+object-oberon", "pl+pascal"],
       paradigms: ["para+imperative", "para+modular", "para+objects", "para+structured"],
       people: [["person+niklaus-wirth", "designer"]],
@@ -124,7 +109,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+oberon"],
-      influenced: ["pl+active-oberon", "pl+oberon-2"],
       influences: ["pl+modula-2", "pl+oberon"],
       paradigms: ["para+imperative", "para+modular", "para+objects", "para+structured"],
       people: [["person+hanspeter-mossenbock", "developer"]],

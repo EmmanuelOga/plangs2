@@ -30,7 +30,6 @@ export function define(g: PlangsGraph) {
     {
       dialects: ["pl+netrexx", "pl+object-rexx", "pl+oorexx", "pl+xedit"],
       implementations: ["pl+arexx"],
-      influenced: ["pl+netrexx", "pl+object-rexx"],
       influences: ["pl+algol", "pl+cms-exec", "pl+exec-2", "pl+pl-slash1", "pl+pl-slashi"],
       paradigms: ["para+imperative", "para+multi", "para+structured"],
       people: [["person+mike-cowlishaw", "designer"]],

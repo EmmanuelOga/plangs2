@@ -23,7 +23,6 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+vhdl-ams"],
-      influenced: ["pl+systemverilog"],
       influences: ["pl+ada", "pl+pascal"],
       paradigms: ["para+concurrent", "para+dataflow", "para+reactive"],
       typeSystems: ["tsys+strong"],

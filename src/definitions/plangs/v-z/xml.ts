@@ -34,12 +34,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+xpath",
-    "XPath",
-    { name: "XPath", websites: [{ kind: "wikipedia", title: "XPath", href: "https://en.wikipedia.org/wiki/XPath" }] },
-    { influenced: ["pl+xquery"] },
-  );
+  lb.define("pl+xpath", "XPath", {
+    name: "XPath",
+    websites: [{ kind: "wikipedia", title: "XPath", href: "https://en.wikipedia.org/wiki/XPath" }],
+  });
 
   /**/
 
@@ -95,7 +93,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+libxslt", "pl+saxon-xslt", "pl+xalan"],
-      influenced: ["pl+xquery"],
       influences: ["pl+boomerang", "pl+dsssl"],
       paradigms: ["para+dec"],
     },

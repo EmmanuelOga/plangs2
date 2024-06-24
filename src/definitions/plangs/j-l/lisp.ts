@@ -78,15 +78,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+bbn-lisp",
-    "BBN LISP",
-    {
-      name: "BBN LISP",
-      websites: [{ kind: "wikipedia", title: "BBN LISP", href: "https://en.wikipedia.org/wiki/BBN_LISP" }],
-    },
-    { influenced: ["pl+interlisp"] },
-  );
+  lb.define("pl+bbn-lisp", "BBN LISP", {
+    name: "BBN LISP",
+    websites: [{ kind: "wikipedia", title: "BBN LISP", href: "https://en.wikipedia.org/wiki/BBN_LISP" }],
+  });
 
   /**/
 
@@ -137,29 +132,6 @@ export function define(g: PlangsGraph) {
         "pl+lispworks",
         "pl+sbcl",
       ],
-      influenced: [
-        "pl+autolisp",
-        "pl+cadence-skill",
-        "pl+clojure",
-        "pl+dylan",
-        "pl+emacs-lisp",
-        "pl+embeddable-common-lisp",
-        "pl+eulisp",
-        "pl+franz-lisp",
-        "pl+hy",
-        "pl+islisp",
-        "pl+julia",
-        "pl+lfe",
-        "pl+lispworks",
-        "pl+moose",
-        "pl+newlisp",
-        "pl+r",
-        "pl+sather",
-        "pl+scala",
-        "pl+skill",
-        "pl+star-lisp",
-        "pl+subl",
-      ],
       influences: [
         "pl+interlisp",
         "pl+lisp",
@@ -200,7 +172,7 @@ export function define(g: PlangsGraph) {
       name: "Common Lisp Object System",
       websites: [{ kind: "wikipedia", title: "CLOS", href: "https://en.wikipedia.org/wiki/Common_Lisp_Object_System" }],
     },
-    { influenced: ["pl+dylan", "pl+eulisp", "pl+skill"], influences: ["pl+smalltalk"] },
+    { influences: ["pl+smalltalk"] },
   );
 
   /**/
@@ -309,7 +281,6 @@ export function define(g: PlangsGraph) {
       extensions: [".em"],
     },
     {
-      influenced: ["pl+dylan", "pl+islisp"],
       influences: [
         "pl+common-lisp",
         "pl+common-lisp-object-system",
@@ -347,7 +318,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+c"],
-      influenced: ["pl+allegro-common-lisp"],
       influences: ["pl+common-lisp", "pl+lisp", "pl+maclisp"],
       licenses: ["lic+freeware", "lic+proprietary"],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi", "para+reflection"],
@@ -391,7 +361,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+c"],
-      influenced: ["pl+common-lisp", "pl+eulisp", "pl+lisp-machine-lisp", "pl+zetalisp"],
       influences: ["pl+bbn-lisp", "pl+lisp", "pl+multilisp"],
       licenses: ["lic+proprietary"],
       paradigms: [
@@ -419,7 +388,6 @@ export function define(g: PlangsGraph) {
     {
       dialects: ["pl+openlisp"],
       implementations: ["pl+c", "pl+c-sharp", "pl+go", "pl+java", "pl+javascript", "pl+lisp"],
-      influenced: ["pl+openlisp"],
       influences: ["pl+common-lisp", "pl+eulisp", "pl+le-lisp", "pl+lelisp", "pl+scheme"],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi", "para+objects", "para+reflection"],
       platforms: [
@@ -437,15 +405,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+le-lisp",
-    "Le Lisp",
-    {
-      name: "Le Lisp",
-      websites: [{ kind: "wikipedia", title: "Le Lisp", href: "https://en.wikipedia.org/wiki/Le_Lisp" }],
-    },
-    { influenced: ["pl+islisp"] },
-  );
+  lb.define("pl+le-lisp", "Le Lisp", {
+    name: "Le Lisp",
+    websites: [{ kind: "wikipedia", title: "Le Lisp", href: "https://en.wikipedia.org/wiki/Le_Lisp" }],
+  });
 
   /**/
 
@@ -465,7 +428,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+c"],
-      influenced: ["pl+eulisp", "pl+islisp", "pl+openlisp"],
       influences: ["pl+lisp"],
       licenses: ["lic+bsd-s", "lic+proprietary"],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi", "para+reflection"],
@@ -560,81 +522,6 @@ export function define(g: PlangsGraph) {
         "pl+ucblogo",
         "pl+zetalisp",
       ],
-      influenced: [
-        "pl+agentcubes",
-        "pl+agentsheets",
-        "pl+allegro-common-lisp",
-        "pl+amiga-e",
-        "pl+arc",
-        "pl+autolisp",
-        "pl+ceylon",
-        "pl+claire",
-        "pl+clips",
-        "pl+clu",
-        "pl+common-lisp",
-        "pl+cowsel",
-        "pl+curl",
-        "pl+dylan",
-        "pl+elixir",
-        "pl+embeddable-common-lisp",
-        "pl+erlang",
-        "pl+factor",
-        "pl+forth",
-        "pl+franz-lisp",
-        "pl+gambit",
-        "pl+game-oriented-assembly-lisp",
-        "pl+gnu-guile",
-        "pl+haskell",
-        "pl+interlisp",
-        "pl+io",
-        "pl+iswim",
-        "pl+java",
-        "pl+javascript",
-        "pl+julia",
-        "pl+kawa",
-        "pl+lelisp",
-        "pl+lispworks",
-        "pl+little-b",
-        "pl+logo",
-        "pl+lua",
-        "pl+mdl",
-        "pl+ml",
-        "pl+ms-excel",
-        "pl+multilisp",
-        "pl+nemerle",
-        "pl+nial",
-        "pl+nim",
-        "pl+nu",
-        "pl+objectlogo",
-        "pl+openlisp",
-        "pl+ops5",
-        "pl+oz",
-        "pl+perl",
-        "pl+pop-11",
-        "pl+pop-2",
-        "pl+postscript",
-        "pl+pure",
-        "pl+python",
-        "pl+r",
-        "pl+rebol",
-        "pl+red",
-        "pl+rpl",
-        "pl+ruby",
-        "pl+scala",
-        "pl+scheme",
-        "pl+scm",
-        "pl+siod",
-        "pl+smalltalk",
-        "pl+squeak",
-        "pl+star-lisp",
-        "pl+swift",
-        "pl+tcl",
-        "pl+ucblogo",
-        "pl+visualworks",
-        "pl+webassembly",
-        "pl+wolfram",
-        "pl+zetalisp",
-      ],
       influences: ["pl+information-processing"],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi", "para+reflective"],
       people: [
@@ -656,7 +543,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Lisp Machine Lisp", href: "https://en.wikipedia.org/wiki/Lisp_Machine_Lisp" },
       ],
     },
-    { influenced: ["pl+common-lisp"], influences: ["pl+interlisp"] },
+    { influences: ["pl+interlisp"] },
   );
 
   /**/
@@ -717,14 +604,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+assembly", "pl+pl-slashi"],
-      influenced: [
-        "pl+allegro-common-lisp",
-        "pl+common-lisp",
-        "pl+emacs-lisp",
-        "pl+franz-lisp",
-        "pl+lfe",
-        "pl+zetalisp",
-      ],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi", "para+reflection"],
       people: [["person+richard-greenblatt", "designer"]],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
@@ -743,7 +622,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+interlisp"],
-      influenced: ["pl+gambit", "pl+interlisp", "pl+vax"],
       influences: ["pl+lisp", "pl+scheme"],
       licenses: ["lic+proprietary"],
       paradigms: ["para+concurrent", "para+functional", "para+imperative", "para+meta", "para+multi"],
@@ -801,7 +679,6 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+dylan", "pl+eulisp", "pl+java"],
       influences: ["pl+scheme", "pl+smalltalk", "pl+t"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
@@ -810,15 +687,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+objvlisp",
-    "ObjVlisp",
-    {
-      name: "ObjVlisp",
-      websites: [{ kind: "wikipedia", title: "ObjVlisp", href: "https://en.wikipedia.org/wiki/ObjVlisp" }],
-    },
-    { influenced: ["pl+eulisp"] },
-  );
+  lb.define("pl+objvlisp", "ObjVlisp", {
+    name: "ObjVlisp",
+    websites: [{ kind: "wikipedia", title: "ObjVlisp", href: "https://en.wikipedia.org/wiki/ObjVlisp" }],
+  });
 
   /**/
 
@@ -932,7 +804,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+common-lisp"],
-      influenced: ["pl+c-star"],
       influences: ["pl+common-lisp", "pl+lisp"],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi", "para+parallel", "para+reflection"],
       people: [["person+steve-omohundro", "designer"]],
@@ -953,7 +824,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+lisp"],
-      influenced: ["pl+common-lisp"],
       influences: ["pl+interlisp", "pl+lisp", "pl+maclisp"],
       people: [
         ["person+daniel-weinreb", "designer"],

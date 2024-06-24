@@ -45,7 +45,6 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+assemblyscript"],
-      influenced: ["pl+arkts", "pl+assemblyscript", "pl+atscript", "pl+bosque", "pl+dart"],
       influences: ["pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+java", "pl+javascript"],
       licenses: ["lic+apache"],
       paradigms: ["para+functional", "para+generic", "para+imperative", "para+multi", "para+objects"],

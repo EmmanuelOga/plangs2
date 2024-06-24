@@ -36,7 +36,6 @@ export function define(g: PlangsGraph) {
       extensions: [".as"],
     },
     {
-      influenced: ["pl+aldor"],
       influences: ["pl+haskell", "pl+pascal"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+functional", "para+multi", "para+objects"],
@@ -129,17 +128,12 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+actor-based-concurrent",
-    "ABCL",
-    {
-      name: "ABCL",
-      websites: [
-        { kind: "wikipedia", title: "ABCL", href: "https://en.wikipedia.org/wiki/Actor-Based_Concurrent_Language" },
-      ],
-    },
-    { influenced: ["pl+ambienttalk"] },
-  );
+  lb.define("pl+actor-based-concurrent", "ABCL", {
+    name: "ABCL",
+    websites: [
+      { kind: "wikipedia", title: "ABCL", href: "https://en.wikipedia.org/wiki/Actor-Based_Concurrent_Language" },
+    ],
+  });
 
   /**/
 
@@ -150,26 +144,21 @@ export function define(g: PlangsGraph) {
       name: "Actors",
       websites: [{ kind: "wikipedia", title: "actor model", href: "https://en.wikipedia.org/wiki/Actor_model" }],
     },
-    { influenced: ["pl+joule"], influences: ["pl+mdl"] },
+    { influences: ["pl+mdl"] },
   );
 
   /**/
 
-  lb.define(
-    "pl+actor-model-middle-history",
-    "Act1",
-    {
-      name: "Act1",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "Act1",
-          href: "https://en.wikipedia.org/wiki/Actor_model_middle_history#Actor_programming_languages",
-        },
-      ],
-    },
-    { influenced: ["pl+io"] },
-  );
+  lb.define("pl+actor-model-middle-history", "Act1", {
+    name: "Act1",
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "Act1",
+        href: "https://en.wikipedia.org/wiki/Actor_model_middle_history#Actor_programming_languages",
+      },
+    ],
+  });
 
   /**/
 
@@ -229,7 +218,6 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+scratch"],
       influences: ["pl+agentsheets", "pl+lisp", "pl+logo", "pl+smalltalk"],
       paradigms: ["para+educational", "para+objects"],
       people: [["person+alexander-repenning", "designer"]],
@@ -254,7 +242,6 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+agentcubes", "pl+etoys", "pl+scratch"],
       influences: ["pl+karel", "pl+lisp", "pl+logo", "pl+objectlogo", "pl+smalltalk"],
       paradigms: ["para+educational", "para+objects"],
       people: [["person+alexander-repenning", "designer"]],
@@ -305,7 +292,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "AIMACO", href: "https://en.wikipedia.org/wiki/AIMACO" }],
       releases: [{ version: "unknown", date: "1959-01-01", kind: "first" }],
     },
-    { influenced: ["pl+cobol"], influences: ["pl+comtran", "pl+flow-matic"], paradigms: ["para+imperative"] },
+    { influences: ["pl+comtran", "pl+flow-matic"], paradigms: ["para+imperative"] },
   );
 
   /**/
@@ -368,7 +355,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1992-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+go", "pl+limbo", "pl+rust"],
       influences: ["pl+c", "pl+newsqueak"],
       paradigms: ["para+compiled", "para+concurrent", "para+structured"],
       platforms: ["platf+plan9"],
@@ -378,15 +364,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+alf",
-    "ALF",
-    {
-      name: "ALF",
-      websites: [{ kind: "wikipedia", title: "ALF", href: "https://en.wikipedia.org/wiki/ALF_(proof_assistant)" }],
-    },
-    { influenced: ["pl+epigram"] },
-  );
+  lb.define("pl+alf", "ALF", {
+    name: "ALF",
+    websites: [{ kind: "wikipedia", title: "ALF", href: "https://en.wikipedia.org/wiki/ALF_(proof_assistant)" }],
+  });
 
   /**/
 
@@ -429,7 +410,6 @@ export function define(g: PlangsGraph) {
       references: { website: [{ href: "http://www.ps.uni-saarland.de/alice/", title: "Alice" }] },
     },
     {
-      influenced: ["pl+pure"],
       influences: ["pl+ml", "pl+oz"],
       licenses: ["lic+mit"],
       paradigms: [
@@ -471,17 +451,12 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+alphard",
-    "Alphard",
-    {
-      name: "Alphard",
-      websites: [
-        { kind: "wikipedia", title: "Alphard", href: "https://en.wikipedia.org/wiki/Alphard_(programming_language)" },
-      ],
-    },
-    { influenced: ["pl+clu", "pl+euclid"] },
-  );
+  lb.define("pl+alphard", "Alphard", {
+    name: "Alphard",
+    websites: [
+      { kind: "wikipedia", title: "Alphard", href: "https://en.wikipedia.org/wiki/Alphard_(programming_language)" },
+    ],
+  });
 
   /**/
 
@@ -529,7 +504,6 @@ export function define(g: PlangsGraph) {
       extensions: [".at"],
     },
     {
-      influenced: ["pl+ecmascript-harmony"],
       influences: ["pl+actor-based-concurrent", "pl+e", "pl+scheme", "pl+self", "pl+smalltalk"],
       paradigms: ["para+concurrent", "para+event", "para+objects", "para+prototypes", "para+reflection"],
       people: [
@@ -604,7 +578,6 @@ export function define(g: PlangsGraph) {
       extensions: [".mod", ".dat", ".run"],
     },
     {
-      influenced: ["pl+pyomo"],
       influences: ["pl+awk", "pl+c"],
       licenses: ["lic+free-and-open-source", "lic+proprietary"],
       paradigms: ["para+dec", "para+imperative", "para+multi"],
@@ -618,15 +591,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+ansi-c",
-    "ANSI C",
-    {
-      name: "ANSI C",
-      websites: [{ kind: "wikipedia", title: "ANSI C", href: "https://en.wikipedia.org/wiki/ANSI_C" }],
-    },
-    { influenced: ["pl+c-star"] },
-  );
+  lb.define("pl+ansi-c", "ANSI C", {
+    name: "ANSI C",
+    websites: [{ kind: "wikipedia", title: "ANSI C", href: "https://en.wikipedia.org/wiki/ANSI_C" }],
+  });
 
   /**/
 
@@ -730,11 +698,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "APT", href: "https://en.wikipedia.org/wiki/APT_(programming_language)" }],
       releases: [{ version: "unknown", date: "1956-01-01", kind: "first" }],
     },
-    {
-      influenced: ["pl+computer-aided-manufacturing"],
-      paradigms: ["para+numerical"],
-      people: [["person+douglas-t-ross", "designer"]],
-    },
+    { paradigms: ["para+numerical"], people: [["person+douglas-t-ross", "designer"]] },
   );
 
   /**/
@@ -760,15 +724,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+arith-matic",
-    "ARITH-MATIC",
-    {
-      name: "ARITH-MATIC",
-      websites: [{ kind: "wikipedia", title: "ARITH-MATIC", href: "https://en.wikipedia.org/wiki/ARITH-MATIC" }],
-    },
-    { influenced: ["pl+flow-matic"] },
-  );
+  lb.define("pl+arith-matic", "ARITH-MATIC", {
+    name: "ARITH-MATIC",
+    websites: [{ kind: "wikipedia", title: "ARITH-MATIC", href: "https://en.wikipedia.org/wiki/ARITH-MATIC" }],
+  });
 
   /**/
 
@@ -779,15 +738,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+arpanet",
-    "ARPAnet",
-    {
-      name: "ARPAnet",
-      websites: [{ kind: "wikipedia", title: "ARPAnet", href: "https://en.wikipedia.org/wiki/ARPAnet" }],
-    },
-    { influenced: ["pl+smalltalk"] },
-  );
+  lb.define("pl+arpanet", "ARPAnet", {
+    name: "ARPAnet",
+    websites: [{ kind: "wikipedia", title: "ARPAnet", href: "https://en.wikipedia.org/wiki/ARPAnet" }],
+  });
 
   /**/
 
@@ -810,7 +764,7 @@ export function define(g: PlangsGraph) {
       },
       releases: [{ version: "unknown", date: "2013-03-21", kind: "first" }],
     },
-    { influenced: ["pl+webassembly"], influences: ["pl+javascript"], platforms: ["platf+cross-platform"] },
+    { influences: ["pl+javascript"], platforms: ["platf+cross-platform"] },
   );
 
   /**/
@@ -863,7 +817,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+algol-60", "pl+edinburgh-imp"],
-      influenced: ["pl+edinburgh-imp"],
       influences: ["pl+algol-60"],
       paradigms: ["para+imperative", "para+structured"],
       people: [["person+tony-brooker", "designer"]],
@@ -880,7 +833,43 @@ export function define(g: PlangsGraph) {
       name: "AtScript",
       websites: [{ kind: "wikipedia", title: "AtScript", href: "https://en.wikipedia.org/wiki/AtScript" }],
     },
-    { influenced: ["pl+arkts"], influences: ["pl+typescript"] },
+    { influences: ["pl+typescript"] },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+awk",
+    "AWK",
+    {
+      name: "AWK",
+      websites: [{ kind: "wikipedia", title: "AWK", href: "https://en.wikipedia.org/wiki/AWK" }],
+      images: [
+        { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/d/d5/The-AWK-Programming-Language.svg" },
+      ],
+      references: {
+        paradigm: [
+          {
+            href: "https://web.archive.org/web/20150427143548/https://www6.software.ibm.com/developerworks/education/au-gawk/au-gawk-a4.pdf",
+            title: "Get started with GAWK: AWK language fundamentals",
+          },
+        ],
+      },
+      releases: [
+        { version: "unknown", date: "1977-01-01", kind: "first" },
+        { version: "unknown", date: "1985-01-01", kind: "stable" },
+      ],
+    },
+    {
+      influences: ["pl+c", "pl+sed", "pl+snobol"],
+      paradigms: ["para+data", "para+imperative", "para+scripting"],
+      people: [
+        ["person+alfred-aho", "designer"],
+        ["person+brian-kernighan", "designer"],
+        ["person+peter-weinberger", "designer"],
+      ],
+      platforms: ["platf+cross-platform"],
+    },
   );
 
   /**/
@@ -945,7 +934,6 @@ export function define(g: PlangsGraph) {
       extensions: [".b"],
     },
     {
-      influenced: ["pl+c", "pl+tmg"],
       influences: ["pl+bcpl", "pl+pl-slashi", "pl+tmg"],
       people: [
         ["person+dennis-ritchie", "developer"],
@@ -1021,7 +1009,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1967-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+b", "pl+c", "pl+cpp", "pl+euclid", "pl+go"],
       influences: ["pl+combined", "pl+cpl"],
       paradigms: ["para+imperative", "para+structured"],
       people: [["person+martin-richards", "designer"]],
@@ -1041,26 +1028,15 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "1993-01-01", kind: "first" }],
     },
-    {
-      influenced: ["pl+malbolge"],
-      influences: ["pl+esoteric", "pl+forth"],
-      people: [["person+chris-pressey", "developer"]],
-    },
+    { influences: ["pl+esoteric", "pl+forth"], people: [["person+chris-pressey", "developer"]] },
   );
 
   /**/
 
-  lb.define(
-    "pl+begriffsschrift",
-    "Begriffsschrift",
-    {
-      name: "Begriffsschrift",
-      websites: [
-        { kind: "wikipedia", title: "Begriffsschrift", href: "https://en.wikipedia.org/wiki/Begriffsschrift" },
-      ],
-    },
-    { influenced: ["pl+plankalkul"] },
-  );
+  lb.define("pl+begriffsschrift", "Begriffsschrift", {
+    name: "Begriffsschrift",
+    websites: [{ kind: "wikipedia", title: "Begriffsschrift", href: "https://en.wikipedia.org/wiki/Begriffsschrift" }],
+  });
 
   /**/
 
@@ -1084,7 +1060,6 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+newspeak"],
       influences: ["pl+simula", "pl+simula-67"],
       paradigms: ["para+objects"],
       people: [
@@ -1155,17 +1130,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+burroughs-b5000",
-    "Burroughs B5000",
-    {
-      name: "Burroughs B5000",
-      websites: [
-        { kind: "wikipedia", title: "Burroughs B5000", href: "https://en.wikipedia.org/wiki/Burroughs_B5000" },
-      ],
-    },
-    { influenced: ["pl+smalltalk"] },
-  );
+  lb.define("pl+burroughs-b5000", "Burroughs B5000", {
+    name: "Burroughs B5000",
+    websites: [{ kind: "wikipedia", title: "Burroughs B5000", href: "https://en.wikipedia.org/wiki/Burroughs_B5000" }],
+  });
 
   /**/
 
@@ -1229,7 +1197,6 @@ export function define(g: PlangsGraph) {
       extensions: [".cs"],
     },
     {
-      influenced: ["pl+dataparallel-c"],
       influences: ["pl+ansi-c", "pl+star-lisp"],
       paradigms: ["para+imperative", "para+multi", "para+parallel"],
       people: [["person+thinking-machines", "designer"]],
@@ -1277,7 +1244,7 @@ export function define(g: PlangsGraph) {
       name: "CAL",
       websites: [{ kind: "wikipedia", title: "CAL", href: "https://en.wikipedia.org/wiki/CAL_(programming_language)" }],
     },
-    { influenced: ["pl+tymshare-super-basic"], influences: ["pl+joss"] },
+    { influences: ["pl+joss"] },
   );
 
   /**/
@@ -1389,7 +1356,7 @@ export function define(g: PlangsGraph) {
         },
       ],
     },
-    { influenced: ["pl+glsl"], influences: ["pl+c", "pl+renderman-shading"] },
+    { influences: ["pl+c", "pl+renderman-shading"] },
   );
 
   /**/
@@ -1445,15 +1412,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+chef",
-    "Chef",
-    {
-      name: "Chef",
-      websites: [{ kind: "wikipedia", title: "Chef", href: "https://en.wikipedia.org/wiki/Chef_(software)" }],
-    },
-    { influenced: ["pl+powershell"] },
-  );
+  lb.define("pl+chef", "Chef", {
+    name: "Chef",
+    websites: [{ kind: "wikipedia", title: "Chef", href: "https://en.wikipedia.org/wiki/Chef_(software)" }],
+  });
 
   /**/
 
@@ -1642,12 +1604,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+cms-exec",
-    "EXEC",
-    { name: "EXEC", websites: [{ kind: "wikipedia", title: "EXEC", href: "https://en.wikipedia.org/wiki/CMS_EXEC" }] },
-    { influenced: ["pl+rexx"] },
-  );
+  lb.define("pl+cms-exec", "EXEC", {
+    name: "EXEC",
+    websites: [{ kind: "wikipedia", title: "EXEC", href: "https://en.wikipedia.org/wiki/CMS_EXEC" }],
+  });
 
   /**/
 
@@ -1774,7 +1734,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1963-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+bcpl"],
       influences: ["pl+algol-60"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+structured"],
       people: [["person+christopher-strachey", "designer"]],
@@ -1791,26 +1750,21 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "COMIT", href: "https://en.wikipedia.org/wiki/COMIT" }],
       releases: [{ version: "unknown", date: "1957-01-01", kind: "first" }],
     },
-    { influenced: ["pl+snobol"], people: [["person+victor-yngve", "designer"]] },
+    { people: [["person+victor-yngve", "designer"]] },
   );
 
   /**/
 
-  lb.define(
-    "pl+communicating-sequential-processes",
-    "CSP",
-    {
-      name: "CSP",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "communicating sequential processes",
-          href: "https://en.wikipedia.org/wiki/Communicating_sequential_processes",
-        },
-      ],
-    },
-    { influenced: ["pl+concurrent-euclid", "pl+go", "pl+handel-c", "pl+limbo", "pl+newsqueak", "pl+occam"] },
-  );
+  lb.define("pl+communicating-sequential-processes", "CSP", {
+    name: "CSP",
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "communicating sequential processes",
+        href: "https://en.wikipedia.org/wiki/Communicating_sequential_processes",
+      },
+    ],
+  });
 
   /**/
 
@@ -1840,11 +1794,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "COMTRAN", href: "https://en.wikipedia.org/wiki/COMTRAN" }],
       releases: [{ version: "unknown", date: "1957-01-01", kind: "first" }],
     },
-    {
-      influenced: ["pl+aimaco", "pl+cobol"],
-      influences: ["pl+flow-matic"],
-      people: [["person+bob-bemer", "developer"]],
-    },
+    { influences: ["pl+flow-matic"], people: [["person+bob-bemer", "developer"]] },
   );
 
   /**/
@@ -1864,7 +1814,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1980-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+turing-plus"],
       influences: ["pl+communicating-sequential-processes", "pl+euclid"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+structured"],
       people: [
@@ -1930,7 +1879,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Control Language", href: "https://en.wikipedia.org/wiki/Control_Language" },
       ],
     },
-    { influenced: ["pl+powershell"], influences: ["pl+pl-slash1"] },
+    { influences: ["pl+pl-slash1"] },
   );
 
   /**/
@@ -2006,21 +1955,16 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+cornell-university",
-    "CUPL",
-    {
-      name: "CUPL",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "CUPL",
-          href: "https://en.wikipedia.org/wiki/Cornell_University_Programming_Language",
-        },
-      ],
-    },
-    { influenced: ["pl+pl-slashc"] },
-  );
+  lb.define("pl+cornell-university", "CUPL", {
+    name: "CUPL",
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "CUPL",
+        href: "https://en.wikipedia.org/wiki/Cornell_University_Programming_Language",
+      },
+    ],
+  });
 
   /**/
 
@@ -2047,7 +1991,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+assembly"],
-      influenced: ["pl+pop-2"],
       influences: ["pl+cpl", "pl+lisp"],
       licenses: ["lic+proprietary"],
       paradigms: ["para+imperative", "para+multi", "para+reflective", "para+structured"],
@@ -2061,15 +2004,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+cpl",
-    "CPL",
-    {
-      name: "CPL",
-      websites: [{ kind: "wikipedia", title: "CPL", href: "https://en.wikipedia.org/wiki/CPL_(programming_language)" }],
-    },
-    { influenced: ["pl+bcpl", "pl+c", "pl+cowsel"] },
-  );
+  lb.define("pl+cpl", "CPL", {
+    name: "CPL",
+    websites: [{ kind: "wikipedia", title: "CPL", href: "https://en.wikipedia.org/wiki/CPL_(programming_language)" }],
+  });
 
   /**/
 
@@ -2092,7 +2030,7 @@ export function define(g: PlangsGraph) {
       name: "C++14",
       websites: [{ kind: "wikipedia", title: "C++14", href: "https://en.wikipedia.org/wiki/C%2B%2B14" }],
     },
-    { influenced: ["pl+opencl"], influences: ["pl+d"] },
+    { influences: ["pl+d"] },
   );
 
   /**/
@@ -2104,7 +2042,7 @@ export function define(g: PlangsGraph) {
       name: "C++17",
       websites: [{ kind: "wikipedia", title: "C++17", href: "https://en.wikipedia.org/wiki/C%2B%2B17" }],
     },
-    { influenced: ["pl+opencl"], influences: ["pl+d"] },
+    { influences: ["pl+d"] },
   );
 
   /**/
@@ -2164,24 +2102,17 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+cray-mta",
-    "Cray MTA",
-    {
-      name: "Cray MTA",
-      websites: [{ kind: "wikipedia", title: "Cray MTA", href: "https://en.wikipedia.org/wiki/Cray_MTA" }],
-    },
-    { influenced: ["pl+chapel"] },
-  );
+  lb.define("pl+cray-mta", "Cray MTA", {
+    name: "Cray MTA",
+    websites: [{ kind: "wikipedia", title: "Cray MTA", href: "https://en.wikipedia.org/wiki/Cray_MTA" }],
+  });
 
   /**/
 
-  lb.define(
-    "pl+cray-xmt",
-    "XMT",
-    { name: "XMT", websites: [{ kind: "wikipedia", title: "XMT", href: "https://en.wikipedia.org/wiki/Cray_XMT" }] },
-    { influenced: ["pl+chapel"] },
-  );
+  lb.define("pl+cray-xmt", "XMT", {
+    name: "XMT",
+    websites: [{ kind: "wikipedia", title: "XMT", href: "https://en.wikipedia.org/wiki/Cray_XMT" }],
+  });
 
   /**/
 
@@ -2197,12 +2128,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+cuda",
-    "CUDA",
-    { name: "CUDA", websites: [{ kind: "wikipedia", title: "CUDA", href: "https://en.wikipedia.org/wiki/CUDA" }] },
-    { influenced: ["pl+opencl"] },
-  );
+  lb.define("pl+cuda", "CUDA", {
+    name: "CUDA",
+    websites: [{ kind: "wikipedia", title: "CUDA", href: "https://en.wikipedia.org/wiki/CUDA" }],
+  });
 
   /**/
 
@@ -2282,7 +2211,7 @@ export function define(g: PlangsGraph) {
         { version: "1.0", date: "2006-05-08", kind: "stable" },
       ],
     },
-    { influenced: ["pl+project-verona", "pl+rust"], influences: ["pl+c", "pl+ml"] },
+    { influences: ["pl+c", "pl+ml"] },
   );
 
   /**/
@@ -2309,7 +2238,6 @@ export function define(g: PlangsGraph) {
       extensions: [".dfy"],
     },
     {
-      influenced: ["pl+f-star"],
       licenses: ["lic+mit"],
       paradigms: ["para+functional", "para+imperative"],
       people: [["person+k-rustan-m-leino", "designer"]],
@@ -2329,7 +2257,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+assembly"],
-      influenced: ["pl+dartmouth-basic", "pl+dope"],
       paradigms: ["para+imperative"],
       people: [["person+john-g-kemeny", "designer"]],
     },
@@ -2376,15 +2303,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+dataflow",
-    "dataflow",
-    {
-      name: "dataflow",
-      websites: [{ kind: "wikipedia", title: "dataflow", href: "https://en.wikipedia.org/wiki/Dataflow" }],
-    },
-    { influenced: ["pl+prograph"] },
-  );
+  lb.define("pl+dataflow", "dataflow", {
+    name: "dataflow",
+    websites: [{ kind: "wikipedia", title: "dataflow", href: "https://en.wikipedia.org/wiki/Dataflow" }],
+  });
 
   /**/
 
@@ -2443,20 +2365,15 @@ export function define(g: PlangsGraph) {
       name: "Dependent ML",
       websites: [{ kind: "wikipedia", title: "Dependent ML", href: "https://en.wikipedia.org/wiki/Dependent_ML" }],
     },
-    { dialects: ["pl+ats"], influenced: ["pl+ats"] },
+    { dialects: ["pl+ats"] },
   );
 
   /**/
 
-  lb.define(
-    "pl+diagram",
-    "diagrams",
-    {
-      name: "diagrams",
-      websites: [{ kind: "wikipedia", title: "diagrams", href: "https://en.wikipedia.org/wiki/Diagram" }],
-    },
-    { influenced: ["pl+prograph"] },
-  );
+  lb.define("pl+diagram", "diagrams", {
+    name: "diagrams",
+    websites: [{ kind: "wikipedia", title: "diagrams", href: "https://en.wikipedia.org/wiki/Diagram" }],
+  });
 
   /**/
 
@@ -2480,15 +2397,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+digital-command",
-    "DCL",
-    {
-      name: "DCL",
-      websites: [{ kind: "wikipedia", title: "DCL", href: "https://en.wikipedia.org/wiki/DIGITAL_Command_Language" }],
-    },
-    { influenced: ["pl+powershell"] },
-  );
+  lb.define("pl+digital-command", "DCL", {
+    name: "DCL",
+    websites: [{ kind: "wikipedia", title: "DCL", href: "https://en.wikipedia.org/wiki/DIGITAL_Command_Language" }],
+  });
 
   /**/
 
@@ -2517,7 +2429,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+assembly"],
-      influenced: ["pl+dartmouth-basic"],
       influences: ["pl+darsimco", "pl+dartmouth-algol-30", "pl+fortran", "pl+fortran-95"],
       paradigms: ["para+imperative"],
       people: [
@@ -2582,7 +2493,7 @@ export function define(g: PlangsGraph) {
       name: "Document Style Semantics and Specification Language",
       websites: [{ kind: "wikipedia", title: "DSSSL", href: "https://en.wikipedia.org/wiki/DSSSL" }],
     },
-    { influenced: ["pl+xslt"], paradigms: ["para+style", "para+transformation"] },
+    { paradigms: ["para+style", "para+transformation"] },
   );
 
   /**/
@@ -2618,7 +2529,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1997-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+ambienttalk", "pl+newspeak"],
       influences: ["pl+java", "pl+joule"],
       licenses: ["lic+free"],
       paradigms: ["para+message", "para+multi", "para+objects"],
@@ -2730,15 +2640,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+ed",
-    "ed",
-    {
-      name: "ed",
-      websites: [{ kind: "wikipedia", title: "ed", href: "https://en.wikipedia.org/wiki/Ed_(text_editor)" }],
-    },
-    { influenced: ["pl+sed"] },
-  );
+  lb.define("pl+ed", "ed", {
+    name: "ed",
+    websites: [{ kind: "wikipedia", title: "ed", href: "https://en.wikipedia.org/wiki/Ed_(text_editor)" }],
+  });
 
   /**/
 
@@ -2799,15 +2704,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+eispack",
-    "EISPACK",
-    {
-      name: "EISPACK",
-      websites: [{ kind: "wikipedia", title: "EISPACK", href: "https://en.wikipedia.org/wiki/EISPACK" }],
-    },
-    { influenced: ["pl+matlab"] },
-  );
+  lb.define("pl+eispack", "EISPACK", {
+    name: "EISPACK",
+    websites: [{ kind: "wikipedia", title: "EISPACK", href: "https://en.wikipedia.org/wiki/EISPACK" }],
+  });
 
   /**/
 
@@ -2849,7 +2749,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1980-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+java", "pl+singularity"],
       influences: ["pl+pascal", "pl+simula", "pl+simula-67", "pl+smalltalk"],
       paradigms: ["para+objects"],
       people: [["person+henry-m-levy", "designer"]],
@@ -2860,20 +2759,42 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+esoteric",
-    "FALSE",
+    "pl+epigram",
+    "Epigram",
     {
-      name: "FALSE",
+      name: "Epigram",
       websites: [
+        { kind: "wikipedia", title: "Epigram", href: "https://en.wikipedia.org/wiki/Epigram_(programming_language)" },
         {
-          kind: "wikipedia",
-          title: "FALSE",
-          href: "https://en.wikipedia.org/wiki/Esoteric_programming_language#FALSE",
+          kind: "homepage",
+          title: "web.archive.org/web/20120717070845/http://www.e-pig.org/darcs/Pig09/web/",
+          href: "https://web.archive.org/web/20120717070845/http://www.e-pig.org/darcs/Pig09/web/",
         },
       ],
+      releases: [
+        { version: "unknown", date: "2004-01-01", kind: "first" },
+        { version: "unknown", date: "2006-10-11", kind: "stable" },
+      ],
+      references: { license: [{ href: "https://code.google.com/p/epigram/", title: "Epigram – Official website" }] },
     },
-    { influenced: ["pl+befunge", "pl+brainfuck"] },
+    {
+      influences: ["pl+alf"],
+      licenses: ["lic+mit"],
+      paradigms: ["para+functional"],
+      people: [["person+conor-mcbride", "designer"]],
+      platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
+      typeSystems: ["tsys+dependent", "tsys+static", "tsys+strong"],
+    },
   );
+
+  /**/
+
+  lb.define("pl+esoteric", "FALSE", {
+    name: "FALSE",
+    websites: [
+      { kind: "wikipedia", title: "FALSE", href: "https://en.wikipedia.org/wiki/Esoteric_programming_language#FALSE" },
+    ],
+  });
 
   /**/
 
@@ -2888,7 +2809,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1970-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+concurrent-euclid", "pl+modula-2", "pl+modula-3", "pl+turing"],
       influences: ["pl+alphard", "pl+bcpl", "pl+clu", "pl+lis", "pl+mesa", "pl+modula", "pl+pascal"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+structured"],
       people: [
@@ -2916,7 +2836,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1965-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+smalltalk"],
       influences: ["pl+algol-60"],
       paradigms: ["para+imperative", "para+multi", "para+structured"],
       people: [["person+niklaus-wirth", "designer"]],
@@ -2926,39 +2845,24 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+excel-function",
-    "Excel functions",
-    {
-      name: "Excel functions",
-      websites: [{ kind: "wikipedia", title: "Excel functions", href: "https://en.wikipedia.org/wiki/Excel_function" }],
-    },
-    { influenced: ["pl+ms-power-fx"] },
-  );
+  lb.define("pl+excel-function", "Excel functions", {
+    name: "Excel functions",
+    websites: [{ kind: "wikipedia", title: "Excel functions", href: "https://en.wikipedia.org/wiki/Excel_function" }],
+  });
 
   /**/
 
-  lb.define(
-    "pl+excel-macro",
-    "Excel macros",
-    {
-      name: "Excel macros",
-      websites: [{ kind: "wikipedia", title: "Excel macros", href: "https://en.wikipedia.org/wiki/Excel_macro" }],
-    },
-    { influenced: ["pl+ms-power-fx"] },
-  );
+  lb.define("pl+excel-macro", "Excel macros", {
+    name: "Excel macros",
+    websites: [{ kind: "wikipedia", title: "Excel macros", href: "https://en.wikipedia.org/wiki/Excel_macro" }],
+  });
 
   /**/
 
-  lb.define(
-    "pl+exec-2",
-    "EXEC 2",
-    {
-      name: "EXEC 2",
-      websites: [{ kind: "wikipedia", title: "EXEC 2", href: "https://en.wikipedia.org/wiki/EXEC_2" }],
-    },
-    { influenced: ["pl+rexx"] },
-  );
+  lb.define("pl+exec-2", "EXEC 2", {
+    name: "EXEC 2",
+    websites: [{ kind: "wikipedia", title: "EXEC 2", href: "https://en.wikipedia.org/wiki/EXEC_2" }],
+  });
 
   /**/
 
@@ -2977,7 +2881,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1966-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+newp", "pl+pl360"],
       influences: ["pl+algol-60"],
       paradigms: ["para+imperative", "para+multi", "para+structured"],
       typeSystems: ["tsys+static", "tsys+strong"],
@@ -3012,7 +2915,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "FACT", href: "https://en.wikipedia.org/wiki/FACT_computer_language" }],
       releases: [{ version: "unknown", date: "1959-01-01", kind: "first" }],
     },
-    { influenced: ["pl+cobol"], paradigms: ["para+imperative"] },
+    { paradigms: ["para+imperative"] },
   );
 
   /**/
@@ -3024,17 +2927,12 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+fargo",
-    "FARGO",
-    {
-      name: "FARGO",
-      websites: [
-        { kind: "wikipedia", title: "FARGO", href: "https://en.wikipedia.org/wiki/FARGO_(programming_language)" },
-      ],
-    },
-    { influenced: ["pl+ibm-rpg"] },
-  );
+  lb.define("pl+fargo", "FARGO", {
+    name: "FARGO",
+    websites: [
+      { kind: "wikipedia", title: "FARGO", href: "https://en.wikipedia.org/wiki/FARGO_(programming_language)" },
+    ],
+  });
 
   /**/
 
@@ -3054,12 +2952,7 @@ export function define(g: PlangsGraph) {
         ],
       },
     },
-    {
-      influenced: ["pl+fl", "pl+haskell", "pl+joy"],
-      influences: ["pl+apl"],
-      paradigms: ["para+function"],
-      people: [["person+john-backus", "designer"]],
-    },
+    { influences: ["pl+apl"], paradigms: ["para+function"], people: [["person+john-backus", "designer"]] },
   );
 
   /**/
@@ -3099,7 +2992,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1989-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+j"],
       influences: ["pl+ffp", "pl+fp"],
       paradigms: ["para+function", "para+functional"],
       people: [["person+john-backus", "designer"]],
@@ -3125,7 +3017,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1955-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+aimaco", "pl+cobol", "pl+comtran", "pl+math-matic"],
       influences: ["pl+arith-matic", "pl+laning-and-zierler-system"],
       paradigms: ["para+imperative"],
       people: [
@@ -3147,12 +3038,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "1968-01-01", kind: "first" }],
     },
-    {
-      influenced: ["pl+basic-plus"],
-      influences: ["pl+joss"],
-      paradigms: ["para+imperative"],
-      people: [["person+richard-merrill", "designer"]],
-    },
+    { influences: ["pl+joss"], paradigms: ["para+imperative"], people: [["person+richard-merrill", "designer"]] },
   );
 
   /**/
@@ -3173,7 +3059,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "2006-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+julia"],
       influences: ["pl+fortran", "pl+fortran-95", "pl+haskell", "pl+scala"],
       licenses: ["lic+bsd-s"],
       platforms: ["platf+cross-platform", "platf+jvm"],
@@ -3204,7 +3089,7 @@ export function define(g: PlangsGraph) {
       name: "FP",
       websites: [{ kind: "wikipedia", title: "FP", href: "https://en.wikipedia.org/wiki/FP_(programming_language)" }],
     },
-    { influenced: ["pl+fl", "pl+haskell", "pl+joy"], influences: ["pl+apl"] },
+    { influences: ["pl+apl"] },
   );
 
   /**/
@@ -3258,39 +3143,29 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+functional-logic-programming",
-    "Functional logic programming",
-    {
-      name: "Functional logic programming",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "Functional logic programming",
-          href: "https://en.wikipedia.org/wiki/Functional_logic_programming",
-        },
-      ],
-    },
-    { influenced: ["pl+verse"] },
-  );
+  lb.define("pl+functional-logic-programming", "Functional logic programming", {
+    name: "Functional logic programming",
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "Functional logic programming",
+        href: "https://en.wikipedia.org/wiki/Functional_logic_programming",
+      },
+    ],
+  });
 
   /**/
 
-  lb.define(
-    "pl+functional-programming",
-    "functional programming",
-    {
-      name: "functional programming",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "functional programming",
-          href: "https://en.wikipedia.org/wiki/Functional_programming",
-        },
-      ],
-    },
-    { influenced: ["pl+prograph", "pl+swift"] },
-  );
+  lb.define("pl+functional-programming", "functional programming", {
+    name: "functional programming",
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "functional programming",
+        href: "https://en.wikipedia.org/wiki/Functional_programming",
+      },
+    ],
+  });
 
   /**/
 
@@ -3369,6 +3244,46 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
+    "pl+gemstone",
+    "GemStone/S",
+    {
+      name: "GemStone/S",
+      websites: [
+        {
+          kind: "wikipedia",
+          title: "GemStone/S Object Server",
+          href: "https://en.wikipedia.org/wiki/Gemstone_(database)",
+        },
+        {
+          kind: "homepage",
+          title: "gemtalksystems.com/products/gss32",
+          href: "http://gemtalksystems.com/products/gss32",
+        },
+      ],
+      images: [
+        {
+          kind: "logo",
+          url: "https://upload.wikimedia.org/wikipedia/en/thumb/2/22/GemStone-S_logo_and_wordmark.png/121px-GemStone-S_logo_and_wordmark.png",
+        },
+      ],
+      releases: [
+        { version: "unknown", date: "1986-01-01", kind: "first" },
+        { version: "3.7.1", kind: "stable" },
+      ],
+    },
+    {
+      implementations: ["pl+smalltalk"],
+      influences: ["pl+smalltalk"],
+      licenses: ["lic+commercial", "lic+proprietary"],
+      paradigms: ["para+distributed", "para+in", "para+objects", "para+process"],
+      platforms: ["platf+cross-platform", "platf+ia-32", "platf+linux", "platf+mac", "platf+x86-64"],
+      typeSystems: ["tsys+dynamic"],
+    },
+  );
+
+  /**/
+
+  lb.define(
     "pl+genera",
     "Symbolics Common Lisp",
     {
@@ -3389,21 +3304,16 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+general-algebraic-modeling-system",
-    "General Algebraic Modeling System",
-    {
-      name: "General Algebraic Modeling System",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "General Algebraic Modeling System",
-          href: "https://en.wikipedia.org/wiki/General_Algebraic_Modeling_System",
-        },
-      ],
-    },
-    { influenced: ["pl+pyomo"] },
-  );
+  lb.define("pl+general-algebraic-modeling-system", "General Algebraic Modeling System", {
+    name: "General Algebraic Modeling System",
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "General Algebraic Modeling System",
+        href: "https://en.wikipedia.org/wiki/General_Algebraic_Modeling_System",
+      },
+    ],
+  });
 
   /**/
 
@@ -3612,18 +3522,13 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+gofer",
-    "Gofer",
-    {
-      name: "Gofer",
-      websites: [
-        { kind: "wikipedia", title: "Gofer", href: "https://en.wikipedia.org/wiki/Gofer_(software)" },
-        { kind: "wikipedia", title: "Gofer", href: "https://en.wikipedia.org/wiki/Gofer_(programming_language)" },
-      ],
-    },
-    { influenced: ["pl+haskell"] },
-  );
+  lb.define("pl+gofer", "Gofer", {
+    name: "Gofer",
+    websites: [
+      { kind: "wikipedia", title: "Gofer", href: "https://en.wikipedia.org/wiki/Gofer_(software)" },
+      { kind: "wikipedia", title: "Gofer", href: "https://en.wikipedia.org/wiki/Gofer_(programming_language)" },
+    ],
+  });
 
   /**/
 
@@ -3668,15 +3573,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+google-native-client",
-    "PNaCl",
-    {
-      name: "PNaCl",
-      websites: [{ kind: "wikipedia", title: "PNaCl", href: "https://en.wikipedia.org/wiki/Google_Native_Client" }],
-    },
-    { influenced: ["pl+webassembly"] },
-  );
+  lb.define("pl+google-native-client", "PNaCl", {
+    name: "PNaCl",
+    websites: [{ kind: "wikipedia", title: "PNaCl", href: "https://en.wikipedia.org/wiki/Google_Native_Client" }],
+  });
 
   /**/
 
@@ -3837,7 +3737,6 @@ export function define(g: PlangsGraph) {
       extensions: [".prg", ".ch", ".hb", ".hbp"],
     },
     {
-      influenced: ["pl+xharbour"],
       influences: ["pl+dbase"],
       licenses: ["lic+open-source"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects", "para+reflective"],
@@ -3949,26 +3848,17 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+hope",
-    "Hope",
-    {
-      name: "Hope",
-      websites: [
-        { kind: "wikipedia", title: "Hope", href: "https://en.wikipedia.org/wiki/Hope_(programming_language)" },
-      ],
-    },
-    { influenced: ["pl+haskell", "pl+mercury", "pl+miranda", "pl+sml"] },
-  );
+  lb.define("pl+hope", "Hope", {
+    name: "Hope",
+    websites: [{ kind: "wikipedia", title: "Hope", href: "https://en.wikipedia.org/wiki/Hope_(programming_language)" }],
+  });
 
   /**/
 
-  lb.define(
-    "pl+html",
-    "HTML",
-    { name: "HTML", websites: [{ kind: "wikipedia", title: "HTML", href: "https://en.wikipedia.org/wiki/HTML" }] },
-    { influenced: ["pl+curl"] },
-  );
+  lb.define("pl+html", "HTML", {
+    name: "HTML",
+    websites: [{ kind: "wikipedia", title: "HTML", href: "https://en.wikipedia.org/wiki/HTML" }],
+  });
 
   /**/
 
@@ -4028,15 +3918,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+ibm-709-slash90-9pac",
-    "9PAC",
-    {
-      name: "9PAC",
-      websites: [{ kind: "wikipedia", title: "9PAC", href: "https://en.wikipedia.org/wiki/IBM_709/90_9PAC" }],
-    },
-    { influenced: ["pl+ibm-rpg"] },
-  );
+  lb.define("pl+ibm-709-slash90-9pac", "9PAC", {
+    name: "9PAC",
+    websites: [{ kind: "wikipedia", title: "9PAC", href: "https://en.wikipedia.org/wiki/IBM_709/90_9PAC" }],
+  });
 
   /**/
 
@@ -4172,15 +4057,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+id",
-    "Id",
-    {
-      name: "Id",
-      websites: [{ kind: "wikipedia", title: "Id", href: "https://en.wikipedia.org/wiki/Id_(programming_language)" }],
-    },
-    { influenced: ["pl+haskell"] },
-  );
+  lb.define("pl+id", "Id", {
+    name: "Id",
+    websites: [{ kind: "wikipedia", title: "Id", href: "https://en.wikipedia.org/wiki/Id_(programming_language)" }],
+  });
 
   /**/
 
@@ -4204,7 +4084,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+gnu-data"],
-      influenced: ["pl+perl-data"],
       influences: ["pl+fortran-95"],
       paradigms: ["para+array"],
       people: [
@@ -4230,7 +4109,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+algol-60"],
-      influenced: ["pl+smalltalk"],
       influences: ["pl+algol-60"],
       licenses: ["lic+proprietary"],
       paradigms: ["para+extensible", "para+imperative", "para+multi", "para+structured"],
@@ -4274,7 +4152,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1956-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+lisp"],
       paradigms: ["para+assembly"],
       people: [
         ["person+allen-newell", "designer"],
@@ -4296,30 +4173,25 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+intel-array-building-blocks",
-    "Intel Array Building Blocks",
-    {
-      name: "Intel Array Building Blocks",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "Intel Array Building Blocks",
-          href: "https://en.wikipedia.org/wiki/Intel_Array_Building_Blocks",
-        },
-        {
-          kind: "homepage",
-          title: "software.intel.com/en-us/articles/intel-array-building-blocks",
-          href: "http://software.intel.com/en-us/articles/intel-array-building-blocks",
-        },
-      ],
-      releases: [
-        { version: "unknown", date: "2010-01-01", kind: "first" },
-        { version: "1.0", date: "2011-01-01", kind: "preview" },
-      ],
-    },
-    { influenced: ["pl+intel-parallel-building-blocks"] },
-  );
+  lb.define("pl+intel-array-building-blocks", "Intel Array Building Blocks", {
+    name: "Intel Array Building Blocks",
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "Intel Array Building Blocks",
+        href: "https://en.wikipedia.org/wiki/Intel_Array_Building_Blocks",
+      },
+      {
+        kind: "homepage",
+        title: "software.intel.com/en-us/articles/intel-array-building-blocks",
+        href: "http://software.intel.com/en-us/articles/intel-array-building-blocks",
+      },
+    ],
+    releases: [
+      { version: "unknown", date: "2010-01-01", kind: "first" },
+      { version: "1.0", date: "2011-01-01", kind: "preview" },
+    ],
+  });
 
   /**/
 
@@ -4400,15 +4272,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+intercal",
-    "INTERCAL",
-    {
-      name: "INTERCAL",
-      websites: [{ kind: "wikipedia", title: "INTERCAL", href: "https://en.wikipedia.org/wiki/INTERCAL" }],
-    },
-    { influenced: ["pl+malbolge"] },
-  );
+  lb.define("pl+intercal", "INTERCAL", {
+    name: "INTERCAL",
+    websites: [{ kind: "wikipedia", title: "INTERCAL", href: "https://en.wikipedia.org/wiki/INTERCAL" }],
+  });
 
   /**/
 
@@ -4430,15 +4297,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+interpress",
-    "Interpress",
-    {
-      name: "Interpress",
-      websites: [{ kind: "wikipedia", title: "Interpress", href: "https://en.wikipedia.org/wiki/Interpress" }],
-    },
-    { influenced: ["pl+postscript"] },
-  );
+  lb.define("pl+interpress", "Interpress", {
+    name: "Interpress",
+    websites: [{ kind: "wikipedia", title: "Interpress", href: "https://en.wikipedia.org/wiki/Interpress" }],
+  });
 
   /**/
 
@@ -4472,7 +4334,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1966-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+clean", "pl+haskell", "pl+lucid", "pl+miranda", "pl+ml", "pl+sasl"],
       influences: ["pl+algol-60", "pl+lisp"],
       paradigms: ["para+functional", "para+imperative"],
       people: [["person+peter-landin", "designer"]],
@@ -4641,7 +4502,6 @@ export function define(g: PlangsGraph) {
     {
       dialects: ["pl+focal"],
       implementations: ["pl+assembly"],
-      influenced: ["pl+basic", "pl+cal", "pl+focal", "pl+mumps", "pl+telcomp", "pl+tymshare-super-basic"],
       paradigms: ["para+imperative", "para+non"],
       people: [["person+cliff-shaw", "designer"]],
     },
@@ -4660,7 +4520,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1996-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+e"],
       influences: ["pl+actor-model", "pl+logic-programming", "pl+t"],
       paradigms: ["para+dataflow", "para+distributed", "para+multi", "para+objects"],
       people: [["person+e-dean-tribble", "designer"]],
@@ -4691,7 +4550,6 @@ export function define(g: PlangsGraph) {
         "pl+sparc",
         "pl+win",
       ],
-      influenced: ["pl+cms-2", "pl+coral", "pl+coral-66", "pl+sympl"],
       influences: ["pl+algol", "pl+semi-automatic-ground-environment"],
       paradigms: ["para+imperative", "para+structured"],
       typeSystems: ["tsys+safe", "tsys+static", "tsys+strong", "tsys+structural"],
@@ -4712,7 +4570,6 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+factor"],
       influences: ["pl+ffp", "pl+forth", "pl+fp", "pl+scheme"],
       paradigms: ["para+concatenative", "para+functional", "para+multi", "para+stack"],
       people: [
@@ -4720,6 +4577,40 @@ export function define(g: PlangsGraph) {
         ["person+manfred-von-thun", "designer"],
       ],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
+    },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+jscript",
+    "JScript",
+    {
+      name: "JScript",
+      websites: [
+        { kind: "wikipedia", title: "JScript", href: "https://en.wikipedia.org/wiki/JScript" },
+        {
+          kind: "homepage",
+          title: "learn.microsoft.com/en-us/previous-versions/hbxc2t98(v=vs.85)",
+          href: "https://learn.microsoft.com/en-us/previous-versions/hbxc2t98(v=vs.85)",
+        },
+      ],
+      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/en/e/e8/Jscript_icon.gif" }],
+      releases: [
+        { version: "unknown", date: "1996-01-01", kind: "first" },
+        { version: "9.0", date: "2011-01-01", kind: "stable" },
+      ],
+      references: {
+        filename_extensions: [
+          { href: "https://msdn.microsoft.com/en-us/library/67w03h17(v=VS.85).aspx", title: "Types of Script Files" },
+        ],
+      },
+      extensions: [".jse", ".wsc (", ")"],
+    },
+    {
+      implementations: ["pl+active-scripting", "pl+jscript-.net"],
+      platforms: ["platf+win"],
+      typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+weak"],
     },
   );
 
@@ -4814,12 +4705,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "1981-01-01", kind: "first" }],
     },
-    {
-      influenced: ["pl+agentsheets"],
-      influences: ["pl+pascal"],
-      paradigms: ["para+imperative"],
-      people: [["person+richard-e-pattis", "designer"]],
-    },
+    { influences: ["pl+pascal"], paradigms: ["para+imperative"], people: [["person+richard-e-pattis", "designer"]] },
   );
 
   /**/
@@ -4832,12 +4718,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "KRC", href: "https://en.wikipedia.org/wiki/Kent_Recursive_Calculator" }],
       releases: [{ version: "unknown", date: "1981-01-01", kind: "first" }],
     },
-    {
-      influenced: ["pl+haskell", "pl+miranda"],
-      influences: ["pl+sasl"],
-      paradigms: ["para+functional"],
-      people: [["person+david-turner", "designer"]],
-    },
+    { influences: ["pl+sasl"], paradigms: ["para+functional"], people: [["person+david-turner", "designer"]] },
   );
 
   /**/
@@ -4914,12 +4795,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+kornshell",
-    "Ksh",
-    { name: "Ksh", websites: [{ kind: "wikipedia", title: "Ksh", href: "https://en.wikipedia.org/wiki/KornShell" }] },
-    { influenced: ["pl+powershell"] },
-  );
+  lb.define("pl+kornshell", "Ksh", {
+    name: "Ksh",
+    websites: [{ kind: "wikipedia", title: "Ksh", href: "https://en.wikipedia.org/wiki/KornShell" }],
+  });
 
   /**/
 
@@ -4956,17 +4835,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+lambda-calculus",
-    "Lambda calculus",
-    {
-      name: "Lambda calculus",
-      websites: [
-        { kind: "wikipedia", title: "Lambda calculus", href: "https://en.wikipedia.org/wiki/Lambda_calculus" },
-      ],
-    },
-    { influenced: ["pl+verse"] },
-  );
+  lb.define("pl+lambda-calculus", "Lambda calculus", {
+    name: "Lambda calculus",
+    websites: [{ kind: "wikipedia", title: "Lambda calculus", href: "https://en.wikipedia.org/wiki/Lambda_calculus" }],
+  });
 
   /**/
 
@@ -4995,35 +4867,25 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+laning-and-zierler-system",
-    "Laning and Zierler system",
-    {
-      name: "Laning and Zierler system",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "Laning and Zierler system",
-          href: "https://en.wikipedia.org/wiki/Laning_and_Zierler_system",
-        },
-      ],
-    },
-    { influenced: ["pl+flow-matic"] },
-  );
+  lb.define("pl+laning-and-zierler-system", "Laning and Zierler system", {
+    name: "Laning and Zierler system",
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "Laning and Zierler system",
+        href: "https://en.wikipedia.org/wiki/Laning_and_Zierler_system",
+      },
+    ],
+  });
 
   /**/
 
-  lb.define(
-    "pl+li-chen-wang",
-    "Palo Alto Tiny BASIC",
-    {
-      name: "Palo Alto Tiny BASIC",
-      websites: [
-        { kind: "wikipedia", title: "Palo Alto Tiny BASIC", href: "https://en.wikipedia.org/wiki/Li-Chen_Wang" },
-      ],
-    },
-    { influenced: ["pl+level-i-basic"] },
-  );
+  lb.define("pl+li-chen-wang", "Palo Alto Tiny BASIC", {
+    name: "Palo Alto Tiny BASIC",
+    websites: [
+      { kind: "wikipedia", title: "Palo Alto Tiny BASIC", href: "https://en.wikipedia.org/wiki/Li-Chen_Wang" },
+    ],
+  });
 
   /**/
 
@@ -5060,7 +4922,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+dis-virtual-machine"],
-      influenced: ["pl+go", "pl+rust", "pl+stackless-python"],
       influences: ["pl+alef", "pl+c", "pl+communicating-sequential-processes", "pl+newsqueak", "pl+pascal"],
       licenses: ["lic+gpl"],
       paradigms: ["para+concurrent"],
@@ -5085,15 +4946,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+linpack",
-    "LINPACK",
-    {
-      name: "LINPACK",
-      websites: [{ kind: "wikipedia", title: "LINPACK", href: "https://en.wikipedia.org/wiki/LINPACK" }],
-    },
-    { influenced: ["pl+matlab"] },
-  );
+  lb.define("pl+linpack", "LINPACK", {
+    name: "LINPACK",
+    websites: [{ kind: "wikipedia", title: "LINPACK", href: "https://en.wikipedia.org/wiki/LINPACK" }],
+  });
 
   /**/
 
@@ -5104,15 +4960,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+lis",
-    "LIS",
-    {
-      name: "LIS",
-      websites: [{ kind: "wikipedia", title: "LIS", href: "https://en.wikipedia.org/wiki/LIS_(programming_language)" }],
-    },
-    { influenced: ["pl+euclid"] },
-  );
+  lb.define("pl+lis", "LIS", {
+    name: "LIS",
+    websites: [{ kind: "wikipedia", title: "LIS", href: "https://en.wikipedia.org/wiki/LIS_(programming_language)" }],
+  });
 
   /**/
 
@@ -5197,21 +5048,16 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+logic-programming",
-    "Concurrent Logic Programming",
-    {
-      name: "Concurrent Logic Programming",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "Concurrent Logic Programming",
-          href: "https://en.wikipedia.org/wiki/Logic_Programming#Concurrent_logic_programming",
-        },
-      ],
-    },
-    { influenced: ["pl+joule"] },
-  );
+  lb.define("pl+logic-programming", "Concurrent Logic Programming", {
+    name: "Concurrent Logic Programming",
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "Concurrent Logic Programming",
+        href: "https://en.wikipedia.org/wiki/Logic_Programming#Concurrent_logic_programming",
+      },
+    ],
+  });
 
   /**/
 
@@ -5256,7 +5102,7 @@ export function define(g: PlangsGraph) {
       name: "LPC",
       websites: [{ kind: "wikipedia", title: "LPC", href: "https://en.wikipedia.org/wiki/LPC_(programming_language)" }],
     },
-    { influenced: ["pl+pike"], influences: ["pl+c"] },
+    { influences: ["pl+c"] },
   );
 
   /**/
@@ -5279,7 +5125,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1976-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+lustre", "pl+puredata", "pl+sisal"],
       influences: ["pl+iswim"],
       paradigms: ["para+dataflow"],
       people: [
@@ -5349,15 +5194,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+machine-code",
-    "machine code",
-    {
-      name: "machine code",
-      websites: [{ kind: "wikipedia", title: "machine code", href: "https://en.wikipedia.org/wiki/Machine_code" }],
-    },
-    { influenced: ["pl+speedcoding"] },
-  );
+  lb.define("pl+machine-code", "machine code", {
+    name: "machine code",
+    websites: [{ kind: "wikipedia", title: "machine code", href: "https://en.wikipedia.org/wiki/Machine_code" }],
+  });
 
   /**/
 
@@ -5368,15 +5208,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+macsyma",
-    "Macsyma",
-    {
-      name: "Macsyma",
-      websites: [{ kind: "wikipedia", title: "Macsyma", href: "https://en.wikipedia.org/wiki/Macsyma" }],
-    },
-    { influenced: ["pl+allegro-common-lisp"] },
-  );
+  lb.define("pl+macsyma", "Macsyma", {
+    name: "Macsyma",
+    websites: [{ kind: "wikipedia", title: "Macsyma", href: "https://en.wikipedia.org/wiki/Macsyma" }],
+  });
 
   /**/
 
@@ -5446,15 +5281,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+maker-culture",
-    "Maker Culture",
-    {
-      name: "Maker Culture",
-      websites: [{ kind: "wikipedia", title: "Maker Culture", href: "https://en.wikipedia.org/wiki/Maker_culture" }],
-    },
-    { influenced: ["pl+turtlestitch"] },
-  );
+  lb.define("pl+maker-culture", "Maker Culture", {
+    name: "Maker Culture",
+    websites: [{ kind: "wikipedia", title: "Maker Culture", href: "https://en.wikipedia.org/wiki/Maker_culture" }],
+  });
 
   /**/
 
@@ -5509,21 +5339,16 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+mathematical-notation",
-    "Mathematical notation",
-    {
-      name: "Mathematical notation",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "Mathematical notation",
-          href: "https://en.wikipedia.org/wiki/Mathematical_notation",
-        },
-      ],
-    },
-    { influenced: ["pl+apl"] },
-  );
+  lb.define("pl+mathematical-notation", "Mathematical notation", {
+    name: "Mathematical notation",
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "Mathematical notation",
+        href: "https://en.wikipedia.org/wiki/Mathematical_notation",
+      },
+    ],
+  });
 
   /**/
 
@@ -5549,17 +5374,6 @@ export function define(g: PlangsGraph) {
       scoping: ["lexical"],
     },
     {
-      influenced: [
-        "pl+actor-model",
-        "pl+common-lisp",
-        "pl+interactive-fiction",
-        "pl+java",
-        "pl+planner",
-        "pl+prolog",
-        "pl+scheme",
-        "pl+smalltalk",
-        "pl+z-machine",
-      ],
       influences: ["pl+lisp"],
       licenses: ["lic+open-source"],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi", "para+reflection"],
@@ -5592,11 +5406,7 @@ export function define(g: PlangsGraph) {
         { version: "6.0", date: "1981-01-01", kind: "stable" },
       ],
     },
-    {
-      influenced: ["pl+cedar", "pl+cpp", "pl+euclid", "pl+java", "pl+modula-2", "pl+modula-3", "pl+postscript"],
-      influences: ["pl+algol"],
-      typeSystems: ["tsys+static", "tsys+strong"],
-    },
+    { influences: ["pl+algol"], typeSystems: ["tsys+static", "tsys+strong"] },
   );
 
   /**/
@@ -5824,7 +5634,6 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+cache-objectscript", "pl+gt.m", "pl+profile-scripting"],
       influences: ["pl+fortran-95", "pl+joss", "pl+speedcoding", "pl+telcomp"],
       paradigms: ["para+imperative"],
       people: [
@@ -5870,26 +5679,21 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+natural-language-programming",
-    "Natural-language programming",
-    {
-      name: "Natural-language programming",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "Natural language programming",
-          href: "https://en.wikipedia.org/wiki/Natural_language_programming",
-        },
-        {
-          kind: "wikipedia",
-          title: "Natural-language programming",
-          href: "https://en.wikipedia.org/wiki/Natural-language_programming",
-        },
-      ],
-    },
-    { influenced: ["pl+applescript", "pl+hypertalk", "pl+inform"] },
-  );
+  lb.define("pl+natural-language-programming", "Natural-language programming", {
+    name: "Natural-language programming",
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "Natural language programming",
+        href: "https://en.wikipedia.org/wiki/Natural_language_programming",
+      },
+      {
+        kind: "wikipedia",
+        title: "Natural-language programming",
+        href: "https://en.wikipedia.org/wiki/Natural-language_programming",
+      },
+    ],
+  });
 
   /**/
 
@@ -5924,15 +5728,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+nekovm",
-    "NekoVM",
-    {
-      name: "NekoVM",
-      websites: [{ kind: "wikipedia", title: "NekoVM", href: "https://en.wikipedia.org/wiki/NekoVM" }],
-    },
-    { influenced: ["pl+haxe"] },
-  );
+  lb.define("pl+nekovm", "NekoVM", {
+    name: "NekoVM",
+    websites: [{ kind: "wikipedia", title: "NekoVM", href: "https://en.wikipedia.org/wiki/NekoVM" }],
+  });
 
   /**/
 
@@ -5983,7 +5782,7 @@ export function define(g: PlangsGraph) {
         { version: "3.1", date: "1995-01-01", kind: "stable" },
       ],
     },
-    { influenced: ["pl+futhark"], licenses: ["lic+isc", "lic+mit"], paradigms: ["para+array", "para+functional"] },
+    { licenses: ["lic+isc", "lic+mit"], paradigms: ["para+array", "para+functional"] },
   );
 
   /**/
@@ -6063,7 +5862,6 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+alef", "pl+go", "pl+limbo", "pl+rust"],
       influences: ["pl+c", "pl+communicating-sequential-processes"],
       paradigms: ["para+concurrent"],
       people: [["person+rob-pike", "designer"]],
@@ -6082,7 +5880,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1993-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+io"],
       influences: ["pl+dylan", "pl+self", "pl+smalltalk"],
       paradigms: ["para+objects", "para+prototypes"],
       people: [["person+walter-smith", "designer"]],
@@ -6270,21 +6067,16 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+object-oriented-programming",
-    "Object oriented programming",
-    {
-      name: "Object oriented programming",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "Object oriented programming",
-          href: "https://en.wikipedia.org/wiki/Object_oriented_programming",
-        },
-      ],
-    },
-    { influenced: ["pl+verse"] },
-  );
+  lb.define("pl+object-oriented-programming", "Object oriented programming", {
+    name: "Object oriented programming",
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "Object oriented programming",
+        href: "https://en.wikipedia.org/wiki/Object_oriented_programming",
+      },
+    ],
+  });
 
   /**/
 
@@ -6305,15 +6097,6 @@ export function define(g: PlangsGraph) {
     {
       dialects: ["pl+netlogo", "pl+starlogo"],
       implementations: ["pl+ucblogo"],
-      influenced: [
-        "pl+agentsheets",
-        "pl+etoys",
-        "pl+ms-small-basic",
-        "pl+netlogo",
-        "pl+rebol",
-        "pl+scratch",
-        "pl+smalltalk",
-      ],
       influences: ["pl+lisp"],
       paradigms: ["para+educational", "para+functional", "para+imperative", "para+multi", "para+reflective"],
       people: [
@@ -6383,7 +6166,6 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+occam--"],
-      influenced: ["pl+ease", "pl+go", "pl+handel-c", "pl+occam--", "pl+python"],
       influences: ["pl+communicating-sequential-processes"],
       paradigms: ["para+concurrent", "para+imperative"],
       people: [["person+david-may", "designer"]],
@@ -6526,15 +6308,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+openvera",
-    "OpenVera",
-    {
-      name: "OpenVera",
-      websites: [{ kind: "wikipedia", title: "OpenVera", href: "https://en.wikipedia.org/wiki/OpenVera" }],
-    },
-    { influenced: ["pl+systemverilog"] },
-  );
+  lb.define("pl+openvera", "OpenVera", {
+    name: "OpenVera",
+    websites: [{ kind: "wikipedia", title: "OpenVera", href: "https://en.wikipedia.org/wiki/OpenVera" }],
+  });
 
   /**/
 
@@ -6549,7 +6326,7 @@ export function define(g: PlangsGraph) {
     "pl+ops5",
     "OPS5",
     { name: "OPS5", websites: [{ kind: "wikipedia", title: "OPS5", href: "https://en.wikipedia.org/wiki/OPS5" }] },
-    { influenced: ["pl+claire"], influences: ["pl+lisp"] },
+    { influences: ["pl+lisp"] },
   );
 
   /**/
@@ -6657,7 +6434,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1984-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+haskell"],
       influences: ["pl+miranda"],
       paradigms: ["para+functional", "para+lazy"],
       people: [
@@ -6669,12 +6445,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+otcl",
-    "OTcl",
-    { name: "OTcl", websites: [{ kind: "wikipedia", title: "OTcl", href: "https://en.wikipedia.org/wiki/OTcl" }] },
-    { influenced: ["pl+xotcl"] },
-  );
+  lb.define("pl+otcl", "OTcl", {
+    name: "OTcl",
+    websites: [{ kind: "wikipedia", title: "OTcl", href: "https://en.wikipedia.org/wiki/OTcl" }],
+  });
 
   /**/
 
@@ -6732,7 +6506,6 @@ export function define(g: PlangsGraph) {
       references: { license: [{ href: "https://mozart.github.io/license-info/", title: "Mozart Oz License Info" }] },
     },
     {
-      influenced: ["pl+alice", "pl+orc", "pl+scala"],
       influences: ["pl+erlang", "pl+lisp", "pl+prolog"],
       licenses: ["lic+mit"],
       paradigms: [
@@ -6782,7 +6555,6 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+brainfuck"],
-      influenced: ["pl+brainfuck"],
       paradigms: ["para+imperative", "para+structured"],
       people: [["person+corrado-bohm", "designer"]],
     },
@@ -6834,15 +6606,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+patcher",
-    "Patcher",
-    {
-      name: "Patcher",
-      websites: [{ kind: "wikipedia", title: "Patcher", href: "https://en.wikipedia.org/wiki/Patcher" }],
-    },
-    { influenced: ["pl+pure-data"] },
-  );
+  lb.define("pl+patcher", "Patcher", {
+    name: "Patcher",
+    websites: [{ kind: "wikipedia", title: "Patcher", href: "https://en.wikipedia.org/wiki/Patcher" }],
+  });
 
   /**/
 
@@ -7010,7 +6777,6 @@ export function define(g: PlangsGraph) {
       extensions: [".pi"],
     },
     {
-      influenced: ["pl+orc"],
       influences: ["pl+ml"],
       licenses: ["lic+gpl"],
       paradigms: ["para+concurrent"],
@@ -7050,17 +6816,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+pipeline",
-    "Pipeline (Unix)",
-    {
-      name: "Pipeline (Unix)",
-      websites: [
-        { kind: "wikipedia", title: "Pipeline (Unix)", href: "https://en.wikipedia.org/wiki/Pipeline_(Unix)" },
-      ],
-    },
-    { influenced: ["pl+hartmann-pipeline"] },
-  );
+  lb.define("pl+pipeline", "Pipeline (Unix)", {
+    name: "Pipeline (Unix)",
+    websites: [{ kind: "wikipedia", title: "Pipeline (Unix)", href: "https://en.wikipedia.org/wiki/Pipeline_(Unix)" }],
+  });
 
   /**/
 
@@ -7079,11 +6838,7 @@ export function define(g: PlangsGraph) {
         ],
       },
     },
-    {
-      influenced: ["pl+generic-java", "pl+scala"],
-      influences: ["pl+java"],
-      paradigms: ["para+algebraic", "para+generic"],
-    },
+    { influences: ["pl+java"], paradigms: ["para+algebraic", "para+generic"] },
   );
 
   /**/
@@ -7097,12 +6852,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+pl-slash0",
-    "PL/0",
-    { name: "PL/0", websites: [{ kind: "wikipedia", title: "PL/0", href: "https://en.wikipedia.org/wiki/PL/0" }] },
-    { influenced: ["pl+matlab"] },
-  );
+  lb.define("pl+pl-slash0", "PL/0", {
+    name: "PL/0",
+    websites: [{ kind: "wikipedia", title: "PL/0", href: "https://en.wikipedia.org/wiki/PL/0" }],
+  });
 
   /**/
 
@@ -7121,20 +6874,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "1964-01-01", kind: "first" }],
     },
-    {
-      influenced: [
-        "pl+chill",
-        "pl+control",
-        "pl+ibm-pl-slashs",
-        "pl+pl-6",
-        "pl+pl-slashm",
-        "pl+pl.8",
-        "pl+rexx",
-        "pl+sas",
-      ],
-      influences: ["pl+algol-60", "pl+cobol", "pl+fortran"],
-      paradigms: ["para+imperative", "para+structured"],
-    },
+    { influences: ["pl+algol-60", "pl+cobol", "pl+fortran"], paradigms: ["para+imperative", "para+structured"] },
   );
 
   /**/
@@ -7169,20 +6909,7 @@ export function define(g: PlangsGraph) {
     "pl+pl-slashi",
     "PL/I",
     { name: "PL/I", websites: [{ kind: "wikipedia", title: "PL/I", href: "https://en.wikipedia.org/wiki/PL/I" }] },
-    {
-      influenced: [
-        "pl+b",
-        "pl+c",
-        "pl+cms-2",
-        "pl+netrexx",
-        "pl+pl-slashc",
-        "pl+pl-slashm",
-        "pl+rexx",
-        "pl+sp-slashk",
-        "pl+tmg",
-      ],
-      influences: ["pl+algol", "pl+algol-60", "pl+cobol", "pl+fortran-95", "pl+speedcoding"],
-    },
+    { influences: ["pl+algol", "pl+algol-60", "pl+cobol", "pl+fortran-95", "pl+speedcoding"] },
   );
 
   /**/
@@ -7241,7 +6968,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+algol"],
-      influenced: ["pl+algol-w"],
       influences: ["pl+algol", "pl+executive-systems-problem-oriented"],
       paradigms: ["para+imperative", "para+structured"],
       people: [["person+niklaus-wirth", "designer"]],
@@ -7285,7 +7011,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+free-university-of-berlin"],
-      influenced: ["pl+algol-58", "pl+superplan"],
       influences: ["pl+begriffsschrift"],
       paradigms: ["para+imperative"],
       people: [["person+konrad-zuse", "designer"]],
@@ -7305,7 +7030,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1969-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+prolog", "pl+smalltalk"],
       influences: ["pl+mdl"],
       paradigms: ["para+imperative", "para+logic", "para+multi"],
       people: [["person+carl-hewitt", "designer"]],
@@ -7324,12 +7048,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "1970-01-01", kind: "first" }],
     },
-    {
-      influenced: ["pl+erlang"],
-      licenses: ["lic+proprietary"],
-      paradigms: ["para+imperative"],
-      people: [["person+goran-hemdahl", "developer"]],
-    },
+    { licenses: ["lic+proprietary"], paradigms: ["para+imperative"], people: [["person+goran-hemdahl", "developer"]] },
   );
 
   /**/
@@ -7433,7 +7152,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+assembly"],
-      influenced: ["pl+pop-11", "pl+rapira"],
       influences: ["pl+algol-60", "pl+cowsel", "pl+lisp"],
       licenses: ["lic+proprietary"],
       paradigms: ["para+imperative", "para+multi", "para+reflective", "para+structured"],
@@ -7733,15 +7451,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+puppet",
-    "Puppet",
-    {
-      name: "Puppet",
-      websites: [{ kind: "wikipedia", title: "Puppet", href: "https://en.wikipedia.org/wiki/Puppet_(software)" }],
-    },
-    { influenced: ["pl+powershell"] },
-  );
+  lb.define("pl+puppet", "Puppet", {
+    name: "Puppet",
+    websites: [{ kind: "wikipedia", title: "Puppet", href: "https://en.wikipedia.org/wiki/Puppet_(software)" }],
+  });
 
   /**/
 
@@ -8071,33 +7784,23 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+renderman-shading",
-    "RenderMan Shading Language",
-    {
-      name: "RenderMan Shading Language",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "RenderMan Shading Language",
-          href: "https://en.wikipedia.org/wiki/RenderMan_Shading_Language",
-        },
-      ],
-    },
-    { influenced: ["pl+cg"] },
-  );
+  lb.define("pl+renderman-shading", "RenderMan Shading Language", {
+    name: "RenderMan Shading Language",
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "RenderMan Shading Language",
+        href: "https://en.wikipedia.org/wiki/RenderMan_Shading_Language",
+      },
+    ],
+  });
 
   /**/
 
-  lb.define(
-    "pl+reverse-polish-notation",
-    "RPN",
-    {
-      name: "RPN",
-      websites: [{ kind: "wikipedia", title: "RPN", href: "https://en.wikipedia.org/wiki/Reverse_Polish_Notation" }],
-    },
-    { influenced: ["pl+rpl", "pl+stoic"] },
-  );
+  lb.define("pl+reverse-polish-notation", "RPN", {
+    name: "RPN",
+    websites: [{ kind: "wikipedia", title: "RPN", href: "https://en.wikipedia.org/wiki/Reverse_Polish_Notation" }],
+  });
 
   /**/
 
@@ -8168,7 +7871,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1972-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+charm"],
       influences: ["pl+algol-68"],
       paradigms: ["para+imperative", "para+multi", "para+real", "para+structured"],
       people: [["person+jgp-barnes", "designer"]],
@@ -8224,7 +7926,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+s-plus"],
-      influenced: ["pl+r"],
       influences: ["pl+apl", "pl+c", "pl+fortran", "pl+scheme"],
       paradigms: ["para+imperative", "para+multi", "para+objects"],
       people: [
@@ -8395,12 +8096,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "1972-01-01", kind: "first" }],
     },
-    {
-      influenced: ["pl+haskell", "pl+kent-recursive-calculator", "pl+miranda"],
-      influences: ["pl+iswim"],
-      paradigms: ["para+functional"],
-      people: [["person+david-turner", "designer"]],
-    },
+    { influences: ["pl+iswim"], paradigms: ["para+functional"], people: [["person+david-turner", "designer"]] },
   );
 
   /**/
@@ -8487,15 +8183,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+schoonschip",
-    "Schoonschip",
-    {
-      name: "Schoonschip",
-      websites: [{ kind: "wikipedia", title: "Schoonschip", href: "https://en.wikipedia.org/wiki/Schoonschip" }],
-    },
-    { influenced: ["pl+wolfram"] },
-  );
+  lb.define("pl+schoonschip", "Schoonschip", {
+    name: "Schoonschip",
+    websites: [{ kind: "wikipedia", title: "Schoonschip", href: "https://en.wikipedia.org/wiki/Schoonschip" }],
+  });
 
   /**/
 
@@ -8560,7 +8251,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+c"],
-      influenced: ["pl+awk", "pl+perl"],
       influences: ["pl+ed"],
       paradigms: ["para+scripting"],
       people: [["person+lee-e-mcmahon", "designer"]],
@@ -8569,17 +8259,12 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+semi-automatic-ground-environment",
-    "SAGE",
-    {
-      name: "SAGE",
-      websites: [
-        { kind: "wikipedia", title: "SAGE", href: "https://en.wikipedia.org/wiki/Semi-Automatic_Ground_Environment" },
-      ],
-    },
-    { influenced: ["pl+jovial"] },
-  );
+  lb.define("pl+semi-automatic-ground-environment", "SAGE", {
+    name: "SAGE",
+    websites: [
+      { kind: "wikipedia", title: "SAGE", href: "https://en.wikipedia.org/wiki/Semi-Automatic_Ground_Environment" },
+    ],
+  });
 
   /**/
 
@@ -8661,7 +8346,6 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+abc", "pl+claire", "pl+isetl", "pl+rapira", "pl+setl2"],
       influences: ["pl+algol-60"],
       paradigms: ["para+imperative", "para+multi", "para+objects", "para+structured"],
       people: [["person+jacob-t-schwartz", "designer"]],
@@ -8723,7 +8407,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1950-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+intermediate"],
       people: [
         ["person+a-b-tonik", "developer"],
         ["person+j-r-logan", "developer"],
@@ -8762,15 +8445,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+simscript",
-    "Simscript",
-    {
-      name: "Simscript",
-      websites: [{ kind: "wikipedia", title: "Simscript", href: "https://en.wikipedia.org/wiki/Simscript" }],
-    },
-    { influenced: ["pl+simula-67"] },
-  );
+  lb.define("pl+simscript", "Simscript", {
+    name: "Simscript",
+    websites: [{ kind: "wikipedia", title: "Simscript", href: "https://en.wikipedia.org/wiki/Simscript" }],
+  });
 
   /**/
 
@@ -8781,36 +8459,42 @@ export function define(g: PlangsGraph) {
       name: "Simula",
       websites: [{ kind: "wikipedia", title: "Simula", href: "https://en.wikipedia.org/wiki/Simula" }],
     },
-    {
-      influenced: [
-        "pl+beta",
-        "pl+clu",
-        "pl+concurrent-pascal",
-        "pl+cpp",
-        "pl+eiffel",
-        "pl+emerald",
-        "pl+object-pascal",
-        "pl+pascal",
-        "pl+smalltalk",
-        "pl+squeak",
-        "pl+visualworks",
-        "pl+wolfram",
-      ],
-      influences: ["pl+algol", "pl+algol-60"],
-    },
+    { influences: ["pl+algol", "pl+algol-60"] },
   );
 
   /**/
 
   lb.define(
-    "pl+simula67",
-    "Simula67",
+    "pl+simula-67",
+    "Simula",
     {
-      name: "Simula67",
-      websites: [{ kind: "wikipedia", title: "Simula67", href: "https://en.wikipedia.org/wiki/Simula67" }],
+      name: "Simula",
+      websites: [
+        { kind: "wikipedia", title: "Simula 67", href: "https://en.wikipedia.org/wiki/Simula_67" },
+        { kind: "homepage", title: "www.simula67.info", href: "http://www.simula67.info" },
+      ],
+      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Simula_-_logo.svg" }],
+      releases: [{ version: "unknown", date: "1962-01-01", kind: "first" }],
     },
-    { influenced: ["pl+java"] },
+    {
+      implementations: ["pl+algol-60", "pl+simscript"],
+      influences: ["pl+algol-60", "pl+simscript"],
+      paradigms: ["para+imperative", "para+multi", "para+objects", "para+structured"],
+      people: [
+        ["person+kristen-nygaard", "developer"],
+        ["person+ole-johan-dahl", "designer"],
+      ],
+      platforms: ["platf+unix", "platf+win", "platf+z-slashos"],
+      typeSystems: ["tsys+nominative", "tsys+static"],
+    },
   );
+
+  /**/
+
+  lb.define("pl+simula67", "Simula67", {
+    name: "Simula67",
+    websites: [{ kind: "wikipedia", title: "Simula67", href: "https://en.wikipedia.org/wiki/Simula67" }],
+  });
 
   /**/
 
@@ -8907,7 +8591,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+c"],
-      influenced: ["pl+gnu-guile", "pl+scm"],
       influences: ["pl+lisp", "pl+scheme"],
       licenses: ["lic+lgpl"],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi"],
@@ -8928,7 +8611,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1983-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+haskell", "pl+sac"],
       influences: ["pl+c", "pl+fortran", "pl+lucid", "pl+pascal"],
       paradigms: ["para+dataflow", "para+functional"],
       people: [["person+james-mcgraw", "designer"]],
@@ -8938,15 +8620,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+sketchpad",
-    "Sketchpad",
-    {
-      name: "Sketchpad",
-      websites: [{ kind: "wikipedia", title: "Sketchpad", href: "https://en.wikipedia.org/wiki/Sketchpad" }],
-    },
-    { influenced: ["pl+smalltalk", "pl+squeak", "pl+visualworks"] },
-  );
+  lb.define("pl+sketchpad", "Sketchpad", {
+    name: "Sketchpad",
+    websites: [{ kind: "wikipedia", title: "Sketchpad", href: "https://en.wikipedia.org/wiki/Sketchpad" }],
+  });
 
   /**/
 
@@ -9038,7 +8715,6 @@ export function define(g: PlangsGraph) {
     {
       dialects: ["pl+icon"],
       implementations: ["pl+spitbol"],
-      influenced: ["pl+awk", "pl+bs", "pl+icon", "pl+lua", "pl+tmg"],
       influences: ["pl+comit"],
       paradigms: ["para+imperative", "para+unstructured"],
       people: [
@@ -9059,7 +8735,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1974-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+turing"],
       influences: ["pl+pl-slashi"],
       paradigms: ["para+imperative", "para+structured"],
       people: [
@@ -9144,17 +8819,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1953-01-01", kind: "first" }],
     },
     {
-      influenced: [
-        "pl+algol-58",
-        "pl+basic",
-        "pl+c",
-        "pl+fortran",
-        "pl+fortran-95",
-        "pl+mumps",
-        "pl+pact-i",
-        "pl+pl-slashi",
-        "pl+ratfor",
-      ],
       influences: ["pl+assembly", "pl+machine-code"],
       paradigms: ["para+generic", "para+structured"],
       people: [["person+john-backus", "designer"]],
@@ -9199,7 +8863,6 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+unified-parallel-c"],
       influences: ["pl+c"],
       paradigms: ["para+imperative", "para+parallel", "para+structured"],
       platforms: ["platf+cross-platform"],
@@ -9225,7 +8888,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+c", "pl+java"],
-      influenced: ["pl+etoys", "pl+netlogo", "pl+scratch"],
       influences: ["pl+logo"],
       paradigms: ["para+agent", "para+educational", "para+imperative", "para+multi", "para+simulation"],
       people: [
@@ -9320,7 +8982,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+smalltalk"],
-      influenced: ["pl+dart", "pl+hotspot", "pl+java"],
       influences: ["pl+self", "pl+smalltalk"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+objects"],
@@ -9363,7 +9024,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "Superplan", href: "https://en.wikipedia.org/wiki/Superplan" }],
       releases: [{ version: "unknown", date: "1951-01-01", kind: "first" }],
     },
-    { influenced: ["pl+algol-58"], influences: ["pl+plankalkul"], people: [["person+heinz-rutishauser", "designer"]] },
+    { influences: ["pl+plankalkul"], people: [["person+heinz-rutishauser", "designer"]] },
   );
 
   /**/
@@ -9380,17 +9041,12 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+symbolic-manipulation-program",
-    "SMP",
-    {
-      name: "SMP",
-      websites: [
-        { kind: "wikipedia", title: "SMP", href: "https://en.wikipedia.org/wiki/Symbolic_Manipulation_Program" },
-      ],
-    },
-    { influenced: ["pl+wolfram"] },
-  );
+  lb.define("pl+symbolic-manipulation-program", "SMP", {
+    name: "SMP",
+    websites: [
+      { kind: "wikipedia", title: "SMP", href: "https://en.wikipedia.org/wiki/Symbolic_Manipulation_Program" },
+    ],
+  });
 
   /**/
 
@@ -9432,7 +9088,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1982-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+eulisp", "pl+joule", "pl+oaklisp"],
       influences: ["pl+scheme"],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi", "para+objects"],
       people: [
@@ -9507,7 +9162,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "TELCOMP", href: "https://en.wikipedia.org/wiki/TELCOMP" }],
       releases: [{ version: "unknown", date: "1965-01-01", kind: "first" }],
     },
-    { influenced: ["pl+mumps"], influences: ["pl+joss"] },
+    { influences: ["pl+joss"] },
   );
 
   /**/
@@ -9529,7 +9184,7 @@ export function define(g: PlangsGraph) {
       references: { stable_release: [{ href: "https://tug.org/texlive/", title: "TeX Live - TeX Users Group" }] },
       extensions: [],
     },
-    { influenced: ["pl+web"], licenses: ["lic+permissive-free"], people: [["person+donald-knuth", "developer"]] },
+    { licenses: ["lic+permissive-free"], people: [["person+donald-knuth", "developer"]] },
   );
 
   /**/
@@ -9564,7 +9219,75 @@ export function define(g: PlangsGraph) {
       },
       releases: [{ version: "2021.8", date: "2023-02-17", kind: "stable" }],
     },
-    { influenced: ["pl+intel-parallel-building-blocks"], licenses: ["lic+apache"] },
+    { licenses: ["lic+apache"] },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+tk",
+    "Tk",
+    {
+      name: "Tk",
+      websites: [
+        { kind: "wikipedia", title: "Tk", href: "https://en.wikipedia.org/wiki/Tk_(software)" },
+        { kind: "homepage", title: "tcl.tk", href: "http://www.tcl.tk/" },
+      ],
+      images: [
+        { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Tcl-Tk_universal_scripting.svg" },
+      ],
+      references: {
+        developers: [{ href: "http://www.tcl.tk/community/coreteam", title: "Tcl/Tk Core Development" }],
+        stable_release: [
+          {
+            href: "https://sourceforge.net/p/tcl/mailman/message/37738603/",
+            title: "[TCLCORE] Tcl/Tk 8.6.13 RELEASED",
+          },
+        ],
+        license: [{ href: "http://www.tcl.tk/software/tcltk/license.html", title: "Tcl/Tk Licensing Terms" }],
+      },
+      releases: [
+        { version: "unknown", date: "1991-01-01", kind: "first" },
+        { version: "8.6.13", date: "2022-01-01", kind: "stable" },
+      ],
+    },
+    { licenses: ["lic+bsd-s"], platforms: ["platf+cross-platform"] },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+tmg",
+    "TMG",
+    {
+      name: "TMG",
+      websites: [{ kind: "wikipedia", title: "TMGUnix TMG", href: "https://en.wikipedia.org/wiki/TMG_(language)" }],
+      images: [
+        {
+          kind: "logo",
+          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Brainfuck_to_C_translator_in_Unix_TMG.png/225px-Brainfuck_to_C_translator_in_Unix_TMG.png",
+        },
+      ],
+      releases: [{ version: "unknown", date: "1969-01-01", kind: "first" }],
+      extensions: [".t"],
+      references: {
+        influenced_by: [
+          { href: "https://www.bell-labs.com/usr/dmr/www/chist.pdf", title: "The Development of the C Language" },
+          {
+            href: "https://amakukha.github.io/tmg/TMG_Manual_McIlroy_1972.html",
+            title: "A Manual for the Tmg Compiler-writing Language",
+          },
+        ],
+      },
+    },
+    {
+      dialects: ["pl+pdp-11", "pl+pdp-7"],
+      influences: ["pl+algol-68", "pl+b", "pl+pl-slashi", "pl+snobol"],
+      people: [
+        ["person+douglas-mcilroy", "developer"],
+        ["person+robert-m-mcclure", "designer"],
+      ],
+    },
   );
 
   /**/
@@ -9591,11 +9314,7 @@ export function define(g: PlangsGraph) {
         ],
       },
     },
-    {
-      influenced: ["pl+ml-slashi", "pl+ttm"],
-      paradigms: ["para+macros"],
-      people: [["person+calvin-mooers", "designer"]],
-    },
+    { paradigms: ["para+macros"], people: [["person+calvin-mooers", "designer"]] },
   );
 
   /**/
@@ -9702,7 +9421,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1969-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+regency-systems-r2c"],
       paradigms: ["para+imperative"],
       people: [
         ["person+paul-tenczar", "designer"],
@@ -9745,15 +9463,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+uml",
-    "UML",
-    {
-      name: "UML",
-      websites: [{ kind: "wikipedia", title: "UML", href: "https://en.wikipedia.org/wiki/Unified_Modeling_Language" }],
-    },
-    { influenced: ["pl+umple"] },
-  );
+  lb.define("pl+uml", "UML", {
+    name: "UML",
+    websites: [{ kind: "wikipedia", title: "UML", href: "https://en.wikipedia.org/wiki/Unified_Modeling_Language" }],
+  });
 
   /**/
 
@@ -9823,15 +9536,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+unix-shell",
-    "Unix shell",
-    {
-      name: "Unix shell",
-      websites: [{ kind: "wikipedia", title: "Unix shell", href: "https://en.wikipedia.org/wiki/Unix_shell" }],
-    },
-    { influenced: ["pl+perl"] },
-  );
+  lb.define("pl+unix-shell", "Unix shell", {
+    name: "Unix shell",
+    websites: [{ kind: "wikipedia", title: "Unix shell", href: "https://en.wikipedia.org/wiki/Unix_shell" }],
+  });
 
   /**/
 
@@ -10056,7 +9764,6 @@ export function define(g: PlangsGraph) {
       extensions: [".w"],
     },
     {
-      influenced: ["pl+noweb", "pl+web"],
       influences: ["pl+tex", "pl+web"],
       licenses: ["lic+free"],
       paradigms: ["para+imperative", "para+literate", "para+structured"],
@@ -10180,12 +9887,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+xbase",
-    "xBase",
-    { name: "xBase", websites: [{ kind: "wikipedia", title: "xBase", href: "https://en.wikipedia.org/wiki/XBase" }] },
-    { influenced: ["pl+advpl", "pl+ring"] },
-  );
+  lb.define("pl+xbase", "xBase", {
+    name: "xBase",
+    websites: [{ kind: "wikipedia", title: "xBase", href: "https://en.wikipedia.org/wiki/XBase" }],
+  });
 
   /**/
 
@@ -10268,21 +9973,17 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+xpl",
-    "XPL",
-    { name: "XPL", websites: [{ kind: "wikipedia", title: "XPL", href: "https://en.wikipedia.org/wiki/XPL" }] },
-    { influenced: ["pl+pl-slashm"] },
-  );
+  lb.define("pl+xpl", "XPL", {
+    name: "XPL",
+    websites: [{ kind: "wikipedia", title: "XPL", href: "https://en.wikipedia.org/wiki/XPL" }],
+  });
 
   /**/
 
-  lb.define(
-    "pl+xtalk",
-    "xTalk",
-    { name: "xTalk", websites: [{ kind: "wikipedia", title: "xTalk", href: "https://en.wikipedia.org/wiki/XTalk" }] },
-    { influenced: ["pl+sensetalk"] },
-  );
+  lb.define("pl+xtalk", "xTalk", {
+    name: "xTalk",
+    websites: [{ kind: "wikipedia", title: "xTalk", href: "https://en.wikipedia.org/wiki/XTalk" }],
+  });
 
   /**/
 
@@ -10382,12 +10083,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+z-notation",
-    "Z",
-    { name: "Z", websites: [{ kind: "wikipedia", title: "Z", href: "https://en.wikipedia.org/wiki/Z_notation" }] },
-    { influenced: ["pl+eiffel"] },
-  );
+  lb.define("pl+z-notation", "Z", {
+    name: "Z",
+    websites: [{ kind: "wikipedia", title: "Z", href: "https://en.wikipedia.org/wiki/Z_notation" }],
+  });
 
   /**/
 
@@ -10461,7 +10160,7 @@ export function define(g: PlangsGraph) {
         influenced: [{ href: "http://chapel.cray.com/spec/spec-0.98.pdf", title: "Chapel spec (Acknowledgements)" }],
       },
     },
-    { influenced: ["pl+chapel"], influences: ["pl+c"], paradigms: ["para+array"] },
+    { influences: ["pl+c"], paradigms: ["para+array"] },
   );
 
   /**/

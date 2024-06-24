@@ -58,19 +58,6 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+project-verona"],
-      influenced: [
-        "pl+ballerina",
-        "pl+crystal",
-        "pl+gleam",
-        "pl+idris",
-        "pl+nim",
-        "pl+project-verona",
-        "pl+spark",
-        "pl+swift",
-        "pl+v",
-        "pl+whiley",
-        "pl+zig",
-      ],
       influences: [
         "pl+alef",
         "pl+c",

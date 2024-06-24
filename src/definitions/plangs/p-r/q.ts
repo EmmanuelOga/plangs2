@@ -31,7 +31,6 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+pure"],
       influences: ["pl+ap", "pl+apl", "pl+k", "pl+scheme"],
       paradigms: ["para+array", "para+functional"],
       people: [["person+arthur-whitney", "designer"]],

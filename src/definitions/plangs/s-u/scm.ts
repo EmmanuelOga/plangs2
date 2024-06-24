@@ -20,7 +20,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+c"],
-      influenced: ["pl+gnu-guile"],
       influences: ["pl+lisp", "pl+scheme", "pl+siod"],
       licenses: ["lic+lgpl"],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi"],

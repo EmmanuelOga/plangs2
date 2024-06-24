@@ -21,7 +21,6 @@ export function define(g: PlangsGraph) {
       extensions: [".asm", ".s", ".inc", ".wla"],
     },
     {
-      influenced: ["pl+speedcoding"],
       paradigms: [
         "para+imperative",
         "para+macros",
@@ -68,7 +67,6 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      influenced: ["pl+arkts"],
       influences: ["pl+javascript", "pl+typescript", "pl+webassembly"],
       licenses: ["lic+apache"],
       paradigms: ["para+functional", "para+generic", "para+imperative", "para+multi", "para+objects"],
@@ -157,7 +155,6 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      influenced: ["pl+assemblyscript"],
       influences: ["pl+asm.js", "pl+google-native-client", "pl+lisp"],
       licenses: ["lic+apache"],
       paradigms: ["para+stack", "para+structured"],

@@ -32,7 +32,6 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      influenced: ["pl+intel-parallel-building-blocks", "pl+openmp", "pl+rust"],
       influences: ["pl+c"],
       paradigms: ["para+imperative", "para+parallel", "para+structured"],
       platforms: ["platf+mac", "platf+unix"],

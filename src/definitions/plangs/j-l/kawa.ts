@@ -24,7 +24,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+java", "pl+scheme"],
-      influenced: ["pl+hy"],
       influences: ["pl+lisp", "pl+scheme"],
       licenses: ["lic+mit"],
       people: [["person+per-bothner", "designer"]],

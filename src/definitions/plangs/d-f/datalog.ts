@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+.ql", "pl+datomic", "pl+souffle"],
-      influenced: ["pl+sql"],
       influences: ["pl+prolog"],
       paradigms: ["para+dec", "para+logic"],
       typeSystems: ["tsys+weak"],

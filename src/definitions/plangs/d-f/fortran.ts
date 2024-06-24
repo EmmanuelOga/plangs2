@@ -17,28 +17,7 @@ export function define(g: PlangsGraph) {
       name: "FORTRAN II",
       websites: [{ kind: "wikipedia", title: "Fortran", href: "https://en.wikipedia.org/wiki/Fortran" }],
     },
-    {
-      influenced: [
-        "pl+algol-58",
-        "pl+basic",
-        "pl+c",
-        "pl+chapel",
-        "pl+cms-2",
-        "pl+coral",
-        "pl+dartmouth-basic",
-        "pl+dibol",
-        "pl+dope",
-        "pl+fortress",
-        "pl+matlab",
-        "pl+pl-slash1",
-        "pl+ratfiv",
-        "pl+s",
-        "pl+sisal",
-        "pl+verilog",
-        "pl+wolfram",
-      ],
-      influences: ["pl+speedcoding"],
-    },
+    { influences: ["pl+speedcoding"] },
   );
 
   /**/
@@ -94,22 +73,6 @@ export function define(g: PlangsGraph) {
         "pl+silverfrost-ftn95",
         "pl+watcom-c-compiler",
       ],
-      influenced: [
-        "pl+algol-58",
-        "pl+basic",
-        "pl+c",
-        "pl+chapel",
-        "pl+cms-2",
-        "pl+dope",
-        "pl+f",
-        "pl+fortress",
-        "pl+idl",
-        "pl+matlab",
-        "pl+mumps",
-        "pl+pact-i",
-        "pl+pl-slashi",
-        "pl+ratfor",
-      ],
       influences: ["pl+speedcoding"],
       paradigms: ["para+array", "para+generic", "para+imperative", "para+multi", "para+objects", "para+structured"],
       people: [["person+john-backus", "designer"]],
@@ -126,15 +89,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+high-performance-fortran",
-    "HPF",
-    {
-      name: "HPF",
-      websites: [{ kind: "wikipedia", title: "HPF", href: "https://en.wikipedia.org/wiki/High_Performance_Fortran" }],
-    },
-    { influenced: ["pl+chapel"] },
-  );
+  lb.define("pl+high-performance-fortran", "HPF", {
+    name: "HPF",
+    websites: [{ kind: "wikipedia", title: "HPF", href: "https://en.wikipedia.org/wiki/High_Performance_Fortran" }],
+  });
 
   /**/
 

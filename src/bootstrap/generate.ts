@@ -164,7 +164,7 @@ function plangMapper(g: PlangsGraph, plvid: VID_Plang): AtoZData {
   const vrelations = {
     dialects: [...g.e_dialect_of.adjacentTo(plvid)],
     implementations: [...g.e_implements.adjacentTo(plvid)],
-    influenced: [...g.e_l_influenced_l.adjacentFrom(plvid)],
+    // influenced: [...g.e_l_influenced_l.adjacentFrom(plvid)], // No need to include both!
     influences: [...g.e_l_influenced_l.adjacentTo(plvid)],
     licenses: [...g.e_has_license.adjacentFrom(plvid)],
     paradigms: [...g.e_plang_para.adjacentFrom(plvid)],

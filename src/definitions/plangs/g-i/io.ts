@@ -20,7 +20,6 @@ export function define(g: PlangsGraph) {
       references: { stable_release: [{ href: "https://github.com/IoLanguage/io/releases", title: "Io Releases" }] },
     },
     {
-      influenced: ["pl+urbiscript"],
       influences: [
         "pl+actor-model-middle-history",
         "pl+lisp",

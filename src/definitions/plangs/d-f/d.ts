@@ -55,18 +55,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+reference-implementation"],
-      influenced: [
-        "pl+c-sharp",
-        "pl+cpp11",
-        "pl+cpp14",
-        "pl+cpp17",
-        "pl+cpp20",
-        "pl+genie",
-        "pl+go",
-        "pl+qore",
-        "pl+swift",
-        "pl+vala",
-      ],
       influences: [
         "pl+ada",
         "pl+basic",

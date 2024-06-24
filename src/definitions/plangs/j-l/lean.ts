@@ -21,7 +21,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+cpp"],
-      influenced: ["pl+f-star"],
       influences: ["pl+coq", "pl+haskell", "pl+ml"],
       licenses: ["lic+apache"],
       paradigms: ["para+functional", "para+imperative"],

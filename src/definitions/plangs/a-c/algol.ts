@@ -42,28 +42,6 @@ export function define(g: PlangsGraph) {
         "pl+simula-67",
         "pl+small",
       ],
-      influenced: [
-        "pl+bliss",
-        "pl+c",
-        "pl+coral",
-        "pl+dartmouth-basic",
-        "pl+dylan",
-        "pl+icon",
-        "pl+jovial",
-        "pl+mesa",
-        "pl+modula-2p",
-        "pl+modula-3",
-        "pl+newp",
-        "pl+pascal",
-        "pl+pl-slashi",
-        "pl+pl-slashm",
-        "pl+pl360",
-        "pl+rapira",
-        "pl+rexx",
-        "pl+scheme",
-        "pl+simula",
-        "pl+small",
-      ],
       paradigms: ["para+imperative", "para+structured"],
       people: [["person+van-wijngaarden", "designer"]],
       typeSystems: ["tsys+static", "tsys+strong"],
@@ -89,7 +67,6 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+algol-60", "pl+algol-like", "pl+dartmouth-algol-30", "pl+mad"],
       influences: ["pl+fortran", "pl+fortran-95", "pl+plankalkul", "pl+speedcoding", "pl+superplan"],
       paradigms: ["para+imperative", "para+structured"],
       people: [
@@ -117,32 +94,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1960-01-01", kind: "first" }],
     },
     {
-      influenced: [
-        "pl+ada",
-        "pl+algol-68",
-        "pl+algol-w",
-        "pl+atlas-autocode",
-        "pl+basic",
-        "pl+c",
-        "pl+clu",
-        "pl+combined",
-        "pl+concurrent-pascal",
-        "pl+dartmouth-algol-30",
-        "pl+edinburgh-imp",
-        "pl+euler",
-        "pl+executive-systems-problem-oriented",
-        "pl+imp",
-        "pl+iswim",
-        "pl+napier88",
-        "pl+pascal",
-        "pl+pl-slash1",
-        "pl+pl-slashi",
-        "pl+pop-2",
-        "pl+ps-algol",
-        "pl+setl",
-        "pl+simula",
-        "pl+simula-67",
-      ],
       influences: ["pl+algol-58"],
       paradigms: ["para+imperative", "para+structured"],
       people: [["person+van-wijngaarden", "designer"]],
@@ -171,19 +122,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+algol-68-r", "pl+algol-68c", "pl+algol-68rs", "pl+algol-68s", "pl+flacc", "pl+odra"],
-      influenced: [
-        "pl+abc",
-        "pl+ada",
-        "pl+c",
-        "pl+cpp",
-        "pl+draco",
-        "pl+elan",
-        "pl+python",
-        "pl+rtl-slash2",
-        "pl+s3",
-        "pl+seed7",
-        "pl+tmg",
-      ],
       influences: ["pl+algol-60", "pl+algol-y"],
       paradigms: ["para+concurrent", "para+imperative", "para+multi"],
       people: [
@@ -260,7 +198,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+pl360"],
-      influenced: ["pl+modula-2", "pl+pascal"],
       influences: ["pl+algol-60", "pl+pl360"],
       paradigms: ["para+imperative", "para+multi", "para+structured"],
       people: [
@@ -273,15 +210,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+algol-y",
-    "ALGOL Y",
-    {
-      name: "ALGOL Y",
-      websites: [{ kind: "wikipedia", title: "ALGOL Y", href: "https://en.wikipedia.org/wiki/ALGOL_Y" }],
-    },
-    { influenced: ["pl+algol-68"] },
-  );
+  lb.define("pl+algol-y", "ALGOL Y", {
+    name: "ALGOL Y",
+    websites: [{ kind: "wikipedia", title: "ALGOL Y", href: "https://en.wikipedia.org/wiki/ALGOL_Y" }],
+  });
 
   /**/
 
@@ -297,7 +229,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+assembly"],
-      influenced: ["pl+dartmouth-time-sharing-system", "pl+dope"],
       influences: ["pl+algol-58", "pl+algol-60"],
       paradigms: ["para+imperative", "para+multi", "para+structured"],
       people: [
@@ -318,7 +249,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1983-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+napier88"],
       influences: ["pl+algol-60", "pl+s-algol"],
       paradigms: ["para+imperative", "para+multi", "para+structured"],
       people: [
@@ -330,15 +260,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+s-algol",
-    "S-algol",
-    {
-      name: "S-algol",
-      websites: [{ kind: "wikipedia", title: "S-algol", href: "https://en.wikipedia.org/wiki/S-algol" }],
-    },
-    { influenced: ["pl+napier88", "pl+ps-algol"] },
-  );
+  lb.define("pl+s-algol", "S-algol", {
+    name: "S-algol",
+    websites: [{ kind: "wikipedia", title: "S-algol", href: "https://en.wikipedia.org/wiki/S-algol" }],
+  });
 
   /**/
 }

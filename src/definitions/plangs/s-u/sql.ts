@@ -45,7 +45,7 @@ export function define(g: PlangsGraph) {
       name: "PL/SQL",
       websites: [{ kind: "wikipedia", title: "PL/SQL", href: "https://en.wikipedia.org/wiki/PL/SQL" }],
     },
-    { influenced: ["pl+pl-slashpgsql", "pl+sql-slashpsm"], influences: ["pl+ada"] },
+    { influences: ["pl+ada"] },
   );
 
   /**/
@@ -92,16 +92,6 @@ export function define(g: PlangsGraph) {
         "pl+sql-92",
       ],
       implementations: ["pl+list-of-relational-database-management-systems"],
-      influenced: [
-        "pl+contextual-query",
-        "pl+java-object-oriented-querying",
-        "pl+java-persistence-query",
-        "pl+language-integrated-query",
-        "pl+n1ql",
-        "pl+powershell",
-        "pl+sparql",
-        "pl+xquery",
-      ],
       influences: ["pl+datalog"],
       paradigms: ["para+dec"],
       people: [

@@ -11,21 +11,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "HyperTalk", href: "https://en.wikipedia.org/wiki/HyperTalk" }],
       releases: [{ version: "unknown", date: "1987-01-01", kind: "first" }],
     },
-    {
-      influenced: [
-        "pl+actionscript",
-        "pl+applescript",
-        "pl+ecmascript",
-        "pl+javascript",
-        "pl+lingo",
-        "pl+livecode",
-        "pl+sensetalk",
-        "pl+supertalk",
-        "pl+transcript",
-      ],
-      influences: ["pl+natural-language-programming", "pl+pascal"],
-      paradigms: ["para+event", "para+imperative"],
-    },
+    { influences: ["pl+natural-language-programming", "pl+pascal"], paradigms: ["para+event", "para+imperative"] },
   );
 
   /**/

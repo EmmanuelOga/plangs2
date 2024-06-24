@@ -10,7 +10,7 @@ export function define(g: PlangsGraph) {
       name: "Objective-C",
       websites: [{ kind: "wikipedia", title: "Objective-C", href: "https://en.wikipedia.org/wiki/Objective-C" }],
     },
-    { influenced: ["pl+arkts", "pl+cobra", "pl+java", "pl+logtalk", "pl+nu"], influences: ["pl+c", "pl+smalltalk"] },
+    { influences: ["pl+c", "pl+smalltalk"] },
   );
 
   /**/

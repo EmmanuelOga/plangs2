@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+alma-0", "pl+modula-2", "pl+modula-2p", "pl+modula-3"],
-      influenced: ["pl+alma-0", "pl+euclid", "pl+go", "pl+modula-2", "pl+parasail"],
       influences: ["pl+pascal"],
       paradigms: ["para+imperative", "para+modular", "para+structured"],
       people: [["person+niklaus-wirth", "designer"]],
@@ -36,21 +35,6 @@ export function define(g: PlangsGraph) {
       extensions: [".mod", ".m2", ".def", ".MOD", ".DEF", ".mi", ".md"],
     },
     {
-      influenced: [
-        "pl+ada",
-        "pl+alma-0",
-        "pl+cpp",
-        "pl+fortran-90",
-        "pl+go",
-        "pl+lua",
-        "pl+modula-2p",
-        "pl+modula-3",
-        "pl+oberon",
-        "pl+oberon-2",
-        "pl+object-oberon",
-        "pl+seed7",
-        "pl+zonnon",
-      ],
       influences: ["pl+algol-w", "pl+euclid", "pl+mesa", "pl+modula", "pl+pascal"],
       paradigms: ["para+concurrent", "para+imperative", "para+information", "para+modular", "para+structured"],
       people: [["person+niklaus-wirth", "designer"]],
@@ -70,7 +54,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1984-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+modula-3"],
       influences: ["pl+algol", "pl+modula-2", "pl+pascal"],
       licenses: ["lic+proprietary"],
       paradigms: ["para+concurrent", "para+imperative", "para+information", "para+modular", "para+structured"],
@@ -126,7 +109,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+dec"],
-      influenced: ["pl+c-sharp", "pl+java", "pl+nim", "pl+obliq", "pl+ocaml", "pl+python", "pl+rust"],
       influences: ["pl+algol", "pl+euclid", "pl+mesa", "pl+modula-2", "pl+modula-2p", "pl+oberon", "pl+pascal"],
       paradigms: [
         "para+concurrent",

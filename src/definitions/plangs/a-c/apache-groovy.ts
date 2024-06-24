@@ -27,7 +27,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+gradle", "pl+grails"],
-      influenced: ["pl+kotlin"],
       influences: ["pl+java", "pl+python", "pl+ruby", "pl+smalltalk"],
       licenses: ["lic+apache"],
       paradigms: ["para+aspect", "para+functional", "para+imperative", "para+multi", "para+objects", "para+scripting"],

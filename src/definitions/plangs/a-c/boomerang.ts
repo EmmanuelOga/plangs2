@@ -22,7 +22,6 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+xslt"],
       influences: ["pl+ocaml"],
       people: [
         ["person+benjamin-c-pierce", "developer"],

@@ -71,7 +71,6 @@ export function define(g: PlangsGraph) {
         "pl+quercus",
         "pl+zend-engine",
       ],
-      influenced: ["pl+active-server-pages", "pl+hack", "pl+haxe", "pl+jakarta-server-pages", "pl+react", "pl+umple"],
       influences: ["pl+c", "pl+cpp", "pl+java", "pl+javascript", "pl+perl", "pl+smalltalk", "pl+tcl"],
       licenses: ["lic+gpl", "lic+php", "lic+zend"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects", "para+reflective"],

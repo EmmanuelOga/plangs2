@@ -29,7 +29,6 @@ export function define(g: PlangsGraph) {
       extensions: [".hy"],
     },
     {
-      influenced: ["pl+lfe"],
       influences: ["pl+clojure", "pl+common-lisp", "pl+kawa"],
       licenses: ["lic+mit"],
       paradigms: [

@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       extensions: [".b", ".bf"],
     },
     {
-      influenced: ["pl+malbolge"],
       influences: ["pl+esoteric", "pl+p--"],
       paradigms: ["para+esoteric", "para+imperative", "para+structured"],
       people: [["person+urban-muller", "designer"]],
