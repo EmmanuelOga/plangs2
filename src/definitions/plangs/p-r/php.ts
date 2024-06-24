@@ -64,18 +64,18 @@ export function define(g: PlangsGraph) {
     {
       implementations: [
         "pl+c",
-        "pl+c-plus-plus",
+        "pl+cpp",
         "pl+hhvm",
         "pl+parrot-virtual-machine",
         "pl+peachpie",
         "pl+quercus",
         "pl+zend-engine",
       ],
-      influenced: ["pl+c", "pl+c-plus-plus", "pl+hack", "pl+haxe", "pl+java", "pl+smalltalk", "pl+tcl", "pl+umple"],
+      influenced: ["pl+c", "pl+cpp", "pl+hack", "pl+haxe", "pl+java", "pl+smalltalk", "pl+tcl", "pl+umple"],
       influences: [
         "pl+active-server-pages",
         "pl+c",
-        "pl+c-plus-plus",
+        "pl+cpp",
         "pl+hack",
         "pl+jakarta-server-pages",
         "pl+java",

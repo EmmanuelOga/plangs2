@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
     },
     {
       influenced: ["pl+boo", "pl+c", "pl+d", "pl+java"],
-      influences: ["pl+boo", "pl+c", "pl+c-plus-plus", "pl+c-sharp", "pl+d", "pl+java"],
+      influences: ["pl+boo", "pl+c", "pl+c-sharp", "pl+cpp", "pl+d", "pl+java"],
       licenses: ["lic+lgpl"],
       paradigms: ["para+imperative", "para+multi", "para+objects", "para+structured"],
       people: [

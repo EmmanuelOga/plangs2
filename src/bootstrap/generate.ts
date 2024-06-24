@@ -1,14 +1,11 @@
 import { Eta } from "eta";
-import { groupBy } from "lodash-es";
 import { PlangsGraph } from "../entities/plangs_graph";
-import type { VID_Plang } from "../entities/schemas";
-import { parseEdgeKey } from "../graph/edge_table";
+import type { VID_Person, VID_Plang } from "../entities/schemas";
 import type { VID_Any } from "../graph/vertex";
 import type { VertexTable } from "../graph/vertex_table";
 import { toAlphaNum } from "../util";
 import { PLANG_IDS } from "./plang_ids";
 import { parseAll } from "./wikipedia_process";
-import { file } from "bun";
 
 const Templ = new Eta({ views: __dirname, autoEscape: false });
 
@@ -22,6 +19,15 @@ function tsPath(type: string, name: string): string {
   return Bun.fileURLToPath(`file:${DEF_PATH}/${type}.ts`);
 }
 
+/**
+ * Calls the {@link parseAll} function to generate a graph
+ * of information about programming languages.
+ *
+ * Then, generates the definitions for everything scraped.
+ *
+ * At the end of the proces we should get the same graph,
+ * but defined from TS code instead of scraped data.
+ */
 async function generateAll() {
   const g = new PlangsGraph();
   await parseAll(g);
@@ -156,15 +162,18 @@ function plangMapper(g: PlangsGraph, plvid: VID_Plang): AtoZData {
     data: json(pl),
   };
   const vrelations = {
-    dialects: [...g.e_dialect_of.adjacentTo(plvid)].map(({ from }) => from),
-    implementations: [...g.e_implements.adjacentTo(plvid)].map(({ from }) => from),
-    influenced: [...g.e_l_influenced_l.adjacentFrom(plvid)].map(({ to }) => to),
-    influences: [...g.e_l_influenced_l.adjacentTo(plvid)].map(({ from }) => from),
-    licenses: [...g.e_has_license.adjacentFrom(plvid)].map(({ to }) => to),
-    paradigms: [...g.e_plang_para.adjacentFrom(plvid)].map(({ to }) => to),
-    people: [...g.e_person_plang_role.adjacentTo(plvid)].map(({ from, edata }) => [from, edata?.role]),
-    platforms: [...g.e_supports_platf.adjacentFrom(plvid)].map(({ to }) => to),
-    typeSystems: [...g.e_plang_tsys.adjacentFrom(plvid)].map(({ to }) => to),
+    dialects: [...g.e_dialect_of.adjacentTo(plvid)],
+    implementations: [...g.e_implements.adjacentTo(plvid)],
+    influenced: [...g.e_l_influenced_l.adjacentFrom(plvid)],
+    influences: [...g.e_l_influenced_l.adjacentTo(plvid)],
+    licenses: [...g.e_has_license.adjacentFrom(plvid)],
+    paradigms: [...g.e_plang_para.adjacentFrom(plvid)],
+    people: [...g.e_person_plang_role.adjacentTo(plvid)].map((from) => {
+      const edata = g.e_person_plang_role.get(from as VID_Person, plvid);
+      return [from, edata?.role];
+    }),
+    platforms: [...g.e_supports_platf.adjacentFrom(plvid)],
+    typeSystems: [...g.e_plang_tsys.adjacentFrom(plvid)],
   };
   for (const [key, val] of Object.entries(vrelations)) {
     if (Array.isArray(val)) val.sort();
@@ -232,4 +241,4 @@ function genAll(
 // biome-ignore lint/suspicious/noExplicitAny: it's ok.
 const json = (v: any) => JSON.stringify(v);
 
-await generateAll();
+if (process.env.PLANGS_GEN) await generateAll();

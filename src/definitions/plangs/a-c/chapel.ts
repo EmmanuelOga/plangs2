@@ -26,12 +26,12 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+ada", "pl+c-plus-plus", "pl+fortran-95", "pl+java", "pl+zpl"],
+      influenced: ["pl+ada", "pl+cpp", "pl+fortran-95", "pl+java", "pl+zpl"],
       influences: [
         "pl+ada",
         "pl+c",
-        "pl+c-plus-plus",
         "pl+c-sharp",
+        "pl+cpp",
         "pl+cray-mta",
         "pl+cray-xmt",
         "pl+fortran",

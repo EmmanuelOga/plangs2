@@ -42,7 +42,7 @@ export function define(g: PlangsGraph) {
       influenced: [
         "pl+ada",
         "pl+c",
-        "pl+c-plus-plus",
+        "pl+cpp",
         "pl+lisp",
         "pl+modula-3",
         "pl+oberon",
@@ -53,7 +53,7 @@ export function define(g: PlangsGraph) {
       ],
       influences: [
         "pl+ada",
-        "pl+c-plus-plus",
+        "pl+cpp",
         "pl+lisp",
         "pl+modula-3",
         "pl+oberon",

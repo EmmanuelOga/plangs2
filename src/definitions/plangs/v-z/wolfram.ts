@@ -49,8 +49,8 @@ export function define(g: PlangsGraph) {
       influences: [
         "pl+apl",
         "pl+c",
-        "pl+c-plus-plus",
         "pl+clojure",
+        "pl+cpp",
         "pl+fortran",
         "pl+julia",
         "pl+jupyter",

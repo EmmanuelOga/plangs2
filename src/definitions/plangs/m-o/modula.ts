@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1975-01-01", kind: "first" }],
     },
     {
-      dialects: ["pl+alma-0", "pl+modula-2", "pl+modula-2-plus", "pl+modula-3"],
+      dialects: ["pl+alma-0", "pl+modula-2", "pl+modula-2p", "pl+modula-3"],
       influenced: ["pl+euclid", "pl+go", "pl+modula-2", "pl+parasail", "pl+pascal"],
       influences: ["pl+alma-0", "pl+go", "pl+modula-2", "pl+pascal"],
       paradigms: ["para+imperative", "para+modular", "para+structured"],
@@ -40,12 +40,12 @@ export function define(g: PlangsGraph) {
         "pl+ada",
         "pl+algol-w",
         "pl+alma-0",
-        "pl+c-plus-plus",
+        "pl+cpp",
         "pl+go",
         "pl+lua",
         "pl+mesa",
         "pl+modula",
-        "pl+modula-2-plus",
+        "pl+modula-2p",
         "pl+modula-3",
         "pl+oberon",
         "pl+oberon-2",
@@ -61,7 +61,7 @@ export function define(g: PlangsGraph) {
         "pl+lua",
         "pl+mesa",
         "pl+modula",
-        "pl+modula-2-plus",
+        "pl+modula-2p",
         "pl+modula-3",
         "pl+oberon",
         "pl+pascal",
@@ -78,7 +78,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+modula-2-plus",
+    "pl+modula-2p",
     "Modula-2+",
     {
       name: "Modula-2+",
@@ -145,7 +145,7 @@ export function define(g: PlangsGraph) {
       influenced: [
         "pl+java",
         "pl+modula-2",
-        "pl+modula-2-plus",
+        "pl+modula-2p",
         "pl+nim",
         "pl+obliq",
         "pl+ocaml",
@@ -159,7 +159,7 @@ export function define(g: PlangsGraph) {
         "pl+java",
         "pl+mesa",
         "pl+modula-2",
-        "pl+modula-2-plus",
+        "pl+modula-2p",
         "pl+nim",
         "pl+oberon",
         "pl+ocaml",

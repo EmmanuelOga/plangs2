@@ -26,7 +26,6 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+dsssl", "pl+lisp"],
-      implementations: ["pl+category-scheme-implementations"],
       influenced: [
         "pl+algol",
         "pl+ambienttalk",

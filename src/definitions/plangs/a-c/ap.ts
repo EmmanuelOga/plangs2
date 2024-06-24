@@ -4,7 +4,7 @@ export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
   lb.define(
-    "pl+a-plus",
+    "pl+ap",
     "A+",
     {
       name: "A+",

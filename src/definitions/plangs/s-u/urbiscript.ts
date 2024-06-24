@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
       extensions: [".u"],
     },
     {
-      influences: ["pl+c-plus-plus", "pl+io", "pl+self"],
+      influences: ["pl+cpp", "pl+io", "pl+self"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+event", "para+functional", "para+imperative", "para+multi", "para+objects", "para+reflective"],
       people: [["person+jean-christophe-baillie", "designer"]],

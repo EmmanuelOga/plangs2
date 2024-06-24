@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
       extensions: [".nut"],
     },
     {
-      influences: ["pl+c-plus-plus", "pl+javascript", "pl+lua", "pl+python"],
+      influences: ["pl+cpp", "pl+javascript", "pl+lua", "pl+python"],
       licenses: ["lic+mit"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects", "para+scripting"],
       people: [["person+alberto-demichelis", "designer"]],

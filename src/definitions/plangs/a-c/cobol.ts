@@ -60,9 +60,9 @@ export function define(g: PlangsGraph) {
       ],
       influences: [
         "pl+aimaco",
-        "pl+c-plus-plus",
         "pl+cobolscript",
         "pl+comtran",
+        "pl+cpp",
         "pl+egl",
         "pl+eiffel",
         "pl+fact-computer",

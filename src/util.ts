@@ -23,7 +23,7 @@ export function toAlphaNum(s: string) {
     .replaceAll(/[\u0300-\u036f]/g, "");
 
   if (result.startsWith("*")) result = `star-${result.slice(1)}`;
-  if (result.startsWith("+")) result = `plus-${result.slice(1)}`;
+  if (result.startsWith("+")) result = `p${result.slice(1)}`;
 
   result = result
     .replaceAll(" ", "-")
@@ -36,7 +36,7 @@ export function toAlphaNum(s: string) {
     .split(/\#/g)
     .join("-sharp")
     .split(/\+/g)
-    .join("-plus")
+    .join("p")
     .split(/\//g)
     .join("-slash")
     .split(/\\/g)

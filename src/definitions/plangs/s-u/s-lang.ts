@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
     {
       name: "S-Lang",
       websites: [
-        { kind: "wikipedia", title: "S-Lang", href: "https://en.wikipedia.org/wiki/S-Lang_(programming_language)" },
+        { kind: "wikipedia", title: "S-Lang", href: "https://en.wikipedia.org/wiki/S-Lang" },
         { kind: "homepage", title: "www.jedsoft.org/slang/", href: "https://www.jedsoft.org/slang/" },
       ],
       images: [

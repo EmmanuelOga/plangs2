@@ -52,8 +52,8 @@ export function define(g: PlangsGraph) {
       influenced: ["pl+erlang", "pl+javascript", "pl+smalltalk"],
       influences: [
         "pl+c",
-        "pl+c-plus-plus",
         "pl+c-sharp",
+        "pl+cpp",
         "pl+erlang",
         "pl+java",
         "pl+javascript",

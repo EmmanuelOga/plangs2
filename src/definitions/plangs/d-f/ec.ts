@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       extensions: [".ec", ".eh"],
     },
     {
-      influences: ["pl+c", "pl+c-plus-plus", "pl+python"],
+      influences: ["pl+c", "pl+cpp", "pl+python"],
       licenses: ["lic+bsd-3"],
       paradigms: ["para+generic", "para+imperative", "para+multi", "para+objects"],
       platforms: ["platf+cross-platform"],

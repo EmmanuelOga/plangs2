@@ -15,8 +15,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1993-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+a-plus", "pl+apl", "pl+q"],
-      influences: ["pl+a-plus", "pl+apl", "pl+q", "pl+scheme"],
+      influenced: ["pl+ap", "pl+apl", "pl+q"],
+      influences: ["pl+ap", "pl+apl", "pl+q", "pl+scheme"],
       paradigms: ["para+array", "para+functional"],
       people: [["person+arthur-whitney", "designer"]],
       typeSystems: ["tsys+dynamic", "tsys+strong"],

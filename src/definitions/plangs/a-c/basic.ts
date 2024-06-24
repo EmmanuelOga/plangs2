@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influences: ["pl+basic-a-plus", "pl+basic-xl", "pl+data-general-business-basic", "pl+turbo-basic-xl"],
+      influences: ["pl+basic-ap", "pl+basic-xl", "pl+data-general-business-basic", "pl+turbo-basic-xl"],
       licenses: ["lic+commercial", "lic+proprietary"],
       people: [
         ["person+kathleen-o-brien", "designer"],
@@ -113,7 +113,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+basic-a-plus",
+    "pl+basic-ap",
     "BASIC A+",
     {
       name: "BASIC A+",

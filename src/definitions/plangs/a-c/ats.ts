@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
     },
     {
       influenced: ["pl+ocaml"],
-      influences: ["pl+c-plus-plus", "pl+dependent-ml", "pl+ml", "pl+ocaml"],
+      influences: ["pl+cpp", "pl+dependent-ml", "pl+ml", "pl+ocaml"],
       licenses: ["lic+gpl"],
       paradigms: [
         "para+concurrent",

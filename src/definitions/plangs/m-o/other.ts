@@ -591,7 +591,7 @@ export function define(g: PlangsGraph) {
       extensions: [".e"],
     },
     {
-      influences: ["pl+ada", "pl+c-plus-plus", "pl+lisp"],
+      influences: ["pl+ada", "pl+cpp", "pl+lisp"],
       licenses: ["lic+freeware"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects"],
       people: [["person+wouter-van-oortmerssen", "designer"]],
@@ -1044,7 +1044,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1967-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+b", "pl+c", "pl+c-plus-plus", "pl+combined", "pl+euclid", "pl+go"],
+      influenced: ["pl+b", "pl+c", "pl+combined", "pl+cpp", "pl+euclid", "pl+go"],
       influences: ["pl+b", "pl+c", "pl+cpl", "pl+go"],
       paradigms: ["para+imperative", "para+structured"],
       people: [["person+martin-richards", "designer"]],
@@ -1220,90 +1220,6 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+c-plus-plus11",
-    "C++11",
-    {
-      name: "C++11",
-      websites: [{ kind: "wikipedia", title: "C++11", href: "https://en.wikipedia.org/wiki/C%2B%2B11" }],
-    },
-    { influenced: ["pl+d"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+c-plus-plus14",
-    "C++14",
-    {
-      name: "C++14",
-      websites: [{ kind: "wikipedia", title: "C++14", href: "https://en.wikipedia.org/wiki/C%2B%2B14" }],
-    },
-    { influenced: ["pl+d", "pl+opencl"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+c-plus-plus17",
-    "C++17",
-    {
-      name: "C++17",
-      websites: [{ kind: "wikipedia", title: "C++17", href: "https://en.wikipedia.org/wiki/C%2B%2B17" }],
-    },
-    { influenced: ["pl+d", "pl+opencl"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+c-plus-plus20",
-    "C++20",
-    {
-      name: "C++20",
-      websites: [{ kind: "wikipedia", title: "C++20", href: "https://en.wikipedia.org/wiki/C%2B%2B20" }],
-    },
-    { influenced: ["pl+d"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+c-plus-plusbuilder",
-    "C++Builder",
-    {
-      name: "C++Builder",
-      websites: [
-        { kind: "wikipedia", title: "Embarcadero C++Builder", href: "https://en.wikipedia.org/wiki/C%2B%2BBuilder" },
-        {
-          kind: "homepage",
-          title: "www.embarcadero.com/products/cbuilder",
-          href: "https://www.embarcadero.com/products/cbuilder",
-        },
-      ],
-      releases: [
-        { version: "unknown", date: "1997-01-07", kind: "first" },
-        { version: "12.1", date: "2024-04-04", kind: "stable" },
-      ],
-      references: {
-        os: [
-          {
-            href: "http://docwiki.embarcadero.com/RADStudio/Sydney/en/Installation_Notes#Operating_System_Requirements",
-            title: "Installation Notes - Operating System Requirements",
-          },
-        ],
-      },
-    },
-    {
-      influences: ["pl+c-plus-plus", "pl+delphi"],
-      licenses: ["lic+trialware"],
-      paradigms: ["para+functional", "para+objects", "para+strongly"],
-      platforms: ["platf+win", "platf+x64"],
-    },
-  );
-
-  /**/
-
-  lb.define(
     "pl+c-shell",
     "csh",
     { name: "csh", websites: [{ kind: "wikipedia", title: "csh", href: "https://en.wikipedia.org/wiki/C_shell" }] },
@@ -1390,37 +1306,6 @@ export function define(g: PlangsGraph) {
     },
     { influenced: ["pl+joss", "pl+tymshare-super-basic"] },
   );
-
-  /**/
-
-  lb.define(
-    "pl+category-c-programming-language-family",
-    "Numerous",
-    {
-      name: "Numerous",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "Numerous",
-          href: "https://en.wikipedia.org/wiki/Category:C_programming_language_family",
-        },
-      ],
-    },
-    { influenced: ["pl+c"] },
-  );
-
-  /**/
-
-  lb.define("pl+category-scheme-implementations", "Scheme implementations", {
-    name: "Scheme implementations",
-    websites: [
-      {
-        kind: "wikipedia",
-        title: "Scheme implementations",
-        href: "https://en.wikipedia.org/wiki/Category:Scheme_(programming_language)_implementations",
-      },
-    ],
-  });
 
   /**/
 
@@ -2226,6 +2111,90 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "CPL", href: "https://en.wikipedia.org/wiki/CPL_(programming_language)" }],
     },
     { influenced: ["pl+bcpl", "pl+c", "pl+cowsel"] },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+cpp11",
+    "C++11",
+    {
+      name: "C++11",
+      websites: [{ kind: "wikipedia", title: "C++11", href: "https://en.wikipedia.org/wiki/C%2B%2B11" }],
+    },
+    { influenced: ["pl+d"] },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+cpp14",
+    "C++14",
+    {
+      name: "C++14",
+      websites: [{ kind: "wikipedia", title: "C++14", href: "https://en.wikipedia.org/wiki/C%2B%2B14" }],
+    },
+    { influenced: ["pl+d", "pl+opencl"] },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+cpp17",
+    "C++17",
+    {
+      name: "C++17",
+      websites: [{ kind: "wikipedia", title: "C++17", href: "https://en.wikipedia.org/wiki/C%2B%2B17" }],
+    },
+    { influenced: ["pl+d", "pl+opencl"] },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+cpp20",
+    "C++20",
+    {
+      name: "C++20",
+      websites: [{ kind: "wikipedia", title: "C++20", href: "https://en.wikipedia.org/wiki/C%2B%2B20" }],
+    },
+    { influenced: ["pl+d"] },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+cppbuilder",
+    "C++Builder",
+    {
+      name: "C++Builder",
+      websites: [
+        { kind: "wikipedia", title: "Embarcadero C++Builder", href: "https://en.wikipedia.org/wiki/C%2B%2BBuilder" },
+        {
+          kind: "homepage",
+          title: "www.embarcadero.com/products/cbuilder",
+          href: "https://www.embarcadero.com/products/cbuilder",
+        },
+      ],
+      releases: [
+        { version: "unknown", date: "1997-01-07", kind: "first" },
+        { version: "12.1", date: "2024-04-04", kind: "stable" },
+      ],
+      references: {
+        os: [
+          {
+            href: "http://docwiki.embarcadero.com/RADStudio/Sydney/en/Installation_Notes#Operating_System_Requirements",
+            title: "Installation Notes - Operating System Requirements",
+          },
+        ],
+      },
+    },
+    {
+      influences: ["pl+cpp", "pl+delphi"],
+      licenses: ["lic+trialware"],
+      paradigms: ["para+functional", "para+objects", "para+strongly"],
+      platforms: ["platf+win", "platf+x64"],
+    },
   );
 
   /**/
@@ -3597,7 +3566,7 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influences: ["pl+c-plus-plus"],
+      influences: ["pl+cpp"],
       licenses: ["lic+gpl"],
       paradigms: ["para+objects"],
       platforms: ["platf+cross-platform"],
@@ -4241,7 +4210,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+ibm-xl-c-plus-plus",
+    "pl+ibm-xl-cpp",
     "XL C/C++ Compilers and Open XL C/C++ Compilers",
     {
       name: "XL C/C++ Compilers and Open XL C/C++ Compilers",
@@ -4419,7 +4388,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+intel-c-plus-plus-compiler",
+    "pl+intel-cpp-compiler",
     "Intel C",
     {
       name: "Intel C",
@@ -4822,33 +4791,6 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+js-plus-plus",
-    "JS++",
-    {
-      name: "JS++",
-      websites: [
-        { kind: "wikipedia", title: "JS++", href: "https://en.wikipedia.org/wiki/JS%2B%2B" },
-        { kind: "homepage", title: "www.onux.com/jspp/", href: "https://www.onux.com/jspp/" },
-      ],
-      releases: [{ version: "unknown", date: "2011-10-08", kind: "first" }],
-      extensions: [".jspp", ".js++", ".jpp"],
-    },
-    {
-      influenced: ["pl+c", "pl+c-plus-plus", "pl+java", "pl+javascript"],
-      influences: ["pl+c", "pl+c-plus-plus", "pl+c-sharp", "pl+java", "pl+javascript"],
-      licenses: ["lic+bsd"],
-      paradigms: ["para+functional", "para+generic", "para+imperative", "para+objects", "para+structured"],
-      people: [
-        ["person+anton-rapetov", "designer"],
-        ["person+roger-poon", "designer"],
-      ],
-      typeSystems: ["tsys+dynamic", "tsys+gradual", "tsys+static"],
-    },
-  );
-
-  /**/
-
-  lb.define(
     "pl+jscript-.net",
     "JScript .NET",
     {
@@ -4861,6 +4803,33 @@ export function define(g: PlangsGraph) {
       paradigms: ["para+multi"],
       platforms: ["platf+.net"],
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+weak"],
+    },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+jspp",
+    "JS++",
+    {
+      name: "JS++",
+      websites: [
+        { kind: "wikipedia", title: "JS++", href: "https://en.wikipedia.org/wiki/JS%2B%2B" },
+        { kind: "homepage", title: "www.onux.com/jspp/", href: "https://www.onux.com/jspp/" },
+      ],
+      releases: [{ version: "unknown", date: "2011-10-08", kind: "first" }],
+      extensions: [".jspp", ".js++", ".jpp"],
+    },
+    {
+      influenced: ["pl+c", "pl+cpp", "pl+java", "pl+javascript"],
+      influences: ["pl+c", "pl+c-sharp", "pl+cpp", "pl+java", "pl+javascript"],
+      licenses: ["lic+bsd"],
+      paradigms: ["para+functional", "para+generic", "para+imperative", "para+objects", "para+structured"],
+      people: [
+        ["person+anton-rapetov", "designer"],
+        ["person+roger-poon", "designer"],
+      ],
+      typeSystems: ["tsys+dynamic", "tsys+gradual", "tsys+static"],
     },
   );
 
@@ -5710,7 +5679,7 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+c-plus-plus", "pl+euclid", "pl+java", "pl+modula-2", "pl+modula-3", "pl+postscript"],
+      influenced: ["pl+cpp", "pl+euclid", "pl+java", "pl+modula-2", "pl+modula-3", "pl+postscript"],
       influences: ["pl+algol", "pl+cedar", "pl+java", "pl+modula-2", "pl+postscript"],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
@@ -5891,7 +5860,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+ms-visual-c-plus-plus",
+    "pl+ms-visual-cpp",
     "Microsoft Visual C++",
     {
       name: "Microsoft Visual C++",
@@ -6264,7 +6233,7 @@ export function define(g: PlangsGraph) {
         "pl+euler",
         "pl+modula",
         "pl+modula-2",
-        "pl+modula-2-plus",
+        "pl+modula-2p",
         "pl+modula-3",
         "pl+oberon",
         "pl+oberon-2",
@@ -6380,7 +6349,7 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+lisp", "pl+objective-c-plus-plus", "pl+ruby"],
+      influenced: ["pl+lisp", "pl+objective-cpp", "pl+ruby"],
       influences: ["pl+lisp", "pl+objective-c", "pl+ruby"],
       licenses: ["lic+apache"],
       paradigms: ["para+functional", "para+imperative", "para+objects", "para+structured"],
@@ -7149,7 +7118,7 @@ export function define(g: PlangsGraph) {
     },
     {
       influenced: ["pl+c"],
-      influences: ["pl+c", "pl+c-plus-plus", "pl+lpc"],
+      influences: ["pl+c", "pl+cpp", "pl+lpc"],
       licenses: ["lic+gpl", "lic+lgpl", "lic+mozilla-public"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects"],
       people: [["person+fredrik-hubinette", "designer"]],
@@ -7916,9 +7885,9 @@ export function define(g: PlangsGraph) {
       extensions: [".q", ".qm", ".qtest"],
     },
     {
-      implementations: ["pl+c-plus-plus", "pl+pthreads"],
+      implementations: ["pl+cpp", "pl+pthreads"],
       influenced: ["pl+d"],
-      influences: ["pl+c-plus-plus", "pl+d", "pl+java", "pl+perl"],
+      influences: ["pl+cpp", "pl+d", "pl+java", "pl+perl"],
       licenses: ["lic+gpl", "lic+lgpl", "lic+mit"],
       paradigms: [
         "para+class",
@@ -8895,9 +8864,9 @@ export function define(g: PlangsGraph) {
         "pl+algol",
         "pl+algol-60",
         "pl+beta",
-        "pl+c-plus-plus",
         "pl+clu",
         "pl+concurrent-pascal",
+        "pl+cpp",
         "pl+eiffel",
         "pl+emerald",
         "pl+object-pascal",
@@ -10146,7 +10115,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+watcom-c-slashc-plus-plus",
+    "pl+watcom-c-slashcpp",
     "Open Watcom C/C++",
     {
       name: "Open Watcom C/C++",
@@ -10275,7 +10244,7 @@ export function define(g: PlangsGraph) {
       extensions: [".x10"],
     },
     {
-      influences: ["pl+c-plus-plus", "pl+java"],
+      influences: ["pl+cpp", "pl+java"],
       licenses: ["lic+eclipse-public"],
       paradigms: ["para+objects"],
       people: [

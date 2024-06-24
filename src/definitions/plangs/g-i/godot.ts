@@ -48,7 +48,7 @@ export function define(g: PlangsGraph) {
     },
     {
       influenced: ["pl+python"],
-      influences: ["pl+c", "pl+c-plus-plus", "pl+python"],
+      influences: ["pl+c", "pl+cpp", "pl+python"],
       licenses: ["lic+mit"],
       paradigms: ["para+objects"],
       platforms: ["platf+cross-platform"],

@@ -52,8 +52,8 @@ export function define(g: PlangsGraph) {
     {
       dialects: ["pl+lisp"],
       influenced: [
-        "pl+c-plus-plus",
         "pl+common-lisp",
+        "pl+cpp",
         "pl+elixir",
         "pl+erlang",
         "pl+hy",
@@ -67,9 +67,9 @@ export function define(g: PlangsGraph) {
         "pl+wolfram",
       ],
       influences: [
-        "pl+c-plus-plus",
         "pl+c-sharp",
         "pl+common-lisp",
+        "pl+cpp",
         "pl+elixir",
         "pl+erlang",
         "pl+haskell",

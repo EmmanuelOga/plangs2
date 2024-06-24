@@ -109,7 +109,7 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+object-pascal", "pl+pascal"],
-      influenced: ["pl+c-plus-plusbuilder", "pl+oxygene"],
+      influenced: ["pl+cppbuilder", "pl+oxygene"],
       licenses: ["lic+freemium"],
     },
   );
@@ -284,7 +284,7 @@ export function define(g: PlangsGraph) {
         "pl+limbo",
         "pl+modula",
         "pl+modula-2",
-        "pl+modula-2-plus",
+        "pl+modula-2p",
         "pl+modula-3",
         "pl+ms-power-fx",
         "pl+object-pascal",

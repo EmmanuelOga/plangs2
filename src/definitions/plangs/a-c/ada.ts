@@ -55,9 +55,9 @@ export function define(g: PlangsGraph) {
       influenced: [
         "pl+algol-60",
         "pl+amiga-e",
-        "pl+c-plus-plus",
         "pl+chapel",
         "pl+clu",
+        "pl+cpp",
         "pl+eiffel",
         "pl+java",
         "pl+modula-2",
@@ -75,8 +75,8 @@ export function define(g: PlangsGraph) {
       ],
       influences: [
         "pl+algol-68",
-        "pl+c-plus-plus",
         "pl+chapel",
+        "pl+cpp",
         "pl+d",
         "pl+eiffel",
         "pl+java",

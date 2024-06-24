@@ -97,7 +97,7 @@ export function define(g: PlangsGraph) {
       extensions: [".jl"],
     },
     {
-      implementations: ["pl+c", "pl+c-plus-plus", "pl+llvm", "pl+scheme"],
+      implementations: ["pl+c", "pl+cpp", "pl+llvm", "pl+scheme"],
       influenced: [
         "pl+c",
         "pl+common-lisp",

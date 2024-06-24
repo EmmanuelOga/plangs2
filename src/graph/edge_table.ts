@@ -26,7 +26,9 @@ type _T_Any_V_Data = any;
 /**
  * Stores edges between vertices.
  */
-export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_EdgeData> implements Iterable<[EdgeKey, T_EdgeData]> {
+export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_EdgeData>
+  implements Iterable<[EdgeKey, T_EdgeData]>
+{
   readonly #edge: Map<string, T_EdgeData> = new Map();
   readonly #adjFrom: Map<string, Set<string>> = new Map();
   readonly #adjTo: Map<string, Set<string>> = new Map();
@@ -175,13 +177,13 @@ export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_E
     return result;
   }
 
-  *adjacentFrom(from: string, suffix = "") {
+  *adjacentFrom(from: T_Id_V_From | T_Id_V_To, suffix = ""): Generator<string, void, undefined> {
     if (!this.fromTable.validParams(from)) throw new Error(`Invalid id: ${from}.`);
     const from_ = suffix ? `${from}~${suffix}` : from;
-    yield* this.#adjTo.get(from_) ?? [];
+    yield* this.#adjFrom.get(from_) ?? [];
   }
 
-  *adjacentTo(to: T_Id_V_To, suffix = "") {
+  *adjacentTo(to: T_Id_V_To, suffix = ""): Generator<string, void, undefined> {
     if (!this.toTable.validParams(to)) throw new Error(`Invalid id: ${to}.`);
     const to_ = suffix ? `${to}~${suffix}` : to;
     yield* (this.directed ? this.#adjTo : this.#adjFrom).get(to_) ?? [];

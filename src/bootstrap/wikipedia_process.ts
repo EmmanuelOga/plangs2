@@ -7,7 +7,7 @@ import type { VID } from "../graph/vertex";
 import type { PlangsGraph } from "../entities/plangs_graph";
 import type { Image, Link, Release } from "../entities/schemas";
 import { toAlphaNum } from "../util";
-import { WIKIPEDIA_URL, cachePath } from "./wikipedia_json";
+import { WIKIPEDIA_URL, cachePath } from "./wikipedia_scraper";
 
 // biome-ignore lint/suspicious/noExplicitAny: Wikipedia infoboxes really can have any data.
 type _Any = any;
@@ -47,6 +47,7 @@ type DATA_TYPE = "extensions" | "links" | "refs" | "release" | "text";
 
 /**
  * Returns a graph out of reading the cached JSON files from the Wikipedia scraping.
+ * The scraper should have generated the JSON infobox files for this to do anything.
  */
 export async function parseAll(g: PlangsGraph) {
   function addTsys(name: string, wiki: Link["href"]) {
@@ -584,6 +585,7 @@ function keyFromWikiUrl(wikiUrl: string): string | undefined {
     if (key.startsWith("win-")) return "win";
     if (key.includes("unified-modeling")) return "uml";
 
+    if (key.startsWith("category")) return;
     if (key === "standalone-program") return;
     if (key === "systems-programming-language") return;
     if (key === "polymorphic-programming-language") return;

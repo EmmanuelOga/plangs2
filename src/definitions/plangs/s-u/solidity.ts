@@ -33,8 +33,8 @@ export function define(g: PlangsGraph) {
       extensions: [".sol"],
     },
     {
-      implementations: ["pl+c-plus-plus"],
-      influences: ["pl+c-plus-plus", "pl+javascript", "pl+python"],
+      implementations: ["pl+cpp"],
+      influences: ["pl+cpp", "pl+javascript", "pl+python"],
       licenses: ["lic+gpl"],
       paradigms: ["para+imperative"],
       people: [["person+gavin-wood", "designer"]],

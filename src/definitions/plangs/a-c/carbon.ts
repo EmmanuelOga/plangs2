@@ -21,8 +21,8 @@ export function define(g: PlangsGraph) {
       extensions: [".carbon"],
     },
     {
-      implementations: ["pl+c-plus-plus"],
-      influenced: ["pl+c-plus-plus"],
+      implementations: ["pl+cpp"],
+      influenced: ["pl+cpp"],
       licenses: ["lic+apache"],
       typeSystems: ["tsys+inferred", "tsys+nominative", "tsys+static"],
     },

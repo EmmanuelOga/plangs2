@@ -28,8 +28,8 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+open-source"],
-      influenced: ["pl+ada", "pl+c", "pl+c-plus-plus", "pl+java", "pl+modula-2", "pl+pascal"],
-      influences: ["pl+ada", "pl+algol-68", "pl+c", "pl+c-plus-plus", "pl+java", "pl+modula-2", "pl+pascal"],
+      influenced: ["pl+ada", "pl+c", "pl+cpp", "pl+java", "pl+modula-2", "pl+pascal"],
+      influences: ["pl+ada", "pl+algol-68", "pl+c", "pl+cpp", "pl+java", "pl+modula-2", "pl+pascal"],
       licenses: ["lic+gpl", "lic+lgpl"],
       paradigms: [
         "para+extensible",

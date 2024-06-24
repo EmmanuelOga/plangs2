@@ -53,7 +53,7 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      influences: ["pl+c-plus-plus14", "pl+c-plus-plus17", "pl+c99", "pl+cuda"],
+      influences: ["pl+c99", "pl+cpp14", "pl+cpp17", "pl+cuda"],
       paradigms: ["para+generic", "para+imperative", "para+objects", "para+structured"],
       platforms: ["platf+arm", "platf+ia-32", "platf+x86-64"],
       typeSystems: ["tsys+manifest", "tsys+nominative", "tsys+static", "tsys+weak"],

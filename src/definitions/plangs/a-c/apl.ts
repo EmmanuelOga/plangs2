@@ -34,7 +34,7 @@ export function define(g: PlangsGraph) {
       dialects: ["pl+aplx"],
       implementations: ["pl+aplx"],
       influenced: [
-        "pl+a-plus",
+        "pl+ap",
         "pl+ffp",
         "pl+futhark",
         "pl+go",
@@ -53,8 +53,8 @@ export function define(g: PlangsGraph) {
         "pl+wolfram",
       ],
       influences: [
-        "pl+a-plus",
-        "pl+c-plus-plus",
+        "pl+ap",
+        "pl+cpp",
         "pl+fp",
         "pl+j",
         "pl+k",

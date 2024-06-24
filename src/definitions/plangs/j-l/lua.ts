@@ -28,8 +28,8 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+ansi-c", "pl+luajit"],
       influenced: [
         "pl+awk",
-        "pl+c-plus-plus",
         "pl+clu",
+        "pl+cpp",
         "pl+haxe",
         "pl+io",
         "pl+julia",
@@ -43,7 +43,7 @@ export function define(g: PlangsGraph) {
         "pl+snobol",
         "pl+squirrel",
       ],
-      influences: ["pl+c-plus-plus", "pl+clu", "pl+modula-2", "pl+scheme", "pl+snobol"],
+      influences: ["pl+clu", "pl+cpp", "pl+modula-2", "pl+scheme", "pl+snobol"],
       licenses: ["lic+mit"],
       paradigms: [
         "para+functional",

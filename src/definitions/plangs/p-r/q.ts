@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
     },
     {
       influenced: ["pl+apl", "pl+k", "pl+pure"],
-      influences: ["pl+a-plus", "pl+apl", "pl+k", "pl+scheme"],
+      influences: ["pl+ap", "pl+apl", "pl+k", "pl+scheme"],
       paradigms: ["para+array", "para+functional"],
       people: [["person+arthur-whitney", "designer"]],
       typeSystems: ["tsys+dynamic", "tsys+strong"],

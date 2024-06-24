@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      implementations: ["pl+c-plus-plus"],
+      implementations: ["pl+cpp"],
       influenced: ["pl+f-star"],
       influences: ["pl+coq", "pl+haskell", "pl+ml"],
       licenses: ["lic+apache"],

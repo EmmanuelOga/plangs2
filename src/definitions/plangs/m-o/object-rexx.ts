@@ -41,7 +41,7 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+rexx"],
-      implementations: ["pl+c-plus-plus"],
+      implementations: ["pl+cpp"],
       influenced: ["pl+netrexx", "pl+rexx", "pl+smalltalk"],
       influences: ["pl+netrexx", "pl+rexx", "pl+smalltalk"],
       licenses: ["lic+common-public", "lic+gpl"],

@@ -4,7 +4,7 @@ export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
   lb.define(
-    "pl+objective-c-plus-plus",
+    "pl+objective-cpp",
     "Objective-C++",
     {
       name: "Objective-C++",
@@ -38,7 +38,7 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+clang", "pl+gcc"],
-      influenced: ["pl+c-plus-plus"],
+      influenced: ["pl+cpp"],
       influences: ["pl+c", "pl+groovy", "pl+java", "pl+nu", "pl+smalltalk", "pl+swift"],
       people: [["person+brad-cox", "designer"]],
       platforms: ["platf+cross-platform"],

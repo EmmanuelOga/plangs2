@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       dialects: ["pl+ml"],
       influenced: [
         "pl+arkts",
-        "pl+c-plus-plus",
+        "pl+cpp",
         "pl+elm",
         "pl+erlang",
         "pl+f-star",

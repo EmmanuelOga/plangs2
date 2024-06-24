@@ -35,7 +35,7 @@ export function define(g: PlangsGraph) {
     },
     {
       influenced: [
-        "pl+c-plus-plus",
+        "pl+cpp",
         "pl+euclid",
         "pl+java",
         "pl+lisp",
@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
         "pl+algol-60",
         "pl+alphard",
         "pl+argus",
-        "pl+c-plus-plus",
+        "pl+cpp",
         "pl+lisp",
         "pl+lua",
         "pl+python",

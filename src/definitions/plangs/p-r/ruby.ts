@@ -152,10 +152,10 @@ export function define(g: PlangsGraph) {
       influences: [
         "pl+ada",
         "pl+basic",
-        "pl+c-plus-plus",
         "pl+clojure",
         "pl+clu",
         "pl+coffeescript",
+        "pl+cpp",
         "pl+crystal",
         "pl+d",
         "pl+dylan",

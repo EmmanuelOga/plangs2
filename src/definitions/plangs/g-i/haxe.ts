@@ -28,8 +28,8 @@ export function define(g: PlangsGraph) {
       influenced: ["pl+actionscript", "pl+java", "pl+javascript", "pl+ocaml"],
       influences: [
         "pl+actionscript",
-        "pl+c-plus-plus",
         "pl+c-sharp",
+        "pl+cpp",
         "pl+ecmascript",
         "pl+java",
         "pl+javascript",
