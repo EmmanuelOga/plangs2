@@ -119,8 +119,7 @@ async function generateAll() {
         ["m", "o"],
         ["p", "r"],
         ["s", "u"],
-        ["v", "x"],
-        ["y", "z"],
+        ["v", "z"],
       ]) {
         if (f[0] >= first && f[0] <= last) return `${first}-${last}/${f}`;
       }
