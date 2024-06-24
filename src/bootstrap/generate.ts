@@ -8,6 +8,7 @@ import type { VertexTable } from "../graph/vertex_table";
 import { toAlphaNum } from "../util";
 import { PLANG_IDS } from "./plang_ids";
 import { parseAll } from "./wikipedia_process";
+import { file } from "bun";
 
 const Templ = new Eta({ views: __dirname, autoEscape: false });
 
@@ -86,26 +87,45 @@ async function generateAll() {
     "plangs",
     "plang",
     (vid, vertex, dataSize, name) => {
-      if (vid.includes("algol")) return "algol";
-      if (vid.includes("assembly")) return "assembly";
-      if (vid.includes("basic") || vid.includes("xojo") || vid.includes("gambas")) return "basic";
-      if (vid.includes("c99")) return "c";
-      if (vid.includes("fortran")) return "fortran";
-      if (vid.includes("lisp")) return "lisp";
-      if (vid.includes("modula")) return "modula";
-      if (vid.includes("oberon")) return "oberon";
-      if (vid.includes("pascal") || vid.includes("delphi")) return "pascal";
-      if (vid.includes("py") || vid.includes("cython")) return "python";
-      if (vid.includes("raku")) return "raku";
-      if (vid.includes("ruby")) return "ruby";
-      if (vid.includes("scratch")) return "scratch";
-      if (vid.includes("sql")) return "sql";
-      if (vid.includes("xslt") || vid.includes("xpath") || vid.includes("xquery")) return "xml";
+      function fileName(): string {
+        if (vid.includes("algol")) return "algol";
+        if (vid.includes("assembly")) return "assembly";
+        if (vid.includes("basic") || vid.includes("xojo") || vid.includes("gambas")) return "basic";
+        if (vid.includes("c99")) return "c";
+        if (vid.includes("fortran")) return "fortran";
+        if (vid.includes("lisp")) return "lisp";
+        if (vid.includes("modula")) return "modula";
+        if (vid.includes("oberon")) return "oberon";
+        if (vid.includes("pascal") || vid.includes("delphi")) return "pascal";
+        if (vid.includes("py") || vid.includes("cython")) return "python";
+        if (vid.includes("raku")) return "raku";
+        if (vid.includes("ruby")) return "ruby";
+        if (vid.includes("scratch")) return "scratch";
+        if (vid.includes("sql")) return "sql";
+        if (vid.includes("xslt") || vid.includes("xpath") || vid.includes("xquery")) return "xml";
 
-      if (vid.includes("slash")) return "other";
+        if (vid.includes("slash")) return "other";
 
-      // biome-ignore lint/suspicious/noExplicitAny: Ok here.
-      return PLANG_IDS.has(vid as any) || dataSize > 1024 ? name : "other";
+        // biome-ignore lint/suspicious/noExplicitAny: Ok here.
+        return PLANG_IDS.has(vid as any) || dataSize > 1024 ? name : "other";
+      }
+
+      const f = fileName();
+
+      for (const [first, last] of [
+        ["d", "f"],
+        ["g", "i"],
+        ["j", "l"],
+        ["m", "o"],
+        ["p", "r"],
+        ["s", "u"],
+        ["v", "x"],
+        ["y", "z"],
+      ]) {
+        if (f[0] >= first && f[0] <= last) return `${first}-${last}/${f}`;
+      }
+
+      return `a-c/${f}`;
     },
     (vid: VID_Any) => plangMapper(g, vid as VID_Plang),
   );
@@ -201,7 +221,8 @@ function genAll(
   }
 
   for (const [fileName, bundles] of fileNames) {
-    const res = Templ.render("/a_to_z", { data: bundles, builderName, depth: 2 });
+    const slashCount = (fileName.match(/\//g) || []).length;
+    const res = Templ.render("/a_to_z", { data: bundles, builderName, depth: 2 + slashCount });
     const path = tsPath(basename, fileName);
     Bun.write(path, res);
   }
