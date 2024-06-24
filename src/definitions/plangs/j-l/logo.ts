@@ -19,7 +19,6 @@ export function define(g: PlangsGraph) {
         "pl+etoys",
         "pl+ezhil",
         "pl+kojo",
-        "pl+lisp",
         "pl+ms-small-basic",
         "pl+netlogo",
         "pl+rebol",
@@ -31,6 +30,7 @@ export function define(g: PlangsGraph) {
         "pl+turtlestitch",
         "pl+visualworks",
       ],
+      influences: ["pl+lisp"],
     },
   );
 

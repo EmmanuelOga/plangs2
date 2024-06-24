@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "HotSpot", href: "https://en.wikipedia.org/wiki/HotSpot_(virtual_machine)" },
       ],
     },
-    { influenced: ["pl+strongtalk"] },
+    { influences: ["pl+strongtalk"] },
   );
 
   /**/

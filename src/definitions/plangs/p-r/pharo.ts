@@ -28,7 +28,6 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      dialects: ["pl+squeak"],
       implementations: ["pl+smalltalk"],
       influences: ["pl+smalltalk", "pl+squeak"],
       licenses: ["lic+apache", "lic+mit"],

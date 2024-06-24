@@ -17,21 +17,20 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+algol-60", "pl+simscript"],
-      influenced: ["pl+ada"],
-      influences: [
-        "pl+algol-60",
+      influenced: [
+        "pl+ada",
         "pl+beta",
         "pl+clu",
         "pl+eiffel",
         "pl+emerald",
         "pl+list-of-object-oriented-programming-languages",
         "pl+pascal",
-        "pl+simscript",
         "pl+smalltalk",
       ],
+      influences: ["pl+algol-60", "pl+simscript"],
       paradigms: ["para+imperative", "para+multi", "para+objects", "para+structured"],
       people: [
-        ["person+kristen-nygaard", "designer"],
+        ["person+kristen-nygaard", "developer"],
         ["person+ole-johan-dahl", "designer"],
       ],
       platforms: ["platf+unix", "platf+win", "platf+z-slashos"],

@@ -44,6 +44,7 @@ export function define(g: PlangsGraph) {
     },
     {
       influenced: ["pl+qml"],
+      influences: ["pl+qml"],
       licenses: ["lic+gpl", "lic+lgpl", "lic+qt-commercial"],
       platforms: ["platf+cross-platform"],
     },

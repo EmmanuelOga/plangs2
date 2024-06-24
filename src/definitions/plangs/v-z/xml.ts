@@ -95,8 +95,8 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+libxslt", "pl+saxon-xslt", "pl+xalan"],
-      influenced: ["pl+boomerang", "pl+xquery"],
-      influences: ["pl+dsssl"],
+      influenced: ["pl+xquery"],
+      influences: ["pl+boomerang", "pl+dsssl"],
       paradigms: ["para+dec"],
     },
   );

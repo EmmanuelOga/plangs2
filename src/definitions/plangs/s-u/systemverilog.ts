@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       extensions: [".sv"],
     },
     {
-      influenced: ["pl+verilog"],
       influences: ["pl+cpp", "pl+java", "pl+openvera", "pl+verilog", "pl+vhdl"],
       paradigms: ["para+objects", "para+structured"],
       typeSystems: ["tsys+static", "tsys+weak"],

@@ -44,7 +44,7 @@ export function define(g: PlangsGraph) {
         { version: "3.15.0", date: "2016-01-01", kind: "stable" },
       ],
     },
-    { licenses: ["lic+php", "lic+zend"], people: [["person+meta-platforms", "designer"]] },
+    { licenses: ["lic+php", "lic+zend"], people: [["person+meta-platforms", "developer"]] },
   );
 
   /**/

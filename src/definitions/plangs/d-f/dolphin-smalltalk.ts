@@ -40,7 +40,7 @@ export function define(g: PlangsGraph) {
       people: [
         ["person+andy-bower", "designer"],
         ["person+blair-mcglashan", "designer"],
-        ["person+object-arts", "designer"],
+        ["person+object-arts", "developer"],
       ],
       platforms: ["platf+ia-32", "platf+win", "platf+x86-64"],
       typeSystems: ["tsys+dynamic", "tsys+object-oriented"],

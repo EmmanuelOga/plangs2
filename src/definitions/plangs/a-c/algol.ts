@@ -44,6 +44,7 @@ export function define(g: PlangsGraph) {
       ],
       influenced: [
         "pl+bliss",
+        "pl+c",
         "pl+coral",
         "pl+dartmouth-basic",
         "pl+dylan",
@@ -53,14 +54,16 @@ export function define(g: PlangsGraph) {
         "pl+modula-2p",
         "pl+modula-3",
         "pl+newp",
+        "pl+pascal",
+        "pl+pl-slashi",
         "pl+pl-slashm",
         "pl+pl360",
         "pl+rapira",
         "pl+rexx",
         "pl+scheme",
+        "pl+simula",
         "pl+small",
       ],
-      influences: ["pl+c", "pl+pascal", "pl+pl-slashi", "pl+scheme", "pl+simula"],
       paradigms: ["para+imperative", "para+structured"],
       people: [["person+van-wijngaarden", "designer"]],
       typeSystems: ["tsys+static", "tsys+strong"],
@@ -86,16 +89,8 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: [
-        "pl+algol-60",
-        "pl+dartmouth-algol-30",
-        "pl+fortran-95",
-        "pl+mad",
-        "pl+plankalkul",
-        "pl+speedcoding",
-        "pl+superplan",
-      ],
-      influences: ["pl+algol-like", "pl+fortran", "pl+plankalkul", "pl+superplan"],
+      influenced: ["pl+algol-60", "pl+algol-like", "pl+dartmouth-algol-30", "pl+mad"],
+      influences: ["pl+fortran", "pl+fortran-95", "pl+plankalkul", "pl+speedcoding", "pl+superplan"],
       paradigms: ["para+imperative", "para+structured"],
       people: [
         ["person+alan-perlis", "designer"],
@@ -123,10 +118,12 @@ export function define(g: PlangsGraph) {
     },
     {
       influenced: [
+        "pl+ada",
         "pl+algol-68",
         "pl+algol-w",
         "pl+atlas-autocode",
         "pl+basic",
+        "pl+c",
         "pl+clu",
         "pl+combined",
         "pl+concurrent-pascal",
@@ -137,13 +134,16 @@ export function define(g: PlangsGraph) {
         "pl+imp",
         "pl+iswim",
         "pl+napier88",
+        "pl+pascal",
         "pl+pl-slash1",
+        "pl+pl-slashi",
         "pl+pop-2",
         "pl+ps-algol",
         "pl+setl",
+        "pl+simula",
         "pl+simula-67",
       ],
-      influences: ["pl+ada", "pl+algol-58", "pl+c", "pl+combined", "pl+pascal", "pl+pl-slashi", "pl+simula"],
+      influences: ["pl+algol-58"],
       paradigms: ["para+imperative", "para+structured"],
       people: [["person+van-wijngaarden", "designer"]],
       typeSystems: ["tsys+static", "tsys+strong"],
@@ -245,7 +245,7 @@ export function define(g: PlangsGraph) {
       name: "Algol-like",
       websites: [{ kind: "wikipedia", title: "Algol-like", href: "https://en.wikipedia.org/wiki/Algol-like" }],
     },
-    { influenced: ["pl+algol-58"] },
+    { influences: ["pl+algol-58"] },
   );
 
   /**/
@@ -260,8 +260,8 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+pl360"],
-      influenced: ["pl+modula-2", "pl+pascal", "pl+pl360"],
-      influences: ["pl+algol-60", "pl+modula-2", "pl+pascal"],
+      influenced: ["pl+modula-2", "pl+pascal"],
+      influences: ["pl+algol-60", "pl+pl360"],
       paradigms: ["para+imperative", "para+multi", "para+structured"],
       people: [
         ["person+niklaus-wirth", "designer"],
@@ -297,8 +297,8 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+assembly"],
-      influenced: ["pl+dope"],
-      influences: ["pl+algol-58", "pl+algol-60", "pl+dartmouth-time-sharing-system"],
+      influenced: ["pl+dartmouth-time-sharing-system", "pl+dope"],
+      influences: ["pl+algol-58", "pl+algol-60"],
       paradigms: ["para+imperative", "para+multi", "para+structured"],
       people: [
         ["person+anthony-w-knapp", "designer"],
@@ -319,7 +319,7 @@ export function define(g: PlangsGraph) {
     },
     {
       influenced: ["pl+napier88"],
-      influences: ["pl+algol-60", "pl+napier88", "pl+s-algol"],
+      influences: ["pl+algol-60", "pl+s-algol"],
       paradigms: ["para+imperative", "para+multi", "para+structured"],
       people: [
         ["person+paul-cockshott", "designer"],

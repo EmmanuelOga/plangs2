@@ -21,8 +21,8 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+ghostscript", "pl+trueimage"],
-      influenced: ["pl+mesa"],
-      influences: ["pl+interpress", "pl+lisp", "pl+mesa", "pl+portable-document-format"],
+      influenced: ["pl+portable-document-format"],
+      influences: ["pl+interpress", "pl+lisp", "pl+mesa"],
       paradigms: ["para+concatenative", "para+imperative", "para+multi", "para+stack"],
       people: [
         ["person+bill-paxton", "designer"],

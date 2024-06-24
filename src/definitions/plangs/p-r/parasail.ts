@@ -31,8 +31,8 @@ export function define(g: PlangsGraph) {
       references: { influenced: [{ href: "https://nim-lang.org/araq/destructors.html", title: "Nim without GC" }] },
     },
     {
-      influenced: ["pl+ada", "pl+nim"],
-      influences: ["pl+ada", "pl+ml", "pl+modula", "pl+nim", "pl+pascal"],
+      influenced: ["pl+nim"],
+      influences: ["pl+ada", "pl+ml", "pl+modula", "pl+pascal"],
       licenses: ["lic+gpl"],
       paradigms: ["para+compiled", "para+concurrent", "para+imperative", "para+objects", "para+structured"],
       people: [["person+s-tucker-taft", "designer"]],

@@ -10,7 +10,7 @@ export function define(g: PlangsGraph) {
       name: "SuperCollider",
       websites: [{ kind: "wikipedia", title: "SuperCollider", href: "https://en.wikipedia.org/wiki/SuperCollider" }],
     },
-    { influenced: ["pl+j"] },
+    { influences: ["pl+j"] },
   );
 
   /**/

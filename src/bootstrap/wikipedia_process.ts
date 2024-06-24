@@ -130,25 +130,25 @@ function processLanguage(
   }
 }
 
-function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE, val: _Any) {
+function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxType: DATA_TYPE, val: _Any) {
   const pl = g.v_plang.declare(pvid);
 
   // Would be nice to map the reference to the exact edge it belongs to,
   // but that would need more careful scraping... maybe later.
-  if (type === "refs") {
+  if (infoboxType === "refs") {
     pl.references ??= {};
-    pl.references[key] ??= [];
+    pl.references[infoboxKey] ??= [];
     for (const newLink of val) {
-      if (!pl.references[key].some((l: Link) => l.href === newLink.href)) {
-        pl.references[key].push(newLink);
+      if (!pl.references[infoboxKey].some((l: Link) => l.href === newLink.href)) {
+        pl.references[infoboxKey].push(newLink);
       }
     }
     return;
   }
 
-  switch (key) {
+  switch (infoboxKey) {
     case "website":
-      if (type !== "links") return;
+      if (infoboxType !== "links") return;
       {
         for (let { title, href } of val) {
           if (!title || !href) continue;
@@ -186,7 +186,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
       return; // Ignore.
 
     case "major_implementations":
-      if (type !== "links") return;
+      if (infoboxType !== "links") return;
       for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
         const impl = keyFromWikiUrl(href);
         if (!impl) continue;
@@ -202,7 +202,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
       return;
 
     case "implementation_language":
-      if (type !== "links") return;
+      if (infoboxType !== "links") return;
 
       for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
@@ -220,7 +220,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
 
     case "influenced":
     case "influenced_by":
-      if (type !== "links") return;
+      if (infoboxType !== "links") return;
       for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
         if (!key) continue;
@@ -232,7 +232,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
           href: `${WIKIPEDIA_URL}${href}`,
         });
 
-        if (key === "influenced") {
+        if (infoboxKey === "influenced") {
           g.e_l_influenced_l.connect(pvid, `pl+${key}`);
         } else {
           g.e_l_influenced_l.connect(`pl+${key}`, pvid);
@@ -242,7 +242,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
 
     case "dialects":
     case "family":
-      if (type !== "links") return;
+      if (infoboxType !== "links") return;
       for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
         if (!key) continue;
@@ -254,7 +254,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
           href: `${WIKIPEDIA_URL}${href}`,
         });
 
-        if (key === "dialects") {
+        if (infoboxKey === "dialects") {
           g.e_dialect_of.connect(`pl+${key}`, pvid);
         } else {
           g.e_dialect_of.connect(pvid, `pl+${key}`);
@@ -263,7 +263,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
       return;
 
     case "license": // links
-      if (type !== "links") return;
+      if (infoboxType !== "links") return;
       for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
         let key = keyFromWikiUrl(href);
         if (!key) continue;
@@ -283,7 +283,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
 
     case "os":
     case "platform":
-      if (type !== "links") return;
+      if (infoboxType !== "links") return;
       for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
         let key = keyFromWikiUrl(href);
         if (!key) continue; // We'll ignore some old platforms.
@@ -302,7 +302,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
 
     case "paradigm":
     case "paradigms":
-      if (type !== "links") return;
+      if (infoboxType !== "links") return;
       for (const { href, title } of val) {
         let key = keyFromWikiUrl(href);
         if (key) key = cleanParadigm(key);
@@ -338,8 +338,8 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
             pl.scoping.push("dynamic");
           }
         }
-        if (type === "text") processScope(val);
-        if (type !== "links") return;
+        if (infoboxType === "text") processScope(val);
+        if (infoboxType !== "links") return;
         for (const { title, href } of val) {
           processScope(title);
         }
@@ -364,7 +364,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
         }
 
         const rel = g.e_person_plang_role.connect(`person+${key}`, pvid);
-        const inferred_role = key.includes("developer") ? "developer" : "designer";
+        const inferred_role = infoboxKey.includes("developer") ? "developer" : "designer";
         if (!rel.role) {
           rel.role = inferred_role;
         } else if (rel.role !== "designer") {
@@ -375,9 +375,9 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
 
       // Under the "risk" of having duplicated people, we use the name of the person
       // instead of the wiki url, since many people don't have a wikipedia page.
-      if (type === "text") {
+      if (infoboxType === "text") {
         for (const who of extractNames(val)) addPerson(who);
-      } else if (type === "links") {
+      } else if (infoboxType === "links") {
         for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
           const names = extractNames(title);
           if (names.length !== 1) continue;
@@ -399,8 +399,8 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
             if (tsys) g.e_plang_tsys.connect(pvid, `tsys+${tsys}`);
           }
         }
-        if (type === "text") typeFromText(val);
-        else if (type === "links") for (const { title } of val) typeFromText(title);
+        if (infoboxType === "text") typeFromText(val);
+        else if (infoboxType === "links") for (const { title } of val) typeFromText(title);
       }
       return;
 
@@ -420,7 +420,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, key: DATA_ATTR, type: DATA_TYPE
         const rel: Release = {
           version: val.version ?? "unknown",
           date: val.year ? `${val.year}-01-01` : val.date,
-          kind: KINDS[key],
+          kind: KINDS[infoboxKey],
         };
         pl.releases ??= [];
         if (!pl.releases.some((r: Release) => r.version === rel.version && r.date === rel.date)) {
@@ -619,17 +619,17 @@ function keyFromWikiUrl(wikiUrl: string): string | undefined {
     const path = decodeURIComponent(prefix);
     const key = clean(path.split("/wiki/")[1]);
     if (key && !/\-{3,}/.test(key)) return key;
-    console.warn(`Invalid wiki url: ${wikiUrl} -> ${path} -> ${key}`);
+    // console.warn(`Invalid wiki url: ${wikiUrl} -> ${path} -> ${key}`);
   }
 
   if (wikiUrl.includes("?")) {
     const q = new URLSearchParams(wikiUrl.split("?")[1]);
     const key = clean(q.get("title")?.trim() ?? "");
     if (key && !/\-{3,}/.test(key)) return key;
-    console.warn(`Invalid wiki url: ${wikiUrl} -> ${q.get("title")} -> ${key}`);
+    // console.warn(`Invalid wiki url: ${wikiUrl} -> ${q.get("title")} -> ${key}`);
   }
 
-  console.warn(`Invalid wiki url: ${wikiUrl}`);
+  // console.warn(`Invalid wiki url: ${wikiUrl}`);
 }
 
 function cleanTsys(str: string): string | undefined {

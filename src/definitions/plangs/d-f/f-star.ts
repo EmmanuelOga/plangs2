@@ -34,8 +34,7 @@ export function define(g: PlangsGraph) {
       extensions: [".fst"],
     },
     {
-      influenced: ["pl+ml", "pl+ocaml", "pl+sml"],
-      influences: ["pl+coq", "pl+dafny", "pl+f-sharp", "pl+lean", "pl+ocaml", "pl+sml"],
+      influences: ["pl+coq", "pl+dafny", "pl+f-sharp", "pl+lean", "pl+ml", "pl+ocaml", "pl+sml"],
       licenses: ["lic+apache"],
       paradigms: ["para+functional", "para+imperative", "para+multi"],
       people: [

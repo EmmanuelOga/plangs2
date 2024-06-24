@@ -42,7 +42,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+c-sharp"],
-      influenced: ["pl+sql", "pl+tcl"],
       influences: [
         "pl+c-sharp",
         "pl+chef",

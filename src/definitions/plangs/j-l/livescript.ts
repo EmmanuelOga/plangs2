@@ -26,7 +26,6 @@ export function define(g: PlangsGraph) {
       extensions: [".ls"],
     },
     {
-      influenced: ["pl+coffeescript"],
       influences: ["pl+coffeescript", "pl+f-sharp", "pl+haskell", "pl+javascript"],
       licenses: ["lic+mit"],
       paradigms: ["para+functional", "para+multi", "para+objects"],

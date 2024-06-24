@@ -32,8 +32,7 @@ export function define(g: PlangsGraph) {
       extensions: [".scpt", ".scptd"],
     },
     {
-      influenced: ["pl+hypertalk", "pl+smalltalk"],
-      influences: ["pl+hypertalk", "pl+natural-language-programming"],
+      influences: ["pl+hypertalk", "pl+natural-language-programming", "pl+smalltalk"],
       licenses: ["lic+apple-public-source", "lic+proprietary"],
       paradigms: ["para+natural", "para+scripting"],
       platforms: ["platf+mac"],

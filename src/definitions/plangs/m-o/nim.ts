@@ -39,7 +39,7 @@ export function define(g: PlangsGraph) {
       extensions: [".nim", ".nims", ".nimble"],
     },
     {
-      influenced: [
+      influences: [
         "pl+ada",
         "pl+c",
         "pl+cpp",
@@ -47,16 +47,6 @@ export function define(g: PlangsGraph) {
         "pl+modula-3",
         "pl+oberon",
         "pl+oberon-2",
-        "pl+object-pascal",
-        "pl+parasail",
-        "pl+python",
-      ],
-      influences: [
-        "pl+ada",
-        "pl+cpp",
-        "pl+lisp",
-        "pl+modula-3",
-        "pl+oberon",
         "pl+object-pascal",
         "pl+parasail",
         "pl+python",

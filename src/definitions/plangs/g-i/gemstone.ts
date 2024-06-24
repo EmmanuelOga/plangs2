@@ -33,7 +33,8 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+smalltalk"],
-      influences: ["pl+java-ee", "pl+smalltalk"],
+      influenced: ["pl+java-ee"],
+      influences: ["pl+smalltalk"],
       licenses: ["lic+commercial", "lic+proprietary"],
       paradigms: ["para+distributed", "para+in", "para+objects", "para+process"],
       platforms: ["platf+cross-platform", "platf+ia-32", "platf+linux", "platf+mac", "platf+x86-64"],

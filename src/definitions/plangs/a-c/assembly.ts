@@ -68,7 +68,7 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      influenced: ["pl+arkts", "pl+javascript", "pl+typescript"],
+      influenced: ["pl+arkts"],
       influences: ["pl+javascript", "pl+typescript", "pl+webassembly"],
       licenses: ["lic+apache"],
       paradigms: ["para+functional", "para+generic", "para+imperative", "para+multi", "para+objects"],
@@ -96,14 +96,13 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      dialects: ["pl+lisp"],
       implementations: ["pl+allegro-common-lisp"],
       influences: ["pl+lisp", "pl+scheme"],
       licenses: ["lic+proprietary"],
       paradigms: ["para+multi"],
       people: [
         ["person+andy-gavin", "designer"],
-        ["person+naughty-dog", "designer"],
+        ["person+naughty-dog", "developer"],
       ],
       platforms: ["platf+playstation"],
       typeSystems: ["tsys+dynamic", "tsys+latent", "tsys+strong"],
@@ -131,7 +130,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "2.16", date: "2011-07-06", kind: "stable" }],
     },
-    { licenses: ["lic+public-domain"], people: [["person+randall-hyde", "designer"]], platforms: ["platf+ia-32"] },
+    { licenses: ["lic+public-domain"], people: [["person+randall-hyde", "developer"]], platforms: ["platf+ia-32"] },
   );
 
   /**/
@@ -158,7 +157,7 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      influenced: ["pl+asm.js", "pl+assemblyscript"],
+      influenced: ["pl+assemblyscript"],
       influences: ["pl+asm.js", "pl+google-native-client", "pl+lisp"],
       licenses: ["lic+apache"],
       paradigms: ["para+stack", "para+structured"],

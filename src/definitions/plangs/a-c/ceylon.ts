@@ -45,7 +45,6 @@ export function define(g: PlangsGraph) {
       extensions: [".ceylon"],
     },
     {
-      influenced: ["pl+scala"],
       influences: ["pl+java", "pl+lisp", "pl+ml", "pl+scala", "pl+smalltalk", "pl+whiley"],
       licenses: ["lic+apache"],
       paradigms: ["para+objects"],

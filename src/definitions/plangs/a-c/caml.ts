@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
     {
       dialects: ["pl+ats", "pl+f-star", "pl+ocaml", "pl+reason"],
       influenced: ["pl+ocaml"],
-      influences: ["pl+ml", "pl+ocaml"],
+      influences: ["pl+ml"],
       licenses: ["lic+lgpl", "lic+q-public"],
       paradigms: ["para+functional", "para+imperative", "para+multi"],
       people: [

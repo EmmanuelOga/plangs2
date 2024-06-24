@@ -13,23 +13,18 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      dialects: ["pl+ml"],
       influenced: [
         "pl+arkts",
         "pl+cpp",
         "pl+elm",
-        "pl+erlang",
         "pl+f-star",
         "pl+flix",
         "pl+idris",
         "pl+livescript",
-        "pl+ml",
-        "pl+ocaml",
-        "pl+python",
         "pl+scala",
-        "pl+sml",
         "pl+typescript",
       ],
+      influences: ["pl+erlang", "pl+ml", "pl+ocaml", "pl+python", "pl+scala", "pl+sml"],
     },
   );
 

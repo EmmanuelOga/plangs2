@@ -39,7 +39,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+c"],
-      influenced: ["pl+python", "pl+qml", "pl+ruby"],
       influences: ["pl+basic", "pl+c", "pl+c-sharp", "pl+lua", "pl+python", "pl+qml", "pl+ruby", "pl+xbase"],
       licenses: ["lic+mit"],
       paradigms: [

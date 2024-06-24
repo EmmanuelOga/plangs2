@@ -34,7 +34,7 @@ export function define(g: PlangsGraph) {
         { version: "19.0", date: "2024-04-25", kind: "preview" },
       ],
     },
-    { influenced: ["pl+php"], licenses: ["lic+mit"], platforms: ["platf+web"] },
+    { influences: ["pl+php"], licenses: ["lic+mit"], platforms: ["platf+web"] },
   );
 
   /**/

@@ -27,14 +27,14 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+gradle", "pl+grails"],
-      influenced: ["pl+python"],
-      influences: ["pl+java", "pl+kotlin", "pl+python", "pl+ruby", "pl+smalltalk"],
+      influenced: ["pl+kotlin"],
+      influences: ["pl+java", "pl+python", "pl+ruby", "pl+smalltalk"],
       licenses: ["lic+apache"],
       paradigms: ["para+aspect", "para+functional", "para+imperative", "para+multi", "para+objects", "para+scripting"],
       people: [
-        ["person+cedric-champeau", "designer"],
+        ["person+cedric-champeau", "developer"],
         ["person+james-strachan", "designer"],
-        ["person+paul-king", "designer"],
+        ["person+paul-king", "developer"],
       ],
       platforms: ["platf+jvm"],
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+static", "tsys+strong"],

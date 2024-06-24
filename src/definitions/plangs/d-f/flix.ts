@@ -18,7 +18,6 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      influenced: ["pl+scala"],
       influences: ["pl+f-sharp", "pl+go", "pl+haskell", "pl+ocaml", "pl+scala"],
       licenses: ["lic+apache"],
       paradigms: ["para+functional", "para+imperative", "para+logic", "para+multi"],

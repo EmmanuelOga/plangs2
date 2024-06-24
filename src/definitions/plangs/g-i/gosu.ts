@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
     },
     {
       influenced: ["pl+kotlin"],
-      influences: ["pl+c-sharp", "pl+java", "pl+kotlin"],
+      influences: ["pl+c-sharp", "pl+java"],
       licenses: ["lic+apache"],
       platforms: ["platf+jvm"],
       typeSystems: ["tsys+static"],

@@ -98,19 +98,9 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+c", "pl+cpp", "pl+llvm", "pl+scheme"],
-      influenced: [
+      influences: [
         "pl+c",
         "pl+common-lisp",
-        "pl+dylan",
-        "pl+lisp",
-        "pl+matlab",
-        "pl+python",
-        "pl+r",
-        "pl+ruby",
-        "pl+scheme",
-        "pl+wolfram",
-      ],
-      influences: [
         "pl+dylan",
         "pl+fortress",
         "pl+lisp",
@@ -120,6 +110,7 @@ export function define(g: PlangsGraph) {
         "pl+python",
         "pl+r",
         "pl+ruby",
+        "pl+scheme",
         "pl+wolfram",
       ],
       licenses: ["lic+mit"],

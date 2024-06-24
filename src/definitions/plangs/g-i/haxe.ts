@@ -25,7 +25,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+ocaml"],
-      influenced: ["pl+actionscript", "pl+java", "pl+javascript", "pl+ocaml"],
       influences: [
         "pl+actionscript",
         "pl+c-sharp",

@@ -32,7 +32,6 @@ export function define(g: PlangsGraph) {
       extensions: [".cr"],
     },
     {
-      influenced: ["pl+go", "pl+ruby"],
       influences: ["pl+c", "pl+c-sharp", "pl+go", "pl+python", "pl+ruby", "pl+rust"],
       licenses: ["lic+apache"],
       paradigms: ["para+concurrent", "para+multi", "para+objects"],

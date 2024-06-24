@@ -26,11 +26,11 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+python", "pl+setl"],
-      influences: ["pl+algol-68", "pl+python", "pl+setl"],
+      influenced: ["pl+python"],
+      influences: ["pl+algol-68", "pl+setl"],
       paradigms: ["para+imperative", "para+multi", "para+structured"],
       people: [
-        ["person+centrum-wiskunde", "designer"],
+        ["person+centrum-wiskunde", "developer"],
         ["person+lambert-meertens", "designer"],
         ["person+steven-pemberton", "designer"],
       ],

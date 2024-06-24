@@ -23,8 +23,9 @@ export function define(g: PlangsGraph) {
       extensions: [".v"],
     },
     {
-      influenced: ["pl+c", "pl+systemverilog"],
-      influences: ["pl+ada", "pl+c", "pl+fortran", "pl+pascal", "pl+systemverilog"],
+      dialects: ["pl+verilog-ams"],
+      influenced: ["pl+systemverilog"],
+      influences: ["pl+ada", "pl+c", "pl+fortran", "pl+pascal"],
       paradigms: ["para+structured"],
       people: [
         ["person+phil-moorby", "designer"],

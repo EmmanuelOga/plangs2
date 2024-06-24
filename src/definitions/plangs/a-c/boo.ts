@@ -23,12 +23,12 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+c-sharp"],
-      influenced: ["pl+genie", "pl+mirah", "pl+python", "pl+vala"],
-      influences: ["pl+c-sharp", "pl+genie", "pl+python", "pl+vala"],
+      influenced: ["pl+genie", "pl+mirah", "pl+vala"],
+      influences: ["pl+c-sharp", "pl+python"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+objects"],
       people: [
-        ["person+mason-wheeler", "designer"],
+        ["person+mason-wheeler", "developer"],
         ["person+rodrigo-b-de-oliveira", "designer"],
       ],
       platforms: ["platf+.net", "platf+mono"],

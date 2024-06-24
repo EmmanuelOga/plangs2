@@ -25,8 +25,7 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+erlang", "pl+javascript", "pl+ml", "pl+ocaml"],
-      influences: ["pl+erlang", "pl+javascript", "pl+ocaml"],
+      influences: ["pl+erlang", "pl+javascript", "pl+ml", "pl+ocaml"],
       licenses: ["lic+affero-gpl", "lic+mit"],
       paradigms: ["para+functional", "para+imperative", "para+multi"],
       platforms: ["platf+linux", "platf+mac", "platf+win"],

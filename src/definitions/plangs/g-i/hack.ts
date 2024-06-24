@@ -38,14 +38,13 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+java", "pl+php"],
       influences: ["pl+c-sharp", "pl+haskell", "pl+java", "pl+ocaml", "pl+php", "pl+scala"],
       licenses: ["lic+mit"],
       people: [
         ["person+alok-menghrajani", "designer"],
         ["person+drew-paroski", "designer"],
         ["person+julien-verlaguet", "designer"],
-        ["person+meta-platforms", "designer"],
+        ["person+meta-platforms", "developer"],
       ],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+gradual", "tsys+static", "tsys+weak"],

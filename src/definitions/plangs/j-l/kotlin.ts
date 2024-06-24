@@ -28,8 +28,9 @@ export function define(g: PlangsGraph) {
       extensions: [".kt", ".kts", ".kexe", ".klib"],
     },
     {
-      influenced: ["pl+apache-groovy", "pl+gosu", "pl+java", "pl+ml", "pl+scala", "pl+v"],
+      influenced: ["pl+v"],
       influences: [
+        "pl+apache-groovy",
         "pl+c-sharp",
         "pl+eiffel",
         "pl+gosu",
@@ -39,7 +40,6 @@ export function define(g: PlangsGraph) {
         "pl+ml",
         "pl+python",
         "pl+scala",
-        "pl+v",
       ],
       licenses: ["lic+apache"],
       paradigms: [

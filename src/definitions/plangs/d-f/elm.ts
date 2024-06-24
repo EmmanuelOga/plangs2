@@ -47,8 +47,8 @@ export function define(g: PlangsGraph) {
       extensions: [".elm"],
     },
     {
-      influenced: ["pl+gleam", "pl+ml", "pl+ocaml", "pl+rust", "pl+sml"],
-      influences: ["pl+f-sharp", "pl+haskell", "pl+ocaml", "pl+redux", "pl+rust", "pl+sml", "pl+vue.js"],
+      influenced: ["pl+gleam", "pl+redux", "pl+rust", "pl+vue.js"],
+      influences: ["pl+f-sharp", "pl+haskell", "pl+ml", "pl+ocaml", "pl+sml"],
       licenses: ["lic+bsd", "lic+permissive"],
       paradigms: ["para+functional"],
       people: [["person+evan-czaplicki", "designer"]],

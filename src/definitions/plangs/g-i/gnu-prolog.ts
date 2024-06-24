@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       references: { developers: [{ href: "http://cri-dist.univ-paris1.fr/diaz/", title: "Daniel Diaz's Home Page" }] },
       releases: [{ version: "1.5.0", date: "2021-07-08", kind: "stable" }],
     },
-    { licenses: ["lic+gpl", "lic+lgpl"], people: [["person+daniel-diaz", "designer"]] },
+    { licenses: ["lic+gpl", "lic+lgpl"], people: [["person+daniel-diaz", "developer"]] },
   );
 
   /**/

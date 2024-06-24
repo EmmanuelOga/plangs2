@@ -29,20 +29,19 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: [
-        "pl+arkts",
+      influenced: ["pl+arkts", "pl+cuneiform", "pl+rust", "pl+v"],
+      influences: [
+        "pl+c",
         "pl+clu",
-        "pl+cuneiform",
         "pl+d",
+        "pl+functional-programming",
         "pl+lisp",
         "pl+objective-cpp",
         "pl+python",
         "pl+ruby",
         "pl+rust",
         "pl+smalltalk",
-        "pl+v",
       ],
-      influences: ["pl+c", "pl+cuneiform", "pl+functional-programming"],
       licenses: ["lic+apache"],
       paradigms: [
         "para+concurrent",

@@ -45,8 +45,8 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+apl", "pl+matlab"],
-      influences: ["pl+apl", "pl+matlab"],
+      influenced: ["pl+matlab"],
+      influences: ["pl+apl"],
       licenses: ["lic+trialware"],
       paradigms: ["para+imperative"],
       people: [["person+stanley-cohen", "designer"]],

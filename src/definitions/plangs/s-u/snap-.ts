@@ -27,8 +27,8 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+javascript"],
-      influenced: ["pl+apl", "pl+scratch", "pl+turtlestitch"],
-      influences: ["pl+apl", "pl+logo", "pl+scheme", "pl+scratch", "pl+smalltalk", "pl+turtlestitch"],
+      influenced: ["pl+turtlestitch"],
+      influences: ["pl+apl", "pl+logo", "pl+scheme", "pl+scratch", "pl+smalltalk"],
       licenses: ["lic+affero-gpl"],
       paradigms: ["para+educational", "para+event", "para+objects"],
       people: [["person+brian-harvey", "designer"]],

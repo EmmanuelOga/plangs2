@@ -34,8 +34,8 @@ export function define(g: PlangsGraph) {
       extensions: [".icl", ".dcl", ".abc"],
     },
     {
-      influenced: ["pl+haskell", "pl+idris", "pl+iswim", "pl+miranda"],
-      influences: ["pl+haskell", "pl+idris", "pl+miranda"],
+      influenced: ["pl+haskell", "pl+idris"],
+      influences: ["pl+haskell", "pl+iswim", "pl+miranda"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+functional"],
       platforms: ["platf+cross-platform"],

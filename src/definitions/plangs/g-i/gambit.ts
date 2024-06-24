@@ -21,8 +21,7 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+multilisp"],
-      influences: ["pl+lisp", "pl+scheme"],
+      influences: ["pl+lisp", "pl+multilisp", "pl+scheme"],
       licenses: ["lic+apache", "lic+lgpl"],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi"],
       people: [["person+marc-feeley", "designer"]],

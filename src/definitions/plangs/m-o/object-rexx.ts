@@ -40,10 +40,9 @@ export function define(g: PlangsGraph) {
       extensions: [".rxs", ".rex", ".rexx", ".cls"],
     },
     {
-      dialects: ["pl+rexx"],
       implementations: ["pl+cpp"],
-      influenced: ["pl+netrexx", "pl+rexx", "pl+smalltalk"],
-      influences: ["pl+netrexx", "pl+rexx", "pl+smalltalk"],
+      influenced: ["pl+netrexx"],
+      influences: ["pl+rexx", "pl+smalltalk"],
       licenses: ["lic+common-public", "lic+gpl"],
       paradigms: ["para+class", "para+objects"],
       platforms: [

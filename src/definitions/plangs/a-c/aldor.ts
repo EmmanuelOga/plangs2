@@ -21,7 +21,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+axiom"],
-      influenced: ["pl+a-"],
       influences: ["pl+a-", "pl+haskell", "pl+pascal"],
       licenses: ["lic+apache"],
       paradigms: ["para+dependent", "para+functional", "para+imperative", "para+logic", "para+multi", "para+objects"],

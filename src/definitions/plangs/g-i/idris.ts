@@ -38,7 +38,6 @@ export function define(g: PlangsGraph) {
       extensions: [".idr", ".lidr"],
     },
     {
-      influenced: ["pl+agda", "pl+clean", "pl+epigram", "pl+ml", "pl+rust"],
       influences: ["pl+agda", "pl+clean", "pl+coq", "pl+epigram", "pl+f-sharp", "pl+haskell", "pl+ml", "pl+rust"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+functional"],

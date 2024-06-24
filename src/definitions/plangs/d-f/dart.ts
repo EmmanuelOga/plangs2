@@ -49,7 +49,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+flutter"],
-      influenced: ["pl+erlang", "pl+javascript", "pl+smalltalk"],
       influences: [
         "pl+c",
         "pl+c-sharp",

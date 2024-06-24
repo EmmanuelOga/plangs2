@@ -16,8 +16,8 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+gforth"],
-      influenced: ["pl+befunge", "pl+factor", "pl+joy", "pl+lisp", "pl+rebol", "pl+rpl", "pl+stoic"],
-      influences: ["pl+bitcoin", "pl+factor", "pl+joy", "pl+rebol", "pl+rpl", "pl+stoic"],
+      influenced: ["pl+befunge", "pl+bitcoin", "pl+factor", "pl+joy", "pl+rebol", "pl+rpl", "pl+stoic"],
+      influences: ["pl+lisp"],
       paradigms: ["para+concatenative", "para+imperative", "para+reflective", "para+stack"],
       people: [["person+charles-h-moore", "designer"]],
     },

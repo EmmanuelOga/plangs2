@@ -10,7 +10,7 @@ export function define(g: PlangsGraph) {
       name: "Scilab",
       websites: [{ kind: "wikipedia", title: "Scilab", href: "https://en.wikipedia.org/wiki/Scilab" }],
     },
-    { influenced: ["pl+matlab"] },
+    { influences: ["pl+matlab"] },
   );
 
   /**/

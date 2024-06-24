@@ -23,8 +23,8 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+haskell"],
-      influenced: ["pl+epigram", "pl+idris"],
-      influences: ["pl+coq", "pl+epigram", "pl+haskell", "pl+idris"],
+      influenced: ["pl+idris"],
+      influences: ["pl+coq", "pl+epigram", "pl+haskell"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+functional"],
       people: [["person+ulf-norell", "designer"]],

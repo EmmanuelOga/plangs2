@@ -28,7 +28,6 @@ export function define(g: PlangsGraph) {
       extensions: [".sats", ".dats", ".hats"],
     },
     {
-      influenced: ["pl+ocaml"],
       influences: ["pl+cpp", "pl+dependent-ml", "pl+ml", "pl+ocaml"],
       licenses: ["lic+gpl"],
       paradigms: [

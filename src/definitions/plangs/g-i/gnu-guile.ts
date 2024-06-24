@@ -20,8 +20,7 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      influenced: ["pl+scm", "pl+siod"],
-      influences: ["pl+lisp", "pl+scheme", "pl+scm"],
+      influences: ["pl+lisp", "pl+scheme", "pl+scm", "pl+siod"],
       licenses: ["lic+lgpl"],
       people: [
         ["person+aubrey-jaffer", "designer"],

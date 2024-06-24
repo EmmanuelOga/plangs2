@@ -20,13 +20,13 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+c"],
-      influenced: ["pl+gnu-guile", "pl+siod"],
-      influences: ["pl+gnu-guile", "pl+lisp", "pl+scheme", "pl+siod"],
+      influenced: ["pl+gnu-guile"],
+      influences: ["pl+lisp", "pl+scheme", "pl+siod"],
       licenses: ["lic+lgpl"],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi"],
       people: [
         ["person+aubrey-jaffer", "designer"],
-        ["person+radey-shouman", "designer"],
+        ["person+radey-shouman", "developer"],
       ],
       platforms: ["platf+cross-platform", "platf+ia-32", "platf+x86-64"],
       typeSystems: ["tsys+dynamic", "tsys+latent", "tsys+strong"],

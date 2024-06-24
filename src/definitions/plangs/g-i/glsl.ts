@@ -7,7 +7,7 @@ export function define(g: PlangsGraph) {
     "pl+glsl",
     "GLSL",
     { name: "GLSL", websites: [{ kind: "wikipedia", title: "GLSL", href: "https://en.wikipedia.org/wiki/GLSL" }] },
-    { influenced: ["pl+cg"] },
+    { influences: ["pl+cg"] },
   );
 
   /**/

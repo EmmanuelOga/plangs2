@@ -20,7 +20,6 @@ export function define(g: PlangsGraph) {
       extensions: [".ets", ".ts"],
     },
     {
-      influenced: ["pl+java", "pl+javascript", "pl+typescript"],
       influences: [
         "pl+actionscript",
         "pl+assemblyscript",

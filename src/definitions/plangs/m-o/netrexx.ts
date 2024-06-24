@@ -26,8 +26,6 @@ export function define(g: PlangsGraph) {
       extensions: [".nrx"],
     },
     {
-      dialects: ["pl+rexx"],
-      influenced: ["pl+object-rexx", "pl+rexx"],
       influences: ["pl+java", "pl+object-rexx", "pl+pl-slashi", "pl+rexx"],
       licenses: ["lic+icu"],
       paradigms: ["para+imperative", "para+multi", "para+objects", "para+structured"],

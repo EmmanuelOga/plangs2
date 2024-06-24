@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
       extensions: [".zig", ".zir"],
     },
     {
-      influenced: ["pl+c", "pl+rust"],
+      influences: ["pl+c", "pl+rust"],
       licenses: ["lic+mit"],
       paradigms: ["para+concurrent", "para+functional", "para+imperative", "para+multi"],
       people: [["person+andrew-kelley", "designer"]],

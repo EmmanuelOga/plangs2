@@ -10,7 +10,7 @@ export function define(g: PlangsGraph) {
       name: "Korn Shell",
       websites: [{ kind: "wikipedia", title: "Korn Shell", href: "https://en.wikipedia.org/wiki/Korn_Shell" }],
     },
-    { influenced: ["pl+awk"] },
+    { influences: ["pl+awk"] },
   );
 
   /**/

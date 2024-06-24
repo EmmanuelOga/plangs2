@@ -31,7 +31,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+java"],
-      influenced: ["pl+java"],
       influences: ["pl+java", "pl+javascript", "pl+perl"],
       licenses: ["lic+apache", "lic+lgpl", "lic+sun-public"],
       paradigms: ["para+objects", "para+scripting"],

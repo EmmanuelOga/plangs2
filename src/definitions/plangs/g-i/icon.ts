@@ -31,8 +31,9 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+python", "pl+snobol", "pl+unicon"],
-      influences: ["pl+algol", "pl+jq", "pl+python", "pl+snobol"],
+      dialects: ["pl+unicon"],
+      influenced: ["pl+jq", "pl+python", "pl+unicon"],
+      influences: ["pl+algol", "pl+snobol"],
       paradigms: ["para+multi", "para+structured"],
       people: [["person+ralph-griswold", "designer"]],
       typeSystems: ["tsys+dynamic"],

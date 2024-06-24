@@ -29,7 +29,6 @@ export function define(g: PlangsGraph) {
       extensions: [".red", ".reds"],
     },
     {
-      influenced: ["pl+lisp", "pl+rebol", "pl+scala"],
       influences: ["pl+lisp", "pl+lua", "pl+rebol", "pl+scala"],
       licenses: ["lic+boost", "lic+bsd-m"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+symbolic"],

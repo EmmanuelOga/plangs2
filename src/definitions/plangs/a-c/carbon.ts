@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+cpp"],
-      influenced: ["pl+cpp"],
+      influences: ["pl+cpp"],
       licenses: ["lic+apache"],
       typeSystems: ["tsys+inferred", "tsys+nominative", "tsys+static"],
     },

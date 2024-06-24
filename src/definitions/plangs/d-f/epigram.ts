@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
     },
     {
       influenced: ["pl+agda", "pl+idris"],
-      influences: ["pl+agda", "pl+alf", "pl+idris"],
+      influences: ["pl+alf"],
       licenses: ["lic+mit"],
       paradigms: ["para+functional"],
       people: [["person+conor-mcbride", "designer"]],

@@ -106,13 +106,12 @@ export function define(g: PlangsGraph) {
       extensions: [".pyx", ".pxd", ".pxi"],
     },
     {
-      dialects: ["pl+python"],
       implementations: ["pl+python"],
       influences: ["pl+c", "pl+python"],
       licenses: ["lic+apache"],
       people: [
-        ["person+robert-bradshaw", "designer"],
-        ["person+stefan-behnel", "designer"],
+        ["person+robert-bradshaw", "developer"],
+        ["person+stefan-behnel", "developer"],
       ],
       platforms: ["platf+linux", "platf+mac", "platf+win"],
     },
@@ -156,7 +155,7 @@ export function define(g: PlangsGraph) {
       name: "Jupyter",
       websites: [{ kind: "wikipedia", title: "Jupyter", href: "https://en.wikipedia.org/wiki/Jupyter" }],
     },
-    { influenced: ["pl+wolfram"] },
+    { influences: ["pl+wolfram"] },
   );
 
   /**/
@@ -186,7 +185,7 @@ export function define(g: PlangsGraph) {
     },
     {
       licenses: ["lic+mit"],
-      people: [["person+damien-p-george", "designer"]],
+      people: [["person+damien-p-george", "developer"]],
       platforms: [
         "platf+arm",
         "platf+esp32",
@@ -208,7 +207,7 @@ export function define(g: PlangsGraph) {
     "pl+numpy",
     "NumPy",
     { name: "NumPy", websites: [{ kind: "wikipedia", title: "NumPy", href: "https://en.wikipedia.org/wiki/NumPy" }] },
-    { influenced: ["pl+j"] },
+    { influences: ["pl+j"] },
   );
 
   /**/
@@ -235,7 +234,6 @@ export function define(g: PlangsGraph) {
       extensions: [".py"],
     },
     {
-      influenced: ["pl+ampl"],
       influences: ["pl+ampl", "pl+general-algebraic-modeling-system", "pl+python"],
       licenses: ["lic+bsd"],
       people: [
@@ -252,18 +250,13 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+pypy",
-    "RPython",
-    {
-      name: "RPython",
-      websites: [
-        { kind: "wikipedia", title: "PyPy", href: "https://en.wikipedia.org/wiki/PyPy" },
-        { kind: "wikipedia", title: "RPython", href: "https://en.wikipedia.org/wiki/PyPy#RPython" },
-      ],
-    },
-    { dialects: ["pl+python"] },
-  );
+  lb.define("pl+pypy", "RPython", {
+    name: "RPython",
+    websites: [
+      { kind: "wikipedia", title: "PyPy", href: "https://en.wikipedia.org/wiki/PyPy" },
+      { kind: "wikipedia", title: "RPython", href: "https://en.wikipedia.org/wiki/PyPy#RPython" },
+    ],
+  });
 
   /**/
 
@@ -417,7 +410,7 @@ export function define(g: PlangsGraph) {
       extensions: [".py", ".pyw", ".pyz", ".pyi", ".pyc", ".pyd"],
     },
     {
-      dialects: ["pl+mojo"],
+      dialects: ["pl+bazel", "pl+cython", "pl+mojo", "pl+pypy"],
       implementations: [
         "pl+circuitpython",
         "pl+cpython",
@@ -428,43 +421,34 @@ export function define(g: PlangsGraph) {
         "pl+stackless-python",
       ],
       influenced: [
-        "pl+abc",
-        "pl+ada",
         "pl+apache-groovy",
-        "pl+apl",
         "pl+boo",
-        "pl+c",
-        "pl+clu",
         "pl+cobra",
-        "pl+cpp",
+        "pl+coffeescript",
         "pl+crystal",
         "pl+cython",
         "pl+d",
-        "pl+dylan",
         "pl+ec",
         "pl+ecmascript",
         "pl+ezhil",
+        "pl+f-sharp",
         "pl+genie",
+        "pl+go",
         "pl+godot",
         "pl+haxe",
-        "pl+icon",
         "pl+io",
-        "pl+java",
+        "pl+javascript",
         "pl+julia",
         "pl+kotlin",
-        "pl+lisp",
-        "pl+modula-3",
+        "pl+mojo",
         "pl+nim",
-        "pl+occam",
         "pl+powershell",
         "pl+pyomo",
         "pl+ring",
         "pl+ruby",
-        "pl+scheme",
-        "pl+smalltalk",
-        "pl+sml",
         "pl+solidity",
         "pl+squirrel",
+        "pl+swift",
         "pl+v",
         "pl+whiley",
       ],
@@ -472,33 +456,21 @@ export function define(g: PlangsGraph) {
         "pl+abc",
         "pl+ada",
         "pl+algol-68",
-        "pl+apache-groovy",
         "pl+apl",
-        "pl+boo",
         "pl+c",
         "pl+clu",
-        "pl+cobra",
-        "pl+coffeescript",
         "pl+cpp",
-        "pl+d",
         "pl+dylan",
-        "pl+f-sharp",
-        "pl+genie",
-        "pl+go",
-        "pl+godot",
         "pl+haskell",
         "pl+icon",
-        "pl+javascript",
-        "pl+julia",
+        "pl+java",
         "pl+lisp",
         "pl+modula-3",
-        "pl+mojo",
-        "pl+nim",
+        "pl+occam",
         "pl+perl",
-        "pl+ring",
-        "pl+ruby",
+        "pl+scheme",
+        "pl+smalltalk",
         "pl+sml",
-        "pl+swift",
       ],
       licenses: ["lic+python-foundation"],
       paradigms: [
@@ -547,7 +519,7 @@ export function define(g: PlangsGraph) {
         ],
       },
     },
-    { influenced: ["pl+limbo"], licenses: ["lic+python-foundation"], people: [["person+anselm-kruis", "designer"]] },
+    { influences: ["pl+limbo"], licenses: ["lic+python-foundation"], people: [["person+anselm-kruis", "developer"]] },
   );
 
   /**/

@@ -10,7 +10,7 @@ export function define(g: PlangsGraph) {
       name: "LiveCode",
       websites: [{ kind: "wikipedia", title: "LiveCode", href: "https://en.wikipedia.org/wiki/LiveCode" }],
     },
-    { influenced: ["pl+hypertalk"] },
+    { influences: ["pl+hypertalk"] },
   );
 
   /**/

@@ -26,7 +26,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+c"],
-      influenced: ["pl+dylan", "pl+scala", "pl+smalltalk"],
       influences: ["pl+dylan", "pl+scala", "pl+smalltalk"],
       licenses: ["lic+proprietary"],
       paradigms: [

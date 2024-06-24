@@ -34,10 +34,10 @@ export function define(g: PlangsGraph) {
         "pl+ratfiv",
         "pl+s",
         "pl+sisal",
-        "pl+speedcoding",
         "pl+verilog",
         "pl+wolfram",
       ],
+      influences: ["pl+speedcoding"],
     },
   );
 
@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
       name: "Fortran 90",
       websites: [{ kind: "wikipedia", title: "Fortran 90", href: "https://en.wikipedia.org/wiki/Fortran_90" }],
     },
-    { influenced: ["pl+modula-2"] },
+    { influences: ["pl+modula-2"] },
   );
 
   /**/
@@ -94,14 +94,14 @@ export function define(g: PlangsGraph) {
         "pl+silverfrost-ftn95",
         "pl+watcom-c-compiler",
       ],
-      influenced: ["pl+f"],
-      influences: [
+      influenced: [
         "pl+algol-58",
         "pl+basic",
         "pl+c",
         "pl+chapel",
         "pl+cms-2",
         "pl+dope",
+        "pl+f",
         "pl+fortress",
         "pl+idl",
         "pl+matlab",
@@ -109,8 +109,8 @@ export function define(g: PlangsGraph) {
         "pl+pact-i",
         "pl+pl-slashi",
         "pl+ratfor",
-        "pl+speedcoding",
       ],
+      influences: ["pl+speedcoding"],
       paradigms: ["para+array", "para+generic", "para+imperative", "para+multi", "para+objects", "para+structured"],
       people: [["person+john-backus", "designer"]],
       typeSystems: ["tsys+manifest", "tsys+static", "tsys+strong"],

@@ -42,7 +42,7 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+rakudo"],
-      influenced: ["pl+smalltalk"],
+      influenced: ["pl+haskell", "pl+perl"],
       influences: ["pl+haskell", "pl+javascript", "pl+perl", "pl+ruby", "pl+smalltalk"],
       licenses: ["lic+artistic", "lic+gpl"],
       paradigms: ["para+multi"],

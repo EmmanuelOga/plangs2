@@ -24,11 +24,10 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+forth", "pl+joy", "pl+self"],
       influences: ["pl+forth", "pl+joy", "pl+lisp", "pl+self"],
       licenses: ["lic+bsd"],
       paradigms: ["para+concatenative", "para+functional", "para+multi", "para+objects", "para+stack"],
-      people: [["person+slava-pestov", "designer"]],
+      people: [["person+slava-pestov", "developer"]],
       platforms: ["platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

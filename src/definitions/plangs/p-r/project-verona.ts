@@ -32,7 +32,6 @@ export function define(g: PlangsGraph) {
       extensions: [".verona"],
     },
     {
-      influenced: ["pl+cyclone", "pl+rust"],
       influences: ["pl+cyclone", "pl+rust"],
       licenses: ["lic+mit"],
       platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],

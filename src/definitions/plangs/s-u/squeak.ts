@@ -20,20 +20,10 @@ export function define(g: PlangsGraph) {
       extensions: [".image", ".st"],
     },
     {
-      dialects: ["pl+pharo"],
+      dialects: ["pl+croquet-project", "pl+newspeak", "pl+pharo"],
       implementations: ["pl+croquet-project"],
-      influenced: ["pl+pharo", "pl+self"],
-      influences: [
-        "pl+croquet-project",
-        "pl+etoys",
-        "pl+lisp",
-        "pl+logo",
-        "pl+scratch",
-        "pl+self",
-        "pl+simula",
-        "pl+sketchpad",
-        "pl+smalltalk",
-      ],
+      influenced: ["pl+croquet-project", "pl+etoys", "pl+pharo", "pl+scratch"],
+      influences: ["pl+lisp", "pl+logo", "pl+self", "pl+simula", "pl+sketchpad", "pl+smalltalk"],
       licenses: ["lic+apache", "lic+mit"],
       paradigms: ["para+objects"],
       people: [

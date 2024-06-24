@@ -28,10 +28,8 @@ export function define(g: PlangsGraph) {
       extensions: [".nlogo", ".nls"],
     },
     {
-      dialects: ["pl+objectlogo"],
       implementations: ["pl+java", "pl+scala"],
-      influenced: ["pl+objectlogo", "pl+starlogo", "pl+ucblogo"],
-      influences: ["pl+logo", "pl+starlogo"],
+      influences: ["pl+logo", "pl+objectlogo", "pl+starlogo", "pl+ucblogo"],
       licenses: ["lic+gpl"],
       paradigms: ["para+computer", "para+imperative", "para+list", "para+multi", "para+simulation"],
       platforms: ["platf+cross-platform", "platf+ia-32", "platf+jvm", "platf+x86-64"],

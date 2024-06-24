@@ -31,8 +31,8 @@ export function define(g: PlangsGraph) {
       extensions: [".r", ".reb"],
     },
     {
-      influenced: ["pl+forth", "pl+lisp", "pl+objectlogo", "pl+red", "pl+self", "pl+ucblogo"],
-      influences: ["pl+forth", "pl+json", "pl+lisp", "pl+logo", "pl+red", "pl+self"],
+      influenced: ["pl+json", "pl+red"],
+      influences: ["pl+forth", "pl+lisp", "pl+logo", "pl+objectlogo", "pl+self", "pl+ucblogo"],
       licenses: ["lic+apache", "lic+freely-redistributable"],
       paradigms: ["para+data", "para+functional", "para+imperative", "para+language", "para+prototypes"],
       people: [["person+carl-sassenrath", "designer"]],

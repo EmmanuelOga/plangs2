@@ -26,7 +26,6 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+ada", "pl+cpp", "pl+fortran-95", "pl+java", "pl+zpl"],
       influences: [
         "pl+ada",
         "pl+c",
@@ -35,6 +34,7 @@ export function define(g: PlangsGraph) {
         "pl+cray-mta",
         "pl+cray-xmt",
         "pl+fortran",
+        "pl+fortran-95",
         "pl+high-performance-fortran",
         "pl+java",
         "pl+zpl",

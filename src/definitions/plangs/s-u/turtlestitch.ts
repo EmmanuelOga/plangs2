@@ -35,7 +35,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+javascript"],
-      influenced: ["pl+scratch", "pl+snap-"],
       influences: ["pl+logo", "pl+maker-culture", "pl+scratch", "pl+snap-"],
       licenses: ["lic+affero-gpl"],
       paradigms: ["para+educational", "para+event", "para+objects"],

@@ -20,14 +20,13 @@ export function define(g: PlangsGraph) {
       extensions: [".vala", ".vapi"],
     },
     {
-      influenced: ["pl+boo", "pl+c", "pl+d", "pl+java"],
       influences: ["pl+boo", "pl+c", "pl+c-sharp", "pl+cpp", "pl+d", "pl+java"],
       licenses: ["lic+lgpl"],
       paradigms: ["para+imperative", "para+multi", "para+objects", "para+structured"],
       people: [
-        ["person+jurg-billeter", "designer"],
-        ["person+raffaele-sandrini", "designer"],
-        ["person+rico-tzschichholz", "designer"],
+        ["person+jurg-billeter", "developer"],
+        ["person+raffaele-sandrini", "developer"],
+        ["person+rico-tzschichholz", "developer"],
       ],
       platforms: ["platf+cross-platform", "platf+glib"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"],

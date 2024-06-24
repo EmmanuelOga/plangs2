@@ -33,7 +33,6 @@ export function define(g: PlangsGraph) {
       extensions: [".m"],
     },
     {
-      influenced: ["pl+prolog"],
       influences: ["pl+haskell", "pl+hope", "pl+prolog"],
       licenses: ["lic+gpl", "lic+lgpl"],
       people: [["person+zoltan-somogyi", "designer"]],

@@ -25,13 +25,12 @@ export function define(g: PlangsGraph) {
       extensions: [".fan", ".fwt", ".pod"],
     },
     {
-      influenced: ["pl+java", "pl+scala"],
       influences: ["pl+c-sharp", "pl+erlang", "pl+java", "pl+ruby", "pl+scala"],
       licenses: ["lic+academic-free"],
       paradigms: ["para+multi"],
       people: [
-        ["person+andy-frank", "designer"],
-        ["person+brian-frank", "designer"],
+        ["person+andy-frank", "developer"],
+        ["person+brian-frank", "developer"],
       ],
       typeSystems: ["tsys+dynamic", "tsys+static"],
     },

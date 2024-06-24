@@ -25,7 +25,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "2021-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+miranda", "pl+pascal"],
       influences: ["pl+excel-function", "pl+excel-macro", "pl+mathematica", "pl+miranda", "pl+pascal"],
       licenses: ["lic+mit"],
       paradigms: ["para+dec", "para+functional", "para+general", "para+imperative", "para+low", "para+strongly"],

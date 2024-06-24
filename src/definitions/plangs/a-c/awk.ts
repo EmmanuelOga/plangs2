@@ -26,8 +26,8 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+ampl", "pl+c", "pl+ecmascript", "pl+javascript", "pl+perl", "pl+sed", "pl+snobol", "pl+tcl"],
-      influences: ["pl+ampl", "pl+c", "pl+korn-shell", "pl+lua", "pl+perl", "pl+sed", "pl+snobol", "pl+tcl"],
+      influenced: ["pl+ampl", "pl+ecmascript", "pl+javascript", "pl+korn-shell", "pl+lua", "pl+perl", "pl+tcl"],
+      influences: ["pl+c", "pl+sed", "pl+snobol"],
       paradigms: ["para+data", "para+imperative", "para+scripting"],
       people: [
         ["person+alfred-aho", "designer"],

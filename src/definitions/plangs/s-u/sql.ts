@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" }],
       releases: [{ version: "unknown", date: "1998-10-30", kind: "first" }],
     },
-    { influenced: ["pl+ada"], influences: ["pl+ada", "pl+pl-slashsql"], people: [["person+jan-wieck", "designer"]] },
+    { influences: ["pl+ada", "pl+pl-slashsql"], people: [["person+jan-wieck", "designer"]] },
   );
 
   /**/
@@ -45,7 +45,7 @@ export function define(g: PlangsGraph) {
       name: "PL/SQL",
       websites: [{ kind: "wikipedia", title: "PL/SQL", href: "https://en.wikipedia.org/wiki/PL/SQL" }],
     },
-    { influenced: ["pl+ada", "pl+pl-slashpgsql", "pl+sql-slashpsm"] },
+    { influenced: ["pl+pl-slashpgsql", "pl+sql-slashpsm"], influences: ["pl+ada"] },
   );
 
   /**/
@@ -81,18 +81,28 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
+      dialects: [
+        "pl+sql-1999",
+        "pl+sql-2003",
+        "pl+sql-2006",
+        "pl+sql-2008",
+        "pl+sql-2011",
+        "pl+sql-2016",
+        "pl+sql-2023",
+        "pl+sql-92",
+      ],
       implementations: ["pl+list-of-relational-database-management-systems"],
-      influenced: ["pl+datalog", "pl+powershell", "pl+xquery"],
-      influences: [
+      influenced: [
         "pl+contextual-query",
-        "pl+datalog",
         "pl+java-object-oriented-querying",
         "pl+java-persistence-query",
         "pl+language-integrated-query",
         "pl+n1ql",
         "pl+powershell",
         "pl+sparql",
+        "pl+xquery",
       ],
+      influences: ["pl+datalog"],
       paradigms: ["para+dec"],
       people: [
         ["person+donald-d-chamberlin", "designer"],
@@ -105,99 +115,59 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+sql-1999",
-    "SQL:1999",
-    {
-      name: "SQL:1999",
-      websites: [{ kind: "wikipedia", title: "SQL:1999", href: "https://en.wikipedia.org/wiki/SQL:1999" }],
-    },
-    { dialects: ["pl+sql"] },
-  );
+  lb.define("pl+sql-1999", "SQL:1999", {
+    name: "SQL:1999",
+    websites: [{ kind: "wikipedia", title: "SQL:1999", href: "https://en.wikipedia.org/wiki/SQL:1999" }],
+  });
 
   /**/
 
-  lb.define(
-    "pl+sql-2003",
-    "SQL:2003",
-    {
-      name: "SQL:2003",
-      websites: [{ kind: "wikipedia", title: "SQL:2003", href: "https://en.wikipedia.org/wiki/SQL:2003" }],
-    },
-    { dialects: ["pl+sql"] },
-  );
+  lb.define("pl+sql-2003", "SQL:2003", {
+    name: "SQL:2003",
+    websites: [{ kind: "wikipedia", title: "SQL:2003", href: "https://en.wikipedia.org/wiki/SQL:2003" }],
+  });
 
   /**/
 
-  lb.define(
-    "pl+sql-2006",
-    "SQL:2006",
-    {
-      name: "SQL:2006",
-      websites: [{ kind: "wikipedia", title: "SQL:2006", href: "https://en.wikipedia.org/wiki/SQL:2006" }],
-    },
-    { dialects: ["pl+sql"] },
-  );
+  lb.define("pl+sql-2006", "SQL:2006", {
+    name: "SQL:2006",
+    websites: [{ kind: "wikipedia", title: "SQL:2006", href: "https://en.wikipedia.org/wiki/SQL:2006" }],
+  });
 
   /**/
 
-  lb.define(
-    "pl+sql-2008",
-    "SQL:2008",
-    {
-      name: "SQL:2008",
-      websites: [{ kind: "wikipedia", title: "SQL:2008", href: "https://en.wikipedia.org/wiki/SQL:2008" }],
-    },
-    { dialects: ["pl+sql"] },
-  );
+  lb.define("pl+sql-2008", "SQL:2008", {
+    name: "SQL:2008",
+    websites: [{ kind: "wikipedia", title: "SQL:2008", href: "https://en.wikipedia.org/wiki/SQL:2008" }],
+  });
 
   /**/
 
-  lb.define(
-    "pl+sql-2011",
-    "SQL:2011",
-    {
-      name: "SQL:2011",
-      websites: [{ kind: "wikipedia", title: "SQL:2011", href: "https://en.wikipedia.org/wiki/SQL:2011" }],
-    },
-    { dialects: ["pl+sql"] },
-  );
+  lb.define("pl+sql-2011", "SQL:2011", {
+    name: "SQL:2011",
+    websites: [{ kind: "wikipedia", title: "SQL:2011", href: "https://en.wikipedia.org/wiki/SQL:2011" }],
+  });
 
   /**/
 
-  lb.define(
-    "pl+sql-2016",
-    "SQL:2016",
-    {
-      name: "SQL:2016",
-      websites: [{ kind: "wikipedia", title: "SQL:2016", href: "https://en.wikipedia.org/wiki/SQL:2016" }],
-    },
-    { dialects: ["pl+sql"] },
-  );
+  lb.define("pl+sql-2016", "SQL:2016", {
+    name: "SQL:2016",
+    websites: [{ kind: "wikipedia", title: "SQL:2016", href: "https://en.wikipedia.org/wiki/SQL:2016" }],
+  });
 
   /**/
 
-  lb.define(
-    "pl+sql-2023",
-    "SQL:2023",
-    {
-      name: "SQL:2023",
-      websites: [{ kind: "wikipedia", title: "SQL:2023", href: "https://en.wikipedia.org/wiki/SQL:2023" }],
-    },
-    { dialects: ["pl+sql"] },
-  );
+  lb.define("pl+sql-2023", "SQL:2023", {
+    name: "SQL:2023",
+    websites: [{ kind: "wikipedia", title: "SQL:2023", href: "https://en.wikipedia.org/wiki/SQL:2023" }],
+  });
 
   /**/
 
-  lb.define(
-    "pl+sql-92",
-    "SQL-92",
-    {
-      name: "SQL-92",
-      websites: [{ kind: "wikipedia", title: "SQL-92", href: "https://en.wikipedia.org/wiki/SQL-92" }],
-    },
-    { dialects: ["pl+sql"] },
-  );
+  lb.define("pl+sql-92", "SQL-92", {
+    name: "SQL-92",
+    websites: [{ kind: "wikipedia", title: "SQL-92", href: "https://en.wikipedia.org/wiki/SQL-92" }],
+  });
 
   /**/
 
@@ -226,7 +196,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+mariadb", "pl+mimer-sql", "pl+mysql", "pl+pl-slashsql", "pl+sql-pl"],
-      influenced: ["pl+ada"],
       influences: ["pl+ada", "pl+pl-slashsql"],
       paradigms: ["para+multi"],
       platforms: ["platf+cross-platform"],

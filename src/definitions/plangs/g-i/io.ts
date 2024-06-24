@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       references: { stable_release: [{ href: "https://github.com/IoLanguage/io/releases", title: "Io Releases" }] },
     },
     {
-      influenced: ["pl+lisp", "pl+newtonscript", "pl+self", "pl+smalltalk", "pl+urbiscript"],
+      influenced: ["pl+urbiscript"],
       influences: [
         "pl+actor-model-middle-history",
         "pl+lisp",
@@ -32,8 +32,8 @@ export function define(g: PlangsGraph) {
       ],
       paradigms: ["para+objects", "para+prototypes"],
       people: [
-        ["person+jeremy-tregunna", "designer"],
-        ["person+jonathan-wright", "designer"],
+        ["person+jeremy-tregunna", "developer"],
+        ["person+jonathan-wright", "developer"],
         ["person+steve-dekorte", "designer"],
       ],
       typeSystems: ["tsys+dynamic", "tsys+strong"],

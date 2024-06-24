@@ -25,9 +25,7 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      dialects: ["pl+lisp"],
       implementations: ["pl+erlang"],
-      influenced: ["pl+clojure", "pl+elixir"],
       influences: ["pl+clojure", "pl+common-lisp", "pl+elixir", "pl+erlang", "pl+hy", "pl+maclisp", "pl+scheme"],
       licenses: ["lic+apache"],
       paradigms: ["para+concurrent", "para+functional", "para+multi"],

@@ -33,13 +33,13 @@ export function define(g: PlangsGraph) {
       extensions: [".+", ".a", ".m"],
     },
     {
-      influenced: ["pl+apl", "pl+k", "pl+q"],
-      influences: ["pl+apl", "pl+k"],
+      influenced: ["pl+k", "pl+q"],
+      influences: ["pl+apl"],
       licenses: ["lic+gpl"],
       paradigms: ["para+array"],
       people: [
         ["person+arthur-whitney", "designer"],
-        ["person+morgan-stanley", "designer"],
+        ["person+morgan-stanley", "developer"],
       ],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

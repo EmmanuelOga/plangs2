@@ -13,9 +13,8 @@ export function define(g: PlangsGraph) {
       extensions: [".b", ".bf"],
     },
     {
-      dialects: ["pl+p--"],
-      influenced: ["pl+malbolge", "pl+p--"],
-      influences: ["pl+esoteric", "pl+malbolge", "pl+p--"],
+      influenced: ["pl+malbolge"],
+      influences: ["pl+esoteric", "pl+p--"],
       paradigms: ["para+esoteric", "para+imperative", "para+structured"],
       people: [["person+urban-muller", "designer"]],
     },

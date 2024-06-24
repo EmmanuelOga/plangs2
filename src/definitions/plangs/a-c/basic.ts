@@ -32,7 +32,8 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influences: ["pl+basic-ap", "pl+basic-xl", "pl+data-general-business-basic", "pl+turbo-basic-xl"],
+      influenced: ["pl+basic-ap", "pl+basic-xl", "pl+turbo-basic-xl"],
+      influences: ["pl+data-general-business-basic"],
       licenses: ["lic+commercial", "lic+proprietary"],
       people: [
         ["person+kathleen-o-brien", "designer"],
@@ -59,7 +60,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1964-05-01", kind: "first" }],
     },
     {
-      dialects: ["pl+atari-basic", "pl+open", "pl+vilnius-basic"],
+      dialects: ["pl+atari-basic", "pl+open"],
       implementations: [
         "pl+applesoft-basic",
         "pl+atari-basic",
@@ -85,23 +86,15 @@ export function define(g: PlangsGraph) {
         "pl+dibol",
         "pl+euphoria",
         "pl+ezhil",
-        "pl+fortran-95",
+        "pl+grass",
         "pl+perl",
         "pl+ring",
         "pl+ruby",
-        "pl+speedcoding",
-        "pl+visual-basic",
-      ],
-      influences: [
-        "pl+algol-60",
-        "pl+comal",
-        "pl+fortran",
-        "pl+grass",
-        "pl+joss",
         "pl+visual-basic",
         "pl+visual-basic-.net",
         "pl+xojo",
       ],
+      influences: ["pl+algol-60", "pl+fortran", "pl+fortran-95", "pl+joss", "pl+speedcoding"],
       paradigms: ["para+imperative", "para+non", "para+objects"],
       people: [
         ["person+john-g-kemeny", "designer"],
@@ -119,7 +112,7 @@ export function define(g: PlangsGraph) {
       name: "BASIC A+",
       websites: [{ kind: "wikipedia", title: "BASIC A+", href: "https://en.wikipedia.org/wiki/BASIC_A%2B" }],
     },
-    { influenced: ["pl+atari-basic"] },
+    { influences: ["pl+atari-basic"] },
   );
 
   /**/
@@ -133,8 +126,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1970-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+focal", "pl+tymshare-super-basic"],
-      influences: ["pl+dartmouth-basic", "pl+ms-basic", "pl+tymshare-super-basic"],
+      influenced: ["pl+ms-basic"],
+      influences: ["pl+dartmouth-basic", "pl+focal", "pl+tymshare-super-basic"],
       paradigms: ["para+imperative"],
     },
   );
@@ -148,7 +141,7 @@ export function define(g: PlangsGraph) {
       name: "BASIC XL",
       websites: [{ kind: "wikipedia", title: "BASIC XL", href: "https://en.wikipedia.org/wiki/BASIC_XL" }],
     },
-    { influenced: ["pl+atari-basic"] },
+    { influences: ["pl+atari-basic"] },
   );
 
   /**/
@@ -160,7 +153,7 @@ export function define(g: PlangsGraph) {
       name: "Basic4android",
       websites: [{ kind: "wikipedia", title: "Basic4android", href: "https://en.wikipedia.org/wiki/Basic4android" }],
     },
-    { influenced: ["pl+visual-basic"] },
+    { influences: ["pl+visual-basic"] },
   );
 
   /**/
@@ -177,7 +170,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "2005-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+visual-basic"],
       influences: ["pl+visual-basic"],
       paradigms: ["para+event", "para+imperative"],
       platforms: ["platf+android", "platf+arduino", "platf+mac", "platf+win"],
@@ -244,8 +236,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1964-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+basic-plus", "pl+darsimco", "pl+dope", "pl+tymshare-super-basic"],
-      influences: ["pl+algol", "pl+fortran", "pl+list-of-basic-dialects"],
+      influenced: ["pl+basic-plus", "pl+list-of-basic-dialects", "pl+tymshare-super-basic"],
+      influences: ["pl+algol", "pl+darsimco", "pl+dope", "pl+fortran"],
       paradigms: ["para+array", "para+imperative"],
       people: [
         ["person+john-g-kemeny", "designer"],
@@ -293,8 +285,7 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+qbasic"],
-      influences: ["pl+c", "pl+quickbasic"],
+      influences: ["pl+c", "pl+qbasic", "pl+quickbasic"],
       licenses: ["lic+gpl", "lic+lgpl"],
       paradigms: ["para+imperative", "para+objects"],
       people: [["person+andre-victor", "designer"]],
@@ -338,7 +329,6 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+java", "pl+visual-basic"],
       influences: ["pl+java", "pl+visual-basic"],
       licenses: ["lic+gpl"],
       people: [["person+benoit-minisini", "designer"]],
@@ -374,15 +364,8 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influenced: ["pl+ibm-basica", "pl+msx-basic", "pl+qbasic"],
-      influences: [
-        "pl+ibm-basica",
-        "pl+ibm-cassette-basic",
-        "pl+ibm-disk-basic",
-        "pl+msx-basic",
-        "pl+qbasic",
-        "pl+quickbasic",
-      ],
+      influenced: ["pl+msx-basic", "pl+qbasic", "pl+quickbasic"],
+      influences: ["pl+ibm-basica", "pl+ibm-cassette-basic", "pl+ibm-disk-basic"],
       licenses: ["lic+mit", "lic+proprietary"],
       platforms: ["platf+dos"],
     },
@@ -410,7 +393,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "1981-01-01", kind: "first" }],
     },
-    { influenced: ["pl+gw-basic"], influences: ["pl+gw-basic"] },
+    { influenced: ["pl+gw-basic"] },
   );
 
   /**/
@@ -450,8 +433,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1977-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+tiny-basic"],
-      influences: ["pl+li-chen-wang", "pl+tiny-basic", "pl+trs-80-level-ii-basic"],
+      influenced: ["pl+trs-80-level-ii-basic"],
+      influences: ["pl+li-chen-wang", "pl+tiny-basic"],
       people: [["person+steve-leininger", "designer"]],
     },
   );
@@ -497,7 +480,7 @@ export function define(g: PlangsGraph) {
         },
       ],
     },
-    { influenced: ["pl+dartmouth-basic"] },
+    { influences: ["pl+dartmouth-basic"] },
   );
 
   /**/
@@ -511,7 +494,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Microsoft BASIC", href: "https://en.wikipedia.org/wiki/Microsoft_BASIC" },
       ],
     },
-    { influenced: ["pl+basic-plus", "pl+visual-basic"] },
+    { influenced: ["pl+visual-basic"], influences: ["pl+basic-plus"] },
   );
 
   /**/
@@ -559,8 +542,7 @@ export function define(g: PlangsGraph) {
       extensions: [".sb"],
     },
     {
-      influenced: ["pl+objectlogo"],
-      influences: ["pl+logo", "pl+qbasic", "pl+visual-basic-.net"],
+      influences: ["pl+logo", "pl+objectlogo", "pl+qbasic", "pl+visual-basic-.net"],
       licenses: ["lic+mit"],
       paradigms: ["para+imperative", "para+objects", "para+structured"],
       platforms: ["platf+.net", "platf+web", "platf+win"],
@@ -585,8 +567,8 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+gw-basic", "pl+vilnius-basic"],
-      influences: ["pl+gw-basic", "pl+vilnius-basic"],
+      influenced: ["pl+vilnius-basic"],
+      influences: ["pl+gw-basic"],
       licenses: ["lic+eula", "lic+ms"],
       paradigms: ["para+imperative"],
     },
@@ -605,7 +587,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "9.0.4", date: "2024-05-01", kind: "stable" }],
     },
-    { influenced: ["pl+visual-basic"], licenses: ["lic+proprietary"] },
+    { influences: ["pl+visual-basic"], licenses: ["lic+proprietary"] },
   );
 
   /**/
@@ -658,8 +640,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1991-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+gw-basic", "pl+ms-small-basic", "pl+qb64", "pl+visual-basic"],
-      influences: ["pl+freebasic", "pl+gw-basic", "pl+qb64", "pl+quickbasic", "pl+smallbasic"],
+      influenced: ["pl+freebasic", "pl+ms-small-basic", "pl+qb64", "pl+smallbasic", "pl+visual-basic"],
+      influences: ["pl+gw-basic", "pl+quickbasic"],
       licenses: ["lic+proprietary"],
       paradigms: ["para+imperative"],
       platforms: ["platf+arcaos", "platf+dos", "platf+win"],
@@ -690,14 +672,8 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: [
-        "pl+freebasic",
-        "pl+gw-basic",
-        "pl+liberty-basic",
-        "pl+qb64",
-        "pl+qbasic",
-        "pl+visual-basic-for-applications",
-      ],
+      influenced: ["pl+freebasic", "pl+liberty-basic", "pl+qb64", "pl+qbasic", "pl+visual-basic-for-applications"],
+      influences: ["pl+gw-basic"],
       licenses: ["lic+proprietary"],
       platforms: ["platf+x86"],
     },
@@ -739,7 +715,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "12.27", date: "2024-04-26", kind: "stable" }],
       extensions: [".bas"],
     },
-    { implementations: ["pl+basic"], influenced: ["pl+qbasic"], licenses: ["lic+gpl3"] },
+    { implementations: ["pl+basic"], influences: ["pl+qbasic"], licenses: ["lic+gpl3"] },
   );
 
   /**/
@@ -760,11 +736,10 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1976-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+level-i-basic"],
-      influences: ["pl+bally-astrocade", "pl+level-i-basic", "pl+sharp-pc-1211"],
+      influenced: ["pl+bally-astrocade", "pl+level-i-basic", "pl+sharp-pc-1211"],
       people: [
         ["person+dennis-allison", "designer"],
-        ["person+li-chen-wang", "designer"],
+        ["person+li-chen-wang", "developer"],
       ],
     },
   );
@@ -788,7 +763,7 @@ export function define(g: PlangsGraph) {
         { version: "unknown", date: "2018-01-01", kind: "stable" },
       ],
     },
-    { influenced: ["pl+level-i-basic"] },
+    { influences: ["pl+level-i-basic"] },
   );
 
   /**/
@@ -819,7 +794,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "1985-01-01", kind: "first" }],
     },
-    { influenced: ["pl+atari-basic"], platforms: ["platf+atari"] },
+    { influences: ["pl+atari-basic"], platforms: ["platf+atari"] },
   );
 
   /**/
@@ -834,7 +809,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "1968-01-01", kind: "first" }],
     },
-    { influenced: ["pl+basic-plus"], influences: ["pl+basic-plus", "pl+cal", "pl+dartmouth-basic", "pl+joss"] },
+    { influenced: ["pl+basic-plus"], influences: ["pl+cal", "pl+dartmouth-basic", "pl+joss"] },
   );
 
   /**/
@@ -847,7 +822,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "Vilnius Basic", href: "https://en.wikipedia.org/wiki/Vilnius_BASIC" }],
       releases: [{ version: "unknown", date: "1986-01-01", kind: "first" }],
     },
-    { influenced: ["pl+msx-basic"], influences: ["pl+msx-basic"], paradigms: ["para+algorithmic", "para+imperative"] },
+    { dialects: ["pl+basic"], influences: ["pl+msx-basic"], paradigms: ["para+algorithmic", "para+imperative"] },
   );
 
   /**/
@@ -877,20 +852,17 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+ms-visual-studio"],
-      influenced: ["pl+basic", "pl+basic4ppc", "pl+gambas", "pl+visual-basic-for-applications"],
-      influences: [
-        "pl+basic",
+      influenced: [
         "pl+basic4android",
         "pl+basic4ppc",
         "pl+gambas",
-        "pl+ms-basic",
         "pl+ns-basic",
-        "pl+qbasic",
         "pl+visual-basic-.net",
         "pl+visual-basic-for-applications",
         "pl+win",
         "pl+xojo",
       ],
+      influences: ["pl+basic", "pl+ms-basic", "pl+qbasic"],
       paradigms: ["para+event", "para+objects"],
       platforms: ["platf+dos", "platf+win"],
       typeSystems: ["tsys+static", "tsys+strong"],
@@ -908,7 +880,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Visual Basic .NET", href: "https://en.wikipedia.org/wiki/Visual_Basic_.NET" },
       ],
     },
-    { influenced: ["pl+basic", "pl+ms-small-basic", "pl+visual-basic"] },
+    { influenced: ["pl+ms-small-basic"], influences: ["pl+basic", "pl+visual-basic"] },
   );
 
   /**/
@@ -937,7 +909,6 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influenced: ["pl+visual-basic"],
       influences: ["pl+quickbasic", "pl+visual-basic"],
       licenses: ["lic+commercial", "lic+proprietary"],
       paradigms: ["para+multi"],
@@ -961,7 +932,7 @@ export function define(g: PlangsGraph) {
       references: { stable_release: [{ href: "https://www.xojo.com/download/", title: "Xojo: Downloads" }] },
       releases: [{ version: "3.1", date: "2023-10-25", kind: "stable" }],
     },
-    { influenced: ["pl+basic", "pl+visual-basic"], licenses: ["lic+freemium"] },
+    { influences: ["pl+basic", "pl+visual-basic"], licenses: ["lic+freemium"] },
   );
 
   /**/

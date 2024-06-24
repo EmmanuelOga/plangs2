@@ -40,7 +40,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1997-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+oberon", "pl+oberon-2", "pl+pascal"],
       influences: ["pl+oberon", "pl+oberon-2", "pl+pascal"],
       paradigms: ["para+imperative", "para+modular", "para+objects", "para+structured"],
       typeSystems: ["tsys+static", "tsys+strong"],
@@ -107,11 +106,7 @@ export function define(g: PlangsGraph) {
         ],
       },
     },
-    {
-      dialects: ["pl+object-pascal", "pl+pascal"],
-      influenced: ["pl+cppbuilder", "pl+oxygene"],
-      licenses: ["lic+freemium"],
-    },
+    { influenced: ["pl+cppbuilder", "pl+oxygene"], licenses: ["lic+freemium"] },
   );
 
   /**/
@@ -137,7 +132,7 @@ export function define(g: PlangsGraph) {
         { version: "3.3.1", kind: "preview" },
       ],
     },
-    { dialects: ["pl+object-pascal"], licenses: ["lic+gpl", "lic+lgpl"] },
+    { licenses: ["lic+gpl", "lic+lgpl"] },
   );
 
   /**/
@@ -173,6 +168,7 @@ export function define(g: PlangsGraph) {
       extensions: [".p", ".pp", ".pas"],
     },
     {
+      dialects: ["pl+delphi", "pl+free-pascal", "pl+oxygene", "pl+pascalabc.net", "pl+turbo-pascal"],
       implementations: [
         "pl+.net",
         "pl+arm-architecture-family",
@@ -188,17 +184,8 @@ export function define(g: PlangsGraph) {
         "pl+sparc",
         "pl+x86",
       ],
-      influenced: ["pl+genie", "pl+java", "pl+nim", "pl+oxygene", "pl+pascal", "pl+pascal-script"],
-      influences: [
-        "pl+c-sharp",
-        "pl+c-slashal",
-        "pl+genie",
-        "pl+java",
-        "pl+nim",
-        "pl+pascal",
-        "pl+simula",
-        "pl+smalltalk",
-      ],
+      influenced: ["pl+c-sharp", "pl+c-slashal", "pl+genie", "pl+java", "pl+nim", "pl+oxygene", "pl+pascal-script"],
+      influences: ["pl+pascal", "pl+simula", "pl+smalltalk"],
       paradigms: [
         "para+component",
         "para+event",
@@ -210,7 +197,7 @@ export function define(g: PlangsGraph) {
       ],
       people: [
         ["person+anders-hejlsberg", "designer"],
-        ["person+borland-international", "designer"],
+        ["person+borland-international", "developer"],
         ["person+larry-tesler", "designer"],
         ["person+niklaus-wirth", "designer"],
       ],
@@ -248,7 +235,16 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      dialects: ["pl+ada", "pl+clarion", "pl+concurrent-pascal", "pl+object-pascal", "pl+planc"],
+      dialects: [
+        "pl+ada",
+        "pl+clarion",
+        "pl+concurrent-pascal",
+        "pl+delphi",
+        "pl+object-pascal",
+        "pl+planc",
+        "pl+turbo-pascal",
+        "pl+ucsd-pascal",
+      ],
       implementations: [
         "pl+berkeley-software-distribution",
         "pl+cdc-6000",
@@ -266,9 +262,7 @@ export function define(g: PlangsGraph) {
         "pl+a-",
         "pl+ada",
         "pl+aldor",
-        "pl+algol",
-        "pl+algol-60",
-        "pl+algol-w",
+        "pl+c-sharp",
         "pl+c-slashal",
         "pl+charm",
         "pl+comal",
@@ -279,6 +273,7 @@ export function define(g: PlangsGraph) {
         "pl+euclid",
         "pl+go",
         "pl+hypertalk",
+        "pl+java",
         "pl+karel",
         "pl+kuka-robot",
         "pl+limbo",
@@ -287,41 +282,23 @@ export function define(g: PlangsGraph) {
         "pl+modula-2p",
         "pl+modula-3",
         "pl+ms-power-fx",
+        "pl+oberon",
+        "pl+oberon-2",
         "pl+object-pascal",
         "pl+ocaml",
+        "pl+oxygene",
         "pl+parasail",
         "pl+pascal-script",
         "pl+seed7",
-        "pl+simula-67",
         "pl+sisal",
         "pl+sml",
+        "pl+structured-text",
         "pl+verilog",
         "pl+vhdl",
         "pl+wolfram",
         "pl+zonnon",
       ],
-      influences: [
-        "pl+ada",
-        "pl+algol-w",
-        "pl+c-sharp",
-        "pl+c-slashal",
-        "pl+component-pascal",
-        "pl+go",
-        "pl+java",
-        "pl+modula",
-        "pl+modula-2",
-        "pl+modula-3",
-        "pl+ms-power-fx",
-        "pl+oberon",
-        "pl+oberon-2",
-        "pl+object-pascal",
-        "pl+oxygene",
-        "pl+seed7",
-        "pl+simula",
-        "pl+sml",
-        "pl+structured-text",
-        "pl+vhdl",
-      ],
+      influences: ["pl+algol", "pl+algol-60", "pl+algol-w", "pl+simula", "pl+simula-67"],
       paradigms: ["para+imperative", "para+structured"],
       people: [["person+niklaus-wirth", "designer"]],
       typeSystems: ["tsys+safe", "tsys+static", "tsys+strong"],
@@ -358,7 +335,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+object-pascal", "pl+pascal"],
       paradigms: ["para+imperative", "para+objects", "para+scripting"],
-      people: [["person+free-pascal", "designer"]],
+      people: [["person+free-pascal", "developer"]],
       platforms: ["platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+strong"],
     },
@@ -366,27 +343,17 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+pascalabc.net",
-    "PascalABC.NET",
-    {
-      name: "PascalABC.NET",
-      websites: [{ kind: "wikipedia", title: "PascalABC.NET", href: "https://en.wikipedia.org/wiki/PascalABC.NET" }],
-    },
-    { dialects: ["pl+object-pascal"] },
-  );
+  lb.define("pl+pascalabc.net", "PascalABC.NET", {
+    name: "PascalABC.NET",
+    websites: [{ kind: "wikipedia", title: "PascalABC.NET", href: "https://en.wikipedia.org/wiki/PascalABC.NET" }],
+  });
 
   /**/
 
-  lb.define(
-    "pl+turbo-pascal",
-    "Turbo Pascal",
-    {
-      name: "Turbo Pascal",
-      websites: [{ kind: "wikipedia", title: "Turbo Pascal", href: "https://en.wikipedia.org/wiki/Turbo_Pascal" }],
-    },
-    { dialects: ["pl+object-pascal", "pl+pascal"] },
-  );
+  lb.define("pl+turbo-pascal", "Turbo Pascal", {
+    name: "Turbo Pascal",
+    websites: [{ kind: "wikipedia", title: "Turbo Pascal", href: "https://en.wikipedia.org/wiki/Turbo_Pascal" }],
+  });
 
   /**/
 
@@ -402,7 +369,7 @@ export function define(g: PlangsGraph) {
         { version: "2.2", date: "1987-01-01", kind: "other" },
       ],
     },
-    { dialects: ["pl+pascal"], influenced: ["pl+java"], people: [["person+san-diego", "designer"]] },
+    { influenced: ["pl+java"], people: [["person+san-diego", "developer"]] },
   );
 
   /**/

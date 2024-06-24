@@ -39,7 +39,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+rust"],
-      influenced: ["pl+elixir"],
       influences: ["pl+elixir", "pl+elm", "pl+erlang", "pl+go", "pl+javascript", "pl+ocaml", "pl+rust"],
       licenses: ["lic+apache"],
       paradigms: ["para+concurrent", "para+functional", "para+multi"],

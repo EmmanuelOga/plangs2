@@ -12,8 +12,9 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1977-01-01", kind: "first" }],
     },
     {
-      influenced: ["pl+prolog", "pl+sql"],
-      influences: ["pl+prolog", "pl+sql"],
+      dialects: ["pl+.ql", "pl+datomic", "pl+souffle"],
+      influenced: ["pl+sql"],
+      influences: ["pl+prolog"],
       paradigms: ["para+dec", "para+logic"],
       typeSystems: ["tsys+weak"],
     },

@@ -24,8 +24,8 @@ export function define(g: PlangsGraph) {
     {
       licenses: ["lic+bsd-s", "lic+lgpl"],
       people: [
-        ["person+anjo-anjewierden", "designer"],
-        ["person+jan-wielemaker", "designer"],
+        ["person+anjo-anjewierden", "developer"],
+        ["person+jan-wielemaker", "developer"],
       ],
     },
   );

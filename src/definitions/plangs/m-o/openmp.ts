@@ -34,7 +34,7 @@ export function define(g: PlangsGraph) {
       },
       releases: [{ version: "5.2", date: "2021-01-01", kind: "stable" }],
     },
-    { influenced: ["pl+cilk-plus"] },
+    { influences: ["pl+cilk-plus"] },
   );
 
   /**/

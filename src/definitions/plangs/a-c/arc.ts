@@ -22,7 +22,6 @@ export function define(g: PlangsGraph) {
       extensions: [".arc"],
     },
     {
-      dialects: ["pl+lisp"],
       implementations: ["pl+racket"],
       influences: ["pl+lisp", "pl+scheme"],
       licenses: ["lic+artistic"],

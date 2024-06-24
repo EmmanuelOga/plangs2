@@ -25,8 +25,7 @@ export function define(g: PlangsGraph) {
       extensions: [".v", ".vsh"],
     },
     {
-      influenced: ["pl+c", "pl+go", "pl+kotlin", "pl+oberon", "pl+rust"],
-      influences: ["pl+go", "pl+kotlin", "pl+oberon", "pl+python", "pl+rust", "pl+swift"],
+      influences: ["pl+c", "pl+go", "pl+kotlin", "pl+oberon", "pl+python", "pl+rust", "pl+swift"],
       licenses: ["lic+mit"],
       paradigms: ["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+structured"],
       people: [["person+alexander-medvednikov", "designer"]],

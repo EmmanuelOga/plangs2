@@ -10,7 +10,7 @@ export function define(g: PlangsGraph) {
       name: "PureData",
       websites: [{ kind: "wikipedia", title: "PureData", href: "https://en.wikipedia.org/wiki/PureData" }],
     },
-    { influenced: ["pl+lucid"] },
+    { influences: ["pl+lucid"] },
   );
 
   /**/

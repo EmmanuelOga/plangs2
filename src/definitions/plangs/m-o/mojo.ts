@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       extensions: [],
     },
     {
-      influenced: ["pl+python"],
+      influences: ["pl+python"],
       licenses: ["lic+proprietary"],
       paradigms: ["para+functional", "para+generic", "para+imperative", "para+multi"],
       people: [["person+chris-lattner", "designer"]],
