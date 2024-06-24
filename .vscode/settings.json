@@ -7,6 +7,12 @@
         "**/.DS_Store": true,
     },
     // ---------------------------------------------------------------------------- 
+    // Go Environment.
+    //
+    "go.alternateTools": {
+        "go": "${workspaceFolder}/.pixi/envs/default/bin/go"
+    },
+    // ---------------------------------------------------------------------------- 
     // BunJS Environment.
     //
     "bun.runtime": "${workspaceFolder}/.bun/bin/bun",

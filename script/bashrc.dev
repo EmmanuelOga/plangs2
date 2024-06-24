@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+# Setup environment variables for the project.
+# This script can either be sourced or run as a bash init script:
+#
+#   $ source script/bashrc.dev
+#
+# or:
+#
+#   $ bash --init-file script/bashrc.dev
+# 
+
+# This should be run from the root of the project so pwd should contain pixi.toml.
+if ! [[ -f pixi.toml ]]; then
+    echo "Please invoke the script from the root of the repository."
+    exit 1
+fi
+
+# Load pixi shell settings.
+eval "$(pixi shell-hook -s bash)"
+
+# Use pixi beta feature: allow loading pypi packages.
+export PIXI_BETA_WARNING_OFF=true
+
+CWD="$(pwd)"
+
+# Use folder-local installed go.
+export GOPATH="$CWD/.go"
+export PATH="$CWD/.go/bin:$PATH"
+
+# Load default bash settings.
+# shellcheck disable=SC1090
+source ~/.bashrc
+
+# Use a local version of BunJS.
+export BUN_INSTALL="$CWD/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
+
+# Load project environment variables, if any.
+if [[ -f .env ]]; then
+    echo "Loading .env file".
+    set -a
+    # don't shellcheck the .env file.
+    # shellcheck source=/dev/null
+    source .env
+fi
+
+echo "Binaries setup: "
+which pixi
+which go
+which bun

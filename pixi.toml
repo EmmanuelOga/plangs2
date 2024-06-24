@@ -1,0 +1,12 @@
+[project]
+name = "plangs2"
+version = "0.1.0"
+description = "Add a short description here"
+authors = ["Emmanuel Oga <contact@github.emmanueloga.com>"]
+channels = ["conda-forge"]
+platforms = ["osx-arm64"]
+
+[tasks]
+
+[dependencies]
+go = ">=1.22.3,<1.23"
