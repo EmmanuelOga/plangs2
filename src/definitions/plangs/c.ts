@@ -117,7 +117,7 @@ export function define(g: PlangsGraph) {
         "pl+vala",
         "pl+verilog",
         "pl+whiley",
-        "pl+wolfram-language",
+        "pl+wolfram",
         "pl+zpl",
       ],
       influences: [
@@ -161,6 +161,15 @@ export function define(g: PlangsGraph) {
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+manifest", "tsys+nominative", "tsys+static", "tsys+weak"],
     },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+c99",
+    "C99",
+    { name: "C99", websites: [{ kind: "wikipedia", title: "C99", href: "https://en.wikipedia.org/wiki/C99" }] },
+    { influenced: ["pl+c-plus-plus", "pl+opencl"] },
   );
 
   /**/

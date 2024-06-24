@@ -4,6 +4,270 @@ export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
   lb.define(
+    "pl+circuitpython",
+    "CircuitPython",
+    {
+      name: "CircuitPython",
+      websites: [
+        { kind: "wikipedia", title: "CircuitPython", href: "https://en.wikipedia.org/wiki/CircuitPython" },
+        { kind: "homepage", title: "circuitpython.org", href: "https://circuitpython.org/" },
+      ],
+      images: [
+        { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/29/Adafruit_blinka_angles-left.svg" },
+      ],
+      references: {
+        initial_release: [
+          { href: "https://blog.adafruit.com/2017/07/19/circuitpython-1-0-0/", title: "CircuitPython 1.0.0!" },
+        ],
+        stable_release: [
+          { href: "https://github.com/adafruit/circuitpython/releases/tag/9.0.4", title: "Release 9.0.4" },
+        ],
+        written_in: [{ href: "https://github.com/adafruit/circuitpython", title: "adafruit/circuitpython" }],
+        license: [
+          {
+            href: "https://github.com/adafruit/circuitpython/blob/master/LICENSE/micropython",
+            title: "circuitpython/LICENSE",
+          },
+        ],
+      },
+      releases: [
+        { version: "unknown", date: "2017-07-19", kind: "first" },
+        { version: "9.0.4", date: "2024-01-01", kind: "stable" },
+      ],
+    },
+    { licenses: ["lic+mit"] },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+cpython",
+    "CPython",
+    {
+      name: "CPython",
+      websites: [
+        { kind: "wikipedia", title: "CPython", href: "https://en.wikipedia.org/wiki/CPython" },
+        { kind: "homepage", title: "www.python.org", href: "https://www.python.org/" },
+      ],
+      images: [
+        { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg" },
+      ],
+      releases: [
+        { version: "unknown", date: "1994-01-26", kind: "first" },
+        { version: "3.12.0", date: "2023-01-01", kind: "stable" },
+      ],
+      references: {
+        stable_release: [
+          {
+            href: "https://discuss.python.org/t/python-3-12-0-final-is-here/35186",
+            title: "Python 3.12.0 (final) is here",
+          },
+        ],
+      },
+    },
+    { licenses: ["lic+python-foundation"] },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+cython",
+    "Cython",
+    {
+      name: "Cython",
+      websites: [
+        { kind: "wikipedia", title: "Cython", href: "https://en.wikipedia.org/wiki/Cython" },
+        { kind: "homepage", title: "cython.org", href: "https://cython.org" },
+      ],
+      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/5/58/Cython_logo.svg" }],
+      references: {
+        first_appeared: [
+          {
+            href: "http://www.behnel.de/cythonEP2008/cython-ep2008.html",
+            title: "The Cython Compiler for C-Extensions in Python",
+          },
+        ],
+        stable_release: [{ href: "https://github.com/cython/cython/releases/tag/3.0.10", title: "Release 3.0.10" }],
+        preview_release: [
+          { href: "https://github.com/cython/cython/blob/61c079e/CHANGES.rst", title: "Cython Changelog" },
+        ],
+        filename_extensions: [
+          {
+            href: "https://cython.readthedocs.io/en/latest/src/userguide/language_basics.html#cython-file-types",
+            title: "Language Basics — Cython 3.0.0a9 documentation",
+          },
+        ],
+      },
+      releases: [
+        { version: "unknown", date: "2007-07-28", kind: "first" },
+        { version: "3.0.10", date: "2024-01-01", kind: "stable" },
+        { version: "3.0.0", date: "2023-03-27", kind: "preview" },
+      ],
+      extensions: [".pyx", ".pxd", ".pxi"],
+    },
+    {
+      dialects: ["pl+python"],
+      implementations: ["pl+python"],
+      influences: ["pl+c", "pl+python"],
+      licenses: ["lic+apache"],
+      people: [
+        ["person+robert-bradshaw", "designer"],
+        ["person+stefan-behnel", "designer"],
+      ],
+      platforms: ["platf+linux", "platf+mac", "platf+win"],
+    },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+ironpython",
+    "IronPython",
+    {
+      name: "IronPython",
+      websites: [
+        { kind: "wikipedia", title: "IronPython", href: "https://en.wikipedia.org/wiki/IronPython" },
+        { kind: "homepage", title: "ironpython.net", href: "https://ironpython.net" },
+      ],
+      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/9/99/IronPython_3_logo.svg" }],
+      references: {
+        initial_release: [
+          {
+            href: "https://web.archive.org/web/20171226082609/http://ironpython.codeplex.com/releases/view/423",
+            title: "CodePlex Archive",
+          },
+        ],
+      },
+      releases: [
+        { version: "unknown", date: "2006-09-05", kind: "first" },
+        { version: "3.4.1", date: "2023-07-12", kind: "stable" },
+        { version: "3.4.0", date: "2022-04-30", kind: "preview" },
+      ],
+    },
+    { licenses: ["lic+apache"], platforms: ["platf+.net", "platf+mono"] },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+jupyter",
+    "Jupyter",
+    {
+      name: "Jupyter",
+      websites: [{ kind: "wikipedia", title: "Jupyter", href: "https://en.wikipedia.org/wiki/Jupyter" }],
+    },
+    { influenced: ["pl+wolfram"] },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+micropython",
+    "MicroPython",
+    {
+      name: "MicroPython",
+      websites: [
+        { kind: "wikipedia", title: "MicroPython", href: "https://en.wikipedia.org/wiki/MicroPython" },
+        { kind: "homepage", title: "micropython.org", href: "https://micropython.org" },
+      ],
+      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/a/a7/MicroPython_new_logo.svg" }],
+      releases: [
+        { version: "unknown", date: "2014-05-03", kind: "first" },
+        { version: "1.23.0", date: "2024-01-01", kind: "stable" },
+      ],
+      references: {
+        license: [
+          {
+            href: "https://github.com/micropython/micropython/blob/master/LICENSE",
+            title: "micropython/LICENSE at master · micropython/micropython",
+          },
+        ],
+      },
+    },
+    {
+      licenses: ["lic+mit"],
+      people: [["person+damien-p-george", "designer"]],
+      platforms: [
+        "platf+arm",
+        "platf+esp32",
+        "platf+esp8266",
+        "platf+javascript",
+        "platf+pic",
+        "platf+rp2040",
+        "platf+stm32",
+        "platf+unix",
+        "platf+win",
+        "platf+zephyr",
+      ],
+    },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+numpy",
+    "NumPy",
+    { name: "NumPy", websites: [{ kind: "wikipedia", title: "NumPy", href: "https://en.wikipedia.org/wiki/NumPy" }] },
+    { influenced: ["pl+j"] },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+pyomo",
+    "Pyomo",
+    {
+      name: "Pyomo",
+      websites: [
+        { kind: "wikipedia", title: "Pyomo", href: "https://en.wikipedia.org/wiki/Pyomo" },
+        { kind: "homepage", title: "www.pyomo.org", href: "https://www.pyomo.org" },
+      ],
+      images: [
+        {
+          kind: "logo",
+          url: "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Pyomo_Logo_Without_Text.png/121px-Pyomo_Logo_Without_Text.png",
+        },
+      ],
+      releases: [
+        { version: "unknown", date: "2008-01-01", kind: "first" },
+        { version: "6.4.2", date: "2022-08-17", kind: "stable" },
+      ],
+      extensions: [".py"],
+    },
+    {
+      influenced: ["pl+ampl"],
+      influences: ["pl+ampl", "pl+general-algebraic-modeling-system", "pl+python"],
+      licenses: ["lic+bsd"],
+      people: [
+        ["person+carl-laird", "designer"],
+        ["person+david-woodruff", "designer"],
+        ["person+gabriel-hackebeil", "designer"],
+        ["person+jean-paul-watson", "designer"],
+        ["person+john-siirola", "designer"],
+        ["person+william-e-hart", "designer"],
+      ],
+      platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
+    },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+pypy",
+    "RPython",
+    {
+      name: "RPython",
+      websites: [
+        { kind: "wikipedia", title: "PyPy", href: "https://en.wikipedia.org/wiki/PyPy" },
+        { kind: "wikipedia", title: "RPython", href: "https://en.wikipedia.org/wiki/PyPy#RPython" },
+      ],
+    },
+    { dialects: ["pl+python"] },
+  );
+
+  /**/
+
+  lb.define(
     "pl+python",
     "Python",
     {
@@ -259,6 +523,31 @@ export function define(g: PlangsGraph) {
       ],
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+optional", "tsys+strong"],
     },
+  );
+
+  /**/
+
+  lb.define(
+    "pl+stackless-python",
+    "Stackless Python",
+    {
+      name: "Stackless Python",
+      websites: [
+        { kind: "wikipedia", title: "Stackless Python", href: "https://en.wikipedia.org/wiki/Stackless_Python" },
+        { kind: "homepage", title: "www.stackless.com", href: "http://www.stackless.com/" },
+      ],
+      releases: [
+        { version: "unknown", date: "1998-01-01", kind: "first" },
+        { version: "3.8.1", date: "2020-01-22", kind: "stable" },
+        { version: "unknown", date: "2021-01-01", kind: "preview" },
+      ],
+      references: {
+        stable_release: [
+          { href: "https://github.com/stackless-dev/stackless/releases/tag/v3.8.1-slp", title: "Release v3.8.1-slp" },
+        ],
+      },
+    },
+    { influenced: ["pl+limbo"], licenses: ["lic+python-foundation"], people: [["person+anselm-kruis", "designer"]] },
   );
 
   /**/

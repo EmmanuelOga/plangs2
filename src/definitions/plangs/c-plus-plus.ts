@@ -116,7 +116,7 @@ export function define(g: PlangsGraph) {
         "pl+umple",
         "pl+urbiscript",
         "pl+vala",
-        "pl+wolfram-language",
+        "pl+wolfram",
         "pl+x10",
       ],
       influences: [

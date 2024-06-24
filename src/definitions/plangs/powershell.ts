@@ -46,8 +46,8 @@ export function define(g: PlangsGraph) {
       influences: [
         "pl+c-sharp",
         "pl+chef",
-        "pl+control-language",
-        "pl+digital-command-language",
+        "pl+control",
+        "pl+digital-command",
         "pl+kornshell",
         "pl+perl",
         "pl+puppet",
@@ -59,7 +59,7 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+mit", "lic+proprietary"],
       paradigms: ["para+functional", "para+imperative", "para+objects", "para+pipeline", "para+reflective"],
       people: [["person+jeffrey-snover", "designer"]],
-      platforms: ["platf+.net", "platf+centos", "platf+linux", "platf+mac", "platf+win"],
+      platforms: ["platf+.net", "platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+inferred", "tsys+safe", "tsys+strong"],
     },
   );

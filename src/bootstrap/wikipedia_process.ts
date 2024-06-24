@@ -540,9 +540,11 @@ function cleanPlatform(platf: string): string | undefined {
   // Order is important.
   if (/wasm|web.?assembly|wasi/i.test(p)) return "wasm";
 
+  if (/amazon.*web/.test(p)) return "aws";
+
   if (/6502/.test(p)) return "6502";
-  if (/web|html/i.test(p)) return "web";
   if (/javascript/i.test(p)) return "javascript";
+  if (/web|html/i.test(p)) return "web";
 
   if (/\.net/i.test(p)) return ".net";
   if (/^darwin|^mac-os|^os-x|^mac-operating|^macos|apple-silicon|macintosh/i.test(p)) return "mac";
@@ -552,7 +554,7 @@ function cleanPlatform(platf: string): string | undefined {
   if (/arm/i.test(p)) return "arm";
   if (/cross|independent/i.test(p)) return "cross-platform";
   if (/dos|ms.?dos|microsoft.?dos|pc.?dos|dr?.dos/i.test(p)) return "dos";
-  if (/linux|debian|ubuntu|fedora|suse/i.test(p)) return "linux";
+  if (/linux|debian|ubuntu|fedora|suse|centos/i.test(p)) return "linux";
   if (/plan.?9/i.test(p)) return "plan9";
   if (/playstation/i.test(p)) return "playstation";
   if (/raspberry/i.test(p)) return "rpi";
@@ -580,6 +582,12 @@ function keyFromWikiUrl(wikiUrl: string): string | undefined {
 
     if (key.includes("powershell")) return "powershell";
     if (key.startsWith("win-")) return "win";
+    if (key.includes("unified-modeling")) return "uml";
+
+    if (key === "standalone-program") return;
+    if (key === "systems-programming-language") return;
+    if (key === "polymorphic-programming-language") return;
+    if (key === "programming-language") return;
 
     key = key
       .replaceAll(/\-\([^\)]+\)/g, "") // Remove url parts like /wiki/lisp_(programming_language)
@@ -589,18 +597,18 @@ function keyFromWikiUrl(wikiUrl: string): string | undefined {
       .replaceAll("gnu-compiler-collection", "gcc")
       .replaceAll(/standard-ml/g, "sml")
       .replaceAll(/\-of\-new\-jersey/g, "")
-      .replaceAll(/digital\-equipment\-corporation/g, "dec");
+      .replaceAll(/digital\-equipment\-corporation/g, "dec")
+      .replace(/\-programming\-language$/, "")
+      .replace(/\-language$/, "");
 
     if (key.startsWith("dec")) return "dec";
     if (key.startsWith("win-") || key.startsWith("universal-win")) return "win";
     if (key === "common-language-infrastructure") return ".net";
 
+    if (key === "apple-ios") return "ios";
     if (key === "allegro-common") return "common-lisp";
     if (key === "field-programmable-gate-array") return "fpga";
     if (key === "advanced-micro-devices") return "amd";
-    if (key === "standalone-program") return;
-    if (key === "systems-programming-language") return;
-    if (key === "polymorphic-programming-language") return;
 
     return key.replace(/\-programming\-language$/, "");
   }

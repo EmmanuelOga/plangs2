@@ -4,7 +4,7 @@ export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
   lb.define(
-    "pl+wolfram-language",
+    "pl+wolfram",
     "Wolfram Language",
     {
       name: "Wolfram Language",

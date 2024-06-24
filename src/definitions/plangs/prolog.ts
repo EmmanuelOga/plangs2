@@ -47,7 +47,7 @@ export function define(g: PlangsGraph) {
         "pl+mercury",
         "pl+oz",
         "pl+planner",
-        "pl+wolfram-language",
+        "pl+wolfram",
         "pl+xsb",
       ],
       influences: [

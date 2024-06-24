@@ -8,6 +8,7 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Linux", href: "https://en.wikipedia.org/wiki/Linux" },
       { kind: "wikipedia", title: "Ubuntu", href: "https://en.wikipedia.org/wiki/Ubuntu_(operating_system)" },
       { kind: "wikipedia", title: "Debian", href: "https://en.wikipedia.org/wiki/Debian" },
+      { kind: "wikipedia", title: "CentOS", href: "https://en.wikipedia.org/wiki/CentOS" },
       {
         kind: "wikipedia",
         title: "Red Hat Enterprise Linux",

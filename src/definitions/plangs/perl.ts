@@ -65,7 +65,7 @@ export function define(g: PlangsGraph) {
         "pl+julia",
         "pl+lisp",
         "pl+newlisp",
-        "pl+perl-data-language",
+        "pl+perl-data",
         "pl+php",
         "pl+powershell",
         "pl+python",

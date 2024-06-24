@@ -35,30 +35,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("platf+amd", "AMD", {
-    websites: [{ kind: "wikipedia", title: "AMD", href: "https://en.wikipedia.org/wiki/Advanced_Micro_Devices" }],
-  });
-
-  /**/
-
-  lb.define("platf+amd-am2900", "2901", {
-    websites: [{ kind: "wikipedia", title: "2901", href: "https://en.wikipedia.org/wiki/AMD_Am2900" }],
-  });
-
-  /**/
-
-  lb.define("platf+amd64", "AMD64", {
-    websites: [{ kind: "wikipedia", title: "AMD64", href: "https://en.wikipedia.org/wiki/AMD64" }],
-  });
-
-  /**/
-
-  lb.define("platf+apple-ios", "iOS", {
-    websites: [{ kind: "wikipedia", title: "iOS", href: "https://en.wikipedia.org/wiki/Apple_iOS" }],
-  });
-
-  /**/
-
   lb.define("platf+arcaos", "ArcaOS", {
     websites: [{ kind: "wikipedia", title: "ArcaOS", href: "https://en.wikipedia.org/wiki/ArcaOS" }],
   });
@@ -71,8 +47,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("platf+centos", "CentOS", {
-    websites: [{ kind: "wikipedia", title: "CentOS", href: "https://en.wikipedia.org/wiki/CentOS" }],
+  lb.define("platf+aws", "Amazon Web Services", {
+    websites: [
+      { kind: "wikipedia", title: "Amazon Web Services", href: "https://en.wikipedia.org/wiki/Amazon_Web_Services" },
+    ],
   });
 
   /**/
@@ -109,18 +87,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("platf+esp32", "ESP32", {
-    websites: [{ kind: "wikipedia", title: "ESP32", href: "https://en.wikipedia.org/wiki/ESP32" }],
-  });
-
-  /**/
-
-  lb.define("platf+esp8266", "ESP8266", {
-    websites: [{ kind: "wikipedia", title: "ESP8266", href: "https://en.wikipedia.org/wiki/ESP8266" }],
-  });
-
-  /**/
-
   lb.define("platf+fpga", "FPGA", {
     websites: [
       { kind: "wikipedia", title: "FPGA", href: "https://en.wikipedia.org/wiki/Field_Programmable_Gate_Array" },
@@ -153,36 +119,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("platf+ia-32", "IA-32", {
-    websites: [{ kind: "wikipedia", title: "IA-32", href: "https://en.wikipedia.org/wiki/IA-32" }],
-  });
-
-  /**/
-
-  lb.define("platf+ia-64", "IA-64", {
-    websites: [{ kind: "wikipedia", title: "IA-64", href: "https://en.wikipedia.org/wiki/IA-64" }],
-  });
-
-  /**/
-
-  lb.define("platf+intel-80286", "Intel 286", {
-    websites: [{ kind: "wikipedia", title: "Intel 286", href: "https://en.wikipedia.org/wiki/Intel_80286" }],
-  });
-
-  /**/
-
-  lb.define("platf+intel-8080", "Intel 8080", {
-    websites: [{ kind: "wikipedia", title: "Intel 8080", href: "https://en.wikipedia.org/wiki/Intel_8080" }],
-  });
-
-  /**/
-
-  lb.define("platf+ios", "iOS", {
-    websites: [{ kind: "wikipedia", title: "iOS", href: "https://en.wikipedia.org/wiki/IOS" }],
-  });
-
-  /**/
-
   lb.define("platf+lisp-machine", "Lisp machines", {
     websites: [{ kind: "wikipedia", title: "Lisp machines", href: "https://en.wikipedia.org/wiki/Lisp_machine" }],
   });
@@ -211,12 +147,6 @@ export function define(g: PlangsGraph) {
     websites: [
       { kind: "wikipedia", title: "MIPS, MIPS64el, MIPSel", href: "https://en.wikipedia.org/wiki/MIPS_architecture" },
     ],
-  });
-
-  /**/
-
-  lb.define("platf+mono", "Mono", {
-    websites: [{ kind: "wikipedia", title: "Mono", href: "https://en.wikipedia.org/wiki/Mono_(software)" }],
   });
 
   /**/
@@ -303,38 +233,14 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("platf+risc-os", "RISC OS", {
-    websites: [{ kind: "wikipedia", title: "RISC OS", href: "https://en.wikipedia.org/wiki/RISC_OS" }],
-  });
-
-  /**/
-
-  lb.define("platf+risc-v", "RISC-V", {
-    websites: [{ kind: "wikipedia", title: "RISC-V", href: "https://en.wikipedia.org/wiki/RISC-V" }],
-  });
-
-  /**/
-
   lb.define("platf+rocm", "ROCm", {
     websites: [{ kind: "wikipedia", title: "ROCm", href: "https://en.wikipedia.org/wiki/ROCm" }],
   });
 
   /**/
 
-  lb.define("platf+rp2040", "RP2040", {
-    websites: [{ kind: "wikipedia", title: "RP2040", href: "https://en.wikipedia.org/wiki/RP2040" }],
-  });
-
-  /**/
-
   lb.define("platf+stm32", "STM32", {
     websites: [{ kind: "wikipedia", title: "STM32", href: "https://en.wikipedia.org/wiki/STM32" }],
-  });
-
-  /**/
-
-  lb.define("platf+tvos", "tvOS", {
-    websites: [{ kind: "wikipedia", title: "tvOS", href: "https://en.wikipedia.org/wiki/TvOS" }],
   });
 
   /**/
@@ -357,30 +263,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("platf+watchos", "watchOS", {
-    websites: [{ kind: "wikipedia", title: "watchOS", href: "https://en.wikipedia.org/wiki/WatchOS" }],
-  });
-
-  /**/
-
-  lb.define("platf+x64", "x64", {
-    websites: [{ kind: "wikipedia", title: "x64", href: "https://en.wikipedia.org/wiki/X64" }],
-  });
-
-  /**/
-
-  lb.define("platf+x86", "x86", {
-    websites: [{ kind: "wikipedia", title: "x86", href: "https://en.wikipedia.org/wiki/X86" }],
-  });
-
-  /**/
-
-  lb.define("platf+x86-64", "x86-64", {
-    websites: [{ kind: "wikipedia", title: "x86-64", href: "https://en.wikipedia.org/wiki/X86-64" }],
-  });
-
-  /**/
-
   lb.define("platf+z-slashos", "z/OS", {
     websites: [{ kind: "wikipedia", title: "z/OS", href: "https://en.wikipedia.org/wiki/Z/OS" }],
   });
@@ -395,24 +277,6 @@ export function define(g: PlangsGraph) {
 
   lb.define("platf+zephyr", "Zephyr", {
     websites: [{ kind: "wikipedia", title: "Zephyr", href: "https://en.wikipedia.org/wiki/Zephyr_(operating_system)" }],
-  });
-
-  /**/
-
-  lb.define("platf+zilog-z80", "Zilog Z80", {
-    websites: [{ kind: "wikipedia", title: "Zilog Z80", href: "https://en.wikipedia.org/wiki/Zilog_Z80" }],
-  });
-
-  /**/
-
-  lb.define("platf+zx80", "ZX80", {
-    websites: [{ kind: "wikipedia", title: "ZX80", href: "https://en.wikipedia.org/wiki/ZX80" }],
-  });
-
-  /**/
-
-  lb.define("platf+zx81", "ZX81", {
-    websites: [{ kind: "wikipedia", title: "ZX81", href: "https://en.wikipedia.org/wiki/ZX81" }],
   });
 
   /**/

@@ -108,7 +108,7 @@ export function define(g: PlangsGraph) {
         "pl+r",
         "pl+ruby",
         "pl+scheme",
-        "pl+wolfram-language",
+        "pl+wolfram",
       ],
       influences: [
         "pl+dylan",
@@ -120,7 +120,7 @@ export function define(g: PlangsGraph) {
         "pl+python",
         "pl+r",
         "pl+ruby",
-        "pl+wolfram-language",
+        "pl+wolfram",
       ],
       licenses: ["lic+mit"],
       paradigms: [

@@ -3,6 +3,15 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
 
+  lb.define("platf+ios", "iOS", {
+    websites: [
+      { kind: "wikipedia", title: "iOS", href: "https://en.wikipedia.org/wiki/IOS" },
+      { kind: "wikipedia", title: "iOS", href: "https://en.wikipedia.org/wiki/Apple_iOS" },
+    ],
+  });
+
+  /**/
+
   lb.define("platf+mac", "macOS", {
     websites: [
       { kind: "wikipedia", title: "macOS", href: "https://en.wikipedia.org/wiki/MacOS" },
@@ -21,6 +30,18 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Macintosh", href: "https://en.wikipedia.org/wiki/Macintosh" },
       { kind: "wikipedia", title: "macOS 10.12", href: "https://en.wikipedia.org/wiki/MacOS_10.12" },
     ],
+  });
+
+  /**/
+
+  lb.define("platf+tvos", "tvOS", {
+    websites: [{ kind: "wikipedia", title: "tvOS", href: "https://en.wikipedia.org/wiki/TvOS" }],
+  });
+
+  /**/
+
+  lb.define("platf+watchos", "watchOS", {
+    websites: [{ kind: "wikipedia", title: "watchOS", href: "https://en.wikipedia.org/wiki/WatchOS" }],
   });
 
   /**/

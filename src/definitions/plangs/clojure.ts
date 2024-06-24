@@ -64,7 +64,7 @@ export function define(g: PlangsGraph) {
         "pl+racket",
         "pl+ruby",
         "pl+scheme",
-        "pl+wolfram-language",
+        "pl+wolfram",
       ],
       influences: [
         "pl+c-plus-plus",
@@ -81,7 +81,7 @@ export function define(g: PlangsGraph) {
         "pl+racket",
         "pl+ruby",
         "pl+scheme",
-        "pl+wolfram-language",
+        "pl+wolfram",
       ],
       licenses: ["lic+eclipse-public"],
       paradigms: [

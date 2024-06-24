@@ -9,6 +9,7 @@ export function define(g: PlangsGraph) {
     {
       name: "D programming language",
       websites: [
+        { kind: "wikipedia", title: "D", href: "https://en.wikipedia.org/wiki/D_language" },
         { kind: "wikipedia", title: "D", href: "https://en.wikipedia.org/wiki/D_(programming_language)" },
         { kind: "homepage", title: "dlang.org", href: "https://dlang.org" },
       ],
@@ -54,7 +55,17 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+reference-implementation"],
-      influenced: ["pl+ada", "pl+c", "pl+c-plus-plus", "pl+eiffel", "pl+genie", "pl+python", "pl+ruby", "pl+vala"],
+      influenced: [
+        "pl+ada",
+        "pl+c",
+        "pl+c-plus-plus",
+        "pl+eiffel",
+        "pl+genie",
+        "pl+python",
+        "pl+qore",
+        "pl+ruby",
+        "pl+vala",
+      ],
       influences: [
         "pl+basic",
         "pl+c",

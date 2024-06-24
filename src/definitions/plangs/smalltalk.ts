@@ -86,7 +86,7 @@ export function define(g: PlangsGraph) {
         "pl+squeak",
         "pl+strongtalk",
         "pl+ucblogo",
-        "pl+wolfram-language",
+        "pl+wolfram",
         "pl+xtend",
       ],
       influences: [

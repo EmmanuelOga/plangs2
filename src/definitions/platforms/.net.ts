@@ -14,4 +14,10 @@ export function define(g: PlangsGraph) {
   });
 
   /**/
+
+  lb.define("platf+mono", "Mono", {
+    websites: [{ kind: "wikipedia", title: "Mono", href: "https://en.wikipedia.org/wiki/Mono_(software)" }],
+  });
+
+  /**/
 }

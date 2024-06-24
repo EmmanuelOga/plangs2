@@ -92,13 +92,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("pl+absoft-fortran-compilers", "Absoft", {
-    name: "Absoft",
-    websites: [{ kind: "wikipedia", title: "Absoft", href: "https://en.wikipedia.org/wiki/Absoft_Fortran_Compilers" }],
-  });
-
-  /**/
-
   lb.define(
     "pl+action-",
     "Action!",
@@ -113,36 +106,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1983-01-01", kind: "first" }],
     },
     { platforms: ["platf+atari"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+active-oberon",
-    "Active Oberon",
-    {
-      name: "Active Oberon",
-      websites: [{ kind: "wikipedia", title: "Active Oberon", href: "https://en.wikipedia.org/wiki/Active_Oberon" }],
-      images: [
-        {
-          kind: "logo",
-          url: "https://upload.wikimedia.org/wikipedia/commons/9/97/Oberon_programming_language_logo.svg",
-        },
-      ],
-      releases: [{ version: "unknown", date: "1998-01-01", kind: "first" }],
-    },
-    {
-      implementations: ["pl+oberon"],
-      influenced: ["pl+go", "pl+oberon", "pl+oberon-2"],
-      influences: ["pl+oberon", "pl+oberon-2", "pl+object-oberon"],
-      paradigms: ["para+concurrent", "para+imperative", "para+modular", "para+objects", "para+structured"],
-      people: [
-        ["person+jurg-gutknecht", "designer"],
-        ["person+niklaus-wirth", "designer"],
-      ],
-      platforms: ["platf+amd64", "platf+ia-32"],
-      typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong"],
-    },
   );
 
   /**/
@@ -169,7 +132,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+actor-based-concurrent-language",
+    "pl+actor-based-concurrent",
     "ABCL",
     {
       name: "ABCL",
@@ -457,132 +420,6 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+algol-60",
-    "ALGOL 60",
-    {
-      name: "ALGOL 60",
-      websites: [{ kind: "wikipedia", title: "ALGOL 60", href: "https://en.wikipedia.org/wiki/ALGOL_60" }],
-      releases: [{ version: "unknown", date: "1960-01-01", kind: "first" }],
-    },
-    {
-      influenced: [
-        "pl+algol-68",
-        "pl+algol-w",
-        "pl+atlas-autocode",
-        "pl+basic",
-        "pl+clu",
-        "pl+combined",
-        "pl+concurrent-pascal",
-        "pl+dartmouth-algol-30",
-        "pl+edinburgh-imp",
-        "pl+euler",
-        "pl+executive-systems-problem-oriented-language",
-        "pl+imp",
-        "pl+iswim",
-        "pl+napier88",
-        "pl+pl-slash1",
-        "pl+pop-2",
-        "pl+ps-algol",
-        "pl+setl",
-        "pl+simula-67",
-      ],
-      influences: ["pl+ada", "pl+algol-58", "pl+c", "pl+combined", "pl+pascal", "pl+pl-slashi", "pl+simula"],
-      paradigms: ["para+imperative", "para+structured"],
-      people: [["person+van-wijngaarden", "designer"]],
-      typeSystems: ["tsys+static", "tsys+strong"],
-    },
-  );
-
-  /**/
-
-  lb.define("pl+algol-68-r", "ALGOL 68-R", {
-    name: "ALGOL 68-R",
-    websites: [{ kind: "wikipedia", title: "ALGOL 68-R", href: "https://en.wikipedia.org/wiki/ALGOL_68-R" }],
-  });
-
-  /**/
-
-  lb.define("pl+algol-68c", "ALGOL 68C", {
-    name: "ALGOL 68C",
-    websites: [{ kind: "wikipedia", title: "ALGOL 68C", href: "https://en.wikipedia.org/wiki/ALGOL_68C" }],
-  });
-
-  /**/
-
-  lb.define("pl+algol-68rs", "ALGOL 68RS", {
-    name: "ALGOL 68RS",
-    websites: [{ kind: "wikipedia", title: "ALGOL 68RS", href: "https://en.wikipedia.org/wiki/ALGOL_68RS" }],
-  });
-
-  /**/
-
-  lb.define(
-    "pl+algol-68s",
-    "ALGOL 68S",
-    {
-      name: "ALGOL 68S",
-      websites: [{ kind: "wikipedia", title: "ALGOL 68S", href: "https://en.wikipedia.org/wiki/ALGOL_68S" }],
-      releases: [{ version: "unknown", date: "1977-01-01", kind: "first" }],
-    },
-    {
-      implementations: ["pl+bliss"],
-      paradigms: ["para+concurrent", "para+imperative", "para+multi"],
-      people: [["person+charles-h-lindsey", "designer"]],
-      platforms: ["platf+atari"],
-      typeSystems: ["tsys+safe", "tsys+static", "tsys+strong", "tsys+structural"],
-    },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+algol-like",
-    "Algol-like",
-    {
-      name: "Algol-like",
-      websites: [{ kind: "wikipedia", title: "Algol-like", href: "https://en.wikipedia.org/wiki/Algol-like" }],
-    },
-    { influenced: ["pl+algol-58"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+algol-w",
-    "ALGOL W",
-    {
-      name: "ALGOL W",
-      websites: [{ kind: "wikipedia", title: "ALGOL W", href: "https://en.wikipedia.org/wiki/ALGOL_W" }],
-      releases: [{ version: "unknown", date: "1966-01-01", kind: "first" }],
-    },
-    {
-      implementations: ["pl+pl360"],
-      influenced: ["pl+modula-2", "pl+pascal", "pl+pl360"],
-      influences: ["pl+algol-60", "pl+modula-2", "pl+pascal"],
-      paradigms: ["para+imperative", "para+multi", "para+structured"],
-      people: [
-        ["person+niklaus-wirth", "designer"],
-        ["person+tony-hoare", "designer"],
-      ],
-      typeSystems: ["tsys+static", "tsys+strong"],
-    },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+algol-y",
-    "ALGOL Y",
-    {
-      name: "ALGOL Y",
-      websites: [{ kind: "wikipedia", title: "ALGOL Y", href: "https://en.wikipedia.org/wiki/ALGOL_Y" }],
-    },
-    { influenced: ["pl+algol-68"] },
-  );
-
-  /**/
-
-  lb.define(
     "pl+alice",
     "Alice",
     {
@@ -701,7 +538,7 @@ export function define(g: PlangsGraph) {
     },
     {
       influences: [
-        "pl+actor-based-concurrent-language",
+        "pl+actor-based-concurrent",
         "pl+e",
         "pl+ecmascript-harmony",
         "pl+scheme",
@@ -899,42 +736,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("pl+apple-pascal", "Apple Pascal", {
-    name: "Apple Pascal",
-    websites: [{ kind: "wikipedia", title: "Apple Pascal", href: "https://en.wikipedia.org/wiki/Apple_Pascal" }],
-    images: [
-      {
-        kind: "logo",
-        url: "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Apple_Pascal_1.2.jpg/300px-Apple_Pascal_1.2.jpg",
-      },
-    ],
-    releases: [
-      { version: "unknown", date: "1979-01-01", kind: "first" },
-      { version: "1.3", date: "1984-01-01", kind: "other" },
-    ],
-    references: {
-      latest_release: [
-        {
-          href: "https://web.archive.org/web/20150430033749/http://apple2info.net/index.php?title=Apple_II_Pascal",
-          title: "Apple II Pascal - apple2info.net: Apple II Information",
-        },
-      ],
-    },
-  });
-
-  /**/
-
-  lb.define("pl+applesoft-basic", "Applesoft BASIC", {
-    name: "Applesoft BASIC",
-    websites: [{ kind: "wikipedia", title: "Applesoft BASIC", href: "https://en.wikipedia.org/wiki/Applesoft_BASIC" }],
-    releases: [
-      { version: "unknown", date: "1977-01-01", kind: "first" },
-      { version: "unknown", date: "1978-01-01", kind: "stable" },
-    ],
-  });
-
-  /**/
-
   lb.define(
     "pl+apt",
     "APT",
@@ -988,13 +789,6 @@ export function define(g: PlangsGraph) {
   lb.define("pl+arm-architecture-family", "ARM", {
     name: "ARM",
     websites: [{ kind: "wikipedia", title: "ARM", href: "https://en.wikipedia.org/wiki/ARM_architecture_family" }],
-  });
-
-  /**/
-
-  lb.define("pl+armed-bear-common-lisp", "ABCL", {
-    name: "ABCL",
-    websites: [{ kind: "wikipedia", title: "ABCL", href: "https://en.wikipedia.org/wiki/Armed_Bear_Common_Lisp" }],
   });
 
   /**/
@@ -1078,68 +872,6 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+assembly-language",
-    "Assembly",
-    {
-      name: "Assembly",
-      websites: [
-        { kind: "wikipedia", title: "assembly language", href: "https://en.wikipedia.org/wiki/Assembly_language" },
-      ],
-      images: [
-        {
-          kind: "logo",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Motorola_6800_Assembly_Language.png/300px-Motorola_6800_Assembly_Language.png",
-        },
-      ],
-      releases: [{ version: "unknown", date: "1947-01-01", kind: "first" }],
-      extensions: [".asm", ".s", ".inc", ".wla"],
-    },
-    {
-      influenced: ["pl+speedcoding"],
-      paradigms: [
-        "para+imperative",
-        "para+macros",
-        "para+meta",
-        "para+objects",
-        "para+structured",
-        "para+unstructured",
-      ],
-    },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+atari-basic",
-    "Atari BASIC",
-    {
-      name: "Atari BASIC",
-      websites: [{ kind: "wikipedia", title: "Atari BASIC", href: "https://en.wikipedia.org/wiki/Atari_BASIC" }],
-      images: [
-        {
-          kind: "logo",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/AtariBasicExample.png/300px-AtariBasicExample.png",
-        },
-      ],
-      releases: [
-        { version: "unknown", date: "1979-01-01", kind: "first" },
-        { version: "unknown", date: "1983-01-01", kind: "stable" },
-      ],
-    },
-    {
-      influences: ["pl+basic-a-plus", "pl+basic-xl", "pl+data-general-business-basic", "pl+turbo-basic-xl"],
-      licenses: ["lic+commercial", "lic+proprietary"],
-      people: [
-        ["person+kathleen-o-brien", "designer"],
-        ["person+paul-laughton", "designer"],
-      ],
-      platforms: ["platf+atari"],
-    },
-  );
-
-  /**/
-
-  lb.define(
     "pl+atlas-autocode",
     "Atlas Autocode",
     {
@@ -1167,30 +899,6 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "AtScript", href: "https://en.wikipedia.org/wiki/AtScript" }],
     },
     { influenced: ["pl+arkts", "pl+typescript"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+autolisp",
-    "AutoLISP",
-    {
-      name: "AutoLISP",
-      websites: [{ kind: "wikipedia", title: "AutoLISP", href: "https://en.wikipedia.org/wiki/AutoLISP" }],
-      releases: [
-        { version: "unknown", date: "1986-01-01", kind: "first" },
-        { version: "unknown", date: "1995-01-01", kind: "stable" },
-      ],
-      scoping: ["dynamic"],
-    },
-    {
-      dialects: ["pl+lisp"],
-      influenced: ["pl+common-lisp"],
-      influences: ["pl+lisp"],
-      people: [["person+david-betz", "designer"]],
-      platforms: ["platf+ia-32", "platf+linux"],
-      typeSystems: ["tsys+dynamic"],
-    },
   );
 
   /**/
@@ -1288,81 +996,6 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+basic-a-plus",
-    "BASIC A+",
-    {
-      name: "BASIC A+",
-      websites: [{ kind: "wikipedia", title: "BASIC A+", href: "https://en.wikipedia.org/wiki/BASIC_A%2B" }],
-    },
-    { influenced: ["pl+atari-basic"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+basic-plus",
-    "BASIC-PLUS",
-    {
-      name: "BASIC-PLUS",
-      websites: [{ kind: "wikipedia", title: "BASIC-PLUS", href: "https://en.wikipedia.org/wiki/BASIC-PLUS" }],
-      releases: [{ version: "unknown", date: "1970-01-01", kind: "first" }],
-    },
-    {
-      influenced: ["pl+focal", "pl+tymshare-super-basic"],
-      influences: ["pl+dartmouth-basic", "pl+ms-basic", "pl+tymshare-super-basic"],
-      paradigms: ["para+imperative"],
-    },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+basic-xl",
-    "BASIC XL",
-    {
-      name: "BASIC XL",
-      websites: [{ kind: "wikipedia", title: "BASIC XL", href: "https://en.wikipedia.org/wiki/BASIC_XL" }],
-    },
-    { influenced: ["pl+atari-basic"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+basic4android",
-    "Basic4android",
-    {
-      name: "Basic4android",
-      websites: [{ kind: "wikipedia", title: "Basic4android", href: "https://en.wikipedia.org/wiki/Basic4android" }],
-    },
-    { influenced: ["pl+visual-basic"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+basic4ppc",
-    "Basic4ppc",
-    {
-      name: "Basic4ppc",
-      websites: [
-        { kind: "wikipedia", title: "B4x", href: "https://en.wikipedia.org/wiki/Basic4ppc" },
-        { kind: "homepage", title: "www.b4x.com", href: "http://www.b4x.com" },
-      ],
-      releases: [{ version: "unknown", date: "2005-01-01", kind: "first" }],
-    },
-    {
-      influenced: ["pl+visual-basic"],
-      influences: ["pl+visual-basic"],
-      paradigms: ["para+event", "para+imperative"],
-      platforms: ["platf+android", "platf+arduino", "platf+mac", "platf+win"],
-      typeSystems: ["tsys+static", "tsys+weak"],
-    },
-  );
-
-  /**/
-
-  lb.define(
     "pl+bazel",
     "Starlark",
     {
@@ -1370,26 +1003,6 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "Starlark", href: "https://en.wikipedia.org/wiki/Bazel_(software)" }],
     },
     { dialects: ["pl+python"] },
-  );
-
-  /**/
-
-  lb.define("pl+bbc-basic", "BBC BASIC", {
-    name: "BBC BASIC",
-    websites: [{ kind: "wikipedia", title: "BBC BASIC", href: "https://en.wikipedia.org/wiki/BBC_BASIC" }],
-    releases: [{ version: "unknown", date: "1981-01-01", kind: "first" }],
-  });
-
-  /**/
-
-  lb.define(
-    "pl+bbn-lisp",
-    "BBN LISP",
-    {
-      name: "BBN LISP",
-      websites: [{ kind: "wikipedia", title: "BBN LISP", href: "https://en.wikipedia.org/wiki/BBN_LISP" }],
-    },
-    { influenced: ["pl+interlisp"] },
   );
 
   /**/
@@ -1576,18 +1189,6 @@ export function define(g: PlangsGraph) {
       ],
     },
     { influenced: ["pl+smalltalk"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+business-basic",
-    "Business Basic",
-    {
-      name: "Business Basic",
-      websites: [{ kind: "wikipedia", title: "Business Basic", href: "https://en.wikipedia.org/wiki/Business_Basic" }],
-    },
-    { influenced: ["pl+providex"] },
   );
 
   /**/
@@ -1792,13 +1393,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("pl+casio-basic", "Casio BASIC", {
-    name: "Casio BASIC",
-    websites: [{ kind: "wikipedia", title: "Casio BASIC", href: "https://en.wikipedia.org/wiki/Casio_BASIC" }],
-  });
-
-  /**/
-
   lb.define(
     "pl+category-c-programming-language-family",
     "Numerous",
@@ -1862,7 +1456,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+scratch"],
       licenses: ["lic+gnu-affero-gpl"],
       people: [["person+wolfgang-slany", "designer"]],
-      platforms: ["platf+android", "platf+apple-ios"],
+      platforms: ["platf+android", "platf+ios"],
       typeSystems: ["tsys+dynamic"],
     },
   );
@@ -1938,7 +1532,7 @@ export function define(g: PlangsGraph) {
         },
       ],
     },
-    { influences: ["pl+c", "pl+glsl", "pl+renderman-shading-language"] },
+    { influences: ["pl+c", "pl+glsl", "pl+renderman-shading"] },
   );
 
   /**/
@@ -2137,26 +1731,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1985-01-01", kind: "first" }],
     },
     { influenced: ["pl+lisp"], paradigms: ["para+expert"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+clisp",
-    "CLISP",
-    {
-      name: "CLISP",
-      websites: [
-        { kind: "wikipedia", title: "CLISP", href: "https://en.wikipedia.org/wiki/CLISP" },
-        { kind: "homepage", title: "www.gnu.org/software/clisp/", href: "https://www.gnu.org/software/clisp/" },
-      ],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/0/01/LogoCLISP.jpg" }],
-      releases: [
-        { version: "unknown", date: "1987-01-01", kind: "first" },
-        { version: "2.49", date: "2010-07-07", kind: "stable" },
-      ],
-    },
-    { licenses: ["lic+gpl"] },
   );
 
   /**/
@@ -2374,25 +1948,6 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+commodore-basic",
-    "Commodore BASIC",
-    {
-      name: "Commodore BASIC",
-      websites: [
-        { kind: "wikipedia", title: "Commodore BASIC", href: "https://en.wikipedia.org/wiki/Commodore_BASIC" },
-      ],
-      releases: [
-        { version: "unknown", date: "1977-01-01", kind: "first" },
-        { version: "7.0", date: "1985-01-01", kind: "stable" },
-        { version: "10.0", date: "1991-01-01", kind: "preview" },
-      ],
-    },
-    { implementations: ["pl+assembly-language", "pl+mos-6502"], platforms: ["platf+commodore"] },
-  );
-
-  /**/
-
-  lb.define(
     "pl+communicating-sequential-processes",
     "CSP",
     {
@@ -2406,27 +1961,6 @@ export function define(g: PlangsGraph) {
       ],
     },
     { influenced: ["pl+concurrent-euclid", "pl+go", "pl+handel-c", "pl+limbo", "pl+newsqueak", "pl+occam"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+component-pascal",
-    "Component Pascal",
-    {
-      name: "Component Pascal",
-      websites: [
-        { kind: "wikipedia", title: "Component Pascal", href: "https://en.wikipedia.org/wiki/Component_Pascal" },
-        { kind: "homepage", title: "blackboxframework.org", href: "http://blackboxframework.org" },
-      ],
-      releases: [{ version: "unknown", date: "1997-01-01", kind: "first" }],
-    },
-    {
-      influenced: ["pl+oberon", "pl+oberon-2", "pl+pascal"],
-      influences: ["pl+oberon", "pl+oberon-2", "pl+pascal"],
-      paradigms: ["para+imperative", "para+modular", "para+objects", "para+structured"],
-      typeSystems: ["tsys+static", "tsys+strong"],
-    },
   );
 
   /**/
@@ -2508,26 +2042,6 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+concurrent-pascal",
-    "Concurrent Pascal",
-    {
-      name: "Concurrent Pascal",
-      websites: [
-        { kind: "wikipedia", title: "Concurrent Pascal", href: "https://en.wikipedia.org/wiki/Concurrent_Pascal" },
-      ],
-      releases: [{ version: "unknown", date: "1974-01-01", kind: "first" }],
-    },
-    {
-      influences: ["pl+algol-60", "pl+pascal", "pl+simula"],
-      paradigms: ["para+concurrent", "para+imperative", "para+structured"],
-      platforms: ["platf+dec"],
-      typeSystems: ["tsys+dynamic", "tsys+safe", "tsys+strong"],
-    },
-  );
-
-  /**/
-
-  lb.define(
     "pl+constraint-handling-rules",
     "CHR",
     {
@@ -2553,7 +2067,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+contextual-query-language",
+    "pl+contextual-query",
     "CQL",
     {
       name: "CQL",
@@ -2565,7 +2079,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+control-language",
+    "pl+control",
     "CL",
     {
       name: "CL",
@@ -2689,7 +2203,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1964-01-01", kind: "first" }],
     },
     {
-      implementations: ["pl+assembly-language"],
+      implementations: ["pl+assembly"],
       influenced: ["pl+lisp", "pl+pop-2"],
       influences: ["pl+cpl", "pl+lisp", "pl+pop-2"],
       licenses: ["lic+proprietary"],
@@ -2852,15 +2366,6 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+d-language",
-    "D",
-    { name: "D", websites: [{ kind: "wikipedia", title: "D", href: "https://en.wikipedia.org/wiki/D_language" }] },
-    { influenced: ["pl+qore"] },
-  );
-
-  /**/
-
-  lb.define(
     "pl+dafny",
     "Dafny",
     {
@@ -2901,58 +2406,11 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1956-01-01", kind: "first" }],
     },
     {
-      implementations: ["pl+assembly-language"],
+      implementations: ["pl+assembly"],
       influenced: ["pl+dope"],
       influences: ["pl+dartmouth-basic", "pl+dope"],
       paradigms: ["para+imperative"],
       people: [["person+john-g-kemeny", "designer"]],
-    },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+dartmouth-algol-30",
-    "Dartmouth ALGOL 30",
-    {
-      name: "Dartmouth ALGOL 30",
-      websites: [
-        { kind: "wikipedia", title: "Dartmouth ALGOL 30", href: "https://en.wikipedia.org/wiki/Dartmouth_ALGOL_30" },
-      ],
-      releases: [{ version: "unknown", date: "1961-01-01", kind: "first" }],
-    },
-    {
-      implementations: ["pl+assembly-language"],
-      influenced: ["pl+dope"],
-      influences: ["pl+algol-58", "pl+algol-60", "pl+dartmouth-time-sharing-system"],
-      paradigms: ["para+imperative", "para+multi", "para+structured"],
-      people: [
-        ["person+anthony-w-knapp", "designer"],
-        ["person+thomas-e-kurtz", "designer"],
-      ],
-    },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+dartmouth-basic",
-    "Dartmouth BASIC",
-    {
-      name: "Dartmouth BASIC",
-      websites: [
-        { kind: "wikipedia", title: "Dartmouth BASIC", href: "https://en.wikipedia.org/wiki/Dartmouth_BASIC" },
-      ],
-      releases: [{ version: "unknown", date: "1964-01-01", kind: "first" }],
-    },
-    {
-      influenced: ["pl+basic-plus", "pl+darsimco", "pl+dope", "pl+tymshare-super-basic"],
-      influences: ["pl+algol", "pl+fortran", "pl+list-of-basic-dialects"],
-      paradigms: ["para+array", "para+imperative"],
-      people: [
-        ["person+john-g-kemeny", "designer"],
-        ["person+thomas-e-kurtz", "designer"],
-      ],
     },
   );
 
@@ -2993,24 +2451,6 @@ export function define(g: PlangsGraph) {
       people: [["person+gaston-gonnet", "designer"]],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+data-general-business-basic",
-    "Data General Business Basic",
-    {
-      name: "Data General Business Basic",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "Data General Business Basic",
-          href: "https://en.wikipedia.org/wiki/Data_General_Business_Basic",
-        },
-      ],
-    },
-    { influenced: ["pl+atari-basic"] },
   );
 
   /**/
@@ -3125,7 +2565,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+digital-command-language",
+    "pl+digital-command",
     "DCL",
     {
       name: "DCL",
@@ -3160,7 +2600,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1962-01-01", kind: "first" }],
     },
     {
-      implementations: ["pl+assembly-language"],
+      implementations: ["pl+assembly"],
       influenced: ["pl+darsimco", "pl+fortran-95"],
       influences: ["pl+darsimco", "pl+dartmouth-algol-30", "pl+dartmouth-basic", "pl+fortran"],
       paradigms: ["para+imperative"],
@@ -3618,7 +3058,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+executive-systems-problem-oriented-language",
+    "pl+executive-systems-problem-oriented",
     "Executive Systems Problem Oriented Language",
     {
       name: "Executive Systems Problem Oriented Language",
@@ -3660,7 +3100,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+fact-computer-language",
+    "pl+fact-computer",
     "FACT",
     {
       name: "FACT",
@@ -3812,18 +3252,6 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+fortran-90",
-    "Fortran 90",
-    {
-      name: "Fortran 90",
-      websites: [{ kind: "wikipedia", title: "Fortran 90", href: "https://en.wikipedia.org/wiki/Fortran_90" }],
-    },
-    { influenced: ["pl+modula-2"] },
-  );
-
-  /**/
-
-  lb.define(
     "pl+fortress",
     "Fortress",
     {
@@ -3915,32 +3343,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+free-pascal",
-    "Free Pascal",
-    {
-      name: "Free Pascal",
-      websites: [
-        { kind: "wikipedia", title: "Free Pascal", href: "https://en.wikipedia.org/wiki/Free_Pascal" },
-        { kind: "homepage", title: "www.freepascal.org", href: "http://www.freepascal.org" },
-      ],
-      images: [
-        {
-          kind: "logo",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Free_Pascal_3.2.2_help_screen.png/220px-Free_Pascal_3.2.2_help_screen.png",
-        },
-      ],
-      releases: [
-        { version: "unknown", date: "1997-01-01", kind: "first" },
-        { version: "3.2.2", date: "2021-05-20", kind: "stable" },
-        { version: "3.3.1", kind: "preview" },
-      ],
-    },
-    { dialects: ["pl+object-pascal"], licenses: ["lic+gpl", "lic+lgpl"] },
-  );
-
-  /**/
-
   lb.define("pl+free-university-of-berlin", "FU Berlin", {
     name: "FU Berlin",
     websites: [
@@ -4027,7 +3429,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+game-maker-language",
+    "pl+game-maker",
     "GameMaker",
     {
       name: "GameMaker",
@@ -4055,36 +3457,6 @@ export function define(g: PlangsGraph) {
         "platf+win",
         "platf+xbox",
       ],
-    },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+game-oriented-assembly-lisp",
-    "Game Oriented Assembly Lisp",
-    {
-      name: "Game Oriented Assembly Lisp",
-      websites: [
-        { kind: "wikipedia", title: "GOAL", href: "https://en.wikipedia.org/wiki/Game_Oriented_Assembly_Lisp" },
-      ],
-      releases: [
-        { version: "unknown", date: "2001-12-03", kind: "first" },
-        { version: "unknown", date: "2012-02-07", kind: "stable" },
-      ],
-    },
-    {
-      dialects: ["pl+lisp"],
-      implementations: ["pl+allegro-common-lisp"],
-      influences: ["pl+lisp", "pl+scheme"],
-      licenses: ["lic+proprietary"],
-      paradigms: ["para+multi"],
-      people: [
-        ["person+andy-gavin", "designer"],
-        ["person+naughty-dog", "designer"],
-      ],
-      platforms: ["platf+playstation"],
-      typeSystems: ["tsys+dynamic", "tsys+latent", "tsys+strong"],
     },
   );
 
@@ -4184,29 +3556,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+gnu-common-lisp",
-    "GCL",
-    {
-      name: "GCL",
-      websites: [
-        { kind: "wikipedia", title: "GNU Common Lisp", href: "https://en.wikipedia.org/wiki/GNU_Common_Lisp" },
-        { kind: "homepage", title: "www.gnu.org/software/gcl/", href: "https://www.gnu.org/software/gcl/" },
-      ],
-      references: {
-        stable_release: [
-          { href: "https://www.gnu.org/software/gcl/", title: "GCL – an implementation of Common Lisp" },
-        ],
-        license: [{ href: "http://directory.fsf.org/wiki/gcl", title: "GNU Common Lisp" }],
-      },
-      releases: [{ version: "2.6.14", date: "2023-01-13", kind: "stable" }],
-    },
-    { licenses: ["lic+gnu-library-gpl"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+gnu-data-language",
+    "pl+gnu-data",
     "GNU Data Language",
     {
       name: "GNU Data Language",
@@ -4257,23 +3607,9 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("pl+gnu-fortran", "GFortran", {
-    name: "GFortran",
-    websites: [{ kind: "wikipedia", title: "GFortran", href: "https://en.wikipedia.org/wiki/GNU_Fortran" }],
-  });
-
-  /**/
-
   lb.define("pl+gnu-m4", "GNU m4", {
     name: "GNU m4",
     websites: [{ kind: "wikipedia", title: "GNU m4", href: "https://en.wikipedia.org/wiki/GNU_m4" }],
-  });
-
-  /**/
-
-  lb.define("pl+gnu-pascal", "GNU Pascal", {
-    name: "GNU Pascal",
-    websites: [{ kind: "wikipedia", title: "GNU Pascal", href: "https://en.wikipedia.org/wiki/GNU_Pascal" }],
   });
 
   /**/
@@ -4518,48 +3854,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+gw-basic",
-    "GW-BASIC",
-    {
-      name: "GW-BASIC",
-      websites: [{ kind: "wikipedia", title: "GW-BASIC", href: "https://en.wikipedia.org/wiki/GW-BASIC" }],
-      images: [
-        {
-          kind: "logo",
-          url: "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/GW-BASIC_3.23.png/300px-GW-BASIC_3.23.png",
-        },
-      ],
-      releases: [
-        { version: "unknown", date: "1983-01-01", kind: "first" },
-        { version: "3.23", date: "1988-01-01", kind: "stable" },
-      ],
-      references: {
-        license: [
-          {
-            href: "https://devblogs.microsoft.com/commandline/microsoft-open-sources-gw-basic/",
-            title: "Microsoft Open-Sources GW-BASIC",
-          },
-        ],
-      },
-    },
-    {
-      influenced: ["pl+ibm-basica", "pl+msx-basic", "pl+qbasic"],
-      influences: [
-        "pl+ibm-basica",
-        "pl+ibm-cassette-basic",
-        "pl+ibm-disk-basic",
-        "pl+msx-basic",
-        "pl+qbasic",
-        "pl+quickbasic",
-      ],
-      licenses: ["lic+mit", "lic+proprietary"],
-      platforms: ["platf+dos"],
-    },
-  );
-
-  /**/
-
   lb.define("pl+haas-automation", "Haas", {
     name: "Haas",
     websites: [{ kind: "wikipedia", title: "Haas", href: "https://en.wikipedia.org/wiki/Haas_Automation" }],
@@ -4677,42 +3971,6 @@ export function define(g: PlangsGraph) {
     name: "Heidenhain",
     websites: [{ kind: "wikipedia", title: "Heidenhain", href: "https://en.wikipedia.org/wiki/Heidenhain" }],
   });
-
-  /**/
-
-  lb.define(
-    "pl+high-level-assembly",
-    "High Level Assembly (HLA)",
-    {
-      name: "High Level Assembly (HLA)",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "High Level Assembly (HLA)",
-          href: "https://en.wikipedia.org/wiki/High_Level_Assembly",
-        },
-        {
-          kind: "homepage",
-          title: "plantation-productions.com/Webster",
-          href: "http://plantation-productions.com/Webster",
-        },
-      ],
-      releases: [{ version: "2.16", date: "2011-07-06", kind: "stable" }],
-    },
-    { licenses: ["lic+public-domain"], people: [["person+randall-hyde", "designer"]], platforms: ["platf+ia-32"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+high-performance-fortran",
-    "HPF",
-    {
-      name: "HPF",
-      websites: [{ kind: "wikipedia", title: "HPF", href: "https://en.wikipedia.org/wiki/High_Performance_Fortran" }],
-    },
-    { influenced: ["pl+chapel"] },
-  );
 
   /**/
 
@@ -4885,61 +4143,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+ibm-basica",
-    "IBM BASICA",
-    {
-      name: "IBM BASICA",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "IBM Cassette BASICIBM Disk BASICIBM Advanced BASIC (BASICA)",
-          href: "https://en.wikipedia.org/wiki/IBM_BASICA",
-        },
-      ],
-      images: [
-        {
-          kind: "logo",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/IBM_Cassette_BASIC.png/300px-IBM_Cassette_BASIC.png",
-        },
-      ],
-      releases: [{ version: "unknown", date: "1981-01-01", kind: "first" }],
-    },
-    { influenced: ["pl+gw-basic"], influences: ["pl+gw-basic"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+ibm-cassette-basic",
-    "IBM Cassette BASIC",
-    {
-      name: "IBM Cassette BASIC",
-      websites: [
-        { kind: "wikipedia", title: "IBM Cassette BASIC", href: "https://en.wikipedia.org/wiki/IBM_Cassette_BASIC" },
-      ],
-    },
-    { influenced: ["pl+gw-basic"] },
-  );
-
-  /**/
-
   lb.define("pl+ibm-cobol", "IBM COBOL", {
     name: "IBM COBOL",
     websites: [{ kind: "wikipedia", title: "IBM COBOL", href: "https://en.wikipedia.org/wiki/IBM_COBOL" }],
   });
-
-  /**/
-
-  lb.define(
-    "pl+ibm-disk-basic",
-    "IBM Disk BASIC",
-    {
-      name: "IBM Disk BASIC",
-      websites: [{ kind: "wikipedia", title: "IBM Disk BASIC", href: "https://en.wikipedia.org/wiki/IBM_Disk_BASIC" }],
-    },
-    { influenced: ["pl+gw-basic"] },
-  );
 
   /**/
 
@@ -5091,8 +4298,8 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      implementations: ["pl+gnu-data-language"],
-      influenced: ["pl+fortran-95", "pl+perl-data-language"],
+      implementations: ["pl+gnu-data"],
+      influenced: ["pl+fortran-95", "pl+perl-data"],
       paradigms: ["para+array"],
       people: [
         ["person+david-stern", "designer"],
@@ -5147,7 +4354,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+information-processing-language",
+    "pl+information-processing",
     "Information Processing Language (IPL)",
     {
       name: "Information Processing Language (IPL)",
@@ -5243,13 +4450,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("pl+intel-fortran-compiler", "Intel", {
-    name: "Intel",
-    websites: [{ kind: "wikipedia", title: "Intel", href: "https://en.wikipedia.org/wiki/Intel_Fortran_Compiler" }],
-  });
-
-  /**/
-
   lb.define(
     "pl+intel-parallel-building-blocks",
     "Parallel Building Blocks",
@@ -5308,35 +4508,6 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+interlisp",
-    "InterLisp",
-    {
-      name: "InterLisp",
-      websites: [{ kind: "wikipedia", title: "Interlisp", href: "https://en.wikipedia.org/wiki/Interlisp" }],
-      releases: [{ version: "unknown", date: "1968-01-01", kind: "first" }],
-    },
-    {
-      dialects: ["pl+lisp"],
-      implementations: ["pl+c"],
-      influenced: ["pl+common-lisp", "pl+eulisp", "pl+multilisp", "pl+zetalisp"],
-      influences: ["pl+bbn-lisp", "pl+lisp", "pl+lisp-machine-lisp"],
-      licenses: ["lic+proprietary"],
-      paradigms: [
-        "para+dec",
-        "para+functional",
-        "para+imperative",
-        "para+meta",
-        "para+multi",
-        "para+objects",
-        "para+reflective",
-      ],
-      platforms: ["platf+6502", "platf+atari"],
-    },
-  );
-
-  /**/
-
-  lb.define(
     "pl+intermediate",
     "Intermediate programming language",
     {
@@ -5383,34 +4554,6 @@ export function define(g: PlangsGraph) {
     "ISETL",
     { name: "ISETL", websites: [{ kind: "wikipedia", title: "ISETL", href: "https://en.wikipedia.org/wiki/ISETL" }] },
     { influenced: ["pl+setl"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+islisp",
-    "ISLISP",
-    {
-      name: "ISLISP",
-      websites: [{ kind: "wikipedia", title: "ISLISP", href: "https://en.wikipedia.org/wiki/ISLISP" }],
-    },
-    {
-      dialects: ["pl+lisp"],
-      implementations: ["pl+c", "pl+c-sharp", "pl+go", "pl+java", "pl+javascript", "pl+lisp"],
-      influenced: ["pl+common-lisp", "pl+eulisp", "pl+lelisp", "pl+openlisp"],
-      influences: ["pl+common-lisp", "pl+eulisp", "pl+le-lisp", "pl+scheme"],
-      paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi", "para+objects", "para+reflection"],
-      platforms: [
-        "platf+android",
-        "platf+bsd",
-        "platf+ia-32",
-        "platf+linux",
-        "platf+mac",
-        "platf+qnx",
-        "platf+win",
-        "platf+x86-64",
-      ],
-    },
   );
 
   /**/
@@ -5508,7 +4651,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+java-persistence-query-language",
+    "pl+java-persistence-query",
     "JPQL",
     {
       name: "JPQL",
@@ -5592,7 +4735,7 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+focal"],
-      implementations: ["pl+assembly-language"],
+      implementations: ["pl+assembly"],
       influenced: ["pl+basic", "pl+focal", "pl+mumps", "pl+telcomp", "pl+tymshare-super-basic"],
       influences: ["pl+cal", "pl+focal", "pl+mumps", "pl+telcomp"],
       paradigms: ["para+imperative", "para+non"],
@@ -5719,18 +4862,6 @@ export function define(g: PlangsGraph) {
       platforms: ["platf+.net"],
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+weak"],
     },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+jupyter",
-    "Jupyter",
-    {
-      name: "Jupyter",
-      websites: [{ kind: "wikipedia", title: "Jupyter", href: "https://en.wikipedia.org/wiki/Jupyter" }],
-    },
-    { influenced: ["pl+wolfram-language"] },
   );
 
   /**/
@@ -5908,7 +5039,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+kuka-robot-language",
+    "pl+kuka-robot",
     "KUKA Robot Language",
     {
       name: "KUKA Robot Language",
@@ -5979,35 +5110,6 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+le-lisp",
-    "Le Lisp",
-    {
-      name: "Le Lisp",
-      websites: [{ kind: "wikipedia", title: "Le Lisp", href: "https://en.wikipedia.org/wiki/Le_Lisp" }],
-    },
-    { influenced: ["pl+islisp"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+level-i-basic",
-    "Level I BASIC",
-    {
-      name: "Level I BASIC",
-      websites: [{ kind: "wikipedia", title: "Level I BASIC", href: "https://en.wikipedia.org/wiki/Level_I_BASIC" }],
-      releases: [{ version: "unknown", date: "1977-01-01", kind: "first" }],
-    },
-    {
-      influenced: ["pl+tiny-basic"],
-      influences: ["pl+li-chen-wang", "pl+tiny-basic", "pl+trs-80-level-ii-basic"],
-      people: [["person+steve-leininger", "designer"]],
-    },
-  );
-
-  /**/
-
-  lb.define(
     "pl+li-chen-wang",
     "Palo Alto Tiny BASIC",
     {
@@ -6017,32 +5119,6 @@ export function define(g: PlangsGraph) {
       ],
     },
     { influenced: ["pl+level-i-basic"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+liberty-basic",
-    "Liberty BASIC",
-    {
-      name: "Liberty BASIC",
-      websites: [
-        { kind: "wikipedia", title: "Liberty BASIC", href: "https://en.wikipedia.org/wiki/Liberty_BASIC" },
-        { kind: "homepage", title: "libertybasic.com", href: "http://libertybasic.com" },
-      ],
-      releases: [
-        { version: "unknown", date: "1992-01-01", kind: "first" },
-        { version: "4.5.1", date: "2017-05-31", kind: "stable" },
-      ],
-      extensions: [".bas", ".fr3"],
-    },
-    {
-      influences: ["pl+quickbasic"],
-      paradigms: ["para+event", "para+imperative"],
-      people: [["person+carl-gundel", "designer"]],
-      platforms: ["platf+linux", "platf+win"],
-      typeSystems: ["tsys+dynamic", "tsys+weak"],
-    },
   );
 
   /**/
@@ -6059,30 +5135,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2016.05", date: "2016-05-26", kind: "stable" }],
     },
     { licenses: ["lic+gpl"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+libxslt",
-    "libxslt",
-    {
-      name: "libxslt",
-      websites: [
-        { kind: "wikipedia", title: "libxslt", href: "https://en.wikipedia.org/wiki/Libxslt" },
-        { kind: "homepage", title: "xmlsoft.org", href: "http://xmlsoft.org" },
-      ],
-      releases: [
-        { version: "unknown", date: "1999-09-23", kind: "first" },
-        { version: "1.1.40", date: "2024-01-01", kind: "stable" },
-      ],
-      references: {
-        stable_release: [
-          { href: "https://gitlab.gnome.org/GNOME/libxslt/-/releases/v1.1.40", title: "libxslt 1.1.40" },
-        ],
-      },
-    },
-    { licenses: ["lic+mit"] },
   );
 
   /**/
@@ -6165,83 +5217,6 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "LIS", href: "https://en.wikipedia.org/wiki/LIS_(programming_language)" }],
     },
     { influenced: ["pl+euclid"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+lisp-machine-lisp",
-    "Lisp Machine Lisp",
-    {
-      name: "Lisp Machine Lisp",
-      websites: [
-        { kind: "wikipedia", title: "Lisp Machine Lisp", href: "https://en.wikipedia.org/wiki/Lisp_Machine_Lisp" },
-      ],
-    },
-    { influenced: ["pl+common-lisp", "pl+interlisp"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+lispworks",
-    "LispWorks",
-    {
-      name: "LispWorks",
-      websites: [
-        { kind: "wikipedia", title: "LispWorks", href: "https://en.wikipedia.org/wiki/LispWorks" },
-        { kind: "homepage", title: "lispworks.com", href: "http://lispworks.com" },
-      ],
-      releases: [
-        { version: "unknown", date: "1989-01-01", kind: "first" },
-        { version: "8.0.1", date: "2022-06-28", kind: "stable" },
-      ],
-      scoping: ["dynamic"],
-    },
-    {
-      implementations: ["pl+common-lisp"],
-      influences: ["pl+common-lisp", "pl+lisp"],
-      licenses: ["lic+proprietary"],
-      paradigms: [
-        "para+functional",
-        "para+generic",
-        "para+imperative",
-        "para+meta",
-        "para+multi",
-        "para+objects",
-        "para+reflective",
-      ],
-      platforms: [
-        "platf+android",
-        "platf+arm",
-        "platf+bsd",
-        "platf+ia-32",
-        "platf+ios",
-        "platf+linux",
-        "platf+mac",
-        "platf+win",
-        "platf+x86-64",
-      ],
-      typeSystems: ["tsys+dynamic", "tsys+strong"],
-    },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+list-of-basic-dialects",
-    "list of BASIC dialects",
-    {
-      name: "list of BASIC dialects",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "list of BASIC dialects",
-          href: "https://en.wikipedia.org/wiki/List_of_BASIC_dialects",
-        },
-      ],
-    },
-    { influenced: ["pl+dartmouth-basic"] },
   );
 
   /**/
@@ -6488,35 +5463,6 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "machine code", href: "https://en.wikipedia.org/wiki/Machine_code" }],
     },
     { influenced: ["pl+speedcoding"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+maclisp",
-    "Maclisp",
-    {
-      name: "Maclisp",
-      websites: [{ kind: "wikipedia", title: "Maclisp", href: "https://en.wikipedia.org/wiki/Maclisp" }],
-      releases: [{ version: "unknown", date: "1966-01-01", kind: "first" }],
-      extensions: [".fasl"],
-    },
-    {
-      dialects: ["pl+lisp"],
-      implementations: ["pl+assembly-language", "pl+pl-slashi"],
-      influenced: [
-        "pl+allegro-common-lisp",
-        "pl+common-lisp",
-        "pl+emacs-lisp",
-        "pl+franz-lisp",
-        "pl+lfe",
-        "pl+zetalisp",
-      ],
-      influences: ["pl+common-lisp"],
-      paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi", "para+reflection"],
-      people: [["person+richard-greenblatt", "designer"]],
-      typeSystems: ["tsys+dynamic", "tsys+strong"],
-    },
   );
 
   /**/
@@ -6786,13 +5732,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("pl+mimer-sql", "Mimer SQL", {
-    name: "Mimer SQL",
-    websites: [{ kind: "wikipedia", title: "Mimer SQL", href: "https://en.wikipedia.org/wiki/Mimer_SQL" }],
-  });
-
-  /**/
-
   lb.define("pl+mips-architecture", "MIPS", {
     name: "MIPS",
     websites: [{ kind: "wikipedia", title: "MIPS", href: "https://en.wikipedia.org/wiki/MIPS_architecture" }],
@@ -6868,51 +5807,6 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+modula",
-    "Modula",
-    {
-      name: "Modula",
-      websites: [{ kind: "wikipedia", title: "Modula", href: "https://en.wikipedia.org/wiki/Modula" }],
-      releases: [{ version: "unknown", date: "1975-01-01", kind: "first" }],
-    },
-    {
-      dialects: ["pl+alma-0", "pl+modula-2", "pl+modula-2-plus", "pl+modula-3"],
-      influenced: ["pl+euclid", "pl+go", "pl+modula-2", "pl+parasail", "pl+pascal"],
-      influences: ["pl+alma-0", "pl+go", "pl+modula-2", "pl+pascal"],
-      paradigms: ["para+imperative", "para+modular", "para+structured"],
-      people: [["person+niklaus-wirth", "designer"]],
-      typeSystems: ["tsys+safe", "tsys+static", "tsys+strong"],
-    },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+modula-2-plus",
-    "Modula-2+",
-    {
-      name: "Modula-2+",
-      websites: [{ kind: "wikipedia", title: "Modula-2+", href: "https://en.wikipedia.org/wiki/Modula-2%2B" }],
-      releases: [{ version: "unknown", date: "1984-01-01", kind: "first" }],
-    },
-    {
-      influenced: ["pl+modula-2", "pl+modula-3"],
-      influences: ["pl+algol", "pl+modula-2", "pl+modula-3", "pl+pascal"],
-      licenses: ["lic+proprietary"],
-      paradigms: ["para+concurrent", "para+imperative", "para+information", "para+modular", "para+structured"],
-      people: [
-        ["person+john-wick", "designer"],
-        ["person+paul-rovner", "designer"],
-        ["person+roy-levin", "designer"],
-      ],
-      platforms: ["platf+cross-platform"],
-      typeSystems: ["tsys+safe", "tsys+static", "tsys+strong"],
-    },
-  );
-
-  /**/
-
-  lb.define(
     "pl+moonscript",
     "MoonScript",
     {
@@ -6954,20 +5848,6 @@ export function define(g: PlangsGraph) {
     name: "Motorola 68000",
     websites: [{ kind: "wikipedia", title: "Motorola 68000", href: "https://en.wikipedia.org/wiki/Motorola_68000" }],
   });
-
-  /**/
-
-  lb.define(
-    "pl+ms-basic",
-    "Microsoft BASIC",
-    {
-      name: "Microsoft BASIC",
-      websites: [
-        { kind: "wikipedia", title: "Microsoft BASIC", href: "https://en.wikipedia.org/wiki/Microsoft_BASIC" },
-      ],
-    },
-    { influenced: ["pl+basic-plus", "pl+visual-basic"] },
-  );
 
   /**/
 
@@ -7051,51 +5931,6 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+msx-basic",
-    "MSX BASIC",
-    {
-      name: "MSX BASIC",
-      websites: [
-        { kind: "wikipedia", title: "MSX BASIC", href: "https://en.wikipedia.org/wiki/MSX_BASIC" },
-        { kind: "homepage", title: "www.microsoft.com", href: "http://www.microsoft.com" },
-      ],
-      releases: [
-        { version: "unknown", date: "1983-01-01", kind: "first" },
-        { version: "4.1", kind: "stable" },
-      ],
-    },
-    {
-      influenced: ["pl+gw-basic", "pl+vilnius-basic"],
-      influences: ["pl+gw-basic", "pl+vilnius-basic"],
-      licenses: ["lic+eula", "lic+ms"],
-      paradigms: ["para+imperative"],
-    },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+multilisp",
-    "MultiLisp",
-    {
-      name: "MultiLisp",
-      websites: [{ kind: "wikipedia", title: "MultiLisp", href: "https://en.wikipedia.org/wiki/MultiLisp" }],
-      releases: [{ version: "unknown", date: "1980-01-01", kind: "first" }],
-    },
-    {
-      implementations: ["pl+interlisp"],
-      influenced: ["pl+scheme"],
-      influences: ["pl+gambit", "pl+interlisp", "pl+lisp", "pl+scheme", "pl+vax"],
-      licenses: ["lic+proprietary"],
-      paradigms: ["para+concurrent", "para+functional", "para+imperative", "para+meta", "para+multi"],
-      people: [["person+robert-h-halstead-jr", "designer"]],
-      typeSystems: ["tsys+dynamic", "tsys+latent", "tsys+strong"],
-    },
-  );
-
-  /**/
-
-  lb.define(
     "pl+mumps",
     "MUMPS",
     {
@@ -7111,11 +5946,11 @@ export function define(g: PlangsGraph) {
         "pl+cache-objectscript",
         "pl+fortran-95",
         "pl+joss",
-        "pl+profile-scripting-language",
+        "pl+profile-scripting",
         "pl+speedcoding",
         "pl+telcomp",
       ],
-      influences: ["pl+cache-objectscript", "pl+gt.m", "pl+joss", "pl+profile-scripting-language"],
+      influences: ["pl+cache-objectscript", "pl+gt.m", "pl+joss", "pl+profile-scripting"],
       paradigms: ["para+imperative"],
       people: [
         ["person+neil-pappalardo", "designer"],
@@ -7130,13 +5965,6 @@ export function define(g: PlangsGraph) {
   lb.define("pl+mvs", "MVS", {
     name: "MVS",
     websites: [{ kind: "wikipedia", title: "MVS", href: "https://en.wikipedia.org/wiki/MVS" }],
-  });
-
-  /**/
-
-  lb.define("pl+mysql", "MySQL", {
-    name: "MySQL",
-    websites: [{ kind: "wikipedia", title: "MySQL", href: "https://en.wikipedia.org/wiki/MySQL" }],
   });
 
   /**/
@@ -7341,8 +6169,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "17.0", date: "2015-01-01", kind: "stable" }],
     },
     {
-      influenced: ["pl+executive-systems-problem-oriented-language"],
-      influences: ["pl+algol", "pl+executive-systems-problem-oriented-language"],
+      influenced: ["pl+executive-systems-problem-oriented"],
+      influences: ["pl+algol", "pl+executive-systems-problem-oriented"],
       paradigms: ["para+imperative", "para+multi", "para+structured"],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
@@ -7538,22 +6366,6 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+ns-basic",
-    "NS Basic",
-    {
-      name: "NS Basic",
-      websites: [
-        { kind: "wikipedia", title: "NSB/AppStudio", href: "https://en.wikipedia.org/wiki/NS_Basic" },
-        { kind: "homepage", title: "www.appstudio.dev", href: "https://www.appstudio.dev" },
-      ],
-      releases: [{ version: "9.0.4", date: "2024-05-01", kind: "stable" }],
-    },
-    { influenced: ["pl+visual-basic"], licenses: ["lic+proprietary"] },
-  );
-
-  /**/
-
-  lb.define(
     "pl+nu",
     "Nu",
     {
@@ -7590,59 +6402,6 @@ export function define(g: PlangsGraph) {
       },
     ],
   });
-
-  /**/
-
-  lb.define(
-    "pl+numpy",
-    "NumPy",
-    { name: "NumPy", websites: [{ kind: "wikipedia", title: "NumPy", href: "https://en.wikipedia.org/wiki/NumPy" }] },
-    { influenced: ["pl+j"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+oaklisp",
-    "Oaklisp",
-    {
-      name: "Oaklisp",
-      websites: [{ kind: "wikipedia", title: "Oaklisp", href: "https://en.wikipedia.org/wiki/Oaklisp" }],
-      releases: [
-        { version: "unknown", date: "1986-01-01", kind: "first" },
-        { version: "unknown", date: "2000-01-01", kind: "stable" },
-      ],
-    },
-    {
-      influenced: ["pl+eulisp"],
-      influences: ["pl+dylan", "pl+eulisp", "pl+java", "pl+scheme", "pl+smalltalk", "pl+t"],
-      paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects"],
-      typeSystems: ["tsys+dynamic", "tsys+strong"],
-    },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+object-oberon",
-    "Object Oberon",
-    {
-      name: "Object Oberon",
-      websites: [
-        { kind: "wikipedia", title: "Object Oberon", href: "https://en.wikipedia.org/wiki/Object_Oberon" },
-        { kind: "homepage", title: "www.projectoberon.com", href: "http://www.projectoberon.com" },
-      ],
-      releases: [{ version: "unknown", date: "1989-01-01", kind: "first" }],
-    },
-    {
-      implementations: ["pl+oberon"],
-      influenced: ["pl+active-oberon", "pl+oberon-2"],
-      influences: ["pl+modula-2", "pl+oberon", "pl+oberon-2"],
-      paradigms: ["para+imperative", "para+modular", "para+objects", "para+structured"],
-      people: [["person+hanspeter-mossenbock", "designer"]],
-      typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong"],
-    },
-  );
 
   /**/
 
@@ -7698,18 +6457,6 @@ export function define(g: PlangsGraph) {
       ],
       typeSystems: ["tsys+dynamic"],
     },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+objvlisp",
-    "ObjVlisp",
-    {
-      name: "ObjVlisp",
-      websites: [{ kind: "wikipedia", title: "ObjVlisp", href: "https://en.wikipedia.org/wiki/ObjVlisp" }],
-    },
-    { influenced: ["pl+eulisp"] },
   );
 
   /**/
@@ -7865,7 +6612,7 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("pl+openedge-advanced-business-language", "OpenEdge Advanced Business Language (ABL)", {
+  lb.define("pl+openedge-advanced-business", "OpenEdge Advanced Business Language (ABL)", {
     name: "OpenEdge Advanced Business Language (ABL)",
     websites: [
       {
@@ -8024,19 +6771,6 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+orca-slashmodula-2",
-    "ORCA/Modula-2",
-    {
-      name: "ORCA/Modula-2",
-      websites: [{ kind: "wikipedia", title: "ORCA/Modula-2", href: "https://en.wikipedia.org/wiki/ORCA/Modula-2" }],
-      releases: [{ version: "unknown", date: "1994-01-01", kind: "first" }],
-    },
-    { people: [["person+the-byte-works", "designer"]] },
-  );
-
-  /**/
-
-  lb.define(
     "pl+oriel",
     "Oriel",
     {
@@ -8170,58 +6904,35 @@ export function define(g: PlangsGraph) {
 
   /**/
 
+  lb.define(
+    "pl+pari-slashgp",
+    "PARI/GP",
+    {
+      name: "PARI/GP",
+      websites: [
+        { kind: "wikipedia", title: "PARI/GP", href: "https://en.wikipedia.org/wiki/PARI/GP" },
+        { kind: "homepage", title: "pari.math.u-bordeaux.fr", href: "http://pari.math.u-bordeaux.fr/" },
+      ],
+      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/26/PARI-GP_logo.svg" }],
+      references: {
+        stable_release: [
+          {
+            href: "https://pari.math.u-bordeaux.fr/archives/pari-announce-24/msg00000.html",
+            title: "pari-2.15.5 (STABLE) released",
+          },
+        ],
+      },
+      releases: [{ version: "2.15.5", date: "2024-01-01", kind: "stable" }],
+    },
+    { licenses: ["lic+gpl"], people: [["person+henri-cohen", "designer"]] },
+  );
+
+  /**/
+
   lb.define("pl+parrot-virtual-machine", "Parrot", {
     name: "Parrot",
     websites: [{ kind: "wikipedia", title: "Parrot", href: "https://en.wikipedia.org/wiki/Parrot_virtual_machine" }],
   });
-
-  /**/
-
-  lb.define("pl+pascal-p", "Pascal-P", {
-    name: "Pascal-P",
-    websites: [{ kind: "wikipedia", title: "Pascal-P", href: "https://en.wikipedia.org/wiki/Pascal-P" }],
-  });
-
-  /**/
-
-  lb.define(
-    "pl+pascal-script",
-    "Pascal Script",
-    {
-      name: "Pascal Script",
-      websites: [{ kind: "wikipedia", title: "Pascal Script", href: "https://en.wikipedia.org/wiki/Pascal_Script" }],
-      images: [
-        {
-          kind: "logo",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Pascal_Script_3_Lazarus_IDE.png/300px-Pascal_Script_3_Lazarus_IDE.png",
-        },
-      ],
-      releases: [
-        { version: "unknown", date: "2000-01-01", kind: "first" },
-        { version: "3.0", kind: "stable" },
-      ],
-      extensions: [".pas"],
-    },
-    {
-      influences: ["pl+object-pascal", "pl+pascal"],
-      paradigms: ["para+imperative", "para+objects", "para+scripting"],
-      people: [["person+free-pascal", "designer"]],
-      platforms: ["platf+linux", "platf+mac", "platf+win"],
-      typeSystems: ["tsys+strong"],
-    },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+pascalabc.net",
-    "PascalABC.NET",
-    {
-      name: "PascalABC.NET",
-      websites: [{ kind: "wikipedia", title: "PascalABC.NET", href: "https://en.wikipedia.org/wiki/PascalABC.NET" }],
-    },
-    { dialects: ["pl+object-pascal"] },
-  );
 
   /**/
 
@@ -8314,7 +7025,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+perl-data-language",
+    "pl+perl-data",
     "Perl Data Language (PDL)",
     {
       name: "Perl Data Language (PDL)",
@@ -8525,14 +7236,14 @@ export function define(g: PlangsGraph) {
       influences: [
         "pl+algol-60",
         "pl+cobol",
-        "pl+control-language",
+        "pl+control",
         "pl+fortran",
         "pl+ibm-pl-slashs",
         "pl+pl-6",
         "pl+pl-slashm",
         "pl+pl.8",
         "pl+rexx",
-        "pl+sas-language",
+        "pl+sas",
       ],
       paradigms: ["para+imperative", "para+structured"],
     },
@@ -8593,13 +7304,37 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+pl-slashsql",
-    "PL/SQL",
+    "pl+pl-slashm",
+    "PL/M",
     {
-      name: "PL/SQL",
-      websites: [{ kind: "wikipedia", title: "PL/SQL", href: "https://en.wikipedia.org/wiki/PL/SQL" }],
+      name: "PL/M",
+      websites: [{ kind: "wikipedia", title: "PL/M", href: "https://en.wikipedia.org/wiki/PL/M" }],
+      references: {
+        developer: [
+          {
+            href: "https://web.archive.org/web/20190726193738/http://www.drdobbs.com/architecture-and-design/gary-kildall-and-collegial-entrepreneurs/184410428",
+            title: "Gary Kildall and Collegial Entrepreneurship",
+          },
+        ],
+        first_appeared: [
+          {
+            href: "https://web.archive.org/web/20191003055634/https://computerhistory.org/blog/in-his-own-words-gary-kildall/?key=in-his-own-words-gary-kildall",
+            title: "In His Own Words: Gary Kildall",
+          },
+          {
+            href: "http://www.computerhistory.org/atchm/computer-history-museum-license-agreement-for-the-kildall-manuscript/",
+            title:
+              "Computer Connections: People, Places, and Events in the Evolution of the Personal Computer Industry",
+          },
+        ],
+      },
+      releases: [{ version: "unknown", date: "1973-01-01", kind: "first" }],
     },
-    { influenced: ["pl+ada", "pl+pl-slashpgsql", "pl+sql-slashpsm"] },
+    {
+      influenced: ["pl+pl-slash1"],
+      influences: ["pl+algol", "pl+pl-slashi", "pl+xpl"],
+      people: [["person+gary-kildall", "designer"]],
+    },
   );
 
   /**/
@@ -8623,7 +7358,7 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+algol"],
-      influences: ["pl+algol", "pl+algol-w", "pl+executive-systems-problem-oriented-language"],
+      influences: ["pl+algol", "pl+algol-w", "pl+executive-systems-problem-oriented"],
       paradigms: ["para+imperative", "para+structured"],
       people: [["person+niklaus-wirth", "designer"]],
       typeSystems: ["tsys+static", "tsys+strong"],
@@ -8775,7 +7510,7 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      implementations: ["pl+assembly-language"],
+      implementations: ["pl+assembly"],
       influenced: ["pl+cowsel", "pl+lisp", "pl+pop-11", "pl+rapira"],
       influences: ["pl+algol-60", "pl+cowsel", "pl+lisp", "pl+pop-11"],
       licenses: ["lic+proprietary"],
@@ -8848,24 +7583,6 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "PDF", href: "https://en.wikipedia.org/wiki/Portable_Document_Format" }],
     },
     { influenced: ["pl+postscript"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+portable-standard-lisp",
-    "Portable Standard Lisp",
-    {
-      name: "Portable Standard Lisp",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "Portable Standard Lisp",
-          href: "https://en.wikipedia.org/wiki/Portable_Standard_Lisp",
-        },
-      ],
-    },
-    { dialects: ["pl+lisp"] },
   );
 
   /**/
@@ -8961,7 +7678,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+profile-scripting-language",
+    "pl+profile-scripting",
     "PSL",
     {
       name: "PSL",
@@ -9086,27 +7803,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+ps-algol",
-    "PS-algol",
-    {
-      name: "PS-algol",
-      websites: [{ kind: "wikipedia", title: "PS-algol", href: "https://en.wikipedia.org/wiki/PS-algol" }],
-      releases: [{ version: "unknown", date: "1983-01-01", kind: "first" }],
-    },
-    {
-      influenced: ["pl+napier88"],
-      influences: ["pl+algol-60", "pl+napier88", "pl+s-algol"],
-      paradigms: ["para+imperative", "para+multi", "para+structured"],
-      people: [
-        ["person+paul-cockshott", "designer"],
-        ["person+ron-morrison", "designer"],
-      ],
-    },
-  );
-
-  /**/
-
   lb.define("pl+ptc", "PTC", {
     name: "PTC",
     websites: [{ kind: "wikipedia", title: "PTC", href: "https://en.wikipedia.org/wiki/PTC_(software_company)" }],
@@ -9192,21 +7888,6 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+pypy",
-    "RPython",
-    {
-      name: "RPython",
-      websites: [
-        { kind: "wikipedia", title: "PyPy", href: "https://en.wikipedia.org/wiki/PyPy" },
-        { kind: "wikipedia", title: "RPython", href: "https://en.wikipedia.org/wiki/PyPy#RPython" },
-      ],
-    },
-    { dialects: ["pl+python"] },
-  );
-
-  /**/
-
-  lb.define(
     "pl+qalb",
     "قلب",
     {
@@ -9218,32 +7899,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "2012-01-01", kind: "first" }],
     },
     { influences: ["pl+scheme"], paradigms: ["para+functional"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+qbasic",
-    "QBasic",
-    {
-      name: "QBasic",
-      websites: [{ kind: "wikipedia", title: "QBasic", href: "https://en.wikipedia.org/wiki/QBasic" }],
-      images: [
-        {
-          kind: "logo",
-          url: "https://upload.wikimedia.org/wikipedia/en/thumb/0/01/QBasic_Opening_Screen.png/220px-QBasic_Opening_Screen.png",
-        },
-      ],
-      releases: [{ version: "unknown", date: "1991-01-01", kind: "first" }],
-    },
-    {
-      influenced: ["pl+gw-basic", "pl+ms-small-basic", "pl+qb64", "pl+visual-basic"],
-      influences: ["pl+freebasic", "pl+gw-basic", "pl+qb64", "pl+quickbasic", "pl+smallbasic"],
-      licenses: ["lic+proprietary"],
-      paradigms: ["para+imperative"],
-      platforms: ["platf+arcaos", "platf+dos", "platf+win"],
-      typeSystems: ["tsys+static", "tsys+strong"],
-    },
   );
 
   /**/
@@ -9263,7 +7918,7 @@ export function define(g: PlangsGraph) {
     {
       implementations: ["pl+c-plus-plus", "pl+pthreads"],
       influenced: ["pl+d"],
-      influences: ["pl+c-plus-plus", "pl+d-language", "pl+java", "pl+perl"],
+      influences: ["pl+c-plus-plus", "pl+d", "pl+java", "pl+perl"],
       licenses: ["lic+gpl", "lic+lgpl", "lic+mit"],
       paradigms: [
         "para+class",
@@ -9316,49 +7971,13 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+query-language",
+    "pl+query",
     "Query language",
     {
       name: "Query language",
       websites: [{ kind: "wikipedia", title: "Query language", href: "https://en.wikipedia.org/wiki/Query_language" }],
     },
     { dialects: ["pl+sql"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+quickbasic",
-    "QuickBASIC",
-    {
-      name: "QuickBASIC",
-      websites: [
-        { kind: "wikipedia", title: "QuickBASIC", href: "https://en.wikipedia.org/wiki/QuickBASIC" },
-        { kind: "homepage", title: "www.microsoft.com", href: "https://www.microsoft.com/" },
-      ],
-      images: [
-        {
-          kind: "logo",
-          url: "https://upload.wikimedia.org/wikipedia/en/thumb/0/01/QuickBasic_Opening_Screen.png/220px-QuickBasic_Opening_Screen.png",
-        },
-      ],
-      releases: [
-        { version: "unknown", date: "1985-01-01", kind: "first" },
-        { version: "unknown", date: "1990-01-01", kind: "stable" },
-      ],
-    },
-    {
-      influenced: [
-        "pl+freebasic",
-        "pl+gw-basic",
-        "pl+liberty-basic",
-        "pl+qb64",
-        "pl+qbasic",
-        "pl+visual-basic-for-applications",
-      ],
-      licenses: ["lic+proprietary"],
-      platforms: ["platf+x86"],
-    },
   );
 
   /**/
@@ -9543,7 +8162,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+renderman-shading-language",
+    "pl+renderman-shading",
     "RenderMan Shading Language",
     {
       name: "RenderMan Shading Language",
@@ -9694,28 +8313,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("pl+ruby-mri", "Ruby MRI", {
-    name: "Ruby MRI",
-    websites: [{ kind: "wikipedia", title: "Ruby MRI", href: "https://en.wikipedia.org/wiki/Ruby_MRI" }],
-  });
-
-  /**/
-
-  lb.define(
-    "pl+rubymotion",
-    "RubyMotion",
-    {
-      name: "RubyMotion",
-      websites: [
-        { kind: "wikipedia", title: "RubyMotion", href: "https://en.wikipedia.org/wiki/RubyMotion" },
-        { kind: "homepage", title: "www.rubymotion.com", href: "http://www.rubymotion.com/" },
-      ],
-    },
-    { licenses: ["lic+eula", "lic+proprietary"] },
-  );
-
-  /**/
-
   lb.define(
     "pl+s",
     "S",
@@ -9744,18 +8341,6 @@ export function define(g: PlangsGraph) {
       ],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+s-algol",
-    "S-algol",
-    {
-      name: "S-algol",
-      websites: [{ kind: "wikipedia", title: "S-algol", href: "https://en.wikipedia.org/wiki/S-algol" }],
-    },
-    { influenced: ["pl+napier88", "pl+ps-algol"] },
   );
 
   /**/
@@ -9871,7 +8456,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+sas-language",
+    "pl+sas",
     "SAS",
     {
       name: "SAS",
@@ -9973,13 +8558,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("pl+saxon-xslt", "Saxon", {
-    name: "Saxon",
-    websites: [{ kind: "wikipedia", title: "Saxon", href: "https://en.wikipedia.org/wiki/Saxon_XSLT" }],
-  });
-
-  /**/
-
   lb.define(
     "pl+sbcl",
     "SBCL",
@@ -10024,7 +8602,7 @@ export function define(g: PlangsGraph) {
       name: "Schoonschip",
       websites: [{ kind: "wikipedia", title: "Schoonschip", href: "https://en.wikipedia.org/wiki/Schoonschip" }],
     },
-    { influenced: ["pl+wolfram-language"] },
+    { influenced: ["pl+wolfram"] },
   );
 
   /**/
@@ -10061,7 +8639,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+scripting-language",
+    "pl+scripting",
     "Scripting language",
     {
       name: "Scripting language",
@@ -10212,7 +8790,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+shading-language",
+    "pl+shading",
     "shading language",
     {
       name: "shading language",
@@ -10327,7 +8905,7 @@ export function define(g: PlangsGraph) {
         "pl+smalltalk",
         "pl+squeak",
         "pl+visualworks",
-        "pl+wolfram-language",
+        "pl+wolfram",
       ],
     },
   );
@@ -10397,24 +8975,6 @@ export function define(g: PlangsGraph) {
       },
     },
     { licenses: ["lic+proprietary"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+sinclair-basic",
-    "Sinclair BASIC",
-    {
-      name: "Sinclair BASIC",
-      websites: [{ kind: "wikipedia", title: "Sinclair BASIC", href: "https://en.wikipedia.org/wiki/Sinclair_BASIC" }],
-      releases: [{ version: "unknown", date: "1979-01-01", kind: "first" }],
-    },
-    {
-      licenses: ["lic+proprietary"],
-      paradigms: ["para+imperative"],
-      people: [["person+steve-vickers", "designer"]],
-      platforms: ["platf+zx-spectrum", "platf+zx80", "platf+zx81"],
-    },
   );
 
   /**/
@@ -10661,7 +9221,7 @@ export function define(g: PlangsGraph) {
       influenced: ["pl+fortran-95"],
       influences: [
         "pl+algol-58",
-        "pl+assembly-language",
+        "pl+assembly",
         "pl+basic",
         "pl+c",
         "pl+fortran",
@@ -10675,18 +9235,6 @@ export function define(g: PlangsGraph) {
       people: [["person+john-backus", "designer"]],
       typeSystems: ["tsys+manifest", "tsys+static", "tsys+strong"],
     },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+spice-lisp",
-    "Spice Lisp",
-    {
-      name: "Spice Lisp",
-      websites: [{ kind: "wikipedia", title: "Spice Lisp", href: "https://en.wikipedia.org/wiki/Spice_Lisp" }],
-    },
-    { dialects: ["pl+lisp"] },
   );
 
   /**/
@@ -10732,182 +9280,6 @@ export function define(g: PlangsGraph) {
       paradigms: ["para+imperative", "para+parallel", "para+structured"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+manifest", "tsys+static", "tsys+weak"],
-    },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+sql-1999",
-    "SQL:1999",
-    {
-      name: "SQL:1999",
-      websites: [{ kind: "wikipedia", title: "SQL:1999", href: "https://en.wikipedia.org/wiki/SQL:1999" }],
-    },
-    { dialects: ["pl+sql"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+sql-2003",
-    "SQL:2003",
-    {
-      name: "SQL:2003",
-      websites: [{ kind: "wikipedia", title: "SQL:2003", href: "https://en.wikipedia.org/wiki/SQL:2003" }],
-    },
-    { dialects: ["pl+sql"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+sql-2006",
-    "SQL:2006",
-    {
-      name: "SQL:2006",
-      websites: [{ kind: "wikipedia", title: "SQL:2006", href: "https://en.wikipedia.org/wiki/SQL:2006" }],
-    },
-    { dialects: ["pl+sql"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+sql-2008",
-    "SQL:2008",
-    {
-      name: "SQL:2008",
-      websites: [{ kind: "wikipedia", title: "SQL:2008", href: "https://en.wikipedia.org/wiki/SQL:2008" }],
-    },
-    { dialects: ["pl+sql"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+sql-2011",
-    "SQL:2011",
-    {
-      name: "SQL:2011",
-      websites: [{ kind: "wikipedia", title: "SQL:2011", href: "https://en.wikipedia.org/wiki/SQL:2011" }],
-    },
-    { dialects: ["pl+sql"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+sql-2016",
-    "SQL:2016",
-    {
-      name: "SQL:2016",
-      websites: [{ kind: "wikipedia", title: "SQL:2016", href: "https://en.wikipedia.org/wiki/SQL:2016" }],
-    },
-    { dialects: ["pl+sql"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+sql-2023",
-    "SQL:2023",
-    {
-      name: "SQL:2023",
-      websites: [{ kind: "wikipedia", title: "SQL:2023", href: "https://en.wikipedia.org/wiki/SQL:2023" }],
-    },
-    { dialects: ["pl+sql"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+sql-92",
-    "SQL-92",
-    {
-      name: "SQL-92",
-      websites: [{ kind: "wikipedia", title: "SQL-92", href: "https://en.wikipedia.org/wiki/SQL-92" }],
-    },
-    { dialects: ["pl+sql"] },
-  );
-
-  /**/
-
-  lb.define("pl+sql-pl", "SQL PL", {
-    name: "SQL PL",
-    websites: [{ kind: "wikipedia", title: "SQL PL", href: "https://en.wikipedia.org/wiki/SQL_PL" }],
-  });
-
-  /**/
-
-  lb.define(
-    "pl+sql-slashpsm",
-    "SQL/PSM",
-    {
-      name: "SQL/PSM",
-      websites: [{ kind: "wikipedia", title: "SQL/PSM", href: "https://en.wikipedia.org/wiki/SQL/PSM" }],
-      releases: [{ version: "unknown", date: "1996-01-01", kind: "first" }],
-      references: {
-        influenced_by: [
-          {
-            href: "http://ocelot.ca/blog/blog/2015/01/15/stored-procedures-critiques-and-defences/",
-            title: "Stored Procedures: critiques and defences",
-          },
-        ],
-      },
-    },
-    {
-      implementations: ["pl+mariadb", "pl+mimer-sql", "pl+mysql", "pl+pl-slashsql", "pl+sql-pl"],
-      influenced: ["pl+ada"],
-      influences: ["pl+ada", "pl+pl-slashsql"],
-      paradigms: ["para+multi"],
-      platforms: ["platf+cross-platform"],
-    },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+stackless-python",
-    "Stackless Python",
-    {
-      name: "Stackless Python",
-      websites: [
-        { kind: "wikipedia", title: "Stackless Python", href: "https://en.wikipedia.org/wiki/Stackless_Python" },
-        { kind: "homepage", title: "www.stackless.com", href: "http://www.stackless.com/" },
-      ],
-      releases: [
-        { version: "unknown", date: "1998-01-01", kind: "first" },
-        { version: "3.8.1", date: "2020-01-22", kind: "stable" },
-        { version: "unknown", date: "2021-01-01", kind: "preview" },
-      ],
-      references: {
-        stable_release: [
-          { href: "https://github.com/stackless-dev/stackless/releases/tag/v3.8.1-slp", title: "Release v3.8.1-slp" },
-        ],
-      },
-    },
-    { influenced: ["pl+limbo"], licenses: ["lic+python-foundation"], people: [["person+anselm-kruis", "designer"]] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+star-lisp",
-    "*Lisp",
-    {
-      name: "*Lisp",
-      websites: [{ kind: "wikipedia", title: "*Lisp", href: "https://en.wikipedia.org/wiki/*Lisp" }],
-      releases: [{ version: "unknown", date: "1986-01-01", kind: "first" }],
-      scoping: ["lexical"],
-    },
-    {
-      implementations: ["pl+common-lisp"],
-      influenced: ["pl+c-star", "pl+common-lisp"],
-      influences: ["pl+c-star", "pl+common-lisp", "pl+lisp"],
-      paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi", "para+parallel", "para+reflection"],
-      people: [["person+steve-omohundro", "designer"]],
-      typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );
 
@@ -11099,7 +9471,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "SMP", href: "https://en.wikipedia.org/wiki/Symbolic_Manipulation_Program" },
       ],
     },
-    { influenced: ["pl+wolfram-language"] },
+    { influenced: ["pl+wolfram"] },
   );
 
   /**/
@@ -11281,33 +9653,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("pl+ti-basic", "TI-BASIC", {
-    name: "TI-BASIC",
-    websites: [{ kind: "wikipedia", title: "TI-BASIC", href: "https://en.wikipedia.org/wiki/TI-BASIC" }],
-  });
-
-  /**/
-
-  lb.define(
-    "pl+tiny-basic",
-    "Tiny BASIC",
-    {
-      name: "Tiny BASIC",
-      websites: [{ kind: "wikipedia", title: "Tiny BASIC", href: "https://en.wikipedia.org/wiki/Tiny_BASIC" }],
-      releases: [{ version: "unknown", date: "1976-01-01", kind: "first" }],
-    },
-    {
-      influenced: ["pl+level-i-basic"],
-      influences: ["pl+bally-astrocade", "pl+level-i-basic", "pl+sharp-pc-1211"],
-      people: [
-        ["person+dennis-allison", "designer"],
-        ["person+li-chen-wang", "designer"],
-      ],
-    },
-  );
-
-  /**/
-
   lb.define(
     "pl+tmg",
     "TMG",
@@ -11377,7 +9722,7 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define(
-    "pl+transaction-application-language",
+    "pl+transaction-application",
     "Transaction Programming Language (TAL)",
     {
       name: "Transaction Programming Language (TAL)",
@@ -11391,28 +9736,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1970-01-01", kind: "first" }],
     },
     { licenses: ["lic+commercial", "lic+proprietary"], platforms: ["platf+x86-64"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+trs-80-level-ii-basic",
-    "Microsoft BASIC",
-    {
-      name: "Microsoft BASIC",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "TRS-80 Level II BASIC",
-          href: "https://en.wikipedia.org/wiki/TRS-80_Level_II_BASIC",
-        },
-      ],
-      releases: [
-        { version: "unknown", date: "1975-01-01", kind: "first" },
-        { version: "unknown", date: "2018-01-01", kind: "stable" },
-      ],
-    },
-    { influenced: ["pl+level-i-basic"] },
   );
 
   /**/
@@ -11444,37 +9767,6 @@ export function define(g: PlangsGraph) {
         ["person+steven-m-caine", "designer"],
       ],
     },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+turbo-basic",
-    "Turbo Basic",
-    {
-      name: "Turbo Basic",
-      websites: [{ kind: "wikipedia", title: "Turbo Basic", href: "https://en.wikipedia.org/wiki/Turbo_Basic" }],
-    },
-    { influenced: ["pl+powerbasic"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+turbo-basic-xl",
-    "Turbo-BASIC XL",
-    {
-      name: "Turbo-BASIC XL",
-      websites: [{ kind: "wikipedia", title: "Turbo-BASIC XL", href: "https://en.wikipedia.org/wiki/Turbo-BASIC_XL" }],
-      images: [
-        {
-          kind: "logo",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Turbo-BASIC_XL-1.5.png/220px-Turbo-BASIC_XL-1.5.png",
-        },
-      ],
-      releases: [{ version: "unknown", date: "1985-01-01", kind: "first" }],
-    },
-    { influenced: ["pl+atari-basic"], platforms: ["platf+atari"] },
   );
 
   /**/
@@ -11551,21 +9843,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+tymshare-super-basic",
-    "Tymshare SUPER BASIC",
-    {
-      name: "Tymshare SUPER BASIC",
-      websites: [
-        { kind: "wikipedia", title: "SUPER BASIC", href: "https://en.wikipedia.org/wiki/Tymshare_SUPER_BASIC" },
-      ],
-      releases: [{ version: "unknown", date: "1968-01-01", kind: "first" }],
-    },
-    { influenced: ["pl+basic-plus"], influences: ["pl+basic-plus", "pl+cal", "pl+dartmouth-basic", "pl+joss"] },
-  );
-
-  /**/
-
   lb.define("pl+tynker", "Tynker IDE", {
     name: "Tynker IDE",
     websites: [
@@ -11582,27 +9859,22 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+ucsd-pascal",
-    "UCSD Pascal",
-    {
-      name: "UCSD Pascal",
-      websites: [{ kind: "wikipedia", title: "UCSD Pascal", href: "https://en.wikipedia.org/wiki/UCSD_Pascal" }],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/4/41/UCSD_p-System.svg" }],
-      releases: [
-        { version: "unknown", date: "1977-01-01", kind: "first" },
-        { version: "2.2", date: "1987-01-01", kind: "other" },
-      ],
-    },
-    { dialects: ["pl+pascal"], influenced: ["pl+java"], people: [["person+san-diego", "designer"]] },
-  );
-
-  /**/
-
   lb.define("pl+uefn", "UEFN", {
     name: "UEFN",
     websites: [{ kind: "wikipedia", title: "UEFN", href: "https://en.wikipedia.org/wiki/UEFN" }],
   });
+
+  /**/
+
+  lb.define(
+    "pl+uml",
+    "UML",
+    {
+      name: "UML",
+      websites: [{ kind: "wikipedia", title: "UML", href: "https://en.wikipedia.org/wiki/Unified_Modeling_Language" }],
+    },
+    { influenced: ["pl+umple"] },
+  );
 
   /**/
 
@@ -11641,18 +9913,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "10.4.01.018", date: "2022-05-22", kind: "stable" }],
     },
     { licenses: ["lic+commercial"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+unified-modeling-language",
-    "UML",
-    {
-      name: "UML",
-      websites: [{ kind: "wikipedia", title: "UML", href: "https://en.wikipedia.org/wiki/Unified_Modeling_Language" }],
-    },
-    { influenced: ["pl+umple"] },
   );
 
   /**/
@@ -11738,19 +9998,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define(
-    "pl+vilnius-basic",
-    "Vilnius BASIC",
-    {
-      name: "Vilnius BASIC",
-      websites: [{ kind: "wikipedia", title: "Vilnius Basic", href: "https://en.wikipedia.org/wiki/Vilnius_BASIC" }],
-      releases: [{ version: "unknown", date: "1986-01-01", kind: "first" }],
-    },
-    { influenced: ["pl+msx-basic"], influences: ["pl+msx-basic"], paradigms: ["para+algorithmic", "para+imperative"] },
-  );
-
-  /**/
-
   lb.define("pl+virtuoso-universal-server", "OpenLink Virtuoso", {
     name: "OpenLink Virtuoso",
     websites: [
@@ -11761,41 +10008,6 @@ export function define(g: PlangsGraph) {
       },
     ],
   });
-
-  /**/
-
-  lb.define(
-    "pl+visual-basic-for-applications",
-    "Visual Basic for Applications",
-    {
-      name: "Visual Basic for Applications",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "Visual Basic for Applications",
-          href: "https://en.wikipedia.org/wiki/Visual_Basic_for_Applications",
-        },
-      ],
-      images: [
-        {
-          kind: "logo",
-          url: "https://upload.wikimedia.org/wikipedia/commons/7/78/Microsoft_Visual_Basic_for_Applications_logo.svg",
-        },
-      ],
-      releases: [
-        { version: "unknown", date: "1993-01-01", kind: "first" },
-        { version: "7.1", kind: "stable" },
-      ],
-    },
-    {
-      influenced: ["pl+visual-basic"],
-      influences: ["pl+quickbasic", "pl+visual-basic"],
-      licenses: ["lic+commercial", "lic+proprietary"],
-      paradigms: ["para+multi"],
-      platforms: ["platf+mac", "platf+win"],
-      typeSystems: ["tsys+dynamic", "tsys+strong"],
-    },
-  );
 
   /**/
 
@@ -11902,13 +10114,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("pl+vsi-pascal", "VSI Pascal", {
-    name: "VSI Pascal",
-    websites: [{ kind: "wikipedia", title: "VSI Pascal", href: "https://en.wikipedia.org/wiki/VSI_Pascal" }],
-  });
-
-  /**/
-
   lb.define(
     "pl+vue.js",
     "Vue",
@@ -11996,38 +10201,6 @@ export function define(g: PlangsGraph) {
       people: [["person+donald-knuth", "designer"]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+manifest", "tsys+nominative", "tsys+static", "tsys+weak"],
-    },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+webassembly",
-    "WebAssembly",
-    {
-      name: "WebAssembly",
-      websites: [
-        { kind: "wikipedia", title: "WebAssembly", href: "https://en.wikipedia.org/wiki/WebAssembly" },
-        { kind: "homepage", title: "webassembly.org", href: "https://webassembly.org/" },
-      ],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/1/1f/WebAssembly_Logo.svg" }],
-      references: {
-        paradigm: [
-          {
-            href: "https://github.com/WebAssembly/design/blob/376bcc4b9cba79280d79be023d71e30d0b00ba47/Semantics.md",
-            title: "WebAssembly/design/Semantics.md",
-          },
-        ],
-      },
-      releases: [{ version: "unknown", date: "2017-01-01", kind: "first" }],
-      extensions: [],
-    },
-    {
-      influenced: ["pl+asm.js", "pl+assemblyscript"],
-      influences: ["pl+asm.js", "pl+google-native-client", "pl+lisp"],
-      licenses: ["lic+apache"],
-      paradigms: ["para+stack", "para+structured"],
-      platforms: ["platf+cross-platform"],
     },
   );
 
@@ -12395,31 +10568,6 @@ export function define(g: PlangsGraph) {
       },
     },
     { licenses: ["lic+php", "lic+zend"] },
-  );
-
-  /**/
-
-  lb.define(
-    "pl+zetalisp",
-    "Lisp Machine Lisp",
-    {
-      name: "Lisp Machine Lisp",
-      websites: [{ kind: "wikipedia", title: "Zetalisp", href: "https://en.wikipedia.org/wiki/Zetalisp" }],
-      releases: [{ version: "unknown", date: "1976-01-01", kind: "first" }],
-      extensions: [".qfasl"],
-    },
-    {
-      dialects: ["pl+lisp"],
-      implementations: ["pl+lisp"],
-      influences: ["pl+common-lisp", "pl+interlisp", "pl+lisp", "pl+maclisp"],
-      people: [
-        ["person+daniel-weinreb", "designer"],
-        ["person+david-a-moon", "designer"],
-        ["person+lisp-machines", "designer"],
-        ["person+richard-stallman", "designer"],
-      ],
-      platforms: ["platf+lisp-machine"],
-    },
   );
 
   /**/

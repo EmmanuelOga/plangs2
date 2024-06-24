@@ -54,7 +54,7 @@ export function define(g: PlangsGraph) {
       extensions: [".go"],
     },
     {
-      implementations: ["pl+assembly-language", "pl+c-plus-plus"],
+      implementations: ["pl+assembly", "pl+c-plus-plus"],
       influenced: [
         "pl+alef",
         "pl+ballerina",

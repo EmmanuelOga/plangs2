@@ -2,12 +2,12 @@ import { Eta } from "eta";
 import { groupBy } from "lodash-es";
 import { PlangsGraph } from "../entities/plangs_graph";
 import type { VID_Plang } from "../entities/schemas";
+import { parseEdgeKey } from "../graph/edge_table";
 import type { VID_Any } from "../graph/vertex";
 import type { VertexTable } from "../graph/vertex_table";
 import { toAlphaNum } from "../util";
 import { PLANG_IDS } from "./plang_ids";
 import { parseAll } from "./wikipedia_process";
-import { parseEdgeKey } from "../graph/edge_table";
 
 const Templ = new Eta({ views: __dirname, autoEscape: false });
 
@@ -45,9 +45,39 @@ async function generateAll() {
     return vertex.websites?.length && dataSize > 384 ? name : "other";
   });
 
-  genAll(g.v_platform, "platforms", "platform", (vid, vertex, dataSize, name) =>
-    vertex.websites?.length && dataSize > 212 ? name : "other",
-  );
+  genAll(g.v_platform, "platforms", "platform", (vid, vertex, dataSize, name) => {
+    if (vid.includes("mach") || vid.includes("lisp")) return "other";
+
+    if (
+      vid.includes("ios") ||
+      vid.includes("apple") ||
+      vid.includes("tvos") ||
+      vid.includes("watchos") ||
+      vid.startsWith("platf+mac")
+    )
+      return "apple";
+
+    if (vid.startsWith("platf+esp")) return "esp";
+    if (vid.startsWith("platf+dec")) return "dec";
+    if (
+      (vid.startsWith("platf+x") && !vid.startsWith("platf+xbox")) ||
+      vid.startsWith("platf+ia") ||
+      vid.includes("intel")
+    )
+      return "intel";
+
+    if (vid.includes(".net") || vid.includes("mono")) return ".net";
+    if (vid.includes("commodore") || vid.includes("c64")) return "commodore";
+    if (vid.includes("rpi") || vid.includes("raspberry") || vid.includes("2040")) return "raspberrypi";
+    if (vid.includes("zx") || vid.includes("z80") || vid.includes("z81")) return "z80";
+
+    for (const name of ["arm", "atari", "bsd", "javascript", "risc"]) if (vid.includes(name)) return name;
+
+    if (vid.includes("amd")) return "amd";
+    if (vid.includes("dos")) return "dos";
+
+    return vertex.websites?.length && dataSize > 212 ? name : "other";
+  });
 
   genAll(g.v_person, "people", "person", (vid, vertex, dataSize, name) => (vertex.websites?.length ? name : "other"));
 
@@ -55,8 +85,28 @@ async function generateAll() {
     g.v_plang,
     "plangs",
     "plang",
-    // biome-ignore lint/suspicious/noExplicitAny: Ok here.
-    (vid, vertex, dataSize, name) => (PLANG_IDS.has(vid as any) || dataSize > 1024 ? name : "other"),
+    (vid, vertex, dataSize, name) => {
+      if (vid.includes("algol")) return "algol";
+      if (vid.includes("assembly")) return "assembly";
+      if (vid.includes("basic") || vid.includes("xojo") || vid.includes("gambas")) return "basic";
+      if (vid.includes("c99")) return "c";
+      if (vid.includes("fortran")) return "fortran";
+      if (vid.includes("lisp")) return "lisp";
+      if (vid.includes("modula")) return "modula";
+      if (vid.includes("oberon")) return "oberon";
+      if (vid.includes("pascal") || vid.includes("delphi")) return "pascal";
+      if (vid.includes("py") || vid.includes("cython")) return "python";
+      if (vid.includes("raku")) return "raku";
+      if (vid.includes("ruby")) return "ruby";
+      if (vid.includes("scratch")) return "scratch";
+      if (vid.includes("sql")) return "sql";
+      if (vid.includes("xslt") || vid.includes("xpath") || vid.includes("xquery")) return "xml";
+
+      if (vid.includes("slash")) return "other";
+
+      // biome-ignore lint/suspicious/noExplicitAny: Ok here.
+      return PLANG_IDS.has(vid as any) || dataSize > 1024 ? name : "other";
+    },
     (vid: VID_Any) => plangMapper(g, vid as VID_Plang),
   );
 
