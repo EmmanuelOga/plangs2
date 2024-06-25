@@ -23,7 +23,7 @@ func Home(name string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html lang=\"en-us\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>Plangs</title><link rel=\"stylesheet\" href=\"index.css\"></head><body><h1>Programming Languages</h1><div id=\"facets\"><h2>Categories</h2><ul id=\"categories\"><li>ABC</li><li>DEF</li></ul></div><div id=\"results\"><h2>Results</h2>XYZ</div><script src=\"index.js\" type=\"module\"></script></body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html lang=\"en-us\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>Plangs</title><link rel=\"stylesheet\" href=\"index.css\"></head><body><h1>Programming Languages!</h1><div id=\"facets\"><h2>Categories</h2><ul id=\"categories\"><li>ABC</li><li>DEF</li></ul></div><div id=\"results\"><h2>Results</h2>XYZ</div><script src=\"index.js\" type=\"module\"></script></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
