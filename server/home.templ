@@ -1,6 +1,6 @@
 package main
 
-templ Home(name string) {
+templ Layout(content templ.Component) {
 	<!DOCTYPE html>
 	<html lang="en-us">
 		<head>
@@ -10,21 +10,39 @@ templ Home(name string) {
 			<link rel="stylesheet" href="index.css"/>
 		</head>
 		<body>
-			<h1>Plangs!</h1>
-			<div id="facets">
-				<h2>Categories</h2>
-				<ul id="categories">
-					<li>ABC</li>
-					<li>DEF</li>
-				</ul>
-			</div>
-			<div id="results">
-				<h2>Results</h2>
-				XYZ
-			</div>
-			<script src="index.js" type="module"></script>
+			<header>
+				<h1>Plangs</h1>
+				<nav>
+					<a href="/">Search</a>
+					<a href="/browse">Browse</a>
+				</nav>
+			</header>
+
+			<main>
+				@content
+			</main>
+
+			<footer>
+			(C) 2024 Plangs
+			</footer>
 		</body>
 	</html>
+}
+
+templ Search() {
+	<article id="search">
+		<form action="/search" method="get">
+			<input type="text" name="q" placeholder="Search..."/>
+			<button type="submit">Search</button>
+		</form>
+	</article>
+}
+
+templ Browse() {
+	<article id="browse">
+		TODO
+		<script src="browse.js"></script>
+	</article>
 }
 
 templ NotFound() {

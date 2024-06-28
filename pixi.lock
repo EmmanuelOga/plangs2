@@ -6,6 +6,7 @@ environments:
     packages:
       osx-arm64:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/_go_select-2.3.0-cgo.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/esbuild-0.19.2-hce30654_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/go-1.22.4-hc24e2ac_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/libcxx-17.0.6-h5f092b4_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/libgfortran-5.0.0-13_2_0_hd922786_3.conda
@@ -24,6 +25,18 @@ packages:
   license_family: BSD
   size: 5074
   timestamp: 1627073534014
+- kind: conda
+  name: esbuild
+  version: 0.19.2
+  build: hce30654_0
+  subdir: osx-arm64
+  url: https://conda.anaconda.org/conda-forge/osx-arm64/esbuild-0.19.2-hce30654_0.conda
+  sha256: 73c7100fc6521a6e261b4aa8c2f2630c970cec8a54d5b7945873293e8f0c6f98
+  md5: 9aacf373feb68fbf6cab70db465777eb
+  license: MIT
+  license_family: MIT
+  size: 3268434
+  timestamp: 1693243834619
 - kind: conda
   name: go
   version: 1.22.4

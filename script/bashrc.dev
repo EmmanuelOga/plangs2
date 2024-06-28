@@ -30,6 +30,7 @@ export PATH="$CWD/.go/bin:$PATH"
 
 # Install go tools that are not part of any go.mod.
 go install github.com/a-h/templ/cmd/templ@latest
+go install github.com/romshark/templier@latest 
 
 # Load default bash settings.
 # shellcheck disable=SC1090
@@ -53,3 +54,5 @@ which pixi
 which go
 which bun
 which templ
+which templier
+which esbuild

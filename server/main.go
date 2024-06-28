@@ -14,13 +14,14 @@ func main() {
 
 	app.Static("/", "./static")
 
-	app.Get("/:name?", func(c *fiber.Ctx) error {
-		name := c.Params("name")
-		if name == "" {
-			name = "World"
-		}
-		return Render(c, Home(name))
+	app.Get("/", func(c *fiber.Ctx) error {
+		return Render(c, Layout(Search()))
 	})
+
+	app.Get("/browse", func(c *fiber.Ctx) error {
+		return Render(c, Layout(Browse()))
+	})
+
 	app.Use(NotFoundMiddleware)
 
 	log.Fatal(app.Listen(":3000"))

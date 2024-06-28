@@ -1,9 +1,28 @@
 body {
   font-size: 1.5rem;
+
   margin: 0;
   padding: 0;
 }
 
-#app {
-  border: 1px solid orange;
+header {
+  background-color: green;
+  line-height: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  h1, nav {
+    color: white;
+    padding: 1rem;
+  }
+}
+
+main {
+  min-height: 80vh;
+}
+
+footer {
+  background-color: yellowgreen;
 }
