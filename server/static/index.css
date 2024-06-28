@@ -36,6 +36,10 @@ footer {
 
   & > nav {
     background-color: aliceblue;
+
+    .active {
+      font-weight: bold;
+    }
   }
 
   & > article {

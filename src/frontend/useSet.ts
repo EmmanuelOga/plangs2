@@ -29,5 +29,15 @@ export function useSet<T>(initialValue: T[]):
         [Symbol.iterator]: () => set.current.values(),
     }), []);
 
-    return [version, memo];
+    // TODO: return is not really castable to Set<T>, it is missing some methods.
+    // For now is ok, users of missing methods will just see a null pointer exception.
+    return [version, memo as Set<T>];
+}
+
+export function setToggle<T>(set: Set<T>, item: T) {
+    if (set.has(item)) {
+        set.delete(item);
+    } else {
+        set.add(item);
+    }
 }

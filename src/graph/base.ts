@@ -1,4 +1,4 @@
-import { EdgeTable, type EdgeKey } from "./edge_table";
+import { EdgeTable } from "./edge_table";
 import { VertexTable } from "./vertex_table";
 
 // biome-ignore lint/suspicious/noExplicitAny: We need to store any kind vertex or edge.
@@ -58,7 +58,7 @@ export class Graph {
     }
   }
 
-  *allEdges(): IterableIterator<[EdgeKey, _Any]> {
+  *allEdges(): IterableIterator<[string, _Any]> {
     for (const et of this.etables.values()) {
       yield* et;
     }
