@@ -80,6 +80,8 @@ async function generateAll() {
 
     for (const name of ["arm", "atari", "bsd", "javascript", "risc"]) if (vid.includes(name)) return name;
 
+    if (vid.includes("aarch")) return "arm";
+
     if (vid.includes("amd")) return "amd";
     if (vid.includes("dos")) return "dos";
 

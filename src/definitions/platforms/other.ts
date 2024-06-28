@@ -17,10 +17,6 @@ export function define(g: PlangsGraph) {
     websites: [{ kind: "wikipedia", title: "74181", href: "https://en.wikipedia.org/wiki/74181" }],
   });
 
-  lb.define("platf+aarch64", "AArch64", {
-    websites: [{ kind: "wikipedia", title: "Aarch64", href: "https://en.wikipedia.org/wiki/Aarch64" }],
-  });
-
   lb.define("platf+amazon-firetv", "Amazon Fire TV", {
     websites: [{ kind: "wikipedia", title: "Amazon Fire TV", href: "https://en.wikipedia.org/wiki/Amazon_Fire_TV" }],
   });
