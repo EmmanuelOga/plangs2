@@ -170,9 +170,9 @@ export class EdgeTable<VID_From extends string, VID_To extends string, T_EdgeDat
 
   loadJSON(edata: Record<string, T_EdgeData>) {
     for (const [kft, value] of Object.entries(edata)) {
-      this.#edge.set(kft, value);
       const [from, to] = kft.split("~");
       this.#updateAdjacent(from as VID_From, to as VID_To, "add");
+      this.#edge.set(kft, value);
     }
   }
 }
