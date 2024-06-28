@@ -1,8 +1,13 @@
-import { type EdgeKey, EdgeTable } from "./edge_table";
+import { EdgeTable, type EdgeKey } from "./edge_table";
 import { VertexTable } from "./vertex_table";
 
 // biome-ignore lint/suspicious/noExplicitAny: We need to store any kind vertex or edge.
 type _Any = any;
+
+type SerializedGraph = {
+  vtables: Record<string, _Any>;
+  etables: Record<string, _Any>
+}
 
 /**
  * A Graph consists of set of Vertices and Edges.
@@ -59,17 +64,33 @@ export class Graph {
     }
   }
 
-  toJSON() {
+  toJSON(): SerializedGraph {
     const graph = { vtables: {}, etables: {} };
 
-    for (const vt of this.vtables.values()) {
-      graph.vtables[vt.vtype] = vt.toJSON();
+    for (const [key, val] of this.vtables) {
+      console.log('Serializing vertex table:', key);
+      graph.vtables[key] = val.toJSON();
     }
 
-    for (const et of this.etables.values()) {
-      graph.etables[et.tableKey] = et.toJSON();
+    for (const [key, val] of this.etables) {
+      console.log('Serializing edge table:', key);
+      graph.etables[key] = val.toJSON();
     }
 
     return graph;
+  }
+
+  loadJSON(data: SerializedGraph) {
+    for (const [vtype, vdata] of Object.entries(data.vtables)) {
+      const vt = this.vtables.get(vtype);
+      if (!vt) throw new Error(`Vertex table not found: ${vtype}`);
+      vt.loadJSON(vdata);
+    }
+
+    for (const [etype, edata] of Object.entries(data.etables)) {
+      const et = this.etables.get(etype);
+      if (!et) throw new Error(`Edge table not found: ${etype}`);
+      et.loadJSON(edata);
+    }
   }
 }

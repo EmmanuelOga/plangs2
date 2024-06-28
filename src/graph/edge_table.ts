@@ -1,12 +1,6 @@
-import { caller, type NN_Partial } from "../util";
+import type { NN_Partial } from "../util";
 import { validChars } from "./vertex";
 import type { VertexTable } from "./vertex_table";
-
-/** Key: from ~ to */
-export type KFTS = `${string}~${string}`;
-
-/** Key: type ~ directed ~ from ~ to */
-export type EdgeKey = `${string}~${"d" | "u"}~${string}~${string}`;
 
 /** Extract the components off of an edge key. */
 export function parseEdgeKey(eid: string): {
@@ -25,9 +19,9 @@ type _T_Any_V_Data = any;
 /**
  * Stores edges between vertices.
  */
-export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_EdgeData>
-  implements Iterable<[EdgeKey, T_EdgeData]>
-{
+export class EdgeTable<VID_From extends string, VID_To extends string, T_EdgeData>
+  implements Iterable<[string, T_EdgeData]> {
+
   readonly #edge: Map<string, T_EdgeData> = new Map();
   readonly #adjFrom: Map<string, Set<string>> = new Map();
   readonly #adjTo: Map<string, Set<string>> = new Map();
@@ -35,36 +29,48 @@ export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_E
   constructor(
     public readonly type: string,
     public readonly directed: boolean,
-    public readonly fromTable: VertexTable<T_Id_V_From, _T_Any_V_Data>,
-    public readonly toTable: VertexTable<T_Id_V_To, _T_Any_V_Data>,
+    public readonly fromTable: VertexTable<VID_From, _T_Any_V_Data>,
+    public readonly toTable: VertexTable<VID_To, _T_Any_V_Data>,
   ) {
     if (!validChars(type)) throw new Error(`'${type}' is not valid as an edge type.`);
   }
 
-  set(from: T_Id_V_From, to: T_Id_V_To, value: T_EdgeData): this {
+  /**
+   * A single graph should not use two edge tables with the same key,
+   * otherwise there could be edges with duplicate keys.
+   */
+  get tableKey(): string {
+    const t = this.type;
+    const d = this.directed ? "d" : "u";
+    const from = this.fromTable.vtype;
+    const to = this.toTable.vtype;
+    return `${t}~${d}~${from}~${to}`;
+  }
+
+  set(from: VID_From, to: VID_To, value: T_EdgeData): this {
     const kft = this.#edgeKey(from, to);
     this.#edge.set(kft, value);
     this.#updateAdjacent(from, to, "add");
     return this;
   }
 
-  get(from: T_Id_V_From, to: T_Id_V_To): T_EdgeData | undefined {
+  get(from: VID_From, to: VID_To): T_EdgeData | undefined {
     if (!this.validParams(from, to)) throw new Error(`Invalid id(s) in edge: ${from} -> ${to}.`);
     return this.#edge.get(this.#edgeKey(from, to));
   }
 
-  has(from: T_Id_V_From, to: T_Id_V_To): boolean {
+  has(from: VID_From, to: VID_To): boolean {
     if (!this.validParams(from, to)) return false;
     return this.#edge.has(this.#edgeKey(from, to));
   }
 
-  delete(from: T_Id_V_From, to: T_Id_V_To): boolean {
+  delete(from: VID_From, to: VID_To): boolean {
     this.#updateAdjacent(from, to, "delete");
     return this.#edge.delete(this.#edgeKey(from, to));
   }
 
   /** Like set, stablishes a connection, but without setting any edge data (also won't overwrite any existing edge data). */
-  connect(from: T_Id_V_From, to: T_Id_V_To): NN_Partial<T_EdgeData> {
+  connect(from: VID_From, to: VID_To): NN_Partial<T_EdgeData> {
     const key = this.#edgeKey(from, to);
     let edata = this.#edge.get(key);
     if (!edata) {
@@ -75,7 +81,7 @@ export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_E
     return edata as NN_Partial<T_EdgeData>;
   }
 
-  merge(from: T_Id_V_From, to: T_Id_V_To, value: NN_Partial<T_EdgeData>): NN_Partial<T_EdgeData> {
+  merge(from: VID_From, to: VID_To, value: NN_Partial<T_EdgeData>): NN_Partial<T_EdgeData> {
     const key = this.#edgeKey(from, to);
 
     // We'll store value as the new data, but we want to keep any existing data that is not in value.
@@ -93,23 +99,11 @@ export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_E
     return value;
   }
 
-  validParams(from: T_Id_V_From, to: T_Id_V_To): boolean {
+  validParams(from: VID_From, to: VID_To): boolean {
     return this.fromTable.validParams(from) && this.toTable.validParams(to);
   }
 
-  /**
-   * A single graph should not use two edge tables with the same key,
-   * otherwise there could be edges with duplicate keys.
-   */
-  get tableKey(): string {
-    const t = this.type;
-    const d = this.directed ? "d" : "u";
-    const from = this.fromTable.vtype;
-    const to = this.toTable.vtype;
-    return `${t}~${d}~${from}~${to}`;
-  }
-
-  #edgeKey(from: string, to: string): KFTS {
+  #edgeKey(from: string, to: string): string {
     let from_ = from;
     let to_ = to;
 
@@ -124,19 +118,15 @@ export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_E
     return `${from_}~${to_}`;
   }
 
-  *[Symbol.iterator](): IterableIterator<[EdgeKey, T_EdgeData]> {
-    // This yields keys similar to what {@link EdgeTable#edgeKey} would return.
+  /** Yields keys parseable with {@link parseEdgeKey} and the data of the edge. */
+  *[Symbol.iterator](): IterableIterator<[string, T_EdgeData]> {
     const prefix = `${this.type}~${this.directed ? "d" : "u"}~`;
     for (const [key, edge] of this.#edge) {
-      yield [`${prefix}${key}` as EdgeKey, edge];
+      yield [`${prefix}${key}`, edge];
     }
   }
 
-  edgeKey(from: string, to: string): EdgeKey {
-    return `${this.type}~${this.directed ? "d" : "u"}~${this.#edgeKey(from, to)}`;
-  }
-
-  #updateAdjacent(from: T_Id_V_From, to: T_Id_V_To, operation: "add" | "delete") {
+  #updateAdjacent(from: VID_From, to: VID_To, operation: "add" | "delete") {
     if (!this.validParams(from, to)) throw new Error(`Invalid id(s) in edge: ${from} -> ${to}`);
 
     // If not directed, use the same map for both directions.
@@ -160,6 +150,16 @@ export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_E
     return this.#edge.size;
   }
 
+  *adjacentFrom(from: VID_From | VID_To): Generator<string, void, undefined> {
+    if (!(this.fromTable.validParams(from) || this.toTable.validParams(from))) throw new Error(`Invalid id: ${from}.`);
+    yield* this.#adjFrom.get(from) ?? [];
+  }
+
+  *adjacentTo(to: VID_To): Generator<string, void, undefined> {
+    if (!this.toTable.validParams(to)) throw new Error(`Invalid id: ${to}.`);
+    yield* (this.directed ? this.#adjTo : this.#adjFrom).get(to) ?? [];
+  }
+
   toJSON(): Record<string, T_EdgeData> {
     const result: Record<string, T_EdgeData> = {};
     for (const [key, value] of this.#edge.entries()) {
@@ -168,13 +168,11 @@ export class EdgeTable<T_Id_V_From extends string, T_Id_V_To extends string, T_E
     return result;
   }
 
-  *adjacentFrom(from: T_Id_V_From | T_Id_V_To): Generator<string, void, undefined> {
-    if (!(this.fromTable.validParams(from) || this.toTable.validParams(from))) throw new Error(`Invalid id: ${from}.`);
-    yield* this.#adjFrom.get(from) ?? [];
-  }
-
-  *adjacentTo(to: T_Id_V_To): Generator<string, void, undefined> {
-    if (!this.toTable.validParams(to)) throw new Error(`Invalid id: ${to}.`);
-    yield* (this.directed ? this.#adjTo : this.#adjFrom).get(to) ?? [];
+  loadJSON(edata: Record<string, T_EdgeData>) {
+    for (const [kft, value] of Object.entries(edata)) {
+      this.#edge.set(kft, value);
+      const [from, to] = kft.split("~");
+      this.#updateAdjacent(from as VID_From, to as VID_To, "add");
+    }
   }
 }

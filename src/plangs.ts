@@ -24,3 +24,14 @@ export async function serializeToPublic() {
 if (process.env.SERIALIZE_PLANGS) {
   await serializeToPublic();
 }
+
+if (process.env.TEST) {
+  const g = new PlangsGraph();
+  await loadDefinitions(g);
+
+  const d = new PlangsGraph();
+  d.loadJSON(g.toJSON());
+
+  console.log("Original: ", g.numVertices, "vertices", g.numEdges, "edges");
+  console.log("Deserial: ", d.numVertices, "vertices", d.numEdges, "edges");
+}
