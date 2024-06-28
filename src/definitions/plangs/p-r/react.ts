@@ -36,6 +36,4 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+php"], licenses: ["lic+mit"], platforms: ["platf+web"] },
   );
-
-  /**/
 }

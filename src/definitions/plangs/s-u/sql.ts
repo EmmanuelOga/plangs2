@@ -8,14 +8,10 @@ export function define(g: PlangsGraph) {
     websites: [{ kind: "wikipedia", title: "Mimer SQL", href: "https://en.wikipedia.org/wiki/Mimer_SQL" }],
   });
 
-  /**/
-
   lb.define("pl+mysql", "MySQL", {
     name: "MySQL",
     websites: [{ kind: "wikipedia", title: "MySQL", href: "https://en.wikipedia.org/wiki/MySQL" }],
   });
-
-  /**/
 
   lb.define(
     "pl+pl-slashpgsql",
@@ -36,8 +32,6 @@ export function define(g: PlangsGraph) {
     { influences: ["pl+ada", "pl+pl-slashsql"], people: [["person+jan-wieck", "designer"]] },
   );
 
-  /**/
-
   lb.define(
     "pl+pl-slashsql",
     "PL/SQL",
@@ -47,8 +41,6 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+ada"] },
   );
-
-  /**/
 
   lb.define(
     "pl+sql",
@@ -103,70 +95,50 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define("pl+sql-1999", "SQL:1999", {
     name: "SQL:1999",
     websites: [{ kind: "wikipedia", title: "SQL:1999", href: "https://en.wikipedia.org/wiki/SQL:1999" }],
   });
-
-  /**/
 
   lb.define("pl+sql-2003", "SQL:2003", {
     name: "SQL:2003",
     websites: [{ kind: "wikipedia", title: "SQL:2003", href: "https://en.wikipedia.org/wiki/SQL:2003" }],
   });
 
-  /**/
-
   lb.define("pl+sql-2006", "SQL:2006", {
     name: "SQL:2006",
     websites: [{ kind: "wikipedia", title: "SQL:2006", href: "https://en.wikipedia.org/wiki/SQL:2006" }],
   });
-
-  /**/
 
   lb.define("pl+sql-2008", "SQL:2008", {
     name: "SQL:2008",
     websites: [{ kind: "wikipedia", title: "SQL:2008", href: "https://en.wikipedia.org/wiki/SQL:2008" }],
   });
 
-  /**/
-
   lb.define("pl+sql-2011", "SQL:2011", {
     name: "SQL:2011",
     websites: [{ kind: "wikipedia", title: "SQL:2011", href: "https://en.wikipedia.org/wiki/SQL:2011" }],
   });
-
-  /**/
 
   lb.define("pl+sql-2016", "SQL:2016", {
     name: "SQL:2016",
     websites: [{ kind: "wikipedia", title: "SQL:2016", href: "https://en.wikipedia.org/wiki/SQL:2016" }],
   });
 
-  /**/
-
   lb.define("pl+sql-2023", "SQL:2023", {
     name: "SQL:2023",
     websites: [{ kind: "wikipedia", title: "SQL:2023", href: "https://en.wikipedia.org/wiki/SQL:2023" }],
   });
-
-  /**/
 
   lb.define("pl+sql-92", "SQL-92", {
     name: "SQL-92",
     websites: [{ kind: "wikipedia", title: "SQL-92", href: "https://en.wikipedia.org/wiki/SQL-92" }],
   });
 
-  /**/
-
   lb.define("pl+sql-pl", "SQL PL", {
     name: "SQL PL",
     websites: [{ kind: "wikipedia", title: "SQL PL", href: "https://en.wikipedia.org/wiki/SQL_PL" }],
   });
-
-  /**/
 
   lb.define(
     "pl+sql-slashpsm",
@@ -191,6 +163,4 @@ export function define(g: PlangsGraph) {
       platforms: ["platf+cross-platform"],
     },
   );
-
-  /**/
 }

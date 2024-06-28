@@ -7,11 +7,7 @@ export function define(g: PlangsGraph) {
     websites: [{ kind: "wikipedia", title: "RISC OS", href: "https://en.wikipedia.org/wiki/RISC_OS" }],
   });
 
-  /**/
-
   lb.define("platf+risc-v", "RISC-V", {
     websites: [{ kind: "wikipedia", title: "RISC-V", href: "https://en.wikipedia.org/wiki/RISC-V" }],
   });
-
-  /**/
 }

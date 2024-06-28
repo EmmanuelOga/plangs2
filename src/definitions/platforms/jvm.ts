@@ -20,6 +20,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Java SE", href: "https://en.wikipedia.org/wiki/Java_SE" },
     ],
   });
-
-  /**/
 }

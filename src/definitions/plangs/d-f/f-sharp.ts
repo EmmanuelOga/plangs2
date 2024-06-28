@@ -14,6 +14,4 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+erlang", "pl+ml", "pl+ocaml", "pl+python", "pl+scala", "pl+sml"] },
   );
-
-  /**/
 }

@@ -26,6 +26,4 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+inferred", "tsys+nominative", "tsys+static"],
     },
   );
-
-  /**/
 }

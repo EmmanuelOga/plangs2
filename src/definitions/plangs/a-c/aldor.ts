@@ -35,6 +35,4 @@ export function define(g: PlangsGraph) {
       platforms: ["platf+axiom", "platf+linux", "platf+win"],
     },
   );
-
-  /**/
 }

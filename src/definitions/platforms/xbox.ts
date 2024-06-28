@@ -9,6 +9,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Xbox Series X/S", href: "https://en.wikipedia.org/wiki/Xbox_Series_X_and_Series_S" },
     ],
   });
-
-  /**/
 }

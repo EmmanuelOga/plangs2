@@ -38,8 +38,6 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+mit"] },
   );
 
-  /**/
-
   lb.define(
     "pl+cpython",
     "CPython",
@@ -67,8 +65,6 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+python-foundation"] },
   );
-
-  /**/
 
   lb.define(
     "pl+cython",
@@ -117,8 +113,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+ironpython",
     "IronPython",
@@ -146,8 +140,6 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+apache"], platforms: ["platf+.net", "platf+mono"] },
   );
 
-  /**/
-
   lb.define(
     "pl+jupyter",
     "Jupyter",
@@ -157,8 +149,6 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+wolfram"] },
   );
-
-  /**/
 
   lb.define(
     "pl+micropython",
@@ -201,16 +191,12 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+numpy",
     "NumPy",
     { name: "NumPy", websites: [{ kind: "wikipedia", title: "NumPy", href: "https://en.wikipedia.org/wiki/NumPy" }] },
     { influences: ["pl+j"] },
   );
-
-  /**/
 
   lb.define(
     "pl+pyomo",
@@ -248,8 +234,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define("pl+pypy", "RPython", {
     name: "RPython",
     websites: [
@@ -257,8 +241,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "RPython", href: "https://en.wikipedia.org/wiki/PyPy#RPython" },
     ],
   });
-
-  /**/
 
   lb.define(
     "pl+python",
@@ -465,8 +447,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+stackless-python",
     "Stackless Python",
@@ -489,6 +469,4 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+limbo"], licenses: ["lic+python-foundation"], people: [["person+anselm-kruis", "developer"]] },
   );
-
-  /**/
 }

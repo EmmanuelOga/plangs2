@@ -55,6 +55,4 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+dynamic", "tsys+nominative", "tsys+static"],
     },
   );
-
-  /**/
 }

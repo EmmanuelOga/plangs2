@@ -30,6 +30,4 @@ export function define(g: PlangsGraph) {
       platforms: ["platf+cross-platform", "platf+jvm"],
     },
   );
-
-  /**/
 }

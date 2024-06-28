@@ -48,6 +48,4 @@ export function define(g: PlangsGraph) {
       platforms: ["platf+cross-platform"],
     },
   );
-
-  /**/
 }

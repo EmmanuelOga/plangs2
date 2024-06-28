@@ -10,6 +10,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "PRISM", href: "https://en.wikipedia.org/wiki/DEC_PRISM" },
     ],
   });
-
-  /**/
 }

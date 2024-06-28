@@ -12,6 +12,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "PC DOS", href: "https://en.wikipedia.org/wiki/PC_DOS" },
     ],
   });
-
-  /**/
 }

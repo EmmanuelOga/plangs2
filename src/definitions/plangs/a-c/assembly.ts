@@ -32,8 +32,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+assemblyscript",
     "AssemblyScript",
@@ -78,8 +76,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+game-oriented-assembly-lisp",
     "Game Oriented Assembly Lisp",
@@ -107,8 +103,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+high-level-assembly",
     "High Level Assembly (HLA)",
@@ -130,8 +124,6 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+public-domain"], people: [["person+randall-hyde", "developer"]], platforms: ["platf+ia-32"] },
   );
-
-  /**/
 
   lb.define(
     "pl+webassembly",
@@ -161,6 +153,4 @@ export function define(g: PlangsGraph) {
       platforms: ["platf+cross-platform"],
     },
   );
-
-  /**/
 }

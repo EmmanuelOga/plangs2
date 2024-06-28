@@ -35,6 +35,4 @@ export function define(g: PlangsGraph) {
       people: [["person+jordan-walke", "designer"]],
     },
   );
-
-  /**/
 }

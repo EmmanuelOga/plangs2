@@ -36,6 +36,4 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+cilk-plus"] },
   );
-
-  /**/
 }

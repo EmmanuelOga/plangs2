@@ -40,6 +40,4 @@ export function define(g: PlangsGraph) {
       platforms: ["platf+android", "platf+fuchsia", "platf+ios", "platf+linux", "platf+mac", "platf+web", "platf+win"],
     },
   );
-
-  /**/
 }

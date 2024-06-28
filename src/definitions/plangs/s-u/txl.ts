@@ -15,6 +15,4 @@ export function define(g: PlangsGraph) {
     },
     { paradigms: ["para+pattern", "para+term"], people: [["person+james-cordy", "designer"]] },
   );
-
-  /**/
 }

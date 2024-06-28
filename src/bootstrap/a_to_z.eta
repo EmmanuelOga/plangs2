@@ -11,7 +11,5 @@ export function define(g: PlangsGraph) {
     <%= bundle.vrelations %>
     <% } %>);
 
-  /**/
-
 <% } %>
 }

@@ -14,6 +14,4 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+java", "pl+objective-cpp", "pl+ruby", "pl+smalltalk"] },
   );
-
-  /**/
 }

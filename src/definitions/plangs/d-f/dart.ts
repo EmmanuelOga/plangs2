@@ -68,6 +68,4 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+inferred", "tsys+optional", "tsys+static", "tsys+strong"],
     },
   );
-
-  /**/
 }

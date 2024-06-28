@@ -13,6 +13,4 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+natural-language-programming", "pl+pascal"], paradigms: ["para+event", "para+imperative"] },
   );
-
-  /**/
 }

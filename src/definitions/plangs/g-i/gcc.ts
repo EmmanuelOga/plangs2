@@ -55,6 +55,4 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+gpl"], platforms: ["platf+gnu"] },
   );
-
-  /**/
 }

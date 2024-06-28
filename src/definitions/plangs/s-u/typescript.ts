@@ -51,6 +51,4 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+duck", "tsys+gradual", "tsys+structural"],
     },
   );
-
-  /**/
 }

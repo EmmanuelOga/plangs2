@@ -12,6 +12,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "PlayStation 3", href: "https://en.wikipedia.org/wiki/PlayStation_3" },
     ],
   });
-
-  /**/
 }

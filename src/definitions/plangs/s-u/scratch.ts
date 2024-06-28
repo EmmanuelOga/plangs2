@@ -56,8 +56,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+scratchjr",
     "ScratchJr",
@@ -77,6 +75,4 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+scratch"], platforms: ["platf+android", "platf+chromeos", "platf+ios"] },
   );
-
-  /**/
 }

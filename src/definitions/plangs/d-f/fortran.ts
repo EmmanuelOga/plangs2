@@ -8,8 +8,6 @@ export function define(g: PlangsGraph) {
     websites: [{ kind: "wikipedia", title: "Absoft", href: "https://en.wikipedia.org/wiki/Absoft_Fortran_Compilers" }],
   });
 
-  /**/
-
   lb.define(
     "pl+fortran",
     "FORTRAN II",
@@ -20,8 +18,6 @@ export function define(g: PlangsGraph) {
     { influences: ["pl+speedcoding"] },
   );
 
-  /**/
-
   lb.define(
     "pl+fortran-90",
     "Fortran 90",
@@ -31,8 +27,6 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+modula-2"] },
   );
-
-  /**/
 
   lb.define(
     "pl+fortran-95",
@@ -80,26 +74,18 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define("pl+gnu-fortran", "GFortran", {
     name: "GFortran",
     websites: [{ kind: "wikipedia", title: "GFortran", href: "https://en.wikipedia.org/wiki/GNU_Fortran" }],
   });
-
-  /**/
 
   lb.define("pl+high-performance-fortran", "HPF", {
     name: "HPF",
     websites: [{ kind: "wikipedia", title: "HPF", href: "https://en.wikipedia.org/wiki/High_Performance_Fortran" }],
   });
 
-  /**/
-
   lb.define("pl+intel-fortran-compiler", "Intel", {
     name: "Intel",
     websites: [{ kind: "wikipedia", title: "Intel", href: "https://en.wikipedia.org/wiki/Intel_Fortran_Compiler" }],
   });
-
-  /**/
 }

@@ -53,6 +53,4 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+bsd-s", "lic+lgpl"] },
   );
-
-  /**/
 }

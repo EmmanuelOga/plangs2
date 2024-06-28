@@ -10,19 +10,13 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  /**/
-
   lb.define("lic+bsd-3", "BSD-3", {
     websites: [{ kind: "wikipedia", title: "BSD-3", href: "https://en.wikipedia.org/wiki/BSD-3" }],
   });
 
-  /**/
-
   lb.define("lic+bsd-c", "3-clause BSD", {
     websites: [{ kind: "wikipedia", title: "3-clause BSD", href: "https://en.wikipedia.org/wiki/3-clause_BSD" }],
   });
-
-  /**/
 
   lb.define("lic+bsd-m", "BSD", {
     websites: [
@@ -30,13 +24,9 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  /**/
-
   lb.define("lic+bsd-n", "New BSD License", {
     websites: [{ kind: "wikipedia", title: "New BSD License", href: "https://en.wikipedia.org/wiki/New_BSD_License" }],
   });
-
-  /**/
 
   lb.define("lic+bsd-s", "BSD", {
     websites: [
@@ -49,6 +39,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Simplified BSD", href: "https://en.wikipedia.org/wiki/Simplified_BSD_License" },
     ],
   });
-
-  /**/
 }

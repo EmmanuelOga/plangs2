@@ -88,14 +88,10 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+c99",
     "C99",
     { name: "C99", websites: [{ kind: "wikipedia", title: "C99", href: "https://en.wikipedia.org/wiki/C99" }] },
     { influences: ["pl+cpp"] },
   );
-
-  /**/
 }

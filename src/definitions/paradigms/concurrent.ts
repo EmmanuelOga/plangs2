@@ -10,6 +10,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "concurrent", href: "https://en.wikipedia.org/wiki/Concurrent_computing" },
     ],
   });
-
-  /**/
 }

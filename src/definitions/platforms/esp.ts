@@ -7,11 +7,7 @@ export function define(g: PlangsGraph) {
     websites: [{ kind: "wikipedia", title: "ESP32", href: "https://en.wikipedia.org/wiki/ESP32" }],
   });
 
-  /**/
-
   lb.define("platf+esp8266", "ESP8266", {
     websites: [{ kind: "wikipedia", title: "ESP8266", href: "https://en.wikipedia.org/wiki/ESP8266" }],
   });
-
-  /**/
 }

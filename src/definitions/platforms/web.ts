@@ -11,6 +11,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "HTML5", href: "https://en.wikipedia.org/wiki/HTML5" },
     ],
   });
-
-  /**/
 }

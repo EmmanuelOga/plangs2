@@ -25,6 +25,4 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+apache"], paradigms: ["para+compiled", "para+domain", "para+imperative"] },
   );
-
-  /**/
 }

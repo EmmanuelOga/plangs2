@@ -24,6 +24,4 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+gpl"] },
   );
-
-  /**/
 }

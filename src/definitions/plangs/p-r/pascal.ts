@@ -26,8 +26,6 @@ export function define(g: PlangsGraph) {
     },
   });
 
-  /**/
-
   lb.define(
     "pl+component-pascal",
     "Component Pascal",
@@ -46,8 +44,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+concurrent-pascal",
     "Concurrent Pascal",
@@ -65,8 +61,6 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+dynamic", "tsys+safe", "tsys+strong"],
     },
   );
-
-  /**/
 
   lb.define(
     "pl+delphi",
@@ -109,8 +103,6 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+freemium"] },
   );
 
-  /**/
-
   lb.define(
     "pl+free-pascal",
     "Free Pascal",
@@ -135,14 +127,10 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+gpl", "lic+lgpl"] },
   );
 
-  /**/
-
   lb.define("pl+gnu-pascal", "GNU Pascal", {
     name: "GNU Pascal",
     websites: [{ kind: "wikipedia", title: "GNU Pascal", href: "https://en.wikipedia.org/wiki/GNU_Pascal" }],
   });
-
-  /**/
 
   lb.define(
     "pl+object-pascal",
@@ -204,8 +192,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+pascal",
     "Pascal",
@@ -263,14 +249,10 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define("pl+pascal-p", "Pascal-P", {
     name: "Pascal-P",
     websites: [{ kind: "wikipedia", title: "Pascal-P", href: "https://en.wikipedia.org/wiki/Pascal-P" }],
   });
-
-  /**/
 
   lb.define(
     "pl+pascal-script",
@@ -299,21 +281,15 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define("pl+pascalabc.net", "PascalABC.NET", {
     name: "PascalABC.NET",
     websites: [{ kind: "wikipedia", title: "PascalABC.NET", href: "https://en.wikipedia.org/wiki/PascalABC.NET" }],
   });
 
-  /**/
-
   lb.define("pl+turbo-pascal", "Turbo Pascal", {
     name: "Turbo Pascal",
     websites: [{ kind: "wikipedia", title: "Turbo Pascal", href: "https://en.wikipedia.org/wiki/Turbo_Pascal" }],
   });
-
-  /**/
 
   lb.define(
     "pl+ucsd-pascal",
@@ -330,12 +306,8 @@ export function define(g: PlangsGraph) {
     { people: [["person+san-diego", "developer"]] },
   );
 
-  /**/
-
   lb.define("pl+vsi-pascal", "VSI Pascal", {
     name: "VSI Pascal",
     websites: [{ kind: "wikipedia", title: "VSI Pascal", href: "https://en.wikipedia.org/wiki/VSI_Pascal" }],
   });
-
-  /**/
 }

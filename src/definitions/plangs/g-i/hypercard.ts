@@ -20,6 +20,4 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+proprietary"], platforms: ["platf+mac"] },
   );
-
-  /**/
 }

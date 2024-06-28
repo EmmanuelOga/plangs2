@@ -25,6 +25,4 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+flow-sensitive", "tsys+safe", "tsys+strong", "tsys+structural"],
     },
   );
-
-  /**/
 }

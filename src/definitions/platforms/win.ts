@@ -34,6 +34,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Windows Me", href: "https://en.wikipedia.org/wiki/Windows_Me" },
     ],
   });
-
-  /**/
 }

@@ -14,6 +14,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "stack machine", href: "https://en.wikipedia.org/wiki/Stack_machine" },
     ],
   });
-
-  /**/
 }

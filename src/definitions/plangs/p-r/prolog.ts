@@ -38,6 +38,4 @@ export function define(g: PlangsGraph) {
       people: [["person+alain-colmerauer", "designer"]],
     },
   );
-
-  /**/
 }

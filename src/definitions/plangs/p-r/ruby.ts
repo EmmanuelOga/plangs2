@@ -38,8 +38,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+mruby",
     "mruby",
@@ -64,8 +62,6 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+mit"], people: [["person+yukihiro-matsumoto", "developer"]] },
   );
-
-  /**/
 
   lb.define(
     "pl+ruby",
@@ -148,14 +144,10 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define("pl+ruby-mri", "Ruby MRI", {
     name: "Ruby MRI",
     websites: [{ kind: "wikipedia", title: "Ruby MRI", href: "https://en.wikipedia.org/wiki/Ruby_MRI" }],
   });
-
-  /**/
 
   lb.define(
     "pl+rubymotion",
@@ -169,6 +161,4 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+eula", "lic+proprietary"] },
   );
-
-  /**/
 }

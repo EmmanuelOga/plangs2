@@ -7,6 +7,4 @@ export function define(g: PlangsGraph) {
     name: "XAML",
     websites: [{ kind: "wikipedia", title: "XAML", href: "https://en.wikipedia.org/wiki/XAML" }],
   });
-
-  /**/
 }

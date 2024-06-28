@@ -10,6 +10,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Android", href: "https://en.wikipedia.org/wiki/Google_Android" },
     ],
   });
-
-  /**/
 }

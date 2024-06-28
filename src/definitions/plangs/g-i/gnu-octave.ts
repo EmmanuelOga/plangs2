@@ -49,6 +49,4 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+matlab"], licenses: ["lic+gpl"], people: [["person+john-w-eaton", "developer"]] },
   );
-
-  /**/
 }

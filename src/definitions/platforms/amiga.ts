@@ -9,6 +9,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Amiga", href: "https://en.wikipedia.org/wiki/Amiga" },
     ],
   });
-
-  /**/
 }

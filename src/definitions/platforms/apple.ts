@@ -10,8 +10,6 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  /**/
-
   lb.define("platf+mac", "macOS", {
     websites: [
       { kind: "wikipedia", title: "macOS", href: "https://en.wikipedia.org/wiki/MacOS" },
@@ -32,17 +30,11 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  /**/
-
   lb.define("platf+tvos", "tvOS", {
     websites: [{ kind: "wikipedia", title: "tvOS", href: "https://en.wikipedia.org/wiki/TvOS" }],
   });
 
-  /**/
-
   lb.define("platf+watchos", "watchOS", {
     websites: [{ kind: "wikipedia", title: "watchOS", href: "https://en.wikipedia.org/wiki/WatchOS" }],
   });
-
-  /**/
 }

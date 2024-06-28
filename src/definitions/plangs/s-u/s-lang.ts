@@ -37,6 +37,4 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+gpl"], people: [["person+john-e-davis", "developer"]] },
   );
-
-  /**/
 }

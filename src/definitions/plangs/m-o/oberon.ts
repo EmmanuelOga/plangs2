@@ -30,8 +30,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+oberon",
     "Oberon",
@@ -66,8 +64,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+oberon-2",
     "Oberon-2",
@@ -94,8 +90,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+object-oberon",
     "Object Oberon",
@@ -115,6 +109,4 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong"],
     },
   );
-
-  /**/
 }

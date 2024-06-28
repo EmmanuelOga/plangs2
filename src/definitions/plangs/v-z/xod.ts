@@ -23,6 +23,4 @@ export function define(g: PlangsGraph) {
       platforms: ["platf+arduino", "platf+rpi"],
     },
   );
-
-  /**/
 }

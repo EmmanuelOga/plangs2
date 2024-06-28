@@ -13,8 +13,6 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  /**/
-
   lb.define("lic+free", "free software", {
     websites: [
       { kind: "wikipedia", title: "free software", href: "https://en.wikipedia.org/wiki/Free_software" },
@@ -26,8 +24,6 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  /**/
-
   lb.define("lic+free-and-open-source", "free and open-source", {
     websites: [
       {
@@ -37,8 +33,6 @@ export function define(g: PlangsGraph) {
       },
     ],
   });
-
-  /**/
 
   lb.define("lic+freely-redistributable", "Freely redistributable software", {
     websites: [
@@ -50,19 +44,13 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  /**/
-
   lb.define("lic+freemium", "Freemium", {
     websites: [{ kind: "wikipedia", title: "Freemium", href: "https://en.wikipedia.org/wiki/Freemium" }],
   });
 
-  /**/
-
   lb.define("lic+freeware", "freeware", {
     websites: [{ kind: "wikipedia", title: "freeware", href: "https://en.wikipedia.org/wiki/Freeware" }],
   });
-
-  /**/
 
   lb.define("lic+permissive-free", "Permissive free software", {
     websites: [
@@ -74,8 +62,6 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  /**/
-
   lb.define("lic+permissive-free-licence", "Permissive free software licence", {
     websites: [
       {
@@ -86,11 +72,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  /**/
-
   lb.define("lic+xfree86", "XFree86", {
     websites: [{ kind: "wikipedia", title: "XFree86", href: "https://en.wikipedia.org/wiki/XFree86_License" }],
   });
-
-  /**/
 }

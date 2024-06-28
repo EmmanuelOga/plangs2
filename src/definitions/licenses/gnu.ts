@@ -9,8 +9,6 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  /**/
-
   lb.define("lic+gnu-affero-gpl", "AGPL-3.0-or-later", {
     websites: [
       {
@@ -21,15 +19,11 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  /**/
-
   lb.define("lic+gnu-library-gpl", "LGPLv2", {
     websites: [
       { kind: "wikipedia", title: "LGPLv2", href: "https://en.wikipedia.org/wiki/GNU_Library_General_Public_License" },
     ],
   });
-
-  /**/
 
   lb.define("lic+gpl", "GPL", {
     websites: [
@@ -55,13 +49,9 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  /**/
-
   lb.define("lic+gpl-2", "GPLv2", {
     websites: [{ kind: "wikipedia", title: "GPLv2", href: "https://en.wikipedia.org/wiki/GPLv2" }],
   });
-
-  /**/
 
   lb.define("lic+gpl-3", "GPL 2+", {
     websites: [
@@ -70,13 +60,9 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  /**/
-
   lb.define("lic+gpl3", "GPL 3", {
     websites: [{ kind: "wikipedia", title: "GPL 3", href: "https://en.wikipedia.org/wiki/GPL3" }],
   });
-
-  /**/
 
   lb.define("lic+lgpl", "LGPL", {
     websites: [
@@ -89,6 +75,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "LGPL", href: "https://en.wikipedia.org/wiki/LGPL" },
     ],
   });
-
-  /**/
 }

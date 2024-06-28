@@ -48,8 +48,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+algol-58",
     "IAL, ALGOL 58",
@@ -83,8 +81,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+algol-60",
     "ALGOL 60",
@@ -100,8 +96,6 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+static", "tsys+strong"],
     },
   );
-
-  /**/
 
   lb.define(
     "pl+algol-68",
@@ -134,28 +128,20 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define("pl+algol-68-r", "ALGOL 68-R", {
     name: "ALGOL 68-R",
     websites: [{ kind: "wikipedia", title: "ALGOL 68-R", href: "https://en.wikipedia.org/wiki/ALGOL_68-R" }],
   });
-
-  /**/
 
   lb.define("pl+algol-68c", "ALGOL 68C", {
     name: "ALGOL 68C",
     websites: [{ kind: "wikipedia", title: "ALGOL 68C", href: "https://en.wikipedia.org/wiki/ALGOL_68C" }],
   });
 
-  /**/
-
   lb.define("pl+algol-68rs", "ALGOL 68RS", {
     name: "ALGOL 68RS",
     websites: [{ kind: "wikipedia", title: "ALGOL 68RS", href: "https://en.wikipedia.org/wiki/ALGOL_68RS" }],
   });
-
-  /**/
 
   lb.define(
     "pl+algol-68s",
@@ -174,8 +160,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+algol-like",
     "Algol-like",
@@ -185,8 +169,6 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+algol-58"] },
   );
-
-  /**/
 
   lb.define(
     "pl+algol-w",
@@ -208,14 +190,10 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define("pl+algol-y", "ALGOL Y", {
     name: "ALGOL Y",
     websites: [{ kind: "wikipedia", title: "ALGOL Y", href: "https://en.wikipedia.org/wiki/ALGOL_Y" }],
   });
-
-  /**/
 
   lb.define(
     "pl+dartmouth-algol-30",
@@ -238,8 +216,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+ps-algol",
     "PS-algol",
@@ -258,12 +234,8 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define("pl+s-algol", "S-algol", {
     name: "S-algol",
     websites: [{ kind: "wikipedia", title: "S-algol", href: "https://en.wikipedia.org/wiki/S-algol" }],
   });
-
-  /**/
 }

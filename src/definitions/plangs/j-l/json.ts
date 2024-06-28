@@ -9,6 +9,4 @@ export function define(g: PlangsGraph) {
     { name: "JSON", websites: [{ kind: "wikipedia", title: "JSON", href: "https://en.wikipedia.org/wiki/JSON" }] },
     { influences: ["pl+rebol"] },
   );
-
-  /**/
 }

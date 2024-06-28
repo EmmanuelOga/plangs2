@@ -18,6 +18,4 @@ export function define(g: PlangsGraph) {
       people: [["person+urban-muller", "designer"]],
     },
   );
-
-  /**/
 }

@@ -11,6 +11,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Cross platform", href: "https://en.wikipedia.org/wiki/Cross_platform" },
     ],
   });
-
-  /**/
 }

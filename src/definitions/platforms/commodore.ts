@@ -9,6 +9,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Commodore 128", href: "https://en.wikipedia.org/wiki/Commodore_128" },
     ],
   });
-
-  /**/
 }

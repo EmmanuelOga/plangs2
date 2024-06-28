@@ -17,6 +17,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Apache", href: "https://en.wikipedia.org/wiki/Apache_Licence" },
     ],
   });
-
-  /**/
 }

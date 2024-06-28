@@ -46,6 +46,4 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+php", "lic+zend"], people: [["person+meta-platforms", "developer"]] },
   );
-
-  /**/
 }

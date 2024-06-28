@@ -25,6 +25,4 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+proprietary"], people: [["person+national-instruments", "developer"]] },
   );
-
-  /**/
 }

@@ -12,6 +12,4 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+awk"] },
   );
-
-  /**/
 }

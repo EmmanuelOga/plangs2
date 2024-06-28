@@ -14,6 +14,4 @@ export function define(g: PlangsGraph) {
       },
     ],
   });
-
-  /**/
 }

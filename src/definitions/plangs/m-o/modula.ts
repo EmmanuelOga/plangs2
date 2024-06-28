@@ -20,8 +20,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+modula-2",
     "Modula-2",
@@ -42,8 +40,6 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+safe", "tsys+static", "tsys+strong"],
     },
   );
-
-  /**/
 
   lb.define(
     "pl+modula-2p",
@@ -66,8 +62,6 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+safe", "tsys+static", "tsys+strong"],
     },
   );
-
-  /**/
 
   lb.define(
     "pl+modula-3",
@@ -127,8 +121,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+orca-slashmodula-2",
     "ORCA/Modula-2",
@@ -139,6 +131,4 @@ export function define(g: PlangsGraph) {
     },
     { people: [["person+the-byte-works", "developer"]] },
   );
-
-  /**/
 }

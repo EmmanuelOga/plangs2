@@ -6,6 +6,4 @@ export function define(g: PlangsGraph) {
   lb.define("lic+mit", "MIT", {
     websites: [{ kind: "wikipedia", title: "MIT", href: "https://en.wikipedia.org/wiki/MIT_License" }],
   });
-
-  /**/
 }

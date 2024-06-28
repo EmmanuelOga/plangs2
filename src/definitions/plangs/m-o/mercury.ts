@@ -53,6 +53,4 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+polymorphic", "tsys+static", "tsys+strong"],
     },
   );
-
-  /**/
 }

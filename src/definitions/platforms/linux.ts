@@ -18,6 +18,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Fedora", href: "https://en.wikipedia.org/wiki/Fedora_(operating_system)" },
     ],
   });
-
-  /**/
 }

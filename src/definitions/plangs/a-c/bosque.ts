@@ -38,6 +38,4 @@ export function define(g: PlangsGraph) {
       people: [["person+mark-marron", "designer"]],
     },
   );
-
-  /**/
 }

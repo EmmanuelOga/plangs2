@@ -37,6 +37,4 @@ export function define(g: PlangsGraph) {
       platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
     },
   );
-
-  /**/
 }

@@ -14,6 +14,4 @@ export function define(g: PlangsGraph) {
     ],
     releases: [{ version: "unknown", date: "1979-01-01", kind: "first" }],
   });
-
-  /**/
 }

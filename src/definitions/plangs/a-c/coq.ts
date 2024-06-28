@@ -23,6 +23,4 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+ml", "pl+ocaml"], licenses: ["lic+lgpl"] },
   );
-
-  /**/
 }

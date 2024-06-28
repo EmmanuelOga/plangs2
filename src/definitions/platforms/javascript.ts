@@ -9,6 +9,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "JavaScript", href: "https://en.wikipedia.org/wiki/JavaScript" },
     ],
   });
-
-  /**/
 }

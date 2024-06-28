@@ -51,8 +51,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+rakudo",
     "Rakudo",
@@ -75,6 +73,4 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+artistic"] },
   );
-
-  /**/
 }

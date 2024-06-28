@@ -10,6 +10,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Distributed cache", href: "https://en.wikipedia.org/wiki/Distributed_cache" },
     ],
   });
-
-  /**/
 }

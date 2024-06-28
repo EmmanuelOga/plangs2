@@ -32,6 +32,4 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+commercial", "lic+proprietary"], platforms: ["platf+ia-32"] },
   );
-
-  /**/
 }

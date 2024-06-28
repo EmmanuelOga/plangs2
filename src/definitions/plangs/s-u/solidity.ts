@@ -40,6 +40,4 @@ export function define(g: PlangsGraph) {
       people: [["person+gavin-wood", "designer"]],
     },
   );
-
-  /**/
 }

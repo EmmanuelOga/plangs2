@@ -25,21 +25,15 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+mit"] },
   );
 
-  /**/
-
   lb.define("pl+saxon-xslt", "Saxon", {
     name: "Saxon",
     websites: [{ kind: "wikipedia", title: "Saxon", href: "https://en.wikipedia.org/wiki/Saxon_XSLT" }],
   });
 
-  /**/
-
   lb.define("pl+xpath", "XPath", {
     name: "XPath",
     websites: [{ kind: "wikipedia", title: "XPath", href: "https://en.wikipedia.org/wiki/XPath" }],
   });
-
-  /**/
 
   lb.define(
     "pl+xquery",
@@ -74,8 +68,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+xslt",
     "XSLT",
@@ -97,6 +89,4 @@ export function define(g: PlangsGraph) {
       paradigms: ["para+dec"],
     },
   );
-
-  /**/
 }

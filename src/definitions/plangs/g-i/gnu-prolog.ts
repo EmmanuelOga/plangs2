@@ -18,6 +18,4 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+gpl", "lic+lgpl"], people: [["person+daniel-diaz", "developer"]] },
   );
-
-  /**/
 }

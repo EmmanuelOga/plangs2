@@ -9,6 +9,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Unix-like", href: "https://en.wikipedia.org/wiki/Unix-like" },
     ],
   });
-
-  /**/
 }

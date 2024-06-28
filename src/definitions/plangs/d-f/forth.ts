@@ -21,6 +21,4 @@ export function define(g: PlangsGraph) {
       people: [["person+charles-h-moore", "designer"]],
     },
   );
-
-  /**/
 }

@@ -12,8 +12,6 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  /**/
-
   lb.define(
     "pl+atari-basic",
     "Atari BASIC",
@@ -41,8 +39,6 @@ export function define(g: PlangsGraph) {
       platforms: ["platf+atari"],
     },
   );
-
-  /**/
 
   lb.define(
     "pl+basic",
@@ -86,8 +82,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+basic-ap",
     "BASIC A+",
@@ -97,8 +91,6 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+atari-basic"] },
   );
-
-  /**/
 
   lb.define(
     "pl+basic-plus",
@@ -111,8 +103,6 @@ export function define(g: PlangsGraph) {
     { influences: ["pl+dartmouth-basic", "pl+focal", "pl+tymshare-super-basic"], paradigms: ["para+imperative"] },
   );
 
-  /**/
-
   lb.define(
     "pl+basic-xl",
     "BASIC XL",
@@ -123,8 +113,6 @@ export function define(g: PlangsGraph) {
     { influences: ["pl+atari-basic"] },
   );
 
-  /**/
-
   lb.define(
     "pl+basic4android",
     "Basic4android",
@@ -134,8 +122,6 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+visual-basic"] },
   );
-
-  /**/
 
   lb.define(
     "pl+basic4ppc",
@@ -156,29 +142,21 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define("pl+bbc-basic", "BBC BASIC", {
     name: "BBC BASIC",
     websites: [{ kind: "wikipedia", title: "BBC BASIC", href: "https://en.wikipedia.org/wiki/BBC_BASIC" }],
     releases: [{ version: "unknown", date: "1981-01-01", kind: "first" }],
   });
 
-  /**/
-
   lb.define("pl+business-basic", "Business Basic", {
     name: "Business Basic",
     websites: [{ kind: "wikipedia", title: "Business Basic", href: "https://en.wikipedia.org/wiki/Business_Basic" }],
   });
 
-  /**/
-
   lb.define("pl+casio-basic", "Casio BASIC", {
     name: "Casio BASIC",
     websites: [{ kind: "wikipedia", title: "Casio BASIC", href: "https://en.wikipedia.org/wiki/Casio_BASIC" }],
   });
-
-  /**/
 
   lb.define(
     "pl+commodore-basic",
@@ -196,8 +174,6 @@ export function define(g: PlangsGraph) {
     },
     { implementations: ["pl+assembly", "pl+mos-6502"], platforms: ["platf+commodore"] },
   );
-
-  /**/
 
   lb.define(
     "pl+dartmouth-basic",
@@ -219,8 +195,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define("pl+data-general-business-basic", "Data General Business Basic", {
     name: "Data General Business Basic",
     websites: [
@@ -231,8 +205,6 @@ export function define(g: PlangsGraph) {
       },
     ],
   });
-
-  /**/
 
   lb.define(
     "pl+freebasic",
@@ -261,8 +233,6 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+static"],
     },
   );
-
-  /**/
 
   lb.define(
     "pl+gambas",
@@ -304,8 +274,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+gw-basic",
     "GW-BASIC",
@@ -338,8 +306,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define("pl+ibm-basica", "IBM BASICA", {
     name: "IBM BASICA",
     websites: [
@@ -358,8 +324,6 @@ export function define(g: PlangsGraph) {
     releases: [{ version: "unknown", date: "1981-01-01", kind: "first" }],
   });
 
-  /**/
-
   lb.define("pl+ibm-cassette-basic", "IBM Cassette BASIC", {
     name: "IBM Cassette BASIC",
     websites: [
@@ -367,14 +331,10 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  /**/
-
   lb.define("pl+ibm-disk-basic", "IBM Disk BASIC", {
     name: "IBM Disk BASIC",
     websites: [{ kind: "wikipedia", title: "IBM Disk BASIC", href: "https://en.wikipedia.org/wiki/IBM_Disk_BASIC" }],
   });
-
-  /**/
 
   lb.define(
     "pl+level-i-basic",
@@ -386,8 +346,6 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+li-chen-wang", "pl+tiny-basic"], people: [["person+steve-leininger", "designer"]] },
   );
-
-  /**/
 
   lb.define(
     "pl+liberty-basic",
@@ -413,8 +371,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+list-of-basic-dialects",
     "list of BASIC dialects",
@@ -431,8 +387,6 @@ export function define(g: PlangsGraph) {
     { influences: ["pl+dartmouth-basic"] },
   );
 
-  /**/
-
   lb.define(
     "pl+ms-basic",
     "Microsoft BASIC",
@@ -444,8 +398,6 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+basic-plus"] },
   );
-
-  /**/
 
   lb.define(
     "pl+ms-small-basic",
@@ -498,8 +450,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+msx-basic",
     "MSX BASIC",
@@ -517,8 +467,6 @@ export function define(g: PlangsGraph) {
     { influences: ["pl+gw-basic"], licenses: ["lic+eula", "lic+ms"], paradigms: ["para+imperative"] },
   );
 
-  /**/
-
   lb.define(
     "pl+ns-basic",
     "NS Basic",
@@ -532,8 +480,6 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+visual-basic"], licenses: ["lic+proprietary"] },
   );
-
-  /**/
 
   lb.define(
     "pl+powerbasic",
@@ -566,8 +512,6 @@ export function define(g: PlangsGraph) {
     { influences: ["pl+turbo-basic"], people: [["person+robert--bob--zale", "developer"]] },
   );
 
-  /**/
-
   lb.define(
     "pl+qbasic",
     "QBasic",
@@ -590,8 +534,6 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+static", "tsys+strong"],
     },
   );
-
-  /**/
 
   lb.define(
     "pl+quickbasic",
@@ -616,8 +558,6 @@ export function define(g: PlangsGraph) {
     { influences: ["pl+gw-basic"], licenses: ["lic+proprietary"], platforms: ["platf+x86"] },
   );
 
-  /**/
-
   lb.define(
     "pl+sinclair-basic",
     "Sinclair BASIC",
@@ -633,8 +573,6 @@ export function define(g: PlangsGraph) {
       platforms: ["platf+zx-spectrum", "platf+zx80", "platf+zx81"],
     },
   );
-
-  /**/
 
   lb.define(
     "pl+smallbasic",
@@ -655,14 +593,10 @@ export function define(g: PlangsGraph) {
     { implementations: ["pl+basic"], influences: ["pl+qbasic"], licenses: ["lic+gpl3"] },
   );
 
-  /**/
-
   lb.define("pl+ti-basic", "TI-BASIC", {
     name: "TI-BASIC",
     websites: [{ kind: "wikipedia", title: "TI-BASIC", href: "https://en.wikipedia.org/wiki/TI-BASIC" }],
   });
-
-  /**/
 
   lb.define(
     "pl+tiny-basic",
@@ -679,8 +613,6 @@ export function define(g: PlangsGraph) {
       ],
     },
   );
-
-  /**/
 
   lb.define(
     "pl+trs-80-level-ii-basic",
@@ -702,14 +634,10 @@ export function define(g: PlangsGraph) {
     { influences: ["pl+level-i-basic"] },
   );
 
-  /**/
-
   lb.define("pl+turbo-basic", "Turbo Basic", {
     name: "Turbo Basic",
     websites: [{ kind: "wikipedia", title: "Turbo Basic", href: "https://en.wikipedia.org/wiki/Turbo_Basic" }],
   });
-
-  /**/
 
   lb.define(
     "pl+turbo-basic-xl",
@@ -728,8 +656,6 @@ export function define(g: PlangsGraph) {
     { influences: ["pl+atari-basic"], platforms: ["platf+atari"] },
   );
 
-  /**/
-
   lb.define(
     "pl+tymshare-super-basic",
     "Tymshare SUPER BASIC",
@@ -743,8 +669,6 @@ export function define(g: PlangsGraph) {
     { influences: ["pl+cal", "pl+dartmouth-basic", "pl+joss"] },
   );
 
-  /**/
-
   lb.define(
     "pl+vilnius-basic",
     "Vilnius BASIC",
@@ -755,8 +679,6 @@ export function define(g: PlangsGraph) {
     },
     { dialects: ["pl+basic"], influences: ["pl+msx-basic"], paradigms: ["para+algorithmic", "para+imperative"] },
   );
-
-  /**/
 
   lb.define(
     "pl+visual-basic",
@@ -790,8 +712,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+visual-basic-.net",
     "Visual Basic .NET",
@@ -803,8 +723,6 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+basic", "pl+visual-basic"] },
   );
-
-  /**/
 
   lb.define(
     "pl+visual-basic-for-applications",
@@ -838,8 +756,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+xojo",
     "Xojo",
@@ -855,6 +771,4 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+basic", "pl+visual-basic"], licenses: ["lic+freemium"] },
   );
-
-  /**/
 }

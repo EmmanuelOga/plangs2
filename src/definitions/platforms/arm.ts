@@ -20,6 +20,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "ARM Cortex-M", href: "https://en.wikipedia.org/wiki/ARM_Cortex-M" },
     ],
   });
-
-  /**/
 }

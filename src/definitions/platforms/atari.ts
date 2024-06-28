@@ -15,6 +15,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "GEMDOS", href: "https://en.wikipedia.org/wiki/Atari_ST#Operating_system" },
     ],
   });
-
-  /**/
 }

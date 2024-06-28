@@ -47,14 +47,10 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define("pl+armed-bear-common-lisp", "ABCL", {
     name: "ABCL",
     websites: [{ kind: "wikipedia", title: "ABCL", href: "https://en.wikipedia.org/wiki/Armed_Bear_Common_Lisp" }],
   });
-
-  /**/
 
   lb.define(
     "pl+autolisp",
@@ -76,14 +72,10 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define("pl+bbn-lisp", "BBN LISP", {
     name: "BBN LISP",
     websites: [{ kind: "wikipedia", title: "BBN LISP", href: "https://en.wikipedia.org/wiki/BBN_LISP" }],
   });
-
-  /**/
 
   lb.define(
     "pl+clisp",
@@ -102,8 +94,6 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+gpl"] },
   );
-
-  /**/
 
   lb.define(
     "pl+common-lisp",
@@ -163,8 +153,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+common-lisp-object-system",
     "Common Lisp Object System",
@@ -174,8 +162,6 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+smalltalk"] },
   );
-
-  /**/
 
   lb.define(
     "pl+emacs-lisp",
@@ -206,8 +192,6 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );
-
-  /**/
 
   lb.define(
     "pl+embeddable-common-lisp",
@@ -255,8 +239,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+eulisp",
     "EuLisp",
@@ -299,8 +281,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+franz-lisp",
     "Franz Lisp",
@@ -327,8 +307,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+gnu-common-lisp",
     "GCL",
@@ -348,8 +326,6 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+gnu-library-gpl"] },
   );
-
-  /**/
 
   lb.define(
     "pl+interlisp",
@@ -376,8 +352,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+islisp",
     "ISLISP",
@@ -403,14 +377,10 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define("pl+le-lisp", "Le Lisp", {
     name: "Le Lisp",
     websites: [{ kind: "wikipedia", title: "Le Lisp", href: "https://en.wikipedia.org/wiki/Le_Lisp" }],
   });
-
-  /**/
 
   lb.define(
     "pl+lelisp",
@@ -450,8 +420,6 @@ export function define(g: PlangsGraph) {
       ],
     },
   );
-
-  /**/
 
   lb.define(
     "pl+lisp",
@@ -532,8 +500,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+lisp-machine-lisp",
     "Lisp Machine Lisp",
@@ -545,8 +511,6 @@ export function define(g: PlangsGraph) {
     },
     { influences: ["pl+interlisp"] },
   );
-
-  /**/
 
   lb.define(
     "pl+lispworks",
@@ -591,8 +555,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+maclisp",
     "Maclisp",
@@ -609,8 +571,6 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );
-
-  /**/
 
   lb.define(
     "pl+multilisp",
@@ -629,8 +589,6 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+dynamic", "tsys+latent", "tsys+strong"],
     },
   );
-
-  /**/
 
   lb.define(
     "pl+newlisp",
@@ -665,8 +623,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+oaklisp",
     "Oaklisp",
@@ -685,14 +641,10 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define("pl+objvlisp", "ObjVlisp", {
     name: "ObjVlisp",
     websites: [{ kind: "wikipedia", title: "ObjVlisp", href: "https://en.wikipedia.org/wiki/ObjVlisp" }],
   });
-
-  /**/
 
   lb.define(
     "pl+openlisp",
@@ -745,8 +697,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define(
     "pl+picolisp",
     "PicoLisp",
@@ -771,8 +721,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  /**/
-
   lb.define("pl+portable-standard-lisp", "Portable Standard Lisp", {
     name: "Portable Standard Lisp",
     websites: [
@@ -784,14 +732,10 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  /**/
-
   lb.define("pl+spice-lisp", "Spice Lisp", {
     name: "Spice Lisp",
     websites: [{ kind: "wikipedia", title: "Spice Lisp", href: "https://en.wikipedia.org/wiki/Spice_Lisp" }],
   });
-
-  /**/
 
   lb.define(
     "pl+star-lisp",
@@ -810,8 +754,6 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );
-
-  /**/
 
   lb.define(
     "pl+zetalisp",
@@ -834,6 +776,4 @@ export function define(g: PlangsGraph) {
       platforms: ["platf+lisp-machine"],
     },
   );
-
-  /**/
 }

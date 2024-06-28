@@ -72,6 +72,4 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+weak"],
     },
   );
-
-  /**/
 }

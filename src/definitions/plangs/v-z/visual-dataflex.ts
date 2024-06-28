@@ -40,6 +40,4 @@ export function define(g: PlangsGraph) {
     },
     { licenses: ["lic+commercial", "lic+proprietary"], people: [["person+data-access-worldwide", "developer"]] },
   );
-
-  /**/
 }

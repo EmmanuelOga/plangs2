@@ -43,6 +43,4 @@ export function define(g: PlangsGraph) {
       platforms: ["platf+.net", "platf+arm", "platf+ia-32", "platf+mono", "platf+x86-64"],
     },
   );
-
-  /**/
 }

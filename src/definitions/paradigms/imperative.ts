@@ -11,6 +11,4 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "procedural", href: "https://en.wikipedia.org/wiki/Procedural_language" },
     ],
   });
-
-  /**/
 }
