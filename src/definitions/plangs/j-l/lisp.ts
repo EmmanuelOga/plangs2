@@ -545,7 +545,7 @@ export function define(g: PlangsGraph) {
       extensions: [".fasl"],
     },
     {
-      implementations: ["pl+assembly", "pl+pl-slashi"],
+      implementations: ["pl+assembly", "pl+pl-slash"],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi", "para+reflection"],
       people: [["person+richard-greenblatt", "designer"]],
       typeSystems: ["tsys+dynamic", "tsys+strong"],

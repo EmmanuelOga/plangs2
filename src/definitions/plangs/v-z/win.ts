@@ -38,7 +38,7 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influences: ["pl+visual-basic"],
+      influences: ["pl+basic"],
       licenses: ["lic+mit"],
       platforms: ["platf+.net", "platf+arm", "platf+ia-32", "platf+mono", "platf+x86-64"],
     },

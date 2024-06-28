@@ -34,8 +34,6 @@ export function define(g: PlangsGraph) {
         "pl+cray-mta",
         "pl+cray-xmt",
         "pl+fortran",
-        "pl+fortran-95",
-        "pl+high-performance-fortran",
         "pl+java",
         "pl+zpl",
       ],

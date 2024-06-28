@@ -8,13 +8,50 @@ export function define(g: PlangsGraph) {
     "Smalltalk",
     {
       name: "Smalltalk",
-      websites: [{ kind: "wikipedia", title: "Smalltalk", href: "https://en.wikipedia.org/wiki/Smalltalk" }],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Smalltalk_Balloon.svg" }],
+      websites: [
+        { kind: "wikipedia", title: "Smalltalk", href: "https://en.wikipedia.org/wiki/Smalltalk" },
+        { kind: "wikipedia", title: "Amber Smalltalk", href: "https://en.wikipedia.org/wiki/Amber_Smalltalk" },
+        { kind: "homepage", title: "www.amber-lang.net", href: "http://www.amber-lang.net" },
+        { kind: "wikipedia", title: "GNU Smalltalk", href: "https://en.wikipedia.org/wiki/GNU_Smalltalk" },
+        {
+          kind: "homepage",
+          title: "https://www.gnu.org/software/smalltalk/",
+          href: "https://www.gnu.org/software/smalltalk/",
+        },
+        { kind: "wikipedia", title: "Dolphin Smalltalk", href: "https://en.wikipedia.org/wiki/Dolphin_Smalltalk" },
+        { kind: "homepage", title: "www.object-arts.com", href: "http://www.object-arts.com" },
+      ],
+      images: [
+        { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/en/f/fb/Amber_Smalltalk_Logo.svg" },
+        { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/0/08/GNU_Smalltalk_logo.svg" },
+        {
+          kind: "logo",
+          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/DolphinSmalltalkBeachBall.png/121px-DolphinSmalltalkBeachBall.png",
+        },
+        { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Smalltalk_Balloon.svg" },
+      ],
       releases: [
+        { version: "unknown", date: "2011-09-13", kind: "first" },
+        { version: "0.30.0", date: "2021-02-23", kind: "stable" },
+        { version: "unknown", date: "2003-01-12", kind: "first" },
+        { version: "unknown", date: "2013-04-08", kind: "stable" },
+        { version: "unknown", date: "1997-08-01", kind: "first" },
+        { version: "7.1.24", date: "2022-06-19", kind: "stable" },
+        { version: "8.0", date: "2024-01-01", kind: "preview" },
         { version: "unknown", date: "1972-01-01", kind: "first" },
         { version: "unknown", date: "1980-01-01", kind: "stable" },
       ],
       references: {
+        stable_release: [
+          {
+            href: "https://lolg.it/amber/amber/commit/d0643e241c2ba97a9d8ab37a03bff29e04aef6c2",
+            title: "Release version 0.30.0",
+          },
+          {
+            href: "https://object-arts.com/blog/files/d60e38332cc3e009d1326504af95a64a-6.html",
+            title: "Dolphin Smalltalk 7 is Open Source",
+          },
+        ],
         platform: [
           { href: "http://bitsavers.org/pdf/xerox/alto/schematics/AltoI_Schematics.pdf", title: "Alto I Schematics" },
           {
@@ -32,17 +69,8 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      dialects: ["pl+dolphin-smalltalk", "pl+newspeak", "pl+pharo", "pl+self", "pl+strongtalk"],
-      implementations: [
-        "pl+amber-smalltalk",
-        "pl+dolphin-smalltalk",
-        "pl+gemstone",
-        "pl+gnu-smalltalk",
-        "pl+ibm-visualage",
-        "pl+pharo",
-        "pl+squeak",
-        "pl+visualworks",
-      ],
+      dialects: ["pl+newspeak", "pl+pharo", "pl+self", "pl+smalltalk", "pl+strongtalk"],
+      implementations: ["pl+gemstone", "pl+ibm-visualage", "pl+pharo", "pl+smalltalk", "pl+squeak", "pl+visualworks"],
       influences: [
         "pl+arpanet",
         "pl+burroughs-b5000",
@@ -56,18 +84,23 @@ export function define(g: PlangsGraph) {
         "pl+simula",
         "pl+simula-67",
         "pl+sketchpad",
+        "pl+smalltalk",
         "pl+ucblogo",
       ],
+      licenses: ["lic+gpl", "lic+lgpl", "lic+mit"],
       paradigms: ["para+objects"],
       people: [
         ["person+adele-goldberg", "designer"],
         ["person+alan-kay", "designer"],
+        ["person+andy-bower", "designer"],
+        ["person+blair-mcglashan", "designer"],
         ["person+dan-ingalls", "designer"],
         ["person+diana-merry", "developer"],
+        ["person+object-arts", "developer"],
         ["person+peter-deutsch", "developer"],
         ["person+ted-kaehler", "developer"],
       ],
-      platforms: ["platf+74181", "platf+cross-platform"],
+      platforms: ["platf+74181", "platf+cross-platform", "platf+ia-32", "platf+web", "platf+win", "platf+x86-64"],
       typeSystems: ["tsys+dynamic", "tsys+object-oriented", "tsys+strong"],
     },
   );

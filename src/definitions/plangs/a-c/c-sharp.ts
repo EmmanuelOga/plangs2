@@ -14,17 +14,7 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+nemerle"],
-      influences: [
-        "pl+c",
-        "pl+cpp",
-        "pl+d",
-        "pl+eiffel",
-        "pl+java",
-        "pl+modula-3",
-        "pl+object-pascal",
-        "pl+pascal",
-        "pl+scala",
-      ],
+      influences: ["pl+c", "pl+cpp", "pl+d", "pl+eiffel", "pl+java", "pl+modula", "pl+pascal", "pl+scala"],
     },
   );
 }

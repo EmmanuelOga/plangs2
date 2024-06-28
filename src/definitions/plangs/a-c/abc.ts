@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       },
     },
     {
-      influences: ["pl+algol-68", "pl+setl"],
+      influences: ["pl+algol", "pl+setl"],
       paradigms: ["para+imperative", "para+multi", "para+structured"],
       people: [
         ["person+centrum-wiskunde", "developer"],

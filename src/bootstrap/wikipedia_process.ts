@@ -572,7 +572,7 @@ function cleanPlatform(platf: string): string | undefined {
 }
 
 const SKIP_KEYS =
-  /^list-of|manufacturing|^dope|(logic|functional|intermediate|object-oriented|language)-programming|philco|reference|implementation|regency|scripting-language|space-mission|tail-recursive|lisp-machine/i;
+  /^modular|^natural-language|mathematical-notation|machine-code|^concurrent-logic|^object-oriented|^intermediate|green-hills|^list-of|manufacturing|^dope|(logic|functional|intermediate|object-oriented|language)-programming|philco|reference|implementation|regency|scripting-language|space-mission|tail-recursive|lisp-machine/i;
 
 /**
  * Create a key from the Wikipedia /wiki path, removing anchors and '_(...)' parts.
@@ -609,9 +609,21 @@ function keyFromWikiUrl(wikiUrl: string): string | undefined {
 
     if (SKIP_KEYS.test(key)) return;
 
-    if (key.includes("sql")) return "sql";
+    for (const l of ["sql", "modula", "algol", "basic", "cobol", "coral", "fortran", "pascal", "smalltalk", "turing"])
+      if (key.includes(l)) return l;
+
+    if (key.startsWith("pl-slash")) return "pl-slash";
+    if (key.startsWith("sap")) return "sap";
+    if (key.startsWith("rpg")) return "rpg";
     if (key.startsWith("dec")) return "dec";
+    if (key.startsWith("excel")) return "excel";
     if (key.startsWith("win-") || key.startsWith("universal-win")) return "win";
+    if (key.startsWith("alf")) return "alf";
+    if (key.startsWith("dope")) return;
+    if (key.startsWith("functional")) return;
+
+    if (key.includes("compilers")) return;
+
     if (key === "common-language-infrastructure") return ".net";
 
     if (key === "apple-ios") return "ios";

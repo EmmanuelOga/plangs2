@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+open-source"],
-      influences: ["pl+ada", "pl+algol-68", "pl+c", "pl+cpp", "pl+java", "pl+modula-2", "pl+pascal"],
+      influences: ["pl+ada", "pl+algol", "pl+c", "pl+cpp", "pl+java", "pl+modula", "pl+pascal"],
       licenses: ["lic+gpl", "lic+lgpl"],
       paradigms: [
         "para+extensible",

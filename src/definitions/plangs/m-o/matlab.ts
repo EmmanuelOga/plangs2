@@ -92,7 +92,7 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+gnu-octave", "pl+sysquake"],
-      influences: ["pl+apl", "pl+eispack", "pl+fortran", "pl+fortran-95", "pl+linpack", "pl+pl-slash0", "pl+speakeasy"],
+      influences: ["pl+apl", "pl+eispack", "pl+fortran", "pl+linpack", "pl+pl-slash", "pl+speakeasy"],
       licenses: ["lic+commercial", "lic+proprietary"],
       paradigms: ["para+array", "para+functional", "para+imperative", "para+multi", "para+objects"],
       people: [["person+cleve-moler", "designer"]],

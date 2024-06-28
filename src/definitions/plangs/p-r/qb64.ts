@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influences: ["pl+qbasic", "pl+quickbasic"],
+      influences: ["pl+basic"],
       licenses: ["lic+mit"],
       people: [["person+rob-galleon", "developer"]],
       platforms: ["platf+linux", "platf+mac", "platf+win"],

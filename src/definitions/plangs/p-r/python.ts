@@ -405,7 +405,7 @@ export function define(g: PlangsGraph) {
       influences: [
         "pl+abc",
         "pl+ada",
-        "pl+algol-68",
+        "pl+algol",
         "pl+apl",
         "pl+c",
         "pl+clu",
@@ -415,7 +415,7 @@ export function define(g: PlangsGraph) {
         "pl+icon",
         "pl+java",
         "pl+lisp",
-        "pl+modula-3",
+        "pl+modula",
         "pl+occam",
         "pl+perl",
         "pl+scheme",

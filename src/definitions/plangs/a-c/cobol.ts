@@ -8,7 +8,12 @@ export function define(g: PlangsGraph) {
     "COBOL",
     {
       name: "COBOL",
-      websites: [{ kind: "wikipedia", title: "COBOL", href: "https://en.wikipedia.org/wiki/COBOL" }],
+      websites: [
+        { kind: "wikipedia", title: "COBOL", href: "https://en.wikipedia.org/wiki/COBOL" },
+        { kind: "wikipedia", title: "GnuCOBOL", href: "https://en.wikipedia.org/wiki/GnuCOBOL" },
+        { kind: "wikipedia", title: "IBM COBOL", href: "https://en.wikipedia.org/wiki/IBM_COBOL" },
+        { kind: "wikipedia", title: "CobolScript", href: "https://en.wikipedia.org/wiki/CobolScript" },
+      ],
       images: [
         {
           kind: "logo",
@@ -47,9 +52,10 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+watbol", "pl+x-slashopen"],
-      implementations: ["pl+gnucobol", "pl+ibm-cobol", "pl+micro-focus"],
+      implementations: ["pl+cobol", "pl+micro-focus"],
       influences: [
         "pl+aimaco",
+        "pl+cobol",
         "pl+comtran",
         "pl+cpp",
         "pl+eiffel",

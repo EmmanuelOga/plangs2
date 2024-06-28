@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+ansi-c", "pl+luajit"],
-      influences: ["pl+awk", "pl+clu", "pl+cpp", "pl+lisp", "pl+modula-2", "pl+scheme", "pl+self", "pl+snobol"],
+      influences: ["pl+awk", "pl+clu", "pl+cpp", "pl+lisp", "pl+modula", "pl+scheme", "pl+self", "pl+snobol"],
       licenses: ["lic+mit"],
       paradigms: [
         "para+functional",

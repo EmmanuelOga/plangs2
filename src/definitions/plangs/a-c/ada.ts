@@ -52,15 +52,14 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+ravenscar-profile", "pl+spark"],
-      implementations: ["pl+ddc-i", "pl+gnat", "pl+green-hills-software", "pl+ptc"],
+      implementations: ["pl+ddc-i", "pl+gnat", "pl+ptc"],
       influences: [
-        "pl+algol-60",
-        "pl+algol-68",
+        "pl+algol",
         "pl+clu",
         "pl+cpp",
         "pl+eiffel",
         "pl+java",
-        "pl+modula-2",
+        "pl+modula",
         "pl+pascal",
         "pl+simula-67",
         "pl+smalltalk",

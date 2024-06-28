@@ -70,7 +70,7 @@ export function define(g: PlangsGraph) {
         "pl+haskell",
         "pl+limbo",
         "pl+ml",
-        "pl+modula-3",
+        "pl+modula",
         "pl+newsqueak",
         "pl+ocaml",
         "pl+racket",

@@ -57,7 +57,7 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+active-oberon", "pl+oberon-2", "pl+obliq"],
-      influences: ["pl+modula-2", "pl+oberon-2", "pl+pascal"],
+      influences: ["pl+modula", "pl+oberon-2", "pl+pascal"],
       paradigms: ["para+imperative", "para+modular", "para+objects", "para+structured"],
       platforms: ["platf+amiga", "platf+arm", "platf+atari", "platf+ia-32", "platf+linux", "platf+win", "platf+x86-64"],
       typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong"],
@@ -82,7 +82,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1991-01-01", kind: "first" }],
     },
     {
-      influences: ["pl+modula-2", "pl+oberon", "pl+object-oberon", "pl+pascal"],
+      influences: ["pl+modula", "pl+oberon", "pl+object-oberon", "pl+pascal"],
       paradigms: ["para+imperative", "para+modular", "para+objects", "para+structured"],
       people: [["person+niklaus-wirth", "designer"]],
       platforms: ["platf+ia-32", "platf+linux", "platf+mac", "platf+win", "platf+x86-64"],
@@ -103,7 +103,7 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+oberon"],
-      influences: ["pl+modula-2", "pl+oberon"],
+      influences: ["pl+modula", "pl+oberon"],
       paradigms: ["para+imperative", "para+modular", "para+objects", "para+structured"],
       people: [["person+hanspeter-mossenbock", "developer"]],
       typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong"],

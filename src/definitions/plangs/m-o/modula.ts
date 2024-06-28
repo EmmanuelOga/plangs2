@@ -8,75 +8,25 @@ export function define(g: PlangsGraph) {
     "Modula",
     {
       name: "Modula",
-      websites: [{ kind: "wikipedia", title: "Modula", href: "https://en.wikipedia.org/wiki/Modula" }],
-      releases: [{ version: "unknown", date: "1975-01-01", kind: "first" }],
-    },
-    {
-      dialects: ["pl+alma-0", "pl+modula-2", "pl+modula-2p", "pl+modula-3"],
-      influences: ["pl+pascal"],
-      paradigms: ["para+imperative", "para+modular", "para+structured"],
-      people: [["person+niklaus-wirth", "designer"]],
-      typeSystems: ["tsys+safe", "tsys+static", "tsys+strong"],
-    },
-  );
-
-  lb.define(
-    "pl+modula-2",
-    "Modula-2",
-    {
-      name: "Modula-2",
-      websites: [
-        { kind: "wikipedia", title: "Modula-2", href: "https://en.wikipedia.org/wiki/Modula-2" },
-        { kind: "homepage", title: "www.modula2.org", href: "http://www.modula2.org" },
-      ],
-      releases: [{ version: "unknown", date: "1978-01-01", kind: "first" }],
-      extensions: [".mod", ".m2", ".def", ".MOD", ".DEF", ".mi", ".md"],
-    },
-    {
-      influences: ["pl+algol-w", "pl+euclid", "pl+mesa", "pl+modula", "pl+pascal"],
-      paradigms: ["para+concurrent", "para+imperative", "para+information", "para+modular", "para+structured"],
-      people: [["person+niklaus-wirth", "designer"]],
-      platforms: ["platf+amd", "platf+amd-am2900", "platf+cross-platform"],
-      typeSystems: ["tsys+safe", "tsys+static", "tsys+strong"],
-    },
-  );
-
-  lb.define(
-    "pl+modula-2p",
-    "Modula-2+",
-    {
-      name: "Modula-2+",
-      websites: [{ kind: "wikipedia", title: "Modula-2+", href: "https://en.wikipedia.org/wiki/Modula-2%2B" }],
-      releases: [{ version: "unknown", date: "1984-01-01", kind: "first" }],
-    },
-    {
-      influences: ["pl+algol", "pl+modula-2", "pl+pascal"],
-      licenses: ["lic+proprietary"],
-      paradigms: ["para+concurrent", "para+imperative", "para+information", "para+modular", "para+structured"],
-      people: [
-        ["person+john-wick", "designer"],
-        ["person+paul-rovner", "designer"],
-        ["person+roy-levin", "designer"],
-      ],
-      platforms: ["platf+cross-platform"],
-      typeSystems: ["tsys+safe", "tsys+static", "tsys+strong"],
-    },
-  );
-
-  lb.define(
-    "pl+modula-3",
-    "Modula-3",
-    {
-      name: "Modula-3",
       websites: [
         { kind: "wikipedia", title: "Modula-3", href: "https://en.wikipedia.org/wiki/Modula-3" },
+        { kind: "wikipedia", title: "Modula-2", href: "https://en.wikipedia.org/wiki/Modula-2" },
+        { kind: "wikipedia", title: "Modula", href: "https://en.wikipedia.org/wiki/Modula" },
+        { kind: "homepage", title: "www.modula2.org", href: "http://www.modula2.org" },
+        { kind: "wikipedia", title: "Modula-2+", href: "https://en.wikipedia.org/wiki/Modula-2%2B" },
         { kind: "homepage", title: "www.modula3.org", href: "http://www.modula3.org" },
+        { kind: "wikipedia", title: "ORCA/Modula-2", href: "https://en.wikipedia.org/wiki/ORCA/Modula-2" },
       ],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Modula-3.svg" }],
       releases: [
+        { version: "unknown", date: "1975-01-01", kind: "first" },
+        { version: "unknown", date: "1978-01-01", kind: "first" },
         { version: "unknown", date: "1988-01-01", kind: "first" },
         { version: "5.8.6", date: "2010-07-14", kind: "stable" },
+        { version: "unknown", date: "1984-01-01", kind: "first" },
+        { version: "unknown", date: "1994-01-01", kind: "first" },
       ],
+      extensions: [".mod", ".m2", ".def", ".MOD", ".DEF", ".mi", ".md"],
+      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Modula-3.svg" }],
       references: {
         major_implementations: [
           { href: "https://modula3.elegosoft.com/cm3/", title: "Critical Mass Modula-3 (CM3)" },
@@ -102,33 +52,39 @@ export function define(g: PlangsGraph) {
       },
     },
     {
+      dialects: ["pl+alma-0", "pl+modula"],
       implementations: ["pl+dec"],
-      influences: ["pl+algol", "pl+euclid", "pl+mesa", "pl+modula-2", "pl+modula-2p", "pl+oberon", "pl+pascal"],
+      influences: ["pl+algol", "pl+euclid", "pl+mesa", "pl+modula", "pl+oberon", "pl+pascal"],
+      licenses: ["lic+proprietary"],
       paradigms: [
         "para+concurrent",
         "para+generic",
         "para+imperative",
+        "para+information",
         "para+modular",
         "para+objects",
         "para+structured",
       ],
       people: [
         ["person+greg-nelson", "designer"],
+        ["person+john-wick", "designer"],
         ["person+luca-cardelli", "designer"],
+        ["person+niklaus-wirth", "designer"],
+        ["person+paul-rovner", "designer"],
+        ["person+roy-levin", "designer"],
+        ["person+the-byte-works", "developer"],
       ],
-      platforms: ["platf+bsd", "platf+cross-platform", "platf+ia-32", "platf+linux", "platf+mac", "platf+x86-64"],
+      platforms: [
+        "platf+amd",
+        "platf+amd-am2900",
+        "platf+bsd",
+        "platf+cross-platform",
+        "platf+ia-32",
+        "platf+linux",
+        "platf+mac",
+        "platf+x86-64",
+      ],
       typeSystems: ["tsys+safe", "tsys+static", "tsys+strong"],
     },
-  );
-
-  lb.define(
-    "pl+orca-slashmodula-2",
-    "ORCA/Modula-2",
-    {
-      name: "ORCA/Modula-2",
-      websites: [{ kind: "wikipedia", title: "ORCA/Modula-2", href: "https://en.wikipedia.org/wiki/ORCA/Modula-2" }],
-      releases: [{ version: "unknown", date: "1994-01-01", kind: "first" }],
-    },
-    { people: [["person+the-byte-works", "developer"]] },
   );
 }

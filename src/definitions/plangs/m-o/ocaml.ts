@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
     {
       dialects: ["pl+ats", "pl+f-star", "pl+reason"],
       implementations: ["pl+c"],
-      influences: ["pl+c", "pl+caml", "pl+ml", "pl+modula-3", "pl+pascal", "pl+sml"],
+      influences: ["pl+c", "pl+caml", "pl+ml", "pl+modula", "pl+pascal", "pl+sml"],
       licenses: ["lic+lgpl"],
       paradigms: ["para+functional", "para+imperative", "para+modular", "para+multi", "para+objects"],
       people: [

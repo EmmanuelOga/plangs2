@@ -33,7 +33,6 @@ export function define(g: PlangsGraph) {
     {
       dialects: ["pl+aplx"],
       implementations: ["pl+aplx"],
-      influences: ["pl+mathematical-notation"],
       licenses: ["lic+open-source", "lic+proprietary"],
       paradigms: ["para+array", "para+functional", "para+modular", "para+structured"],
       people: [

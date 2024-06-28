@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       extensions: [".nrx"],
     },
     {
-      influences: ["pl+java", "pl+object-rexx", "pl+pl-slashi", "pl+rexx"],
+      influences: ["pl+java", "pl+object-rexx", "pl+pl-slash", "pl+rexx"],
       licenses: ["lic+icu"],
       paradigms: ["para+imperative", "para+multi", "para+objects", "para+structured"],
       people: [["person+mike-cowlishaw", "designer"]],

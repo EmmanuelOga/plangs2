@@ -66,7 +66,6 @@ export function define(g: PlangsGraph) {
         "pl+erlang",
         "pl+limbo",
         "pl+modula",
-        "pl+modula-2",
         "pl+newsqueak",
         "pl+oberon",
         "pl+oberon-2",

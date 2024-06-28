@@ -82,7 +82,7 @@ export function define(g: PlangsGraph) {
       ],
       influences: [
         "pl+ada",
-        "pl+algol-68",
+        "pl+algol",
         "pl+apl",
         "pl+bcpl",
         "pl+c",
@@ -90,7 +90,7 @@ export function define(g: PlangsGraph) {
         "pl+f-sharp",
         "pl+mesa",
         "pl+ml",
-        "pl+modula-2",
+        "pl+modula",
         "pl+simula",
         "pl+smalltalk",
       ],
