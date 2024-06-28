@@ -1,6 +1,6 @@
 import { Fragment, h, render } from "preact";
-import { useMemo } from "preact/hooks";
-import type { VID_Plang, VID_TypeSystem, V_Plang } from "src/entities/schemas";
+import { useMemo, useState } from "preact/hooks";
+import type { VID_Plang, VID_TypeSystem } from "src/entities/schemas";
 import { PlangsGraph } from "../entities/plangs_graph";
 import { useSet } from "./useSet";
 
@@ -9,9 +9,19 @@ type _Any = any;
 
 function Browse({ pg }: { pg: PlangsGraph }) {
   const [filtersVer, filters] = useSet<VID_TypeSystem>([]);
+  const [allOrAny, setAllOrAny] = useState<"all" | "any">("all");
 
   function tsysFilter([plVid]: [VID_Plang, _Any]) {
     if (filters.size === 0) return true;
+
+    if (allOrAny === "all") {
+      for (const tsVid of filters) {
+        if (!pg.e_plang_tsys.has(plVid, tsVid)) return false;
+      }
+      return true;
+    }
+
+    // allOrAny === "any"
     for (const tsVid of filters) {
       if (pg.e_plang_tsys.has(plVid, tsVid)) return true;
     }
@@ -20,7 +30,7 @@ function Browse({ pg }: { pg: PlangsGraph }) {
 
   const plangs = useMemo(() => {
     return [...pg.v_plang].sort().filter(tsysFilter);
-  }, [filtersVer]);
+  }, [filtersVer, allOrAny]);
 
   function toggleTsys(tsVid: VID_TypeSystem) {
     if (filters.has(tsVid)) {
@@ -36,12 +46,24 @@ function Browse({ pg }: { pg: PlangsGraph }) {
         <h1>Type System</h1>
 
         <label>
-          <input type="radio" value="all" />
+          <input
+            type="radio"
+            name="filterTsysAllOrAny"
+            value="all"
+            checked={allOrAny === "all"}
+            onClick={() => setAllOrAny("all")}
+          />
           All Of
         </label>
 
         <label>
-          <input type="radio" value="any" />
+          <input
+            type="radio"
+            name="filterTsysAllOrAny"
+            value="any"
+            checked={allOrAny === "any"}
+            onClick={() => setAllOrAny("any")}
+          />
           Any Of
         </label>
 
