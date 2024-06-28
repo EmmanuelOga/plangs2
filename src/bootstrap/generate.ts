@@ -86,7 +86,7 @@ async function generateAll() {
     return vertex.websites?.length && dataSize > 212 ? name : "other";
   });
 
-  genAll(g.v_person, "people", "person", (vid, vertex, dataSize, name) => (vertex.websites?.length ? name : "other"));
+  genAll(g.v_person, "people", "person", (vid, vertex, dataSize, name) => "other");
 
   genAll(
     g.v_plang,

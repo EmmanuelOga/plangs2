@@ -577,7 +577,9 @@ function keyFromWikiUrl(wikiUrl: string): string | undefined {
   const [prefix, hash] = wikiUrl.split("#");
 
   function clean(val: string): string | undefined {
-    let key = toAlphaNum(val);
+    const nopar = val.replaceAll(/\_\([^\)]+\)/g, "").trim();
+
+    let key = toAlphaNum(nopar);
 
     if (key.includes("powershell")) return "powershell";
     if (key.startsWith("win-")) return "win";
@@ -590,7 +592,6 @@ function keyFromWikiUrl(wikiUrl: string): string | undefined {
     if (key === "programming-language") return;
 
     key = key
-      .replaceAll(/\-\([^\)]+\)/g, "") // Remove url parts like /wiki/lisp_(programming_language)
       .replaceAll(/windows/g, "win")
       .replaceAll(/microsoft/g, "ms")
       .replaceAll(/ms\-win/g, "win")
