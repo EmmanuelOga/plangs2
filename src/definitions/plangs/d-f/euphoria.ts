@@ -27,6 +27,7 @@ export function define(g: PlangsGraph) {
         ["person+derek-parnell", "designer"],
         ["person+jeremy-cowgar", "designer"],
         ["person+matt-lewis", "designer"],
+        ["person+robert-craig", "designer"],
       ],
       platforms: ["platf+bsd", "platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+static"],

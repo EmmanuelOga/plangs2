@@ -26,6 +26,7 @@ export function define(g: PlangsGraph) {
       people: [
         ["person+aubrey-jaffer", "designer"],
         ["person+radey-shouman", "developer"],
+        ["person+tanel-tammet", "developer"],
       ],
       platforms: ["platf+cross-platform", "platf+ia-32", "platf+x86-64"],
       typeSystems: ["tsys+dynamic", "tsys+latent", "tsys+strong"],

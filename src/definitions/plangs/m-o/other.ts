@@ -1504,7 +1504,6 @@ export function define(g: PlangsGraph) {
     {
       licenses: ["lic+proprietary"],
       paradigms: ["para+imperative", "para+objects", "para+structured"],
-      people: [["person+clarion-international", "developer"]],
       platforms: ["platf+dos", "platf+ia-32", "platf+win"],
     },
   );
@@ -4086,10 +4085,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+gnu-data"],
       influences: ["pl+fortran-95"],
       paradigms: ["para+array"],
-      people: [
-        ["person+david-stern", "designer"],
-        ["person+itt-vis", "developer"],
-      ],
+      people: [["person+david-stern", "designer"]],
       typeSystems: ["tsys+dynamic"],
     },
   );

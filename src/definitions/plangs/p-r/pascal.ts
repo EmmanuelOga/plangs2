@@ -196,7 +196,6 @@ export function define(g: PlangsGraph) {
       ],
       people: [
         ["person+anders-hejlsberg", "designer"],
-        ["person+borland-international", "developer"],
         ["person+larry-tesler", "designer"],
         ["person+niklaus-wirth", "designer"],
       ],

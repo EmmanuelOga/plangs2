@@ -44,6 +44,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+rexx", "pl+smalltalk"],
       licenses: ["lic+common-public", "lic+gpl"],
       paradigms: ["para+class", "para+objects"],
+      people: [["person+simon-c-nash", "designer"]],
       platforms: [
         "platf+arm",
         "platf+bsd",

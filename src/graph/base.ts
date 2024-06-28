@@ -6,8 +6,8 @@ type _Any = any;
 
 type SerializedGraph = {
   vtables: Record<string, _Any>;
-  etables: Record<string, _Any>
-}
+  etables: Record<string, _Any>;
+};
 
 /**
  * A Graph consists of set of Vertices and Edges.
@@ -68,12 +68,12 @@ export class Graph {
     const graph = { vtables: {}, etables: {} };
 
     for (const [key, val] of this.vtables) {
-      console.log('Serializing vertex table:', key);
+      console.log("Serializing vertex table:", key);
       graph.vtables[key] = val.toJSON();
     }
 
     for (const [key, val] of this.etables) {
-      console.log('Serializing edge table:', key);
+      console.log("Serializing edge table:", key);
       graph.etables[key] = val.toJSON();
     }
 

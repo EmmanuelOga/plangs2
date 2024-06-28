@@ -31,6 +31,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
+  lb.define("person+andrea-mayr-stalder", "Andrea Mayr-Stalder", {});
+
+  /**/
+
   lb.define("person+andreas-falkenhahn", "Andreas Falkenhahn", {});
 
   /**/
@@ -111,10 +115,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  lb.define("person+borland-international", "Borland International", {});
-
-  /**/
-
   lb.define("person+brad-chamberlain", "Brad Chamberlain", {});
 
   /**/
@@ -147,6 +147,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
+  lb.define("person+catarina-coquand", "Catarina Coquand", {});
+
+  /**/
+
   lb.define("person+cedric-champeau", "Cedric Champeau", {});
 
   /**/
@@ -176,10 +180,6 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define("person+christopher-lutz", "Christopher Lutz", {});
-
-  /**/
-
-  lb.define("person+clarion-international", "Clarion International", {});
 
   /**/
 
@@ -399,6 +399,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
+  lb.define("person+guillaume-laforge", "Guillaume Laforge", {});
+
+  /**/
+
   lb.define("person+gustaf-neumann", "Gustaf Neumann", {});
 
   /**/
@@ -472,6 +476,10 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define("person+jessie-dedecker", "Jessie Dedecker", {});
+
+  /**/
+
+  lb.define("person+jochen-theodorou", "Jochen Theodorou", {});
 
   /**/
 
@@ -843,7 +851,15 @@ export function define(g: PlangsGraph) {
 
   /**/
 
+  lb.define("person+robert--bob--zale", 'Robert "Bob" Zale', {});
+
+  /**/
+
   lb.define("person+robert-bradshaw", "Robert Bradshaw", {});
+
+  /**/
+
+  lb.define("person+robert-craig", "Robert Craig", {});
 
   /**/
 
@@ -939,6 +955,10 @@ export function define(g: PlangsGraph) {
 
   /**/
 
+  lb.define("person+simon-c-nash", "Simon C. Nash", {});
+
+  /**/
+
   lb.define("person+slava-pestov", "Slava Pestov", {});
 
   /**/
@@ -980,6 +1000,10 @@ export function define(g: PlangsGraph) {
   /**/
 
   lb.define("person+sven-efftinge", "Sven Efftinge", {});
+
+  /**/
+
+  lb.define("person+tanel-tammet", "Tanel Tammet", {});
 
   /**/
 

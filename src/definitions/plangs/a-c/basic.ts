@@ -563,7 +563,7 @@ export function define(g: PlangsGraph) {
         ],
       },
     },
-    { influences: ["pl+turbo-basic"] },
+    { influences: ["pl+turbo-basic"], people: [["person+robert--bob--zale", "developer"]] },
   );
 
   /**/

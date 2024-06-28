@@ -32,7 +32,9 @@ export function define(g: PlangsGraph) {
       paradigms: ["para+aspect", "para+functional", "para+imperative", "para+multi", "para+objects", "para+scripting"],
       people: [
         ["person+cedric-champeau", "developer"],
+        ["person+guillaume-laforge", "developer"],
         ["person+james-strachan", "designer"],
+        ["person+jochen-theodorou", "developer"],
         ["person+paul-king", "developer"],
       ],
       platforms: ["platf+jvm"],

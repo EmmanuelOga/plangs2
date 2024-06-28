@@ -1,6 +1,6 @@
 import { Fragment, h, render } from "preact";
 import { useMemo, useState } from "preact/hooks";
-import type { VID_Plang, VID_TypeSystem } from "src/entities/schemas";
+import type { Link, VID_Plang, VID_TypeSystem, V_Plang } from "src/entities/schemas";
 import { PlangsGraph } from "../entities/plangs_graph";
 import { setToggle, useSet } from "./useSet";
 
@@ -10,7 +10,7 @@ type _Any = any;
 function Browse({ pg }: { pg: PlangsGraph }) {
   const [sectionsVer, sections] = useSet<string>([]);
   const [filtersVer, filters] = useSet<VID_TypeSystem>([]);
-  const [allOrAny, setAllOrAny] = useState<"all" | "any">("all");
+  const [allOrAny, setAllOrAny] = useState<"all" | "any">("any");
 
   function tsysFilter([plVid]: [VID_Plang, _Any]) {
     if (filters.size === 0) return true;
@@ -35,17 +35,32 @@ function Browse({ pg }: { pg: PlangsGraph }) {
   }, [filtersVer, allOrAny]);
 
   function sectionClass(section: string): string {
-    if (section === 'tsys' && filters.size > 0) {
-      return 'active';
+    if (section === "tsys" && filters.size > 0) {
+      return "active";
     }
-    return '';
+    return "";
+  }
+
+  function linkTo({ href, title }: Link): h.JSX.Element {
+    return (
+      <a href={href} target="_blank" rel="noreferrer">
+        {title}
+      </a>
+    );
+  }
+
+  function plangWebsite(pl: V_Plang): h.JSX.Element {
+    const home = pl.websites.find(({ kind }) => kind === "homepage");
+    if (home) return linkTo(home);
+    if (pl.websites.length > 0) return linkTo(pl.websites[0]);
+    return <></>;
   }
 
   return (
     <>
       <nav>
         {/* biome-ignore lint/a11y/useKeyWithClickEvents: Ok for now. */}
-        <div onClick={() => setToggle(sections, "tsys")} class={sectionClass('tsys')}>
+        <div onClick={() => setToggle(sections, "tsys")} class={sectionClass("tsys")}>
           <span>{sections.has("tsys") ? " -" : " +"}</span>
           Type System
         </div>
@@ -89,10 +104,14 @@ function Browse({ pg }: { pg: PlangsGraph }) {
         </div>
       </nav>
       <article>
-        <h1>Results</h1>
-        {plangs.map(([vid, pl]) => (
-          <div key={vid}>{pl.name}</div>
-        ))}
+        <table>
+          {plangs.map(([vid, pl]) => (
+            <tr key={vid}>
+              <td>{pl.name}</td>
+              <td>{plangWebsite(pl)}</td>
+            </tr>
+          ))}
+        </table>
       </article>
     </>
   );

@@ -20,8 +20,8 @@ type _T_Any_V_Data = any;
  * Stores edges between vertices.
  */
 export class EdgeTable<VID_From extends string, VID_To extends string, T_EdgeData>
-  implements Iterable<[string, T_EdgeData]> {
-
+  implements Iterable<[string, T_EdgeData]>
+{
   readonly #edge: Map<string, T_EdgeData> = new Map();
   readonly #adjFrom: Map<string, Set<string>> = new Map();
   readonly #adjTo: Map<string, Set<string>> = new Map();

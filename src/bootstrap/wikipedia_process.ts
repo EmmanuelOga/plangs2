@@ -435,17 +435,15 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
 }
 
 const NON_PEOPLE =
-  /\d|authors|company|unicom|global|eth|texas|college|insa\-lyon|optimization|laboratories|games|itt\-|san\-diego|commercial|community|consortium|hewlett-packard|honeywell|labs|ansi|center|academ.*|harvard|mit\b|ieee|ibm|huawei|xerox|wso2|w3c|iso\b|inria|institute|research|computer|science|foundation|tech.+|polytech.*|university|comittee|jetbrains|sap\b|sas\b|institute|original|contributors|others|open|source|students|nvidia|organization|group|comunity|project|corp|chair|galois|foundation|ltd|tech|core|team|inc|systems|university|software/i;
+  /\d|partner|international|microsoft|authors|company|unicom|global|eth|texas|college|insa\-lyon|optimization|laboratories|games|itt\-|san\-diego|commercial|community|consortium|hewlett-packard|honeywell|labs|ansi|center|academ.*|harvard|mit\b|ieee|ibm|huawei|xerox|wso2|w3c|iso\b|inria|institute|research|computer|science|foundation|tech.+|polytech.*|university|comittee|jetbrains|sap\b|sas\b|institute|original|contributors|others|open|source|students|nvidia|organization|group|comunity|project|corp|chair|galois|foundation|ltd|tech|core|team|inc|systems|university|software/i;
 
 function extractNames(str: string): string[] {
   return str
     .replaceAll(/\u00a0/g, " ")
     .replaceAll(/et\s+al.*/g, "")
+    .replaceAll(/\([^\)]*\)/g, "")
     .split(/,|&|;|\sand\s/)
-    .map((s: string) => {
-      const match = s.match(/([^\()]+)\).*/i);
-      return (match ? match[1] : s).trim();
-    })
+    .map((s: string) => s.trim())
     .filter((s: string) => s.length > 5 && s.length < 25)
     .filter((s: string) => s.includes(" "))
     .filter((s: string) => !NON_PEOPLE.test(s));

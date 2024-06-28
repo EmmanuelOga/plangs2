@@ -26,7 +26,10 @@ export function define(g: PlangsGraph) {
       influences: ["pl+coq", "pl+epigram", "pl+haskell"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+functional"],
-      people: [["person+ulf-norell", "designer"]],
+      people: [
+        ["person+catarina-coquand", "designer"],
+        ["person+ulf-norell", "designer"],
+      ],
       platforms: ["platf+cross-platform"],
       typeSystems: [
         "tsys+dependent",
