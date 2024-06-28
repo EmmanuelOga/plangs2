@@ -122,15 +122,7 @@ export function define(g: PlangsGraph) {
         "pl+lispworks",
         "pl+sbcl",
       ],
-      influences: [
-        "pl+interlisp",
-        "pl+lisp",
-        "pl+lisp-machine-lisp",
-        "pl+maclisp",
-        "pl+mdl",
-        "pl+scheme",
-        "pl+zetalisp",
-      ],
+      influences: ["pl+interlisp", "pl+lisp", "pl+maclisp", "pl+mdl", "pl+scheme", "pl+zetalisp"],
       paradigms: [
         "para+functional",
         "para+generic",
@@ -501,18 +493,6 @@ export function define(g: PlangsGraph) {
   );
 
   lb.define(
-    "pl+lisp-machine-lisp",
-    "Lisp Machine Lisp",
-    {
-      name: "Lisp Machine Lisp",
-      websites: [
-        { kind: "wikipedia", title: "Lisp Machine Lisp", href: "https://en.wikipedia.org/wiki/Lisp_Machine_Lisp" },
-      ],
-    },
-    { influences: ["pl+interlisp"] },
-  );
-
-  lb.define(
     "pl+lispworks",
     "LispWorks",
     {
@@ -773,7 +753,6 @@ export function define(g: PlangsGraph) {
         ["person+lisp-machines", "developer"],
         ["person+richard-stallman", "designer"],
       ],
-      platforms: ["platf+lisp-machine"],
     },
   );
 }

@@ -3,58 +3,40 @@ import type { PlangsGraph } from "../../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
-  lb.define("pl+mimer-sql", "Mimer SQL", {
-    name: "Mimer SQL",
-    websites: [{ kind: "wikipedia", title: "Mimer SQL", href: "https://en.wikipedia.org/wiki/Mimer_SQL" }],
-  });
-
-  lb.define("pl+mysql", "MySQL", {
-    name: "MySQL",
-    websites: [{ kind: "wikipedia", title: "MySQL", href: "https://en.wikipedia.org/wiki/MySQL" }],
-  });
-
-  lb.define(
-    "pl+pl-slashpgsql",
-    "PL/pgSQL",
-    {
-      name: "PL/pgSQL",
-      websites: [
-        { kind: "wikipedia", title: "PL/pgSQL", href: "https://en.wikipedia.org/wiki/PL/pgSQL" },
-        {
-          kind: "homepage",
-          title: "www.postgresql.org/docs/current/static/plpgsql.html",
-          href: "https://www.postgresql.org/docs/current/static/plpgsql.html",
-        },
-      ],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" }],
-      releases: [{ version: "unknown", date: "1998-10-30", kind: "first" }],
-    },
-    { influences: ["pl+ada", "pl+pl-slashsql"], people: [["person+jan-wieck", "designer"]] },
-  );
-
-  lb.define(
-    "pl+pl-slashsql",
-    "PL/SQL",
-    {
-      name: "PL/SQL",
-      websites: [{ kind: "wikipedia", title: "PL/SQL", href: "https://en.wikipedia.org/wiki/PL/SQL" }],
-    },
-    { influences: ["pl+ada"] },
-  );
-
   lb.define(
     "pl+sql",
     "SQL",
     {
       name: "SQL",
       websites: [
+        { kind: "wikipedia", title: "PL/SQL", href: "https://en.wikipedia.org/wiki/PL/SQL" },
+        { kind: "wikipedia", title: "PL/pgSQL", href: "https://en.wikipedia.org/wiki/PL/pgSQL" },
+        { kind: "wikipedia", title: "SQL/PSM", href: "https://en.wikipedia.org/wiki/SQL/PSM" },
         { kind: "wikipedia", title: "SQL (Structured Query Language)", href: "https://en.wikipedia.org/wiki/SQL" },
         { kind: "homepage", title: "www.iso.org/standard/76583.html", href: "https://www.iso.org/standard/76583.html" },
+        { kind: "wikipedia", title: "SQL-92", href: "https://en.wikipedia.org/wiki/SQL-92" },
+        { kind: "wikipedia", title: "SQL:1999", href: "https://en.wikipedia.org/wiki/SQL:1999" },
+        { kind: "wikipedia", title: "SQL:2003", href: "https://en.wikipedia.org/wiki/SQL:2003" },
+        { kind: "wikipedia", title: "SQL:2006", href: "https://en.wikipedia.org/wiki/SQL:2006" },
+        { kind: "wikipedia", title: "SQL:2008", href: "https://en.wikipedia.org/wiki/SQL:2008" },
+        { kind: "wikipedia", title: "SQL:2011", href: "https://en.wikipedia.org/wiki/SQL:2011" },
+        { kind: "wikipedia", title: "SQL:2016", href: "https://en.wikipedia.org/wiki/SQL:2016" },
+        { kind: "wikipedia", title: "SQL:2023", href: "https://en.wikipedia.org/wiki/SQL:2023" },
+        { kind: "wikipedia", title: "MySQL", href: "https://en.wikipedia.org/wiki/MySQL" },
+        { kind: "wikipedia", title: "SQL PL", href: "https://en.wikipedia.org/wiki/SQL_PL" },
+        { kind: "wikipedia", title: "Mimer SQL", href: "https://en.wikipedia.org/wiki/Mimer_SQL" },
+        {
+          kind: "homepage",
+          title: "www.postgresql.org/docs/current/static/plpgsql.html",
+          href: "https://www.postgresql.org/docs/current/static/plpgsql.html",
+        },
       ],
       releases: [
         { version: "unknown", date: "1974-01-01", kind: "first" },
         { version: "unknown", date: "2023-01-01", kind: "stable" },
         { version: "unknown", date: "1986-01-01", kind: "first" },
+        { version: "unknown", date: "1996-01-01", kind: "first" },
+        { version: "unknown", date: "1998-10-30", kind: "first" },
       ],
       references: {
         influenced: [
@@ -69,85 +51,6 @@ export function define(g: PlangsGraph) {
             title: "Media Type registration for application/sql",
           },
         ],
-      },
-      extensions: [],
-    },
-    {
-      dialects: [
-        "pl+sql-1999",
-        "pl+sql-2003",
-        "pl+sql-2006",
-        "pl+sql-2008",
-        "pl+sql-2011",
-        "pl+sql-2016",
-        "pl+sql-2023",
-        "pl+sql-92",
-      ],
-      implementations: ["pl+list-of-relational-database-management-systems"],
-      influences: ["pl+datalog"],
-      paradigms: ["para+dec"],
-      people: [
-        ["person+donald-d-chamberlin", "designer"],
-        ["person+raymond-f-boyce", "designer"],
-      ],
-      platforms: ["platf+cross-platform"],
-      typeSystems: ["tsys+static", "tsys+strong"],
-    },
-  );
-
-  lb.define("pl+sql-1999", "SQL:1999", {
-    name: "SQL:1999",
-    websites: [{ kind: "wikipedia", title: "SQL:1999", href: "https://en.wikipedia.org/wiki/SQL:1999" }],
-  });
-
-  lb.define("pl+sql-2003", "SQL:2003", {
-    name: "SQL:2003",
-    websites: [{ kind: "wikipedia", title: "SQL:2003", href: "https://en.wikipedia.org/wiki/SQL:2003" }],
-  });
-
-  lb.define("pl+sql-2006", "SQL:2006", {
-    name: "SQL:2006",
-    websites: [{ kind: "wikipedia", title: "SQL:2006", href: "https://en.wikipedia.org/wiki/SQL:2006" }],
-  });
-
-  lb.define("pl+sql-2008", "SQL:2008", {
-    name: "SQL:2008",
-    websites: [{ kind: "wikipedia", title: "SQL:2008", href: "https://en.wikipedia.org/wiki/SQL:2008" }],
-  });
-
-  lb.define("pl+sql-2011", "SQL:2011", {
-    name: "SQL:2011",
-    websites: [{ kind: "wikipedia", title: "SQL:2011", href: "https://en.wikipedia.org/wiki/SQL:2011" }],
-  });
-
-  lb.define("pl+sql-2016", "SQL:2016", {
-    name: "SQL:2016",
-    websites: [{ kind: "wikipedia", title: "SQL:2016", href: "https://en.wikipedia.org/wiki/SQL:2016" }],
-  });
-
-  lb.define("pl+sql-2023", "SQL:2023", {
-    name: "SQL:2023",
-    websites: [{ kind: "wikipedia", title: "SQL:2023", href: "https://en.wikipedia.org/wiki/SQL:2023" }],
-  });
-
-  lb.define("pl+sql-92", "SQL-92", {
-    name: "SQL-92",
-    websites: [{ kind: "wikipedia", title: "SQL-92", href: "https://en.wikipedia.org/wiki/SQL-92" }],
-  });
-
-  lb.define("pl+sql-pl", "SQL PL", {
-    name: "SQL PL",
-    websites: [{ kind: "wikipedia", title: "SQL PL", href: "https://en.wikipedia.org/wiki/SQL_PL" }],
-  });
-
-  lb.define(
-    "pl+sql-slashpsm",
-    "SQL/PSM",
-    {
-      name: "SQL/PSM",
-      websites: [{ kind: "wikipedia", title: "SQL/PSM", href: "https://en.wikipedia.org/wiki/SQL/PSM" }],
-      releases: [{ version: "unknown", date: "1996-01-01", kind: "first" }],
-      references: {
         influenced_by: [
           {
             href: "http://ocelot.ca/blog/blog/2015/01/15/stored-procedures-critiques-and-defences/",
@@ -155,12 +58,21 @@ export function define(g: PlangsGraph) {
           },
         ],
       },
+      extensions: [],
+      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" }],
     },
     {
-      implementations: ["pl+mariadb", "pl+mimer-sql", "pl+mysql", "pl+pl-slashsql", "pl+sql-pl"],
-      influences: ["pl+ada", "pl+pl-slashsql"],
-      paradigms: ["para+multi"],
+      dialects: ["pl+sql"],
+      implementations: ["pl+mariadb", "pl+sql"],
+      influences: ["pl+ada", "pl+datalog", "pl+sql"],
+      paradigms: ["para+dec", "para+multi"],
+      people: [
+        ["person+donald-d-chamberlin", "designer"],
+        ["person+jan-wieck", "designer"],
+        ["person+raymond-f-boyce", "designer"],
+      ],
       platforms: ["platf+cross-platform"],
+      typeSystems: ["tsys+static", "tsys+strong"],
     },
   );
 }

@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+uefn", "pl+visual-studio-code"],
-      influences: ["pl+functional-logic-programming", "pl+lambda-calculus", "pl+object-oriented-programming"],
+      influences: ["pl+lambda-calculus"],
       paradigms: ["para+objects"],
       people: [
         ["person+guy-steele", "designer"],

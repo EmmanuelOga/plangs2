@@ -79,10 +79,6 @@ export function define(g: PlangsGraph) {
     websites: [{ kind: "wikipedia", title: "Haiku", href: "https://en.wikipedia.org/wiki/Haiku_(operating_system)" }],
   });
 
-  lb.define("platf+lisp-machine", "Lisp machines", {
-    websites: [{ kind: "wikipedia", title: "Lisp machines", href: "https://en.wikipedia.org/wiki/Lisp_machine" }],
-  });
-
   lb.define("platf+llvm", "LLVM", {
     websites: [{ kind: "wikipedia", title: "LLVM", href: "https://en.wikipedia.org/wiki/LLVM" }],
   });

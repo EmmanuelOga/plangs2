@@ -33,7 +33,6 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influences: ["pl+natural-language-programming"],
       licenses: ["lic+artistic", "lic+freeware"],
       paradigms: ["para+dec", "para+imperative", "para+natural"],
       people: [["person+graham-nelson", "designer"]],

@@ -33,7 +33,6 @@ export function define(g: PlangsGraph) {
         "pl+c",
         "pl+clu",
         "pl+d",
-        "pl+functional-programming",
         "pl+lisp",
         "pl+objective-cpp",
         "pl+python",

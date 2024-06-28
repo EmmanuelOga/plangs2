@@ -1621,8 +1621,6 @@ export function define(g: PlangsGraph) {
 
   lb.define("person+shon-katzenberger", "Shon Katzenberger", {});
 
-  lb.define("person+sidney-marshall", "Sidney Marshall", {});
-
   lb.define("person+siemens-eda", "Siemens EDA", {
     websites: [
       {

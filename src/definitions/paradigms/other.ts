@@ -144,6 +144,11 @@ export function define(g: PlangsGraph) {
         title: "educational",
         href: "https://en.wikipedia.org/wiki/Educational_programming_language",
       },
+      {
+        kind: "wikipedia",
+        title: "educational",
+        href: "https://en.wikipedia.org/wiki/List_of_educational_programming_languages",
+      },
     ],
   });
 
@@ -253,16 +258,6 @@ export function define(g: PlangsGraph) {
 
   lb.define("para+lazy", "Lazy", {
     websites: [{ kind: "wikipedia", title: "lazy", href: "https://en.wikipedia.org/wiki/Lazy_evaluation" }],
-  });
-
-  lb.define("para+list", "educational", {
-    websites: [
-      {
-        kind: "wikipedia",
-        title: "educational",
-        href: "https://en.wikipedia.org/wiki/List_of_educational_programming_languages",
-      },
-    ],
   });
 
   lb.define("para+literate", "Literate", {

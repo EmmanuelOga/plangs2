@@ -25,11 +25,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Object database", href: "https://en.wikipedia.org/wiki/Object_database" },
       {
         kind: "wikipedia",
-        title: "Concurrent",
-        href: "https://en.wikipedia.org/wiki/Concurrent_object-oriented_programming",
-      },
-      {
-        kind: "wikipedia",
         title: "Object oriented",
         href: "https://en.wikipedia.org/wiki/Object-oriented_analysis_and_design",
       },

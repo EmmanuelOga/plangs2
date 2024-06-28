@@ -54,7 +54,6 @@ export function define(g: PlangsGraph) {
       extensions: [".d"],
     },
     {
-      implementations: ["pl+reference-implementation"],
       influences: [
         "pl+ada",
         "pl+basic",

@@ -186,7 +186,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1964-01-01", kind: "first" }],
     },
     {
-      influences: ["pl+algol", "pl+darsimco", "pl+dope", "pl+fortran"],
+      influences: ["pl+algol", "pl+darsimco", "pl+fortran"],
       paradigms: ["para+array", "para+imperative"],
       people: [
         ["person+john-g-kemeny", "designer"],
@@ -369,22 +369,6 @@ export function define(g: PlangsGraph) {
       platforms: ["platf+linux", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+weak"],
     },
-  );
-
-  lb.define(
-    "pl+list-of-basic-dialects",
-    "list of BASIC dialects",
-    {
-      name: "list of BASIC dialects",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "list of BASIC dialects",
-          href: "https://en.wikipedia.org/wiki/List_of_BASIC_dialects",
-        },
-      ],
-    },
-    { influences: ["pl+dartmouth-basic"] },
   );
 
   lb.define(

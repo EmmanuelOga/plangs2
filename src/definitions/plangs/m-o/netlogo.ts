@@ -31,7 +31,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+java", "pl+scala"],
       influences: ["pl+logo", "pl+objectlogo", "pl+starlogo", "pl+ucblogo"],
       licenses: ["lic+gpl"],
-      paradigms: ["para+computer", "para+imperative", "para+list", "para+multi", "para+simulation"],
+      paradigms: ["para+computer", "para+educational", "para+imperative", "para+multi", "para+simulation"],
       platforms: ["platf+cross-platform", "platf+ia-32", "platf+jvm", "platf+x86-64"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

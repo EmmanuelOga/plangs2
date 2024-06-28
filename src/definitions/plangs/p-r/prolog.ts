@@ -26,7 +26,6 @@ export function define(g: PlangsGraph) {
         "pl+ciao",
         "pl+eclipse",
         "pl+gnu-prolog",
-        "pl+logic-programming-associates",
         "pl+poplog",
         "pl+quintus-prolog",
         "pl+swi-prolog",

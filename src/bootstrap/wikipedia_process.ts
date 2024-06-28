@@ -483,7 +483,7 @@ function cleanLicense(licenseId: string): string {
 }
 
 function cleanParadigm(str: string): string | undefined {
-  const name = str.trim().replace("programming", "").toLowerCase();
+  let name = str.trim().replace("programming", "").toLowerCase();
 
   if (name.includes("multi")) return "multi";
   if (name === "and-computing") return "distributed";
@@ -514,6 +514,8 @@ function cleanParadigm(str: string): string | undefined {
   if (name.includes("processing")) return "process";
   if (name.includes("prototype")) return "prototypes";
   if (name.includes("stack")) return "stack";
+
+  name = name.replaceAll(" ", "-");
 
   return name.split("-")[0]; // Keep it short.
 }
@@ -569,6 +571,9 @@ function cleanPlatform(platf: string): string | undefined {
   return p;
 }
 
+const SKIP_KEYS =
+  /^list-of|manufacturing|^dope|(logic|functional|intermediate|object-oriented|language)-programming|philco|reference|implementation|regency|scripting-language|space-mission|tail-recursive|lisp-machine/i;
+
 /**
  * Create a key from the Wikipedia /wiki path, removing anchors and '_(...)' parts.
  * @returns [key, anchor]
@@ -602,6 +607,9 @@ function keyFromWikiUrl(wikiUrl: string): string | undefined {
       .replace(/\-programming\-language$/, "")
       .replace(/\-language$/, "");
 
+    if (SKIP_KEYS.test(key)) return;
+
+    if (key.includes("sql")) return "sql";
     if (key.startsWith("dec")) return "dec";
     if (key.startsWith("win-") || key.startsWith("universal-win")) return "win";
     if (key === "common-language-infrastructure") return ".net";

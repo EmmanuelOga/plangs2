@@ -1310,7 +1310,6 @@ export function define(g: PlangsGraph) {
       extensions: [".cl"],
     },
     {
-      implementations: ["pl+reference-implementation"],
       influences: ["pl+c", "pl+lisp", "pl+ml", "pl+ops5", "pl+setl", "pl+smalltalk"],
       licenses: ["lic+permissive-free-licence"],
       paradigms: ["para+class", "para+functional", "para+multi", "para+objects", "para+production", "para+reflection"],
@@ -1568,22 +1567,6 @@ export function define(g: PlangsGraph) {
       },
     ],
   });
-
-  lb.define(
-    "pl+computer-aided-manufacturing",
-    "Computer-aided manufacturing",
-    {
-      name: "Computer-aided manufacturing",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "Computer-aided manufacturing",
-          href: "https://en.wikipedia.org/wiki/Computer-aided_manufacturing",
-        },
-      ],
-    },
-    { influences: ["pl+apt"] },
-  );
 
   lb.define(
     "pl+comtran",
@@ -2129,31 +2112,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Dis virtual machine", href: "https://en.wikipedia.org/wiki/Dis_virtual_machine" },
     ],
   });
-
-  lb.define(
-    "pl+dope",
-    "DOPE (Dartmouth Oversimplified Programming Experiment)",
-    {
-      name: "DOPE (Dartmouth Oversimplified Programming Experiment)",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "DOPE",
-          href: "https://en.wikipedia.org/wiki/DOPE_(Dartmouth_Oversimplified_Programming_Experiment)",
-        },
-      ],
-      releases: [{ version: "unknown", date: "1962-01-01", kind: "first" }],
-    },
-    {
-      implementations: ["pl+assembly"],
-      influences: ["pl+darsimco", "pl+dartmouth-algol-30", "pl+fortran", "pl+fortran-95"],
-      paradigms: ["para+imperative"],
-      people: [
-        ["person+john-g-kemeny", "designer"],
-        ["person+sidney-marshall", "developer"],
-      ],
-    },
-  );
 
   lb.define(
     "pl+draco",
@@ -2771,28 +2729,6 @@ export function define(g: PlangsGraph) {
     name: "FU Berlin",
     websites: [
       { kind: "wikipedia", title: "FU Berlin", href: "https://en.wikipedia.org/wiki/Free_University_of_Berlin" },
-    ],
-  });
-
-  lb.define("pl+functional-logic-programming", "Functional logic programming", {
-    name: "Functional logic programming",
-    websites: [
-      {
-        kind: "wikipedia",
-        title: "Functional logic programming",
-        href: "https://en.wikipedia.org/wiki/Functional_logic_programming",
-      },
-    ],
-  });
-
-  lb.define("pl+functional-programming", "functional programming", {
-    name: "functional programming",
-    websites: [
-      {
-        kind: "wikipedia",
-        title: "functional programming",
-        href: "https://en.wikipedia.org/wiki/Functional_programming",
-      },
     ],
   });
 
@@ -3982,7 +3918,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1996-01-01", kind: "first" }],
     },
     {
-      influences: ["pl+actor-model", "pl+logic-programming", "pl+t"],
+      influences: ["pl+actor-model", "pl+t"],
       paradigms: ["para+dataflow", "para+distributed", "para+multi", "para+objects"],
       people: [["person+e-dean-tribble", "designer"]],
     },
@@ -4376,45 +4312,6 @@ export function define(g: PlangsGraph) {
   });
 
   lb.define(
-    "pl+list-of-c-based-programming-languages",
-    "C",
-    {
-      name: "C",
-      websites: [
-        { kind: "wikipedia", title: "C", href: "https://en.wikipedia.org/wiki/List_of_C-based_programming_languages" },
-      ],
-    },
-    { dialects: ["pl+opencl"] },
-  );
-
-  lb.define(
-    "pl+list-of-object-oriented-programming-languages",
-    "object-oriented programming languages",
-    {
-      name: "object-oriented programming languages",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "object-oriented programming languages",
-          href: "https://en.wikipedia.org/wiki/List_of_object-oriented_programming_languages",
-        },
-      ],
-    },
-    { influences: ["pl+simula-67"] },
-  );
-
-  lb.define("pl+list-of-relational-database-management-systems", "Many", {
-    name: "Many",
-    websites: [
-      {
-        kind: "wikipedia",
-        title: "Many",
-        href: "https://en.wikipedia.org/wiki/List_of_relational_database_management_systems",
-      },
-    ],
-  });
-
-  lb.define(
     "pl+little-b",
     "Little b",
     {
@@ -4444,24 +4341,6 @@ export function define(g: PlangsGraph) {
   lb.define("pl+llvm", "LLVM", {
     name: "LLVM",
     websites: [{ kind: "wikipedia", title: "LLVM", href: "https://en.wikipedia.org/wiki/LLVM" }],
-  });
-
-  lb.define("pl+logic-programming", "Concurrent Logic Programming", {
-    name: "Concurrent Logic Programming",
-    websites: [
-      {
-        kind: "wikipedia",
-        title: "Concurrent Logic Programming",
-        href: "https://en.wikipedia.org/wiki/Logic_Programming#Concurrent_logic_programming",
-      },
-    ],
-  });
-
-  lb.define("pl+logic-programming-associates", "LPA Prolog", {
-    name: "LPA Prolog",
-    websites: [
-      { kind: "wikipedia", title: "LPA Prolog", href: "https://en.wikipedia.org/wiki/Logic_Programming_Associates" },
-    ],
   });
 
   lb.define(
@@ -4601,7 +4480,6 @@ export function define(g: PlangsGraph) {
         "pl+ibm-7090",
         "pl+ibm-system-slash360",
         "pl+ibm-system-slash370",
-        "pl+philco",
         "pl+univac-1108",
       ],
       influences: ["pl+algol-58"],
@@ -4991,22 +4869,6 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  lb.define("pl+natural-language-programming", "Natural-language programming", {
-    name: "Natural-language programming",
-    websites: [
-      {
-        kind: "wikipedia",
-        title: "Natural language programming",
-        href: "https://en.wikipedia.org/wiki/Natural_language_programming",
-      },
-      {
-        kind: "wikipedia",
-        title: "Natural-language programming",
-        href: "https://en.wikipedia.org/wiki/Natural-language_programming",
-      },
-    ],
-  });
-
   lb.define(
     "pl+neko",
     "NekoVMNeko",
@@ -5339,17 +5201,6 @@ export function define(g: PlangsGraph) {
         kind: "wikipedia",
         title: "Numerical Algorithms Group",
         href: "https://en.wikipedia.org/wiki/Numerical_Algorithms_Group",
-      },
-    ],
-  });
-
-  lb.define("pl+object-oriented-programming", "Object oriented programming", {
-    name: "Object oriented programming",
-    websites: [
-      {
-        kind: "wikipedia",
-        title: "Object oriented programming",
-        href: "https://en.wikipedia.org/wiki/Object_oriented_programming",
       },
     ],
   });
@@ -5928,11 +5779,6 @@ export function define(g: PlangsGraph) {
     websites: [{ kind: "wikipedia", title: "PGI", href: "https://en.wikipedia.org/wiki/PGI_compiler" }],
   });
 
-  lb.define("pl+philco", "Philco", {
-    name: "Philco",
-    websites: [{ kind: "wikipedia", title: "Philco", href: "https://en.wikipedia.org/wiki/Philco" }],
-  });
-
   lb.define(
     "pl+pico",
     "Pico",
@@ -6231,7 +6077,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "2005-01-01", kind: "first" }],
     },
     {
-      implementations: ["pl+robotics", "pl+space-missions"],
+      implementations: ["pl+robotics"],
       paradigms: ["para+multi"],
       platforms: ["platf+linux", "platf+mac"],
       typeSystems: ["tsys+nominative", "tsys+safe", "tsys+static"],
@@ -6517,7 +6363,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1983-01-01", kind: "first" }],
     },
     {
-      influences: ["pl+dataflow", "pl+diagram", "pl+functional-programming"],
+      influences: ["pl+dataflow", "pl+diagram"],
       paradigms: ["para+dataflow", "para+multi", "para+objects", "para+visual"],
       platforms: ["platf+cross-platform", "platf+mac", "platf+win"],
     },
@@ -6833,29 +6679,6 @@ export function define(g: PlangsGraph) {
       ],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
-  );
-
-  lb.define("pl+reference-implementation", "reference implementation", {
-    name: "reference implementation",
-    websites: [
-      {
-        kind: "wikipedia",
-        title: "reference implementation",
-        href: "https://en.wikipedia.org/wiki/Reference_implementation",
-      },
-    ],
-  });
-
-  lb.define(
-    "pl+regency-systems-r2c",
-    "Regency Systems",
-    {
-      name: "Regency Systems",
-      websites: [
-        { kind: "wikipedia", title: "Regency Systems", href: "https://en.wikipedia.org/wiki/Regency_Systems_R2C" },
-      ],
-    },
-    { influences: ["pl+tutor"] },
   );
 
   lb.define(
@@ -7720,11 +7543,6 @@ export function define(g: PlangsGraph) {
       typeSystems: ["tsys+static", "tsys+strong"],
     },
   );
-
-  lb.define("pl+space-missions", "Space missions", {
-    name: "Space missions",
-    websites: [{ kind: "wikipedia", title: "Space missions", href: "https://en.wikipedia.org/wiki/Space_missions" }],
-  });
 
   lb.define("pl+sparc", "SPARC", {
     name: "SPARC",
