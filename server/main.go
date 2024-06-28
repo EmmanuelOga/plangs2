@@ -11,7 +11,8 @@ import (
 
 func main() {
 	app := fiber.New()
-	// app.Static("/", "./static")
+
+	app.Static("/", "./static")
 
 	app.Get("/:name?", func(c *fiber.Ctx) error {
 		name := c.Params("name")

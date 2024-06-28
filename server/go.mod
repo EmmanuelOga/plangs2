@@ -3,7 +3,7 @@ module emmanueloga.com/plangs2/v2
 go 1.22.3
 
 require (
-	github.com/a-h/templ v0.2.707
+	github.com/a-h/templ v0.2.731
 	github.com/gofiber/fiber/v2 v2.52.4
 )
 

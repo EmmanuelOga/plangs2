@@ -28,6 +28,9 @@ CWD="$(pwd)"
 export GOPATH="$CWD/.go"
 export PATH="$CWD/.go/bin:$PATH"
 
+# Install go tools that are not part of any go.mod.
+go install github.com/a-h/templ/cmd/templ@latest
+
 # Load default bash settings.
 # shellcheck disable=SC1090
 source ~/.bashrc
@@ -49,3 +52,4 @@ echo "Binaries setup: "
 which pixi
 which go
 which bun
+which templ
