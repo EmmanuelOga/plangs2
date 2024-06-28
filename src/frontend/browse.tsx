@@ -41,7 +41,7 @@ function Browse({ pg }: { pg: PlangsGraph }) {
     return "";
   }
 
-  function linkTo({ href, title }: Link): h.JSX.Element {
+  function linkToA({ href, title }: Link): h.JSX.Element {
     return (
       <a href={href} target="_blank" rel="noreferrer">
         {title}
@@ -49,10 +49,9 @@ function Browse({ pg }: { pg: PlangsGraph }) {
     );
   }
 
-  function plangWebsite(pl: V_Plang): h.JSX.Element {
-    const home = pl.websites.find(({ kind }) => kind === "homepage");
-    if (home) return linkTo(home);
-    if (pl.websites.length > 0) return linkTo(pl.websites[0]);
+  function findLink(links: Link[], lkind: Link["kind"], title?: string): h.JSX.Element {
+    const link = links.find(({ kind }) => kind === lkind);
+    if (link) return linkToA({ href: link.href, title: title ?? link.title });
     return <></>;
   }
 
@@ -108,7 +107,8 @@ function Browse({ pg }: { pg: PlangsGraph }) {
           {plangs.map(([vid, pl]) => (
             <tr key={vid}>
               <td>{pl.name}</td>
-              <td>{plangWebsite(pl)}</td>
+              <td>{findLink(pl.websites ?? [], "homepage", "Homepage")}</td>
+              <td>{findLink(pl.websites ?? [], "wikipedia", "Wikipedia")}</td>
             </tr>
           ))}
         </table>
