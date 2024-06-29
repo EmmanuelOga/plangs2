@@ -1,7 +1,7 @@
 import { caller } from "../util";
 import type { PlangsGraph } from "./plangs_graph";
 import type {
-  E_People,
+  E_PersonPlang,
   Image,
   Link,
   Release,
@@ -34,7 +34,7 @@ export class PlangsBuilder {
       dialects?: VID_Plang[];
       implementations?: VID_Plang[];
       paradigms?: VID_Paradigm[];
-      people?: [VID_Person, Partial<E_People>][];
+      people?: [VID_Person, Partial<E_PersonPlang>][];
       typeSystems?: VID_TypeSystem[];
     },
   ) {

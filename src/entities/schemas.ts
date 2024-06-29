@@ -81,18 +81,30 @@ export type VID_License = VID<`lic`>;
 // Types starting with "E_" are used for Edge data.
 ////////////////////////////////////////////////////////////////////////////////
 
-/**
- * Additional information about people involved in the development of a programming language.
- */
-export interface E_People {
+/** Allow all edge relationships to cite references. */
+export interface E_Base {
+  references: Link[];
+}
+
+export interface E_PersonPlang extends E_Base {
   role: "designer" | "developer";
 }
 
-/**
- * Most edges don't require additional data.
- */
-// biome-ignore lint/suspicious/noEmptyInterface: a tagging type since most edges don't need additional data.
-export interface E_Empty {}
+export interface E_DialectOf extends E_Base {}
+
+export interface E_HasLicense extends E_Base {}
+
+export interface E_Implements extends E_Base {}
+
+export interface E_LInfluencedL extends E_Base {}
+
+export interface E_PersonPlang extends E_Base {}
+
+export interface E_PlangPara extends E_Base {}
+
+export interface E_PlangTsys extends E_Base {}
+
+export interface E_SupportsPlatf extends E_Base {}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Auxiliary Types
@@ -111,7 +123,7 @@ export interface Release {
  * A reference to a web page.
  */
 export interface Link {
-  kind?: "homepage" | "repository" | "releases" | "apidocs" | "wikipedia" | "other";
+  kind: "homepage" | "repository" | "releases" | "apidocs" | "wikipedia" | "other";
   href: string;
   title: string;
 }
