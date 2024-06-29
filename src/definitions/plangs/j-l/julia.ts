@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       name: "Julia",
       websites: [
         { kind: "wikipedia", title: "Julia", href: "https://en.wikipedia.org/wiki/Julia_(programming_language)" },
-        { kind: "homepage", title: "JuliaLang.org", href: "https://JuliaLang.org" },
       ],
       images: [
         {
@@ -19,29 +18,24 @@ export function define(g: PlangsGraph) {
         },
       ],
       releases: [
-        { version: "unknown", kind: "first" },
-        { version: "unknown", date: "2012-01-01", kind: "first" },
-        { version: "1.10.3", date: "2022-07-19", kind: "stable" },
-        { version: "1.11.0", date: "2024-05-30", kind: "preview" },
+        { version: "1.10.3", date: "2024-01-01", kind: "stable" },
+        { version: "1.11.0", date: "2024-01-01", kind: "preview" },
       ],
-      extensions: [".jl"],
     },
     {
       implementations: ["pl+c", "pl+cpp", "pl+llvm", "pl+scheme"],
       influences: [
-        "pl+wolfram",
-        "pl+scheme",
-        "pl+lisp",
-        "pl+matlab",
-        "pl+r",
-        "pl+ruby",
+        "pl+armed-bear-common-lisp",
+        "pl+c",
+        "pl+common-lisp",
         "pl+dylan",
         "pl+lua",
+        "pl+moonscript",
         "pl+perl",
         "pl+python",
-        "pl+fortress",
-        "pl+common-lisp",
-        "pl+c",
+        "pl+r",
+        "pl+ruby",
+        "pl+scheme",
       ],
       licenses: ["lic+mit"],
       paradigms: [

@@ -17,8 +17,10 @@ export function define(g: PlangsGraph) {
     websites: [{ kind: "wikipedia", title: "74181", href: "https://en.wikipedia.org/wiki/74181" }],
   });
 
-  lb.define("platf+amazon-firetv", "Amazon Fire TV", {
-    websites: [{ kind: "wikipedia", title: "Amazon Fire TV", href: "https://en.wikipedia.org/wiki/Amazon_Fire_TV" }],
+  lb.define("platf+android", "Android", {
+    websites: [
+      { kind: "wikipedia", title: "Android", href: "https://en.wikipedia.org/wiki/Android_(operating_system)" },
+    ],
   });
 
   lb.define("platf+arcaos", "ArcaOS", {
@@ -79,6 +81,10 @@ export function define(g: PlangsGraph) {
     websites: [{ kind: "wikipedia", title: "Haiku", href: "https://en.wikipedia.org/wiki/Haiku_(operating_system)" }],
   });
 
+  lb.define("platf+linux", "Linux", {
+    websites: [{ kind: "wikipedia", title: "Linux", href: "https://en.wikipedia.org/wiki/Linux" }],
+  });
+
   lb.define("platf+llvm", "LLVM", {
     websites: [{ kind: "wikipedia", title: "LLVM", href: "https://en.wikipedia.org/wiki/LLVM" }],
   });
@@ -91,14 +97,8 @@ export function define(g: PlangsGraph) {
     websites: [{ kind: "wikipedia", title: "MinGW", href: "https://en.wikipedia.org/wiki/MinGW" }],
   });
 
-  lb.define("platf+mips", "MIPS", {
-    websites: [
-      { kind: "wikipedia", title: "MIPS, MIPS64el, MIPSel", href: "https://en.wikipedia.org/wiki/MIPS_architecture" },
-    ],
-  });
-
-  lb.define("platf+nintendo-switch", "Nintendo Switch", {
-    websites: [{ kind: "wikipedia", title: "Nintendo Switch", href: "https://en.wikipedia.org/wiki/Nintendo_Switch" }],
+  lb.define("platf+mips", "MIPS64", {
+    websites: [{ kind: "wikipedia", title: "MIPS", href: "https://en.wikipedia.org/wiki/MIPS_architecture" }],
   });
 
   lb.define("platf+oneapi", "oneAPI", {
@@ -107,8 +107,8 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("platf+openvms", "VMS", {
-    websites: [{ kind: "wikipedia", title: "OpenVMS", href: "https://en.wikipedia.org/wiki/OpenVMS" }],
+  lb.define("platf+openvms", "OpenVMS", {
+    websites: [{ kind: "wikipedia", title: "VMS", href: "https://en.wikipedia.org/wiki/OpenVMS" }],
   });
 
   lb.define("platf+parallel-computing", "Parallel", {
@@ -133,12 +133,12 @@ export function define(g: PlangsGraph) {
     websites: [{ kind: "wikipedia", title: "Pocket PC", href: "https://en.wikipedia.org/wiki/Pocket_PC" }],
   });
 
-  lb.define("platf+posix", "POSIX", {
+  lb.define("platf+posix", "POSIX-compliant", {
     websites: [{ kind: "wikipedia", title: "POSIX", href: "https://en.wikipedia.org/wiki/POSIX" }],
   });
 
-  lb.define("platf+power-isa", "Power", {
-    websites: [{ kind: "wikipedia", title: "POWERPC64", href: "https://en.wikipedia.org/wiki/Power_ISA" }],
+  lb.define("platf+power-isa", "POWERPC64", {
+    websites: [{ kind: "wikipedia", title: "Power", href: "https://en.wikipedia.org/wiki/Power_ISA" }],
   });
 
   lb.define("platf+python", "Python", {
@@ -161,6 +161,10 @@ export function define(g: PlangsGraph) {
 
   lb.define("platf+stm32", "STM32", {
     websites: [{ kind: "wikipedia", title: "STM32", href: "https://en.wikipedia.org/wiki/STM32" }],
+  });
+
+  lb.define("platf+visionos", "visionOS", {
+    websites: [{ kind: "wikipedia", title: "visionOS", href: "https://en.wikipedia.org/wiki/VisionOS" }],
   });
 
   lb.define("platf+vm", "VM/CMS", {

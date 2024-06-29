@@ -10,18 +10,13 @@ export function define(g: PlangsGraph) {
       name: "Whiley",
       websites: [
         { kind: "wikipedia", title: "Whiley", href: "https://en.wikipedia.org/wiki/Whiley_(programming_language)" },
-        { kind: "homepage", title: "whiley.org", href: "http://whiley.org" },
       ],
-      releases: [
-        { version: "unknown", date: "2010-01-01", kind: "first" },
-        { version: "0.6.1", date: "2022-06-27", kind: "stable" },
-      ],
+      releases: [{ version: "0.6.1", date: "2022-01-01", kind: "stable" }],
     },
     {
       influences: ["pl+java", "pl+c", "pl+python", "pl+rust"],
       licenses: ["lic+bsd"],
       paradigms: ["para+imperative", "para+functional"],
-      people: ["person+david-j-pearce"],
       typeSystems: ["tsys+strong", "tsys+safe", "tsys+structural", "tsys+flow-sensitive"],
     },
   );

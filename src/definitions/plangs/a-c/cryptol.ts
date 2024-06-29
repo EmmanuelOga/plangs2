@@ -5,13 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define("pl+cryptol", "Cryptol", {
     name: "Cryptol",
-    websites: [
-      { kind: "wikipedia", title: "Cryptol", href: "https://en.wikipedia.org/wiki/Cryptol" },
-      {
-        kind: "repository",
-        title: "galoisinc.github.io/cryptol/master/RefMan.html",
-        href: "https://galoisinc.github.io/cryptol/master/RefMan.html",
-      },
-    ],
+    websites: [{ kind: "wikipedia", title: "Cryptol", href: "https://en.wikipedia.org/wiki/Cryptol" }],
   });
 }

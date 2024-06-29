@@ -8,21 +8,14 @@ export function define(g: PlangsGraph) {
     "Umple",
     {
       name: "Umple",
-      websites: [
-        { kind: "wikipedia", title: "Umple", href: "https://en.wikipedia.org/wiki/Umple" },
-        { kind: "homepage", title: "www.umple.org", href: "http://www.umple.org/" },
-      ],
+      websites: [{ kind: "wikipedia", title: "Umple", href: "https://en.wikipedia.org/wiki/Umple" }],
       images: [
         {
           kind: "logo",
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Umple_Logo.png/200px-Umple_Logo.png",
         },
       ],
-      releases: [
-        { version: "unknown", date: "2008-01-01", kind: "first" },
-        { version: "unknown", date: "2024-06-06", kind: "stable" },
-      ],
-      extensions: [".ump"],
+      releases: [{ version: "1.34.0", date: "2024-01-01", kind: "stable" }],
     },
     {
       influences: ["pl+java", "pl+cpp", "pl+uml", "pl+ruby", "pl+php"],

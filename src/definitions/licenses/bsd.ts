@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
 
   lb.define("lic+bsd", "BSD", {
     websites: [
-      { kind: "wikipedia", title: "BSD license", href: "https://en.wikipedia.org/wiki/BSD_license" },
+      { kind: "wikipedia", title: "Revised BSD", href: "https://en.wikipedia.org/wiki/BSD_license" },
       { kind: "wikipedia", title: "BSD", href: "https://en.wikipedia.org/wiki/BSD" },
     ],
   });
@@ -19,9 +19,7 @@ export function define(g: PlangsGraph) {
   });
 
   lb.define("lic+bsd-m", "BSD", {
-    websites: [
-      { kind: "wikipedia", title: "modified BSD", href: "https://en.wikipedia.org/wiki/Modified_BSD_license" },
-    ],
+    websites: [{ kind: "wikipedia", title: "BSD", href: "https://en.wikipedia.org/wiki/Modified_BSD_License" }],
   });
 
   lb.define("lic+bsd-n", "New BSD License", {
@@ -31,12 +29,12 @@ export function define(g: PlangsGraph) {
   lb.define("lic+bsd-s", "BSD", {
     websites: [
       { kind: "wikipedia", title: "BSD", href: "https://en.wikipedia.org/wiki/BSD_licenses" },
+      { kind: "wikipedia", title: "Simplified BSD", href: "https://en.wikipedia.org/wiki/Simplified_BSD_License" },
       {
         kind: "wikipedia",
         title: "Simplified BSD",
         href: "https://en.wikipedia.org/wiki/BSD_licenses#2-clause_license_.28.22Simplified_BSD_License.22_or_.22FreeBSD_License.22.29",
       },
-      { kind: "wikipedia", title: "Simplified BSD", href: "https://en.wikipedia.org/wiki/Simplified_BSD_License" },
     ],
   });
 }

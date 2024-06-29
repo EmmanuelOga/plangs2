@@ -5,11 +5,11 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+assembly",
-    "Assembly",
+    "Assembly language",
     {
-      name: "Assembly",
+      name: "Assembly language",
       websites: [
-        { kind: "wikipedia", title: "assembly language", href: "https://en.wikipedia.org/wiki/Assembly_language" },
+        { kind: "wikipedia", title: "Assembly language", href: "https://en.wikipedia.org/wiki/Assembly_language" },
       ],
       images: [
         {
@@ -17,8 +17,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Motorola_6800_Assembly_Language.png/300px-Motorola_6800_Assembly_Language.png",
         },
       ],
-      releases: [{ version: "unknown", date: "1947-01-01", kind: "first" }],
-      extensions: [".asm", ".s", ".inc", ".wla"],
+      extensions: [".asm", ".s", ".inc", ".wla", ".SRC"],
     },
     {
       paradigms: [
@@ -37,25 +36,17 @@ export function define(g: PlangsGraph) {
     "AssemblyScript",
     {
       name: "AssemblyScript",
-      websites: [
-        { kind: "wikipedia", title: "AssemblyScript", href: "https://en.wikipedia.org/wiki/AssemblyScript" },
-        { kind: "homepage", title: "www.assemblyscript.org", href: "https://www.assemblyscript.org/" },
-      ],
+      websites: [{ kind: "wikipedia", title: "AssemblyScript", href: "https://en.wikipedia.org/wiki/AssemblyScript" }],
       images: [
         { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/0/00/AssemblyScript_logo_2020.svg" },
       ],
-      releases: [
-        { version: "unknown", kind: "first" },
-        { version: "unknown", date: "2017-01-01", kind: "first" },
-        { version: "0.27.27", date: "2024-01-01", kind: "stable" },
-      ],
-      extensions: [],
+      releases: [{ version: "0.27.27", date: "2024-01-01", kind: "stable" }],
+      extensions: [".ts"],
     },
     {
       influences: ["pl+javascript", "pl+typescript", "pl+webassembly"],
       licenses: ["lic+apache"],
       paradigms: ["para+multi", "para+functional", "para+generic", "para+imperative", "para+objects"],
-      people: ["person+daniel-wirtz", "person+max-graey"],
       typeSystems: ["tsys+static"],
     },
   );
@@ -66,12 +57,13 @@ export function define(g: PlangsGraph) {
     {
       name: "Game Oriented Assembly Lisp",
       websites: [
-        { kind: "wikipedia", title: "GOAL", href: "https://en.wikipedia.org/wiki/Game_Oriented_Assembly_Lisp" },
+        {
+          kind: "wikipedia",
+          title: "Game Oriented Assembly Lisp",
+          href: "https://en.wikipedia.org/wiki/Game_Oriented_Assembly_Lisp",
+        },
       ],
-      releases: [
-        { version: "unknown", date: "2001-12-03", kind: "first" },
-        { version: "unknown", date: "2012-02-07", kind: "stable" },
-      ],
+      releases: [{ version: "unknown", date: "2012-01-01", kind: "stable" }],
     },
     {
       implementations: ["pl+allegro-common-lisp"],
@@ -95,13 +87,8 @@ export function define(g: PlangsGraph) {
           title: "High Level Assembly (HLA)",
           href: "https://en.wikipedia.org/wiki/High_Level_Assembly",
         },
-        {
-          kind: "homepage",
-          title: "plantation-productions.com/Webster",
-          href: "http://plantation-productions.com/Webster",
-        },
       ],
-      releases: [{ version: "2.16", date: "2011-07-06", kind: "stable" }],
+      releases: [{ version: "2.16", date: "2011-01-01", kind: "stable" }],
     },
     { licenses: ["lic+public-domain"], people: ["person+randall-hyde"], platforms: ["platf+ia-32"] },
   );
@@ -111,18 +98,14 @@ export function define(g: PlangsGraph) {
     "WebAssembly",
     {
       name: "WebAssembly",
-      websites: [
-        { kind: "wikipedia", title: "WebAssembly", href: "https://en.wikipedia.org/wiki/WebAssembly" },
-        { kind: "homepage", title: "webassembly.org", href: "https://webassembly.org/" },
-      ],
+      websites: [{ kind: "wikipedia", title: "WebAssembly", href: "https://en.wikipedia.org/wiki/WebAssembly" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/1/1f/WebAssembly_Logo.svg" }],
-      releases: [{ version: "unknown", date: "2017-01-01", kind: "first" }],
-      extensions: [],
+      extensions: [".wat", "(text", "(binary", "format)"],
     },
     {
-      influences: ["pl+asm.js", "pl+google-native-client", "pl+lisp"],
+      influences: ["pl+asm.js"],
       licenses: ["lic+apache"],
-      paradigms: ["para+structured", "para+stack"],
+      paradigms: ["para+stack"],
       platforms: ["platf+cross-platform"],
     },
   );

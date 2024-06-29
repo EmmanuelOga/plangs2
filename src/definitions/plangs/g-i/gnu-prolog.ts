@@ -8,13 +8,10 @@ export function define(g: PlangsGraph) {
     "GNU Prolog",
     {
       name: "GNU Prolog",
-      websites: [
-        { kind: "wikipedia", title: "GNU Prolog", href: "https://en.wikipedia.org/wiki/GNU_Prolog" },
-        { kind: "homepage", title: "www.gprolog.org", href: "http://www.gprolog.org" },
-      ],
+      websites: [{ kind: "wikipedia", title: "GNU Prolog", href: "https://en.wikipedia.org/wiki/GNU_Prolog" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/en/2/22/Heckert_GNU_white.svg" }],
-      releases: [{ version: "1.5.0", date: "2021-07-08", kind: "stable" }],
+      releases: [{ version: "1.5.0", date: "2021-01-01", kind: "stable" }],
     },
-    { licenses: ["lic+gpl", "lic+lgpl"], people: ["person+daniel-diaz"] },
+    { licenses: ["lic+gpl", "lic+lgpl"] },
   );
 }

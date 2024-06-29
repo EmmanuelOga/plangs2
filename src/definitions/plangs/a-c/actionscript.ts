@@ -22,15 +22,12 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/0/0f/ActionScript_icon.png/121px-ActionScript_icon.png",
         },
       ],
-      releases: [
-        { version: "unknown", date: "1998-01-01", kind: "first" },
-        { version: "3.0", date: "2006-06-27", kind: "stable" },
-      ],
-      extensions: [],
+      releases: [{ version: "3.0", date: "2006-01-01", kind: "stable" }],
+      extensions: [".as"],
     },
     {
       implementations: ["pl+adobe-flash-player", "pl+adobe-air", "pl+apache-flex", "pl+scaleform-gfx"],
-      influences: ["pl+hypertalk", "pl+javascript", "pl+java"],
+      influences: ["pl+hypertalk", "pl+javascript", "pl+java", "pl+xtalk"],
       paradigms: [
         "para+multi",
         "para+objects",

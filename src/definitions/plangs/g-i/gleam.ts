@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       name: "Gleam",
       websites: [
         { kind: "wikipedia", title: "Gleam", href: "https://en.wikipedia.org/wiki/Gleam_(programming_language)" },
-        { kind: "homepage", title: "gleam.run", href: "https://gleam.run/" },
       ],
       images: [
         {
@@ -18,19 +17,13 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Gleam_Lucy.png/220px-Gleam_Lucy.png",
         },
       ],
-      releases: [
-        { version: "unknown", date: "2016-06-13", kind: "first" },
-        { version: "unknown", kind: "stable" },
-        { version: "1.1.0", date: "2024-01-01", kind: "stable" },
-      ],
-      extensions: [".gleam"],
+      releases: [{ version: "1.1.0", date: "2024-01-01", kind: "stable" }],
     },
     {
       implementations: ["pl+rust"],
-      influences: ["pl+elixir", "pl+go", "pl+javascript", "pl+elm", "pl+erlang", "pl+ocaml", "pl+rust"],
+      influences: ["pl+elixir", "pl+reia"],
       licenses: ["lic+apache"],
       paradigms: ["para+multi", "para+functional", "para+concurrent"],
-      people: ["person+louis-pilfold"],
       platforms: ["platf+bsd", "platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+safe", "tsys+static", "tsys+inferred"],
     },

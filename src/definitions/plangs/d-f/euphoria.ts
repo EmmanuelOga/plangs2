@@ -10,22 +10,15 @@ export function define(g: PlangsGraph) {
       name: "Euphoria",
       websites: [
         { kind: "wikipedia", title: "Euphoria", href: "https://en.wikipedia.org/wiki/Euphoria_(programming_language)" },
-        { kind: "homepage", title: "openeuphoria.org", href: "http://openeuphoria.org" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/c3/OpenEuphoria_logo.png" }],
-      releases: [
-        { version: "unknown", date: "1993-01-01", kind: "first" },
-        { version: "4.1.0", date: "2021-03-01", kind: "stable" },
-      ],
-      extensions: [".e", ".ex", ".exw", ".edb"],
+      releases: [{ version: "4.1.0", date: "2021-01-01", kind: "stable" }],
     },
     {
       influences: ["pl+basic"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+imperative"],
-      people: ["person+jeremy-cowgar", "person+robert-craig", "person+matt-lewis", "person+derek-parnell"],
       platforms: ["platf+cross-platform", "platf+win", "platf+linux", "platf+mac", "platf+bsd"],
-      typeSystems: ["tsys+static", "tsys+dynamic"],
     },
   );
 }

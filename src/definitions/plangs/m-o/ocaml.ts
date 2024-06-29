@@ -8,22 +8,14 @@ export function define(g: PlangsGraph) {
     "OCaml",
     {
       name: "OCaml",
-      websites: [
-        { kind: "wikipedia", title: "OCaml", href: "https://en.wikipedia.org/wiki/OCaml" },
-        { kind: "homepage", title: "ocaml.org", href: "https://ocaml.org/" },
-      ],
+      websites: [{ kind: "wikipedia", title: "OCaml", href: "https://en.wikipedia.org/wiki/OCaml" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/f/ff/OCaml_Logo.svg" }],
-      releases: [
-        { version: "unknown", kind: "first" },
-        { version: "unknown", date: "1996-01-01", kind: "first" },
-        { version: "5.2.0", date: "2024-01-01", kind: "stable" },
-      ],
-      extensions: [".ml", ".mli"],
+      releases: [{ version: "5.2.0", date: "2024-01-01", kind: "stable" }],
     },
     {
-      dialects: ["pl+reason", "pl+f-star", "pl+ats"],
+      dialects: ["pl+ats", "pl+f-sharp", "pl+f-star", "pl+reason"],
       implementations: ["pl+c"],
-      influences: ["pl+sml", "pl+caml", "pl+c", "pl+modula", "pl+pascal", "pl+ml"],
+      influences: ["pl+caml", "pl+ml", "pl+modula", "pl+c", "pl+pascal", "pl+sml", "pl+poly-slashml"],
       licenses: ["lic+lgpl"],
       paradigms: ["para+multi", "para+functional", "para+imperative", "para+modular", "para+objects"],
       people: ["person+xavier-leroy", "person+damien-doligez"],

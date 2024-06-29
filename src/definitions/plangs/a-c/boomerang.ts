@@ -14,17 +14,9 @@ export function define(g: PlangsGraph) {
           title: "Boomerang",
           href: "https://en.wikipedia.org/wiki/Boomerang_(programming_language)",
         },
-        { kind: "homepage", title: "www.seas.upenn.edu/~harmony/", href: "http://www.seas.upenn.edu/~harmony/" },
       ],
-      releases: [
-        { version: "unknown", date: "2008-01-01", kind: "first" },
-        { version: "0.2", date: "2009-09-02", kind: "stable" },
-      ],
+      releases: [{ version: "0.2", date: "2009-01-01", kind: "stable" }],
     },
-    {
-      influences: ["pl+ocaml"],
-      people: ["person+nate-foster", "person+benjamin-c-pierce"],
-      platforms: ["platf+linux", "platf+mac"],
-    },
+    { influences: ["pl+ocaml"], platforms: ["platf+linux", "platf+mac"] },
   );
 }

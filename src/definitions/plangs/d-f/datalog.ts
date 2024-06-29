@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
     {
       name: "Datalog",
       websites: [{ kind: "wikipedia", title: "Datalog", href: "https://en.wikipedia.org/wiki/Datalog" }],
-      releases: [{ version: "unknown", date: "1977-01-01", kind: "first" }],
     },
     {
       dialects: ["pl+datomic", "pl+.ql", "pl+souffle"],

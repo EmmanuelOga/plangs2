@@ -8,11 +8,7 @@ export function define(g: PlangsGraph) {
     "k",
     {
       name: "k",
-      websites: [
-        { kind: "wikipedia", title: "K", href: "https://en.wikipedia.org/wiki/K_(programming_language)" },
-        { kind: "homepage", title: "kx.com", href: "http://kx.com" },
-      ],
-      releases: [{ version: "unknown", date: "1993-01-01", kind: "first" }],
+      websites: [{ kind: "wikipedia", title: "K", href: "https://en.wikipedia.org/wiki/K_(programming_language)" }],
     },
     {
       influences: ["pl+ap", "pl+apl", "pl+scheme"],

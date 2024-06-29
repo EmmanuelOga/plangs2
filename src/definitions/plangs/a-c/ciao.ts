@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       name: "Ciao",
       websites: [
         { kind: "wikipedia", title: "Ciao", href: "https://en.wikipedia.org/wiki/Ciao_(programming_language)" },
-        { kind: "homepage", title: "www.ciao-lang.org", href: "http://www.ciao-lang.org" },
       ],
       images: [
         {
@@ -18,7 +17,6 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/Logo_for_Ciao_programming_language.png/121px-Logo_for_Ciao_programming_language.png",
         },
       ],
-      releases: [{ version: "unknown", date: "1984-01-01", kind: "first" }],
     },
     {
       influences: ["pl+prolog"],

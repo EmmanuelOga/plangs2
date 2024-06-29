@@ -5,27 +5,35 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+verilog",
-    "Verilog",
+    "SystemVerilog",
     {
-      name: "Verilog",
+      name: "SystemVerilog",
       websites: [
         { kind: "wikipedia", title: "Verilog", href: "https://en.wikipedia.org/wiki/Verilog" },
+        { kind: "wikipedia", title: "SystemVerilog", href: "https://en.wikipedia.org/wiki/SystemVerilog" },
         {
           kind: "homepage",
           title: "https://ieeexplore.ieee.org/document/10458102",
           href: "https://ieeexplore.ieee.org/document/10458102",
         },
+        { kind: "wikipedia", title: "Verilog-AMS", href: "https://en.wikipedia.org/wiki/Verilog-AMS" },
       ],
-      releases: [
-        { version: "unknown", date: "1984-01-01", kind: "first" },
-        { version: "unknown", date: "2023-12-06", kind: "stable" },
-      ],
-      extensions: [".v"],
+      releases: [{ version: "unknown", date: "1800-01-01", kind: "stable" }],
     },
     {
-      dialects: ["pl+verilog-ams"],
-      influences: ["pl+c", "pl+pascal", "pl+ada", "pl+fortran"],
-      paradigms: ["para+structured"],
+      dialects: ["pl+bluespec--inc.", "pl+verilog"],
+      influences: [
+        "pl+c",
+        "pl+verilog",
+        "pl+vhdl",
+        "pl+cpp",
+        "pl+openvera",
+        "pl+java",
+        "pl+pascal",
+        "pl+ada",
+        "pl+fortran",
+      ],
+      paradigms: ["para+structured", "para+objects"],
       people: ["person+prabhu-goel", "person+phil-moorby"],
       typeSystems: ["tsys+static", "tsys+weak"],
     },

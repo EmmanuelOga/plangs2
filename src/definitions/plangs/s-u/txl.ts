@@ -8,10 +8,7 @@ export function define(g: PlangsGraph) {
     "TXL",
     {
       name: "TXL",
-      websites: [
-        { kind: "wikipedia", title: "TXL", href: "https://en.wikipedia.org/wiki/TXL_(programming_language)" },
-        { kind: "homepage", title: "www.txl.ca", href: "https://www.txl.ca/" },
-      ],
+      websites: [{ kind: "wikipedia", title: "TXL", href: "https://en.wikipedia.org/wiki/TXL_(programming_language)" }],
     },
     { paradigms: ["para+pattern", "para+term"], people: ["person+james-cordy"] },
   );

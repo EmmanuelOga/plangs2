@@ -8,19 +8,13 @@ export function define(g: PlangsGraph) {
     "CoffeeScript",
     {
       name: "CoffeeScript",
-      websites: [
-        { kind: "wikipedia", title: "CoffeeScript", href: "https://en.wikipedia.org/wiki/CoffeeScript" },
-        { kind: "homepage", title: "coffeescript.org", href: "https://coffeescript.org/" },
-      ],
+      websites: [{ kind: "wikipedia", title: "CoffeeScript", href: "https://en.wikipedia.org/wiki/CoffeeScript" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/d/d3/CoffeeScript-logo.svg" }],
-      releases: [
-        { version: "unknown", date: "2009-12-13", kind: "first" },
-        { version: "unknown", kind: "stable" },
-        { version: "2.7.0", date: "2022-01-01", kind: "stable" },
-      ],
+      releases: [{ version: "2.7.0", date: "2022-01-01", kind: "stable" }],
+      extensions: [".coffee"],
     },
     {
-      influences: ["pl+ruby", "pl+javascript", "pl+python"],
+      influences: ["pl+haskell", "pl+javascript", "pl+perl", "pl+python", "pl+ruby", "pl+yaml"],
       licenses: ["lic+mit"],
       paradigms: ["para+multi", "para+prototypes", "para+functional", "para+imperative", "para+scripting"],
       people: ["person+jeremy-ashkenas"],

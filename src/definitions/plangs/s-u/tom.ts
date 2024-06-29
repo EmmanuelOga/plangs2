@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       name: "Tom",
       websites: [
         { kind: "wikipedia", title: "Tom", href: "https://en.wikipedia.org/wiki/Tom_(pattern_matching_language)" },
-        { kind: "homepage", title: "tom.loria.fr", href: "http://tom.loria.fr" },
       ],
       images: [
         {
@@ -18,10 +17,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/5/54/Tom_%28pattern_matching_language%29_logo.png",
         },
       ],
-      releases: [
-        { version: "unknown", kind: "stable" },
-        { version: "2.10", date: "2013-03-21", kind: "stable" },
-      ],
+      releases: [{ version: "2.10", date: "2013-03-21", kind: "stable" }],
     },
     { licenses: ["lic+gpl", "lic+bsd-s"] },
   );

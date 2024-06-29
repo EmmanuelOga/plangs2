@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
 
   lb.define("lic+artistic", "Artistic License", {
     websites: [
-      { kind: "wikipedia", title: "Perl Artistic License 2.0", href: "https://en.wikipedia.org/wiki/Artistic_License" },
+      { kind: "wikipedia", title: "Artistic License", href: "https://en.wikipedia.org/wiki/Artistic_License" },
     ],
   });
 
@@ -52,7 +52,9 @@ export function define(g: PlangsGraph) {
   });
 
   lb.define("lic+commercial", "Commercial", {
-    websites: [{ kind: "wikipedia", title: "Commercial", href: "https://en.wikipedia.org/wiki/Commercial_software" }],
+    websites: [
+      { kind: "wikipedia", title: "commercial software", href: "https://en.wikipedia.org/wiki/Commercial_software" },
+    ],
   });
 
   lb.define("lic+common-public", "CPL", {
@@ -60,7 +62,9 @@ export function define(g: PlangsGraph) {
   });
 
   lb.define("lic+eclipse-public", "EPL", {
-    websites: [{ kind: "wikipedia", title: "EPL", href: "https://en.wikipedia.org/wiki/Eclipse_Public_License" }],
+    websites: [
+      { kind: "wikipedia", title: "Eclipse Public", href: "https://en.wikipedia.org/wiki/Eclipse_Public_License" },
+    ],
   });
 
   lb.define("lic+eula", "EULA", {
@@ -103,10 +107,10 @@ export function define(g: PlangsGraph) {
     websites: [{ kind: "wikipedia", title: "MS", href: "https://en.wikipedia.org/wiki/Microsoft" }],
   });
 
-  lb.define("lic+open-source", "Open-source", {
+  lb.define("lic+open-source", "open source", {
     websites: [
+      { kind: "wikipedia", title: "open source", href: "https://en.wikipedia.org/wiki/Open-source_software" },
       { kind: "wikipedia", title: "Open-source", href: "https://en.wikipedia.org/wiki/Open-source_license" },
-      { kind: "wikipedia", title: "Open-source", href: "https://en.wikipedia.org/wiki/Open-source_software" },
     ],
   });
 
@@ -116,8 +120,8 @@ export function define(g: PlangsGraph) {
 
   lb.define("lic+permissive", "BSD-like", {
     websites: [
-      { kind: "wikipedia", title: "BSD-like", href: "https://en.wikipedia.org/wiki/Permissive_software_license" },
       { kind: "wikipedia", title: "Permissive", href: "https://en.wikipedia.org/wiki/Permissive_license" },
+      { kind: "wikipedia", title: "BSD-like", href: "https://en.wikipedia.org/wiki/Permissive_software_license" },
     ],
   });
 
@@ -150,14 +154,8 @@ export function define(g: PlangsGraph) {
     websites: [{ kind: "wikipedia", title: "QPL", href: "https://en.wikipedia.org/wiki/Q_Public_License" }],
   });
 
-  lb.define("lic+qt-commercial", "Qt Commercial License", {
-    websites: [
-      {
-        kind: "wikipedia",
-        title: "Qt Commercial License",
-        href: "https://en.wikipedia.org/wiki/Qt_Commercial_License",
-      },
-    ],
+  lb.define("lic+roslyn", "Roslyn", {
+    websites: [{ kind: "wikipedia", title: "Roslyn", href: "https://en.wikipedia.org/wiki/Roslyn_(compiler)" }],
   });
 
   lb.define("lic+ruby", "Ruby License", {
@@ -188,8 +186,8 @@ export function define(g: PlangsGraph) {
 
   lb.define("lic+zend", "Zend License", {
     websites: [
-      { kind: "wikipedia", title: "Zend Engine License", href: "https://en.wikipedia.org/wiki/Zend_Engine_License" },
       { kind: "wikipedia", title: "Zend License", href: "https://en.wikipedia.org/wiki/Zend_License" },
+      { kind: "wikipedia", title: "Zend Engine License", href: "https://en.wikipedia.org/wiki/Zend_Engine_License" },
     ],
   });
 }

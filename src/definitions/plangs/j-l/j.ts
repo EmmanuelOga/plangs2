@@ -8,24 +8,17 @@ export function define(g: PlangsGraph) {
     "J",
     {
       name: "J",
-      websites: [
-        { kind: "wikipedia", title: "J", href: "https://en.wikipedia.org/wiki/J_(programming_language)" },
-        { kind: "homepage", title: "www.jsoftware.com", href: "http://www.jsoftware.com" },
-      ],
+      websites: [{ kind: "wikipedia", title: "J", href: "https://en.wikipedia.org/wiki/J_(programming_language)" }],
       images: [
         {
           kind: "logo",
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/6/65/J_%28programming_language%29_icon.png/121px-J_%28programming_language%29_icon.png",
         },
       ],
-      releases: [
-        { version: "unknown", date: "1990-01-01", kind: "first" },
-        { version: "unknown", kind: "stable" },
-        { version: "9.5", date: "2023-12-20", kind: "stable" },
-      ],
+      releases: [{ version: "9.5", date: "2023-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+apl", "pl+fl"],
+      influences: ["pl+fl", "pl+apl"],
       licenses: ["lic+gpl"],
       paradigms: [
         "para+array",

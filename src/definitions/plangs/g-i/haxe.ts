@@ -8,25 +8,17 @@ export function define(g: PlangsGraph) {
     "Haxe",
     {
       name: "Haxe",
-      websites: [
-        { kind: "wikipedia", title: "Haxe", href: "https://en.wikipedia.org/wiki/Haxe" },
-        { kind: "homepage", title: "haxe.org", href: "https://haxe.org" },
-      ],
+      websites: [{ kind: "wikipedia", title: "Haxe", href: "https://en.wikipedia.org/wiki/Haxe" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/8/89/Haxe_logo.svg" }],
-      releases: [
-        { version: "unknown", date: "2005-11-14", kind: "first" },
-        { version: "unknown", kind: "stable" },
-        { version: "4.3.4", date: "2024-01-01", kind: "stable" },
-      ],
+      releases: [{ version: "4.3.4", date: "2024-01-01", kind: "stable" }],
       scoping: ["lexical"],
-      extensions: [".hx", ".hxml"],
     },
     {
       implementations: ["pl+ocaml"],
       influences: [
+        "pl+actionscript",
         "pl+ecmascript",
         "pl+javascript",
-        "pl+actionscript",
         "pl+ocaml",
         "pl+java",
         "pl+cpp",

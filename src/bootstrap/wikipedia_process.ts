@@ -6,45 +6,12 @@ import { Glob } from "bun";
 import type { VID } from "../graph/vertex";
 import type { PlangsGraph } from "../entities/plangs_graph";
 import type { E_Base, E_Implements, Image, Link, Release } from "../entities/schemas";
-import { toAlphaNum } from "../util";
-import { WIKIPEDIA_URL, cachePath } from "./wikipedia_scraper";
+import { caller, toAlphaNum } from "../util";
+import { DATA_ATTR, DATA_TYPE, WIKIPEDIA_URL, cachePath } from "./wikipedia_scraper";
 import { merge } from "node_modules/cheerio/lib/esm/static";
 
 // biome-ignore lint/suspicious/noExplicitAny: Wikipedia infoboxes really can have any data.
 type _Any = any;
-
-type DATA_ATTR =
-  | "designed_by"
-  | "developed_by"
-  | "developer"
-  | "developers"
-  | "dialects"
-  | "family"
-  | "filename_extension"
-  | "filename_extensions"
-  | "first_appeared"
-  | "founder"
-  | "implementation_language"
-  | "influenced"
-  | "influenced_by"
-  | "initial_release"
-  | "internet_media_type"
-  | "latest_release"
-  | "license"
-  | "major_implementations"
-  | "os"
-  | "paradigm"
-  | "paradigms"
-  | "platform"
-  | "preview_release"
-  | "scope"
-  | "stable_release"
-  | "type"
-  | "type_of_format"
-  | "typing_discipline"
-  | "website";
-
-type DATA_TYPE = "extensions" | "links" | "refs" | "release" | "text";
 
 /**
  * Returns a graph out of reading the cached JSON files from the Wikipedia scraping.
@@ -88,7 +55,15 @@ export async function parseAll(g: PlangsGraph) {
   addTsys("Weak", "/wiki/weak_typing");
 
   const glob = new Glob("**/*.json");
+
+  // Sorting the paths makes it easier to debug.
+  const paths: string[] = [];
   for await (const path of glob.scan(cachePath("json"))) {
+    paths.push(path);
+  }
+  paths.sort();
+
+  for (const path of paths) {
     const j = JSON.parse(await Bun.file(cachePath("json", path)).text());
     const title: string = j.title;
     const wikiUrl: string = j.wikiUrl;
@@ -103,10 +78,21 @@ function mergeLink(links: Link[], newLink: Link) {
   links.push(newLink);
 }
 
-function mergeRefs(data: E_Base, refs: Link[] | undefined) {
-  if (!refs) return;
+let ppp = "";
+
+function mergeRefs(data: E_Base, refs: Partial<Record<DATA_ATTR, Link[]>>, key: DATA_ATTR, debug?: any) {
+  const specific = refs[key];
+  if (!Array.isArray(specific) || specific.length === 0) return;
+
   data.refs ??= [];
-  for (const link of refs) mergeLink(data.refs, link);
+
+  for (const link of specific) mergeLink(data.refs, link);
+
+  const log = JSON.stringify(specific);
+  if (debug && log.includes("VERILOG")) {
+    console.log(data, refs, key, debug);
+    console.log("-----------------------");
+  }
 }
 
 function processLanguage(
@@ -116,10 +102,10 @@ function processLanguage(
   image: string | undefined,
   data: Record<DATA_ATTR, Record<DATA_TYPE, _Any>>,
 ) {
-  const pid = keyFromWikiUrl(wikiUrl);
-  if (!pid) return;
+  const plKey = keyFromWikiUrl(wikiUrl);
+  if (!plKey) return;
 
-  const pl = g.v_plang.merge(`pl+${pid}`, { name: title }); // We may already have the language, from an influence.
+  const pl = g.v_plang.merge(`pl+${plKey}`, { name: title }); // We may already have the language, from an influence.
   pl.websites ??= [];
   mergeLink(pl.websites, { kind: "wikipedia", title: title, href: wikiUrl });
 
@@ -134,15 +120,11 @@ function processLanguage(
   const references: Partial<Record<DATA_ATTR, Link[]>> = {};
   for (const [attr, attrVal] of Object.entries(data)) {
     for (const [dataKey, dataVal] of Object.entries(attrVal)) {
+      if (dataKey !== "refs") continue;
       const ibKey = attr as DATA_ATTR;
-      const ibType = dataKey as DATA_TYPE;
-      if (ibType !== "refs") continue;
-      references[ibKey] ??= [];
-      const refs = references[ibKey] as Link[];
+      const refs = (references[ibKey] ??= []);
       for (const newLink of dataVal) {
-        if (!refs.some((l: Link) => l.href === newLink.href)) {
-          refs.push(newLink);
-        }
+        mergeLink(refs, newLink);
       }
     }
   }
@@ -152,7 +134,7 @@ function processLanguage(
     for (const [dataKey, dataVal] of Object.entries(attrVal)) {
       const ibKey = attr as DATA_ATTR;
       const ibType = dataKey as DATA_TYPE;
-      assign(g, `pl+${pid}`, ibKey, ibType, dataVal, references);
+      assign(g, `pl+${plKey}`, ibKey, ibType, dataVal, references);
     }
   }
 }
@@ -167,41 +149,42 @@ function assign(
 ) {
   const pl = g.v_plang.declare(pvid);
 
+  ppp = pvid;
+
   switch (infoboxKey) {
     case "website":
       if (infoboxType !== "links") return;
-      {
-        for (let { title, href } of val) {
-          if (!title || !href) continue;
+      for (let { title, href } of val) {
+        if (!title || !href) continue;
 
-          if (href.startsWith("//")) href = `https:${href}`;
-          else if (href.startsWith("/wiki")) href = WIKIPEDIA_URL + href;
+        if (href.startsWith("//")) href = `https:${href}`;
+        else if (href.startsWith("/wiki")) href = WIKIPEDIA_URL + href;
 
-          let url: URL;
-          try {
-            url = new URL(href);
-            url.hostname = url.hostname.toLowerCase();
-          } catch (e) {
-            console.error(`WARNING: Invalid URL: ${href}`);
-            continue;
-          }
-
-          let kind: Link["kind"] = "homepage";
-          if (url.hostname.toLowerCase().includes("wikipedia.org")) {
-            kind = "wikipedia";
-          } else if (href.includes("git")) kind = "repository";
-
-          const link: Link = { kind, title, href };
-          pl.websites ??= [];
-          mergeLink(pl.websites, link);
+        let url: URL;
+        try {
+          url = new URL(href);
+          url.hostname = url.hostname.toLowerCase();
+        } catch (e) {
+          console.error(`WARNING: Invalid URL: ${href}`);
+          continue;
         }
-        return;
+
+        let kind: Link["kind"] = "homepage";
+        if (url.hostname.toLowerCase().includes("wikipedia.org")) {
+          kind = "wikipedia";
+        } else if (href.includes("git")) kind = "repository";
+
+        const link: Link = { kind, title, href };
+        pl.websites ??= [];
+        mergeLink(pl.websites, link);
       }
+      return;
 
     case "filename_extension":
     case "filename_extensions":
       pl.extensions ??= [];
       pl.extensions.push(...val.filter((x: string) => x.length < 8));
+      pl.extensions = [...new Set(pl.extensions)];
       return;
 
     case "internet_media_type":
@@ -210,14 +193,14 @@ function assign(
     case "major_implementations":
       if (infoboxType !== "links") return;
       for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
-        const impl = keyFromWikiUrl(href);
-        if (!impl) continue;
+        const key = keyFromWikiUrl(href);
+        if (!key || key === pvid) continue;
 
-        const p = g.v_plang.merge(`pl+${impl}`, { name: title.trim() });
+        const p = g.v_plang.merge(`pl+${key}`, { name: title.trim() });
         p.websites ??= [];
         mergeLink(p.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
 
-        mergeRefs(g.e_implements.connect(`pl+${impl}`, pvid), refs[infoboxKey]);
+        mergeRefs(g.e_implements.connect(`pl+${key}`, pvid), refs, infoboxKey);
       }
       return;
 
@@ -226,13 +209,13 @@ function assign(
 
       for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
-        if (!key) continue;
+        if (!key || key === pvid) continue;
 
         const p = g.v_plang.merge(`pl+${key}`, { name: title.trim() });
         p.websites ??= [];
         mergeLink(p.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
 
-        mergeRefs(g.e_implements.connect(`pl+${key}`, pvid), refs[infoboxKey]);
+        mergeRefs(g.e_implements.connect(`pl+${key}`, pvid), refs, infoboxKey);
       }
       return;
 
@@ -241,16 +224,16 @@ function assign(
       if (infoboxType !== "links") return;
       for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
-        if (!key) continue;
+        if (!key || key === pvid) continue;
 
         const otherpl = g.v_plang.merge(`pl+${key}`, { name: title.trim() });
         otherpl.websites ??= [];
         mergeLink(otherpl.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
 
         if (infoboxKey === "influenced") {
-          mergeRefs(g.e_l_influenced_l.connect(pvid, `pl+${key}`), refs[infoboxKey]);
+          mergeRefs(g.e_l_influenced_l.connect(pvid, `pl+${key}`), refs, infoboxKey, [pvid, "influenced", key]);
         } else {
-          mergeRefs(g.e_l_influenced_l.connect(`pl+${key}`, pvid), refs[infoboxKey]);
+          mergeRefs(g.e_l_influenced_l.connect(`pl+${key}`, pvid), refs, infoboxKey);
         }
       }
       return;
@@ -260,16 +243,16 @@ function assign(
       if (infoboxType !== "links") return;
       for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
-        if (!key) continue;
+        if (!key || key === pvid) continue;
 
         const otherpl = g.v_plang.merge(`pl+${key}`, { name: title.trim() });
         otherpl.websites ??= [];
         mergeLink(otherpl.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
 
         if (infoboxKey === "dialects") {
-          mergeRefs(g.e_dialect_of.connect(`pl+${key}`, pvid), refs[infoboxKey]);
+          mergeRefs(g.e_dialect_of.connect(`pl+${key}`, pvid), refs, infoboxKey);
         } else {
-          mergeRefs(g.e_dialect_of.connect(pvid, `pl+${key}`), refs[infoboxKey]);
+          mergeRefs(g.e_dialect_of.connect(pvid, `pl+${key}`), refs, infoboxKey);
         }
       }
       return;
@@ -288,7 +271,7 @@ function assign(
         lic.websites ??= [];
         mergeLink(lic.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
 
-        mergeRefs(g.e_has_license.connect(pvid, `lic+${key}`), refs[infoboxKey]);
+        mergeRefs(g.e_has_license.connect(pvid, `lic+${key}`), refs, infoboxKey);
       }
       return;
 
@@ -307,7 +290,7 @@ function assign(
         p.websites ??= [];
         mergeLink(p.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
 
-        mergeRefs(g.e_supports_platf.connect(pvid, `platf+${key}`), refs[infoboxKey]);
+        mergeRefs(g.e_supports_platf.connect(pvid, `platf+${key}`), refs, infoboxKey);
       }
       return;
 
@@ -329,7 +312,7 @@ function assign(
         p.websites ??= [];
         mergeLink(p.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
 
-        mergeRefs(g.e_plang_para.connect(pvid, `para+${key}`), refs[infoboxKey]);
+        mergeRefs(g.e_plang_para.connect(pvid, `para+${key}`), refs, infoboxKey);
       }
       return;
 
@@ -378,6 +361,7 @@ function assign(
         const rel = g.e_person_plang_role.connect(`person+${key}`, pvid);
 
         const inferred_role = infoboxKey.includes("developer") ? "developer" : "designer";
+
         if (!rel.role) {
           rel.role = inferred_role;
         } else if (rel.role !== "designer") {
@@ -385,7 +369,7 @@ function assign(
           rel.role = inferred_role;
         }
 
-        mergeRefs(rel, refs[infoboxKey]);
+        mergeRefs(rel, refs, infoboxKey);
       }
 
       // Under the "risk" of having duplicated people, we use the name of the person
@@ -413,7 +397,7 @@ function assign(
             const tsys = cleanTsys(name);
             if (tsys) {
               const e = g.e_plang_tsys.connect(pvid, `tsys+${tsys}`);
-              mergeRefs(e, refs[infoboxKey]);
+              mergeRefs(e, refs, infoboxKey);
             }
           }
         }
@@ -627,7 +611,19 @@ function keyFromWikiUrl(wikiUrl: string): string | undefined {
 
     if (SKIP_KEYS.test(key)) return;
 
-    for (const l of ["sql", "modula", "algol", "basic", "cobol", "coral", "fortran", "pascal", "smalltalk", "turing"])
+    for (const l of [
+      "verilog",
+      "sql",
+      "modula",
+      "algol",
+      "basic",
+      "cobol",
+      "coral",
+      "fortran",
+      "pascal",
+      "smalltalk",
+      "turing",
+    ])
       if (key.includes(l)) return l;
 
     if (key.startsWith("pl-slash")) return "pl-slash";

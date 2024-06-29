@@ -8,20 +8,13 @@ export function define(g: PlangsGraph) {
     "R",
     {
       name: "R",
-      websites: [
-        { kind: "wikipedia", title: "R", href: "https://en.wikipedia.org/wiki/R_(programming_language)" },
-        { kind: "homepage", title: "www.r-project.org", href: "https://www.r-project.org" },
-      ],
+      websites: [{ kind: "wikipedia", title: "R", href: "https://en.wikipedia.org/wiki/R_(programming_language)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg" }],
-      releases: [
-        { version: "unknown", date: "1993-01-01", kind: "first" },
-        { version: "unknown", kind: "stable" },
-        { version: "4.4.0", date: "2024-01-01", kind: "stable" },
-      ],
+      releases: [{ version: "4.4.0", date: "2024-01-01", kind: "stable" }],
       extensions: [],
     },
     {
-      influences: ["pl+scheme", "pl+lisp", "pl+s", "pl+common-lisp"],
+      influences: ["pl+armed-bear-common-lisp", "pl+common-lisp", "pl+s", "pl+scheme"],
       licenses: ["lic+gpl"],
       paradigms: ["para+multi", "para+imperative", "para+objects", "para+functional", "para+reflective", "para+array"],
       people: ["person+ross-ihaka", "person+robert-gentleman"],

@@ -8,21 +8,14 @@ export function define(g: PlangsGraph) {
     "Lua",
     {
       name: "Lua",
-      websites: [
-        { kind: "wikipedia", title: "Lua", href: "https://en.wikipedia.org/wiki/Lua_(programming_language)" },
-        { kind: "homepage", title: "www.lua.org", href: "https://www.lua.org/" },
-      ],
+      websites: [{ kind: "wikipedia", title: "Lua", href: "https://en.wikipedia.org/wiki/Lua_(programming_language)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Lua-Logo.svg" }],
-      releases: [
-        { version: "unknown", date: "1993-01-01", kind: "first" },
-        { version: "unknown", kind: "stable" },
-        { version: "5.4.6", date: "2023-01-01", kind: "stable" },
-      ],
+      releases: [{ version: "5.4.6", date: "2023-01-01", kind: "stable" }],
       extensions: [".lua"],
     },
     {
       implementations: ["pl+ansi-c", "pl+luajit"],
-      influences: ["pl+scheme", "pl+lisp", "pl+cpp", "pl+modula", "pl+clu", "pl+snobol", "pl+awk", "pl+self"],
+      influences: ["pl+awk", "pl+cpp", "pl+clu", "pl+modula", "pl+scheme", "pl+snobol", "pl+self"],
       licenses: ["lic+mit"],
       paradigms: [
         "para+multi",

@@ -8,17 +8,10 @@ export function define(g: PlangsGraph) {
     "Bash",
     {
       name: "Bash",
-      websites: [
-        { kind: "wikipedia", title: "Bash", href: "https://en.wikipedia.org/wiki/Bash_(Unix_shell)" },
-        { kind: "homepage", title: "www.gnu.org/software/bash/", href: "https://www.gnu.org/software/bash/" },
-      ],
+      websites: [{ kind: "wikipedia", title: "Bash", href: "https://en.wikipedia.org/wiki/Bash_(Unix_shell)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/8/82/Gnu-bash-logo.svg" }],
-      releases: [
-        { version: "unknown", date: "1989-01-01", kind: "first" },
-        { version: "unknown", kind: "stable" },
-        { version: "5.2.21", date: "2023-01-01", kind: "stable" },
-      ],
+      releases: [{ version: "5.2.21", date: "2023-01-01", kind: "stable" }],
     },
-    { licenses: ["lic+gpl"], people: ["person+chet-ramey"], platforms: ["platf+gnu"] },
+    { influences: ["pl+algol"], licenses: ["lic+gpl"], platforms: ["platf+gnu"] },
   );
 }

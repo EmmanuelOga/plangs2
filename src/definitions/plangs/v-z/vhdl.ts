@@ -12,11 +12,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "VHDL", href: "https://en.wikipedia.org/wiki/VHDL" },
         { kind: "homepage", title: "IEEE VASG", href: "https://opensource.ieee.org/vasg" },
       ],
-      releases: [
-        { version: "unknown", date: "1980-01-01", kind: "first" },
-        { version: "unknown", date: "2019-12-23", kind: "stable" },
-      ],
-      extensions: [".vhd"],
+      releases: [{ version: "unknown", date: "1076-01-01", kind: "stable" }],
     },
     {
       dialects: ["pl+vhdl-ams"],

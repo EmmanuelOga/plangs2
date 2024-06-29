@@ -10,13 +10,10 @@ export function define(g: PlangsGraph) {
       name: "Forth",
       websites: [
         { kind: "wikipedia", title: "Forth", href: "https://en.wikipedia.org/wiki/Forth_(programming_language)" },
-        { kind: "homepage", title: "forth-standard.org", href: "https://forth-standard.org" },
       ],
-      releases: [{ version: "unknown", date: "1970-01-01", kind: "first" }],
     },
     {
       implementations: ["pl+gforth"],
-      influences: ["pl+lisp"],
       paradigms: ["para+concatenative", "para+stack", "para+imperative", "para+reflective"],
       people: ["person+charles-h-moore"],
     },

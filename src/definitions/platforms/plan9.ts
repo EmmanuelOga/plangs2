@@ -5,7 +5,11 @@ export function define(g: PlangsGraph) {
 
   lb.define("platf+plan9", "Plan 9 from User Space", {
     websites: [
-      { kind: "wikipedia", title: "Plan 9", href: "https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs" },
+      {
+        kind: "wikipedia",
+        title: "Plan 9 from Bell Labs",
+        href: "https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs",
+      },
       {
         kind: "wikipedia",
         title: "Plan 9 from User Space",

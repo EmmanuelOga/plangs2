@@ -8,15 +8,8 @@ export function define(g: PlangsGraph) {
     "Prolog",
     {
       name: "Prolog",
-      websites: [
-        { kind: "wikipedia", title: "Prolog", href: "https://en.wikipedia.org/wiki/Prolog" },
-        { kind: "homepage", title: "www.iso.org/standard/21413.html", href: "https://www.iso.org/standard/21413.html" },
-        { kind: "homepage", title: "www.iso.org/standard/20775.html", href: "https://www.iso.org/standard/20775.html" },
-      ],
-      releases: [
-        { version: "unknown", date: "1972-01-01", kind: "first" },
-        { version: "unknown", date: "1995-01-01", kind: "stable" },
-      ],
+      websites: [{ kind: "wikipedia", title: "Prolog", href: "https://en.wikipedia.org/wiki/Prolog" }],
+      releases: [{ version: "unknown", date: "1995-01-01", kind: "stable" }],
       extensions: [".pl", ".pro", ".P"],
     },
     {

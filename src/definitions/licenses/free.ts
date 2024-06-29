@@ -13,14 +13,10 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("lic+free", "free software", {
+  lb.define("lic+free", "free licenses", {
     websites: [
-      { kind: "wikipedia", title: "free software", href: "https://en.wikipedia.org/wiki/Free_software" },
-      {
-        kind: "wikipedia",
-        title: "free-software license",
-        href: "https://en.wikipedia.org/wiki/Free-software_license",
-      },
+      { kind: "wikipedia", title: "free licenses", href: "https://en.wikipedia.org/wiki/Free-software_license" },
+      { kind: "wikipedia", title: "Free software", href: "https://en.wikipedia.org/wiki/Free_software" },
     ],
   });
 

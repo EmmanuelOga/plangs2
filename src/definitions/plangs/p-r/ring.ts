@@ -18,16 +18,21 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ringlogo_transparent.png/121px-Ringlogo_transparent.png",
         },
       ],
-      releases: [
-        { version: "unknown", date: "2016-01-25", kind: "first" },
-        { version: "unknown", kind: "stable" },
-        { version: "1.20", date: "2024-01-01", kind: "stable" },
-      ],
-      extensions: [".ring", ".rh", ".rform"],
+      releases: [{ version: "1.20", date: "2024-01-01", kind: "stable" }],
     },
     {
       implementations: ["pl+c"],
-      influences: ["pl+ruby", "pl+lua", "pl+python", "pl+c", "pl+c-sharp", "pl+basic", "pl+qml", "pl+xbase"],
+      influences: [
+        "pl+lua",
+        "pl+moonscript",
+        "pl+python",
+        "pl+qml",
+        "pl+ruby",
+        "pl+c",
+        "pl+c-sharp",
+        "pl+basic",
+        "pl+xbase",
+      ],
       licenses: ["lic+mit"],
       paradigms: [
         "para+multi",

@@ -14,7 +14,6 @@ export function define(g: PlangsGraph) {
           title: "Ballerina",
           href: "https://en.wikipedia.org/wiki/Ballerina_(programming_language)",
         },
-        { kind: "homepage", title: "ballerina.io", href: "http://ballerina.io/" },
       ],
       images: [
         {
@@ -22,7 +21,6 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Official_Ballerina_Programming_Language_Logo.png/200px-Official_Ballerina_Programming_Language_Logo.png",
         },
       ],
-      releases: [{ version: "unknown", date: "2017-01-01", kind: "first" }],
     },
     {
       influences: ["pl+java", "pl+javascript", "pl+go", "pl+rust", "pl+c-sharp"],

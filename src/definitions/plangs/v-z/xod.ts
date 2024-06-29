@@ -8,14 +8,8 @@ export function define(g: PlangsGraph) {
     "XOD",
     {
       name: "XOD",
-      websites: [
-        { kind: "wikipedia", title: "XOD", href: "https://en.wikipedia.org/wiki/XOD_(programming_language)" },
-        { kind: "homepage", title: "xod.io", href: "http://xod.io" },
-      ],
-      releases: [
-        { version: "unknown", date: "2016-01-01", kind: "first" },
-        { version: "0.38.0", date: "2021-03-12", kind: "stable" },
-      ],
+      websites: [{ kind: "wikipedia", title: "XOD", href: "https://en.wikipedia.org/wiki/XOD_(programming_language)" }],
+      releases: [{ version: "0.38.0", date: "2021-01-01", kind: "stable" }],
     },
     {
       licenses: ["lic+gnu-affero-gpl"],

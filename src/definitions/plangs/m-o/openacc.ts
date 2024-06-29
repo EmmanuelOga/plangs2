@@ -5,10 +5,7 @@ export function define(g: PlangsGraph) {
 
   lb.define("pl+openacc", "OpenACC", {
     name: "OpenACC",
-    websites: [
-      { kind: "wikipedia", title: "OpenACC", href: "https://en.wikipedia.org/wiki/OpenACC" },
-      { kind: "homepage", title: "www.openacc.org", href: "https://www.openacc.org/" },
-    ],
+    websites: [{ kind: "wikipedia", title: "OpenACC", href: "https://en.wikipedia.org/wiki/OpenACC" }],
     releases: [{ version: "3.2", date: "2021-01-01", kind: "stable" }],
   });
 }

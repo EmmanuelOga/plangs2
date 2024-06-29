@@ -5,10 +5,14 @@ export function define(g: PlangsGraph) {
 
   lb.define("platf+.net", ".NET Framework", {
     websites: [
+      {
+        kind: "wikipedia",
+        title: "Common Language Infrastructure",
+        href: "https://en.wikipedia.org/wiki/Common_Language_Infrastructure",
+      },
       { kind: "wikipedia", title: ".NET Framework", href: "https://en.wikipedia.org/wiki/.NET_Framework" },
-      { kind: "wikipedia", title: ".NET", href: "https://en.wikipedia.org/wiki/.NET" },
-      { kind: "wikipedia", title: "CLI", href: "https://en.wikipedia.org/wiki/Common_Language_Infrastructure" },
       { kind: "wikipedia", title: "Microsoft .NET", href: "https://en.wikipedia.org/wiki/Microsoft_.NET" },
+      { kind: "wikipedia", title: ".NET", href: "https://en.wikipedia.org/wiki/.NET" },
       { kind: "wikipedia", title: ".NET Framework 4.5", href: "https://en.wikipedia.org/wiki/.NET_Framework_4.5" },
     ],
   });

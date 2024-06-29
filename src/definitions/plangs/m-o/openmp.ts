@@ -8,10 +8,7 @@ export function define(g: PlangsGraph) {
     "OpenMP",
     {
       name: "OpenMP",
-      websites: [
-        { kind: "wikipedia", title: "OpenMP", href: "https://en.wikipedia.org/wiki/OpenMP" },
-        { kind: "homepage", title: "openmp.org", href: "http://openmp.org" },
-      ],
+      websites: [{ kind: "wikipedia", title: "OpenMP", href: "https://en.wikipedia.org/wiki/OpenMP" }],
       images: [
         {
           kind: "logo",
@@ -20,6 +17,6 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "5.2", date: "2021-01-01", kind: "stable" }],
     },
-    { influences: ["pl+cilk-plus"] },
+    { influences: ["pl+cilk-plus", "pl+cilk"] },
   );
 }

@@ -12,14 +12,8 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "XSB", href: "https://en.wikipedia.org/wiki/XSB" },
         { kind: "homepage", title: "Sourceforge.net", href: "https://xsb.sourceforge.net/" },
       ],
-      releases: [{ version: "5.0", date: "2022-05-12", kind: "stable" }],
-      extensions: [".P"],
+      releases: [{ version: "5.0", date: "2022-01-01", kind: "stable" }],
     },
-    {
-      influences: ["pl+prolog"],
-      paradigms: ["para+logic"],
-      people: ["person+david-s-warren", "person+terrance-swift", "person+kostis-sagonas"],
-      platforms: ["platf+cross-platform"],
-    },
+    { influences: ["pl+prolog"], paradigms: ["para+logic"], platforms: ["platf+cross-platform"] },
   );
 }

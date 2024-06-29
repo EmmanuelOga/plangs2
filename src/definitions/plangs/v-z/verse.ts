@@ -10,11 +10,6 @@ export function define(g: PlangsGraph) {
       name: "Verse",
       websites: [
         { kind: "wikipedia", title: "Verse", href: "https://en.wikipedia.org/wiki/Verse_(programming_language)" },
-        {
-          kind: "homepage",
-          title: "dev.epicgames.com/documentation/en-us/uefn/verse-language-reference",
-          href: "https://dev.epicgames.com/documentation/en-us/uefn/verse-language-reference",
-        },
       ],
       images: [
         {
@@ -22,8 +17,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/Verse_Programming_Language_Logo.jpeg/160px-Verse_Programming_Language_Logo.jpeg",
         },
       ],
-      releases: [{ version: "unknown", date: "2023-01-01", kind: "first" }],
-      extensions: [],
+      extensions: [".verse"],
     },
     {
       implementations: ["pl+uefn", "pl+visual-studio-code"],

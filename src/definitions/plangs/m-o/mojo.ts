@@ -10,29 +10,16 @@ export function define(g: PlangsGraph) {
       name: "Mojo",
       websites: [
         { kind: "wikipedia", title: "Mojo", href: "https://en.wikipedia.org/wiki/Mojo_(programming_language)" },
-        { kind: "homepage", title: "www.modular.com/mojo", href: "https://www.modular.com/mojo" },
       ],
-      releases: [
-        { version: "unknown", date: "2023-01-01", kind: "first" },
-        { version: "24.4", date: "2024-05-24", kind: "preview" },
-      ],
-      extensions: [],
+      releases: [{ version: "24.4", date: "2024-01-01", kind: "preview" }],
+      extensions: [".🔥", ".mojo"],
     },
     {
-      influences: ["pl+python"],
+      influences: ["pl+python", "pl+cython", "pl+c", "pl+cpp", "pl+rust", "pl+swift", "pl+zig"],
       licenses: ["lic+proprietary"],
-      paradigms: ["para+multi", "para+imperative", "para+functional", "para+generic"],
       people: ["person+chris-lattner"],
       platforms: ["platf+cross-platform"],
-      typeSystems: [
-        "tsys+affine",
-        "tsys+inferred",
-        "tsys+nominative",
-        "tsys+duck",
-        "tsys+static",
-        "tsys+dynamic",
-        "tsys+strong",
-      ],
+      typeSystems: ["tsys+affine"],
     },
   );
 }

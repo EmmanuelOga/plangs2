@@ -8,10 +8,7 @@ export function define(g: PlangsGraph) {
     "Hy",
     {
       name: "Hy",
-      websites: [
-        { kind: "wikipedia", title: "Hy", href: "https://en.wikipedia.org/wiki/Hy_(programming_language)" },
-        { kind: "homepage", title: "hylang.org", href: "http://hylang.org" },
-      ],
+      websites: [{ kind: "wikipedia", title: "Hy", href: "https://en.wikipedia.org/wiki/Hy_(programming_language)" }],
       images: [
         {
           kind: "logo",
@@ -19,12 +16,9 @@ export function define(g: PlangsGraph) {
         },
       ],
       releases: [
-        { version: "unknown", date: "2013-01-01", kind: "first" },
-        { version: "unknown", kind: "stable" },
         { version: "0.29.0", date: "2024-01-01", kind: "stable" },
-        { version: "1.0", date: "2022-03-16", kind: "preview" },
+        { version: "1.0", date: "2022-01-01", kind: "preview" },
       ],
-      extensions: [".hy"],
     },
     {
       influences: ["pl+kawa", "pl+clojure", "pl+common-lisp"],
@@ -38,7 +32,6 @@ export function define(g: PlangsGraph) {
         "para+reflective",
         "para+generic",
       ],
-      people: ["person+paul-tagliamonte"],
       platforms: ["platf+ia-32", "platf+x86-64", "platf+cross-platform"],
     },
   );

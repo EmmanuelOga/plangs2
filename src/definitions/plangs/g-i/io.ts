@@ -8,29 +8,22 @@ export function define(g: PlangsGraph) {
     "Io",
     {
       name: "Io",
-      websites: [
-        { kind: "wikipedia", title: "Io", href: "https://en.wikipedia.org/wiki/Io_(programming_language)" },
-        { kind: "homepage", title: "iolanguage.org", href: "https://iolanguage.org/" },
-      ],
+      websites: [{ kind: "wikipedia", title: "Io", href: "https://en.wikipedia.org/wiki/Io_(programming_language)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/26/Io-logo.svg" }],
-      releases: [
-        { version: "unknown", date: "2002-01-01", kind: "first" },
-        { version: "unknown", kind: "stable" },
-        { version: "unknown", date: "2017-08-11", kind: "stable" },
-      ],
+      releases: [{ version: "unknown", date: "2017-01-01", kind: "stable" }],
     },
     {
       influences: [
-        "pl+lisp",
+        "pl+smalltalk",
         "pl+newtonscript",
         "pl+self",
-        "pl+smalltalk",
         "pl+lua",
+        "pl+lisp",
         "pl+python",
         "pl+actor-model-middle-history",
+        "pl+moonscript",
       ],
       paradigms: ["para+objects", "para+prototypes"],
-      people: ["person+steve-dekorte", "person+jonathan-wright", "person+jeremy-tregunna"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );

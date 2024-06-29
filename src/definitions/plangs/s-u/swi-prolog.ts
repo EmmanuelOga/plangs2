@@ -8,17 +8,12 @@ export function define(g: PlangsGraph) {
     "SWI-Prolog",
     {
       name: "SWI-Prolog",
-      websites: [
-        { kind: "wikipedia", title: "SWI-Prolog", href: "https://en.wikipedia.org/wiki/SWI-Prolog" },
-        { kind: "homepage", title: "swi-prolog.org", href: "http://swi-prolog.org" },
-      ],
+      websites: [{ kind: "wikipedia", title: "SWI-Prolog", href: "https://en.wikipedia.org/wiki/SWI-Prolog" }],
       releases: [
-        { version: "unknown", date: "1987-01-01", kind: "first" },
-        { version: "unknown", kind: "stable" },
         { version: "9.2.2", date: "2024-01-01", kind: "stable" },
-        { version: "9.3.2", date: "2024-02-29", kind: "preview" },
+        { version: "9.3.2", date: "2024-01-01", kind: "preview" },
       ],
     },
-    { licenses: ["lic+bsd-s", "lic+lgpl"], people: ["person+jan-wielemaker", "person+anjo-anjewierden"] },
+    { licenses: ["lic+bsd-s", "lic+lgpl"] },
   );
 }

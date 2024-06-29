@@ -18,11 +18,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/0/0e/Modelica_Language.png/300px-Modelica_Language.png",
         },
       ],
-      releases: [
-        { version: "unknown", date: "1997-01-01", kind: "first" },
-        { version: "3.6", date: "2023-01-01", kind: "stable" },
-      ],
-      extensions: [".mo"],
+      releases: [{ version: "3.6", date: "2023-01-01", kind: "stable" }],
     },
     {
       implementations: [

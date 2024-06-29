@@ -8,16 +8,9 @@ export function define(g: PlangsGraph) {
     "Pharo",
     {
       name: "Pharo",
-      websites: [
-        { kind: "wikipedia", title: "Pharo", href: "https://en.wikipedia.org/wiki/Pharo" },
-        { kind: "homepage", title: "pharo.org", href: "http://pharo.org" },
-      ],
+      websites: [{ kind: "wikipedia", title: "Pharo", href: "https://en.wikipedia.org/wiki/Pharo" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/6/6c/Pharo_Logo_v3.0.svg" }],
-      releases: [
-        { version: "unknown", date: "2008-01-01", kind: "first" },
-        { version: "unknown", kind: "stable" },
-        { version: "12.0", date: "2024-01-01", kind: "stable" },
-      ],
+      releases: [{ version: "12.0", date: "2024-01-01", kind: "stable" }],
     },
     {
       implementations: ["pl+smalltalk"],

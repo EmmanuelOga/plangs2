@@ -50,7 +50,7 @@ export function toAlphaNum(s: string) {
 
 // Print caller line:no for debugging.
 // https://stackoverflow.com/a/3806596/855105
-export function caller(pathPattern: string): string {
+export function caller(pathPattern: string, dontMatch = ""): string {
   function getErrorObject() {
     try {
       throw Error("");
@@ -59,7 +59,11 @@ export function caller(pathPattern: string): string {
     }
   }
   const err = getErrorObject();
-  const caller_line = err.stack.split("\n").find((line: string) => line.includes(pathPattern));
+
+  const caller_line = err.stack
+    .split("\n")
+    .find((line: string) => line.includes(pathPattern) && (!dontMatch || !line.includes(dontMatch)));
+
   if (!caller_line) return "unknown";
   const index = caller_line.indexOf("at ");
   const clean = caller_line.slice(index + 2, caller_line.length);

@@ -8,16 +8,9 @@ export function define(g: PlangsGraph) {
     "ChucK",
     {
       name: "ChucK",
-      websites: [
-        { kind: "wikipedia", title: "ChucK", href: "https://en.wikipedia.org/wiki/ChucK" },
-        { kind: "homepage", title: "chuck.cs.princeton.edu", href: "http://chuck.cs.princeton.edu" },
-      ],
+      websites: [{ kind: "wikipedia", title: "ChucK", href: "https://en.wikipedia.org/wiki/ChucK" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/24/Chuck-2023.png" }],
-      releases: [
-        { version: "unknown", kind: "first" },
-        { version: "unknown", date: "2003-01-01", kind: "first" },
-        { version: "1.5.2.4", date: "2024-01-01", kind: "stable" },
-      ],
+      releases: [{ version: "1.5.2.4", date: "2024-01-01", kind: "stable" }],
     },
     {
       licenses: ["lic+mac-os-x", "lic+linux", "lic+win", "lic+gpl", "lic+ios"],

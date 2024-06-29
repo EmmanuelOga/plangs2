@@ -10,9 +10,8 @@ export function define(g: PlangsGraph) {
       name: "Flix",
       websites: [
         { kind: "wikipedia", title: "Flix", href: "https://en.wikipedia.org/wiki/Flix_(programming_language)" },
-        { kind: "homepage", title: "flix.dev", href: "https://flix.dev/" },
       ],
-      extensions: [],
+      extensions: [".flix"],
     },
     {
       influences: ["pl+f-sharp", "pl+go", "pl+haskell", "pl+ocaml", "pl+scala"],

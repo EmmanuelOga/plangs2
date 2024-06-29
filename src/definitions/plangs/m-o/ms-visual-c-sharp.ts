@@ -4,22 +4,21 @@ export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
   lb.define(
-    "pl+c-sharp",
-    "C#",
+    "pl+ms-visual-c-sharp",
+    "Visual C#",
     {
-      name: "C#",
+      name: "Visual C#",
       websites: [
-        { kind: "wikipedia", title: "C#", href: "https://en.wikipedia.org/wiki/C_Sharp_(programming_language)" },
+        { kind: "wikipedia", title: "Visual C#", href: "https://en.wikipedia.org/wiki/Microsoft_Visual_C_Sharp" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/d/d2/C_Sharp_Logo_2023.svg" }],
       releases: [{ version: "12.0", date: "2023-01-01", kind: "stable" }],
       extensions: [".cs", ".csx"],
     },
     {
-      dialects: ["pl+c-", "pl+polyphonic-c-sharp", "pl+nemerle"],
+      dialects: ["pl+c-", "pl+polyphonic-c-sharp"],
       implementations: ["pl+ms-visual-c-sharp", "pl+.net", "pl+mono", "pl+win", "pl+.net-framework", "pl+dotgnu"],
       influences: [
-        "pl+c",
         "pl+cpp",
         "pl+c-",
         "pl+eiffel",
@@ -34,7 +33,6 @@ export function define(g: PlangsGraph) {
         "pl+modula",
         "pl+pascal",
         "pl+basic",
-        "pl+d",
       ],
       paradigms: [
         "para+multi",

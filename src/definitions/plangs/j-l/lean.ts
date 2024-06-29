@@ -8,15 +8,11 @@ export function define(g: PlangsGraph) {
     "Lean",
     {
       name: "Lean",
-      websites: [
-        { kind: "wikipedia", title: "Lean", href: "https://en.wikipedia.org/wiki/Lean_(proof_assistant)" },
-        { kind: "homepage", title: "lean-lang.org", href: "https://lean-lang.org/" },
-      ],
+      websites: [{ kind: "wikipedia", title: "Lean", href: "https://en.wikipedia.org/wiki/Lean_(proof_assistant)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/d/dc/Lean_logo2.svg" }],
       releases: [
-        { version: "unknown", date: "2013-01-01", kind: "first" },
-        { version: "unknown", date: "2024-04-03", kind: "stable" },
-        { version: "unknown", date: "2024-05-02", kind: "preview" },
+        { version: "4.7.0", date: "2024-01-01", kind: "stable" },
+        { version: "4.8.0", date: "2024-01-01", kind: "preview" },
       ],
     },
     {

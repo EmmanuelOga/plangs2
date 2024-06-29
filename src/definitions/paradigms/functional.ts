@@ -3,15 +3,15 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.paradigmBuilder;
 
-  lb.define("para+functional", "Functional", {
+  lb.define("para+functional", "functional", {
     websites: [
       { kind: "wikipedia", title: "functional", href: "https://en.wikipedia.org/wiki/Functional_programming" },
+      { kind: "wikipedia", title: "functional", href: "https://en.wikipedia.org/wiki/Functional_programming_language" },
       {
         kind: "wikipedia",
         title: "Purely functional",
         href: "https://en.wikipedia.org/wiki/Purely_functional_programming",
       },
-      { kind: "wikipedia", title: "Functional", href: "https://en.wikipedia.org/wiki/Functional_programming_language" },
       {
         kind: "wikipedia",
         title: "functional reactive",

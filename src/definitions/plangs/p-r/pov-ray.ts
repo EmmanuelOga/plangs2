@@ -8,10 +8,7 @@ export function define(g: PlangsGraph) {
     "POV-Ray",
     {
       name: "POV-Ray",
-      websites: [
-        { kind: "wikipedia", title: "POV-Ray", href: "https://en.wikipedia.org/wiki/POV-Ray" },
-        { kind: "homepage", title: "www.povray.org", href: "https://www.povray.org" },
-      ],
+      websites: [{ kind: "wikipedia", title: "POV-Ray", href: "https://en.wikipedia.org/wiki/POV-Ray" }],
       images: [
         {
           kind: "logo",
@@ -19,10 +16,8 @@ export function define(g: PlangsGraph) {
         },
       ],
       releases: [
-        { version: "unknown", kind: "first" },
-        { version: "unknown", date: "1991-07-29", kind: "first" },
+        { version: "unknown", date: "1991-01-01", kind: "first" },
         { version: "3.7.0.0", date: "2013-01-01", kind: "stable" },
-        { version: "3.8.0", date: "2021-08-09", kind: "preview" },
       ],
     },
     { licenses: ["lic+gnu-affero-gpl"] },

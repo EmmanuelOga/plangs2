@@ -10,13 +10,8 @@ export function define(g: PlangsGraph) {
       name: "Source",
       websites: [
         { kind: "wikipedia", title: "Source", href: "https://en.wikipedia.org/wiki/Source_(programming_language)" },
-        { kind: "homepage", title: "docs.sourceacademy.org", href: "https://docs.sourceacademy.org/" },
       ],
-      releases: [
-        { version: "unknown", date: "2017-01-01", kind: "first" },
-        { version: "unknown", date: "2021-12-31", kind: "stable" },
-      ],
-      extensions: [".js"],
+      releases: [{ version: "unknown", date: "2024-01-01", kind: "stable" }],
     },
     {
       implementations: ["pl+safari", "pl+tail-call"],

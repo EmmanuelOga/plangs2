@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       name: "Carbon",
       websites: [
         { kind: "wikipedia", title: "Carbon", href: "https://en.wikipedia.org/wiki/Carbon_(programming_language)" },
-        { kind: "repository", title: "github.com/carbon-language", href: "https://github.com/carbon-language" },
       ],
       images: [
         {
@@ -22,7 +21,7 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+cpp"],
-      influences: ["pl+cpp"],
+      influences: ["pl+cpp", "pl+rust", "pl+swift"],
       licenses: ["lic+apache"],
       typeSystems: ["tsys+static", "tsys+nominative", "tsys+inferred"],
     },

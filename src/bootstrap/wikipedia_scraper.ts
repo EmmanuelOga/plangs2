@@ -5,6 +5,7 @@
 import { unlinkSync } from "node:fs";
 import { mkdir } from "node:fs/promises";
 import { type Cheerio, type Element, load } from "cheerio";
+import { toAlphaNum } from "src/util";
 
 export const WIKIPEDIA_URL = "https://en.wikipedia.org";
 
@@ -92,6 +93,40 @@ const INFOBOX_KEYS = new Set<string>([
   "written_in",
 ]);
 
+// Cover the most important infobox keys as a type.
+export type DATA_ATTR =
+  | "designed_by"
+  | "developed_by"
+  | "developer"
+  | "developers"
+  | "dialects"
+  | "family"
+  | "filename_extension"
+  | "filename_extensions"
+  | "first_appeared"
+  | "founder"
+  | "implementation_language"
+  | "influenced"
+  | "influenced_by"
+  | "initial_release"
+  | "internet_media_type"
+  | "latest_release"
+  | "license"
+  | "major_implementations"
+  | "os"
+  | "paradigm"
+  | "paradigms"
+  | "platform"
+  | "preview_release"
+  | "scope"
+  | "stable_release"
+  | "type"
+  | "type_of_format"
+  | "typing_discipline"
+  | "website";
+
+export type DATA_TYPE = "extensions" | "links" | "release" | "text";
+
 const CACHE_PATH = Bun.fileURLToPath(`file:///${__dirname}/../../.cache`);
 
 export function cachePath(type: string, path = ""): string {
@@ -118,6 +153,7 @@ async function fetchWiki(wikiPath: string): Promise<string> {
   if (STATE.fetchCache.has(wikiPath)) return STATE.fetchCache.get(wikiPath)!;
 
   const cacheFile = cachePath("wiki", toBasename(wikiPath, "html"));
+
   const file = Bun.file(cacheFile);
   if (await file.exists()) {
     const text = await file.text();
@@ -141,7 +177,8 @@ async function fetchWiki(wikiPath: string): Promise<string> {
 
 // Do something with the language data.
 function emit({ title, wikiUrl, img, data }: { title: string; wikiUrl: string; img: string; data: {} }) {
-  STATE.plangs.set(title, { title, wikiUrl, img, data });
+  const plKey = toAlphaNum(wikiUrl.split("wiki/")[1]);
+  STATE.plangs.set(plKey, { title, wikiUrl, img, data });
 }
 
 async function scrapLanguagePage(wikiPath: string) {
@@ -209,56 +246,71 @@ async function scrapLanguagePage(wikiPath: string) {
     return title;
   }
 
-  function extractData(type: string, el: Cheerio<Element>): {} {
-    // biome-ignore lint/suspicious/noExplicitAny: who knows what the data is.
-    const result: { [index: string]: any } = {};
-
-    const sup = el.find("sup").remove();
-    const links = el.find("a").remove();
-    el.find("br").replaceWith(",");
+  /** Extract links from <sup> references. */
+  function processSup(sup: Cheerio<Element>): { href?: string; title?: string }[] {
+    const refs: { href?: string; title?: string }[] = [];
 
     for (const a of sup.find("a")) {
       const id = $(a).attr("href");
+
+      // Wikipedia may have up to two links per reference.
       const [ref1, ref2] = $(id)
         .find("a")
         .map((i, a) => processA($(a)))
         .toArray()
         .filter((a) => a.href?.startsWith("http"));
-      // When archived the first contains the title, and the second the URL.
+
+      // When archived the first link contains the title, and the second the archived URL.
+      // We want to save the archived URL, with the more informative title of the original URL.
       if (ref1 && ref2 && ref2.title?.toLowerCase().includes("archived")) {
         ref2.title = unquote(ref1.title ?? "");
-        if (ref2.title) {
-          result.refs ??= [];
-          result.refs.push(ref2);
-        }
+        if (ref2.title) refs.push(ref2);
       } else if (ref1) {
         ref1.title = unquote(ref1.title ?? "");
-        if (ref1.title) {
-          result.refs ??= [];
-          result.refs.push(ref1);
-        }
+        if (ref1.title) refs.push(ref1);
       }
     }
 
+    return refs;
+  }
+
+  // biome-ignore lint/suspicious/noExplicitAny: let me be.
+  function extractData(type: string, el: Cheerio<Element>): Partial<Record<DATA_TYPE, any>> {
+    // biome-ignore lint/suspicious/noExplicitAny: let me be.
+    const result: Partial<Record<DATA_TYPE, any>> = {};
+
+    el.find('style, script, [style*="display:none"]').remove();
+    el.find("br").replaceWith(",");
+
+    const text = [
+      ...el
+        .children()
+        .filter((_, e) => e.tagName !== "a" && e.tagName !== "sup")
+        .map((_, e) => $(e).text()),
+    ]
+      .join(" ")
+      .trim();
+
+    const links = el
+      .children()
+      .filter((_, e) => e.tagName === "a")
+      .map((i, a) => processA($(a)))
+      .toArray()
+      .filter((a) => a.href);
+
     if (type.includes("release") || type.includes("appear")) {
-      const data = { ...getDate(el.text()), ...getVersion(el.text()) };
+      const data = { ...getDate(text), ...getVersion(text) };
       if (Object.keys(data).length > 0) result.release = data;
     } else if (type.includes("extension")) {
-      const data = el
-        .text()
-        .split(",")
+      const data = text
+        .split(/\,|\s+/)
         .map((s) => s.trim())
         .filter(Boolean);
       if (data.length) result.extensions = data;
+    } else if (links.length) {
+      result.links = links;
     } else {
-      if (links.length) {
-        result.links = links
-          .map((i, a) => processA($(a)))
-          .toArray()
-          .filter((a) => a.href);
-      } else {
-        result.text = el.text().replace(/\n/g, " ");
-      }
+      result.text = text.replace(/\n/g, " ");
     }
 
     return result;
@@ -268,7 +320,13 @@ async function scrapLanguagePage(wikiPath: string) {
     return str.trim().toLocaleLowerCase().replace(/\s/g, "_").replace(/\(|\)/g, "");
   }
 
-  const infobox = {};
+  const infobox: Partial<
+    Record<
+      DATA_ATTR,
+      // biome-ignore lint/suspicious/noExplicitAny: TODO.
+      Partial<Record<DATA_TYPE, any>>
+    >
+  > = {};
 
   for (const row of $infobox.find("tr")) {
     try {

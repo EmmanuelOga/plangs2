@@ -9,13 +9,7 @@ export function define(g: PlangsGraph) {
     {
       name: "Brainfuck",
       websites: [{ kind: "wikipedia", title: "Brainfuck", href: "https://en.wikipedia.org/wiki/Brainfuck" }],
-      releases: [{ version: "unknown", date: "1993-01-01", kind: "first" }],
-      extensions: [".b", ".bf"],
     },
-    {
-      influences: ["pl+p--", "pl+esoteric"],
-      paradigms: ["para+esoteric", "para+imperative", "para+structured"],
-      people: ["person+urban-muller"],
-    },
+    { influences: ["pl+p--", "pl+esoteric"], paradigms: ["para+esoteric", "para+imperative", "para+structured"] },
   );
 }

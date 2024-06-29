@@ -22,10 +22,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/Automatic_Transmission_Logic.png/220px-Automatic_Transmission_Logic.png",
         },
       ],
-      releases: [
-        { version: "unknown", date: "2018-09-12", kind: "stable" },
-        { version: "unknown", date: "2018-06-14", kind: "preview" },
-      ],
+      releases: [{ version: "unknown", date: "2018-01-01", kind: "stable" }],
     },
     { licenses: ["lic+proprietary"], platforms: ["platf+x64"] },
   );
