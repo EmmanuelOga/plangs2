@@ -48,7 +48,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+java", "pl+lisp", "pl+ml", "pl+scala", "pl+smalltalk", "pl+whiley"],
       licenses: ["lic+apache"],
       paradigms: ["para+objects"],
-      people: [["person+gavin-king", "designer"]],
+      people: [["person+gavin-king", { role: "designer" }]],
       platforms: ["platf+javascript", "platf+jvm"],
       typeSystems: ["tsys+safe", "tsys+static", "tsys+strong"],
     },

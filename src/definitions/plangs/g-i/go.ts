@@ -77,9 +77,9 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+bsd-c", "lic+patents"],
       paradigms: ["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+objects"],
       people: [
-        ["person+ken-thompson", "designer"],
-        ["person+rob-pike", "designer"],
-        ["person+robert-griesemer", "designer"],
+        ["person+ken-thompson", { role: "designer" }],
+        ["person+rob-pike", { role: "designer" }],
+        ["person+robert-griesemer", { role: "designer" }],
       ],
       platforms: ["platf+bsd", "platf+linux", "platf+mac", "platf+plan9", "platf+win"],
       typeSystems: ["tsys+inferred", "tsys+nominative", "tsys+static", "tsys+strong", "tsys+structural"],

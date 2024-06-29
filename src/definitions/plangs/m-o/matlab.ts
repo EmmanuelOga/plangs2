@@ -95,7 +95,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+apl", "pl+eispack", "pl+fortran", "pl+linpack", "pl+pl-slash", "pl+speakeasy"],
       licenses: ["lic+commercial", "lic+proprietary"],
       paradigms: ["para+array", "para+functional", "para+imperative", "para+multi", "para+objects"],
-      people: [["person+cleve-moler", "designer"]],
+      people: [["person+cleve-moler", { role: "designer" }]],
       platforms: ["platf+arm", "platf+ia-32", "platf+x86-64"],
       typeSystems: ["tsys+dynamic", "tsys+weak"],
     },

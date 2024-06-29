@@ -26,8 +26,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+eclipse-public"],
       paradigms: ["para+functional", "para+imperative", "para+objects"],
       people: [
-        ["person+sebastian-zarnekow", "designer"],
-        ["person+sven-efftinge", "designer"],
+        ["person+sebastian-zarnekow", { role: "designer" }],
+        ["person+sven-efftinge", { role: "designer" }],
       ],
       platforms: ["platf+cross-platform", "platf+jvm"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],

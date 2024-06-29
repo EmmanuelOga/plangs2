@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+alice", "pl+haskell", "pl+lisp", "pl+matlab", "pl+q"],
       licenses: ["lic+lgpl"],
       paradigms: ["para+dec", "para+functional", "para+term"],
-      people: [["person+albert-graf", "designer"]],
+      people: [["person+albert-graf", { role: "designer" }]],
       platforms: ["platf+bsd", "platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

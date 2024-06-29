@@ -58,7 +58,7 @@ export function define(g: PlangsGraph) {
       ],
       licenses: ["lic+apache"],
       paradigms: ["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+objects"],
-      people: [["person+martin-odersky", "designer"]],
+      people: [["person+martin-odersky", { role: "designer" }]],
       platforms: ["platf+javascript", "platf+jvm", "platf+llvm"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"],
     },

@@ -36,7 +36,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+cpp", "pl+io", "pl+self"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+event", "para+functional", "para+imperative", "para+multi", "para+objects", "para+reflective"],
-      people: [["person+jean-christophe-baillie", "designer"]],
+      people: [["person+jean-christophe-baillie", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+duck", "tsys+dynamic"],
     },

@@ -169,11 +169,11 @@ export function define(g: PlangsGraph) {
         "para+structured",
       ],
       people: [
-        ["person+anders-hejlsberg", "designer"],
-        ["person+free-pascal", "developer"],
-        ["person+larry-tesler", "designer"],
-        ["person+niklaus-wirth", "designer"],
-        ["person+san-diego", "developer"],
+        ["person+anders-hejlsberg", { role: "designer" }],
+        ["person+free-pascal", { role: "developer" }],
+        ["person+larry-tesler", { role: "designer" }],
+        ["person+niklaus-wirth", { role: "designer" }],
+        ["person+san-diego", { role: "developer" }],
       ],
       platforms: [
         "platf+.net",

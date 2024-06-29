@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+lisp", "pl+lua", "pl+rebol", "pl+scala"],
       licenses: ["lic+boost", "lic+bsd-m"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+symbolic"],
-      people: [["person+nenad-rakocevic", "designer"]],
+      people: [["person+nenad-rakocevic", { role: "designer" }]],
       platforms: ["platf+linux", "platf+mac", "platf+win"],
     },
   );

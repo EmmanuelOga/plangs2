@@ -67,9 +67,9 @@ export function define(g: PlangsGraph) {
       influences: ["pl+ada", "pl+datalog", "pl+sql"],
       paradigms: ["para+dec", "para+multi"],
       people: [
-        ["person+donald-d-chamberlin", "designer"],
-        ["person+jan-wieck", "designer"],
-        ["person+raymond-f-boyce", "designer"],
+        ["person+donald-d-chamberlin", { role: "designer" }],
+        ["person+jan-wieck", { role: "designer" }],
+        ["person+raymond-f-boyce", { role: "designer" }],
       ],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+static", "tsys+strong"],

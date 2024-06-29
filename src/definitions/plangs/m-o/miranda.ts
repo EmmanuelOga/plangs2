@@ -35,7 +35,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+hope", "pl+iswim", "pl+kent-recursive-calculator", "pl+ml", "pl+sasl"],
       paradigms: ["para+dec", "para+functional", "para+lazy"],
-      people: [["person+david-turner", "designer"]],
+      people: [["person+david-turner", { role: "designer" }]],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
   );

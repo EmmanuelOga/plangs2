@@ -35,7 +35,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+javascript", "pl+ml", "pl+typescript"],
       licenses: ["lic+mit"],
       paradigms: ["para+functional", "para+multi", "para+typed"],
-      people: [["person+mark-marron", "designer"]],
+      people: [["person+mark-marron", { role: "designer" }]],
     },
   );
 }

@@ -57,7 +57,7 @@ export function define(g: PlangsGraph) {
       ],
       licenses: ["lic+mit", "lic+proprietary"],
       paradigms: ["para+functional", "para+imperative", "para+objects", "para+pipeline", "para+reflective"],
-      people: [["person+jeffrey-snover", "designer"]],
+      people: [["person+jeffrey-snover", { role: "designer" }]],
       platforms: ["platf+.net", "platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+inferred", "tsys+safe", "tsys+strong"],
     },

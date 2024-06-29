@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+lisp", "pl+scheme"],
       licenses: ["lic+artistic"],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi"],
-      people: [["person+paul-graham", "designer"]],
+      people: [["person+paul-graham", { role: "designer" }]],
       platforms: ["platf+ia-32", "platf+linux", "platf+x86-64"],
       typeSystems: ["tsys+dynamic"],
     },

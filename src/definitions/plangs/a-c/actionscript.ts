@@ -48,7 +48,7 @@ export function define(g: PlangsGraph) {
         "para+prototypes",
         "para+scripting",
       ],
-      people: [["person+gary-grossman", "designer"]],
+      people: [["person+gary-grossman", { role: "designer" }]],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
   );

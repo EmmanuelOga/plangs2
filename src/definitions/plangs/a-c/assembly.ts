@@ -69,8 +69,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+apache"],
       paradigms: ["para+functional", "para+generic", "para+imperative", "para+multi", "para+objects"],
       people: [
-        ["person+daniel-wirtz", "designer"],
-        ["person+max-graey", "designer"],
+        ["person+daniel-wirtz", { role: "designer" }],
+        ["person+max-graey", { role: "designer" }],
       ],
       typeSystems: ["tsys+static"],
     },
@@ -95,8 +95,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+proprietary"],
       paradigms: ["para+multi"],
       people: [
-        ["person+andy-gavin", "designer"],
-        ["person+naughty-dog", "developer"],
+        ["person+andy-gavin", { role: "designer" }],
+        ["person+naughty-dog", { role: "developer" }],
       ],
       platforms: ["platf+playstation"],
       typeSystems: ["tsys+dynamic", "tsys+latent", "tsys+strong"],
@@ -122,7 +122,11 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "2.16", date: "2011-07-06", kind: "stable" }],
     },
-    { licenses: ["lic+public-domain"], people: [["person+randall-hyde", "developer"]], platforms: ["platf+ia-32"] },
+    {
+      licenses: ["lic+public-domain"],
+      people: [["person+randall-hyde", { role: "developer" }]],
+      platforms: ["platf+ia-32"],
+    },
   );
 
   lb.define(

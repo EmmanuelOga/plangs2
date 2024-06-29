@@ -42,7 +42,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+elixir", "pl+elm", "pl+erlang", "pl+go", "pl+javascript", "pl+ocaml", "pl+rust"],
       licenses: ["lic+apache"],
       paradigms: ["para+concurrent", "para+functional", "para+multi"],
-      people: [["person+louis-pilfold", "designer"]],
+      people: [["person+louis-pilfold", { role: "designer" }]],
       platforms: ["platf+bsd", "platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+inferred", "tsys+safe", "tsys+static"],
     },

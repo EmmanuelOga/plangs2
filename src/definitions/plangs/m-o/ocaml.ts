@@ -36,8 +36,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+lgpl"],
       paradigms: ["para+functional", "para+imperative", "para+modular", "para+multi", "para+objects"],
       people: [
-        ["person+damien-doligez", "designer"],
-        ["person+xavier-leroy", "designer"],
+        ["person+damien-doligez", { role: "designer" }],
+        ["person+xavier-leroy", { role: "designer" }],
       ],
       platforms: [
         "platf+arm",

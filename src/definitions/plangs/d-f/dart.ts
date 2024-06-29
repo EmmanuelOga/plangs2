@@ -63,7 +63,7 @@ export function define(g: PlangsGraph) {
       ],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects", "para+reflective"],
-      people: [["person+lars-bak", "designer"]],
+      people: [["person+lars-bak", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+inferred", "tsys+optional", "tsys+static", "tsys+strong"],
     },

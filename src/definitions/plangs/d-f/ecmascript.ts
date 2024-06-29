@@ -45,7 +45,7 @@ export function define(g: PlangsGraph) {
         "pl+self",
       ],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+prototypes"],
-      people: [["person+brendan-eich", "designer"]],
+      people: [["person+brendan-eich", { role: "designer" }]],
       typeSystems: ["tsys+dynamic", "tsys+weak"],
     },
   );

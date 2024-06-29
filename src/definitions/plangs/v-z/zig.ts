@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+c", "pl+rust"],
       licenses: ["lic+mit"],
       paradigms: ["para+concurrent", "para+functional", "para+imperative", "para+multi"],
-      people: [["person+andrew-kelley", "designer"]],
+      people: [["person+andrew-kelley", { role: "designer" }]],
       platforms: [
         "platf+aarch64",
         "platf+arm",

@@ -51,7 +51,7 @@ export function define(g: PlangsGraph) {
         "para+prototypes",
         "para+tacit",
       ],
-      people: [["person+roger-hui", "designer"]],
+      people: [["person+roger-hui", { role: "designer" }]],
       platforms: [
         "platf+android",
         "platf+cross-platform",

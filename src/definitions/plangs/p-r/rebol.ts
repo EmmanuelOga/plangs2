@@ -34,7 +34,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+forth", "pl+lisp", "pl+logo", "pl+objectlogo", "pl+self", "pl+ucblogo"],
       licenses: ["lic+apache", "lic+freely-redistributable"],
       paradigms: ["para+data", "para+functional", "para+imperative", "para+language", "para+prototypes"],
-      people: [["person+carl-sassenrath", "designer"]],
+      people: [["person+carl-sassenrath", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

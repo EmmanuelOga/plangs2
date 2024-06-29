@@ -41,7 +41,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+agda", "pl+clean", "pl+coq", "pl+epigram", "pl+f-sharp", "pl+haskell", "pl+ml", "pl+rust"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+functional"],
-      people: [["person+edwin-brady", "designer"]],
+      people: [["person+edwin-brady", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },

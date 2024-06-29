@@ -36,7 +36,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+clojure", "pl+erlang", "pl+lisp", "pl+ruby"],
       licenses: ["lic+apache"],
       paradigms: ["para+concurrent", "para+distributed", "para+functional", "para+multi", "para+process"],
-      people: [["person+jose-valim", "designer"]],
+      people: [["person+jose-valim", { role: "designer" }]],
       platforms: ["platf+erlang"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

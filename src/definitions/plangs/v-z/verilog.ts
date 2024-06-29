@@ -27,8 +27,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+ada", "pl+c", "pl+fortran", "pl+pascal"],
       paradigms: ["para+structured"],
       people: [
-        ["person+phil-moorby", "designer"],
-        ["person+prabhu-goel", "designer"],
+        ["person+phil-moorby", { role: "designer" }],
+        ["person+prabhu-goel", { role: "designer" }],
       ],
       typeSystems: ["tsys+static", "tsys+weak"],
     },

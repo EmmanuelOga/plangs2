@@ -30,9 +30,9 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+mit"],
       paradigms: ["para+functional", "para+multi", "para+objects"],
       people: [
-        ["person+george-zahariev", "designer"],
-        ["person+jeremy-ashkenas", "designer"],
-        ["person+satoshi-murakami", "designer"],
+        ["person+george-zahariev", { role: "designer" }],
+        ["person+jeremy-ashkenas", { role: "designer" }],
+        ["person+satoshi-murakami", { role: "designer" }],
       ],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+weak"],

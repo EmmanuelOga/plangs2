@@ -39,7 +39,7 @@ export function define(g: PlangsGraph) {
         "para+reflective",
         "para+structured",
       ],
-      people: [["person+thomas-mertes", "designer"]],
+      people: [["person+thomas-mertes", { role: "designer" }]],
       platforms: ["platf+bsd", "platf+cross-platform", "platf+linux", "platf+mac", "platf+unix", "platf+win"],
       typeSystems: ["tsys+manifest", "tsys+nominative", "tsys+safe", "tsys+static", "tsys+strong"],
     },

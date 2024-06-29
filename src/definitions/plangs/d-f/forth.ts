@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+gforth"],
       influences: ["pl+lisp"],
       paradigms: ["para+concatenative", "para+imperative", "para+reflective", "para+stack"],
-      people: [["person+charles-h-moore", "designer"]],
+      people: [["person+charles-h-moore", { role: "designer" }]],
     },
   );
 }

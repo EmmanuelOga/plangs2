@@ -61,7 +61,7 @@ export function define(g: PlangsGraph) {
         "para+multi",
         "para+objects",
       ],
-      people: [["person+andreas-rumpf", "designer"]],
+      people: [["person+andreas-rumpf", { role: "designer" }]],
       platforms: ["platf+aarch64", "platf+arm", "platf+cross-platform", "platf+ia-32", "platf+risc-v", "platf+x86-64"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"],
     },

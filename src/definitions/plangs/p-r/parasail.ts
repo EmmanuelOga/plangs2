@@ -34,7 +34,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+ada", "pl+ml", "pl+modula", "pl+pascal"],
       licenses: ["lic+gpl"],
       paradigms: ["para+compiled", "para+concurrent", "para+imperative", "para+objects", "para+structured"],
-      people: [["person+s-tucker-taft", "designer"]],
+      people: [["person+s-tucker-taft", { role: "designer" }]],
       platforms: ["platf+linux", "platf+mac", "platf+win", "platf+x86"],
       typeSystems: ["tsys+static", "tsys+strong"],
     },

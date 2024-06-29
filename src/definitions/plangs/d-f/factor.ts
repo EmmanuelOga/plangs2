@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+forth", "pl+joy", "pl+lisp", "pl+self"],
       licenses: ["lic+bsd"],
       paradigms: ["para+concatenative", "para+functional", "para+multi", "para+objects", "para+stack"],
-      people: [["person+slava-pestov", "developer"]],
+      people: [["person+slava-pestov", { role: "developer" }]],
       platforms: ["platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

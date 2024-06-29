@@ -34,7 +34,7 @@ export function define(g: PlangsGraph) {
       ],
       influences: ["pl+mdl", "pl+planner"],
       paradigms: ["para+logic"],
-      people: [["person+alain-colmerauer", "designer"]],
+      people: [["person+alain-colmerauer", { role: "designer" }]],
     },
   );
 }

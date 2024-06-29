@@ -30,7 +30,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+cpp", "pl+javascript", "pl+lua", "pl+python"],
       licenses: ["lic+mit"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects", "para+scripting"],
-      people: [["person+alberto-demichelis", "designer"]],
+      people: [["person+alberto-demichelis", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic"],
     },

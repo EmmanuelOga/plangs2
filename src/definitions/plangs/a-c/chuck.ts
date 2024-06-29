@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
     {
       licenses: ["lic+gpl", "lic+ios", "lic+linux", "lic+mac-os-x", "lic+win"],
       paradigms: ["para+multi"],
-      people: [["person+ge-wang", "designer"]],
+      people: [["person+ge-wang", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+strong"],
     },

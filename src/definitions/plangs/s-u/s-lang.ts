@@ -35,6 +35,6 @@ export function define(g: PlangsGraph) {
       },
       releases: [{ version: "2.3.3", date: "2022-01-01", kind: "stable" }],
     },
-    { licenses: ["lic+gpl"], people: [["person+john-e-davis", "developer"]] },
+    { licenses: ["lic+gpl"], people: [["person+john-e-davis", { role: "developer" }]] },
   );
 }

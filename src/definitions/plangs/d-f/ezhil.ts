@@ -41,7 +41,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+basic", "pl+logo", "pl+python"],
       licenses: ["lic+gpl"],
       paradigms: ["para+imperative", "para+interpreted", "para+structured"],
-      people: [["person+google-scholar", "designer"]],
+      people: [["person+google-scholar", { role: "designer" }]],
       platforms: ["platf+linux", "platf+mac", "platf+pip", "platf+python", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

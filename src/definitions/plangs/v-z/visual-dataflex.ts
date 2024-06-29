@@ -38,6 +38,9 @@ export function define(g: PlangsGraph) {
       },
       releases: [{ version: "24.0", date: "2024-03-13", kind: "stable" }],
     },
-    { licenses: ["lic+commercial", "lic+proprietary"], people: [["person+data-access-worldwide", "developer"]] },
+    {
+      licenses: ["lic+commercial", "lic+proprietary"],
+      people: [["person+data-access-worldwide", { role: "developer" }]],
+    },
   );
 }

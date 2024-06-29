@@ -29,8 +29,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+lgpl", "lic+q-public"],
       paradigms: ["para+functional", "para+imperative", "para+multi"],
       people: [
-        ["person+gerard-huet", "designer"],
-        ["person+xavier-leroy", "designer"],
+        ["person+gerard-huet", { role: "designer" }],
+        ["person+xavier-leroy", { role: "designer" }],
       ],
       platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+unix", "platf+win"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],

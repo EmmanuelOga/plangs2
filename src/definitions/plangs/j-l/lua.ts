@@ -38,7 +38,7 @@ export function define(g: PlangsGraph) {
         "para+reflective",
         "para+scripting",
       ],
-      people: [["person+roberto-ierusalimschy", "designer"]],
+      people: [["person+roberto-ierusalimschy", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+weak"],
     },

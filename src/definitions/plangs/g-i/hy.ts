@@ -40,7 +40,7 @@ export function define(g: PlangsGraph) {
         "para+objects",
         "para+reflective",
       ],
-      people: [["person+paul-tagliamonte", "designer"]],
+      people: [["person+paul-tagliamonte", { role: "designer" }]],
       platforms: ["platf+cross-platform", "platf+ia-32", "platf+x86-64"],
     },
   );

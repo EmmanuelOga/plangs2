@@ -45,7 +45,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+haskell", "pl+javascript", "pl+perl", "pl+ruby", "pl+smalltalk"],
       licenses: ["lic+artistic", "lic+gpl"],
       paradigms: ["para+multi"],
-      people: [["person+larry-wall", "designer"]],
+      people: [["person+larry-wall", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+gradual"],
     },

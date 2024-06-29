@@ -19,6 +19,6 @@ export function define(g: PlangsGraph) {
       ],
       references: { stable_release: [{ href: "https://ftp.gnu.org/gnu/bash/", title: "bash-5.2.21.tar.gz" }] },
     },
-    { licenses: ["lic+gpl"], people: [["person+chet-ramey", "developer"]], platforms: ["platf+gnu"] },
+    { licenses: ["lic+gpl"], people: [["person+chet-ramey", { role: "developer" }]], platforms: ["platf+gnu"] },
   );
 }

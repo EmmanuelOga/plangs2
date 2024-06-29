@@ -34,7 +34,7 @@ export function define(g: PlangsGraph) {
       dialects: ["pl+unicon"],
       influences: ["pl+algol", "pl+snobol"],
       paradigms: ["para+multi", "para+structured"],
-      people: [["person+ralph-griswold", "designer"]],
+      people: [["person+ralph-griswold", { role: "designer" }]],
       typeSystems: ["tsys+dynamic"],
     },
   );

@@ -23,6 +23,6 @@ export function define(g: PlangsGraph) {
         { version: "5.1", date: "2023-01-01", kind: "stable" },
       ],
     },
-    { licenses: ["lic+proprietary"], people: [["person+national-instruments", "developer"]] },
+    { licenses: ["lic+proprietary"], people: [["person+national-instruments", { role: "developer" }]] },
   );
 }

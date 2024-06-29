@@ -116,7 +116,7 @@ export function define(g: PlangsGraph) {
         "para+objects",
         "para+reflection",
       ],
-      people: [["person+james-gosling", "designer"]],
+      people: [["person+james-gosling", { role: "designer" }]],
       typeSystems: ["tsys+manifest", "tsys+nominative", "tsys+safe", "tsys+static", "tsys+strong"],
     },
   );

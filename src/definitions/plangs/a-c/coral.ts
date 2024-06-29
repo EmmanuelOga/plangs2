@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+bcpl"],
       influences: ["pl+algol", "pl+fortran", "pl+jovial"],
       paradigms: ["para+imperative", "para+structured"],
-      people: [["person+philip-woodward", "designer"]],
+      people: [["person+philip-woodward", { role: "designer" }]],
       platforms: [
         "platf+bsd",
         "platf+dec",

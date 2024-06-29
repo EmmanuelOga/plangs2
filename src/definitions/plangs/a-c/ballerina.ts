@@ -42,9 +42,9 @@ export function define(g: PlangsGraph) {
       influences: ["pl+c-sharp", "pl+go", "pl+java", "pl+javascript", "pl+rust"],
       licenses: ["lic+apache"],
       people: [
-        ["person+frank-leymann", "designer"],
-        ["person+james-clark", "designer"],
-        ["person+sanjiva-weerawarana", "designer"],
+        ["person+frank-leymann", { role: "designer" }],
+        ["person+james-clark", { role: "designer" }],
+        ["person+sanjiva-weerawarana", { role: "designer" }],
       ],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"],

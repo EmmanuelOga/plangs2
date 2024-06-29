@@ -35,7 +35,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+haskell", "pl+hope", "pl+prolog"],
       licenses: ["lic+gpl", "lic+lgpl"],
-      people: [["person+zoltan-somogyi", "designer"]],
+      people: [["person+zoltan-somogyi", { role: "designer" }]],
       platforms: [
         "platf+.net",
         "platf+android",

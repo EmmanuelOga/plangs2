@@ -24,9 +24,9 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+lgpl"],
       paradigms: ["para+imperative", "para+multi", "para+objects", "para+structured"],
       people: [
-        ["person+jurg-billeter", "developer"],
-        ["person+raffaele-sandrini", "developer"],
-        ["person+rico-tzschichholz", "developer"],
+        ["person+jurg-billeter", { role: "developer" }],
+        ["person+raffaele-sandrini", { role: "developer" }],
+        ["person+rico-tzschichholz", { role: "developer" }],
       ],
       platforms: ["platf+cross-platform", "platf+glib"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"],

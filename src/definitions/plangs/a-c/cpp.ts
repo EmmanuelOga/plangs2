@@ -95,7 +95,7 @@ export function define(g: PlangsGraph) {
         "pl+smalltalk",
       ],
       paradigms: ["para+functional", "para+generic", "para+imperative", "para+modular", "para+multi", "para+objects"],
-      people: [["person+bjarne-stroustrup", "designer"]],
+      people: [["person+bjarne-stroustrup", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+inferred", "tsys+nominative", "tsys+static", "tsys+strong"],
     },

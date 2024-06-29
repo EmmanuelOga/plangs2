@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+haskell", "pl+javascript"],
       licenses: ["lic+bsd-m"],
       paradigms: ["para+functional"],
-      people: [["person+phil-freeman", "designer"]],
+      people: [["person+phil-freeman", { role: "designer" }]],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );

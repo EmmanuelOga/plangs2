@@ -36,9 +36,9 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+apache"],
       paradigms: ["para+concurrent", "para+multi", "para+objects"],
       people: [
-        ["person+ary-borenszweig", "designer"],
-        ["person+brian-cardiff", "designer"],
-        ["person+juan-wajnerman", "designer"],
+        ["person+ary-borenszweig", { role: "designer" }],
+        ["person+brian-cardiff", { role: "designer" }],
+        ["person+juan-wajnerman", { role: "designer" }],
       ],
       platforms: ["platf+aarch64", "platf+bsd", "platf+ia-32", "platf+linux", "platf+mac", "platf+win", "platf+x86-64"],
       typeSystems: ["tsys+duck", "tsys+inferred", "tsys+nominative", "tsys+static"],

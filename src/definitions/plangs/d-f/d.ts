@@ -68,8 +68,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+boost"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects"],
       people: [
-        ["person+andrei-alexandrescu", "designer"],
-        ["person+walter-bright", "designer"],
+        ["person+andrei-alexandrescu", { role: "designer" }],
+        ["person+walter-bright", { role: "designer" }],
       ],
       platforms: ["platf+bsd", "platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],

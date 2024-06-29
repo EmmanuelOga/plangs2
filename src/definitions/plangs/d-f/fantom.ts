@@ -29,8 +29,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+academic-free"],
       paradigms: ["para+multi"],
       people: [
-        ["person+andy-frank", "developer"],
-        ["person+brian-frank", "developer"],
+        ["person+andy-frank", { role: "developer" }],
+        ["person+brian-frank", { role: "developer" }],
       ],
       typeSystems: ["tsys+dynamic", "tsys+static"],
     },

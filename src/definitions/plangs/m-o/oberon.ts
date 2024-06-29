@@ -22,8 +22,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+oberon", "pl+oberon-2", "pl+object-oberon"],
       paradigms: ["para+concurrent", "para+imperative", "para+modular", "para+objects", "para+structured"],
       people: [
-        ["person+jurg-gutknecht", "designer"],
-        ["person+niklaus-wirth", "designer"],
+        ["person+jurg-gutknecht", { role: "designer" }],
+        ["person+niklaus-wirth", { role: "designer" }],
       ],
       platforms: ["platf+amd64", "platf+ia-32"],
       typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong"],
@@ -84,7 +84,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+modula", "pl+oberon", "pl+object-oberon", "pl+pascal"],
       paradigms: ["para+imperative", "para+modular", "para+objects", "para+structured"],
-      people: [["person+niklaus-wirth", "designer"]],
+      people: [["person+niklaus-wirth", { role: "designer" }]],
       platforms: ["platf+ia-32", "platf+linux", "platf+mac", "platf+win", "platf+x86-64"],
       typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong"],
     },
@@ -105,7 +105,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+oberon"],
       influences: ["pl+modula", "pl+oberon"],
       paradigms: ["para+imperative", "para+modular", "para+objects", "para+structured"],
-      people: [["person+hanspeter-mossenbock", "developer"]],
+      people: [["person+hanspeter-mossenbock", { role: "developer" }]],
       typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong"],
     },
   );

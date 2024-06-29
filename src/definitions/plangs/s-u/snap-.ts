@@ -30,7 +30,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+apl", "pl+logo", "pl+scheme", "pl+scratch", "pl+smalltalk"],
       licenses: ["lic+affero-gpl"],
       paradigms: ["para+educational", "para+event", "para+objects"],
-      people: [["person+brian-harvey", "designer"]],
+      people: [["person+brian-harvey", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic"],
     },

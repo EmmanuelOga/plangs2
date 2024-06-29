@@ -24,9 +24,9 @@ export function define(g: PlangsGraph) {
       influences: ["pl+interpress", "pl+lisp", "pl+mesa"],
       paradigms: ["para+concatenative", "para+imperative", "para+multi", "para+stack"],
       people: [
-        ["person+bill-paxton", "designer"],
-        ["person+chuck-geschke", "designer"],
-        ["person+john-warnock", "designer"],
+        ["person+bill-paxton", { role: "designer" }],
+        ["person+chuck-geschke", { role: "designer" }],
+        ["person+john-warnock", { role: "designer" }],
       ],
       typeSystems: ["tsys+dynamic", "tsys+weak"],
     },

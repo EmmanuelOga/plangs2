@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+lisp", "pl+multilisp", "pl+scheme"],
       licenses: ["lic+apache", "lic+lgpl"],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi"],
-      people: [["person+marc-feeley", "designer"]],
+      people: [["person+marc-feeley", { role: "designer" }]],
       platforms: ["platf+cross-platform", "platf+ia-32", "platf+x86-64"],
       typeSystems: ["tsys+dynamic", "tsys+latent", "tsys+strong"],
     },

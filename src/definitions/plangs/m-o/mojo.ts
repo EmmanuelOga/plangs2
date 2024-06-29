@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+python"],
       licenses: ["lic+proprietary"],
       paradigms: ["para+functional", "para+generic", "para+imperative", "para+multi"],
-      people: [["person+chris-lattner", "designer"]],
+      people: [["person+chris-lattner", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: [
         "tsys+affine",

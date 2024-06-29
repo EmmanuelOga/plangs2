@@ -41,7 +41,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+lisp", "pl+ml", "pl+plex", "pl+prolog", "pl+smalltalk"],
       licenses: ["lic+apache"],
       paradigms: ["para+concurrent", "para+functional", "para+multi", "para+objects"],
-      people: [["person+joe-armstrong", "designer"]],
+      people: [["person+joe-armstrong", { role: "designer" }]],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );

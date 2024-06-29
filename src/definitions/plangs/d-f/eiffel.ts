@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+eiffelstudio", "pl+libertyeiffel", "pl+smarteiffel", "pl+visual-eiffel"],
       influences: ["pl+ada", "pl+simula", "pl+simula-67", "pl+z-notation"],
       paradigms: ["para+class", "para+concurrent", "para+generic", "para+objects"],
-      people: [["person+bertrand-meyer", "designer"]],
+      people: [["person+bertrand-meyer", { role: "designer" }]],
       platforms: ["platf+bsd", "platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+static"],
     },

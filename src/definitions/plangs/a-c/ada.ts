@@ -76,7 +76,7 @@ export function define(g: PlangsGraph) {
         "para+objects",
         "para+structured",
       ],
-      people: [["person+jean-ichbiah", "designer"]],
+      people: [["person+jean-ichbiah", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+nominative", "tsys+safe", "tsys+static", "tsys+strong"],
     },

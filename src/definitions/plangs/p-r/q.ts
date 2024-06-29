@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+ap", "pl+apl", "pl+k", "pl+scheme"],
       paradigms: ["para+array", "para+functional"],
-      people: [["person+arthur-whitney", "designer"]],
+      people: [["person+arthur-whitney", { role: "designer" }]],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );

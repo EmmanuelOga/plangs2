@@ -29,10 +29,10 @@ export function define(g: PlangsGraph) {
     {
       licenses: ["lic+eclipse-public", "lic+gpl", "lic+lgpl"],
       people: [
-        ["person+charles-oliver-nutter", "developer"],
-        ["person+nick-sieger", "developer"],
-        ["person+ola-bini", "developer"],
-        ["person+thomas-enebo", "developer"],
+        ["person+charles-oliver-nutter", { role: "developer" }],
+        ["person+nick-sieger", { role: "developer" }],
+        ["person+ola-bini", { role: "developer" }],
+        ["person+thomas-enebo", { role: "developer" }],
       ],
       platforms: ["platf+jvm"],
     },
@@ -60,7 +60,7 @@ export function define(g: PlangsGraph) {
         license: [{ href: "https://github.com/mruby/mruby/blob/master/LICENSE", title: "LICENSE" }],
       },
     },
-    { licenses: ["lic+mit"], people: [["person+yukihiro-matsumoto", "developer"]] },
+    { licenses: ["lic+mit"], people: [["person+yukihiro-matsumoto", { role: "developer" }]] },
   );
 
   lb.define(
@@ -138,7 +138,7 @@ export function define(g: PlangsGraph) {
       ],
       licenses: ["lic+ruby"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects", "para+reflective"],
-      people: [["person+yukihiro-matsumoto", "designer"]],
+      people: [["person+yukihiro-matsumoto", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+strong"],
     },

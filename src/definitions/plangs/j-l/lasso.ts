@@ -38,7 +38,7 @@ export function define(g: PlangsGraph) {
         "para+reflection",
         "para+structured",
       ],
-      people: [["person+kyle-jessup", "designer"]],
+      people: [["person+kyle-jessup", { role: "designer" }]],
       platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+nominative"],
     },

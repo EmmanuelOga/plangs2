@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+c", "pl+java", "pl+python", "pl+rust"],
       licenses: ["lic+bsd"],
       paradigms: ["para+functional", "para+imperative"],
-      people: [["person+david-j-pearce", "designer"]],
+      people: [["person+david-j-pearce", { role: "designer" }]],
       typeSystems: ["tsys+flow-sensitive", "tsys+safe", "tsys+strong", "tsys+structural"],
     },
   );

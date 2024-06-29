@@ -60,7 +60,7 @@ export function define(g: PlangsGraph) {
       ],
       licenses: ["lic+proprietary"],
       paradigms: ["para+array", "para+functional", "para+imperative", "para+multi", "para+term"],
-      people: [["person+stephen-wolfram", "designer"]],
+      people: [["person+stephen-wolfram", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

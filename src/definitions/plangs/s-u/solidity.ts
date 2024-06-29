@@ -37,7 +37,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+cpp", "pl+javascript", "pl+python"],
       licenses: ["lic+gpl"],
       paradigms: ["para+imperative"],
-      people: [["person+gavin-wood", "designer"]],
+      people: [["person+gavin-wood", { role: "designer" }]],
     },
   );
 }

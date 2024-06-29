@@ -37,8 +37,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+gpl"],
       paradigms: ["para+array"],
       people: [
-        ["person+arthur-whitney", "designer"],
-        ["person+morgan-stanley", "developer"],
+        ["person+arthur-whitney", { role: "designer" }],
+        ["person+morgan-stanley", { role: "developer" }],
       ],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

@@ -36,9 +36,9 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+open-source", "lic+proprietary"],
       paradigms: ["para+array", "para+functional", "para+modular", "para+structured"],
       people: [
-        ["person+dick-lathwell", "developer"],
-        ["person+larry-breed", "developer"],
-        ["person+roger-moore", "developer"],
+        ["person+dick-lathwell", { role: "developer" }],
+        ["person+larry-breed", { role: "developer" }],
+        ["person+roger-moore", { role: "developer" }],
       ],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic"],

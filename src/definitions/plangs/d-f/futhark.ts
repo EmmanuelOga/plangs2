@@ -20,9 +20,9 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+isc"],
       paradigms: ["para+array", "para+functional"],
       people: [
-        ["person+cosmin-oancea", "designer"],
-        ["person+martin-elsman", "designer"],
-        ["person+troels-henriksen", "designer"],
+        ["person+cosmin-oancea", { role: "designer" }],
+        ["person+martin-elsman", { role: "designer" }],
+        ["person+troels-henriksen", { role: "designer" }],
       ],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+uniqueness"],

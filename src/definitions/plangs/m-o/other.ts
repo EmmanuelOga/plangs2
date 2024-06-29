@@ -35,7 +35,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+haskell", "pl+pascal"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+functional", "para+multi", "para+objects"],
-      people: [["person+stephen-m-watt", "designer"]],
+      people: [["person+stephen-m-watt", { role: "designer" }]],
       platforms: [
         "platf+cross-platform",
         "platf+dec",
@@ -196,7 +196,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+agentsheets", "pl+lisp", "pl+logo", "pl+smalltalk"],
       paradigms: ["para+educational", "para+objects"],
-      people: [["person+alexander-repenning", "designer"]],
+      people: [["person+alexander-repenning", { role: "designer" }]],
     },
   );
 
@@ -218,7 +218,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+karel", "pl+lisp", "pl+logo", "pl+objectlogo", "pl+smalltalk"],
       paradigms: ["para+educational", "para+objects"],
-      people: [["person+alexander-repenning", "designer"]],
+      people: [["person+alexander-repenning", { role: "designer" }]],
       platforms: ["platf+jvm"],
     },
   );
@@ -290,8 +290,8 @@ export function define(g: PlangsGraph) {
     },
     {
       people: [
-        ["person+johannes-j-bisschop", "designer"],
-        ["person+marcel-roelofs", "designer"],
+        ["person+johannes-j-bisschop", { role: "designer" }],
+        ["person+marcel-roelofs", { role: "designer" }],
       ],
     },
   );
@@ -396,8 +396,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+modula"],
       paradigms: ["para+constraint", "para+imperative", "para+logic", "para+multi"],
       people: [
-        ["person+centrum-wiskunde", "developer"],
-        ["person+krzysztof-apt", "designer"],
+        ["person+centrum-wiskunde", { role: "developer" }],
+        ["person+krzysztof-apt", { role: "designer" }],
       ],
       typeSystems: ["tsys+static"],
     },
@@ -429,9 +429,9 @@ export function define(g: PlangsGraph) {
       influences: ["pl+actor-based-concurrent", "pl+e", "pl+scheme", "pl+self", "pl+smalltalk"],
       paradigms: ["para+concurrent", "para+event", "para+objects", "para+prototypes", "para+reflection"],
       people: [
-        ["person+jessie-dedecker", "designer"],
-        ["person+tom-van-cutsem", "designer"],
-        ["person+wolfgang-de-meuter", "designer"],
+        ["person+jessie-dedecker", { role: "designer" }],
+        ["person+tom-van-cutsem", { role: "designer" }],
+        ["person+wolfgang-de-meuter", { role: "designer" }],
       ],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
@@ -472,7 +472,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+ada", "pl+cpp", "pl+lisp"],
       licenses: ["lic+freeware"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects"],
-      people: [["person+wouter-van-oortmerssen", "designer"]],
+      people: [["person+wouter-van-oortmerssen", { role: "designer" }]],
       platforms: ["platf+amiga"],
     },
   );
@@ -498,8 +498,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+free-and-open-source", "lic+proprietary"],
       paradigms: ["para+dec", "para+imperative", "para+multi"],
       people: [
-        ["person+brian-kernighan", "designer"],
-        ["person+robert-fourer", "designer"],
+        ["person+brian-kernighan", { role: "designer" }],
+        ["person+robert-fourer", { role: "designer" }],
       ],
       platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
     },
@@ -602,7 +602,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "APT", href: "https://en.wikipedia.org/wiki/APT_(programming_language)" }],
       releases: [{ version: "unknown", date: "1956-01-01", kind: "first" }],
     },
-    { paradigms: ["para+numerical"], people: [["person+douglas-t-ross", "designer"]] },
+    { paradigms: ["para+numerical"], people: [["person+douglas-t-ross", { role: "designer" }]] },
   );
 
   lb.define("pl+arexx", "ARexx", {
@@ -707,7 +707,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+algol", "pl+edinburgh-imp"],
       influences: ["pl+algol"],
       paradigms: ["para+imperative", "para+structured"],
-      people: [["person+tony-brooker", "designer"]],
+      people: [["person+tony-brooker", { role: "designer" }]],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
   );
@@ -720,40 +720,6 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "AtScript", href: "https://en.wikipedia.org/wiki/AtScript" }],
     },
     { influences: ["pl+typescript"] },
-  );
-
-  lb.define(
-    "pl+awk",
-    "AWK",
-    {
-      name: "AWK",
-      websites: [{ kind: "wikipedia", title: "AWK", href: "https://en.wikipedia.org/wiki/AWK" }],
-      images: [
-        { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/d/d5/The-AWK-Programming-Language.svg" },
-      ],
-      references: {
-        paradigm: [
-          {
-            href: "https://web.archive.org/web/20150427143548/https://www6.software.ibm.com/developerworks/education/au-gawk/au-gawk-a4.pdf",
-            title: "Get started with GAWK: AWK language fundamentals",
-          },
-        ],
-      },
-      releases: [
-        { version: "unknown", date: "1977-01-01", kind: "first" },
-        { version: "unknown", date: "1985-01-01", kind: "stable" },
-      ],
-    },
-    {
-      influences: ["pl+c", "pl+sed", "pl+snobol"],
-      paradigms: ["para+data", "para+imperative", "para+scripting"],
-      people: [
-        ["person+alfred-aho", "designer"],
-        ["person+brian-kernighan", "designer"],
-        ["person+peter-weinberger", "designer"],
-      ],
-      platforms: ["platf+cross-platform"],
-    },
   );
 
   lb.define(
@@ -814,8 +780,8 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+bcpl", "pl+pl-slash", "pl+tmg"],
       people: [
-        ["person+dennis-ritchie", "developer"],
-        ["person+ken-thompson", "designer"],
+        ["person+dennis-ritchie", { role: "developer" }],
+        ["person+ken-thompson", { role: "designer" }],
       ],
     },
   );
@@ -852,8 +818,8 @@ export function define(g: PlangsGraph) {
     },
     {
       people: [
-        ["person+lorinda-cherry", "developer"],
-        ["person+robert-morris", "developer"],
+        ["person+lorinda-cherry", { role: "developer" }],
+        ["person+robert-morris", { role: "developer" }],
       ],
       platforms: ["platf+cross-platform"],
     },
@@ -879,7 +845,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+combined", "pl+cpl"],
       paradigms: ["para+imperative", "para+structured"],
-      people: [["person+martin-richards", "designer"]],
+      people: [["person+martin-richards", { role: "designer" }]],
     },
   );
 
@@ -894,7 +860,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "1993-01-01", kind: "first" }],
     },
-    { influences: ["pl+esoteric", "pl+forth"], people: [["person+chris-pressey", "developer"]] },
+    { influences: ["pl+esoteric", "pl+forth"], people: [["person+chris-pressey", { role: "developer" }]] },
   );
 
   lb.define("pl+begriffsschrift", "Begriffsschrift", {
@@ -923,8 +889,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+simula", "pl+simula-67"],
       paradigms: ["para+objects"],
       people: [
-        ["person+birger-m-ller-pedersen", "designer"],
-        ["person+kristen-nygaard", "designer"],
+        ["person+birger-m-ller-pedersen", { role: "designer" }],
+        ["person+kristen-nygaard", { role: "designer" }],
       ],
     },
   );
@@ -960,8 +926,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+algol"],
       paradigms: ["para+imperative", "para+structured"],
       people: [
-        ["person+a-n-habermann", "designer"],
-        ["person+w-a-wulf", "designer"],
+        ["person+a-n-habermann", { role: "designer" }],
+        ["person+w-a-wulf", { role: "designer" }],
       ],
       platforms: ["platf+cross-platform", "platf+dec", "platf+ia-32", "platf+ia-64", "platf+mips", "platf+x86-64"],
     },
@@ -977,7 +943,7 @@ export function define(g: PlangsGraph) {
     },
     {
       influences: ["pl+basic", "pl+c", "pl+snobol"],
-      people: [["person+richard-c-haight", "designer"]],
+      people: [["person+richard-c-haight", { role: "designer" }]],
       platforms: ["platf+unix"],
     },
   );
@@ -1005,7 +971,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+c"],
       paradigms: ["para+imperative"],
-      people: [["person+simon-peyton-jones", "designer"]],
+      people: [["person+simon-peyton-jones", { role: "designer" }]],
       typeSystems: ["tsys+static", "tsys+weak"],
     },
   );
@@ -1021,7 +987,11 @@ export function define(g: PlangsGraph) {
     "pl+c-slashal",
     "C/AL",
     { name: "C/AL", websites: [{ kind: "wikipedia", title: "C/AL", href: "https://en.wikipedia.org/wiki/C/AL" }] },
-    { influences: ["pl+pascal"], paradigms: ["para+imperative"], people: [["person+michael-nielsen", "designer"]] },
+    {
+      influences: ["pl+pascal"],
+      paradigms: ["para+imperative"],
+      people: [["person+michael-nielsen", { role: "designer" }]],
+    },
   );
 
   lb.define(
@@ -1039,7 +1009,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+ansi-c", "pl+star-lisp"],
       paradigms: ["para+imperative", "para+multi", "para+parallel"],
-      people: [["person+thinking-machines", "designer"]],
+      people: [["person+thinking-machines", { role: "designer" }]],
       typeSystems: ["tsys+manifest", "tsys+static", "tsys+weak"],
     },
   );
@@ -1109,7 +1079,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+scratch"],
       licenses: ["lic+gnu-affero-gpl"],
-      people: [["person+wolfgang-slany", "designer"]],
+      people: [["person+wolfgang-slany", { role: "designer" }]],
       platforms: ["platf+android", "platf+ios"],
       typeSystems: ["tsys+dynamic"],
     },
@@ -1130,7 +1100,11 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "1992-01-01", kind: "first" }],
     },
-    { paradigms: ["para+objects"], people: [["person+craig-chambers", "designer"]], typeSystems: ["tsys+dynamic"] },
+    {
+      paradigms: ["para+objects"],
+      people: [["person+craig-chambers", { role: "designer" }]],
+      typeSystems: ["tsys+dynamic"],
+    },
   );
 
   lb.define(
@@ -1154,8 +1128,8 @@ export function define(g: PlangsGraph) {
     },
     {
       people: [
-        ["person+brooke-boering", "designer"],
-        ["person+vagabondo-enterprises", "developer"],
+        ["person+brooke-boering", { role: "designer" }],
+        ["person+vagabondo-enterprises", { role: "developer" }],
       ],
     },
   );
@@ -1219,7 +1193,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+c", "pl+pascal", "pl+rtl-slash2"],
       paradigms: ["para+structured"],
-      people: [["person+p-nowosad", "designer"]],
+      people: [["person+p-nowosad", { role: "designer" }]],
       platforms: ["platf+risc-os"],
     },
   );
@@ -1370,7 +1344,7 @@ export function define(g: PlangsGraph) {
     },
     {
       licenses: ["lic+apache", "lic+lgpl"],
-      people: [["person+clozure-associates", "developer"]],
+      people: [["person+clozure-associates", { role: "developer" }]],
       platforms: ["platf+cross-platform"],
     },
   );
@@ -1441,8 +1415,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+mit"],
       paradigms: ["para+multi", "para+objects"],
       people: [
-        ["person+charles-esterbrook", "designer"],
-        ["person+cobra-language-llc", "developer"],
+        ["person+charles-esterbrook", { role: "designer" }],
+        ["person+cobra-language-llc", { role: "developer" }],
       ],
       platforms: ["platf+.net", "platf+mono"],
       typeSystems: ["tsys+dynamic", "tsys+inferred", "tsys+static", "tsys+strong"],
@@ -1482,8 +1456,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+basic", "pl+pascal"],
       paradigms: ["para+structured"],
       people: [
-        ["person+b-rge-r-christensen", "designer"],
-        ["person+benedict-l-fstedt", "designer"],
+        ["person+b-rge-r-christensen", { role: "designer" }],
+        ["person+benedict-l-fstedt", { role: "designer" }],
       ],
       typeSystems: ["tsys+strong"],
     },
@@ -1502,7 +1476,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+algol"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+structured"],
-      people: [["person+christopher-strachey", "designer"]],
+      people: [["person+christopher-strachey", { role: "designer" }]],
     },
   );
 
@@ -1514,7 +1488,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "COMIT", href: "https://en.wikipedia.org/wiki/COMIT" }],
       releases: [{ version: "unknown", date: "1957-01-01", kind: "first" }],
     },
-    { people: [["person+victor-yngve", "designer"]] },
+    { people: [["person+victor-yngve", { role: "designer" }]] },
   );
 
   lb.define("pl+communicating-sequential-processes", "CSP", {
@@ -1536,7 +1510,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "COMTRAN", href: "https://en.wikipedia.org/wiki/COMTRAN" }],
       releases: [{ version: "unknown", date: "1957-01-01", kind: "first" }],
     },
-    { influences: ["pl+flow-matic"], people: [["person+bob-bemer", "developer"]] },
+    { influences: ["pl+flow-matic"], people: [["person+bob-bemer", { role: "developer" }]] },
   );
 
   lb.define(
@@ -1557,8 +1531,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+communicating-sequential-processes", "pl+euclid"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+structured"],
       people: [
-        ["person+james-cordy", "designer"],
-        ["person+ric-holt", "designer"],
+        ["person+james-cordy", { role: "designer" }],
+        ["person+ric-holt", { role: "designer" }],
       ],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+static", "tsys+strong"],
@@ -1588,7 +1562,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+prolog"],
       paradigms: ["para+constraint", "para+dec"],
-      people: [["person+thom-fruhwirth", "designer"]],
+      people: [["person+thom-fruhwirth", { role: "designer" }]],
     },
   );
 
@@ -1631,7 +1605,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "1984-01-01", kind: "first" }],
     },
-    { people: [["person+a-k-dewdney", "developer"]] },
+    { people: [["person+a-k-dewdney", { role: "developer" }]] },
   );
 
   lb.define("pl+cornell-university", "CUPL", {
@@ -1670,8 +1644,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+proprietary"],
       paradigms: ["para+imperative", "para+multi", "para+reflective", "para+structured"],
       people: [
-        ["person+robin-popplestone", "designer"],
-        ["person+rod-burstall", "designer"],
+        ["person+robin-popplestone", { role: "designer" }],
+        ["person+rod-burstall", { role: "designer" }],
       ],
       typeSystems: ["tsys+dynamic"],
     },
@@ -1813,7 +1787,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+swift"],
       licenses: ["lic+apache"],
       paradigms: ["para+functional", "para+scientific"],
-      people: [["person+jorgen-brandt", "designer"]],
+      people: [["person+jorgen-brandt", { role: "designer" }]],
       platforms: ["platf+linux", "platf+mac"],
       typeSystems: ["tsys+static"],
     },
@@ -1838,7 +1812,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+html", "pl+javascript", "pl+lisp"],
       licenses: ["lic+proprietary"],
       paradigms: ["para+markup", "para+multi", "para+objects"],
-      people: [["person+steve-ward", "designer"]],
+      people: [["person+steve-ward", { role: "designer" }]],
       platforms: ["platf+win"],
       typeSystems: ["tsys+strong"],
     },
@@ -1885,7 +1859,7 @@ export function define(g: PlangsGraph) {
     {
       licenses: ["lic+mit"],
       paradigms: ["para+functional", "para+imperative"],
-      people: [["person+k-rustan-m-leino", "designer"]],
+      people: [["person+k-rustan-m-leino", { role: "designer" }]],
       typeSystems: ["tsys+safe", "tsys+static", "tsys+strong"],
     },
   );
@@ -1901,7 +1875,7 @@ export function define(g: PlangsGraph) {
     {
       implementations: ["pl+assembly"],
       paradigms: ["para+imperative"],
-      people: [["person+john-g-kemeny", "designer"]],
+      people: [["person+john-g-kemeny", { role: "designer" }]],
     },
   );
 
@@ -1935,7 +1909,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+maple"],
       paradigms: ["para+imperative", "para+objects", "para+structured"],
-      people: [["person+gaston-gonnet", "designer"]],
+      people: [["person+gaston-gonnet", { role: "designer" }]],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );
@@ -2094,7 +2068,11 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "2024-01-01", kind: "stable" }],
     },
-    { licenses: ["lic+proprietary"], people: [["person+dassault-systemes", "developer"]], platforms: ["platf+x86-64"] },
+    {
+      licenses: ["lic+proprietary"],
+      people: [["person+dassault-systemes", { role: "developer" }]],
+      platforms: ["platf+x86-64"],
+    },
   );
 
   lb.define(
@@ -2112,7 +2090,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+java", "pl+joule"],
       licenses: ["lic+free"],
       paradigms: ["para+message", "para+multi", "para+objects"],
-      people: [["person+mark-s-miller", "designer"]],
+      people: [["person+mark-s-miller", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
@@ -2131,7 +2109,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+occam"],
       paradigms: ["para+concurrent", "para+csp"],
-      people: [["person+steven-ericsson-zenith", "designer"]],
+      people: [["person+steven-ericsson-zenith", { role: "designer" }]],
       platforms: ["platf+parallel-computing"],
       typeSystems: ["tsys+strong"],
     },
@@ -2226,13 +2204,13 @@ export function define(g: PlangsGraph) {
       influences: ["pl+algol", "pl+atlas-autocode"],
       paradigms: ["para+imperative", "para+structured"],
       people: [
-        ["person+david-rees", "designer"],
-        ["person+hamish-dewar", "designer"],
-        ["person+m-m-barritt", "designer"],
-        ["person+peter-d-schofield", "designer"],
-        ["person+peter-d-stephens", "designer"],
-        ["person+peter-robertson", "designer"],
-        ["person+roderick-mcleod", "designer"],
+        ["person+david-rees", { role: "designer" }],
+        ["person+hamish-dewar", { role: "designer" }],
+        ["person+m-m-barritt", { role: "designer" }],
+        ["person+peter-d-schofield", { role: "designer" }],
+        ["person+peter-d-stephens", { role: "designer" }],
+        ["person+peter-robertson", { role: "designer" }],
+        ["person+roderick-mcleod", { role: "designer" }],
       ],
       platforms: ["platf+dos", "platf+linux", "platf+win", "platf+x86"],
       typeSystems: ["tsys+static", "tsys+strong"],
@@ -2281,7 +2259,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+algol"],
       paradigms: ["para+imperative", "para+structured"],
-      people: [["person+cha-koster", "designer"]],
+      people: [["person+cha-koster", { role: "designer" }]],
       platforms: ["platf+zilog-z80"],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
@@ -2305,7 +2283,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+pascal", "pl+simula", "pl+simula-67", "pl+smalltalk"],
       paradigms: ["para+objects"],
-      people: [["person+henry-m-levy", "designer"]],
+      people: [["person+henry-m-levy", { role: "designer" }]],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
   );
@@ -2333,7 +2311,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+alf"],
       licenses: ["lic+mit"],
       paradigms: ["para+functional"],
-      people: [["person+conor-mcbride", "designer"]],
+      people: [["person+conor-mcbride", { role: "designer" }]],
       platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+dependent", "tsys+static", "tsys+strong"],
     },
@@ -2360,12 +2338,12 @@ export function define(g: PlangsGraph) {
       influences: ["pl+alphard", "pl+bcpl", "pl+clu", "pl+lis", "pl+mesa", "pl+modula", "pl+pascal"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+structured"],
       people: [
-        ["person+butler-lampson", "designer"],
-        ["person+gerald-j-popek", "designer"],
-        ["person+james-cordy", "developer"],
-        ["person+james-g-mitchell", "designer"],
-        ["person+jim-horning", "designer"],
-        ["person+ric-holt", "developer"],
+        ["person+butler-lampson", { role: "designer" }],
+        ["person+gerald-j-popek", { role: "designer" }],
+        ["person+james-cordy", { role: "developer" }],
+        ["person+james-g-mitchell", { role: "designer" }],
+        ["person+jim-horning", { role: "designer" }],
+        ["person+ric-holt", { role: "developer" }],
       ],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
@@ -2384,7 +2362,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+algol"],
       paradigms: ["para+imperative", "para+multi", "para+structured"],
-      people: [["person+niklaus-wirth", "designer"]],
+      people: [["person+niklaus-wirth", { role: "designer" }]],
       typeSystems: ["tsys+dynamic"],
     },
   );
@@ -2478,7 +2456,7 @@ export function define(g: PlangsGraph) {
         ],
       },
     },
-    { influences: ["pl+apl"], paradigms: ["para+function"], people: [["person+john-backus", "designer"]] },
+    { influences: ["pl+apl"], paradigms: ["para+function"], people: [["person+john-backus", { role: "designer" }]] },
   );
 
   lb.define(
@@ -2499,7 +2477,7 @@ export function define(g: PlangsGraph) {
     },
     {
       paradigms: ["para+objects"],
-      people: [["person+snorri-agnarsson", "designer"]],
+      people: [["person+snorri-agnarsson", { role: "designer" }]],
       platforms: ["platf+dos"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
@@ -2516,7 +2494,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+ffp", "pl+fp"],
       paradigms: ["para+function", "para+functional"],
-      people: [["person+john-backus", "designer"]],
+      people: [["person+john-backus", { role: "designer" }]],
       typeSystems: ["tsys+dynamic"],
     },
   );
@@ -2538,8 +2516,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+arith-matic", "pl+laning-and-zierler-system"],
       paradigms: ["para+imperative"],
       people: [
-        ["person+grace-hopper", "designer"],
-        ["person+remington-rand", "designer"],
+        ["person+grace-hopper", { role: "designer" }],
+        ["person+remington-rand", { role: "designer" }],
       ],
     },
   );
@@ -2554,7 +2532,11 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "1968-01-01", kind: "first" }],
     },
-    { influences: ["pl+joss"], paradigms: ["para+imperative"], people: [["person+richard-merrill", "designer"]] },
+    {
+      influences: ["pl+joss"],
+      paradigms: ["para+imperative"],
+      people: [["person+richard-merrill", { role: "designer" }]],
+    },
   );
 
   lb.define(
@@ -2616,7 +2598,7 @@ export function define(g: PlangsGraph) {
         { version: "1.0", kind: "stable" },
       ],
     },
-    { influences: ["pl+c"], people: [["person+john-bass", "developer"]], platforms: ["platf+fpga"] },
+    { influences: ["pl+c"], people: [["person+john-bass", { role: "developer" }]], platforms: ["platf+fpga"] },
   );
 
   lb.define(
@@ -2810,7 +2792,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+boo", "pl+d", "pl+pascal", "pl+python"],
       licenses: ["lic+lgpl"],
       paradigms: ["para+imperative", "para+multi", "para+objects", "para+structured"],
-      people: [["person+jamie-mccracken", "designer"]],
+      people: [["person+jamie-mccracken", { role: "designer" }]],
       platforms: ["platf+cross-platform", "platf+glib"],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
@@ -2848,7 +2830,7 @@ export function define(g: PlangsGraph) {
         ],
       },
     },
-    { licenses: ["lic+gpl"], people: [["person+marc-schellens", "developer"]] },
+    { licenses: ["lic+gpl"], people: [["person+marc-schellens", { role: "developer" }]] },
   );
 
   lb.define(
@@ -2902,7 +2884,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+prolog"],
       licenses: ["lic+gpl-2"],
       paradigms: ["para+concurrent", "para+functional", "para+imperative", "para+logic", "para+multi", "para+objects"],
-      people: [["person+keith-clark", "designer"]],
+      people: [["person+keith-clark", { role: "designer" }]],
       platforms: ["platf+unix"],
       typeSystems: ["tsys+strong"],
     },
@@ -2929,8 +2911,8 @@ export function define(g: PlangsGraph) {
     {
       paradigms: ["para+dec", "para+logic"],
       people: [
-        ["person+john-lloyd", "designer"],
-        ["person+patricia-hill", "designer"],
+        ["person+john-lloyd", { role: "designer" }],
+        ["person+patricia-hill", { role: "designer" }],
       ],
       platforms: ["platf+unix"],
       typeSystems: ["tsys+strong"],
@@ -2961,7 +2943,7 @@ export function define(g: PlangsGraph) {
     },
     {
       licenses: ["lic+eclipse-public"],
-      people: [["person+insa-lyon", "developer"]],
+      people: [["person+insa-lyon", { role: "developer" }]],
       platforms: ["platf+cross-platform", "platf+jvm"],
       typeSystems: ["tsys+dynamic", "tsys+weak"],
     },
@@ -3002,7 +2984,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1961-01-01", kind: "first" }],
       extensions: [".gps"],
     },
-    { people: [["person+geoffrey-gordon", "designer"]] },
+    { people: [["person+geoffrey-gordon", { role: "designer" }]] },
   );
 
   lb.define("pl+graalvm", "TruffleRuby", {
@@ -3095,7 +3077,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+c", "pl+communicating-sequential-processes", "pl+occam"],
       paradigms: ["para+concurrent", "para+imperative", "para+structured"],
-      people: [["person+siemens-eda", "developer"]],
+      people: [["person+siemens-eda", { role: "developer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+inferred", "tsys+manifest", "tsys+nominative", "tsys+static"],
     },
@@ -3121,8 +3103,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+open-source"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects", "para+reflective"],
       people: [
-        ["person+antonio-linares", "designer"],
-        ["person+viktor-szakats", "developer"],
+        ["person+antonio-linares", { role: "designer" }],
+        ["person+viktor-szakats", { role: "developer" }],
       ],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+safe", "tsys+strong"],
@@ -3181,7 +3163,7 @@ export function define(g: PlangsGraph) {
         { version: "6.0", date: "2022-05-16", kind: "stable" },
       ],
     },
-    { licenses: ["lic+proprietary"], people: [["person+andreas-falkenhahn", "developer"]] },
+    { licenses: ["lic+proprietary"], people: [["person+andreas-falkenhahn", { role: "developer" }]] },
   );
 
   lb.define(
@@ -3211,7 +3193,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+scheme"],
       licenses: ["lic+gpl-3"],
       paradigms: ["para+multi"],
-      people: [["person+manuel-serrano", "designer"]],
+      people: [["person+manuel-serrano", { role: "designer" }]],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );
@@ -3253,9 +3235,9 @@ export function define(g: PlangsGraph) {
       influences: ["pl+haskell"],
       paradigms: ["para+functional"],
       people: [
-        ["person+andrew-ireland", "designer"],
-        ["person+andy-wallace", "designer"],
-        ["person+greg-michaelson", "designer"],
+        ["person+andrew-ireland", { role: "designer" }],
+        ["person+andy-wallace", { role: "designer" }],
+        ["person+greg-michaelson", { role: "designer" }],
       ],
       platforms: ["platf+ia-32", "platf+linux", "platf+mac", "platf+red-hat"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
@@ -3411,7 +3393,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+gnu-data"],
       influences: ["pl+fortran"],
       paradigms: ["para+array"],
-      people: [["person+david-stern", "designer"]],
+      people: [["person+david-stern", { role: "designer" }]],
       typeSystems: ["tsys+dynamic"],
     },
   );
@@ -3433,8 +3415,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+proprietary"],
       paradigms: ["para+extensible", "para+imperative", "para+multi", "para+structured"],
       people: [
-        ["person+edgar-t-irons", "designer"],
-        ["person+national-security-agency", "developer"],
+        ["person+edgar-t-irons", { role: "designer" }],
+        ["person+national-security-agency", { role: "developer" }],
       ],
       platforms: ["platf+unix"],
       typeSystems: ["tsys+static", "tsys+strong"],
@@ -3470,9 +3452,9 @@ export function define(g: PlangsGraph) {
     {
       paradigms: ["para+assembly"],
       people: [
-        ["person+allen-newell", "designer"],
-        ["person+cliff-shaw", "designer"],
-        ["person+herbert-a-simon", "designer"],
+        ["person+allen-newell", { role: "designer" }],
+        ["person+cliff-shaw", { role: "designer" }],
+        ["person+herbert-a-simon", { role: "designer" }],
       ],
       platforms: ["platf+cross-platform"],
     },
@@ -3614,7 +3596,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+algol", "pl+lisp"],
       paradigms: ["para+functional", "para+imperative"],
-      people: [["person+peter-landin", "designer"]],
+      people: [["person+peter-landin", { role: "designer" }]],
     },
   );
 
@@ -3646,10 +3628,10 @@ export function define(g: PlangsGraph) {
     {
       paradigms: ["para+imperative", "para+reversible"],
       people: [
-        ["person+christopher-lutz", "designer"],
-        ["person+howard-derby", "designer"],
-        ["person+robert-gluck", "designer"],
-        ["person+tetsuo-yokoyama", "designer"],
+        ["person+christopher-lutz", { role: "designer" }],
+        ["person+howard-derby", { role: "designer" }],
+        ["person+robert-gluck", { role: "designer" }],
+        ["person+tetsuo-yokoyama", { role: "designer" }],
       ],
     },
   );
@@ -3679,7 +3661,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+sql"],
       licenses: ["lic+apache"],
-      people: [["person+data-geekery-gmbh", "developer"]],
+      people: [["person+data-geekery-gmbh", { role: "developer" }]],
       platforms: ["platf+jvm"],
     },
   );
@@ -3732,7 +3714,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "2.10", date: "2019-03-22", kind: "stable" }],
     },
-    { licenses: ["lic+proprietary"], people: [["person+modelon-ab", "developer"]] },
+    { licenses: ["lic+proprietary"], people: [["person+modelon-ab", { role: "developer" }]] },
   );
 
   lb.define(
@@ -3761,7 +3743,7 @@ export function define(g: PlangsGraph) {
       dialects: ["pl+focal"],
       implementations: ["pl+assembly"],
       paradigms: ["para+imperative", "para+non"],
-      people: [["person+cliff-shaw", "designer"]],
+      people: [["person+cliff-shaw", { role: "designer" }]],
     },
   );
 
@@ -3778,7 +3760,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+actor-model", "pl+t"],
       paradigms: ["para+dataflow", "para+distributed", "para+multi", "para+objects"],
-      people: [["person+e-dean-tribble", "designer"]],
+      people: [["person+e-dean-tribble", { role: "designer" }]],
     },
   );
 
@@ -3825,8 +3807,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+ffp", "pl+forth", "pl+fp", "pl+scheme"],
       paradigms: ["para+concatenative", "para+functional", "para+multi", "para+stack"],
       people: [
-        ["person+john-cowan", "developer"],
-        ["person+manfred-von-thun", "designer"],
+        ["person+john-cowan", { role: "developer" }],
+        ["person+manfred-von-thun", { role: "designer" }],
       ],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
@@ -3897,8 +3879,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+bsd"],
       paradigms: ["para+functional", "para+generic", "para+imperative", "para+objects", "para+structured"],
       people: [
-        ["person+anton-rapetov", "designer"],
-        ["person+roger-poon", "designer"],
+        ["person+anton-rapetov", { role: "designer" }],
+        ["person+roger-poon", { role: "designer" }],
       ],
       typeSystems: ["tsys+dynamic", "tsys+gradual", "tsys+static"],
     },
@@ -3947,7 +3929,11 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "1981-01-01", kind: "first" }],
     },
-    { influences: ["pl+pascal"], paradigms: ["para+imperative"], people: [["person+richard-e-pattis", "designer"]] },
+    {
+      influences: ["pl+pascal"],
+      paradigms: ["para+imperative"],
+      people: [["person+richard-e-pattis", { role: "designer" }]],
+    },
   );
 
   lb.define(
@@ -3958,7 +3944,11 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "KRC", href: "https://en.wikipedia.org/wiki/Kent_Recursive_Calculator" }],
       releases: [{ version: "unknown", date: "1981-01-01", kind: "first" }],
     },
-    { influences: ["pl+sasl"], paradigms: ["para+functional"], people: [["person+david-turner", "designer"]] },
+    {
+      influences: ["pl+sasl"],
+      paradigms: ["para+functional"],
+      people: [["person+david-turner", { role: "designer" }]],
+    },
   );
 
   lb.define(
@@ -4041,8 +4031,8 @@ export function define(g: PlangsGraph) {
     {
       paradigms: ["para+knowledge"],
       people: [
-        ["person+daniel-g-bobrow", "developer"],
-        ["person+terry-winograd", "developer"],
+        ["person+daniel-g-bobrow", { role: "developer" }],
+        ["person+terry-winograd", { role: "developer" }],
       ],
     },
   );
@@ -4137,7 +4127,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+alef", "pl+c", "pl+communicating-sequential-processes", "pl+newsqueak", "pl+pascal"],
       licenses: ["lic+gpl"],
       paradigms: ["para+concurrent"],
-      people: [["person+rob-pike", "designer"]],
+      people: [["person+rob-pike", { role: "designer" }]],
       typeSystems: ["tsys+strong"],
     },
   );
@@ -4191,7 +4181,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+linux", "pl+mac-os-x", "pl+win"],
       influences: ["pl+lisp"],
       paradigms: ["para+functional"],
-      people: [["person+aneil-mallavarapu", "designer"]],
+      people: [["person+aneil-mallavarapu", { role: "designer" }]],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );
@@ -4219,7 +4209,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+objective-c", "pl+prolog", "pl+smalltalk"],
       licenses: ["lic+apache", "lic+artistic-2"],
       paradigms: ["para+logic", "para+objects", "para+prototypes"],
-      people: [["person+paulo-moura", "designer"]],
+      people: [["person+paulo-moura", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
     },
   );
@@ -4253,8 +4243,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+iswim"],
       paradigms: ["para+dataflow"],
       people: [
-        ["person+edward-a-ashcroft", "designer"],
-        ["person+william-w-wadge", "designer"],
+        ["person+edward-a-ashcroft", { role: "designer" }],
+        ["person+william-w-wadge", { role: "designer" }],
       ],
     },
   );
@@ -4281,7 +4271,7 @@ export function define(g: PlangsGraph) {
     },
     {
       paradigms: ["para+functional", "para+modular", "para+structured"],
-      people: [["person+arkady-dzakrevskij", "designer"]],
+      people: [["person+arkady-dzakrevskij", { role: "designer" }]],
       typeSystems: ["tsys+dynamic"],
     },
   );
@@ -4298,8 +4288,8 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+gnu-m4"],
       paradigms: ["para+macros"],
       people: [
-        ["person+brian-kernighan", "designer"],
-        ["person+dennis-ritchie", "designer"],
+        ["person+brian-kernighan", { role: "designer" }],
+        ["person+dennis-ritchie", { role: "designer" }],
       ],
     },
   );
@@ -4338,9 +4328,9 @@ export function define(g: PlangsGraph) {
       influences: ["pl+algol"],
       paradigms: ["para+imperative", "para+structured"],
       people: [
-        ["person+bernard-galler", "designer"],
-        ["person+bruce-arden", "designer"],
-        ["person+robert-m-graham", "designer"],
+        ["person+bernard-galler", { role: "designer" }],
+        ["person+bruce-arden", { role: "designer" }],
+        ["person+robert-m-graham", { role: "designer" }],
       ],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
@@ -4377,7 +4367,7 @@ export function define(g: PlangsGraph) {
       },
       releases: [{ version: "2.27", date: "2023-02-22", kind: "stable" }],
     },
-    { people: [["person+school-of-mathematics", "developer"]] },
+    { people: [["person+school-of-mathematics", { role: "developer" }]] },
   );
 
   lb.define("pl+maker-culture", "Maker Culture", {
@@ -4404,7 +4394,10 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1998-01-01", kind: "first" }],
       extensions: [".mal", ".mb"],
     },
-    { influences: ["pl+befunge", "pl+brainfuck", "pl+intercal"], people: [["person+ben-olmstead", "designer"]] },
+    {
+      influences: ["pl+befunge", "pl+brainfuck", "pl+intercal"],
+      people: [["person+ben-olmstead", { role: "designer" }]],
+    },
   );
 
   lb.define("pl+maplesim", "MapleSim", {
@@ -4425,7 +4418,11 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "MATH-MATIC", href: "https://en.wikipedia.org/wiki/MATH-MATIC" }],
       releases: [{ version: "unknown", date: "1957-01-01", kind: "first" }],
     },
-    { influences: ["pl+flow-matic"], paradigms: ["para+imperative"], people: [["person+remington-rand", "designer"]] },
+    {
+      influences: ["pl+flow-matic"],
+      paradigms: ["para+imperative"],
+      people: [["person+remington-rand", { role: "designer" }]],
+    },
   );
 
   lb.define(
@@ -4452,9 +4449,9 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+open-source"],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi", "para+reflection"],
       people: [
-        ["person+bruce-daniels", "designer"],
-        ["person+carl-hewitt", "designer"],
-        ["person+gerald-sussman", "designer"],
+        ["person+bruce-daniels", { role: "designer" }],
+        ["person+carl-hewitt", { role: "designer" }],
+        ["person+gerald-sussman", { role: "designer" }],
       ],
       platforms: ["platf+bsd"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
@@ -4511,7 +4508,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+boo", "pl+java", "pl+ruby"],
       licenses: ["lic+apache"],
       paradigms: ["para+imperative", "para+objects"],
-      people: [["person+charles-oliver-nutter", "designer"]],
+      people: [["person+charles-oliver-nutter", { role: "designer" }]],
       platforms: ["platf+cross-platform", "platf+jvm"],
       typeSystems: ["tsys+dynamic", "tsys+inferred", "tsys+static", "tsys+strong"],
     },
@@ -4677,8 +4674,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+fortran", "pl+joss", "pl+speedcoding", "pl+telcomp"],
       paradigms: ["para+imperative"],
       people: [
-        ["person+neil-pappalardo", "designer"],
-        ["person+robert-a-greenes", "designer"],
+        ["person+neil-pappalardo", { role: "designer" }],
+        ["person+robert-a-greenes", { role: "designer" }],
       ],
       platforms: ["platf+cross-platform"],
     },
@@ -4707,7 +4704,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+algol"],
       paradigms: ["para+imperative", "para+multi", "para+structured"],
-      people: [["person+ron-morrison", "designer"]],
+      people: [["person+ron-morrison", { role: "designer" }]],
     },
   );
 
@@ -4732,8 +4729,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+mit"],
       paradigms: ["para+multi", "para+objects", "para+prototypes", "para+scripting", "para+structured"],
       people: [
-        ["person+motion-twin", "developer"],
-        ["person+nicolas-cannasse", "designer"],
+        ["person+motion-twin", { role: "developer" }],
+        ["person+nicolas-cannasse", { role: "designer" }],
       ],
       platforms: ["platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+dynamic"],
@@ -4831,7 +4828,7 @@ export function define(g: PlangsGraph) {
         written_in: [{ href: "https://github.com/netwide-assembler/nasm", title: "NASM, the Netwide Assembler" }],
       },
     },
-    { licenses: ["lic+bsd-s"], people: [["person+h-peter-anvin", "developer"]] },
+    { licenses: ["lic+bsd-s"], people: [["person+h-peter-anvin", { role: "developer" }]] },
   );
 
   lb.define(
@@ -4864,7 +4861,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+c", "pl+communicating-sequential-processes"],
       paradigms: ["para+concurrent"],
-      people: [["person+rob-pike", "designer"]],
+      people: [["person+rob-pike", { role: "designer" }]],
       typeSystems: ["tsys+strong"],
     },
   );
@@ -4880,7 +4877,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+dylan", "pl+self", "pl+smalltalk"],
       paradigms: ["para+objects", "para+prototypes"],
-      people: [["person+walter-smith", "designer"]],
+      people: [["person+walter-smith", { role: "designer" }]],
       typeSystems: ["tsys+dynamic"],
     },
   );
@@ -4905,7 +4902,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+apl", "pl+lisp"],
       licenses: ["lic+gpl-3"],
       paradigms: ["para+array"],
-      people: [["person+mike-jenkins", "designer"]],
+      people: [["person+mike-jenkins", { role: "designer" }]],
       typeSystems: ["tsys+dynamic"],
     },
   );
@@ -4983,7 +4980,7 @@ export function define(g: PlangsGraph) {
     {
       licenses: ["lic+proprietary"],
       paradigms: ["para+imperative"],
-      people: [["person+norsk-data", "developer"]],
+      people: [["person+norsk-data", { role: "developer" }]],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
   );
@@ -5024,7 +5021,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+lisp", "pl+objective-c", "pl+objective-cpp", "pl+ruby"],
       licenses: ["lic+apache"],
       paradigms: ["para+functional", "para+imperative", "para+objects", "para+structured"],
-      people: [["person+tim-burks", "designer"]],
+      people: [["person+tim-burks", { role: "designer" }]],
       platforms: ["platf+mac", "platf+x86"],
       typeSystems: ["tsys+dynamic"],
     },
@@ -5061,9 +5058,9 @@ export function define(g: PlangsGraph) {
       influences: ["pl+lisp"],
       paradigms: ["para+educational", "para+functional", "para+imperative", "para+multi", "para+reflective"],
       people: [
-        ["person+cynthia-solomon", "designer"],
-        ["person+seymour-papert", "designer"],
-        ["person+wally-feurzeig", "designer"],
+        ["person+cynthia-solomon", { role: "designer" }],
+        ["person+seymour-papert", { role: "designer" }],
+        ["person+wally-feurzeig", { role: "designer" }],
       ],
       typeSystems: ["tsys+dynamic"],
     },
@@ -5096,7 +5093,7 @@ export function define(g: PlangsGraph) {
         "para+prototypes",
         "para+structured",
       ],
-      people: [["person+luca-cardelli", "designer"]],
+      people: [["person+luca-cardelli", { role: "designer" }]],
       platforms: ["platf+ia-32"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
@@ -5125,7 +5122,7 @@ export function define(g: PlangsGraph) {
       dialects: ["pl+occam--"],
       influences: ["pl+communicating-sequential-processes"],
       paradigms: ["para+concurrent", "para+imperative"],
-      people: [["person+david-may", "designer"]],
+      people: [["person+david-may", { role: "designer" }]],
     },
   );
 
@@ -5140,8 +5137,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+occam"],
       paradigms: ["para+concurrent", "para+imperative"],
       people: [
-        ["person+fred-barnes", "designer"],
-        ["person+peter-welch", "designer"],
+        ["person+fred-barnes", { role: "designer" }],
+        ["person+peter-welch", { role: "designer" }],
       ],
       platforms: ["platf+arduino", "platf+ia-32"],
     },
@@ -5185,9 +5182,9 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+lgpl"],
       paradigms: ["para+embedded", "para+imperative", "para+structured"],
       people: [
-        ["person+colly-myers", "designer"],
-        ["person+martin-stamp", "designer"],
-        ["person+richard-harrison", "designer"],
+        ["person+colly-myers", { role: "designer" }],
+        ["person+martin-stamp", { role: "designer" }],
+        ["person+richard-harrison", { role: "designer" }],
       ],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
@@ -5326,8 +5323,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+bsd-n"],
       paradigms: ["para+concurrent", "para+nondeterministic"],
       people: [
-        ["person+jayadev-misra", "designer"],
-        ["person+william-r-cook", "developer"],
+        ["person+jayadev-misra", { role: "designer" }],
+        ["person+william-r-cook", { role: "developer" }],
       ],
     },
   );
@@ -5360,8 +5357,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+miranda"],
       paradigms: ["para+functional", "para+lazy"],
       people: [
-        ["person+martin-raskovsky", "developer"],
-        ["person+philip-wadler", "designer"],
+        ["person+martin-raskovsky", { role: "developer" }],
+        ["person+philip-wadler", { role: "designer" }],
       ],
     },
   );
@@ -5435,7 +5432,7 @@ export function define(g: PlangsGraph) {
         "para+multi",
         "para+objects",
       ],
-      people: [["person+gert-smolka", "designer"]],
+      people: [["person+gert-smolka", { role: "designer" }]],
       typeSystems: ["tsys+dynamic"],
     },
   );
@@ -5469,7 +5466,7 @@ export function define(g: PlangsGraph) {
     {
       dialects: ["pl+brainfuck"],
       paradigms: ["para+imperative", "para+structured"],
-      people: [["person+corrado-bohm", "designer"]],
+      people: [["person+corrado-bohm", { role: "designer" }]],
     },
   );
 
@@ -5503,7 +5500,7 @@ export function define(g: PlangsGraph) {
       },
       releases: [{ version: "2.15.5", date: "2024-01-01", kind: "stable" }],
     },
-    { licenses: ["lic+gpl"], people: [["person+henri-cohen", "developer"]] },
+    { licenses: ["lic+gpl"], people: [["person+henri-cohen", { role: "developer" }]] },
   );
 
   lb.define("pl+parrot-virtual-machine", "Parrot", {
@@ -5555,7 +5552,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+c", "pl+r"],
       licenses: ["lic+lgpl"],
       paradigms: ["para+imperative", "para+reflective"],
-      people: [["person+philippe-choquette", "designer"]],
+      people: [["person+philippe-choquette", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
     },
   );
@@ -5605,7 +5602,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+apl", "pl+idl", "pl+perl"],
       licenses: ["lic+artistic", "lic+gpl"],
       paradigms: ["para+array"],
-      people: [["person+karl-glazebrook", "developer"]],
+      people: [["person+karl-glazebrook", { role: "developer" }]],
       platforms: ["platf+cross-platform"],
     },
   );
@@ -5634,8 +5631,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+scheme", "pl+smalltalk"],
       paradigms: ["para+imperative", "para+reflective"],
       people: [
-        ["person+theo-d-hondt", "designer"],
-        ["person+wolfgang-de-meuter", "designer"],
+        ["person+theo-d-hondt", { role: "designer" }],
+        ["person+wolfgang-de-meuter", { role: "designer" }],
       ],
       platforms: ["platf+bsd", "platf+ia-32", "platf+linux", "platf+mac", "platf+win", "platf+x86-64"],
     },
@@ -5660,7 +5657,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+ml"],
       licenses: ["lic+gpl"],
       paradigms: ["para+concurrent"],
-      people: [["person+benjamin-c-pierce", "developer"]],
+      people: [["person+benjamin-c-pierce", { role: "developer" }]],
       typeSystems: ["tsys+static"],
     },
   );
@@ -5686,7 +5683,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+c", "pl+cpp", "pl+lpc"],
       licenses: ["lic+gpl", "lic+lgpl", "lic+mozilla-public"],
       paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects"],
-      people: [["person+fredrik-hubinette", "designer"]],
+      people: [["person+fredrik-hubinette", { role: "designer" }]],
       platforms: ["platf+unix", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+manifest", "tsys+static"],
     },
@@ -5782,7 +5779,7 @@ export function define(g: PlangsGraph) {
         "pl+xpl",
       ],
       paradigms: ["para+educational", "para+imperative", "para+structured"],
-      people: [["person+gary-kildall", "developer"]],
+      people: [["person+gary-kildall", { role: "developer" }]],
       typeSystems: ["tsys+strong"],
     },
   );
@@ -5806,7 +5803,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+algol"],
       influences: ["pl+algol", "pl+executive-systems-problem-oriented"],
       paradigms: ["para+imperative", "para+structured"],
-      people: [["person+niklaus-wirth", "designer"]],
+      people: [["person+niklaus-wirth", { role: "designer" }]],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
   );
@@ -5818,7 +5815,7 @@ export function define(g: PlangsGraph) {
     {
       licenses: ["lic+proprietary"],
       paradigms: ["para+imperative", "para+structured"],
-      people: [["person+norsk-data", "developer"]],
+      people: [["person+norsk-data", { role: "developer" }]],
       platforms: ["platf+x86"],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
@@ -5845,7 +5842,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+free-university-of-berlin"],
       influences: ["pl+begriffsschrift"],
       paradigms: ["para+imperative"],
-      people: [["person+konrad-zuse", "designer"]],
+      people: [["person+konrad-zuse", { role: "designer" }]],
     },
   );
 
@@ -5862,7 +5859,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+mdl"],
       paradigms: ["para+imperative", "para+logic", "para+multi"],
-      people: [["person+carl-hewitt", "designer"]],
+      people: [["person+carl-hewitt", { role: "designer" }]],
     },
   );
 
@@ -5876,7 +5873,11 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "1970-01-01", kind: "first" }],
     },
-    { licenses: ["lic+proprietary"], paradigms: ["para+imperative"], people: [["person+goran-hemdahl", "developer"]] },
+    {
+      licenses: ["lic+proprietary"],
+      paradigms: ["para+imperative"],
+      people: [["person+goran-hemdahl", { role: "developer" }]],
+    },
   );
 
   lb.define(
@@ -5921,43 +5922,6 @@ export function define(g: PlangsGraph) {
   });
 
   lb.define(
-    "pl+pop-11",
-    "POP-11",
-    {
-      name: "POP-11",
-      websites: [
-        { kind: "wikipedia", title: "11", href: "https://en.wikipedia.org/wiki/POP-11" },
-        {
-          kind: "homepage",
-          title: "www.cs.bham.ac.uk/research/projects/poplog/poplog.info.html",
-          href: "http://www.cs.bham.ac.uk/research/projects/poplog/poplog.info.html",
-        },
-      ],
-      releases: [
-        { version: "unknown", date: "1975-01-01", kind: "first" },
-        { version: "unknown", date: "2020-01-01", kind: "stable" },
-      ],
-    },
-    {
-      influences: ["pl+lisp", "pl+pop-2"],
-      licenses: ["lic+mit", "lic+open-source", "lic+proprietary", "lic+xfree86"],
-      paradigms: ["para+dec", "para+functional", "para+imperative", "para+multi", "para+reflective", "para+structured"],
-      people: [["person+robin-popplestone", "designer"]],
-      platforms: [
-        "platf+cross-platform",
-        "platf+ia-32",
-        "platf+linux",
-        "platf+mac",
-        "platf+openvms",
-        "platf+unix",
-        "platf+win",
-        "platf+x86-64",
-      ],
-      typeSystems: ["tsys+dynamic"],
-    },
-  );
-
-  lb.define(
     "pl+pop-2",
     "POP-2",
     {
@@ -5974,8 +5938,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+proprietary"],
       paradigms: ["para+imperative", "para+multi", "para+reflective", "para+structured"],
       people: [
-        ["person+robin-popplestone", "designer"],
-        ["person+rod-burstall", "designer"],
+        ["person+robin-popplestone", { role: "designer" }],
+        ["person+rod-burstall", { role: "designer" }],
       ],
       platforms: ["platf+unix"],
       typeSystems: ["tsys+dynamic"],
@@ -6111,8 +6075,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+gpl", "lic+lgpl"],
       paradigms: ["para+objects"],
       people: [
-        ["person+ben-fry", "designer"],
-        ["person+casey-reas", "designer"],
+        ["person+ben-fry", { role: "designer" }],
+        ["person+casey-reas", { role: "designer" }],
       ],
     },
   );
@@ -6134,7 +6098,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+mumps"],
       paradigms: ["para+imperative"],
-      people: [["person+frank-sanchez", "designer"]],
+      people: [["person+frank-sanchez", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
     },
   );
@@ -6221,7 +6185,7 @@ export function define(g: PlangsGraph) {
     },
     {
       influences: ["pl+basic"],
-      people: [["person+michael-f-king", "designer"]],
+      people: [["person+michael-f-king", { role: "designer" }]],
       platforms: ["platf+linux", "platf+mac", "platf+unix", "platf+win"],
       typeSystems: ["tsys+strong"],
     },
@@ -6261,7 +6225,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+patcher"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+dataflow"],
-      people: [["person+miller-s-puckette", "designer"]],
+      people: [["person+miller-s-puckette", { role: "designer" }]],
       platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
     },
   );
@@ -6291,7 +6255,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+visual-foxpro"],
       licenses: ["lic+gpl"],
       paradigms: ["para+imperative", "para+multi", "para+objects", "para+visual"],
-      people: [["person+mahmoud-samir-fayed", "designer"]],
+      people: [["person+mahmoud-samir-fayed", { role: "designer" }]],
       platforms: ["platf+win"],
     },
   );
@@ -6336,7 +6300,7 @@ export function define(g: PlangsGraph) {
         "para+shared",
         "para+thread",
       ],
-      people: [["person+david-nichols", "designer"]],
+      people: [["person+david-nichols", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+optional"],
     },
@@ -6358,7 +6322,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+c"],
       paradigms: ["para+imperative", "para+structured"],
-      people: [["person+john-carmack", "designer"]],
+      people: [["person+john-carmack", { role: "designer" }]],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
   );
@@ -6420,7 +6384,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+algol", "pl+pop-2", "pl+setl"],
       paradigms: ["para+imperative", "para+structured"],
-      people: [["person+andrey-ershov", "designer"]],
+      people: [["person+andrey-ershov", { role: "designer" }]],
       platforms: ["platf+intel-8080", "platf+zilog-z80"],
       typeSystems: ["tsys+dynamic"],
     },
@@ -6441,7 +6405,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "1976-01-01", kind: "first" }],
     },
-    { influences: ["pl+c", "pl+fortran"], people: [["person+brian-kernighan", "developer"]] },
+    { influences: ["pl+c", "pl+fortran"], people: [["person+brian-kernighan", { role: "developer" }]] },
   );
 
   lb.define(
@@ -6487,9 +6451,9 @@ export function define(g: PlangsGraph) {
     {
       paradigms: ["para+pattern", "para+term"],
       people: [
-        ["person+s-florentsev", "developer"],
-        ["person+v-olyunin", "developer"],
-        ["person+valentin-turchin", "designer"],
+        ["person+s-florentsev", { role: "developer" }],
+        ["person+v-olyunin", { role: "developer" }],
+        ["person+valentin-turchin", { role: "designer" }],
       ],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
@@ -6576,7 +6540,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+algol"],
       paradigms: ["para+imperative", "para+multi", "para+real", "para+structured"],
-      people: [["person+jgp-barnes", "designer"]],
+      people: [["person+jgp-barnes", { role: "designer" }]],
       platforms: ["platf+cross-platform", "platf+openvms"],
       typeSystems: ["tsys+safe", "tsys+static", "tsys+strong", "tsys+structural"],
     },
@@ -6601,8 +6565,8 @@ export function define(g: PlangsGraph) {
     {
       licenses: ["lic+mozilla-public"],
       people: [
-        ["person+brian-shirai", "developer"],
-        ["person+evan-phoenix", "developer"],
+        ["person+brian-shirai", { role: "developer" }],
+        ["person+evan-phoenix", { role: "developer" }],
       ],
     },
   );
@@ -6628,9 +6592,9 @@ export function define(g: PlangsGraph) {
       influences: ["pl+apl", "pl+c", "pl+fortran", "pl+scheme"],
       paradigms: ["para+imperative", "para+multi", "para+objects"],
       people: [
-        ["person+john-chambers", "developer"],
-        ["person+trevor-hastie", "developer"],
-        ["person+william-s-cleveland", "developer"],
+        ["person+john-chambers", { role: "developer" }],
+        ["person+trevor-hastie", { role: "developer" }],
+        ["person+william-s-cleveland", { role: "developer" }],
       ],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
@@ -6684,8 +6648,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+free"],
       paradigms: ["para+array", "para+functional"],
       people: [
-        ["person+clemens-grelck", "designer"],
-        ["person+sven-bodo-scholz", "designer"],
+        ["person+clemens-grelck", { role: "designer" }],
+        ["person+sven-bodo-scholz", { role: "designer" }],
       ],
       platforms: ["platf+posix", "platf+unix"],
       typeSystems: ["tsys+static", "tsys+strong"],
@@ -6709,8 +6673,8 @@ export function define(g: PlangsGraph) {
     },
     {
       people: [
-        ["person+dan-swinehart", "designer"],
-        ["person+robert-sproull", "designer"],
+        ["person+dan-swinehart", { role: "designer" }],
+        ["person+robert-sproull", { role: "designer" }],
       ],
     },
   );
@@ -6767,7 +6731,11 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "1972-01-01", kind: "first" }],
     },
-    { influences: ["pl+iswim"], paradigms: ["para+functional"], people: [["person+david-turner", "designer"]] },
+    {
+      influences: ["pl+iswim"],
+      paradigms: ["para+functional"],
+      people: [["person+david-turner", { role: "designer" }]],
+    },
   );
 
   lb.define(
@@ -6792,7 +6760,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+clu", "pl+common-lisp", "pl+eiffel", "pl+scheme"],
       paradigms: ["para+functional", "para+objects"],
-      people: [["person+steve-omohundro", "designer"]],
+      people: [["person+steve-omohundro", { role: "designer" }]],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
   );
@@ -6906,7 +6874,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+c"],
       influences: ["pl+ed"],
       paradigms: ["para+scripting"],
-      people: [["person+lee-e-mcmahon", "designer"]],
+      people: [["person+lee-e-mcmahon", { role: "designer" }]],
     },
   );
 
@@ -6942,7 +6910,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+hypertalk", "pl+xtalk"],
       licenses: ["lic+proprietary"],
       paradigms: ["para+multi", "para+objects", "para+people"],
-      people: [["person+douglas-simons", "designer"]],
+      people: [["person+douglas-simons", { role: "designer" }]],
       typeSystems: ["tsys+duck"],
     },
   );
@@ -6967,9 +6935,9 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+proprietary"],
       paradigms: ["para+dec", "para+functional", "para+parallel"],
       people: [
-        ["person+dr-brad-nemanich", "designer"],
-        ["person+dr-daniel-cooke", "designer"],
-        ["person+dr-nelson-rushton", "designer"],
+        ["person+dr-brad-nemanich", { role: "designer" }],
+        ["person+dr-daniel-cooke", { role: "designer" }],
+        ["person+dr-nelson-rushton", { role: "designer" }],
       ],
       platforms: ["platf+arm", "platf+linux", "platf+mac", "platf+win", "platf+x86"],
       typeSystems: ["tsys+inferred", "tsys+static"],
@@ -6993,7 +6961,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+algol"],
       paradigms: ["para+imperative", "para+multi", "para+objects", "para+structured"],
-      people: [["person+jacob-t-schwartz", "designer"]],
+      people: [["person+jacob-t-schwartz", { role: "designer" }]],
       typeSystems: ["tsys+dynamic"],
     },
   );
@@ -7045,9 +7013,9 @@ export function define(g: PlangsGraph) {
     },
     {
       people: [
-        ["person+a-b-tonik", "developer"],
-        ["person+j-r-logan", "developer"],
-        ["person+william-f-schmitt", "developer"],
+        ["person+a-b-tonik", { role: "developer" }],
+        ["person+j-r-logan", { role: "developer" }],
+        ["person+william-f-schmitt", { role: "developer" }],
       ],
     },
   );
@@ -7108,8 +7076,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+algol", "pl+simscript"],
       paradigms: ["para+imperative", "para+multi", "para+objects", "para+structured"],
       people: [
-        ["person+kristen-nygaard", "developer"],
-        ["person+ole-johan-dahl", "designer"],
+        ["person+kristen-nygaard", { role: "developer" }],
+        ["person+ole-johan-dahl", { role: "designer" }],
       ],
       platforms: ["platf+unix", "platf+win", "platf+z-slashos"],
       typeSystems: ["tsys+nominative", "tsys+static"],
@@ -7211,7 +7179,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+lisp", "pl+scheme"],
       licenses: ["lic+lgpl"],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi"],
-      people: [["person+george-j-carrette", "designer"]],
+      people: [["person+george-j-carrette", { role: "designer" }]],
       platforms: ["platf+cross-platform", "platf+ia-32", "platf+linux", "platf+openvms", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+latent", "tsys+strong"],
     },
@@ -7228,7 +7196,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+c", "pl+fortran", "pl+lucid", "pl+pascal"],
       paradigms: ["para+dataflow", "para+functional"],
-      people: [["person+james-mcgraw", "designer"]],
+      people: [["person+james-mcgraw", { role: "designer" }]],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
   );
@@ -7267,7 +7235,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+fortran"],
       influences: ["pl+algol"],
       paradigms: ["para+imperative", "para+objects", "para+structured"],
-      people: [["person+nevil-brownlee", "designer"]],
+      people: [["person+nevil-brownlee", { role: "designer" }]],
       platforms: ["platf+dec"],
     },
   );
@@ -7282,8 +7250,8 @@ export function define(g: PlangsGraph) {
     },
     {
       people: [
-        ["person+james-e-hendrix", "developer"],
-        ["person+ron-cain", "developer"],
+        ["person+james-e-hendrix", { role: "developer" }],
+        ["person+ron-cain", { role: "developer" }],
       ],
     },
   );
@@ -7321,8 +7289,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+comit"],
       paradigms: ["para+imperative", "para+unstructured"],
       people: [
-        ["person+david-j-farber", "designer"],
-        ["person+ralph-griswold", "designer"],
+        ["person+david-j-farber", { role: "designer" }],
+        ["person+ralph-griswold", { role: "designer" }],
       ],
     },
   );
@@ -7339,8 +7307,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+pl-slash"],
       paradigms: ["para+imperative", "para+structured"],
       people: [
-        ["person+jr-cordy", "designer"],
-        ["person+rc-holt", "designer"],
+        ["person+jr-cordy", { role: "designer" }],
+        ["person+rc-holt", { role: "designer" }],
       ],
       typeSystems: ["tsys+static", "tsys+strong"],
     },
@@ -7407,7 +7375,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+assembly"],
       paradigms: ["para+generic", "para+structured"],
-      people: [["person+john-backus", "designer"]],
+      people: [["person+john-backus", { role: "designer" }]],
       typeSystems: ["tsys+manifest", "tsys+static", "tsys+strong"],
     },
   );
@@ -7469,8 +7437,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+logo"],
       paradigms: ["para+agent", "para+educational", "para+imperative", "para+multi", "para+simulation"],
       people: [
-        ["person+media-lab", "developer"],
-        ["person+mitchel-resnick", "designer"],
+        ["person+media-lab", { role: "developer" }],
+        ["person+mitchel-resnick", { role: "designer" }],
       ],
       platforms: ["platf+jvm", "platf+mac", "platf+win"],
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+strong"],
@@ -7519,7 +7487,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+forth", "pl+reverse-polish-notation"],
       paradigms: ["para+concatenative", "para+imperative", "para+stack"],
-      people: [["person+jonathan-sachs", "developer"]],
+      people: [["person+jonathan-sachs", { role: "developer" }]],
       platforms: ["platf+openvms"],
     },
   );
@@ -7555,7 +7523,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+self", "pl+smalltalk"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+objects"],
-      people: [["person+gilad-bracha", "designer"]],
+      people: [["person+gilad-bracha", { role: "designer" }]],
       platforms: ["platf+cross-platform", "platf+ia-32"],
       typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong"],
     },
@@ -7588,7 +7556,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "Superplan", href: "https://en.wikipedia.org/wiki/Superplan" }],
       releases: [{ version: "unknown", date: "1951-01-01", kind: "first" }],
     },
-    { influences: ["pl+plankalkul"], people: [["person+heinz-rutishauser", "designer"]] },
+    { influences: ["pl+plankalkul"], people: [["person+heinz-rutishauser", { role: "designer" }]] },
   );
 
   lb.define(
@@ -7626,7 +7594,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "6.5", date: "2019-01-01", kind: "stable" }],
     },
-    { licenses: ["lic+proprietary"], people: [["person+calerga-sarl", "developer"]] },
+    { licenses: ["lic+proprietary"], people: [["person+calerga-sarl", { role: "developer" }]] },
   );
 
   lb.define(
@@ -7645,8 +7613,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+scheme"],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi", "para+objects"],
       people: [
-        ["person+jonathan-a-rees", "designer"],
-        ["person+norman-i-adams", "designer"],
+        ["person+jonathan-a-rees", { role: "designer" }],
+        ["person+norman-i-adams", { role: "designer" }],
       ],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
@@ -7669,7 +7637,7 @@ export function define(g: PlangsGraph) {
     },
     {
       paradigms: ["para+domain", "para+prototypes"],
-      people: [["person+michael-j-roberts", "designer"]],
+      people: [["person+michael-j-roberts", { role: "designer" }]],
       platforms: ["platf+amiga", "platf+dos", "platf+linux", "platf+mac", "platf+unix", "platf+win"],
       typeSystems: ["tsys+inferred", "tsys+strong"],
     },
@@ -7696,7 +7664,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+java", "pl+scheme", "pl+tcl"],
       paradigms: ["para+class", "para+functional", "para+multi", "para+objects"],
-      people: [["person+jorge-nunes", "developer"]],
+      people: [["person+jorge-nunes", { role: "developer" }]],
     },
   );
 
@@ -7728,7 +7696,7 @@ export function define(g: PlangsGraph) {
       references: { stable_release: [{ href: "https://tug.org/texlive/", title: "TeX Live - TeX Users Group" }] },
       extensions: [],
     },
-    { licenses: ["lic+permissive-free"], people: [["person+donald-knuth", "developer"]] },
+    { licenses: ["lic+permissive-free"], people: [["person+donald-knuth", { role: "developer" }]] },
   );
 
   lb.define(
@@ -7822,8 +7790,8 @@ export function define(g: PlangsGraph) {
       dialects: ["pl+pdp-11", "pl+pdp-7"],
       influences: ["pl+algol", "pl+b", "pl+pl-slash", "pl+snobol"],
       people: [
-        ["person+douglas-mcilroy", "developer"],
-        ["person+robert-m-mcclure", "designer"],
+        ["person+douglas-mcilroy", { role: "developer" }],
+        ["person+robert-m-mcclure", { role: "designer" }],
       ],
     },
   );
@@ -7850,7 +7818,7 @@ export function define(g: PlangsGraph) {
         ],
       },
     },
-    { paradigms: ["para+macros"], people: [["person+calvin-mooers", "designer"]] },
+    { paradigms: ["para+macros"], people: [["person+calvin-mooers", { role: "designer" }]] },
   );
 
   lb.define(
@@ -7891,8 +7859,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+mit"],
       paradigms: ["para+macros"],
       people: [
-        ["person+e-kent-gordon", "designer"],
-        ["person+steven-m-caine", "designer"],
+        ["person+e-kent-gordon", { role: "designer" }],
+        ["person+steven-m-caine", { role: "designer" }],
       ],
     },
   );
@@ -7921,7 +7889,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+concurrent-euclid", "pl+euclid", "pl+sp-slashk"],
       paradigms: ["para+concurrent", "para+imperative", "para+multi", "para+objects"],
-      people: [["person+ric-holt", "designer"]],
+      people: [["person+ric-holt", { role: "designer" }]],
       platforms: ["platf+cross-platform", "platf+mips"],
       typeSystems: ["tsys+manifest", "tsys+static"],
     },
@@ -7938,8 +7906,8 @@ export function define(g: PlangsGraph) {
     {
       paradigms: ["para+imperative"],
       people: [
-        ["person+paul-tenczar", "designer"],
-        ["person+richard-blomme", "designer"],
+        ["person+paul-tenczar", { role: "designer" }],
+        ["person+richard-blomme", { role: "designer" }],
       ],
     },
   );
@@ -7989,7 +7957,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+icon"],
       licenses: ["lic+gpl"],
       paradigms: ["para+imperative", "para+objects"],
-      people: [["person+clint-jeffery", "designer"]],
+      people: [["person+clint-jeffery", { role: "designer" }]],
       platforms: ["platf+cross-platform", "platf+unix", "platf+win"],
     },
   );
@@ -8115,7 +8083,7 @@ export function define(g: PlangsGraph) {
         "para+multi",
         "para+objects",
       ],
-      people: [["person+pdc-a-slashs", "developer"]],
+      people: [["person+pdc-a-slashs", { role: "developer" }]],
       platforms: ["platf+win"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
@@ -8143,9 +8111,9 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+proprietary"],
       paradigms: ["para+objects"],
       people: [
-        ["person+adele-goldberg", "designer"],
-        ["person+alan-kay", "designer"],
-        ["person+dan-ingalls", "designer"],
+        ["person+adele-goldberg", { role: "designer" }],
+        ["person+alan-kay", { role: "designer" }],
+        ["person+dan-ingalls", { role: "designer" }],
       ],
       platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+unix", "platf+win"],
       typeSystems: ["tsys+dynamic"],
@@ -8232,7 +8200,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+tex", "pl+web"],
       licenses: ["lic+free"],
       paradigms: ["para+imperative", "para+literate", "para+structured"],
-      people: [["person+donald-knuth", "designer"]],
+      people: [["person+donald-knuth", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+manifest", "tsys+nominative", "tsys+static", "tsys+weak"],
     },
@@ -8300,10 +8268,10 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+eclipse-public"],
       paradigms: ["para+objects"],
       people: [
-        ["person+kemal-ebcioglu", "designer"],
-        ["person+saravanan-arumugam", "designer"],
-        ["person+vijay-saraswat", "designer"],
-        ["person+vivek-sarkar", "designer"],
+        ["person+kemal-ebcioglu", { role: "designer" }],
+        ["person+saravanan-arumugam", { role: "designer" }],
+        ["person+vijay-saraswat", { role: "designer" }],
+        ["person+vivek-sarkar", { role: "designer" }],
       ],
       platforms: ["platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+safe", "tsys+static", "tsys+strong"],
@@ -8363,7 +8331,7 @@ export function define(g: PlangsGraph) {
       },
       releases: [{ version: "2024.1.0", date: "2024-01-01", kind: "stable" }],
     },
-    { licenses: ["lic+cecill", "lic+gpl-2"], people: [["person+dassault-systemes", "developer"]] },
+    { licenses: ["lic+cecill", "lic+gpl-2"], people: [["person+dassault-systemes", { role: "developer" }]] },
   );
 
   lb.define("pl+xedit", "KEXX", {
@@ -8407,8 +8375,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+otcl", "pl+tcl"],
       paradigms: ["para+event", "para+functional", "para+imperative", "para+multi", "para+objects"],
       people: [
-        ["person+gustaf-neumann", "designer"],
-        ["person+uwe-zdun", "designer"],
+        ["person+gustaf-neumann", { role: "designer" }],
+        ["person+uwe-zdun", { role: "designer" }],
       ],
       typeSystems: ["tsys+dynamic"],
     },
@@ -8469,7 +8437,7 @@ export function define(g: PlangsGraph) {
         ],
       },
     },
-    { licenses: ["lic+ruby"], people: [["person+koichi-sasada", "developer"]] },
+    { licenses: ["lic+ruby"], people: [["person+koichi-sasada", { role: "developer" }]] },
   );
 
   lb.define("pl+yhc", "Yhc", {
@@ -8494,7 +8462,7 @@ export function define(g: PlangsGraph) {
     },
     {
       licenses: ["lic+bsd-s"],
-      people: [["person+david-h-munro", "designer"]],
+      people: [["person+david-h-munro", { role: "designer" }]],
       platforms: ["platf+mac", "platf+unix", "platf+win"],
     },
   );
@@ -8553,7 +8521,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+modula", "pl+oberon", "pl+oberon-2", "pl+pascal"],
       paradigms: ["para+imperative", "para+modular", "para+objects", "para+structured"],
-      people: [["person+jurg-gutknecht", "designer"]],
+      people: [["person+jurg-gutknecht", { role: "designer" }]],
       typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong"],
     },
   );

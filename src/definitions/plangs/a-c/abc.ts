@@ -29,9 +29,9 @@ export function define(g: PlangsGraph) {
       influences: ["pl+algol", "pl+setl"],
       paradigms: ["para+imperative", "para+multi", "para+structured"],
       people: [
-        ["person+centrum-wiskunde", "developer"],
-        ["person+lambert-meertens", "designer"],
-        ["person+steven-pemberton", "designer"],
+        ["person+centrum-wiskunde", { role: "developer" }],
+        ["person+lambert-meertens", { role: "designer" }],
+        ["person+steven-pemberton", { role: "designer" }],
       ],
       platforms: ["platf+atari", "platf+mac", "platf+unix", "platf+win"],
       typeSystems: ["tsys+polymorphic", "tsys+strong"],

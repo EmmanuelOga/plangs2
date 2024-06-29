@@ -24,8 +24,8 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+ocaml"],
       people: [
-        ["person+benjamin-c-pierce", "developer"],
-        ["person+nate-foster", "developer"],
+        ["person+benjamin-c-pierce", { role: "developer" }],
+        ["person+nate-foster", { role: "developer" }],
       ],
       platforms: ["platf+linux", "platf+mac"],
     },

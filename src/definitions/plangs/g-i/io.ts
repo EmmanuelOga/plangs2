@@ -31,9 +31,9 @@ export function define(g: PlangsGraph) {
       ],
       paradigms: ["para+objects", "para+prototypes"],
       people: [
-        ["person+jeremy-tregunna", "developer"],
-        ["person+jonathan-wright", "developer"],
-        ["person+steve-dekorte", "designer"],
+        ["person+jeremy-tregunna", { role: "developer" }],
+        ["person+jonathan-wright", { role: "developer" }],
+        ["person+steve-dekorte", { role: "designer" }],
       ],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

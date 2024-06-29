@@ -48,7 +48,7 @@ export function define(g: PlangsGraph) {
       ],
       influences: ["pl+modula", "pl+speedcoding"],
       paradigms: ["para+array", "para+generic", "para+imperative", "para+multi", "para+objects", "para+structured"],
-      people: [["person+john-backus", "designer"]],
+      people: [["person+john-backus", { role: "designer" }]],
       typeSystems: ["tsys+manifest", "tsys+static", "tsys+strong"],
     },
   );

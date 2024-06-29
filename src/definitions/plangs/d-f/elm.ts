@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+f-sharp", "pl+haskell", "pl+ml", "pl+ocaml", "pl+sml"],
       licenses: ["lic+bsd", "lic+permissive"],
       paradigms: ["para+functional"],
-      people: [["person+evan-czaplicki", "designer"]],
+      people: [["person+evan-czaplicki", { role: "designer" }]],
       platforms: ["platf+mac", "platf+win", "platf+x86-64"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },

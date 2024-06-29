@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+clojure", "pl+common-lisp", "pl+elixir", "pl+erlang", "pl+hy", "pl+maclisp", "pl+scheme"],
       licenses: ["lic+apache"],
       paradigms: ["para+concurrent", "para+functional", "para+multi"],
-      people: [["person+robert-virding", "designer"]],
+      people: [["person+robert-virding", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

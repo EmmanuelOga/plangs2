@@ -34,7 +34,7 @@ export class PlangsBuilder {
       dialects?: VID_Plang[];
       implementations?: VID_Plang[];
       paradigms?: VID_Paradigm[];
-      people?: [VID_Person, E_People["role"]][];
+      people?: [VID_Person, Partial<E_People>][];
       typeSystems?: VID_TypeSystem[];
     },
   ) {
@@ -66,7 +66,8 @@ export class PlangsBuilder {
     for (const otherVid of vrelations.paradigms ?? []) g.e_plang_para.connect(vid, otherVid);
     for (const otherVid of vrelations.typeSystems ?? []) g.e_plang_tsys.connect(vid, otherVid);
 
-    for (const [otherVid, role] of vrelations.people ?? []) {
+    for (const [otherVid, { role }] of vrelations.people ?? []) {
+      if (!role) continue;
       if (role === "developer" || role === "designer") {
         g.e_person_plang_role.merge(otherVid, vid, { role });
       } else {

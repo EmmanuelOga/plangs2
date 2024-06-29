@@ -27,8 +27,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+bsd-s"],
       paradigms: ["para+functional"],
       people: [
-        ["person+catarina-coquand", "designer"],
-        ["person+ulf-norell", "designer"],
+        ["person+catarina-coquand", { role: "designer" }],
+        ["person+ulf-norell", { role: "designer" }],
       ],
       platforms: ["platf+cross-platform"],
       typeSystems: [

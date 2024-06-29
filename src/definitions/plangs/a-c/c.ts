@@ -71,7 +71,7 @@ export function define(g: PlangsGraph) {
       ],
       influences: ["pl+algol", "pl+b", "pl+bcpl", "pl+cpl", "pl+fortran", "pl+pl-slash", "pl+speedcoding"],
       paradigms: ["para+imperative", "para+multi", "para+structured"],
-      people: [["person+dennis-ritchie", "designer"]],
+      people: [["person+dennis-ritchie", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+manifest", "tsys+nominative", "tsys+static", "tsys+weak"],
     },

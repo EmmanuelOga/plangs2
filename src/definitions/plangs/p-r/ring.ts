@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
         "para+objects",
         "para+reflective",
       ],
-      people: [["person+mahmoud-samir-fayed", "designer"]],
+      people: [["person+mahmoud-samir-fayed", { role: "designer" }]],
       platforms: ["platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+dynamic"],
     },

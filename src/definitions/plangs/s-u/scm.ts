@@ -24,9 +24,9 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+lgpl"],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi"],
       people: [
-        ["person+aubrey-jaffer", "designer"],
-        ["person+radey-shouman", "developer"],
-        ["person+tanel-tammet", "developer"],
+        ["person+aubrey-jaffer", { role: "designer" }],
+        ["person+radey-shouman", { role: "developer" }],
+        ["person+tanel-tammet", { role: "developer" }],
       ],
       platforms: ["platf+cross-platform", "platf+ia-32", "platf+x86-64"],
       typeSystems: ["tsys+dynamic", "tsys+latent", "tsys+strong"],

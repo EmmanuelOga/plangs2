@@ -68,7 +68,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+chakra", "pl+javascriptcore", "pl+spidermonkey", "pl+v8"],
       influences: ["pl+awk", "pl+c", "pl+hypertalk", "pl+java", "pl+lisp", "pl+python", "pl+scheme", "pl+self"],
       paradigms: ["para+event", "para+functional", "para+imperative", "para+multi", "para+objects"],
-      people: [["person+brendan-eich", "designer"]],
+      people: [["person+brendan-eich", { role: "designer" }]],
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+weak"],
     },
   );

@@ -26,9 +26,9 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+apache", "lic+mit"],
       paradigms: ["para+objects"],
       people: [
-        ["person+adele-goldberg", "designer"],
-        ["person+alan-kay", "designer"],
-        ["person+dan-ingalls", "designer"],
+        ["person+adele-goldberg", { role: "designer" }],
+        ["person+alan-kay", { role: "designer" }],
+        ["person+dan-ingalls", { role: "designer" }],
       ],
       platforms: ["platf+cross-platform", "platf+ios", "platf+mac", "platf+unix", "platf+win"],
       typeSystems: ["tsys+dynamic"],

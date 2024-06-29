@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       ],
       influences: ["pl+iswim", "pl+lisp"],
       paradigms: ["para+functional", "para+generic", "para+imperative", "para+multi"],
-      people: [["person+robin-milner", "designer"]],
+      people: [["person+robin-milner", { role: "designer" }]],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );

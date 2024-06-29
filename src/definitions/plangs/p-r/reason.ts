@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+javascript", "pl+ocaml"],
       licenses: ["lic+mit"],
       paradigms: ["para+functional", "para+imperative", "para+modular", "para+multi", "para+objects"],
-      people: [["person+jordan-walke", "designer"]],
+      people: [["person+jordan-walke", { role: "designer" }]],
     },
   );
 }

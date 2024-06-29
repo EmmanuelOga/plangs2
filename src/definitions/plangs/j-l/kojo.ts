@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+logo", "pl+processing"],
       licenses: ["lic+gpl"],
       paradigms: ["para+functional", "para+objects", "para+structured"],
-      people: [["person+lalit-pant", "designer"]],
+      people: [["person+lalit-pant", { role: "designer" }]],
       platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
       typeSystems: ["tsys+strong"],
     },

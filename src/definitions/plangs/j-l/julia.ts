@@ -125,10 +125,10 @@ export function define(g: PlangsGraph) {
         "para+structured",
       ],
       people: [
-        ["person+alan-edelman", "designer"],
-        ["person+jeff-bezanson", "designer"],
-        ["person+stefan-karpinski", "designer"],
-        ["person+viral-b-shah", "designer"],
+        ["person+alan-edelman", { role: "designer" }],
+        ["person+jeff-bezanson", { role: "designer" }],
+        ["person+stefan-karpinski", { role: "designer" }],
+        ["person+viral-b-shah", { role: "designer" }],
       ],
       platforms: [
         "platf+64-bit-computing",

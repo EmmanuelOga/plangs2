@@ -29,8 +29,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+algol", "pl+lisp", "pl+mdl", "pl+racket"],
       paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi"],
       people: [
-        ["person+gerald-jay-sussman", "designer"],
-        ["person+guy-l-steele", "designer"],
+        ["person+gerald-jay-sussman", { role: "designer" }],
+        ["person+guy-l-steele", { role: "designer" }],
       ],
       typeSystems: ["tsys+dynamic", "tsys+latent", "tsys+strong"],
     },

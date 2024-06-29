@@ -35,8 +35,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+bsd-s"],
       paradigms: ["para+functional", "para+logic"],
       people: [
-        ["person+michael-hanus", "designer"],
-        ["person+sergio-antoy", "designer"],
+        ["person+michael-hanus", { role: "designer" }],
+        ["person+sergio-antoy", { role: "designer" }],
       ],
       platforms: ["platf+cross-platform", "platf+linux", "platf+x86-64"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],

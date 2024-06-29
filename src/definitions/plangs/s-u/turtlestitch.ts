@@ -38,7 +38,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+logo", "pl+maker-culture", "pl+scratch", "pl+snap-"],
       licenses: ["lic+affero-gpl"],
       paradigms: ["para+educational", "para+event", "para+objects"],
-      people: [["person+andrea-mayr-stalder", "designer"]],
+      people: [["person+andrea-mayr-stalder", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic"],
     },

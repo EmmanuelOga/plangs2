@@ -65,8 +65,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+gpl"],
       paradigms: ["para+array", "para+functional", "para+imperative", "para+multi", "para+objects", "para+reflective"],
       people: [
-        ["person+robert-gentleman", "designer"],
-        ["person+ross-ihaka", "designer"],
+        ["person+robert-gentleman", { role: "designer" }],
+        ["person+ross-ihaka", { role: "designer" }],
       ],
       platforms: ["platf+arm", "platf+x86-64"],
       typeSystems: ["tsys+dynamic"],

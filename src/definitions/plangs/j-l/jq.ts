@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+icon"],
       licenses: ["lic+mit"],
       paradigms: ["para+functional", "para+json", "para+tacit"],
-      people: [["person+stephen-dolan", "designer"]],
+      people: [["person+stephen-dolan", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
     },
   );

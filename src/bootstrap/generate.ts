@@ -172,7 +172,7 @@ function plangMapper(g: PlangsGraph, plvid: VID_Plang): AtoZData {
     paradigms: [...g.e_plang_para.adjacentFrom(plvid)],
     people: [...g.e_person_plang_role.adjacentTo(plvid)].map((from) => {
       const edata = g.e_person_plang_role.get(from as VID_Person, plvid);
-      return [from, edata?.role];
+      return [from, edata ?? {}];
     }),
     platforms: [...g.e_supports_platf.adjacentFrom(plvid)],
     typeSystems: [...g.e_plang_tsys.adjacentFrom(plvid)],

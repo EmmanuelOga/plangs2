@@ -106,8 +106,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+c", "pl+python"],
       licenses: ["lic+apache"],
       people: [
-        ["person+robert-bradshaw", "developer"],
-        ["person+stefan-behnel", "developer"],
+        ["person+robert-bradshaw", { role: "developer" }],
+        ["person+stefan-behnel", { role: "developer" }],
       ],
       platforms: ["platf+linux", "platf+mac", "platf+win"],
     },
@@ -175,7 +175,7 @@ export function define(g: PlangsGraph) {
     },
     {
       licenses: ["lic+mit"],
-      people: [["person+damien-p-george", "developer"]],
+      people: [["person+damien-p-george", { role: "developer" }]],
       platforms: [
         "platf+arm",
         "platf+esp32",
@@ -223,12 +223,12 @@ export function define(g: PlangsGraph) {
       influences: ["pl+ampl", "pl+general-algebraic-modeling-system", "pl+python"],
       licenses: ["lic+bsd"],
       people: [
-        ["person+carl-laird", "designer"],
-        ["person+david-woodruff", "designer"],
-        ["person+gabriel-hackebeil", "designer"],
-        ["person+jean-paul-watson", "designer"],
-        ["person+john-siirola", "designer"],
-        ["person+william-e-hart", "designer"],
+        ["person+carl-laird", { role: "designer" }],
+        ["person+david-woodruff", { role: "designer" }],
+        ["person+gabriel-hackebeil", { role: "designer" }],
+        ["person+jean-paul-watson", { role: "designer" }],
+        ["person+john-siirola", { role: "designer" }],
+        ["person+william-e-hart", { role: "designer" }],
       ],
       platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
     },
@@ -431,7 +431,7 @@ export function define(g: PlangsGraph) {
         "para+reflective",
         "para+structured",
       ],
-      people: [["person+guido-van-rossum", "designer"]],
+      people: [["person+guido-van-rossum", { role: "designer" }]],
       platforms: [
         "platf+android",
         "platf+bsd",
@@ -467,6 +467,10 @@ export function define(g: PlangsGraph) {
         ],
       },
     },
-    { influences: ["pl+limbo"], licenses: ["lic+python-foundation"], people: [["person+anselm-kruis", "developer"]] },
+    {
+      influences: ["pl+limbo"],
+      licenses: ["lic+python-foundation"],
+      people: [["person+anselm-kruis", { role: "developer" }]],
+    },
   );
 }

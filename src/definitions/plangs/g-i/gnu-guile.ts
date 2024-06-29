@@ -23,9 +23,9 @@ export function define(g: PlangsGraph) {
       influences: ["pl+lisp", "pl+scheme", "pl+scm", "pl+siod"],
       licenses: ["lic+lgpl"],
       people: [
-        ["person+aubrey-jaffer", "designer"],
-        ["person+miles-bader", "designer"],
-        ["person+tom-lord", "designer"],
+        ["person+aubrey-jaffer", { role: "designer" }],
+        ["person+miles-bader", { role: "designer" }],
+        ["person+tom-lord", { role: "designer" }],
       ],
       platforms: [
         "platf+aarch64",

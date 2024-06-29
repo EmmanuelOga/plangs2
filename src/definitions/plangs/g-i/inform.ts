@@ -35,7 +35,7 @@ export function define(g: PlangsGraph) {
     {
       licenses: ["lic+artistic", "lic+freeware"],
       paradigms: ["para+dec", "para+imperative", "para+natural"],
-      people: [["person+graham-nelson", "designer"]],
+      people: [["person+graham-nelson", { role: "designer" }]],
       platforms: ["platf+linux", "platf+mac", "platf+win"],
     },
   );

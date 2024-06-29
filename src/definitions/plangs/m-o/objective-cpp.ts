@@ -39,7 +39,7 @@ export function define(g: PlangsGraph) {
     {
       implementations: ["pl+clang", "pl+gcc"],
       influences: ["pl+c", "pl+cpp", "pl+smalltalk"],
-      people: [["person+brad-cox", "designer"]],
+      people: [["person+brad-cox", { role: "designer" }]],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+static", "tsys+weak"],
     },

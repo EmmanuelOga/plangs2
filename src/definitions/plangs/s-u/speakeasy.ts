@@ -48,7 +48,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+apl"],
       licenses: ["lic+trialware"],
       paradigms: ["para+imperative"],
-      people: [["person+stanley-cohen", "designer"]],
+      people: [["person+stanley-cohen", { role: "designer" }]],
       typeSystems: ["tsys+dynamic"],
     },
   );

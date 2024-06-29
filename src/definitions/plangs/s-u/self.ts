@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+apl", "pl+smalltalk"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+objects", "para+prototypes"],
-      people: [["person+david-ungar", "designer"]],
+      people: [["person+david-ungar", { role: "designer" }]],
       platforms: ["platf+cross-platform", "platf+mac", "platf+unix", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

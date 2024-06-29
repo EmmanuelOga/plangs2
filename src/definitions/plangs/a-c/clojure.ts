@@ -74,7 +74,7 @@ export function define(g: PlangsGraph) {
         "para+multi",
         "para+pipeline",
       ],
-      people: [["person+rich-hickey", "designer"]],
+      people: [["person+rich-hickey", { role: "designer" }]],
       platforms: ["platf+.net", "platf+javascript", "platf+jvm"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

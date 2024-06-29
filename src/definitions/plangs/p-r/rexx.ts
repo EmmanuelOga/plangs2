@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+arexx"],
       influences: ["pl+algol", "pl+cms-exec", "pl+exec-2", "pl+pl-slash"],
       paradigms: ["para+imperative", "para+multi", "para+structured"],
-      people: [["person+mike-cowlishaw", "designer"]],
+      people: [["person+mike-cowlishaw", { role: "designer" }]],
       typeSystems: ["tsys+dynamic"],
     },
   );

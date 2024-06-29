@@ -38,7 +38,7 @@ export function define(g: PlangsGraph) {
         "para+multi",
         "para+objects",
       ],
-      people: [["person+hongwei-xi", "designer"]],
+      people: [["person+hongwei-xi", { role: "designer" }]],
       typeSystems: ["tsys+dependent", "tsys+static"],
     },
   );

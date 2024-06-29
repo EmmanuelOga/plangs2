@@ -65,8 +65,8 @@ export function define(g: PlangsGraph) {
       ],
       paradigms: ["para+generic", "para+imperative", "para+objects"],
       people: [
-        ["person+grace-hopper", "designer"],
-        ["person+jean-e-sammet", "designer"],
+        ["person+grace-hopper", { role: "designer" }],
+        ["person+jean-e-sammet", { role: "designer" }],
       ],
       typeSystems: ["tsys+static", "tsys+weak"],
     },

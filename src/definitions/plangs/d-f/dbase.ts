@@ -36,7 +36,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+c"],
       licenses: ["lic+proprietary"],
       paradigms: ["para+dec", "para+imperative"],
-      people: [["person+cecil-wayne-ratliff", "developer"]],
+      people: [["person+cecil-wayne-ratliff", { role: "developer" }]],
       platforms: ["platf+dos", "platf+win"],
     },
   );

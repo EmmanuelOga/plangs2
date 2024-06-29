@@ -27,8 +27,8 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+bsd-s"],
       paradigms: ["para+objects"],
       people: [
-        ["person+mason-wheeler", "developer"],
-        ["person+rodrigo-b-de-oliveira", "designer"],
+        ["person+mason-wheeler", { role: "developer" }],
+        ["person+rodrigo-b-de-oliveira", { role: "designer" }],
       ],
       platforms: ["platf+.net", "platf+mono"],
       typeSystems: ["tsys+duck", "tsys+inferred", "tsys+static", "tsys+strong"],
