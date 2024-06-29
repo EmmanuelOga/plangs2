@@ -21,9 +21,9 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+c", "pl+cpp", "pl+python"],
       licenses: ["lic+bsd-3"],
-      paradigms: ["para+generic", "para+imperative", "para+multi", "para+objects"],
+      paradigms: ["para+multi", "para+imperative", "para+objects", "para+generic"],
       platforms: ["platf+cross-platform"],
-      typeSystems: ["tsys+inferred", "tsys+nominative", "tsys+static"],
+      typeSystems: ["tsys+static", "tsys+nominative", "tsys+inferred"],
     },
   );
 }

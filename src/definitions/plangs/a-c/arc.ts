@@ -14,20 +14,18 @@ export function define(g: PlangsGraph) {
       ],
       releases: [
         { version: "unknown", date: "2008-01-29", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "3.2", date: "2018-10-28", kind: "stable" },
       ],
-      references: {
-        stable_release: [{ href: "http://arclanguage.org/item?id=20772", title: "Arc Forum: Tell Arc: Arc 3.2" }],
-      },
       extensions: [".arc"],
     },
     {
       implementations: ["pl+racket"],
       influences: ["pl+lisp", "pl+scheme"],
       licenses: ["lic+artistic"],
-      paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi"],
-      people: [["person+paul-graham", { role: "designer" }]],
-      platforms: ["platf+ia-32", "platf+linux", "platf+x86-64"],
+      paradigms: ["para+multi", "para+functional", "para+meta", "para+imperative"],
+      people: ["person+paul-graham"],
+      platforms: ["platf+ia-32", "platf+x86-64", "platf+linux"],
       typeSystems: ["tsys+dynamic"],
     },
   );

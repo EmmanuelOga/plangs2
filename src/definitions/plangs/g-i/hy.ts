@@ -20,28 +20,26 @@ export function define(g: PlangsGraph) {
       ],
       releases: [
         { version: "unknown", date: "2013-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "0.29.0", date: "2024-01-01", kind: "stable" },
         { version: "1.0", date: "2022-03-16", kind: "preview" },
       ],
-      references: {
-        stable_release: [{ href: "https://github.com/hylang/hy/releases/tag/0.29.0", title: "Release 0.29.0" }],
-      },
       extensions: [".hy"],
     },
     {
-      influences: ["pl+clojure", "pl+common-lisp", "pl+kawa"],
+      influences: ["pl+kawa", "pl+clojure", "pl+common-lisp"],
       licenses: ["lic+mit"],
       paradigms: [
-        "para+functional",
-        "para+generic",
-        "para+imperative",
-        "para+meta",
         "para+multi",
+        "para+imperative",
+        "para+functional",
         "para+objects",
+        "para+meta",
         "para+reflective",
+        "para+generic",
       ],
-      people: [["person+paul-tagliamonte", { role: "designer" }]],
-      platforms: ["platf+cross-platform", "platf+ia-32", "platf+x86-64"],
+      people: ["person+paul-tagliamonte"],
+      platforms: ["platf+ia-32", "platf+x86-64", "platf+cross-platform"],
     },
   );
 }

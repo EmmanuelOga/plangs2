@@ -38,39 +38,15 @@ export function define(g: PlangsGraph) {
         { version: "unknown", date: "1996-01-01", kind: "first" },
         { version: "unknown", date: "1998-10-30", kind: "first" },
       ],
-      references: {
-        influenced: [
-          {
-            href: "https://arstechnica.com/business/news/2005/10/msh.ars/4",
-            title: "A guided tour of the Microsoft Command Shell",
-          },
-        ],
-        internet_media_type: [
-          {
-            href: "https://www.iana.org/assignments/media-types/application/sql",
-            title: "Media Type registration for application/sql",
-          },
-        ],
-        influenced_by: [
-          {
-            href: "http://ocelot.ca/blog/blog/2015/01/15/stored-procedures-critiques-and-defences/",
-            title: "Stored Procedures: critiques and defences",
-          },
-        ],
-      },
       extensions: [],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" }],
     },
     {
       dialects: ["pl+sql"],
-      implementations: ["pl+mariadb", "pl+sql"],
+      implementations: ["pl+sql", "pl+mariadb"],
       influences: ["pl+ada", "pl+datalog", "pl+sql"],
       paradigms: ["para+dec", "para+multi"],
-      people: [
-        ["person+donald-d-chamberlin", { role: "designer" }],
-        ["person+jan-wieck", { role: "designer" }],
-        ["person+raymond-f-boyce", { role: "designer" }],
-      ],
+      people: ["person+donald-d-chamberlin", "person+raymond-f-boyce", "person+jan-wieck"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+static", "tsys+strong"],
     },

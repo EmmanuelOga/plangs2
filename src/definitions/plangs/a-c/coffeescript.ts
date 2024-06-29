@@ -15,17 +15,15 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/d/d3/CoffeeScript-logo.svg" }],
       releases: [
         { version: "unknown", date: "2009-12-13", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "2.7.0", date: "2022-01-01", kind: "stable" },
       ],
-      references: {
-        stable_release: [{ href: "https://github.com/jashkenas/coffeescript/releases/tag/2.7.0", title: "2.7.0" }],
-      },
     },
     {
-      influences: ["pl+javascript", "pl+python", "pl+ruby"],
+      influences: ["pl+ruby", "pl+javascript", "pl+python"],
       licenses: ["lic+mit"],
-      paradigms: ["para+functional", "para+imperative", "para+multi", "para+prototypes", "para+scripting"],
-      people: [["person+jeremy-ashkenas", { role: "designer" }]],
+      paradigms: ["para+multi", "para+prototypes", "para+functional", "para+imperative", "para+scripting"],
+      people: ["person+jeremy-ashkenas"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic"],
     },

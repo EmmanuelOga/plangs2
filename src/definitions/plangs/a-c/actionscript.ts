@@ -26,30 +26,21 @@ export function define(g: PlangsGraph) {
         { version: "unknown", date: "1998-01-01", kind: "first" },
         { version: "3.0", date: "2006-06-27", kind: "stable" },
       ],
-      references: {
-        influenced: [
-          {
-            href: "https://javascript.plainenglish.io/how-actionscript-foreshadowed-typescript-149cdb764de9",
-            title: "How ActionScript foreshadowed TypeScript",
-          },
-        ],
-        internet_media_type: [{ href: "https://datatracker.ietf.org/doc/html/rfc4329", title: "4329" }],
-      },
       extensions: [],
     },
     {
-      implementations: ["pl+adobe-air", "pl+adobe-flash-player", "pl+apache-flex", "pl+scaleform-gfx"],
-      influences: ["pl+hypertalk", "pl+java", "pl+javascript"],
+      implementations: ["pl+adobe-flash-player", "pl+adobe-air", "pl+apache-flex", "pl+scaleform-gfx"],
+      influences: ["pl+hypertalk", "pl+javascript", "pl+java"],
       paradigms: [
-        "para+functional",
-        "para+imperative",
         "para+multi",
         "para+objects",
         "para+prototypes",
+        "para+functional",
+        "para+imperative",
         "para+scripting",
       ],
-      people: [["person+gary-grossman", { role: "designer" }]],
-      typeSystems: ["tsys+static", "tsys+strong"],
+      people: ["person+gary-grossman"],
+      typeSystems: ["tsys+strong", "tsys+static"],
     },
   );
 }

@@ -15,10 +15,10 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/8/82/Gnu-bash-logo.svg" }],
       releases: [
         { version: "unknown", date: "1989-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "5.2.21", date: "2023-01-01", kind: "stable" },
       ],
-      references: { stable_release: [{ href: "https://ftp.gnu.org/gnu/bash/", title: "bash-5.2.21.tar.gz" }] },
     },
-    { licenses: ["lic+gpl"], people: [["person+chet-ramey", { role: "developer" }]], platforms: ["platf+gnu"] },
+    { licenses: ["lic+gpl"], people: ["person+chet-ramey"], platforms: ["platf+gnu"] },
   );
 }

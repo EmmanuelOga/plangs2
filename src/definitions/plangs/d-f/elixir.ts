@@ -17,26 +17,16 @@ export function define(g: PlangsGraph) {
       ],
       releases: [
         { version: "unknown", date: "2012-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "1.16.3", date: "2024-01-01", kind: "stable" },
       ],
-      references: {
-        stable_release: [
-          { href: "https://github.com/elixir-lang/elixir/releases/tag/v1.16.3", title: "Release 1.16.3" },
-        ],
-        license: [
-          {
-            href: "https://github.com/elixir-lang/elixir/blob/master/LICENSE",
-            title: "elixir/LICENSE at master · elixir-lang/elixir · GitHub",
-          },
-        ],
-      },
       extensions: [".ex", ".exs"],
     },
     {
-      influences: ["pl+clojure", "pl+erlang", "pl+lisp", "pl+ruby"],
+      influences: ["pl+clojure", "pl+erlang", "pl+ruby", "pl+lisp"],
       licenses: ["lic+apache"],
-      paradigms: ["para+concurrent", "para+distributed", "para+functional", "para+multi", "para+process"],
-      people: [["person+jose-valim", { role: "designer" }]],
+      paradigms: ["para+multi", "para+functional", "para+concurrent", "para+distributed", "para+process"],
+      people: ["person+jose-valim"],
       platforms: ["platf+erlang"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

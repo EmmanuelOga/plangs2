@@ -22,18 +22,13 @@ export function define(g: PlangsGraph) {
         { version: "unknown", date: "2013-01-01", kind: "first" },
         { version: "0.15.15", date: "2024-01-01", kind: "stable" },
       ],
-      references: {
-        license: [
-          { href: "https://github.com/purescript/purescript/blob/master/LICENSE", title: "purescript/purescript" },
-        ],
-      },
       extensions: [".purs"],
     },
     {
       influences: ["pl+haskell", "pl+javascript"],
       licenses: ["lic+bsd-m"],
       paradigms: ["para+functional"],
-      people: [["person+phil-freeman", { role: "designer" }]],
+      people: ["person+phil-freeman"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );

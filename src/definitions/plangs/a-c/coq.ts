@@ -15,12 +15,10 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/d/d8/Coq_logo.png" }],
       releases: [
         { version: "4.10", date: "1989-05-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "8.19.1", date: "2024-01-01", kind: "stable" },
       ],
-      references: {
-        stable_release: [{ href: "https://github.com/coq/coq/releases/tag/V8.19.1", title: "Release Coq 8.19.1" }],
-      },
     },
-    { influences: ["pl+ml", "pl+ocaml"], licenses: ["lic+lgpl"] },
+    { influences: ["pl+ocaml", "pl+ml"], licenses: ["lic+lgpl"] },
   );
 }

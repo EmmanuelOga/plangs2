@@ -12,20 +12,15 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Futhark", href: "https://en.wikipedia.org/wiki/Futhark_(programming_language)" },
         { kind: "homepage", title: "futhark-lang.org", href: "http://futhark-lang.org" },
       ],
-      references: { developer: [{ href: "https://futhark-lang.org/license.html", title: "License" }] },
       releases: [{ version: "unknown", date: "2014-01-01", kind: "first" }],
     },
     {
       influences: ["pl+apl", "pl+haskell", "pl+nesl", "pl+sml"],
       licenses: ["lic+isc"],
       paradigms: ["para+array", "para+functional"],
-      people: [
-        ["person+cosmin-oancea", { role: "designer" }],
-        ["person+martin-elsman", { role: "designer" }],
-        ["person+troels-henriksen", { role: "designer" }],
-      ],
+      people: ["person+troels-henriksen", "person+cosmin-oancea", "person+martin-elsman"],
       platforms: ["platf+cross-platform"],
-      typeSystems: ["tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+uniqueness"],
+      typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong", "tsys+uniqueness", "tsys+dependent"],
     },
   );
 }

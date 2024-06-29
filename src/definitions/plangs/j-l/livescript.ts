@@ -18,22 +18,16 @@ export function define(g: PlangsGraph) {
       ],
       releases: [
         { version: "unknown", date: "2011-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "1.6.1", date: "2020-07-14", kind: "stable" },
       ],
-      references: {
-        stable_release: [{ href: "https://github.com/gkz/LiveScript/tags", title: "LiveScript Releases" }],
-      },
       extensions: [".ls"],
     },
     {
-      influences: ["pl+coffeescript", "pl+f-sharp", "pl+haskell", "pl+javascript"],
+      influences: ["pl+coffeescript", "pl+javascript", "pl+haskell", "pl+f-sharp"],
       licenses: ["lic+mit"],
-      paradigms: ["para+functional", "para+multi", "para+objects"],
-      people: [
-        ["person+george-zahariev", { role: "designer" }],
-        ["person+jeremy-ashkenas", { role: "designer" }],
-        ["person+satoshi-murakami", { role: "designer" }],
-      ],
+      paradigms: ["para+multi", "para+functional", "para+objects"],
+      people: ["person+jeremy-ashkenas", "person+satoshi-murakami", "person+george-zahariev"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+weak"],
     },

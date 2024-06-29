@@ -25,55 +25,42 @@ export class PlangsBuilder {
   define(
     vid: VID_Plang,
     name: string,
-    { extensions, images, releases, scoping, websites, references }: Partial<V_Plang>,
+    data?: Partial<V_Plang>,
     vrelations?: {
-      licenses?: VID_License[];
-      platforms?: VID_Platform[];
-      influences?: VID_Plang[];
-      influenced?: VID_Plang[];
       dialects?: VID_Plang[];
       implementations?: VID_Plang[];
+      influenced?: VID_Plang[];
+      influences?: VID_Plang[];
+      licenses?: VID_License[];
       paradigms?: VID_Paradigm[];
-      people?: [VID_Person, Partial<E_PersonPlang>][];
+      people?: VID_Person[];
+      platforms?: VID_Platform[];
       typeSystems?: VID_TypeSystem[];
     },
   ) {
     const g = this.g;
     const v = g.v_plang.merge(vid, { name });
-    v.websites ??= [];
-    mergeWebsites(v.websites, websites);
-    v.extensions ??= [];
-    mergeExtensions(v.extensions, extensions);
-    v.images ??= [];
-    mergeImages(v.images, images);
-    v.releases ??= [];
-    mergeReleases(v.releases, releases);
-    v.scoping ??= [];
-    mergeScoping(v.scoping, scoping);
-    v.references ??= {};
-    mergeReferences(v.references, references);
+
+    if (data) {
+      const { extensions, images, releases, scoping, websites } = data;
+      if (websites) mergeWebsites((v.websites ??= []), websites);
+      if (extensions) mergeExtensions((v.extensions ??= []), extensions);
+      if (images) mergeImages((v.images ??= []), images);
+      if (releases) mergeReleases((v.releases ??= []), releases);
+      if (scoping) mergeScoping((v.scoping ??= []), scoping);
+    }
 
     if (!vrelations) return;
 
-    for (const otherVid of vrelations.licenses ?? []) g.e_has_license.connect(vid, otherVid);
-    for (const otherVid of vrelations.platforms ?? []) g.e_supports_platf.connect(vid, otherVid);
-
-    for (const otherVid of vrelations.influences ?? []) g.e_l_influenced_l.connect(otherVid, vid);
-    for (const otherVid of vrelations.influenced ?? []) g.e_l_influenced_l.connect(vid, otherVid);
     for (const otherVid of vrelations.dialects ?? []) g.e_dialect_of.connect(vid, otherVid);
-
     for (const otherVid of vrelations.implementations ?? []) g.e_implements.connect(otherVid, vid);
+    for (const otherVid of vrelations.influenced ?? []) g.e_l_influenced_l.connect(vid, otherVid);
+    for (const otherVid of vrelations.influences ?? []) g.e_l_influenced_l.connect(otherVid, vid);
+    for (const otherVid of vrelations.licenses ?? []) g.e_has_license.connect(vid, otherVid);
     for (const otherVid of vrelations.paradigms ?? []) g.e_plang_para.connect(vid, otherVid);
+    for (const otherVid of vrelations.people ?? []) g.e_person_plang_role.connect(otherVid, vid);
+    for (const otherVid of vrelations.platforms ?? []) g.e_supports_platf.connect(vid, otherVid);
     for (const otherVid of vrelations.typeSystems ?? []) g.e_plang_tsys.connect(vid, otherVid);
-
-    for (const [otherVid, { role }] of vrelations.people ?? []) {
-      if (!role) continue;
-      if (role === "developer" || role === "designer") {
-        g.e_person_plang_role.merge(otherVid, vid, { role });
-      } else {
-        console.warn(`${caller(_SITE)}: Invalid role: ${role}`);
-      }
-    }
   }
 }
 
@@ -100,30 +87,30 @@ export class ParadigmBuilder {
 export class PersonBuilder {
   constructor(readonly g: PlangsGraph) {}
 
-  define(vid: VID_Person, name: string, data: Partial<V_Person>) {
+  define(vid: VID_Person, name: string, data?: Partial<V_Person>) {
     const v = this.g.v_person.merge(vid, { name });
     v.websites ??= [];
-    mergeWebsites(v.websites, data.websites);
+    if (data) mergeWebsites(v.websites, data.websites);
   }
 }
 
 export class PlatformBuilder {
   constructor(readonly g: PlangsGraph) {}
 
-  define(vid: VID_Platform, name: string, data: Partial<V_Platform>) {
+  define(vid: VID_Platform, name: string, data?: Partial<V_Platform>) {
     const v = this.g.v_platform.merge(vid, { name });
     v.websites ??= [];
-    mergeWebsites(v.websites, data.websites);
+    if (data) mergeWebsites(v.websites, data.websites);
   }
 }
 
 export class TypeSysBuilder {
   constructor(readonly g: PlangsGraph) {}
 
-  define(vid: VID_TypeSystem, name: string, data: Partial<V_TypeSystem>) {
+  define(vid: VID_TypeSystem, name: string, data?: Partial<V_TypeSystem>) {
     const v = this.g.v_tsystem.merge(vid, { name });
     v.websites ??= [];
-    mergeWebsites(v.websites, data.websites);
+    if (data) mergeWebsites(v.websites, data.websites);
   }
 }
 

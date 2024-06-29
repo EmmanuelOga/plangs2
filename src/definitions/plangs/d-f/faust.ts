@@ -14,13 +14,9 @@ export function define(g: PlangsGraph) {
       ],
       releases: [
         { version: "unknown", date: "2002-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "2.60.3", date: "2023-06-14", kind: "stable" },
       ],
-      references: {
-        stable_release: [
-          { href: "https://github.com/grame-cncm/faust/releases", title: "Releases · grame-cncm/faust · GitHub" },
-        ],
-      },
     },
     { licenses: ["lic+gpl"] },
   );

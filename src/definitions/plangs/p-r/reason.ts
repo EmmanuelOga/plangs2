@@ -13,26 +13,18 @@ export function define(g: PlangsGraph) {
         { kind: "repository", title: "reasonml.github.io", href: "https://reasonml.github.io/" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/a/af/Reason-logo.svg" }],
-      references: {
-        first_appeared: [
-          {
-            href: "https://github.com/facebook/reason",
-            title: "Simple, fast & type safe code that leverages the JavaScript & OCaml ecosystems: facebook/reason",
-          },
-        ],
-        stable_release: [{ href: "https://github.com/reasonml/reason/releases/tag/3.11.0", title: "Release 3.11.0" }],
-      },
       releases: [
+        { version: "unknown", kind: "first" },
         { version: "unknown", date: "2016-05-16", kind: "first" },
         { version: "3.11.0", date: "2024-01-01", kind: "stable" },
       ],
       extensions: [".re", ".rei"],
     },
     {
-      influences: ["pl+javascript", "pl+ocaml"],
+      influences: ["pl+ocaml", "pl+javascript"],
       licenses: ["lic+mit"],
-      paradigms: ["para+functional", "para+imperative", "para+modular", "para+multi", "para+objects"],
-      people: [["person+jordan-walke", { role: "designer" }]],
+      paradigms: ["para+multi", "para+functional", "para+imperative", "para+modular", "para+objects"],
+      people: ["person+jordan-walke"],
     },
   );
 }

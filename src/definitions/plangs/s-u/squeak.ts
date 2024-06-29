@@ -22,15 +22,11 @@ export function define(g: PlangsGraph) {
     {
       dialects: ["pl+croquet-project", "pl+newspeak", "pl+pharo"],
       implementations: ["pl+croquet-project"],
-      influences: ["pl+lisp", "pl+logo", "pl+self", "pl+simula", "pl+sketchpad", "pl+smalltalk"],
-      licenses: ["lic+apache", "lic+mit"],
+      influences: ["pl+smalltalk", "pl+lisp", "pl+logo", "pl+sketchpad", "pl+simula", "pl+self"],
+      licenses: ["lic+mit", "lic+apache"],
       paradigms: ["para+objects"],
-      people: [
-        ["person+adele-goldberg", { role: "designer" }],
-        ["person+alan-kay", { role: "designer" }],
-        ["person+dan-ingalls", { role: "designer" }],
-      ],
-      platforms: ["platf+cross-platform", "platf+ios", "platf+mac", "platf+unix", "platf+win"],
+      people: ["person+alan-kay", "person+dan-ingalls", "person+adele-goldberg"],
+      platforms: ["platf+cross-platform", "platf+unix", "platf+mac", "platf+ios", "platf+win"],
       typeSystems: ["tsys+dynamic"],
     },
   );

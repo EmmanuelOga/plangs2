@@ -24,29 +24,21 @@ export function define(g: PlangsGraph) {
         { version: "2022.1", date: "2022-11-28", kind: "stable" },
       ],
       extensions: ["dylan", "lid"],
-      references: {
-        influenced: [
-          {
-            href: "https://increment.com/programming-languages/goldilocks-language-history-of-julia/",
-            title: "Julia: The Goldilocks language",
-          },
-        ],
-      },
     },
     {
       influences: [
-        "pl+algol",
-        "pl+common-lisp",
-        "pl+common-lisp-object-system",
-        "pl+eulisp",
-        "pl+lisp",
-        "pl+oaklisp",
         "pl+scheme",
+        "pl+lisp",
+        "pl+common-lisp-object-system",
+        "pl+algol",
+        "pl+eulisp",
+        "pl+common-lisp",
+        "pl+oaklisp",
         "pl+smalltalk",
       ],
-      paradigms: ["para+functional", "para+multi", "para+objects"],
-      platforms: ["platf+cross-platform", "platf+ia-32", "platf+x86-64"],
-      typeSystems: ["tsys+gradual", "tsys+strong"],
+      paradigms: ["para+multi", "para+functional", "para+objects"],
+      platforms: ["platf+ia-32", "platf+x86-64", "platf+cross-platform"],
+      typeSystems: ["tsys+strong", "tsys+gradual"],
     },
   );
 }

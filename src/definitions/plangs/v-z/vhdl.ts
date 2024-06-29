@@ -17,14 +17,11 @@ export function define(g: PlangsGraph) {
         { version: "unknown", date: "2019-12-23", kind: "stable" },
       ],
       extensions: [".vhd"],
-      references: {
-        influenced_by: [{ href: "https://books.google.com/books?id=IxZqlbYMJCIC&q=Ada", title: "The VHDL Handbook" }],
-      },
     },
     {
       dialects: ["pl+vhdl-ams"],
       influences: ["pl+ada", "pl+pascal"],
-      paradigms: ["para+concurrent", "para+dataflow", "para+reactive"],
+      paradigms: ["para+concurrent", "para+reactive", "para+dataflow"],
       typeSystems: ["tsys+strong"],
     },
   );

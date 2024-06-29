@@ -23,33 +23,25 @@ export function define(g: PlangsGraph) {
         { version: "unknown", date: "2023-11-17", kind: "stable" },
       ],
       extensions: [".f90", ".f", ".for"],
-      references: {
-        influenced: [
-          {
-            href: "https://web.archive.org/web/20160205114946/http://chapel.cray.com/spec/spec-0.98.pdf",
-            title: "Chapel spec (Acknowledgements)",
-          },
-        ],
-      },
     },
     {
       implementations: [
-        "pl+cray",
         "pl+fortran",
+        "pl+cray",
         "pl+g95",
-        "pl+hitachi",
         "pl+ibm",
+        "pl+hitachi",
         "pl+numerical-algorithms-group",
-        "pl+oracle-solaris-studio",
+        "pl+watcom-c-compiler",
         "pl+pathscale",
         "pl+pgi-compiler",
         "pl+silverfrost-ftn95",
-        "pl+watcom-c-compiler",
+        "pl+oracle-solaris-studio",
       ],
       influences: ["pl+modula", "pl+speedcoding"],
-      paradigms: ["para+array", "para+generic", "para+imperative", "para+multi", "para+objects", "para+structured"],
-      people: [["person+john-backus", { role: "designer" }]],
-      typeSystems: ["tsys+manifest", "tsys+static", "tsys+strong"],
+      paradigms: ["para+multi", "para+structured", "para+imperative", "para+objects", "para+generic", "para+array"],
+      people: ["person+john-backus"],
+      typeSystems: ["tsys+strong", "tsys+static", "tsys+manifest"],
     },
   );
 }

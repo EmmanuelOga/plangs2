@@ -29,12 +29,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+uefn", "pl+visual-studio-code"],
       influences: ["pl+lambda-calculus"],
       paradigms: ["para+objects"],
-      people: [
-        ["person+guy-steele", { role: "designer" }],
-        ["person+lennart-augustsson", { role: "designer" }],
-        ["person+simon-peyton-jones", { role: "designer" }],
-        ["person+tim-sweeney", { role: "designer" }],
-      ],
+      people: ["person+simon-peyton-jones", "person+tim-sweeney", "person+lennart-augustsson", "person+guy-steele"],
       typeSystems: ["tsys+strong"],
     },
   );

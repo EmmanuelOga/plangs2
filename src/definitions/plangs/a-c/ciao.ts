@@ -23,8 +23,8 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+prolog"],
       licenses: ["lic+gpl", "lic+lgpl"],
-      paradigms: ["para+functional", "para+logic", "para+modular", "para+objects"],
-      platforms: ["platf+cross-platform", "platf+mac", "platf+unix", "platf+win"],
+      paradigms: ["para+logic", "para+functional", "para+modular", "para+objects"],
+      platforms: ["platf+cross-platform", "platf+unix", "platf+mac", "platf+win"],
     },
   );
 }

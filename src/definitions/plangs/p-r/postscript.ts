@@ -16,18 +16,13 @@ export function define(g: PlangsGraph) {
         { version: "unknown", date: "1982-01-01", kind: "first" },
         { version: "unknown", date: "1997-01-01", kind: "stable" },
       ],
-      references: { influenced_by: [{ href: "https://doi.org/10.1109%2F6.4550", title: "10.1109/6.4550" }] },
       extensions: [],
     },
     {
-      implementations: ["pl+ghostscript", "pl+trueimage"],
-      influences: ["pl+interpress", "pl+lisp", "pl+mesa"],
-      paradigms: ["para+concatenative", "para+imperative", "para+multi", "para+stack"],
-      people: [
-        ["person+bill-paxton", { role: "designer" }],
-        ["person+chuck-geschke", { role: "designer" }],
-        ["person+john-warnock", { role: "designer" }],
-      ],
+      implementations: ["pl+trueimage", "pl+ghostscript"],
+      influences: ["pl+mesa", "pl+interpress", "pl+lisp"],
+      paradigms: ["para+multi", "para+concatenative", "para+stack", "para+imperative"],
+      people: ["person+john-warnock", "person+chuck-geschke", "person+bill-paxton"],
       typeSystems: ["tsys+dynamic", "tsys+weak"],
     },
   );

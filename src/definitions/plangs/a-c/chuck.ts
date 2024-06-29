@@ -13,26 +13,16 @@ export function define(g: PlangsGraph) {
         { kind: "homepage", title: "chuck.cs.princeton.edu", href: "http://chuck.cs.princeton.edu" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/24/Chuck-2023.png" }],
-      references: {
-        first_appeared: [
-          {
-            href: "https://books.google.com/books?id=96ymxXy3wjMC&pg=PA57",
-            title: "The Oxford handbook of computer music",
-          },
-        ],
-        stable_release: [
-          { href: "https://github.com/ccrma/chuck/blob/main/notes/VERSIONS", title: "github.com/ccrma/chuck" },
-        ],
-      },
       releases: [
+        { version: "unknown", kind: "first" },
         { version: "unknown", date: "2003-01-01", kind: "first" },
         { version: "1.5.2.4", date: "2024-01-01", kind: "stable" },
       ],
     },
     {
-      licenses: ["lic+gpl", "lic+ios", "lic+linux", "lic+mac-os-x", "lic+win"],
+      licenses: ["lic+mac-os-x", "lic+linux", "lic+win", "lic+gpl", "lic+ios"],
       paradigms: ["para+multi"],
-      people: [["person+ge-wang", { role: "designer" }]],
+      people: ["person+ge-wang"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+strong"],
     },

@@ -24,12 +24,9 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+verilog-ams"],
-      influences: ["pl+ada", "pl+c", "pl+fortran", "pl+pascal"],
+      influences: ["pl+c", "pl+pascal", "pl+ada", "pl+fortran"],
       paradigms: ["para+structured"],
-      people: [
-        ["person+phil-moorby", { role: "designer" }],
-        ["person+prabhu-goel", { role: "designer" }],
-      ],
+      people: ["person+prabhu-goel", "person+phil-moorby"],
       typeSystems: ["tsys+static", "tsys+weak"],
     },
   );

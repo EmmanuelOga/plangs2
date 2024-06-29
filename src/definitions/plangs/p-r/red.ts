@@ -18,22 +18,19 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/e/e9/Red_Language_Tower_Logo.png/150px-Red_Language_Tower_Logo.png",
         },
       ],
-      references: {
-        designed_by: [{ href: "https://github.com/dockimbel", title: "Creator of Red" }],
-        stable_release: [{ href: "https://www.red-lang.org/2024/02/065-changelog.html", title: "Red's changelog" }],
-      },
       releases: [
         { version: "unknown", date: "2011-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "0.6.5", date: "2024-01-01", kind: "stable" },
       ],
       extensions: [".red", ".reds"],
     },
     {
-      influences: ["pl+lisp", "pl+lua", "pl+rebol", "pl+scala"],
-      licenses: ["lic+boost", "lic+bsd-m"],
-      paradigms: ["para+functional", "para+imperative", "para+multi", "para+symbolic"],
-      people: [["person+nenad-rakocevic", { role: "designer" }]],
-      platforms: ["platf+linux", "platf+mac", "platf+win"],
+      influences: ["pl+rebol", "pl+lisp", "pl+scala", "pl+lua"],
+      licenses: ["lic+bsd-m", "lic+boost"],
+      paradigms: ["para+multi", "para+imperative", "para+functional", "para+symbolic"],
+      people: ["person+nenad-rakocevic"],
+      platforms: ["platf+linux", "platf+win", "platf+mac"],
     },
   );
 }

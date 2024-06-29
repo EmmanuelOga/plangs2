@@ -12,9 +12,9 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1977-01-01", kind: "first" }],
     },
     {
-      dialects: ["pl+.ql", "pl+datomic", "pl+souffle"],
+      dialects: ["pl+datomic", "pl+.ql", "pl+souffle"],
       influences: ["pl+prolog"],
-      paradigms: ["para+dec", "para+logic"],
+      paradigms: ["para+logic", "para+dec"],
       typeSystems: ["tsys+weak"],
     },
   );

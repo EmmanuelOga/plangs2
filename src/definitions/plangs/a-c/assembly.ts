@@ -23,11 +23,11 @@ export function define(g: PlangsGraph) {
     {
       paradigms: [
         "para+imperative",
-        "para+macros",
-        "para+meta",
-        "para+objects",
-        "para+structured",
         "para+unstructured",
+        "para+meta",
+        "para+macros",
+        "para+structured",
+        "para+objects",
       ],
     },
   );
@@ -44,21 +44,8 @@ export function define(g: PlangsGraph) {
       images: [
         { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/0/00/AssemblyScript_logo_2020.svg" },
       ],
-      references: {
-        designed_by: [
-          { href: "https://github.com/AssemblyScript/working-group", title: "AssemblyScript Working Group" },
-          { href: "https://www.youtube.com/watch?v=ZlL1nduatZQ", title: "WebAssembly for Javascript Developers" },
-        ],
-        developer: [{ href: "https://github.com/AssemblyScript/working-group", title: "AssemblyScript Working Group" }],
-        first_appeared: [
-          { href: "https://www.npmjs.com/package/assemblyscript/v/0.1.0", title: "assemblyscript 0.1.0" },
-        ],
-        stable_release: [
-          { href: "https://github.com/AssemblyScript/assemblyscript/releases/tag/v0.27.27", title: "Release 0.27.27" },
-        ],
-        license: [{ href: "https://github.com/AssemblyScript/assemblyscript/blob/master/LICENSE", title: "LICENSE" }],
-      },
       releases: [
+        { version: "unknown", kind: "first" },
         { version: "unknown", date: "2017-01-01", kind: "first" },
         { version: "0.27.27", date: "2024-01-01", kind: "stable" },
       ],
@@ -67,11 +54,8 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+javascript", "pl+typescript", "pl+webassembly"],
       licenses: ["lic+apache"],
-      paradigms: ["para+functional", "para+generic", "para+imperative", "para+multi", "para+objects"],
-      people: [
-        ["person+daniel-wirtz", { role: "designer" }],
-        ["person+max-graey", { role: "designer" }],
-      ],
+      paradigms: ["para+multi", "para+functional", "para+generic", "para+imperative", "para+objects"],
+      people: ["person+daniel-wirtz", "person+max-graey"],
       typeSystems: ["tsys+static"],
     },
   );
@@ -94,10 +78,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+lisp", "pl+scheme"],
       licenses: ["lic+proprietary"],
       paradigms: ["para+multi"],
-      people: [
-        ["person+andy-gavin", { role: "designer" }],
-        ["person+naughty-dog", { role: "developer" }],
-      ],
+      people: ["person+andy-gavin", "person+naughty-dog"],
       platforms: ["platf+playstation"],
       typeSystems: ["tsys+dynamic", "tsys+latent", "tsys+strong"],
     },
@@ -122,11 +103,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "2.16", date: "2011-07-06", kind: "stable" }],
     },
-    {
-      licenses: ["lic+public-domain"],
-      people: [["person+randall-hyde", { role: "developer" }]],
-      platforms: ["platf+ia-32"],
-    },
+    { licenses: ["lic+public-domain"], people: ["person+randall-hyde"], platforms: ["platf+ia-32"] },
   );
 
   lb.define(
@@ -139,21 +116,13 @@ export function define(g: PlangsGraph) {
         { kind: "homepage", title: "webassembly.org", href: "https://webassembly.org/" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/1/1f/WebAssembly_Logo.svg" }],
-      references: {
-        paradigm: [
-          {
-            href: "https://github.com/WebAssembly/design/blob/376bcc4b9cba79280d79be023d71e30d0b00ba47/Semantics.md",
-            title: "WebAssembly/design/Semantics.md",
-          },
-        ],
-      },
       releases: [{ version: "unknown", date: "2017-01-01", kind: "first" }],
       extensions: [],
     },
     {
       influences: ["pl+asm.js", "pl+google-native-client", "pl+lisp"],
       licenses: ["lic+apache"],
-      paradigms: ["para+stack", "para+structured"],
+      paradigms: ["para+structured", "para+stack"],
       platforms: ["platf+cross-platform"],
     },
   );

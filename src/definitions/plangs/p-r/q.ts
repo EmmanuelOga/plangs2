@@ -16,24 +16,16 @@ export function define(g: PlangsGraph) {
         },
         { kind: "homepage", title: "code.kx.com", href: "http://code.kx.com" },
       ],
-      references: {
-        first_appeared: [
-          {
-            href: "https://web.archive.org/web/20070101213150/http://vector.org.uk/weblog/archive/000036.html",
-            title: "Q Language Widening the Appeal of Vectors",
-          },
-        ],
-        stable_release: [{ href: "https://code.kx.com/q/ref/releases/ChangesIn4.0/", title: "Changes in 4.0" }],
-      },
       releases: [
+        { version: "unknown", kind: "first" },
         { version: "unknown", date: "2003-01-01", kind: "first" },
         { version: "4.0", date: "2020-03-17", kind: "stable" },
       ],
     },
     {
-      influences: ["pl+ap", "pl+apl", "pl+k", "pl+scheme"],
+      influences: ["pl+k", "pl+apl", "pl+ap", "pl+scheme"],
       paradigms: ["para+array", "para+functional"],
-      people: [["person+arthur-whitney", { role: "designer" }]],
+      people: ["person+arthur-whitney"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );

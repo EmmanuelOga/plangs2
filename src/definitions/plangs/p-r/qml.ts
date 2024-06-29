@@ -18,28 +18,14 @@ export function define(g: PlangsGraph) {
       ],
       releases: [
         { version: "unknown", date: "2009-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "6.4", date: "2022-09-29", kind: "stable" },
       ],
-      references: {
-        stable_release: [{ href: "https://www.qt.io/blog/qt-6.4-released", title: "Qt 6.4 Released" }],
-        influenced_by: [
-          {
-            href: "https://www.scriptol.com/ajax/ajax-xul-xaml.php",
-            title: "Which interface for a modern application?",
-          },
-        ],
-        influenced: [
-          {
-            href: "http://ring-lang.sourceforge.net/doc1.6/introduction.html#ring-and-other-languages",
-            title: "The Ring programming language and other languages",
-          },
-        ],
-      },
       extensions: [],
     },
     {
-      influences: ["pl+javascript", "pl+json", "pl+qt", "pl+xaml"],
-      paradigms: ["para+dec", "para+multi", "para+reactive", "para+scripting"],
+      influences: ["pl+xaml", "pl+json", "pl+javascript", "pl+qt"],
+      paradigms: ["para+multi", "para+dec", "para+reactive", "para+scripting"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );

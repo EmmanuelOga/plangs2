@@ -18,25 +18,18 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Inform", href: "https://en.wikipedia.org/wiki/Inform" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/en/4/4c/Inform_7_IDE_Icon.png" }],
-      references: {
-        stable_release: [
-          { href: "https://web.archive.org/web/20150227005308/http://inform7.com/download/", title: "Download" },
-        ],
-        preview_release: [
-          { href: "https://github.com/DavidKinder/Inform6/releases/tag/v6.33", title: "Release v6.33" },
-        ],
-      },
       releases: [
+        { version: "unknown", kind: "stable" },
         { version: "unknown", date: "2015-12-24", kind: "stable" },
         { version: "unknown", date: "2006-01-01", kind: "first" },
         { version: "6.33", date: "2014-05-10", kind: "preview" },
       ],
     },
     {
-      licenses: ["lic+artistic", "lic+freeware"],
-      paradigms: ["para+dec", "para+imperative", "para+natural"],
-      people: [["person+graham-nelson", { role: "designer" }]],
-      platforms: ["platf+linux", "platf+mac", "platf+win"],
+      licenses: ["lic+freeware", "lic+artistic"],
+      paradigms: ["para+natural", "para+dec", "para+imperative"],
+      people: ["person+graham-nelson"],
+      platforms: ["platf+win", "platf+mac", "platf+linux"],
     },
   );
 }

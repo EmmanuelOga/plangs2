@@ -13,6 +13,6 @@ export function define(g: PlangsGraph) {
         { kind: "homepage", title: "www.txl.ca", href: "https://www.txl.ca/" },
       ],
     },
-    { paradigms: ["para+pattern", "para+term"], people: [["person+james-cordy", { role: "designer" }]] },
+    { paradigms: ["para+pattern", "para+term"], people: ["person+james-cordy"] },
   );
 }

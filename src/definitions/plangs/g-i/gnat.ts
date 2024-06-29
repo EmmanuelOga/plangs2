@@ -16,15 +16,9 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/en/2/22/Heckert_GNU_white.svg" }],
       releases: [
         { version: "unknown", date: "1995-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "9.2", date: "2019-08-12", kind: "stable" },
       ],
-      references: {
-        stable_release: [
-          { href: "https://www.gnu.org/software/gcc/releases.html", title: "GCC Releases - GNU Project" },
-          { href: "https://www.adacore.com/press/gnat-pro-7-4", title: "AdaCore Releases GNAT Pro 7.4" },
-        ],
-        license: [{ href: "https://www.gnu.org/licenses/gcc-exception.html", title: "GCC Runtime Library Exception" }],
-      },
     },
     { licenses: ["lic+gpl"] },
   );

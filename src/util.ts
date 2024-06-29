@@ -65,3 +65,15 @@ export function caller(pathPattern: string): string {
   const clean = caller_line.slice(index + 2, caller_line.length);
   return clean.trim();
 }
+
+/** True if obj has any key where obj[key] is truthy. */
+// biome-ignore lint/suspicious/noExplicitAny: Can test any object.
+export function blank(obj: any): boolean {
+  if (typeof obj === "string") return !obj;
+
+  for (const key of Object.getOwnPropertyNames(obj)) {
+    if (obj[key]) return false;
+  }
+
+  return true;
+}

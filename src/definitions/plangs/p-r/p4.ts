@@ -14,13 +14,9 @@ export function define(g: PlangsGraph) {
       ],
       releases: [
         { version: "unknown", date: "2013-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "1.2.2", date: "2021-01-01", kind: "stable" },
       ],
-      references: {
-        stable_release: [
-          { href: "https://p4.org/p4-spec/docs/P4-16-v1.2.2.html", title: "P4 Language and Related Specifications" },
-        ],
-      },
       extensions: [".p4"],
     },
     { licenses: ["lic+apache"], paradigms: ["para+compiled", "para+domain", "para+imperative"] },

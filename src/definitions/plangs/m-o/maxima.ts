@@ -15,13 +15,9 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Maxima-new.svg" }],
       releases: [
         { version: "unknown", date: "1982-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "5.47.0", date: "2023-01-01", kind: "stable" },
       ],
-      references: {
-        stable_release: [
-          { href: "https://sourceforge.net/p/maxima/mailman/message/37852344/", title: "Announcing 5.47.0" },
-        ],
-      },
     },
     { licenses: ["lic+gpl"] },
   );

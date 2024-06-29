@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+bourne-shell"],
       paradigms: ["para+imperative", "para+pipeline"],
-      people: [["person+tom-duff", { role: "designer" }]],
+      people: ["person+tom-duff"],
       platforms: ["platf+cross-platform", "platf+plan9"],
       typeSystems: ["tsys+weak"],
     },

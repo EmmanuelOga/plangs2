@@ -15,24 +15,16 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/6/6c/Pharo_Logo_v3.0.svg" }],
       releases: [
         { version: "unknown", date: "2008-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "12.0", date: "2024-01-01", kind: "stable" },
       ],
-      references: {
-        stable_release: [
-          {
-            href: "https://pharo.org/news/2024-04-26-pharo12-released.html",
-            title: "https://pharo.org/news/2024-04-26-pharo12-released.html",
-          },
-        ],
-        license: [{ href: "https://pharo.org/license", title: "Pharo license information" }],
-      },
     },
     {
       implementations: ["pl+smalltalk"],
       influences: ["pl+smalltalk", "pl+squeak"],
-      licenses: ["lic+apache", "lic+mit"],
+      licenses: ["lic+mit", "lic+apache"],
       paradigms: ["para+objects"],
-      platforms: ["platf+arm", "platf+ia-32", "platf+linux", "platf+mac", "platf+win", "platf+x86-64"],
+      platforms: ["platf+arm", "platf+ia-32", "platf+x86-64", "platf+win", "platf+linux", "platf+mac"],
       typeSystems: ["tsys+dynamic"],
     },
   );

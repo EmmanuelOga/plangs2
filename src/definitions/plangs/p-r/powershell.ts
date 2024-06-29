@@ -21,45 +21,31 @@ export function define(g: PlangsGraph) {
       ],
       releases: [
         { version: "unknown", date: "2006-11-14", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "7.4.2", date: "2024-04-11", kind: "stable" },
       ],
-      references: {
-        stable_release: [
-          {
-            href: "https://github.com/PowerShell/PowerShell/releases/tag/v7.4.2",
-            title: "Release v7.4.2 Release of PowerShell · PowerShell/PowerShell",
-          },
-        ],
-        license: [{ href: "https://github.com/PowerShell/PowerShell", title: "PowerShell for every system!" }],
-        influenced_by: [
-          {
-            href: "https://blogs.msdn.microsoft.com/powershell/2008/05/25/powershell-and-wpf-wtf/",
-            title: "PowerShell and WPF: WTF",
-          },
-        ],
-      },
       extensions: [],
     },
     {
       implementations: ["pl+c-sharp"],
       influences: [
-        "pl+c-sharp",
-        "pl+chef",
-        "pl+control",
-        "pl+digital-command",
-        "pl+kornshell",
-        "pl+perl",
-        "pl+puppet",
-        "pl+python",
         "pl+sql",
         "pl+tcl",
+        "pl+python",
+        "pl+kornshell",
+        "pl+perl",
+        "pl+c-sharp",
+        "pl+control",
+        "pl+digital-command",
         "pl+tk",
+        "pl+chef",
+        "pl+puppet",
       ],
       licenses: ["lic+mit", "lic+proprietary"],
-      paradigms: ["para+functional", "para+imperative", "para+objects", "para+pipeline", "para+reflective"],
-      people: [["person+jeffrey-snover", { role: "designer" }]],
-      platforms: ["platf+.net", "platf+linux", "platf+mac", "platf+win"],
-      typeSystems: ["tsys+dynamic", "tsys+inferred", "tsys+safe", "tsys+strong"],
+      paradigms: ["para+imperative", "para+pipeline", "para+objects", "para+functional", "para+reflective"],
+      people: ["person+jeffrey-snover"],
+      platforms: ["platf+.net", "platf+win", "platf+mac", "platf+linux"],
+      typeSystems: ["tsys+strong", "tsys+safe", "tsys+inferred", "tsys+dynamic"],
     },
   );
 }

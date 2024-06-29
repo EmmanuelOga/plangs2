@@ -20,40 +20,27 @@ export function define(g: PlangsGraph) {
       ],
       releases: [
         { version: "unknown", date: "1988-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "5.0.0", date: "2023-01-01", kind: "stable" },
         { version: "5.1.0", kind: "preview" },
       ],
-      references: {
-        stable_release: [
-          {
-            href: "https://sourceforge.net/projects/oorexx/files/oorexx/5.0.0/",
-            title: "ooRexx (Open Object Rexx) -  Browse /oorexx/5.0.0 at SourceForge.net",
-          },
-        ],
-        influenced_by: [
-          {
-            href: "https://blog.smartbear.com/programming/7-reasons-that-rexx-still-matters/",
-            title: "7 Reasons that Rexx Still Matters",
-          },
-        ],
-      },
       extensions: [".rxs", ".rex", ".rexx", ".cls"],
     },
     {
       implementations: ["pl+cpp"],
       influences: ["pl+rexx", "pl+smalltalk"],
       licenses: ["lic+common-public", "lic+gpl"],
-      paradigms: ["para+class", "para+objects"],
-      people: [["person+simon-c-nash", { role: "designer" }]],
+      paradigms: ["para+objects", "para+class"],
+      people: ["person+simon-c-nash"],
       platforms: [
-        "platf+arm",
-        "platf+bsd",
-        "platf+cross-platform",
         "platf+ia-32",
-        "platf+linux",
-        "platf+mac",
-        "platf+win",
         "platf+x86-64",
+        "platf+arm",
+        "platf+cross-platform",
+        "platf+linux",
+        "platf+win",
+        "platf+mac",
+        "platf+bsd",
       ],
     },
   );

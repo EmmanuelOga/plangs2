@@ -18,40 +18,28 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ringlogo_transparent.png/121px-Ringlogo_transparent.png",
         },
       ],
-      references: {
-        designed_by: [
-          {
-            href: "https://link.springer.com/content/pdf/bbm%3A978-1-4842-5833-0%2F1.pdf",
-            title: "A Dialogue with Mahmoud Fayed",
-          },
-        ],
-        stable_release: [{ href: "https://github.com/ring-lang/ring/releases/tag/v1.20", title: "Released 1.20" }],
-        influenced: [
-          { href: "https://simple-lang.sourceforge.io", title: "The Simple programming language" },
-          { href: "https://www.dragon-lang.org/", title: "The Dragon programming language" },
-        ],
-      },
       releases: [
         { version: "unknown", date: "2016-01-25", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "1.20", date: "2024-01-01", kind: "stable" },
       ],
       extensions: [".ring", ".rh", ".rform"],
     },
     {
       implementations: ["pl+c"],
-      influences: ["pl+basic", "pl+c", "pl+c-sharp", "pl+lua", "pl+python", "pl+qml", "pl+ruby", "pl+xbase"],
+      influences: ["pl+ruby", "pl+lua", "pl+python", "pl+c", "pl+c-sharp", "pl+basic", "pl+qml", "pl+xbase"],
       licenses: ["lic+mit"],
       paradigms: [
-        "para+dec",
-        "para+functional",
-        "para+imperative",
         "para+multi",
-        "para+natural",
         "para+objects",
+        "para+imperative",
+        "para+functional",
         "para+reflective",
+        "para+dec",
+        "para+natural",
       ],
-      people: [["person+mahmoud-samir-fayed", { role: "designer" }]],
-      platforms: ["platf+linux", "platf+mac", "platf+win"],
+      people: ["person+mahmoud-samir-fayed"],
+      platforms: ["platf+win", "platf+linux", "platf+mac"],
       typeSystems: ["tsys+dynamic"],
     },
   );

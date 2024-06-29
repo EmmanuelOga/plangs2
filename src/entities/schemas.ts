@@ -18,11 +18,6 @@ export interface V_Plang {
   releases: Release[];
   scoping: ("lexical" | "static" | "dynamic" | "other")[];
   websites: Link[];
-
-  /**
-   * A map of references grouped by tag: #influences, #influenced_by, etc.
-   */
-  references: Record<string, Link[]>;
 }
 
 export type VID_Plang = VID<`pl`>;
@@ -83,7 +78,7 @@ export type VID_License = VID<`lic`>;
 
 /** Allow all edge relationships to cite references. */
 export interface E_Base {
-  references: Link[];
+  refs: Link[];
 }
 
 export interface E_PersonPlang extends E_Base {

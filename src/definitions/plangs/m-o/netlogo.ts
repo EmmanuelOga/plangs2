@@ -20,19 +20,17 @@ export function define(g: PlangsGraph) {
       ],
       releases: [
         { version: "unknown", date: "1999-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "6.4.0", date: "2023-01-01", kind: "stable" },
       ],
-      references: {
-        stable_release: [{ href: "https://github.com/NetLogo/NetLogo/releases/tag/6.4.0", title: "Release 6.4.0" }],
-      },
       extensions: [".nlogo", ".nls"],
     },
     {
-      implementations: ["pl+java", "pl+scala"],
-      influences: ["pl+logo", "pl+objectlogo", "pl+starlogo", "pl+ucblogo"],
+      implementations: ["pl+scala", "pl+java"],
+      influences: ["pl+logo", "pl+starlogo", "pl+objectlogo", "pl+ucblogo"],
       licenses: ["lic+gpl"],
-      paradigms: ["para+computer", "para+educational", "para+imperative", "para+multi", "para+simulation"],
-      platforms: ["platf+cross-platform", "platf+ia-32", "platf+jvm", "platf+x86-64"],
+      paradigms: ["para+multi", "para+educational", "para+imperative", "para+computer", "para+simulation"],
+      platforms: ["platf+ia-32", "platf+x86-64", "platf+cross-platform", "platf+jvm"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );

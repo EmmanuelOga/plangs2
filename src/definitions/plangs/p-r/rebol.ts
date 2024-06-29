@@ -18,23 +18,13 @@ export function define(g: PlangsGraph) {
         { version: "2.7.8", date: "2011-01-01", kind: "stable" },
         { version: "2.101.0", date: "2012-01-01", kind: "preview" },
       ],
-      references: {
-        license: [
-          { href: "http://www.rebol.com/license.html", title: "license" },
-          { href: "https://github.com/rebol/r3", title: "R3 source" },
-        ],
-        filename_extensions: [
-          { href: "http://www.rebol.com/article/0540.html", title: "Carl's REBOL Blog - Let's switch to .reb suffix" },
-        ],
-        influenced: [{ href: "https://www.youtube.com/watch?v=-C-JoyNuQJs", title: "The JSON Saga" }],
-      },
       extensions: [".r", ".reb"],
     },
     {
-      influences: ["pl+forth", "pl+lisp", "pl+logo", "pl+objectlogo", "pl+self", "pl+ucblogo"],
-      licenses: ["lic+apache", "lic+freely-redistributable"],
-      paradigms: ["para+data", "para+functional", "para+imperative", "para+language", "para+prototypes"],
-      people: [["person+carl-sassenrath", { role: "designer" }]],
+      influences: ["pl+lisp", "pl+forth", "pl+objectlogo", "pl+self", "pl+ucblogo", "pl+logo"],
+      licenses: ["lic+freely-redistributable", "lic+apache"],
+      paradigms: ["para+language", "para+data", "para+functional", "para+prototypes", "para+imperative"],
+      people: ["person+carl-sassenrath"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

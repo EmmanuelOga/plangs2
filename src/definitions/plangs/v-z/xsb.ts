@@ -18,11 +18,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+prolog"],
       paradigms: ["para+logic"],
-      people: [
-        ["person+david-s-warren", { role: "designer" }],
-        ["person+kostis-sagonas", { role: "designer" }],
-        ["person+terrance-swift", { role: "designer" }],
-      ],
+      people: ["person+david-s-warren", "person+terrance-swift", "person+kostis-sagonas"],
       platforms: ["platf+cross-platform"],
     },
   );

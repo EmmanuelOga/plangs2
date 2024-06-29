@@ -24,12 +24,12 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influences: ["pl+forth", "pl+joy", "pl+lisp", "pl+self"],
+      influences: ["pl+forth", "pl+joy", "pl+self", "pl+lisp"],
       licenses: ["lic+bsd"],
-      paradigms: ["para+concatenative", "para+functional", "para+multi", "para+objects", "para+stack"],
-      people: [["person+slava-pestov", { role: "developer" }]],
-      platforms: ["platf+linux", "platf+mac", "platf+win"],
-      typeSystems: ["tsys+dynamic", "tsys+strong"],
+      paradigms: ["para+multi", "para+concatenative", "para+stack", "para+functional", "para+objects"],
+      people: ["person+slava-pestov"],
+      platforms: ["platf+win", "platf+mac", "platf+linux"],
+      typeSystems: ["tsys+strong", "tsys+dynamic"],
     },
   );
 }

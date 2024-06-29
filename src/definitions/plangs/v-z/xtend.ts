@@ -15,22 +15,17 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Xtend-logo-c.png" }],
       releases: [
         { version: "unknown", date: "2011-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "2.25.0", date: "2021-03-02", kind: "stable" },
       ],
-      references: {
-        stable_release: [{ href: "https://www.eclipse.org/xtend/releasenotes.html", title: "Xtend - Release Notes" }],
-      },
     },
     {
-      influences: ["pl+groovy", "pl+java", "pl+scala", "pl+smalltalk"],
+      influences: ["pl+java", "pl+scala", "pl+groovy", "pl+smalltalk"],
       licenses: ["lic+eclipse-public"],
-      paradigms: ["para+functional", "para+imperative", "para+objects"],
-      people: [
-        ["person+sebastian-zarnekow", { role: "designer" }],
-        ["person+sven-efftinge", { role: "designer" }],
-      ],
-      platforms: ["platf+cross-platform", "platf+jvm"],
-      typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
+      paradigms: ["para+objects", "para+imperative", "para+functional"],
+      people: ["person+sven-efftinge", "person+sebastian-zarnekow"],
+      platforms: ["platf+jvm", "platf+cross-platform"],
+      typeSystems: ["tsys+static", "tsys+strong", "tsys+inferred"],
     },
   );
 }

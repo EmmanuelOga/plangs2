@@ -20,25 +20,17 @@ export function define(g: PlangsGraph) {
       ],
       releases: [
         { version: "unknown", date: "2015-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "2.7.7", date: "2022-08-02", kind: "stable" },
       ],
-      references: {
-        stable_release: [
-          {
-            href: "https://github.com/backface/turtlestitch",
-            title:
-              "GitHub - backface/Turtlestitch: Visual, blocks-based programming for turtle graphics and generative embroidery",
-          },
-        ],
-      },
       extensions: [],
     },
     {
       implementations: ["pl+javascript"],
-      influences: ["pl+logo", "pl+maker-culture", "pl+scratch", "pl+snap-"],
+      influences: ["pl+snap-", "pl+scratch", "pl+logo", "pl+maker-culture"],
       licenses: ["lic+affero-gpl"],
-      paradigms: ["para+educational", "para+event", "para+objects"],
-      people: [["person+andrea-mayr-stalder", { role: "designer" }]],
+      paradigms: ["para+objects", "para+educational", "para+event"],
+      people: ["person+andrea-mayr-stalder"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic"],
     },

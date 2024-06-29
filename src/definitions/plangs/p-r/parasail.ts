@@ -28,15 +28,14 @@ export function define(g: PlangsGraph) {
         { version: "9.3", date: "2021-06-06", kind: "stable" },
       ],
       extensions: [".psi", ".psl"],
-      references: { influenced: [{ href: "https://nim-lang.org/araq/destructors.html", title: "Nim without GC" }] },
     },
     {
-      influences: ["pl+ada", "pl+ml", "pl+modula", "pl+pascal"],
+      influences: ["pl+ada", "pl+modula", "pl+pascal", "pl+ml"],
       licenses: ["lic+gpl"],
-      paradigms: ["para+compiled", "para+concurrent", "para+imperative", "para+objects", "para+structured"],
-      people: [["person+s-tucker-taft", { role: "designer" }]],
-      platforms: ["platf+linux", "platf+mac", "platf+win", "platf+x86"],
-      typeSystems: ["tsys+static", "tsys+strong"],
+      paradigms: ["para+compiled", "para+concurrent", "para+imperative", "para+structured", "para+objects"],
+      people: ["person+s-tucker-taft"],
+      platforms: ["platf+x86", "platf+linux", "platf+mac", "platf+win"],
+      typeSystems: ["tsys+strong", "tsys+static"],
     },
   );
 }

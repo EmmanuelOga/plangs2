@@ -20,16 +20,12 @@ export function define(g: PlangsGraph) {
       extensions: [".vala", ".vapi"],
     },
     {
-      influences: ["pl+boo", "pl+c", "pl+c-sharp", "pl+cpp", "pl+d", "pl+java"],
+      influences: ["pl+java", "pl+c", "pl+cpp", "pl+c-sharp", "pl+d", "pl+boo"],
       licenses: ["lic+lgpl"],
-      paradigms: ["para+imperative", "para+multi", "para+objects", "para+structured"],
-      people: [
-        ["person+jurg-billeter", { role: "developer" }],
-        ["person+raffaele-sandrini", { role: "developer" }],
-        ["person+rico-tzschichholz", { role: "developer" }],
-      ],
+      paradigms: ["para+multi", "para+imperative", "para+structured", "para+objects"],
+      people: ["person+jurg-billeter", "person+raffaele-sandrini", "person+rico-tzschichholz"],
       platforms: ["platf+cross-platform", "platf+glib"],
-      typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"],
+      typeSystems: ["tsys+static", "tsys+strong", "tsys+inferred", "tsys+structural"],
     },
   );
 }

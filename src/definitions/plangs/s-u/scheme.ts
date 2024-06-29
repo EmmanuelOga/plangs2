@@ -18,20 +18,12 @@ export function define(g: PlangsGraph) {
         { version: "unknown", date: "2013-01-01", kind: "stable" },
       ],
       extensions: [".scm", ".ss"],
-      references: {
-        influenced: [
-          { href: "https://doc.rust-lang.org/reference/influences.html", title: "Influences - The Rust Reference" },
-        ],
-      },
     },
     {
       dialects: ["pl+dsssl"],
       influences: ["pl+algol", "pl+lisp", "pl+mdl", "pl+racket"],
-      paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi"],
-      people: [
-        ["person+gerald-jay-sussman", { role: "designer" }],
-        ["person+guy-l-steele", { role: "designer" }],
-      ],
+      paradigms: ["para+multi", "para+functional", "para+imperative", "para+meta"],
+      people: ["person+guy-l-steele", "person+gerald-jay-sussman"],
       typeSystems: ["tsys+dynamic", "tsys+latent", "tsys+strong"],
     },
   );

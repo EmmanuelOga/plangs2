@@ -20,20 +20,13 @@ export function define(g: PlangsGraph) {
       ],
       releases: [
         { version: "unknown", date: "2001-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "9.4.5.0", date: "2023-11-02", kind: "stable" },
       ],
-      references: {
-        stable_release: [{ href: "https://github.com/jruby/jruby/releases", title: "Releases · jruby/jruby" }],
-      },
     },
     {
       licenses: ["lic+eclipse-public", "lic+gpl", "lic+lgpl"],
-      people: [
-        ["person+charles-oliver-nutter", { role: "developer" }],
-        ["person+nick-sieger", { role: "developer" }],
-        ["person+ola-bini", { role: "developer" }],
-        ["person+thomas-enebo", { role: "developer" }],
-      ],
+      people: ["person+charles-oliver-nutter", "person+thomas-enebo", "person+ola-bini", "person+nick-sieger"],
       platforms: ["platf+jvm"],
     },
   );
@@ -50,17 +43,11 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/7/73/Mruby_logo_red.svg" }],
       releases: [
         { version: "unknown", date: "2012-04-20", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "3.3.0", date: "2024-01-01", kind: "stable" },
       ],
-      references: {
-        stable_release: [
-          { href: "https://github.com/mruby/mruby/releases/tag/3.3.0", title: "Release 3.3.0" },
-          { href: "https://mruby.org/releases/2024/02/14/mruby-3.3.0-released.html", title: "mruby 3.3.0 released" },
-        ],
-        license: [{ href: "https://github.com/mruby/mruby/blob/master/LICENSE", title: "LICENSE" }],
-      },
     },
-    { licenses: ["lic+mit"], people: [["person+yukihiro-matsumoto", { role: "developer" }]] },
+    { licenses: ["lic+mit"], people: ["person+yukihiro-matsumoto"] },
   );
 
   lb.define(
@@ -79,66 +66,35 @@ export function define(g: PlangsGraph) {
       ],
       scoping: ["dynamic"],
       extensions: [".rb", ".ru"],
-      references: {
-        influenced_by: [
-          {
-            href: "https://web.archive.org/web/20200115080302/http://confreaks.tv/videos/rubyconf2008-reasons-behind-ruby",
-            title: "Reasons behind Ruby",
-          },
-          {
-            href: "https://archive.org/details/practicaljrubyon0000bini/page/3",
-            title: "Practical JRuby on Rails Web 2.0 Projects: Bringing Ruby on Rails to Java",
-          },
-        ],
-        influenced: [
-          {
-            href: "https://web.archive.org/web/20180816025550/https://docs.julialang.org/en/stable/",
-            title: "Julia 1.0 Documentation: Introduction",
-          },
-          { href: "https://web.archive.org/web/20181225131630/http://programming.nu/about%0A%20", title: "About Nu™" },
-          {
-            href: "https://web.archive.org/web/20181225175312/http://ring-lang.sourceforge.net/doc1.6/introduction.html#ring-and-other-languages",
-            title: "Ring and other languages",
-          },
-          {
-            href: "https://web.archive.org/web/20190126051127/https://doc.rust-lang.org/reference/influences.html",
-            title: "Influences - The Rust Reference",
-          },
-          {
-            href: "https://web.archive.org/web/20181225175312/http://nondot.org/sabre/",
-            title: "Chris Lattner's Homepage",
-          },
-        ],
-      },
     },
     {
       implementations: [
         "pl+c",
-        "pl+graalvm",
-        "pl+jruby",
-        "pl+mruby",
-        "pl+rubinius",
         "pl+ruby-mri",
-        "pl+rubymotion",
+        "pl+graalvm",
         "pl+yarv",
+        "pl+rubinius",
+        "pl+jruby",
+        "pl+rubymotion",
+        "pl+mruby",
       ],
       influences: [
         "pl+ada",
+        "pl+scheme",
+        "pl+lisp",
         "pl+basic",
-        "pl+clu",
         "pl+cpp",
+        "pl+clu",
         "pl+dylan",
         "pl+eiffel",
-        "pl+lisp",
         "pl+lua",
         "pl+perl",
         "pl+python",
-        "pl+scheme",
         "pl+smalltalk",
       ],
       licenses: ["lic+ruby"],
-      paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects", "para+reflective"],
-      people: [["person+yukihiro-matsumoto", { role: "designer" }]],
+      paradigms: ["para+multi", "para+functional", "para+imperative", "para+objects", "para+reflective"],
+      people: ["person+yukihiro-matsumoto"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+strong"],
     },
@@ -159,6 +115,6 @@ export function define(g: PlangsGraph) {
         { kind: "homepage", title: "www.rubymotion.com", href: "http://www.rubymotion.com/" },
       ],
     },
-    { licenses: ["lic+eula", "lic+proprietary"] },
+    { licenses: ["lic+proprietary", "lic+eula"] },
   );
 }

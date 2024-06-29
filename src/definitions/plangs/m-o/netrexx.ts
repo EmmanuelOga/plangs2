@@ -17,29 +17,23 @@ export function define(g: PlangsGraph) {
         { version: "unknown", date: "1996-01-01", kind: "first" },
         { version: "4.06", date: "2024-03-02", kind: "stable" },
       ],
-      references: {
-        license: [
-          { href: "https://kenai.com/projects/netrexx/pages/License", title: "ICU License - ICU 1.8.1 and later" },
-        ],
-        major_implementations: [{ href: "http://www.netrexx.org", title: "NetRexx" }],
-      },
       extensions: [".nrx"],
     },
     {
-      influences: ["pl+java", "pl+object-rexx", "pl+pl-slash", "pl+rexx"],
+      influences: ["pl+object-rexx", "pl+rexx", "pl+pl-slash", "pl+java"],
       licenses: ["lic+icu"],
-      paradigms: ["para+imperative", "para+multi", "para+objects", "para+structured"],
-      people: [["person+mike-cowlishaw", { role: "designer" }]],
+      paradigms: ["para+multi", "para+objects", "para+imperative", "para+structured"],
+      people: ["person+mike-cowlishaw"],
       platforms: [
-        "platf+android",
         "platf+cross-platform",
         "platf+linux",
-        "platf+mac",
         "platf+win",
+        "platf+mac",
         "platf+z-slashos",
         "platf+z-slashvm",
+        "platf+android",
       ],
-      typeSystems: ["tsys+dynamic", "tsys+safe", "tsys+static", "tsys+strong"],
+      typeSystems: ["tsys+static", "tsys+strong", "tsys+safe", "tsys+dynamic"],
     },
   );
 }

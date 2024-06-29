@@ -17,15 +17,14 @@ export function define(g: PlangsGraph) {
         { version: "unknown", date: "2021-12-31", kind: "stable" },
       ],
       extensions: [".js"],
-      references: { major_implementations: [{ href: "https://sourceacademy.org", title: "Source Academy" }] },
     },
     {
       implementations: ["pl+safari", "pl+tail-call"],
       influences: ["pl+javascript", "pl+scheme"],
       licenses: ["lic+apache"],
-      paradigms: ["para+functional", "para+imperative", "para+multi", "para+scripting"],
+      paradigms: ["para+multi", "para+scripting", "para+imperative", "para+functional"],
       platforms: ["platf+web"],
-      typeSystems: ["tsys+duck", "tsys+dynamic"],
+      typeSystems: ["tsys+dynamic", "tsys+duck"],
     },
   );
 }

@@ -20,46 +20,31 @@ export function define(g: PlangsGraph) {
       ],
       releases: [
         { version: "unknown", date: "1990-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "9.5", date: "2023-12-20", kind: "stable" },
       ],
-      references: {
-        stable_release: [
-          { href: "https://code.jsoftware.com/wiki/System/ReleaseNotes/J9.5", title: "Release Notes J9.5" },
-        ],
-        os: [{ href: "https://www.jsoftware.com/#/README", title: "Jsoftware" }],
-        influenced: [
-          {
-            href: "https://traims.tumblr.com/post/33883718232/python-for-data-analysis-18-oct-2012-london",
-            title: "Wes McKinney at 2012 meeting Python for Data Analysis",
-          },
-          {
-            href: "http://doc.sccode.org/Reference/Adverbs.html",
-            title: "SuperCollider documentation, Adverbs for Binary Operators",
-          },
-        ],
-      },
     },
     {
       influences: ["pl+apl", "pl+fl"],
       licenses: ["lic+gpl"],
       paradigms: [
         "para+array",
-        "para+class",
-        "para+function",
         "para+functional",
         "para+objects",
+        "para+class",
         "para+prototypes",
+        "para+function",
         "para+tacit",
       ],
-      people: [["person+roger-hui", { role: "designer" }]],
+      people: ["person+roger-hui"],
       platforms: [
-        "platf+android",
         "platf+cross-platform",
-        "platf+ios",
+        "platf+win",
         "platf+linux",
         "platf+mac",
+        "platf+android",
+        "platf+ios",
         "platf+rpi",
-        "platf+win",
       ],
       typeSystems: ["tsys+dynamic"],
     },

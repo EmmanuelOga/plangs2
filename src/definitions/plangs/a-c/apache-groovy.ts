@@ -15,30 +15,25 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/3/36/Groovy-logo.svg" }],
       releases: [
         { version: "unknown", date: "2003-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "4.0.21", date: "2024-01-01", kind: "stable" },
         { version: "4.0.0", date: "2021-09-06", kind: "preview" },
       ],
-      references: {
-        stable_release: [
-          { href: "https://github.com/apache/groovy/releases/tag/GROOVY_4_0_21", title: "Release 4.0.21" },
-        ],
-        preview_release: [{ href: "https://github.com/apache/groovy/releases", title: "Releases - apache/groovy" }],
-      },
     },
     {
       implementations: ["pl+gradle", "pl+grails"],
       influences: ["pl+java", "pl+python", "pl+ruby", "pl+smalltalk"],
       licenses: ["lic+apache"],
-      paradigms: ["para+aspect", "para+functional", "para+imperative", "para+multi", "para+objects", "para+scripting"],
+      paradigms: ["para+multi", "para+objects", "para+imperative", "para+functional", "para+aspect", "para+scripting"],
       people: [
-        ["person+cedric-champeau", { role: "developer" }],
-        ["person+guillaume-laforge", { role: "developer" }],
-        ["person+james-strachan", { role: "designer" }],
-        ["person+jochen-theodorou", { role: "developer" }],
-        ["person+paul-king", { role: "developer" }],
+        "person+james-strachan",
+        "person+guillaume-laforge",
+        "person+jochen-theodorou",
+        "person+paul-king",
+        "person+cedric-champeau",
       ],
       platforms: ["platf+jvm"],
-      typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+static", "tsys+strong"],
+      typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong", "tsys+duck"],
     },
   );
 }

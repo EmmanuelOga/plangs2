@@ -15,18 +15,16 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Jq_logo.svg" }],
       releases: [
         { version: "unknown", date: "2012-08-21", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "1.7.1", date: "2023-01-01", kind: "stable" },
       ],
-      references: {
-        stable_release: [{ href: "https://github.com/jqlang/jq/releases/tag/jq-1.7.1", title: "Release jq 1.7.1" }],
-      },
     },
     {
       implementations: ["pl+c", "pl+go", "pl+rust"],
       influences: ["pl+icon"],
       licenses: ["lic+mit"],
       paradigms: ["para+functional", "para+json", "para+tacit"],
-      people: [["person+stephen-dolan", { role: "designer" }]],
+      people: ["person+stephen-dolan"],
       platforms: ["platf+cross-platform"],
     },
   );

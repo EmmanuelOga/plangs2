@@ -23,14 +23,9 @@ export function define(g: PlangsGraph) {
       influences: ["pl+basic"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+imperative"],
-      people: [
-        ["person+derek-parnell", { role: "designer" }],
-        ["person+jeremy-cowgar", { role: "designer" }],
-        ["person+matt-lewis", { role: "designer" }],
-        ["person+robert-craig", { role: "designer" }],
-      ],
-      platforms: ["platf+bsd", "platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
-      typeSystems: ["tsys+dynamic", "tsys+static"],
+      people: ["person+jeremy-cowgar", "person+robert-craig", "person+matt-lewis", "person+derek-parnell"],
+      platforms: ["platf+cross-platform", "platf+win", "platf+linux", "platf+mac", "platf+bsd"],
+      typeSystems: ["tsys+static", "tsys+dynamic"],
     },
   );
 }

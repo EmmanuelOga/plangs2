@@ -15,26 +15,22 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/26/Io-logo.svg" }],
       releases: [
         { version: "unknown", date: "2002-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "unknown", date: "2017-08-11", kind: "stable" },
       ],
-      references: { stable_release: [{ href: "https://github.com/IoLanguage/io/releases", title: "Io Releases" }] },
     },
     {
       influences: [
-        "pl+actor-model-middle-history",
         "pl+lisp",
-        "pl+lua",
         "pl+newtonscript",
-        "pl+python",
         "pl+self",
         "pl+smalltalk",
+        "pl+lua",
+        "pl+python",
+        "pl+actor-model-middle-history",
       ],
       paradigms: ["para+objects", "para+prototypes"],
-      people: [
-        ["person+jeremy-tregunna", { role: "developer" }],
-        ["person+jonathan-wright", { role: "developer" }],
-        ["person+steve-dekorte", { role: "designer" }],
-      ],
+      people: ["person+steve-dekorte", "person+jonathan-wright", "person+jeremy-tregunna"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );

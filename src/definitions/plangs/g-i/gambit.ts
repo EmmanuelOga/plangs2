@@ -14,18 +14,16 @@ export function define(g: PlangsGraph) {
       ],
       releases: [
         { version: "unknown", date: "1988-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "4.9.5", date: "2023-01-01", kind: "stable" },
       ],
-      references: {
-        stable_release: [{ href: "https://gambitscheme.org/latest/", title: "Gambit Scheme - Gambit 4.9.4" }],
-      },
     },
     {
-      influences: ["pl+lisp", "pl+multilisp", "pl+scheme"],
-      licenses: ["lic+apache", "lic+lgpl"],
-      paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi"],
-      people: [["person+marc-feeley", { role: "designer" }]],
-      platforms: ["platf+cross-platform", "platf+ia-32", "platf+x86-64"],
+      influences: ["pl+lisp", "pl+scheme", "pl+multilisp"],
+      licenses: ["lic+lgpl", "lic+apache"],
+      paradigms: ["para+multi", "para+functional", "para+imperative", "para+meta"],
+      people: ["person+marc-feeley"],
+      platforms: ["platf+ia-32", "platf+x86-64", "platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+latent", "tsys+strong"],
     },
   );

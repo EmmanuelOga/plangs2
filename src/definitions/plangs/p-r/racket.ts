@@ -15,50 +15,25 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Racket-logo.svg" }],
       releases: [
         { version: "unknown", date: "1995-01-28", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "8.13", date: "2024-01-01", kind: "stable" },
       ],
-      references: {
-        stable_release: [{ href: "https://github.com/racket/racket/releases/tag/v8.13", title: "Racket 8.13" }],
-        license: [
-          {
-            href: "https://blog.racket-lang.org/2019/11/completing-racket-s-relicensing-effort.html",
-            title: "Completing Racket's relicensing effort",
-          },
-        ],
-        filename_extensions: [
-          { href: "https://docs.racket-lang.org/drracket/drracket-files.html", title: "DrRacket Files" },
-        ],
-        influenced_by: [
-          {
-            href: "http://www.ccs.neu.edu/racket/pubs/dls10-sf.pdf",
-            title: "DLS 2010: Contracts for First-Class Classes",
-          },
-        ],
-        influenced: [
-          { href: "https://mail.mozilla.org/pipermail/rust-dev/2013-May/003947.html", title: "Planet2 questions" },
-          {
-            href: "https://github.com/rust-lang/rust/blob/0486e12ad0661adcfdbd926dea17d7edfda419c1/src/doc/book/bibliography.md",
-            title: "Rust Bibliography",
-          },
-          { href: "http://www.r6rs.org", title: "Revised6 Report on the Algorithmic Language Scheme (R6RS)" },
-        ],
-      },
       extensions: [".rkt"],
     },
     {
-      influences: ["pl+eiffel", "pl+scheme"],
-      licenses: ["lic+apache", "lic+mit"],
+      influences: ["pl+scheme", "pl+eiffel"],
+      licenses: ["lic+mit", "lic+apache"],
       paradigms: [
+        "para+multi",
         "para+functional",
         "para+imperative",
         "para+logic",
         "para+meta",
         "para+modular",
-        "para+multi",
         "para+objects",
         "para+reflective",
       ],
-      platforms: ["platf+arm", "platf+cross-platform", "platf+mips", "platf+x86"],
+      platforms: ["platf+x86", "platf+mips", "platf+arm", "platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong"],
     },
   );

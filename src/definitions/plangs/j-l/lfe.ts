@@ -26,10 +26,10 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+erlang"],
-      influences: ["pl+clojure", "pl+common-lisp", "pl+elixir", "pl+erlang", "pl+hy", "pl+maclisp", "pl+scheme"],
+      influences: ["pl+erlang", "pl+common-lisp", "pl+maclisp", "pl+scheme", "pl+elixir", "pl+clojure", "pl+hy"],
       licenses: ["lic+apache"],
-      paradigms: ["para+concurrent", "para+functional", "para+multi"],
-      people: [["person+robert-virding", { role: "designer" }]],
+      paradigms: ["para+multi", "para+concurrent", "para+functional"],
+      people: ["person+robert-virding"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

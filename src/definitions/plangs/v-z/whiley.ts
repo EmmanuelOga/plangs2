@@ -18,11 +18,11 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influences: ["pl+c", "pl+java", "pl+python", "pl+rust"],
+      influences: ["pl+java", "pl+c", "pl+python", "pl+rust"],
       licenses: ["lic+bsd"],
-      paradigms: ["para+functional", "para+imperative"],
-      people: [["person+david-j-pearce", { role: "designer" }]],
-      typeSystems: ["tsys+flow-sensitive", "tsys+safe", "tsys+strong", "tsys+structural"],
+      paradigms: ["para+imperative", "para+functional"],
+      people: ["person+david-j-pearce"],
+      typeSystems: ["tsys+strong", "tsys+safe", "tsys+structural", "tsys+flow-sensitive"],
     },
   );
 }

@@ -24,12 +24,12 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influences: ["pl+alice", "pl+haskell", "pl+lisp", "pl+matlab", "pl+q"],
+      influences: ["pl+q", "pl+haskell", "pl+lisp", "pl+alice", "pl+matlab"],
       licenses: ["lic+lgpl"],
-      paradigms: ["para+dec", "para+functional", "para+term"],
-      people: [["person+albert-graf", { role: "designer" }]],
-      platforms: ["platf+bsd", "platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
-      typeSystems: ["tsys+dynamic", "tsys+strong"],
+      paradigms: ["para+functional", "para+dec", "para+term"],
+      people: ["person+albert-graf"],
+      platforms: ["platf+cross-platform", "platf+bsd", "platf+linux", "platf+mac", "platf+win"],
+      typeSystems: ["tsys+strong", "tsys+dynamic"],
     },
   );
 }

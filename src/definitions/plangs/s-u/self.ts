@@ -17,17 +17,14 @@ export function define(g: PlangsGraph) {
         { version: "unknown", date: "1987-01-01", kind: "first" },
         { version: "2017.1", date: "2017-05-24", kind: "stable" },
       ],
-      references: {
-        influenced_by: [{ href: "https://doi.org/10.1145%2F1238844.1238853", title: "10.1145/1238844.1238853" }],
-      },
     },
     {
       dialects: ["pl+newspeak"],
-      influences: ["pl+apl", "pl+smalltalk"],
+      influences: ["pl+smalltalk", "pl+apl"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+objects", "para+prototypes"],
-      people: [["person+david-ungar", { role: "designer" }]],
-      platforms: ["platf+cross-platform", "platf+mac", "platf+unix", "platf+win"],
+      people: ["person+david-ungar"],
+      platforms: ["platf+cross-platform", "platf+unix", "platf+mac", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );

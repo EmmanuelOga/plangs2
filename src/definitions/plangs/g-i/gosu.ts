@@ -12,16 +12,14 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Gosu", href: "https://en.wikipedia.org/wiki/Gosu_(programming_language)" },
         { kind: "repository", title: "gosu-lang.github.io", href: "https://gosu-lang.github.io/" },
       ],
-      references: {
-        stable_release: [
-          { href: "https://github.com/gosu-lang/gosu-lang/releases/tag/v1.17.10", title: "Release 1.17.10" },
-        ],
-      },
-      releases: [{ version: "1.17.10", date: "2024-01-01", kind: "stable" }],
+      releases: [
+        { version: "unknown", kind: "stable" },
+        { version: "1.17.10", date: "2024-01-01", kind: "stable" },
+      ],
       extensions: [".gs", ".gsp", ".gst", ".gsx"],
     },
     {
-      influences: ["pl+c-sharp", "pl+java"],
+      influences: ["pl+java", "pl+c-sharp"],
       licenses: ["lic+apache"],
       platforms: ["platf+jvm"],
       typeSystems: ["tsys+static"],

@@ -13,9 +13,9 @@ export function define(g: PlangsGraph) {
       extensions: [".b", ".bf"],
     },
     {
-      influences: ["pl+esoteric", "pl+p--"],
+      influences: ["pl+p--", "pl+esoteric"],
       paradigms: ["para+esoteric", "para+imperative", "para+structured"],
-      people: [["person+urban-muller", { role: "designer" }]],
+      people: ["person+urban-muller"],
     },
   );
 }

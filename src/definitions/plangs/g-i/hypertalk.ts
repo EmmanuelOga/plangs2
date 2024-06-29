@@ -11,6 +11,6 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "HyperTalk", href: "https://en.wikipedia.org/wiki/HyperTalk" }],
       releases: [{ version: "unknown", date: "1987-01-01", kind: "first" }],
     },
-    { influences: ["pl+pascal"], paradigms: ["para+event", "para+imperative"] },
+    { influences: ["pl+pascal"], paradigms: ["para+imperative", "para+event"] },
   );
 }

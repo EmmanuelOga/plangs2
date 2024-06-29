@@ -19,13 +19,8 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/b/b6/APL_%28programming_language%29_logo.svg",
         },
       ],
-      references: {
-        first_appeared: [
-          { href: "http://www.jsoftware.com/papers/APLQA.htm#APL_birthday", title: "APL Quotations and Anecdotes" },
-        ],
-        influenced: [{ href: "https://en.cppreference.com/w/cpp/algorithm/iota", title: "std::iota" }],
-      },
       releases: [
+        { version: "unknown", kind: "first" },
         { version: "unknown", date: "1966-11-27", kind: "first" },
         { version: "unknown", date: "2001-02-01", kind: "stable" },
       ],
@@ -33,13 +28,9 @@ export function define(g: PlangsGraph) {
     {
       dialects: ["pl+aplx"],
       implementations: ["pl+aplx"],
-      licenses: ["lic+open-source", "lic+proprietary"],
-      paradigms: ["para+array", "para+functional", "para+modular", "para+structured"],
-      people: [
-        ["person+dick-lathwell", { role: "developer" }],
-        ["person+larry-breed", { role: "developer" }],
-        ["person+roger-moore", { role: "developer" }],
-      ],
+      licenses: ["lic+proprietary", "lic+open-source"],
+      paradigms: ["para+array", "para+functional", "para+structured", "para+modular"],
+      people: ["person+larry-breed", "person+dick-lathwell", "person+roger-moore"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic"],
     },

@@ -26,14 +26,6 @@ export function define(g: PlangsGraph) {
         { version: "unknown", date: "2018-09-12", kind: "stable" },
         { version: "unknown", date: "2018-06-14", kind: "preview" },
       ],
-      references: {
-        operating_system: [
-          {
-            href: "http://www.mathworks.com/products/stateflow/requirements.html?s_cid=wiki_stateflow_1",
-            title: "MathWorks - Stateflow - Requirements",
-          },
-        ],
-      },
     },
     { licenses: ["lic+proprietary"], platforms: ["platf+x64"] },
   );

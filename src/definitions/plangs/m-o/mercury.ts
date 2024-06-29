@@ -20,37 +20,30 @@ export function define(g: PlangsGraph) {
       ],
       releases: [
         { version: "unknown", date: "1995-04-08", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "22.01.8", date: "2023-01-01", kind: "stable" },
       ],
-      references: {
-        stable_release: [
-          {
-            href: "https://github.com/Mercury-Language/mercury/releases/tag/version-22_01_8",
-            title: "Release 22.01.8",
-          },
-        ],
-      },
       extensions: [".m"],
     },
     {
-      influences: ["pl+haskell", "pl+hope", "pl+prolog"],
+      influences: ["pl+prolog", "pl+hope", "pl+haskell"],
       licenses: ["lic+gpl", "lic+lgpl"],
-      people: [["person+zoltan-somogyi", { role: "designer" }]],
+      people: ["person+zoltan-somogyi"],
       platforms: [
-        "platf+.net",
-        "platf+android",
-        "platf+arm",
-        "platf+bsd",
-        "platf+cross-platform",
         "platf+ia-32",
+        "platf+x86-64",
+        "platf+arm",
         "platf+jvm",
+        "platf+.net",
+        "platf+cross-platform",
+        "platf+unix",
         "platf+linux",
         "platf+mac",
-        "platf+unix",
+        "platf+bsd",
         "platf+win",
-        "platf+x86-64",
+        "platf+android",
       ],
-      typeSystems: ["tsys+polymorphic", "tsys+static", "tsys+strong"],
+      typeSystems: ["tsys+strong", "tsys+static", "tsys+polymorphic"],
     },
   );
 }

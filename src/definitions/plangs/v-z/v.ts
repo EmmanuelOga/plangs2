@@ -13,24 +13,20 @@ export function define(g: PlangsGraph) {
         { kind: "homepage", title: "vlang.io", href: "http://vlang.io" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/e/e8/V_Logo_SVG.svg" }],
-      references: {
-        designed_by: [{ href: "https://github.com/medvednikov", title: "Creator of V" }],
-        first_appeared: [{ href: "https://github.com/vlang/v/releases/tag/v0.0.12", title: "First public release" }],
-        stable_release: [{ href: "https://github.com/vlang/v/releases/tag/0.4.5", title: "Release 0.4.5" }],
-      },
       releases: [
+        { version: "unknown", kind: "first" },
         { version: "unknown", date: "2019-06-20", kind: "first" },
         { version: "0.4.5", date: "2024-01-01", kind: "stable" },
       ],
       extensions: [".v", ".vsh"],
     },
     {
-      influences: ["pl+c", "pl+go", "pl+kotlin", "pl+oberon", "pl+python", "pl+rust", "pl+swift"],
+      influences: ["pl+go", "pl+oberon", "pl+rust", "pl+c", "pl+kotlin", "pl+python", "pl+swift"],
       licenses: ["lic+mit"],
-      paradigms: ["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+structured"],
-      people: [["person+alexander-medvednikov", { role: "designer" }]],
-      platforms: ["platf+bsd", "platf+linux", "platf+mac", "platf+win", "platf+x86-64"],
-      typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
+      paradigms: ["para+multi", "para+functional", "para+imperative", "para+structured", "para+concurrent"],
+      people: ["person+alexander-medvednikov"],
+      platforms: ["platf+x86-64", "platf+linux", "platf+mac", "platf+win", "platf+bsd"],
+      typeSystems: ["tsys+static", "tsys+strong", "tsys+inferred"],
     },
   );
 }

@@ -23,10 +23,7 @@ export function define(g: PlangsGraph) {
     },
     {
       influences: ["pl+ocaml"],
-      people: [
-        ["person+benjamin-c-pierce", { role: "developer" }],
-        ["person+nate-foster", { role: "developer" }],
-      ],
+      people: ["person+nate-foster", "person+benjamin-c-pierce"],
       platforms: ["platf+linux", "platf+mac"],
     },
   );

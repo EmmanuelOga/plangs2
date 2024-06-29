@@ -14,34 +14,27 @@ export function define(g: PlangsGraph) {
       ],
       releases: [
         { version: "unknown", date: "2005-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "unknown", date: "2023-05-29", kind: "stable" },
       ],
-      references: {
-        stable_release: [
-          {
-            href: "https://sourceforge.net/p/seed7/news/2023/05/new-seed7-release-2023-05-29/",
-            title: "New Seed7 Release 2023-05-29",
-          },
-        ],
-      },
       extensions: [".sd7", ".s7i"],
     },
     {
       implementations: ["pl+open-source"],
-      influences: ["pl+ada", "pl+algol", "pl+c", "pl+cpp", "pl+java", "pl+modula", "pl+pascal"],
+      influences: ["pl+ada", "pl+java", "pl+cpp", "pl+modula", "pl+pascal", "pl+algol", "pl+c"],
       licenses: ["lic+gpl", "lic+lgpl"],
       paradigms: [
-        "para+extensible",
-        "para+generic",
-        "para+imperative",
         "para+multi",
+        "para+extensible",
         "para+objects",
-        "para+reflective",
+        "para+imperative",
         "para+structured",
+        "para+generic",
+        "para+reflective",
       ],
-      people: [["person+thomas-mertes", { role: "designer" }]],
-      platforms: ["platf+bsd", "platf+cross-platform", "platf+linux", "platf+mac", "platf+unix", "platf+win"],
-      typeSystems: ["tsys+manifest", "tsys+nominative", "tsys+safe", "tsys+static", "tsys+strong"],
+      people: ["person+thomas-mertes"],
+      platforms: ["platf+cross-platform", "platf+bsd", "platf+linux", "platf+mac", "platf+unix", "platf+win"],
+      typeSystems: ["tsys+static", "tsys+strong", "tsys+safe", "tsys+nominative", "tsys+manifest"],
     },
   );
 }

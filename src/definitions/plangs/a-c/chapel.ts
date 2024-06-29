@@ -18,35 +18,24 @@ export function define(g: PlangsGraph) {
         { version: "2.0.0", date: "2024-03-21", kind: "stable" },
       ],
       extensions: [".chpl"],
-      references: {
-        influenced_by: [
-          { href: "http://chapel-lang.org/spec/spec-0.98.pdf", title: "Chapel spec (Acknowledgments)" },
-          { href: "http://chapel-lang.org/papers/BriefOverviewChapel.pdf", title: "A Brief Overview of Chapel" },
-        ],
-      },
     },
     {
       influences: [
         "pl+ada",
-        "pl+c",
+        "pl+java",
+        "pl+zpl",
         "pl+c-sharp",
+        "pl+c",
+        "pl+fortran",
         "pl+cpp",
         "pl+cray-mta",
         "pl+cray-xmt",
-        "pl+fortran",
-        "pl+java",
-        "pl+zpl",
       ],
       licenses: ["lic+apache"],
-      paradigms: ["para+objects", "para+parallel", "para+partitioned"],
-      people: [
-        ["person+brad-chamberlain", { role: "designer" }],
-        ["person+david-callahan", { role: "designer" }],
-        ["person+hans-zima", { role: "designer" }],
-        ["person+john-plevyak", { role: "designer" }],
-      ],
-      platforms: ["platf+aws", "platf+bsd", "platf+cygwin", "platf+linux", "platf+mac", "platf+posix", "platf+win"],
-      typeSystems: ["tsys+inferred", "tsys+static"],
+      paradigms: ["para+objects", "para+partitioned", "para+parallel"],
+      people: ["person+david-callahan", "person+hans-zima", "person+brad-chamberlain", "person+john-plevyak"],
+      platforms: ["platf+aws", "platf+mac", "platf+linux", "platf+posix", "platf+win", "platf+cygwin", "platf+bsd"],
+      typeSystems: ["tsys+static", "tsys+inferred"],
     },
   );
 }

@@ -14,19 +14,11 @@ export function define(g: PlangsGraph) {
       ],
       releases: [
         { version: "unknown", date: "1987-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "9.2.2", date: "2024-01-01", kind: "stable" },
         { version: "9.3.2", date: "2024-02-29", kind: "preview" },
       ],
-      references: {
-        stable_release: [{ href: "https://github.com/SWI-Prolog/swipl/releases/tag/V9.2.2", title: "Release V9.2.2" }],
-      },
     },
-    {
-      licenses: ["lic+bsd-s", "lic+lgpl"],
-      people: [
-        ["person+anjo-anjewierden", { role: "developer" }],
-        ["person+jan-wielemaker", { role: "developer" }],
-      ],
-    },
+    { licenses: ["lic+bsd-s", "lic+lgpl"], people: ["person+jan-wielemaker", "person+anjo-anjewierden"] },
   );
 }

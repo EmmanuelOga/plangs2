@@ -13,46 +13,30 @@ export function define(g: PlangsGraph) {
         { kind: "homepage", title: "scratch.mit.edu", href: "https://scratch.mit.edu/" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/f/f1/Scratchlogo.svg" }],
-      references: {
-        first_appeared: [
-          { href: "https://www.researchgate.net/publication/221338134", title: "Scratch: A Sneak Preview" },
-          { href: "https://en.scratch-wiki.info/wiki/Scratch_Timeline#May", title: "Scratch Timeline – Scratch Wiki" },
-        ],
-        implementation_language: [
-          {
-            href: "https://bocoup.com/blog/porting-scratch-from-flash-to-javascript-performance-interoperability-and-extensions",
-            title: "Porting Scratch from Flash to JavaScript: Performance, Interoperability and Extensions",
-          },
-        ],
-        influenced: [
-          { href: "https://catrobat.org/", title: "Catrobat Home" },
-          { href: "https://scratchjr.org/", title: "ScratchJr – Home" },
-          { href: "https://snap.berkeley.edu/", title: "Snap! Build Your Own Blocks" },
-        ],
-      },
       releases: [
+        { version: "unknown", kind: "first" },
         { version: "0.1", date: "2003-10-11", kind: "first" },
         { version: "3.0", date: "2019-01-02", kind: "stable" },
       ],
       extensions: [".sb", ".sb2", ".sb3"],
     },
     {
-      implementations: ["pl+actionscript", "pl+html5", "pl+javascript", "pl+squeak"],
+      implementations: ["pl+squeak", "pl+actionscript", "pl+html5", "pl+javascript"],
       influences: [
-        "pl+agentcubes",
         "pl+agentsheets",
-        "pl+etoys",
-        "pl+hypercard",
-        "pl+logo",
-        "pl+objectlogo",
-        "pl+smalltalk",
         "pl+squeak",
+        "pl+objectlogo",
+        "pl+logo",
+        "pl+smalltalk",
+        "pl+hypercard",
         "pl+starlogo",
+        "pl+agentcubes",
+        "pl+etoys",
         "pl+ucblogo",
       ],
       licenses: ["lic+bsd-s", "lic+gpl"],
       paradigms: ["para+event", "para+visual"],
-      platforms: ["platf+android", "platf+dos", "platf+ios", "platf+linux", "platf+mac", "platf+web", "platf+win"],
+      platforms: ["platf+win", "platf+mac", "platf+linux", "platf+web", "platf+ios", "platf+dos", "platf+android"],
     },
   );
 
@@ -73,6 +57,6 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "2014-01-01", kind: "first" }],
     },
-    { influences: ["pl+scratch"], platforms: ["platf+android", "platf+chromeos", "platf+ios"] },
+    { influences: ["pl+scratch"], platforms: ["platf+android", "platf+ios", "platf+chromeos"] },
   );
 }

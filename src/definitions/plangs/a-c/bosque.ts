@@ -22,20 +22,17 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Bosque_logo.png/256px-Bosque_logo.png",
         },
       ],
-      references: {
-        first_appeared: [{ href: "https://github.com/Microsoft/BosqueLanguage", title: "BosqueLanguage" }],
-        filename_extensions: [
-          { href: "https://bosque-lang.com/docs/using-bosque/", title: "Using Bosque - Bosque Programming Language" },
-        ],
-      },
-      releases: [{ version: "unknown", date: "2019-03-03", kind: "first" }],
+      releases: [
+        { version: "unknown", kind: "first" },
+        { version: "unknown", date: "2019-03-03", kind: "first" },
+      ],
       extensions: [".bsq"],
     },
     {
-      influences: ["pl+javascript", "pl+ml", "pl+typescript"],
+      influences: ["pl+javascript", "pl+typescript", "pl+ml"],
       licenses: ["lic+mit"],
-      paradigms: ["para+functional", "para+multi", "para+typed"],
-      people: [["person+mark-marron", { role: "designer" }]],
+      paradigms: ["para+multi", "para+functional", "para+typed"],
+      people: ["person+mark-marron"],
     },
   );
 }

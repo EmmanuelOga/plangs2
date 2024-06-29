@@ -18,36 +18,17 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/a/a7/Hack_%28programming_language%29_logo.svg",
         },
       ],
-      references: {
-        designed_by: [
-          {
-            href: "https://web.archive.org/web/20210301030703/http://www.serpentine.com/blog/2014/03/28/where-credit-belongs-for-hack/",
-            title: "Where Credit Belongs for Hack",
-          },
-        ],
-        license: [
-          {
-            href: "https://web.archive.org/web/20190107074308/https://github.com/facebook/hhvm/blob/master/hphp/hack/LICENSE%20",
-            title: "facebook/hhvm: hhvm / hphp / hack / LICENSE",
-          },
-        ],
-      },
       releases: [
         { version: "unknown", date: "2014-01-01", kind: "first" },
         { version: "4.172", date: "2022-01-01", kind: "stable" },
       ],
     },
     {
-      influences: ["pl+c-sharp", "pl+haskell", "pl+java", "pl+ocaml", "pl+php", "pl+scala"],
+      influences: ["pl+java", "pl+php", "pl+ocaml", "pl+c-sharp", "pl+scala", "pl+haskell"],
       licenses: ["lic+mit"],
-      people: [
-        ["person+alok-menghrajani", { role: "designer" }],
-        ["person+drew-paroski", { role: "designer" }],
-        ["person+julien-verlaguet", { role: "designer" }],
-        ["person+meta-platforms", { role: "developer" }],
-      ],
+      people: ["person+julien-verlaguet", "person+alok-menghrajani", "person+drew-paroski", "person+meta-platforms"],
       platforms: ["platf+cross-platform"],
-      typeSystems: ["tsys+dynamic", "tsys+gradual", "tsys+static", "tsys+weak"],
+      typeSystems: ["tsys+static", "tsys+dynamic", "tsys+weak", "tsys+gradual"],
     },
   );
 }

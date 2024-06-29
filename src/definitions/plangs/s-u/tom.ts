@@ -18,16 +18,11 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/5/54/Tom_%28pattern_matching_language%29_logo.png",
         },
       ],
-      references: {
-        stable_release: [
-          {
-            href: "https://gforge.inria.fr/frs/?group_id=78&release_id=7940",
-            title: "https://gforge.inria.fr/frs/?group_id=78&release_id=7940",
-          },
-        ],
-      },
-      releases: [{ version: "2.10", date: "2013-03-21", kind: "stable" }],
+      releases: [
+        { version: "unknown", kind: "stable" },
+        { version: "2.10", date: "2013-03-21", kind: "stable" },
+      ],
     },
-    { licenses: ["lic+bsd-s", "lic+gpl"] },
+    { licenses: ["lic+gpl", "lic+bsd-s"] },
   );
 }

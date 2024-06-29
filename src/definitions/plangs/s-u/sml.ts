@@ -14,26 +14,8 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "SML/NJ", href: "https://en.wikipedia.org/wiki/Standard_ML_of_New_Jersey" },
         { kind: "homepage", title: "www.smlnj.org", href: "http://www.smlnj.org" },
       ],
-      references: {
-        paradigm: [
-          {
-            href: "https://www.cs.cmu.edu/~rwh/introsml/modules/subfun.htm",
-            title: "Programming in Standard ML: Hierarchies and Parameterization",
-          },
-        ],
-        first_appeared: [{ href: "http://www.smlnj.org/sml97.html", title: "SML '97" }],
-        stable_release: [{ href: "http://www.smlnj.org/sml97.html", title: "SML '97" }],
-        influenced: [
-          {
-            href: "https://docs.python.org/3/library/itertools.html",
-            title: "itertools — Functions creating iterators for efficient looping — Python 3.7.1rc1 documentation",
-          },
-          { href: "https://doc.rust-lang.org/reference/influences.html", title: "Influences - The Rust Reference" },
-        ],
-        developers: [{ href: "https://www.smlnj.org/smlnj.html", title: "SML/NJ background information" }],
-        license: [{ href: "http://www.smlnj.org/license.html", title: "Standard ML of New Jersey License" }],
-      },
       releases: [
+        { version: "unknown", kind: "first" },
         { version: "unknown", date: "1983-01-01", kind: "first" },
         { version: "unknown", date: "1997-01-01", kind: "stable" },
         { version: "unknown", date: "1988-01-01", kind: "first" },
@@ -43,10 +25,10 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+alice", "pl+concurrent-ml", "pl+dependent-ml", "pl+mlton", "pl+sml"],
-      implementations: ["pl+c", "pl+mlton", "pl+poly-slashml", "pl+sml"],
-      influences: ["pl+hope", "pl+ml", "pl+pascal", "pl+sml"],
+      implementations: ["pl+sml", "pl+mlton", "pl+poly-slashml", "pl+c"],
+      influences: ["pl+ml", "pl+hope", "pl+pascal", "pl+sml"],
       licenses: ["lic+permissive"],
-      paradigms: ["para+functional", "para+imperative", "para+modular", "para+multi"],
+      paradigms: ["para+multi", "para+functional", "para+imperative", "para+modular"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );

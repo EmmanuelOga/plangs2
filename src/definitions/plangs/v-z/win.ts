@@ -30,17 +30,15 @@ export function define(g: PlangsGraph) {
       releases: [
         { version: "unknown", date: "2015-08-06", kind: "first" },
         { version: "unknown", date: "2002-02-13", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "8.0.0", date: "2023-11-14", kind: "stable" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/3/37/WinForms_Logo.png" }],
-      references: {
-        stable_release: [{ href: "https://github.com/dotnet/winforms/releases/tag/v8.0.0", title: "v8.0.0" }],
-      },
     },
     {
       influences: ["pl+basic"],
       licenses: ["lic+mit"],
-      platforms: ["platf+.net", "platf+arm", "platf+ia-32", "platf+mono", "platf+x86-64"],
+      platforms: ["platf+ia-32", "platf+x86-64", "platf+arm", "platf+.net", "platf+mono"],
     },
   );
 }

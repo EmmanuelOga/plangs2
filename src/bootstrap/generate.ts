@@ -1,9 +1,17 @@
 import { Eta } from "eta";
 import { PlangsGraph } from "../entities/plangs_graph";
-import type { VID_Person, VID_Plang } from "../entities/schemas";
+import type {
+  E_Base,
+  VID_License,
+  VID_Paradigm,
+  VID_Person,
+  VID_Plang,
+  VID_Platform,
+  VID_TypeSystem,
+} from "../entities/schemas";
 import type { VID_Any } from "../graph/vertex";
 import type { VertexTable } from "../graph/vertex_table";
-import { toAlphaNum } from "../util";
+import { blank, toAlphaNum } from "../util";
 import { PLANG_IDS } from "./plang_ids";
 import { parseAll } from "./wikipedia_process";
 
@@ -145,11 +153,22 @@ function defaultMapper(vid: VID_Any, vertex: _T_AnyV_Data): AtoZData {
   const d = { ...vertex };
   // biome-ignore lint/performance/noDelete: really need to exlude this one.
   delete d.name;
-  const bundle = {
+
+  // Remove empty data and sort non-empty arrays.
+  for (const [key, val] of Object.entries(d)) {
+    if (Array.isArray(val)) {
+      if (val.length === 0) delete d[key];
+      else val.sort();
+    } else if (blank(val)) {
+      delete d[key];
+    }
+  }
+
+  const bundle: AtoZData = {
     vid: json(vid),
     name: json(vertex.name),
-    data: json(d),
   };
+  if (!blank(d)) bundle.data = json(d);
   return bundle;
 }
 
@@ -158,32 +177,30 @@ function plangMapper(g: PlangsGraph, plvid: VID_Plang): AtoZData {
   if (!pl || !pl.name) {
     throw new Error(`Missing plang data: ${plvid}`);
   }
+
   const bundle: AtoZData = {
     vid: json(plvid),
     name: json(pl.name),
     data: json(pl),
   };
-  const vrelations = {
-    dialects: [...g.e_dialect_of.adjacentTo(plvid)],
-    implementations: [...g.e_implements.adjacentTo(plvid)],
-    // influenced: [...g.e_l_influenced_l.adjacentFrom(plvid)], // No need to include both!
-    influences: [...g.e_l_influenced_l.adjacentTo(plvid)],
-    licenses: [...g.e_has_license.adjacentFrom(plvid)],
-    paradigms: [...g.e_plang_para.adjacentFrom(plvid)],
-    people: [...g.e_person_plang_role.adjacentTo(plvid)].map((from) => {
-      const edata = g.e_person_plang_role.get(from as VID_Person, plvid);
-      return [from, edata ?? {}];
-    }),
-    platforms: [...g.e_supports_platf.adjacentFrom(plvid)],
-    typeSystems: [...g.e_plang_tsys.adjacentFrom(plvid)],
-  };
-  for (const [key, val] of Object.entries(vrelations)) {
-    if (Array.isArray(val)) val.sort();
-    if (key === "name" || (Array.isArray(val) && val.length === 0)) delete vrelations[key];
+
+  const vrelations: Record<string, string[]> = {};
+  function addRel(vrelKey: string, rels: string[]) {
+    if (rels.length === 0) return;
+    vrelations[vrelKey] = rels;
   }
-  if (Object.keys(vrelations).length > 0) {
-    bundle.vrelations = json(vrelations);
-  }
+
+  addRel("dialects", [...g.e_dialect_of.adjacentTo(plvid)]);
+  addRel("implementations", [...g.e_implements.adjacentTo(plvid)]);
+  addRel("influences", [...g.e_l_influenced_l.adjacentTo(plvid)]);
+  addRel("licenses", [...g.e_has_license.adjacentFrom(plvid)]);
+  addRel("paradigms", [...g.e_plang_para.adjacentFrom(plvid)]);
+  addRel("people", [...g.e_person_plang_role.adjacentTo(plvid)]);
+  addRel("platforms", [...g.e_supports_platf.adjacentFrom(plvid)]);
+  addRel("typeSystems", [...g.e_plang_tsys.adjacentFrom(plvid)]);
+
+  if (Object.keys(vrelations).length > 0) bundle.vrelations = json(vrelations);
+
   return bundle;
 }
 
@@ -194,7 +211,7 @@ type _T_AnyV_Data = any;
 type AtoZData = {
   vid: string; // json vertex id
   name: string; // json vertex name
-  data: string; // json vertex data
+  data?: string; // json vertex data
   vrelations?: string; // json vertex relations
 };
 

@@ -20,16 +20,9 @@ export function define(g: PlangsGraph) {
       ],
       releases: [
         { version: "unknown", date: "2012-01-01", kind: "first" },
+        { version: "unknown", kind: "stable" },
         { version: "unknown", date: "2022-06-08", kind: "stable" },
       ],
-      references: {
-        stable_release: [
-          {
-            href: "https://github.com/google/blockly/releases/tag/blockly-v8.0.3",
-            title: "Release Q1 2022 Patch 3 · google/Blockly",
-          },
-        ],
-      },
     },
     { licenses: ["lic+apache"], platforms: ["platf+web"] },
   );

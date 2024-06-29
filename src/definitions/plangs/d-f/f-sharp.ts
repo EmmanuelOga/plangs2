@@ -12,6 +12,6 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "F#", href: "https://en.wikipedia.org/wiki/F_Sharp_(programming_language)" },
       ],
     },
-    { influences: ["pl+erlang", "pl+ml", "pl+ocaml", "pl+python", "pl+scala", "pl+sml"] },
+    { influences: ["pl+sml", "pl+erlang", "pl+ocaml", "pl+ml", "pl+scala", "pl+python"] },
   );
 }

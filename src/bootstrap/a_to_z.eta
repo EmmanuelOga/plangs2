@@ -6,10 +6,7 @@ export function define(g: PlangsGraph) {
 <% for (const bundle of it.data) { %>
   lb.define(
     <%= bundle.vid %>,
-    <%= bundle.name %>,
-    <%= bundle.data %><% if (bundle.vrelations) { %>,
-    <%= bundle.vrelations %>
-    <% } %>);
+    <%= bundle.name %><% if (bundle.data) { %>,<%= bundle.data %><% } %><% if (bundle.data && bundle.vrelations) { %>, <%= bundle.vrelations %> <% } %>);
 
 <% } %>
 }

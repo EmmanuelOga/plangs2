@@ -23,8 +23,8 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+basic"],
       licenses: ["lic+mit"],
-      people: [["person+rob-galleon", { role: "developer" }]],
-      platforms: ["platf+linux", "platf+mac", "platf+win"],
+      people: ["person+rob-galleon"],
+      platforms: ["platf+win", "platf+linux", "platf+mac"],
     },
   );
 }
