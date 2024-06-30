@@ -121,7 +121,7 @@ async function generateAll() {
         if (vid.includes("slash")) return "other";
 
         // biome-ignore lint/suspicious/noExplicitAny: Ok here.
-        return (PLANG_IDS.has(vid as any) || lines > 50) ? name : "other";
+        return PLANG_IDS.has(vid as any) || lines > 50 ? name : "other";
       }
 
       const f = fileName();
@@ -242,6 +242,8 @@ function genAll(
     const bundle = mapper(vid as VID_Any, vertex);
 
     // Render once so we can count the lines.
+    // Unfortunately, biome API doesn't let us configure the formatter to 120 columns,
+    // so this is an "estimate" of the final number of lines.
     const rendered = Templ.render("/a_to_z", { data: [bundle], builderName, depth: 1 });
     const formatted = biome.formatContent(rendered, { filePath: "example.ts" });
     const lines = formatted.content.split("\n").length;
@@ -255,8 +257,7 @@ function genAll(
     const slashCount = (fileName.match(/\//g) || []).length;
     const raw = Templ.render("/a_to_z", { data: bundles, builderName, depth: 2 + slashCount });
     const path = tsPath(basename, fileName);
-    const formatted = biome.formatContent(raw, { filePath: path });
-    Bun.write(path, formatted.content);
+    Bun.write(path, raw);
   }
 
   console.log(`${basename}: ${allVids.length} entries in ${fileNames.size} files.`);

@@ -1,15 +1,9 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-	const lb = g.typeSystemBuilder;
+  const lb = g.typeSystemBuilder;
 
-	lb.define("tsys+static", "Static", {
-		websites: [
-			{
-				title: "Static Type System",
-				href: "https://en.wikipedia.org/wiki/static_typing",
-				kind: "wikipedia",
-			},
-		],
-	});
+  lb.define("tsys+static", "Static", {
+    websites: [{ title: "Static Type System", href: "https://en.wikipedia.org/wiki/static_typing", kind: "wikipedia" }],
+  });
 }
