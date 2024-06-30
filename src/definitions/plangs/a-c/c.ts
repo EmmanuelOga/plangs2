@@ -39,7 +39,6 @@ export function define(g: PlangsGraph) {
       "pl+cpp",
       "pl+c-sharp",
       "pl+carbon",
-      "pl+ms-visual-c-sharp",
       "pl+objective-cpp",
       "pl+objective-c",
     ])

@@ -1,86 +1,13 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  g.buildPlang("pl+allegro-common-lisp")
-    .merge({
-      name: "Allegro Common Lisp",
-      websites: [
-        { kind: "wikipedia", title: "Allegro Common Lisp", href: "https://en.wikipedia.org/wiki/Allegro_Common_Lisp" },
-      ],
-      images: [
-        {
-          kind: "screenshot",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Allegro_Common_Lisp_emblem.png/121px-Allegro_Common_Lisp_emblem.png",
-        },
-      ],
-      releases: [{ name: "Allegro Common Lisp", version: "11.0", date: "2024-01-01", kind: "stable" }],
-      scoping: ["dynamic"],
-    })
-    .addImplementations(["pl+common-lisp"])
-    .addInfluences(["pl+lisp", "pl+maclisp", "pl+macsyma", "pl+franz-lisp"])
-    .addLicenses(["lic+proprietary", "lic+freeware"])
-    .addParadigms([
-      "para+multi",
-      "para+imperative",
-      "para+functional",
-      "para+objects",
-      "para+meta",
-      "para+reflective",
-      "para+generic",
-    ])
-    .addPlatforms(["platf+ia-32", "platf+x86-64", "platf+arm", "platf+win", "platf+mac", "platf+linux", "platf+bsd"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
-
-  /**/
-
-  g.buildPlang("pl+armed-bear-common-lisp")
-    .merge({
-      name: "ABCL",
-      websites: [
-        { kind: "wikipedia", title: "Common Lisp", href: "https://en.wikipedia.org/wiki/Armed_Bear_Common_Lisp" },
-      ],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/4/48/Lisp_logo.svg" }],
-    })
-    .addImplementations([
-      "pl+allegro-common-lisp",
-      "pl+armed-bear-common-lisp",
-      "pl+clisp",
-      "pl+clozure-cl",
-      "pl+cmucl",
-      "pl+embeddable-common-lisp",
-      "pl+gnu-common-lisp",
-      "pl+lispworks",
-      "pl+sbcl",
-      "pl+genera",
-    ])
-    .addInfluences(["pl+lisp", "pl+maclisp", "pl+scheme", "pl+interlisp"])
-    .addPerson("person+scott-fahlman", { role: "designer" })
-    .addPerson("person+richard-p-gabriel", { role: "designer" })
-    .addPerson("person+david-a-moon", { role: "designer" })
-    .addPerson("person+kent-pitman", { role: "designer" })
-    .addPerson("person+guy-steele", { role: "designer" })
-    .addPerson("person+dan-weinreb", { role: "designer" })
-    .addParadigms([
-      "para+multi",
-      "para+imperative",
-      "para+functional",
-      "para+objects",
-      "para+meta",
-      "para+reflective",
-      "para+generic",
-    ])
-    .addPlatforms(["platf+cross-platform"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
-
-  /**/
-
   g.buildPlang("pl+autolisp")
     .merge({
       name: "AutoLisp",
       websites: [{ kind: "wikipedia", title: "AutoLisp", href: "https://en.wikipedia.org/wiki/AutoLisp" }],
       releases: [{ name: "AutoLISP", version: "unknown", date: "1995-01-01", kind: "stable" }],
     })
-    .addInfluences(["pl+armed-bear-common-lisp", "pl+lisp", "pl+common-lisp"])
+    .addInfluences(["pl+common-lisp", "pl+lisp"])
     .addPlatforms(["platf+ia-32", "platf+linux"])
     .addTypeSystems(["tsys+dynamic"]);
 
@@ -107,28 +34,61 @@ export function define(g: PlangsGraph) {
   g.buildPlang("pl+common-lisp")
     .merge({
       name: "Common Lisp",
-      websites: [{ kind: "wikipedia", title: "Common Lisp", href: "https://en.wikipedia.org/wiki/Common_Lisp" }],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/4/48/Lisp_logo.svg" }],
+      websites: [
+        { kind: "wikipedia", title: "Allegro Common Lisp", href: "https://en.wikipedia.org/wiki/Allegro_Common_Lisp" },
+        { kind: "wikipedia", title: "Common Lisp", href: "https://en.wikipedia.org/wiki/Common_Lisp" },
+        { kind: "wikipedia", title: "Common Lisp", href: "https://en.wikipedia.org/wiki/Armed_Bear_Common_Lisp" },
+        { kind: "wikipedia", title: "ECL", href: "https://en.wikipedia.org/wiki/Embeddable_Common_Lisp" },
+        { kind: "wikipedia", title: "GCL", href: "https://en.wikipedia.org/wiki/GNU_Common_Lisp" },
+        { kind: "wikipedia", title: "CLOS", href: "https://en.wikipedia.org/wiki/Common_Lisp_Object_System" },
+      ],
+      images: [
+        {
+          kind: "screenshot",
+          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Allegro_Common_Lisp_emblem.png/121px-Allegro_Common_Lisp_emblem.png",
+        },
+        { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/4/48/Lisp_logo.svg" },
+      ],
+      releases: [
+        { name: "Allegro Common Lisp", version: "11.0", date: "2024-01-01", kind: "stable" },
+        { name: "Embeddable Common Lisp", version: "23.9.9", date: "2023-01-01", kind: "stable" },
+        { name: "GNU Common Lisp", version: "2.6.14", date: "2023-01-01", kind: "stable" },
+      ],
+      scoping: ["dynamic"],
     })
     .addImplementations([
-      "pl+allegro-common-lisp",
-      "pl+armed-bear-common-lisp",
+      "pl+common-lisp",
       "pl+clisp",
       "pl+clozure-cl",
       "pl+cmucl",
-      "pl+embeddable-common-lisp",
-      "pl+gnu-common-lisp",
       "pl+lispworks",
       "pl+sbcl",
       "pl+genera",
+      "pl+c",
     ])
-    .addInfluences(["pl+lisp", "pl+maclisp", "pl+scheme", "pl+interlisp", "pl+mdl", "pl+zetalisp"])
+    .addInfluences([
+      "pl+lisp",
+      "pl+maclisp",
+      "pl+macsyma",
+      "pl+franz-lisp",
+      "pl+scheme",
+      "pl+interlisp",
+      "pl+common-lisp",
+      "pl+c",
+      "pl+mdl",
+      "pl+smalltalk",
+      "pl+zetalisp",
+    ])
     .addPerson("person+scott-fahlman", { role: "designer" })
     .addPerson("person+richard-p-gabriel", { role: "designer" })
     .addPerson("person+david-a-moon", { role: "designer" })
     .addPerson("person+kent-pitman", { role: "designer" })
     .addPerson("person+guy-steele", { role: "designer" })
     .addPerson("person+dan-weinreb", { role: "designer" })
+    .addLicenses(["lic+proprietary", "lic+freeware", "lic+lgpl"])
+    .addLicense("lic+gnu-library-gpl", {
+      refs: [{ href: "http://directory.fsf.org/wiki/gcl", title: "GNU Common Lisp" }],
+    })
     .addParadigms([
       "para+multi",
       "para+imperative",
@@ -138,17 +98,20 @@ export function define(g: PlangsGraph) {
       "para+reflective",
       "para+generic",
     ])
-    .addPlatforms(["platf+cross-platform"])
+    .addPlatforms([
+      "platf+ia-32",
+      "platf+x86-64",
+      "platf+arm",
+      "platf+win",
+      "platf+mac",
+      "platf+linux",
+      "platf+bsd",
+      "platf+cross-platform",
+      "platf+x86",
+      "platf+unix",
+      "platf+android",
+    ])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
-
-  /**/
-
-  g.buildPlang("pl+common-lisp-object-system")
-    .merge({
-      name: "Common Lisp Object System",
-      websites: [{ kind: "wikipedia", title: "CLOS", href: "https://en.wikipedia.org/wiki/Common_Lisp_Object_System" }],
-    })
-    .addInfluences(["pl+smalltalk"]);
 
   /**/
 
@@ -159,35 +122,12 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/0/08/EmacsIcon.svg" }],
       releases: [{ name: "Emacs Lisp", version: "29.1", date: "2023-01-01", kind: "stable" }],
     })
-    .addInfluences(["pl+armed-bear-common-lisp", "pl+common-lisp", "pl+maclisp"])
+    .addInfluences(["pl+common-lisp", "pl+maclisp"])
     .addPerson("person+richard-stallman", { role: "designer" })
     .addPerson("person+guy-l-steele", { role: "designer" })
     .addLicenses(["lic+gpl"])
     .addParadigms(["para+functional", "para+meta", "para+reflective"])
     .addPlatforms(["platf+emacs"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
-
-  /**/
-
-  g.buildPlang("pl+embeddable-common-lisp")
-    .merge({
-      name: "Embeddable Common Lisp",
-      websites: [{ kind: "wikipedia", title: "ECL", href: "https://en.wikipedia.org/wiki/Embeddable_Common_Lisp" }],
-      releases: [{ name: "Embeddable Common Lisp", version: "23.9.9", date: "2023-01-01", kind: "stable" }],
-    })
-    .addImplementations(["pl+c", "pl+common-lisp"])
-    .addInfluences(["pl+lisp", "pl+common-lisp", "pl+c"])
-    .addLicenses(["lic+lgpl"])
-    .addParadigms([
-      "para+multi",
-      "para+imperative",
-      "para+functional",
-      "para+objects",
-      "para+meta",
-      "para+reflective",
-      "para+generic",
-    ])
-    .addPlatforms(["platf+arm", "platf+x86", "platf+unix", "platf+android", "platf+win"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 
   /**/
@@ -201,13 +141,11 @@ export function define(g: PlangsGraph) {
       scoping: ["dynamic", "static"],
     })
     .addInfluences([
-      "pl+armed-bear-common-lisp",
       "pl+common-lisp",
       "pl+interlisp",
       "pl+lelisp",
       "pl+scheme",
       "pl+t",
-      "pl+common-lisp-object-system",
       "pl+objvlisp",
       "pl+oaklisp",
       "pl+sml",
@@ -241,18 +179,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+gnu-common-lisp")
-    .merge({
-      name: "GNU Common Lisp",
-      websites: [{ kind: "wikipedia", title: "GCL", href: "https://en.wikipedia.org/wiki/GNU_Common_Lisp" }],
-      releases: [{ name: "GNU Common Lisp", version: "2.6.14", date: "2023-01-01", kind: "stable" }],
-    })
-    .addLicense("lic+gnu-library-gpl", {
-      refs: [{ href: "http://directory.fsf.org/wiki/gcl", title: "GNU Common Lisp" }],
-    });
-
-  /**/
-
   g.buildPlang("pl+interlisp")
     .merge({
       name: "Interlisp",
@@ -281,7 +207,7 @@ export function define(g: PlangsGraph) {
     })
     .addDialects(["pl+openlisp"])
     .addImplementations(["pl+c", "pl+c-sharp", "pl+go", "pl+java", "pl+javascript", "pl+lisp"])
-    .addInfluences(["pl+armed-bear-common-lisp", "pl+common-lisp", "pl+eulisp", "pl+le-lisp", "pl+scheme", "pl+lelisp"])
+    .addInfluences(["pl+common-lisp", "pl+eulisp", "pl+le-lisp", "pl+scheme", "pl+lelisp"])
     .addParadigms(["para+multi", "para+functional", "para+imperative", "para+objects", "para+reflection", "para+meta"])
     .addPlatforms([
       "platf+ia-32",
@@ -354,15 +280,12 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/4/48/Lisp_logo.svg" }],
     })
     .addDialects([
-      "pl+allegro-common-lisp",
+      "pl+common-lisp",
       "pl+arc",
-      "pl+armed-bear-common-lisp",
       "pl+autolisp",
       "pl+clojure",
-      "pl+common-lisp",
       "pl+cowsel",
       "pl+emacs-lisp",
-      "pl+embeddable-common-lisp",
       "pl+eulisp",
       "pl+franz-lisp",
       "pl+gambit",
@@ -568,7 +491,7 @@ export function define(g: PlangsGraph) {
       scoping: ["lexical"],
     })
     .addImplementations(["pl+common-lisp"])
-    .addInfluences(["pl+armed-bear-common-lisp", "pl+common-lisp", "pl+lisp"])
+    .addInfluences(["pl+common-lisp", "pl+lisp"])
     .addPerson("person+steve-omohundro", { role: "designer" })
     .addParadigms(["para+multi", "para+functional", "para+imperative", "para+reflection", "para+meta", "para+parallel"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);

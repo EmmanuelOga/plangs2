@@ -13,16 +13,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ name: "D programming language", version: "2.108.0", date: "2024-01-01", kind: "stable" }],
     })
-    .addInfluences([
-      "pl+ada",
-      "pl+c",
-      "pl+cpp",
-      "pl+c-sharp",
-      "pl+java",
-      "pl+python",
-      "pl+ms-visual-c-sharp",
-      "pl+ruby",
-    ])
+    .addInfluences(["pl+ada", "pl+c", "pl+cpp", "pl+c-sharp", "pl+java", "pl+python", "pl+ruby"])
     .addInfluence("pl+basic", {
       refs: [{ href: "https://news.ycombinator.com/item?id=33846139", title: "On: Show HN: A nice C string API" }],
     })

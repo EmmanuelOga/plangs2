@@ -38,14 +38,6 @@ export function define(g: PlangsGraph) {
         },
       ],
     })
-    .addInfluence("pl+ms-visual-c-sharp", {
-      refs: [
-        {
-          href: "https://ghostarchive.org/varchive/youtube/20211221/huawCRlo9H4",
-          title: "Web Languages and VMs: Fast Code is Always in Fashion. (V8, Dart) - Google I/O 2013",
-        },
-      ],
-    })
     .addPerson("person+lars-bak", { role: "designer" })
     .addLicenses(["lic+bsd-s"])
     .addParadigms(["para+multi", "para+functional", "para+imperative", "para+objects"])

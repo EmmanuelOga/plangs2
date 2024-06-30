@@ -57,7 +57,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ name: "Game Oriented Assembly Lisp", version: "unknown", date: "2012-01-01", kind: "stable" }],
     })
-    .addImplementations(["pl+allegro-common-lisp"])
+    .addImplementations(["pl+common-lisp"])
     .addInfluences(["pl+lisp", "pl+scheme"])
     .addPerson("person+andy-gavin", { role: "designer" })
     .addPerson("person+naughty-dog", { role: "developer" })

@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
         },
       ],
     })
-    .addInfluences(["pl+armed-bear-common-lisp", "pl+c", "pl+common-lisp", "pl+scheme"])
+    .addInfluences(["pl+common-lisp", "pl+c", "pl+scheme"])
     .addInfluence("pl+dylan", {
       refs: [
         {

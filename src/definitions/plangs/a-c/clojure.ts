@@ -12,16 +12,7 @@ export function define(g: PlangsGraph) {
       releases: [{ name: "Clojure", version: "1.11.2", date: "2024-01-01", kind: "stable" }],
       extensions: [".clj", ".cljc", ".cljd", ".cljr", ".cljs", ".edn"],
     })
-    .addInfluences([
-      "pl+armed-bear-common-lisp",
-      "pl+common-lisp",
-      "pl+java",
-      "pl+ml",
-      "pl+prolog",
-      "pl+racket",
-      "pl+ruby",
-      "pl+scheme",
-    ])
+    .addInfluences(["pl+common-lisp", "pl+java", "pl+ml", "pl+prolog", "pl+racket", "pl+ruby", "pl+scheme"])
     .addInfluence("pl+cpp", {
       refs: [
         {
@@ -43,14 +34,6 @@ export function define(g: PlangsGraph) {
         {
           href: "http://radar.oreilly.com/2011/06/clojure-java-lisp-jvm.html",
           title: "Clojure: Lisp meets Java, with a side of Erlang - O'Reilly Radar",
-        },
-      ],
-    })
-    .addInfluence("pl+ms-visual-c-sharp", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20170111184835/http://www.codequarterly.com/2011/rich-hickey",
-          title: "Rich Hickey Q&A by Michael Fogus",
         },
       ],
     })

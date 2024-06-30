@@ -10,7 +10,7 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Crystal_language_logo.svg" }],
       releases: [{ name: "Crystal", version: "1.12.1", date: "2024-01-01", kind: "stable" }],
     })
-    .addInfluences(["pl+c-sharp", "pl+ruby", "pl+c", "pl+rust", "pl+go", "pl+python", "pl+ms-visual-c-sharp"])
+    .addInfluences(["pl+c-sharp", "pl+ruby", "pl+c", "pl+rust", "pl+go", "pl+python"])
     .addLicenses(["lic+apache"])
     .addParadigms(["para+multi", "para+objects", "para+concurrent"])
     .addPlatforms(["platf+ia-32", "platf+x86-64", "platf+linux", "platf+mac", "platf+bsd"])

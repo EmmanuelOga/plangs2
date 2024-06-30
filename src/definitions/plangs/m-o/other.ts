@@ -1154,69 +1154,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+c-sharp")
-    .merge({
-      name: "C#",
-      websites: [
-        { kind: "wikipedia", title: "C#", href: "https://en.wikipedia.org/wiki/C_Sharp_(programming_language)" },
-      ],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/d/d2/C_Sharp_Logo_2023.svg" }],
-      releases: [{ name: "C#", version: "12.0", date: "2023-01-01", kind: "stable" }],
-      extensions: [".cs", ".csx"],
-    })
-    .addDialects(["pl+c-", "pl+polyphonic-c-sharp", "pl+nemerle"])
-    .addImplementations(["pl+ms-visual-c-sharp", "pl+.net", "pl+mono", "pl+win", "pl+.net-framework", "pl+dotgnu"])
-    .addInfluences([
-      "pl+c",
-      "pl+cpp",
-      "pl+c-",
-      "pl+eiffel",
-      "pl+f-sharp",
-      "pl+haskell",
-      "pl+scala",
-      "pl+icon",
-      "pl+j-sharp",
-      "pl+visual-jpp",
-      "pl+java",
-      "pl+ml",
-      "pl+modula",
-      "pl+basic",
-      "pl+d",
-    ])
-    .addInfluence("pl+pascal", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20100324124903/http://www.computerworld.com.au/article/261958/a-z_programming_languages_c_/?pp=7",
-          title: "The A-Z of Programming Languages: C#",
-        },
-      ],
-    })
-    .addPerson("person+anders-hejlsberg", { role: "designer" })
-    .addParadigms([
-      "para+multi",
-      "para+structured",
-      "para+imperative",
-      "para+objects",
-      "para+event",
-      "para+the",
-      "para+functional",
-      "para+generic",
-      "para+reflective",
-      "para+concurrent",
-    ])
-    .addPlatforms(["platf+.net"])
-    .addTypeSystems(["tsys+static", "tsys+strong", "tsys+safe", "tsys+nominative", "tsys+inferred"])
-    .addTypeSystem("tsys+dynamic", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20120103195731/http://code.msdn.microsoft.com/csharpfuture/Release/ProjectReleases.aspx?ReleaseId=1686",
-          title: "New features in C# 4.0",
-        },
-      ],
-    });
-
-  /**/
-
   g.buildPlang("pl+c-shell")
     .merge({
       name: "csh",
@@ -1270,7 +1207,7 @@ export function define(g: PlangsGraph) {
       name: "SKILL",
       websites: [{ kind: "wikipedia", title: "SKILL", href: "https://en.wikipedia.org/wiki/Cadence_SKILL" }],
     })
-    .addInfluences(["pl+armed-bear-common-lisp", "pl+scheme", "pl+common-lisp", "pl+common-lisp-object-system"])
+    .addInfluences(["pl+common-lisp", "pl+scheme"])
     .addParadigms(["para+functional", "para+objects"])
     .addTypeSystems(["tsys+dynamic"]);
 
@@ -1502,14 +1439,6 @@ export function define(g: PlangsGraph) {
     })
     .addInfluence("pl+cray-xmt", {
       refs: [{ href: "http://chapel-lang.org/papers/BriefOverviewChapel.pdf", title: "A Brief Overview of Chapel" }],
-    })
-    .addInfluence("pl+ms-visual-c-sharp", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20160205114946/http://chapel.cray.com/spec/spec-0.98.pdf",
-          title: "Chapel spec (Acknowledgments)",
-        },
-      ],
     })
     .addLicenses(["lic+apache"])
     .addParadigms(["para+objects", "para+partitioned", "para+parallel"])
@@ -2455,16 +2384,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ name: "Dylan", version: "2022.1", date: "2022-01-01", kind: "stable" }],
     })
-    .addInfluences([
-      "pl+armed-bear-common-lisp",
-      "pl+common-lisp",
-      "pl+common-lisp-object-system",
-      "pl+algol",
-      "pl+scheme",
-      "pl+eulisp",
-      "pl+oaklisp",
-      "pl+smalltalk",
-    ])
+    .addInfluences(["pl+common-lisp", "pl+algol", "pl+scheme", "pl+eulisp", "pl+oaklisp", "pl+smalltalk"])
     .addParadigms(["para+multi", "para+functional", "para+objects"])
     .addPlatforms(["platf+ia-32", "platf+x86-64", "platf+cross-platform"]);
 
@@ -2969,7 +2889,6 @@ export function define(g: PlangsGraph) {
       "pl+ml",
       "pl+python",
       "pl+scala",
-      "pl+ms-visual-c-sharp",
       "pl+poly-slashml",
       "pl+sml",
     ])
@@ -3833,7 +3752,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ name: "Hack", version: "4.172", date: "2022-01-01", kind: "stable" }],
     })
-    .addInfluences(["pl+c-sharp", "pl+php", "pl+ocaml", "pl+scala", "pl+haskell", "pl+ms-visual-c-sharp"])
+    .addInfluences(["pl+c-sharp", "pl+php", "pl+ocaml", "pl+scala", "pl+haskell"])
     .addInfluence("pl+java", {
       refs: [
         {
@@ -4522,7 +4441,7 @@ export function define(g: PlangsGraph) {
       name: "J#",
       websites: [{ kind: "wikipedia", title: "J#", href: "https://en.wikipedia.org/wiki/J_Sharp" }],
     })
-    .addInfluences(["pl+c-sharp", "pl+java", "pl+visual-jpp", "pl+ms-visual-c-sharp"])
+    .addInfluences(["pl+c-sharp", "pl+java", "pl+visual-jpp"])
     .addParadigms(["para+objects", "para+structured", "para+imperative"])
     .addPlatforms(["platf+.net"]);
 
@@ -4838,16 +4757,7 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/1/11/Kotlin_logo_2021.svg" }],
       releases: [{ name: "Kotlin", version: "2.0.0", date: "2024-01-01", kind: "stable" }],
     })
-    .addInfluences([
-      "pl+apache-groovy",
-      "pl+c-sharp",
-      "pl+gosu",
-      "pl+groovy",
-      "pl+java",
-      "pl+ms-visual-c-sharp",
-      "pl+ml",
-      "pl+scala",
-    ])
+    .addInfluences(["pl+apache-groovy", "pl+c-sharp", "pl+gosu", "pl+groovy", "pl+java", "pl+ml", "pl+scala"])
     .addLicenses(["lic+apache"])
     .addParadigms([
       "para+multi",
@@ -5175,7 +5085,7 @@ export function define(g: PlangsGraph) {
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/ca/Msharp_logo.png" }],
     })
-    .addImplementations(["pl+ms-visual-c-sharp", "pl+.net-framework", "pl+asp.net", "pl+domain-specific"])
+    .addImplementations(["pl+c-sharp", "pl+.net-framework", "pl+asp.net", "pl+domain-specific"])
     .addParadigms(["para+multi", "para+structured", "para+objects", "para+event", "para+imperative", "para+meta"])
     .addTypeSystems(["tsys+static", "tsys+dynamic"]);
 
@@ -5660,7 +5570,7 @@ export function define(g: PlangsGraph) {
       name: "Moose",
       websites: [{ kind: "wikipedia", title: "Moose", href: "https://en.wikipedia.org/wiki/Moose_(Perl)" }],
     })
-    .addInfluences(["pl+armed-bear-common-lisp", "pl+common-lisp"]);
+    .addInfluences(["pl+common-lisp"]);
 
   /**/
 
@@ -5695,67 +5605,6 @@ export function define(g: PlangsGraph) {
     .addLicenses(["lic+mit"])
     .addParadigms(["para+low", "para+general", "para+imperative", "para+strongly", "para+dec", "para+functional"])
     .addTypeSystems(["tsys+strong"]);
-
-  /**/
-
-  g.buildPlang("pl+ms-visual-c-sharp")
-    .merge({
-      name: "Visual C#",
-      websites: [
-        { kind: "wikipedia", title: "Visual C#", href: "https://en.wikipedia.org/wiki/Microsoft_Visual_C_Sharp" },
-      ],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/d/d2/C_Sharp_Logo_2023.svg" }],
-      releases: [{ name: "C#", version: "12.0", date: "2023-01-01", kind: "stable" }],
-      extensions: [".cs", ".csx"],
-    })
-    .addDialects(["pl+c-", "pl+polyphonic-c-sharp"])
-    .addImplementations(["pl+ms-visual-c-sharp", "pl+.net", "pl+mono", "pl+win", "pl+.net-framework", "pl+dotgnu"])
-    .addInfluences([
-      "pl+cpp",
-      "pl+c-",
-      "pl+eiffel",
-      "pl+f-sharp",
-      "pl+haskell",
-      "pl+scala",
-      "pl+icon",
-      "pl+j-sharp",
-      "pl+visual-jpp",
-      "pl+java",
-      "pl+ml",
-      "pl+modula",
-      "pl+basic",
-    ])
-    .addInfluence("pl+pascal", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20100324124903/http://www.computerworld.com.au/article/261958/a-z_programming_languages_c_/?pp=7",
-          title: "The A-Z of Programming Languages: C#",
-        },
-      ],
-    })
-    .addPerson("person+anders-hejlsberg", { role: "designer" })
-    .addParadigms([
-      "para+multi",
-      "para+structured",
-      "para+imperative",
-      "para+objects",
-      "para+event",
-      "para+the",
-      "para+functional",
-      "para+generic",
-      "para+reflective",
-      "para+concurrent",
-    ])
-    .addPlatforms(["platf+.net"])
-    .addTypeSystems(["tsys+static", "tsys+strong", "tsys+safe", "tsys+nominative", "tsys+inferred"])
-    .addTypeSystem("tsys+dynamic", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20120103195731/http://code.msdn.microsoft.com/csharpfuture/Release/ProjectReleases.aspx?ReleaseId=1686",
-          title: "New features in C# 4.0",
-        },
-      ],
-    });
 
   /**/
 
@@ -5836,7 +5685,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "Nemerle", href: "https://en.wikipedia.org/wiki/Nemerle" }],
       releases: [{ name: "Nemerle", version: "1.2.507.0", date: "2016-01-01", kind: "stable" }],
     })
-    .addInfluences(["pl+c-sharp", "pl+ms-visual-c-sharp", "pl+ml", "pl+lisp"])
+    .addInfluences(["pl+c-sharp", "pl+ml", "pl+lisp"])
     .addParadigms([
       "para+multi",
       "para+aspect",
@@ -6471,7 +6320,7 @@ export function define(g: PlangsGraph) {
         },
       ],
     })
-    .addInfluences(["pl+c-sharp", "pl+ms-visual-c-sharp", "pl+delphi", "pl+pascal"])
+    .addInfluences(["pl+c-sharp", "pl+delphi", "pl+pascal"])
     .addLicenses(["lic+trialware"])
     .addPlatforms(["platf+.net", "platf+jvm", "platf+win", "platf+linux", "platf+wasm"]);
 
@@ -7038,13 +6887,6 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
-
-  /**/
-
-  g.buildPlang("pl+polyphonic-c-sharp").merge({
-    name: "Polyphonic C#",
-    websites: [{ kind: "wikipedia", title: "Polyphonic C#", href: "https://en.wikipedia.org/wiki/Polyphonic_C_Sharp" }],
-  });
 
   /**/
 
@@ -7633,7 +7475,7 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg" }],
       releases: [{ name: "R", version: "4.4.0", date: "2024-01-01", kind: "stable" }],
     })
-    .addInfluences(["pl+armed-bear-common-lisp", "pl+common-lisp", "pl+s", "pl+scheme"])
+    .addInfluences(["pl+common-lisp", "pl+s", "pl+scheme"])
     .addPerson("person+ross-ihaka", { role: "designer" })
     .addPerson("person+robert-gentleman", { role: "designer" })
     .addLicense("lic+gpl", {
@@ -8142,14 +7984,6 @@ export function define(g: PlangsGraph) {
     })
     .addInfluence("pl+erlang", {
       refs: [{ href: "https://doc.rust-lang.org/reference/influences.html", title: "Influences - The Rust Reference" }],
-    })
-    .addInfluence("pl+ms-visual-c-sharp", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20190126051127/https://doc.rust-lang.org/reference/influences.html",
-          title: "Influences - The Rust Reference",
-        },
-      ],
     })
     .addInfluence("pl+modula", {
       refs: [
@@ -8863,7 +8697,7 @@ export function define(g: PlangsGraph) {
       name: "SKILL",
       websites: [{ kind: "wikipedia", title: "SKILL", href: "https://en.wikipedia.org/wiki/SKILL" }],
     })
-    .addInfluences(["pl+scheme", "pl+common-lisp", "pl+common-lisp-object-system"])
+    .addInfluences(["pl+scheme", "pl+common-lisp"])
     .addParadigms(["para+functional", "para+objects"])
     .addTypeSystems(["tsys+dynamic"]);
 
@@ -9265,7 +9099,7 @@ export function define(g: PlangsGraph) {
       name: "SubL",
       websites: [{ kind: "wikipedia", title: "SubL", href: "https://en.wikipedia.org/wiki/SubL" }],
     })
-    .addInfluences(["pl+armed-bear-common-lisp", "pl+common-lisp"]);
+    .addInfluences(["pl+common-lisp"]);
 
   /**/
 
@@ -9347,14 +9181,6 @@ export function define(g: PlangsGraph) {
         {
           href: "https://developer.apple.com/swift/blog/?id=15",
           title: "Building assert() in Swift, Part 2: __FILE__ and __LINE__",
-        },
-      ],
-    })
-    .addInfluence("pl+ms-visual-c-sharp", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20181225175312/http://nondot.org/sabre/",
-          title: "Chris Lattner's Homepage",
         },
       ],
     })
@@ -9760,7 +9586,7 @@ export function define(g: PlangsGraph) {
       releases: [{ name: "TypeScript", version: "5.4.2", date: "2024-01-01", kind: "stable" }],
     })
     .addDialects(["pl+assemblyscript"])
-    .addInfluences(["pl+c-sharp", "pl+javascript", "pl+ms-visual-c-sharp", "pl+java"])
+    .addInfluences(["pl+c-sharp", "pl+javascript", "pl+java"])
     .addInfluence("pl+actionscript", {
       refs: [
         {
@@ -9953,7 +9779,7 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/9/92/Vala_Logo.svg" }],
       releases: [{ name: "Vala", version: "0.57.0", date: "2023-01-01", kind: "stable" }],
     })
-    .addInfluences(["pl+boo", "pl+c", "pl+c-sharp", "pl+d", "pl+java", "pl+ms-visual-c-sharp", "pl+cpp"])
+    .addInfluences(["pl+boo", "pl+c", "pl+c-sharp", "pl+d", "pl+java", "pl+cpp"])
     .addLicenses(["lic+lgpl"])
     .addParadigms(["para+multi", "para+imperative", "para+structured", "para+objects"])
     .addPlatforms(["platf+cross-platform", "platf+glib"])

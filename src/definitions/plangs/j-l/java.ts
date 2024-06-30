@@ -106,14 +106,6 @@ export function define(g: PlangsGraph) {
         },
       ],
     })
-    .addInfluence("pl+ms-visual-c-sharp", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20110319065438/http://www.barrycornelius.com/papers/java5/",
-          title: "[1]",
-        },
-      ],
-    })
     .addPerson("person+james-gosling", { role: "designer" })
     .addParadigms([
       "para+multi",

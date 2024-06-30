@@ -611,11 +611,13 @@ function keyFromWikiUrl(wikiUrl: string): string | undefined {
     if (key.startsWith("functional")) return;
 
     if (key.includes("compilers")) return;
+    if (key.includes("commonlisp")) return "common-lisp";
+    if (key.includes("common-lisp")) return "common-lisp";
+    if (key.includes("c-sharp")) return "c-sharp";
 
     if (key === "common-language-infrastructure") return ".net";
 
     if (key === "apple-ios") return "ios";
-    if (key === "allegro-common") return "common-lisp";
     if (key === "field-programmable-gate-array") return "fpga";
     if (key === "advanced-micro-devices") return "amd";
 
