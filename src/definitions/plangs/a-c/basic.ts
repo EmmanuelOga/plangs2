@@ -196,6 +196,7 @@ export function define(g: PlangsGraph) {
     });
 
   /**/
+
   g.buildPlang("pl+gambas")
     .merge({
       name: "Gambas",
@@ -232,6 +233,7 @@ export function define(g: PlangsGraph) {
     });
 
   /**/
+
   g.buildPlang("pl+xojo")
     .merge({
       name: "Xojo",

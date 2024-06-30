@@ -7,6 +7,7 @@ export function define(g: PlangsGraph) {
   });
 
   /**/
+
   g.buildLicense("lic+mozilla-public-licence").merge({
     name: "Mozilla Public",
     websites: [

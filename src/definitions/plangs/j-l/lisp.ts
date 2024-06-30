@@ -32,6 +32,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 
   /**/
+
   g.buildPlang("pl+armed-bear-common-lisp")
     .merge({
       name: "ABCL",
@@ -72,6 +73,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 
   /**/
+
   g.buildPlang("pl+autolisp")
     .merge({
       name: "AutoLisp",
@@ -83,12 +85,14 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+dynamic"]);
 
   /**/
+
   g.buildPlang("pl+bbn-lisp").merge({
     name: "BBN LISP",
     websites: [{ kind: "wikipedia", title: "BBN LISP", href: "https://en.wikipedia.org/wiki/BBN_LISP" }],
   });
 
   /**/
+
   g.buildPlang("pl+clisp")
     .merge({
       name: "CLISP",
@@ -99,6 +103,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["lic+gpl"]);
 
   /**/
+
   g.buildPlang("pl+common-lisp")
     .merge({
       name: "Common Lisp",
@@ -137,6 +142,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 
   /**/
+
   g.buildPlang("pl+common-lisp-object-system")
     .merge({
       name: "Common Lisp Object System",
@@ -145,6 +151,7 @@ export function define(g: PlangsGraph) {
     .addInfluences(["pl+smalltalk"]);
 
   /**/
+
   g.buildPlang("pl+emacs-lisp")
     .merge({
       name: "Emacs Lisp",
@@ -161,6 +168,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 
   /**/
+
   g.buildPlang("pl+embeddable-common-lisp")
     .merge({
       name: "Embeddable Common Lisp",
@@ -183,6 +191,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 
   /**/
+
   g.buildPlang("pl+eulisp")
     .merge({
       name: "EuLisp",
@@ -209,6 +218,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+strong", "tsys+dynamic"]);
 
   /**/
+
   g.buildPlang("pl+franz-lisp")
     .merge({
       name: "Franz Lisp",
@@ -230,6 +240,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 
   /**/
+
   g.buildPlang("pl+gnu-common-lisp")
     .merge({
       name: "GNU Common Lisp",
@@ -241,6 +252,7 @@ export function define(g: PlangsGraph) {
     });
 
   /**/
+
   g.buildPlang("pl+interlisp")
     .merge({
       name: "Interlisp",
@@ -261,6 +273,7 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["platf+6502", "platf+atari"]);
 
   /**/
+
   g.buildPlang("pl+islisp")
     .merge({
       name: "ISLISP",
@@ -282,6 +295,7 @@ export function define(g: PlangsGraph) {
     ]);
 
   /**/
+
   g.buildPlang("pl+le-lisp")
     .merge({
       name: "Le Lisp",
@@ -305,6 +319,7 @@ export function define(g: PlangsGraph) {
     ]);
 
   /**/
+
   g.buildPlang("pl+lelisp")
     .merge({
       name: "Le Lisp",
@@ -328,6 +343,7 @@ export function define(g: PlangsGraph) {
     ]);
 
   /**/
+
   g.buildPlang("pl+lisp")
     .merge({
       name: "Lisp",
@@ -389,6 +405,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 
   /**/
+
   g.buildPlang("pl+lispworks")
     .merge({
       name: "LispWorks",
@@ -422,6 +439,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 
   /**/
+
   g.buildPlang("pl+maclisp")
     .merge({
       name: "Maclisp",
@@ -434,6 +452,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 
   /**/
+
   g.buildPlang("pl+multilisp")
     .merge({
       name: "MultiLisp",
@@ -446,6 +465,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+dynamic", "tsys+latent", "tsys+strong"]);
 
   /**/
+
   g.buildPlang("pl+newlisp")
     .merge({
       name: "newLISP",
@@ -466,6 +486,7 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["platf+ia-32", "platf+x86-64", "platf+cross-platform", "platf+unix", "platf+win"]);
 
   /**/
+
   g.buildPlang("pl+oaklisp")
     .merge({
       name: "Oaklisp",
@@ -477,12 +498,14 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 
   /**/
+
   g.buildPlang("pl+objvlisp").merge({
     name: "ObjVlisp",
     websites: [{ kind: "wikipedia", title: "ObjVlisp", href: "https://en.wikipedia.org/wiki/ObjVlisp" }],
   });
 
   /**/
+
   g.buildPlang("pl+openlisp")
     .merge({
       name: "OpenLisp",
@@ -523,6 +546,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 
   /**/
+
   g.buildPlang("pl+picolisp")
     .merge({
       name: "PicoLisp",
@@ -536,6 +560,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"]);
 
   /**/
+
   g.buildPlang("pl+star-lisp")
     .merge({
       name: "*Lisp (StarLisp)",
@@ -549,6 +574,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 
   /**/
+
   g.buildPlang("pl+zetalisp")
     .merge({
       name: "Lisp Machine Lisp",

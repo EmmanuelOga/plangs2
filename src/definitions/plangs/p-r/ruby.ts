@@ -17,6 +17,7 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["platf+jvm"]);
 
   /**/
+
   g.buildPlang("pl+mruby")
     .merge({
       name: "mruby",
@@ -30,6 +31,17 @@ export function define(g: PlangsGraph) {
     });
 
   /**/
+
+  g.buildPlang("pl+rubinius")
+    .merge({
+      name: "Rubinius",
+      websites: [{ kind: "wikipedia", title: "Rubinius", href: "https://en.wikipedia.org/wiki/Rubinius" }],
+      releases: [{ version: "5.0", date: "2020-01-01", kind: "stable" }],
+    })
+    .addLicenses(["lic+mozilla-public"]);
+
+  /**/
+
   g.buildPlang("pl+ruby")
     .merge({
       name: "Ruby",
@@ -114,6 +126,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"]);
 
   /**/
+
   g.buildPlang("pl+ruby-mri")
     .merge({
       name: "Ruby MRI",
@@ -128,6 +141,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["lic+ruby", "lic+bsd-s", "lic+gpl"]);
 
   /**/
+
   g.buildPlang("pl+rubymotion")
     .merge({
       name: "RubyMotion",

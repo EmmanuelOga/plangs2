@@ -10,18 +10,21 @@ export function define(g: PlangsGraph) {
     .addLicenses(["lic+mit"]);
 
   /**/
+
   g.buildPlang("pl+saxon-xslt").merge({
     name: "Saxon",
     websites: [{ kind: "wikipedia", title: "Saxon", href: "https://en.wikipedia.org/wiki/Saxon_XSLT" }],
   });
 
   /**/
+
   g.buildPlang("pl+xpath").merge({
     name: "XPath",
     websites: [{ kind: "wikipedia", title: "XPath", href: "https://en.wikipedia.org/wiki/XPath" }],
   });
 
   /**/
+
   g.buildPlang("pl+xquery")
     .merge({
       name: "XQuery",
@@ -42,6 +45,7 @@ export function define(g: PlangsGraph) {
     });
 
   /**/
+
   g.buildPlang("pl+xslt")
     .merge({
       name: "XSLT",

@@ -16,6 +16,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["lic+freemium"]);
 
   /**/
+
   g.buildPlang("pl+pascal")
     .merge({
       name: "Pascal",

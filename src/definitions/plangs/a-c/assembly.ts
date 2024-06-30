@@ -25,6 +25,7 @@ export function define(g: PlangsGraph) {
     ]);
 
   /**/
+
   g.buildPlang("pl+assemblyscript")
     .merge({
       name: "AssemblyScript",
@@ -43,6 +44,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+static"]);
 
   /**/
+
   g.buildPlang("pl+game-oriented-assembly-lisp")
     .merge({
       name: "Game Oriented Assembly Lisp",
@@ -65,6 +67,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+dynamic", "tsys+latent", "tsys+strong"]);
 
   /**/
+
   g.buildPlang("pl+high-level-assembly")
     .merge({
       name: "High Level Assembly (HLA)",
@@ -82,6 +85,37 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["platf+ia-32"]);
 
   /**/
+
+  g.buildPlang("pl+ms-macro-assembler")
+    .merge({
+      name: "Microsoft Macro Assembler",
+      websites: [
+        {
+          kind: "wikipedia",
+          title: "Microsoft Macro Assembler",
+          href: "https://en.wikipedia.org/wiki/Microsoft_Macro_Assembler",
+        },
+      ],
+      releases: [{ version: "14.16.27023.1", date: "2702-01-01", kind: "stable" }],
+    })
+    .addLicenses(["lic+commercial", "lic+proprietary"]);
+
+  /**/
+
+  g.buildPlang("pl+netwide-assembler")
+    .merge({
+      name: "NASM",
+      websites: [{ kind: "wikipedia", title: "NASM", href: "https://en.wikipedia.org/wiki/Netwide_Assembler" }],
+      images: [
+        { kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/4/48/Netwide_Assembler.svg" },
+      ],
+      releases: [{ version: "2.16.03", date: "2024-01-01", kind: "stable" }],
+    })
+    .addPerson("person+h-peter-anvin", { role: "developer" })
+    .addLicenses(["lic+bsd-s"]);
+
+  /**/
+
   g.buildPlang("pl+webassembly")
     .merge({
       name: "WebAssembly",

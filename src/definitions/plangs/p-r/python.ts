@@ -23,6 +23,7 @@ export function define(g: PlangsGraph) {
     });
 
   /**/
+
   g.buildPlang("pl+cpython")
     .merge({
       name: "CPython",
@@ -35,6 +36,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["lic+python-foundation"]);
 
   /**/
+
   g.buildPlang("pl+cython")
     .merge({
       name: "Cython",
@@ -47,6 +49,7 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["platf+win", "platf+mac", "platf+linux"]);
 
   /**/
+
   g.buildPlang("pl+ironpython")
     .merge({
       name: "IronPython",
@@ -61,6 +64,19 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["platf+.net", "platf+mono"]);
 
   /**/
+
+  g.buildPlang("pl+jython")
+    .merge({
+      name: "Jython",
+      websites: [{ kind: "wikipedia", title: "Jython", href: "https://en.wikipedia.org/wiki/Jython" }],
+      images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/en/e/ea/Jython.png" }],
+      releases: [{ version: "2.7.3", date: "2022-01-01", kind: "stable" }],
+    })
+    .addLicenses(["lic+python-foundation"])
+    .addPlatforms(["platf+jvm"]);
+
+  /**/
+
   g.buildPlang("pl+micropython")
     .merge({
       name: "MicroPython",
@@ -90,6 +106,7 @@ export function define(g: PlangsGraph) {
     ]);
 
   /**/
+
   g.buildPlang("pl+numpy")
     .merge({
       name: "NumPy",
@@ -105,6 +122,7 @@ export function define(g: PlangsGraph) {
     });
 
   /**/
+
   g.buildPlang("pl+pyomo")
     .merge({
       name: "Pyomo",
@@ -122,6 +140,7 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"]);
 
   /**/
+
   g.buildPlang("pl+pypy").merge({
     name: "RPython",
     websites: [
@@ -131,6 +150,7 @@ export function define(g: PlangsGraph) {
   });
 
   /**/
+
   g.buildPlang("pl+python")
     .merge({
       name: "Python",
@@ -306,6 +326,7 @@ export function define(g: PlangsGraph) {
     });
 
   /**/
+
   g.buildPlang("pl+stackless-python")
     .merge({
       name: "Stackless Python",

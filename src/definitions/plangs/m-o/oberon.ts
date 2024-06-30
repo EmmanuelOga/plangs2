@@ -21,6 +21,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+strong", "tsys+static", "tsys+dynamic"]);
 
   /**/
+
   g.buildPlang("pl+oberon")
     .merge({
       name: "Oberon",
@@ -55,6 +56,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+strong", "tsys+static", "tsys+dynamic"]);
 
   /**/
+
   g.buildPlang("pl+oberon-2")
     .merge({
       name: "Oberon-2",
@@ -73,6 +75,7 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+strong", "tsys+static", "tsys+dynamic"]);
 
   /**/
+
   g.buildPlang("pl+object-oberon")
     .merge({
       name: "Object Oberon",

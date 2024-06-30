@@ -31,6 +31,7 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["platf+win", "platf+mac", "platf+linux", "platf+web", "platf+ios", "platf+dos", "platf+android"]);
 
   /**/
+
   g.buildPlang("pl+scratchjr")
     .merge({
       name: "ScratchJr",
