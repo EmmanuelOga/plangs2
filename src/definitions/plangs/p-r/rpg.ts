@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.plangBuilder;
-
-  lb.define("pl+rpg", {
+  g.buildPlang("pl+rpg").merge({
     name: "RPG IV",
     websites: [
       { kind: "wikipedia", title: "RPG II", href: "https://en.wikipedia.org/wiki/RPG_II" },

@@ -42,11 +42,11 @@ async function generateAll() {
 
   console.log(new Date().toISOString());
 
-  genAll(g.v_paradigm, "paradigms", "paradigm");
-  genAll(g.v_tsystem, "type_systems", "typeSystem");
-  genAll(g.v_person, "people", "person", () => "other");
+  genAll(g.v_paradigm, "paradigms", "buildParadigm");
+  genAll(g.v_tsystem, "type_systems", "buildTypeSystem");
+  genAll(g.v_person, "people", "buildPerson", () => "other");
 
-  genAll(g.v_license, "licenses", "license", (vid, vertex, name) => {
+  genAll(g.v_license, "licenses", "buildLicense", (vid, vertex, name) => {
     if (vid.includes("apache")) return "apache";
     if (vid.includes("bsd")) return "bsd";
     if (vid.includes("free")) return "free";
@@ -56,7 +56,7 @@ async function generateAll() {
     return vertex.websites.length > 1 ? name : "other";
   });
 
-  genAll(g.v_platform, "platforms", "platform", (vid, vertex, name) => {
+  genAll(g.v_platform, "platforms", "buildPlatform", (vid, vertex, name) => {
     if (vid.includes("mach") || vid.includes("lisp")) return "other";
 
     if (
@@ -95,7 +95,7 @@ async function generateAll() {
   genAll(
     g.v_plang,
     "plangs",
-    "plang",
+    "buildPlang",
     (vid, vertex, name) => {
       function fileName(): string {
         if (vid.includes("algol")) return "algol";
@@ -150,6 +150,7 @@ function defaultMapper(vid: VID_Any, vertex: _T_AnyV_Data): AtoZData {
   return bundle;
 }
 
+// biome-ignore format: it's artisanally formatted :-p.
 function plangMapper(g: PlangsGraph, plvid: VID_Plang): AtoZData {
   const vertex = g.v_plang.get(plvid);
   if (!vertex || !vertex.name) throw new Error(`Missing plang data: ${plvid}`);
@@ -172,37 +173,38 @@ function plangMapper(g: PlangsGraph, plvid: VID_Plang): AtoZData {
 
   // Adjacent *to* plang.
 
-  addRel("dialects", [...g.e_dialect_of.adjacentTo(plvid)], (vid) => g.e_dialect_of.get(vid as VID_Plang, plvid));
+  addRel("dialects", [...g.e_dialect_of.adjacentTo(plvid)],
+    (vid) => g.e_dialect_of.get(vid as VID_Plang, plvid));
 
-  addRel("implementations", [...g.e_implements.adjacentTo(plvid)], (vid) =>
-    g.e_implements.get(vid as VID_Plang, plvid),
+  addRel("implementations", [...g.e_implements.adjacentTo(plvid)],
+    (vid) => g.e_implements.get(vid as VID_Plang, plvid),
   );
 
-  addRel("influences", [...g.e_l_influenced_l.adjacentTo(plvid)], (vid) =>
-    g.e_l_influenced_l.get(vid as VID_Plang, plvid),
+  addRel("influences", [...g.e_l_influenced_l.adjacentTo(plvid)],
+    (vid) => g.e_l_influenced_l.get(vid as VID_Plang, plvid),
   );
 
-  addRel("people", [...g.e_person_plang_role.adjacentTo(plvid)], (vid) =>
-    g.e_person_plang_role.get(vid as VID_Person, plvid),
+  addRel("people", [...g.e_person_plang.adjacentTo(plvid)],
+    (vid) => g.e_person_plang.get(vid as VID_Person, plvid),
   );
 
   // Adjacent *from* plang.
 
-  addRel("licenses", [...g.e_has_license.adjacentFrom(plvid)], (vid) => g.e_has_license.get(plvid, vid as VID_License));
+  addRel("licenses", [...g.e_has_license.adjacentFrom(plvid)],
+    (vid) => g.e_has_license.get(plvid, vid as VID_License));
 
-  addRel("paradigms", [...g.e_plang_para.adjacentFrom(plvid)], (vid) => g.e_plang_para.get(plvid, vid as VID_Paradigm));
+  addRel("paradigms", [...g.e_plang_para.adjacentFrom(plvid)],
+    (vid) => g.e_plang_para.get(plvid, vid as VID_Paradigm));
 
-  addRel("platforms", [...g.e_supports_platf.adjacentFrom(plvid)], (vid) =>
-    g.e_supports_platf.get(plvid, vid as VID_Platform),
+  addRel("platforms", [...g.e_supports_platf.adjacentFrom(plvid)],
+    (vid) => g.e_supports_platf.get(plvid, vid as VID_Platform),
   );
 
-  addRel("typeSystems", [...g.e_plang_tsys.adjacentFrom(plvid)], (vid) =>
-    g.e_plang_tsys.get(plvid, vid as VID_TypeSystem),
+  addRel("typeSystems", [...g.e_plang_tsys.adjacentFrom(plvid)],
+    (vid) => g.e_plang_tsys.get(plvid, vid as VID_TypeSystem),
   );
 
-  tidy(vrelations);
-
-  if (!blank(vrelations)) bundle.vrelations = json(vrelations);
+  if (!blank(tidy(vrelations))) bundle.vrelations = json(vrelations);
 
   return bundle;
 }

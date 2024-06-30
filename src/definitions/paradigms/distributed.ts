@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.paradigmBuilder;
-
-  lb.define("para+distributed", {
+  g.buildParadigm("para+distributed").merge({
     name: "distributed",
     websites: [
       { kind: "wikipedia", title: "distributed", href: "https://en.wikipedia.org/wiki/Distributed_computing" },

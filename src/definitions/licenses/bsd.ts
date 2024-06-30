@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.licenseBuilder;
-
-  lb.define("lic+bsd", {
+  g.buildLicense("lic+bsd").merge({
     name: "BSD",
     websites: [
       { kind: "wikipedia", title: "Revised BSD", href: "https://en.wikipedia.org/wiki/BSD_license" },
@@ -11,27 +9,27 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("lic+bsd-3", {
+  g.buildLicense("lic+bsd-3").merge({
     name: "BSD-3",
     websites: [{ kind: "wikipedia", title: "BSD-3", href: "https://en.wikipedia.org/wiki/BSD-3" }],
   });
 
-  lb.define("lic+bsd-c", {
+  g.buildLicense("lic+bsd-c").merge({
     name: "3-clause BSD",
     websites: [{ kind: "wikipedia", title: "3-clause BSD", href: "https://en.wikipedia.org/wiki/3-clause_BSD" }],
   });
 
-  lb.define("lic+bsd-m", {
+  g.buildLicense("lic+bsd-m").merge({
     name: "BSD",
     websites: [{ kind: "wikipedia", title: "BSD", href: "https://en.wikipedia.org/wiki/Modified_BSD_License" }],
   });
 
-  lb.define("lic+bsd-n", {
+  g.buildLicense("lic+bsd-n").merge({
     name: "New BSD License",
     websites: [{ kind: "wikipedia", title: "New BSD License", href: "https://en.wikipedia.org/wiki/New_BSD_License" }],
   });
 
-  lb.define("lic+bsd-s", {
+  g.buildLicense("lic+bsd-s").merge({
     name: "BSD",
     websites: [
       { kind: "wikipedia", title: "BSD", href: "https://en.wikipedia.org/wiki/BSD_licenses" },

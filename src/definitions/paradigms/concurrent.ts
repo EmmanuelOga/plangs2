@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.paradigmBuilder;
-
-  lb.define("para+concurrent", {
+  g.buildParadigm("para+concurrent").merge({
     name: "concurrent",
     websites: [
       { kind: "wikipedia", title: "concurrent", href: "https://en.wikipedia.org/wiki/Concurrent_computing" },

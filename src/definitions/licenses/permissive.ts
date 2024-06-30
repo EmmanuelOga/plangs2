@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.licenseBuilder;
-
-  lb.define("lic+permissive", {
+  g.buildLicense("lic+permissive").merge({
     name: "BSD-like",
     websites: [
       { kind: "wikipedia", title: "Permissive", href: "https://en.wikipedia.org/wiki/Permissive_license" },

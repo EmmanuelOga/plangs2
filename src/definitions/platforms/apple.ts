@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.platformBuilder;
-
-  lb.define("platf+ios", {
+  g.buildPlatform("platf+ios").merge({
     name: "iOS",
     websites: [
       { kind: "wikipedia", title: "iOS", href: "https://en.wikipedia.org/wiki/IOS" },
@@ -11,7 +9,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("platf+mac", {
+  g.buildPlatform("platf+mac").merge({
     name: "macOS",
     websites: [
       { kind: "wikipedia", title: "MacOS", href: "https://en.wikipedia.org/wiki/MacOS" },
@@ -26,12 +24,12 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("platf+tvos", {
+  g.buildPlatform("platf+tvos").merge({
     name: "tvOS",
     websites: [{ kind: "wikipedia", title: "tvOS", href: "https://en.wikipedia.org/wiki/TvOS" }],
   });
 
-  lb.define("platf+watchos", {
+  g.buildPlatform("platf+watchos").merge({
     name: "watchOS",
     websites: [{ kind: "wikipedia", title: "watchOS", href: "https://en.wikipedia.org/wiki/WatchOS" }],
   });

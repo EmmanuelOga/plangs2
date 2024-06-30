@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.platformBuilder;
-
-  lb.define("platf+bsd", {
+  g.buildPlatform("platf+bsd").merge({
     name: "FreeBSD",
     websites: [
       { kind: "wikipedia", title: "FreeBSD", href: "https://en.wikipedia.org/wiki/FreeBSD" },

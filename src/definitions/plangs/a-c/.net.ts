@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.plangBuilder;
-
-  lb.define("pl+.net", {
+  g.buildPlang("pl+.net").merge({
     name: "CLI",
     websites: [
       { kind: "wikipedia", title: ".NET", href: "https://en.wikipedia.org/wiki/.NET" },

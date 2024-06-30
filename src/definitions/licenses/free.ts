@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.licenseBuilder;
-
-  lb.define("lic+academic-free", {
+  g.buildLicense("lic+academic-free").merge({
     name: "Academic Free License",
     websites: [
       {
@@ -14,7 +12,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("lic+free", {
+  g.buildLicense("lic+free").merge({
     name: "free licenses",
     websites: [
       { kind: "wikipedia", title: "free licenses", href: "https://en.wikipedia.org/wiki/Free-software_license" },
@@ -22,7 +20,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("lic+free-and-open-source", {
+  g.buildLicense("lic+free-and-open-source").merge({
     name: "free and open-source",
     websites: [
       {
@@ -33,7 +31,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("lic+freely-redistributable", {
+  g.buildLicense("lic+freely-redistributable").merge({
     name: "Freely redistributable software",
     websites: [
       {
@@ -44,17 +42,17 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("lic+freemium", {
+  g.buildLicense("lic+freemium").merge({
     name: "Freemium",
     websites: [{ kind: "wikipedia", title: "Freemium", href: "https://en.wikipedia.org/wiki/Freemium" }],
   });
 
-  lb.define("lic+freeware", {
+  g.buildLicense("lic+freeware").merge({
     name: "freeware",
     websites: [{ kind: "wikipedia", title: "freeware", href: "https://en.wikipedia.org/wiki/Freeware" }],
   });
 
-  lb.define("lic+permissive-free", {
+  g.buildLicense("lic+permissive-free").merge({
     name: "Permissive free software",
     websites: [
       {
@@ -65,7 +63,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("lic+permissive-free-licence", {
+  g.buildLicense("lic+permissive-free-licence").merge({
     name: "Permissive free software licence",
     websites: [
       {
@@ -76,7 +74,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("lic+xfree86", {
+  g.buildLicense("lic+xfree86").merge({
     name: "XFree86",
     websites: [{ kind: "wikipedia", title: "XFree86", href: "https://en.wikipedia.org/wiki/XFree86_License" }],
   });

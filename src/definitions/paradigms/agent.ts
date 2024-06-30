@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.paradigmBuilder;
-
-  lb.define("para+agent", {
+  g.buildParadigm("para+agent").merge({
     name: "agent-based",
     websites: [
       { kind: "wikipedia", title: "agent-oriented", href: "https://en.wikipedia.org/wiki/Agent-oriented_programming" },

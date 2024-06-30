@@ -7,17 +7,20 @@ import type { VID } from "../graph/vertex";
 // Types starting with "V_" are used for Vertex data.
 ////////////////////////////////////////////////////////////////////////////////
 
+/** Allow all vertices to have a name and websites. */
+export interface V_Base {
+  name: string;
+  websites: Link[];
+}
+
 /**
  * A programming language Vertex.
  */
-export interface V_Plang {
-  name: string;
-
+export interface V_Plang extends V_Base {
   extensions: string[];
   images: Image[];
   releases: Release[];
-  scoping: ("lexical" | "static" | "dynamic" | "other")[];
-  websites: Link[];
+  scoping: Scoping[];
 }
 
 export type VID_Plang = VID<`pl`>;
@@ -25,50 +28,35 @@ export type VID_Plang = VID<`pl`>;
 /**
  * A platform Vertex, e.g., Linux, Windows, etc.
  */
-export interface V_Platform {
-  name: string;
-  websites: Link[];
-}
+export interface V_Platform extends V_Base {}
 
 export type VID_Platform = VID<`platf`>;
 
 /**
  * A type system Vertex, e.g., OOP, Duck, Dynamic, etc.
  */
-export interface V_TypeSystem {
-  name: string;
-  websites: Link[];
-}
+export interface V_TypeSystem extends V_Base {}
 
 export type VID_TypeSystem = VID<`tsys`>;
 
 /**
  * A programming paradigm Vertex, e.g., Functional, Imperative, etc.
  */
-export interface V_Paradigm {
-  name: string;
-  websites: Link[];
-}
+export interface V_Paradigm extends V_Base {}
 
 export type VID_Paradigm = VID<`para`>;
 
 /**
  * A person Vertex, for people involved in the development of a programming language.
  */
-export interface V_Person {
-  name: string;
-  websites: Link[];
-}
+export interface V_Person extends V_Base {}
 
 export type VID_Person = VID<`person`>;
 
 /**
  * A license Vertex, e.g., MIT, GPL, etc.
  */
-export interface V_License {
-  name: string;
-  websites: Link[];
-}
+export interface V_License extends V_Base {}
 
 export type VID_License = VID<`lic`>;
 
@@ -104,6 +92,11 @@ export interface E_SupportsPlatf extends E_Base {}
 ////////////////////////////////////////////////////////////////////////////////
 // Auxiliary Types
 ////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * The scoping of a programming language.
+ */
+export type Scoping = "lexical" | "static" | "dynamic" | "other";
 
 /**
  * A release of a programming language.

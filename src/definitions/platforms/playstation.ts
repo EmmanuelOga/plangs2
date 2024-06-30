@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.platformBuilder;
-
-  lb.define("platf+playstation", {
+  g.buildPlatform("platf+playstation").merge({
     name: "PlayStation 3",
     websites: [
       { kind: "wikipedia", title: "PlayStation 2", href: "https://en.wikipedia.org/wiki/PlayStation_2" },

@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.paradigmBuilder;
-
-  lb.define("para+prototypes", {
+  g.buildParadigm("para+prototypes").merge({
     name: "prototype-based",
     websites: [
       {

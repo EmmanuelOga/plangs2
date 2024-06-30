@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.platformBuilder;
-
-  lb.define("platf+dec", {
+  g.buildPlatform("platf+dec").merge({
     name: "DEC",
     websites: [
       { kind: "wikipedia", title: "Alpha", href: "https://en.wikipedia.org/wiki/DEC_Alpha" },

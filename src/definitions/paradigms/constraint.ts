@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.paradigmBuilder;
-
-  lb.define("para+constraint", {
+  g.buildParadigm("para+constraint").merge({
     name: "constraint",
     websites: [
       { kind: "wikipedia", title: "constraint", href: "https://en.wikipedia.org/wiki/Constraint_programming" },

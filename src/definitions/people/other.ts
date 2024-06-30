@@ -1,26 +1,24 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.personBuilder;
-
-  lb.define("person+a-k-dewdney", {
+  g.buildPerson("person+a-k-dewdney").merge({
     name: "A. K. Dewdney",
     websites: [{ title: "A. K. Dewdney", href: "https://en.wikipedia.org/wiki/A._K._Dewdney", kind: "wikipedia" }],
   });
 
-  lb.define("person+a-n-habermann", {
+  g.buildPerson("person+a-n-habermann").merge({
     name: "A. N. Habermann",
     websites: [{ title: "A. N. Habermann", href: "https://en.wikipedia.org/wiki/Nico_Habermann", kind: "wikipedia" }],
   });
 
-  lb.define("person+a-van-wijngaarden", {
+  g.buildPerson("person+a-van-wijngaarden").merge({
     name: "A. van Wijngaarden",
     websites: [
       { title: "A. van Wijngaarden", href: "https://en.wikipedia.org/wiki/Adriaan_van_Wijngaarden", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+adele-goldberg", {
+  g.buildPerson("person+adele-goldberg").merge({
     name: "Adele Goldberg",
     websites: [
       {
@@ -31,89 +29,89 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+alain-colmerauer", {
+  g.buildPerson("person+alain-colmerauer").merge({
     name: "Alain Colmerauer",
     websites: [
       { title: "Alain Colmerauer", href: "https://en.wikipedia.org/wiki/Alain_Colmerauer", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+alan-edelman", {
+  g.buildPerson("person+alan-edelman").merge({
     name: "Alan Edelman",
     websites: [{ title: "Alan Edelman", href: "https://en.wikipedia.org/wiki/Alan_Edelman", kind: "wikipedia" }],
   });
 
-  lb.define("person+alan-kay", {
+  g.buildPerson("person+alan-kay").merge({
     name: "Alan Kay",
     websites: [{ title: "Alan Kay", href: "https://en.wikipedia.org/wiki/Alan_Kay", kind: "wikipedia" }],
   });
 
-  lb.define("person+alan-perlis", {
+  g.buildPerson("person+alan-perlis").merge({
     name: "Alan Perlis",
     websites: [{ title: "Alan Perlis", href: "https://en.wikipedia.org/wiki/Alan_Perlis", kind: "wikipedia" }],
   });
 
-  lb.define("person+alexander-repenning", {
+  g.buildPerson("person+alexander-repenning").merge({
     name: "Alexander Repenning",
     websites: [
       { title: "Alexander Repenning", href: "https://en.wikipedia.org/wiki/Alexander_Repenning", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+alfred-aho", {
+  g.buildPerson("person+alfred-aho").merge({
     name: "Alfred Aho",
     websites: [{ title: "Alfred Aho", href: "https://en.wikipedia.org/wiki/Alfred_Aho", kind: "wikipedia" }],
   });
 
-  lb.define("person+allen-newell", {
+  g.buildPerson("person+allen-newell").merge({
     name: "Allen Newell",
     websites: [{ title: "Allen Newell", href: "https://en.wikipedia.org/wiki/Allen_Newell", kind: "wikipedia" }],
   });
 
-  lb.define("person+anders-hejlsberg", {
+  g.buildPerson("person+anders-hejlsberg").merge({
     name: "Anders Hejlsberg",
     websites: [
       { title: "Anders Hejlsberg", href: "https://en.wikipedia.org/wiki/Anders_Hejlsberg", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+andreas-raab", {
+  g.buildPerson("person+andreas-raab").merge({
     name: "Andreas Raab",
     websites: [{ title: "Andreas Raab", href: "https://en.wikipedia.org/wiki/Andreas_Raab", kind: "wikipedia" }],
   });
 
-  lb.define("person+andrei-alexandrescu", {
+  g.buildPerson("person+andrei-alexandrescu").merge({
     name: "Andrei Alexandrescu",
     websites: [
       { title: "Andrei Alexandrescu", href: "https://en.wikipedia.org/wiki/Andrei_Alexandrescu", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+andrey-ershov", {
+  g.buildPerson("person+andrey-ershov").merge({
     name: "Andrey Ershov",
     websites: [{ title: "Andrey Ershov", href: "https://en.wikipedia.org/wiki/Andrey_Ershov", kind: "wikipedia" }],
   });
 
-  lb.define("person+andy-gavin", {
+  g.buildPerson("person+andy-gavin").merge({
     name: "Andy Gavin",
     websites: [{ title: "Andy Gavin", href: "https://en.wikipedia.org/wiki/Andy_Gavin", kind: "wikipedia" }],
   });
 
-  lb.define("person+anthony-james-barr", {
+  g.buildPerson("person+anthony-james-barr").merge({
     name: "Anthony James Barr",
     websites: [
       { title: "Anthony James Barr", href: "https://en.wikipedia.org/wiki/Anthony_James_Barr", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+anthony-w-knapp", {
+  g.buildPerson("person+anthony-w-knapp").merge({
     name: "Anthony W. Knapp",
     websites: [
       { title: "Anthony W. Knapp", href: "https://en.wikipedia.org/wiki/Anthony_W._Knapp", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+arthur-whitney", {
+  g.buildPerson("person+arthur-whitney").merge({
     name: "Arthur Whitney",
     websites: [
       {
@@ -124,46 +122,46 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+b-j-mailloux", {
+  g.buildPerson("person+b-j-mailloux").merge({
     name: "B. J. Mailloux",
     websites: [{ title: "B. J. Mailloux", href: "https://en.wikipedia.org/wiki/Barry_J._Mailloux", kind: "wikipedia" }],
   });
 
-  lb.define("person+barbara-liskov", {
+  g.buildPerson("person+barbara-liskov").merge({
     name: "Barbara Liskov",
     websites: [{ title: "Barbara Liskov", href: "https://en.wikipedia.org/wiki/Barbara_Liskov", kind: "wikipedia" }],
   });
 
-  lb.define("person+ben-fry", {
+  g.buildPerson("person+ben-fry").merge({
     name: "Ben Fry",
     websites: [{ title: "Ben Fry", href: "https://en.wikipedia.org/wiki/Ben_Fry", kind: "wikipedia" }],
   });
 
-  lb.define("person+benjamin-c-pierce", {
+  g.buildPerson("person+benjamin-c-pierce").merge({
     name: "Benjamin C. Pierce",
     websites: [
       { title: "Benjamin C. Pierce", href: "https://en.wikipedia.org/wiki/Benjamin_C._Pierce", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+benoit-minisini", {
+  g.buildPerson("person+benoit-minisini").merge({
     name: "Benoît Minisini",
     websites: [
       { title: "Benoît Minisini", href: "https://en.wikipedia.org/wiki/Beno%C3%AEt_Minisini", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+bernard-galler", {
+  g.buildPerson("person+bernard-galler").merge({
     name: "Bernard Galler",
     websites: [{ title: "Bernard Galler", href: "https://en.wikipedia.org/wiki/Bernard_Galler", kind: "wikipedia" }],
   });
 
-  lb.define("person+bertrand-meyer", {
+  g.buildPerson("person+bertrand-meyer").merge({
     name: "Bertrand Meyer",
     websites: [{ title: "Bertrand Meyer", href: "https://en.wikipedia.org/wiki/Bertrand_Meyer", kind: "wikipedia" }],
   });
 
-  lb.define("person+bill-paxton", {
+  g.buildPerson("person+bill-paxton").merge({
     name: "Bill Paxton",
     websites: [
       {
@@ -174,7 +172,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+birger-m-ller-pedersen", {
+  g.buildPerson("person+birger-m-ller-pedersen").merge({
     name: "Birger Møller-Pedersen",
     websites: [
       {
@@ -185,90 +183,90 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+bjarne-stroustrup", {
+  g.buildPerson("person+bjarne-stroustrup").merge({
     name: "Bjarne Stroustrup",
     websites: [
       { title: "Bjarne Stroustrup", href: "https://en.wikipedia.org/wiki/Bjarne_Stroustrup", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+bob-bemer", {
+  g.buildPerson("person+bob-bemer").merge({
     name: "Bob Bemer",
     websites: [{ title: "Bob Bemer", href: "https://en.wikipedia.org/wiki/Bob_Bemer", kind: "wikipedia" }],
   });
 
-  lb.define("person+brad-cox", {
+  g.buildPerson("person+brad-cox").merge({
     name: "Brad Cox",
     websites: [{ title: "Brad Cox", href: "https://en.wikipedia.org/wiki/Brad_Cox", kind: "wikipedia" }],
   });
 
-  lb.define("person+brendan-eich", {
+  g.buildPerson("person+brendan-eich").merge({
     name: "Brendan Eich",
     websites: [{ title: "Brendan Eich", href: "https://en.wikipedia.org/wiki/Brendan_Eich", kind: "wikipedia" }],
   });
 
-  lb.define("person+brian-harvey", {
+  g.buildPerson("person+brian-harvey").merge({
     name: "Brian Harvey",
     websites: [
       { title: "Brian Harvey", href: "https://en.wikipedia.org/wiki/Brian_Harvey_(lecturer)", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+brian-kernighan", {
+  g.buildPerson("person+brian-kernighan").merge({
     name: "Brian Kernighan",
     websites: [{ title: "Brian Kernighan", href: "https://en.wikipedia.org/wiki/Brian_Kernighan", kind: "wikipedia" }],
   });
 
-  lb.define("person+bruce-arden", {
+  g.buildPerson("person+bruce-arden").merge({
     name: "Bruce Arden",
     websites: [{ title: "Bruce Arden", href: "https://en.wikipedia.org/wiki/Bruce_Arden", kind: "wikipedia" }],
   });
 
-  lb.define("person+bruce-daniels", {
+  g.buildPerson("person+bruce-daniels").merge({
     name: "Bruce Daniels",
     websites: [{ title: "Bruce Daniels", href: "https://en.wikipedia.org/wiki/Bruce_Daniels", kind: "wikipedia" }],
   });
 
-  lb.define("person+butler-lampson", {
+  g.buildPerson("person+butler-lampson").merge({
     name: "Butler Lampson",
     websites: [{ title: "Butler Lampson", href: "https://en.wikipedia.org/wiki/Butler_Lampson", kind: "wikipedia" }],
   });
 
-  lb.define("person+c-h-a-koster", {
+  g.buildPerson("person+c-h-a-koster").merge({
     name: "C. H. A. Koster",
     websites: [
       { title: "C. H. A. Koster", href: "https://en.wikipedia.org/wiki/Cornelis_H._A._Koster", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+calvin-mooers", {
+  g.buildPerson("person+calvin-mooers").merge({
     name: "Calvin Mooers",
     websites: [{ title: "Calvin Mooers", href: "https://en.wikipedia.org/wiki/Calvin_Mooers", kind: "wikipedia" }],
   });
 
-  lb.define("person+carl-hewitt", {
+  g.buildPerson("person+carl-hewitt").merge({
     name: "Carl Hewitt",
     websites: [{ title: "Carl Hewitt", href: "https://en.wikipedia.org/wiki/Carl_Hewitt", kind: "wikipedia" }],
   });
 
-  lb.define("person+carl-sassenrath", {
+  g.buildPerson("person+carl-sassenrath").merge({
     name: "Carl Sassenrath",
     websites: [{ title: "Carl Sassenrath", href: "https://en.wikipedia.org/wiki/Carl_Sassenrath", kind: "wikipedia" }],
   });
 
-  lb.define("person+casey-reas", {
+  g.buildPerson("person+casey-reas").merge({
     name: "Casey Reas",
     websites: [{ title: "Casey Reas", href: "https://en.wikipedia.org/wiki/Casey_Reas", kind: "wikipedia" }],
   });
 
-  lb.define("person+cecil-wayne-ratliff", {
+  g.buildPerson("person+cecil-wayne-ratliff").merge({
     name: "Cecil Wayne Ratliff",
     websites: [
       { title: "Cecil Wayne Ratliff", href: "https://en.wikipedia.org/wiki/C._Wayne_Ratliff", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+centrum-wiskunde", {
+  g.buildPerson("person+centrum-wiskunde").merge({
     name: "Centrum Wiskunde",
     websites: [
       {
@@ -279,129 +277,129 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+cha-koster", {
+  g.buildPerson("person+cha-koster").merge({
     name: "C.H.A. Koster",
     websites: [
       { title: "C.H.A. Koster", href: "https://en.wikipedia.org/wiki/Cornelis_H._A._Koster", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+charles-h-lindsey", {
+  g.buildPerson("person+charles-h-lindsey").merge({
     name: "Charles H. Lindsey",
     websites: [
       { title: "Charles H. Lindsey", href: "https://en.wikipedia.org/wiki/Charles_H._Lindsey", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+charles-h-moore", {
+  g.buildPerson("person+charles-h-moore").merge({
     name: "Charles H. Moore",
     websites: [
       { title: "Charles H. Moore", href: "https://en.wikipedia.org/wiki/Charles_H._Moore", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+charles-katz", {
+  g.buildPerson("person+charles-katz").merge({
     name: "Charles Katz",
     websites: [{ title: "Charles Katz", href: "https://en.wikipedia.org/wiki/Charles_Katz", kind: "wikipedia" }],
   });
 
-  lb.define("person+chris-lattner", {
+  g.buildPerson("person+chris-lattner").merge({
     name: "Chris Lattner",
     websites: [{ title: "Chris Lattner", href: "https://en.wikipedia.org/wiki/Chris_Lattner", kind: "wikipedia" }],
   });
 
-  lb.define("person+christopher-strachey", {
+  g.buildPerson("person+christopher-strachey").merge({
     name: "Christopher Strachey",
     websites: [
       { title: "Christopher Strachey", href: "https://en.wikipedia.org/wiki/Christopher_Strachey", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+chuck-geschke", {
+  g.buildPerson("person+chuck-geschke").merge({
     name: "Chuck Geschke",
     websites: [{ title: "Chuck Geschke", href: "https://en.wikipedia.org/wiki/Chuck_Geschke", kind: "wikipedia" }],
   });
 
-  lb.define("person+cleve-moler", {
+  g.buildPerson("person+cleve-moler").merge({
     name: "Cleve Moler",
     websites: [{ title: "Cleve Moler", href: "https://en.wikipedia.org/wiki/Cleve_Moler", kind: "wikipedia" }],
   });
 
-  lb.define("person+cliff-shaw", {
+  g.buildPerson("person+cliff-shaw").merge({
     name: "Cliff Shaw",
     websites: [{ title: "Cliff Shaw", href: "https://en.wikipedia.org/wiki/Cliff_Shaw", kind: "wikipedia" }],
   });
 
-  lb.define("person+conor-mcbride", {
+  g.buildPerson("person+conor-mcbride").merge({
     name: "Conor McBride",
     websites: [{ title: "Conor McBride", href: "https://en.wikipedia.org/wiki/Conor_McBride", kind: "wikipedia" }],
   });
 
-  lb.define("person+corrado-bohm", {
+  g.buildPerson("person+corrado-bohm").merge({
     name: "Corrado Böhm",
     websites: [{ title: "Corrado Böhm", href: "https://en.wikipedia.org/wiki/Corrado_B%C3%B6hm", kind: "wikipedia" }],
   });
 
-  lb.define("person+craig-chambers", {
+  g.buildPerson("person+craig-chambers").merge({
     name: "Craig Chambers",
     websites: [{ title: "Craig Chambers", href: "https://en.wikipedia.org/wiki/Craig_Chambers", kind: "wikipedia" }],
   });
 
-  lb.define("person+cynthia-solomon", {
+  g.buildPerson("person+cynthia-solomon").merge({
     name: "Cynthia Solomon",
     websites: [{ title: "Cynthia Solomon", href: "https://en.wikipedia.org/wiki/Cynthia_Solomon", kind: "wikipedia" }],
   });
 
-  lb.define("person+damien-doligez", {
+  g.buildPerson("person+damien-doligez").merge({
     name: "Damien Doligez",
     websites: [{ title: "Damien Doligez", href: "https://en.wikipedia.org/wiki/Damien_Doligez", kind: "wikipedia" }],
   });
 
-  lb.define("person+dan-ingalls", {
+  g.buildPerson("person+dan-ingalls").merge({
     name: "Dan Ingalls",
     websites: [{ title: "Dan Ingalls", href: "https://en.wikipedia.org/wiki/Dan_Ingalls", kind: "wikipedia" }],
   });
 
-  lb.define("person+dan-weinreb", {
+  g.buildPerson("person+dan-weinreb").merge({
     name: "Dan Weinreb",
     websites: [{ title: "Dan Weinreb", href: "https://en.wikipedia.org/wiki/Dan_Weinreb", kind: "wikipedia" }],
   });
 
-  lb.define("person+daniel-weinreb", {
+  g.buildPerson("person+daniel-weinreb").merge({
     name: "Daniel Weinreb",
     websites: [{ title: "Daniel Weinreb", href: "https://en.wikipedia.org/wiki/Daniel_Weinreb", kind: "wikipedia" }],
   });
 
-  lb.define("person+dassault-systemes", {
+  g.buildPerson("person+dassault-systemes").merge({
     name: "Dassault Systèmes",
     websites: [
       { title: "Dassault Systèmes", href: "https://en.wikipedia.org/wiki/Dassault_Syst%C3%A8mes", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+david-a-moon", {
+  g.buildPerson("person+david-a-moon").merge({
     name: "David A. Moon",
     websites: [{ title: "David A. Moon", href: "https://en.wikipedia.org/wiki/David_A._Moon", kind: "wikipedia" }],
   });
 
-  lb.define("person+david-h-munro", {
+  g.buildPerson("person+david-h-munro").merge({
     name: "David H. Munro",
     websites: [{ title: "David H. Munro", href: "https://en.wikipedia.org/wiki/David_H._Munro", kind: "wikipedia" }],
   });
 
-  lb.define("person+david-j-farber", {
+  g.buildPerson("person+david-j-farber").merge({
     name: "David J. Farber",
     websites: [{ title: "David J. Farber", href: "https://en.wikipedia.org/wiki/David_J._Farber", kind: "wikipedia" }],
   });
 
-  lb.define("person+david-may", {
+  g.buildPerson("person+david-may").merge({
     name: "David May",
     websites: [
       { title: "David May", href: "https://en.wikipedia.org/wiki/David_May_(computer_scientist)", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+david-turner", {
+  g.buildPerson("person+david-turner").merge({
     name: "David Turner",
     websites: [
       {
@@ -412,56 +410,56 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+david-ungar", {
+  g.buildPerson("person+david-ungar").merge({
     name: "David Ungar",
     websites: [{ title: "David Ungar", href: "https://en.wikipedia.org/wiki/David_Ungar", kind: "wikipedia" }],
   });
 
-  lb.define("person+dennis-ritchie", {
+  g.buildPerson("person+dennis-ritchie").merge({
     name: "Dennis Ritchie",
     websites: [{ title: "Dennis Ritchie", href: "https://en.wikipedia.org/wiki/Dennis_Ritchie", kind: "wikipedia" }],
   });
 
-  lb.define("person+diana-merry", {
+  g.buildPerson("person+diana-merry").merge({
     name: "Diana Merry",
     websites: [{ title: "Diana Merry", href: "https://en.wikipedia.org/wiki/Diana_Merry", kind: "wikipedia" }],
   });
 
-  lb.define("person+dick-lathwell", {
+  g.buildPerson("person+dick-lathwell").merge({
     name: "Dick Lathwell",
     websites: [
       { title: "Dick Lathwell", href: "https://en.wikipedia.org/wiki/Richard_H._Lathwell", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+don-syme", {
+  g.buildPerson("person+don-syme").merge({
     name: "Don Syme",
     websites: [{ title: "Don Syme", href: "https://en.wikipedia.org/wiki/Don_Syme", kind: "wikipedia" }],
   });
 
-  lb.define("person+donald-d-chamberlin", {
+  g.buildPerson("person+donald-d-chamberlin").merge({
     name: "Donald D. Chamberlin",
     websites: [
       { title: "Donald D. Chamberlin", href: "https://en.wikipedia.org/wiki/Donald_D._Chamberlin", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+donald-knuth", {
+  g.buildPerson("person+donald-knuth").merge({
     name: "Donald Knuth",
     websites: [{ title: "Donald Knuth", href: "https://en.wikipedia.org/wiki/Donald_Knuth", kind: "wikipedia" }],
   });
 
-  lb.define("person+douglas-mcilroy", {
+  g.buildPerson("person+douglas-mcilroy").merge({
     name: "Douglas McIlroy",
     websites: [{ title: "Douglas McIlroy", href: "https://en.wikipedia.org/wiki/Douglas_McIlroy", kind: "wikipedia" }],
   });
 
-  lb.define("person+douglas-t-ross", {
+  g.buildPerson("person+douglas-t-ross").merge({
     name: "Douglas T. Ross",
     websites: [{ title: "Douglas T. Ross", href: "https://en.wikipedia.org/wiki/Douglas_T._Ross", kind: "wikipedia" }],
   });
 
-  lb.define("person+erik-meijer", {
+  g.buildPerson("person+erik-meijer").merge({
     name: "Erik Meijer",
     websites: [
       {
@@ -472,49 +470,49 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+frank-leymann", {
+  g.buildPerson("person+frank-leymann").merge({
     name: "Frank Leymann",
     websites: [{ title: "Frank Leymann", href: "https://en.wikipedia.org/wiki/Frank_Leymann", kind: "wikipedia" }],
   });
 
-  lb.define("person+free-pascal", {
+  g.buildPerson("person+free-pascal").merge({
     name: "Free Pascal",
     websites: [{ title: "Free Pascal", href: "https://en.wikipedia.org/wiki/Free_Pascal", kind: "wikipedia" }],
   });
 
-  lb.define("person+friedrich-l-bauer", {
+  g.buildPerson("person+friedrich-l-bauer").merge({
     name: "Friedrich L. Bauer",
     websites: [
       { title: "Friedrich L. Bauer", href: "https://en.wikipedia.org/wiki/Friedrich_L._Bauer", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+gary-grossman", {
+  g.buildPerson("person+gary-grossman").merge({
     name: "Gary Grossman",
     websites: [{ title: "Gary Grossman", href: "https://en.wikipedia.org/wiki/Gary_Grossman", kind: "wikipedia" }],
   });
 
-  lb.define("person+gary-kildall", {
+  g.buildPerson("person+gary-kildall").merge({
     name: "Gary Kildall",
     websites: [{ title: "Gary Kildall", href: "https://en.wikipedia.org/wiki/Gary_Kildall", kind: "wikipedia" }],
   });
 
-  lb.define("person+gaston-gonnet", {
+  g.buildPerson("person+gaston-gonnet").merge({
     name: "Gaston Gonnet",
     websites: [{ title: "Gaston Gonnet", href: "https://en.wikipedia.org/wiki/Gaston_Gonnet", kind: "wikipedia" }],
   });
 
-  lb.define("person+gavin-wood", {
+  g.buildPerson("person+gavin-wood").merge({
     name: "Gavin Wood",
     websites: [{ title: "Gavin Wood", href: "https://en.wikipedia.org/wiki/Gavin_Wood", kind: "wikipedia" }],
   });
 
-  lb.define("person+ge-wang", {
+  g.buildPerson("person+ge-wang").merge({
     name: "Ge Wang",
     websites: [{ title: "Ge Wang", href: "https://en.wikipedia.org/wiki/Ge_Wang", kind: "wikipedia" }],
   });
 
-  lb.define("person+geoffrey-gordon", {
+  g.buildPerson("person+geoffrey-gordon").merge({
     name: "Geoffrey Gordon",
     websites: [
       {
@@ -525,49 +523,49 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+gerald-j-popek", {
+  g.buildPerson("person+gerald-j-popek").merge({
     name: "Gerald J. Popek",
     websites: [{ title: "Gerald J. Popek", href: "https://en.wikipedia.org/wiki/Gerald_J._Popek", kind: "wikipedia" }],
   });
 
-  lb.define("person+gerald-jay-sussman", {
+  g.buildPerson("person+gerald-jay-sussman").merge({
     name: "Gerald Jay Sussman",
     websites: [
       { title: "Gerald Jay Sussman", href: "https://en.wikipedia.org/wiki/Gerald_Jay_Sussman", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+gerald-sussman", {
+  g.buildPerson("person+gerald-sussman").merge({
     name: "Gerald Sussman",
     websites: [{ title: "Gerald Sussman", href: "https://en.wikipedia.org/wiki/Gerald_Sussman", kind: "wikipedia" }],
   });
 
-  lb.define("person+gerard-huet", {
+  g.buildPerson("person+gerard-huet").merge({
     name: "Gérard Huet",
     websites: [{ title: "Gérard Huet", href: "https://en.wikipedia.org/wiki/G%C3%A9rard_Huet", kind: "wikipedia" }],
   });
 
-  lb.define("person+gilad-bracha", {
+  g.buildPerson("person+gilad-bracha").merge({
     name: "Gilad Bracha",
     websites: [{ title: "Gilad Bracha", href: "https://en.wikipedia.org/wiki/Gilad_Bracha", kind: "wikipedia" }],
   });
 
-  lb.define("person+google-scholar", {
+  g.buildPerson("person+google-scholar").merge({
     name: "Google scholar",
     websites: [{ title: "Google scholar", href: "https://en.wikipedia.org/wiki/Google_scholar", kind: "wikipedia" }],
   });
 
-  lb.define("person+grace-hopper", {
+  g.buildPerson("person+grace-hopper").merge({
     name: "Grace Hopper",
     websites: [{ title: "Grace Hopper", href: "https://en.wikipedia.org/wiki/Grace_Hopper", kind: "wikipedia" }],
   });
 
-  lb.define("person+graham-nelson", {
+  g.buildPerson("person+graham-nelson").merge({
     name: "Graham Nelson",
     websites: [{ title: "Graham Nelson", href: "https://en.wikipedia.org/wiki/Graham_Nelson", kind: "wikipedia" }],
   });
 
-  lb.define("person+greg-nelson", {
+  g.buildPerson("person+greg-nelson").merge({
     name: "Greg Nelson",
     websites: [
       {
@@ -578,14 +576,14 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+guido-van-rossum", {
+  g.buildPerson("person+guido-van-rossum").merge({
     name: "Guido van Rossum",
     websites: [
       { title: "Guido van Rossum", href: "https://en.wikipedia.org/wiki/Guido_van_Rossum", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+guy-l-steele", {
+  g.buildPerson("person+guy-l-steele").merge({
     name: "Guy L. Steele",
     websites: [
       { title: "Guy L. Steele, Jr.", href: "https://en.wikipedia.org/wiki/Guy_L._Steele,_Jr.", kind: "wikipedia" },
@@ -593,17 +591,17 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+guy-steele", {
+  g.buildPerson("person+guy-steele").merge({
     name: "Guy Steele",
     websites: [{ title: "Guy Steele", href: "https://en.wikipedia.org/wiki/Guy_Steele", kind: "wikipedia" }],
   });
 
-  lb.define("person+h-peter-anvin", {
+  g.buildPerson("person+h-peter-anvin").merge({
     name: "H. Peter Anvin",
     websites: [{ title: "H. Peter Anvin", href: "https://en.wikipedia.org/wiki/H._Peter_Anvin", kind: "wikipedia" }],
   });
 
-  lb.define("person+hanspeter-mossenbock", {
+  g.buildPerson("person+hanspeter-mossenbock").merge({
     name: "Hanspeter Mössenböck",
     websites: [
       {
@@ -614,21 +612,21 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+heinz-rutishauser", {
+  g.buildPerson("person+heinz-rutishauser").merge({
     name: "Heinz Rutishauser",
     websites: [
       { title: "Heinz Rutishauser", href: "https://en.wikipedia.org/wiki/Heinz_Rutishauser", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+henri-cohen", {
+  g.buildPerson("person+henri-cohen").merge({
     name: "Henri Cohen",
     websites: [
       { title: "Henri Cohen", href: "https://en.wikipedia.org/wiki/Henri_Cohen_(number_theorist)", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+henry-m-levy", {
+  g.buildPerson("person+henry-m-levy").merge({
     name: "Henry M. Levy",
     websites: [
       {
@@ -639,21 +637,21 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+herbert-a-simon", {
+  g.buildPerson("person+herbert-a-simon").merge({
     name: "Herbert A. Simon",
     websites: [
       { title: "Herbert A. Simon", href: "https://en.wikipedia.org/wiki/Herbert_A._Simon", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+hermann-bottenbruch", {
+  g.buildPerson("person+hermann-bottenbruch").merge({
     name: "Hermann Bottenbruch",
     websites: [
       { title: "Hermann Bottenbruch", href: "https://en.wikipedia.org/wiki/Hermann_Bottenbruch", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+insa-lyon", {
+  g.buildPerson("person+insa-lyon").merge({
     name: "INSA Lyon",
     websites: [
       {
@@ -664,55 +662,55 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+j-e-l-peck", {
+  g.buildPerson("person+j-e-l-peck").merge({
     name: "J. E. L. Peck",
     websites: [{ title: "J. E. L. Peck", href: "https://en.wikipedia.org/wiki/John_E._L._Peck", kind: "wikipedia" }],
   });
 
-  lb.define("person+jacob-t-schwartz", {
+  g.buildPerson("person+jacob-t-schwartz").merge({
     name: "Jacob T. Schwartz",
     websites: [
       { title: "Jacob T. Schwartz", href: "https://en.wikipedia.org/wiki/Jacob_T._Schwartz", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+james-clark", {
+  g.buildPerson("person+james-clark").merge({
     name: "James Clark",
     websites: [
       { title: "James Clark", href: "https://en.wikipedia.org/wiki/James_Clark_(programmer)", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+james-cordy", {
+  g.buildPerson("person+james-cordy").merge({
     name: "James Cordy",
     websites: [{ title: "James Cordy", href: "https://en.wikipedia.org/wiki/James_Cordy", kind: "wikipedia" }],
   });
 
-  lb.define("person+james-g-mitchell", {
+  g.buildPerson("person+james-g-mitchell").merge({
     name: "James G. Mitchell",
     websites: [
       { title: "James G. Mitchell", href: "https://en.wikipedia.org/wiki/James_G._Mitchell", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+james-gosling", {
+  g.buildPerson("person+james-gosling").merge({
     name: "James Gosling",
     websites: [{ title: "James Gosling", href: "https://en.wikipedia.org/wiki/James_Gosling", kind: "wikipedia" }],
   });
 
-  lb.define("person+james-strachan", {
+  g.buildPerson("person+james-strachan").merge({
     name: "James Strachan",
     websites: [
       { title: "James Strachan", href: "https://en.wikipedia.org/wiki/James_Strachan_(programmer)", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+jayadev-misra", {
+  g.buildPerson("person+jayadev-misra").merge({
     name: "Jayadev Misra",
     websites: [{ title: "Jayadev Misra", href: "https://en.wikipedia.org/wiki/Jayadev_Misra", kind: "wikipedia" }],
   });
 
-  lb.define("person+jean-christophe-baillie", {
+  g.buildPerson("person+jean-christophe-baillie").merge({
     name: "Jean-Christophe Baillie",
     websites: [
       {
@@ -723,24 +721,24 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+jeff-bezanson", {
+  g.buildPerson("person+jeff-bezanson").merge({
     name: "Jeff Bezanson",
     websites: [
       { title: "Jeff Bezanson", href: "https://en.wikipedia.org/wiki/Jeff_Bezanson_(programmer)", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+jeffrey-snover", {
+  g.buildPerson("person+jeffrey-snover").merge({
     name: "Jeffrey Snover",
     websites: [{ title: "Jeffrey Snover", href: "https://en.wikipedia.org/wiki/Jeffrey_Snover", kind: "wikipedia" }],
   });
 
-  lb.define("person+jeremy-ashkenas", {
+  g.buildPerson("person+jeremy-ashkenas").merge({
     name: "Jeremy Ashkenas",
     websites: [{ title: "Jeremy Ashkenas", href: "https://en.wikipedia.org/wiki/Jeremy_Ashkenas", kind: "wikipedia" }],
   });
 
-  lb.define("person+jgp-barnes", {
+  g.buildPerson("person+jgp-barnes").merge({
     name: "J.G.P. Barnes",
     websites: [
       {
@@ -751,34 +749,34 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+jim-horning", {
+  g.buildPerson("person+jim-horning").merge({
     name: "Jim Horning",
     websites: [{ title: "Jim Horning", href: "https://en.wikipedia.org/wiki/Jim_Horning", kind: "wikipedia" }],
   });
 
-  lb.define("person+john-backus", {
+  g.buildPerson("person+john-backus").merge({
     name: "John Backus",
     websites: [{ title: "John Backus", href: "https://en.wikipedia.org/wiki/John_Backus", kind: "wikipedia" }],
   });
 
-  lb.define("person+john-carmack", {
+  g.buildPerson("person+john-carmack").merge({
     name: "John Carmack",
     websites: [{ title: "John Carmack", href: "https://en.wikipedia.org/wiki/John_Carmack", kind: "wikipedia" }],
   });
 
-  lb.define("person+john-chambers", {
+  g.buildPerson("person+john-chambers").merge({
     name: "John Chambers",
     websites: [
       { title: "John Chambers", href: "https://en.wikipedia.org/wiki/John_Chambers_(statistician)", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+john-g-kemeny", {
+  g.buildPerson("person+john-g-kemeny").merge({
     name: "John G. Kemeny",
     websites: [{ title: "John G. Kemeny", href: "https://en.wikipedia.org/wiki/John_G._Kemeny", kind: "wikipedia" }],
   });
 
-  lb.define("person+john-hughes", {
+  g.buildPerson("person+john-hughes").merge({
     name: "John Hughes",
     websites: [
       {
@@ -789,12 +787,12 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+john-launchbury", {
+  g.buildPerson("person+john-launchbury").merge({
     name: "John Launchbury",
     websites: [{ title: "John Launchbury", href: "https://en.wikipedia.org/wiki/John_Launchbury", kind: "wikipedia" }],
   });
 
-  lb.define("person+john-mccarthy", {
+  g.buildPerson("person+john-mccarthy").merge({
     name: "John McCarthy",
     websites: [
       {
@@ -805,22 +803,22 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+john-ousterhout", {
+  g.buildPerson("person+john-ousterhout").merge({
     name: "John Ousterhout",
     websites: [{ title: "John Ousterhout", href: "https://en.wikipedia.org/wiki/John_Ousterhout", kind: "wikipedia" }],
   });
 
-  lb.define("person+john-warnock", {
+  g.buildPerson("person+john-warnock").merge({
     name: "John Warnock",
     websites: [{ title: "John Warnock", href: "https://en.wikipedia.org/wiki/John_Warnock", kind: "wikipedia" }],
   });
 
-  lb.define("person+jonathan-sachs", {
+  g.buildPerson("person+jonathan-sachs").merge({
     name: "Jonathan Sachs",
     websites: [{ title: "Jonathan Sachs", href: "https://en.wikipedia.org/wiki/Jonathan_Sachs", kind: "wikipedia" }],
   });
 
-  lb.define("person+joseph-henry-wegstein", {
+  g.buildPerson("person+joseph-henry-wegstein").merge({
     name: "Joseph Henry Wegstein",
     websites: [
       {
@@ -831,24 +829,24 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+jr-cordy", {
+  g.buildPerson("person+jr-cordy").merge({
     name: "J.R. Cordy",
     websites: [{ title: "J.R. Cordy", href: "https://en.wikipedia.org/wiki/James_Cordy", kind: "wikipedia" }],
   });
 
-  lb.define("person+jurg-gutknecht", {
+  g.buildPerson("person+jurg-gutknecht").merge({
     name: "Jürg Gutknecht",
     websites: [
       { title: "Jürg Gutknecht", href: "https://en.wikipedia.org/wiki/J%C3%BCrg_Gutknecht", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+karl-glazebrook", {
+  g.buildPerson("person+karl-glazebrook").merge({
     name: "Karl Glazebrook",
     websites: [{ title: "Karl Glazebrook", href: "https://en.wikipedia.org/wiki/Karl_Glazebrook", kind: "wikipedia" }],
   });
 
-  lb.define("person+keith-clark", {
+  g.buildPerson("person+keith-clark").merge({
     name: "Keith Clark",
     websites: [
       {
@@ -859,7 +857,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+ken-thompson", {
+  g.buildPerson("person+ken-thompson").merge({
     name: "Ken Thompson",
     websites: [
       {
@@ -871,115 +869,115 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+kent-pitman", {
+  g.buildPerson("person+kent-pitman").merge({
     name: "Kent Pitman",
     websites: [{ title: "Kent Pitman", href: "https://en.wikipedia.org/wiki/Kent_Pitman", kind: "wikipedia" }],
   });
 
-  lb.define("person+klaus-samelson", {
+  g.buildPerson("person+klaus-samelson").merge({
     name: "Klaus Samelson",
     websites: [{ title: "Klaus Samelson", href: "https://en.wikipedia.org/wiki/Klaus_Samelson", kind: "wikipedia" }],
   });
 
-  lb.define("person+koichi-sasada", {
+  g.buildPerson("person+koichi-sasada").merge({
     name: "Koichi Sasada",
     websites: [{ title: "Koichi Sasada", href: "https://en.wikipedia.org/wiki/Koichi_Sasada", kind: "wikipedia" }],
   });
 
-  lb.define("person+konrad-zuse", {
+  g.buildPerson("person+konrad-zuse").merge({
     name: "Konrad Zuse",
     websites: [{ title: "Konrad Zuse", href: "https://en.wikipedia.org/wiki/Konrad_Zuse", kind: "wikipedia" }],
   });
 
-  lb.define("person+kristen-nygaard", {
+  g.buildPerson("person+kristen-nygaard").merge({
     name: "Kristen Nygaard",
     websites: [{ title: "Kristen Nygaard", href: "https://en.wikipedia.org/wiki/Kristen_Nygaard", kind: "wikipedia" }],
   });
 
-  lb.define("person+krzysztof-apt", {
+  g.buildPerson("person+krzysztof-apt").merge({
     name: "Krzysztof Apt",
     websites: [{ title: "Krzysztof Apt", href: "https://en.wikipedia.org/wiki/Krzysztof_R._Apt", kind: "wikipedia" }],
   });
 
-  lb.define("person+lambert-meertens", {
+  g.buildPerson("person+lambert-meertens").merge({
     name: "Lambert Meertens",
     websites: [
       { title: "Lambert Meertens", href: "https://en.wikipedia.org/wiki/Lambert_Meertens", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+larry-breed", {
+  g.buildPerson("person+larry-breed").merge({
     name: "Larry Breed",
     websites: [{ title: "Larry Breed", href: "https://en.wikipedia.org/wiki/Lawrence_M._Breed", kind: "wikipedia" }],
   });
 
-  lb.define("person+larry-tesler", {
+  g.buildPerson("person+larry-tesler").merge({
     name: "Larry Tesler",
     websites: [{ title: "Larry Tesler", href: "https://en.wikipedia.org/wiki/Larry_Tesler", kind: "wikipedia" }],
   });
 
-  lb.define("person+larry-wall", {
+  g.buildPerson("person+larry-wall").merge({
     name: "Larry Wall",
     websites: [{ title: "Larry Wall", href: "https://en.wikipedia.org/wiki/Larry_Wall", kind: "wikipedia" }],
   });
 
-  lb.define("person+lars-bak", {
+  g.buildPerson("person+lars-bak").merge({
     name: "Lars Bak",
     websites: [
       { title: "Lars Bak", href: "https://en.wikipedia.org/wiki/Lars_Bak_(computer_programmer)", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+lee-e-mcmahon", {
+  g.buildPerson("person+lee-e-mcmahon").merge({
     name: "Lee E. McMahon",
     websites: [{ title: "Lee E. McMahon", href: "https://en.wikipedia.org/wiki/Lee_E._McMahon", kind: "wikipedia" }],
   });
 
-  lb.define("person+lennart-augustsson", {
+  g.buildPerson("person+lennart-augustsson").merge({
     name: "Lennart Augustsson",
     websites: [
       { title: "Lennart Augustsson", href: "https://en.wikipedia.org/wiki/Lennart_Augustsson", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+lisp-machines", {
+  g.buildPerson("person+lisp-machines").merge({
     name: "Lisp Machines",
     websites: [{ title: "Lisp Machines", href: "https://en.wikipedia.org/wiki/Lisp_Machines", kind: "wikipedia" }],
   });
 
-  lb.define("person+lorinda-cherry", {
+  g.buildPerson("person+lorinda-cherry").merge({
     name: "Lorinda Cherry",
     websites: [{ title: "Lorinda Cherry", href: "https://en.wikipedia.org/wiki/Lorinda_Cherry", kind: "wikipedia" }],
   });
 
-  lb.define("person+luca-cardelli", {
+  g.buildPerson("person+luca-cardelli").merge({
     name: "Luca Cardelli",
     websites: [{ title: "Luca Cardelli", href: "https://en.wikipedia.org/wiki/Luca_Cardelli", kind: "wikipedia" }],
   });
 
-  lb.define("person+mahmoud-samir-fayed", {
+  g.buildPerson("person+mahmoud-samir-fayed").merge({
     name: "Mahmoud Samir Fayed",
     websites: [
       { title: "Mahmoud Samir Fayed", href: "https://en.wikipedia.org/wiki/Mahmoud_Samir_Fayed", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+manuel-serrano", {
+  g.buildPerson("person+manuel-serrano").merge({
     name: "Manuel Serrano",
     websites: [{ title: "Manuel Serrano", href: "https://en.wikipedia.org/wiki/Manuel_Serrano", kind: "wikipedia" }],
   });
 
-  lb.define("person+mark-s-miller", {
+  g.buildPerson("person+mark-s-miller").merge({
     name: "Mark S. Miller",
     websites: [{ title: "Mark S. Miller", href: "https://en.wikipedia.org/wiki/Mark_S._Miller", kind: "wikipedia" }],
   });
 
-  lb.define("person+martin-odersky", {
+  g.buildPerson("person+martin-odersky").merge({
     name: "Martin Odersky",
     websites: [{ title: "Martin Odersky", href: "https://en.wikipedia.org/wiki/Martin_Odersky", kind: "wikipedia" }],
   });
 
-  lb.define("person+martin-richards", {
+  g.buildPerson("person+martin-richards").merge({
     name: "Martin Richards",
     websites: [
       {
@@ -990,46 +988,46 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+media-lab", {
+  g.buildPerson("person+media-lab").merge({
     name: "Media Lab",
     websites: [{ title: "Media Lab", href: "https://en.wikipedia.org/wiki/MIT_Media_Lab", kind: "wikipedia" }],
   });
 
-  lb.define("person+meta-platforms", {
+  g.buildPerson("person+meta-platforms").merge({
     name: "Meta Platforms",
     websites: [{ title: "Meta Platforms", href: "https://en.wikipedia.org/wiki/Meta_Platforms", kind: "wikipedia" }],
   });
 
-  lb.define("person+mike-cowlishaw", {
+  g.buildPerson("person+mike-cowlishaw").merge({
     name: "Mike Cowlishaw",
     websites: [{ title: "Mike Cowlishaw", href: "https://en.wikipedia.org/wiki/Mike_Cowlishaw", kind: "wikipedia" }],
   });
 
-  lb.define("person+miller-s-puckette", {
+  g.buildPerson("person+miller-s-puckette").merge({
     name: "Miller S. Puckette",
     websites: [
       { title: "Miller S. Puckette", href: "https://en.wikipedia.org/wiki/Miller_Puckette", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+mitchel-resnick", {
+  g.buildPerson("person+mitchel-resnick").merge({
     name: "Mitchel Resnick",
     websites: [{ title: "Mitchel Resnick", href: "https://en.wikipedia.org/wiki/Mitchel_Resnick", kind: "wikipedia" }],
   });
 
-  lb.define("person+morgan-stanley", {
+  g.buildPerson("person+morgan-stanley").merge({
     name: "Morgan Stanley",
     websites: [{ title: "Morgan Stanley", href: "https://en.wikipedia.org/wiki/Morgan_Stanley", kind: "wikipedia" }],
   });
 
-  lb.define("person+national-instruments", {
+  g.buildPerson("person+national-instruments").merge({
     name: "National Instruments",
     websites: [
       { title: "National Instruments", href: "https://en.wikipedia.org/wiki/National_Instruments", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+national-security-agency", {
+  g.buildPerson("person+national-security-agency").merge({
     name: "National Security Agency",
     websites: [
       {
@@ -1040,140 +1038,140 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+naughty-dog", {
+  g.buildPerson("person+naughty-dog").merge({
     name: "Naughty Dog",
     websites: [{ title: "Naughty Dog", href: "https://en.wikipedia.org/wiki/Naughty_Dog", kind: "wikipedia" }],
   });
 
-  lb.define("person+neil-pappalardo", {
+  g.buildPerson("person+neil-pappalardo").merge({
     name: "Neil Pappalardo",
     websites: [{ title: "Neil Pappalardo", href: "https://en.wikipedia.org/wiki/Neil_Pappalardo", kind: "wikipedia" }],
   });
 
-  lb.define("person+niklaus-wirth", {
+  g.buildPerson("person+niklaus-wirth").merge({
     name: "Niklaus Wirth",
     websites: [{ title: "Niklaus Wirth", href: "https://en.wikipedia.org/wiki/Niklaus_Wirth", kind: "wikipedia" }],
   });
 
-  lb.define("person+norsk-data", {
+  g.buildPerson("person+norsk-data").merge({
     name: "Norsk Data",
     websites: [{ title: "Norsk Data", href: "https://en.wikipedia.org/wiki/Norsk_Data", kind: "wikipedia" }],
   });
 
-  lb.define("person+ole-johan-dahl", {
+  g.buildPerson("person+ole-johan-dahl").merge({
     name: "Ole-Johan Dahl",
     websites: [{ title: "Ole-Johan Dahl", href: "https://en.wikipedia.org/wiki/Ole-Johan_Dahl", kind: "wikipedia" }],
   });
 
-  lb.define("person+paul-cockshott", {
+  g.buildPerson("person+paul-cockshott").merge({
     name: "Paul Cockshott",
     websites: [{ title: "Paul Cockshott", href: "https://en.wikipedia.org/wiki/Paul_Cockshott", kind: "wikipedia" }],
   });
 
-  lb.define("person+paul-graham", {
+  g.buildPerson("person+paul-graham").merge({
     name: "Paul Graham",
     websites: [
       { title: "Paul Graham", href: "https://en.wikipedia.org/wiki/Paul_Graham_(programmer)", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+paul-hudak", {
+  g.buildPerson("person+paul-hudak").merge({
     name: "Paul Hudak",
     websites: [{ title: "Paul Hudak", href: "https://en.wikipedia.org/wiki/Paul_Hudak", kind: "wikipedia" }],
   });
 
-  lb.define("person+peter-deutsch", {
+  g.buildPerson("person+peter-deutsch").merge({
     name: "Peter Deutsch",
     websites: [{ title: "Peter Deutsch", href: "https://en.wikipedia.org/wiki/L._Peter_Deutsch", kind: "wikipedia" }],
   });
 
-  lb.define("person+peter-landin", {
+  g.buildPerson("person+peter-landin").merge({
     name: "Peter Landin",
     websites: [{ title: "Peter Landin", href: "https://en.wikipedia.org/wiki/Peter_Landin", kind: "wikipedia" }],
   });
 
-  lb.define("person+peter-weinberger", {
+  g.buildPerson("person+peter-weinberger").merge({
     name: "Peter Weinberger",
     websites: [
       { title: "Peter Weinberger", href: "https://en.wikipedia.org/wiki/Peter_J._Weinberger", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+phil-moorby", {
+  g.buildPerson("person+phil-moorby").merge({
     name: "Phil Moorby",
     websites: [{ title: "Phil Moorby", href: "https://en.wikipedia.org/wiki/Phil_Moorby", kind: "wikipedia" }],
   });
 
-  lb.define("person+philip-wadler", {
+  g.buildPerson("person+philip-wadler").merge({
     name: "Philip Wadler",
     websites: [{ title: "Philip Wadler", href: "https://en.wikipedia.org/wiki/Philip_Wadler", kind: "wikipedia" }],
   });
 
-  lb.define("person+philip-woodward", {
+  g.buildPerson("person+philip-woodward").merge({
     name: "Philip Woodward",
     websites: [{ title: "Philip Woodward", href: "https://en.wikipedia.org/wiki/Philip_Woodward", kind: "wikipedia" }],
   });
 
-  lb.define("person+prabhu-goel", {
+  g.buildPerson("person+prabhu-goel").merge({
     name: "Prabhu Goel",
     websites: [{ title: "Prabhu Goel", href: "https://en.wikipedia.org/wiki/Prabhu_Goel", kind: "wikipedia" }],
   });
 
-  lb.define("person+ralph-griswold", {
+  g.buildPerson("person+ralph-griswold").merge({
     name: "Ralph Griswold",
     websites: [{ title: "Ralph Griswold", href: "https://en.wikipedia.org/wiki/Ralph_Griswold", kind: "wikipedia" }],
   });
 
-  lb.define("person+randall-hyde", {
+  g.buildPerson("person+randall-hyde").merge({
     name: "Randall Hyde",
     websites: [{ title: "Randall Hyde", href: "https://en.wikipedia.org/wiki/Randall_Hyde", kind: "wikipedia" }],
   });
 
-  lb.define("person+rasmus-lerdorf", {
+  g.buildPerson("person+rasmus-lerdorf").merge({
     name: "Rasmus Lerdorf",
     websites: [{ title: "Rasmus Lerdorf", href: "https://en.wikipedia.org/wiki/Rasmus_Lerdorf", kind: "wikipedia" }],
   });
 
-  lb.define("person+raymond-f-boyce", {
+  g.buildPerson("person+raymond-f-boyce").merge({
     name: "Raymond F. Boyce",
     websites: [
       { title: "Raymond F. Boyce", href: "https://en.wikipedia.org/wiki/Raymond_F._Boyce", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+rc-holt", {
+  g.buildPerson("person+rc-holt").merge({
     name: "R.C. Holt",
     websites: [{ title: "R.C. Holt", href: "https://en.wikipedia.org/wiki/Ric_Holt", kind: "wikipedia" }],
   });
 
-  lb.define("person+remington-rand", {
+  g.buildPerson("person+remington-rand").merge({
     name: "Remington Rand",
     websites: [{ title: "Remington Rand", href: "https://en.wikipedia.org/wiki/Remington_Rand", kind: "wikipedia" }],
   });
 
-  lb.define("person+ric-holt", {
+  g.buildPerson("person+ric-holt").merge({
     name: "Ric Holt",
     websites: [{ title: "Ric Holt", href: "https://en.wikipedia.org/wiki/Ric_Holt", kind: "wikipedia" }],
   });
 
-  lb.define("person+rich-hickey", {
+  g.buildPerson("person+rich-hickey").merge({
     name: "Rich Hickey",
     websites: [{ title: "Rich Hickey", href: "https://en.wikipedia.org/wiki/Rich_Hickey", kind: "wikipedia" }],
   });
 
-  lb.define("person+richard-e-pattis", {
+  g.buildPerson("person+richard-e-pattis").merge({
     name: "Richard E. Pattis",
     websites: [
       { title: "Richard E. Pattis", href: "https://en.wikipedia.org/wiki/Richard_E._Pattis", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+richard-fateman", {
+  g.buildPerson("person+richard-fateman").merge({
     name: "Richard Fateman",
     websites: [{ title: "Richard Fateman", href: "https://en.wikipedia.org/wiki/Richard_Fateman", kind: "wikipedia" }],
   });
 
-  lb.define("person+richard-greenblatt", {
+  g.buildPerson("person+richard-greenblatt").merge({
     name: "Richard Greenblatt",
     websites: [
       {
@@ -1184,38 +1182,38 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+richard-p-gabriel", {
+  g.buildPerson("person+richard-p-gabriel").merge({
     name: "Richard P. Gabriel",
     websites: [
       { title: "Richard P. Gabriel", href: "https://en.wikipedia.org/wiki/Richard_P._Gabriel", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+richard-stallman", {
+  g.buildPerson("person+richard-stallman").merge({
     name: "Richard Stallman",
     websites: [
       { title: "Richard Stallman", href: "https://en.wikipedia.org/wiki/Richard_Stallman", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+rob-pike", {
+  g.buildPerson("person+rob-pike").merge({
     name: "Rob Pike",
     websites: [{ title: "Rob Pike", href: "https://en.wikipedia.org/wiki/Rob_Pike", kind: "wikipedia" }],
   });
 
-  lb.define("person+robert-a-greenes", {
+  g.buildPerson("person+robert-a-greenes").merge({
     name: "Robert A. Greenes",
     websites: [
       { title: "Robert A. Greenes", href: "https://en.wikipedia.org/wiki/Robert_A._Greenes", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+robert-fourer", {
+  g.buildPerson("person+robert-fourer").merge({
     name: "Robert Fourer",
     websites: [{ title: "Robert Fourer", href: "https://en.wikipedia.org/wiki/Robert_Fourer", kind: "wikipedia" }],
   });
 
-  lb.define("person+robert-gentleman", {
+  g.buildPerson("person+robert-gentleman").merge({
     name: "Robert Gentleman",
     websites: [
       {
@@ -1226,14 +1224,14 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+robert-griesemer", {
+  g.buildPerson("person+robert-griesemer").merge({
     name: "Robert Griesemer",
     websites: [
       { title: "Robert Griesemer", href: "https://en.wikipedia.org/wiki/Robert_Griesemer", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+robert-m-graham", {
+  g.buildPerson("person+robert-m-graham").merge({
     name: "Robert M. Graham",
     websites: [
       {
@@ -1244,7 +1242,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+robert-morris", {
+  g.buildPerson("person+robert-morris").merge({
     name: "Robert Morris",
     websites: [
       {
@@ -1255,7 +1253,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+roberto-ierusalimschy", {
+  g.buildPerson("person+roberto-ierusalimschy").merge({
     name: "Roberto Ierusalimschy",
     websites: [
       {
@@ -1266,29 +1264,29 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+robin-milner", {
+  g.buildPerson("person+robin-milner").merge({
     name: "Robin Milner",
     websites: [{ title: "Robin Milner", href: "https://en.wikipedia.org/wiki/Robin_Milner", kind: "wikipedia" }],
   });
 
-  lb.define("person+robin-popplestone", {
+  g.buildPerson("person+robin-popplestone").merge({
     name: "Robin Popplestone",
     websites: [
       { title: "Robin Popplestone", href: "https://en.wikipedia.org/wiki/Robin_Popplestone", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+rod-burstall", {
+  g.buildPerson("person+rod-burstall").merge({
     name: "Rod Burstall",
     websites: [{ title: "Rod Burstall", href: "https://en.wikipedia.org/wiki/Rod_Burstall", kind: "wikipedia" }],
   });
 
-  lb.define("person+roger-hui", {
+  g.buildPerson("person+roger-hui").merge({
     name: "Roger Hui",
     websites: [{ title: "Roger Hui", href: "https://en.wikipedia.org/wiki/Roger_Hui", kind: "wikipedia" }],
   });
 
-  lb.define("person+roger-moore", {
+  g.buildPerson("person+roger-moore").merge({
     name: "Roger Moore",
     websites: [
       {
@@ -1299,17 +1297,17 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+ron-morrison", {
+  g.buildPerson("person+ron-morrison").merge({
     name: "Ron Morrison",
     websites: [{ title: "Ron Morrison", href: "https://en.wikipedia.org/wiki/Ron_Morrison", kind: "wikipedia" }],
   });
 
-  lb.define("person+ross-ihaka", {
+  g.buildPerson("person+ross-ihaka").merge({
     name: "Ross Ihaka",
     websites: [{ title: "Ross Ihaka", href: "https://en.wikipedia.org/wiki/Ross_Ihaka", kind: "wikipedia" }],
   });
 
-  lb.define("person+san-diego", {
+  g.buildPerson("person+san-diego").merge({
     name: "San Diego",
     websites: [
       {
@@ -1320,14 +1318,14 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+sanjiva-weerawarana", {
+  g.buildPerson("person+sanjiva-weerawarana").merge({
     name: "Sanjiva Weerawarana",
     websites: [
       { title: "Sanjiva Weerawarana", href: "https://en.wikipedia.org/wiki/Sanjiva_Weerawarana", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+school-of-mathematics", {
+  g.buildPerson("person+school-of-mathematics").merge({
     name: "School of Mathematics",
     websites: [
       {
@@ -1338,17 +1336,17 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+scott-fahlman", {
+  g.buildPerson("person+scott-fahlman").merge({
     name: "Scott Fahlman",
     websites: [{ title: "Scott Fahlman", href: "https://en.wikipedia.org/wiki/Scott_Fahlman", kind: "wikipedia" }],
   });
 
-  lb.define("person+seymour-papert", {
+  g.buildPerson("person+seymour-papert").merge({
     name: "Seymour Papert",
     websites: [{ title: "Seymour Papert", href: "https://en.wikipedia.org/wiki/Seymour_Papert", kind: "wikipedia" }],
   });
 
-  lb.define("person+siemens-eda", {
+  g.buildPerson("person+siemens-eda").merge({
     name: "Siemens EDA",
     websites: [
       {
@@ -1359,43 +1357,43 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+simon-peyton-jones", {
+  g.buildPerson("person+simon-peyton-jones").merge({
     name: "Simon Peyton Jones",
     websites: [
       { title: "Simon Peyton Jones", href: "https://en.wikipedia.org/wiki/Simon_Peyton_Jones", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+stanley-cohen", {
+  g.buildPerson("person+stanley-cohen").merge({
     name: "Stanley Cohen",
     websites: [
       { title: "Stanley Cohen", href: "https://en.wikipedia.org/wiki/Stanley_Cohen_(physicist)", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+stefan-karpinski", {
+  g.buildPerson("person+stefan-karpinski").merge({
     name: "Stefan Karpinski",
     websites: [
       { title: "Stefan Karpinski", href: "https://en.wikipedia.org/wiki/Stefan_Karpinski", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+stephen-m-watt", {
+  g.buildPerson("person+stephen-m-watt").merge({
     name: "Stephen M. Watt",
     websites: [{ title: "Stephen M. Watt", href: "https://en.wikipedia.org/wiki/Stephen_M._Watt", kind: "wikipedia" }],
   });
 
-  lb.define("person+stephen-wolfram", {
+  g.buildPerson("person+stephen-wolfram").merge({
     name: "Stephen Wolfram",
     websites: [{ title: "Stephen Wolfram", href: "https://en.wikipedia.org/wiki/Stephen_Wolfram", kind: "wikipedia" }],
   });
 
-  lb.define("person+steve-omohundro", {
+  g.buildPerson("person+steve-omohundro").merge({
     name: "Steve Omohundro",
     websites: [{ title: "Steve Omohundro", href: "https://en.wikipedia.org/wiki/Steve_Omohundro", kind: "wikipedia" }],
   });
 
-  lb.define("person+steve-russell", {
+  g.buildPerson("person+steve-russell").merge({
     name: "Steve Russell",
     websites: [
       {
@@ -1406,31 +1404,31 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+steve-ward", {
+  g.buildPerson("person+steve-ward").merge({
     name: "Steve Ward",
     websites: [
       { title: "Steve Ward", href: "https://en.wikipedia.org/wiki/Steve_Ward_(computer_scientist)", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+steven-pemberton", {
+  g.buildPerson("person+steven-pemberton").merge({
     name: "Steven Pemberton",
     websites: [
       { title: "Steven Pemberton", href: "https://en.wikipedia.org/wiki/Steven_Pemberton", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+ted-kaehler", {
+  g.buildPerson("person+ted-kaehler").merge({
     name: "Ted Kaehler",
     websites: [{ title: "Ted Kaehler", href: "https://en.wikipedia.org/wiki/Ted_Kaehler", kind: "wikipedia" }],
   });
 
-  lb.define("person+the-byte-works", {
+  g.buildPerson("person+the-byte-works").merge({
     name: "The Byte Works",
     websites: [{ title: "The Byte Works", href: "https://en.wikipedia.org/wiki/The_Byte_Works", kind: "wikipedia" }],
   });
 
-  lb.define("person+thinking-machines", {
+  g.buildPerson("person+thinking-machines").merge({
     name: "Thinking Machines",
     websites: [
       {
@@ -1441,81 +1439,81 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+thomas-e-kurtz", {
+  g.buildPerson("person+thomas-e-kurtz").merge({
     name: "Thomas E. Kurtz",
     websites: [{ title: "Thomas E. Kurtz", href: "https://en.wikipedia.org/wiki/Thomas_E._Kurtz", kind: "wikipedia" }],
   });
 
-  lb.define("person+tim-sweeney", {
+  g.buildPerson("person+tim-sweeney").merge({
     name: "Tim Sweeney",
     websites: [{ title: "Tim Sweeney", href: "https://en.wikipedia.org/wiki/Tim_Sweeney", kind: "wikipedia" }],
   });
 
-  lb.define("person+tom-duff", {
+  g.buildPerson("person+tom-duff").merge({
     name: "Tom Duff",
     websites: [{ title: "Tom Duff", href: "https://en.wikipedia.org/wiki/Tom_Duff", kind: "wikipedia" }],
   });
 
-  lb.define("person+tony-brooker", {
+  g.buildPerson("person+tony-brooker").merge({
     name: "Tony Brooker",
     websites: [{ title: "Tony Brooker", href: "https://en.wikipedia.org/wiki/Tony_Brooker", kind: "wikipedia" }],
   });
 
-  lb.define("person+tony-hoare", {
+  g.buildPerson("person+tony-hoare").merge({
     name: "Tony Hoare",
     websites: [{ title: "Tony Hoare", href: "https://en.wikipedia.org/wiki/Tony_Hoare", kind: "wikipedia" }],
   });
 
-  lb.define("person+trevor-hastie", {
+  g.buildPerson("person+trevor-hastie").merge({
     name: "Trevor Hastie",
     websites: [{ title: "Trevor Hastie", href: "https://en.wikipedia.org/wiki/Trevor_Hastie", kind: "wikipedia" }],
   });
 
-  lb.define("person+valentin-turchin", {
+  g.buildPerson("person+valentin-turchin").merge({
     name: "Valentin Turchin",
     websites: [
       { title: "Valentin Turchin", href: "https://en.wikipedia.org/wiki/Valentin_Turchin", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+van-wijngaarden", {
+  g.buildPerson("person+van-wijngaarden").merge({
     name: "van Wijngaarden",
     websites: [
       { title: "van Wijngaarden", href: "https://en.wikipedia.org/wiki/Adriaan_van_Wijngaarden", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+victor-yngve", {
+  g.buildPerson("person+victor-yngve").merge({
     name: "Victor Yngve",
     websites: [{ title: "Victor Yngve", href: "https://en.wikipedia.org/wiki/Victor_Yngve", kind: "wikipedia" }],
   });
 
-  lb.define("person+viral-b-shah", {
+  g.buildPerson("person+viral-b-shah").merge({
     name: "Viral B. Shah",
     websites: [{ title: "Viral B. Shah", href: "https://en.wikipedia.org/wiki/Viral_B._Shah", kind: "wikipedia" }],
   });
 
-  lb.define("person+w-a-wulf", {
+  g.buildPerson("person+w-a-wulf").merge({
     name: "W. A. Wulf",
     websites: [{ title: "W. A. Wulf", href: "https://en.wikipedia.org/wiki/William_Wulf", kind: "wikipedia" }],
   });
 
-  lb.define("person+wally-feurzeig", {
+  g.buildPerson("person+wally-feurzeig").merge({
     name: "Wally Feurzeig",
     websites: [{ title: "Wally Feurzeig", href: "https://en.wikipedia.org/wiki/Wally_Feurzeig", kind: "wikipedia" }],
   });
 
-  lb.define("person+walter-bright", {
+  g.buildPerson("person+walter-bright").merge({
     name: "Walter Bright",
     websites: [{ title: "Walter Bright", href: "https://en.wikipedia.org/wiki/Walter_Bright", kind: "wikipedia" }],
   });
 
-  lb.define("person+waterloo-maple", {
+  g.buildPerson("person+waterloo-maple").merge({
     name: "Waterloo Maple",
     websites: [{ title: "Waterloo Maple", href: "https://en.wikipedia.org/wiki/Waterloo_Maple", kind: "wikipedia" }],
   });
 
-  lb.define("person+william-r-cook", {
+  g.buildPerson("person+william-r-cook").merge({
     name: "William R. Cook",
     websites: [
       {
@@ -1526,19 +1524,19 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("person+william-s-cleveland", {
+  g.buildPerson("person+william-s-cleveland").merge({
     name: "William S. Cleveland",
     websites: [
       { title: "William S. Cleveland", href: "https://en.wikipedia.org/wiki/William_S._Cleveland", kind: "wikipedia" },
     ],
   });
 
-  lb.define("person+xavier-leroy", {
+  g.buildPerson("person+xavier-leroy").merge({
     name: "Xavier Leroy",
     websites: [{ title: "Xavier Leroy", href: "https://en.wikipedia.org/wiki/Xavier_Leroy", kind: "wikipedia" }],
   });
 
-  lb.define("person+yukihiro-matsumoto", {
+  g.buildPerson("person+yukihiro-matsumoto").merge({
     name: "Yukihiro Matsumoto",
     websites: [
       { title: "Yukihiro Matsumoto", href: "https://en.wikipedia.org/wiki/Yukihiro_Matsumoto", kind: "wikipedia" },

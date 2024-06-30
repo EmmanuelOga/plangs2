@@ -1,15 +1,17 @@
-import { caller } from "../util";
+import { arrayMerge, caller } from "../util";
 import type { PlangsGraph } from "./plangs_graph";
 import type {
   Image,
   Link,
   Release,
+  Scoping,
   VID_License,
   VID_Paradigm,
   VID_Person,
   VID_Plang,
   VID_Platform,
   VID_TypeSystem,
+  V_Base,
   V_License,
   V_Paradigm,
   V_Person,
@@ -18,95 +20,137 @@ import type {
   V_TypeSystem,
 } from "./schemas";
 
-export class PlangsBuilder {
-  constructor(readonly g: PlangsGraph) {}
-
-  define(
-    vid: VID_Plang,
-    data: Partial<V_Plang>,
-    rel?: {
-      dialects?: VID_Plang[];
-      implementations?: VID_Plang[];
-      influenced?: VID_Plang[];
-      influences?: VID_Plang[];
-      licenses?: VID_License[];
-      paradigms?: VID_Paradigm[];
-      people?: VID_Person[];
-      platforms?: VID_Platform[];
-      typeSystems?: VID_TypeSystem[];
-    },
+export class PlangBuilder {
+  constructor(
+    readonly g: PlangsGraph,
+    readonly vid: VID_Plang,
   ) {
-    const g = this.g;
-    const prev = { ...g.v_plang.declare(vid) }; // Copy so merge's assign won't modify this one.
-    const v = g.v_plang.merge(vid, data);
+    g.v_plang.declare(vid);
+  }
 
-    if (prev.extensions) mergeExtensions((v.extensions ??= []), prev.extensions);
-    if (prev.images) mergeImages((v.images ??= []), prev.images);
-    if (prev.releases) mergeReleases((v.releases ??= []), prev.releases);
-    if (prev.scoping) mergeScoping((v.scoping ??= []), prev.scoping);
-    if (prev.websites) mergeWebsites((v.websites ??= []), prev.websites);
+  merge(data: Partial<V_Plang>): this {
+    const prev = { ...this.g.v_plang.get(this.vid) }; // Save a _copy_ before merging.
+    const upd = this.g.v_plang.merge(this.vid, data);
 
-    if (!rel) return;
+    mergeExtensions(upd, prev);
+    mergeImages(upd, prev);
+    mergeReleases(upd, prev);
+    mergeScoping(upd, prev);
+    mergeWebsites(upd, prev);
 
-    for (const otherVid of rel.dialects ?? []) g.e_dialect_of.connect(vid, otherVid);
-    for (const otherVid of rel.implementations ?? []) g.e_implements.connect(otherVid, vid);
-    for (const otherVid of rel.influenced ?? []) g.e_l_influenced_l.connect(vid, otherVid);
-    for (const otherVid of rel.influences ?? []) g.e_l_influenced_l.connect(otherVid, vid);
-    for (const otherVid of rel.licenses ?? []) g.e_has_license.connect(vid, otherVid);
-    for (const otherVid of rel.paradigms ?? []) g.e_plang_para.connect(vid, otherVid);
-    for (const otherVid of rel.people ?? []) g.e_person_plang_role.connect(otherVid, vid);
-    for (const otherVid of rel.platforms ?? []) g.e_supports_platf.connect(vid, otherVid);
-    for (const otherVid of rel.typeSystems ?? []) g.e_plang_tsys.connect(vid, otherVid);
+    return this;
+  }
+
+  addDialects(dialects: VID_Plang[]) {
+    for (const otherVid of dialects) this.g.e_dialect_of.connect(this.vid, otherVid);
+  }
+
+  addImplementations(implementations: VID_Plang[]) {
+    for (const otherVid of implementations ?? []) this.g.e_implements.connect(otherVid, this.vid);
+  }
+
+  addInfluenced(influenced: VID_Plang[]) {
+    for (const otherVid of influenced ?? []) this.g.e_l_influenced_l.connect(this.vid, otherVid);
+  }
+
+  addInfluences(influences: VID_Plang[]) {
+    for (const otherVid of influences ?? []) this.g.e_l_influenced_l.connect(otherVid, this.vid);
+  }
+
+  addLicenses(licenses: VID_License[]) {
+    for (const otherVid of licenses ?? []) this.g.e_has_license.connect(this.vid, otherVid);
+  }
+
+  addParadigms(paradigms: VID_Paradigm[]) {
+    for (const otherVid of paradigms ?? []) this.g.e_plang_para.connect(this.vid, otherVid);
+  }
+
+  addPeople(people: VID_Person[]) {
+    for (const otherVid of people ?? []) this.g.e_person_plang.connect(otherVid, this.vid);
+  }
+
+  addPlatforms(platforms: VID_Platform[]) {
+    for (const otherVid of platforms) this.g.e_supports_platf.connect(this.vid, otherVid);
+  }
+
+  addTypeSystems(typeSystems: VID_TypeSystem[]) {
+    for (const otherVid of typeSystems ?? []) this.g.e_plang_tsys.connect(this.vid, otherVid);
   }
 }
 
 export class LicenseBuilder {
-  constructor(readonly g: PlangsGraph) {}
+  constructor(
+    readonly g: PlangsGraph,
+    readonly vid: VID_License,
+  ) {
+    g.v_license.declare(this.vid);
+  }
 
-  define(vid: VID_License, data: Partial<V_License>) {
-    const ew = this.g.v_license.declare(vid).websites;
-    const ed = this.g.v_license.merge(vid, data);
-    mergeWebsites((ed.websites ??= []), ew);
+  merge(data: Partial<V_License>): this {
+    const prev = { ...this.g.v_license.get(this.vid) };
+    const upd = this.g.v_license.merge(this.vid, data);
+    mergeWebsites(upd, prev);
+    return this;
   }
 }
 
 export class ParadigmBuilder {
-  constructor(readonly g: PlangsGraph) {}
+  constructor(
+    readonly g: PlangsGraph,
+    readonly vid: VID_Paradigm,
+  ) {
+    g.v_paradigm.declare(this.vid);
+  }
 
-  define(vid: VID_Paradigm, data: Partial<V_Paradigm>) {
-    const ew = this.g.v_paradigm.declare(vid).websites;
-    const ed = this.g.v_paradigm.merge(vid, data);
-    mergeWebsites((ed.websites ??= []), ew);
+  merge(data: Partial<V_Paradigm>) {
+    const prev = { ...this.g.v_paradigm.get(this.vid) };
+    const upd = this.g.v_paradigm.merge(this.vid, data);
+    mergeWebsites(upd, prev);
   }
 }
 
 export class PersonBuilder {
-  constructor(readonly g: PlangsGraph) {}
+  constructor(
+    readonly g: PlangsGraph,
+    readonly vid: VID_Person,
+  ) {
+    g.v_person.declare(this.vid);
+  }
 
-  define(vid: VID_Person, data: Partial<V_Person>) {
-    const ew = this.g.v_person.declare(vid).websites;
-    const ed = this.g.v_person.merge(vid, data);
-    mergeWebsites((ed.websites ??= []), ew);
+  merge(data: Partial<V_Person>) {
+    const prev = { ...this.g.v_person.get(this.vid) };
+    const upd = this.g.v_person.merge(this.vid, data);
+    mergeWebsites(upd, prev);
   }
 }
 
 export class PlatformBuilder {
-  constructor(readonly g: PlangsGraph) {}
+  constructor(
+    readonly g: PlangsGraph,
+    readonly vid: VID_Platform,
+  ) {
+    g.v_platform.declare(this.vid);
+  }
 
-  define(vid: VID_Platform, data: Partial<V_Platform>) {
-    const ew = this.g.v_platform.declare(vid).websites;
-    const ed = this.g.v_platform.merge(vid, data);
-    mergeWebsites((ed.websites ??= []), ew);
+  merge(data: Partial<V_Platform>) {
+    const prev = { ...this.g.v_platform.get(this.vid) };
+    const upd = this.g.v_platform.merge(this.vid, data);
+    mergeWebsites(upd, prev);
   }
 }
 
 export class TypeSysBuilder {
-  constructor(readonly g: PlangsGraph) {}
+  constructor(
+    readonly g: PlangsGraph,
+    readonly vid: VID_TypeSystem,
+  ) {
+    g.v_tsystem.declare(this.vid);
+  }
 
-  define(vid: VID_TypeSystem, data: Partial<V_TypeSystem>) {
-    const ew = this.g.v_tsystem.declare(vid).websites;
-    const ed = this.g.v_tsystem.merge(vid, data);
-    mergeWebsites((ed.websites ??= []), ew);
+  merge(data: Partial<V_TypeSystem>) {
+    const prev = { ...this.g.v_tsystem.get(this.vid) };
+    const upd = this.g.v_tsystem.merge(this.vid, data);
+    mergeWebsites(upd, prev);
   }
 }
 
@@ -114,66 +158,66 @@ export class TypeSysBuilder {
 
 const _CALLER_PATTERN = "definitions";
 
-function mergeWebsites(dst: Link[], newLinks?: Link[]) {
-  for (const newLink of newLinks ?? []) {
-    const found = dst.find((link) => link.href === newLink.href);
-    if (found) {
-      console.warn(`${caller(_CALLER_PATTERN)}: Duplicate Link: ${JSON.stringify(newLink)}`);
-      if (found.title.length > newLink.title.length) {
-        found.title = newLink.title;
-      }
-      found.kind ??= newLink.kind;
-    } else {
-      dst.push(newLink);
-    }
-    const link = found ?? newLink;
-    if (!link.kind && link.href.includes("wikipedia.org")) link.kind = "wikipedia";
-  }
+type Attr<T, Key extends keyof T> = Partial<Pick<T, Key>>;
+
+function mergeWebsites(target: Attr<V_Base, "websites">, newData: Attr<V_Base, "websites">) {
+  if (newData.websites === undefined) return;
+  arrayMerge(
+    (target.websites ??= []),
+    newData.websites,
+    (l1: Link, l2: Link) => l1.href === l2.href,
+    (prevLink: Link, newLink: Link) => {
+      console.warn(`${caller(_CALLER_PATTERN)}: Duplicate Link: ${JSON.stringify({ prevLink, newLink })}`);
+    },
+  );
 }
 
-function mergeImages(dst: Image[], newImages?: Image[]) {
-  for (const newImage of newImages ?? []) {
-    const found = dst.find((img) => img.url === newImage.url);
-    if (found) {
-      console.warn(`${caller(_CALLER_PATTERN)}: Duplicate Image: ${JSON.stringify(newImage)}`);
-      found.width ??= newImage.width;
-      found.height ??= newImage.height;
-    } else {
-      dst.push(newImage);
-    }
-  }
+function mergeImages(target: Attr<V_Plang, "images">, newData: Attr<V_Plang, "images">) {
+  if (newData.images === undefined) return;
+  arrayMerge(
+    (target.images ??= []),
+    newData.images,
+    (img1: Image, img2: Image) => img1.url === img2.url,
+    (prevImage: Image, newImage: Image) => {
+      console.warn(`${caller(_CALLER_PATTERN)}: Duplicate Image: ${JSON.stringify({ prevImage, newImage })}`);
+      prevImage.width ??= newImage.width;
+      prevImage.height ??= newImage.height;
+    },
+  );
 }
 
-function mergeReleases(dst: Release[], newReleases?: Release[]) {
-  for (const newRel of newReleases ?? []) {
-    const found = dst.find((rel) => rel.version === newRel.version && rel.date === newRel.date);
-    if (found) {
-      console.warn(`${caller(_CALLER_PATTERN)}: Duplicate Release: ${JSON.stringify(newRel)}`);
-      found.date ??= newRel.date;
-    } else {
-      dst.push(newRel);
-    }
-  }
+function mergeReleases(target: Attr<V_Plang, "releases">, newData: Attr<V_Plang, "releases">) {
+  if (!newData.releases) return;
+  arrayMerge(
+    (target.releases ??= []),
+    newData.releases,
+    (rel1: Release, rel2: Release) => rel1.version === rel2.version && rel1.date === rel2.date,
+    (prevRel: Release, newRel: Release) => {
+      console.warn(`${caller(_CALLER_PATTERN)}: Duplicate Release: ${JSON.stringify({ prevRel, newRel })}`);
+    },
+  );
 }
 
-function mergeScoping(dst: V_Plang["scoping"], newScopings?: V_Plang["scoping"]) {
-  for (const newScope of newScopings ?? []) {
-    const found = dst.find((scope) => scope === newScope);
-    if (found) {
+function mergeScoping(target: Attr<V_Plang, "scoping">, newData: Attr<V_Plang, "scoping">) {
+  if (!newData.scoping) return;
+  arrayMerge(
+    (target.scoping ??= []),
+    newData.scoping,
+    (scope1: Scoping, scope2: Scoping) => scope1 === scope2,
+    (prevScope, newScope) => {
       console.warn(`${caller(_CALLER_PATTERN)}: Duplicate Scope: ${newScope}`);
-    } else {
-      dst.push(newScope);
-    }
-  }
+    },
+  );
 }
 
-function mergeExtensions(dst: string[], newExtensions?: string[]) {
-  for (const newExt of newExtensions ?? []) {
-    const found = dst.find((ext) => ext === newExt);
-    if (found) {
+function mergeExtensions(target: Attr<V_Plang, "extensions">, newData: Attr<V_Plang, "extensions">) {
+  if (newData.extensions === undefined) return;
+  arrayMerge(
+    (target.extensions ??= []),
+    newData.extensions,
+    (ext1, ext2) => ext1 === ext2,
+    (prevExt, newExt) => {
       console.warn(`${caller(_CALLER_PATTERN)}: Duplicate Extension: ${newExt}`);
-    } else {
-      dst.push(newExt);
-    }
-  }
+    },
+  );
 }

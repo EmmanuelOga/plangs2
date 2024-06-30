@@ -1,14 +1,12 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.paradigmBuilder;
-
-  lb.define("para+algebraic", {
+  g.buildParadigm("para+algebraic").merge({
     name: "algebraic types",
     websites: [{ kind: "wikipedia", title: "algebraic types", href: "https://en.wikipedia.org/wiki/Algebraic_types" }],
   });
 
-  lb.define("para+algorithmic", {
+  g.buildParadigm("para+algorithmic").merge({
     name: "algorithmic",
     websites: [
       {
@@ -19,12 +17,12 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("para+array", {
+  g.buildParadigm("para+array").merge({
     name: "Array",
     websites: [{ kind: "wikipedia", title: "Array", href: "https://en.wikipedia.org/wiki/Array_programming" }],
   });
 
-  lb.define("para+aspect", {
+  g.buildParadigm("para+aspect").merge({
     name: "aspect-oriented",
     websites: [
       {
@@ -35,24 +33,24 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("para+assembly", {
+  g.buildParadigm("para+assembly").merge({
     name: "Assembly",
     websites: [{ kind: "wikipedia", title: "Assembly", href: "https://en.wikipedia.org/wiki/Assembly_language" }],
   });
 
-  lb.define("para+block", {
+  g.buildParadigm("para+block").merge({
     name: "block structured",
     websites: [
       { kind: "wikipedia", title: "block structured", href: "https://en.wikipedia.org/wiki/Block_(programming)" },
     ],
   });
 
-  lb.define("para+compiled", {
+  g.buildParadigm("para+compiled").merge({
     name: "compiled",
     websites: [{ kind: "wikipedia", title: "compiled", href: "https://en.wikipedia.org/wiki/Compiled_language" }],
   });
 
-  lb.define("para+component", {
+  g.buildParadigm("para+component").merge({
     name: "component-based",
     websites: [
       {
@@ -63,14 +61,14 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("para+computer", {
+  g.buildParadigm("para+computer").merge({
     name: "agent-based",
     websites: [
       { kind: "wikipedia", title: "agent-based", href: "https://en.wikipedia.org/wiki/Computer_simulation#Types" },
     ],
   });
 
-  lb.define("para+csp", {
+  g.buildParadigm("para+csp").merge({
     name: "communicating sequential processes",
     websites: [
       {
@@ -81,64 +79,64 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("para+dec", {
+  g.buildParadigm("para+dec").merge({
     name: "Declarative",
     websites: [
       { kind: "wikipedia", title: "declarative", href: "https://en.wikipedia.org/wiki/Declarative_programming" },
     ],
   });
 
-  lb.define("para+dependent", {
+  g.buildParadigm("para+dependent").merge({
     name: "dependent typed",
     websites: [{ kind: "wikipedia", title: "dependent typed", href: "https://en.wikipedia.org/wiki/Dependent_type" }],
   });
 
-  lb.define("para+domain", {
+  g.buildParadigm("para+domain").merge({
     name: "domain-specific",
     websites: [
       { kind: "wikipedia", title: "domain-specific", href: "https://en.wikipedia.org/wiki/Domain-specific_language" },
     ],
   });
 
-  lb.define("para+embedded", {
+  g.buildParadigm("para+embedded").merge({
     name: "embedded",
     websites: [{ kind: "wikipedia", title: "embedded", href: "https://en.wikipedia.org/wiki/Embedded_system" }],
   });
 
-  lb.define("para+esoteric", {
+  g.buildParadigm("para+esoteric").merge({
     name: "Esoteric",
     websites: [
       { kind: "wikipedia", title: "Esoteric", href: "https://en.wikipedia.org/wiki/Esoteric_programming_language" },
     ],
   });
 
-  lb.define("para+event", {
+  g.buildParadigm("para+event").merge({
     name: "event-driven",
     websites: [
       { kind: "wikipedia", title: "Event-driven", href: "https://en.wikipedia.org/wiki/Event-driven_programming" },
     ],
   });
 
-  lb.define("para+expert", {
+  g.buildParadigm("para+expert").merge({
     name: "expert systems",
     websites: [{ kind: "wikipedia", title: "expert systems", href: "https://en.wikipedia.org/wiki/Expert_systems" }],
   });
 
-  lb.define("para+extensible", {
+  g.buildParadigm("para+extensible").merge({
     name: "extensible",
     websites: [
       { kind: "wikipedia", title: "extensible", href: "https://en.wikipedia.org/wiki/Extensible_programming" },
     ],
   });
 
-  lb.define("para+function", {
+  g.buildParadigm("para+function").merge({
     name: "function-level",
     websites: [
       { kind: "wikipedia", title: "Function-level", href: "https://en.wikipedia.org/wiki/Function-level_programming" },
     ],
   });
 
-  lb.define("para+general", {
+  g.buildParadigm("para+general").merge({
     name: "general-purpose",
     websites: [
       {
@@ -149,24 +147,24 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("para+generic", {
+  g.buildParadigm("para+generic").merge({
     name: "generic",
     websites: [{ kind: "wikipedia", title: "generic", href: "https://en.wikipedia.org/wiki/Generic_programming" }],
   });
 
-  lb.define("para+grid", {
+  g.buildParadigm("para+grid").merge({
     name: "grid",
     websites: [{ kind: "wikipedia", title: "grid", href: "https://en.wikipedia.org/wiki/Grid_computing" }],
   });
 
-  lb.define("para+in", {
+  g.buildParadigm("para+in").merge({
     name: "in-memory database",
     websites: [
       { kind: "wikipedia", title: "in-memory database", href: "https://en.wikipedia.org/wiki/In-memory_database" },
     ],
   });
 
-  lb.define("para+information", {
+  g.buildParadigm("para+information").merge({
     name: "data and procedure hiding",
     websites: [
       {
@@ -177,7 +175,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("para+interface", {
+  g.buildParadigm("para+interface").merge({
     name: "protocol-oriented",
     websites: [
       {
@@ -188,17 +186,17 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("para+interpreted", {
+  g.buildParadigm("para+interpreted").merge({
     name: "interpreted",
     websites: [{ kind: "wikipedia", title: "interpreted", href: "https://en.wikipedia.org/wiki/Interpreted_language" }],
   });
 
-  lb.define("para+json", {
+  g.buildParadigm("para+json").merge({
     name: "JSON",
     websites: [{ kind: "wikipedia", title: "JSON", href: "https://en.wikipedia.org/wiki/JSON" }],
   });
 
-  lb.define("para+knowledge", {
+  g.buildParadigm("para+knowledge").merge({
     name: "knowledge representation",
     websites: [
       {
@@ -209,7 +207,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("para+language", {
+  g.buildParadigm("para+language").merge({
     name: "language oriented programming",
     websites: [
       {
@@ -220,51 +218,51 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("para+lazy", {
+  g.buildParadigm("para+lazy").merge({
     name: "Lazy",
     websites: [{ kind: "wikipedia", title: "lazy", href: "https://en.wikipedia.org/wiki/Lazy_evaluation" }],
   });
 
-  lb.define("para+literate", {
+  g.buildParadigm("para+literate").merge({
     name: "Literate",
     websites: [{ kind: "wikipedia", title: "Literate", href: "https://en.wikipedia.org/wiki/Literate_programming" }],
   });
 
-  lb.define("para+low", {
+  g.buildParadigm("para+low").merge({
     name: "Low-code",
     websites: [
       { kind: "wikipedia", title: "Low-code", href: "https://en.wikipedia.org/wiki/Low-code_development_platform" },
     ],
   });
 
-  lb.define("para+markup", {
+  g.buildParadigm("para+markup").merge({
     name: "markup",
     websites: [{ kind: "wikipedia", title: "markup", href: "https://en.wikipedia.org/wiki/Markup_language" }],
   });
 
-  lb.define("para+message", {
+  g.buildParadigm("para+message").merge({
     name: "message passing",
     websites: [{ kind: "wikipedia", title: "message passing", href: "https://en.wikipedia.org/wiki/Message_passing" }],
   });
 
-  lb.define("para+meta", {
+  g.buildParadigm("para+meta").merge({
     name: "meta",
     websites: [{ kind: "wikipedia", title: "meta", href: "https://en.wikipedia.org/wiki/Metaprogramming" }],
   });
 
-  lb.define("para+modular", {
+  g.buildParadigm("para+modular").merge({
     name: "modular",
     websites: [{ kind: "wikipedia", title: "modular", href: "https://en.wikipedia.org/wiki/Modular_programming" }],
   });
 
-  lb.define("para+non", {
+  g.buildParadigm("para+non").merge({
     name: "non-structured",
     websites: [
       { kind: "wikipedia", title: "Non-structured", href: "https://en.wikipedia.org/wiki/Non-structured_programming" },
     ],
   });
 
-  lb.define("para+nondeterministic", {
+  g.buildParadigm("para+nondeterministic").merge({
     name: "nondeterministic",
     websites: [
       {
@@ -275,14 +273,14 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("para+numerical", {
+  g.buildParadigm("para+numerical").merge({
     name: "Numerical control",
     websites: [
       { kind: "wikipedia", title: "Numerical control", href: "https://en.wikipedia.org/wiki/Numerical_control" },
     ],
   });
 
-  lb.define("para+partitioned", {
+  g.buildParadigm("para+partitioned").merge({
     name: "Partitioned global address space",
     websites: [
       {
@@ -293,14 +291,14 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("para+pattern", {
+  g.buildParadigm("para+pattern").merge({
     name: "Pattern-matching",
     websites: [
       { kind: "wikipedia", title: "Pattern-matching", href: "https://en.wikipedia.org/wiki/Pattern-matching" },
     ],
   });
 
-  lb.define("para+people", {
+  g.buildParadigm("para+people").merge({
     name: "People Oriented Programming",
     websites: [
       {
@@ -311,7 +309,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("para+production", {
+  g.buildParadigm("para+production").merge({
     name: "rule processing",
     websites: [
       {
@@ -322,39 +320,39 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("para+quantum", {
+  g.buildParadigm("para+quantum").merge({
     name: "Quantum",
     websites: [{ kind: "wikipedia", title: "Quantum", href: "https://en.wikipedia.org/wiki/Quantum_programming" }],
   });
 
-  lb.define("para+query", {
+  g.buildParadigm("para+query").merge({
     name: "Query language",
     websites: [{ kind: "wikipedia", title: "Query language", href: "https://en.wikipedia.org/wiki/Query_language" }],
   });
 
-  lb.define("para+reactive", {
+  g.buildParadigm("para+reactive").merge({
     name: "reactive",
     websites: [{ kind: "wikipedia", title: "reactive", href: "https://en.wikipedia.org/wiki/Reactive_programming" }],
   });
 
-  lb.define("para+real", {
+  g.buildParadigm("para+real").merge({
     name: "real-time",
     websites: [{ kind: "wikipedia", title: "real-time", href: "https://en.wikipedia.org/wiki/Real-time_computing" }],
   });
 
-  lb.define("para+reflective", {
+  g.buildParadigm("para+reflective").merge({
     name: "reflective",
     websites: [
       { kind: "wikipedia", title: "reflective", href: "https://en.wikipedia.org/wiki/Reflective_programming" },
     ],
   });
 
-  lb.define("para+reversible", {
+  g.buildParadigm("para+reversible").merge({
     name: "reversible",
     websites: [{ kind: "wikipedia", title: "reversible", href: "https://en.wikipedia.org/wiki/Reversible_computing" }],
   });
 
-  lb.define("para+scientific", {
+  g.buildParadigm("para+scientific").merge({
     name: "scientific workflow",
     websites: [
       {
@@ -365,44 +363,44 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("para+scripting", {
+  g.buildParadigm("para+scripting").merge({
     name: "scripting",
     websites: [{ kind: "wikipedia", title: "scripting", href: "https://en.wikipedia.org/wiki/Scripting_language" }],
   });
 
-  lb.define("para+shared", {
+  g.buildParadigm("para+shared").merge({
     name: "shared memory",
     websites: [{ kind: "wikipedia", title: "shared memory", href: "https://en.wikipedia.org/wiki/Shared_memory" }],
   });
 
-  lb.define("para+simulation", {
+  g.buildParadigm("para+simulation").merge({
     name: "simulation",
     websites: [{ kind: "wikipedia", title: "simulation", href: "https://en.wikipedia.org/wiki/Simulation_language" }],
   });
 
-  lb.define("para+strongly", {
+  g.buildParadigm("para+strongly").merge({
     name: "strongly typed",
     websites: [{ kind: "wikipedia", title: "strongly typed", href: "https://en.wikipedia.org/wiki/Strongly_typed" }],
   });
 
-  lb.define("para+structured", {
+  g.buildParadigm("para+structured").merge({
     name: "structured",
     websites: [
       { kind: "wikipedia", title: "structured", href: "https://en.wikipedia.org/wiki/Structured_programming" },
     ],
   });
 
-  lb.define("para+symbolic", {
+  g.buildParadigm("para+symbolic").merge({
     name: "symbolic",
     websites: [{ kind: "wikipedia", title: "symbolic", href: "https://en.wikipedia.org/wiki/Symbolic_programming" }],
   });
 
-  lb.define("para+tacit", {
+  g.buildParadigm("para+tacit").merge({
     name: "tacit programming",
     websites: [{ kind: "wikipedia", title: "tacit", href: "https://en.wikipedia.org/wiki/Tacit_programming" }],
   });
 
-  lb.define("para+the", {
+  g.buildParadigm("para+the").merge({
     name: "task-driven",
     websites: [
       {
@@ -413,24 +411,24 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("para+thread", {
+  g.buildParadigm("para+thread").merge({
     name: "thread safe",
     websites: [{ kind: "wikipedia", title: "thread safe", href: "https://en.wikipedia.org/wiki/Thread_safe" }],
   });
 
-  lb.define("para+typed", {
+  g.buildParadigm("para+typed").merge({
     name: "typed language",
     websites: [{ kind: "wikipedia", title: "typed language", href: "https://en.wikipedia.org/wiki/Typed_language" }],
   });
 
-  lb.define("para+unstructured", {
+  g.buildParadigm("para+unstructured").merge({
     name: "unstructured",
     websites: [
       { kind: "wikipedia", title: "unstructured", href: "https://en.wikipedia.org/wiki/Unstructured_programming" },
     ],
   });
 
-  lb.define("para+visual", {
+  g.buildParadigm("para+visual").merge({
     name: "visual",
     websites: [
       { kind: "wikipedia", title: "Visual", href: "https://en.wikipedia.org/wiki/Visual_programming_language" },

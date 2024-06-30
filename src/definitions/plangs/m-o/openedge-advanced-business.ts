@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.plangBuilder;
-
-  lb.define("pl+openedge-advanced-business", {
+  g.buildPlang("pl+openedge-advanced-business").merge({
     name: "OpenEdge Advanced Business Language (ABL)",
     websites: [
       {

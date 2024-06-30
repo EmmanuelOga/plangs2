@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.plangBuilder;
-
-  lb.define("pl+scicos", {
+  g.buildPlang("pl+scicos").merge({
     name: "Scicos",
     websites: [
       { kind: "wikipedia", title: "Scicos", href: "https://en.wikipedia.org/wiki/Scicos" },

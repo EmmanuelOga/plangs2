@@ -1,14 +1,12 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.platformBuilder;
-
-  lb.define("platf+aarch64", {
+  g.buildPlatform("platf+aarch64").merge({
     name: "ARM64",
     websites: [{ kind: "wikipedia", title: "AArch64", href: "https://en.wikipedia.org/wiki/AArch64" }],
   });
 
-  lb.define("platf+arm", {
+  g.buildPlatform("platf+arm").merge({
     name: "ARM",
     websites: [
       { kind: "wikipedia", title: "ARM", href: "https://en.wikipedia.org/wiki/ARM_architecture" },

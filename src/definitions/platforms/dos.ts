@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.platformBuilder;
-
-  lb.define("platf+dos", {
+  g.buildPlatform("platf+dos").merge({
     name: "MS-DOS",
     websites: [
       { kind: "wikipedia", title: "DOS", href: "https://en.wikipedia.org/wiki/DOS" },

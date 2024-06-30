@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.licenseBuilder;
-
-  lb.define("lic+open-source", {
+  g.buildLicense("lic+open-source").merge({
     name: "open source",
     websites: [
       { kind: "wikipedia", title: "open source", href: "https://en.wikipedia.org/wiki/Open-source_software" },

@@ -101,3 +101,19 @@ export function tidy(data: any): any {
   }
   return data;
 }
+
+export function arrayMerge<T>(
+  target: T[],
+  newData: T[],
+  similar: (l1: T, l2: T) => boolean,
+  onDuplicate: (prevElem: T, newElem: T) => void,
+) {
+  for (const newElem of newData) {
+    const prevElem = target.find((elem: T) => similar(elem, newElem));
+    if (prevElem) {
+      onDuplicate(prevElem, newElem);
+    } else {
+      target.push(newElem);
+    }
+  }
+}

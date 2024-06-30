@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.plangBuilder;
-
-  lb.define("pl+aimms", {
+  g.buildPlang("pl+aimms").merge({
     name: "AIMMS",
     websites: [
       { kind: "wikipedia", title: "AIMMS", href: "https://en.wikipedia.org/wiki/AIMMS" },

@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.platformBuilder;
-
-  lb.define("platf+.net", {
+  g.buildPlatform("platf+.net").merge({
     name: ".NET Framework",
     websites: [
       {
@@ -18,7 +16,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("platf+mono", {
+  g.buildPlatform("platf+mono").merge({
     name: "Mono",
     websites: [{ kind: "wikipedia", title: "Mono", href: "https://en.wikipedia.org/wiki/Mono_(software)" }],
   });

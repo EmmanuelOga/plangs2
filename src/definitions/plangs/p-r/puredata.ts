@@ -1,22 +1,10 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.plangBuilder;
-
-  lb.define(
-    "pl+puredata",
-    {
-      name: "Pure DataPure Data",
-      websites: [{ kind: "wikipedia", title: "PureData", href: "https://en.wikipedia.org/wiki/PureData" }],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/3/34/Pure_Data_logo.svg" }],
-      releases: [{ version: "0.53", date: "2022-01-01", kind: "stable" }],
-    },
-    {
-      influences: ["pl+lucid", "pl+patcher"],
-      people: ["person+miller-s-puckette"],
-      licenses: ["lic+bsd-s"],
-      paradigms: ["para+dataflow"],
-      platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
-    },
-  );
+  g.buildPlang("pl+puredata").merge({
+    name: "Pure DataPure Data",
+    websites: [{ kind: "wikipedia", title: "PureData", href: "https://en.wikipedia.org/wiki/PureData" }],
+    images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/3/34/Pure_Data_logo.svg" }],
+    releases: [{ version: "0.53", date: "2022-01-01", kind: "stable" }],
+  });
 }

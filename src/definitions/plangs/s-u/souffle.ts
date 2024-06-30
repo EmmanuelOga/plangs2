@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.plangBuilder;
-
-  lb.define("pl+souffle", {
+  g.buildPlang("pl+souffle").merge({
     name: "Soufflé",
     websites: [
       {

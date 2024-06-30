@@ -1,11 +1,8 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.plangBuilder;
-
-  lb.define(
-    "pl+glsl",
-    { name: "GLSL", websites: [{ kind: "wikipedia", title: "GLSL", href: "https://en.wikipedia.org/wiki/GLSL" }] },
-    { influences: ["pl+cg"] },
-  );
+  g.buildPlang("pl+glsl").merge({
+    name: "GLSL",
+    websites: [{ kind: "wikipedia", title: "GLSL", href: "https://en.wikipedia.org/wiki/GLSL" }],
+  });
 }

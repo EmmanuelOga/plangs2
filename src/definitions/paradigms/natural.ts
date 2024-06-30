@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.paradigmBuilder;
-
-  lb.define("para+natural", {
+  g.buildParadigm("para+natural").merge({
     name: "natural language programming",
     websites: [
       {

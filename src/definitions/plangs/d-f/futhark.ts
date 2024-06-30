@@ -1,22 +1,10 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.plangBuilder;
-
-  lb.define(
-    "pl+futhark",
-    {
-      name: "Futhark",
-      websites: [
-        { kind: "wikipedia", title: "Futhark", href: "https://en.wikipedia.org/wiki/Futhark_(programming_language)" },
-      ],
-    },
-    {
-      influences: ["pl+apl", "pl+haskell", "pl+nesl", "pl+sml"],
-      licenses: ["lic+isc"],
-      paradigms: ["para+array", "para+functional"],
-      platforms: ["platf+cross-platform"],
-      typeSystems: ["tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+uniqueness"],
-    },
-  );
+  g.buildPlang("pl+futhark").merge({
+    name: "Futhark",
+    websites: [
+      { kind: "wikipedia", title: "Futhark", href: "https://en.wikipedia.org/wiki/Futhark_(programming_language)" },
+    ],
+  });
 }

@@ -1,9 +1,7 @@
 import type { PlangsGraph } from "../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.platformBuilder;
-
-  lb.define("platf+plan9", {
+  g.buildPlatform("platf+plan9").merge({
     name: "Plan 9 from User Space",
     websites: [
       {

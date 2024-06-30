@@ -324,7 +324,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
         person.websites ??= [];
         if (link) mergeLink(person.websites, link);
 
-        const rel = g.e_person_plang_role.connect(`person+${key}`, pvid);
+        const rel = g.e_person_plang.connect(`person+${key}`, pvid);
 
         const inferred_role = infoboxKey.includes("developer") ? "developer" : "designer";
 
