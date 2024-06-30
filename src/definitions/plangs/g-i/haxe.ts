@@ -41,6 +41,23 @@ export function define(g: PlangsGraph) {
 
   /**/
 
+  g.buildPlang("pl+neko")
+    .merge({
+      name: "NekoVMNeko",
+      websites: [
+        { kind: "wikipedia", title: "NekoVMNeko", href: "https://en.wikipedia.org/wiki/Neko_(programming_language)" },
+      ],
+      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/26/NekoVM_logo.svg" }],
+      releases: [{ name: "NekoVMNeko", version: "2.3.0", date: "2019-01-01", kind: "stable" }],
+    })
+    .addImplementations(["pl+ocaml"])
+    .addLicenses(["lic+mit"])
+    .addParadigms(["para+multi", "para+objects", "para+structured", "para+prototypes", "para+scripting"])
+    .addPlatforms(["platf+win", "platf+mac", "platf+linux"])
+    .addTypeSystems(["tsys+dynamic"]);
+
+  /**/
+
   g.buildPlang("pl+nekovm")
     .merge({
       name: "NekoVMNeko",

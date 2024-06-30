@@ -159,7 +159,7 @@ const PLANG_GROUPS = {
   eiffel: ["eiffel"],
   fortran: ["fortran", "g95"],
   gcc: ["gcc"],
-  haxe: ["haxe", "nekovm"],
+  haxe: ["haxe", "neko"],
   julia: ["julia"],
   kotlin: ["clojure"],
   lisp: ["lisp"],
@@ -196,7 +196,7 @@ function defaultCollator(bundle: AtoZData): string {
   const numWebsites = bundle.vertex.websites?.length ?? 0;
   const numRelations = bundle.vrelations?.length ?? 0;
 
-  if (numWebsites > 2 && numRelations > 0) {
+  if (3 * numWebsites + 7 * numRelations > 25) {
     const vid = JSON.parse(bundle.vid);
     return vid.split("+")[1];
   }
