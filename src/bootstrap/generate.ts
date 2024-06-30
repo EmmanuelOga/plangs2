@@ -3,7 +3,7 @@ import { PlangsGraph } from "../entities/plangs_graph";
 import type { VID_Plang } from "../entities/schemas";
 import type { VID_Any } from "../graph/vertex";
 import type { VertexTable } from "../graph/vertex_table";
-import { blank, toAlphaNum } from "../util";
+import { blank, tidy, toAlphaNum } from "../util";
 import { PLANG_IDS } from "./plang_ids";
 import { parseAll } from "./wikipedia_process";
 
@@ -136,34 +136,19 @@ async function generateAll() {
 }
 
 function defaultMapper(vid: VID_Any, vertex: _T_AnyV_Data): AtoZData {
-  // Export everything but the name field.
-  const d = { ...vertex };
-
-  // Remove empty data and sort non-empty arrays.
-  for (const [key, val] of Object.entries(d)) {
-    if (Array.isArray(val)) {
-      if (val.length === 0) delete d[key];
-      else val.sort();
-    } else if (blank(val)) {
-      delete d[key];
-    }
-  }
-
   const bundle: AtoZData = { vid: json(vid) };
-  if (!blank(d)) bundle.data = json(d);
+  const data = tidy(vertex);
+  if (!blank(data)) bundle.data = json(data);
   return bundle;
 }
 
 function plangMapper(g: PlangsGraph, plvid: VID_Plang): AtoZData {
-  const pl = g.v_plang.get(plvid);
-  if (!pl || !pl.name) {
-    throw new Error(`Missing plang data: ${plvid}`);
-  }
+  const vertex = g.v_plang.get(plvid);
+  if (!vertex || !vertex.name) throw new Error(`Missing plang data: ${plvid}`);
 
-  const bundle: AtoZData = {
-    vid: json(plvid),
-    data: json(pl),
-  };
+  const bundle: AtoZData = { vid: json(plvid) };
+  const data = tidy(vertex);
+  if (!blank(data)) bundle.data = json(data);
 
   const vrelations: Record<string, string[]> = {};
   function addRel(vrelKey: string, rels: string[]) {

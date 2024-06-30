@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
         },
       ],
       releases: [{ version: "7.4.2", date: "2024-01-01", kind: "stable" }],
-      extensions: [".ps1", ".ps1xml", ".psc1", ".psd1", ".psm1", ".pssc", ".psrc", ".cdxml"],
+      extensions: [".cdxml", ".ps1", ".ps1xml", ".psc1", ".psd1", ".psm1", ".psrc", ".pssc"],
     },
     {
       implementations: ["pl+c-sharp"],

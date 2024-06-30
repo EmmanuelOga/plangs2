@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" }],
       releases: [{ version: "8.3.8", date: "2024-01-01", kind: "stable" }],
-      extensions: [".php", ".phar", ".phtml", ".pht", ".phps"],
+      extensions: [".phar", ".php", ".phps", ".pht", ".phtml"],
     },
     {
       implementations: [

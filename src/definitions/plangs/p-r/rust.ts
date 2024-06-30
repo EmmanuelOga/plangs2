@@ -17,7 +17,7 @@ export function define(g: PlangsGraph) {
         },
       ],
       releases: [{ version: "1.78.0", date: "2024-01-01", kind: "stable" }],
-      extensions: [".rs", ".rlib"],
+      extensions: [".rlib", ".rs"],
     },
     {
       dialects: ["pl+project-verona"],

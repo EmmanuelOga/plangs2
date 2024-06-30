@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/3/36/Groovy-logo.svg" }],
       releases: [{ version: "4.0.0", date: "2021-01-01", kind: "preview" }],
-      extensions: [".groovy", ".gvy", ".gy", ".gsh"],
+      extensions: [".groovy", ".gsh", ".gvy", ".gy"],
     },
     {
       implementations: ["pl+gradle", "pl+grails"],

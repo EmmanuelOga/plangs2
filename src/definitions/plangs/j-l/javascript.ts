@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
         { version: "unknown", date: "2023-01-01", kind: "stable" },
         { version: "unknown", date: "2025-01-01", kind: "preview" },
       ],
-      extensions: [".js", ".cjs", ".mjs[4]"],
+      extensions: [".cjs", ".js", ".mjs[4]"],
     },
     {
       dialects: ["pl+assemblyscript"],

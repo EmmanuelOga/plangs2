@@ -70,14 +70,34 @@ export function caller(pathPattern: string, dontMatch = ""): string {
   return clean.trim();
 }
 
-/** True if obj has any key where obj[key] is truthy. */
+/**
+ * True if obj:
+ * - is number
+ * - is non blank string
+ * - is non empty array
+ * - obj has any key where obj[key] is truthy.
+ */
 // biome-ignore lint/suspicious/noExplicitAny: Can test any object.
 export function blank(obj: any): boolean {
-  if (typeof obj === "string") return !obj;
+  if (typeof obj === "number") return false;
+  if (typeof obj === "string") return !obj.trim();
+  if (Array.isArray(obj)) return obj.length === 0;
 
   for (const key of Object.getOwnPropertyNames(obj)) {
-    if (obj[key]) return false;
+    if (!blank(obj[key])) return false;
   }
 
   return true;
+}
+
+/** (Shallow) Remove keys from object which are blank or empty arrays, sorts arrays. */
+// biome-ignore lint/suspicious/noExplicitAny: Can tidy any object.
+export function tidy(data: any): any {
+  for (const [key, val] of Object.entries(data)) {
+    if (Array.isArray(val)) {
+      if (val.length === 0) delete data[key];
+      else val.sort();
+    } else if (blank(val)) delete data[key];
+  }
+  return data;
 }

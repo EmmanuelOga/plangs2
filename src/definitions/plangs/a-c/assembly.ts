@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Motorola_6800_Assembly_Language.png/300px-Motorola_6800_Assembly_Language.png",
         },
       ],
-      extensions: [".asm", ".s", ".inc", ".wla", ".SRC"],
+      extensions: [".SRC", ".asm", ".inc", ".s", ".wla"],
     },
     {
       paradigms: [
@@ -95,7 +95,7 @@ export function define(g: PlangsGraph) {
       name: "WebAssembly",
       websites: [{ kind: "wikipedia", title: "WebAssembly", href: "https://en.wikipedia.org/wiki/WebAssembly" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/1/1f/WebAssembly_Logo.svg" }],
-      extensions: [".wat", ".wasm"],
+      extensions: [".wasm", ".wat"],
     },
     { licenses: ["lic+apache"], paradigms: ["para+stack"], platforms: ["platf+cross-platform"] },
   );

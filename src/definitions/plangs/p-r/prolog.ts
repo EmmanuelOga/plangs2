@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       name: "Prolog",
       websites: [{ kind: "wikipedia", title: "Prolog", href: "https://en.wikipedia.org/wiki/Prolog" }],
       releases: [{ version: "unknown", date: "1995-01-01", kind: "stable" }],
-      extensions: [".pl", ".pro", ".P"],
+      extensions: [".P", ".pl", ".pro"],
     },
     {
       dialects: ["pl+datalog"],

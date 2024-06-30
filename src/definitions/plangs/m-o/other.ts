@@ -399,7 +399,7 @@ export function define(g: PlangsGraph) {
         },
       ],
       releases: [{ version: "4.22", date: "2008-01-01", kind: "stable" }],
-      extensions: ["..", ".+", ".a", ".m"],
+      extensions: [".+", "..", ".a", ".m"],
     },
     {
       influences: ["pl+apl"],
@@ -428,7 +428,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "Groovy", href: "https://en.wikipedia.org/wiki/Apache_Groovy" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/3/36/Groovy-logo.svg" }],
       releases: [{ version: "4.0.0", date: "2021-01-01", kind: "preview" }],
-      extensions: [".groovy", ".gvy", ".gy", ".gsh"],
+      extensions: [".groovy", ".gsh", ".gvy", ".gy"],
     },
     {
       implementations: ["pl+gradle", "pl+grails"],
@@ -3001,7 +3001,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "JScript", href: "https://en.wikipedia.org/wiki/JScript" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/en/e/e8/Jscript_icon.gif" }],
       releases: [{ version: "9.0", date: "2011-01-01", kind: "stable" }],
-      extensions: [".js", ".jse", ".wsf", ".wsc", ".htm", ".html", ".hta", ".asp"],
+      extensions: [".asp", ".hta", ".htm", ".html", ".js", ".jse", ".wsc", ".wsf"],
     },
     {
       implementations: ["pl+active-scripting", "pl+jscript-.net"],
@@ -4848,7 +4848,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "PL/B", href: "https://en.wikipedia.org/wiki/Programming_Language_for_Business" },
       ],
-      extensions: [".rl", ".ps", ".cb", ".pls", ".pgm"],
+      extensions: [".cb", ".pgm", ".pls", ".ps", ".rl"],
     },
     { influences: ["pl+cobol"], paradigms: ["para+imperative"], typeSystems: ["tsys+strong", "tsys+static"] },
   );

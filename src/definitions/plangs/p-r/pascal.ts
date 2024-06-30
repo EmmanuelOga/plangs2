@@ -55,7 +55,7 @@ export function define(g: PlangsGraph) {
         { version: "3.3.1", kind: "preview" },
         { version: "3.0", kind: "stable" },
       ],
-      extensions: [".p", ".pp", ".pas"],
+      extensions: [".p", ".pas", ".pp"],
     },
     {
       dialects: ["pl+ada", "pl+clarion", "pl+pascal", "pl+delphi", "pl+oxygene", "pl+planc"],

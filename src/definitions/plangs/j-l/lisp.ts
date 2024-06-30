@@ -214,7 +214,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "EuLisp", href: "https://en.wikipedia.org/wiki/EuLisp" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/8/88/EuLispLogo.png" }],
       releases: [{ version: "0.991", date: "2010-01-01", kind: "preview" }],
-      scoping: ["static", "dynamic"],
+      scoping: ["dynamic", "static"],
     },
     {
       influences: [
@@ -473,7 +473,7 @@ export function define(g: PlangsGraph) {
     {
       name: "Maclisp",
       websites: [{ kind: "wikipedia", title: "Maclisp", href: "https://en.wikipedia.org/wiki/Maclisp" }],
-      extensions: [".lisp", ".fasl"],
+      extensions: [".fasl", ".lisp"],
     },
     {
       implementations: ["pl+assembly", "pl+pl-slash"],

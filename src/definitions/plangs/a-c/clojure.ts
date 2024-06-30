@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Clojure_logo.svg" }],
       releases: [{ version: "1.11.2", date: "2024-01-01", kind: "stable" }],
-      extensions: [".clj", ".cljs", ".cljr", ".cljc", ".cljd", ".edn"],
+      extensions: [".clj", ".cljc", ".cljd", ".cljr", ".cljs", ".edn"],
     },
     {
       influences: [
