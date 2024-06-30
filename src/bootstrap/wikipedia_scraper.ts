@@ -189,9 +189,9 @@ async function scrapLanguagePage(wikiPath: string) {
   const $infobox = $("table.infobox");
   if ($infobox.length === 0) return;
 
-  const title = $infobox.find(".infobox-title.summary").text();
+  const plangTitle = $infobox.find(".infobox-title.summary").text();
 
-  if (!title || !/programming/gi.test($("#catlinks").text())) {
+  if (!plangTitle || !/programming/gi.test($("#catlinks").text())) {
     return;
   }
 
@@ -298,7 +298,7 @@ async function scrapLanguagePage(wikiPath: string) {
     const anchors = el.children().filter((_, e) => e.tagName === "a");
 
     if (type.includes("release") || type.includes("appear")) {
-      const data = { ...getDate(text), ...getVersion(text) };
+      const data = { ...getDate(text), ...getVersion(text), name: plangTitle };
       if (Object.keys(data).length > 0) result.release = data;
     } else if (type.includes("extension")) {
       const data = text
@@ -374,7 +374,7 @@ async function scrapLanguagePage(wikiPath: string) {
     }
   }
 
-  emit({ title, wikiUrl: `${WIKIPEDIA_URL}${wikiPath}`, img, data: infobox });
+  emit({ title: plangTitle, wikiUrl: `${WIKIPEDIA_URL}${wikiPath}`, img, data: infobox });
 }
 
 function cleanImgUrl(url: string | undefined): string {

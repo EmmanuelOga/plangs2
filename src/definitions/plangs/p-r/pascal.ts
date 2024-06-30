@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/b/b2/Embarcadero_Delphi_10.4_Sydney_Product_Logo_and_Icon.svg",
         },
       ],
-      releases: [{ version: "12.1", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Delphi", version: "12.1", date: "2024-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+freemium"]);
 
@@ -47,11 +47,7 @@ export function define(g: PlangsGraph) {
         },
         { kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/4/41/UCSD_p-System.svg" },
       ],
-      releases: [
-        { version: "3.2.2", date: "2021-01-01", kind: "stable" },
-        { version: "3.3.1", kind: "preview" },
-        { version: "3.0", kind: "stable" },
-      ],
+      releases: [{ name: "Free Pascal", version: "3.2.2", date: "2021-01-01", kind: "stable" }],
       extensions: [".p", ".pas", ".pp"],
     })
     .addDialects(["pl+ada", "pl+clarion", "pl+pascal", "pl+delphi", "pl+oxygene", "pl+planc"])

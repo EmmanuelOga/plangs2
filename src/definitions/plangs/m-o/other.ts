@@ -39,8 +39,8 @@ export function define(g: PlangsGraph) {
       name: "A#",
       websites: [{ kind: "wikipedia", title: "A♯", href: "https://en.wikipedia.org/wiki/A%E2%99%AF_(Axiom)" }],
       releases: [
-        { version: "unknown", date: "2008-01-01", kind: "stable" },
-        { version: "unknown", date: "2014-01-01", kind: "preview" },
+        { name: "A♯", version: "unknown", date: "2008-01-01", kind: "stable" },
+        { name: "A♯", version: "unknown", date: "2014-01-01", kind: "preview" },
       ],
     })
     .addInfluences(["pl+pascal", "pl+haskell"])
@@ -76,7 +76,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "ABAP/4",
       websites: [{ kind: "wikipedia", title: "ABAP/4", href: "https://en.wikipedia.org/wiki/ABAP" }],
-      releases: [{ version: "7.58", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "ABAP/4", version: "7.58", date: "2023-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+sap"])
     .addParadigms(["para+objects", "para+structured", "para+imperative"])
@@ -89,7 +89,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "ABC",
       websites: [{ kind: "wikipedia", title: "ABC", href: "https://en.wikipedia.org/wiki/ABC_(programming_language)" }],
-      releases: [{ version: "1.05.02", date: "1990-01-01", kind: "stable" }],
+      releases: [{ name: "ABC", version: "1.05.02", date: "1990-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+setl", "pl+isetl", "pl+setl2"])
     .addInfluence("pl+algol", {
@@ -143,7 +143,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/0/0f/ActionScript_icon.png/121px-ActionScript_icon.png",
         },
       ],
-      releases: [{ version: "3.0", date: "2006-01-01", kind: "stable" }],
+      releases: [{ name: "ActionScript", version: "3.0", date: "2006-01-01", kind: "stable" }],
       extensions: [".as"],
     })
     .addImplementations(["pl+adobe-flash-player", "pl+adobe-air", "pl+apache-flex", "pl+scaleform-gfx"])
@@ -220,7 +220,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/3/31/Ada_horizon_green_logo_with_slogan.svg",
         },
       ],
-      releases: [{ version: "unknown", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "Ada", version: "unknown", date: "2022-01-01", kind: "stable" }],
     })
     .addDialects(["pl+spark", "pl+ravenscar-profile"])
     .addImplementations(["pl+ddc-i"])
@@ -270,10 +270,7 @@ export function define(g: PlangsGraph) {
       name: "Adobe AIR",
       websites: [{ kind: "wikipedia", title: "Adobe AIR", href: "https://en.wikipedia.org/wiki/Adobe_AIR" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/1/11/Adobe_AIR_logo.svg" }],
-      releases: [
-        { version: "51.0.1.3", date: "2024-01-01", kind: "stable" },
-        { version: "33.1.1.932", kind: "preview" },
-      ],
+      releases: [{ name: "Adobe AIR", version: "51.0.1.3", date: "2024-01-01", kind: "stable" }],
     })
     .addLicense("lic+proprietary", {
       refs: [{ href: "https://www.adobe.com/products/eulas/pdfs/Adobe_AIR.pdf", title: "Adobe AIR 1.1 EULA" }],
@@ -315,7 +312,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Agda", href: "https://en.wikipedia.org/wiki/Agda_(theorem_prover)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/7/71/Agda%27s_official_logo.svg" }],
-      releases: [{ version: "2.6.3", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Agda", version: "2.6.3", date: "2023-01-01", kind: "stable" }],
       extensions: [".agda", ".lagda"],
     })
     .addImplementations(["pl+haskell"])
@@ -344,7 +341,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/AgentCubes_user_interface.png/121px-AgentCubes_user_interface.png",
         },
       ],
-      releases: [{ version: "3.0", date: "2020-01-01", kind: "stable" }],
+      releases: [{ name: "AgentCubes", version: "3.0", date: "2020-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+agentsheets", "pl+lisp", "pl+logo", "pl+smalltalk"])
     .addPerson("person+alexander-repenning", { role: "designer" })
@@ -357,7 +354,7 @@ export function define(g: PlangsGraph) {
       name: "AgentSheets",
       websites: [{ kind: "wikipedia", title: "AgentSheets", href: "https://en.wikipedia.org/wiki/AgentSheets" }],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/en/6/6b/Agentsheets_IDE.jpg" }],
-      releases: [{ version: "4.0", date: "2014-01-01", kind: "stable" }],
+      releases: [{ name: "AgentSheets", version: "4.0", date: "2014-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+lisp", "pl+logo", "pl+smalltalk", "pl+karel", "pl+objectlogo"])
     .addPerson("person+alexander-repenning", { role: "designer" })
@@ -429,10 +426,6 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Aldor",
       websites: [{ kind: "wikipedia", title: "Aldor", href: "https://en.wikipedia.org/wiki/Aldor" }],
-      releases: [
-        { version: "1.0.3", kind: "stable" },
-        { version: "1.1.0", kind: "preview" },
-      ],
     })
     .addImplementations(["pl+axiom"])
     .addInfluences(["pl+a-", "pl+pascal", "pl+haskell"])
@@ -485,7 +478,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Alice", href: "https://en.wikipedia.org/wiki/Alice_(programming_language)" },
       ],
-      releases: [{ version: "1.4", date: "2007-01-01", kind: "stable" }],
+      releases: [{ name: "Alice", version: "1.4", date: "2007-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+ml", "pl+oz"])
     .addLicenses(["lic+mit"])
@@ -528,7 +521,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "AmbientTalk",
       websites: [{ kind: "wikipedia", title: "AmbientTalk", href: "https://en.wikipedia.org/wiki/AmbientTalk" }],
-      releases: [{ version: "2.19", date: "2011-01-01", kind: "stable" }],
+      releases: [{ name: "AmbientTalk", version: "2.19", date: "2011-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+smalltalk", "pl+self", "pl+scheme", "pl+e", "pl+actor-based-concurrent"])
     .addParadigms(["para+objects", "para+prototypes", "para+concurrent", "para+event", "para+reflection"])
@@ -541,7 +534,7 @@ export function define(g: PlangsGraph) {
       name: "AMESim",
       websites: [{ kind: "wikipedia", title: "Simcenter Amesim", href: "https://en.wikipedia.org/wiki/AMESim" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Siemens_AG_logo.svg" }],
-      releases: [{ version: "unknown", date: "2310-01-01", kind: "stable" }],
+      releases: [{ name: "Simcenter Amesim", version: "unknown", date: "2310-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary"])
     .addPlatforms(["platf+cross-platform"]);
@@ -570,7 +563,7 @@ export function define(g: PlangsGraph) {
       images: [
         { kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/en/b/b6/AMPL_%28textbook_cover%29.jpg" },
       ],
-      releases: [{ version: "unknown", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "AMPL", version: "unknown", date: "2023-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+awk", "pl+c"])
     .addPerson("person+robert-fourer", { role: "designer" })
@@ -598,7 +591,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/Aplus_logo.jpg/121px-Aplus_logo.jpg",
         },
       ],
-      releases: [{ version: "4.22", date: "2008-01-01", kind: "stable" }],
+      releases: [{ name: "A+", version: "4.22", date: "2008-01-01", kind: "stable" }],
       extensions: [".+", "..", ".a", ".m"],
     })
     .addInfluences(["pl+apl"])
@@ -615,7 +608,7 @@ export function define(g: PlangsGraph) {
       name: "Apache Flex",
       websites: [{ kind: "wikipedia", title: "Apache Flex", href: "https://en.wikipedia.org/wiki/Apache_Flex" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/5/54/Apache_Flex_logo.svg" }],
-      releases: [{ version: "4.16.1", date: "2017-01-01", kind: "stable" }],
+      releases: [{ name: "Apache Flex", version: "4.16.1", date: "2017-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+apache", "lic+mozilla-public"]);
 
@@ -626,7 +619,7 @@ export function define(g: PlangsGraph) {
       name: "Apache Groovy",
       websites: [{ kind: "wikipedia", title: "Groovy", href: "https://en.wikipedia.org/wiki/Apache_Groovy" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/3/36/Groovy-logo.svg" }],
-      releases: [{ version: "4.0.0", date: "2021-01-01", kind: "preview" }],
+      releases: [{ name: "Groovy", version: "4.0.0", date: "2021-01-01", kind: "preview" }],
       extensions: [".groovy", ".gsh", ".gvy", ".gy"],
     })
     .addImplementations(["pl+gradle", "pl+grails"])
@@ -644,7 +637,7 @@ export function define(g: PlangsGraph) {
       name: "Apache Pig",
       websites: [{ kind: "wikipedia", title: "Apache Pig", href: "https://en.wikipedia.org/wiki/Apache_Pig" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/en/b/bc/Apache_Pig_Logo.svg" }],
-      releases: [{ version: "0.17.0", date: "2017-01-01", kind: "stable" }],
+      releases: [{ name: "Apache Pig", version: "0.17.0", date: "2017-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+apache"]);
 
@@ -663,7 +656,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/b/b6/APL_%28programming_language%29_logo.svg",
         },
       ],
-      releases: [{ version: "unknown", date: "1375-01-01", kind: "stable" }],
+      releases: [{ name: "APL", version: "unknown", date: "1375-01-01", kind: "stable" }],
     })
     .addPerson("person+larry-breed", { role: "developer" })
     .addPerson("person+dick-lathwell", { role: "developer" })
@@ -691,7 +684,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/App_Inventor_2.png/220px-App_Inventor_2.png",
         },
       ],
-      releases: [{ version: "unknown", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "MIT App Inventor", version: "unknown", date: "2023-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+cc", "lic+apache"]);
 
@@ -701,7 +694,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "AppleScript",
       websites: [{ kind: "wikipedia", title: "AppleScript", href: "https://en.wikipedia.org/wiki/AppleScript" }],
-      releases: [{ version: "2.8", date: "2014-01-01", kind: "stable" }],
+      releases: [{ name: "AppleScript", version: "2.8", date: "2014-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+hypertalk", "pl+smalltalk", "pl+xtalk"])
     .addLicenses(["lic+proprietary", "lic+apple-public-source"])
@@ -725,7 +718,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Arc",
       websites: [{ kind: "wikipedia", title: "Arc", href: "https://en.wikipedia.org/wiki/Arc_(programming_language)" }],
-      releases: [{ version: "3.2", date: "2018-01-01", kind: "stable" }],
+      releases: [{ name: "Arc", version: "3.2", date: "2018-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+racket"])
     .addInfluences(["pl+lisp", "pl+scheme"])
@@ -766,7 +759,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "ArkTS",
       websites: [{ kind: "wikipedia", title: "ArkTS", href: "https://en.wikipedia.org/wiki/ArkTS" }],
-      releases: [{ version: "4.1.7.3", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "ArkTS", version: "4.1.7.3", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences([
       "pl+typescript",
@@ -805,7 +798,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "ASP.NET",
       websites: [{ kind: "wikipedia", title: "ASP.NET (software)", href: "https://en.wikipedia.org/wiki/ASP.NET" }],
-      releases: [{ version: "4.8.1", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "ASP.NET (software)", version: "4.8.1", date: "2022-01-01", kind: "stable" }],
       extensions: [".aspx", ".cshtml", ".vbhtml"],
     })
     .addLicense("lic+proprietary", {
@@ -838,7 +831,7 @@ export function define(g: PlangsGraph) {
       name: "ATS",
       websites: [{ kind: "wikipedia", title: "ATS", href: "https://en.wikipedia.org/wiki/ATS_(programming_language)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/23/The_ATS_Logo.svg" }],
-      releases: [{ version: "0.4.2", date: "2020-01-01", kind: "stable" }],
+      releases: [{ name: "ATS", version: "0.4.2", date: "2020-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+dependent-ml", "pl+ml", "pl+ocaml", "pl+cpp"])
     .addLicenses(["lic+gpl"])
@@ -873,7 +866,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/2/22/Autoitlogo.png/121px-Autoitlogo.png",
         },
       ],
-      releases: [{ version: "3.3.16.1", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "AutoIt", version: "3.3.16.1", date: "2022-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+basic"])
     .addLicenses(["lic+freeware"])
@@ -892,7 +885,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/d/d5/The-AWK-Programming-Language.svg",
         },
       ],
-      releases: [{ version: "1003.1", date: "1003-01-01", kind: "stable" }],
+      releases: [{ name: "AWK", version: "1003.1", date: "1003-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+c", "pl+sed", "pl+snobol"])
     .addPerson("person+alfred-aho", { role: "designer" })
@@ -922,8 +915,8 @@ export function define(g: PlangsGraph) {
         },
       ],
       releases: [
-        { version: "unknown", date: "2015-01-01", kind: "stable" },
-        { version: "unknown", date: "2022-01-01", kind: "preview" },
+        { name: "Axiom", version: "unknown", date: "2015-01-01", kind: "stable" },
+        { name: "Axiom", version: "unknown", date: "2022-01-01", kind: "preview" },
       ],
     })
     .addLicenses(["lic+bsd-s"]);
@@ -943,7 +936,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/Axum_Banner.png/150px-Axum_Banner.png",
         },
       ],
-      releases: [{ version: "unknown", date: "2009-01-01", kind: "stable" }],
+      releases: [{ name: "Axum", version: "unknown", date: "2009-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+closed-source"])
     .addPlatforms(["platf+x86", "platf+x86-64", "platf+win"]);
@@ -1004,7 +997,7 @@ export function define(g: PlangsGraph) {
       name: "Bash",
       websites: [{ kind: "wikipedia", title: "Bash", href: "https://en.wikipedia.org/wiki/Bash_(Unix_shell)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/8/82/Gnu-bash-logo.svg" }],
-      releases: [{ version: "5.2.21", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Bash", version: "5.2.21", date: "2023-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+gpl"])
     .addPlatforms(["platf+gnu"]);
@@ -1044,7 +1037,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "BeanShell",
       websites: [{ kind: "wikipedia", title: "BeanShell", href: "https://en.wikipedia.org/wiki/BeanShell" }],
-      releases: [{ version: "2.1.1", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "BeanShell", version: "2.1.1", date: "2022-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+java"])
     .addInfluences(["pl+java", "pl+javascript", "pl+perl"])
@@ -1119,7 +1112,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Blockly-Demo.png/220px-Blockly-Demo.png",
         },
       ],
-      releases: [{ version: "unknown", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "Blockly", version: "unknown", date: "2022-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+apache"])
     .addPlatforms(["platf+web"]);
@@ -1131,7 +1124,7 @@ export function define(g: PlangsGraph) {
       name: "Boo",
       websites: [{ kind: "wikipedia", title: "Boo", href: "https://en.wikipedia.org/wiki/Boo_(programming_language)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/e/e6/BooLogo.png" }],
-      releases: [{ version: "0.9.7", date: "2013-01-01", kind: "stable" }],
+      releases: [{ name: "Boo", version: "0.9.7", date: "2013-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+c-sharp"])
     .addInfluences(["pl+c-sharp", "pl+python"])
@@ -1154,7 +1147,7 @@ export function define(g: PlangsGraph) {
           href: "https://en.wikipedia.org/wiki/Boomerang_(programming_language)",
         },
       ],
-      releases: [{ version: "0.2", date: "2009-01-01", kind: "stable" }],
+      releases: [{ name: "Boomerang", version: "0.2", date: "2009-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+ocaml"])
     .addPlatforms(["platf+linux", "platf+mac"]);
@@ -1227,7 +1220,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "C#", href: "https://en.wikipedia.org/wiki/C_Sharp_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/d/d2/C_Sharp_Logo_2023.svg" }],
-      releases: [{ version: "12.0", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "C#", version: "12.0", date: "2023-01-01", kind: "stable" }],
       extensions: [".cs", ".csx"],
     })
     .addDialects(["pl+c-", "pl+polyphonic-c-sharp", "pl+nemerle"])
@@ -1306,7 +1299,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "C*",
       websites: [{ kind: "wikipedia", title: "C*", href: "https://en.wikipedia.org/wiki/C*" }],
-      releases: [{ version: "unknown", date: "1993-01-01", kind: "stable" }],
+      releases: [{ name: "C*", version: "unknown", date: "1993-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+ansi-c", "pl+star-lisp"])
     .addPerson("person+thinking-machines", { role: "designer" })
@@ -1358,7 +1351,7 @@ export function define(g: PlangsGraph) {
       images: [
         { kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Caml.gif/121px-Caml.gif" },
       ],
-      releases: [{ version: "0.75", date: "2002-01-01", kind: "stable" }],
+      releases: [{ name: "Caml", version: "0.75", date: "2002-01-01", kind: "stable" }],
     })
     .addDialects(["pl+ats", "pl+f-sharp", "pl+f-star", "pl+ocaml", "pl+reason"])
     .addInfluences(["pl+ml"])
@@ -1409,7 +1402,6 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/6/69/Catrobat_logo.png/121px-Catrobat_logo.png",
         },
       ],
-      releases: [{ version: "1.11", kind: "stable" }],
     })
     .addInfluence("pl+scratch", { refs: [{ href: "https://catrobat.org/", title: "Catrobat Home" }] })
     .addLicenses(["lic+gnu-affero-gpl"])
@@ -1435,7 +1427,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Mesa[1]", href: "https://en.wikipedia.org/wiki/Cedar_(programming_language)" },
       ],
-      releases: [{ version: "6.0", date: "1981-01-01", kind: "stable" }],
+      releases: [{ name: "Mesa[1]", version: "6.0", date: "1981-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+algol", "pl+cedar", "pl+mesa"]);
 
@@ -1460,7 +1452,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/2/20/Ceylon_%28programming_language%29_logo.png/121px-Ceylon_%28programming_language%29_logo.png",
         },
       ],
-      releases: [{ version: "1.3.3", date: "2017-01-01", kind: "stable" }],
+      releases: [{ name: "Ceylon", version: "1.3.3", date: "2017-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+scala", "pl+smalltalk"])
     .addInfluence("pl+java", {
@@ -1519,7 +1511,7 @@ export function define(g: PlangsGraph) {
           href: "https://en.wikipedia.org/wiki/Ch_(computer_programming)",
         },
       ],
-      releases: [{ version: "8.0.0", date: "2017-01-01", kind: "stable" }],
+      releases: [{ name: "CH C/C++ interpreter", version: "8.0.0", date: "2017-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary", "lic+freeware", "lic+trialware"])
     .addPlatforms(["platf+x86"]);
@@ -1540,7 +1532,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Chapel", href: "https://en.wikipedia.org/wiki/Chapel_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/en/c/c0/Cray_Chapel_Logo.png" }],
-      releases: [{ version: "2.0.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Chapel", version: "2.0.0", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+c", "pl+cray-mta"])
     .addInfluence("pl+ada", {
@@ -1627,7 +1619,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "CHILL",
       websites: [{ kind: "wikipedia", title: "CHILL", href: "https://en.wikipedia.org/wiki/CHILL" }],
-      releases: [{ version: "3.0", date: "2003-01-01", kind: "stable" }],
+      releases: [{ name: "CHILL", version: "3.0", date: "2003-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+cobol", "pl+pl-slash"])
     .addParadigms(["para+imperative"])
@@ -1651,7 +1643,7 @@ export function define(g: PlangsGraph) {
       name: "ChucK",
       websites: [{ kind: "wikipedia", title: "ChucK", href: "https://en.wikipedia.org/wiki/ChucK" }],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/2/24/Chuck-2023.png" }],
-      releases: [{ version: "1.5.2.4", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "ChucK", version: "1.5.2.4", date: "2024-01-01", kind: "stable" }],
     })
     .addPerson("person+ge-wang", { role: "designer" })
     .addLicenses(["lic+mac-os-x", "lic+linux", "lic+win", "lic+gpl", "lic+ios"])
@@ -1692,7 +1684,7 @@ export function define(g: PlangsGraph) {
           href: "https://web.archive.org/web/20210117031010/http://cilkplus.org/",
         },
       ],
-      releases: [{ version: "1.2", date: "2013-01-01", kind: "stable" }],
+      releases: [{ name: "CilkOpenCilkCilk Plus", version: "1.2", date: "2013-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+c"])
     .addParadigms(["para+imperative", "para+structured", "para+parallel"])
@@ -1712,7 +1704,7 @@ export function define(g: PlangsGraph) {
           href: "https://web.archive.org/web/20210117031010/http://cilkplus.org/",
         },
       ],
-      releases: [{ version: "1.2", date: "2013-01-01", kind: "stable" }],
+      releases: [{ name: "CilkOpenCilkCilk Plus", version: "1.2", date: "2013-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+c"])
     .addParadigms(["para+imperative", "para+structured", "para+parallel"])
@@ -1727,7 +1719,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Claire", href: "https://en.wikipedia.org/wiki/Claire_(programming_language)" },
       ],
-      releases: [{ version: "3.3.46", date: "2009-01-01", kind: "stable" }],
+      releases: [{ name: "Claire", version: "3.3.46", date: "2009-01-01", kind: "stable" }],
       extensions: [".cl"],
     })
     .addInfluences(["pl+smalltalk", "pl+setl", "pl+ops5", "pl+lisp", "pl+ml", "pl+c"])
@@ -1748,7 +1740,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Clang_13.0.1_version_information_screenshot.png/220px-Clang_13.0.1_version_information_screenshot.png",
         },
       ],
-      releases: [{ version: "18.1.6", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Clang", version: "18.1.6", date: "2024-01-01", kind: "stable" }],
     })
     .addLicense("lic+apache", {
       refs: [
@@ -1768,7 +1760,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Clarion", href: "https://en.wikipedia.org/wiki/Clarion_(programming_language)" },
       ],
-      releases: [{ version: "unknown", date: "2018-01-01", kind: "stable" }],
+      releases: [{ name: "Clarion", version: "unknown", date: "2018-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary"])
     .addParadigms(["para+imperative", "para+structured", "para+objects"])
@@ -1788,7 +1780,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/4/4b/Clean_3.0_%28programming_language%29_logo.svg",
         },
       ],
-      releases: [{ version: "3.1", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "Clean", version: "3.1", date: "2022-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+miranda", "pl+haskell", "pl+iswim"])
     .addLicense("lic+bsd-s", {
@@ -1806,7 +1798,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Clipper", href: "https://en.wikipedia.org/wiki/Clipper_(programming_language)" },
       ],
-      releases: [{ version: "5.3", date: "1997-01-01", kind: "stable" }],
+      releases: [{ name: "Clipper", version: "5.3", date: "1997-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+dbase"])
     .addPlatforms(["platf+dos"]);
@@ -1833,7 +1825,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Clojure", href: "https://en.wikipedia.org/wiki/Clojure_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Clojure_logo.svg" }],
-      releases: [{ version: "1.11.2", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Clojure", version: "1.11.2", date: "2024-01-01", kind: "stable" }],
       extensions: [".clj", ".cljc", ".cljd", ".cljr", ".cljs", ".edn"],
     })
     .addInfluences([
@@ -1889,7 +1881,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Clozure CL",
       websites: [{ kind: "wikipedia", title: "Clozure CL", href: "https://en.wikipedia.org/wiki/Clozure_CL" }],
-      releases: [{ version: "1.12.2", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Clozure CL", version: "1.12.2", date: "2023-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+lgpl"])
     .addLicense("lic+apache", {
@@ -1908,7 +1900,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "CLU",
       websites: [{ kind: "wikipedia", title: "CLU", href: "https://en.wikipedia.org/wiki/CLU_(programming_language)" }],
-      releases: [{ version: "1.5", date: "1989-01-01", kind: "stable" }],
+      releases: [{ name: "CLU", version: "1.5", date: "1989-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+algol", "pl+lisp", "pl+simula", "pl+alphard", "pl+simula-67", "pl+simula67"])
     .addPerson("person+barbara-liskov", { role: "designer" })
@@ -1946,7 +1938,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "CMUCL",
       websites: [{ kind: "wikipedia", title: "CMUCL", href: "https://en.wikipedia.org/wiki/CMUCL" }],
-      releases: [{ version: "unknown", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "CMUCL", version: "unknown", date: "2023-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+public-domain"])
     .addPlatforms(["platf+cross-platform"]);
@@ -1966,7 +1958,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/COBOL_Report_Apr60.djvu/page1-121px-COBOL_Report_Apr60.djvu.jpg",
         },
       ],
-      releases: [{ version: "unknown", date: "1989-01-01", kind: "stable" }],
+      releases: [{ name: "COBOL", version: "unknown", date: "1989-01-01", kind: "stable" }],
       extensions: [".cbl", ".cob", ".cpy"],
     })
     .addDialects(["pl+watbol"])
@@ -2027,7 +2019,7 @@ export function define(g: PlangsGraph) {
       name: "CoffeeScript",
       websites: [{ kind: "wikipedia", title: "CoffeeScript", href: "https://en.wikipedia.org/wiki/CoffeeScript" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/d/d3/CoffeeScript-logo.svg" }],
-      releases: [{ version: "2.7.0", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "CoffeeScript", version: "2.7.0", date: "2022-01-01", kind: "stable" }],
       extensions: [".coffee"],
     })
     .addInfluences(["pl+javascript", "pl+ruby"])
@@ -2176,7 +2168,7 @@ export function define(g: PlangsGraph) {
       name: "Coq",
       websites: [{ kind: "wikipedia", title: "Coq", href: "https://en.wikipedia.org/wiki/Coq_(software)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/d/d8/Coq_logo.png" }],
-      releases: [{ version: "8.19.1", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Coq (software)", version: "8.19.1", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+ml", "pl+ocaml"])
     .addLicenses(["lic+lgpl"]);
@@ -2323,7 +2315,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Crystal", href: "https://en.wikipedia.org/wiki/Crystal_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Crystal_language_logo.svg" }],
-      releases: [{ version: "1.12.1", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Crystal", version: "1.12.1", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+c-sharp", "pl+ruby", "pl+c", "pl+rust", "pl+go", "pl+python", "pl+ms-visual-c-sharp"])
     .addLicenses(["lic+apache"])
@@ -2343,7 +2335,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Csound",
       websites: [{ kind: "wikipedia", title: "Csound", href: "https://en.wikipedia.org/wiki/Csound" }],
-      releases: [{ version: "6.18.1", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "Csound", version: "6.18.1", date: "2022-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+lgpl"]);
 
@@ -2372,7 +2364,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/G18225.png/121px-G18225.png",
         },
       ],
-      releases: [{ version: "3.0.4", date: "2018-01-01", kind: "stable" }],
+      releases: [{ name: "Cuneiform", version: "3.0.4", date: "2018-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+erlang"])
     .addInfluences(["pl+swift"])
@@ -2390,7 +2382,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Curl", href: "https://en.wikipedia.org/wiki/Curl_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/en/5/5a/Curl_logo.gif" }],
-      releases: [{ version: "8.0.13", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "Curl", version: "8.0.13", date: "2022-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+html", "pl+javascript", "pl+lisp"])
     .addPerson("person+steve-ward", { role: "designer" })
@@ -2407,7 +2399,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Curry", href: "https://en.wikipedia.org/wiki/Curry_(programming_language)" },
       ],
-      releases: [{ version: "3.6.0", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Curry", version: "3.6.0", date: "2023-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+prolog", "pl+c", "pl+haskell"])
     .addInfluences(["pl+haskell", "pl+prolog"])
@@ -2424,7 +2416,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Cyclone", href: "https://en.wikipedia.org/wiki/Cyclone_(programming_language)" },
       ],
-      releases: [{ version: "1.0", date: "2006-01-01", kind: "stable" }],
+      releases: [{ name: "Cyclone", version: "1.0", date: "2006-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+c", "pl+ml"]);
 
@@ -2440,7 +2432,7 @@ export function define(g: PlangsGraph) {
       images: [
         { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/24/D_Programming_Language_logo.svg" },
       ],
-      releases: [{ version: "2.108.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "D programming language", version: "2.108.0", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences([
       "pl+ada",
@@ -2486,7 +2478,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Dafny_logo.jpg/128px-Dafny_logo.jpg",
         },
       ],
-      releases: [{ version: "3.7.2", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "Dafny", version: "3.7.2", date: "2022-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+mit"])
     .addParadigms(["para+imperative", "para+functional"])
@@ -2514,7 +2506,7 @@ export function define(g: PlangsGraph) {
       images: [
         { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Dart_programming_language_logo.svg" },
       ],
-      releases: [{ version: "3.4.3", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Dart", version: "3.4.3", date: "2024-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+flutter"])
     .addInfluences(["pl+c", "pl+cpp", "pl+erlang", "pl+java", "pl+javascript", "pl+ruby", "pl+smalltalk"])
@@ -2608,7 +2600,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/DF_Logo_Compact_RGB.png/220px-DF_Logo_Compact_RGB.png",
         },
       ],
-      releases: [{ version: "24.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "DataFlex", version: "24.0", date: "2024-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+commercial"])
     .addLicense("lic+proprietary", {
@@ -2667,7 +2659,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/DBaseLogo_BlackWithRed_glass_300.png/121px-DBaseLogo_BlackWithRed_glass_300.png",
         },
       ],
-      releases: [{ version: "unknown", date: "2019-01-01", kind: "stable" }],
+      releases: [{ name: "DBase", version: "unknown", date: "2019-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+c"])
     .addPerson("person+cecil-wayne-ratliff", {
@@ -2731,7 +2723,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "DIBOL",
       websites: [{ kind: "wikipedia", title: "DIBOL", href: "https://en.wikipedia.org/wiki/DIBOL" }],
-      releases: [{ version: "unknown", date: "1992-01-01", kind: "stable" }],
+      releases: [{ name: "DIBOL", version: "unknown", date: "1992-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+basic", "pl+fortran", "pl+cobol"])
     .addParadigms(["para+imperative", "para+structured"])
@@ -2829,7 +2821,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/2/25/Dylan_logo.png/121px-Dylan_logo.png",
         },
       ],
-      releases: [{ version: "2022.1", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "Dylan", version: "2022.1", date: "2022-01-01", kind: "stable" }],
     })
     .addInfluences([
       "pl+armed-bear-common-lisp",
@@ -2856,7 +2848,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Dymola.png/100px-Dymola.png",
         },
       ],
-      releases: [{ version: "unknown", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Dymola", version: "unknown", date: "2024-01-01", kind: "stable" }],
     })
     .addPerson("person+dassault-systemes", { role: "developer" })
     .addLicenses(["lic+proprietary"])
@@ -2902,7 +2894,7 @@ export function define(g: PlangsGraph) {
           href: "https://en.wikipedia.org/wiki/Easy_Programming_Language",
         },
       ],
-      releases: [{ version: "5.95", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Easy Programming Language", version: "5.95", date: "2023-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary"])
     .addParadigms(["para+multi", "para+compiled", "para+imperative", "para+objects", "para+functional"])
@@ -2928,7 +2920,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "eC",
       websites: [{ kind: "wikipedia", title: "eC", href: "https://en.wikipedia.org/wiki/EC_(programming_language)" }],
-      releases: [{ version: "0.44.15", date: "2016-01-01", kind: "stable" }],
+      releases: [{ name: "eC", version: "0.44.15", date: "2016-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+c", "pl+cpp", "pl+python"])
     .addLicenses(["lic+bsd-3"])
@@ -2948,7 +2940,9 @@ export function define(g: PlangsGraph) {
           href: "https://en.wikipedia.org/wiki/ECLiPSe",
         },
       ],
-      releases: [{ version: "7.0", date: "2018-01-01", kind: "stable" }],
+      releases: [
+        { name: "ECLiPSe Constraint Logic Programming System", version: "7.0", date: "2018-01-01", kind: "stable" },
+      ],
     })
     .addLicenses(["lic+mozilla-public-licence"]);
 
@@ -2967,7 +2961,7 @@ export function define(g: PlangsGraph) {
       ],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Crystal_source.svg" }],
       extensions: [".es"],
-      releases: [{ version: "unknown", date: "2023-01-01", kind: "other" }],
+      releases: [{ name: "ECMAScript", version: "unknown", date: "2023-01-01", kind: "other" }],
     })
     .addDialects(["pl+haxe"])
     .addImplementations([
@@ -3051,7 +3045,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Eiffel", href: "https://en.wikipedia.org/wiki/Eiffel_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Eiffel_logo.svg" }],
-      releases: [{ version: "23.09", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Eiffel", version: "23.09", date: "2023-01-01", kind: "stable" }],
       extensions: [".e"],
     })
     .addImplementations(["pl+eiffelstudio", "pl+libertyeiffel", "pl+smarteiffel", "pl+visual-eiffel"])
@@ -3097,7 +3091,7 @@ export function define(g: PlangsGraph) {
       images: [
         { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/en/a/a4/Elixir_programming_language_logo.png" },
       ],
-      releases: [{ version: "1.16.3", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Elixir", version: "1.16.3", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+clojure", "pl+erlang", "pl+ruby"])
     .addLicense("lic+apache", {
@@ -3119,7 +3113,7 @@ export function define(g: PlangsGraph) {
       name: "Elm",
       websites: [{ kind: "wikipedia", title: "Elm", href: "https://en.wikipedia.org/wiki/Elm_(programming_language)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Elm_logo.svg" }],
-      releases: [{ version: "0.19.1", date: "2019-01-01", kind: "stable" }],
+      releases: [{ name: "Elm", version: "0.19.1", date: "2019-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+haskell", "pl+sml", "pl+ocaml", "pl+f-sharp", "pl+ml", "pl+poly-slashml"])
     .addLicenses(["lic+permissive"])
@@ -3152,7 +3146,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Epigram", href: "https://en.wikipedia.org/wiki/Epigram_(programming_language)" },
       ],
-      releases: [{ version: "unknown", date: "2006-01-01", kind: "stable" }],
+      releases: [{ name: "Epigram", version: "unknown", date: "2006-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+alf"])
     .addPerson("person+conor-mcbride", { role: "designer" })
@@ -3172,7 +3166,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Erlang", href: "https://en.wikipedia.org/wiki/Erlang_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/0/04/Erlang_logo.svg" }],
-      releases: [{ version: "26.2.5", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Erlang", version: "26.2.5", date: "2024-01-01", kind: "stable" }],
     })
     .addDialects(["pl+lfe"])
     .addInfluences(["pl+lisp", "pl+prolog", "pl+smalltalk", "pl+ml"])
@@ -3274,7 +3268,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Euphoria", href: "https://en.wikipedia.org/wiki/Euphoria_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/c3/OpenEuphoria_logo.png" }],
-      releases: [{ version: "4.1.0", date: "2021-01-01", kind: "stable" }],
+      releases: [{ name: "Euphoria", version: "4.1.0", date: "2021-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+basic"])
     .addLicenses(["lic+bsd-s"])
@@ -3330,8 +3324,8 @@ export function define(g: PlangsGraph) {
         },
       ],
       releases: [
-        { version: "0.99", date: "2017-01-01", kind: "stable" },
-        { version: "unknown", date: "2021-01-01", kind: "preview" },
+        { name: "Ezhil", version: "0.99", date: "2017-01-01", kind: "stable" },
+        { name: "Ezhil", version: "unknown", date: "2021-01-01", kind: "preview" },
       ],
     })
     .addInfluences(["pl+logo", "pl+basic", "pl+python"])
@@ -3363,7 +3357,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "F#", href: "https://en.wikipedia.org/wiki/F_Sharp_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/6/66/F_Sharp_logo.svg" }],
-      releases: [{ version: "8.0.0", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "F#", version: "8.0.0", date: "2023-01-01", kind: "stable" }],
     })
     .addInfluences([
       "pl+c-sharp",
@@ -3415,7 +3409,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Fstar-official-logo-2015.png/128px-Fstar-official-logo-2015.png",
         },
       ],
-      releases: [{ version: "2023.09.03", date: "2023-09-03", kind: "stable" }],
+      releases: [{ name: "F*", version: "2023.09.03", date: "2023-09-03", kind: "stable" }],
     })
     .addInfluences(["pl+f-sharp", "pl+coq", "pl+dafny", "pl+lean", "pl+ocaml", "pl+sml", "pl+ml", "pl+poly-slashml"])
     .addLicenses(["lic+apache"])
@@ -3447,7 +3441,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/f/ff/NewFactorLogo.png/200px-NewFactorLogo.png",
         },
       ],
-      releases: [{ version: "0.99", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Factor", version: "0.99", date: "2023-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+joy", "pl+forth", "pl+lisp", "pl+self"])
     .addLicenses(["lic+bsd"])
@@ -3464,7 +3458,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Fantom", href: "https://en.wikipedia.org/wiki/Fantom_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Fantom-logo.png" }],
-      releases: [{ version: "1.0.79", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Fantom", version: "1.0.79", date: "2023-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+c-sharp", "pl+java", "pl+scala", "pl+ruby", "pl+erlang"])
     .addLicense("lic+academic-free", {
@@ -3497,7 +3491,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "FAUST", href: "https://en.wikipedia.org/wiki/FAUST_(programming_language)" },
       ],
-      releases: [{ version: "2.60.3", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "FAUST", version: "2.60.3", date: "2023-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+gpl"]);
 
@@ -3591,7 +3585,7 @@ export function define(g: PlangsGraph) {
       name: "Flutter",
       websites: [{ kind: "wikipedia", title: "Flutter", href: "https://en.wikipedia.org/wiki/Flutter_(software)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/4/44/Google-flutter-logo.svg" }],
-      releases: [{ version: "3.22.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Flutter", version: "3.22.0", date: "2024-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+bsd-n"])
     .addPlatforms([
@@ -3678,7 +3672,6 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "FpgaC",
       websites: [{ kind: "wikipedia", title: "FpgaC", href: "https://en.wikipedia.org/wiki/FpgaC" }],
-      releases: [{ version: "1.0", kind: "stable" }],
     })
     .addInfluences(["pl+c"])
     .addPlatforms(["platf+fpga"]);
@@ -3753,7 +3746,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Gambit", href: "https://en.wikipedia.org/wiki/Gambit_(Scheme_implementation)" },
       ],
-      releases: [{ version: "4.9.5", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Gambit", version: "4.9.5", date: "2023-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+lisp", "pl+scheme", "pl+multilisp"])
     .addLicenses(["lic+lgpl", "lic+apache"])
@@ -3768,7 +3761,7 @@ export function define(g: PlangsGraph) {
       name: "GameMaker",
       websites: [{ kind: "wikipedia", title: "GameMaker", href: "https://en.wikipedia.org/wiki/Game_Maker_Language" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/en/4/4b/GameMaker_Logo.svg" }],
-      releases: [{ version: "2024.4.1", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "GameMaker", version: "2024.4.1", date: "2024-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary"]);
 
@@ -3781,7 +3774,7 @@ export function define(g: PlangsGraph) {
       images: [
         { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/a/af/GNU_Compiler_Collection_logo.svg" },
       ],
-      releases: [{ version: "14.1", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "GNU Compiler Collection", version: "14.1", date: "2024-01-01", kind: "stable" }],
     })
     .addLicense("lic+gpl", {
       refs: [
@@ -3811,7 +3804,6 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/2/22/GemStone-S_logo_and_wordmark.png/121px-GemStone-S_logo_and_wordmark.png",
         },
       ],
-      releases: [{ version: "3.7.1", kind: "stable" }],
     })
     .addImplementations(["pl+smalltalk"])
     .addInfluences(["pl+smalltalk"])
@@ -3871,7 +3863,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Genie", href: "https://en.wikipedia.org/wiki/Genie_(programming_language)" },
       ],
-      releases: [{ version: "0.52.3", date: "2021-01-01", kind: "stable" }],
+      releases: [{ name: "Genie", version: "0.52.3", date: "2021-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+boo", "pl+d", "pl+pascal"])
     .addInfluence("pl+python", {
@@ -3895,8 +3887,8 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "Gforth", href: "https://en.wikipedia.org/wiki/Gforth" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Gforth_Logo.png" }],
       releases: [
-        { version: "0.7.3", date: "2014-01-01", kind: "stable" },
-        { version: "0.7.9", date: "2020-01-01", kind: "preview" },
+        { name: "Gforth", version: "0.7.3", date: "2014-01-01", kind: "stable" },
+        { name: "Gforth", version: "0.7.9", date: "2020-01-01", kind: "preview" },
       ],
     })
     .addLicenses(["lic+gpl"]);
@@ -3929,7 +3921,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Gleam_Lucy.png/220px-Gleam_Lucy.png",
         },
       ],
-      releases: [{ version: "1.1.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Gleam", version: "1.1.0", date: "2024-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+rust"])
     .addInfluences(["pl+elixir", "pl+reia"])
@@ -3961,7 +3953,7 @@ export function define(g: PlangsGraph) {
       name: "GNAT",
       websites: [{ kind: "wikipedia", title: "GNAT", href: "https://en.wikipedia.org/wiki/GNAT" }],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/en/2/22/Heckert_GNU_white.svg" }],
-      releases: [{ version: "9.2", date: "2019-08-12", kind: "stable" }],
+      releases: [{ name: "GNAT", version: "9.2", date: "2019-08-12", kind: "stable" }],
     })
     .addLicense("lic+gpl", {
       refs: [{ href: "https://www.gnu.org/licenses/gcc-exception.html", title: "GCC Runtime Library Exception" }],
@@ -3978,7 +3970,7 @@ export function define(g: PlangsGraph) {
       images: [
         { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/28/GNU_Data_Language_%28logo%29.png" },
       ],
-      releases: [{ version: "1.0.5", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "GNU Data Language", version: "1.0.5", date: "2024-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+gpl"]);
 
@@ -3991,7 +3983,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "GNU E", href: "https://en.wikipedia.org/wiki/GNU_E" },
         { kind: "homepage", title: "ftp://ftp.cs.wisc.edu/exodus/E/", href: "ftp://ftp.cs.wisc.edu/exodus/E/" },
       ],
-      releases: [{ version: "2.3.3", date: "1993-01-01", kind: "stable" }],
+      releases: [{ name: "GNU E", version: "2.3.3", date: "1993-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+cpp"])
     .addLicenses(["lic+gpl"])
@@ -4006,7 +3998,7 @@ export function define(g: PlangsGraph) {
       name: "Guile",
       websites: [{ kind: "wikipedia", title: "GNU Guile", href: "https://en.wikipedia.org/wiki/GNU_Guile" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/b/b3/GNU-Guile-logo.svg" }],
-      releases: [{ version: "3.0.9", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "GNU Guile", version: "3.0.9", date: "2023-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+lisp", "pl+scheme", "pl+scm", "pl+siod"])
     .addLicenses(["lic+lgpl"])
@@ -4042,7 +4034,7 @@ export function define(g: PlangsGraph) {
       name: "GNU Octave",
       websites: [{ kind: "wikipedia", title: "GNU Octave", href: "https://en.wikipedia.org/wiki/GNU_Octave" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Gnu-octave-logo.svg" }],
-      releases: [{ version: "9.1.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "GNU Octave", version: "9.1.0", date: "2024-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+gpl"]);
 
@@ -4053,7 +4045,7 @@ export function define(g: PlangsGraph) {
       name: "GNU Prolog",
       websites: [{ kind: "wikipedia", title: "GNU Prolog", href: "https://en.wikipedia.org/wiki/GNU_Prolog" }],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/en/2/22/Heckert_GNU_white.svg" }],
-      releases: [{ version: "1.5.0", date: "2021-01-01", kind: "stable" }],
+      releases: [{ name: "GNU Prolog", version: "1.5.0", date: "2021-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+gpl", "lic+lgpl"]);
 
@@ -4064,7 +4056,7 @@ export function define(g: PlangsGraph) {
       name: "Go",
       websites: [{ kind: "wikipedia", title: "Go", href: "https://en.wikipedia.org/wiki/Go_(programming_language)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg" }],
-      releases: [{ version: "1.22.4", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Go", version: "1.22.4", date: "2024-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+assembly", "pl+cpp"])
     .addInfluences([
@@ -4132,7 +4124,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Go!",
       websites: [{ kind: "wikipedia", title: "Go!", href: "https://en.wikipedia.org/wiki/Go!_(programming_language)" }],
-      releases: [{ version: "unknown", date: "2007-01-01", kind: "preview" }],
+      releases: [{ name: "Go!", version: "unknown", date: "2007-01-01", kind: "preview" }],
     })
     .addInfluence("pl+prolog", {
       refs: [
@@ -4161,7 +4153,7 @@ export function define(g: PlangsGraph) {
           href: "https://www.cs.unipr.it/~hill/GOEDEL/expgoedel.html",
         },
       ],
-      releases: [{ version: "1.5", date: "1995-01-01", kind: "stable" }],
+      releases: [{ name: "Gödel", version: "1.5", date: "1995-01-01", kind: "stable" }],
     })
     .addParadigms(["para+dec", "para+logic"])
     .addPlatforms(["platf+unix"])
@@ -4185,7 +4177,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Golo", href: "https://en.wikipedia.org/wiki/Golo_(programming_language)" },
       ],
-      releases: [{ version: "3.4.0", date: "2021-01-01", kind: "stable" }],
+      releases: [{ name: "Golo", version: "3.4.0", date: "2021-01-01", kind: "stable" }],
     })
     .addPerson("person+insa-lyon", { role: "developer" })
     .addLicenses(["lic+eclipse-public"])
@@ -4210,7 +4202,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Gosu", href: "https://en.wikipedia.org/wiki/Gosu_(programming_language)" },
       ],
-      releases: [{ version: "1.17.10", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Gosu", version: "1.17.10", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+java", "pl+c-sharp"])
     .addLicenses(["lic+apache"])
@@ -4268,7 +4260,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Groovy", href: "https://en.wikipedia.org/wiki/Groovy_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/3/36/Groovy-logo.svg" }],
-      releases: [{ version: "4.0.0", date: "2021-01-01", kind: "preview" }],
+      releases: [{ name: "Groovy", version: "4.0.0", date: "2021-01-01", kind: "preview" }],
       extensions: [".groovy", ".gsh", ".gvy", ".gy"],
     })
     .addImplementations(["pl+gradle", "pl+grails"])
@@ -4309,7 +4301,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/a/a7/Hack_%28programming_language%29_logo.svg",
         },
       ],
-      releases: [{ version: "4.172", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "Hack", version: "4.172", date: "2022-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+c-sharp", "pl+php", "pl+ocaml", "pl+scala", "pl+haskell", "pl+ms-visual-c-sharp"])
     .addInfluence("pl+java", {
@@ -4346,7 +4338,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Hamilton_C_shell_x64_on_Windows_7.png/300px-Hamilton_C_shell_x64_on_Windows_7.png",
         },
       ],
-      releases: [{ version: "5.2", date: "2017-01-01", kind: "stable" }],
+      releases: [{ name: "Hamilton C shell", version: "5.2", date: "2017-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+commercial", "lic+proprietary"]);
 
@@ -4356,7 +4348,6 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Handel-C",
       websites: [{ kind: "wikipedia", title: "Handel-C", href: "https://en.wikipedia.org/wiki/Handel-C" }],
-      releases: [{ version: "3.0", kind: "stable" }],
     })
     .addInfluences(["pl+c", "pl+communicating-sequential-processes", "pl+occam"])
     .addPerson("person+siemens-eda", { role: "developer" })
@@ -4370,10 +4361,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Harbour Project",
       websites: [{ kind: "wikipedia", title: "Harbour", href: "https://en.wikipedia.org/wiki/Harbour_(software)" }],
-      releases: [
-        { version: "3.0.0", date: "2011-01-01", kind: "stable" },
-        { version: "3.2.0", kind: "preview" },
-      ],
+      releases: [{ name: "Harbour Project", version: "3.0.0", date: "2011-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+dbase"])
     .addLicenses(["lic+open-source"])
@@ -4391,7 +4379,7 @@ export function define(g: PlangsGraph) {
         { kind: "homepage", title: "http://vm.marist.edu/~pipeline", href: "http://vm.marist.edu/~pipeline" },
       ],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/en/0/0c/Pipjarg1.jpeg" }],
-      releases: [{ version: "1.1.12", date: "2020-06-03", kind: "stable" }],
+      releases: [{ name: "Pipelines", version: "1.1.12", date: "2020-06-03", kind: "stable" }],
     })
     .addInfluences(["pl+pipeline"])
     .addParadigms(["para+dataflow"])
@@ -4413,8 +4401,8 @@ export function define(g: PlangsGraph) {
         },
       ],
       releases: [
-        { version: "unknown", date: "2010-01-01", kind: "stable" },
-        { version: "unknown", date: "2020-01-01", kind: "preview" },
+        { name: "Haskell", version: "unknown", date: "2010-01-01", kind: "stable" },
+        { name: "Haskell", version: "unknown", date: "2020-01-01", kind: "preview" },
       ],
     })
     .addDialects(["pl+elm", "pl+gofer", "pl+hume"])
@@ -4464,7 +4452,7 @@ export function define(g: PlangsGraph) {
       name: "Haxe",
       websites: [{ kind: "wikipedia", title: "Haxe", href: "https://en.wikipedia.org/wiki/Haxe" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/8/89/Haxe_logo.svg" }],
-      releases: [{ version: "4.3.4", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Haxe", version: "4.3.4", date: "2024-01-01", kind: "stable" }],
       scoping: ["lexical"],
     })
     .addImplementations(["pl+ocaml"])
@@ -4511,7 +4499,7 @@ export function define(g: PlangsGraph) {
       name: "HHVM",
       websites: [{ kind: "wikipedia", title: "HHVM", href: "https://en.wikipedia.org/wiki/HHVM" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/cf/HHVM_logo.svg" }],
-      releases: [{ version: "3.15.0", date: "2016-01-01", kind: "stable" }],
+      releases: [{ name: "HHVM", version: "3.15.0", date: "2016-01-01", kind: "stable" }],
     })
     .addPerson("person+meta-platforms", { role: "developer" })
     .addLicenses(["lic+php"])
@@ -4545,7 +4533,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Hollywood-ide3.jpg/220px-Hollywood-ide3.jpg",
         },
       ],
-      releases: [{ version: "6.0", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "HollywoodHollywood Designer", version: "6.0", date: "2022-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary"]);
 
@@ -4556,7 +4544,7 @@ export function define(g: PlangsGraph) {
       name: "Hop",
       websites: [{ kind: "wikipedia", title: "Hop", href: "https://en.wikipedia.org/wiki/Hop_(software)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Hop_logo.svg" }],
-      releases: [{ version: "2.4.2", date: "2013-01-01", kind: "stable" }],
+      releases: [{ name: "Hop", version: "2.4.2", date: "2013-01-01", kind: "stable" }],
     })
     .addInfluence("pl+scheme", {
       refs: [
@@ -4617,7 +4605,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Hume", href: "https://en.wikipedia.org/wiki/Hume_(programming_language)" },
       ],
-      releases: [{ version: "0.8", date: "2008-01-01", kind: "stable" }],
+      releases: [{ name: "Hume", version: "0.8", date: "2008-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+haskell"])
     .addParadigms(["para+functional"])
@@ -4637,8 +4625,8 @@ export function define(g: PlangsGraph) {
         },
       ],
       releases: [
-        { version: "0.29.0", date: "2024-01-01", kind: "stable" },
-        { version: "1.0", date: "2022-01-01", kind: "preview" },
+        { name: "Hy", version: "0.29.0", date: "2024-01-01", kind: "stable" },
+        { name: "Hy", version: "1.0", date: "2022-01-01", kind: "preview" },
       ],
     })
     .addInfluences(["pl+kawa", "pl+clojure", "pl+common-lisp"])
@@ -4735,7 +4723,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/IBM_RPG_logo.png/121px-IBM_RPG_logo.png",
         },
       ],
-      releases: [{ version: "unknown", date: "2020-01-01", kind: "stable" }],
+      releases: [{ name: "RPGReport Program Generator", version: "unknown", date: "2020-01-01", kind: "stable" }],
     })
     .addDialects(["pl+rpg"])
     .addInfluences(["pl+ibm-709-slash90-9pac", "pl+fargo"])
@@ -4781,7 +4769,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Panorama_Icon_logo_Mondadori.png/121px-Panorama_Icon_logo_Mondadori.png",
         },
       ],
-      releases: [{ version: "9.5.24", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Icon", version: "9.5.24", date: "2024-01-01", kind: "stable" }],
     })
     .addDialects(["pl+unicon"])
     .addInfluences(["pl+snobol", "pl+algol"])
@@ -4802,7 +4790,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "IDL",
       websites: [{ kind: "wikipedia", title: "IDL", href: "https://en.wikipedia.org/wiki/IDL_(programming_language)" }],
-      releases: [{ version: "9.0", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "IDL (Interactive Data Language)", version: "9.0", date: "2023-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+gnu-data"])
     .addInfluences(["pl+fortran"])
@@ -4818,8 +4806,8 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Idris", href: "https://en.wikipedia.org/wiki/Idris_(programming_language)" },
       ],
       releases: [
-        { version: "1.3.4", date: "2021-01-01", kind: "stable" },
-        { version: "0.7.0", date: "2023-01-01", kind: "preview" },
+        { name: "Idris", version: "1.3.4", date: "2021-01-01", kind: "stable" },
+        { name: "Idris", version: "0.7.0", date: "2023-01-01", kind: "preview" },
       ],
     })
     .addInfluences(["pl+agda", "pl+epigram", "pl+f-sharp"])
@@ -4856,7 +4844,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "IMP",
       websites: [{ kind: "wikipedia", title: "IMP", href: "https://en.wikipedia.org/wiki/IMP_(programming_language)" }],
-      releases: [{ version: "unknown", date: "1972-01-01", kind: "stable" }],
+      releases: [{ name: "IMP", version: "unknown", date: "1972-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+algol"])
     .addInfluences(["pl+algol"])
@@ -4916,7 +4904,7 @@ export function define(g: PlangsGraph) {
         href: "https://en.wikipedia.org/wiki/Intel_Array_Building_Blocks",
       },
     ],
-    releases: [{ version: "1.0", date: "2011-01-01", kind: "preview" }],
+    releases: [{ name: "Intel Array Building Blocks", version: "1.0", date: "2011-01-01", kind: "preview" }],
   });
 
   /**/
@@ -4931,7 +4919,7 @@ export function define(g: PlangsGraph) {
           href: "https://en.wikipedia.org/wiki/Intel_Parallel_Building_Blocks",
         },
       ],
-      releases: [{ version: "unknown", date: "2010-01-01", kind: "stable" }],
+      releases: [{ name: "Parallel Building Blocks", version: "unknown", date: "2010-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+cilk-plus", "pl+threading-building-blocks", "pl+intel-array-building-blocks"])
     .addParadigms(["para+imperative", "para+structured", "para+parallel"])
@@ -4969,7 +4957,7 @@ export function define(g: PlangsGraph) {
       name: "Io",
       websites: [{ kind: "wikipedia", title: "Io", href: "https://en.wikipedia.org/wiki/Io_(programming_language)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/26/Io-logo.svg" }],
-      releases: [{ version: "unknown", date: "2017-01-01", kind: "stable" }],
+      releases: [{ name: "Io", version: "unknown", date: "2017-01-01", kind: "stable" }],
     })
     .addInfluences([
       "pl+smalltalk",
@@ -4989,7 +4977,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "ISETL",
       websites: [{ kind: "wikipedia", title: "SETL", href: "https://en.wikipedia.org/wiki/ISETL" }],
-      releases: [{ version: "1.1", date: "2005-01-01", kind: "stable" }],
+      releases: [{ name: "SETL", version: "1.1", date: "2005-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+algol", "pl+isetl", "pl+setl", "pl+setl2"])
     .addPerson("person+jacob-t-schwartz", { role: "designer" })
@@ -5019,7 +5007,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/6/65/J_%28programming_language%29_icon.png/121px-J_%28programming_language%29_icon.png",
         },
       ],
-      releases: [{ version: "9.5", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "J", version: "9.5", date: "2023-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+fl", "pl+apl"])
     .addPerson("person+roger-hui", { role: "designer" })
@@ -5213,7 +5201,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "jOOQ", href: "https://en.wikipedia.org/wiki/Java_Object_Oriented_Querying" },
       ],
-      releases: [{ version: "3.19.2", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "jOOQ", version: "3.19.2", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+sql"])
     .addLicenses(["lic+apache"])
@@ -5245,7 +5233,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/JavaFX_Logo.png/200px-JavaFX_Logo.png",
         },
       ],
-      releases: [{ version: "1.2", date: "2009-01-01", kind: "stable" }],
+      releases: [{ name: "JavaFX", version: "1.2", date: "2009-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+gpl"])
     .addPlatforms(["platf+jvm", "platf+cross-platform"]);
@@ -5270,8 +5258,8 @@ export function define(g: PlangsGraph) {
         },
       ],
       releases: [
-        { version: "unknown", date: "2023-01-01", kind: "stable" },
-        { version: "unknown", date: "2025-01-01", kind: "preview" },
+        { name: "JavaScript", version: "unknown", date: "2023-01-01", kind: "stable" },
+        { name: "JavaScript", version: "unknown", date: "2025-01-01", kind: "preview" },
       ],
       extensions: [".cjs", ".js", ".mjs[4]"],
     })
@@ -5346,7 +5334,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "JModelica.org",
       websites: [{ kind: "wikipedia", title: "JModelica.org", href: "https://en.wikipedia.org/wiki/JModelica.org" }],
-      releases: [{ version: "2.10", date: "2019-01-01", kind: "stable" }],
+      releases: [{ name: "JModelica.org", version: "2.10", date: "2019-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary"]);
 
@@ -5414,7 +5402,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Joy",
       websites: [{ kind: "wikipedia", title: "Joy", href: "https://en.wikipedia.org/wiki/Joy_(programming_language)" }],
-      releases: [{ version: "unknown", date: "2003-01-01", kind: "stable" }],
+      releases: [{ name: "Joy", version: "unknown", date: "2003-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+ffp", "pl+forth", "pl+fp", "pl+scheme"])
     .addParadigms(["para+multi", "para+functional", "para+concatenative", "para+stack"])
@@ -5427,7 +5415,7 @@ export function define(g: PlangsGraph) {
       name: "jq",
       websites: [{ kind: "wikipedia", title: "jq", href: "https://en.wikipedia.org/wiki/Jq_(programming_language)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Jq_logo.svg" }],
-      releases: [{ version: "1.7.1", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "jq", version: "1.7.1", date: "2023-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+c", "pl+go", "pl+rust"])
     .addInfluences(["pl+icon"])
@@ -5442,7 +5430,7 @@ export function define(g: PlangsGraph) {
       name: "JScript",
       websites: [{ kind: "wikipedia", title: "JScript", href: "https://en.wikipedia.org/wiki/JScript" }],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/en/e/e8/Jscript_icon.gif" }],
-      releases: [{ version: "9.0", date: "2011-01-01", kind: "stable" }],
+      releases: [{ name: "JScript", version: "9.0", date: "2011-01-01", kind: "stable" }],
       extensions: [".asp", ".hta", ".htm", ".html", ".js", ".jse", ".wsc", ".wsf"],
     })
     .addImplementations(["pl+active-scripting", "pl+jscript-.net"])
@@ -5508,8 +5496,8 @@ export function define(g: PlangsGraph) {
         },
       ],
       releases: [
-        { version: "1.10.3", date: "2024-01-01", kind: "stable" },
-        { version: "1.11.0", date: "2024-01-01", kind: "preview" },
+        { name: "Julia", version: "1.10.3", date: "2024-01-01", kind: "stable" },
+        { name: "Julia", version: "1.11.0", date: "2024-01-01", kind: "preview" },
       ],
     })
     .addImplementations(["pl+c", "pl+cpp", "pl+scheme"])
@@ -5662,7 +5650,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Kawa", href: "https://en.wikipedia.org/wiki/Kawa_(Scheme_implementation)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Kawa-logo.svg" }],
-      releases: [{ version: "3.1.1", date: "2020-01-01", kind: "stable" }],
+      releases: [{ name: "Kawa", version: "3.1.1", date: "2020-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+java", "pl+scheme"])
     .addInfluences(["pl+lisp", "pl+scheme"])
@@ -5694,7 +5682,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Kivy_logo.png/120px-Kivy_logo.png",
         },
       ],
-      releases: [{ version: "2.3.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Kivy", version: "2.3.0", date: "2024-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+mit", "lic+free"]);
 
@@ -5715,7 +5703,7 @@ export function define(g: PlangsGraph) {
   g.buildPlang("pl+kodu-game-lab").merge({
     name: "Kodu Game Lab",
     websites: [{ kind: "wikipedia", title: "Kodu Game Lab", href: "https://en.wikipedia.org/wiki/Kodu_Game_Lab" }],
-    releases: [{ version: "1.6.18.0", date: "2023-01-01", kind: "stable" }],
+    releases: [{ name: "Kodu Game Lab", version: "1.6.18.0", date: "2023-01-01", kind: "stable" }],
   });
 
   /**/
@@ -5736,7 +5724,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Kojo-screenshot.png/300px-Kojo-screenshot.png",
         },
       ],
-      releases: [{ version: "2.9.24", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "The Kojo Learning Environment", version: "2.9.24", date: "2023-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+logo", "pl+processing"])
     .addLicenses(["lic+gpl"])
@@ -5769,7 +5757,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Kotlin", href: "https://en.wikipedia.org/wiki/Kotlin_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/1/11/Kotlin_logo_2021.svg" }],
-      releases: [{ version: "2.0.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Kotlin", version: "2.0.0", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences([
       "pl+apache-groovy",
@@ -5828,7 +5816,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/6/60/LabVIEW_Logo.jpg/300px-LabVIEW_Logo.jpg",
         },
       ],
-      releases: [{ version: "5.1", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "LabVIEW", version: "5.1", date: "2023-01-01", kind: "stable" }],
     })
     .addPerson("person+national-instruments", { role: "developer" })
     .addLicenses(["lic+proprietary"]);
@@ -5886,7 +5874,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/d/dc/LassoSoft_and_Lasso_Logo.png/220px-LassoSoft_and_Lasso_Logo.png",
         },
       ],
-      releases: [{ version: "9.3.1", date: "2015-01-01", kind: "stable" }],
+      releases: [{ name: "Lasso", version: "9.3.1", date: "2015-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+c"])
     .addInfluences(["pl+dylan", "pl+smalltalk", "pl+scala"])
@@ -5903,8 +5891,8 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "Lean", href: "https://en.wikipedia.org/wiki/Lean_(proof_assistant)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/d/dc/Lean_logo2.svg" }],
       releases: [
-        { version: "4.7.0", date: "2024-01-01", kind: "stable" },
-        { version: "4.8.0", date: "2024-01-01", kind: "preview" },
+        { name: "Lean", version: "4.7.0", date: "2024-01-01", kind: "stable" },
+        { name: "Lean", version: "4.8.0", date: "2024-01-01", kind: "preview" },
       ],
     })
     .addImplementations(["pl+cpp"])
@@ -5926,7 +5914,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/LFE_%28Lisp_Flavored_Erlang%29_Logo.png/121px-LFE_%28Lisp_Flavored_Erlang%29_Logo.png",
         },
       ],
-      releases: [{ version: "2.1.1", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "LFE", version: "2.1.1", date: "2023-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+erlang"])
     .addInfluences([
@@ -5950,7 +5938,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Liberty Eiffel",
       websites: [{ kind: "wikipedia", title: "LibertyEiffel", href: "https://en.wikipedia.org/wiki/LibertyEiffel" }],
-      releases: [{ version: "2016.05", date: "2016-01-01", kind: "stable" }],
+      releases: [{ name: "Liberty Eiffel", version: "2016.05", date: "2016-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+gpl"]);
 
@@ -6008,7 +5996,7 @@ export function define(g: PlangsGraph) {
           href: "https://web.archive.org/web/20051102195348/http://www.littleb.org/",
         },
       ],
-      releases: [{ version: "1.6.0", date: "2008-01-01", kind: "stable" }],
+      releases: [{ name: "Little b", version: "1.6.0", date: "2008-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+linux", "pl+mac-os-x", "pl+win"])
     .addInfluences(["pl+lisp"])
@@ -6022,8 +6010,8 @@ export function define(g: PlangsGraph) {
       name: "LiveCode",
       websites: [{ kind: "wikipedia", title: "LiveCode", href: "https://en.wikipedia.org/wiki/LiveCode" }],
       releases: [
-        { version: "9.6.4", date: "2021-01-01", kind: "stable" },
-        { version: "9.6.5", date: "2021-01-01", kind: "preview" },
+        { name: "LiveCodeLiveCode Script", version: "9.6.4", date: "2021-01-01", kind: "stable" },
+        { name: "LiveCodeLiveCode Script", version: "9.6.5", date: "2021-01-01", kind: "preview" },
       ],
     })
     .addInfluences(["pl+hypertalk", "pl+xtalk"])
@@ -6043,7 +6031,7 @@ export function define(g: PlangsGraph) {
           href: "https://en.wikipedia.org/wiki/LiveScript_(programming_language)",
         },
       ],
-      releases: [{ version: "1.6.1", date: "2020-01-01", kind: "stable" }],
+      releases: [{ name: "LiveScript", version: "1.6.1", date: "2020-01-01", kind: "stable" }],
       extensions: [".ls"],
     })
     .addInfluences(["pl+coffeescript", "pl+f-sharp", "pl+javascript", "pl+haskell"])
@@ -6089,7 +6077,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Logtalk",
       websites: [{ kind: "wikipedia", title: "Logtalk", href: "https://en.wikipedia.org/wiki/Logtalk" }],
-      releases: [{ version: "3.66.0", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Logtalk", version: "3.66.0", date: "2023-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+prolog", "pl+smalltalk", "pl+objective-c"])
     .addLicenses(["lic+artistic-2", "lic+apache"])
@@ -6112,7 +6100,7 @@ export function define(g: PlangsGraph) {
       name: "Lua",
       websites: [{ kind: "wikipedia", title: "Lua", href: "https://en.wikipedia.org/wiki/Lua_(programming_language)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Lua-Logo.svg" }],
-      releases: [{ version: "5.4.6", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Lua", version: "5.4.6", date: "2023-01-01", kind: "stable" }],
       extensions: [".lua"],
     })
     .addImplementations(["pl+ansi-c", "pl+luajit"])
@@ -6268,7 +6256,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Magma-logo.png/120px-Magma-logo.png",
         },
       ],
-      releases: [{ version: "2.27", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Magma", version: "2.27", date: "2023-01-01", kind: "stable" }],
     })
     .addPerson("person+school-of-mathematics", { role: "developer" });
 
@@ -6301,7 +6289,7 @@ export function define(g: PlangsGraph) {
       name: "Maple",
       websites: [{ kind: "wikipedia", title: "Maple", href: "https://en.wikipedia.org/wiki/Maple_(software)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/3/30/Maple_2015_logo.svg" }],
-      releases: [{ version: "unknown", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Maple", version: "unknown", date: "2024-01-01", kind: "stable" }],
     })
     .addPerson("person+waterloo-maple", { role: "developer" })
     .addLicenses(["lic+proprietary", "lic+commercial"])
@@ -6373,7 +6361,14 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Matlab_Logo.png/121px-Matlab_Logo.png",
         },
       ],
-      releases: [{ version: "unknown", date: "2024-01-01", kind: "stable" }],
+      releases: [
+        {
+          name: "MATLAB (programming language)MATLAB (software)",
+          version: "unknown",
+          date: "2024-01-01",
+          kind: "stable",
+        },
+      ],
     })
     .addImplementations(["pl+gnu-octave", "pl+sysquake"])
     .addInfluences(["pl+fortran"])
@@ -6404,7 +6399,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Logo_Max_8_software.jpg/180px-Logo_Max_8_software.jpg",
         },
       ],
-      releases: [{ version: "8.6.2", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Max", version: "8.6.2", date: "2024-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary"]);
 
@@ -6415,7 +6410,7 @@ export function define(g: PlangsGraph) {
       name: "Maxima",
       websites: [{ kind: "wikipedia", title: "Maxima", href: "https://en.wikipedia.org/wiki/Maxima_(software)" }],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Maxima-new.svg" }],
-      releases: [{ version: "5.47.0", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Maxima", version: "5.47.0", date: "2023-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+gpl"]);
 
@@ -6464,7 +6459,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/2/21/Mercury_%28programming_language%29_logo.jpg/121px-Mercury_%28programming_language%29_logo.jpg",
         },
       ],
-      releases: [{ version: "22.01.8", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Mercury", version: "22.01.8", date: "2023-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+prolog", "pl+hope", "pl+haskell", "pl+basic"])
     .addLicenses(["lic+gpl", "lic+lgpl"])
@@ -6492,7 +6487,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Mesa", href: "https://en.wikipedia.org/wiki/Mesa_(programming_language)" },
       ],
-      releases: [{ version: "6.0", date: "1981-01-01", kind: "stable" }],
+      releases: [{ name: "Mesa[1]", version: "6.0", date: "1981-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+algol"]);
 
@@ -6519,7 +6514,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Mirah", href: "https://en.wikipedia.org/wiki/Mirah_(programming_language)" },
         { kind: "homepage", title: "https://mirah.org/", href: "https://mirah.org/" },
       ],
-      releases: [{ version: "0.2.1", date: "2016-01-01", kind: "stable" }],
+      releases: [{ name: "Mirah", version: "0.2.1", date: "2016-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+ruby", "pl+java", "pl+boo"])
     .addLicenses(["lic+apache"])
@@ -6542,7 +6537,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/3/34/Miranda_logo_%28programming_language%29.jpg",
         },
       ],
-      releases: [{ version: "2.066", date: "2020-01-01", kind: "stable" }],
+      releases: [{ name: "Miranda", version: "2.066", date: "2020-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+iswim", "pl+kent-recursive-calculator", "pl+ml", "pl+sasl", "pl+hope"])
     .addPerson("person+david-turner", { role: "designer" })
@@ -6596,7 +6591,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "MLton",
       websites: [{ kind: "wikipedia", title: "MLton", href: "https://en.wikipedia.org/wiki/MLton" }],
-      releases: [{ version: "unknown", date: "2021-01-01", kind: "stable" }],
+      releases: [{ name: "MLton", version: "unknown", date: "2021-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+sml"])
     .addLicense("lic+hpnd", { refs: [{ href: "http://mlton.org/License", title: "License" }] })
@@ -6618,7 +6613,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/0/0e/Modelica_Language.png/300px-Modelica_Language.png",
         },
       ],
-      releases: [{ version: "3.6", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Modelica", version: "3.6", date: "2023-01-01", kind: "stable" }],
     })
     .addImplementations([
       "pl+amesim",
@@ -6644,7 +6639,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Mojo", href: "https://en.wikipedia.org/wiki/Mojo_(programming_language)" },
       ],
-      releases: [{ version: "24.4", date: "2024-01-01", kind: "preview" }],
+      releases: [{ name: "Mojo", version: "24.4", date: "2024-01-01", kind: "preview" }],
       extensions: [".mojo", ".🔥"],
     })
     .addInfluence("pl+python", {
@@ -6674,7 +6669,7 @@ export function define(g: PlangsGraph) {
       name: "Lua",
       websites: [{ kind: "wikipedia", title: "MoonScript", href: "https://en.wikipedia.org/wiki/MoonScript" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Lua-Logo.svg" }],
-      releases: [{ version: "5.4.6", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Lua", version: "5.4.6", date: "2023-01-01", kind: "stable" }],
       extensions: [".lua"],
     })
     .addImplementations(["pl+ansi-c", "pl+luajit"])
@@ -6746,7 +6741,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Visual C#", href: "https://en.wikipedia.org/wiki/Microsoft_Visual_C_Sharp" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/d/d2/C_Sharp_Logo_2023.svg" }],
-      releases: [{ version: "12.0", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "C#", version: "12.0", date: "2023-01-01", kind: "stable" }],
       extensions: [".cs", ".csx"],
     })
     .addDialects(["pl+c-", "pl+polyphonic-c-sharp"])
@@ -6817,7 +6812,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "MUMPS",
       websites: [{ kind: "wikipedia", title: "MUMPS", href: "https://en.wikipedia.org/wiki/MUMPS" }],
-      releases: [{ version: "11.1", date: "1995-01-01", kind: "stable" }],
+      releases: [{ name: "MUMPS", version: "11.1", date: "1995-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+fortran", "pl+joss", "pl+speedcoding", "pl+telcomp"])
     .addPerson("person+neil-pappalardo", { role: "designer" })
@@ -6861,7 +6856,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "NekoVMNeko", href: "https://en.wikipedia.org/wiki/Neko_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/26/NekoVM_logo.svg" }],
-      releases: [{ version: "2.3.0", date: "2019-01-01", kind: "stable" }],
+      releases: [{ name: "NekoVMNeko", version: "2.3.0", date: "2019-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+ocaml"])
     .addLicenses(["lic+mit"])
@@ -6876,7 +6871,7 @@ export function define(g: PlangsGraph) {
       name: "NekoVMNeko",
       websites: [{ kind: "wikipedia", title: "NekoVM", href: "https://en.wikipedia.org/wiki/NekoVM" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/26/NekoVM_logo.svg" }],
-      releases: [{ version: "2.3.0", date: "2019-01-01", kind: "stable" }],
+      releases: [{ name: "NekoVMNeko", version: "2.3.0", date: "2019-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+ocaml"])
     .addLicenses(["lic+mit"])
@@ -6890,7 +6885,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Nemerle",
       websites: [{ kind: "wikipedia", title: "Nemerle", href: "https://en.wikipedia.org/wiki/Nemerle" }],
-      releases: [{ version: "1.2.507.0", date: "2016-01-01", kind: "stable" }],
+      releases: [{ name: "Nemerle", version: "1.2.507.0", date: "2016-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+c-sharp", "pl+ms-visual-c-sharp", "pl+ml", "pl+lisp"])
     .addParadigms([
@@ -6913,7 +6908,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "NESL",
       websites: [{ kind: "wikipedia", title: "NESL", href: "https://en.wikipedia.org/wiki/NESL" }],
-      releases: [{ version: "3.1", date: "1995-01-01", kind: "stable" }],
+      releases: [{ name: "NESL", version: "3.1", date: "1995-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+isc", "lic+mit"])
     .addParadigms(["para+functional", "para+array"]);
@@ -6946,7 +6941,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/NetLogo_%28logo%29.png/280px-NetLogo_%28logo%29.png",
         },
       ],
-      releases: [{ version: "6.4.0", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "NetLogo", version: "6.4.0", date: "2023-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+scala", "pl+java"])
     .addInfluences(["pl+logo", "pl+starlogo", "pl+objectlogo", "pl+ucblogo"])
@@ -6962,7 +6957,7 @@ export function define(g: PlangsGraph) {
       name: "NetRexx",
       websites: [{ kind: "wikipedia", title: "NetRexx", href: "https://en.wikipedia.org/wiki/NetRexx" }],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/c/c4/NETREXX.gif" }],
-      releases: [{ version: "4.06", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "NetRexx", version: "4.06", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+pl-slash", "pl+rexx", "pl+object-rexx", "pl+java"])
     .addPerson("person+mike-cowlishaw", { role: "designer" })
@@ -6987,7 +6982,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "NEWP",
       websites: [{ kind: "wikipedia", title: "NEWP", href: "https://en.wikipedia.org/wiki/NEWP" }],
-      releases: [{ version: "17.0", date: "2015-01-01", kind: "stable" }],
+      releases: [{ name: "NEWP", version: "17.0", date: "2015-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+executive-systems-problem-oriented", "pl+algol"])
     .addParadigms(["para+multi", "para+imperative", "para+structured"])
@@ -7001,7 +6996,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Newspeak", href: "https://en.wikipedia.org/wiki/Newspeak_(programming_language)" },
       ],
-      releases: [{ version: "unknown", date: "2013-01-01", kind: "stable" }],
+      releases: [{ name: "Newspeak", version: "unknown", date: "2013-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+cpp", "pl+javascript"])
     .addInfluences(["pl+smalltalk", "pl+self", "pl+beta", "pl+e"])
@@ -7041,7 +7036,7 @@ export function define(g: PlangsGraph) {
       name: "Nial",
       websites: [{ kind: "wikipedia", title: "Nial", href: "https://en.wikipedia.org/wiki/Nial" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/8/88/NialLogo.jpg" }],
-      releases: [{ version: "7.0", date: "2017-01-01", kind: "stable" }],
+      releases: [{ name: "Nial", version: "7.0", date: "2017-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+apl", "pl+lisp"])
     .addLicenses(["lic+gpl-3"])
@@ -7076,7 +7071,7 @@ export function define(g: PlangsGraph) {
       name: "Nim",
       websites: [{ kind: "wikipedia", title: "Nim", href: "https://en.wikipedia.org/wiki/Nim_(programming_language)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Nim_logo.svg" }],
-      releases: [{ version: "2.0.4", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Nim", version: "2.0.4", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+ada", "pl+c", "pl+lisp", "pl+pascal", "pl+python", "pl+oberon", "pl+rust", "pl+oberon-2"])
     .addInfluence("pl+cpp", {
@@ -7118,7 +7113,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Nix",
       websites: [{ kind: "wikipedia", title: "Nix", href: "https://en.wikipedia.org/wiki/Nix_package_manager" }],
-      releases: [{ version: "2.22.1", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Nix", version: "2.22.1", date: "2024-01-01", kind: "stable" }],
     })
     .addPlatforms(["platf+linux", "platf+unix"]);
 
@@ -7146,7 +7141,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "noweb",
       websites: [{ kind: "wikipedia", title: "Noweb", href: "https://en.wikipedia.org/wiki/Noweb" }],
-      releases: [{ version: "2.12", date: "2018-01-01", kind: "stable" }],
+      releases: [{ name: "Noweb", version: "2.12", date: "2018-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+web"]);
 
@@ -7156,7 +7151,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Nu",
       websites: [{ kind: "wikipedia", title: "Nu", href: "https://en.wikipedia.org/wiki/Nu_(programming_language)" }],
-      releases: [{ version: "2.3.0", date: "2019-01-01", kind: "stable" }],
+      releases: [{ name: "Nu", version: "2.3.0", date: "2019-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+lisp", "pl+objective-c", "pl+objective-cpp"])
     .addInfluence("pl+ruby", {
@@ -7193,10 +7188,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Rexx3_orig_size_transparent.gif/121px-Rexx3_orig_size_transparent.gif",
         },
       ],
-      releases: [
-        { version: "5.0.0", date: "2023-01-01", kind: "stable" },
-        { version: "5.1.0", kind: "preview" },
-      ],
+      releases: [{ name: "Object REXX", version: "5.0.0", date: "2023-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+cpp"])
     .addInfluences(["pl+rexx"])
@@ -7234,7 +7226,6 @@ export function define(g: PlangsGraph) {
           href: "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html",
         },
       ],
-      releases: [{ version: "2.0", kind: "stable" }],
     })
     .addImplementations(["pl+clang", "pl+gcc"])
     .addInfluences(["pl+c", "pl+smalltalk"])
@@ -7293,7 +7284,7 @@ export function define(g: PlangsGraph) {
       name: "OCaml",
       websites: [{ kind: "wikipedia", title: "OCaml", href: "https://en.wikipedia.org/wiki/OCaml" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/f/ff/OCaml_Logo.svg" }],
-      releases: [{ version: "5.2.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "OCaml", version: "5.2.0", date: "2024-01-01", kind: "stable" }],
     })
     .addDialects(["pl+ats", "pl+f-sharp", "pl+f-star", "pl+reason"])
     .addImplementations(["pl+c"])
@@ -7333,7 +7324,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/1983_1988_Trademark_occam_and_occam_2_INMOS_Limited.jpg/121px-1983_1988_Trademark_occam_and_occam_2_INMOS_Limited.jpg",
         },
       ],
-      releases: [{ version: "2.1", date: "1994-01-01", kind: "stable" }],
+      releases: [{ name: "occam", version: "2.1", date: "1994-01-01", kind: "stable" }],
     })
     .addDialects(["pl+occam--"])
     .addInfluences(["pl+communicating-sequential-processes"])
@@ -7379,7 +7370,7 @@ export function define(g: PlangsGraph) {
       name: "Opa",
       websites: [{ kind: "wikipedia", title: "Opa", href: "https://en.wikipedia.org/wiki/Opa_(programming_language)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/en/6/64/Opa_logo_cloud.png" }],
-      releases: [{ version: "1.1.1", date: "2014-01-01", kind: "stable" }],
+      releases: [{ name: "Opa", version: "1.1.1", date: "2014-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+erlang", "pl+javascript", "pl+ml", "pl+ocaml"])
     .addLicenses(["lic+mit", "lic+affero-gpl"])
@@ -7399,7 +7390,7 @@ export function define(g: PlangsGraph) {
           href: "https://en.wikipedia.org/wiki/Open_Programming_Language",
         },
       ],
-      releases: [{ version: "1.56", date: "2006-01-01", kind: "stable" }],
+      releases: [{ name: "Open Programming Language (OPL)", version: "1.56", date: "2006-01-01", kind: "stable" }],
     })
     .addLicense("lic+lgpl", { refs: [{ href: "http://opl-dev.sourceforge.net/lgpl.txt", title: "License" }] })
     .addParadigms(["para+imperative", "para+structured", "para+embedded"])
@@ -7417,7 +7408,7 @@ export function define(g: PlangsGraph) {
   g.buildPlang("pl+openacc").merge({
     name: "OpenACC",
     websites: [{ kind: "wikipedia", title: "OpenACC", href: "https://en.wikipedia.org/wiki/OpenACC" }],
-    releases: [{ version: "3.2", date: "2021-01-01", kind: "stable" }],
+    releases: [{ name: "OpenACC", version: "3.2", date: "2021-01-01", kind: "stable" }],
   });
 
   /**/
@@ -7433,7 +7424,9 @@ export function define(g: PlangsGraph) {
         },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenCL_logo.svg" }],
-      releases: [{ version: "1.0", date: "2021-01-01", kind: "stable" }],
+      releases: [
+        { name: "OpenCL APIOpenCL C/C++ and C++ for OpenCL", version: "1.0", date: "2021-01-01", kind: "stable" },
+      ],
     })
     .addInfluences(["pl+c99", "pl+cuda", "pl+cpp14", "pl+cpp17"])
     .addParadigms(["para+imperative", "para+structured", "para+objects", "para+generic"])
@@ -7466,7 +7459,9 @@ export function define(g: PlangsGraph) {
         url: "https://upload.wikimedia.org/wikipedia/en/thumb/5/58/OpenEdge_logo.png/120px-OpenEdge_logo.png",
       },
     ],
-    releases: [{ version: "12.8", date: "2024-01-01", kind: "stable" }],
+    releases: [
+      { name: "OpenEdge Advanced Business Language (ABL)", version: "12.8", date: "2024-01-01", kind: "stable" },
+    ],
   });
 
   /**/
@@ -7475,7 +7470,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "OpenModelica",
       websites: [{ kind: "wikipedia", title: "OpenModelica", href: "https://en.wikipedia.org/wiki/OpenModelica" }],
-      releases: [{ version: "1.22.2", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "OpenModelica", version: "1.22.2", date: "2024-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+eclipse-public", "lic+gpl", "lic+free"]);
 
@@ -7491,7 +7486,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/OpenMP_logo.png/180px-OpenMP_logo.png",
         },
       ],
-      releases: [{ version: "5.2", date: "2021-01-01", kind: "stable" }],
+      releases: [{ name: "OpenMP", version: "5.2", date: "2021-01-01", kind: "stable" }],
     })
     .addInfluence("pl+cilk-plus", {
       refs: [{ href: "https://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.221.2775", title: "10.1.1.221.2775" }],
@@ -7555,7 +7550,7 @@ export function define(g: PlangsGraph) {
         href: "https://en.wikipedia.org/wiki/Oracle_Solaris_Studio",
       },
     ],
-    releases: [{ version: "12.6", date: "2017-01-01", kind: "stable" }],
+    releases: [{ name: "Oracle Developer Studio", version: "12.6", date: "2017-01-01", kind: "stable" }],
   });
 
   /**/
@@ -7632,7 +7627,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Oz",
       websites: [{ kind: "wikipedia", title: "Oz", href: "https://en.wikipedia.org/wiki/Oz_(programming_language)" }],
-      releases: [{ version: "1.4.0", date: "2018-01-01", kind: "stable" }],
+      releases: [{ name: "Oz", version: "1.4.0", date: "2018-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+erlang", "pl+lisp", "pl+prolog"])
     .addLicense("lic+mit", {
@@ -7680,7 +7675,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "P4",
       websites: [{ kind: "wikipedia", title: "P4", href: "https://en.wikipedia.org/wiki/P4_(programming_language)" }],
-      releases: [{ version: "1.2.2", date: "2021-01-01", kind: "stable" }],
+      releases: [{ name: "P4", version: "1.2.2", date: "2021-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+apache"])
     .addParadigms(["para+compiled", "para+domain", "para+imperative"]);
@@ -7713,7 +7708,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/c/c1/Logo_for_ParaSail_Programming_Language.jpg",
         },
       ],
-      releases: [{ version: "9.3", date: "2021-01-01", kind: "stable" }],
+      releases: [{ name: "ParaSail", version: "9.3", date: "2021-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+ada", "pl+modula", "pl+pascal", "pl+ml"])
     .addLicenses(["lic+gpl"])
@@ -7728,7 +7723,7 @@ export function define(g: PlangsGraph) {
       name: "PARI/GP",
       websites: [{ kind: "wikipedia", title: "PARI/GP", href: "https://en.wikipedia.org/wiki/PARI/GP" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/26/PARI-GP_logo.svg" }],
-      releases: [{ version: "2.15.5", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "PARI/GP", version: "2.15.5", date: "2024-01-01", kind: "stable" }],
     })
     .addPerson("person+henri-cohen", { role: "developer" })
     .addLicenses(["lic+gpl"]);
@@ -7752,7 +7747,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Logo_Max_8_software.jpg/180px-Logo_Max_8_software.jpg",
         },
       ],
-      releases: [{ version: "8.6.2", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Max", version: "8.6.2", date: "2024-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary"]);
 
@@ -7762,7 +7757,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "PathScale EKOPath Compiler",
       websites: [{ kind: "wikipedia", title: "PathScale", href: "https://en.wikipedia.org/wiki/PathScale" }],
-      releases: [{ version: "5.0.0", date: "2013-01-01", kind: "stable" }],
+      releases: [{ name: "PathScale EKOPath Compiler", version: "5.0.0", date: "2013-01-01", kind: "stable" }],
     })
     .addPlatforms(["platf+x86-64"]);
 
@@ -7772,7 +7767,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "PCASTL",
       websites: [{ kind: "wikipedia", title: "PCASTL", href: "https://en.wikipedia.org/wiki/PCASTL" }],
-      releases: [{ version: "3.5", date: "2018-01-01", kind: "stable" }],
+      releases: [{ name: "PCASTL", version: "3.5", date: "2018-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+c", "pl+r"])
     .addLicenses(["lic+lgpl"])
@@ -7823,8 +7818,8 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "Perl", href: "https://en.wikipedia.org/wiki/Perl" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/en/5/56/Perl_language_logo.svg" }],
       releases: [
-        { version: "5.40.0", date: "2024-01-01", kind: "stable" },
-        { version: "5.39.10", date: "2024-01-01", kind: "preview" },
+        { name: "Perl", version: "5.40.0", date: "2024-01-01", kind: "stable" },
+        { name: "Perl", version: "5.39.10", date: "2024-01-01", kind: "preview" },
       ],
     })
     .addDialects(["pl+raku"])
@@ -7868,7 +7863,7 @@ export function define(g: PlangsGraph) {
           href: "https://en.wikipedia.org/wiki/Perl_Data_Language",
         },
       ],
-      releases: [{ version: "2.080", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "Perl Data Language (PDL)", version: "2.080", date: "2022-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+apl", "pl+idl", "pl+perl"])
     .addPerson("person+karl-glazebrook", { role: "developer" })
@@ -7890,7 +7885,7 @@ export function define(g: PlangsGraph) {
       name: "Pharo",
       websites: [{ kind: "wikipedia", title: "Pharo", href: "https://en.wikipedia.org/wiki/Pharo" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/6/6c/Pharo_Logo_v3.0.svg" }],
-      releases: [{ version: "12.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Pharo", version: "12.0", date: "2024-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+smalltalk"])
     .addInfluences(["pl+smalltalk", "pl+squeak"])
@@ -7910,7 +7905,7 @@ export function define(g: PlangsGraph) {
         { kind: "homepage", title: "https://thephp.foundation", href: "https://thephp.foundation" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" }],
-      releases: [{ version: "8.3.8", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "PHP", version: "8.3.8", date: "2024-01-01", kind: "stable" }],
       extensions: [".phar", ".php", ".phps", ".pht", ".phtml"],
     })
     .addImplementations([
@@ -7974,7 +7969,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Pico", href: "https://en.wikipedia.org/wiki/Pico_(programming_language)" },
       ],
-      releases: [{ version: "2.0", date: "2007-01-01", kind: "stable" }],
+      releases: [{ name: "Pico", version: "2.0", date: "2007-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+scheme"])
     .addInfluences(["pl+scheme", "pl+smalltalk"])
@@ -8007,7 +8002,7 @@ export function define(g: PlangsGraph) {
       images: [
         { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/3/32/Pike_Programming_Language_Logo.svg" },
       ],
-      releases: [{ version: "8.0.1738", date: "1738-01-01", kind: "stable" }],
+      releases: [{ name: "Pike", version: "8.0.1738", date: "1738-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+c", "pl+lpc", "pl+cpp"])
     .addLicenses(["lic+gpl", "lic+lgpl", "lic+mozilla-public"])
@@ -8060,7 +8055,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/4/46/Conway_Gries_An_Introduction_to_Programming_cover.jpg/180px-Conway_Gries_An_Introduction_to_Programming_cover.jpg",
         },
       ],
-      releases: [{ version: "7.6", date: "1977-01-01", kind: "stable" }],
+      releases: [{ name: "PL/C", version: "7.6", date: "1977-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+algol", "pl+fortran", "pl+pl-slash", "pl+cornell-university", "pl+xpl", "pl+speedcoding"])
     .addInfluence("pl+cobol", {
@@ -8191,7 +8186,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Poly/ML",
       websites: [{ kind: "wikipedia", title: "Standard ML", href: "https://en.wikipedia.org/wiki/Poly/ML" }],
-      releases: [{ version: "unknown", date: "1997-01-01", kind: "stable" }],
+      releases: [{ name: "Standard ML", version: "unknown", date: "1997-01-01", kind: "stable" }],
     })
     .addDialects(["pl+alice", "pl+concurrent-ml", "pl+dependent-ml"])
     .addImplementations(["pl+sml", "pl+mlton", "pl+poly-slashml"])
@@ -8220,7 +8215,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "POP-11",
       websites: [{ kind: "wikipedia", title: "POP-11", href: "https://en.wikipedia.org/wiki/POP-11" }],
-      releases: [{ version: "unknown", date: "2020-01-01", kind: "stable" }],
+      releases: [{ name: "POP-11", version: "unknown", date: "2020-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+pop-2"])
     .addPerson("person+robin-popplestone", { role: "designer" })
@@ -8251,7 +8246,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "POP-2",
       websites: [{ kind: "wikipedia", title: "POP-2", href: "https://en.wikipedia.org/wiki/POP-2" }],
-      releases: [{ version: "unknown", date: "1975-01-01", kind: "stable" }],
+      releases: [{ name: "POP-2", version: "unknown", date: "1975-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+assembly"])
     .addInfluences(["pl+cowsel", "pl+lisp", "pl+algol"])
@@ -8268,7 +8263,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Poplog",
       websites: [{ kind: "wikipedia", title: "Poplog", href: "https://en.wikipedia.org/wiki/Poplog" }],
-      releases: [{ version: "unknown", date: "2020-01-01", kind: "stable" }],
+      releases: [{ name: "Poplog", version: "unknown", date: "2020-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary", "lic+open-source", "lic+mit", "lic+xfree86"])
     .addPlatforms(["platf+ia-32", "platf+x86-64"]);
@@ -8279,7 +8274,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Portable C Compiler",
       websites: [{ kind: "wikipedia", title: "pcc", href: "https://en.wikipedia.org/wiki/Portable_C_Compiler" }],
-      releases: [{ version: "1.1.0", date: "2014-01-01", kind: "stable" }],
+      releases: [{ name: "Portable C Compiler", version: "1.1.0", date: "2014-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+bsd"]);
 
@@ -8301,7 +8296,7 @@ export function define(g: PlangsGraph) {
       images: [
         { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/8/82/Adobe_PostScript_3_logo.svg" },
       ],
-      releases: [{ version: "unknown", date: "1997-01-01", kind: "stable" }],
+      releases: [{ name: "PostScript", version: "unknown", date: "1997-01-01", kind: "stable" }],
       extensions: [".ps"],
     })
     .addImplementations(["pl+trueimage", "pl+ghostscript"])
@@ -8326,8 +8321,8 @@ export function define(g: PlangsGraph) {
         },
       ],
       releases: [
-        { version: "unknown", date: "1991-01-01", kind: "first" },
-        { version: "3.7.0.0", date: "2013-01-01", kind: "stable" },
+        { name: "POV-Ray", version: "unknown", date: "1991-01-01", kind: "first" },
+        { name: "POV-Ray", version: "3.7.0.0", date: "2013-01-01", kind: "stable" },
       ],
     })
     .addLicense("lic+gnu-affero-gpl", {
@@ -8348,7 +8343,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/a/ad/PowerBuilder_2017_Logo.png/75px-PowerBuilder_2017_Logo.png",
         },
       ],
-      releases: [{ version: "unknown", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "Appeon PowerBuilder", version: "unknown", date: "2022-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+commerce"]);
 
@@ -8389,7 +8384,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/PowerShell_Core_6.0_icon.png/121px-PowerShell_Core_6.0_icon.png",
         },
       ],
-      releases: [{ version: "7.4.2", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "PowerShell", version: "7.4.2", date: "2024-01-01", kind: "stable" }],
       extensions: [".cdxml", ".ps1", ".ps1xml", ".psc1", ".psd1", ".psm1", ".psrc", ".pssc"],
     })
     .addImplementations(["pl+c-sharp"])
@@ -8456,7 +8451,7 @@ export function define(g: PlangsGraph) {
         },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Processing_2021_logo.svg" }],
-      releases: [{ version: "4.3", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "ProcessingProcessing IDE", version: "4.3", date: "2023-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+c"])
     .addPerson("person+casey-reas", { role: "designer" })
@@ -8473,7 +8468,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "ProcessingProcessing IDE", href: "https://en.wikipedia.org/wiki/Processing.js" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Processing_2021_logo.svg" }],
-      releases: [{ version: "4.3", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "ProcessingProcessing IDE", version: "4.3", date: "2023-01-01", kind: "stable" }],
     })
     .addPerson("person+casey-reas", { role: "designer" })
     .addPerson("person+ben-fry", { role: "designer" })
@@ -8560,7 +8555,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Prolog",
       websites: [{ kind: "wikipedia", title: "Prolog", href: "https://en.wikipedia.org/wiki/Prolog" }],
-      releases: [{ version: "unknown", date: "1995-01-01", kind: "stable" }],
+      releases: [{ name: "Prolog", version: "unknown", date: "1995-01-01", kind: "stable" }],
       extensions: [".P", ".pl", ".pro"],
     })
     .addDialects(["pl+datalog"])
@@ -8591,7 +8586,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/2/2d/PROMAL_logo.png/121px-PROMAL_logo.png",
         },
       ],
-      releases: [{ version: "2.1", date: "1986-10-14", kind: "stable" }],
+      releases: [{ name: "PROMAL", version: "2.1", date: "1986-10-14", kind: "stable" }],
     })
     .addParadigms(["para+imperative", "para+structured"]);
 
@@ -8630,7 +8625,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/5/5a/Pure_lang_logo.png/121px-Pure_lang_logo.png",
         },
       ],
-      releases: [{ version: "0.68", date: "2018-01-01", kind: "stable" }],
+      releases: [{ name: "Pure", version: "0.68", date: "2018-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+q", "pl+haskell", "pl+lisp", "pl+alice", "pl+matlab"])
     .addLicenses(["lic+lgpl"])
@@ -8645,7 +8640,7 @@ export function define(g: PlangsGraph) {
       name: "Pure DataPure Data",
       websites: [{ kind: "wikipedia", title: "Pure DataPure Data", href: "https://en.wikipedia.org/wiki/Pure_Data" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/3/34/Pure_Data_logo.svg" }],
-      releases: [{ version: "0.53", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "Pure DataPure Data", version: "0.53", date: "2022-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+patcher"])
     .addPerson("person+miller-s-puckette", { role: "designer" })
@@ -8660,7 +8655,7 @@ export function define(g: PlangsGraph) {
       name: "Pure DataPure Data",
       websites: [{ kind: "wikipedia", title: "PureData", href: "https://en.wikipedia.org/wiki/PureData" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/3/34/Pure_Data_logo.svg" }],
-      releases: [{ version: "0.53", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "Pure DataPure Data", version: "0.53", date: "2022-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+lucid", "pl+patcher"])
     .addPerson("person+miller-s-puckette", { role: "designer" })
@@ -8680,7 +8675,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/PureScript_Logo.png/121px-PureScript_Logo.png",
         },
       ],
-      releases: [{ version: "0.15.15", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "PureScript", version: "0.15.15", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+haskell", "pl+javascript"])
     .addLicense("lic+bsd-m", {
@@ -8701,7 +8696,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/PWCT_1.9_-_Goal_Designer.png/300px-PWCT_1.9_-_Goal_Designer.png",
         },
       ],
-      releases: [{ version: "1.9", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "PWCT", version: "1.9", date: "2024-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+visual-foxpro"])
     .addPerson("person+mahmoud-samir-fayed", { role: "designer" })
@@ -8721,7 +8716,7 @@ export function define(g: PlangsGraph) {
           href: "https://en.wikipedia.org/wiki/Q_(programming_language_from_Kx_Systems)",
         },
       ],
-      releases: [{ version: "4.0", date: "2020-01-01", kind: "stable" }],
+      releases: [{ name: "q", version: "4.0", date: "2020-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+k", "pl+ap", "pl+apl", "pl+scheme"])
     .addPerson("person+arthur-whitney", { role: "designer" })
@@ -8769,7 +8764,7 @@ export function define(g: PlangsGraph) {
       images: [
         { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/f/f5/QB64-1-4-logo-hd-transparency.svg" },
       ],
-      releases: [{ version: "2.0.2", date: "2021-01-01", kind: "stable" }],
+      releases: [{ name: "QB64", version: "2.0.2", date: "2021-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+basic"])
     .addLicenses(["lic+mit"])
@@ -8781,7 +8776,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "QML",
       websites: [{ kind: "wikipedia", title: "QML", href: "https://en.wikipedia.org/wiki/QML" }],
-      releases: [{ version: "6.4", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "QML", version: "6.4", date: "2022-01-01", kind: "stable" }],
       extensions: [".qml"],
     })
     .addInfluences(["pl+json", "pl+javascript", "pl+qt"])
@@ -8801,7 +8796,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Qore", href: "https://en.wikipedia.org/wiki/Qore_(programming_language)" },
       ],
-      releases: [{ version: "1.16.1", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Qore", version: "1.16.1", date: "2023-01-01", kind: "stable" }],
       extensions: [".q", ".qm", ".qtest"],
     })
     .addImplementations(["pl+cpp", "pl+pthreads"])
@@ -8826,7 +8821,7 @@ export function define(g: PlangsGraph) {
       name: "Qt",
       websites: [{ kind: "wikipedia", title: "Qt", href: "https://en.wikipedia.org/wiki/Qt_(framework)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/8/81/Qt_logo_neon_2022.svg" }],
-      releases: [{ version: "6.7.1", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Qt", version: "6.7.1", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+qml"])
     .addPlatforms(["platf+cross-platform"]);
@@ -8882,7 +8877,7 @@ export function define(g: PlangsGraph) {
       name: "R",
       websites: [{ kind: "wikipedia", title: "R", href: "https://en.wikipedia.org/wiki/R_(programming_language)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg" }],
-      releases: [{ version: "4.4.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "R", version: "4.4.0", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+armed-bear-common-lisp", "pl+common-lisp", "pl+s", "pl+scheme"])
     .addPerson("person+ross-ihaka", { role: "designer" })
@@ -8911,7 +8906,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Racket", href: "https://en.wikipedia.org/wiki/Racket_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Racket-logo.svg" }],
-      releases: [{ version: "8.13", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Racket", version: "8.13", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+scheme"])
     .addInfluence("pl+eiffel", {
@@ -9038,8 +9033,8 @@ export function define(g: PlangsGraph) {
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/3/30/React_Logo_SVG.svg" }],
       releases: [
-        { version: "18.3.1", date: "2024-01-01", kind: "stable" },
-        { version: "19.0", date: "2024-01-01", kind: "preview" },
+        { name: "React", version: "18.3.1", date: "2024-01-01", kind: "stable" },
+        { name: "React", version: "19.0", date: "2024-01-01", kind: "preview" },
       ],
     })
     .addInfluences(["pl+php"])
@@ -9055,7 +9050,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Reason", href: "https://en.wikipedia.org/wiki/Reason_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/a/af/Reason-logo.svg" }],
-      releases: [{ version: "3.11.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Reason", version: "3.11.0", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+ocaml", "pl+javascript"])
     .addLicenses(["lic+mit"])
@@ -9069,8 +9064,8 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "Rebol", href: "https://en.wikipedia.org/wiki/Rebol" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Rebol_logo.png" }],
       releases: [
-        { version: "2.7.8", date: "2011-01-01", kind: "stable" },
-        { version: "2.101.0", date: "2012-01-01", kind: "preview" },
+        { name: "Rebol", version: "2.7.8", date: "2011-01-01", kind: "stable" },
+        { name: "Rebol", version: "2.101.0", date: "2012-01-01", kind: "preview" },
       ],
     })
     .addInfluences(["pl+forth", "pl+logo", "pl+objectlogo", "pl+self", "pl+lisp", "pl+ucblogo"])
@@ -9095,7 +9090,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/e/e9/Red_Language_Tower_Logo.png/150px-Red_Language_Tower_Logo.png",
         },
       ],
-      releases: [{ version: "0.6.5", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Red", version: "0.6.5", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+rebol", "pl+lisp", "pl+scala", "pl+lua"])
     .addLicenses(["lic+bsd-m", "lic+boost"])
@@ -9140,7 +9135,7 @@ export function define(g: PlangsGraph) {
       images: [
         { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/en/a/a4/Elixir_programming_language_logo.png" },
       ],
-      releases: [{ version: "1.16.3", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Elixir", version: "1.16.3", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+erlang", "pl+clojure", "pl+ruby"])
     .addLicense("lic+apache", {
@@ -9187,7 +9182,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f7/Rexx-img-lg.png/220px-Rexx-img-lg.png",
         },
       ],
-      releases: [{ version: "3.274", date: "1996-01-01", kind: "stable" }],
+      releases: [{ name: "Rexx", version: "3.274", date: "1996-01-01", kind: "stable" }],
     })
     .addDialects(["pl+netrexx", "pl+object-rexx", "pl+oorexx", "pl+xedit"])
     .addImplementation("pl+arexx", {
@@ -9212,7 +9207,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ringlogo_transparent.png/121px-Ringlogo_transparent.png",
         },
       ],
-      releases: [{ version: "1.20", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Ring", version: "1.20", date: "2024-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+c"])
     .addInfluences(["pl+lua", "pl+c", "pl+c-sharp", "pl+basic", "pl+xbase"])
@@ -9287,7 +9282,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Roslyn.png/120px-Roslyn.png",
         },
       ],
-      releases: [{ version: "7.0.0", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: ".NET Compiler Platform (Roslyn)", version: "7.0.0", date: "2022-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+mit"])
     .addPlatforms(["platf+ia-32", "platf+x86-64"]);
@@ -9356,7 +9351,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Rust_programming_language_black_logo.svg",
         },
       ],
-      releases: [{ version: "1.78.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Rust", version: "1.78.0", date: "2024-01-01", kind: "stable" }],
       extensions: [".rlib", ".rs"],
     })
     .addDialects(["pl+project-verona"])
@@ -9478,7 +9473,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/JED-editor-slang-source.png/220px-JED-editor-slang-source.png",
         },
       ],
-      releases: [{ version: "2.3.3", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "S-Lang", version: "2.3.3", date: "2022-01-01", kind: "stable" }],
     })
     .addLicense("lic+gpl", {
       refs: [
@@ -9495,7 +9490,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "S-PLUS",
       websites: [{ kind: "wikipedia", title: "S-PLUS", href: "https://en.wikipedia.org/wiki/S-PLUS" }],
-      releases: [{ version: "8.2", date: "2010-01-01", kind: "stable" }],
+      releases: [{ name: "S-PLUS", version: "8.2", date: "2010-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary"]);
 
@@ -9579,7 +9574,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/%E0%A6%B8%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B8_%E0%A6%B2%E0%A7%8B%E0%A6%97%E0%A7%8B.png/120px-%E0%A6%B8%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B8_%E0%A6%B2%E0%A7%8B%E0%A6%97%E0%A7%8B.png",
         },
       ],
-      releases: [{ version: "9.4", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "SAS", version: "9.4", date: "2023-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary"]);
 
@@ -9602,7 +9597,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Sather",
       websites: [{ kind: "wikipedia", title: "Sather", href: "https://en.wikipedia.org/wiki/Sather" }],
-      releases: [{ version: "1.2.3", date: "2007-01-01", kind: "stable" }],
+      releases: [{ name: "Sather", version: "1.2.3", date: "2007-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+clu", "pl+eiffel", "pl+common-lisp", "pl+scheme"])
     .addPerson("person+steve-omohundro", { role: "designer" })
@@ -9632,7 +9627,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/SBCL_screenshot.png/250px-SBCL_screenshot.png",
         },
       ],
-      releases: [{ version: "2.4.5", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "SBCL", version: "2.4.5", date: "2024-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+public-domain", "lic+mit", "lic+bsd"])
     .addPlatforms(["platf+cross-platform"]);
@@ -9647,7 +9642,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Scala", href: "https://en.wikipedia.org/wiki/Scala_programming_language" },
       ],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/3/39/Scala-full-color.svg" }],
-      releases: [{ version: "3.4.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Scala", version: "3.4.0", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+eiffel", "pl+erlang", "pl+ml", "pl+oz", "pl+poly-slashml", "pl+f-sharp", "pl+smalltalk"])
     .addInfluence("pl+java", {
@@ -9721,7 +9716,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Scheme", href: "https://en.wikipedia.org/wiki/Scheme_(programming_language)" },
       ],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/3/39/Lambda_lc.svg" }],
-      releases: [{ version: "unknown", date: "2013-01-01", kind: "stable" }],
+      releases: [{ name: "Scheme", version: "unknown", date: "2013-01-01", kind: "stable" }],
     })
     .addDialects(["pl+dsssl"])
     .addInfluences(["pl+algol", "pl+mdl", "pl+lisp"])
@@ -9741,7 +9736,7 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Scicos", href: "https://en.wikipedia.org/wiki/Scicos" },
       { kind: "homepage", title: "www.scicos.org", href: "http://www.scicos.org" },
     ],
-    releases: [{ version: "4.4.1", date: "2011-01-01", kind: "stable" }],
+    releases: [{ name: "Scicos", version: "4.4.1", date: "2011-01-01", kind: "stable" }],
   });
 
   /**/
@@ -9756,7 +9751,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Scilab_Logo.png/90px-Scilab_Logo.png",
         },
       ],
-      releases: [{ version: "2024.1.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Scilab", version: "2024.1.0", date: "2024-01-01", kind: "stable" }],
     })
     .addPerson("person+dassault-systemes", { role: "developer" })
     .addLicenses(["lic+gpl-2", "lic+cecill"]);
@@ -9770,7 +9765,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "SCM", href: "https://en.wikipedia.org/wiki/SCM_(Scheme_implementation)" },
       ],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/d/d8/SCM_64.png" }],
-      releases: [{ version: "unknown", date: "2020-01-01", kind: "stable" }],
+      releases: [{ name: "SCM", version: "unknown", date: "2020-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+c"])
     .addInfluences(["pl+lisp", "pl+scheme", "pl+siod"])
@@ -9826,7 +9821,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Seed7",
       websites: [{ kind: "wikipedia", title: "Seed7", href: "https://en.wikipedia.org/wiki/Seed7" }],
-      releases: [{ version: "unknown", date: "2023-05-29", kind: "stable" }],
+      releases: [{ name: "Seed7", version: "unknown", date: "2023-05-29", kind: "stable" }],
     })
     .addImplementations(["pl+open-source"])
     .addInfluences(["pl+c", "pl+cpp", "pl+java", "pl+modula", "pl+pascal", "pl+algol"])
@@ -9853,7 +9848,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Self", href: "https://en.wikipedia.org/wiki/Self_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/8/88/Self-logo.svg" }],
-      releases: [{ version: "2017.1", date: "2017-01-01", kind: "stable" }],
+      releases: [{ name: "Self", version: "2017.1", date: "2017-01-01", kind: "stable" }],
     })
     .addDialects(["pl+newspeak"])
     .addInfluences(["pl+smalltalk"])
@@ -9887,7 +9882,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/9/9c/ST-HelloWorld2.png/250px-ST-HelloWorld2.png",
         },
       ],
-      releases: [{ version: "2.15", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "SenseTalk", version: "2.15", date: "2024-01-01", kind: "stable" }],
       extensions: [".script", ".st"],
     })
     .addInfluences(["pl+hypertalk", "pl+xtalk"])
@@ -9920,7 +9915,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "SETL",
       websites: [{ kind: "wikipedia", title: "SETL", href: "https://en.wikipedia.org/wiki/SETL" }],
-      releases: [{ version: "1.1", date: "2005-01-01", kind: "stable" }],
+      releases: [{ name: "SETL", version: "1.1", date: "2005-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+algol"])
     .addPerson("person+jacob-t-schwartz", { role: "designer" })
@@ -9933,7 +9928,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "SETL2",
       websites: [{ kind: "wikipedia", title: "SETL2", href: "https://en.wikipedia.org/wiki/SETL2" }],
-      releases: [{ version: "1.1", date: "2005-01-01", kind: "stable" }],
+      releases: [{ name: "SETL", version: "1.1", date: "2005-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+isetl", "pl+setl", "pl+algol", "pl+setl2"])
     .addPerson("person+jacob-t-schwartz", { role: "designer" })
@@ -9974,7 +9969,9 @@ export function define(g: PlangsGraph) {
       name: "Silverfrost FTN95: Fortran for Windows",
       websites: [{ kind: "wikipedia", title: "Silverfrost", href: "https://en.wikipedia.org/wiki/Silverfrost_FTN95" }],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/en/a/a1/Silverfrost_ftn95.jpg" }],
-      releases: [{ version: "9.00", date: "2023-01-01", kind: "stable" }],
+      releases: [
+        { name: "Silverfrost FTN95: Fortran for Windows", version: "9.00", date: "2023-01-01", kind: "stable" },
+      ],
     })
     .addLicenses(["lic+proprietary"]);
 
@@ -10048,7 +10045,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/SimulationX_by_ESI_color_rgb.png/120px-SimulationX_by_ESI_color_rgb.png",
         },
       ],
-      releases: [{ version: "4.3", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "SimulationX", version: "4.3", date: "2022-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary", "lic+commercial"])
     .addPlatforms(["platf+ia-32", "platf+x86-64"]);
@@ -10065,7 +10062,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Simulink_Logo_%28non-wordmark%29.png/100px-Simulink_Logo_%28non-wordmark%29.png",
         },
       ],
-      releases: [{ version: "10.7", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Simulink", version: "10.7", date: "2023-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary"]);
 
@@ -10090,7 +10087,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "SIOD",
       websites: [{ kind: "wikipedia", title: "SIOD", href: "https://en.wikipedia.org/wiki/SIOD" }],
-      releases: [{ version: "3.63", date: "2008-01-01", kind: "stable" }],
+      releases: [{ name: "SIOD", version: "3.63", date: "2008-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+c"])
     .addInfluences(["pl+lisp", "pl+scheme"])
@@ -10166,8 +10163,8 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "SML/NJ", href: "https://en.wikipedia.org/wiki/Standard_ML_of_New_Jersey" },
       ],
       releases: [
-        { version: "110.99.4", date: "2023-01-01", kind: "stable" },
-        { version: "unknown", date: "1997-01-01", kind: "stable" },
+        { name: "Standard ML of New Jersey", version: "110.99.4", date: "2023-01-01", kind: "stable" },
+        { name: "Standard ML", version: "unknown", date: "1997-01-01", kind: "stable" },
       ],
     })
     .addDialects(["pl+alice", "pl+mlton", "pl+sml", "pl+concurrent-ml", "pl+dependent-ml"])
@@ -10196,7 +10193,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Snap!", href: "https://en.wikipedia.org/wiki/Snap!_(programming_language)" },
       ],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/6/63/Snap%21.svg" }],
-      releases: [{ version: "9.2.17", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Snap!", version: "9.2.17", date: "2024-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+javascript"])
     .addInfluences(["pl+scheme", "pl+logo", "pl+smalltalk", "pl+apl"])
@@ -10218,7 +10215,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "SNOBOL", href: "https://en.wikipedia.org/wiki/SNOBOL" },
         { kind: "homepage", title: "https://www.regressive.org/snobol4/", href: "https://www.regressive.org/snobol4/" },
       ],
-      releases: [{ version: "unknown", date: "1967-01-01", kind: "stable" }],
+      releases: [{ name: "SNOBOL", version: "unknown", date: "1967-01-01", kind: "stable" }],
     })
     .addDialects(["pl+icon"])
     .addImplementations(["pl+spitbol"])
@@ -10234,7 +10231,7 @@ export function define(g: PlangsGraph) {
       name: "Solidity",
       websites: [{ kind: "wikipedia", title: "Solidity", href: "https://en.wikipedia.org/wiki/Solidity" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/9/98/Solidity_logo.svg" }],
-      releases: [{ version: "0.8.26", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Solidity", version: "0.8.26", date: "2024-01-01", kind: "stable" }],
     })
     .addImplementation("pl+cpp", { refs: [{ href: "https://github.com/", title: "Build software better, together" }] })
     .addInfluences(["pl+javascript", "pl+cpp", "pl+python"])
@@ -10270,7 +10267,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Source", href: "https://en.wikipedia.org/wiki/Source_(programming_language)" },
       ],
-      releases: [{ version: "unknown", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Source", version: "unknown", date: "2024-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+safari"])
     .addImplementation("pl+tail-call", { refs: [{ href: "https://sourceacademy.org", title: "Source Academy" }] })
@@ -10315,7 +10312,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/1/16/Sparkada.jpg/250px-Sparkada.jpg",
         },
       ],
-      releases: [{ version: "unknown", date: "2021-01-01", kind: "stable" }],
+      releases: [{ name: "SPARK", version: "unknown", date: "2021-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+ada", "pl+eiffel"])
     .addLicenses(["lic+gpl"])
@@ -10329,7 +10326,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "SPARQL",
       websites: [{ kind: "wikipedia", title: "SPARQL", href: "https://en.wikipedia.org/wiki/SPARQL" }],
-      releases: [{ version: "1.1", date: "2013-01-01", kind: "stable" }],
+      releases: [{ name: "SPARQL", version: "1.1", date: "2013-01-01", kind: "stable" }],
     })
     .addImplementation("pl+jena", {
       refs: [{ href: "https://archive.org/details/isbn_9780470418017/page/406", title: "Semantic Web Programming" }],
@@ -10358,7 +10355,14 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Speakeasy_Red_Logo.png/120px-Speakeasy_Red_Logo.png",
         },
       ],
-      releases: [{ version: "unknown", date: "2006-01-01", kind: "stable" }],
+      releases: [
+        {
+          name: "SpeakeasySpeakeasy (the interpreted programming language)",
+          version: "unknown",
+          date: "2006-01-01",
+          kind: "stable",
+        },
+      ],
     })
     .addInfluence("pl+apl", {
       refs: [
@@ -10431,7 +10435,7 @@ export function define(g: PlangsGraph) {
       name: "Squeak",
       websites: [{ kind: "wikipedia", title: "Squeak", href: "https://en.wikipedia.org/wiki/Squeak" }],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Squeak.svg" }],
-      releases: [{ version: "unknown", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Squeak", version: "unknown", date: "2023-01-01", kind: "stable" }],
     })
     .addDialects(["pl+pharo", "pl+croquet-project", "pl+newspeak"])
     .addImplementations(["pl+croquet-project"])
@@ -10452,7 +10456,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Squirrel", href: "https://en.wikipedia.org/wiki/Squirrel_(programming_language)" },
       ],
-      releases: [{ version: "3.2", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "Squirrel", version: "3.2", date: "2022-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+cpp", "pl+javascript", "pl+lua", "pl+python"])
     .addLicenses(["lic+mit"])
@@ -10466,7 +10470,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "StarLogo",
       websites: [{ kind: "wikipedia", title: "StarLogo", href: "https://en.wikipedia.org/wiki/StarLogo" }],
-      releases: [{ version: "2.1", date: "2018-01-01", kind: "stable" }],
+      releases: [{ name: "StarLogo", version: "2.1", date: "2018-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+java", "pl+c"])
     .addInfluences(["pl+logo"])
@@ -10488,7 +10492,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Stata_logo_med_blue.png/120px-Stata_logo_med_blue.png",
         },
       ],
-      releases: [{ version: "18.0", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Stata", version: "18.0", date: "2023-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary"]);
 
@@ -10511,7 +10515,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/Automatic_Transmission_Logic.png/220px-Automatic_Transmission_Logic.png",
         },
       ],
-      releases: [{ version: "unknown", date: "2018-01-01", kind: "stable" }],
+      releases: [{ name: "Stateflow", version: "unknown", date: "2018-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary"])
     .addPlatforms(["platf+x64"]);
@@ -10545,7 +10549,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Strongtalk",
       websites: [{ kind: "wikipedia", title: "Strongtalk", href: "https://en.wikipedia.org/wiki/Strongtalk" }],
-      releases: [{ version: "2.0", date: "2006-01-01", kind: "stable" }],
+      releases: [{ name: "Strongtalk", version: "2.0", date: "2006-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+smalltalk"])
     .addInfluences(["pl+smalltalk", "pl+self"])
@@ -10606,8 +10610,8 @@ export function define(g: PlangsGraph) {
       name: "SWI-Prolog",
       websites: [{ kind: "wikipedia", title: "SWI-Prolog", href: "https://en.wikipedia.org/wiki/SWI-Prolog" }],
       releases: [
-        { version: "9.2.2", date: "2024-01-01", kind: "stable" },
-        { version: "9.3.2", date: "2024-01-01", kind: "preview" },
+        { name: "SWI-Prolog", version: "9.2.2", date: "2024-01-01", kind: "stable" },
+        { name: "SWI-Prolog", version: "9.3.2", date: "2024-01-01", kind: "preview" },
       ],
     })
     .addLicenses(["lic+bsd-s", "lic+lgpl"]);
@@ -10633,9 +10637,8 @@ export function define(g: PlangsGraph) {
         { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Swift_logo.svg" },
       ],
       releases: [
-        { version: "0.96.2", date: "2015-01-01", kind: "stable" },
-        { version: "5.10.1", date: "2024-01-01", kind: "stable" },
-        { version: "6.0", kind: "preview" },
+        { name: "Swift", version: "0.96.2", date: "2015-01-01", kind: "stable" },
+        { name: "Swift", version: "5.10.1", date: "2024-01-01", kind: "stable" },
       ],
     })
     .addInfluences(["pl+smalltalk", "pl+c", "pl+rust", "pl+haskell"])
@@ -10761,7 +10764,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Sysquake", href: "https://en.wikipedia.org/wiki/Sysquake" },
         { kind: "homepage", title: "Sysquake product page", href: "http://www.calerga.com/products/Sysquake/" },
       ],
-      releases: [{ version: "6.5", date: "2019-01-01", kind: "stable" }],
+      releases: [{ name: "Sysquake", version: "6.5", date: "2019-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary"]);
 
@@ -10786,7 +10789,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "TADS",
       websites: [{ kind: "wikipedia", title: "TADS", href: "https://en.wikipedia.org/wiki/TADS" }],
-      releases: [{ version: "3.1.3", date: "2013-01-01", kind: "stable" }],
+      releases: [{ name: "TADS", version: "3.1.3", date: "2013-01-01", kind: "stable" }],
     })
     .addParadigms(["para+prototypes", "para+domain"])
     .addPlatforms(["platf+amiga", "platf+dos", "platf+win", "platf+unix", "platf+linux", "platf+mac"])
@@ -10808,7 +10811,7 @@ export function define(g: PlangsGraph) {
       name: "Tcl",
       websites: [{ kind: "wikipedia", title: "Tcl", href: "https://en.wikipedia.org/wiki/Tcl" }],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Tcl-powered.svg" }],
-      releases: [{ version: "8.6.14", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Tcl", version: "8.6.14", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+awk", "pl+lisp"])
     .addPerson("person+john-ousterhout", { role: "designer" })
@@ -10850,7 +10853,7 @@ export function define(g: PlangsGraph) {
       name: "TeX",
       websites: [{ kind: "wikipedia", title: "TeX", href: "https://en.wikipedia.org/wiki/TeX" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/6/68/TeX_logo.svg" }],
-      releases: [{ version: "unknown", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "TeX", version: "unknown", date: "2024-01-01", kind: "stable" }],
       extensions: [".tex"],
     })
     .addPerson("person+donald-knuth", { role: "developer" })
@@ -10868,7 +10871,7 @@ export function define(g: PlangsGraph) {
           href: "https://en.wikipedia.org/wiki/Threading_Building_Blocks",
         },
       ],
-      releases: [{ version: "2021.8", date: "2021-01-01", kind: "stable" }],
+      releases: [{ name: "Threading Building Blocks", version: "2021.8", date: "2021-01-01", kind: "stable" }],
     })
     .addLicense("lic+apache", {
       refs: [
@@ -10891,7 +10894,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Tcl-Tk_universal_scripting.svg",
         },
       ],
-      releases: [{ version: "8.6.13", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "Tk", version: "8.6.13", date: "2022-01-01", kind: "stable" }],
     })
     .addLicense("lic+bsd-s", {
       refs: [{ href: "http://www.tcl.tk/software/tcltk/license.html", title: "Tcl/Tk Licensing Terms" }],
@@ -10940,7 +10943,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/5/54/Tom_%28pattern_matching_language%29_logo.png",
         },
       ],
-      releases: [{ version: "2.10", date: "2013-03-21", kind: "stable" }],
+      releases: [{ name: "Tom", version: "2.10", date: "2013-03-21", kind: "stable" }],
     })
     .addLicenses(["lic+gpl", "lic+bsd-s"]);
 
@@ -10986,8 +10989,8 @@ export function define(g: PlangsGraph) {
         },
       ],
       releases: [
-        { version: "9.6.4", date: "2021-01-01", kind: "stable" },
-        { version: "9.6.5", date: "2021-01-01", kind: "preview" },
+        { name: "LiveCodeLiveCode Script", version: "9.6.4", date: "2021-01-01", kind: "stable" },
+        { name: "LiveCodeLiveCode Script", version: "9.6.5", date: "2021-01-01", kind: "preview" },
       ],
     })
     .addInfluences(["pl+hypertalk"])
@@ -11008,7 +11011,6 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "TTM",
       websites: [{ kind: "wikipedia", title: "TTM", href: "https://en.wikipedia.org/wiki/TTM_(programming_language)" }],
-      releases: [{ version: "1.0", kind: "stable" }],
     })
     .addInfluences(["pl+trac"])
     .addLicenses(["lic+mit"])
@@ -11048,7 +11050,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Turtlestitch_Logo.png/121px-Turtlestitch_Logo.png",
         },
       ],
-      releases: [{ version: "2.7.7", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "TurtleStitch", version: "2.7.7", date: "2022-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+javascript"])
     .addInfluences(["pl+scratch", "pl+snap-", "pl+logo", "pl+maker-culture"])
@@ -11105,7 +11107,7 @@ export function define(g: PlangsGraph) {
       name: "TypeScript",
       websites: [{ kind: "wikipedia", title: "TypeScript", href: "https://en.wikipedia.org/wiki/TypeScript" }],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Typescript.svg" }],
-      releases: [{ version: "5.4.2", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "TypeScript", version: "5.4.2", date: "2024-01-01", kind: "stable" }],
     })
     .addDialects(["pl+assemblyscript"])
     .addInfluences(["pl+c-sharp", "pl+javascript", "pl+ms-visual-c-sharp", "pl+java"])
@@ -11141,7 +11143,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Ubclogo_spiral.png/121px-Ubclogo_spiral.png",
         },
       ],
-      releases: [{ version: "6.2.1", date: "2020-01-01", kind: "stable" }],
+      releases: [{ name: "UCBLogo", version: "6.2.1", date: "2020-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+c"])
     .addInfluences(["pl+lisp"])
@@ -11177,7 +11179,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Umple_Logo.png/200px-Umple_Logo.png",
         },
       ],
-      releases: [{ version: "1.34.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Umple", version: "1.34.0", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+java", "pl+cpp", "pl+uml", "pl+ruby", "pl+php"])
     .addLicenses(["lic+mit"])
@@ -11208,7 +11210,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Uniface", href: "https://en.wikipedia.org/wiki/Uniface_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/0/06/Logo_Payoff_RGB.svg" }],
-      releases: [{ version: "10.4.01.018", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "Uniface", version: "10.4.01.018", date: "2022-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+commercial"]);
 
@@ -11220,7 +11222,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Unified Parallel C", href: "https://en.wikipedia.org/wiki/Unified_Parallel_C" },
       ],
-      releases: [{ version: "2022.10.0", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "Unified Parallel C (UPC)", version: "2022.10.0", date: "2022-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+c", "pl+split-c"])
     .addParadigms(["para+parallel", "para+message", "para+imperative", "para+structured"])
@@ -11247,7 +11249,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "urbiscript",
       websites: [{ kind: "wikipedia", title: "urbiscript", href: "https://en.wikipedia.org/wiki/Urbiscript" }],
-      releases: [{ version: "2.7.4", date: "2011-01-01", kind: "stable" }],
+      releases: [{ name: "urbiscript", version: "2.7.4", date: "2011-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+cpp"])
     .addInfluence("pl+self", {
@@ -11288,7 +11290,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "V (Vlang)", href: "https://en.wikipedia.org/wiki/V_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/e/e8/V_Logo_SVG.svg" }],
-      releases: [{ version: "0.4.5", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "V", version: "0.4.5", date: "2024-01-01", kind: "stable" }],
       extensions: [".v", ".vsh"],
     })
     .addInfluences(["pl+c", "pl+go", "pl+kotlin", "pl+oberon", "pl+python", "pl+rust"])
@@ -11321,7 +11323,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Vala", href: "https://en.wikipedia.org/wiki/Vala_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/9/92/Vala_Logo.svg" }],
-      releases: [{ version: "0.57.0", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Vala", version: "0.57.0", date: "2023-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+boo", "pl+c", "pl+c-sharp", "pl+d", "pl+java", "pl+ms-visual-c-sharp", "pl+cpp"])
     .addLicenses(["lic+lgpl"])
@@ -11369,7 +11371,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "VHDL", href: "https://en.wikipedia.org/wiki/VHDL" },
         { kind: "homepage", title: "IEEE VASG", href: "https://opensource.ieee.org/vasg" },
       ],
-      releases: [{ version: "unknown", date: "1076-01-01", kind: "stable" }],
+      releases: [{ name: "VHDL", version: "unknown", date: "1076-01-01", kind: "stable" }],
     })
     .addDialects(["pl+vhdl-ams"])
     .addInfluences(["pl+pascal"])
@@ -11411,7 +11413,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/DF_Logo_Compact_RGB.png/220px-DF_Logo_Compact_RGB.png",
         },
       ],
-      releases: [{ version: "24.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "DataFlex", version: "24.0", date: "2024-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+commercial"])
     .addLicense("lic+proprietary", {
@@ -11478,7 +11480,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/8/84/Visual_Prolog_IDE_Screenshot.png/300px-Visual_Prolog_IDE_Screenshot.png",
         },
       ],
-      releases: [{ version: "unknown", date: "1105-01-01", kind: "stable" }],
+      releases: [{ name: "Visual Prolog", version: "unknown", date: "1105-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+prolog"])
     .addParadigms([
@@ -11559,8 +11561,8 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "Open Watcom", href: "https://en.wikipedia.org/wiki/Watcom_C_compiler" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Watcom_logo.png" }],
       releases: [
-        { version: "1.9", date: "2010-01-01", kind: "stable" },
-        { version: "2.0", date: "2022-01-01", kind: "preview" },
+        { name: "Open Watcom C/C++", version: "1.9", date: "2010-01-01", kind: "stable" },
+        { name: "Open Watcom C/C++", version: "2.0", date: "2022-01-01", kind: "preview" },
       ],
     })
     .addLicenses(["lic+sybase-open-watcom-public"])
@@ -11572,7 +11574,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "WEB",
       websites: [{ kind: "wikipedia", title: "CWEB", href: "https://en.wikipedia.org/wiki/WEB" }],
-      releases: [{ version: "3.67", date: "2006-01-01", kind: "stable" }],
+      releases: [{ name: "CWEB", version: "3.67", date: "2006-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+web", "pl+tex"])
     .addPerson("person+donald-knuth", { role: "designer" })
@@ -11589,7 +11591,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Whiley", href: "https://en.wikipedia.org/wiki/Whiley_(programming_language)" },
       ],
-      releases: [{ version: "0.6.1", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "Whiley", version: "0.6.1", date: "2022-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+java", "pl+c", "pl+python", "pl+rust"])
     .addLicenses(["lic+bsd"])
@@ -11605,7 +11607,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Wolfram Language", href: "https://en.wikipedia.org/wiki/Wolfram_Language" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/en/1/17/Wolfram_Language_Logo_2016.svg" }],
-      releases: [{ version: "14.0.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Wolfram Language", version: "14.0.0", date: "2024-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+wolfram-mathematica"])
     .addPerson("person+stephen-wolfram", { role: "designer" })
@@ -11662,7 +11664,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/4/48/WolframSystemModelerLogo.png/64px-WolframSystemModelerLogo.png",
         },
       ],
-      releases: [{ version: "14.0.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Wolfram System Modeler", version: "14.0.0", date: "2024-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary"]);
 
@@ -11679,7 +11681,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "X10",
       websites: [{ kind: "wikipedia", title: "X10", href: "https://en.wikipedia.org/wiki/X10_(programming_language)" }],
-      releases: [{ version: "2.6.2", date: "2019-01-01", kind: "stable" }],
+      releases: [{ name: "X10", version: "2.6.2", date: "2019-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+cpp", "pl+java"])
     .addLicenses(["lic+eclipse-public"])
@@ -11701,7 +11703,7 @@ export function define(g: PlangsGraph) {
       name: "Xalan",
       websites: [{ kind: "wikipedia", title: "Apache Xalan", href: "https://en.wikipedia.org/wiki/Xalan" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/6/66/Apache_Xalan_logo.svg" }],
-      releases: [{ version: "2.7.3", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Apache Xalan", version: "2.7.3", date: "2023-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+apache"]);
 
@@ -11731,7 +11733,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Scilab_Logo.png/90px-Scilab_Logo.png",
         },
       ],
-      releases: [{ version: "2024.1.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Scilab", version: "2024.1.0", date: "2024-01-01", kind: "stable" }],
     })
     .addPerson("person+dassault-systemes", { role: "developer" })
     .addLicenses(["lic+gpl-2", "lic+cecill"]);
@@ -11758,7 +11760,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "XOD",
       websites: [{ kind: "wikipedia", title: "XOD", href: "https://en.wikipedia.org/wiki/XOD_(programming_language)" }],
-      releases: [{ version: "0.38.0", date: "2021-01-01", kind: "stable" }],
+      releases: [{ name: "XOD", version: "0.38.0", date: "2021-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+gnu-affero-gpl"])
     .addParadigms(["para+dec", "para+dataflow", "para+functional", "para+visual"])
@@ -11773,7 +11775,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "XOTcl", href: "https://en.wikipedia.org/wiki/XOTcl" },
         { kind: "homepage", title: "media.wu-wien.ac.at", href: "http://media.wu-wien.ac.at/" },
       ],
-      releases: [{ version: "1.6.8", date: "2014-01-01", kind: "stable" }],
+      releases: [{ name: "XOTcl", version: "1.6.8", date: "2014-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+tcl", "pl+otcl"])
     .addParadigms(["para+multi", "para+objects", "para+functional", "para+imperative", "para+event"])
@@ -11795,7 +11797,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "XSB", href: "https://en.wikipedia.org/wiki/XSB" },
         { kind: "homepage", title: "Sourceforge.net", href: "https://xsb.sourceforge.net/" },
       ],
-      releases: [{ version: "5.0", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "XSB", version: "5.0", date: "2022-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+prolog"])
     .addParadigms(["para+logic"])
@@ -11818,7 +11820,7 @@ export function define(g: PlangsGraph) {
       name: "Xtend",
       websites: [{ kind: "wikipedia", title: "Xtend", href: "https://en.wikipedia.org/wiki/Xtend" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Xtend-logo-c.png" }],
-      releases: [{ version: "2.25.0", date: "2021-01-01", kind: "stable" }],
+      releases: [{ name: "Xtend", version: "2.25.0", date: "2021-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+java", "pl+scala", "pl+groovy", "pl+smalltalk"])
     .addLicenses(["lic+eclipse-public"])
@@ -11851,8 +11853,8 @@ export function define(g: PlangsGraph) {
       name: "YAP Prolog",
       websites: [{ kind: "wikipedia", title: "YAP", href: "https://en.wikipedia.org/wiki/YAP_(Prolog)" }],
       releases: [
-        { version: "6.3.3", date: "2013-01-01", kind: "stable" },
-        { version: "7.1", date: "2016-01-01", kind: "preview" },
+        { name: "YAP Prolog", version: "6.3.3", date: "2013-01-01", kind: "stable" },
+        { name: "YAP Prolog", version: "7.1", date: "2016-01-01", kind: "preview" },
       ],
     })
     .addLicenses(["lic+artistic"]);
@@ -11863,7 +11865,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "YARV",
       websites: [{ kind: "wikipedia", title: "YARV", href: "https://en.wikipedia.org/wiki/YARV" }],
-      releases: [{ version: "3.3.3", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "YARV", version: "3.3.3", date: "2024-01-01", kind: "stable" }],
     })
     .addPerson("person+koichi-sasada", { role: "developer" })
     .addLicenses(["lic+ruby"]);
@@ -11883,7 +11885,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { kind: "wikipedia", title: "Yorick", href: "https://en.wikipedia.org/wiki/Yorick_(programming_language)" },
       ],
-      releases: [{ version: "2.2.04", date: "2015-01-01", kind: "stable" }],
+      releases: [{ name: "Yorick", version: "2.2.04", date: "2015-01-01", kind: "stable" }],
     })
     .addPerson("person+david-h-munro", { role: "designer" })
     .addLicenses(["lic+bsd-s"])
@@ -11917,7 +11919,6 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Zend_Engine_logo.png/120px-Zend_Engine_logo.png",
         },
       ],
-      releases: [{ version: "3.4", kind: "stable" }],
     })
     .addLicenses(["lic+zend", "lic+php"]);
 
@@ -11928,7 +11929,7 @@ export function define(g: PlangsGraph) {
       name: "Zig",
       websites: [{ kind: "wikipedia", title: "Zig", href: "https://en.wikipedia.org/wiki/Zig_(programming_language)" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/b/b3/Zig_logo_2020.svg" }],
-      releases: [{ version: "0.13.0", date: "2024-01-01", kind: "preview" }],
+      releases: [{ name: "Zig", version: "0.13.0", date: "2024-01-01", kind: "preview" }],
     })
     .addInfluences(["pl+c"])
     .addLicenses(["lic+mit"])

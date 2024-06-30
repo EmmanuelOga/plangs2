@@ -15,8 +15,8 @@ export function define(g: PlangsGraph) {
       ],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/en/4/4c/Inform_7_IDE_Icon.png" }],
       releases: [
-        { version: "unknown", date: "2015-01-01", kind: "stable" },
-        { version: "6.33", date: "2014-01-01", kind: "preview" },
+        { name: "InformInform 1–6Inform 7", version: "unknown", date: "2015-01-01", kind: "stable" },
+        { name: "InformInform 1–6Inform 7", version: "6.33", date: "2014-01-01", kind: "preview" },
       ],
     })
     .addPerson("person+graham-nelson", { role: "designer" })

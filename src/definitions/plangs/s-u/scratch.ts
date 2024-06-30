@@ -9,8 +9,8 @@ export function define(g: PlangsGraph) {
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/f/f1/Scratchlogo.svg" }],
       releases: [
-        { version: "0.1", date: "2003-01-01", kind: "first" },
-        { version: "3.0", date: "2019-01-01", kind: "stable" },
+        { name: "Scratch", version: "0.1", date: "2003-01-01", kind: "first" },
+        { name: "Scratch", version: "3.0", date: "2019-01-01", kind: "stable" },
       ],
     })
     .addImplementations(["pl+squeak", "pl+actionscript", "pl+html5", "pl+javascript"])

@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Windows Forms", href: "https://en.wikipedia.org/wiki/Windows_Forms" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/3/37/WinForms_Logo.png" }],
-      releases: [{ version: "8.0.0", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Windows Forms (WinForms)", version: "8.0.0", date: "2023-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+basic"])
     .addLicenses(["lic+mit"])

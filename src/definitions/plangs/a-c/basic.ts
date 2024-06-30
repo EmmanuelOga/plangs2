@@ -85,16 +85,15 @@ export function define(g: PlangsGraph) {
         },
       ],
       releases: [
-        { version: "1.10.1", date: "2023-01-01", kind: "stable" },
-        { version: "3.23", date: "1988-01-01", kind: "stable" },
-        { version: "unknown", date: "2018-01-01", kind: "stable" },
-        { version: "1.2", date: "2015-01-01", kind: "stable" },
-        { version: "4.1", kind: "stable" },
-        { version: "9.0.4", date: "2024-01-01", kind: "stable" },
-        { version: "unknown", date: "1990-01-01", kind: "stable" },
-        { version: "12.27", date: "2024-01-01", kind: "stable" },
-        { version: "17.9.2", date: "2024-01-01", kind: "stable" },
-        { version: "7.1", date: "2021-01-01", kind: "stable" },
+        { name: "FreeBASIC", version: "1.10.1", date: "2023-01-01", kind: "stable" },
+        { name: "GW-BASIC", version: "3.23", date: "1988-01-01", kind: "stable" },
+        { name: "Microsoft BASIC", version: "unknown", date: "2018-01-01", kind: "stable" },
+        { name: "Microsoft Small Basic", version: "1.2", date: "2015-01-01", kind: "stable" },
+        { name: "NSB/AppStudio", version: "9.0.4", date: "2024-01-01", kind: "stable" },
+        { name: "QuickBASIC", version: "unknown", date: "1990-01-01", kind: "stable" },
+        { name: "SmallBASIC", version: "12.27", date: "2024-01-01", kind: "stable" },
+        { name: "Visual Basic", version: "17.9.2", date: "2024-01-01", kind: "stable" },
+        { name: "Visual Basic for Applications", version: "7.1", date: "2021-01-01", kind: "stable" },
       ],
       extensions: [".sb", ".vb"],
     })
@@ -210,7 +209,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Gambas_mascot.png/95px-Gambas_mascot.png",
         },
       ],
-      releases: [{ version: "3.19.1", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Gambas", version: "3.19.1", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+basic"])
     .addInfluence("pl+java", {
@@ -239,7 +238,7 @@ export function define(g: PlangsGraph) {
       name: "Xojo",
       websites: [{ kind: "wikipedia", title: "Xojo", href: "https://en.wikipedia.org/wiki/Xojo" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/3/31/Logomark_Xojo_Company.svg" }],
-      releases: [{ version: "3.1", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Xojo", version: "3.1", date: "2023-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+basic"])
     .addLicenses(["lic+freemium"]);

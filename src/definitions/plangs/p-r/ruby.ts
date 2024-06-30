@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/JRuby_logo.png/200px-JRuby_logo.png",
         },
       ],
-      releases: [{ version: "9.4.5.0", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "JRuby", version: "9.4.5.0", date: "2023-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+eclipse-public", "lic+gpl", "lic+lgpl"])
     .addPlatforms(["platf+jvm"]);
@@ -23,7 +23,7 @@ export function define(g: PlangsGraph) {
       name: "mruby",
       websites: [{ kind: "wikipedia", title: "mruby", href: "https://en.wikipedia.org/wiki/Mruby" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/7/73/Mruby_logo_red.svg" }],
-      releases: [{ version: "3.3.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "mruby", version: "3.3.0", date: "2024-01-01", kind: "stable" }],
     })
     .addPerson("person+yukihiro-matsumoto", { role: "developer" })
     .addLicense("lic+mit", {
@@ -36,7 +36,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Rubinius",
       websites: [{ kind: "wikipedia", title: "Rubinius", href: "https://en.wikipedia.org/wiki/Rubinius" }],
-      releases: [{ version: "5.0", date: "2020-01-01", kind: "stable" }],
+      releases: [{ name: "Rubinius", version: "5.0", date: "2020-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+mozilla-public"]);
 
@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Ruby", href: "https://en.wikipedia.org/wiki/Ruby_programming_language" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/7/73/Ruby_logo.svg" }],
-      releases: [{ version: "3.3.3", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Ruby", version: "3.3.3", date: "2024-01-01", kind: "stable" }],
     })
     .addImplementations([
       "pl+c",

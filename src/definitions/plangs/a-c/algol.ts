@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/1965_ALGOL-20_A_Language_Manual%2C_Fierst_et_al_-_cover.jpg/121px-1965_ALGOL-20_A_Language_Manual%2C_Fierst_et_al_-_cover.jpg",
         },
       ],
-      releases: [{ version: "unknown", date: "1973-01-01", kind: "stable" }],
+      releases: [{ name: "ALGOL 68", version: "unknown", date: "1973-01-01", kind: "stable" }],
     })
     .addDialects([
       "pl+algol",

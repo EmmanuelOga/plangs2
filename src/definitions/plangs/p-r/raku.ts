@@ -8,7 +8,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Raku", href: "https://en.wikipedia.org/wiki/Raku_(programming_language)" },
       ],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/8/85/Camelia.svg" }],
-      releases: [{ version: "unknown", date: "2020-01-01", kind: "stable" }],
+      releases: [{ name: "Raku", version: "unknown", date: "2020-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+rakudo"])
     .addInfluences(["pl+perl", "pl+ruby", "pl+smalltalk", "pl+javascript"])
@@ -38,7 +38,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Rakudo_Logo.png/250px-Rakudo_Logo.png",
         },
       ],
-      releases: [{ version: "2024.05", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Rakudo", version: "2024.05", date: "2024-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+artistic"]);
 

@@ -384,12 +384,18 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
           preview_release: "preview",
           stable_release: "stable",
         };
+
+        if (!(val.date || val.year)) return;
+
         const rel: Release = {
+          name: val.name,
           version: val.version ?? "unknown",
           date: val.year ? `${val.year}-01-01` : val.date,
           kind: KINDS[infoboxKey],
         };
+
         pl.releases ??= [];
+
         if (!pl.releases.some((r: Release) => r.version === rel.version && r.date === rel.date)) {
           pl.releases.push(rel);
         }

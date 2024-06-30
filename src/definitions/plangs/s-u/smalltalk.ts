@@ -25,11 +25,11 @@ export function define(g: PlangsGraph) {
         { kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Smalltalk_Balloon.svg" },
       ],
       releases: [
-        { version: "0.30.0", date: "2021-01-01", kind: "stable" },
-        { version: "7.1.24", date: "2022-01-01", kind: "stable" },
-        { version: "8.0", date: "2024-01-01", kind: "preview" },
-        { version: "3.2.5", date: "2013-01-01", kind: "stable" },
-        { version: "unknown", date: "1980-01-01", kind: "stable" },
+        { name: "Amber Smalltalk", version: "0.30.0", date: "2021-01-01", kind: "stable" },
+        { name: "Dolphin Smalltalk", version: "7.1.24", date: "2022-01-01", kind: "stable" },
+        { name: "Dolphin Smalltalk", version: "8.0", date: "2024-01-01", kind: "preview" },
+        { name: "GNU Smalltalk", version: "3.2.5", date: "2013-01-01", kind: "stable" },
+        { name: "Smalltalk", version: "unknown", date: "1980-01-01", kind: "stable" },
       ],
     })
     .addDialects(["pl+smalltalk", "pl+newspeak", "pl+pharo", "pl+self", "pl+strongtalk"])

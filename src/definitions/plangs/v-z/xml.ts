@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "libxslt",
       websites: [{ kind: "wikipedia", title: "libxslt", href: "https://en.wikipedia.org/wiki/Libxslt" }],
-      releases: [{ version: "1.1.40", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "libxslt", version: "1.1.40", date: "2024-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+mit"]);
 
@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "XQuery",
       websites: [{ kind: "wikipedia", title: "XQuery", href: "https://en.wikipedia.org/wiki/XQuery" }],
-      releases: [{ version: "3.1", date: "2017-01-01", kind: "stable" }],
+      releases: [{ name: "XQuery", version: "3.1", date: "2017-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+xpath", "pl+sql", "pl+xslt"])
     .addParadigms(["para+dec", "para+functional", "para+modular"])
@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "XSLT",
       websites: [{ kind: "wikipedia", title: "XSLT", href: "https://en.wikipedia.org/wiki/XSLT" }],
-      releases: [{ version: "3.0", date: "2017-01-01", kind: "stable" }],
+      releases: [{ name: "XSLT", version: "3.0", date: "2017-01-01", kind: "stable" }],
       extensions: [".xslt"],
     })
     .addImplementations(["pl+libxslt", "pl+saxon-xslt", "pl+xalan"])

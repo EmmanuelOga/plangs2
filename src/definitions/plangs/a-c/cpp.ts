@@ -7,8 +7,8 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "C++", href: "https://en.wikipedia.org/wiki/C%2B%2B" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" }],
       releases: [
-        { version: "unknown", date: "1488-01-01", kind: "stable" },
-        { version: "unknown", date: "2023-01-01", kind: "preview" },
+        { name: "C++", version: "unknown", date: "1488-01-01", kind: "stable" },
+        { name: "C++", version: "unknown", date: "2023-01-01", kind: "preview" },
       ],
       extensions: [".c++", ".h++"],
     })
@@ -91,7 +91,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "C++Builder",
       websites: [{ kind: "wikipedia", title: "C++Builder", href: "https://en.wikipedia.org/wiki/C%2B%2BBuilder" }],
-      releases: [{ version: "12.1", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "C++Builder", version: "12.1", date: "2024-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+delphi", "pl+cpp"])
     .addLicenses(["lic+trialware"])
@@ -119,7 +119,6 @@ export function define(g: PlangsGraph) {
           href: "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html",
         },
       ],
-      releases: [{ version: "2.0", kind: "stable" }],
     })
     .addImplementations(["pl+clang", "pl+gcc"])
     .addInfluences(["pl+cpp", "pl+c", "pl+smalltalk"])

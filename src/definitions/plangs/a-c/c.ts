@@ -19,8 +19,8 @@ export function define(g: PlangsGraph) {
         },
       ],
       releases: [
-        { version: "unknown", date: "2018-01-01", kind: "stable" },
-        { version: "unknown", date: "3220-01-01", kind: "preview" },
+        { name: "C", version: "unknown", date: "2018-01-01", kind: "stable" },
+        { name: "C", version: "unknown", date: "3220-01-01", kind: "preview" },
       ],
     })
     .addDialects([

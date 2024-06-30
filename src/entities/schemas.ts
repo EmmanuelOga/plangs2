@@ -103,8 +103,9 @@ export type Scoping = "lexical" | "static" | "dynamic" | "other";
  */
 export interface Release {
   version: string;
-  date?: StrDate;
   kind: "first" | "preview" | "stable" | "other";
+  name?: string;
+  date?: StrDate;
 }
 
 /**

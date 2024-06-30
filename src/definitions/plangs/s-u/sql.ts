@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       images: [
         { kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" },
       ],
-      releases: [{ version: "unknown", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "SQL/PSM", version: "unknown", date: "2023-01-01", kind: "stable" }],
       extensions: [".sql"],
     })
     .addImplementations(["pl+sql", "pl+mariadb"])

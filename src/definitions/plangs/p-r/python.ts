@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/2/29/Adafruit_blinka_angles-left.svg",
         },
       ],
-      releases: [{ version: "9.0.4", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "CircuitPython", version: "9.0.4", date: "2024-01-01", kind: "stable" }],
     })
     .addLicense("lic+mit", {
       refs: [
@@ -31,7 +31,7 @@ export function define(g: PlangsGraph) {
       images: [
         { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg" },
       ],
-      releases: [{ version: "3.12.0", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "CPython", version: "3.12.0", date: "2023-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+python-foundation"]);
 
@@ -56,8 +56,8 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "IronPython", href: "https://en.wikipedia.org/wiki/IronPython" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/9/99/IronPython_3_logo.svg" }],
       releases: [
-        { version: "3.4.1", date: "2023-01-01", kind: "stable" },
-        { version: "3.4.0", date: "2022-01-01", kind: "preview" },
+        { name: "IronPython", version: "3.4.1", date: "2023-01-01", kind: "stable" },
+        { name: "IronPython", version: "3.4.0", date: "2022-01-01", kind: "preview" },
       ],
     })
     .addLicenses(["lic+apache"])
@@ -70,7 +70,7 @@ export function define(g: PlangsGraph) {
       name: "Jython",
       websites: [{ kind: "wikipedia", title: "Jython", href: "https://en.wikipedia.org/wiki/Jython" }],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/en/e/ea/Jython.png" }],
-      releases: [{ version: "2.7.3", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "Jython", version: "2.7.3", date: "2022-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+python-foundation"])
     .addPlatforms(["platf+jvm"]);
@@ -82,7 +82,7 @@ export function define(g: PlangsGraph) {
       name: "MicroPython",
       websites: [{ kind: "wikipedia", title: "MicroPython", href: "https://en.wikipedia.org/wiki/MicroPython" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/a/a7/MicroPython_new_logo.svg" }],
-      releases: [{ version: "1.23.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "MicroPython", version: "1.23.0", date: "2024-01-01", kind: "stable" }],
     })
     .addLicense("lic+mit", {
       refs: [
@@ -133,7 +133,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Pyomo_Logo_Without_Text.png/121px-Pyomo_Logo_Without_Text.png",
         },
       ],
-      releases: [{ version: "6.4.2", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "Pyomo", version: "6.4.2", date: "2022-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+ampl", "pl+python", "pl+general-algebraic-modeling-system"])
     .addLicenses(["lic+bsd"])
@@ -158,7 +158,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Python", href: "https://en.wikipedia.org/wiki/Python_(programming_language)" },
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" }],
-      releases: [{ version: "3.12.4", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Python", version: "3.12.4", date: "2024-01-01", kind: "stable" }],
     })
     .addDialects(["pl+mojo", "pl+cython", "pl+pypy"])
     .addDialect("pl+bazel", {
@@ -334,8 +334,8 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "Stackless Python", href: "https://en.wikipedia.org/wiki/Stackless_Python" },
       ],
       releases: [
-        { version: "3.8.1", date: "2020-01-01", kind: "stable" },
-        { version: "unknown", date: "2021-01-01", kind: "preview" },
+        { name: "Stackless Python", version: "3.8.1", date: "2020-01-01", kind: "stable" },
+        { name: "Stackless Python", version: "unknown", date: "2021-01-01", kind: "preview" },
       ],
     })
     .addInfluences(["pl+dis-virtual-machine", "pl+limbo"])

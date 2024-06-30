@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
       images: [
         { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/0/00/AssemblyScript_logo_2020.svg" },
       ],
-      releases: [{ version: "0.27.27", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "AssemblyScript", version: "0.27.27", date: "2024-01-01", kind: "stable" }],
       extensions: [".ts"],
     })
     .addInfluences(["pl+javascript", "pl+typescript", "pl+webassembly"])
@@ -55,7 +55,7 @@ export function define(g: PlangsGraph) {
           href: "https://en.wikipedia.org/wiki/Game_Oriented_Assembly_Lisp",
         },
       ],
-      releases: [{ version: "unknown", date: "2012-01-01", kind: "stable" }],
+      releases: [{ name: "Game Oriented Assembly Lisp", version: "unknown", date: "2012-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+allegro-common-lisp"])
     .addInfluences(["pl+lisp", "pl+scheme"])
@@ -78,7 +78,7 @@ export function define(g: PlangsGraph) {
           href: "https://en.wikipedia.org/wiki/High_Level_Assembly",
         },
       ],
-      releases: [{ version: "2.16", date: "2011-01-01", kind: "stable" }],
+      releases: [{ name: "High Level Assembly (HLA)", version: "2.16", date: "2011-01-01", kind: "stable" }],
     })
     .addPerson("person+randall-hyde", { role: "developer" })
     .addLicenses(["lic+public-domain"])
@@ -96,7 +96,7 @@ export function define(g: PlangsGraph) {
           href: "https://en.wikipedia.org/wiki/Microsoft_Macro_Assembler",
         },
       ],
-      releases: [{ version: "14.16.27023.1", date: "2702-01-01", kind: "stable" }],
+      releases: [{ name: "Microsoft Macro Assembler", version: "14.16.27023.1", date: "2702-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+commercial", "lic+proprietary"]);
 
@@ -109,7 +109,7 @@ export function define(g: PlangsGraph) {
       images: [
         { kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/4/48/Netwide_Assembler.svg" },
       ],
-      releases: [{ version: "2.16.03", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "NASM", version: "2.16.03", date: "2024-01-01", kind: "stable" }],
     })
     .addPerson("person+h-peter-anvin", { role: "developer" })
     .addLicenses(["lic+bsd-s"]);

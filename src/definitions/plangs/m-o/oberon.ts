@@ -39,7 +39,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/9/97/Oberon_programming_language_logo.svg",
         },
       ],
-      releases: [{ version: "unknown", date: "2020-01-01", kind: "stable" }],
+      releases: [{ name: "Oberon", version: "unknown", date: "2020-01-01", kind: "stable" }],
     })
     .addDialects(["pl+active-oberon", "pl+oberon-2", "pl+obliq"])
     .addInfluences(["pl+modula", "pl+oberon-2"])

@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Allegro_Common_Lisp_emblem.png/121px-Allegro_Common_Lisp_emblem.png",
         },
       ],
-      releases: [{ version: "11.0", date: "2024-01-01", kind: "stable" }],
+      releases: [{ name: "Allegro Common Lisp", version: "11.0", date: "2024-01-01", kind: "stable" }],
       scoping: ["dynamic"],
     })
     .addImplementations(["pl+common-lisp"])
@@ -78,7 +78,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "AutoLisp",
       websites: [{ kind: "wikipedia", title: "AutoLisp", href: "https://en.wikipedia.org/wiki/AutoLisp" }],
-      releases: [{ version: "unknown", date: "1995-01-01", kind: "stable" }],
+      releases: [{ name: "AutoLISP", version: "unknown", date: "1995-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+armed-bear-common-lisp", "pl+lisp", "pl+common-lisp"])
     .addPlatforms(["platf+ia-32", "platf+linux"])
@@ -98,7 +98,7 @@ export function define(g: PlangsGraph) {
       name: "CLISP",
       websites: [{ kind: "wikipedia", title: "CLISP", href: "https://en.wikipedia.org/wiki/CLISP" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/0/01/LogoCLISP.jpg" }],
-      releases: [{ version: "2.49", date: "2010-01-01", kind: "stable" }],
+      releases: [{ name: "CLISP", version: "2.49", date: "2010-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+gpl"]);
 
@@ -157,7 +157,7 @@ export function define(g: PlangsGraph) {
       name: "Emacs Lisp",
       websites: [{ kind: "wikipedia", title: "Emacs Lisp", href: "https://en.wikipedia.org/wiki/Emacs_Lisp" }],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/0/08/EmacsIcon.svg" }],
-      releases: [{ version: "29.1", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Emacs Lisp", version: "29.1", date: "2023-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+armed-bear-common-lisp", "pl+common-lisp", "pl+maclisp"])
     .addPerson("person+richard-stallman", { role: "designer" })
@@ -173,7 +173,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Embeddable Common Lisp",
       websites: [{ kind: "wikipedia", title: "ECL", href: "https://en.wikipedia.org/wiki/Embeddable_Common_Lisp" }],
-      releases: [{ version: "23.9.9", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "Embeddable Common Lisp", version: "23.9.9", date: "2023-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+c", "pl+common-lisp"])
     .addInfluences(["pl+lisp", "pl+common-lisp", "pl+c"])
@@ -197,7 +197,7 @@ export function define(g: PlangsGraph) {
       name: "EuLisp",
       websites: [{ kind: "wikipedia", title: "EuLisp", href: "https://en.wikipedia.org/wiki/EuLisp" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/8/88/EuLispLogo.png" }],
-      releases: [{ version: "0.991", date: "2010-01-01", kind: "preview" }],
+      releases: [{ name: "EuLisp", version: "0.991", date: "2010-01-01", kind: "preview" }],
       scoping: ["dynamic", "static"],
     })
     .addInfluences([
@@ -245,7 +245,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "GNU Common Lisp",
       websites: [{ kind: "wikipedia", title: "GCL", href: "https://en.wikipedia.org/wiki/GNU_Common_Lisp" }],
-      releases: [{ version: "2.6.14", date: "2023-01-01", kind: "stable" }],
+      releases: [{ name: "GNU Common Lisp", version: "2.6.14", date: "2023-01-01", kind: "stable" }],
     })
     .addLicense("lic+gnu-library-gpl", {
       refs: [{ href: "http://directory.fsf.org/wiki/gcl", title: "GNU Common Lisp" }],
@@ -300,7 +300,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Le Lisp",
       websites: [{ kind: "wikipedia", title: "Le Lisp", href: "https://en.wikipedia.org/wiki/Le_Lisp" }],
-      releases: [{ version: "15.26.13", date: "2020-01-01", kind: "stable" }],
+      releases: [{ name: "Le Lisp", version: "15.26.13", date: "2020-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+c"])
     .addInfluences(["pl+lisp"])
@@ -324,7 +324,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Le Lisp",
       websites: [{ kind: "wikipedia", title: "LeLisp", href: "https://en.wikipedia.org/wiki/LeLisp" }],
-      releases: [{ version: "15.26.13", date: "2020-01-01", kind: "stable" }],
+      releases: [{ name: "Le Lisp", version: "15.26.13", date: "2020-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+c"])
     .addInfluences(["pl+lisp"])
@@ -410,7 +410,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "LispWorks",
       websites: [{ kind: "wikipedia", title: "LispWorks", href: "https://en.wikipedia.org/wiki/LispWorks" }],
-      releases: [{ version: "8.0.1", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "LispWorks", version: "8.0.1", date: "2022-01-01", kind: "stable" }],
       scoping: ["dynamic"],
     })
     .addImplementations(["pl+common-lisp"])
@@ -477,8 +477,8 @@ export function define(g: PlangsGraph) {
         },
       ],
       releases: [
-        { version: "10.7.5", date: "2019-01-01", kind: "stable" },
-        { version: "10.7.4", date: "2018-01-01", kind: "preview" },
+        { name: "newLISP", version: "10.7.5", date: "2019-01-01", kind: "stable" },
+        { name: "newLISP", version: "10.7.4", date: "2018-01-01", kind: "preview" },
       ],
     })
     .addInfluences(["pl+c", "pl+common-lisp", "pl+perl", "pl+scheme"])
@@ -491,7 +491,7 @@ export function define(g: PlangsGraph) {
     .merge({
       name: "Oaklisp",
       websites: [{ kind: "wikipedia", title: "Oaklisp", href: "https://en.wikipedia.org/wiki/Oaklisp" }],
-      releases: [{ version: "unknown", date: "2000-01-01", kind: "stable" }],
+      releases: [{ name: "Oaklisp", version: "unknown", date: "2000-01-01", kind: "stable" }],
     })
     .addInfluences(["pl+scheme", "pl+t", "pl+smalltalk"])
     .addParadigms(["para+multi", "para+objects", "para+functional", "para+imperative"])
@@ -516,7 +516,7 @@ export function define(g: PlangsGraph) {
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/OpenLisp_runnning_inside_GNU_Emacs.jpg/300px-OpenLisp_runnning_inside_GNU_Emacs.jpg",
         },
       ],
-      releases: [{ version: "11.7.0", date: "2022-01-01", kind: "stable" }],
+      releases: [{ name: "OpenLisp", version: "11.7.0", date: "2022-01-01", kind: "stable" }],
     })
     .addImplementations(["pl+c"])
     .addInfluences(["pl+le-lisp", "pl+lelisp", "pl+lisp", "pl+islisp"])

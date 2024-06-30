@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
         },
         { kind: "wikipedia", title: "Verilog-AMS", href: "https://en.wikipedia.org/wiki/Verilog-AMS" },
       ],
-      releases: [{ version: "unknown", date: "1800-01-01", kind: "stable" }],
+      releases: [{ name: "SystemVerilog", version: "unknown", date: "1800-01-01", kind: "stable" }],
     })
     .addDialects(["pl+verilog"])
     .addInfluences(["pl+verilog", "pl+vhdl", "pl+cpp", "pl+openvera", "pl+java", "pl+pascal", "pl+ada", "pl+fortran"])

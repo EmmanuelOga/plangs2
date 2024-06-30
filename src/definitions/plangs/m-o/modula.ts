@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "ORCA/Modula-2", href: "https://en.wikipedia.org/wiki/ORCA/Modula-2" },
       ],
       images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Modula-3.svg" }],
-      releases: [{ version: "5.8.6", date: "2010-01-01", kind: "stable" }],
+      releases: [{ name: "Modula-3", version: "5.8.6", date: "2010-01-01", kind: "stable" }],
     })
     .addDialects(["pl+alma-0", "pl+modula"])
     .addImplementation("pl+dec", {
