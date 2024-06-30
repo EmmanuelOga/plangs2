@@ -105,6 +105,13 @@ async function generateAll() {
 
       function fileName(): string {
         if (vid === "pl+c") return "c";
+        if (vid === "pl+d") return "d";
+
+        if (vid.startsWith("pl+lua")) return "lua";
+        if (vid.startsWith("simula") && !vid.startsWith("simulation")) return "simula";
+
+        if (vid.includes("java") && !vid.includes("javascript")) return "java";
+        if (vid.includes("javascript")) return "javascript";
 
         for (const [name, group] of Object.entries(PLANG_GROUPS)) {
           for (const str of group) if (vid.includes(str)) return name;
@@ -136,23 +143,46 @@ async function generateAll() {
 }
 
 const PLANG_GROUPS = {
+  ".net": [".net"],
   algol: ["algol"],
   assembly: ["assem"],
   basic: ["basic", "xojo", "gambas"],
-  c: ["c99"],
+  c: ["c99", "ansi-c"],
+  caml: ["caml"],
+  clang: ["clang", "llvm"],
+  clojure: ["clojure"],
+  cobol: ["cobol"],
   cpp: ["cpp"],
-  fortran: ["fortran"],
+  crystal: ["crystal"],
+  dart: ["dart"],
+  datalog: ["datalog"],
+  eiffel: ["eiffel"],
+  fortran: ["fortran", "g95"],
+  gcc: ["gcc"],
+  haxe: ["haxe", "nekovm"],
+  julia: ["julia"],
+  kotlin: ["clojure"],
   lisp: ["lisp"],
+  logo: ["logo"],
   modula: ["modula"],
+  moonscript: ["moonscript"],
   oberon: ["oberon"],
   other: ["slash"],
   pascal: ["pascal", "delphi"],
+  prolog: ["prolog"],
   python: ["py", "cython", "jython"],
+  qt: ["qt", "qml", "qtscript"],
   raku: ["raku"],
   ruby: ["ruby", "rubinius"],
   scratch: ["scratch"],
+  smalltalk: ["smalltalk", "gemstone", "pharo", "squeak", "cuis", "amber", "visualworks"],
   sql: ["sql"],
+  tcl: ["tcl", "tk"],
+  verilog: ["verilog"],
+  vhdl: ["vhdl"],
+  wolfram: ["wolfram"],
   xml: ["xslt", "xpath", "xquery"],
+  zig: ["zig"],
 };
 
 function defaultMapper(vid: VID_Any, vertex: _T_AnyV_Data): AtoZData {

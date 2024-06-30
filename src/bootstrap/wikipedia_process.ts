@@ -565,9 +565,12 @@ function keyFromWikiUrl(wikiUrl: string): string | undefined {
 
     if (key.startsWith("category")) return;
     if (key === "standalone-program") return;
+    if (key === "korn-shell") return "kornshell";
+    if (key === "pure-data") return "puredata";
     if (key === "systems-programming-language") return;
     if (key === "polymorphic-programming-language") return;
     if (key === "programming-language") return;
+    if (key === "communicating-sequential-processes") return "csp";
 
     key = key
       .replaceAll(/windows/g, "win")

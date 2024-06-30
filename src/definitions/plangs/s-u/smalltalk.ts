@@ -1,6 +1,61 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
+  g.buildPlang("pl+gemstone")
+    .merge({
+      name: "GemStone/S",
+      websites: [
+        {
+          kind: "wikipedia",
+          title: "GemStone/S Object Server",
+          href: "https://en.wikipedia.org/wiki/Gemstone_(database)",
+        },
+      ],
+      images: [
+        {
+          kind: "logo",
+          url: "https://upload.wikimedia.org/wikipedia/en/thumb/2/22/GemStone-S_logo_and_wordmark.png/121px-GemStone-S_logo_and_wordmark.png",
+        },
+      ],
+    })
+    .addImplementations(["pl+smalltalk"])
+    .addInfluences(["pl+smalltalk"])
+    .addLicenses(["lic+proprietary", "lic+commercial"])
+    .addParadigms(["para+objects", "para+distributed", "para+in", "para+process"])
+    .addPlatforms(["platf+ia-32", "platf+x86-64", "platf+cross-platform", "platf+linux", "platf+mac"])
+    .addTypeSystems(["tsys+dynamic"]);
+
+  /**/
+
+  g.buildPlang("pl+newsqueak")
+    .merge({
+      name: "Newsqueak",
+      websites: [{ kind: "wikipedia", title: "Newsqueak", href: "https://en.wikipedia.org/wiki/Newsqueak" }],
+    })
+    .addInfluences(["pl+c", "pl+csp"])
+    .addPerson("person+rob-pike", { role: "designer" })
+    .addParadigms(["para+concurrent"])
+    .addTypeSystems(["tsys+strong"]);
+
+  /**/
+
+  g.buildPlang("pl+pharo")
+    .merge({
+      name: "Pharo",
+      websites: [{ kind: "wikipedia", title: "Pharo", href: "https://en.wikipedia.org/wiki/Pharo" }],
+      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/6/6c/Pharo_Logo_v3.0.svg" }],
+      releases: [{ name: "Pharo", version: "12.0", date: "2024-01-01", kind: "stable" }],
+    })
+    .addImplementations(["pl+smalltalk"])
+    .addInfluences(["pl+smalltalk", "pl+squeak"])
+    .addLicenses(["lic+mit"])
+    .addLicense("lic+apache", { refs: [{ href: "https://pharo.org/license", title: "Pharo license information" }] })
+    .addParadigms(["para+objects"])
+    .addPlatforms(["platf+arm", "platf+ia-32", "platf+x86-64", "platf+win", "platf+linux", "platf+mac"])
+    .addTypeSystems(["tsys+dynamic"]);
+
+  /**/
+
   g.buildPlang("pl+smalltalk")
     .merge({
       name: "Smalltalk",
@@ -82,6 +137,42 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addTypeSystems(["tsys+object-oriented", "tsys+dynamic", "tsys+strong"]);
+
+  /**/
+
+  g.buildPlang("pl+squeak")
+    .merge({
+      name: "Squeak",
+      websites: [{ kind: "wikipedia", title: "Squeak", href: "https://en.wikipedia.org/wiki/Squeak" }],
+      images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Squeak.svg" }],
+      releases: [{ name: "Squeak", version: "unknown", date: "2023-01-01", kind: "stable" }],
+    })
+    .addDialects(["pl+pharo", "pl+croquet-project", "pl+newspeak"])
+    .addImplementations(["pl+croquet-project"])
+    .addInfluences(["pl+self", "pl+smalltalk", "pl+lisp", "pl+logo", "pl+sketchpad", "pl+simula"])
+    .addPerson("person+alan-kay", { role: "designer" })
+    .addPerson("person+dan-ingalls", { role: "designer" })
+    .addPerson("person+adele-goldberg", { role: "designer" })
+    .addLicenses(["lic+mit", "lic+apache"])
+    .addParadigms(["para+objects"])
+    .addPlatforms(["platf+cross-platform", "platf+unix", "platf+mac", "platf+ios", "platf+win"])
+    .addTypeSystems(["tsys+dynamic"]);
+
+  /**/
+
+  g.buildPlang("pl+visualworks")
+    .merge({
+      name: "VisualWorks",
+      websites: [{ kind: "wikipedia", title: "VisualWorks", href: "https://en.wikipedia.org/wiki/VisualWorks" }],
+    })
+    .addInfluences(["pl+lisp", "pl+logo", "pl+sketchpad", "pl+simula"])
+    .addPerson("person+alan-kay", { role: "designer" })
+    .addPerson("person+dan-ingalls", { role: "designer" })
+    .addPerson("person+adele-goldberg", { role: "designer" })
+    .addLicenses(["lic+proprietary"])
+    .addParadigms(["para+objects"])
+    .addPlatforms(["platf+cross-platform", "platf+unix", "platf+mac", "platf+linux", "platf+win"])
+    .addTypeSystems(["tsys+dynamic"]);
 
   /**/
 }

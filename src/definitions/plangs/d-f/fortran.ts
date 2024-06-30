@@ -35,4 +35,10 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+strong", "tsys+static", "tsys+manifest"]);
 
   /**/
+
+  g.buildPlang("pl+g95")
+    .merge({ name: "G95", websites: [{ kind: "wikipedia", title: "G95", href: "https://en.wikipedia.org/wiki/G95" }] })
+    .addLicenses(["lic+gpl"]);
+
+  /**/
 }

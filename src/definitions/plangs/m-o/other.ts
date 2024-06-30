@@ -1,32 +1,6 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  g.buildPlang("pl+.net").merge({
-    name: "CLI",
-    websites: [
-      { kind: "wikipedia", title: ".NET", href: "https://en.wikipedia.org/wiki/.NET" },
-      { kind: "wikipedia", title: "CLI", href: "https://en.wikipedia.org/wiki/Common_Language_Infrastructure" },
-    ],
-  });
-
-  /**/
-
-  g.buildPlang("pl+.net-framework").merge({
-    name: ".NET Framework",
-    websites: [{ kind: "wikipedia", title: ".NET Framework", href: "https://en.wikipedia.org/wiki/.NET_Framework" }],
-  });
-
-  /**/
-
-  g.buildPlang("pl+.net-framework-sdk").merge({
-    name: ".NET Framework SDK",
-    websites: [
-      { kind: "wikipedia", title: ".NET Framework SDK", href: "https://en.wikipedia.org/wiki/.NET_Framework_SDK" },
-    ],
-  });
-
-  /**/
-
   g.buildPlang("pl+.ql").merge({
     name: ".QL",
     websites: [{ kind: "wikipedia", title: ".QL", href: "https://en.wikipedia.org/wiki/.QL" }],
@@ -574,13 +548,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+ansi-c").merge({
-    name: "ANSI C",
-    websites: [{ kind: "wikipedia", title: "ANSI C", href: "https://en.wikipedia.org/wiki/ANSI_C" }],
-  });
-
-  /**/
-
   g.buildPlang("pl+ap")
     .merge({
       name: "A+",
@@ -794,25 +761,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+asp.net")
-    .merge({
-      name: "ASP.NET",
-      websites: [{ kind: "wikipedia", title: "ASP.NET (software)", href: "https://en.wikipedia.org/wiki/ASP.NET" }],
-      releases: [{ name: "ASP.NET (software)", version: "4.8.1", date: "2022-01-01", kind: "stable" }],
-      extensions: [".aspx", ".cshtml", ".vbhtml"],
-    })
-    .addLicense("lic+proprietary", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20150402161923/https://msdn.microsoft.com/en-us/library/ms994405.aspx",
-          title: "Microsoft .NET Framework Redistributable EULA",
-        },
-      ],
-    })
-    .addPlatforms(["platf+.net"]);
-
-  /**/
-
   g.buildPlang("pl+atlas-autocode")
     .merge({
       name: "Atlas Autocode",
@@ -951,13 +899,6 @@ export function define(g: PlangsGraph) {
     .addInfluences(["pl+bcpl", "pl+pl-slash", "pl+tmg"])
     .addPerson("person+ken-thompson", { role: "designer" })
     .addPerson("person+dennis-ritchie", { role: "developer" });
-
-  /**/
-
-  g.buildPlang("pl+b-prolog").merge({
-    name: "B-Prolog",
-    websites: [{ kind: "wikipedia", title: "B-Prolog", href: "https://en.wikipedia.org/wiki/B-Prolog" }],
-  });
 
   /**/
 
@@ -1344,26 +1285,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+caml")
-    .merge({
-      name: "Caml",
-      websites: [{ kind: "wikipedia", title: "Caml", href: "https://en.wikipedia.org/wiki/Caml" }],
-      images: [
-        { kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Caml.gif/121px-Caml.gif" },
-      ],
-      releases: [{ name: "Caml", version: "0.75", date: "2002-01-01", kind: "stable" }],
-    })
-    .addDialects(["pl+ats", "pl+f-sharp", "pl+f-star", "pl+ocaml", "pl+reason"])
-    .addInfluences(["pl+ml"])
-    .addPerson("person+gerard-huet", { role: "designer" })
-    .addPerson("person+xavier-leroy", { role: "designer" })
-    .addLicenses(["lic+q-public", "lic+lgpl"])
-    .addParadigms(["para+multi", "para+functional", "para+imperative"])
-    .addPlatforms(["platf+cross-platform", "platf+unix", "platf+linux", "platf+mac", "platf+win"])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
-
-  /**/
-
   g.buildPlang("pl+carbon")
     .merge({
       name: "Carbon",
@@ -1730,30 +1651,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+clang")
-    .merge({
-      name: "Clang",
-      websites: [{ kind: "wikipedia", title: "Clang", href: "https://en.wikipedia.org/wiki/Clang" }],
-      images: [
-        {
-          kind: "screenshot",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Clang_13.0.1_version_information_screenshot.png/220px-Clang_13.0.1_version_information_screenshot.png",
-        },
-      ],
-      releases: [{ name: "Clang", version: "18.1.6", date: "2024-01-01", kind: "stable" }],
-    })
-    .addLicense("lic+apache", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20201111220059/https://releases.llvm.org/9.0.0/LICENSE.TXT",
-          title: "LICENSE.TXT",
-        },
-      ],
-    })
-    .addPlatforms(["platf+aarch64", "platf+arm", "platf+ia-32", "platf+x86-64"]);
-
-  /**/
-
   g.buildPlang("pl+clarion")
     .merge({
       name: "Clarion",
@@ -1814,66 +1711,6 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addParadigms(["para+expert"]);
-
-  /**/
-
-  g.buildPlang("pl+clojure")
-    .merge({
-      name: "Clojure",
-      websites: [
-        { kind: "wikipedia", title: "Clojure", href: "https://en.wikipedia.org/wiki/Clojure" },
-        { kind: "wikipedia", title: "Clojure", href: "https://en.wikipedia.org/wiki/Clojure_(programming_language)" },
-      ],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Clojure_logo.svg" }],
-      releases: [{ name: "Clojure", version: "1.11.2", date: "2024-01-01", kind: "stable" }],
-      extensions: [".clj", ".cljc", ".cljd", ".cljr", ".cljs", ".edn"],
-    })
-    .addInfluences([
-      "pl+armed-bear-common-lisp",
-      "pl+common-lisp",
-      "pl+java",
-      "pl+ml",
-      "pl+prolog",
-      "pl+racket",
-      "pl+ruby",
-      "pl+scheme",
-    ])
-    .addInfluence("pl+cpp", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20170111184835/http://www.codequarterly.com/2011/rich-hickey/",
-          title: "Rich Hickey Q&A",
-        },
-      ],
-    })
-    .addInfluence("pl+c-sharp", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20170111184835/http://www.codequarterly.com/2011/rich-hickey",
-          title: "Rich Hickey Q&A by Michael Fogus",
-        },
-      ],
-    })
-    .addInfluence("pl+erlang", {
-      refs: [
-        {
-          href: "http://radar.oreilly.com/2011/06/clojure-java-lisp-jvm.html",
-          title: "Clojure: Lisp meets Java, with a side of Erlang - O'Reilly Radar",
-        },
-      ],
-    })
-    .addInfluence("pl+ms-visual-c-sharp", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20170111184835/http://www.codequarterly.com/2011/rich-hickey",
-          title: "Rich Hickey Q&A by Michael Fogus",
-        },
-      ],
-    })
-    .addPerson("person+rich-hickey", { role: "designer" })
-    .addLicenses(["lic+eclipse-public"])
-    .addParadigms(["para+multi"])
-    .addTypeSystems(["tsys+dynamic"]);
 
   /**/
 
@@ -1942,53 +1779,6 @@ export function define(g: PlangsGraph) {
     })
     .addLicenses(["lic+public-domain"])
     .addPlatforms(["platf+cross-platform"]);
-
-  /**/
-
-  g.buildPlang("pl+cobol")
-    .merge({
-      name: "COBOL",
-      websites: [
-        { kind: "wikipedia", title: "COBOL", href: "https://en.wikipedia.org/wiki/COBOL" },
-        { kind: "wikipedia", title: "CobolScript", href: "https://en.wikipedia.org/wiki/CobolScript" },
-      ],
-      images: [
-        {
-          kind: "screenshot",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/COBOL_Report_Apr60.djvu/page1-121px-COBOL_Report_Apr60.djvu.jpg",
-        },
-      ],
-      releases: [{ name: "COBOL", version: "unknown", date: "1989-01-01", kind: "stable" }],
-      extensions: [".cbl", ".cob", ".cpy"],
-    })
-    .addDialects(["pl+watbol"])
-    .addDialect("pl+x-slashopen", {
-      refs: [
-        {
-          href: "https://pubs.opengroup.org/onlinepubs/009680799/toc.pdf",
-          title: "Technical Standard, COBOL Language",
-        },
-      ],
-    })
-    .addInfluences([
-      "pl+aimaco",
-      "pl+comtran",
-      "pl+fact-computer",
-      "pl+flow-matic",
-      "pl+cpp",
-      "pl+eiffel",
-      "pl+smalltalk",
-    ])
-    .addInfluence("pl+cobol", {
-      refs: [
-        {
-          href: "http://dblp1.uni-trier.de/db/conf/edoc/edoc2000.html",
-          title: "Enterprise Distributed Object Computing Conference",
-        },
-      ],
-    })
-    .addParadigms(["para+imperative", "para+objects", "para+generic"])
-    .addTypeSystems(["tsys+weak", "tsys+static"]);
 
   /**/
 
@@ -2077,19 +1867,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+communicating-sequential-processes").merge({
-    name: "Communicating sequential processes",
-    websites: [
-      {
-        kind: "wikipedia",
-        title: "Communicating Sequential Processes",
-        href: "https://en.wikipedia.org/wiki/Communicating_Sequential_Processes",
-      },
-    ],
-  });
-
-  /**/
-
   g.buildPlang("pl+comtran")
     .merge({
       name: "COMTRAN",
@@ -2111,7 +1888,7 @@ export function define(g: PlangsGraph) {
         },
       ],
     })
-    .addInfluences(["pl+euclid", "pl+communicating-sequential-processes"])
+    .addInfluences(["pl+euclid", "pl+csp"])
     .addPerson("person+james-cordy", { role: "designer" })
     .addPerson("person+ric-holt", { role: "designer" })
     .addParadigms(["para+multi", "para+structured", "para+imperative", "para+functional"])
@@ -2308,29 +2085,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+crystal")
-    .merge({
-      name: "Crystal",
-      websites: [
-        { kind: "wikipedia", title: "Crystal", href: "https://en.wikipedia.org/wiki/Crystal_(programming_language)" },
-      ],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Crystal_language_logo.svg" }],
-      releases: [{ name: "Crystal", version: "1.12.1", date: "2024-01-01", kind: "stable" }],
-    })
-    .addInfluences(["pl+c-sharp", "pl+ruby", "pl+c", "pl+rust", "pl+go", "pl+python", "pl+ms-visual-c-sharp"])
-    .addLicenses(["lic+apache"])
-    .addParadigms(["para+multi", "para+objects", "para+concurrent"])
-    .addPlatforms(["platf+ia-32", "platf+x86-64", "platf+linux", "platf+mac", "platf+bsd"])
-    .addPlatform("platf+aarch64", {
-      refs: [{ href: "https://crystal-lang.org/reference/platform_support.html", title: "Crystal Platform Support" }],
-    })
-    .addPlatform("platf+win", {
-      refs: [{ href: "https://crystal-lang.org/reference/platform_support.html", title: "Crystal Platform Support" }],
-    })
-    .addTypeSystems(["tsys+static", "tsys+inferred", "tsys+nominative", "tsys+duck"]);
-
-  /**/
-
   g.buildPlang("pl+csound")
     .merge({
       name: "Csound",
@@ -2338,6 +2092,19 @@ export function define(g: PlangsGraph) {
       releases: [{ name: "Csound", version: "6.18.1", date: "2022-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+lgpl"]);
+
+  /**/
+
+  g.buildPlang("pl+csp").merge({
+    name: "Communicating sequential processes",
+    websites: [
+      {
+        kind: "wikipedia",
+        title: "Communicating Sequential Processes",
+        href: "https://en.wikipedia.org/wiki/Communicating_Sequential_Processes",
+      },
+    ],
+  });
 
   /**/
 
@@ -2422,50 +2189,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+d")
-    .merge({
-      name: "D",
-      websites: [
-        { kind: "wikipedia", title: "D", href: "https://en.wikipedia.org/wiki/D_(programming_language)" },
-        { kind: "wikipedia", title: "D programming language", href: "https://en.wikipedia.org/wiki/D_language" },
-      ],
-      images: [
-        { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/24/D_Programming_Language_logo.svg" },
-      ],
-      releases: [{ name: "D programming language", version: "2.108.0", date: "2024-01-01", kind: "stable" }],
-    })
-    .addInfluences([
-      "pl+ada",
-      "pl+c",
-      "pl+cpp",
-      "pl+c-sharp",
-      "pl+java",
-      "pl+python",
-      "pl+ms-visual-c-sharp",
-      "pl+ruby",
-    ])
-    .addInfluence("pl+basic", {
-      refs: [{ href: "https://news.ycombinator.com/item?id=33846139", title: "On: Show HN: A nice C string API" }],
-    })
-    .addInfluence("pl+eiffel", {
-      refs: [{ href: "https://archive.org/details/dprogramminglang00alex", title: "The D programming language" }],
-    })
-    .addPerson("person+walter-bright", { role: "designer" })
-    .addPerson("person+andrei-alexandrescu", { role: "designer" })
-    .addLicense("lic+boost", {
-      refs: [
-        {
-          href: "http://forum.dlang.org/post/lndgp4$hiq$1@digitalmars.com",
-          title: "dmd front end now switched to Boost license",
-        },
-      ],
-    })
-    .addParadigms(["para+multi", "para+functional", "para+imperative", "para+objects"])
-    .addPlatforms(["platf+bsd", "platf+linux", "platf+mac", "platf+win"])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
-
-  /**/
-
   g.buildPlang("pl+dafny")
     .merge({
       name: "Dafny",
@@ -2494,85 +2217,6 @@ export function define(g: PlangsGraph) {
     .addImplementations(["pl+assembly"])
     .addPerson("person+john-g-kemeny", { role: "designer" })
     .addParadigms(["para+imperative"]);
-
-  /**/
-
-  g.buildPlang("pl+dart")
-    .merge({
-      name: "Dart",
-      websites: [
-        { kind: "wikipedia", title: "Dart", href: "https://en.wikipedia.org/wiki/Dart_(programming_language)" },
-      ],
-      images: [
-        { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Dart_programming_language_logo.svg" },
-      ],
-      releases: [{ name: "Dart", version: "3.4.3", date: "2024-01-01", kind: "stable" }],
-    })
-    .addImplementations(["pl+flutter"])
-    .addInfluences(["pl+c", "pl+cpp", "pl+erlang", "pl+java", "pl+javascript", "pl+ruby", "pl+smalltalk"])
-    .addInfluence("pl+c-sharp", {
-      refs: [
-        {
-          href: "https://ghostarchive.org/varchive/youtube/20211221/huawCRlo9H4",
-          title: "Web Languages and VMs: Fast Code is Always in Fashion. (V8, Dart) - Google I/O 2013",
-        },
-      ],
-    })
-    .addInfluence("pl+strongtalk", {
-      refs: [
-        {
-          href: "https://www.youtube.com/watch?v=huawCRlo9H4&t=30m10s",
-          title: "Web Languages and VMs: Fast Code is Always in Fashion. (V8, Dart) - Google I/O 2013",
-        },
-      ],
-    })
-    .addInfluence("pl+typescript", {
-      refs: [
-        {
-          href: "https://news.dartlang.org/2012/10/the-dart-team-welcomes-typescript.html",
-          title: "The Dart Team Welcomes TypeScript",
-        },
-      ],
-    })
-    .addInfluence("pl+ms-visual-c-sharp", {
-      refs: [
-        {
-          href: "https://ghostarchive.org/varchive/youtube/20211221/huawCRlo9H4",
-          title: "Web Languages and VMs: Fast Code is Always in Fashion. (V8, Dart) - Google I/O 2013",
-        },
-      ],
-    })
-    .addPerson("person+lars-bak", { role: "designer" })
-    .addLicenses(["lic+bsd-s"])
-    .addParadigms(["para+multi", "para+functional", "para+imperative", "para+objects"])
-    .addParadigm("para+reflective", {
-      refs: [
-        {
-          href: "https://books.google.com/books?id=EcvjAwAAQBAJ&q=dart%20multi-paradigm&pg=PA56",
-          title: "Dart for Absolute Beginners",
-        },
-      ],
-    })
-    .addPlatforms(["platf+cross-platform"])
-    .addTypeSystems(["tsys+optional", "tsys+static", "tsys+strong"])
-    .addTypeSystem("tsys+inferred", {
-      refs: [{ href: "https://dart.dev/guides/language/sound-dart", title: "The Dart type system" }],
-    });
-
-  /**/
-
-  g.buildPlang("pl+dartmouth-time-sharing-system")
-    .merge({
-      name: "Dartmouth Time Sharing System",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "Dartmouth Time Sharing System",
-          href: "https://en.wikipedia.org/wiki/Dartmouth_Time_Sharing_System",
-        },
-      ],
-    })
-    .addInfluences(["pl+algol"]);
 
   /**/
 
@@ -2618,18 +2262,6 @@ export function define(g: PlangsGraph) {
     name: "dataflow",
     websites: [{ kind: "wikipedia", title: "dataflow", href: "https://en.wikipedia.org/wiki/Dataflow" }],
   });
-
-  /**/
-
-  g.buildPlang("pl+datalog")
-    .merge({
-      name: "Datalog",
-      websites: [{ kind: "wikipedia", title: "Datalog", href: "https://en.wikipedia.org/wiki/Datalog" }],
-    })
-    .addDialects(["pl+datomic", "pl+.ql", "pl+souffle"])
-    .addInfluences(["pl+prolog"])
-    .addParadigms(["para+logic", "para+dec"])
-    .addTypeSystems(["tsys+weak"]);
 
   /**/
 
@@ -2744,7 +2376,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "Limbo", href: "https://en.wikipedia.org/wiki/Dis_virtual_machine" }],
     })
     .addImplementations(["pl+dis-virtual-machine"])
-    .addInfluences(["pl+c", "pl+pascal", "pl+communicating-sequential-processes", "pl+alef", "pl+newsqueak"])
+    .addInfluences(["pl+c", "pl+pascal", "pl+csp", "pl+alef", "pl+newsqueak"])
     .addPerson("person+rob-pike", { role: "designer" })
     .addLicenses(["lic+gpl"])
     .addParadigms(["para+concurrent"])
@@ -3035,35 +2667,6 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addLicenses(["lic+eclipse-public"]);
-
-  /**/
-
-  g.buildPlang("pl+eiffel")
-    .merge({
-      name: "Eiffel",
-      websites: [
-        { kind: "wikipedia", title: "Eiffel", href: "https://en.wikipedia.org/wiki/Eiffel_(programming_language)" },
-      ],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Eiffel_logo.svg" }],
-      releases: [{ name: "Eiffel", version: "23.09", date: "2023-01-01", kind: "stable" }],
-      extensions: [".e"],
-    })
-    .addImplementations(["pl+eiffelstudio", "pl+libertyeiffel", "pl+smarteiffel", "pl+visual-eiffel"])
-    .addInfluences(["pl+simula", "pl+z-notation", "pl+simula-67", "pl+simula67"])
-    .addInfluence("pl+ada", {
-      refs: [{ href: "https://cs.nyu.edu/~goldberg/griffin.html", title: "The Griffin Project" }],
-    })
-    .addPerson("person+bertrand-meyer", { role: "designer" })
-    .addParadigms(["para+objects", "para+class", "para+generic", "para+concurrent"])
-    .addPlatforms(["platf+cross-platform", "platf+bsd", "platf+linux", "platf+mac", "platf+win"])
-    .addTypeSystems(["tsys+static"]);
-
-  /**/
-
-  g.buildPlang("pl+eiffelstudio").merge({
-    name: "EiffelStudio",
-    websites: [{ kind: "wikipedia", title: "EiffelStudio", href: "https://en.wikipedia.org/wiki/EiffelStudio" }],
-  });
 
   /**/
 
@@ -3734,12 +3337,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+g95")
-    .merge({ name: "G95", websites: [{ kind: "wikipedia", title: "G95", href: "https://en.wikipedia.org/wiki/G95" }] })
-    .addLicenses(["lic+gpl"]);
-
-  /**/
-
   g.buildPlang("pl+gambit")
     .merge({
       name: "Gambit",
@@ -3764,53 +3361,6 @@ export function define(g: PlangsGraph) {
       releases: [{ name: "GameMaker", version: "2024.4.1", date: "2024-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary"]);
-
-  /**/
-
-  g.buildPlang("pl+gcc")
-    .merge({
-      name: "GCC",
-      websites: [{ kind: "wikipedia", title: "GCC", href: "https://en.wikipedia.org/wiki/GNU_Compiler_Collection" }],
-      images: [
-        { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/a/af/GNU_Compiler_Collection_logo.svg" },
-      ],
-      releases: [{ name: "GNU Compiler Collection", version: "14.1", date: "2024-01-01", kind: "stable" }],
-    })
-    .addLicense("lic+gpl", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20230331220440/https://www.gnu.org/licenses/gcc-exception-3.1",
-          title: "GCC Runtime Library Exception",
-        },
-      ],
-    })
-    .addPlatforms(["platf+gnu"]);
-
-  /**/
-
-  g.buildPlang("pl+gemstone")
-    .merge({
-      name: "GemStone/S",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "GemStone/S Object Server",
-          href: "https://en.wikipedia.org/wiki/Gemstone_(database)",
-        },
-      ],
-      images: [
-        {
-          kind: "logo",
-          url: "https://upload.wikimedia.org/wikipedia/en/thumb/2/22/GemStone-S_logo_and_wordmark.png/121px-GemStone-S_logo_and_wordmark.png",
-        },
-      ],
-    })
-    .addImplementations(["pl+smalltalk"])
-    .addInfluences(["pl+smalltalk"])
-    .addLicenses(["lic+proprietary", "lic+commercial"])
-    .addParadigms(["para+objects", "para+distributed", "para+in", "para+process"])
-    .addPlatforms(["platf+ia-32", "platf+x86-64", "platf+cross-platform", "platf+linux", "platf+mac"])
-    .addTypeSystems(["tsys+dynamic"]);
 
   /**/
 
@@ -3845,15 +3395,6 @@ export function define(g: PlangsGraph) {
       },
     ],
   });
-
-  /**/
-
-  g.buildPlang("pl+generic-java")
-    .merge({
-      name: "Generic Java",
-      websites: [{ kind: "wikipedia", title: "Generic Java", href: "https://en.wikipedia.org/wiki/Generic_Java" }],
-    })
-    .addInfluences(["pl+pizza"]);
 
   /**/
 
@@ -4037,17 +3578,6 @@ export function define(g: PlangsGraph) {
       releases: [{ name: "GNU Octave", version: "9.1.0", date: "2024-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+gpl"]);
-
-  /**/
-
-  g.buildPlang("pl+gnu-prolog")
-    .merge({
-      name: "GNU Prolog",
-      websites: [{ kind: "wikipedia", title: "GNU Prolog", href: "https://en.wikipedia.org/wiki/GNU_Prolog" }],
-      images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/en/2/22/Heckert_GNU_white.svg" }],
-      releases: [{ name: "GNU Prolog", version: "1.5.0", date: "2021-01-01", kind: "stable" }],
-    })
-    .addLicenses(["lic+gpl", "lic+lgpl"]);
 
   /**/
 
@@ -4349,7 +3879,7 @@ export function define(g: PlangsGraph) {
       name: "Handel-C",
       websites: [{ kind: "wikipedia", title: "Handel-C", href: "https://en.wikipedia.org/wiki/Handel-C" }],
     })
-    .addInfluences(["pl+c", "pl+communicating-sequential-processes", "pl+occam"])
+    .addInfluences(["pl+c", "pl+csp", "pl+occam"])
     .addPerson("person+siemens-eda", { role: "developer" })
     .addParadigms(["para+imperative", "para+structured", "para+concurrent"])
     .addPlatforms(["platf+cross-platform"])
@@ -4444,46 +3974,6 @@ export function define(g: PlangsGraph) {
     .addParadigms(["para+functional"])
     .addPlatforms(["platf+cross-platform"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
-
-  /**/
-
-  g.buildPlang("pl+haxe")
-    .merge({
-      name: "Haxe",
-      websites: [{ kind: "wikipedia", title: "Haxe", href: "https://en.wikipedia.org/wiki/Haxe" }],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/8/89/Haxe_logo.svg" }],
-      releases: [{ name: "Haxe", version: "4.3.4", date: "2024-01-01", kind: "stable" }],
-      scoping: ["lexical"],
-    })
-    .addImplementations(["pl+ocaml"])
-    .addInfluences([
-      "pl+actionscript",
-      "pl+ecmascript",
-      "pl+javascript",
-      "pl+ocaml",
-      "pl+java",
-      "pl+cpp",
-      "pl+php",
-      "pl+c-sharp",
-      "pl+python",
-      "pl+lua",
-      "pl+nekovm",
-    ])
-    .addLicenses(["lic+gpl", "lic+mit"])
-    .addParadigms(["para+multi", "para+objects", "para+functional", "para+generic"])
-    .addPlatforms([
-      "platf+ia-32",
-      "platf+x86-64",
-      "platf+aarch64",
-      "platf+arm",
-      "platf+mips",
-      "platf+android",
-      "platf+ios",
-      "platf+linux",
-      "platf+mac",
-      "platf+win",
-    ])
-    .addTypeSystems(["tsys+static", "tsys+dynamic", "tsys+nominative"]);
 
   /**/
 
@@ -5067,262 +4557,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+java")
-    .merge({
-      name: "Java",
-      websites: [
-        { kind: "wikipedia", title: "Java", href: "https://en.wikipedia.org/wiki/Java_(programming_language)" },
-      ],
-      images: [
-        { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" },
-      ],
-    })
-    .addInfluences([
-      "pl+ada",
-      "pl+c",
-      "pl+cedar",
-      "pl+emerald",
-      "pl+clu",
-      "pl+simula67",
-      "pl+lisp",
-      "pl+smalltalk",
-      "pl+mdl",
-      "pl+oaklisp",
-      "pl+objective-cpp",
-      "pl+strongtalk",
-    ])
-    .addInfluence("pl+cpp", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20210527025512/https://books.google.com/books?id=0rUtBAAAQBAJ&pg=PA133",
-          title: "Cracking The Java Programming Interview :: 2000+ Java Interview Que/Ans",
-        },
-        {
-          href: "https://web.archive.org/web/20230929040943/https://books.google.com/books?id=0rUtBAAAQBAJ&pg=PAPA133#v=onepage&q&f=false",
-          title: "Cracking The Java Programming Interview :: 2000+ Java Interview Que/Ans",
-        },
-      ],
-    })
-    .addInfluence("pl+c-sharp", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20110319065438/http://www.barrycornelius.com/papers/java5/",
-          title: "[1]",
-        },
-      ],
-    })
-    .addInfluence("pl+eiffel", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20140506214653/http://www.oracle.com/technetwork/java/langenv-140151.html",
-          title: "The Java Language Environment",
-        },
-      ],
-    })
-    .addInfluence("pl+mesa", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20110805051057/http://java.sun.com/docs/books/jls/second_edition/html/intro.doc.html#237601",
-          title: "The Java Language Specification, 2nd Edition",
-        },
-      ],
-    })
-    .addInfluence("pl+modula", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20090105145818/http://www.computerworld.com.au/index.php/id%3B1422447371%3Bpp%3B3%3Bfp%3B4194304%3Bfpid%3B1",
-          title: "The A-Z of Programming Languages: Modula-3",
-        },
-      ],
-    })
-    .addInfluence("pl+oberon", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20201201054813/http://www.delphikingdom.com/asp/viewitem.asp?catalogid=1155",
-          title: "Niklaus Wirth's lecture at the Polytechnic Museum in Moscow",
-        },
-      ],
-    })
-    .addInfluence("pl+objective-c", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20110713014816/http://cs.gmu.edu/~sean/stuff/java-objc.html",
-          title: "[3]",
-        },
-      ],
-    })
-    .addInfluence("pl+pascal", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20101229090912/http://www.fscript.org/prof/javapassport.pdf",
-          title: "History of Java",
-        },
-        {
-          href: "https://web.archive.org/web/20120627043929/http://java.sun.com/docs/white/delegates.html",
-          title: 'About Microsoft\'s "Delegates"',
-        },
-      ],
-    })
-    .addInfluence("pl+ms-visual-c-sharp", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20110319065438/http://www.barrycornelius.com/papers/java5/",
-          title: "[1]",
-        },
-      ],
-    })
-    .addPerson("person+james-gosling", { role: "designer" })
-    .addParadigms([
-      "para+multi",
-      "para+generic",
-      "para+objects",
-      "para+class",
-      "para+functional",
-      "para+imperative",
-      "para+reflection",
-      "para+concurrent",
-    ])
-    .addTypeSystems(["tsys+static", "tsys+strong", "tsys+safe", "tsys+nominative", "tsys+manifest"]);
-
-  /**/
-
-  g.buildPlang("pl+java-ee")
-    .merge({
-      name: "Java EE",
-      websites: [{ kind: "wikipedia", title: "Java EE", href: "https://en.wikipedia.org/wiki/Java_EE" }],
-    })
-    .addInfluences(["pl+gemstone"]);
-
-  /**/
-
-  g.buildPlang("pl+java-object-oriented-querying")
-    .merge({
-      name: "jOOQ",
-      websites: [
-        { kind: "wikipedia", title: "jOOQ", href: "https://en.wikipedia.org/wiki/Java_Object_Oriented_Querying" },
-      ],
-      releases: [{ name: "jOOQ", version: "3.19.2", date: "2024-01-01", kind: "stable" }],
-    })
-    .addInfluences(["pl+sql"])
-    .addLicenses(["lic+apache"])
-    .addPlatforms(["platf+jvm"]);
-
-  /**/
-
-  g.buildPlang("pl+java-persistence-query")
-    .merge({
-      name: "JPQL",
-      websites: [
-        { kind: "wikipedia", title: "JPQL", href: "https://en.wikipedia.org/wiki/Java_Persistence_Query_Language" },
-      ],
-    })
-    .addInfluences(["pl+sql"]);
-
-  /**/
-
-  g.buildPlang("pl+javafx-script")
-    .merge({
-      name: "JavaFX",
-      websites: [
-        { kind: "wikipedia", title: "JavaFX", href: "https://en.wikipedia.org/wiki/JavaFX_Script" },
-        { kind: "homepage", title: "http://javafx.com/", href: "http://javafx.com/" },
-      ],
-      images: [
-        {
-          kind: "logo",
-          url: "https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/JavaFX_Logo.png/200px-JavaFX_Logo.png",
-        },
-      ],
-      releases: [{ name: "JavaFX", version: "1.2", date: "2009-01-01", kind: "stable" }],
-    })
-    .addLicenses(["lic+gpl"])
-    .addPlatforms(["platf+jvm", "platf+cross-platform"]);
-
-  /**/
-
-  g.buildPlang("pl+javascript")
-    .merge({
-      name: "JavaScript",
-      websites: [
-        { kind: "wikipedia", title: "JavaScript", href: "https://en.wikipedia.org/wiki/JavaScript" },
-        {
-          kind: "wikipedia",
-          title: "Javascript",
-          href: "https://en.wikipedia.org/wiki/Javascript_(programming_language)",
-        },
-      ],
-      images: [
-        {
-          kind: "screenshot",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/JavaScript_code.png/300px-JavaScript_code.png",
-        },
-      ],
-      releases: [
-        { name: "JavaScript", version: "unknown", date: "2023-01-01", kind: "stable" },
-        { name: "JavaScript", version: "unknown", date: "2025-01-01", kind: "preview" },
-      ],
-      extensions: [".cjs", ".js", ".mjs[4]"],
-    })
-    .addDialects(["pl+assemblyscript"])
-    .addImplementations(["pl+v8", "pl+javascriptcore", "pl+spidermonkey", "pl+chakra"])
-    .addInfluences(["pl+c", "pl+xtalk"])
-    .addInfluence("pl+hypertalk", {
-      refs: [{ href: "https://archive.org/details/javascriptbible000good", title: "JavaScript Bible" }],
-    })
-    .addInfluence("pl+java", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20201224233514/https://books.google.com/books?id=nneBa6-mWfgC&q=The+immediate+concern+at+Netscape+was+it+must+look+like+Java.&pg=PA141",
-          title: "Coders at Work: Reflections on the Craft of Programming",
-        },
-      ],
-    })
-    .addInfluence("pl+scheme", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20200227184037/https://speakingjs.com/es5/ch04.html",
-          title: "Chapter 4. How JavaScript Was Created",
-        },
-      ],
-    })
-    .addInfluence("pl+self", {
-      refs: [{ href: "https://brendaneich.com/2008/04/popularity/", title: "Popularity – Brendan Eich" }],
-    })
-    .addInfluence("pl+awk", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20200829024704/https://www.youtube.com/watch?v=1EyRscXrehw",
-          title: "Brendan Eich: An Introduction to JavaScript, JSConf 2010",
-        },
-      ],
-    })
-    .addInfluence("pl+python", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20181226141121/http://2ality.com/2013/02/javascript-influences.html%0A",
-          title: "Perl and Python influences in JavaScript",
-        },
-      ],
-    })
-    .addPerson("person+brendan-eich", { role: "designer" })
-    .addParadigms(["para+multi", "para+event", "para+functional", "para+imperative", "para+objects"])
-    .addTypeSystems(["tsys+dynamic", "tsys+weak", "tsys+duck"]);
-
-  /**/
-
-  g.buildPlang("pl+javascriptcore")
-    .merge({
-      name: "WebKit",
-      websites: [{ kind: "wikipedia", title: "JavaScriptCore", href: "https://en.wikipedia.org/wiki/JavaScriptCore" }],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/0/05/WebKit_logo_%282023%29.svg" }],
-    })
-    .addLicenses(["lic+lgpl"])
-    .addLicense("lic+bsd-s", {
-      refs: [{ href: "https://webkit.org/licensing-webkit/", title: "Licensing WebKit | WebKit" }],
-    });
-
-  /**/
-
   g.buildPlang("pl+jena").merge({
     name: "Jena",
     websites: [{ kind: "wikipedia", title: "Jena", href: "https://en.wikipedia.org/wiki/Jena_(framework)" }],
@@ -5337,19 +4571,6 @@ export function define(g: PlangsGraph) {
       releases: [{ name: "JModelica.org", version: "2.10", date: "2019-01-01", kind: "stable" }],
     })
     .addLicenses(["lic+proprietary"]);
-
-  /**/
-
-  g.buildPlang("pl+join-java")
-    .merge({
-      name: "Join Java",
-      websites: [
-        { kind: "wikipedia", title: "Join Java", href: "https://en.wikipedia.org/wiki/Join_Java" },
-        { kind: "homepage", title: "joinjava.unisa.edu.au", href: "http://joinjava.unisa.edu.au/" },
-      ],
-    })
-    .addInfluences(["pl+java"])
-    .addParadigms(["para+imperative", "para+reflective"]);
 
   /**/
 
@@ -5439,19 +4660,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+jscript-.net")
-    .merge({
-      name: "JScript .NET",
-      websites: [{ kind: "wikipedia", title: "JScript .NET", href: "https://en.wikipedia.org/wiki/JScript_.NET" }],
-      extensions: [".js"],
-    })
-    .addInfluences(["pl+jscript", "pl+ecmascript"])
-    .addParadigms(["para+multi"])
-    .addPlatforms(["platf+.net"])
-    .addTypeSystems(["tsys+duck", "tsys+weak", "tsys+dynamic"]);
-
-  /**/
-
   g.buildPlang("pl+json")
     .merge({
       name: "JSON",
@@ -5480,131 +4688,6 @@ export function define(g: PlangsGraph) {
     .addLicenses(["lic+bsd"])
     .addParadigms(["para+imperative", "para+structured", "para+objects", "para+functional", "para+generic"])
     .addTypeSystems(["tsys+gradual", "tsys+static", "tsys+dynamic"]);
-
-  /**/
-
-  g.buildPlang("pl+julia")
-    .merge({
-      name: "Julia",
-      websites: [
-        { kind: "wikipedia", title: "Julia", href: "https://en.wikipedia.org/wiki/Julia_(programming_language)" },
-      ],
-      images: [
-        {
-          kind: "logo",
-          url: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Julia_Programming_Language_Logo.svg",
-        },
-      ],
-      releases: [
-        { name: "Julia", version: "1.10.3", date: "2024-01-01", kind: "stable" },
-        { name: "Julia", version: "1.11.0", date: "2024-01-01", kind: "preview" },
-      ],
-    })
-    .addImplementations(["pl+c", "pl+cpp", "pl+scheme"])
-    .addImplementation("pl+llvm", {
-      refs: [
-        {
-          href: "https://github.com/JuliaLang/julia/blob/master/doc/src/devdocs/build/build.md#required-build-tools-and-external-libraries",
-          title: "Building Julia (Detailed)",
-        },
-      ],
-    })
-    .addInfluences(["pl+armed-bear-common-lisp", "pl+c", "pl+common-lisp", "pl+scheme"])
-    .addInfluence("pl+dylan", {
-      refs: [
-        {
-          href: "https://increment.com/programming-languages/goldilocks-language-history-of-julia/",
-          title: "Julia: The Goldilocks language",
-        },
-      ],
-    })
-    .addInfluence("pl+python", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20200502144010/https://julialang.org/blog/2012/02/why-we-created-julia/",
-          title: "Why We Created Julia",
-        },
-      ],
-    })
-    .addInfluence("pl+r", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20180620172516/https://docs.julialang.org/en/stable/manual/introduction/#man-introduction-1",
-          title: "Introduction",
-        },
-      ],
-    })
-    .addInfluence("pl+ruby", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20180816025550/https://docs.julialang.org/en/stable/",
-          title: "Julia 1.0 Documentation: Introduction",
-        },
-      ],
-    })
-    .addPerson("person+jeff-bezanson", { role: "designer" })
-    .addPerson("person+alan-edelman", { role: "designer" })
-    .addPerson("person+stefan-karpinski", { role: "designer" })
-    .addPerson("person+viral-b-shah", {
-      role: "designer",
-      refs: [{ href: "https://github.com/JuliaLang/julia/blob/master/LICENSE.md", title: "LICENSE.md" }],
-    })
-    .addLicenses(["lic+mit"])
-    .addParadigms([
-      "para+functional",
-      "para+array",
-      "para+imperative",
-      "para+structured",
-      "para+reflective",
-      "para+meta",
-    ])
-    .addParadigm("para+multi", {
-      refs: [
-        {
-          href: "https://medium.com/@acidflask/smoothing-data-with-julia-s-generated-functions-c80e240e05f3#.615wk3dle",
-          title: "Smoothing data with Julia's @generated functions",
-        },
-      ],
-    })
-    .addParadigm("para+objects", {
-      refs: [
-        {
-          href: "https://www.oreilly.com/library/view/beginning-julia-programming/9781484231715/A458482_1_En_2_Chapter.html",
-          title: "2. Object-Oriented Programming - Beginning Julia Programming: For Engineers and Scientists [Book]",
-        },
-      ],
-    })
-    .addPlatforms([
-      "platf+x86-64",
-      "platf+ia-32",
-      "platf+mac",
-      "platf+64-bit-computing",
-      "platf+aarch64",
-      "platf+bsd",
-      "platf+arm",
-      "platf+rocm",
-      "platf+oneapi",
-      "platf+linux",
-      "platf+win",
-    ])
-    .addPlatform("platf+cuda", { refs: [{ href: "https://juliagpu.org/cuda/", title: "NVIDIA CUDA ⋅ JuliaGPU" }] })
-    .addTypeSystems(["tsys+inferred", "tsys+optional", "tsys+nominative", "tsys+parametric"])
-    .addTypeSystem("tsys+dynamic", {
-      refs: [
-        {
-          href: "https://erik-engheim.medium.com/dynamically-typed-languages-are-not-what-you-think-ac8d1392b803",
-          title: "Dynamically Typed Languages Are Not What You Think",
-        },
-      ],
-    })
-    .addTypeSystem("tsys+strong", {
-      refs: [
-        {
-          href: "https://erik-engheim.medium.com/dynamically-typed-languages-are-not-what-you-think-ac8d1392b803",
-          title: "Dynamically Typed Languages Are Not What You Think",
-        },
-      ],
-    });
 
   /**/
 
@@ -5734,19 +4817,15 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+korn-shell")
+  g.buildPlang("pl+kornshell")
     .merge({
-      name: "Korn Shell",
-      websites: [{ kind: "wikipedia", title: "Korn Shell", href: "https://en.wikipedia.org/wiki/Korn_Shell" }],
+      name: "Ksh",
+      websites: [
+        { kind: "wikipedia", title: "Korn Shell", href: "https://en.wikipedia.org/wiki/Korn_Shell" },
+        { kind: "wikipedia", title: "Ksh", href: "https://en.wikipedia.org/wiki/KornShell" },
+      ],
     })
     .addInfluences(["pl+awk"]);
-
-  /**/
-
-  g.buildPlang("pl+kornshell").merge({
-    name: "Ksh",
-    websites: [{ kind: "wikipedia", title: "Ksh", href: "https://en.wikipedia.org/wiki/KornShell" }],
-  });
 
   /**/
 
@@ -5934,16 +5013,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+libertyeiffel")
-    .merge({
-      name: "Liberty Eiffel",
-      websites: [{ kind: "wikipedia", title: "LibertyEiffel", href: "https://en.wikipedia.org/wiki/LibertyEiffel" }],
-      releases: [{ name: "Liberty Eiffel", version: "2016.05", date: "2016-01-01", kind: "stable" }],
-    })
-    .addLicenses(["lic+gpl"]);
-
-  /**/
-
   g.buildPlang("pl+limbo")
     .merge({
       name: "Limbo",
@@ -5952,7 +5021,7 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addImplementations(["pl+dis-virtual-machine"])
-    .addInfluences(["pl+alef", "pl+c", "pl+pascal", "pl+communicating-sequential-processes", "pl+newsqueak"])
+    .addInfluences(["pl+alef", "pl+c", "pl+pascal", "pl+csp", "pl+newsqueak"])
     .addPerson("person+rob-pike", { role: "designer" })
     .addLicenses(["lic+gpl"])
     .addParadigms(["para+concurrent"])
@@ -6042,37 +5111,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+llvm").merge({
-    name: "LLVM",
-    websites: [{ kind: "wikipedia", title: "LLVM", href: "https://en.wikipedia.org/wiki/LLVM" }],
-  });
-
-  /**/
-
-  g.buildPlang("pl+logo")
-    .merge({
-      name: "Logo",
-      websites: [
-        { kind: "wikipedia", title: "Logo", href: "https://en.wikipedia.org/wiki/Logo_(programming_language)" },
-      ],
-      images: [
-        {
-          kind: "screenshot",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/KochTurtleAnim.gif/300px-KochTurtleAnim.gif",
-        },
-      ],
-    })
-    .addDialects(["pl+starlogo", "pl+netlogo"])
-    .addImplementations(["pl+ucblogo"])
-    .addInfluences(["pl+lisp"])
-    .addPerson("person+wally-feurzeig", { role: "designer" })
-    .addPerson("person+seymour-papert", { role: "designer" })
-    .addPerson("person+cynthia-solomon", { role: "designer" })
-    .addParadigms(["para+multi", "para+functional", "para+educational", "para+imperative", "para+reflective"])
-    .addTypeSystems(["tsys+dynamic"]);
-
-  /**/
-
   g.buildPlang("pl+logtalk")
     .merge({
       name: "Logtalk",
@@ -6092,53 +5130,6 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "LPC", href: "https://en.wikipedia.org/wiki/LPC_(programming_language)" }],
     })
     .addInfluences(["pl+c"]);
-
-  /**/
-
-  g.buildPlang("pl+lua")
-    .merge({
-      name: "Lua",
-      websites: [{ kind: "wikipedia", title: "Lua", href: "https://en.wikipedia.org/wiki/Lua_(programming_language)" }],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Lua-Logo.svg" }],
-      releases: [{ name: "Lua", version: "5.4.6", date: "2023-01-01", kind: "stable" }],
-      extensions: [".lua"],
-    })
-    .addImplementations(["pl+ansi-c", "pl+luajit"])
-    .addInfluences(["pl+awk", "pl+clu", "pl+modula", "pl+scheme", "pl+self"])
-    .addInfluence("pl+cpp", {
-      refs: [
-        { href: "https://www.lua.org/history.html", title: "The evolution of an extension language: a history of Lua" },
-      ],
-    })
-    .addInfluence("pl+snobol", {
-      refs: [
-        {
-          href: "https://www.lua.org/doc/hopl.pdf",
-          title: "Proceedings of the third ACM SIGPLAN conference on History of programming languages",
-        },
-      ],
-    })
-    .addPerson("person+roberto-ierusalimschy", { role: "designer" })
-    .addLicenses(["lic+mit"])
-    .addParadigms([
-      "para+multi",
-      "para+scripting",
-      "para+imperative",
-      "para+prototypes",
-      "para+objects",
-      "para+functional",
-      "para+meta",
-      "para+reflective",
-    ])
-    .addPlatforms(["platf+cross-platform"])
-    .addTypeSystems(["tsys+dynamic", "tsys+weak", "tsys+duck"]);
-
-  /**/
-
-  g.buildPlang("pl+luajit").merge({
-    name: "LuaJIT",
-    websites: [{ kind: "wikipedia", title: "LuaJIT", href: "https://en.wikipedia.org/wiki/LuaJIT" }],
-  });
 
   /**/
 
@@ -6664,33 +5655,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+moonscript")
-    .merge({
-      name: "Lua",
-      websites: [{ kind: "wikipedia", title: "MoonScript", href: "https://en.wikipedia.org/wiki/MoonScript" }],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Lua-Logo.svg" }],
-      releases: [{ name: "Lua", version: "5.4.6", date: "2023-01-01", kind: "stable" }],
-      extensions: [".lua"],
-    })
-    .addImplementations(["pl+ansi-c", "pl+luajit"])
-    .addInfluences(["pl+coffeescript", "pl+cpp", "pl+clu", "pl+modula", "pl+scheme", "pl+snobol"])
-    .addPerson("person+roberto-ierusalimschy", { role: "designer" })
-    .addLicenses(["lic+mit"])
-    .addParadigms([
-      "para+multi",
-      "para+scripting",
-      "para+imperative",
-      "para+prototypes",
-      "para+objects",
-      "para+functional",
-      "para+meta",
-      "para+reflective",
-    ])
-    .addPlatforms(["platf+cross-platform"])
-    .addTypeSystems(["tsys+dynamic", "tsys+weak", "tsys+duck"]);
-
-  /**/
-
   g.buildPlang("pl+moose")
     .merge({
       name: "Moose",
@@ -6866,21 +5830,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+nekovm")
-    .merge({
-      name: "NekoVMNeko",
-      websites: [{ kind: "wikipedia", title: "NekoVM", href: "https://en.wikipedia.org/wiki/NekoVM" }],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/26/NekoVM_logo.svg" }],
-      releases: [{ name: "NekoVMNeko", version: "2.3.0", date: "2019-01-01", kind: "stable" }],
-    })
-    .addImplementations(["pl+ocaml"])
-    .addLicenses(["lic+mit"])
-    .addParadigms(["para+multi", "para+objects", "para+structured", "para+prototypes", "para+scripting"])
-    .addPlatforms(["platf+win", "platf+mac", "platf+linux"])
-    .addTypeSystems(["tsys+dynamic"]);
-
-  /**/
-
   g.buildPlang("pl+nemerle")
     .merge({
       name: "Nemerle",
@@ -6928,27 +5877,6 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addPlatforms(["platf+z-slashos", "platf+win", "platf+unix"]);
-
-  /**/
-
-  g.buildPlang("pl+netlogo")
-    .merge({
-      name: "NetLogo",
-      websites: [{ kind: "wikipedia", title: "NetLogo", href: "https://en.wikipedia.org/wiki/NetLogo" }],
-      images: [
-        {
-          kind: "logo",
-          url: "https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/NetLogo_%28logo%29.png/280px-NetLogo_%28logo%29.png",
-        },
-      ],
-      releases: [{ name: "NetLogo", version: "6.4.0", date: "2023-01-01", kind: "stable" }],
-    })
-    .addImplementations(["pl+scala", "pl+java"])
-    .addInfluences(["pl+logo", "pl+starlogo", "pl+objectlogo", "pl+ucblogo"])
-    .addLicenses(["lic+gpl"])
-    .addParadigms(["para+multi", "para+educational", "para+imperative", "para+computer", "para+simulation"])
-    .addPlatforms(["platf+ia-32", "platf+x86-64", "platf+cross-platform", "platf+jvm"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 
   /**/
 
@@ -7005,18 +5933,6 @@ export function define(g: PlangsGraph) {
     .addParadigms(["para+objects", "para+functional"])
     .addPlatforms(["platf+win", "platf+mac", "platf+linux", "platf+android", "platf+web"])
     .addTypeSystems(["tsys+dynamic", "tsys+optional"]);
-
-  /**/
-
-  g.buildPlang("pl+newsqueak")
-    .merge({
-      name: "Newsqueak",
-      websites: [{ kind: "wikipedia", title: "Newsqueak", href: "https://en.wikipedia.org/wiki/Newsqueak" }],
-    })
-    .addInfluences(["pl+c", "pl+communicating-sequential-processes"])
-    .addPerson("person+rob-pike", { role: "designer" })
-    .addParadigms(["para+concurrent"])
-    .addTypeSystems(["tsys+strong"]);
 
   /**/
 
@@ -7235,28 +6151,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+objectlogo")
-    .merge({
-      name: "Logo",
-      websites: [{ kind: "wikipedia", title: "Logo", href: "https://en.wikipedia.org/wiki/ObjectLOGO" }],
-      images: [
-        {
-          kind: "screenshot",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/KochTurtleAnim.gif/300px-KochTurtleAnim.gif",
-        },
-      ],
-    })
-    .addDialects(["pl+starlogo", "pl+netlogo"])
-    .addImplementations(["pl+ucblogo"])
-    .addInfluences(["pl+lisp"])
-    .addPerson("person+wally-feurzeig", { role: "designer" })
-    .addPerson("person+seymour-papert", { role: "designer" })
-    .addPerson("person+cynthia-solomon", { role: "designer" })
-    .addParadigms(["para+multi", "para+functional", "para+educational", "para+imperative", "para+reflective"])
-    .addTypeSystems(["tsys+dynamic"]);
-
-  /**/
-
   g.buildPlang("pl+obliq")
     .merge({
       name: "Obliq",
@@ -7279,39 +6173,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+ocaml")
-    .merge({
-      name: "OCaml",
-      websites: [{ kind: "wikipedia", title: "OCaml", href: "https://en.wikipedia.org/wiki/OCaml" }],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/f/ff/OCaml_Logo.svg" }],
-      releases: [{ name: "OCaml", version: "5.2.0", date: "2024-01-01", kind: "stable" }],
-    })
-    .addDialects(["pl+ats", "pl+f-sharp", "pl+f-star", "pl+reason"])
-    .addImplementations(["pl+c"])
-    .addInfluences(["pl+caml", "pl+ml", "pl+modula", "pl+c", "pl+pascal", "pl+sml", "pl+poly-slashml"])
-    .addPerson("person+xavier-leroy", { role: "designer" })
-    .addPerson("person+damien-doligez", { role: "designer" })
-    .addLicenses(["lic+lgpl"])
-    .addParadigms(["para+multi", "para+functional", "para+imperative", "para+objects"])
-    .addParadigm("para+modular", {
-      refs: [{ href: "https://ocaml.org/learn/tutorials/modules.html", title: "Modules" }],
-    })
-    .addPlatforms([
-      "platf+ia-32",
-      "platf+x86-64",
-      "platf+power-isa",
-      "platf+arm",
-      "platf+risc-v",
-      "platf+cross-platform",
-      "platf+linux",
-      "platf+unix",
-      "platf+mac",
-      "platf+win",
-    ])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
-
-  /**/
-
   g.buildPlang("pl+occam")
     .merge({
       name: "occam",
@@ -7327,7 +6188,7 @@ export function define(g: PlangsGraph) {
       releases: [{ name: "occam", version: "2.1", date: "1994-01-01", kind: "stable" }],
     })
     .addDialects(["pl+occam--"])
-    .addInfluences(["pl+communicating-sequential-processes"])
+    .addInfluences(["pl+csp"])
     .addPerson("person+david-may", { role: "designer" })
     .addParadigms(["para+imperative", "para+concurrent"]);
 
@@ -7594,13 +6455,6 @@ export function define(g: PlangsGraph) {
     .addInfluences(["pl+miranda"])
     .addPerson("person+philip-wadler", { role: "designer" })
     .addParadigms(["para+lazy", "para+functional"]);
-
-  /**/
-
-  g.buildPlang("pl+otcl").merge({
-    name: "OTcl",
-    websites: [{ kind: "wikipedia", title: "OTcl", href: "https://en.wikipedia.org/wiki/OTcl" }],
-  });
 
   /**/
 
@@ -7877,23 +6731,6 @@ export function define(g: PlangsGraph) {
     name: "PGI",
     websites: [{ kind: "wikipedia", title: "PGI", href: "https://en.wikipedia.org/wiki/PGI_compiler" }],
   });
-
-  /**/
-
-  g.buildPlang("pl+pharo")
-    .merge({
-      name: "Pharo",
-      websites: [{ kind: "wikipedia", title: "Pharo", href: "https://en.wikipedia.org/wiki/Pharo" }],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/6/6c/Pharo_Logo_v3.0.svg" }],
-      releases: [{ name: "Pharo", version: "12.0", date: "2024-01-01", kind: "stable" }],
-    })
-    .addImplementations(["pl+smalltalk"])
-    .addInfluences(["pl+smalltalk", "pl+squeak"])
-    .addLicenses(["lic+mit"])
-    .addLicense("lic+apache", { refs: [{ href: "https://pharo.org/license", title: "Pharo license information" }] })
-    .addParadigms(["para+objects"])
-    .addPlatforms(["platf+arm", "platf+ia-32", "platf+x86-64", "platf+win", "platf+linux", "platf+mac"])
-    .addTypeSystems(["tsys+dynamic"]);
 
   /**/
 
@@ -8551,31 +7388,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+prolog")
-    .merge({
-      name: "Prolog",
-      websites: [{ kind: "wikipedia", title: "Prolog", href: "https://en.wikipedia.org/wiki/Prolog" }],
-      releases: [{ name: "Prolog", version: "unknown", date: "1995-01-01", kind: "stable" }],
-      extensions: [".P", ".pl", ".pro"],
-    })
-    .addDialects(["pl+datalog"])
-    .addImplementations([
-      "pl+b-prolog",
-      "pl+ciao",
-      "pl+eclipse",
-      "pl+gnu-prolog",
-      "pl+poplog",
-      "pl+quintus-prolog",
-      "pl+swi-prolog",
-      "pl+xsb",
-      "pl+yap",
-    ])
-    .addInfluences(["pl+mdl", "pl+planner"])
-    .addPerson("person+alain-colmerauer", { role: "designer" })
-    .addParadigms(["para+logic"]);
-
-  /**/
-
   g.buildPlang("pl+promal")
     .merge({
       name: "PROMAL",
@@ -8635,25 +7447,13 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+pure-data")
-    .merge({
-      name: "Pure DataPure Data",
-      websites: [{ kind: "wikipedia", title: "Pure DataPure Data", href: "https://en.wikipedia.org/wiki/Pure_Data" }],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/3/34/Pure_Data_logo.svg" }],
-      releases: [{ name: "Pure DataPure Data", version: "0.53", date: "2022-01-01", kind: "stable" }],
-    })
-    .addInfluences(["pl+patcher"])
-    .addPerson("person+miller-s-puckette", { role: "designer" })
-    .addLicenses(["lic+bsd-s"])
-    .addParadigms(["para+dataflow"])
-    .addPlatforms(["platf+cross-platform", "platf+mac", "platf+win", "platf+linux"]);
-
-  /**/
-
   g.buildPlang("pl+puredata")
     .merge({
       name: "Pure DataPure Data",
-      websites: [{ kind: "wikipedia", title: "PureData", href: "https://en.wikipedia.org/wiki/PureData" }],
+      websites: [
+        { kind: "wikipedia", title: "PureData", href: "https://en.wikipedia.org/wiki/PureData" },
+        { kind: "wikipedia", title: "Pure DataPure Data", href: "https://en.wikipedia.org/wiki/Pure_Data" },
+      ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/3/34/Pure_Data_logo.svg" }],
       releases: [{ name: "Pure DataPure Data", version: "0.53", date: "2022-01-01", kind: "stable" }],
     })
@@ -8772,24 +7572,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+qml")
-    .merge({
-      name: "QML",
-      websites: [{ kind: "wikipedia", title: "QML", href: "https://en.wikipedia.org/wiki/QML" }],
-      releases: [{ name: "QML", version: "6.4", date: "2022-01-01", kind: "stable" }],
-      extensions: [".qml"],
-    })
-    .addInfluences(["pl+json", "pl+javascript", "pl+qt"])
-    .addInfluence("pl+xaml", {
-      refs: [
-        { href: "https://www.scriptol.com/ajax/ajax-xul-xaml.php", title: "Which interface for a modern application?" },
-      ],
-    })
-    .addParadigms(["para+multi", "para+dec", "para+reactive", "para+scripting"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
-
-  /**/
-
   g.buildPlang("pl+qore")
     .merge({
       name: "Qore",
@@ -8813,25 +7595,6 @@ export function define(g: PlangsGraph) {
       "para+class",
     ])
     .addPlatforms(["platf+cross-platform"]);
-
-  /**/
-
-  g.buildPlang("pl+qt")
-    .merge({
-      name: "Qt",
-      websites: [{ kind: "wikipedia", title: "Qt", href: "https://en.wikipedia.org/wiki/Qt_(framework)" }],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/8/81/Qt_logo_neon_2022.svg" }],
-      releases: [{ name: "Qt", version: "6.7.1", date: "2024-01-01", kind: "stable" }],
-    })
-    .addInfluences(["pl+qml"])
-    .addPlatforms(["platf+cross-platform"]);
-
-  /**/
-
-  g.buildPlang("pl+qtscript").merge({
-    name: "QtScript",
-    websites: [{ kind: "wikipedia", title: "QtScript", href: "https://en.wikipedia.org/wiki/QtScript" }],
-  });
 
   /**/
 
@@ -8860,15 +7623,6 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "Query language", href: "https://en.wikipedia.org/wiki/Query_language" }],
     })
     .addDialects(["pl+sql"]);
-
-  /**/
-
-  g.buildPlang("pl+quintus-prolog")
-    .merge({
-      name: "Quintus Prolog",
-      websites: [{ kind: "wikipedia", title: "Quintus Prolog", href: "https://en.wikipedia.org/wiki/Quintus_Prolog" }],
-    })
-    .addLicenses(["lic+proprietary"]);
 
   /**/
 
@@ -9776,18 +8530,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+script.net")
-    .merge({
-      name: "Script.NET",
-      websites: [{ kind: "wikipedia", title: "Script.NET", href: "https://en.wikipedia.org/wiki/Script.NET" }],
-    })
-    .addInfluences(["pl+javascript"])
-    .addParadigms(["para+imperative", "para+meta", "para+scripting"])
-    .addPlatforms(["platf+.net"])
-    .addTypeSystems(["tsys+dynamic"]);
-
-  /**/
-
   g.buildPlang("pl+scripting")
     .merge({
       name: "Scripting language",
@@ -10148,13 +8890,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+smarteiffel").merge({
-    name: "SmartEiffel",
-    websites: [{ kind: "wikipedia", title: "SmartEiffel", href: "https://en.wikipedia.org/wiki/SmartEiffel" }],
-  });
-
-  /**/
-
   g.buildPlang("pl+sml")
     .merge({
       name: "SML/NJ",
@@ -10430,26 +9165,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+squeak")
-    .merge({
-      name: "Squeak",
-      websites: [{ kind: "wikipedia", title: "Squeak", href: "https://en.wikipedia.org/wiki/Squeak" }],
-      images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Squeak.svg" }],
-      releases: [{ name: "Squeak", version: "unknown", date: "2023-01-01", kind: "stable" }],
-    })
-    .addDialects(["pl+pharo", "pl+croquet-project", "pl+newspeak"])
-    .addImplementations(["pl+croquet-project"])
-    .addInfluences(["pl+self", "pl+smalltalk", "pl+lisp", "pl+logo", "pl+sketchpad", "pl+simula"])
-    .addPerson("person+alan-kay", { role: "designer" })
-    .addPerson("person+dan-ingalls", { role: "designer" })
-    .addPerson("person+adele-goldberg", { role: "designer" })
-    .addLicenses(["lic+mit", "lic+apache"])
-    .addParadigms(["para+objects"])
-    .addPlatforms(["platf+cross-platform", "platf+unix", "platf+mac", "platf+ios", "platf+win"])
-    .addTypeSystems(["tsys+dynamic"]);
-
-  /**/
-
   g.buildPlang("pl+squirrel")
     .merge({
       name: "Squirrel",
@@ -10463,22 +9178,6 @@ export function define(g: PlangsGraph) {
     .addParadigms(["para+multi", "para+scripting", "para+imperative", "para+functional", "para+objects"])
     .addPlatforms(["platf+cross-platform"])
     .addTypeSystems(["tsys+dynamic"]);
-
-  /**/
-
-  g.buildPlang("pl+starlogo")
-    .merge({
-      name: "StarLogo",
-      websites: [{ kind: "wikipedia", title: "StarLogo", href: "https://en.wikipedia.org/wiki/StarLogo" }],
-      releases: [{ name: "StarLogo", version: "2.1", date: "2018-01-01", kind: "stable" }],
-    })
-    .addImplementations(["pl+java", "pl+c"])
-    .addInfluences(["pl+logo"])
-    .addPerson("person+mitchel-resnick", { role: "designer" })
-    .addPerson("person+media-lab", { role: "developer" })
-    .addParadigms(["para+multi", "para+educational", "para+imperative", "para+agent", "para+simulation"])
-    .addPlatforms(["platf+jvm", "platf+win", "platf+mac"])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"]);
 
   /**/
 
@@ -10602,19 +9301,6 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "SuperTalk", href: "https://en.wikipedia.org/wiki/SuperTalk" }],
     })
     .addInfluences(["pl+hypertalk", "pl+xtalk"]);
-
-  /**/
-
-  g.buildPlang("pl+swi-prolog")
-    .merge({
-      name: "SWI-Prolog",
-      websites: [{ kind: "wikipedia", title: "SWI-Prolog", href: "https://en.wikipedia.org/wiki/SWI-Prolog" }],
-      releases: [
-        { name: "SWI-Prolog", version: "9.2.2", date: "2024-01-01", kind: "stable" },
-        { name: "SWI-Prolog", version: "9.3.2", date: "2024-01-01", kind: "preview" },
-      ],
-    })
-    .addLicenses(["lic+bsd-s", "lic+lgpl"]);
 
   /**/
 
@@ -10806,23 +9492,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+tcl")
-    .merge({
-      name: "Tcl",
-      websites: [{ kind: "wikipedia", title: "Tcl", href: "https://en.wikipedia.org/wiki/Tcl" }],
-      images: [{ kind: "screenshot", url: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Tcl-powered.svg" }],
-      releases: [{ name: "Tcl", version: "8.6.14", date: "2024-01-01", kind: "stable" }],
-    })
-    .addInfluences(["pl+awk", "pl+lisp"])
-    .addPerson("person+john-ousterhout", { role: "designer" })
-    .addLicense("lic+bsd-s", {
-      refs: [{ href: "http://www.tcl-lang.org/software/tcltk/license.html", title: "Tcl/Tk License Terms" }],
-    })
-    .addParadigms(["para+multi", "para+event", "para+functional", "para+imperative", "para+objects"])
-    .addTypeSystems(["tsys+dynamic"]);
-
-  /**/
-
   g.buildPlang("pl+tea")
     .merge({
       name: "Tea",
@@ -10881,25 +9550,6 @@ export function define(g: PlangsGraph) {
         },
       ],
     });
-
-  /**/
-
-  g.buildPlang("pl+tk")
-    .merge({
-      name: "Tk",
-      websites: [{ kind: "wikipedia", title: "Tk", href: "https://en.wikipedia.org/wiki/Tk_(software)" }],
-      images: [
-        {
-          kind: "screenshot",
-          url: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Tcl-Tk_universal_scripting.svg",
-        },
-      ],
-      releases: [{ name: "Tk", version: "8.6.13", date: "2022-01-01", kind: "stable" }],
-    })
-    .addLicense("lic+bsd-s", {
-      refs: [{ href: "http://www.tcl.tk/software/tcltk/license.html", title: "Tcl/Tk Licensing Terms" }],
-    })
-    .addPlatforms(["platf+cross-platform"]);
 
   /**/
 
@@ -11133,28 +9783,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+ucblogo")
-    .merge({
-      name: "UCBLogo",
-      websites: [{ kind: "wikipedia", title: "UCBLogo", href: "https://en.wikipedia.org/wiki/UCBLogo" }],
-      images: [
-        {
-          kind: "logo",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Ubclogo_spiral.png/121px-Ubclogo_spiral.png",
-        },
-      ],
-      releases: [{ name: "UCBLogo", version: "6.2.1", date: "2020-01-01", kind: "stable" }],
-    })
-    .addImplementations(["pl+c"])
-    .addInfluences(["pl+lisp"])
-    .addPerson("person+brian-harvey", { role: "designer" })
-    .addLicenses(["lic+gpl"])
-    .addParadigms(["para+multi", "para+functional", "para+educational", "para+imperative", "para+reflection"])
-    .addPlatforms(["platf+ia-32", "platf+x86-64", "platf+win", "platf+mac", "platf+linux"])
-    .addTypeSystems(["tsys+dynamic"]);
-
-  /**/
-
   g.buildPlang("pl+uefn").merge({
     name: "UEFN",
     websites: [{ kind: "wikipedia", title: "UEFN", href: "https://en.wikipedia.org/wiki/UEFN" }],
@@ -11364,32 +9992,6 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+vhdl")
-    .merge({
-      name: "VHDL",
-      websites: [
-        { kind: "wikipedia", title: "VHDL", href: "https://en.wikipedia.org/wiki/VHDL" },
-        { kind: "homepage", title: "IEEE VASG", href: "https://opensource.ieee.org/vasg" },
-      ],
-      releases: [{ name: "VHDL", version: "unknown", date: "1076-01-01", kind: "stable" }],
-    })
-    .addDialects(["pl+vhdl-ams"])
-    .addInfluences(["pl+pascal"])
-    .addInfluence("pl+ada", {
-      refs: [{ href: "https://books.google.com/books?id=IxZqlbYMJCIC&q=Ada", title: "The VHDL Handbook" }],
-    })
-    .addParadigms(["para+concurrent", "para+reactive", "para+dataflow"])
-    .addTypeSystems(["tsys+strong"]);
-
-  /**/
-
-  g.buildPlang("pl+vhdl-ams").merge({
-    name: "VHDL-AMS",
-    websites: [{ kind: "wikipedia", title: "VHDL-AMS", href: "https://en.wikipedia.org/wiki/VHDL-AMS" }],
-  });
-
-  /**/
-
   g.buildPlang("pl+virtuoso-universal-server").merge({
     name: "OpenLink Virtuoso",
     websites: [
@@ -11424,13 +10026,6 @@ export function define(g: PlangsGraph) {
         },
       ],
     });
-
-  /**/
-
-  g.buildPlang("pl+visual-eiffel").merge({
-    name: "Visual Eiffel",
-    websites: [{ kind: "wikipedia", title: "Visual Eiffel", href: "https://en.wikipedia.org/wiki/Visual_Eiffel" }],
-  });
 
   /**/
 
@@ -11470,56 +10065,12 @@ export function define(g: PlangsGraph) {
 
   /**/
 
-  g.buildPlang("pl+visual-prolog")
-    .merge({
-      name: "Visual Prolog",
-      websites: [{ kind: "wikipedia", title: "Visual Prolog", href: "https://en.wikipedia.org/wiki/Visual_Prolog" }],
-      images: [
-        {
-          kind: "screenshot",
-          url: "https://upload.wikimedia.org/wikipedia/en/thumb/8/84/Visual_Prolog_IDE_Screenshot.png/300px-Visual_Prolog_IDE_Screenshot.png",
-        },
-      ],
-      releases: [{ name: "Visual Prolog", version: "unknown", date: "1105-01-01", kind: "stable" }],
-    })
-    .addInfluences(["pl+prolog"])
-    .addParadigms([
-      "para+multi",
-      "para+logic",
-      "para+functional",
-      "para+objects",
-      "para+imperative",
-      "para+dec",
-      "para+generic",
-      "para+concurrent",
-    ])
-    .addPlatforms(["platf+win"])
-    .addTypeSystems(["tsys+static", "tsys+strong", "tsys+inferred"]);
-
-  /**/
-
   g.buildPlang("pl+visual-studio-code").merge({
     name: "Visual Studio Code",
     websites: [
       { kind: "wikipedia", title: "Visual Studio Code", href: "https://en.wikipedia.org/wiki/Visual_Studio_Code" },
     ],
   });
-
-  /**/
-
-  g.buildPlang("pl+visualworks")
-    .merge({
-      name: "VisualWorks",
-      websites: [{ kind: "wikipedia", title: "VisualWorks", href: "https://en.wikipedia.org/wiki/VisualWorks" }],
-    })
-    .addInfluences(["pl+lisp", "pl+logo", "pl+sketchpad", "pl+simula"])
-    .addPerson("person+alan-kay", { role: "designer" })
-    .addPerson("person+dan-ingalls", { role: "designer" })
-    .addPerson("person+adele-goldberg", { role: "designer" })
-    .addLicenses(["lic+proprietary"])
-    .addParadigms(["para+objects"])
-    .addPlatforms(["platf+cross-platform", "platf+unix", "platf+mac", "platf+linux", "platf+win"])
-    .addTypeSystems(["tsys+dynamic"]);
 
   /**/
 
@@ -11597,76 +10148,6 @@ export function define(g: PlangsGraph) {
     .addLicenses(["lic+bsd"])
     .addParadigms(["para+imperative", "para+functional"])
     .addTypeSystems(["tsys+strong", "tsys+safe", "tsys+structural", "tsys+flow-sensitive"]);
-
-  /**/
-
-  g.buildPlang("pl+wolfram")
-    .merge({
-      name: "Wolfram Language",
-      websites: [
-        { kind: "wikipedia", title: "Wolfram Language", href: "https://en.wikipedia.org/wiki/Wolfram_Language" },
-      ],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/en/1/17/Wolfram_Language_Logo_2016.svg" }],
-      releases: [{ name: "Wolfram Language", version: "14.0.0", date: "2024-01-01", kind: "stable" }],
-    })
-    .addImplementations(["pl+wolfram-mathematica"])
-    .addPerson("person+stephen-wolfram", { role: "designer" })
-    .addLicenses(["lic+proprietary"])
-    .addParadigms(["para+multi", "para+term", "para+functional", "para+imperative", "para+array"])
-    .addPlatforms(["platf+cross-platform"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
-
-  /**/
-
-  g.buildPlang("pl+wolfram-mathematica")
-    .merge({
-      name: "Wolfram Mathematica",
-      websites: [
-        { kind: "wikipedia", title: "Mathematica", href: "https://en.wikipedia.org/wiki/Wolfram_Mathematica" },
-      ],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/2/20/Mathematica_Logo.svg" }],
-    })
-    .addLicenses(["lic+proprietary"])
-    .addPlatforms(["platf+mac", "platf+linux"])
-    .addPlatform("platf+win", {
-      refs: [
-        {
-          href: "https://www.wolfram.com/mathematica/system-requirements.html",
-          title: "Mathematica 12 System Requirements and Platform Availability",
-        },
-      ],
-    })
-    .addPlatform("platf+rpi", {
-      refs: [
-        {
-          href: "https://web.archive.org/web/20140509213354/http://www.theverge.com/2013/11/21/5130394/raspberry-pi-includes-mathematica-wolfram-language-free",
-          title: "Raspberry Pi Includes Mathematica for Free",
-        },
-      ],
-    });
-
-  /**/
-
-  g.buildPlang("pl+wolfram-systemmodeler")
-    .merge({
-      name: "Wolfram System Modeler",
-      websites: [
-        {
-          kind: "wikipedia",
-          title: "Wolfram SystemModeler",
-          href: "https://en.wikipedia.org/wiki/Wolfram_SystemModeler",
-        },
-        { kind: "homepage", title: "Wolfram SystemModeler", href: "http://www.wolfram.com/system-modeler" },
-      ],
-      images: [
-        {
-          kind: "logo",
-          url: "https://upload.wikimedia.org/wikipedia/en/thumb/4/48/WolframSystemModelerLogo.png/64px-WolframSystemModelerLogo.png",
-        },
-      ],
-      releases: [{ name: "Wolfram System Modeler", version: "14.0.0", date: "2024-01-01", kind: "stable" }],
-    })
-    .addLicenses(["lic+proprietary"]);
 
   /**/
 
@@ -11765,21 +10246,6 @@ export function define(g: PlangsGraph) {
     .addLicenses(["lic+gnu-affero-gpl"])
     .addParadigms(["para+dec", "para+dataflow", "para+functional", "para+visual"])
     .addPlatforms(["platf+arduino", "platf+rpi"]);
-
-  /**/
-
-  g.buildPlang("pl+xotcl")
-    .merge({
-      name: "XOTcl",
-      websites: [
-        { kind: "wikipedia", title: "XOTcl", href: "https://en.wikipedia.org/wiki/XOTcl" },
-        { kind: "homepage", title: "media.wu-wien.ac.at", href: "http://media.wu-wien.ac.at/" },
-      ],
-      releases: [{ name: "XOTcl", version: "1.6.8", date: "2014-01-01", kind: "stable" }],
-    })
-    .addInfluences(["pl+tcl", "pl+otcl"])
-    .addParadigms(["para+multi", "para+objects", "para+functional", "para+imperative", "para+event"])
-    .addTypeSystems(["tsys+dynamic"]);
 
   /**/
 
@@ -11921,34 +10387,6 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addLicenses(["lic+zend", "lic+php"]);
-
-  /**/
-
-  g.buildPlang("pl+zig")
-    .merge({
-      name: "Zig",
-      websites: [{ kind: "wikipedia", title: "Zig", href: "https://en.wikipedia.org/wiki/Zig_(programming_language)" }],
-      images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/b/b3/Zig_logo_2020.svg" }],
-      releases: [{ name: "Zig", version: "0.13.0", date: "2024-01-01", kind: "preview" }],
-    })
-    .addInfluences(["pl+c"])
-    .addLicenses(["lic+mit"])
-    .addParadigms(["para+multi", "para+imperative", "para+concurrent", "para+functional"])
-    .addPlatforms([
-      "platf+x86-64",
-      "platf+aarch64",
-      "platf+wasm",
-      "platf+arm",
-      "platf+ia-32",
-      "platf+risc-v",
-      "platf+mips",
-      "platf+power-isa",
-      "platf+cross-platform",
-      "platf+linux",
-      "platf+bsd",
-      "platf+win",
-    ])
-    .addTypeSystems(["tsys+static", "tsys+strong", "tsys+inferred", "tsys+structural", "tsys+generic"]);
 
   /**/
 

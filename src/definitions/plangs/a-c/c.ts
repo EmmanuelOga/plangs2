@@ -1,6 +1,13 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
+  g.buildPlang("pl+ansi-c").merge({
+    name: "ANSI C",
+    websites: [{ kind: "wikipedia", title: "ANSI C", href: "https://en.wikipedia.org/wiki/ANSI_C" }],
+  });
+
+  /**/
+
   g.buildPlang("pl+c")
     .merge({
       name: "C",
