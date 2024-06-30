@@ -1,22 +1,11 @@
 import { Eta } from "eta";
 import { PlangsGraph } from "../entities/plangs_graph";
-import type {
-  E_Base,
-  VID_License,
-  VID_Paradigm,
-  VID_Person,
-  VID_Plang,
-  VID_Platform,
-  VID_TypeSystem,
-} from "../entities/schemas";
+import type { VID_Plang } from "../entities/schemas";
 import type { VID_Any } from "../graph/vertex";
 import type { VertexTable } from "../graph/vertex_table";
 import { blank, toAlphaNum } from "../util";
 import { PLANG_IDS } from "./plang_ids";
 import { parseAll } from "./wikipedia_process";
-import { Biome, Distribution } from "@biomejs/js-api";
-
-const biome = await Biome.create({ distribution: Distribution.NODE });
 
 const Templ = new Eta({ views: __dirname, autoEscape: false });
 
@@ -45,21 +34,21 @@ async function generateAll() {
 
   console.log(new Date().toISOString());
 
-  genAll(g.v_paradigm, "paradigms", "paradigm", (vid, vertex, lines, name) => (lines > 10 ? name : "other"));
-  genAll(g.v_tsystem, "type_systems", "typeSystem", (vid, vertex, lines, name) => (lines > 10 ? name : "other"));
-  genAll(g.v_person, "people", "person", (vid, vertex, dataSize, name) => "other");
+  genAll(g.v_paradigm, "paradigms", "paradigm");
+  genAll(g.v_tsystem, "type_systems", "typeSystem");
+  genAll(g.v_person, "people", "person", () => "other");
 
-  genAll(g.v_license, "licenses", "license", (vid, vertex, lines, name) => {
+  genAll(g.v_license, "licenses", "license", (vid, vertex, name) => {
     if (vid.includes("apache")) return "apache";
     if (vid.includes("bsd")) return "bsd";
     if (vid.includes("free")) return "free";
     if (vid.includes("gnu") || vid.includes("gpl") || /general.?public.?license/i.test(vid)) return "gnu";
     if (vid.includes("mit")) return "mit";
     if (vid.includes("mozilla") || vid.includes("mpl")) return "mozilla";
-    return lines > 10 ? name : "other";
+    return vertex.websites.length > 1 ? name : "other";
   });
 
-  genAll(g.v_platform, "platforms", "platform", (vid, vertex, lines, name) => {
+  genAll(g.v_platform, "platforms", "platform", (vid, vertex, name) => {
     if (vid.includes("mach") || vid.includes("lisp")) return "other";
 
     if (
@@ -92,14 +81,14 @@ async function generateAll() {
     if (vid.includes("amd")) return "amd";
     if (vid.includes("dos")) return "dos";
 
-    return lines > 10 ? name : "other";
+    return vertex.websites?.length > 1 ? name : "other";
   });
 
   genAll(
     g.v_plang,
     "plangs",
     "plang",
-    (vid, vertex, lines, name) => {
+    (vid, vertex, name) => {
       function fileName(): string {
         if (vid.includes("algol")) return "algol";
         if (vid.includes("assembly")) return "assembly";
@@ -121,7 +110,7 @@ async function generateAll() {
         if (vid.includes("slash")) return "other";
 
         // biome-ignore lint/suspicious/noExplicitAny: Ok here.
-        return PLANG_IDS.has(vid as any) || lines > 50 ? name : "other";
+        return PLANG_IDS.has(vid as any) || vertex.websites?.length > 1 ? name : "other";
       }
 
       const f = fileName();
@@ -149,8 +138,6 @@ async function generateAll() {
 function defaultMapper(vid: VID_Any, vertex: _T_AnyV_Data): AtoZData {
   // Export everything but the name field.
   const d = { ...vertex };
-  // biome-ignore lint/performance/noDelete: really need to exlude this one.
-  delete d.name;
 
   // Remove empty data and sort non-empty arrays.
   for (const [key, val] of Object.entries(d)) {
@@ -162,10 +149,7 @@ function defaultMapper(vid: VID_Any, vertex: _T_AnyV_Data): AtoZData {
     }
   }
 
-  const bundle: AtoZData = {
-    vid: json(vid),
-    name: json(vertex.name),
-  };
+  const bundle: AtoZData = { vid: json(vid) };
   if (!blank(d)) bundle.data = json(d);
   return bundle;
 }
@@ -178,7 +162,6 @@ function plangMapper(g: PlangsGraph, plvid: VID_Plang): AtoZData {
 
   const bundle: AtoZData = {
     vid: json(plvid),
-    name: json(pl.name),
     data: json(pl),
   };
 
@@ -208,20 +191,19 @@ type _T_AnyV_Data = any;
 // a_to_z.eta template data:
 type AtoZData = {
   vid: string; // json vertex id
-  name: string; // json vertex name
   data?: string; // json vertex data
   vrelations?: string; // json vertex relations
 };
 
 // Return the file name (with no extension) for a given vertex.
-type Collator = (vid: VID_Any, vertex: _T_AnyV_Data, dataLines: number, name: string) => string;
+type Collator = (vid: VID_Any, vertex: _T_AnyV_Data, name: string) => string;
 type DataMapper = (vid: VID_Any, vertex: _T_AnyV_Data) => AtoZData;
 
 function genAll(
   vtable: VertexTable<VID_Any, _T_AnyV_Data>,
   basename: string,
   builderName: string,
-  collator: Collator,
+  collator: Collator = (vid, vertex, name) => (vertex.websites?.length > 1 ? name : "other"),
   mapper: DataMapper = defaultMapper,
   vidWhitelist?: Set<string>,
 ) {
@@ -241,14 +223,7 @@ function genAll(
     }
     const bundle = mapper(vid as VID_Any, vertex);
 
-    // Render once so we can count the lines.
-    // Unfortunately, biome API doesn't let us configure the formatter to 120 columns,
-    // so this is an "estimate" of the final number of lines.
-    const rendered = Templ.render("/a_to_z", { data: [bundle], builderName, depth: 1 });
-    const formatted = biome.formatContent(rendered, { filePath: "example.ts" });
-    const lines = formatted.content.split("\n").length;
-
-    const file = collator(vid as VID_Any, vertex, lines, vid.split("+")[1]);
+    const file = collator(vid as VID_Any, vertex, vid.split("+")[1]);
     if (!fileNames.has(file)) fileNames.set(file, []);
     fileNames.get(file)?.push(bundle);
   }

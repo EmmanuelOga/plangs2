@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+maxima",
-    "Maxima",
     {
       name: "Maxima",
       websites: [{ kind: "wikipedia", title: "Maxima", href: "https://en.wikipedia.org/wiki/Maxima_(software)" }],

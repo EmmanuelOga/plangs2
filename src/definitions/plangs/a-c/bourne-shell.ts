@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
-  lb.define("pl+bourne-shell", "Bourne shell", {
+  lb.define("pl+bourne-shell", {
     name: "Bourne shell",
     websites: [{ kind: "wikipedia", title: "Bourne shell", href: "https://en.wikipedia.org/wiki/Bourne_shell" }],
     images: [

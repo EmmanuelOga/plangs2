@@ -3,7 +3,7 @@ import type { PlangsGraph } from "../../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.plangBuilder;
 
-  lb.define("pl+souffle", "Soufflé", {
+  lb.define("pl+souffle", {
     name: "Soufflé",
     websites: [
       {

@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+swi-prolog",
-    "SWI-Prolog",
     {
       name: "SWI-Prolog",
       websites: [{ kind: "wikipedia", title: "SWI-Prolog", href: "https://en.wikipedia.org/wiki/SWI-Prolog" }],

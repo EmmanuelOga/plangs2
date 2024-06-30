@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+csound",
-    "Csound",
     {
       name: "Csound",
       websites: [{ kind: "wikipedia", title: "Csound", href: "https://en.wikipedia.org/wiki/Csound" }],

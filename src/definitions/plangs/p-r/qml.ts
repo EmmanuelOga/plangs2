@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+qml",
-    "QML",
     {
       name: "QML",
       websites: [{ kind: "wikipedia", title: "QML", href: "https://en.wikipedia.org/wiki/QML" }],

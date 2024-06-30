@@ -3,7 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.paradigmBuilder;
 
-  lb.define("para+concatenative", "concatenative", {
+  lb.define("para+concatenative", {
+    name: "concatenative",
     websites: [
       {
         kind: "wikipedia",

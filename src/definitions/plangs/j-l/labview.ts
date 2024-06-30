@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+labview",
-    "LabVIEW",
     {
       name: "LabVIEW",
       websites: [{ kind: "wikipedia", title: "LabVIEW", href: "https://en.wikipedia.org/wiki/LabVIEW" }],

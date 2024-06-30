@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+gnu-octave",
-    "GNU Octave",
     {
       name: "GNU Octave",
       websites: [{ kind: "wikipedia", title: "GNU Octave", href: "https://en.wikipedia.org/wiki/GNU_Octave" }],

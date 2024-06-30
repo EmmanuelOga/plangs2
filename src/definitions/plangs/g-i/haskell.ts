@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+haskell",
-    "Haskell",
     {
       name: "Haskell",
       websites: [
@@ -24,7 +23,7 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      dialects: ["pl+bluespec--inc.", "pl+elm", "pl+gofer", "pl+hume"],
+      dialects: ["pl+elm", "pl+gofer", "pl+hume"],
       implementations: ["pl+glasgow-haskell-compiler", "pl+hugs", "pl+yhc"],
       influences: [
         "pl+clean",

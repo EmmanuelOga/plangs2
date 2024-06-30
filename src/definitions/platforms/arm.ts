@@ -3,11 +3,13 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
 
-  lb.define("platf+aarch64", "ARM64", {
+  lb.define("platf+aarch64", {
+    name: "ARM64",
     websites: [{ kind: "wikipedia", title: "AArch64", href: "https://en.wikipedia.org/wiki/AArch64" }],
   });
 
-  lb.define("platf+arm", "ARM", {
+  lb.define("platf+arm", {
+    name: "ARM",
     websites: [
       { kind: "wikipedia", title: "ARM", href: "https://en.wikipedia.org/wiki/ARM_architecture" },
       { kind: "wikipedia", title: "ARMv7", href: "https://en.wikipedia.org/wiki/ARMv7" },

@@ -3,7 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
 
-  lb.define("platf+cross-platform", "Cross-platform", {
+  lb.define("platf+cross-platform", {
+    name: "Cross-platform",
     websites: [
       { kind: "wikipedia", title: "Cross-platform", href: "https://en.wikipedia.org/wiki/Cross-platform" },
       { kind: "wikipedia", title: "Cross-platform", href: "https://en.wikipedia.org/wiki/Cross-platform_software" },

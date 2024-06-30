@@ -3,12 +3,11 @@
  */
 
 import { Glob } from "bun";
-import type { VID } from "../graph/vertex";
 import type { PlangsGraph } from "../entities/plangs_graph";
-import type { E_Base, E_Implements, Image, Link, Release } from "../entities/schemas";
-import { caller, toAlphaNum } from "../util";
-import { DATA_ATTR, DATA_TYPE, WIKIPEDIA_URL, cachePath } from "./wikipedia_scraper";
-import { merge } from "node_modules/cheerio/lib/esm/static";
+import type { E_Base, Image, Link, Release } from "../entities/schemas";
+import type { VID } from "../graph/vertex";
+import { toAlphaNum } from "../util";
+import { type DATA_ATTR, type DATA_TYPE, WIKIPEDIA_URL, cachePath } from "./wikipedia_scraper";
 
 // biome-ignore lint/suspicious/noExplicitAny: Wikipedia infoboxes really can have any data.
 type _Any = any;
@@ -78,15 +77,12 @@ function mergeLink(links: Link[], newLink: Link) {
   links.push(newLink);
 }
 
-let ppp = "";
-
-function mergeRefs(data: E_Base, refs: Partial<Record<DATA_ATTR, Link[]>>, key: DATA_ATTR, debug?: any) {
-  const specific = refs[key];
-  if (!Array.isArray(specific) || specific.length === 0) return;
-
-  data.refs ??= [];
-
-  for (const link of specific) mergeLink(data.refs, link);
+function mergeRefs(edata: E_Base, refs: Link[]) {
+  if (!refs) return;
+  edata.refs ??= [];
+  for (const ref of refs) {
+    if (!edata.refs.some((r: Link) => r.href === ref.href)) edata.refs.push(ref);
+  }
 }
 
 function processLanguage(
@@ -110,40 +106,17 @@ function processLanguage(
     }
   }
 
-  // Extract references first.
-  const references: Partial<Record<DATA_ATTR, Link[]>> = {};
-  for (const [attr, attrVal] of Object.entries(data)) {
-    for (const [dataKey, dataVal] of Object.entries(attrVal)) {
-      if (dataKey !== "refs") continue;
-      const ibKey = attr as DATA_ATTR;
-      const refs = (references[ibKey] ??= []);
-      for (const newLink of dataVal) {
-        mergeLink(refs, newLink);
-      }
-    }
-  }
-
-  // Now process the language.
   for (const [attr, attrVal] of Object.entries(data)) {
     for (const [dataKey, dataVal] of Object.entries(attrVal)) {
       const ibKey = attr as DATA_ATTR;
       const ibType = dataKey as DATA_TYPE;
-      assign(g, `pl+${plKey}`, ibKey, ibType, dataVal, references);
+      assign(g, `pl+${plKey}`, ibKey, ibType, dataVal);
     }
   }
 }
 
-function assign(
-  g: PlangsGraph,
-  pvid: VID<"pl">,
-  infoboxKey: DATA_ATTR,
-  infoboxType: DATA_TYPE,
-  val: _Any,
-  refs: Partial<Record<DATA_ATTR, Link[]>>,
-) {
+function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxType: DATA_TYPE, val: _Any): void {
   const pl = g.v_plang.declare(pvid);
-
-  ppp = pvid;
 
   switch (infoboxKey) {
     case "website":
@@ -187,7 +160,7 @@ function assign(
 
     case "major_implementations":
       if (infoboxType !== "links") return;
-      for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
+      for (const { title, href, refs } of val.filter(({ href }) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
         if (!key || key === pvid) continue;
 
@@ -195,14 +168,14 @@ function assign(
         p.websites ??= [];
         mergeLink(p.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
 
-        mergeRefs(g.e_implements.connect(`pl+${key}`, pvid), refs, infoboxKey);
+        mergeRefs(g.e_implements.connect(`pl+${key}`, pvid), refs);
       }
       return;
 
     case "implementation_language":
       if (infoboxType !== "links") return;
 
-      for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
+      for (const { title, href, refs } of val.filter(({ href }) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
         if (!key || key === pvid) continue;
 
@@ -210,14 +183,14 @@ function assign(
         p.websites ??= [];
         mergeLink(p.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
 
-        mergeRefs(g.e_implements.connect(`pl+${key}`, pvid), refs, infoboxKey);
+        mergeRefs(g.e_implements.connect(`pl+${key}`, pvid), refs);
       }
       return;
 
     case "influenced":
     case "influenced_by":
       if (infoboxType !== "links") return;
-      for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
+      for (const { title, href, refs } of val.filter(({ href }) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
         if (!key || key === pvid) continue;
 
@@ -226,9 +199,9 @@ function assign(
         mergeLink(otherpl.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
 
         if (infoboxKey === "influenced") {
-          mergeRefs(g.e_l_influenced_l.connect(pvid, `pl+${key}`), refs, infoboxKey, [pvid, "influenced", key]);
+          mergeRefs(g.e_l_influenced_l.connect(pvid, `pl+${key}`), refs);
         } else {
-          mergeRefs(g.e_l_influenced_l.connect(`pl+${key}`, pvid), refs, infoboxKey);
+          mergeRefs(g.e_l_influenced_l.connect(`pl+${key}`, pvid), refs);
         }
       }
       return;
@@ -236,7 +209,7 @@ function assign(
     case "dialects":
     case "family":
       if (infoboxType !== "links") return;
-      for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
+      for (const { title, href, refs } of val.filter(({ href }) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
         if (!key || key === pvid) continue;
 
@@ -245,16 +218,16 @@ function assign(
         mergeLink(otherpl.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
 
         if (infoboxKey === "dialects") {
-          mergeRefs(g.e_dialect_of.connect(`pl+${key}`, pvid), refs, infoboxKey);
+          mergeRefs(g.e_dialect_of.connect(`pl+${key}`, pvid), refs);
         } else {
-          mergeRefs(g.e_dialect_of.connect(pvid, `pl+${key}`), refs, infoboxKey);
+          mergeRefs(g.e_dialect_of.connect(pvid, `pl+${key}`), refs);
         }
       }
       return;
 
     case "license": // links
       if (infoboxType !== "links") return;
-      for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
+      for (const { title, href, refs } of val.filter(({ href }) => href.startsWith("/wiki"))) {
         let key = keyFromWikiUrl(href);
         if (!key) continue;
 
@@ -266,14 +239,14 @@ function assign(
         lic.websites ??= [];
         mergeLink(lic.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
 
-        mergeRefs(g.e_has_license.connect(pvid, `lic+${key}`), refs, infoboxKey);
+        mergeRefs(g.e_has_license.connect(pvid, `lic+${key}`), refs);
       }
       return;
 
     case "os":
     case "platform":
       if (infoboxType !== "links") return;
-      for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
+      for (const { title, href, refs } of val.filter(({ href }) => href.startsWith("/wiki"))) {
         let key = keyFromWikiUrl(href);
         if (!key) continue; // We'll ignore some old platforms.
 
@@ -285,14 +258,14 @@ function assign(
         p.websites ??= [];
         mergeLink(p.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
 
-        mergeRefs(g.e_supports_platf.connect(pvid, `platf+${key}`), refs, infoboxKey);
+        mergeRefs(g.e_supports_platf.connect(pvid, `platf+${key}`), refs);
       }
       return;
 
     case "paradigm":
     case "paradigms":
       if (infoboxType !== "links") return;
-      for (const { href, title } of val) {
+      for (const { href, title, refs } of val) {
         let key = keyFromWikiUrl(href);
         if (key) key = cleanParadigm(key);
         if (!key) key = cleanParadigm(title);
@@ -307,7 +280,7 @@ function assign(
         p.websites ??= [];
         mergeLink(p.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
 
-        mergeRefs(g.e_plang_para.connect(pvid, `para+${key}`), refs, infoboxKey);
+        mergeRefs(g.e_plang_para.connect(pvid, `para+${key}`), refs);
       }
       return;
 
@@ -344,14 +317,12 @@ function assign(
     case "developer":
     case "developed_by":
     case "developers": {
-      function addPerson(name: string, link?: Link) {
+      function addPerson(name: string, link?: Link, refs?: Link[]) {
         const key = toAlphaNum(name).replaceAll(".", "");
 
         const person = g.v_person.merge(`person+${key}`, { name: name });
         person.websites ??= [];
-        if (link) {
-          mergeLink(person.websites, link);
-        }
+        if (link) mergeLink(person.websites, link);
 
         const rel = g.e_person_plang_role.connect(`person+${key}`, pvid);
 
@@ -364,7 +335,7 @@ function assign(
           rel.role = inferred_role;
         }
 
-        mergeRefs(rel, refs, infoboxKey);
+        if (link) mergeRefs(rel, refs);
       }
 
       // Under the "risk" of having duplicated people, we use the name of the person
@@ -372,14 +343,10 @@ function assign(
       if (infoboxType === "text") {
         for (const who of extractNames(val)) addPerson(who);
       } else if (infoboxType === "links") {
-        for (const { title, href } of val.filter(({ href }) => href.startsWith("/wiki"))) {
+        for (const { title, href, refs } of val.filter(({ href }) => href.startsWith("/wiki"))) {
           const names = extractNames(title);
           if (names.length !== 1) continue;
-          addPerson(names[0], {
-            title,
-            href: `${WIKIPEDIA_URL}${href}`,
-            kind: "wikipedia",
-          });
+          addPerson(names[0], { title, href: `${WIKIPEDIA_URL}${href}`, kind: "wikipedia" }, refs);
         }
       }
       return;
@@ -387,17 +354,20 @@ function assign(
 
     case "typing_discipline":
       {
-        function typeFromText(str: string): void {
+        function typeFromText(str: string, refs?: Link[]): void {
           for (const name of str.split(",").map((s: string) => s.toLowerCase())) {
             const tsys = cleanTsys(name);
             if (tsys) {
               const e = g.e_plang_tsys.connect(pvid, `tsys+${tsys}`);
-              mergeRefs(e, refs, infoboxKey);
+              mergeRefs(e, refs);
             }
           }
         }
         if (infoboxType === "text") typeFromText(val);
-        else if (infoboxType === "links") for (const { title } of val) typeFromText(title);
+        else if (infoboxType === "links")
+          for (const { title, refs } of val) {
+            typeFromText(title, refs);
+          }
       }
       return;
 

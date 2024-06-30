@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+inform",
-    "InformInform 1–6Inform 7",
     {
       name: "InformInform 1–6Inform 7",
       websites: [

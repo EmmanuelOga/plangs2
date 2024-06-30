@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+jruby",
-    "JRuby",
     {
       name: "JRuby",
       websites: [{ kind: "wikipedia", title: "JRuby", href: "https://en.wikipedia.org/wiki/JRuby" }],
@@ -22,7 +21,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+mruby",
-    "mruby",
     {
       name: "mruby",
       websites: [{ kind: "wikipedia", title: "mruby", href: "https://en.wikipedia.org/wiki/Mruby" }],
@@ -34,7 +32,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+ruby",
-    "Ruby",
     {
       name: "Ruby",
       websites: [
@@ -79,7 +76,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+ruby-mri",
-    "Ruby MRI",
     {
       name: "Ruby MRI",
       websites: [{ kind: "wikipedia", title: "Ruby MRI", href: "https://en.wikipedia.org/wiki/Ruby_MRI" }],
@@ -95,7 +91,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+rubymotion",
-    "RubyMotion",
     {
       name: "RubyMotion",
       websites: [{ kind: "wikipedia", title: "RubyMotion", href: "https://en.wikipedia.org/wiki/RubyMotion" }],

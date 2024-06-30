@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+typescript",
-    "TypeScript",
     {
       name: "TypeScript",
       websites: [{ kind: "wikipedia", title: "TypeScript", href: "https://en.wikipedia.org/wiki/TypeScript" }],

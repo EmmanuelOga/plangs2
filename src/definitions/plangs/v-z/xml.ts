@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+libxslt",
-    "libxslt",
     {
       name: "libxslt",
       websites: [{ kind: "wikipedia", title: "libxslt", href: "https://en.wikipedia.org/wiki/Libxslt" }],
@@ -14,19 +13,18 @@ export function define(g: PlangsGraph) {
     { licenses: ["lic+mit"] },
   );
 
-  lb.define("pl+saxon-xslt", "Saxon", {
+  lb.define("pl+saxon-xslt", {
     name: "Saxon",
     websites: [{ kind: "wikipedia", title: "Saxon", href: "https://en.wikipedia.org/wiki/Saxon_XSLT" }],
   });
 
-  lb.define("pl+xpath", "XPath", {
+  lb.define("pl+xpath", {
     name: "XPath",
     websites: [{ kind: "wikipedia", title: "XPath", href: "https://en.wikipedia.org/wiki/XPath" }],
   });
 
   lb.define(
     "pl+xquery",
-    "XQuery",
     {
       name: "XQuery",
       websites: [{ kind: "wikipedia", title: "XQuery", href: "https://en.wikipedia.org/wiki/XQuery" }],
@@ -42,7 +40,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+xslt",
-    "XSLT",
     {
       name: "XSLT",
       websites: [{ kind: "wikipedia", title: "XSLT", href: "https://en.wikipedia.org/wiki/XSLT" }],

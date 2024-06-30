@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+groovy",
-    "Groovy",
     {
       name: "Groovy",
       websites: [

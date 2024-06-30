@@ -200,7 +200,9 @@ async function scrapLanguagePage(wikiPath: string) {
   type ScrapedLink = { href?: string; title?: string; refs?: ScrapedLink[] };
 
   function processA($a: Cheerio<Element>): ScrapedLink {
-    return { href: $a.attr("href")?.trim(), title: $a.text().trim() };
+    const href = $a.attr("href")?.trim();
+    const title = $a.text().trim();
+    return { href, title };
   }
 
   function getVersion(str: string): { version: string } | undefined {
@@ -310,7 +312,9 @@ async function scrapLanguagePage(wikiPath: string) {
       for (const a of anchors) {
         const $a = $(a);
         const link = processA($a);
-        if (link.href) processed.push(link);
+        if (link.href && !link.href.includes("/wiki/Wayback_Machine")) {
+          processed.push(link);
+        }
 
         // Try to find references in the next <sup> tag.
         const ref = $a.next("sup");

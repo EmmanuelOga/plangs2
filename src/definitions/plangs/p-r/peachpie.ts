@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+peachpie",
-    "PeachPie",
     {
       name: "PeachPie",
       websites: [{ kind: "wikipedia", title: "PeachPie", href: "https://en.wikipedia.org/wiki/PeachPie" }],

@@ -3,7 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
 
-  lb.define("platf+win", "Windows", {
+  lb.define("platf+win", {
+    name: "Windows",
     websites: [
       { kind: "wikipedia", title: "Windows", href: "https://en.wikipedia.org/wiki/Microsoft_Windows" },
       { kind: "wikipedia", title: "Windows", href: "https://en.wikipedia.org/wiki/Windows" },

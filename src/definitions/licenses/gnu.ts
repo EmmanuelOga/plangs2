@@ -3,13 +3,15 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
 
-  lb.define("lic+affero-gpl", "AGPL", {
+  lb.define("lic+affero-gpl", {
+    name: "AGPL",
     websites: [
       { kind: "wikipedia", title: "AGPLv3", href: "https://en.wikipedia.org/wiki/Affero_General_Public_License" },
     ],
   });
 
-  lb.define("lic+gnu-affero-gpl", "AGPL-3.0-or-later", {
+  lb.define("lic+gnu-affero-gpl", {
+    name: "AGPL-3.0-or-later",
     websites: [
       {
         kind: "wikipedia",
@@ -19,13 +21,15 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("lic+gnu-library-gpl", "LGPLv2", {
+  lb.define("lic+gnu-library-gpl", {
+    name: "LGPLv2",
     websites: [
       { kind: "wikipedia", title: "LGPLv2", href: "https://en.wikipedia.org/wiki/GNU_Library_General_Public_License" },
     ],
   });
 
-  lb.define("lic+gpl", "GPL", {
+  lb.define("lic+gpl", {
+    name: "GPL",
     websites: [
       {
         kind: "wikipedia",
@@ -53,22 +57,26 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  lb.define("lic+gpl-2", "GPLv2", {
+  lb.define("lic+gpl-2", {
+    name: "GPLv2",
     websites: [{ kind: "wikipedia", title: "GPLv2", href: "https://en.wikipedia.org/wiki/GPLv2" }],
   });
 
-  lb.define("lic+gpl-3", "GPL 2+", {
+  lb.define("lic+gpl-3", {
+    name: "GPL 2+",
     websites: [
       { kind: "wikipedia", title: "GPL 2+", href: "https://en.wikipedia.org/wiki/GPL_3#Version_2" },
       { kind: "wikipedia", title: "GNU GPLv3", href: "https://en.wikipedia.org/wiki/GNU_GPLv3" },
     ],
   });
 
-  lb.define("lic+gpl3", "GPL 3", {
+  lb.define("lic+gpl3", {
+    name: "GPL 3",
     websites: [{ kind: "wikipedia", title: "GPL 3", href: "https://en.wikipedia.org/wiki/GPL3" }],
   });
 
-  lb.define("lic+lgpl", "LGPL", {
+  lb.define("lic+lgpl", {
+    name: "LGPL",
     websites: [
       {
         kind: "wikipedia",

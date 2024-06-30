@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+c-sharp",
-    "C#",
     {
       name: "C#",
       websites: [

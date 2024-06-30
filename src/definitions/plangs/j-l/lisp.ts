@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+allegro-common-lisp",
-    "Allegro Common Lisp",
     {
       name: "Allegro Common Lisp",
       websites: [
@@ -40,7 +39,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+armed-bear-common-lisp",
-    "ABCL",
     {
       name: "ABCL",
       websites: [
@@ -86,7 +84,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+autolisp",
-    "AutoLisp",
     {
       name: "AutoLisp",
       websites: [{ kind: "wikipedia", title: "AutoLisp", href: "https://en.wikipedia.org/wiki/AutoLisp" }],
@@ -99,14 +96,13 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  lb.define("pl+bbn-lisp", "BBN LISP", {
+  lb.define("pl+bbn-lisp", {
     name: "BBN LISP",
     websites: [{ kind: "wikipedia", title: "BBN LISP", href: "https://en.wikipedia.org/wiki/BBN_LISP" }],
   });
 
   lb.define(
     "pl+clisp",
-    "CLISP",
     {
       name: "CLISP",
       websites: [{ kind: "wikipedia", title: "CLISP", href: "https://en.wikipedia.org/wiki/CLISP" }],
@@ -118,7 +114,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+common-lisp",
-    "Common Lisp",
     {
       name: "Common Lisp",
       websites: [{ kind: "wikipedia", title: "Common Lisp", href: "https://en.wikipedia.org/wiki/Common_Lisp" }],
@@ -162,7 +157,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+common-lisp-object-system",
-    "Common Lisp Object System",
     {
       name: "Common Lisp Object System",
       websites: [{ kind: "wikipedia", title: "CLOS", href: "https://en.wikipedia.org/wiki/Common_Lisp_Object_System" }],
@@ -172,7 +166,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+emacs-lisp",
-    "Emacs Lisp",
     {
       name: "Emacs Lisp",
       websites: [{ kind: "wikipedia", title: "Emacs Lisp", href: "https://en.wikipedia.org/wiki/Emacs_Lisp" }],
@@ -191,7 +184,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+embeddable-common-lisp",
-    "Embeddable Common Lisp",
     {
       name: "Embeddable Common Lisp",
       websites: [{ kind: "wikipedia", title: "ECL", href: "https://en.wikipedia.org/wiki/Embeddable_Common_Lisp" }],
@@ -217,7 +209,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+eulisp",
-    "EuLisp",
     {
       name: "EuLisp",
       websites: [{ kind: "wikipedia", title: "EuLisp", href: "https://en.wikipedia.org/wiki/EuLisp" }],
@@ -247,7 +238,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+franz-lisp",
-    "Franz Lisp",
     {
       name: "Franz Lisp",
       websites: [{ kind: "wikipedia", title: "Franz Lisp", href: "https://en.wikipedia.org/wiki/Franz_Lisp" }],
@@ -272,7 +262,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+gnu-common-lisp",
-    "GNU Common Lisp",
     {
       name: "GNU Common Lisp",
       websites: [{ kind: "wikipedia", title: "GCL", href: "https://en.wikipedia.org/wiki/GNU_Common_Lisp" }],
@@ -283,7 +272,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+interlisp",
-    "Interlisp",
     {
       name: "Interlisp",
       websites: [{ kind: "wikipedia", title: "Interlisp", href: "https://en.wikipedia.org/wiki/Interlisp" }],
@@ -307,7 +295,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+islisp",
-    "ISLISP",
     {
       name: "ISLISP",
       websites: [{ kind: "wikipedia", title: "ISLISP", href: "https://en.wikipedia.org/wiki/ISLISP" }],
@@ -332,7 +319,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+le-lisp",
-    "Le Lisp",
     {
       name: "Le Lisp",
       websites: [{ kind: "wikipedia", title: "Le Lisp", href: "https://en.wikipedia.org/wiki/Le_Lisp" }],
@@ -359,7 +345,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+lelisp",
-    "Le Lisp",
     {
       name: "Le Lisp",
       websites: [{ kind: "wikipedia", title: "LeLisp", href: "https://en.wikipedia.org/wiki/LeLisp" }],
@@ -386,7 +371,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+lisp",
-    "Lisp",
     {
       name: "Lisp",
       websites: [
@@ -450,7 +434,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+lispworks",
-    "LispWorks",
     {
       name: "LispWorks",
       websites: [{ kind: "wikipedia", title: "LispWorks", href: "https://en.wikipedia.org/wiki/LispWorks" }],
@@ -487,7 +470,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+maclisp",
-    "Maclisp",
     {
       name: "Maclisp",
       websites: [{ kind: "wikipedia", title: "Maclisp", href: "https://en.wikipedia.org/wiki/Maclisp" }],
@@ -503,7 +485,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+multilisp",
-    "MultiLisp",
     {
       name: "MultiLisp",
       websites: [{ kind: "wikipedia", title: "MultiLisp", href: "https://en.wikipedia.org/wiki/MultiLisp" }],
@@ -519,7 +500,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+newlisp",
-    "newLISP",
     {
       name: "newLISP",
       websites: [{ kind: "wikipedia", title: "newLISP", href: "https://en.wikipedia.org/wiki/NewLISP" }],
@@ -543,7 +523,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+oaklisp",
-    "Oaklisp",
     {
       name: "Oaklisp",
       websites: [{ kind: "wikipedia", title: "Oaklisp", href: "https://en.wikipedia.org/wiki/Oaklisp" }],
@@ -556,14 +535,13 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  lb.define("pl+objvlisp", "ObjVlisp", {
+  lb.define("pl+objvlisp", {
     name: "ObjVlisp",
     websites: [{ kind: "wikipedia", title: "ObjVlisp", href: "https://en.wikipedia.org/wiki/ObjVlisp" }],
   });
 
   lb.define(
     "pl+openlisp",
-    "OpenLisp",
     {
       name: "OpenLisp",
       websites: [{ kind: "wikipedia", title: "OpenLisp", href: "https://en.wikipedia.org/wiki/OpenLisp" }],
@@ -607,7 +585,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+picolisp",
-    "PicoLisp",
     {
       name: "PicoLisp",
       websites: [{ kind: "wikipedia", title: "PicoLisp", href: "https://en.wikipedia.org/wiki/Picolisp" }],
@@ -624,7 +601,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+star-lisp",
-    "*Lisp (StarLisp)",
     {
       name: "*Lisp (StarLisp)",
       websites: [{ kind: "wikipedia", title: "*Lisp", href: "https://en.wikipedia.org/wiki/*Lisp" }],
@@ -641,7 +617,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+zetalisp",
-    "Lisp Machine Lisp",
     {
       name: "Lisp Machine Lisp",
       websites: [{ kind: "wikipedia", title: "Lisp Machine Lisp", href: "https://en.wikipedia.org/wiki/ZetaLisp" }],

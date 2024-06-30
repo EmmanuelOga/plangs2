@@ -3,7 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.paradigmBuilder;
 
-  lb.define("para+process", "process-oriented", {
+  lb.define("para+process", {
+    name: "process-oriented",
     websites: [
       {
         kind: "wikipedia",

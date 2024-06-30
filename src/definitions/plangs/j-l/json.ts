@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+json",
-    "JSON",
     { name: "JSON", websites: [{ kind: "wikipedia", title: "JSON", href: "https://en.wikipedia.org/wiki/JSON" }] },
     { influences: ["pl+rebol"] },
   );

@@ -3,7 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
 
-  lb.define("platf+bsd", "FreeBSD", {
+  lb.define("platf+bsd", {
+    name: "FreeBSD",
     websites: [
       { kind: "wikipedia", title: "FreeBSD", href: "https://en.wikipedia.org/wiki/FreeBSD" },
       { kind: "wikipedia", title: "NetBSD", href: "https://en.wikipedia.org/wiki/NetBSD" },

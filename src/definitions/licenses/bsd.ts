@@ -3,30 +3,36 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
 
-  lb.define("lic+bsd", "BSD", {
+  lb.define("lic+bsd", {
+    name: "BSD",
     websites: [
       { kind: "wikipedia", title: "Revised BSD", href: "https://en.wikipedia.org/wiki/BSD_license" },
       { kind: "wikipedia", title: "BSD", href: "https://en.wikipedia.org/wiki/BSD" },
     ],
   });
 
-  lb.define("lic+bsd-3", "BSD-3", {
+  lb.define("lic+bsd-3", {
+    name: "BSD-3",
     websites: [{ kind: "wikipedia", title: "BSD-3", href: "https://en.wikipedia.org/wiki/BSD-3" }],
   });
 
-  lb.define("lic+bsd-c", "3-clause BSD", {
+  lb.define("lic+bsd-c", {
+    name: "3-clause BSD",
     websites: [{ kind: "wikipedia", title: "3-clause BSD", href: "https://en.wikipedia.org/wiki/3-clause_BSD" }],
   });
 
-  lb.define("lic+bsd-m", "BSD", {
+  lb.define("lic+bsd-m", {
+    name: "BSD",
     websites: [{ kind: "wikipedia", title: "BSD", href: "https://en.wikipedia.org/wiki/Modified_BSD_License" }],
   });
 
-  lb.define("lic+bsd-n", "New BSD License", {
+  lb.define("lic+bsd-n", {
+    name: "New BSD License",
     websites: [{ kind: "wikipedia", title: "New BSD License", href: "https://en.wikipedia.org/wiki/New_BSD_License" }],
   });
 
-  lb.define("lic+bsd-s", "BSD", {
+  lb.define("lic+bsd-s", {
+    name: "BSD",
     websites: [
       { kind: "wikipedia", title: "BSD", href: "https://en.wikipedia.org/wiki/BSD_licenses" },
       { kind: "wikipedia", title: "Simplified BSD", href: "https://en.wikipedia.org/wiki/Simplified_BSD_License" },

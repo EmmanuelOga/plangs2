@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+go",
-    "Go",
     {
       name: "Go",
       websites: [{ kind: "wikipedia", title: "Go", href: "https://en.wikipedia.org/wiki/Go_(programming_language)" }],
@@ -27,7 +26,6 @@ export function define(g: PlangsGraph) {
         "pl+oberon",
         "pl+oberon-2",
         "pl+occam",
-        "pl+pascal",
         "pl+python",
         "pl+smalltalk",
       ],

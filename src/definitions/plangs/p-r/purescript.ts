@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+purescript",
-    "PureScript",
     {
       name: "PureScript",
       websites: [{ kind: "wikipedia", title: "PureScript", href: "https://en.wikipedia.org/wiki/PureScript" }],

@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+factor",
-    "Factor",
     {
       name: "Factor",
       websites: [

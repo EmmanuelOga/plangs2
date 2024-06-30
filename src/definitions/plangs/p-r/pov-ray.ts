@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+pov-ray",
-    "POV-Ray",
     {
       name: "POV-Ray",
       websites: [{ kind: "wikipedia", title: "POV-Ray", href: "https://en.wikipedia.org/wiki/POV-Ray" }],

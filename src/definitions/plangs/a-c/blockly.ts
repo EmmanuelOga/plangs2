@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+blockly",
-    "Blockly",
     {
       name: "Blockly",
       websites: [{ kind: "wikipedia", title: "Blockly", href: "https://en.wikipedia.org/wiki/Blockly" }],

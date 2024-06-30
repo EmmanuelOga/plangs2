@@ -1,7 +1,5 @@
 {
   "dependencies": {
-    "@biomejs/js-api": "^0.6.2",
-    "@biomejs/wasm-nodejs": "^1.8.3",
     "@sigma/edge-curve": "^3.0.0-beta.9",
     "flexsearch": "^0.7.43",
     "graphology": "^0.25.4",

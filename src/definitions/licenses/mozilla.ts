@@ -3,11 +3,13 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.licenseBuilder;
 
-  lb.define("lic+mozilla-public", "MPL", {
+  lb.define("lic+mozilla-public", {
+    name: "MPL",
     websites: [{ kind: "wikipedia", title: "MPL-1-1", href: "https://en.wikipedia.org/wiki/Mozilla_Public_License" }],
   });
 
-  lb.define("lic+mozilla-public-licence", "Mozilla Public", {
+  lb.define("lic+mozilla-public-licence", {
+    name: "Mozilla Public",
     websites: [
       { kind: "wikipedia", title: "Mozilla Public", href: "https://en.wikipedia.org/wiki/Mozilla_Public_Licence" },
     ],

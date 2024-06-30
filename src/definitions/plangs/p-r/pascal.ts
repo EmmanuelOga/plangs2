@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+delphi",
-    "Delphi",
     {
       name: "Delphi",
       websites: [{ kind: "wikipedia", title: "Delphi", href: "https://en.wikipedia.org/wiki/Delphi_(software)" }],
@@ -22,7 +21,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+pascal",
-    "Pascal",
     {
       name: "Pascal",
       websites: [
@@ -35,9 +33,6 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "UCSD Pascal", href: "https://en.wikipedia.org/wiki/UCSD_Pascal" },
         { kind: "wikipedia", title: "Turbo Pascal", href: "https://en.wikipedia.org/wiki/Turbo_Pascal" },
         { kind: "wikipedia", title: "PascalABC.NET", href: "https://en.wikipedia.org/wiki/PascalABC.NET" },
-        { kind: "wikipedia", title: "Pascal", href: "https://en.wikipedia.org/wiki/Pascal-P" },
-        { kind: "wikipedia", title: "VSI Pascal", href: "https://en.wikipedia.org/wiki/VSI_Pascal" },
-        { kind: "wikipedia", title: "GNU Pascal", href: "https://en.wikipedia.org/wiki/GNU_Pascal" },
         { kind: "wikipedia", title: "Pascal Script", href: "https://en.wikipedia.org/wiki/Pascal_Script" },
       ],
       images: [
@@ -58,7 +53,6 @@ export function define(g: PlangsGraph) {
       releases: [
         { version: "3.2.2", date: "2021-01-01", kind: "stable" },
         { version: "3.3.1", kind: "preview" },
-        { version: "unknown", date: "1970-01-01", kind: "first" },
         { version: "3.0", kind: "stable" },
       ],
       extensions: [".p", ".pp", ".pas"],
@@ -79,12 +73,6 @@ export function define(g: PlangsGraph) {
         "pl+java",
         "pl+cocoa",
         "pl+javascript",
-        "pl+berkeley-software-distribution",
-        "pl+cdc-6000",
-        "pl+ict-1900-series",
-        "pl+pdp-11",
-        "pl+pdp-10",
-        "pl+ibm-system-slash370",
       ],
       influences: [
         "pl+algol",

@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+scratch",
-    "Scratch",
     {
       name: "Scratch",
       websites: [
@@ -39,7 +38,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+scratchjr",
-    "ScratchJr",
     {
       name: "ScratchJr",
       websites: [{ kind: "wikipedia", title: "ScratchJr", href: "https://en.wikipedia.org/wiki/ScratchJr" }],

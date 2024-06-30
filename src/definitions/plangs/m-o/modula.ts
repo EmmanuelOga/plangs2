@@ -5,9 +5,8 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+modula",
-    "-3",
     {
-      name: "-3",
+      name: "Modula-2",
       websites: [
         { kind: "wikipedia", title: "Modula-2", href: "https://en.wikipedia.org/wiki/Modula-2" },
         { kind: "wikipedia", title: "Modula", href: "https://en.wikipedia.org/wiki/Modula" },

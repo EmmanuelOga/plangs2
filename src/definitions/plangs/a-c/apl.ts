@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+apl",
-    "APL",
     {
       name: "APL",
       websites: [
@@ -21,7 +20,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1375-01-01", kind: "stable" }],
     },
     {
-      dialects: ["pl+aplx"],
       licenses: ["lic+proprietary", "lic+open-source"],
       paradigms: ["para+array", "para+functional", "para+structured", "para+modular"],
       people: ["person+larry-breed", "person+dick-lathwell", "person+roger-moore"],

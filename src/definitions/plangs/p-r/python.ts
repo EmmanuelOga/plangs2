@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+circuitpython",
-    "CircuitPython",
     {
       name: "CircuitPython",
       websites: [{ kind: "wikipedia", title: "CircuitPython", href: "https://en.wikipedia.org/wiki/CircuitPython" }],
@@ -19,7 +18,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+cpython",
-    "CPython",
     {
       name: "CPython",
       websites: [{ kind: "wikipedia", title: "CPython", href: "https://en.wikipedia.org/wiki/CPython" }],
@@ -33,7 +31,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+cython",
-    "Cython",
     {
       name: "Cython",
       websites: [{ kind: "wikipedia", title: "Cython", href: "https://en.wikipedia.org/wiki/Cython" }],
@@ -49,7 +46,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+ironpython",
-    "IronPython",
     {
       name: "IronPython",
       websites: [{ kind: "wikipedia", title: "IronPython", href: "https://en.wikipedia.org/wiki/IronPython" }],
@@ -64,7 +60,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+micropython",
-    "MicroPython",
     {
       name: "MicroPython",
       websites: [{ kind: "wikipedia", title: "MicroPython", href: "https://en.wikipedia.org/wiki/MicroPython" }],
@@ -90,14 +85,12 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+numpy",
-    "NumPy",
     { name: "NumPy", websites: [{ kind: "wikipedia", title: "NumPy", href: "https://en.wikipedia.org/wiki/NumPy" }] },
     { influences: ["pl+j"] },
   );
 
   lb.define(
     "pl+pyomo",
-    "Pyomo",
     {
       name: "Pyomo",
       websites: [{ kind: "wikipedia", title: "Pyomo", href: "https://en.wikipedia.org/wiki/Pyomo" }],
@@ -116,7 +109,7 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  lb.define("pl+pypy", "RPython", {
+  lb.define("pl+pypy", {
     name: "RPython",
     websites: [
       { kind: "wikipedia", title: "PyPy", href: "https://en.wikipedia.org/wiki/PyPy" },
@@ -126,7 +119,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+python",
-    "Python",
     {
       name: "Python",
       websites: [
@@ -194,7 +186,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+stackless-python",
-    "Stackless Python",
     {
       name: "Stackless Python",
       websites: [

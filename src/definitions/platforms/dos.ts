@@ -3,7 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
 
-  lb.define("platf+dos", "MS-DOS", {
+  lb.define("platf+dos", {
+    name: "MS-DOS",
     websites: [
       { kind: "wikipedia", title: "DOS", href: "https://en.wikipedia.org/wiki/DOS" },
       { kind: "wikipedia", title: "MS-DOS", href: "https://en.wikipedia.org/wiki/MS-DOS" },

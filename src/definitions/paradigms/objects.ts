@@ -3,7 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.paradigmBuilder;
 
-  lb.define("para+objects", "object-oriented", {
+  lb.define("para+objects", {
+    name: "object-oriented",
     websites: [
       {
         kind: "wikipedia",

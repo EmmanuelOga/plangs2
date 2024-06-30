@@ -3,7 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.paradigmBuilder;
 
-  lb.define("para+multi", "Multi-paradigm", {
+  lb.define("para+multi", {
+    name: "Multi-paradigm",
     websites: [
       {
         kind: "wikipedia",

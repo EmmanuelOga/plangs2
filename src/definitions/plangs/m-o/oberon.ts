@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+active-oberon",
-    "Active Oberon",
     {
       name: "Active Oberon",
       websites: [{ kind: "wikipedia", title: "Active Oberon", href: "https://en.wikipedia.org/wiki/Active_Oberon" }],
@@ -28,7 +27,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+oberon",
-    "Oberon",
     {
       name: "Oberon",
       websites: [
@@ -49,7 +47,7 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+active-oberon", "pl+oberon-2", "pl+obliq"],
-      influences: ["pl+modula", "pl+oberon-2", "pl+pascal"],
+      influences: ["pl+modula", "pl+oberon-2"],
       paradigms: ["para+imperative", "para+structured", "para+modular", "para+objects"],
       platforms: ["platf+arm", "platf+ia-32", "platf+x86-64", "platf+win", "platf+linux", "platf+atari", "platf+amiga"],
       typeSystems: ["tsys+strong", "tsys+static", "tsys+dynamic"],
@@ -58,9 +56,8 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+oberon-2",
-    "-2",
     {
-      name: "-2",
+      name: "Oberon-2",
       websites: [{ kind: "wikipedia", title: "Oberon-2", href: "https://en.wikipedia.org/wiki/Oberon-2" }],
       images: [
         {
@@ -70,7 +67,7 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influences: ["pl+oberon", "pl+modula", "pl+object-oberon", "pl+pascal"],
+      influences: ["pl+oberon", "pl+modula", "pl+object-oberon"],
       paradigms: ["para+imperative", "para+structured", "para+modular", "para+objects"],
       people: ["person+niklaus-wirth"],
       platforms: ["platf+ia-32", "platf+x86-64", "platf+win", "platf+linux", "platf+mac"],
@@ -80,7 +77,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+object-oberon",
-    "Object Oberon",
     {
       name: "Object Oberon",
       websites: [{ kind: "wikipedia", title: "Object Oberon", href: "https://en.wikipedia.org/wiki/Object_Oberon" }],

@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+max",
-    "Max",
     {
       name: "Max",
       websites: [{ kind: "wikipedia", title: "Max", href: "https://en.wikipedia.org/wiki/Max_(software)" }],

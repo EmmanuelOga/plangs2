@@ -3,7 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
 
-  lb.define("platf+plan9", "Plan 9 from User Space", {
+  lb.define("platf+plan9", {
+    name: "Plan 9 from User Space",
     websites: [
       {
         kind: "wikipedia",

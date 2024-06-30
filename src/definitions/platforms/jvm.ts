@@ -3,7 +3,8 @@ import type { PlangsGraph } from "../../entities/plangs_graph";
 export function define(g: PlangsGraph) {
   const lb = g.platformBuilder;
 
-  lb.define("platf+jvm", "Java Virtual Machine", {
+  lb.define("platf+jvm", {
+    name: "Java Virtual Machine",
     websites: [
       { kind: "wikipedia", title: "JVM", href: "https://en.wikipedia.org/wiki/JVM" },
       { kind: "wikipedia", title: "Java SE", href: "https://en.wikipedia.org/wiki/Java_Platform,_Standard_Edition" },

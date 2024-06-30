@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+objective-c",
-    "Objective-C",
     {
       name: "Objective-C",
       websites: [

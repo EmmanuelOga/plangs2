@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+qb64",
-    "QB64",
     {
       name: "QB64",
       websites: [{ kind: "wikipedia", title: "QB64", href: "https://en.wikipedia.org/wiki/QB64" }],

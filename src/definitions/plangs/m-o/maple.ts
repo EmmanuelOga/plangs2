@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+maple",
-    "Maple",
     {
       name: "Maple",
       websites: [{ kind: "wikipedia", title: "Maple", href: "https://en.wikipedia.org/wiki/Maple_(software)" }],

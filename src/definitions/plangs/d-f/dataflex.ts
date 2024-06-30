@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+dataflex",
-    "DataFlex",
     {
       name: "DataFlex",
       websites: [{ kind: "wikipedia", title: "DataFlex", href: "https://en.wikipedia.org/wiki/DataFlex" }],

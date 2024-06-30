@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+livescript",
-    "LiveScript",
     {
       name: "LiveScript",
       websites: [

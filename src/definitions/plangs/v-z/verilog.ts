@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+verilog",
-    "SystemVerilog",
     {
       name: "SystemVerilog",
       websites: [
@@ -21,7 +20,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1800-01-01", kind: "stable" }],
     },
     {
-      dialects: ["pl+bluespec--inc.", "pl+verilog"],
+      dialects: ["pl+verilog"],
       influences: [
         "pl+c",
         "pl+verilog",

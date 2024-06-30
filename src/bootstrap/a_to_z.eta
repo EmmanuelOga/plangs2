@@ -4,9 +4,7 @@ export function define(g: PlangsGraph) {
    const lb = g.<%= it.builderName %>Builder;
 
 <% for (const bundle of it.data) { %>
-  lb.define(
-    <%= bundle.vid %>,
-    <%= bundle.name %><% if (bundle.data) { %>,<%= bundle.data %><% } %><% if (bundle.data && bundle.vrelations) { %>, <%= bundle.vrelations %> <% } %>);
+  lb.define(<%= bundle.vid %><% if (bundle.data) { %>,<%= bundle.data %><% } %><% if (bundle.data && bundle.vrelations) { %>, <%= bundle.vrelations %> <% } %>);
 
 <% } %>
 }

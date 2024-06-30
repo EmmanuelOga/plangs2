@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+raku",
-    "Raku",
     {
       name: "Raku",
       websites: [
@@ -27,7 +26,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+rakudo",
-    "Rakudo",
     {
       name: "Rakudo",
       websites: [{ kind: "wikipedia", title: "Rakudo", href: "https://en.wikipedia.org/wiki/Rakudo" }],

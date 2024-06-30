@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+scilab",
-    "Scilab",
     {
       name: "Scilab",
       websites: [{ kind: "wikipedia", title: "Scilab", href: "https://en.wikipedia.org/wiki/Scilab" }],

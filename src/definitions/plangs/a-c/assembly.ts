@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+assembly",
-    "Assembly language",
     {
       name: "Assembly language",
       websites: [
@@ -33,7 +32,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+assemblyscript",
-    "AssemblyScript",
     {
       name: "AssemblyScript",
       websites: [{ kind: "wikipedia", title: "AssemblyScript", href: "https://en.wikipedia.org/wiki/AssemblyScript" }],
@@ -53,7 +51,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+game-oriented-assembly-lisp",
-    "Game Oriented Assembly Lisp",
     {
       name: "Game Oriented Assembly Lisp",
       websites: [
@@ -78,7 +75,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+high-level-assembly",
-    "High Level Assembly (HLA)",
     {
       name: "High Level Assembly (HLA)",
       websites: [
@@ -95,18 +91,12 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+webassembly",
-    "WebAssembly",
     {
       name: "WebAssembly",
       websites: [{ kind: "wikipedia", title: "WebAssembly", href: "https://en.wikipedia.org/wiki/WebAssembly" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/1/1f/WebAssembly_Logo.svg" }],
       extensions: [".wat", ".wasm"],
     },
-    {
-      influences: ["pl+asm.js"],
-      licenses: ["lic+apache"],
-      paradigms: ["para+stack"],
-      platforms: ["platf+cross-platform"],
-    },
+    { licenses: ["lic+apache"], paradigms: ["para+stack"], platforms: ["platf+cross-platform"] },
   );
 }

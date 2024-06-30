@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+xsb",
-    "XSB",
     {
       name: "XSB",
       websites: [
