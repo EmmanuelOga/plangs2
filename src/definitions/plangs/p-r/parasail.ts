@@ -24,11 +24,11 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "9.3", date: "2021-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+ada", "pl+modula", "pl+pascal", "pl+ml"],
+      influences: ["pl+ada", "pl+ml", "pl+modula", "pl+pascal"],
       licenses: ["lic+gpl"],
-      paradigms: ["para+compiled", "para+concurrent", "para+imperative", "para+structured", "para+objects"],
-      platforms: ["platf+x86", "platf+linux", "platf+mac", "platf+win"],
-      typeSystems: ["tsys+strong", "tsys+static"],
+      paradigms: ["para+compiled", "para+concurrent", "para+imperative", "para+objects", "para+structured"],
+      platforms: ["platf+linux", "platf+mac", "platf+win", "platf+x86"],
+      typeSystems: ["tsys+static", "tsys+strong"],
     },
   );
 }

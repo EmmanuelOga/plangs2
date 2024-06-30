@@ -12,13 +12,13 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "2023-01-01", kind: "stable" }],
     },
     {
-      dialects: ["pl+pharo", "pl+croquet-project", "pl+newspeak"],
+      dialects: ["pl+croquet-project", "pl+newspeak", "pl+pharo"],
       implementations: ["pl+croquet-project"],
-      influences: ["pl+self", "pl+smalltalk", "pl+lisp", "pl+logo", "pl+sketchpad", "pl+simula"],
-      licenses: ["lic+mit", "lic+apache"],
+      influences: ["pl+lisp", "pl+logo", "pl+self", "pl+simula", "pl+sketchpad", "pl+smalltalk"],
+      people: ["person+adele-goldberg", "person+alan-kay", "person+dan-ingalls"],
+      licenses: ["lic+apache", "lic+mit"],
       paradigms: ["para+objects"],
-      people: ["person+alan-kay", "person+dan-ingalls", "person+adele-goldberg"],
-      platforms: ["platf+cross-platform", "platf+unix", "platf+mac", "platf+ios", "platf+win"],
+      platforms: ["platf+cross-platform", "platf+ios", "platf+mac", "platf+unix", "platf+win"],
       typeSystems: ["tsys+dynamic"],
     },
   );

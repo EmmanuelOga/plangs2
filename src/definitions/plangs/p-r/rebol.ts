@@ -15,10 +15,10 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influences: ["pl+forth", "pl+logo", "pl+objectlogo", "pl+self", "pl+lisp", "pl+ucblogo"],
-      licenses: ["lic+freely-redistributable", "lic+apache"],
-      paradigms: ["para+language", "para+data", "para+functional", "para+prototypes", "para+imperative"],
+      influences: ["pl+forth", "pl+lisp", "pl+logo", "pl+objectlogo", "pl+self", "pl+ucblogo"],
       people: ["person+carl-sassenrath"],
+      licenses: ["lic+apache", "lic+freely-redistributable"],
+      paradigms: ["para+data", "para+functional", "para+imperative", "para+language", "para+prototypes"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

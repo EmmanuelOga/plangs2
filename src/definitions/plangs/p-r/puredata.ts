@@ -13,10 +13,10 @@ export function define(g: PlangsGraph) {
     },
     {
       influences: ["pl+lucid", "pl+patcher"],
+      people: ["person+miller-s-puckette"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+dataflow"],
-      people: ["person+miller-s-puckette"],
-      platforms: ["platf+cross-platform", "platf+mac", "platf+win", "platf+linux"],
+      platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
     },
   );
 }

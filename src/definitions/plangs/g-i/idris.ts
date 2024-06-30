@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influences: ["pl+agda", "pl+clean", "pl+epigram", "pl+coq", "pl+f-sharp", "pl+haskell", "pl+ml", "pl+rust"],
+      influences: ["pl+agda", "pl+clean", "pl+coq", "pl+epigram", "pl+f-sharp", "pl+haskell", "pl+ml", "pl+rust"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+functional"],
       platforms: ["platf+cross-platform"],

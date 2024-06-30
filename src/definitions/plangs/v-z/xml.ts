@@ -31,7 +31,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.1", date: "2017-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+xpath", "pl+sql", "pl+xslt"],
+      influences: ["pl+sql", "pl+xpath", "pl+xslt"],
       paradigms: ["para+dec", "para+functional", "para+modular"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],

@@ -17,8 +17,8 @@ export function define(g: PlangsGraph) {
       dialects: ["pl+icon"],
       implementations: ["pl+spitbol"],
       influences: ["pl+comit"],
-      paradigms: ["para+imperative", "para+unstructured"],
       people: ["person+david-j-farber", "person+ralph-griswold"],
+      paradigms: ["para+imperative", "para+unstructured"],
     },
   );
 }

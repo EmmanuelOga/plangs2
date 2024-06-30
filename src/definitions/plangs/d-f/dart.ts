@@ -18,23 +18,23 @@ export function define(g: PlangsGraph) {
     {
       implementations: ["pl+flutter"],
       influences: [
-        "pl+c-sharp",
         "pl+c",
+        "pl+c-sharp",
         "pl+cpp",
         "pl+erlang",
         "pl+java",
         "pl+javascript",
+        "pl+ms-visual-c-sharp",
         "pl+ruby",
         "pl+smalltalk",
         "pl+strongtalk",
         "pl+typescript",
-        "pl+ms-visual-c-sharp",
       ],
-      licenses: ["lic+bsd-s"],
-      paradigms: ["para+multi", "para+functional", "para+imperative", "para+objects", "para+reflective"],
       people: ["person+lars-bak"],
+      licenses: ["lic+bsd-s"],
+      paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects", "para+reflective"],
       platforms: ["platf+cross-platform"],
-      typeSystems: ["tsys+optional", "tsys+inferred", "tsys+static", "tsys+strong"],
+      typeSystems: ["tsys+inferred", "tsys+optional", "tsys+static", "tsys+strong"],
     },
   );
 }

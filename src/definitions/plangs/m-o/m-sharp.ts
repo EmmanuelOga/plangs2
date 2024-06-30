@@ -14,9 +14,9 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/ca/Msharp_logo.png" }],
     },
     {
-      implementations: ["pl+ms-visual-c-sharp", "pl+.net-framework", "pl+asp.net", "pl+domain-specific"],
-      paradigms: ["para+multi", "para+structured", "para+objects", "para+event", "para+imperative", "para+meta"],
-      typeSystems: ["tsys+static", "tsys+dynamic"],
+      implementations: ["pl+.net-framework", "pl+asp.net", "pl+domain-specific", "pl+ms-visual-c-sharp"],
+      paradigms: ["para+event", "para+imperative", "para+meta", "para+multi", "para+objects", "para+structured"],
+      typeSystems: ["tsys+dynamic", "tsys+static"],
     },
   );
 }

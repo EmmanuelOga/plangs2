@@ -20,11 +20,11 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.99", date: "2023-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+joy", "pl+forth", "pl+lisp", "pl+self"],
+      influences: ["pl+forth", "pl+joy", "pl+lisp", "pl+self"],
       licenses: ["lic+bsd"],
-      paradigms: ["para+multi", "para+concatenative", "para+stack", "para+functional", "para+objects"],
-      platforms: ["platf+win", "platf+mac", "platf+linux"],
-      typeSystems: ["tsys+strong", "tsys+dynamic"],
+      paradigms: ["para+concatenative", "para+functional", "para+multi", "para+objects", "para+stack"],
+      platforms: ["platf+linux", "platf+mac", "platf+win"],
+      typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );
 }

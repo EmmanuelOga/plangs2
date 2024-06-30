@@ -17,10 +17,10 @@ export function define(g: PlangsGraph) {
     {
       dialects: ["pl+raku"],
       implementations: ["pl+c"],
-      influences: ["pl+awk", "pl+c", "pl+cpp", "pl+basic", "pl+lisp", "pl+sed", "pl+unix-shell", "pl+raku"],
+      influences: ["pl+awk", "pl+basic", "pl+c", "pl+cpp", "pl+lisp", "pl+raku", "pl+sed", "pl+unix-shell"],
+      people: ["person+larry-wall"],
       licenses: ["lic+artistic", "lic+gpl"],
       paradigms: ["para+multi"],
-      people: ["person+larry-wall"],
       platforms: ["platf+cross-platform"],
     },
   );

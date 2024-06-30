@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/7/73/Mruby_logo_red.svg" }],
       releases: [{ version: "3.3.0", date: "2024-01-01", kind: "stable" }],
     },
-    { licenses: ["lic+mit"], people: ["person+yukihiro-matsumoto"] },
+    { people: ["person+yukihiro-matsumoto"], licenses: ["lic+mit"] },
   );
 
   lb.define(
@@ -44,31 +44,31 @@ export function define(g: PlangsGraph) {
     {
       implementations: [
         "pl+c",
-        "pl+ruby-mri",
         "pl+graalvm",
-        "pl+yarv",
-        "pl+rubinius",
         "pl+jruby",
-        "pl+rubymotion",
         "pl+mruby",
+        "pl+rubinius",
+        "pl+ruby-mri",
+        "pl+rubymotion",
+        "pl+yarv",
       ],
       influences: [
         "pl+ada",
+        "pl+basic",
         "pl+clu",
+        "pl+cpp",
         "pl+dylan",
         "pl+eiffel",
-        "pl+python",
-        "pl+basic",
-        "pl+cpp",
         "pl+lisp",
         "pl+lua",
         "pl+perl",
-        "pl+smalltalk",
+        "pl+python",
         "pl+scheme",
+        "pl+smalltalk",
       ],
-      licenses: ["lic+ruby"],
-      paradigms: ["para+multi", "para+functional", "para+imperative", "para+objects", "para+reflective"],
       people: ["person+yukihiro-matsumoto"],
+      licenses: ["lic+ruby"],
+      paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects", "para+reflective"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+strong"],
     },
@@ -86,7 +86,7 @@ export function define(g: PlangsGraph) {
         },
       ],
     },
-    { licenses: ["lic+ruby", "lic+bsd-s", "lic+gpl"] },
+    { licenses: ["lic+bsd-s", "lic+gpl", "lic+ruby"] },
   );
 
   lb.define(
@@ -95,6 +95,6 @@ export function define(g: PlangsGraph) {
       name: "RubyMotion",
       websites: [{ kind: "wikipedia", title: "RubyMotion", href: "https://en.wikipedia.org/wiki/RubyMotion" }],
     },
-    { licenses: ["lic+proprietary", "lic+eula"] },
+    { licenses: ["lic+eula", "lic+proprietary"] },
   );
 }

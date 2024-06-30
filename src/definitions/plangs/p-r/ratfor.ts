@@ -16,6 +16,6 @@ export function define(g: PlangsGraph) {
         },
       ],
     },
-    { influences: ["pl+fortran", "pl+c", "pl+speedcoding"], people: ["person+brian-kernighan"] },
+    { influences: ["pl+c", "pl+fortran", "pl+speedcoding"], people: ["person+brian-kernighan"] },
   );
 }

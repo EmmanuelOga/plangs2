@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+ada", "pl+cpp", "pl+lisp"],
       licenses: ["lic+freeware"],
-      paradigms: ["para+multi", "para+functional", "para+objects", "para+imperative"],
+      paradigms: ["para+functional", "para+imperative", "para+multi", "para+objects"],
       platforms: ["platf+amiga"],
     },
   );

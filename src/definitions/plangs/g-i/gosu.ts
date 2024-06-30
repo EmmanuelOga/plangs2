@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.17.10", date: "2024-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+java", "pl+c-sharp"],
+      influences: ["pl+c-sharp", "pl+java"],
       licenses: ["lic+apache"],
       platforms: ["platf+jvm"],
       typeSystems: ["tsys+static"],

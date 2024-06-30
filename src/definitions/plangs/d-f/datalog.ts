@@ -10,9 +10,9 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "Datalog", href: "https://en.wikipedia.org/wiki/Datalog" }],
     },
     {
-      dialects: ["pl+datomic", "pl+.ql", "pl+souffle"],
+      dialects: ["pl+.ql", "pl+datomic", "pl+souffle"],
       influences: ["pl+prolog"],
-      paradigms: ["para+logic", "para+dec"],
+      paradigms: ["para+dec", "para+logic"],
       typeSystems: ["tsys+weak"],
     },
   );

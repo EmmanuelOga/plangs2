@@ -16,6 +16,6 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "5.1", date: "2023-01-01", kind: "stable" }],
     },
-    { licenses: ["lic+proprietary"], people: ["person+national-instruments"] },
+    { people: ["person+national-instruments"], licenses: ["lic+proprietary"] },
   );
 }

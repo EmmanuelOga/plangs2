@@ -20,6 +20,6 @@ export function define(g: PlangsGraph) {
         },
       ],
     },
-    { paradigms: ["para+logic", "para+imperative", "para+reversible"] },
+    { paradigms: ["para+imperative", "para+logic", "para+reversible"] },
   );
 }

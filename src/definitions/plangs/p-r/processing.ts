@@ -19,9 +19,9 @@ export function define(g: PlangsGraph) {
     },
     {
       influences: ["pl+c"],
+      people: ["person+ben-fry", "person+casey-reas"],
       licenses: ["lic+gpl", "lic+lgpl"],
       paradigms: ["para+objects"],
-      people: ["person+casey-reas", "person+ben-fry"],
     },
   );
 }

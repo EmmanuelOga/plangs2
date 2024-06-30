@@ -12,6 +12,6 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "TRAC", href: "https://en.wikipedia.org/wiki/TRAC_programming_language" },
       ],
     },
-    { paradigms: ["para+macros"], people: ["person+calvin-mooers"] },
+    { people: ["person+calvin-mooers"], paradigms: ["para+macros"] },
   );
 }

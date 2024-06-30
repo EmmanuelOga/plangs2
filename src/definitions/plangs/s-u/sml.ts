@@ -17,12 +17,12 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      dialects: ["pl+alice", "pl+mlton", "pl+sml", "pl+concurrent-ml", "pl+dependent-ml"],
-      implementations: ["pl+sml", "pl+c", "pl+mlton", "pl+poly-slashml"],
-      influences: ["pl+ml", "pl+sml", "pl+hope", "pl+pascal"],
+      dialects: ["pl+alice", "pl+concurrent-ml", "pl+dependent-ml", "pl+mlton", "pl+sml"],
+      implementations: ["pl+c", "pl+mlton", "pl+poly-slashml", "pl+sml"],
+      influences: ["pl+hope", "pl+ml", "pl+pascal", "pl+sml"],
       licenses: ["lic+permissive"],
-      paradigms: ["para+multi", "para+functional", "para+imperative", "para+modular"],
-      typeSystems: ["tsys+strong", "tsys+static", "tsys+inferred"],
+      paradigms: ["para+functional", "para+imperative", "para+modular", "para+multi"],
+      typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );
 }

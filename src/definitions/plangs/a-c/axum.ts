@@ -19,6 +19,6 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "unknown", date: "2009-01-01", kind: "stable" }],
     },
-    { licenses: ["lic+closed-source"], platforms: ["platf+x86", "platf+x86-64", "platf+win"] },
+    { licenses: ["lic+closed-source"], platforms: ["platf+win", "platf+x86", "platf+x86-64"] },
   );
 }

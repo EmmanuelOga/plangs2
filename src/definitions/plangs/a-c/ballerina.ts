@@ -22,11 +22,11 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influences: ["pl+java", "pl+javascript", "pl+go", "pl+rust", "pl+c-sharp"],
+      influences: ["pl+c-sharp", "pl+go", "pl+java", "pl+javascript", "pl+rust"],
+      people: ["person+frank-leymann", "person+james-clark", "person+sanjiva-weerawarana"],
       licenses: ["lic+apache"],
-      people: ["person+sanjiva-weerawarana", "person+james-clark", "person+frank-leymann"],
       platforms: ["platf+cross-platform"],
-      typeSystems: ["tsys+structural", "tsys+strong", "tsys+static", "tsys+inferred"],
+      typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"],
     },
   );
 }

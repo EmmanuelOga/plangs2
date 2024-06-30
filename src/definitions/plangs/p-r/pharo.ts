@@ -14,9 +14,9 @@ export function define(g: PlangsGraph) {
     {
       implementations: ["pl+smalltalk"],
       influences: ["pl+smalltalk", "pl+squeak"],
-      licenses: ["lic+mit", "lic+apache"],
+      licenses: ["lic+apache", "lic+mit"],
       paradigms: ["para+objects"],
-      platforms: ["platf+arm", "platf+ia-32", "platf+x86-64", "platf+win", "platf+linux", "platf+mac"],
+      platforms: ["platf+arm", "platf+ia-32", "platf+linux", "platf+mac", "platf+win", "platf+x86-64"],
       typeSystems: ["tsys+dynamic"],
     },
   );

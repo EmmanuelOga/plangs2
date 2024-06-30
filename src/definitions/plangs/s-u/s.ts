@@ -18,9 +18,9 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+s-plus"],
-      influences: ["pl+c", "pl+apl", "pl+fortran", "pl+scheme"],
-      paradigms: ["para+multi", "para+imperative", "para+objects"],
-      people: ["person+john-chambers", "person+william-s-cleveland", "person+trevor-hastie"],
+      influences: ["pl+apl", "pl+c", "pl+fortran", "pl+scheme"],
+      people: ["person+john-chambers", "person+trevor-hastie", "person+william-s-cleveland"],
+      paradigms: ["para+imperative", "para+multi", "para+objects"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );

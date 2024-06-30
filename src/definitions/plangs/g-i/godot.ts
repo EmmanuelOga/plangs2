@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+mit"],
       paradigms: ["para+objects"],
       platforms: ["platf+cross-platform"],
-      typeSystems: ["tsys+dynamic", "tsys+duck"],
+      typeSystems: ["tsys+duck", "tsys+dynamic"],
     },
   );
 }

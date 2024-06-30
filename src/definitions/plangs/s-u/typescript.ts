@@ -13,9 +13,9 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+assemblyscript"],
-      influences: ["pl+actionscript", "pl+c-sharp", "pl+javascript", "pl+ms-visual-c-sharp", "pl+f-sharp", "pl+java"],
+      influences: ["pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+java", "pl+javascript", "pl+ms-visual-c-sharp"],
       licenses: ["lic+apache"],
-      paradigms: ["para+multi", "para+functional", "para+generic", "para+imperative", "para+objects"],
+      paradigms: ["para+functional", "para+generic", "para+imperative", "para+multi", "para+objects"],
       typeSystems: ["tsys+duck", "tsys+gradual", "tsys+structural"],
     },
   );

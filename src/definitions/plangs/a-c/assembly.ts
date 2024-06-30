@@ -21,11 +21,11 @@ export function define(g: PlangsGraph) {
     {
       paradigms: [
         "para+imperative",
-        "para+unstructured",
-        "para+meta",
         "para+macros",
-        "para+structured",
+        "para+meta",
         "para+objects",
+        "para+structured",
+        "para+unstructured",
       ],
     },
   );
@@ -44,7 +44,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+javascript", "pl+typescript", "pl+webassembly"],
       licenses: ["lic+apache"],
-      paradigms: ["para+multi", "para+functional", "para+generic", "para+imperative", "para+objects"],
+      paradigms: ["para+functional", "para+generic", "para+imperative", "para+multi", "para+objects"],
       typeSystems: ["tsys+static"],
     },
   );
@@ -65,9 +65,9 @@ export function define(g: PlangsGraph) {
     {
       implementations: ["pl+allegro-common-lisp"],
       influences: ["pl+lisp", "pl+scheme"],
+      people: ["person+andy-gavin", "person+naughty-dog"],
       licenses: ["lic+proprietary"],
       paradigms: ["para+multi"],
-      people: ["person+andy-gavin", "person+naughty-dog"],
       platforms: ["platf+playstation"],
       typeSystems: ["tsys+dynamic", "tsys+latent", "tsys+strong"],
     },
@@ -86,7 +86,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "2.16", date: "2011-01-01", kind: "stable" }],
     },
-    { licenses: ["lic+public-domain"], people: ["person+randall-hyde"], platforms: ["platf+ia-32"] },
+    { people: ["person+randall-hyde"], licenses: ["lic+public-domain"], platforms: ["platf+ia-32"] },
   );
 
   lb.define(

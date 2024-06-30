@@ -29,11 +29,11 @@ export function define(g: PlangsGraph) {
         "pl+python",
         "pl+smalltalk",
       ],
+      people: ["person+ken-thompson", "person+rob-pike", "person+robert-griesemer"],
       licenses: ["lic+bsd-c", "lic+patents"],
-      paradigms: ["para+multi", "para+concurrent", "para+imperative", "para+functional", "para+objects"],
-      people: ["person+robert-griesemer", "person+rob-pike", "person+ken-thompson"],
+      paradigms: ["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+objects"],
       platforms: ["platf+bsd", "platf+linux", "platf+mac", "platf+plan9", "platf+win"],
-      typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural", "tsys+nominative"],
+      typeSystems: ["tsys+inferred", "tsys+nominative", "tsys+static", "tsys+strong", "tsys+structural"],
     },
   );
 }

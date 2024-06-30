@@ -13,9 +13,9 @@ export function define(g: PlangsGraph) {
     },
     {
       influences: ["pl+armed-bear-common-lisp", "pl+common-lisp", "pl+s", "pl+scheme"],
+      people: ["person+robert-gentleman", "person+ross-ihaka"],
       licenses: ["lic+gpl"],
-      paradigms: ["para+multi", "para+imperative", "para+objects", "para+functional", "para+reflective", "para+array"],
-      people: ["person+ross-ihaka", "person+robert-gentleman"],
+      paradigms: ["para+array", "para+functional", "para+imperative", "para+multi", "para+objects", "para+reflective"],
       platforms: ["platf+arm", "platf+x86-64"],
       typeSystems: ["tsys+dynamic"],
     },

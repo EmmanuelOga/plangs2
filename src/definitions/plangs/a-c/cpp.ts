@@ -18,21 +18,21 @@ export function define(g: PlangsGraph) {
     {
       influences: [
         "pl+ada",
-        "pl+c",
         "pl+algol",
         "pl+bcpl",
+        "pl+c",
         "pl+clu",
         "pl+f-sharp",
-        "pl+ml",
         "pl+mesa",
+        "pl+ml",
         "pl+modula",
         "pl+simula",
         "pl+smalltalk",
       ],
-      paradigms: ["para+multi", "para+imperative", "para+functional", "para+objects", "para+generic", "para+modular"],
       people: ["person+bjarne-stroustrup"],
+      paradigms: ["para+functional", "para+generic", "para+imperative", "para+modular", "para+multi", "para+objects"],
       platforms: ["platf+cross-platform"],
-      typeSystems: ["tsys+static", "tsys+strong", "tsys+nominative", "tsys+inferred"],
+      typeSystems: ["tsys+inferred", "tsys+nominative", "tsys+static", "tsys+strong"],
     },
   );
 
@@ -80,10 +80,10 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "12.1", date: "2024-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+delphi", "pl+cpp"],
+      influences: ["pl+cpp", "pl+delphi"],
       licenses: ["lic+trialware"],
-      paradigms: ["para+objects", "para+functional", "para+strongly"],
-      platforms: ["platf+x64", "platf+win"],
+      paradigms: ["para+functional", "para+objects", "para+strongly"],
+      platforms: ["platf+win", "platf+x64"],
     },
   );
 
@@ -103,10 +103,10 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+clang", "pl+gcc"],
-      influences: ["pl+cpp", "pl+c", "pl+smalltalk"],
+      influences: ["pl+c", "pl+cpp", "pl+smalltalk"],
       people: ["person+brad-cox"],
       platforms: ["platf+cross-platform"],
-      typeSystems: ["tsys+static", "tsys+dynamic", "tsys+weak"],
+      typeSystems: ["tsys+dynamic", "tsys+static", "tsys+weak"],
     },
   );
 }

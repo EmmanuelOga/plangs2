@@ -1,6 +1,14 @@
 import { Eta } from "eta";
 import { PlangsGraph } from "../entities/plangs_graph";
-import type { VID_Plang } from "../entities/schemas";
+import type {
+  E_Base,
+  VID_License,
+  VID_Paradigm,
+  VID_Person,
+  VID_Plang,
+  VID_Platform,
+  VID_TypeSystem,
+} from "../entities/schemas";
 import type { VID_Any } from "../graph/vertex";
 import type { VertexTable } from "../graph/vertex_table";
 import { blank, tidy, toAlphaNum } from "../util";
@@ -151,21 +159,50 @@ function plangMapper(g: PlangsGraph, plvid: VID_Plang): AtoZData {
   if (!blank(data)) bundle.data = json(data);
 
   const vrelations: Record<string, string[]> = {};
-  function addRel(vrelKey: string, rels: string[]) {
+
+  function addRel(vrelKey: string, rels: string[], egetter: (vid: string) => E_Base | undefined) {
     if (rels.length === 0) return;
     vrelations[vrelKey] = rels;
+
+    for (const rel of rels) {
+      const edata = egetter(rel);
+      if (!blank(edata)) console.log(vrelKey, rel, "should add: ", edata);
+    }
   }
 
-  addRel("dialects", [...g.e_dialect_of.adjacentTo(plvid)]);
-  addRel("implementations", [...g.e_implements.adjacentTo(plvid)]);
-  addRel("influences", [...g.e_l_influenced_l.adjacentTo(plvid)]);
-  addRel("licenses", [...g.e_has_license.adjacentFrom(plvid)]);
-  addRel("paradigms", [...g.e_plang_para.adjacentFrom(plvid)]);
-  addRel("people", [...g.e_person_plang_role.adjacentTo(plvid)]);
-  addRel("platforms", [...g.e_supports_platf.adjacentFrom(plvid)]);
-  addRel("typeSystems", [...g.e_plang_tsys.adjacentFrom(plvid)]);
+  // Adjacent *to* plang.
 
-  if (Object.keys(vrelations).length > 0) bundle.vrelations = json(vrelations);
+  addRel("dialects", [...g.e_dialect_of.adjacentTo(plvid)], (vid) => g.e_dialect_of.get(vid as VID_Plang, plvid));
+
+  addRel("implementations", [...g.e_implements.adjacentTo(plvid)], (vid) =>
+    g.e_implements.get(vid as VID_Plang, plvid),
+  );
+
+  addRel("influences", [...g.e_l_influenced_l.adjacentTo(plvid)], (vid) =>
+    g.e_l_influenced_l.get(vid as VID_Plang, plvid),
+  );
+
+  addRel("people", [...g.e_person_plang_role.adjacentTo(plvid)], (vid) =>
+    g.e_person_plang_role.get(vid as VID_Person, plvid),
+  );
+
+  // Adjacent *from* plang.
+
+  addRel("licenses", [...g.e_has_license.adjacentFrom(plvid)], (vid) => g.e_has_license.get(plvid, vid as VID_License));
+
+  addRel("paradigms", [...g.e_plang_para.adjacentFrom(plvid)], (vid) => g.e_plang_para.get(plvid, vid as VID_Paradigm));
+
+  addRel("platforms", [...g.e_supports_platf.adjacentFrom(plvid)], (vid) =>
+    g.e_supports_platf.get(plvid, vid as VID_Platform),
+  );
+
+  addRel("typeSystems", [...g.e_plang_tsys.adjacentFrom(plvid)], (vid) =>
+    g.e_plang_tsys.get(plvid, vid as VID_TypeSystem),
+  );
+
+  tidy(vrelations);
+
+  if (!blank(vrelations)) bundle.vrelations = json(vrelations);
 
   return bundle;
 }

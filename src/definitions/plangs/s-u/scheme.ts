@@ -15,9 +15,9 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+dsssl"],
-      influences: ["pl+algol", "pl+mdl", "pl+racket", "pl+lisp"],
-      paradigms: ["para+multi", "para+functional", "para+imperative", "para+meta"],
-      people: ["person+guy-l-steele", "person+gerald-jay-sussman"],
+      influences: ["pl+algol", "pl+lisp", "pl+mdl", "pl+racket"],
+      people: ["person+gerald-jay-sussman", "person+guy-l-steele"],
+      paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi"],
       typeSystems: ["tsys+dynamic", "tsys+latent", "tsys+strong"],
     },
   );

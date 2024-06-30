@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
     },
     {
       influences: ["pl+scheme"],
-      paradigms: ["para+multi", "para+objects", "para+imperative", "para+functional", "para+meta"],
+      paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi", "para+objects"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

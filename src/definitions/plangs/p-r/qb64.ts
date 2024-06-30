@@ -13,6 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "2.0.2", date: "2021-01-01", kind: "stable" }],
     },
-    { influences: ["pl+basic"], licenses: ["lic+mit"], platforms: ["platf+win", "platf+linux", "platf+mac"] },
+    { influences: ["pl+basic"], licenses: ["lic+mit"], platforms: ["platf+linux", "platf+mac", "platf+win"] },
   );
 }

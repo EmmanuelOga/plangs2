@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+f-sharp", "pl+go", "pl+haskell", "pl+ocaml", "pl+scala"],
       licenses: ["lic+apache"],
-      paradigms: ["para+multi", "para+functional", "para+imperative", "para+logic"],
+      paradigms: ["para+functional", "para+imperative", "para+logic", "para+multi"],
       platforms: ["platf+jvm"],
       typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"],
     },

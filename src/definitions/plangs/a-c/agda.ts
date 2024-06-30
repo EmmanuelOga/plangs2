@@ -22,12 +22,12 @@ export function define(g: PlangsGraph) {
       paradigms: ["para+functional"],
       platforms: ["platf+cross-platform"],
       typeSystems: [
-        "tsys+strong",
-        "tsys+static",
         "tsys+dependent",
-        "tsys+nominative",
-        "tsys+manifest",
         "tsys+inferred",
+        "tsys+manifest",
+        "tsys+nominative",
+        "tsys+static",
+        "tsys+strong",
       ],
     },
   );

@@ -22,9 +22,9 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+rust"],
       influences: ["pl+elixir", "pl+reia"],
       licenses: ["lic+apache"],
-      paradigms: ["para+multi", "para+functional", "para+concurrent"],
+      paradigms: ["para+concurrent", "para+functional", "para+multi"],
       platforms: ["platf+bsd", "platf+linux", "platf+mac", "platf+win"],
-      typeSystems: ["tsys+safe", "tsys+static", "tsys+inferred"],
+      typeSystems: ["tsys+inferred", "tsys+safe", "tsys+static"],
     },
   );
 }

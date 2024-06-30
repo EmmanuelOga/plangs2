@@ -13,9 +13,9 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      paradigms: ["para+pattern", "para+term"],
       people: ["person+valentin-turchin"],
-      typeSystems: ["tsys+strong", "tsys+dynamic"],
+      paradigms: ["para+pattern", "para+term"],
+      typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );
 }

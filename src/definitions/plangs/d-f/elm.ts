@@ -12,11 +12,11 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.19.1", date: "2019-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+haskell", "pl+sml", "pl+ocaml", "pl+f-sharp", "pl+ml", "pl+poly-slashml"],
-      licenses: ["lic+permissive", "lic+bsd"],
+      influences: ["pl+f-sharp", "pl+haskell", "pl+ml", "pl+ocaml", "pl+poly-slashml", "pl+sml"],
+      licenses: ["lic+bsd", "lic+permissive"],
       paradigms: ["para+functional"],
-      platforms: ["platf+x86-64", "platf+mac", "platf+win"],
-      typeSystems: ["tsys+static", "tsys+strong", "tsys+inferred"],
+      platforms: ["platf+mac", "platf+win", "platf+x86-64"],
+      typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );
 }

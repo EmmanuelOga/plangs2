@@ -16,12 +16,12 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+gradle", "pl+grails"],
-      influences: ["pl+java", "pl+python", "pl+ruby", "pl+smalltalk", "pl+objective-cpp", "pl+objective-c"],
-      licenses: ["lic+apache"],
-      paradigms: ["para+multi", "para+objects", "para+imperative", "para+functional", "para+aspect", "para+scripting"],
+      influences: ["pl+java", "pl+objective-c", "pl+objective-cpp", "pl+python", "pl+ruby", "pl+smalltalk"],
       people: ["person+james-strachan"],
+      licenses: ["lic+apache"],
+      paradigms: ["para+aspect", "para+functional", "para+imperative", "para+multi", "para+objects", "para+scripting"],
       platforms: ["platf+jvm"],
-      typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong", "tsys+duck"],
+      typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+static", "tsys+strong"],
     },
   );
 }

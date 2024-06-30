@@ -18,9 +18,9 @@ export function define(g: PlangsGraph) {
       extensions: [".ls"],
     },
     {
-      influences: ["pl+coffeescript", "pl+f-sharp", "pl+javascript", "pl+haskell"],
+      influences: ["pl+coffeescript", "pl+f-sharp", "pl+haskell", "pl+javascript"],
       licenses: ["lic+mit"],
-      paradigms: ["para+multi", "para+functional", "para+objects"],
+      paradigms: ["para+functional", "para+multi", "para+objects"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+weak"],
     },

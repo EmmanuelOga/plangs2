@@ -15,8 +15,8 @@ export function define(g: PlangsGraph) {
     },
     {
       influences: ["pl+python"],
-      licenses: ["lic+proprietary"],
       people: ["person+chris-lattner"],
+      licenses: ["lic+proprietary"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+affine"],
     },

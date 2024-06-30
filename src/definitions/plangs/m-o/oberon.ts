@@ -17,11 +17,11 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+oberon"],
-      influences: ["pl+oberon", "pl+object-oberon", "pl+oberon-2"],
-      paradigms: ["para+imperative", "para+structured", "para+modular", "para+objects", "para+concurrent"],
-      people: ["person+niklaus-wirth", "person+jurg-gutknecht"],
-      platforms: ["platf+ia-32", "platf+amd64"],
-      typeSystems: ["tsys+strong", "tsys+static", "tsys+dynamic"],
+      influences: ["pl+oberon", "pl+oberon-2", "pl+object-oberon"],
+      people: ["person+jurg-gutknecht", "person+niklaus-wirth"],
+      paradigms: ["para+concurrent", "para+imperative", "para+modular", "para+objects", "para+structured"],
+      platforms: ["platf+amd64", "platf+ia-32"],
+      typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong"],
     },
   );
 
@@ -48,9 +48,9 @@ export function define(g: PlangsGraph) {
     {
       dialects: ["pl+active-oberon", "pl+oberon-2", "pl+obliq"],
       influences: ["pl+modula", "pl+oberon-2"],
-      paradigms: ["para+imperative", "para+structured", "para+modular", "para+objects"],
-      platforms: ["platf+arm", "platf+ia-32", "platf+x86-64", "platf+win", "platf+linux", "platf+atari", "platf+amiga"],
-      typeSystems: ["tsys+strong", "tsys+static", "tsys+dynamic"],
+      paradigms: ["para+imperative", "para+modular", "para+objects", "para+structured"],
+      platforms: ["platf+amiga", "platf+arm", "platf+atari", "platf+ia-32", "platf+linux", "platf+win", "platf+x86-64"],
+      typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong"],
     },
   );
 
@@ -67,11 +67,11 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influences: ["pl+oberon", "pl+modula", "pl+object-oberon"],
-      paradigms: ["para+imperative", "para+structured", "para+modular", "para+objects"],
+      influences: ["pl+modula", "pl+oberon", "pl+object-oberon"],
       people: ["person+niklaus-wirth"],
-      platforms: ["platf+ia-32", "platf+x86-64", "platf+win", "platf+linux", "platf+mac"],
-      typeSystems: ["tsys+strong", "tsys+static", "tsys+dynamic"],
+      paradigms: ["para+imperative", "para+modular", "para+objects", "para+structured"],
+      platforms: ["platf+ia-32", "platf+linux", "platf+mac", "platf+win", "platf+x86-64"],
+      typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong"],
     },
   );
 
@@ -84,9 +84,9 @@ export function define(g: PlangsGraph) {
     {
       implementations: ["pl+oberon"],
       influences: ["pl+modula", "pl+oberon"],
-      paradigms: ["para+imperative", "para+structured", "para+modular", "para+objects"],
       people: ["person+hanspeter-mossenbock"],
-      typeSystems: ["tsys+strong", "tsys+static", "tsys+dynamic"],
+      paradigms: ["para+imperative", "para+modular", "para+objects", "para+structured"],
+      typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong"],
     },
   );
 }

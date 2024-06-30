@@ -23,10 +23,10 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      licenses: ["lic+freeware", "lic+artistic"],
-      paradigms: ["para+natural", "para+dec", "para+imperative"],
       people: ["person+graham-nelson"],
-      platforms: ["platf+win", "platf+mac", "platf+linux"],
+      licenses: ["lic+artistic", "lic+freeware"],
+      paradigms: ["para+dec", "para+imperative", "para+natural"],
+      platforms: ["platf+linux", "platf+mac", "platf+win"],
     },
   );
 }

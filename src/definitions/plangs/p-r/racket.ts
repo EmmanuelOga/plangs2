@@ -15,18 +15,18 @@ export function define(g: PlangsGraph) {
     },
     {
       influences: ["pl+eiffel", "pl+scheme"],
-      licenses: ["lic+mit", "lic+apache"],
+      licenses: ["lic+apache", "lic+mit"],
       paradigms: [
-        "para+multi",
         "para+functional",
         "para+imperative",
         "para+logic",
         "para+meta",
         "para+modular",
+        "para+multi",
         "para+objects",
         "para+reflective",
       ],
-      platforms: ["platf+x86", "platf+mips", "platf+arm", "platf+cross-platform"],
+      platforms: ["platf+arm", "platf+cross-platform", "platf+mips", "platf+x86"],
       typeSystems: ["tsys+dynamic", "tsys+static", "tsys+strong"],
     },
   );

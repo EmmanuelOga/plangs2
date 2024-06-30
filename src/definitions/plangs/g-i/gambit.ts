@@ -13,10 +13,10 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "4.9.5", date: "2023-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+lisp", "pl+scheme", "pl+multilisp"],
-      licenses: ["lic+lgpl", "lic+apache"],
-      paradigms: ["para+multi", "para+functional", "para+imperative", "para+meta"],
-      platforms: ["platf+ia-32", "platf+x86-64", "platf+cross-platform"],
+      influences: ["pl+lisp", "pl+multilisp", "pl+scheme"],
+      licenses: ["lic+apache", "lic+lgpl"],
+      paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi"],
+      platforms: ["platf+cross-platform", "platf+ia-32", "platf+x86-64"],
       typeSystems: ["tsys+dynamic", "tsys+latent", "tsys+strong"],
     },
   );

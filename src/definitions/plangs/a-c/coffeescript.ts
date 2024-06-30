@@ -14,9 +14,9 @@ export function define(g: PlangsGraph) {
     },
     {
       influences: ["pl+javascript", "pl+python", "pl+ruby"],
-      licenses: ["lic+mit"],
-      paradigms: ["para+multi", "para+prototypes", "para+functional", "para+imperative", "para+scripting"],
       people: ["person+jeremy-ashkenas"],
+      licenses: ["lic+mit"],
+      paradigms: ["para+functional", "para+imperative", "para+multi", "para+prototypes", "para+scripting"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic"],
     },

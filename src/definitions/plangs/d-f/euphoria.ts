@@ -17,7 +17,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+basic"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+imperative"],
-      platforms: ["platf+cross-platform", "platf+win", "platf+linux", "platf+mac", "platf+bsd"],
+      platforms: ["platf+bsd", "platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
     },
   );
 }

@@ -18,9 +18,9 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influences: ["pl+javascript", "pl+typescript", "pl+ml"],
+      influences: ["pl+javascript", "pl+ml", "pl+typescript"],
       licenses: ["lic+mit"],
-      paradigms: ["para+multi", "para+functional", "para+typed"],
+      paradigms: ["para+functional", "para+multi", "para+typed"],
     },
   );
 }

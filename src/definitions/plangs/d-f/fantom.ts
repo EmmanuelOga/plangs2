@@ -14,10 +14,10 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.0.79", date: "2023-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+c-sharp", "pl+java", "pl+scala", "pl+ruby", "pl+erlang"],
+      influences: ["pl+c-sharp", "pl+erlang", "pl+java", "pl+ruby", "pl+scala"],
       licenses: ["lic+academic-free"],
       paradigms: ["para+multi"],
-      typeSystems: ["tsys+static", "tsys+dynamic"],
+      typeSystems: ["tsys+dynamic", "tsys+static"],
     },
   );
 }

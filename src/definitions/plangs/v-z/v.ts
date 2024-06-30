@@ -15,11 +15,11 @@ export function define(g: PlangsGraph) {
       extensions: [".v", ".vsh"],
     },
     {
-      influences: ["pl+c", "pl+go", "pl+kotlin", "pl+oberon", "pl+swift", "pl+python", "pl+rust"],
+      influences: ["pl+c", "pl+go", "pl+kotlin", "pl+oberon", "pl+python", "pl+rust", "pl+swift"],
       licenses: ["lic+mit"],
-      paradigms: ["para+multi", "para+functional", "para+imperative", "para+structured", "para+concurrent"],
-      platforms: ["platf+x86-64", "platf+linux", "platf+mac", "platf+win", "platf+bsd"],
-      typeSystems: ["tsys+static", "tsys+strong", "tsys+inferred"],
+      paradigms: ["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+structured"],
+      platforms: ["platf+bsd", "platf+linux", "platf+mac", "platf+win", "platf+x86-64"],
+      typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );
 }

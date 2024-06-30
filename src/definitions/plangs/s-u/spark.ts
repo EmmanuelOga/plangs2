@@ -20,8 +20,8 @@ export function define(g: PlangsGraph) {
       influences: ["pl+ada", "pl+eiffel"],
       licenses: ["lic+gpl"],
       paradigms: ["para+multi"],
-      platforms: ["platf+cross-platform", "platf+linux", "platf+win", "platf+mac"],
-      typeSystems: ["tsys+static", "tsys+strong", "tsys+safe", "tsys+nominative"],
+      platforms: ["platf+cross-platform", "platf+linux", "platf+mac", "platf+win"],
+      typeSystems: ["tsys+nominative", "tsys+safe", "tsys+static", "tsys+strong"],
     },
   );
 }

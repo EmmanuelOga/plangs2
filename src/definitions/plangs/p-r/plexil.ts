@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+robotics"],
       paradigms: ["para+multi"],
       platforms: ["platf+linux", "platf+mac"],
-      typeSystems: ["tsys+static", "tsys+safe", "tsys+nominative"],
+      typeSystems: ["tsys+nominative", "tsys+safe", "tsys+static"],
     },
   );
 }

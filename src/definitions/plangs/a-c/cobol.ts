@@ -21,19 +21,19 @@ export function define(g: PlangsGraph) {
       extensions: [".cbl", ".cob", ".cpy"],
     },
     {
-      dialects: ["pl+x-slashopen", "pl+watbol"],
+      dialects: ["pl+watbol", "pl+x-slashopen"],
       influences: [
         "pl+aimaco",
+        "pl+cobol",
         "pl+comtran",
-        "pl+fact-computer",
-        "pl+flow-matic",
         "pl+cpp",
         "pl+eiffel",
+        "pl+fact-computer",
+        "pl+flow-matic",
         "pl+smalltalk",
-        "pl+cobol",
       ],
-      paradigms: ["para+imperative", "para+objects", "para+generic"],
-      typeSystems: ["tsys+weak", "tsys+static"],
+      paradigms: ["para+generic", "para+imperative", "para+objects"],
+      typeSystems: ["tsys+static", "tsys+weak"],
     },
   );
 }

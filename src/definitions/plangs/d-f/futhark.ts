@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       licenses: ["lic+isc"],
       paradigms: ["para+array", "para+functional"],
       platforms: ["platf+cross-platform"],
-      typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong", "tsys+uniqueness", "tsys+dependent"],
+      typeSystems: ["tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+uniqueness"],
     },
   );
 }

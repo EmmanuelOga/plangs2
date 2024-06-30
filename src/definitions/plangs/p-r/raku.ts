@@ -15,10 +15,10 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+rakudo"],
-      influences: ["pl+perl", "pl+ruby", "pl+smalltalk", "pl+haskell", "pl+javascript"],
-      licenses: ["lic+gpl", "lic+artistic"],
-      paradigms: ["para+multi"],
+      influences: ["pl+haskell", "pl+javascript", "pl+perl", "pl+ruby", "pl+smalltalk"],
       people: ["person+larry-wall"],
+      licenses: ["lic+artistic", "lic+gpl"],
+      paradigms: ["para+multi"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic", "tsys+gradual"],
     },

@@ -25,8 +25,8 @@ export function define(g: PlangsGraph) {
         "pl+yap",
       ],
       influences: ["pl+mdl", "pl+planner"],
-      paradigms: ["para+logic"],
       people: ["person+alain-colmerauer"],
+      paradigms: ["para+logic"],
     },
   );
 }

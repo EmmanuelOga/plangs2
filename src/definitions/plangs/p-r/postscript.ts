@@ -15,10 +15,10 @@ export function define(g: PlangsGraph) {
       extensions: [".ps"],
     },
     {
-      implementations: ["pl+trueimage", "pl+ghostscript"],
-      influences: ["pl+cedar", "pl+mesa", "pl+interpress", "pl+lisp"],
-      paradigms: ["para+multi", "para+concatenative", "para+stack", "para+imperative"],
-      people: ["person+john-warnock", "person+chuck-geschke", "person+bill-paxton"],
+      implementations: ["pl+ghostscript", "pl+trueimage"],
+      influences: ["pl+cedar", "pl+interpress", "pl+lisp", "pl+mesa"],
+      people: ["person+bill-paxton", "person+chuck-geschke", "person+john-warnock"],
+      paradigms: ["para+concatenative", "para+imperative", "para+multi", "para+stack"],
     },
   );
 }

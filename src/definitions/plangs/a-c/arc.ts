@@ -13,10 +13,10 @@ export function define(g: PlangsGraph) {
     {
       implementations: ["pl+racket"],
       influences: ["pl+lisp", "pl+scheme"],
-      licenses: ["lic+artistic"],
-      paradigms: ["para+multi", "para+functional", "para+meta", "para+imperative"],
       people: ["person+paul-graham"],
-      platforms: ["platf+ia-32", "platf+x86-64", "platf+linux"],
+      licenses: ["lic+artistic"],
+      paradigms: ["para+functional", "para+imperative", "para+meta", "para+multi"],
+      platforms: ["platf+ia-32", "platf+linux", "platf+x86-64"],
       typeSystems: ["tsys+dynamic"],
     },
   );

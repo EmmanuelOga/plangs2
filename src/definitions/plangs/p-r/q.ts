@@ -17,9 +17,9 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "4.0", date: "2020-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+k", "pl+ap", "pl+apl", "pl+scheme"],
-      paradigms: ["para+array", "para+functional"],
+      influences: ["pl+ap", "pl+apl", "pl+k", "pl+scheme"],
       people: ["person+arthur-whitney"],
+      paradigms: ["para+array", "para+functional"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );

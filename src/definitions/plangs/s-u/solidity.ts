@@ -13,10 +13,10 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+cpp"],
-      influences: ["pl+javascript", "pl+cpp", "pl+python"],
+      influences: ["pl+cpp", "pl+javascript", "pl+python"],
+      people: ["person+gavin-wood"],
       licenses: ["lic+gpl"],
       paradigms: ["para+imperative"],
-      people: ["person+gavin-wood"],
     },
   );
 }

@@ -17,22 +17,22 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      implementations: ["pl+squeak", "pl+actionscript", "pl+html5", "pl+javascript"],
+      implementations: ["pl+actionscript", "pl+html5", "pl+javascript", "pl+squeak"],
       influences: [
         "pl+agentcubes",
         "pl+agentsheets",
         "pl+etoys",
+        "pl+hypercard",
         "pl+logo",
         "pl+objectlogo",
         "pl+smalltalk",
-        "pl+hypercard",
-        "pl+starlogo",
         "pl+squeak",
+        "pl+starlogo",
         "pl+ucblogo",
       ],
       licenses: ["lic+bsd-s", "lic+gpl"],
       paradigms: ["para+event", "para+visual"],
-      platforms: ["platf+win", "platf+mac", "platf+linux", "platf+web", "platf+ios", "platf+dos", "platf+android"],
+      platforms: ["platf+android", "platf+dos", "platf+ios", "platf+linux", "platf+mac", "platf+web", "platf+win"],
     },
   );
 
@@ -48,6 +48,6 @@ export function define(g: PlangsGraph) {
         },
       ],
     },
-    { influences: ["pl+scratch"], platforms: ["platf+android", "platf+ios", "platf+chromeos"] },
+    { influences: ["pl+scratch"], platforms: ["platf+android", "platf+chromeos", "platf+ios"] },
   );
 }

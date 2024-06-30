@@ -14,11 +14,11 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.57.0", date: "2023-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+boo", "pl+c", "pl+c-sharp", "pl+d", "pl+java", "pl+ms-visual-c-sharp", "pl+cpp"],
+      influences: ["pl+boo", "pl+c", "pl+c-sharp", "pl+cpp", "pl+d", "pl+java", "pl+ms-visual-c-sharp"],
       licenses: ["lic+lgpl"],
-      paradigms: ["para+multi", "para+imperative", "para+structured", "para+objects"],
+      paradigms: ["para+imperative", "para+multi", "para+objects", "para+structured"],
       platforms: ["platf+cross-platform", "platf+glib"],
-      typeSystems: ["tsys+static", "tsys+strong", "tsys+inferred", "tsys+structural"],
+      typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"],
     },
   );
 }

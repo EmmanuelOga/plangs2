@@ -16,6 +16,6 @@ export function define(g: PlangsGraph) {
         },
       ],
     },
-    { influences: ["pl+fortran", "pl+c"], people: ["person+brian-kernighan"] },
+    { influences: ["pl+c", "pl+fortran"], people: ["person+brian-kernighan"] },
   );
 }

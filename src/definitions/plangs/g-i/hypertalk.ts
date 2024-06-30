@@ -9,6 +9,6 @@ export function define(g: PlangsGraph) {
       name: "HyperTalk",
       websites: [{ kind: "wikipedia", title: "HyperTalk", href: "https://en.wikipedia.org/wiki/HyperTalk" }],
     },
-    { influences: ["pl+pascal"], paradigms: ["para+imperative", "para+event"] },
+    { influences: ["pl+pascal"], paradigms: ["para+event", "para+imperative"] },
   );
 }

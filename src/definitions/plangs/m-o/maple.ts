@@ -12,9 +12,9 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "2024-01-01", kind: "stable" }],
     },
     {
-      licenses: ["lic+proprietary", "lic+commercial"],
       people: ["person+waterloo-maple"],
-      platforms: ["platf+win", "platf+mac", "platf+linux"],
+      licenses: ["lic+commercial", "lic+proprietary"],
+      platforms: ["platf+linux", "platf+mac", "platf+win"],
     },
   );
 }

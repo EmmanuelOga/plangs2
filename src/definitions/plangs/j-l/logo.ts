@@ -18,11 +18,11 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      dialects: ["pl+starlogo", "pl+netlogo"],
+      dialects: ["pl+netlogo", "pl+starlogo"],
       implementations: ["pl+ucblogo"],
       influences: ["pl+lisp"],
-      paradigms: ["para+multi", "para+functional", "para+educational", "para+imperative", "para+reflective"],
-      people: ["person+wally-feurzeig", "person+seymour-papert", "person+cynthia-solomon"],
+      people: ["person+cynthia-solomon", "person+seymour-papert", "person+wally-feurzeig"],
+      paradigms: ["para+educational", "para+functional", "para+imperative", "para+multi", "para+reflective"],
       typeSystems: ["tsys+dynamic"],
     },
   );

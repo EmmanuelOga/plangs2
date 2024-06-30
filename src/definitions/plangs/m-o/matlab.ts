@@ -19,10 +19,10 @@ export function define(g: PlangsGraph) {
     {
       implementations: ["pl+gnu-octave", "pl+sysquake"],
       influences: ["pl+fortran", "pl+speakeasy"],
-      licenses: ["lic+proprietary", "lic+commercial"],
-      paradigms: ["para+multi", "para+functional", "para+imperative", "para+objects", "para+array"],
       people: ["person+cleve-moler"],
-      platforms: ["platf+ia-32", "platf+x86-64", "platf+arm"],
+      licenses: ["lic+commercial", "lic+proprietary"],
+      paradigms: ["para+array", "para+functional", "para+imperative", "para+multi", "para+objects"],
+      platforms: ["platf+arm", "platf+ia-32", "platf+x86-64"],
       typeSystems: ["tsys+dynamic", "tsys+weak"],
     },
   );

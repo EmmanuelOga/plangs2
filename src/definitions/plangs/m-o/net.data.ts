@@ -16,6 +16,6 @@ export function define(g: PlangsGraph) {
         },
       ],
     },
-    { platforms: ["platf+z-slashos", "platf+win", "platf+unix"] },
+    { platforms: ["platf+unix", "platf+win", "platf+z-slashos"] },
   );
 }

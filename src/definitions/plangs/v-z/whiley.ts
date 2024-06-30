@@ -13,10 +13,10 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.6.1", date: "2022-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+java", "pl+c", "pl+python", "pl+rust"],
+      influences: ["pl+c", "pl+java", "pl+python", "pl+rust"],
       licenses: ["lic+bsd"],
-      paradigms: ["para+imperative", "para+functional"],
-      typeSystems: ["tsys+strong", "tsys+safe", "tsys+structural", "tsys+flow-sensitive"],
+      paradigms: ["para+functional", "para+imperative"],
+      typeSystems: ["tsys+flow-sensitive", "tsys+safe", "tsys+strong", "tsys+structural"],
     },
   );
 }

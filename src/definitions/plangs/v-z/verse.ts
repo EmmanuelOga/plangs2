@@ -21,8 +21,8 @@ export function define(g: PlangsGraph) {
     {
       implementations: ["pl+uefn", "pl+visual-studio-code"],
       influences: ["pl+lambda-calculus"],
+      people: ["person+guy-steele", "person+lennart-augustsson", "person+simon-peyton-jones", "person+tim-sweeney"],
       paradigms: ["para+objects"],
-      people: ["person+simon-peyton-jones", "person+tim-sweeney", "person+lennart-augustsson", "person+guy-steele"],
       typeSystems: ["tsys+strong"],
     },
   );

@@ -21,17 +21,17 @@ export function define(g: PlangsGraph) {
     },
     {
       influences: [
+        "pl+algol",
         "pl+armed-bear-common-lisp",
         "pl+common-lisp",
         "pl+common-lisp-object-system",
-        "pl+algol",
-        "pl+scheme",
         "pl+eulisp",
         "pl+oaklisp",
+        "pl+scheme",
         "pl+smalltalk",
       ],
-      paradigms: ["para+multi", "para+functional", "para+objects"],
-      platforms: ["platf+ia-32", "platf+x86-64", "platf+cross-platform"],
+      paradigms: ["para+functional", "para+multi", "para+objects"],
+      platforms: ["platf+cross-platform", "platf+ia-32", "platf+x86-64"],
     },
   );
 }

@@ -19,8 +19,8 @@ export function define(g: PlangsGraph) {
     },
     {
       influences: ["pl+c"],
-      paradigms: ["para+imperative"],
       people: ["person+simon-peyton-jones"],
+      paradigms: ["para+imperative"],
       typeSystems: ["tsys+static", "tsys+weak"],
     },
   );

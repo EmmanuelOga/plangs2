@@ -19,9 +19,9 @@ export function define(g: PlangsGraph) {
     },
     {
       influences: ["pl+c"],
-      paradigms: ["para+imperative", "para+structured", "para+parallel"],
-      platforms: ["platf+unix", "platf+mac"],
-      typeSystems: ["tsys+static", "tsys+weak", "tsys+manifest"],
+      paradigms: ["para+imperative", "para+parallel", "para+structured"],
+      platforms: ["platf+mac", "platf+unix"],
+      typeSystems: ["tsys+manifest", "tsys+static", "tsys+weak"],
     },
   );
 }

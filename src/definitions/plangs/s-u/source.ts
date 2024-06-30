@@ -16,9 +16,9 @@ export function define(g: PlangsGraph) {
       implementations: ["pl+safari", "pl+tail-call"],
       influences: ["pl+javascript", "pl+scheme"],
       licenses: ["lic+apache"],
-      paradigms: ["para+multi", "para+scripting", "para+imperative", "para+functional"],
+      paradigms: ["para+functional", "para+imperative", "para+multi", "para+scripting"],
       platforms: ["platf+web"],
-      typeSystems: ["tsys+dynamic", "tsys+duck"],
+      typeSystems: ["tsys+duck", "tsys+dynamic"],
     },
   );
 }

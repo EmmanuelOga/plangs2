@@ -13,8 +13,8 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influences: ["pl+tcl", "pl+java", "pl+scheme"],
-      paradigms: ["para+multi", "para+functional", "para+objects", "para+class"],
+      influences: ["pl+java", "pl+scheme", "pl+tcl"],
+      paradigms: ["para+class", "para+functional", "para+multi", "para+objects"],
     },
   );
 }

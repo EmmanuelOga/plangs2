@@ -21,10 +21,10 @@ export function define(g: PlangsGraph) {
       extensions: [".sql"],
     },
     {
-      implementations: ["pl+sql", "pl+mariadb"],
+      implementations: ["pl+mariadb", "pl+sql"],
       influences: ["pl+ada", "pl+datalog", "pl+sql"],
-      paradigms: ["para+multi", "para+dec"],
       people: ["person+donald-d-chamberlin", "person+raymond-f-boyce"],
+      paradigms: ["para+dec", "para+multi"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+static", "tsys+strong"],
     },

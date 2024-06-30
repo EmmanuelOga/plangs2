@@ -19,11 +19,11 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "4.172", date: "2022-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+c-sharp", "pl+php", "pl+ocaml", "pl+java", "pl+scala", "pl+haskell", "pl+ms-visual-c-sharp"],
-      licenses: ["lic+mit"],
+      influences: ["pl+c-sharp", "pl+haskell", "pl+java", "pl+ms-visual-c-sharp", "pl+ocaml", "pl+php", "pl+scala"],
       people: ["person+meta-platforms"],
+      licenses: ["lic+mit"],
       platforms: ["platf+cross-platform"],
-      typeSystems: ["tsys+static", "tsys+dynamic", "tsys+weak", "tsys+gradual"],
+      typeSystems: ["tsys+dynamic", "tsys+gradual", "tsys+static", "tsys+weak"],
     },
   );
 }

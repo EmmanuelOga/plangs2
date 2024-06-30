@@ -20,10 +20,10 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2.066", date: "2020-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+iswim", "pl+kent-recursive-calculator", "pl+ml", "pl+sasl", "pl+hope"],
-      paradigms: ["para+lazy", "para+functional", "para+dec"],
+      influences: ["pl+hope", "pl+iswim", "pl+kent-recursive-calculator", "pl+ml", "pl+sasl"],
       people: ["person+david-turner"],
-      typeSystems: ["tsys+strong", "tsys+static"],
+      paradigms: ["para+dec", "para+functional", "para+lazy"],
+      typeSystems: ["tsys+static", "tsys+strong"],
     },
   );
 }

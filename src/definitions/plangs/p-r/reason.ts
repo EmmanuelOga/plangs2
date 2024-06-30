@@ -14,9 +14,9 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.11.0", date: "2024-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+ocaml", "pl+javascript"],
+      influences: ["pl+javascript", "pl+ocaml"],
       licenses: ["lic+mit"],
-      paradigms: ["para+multi", "para+functional", "para+imperative", "para+modular", "para+objects"],
+      paradigms: ["para+functional", "para+imperative", "para+modular", "para+multi", "para+objects"],
     },
   );
 }

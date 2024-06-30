@@ -9,6 +9,6 @@ export function define(g: PlangsGraph) {
       name: "Brainfuck",
       websites: [{ kind: "wikipedia", title: "Brainfuck", href: "https://en.wikipedia.org/wiki/Brainfuck" }],
     },
-    { influences: ["pl+p--", "pl+esoteric"], paradigms: ["para+esoteric", "para+imperative", "para+structured"] },
+    { influences: ["pl+esoteric", "pl+p--"], paradigms: ["para+esoteric", "para+imperative", "para+structured"] },
   );
 }

@@ -15,11 +15,11 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+newspeak"],
-      influences: ["pl+smalltalk", "pl+apl"],
+      influences: ["pl+apl", "pl+smalltalk"],
+      people: ["person+david-ungar"],
       licenses: ["lic+bsd-s"],
       paradigms: ["para+objects", "para+prototypes"],
-      people: ["person+david-ungar"],
-      platforms: ["platf+cross-platform", "platf+unix", "platf+mac", "platf+win"],
+      platforms: ["platf+cross-platform", "platf+mac", "platf+unix", "platf+win"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );

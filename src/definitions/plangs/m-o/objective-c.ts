@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       influences: ["pl+c", "pl+smalltalk"],
       people: ["person+brad-cox"],
       platforms: ["platf+cross-platform"],
-      typeSystems: ["tsys+static", "tsys+dynamic", "tsys+weak"],
+      typeSystems: ["tsys+dynamic", "tsys+static", "tsys+weak"],
     },
   );
 }

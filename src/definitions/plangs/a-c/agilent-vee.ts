@@ -16,6 +16,6 @@ export function define(g: PlangsGraph) {
         },
       ],
     },
-    { licenses: ["lic+proprietary", "lic+commercial"] },
+    { licenses: ["lic+commercial", "lic+proprietary"] },
   );
 }

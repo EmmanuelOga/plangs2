@@ -13,9 +13,9 @@ export function define(g: PlangsGraph) {
     },
     {
       influences: ["pl+awk", "pl+lisp"],
-      licenses: ["lic+bsd-s"],
-      paradigms: ["para+multi", "para+event", "para+functional", "para+imperative", "para+objects"],
       people: ["person+john-ousterhout"],
+      licenses: ["lic+bsd-s"],
+      paradigms: ["para+event", "para+functional", "para+imperative", "para+multi", "para+objects"],
       typeSystems: ["tsys+dynamic"],
     },
   );

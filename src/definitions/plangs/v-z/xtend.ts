@@ -12,11 +12,11 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2.25.0", date: "2021-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+java", "pl+scala", "pl+groovy", "pl+smalltalk"],
+      influences: ["pl+groovy", "pl+java", "pl+scala", "pl+smalltalk"],
       licenses: ["lic+eclipse-public"],
-      paradigms: ["para+objects", "para+imperative", "para+functional"],
-      platforms: ["platf+jvm", "platf+cross-platform"],
-      typeSystems: ["tsys+static", "tsys+strong", "tsys+inferred"],
+      paradigms: ["para+functional", "para+imperative", "para+objects"],
+      platforms: ["platf+cross-platform", "platf+jvm"],
+      typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );
 }

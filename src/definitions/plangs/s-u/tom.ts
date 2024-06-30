@@ -18,6 +18,6 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "2.10", date: "2013-03-21", kind: "stable" }],
     },
-    { licenses: ["lic+gpl", "lic+bsd-s"] },
+    { licenses: ["lic+bsd-s", "lic+gpl"] },
   );
 }

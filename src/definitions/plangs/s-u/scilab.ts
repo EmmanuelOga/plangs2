@@ -16,6 +16,6 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "2024.1.0", date: "2024-01-01", kind: "stable" }],
     },
-    { licenses: ["lic+gpl-2", "lic+cecill"], people: ["person+dassault-systemes"] },
+    { people: ["person+dassault-systemes"], licenses: ["lic+cecill", "lic+gpl-2"] },
   );
 }

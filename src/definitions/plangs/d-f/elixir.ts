@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+clojure", "pl+erlang", "pl+ruby"],
       licenses: ["lic+apache"],
-      paradigms: ["para+multi", "para+functional", "para+concurrent", "para+distributed", "para+process"],
+      paradigms: ["para+concurrent", "para+distributed", "para+functional", "para+multi", "para+process"],
       platforms: ["platf+erlang"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },

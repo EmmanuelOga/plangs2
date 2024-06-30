@@ -25,18 +25,18 @@ export function define(g: PlangsGraph) {
       extensions: [".as"],
     },
     {
-      implementations: ["pl+adobe-flash-player", "pl+adobe-air", "pl+apache-flex", "pl+scaleform-gfx"],
-      influences: ["pl+hypertalk", "pl+javascript", "pl+java", "pl+xtalk"],
+      implementations: ["pl+adobe-air", "pl+adobe-flash-player", "pl+apache-flex", "pl+scaleform-gfx"],
+      influences: ["pl+hypertalk", "pl+java", "pl+javascript", "pl+xtalk"],
+      people: ["person+gary-grossman"],
       paradigms: [
+        "para+functional",
+        "para+imperative",
         "para+multi",
         "para+objects",
         "para+prototypes",
-        "para+functional",
-        "para+imperative",
         "para+scripting",
       ],
-      people: ["person+gary-grossman"],
-      typeSystems: ["tsys+strong", "tsys+static"],
+      typeSystems: ["tsys+static", "tsys+strong"],
     },
   );
 }

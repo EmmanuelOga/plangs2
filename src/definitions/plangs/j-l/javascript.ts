@@ -29,11 +29,11 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+assemblyscript"],
-      implementations: ["pl+v8", "pl+javascriptcore", "pl+spidermonkey", "pl+chakra"],
-      influences: ["pl+c", "pl+hypertalk", "pl+java", "pl+scheme", "pl+self", "pl+awk", "pl+python", "pl+xtalk"],
-      paradigms: ["para+multi", "para+event", "para+functional", "para+imperative", "para+objects"],
+      implementations: ["pl+chakra", "pl+javascriptcore", "pl+spidermonkey", "pl+v8"],
+      influences: ["pl+awk", "pl+c", "pl+hypertalk", "pl+java", "pl+python", "pl+scheme", "pl+self", "pl+xtalk"],
       people: ["person+brendan-eich"],
-      typeSystems: ["tsys+dynamic", "tsys+weak", "tsys+duck"],
+      paradigms: ["para+event", "para+functional", "para+imperative", "para+multi", "para+objects"],
+      typeSystems: ["tsys+duck", "tsys+dynamic", "tsys+weak"],
     },
   );
 }

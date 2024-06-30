@@ -20,9 +20,9 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "1375-01-01", kind: "stable" }],
     },
     {
-      licenses: ["lic+proprietary", "lic+open-source"],
-      paradigms: ["para+array", "para+functional", "para+structured", "para+modular"],
-      people: ["person+larry-breed", "person+dick-lathwell", "person+roger-moore"],
+      people: ["person+dick-lathwell", "person+larry-breed", "person+roger-moore"],
+      licenses: ["lic+open-source", "lic+proprietary"],
+      paradigms: ["para+array", "para+functional", "para+modular", "para+structured"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+dynamic"],
     },

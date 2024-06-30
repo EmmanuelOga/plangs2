@@ -14,8 +14,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.6.8", date: "2014-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+tcl", "pl+otcl"],
-      paradigms: ["para+multi", "para+objects", "para+functional", "para+imperative", "para+event"],
+      influences: ["pl+otcl", "pl+tcl"],
+      paradigms: ["para+event", "para+functional", "para+imperative", "para+multi", "para+objects"],
       typeSystems: ["tsys+dynamic"],
     },
   );

@@ -12,9 +12,9 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.5.2.4", date: "2024-01-01", kind: "stable" }],
     },
     {
-      licenses: ["lic+mac-os-x", "lic+linux", "lic+win", "lic+gpl", "lic+ios"],
-      paradigms: ["para+multi"],
       people: ["person+ge-wang"],
+      licenses: ["lic+gpl", "lic+ios", "lic+linux", "lic+mac-os-x", "lic+win"],
+      paradigms: ["para+multi"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+strong"],
     },

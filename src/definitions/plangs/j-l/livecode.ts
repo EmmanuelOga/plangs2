@@ -15,9 +15,9 @@ export function define(g: PlangsGraph) {
     },
     {
       influences: ["pl+hypertalk", "pl+xtalk"],
-      licenses: ["lic+proprietary", "lic+gpl"],
+      licenses: ["lic+gpl", "lic+proprietary"],
       paradigms: ["para+objects"],
-      platforms: ["platf+win", "platf+mac", "platf+linux", "platf+unix", "platf+rpi"],
+      platforms: ["platf+linux", "platf+mac", "platf+rpi", "platf+unix", "platf+win"],
     },
   );
 }

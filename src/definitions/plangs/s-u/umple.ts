@@ -17,7 +17,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.34.0", date: "2024-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+java", "pl+cpp", "pl+uml", "pl+ruby", "pl+php"],
+      influences: ["pl+cpp", "pl+java", "pl+php", "pl+ruby", "pl+uml"],
       licenses: ["lic+mit"],
       paradigms: ["para+objects"],
       platforms: ["platf+jvm"],

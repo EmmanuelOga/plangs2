@@ -21,9 +21,9 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+unicon"],
-      influences: ["pl+snobol", "pl+algol"],
-      paradigms: ["para+multi", "para+structured"],
+      influences: ["pl+algol", "pl+snobol"],
       people: ["person+ralph-griswold"],
+      paradigms: ["para+multi", "para+structured"],
       typeSystems: ["tsys+dynamic"],
     },
   );

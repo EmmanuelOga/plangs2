@@ -20,18 +20,18 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influences: ["pl+kawa", "pl+clojure", "pl+common-lisp"],
+      influences: ["pl+clojure", "pl+common-lisp", "pl+kawa"],
       licenses: ["lic+mit"],
       paradigms: [
-        "para+multi",
-        "para+imperative",
         "para+functional",
-        "para+objects",
-        "para+meta",
-        "para+reflective",
         "para+generic",
+        "para+imperative",
+        "para+meta",
+        "para+multi",
+        "para+objects",
+        "para+reflective",
       ],
-      platforms: ["platf+ia-32", "platf+x86-64", "platf+cross-platform"],
+      platforms: ["platf+cross-platform", "platf+ia-32", "platf+x86-64"],
     },
   );
 }

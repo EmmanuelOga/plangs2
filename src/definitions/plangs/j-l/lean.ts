@@ -16,11 +16,11 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+cpp"],
-      influences: ["pl+ml", "pl+coq", "pl+haskell"],
+      influences: ["pl+coq", "pl+haskell", "pl+ml"],
       licenses: ["lic+apache"],
       paradigms: ["para+functional", "para+imperative"],
       platforms: ["platf+cross-platform"],
-      typeSystems: ["tsys+static", "tsys+strong", "tsys+inferred"],
+      typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
     },
   );
 }

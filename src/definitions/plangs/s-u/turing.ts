@@ -20,10 +20,10 @@ export function define(g: PlangsGraph) {
     },
     {
       influences: ["pl+concurrent-euclid", "pl+euclid", "pl+sp-slashk"],
-      paradigms: ["para+multi", "para+imperative", "para+objects", "para+concurrent"],
       people: ["person+ric-holt"],
+      paradigms: ["para+concurrent", "para+imperative", "para+multi", "para+objects"],
       platforms: ["platf+cross-platform", "platf+mips"],
-      typeSystems: ["tsys+static", "tsys+manifest"],
+      typeSystems: ["tsys+manifest", "tsys+static"],
     },
   );
 }

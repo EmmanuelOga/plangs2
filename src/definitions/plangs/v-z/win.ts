@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
     {
       influences: ["pl+basic"],
       licenses: ["lic+mit"],
-      platforms: ["platf+ia-32", "platf+x86-64", "platf+arm", "platf+.net", "platf+mono"],
+      platforms: ["platf+.net", "platf+arm", "platf+ia-32", "platf+mono", "platf+x86-64"],
     },
   );
 }

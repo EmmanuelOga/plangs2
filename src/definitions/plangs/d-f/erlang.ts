@@ -15,9 +15,9 @@ export function define(g: PlangsGraph) {
     },
     {
       dialects: ["pl+lfe"],
-      influences: ["pl+lisp", "pl+plex", "pl+prolog", "pl+smalltalk", "pl+ml"],
+      influences: ["pl+lisp", "pl+ml", "pl+plex", "pl+prolog", "pl+smalltalk"],
       licenses: ["lic+apache"],
-      paradigms: ["para+multi", "para+concurrent", "para+functional", "para+objects"],
+      paradigms: ["para+concurrent", "para+functional", "para+multi", "para+objects"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],
     },
   );
