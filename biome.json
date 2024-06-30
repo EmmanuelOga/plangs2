@@ -8,7 +8,8 @@
 		"rules": {
 			"recommended": true,
 			"suspicious": {
-				"noAssignInExpressions": "info"
+				"noAssignInExpressions": "info",
+				"noExplicitAny": "info"
 			}
 		}
 	},

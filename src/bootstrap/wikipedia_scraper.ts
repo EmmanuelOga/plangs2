@@ -197,7 +197,9 @@ async function scrapLanguagePage(wikiPath: string) {
 
   const img = cleanImgUrl($infobox.find(".infobox-image img").attr("src"));
 
-  function processA($a: Cheerio<Element>): { href?: string; title?: string } {
+  type ScrapedLink = { href?: string; title?: string; refs?: ScrapedLink[] };
+
+  function processA($a: Cheerio<Element>): ScrapedLink {
     return { href: $a.attr("href")?.trim(), title: $a.text().trim() };
   }
 
@@ -291,12 +293,7 @@ async function scrapLanguagePage(wikiPath: string) {
       .join(" ")
       .trim();
 
-    const links = el
-      .children()
-      .filter((_, e) => e.tagName === "a")
-      .map((i, a) => processA($(a)))
-      .toArray()
-      .filter((a) => a.href);
+    const anchors = el.children().filter((_, e) => e.tagName === "a");
 
     if (type.includes("release") || type.includes("appear")) {
       const data = { ...getDate(text), ...getVersion(text) };
@@ -307,8 +304,21 @@ async function scrapLanguagePage(wikiPath: string) {
         .map((s) => s.trim())
         .filter(Boolean);
       if (data.length) result.extensions = data;
-    } else if (links.length) {
-      result.links = links;
+    } else if (anchors.length) {
+      const processed: ReturnType<typeof processA>[] = [];
+      for (const a of anchors) {
+        const $a = $(a);
+        const link = processA($a);
+        if (link.href) processed.push(link);
+
+        // Try to find references in the next <sup> tag.
+        const ref = $a.next("sup");
+        if (ref.index() === $a.index() + 1) {
+          const prefs = processSup(ref);
+          if (prefs.length > 0) link.refs = prefs;
+        }
+      }
+      result.links = processed;
     } else {
       result.text = text.replace(/\n/g, " ");
     }
@@ -320,13 +330,7 @@ async function scrapLanguagePage(wikiPath: string) {
     return str.trim().toLocaleLowerCase().replace(/\s/g, "_").replace(/\(|\)/g, "");
   }
 
-  const infobox: Partial<
-    Record<
-      DATA_ATTR,
-      // biome-ignore lint/suspicious/noExplicitAny: TODO.
-      Partial<Record<DATA_TYPE, any>>
-    >
-  > = {};
+  const infobox: Partial<Record<DATA_ATTR, Partial<Record<DATA_TYPE, any>>>> = {};
 
   for (const row of $infobox.find("tr")) {
     try {
@@ -382,8 +386,8 @@ function cleanImgUrl(url: string | undefined): string {
 async function wikiScrape(refresh = false) {
   console.log("Scraping Wikipedia. Using cache: ", CACHE_PATH);
 
-  await mkdir(cachePath("wiki"), { recursive: true }).catch((_) => {});
-  await mkdir(cachePath("json"), { recursive: true }).catch((_) => {});
+  await mkdir(cachePath("wiki"), { recursive: true }).catch((_) => { });
+  await mkdir(cachePath("json"), { recursive: true }).catch((_) => { });
 
   if (refresh) {
     // Delete starting cache files.
@@ -391,7 +395,7 @@ async function wikiScrape(refresh = false) {
       try {
         const p = cachePath("wiki", toBasename(start, "html"));
         unlinkSync(p);
-      } catch (_) {}
+      } catch (_) { }
     }
   }
 
