@@ -23,7 +23,6 @@ export function define(g: PlangsGraph) {
         "pl+c-sharp",
         "pl+common-lisp",
         "pl+erlang",
-        "pl+haskell",
         "pl+java",
         "pl+ms-visual-c-sharp",
         "pl+ml",

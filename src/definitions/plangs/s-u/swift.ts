@@ -34,7 +34,6 @@ export function define(g: PlangsGraph) {
         "pl+c-sharp",
         "pl+clu",
         "pl+d",
-        "pl+haskell",
         "pl+ms-visual-c-sharp",
         "pl+objective-cpp",
         "pl+objective-c",
@@ -43,6 +42,7 @@ export function define(g: PlangsGraph) {
         "pl+smalltalk",
         "pl+c",
         "pl+rust",
+        "pl+haskell",
       ],
       licenses: ["lic+apache", "lic+proprietary"],
       paradigms: [

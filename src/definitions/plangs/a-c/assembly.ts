@@ -100,7 +100,7 @@ export function define(g: PlangsGraph) {
       name: "WebAssembly",
       websites: [{ kind: "wikipedia", title: "WebAssembly", href: "https://en.wikipedia.org/wiki/WebAssembly" }],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/1/1f/WebAssembly_Logo.svg" }],
-      extensions: [".wat", "(text", "(binary", "format)"],
+      extensions: [".wat", ".wasm"],
     },
     {
       influences: ["pl+asm.js"],

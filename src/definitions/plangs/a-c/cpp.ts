@@ -19,8 +19,8 @@ export function define(g: PlangsGraph) {
     {
       influences: [
         "pl+ada",
-        "pl+algol",
         "pl+c",
+        "pl+algol",
         "pl+bcpl",
         "pl+clu",
         "pl+f-sharp",
@@ -44,7 +44,7 @@ export function define(g: PlangsGraph) {
       name: "C++11",
       websites: [{ kind: "wikipedia", title: "C++11", href: "https://en.wikipedia.org/wiki/C%2B%2B11" }],
     },
-    { influences: ["pl+d", "pl+haskell"] },
+    { influences: ["pl+d"] },
   );
 
   lb.define(

@@ -40,7 +40,6 @@ export function define(g: PlangsGraph) {
         { kind: "wikipedia", title: "IBM BASICA", href: "https://en.wikipedia.org/wiki/IBM_BASICA" },
         { kind: "wikipedia", title: "QBasic", href: "https://en.wikipedia.org/wiki/QBasic" },
         { kind: "wikipedia", title: "MSX BASIC", href: "https://en.wikipedia.org/wiki/MSX_BASIC" },
-        { kind: "wikipedia", title: "Visual Basic 9.0", href: "https://en.wikipedia.org/wiki/Visual_Basic_.NET" },
         { kind: "wikipedia", title: "Level I BASIC", href: "https://en.wikipedia.org/wiki/Level_I_BASIC" },
         { kind: "wikipedia", title: "Tiny BASIC", href: "https://en.wikipedia.org/wiki/Tiny_BASIC" },
         {
@@ -55,6 +54,7 @@ export function define(g: PlangsGraph) {
           title: "Microsoft Small Basic",
           href: "https://en.wikipedia.org/wiki/Microsoft_Small_Basic",
         },
+        { kind: "wikipedia", title: "Visual Basic .NET", href: "https://en.wikipedia.org/wiki/Visual_Basic_.NET" },
         { kind: "wikipedia", title: "Vilnius BASIC", href: "https://en.wikipedia.org/wiki/Vilnius_BASIC" },
         { kind: "wikipedia", title: "NSB/AppStudio", href: "https://en.wikipedia.org/wiki/NS_Basic" },
         { kind: "wikipedia", title: "PowerBASIC", href: "https://en.wikipedia.org/wiki/PowerBASIC" },
@@ -171,7 +171,6 @@ export function define(g: PlangsGraph) {
         "pl+algol",
         "pl+focal",
         "pl+c",
-        "pl+haskell",
         "pl+li-chen-wang",
         "pl+logo",
         "pl+objectlogo",

@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
       extensions: [".🔥", ".mojo"],
     },
     {
-      influences: ["pl+python", "pl+cython", "pl+c", "pl+cpp", "pl+rust", "pl+swift", "pl+zig"],
+      influences: ["pl+python"],
       licenses: ["lic+proprietary"],
       people: ["person+chris-lattner"],
       platforms: ["platf+cross-platform"],

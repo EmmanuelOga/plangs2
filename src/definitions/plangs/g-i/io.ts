@@ -21,7 +21,6 @@ export function define(g: PlangsGraph) {
         "pl+lisp",
         "pl+python",
         "pl+actor-model-middle-history",
-        "pl+moonscript",
       ],
       paradigms: ["para+objects", "para+prototypes"],
       typeSystems: ["tsys+dynamic", "tsys+strong"],

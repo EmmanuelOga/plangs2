@@ -25,9 +25,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "22.01.8", date: "2023-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+haskell", "pl+prolog", "pl+hope", "pl+basic"],
+      influences: ["pl+prolog", "pl+hope", "pl+haskell", "pl+basic"],
       licenses: ["lic+gpl", "lic+lgpl"],
-      paradigms: ["para+logic", "para+functional", "para+objects"],
       platforms: [
         "platf+ia-32",
         "platf+x86-64",

@@ -17,7 +17,7 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+gradle", "pl+grails"],
-      influences: ["pl+java", "pl+python", "pl+ruby", "pl+smalltalk", "pl+objective-cpp", "pl+objective-c", "pl+perl"],
+      influences: ["pl+java", "pl+python", "pl+ruby", "pl+smalltalk", "pl+objective-cpp", "pl+objective-c"],
       licenses: ["lic+apache"],
       paradigms: ["para+multi", "para+objects", "para+imperative", "para+functional", "para+aspect", "para+scripting"],
       people: ["person+james-strachan"],

@@ -19,7 +19,6 @@ export function define(g: PlangsGraph) {
       influences: [
         "pl+eiffel",
         "pl+erlang",
-        "pl+haskell",
         "pl+java",
         "pl+ml",
         "pl+ocaml",
@@ -28,6 +27,7 @@ export function define(g: PlangsGraph) {
         "pl+poly-slashml",
         "pl+common-lisp",
         "pl+f-sharp",
+        "pl+haskell",
         "pl+scheme",
         "pl+smalltalk",
         "pl+sml",

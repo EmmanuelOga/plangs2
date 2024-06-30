@@ -22,17 +22,7 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+c"],
-      influences: [
-        "pl+lua",
-        "pl+moonscript",
-        "pl+python",
-        "pl+qml",
-        "pl+ruby",
-        "pl+c",
-        "pl+c-sharp",
-        "pl+basic",
-        "pl+xbase",
-      ],
+      influences: ["pl+python", "pl+qml", "pl+lua", "pl+ruby", "pl+c", "pl+c-sharp", "pl+basic", "pl+xbase"],
       licenses: ["lic+mit"],
       paradigms: [
         "para+multi",

@@ -33,7 +33,6 @@ export function define(g: PlangsGraph) {
         "pl+dis-virtual-machine",
         "pl+elm",
         "pl+erlang",
-        "pl+haskell",
         "pl+limbo",
         "pl+ms-visual-c-sharp",
         "pl+ml",

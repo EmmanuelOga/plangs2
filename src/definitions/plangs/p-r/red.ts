@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.6.5", date: "2024-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+lua", "pl+moonscript", "pl+rebol", "pl+lisp", "pl+scala"],
+      influences: ["pl+rebol", "pl+lisp", "pl+scala", "pl+lua"],
       licenses: ["lic+bsd-m", "lic+boost"],
       paradigms: ["para+multi", "para+imperative", "para+functional", "para+symbolic"],
       platforms: ["platf+linux", "platf+win", "platf+mac"],

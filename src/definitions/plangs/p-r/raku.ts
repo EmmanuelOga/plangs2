@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+rakudo"],
-      influences: ["pl+haskell", "pl+perl", "pl+ruby", "pl+smalltalk", "pl+javascript"],
+      influences: ["pl+perl", "pl+ruby", "pl+smalltalk", "pl+haskell", "pl+javascript"],
       licenses: ["lic+gpl", "lic+artistic"],
       paradigms: ["para+multi"],
       people: ["person+larry-wall"],

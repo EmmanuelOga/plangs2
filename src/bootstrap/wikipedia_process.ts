@@ -176,6 +176,7 @@ function assign(
 
     case "filename_extension":
     case "filename_extensions":
+      if (infoboxType !== "extensions") return;
       pl.extensions ??= [];
       pl.extensions.push(...val.filter((x: string) => x.length < 8));
       pl.extensions = [...new Set(pl.extensions)];

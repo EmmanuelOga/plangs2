@@ -5,16 +5,16 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+-mega",
-    "Ωmega",
+    "Omega",
     {
-      name: "Ωmega",
+      name: "Omega",
       websites: [
         { kind: "wikipedia", title: "Omega", href: "https://en.wikipedia.org/wiki/%CE%A9mega" },
         { kind: "homepage", title: "Omega download page", href: "http://web.cecs.pdx.edu/~sheard/Omega/" },
       ],
       releases: [{ version: "1.5", date: "2011-01-01", kind: "stable" }],
     },
-    { influences: ["pl+haskell"], licenses: ["lic+bsd-n"] },
+    { licenses: ["lic+bsd-n"] },
   );
 
   lb.define("pl+.net", "CLI", {
@@ -93,7 +93,6 @@ export function define(g: PlangsGraph) {
     },
     {
       implementations: ["pl+sap"],
-      influences: ["pl+objective-c", "pl+cobol", "pl+sql"],
       paradigms: ["para+objects", "para+structured", "para+imperative"],
       platforms: ["platf+cross-platform"],
       typeSystems: ["tsys+static", "tsys+strong", "tsys+safe", "tsys+nominative"],
@@ -974,7 +973,7 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "Bluespec", href: "https://en.wikipedia.org/wiki/Bluespec,_Inc." }],
       releases: [{ version: "2022.01", date: "2022-01-01", kind: "stable" }],
     },
-    { dialects: ["pl+verilog"], influences: ["pl+haskell"], paradigms: ["para+functional"] },
+    { dialects: ["pl+verilog"], paradigms: ["para+functional"] },
   );
 
   lb.define(
@@ -1013,9 +1012,9 @@ export function define(g: PlangsGraph) {
 
   lb.define(
     "pl+c-",
-    "C--",
+    "Cω",
     {
-      name: "C--",
+      name: "Cω",
       websites: [
         { kind: "wikipedia", title: "C--", href: "https://en.wikipedia.org/wiki/C--" },
         {
@@ -1027,7 +1026,7 @@ export function define(g: PlangsGraph) {
       ],
     },
     {
-      influences: ["pl+c", "pl+lua", "pl+moonscript"],
+      influences: ["pl+c"],
       paradigms: ["para+imperative"],
       people: ["person+simon-peyton-jones"],
       typeSystems: ["tsys+static", "tsys+weak"],
@@ -1144,18 +1143,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.11", kind: "stable" }],
     },
     { influences: ["pl+scratch"], licenses: ["lic+gnu-affero-gpl"], typeSystems: ["tsys+dynamic"] },
-  );
-
-  lb.define(
-    "pl+cayenne",
-    "Cayenne",
-    {
-      name: "Cayenne",
-      websites: [
-        { kind: "wikipedia", title: "Cayenne", href: "https://en.wikipedia.org/wiki/Cayenne_(programming_language)" },
-      ],
-    },
-    { influences: ["pl+haskell"] },
   );
 
   lb.define("pl+cdc-6000", "CDC 6000", {
@@ -1591,16 +1578,6 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "COMTRAN", href: "https://en.wikipedia.org/wiki/COMTRAN" }],
     },
     { influences: ["pl+flow-matic"], people: ["person+bob-bemer"] },
-  );
-
-  lb.define(
-    "pl+concepts",
-    "Concepts",
-    {
-      name: "Concepts",
-      websites: [{ kind: "wikipedia", title: "Concepts", href: "https://en.wikipedia.org/wiki/Concepts_(C%2B%2B)" }],
-    },
-    { influences: ["pl+haskell"] },
   );
 
   lb.define(
@@ -2306,25 +2283,13 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "unknown", date: "2006-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+alf", "pl+haskell"],
+      influences: ["pl+alf"],
       licenses: ["lic+mit"],
       paradigms: ["para+functional"],
       people: ["person+conor-mcbride"],
       platforms: ["platf+cross-platform", "platf+linux", "platf+win", "platf+mac"],
       typeSystems: ["tsys+strong", "tsys+static", "tsys+dependent"],
     },
-  );
-
-  lb.define(
-    "pl+escher",
-    "Escher",
-    {
-      name: "Escher",
-      websites: [
-        { kind: "wikipedia", title: "Escher", href: "https://en.wikipedia.org/wiki/Escher_(programming_language)" },
-      ],
-    },
-    { influences: ["pl+haskell"] },
   );
 
   lb.define("pl+esoteric", "FALSE", {
@@ -2703,16 +2668,6 @@ export function define(g: PlangsGraph) {
   );
 
   lb.define(
-    "pl+gamemonkey-script",
-    "GameMonkey",
-    {
-      name: "GameMonkey",
-      websites: [{ kind: "wikipedia", title: "GameMonkey", href: "https://en.wikipedia.org/wiki/GameMonkey_Script" }],
-    },
-    { influences: ["pl+lua", "pl+moonscript"] },
-  );
-
-  lb.define(
     "pl+gcc",
     "GCC",
     {
@@ -2797,16 +2752,6 @@ export function define(g: PlangsGraph) {
       websites: [{ kind: "wikipedia", title: "Generic Java", href: "https://en.wikipedia.org/wiki/Generic_Java" }],
     },
     { influences: ["pl+pizza"] },
-  );
-
-  lb.define(
-    "pl+generics-in-java",
-    "Generics",
-    {
-      name: "Generics",
-      websites: [{ kind: "wikipedia", title: "Generics", href: "https://en.wikipedia.org/wiki/Generics_in_Java" }],
-    },
-    { influences: ["pl+haskell"] },
   );
 
   lb.define(
@@ -3451,18 +3396,6 @@ export function define(g: PlangsGraph) {
   });
 
   lb.define(
-    "pl+isabelle-theorem-prover",
-    "Isabelle",
-    {
-      name: "Isabelle",
-      websites: [
-        { kind: "wikipedia", title: "Isabelle", href: "https://en.wikipedia.org/wiki/Isabelle_theorem_prover" },
-      ],
-    },
-    { influences: ["pl+haskell"] },
-  );
-
-  lb.define(
     "pl+isetl",
     "ISETL",
     {
@@ -3868,15 +3801,10 @@ export function define(g: PlangsGraph) {
     },
   );
 
-  lb.define(
-    "pl+kornshell",
-    "Ksh",
-    {
-      name: "Ksh",
-      websites: [{ kind: "wikipedia", title: "KornShell", href: "https://en.wikipedia.org/wiki/KornShell" }],
-    },
-    { influences: ["pl+algol"] },
-  );
+  lb.define("pl+kornshell", "Ksh", {
+    name: "Ksh",
+    websites: [{ kind: "wikipedia", title: "Ksh", href: "https://en.wikipedia.org/wiki/KornShell" }],
+  });
 
   lb.define(
     "pl+krl",
@@ -3922,7 +3850,7 @@ export function define(g: PlangsGraph) {
       name: "LINQ",
       websites: [{ kind: "wikipedia", title: "LINQ", href: "https://en.wikipedia.org/wiki/Language_Integrated_Query" }],
     },
-    { influences: ["pl+haskell", "pl+sql"] },
+    { influences: ["pl+sql"] },
   );
 
   lb.define("pl+laning-and-zierler-system", "Laning and Zierler system", {
@@ -4049,11 +3977,6 @@ export function define(g: PlangsGraph) {
     websites: [{ kind: "wikipedia", title: "LLVM", href: "https://en.wikipedia.org/wiki/LLVM" }],
   });
 
-  lb.define("pl+llvm-ir", "LLVM IR", {
-    name: "LLVM IR",
-    websites: [{ kind: "wikipedia", title: "LLVM IR", href: "https://en.wikipedia.org/wiki/LLVM_IR" }],
-  });
-
   lb.define(
     "pl+logtalk",
     "Logtalk",
@@ -4077,7 +4000,7 @@ export function define(g: PlangsGraph) {
       name: "LPC",
       websites: [{ kind: "wikipedia", title: "LPC", href: "https://en.wikipedia.org/wiki/LPC_(programming_language)" }],
     },
-    { influences: ["pl+c", "pl+perl"] },
+    { influences: ["pl+c"] },
   );
 
   lb.define("pl+luajit", "LuaJIT", {
@@ -4237,18 +4160,6 @@ export function define(g: PlangsGraph) {
     name: "MariaDB",
     websites: [{ kind: "wikipedia", title: "MariaDB", href: "https://en.wikipedia.org/wiki/MariaDB" }],
   });
-
-  lb.define(
-    "pl+mary",
-    "Mary",
-    {
-      name: "Mary",
-      websites: [
-        { kind: "wikipedia", title: "Mary", href: "https://en.wikipedia.org/wiki/Mary_(programming_language)" },
-      ],
-    },
-    { influences: ["pl+algol"] },
-  );
 
   lb.define(
     "pl+math-matic",
@@ -6863,7 +6774,6 @@ export function define(g: PlangsGraph) {
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/6/63/Snap%21.svg" }],
       releases: [{ version: "9.2.17", date: "2024-01-01", kind: "stable" }],
-      extensions: ["!"],
     },
     {
       implementations: ["pl+javascript"],
@@ -7040,7 +6950,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.2", date: "2022-01-01", kind: "stable" }],
     },
     {
-      influences: ["pl+lua", "pl+moonscript", "pl+cpp", "pl+javascript", "pl+python"],
+      influences: ["pl+cpp", "pl+javascript", "pl+lua", "pl+python"],
       licenses: ["lic+mit"],
       paradigms: ["para+multi", "para+scripting", "para+imperative", "para+functional", "para+objects"],
       platforms: ["platf+cross-platform"],
@@ -7081,18 +6991,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "18.0", date: "2023-01-01", kind: "stable" }],
     },
     { licenses: ["lic+proprietary"] },
-  );
-
-  lb.define(
-    "pl+steelman-language-requirements",
-    "Steelman",
-    {
-      name: "Steelman",
-      websites: [
-        { kind: "wikipedia", title: "Steelman", href: "https://en.wikipedia.org/wiki/Steelman_language_requirements" },
-      ],
-    },
-    { influences: ["pl+algol"] },
   );
 
   lb.define(
@@ -7225,7 +7123,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.1.3", date: "2013-01-01", kind: "stable" }],
     },
     {
-      licenses: ["lic+freeware"],
       paradigms: ["para+prototypes", "para+domain"],
       platforms: ["platf+amiga", "platf+dos", "platf+win", "platf+unix", "platf+linux", "platf+mac"],
       typeSystems: ["tsys+strong", "tsys+inferred"],
@@ -7437,7 +7334,6 @@ export function define(g: PlangsGraph) {
         },
       ],
       releases: [{ version: "2.7.7", date: "2022-01-01", kind: "stable" }],
-      extensions: ["!"],
     },
     {
       implementations: ["pl+javascript"],
@@ -7985,11 +7881,6 @@ export function define(g: PlangsGraph) {
   lb.define("pl+yamazaki-mazak-corporation", "Mazak", {
     name: "Mazak",
     websites: [{ kind: "wikipedia", title: "Mazak", href: "https://en.wikipedia.org/wiki/Yamazaki_Mazak_Corporation" }],
-  });
-
-  lb.define("pl+yaml", "YAML", {
-    name: "YAML",
-    websites: [{ kind: "wikipedia", title: "YAML", href: "https://en.wikipedia.org/wiki/YAML" }],
   });
 
   lb.define(

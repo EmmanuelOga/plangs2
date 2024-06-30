@@ -24,7 +24,6 @@ export function define(g: PlangsGraph) {
         "pl+cedar",
         "pl+eiffel",
         "pl+emerald",
-        "pl+haskell",
         "pl+clu",
         "pl+simula67",
         "pl+lisp",

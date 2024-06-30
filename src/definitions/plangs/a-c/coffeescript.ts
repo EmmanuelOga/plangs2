@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       extensions: [".coffee"],
     },
     {
-      influences: ["pl+haskell", "pl+javascript", "pl+perl", "pl+python", "pl+ruby", "pl+yaml"],
+      influences: ["pl+javascript", "pl+python", "pl+ruby"],
       licenses: ["lic+mit"],
       paradigms: ["para+multi", "para+prototypes", "para+functional", "para+imperative", "para+scripting"],
       people: ["person+jeremy-ashkenas"],

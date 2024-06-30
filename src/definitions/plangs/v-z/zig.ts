@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.13.0", date: "2024-01-01", kind: "preview" }],
     },
     {
-      influences: ["pl+c", "pl+cpp", "pl+llvm-ir", "pl+go", "pl+rust", "pl+javascript"],
+      influences: ["pl+c"],
       licenses: ["lic+mit"],
       paradigms: ["para+multi", "para+imperative", "para+concurrent", "para+functional"],
       platforms: [

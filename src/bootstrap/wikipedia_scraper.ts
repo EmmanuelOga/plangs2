@@ -300,9 +300,10 @@ async function scrapLanguagePage(wikiPath: string) {
       if (Object.keys(data).length > 0) result.release = data;
     } else if (type.includes("extension")) {
       const data = text
+        .replaceAll(/\([^)]+\)/g, "")
         .split(/\,|\s+/)
         .map((s) => s.trim())
-        .filter(Boolean);
+        .filter((s) => s.length > 0 && s[0] === ".");
       if (data.length) result.extensions = data;
     } else if (anchors.length) {
       const processed: ReturnType<typeof processA>[] = [];
@@ -386,8 +387,8 @@ function cleanImgUrl(url: string | undefined): string {
 async function wikiScrape(refresh = false) {
   console.log("Scraping Wikipedia. Using cache: ", CACHE_PATH);
 
-  await mkdir(cachePath("wiki"), { recursive: true }).catch((_) => { });
-  await mkdir(cachePath("json"), { recursive: true }).catch((_) => { });
+  await mkdir(cachePath("wiki"), { recursive: true }).catch((_) => {});
+  await mkdir(cachePath("json"), { recursive: true }).catch((_) => {});
 
   if (refresh) {
     // Delete starting cache files.
@@ -395,7 +396,7 @@ async function wikiScrape(refresh = false) {
       try {
         const p = cachePath("wiki", toBasename(start, "html"));
         unlinkSync(p);
-      } catch (_) { }
+      } catch (_) {}
     }
   }
 
