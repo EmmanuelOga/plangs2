@@ -27,10 +27,9 @@ export class Graph {
     type: string,
     from: VertexTable<T_VId_From, _Any>,
     to: VertexTable<T_VId_To, _Any>,
-    directed: "directed" | "undirected" = "directed",
   ): EdgeTable<T_VId_From, T_VId_To, T_EdgeData> {
     if (type.length === 0) throw new Error("Type cannot be empty.");
-    const table = new EdgeTable<T_VId_From, T_VId_To, _Any>(type, directed === "directed", from, to);
+    const table = new EdgeTable<T_VId_From, T_VId_To, _Any>(type, from, to);
     if (this.etables.has(table.tableKey)) throw new Error(`Table already defined: ${table.tableKey}`);
     this.etables.set(table.tableKey, table);
     return table;
