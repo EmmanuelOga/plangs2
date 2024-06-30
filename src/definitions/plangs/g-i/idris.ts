@@ -1,27 +1,40 @@
 import type { PlangsGraph } from "../../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
-  const lb = g.plangBuilder;
+	const lb = g.plangBuilder;
 
-  lb.define(
-    "pl+idris",
-    "Idris",
-    {
-      name: "Idris",
-      websites: [
-        { kind: "wikipedia", title: "Idris", href: "https://en.wikipedia.org/wiki/Idris_(programming_language)" },
-      ],
-      releases: [
-        { version: "1.3.4", date: "2021-01-01", kind: "stable" },
-        { version: "0.7.0", date: "2023-01-01", kind: "preview" },
-      ],
-    },
-    {
-      influences: ["pl+agda", "pl+clean", "pl+epigram", "pl+haskell", "pl+coq", "pl+f-sharp", "pl+ml", "pl+rust"],
-      licenses: ["lic+bsd-s"],
-      paradigms: ["para+functional"],
-      platforms: ["platf+cross-platform"],
-      typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
-    },
-  );
+	lb.define(
+		"pl+idris",
+		"Idris",
+		{
+			name: "Idris",
+			websites: [
+				{
+					kind: "wikipedia",
+					title: "Idris",
+					href: "https://en.wikipedia.org/wiki/Idris_(programming_language)",
+				},
+			],
+			releases: [
+				{ version: "1.3.4", date: "2021-01-01", kind: "stable" },
+				{ version: "0.7.0", date: "2023-01-01", kind: "preview" },
+			],
+		},
+		{
+			influences: [
+				"pl+agda",
+				"pl+clean",
+				"pl+epigram",
+				"pl+haskell",
+				"pl+coq",
+				"pl+f-sharp",
+				"pl+ml",
+				"pl+rust",
+			],
+			licenses: ["lic+bsd-s"],
+			paradigms: ["para+functional"],
+			platforms: ["platf+cross-platform"],
+			typeSystems: ["tsys+inferred", "tsys+static", "tsys+strong"],
+		},
+	);
 }

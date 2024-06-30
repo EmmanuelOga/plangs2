@@ -4,6 +4,7 @@ export const PLANG_IDS: Set<VID_Plang> = new Set(
   [
     "pl+APL",
     "pl+Agda",
+    "pl+Ada",
     "pl+Arc",
     "pl+AssemblyScript",
     "pl+Ballerina",
@@ -17,7 +18,7 @@ export const PLANG_IDS: Set<VID_Plang> = new Set(
     "pl+C",
     "pl+C99",
     "pl+CLOS",
-    "pl+C-Plus-Plus",
+    "pl+CPP",
     "pl+CPython",
     "pl+CSP",
     "pl+C-Sharp",

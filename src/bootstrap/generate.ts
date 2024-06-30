@@ -14,6 +14,9 @@ import type { VertexTable } from "../graph/vertex_table";
 import { blank, toAlphaNum } from "../util";
 import { PLANG_IDS } from "./plang_ids";
 import { parseAll } from "./wikipedia_process";
+import { Biome, Distribution } from "@biomejs/js-api";
+
+const biome = await Biome.create({ distribution: Distribution.NODE });
 
 const Templ = new Eta({ views: __dirname, autoEscape: false });
 
@@ -42,25 +45,21 @@ async function generateAll() {
 
   console.log(new Date().toISOString());
 
-  genAll(g.v_paradigm, "paradigms", "paradigm", (vid, vertex, dataSize, name) =>
-    vertex.websites?.length && dataSize > 384 ? name : "other",
-  );
+  genAll(g.v_paradigm, "paradigms", "paradigm", (vid, vertex, lines, name) => (lines > 10 ? name : "other"));
+  genAll(g.v_tsystem, "type_systems", "typeSystem", (vid, vertex, lines, name) => (lines > 10 ? name : "other"));
+  genAll(g.v_person, "people", "person", (vid, vertex, dataSize, name) => "other");
 
-  genAll(g.v_tsystem, "type_systems", "typeSystem", (vid, vertex, dataSize, name) =>
-    vertex.websites?.length && dataSize > 200 ? name : "other",
-  );
-
-  genAll(g.v_license, "licenses", "license", (vid, vertex, dataSize, name) => {
+  genAll(g.v_license, "licenses", "license", (vid, vertex, lines, name) => {
     if (vid.includes("apache")) return "apache";
     if (vid.includes("bsd")) return "bsd";
     if (vid.includes("free")) return "free";
     if (vid.includes("gnu") || vid.includes("gpl") || /general.?public.?license/i.test(vid)) return "gnu";
     if (vid.includes("mit")) return "mit";
     if (vid.includes("mozilla") || vid.includes("mpl")) return "mozilla";
-    return vertex.websites?.length && dataSize > 384 ? name : "other";
+    return lines > 10 ? name : "other";
   });
 
-  genAll(g.v_platform, "platforms", "platform", (vid, vertex, dataSize, name) => {
+  genAll(g.v_platform, "platforms", "platform", (vid, vertex, lines, name) => {
     if (vid.includes("mach") || vid.includes("lisp")) return "other";
 
     if (
@@ -93,21 +92,20 @@ async function generateAll() {
     if (vid.includes("amd")) return "amd";
     if (vid.includes("dos")) return "dos";
 
-    return vertex.websites?.length && dataSize > 212 ? name : "other";
+    return lines > 10 ? name : "other";
   });
-
-  genAll(g.v_person, "people", "person", (vid, vertex, dataSize, name) => "other");
 
   genAll(
     g.v_plang,
     "plangs",
     "plang",
-    (vid, vertex, dataSize, name) => {
+    (vid, vertex, lines, name) => {
       function fileName(): string {
         if (vid.includes("algol")) return "algol";
         if (vid.includes("assembly")) return "assembly";
         if (vid.includes("basic") || vid.includes("xojo") || vid.includes("gambas")) return "basic";
         if (vid.includes("c99")) return "c";
+        if (vid.includes("cpp")) return "cpp";
         if (vid.includes("fortran")) return "fortran";
         if (vid.includes("lisp")) return "lisp";
         if (vid.includes("modula")) return "modula";
@@ -123,7 +121,7 @@ async function generateAll() {
         if (vid.includes("slash")) return "other";
 
         // biome-ignore lint/suspicious/noExplicitAny: Ok here.
-        return PLANG_IDS.has(vid as any) || dataSize > 1024 ? name : "other";
+        return (PLANG_IDS.has(vid as any) || lines > 50) ? name : "other";
       }
 
       const f = fileName();
@@ -216,7 +214,7 @@ type AtoZData = {
 };
 
 // Return the file name (with no extension) for a given vertex.
-type Collator = (vid: VID_Any, vertex: _T_AnyV_Data, dataSize: number, name: string) => string;
+type Collator = (vid: VID_Any, vertex: _T_AnyV_Data, dataLines: number, name: string) => string;
 type DataMapper = (vid: VID_Any, vertex: _T_AnyV_Data) => AtoZData;
 
 function genAll(
@@ -242,16 +240,23 @@ function genAll(
       continue;
     }
     const bundle = mapper(vid as VID_Any, vertex);
-    const file = collator(vid as VID_Any, vertex, JSON.stringify(bundle).length, vid.split("+")[1]);
+
+    // Render once so we can count the lines.
+    const rendered = Templ.render("/a_to_z", { data: [bundle], builderName, depth: 1 });
+    const formatted = biome.formatContent(rendered, { filePath: "example.ts" });
+    const lines = formatted.content.split("\n").length;
+
+    const file = collator(vid as VID_Any, vertex, lines, vid.split("+")[1]);
     if (!fileNames.has(file)) fileNames.set(file, []);
     fileNames.get(file)?.push(bundle);
   }
 
   for (const [fileName, bundles] of fileNames) {
     const slashCount = (fileName.match(/\//g) || []).length;
-    const res = Templ.render("/a_to_z", { data: bundles, builderName, depth: 2 + slashCount });
+    const raw = Templ.render("/a_to_z", { data: bundles, builderName, depth: 2 + slashCount });
     const path = tsPath(basename, fileName);
-    Bun.write(path, res);
+    const formatted = biome.formatContent(raw, { filePath: path });
+    Bun.write(path, formatted.content);
   }
 
   console.log(`${basename}: ${allVids.length} entries in ${fileNames.size} files.`);

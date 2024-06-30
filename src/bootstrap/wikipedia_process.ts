@@ -87,12 +87,6 @@ function mergeRefs(data: E_Base, refs: Partial<Record<DATA_ATTR, Link[]>>, key: 
   data.refs ??= [];
 
   for (const link of specific) mergeLink(data.refs, link);
-
-  const log = JSON.stringify(specific);
-  if (debug && log.includes("VERILOG")) {
-    console.log(data, refs, key, debug);
-    console.log("-----------------------");
-  }
 }
 
 function processLanguage(
