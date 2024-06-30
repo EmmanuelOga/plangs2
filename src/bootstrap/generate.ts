@@ -150,7 +150,6 @@ function defaultMapper(vid: VID_Any, vertex: _T_AnyV_Data): AtoZData {
   return bundle;
 }
 
-// biome-ignore format: it's artisanally formatted :-p.
 function plangMapper(g: PlangsGraph, plvid: VID_Plang): AtoZData {
   const vertex = g.v_plang.get(plvid);
   if (!vertex || !vertex.name) throw new Error(`Missing plang data: ${plvid}`);
@@ -159,52 +158,72 @@ function plangMapper(g: PlangsGraph, plvid: VID_Plang): AtoZData {
   const data = tidy(vertex);
   if (!blank(data)) bundle.data = json(data);
 
-  const vrelations: Record<string, string[]> = {};
+  const vrelations: string[] = [];
 
-  function addRel(vrelKey: string, rels: string[], egetter: (vid: string) => E_Base | undefined) {
-    if (rels.length === 0) return;
-    vrelations[vrelKey] = rels;
+  function addRel(
+    methodOne: string,
+    methodMany: string,
+    relVids: string[],
+    egetter: (vid: string) => E_Base | undefined,
+  ) {
+    if (relVids.length === 0) return;
 
-    for (const rel of rels) {
-      const edata = egetter(rel);
-      if (!blank(edata)) console.log(vrelKey, rel, "should add: ", edata);
+    // Collect the vertices with no data.
+    const noDataVids = new Set<string>();
+    const singles: string[] = [];
+
+    for (const vid of relVids) {
+      const edata = egetter(vid);
+      if (blank(edata)) {
+        noDataVids.add(vid);
+      } else {
+        singles.push(`.${methodOne}(${json(vid)}, ${json(edata)})`);
+      }
     }
+
+    if (noDataVids.size > 0) {
+      vrelations.push(`.${methodMany}(${json([...noDataVids])})`);
+    }
+    vrelations.push(...singles);
   }
 
   // Adjacent *to* plang.
 
-  addRel("dialects", [...g.e_dialect_of.adjacentTo(plvid)],
-    (vid) => g.e_dialect_of.get(vid as VID_Plang, plvid));
-
-  addRel("implementations", [...g.e_implements.adjacentTo(plvid)],
-    (vid) => g.e_implements.get(vid as VID_Plang, plvid),
+  addRel("addDialect", "addDialects", [...g.e_dialect_of.adjacentTo(plvid)], (vid) =>
+    g.e_dialect_of.get(vid as VID_Plang, plvid),
   );
 
-  addRel("influences", [...g.e_l_influenced_l.adjacentTo(plvid)],
-    (vid) => g.e_l_influenced_l.get(vid as VID_Plang, plvid),
+  addRel("addImplementation", "addImplementations", [...g.e_implements.adjacentTo(plvid)], (vid) =>
+    g.e_implements.get(vid as VID_Plang, plvid),
   );
 
-  addRel("people", [...g.e_person_plang.adjacentTo(plvid)],
-    (vid) => g.e_person_plang.get(vid as VID_Person, plvid),
+  addRel("addInfluence", "addInfluences", [...g.e_l_influenced_l.adjacentTo(plvid)], (vid) =>
+    g.e_l_influenced_l.get(vid as VID_Plang, plvid),
+  );
+
+  addRel("addPerson", "addPeople", [...g.e_person_plang.adjacentTo(plvid)], (vid) =>
+    g.e_person_plang.get(vid as VID_Person, plvid),
   );
 
   // Adjacent *from* plang.
 
-  addRel("licenses", [...g.e_has_license.adjacentFrom(plvid)],
-    (vid) => g.e_has_license.get(plvid, vid as VID_License));
-
-  addRel("paradigms", [...g.e_plang_para.adjacentFrom(plvid)],
-    (vid) => g.e_plang_para.get(plvid, vid as VID_Paradigm));
-
-  addRel("platforms", [...g.e_supports_platf.adjacentFrom(plvid)],
-    (vid) => g.e_supports_platf.get(plvid, vid as VID_Platform),
+  addRel("addLicense", "addLicenses", [...g.e_has_license.adjacentFrom(plvid)], (vid) =>
+    g.e_has_license.get(plvid, vid as VID_License),
   );
 
-  addRel("typeSystems", [...g.e_plang_tsys.adjacentFrom(plvid)],
-    (vid) => g.e_plang_tsys.get(plvid, vid as VID_TypeSystem),
+  addRel("addParadigm", "addParadigms", [...g.e_plang_para.adjacentFrom(plvid)], (vid) =>
+    g.e_plang_para.get(plvid, vid as VID_Paradigm),
   );
 
-  if (!blank(tidy(vrelations))) bundle.vrelations = json(vrelations);
+  addRel("addPlatform", "addPlatforms", [...g.e_supports_platf.adjacentFrom(plvid)], (vid) =>
+    g.e_supports_platf.get(plvid, vid as VID_Platform),
+  );
+
+  addRel("addTypeSystem", "addTypeSystems", [...g.e_plang_tsys.adjacentFrom(plvid)], (vid) =>
+    g.e_plang_tsys.get(plvid, vid as VID_TypeSystem),
+  );
+
+  if (!blank(tidy(vrelations))) bundle.vrelations = vrelations;
 
   return bundle;
 }
@@ -216,7 +235,7 @@ type _T_AnyV_Data = any;
 type AtoZData = {
   vid: string; // json vertex id
   data?: string; // json vertex data
-  vrelations?: string; // json vertex relations
+  vrelations?: string[]; // json vertex relations
 };
 
 // Return the file name (with no extension) for a given vertex.

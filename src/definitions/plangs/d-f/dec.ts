@@ -8,4 +8,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "DEC", href: "https://en.wikipedia.org/wiki/Digital_Equipment_Corporation" },
     ],
   });
+
+  /**/
 }

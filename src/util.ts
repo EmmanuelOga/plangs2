@@ -6,11 +6,6 @@ export function isRegExp(val: unknown): val is RegExp {
 }
 
 /**
- * Avoids nested `Partial<Partial<Partial<...>>>` which are redundant.
- */
-export type NN_Partial<T> = T extends Partial<infer U> ? T : Partial<T>;
-
-/**
  * Convert the string to something usable as vertex id.
  */
 export function toAlphaNum(s: string) {

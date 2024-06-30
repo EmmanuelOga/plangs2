@@ -8,4 +8,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "term-rewriting", href: "https://en.wikipedia.org/wiki/Term-rewriting" },
     ],
   });
+
+  /**/
 }

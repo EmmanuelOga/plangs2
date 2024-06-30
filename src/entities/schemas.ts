@@ -111,7 +111,7 @@ export interface Release {
  * A reference to a web page.
  */
 export interface Link {
-  kind: "homepage" | "repository" | "releases" | "apidocs" | "wikipedia" | "other";
+  kind?: "homepage" | "repository" | "releases" | "apidocs" | "wikipedia" | "other";
   href: string;
   title: string;
 }
@@ -120,7 +120,7 @@ export interface Link {
  * An image, e.g., a logo.
  */
 export interface Image {
-  kind: "logo" | "other";
+  kind: "logo" | "screenshot" | "other";
   url: string;
   width?: number;
   height?: number;

@@ -19,4 +19,6 @@ export function define(g: PlangsGraph) {
     ],
     releases: [{ version: "12.8", date: "2024-01-01", kind: "stable" }],
   });
+
+  /**/
 }

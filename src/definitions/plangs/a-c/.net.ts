@@ -8,4 +8,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "CLI", href: "https://en.wikipedia.org/wiki/Common_Language_Infrastructure" },
     ],
   });
+
+  /**/
 }

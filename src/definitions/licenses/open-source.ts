@@ -8,4 +8,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Open-source", href: "https://en.wikipedia.org/wiki/Open-source_license" },
     ],
   });
+
+  /**/
 }

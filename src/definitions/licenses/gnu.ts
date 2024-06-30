@@ -8,6 +8,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildLicense("lic+gnu-affero-gpl").merge({
     name: "AGPL-3.0-or-later",
     websites: [
@@ -19,6 +20,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildLicense("lic+gnu-library-gpl").merge({
     name: "LGPLv2",
     websites: [
@@ -26,6 +28,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildLicense("lic+gpl").merge({
     name: "GPL",
     websites: [
@@ -55,11 +58,13 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildLicense("lic+gpl-2").merge({
     name: "GPLv2",
     websites: [{ kind: "wikipedia", title: "GPLv2", href: "https://en.wikipedia.org/wiki/GPLv2" }],
   });
 
+  /**/
   g.buildLicense("lic+gpl-3").merge({
     name: "GPL 2+",
     websites: [
@@ -68,11 +73,13 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildLicense("lic+gpl3").merge({
     name: "GPL 3",
     websites: [{ kind: "wikipedia", title: "GPL 3", href: "https://en.wikipedia.org/wiki/GPL3" }],
   });
 
+  /**/
   g.buildLicense("lic+lgpl").merge({
     name: "LGPL",
     websites: [
@@ -85,4 +92,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "LGPL", href: "https://en.wikipedia.org/wiki/GNU_Lesser_Public_License" },
     ],
   });
+
+  /**/
 }

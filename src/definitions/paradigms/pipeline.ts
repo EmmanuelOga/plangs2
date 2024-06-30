@@ -8,4 +8,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "pipeline", href: "https://en.wikipedia.org/wiki/Pipeline_programming" },
     ],
   });
+
+  /**/
 }

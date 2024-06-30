@@ -10,4 +10,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Platform independent", href: "https://en.wikipedia.org/wiki/Platform_independent" },
     ],
   });
+
+  /**/
 }

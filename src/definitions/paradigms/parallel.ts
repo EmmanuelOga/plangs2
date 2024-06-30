@@ -13,4 +13,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "parallel", href: "https://en.wikipedia.org/wiki/Parallel_computing" },
     ],
   });
+
+  /**/
 }

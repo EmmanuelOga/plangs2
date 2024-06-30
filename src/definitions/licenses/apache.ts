@@ -16,4 +16,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Apache 2.0", href: "https://en.wikipedia.org/wiki/Apache_2.0" },
     ],
   });
+
+  /**/
 }

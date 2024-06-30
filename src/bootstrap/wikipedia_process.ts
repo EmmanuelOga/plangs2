@@ -4,10 +4,10 @@
 
 import { Glob } from "bun";
 import type { PlangsGraph } from "../entities/plangs_graph";
-import type { E_Base, Image, Link, Release } from "../entities/schemas";
+import type { E_Base, Image, Link, Release, V_Plang } from "../entities/schemas";
 import type { VID } from "../graph/vertex";
 import { toAlphaNum } from "../util";
-import { type DATA_ATTR, type DATA_TYPE, WIKIPEDIA_URL, cachePath } from "./wikipedia_scraper";
+import { WIKIPEDIA_URL, cachePath, type DATA_ATTR, type DATA_TYPE } from "./wikipedia_scraper";
 
 // biome-ignore lint/suspicious/noExplicitAny: Wikipedia infoboxes really can have any data.
 type _Any = any;
@@ -77,7 +77,7 @@ function mergeLink(links: Link[], newLink: Link) {
   links.push(newLink);
 }
 
-function mergeRefs(edata: E_Base, refs: Link[]) {
+function mergeRefs(edata: Partial<E_Base>, refs: Link[]) {
   if (!refs) return;
   edata.refs ??= [];
   for (const ref of refs) {
@@ -89,20 +89,20 @@ function processLanguage(
   g: PlangsGraph,
   title: string,
   wikiUrl: string,
-  image: string | undefined,
+  imageUrl: string | undefined,
   data: Record<DATA_ATTR, Record<DATA_TYPE, _Any>>,
 ) {
   const plKey = keyFromWikiUrl(wikiUrl);
   if (!plKey) return;
 
-  const pl = g.v_plang.merge(`pl+${plKey}`, { name: title }); // We may already have the language, from an influence.
+  const pl: Partial<V_Plang> = g.v_plang.merge(`pl+${plKey}`, { name: title }); // We may already have the language, from an influence.
   pl.websites ??= [];
   mergeLink(pl.websites, { kind: "wikipedia", title: title, href: wikiUrl });
 
-  if (image) {
+  if (imageUrl) {
     pl.images ??= [];
-    if (!pl.images.some((i: Image) => i.url === image)) {
-      pl.images.push({ kind: "logo", url: image });
+    if (!pl.images.some((i: Image) => i.url === imageUrl)) {
+      pl.images.push({ kind: /logo/i.test(imageUrl) ? "logo" : "screenshot", url: imageUrl });
     }
   }
 

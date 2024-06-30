@@ -9,4 +9,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "SAP S/4HANA", href: "https://en.wikipedia.org/wiki/SAP_S/4HANA" },
     ],
   });
+
+  /**/
 }

@@ -5,4 +5,6 @@ export function define(g: PlangsGraph) {
     name: "JavaScript",
     websites: [{ kind: "wikipedia", title: "JavaScript", href: "https://en.wikipedia.org/wiki/JavaScript" }],
   });
+
+  /**/
 }

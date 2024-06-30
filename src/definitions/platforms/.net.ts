@@ -16,8 +16,11 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildPlatform("platf+mono").merge({
     name: "Mono",
     websites: [{ kind: "wikipedia", title: "Mono", href: "https://en.wikipedia.org/wiki/Mono_(software)" }],
   });
+
+  /**/
 }

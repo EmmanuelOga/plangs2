@@ -6,6 +6,7 @@ export function define(g: PlangsGraph) {
     websites: [{ kind: "wikipedia", title: "64-bit", href: "https://en.wikipedia.org/wiki/64-bit_computing" }],
   });
 
+  /**/
   g.buildPlatform("platf+6502").merge({
     name: "MOS Technology 6502",
     websites: [
@@ -13,11 +14,13 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildPlatform("platf+74181").merge({
     name: "74181",
     websites: [{ kind: "wikipedia", title: "74181", href: "https://en.wikipedia.org/wiki/74181" }],
   });
 
+  /**/
   g.buildPlatform("platf+android").merge({
     name: "Android",
     websites: [
@@ -25,16 +28,19 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildPlatform("platf+arcaos").merge({
     name: "ArcaOS",
     websites: [{ kind: "wikipedia", title: "ArcaOS", href: "https://en.wikipedia.org/wiki/ArcaOS" }],
   });
 
+  /**/
   g.buildPlatform("platf+arduino").merge({
     name: "Arduino",
     websites: [{ kind: "wikipedia", title: "Arduino", href: "https://en.wikipedia.org/wiki/Arduino" }],
   });
 
+  /**/
   g.buildPlatform("platf+aws").merge({
     name: "Amazon Web Services",
     websites: [
@@ -42,6 +48,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildPlatform("platf+axiom").merge({
     name: "Axiom computer algebra system",
     websites: [
@@ -53,26 +60,31 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildPlatform("platf+chromeos").merge({
     name: "ChromeOS",
     websites: [{ kind: "wikipedia", title: "ChromeOS", href: "https://en.wikipedia.org/wiki/ChromeOS" }],
   });
 
+  /**/
   g.buildPlatform("platf+cuda").merge({
     name: "CUDA",
     websites: [{ kind: "wikipedia", title: "CUDA", href: "https://en.wikipedia.org/wiki/CUDA" }],
   });
 
+  /**/
   g.buildPlatform("platf+cygwin").merge({
     name: "Cygwin",
     websites: [{ kind: "wikipedia", title: "Cygwin", href: "https://en.wikipedia.org/wiki/Cygwin" }],
   });
 
+  /**/
   g.buildPlatform("platf+emacs").merge({
     name: "Emacs",
     websites: [{ kind: "wikipedia", title: "Emacs", href: "https://en.wikipedia.org/wiki/Emacs" }],
   });
 
+  /**/
   g.buildPlatform("platf+erlang").merge({
     name: "Erlang",
     websites: [
@@ -80,6 +92,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildPlatform("platf+fpga").merge({
     name: "FPGA",
     websites: [
@@ -87,51 +100,61 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildPlatform("platf+fuchsia").merge({
     name: "Google Fuchsia",
     websites: [{ kind: "wikipedia", title: "Google Fuchsia", href: "https://en.wikipedia.org/wiki/Google_Fuchsia" }],
   });
 
+  /**/
   g.buildPlatform("platf+glib").merge({
     name: "GLib",
     websites: [{ kind: "wikipedia", title: "GLib", href: "https://en.wikipedia.org/wiki/GLib" }],
   });
 
+  /**/
   g.buildPlatform("platf+gnu").merge({
     name: "GNU",
     websites: [{ kind: "wikipedia", title: "GNU", href: "https://en.wikipedia.org/wiki/GNU" }],
   });
 
+  /**/
   g.buildPlatform("platf+haiku").merge({
     name: "Haiku",
     websites: [{ kind: "wikipedia", title: "Haiku", href: "https://en.wikipedia.org/wiki/Haiku_(operating_system)" }],
   });
 
+  /**/
   g.buildPlatform("platf+linux").merge({
     name: "Linux",
     websites: [{ kind: "wikipedia", title: "Linux", href: "https://en.wikipedia.org/wiki/Linux" }],
   });
 
+  /**/
   g.buildPlatform("platf+llvm").merge({
     name: "LLVM",
     websites: [{ kind: "wikipedia", title: "LLVM", href: "https://en.wikipedia.org/wiki/LLVM" }],
   });
 
+  /**/
   g.buildPlatform("platf+mach").merge({
     name: "Mach",
     websites: [{ kind: "wikipedia", title: "Mach", href: "https://en.wikipedia.org/wiki/Mach_(kernel)" }],
   });
 
+  /**/
   g.buildPlatform("platf+mingw").merge({
     name: "MinGW",
     websites: [{ kind: "wikipedia", title: "MinGW", href: "https://en.wikipedia.org/wiki/MinGW" }],
   });
 
+  /**/
   g.buildPlatform("platf+mips").merge({
     name: "MIPS64",
     websites: [{ kind: "wikipedia", title: "MIPS", href: "https://en.wikipedia.org/wiki/MIPS_architecture" }],
   });
 
+  /**/
   g.buildPlatform("platf+oneapi").merge({
     name: "oneAPI",
     websites: [
@@ -139,21 +162,25 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildPlatform("platf+openvms").merge({
     name: "OpenVMS",
     websites: [{ kind: "wikipedia", title: "VMS", href: "https://en.wikipedia.org/wiki/OpenVMS" }],
   });
 
+  /**/
   g.buildPlatform("platf+parallel-computing").merge({
     name: "Parallel",
     websites: [{ kind: "wikipedia", title: "Parallel", href: "https://en.wikipedia.org/wiki/Parallel_computing" }],
   });
 
+  /**/
   g.buildPlatform("platf+pic").merge({
     name: "PIC",
     websites: [{ kind: "wikipedia", title: "PIC", href: "https://en.wikipedia.org/wiki/PIC_microcontrollers" }],
   });
 
+  /**/
   g.buildPlatform("platf+pip").merge({
     name: "pip (package manager)",
     websites: [
@@ -165,21 +192,25 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildPlatform("platf+pocket-pc").merge({
     name: "Pocket PC",
     websites: [{ kind: "wikipedia", title: "Pocket PC", href: "https://en.wikipedia.org/wiki/Pocket_PC" }],
   });
 
+  /**/
   g.buildPlatform("platf+posix").merge({
     name: "POSIX-compliant",
     websites: [{ kind: "wikipedia", title: "POSIX", href: "https://en.wikipedia.org/wiki/POSIX" }],
   });
 
+  /**/
   g.buildPlatform("platf+power-isa").merge({
     name: "POWERPC64",
     websites: [{ kind: "wikipedia", title: "Power", href: "https://en.wikipedia.org/wiki/Power_ISA" }],
   });
 
+  /**/
   g.buildPlatform("platf+python").merge({
     name: "Python",
     websites: [
@@ -187,58 +218,71 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildPlatform("platf+qnx").merge({
     name: "QNX",
     websites: [{ kind: "wikipedia", title: "QNX", href: "https://en.wikipedia.org/wiki/QNX" }],
   });
 
+  /**/
   g.buildPlatform("platf+red-hat").merge({
     name: "Red Hat",
     websites: [{ kind: "wikipedia", title: "Red Hat", href: "https://en.wikipedia.org/wiki/Red_Hat" }],
   });
 
+  /**/
   g.buildPlatform("platf+rocm").merge({
     name: "ROCm",
     websites: [{ kind: "wikipedia", title: "ROCm", href: "https://en.wikipedia.org/wiki/ROCm" }],
   });
 
+  /**/
   g.buildPlatform("platf+stm32").merge({
     name: "STM32",
     websites: [{ kind: "wikipedia", title: "STM32", href: "https://en.wikipedia.org/wiki/STM32" }],
   });
 
+  /**/
   g.buildPlatform("platf+visionos").merge({
     name: "visionOS",
     websites: [{ kind: "wikipedia", title: "visionOS", href: "https://en.wikipedia.org/wiki/VisionOS" }],
   });
 
+  /**/
   g.buildPlatform("platf+vm").merge({
     name: "VM/CMS",
     websites: [{ kind: "wikipedia", title: "VM/CMS", href: "https://en.wikipedia.org/wiki/VM_(operating_system)" }],
   });
 
+  /**/
   g.buildPlatform("platf+vse").merge({
     name: "z/VSE",
     websites: [{ kind: "wikipedia", title: "DOS/VSE", href: "https://en.wikipedia.org/wiki/VSE_(operating_system)" }],
   });
 
+  /**/
   g.buildPlatform("platf+wasm").merge({
     name: "WebAssembly",
     websites: [{ kind: "wikipedia", title: "WebAssembly", href: "https://en.wikipedia.org/wiki/WebAssembly" }],
   });
 
+  /**/
   g.buildPlatform("platf+z-slashos").merge({
     name: "z/OS",
     websites: [{ kind: "wikipedia", title: "z/OS", href: "https://en.wikipedia.org/wiki/Z/OS" }],
   });
 
+  /**/
   g.buildPlatform("platf+z-slashvm").merge({
     name: "z/VM",
     websites: [{ kind: "wikipedia", title: "z/VM", href: "https://en.wikipedia.org/wiki/Z/VM" }],
   });
 
+  /**/
   g.buildPlatform("platf+zephyr").merge({
     name: "Zephyr",
     websites: [{ kind: "wikipedia", title: "Zephyr", href: "https://en.wikipedia.org/wiki/Zephyr_(operating_system)" }],
   });
+
+  /**/
 }

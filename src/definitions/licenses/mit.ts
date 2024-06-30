@@ -5,4 +5,6 @@ export function define(g: PlangsGraph) {
     name: "MIT",
     websites: [{ kind: "wikipedia", title: "MIT", href: "https://en.wikipedia.org/wiki/MIT_License" }],
   });
+
+  /**/
 }

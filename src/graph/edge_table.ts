@@ -1,4 +1,3 @@
-import type { NN_Partial } from "../util";
 import { validChars } from "./vertex";
 import type { VertexTable } from "./vertex_table";
 
@@ -64,17 +63,17 @@ export class EdgeTable<VID_From extends string, VID_To extends string, T_EdgeDat
   }
 
   /** Connect without setting any edge data. */
-  connect(from: VID_From, to: VID_To): NN_Partial<T_EdgeData> {
+  connect(from: VID_From, to: VID_To): Partial<T_EdgeData> {
     const key = this.#edgeKey(from, to);
     let edata = this.#edge.get(key);
     if (!edata) {
       this.#edge.set(key, (edata = {} as T_EdgeData));
     }
     this.#updateAdjacent(from, to, "add");
-    return edata as NN_Partial<T_EdgeData>;
+    return edata as Partial<T_EdgeData>;
   }
 
-  merge(from: VID_From, to: VID_To, value: NN_Partial<T_EdgeData>): NN_Partial<T_EdgeData> {
+  merge(from: VID_From, to: VID_To, value: Partial<T_EdgeData>): Partial<T_EdgeData> {
     const key = this.#edgeKey(from, to);
     this.#updateAdjacent(from, to, "add");
 
@@ -83,7 +82,7 @@ export class EdgeTable<VID_From extends string, VID_To extends string, T_EdgeDat
       return value;
     }
 
-    const existing = this.#edge.get(key) as NN_Partial<T_EdgeData>;
+    const existing = this.#edge.get(key) as Partial<T_EdgeData>;
     Object.assign(existing, value);
     return existing;
   }

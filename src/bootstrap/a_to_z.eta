@@ -2,8 +2,8 @@ import type { PlangsGraph } from '<%= '../'.repeat(it.depth) %>entities/plangs_g
 
 export function define(g: PlangsGraph) {
 <% for (const bundle of it.data) { %>
-  g.<%= it.builderName %>(<%= bundle.vid %>)
-  <% if (bundle.data) { %> .merge(<%= bundle.data %>) <% } %>;
+  g.<%= it.builderName %>(<%= bundle.vid %>)<%= bundle.data ? `.merge(${bundle.data})` : '' %><%= bundle.vrelations?.join('') ?? '' %>;
 
+  /**/
 <% } %>
 }

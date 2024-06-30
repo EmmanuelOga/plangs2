@@ -12,4 +12,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Concatenative", href: "https://en.wikipedia.org/wiki/Concatenative_programming" },
     ],
   });
+
+  /**/
 }

@@ -9,4 +9,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "RPG IV", href: "https://en.wikipedia.org/wiki/RPG_IV" },
     ],
   });
+
+  /**/
 }

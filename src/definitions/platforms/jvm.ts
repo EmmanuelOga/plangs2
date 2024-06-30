@@ -19,4 +19,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "Java", href: "https://en.wikipedia.org/wiki/Java_(programming_language)" },
     ],
   });
+
+  /**/
 }

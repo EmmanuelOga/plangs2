@@ -11,4 +11,6 @@ export function define(g: PlangsGraph) {
       { kind: "logo", url: "https://upload.wikimedia.org/wikipedia/en/thumb/2/26/AIMMS_logo.png/121px-AIMMS_logo.png" },
     ],
   });
+
+  /**/
 }

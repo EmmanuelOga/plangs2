@@ -1,6 +1,14 @@
 import { arrayMerge, caller } from "../util";
 import type { PlangsGraph } from "./plangs_graph";
 import type {
+  E_DialectOf,
+  E_HasLicense,
+  E_Implements,
+  E_LInfluencedL,
+  E_PersonPlang,
+  E_PlangPara,
+  E_PlangTsys,
+  E_SupportsPlatf,
   Image,
   Link,
   Release,
@@ -41,40 +49,84 @@ export class PlangBuilder {
     return this;
   }
 
-  addDialects(dialects: VID_Plang[]) {
-    for (const otherVid of dialects) this.g.e_dialect_of.connect(this.vid, otherVid);
+  addDialect(other: VID_Plang, data: Partial<E_DialectOf>): this {
+    this.g.e_dialect_of.merge(other, this.vid, data);
+    return this;
   }
 
-  addImplementations(implementations: VID_Plang[]) {
-    for (const otherVid of implementations ?? []) this.g.e_implements.connect(otherVid, this.vid);
+  addDialects(others: VID_Plang[]): this {
+    for (const other of others) this.g.e_dialect_of.connect(other, this.vid);
+    return this;
   }
 
-  addInfluenced(influenced: VID_Plang[]) {
-    for (const otherVid of influenced ?? []) this.g.e_l_influenced_l.connect(this.vid, otherVid);
+  addImplementation(other: VID_Plang, data: Partial<E_Implements>): this {
+    this.g.e_implements.merge(other, this.vid, data);
+    return this;
   }
 
-  addInfluences(influences: VID_Plang[]) {
-    for (const otherVid of influences ?? []) this.g.e_l_influenced_l.connect(otherVid, this.vid);
+  addImplementations(others: VID_Plang[]): this {
+    for (const other of others) this.g.e_implements.connect(other, this.vid);
+    return this;
   }
 
-  addLicenses(licenses: VID_License[]) {
-    for (const otherVid of licenses ?? []) this.g.e_has_license.connect(this.vid, otherVid);
+  addInfluence(other: VID_Plang, data: Partial<E_LInfluencedL>): this {
+    this.g.e_l_influenced_l.merge(other, this.vid, data);
+    return this;
   }
 
-  addParadigms(paradigms: VID_Paradigm[]) {
-    for (const otherVid of paradigms ?? []) this.g.e_plang_para.connect(this.vid, otherVid);
+  addInfluences(others: VID_Plang[]): this {
+    for (const other of others) this.g.e_l_influenced_l.connect(other, this.vid);
+    return this;
   }
 
-  addPeople(people: VID_Person[]) {
-    for (const otherVid of people ?? []) this.g.e_person_plang.connect(otherVid, this.vid);
+  addLicense(other: VID_License, data: Partial<E_HasLicense>): this {
+    this.g.e_has_license.merge(this.vid, other, data);
+    return this;
   }
 
-  addPlatforms(platforms: VID_Platform[]) {
-    for (const otherVid of platforms) this.g.e_supports_platf.connect(this.vid, otherVid);
+  addLicenses(others: VID_License[]): this {
+    for (const other of others ?? []) this.g.e_has_license.connect(this.vid, other);
+    return this;
   }
 
-  addTypeSystems(typeSystems: VID_TypeSystem[]) {
-    for (const otherVid of typeSystems ?? []) this.g.e_plang_tsys.connect(this.vid, otherVid);
+  addParadigm(other: VID_Paradigm, data: Partial<E_PlangPara>): this {
+    this.g.e_plang_para.merge(this.vid, other, data);
+    return this;
+  }
+
+  addParadigms(others: VID_Paradigm[]): this {
+    for (const otherVid of others ?? []) this.g.e_plang_para.connect(this.vid, otherVid);
+    return this;
+  }
+
+  addPerson(other: VID_Person, data: Partial<E_PersonPlang>): this {
+    this.g.e_person_plang.merge(other, this.vid, data);
+    return this;
+  }
+
+  addPeople(others: VID_Person[]): this {
+    for (const other of others ?? []) this.g.e_person_plang.connect(other, this.vid);
+    return this;
+  }
+
+  addPlatform(other: VID_Platform, data: Partial<E_SupportsPlatf>): this {
+    this.g.e_supports_platf.merge(this.vid, other, data);
+    return this;
+  }
+
+  addPlatforms(others: VID_Platform[]): this {
+    for (const other of others) this.g.e_supports_platf.connect(this.vid, other);
+    return this;
+  }
+
+  addTypeSystem(other: VID_TypeSystem, data: Partial<E_PlangTsys>): this {
+    this.g.e_plang_tsys.merge(this.vid, other, data);
+    return this;
+  }
+
+  addTypeSystems(others: VID_TypeSystem[]): this {
+    for (const other of others ?? []) this.g.e_plang_tsys.connect(this.vid, other);
+    return this;
   }
 }
 
@@ -102,10 +154,11 @@ export class ParadigmBuilder {
     g.v_paradigm.declare(this.vid);
   }
 
-  merge(data: Partial<V_Paradigm>) {
+  merge(data: Partial<V_Paradigm>): this {
     const prev = { ...this.g.v_paradigm.get(this.vid) };
     const upd = this.g.v_paradigm.merge(this.vid, data);
     mergeWebsites(upd, prev);
+    return this;
   }
 }
 
@@ -117,10 +170,11 @@ export class PersonBuilder {
     g.v_person.declare(this.vid);
   }
 
-  merge(data: Partial<V_Person>) {
+  merge(data: Partial<V_Person>): this {
     const prev = { ...this.g.v_person.get(this.vid) };
     const upd = this.g.v_person.merge(this.vid, data);
     mergeWebsites(upd, prev);
+    return this;
   }
 }
 
@@ -132,10 +186,11 @@ export class PlatformBuilder {
     g.v_platform.declare(this.vid);
   }
 
-  merge(data: Partial<V_Platform>) {
+  merge(data: Partial<V_Platform>): this {
     const prev = { ...this.g.v_platform.get(this.vid) };
     const upd = this.g.v_platform.merge(this.vid, data);
     mergeWebsites(upd, prev);
+    return this;
   }
 }
 
@@ -147,10 +202,11 @@ export class TypeSysBuilder {
     g.v_tsystem.declare(this.vid);
   }
 
-  merge(data: Partial<V_TypeSystem>) {
+  merge(data: Partial<V_TypeSystem>): this {
     const prev = { ...this.g.v_tsystem.get(this.vid) };
     const upd = this.g.v_tsystem.merge(this.vid, data);
     mergeWebsites(upd, prev);
+    return this;
   }
 }
 

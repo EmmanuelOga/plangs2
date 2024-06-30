@@ -6,6 +6,7 @@ export function define(g: PlangsGraph) {
     websites: [{ kind: "wikipedia", title: "AArch64", href: "https://en.wikipedia.org/wiki/AArch64" }],
   });
 
+  /**/
   g.buildPlatform("platf+arm").merge({
     name: "ARM",
     websites: [
@@ -24,4 +25,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "ARM32", href: "https://en.wikipedia.org/wiki/ARM32" },
     ],
   });
+
+  /**/
 }

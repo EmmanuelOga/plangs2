@@ -8,6 +8,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildTypeSystem("tsys+dependent").merge({
     name: "Dependent",
     websites: [
@@ -15,11 +16,13 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildTypeSystem("tsys+duck").merge({
     name: "Duck",
     websites: [{ title: "Duck Type System", href: "https://en.wikipedia.org/wiki/duck_typing", kind: "wikipedia" }],
   });
 
+  /**/
   g.buildTypeSystem("tsys+dynamic").merge({
     name: "Dynamic",
     websites: [
@@ -27,6 +30,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildTypeSystem("tsys+flow-sensitive").merge({
     name: "Flow-Sensitive",
     websites: [
@@ -38,6 +42,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildTypeSystem("tsys+generic").merge({
     name: "Generic",
     websites: [
@@ -45,6 +50,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildTypeSystem("tsys+gradual").merge({
     name: "Gradual",
     websites: [
@@ -52,6 +58,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildTypeSystem("tsys+hindley-milner").merge({
     name: "Hindley-Milner",
     websites: [
@@ -63,6 +70,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildTypeSystem("tsys+inferred").merge({
     name: "Inferred",
     websites: [
@@ -70,11 +78,13 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildTypeSystem("tsys+latent").merge({
     name: "Latent",
     websites: [{ title: "Latent Type System", href: "https://en.wikipedia.org/wiki/latent_typing", kind: "wikipedia" }],
   });
 
+  /**/
   g.buildTypeSystem("tsys+manifest").merge({
     name: "Manifest",
     websites: [
@@ -82,6 +92,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildTypeSystem("tsys+nominative").merge({
     name: "Nominative",
     websites: [
@@ -93,6 +104,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildTypeSystem("tsys+object-oriented").merge({
     name: "Object-Oriented",
     websites: [
@@ -104,6 +116,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildTypeSystem("tsys+optional").merge({
     name: "Optional",
     websites: [
@@ -111,6 +124,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildTypeSystem("tsys+parametric").merge({
     name: "Parametric",
     websites: [
@@ -122,6 +136,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildTypeSystem("tsys+polymorphic").merge({
     name: "Polymorphic",
     websites: [
@@ -133,21 +148,25 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildTypeSystem("tsys+safe").merge({
     name: "Safe",
     websites: [{ title: "Safe Type System", href: "https://en.wikipedia.org/wiki/type_safety", kind: "wikipedia" }],
   });
 
+  /**/
   g.buildTypeSystem("tsys+static").merge({
     name: "Static",
     websites: [{ title: "Static Type System", href: "https://en.wikipedia.org/wiki/static_typing", kind: "wikipedia" }],
   });
 
+  /**/
   g.buildTypeSystem("tsys+strong").merge({
     name: "Strong",
     websites: [{ title: "Strong Type System", href: "https://en.wikipedia.org/wiki/strong_typing", kind: "wikipedia" }],
   });
 
+  /**/
   g.buildTypeSystem("tsys+structural").merge({
     name: "Structural",
     websites: [
@@ -159,6 +178,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildTypeSystem("tsys+uniqueness").merge({
     name: "Uniqueness",
     websites: [
@@ -166,8 +186,11 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildTypeSystem("tsys+weak").merge({
     name: "Weak",
     websites: [{ title: "Weak Type System", href: "https://en.wikipedia.org/wiki/weak_typing", kind: "wikipedia" }],
   });
+
+  /**/
 }

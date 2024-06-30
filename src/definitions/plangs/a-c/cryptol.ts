@@ -5,4 +5,6 @@ export function define(g: PlangsGraph) {
     name: "Cryptol",
     websites: [{ kind: "wikipedia", title: "Cryptol", href: "https://en.wikipedia.org/wiki/Cryptol" }],
   });
+
+  /**/
 }

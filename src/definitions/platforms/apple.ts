@@ -9,6 +9,7 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildPlatform("platf+mac").merge({
     name: "macOS",
     websites: [
@@ -24,13 +25,17 @@ export function define(g: PlangsGraph) {
     ],
   });
 
+  /**/
   g.buildPlatform("platf+tvos").merge({
     name: "tvOS",
     websites: [{ kind: "wikipedia", title: "tvOS", href: "https://en.wikipedia.org/wiki/TvOS" }],
   });
 
+  /**/
   g.buildPlatform("platf+watchos").merge({
     name: "watchOS",
     websites: [{ kind: "wikipedia", title: "watchOS", href: "https://en.wikipedia.org/wiki/WatchOS" }],
   });
+
+  /**/
 }

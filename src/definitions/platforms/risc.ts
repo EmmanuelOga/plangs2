@@ -6,8 +6,11 @@ export function define(g: PlangsGraph) {
     websites: [{ kind: "wikipedia", title: "RISC OS", href: "https://en.wikipedia.org/wiki/RISC_OS" }],
   });
 
+  /**/
   g.buildPlatform("platf+risc-v").merge({
     name: "RISC-V",
     websites: [{ kind: "wikipedia", title: "RISC-V", href: "https://en.wikipedia.org/wiki/RISC-V" }],
   });
+
+  /**/
 }

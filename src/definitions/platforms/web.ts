@@ -10,4 +10,6 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "browser-based", href: "https://en.wikipedia.org/wiki/Web_application" },
     ],
   });
+
+  /**/
 }
