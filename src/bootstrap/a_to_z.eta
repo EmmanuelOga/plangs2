@@ -5,5 +5,6 @@ export function define(g: PlangsGraph) {
   g.<%= it.builderName %>(<%= bundle.vid %>)<%= bundle.data ? `.merge(${bundle.data})` : '' %><%= bundle.vrelations?.join('') ?? '' %>;
 
   /**/
+
 <% } %>
 }

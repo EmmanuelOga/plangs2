@@ -12,7 +12,6 @@ import type {
 import type { VID_Any } from "../graph/vertex";
 import type { VertexTable } from "../graph/vertex_table";
 import { blank, tidy, toAlphaNum } from "../util";
-import { PLANG_IDS } from "./plang_ids";
 import { parseAll } from "./wikipedia_process";
 
 const Templ = new Eta({ views: __dirname, autoEscape: false });
@@ -42,21 +41,26 @@ async function generateAll() {
 
   console.log(new Date().toISOString());
 
-  genAll(g.v_paradigm, "paradigms", "buildParadigm");
-  genAll(g.v_tsystem, "type_systems", "buildTypeSystem");
-  genAll(g.v_person, "people", "buildPerson", () => "other");
+  generate(g.v_paradigm, "paradigms", "buildParadigm");
+  generate(g.v_tsystem, "type_systems", "buildTypeSystem");
+  generate(g.v_person, "people", "buildPerson");
 
-  genAll(g.v_license, "licenses", "buildLicense", (vid, vertex, name) => {
+  generate(g.v_license, "licenses", "buildLicense", (bundle: AtoZData) => {
+    const vid = JSON.parse(bundle.vid);
+
     if (vid.includes("apache")) return "apache";
     if (vid.includes("bsd")) return "bsd";
     if (vid.includes("free")) return "free";
     if (vid.includes("gnu") || vid.includes("gpl") || /general.?public.?license/i.test(vid)) return "gnu";
     if (vid.includes("mit")) return "mit";
     if (vid.includes("mozilla") || vid.includes("mpl")) return "mozilla";
-    return vertex.websites.length > 1 ? name : "other";
+
+    return defaultCollator(bundle);
   });
 
-  genAll(g.v_platform, "platforms", "buildPlatform", (vid, vertex, name) => {
+  generate(g.v_platform, "platforms", "buildPlatform", (bundle: AtoZData) => {
+    const vid = JSON.parse(bundle.vid);
+
     if (vid.includes("mach") || vid.includes("lisp")) return "other";
 
     if (
@@ -89,36 +93,24 @@ async function generateAll() {
     if (vid.includes("amd")) return "amd";
     if (vid.includes("dos")) return "dos";
 
-    return vertex.websites?.length > 1 ? name : "other";
+    return defaultCollator(bundle);
   });
 
-  genAll(
+  generate(
     g.v_plang,
     "plangs",
     "buildPlang",
-    (vid, vertex, name) => {
+    (bundle: AtoZData) => {
+      const vid = JSON.parse(bundle.vid);
+
       function fileName(): string {
-        if (vid.includes("algol")) return "algol";
-        if (vid.includes("assembly")) return "assembly";
-        if (vid.includes("basic") || vid.includes("xojo") || vid.includes("gambas")) return "basic";
-        if (vid.includes("c99")) return "c";
-        if (vid.includes("cpp")) return "cpp";
-        if (vid.includes("fortran")) return "fortran";
-        if (vid.includes("lisp")) return "lisp";
-        if (vid.includes("modula")) return "modula";
-        if (vid.includes("oberon")) return "oberon";
-        if (vid.includes("pascal") || vid.includes("delphi")) return "pascal";
-        if (vid.includes("py") || vid.includes("cython")) return "python";
-        if (vid.includes("raku")) return "raku";
-        if (vid.includes("ruby")) return "ruby";
-        if (vid.includes("scratch")) return "scratch";
-        if (vid.includes("sql")) return "sql";
-        if (vid.includes("xslt") || vid.includes("xpath") || vid.includes("xquery")) return "xml";
+        if (vid === "pl+c") return "c";
 
-        if (vid.includes("slash")) return "other";
+        for (const [name, group] of Object.entries(PLANG_GROUPS)) {
+          for (const str of group) if (vid.includes(str)) return name;
+        }
 
-        // biome-ignore lint/suspicious/noExplicitAny: Ok here.
-        return PLANG_IDS.has(vid as any) || vertex.websites?.length > 1 ? name : "other";
+        return defaultCollator(bundle);
       }
 
       const f = fileName();
@@ -143,18 +135,50 @@ async function generateAll() {
   console.log("Finished generating definitions.");
 }
 
+const PLANG_GROUPS = {
+  algol: ["algol"],
+  assembly: ["assem"],
+  basic: ["basic", "xojo", "gambas"],
+  c: ["c99"],
+  cpp: ["cpp"],
+  fortran: ["fortran"],
+  lisp: ["lisp"],
+  modula: ["modula"],
+  oberon: ["oberon"],
+  other: ["slash"],
+  pascal: ["pascal", "delphi"],
+  python: ["py", "cython", "jython"],
+  raku: ["raku"],
+  ruby: ["ruby", "rubinius"],
+  scratch: ["scratch"],
+  sql: ["sql"],
+  xml: ["xslt", "xpath", "xquery"],
+};
+
 function defaultMapper(vid: VID_Any, vertex: _T_AnyV_Data): AtoZData {
-  const bundle: AtoZData = { vid: json(vid) };
+  const bundle: AtoZData = { vertex, vid: json(vid) };
   const data = tidy(vertex);
   if (!blank(data)) bundle.data = json(data);
   return bundle;
+}
+
+function defaultCollator(bundle: AtoZData): string {
+  const numWebsites = bundle.vertex.websites?.length ?? 0;
+  const numRelations = bundle.vrelations?.length ?? 0;
+
+  if (numWebsites > 2 && numRelations > 0) {
+    const vid = JSON.parse(bundle.vid);
+    return vid.split("+")[1];
+  }
+
+  return "other";
 }
 
 function plangMapper(g: PlangsGraph, plvid: VID_Plang): AtoZData {
   const vertex = g.v_plang.get(plvid);
   if (!vertex || !vertex.name) throw new Error(`Missing plang data: ${plvid}`);
 
-  const bundle: AtoZData = { vid: json(plvid) };
+  const bundle: AtoZData = { vertex, vid: json(plvid) };
   const data = tidy(vertex);
   if (!blank(data)) bundle.data = json(data);
 
@@ -233,20 +257,20 @@ type _T_AnyV_Data = any;
 
 // a_to_z.eta template data:
 type AtoZData = {
+  vertex: _T_AnyV_Data;
   vid: string; // json vertex id
   data?: string; // json vertex data
   vrelations?: string[]; // json vertex relations
 };
 
-// Return the file name (with no extension) for a given vertex.
-type Collator = (vid: VID_Any, vertex: _T_AnyV_Data, name: string) => string;
 type DataMapper = (vid: VID_Any, vertex: _T_AnyV_Data) => AtoZData;
+type Collator = (bundle: AtoZData) => string;
 
-function genAll(
+function generate(
   vtable: VertexTable<VID_Any, _T_AnyV_Data>,
   basename: string,
   builderName: string,
-  collator: Collator = (vid, vertex, name) => (vertex.websites?.length > 1 ? name : "other"),
+  collator: Collator = defaultCollator,
   mapper: DataMapper = defaultMapper,
   vidWhitelist?: Set<string>,
 ) {
@@ -265,8 +289,7 @@ function genAll(
       continue;
     }
     const bundle = mapper(vid as VID_Any, vertex);
-
-    const file = collator(vid as VID_Any, vertex, vid.split("+")[1]);
+    const file = collator(bundle);
     if (!fileNames.has(file)) fileNames.set(file, []);
     fileNames.get(file)?.push(bundle);
   }
