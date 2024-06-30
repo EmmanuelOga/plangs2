@@ -5085,7 +5085,7 @@ export function define(g: PlangsGraph) {
       ],
       images: [{ kind: "logo", url: "https://upload.wikimedia.org/wikipedia/commons/c/ca/Msharp_logo.png" }],
     })
-    .addImplementations(["pl+c-sharp", "pl+.net-framework", "pl+asp.net", "pl+domain-specific"])
+    .addImplementations(["pl+c-sharp", "pl+.net", "pl+asp.net", "pl+domain-specific"])
     .addParadigms(["para+multi", "para+structured", "para+objects", "para+event", "para+imperative", "para+meta"])
     .addTypeSystems(["tsys+static", "tsys+dynamic"]);
 
@@ -5605,19 +5605,6 @@ export function define(g: PlangsGraph) {
     .addLicenses(["lic+mit"])
     .addParadigms(["para+low", "para+general", "para+imperative", "para+strongly", "para+dec", "para+functional"])
     .addTypeSystems(["tsys+strong"]);
-
-  /**/
-
-  g.buildPlang("pl+ms-visual-studio").merge({
-    name: "Microsoft Visual Studio",
-    websites: [
-      {
-        kind: "wikipedia",
-        title: "Microsoft Visual Studio",
-        href: "https://en.wikipedia.org/wiki/Microsoft_Visual_Studio",
-      },
-    ],
-  });
 
   /**/
 
@@ -9807,7 +9794,7 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".verse"],
     })
-    .addImplementations(["pl+uefn", "pl+visual-studio-code"])
+    .addImplementations(["pl+uefn"])
     .addInfluences(["pl+lambda-calculus"])
     .addPerson("person+simon-peyton-jones", { role: "designer" })
     .addPerson("person+tim-sweeney", { role: "designer" })
@@ -9887,15 +9874,6 @@ export function define(g: PlangsGraph) {
   g.buildPlang("pl+visual-jpp").merge({
     name: "Visual J++",
     websites: [{ kind: "wikipedia", title: "J++", href: "https://en.wikipedia.org/wiki/Visual_J%2B%2B" }],
-  });
-
-  /**/
-
-  g.buildPlang("pl+visual-studio-code").merge({
-    name: "Visual Studio Code",
-    websites: [
-      { kind: "wikipedia", title: "Visual Studio Code", href: "https://en.wikipedia.org/wiki/Visual_Studio_Code" },
-    ],
   });
 
   /**/

@@ -2,25 +2,11 @@ import type { PlangsGraph } from "../../../entities/plangs_graph";
 
 export function define(g: PlangsGraph) {
   g.buildPlang("pl+.net").merge({
-    name: "CLI",
-    websites: [
-      { kind: "wikipedia", title: ".NET", href: "https://en.wikipedia.org/wiki/.NET" },
-      { kind: "wikipedia", title: "CLI", href: "https://en.wikipedia.org/wiki/Common_Language_Infrastructure" },
-    ],
-  });
-
-  /**/
-
-  g.buildPlang("pl+.net-framework").merge({
-    name: ".NET Framework",
-    websites: [{ kind: "wikipedia", title: ".NET Framework", href: "https://en.wikipedia.org/wiki/.NET_Framework" }],
-  });
-
-  /**/
-
-  g.buildPlang("pl+.net-framework-sdk").merge({
     name: ".NET Framework SDK",
     websites: [
+      { kind: "wikipedia", title: ".NET", href: "https://en.wikipedia.org/wiki/.NET" },
+      { kind: "wikipedia", title: ".NET Framework", href: "https://en.wikipedia.org/wiki/.NET_Framework" },
+      { kind: "wikipedia", title: "CLI", href: "https://en.wikipedia.org/wiki/Common_Language_Infrastructure" },
       { kind: "wikipedia", title: ".NET Framework SDK", href: "https://en.wikipedia.org/wiki/.NET_Framework_SDK" },
     ],
   });

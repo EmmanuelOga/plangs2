@@ -545,7 +545,7 @@ function cleanPlatform(platf: string): string | undefined {
 }
 
 const SKIP_KEYS =
-  /^modular|^natural-language|mathematical-notation|machine-code|^concurrent-logic|^object-oriented|^intermediate|green-hills|^list-of|manufacturing|^dope|(logic|functional|intermediate|object-oriented|language)-programming|philco|reference|implementation|regency|scripting-language|space-mission|tail-recursive|lisp-machine/i;
+  /^modular|^natural-language|visual-studio|mathematical-notation|machine-code|^concurrent-logic|^object-oriented|^intermediate|green-hills|^list-of|manufacturing|^dope|(logic|functional|intermediate|object-oriented|language)-programming|philco|reference|implementation|regency|scripting-language|space-mission|tail-recursive|lisp-machine/i;
 
 /**
  * Create a key from the Wikipedia /wiki path, removing anchors and '_(...)' parts.
@@ -615,6 +615,7 @@ function keyFromWikiUrl(wikiUrl: string): string | undefined {
     if (key.includes("common-lisp")) return "common-lisp";
     if (key.includes("c-sharp")) return "c-sharp";
 
+    if (key.startsWith(".net")) return ".net";
     if (key === "common-language-infrastructure") return ".net";
 
     if (key === "apple-ios") return "ios";

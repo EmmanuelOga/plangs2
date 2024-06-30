@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       extensions: [".cs", ".csx"],
     })
     .addDialects(["pl+c-", "pl+c-sharp", "pl+nemerle"])
-    .addImplementations(["pl+c-sharp", "pl+.net", "pl+mono", "pl+win", "pl+.net-framework", "pl+dotgnu"])
+    .addImplementations(["pl+c-sharp", "pl+.net", "pl+mono", "pl+win", "pl+dotgnu"])
     .addInfluences([
       "pl+c",
       "pl+cpp",

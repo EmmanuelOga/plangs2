@@ -98,7 +98,7 @@ export function define(g: PlangsGraph) {
       extensions: [".sb", ".vb"],
     })
     .addDialects(["pl+open", "pl+basic"])
-    .addImplementations(["pl+basic", "pl+.net-framework-sdk", "pl+roslyn", "pl+mono", "pl+ms-visual-studio"])
+    .addImplementations(["pl+basic", "pl+.net", "pl+roslyn", "pl+mono"])
     .addInfluences([
       "pl+basic",
       "pl+darsimco",
