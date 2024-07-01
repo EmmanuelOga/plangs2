@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "../../../entities/plangs_graph";
+import type { PlangsGraph } from "../../../schemas/plangs_graph";
 
 export function define(g: PlangsGraph) {
   g.buildPlang("pl+idris")

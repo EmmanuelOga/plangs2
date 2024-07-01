@@ -26,7 +26,7 @@ import type {
   V_Plang,
   V_Platform,
   V_TypeSystem,
-} from "./schemas";
+} from "./entities";
 
 export class PlangBuilder {
   constructor(

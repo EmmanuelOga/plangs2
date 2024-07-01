@@ -3,8 +3,8 @@
  */
 
 import { Glob } from "bun";
-import type { PlangsGraph } from "../entities/plangs_graph";
-import type { E_Base, Image, Link, Release, V_Plang } from "../entities/schemas";
+import type { PlangsGraph } from "../schemas/plangs_graph";
+import type { E_Base, Image, Link, Release, V_Plang } from "../schemas/entities";
 import type { VID } from "../graph/vertex";
 import { toAlphaNum } from "../util";
 import { WIKIPEDIA_URL, cachePath, type DATA_ATTR, type DATA_TYPE } from "./wikipedia_scraper";

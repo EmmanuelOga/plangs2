@@ -28,7 +28,7 @@ import type {
   V_Plang,
   V_Platform,
   V_TypeSystem,
-} from "./schemas";
+} from "./entities";
 
 /**
  * Collection of related edge and vertex tables.

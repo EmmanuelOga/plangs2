@@ -1,7 +1,7 @@
 import { Fragment, h, render } from "preact";
 import { useMemo, useState } from "preact/hooks";
 import type { Link, VID_Plang, VID_TypeSystem, V_Plang } from "src/entities/schemas";
-import { PlangsGraph } from "../entities/plangs_graph";
+import { PlangsGraph } from "../schemas/plangs_graph";
 import { setToggle, useSet } from "./useSet";
 
 // biome-ignore lint/suspicious/noExplicitAny: let me be.
