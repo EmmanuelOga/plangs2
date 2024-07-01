@@ -1,5 +1,5 @@
 import { Glob } from "bun";
-import { PlangsGraph } from "./schemas/plangs_graph";
+import { PlangsGraph } from "./schemas/graph";
 
 /**
  * Scans the ./entities directory and loads all graph data from `define` functions.

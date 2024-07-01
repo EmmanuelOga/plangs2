@@ -1,5 +1,5 @@
 import { arrayMerge, caller } from "../util";
-import type { PlangsGraph } from "./plangs_graph";
+import type { PlangsGraph } from "./graph";
 import type {
   E_DialectOf,
   E_HasLicense,

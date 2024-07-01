@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "../../../schemas/plangs_graph";
+import type { PlangsGraph } from "../../../schemas/graph";
 
 export function define(g: PlangsGraph) {
   g.buildPlang("pl+processing.js")

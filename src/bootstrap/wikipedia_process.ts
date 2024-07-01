@@ -3,9 +3,9 @@
  */
 
 import { Glob } from "bun";
-import type { PlangsGraph } from "../schemas/plangs_graph";
+import type { PlangsGraph } from "../schemas/graph";
 import type { E_Base, Image, Link, Release, V_Plang } from "../schemas/entities";
-import type { VID } from "../graph/vertex";
+import type { VID } from "../graphs/vertex";
 import { toAlphaNum } from "../util";
 import { WIKIPEDIA_URL, cachePath, type DATA_ATTR, type DATA_TYPE } from "./wikipedia_scraper";
 

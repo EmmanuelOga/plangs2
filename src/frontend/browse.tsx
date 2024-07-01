@@ -2,7 +2,7 @@
 import { Fragment, render, h } from "preact";
 import { useMemo, useState } from "preact/hooks";
 import type { Link, VID_Plang, VID_TypeSystem } from "src/schemas/entities";
-import { PlangsGraph } from "../schemas/plangs_graph";
+import { PlangsGraph } from "../schemas/graph";
 import { setToggle, useSet } from "./useSet";
 import "./browse.css";
 
