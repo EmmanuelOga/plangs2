@@ -1,6 +1,6 @@
 package main
 
-templ Layout(content templ.Component) {
+templ Layout(content templ.Component, stylesheets ...string) {
 	<!DOCTYPE html>
 	<html lang="en-us">
 		<head>
@@ -8,6 +8,9 @@ templ Layout(content templ.Component) {
 			<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			<title>Plangs</title>
 			<link rel="stylesheet" href="index.css"/>
+			for _, stylesheet := range stylesheets {
+				<link rel="stylesheet" href={ stylesheet }/>
+			}
 		</head>
 		<body>
 			<header>
@@ -17,13 +20,11 @@ templ Layout(content templ.Component) {
 					<a href="/browse">Browse</a>
 				</nav>
 			</header>
-
 			<main>
 				@content
 			</main>
-
 			<footer>
-			(C) 2024 Plangs
+				(C) 2024 Plangs
 			</footer>
 		</body>
 	</html>

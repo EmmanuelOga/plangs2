@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/frontend/index.tsx"],
+  "sourcesContent": ["import \"./index.css\";\n\nconsole.log(\"index ok\");"],
+  "mappings": ";;AAEA,UAAQ,IAAI,UAAU;",
+  "names": []
+}

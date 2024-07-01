@@ -1,8 +1,10 @@
-import { Fragment, h, render } from "preact";
+// biome-ignore lint/style/useImportType: h is needed for tsx support.
+import { Fragment, render, h } from "preact";
 import { useMemo, useState } from "preact/hooks";
-import type { Link, VID_Plang, VID_TypeSystem, V_Plang } from "src/entities/schemas";
+import type { Link, VID_Plang, VID_TypeSystem } from "src/schemas/entities";
 import { PlangsGraph } from "../schemas/plangs_graph";
 import { setToggle, useSet } from "./useSet";
+import "./browse.css";
 
 // biome-ignore lint/suspicious/noExplicitAny: let me be.
 type _Any = any;

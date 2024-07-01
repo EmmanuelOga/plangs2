@@ -1,25 +1,26 @@
-/* src/frontend/index.css */
 body {
   font-size: 1rem;
   margin: 0;
   padding: 0;
 }
+
 header {
   background-color: green;
   line-height: 0;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  h1,
-  nav {
+
+  h1, nav {
     color: white;
     padding: 1rem;
   }
 }
+
 main {
   min-height: 80vh;
 }
+
 footer {
   background-color: yellowgreen;
 }
-/*# sourceMappingURL=index.css.map */

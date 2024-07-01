@@ -1,0 +1,25 @@
+#browse-app {
+  display: flex;
+  flex-direction: row;
+
+  & > nav, article {
+    padding: 0 1rem;
+  }
+
+  & > nav {
+    background-color: aliceblue;
+
+    .active {
+      font-weight: bold;
+    }
+  }
+
+  & > article {
+    background-color: lightyellow;
+    flex: 1;
+  }
+}
+
+.something {
+    color: red;
+}

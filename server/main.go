@@ -19,7 +19,7 @@ func main() {
 	})
 
 	app.Get("/browse", func(c *fiber.Ctx) error {
-		return Render(c, Layout(Browse()))
+		return Render(c, Layout(Browse(), "browse.css"))
 	})
 
 	app.Use(NotFoundMiddleware)
