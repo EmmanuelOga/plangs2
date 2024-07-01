@@ -31,19 +31,13 @@ templ Layout(content templ.Component, stylesheets ...string) {
 }
 
 templ Search() {
-	<article id="search">
-		<form action="/search" method="get">
-			<input type="text" name="q" placeholder="Search..."/>
-			<button type="submit">Search</button>
-		</form>
-	</article>
+	<div id="search">TODO</div>
+	<script src="search.js"></script>
 }
 
 templ Browse() {
-	<article id="browse">
-		<div id="browse-app"></div>
-		<script src="browse.js"></script>
-	</article>
+	<div id="browse"></div>
+	<script src="browse.js"></script>
 }
 
 templ NotFound() {

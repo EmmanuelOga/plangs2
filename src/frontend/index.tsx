@@ -1,3 +1,3 @@
 import "./index.css";
 
-console.log("index ok");
+console.log("index: TODO");

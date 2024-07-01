@@ -1,5 +1,5 @@
 (() => {
   // src/frontend/index.tsx
-  console.log("index ok");
+  console.log("index: TODO");
 })();
 //# sourceMappingURL=index.js.map

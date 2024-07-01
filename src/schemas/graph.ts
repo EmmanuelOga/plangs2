@@ -16,6 +16,7 @@ import type {
   E_PlangPara,
   E_PlangTsys,
   E_SupportsPlatf,
+  Image,
   VID_License,
   VID_Paradigm,
   VID_Person,
@@ -81,5 +82,13 @@ export class PlangsGraph extends Graph {
 
   buildTypeSystem(vid: VID_TypeSystem) {
     return new TypeSysBuilder(this, vid);
+  }
+
+  // Convenience methods.
+
+  plangLogo(vid: VID_Plang): Image | undefined {
+    const pl = this.v_plang.get(vid);
+    if (!pl?.images) return;
+    for (const img of pl.images) if (img.kind === "logo") return img
   }
 }

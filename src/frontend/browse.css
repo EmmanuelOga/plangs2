@@ -1,12 +1,13 @@
-#browse-app {
+#browse {
   display: flex;
   flex-direction: row;
 
-  & > nav, article {
+  .browseContent,
+  .browseNav {
     padding: 0 1rem;
   }
 
-  & > nav {
+  .browseNav {
     background-color: aliceblue;
 
     .active {
@@ -14,12 +15,34 @@
     }
   }
 
-  & > article {
+  .browseContent {
     background-color: lightyellow;
     flex: 1;
   }
-}
 
-.something {
-    color: red;
+  .browseTable {
+    border-collapse: collapse;
+
+    th,
+    td {
+      border: 1px solid black;
+      padding: 0.5rem;
+    }
+  }
+
+  .lang-logo {
+    width: 4rem;
+  }
+
+  .lang-ext {
+    background-color: yellowgreen;
+    border-radius: .25rem;
+    border: 1px solid black;
+    color: white;
+    display: inline-block;
+    margin: 0 .25rem;
+    min-width: 1.75rem;
+    padding: .2rem;
+    text-align: center;
+  }
 }

@@ -83,7 +83,7 @@ func Search() templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<article id=\"search\"><form action=\"/search\" method=\"get\"><input type=\"text\" name=\"q\" placeholder=\"Search...\"> <button type=\"submit\">Search</button></form></article>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"search\">TODO</div><script src=\"search.js\"></script>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -109,7 +109,7 @@ func Browse() templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<article id=\"browse\"><div id=\"browse-app\"></div><script src=\"browse.js\"></script></article>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"browse\"></div><script src=\"browse.js\"></script>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
