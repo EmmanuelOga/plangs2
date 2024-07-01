@@ -1,4 +1,4 @@
-import type { PlangsGraph } from '<%= '../'.repeat(it.depth) %>schemas/plangs_graph';
+import type { PlangsGraph } from '<%= '../'.repeat(it.depth) %>schemas/graph';
 
 export function define(g: PlangsGraph) {
 <% for (const bundle of it.data) { %>
