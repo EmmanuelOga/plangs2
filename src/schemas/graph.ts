@@ -91,4 +91,14 @@ export class PlangsGraph extends Graph {
     if (!pl?.images) return;
     for (const img of pl.images) if (img.kind === "logo") return img
   }
+
+  *typeSystems(): Generator<[VID_TypeSystem, string], void, unknown>{
+    for (const [vid, data] of this.v_tsystem) {
+      if (data.name === undefined) {
+        console.error(`TypeSystem ${vid} has no name`);
+        continue
+      }
+      yield [vid, data.name];
+    }
+  }
 }

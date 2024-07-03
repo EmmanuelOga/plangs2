@@ -83,7 +83,7 @@ export class VertexTable<T_VID extends string, T_VData> implements Iterable<[T_V
   }
 
   loadJSON(vdata: Record<string, T_VData>) {
-    for (const [vid, data] of Object.entries(vdata)) {
+    for (const [vid, data] of Object.entries(vdata).sort()) {
       this.set(vid as T_VID, data);
     }
   }

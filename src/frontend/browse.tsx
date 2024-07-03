@@ -1,75 +1,56 @@
-// biome-ignore lint/style/useImportType: h is needed for JSX.
+import "preact/debug";
+
 import { Fragment, h, render } from "preact";
-import { PlangsGraph } from "../schemas/graph";
+import { useContext, useEffect, useState } from "preact/hooks";
+
 import { OptionsFacet } from "./components/facets/options";
+import { PlangsTable } from "./components/plangs_table";
+import { Plangs, loadPlangs, type PlangsContext } from "./state/plangsContext";
 
 import "./browse.css";
 
-// biome-ignore lint/suspicious/noExplicitAny: let me be.
-type _Any = any;
+function Browse() {
+  const pg = useContext(Plangs);
 
-function Browse({ pg }: { pg: PlangsGraph }) {
-  const rows: h.JSX.Element[] = [];
-
-  for (const [vid, pl] of pg.v_plang) {
-    const logo = pg.plangLogo(vid);
-    rows.push(
-      <tr>
-        <td>{logo ? <img src={logo.url} alt={pl.name} class="lang-logo" /> : null}</td>
-        <td>{pl.name}</td>
-        <td>
-          {pl.extensions?.map((x) => (
-            <span key={x} class="lang-ext">
-              {x}
-            </span>
-          ))}
-        </td>
-      </tr>,
-    );
-  }
+  if (!pg) return <div>Loading...</div>;
+  if (pg === "error") return <div>Sorry, there's been an error loading the data.</div>;
 
   return (
     <>
       <nav class="browseNav">
-        <OptionsFacet title="Type Systems" options={[]} />
+        <OptionsFacet
+          title="Type System"
+          options={[...pg.typeSystems()]}
+          onChange={(f) => console.log("update table!", f)}
+        />
       </nav>
 
       <article class="browseContent">
-        <table class="browseTable">
-          <thead>
-            <tr>
-              <th>Logo</th>
-              <th>Lang</th>
-              <th>Extensions</th>
-            </tr>
-          </thead>
-          <tbody>{rows}</tbody>
-        </table>
+        <PlangsTable />
       </article>
     </>
   );
 }
 
-class Plangs {
-  constructor(readonly pg: PlangsGraph) {}
+function App() {
+  const [pg, setPg] = useState<PlangsContext>();
+
+  useEffect(() => {
+    if (pg) return;
+    loadPlangs().then((pg) => setPg(pg));
+  });
+
+  return (
+    <Plangs.Provider value={pg}>
+      <Browse />
+    </Plangs.Provider>
+  );
 }
 
-async function browse() {
+function start() {
   const elem = document.getElementById("browse");
   if (!elem) throw new Error("Element not found: browse-app");
-
-  try {
-    const req = await fetch("/plangs.json");
-    const plangData = await req.json();
-
-    const pg = new PlangsGraph();
-    pg.loadJSON(plangData);
-    console.log("PlangsGraph:", pg.numVertices, "vertices", pg.numEdges, "edges");
-
-    render(<Browse pg={pg} />, elem);
-  } catch (e) {
-    console.error(e);
-  }
+  render(<App />, elem);
 }
 
-browse();
+start();
