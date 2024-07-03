@@ -12,4 +12,9 @@
         display: block;
         margin-bottom: 0.5rem;
     }
+
+    .options {
+        max-height: 25rem;
+        overflow: scroll;
+    }
 }

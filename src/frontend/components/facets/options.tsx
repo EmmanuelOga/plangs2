@@ -23,10 +23,6 @@ export class Filter {
   toggleEnabled(): Filter {
     return new Filter(!this.enabled, this.mode, this.values);
   }
-
-  checksum(): string {
-    return `${this.enabled}~${this.mode}~${this.values.version}`;
-  }
 }
 
 export type OptionsFacetProps = {
@@ -58,9 +54,11 @@ export function OptionsFacet({ title, options, onChange }: OptionsFacetProps) {
   const inputs = () => {
     const out: h.JSX.Element[] = [];
     out.push(
-      <div>
+      <div style="border: 1px solid gray; margin: .25rem; border-radius: .25rem;">
         {input("Enabled", "enabled", "radio", filter.enabled, tgEnabled)}
         {input("Disabled", "enabled", "radio", !filter.enabled, tgEnabled)}
+      </div>,
+      <div style="border: 1px solid gray; margin: .25rem; border-radius: .25rem;">
         {input("Any of", "mode", "radio", filter.mode === "any-of", () => tgMode("any-of"))}
         {input("All of", "mode", "radio", filter.mode === "all-of", () => tgMode("all-of"))}
       </div>,
@@ -76,7 +74,7 @@ export function OptionsFacet({ title, options, onChange }: OptionsFacetProps) {
       <div class="title" onClick={tgExpand} onKeyDown={tgExpand}>
         {title}
       </div>
-      {expanded ? inputs() : null}
+      <div class="options">{expanded ? inputs() : null}</div>
     </div>
   );
 }

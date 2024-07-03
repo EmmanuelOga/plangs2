@@ -5,7 +5,8 @@ import { useContext, useEffect, useState } from "preact/hooks";
 
 import { OptionsFacet } from "./components/facets/options";
 import { PlangsTable } from "./components/plangs_table";
-import { Plangs, loadPlangs, type PlangsContext } from "./state/plangsContext";
+import { Plangs, type PlangsContext, loadPlangs } from "./state/plangs_context";
+import { usePlangsQuery } from "./state/plangs_query";
 
 import "./browse.css";
 
@@ -15,18 +16,20 @@ function Browse() {
   if (!pg) return <div>Loading...</div>;
   if (pg === "error") return <div>Sorry, there's been an error loading the data.</div>;
 
+  const [plangsQuery, update] = usePlangsQuery(pg);
+
   return (
     <>
       <nav class="browseNav">
         <OptionsFacet
           title="Type System"
           options={[...pg.typeSystems()]}
-          onChange={(f) => console.log("update table!", f)}
+          onChange={(filter) => update({ key: "typeSystems", filter })}
         />
       </nav>
 
       <article class="browseContent">
-        <PlangsTable />
+        <PlangsTable pl_ids={plangsQuery.pl_ids} />
       </article>
     </>
   );
