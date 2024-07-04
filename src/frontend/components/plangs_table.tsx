@@ -36,7 +36,9 @@ export function PlangsTable({ pl_ids, allRowsCount }: PlangsTableProps) {
 
   return (
     <table class="plangsTable">
-      <caption>Showing {pl_ids.length} of {allRowsCount} languages.</caption>
+      <caption>
+        Showing {pl_ids.length} of {allRowsCount} languages.
+      </caption>
       <thead>
         <tr>
           <th>Logo</th>

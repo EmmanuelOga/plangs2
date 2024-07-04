@@ -20,6 +20,10 @@ function createFilter(options: string[]): Filter {
   };
 }
 
+export function* filterValues(filter: Filter): Generator<string> {
+  for (const [id, enabled] of filter.values) if (enabled) yield id;
+}
+
 export type OptionsFacetProps = {
   title: string;
   options: [string, string][];

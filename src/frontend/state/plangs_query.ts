@@ -1,7 +1,7 @@
 import { useReducer } from "preact/hooks";
 import type { VID_Plang, VID_TypeSystem } from "../../schemas/entities";
 import type { PlangsGraph } from "../../schemas/graph";
-import type { Filter } from "../components/facets/options";
+import { filterValues, type Filter } from "../components/facets/options";
 import { isEqual } from "lodash-es";
 import { merge } from "node_modules/cheerio/lib/esm/static";
 import { mergeInto } from "src/util";
@@ -20,13 +20,10 @@ type PlangsQueryAction = {
 };
 
 // TODO: memoize this.
-function byTSys(pg: PlangsGraph, filter: Filter): Set<VID_Plang> {
+function byTSys(pg: PlangsGraph, values: Iterable<VID_TypeSystem>, mode: Filter["valuesMode"]): Set<VID_Plang> {
   const result = new Set<VID_Plang>();
-  const values = [...filter.values.entries()].filter(([, v]) => v).map(([k]) => k);
-  if (values.length > 0) {
-    for (const vid of pg.v_plang.keys()) {
-      if (pg.plangHasTypeSystems(vid, filter.valuesMode, values)) result.add(vid);
-    }
+  for (const vid of pg.v_plang.keys()) {
+    if (pg.plangHasTypeSystems(vid, mode, values)) result.add(vid);
   }
   return result;
 }
@@ -37,16 +34,30 @@ function filterPlangs(pg: PlangsGraph, filters: Map<Filters, Filter>): VID_Plang
   const includes = new Set<VID_Plang>();
   const excludes = new Set<VID_Plang>();
 
+  let useIncludes = false;
+  let useExcludes = false;
+
   const ftTsys = filters.get("typeSystems");
   if (ftTsys?.enabled) {
-    mergeInto(ftTsys.filterMode === "include" ? includes : excludes, byTSys(pg, ftTsys));
+    const tsysVals = [...filterValues(ftTsys)] as VID_TypeSystem[];
+    if (tsysVals.length > 0) {
+      if (ftTsys.filterMode === "include") {
+        useIncludes = true;
+        mergeInto(includes, byTSys(pg, tsysVals, ftTsys.valuesMode));
+      } else {
+        useExcludes = true;
+        mergeInto(excludes, byTSys(pg, tsysVals, ftTsys.valuesMode));
+      }
+    }
   }
 
-  console.log(`Using: ${includes.size} includes, ${excludes.size} excludes`)
+  console.log(`Using: ${includes.size} includes, ${excludes.size} excludes`);
 
   for (const vid of pg.v_plang.keys()) {
-    if (excludes.size > 0 && excludes.has(vid)) continue;
-    if (includes.size > 0 && !includes.has(vid)) continue;
+    if (!pg.plangLogo(vid)) continue;
+
+    if (useExcludes && excludes.has(vid)) continue;
+    if (useIncludes && !includes.has(vid)) continue;
     ids.push(vid);
   }
 

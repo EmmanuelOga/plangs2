@@ -102,7 +102,7 @@ export class PlangsGraph extends Graph {
     }
   }
 
-  plangHasTypeSystems(vid: VID_Plang, mode: "all-of" | "any-of", values: Iterable<string>): boolean {
+  plangHasTypeSystems(vid: VID_Plang, mode: "all-of" | "any-of", values: Iterable<VID_TypeSystem>): boolean {
     const pl_tsys = this.e_plang_tsys.adjacentFrom(vid);
     if (mode === "all-of") {
       for (const ts of values) {

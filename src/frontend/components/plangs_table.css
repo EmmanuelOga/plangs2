@@ -1,25 +1,30 @@
 .plangsTable {
     border-collapse: collapse;
+    width: 100%;
 
     th,
     td {
         border: 1px solid black;
         padding: 0.5rem;
     }
-}
 
-.lang-logo {
-    width: 4rem;
-}
+    td:last-child {
+        width: 100%;
+    }
 
-.lang-ext {
-    background-color: yellowgreen;
-    border-radius: .25rem;
-    border: 1px solid black;
-    color: white;
-    display: inline-block;
-    margin: 0 .25rem;
-    min-width: 1.75rem;
-    padding: .2rem;
-    text-align: center;
+    .lang-logo {
+        width: 4rem;
+    }
+
+    .lang-ext {
+        background-color: yellowgreen;
+        border-radius: .25rem;
+        border: 1px solid black;
+        color: white;
+        display: inline-block;
+        margin: 0 .25rem;
+        min-width: 1.75rem;
+        padding: .2rem;
+        text-align: center;
+    }
 }
