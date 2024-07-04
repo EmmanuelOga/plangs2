@@ -6,7 +6,12 @@ import { useContext } from "preact/hooks";
 import type { VID_Plang } from "src/schemas/entities";
 import { Plangs } from "../state/plangs_context";
 
-export function PlangsTable({ pl_ids }: { pl_ids: VID_Plang[] }) {
+type PlangsTableProps = {
+  pl_ids: VID_Plang[];
+  allRowsCount: number;
+};
+
+export function PlangsTable({ pl_ids, allRowsCount }: PlangsTableProps) {
   const pg = useContext(Plangs);
   if (!pg || pg === "error") return <></>;
 
@@ -31,6 +36,7 @@ export function PlangsTable({ pl_ids }: { pl_ids: VID_Plang[] }) {
 
   return (
     <table class="plangsTable">
+      <caption>Showing {pl_ids.length} of {allRowsCount} languages.</caption>
       <thead>
         <tr>
           <th>Logo</th>

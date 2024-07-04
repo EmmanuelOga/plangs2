@@ -29,7 +29,7 @@ function Browse() {
       </nav>
 
       <article class="browseContent">
-        <PlangsTable pl_ids={plangsQuery.pl_ids} />
+        <PlangsTable pl_ids={plangsQuery.pl_ids} allRowsCount={pg.v_plang.size} />
       </article>
     </>
   );

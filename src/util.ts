@@ -120,3 +120,7 @@ export function arrayMerge<T>(
     }
   }
 }
+
+export function mergeInto<T>(target: Set<T>, newData: Set<T>) {
+  for (const elem of newData) target.add(elem);
+}

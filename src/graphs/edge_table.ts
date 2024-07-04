@@ -122,14 +122,12 @@ export class EdgeTable<VID_From extends string, VID_To extends string, T_EdgeDat
     return this.#edge.size;
   }
 
-  *adjacentFrom(from: VID_From): Generator<string, void, undefined> {
-    if (!this.fromTable.validParams(from)) throw new Error(`Invalid id: ${from}.`);
-    yield* this.#adjFrom.get(from) ?? [];
+  adjacentFrom(from: VID_From): Set<VID_To> {
+    return (this.#adjFrom.get(from) ?? new Set()) as Set<VID_To>;
   }
 
-  *adjacentTo(to: VID_To): Generator<string, void, undefined> {
-    if (!this.toTable.validParams(to)) throw new Error(`Invalid id: ${to}.`);
-    yield* this.#adjTo.get(to) ?? [];
+  adjacentTo(to: VID_To): Set<VID_From> {
+    return (this.#adjTo.get(to) ?? new Set()) as Set<VID_From>;
   }
 
   toJSON(): Record<string, T_EdgeData> {

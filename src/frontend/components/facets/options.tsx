@@ -2,27 +2,22 @@
 import { h } from "preact";
 import { useEffect, useState } from "preact/hooks";
 
-import { VSet } from "../../state/vset";
 import "./options.css";
 
-export class Filter {
-  constructor(
-    public enabled = false,
-    public mode: "all-of" | "any-of" = "any-of",
-    public values = new VSet<string>(),
-  ) {}
+export type Filter = {
+  enabled: boolean;
+  filterMode: "include" | "exclude";
+  valuesMode: "all-of" | "any-of";
+  values: Map<string, boolean>;
+};
 
-  toggleMode(mode: Filter["mode"]): Filter {
-    return new Filter(this.enabled, mode, this.values);
-  }
-
-  toggleValue(id: string): Filter {
-    return new Filter(this.enabled, this.mode, this.values.toggle(id));
-  }
-
-  toggleEnabled(): Filter {
-    return new Filter(!this.enabled, this.mode, this.values);
-  }
+function createFilter(options: string[]): Filter {
+  return {
+    enabled: true,
+    filterMode: "include",
+    valuesMode: "any-of",
+    values: new Map<string, boolean>(options.map((id) => [id, false])),
+  };
 }
 
 export type OptionsFacetProps = {
@@ -32,13 +27,14 @@ export type OptionsFacetProps = {
 };
 
 export function OptionsFacet({ title, options, onChange }: OptionsFacetProps) {
-  const [expanded, setExpanded] = useState(false);
-  const [filter, setFilter] = useState(new Filter());
-
+  const [expanded, setExpanded] = useState(true);
   const tgExpand = () => setExpanded(!expanded);
-  const tgEnabled = () => setFilter(filter.toggleEnabled());
-  const tgMode = (mode: Filter["mode"]) => setFilter(filter.toggleMode(mode));
-  const tgVal = (id: string) => setFilter(filter.toggleValue(id));
+
+  const [filter, setFilter] = useState<Filter>(createFilter(options.map(([id]) => id)));
+  const tgEnabled = () => setFilter({ ...filter, enabled: !filter.enabled });
+  const tgFilterMode = (mode: Filter["filterMode"]) => setFilter({ ...filter, filterMode: mode });
+  const tgValuesMode = (mode: Filter["valuesMode"]) => setFilter({ ...filter, valuesMode: mode });
+  const tgValue = (id: string) => setFilter({ ...filter, values: filter.values.set(id, !filter.values.get(id)) });
 
   useEffect(() => {
     onChange?.(filter);
@@ -59,12 +55,16 @@ export function OptionsFacet({ title, options, onChange }: OptionsFacetProps) {
         {input("Disabled", "enabled", "radio", !filter.enabled, tgEnabled)}
       </div>,
       <div style="border: 1px solid gray; margin: .25rem; border-radius: .25rem;">
-        {input("Any of", "mode", "radio", filter.mode === "any-of", () => tgMode("any-of"))}
-        {input("All of", "mode", "radio", filter.mode === "all-of", () => tgMode("all-of"))}
+        {input("Include", "filterMode", "radio", filter.filterMode === "include", () => tgFilterMode("include"))}
+        {input("Exclude", "filterMode", "radio", filter.filterMode === "exclude", () => tgFilterMode("exclude"))}
+      </div>,
+      <div style="border: 1px solid gray; margin: .25rem; border-radius: .25rem;">
+        {input("Any of", "valuesMode", "radio", filter.valuesMode === "any-of", () => tgValuesMode("any-of"))}
+        {input("All of", "valuesMode", "radio", filter.valuesMode === "all-of", () => tgValuesMode("all-of"))}
       </div>,
     );
     for (const [id, name] of options) {
-      out.push(input(name, id, "checkbox", filter.values.has(id), () => tgVal(id)));
+      out.push(input(name, id, "checkbox", !!filter.values.get(id), () => tgValue(id)));
     }
     return out;
   };
