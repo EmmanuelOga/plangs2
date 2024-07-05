@@ -46,7 +46,13 @@ export function OptionsFacet({ title, options, onChange }: OptionsFacetProps) {
 
   const input = (label: string, name: string, type: "radio" | "checkbox", checked: boolean, action: () => void) => (
     <label>
-      <input {...{ name, type, checked }} onClick={action} onKeyDown={action} />
+      <input
+        {...{ name, type, checked }}
+        onClick={action}
+        onKeyPress={(e) => {
+          if (e.key === "Enter" || e.key === " ") action();
+        }}
+      />
       {label}
     </label>
   );
