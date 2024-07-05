@@ -1,7 +1,8 @@
+// biome-ignore lint/style/useImportType: h is not just a type, is used for JSX rendering.
 import { h, render } from "preact";
 import { useEffect, useState } from "preact/hooks";
 
-import { Plangs, loadPlangs, type PlangsContext } from "./state/plangs_context";
+import { Plangs, loadPlangs, type PlangsContext } from "./state/context";
 
 function ContextWrapper({ children }) {
   const [pg, setPg] = useState<PlangsContext>();

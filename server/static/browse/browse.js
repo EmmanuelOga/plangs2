@@ -1297,7 +1297,7 @@
     }
   };
 
-  // src/frontend/shared/state/plangs_context.ts
+  // src/frontend/shared/state/context.ts
   var Plangs = G(void 0);
   async function loadPlangs() {
     try {
@@ -1373,7 +1373,7 @@
     return /* @__PURE__ */ _("div", { class: "options-facet" }, /* @__PURE__ */ _("div", { class: "title", onClick: tgExpand, onKeyDown: tgExpand }, title), /* @__PURE__ */ _("div", { class: "options" }, expanded ? inputs() : null));
   }
 
-  // src/frontend/browse/components/plangs_table.tsx
+  // src/frontend/browse/components/table/plangs.tsx
   function PlangsTable({ pl_ids, allRowsCount }) {
     const pg = P2(Plangs);
     if (!pg || pg === "error")
@@ -2417,7 +2417,7 @@
   }
   var isEqual_default = isEqual;
 
-  // src/frontend/browse/state/plangs_query.ts
+  // src/frontend/browse/state/query.ts
   function byTSys(pg, values, mode) {
     const result = /* @__PURE__ */ new Set();
     for (const vid of pg.v_plang.keys()) {

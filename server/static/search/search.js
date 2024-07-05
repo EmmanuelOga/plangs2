@@ -1272,7 +1272,7 @@
     }
   };
 
-  // src/frontend/shared/state/plangs_context.ts
+  // src/frontend/shared/state/context.ts
   var Plangs = G(void 0);
   async function loadPlangs() {
     try {

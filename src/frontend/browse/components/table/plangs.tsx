@@ -1,10 +1,11 @@
 // biome-ignore lint/style/useImportType: h is needed for JSX.
 import { Fragment, h } from "preact";
 
-import "./plangs_table.css";
 import { useContext } from "preact/hooks";
 import type { VID_Plang } from "src/schemas/entities";
-import { Plangs } from "../../shared/state/plangs_context";
+import { Plangs } from "../../../shared/state/context";
+
+import "./plangs.css";
 
 type PlangsTableProps = {
   pl_ids: VID_Plang[];

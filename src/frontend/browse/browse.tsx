@@ -4,10 +4,10 @@ import { Fragment, h } from "preact";
 import { useContext } from "preact/hooks";
 
 import { start } from "../shared/start";
-import { Plangs } from "../shared/state/plangs_context";
+import { Plangs } from "../shared/state/context";
 import { OptionsFacet } from "./components/facets/options";
-import { PlangsTable } from "./components/plangs_table";
-import { usePlangsQuery } from "./state/plangs_query";
+import { PlangsTable } from "./components/table/plangs";
+import { usePlangsQuery } from "./state/query";
 
 import "./browse.css";
 
