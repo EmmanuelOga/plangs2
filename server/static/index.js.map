@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../src/frontend/index.tsx"],
-  "sourcesContent": ["import \"./index.css\";\n\nconsole.log(\"index: TODO\");\n"],
-  "mappings": ";;AAEA,UAAQ,IAAI,aAAa;",
-  "names": []
-}

@@ -1,5 +1,5 @@
 import { createContext } from "preact";
-import { PlangsGraph } from "../../schemas/graph";
+import { PlangsGraph } from "../../../schemas/graph";
 
 /**
  * The result of loading a plangs graph: undefined while the graph has not been loaded.

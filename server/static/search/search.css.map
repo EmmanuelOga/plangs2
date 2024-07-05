@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/frontend/search/search.css"],
+  "sourcesContent": ["#search {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n\n    .search-label {\n        display: flex;\n        margin: 1rem;\n        padding: 1em;\n        width: 20rem;\n        border-radius: 1rem;\n        background-color: aliceblue;\n\n        input {\n            flex: 1;\n            margin-left: .5rem;\n            display: inline-block;\n        }\n    }\n\n    #search-results {\n        border: 1px solid #eee;\n        min-width: 20rem;\n        margin: 1rem;\n        padding: 1em;\n    }\n\n}"],
+  "mappings": ";AAAA,CAAC;AACG,WAAS;AACT,kBAAgB;AAChB,eAAa;AAEb,GAAC;AACG,aAAS;AACT,YAAQ;AACR,aAAS;AACT,WAAO;AACP,mBAAe;AACf,sBAAkB;AAElB;AACI,YAAM;AACN,mBAAa;AACb,eAAS;AACb;AACJ;AAEA,GAAC;AACG,YAAQ,IAAI,MAAM;AAClB,eAAW;AACX,YAAQ;AACR,aAAS;AACb;AAEJ;",
+  "names": []
+}

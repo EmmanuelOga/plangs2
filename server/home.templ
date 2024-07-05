@@ -1,16 +1,13 @@
 package main
 
-templ Layout(content templ.Component, stylesheets ...string) {
+templ Layout(content templ.Component) {
 	<!DOCTYPE html>
 	<html lang="en-us">
 		<head>
 			<meta charset="utf-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			<title>Plangs</title>
-			<link rel="stylesheet" href="index.css"/>
-			for _, stylesheet := range stylesheets {
-				<link rel="stylesheet" href={ stylesheet }/>
-			}
+			<link rel="stylesheet" href="/shared/index.css"/>
 		</head>
 		<body>
 			<header>
@@ -31,13 +28,15 @@ templ Layout(content templ.Component, stylesheets ...string) {
 }
 
 templ Search() {
-	<div id="search">TODO</div>
-	<script src="search.js"></script>
+	<link rel="stylesheet" href="/search/search.css"/>
+	<div id="search"></div>
+	<script src="/search/search.js"></script>
 }
 
 templ Browse() {
+	<link rel="stylesheet" href="/browse/browse.css"/>
 	<div id="browse"></div>
-	<script src="browse.js"></script>
+	<script src="/browse/browse.js"></script>
 }
 
 templ NotFound() {

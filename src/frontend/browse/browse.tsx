@@ -1,11 +1,12 @@
 import "preact/debug";
 
-import { Fragment, h, render } from "preact";
-import { useContext, useEffect, useState } from "preact/hooks";
+import { Fragment, h } from "preact";
+import { useContext } from "preact/hooks";
 
+import { start } from "../shared/start";
+import { Plangs } from "../shared/state/plangs_context";
 import { OptionsFacet } from "./components/facets/options";
 import { PlangsTable } from "./components/plangs_table";
-import { Plangs, type PlangsContext, loadPlangs } from "./state/plangs_context";
 import { usePlangsQuery } from "./state/plangs_query";
 
 import "./browse.css";
@@ -35,25 +36,4 @@ function Browse() {
   );
 }
 
-function App() {
-  const [pg, setPg] = useState<PlangsContext>();
-
-  useEffect(() => {
-    if (pg) return;
-    loadPlangs().then((pg) => setPg(pg));
-  });
-
-  return (
-    <Plangs.Provider value={pg}>
-      <Browse />
-    </Plangs.Provider>
-  );
-}
-
-function start() {
-  const elem = document.getElementById("browse");
-  if (!elem) throw new Error("Element not found: browse-app");
-  render(<App />, elem);
-}
-
-start();
+start("browse", <Browse />);

@@ -3,7 +3,7 @@ import { useReducer } from "preact/hooks";
 import { addAll, hasAll, hasAny } from "src/util";
 import type { VID_Plang, VID_TypeSystem } from "../../schemas/entities";
 import type { PlangsGraph } from "../../schemas/graph";
-import type { Filter } from "../components/facets/options";
+import type { Filter } from "../browse/components/facets/options";
 
 type Filters = "typeSystems";
 
