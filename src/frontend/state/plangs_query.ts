@@ -1,10 +1,9 @@
+import { isEqual } from "lodash-es";
 import { useReducer } from "preact/hooks";
+import { addAll, hasAll, hasAny } from "src/util";
 import type { VID_Plang, VID_TypeSystem } from "../../schemas/entities";
 import type { PlangsGraph } from "../../schemas/graph";
-import { filterValues, type Filter } from "../components/facets/options";
-import { isEqual } from "lodash-es";
-import { merge } from "node_modules/cheerio/lib/esm/static";
-import { mergeInto } from "src/util";
+import type { Filter } from "../components/facets/options";
 
 type Filters = "typeSystems";
 
@@ -20,10 +19,11 @@ type PlangsQueryAction = {
 };
 
 // TODO: memoize this.
-function byTSys(pg: PlangsGraph, values: Iterable<VID_TypeSystem>, mode: Filter["valuesMode"]): Set<VID_Plang> {
+function byTSys(pg: PlangsGraph, values: Set<string>, mode: Filter["valuesMode"]): Set<VID_Plang> {
   const result = new Set<VID_Plang>();
   for (const vid of pg.v_plang.keys()) {
-    if (pg.plangHasTypeSystems(vid, mode, values)) result.add(vid);
+    const tsys = pg.e_plang_tsys.adjacentFrom(vid);
+    if (mode === "all-of" ? hasAll(tsys, values) : hasAny(tsys, values)) result.add(vid);
   }
   return result;
 }
@@ -38,24 +38,17 @@ function filterPlangs(pg: PlangsGraph, filters: Map<Filters, Filter>): VID_Plang
   let useExcludes = false;
 
   const ftTsys = filters.get("typeSystems");
-  if (ftTsys?.enabled) {
-    const tsysVals = [...filterValues(ftTsys)] as VID_TypeSystem[];
-    if (tsysVals.length > 0) {
-      if (ftTsys.filterMode === "include") {
-        useIncludes = true;
-        mergeInto(includes, byTSys(pg, tsysVals, ftTsys.valuesMode));
-      } else {
-        useExcludes = true;
-        mergeInto(excludes, byTSys(pg, tsysVals, ftTsys.valuesMode));
-      }
+  if (ftTsys?.enabled && ftTsys.values.size > 0) {
+    if (ftTsys.filterMode === "include") {
+      useIncludes = true;
+      addAll(includes, byTSys(pg, ftTsys.values, ftTsys.valuesMode));
+    } else {
+      useExcludes = true;
+      addAll(excludes, byTSys(pg, ftTsys.values, ftTsys.valuesMode));
     }
   }
 
-  console.log(`Using: ${includes.size} includes, ${excludes.size} excludes`);
-
   for (const vid of pg.v_plang.keys()) {
-    if (!pg.plangLogo(vid)) continue;
-
     if (useExcludes && excludes.has(vid)) continue;
     if (useIncludes && !includes.has(vid)) continue;
     ids.push(vid);

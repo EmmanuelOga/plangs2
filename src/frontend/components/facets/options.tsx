@@ -2,27 +2,15 @@
 import { h } from "preact";
 import { useEffect, useState } from "preact/hooks";
 
+import { toggle } from "src/util";
 import "./options.css";
 
 export type Filter = {
   enabled: boolean;
   filterMode: "include" | "exclude";
   valuesMode: "all-of" | "any-of";
-  values: Map<string, boolean>;
+  values: Set<string>;
 };
-
-function createFilter(options: string[]): Filter {
-  return {
-    enabled: true,
-    filterMode: "include",
-    valuesMode: "any-of",
-    values: new Map<string, boolean>(options.map((id) => [id, false])),
-  };
-}
-
-export function* filterValues(filter: Filter): Generator<string> {
-  for (const [id, enabled] of filter.values) if (enabled) yield id;
-}
 
 export type OptionsFacetProps = {
   title: string;
@@ -34,11 +22,17 @@ export function OptionsFacet({ title, options, onChange }: OptionsFacetProps) {
   const [expanded, setExpanded] = useState(true);
   const tgExpand = () => setExpanded(!expanded);
 
-  const [filter, setFilter] = useState<Filter>(createFilter(options.map(([id]) => id)));
+  const [filter, setFilter] = useState<Filter>({
+    enabled: true,
+    filterMode: "include",
+    valuesMode: "any-of",
+    values: new Set(),
+  });
+
   const tgEnabled = () => setFilter({ ...filter, enabled: !filter.enabled });
   const tgFilterMode = (mode: Filter["filterMode"]) => setFilter({ ...filter, filterMode: mode });
   const tgValuesMode = (mode: Filter["valuesMode"]) => setFilter({ ...filter, valuesMode: mode });
-  const tgValue = (id: string) => setFilter({ ...filter, values: filter.values.set(id, !filter.values.get(id)) });
+  const tgValue = (id: string) => setFilter({ ...filter, values: toggle(filter.values, id) });
 
   useEffect(() => {
     onChange?.(filter);
@@ -74,7 +68,7 @@ export function OptionsFacet({ title, options, onChange }: OptionsFacetProps) {
       </div>,
     );
     for (const [id, name] of options) {
-      out.push(input(name, id, "checkbox", !!filter.values.get(id), () => tgValue(id)));
+      out.push(input(name, id, "checkbox", filter.values.has(id), () => tgValue(id)));
     }
     return out;
   };

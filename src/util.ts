@@ -121,6 +121,22 @@ export function arrayMerge<T>(
   }
 }
 
-export function mergeInto<T>(target: Set<T>, newData: Set<T>) {
-  for (const elem of newData) target.add(elem);
+export function toggle<T>(target: Set<T>, item: T): Set<T> {
+  target.has(item) ? target.delete(item) : target.add(item);
+  return target;
+}
+
+export function addAll<T>(target: { add(elem: T): void }, values: Iterable<T>): typeof target {
+  for (const elem of values) target.add(elem);
+  return target;
+}
+
+export function hasAll<T>(container: { has(elem: T): boolean }, values: Iterable<T>): boolean {
+  for (const v of values) if (!container.has(v)) return false;
+  return true;
+}
+
+export function hasAny<T>(container: { has(elem: T): boolean }, values: Iterable<T>): boolean {
+  for (const v of values) if (container.has(v)) return true;
+  return false;
 }

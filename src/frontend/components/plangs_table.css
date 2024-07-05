@@ -8,23 +8,16 @@
         padding: 0.5rem;
     }
 
-    td:last-child {
-        width: 100%;
-    }
-
-    .lang-logo {
+    .logo {
         width: 4rem;
     }
 
-    .lang-ext {
-        background-color: yellowgreen;
-        border-radius: .25rem;
-        border: 1px solid black;
-        color: white;
-        display: inline-block;
-        margin: 0 .25rem;
-        min-width: 1.75rem;
-        padding: .2rem;
-        text-align: center;
+    a.plang {
+        border: 2px solid orange;
+        border-radius: .3rem;
+        background-color: pink;
+        text-decoration: none;
+        padding: .125rem .25rem;
+        margin-right: .5rem;
     }
 }

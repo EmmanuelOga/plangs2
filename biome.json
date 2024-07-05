@@ -7,6 +7,9 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true,
+			"a11y": {
+				"noBlankTarget": "off"
+			},
 			"suspicious": {
 				"noAssignInExpressions": "off",
 				"noExplicitAny": "info"

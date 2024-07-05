@@ -16,7 +16,6 @@ import type {
   E_PlangPara,
   E_PlangTsys,
   E_SupportsPlatf,
-  Image,
   VID_License,
   VID_Paradigm,
   VID_Person,
@@ -60,60 +59,10 @@ export class PlangsGraph extends Graph {
 
   // Builders.
 
-  buildLicense(vid: VID_License) {
-    return new LicenseBuilder(this, vid);
-  }
-
-  buildParadigm(vid: VID_Paradigm) {
-    return new ParadigmBuilder(this, vid);
-  }
-
-  buildPerson(vid: VID_Person) {
-    return new PersonBuilder(this, vid);
-  }
-
-  buildPlang(vid: VID_Plang) {
-    return new PlangBuilder(this, vid);
-  }
-
-  buildPlatform(vid: VID_Platform) {
-    return new PlatformBuilder(this, vid);
-  }
-
-  buildTypeSystem(vid: VID_TypeSystem) {
-    return new TypeSysBuilder(this, vid);
-  }
-
-  // Convenience methods.
-
-  plangLogo(vid: VID_Plang): Image | undefined {
-    const pl = this.v_plang.get(vid);
-    if (!pl?.images) return;
-    for (const img of pl.images) if (img.kind === "logo") return img;
-  }
-
-  *typeSystems(): Generator<[VID_TypeSystem, string], void, unknown> {
-    for (const [vid, data] of this.v_tsystem) {
-      if (data.name === undefined) {
-        console.error(`TypeSystem ${vid} has no name`);
-        continue;
-      }
-      yield [vid, data.name];
-    }
-  }
-
-  plangHasTypeSystems(vid: VID_Plang, mode: "all-of" | "any-of", values: Iterable<VID_TypeSystem>): boolean {
-    const pl_tsys = this.e_plang_tsys.adjacentFrom(vid);
-    if (mode === "all-of") {
-      for (const ts of values) {
-        if (!pl_tsys.has(ts as VID_TypeSystem)) return false;
-      }
-      return true;
-    }
-    // any-of
-    for (const ts of values) {
-      if (pl_tsys.has(ts as VID_TypeSystem)) return true;
-    }
-    return false;
-  }
+  buildLicense(vid: VID_License) { return new LicenseBuilder(this, vid); }
+  buildParadigm(vid: VID_Paradigm) { return new ParadigmBuilder(this, vid); }
+  buildPerson(vid: VID_Person) { return new PersonBuilder(this, vid); }
+  buildPlang(vid: VID_Plang) { return new PlangBuilder(this, vid); }
+  buildPlatform(vid: VID_Platform) { return new PlatformBuilder(this, vid); }
+  buildTypeSystem(vid: VID_TypeSystem) { return new TypeSysBuilder(this, vid); }
 }

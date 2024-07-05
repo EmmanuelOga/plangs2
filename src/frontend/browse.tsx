@@ -23,7 +23,7 @@ function Browse() {
       <nav class="browseNav">
         <OptionsFacet
           title="Type System"
-          options={[...pg.typeSystems()]}
+          options={[...pg.v_tsystem].map(([vid, tsys]) => [vid, tsys.name ?? vid])}
           onChange={(filter) => update({ key: "typeSystems", filter })}
         />
       </nav>
