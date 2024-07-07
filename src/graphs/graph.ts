@@ -67,12 +67,10 @@ export class Graph {
     const graph = { vtables: {}, etables: {} };
 
     for (const [key, val] of this.vtables) {
-      console.log("Serializing vertex table:", key);
       graph.vtables[key] = val.toJSON();
     }
 
     for (const [key, val] of this.etables) {
-      console.log("Serializing edge table:", key);
       graph.etables[key] = val.toJSON();
     }
 

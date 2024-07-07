@@ -1,5 +1,6 @@
 import { Glob } from "bun";
 import { PlangsGraph } from "./schemas/graph";
+import { Wade } from "./frontend/vendor/Wade/Wade.js";
 
 /**
  * Scans the ./entities directory and loads all graph data from `define` functions.
@@ -12,17 +13,41 @@ export async function loadDefinitions(g: PlangsGraph) {
       module.define(g);
     }
   }
+  console.info(new Date().toISOString(), `Plangs: loaded ${g.numVertices} vertices, ${g.numEdges} edges.`);
 }
 
-export async function serializeToPublic() {
+/** Generates `server/static/plangs.json` */
+export async function genPlangs() {
   const g = new PlangsGraph();
   await loadDefinitions(g);
   Bun.write(Bun.fileURLToPath(`file:///${__dirname}/../server/static/plangs.json`), JSON.stringify(g.toJSON()));
-  console.info(new Date().toISOString(), `Serialized ${g.numVertices} vertices, ${g.numEdges} edges.`);
 }
 
-if (process.env.SERIALIZE_PLANGS) {
-  await serializeToPublic();
+/** Generates indexes for searching stuff. */
+export async function genIndexes() {
+  const g = new PlangsGraph();
+  await loadDefinitions(g);
+
+  // We need to save the ids since Wade only returns an array index.
+  const ids: string[] = [];
+  const names: string[] = [];
+  for (const [vid, v] of g.v_plang) {
+    ids.push(vid);
+    names.push(v.name as string);
+  }
+
+  // Wade will index only the array of names. Indexes will point to the matching id.
+  const index = { ids, index: Wade.save(Wade(names)) };
+
+  Bun.write(Bun.fileURLToPath(`file:///${__dirname}/../server/static/plangsIdx.json`), JSON.stringify(index));
+}
+
+if (process.env.GEN_PLANGS) {
+  await genPlangs();
+}
+
+if (process.env.GEN_INDEXES) {
+  await genIndexes();
 }
 
 if (process.env.TEST) {
