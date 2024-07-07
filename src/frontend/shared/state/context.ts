@@ -1,4 +1,5 @@
 import { createContext } from "preact";
+import type { VID_Plang } from "src/schemas/entities";
 import { PlangsGraph } from "../../../schemas/graph";
 import { type SearchIndex, loadIndex } from "./search";
 
@@ -13,7 +14,11 @@ export async function loadContext(): Promise<PlangsContext | "error"> {
   try {
     const pgReq = fetch("/plangs.json");
     const idxReq = fetch("/plangsIdx.json");
-    return { pg: await loadPlangsGraph(pgReq), plIdx: await loadIndex(idxReq) };
+
+    const pg = await loadPlangsGraph(pgReq);
+    const plIdx = await loadIndex(idxReq);
+
+    return { pg, plIdx };
   } catch (e) {
     console.error("Failed to load context:", e);
     return "error";

@@ -47,8 +47,8 @@ templ Home(plangs []gjson.Result) {
 }
 
 templ PlangsTable(plangs []gjson.Result) {
-	<table class="plangsTable">
-		<caption>{ fmt.Sprintf("%d languages", len(plangs)) }</caption>
+	<table id="plangs-table">
+		<caption>{ fmt.Sprintf("%d of %d languages.", len(plangs), len(plangs)) }</caption>
 		<tbody>
 			for _, pl := range plangs {
 				<tr id={ plCssId(pl) } class="plang">

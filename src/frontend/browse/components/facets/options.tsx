@@ -2,15 +2,10 @@
 import { h } from "preact";
 import { useEffect, useState } from "preact/hooks";
 
+import type { Filter } from "src/frontend/shared/state/query";
 import { toggle } from "src/util";
-import "./options.css";
 
-export type Filter = {
-  enabled: boolean;
-  filterMode: "include" | "exclude";
-  valuesMode: "all-of" | "any-of";
-  values: Set<string>;
-};
+import "./options.css";
 
 export type OptionsFacetProps = {
   title: string;
