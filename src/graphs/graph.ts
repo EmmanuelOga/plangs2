@@ -77,7 +77,7 @@ export class Graph {
     return graph;
   }
 
-  loadJSON(data: SerializedGraph) {
+  loadJSON(data: SerializedGraph): this {
     for (const [vtype, vdata] of Object.entries(data.vtables)) {
       const vt = this.vtables.get(vtype);
       if (!vt) throw new Error(`Vertex table not found: ${vtype}`);
@@ -89,5 +89,6 @@ export class Graph {
       if (!et) throw new Error(`Edge table not found: ${etype}`);
       et.loadJSON(edata);
     }
+    return this;
   }
 }

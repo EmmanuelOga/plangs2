@@ -23,6 +23,11 @@ export async function genPlangs() {
   Bun.write(Bun.fileURLToPath(`file:///${__dirname}/../server/static/plangs.json`), JSON.stringify(g.toJSON()));
 }
 
+export type IndexedData = {
+  ids: string[];
+  index: string;
+};
+
 /** Generates indexes for searching stuff. */
 export async function genIndexes() {
   const g = new PlangsGraph();
@@ -37,9 +42,9 @@ export async function genIndexes() {
   }
 
   // Wade will index only the array of names. Indexes will point to the matching id.
-  const index = { ids, index: Wade.save(Wade(names)) };
+  const idata: IndexedData = { ids, index: Wade.save(Wade(names)) };
 
-  Bun.write(Bun.fileURLToPath(`file:///${__dirname}/../server/static/plangsIdx.json`), JSON.stringify(index));
+  Bun.write(Bun.fileURLToPath(`file:///${__dirname}/../server/static/plangsIdx.json`), JSON.stringify(idata));
 }
 
 if (process.env.GEN_PLANGS) {

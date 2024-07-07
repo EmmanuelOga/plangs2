@@ -2,19 +2,22 @@
 import { h, render } from "preact";
 import { useEffect, useState } from "preact/hooks";
 
-import { Plangs, loadPlangs, type PlangsContext } from "./state/context";
+import { Plangs, loadContext, type PlangsContext } from "./state/context";
 
-function ContextWrapper({ children }) {
+function ContextWrapper({ children, onContextLoad }) {
   const [pg, setPg] = useState<PlangsContext | "error">();
   useEffect(() => {
     if (pg) return;
-    loadPlangs().then((pg) => setPg(pg));
+    loadContext().then((pg) => {
+      setPg(pg);
+      onContextLoad?.(pg);
+    });
   });
   return <Plangs.Provider value={pg}>{children}</Plangs.Provider>;
 }
 
-export function start(cssId: string, app: h.JSX.Element) {
+export function start(cssId: string, app: h.JSX.Element, onContextLoad?: (ctx: PlangsContext) => void) {
   const elem = document.getElementById(cssId);
   if (!elem) throw new Error(`Element not found: ${cssId}`);
-  render(<ContextWrapper>{app}</ContextWrapper>, elem);
+  render(<ContextWrapper onContextLoad={onContextLoad}>{app}</ContextWrapper>, elem);
 }
