@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../src/frontend/shared/index.css"],
-  "sourcesContent": ["body {\n  font-size: 1rem;\n  margin: 0;\n  padding: 0;\n}\n\nheader {\n  background-color: green;\n  line-height: 0;\n  display: flex;\n  justify-content: space-between;\n  align-items: baseline;\n\n  h1, nav {\n    color: white;\n    padding: 1rem;\n  }\n}\n\nmain {\n  min-height: 80vh;\n}\n\nfooter {\n  background-color: yellowgreen;\n}"],
-  "mappings": ";AAAA;AACE,aAAW;AACX,UAAQ;AACR,WAAS;AACX;AAEA;AACE,oBAAkB;AAClB,eAAa;AACb,WAAS;AACT,mBAAiB;AACjB,eAAa;AAEb;AAAA,EAAI;AACF,WAAO;AACP,aAAS;AACX;AACF;AAEA;AACE,cAAY;AACd;AAEA;AACE,oBAAkB;AACpB;",
-  "names": []
-}

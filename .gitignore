@@ -1,3 +1,6 @@
+server/static/browse
+server/static/shared
+
 .go
 .pixi
 

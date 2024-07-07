@@ -15,11 +15,11 @@ func main() {
 	app.Static("/", "./static")
 
 	app.Get("/", func(c *fiber.Ctx) error {
-		return Render(c, Layout(Search()))
+		return Render(c, Layout(Home()))
 	})
 
-	app.Get("/browse", func(c *fiber.Ctx) error {
-		return Render(c, Layout(Browse()))
+	app.Get("/about", func(c *fiber.Ctx) error {
+		return Render(c, Layout(About()))
 	})
 
 	app.Use(NotFoundMiddleware)

@@ -11,10 +11,10 @@ templ Layout(content templ.Component) {
 		</head>
 		<body>
 			<header>
-				<h1>Plangs</h1>
+				<h1><a href="/">Plangs</a></h1>
 				<nav>
-					<a href="/">Search</a>
-					<a href="/browse">Browse</a>
+					<a href="/"></a>
+					<a href="/about">About</a>
 				</nav>
 			</header>
 			<main>
@@ -27,16 +27,16 @@ templ Layout(content templ.Component) {
 	</html>
 }
 
-templ Search() {
-	<link rel="stylesheet" href="/search/search.css"/>
-	<div id="search"></div>
-	<script src="/search/search.js"></script>
-}
-
-templ Browse() {
+templ Home() {
 	<link rel="stylesheet" href="/browse/browse.css"/>
 	<div id="browse"></div>
 	<script src="/browse/browse.js"></script>
+}
+
+templ About() {
+	<div id="About">
+		Plangs is a database of programming languages.
+	</div>
 }
 
 templ NotFound() {
