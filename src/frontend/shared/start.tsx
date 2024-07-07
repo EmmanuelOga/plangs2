@@ -5,7 +5,7 @@ import { useEffect, useState } from "preact/hooks";
 import { Plangs, loadPlangs, type PlangsContext } from "./state/context";
 
 function ContextWrapper({ children }) {
-  const [pg, setPg] = useState<PlangsContext>();
+  const [pg, setPg] = useState<PlangsContext | "error">();
   useEffect(() => {
     if (pg) return;
     loadPlangs().then((pg) => setPg(pg));

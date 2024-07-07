@@ -13,8 +13,9 @@ type PlangsTableProps = {
 };
 
 export function PlangsTable({ pl_ids, allRowsCount }: PlangsTableProps) {
-  const pg = useContext(Plangs);
-  if (!pg || pg === "error") return <></>;
+  const pc = useContext(Plangs);
+  if (!pc || pc === "error") return <></>;
+  const { pg } = pc;
 
   const rows: h.JSX.Element[] = [];
 

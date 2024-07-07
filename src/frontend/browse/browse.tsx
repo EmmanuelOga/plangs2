@@ -12,24 +12,27 @@ import { usePlangsQuery } from "./state/query";
 import "./browse.css";
 
 function Browse() {
-  const pg = useContext(Plangs);
+  const pc = useContext(Plangs);
 
-  if (!pg) return <div>Loading...</div>;
-  if (pg === "error") return <div>Sorry, there's been an error loading the data.</div>;
+  if (!pc) return <div>Loading...</div>;
+  if (pc === "error") return <div>Sorry, there's been an error loading the data.</div>;
 
+  const { pg } = pc;
   const [plangsQuery, update] = usePlangsQuery(pg);
 
   return (
     <>
-      <nav class="browseNav">
+      <nav class="nav">
         <OptionsFacet
           title="Type System"
           options={[...pg.v_tsystem].map(([vid, tsys]) => [vid, tsys.name ?? vid])}
           onChange={(filter) => update({ key: "typeSystems", filter })}
         />
       </nav>
-
-      <article class="browseContent">
+      <article class="content">
+        <header class="search">
+          <input type="query" placeholder="Search..." />
+        </header>
         <PlangsTable pl_ids={plangsQuery.pl_ids} allRowsCount={pg.v_plang.size} />
       </article>
     </>
