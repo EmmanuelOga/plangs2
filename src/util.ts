@@ -81,6 +81,7 @@ export function blank(obj: any): boolean {
   if (typeof obj === "number") return false;
   if (typeof obj === "string") return !obj.trim();
   if (Array.isArray(obj)) return obj.length === 0;
+  if (!obj) return true;
 
   for (const key of Object.getOwnPropertyNames(obj)) {
     if (!blank(obj[key])) return false;
