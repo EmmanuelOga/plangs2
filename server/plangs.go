@@ -6,7 +6,7 @@ import (
 )
 
 func plCssId(pl gjson.Result) string {
-	return pl.Get("vid").String()[3:]
+	return pl.Get("vid").String()
 }
 
 func plName(pl gjson.Result) string {

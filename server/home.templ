@@ -36,9 +36,9 @@ templ Home(plangs []gjson.Result) {
 	<link rel="stylesheet" href="/browse/browse.css"/>
 	<div id="browse">
 		<nav id="browse-nav"></nav>
-		<article class="content">
+		<article id="browse-content">
 			<header class="search">
-				<input type="query" placeholder="Search..."/>
+				<input id="browse-search" type="query" placeholder="Search..."/>
 			</header>
 			@PlangsTable(plangs)
 		</article>
@@ -49,26 +49,28 @@ templ Home(plangs []gjson.Result) {
 templ PlangsTable(plangs []gjson.Result) {
 	<table class="plangsTable">
 		<caption>{ fmt.Sprintf("%d languages", len(plangs)) }</caption>
-		for _, pl := range plangs {
-			<tr id={ plCssId(pl) }>
-				<td class="logo">
-					@imgFrom(plLogo(pl))
-				</td>
-				<td>
-					{ plName(pl) }
-				</td>
-				<td class="websites">
-					@anchorFrom(plHomepage(pl), "home")
-					@anchorFrom(plWikipedia(pl), "wiki")
-				</td>
-			</tr>
-		}
+		<tbody>
+			for _, pl := range plangs {
+				<tr id={ plCssId(pl) } class="plang">
+					<td class="logo">
+						@imgFrom(plLogo(pl))
+					</td>
+					<td class="name">
+						{ plName(pl) }
+					</td>
+					<td class="websites">
+						@anchorFrom(plHomepage(pl), "home")
+						@anchorFrom(plWikipedia(pl), "wiki")
+					</td>
+				</tr>
+			}
+		</tbody>
 	</table>
 }
 
 templ imgFrom(img gjson.Result) {
 	if img.Exists() {
-		<img src={ img.Get("url").String() } alt="logo" />
+		<img src={ img.Get("url").String() } alt="logo"/>
 	}
 }
 
@@ -87,52 +89,3 @@ templ About() {
 templ NotFound() {
 	<div>404</div>
 }
-
-/*
-  for (const vid of pl_ids) {
-    const pl = pg.v_plang.get(vid);
-    if (!pl) {
-      console.error("Missing plang", vid);
-      continue;
-    }
-
-    const logo = pl.images?.find((img) => img.kind === "logo");
-    const homepage = pl.websites?.find((site) => site.kind === "homepage");
-    const wikipage = pl.websites?.find((site) => site.kind === "wikipedia");
-
-    rows.push(
-      <tr>
-        <td>{logo ? <img src={logo.url} alt={pl.name} class="logo" /> : null}</td>
-        <td>{pl.name}</td>
-        <td>
-          {!homepage ? null : (
-            <a class="plang" href={homepage.href} key="homepage" target="_blank">
-              home
-            </a>
-          )}
-          {!wikipage ? null : (
-            <a class="plang" href={wikipage.href} key="wikipedia" target="_blank">
-              wiki
-            </a>
-          )}
-        </td>
-      </tr>,
-    );
-  }
-
-  return (
-    <table class="plangsTable">
-      <caption>
-        Showing {pl_ids.length} of {allRowsCount} languages.
-      </caption>
-      <thead>
-        <tr>
-          <th>Logo</th>
-          <th>Lang</th>
-          <th>Websites</th>
-        </tr>
-      </thead>
-      <tbody>{rows}</tbody>
-    </table>
-  );
-*/

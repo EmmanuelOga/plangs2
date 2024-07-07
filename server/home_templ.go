@@ -65,7 +65,7 @@ func Home(plangs []gjson.Result) templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<link rel=\"stylesheet\" href=\"/browse/browse.css\"><div id=\"browse\"><nav id=\"browse-nav\"></nav><article class=\"content\"><header class=\"search\"><input type=\"query\" placeholder=\"Search...\"></header>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<link rel=\"stylesheet\" href=\"/browse/browse.css\"><div id=\"browse\"><nav id=\"browse-nav\"></nav><article id=\"browse-content\"><header class=\"search\"><input id=\"browse-search\" type=\"query\" placeholder=\"Search...\"></header>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -112,7 +112,7 @@ func PlangsTable(plangs []gjson.Result) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</caption> ")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</caption> <tbody>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -124,13 +124,13 @@ func PlangsTable(plangs []gjson.Result) templ.Component {
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(plCssId(pl))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 53, Col: 23}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 54, Col: 24}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"><td class=\"logo\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"plang\"><td class=\"logo\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -138,14 +138,14 @@ func PlangsTable(plangs []gjson.Result) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</td><td>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</td><td class=\"name\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var6 string
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(plName(pl))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 58, Col: 17}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 59, Col: 18}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -168,7 +168,7 @@ func PlangsTable(plangs []gjson.Result) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</table>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</tbody></table>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -202,7 +202,7 @@ func imgFrom(img gjson.Result) templ.Component {
 			var templ_7745c5c3_Var8 string
 			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(img.Get("url").String())
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 71, Col: 36}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 73, Col: 36}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
@@ -252,7 +252,7 @@ func anchorFrom(link gjson.Result, title string) templ.Component {
 			var templ_7745c5c3_Var11 string
 			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 77, Col: 58}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 79, Col: 58}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
@@ -318,52 +318,3 @@ func NotFound() templ.Component {
 		return templ_7745c5c3_Err
 	})
 }
-
-/*
-  for (const vid of pl_ids) {
-    const pl = pg.v_plang.get(vid);
-    if (!pl) {
-      console.error("Missing plang", vid);
-      continue;
-    }
-
-    const logo = pl.images?.find((img) => img.kind === "logo");
-    const homepage = pl.websites?.find((site) => site.kind === "homepage");
-    const wikipage = pl.websites?.find((site) => site.kind === "wikipedia");
-
-    rows.push(
-      <tr>
-        <td>{logo ? <img src={logo.url} alt={pl.name} class="logo" /> : null}</td>
-        <td>{pl.name}</td>
-        <td>
-          {!homepage ? null : (
-            <a class="plang" href={homepage.href} key="homepage" target="_blank">
-              home
-            </a>
-          )}
-          {!wikipage ? null : (
-            <a class="plang" href={wikipage.href} key="wikipedia" target="_blank">
-              wiki
-            </a>
-          )}
-        </td>
-      </tr>,
-    );
-  }
-
-  return (
-    <table class="plangsTable">
-      <caption>
-        Showing {pl_ids.length} of {allRowsCount} languages.
-      </caption>
-      <thead>
-        <tr>
-          <th>Logo</th>
-          <th>Lang</th>
-          <th>Websites</th>
-        </tr>
-      </thead>
-      <tbody>{rows}</tbody>
-    </table>
-  );
-*/
