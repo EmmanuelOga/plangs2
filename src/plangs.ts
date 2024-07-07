@@ -1,6 +1,6 @@
 import { Glob } from "bun";
+import { createIndex } from "./frontend/shared/state/search";
 import { PlangsGraph } from "./schemas/graph";
-import { Wade } from "./frontend/vendor/Wade/Wade.js";
 
 /**
  * Scans the ./entities directory and loads all graph data from `define` functions.
@@ -23,11 +23,6 @@ export async function genPlangs() {
   Bun.write(Bun.fileURLToPath(`file:///${__dirname}/../server/static/plangs.json`), JSON.stringify(g.toJSON()));
 }
 
-export type IndexedData = {
-  ids: string[];
-  index: string;
-};
-
 /** Generates indexes for searching stuff. */
 export async function genIndexes() {
   const g = new PlangsGraph();
@@ -41,10 +36,10 @@ export async function genIndexes() {
     names.push(v.name as string);
   }
 
-  // Wade will index only the array of names. Indexes will point to the matching id.
-  const idata: IndexedData = { ids, index: Wade.save(Wade(names)) };
-
-  Bun.write(Bun.fileURLToPath(`file:///${__dirname}/../server/static/plangsIdx.json`), JSON.stringify(idata));
+  Bun.write(
+    Bun.fileURLToPath(`file:///${__dirname}/../server/static/plangsIdx.json`),
+    JSON.stringify(createIndex(ids, names)),
+  );
 }
 
 if (process.env.GEN_PLANGS) {

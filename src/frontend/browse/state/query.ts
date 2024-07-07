@@ -9,7 +9,7 @@ type Filters = "typeSystems";
 
 interface PlangsQueryState {
   pg: PlangsGraph;
-  pl_ids: VID_Plang[];
+  pl_ids: Set<VID_Plang>;
   filters: Map<Filters, Filter>;
 }
 
