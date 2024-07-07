@@ -1,5 +1,4 @@
 import { createContext } from "preact";
-import * as Wade from "wade";
 import { PlangsGraph } from "../../../schemas/graph";
 
 export type PlangsContext = {

@@ -1,10 +1,9 @@
-import type { NN_Partial } from "../util";
 import { vIDPattern } from "./vertex";
 
 /**
  * Containers for vertices.
  */
-export class VertexTable<T_VID extends string, T_VData> implements Iterable<[T_VID, T_VData]> {
+export class VertexTable<T_VID extends string, T_VData extends { vid: T_VID }> implements Iterable<[T_VID, T_VData]> {
   #vdata = new Map<T_VID, T_VData>();
 
   public readonly vidPattern: RegExp;
@@ -13,53 +12,55 @@ export class VertexTable<T_VID extends string, T_VData> implements Iterable<[T_V
     this.vidPattern = vIDPattern(vtype);
   }
 
-  set(key: T_VID, value: T_VData): this {
-    if (!this.validParams(key)) throw new Error(`invalid key: ${key} (pattern: ${this.vidPattern})`);
-    this.#vdata.set(key, value);
+  set(vid: T_VID, value: T_VData): this {
+    if (!this.validParams(vid)) throw new Error(`invalid vid: ${vid} (pattern: ${this.vidPattern})`);
+    this.#vdata.set(vid, value);
+    value.vid = vid;
     return this;
   }
 
-  get(key: T_VID): T_VData | undefined {
-    if (!this.validParams(key)) throw new Error(`invalid key: ${key}`);
-    return this.#vdata.get(key);
+  get(vid: T_VID): T_VData | undefined {
+    if (!this.validParams(vid)) throw new Error(`invalid vid: ${vid}`);
+    return this.#vdata.get(vid);
   }
 
-  has(key: T_VID): boolean {
-    if (!this.validParams(key)) throw new Error(`invalid key: ${key}`);
-    return this.#vdata.has(key);
+  has(vid: T_VID): boolean {
+    if (!this.validParams(vid)) throw new Error(`invalid vid: ${vid}`);
+    return this.#vdata.has(vid);
   }
 
-  delete(key: T_VID): boolean {
-    if (!this.validParams(key)) throw new Error(`invalid key: ${key}`);
-    return this.#vdata.delete(key);
+  delete(vid: T_VID): boolean {
+    if (!this.validParams(vid)) throw new Error(`invalid vid: ${vid}`);
+    return this.#vdata.delete(vid);
   }
 
   /**
-   * Declares there's an entry for the key:
-   * - If the key is already in store, it will be left unchanged.
-   * - If the key is not in store, it will be set to an empty object.
-   * - Returns the data for the key.
+   * Declares there's an entry for the vid:
+   * - If the vid is already in store, it will be left unchanged.
+   * - If the vid is not in store, it will be set to an empty object.
+   * - Returns the data for the vid.
    */
-  declare(key: T_VID): NN_Partial<T_VData> {
-    if (!this.validParams(key)) throw new Error(`invalid key: ${key}`);
-    let v_data = this.#vdata.get(key);
+  declare(vid: T_VID): Partial<T_VData> {
+    if (!this.validParams(vid)) throw new Error(`invalid vid: ${vid}`);
+    let v_data = this.#vdata.get(vid);
     if (v_data === undefined) {
-      v_data = {} as T_VData;
-      this.#vdata.set(key, v_data);
+      v_data = { vid } as T_VData;
+      this.#vdata.set(vid, v_data);
     }
-    return v_data as NN_Partial<T_VData>;
+    return v_data as Partial<T_VData>;
   }
 
-  merge(key: T_VID, value: T_VData): NN_Partial<T_VData> {
-    if (!this.validParams(key)) throw new Error(`invalid key: ${key}`);
+  merge(vid: T_VID, value: T_VData): Partial<T_VData> {
+    if (!this.validParams(vid)) throw new Error(`invalid vid: ${vid}`);
 
-    if (!this.#vdata.has(key)) {
-      this.#vdata.set(key, {} as T_VData);
+    if (!this.#vdata.has(vid)) {
+      this.#vdata.set(vid, { vid } as T_VData);
     }
     // biome-ignore lint/suspicious/noExplicitAny: it is ok.
-    const vdata = Object.assign(this.#vdata.get(key) as any, value);
+    const vdata = Object.assign(this.#vdata.get(vid) as any, value);
+    vdata.vid = vid;
 
-    return vdata as NN_Partial<T_VData>;
+    return vdata as Partial<T_VData>;
   }
 
   validParams(vid: string): boolean {

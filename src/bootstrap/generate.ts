@@ -185,10 +185,11 @@ const PLANG_GROUPS = {
   zig: ["zig"],
 };
 
-function defaultMapper(vid: VID_Any, vertex: _T_AnyV_Data): AtoZData {
-  const bundle: AtoZData = { vertex, vid: json(vid) };
+function defaultMapper(vid_: VID_Any, vertex: _T_AnyV_Data): AtoZData {
+  const bundle: AtoZData = { vertex, vid: json(vid_) };
   const data = tidy(vertex);
-  if (!blank(data)) bundle.data = json(data);
+  const { vid, ...rest } = data;
+  if (!blank(data)) bundle.data = json(rest);
   return bundle;
 }
 
@@ -209,7 +210,8 @@ function plangMapper(g: PlangsGraph, plvid: VID_Plang): AtoZData {
   if (!vertex || !vertex.name) throw new Error(`Missing plang data: ${plvid}`);
 
   const bundle: AtoZData = { vertex, vid: json(plvid) };
-  const data = tidy(vertex);
+  const { vid, ...rest } = vertex;
+  const data = tidy(rest);
   if (!blank(data)) bundle.data = json(data);
 
   const vrelations: string[] = [];

@@ -17,47 +17,52 @@ export interface V_Base {
  * A programming language Vertex.
  */
 export interface V_Plang extends V_Base {
+  vid: VID_Plang;
   extensions: string[];
   images: Image[];
   releases: Release[];
   scoping: Scoping[];
 }
-
 export type VID_Plang = VID<`pl`>;
 
 /**
  * A platform Vertex, e.g., Linux, Windows, etc.
  */
-export interface V_Platform extends V_Base {}
-
+export interface V_Platform extends V_Base {
+  vid: VID_Platform;
+}
 export type VID_Platform = VID<`platf`>;
 
 /**
  * A type system Vertex, e.g., OOP, Duck, Dynamic, etc.
  */
-export interface V_TypeSystem extends V_Base {}
-
+export interface V_TypeSystem extends V_Base {
+  vid: VID_TypeSystem;
+}
 export type VID_TypeSystem = VID<`tsys`>;
 
 /**
  * A programming paradigm Vertex, e.g., Functional, Imperative, etc.
  */
-export interface V_Paradigm extends V_Base {}
-
+export interface V_Paradigm extends V_Base {
+  vid: VID_Paradigm;
+}
 export type VID_Paradigm = VID<`para`>;
 
 /**
  * A person Vertex, for people involved in the development of a programming language.
  */
-export interface V_Person extends V_Base {}
-
+export interface V_Person extends V_Base {
+  vid: VID_Person;
+}
 export type VID_Person = VID<`person`>;
 
 /**
  * A license Vertex, e.g., MIT, GPL, etc.
  */
-export interface V_License extends V_Base {}
-
+export interface V_License extends V_Base {
+  vid: VID_License;
+}
 export type VID_License = VID<`lic`>;
 
 ////////////////////////////////////////////////////////////////////////////////

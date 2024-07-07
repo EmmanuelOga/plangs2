@@ -4,6 +4,7 @@
 
   .nav {
     background-color: white;
+
     .active {
       font-weight: bold;
     }
@@ -14,7 +15,7 @@
     padding: 0 1rem;
 
     .search {
-      background-color: lightblue;
+      background-color: green;
       border: none;
       border-radius: .3rem;
       padding: 1rem;
