@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/tidwall/gjson"
 )
 
@@ -45,7 +44,6 @@ templ Home(plangs []gjson.Result) {
 
 templ PlangsTable(plangs []gjson.Result) {
 	<table id="plangs-table">
-		<caption>{ fmt.Sprintf("%d of %d languages.", len(plangs), len(plangs)) }</caption>
 		<tbody>
 			for _, pl := range plangs {
 				<tr class="plang" id={ plCssId(pl) } data-has-wiki={plHasWikipage(pl)} data-has-home={plHasHomepage(pl)}>

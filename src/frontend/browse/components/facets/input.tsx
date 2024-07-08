@@ -11,7 +11,7 @@ export function InputFacet({ title, onChange }: InputFacetProps) {
   return (
     <div class="browse-facet input-facet">
       <div class="title">{title}</div>
-      <input type="search" onKeyUp={handle} onInput={handle} placeholder="Language..." />
+      <input type="search" onKeyUp={handle} onInput={handle} placeholder="Language..." autofocus />
     </div>
   );
 }

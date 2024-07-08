@@ -10,8 +10,6 @@ declare global {
   }
 }
 
-type Caption = HTMLTableCaptionElement;
-type Input = HTMLInputElement;
 type Table = HTMLTableElement;
 type Row = HTMLTableRowElement;
 
@@ -21,14 +19,12 @@ export class PlangsTable {
   #filters: Map<Filters, Filter> = new Map();
 
   #rows: Row[];
-  #caption: Caption;
 
   private query = "";
   public debouncedUpdate = debounce(() => this.update(), 50);
 
   constructor(private table: Table) {
     this.#rows = this.table.querySelectorAll("tr.plang") as unknown as Row[];
-    this.#caption = this.table.querySelector("caption") as Caption;
 
     // Initialize rows with character sets for quicker one-char query filtering.
     for (const row of this.#rows) {
@@ -87,7 +83,5 @@ export class PlangsTable {
       const searchResults = this.#plIdx.search(query);
       count = updateAllRows(this.#rows, (_, vid) => searchResults.has(vid) && filteredShow(vid));
     }
-
-    this.#caption.innerText = `${count} of ${this.#rows.length} languages.`;
   }
 }
