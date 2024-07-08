@@ -3,7 +3,6 @@ import type { VID_Plang } from "src/schemas/entities";
 import type { PlangsGraph } from "src/schemas/graph";
 import { type Filter, type Filters, filterPlangs } from "../shared/state/query";
 import type { SearchIndex } from "../shared/state/search";
-import { walkUpBindingElementsAndPatterns } from "typescript";
 
 declare global {
   interface HTMLTableRowElement {
@@ -19,18 +18,15 @@ type Row = HTMLTableRowElement;
 export class PlangsTable {
   #pg: PlangsGraph;
   #plIdx: SearchIndex;
-
   #filters: Map<Filters, Filter> = new Map();
 
   #rows: Row[];
   #caption: Caption;
 
-  debouncedUpdate = debounce(() => this.update(), 50);
+  private query = "";
+  public debouncedUpdate = debounce(() => this.update(), 50);
 
-  constructor(
-    private query: Input,
-    private table: Table,
-  ) {
+  constructor(private table: Table) {
     this.#rows = this.table.querySelectorAll("tr.plang") as unknown as Row[];
     this.#caption = this.table.querySelector("caption") as Caption;
 
@@ -44,8 +40,12 @@ export class PlangsTable {
   start(pg: PlangsGraph, plIdx: SearchIndex) {
     this.#pg = pg;
     this.#plIdx = plIdx;
-    this.query.addEventListener("keyup", this.debouncedUpdate);
     this.update();
+  }
+
+  updateQuery(q: string): void {
+    this.query = q;
+    this.debouncedUpdate();
   }
 
   updateFilter(key: Filters, filter: Filter) {
@@ -55,8 +55,6 @@ export class PlangsTable {
 
   // Hide or show rows based on the search query.
   update() {
-    const query = this.query.value.toLowerCase();
-
     const { includes, excludes } = filterPlangs(this.#pg, this.#filters);
 
     function filteredShow(vid: VID_Plang) {
@@ -79,6 +77,7 @@ export class PlangsTable {
     }
 
     let count = 0;
+    const query = this.query;
     if (query.length === 0) {
       count = updateAllRows(this.#rows, (_, vid) => filteredShow(vid));
     } else if (query.length === 1) {

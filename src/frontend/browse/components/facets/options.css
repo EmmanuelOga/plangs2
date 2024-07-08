@@ -1,17 +1,4 @@
 .options-facet {
-    .title {
-        font-weight: bold;
-        padding: .5rem 1rem;
-        background-color: #eee;
-        cursor: pointer;
-        text-align: center;
-    }
-
-    label {
-        display: block;
-        margin-bottom: 0.5rem;
-    }
-
     .options {
         max-height: 25rem;
         overflow: scroll;

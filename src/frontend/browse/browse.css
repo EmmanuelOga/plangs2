@@ -28,3 +28,20 @@
     }
   }
 }
+
+.browse-facet {
+  .title {
+    font-weight: bold;
+    padding: .5rem 1rem;
+    background-color: #eee;
+    cursor: pointer;
+    text-align: center;
+    font-size: .8rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: .8rem;
+  }
+}
