@@ -4,8 +4,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"sort"
-	"strings"
 
 	"github.com/a-h/templ"
 	"github.com/gofiber/fiber/v2"
@@ -13,42 +11,27 @@ import (
 	"github.com/tidwall/gjson"
 )
 
-func loadPlangs() []gjson.Result {
-	plangsJSON, err := os.ReadFile("static/plangs.json")
+func loadData() gjson.Result {
+	json, err := os.ReadFile("static/plangs.json")
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	plangs := make([]gjson.Result, 0)
-
-	gjson.ParseBytes(plangsJSON).Get("vtables.pl").ForEach(
-		func(key gjson.Result, value gjson.Result) bool {
-			plangs = append(plangs, value)
-			return true
-		})
-
-	sort.Slice(plangs, func(i, j int) bool {
-		a := strings.ToLower(plangs[i].Get("name").String())
-		b := strings.ToLower(plangs[j].Get("name").String())
-		return a < b
-	})
-
-	return plangs
+	return gjson.ParseBytes(json)
 }
 
 func main() {
-	plangs := loadPlangs()
+	data := loadData()
 
 	app := fiber.New()
 
 	app.Static("/", "./static")
 
 	app.Get("/", func(c *fiber.Ctx) error {
-		return Render(c, Layout(Home(plangs)))
+		return Render(c, Layout(Home(data), "home"))
 	})
 
 	app.Get("/about", func(c *fiber.Ctx) error {
-		return Render(c, Layout(About()))
+		return Render(c, Layout(About(), "about"))
 	})
 
 	app.Use(NotFoundMiddleware)

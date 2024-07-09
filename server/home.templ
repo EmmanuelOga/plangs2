@@ -1,75 +1,64 @@
 package main
 
-import (
-	"github.com/tidwall/gjson"
-)
+import "github.com/tidwall/gjson"
 
-templ Layout(content templ.Component) {
+templ Layout(content templ.Component, pageId string) {
 	<!DOCTYPE html>
 	<html lang="en-us">
 		<head>
 			<meta charset="utf-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			<title>Plangs</title>
-			<link rel="stylesheet" href="/shared/index.css"/>
+			<link rel="stylesheet" href="/index.css"/>
 		</head>
 		<body>
-			<header>
-				<h1><a href="/">Plangs</a></h1>
-				<nav>
-					<a href="/"></a>
-					<a href="/about">About</a>
-				</nav>
+			<header id="plangs-header">
+				<a id="plangs" href="/">$> Plangs</a>
 			</header>
-			<main>
+			<main id={ pageId }>
 				@content
 			</main>
-			<footer>
+			<footer id="plangs-footer">
 				(C) 2024 Plangs
 			</footer>
 		</body>
 	</html>
 }
 
-templ Home(plangs []gjson.Result) {
-	<link rel="stylesheet" href="/browse/browse.css"/>
-	<div id="browse">
-		<nav id="browse-nav"></nav>
-		<article id="browse-content">
-			@PlangsTable(plangs)
-		</article>
-	</div>
-	<script src="/browse/browse.js"></script>
+templ Home(data gjson.Result) {
+	<nav id="home-nav">
+		Filters
+	</nav>
+	<article id="home-plangs">
+		@PlangsList(plangs(data))
+	</article>
+	<nav id="home-side">
+		Side Panel
+	</nav>
 }
 
-templ PlangsTable(plangs []gjson.Result) {
-	<table id="plangs-table">
-		<tbody>
-			for _, pl := range plangs {
-				<tr class="plang" id={ plCssId(pl) } data-has-wiki={plHasWikipage(pl)} data-has-home={plHasHomepage(pl)}>
-					<td class="logo">
-						@imgFrom(plLogo(pl))
-					</td>
-					<td class="name">
-						{ plName(pl) }
-					</td>
-					<td class="websites">
-						@anchorFrom(plHomepage(pl), "home")
-						@anchorFrom(plWikipedia(pl), "wiki")
-					</td>
-				</tr>
-			}
-		</tbody>
-	</table>
-}
-
-templ imgFrom(img gjson.Result) {
-	if img.Exists() {
-		<img src={ img.Get("url").String() } alt="logo"/>
+templ PlangsList(plangs []gjson.Result) {
+	for _, pl := range plangs {
+		<div class="plang-thumb" id={ plCssId(pl) } data-has-wiki={ plHasWikipage(pl) } data-has-home={ plHasHomepage(pl) }>
+			<span class="name">{ plName(pl) }</span>
+			@imgFor(plLogo(pl), plName(pl))
+			<div class="links">
+				@anchorFor(plHomepage(pl), "home")
+				@anchorFor(plWikipedia(pl), "wiki")
+			</div>
+		</div>
 	}
 }
 
-templ anchorFrom(link gjson.Result, title string) {
+templ imgFor(img gjson.Result, placeholder string) {
+	if img.Exists() {
+		<img class="logo" src={ img.Get("url").String() } alt="Logo"/>
+	} else {
+		<div class="placeholder">{placeholder}</div>
+	}
+}
+
+templ anchorFor(link gjson.Result, title string) {
 	if link.Exists() {
 		<a href={ templ.URL(link.Get("href").String()) }>{ title }</a>
 	}
