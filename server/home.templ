@@ -10,6 +10,10 @@ templ Layout(content templ.Component, pageId string) {
 			<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			<title>Plangs</title>
 			<link rel="stylesheet" href="/index.css"/>
+			<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/>
+			<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/>
+			<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/>
+			<link rel="manifest" href="/favicon/site.webmanifest"/>
 		</head>
 		<body>
 			<header id="plangs-header">
@@ -18,19 +22,51 @@ templ Layout(content templ.Component, pageId string) {
 			<main id={ pageId }>
 				@content
 			</main>
-			<footer id="plangs-footer">
-				(C) 2024 Plangs
-			</footer>
 		</body>
 	</html>
 }
 
 templ Home(data gjson.Result) {
 	<nav id="home-nav">
-		Filters
+		@Facet("General") {
+			Name<br/>
+			Extensions<br/>
+			Known Releases<br/>
+			Known Logo<br/>
+			Known Website<br/>
+			Known Wikipedia<br/>
+		}
+		@Facet("Type System") {
+			@FacetOptions(sortArray(data.Get("vtables.tsys")))
+		}
+		@Facet("Paradigm") {
+			@FacetOptions(sortArray(data.Get("vtables.para")))
+		}
+		@Facet("Platform") {
+			@FacetOptions(sortArray(data.Get("vtables.platf")))
+		}
+		@Facet("Compiles To") {
+			TODO<br/>
+		}
+		@Facet("Lineage") {
+			Influenced By<br/>
+			Influenced<br/>
+
+			Dialect Of<br/>
+			Standard For<br/>
+			
+			Implements<br/>
+			Implemented With<br/>
+		}
+		@Facet("People") {
+			<input type="query" placeholder="Search person ..." />
+		}
+		@Facet("License") {
+			@FacetOptions(sortArray(data.Get("vtables.lic")))
+		}
 	</nav>
 	<article id="home-plangs">
-		@PlangsList(plangs(data))
+		@PlangsList(sortArray(data.Get("vtables.pl")))
 	</article>
 	<nav id="home-side">
 		Side Panel
@@ -54,7 +90,7 @@ templ imgFor(img gjson.Result, placeholder string) {
 	if img.Exists() {
 		<img class="logo" src={ img.Get("url").String() } alt="Logo"/>
 	} else {
-		<div class="placeholder">{placeholder}</div>
+		<div class="placeholder">{ placeholder }</div>
 	}
 }
 
@@ -72,4 +108,22 @@ templ About() {
 
 templ NotFound() {
 	<div>404</div>
+}
+
+templ Facet(title string) {
+	<div class="facet">
+		<div class="title">{ title }</div>
+		<div class="controls">
+			{ children... }
+		</div>
+	</div>
+}
+
+templ FacetOptions(tsys []gjson.Result) {
+	for _, tsys := range tsys {
+		<label>
+			<input type="checkbox" name={ tsys.Get("vid").String() }/>
+			{ tsys.Get("name").String() }
+		</label>
+	}
 }

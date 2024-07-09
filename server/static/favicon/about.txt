@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Recursive
+- Font Author: Copyright 2019 The Recursive Project Authors (github.com/arrowtype/recursive)
+- Font Source: https://fonts.gstatic.com/s/recursive/v38/8vJN7wMr0mhh-RQChyHEH06TlXhq_gukbYrFMk1QuAIcyEwG_X-dpEfaE5YaERmK-CImKsvxvU-MXGX2fSqasNfUvz2xbXfn1uEQadArlE18vwxjDJCL.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))

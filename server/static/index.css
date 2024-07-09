@@ -13,15 +13,11 @@ body {
     font-size: 1.5rem;
 }
 
-#plangs-header,
-#plangs-footer {
+#plangs-header {
+    height: 2rem;
     padding: 1rem;
     background-color: #efe;
     border-bottom: 1px solid #afa;
-}
-
-#plangs-footer {
-    border-top: 1px solid #afa;
 }
 
 #home {
@@ -31,9 +27,12 @@ body {
 
 #home-nav,
 #home-side {
-    min-width: 22rem;
-    display: block;
+    min-width: 15rem;
     padding: .5rem;
+}
+
+#home-side {
+    min-width: 30rem;
 }
 
 #home-plangs {
@@ -77,6 +76,7 @@ body {
             max-width: 6rem;
 
         }
+
         .placeholder {
             width: 6rem;
             height: 6rem;
@@ -99,6 +99,27 @@ body {
             overflow: hidden;
             text-align: center;
             transform: rotate(-10deg);
+        }
+    }
+}
+
+#home-nav {
+    .facet {
+        .title {
+            font-weight: bold;
+            padding: .5rem 1rem;
+            background-color: #eee;
+            cursor: pointer;
+            text-align: center;
+            font-size: .8rem;
+        }
+
+        .controls {
+            label {
+                display: block;
+                margin-bottom: 0.5rem;
+                font-size: .8rem;
+            }
         }
     }
 }

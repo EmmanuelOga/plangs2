@@ -2,29 +2,8 @@ package main
 
 import (
 	// "github.com/k0kubun/pp/v3"
-	"sort"
-	"strings"
-
 	"github.com/tidwall/gjson"
 )
-
-func plangs(data gjson.Result) []gjson.Result {
-	plangs := make([]gjson.Result, 0)
-
-	data.Get("vtables.pl").ForEach(
-		func(key gjson.Result, value gjson.Result) bool {
-			plangs = append(plangs, value)
-			return true
-		})
-
-	sort.Slice(plangs, func(i, j int) bool {
-		a := strings.ToLower(plangs[i].Get("name").String())
-		b := strings.ToLower(plangs[j].Get("name").String())
-		return a < b
-	})
-
-	return plangs
-}
 
 func plCssId(pl gjson.Result) string {
 	return pl.Get("vid").String()
