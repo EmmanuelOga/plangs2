@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "../../schemas/graph";
+import type { PlangsGraph } from "../../schema/graph";
 
 export function define(g: PlangsGraph) {
   g.buildPerson("person+a-k-dewdney").merge({

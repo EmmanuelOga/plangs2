@@ -1,6 +1,6 @@
 import { Glob } from "bun";
 import { createIndex } from "./frontend/shared/state/search";
-import { PlangsGraph } from "./schemas/graph";
+import { PlangsGraph } from "./schema/graph";
 
 /**
  * Scans the ./entities directory and loads all graph data from `define` functions.

@@ -1,5 +1,5 @@
-import type { VID_Plang } from "../../../schemas/entities";
-import type { PlangsGraph } from "../../../schemas/graph";
+import type { VID_Plang } from "../../../schema/entities";
+import type { PlangsGraph } from "../../../schema/graph";
 import { addAll, hasAll, hasAny } from "../../../util";
 
 export type Filter = {

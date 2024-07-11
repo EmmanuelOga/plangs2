@@ -1,6 +1,5 @@
 import { createContext } from "preact";
-import type { VID_Plang } from "src/schemas/entities";
-import { PlangsGraph } from "../../../schemas/graph";
+import { PlangsGraph } from "../../../schema/graph";
 import { type SearchIndex, loadIndex } from "./search";
 
 export type PlangsContext = {

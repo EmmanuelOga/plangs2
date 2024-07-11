@@ -1,5 +1,5 @@
 import { Eta } from "eta";
-import { PlangsGraph } from "../schemas/graph";
+import { PlangsGraph } from "../schema/graph";
 import type {
   E_Base,
   VID_License,
@@ -8,7 +8,7 @@ import type {
   VID_Plang,
   VID_Platform,
   VID_TypeSystem,
-} from "../schemas/entities";
+} from "../schema/entities";
 import type { VID_Any } from "../graphs/vertex";
 import type { VertexTable } from "../graphs/vertex_table";
 import { blank, tidy, toAlphaNum } from "../util";

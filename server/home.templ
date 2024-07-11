@@ -68,7 +68,9 @@ templ Home(data gjson.Result) {
 		@PlangsList(sortArray(data.Get("vtables.pl")))
 	</article>
 	<nav id="home-side">
-		Side Panel
+		@Facet("Language") {
+			<p>Select a language to show more information.</p>
+		}
 	</nav>
 }
 
@@ -77,10 +79,6 @@ templ PlangsList(plangs []gjson.Result) {
 		<div class="plang-thumb" id={ plCssId(pl) } data-has-wiki={ plHasWikipage(pl) } data-has-home={ plHasHomepage(pl) }>
 			<span class="name">{ plName(pl) }</span>
 			@imgFor(plLogo(pl), plName(pl))
-			<div class="links">
-				@anchorFor(plHomepage(pl), "home")
-				@anchorFor(plWikipedia(pl), "wiki")
-			</div>
 		</div>
 	}
 }
