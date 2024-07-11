@@ -1,3 +1,7 @@
+:root {
+    --main-shade: #eee;
+}
+
 body {
     font-family: sans-serif;
     margin: 0;
@@ -6,18 +10,36 @@ body {
     flex-direction: column;
 }
 
-#plangs {
-    color: green;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.5rem;
+noscript {
+    display: block;
+    padding: 1rem;
+    background-color: lightyellow;
+    text-align: center;
+}
+
+main {
+    background-color: #fbfbfb;
 }
 
 #plangs-header {
-    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    height: 1.8rem;
     padding: 1rem .5rem;
-    background-color: #efe;
-    border-bottom: 1px solid #afa;
+    background-color: var(--main-shade);
+    border-bottom: 1px solid rgba(0, 128, 0, .5);
+
+    a {
+        color: green;
+        text-decoration: dotted;
+        font-weight: bold;
+    }
+
+    #plangs {
+        font-size: 1.5rem;
+    }
 }
 
 #home {
@@ -29,17 +51,22 @@ body {
 #home-side {
     margin-top: 1rem;
     min-width: 15rem;
+    background-color: white;
+}
+
+#home-nav {
+    padding-right: 0.25rem;
 }
 
 #home-side {
     min-width: 30rem;
+    padding-left: 0.25rem;
 }
 
 #home-plangs {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: #fbfbfb;
 }
 
 .plang-thumb {
@@ -117,7 +144,7 @@ body {
     .title {
         font-weight: bold;
         padding: .5rem;
-        background-color: #eee;
+        background-color: var(--main-shade);
         cursor: pointer;
         font-size: .8rem;
         margin-bottom: .5rem;

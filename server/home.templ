@@ -17,8 +17,14 @@ templ Layout(content templ.Component, pageId string) {
 		</head>
 		<body>
 			<header id="plangs-header">
-				<a id="plangs" href="/">$> Plangs</a>
+				<a id="plangs" href="/">Plangs ~ $ _</a>
+				<a id="about" href="/about">about</a>
 			</header>
+			<noscript>
+				<em>Note!</em>
+				This site is fully static and requires JavaScript for the best experience.
+				In particular, the search feature will not work without JavaScript.
+			</noscript>
 			<main id={ pageId }>
 				@content
 			</main>
@@ -43,15 +49,15 @@ templ Home(data gjson.Result) {
 			@FacetOptions(sortArray(data.Get("vtables.platf"))[0:5])
 		}
 		@Facet("Lineage") {
-			@Input("search", "Influenced By", "plang-name")
-			@Input("search", "Dialect Of", "plang-name")
-			@Input("search", "Implements", "plang-name")
-			@Input("search", "Influenced", "plang-name")
-			@Input("search", "Standard For", "plang-name")
-			@Input("search", "Implemented With", "plang-name")
+			@Input("search", "Influenced By", "influenced-by")
+			@Input("search", "Dialect Of", "dialect-of")
+			@Input("search", "Implements", "implements")
+			@Input("search", "Influenced", "influenced")
+			@Input("search", "Standard For", "standard-for")
+			@Input("search", "Implemented With", "implemented-with")
 		}
 		@Facet("People") {
-			@Input("search", "Person Name", "plang-name")
+			@Input("search", "Person Name", "person")
 		}
 		@Facet("License") {
 			@FacetOptions(sortArray(data.Get("vtables.lic"))[0:5])
@@ -102,9 +108,9 @@ templ anchorFor(link gjson.Result, title string) {
 }
 
 templ About() {
-	<div id="About">
+	@Facet("About") {
 		Plangs is a database of programming languages.
-	</div>
+	}
 }
 
 templ NotFound() {
