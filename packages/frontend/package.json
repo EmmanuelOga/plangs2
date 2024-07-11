@@ -3,6 +3,5 @@
     "description": "Dynamic parts of Plangs reference frontend",
     "version": "0.1.0",
     "dependencies": {
-        "plangs": "workspace:*"
     }
 }

@@ -1,5 +1,8 @@
 {
   "name": "plangs",
   "description": "A database of programming language information.",
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "dependencies": {
+    "graph": "workspace:*"
+  }
 }
