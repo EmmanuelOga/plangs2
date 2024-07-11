@@ -6,8 +6,7 @@ environments:
     packages:
       osx-arm64:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/_go_select-2.3.0-cgo.tar.bz2
-      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/esbuild-0.19.2-hce30654_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/go-1.22.4-hc24e2ac_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/go-1.22.5-hc24e2ac_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/libcxx-17.0.6-h5f092b4_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/libgfortran-5.0.0-13_2_0_hd922786_3.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/libgfortran5-13.2.0-hf226fd6_3.conda
@@ -26,25 +25,13 @@ packages:
   size: 5074
   timestamp: 1627073534014
 - kind: conda
-  name: esbuild
-  version: 0.19.2
-  build: hce30654_0
-  subdir: osx-arm64
-  url: https://conda.anaconda.org/conda-forge/osx-arm64/esbuild-0.19.2-hce30654_0.conda
-  sha256: 73c7100fc6521a6e261b4aa8c2f2630c970cec8a54d5b7945873293e8f0c6f98
-  md5: 9aacf373feb68fbf6cab70db465777eb
-  license: MIT
-  license_family: MIT
-  size: 3268434
-  timestamp: 1693243834619
-- kind: conda
   name: go
-  version: 1.22.4
+  version: 1.22.5
   build: hc24e2ac_0
   subdir: osx-arm64
-  url: https://conda.anaconda.org/conda-forge/osx-arm64/go-1.22.4-hc24e2ac_0.conda
-  sha256: 246689a03c45ef932689c75288c37bda59c242b1c3cbddca9231e382c3560b11
-  md5: d76a3d8b88398218f7f6d6dcee23b507
+  url: https://conda.anaconda.org/conda-forge/osx-arm64/go-1.22.5-hc24e2ac_0.conda
+  sha256: c4eba1e7c21e8d9ec85d40f364b206e3d34eaa406324dc7f783443fa407f48ff
+  md5: 56c681ac6bbceecca0243fe76ed4b601
   depends:
   - __osx >=11.0
   - _go_select ==2.3.0 cgo
@@ -52,13 +39,13 @@ packages:
   - libgfortran 5.*
   - libgfortran5 >=12.3.0
   constrains:
+  - clang_osx-arm64 16.*
   - gfortran_osx-arm64 12.*
   - clangxx_osx-arm64 16.*
-  - clang_osx-arm64 16.*
   license: BSD-3-Clause
   license_family: BSD
-  size: 88186960
-  timestamp: 1719328964602
+  size: 88076032
+  timestamp: 1719991497521
 - kind: conda
   name: libcxx
   version: 17.0.6

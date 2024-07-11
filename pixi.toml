@@ -10,4 +10,3 @@ platforms = ["osx-arm64"]
 
 [dependencies]
 go = ">=1.22.3,<1.23"
-esbuild = ">=0.19.2,<0.20"
