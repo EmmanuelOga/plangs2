@@ -1,10 +1,8 @@
 import { createContext } from "preact";
 import { PlangsGraph } from "../../../schema/graph";
-import { type SearchIndex, loadIndex } from "./search";
 
 export type PlangsContext = {
   pg: PlangsGraph;
-  plIdx: SearchIndex;
 };
 
 export const Plangs = createContext<PlangsContext | undefined | "error">(undefined);
@@ -12,12 +10,9 @@ export const Plangs = createContext<PlangsContext | undefined | "error">(undefin
 export async function loadContext(): Promise<PlangsContext | "error"> {
   try {
     const pgReq = fetch("/plangs.json");
-    const idxReq = fetch("/plangsIdx.json");
-
     const pg = await loadPlangsGraph(pgReq);
-    const plIdx = await loadIndex(idxReq);
 
-    return { pg, plIdx };
+    return { pg };
   } catch (e) {
     console.error("Failed to load context:", e);
     return "error";
