@@ -1,0 +1,8 @@
+{
+    "name": "wikipedia_scraper",
+    "description": "Scraps programming language information from Wikipedia infoboxes.",
+    "version": "0.0.1",
+    "dependencies": {
+        "plangs": "workspace:*"
+    }
+}

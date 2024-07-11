@@ -1,0 +1,8 @@
+{
+  "name": "graph",
+  "description": "A typed directed graph package.",
+  "version": "0.1.0",
+  "dependencies": {
+    "graph": "workspace:*"
+  }
+}

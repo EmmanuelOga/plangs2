@@ -1,0 +1,15 @@
+{
+  "name": "plangs2",
+  "version": "0.1.0",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "workspaces": [
+    "packages/*",
+    "archived/*"
+  ]
+}
