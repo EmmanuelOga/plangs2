@@ -15,7 +15,7 @@ body {
 
 #plangs-header {
     height: 2rem;
-    padding: 1rem;
+    padding: 1rem .5rem;
     background-color: #efe;
     border-bottom: 1px solid #afa;
 }
@@ -28,7 +28,6 @@ body {
 #home-nav,
 #home-side {
     min-width: 15rem;
-    padding: .5rem;
 }
 
 #home-side {
@@ -42,8 +41,10 @@ body {
     background-color: #fbfbfb;
 
     .plang-thumb {
-        width: 12.5rem;
-        height: 12.5rem;
+        --size: calc(100vw / 10);
+
+        width: var(--size);
+        height: var(--size);
 
         padding: .5rem;
         margin: 1rem;
@@ -72,33 +73,41 @@ body {
             font-size: 1.1rem;
         }
 
-        .logo {
-            max-width: 6rem;
-
-        }
-
-        .placeholder {
-            width: 6rem;
-            height: 6rem;
-        }
-
         .links a {
             text-decoration: none;
             color: black;
             margin-left: 1rem;
         }
 
-        .placeholder {
-            align-items: center;
-            background-color: #fafafa;
-            border-radius: 1rem;
-            color: #aaa;
+        .logo {
             display: flex;
-            font-size: .75rem;
-            justify-content: center;
-            overflow: hidden;
-            text-align: center;
-            transform: rotate(-10deg);
+            align-items: center;
+
+            --size-img: calc(var(--size) * 0.6);
+
+            width: var(--size-img);
+            height: var(--size-img);
+
+            img {
+                max-width: var(--size-img);
+                max-height: var(--size-img);
+                height: initial;
+            }
+
+            .placeholder {
+                width: var(--size-img);
+                height: var(--size-img);
+                align-items: center;
+                background-color: #fafafa;
+                border-radius: 1rem;
+                color: #aaa;
+                display: flex;
+                font-size: .75rem;
+                justify-content: center;
+                overflow: hidden;
+                text-align: center;
+                transform: rotate(-10deg);
+            }
         }
     }
 }
@@ -107,18 +116,30 @@ body {
     .facet {
         .title {
             font-weight: bold;
-            padding: .5rem 1rem;
+            padding: .5rem;
             background-color: #eee;
             cursor: pointer;
-            text-align: center;
             font-size: .8rem;
+            margin-bottom: .5rem;
         }
 
         .controls {
+            padding-left: .5rem;
+
             label {
+                padding: .1rem;
                 display: block;
-                margin-bottom: 0.5rem;
+                margin-bottom: .5rem;
                 font-size: .8rem;
+
+                .inner-label {
+                    display: block;
+                }
+
+                input[type="search"],
+                input[type="date"] {
+                    width: 90%;
+                }
             }
         }
     }

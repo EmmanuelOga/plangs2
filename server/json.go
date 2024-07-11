@@ -13,6 +13,7 @@ func sortArray(array gjson.Result) []gjson.Result {
 	array.ForEach(
 		func(key gjson.Result, value gjson.Result) bool {
 			sorted = append(sorted, value)
+
 			return true
 		})
 

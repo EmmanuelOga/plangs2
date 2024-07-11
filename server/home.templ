@@ -29,40 +29,39 @@ templ Layout(content templ.Component, pageId string) {
 templ Home(data gjson.Result) {
 	<nav id="home-nav">
 		@Facet("General") {
-			Name<br/>
-			Extensions<br/>
-			Known Releases<br/>
-			Known Logo<br/>
-			Known Website<br/>
-			Known Wikipedia<br/>
+			@Input("search", "Language Name", "plang-name")
+			@Input("checkbox", "Known Releases", "has-releases")
+			@Input("date", "Released After", "release-min-date")
 		}
 		@Facet("Type System") {
-			@FacetOptions(sortArray(data.Get("vtables.tsys")))
+			@FacetOptions(sortArray(data.Get("vtables.tsys"))[0:5])
 		}
 		@Facet("Paradigm") {
-			@FacetOptions(sortArray(data.Get("vtables.para")))
+			@FacetOptions(sortArray(data.Get("vtables.para"))[0:5])
 		}
 		@Facet("Platform") {
-			@FacetOptions(sortArray(data.Get("vtables.platf")))
-		}
-		@Facet("Compiles To") {
-			TODO<br/>
+			@FacetOptions(sortArray(data.Get("vtables.platf"))[0:5])
 		}
 		@Facet("Lineage") {
-			Influenced By<br/>
-			Influenced<br/>
-
-			Dialect Of<br/>
-			Standard For<br/>
-			
-			Implements<br/>
-			Implemented With<br/>
+			@Input("search", "Influenced By", "plang-name")
+			@Input("search", "Dialect Of", "plang-name")
+			@Input("search", "Implements", "plang-name")
+			@Input("search", "Influenced", "plang-name")
+			@Input("search", "Standard For", "plang-name")
+			@Input("search", "Implemented With", "plang-name")
 		}
 		@Facet("People") {
-			<input type="query" placeholder="Search person ..." />
+			@Input("search", "Person Name", "plang-name")
 		}
 		@Facet("License") {
-			@FacetOptions(sortArray(data.Get("vtables.lic")))
+			@FacetOptions(sortArray(data.Get("vtables.lic"))[0:5])
+		}
+		@Facet("Misc") {
+			@Input("checkbox", "Source-to-Source", "plang-transpiler")
+			@Input("checkbox", "Has Logo", "has-logo")
+			@Input("checkbox", "Has Website", "has-website")
+			@Input("checkbox", "Has Wikipedia", "has-wikipedia")
+			@Input("search", "File Extension", "plang-ext")
 		}
 	</nav>
 	<article id="home-plangs">
@@ -86,12 +85,16 @@ templ PlangsList(plangs []gjson.Result) {
 	}
 }
 
-templ imgFor(img gjson.Result, placeholder string) {
-	if img.Exists() {
-		<img class="logo" src={ img.Get("url").String() } alt="Logo"/>
-	} else {
-		<div class="placeholder">{ placeholder }</div>
-	}
+templ imgFor(img gjson.Result, title string) {
+	<div class="logo">
+		if img.Exists() {
+			<img class="logo" src={ img.Get("url").String() } alt="Logo"/>
+		} else {
+			<div class="placeholder">
+				{ title }
+			</div>
+		}
+	</div>
 }
 
 templ anchorFor(link gjson.Result, title string) {
@@ -121,9 +124,18 @@ templ Facet(title string) {
 
 templ FacetOptions(tsys []gjson.Result) {
 	for _, tsys := range tsys {
-		<label>
-			<input type="checkbox" name={ tsys.Get("vid").String() }/>
-			{ tsys.Get("name").String() }
-		</label>
+		@Input("checkbox", tsys.Get("name").String(), tsys.Get("vid").String())
 	}
+}
+
+templ Input(inputType string, label string, val string) {
+	<label>
+		if inputType == "checkbox" {
+			<input type={ inputType } name={ val }/>
+			<span class="inner-label-checkbox">{ label }</span>
+		} else {
+			<span class="inner-label">{ label }</span>
+			<input type={ inputType } name={ val }/>
+		}
+	</label>
 }

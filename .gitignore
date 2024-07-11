@@ -1,6 +1,8 @@
 server/static/browse
 server/static/shared
 
+.envrc
+
 .go
 .pixi
 
