@@ -1,4 +1,4 @@
-import { Graph } from "../graphs/graph";
+import { Graph } from "../../packages/graphs/graph";
 import {
   LicenseBuilder,
   ParadigmBuilder,
