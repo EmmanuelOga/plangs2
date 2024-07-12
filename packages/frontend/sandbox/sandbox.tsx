@@ -1,8 +1,13 @@
 import "preact/debug";
-import { render, h } from "preact";
-import { InputCompl } from "../src/input-compl/input_compl";
+import "../src/input-compl/input_compl";
+import type { InputComplWebComponent } from "../src/input-compl/input_compl";
 
-const el = document.getElementById("input-compl");
-if (!el) throw new Error("element not found: #input-compl");
+const c = document.querySelector("input-compl") as InputComplWebComponent;
+if (!c) throw new Error("Component not found");
 
-render(<InputCompl/>, el);
+c.complData = [
+  ["1", "hello"],
+  ["2", "world"],
+  ["3", "bye, bye"],
+  ["4", "world"],
+];

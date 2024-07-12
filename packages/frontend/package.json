@@ -2,8 +2,12 @@
   "name": "frontend",
   "description": "Dynamic parts of Plangs reference frontend",
   "version": "0.1.0",
+  "devDependencies": {
+    "@types/preact-custom-element": "^4.0.4"
+  },
   "dependencies": {
-    "preact": "^10.22.1"
+    "preact": "^10.22.1",
+    "preact-custom-element": "^4.3.0"
   },
   "scripts": {
     "dev": "esbuild sandbox/sandbox.tsx --bundle --sourcemap --outdir=sandbox --watch"
