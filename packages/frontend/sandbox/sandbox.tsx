@@ -7,4 +7,4 @@ if (!c) throw new Error("Component not found");
 
 const words = ["car", "house", "dog", "cat", "mouse", "elephant", "lion", "tiger", "bear", "wolf", "fox", "rabbit"];
 
-c.complData = words.map((w, i) => [`${i}`, w]);
+c.complData = words.map((w, i) => [i, w]);
