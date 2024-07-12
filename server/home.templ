@@ -1,6 +1,9 @@
 package main
 
-import "github.com/tidwall/gjson"
+import (
+	"fmt"
+	"github.com/tidwall/gjson"
+)
 
 templ Layout(content templ.Component, pageId string) {
 	<!DOCTYPE html>
@@ -49,12 +52,12 @@ templ Home(data gjson.Result) {
 			@FacetOptions(sortArray(data.Get("vtables.platf"))[0:5])
 		}
 		@Facet("Lineage") {
-			@Input("search", "Influenced By", "influenced-by")
-			@Input("search", "Dialect Of", "dialect-of")
-			@Input("search", "Implements", "implements")
-			@Input("search", "Influenced", "influenced")
-			@Input("search", "Standard For", "standard-for")
-			@Input("search", "Implemented With", "implemented-with")
+			@Input("pl-search", "Influenced By", "influenced-by")
+			@Input("pl-search", "Dialect Of", "dialect-of")
+			@Input("pl-search", "Implements", "implements")
+			@Input("pl-search", "Influenced", "influenced")
+			@Input("pl-search", "Standard For", "standard-for")
+			@Input("pl-search", "Implemented With", "implemented-with")
 		}
 		@Facet("People") {
 			@Input("search", "Person Name", "person")
@@ -139,7 +142,14 @@ templ Input(inputType string, label string, val string) {
 			<span class="inner-label-checkbox">{ label }</span>
 		} else {
 			<span class="inner-label">{ label }</span>
-			<input type={ inputType } name={ val }/>
+			if inputType == "pl-search" {
+				<input type="search" name={ val }/>
+				<ul name={ fmt.Sprintf("%s-sel", val) }>
+					<li>Pascal</li>
+				</ul>
+			} else {
+				<input type={ inputType } name={ val }/>
+			}
 		}
 	</label>
 }
