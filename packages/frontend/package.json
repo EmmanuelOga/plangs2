@@ -1,7 +1,11 @@
 {
-    "name": "frontend",
-    "description": "Dynamic parts of Plangs reference frontend",
-    "version": "0.1.0",
-    "dependencies": {
-    }
+  "name": "frontend",
+  "description": "Dynamic parts of Plangs reference frontend",
+  "version": "0.1.0",
+  "dependencies": {
+    "preact": "^10.22.1"
+  },
+  "scripts": {
+    "dev": "esbuild sandbox/sandbox.tsx --bundle --sourcemap --outdir=sandbox --watch"
+  }
 }

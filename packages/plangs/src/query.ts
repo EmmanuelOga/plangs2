@@ -1,6 +1,6 @@
-import type { VID_Plang } from "../../../schema/entities";
-import type { PlangsGraph } from "../../../schema/graph";
-import { addAll, hasAll, hasAny } from "../../../util";
+import type { VID_Plang } from "./schema/entities";
+import type { PlangsGraph } from "./schema/graph";
+import { hasAll, hasAny, addAll } from "./util";
 
 export type Filter = {
   enabled: boolean;
@@ -20,7 +20,7 @@ function byTSys(pg: PlangsGraph, values: Set<string>, mode: Filter["valuesMode"]
   return result;
 }
 
-export function filterPlangs(
+export function filter(
   pg: PlangsGraph,
   filters: Map<Filters, Filter>,
 ): { includes?: Set<VID_Plang>; excludes?: Set<VID_Plang> } {

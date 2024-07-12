@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "esbuild": "^0.23.0",
     "@types/bun": "latest"
   },
   "peerDependencies": {
@@ -8,8 +9,5 @@
   "workspaces": [
     "packages/*",
     "archived/*"
-  ],
-  "dependencies": {
-    "esbuild": "^0.23.0"
-  }
+  ]
 }
