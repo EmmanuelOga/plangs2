@@ -11,7 +11,7 @@ input-compl {
         box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
 
         max-width: 15rem;
-        max-height: 15rem;
+        max-height: 10rem;
 
         overflow-x: hidden;
         overflow-y: auto;
