@@ -40,6 +40,11 @@ function adjustSelection(state: State, offset: 1 | -1): State {
 function handleKey(state: State, { from, key }: ActionKey): State {
   const { showPopup, candidates } = state;
 
+  if (key === "Escape") {
+    if (showPopup) return handlePopup(state, { kind: "popup", show: false });
+    return state;
+  }
+
   if (key === "ArrowDown" || key === "ArrowUp") {
     if (from === "input" && !showPopup && candidates.length > 0) {
       return handlePopup({ ...state, selected: 0 }, { kind: "popup", show: true });
@@ -48,6 +53,7 @@ function handleKey(state: State, { from, key }: ActionKey): State {
   }
 
   if (key !== "Enter") return state;
+
   if (!state.showPopup) return handlePopup(state, { kind: "popup", show: true });
 
   if (state.onSelect) {
@@ -55,7 +61,8 @@ function handleKey(state: State, { from, key }: ActionKey): State {
     if (elem) state.onSelect(elem);
   }
 
-  return handleUpdateQuery({ ...state, showPopup: false }, { kind: "updateQuery", query: "" });
+  const queryLess = handleUpdateQuery(state, { kind: "updateQuery", query: "" });
+  return handlePopup(queryLess, { kind: "popup", show: false });
 }
 
 function handlePopup(state: State, { show }: ActionPopup): State {
@@ -85,7 +92,7 @@ function handleUpdateQuery(state: State, { query }: ActionQuery): State {
     candidates,
     query,
     selected: 0,
-    showPopup: showPopup && q.length > 0,
+    showPopup: query.length > 0,
   };
 }
 

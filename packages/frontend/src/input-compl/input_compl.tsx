@@ -53,7 +53,7 @@ export function InputCompl({ name, complData, onSelect }: InputComplProps) {
     p.style.minWidth = `${inPos.width}px`;
     p.style.left = `calc(${inPos.left}px - .25rem)`;
     p.style.top = `calc(${inPos.bottom}px + .25rem)`;
-    selRef.current?.scrollIntoView();
+    selRef.current?.scrollIntoView({ block: "nearest" });
   });
 
   return (
@@ -62,9 +62,9 @@ export function InputCompl({ name, complData, onSelect }: InputComplProps) {
         value={state.query}
         name={name}
         onClick={() => dispatch({ kind: "popup", show: true })}
-        onFocus={({ type, relatedTarget }) => {
-          const show = type !== "focusout" || relatedTarget === popupRef.current;
-          dispatch({ kind: "popup", show });
+        onBlur={({ relatedTarget }) => {
+          if (relatedTarget === popupRef.current) return;
+          dispatch({ kind: "popup", show: false });
         }}
         onInput={() => dispatch({ kind: "updateQuery", query: inputRef.current?.value ?? "" })}
         onKeyDown={({ key }) => dispatch({ kind: "key", from: "input", key })}
