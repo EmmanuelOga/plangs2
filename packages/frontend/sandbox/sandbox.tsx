@@ -1,9 +1,13 @@
 import "preact/debug";
-import "../src/input-compl/input_compl";
-import type { InputComplWebComponent } from "../src/input-compl/input_compl";
 
-const c = document.querySelector("input-compl") as InputComplWebComponent;
-if (!c) throw new Error("Component not found");
+import "../src/input_compl/input_compl";
+import type { InputComplWebComponent } from "../src/input_compl/input_compl";
+
+import "../src/input_sel/input_sel";
+import type { InputSelWebComponent } from "../src/input_sel/input_sel";
+
+const inp = document.querySelector("input-compl") as InputComplWebComponent;
+if (!inp) throw new Error("Component not found");
 
 const words = [
   "car",
@@ -32,4 +36,13 @@ const words = [
   "nectarine",
 ];
 
-c.complData = words.map((w, i) => [i, w]);
+inp.completions = words.map((w, i) => [i, w]);
+
+const sel = document.querySelector("input-sel") as InputSelWebComponent;
+if (!sel) throw new Error("Component not found");
+
+console.log(sel.dispatch)
+
+inp.onSelect = (item) => {
+  console.log(sel.dispatch);
+};

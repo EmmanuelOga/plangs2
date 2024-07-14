@@ -1,28 +1,34 @@
+/** A completion item has a value and a label. */
+export type Item = [unknown, string];
+
 /**
  * State for InputCompl component.
  */
 export type State = {
+  /** The candidates will be an array of indices into completions. */
   candidates: number[];
-  complData?: [unknown, string][];
-  onSelect?: (data: unknown) => void;
+  completions: Item[];
+  onSelect?: (item: Item) => void;
   query: string;
   selected: number;
   showPopup: boolean;
 };
 
-export type ActionKey = { kind: "key"; from: "input" | "list" | "item"; key: string };
+export type ActionKeyPress = { kind: "keypress"; from: "input" | "list" | "item"; key: string };
 export type ActionPopup = { kind: "popup"; show: boolean };
 export type ActionQuery = { kind: "updateQuery"; query: string };
 export type ActionSelectIndex = { kind: "selectIndex"; index: number };
-export type Actions = ActionKey | ActionPopup | ActionQuery | ActionSelectIndex;
+export type ActionUpdate = { kind: "update"; state: Partial<State> };
+export type Actions = ActionKeyPress | ActionPopup | ActionQuery | ActionSelectIndex | ActionUpdate;
 
 // biome-ignore format: do not add new lines.
 export function reducer(state: State, action: Actions): State {
   switch (action.kind) {
-    case "key": return handleKey(state, action);
+    case "keypress": return handleKeypress(state, action);
     case "popup": return handlePopup(state, action);
-    case "updateQuery": return handleUpdateQuery(state, action);
     case "selectIndex": return handleSelectIndex(state, action);
+    case "update": return handleUpdate(state, action);
+    case "updateQuery": return handleUpdateQuery(state, action);
     default: return state;
   }
 }
@@ -37,7 +43,7 @@ function adjustSelection(state: State, offset: 1 | -1): State {
   return state;
 }
 
-function handleKey(state: State, { from, key }: ActionKey): State {
+function handleKeypress(state: State, { from, key }: ActionKeyPress): State {
   const { showPopup, candidates } = state;
 
   if (key === "Escape") {
@@ -57,7 +63,7 @@ function handleKey(state: State, { from, key }: ActionKey): State {
   if (!state.showPopup) return handlePopup(state, { kind: "popup", show: true });
 
   if (state.onSelect) {
-    const elem = state.complData?.[state.candidates[state.selected]];
+    const elem = state.completions[state.candidates[state.selected]];
     if (elem) state.onSelect(elem);
   }
 
@@ -76,15 +82,20 @@ function handlePopup(state: State, { show }: ActionPopup): State {
   return { ...state, showPopup: show };
 }
 
+function handleUpdate(state: State, { state: newState }: ActionUpdate): State {
+  // The dummy query ensures the candidates are updated.
+  return handleUpdateQuery({ ...state, query: "[DUMMY]", ...newState }, { kind: "updateQuery", query: "" });
+}
+
 function handleUpdateQuery(state: State, { query }: ActionQuery): State {
-  const { query: prevQuery, showPopup } = state;
+  const { query: prevQuery } = state;
   if (query === prevQuery) return state;
 
   const candidates: number[] = [];
 
-  const q = query.toLowerCase();
-  state.complData?.forEach(([_, val], idx) => {
-    if (val.toLowerCase().includes(q)) candidates.push(idx);
+  const q = query.trim().toLowerCase();
+  state.completions.forEach(([_, val], idx) => {
+    if (q.length === 0 || val.toLowerCase().includes(q)) candidates.push(idx);
   });
 
   return {

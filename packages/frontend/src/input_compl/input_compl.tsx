@@ -2,7 +2,7 @@ import type { Ref } from "preact";
 import register from "preact-custom-element";
 import { useEffect, useReducer, useRef } from "preact/hooks";
 
-import { reducer } from "./reducer";
+import { type Item, reducer } from "./reducer";
 
 import "./input_compl.css";
 
@@ -11,9 +11,9 @@ export type InputComplProps = {
   /** Name attribute for the input element. */
   name: string;
   /** Array of [data, label] elements. */
-  complData?: [unknown, string][];
+  completions?: [unknown, string][];
   /** Invoked when an item is selected. */
-  onSelect?: (data: unknown) => void;
+  onSelect?: (item: Item) => void;
   /** Changing this forces a render, without having to replace other data. */
   version: number;
 };
@@ -22,29 +22,26 @@ export type InputComplProps = {
 export type InputComplWebComponent = HTMLInputElement & InputComplProps;
 
 /** `<input-compl />` is an input element that can popup an autocomplete list. */
-export function InputCompl({ name, complData, onSelect }: InputComplProps) {
-  const input = <input type="search" name={name} />;
-
-  if (!complData) return input;
-
+export function InputCompl(props: InputComplProps) {
   const inputRef = useRef<HTMLInputElement>();
   const popupRef = useRef<HTMLDivElement>();
   const selRef = useRef<HTMLDivElement>();
 
-  const [state, dispatch] = useReducer(
-    reducer,
-    reducer(
-      {
-        candidates: [],
-        complData,
-        onSelect,
-        selected: 0,
-        showPopup: false,
-        query: "[PRE-INIT]",
-      },
-      { kind: "updateQuery", query: "" },
-    ),
-  );
+  const [state, dispatch] = useReducer(reducer, {
+    candidates: [],
+    completions: [],
+    selected: 0,
+    showPopup: false,
+    query: "",
+  });
+
+  useEffect(() => {
+    dispatch({ kind: "update", state: { completions: props.completions ?? [] } });
+  }, [props.completions]);
+
+  useEffect(() => {
+    dispatch({ kind: "update", state: { onSelect: props.onSelect } });
+  }, [props.onSelect]);
 
   useEffect(() => {
     const p = popupRef.current;
@@ -60,31 +57,31 @@ export function InputCompl({ name, complData, onSelect }: InputComplProps) {
     <>
       <input
         value={state.query}
-        name={name}
+        name={props.name}
         onClick={() => dispatch({ kind: "popup", show: true })}
         onBlur={({ relatedTarget }) => {
           if (relatedTarget === popupRef.current) return;
           dispatch({ kind: "popup", show: false });
         }}
         onInput={() => dispatch({ kind: "updateQuery", query: inputRef.current?.value ?? "" })}
-        onKeyDown={({ key }) => dispatch({ kind: "key", from: "input", key })}
+        onKeyDown={({ key }) => dispatch({ kind: "keypress", from: "input", key })}
         ref={inputRef as Ref<HTMLInputElement>}
         type="search"
       />
       <div
-        class={`popup ${state.candidates && state.showPopup ? "" : "hidden"}`}
-        onKeyDown={({ key }) => dispatch({ kind: "key", from: "list", key })}
+        class={`popup ${state.candidates.length > 0 && state.showPopup ? "" : "hidden"}`}
+        onKeyDown={({ key }) => dispatch({ kind: "keypress", from: "list", key })}
         ref={popupRef as Ref<HTMLDivElement>}
         tabindex={0}>
         {state.candidates.map((value, idx) => (
           <div
             ref={(idx === state.selected ? selRef : undefined) as Ref<HTMLDivElement>}
             class={`item ${idx === state.selected ? "selected" : ""}`}
-            key={complData[value][0]}
+            key={state.completions[value][0]}
             onClick={() => dispatch({ kind: "selectIndex", index: idx })}
-            onDblClick={() => dispatch({ kind: "key", from: "item", key: "Enter" })}
-            onKeyDown={({ key }) => dispatch({ kind: "key", from: "item", key })}>
-            {complData[value][1]}
+            onDblClick={() => dispatch({ kind: "keypress", from: "item", key: "Enter" })}
+            onKeyDown={({ key }) => dispatch({ kind: "keypress", from: "item", key })}>
+            {state.completions[value][1]}
           </div>
         ))}
       </div>
@@ -92,4 +89,4 @@ export function InputCompl({ name, complData, onSelect }: InputComplProps) {
   );
 }
 
-register(InputCompl, "input-compl", ["name", "complData", "version", "onSelect"], { shadow: false });
+register(InputCompl, "input-compl", ["name", "completions", "version", "onSelect"], { shadow: false });
