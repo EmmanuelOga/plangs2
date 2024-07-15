@@ -22,23 +22,22 @@ export type VID_Any = VID<Any>;
  * without having to go through a {@link VertexTable}.
  */
 export interface VData<T extends string> {
-	vid: VID<T>;
+  vid: VID<T>;
 }
 
 const NON_PLUS_ID_CHARS = "[a-z-0-9\\-\\(\\)\\[\\]_.]+$";
 const NON_PLUS_ID_PATTERN = new RegExp(NON_PLUS_ID_CHARS);
 
 export function validChars(s: string): boolean {
-	return NON_PLUS_ID_PATTERN.test(s);
+  return NON_PLUS_ID_PATTERN.test(s);
 }
 
 export function isAnyVID(s: string): s is VID<Any> {
-	const parts = s.split("+");
-	return parts.length === 2 && validChars(parts[0]) && validChars(parts[1]);
+  const parts = s.split("+");
+  return parts.length === 2 && validChars(parts[0]) && validChars(parts[1]);
 }
 
 export function vIDPattern(vtype: string): RegExp {
-	if (!validChars(vtype))
-		throw new Error(`'${vtype}' is not valid as a vid prefix.`);
-	return new RegExp(`^${vtype}\\+${NON_PLUS_ID_CHARS}`);
+  if (!validChars(vtype)) throw new Error(`'${vtype}' is not valid as a vid prefix.`);
+  return new RegExp(`^${vtype}\\+${NON_PLUS_ID_CHARS}`);
 }

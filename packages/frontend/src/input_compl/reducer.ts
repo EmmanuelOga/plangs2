@@ -8,7 +8,7 @@ export type State = {
   /** The candidates will be an array of indices into completions. */
   candidates: number[];
   completions: Item[];
-  name: string,
+  name: string;
   onSelect: (payload: unknown) => void;
   query: string;
   selected: number;
@@ -64,7 +64,7 @@ function handleKeypress(state: State, { from, key }: ActionKeyPress): State {
   if (!state.showPopup) return handlePopup(state, { kind: "popup", show: true });
 
   const elem = state.completions[state.candidates[state.selected]];
-  state.onSelect({name: state.name, item: elem});
+  state.onSelect({ name: state.name, item: elem });
 
   const queryLess = handleUpdateQuery(state, { kind: "updateQuery", query: "" });
   return handlePopup(queryLess, { kind: "popup", show: false });

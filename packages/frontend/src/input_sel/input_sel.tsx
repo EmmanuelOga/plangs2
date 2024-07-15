@@ -32,9 +32,13 @@ export function InputSel() {
           class="remove-item"
           key={key}
           onClick={() => dispatch({ kind: "remove", key })}
-          onKeyDown={(ev) => { if (ev.key === "Enter") dispatch({ kind: "remove", key }); }}
+          onKeyDown={(ev) => {
+            if (ev.key === "Enter") dispatch({ kind: "remove", key });
+          }}
           tabindex={index + 1}>
-          <span class="icon" aria-label="remove">❌</span>
+          <span class="icon" aria-label="remove">
+            ❌
+          </span>
           {label}
         </div>
       ))}
