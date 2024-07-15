@@ -46,6 +46,7 @@ export function InputCompl({ name, completions, tabIndex }: InputComplProps) {
   return (
     <>
       <input
+        autocomplete="off"
         name={name}
         onBlur={({ relatedTarget }) => {
           if (relatedTarget === popupRef.current) return;

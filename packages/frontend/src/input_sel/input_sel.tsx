@@ -29,17 +29,13 @@ export function InputSel() {
     <div ref={self as Ref<HTMLDivElement>}>
       {state.selected.length === 0 && <div>No items selected</div>}
       {state.selected.map(([key, label], index) => (
-        <div key={key}>
-          <div
-            tabindex={index + 1}
-            class="remove-item"
-            onClick={() => dispatch({ kind: "remove", key })}
-            onKeyDown={(ev) => {
-              if (ev.key === "Enter") dispatch({ kind: "remove", key });
-            }}
-            tabIndex={index + 1}>
-            (X){" "}
-          </div>
+        <div
+          class="remove-item"
+          key={key}
+          onClick={() => dispatch({ kind: "remove", key })}
+          onKeyDown={(ev) => { if (ev.key === "Enter") dispatch({ kind: "remove", key }); }}
+          tabindex={index + 1}>
+          <span class="icon" aria-label="remove">❌</span>
           {label}
         </div>
       ))}
