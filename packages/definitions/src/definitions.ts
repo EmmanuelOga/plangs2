@@ -1,10 +1,8 @@
 import { Glob } from "bun";
-import { PlangsGraph } from "./schema/graph";
+import { PlangsGraph } from "plangs";
 
-/**
- * Scans the ./entities directory and loads all graph data from `define` functions.
- */
-export async function loadDefinitions(g: PlangsGraph) {
+/** Imports all definitions and calls the `define` methods */
+export async function loadAll(g: PlangsGraph) {
   const glob = new Glob("**/*.ts");
   for await (const path of glob.scan(`${__dirname}/definitions`)) {
     const module = await import(`./definitions/${path}`);
@@ -15,13 +13,9 @@ export async function loadDefinitions(g: PlangsGraph) {
   console.info(new Date().toISOString(), `Plangs: loaded ${g.numVertices} vertices, ${g.numEdges} edges.`);
 }
 
-/** Generates `server/static/plangs.json` */
+/** Generates `plangs.json` */
 export async function genPlangs() {
   const g = new PlangsGraph();
-  await loadDefinitions(g);
+  await loadAll(g);
   Bun.write(Bun.fileURLToPath(`file:///${__dirname}/../server/static/plangs.json`), JSON.stringify(g.toJSON()));
-}
-
-if (process.env.GEN_PLANGS) {
-  await genPlangs();
 }

@@ -6,6 +6,13 @@ import "../src/input_sel/input_sel";
 import { addItemEvent } from "../src/input_sel/input_sel";
 import { type InputComplProps, ON_SELECT_EVENT } from "../src/input_compl/input_compl";
 
+import type {PlangsGraph} from "plangs";
+
+async function loadPlangs() : Promise<PlangsGraph> {
+  const data = fetch("/plangs.json").then((r) => r.json());
+
+}
+
 const words = [
   "car",
   "house",

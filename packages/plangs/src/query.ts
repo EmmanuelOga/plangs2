@@ -1,5 +1,5 @@
 import type { VID_Plang } from "./schema/entities";
-import type { PlangsGraph } from "./schema/graph";
+import type { PlangsGraph } from "./graph";
 import { hasAll, hasAny, addAll } from "./util";
 
 export type Filter = {

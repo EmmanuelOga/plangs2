@@ -1,4 +1,4 @@
-import { Graph } from "../../packages/graphs/graph";
+import { Graph } from "../../graph/src/graph";
 import {
   LicenseBuilder,
   ParadigmBuilder,
@@ -6,7 +6,7 @@ import {
   PlangBuilder,
   PlatformBuilder,
   TypeSysBuilder,
-} from "./builders";
+} from "./schema/builders";
 import type {
   E_DialectOf,
   E_HasLicense,
@@ -28,7 +28,7 @@ import type {
   V_Plang,
   V_Platform,
   V_TypeSystem,
-} from "./entities";
+} from "./schema/entities";
 
 /**
  * Collection of related edge and vertex tables.
