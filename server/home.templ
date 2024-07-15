@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"github.com/tidwall/gjson"
-)
+import "github.com/tidwall/gjson"
 
 templ Layout(content templ.Component, pageId string) {
 	<!DOCTYPE html>
@@ -13,6 +10,8 @@ templ Layout(content templ.Component, pageId string) {
 			<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			<title>Plangs</title>
 			<link rel="stylesheet" href="/index.css"/>
+			<link rel="stylesheet" href="/browser.css"/>
+			<script src="/browser.js" defer></script>
 			<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/>
 			<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/>
 			<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/>
@@ -43,27 +42,27 @@ templ Home(data gjson.Result) {
 			@Input("date", "Released After", "release-min-date")
 		}
 		@Facet("Type System") {
-			@FacetOptions(sortArray(data.Get("vtables.tsys"))[0:5])
+			@FacetOptions(sortArray(data.Get("vtables.tsys")))
 		}
 		@Facet("Paradigm") {
-			@FacetOptions(sortArray(data.Get("vtables.para"))[0:5])
+			@FacetOptions(sortArray(data.Get("vtables.para")))
 		}
 		@Facet("Platform") {
-			@FacetOptions(sortArray(data.Get("vtables.platf"))[0:5])
+			@FacetOptions(sortArray(data.Get("vtables.platf")))
 		}
 		@Facet("Lineage") {
-			@Input("pl-search", "Influenced By", "influenced-by")
-			@Input("pl-search", "Dialect Of", "dialect-of")
-			@Input("pl-search", "Implements", "implements")
-			@Input("pl-search", "Influenced", "influenced")
-			@Input("pl-search", "Standard For", "standard-for")
-			@Input("pl-search", "Implemented With", "implemented-with")
+			@Input("compl", "Influenced By", "influenced-by")
+			@Input("compl", "Dialect Of", "dialect-of")
+			@Input("compl", "Implements", "implements")
+			@Input("compl", "Influenced", "influenced")
+			@Input("compl", "Standard For", "standard-for")
+			@Input("compl", "Implemented With", "implemented-with")
 		}
 		@Facet("People") {
-			@Input("search", "Person Name", "person")
+			@Input("compl", "Person Name", "person")
 		}
 		@Facet("License") {
-			@FacetOptions(sortArray(data.Get("vtables.lic"))[0:5])
+			@FacetOptions(sortArray(data.Get("vtables.lic")))
 		}
 		@Facet("Misc") {
 			@Input("checkbox", "Source-to-Source", "plang-transpiler")
@@ -142,14 +141,14 @@ templ Input(inputType string, label string, val string) {
 			<span class="inner-label-checkbox">{ label }</span>
 		} else {
 			<span class="inner-label">{ label }</span>
-			if inputType == "pl-search" {
-				<input type="search" name={ val }/>
-				<ul name={ fmt.Sprintf("%s-sel", val) }>
-					<li>Pascal</li>
-				</ul>
+			if inputType == "compl" {
+				<input-compl name={ val }></input-compl>
 			} else {
 				<input type={ inputType } name={ val }/>
 			}
 		}
 	</label>
+	if inputType == "compl" {
+		<input-sel name={ val }></input-sel>
+	}
 }

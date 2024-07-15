@@ -1,4 +1,6 @@
 input-compl {
+    display: block;
+
     .hidden {
         display: none;
     }
@@ -20,8 +22,9 @@ input-compl {
 
         .item {
             min-width: 8rem;
+
             &.selected {
-                background: yellowgreen;
+                background: lightgray;
             }
         }
     }

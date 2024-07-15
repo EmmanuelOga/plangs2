@@ -55,12 +55,12 @@ main {
 }
 
 #home-nav {
-    padding-right: 0.25rem;
+    padding-right: .25rem;
 }
 
 #home-side {
     min-width: 30rem;
-    padding-left: 0.25rem;
+    padding-left: .25rem;
 }
 
 #home-plangs {
@@ -81,11 +81,11 @@ main {
     color: #444;
     background-color: white;
 
-    box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
+    box-shadow: rgba(99, 99, 99, .1) 0px 2px 8px 0px;
     cursor: pointer;
 
     &:hover {
-        box-shadow: rgba(99, 99, 99, 0.8) 0px 2px 8px 0px;
+        box-shadow: rgba(99, 99, 99, .8) 0px 2px 8px 0px;
     }
 
     display: flex;
@@ -112,7 +112,7 @@ main {
         display: flex;
         align-items: center;
 
-        --size-img: calc(var(--size) * 0.6);
+        --size-img: calc(var(--size) * .6);
 
         width: var(--size-img);
         height: var(--size-img);
@@ -153,10 +153,13 @@ main {
     .controls {
         padding-left: .5rem;
 
+        max-height: 20rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+
         label {
             padding: .1rem;
             display: block;
-            margin-bottom: .5rem;
             font-size: .8rem;
 
             .inner-label {
@@ -167,6 +170,13 @@ main {
             input[type="date"] {
                 width: 90%;
             }
+        }
+
+        input-sel {
+            font-size: .8rem;
+            padding-left: .25rem;
+            padding-bottom: .5rem;
+            width: 90%;
         }
     }
 }

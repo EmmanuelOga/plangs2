@@ -10,6 +10,7 @@
     "preact-custom-element": "^4.3.0"
   },
   "scripts": {
-    "dev": "esbuild sandbox/sandbox.tsx --bundle --sourcemap --outdir=sandbox --watch"
+    "dev": "esbuild sandbox/sandbox.tsx --bundle --sourcemap --outdir=sandbox --watch",
+    "servdev": "esbuild src/browser.tsx --bundle --sourcemap --outdir=../../server/static --watch"
   }
 }

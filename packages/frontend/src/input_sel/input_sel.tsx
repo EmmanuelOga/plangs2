@@ -27,7 +27,6 @@ export function InputSel() {
 
   return (
     <div ref={self as Ref<HTMLDivElement>}>
-      {state.selected.length === 0 && <div>No items selected</div>}
       {state.selected.map(([key, label], index) => (
         <div
           class="remove-item"

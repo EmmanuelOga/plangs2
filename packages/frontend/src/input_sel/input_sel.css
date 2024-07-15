@@ -1,6 +1,12 @@
 input-sel {
+    display: block;
+
     .remove-item {
         cursor: pointer;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
 
         .icon {
             padding-right: .5rem;

@@ -84,9 +84,9 @@ export function InputCompl({ name, completions, tabIndex }: InputComplProps) {
 function alignPopup(input?: HTMLInputElement, popup?: HTMLDivElement): void {
   if (!popup || !input) return;
   const inPos = input.getBoundingClientRect();
-  popup.style.minWidth = `${inPos.width}px`;
-  popup.style.left = `calc(${inPos.left}px - .25rem)`;
-  popup.style.top = `calc(${inPos.bottom}px + .25rem)`;
+  popup.style.width = `${inPos.width}px`;
+  popup.style.left = `calc(${inPos.left + window.scrollX}px - .25rem)`;
+  popup.style.top = `calc(${inPos.bottom + window.scrollY}px + .25rem)`;
 }
 
 /** The selected item will be emitted on a CustomEvent with this name. */
