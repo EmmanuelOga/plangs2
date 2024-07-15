@@ -1,0 +1,6 @@
+input-sel {
+    .remove-item {
+        cursor: pointer;
+        color: red;
+    }
+}

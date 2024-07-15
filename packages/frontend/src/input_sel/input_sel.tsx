@@ -3,33 +3,9 @@ import register from "preact-custom-element";
 import type { Ref } from "preact";
 import { type Dispatch, useEffect, useReducer, useRef } from "preact/hooks";
 
-export type Item = [unknown, string];
+import { type Actions, type Item, reducer } from "./reducer";
 
-export type State = {
-  selected: Item[];
-};
-
-export type ActionAdd = { kind: "add"; item: Item };
-export type ActionRemove = { kind: "remove"; key: Item[0] };
-export type Actions = ActionAdd | ActionRemove;
-
-function reducer(state: State, action: Actions): State {
-  const { selected } = state;
-
-  if (action.kind === "add") {
-    const existing = selected?.find(([key]) => key === action.item[0]);
-    if (existing) return state;
-    return { selected: [...(selected || []), action.item] };
-  }
-
-  if (action.kind === "remove") {
-    return { selected: selected?.filter(([key]) => key !== action.key) };
-  }
-
-  return state;
-}
-
-export const ADD_EVENT_NAME = "input-sel:add";
+import "./input_sel.css";
 
 /**
  * `<input-sel />` is a list of selected items.
@@ -42,19 +18,10 @@ export function InputSel() {
   useEffect(() => {
     const root = self.current?.parentElement;
     if (!root) return;
-
-    function eventHandler(ev: Event) {
-      const {detail} = ev as CustomEvent;
-      if (Array.isArray(detail) && detail[0] !== undefined && detail[1] !== undefined) {
-        dispatch({ kind: "add", item: detail as Item });
-      } else {
-        console.warn("Invalid event detail", detail);
-      }
-    }
-
-    root.addEventListener(ADD_EVENT_NAME, eventHandler);
+    const handler = (ev: Event) => dispatchFrom(ev as CustomEvent, dispatch);
+    root.addEventListener(ADD_EVENT_NAME, handler);
     return () => {
-      root.removeEventListener(ADD_EVENT_NAME, eventHandler);
+      root.removeEventListener(ADD_EVENT_NAME, handler);
     };
   });
 
@@ -63,15 +30,16 @@ export function InputSel() {
       {state.selected.length === 0 && <div>No items selected</div>}
       {state.selected.map(([key, label], index) => (
         <div key={key}>
-          <span
-            style="cursor: pointer; color: red;"
-            tabIndex={index + 1}
+          <div
+            tabindex={index + 1}
+            class="remove-item"
+            onClick={() => dispatch({ kind: "remove", key })}
             onKeyDown={(ev) => {
               if (ev.key === "Enter") dispatch({ kind: "remove", key });
             }}
-            onClick={() => dispatch({ kind: "remove", key })}>
+            tabIndex={index + 1}>
             (X){" "}
-          </span>
+          </div>
           {label}
         </div>
       ))}
@@ -79,4 +47,21 @@ export function InputSel() {
   );
 }
 
-register(InputSel, "input-sel", ["selected"], { shadow: false });
+export const ADD_EVENT_NAME = "input-sel:add";
+
+/** Dispatch one of these to {@link InputSel} to add an item to the selections. */
+export function addItemEvent(item: Item): CustomEvent {
+  return new CustomEvent(ADD_EVENT_NAME, { detail: item, bubbles: true, composed: true });
+}
+
+/** Attempts to extract an item to add from a {@link ADD_EVENT_NAME} CustomEvent. */
+function dispatchFrom(ev: CustomEvent, dispatch: Dispatch<Actions>) {
+  const validData = Array.isArray(ev.detail) && ev.detail[0] !== undefined && typeof ev.detail[1] === "string";
+  if (!validData) {
+    console.warn("Invalid event data on:", ev);
+    return;
+  }
+  dispatch({ kind: "add", item: ev.detail as Item });
+}
+
+register(InputSel, "input-sel", ["selected"]);

@@ -11,58 +11,42 @@ export type InputComplProps = {
   /** Name attribute for the input element. */
   name: string;
   /** Array of [data, label] elements. */
-  completions?: [unknown, string][];
-  /** Changing this forces a render, without having to replace other data. */
-  version?: number;
+  completions?: Item[];
+  tabIndex?: number;
 };
-
-/** Cast the DOM element to this type to access the custom API. */
-export type InputComplWebComponent = HTMLInputElement & InputComplProps;
-
-/** The selected item will be emitted on a CustomEvent with this name. */
-export const ON_SELECT_EVENT = "input-compl:select";
 
 /**
  * `<input-compl />` is an input element that can popup an autocomplete list.
  * Emits a custom event {@link ON_SELECT_EVENT} with the selected item when a selection is made.
  */
-export function InputCompl(props: InputComplProps) {
+export function InputCompl({ name, completions, tabIndex }: InputComplProps) {
   const inputRef = useRef<HTMLInputElement>();
   const popupRef = useRef<HTMLDivElement>();
   const selRef = useRef<HTMLDivElement>();
 
-  function onSelect(detail: unknown) {
-    inputRef.current?.dispatchEvent(new CustomEvent(ON_SELECT_EVENT, { detail, bubbles: true, composed: true }));
-  }
-
   const [state, dispatch] = useReducer(reducer, {
-    name: props.name,
     candidates: [],
-    completions: props.completions ?? [],
-    onSelect,
+    completions: completions ?? [],
+    name: name,
+    onSelect: (itemKey: Item[0]) => inputRef.current?.dispatchEvent(createEvent(itemKey)),
     query: "",
     selected: 0,
     showPopup: false,
   });
 
   useEffect(() => {
-    dispatch({ kind: "update", state: { completions: props.completions ?? [], name: props.name } });
-  }, [props.completions, props.name]);
+    dispatch({ kind: "update", state: { completions: completions ?? [], name: name } });
+  }, [completions, name]);
 
   useEffect(() => {
-    const p = popupRef.current;
-    if (!p || !inputRef.current) return;
-    const inPos = inputRef.current.getBoundingClientRect();
-    p.style.minWidth = `${inPos.width}px`;
-    p.style.left = `calc(${inPos.left}px - .25rem)`;
-    p.style.top = `calc(${inPos.bottom}px + .25rem)`;
+    alignPopup(inputRef.current, popupRef.current);
     selRef.current?.scrollIntoView({ block: "nearest" });
   });
 
   return (
     <>
       <input
-        name={props.name}
+        name={name}
         onBlur={({ relatedTarget }) => {
           if (relatedTarget === popupRef.current) return;
           dispatch({ kind: "popup", show: false });
@@ -71,6 +55,7 @@ export function InputCompl(props: InputComplProps) {
         onInput={() => dispatch({ kind: "updateQuery", query: inputRef.current?.value ?? "" })}
         onKeyDown={({ key }) => dispatch({ kind: "keypress", from: "input", key })}
         ref={inputRef as Ref<HTMLInputElement>}
+        tabIndex={tabIndex}
         type="search"
         value={state.query}
       />
@@ -95,4 +80,20 @@ export function InputCompl(props: InputComplProps) {
   );
 }
 
-register(InputCompl, "input-compl", ["name", "completions", "version"], { shadow: false });
+function alignPopup(input?: HTMLInputElement, popup?: HTMLDivElement): void {
+  if (!popup || !input) return;
+  const inPos = input.getBoundingClientRect();
+  popup.style.minWidth = `${inPos.width}px`;
+  popup.style.left = `calc(${inPos.left}px - .25rem)`;
+  popup.style.top = `calc(${inPos.bottom}px + .25rem)`;
+}
+
+/** The selected item will be emitted on a CustomEvent with this name. */
+export const ON_SELECT_EVENT = "input-compl:select";
+
+/** Creates a {@link ON_SELECT_EVENT} CustomEvent to inform an item has been selected. */
+export function createEvent(itemKey: unknown): CustomEvent {
+  return new CustomEvent(ON_SELECT_EVENT, { detail: itemKey, bubbles: true, composed: true });
+}
+
+register(InputCompl, "input-compl", ["name", "completions"]);
