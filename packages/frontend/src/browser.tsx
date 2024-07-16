@@ -41,8 +41,9 @@ async function startBrowser() {
 
       sel.addEventListener(OUT_EVENT_REMOVE, (ev: Event) => {
         const { by, itemsLeft } = (ev as CustomEvent).detail;
-        // TODO: For some reason the focus is not working here.
-        if (by === "enterKey" && itemsLeft === 0) compl.focus();
+        if (by === "enterKey" && itemsLeft === 0) {
+          compl.querySelector("input")?.focus();
+        }
       });
     } else {
       console.log("Warning: no input-sel found for", name);

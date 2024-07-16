@@ -17,7 +17,7 @@ export function InputSel() {
 
   function onRemove(data: ItemRemoved) {
     lastRemoved.current = data;
-    self.current?.parentElement?.dispatchEvent(creatRemoveEvent(data));
+    self.current?.parentElement?.dispatchEvent(createRemoveEvent(data));
   }
 
   const [state, dispatch] = useReducer(reducer, { selected: [], onRemove });
@@ -73,7 +73,7 @@ export const IN_EVENT_ADD = "input-sel:add";
 export const OUT_EVENT_REMOVE = "input-sel:item-removed";
 
 /** Creates a {@link ON_SELECT_EVENT} CustomEvent to inform an item has been selected. */
-export function creatRemoveEvent(detail: ItemRemoved): CustomEvent {
+export function createRemoveEvent(detail: ItemRemoved): CustomEvent {
   return new CustomEvent(OUT_EVENT_REMOVE, { detail, bubbles: true, composed: true });
 }
 

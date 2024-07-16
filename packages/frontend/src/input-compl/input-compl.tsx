@@ -31,7 +31,7 @@ export function InputCompl({ name, completions }: InputComplProps) {
     selected: 0,
     showPopup: false,
 
-    onSelect: (itemKey: Item[0]) => inputRef.current?.dispatchEvent(creatSelectEvent(itemKey)),
+    onSelect: (itemKey: Item[0]) => inputRef.current?.dispatchEvent(createSelectEvent(itemKey)),
   });
 
   useEffect(() => {
@@ -103,7 +103,7 @@ function alignPopup(input?: HTMLInputElement, popup?: HTMLDivElement): void {
 export const OUT_EVENT_SELECT = "input-compl:select";
 
 /** Creates a {@link OUT_EVENT_SELECT} CustomEvent to inform an item has been selected. */
-export function creatSelectEvent(itemKey: unknown): CustomEvent {
+export function createSelectEvent(itemKey: unknown): CustomEvent {
   return new CustomEvent(OUT_EVENT_SELECT, { detail: itemKey, bubbles: true, composed: true });
 }
 
