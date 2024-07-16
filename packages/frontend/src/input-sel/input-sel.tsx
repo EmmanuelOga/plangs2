@@ -5,7 +5,7 @@ import { type Dispatch, useEffect, useReducer, useRef } from "preact/hooks";
 
 import { type Actions, type Item, reducer } from "./reducer";
 
-import "./input_sel.css";
+import "./input-sel.css";
 
 /**
  * `<input-sel />` is a list of selected items.

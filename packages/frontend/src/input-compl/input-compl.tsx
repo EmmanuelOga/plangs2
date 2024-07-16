@@ -4,7 +4,7 @@ import { useEffect, useReducer, useRef } from "preact/hooks";
 
 import { type Item, reducer } from "./reducer";
 
-import "./input_compl.css";
+import "./input-compl.css";
 
 /** {@link InputCompl} props. */
 export type InputComplProps = {
@@ -43,6 +43,10 @@ export function InputCompl({ name, completions, tabIndex }: InputComplProps) {
     selRef.current?.scrollIntoView({ block: "nearest" });
   });
 
+  useEffect(() => {
+    if (inputRef.current) inputRef.current.value = state.query;
+  }, [state.query]);
+
   return (
     <>
       <input
@@ -58,7 +62,6 @@ export function InputCompl({ name, completions, tabIndex }: InputComplProps) {
         ref={inputRef as Ref<HTMLInputElement>}
         tabIndex={tabIndex}
         type="search"
-        value={state.query}
       />
       <div
         class={`popup ${state.candidates.length > 0 && state.showPopup ? "" : "hidden"}`}
