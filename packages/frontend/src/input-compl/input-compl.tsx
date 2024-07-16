@@ -16,7 +16,7 @@ export type InputComplProps = {
 
 /**
  * `<input-compl />` is an input element that can popup an autocomplete list.
- * Emits a custom event {@link ON_SELECT_EVENT} with the selected item when a selection is made.
+ * Emits a custom event {@link OUT_EVENT_SELECT} with the selected item when a selection is made.
  */
 export function InputCompl({ name, completions }: InputComplProps) {
   const inputRef = useRef<HTMLInputElement>();
@@ -31,7 +31,7 @@ export function InputCompl({ name, completions }: InputComplProps) {
     selected: 0,
     showPopup: false,
 
-    onSelect: (itemKey: Item[0]) => inputRef.current?.dispatchEvent(createEvent(itemKey)),
+    onSelect: (itemKey: Item[0]) => inputRef.current?.dispatchEvent(creatSelectEvent(itemKey)),
   });
 
   useEffect(() => {
@@ -39,13 +39,13 @@ export function InputCompl({ name, completions }: InputComplProps) {
   }, [completions, name]);
 
   useEffect(() => {
+    if (inputRef.current) inputRef.current.value = state.query;
+  }, [state.query]);
+
+  useEffect(() => {
     alignPopup(inputRef.current, popupRef.current);
     selRef.current?.scrollIntoView({ block: "nearest" });
   });
-
-  useEffect(() => {
-    if (inputRef.current) inputRef.current.value = state.query;
-  }, [state.query]);
 
   const showPopup = state.candidates.length > 0 && state.showPopup;
 
@@ -100,11 +100,11 @@ function alignPopup(input?: HTMLInputElement, popup?: HTMLDivElement): void {
 }
 
 /** The selected item will be emitted on a CustomEvent with this name. */
-export const ON_SELECT_EVENT = "input-compl:select";
+export const OUT_EVENT_SELECT = "input-compl:select";
 
-/** Creates a {@link ON_SELECT_EVENT} CustomEvent to inform an item has been selected. */
-export function createEvent(itemKey: unknown): CustomEvent {
-  return new CustomEvent(ON_SELECT_EVENT, { detail: itemKey, bubbles: true, composed: true });
+/** Creates a {@link OUT_EVENT_SELECT} CustomEvent to inform an item has been selected. */
+export function creatSelectEvent(itemKey: unknown): CustomEvent {
+  return new CustomEvent(OUT_EVENT_SELECT, { detail: itemKey, bubbles: true, composed: true });
 }
 
 register(InputCompl, "input-compl", ["name", "completions"]);

@@ -3,10 +3,10 @@ import "preact/debug";
 import { PlangsGraph } from "@plangs/graph";
 
 import "./input-compl/input-compl";
-import { type InputComplProps, ON_SELECT_EVENT } from "./input-compl/input-compl";
+import { type InputComplProps, OUT_EVENT_SELECT } from "./input-compl/input-compl";
 import type { Item } from "./input-compl/reducer";
 import "./input-sel/input-sel";
-import { addItemEvent } from "./input-sel/input-sel";
+import { createAddEvent, OUT_EVENT_REMOVE } from "./input-sel/input-sel";
 
 async function loadPlangs(): Promise<PlangsGraph> {
   const data = await (await fetch("/plangs.json")).json();
@@ -34,9 +34,15 @@ async function startBrowser() {
 
     const sel = document.querySelector(`input-sel[name=${name}]`);
     if (sel) {
-      compl.addEventListener(ON_SELECT_EVENT, (ev: Event) => {
+      compl.addEventListener(OUT_EVENT_SELECT, (ev: Event) => {
         const { item } = (ev as CustomEvent).detail;
-        sel.dispatchEvent(addItemEvent(item));
+        sel.dispatchEvent(createAddEvent(item));
+      });
+
+      sel.addEventListener(OUT_EVENT_REMOVE, (ev: Event) => {
+        const { by, itemsLeft } = (ev as CustomEvent).detail;
+        // TODO: For some reason the focus is not working here.
+        if (by === "enterKey" && itemsLeft === 0) compl.focus();
       });
     } else {
       console.log("Warning: no input-sel found for", name);
