@@ -27,7 +27,7 @@ export function InputSel() {
 
   return (
     <div ref={self as Ref<HTMLDivElement>}>
-      {state.selected.map(([key, label], index) => (
+      {state.selected.map(([key, label]) => (
         <div
           class="remove-item"
           key={key}
@@ -35,7 +35,7 @@ export function InputSel() {
           onKeyDown={(ev) => {
             if (ev.key === "Enter") dispatch({ kind: "remove", key });
           }}
-          tabindex={index + 1}>
+          tabindex={0}>
           <span class="icon" aria-label="remove">
             ❌
           </span>

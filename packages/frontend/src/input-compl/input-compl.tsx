@@ -12,14 +12,13 @@ export type InputComplProps = {
   name: string;
   /** Array of [data, label] elements. */
   completions?: Item[];
-  tabIndex?: number;
 };
 
 /**
  * `<input-compl />` is an input element that can popup an autocomplete list.
  * Emits a custom event {@link ON_SELECT_EVENT} with the selected item when a selection is made.
  */
-export function InputCompl({ name, completions, tabIndex }: InputComplProps) {
+export function InputCompl({ name, completions }: InputComplProps) {
   const inputRef = useRef<HTMLInputElement>();
   const popupRef = useRef<HTMLDivElement>();
   const selRef = useRef<HTMLDivElement>();
@@ -28,10 +27,11 @@ export function InputCompl({ name, completions, tabIndex }: InputComplProps) {
     candidates: [],
     completions: completions ?? [],
     name: name,
-    onSelect: (itemKey: Item[0]) => inputRef.current?.dispatchEvent(createEvent(itemKey)),
     query: "",
     selected: 0,
     showPopup: false,
+
+    onSelect: (itemKey: Item[0]) => inputRef.current?.dispatchEvent(createEvent(itemKey)),
   });
 
   useEffect(() => {
@@ -47,9 +47,12 @@ export function InputCompl({ name, completions, tabIndex }: InputComplProps) {
     if (inputRef.current) inputRef.current.value = state.query;
   }, [state.query]);
 
+  const showPopup = state.candidates.length > 0 && state.showPopup;
+
   return (
     <>
       <input
+        class={`${showPopup ? "focused" : ""}`}
         autocomplete="off"
         name={name}
         onBlur={({ relatedTarget }) => {
@@ -60,11 +63,15 @@ export function InputCompl({ name, completions, tabIndex }: InputComplProps) {
         onInput={() => dispatch({ kind: "updateQuery", query: inputRef.current?.value ?? "" })}
         onKeyDown={({ key }) => dispatch({ kind: "keypress", from: "input", key })}
         ref={inputRef as Ref<HTMLInputElement>}
-        tabIndex={tabIndex}
+        tabIndex={0}
         type="search"
       />
       <div
-        class={`popup ${state.candidates.length > 0 && state.showPopup ? "" : "hidden"}`}
+        class={`popup ${showPopup ? "" : "hidden"}`}
+        onBlur={({ relatedTarget }) => {
+          if (relatedTarget === inputRef.current) return;
+          dispatch({ kind: "popup", show: false });
+        }}
         onKeyDown={({ key }) => dispatch({ kind: "keypress", from: "list", key })}
         ref={popupRef as Ref<HTMLDivElement>}
         tabindex={0}>

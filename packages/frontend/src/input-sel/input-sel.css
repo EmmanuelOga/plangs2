@@ -3,6 +3,10 @@ input-sel {
 
     .remove-item {
         cursor: pointer;
+        display: inline-block;
+
+        padding: .25rem;
+        border-radius: .25rem;
 
         overflow: hidden;
         text-overflow: ellipsis;

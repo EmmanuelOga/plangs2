@@ -28,4 +28,9 @@ input-compl {
             }
         }
     }
+
+    input.focused,
+    input:focus-visible {
+        outline: .1rem solid black;
+    }
 }

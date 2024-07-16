@@ -18,11 +18,17 @@ async function loadPlangs(): Promise<PlangsGraph> {
 async function startBrowser() {
   const pg = await loadPlangs();
 
-  const langs: Item[] = [...pg.v_plang].map(([vid, data]) => [vid, data.name ?? vid.split("+")[1]]);
+  const langCompletions: Item[] = [...pg.v_plang].map(([vid, data]) => [vid, data.name ?? vid.split("+")[1]]);
+  const peopleCompletions: Item[] = [...pg.v_person].map(([vid, data]) => [vid, data.name ?? vid.split("+")[1]]);
 
   for (const elem of [...document.querySelectorAll("input-compl")]) {
     const compl = elem as unknown as InputComplProps & HTMLElement;
-    compl.completions = langs;
+
+    if (elem.getAttribute("name") === "person") {
+      compl.completions = peopleCompletions;
+    } else {
+      compl.completions = langCompletions;
+    }
 
     const name = compl.getAttribute("name");
 
