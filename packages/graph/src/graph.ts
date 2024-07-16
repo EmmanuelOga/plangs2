@@ -1,4 +1,4 @@
-import { Graph } from "@plangs/graph-base/graph";
+import { Graph } from "@plangs/graph-base";
 
 import {
   LicenseBuilder,

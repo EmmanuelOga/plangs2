@@ -1,11 +1,8 @@
-/**
- * To define the Vertex ID for each Vertex type (using a template literal type).
- */
-import type { VID } from "packages/graph-base/src/vertex";
-
 ////////////////////////////////////////////////////////////////////////////////
 // Types starting with "V_" are used for Vertex data.
 ////////////////////////////////////////////////////////////////////////////////
+
+import type { VID } from "@plangs/graph-base/vertex";
 
 /** Allow all vertices to have a name and websites. */
 export interface V_Base {

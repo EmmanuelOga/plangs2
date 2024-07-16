@@ -212,68 +212,44 @@ export class TypeSysBuilder {
 
 //--------------------------------------------------------------------------------
 
-const _CALLER_PATTERN = "definitions";
+type Field<T, Key extends keyof T> = Partial<Pick<T, Key>>;
 
-type Attr<T, Key extends keyof T> = Partial<Pick<T, Key>>;
-
-function mergeWebsites(target: Attr<V_Base, "websites">, newData: Attr<V_Base, "websites">) {
-  if (newData.websites === undefined) return;
-  arrayMerge(
-    (target.websites ??= []),
-    newData.websites,
-    (l1: Link, l2: Link) => l1.href === l2.href,
-    (prevLink: Link, newLink: Link) => {
-      console.warn(`${caller(_CALLER_PATTERN)}: Duplicate Link: ${JSON.stringify({ prevLink, newLink })}`);
-    },
-  );
+function mergeWebsites(target: Field<V_Base, "websites">, newData: Field<V_Base, "websites">) {
+  if (!Array.isArray(newData.websites)) return;
+  arrayMerge((target.websites ??= []), newData.websites, (l1: Link, l2: Link) => l1.href === l2.href, dupeWarning);
 }
 
-function mergeImages(target: Attr<V_Plang, "images">, newData: Attr<V_Plang, "images">) {
-  if (newData.images === undefined) return;
-  arrayMerge(
-    (target.images ??= []),
-    newData.images,
-    (img1: Image, img2: Image) => img1.url === img2.url,
-    (prevImage: Image, newImage: Image) => {
-      console.warn(`${caller(_CALLER_PATTERN)}: Duplicate Image: ${JSON.stringify({ prevImage, newImage })}`);
-      prevImage.width ??= newImage.width;
-      prevImage.height ??= newImage.height;
-    },
-  );
+function mergeImages(target: Field<V_Plang, "images">, newData: Field<V_Plang, "images">) {
+  if (!Array.isArray(newData.images)) return;
+  arrayMerge((target.images ??= []), newData.images, (img1: Image, img2: Image) => img1.url === img2.url, dupeWarning);
 }
 
-function mergeReleases(target: Attr<V_Plang, "releases">, newData: Attr<V_Plang, "releases">) {
-  if (!newData.releases) return;
+function mergeReleases(target: Field<V_Plang, "releases">, newData: Field<V_Plang, "releases">) {
+  if (!Array.isArray(newData.releases)) return;
   arrayMerge(
     (target.releases ??= []),
     newData.releases,
     (rel1: Release, rel2: Release) => rel1.version === rel2.version && rel1.date === rel2.date,
-    (prevRel: Release, newRel: Release) => {
-      console.warn(`${caller(_CALLER_PATTERN)}: Duplicate Release: ${JSON.stringify({ prevRel, newRel })}`);
-    },
+    dupeWarning,
   );
 }
 
-function mergeScoping(target: Attr<V_Plang, "scoping">, newData: Attr<V_Plang, "scoping">) {
-  if (!newData.scoping) return;
+function mergeScoping(target: Field<V_Plang, "scoping">, newData: Field<V_Plang, "scoping">) {
+  if (!Array.isArray(newData.scoping)) return;
   arrayMerge(
     (target.scoping ??= []),
     newData.scoping,
     (scope1: Scoping, scope2: Scoping) => scope1 === scope2,
-    (prevScope, newScope) => {
-      console.warn(`${caller(_CALLER_PATTERN)}: Duplicate Scope: ${newScope}`);
-    },
+    dupeWarning,
   );
 }
 
-function mergeExtensions(target: Attr<V_Plang, "extensions">, newData: Attr<V_Plang, "extensions">) {
-  if (newData.extensions === undefined) return;
-  arrayMerge(
-    (target.extensions ??= []),
-    newData.extensions,
-    (ext1, ext2) => ext1 === ext2,
-    (prevExt, newExt) => {
-      console.warn(`${caller(_CALLER_PATTERN)}: Duplicate Extension: ${newExt}`);
-    },
-  );
+function mergeExtensions(target: Field<V_Plang, "extensions">, newData: Field<V_Plang, "extensions">) {
+  if (!Array.isArray(newData.extensions)) return;
+  arrayMerge((target.extensions ??= []), newData.extensions, (ext1, ext2) => ext1 === ext2, dupeWarning);
+}
+
+function dupeWarning(prev: unknown, new_: unknown) {
+  console.warn(`${caller("definitions")}: Duplicate found: ${JSON.stringify({ prev, new_ })}`);
+  return true;
 }
