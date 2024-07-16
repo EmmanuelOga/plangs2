@@ -2,19 +2,13 @@
  * A vertext id format is a string with format: `type+id`.
  *
  * Examples: `pl+python`, `person+guido`, `paradigm+oop`, etc.
- *
- * See {@link PVIDAny} for the matching pattern.
  */
 export type VID<T extends string> = `${T}+${string}`;
 
-/**
- * An alias such that we can say: VID<Any> to match any vertex id.
- */
+/** An alias such that we can say: VID<Any> to match any vertex id. */
 export type Any = string;
 
-/**
- * An alias for the most generic vertex id.
- */
+/** An alias for the most generic vertex id. */
 export type VID_Any = VID<Any>;
 
 /**
@@ -22,7 +16,7 @@ export type VID_Any = VID<Any>;
  * without having to go through a {@link VertexTable}.
  */
 export interface VData<T extends string> {
-  vid: VID<T>;
+  vid: T;
 }
 
 const NON_PLUS_ID_CHARS = "[a-z-0-9\\-\\(\\)\\[\\]_.]+$";

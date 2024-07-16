@@ -1,16 +1,15 @@
 import "preact/debug";
 
-import "../src/input_compl/input_compl";
+import "./input-compl/input-compl";
 
-import "../src/input_sel/input_sel";
-import { addItemEvent } from "../src/input_sel/input_sel";
-import { type InputComplProps, ON_SELECT_EVENT } from "../src/input_compl/input_compl";
+import "./input-sel/input-sel";
+import { addItemEvent } from "./input-sel/input-sel";
+import { type InputComplProps, ON_SELECT_EVENT } from "./input-compl/input-compl";
 
-import type {PlangsGraph} from "plangs";
+import type { PlangsGraph } from "@plangs/graph";
 
-async function loadPlangs() : Promise<PlangsGraph> {
+async function loadPlangs(): Promise<PlangsGraph> {
   const data = fetch("/plangs.json").then((r) => r.json());
-
 }
 
 const words = [

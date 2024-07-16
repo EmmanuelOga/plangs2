@@ -2,10 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "composite": true,
-    "rootDir": "./src",
-    // Preact stuff.
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact"
+    "rootDir": "./src"
   },
   "include": ["src"]
 }

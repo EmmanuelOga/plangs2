@@ -1,7 +1,7 @@
 /**
  * To define the Vertex ID for each Vertex type (using a template literal type).
  */
-import type { VID } from "graph/vertex";
+import type { VID } from "packages/graph-base/src/vertex";
 
 ////////////////////////////////////////////////////////////////////////////////
 // Types starting with "V_" are used for Vertex data.

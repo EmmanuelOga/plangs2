@@ -1,6 +1,10 @@
 {
-  "name": "graph",
-  "description": "A typed directed graph package.",
+  "name": "@plangs/graph",
+  "description": "A database of programming language information.",
   "version": "0.1.0",
-  "dependencies": {}
+  "dependencies": {
+    "@plangs/graph-base": "workspace:*"
+  },
+  "main": "src/graph.ts",
+  "files": ["src"]
 }

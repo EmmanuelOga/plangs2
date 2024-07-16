@@ -1,5 +1,5 @@
 {
-  "name": "sandbox",
+  "name": "@plangs/sandbox",
   "description": "A package to test things during development",
   "version": "0.1.0",
   "devDependencies": {
@@ -8,7 +8,7 @@
   "dependencies": {
     "preact": "^10.22.1",
     "preact-custom-element": "^4.3.0",
-    "frontend": "workspace:*"
+    "@plangs/frontend": "workspace:*"
   },
   "scripts": {
     "dev": "esbuild src/sandbox.tsx --bundle --sourcemap --outdir=public --watch"

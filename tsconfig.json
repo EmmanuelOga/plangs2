@@ -3,13 +3,32 @@
         "module": "ESNext",
         "moduleResolution": "Bundler",
         "target": "ES2020",
+        "strict": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
+        "forceConsistentCasingInFileNames": true,
         "sourceMap": true,
         "types": [
             "bun-types"
         ],
+        "baseUrl": ".",
+        "paths": {
+            "@plangs/definitions/*": [ "packages/definitions/src/*"],
+            "@plangs/frontend/*": [ "packages/frontend/src/*"],
+            "@plangs/graph-base/*": [ "packages/graph-base/src/*"],
+            "@plangs/graph/*": [ "packages/graph/src/*"],
+            "@plangs/sandbox/*": [ "packages/sandbox/src/*"],
+            "@plangs/wikipedia-scraper/*": [ "archive/wikipedia-scraper/src/*"],
+        }
     },
+    "references": [
+        { "path": "./packages/definitions" },
+        { "path": "./packages/frontend" },
+        { "path": "./packages/graph-base" },
+        { "path": "./packages/graph" },
+        { "path": "./packages/sandbox" },
+        { "path": "./archived/wikipedia-scraper" }
+    ],
     "exclude": [
         "node_modules",
         "**/node_modules/*"

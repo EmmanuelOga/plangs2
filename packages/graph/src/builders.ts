@@ -1,5 +1,5 @@
-import { arrayMerge, caller } from "../util";
-import type { PlangsGraph } from "../graph";
+import { arrayMerge, caller } from "./util";
+import type { PlangsGraph } from "./graph";
 import type {
   E_DialectOf,
   E_HasLicense,
@@ -26,7 +26,7 @@ import type {
   V_Plang,
   V_Platform,
   V_TypeSystem,
-} from "./entities";
+} from "./schema";
 
 export class PlangBuilder {
   constructor(

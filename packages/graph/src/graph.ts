@@ -1,94 +1,72 @@
-import { EdgeTable } from "./edge_table";
-import { VertexTable } from "./vertex_table";
+import { Graph } from "@plangs/graph-base/graph";
 
-// biome-ignore lint/suspicious/noExplicitAny: We need to store any kind vertex or edge.
-type _Any = any;
-
-type SerializedGraph = {
-  vtables: Record<string, _Any>;
-  etables: Record<string, _Any>;
-};
+import {
+  LicenseBuilder,
+  ParadigmBuilder,
+  PersonBuilder,
+  PlangBuilder,
+  PlatformBuilder,
+  TypeSysBuilder,
+} from "./builders";
+import type {
+  E_DialectOf,
+  E_HasLicense,
+  E_Implements,
+  E_LInfluencedL,
+  E_PersonPlang,
+  E_PlangPara,
+  E_PlangTsys,
+  E_SupportsPlatf,
+  VID_License,
+  VID_Paradigm,
+  VID_Person,
+  VID_Plang,
+  VID_Platform,
+  VID_TypeSystem,
+  V_License,
+  V_Paradigm,
+  V_Person,
+  V_Plang,
+  V_Platform,
+  V_TypeSystem,
+} from "./schema";
 
 /**
- * A Graph consists of set of Vertices and Edges.
+ * Collection of related edge and vertex tables.
+ *
+ * These repetitive definitions follow some simple conventions,
+ * are tightly coupled with the schemas in `schemas.ts`,
+ * and could potentially be auto-generated in the future.
  */
-export class Graph {
-  readonly vtables: Map<string, VertexTable<_Any, _Any>> = new Map();
-  readonly etables: Map<string, EdgeTable<_Any, _Any, _Any>> = new Map();
+// biome-ignore format: it's artisanally formatted :-p.
+export class PlangsGraph extends Graph {
 
-  protected v_table<T_VData, T_VId extends string>(type: string): VertexTable<T_VId, T_VData> {
-    const table = new VertexTable<T_VId, T_VData>(type);
-    if (this.vtables.has(type)) throw new Error(`Table already defined: ${table.vtype}`);
-    this.vtables.set(table.vtype, table);
-    return table;
-  }
+  // Vertex tables.
 
-  protected e_table<T_EdgeData, T_VId_From extends string, T_VId_To extends string>(
-    type: string,
-    from: VertexTable<T_VId_From, _Any>,
-    to: VertexTable<T_VId_To, _Any>,
-  ): EdgeTable<T_VId_From, T_VId_To, T_EdgeData> {
-    if (type.length === 0) throw new Error("Type cannot be empty.");
-    const table = new EdgeTable<T_VId_From, T_VId_To, _Any>(type, from, to);
-    if (this.etables.has(table.tableKey)) throw new Error(`Table already defined: ${table.tableKey}`);
-    this.etables.set(table.tableKey, table);
-    return table;
-  }
+  readonly v_license = this.v_table<Partial<V_License>, VID_License>("lic");
+  readonly v_paradigm = this.v_table<Partial<V_Paradigm>, VID_Paradigm>("para");
+  readonly v_person = this.v_table<Partial<V_Person>, VID_Person>("person");
+  readonly v_plang = this.v_table<Partial<V_Plang>, VID_Plang>("pl");
+  readonly v_platform = this.v_table<Partial<V_Platform>, VID_Platform>("platf");
+  readonly v_tsystem = this.v_table<Partial<V_TypeSystem>, VID_TypeSystem>("tsys");
 
-  get numEdges(): number {
-    let count = 0;
-    for (const et of this.etables.values()) {
-      count += et.size;
-    }
-    return count;
-  }
+  // Edge Tables.
 
-  get numVertices(): number {
-    let count = 0;
-    for (const vt of this.vtables.values()) {
-      count += vt.size;
-    }
-    return count;
-  }
+  readonly e_dialect_of = this.e_table<E_DialectOf, VID_Plang, VID_Plang>("dialect-of", this.v_plang, this.v_plang);
+  readonly e_has_license = this.e_table<E_HasLicense, VID_Plang, VID_License>("has-license", this.v_plang, this.v_license);
+  readonly e_implements = this.e_table<E_Implements, VID_Plang, VID_Plang>("implements", this.v_plang, this.v_plang);
+  readonly e_l_influenced_l = this.e_table<E_LInfluencedL, VID_Plang, VID_Plang>("influenced", this.v_plang, this.v_plang);
+  readonly e_person_plang = this.e_table<E_PersonPlang, VID_Person, VID_Plang>("had-role", this.v_person, this.v_plang);
+  readonly e_plang_para = this.e_table<E_PlangPara, VID_Plang, VID_Paradigm>("paradigm", this.v_plang, this.v_paradigm);
+  readonly e_plang_tsys = this.e_table<E_PlangTsys, VID_Plang, VID_TypeSystem>("type-system", this.v_plang, this.v_tsystem);
+  readonly e_supports_platf = this.e_table<E_SupportsPlatf, VID_Plang, VID_Platform>("supports-platf", this.v_plang, this.v_platform);
 
-  *allVertices(): IterableIterator<[string, _Any]> {
-    for (const vt of this.vtables.values()) {
-      yield* vt;
-    }
-  }
+  // Builders.
 
-  *allEdges(): IterableIterator<[string, _Any]> {
-    for (const et of this.etables.values()) {
-      yield* et;
-    }
-  }
-
-  toJSON(): SerializedGraph {
-    const graph = { vtables: {}, etables: {} };
-
-    for (const [key, val] of this.vtables) {
-      graph.vtables[key] = val.toJSON();
-    }
-
-    for (const [key, val] of this.etables) {
-      graph.etables[key] = val.toJSON();
-    }
-
-    return graph;
-  }
-
-  loadJSON(data: SerializedGraph): this {
-    for (const [vtype, vdata] of Object.entries(data.vtables)) {
-      const vt = this.vtables.get(vtype);
-      if (!vt) throw new Error(`Vertex table not found: ${vtype}`);
-      vt.loadJSON(vdata);
-    }
-
-    for (const [etype, edata] of Object.entries(data.etables)) {
-      const et = this.etables.get(etype);
-      if (!et) throw new Error(`Edge table not found: ${etype}`);
-      et.loadJSON(edata);
-    }
-    return this;
-  }
+  buildLicense(vid: VID_License) { return new LicenseBuilder(this, vid); }
+  buildParadigm(vid: VID_Paradigm) { return new ParadigmBuilder(this, vid); }
+  buildPerson(vid: VID_Person) { return new PersonBuilder(this, vid); }
+  buildPlang(vid: VID_Plang) { return new PlangBuilder(this, vid); }
+  buildPlatform(vid: VID_Platform) { return new PlatformBuilder(this, vid); }
+  buildTypeSystem(vid: VID_TypeSystem) { return new TypeSysBuilder(this, vid); }
 }

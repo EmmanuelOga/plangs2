@@ -1,0 +1,10 @@
+{
+  "name": "@plangs/definitions",
+  "description": "Data definitions for Plangs",
+  "version": "0.1.0",
+  "dependencies": {
+    "@plangs/graph": "workspace:*"
+  },
+  "main": "src/definitions.ts",
+  "files": ["src"]
+}

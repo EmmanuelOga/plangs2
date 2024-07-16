@@ -1,0 +1,10 @@
+{
+  "name": "@plangs/wikipedia-scraper",
+  "description": "Scraps programming language information from Wikipedia infoboxes.",
+  "version": "0.0.1",
+  "dependencies": {
+    "@plangs/graph": "workspace:*"
+  },
+  "main": "src/generate.ts",
+  "files": ["src"]
+}

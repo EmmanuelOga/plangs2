@@ -1,14 +1,16 @@
 {
-  "name": "frontend",
+  "name": "@plangs/frontend",
   "description": "Dynamic parts of Plangs reference frontend",
   "version": "0.1.0",
-  "devDependencies": {
-    "@types/preact-custom-element": "^4.0.4"
-  },
+  "main": "src/browser.tsx",
+  "files": ["src"],
   "dependencies": {
     "preact": "^10.22.1",
     "preact-custom-element": "^4.3.0",
-    "plangs": "workspace:*"
+    "@plangs/graph": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/preact-custom-element": "^4.0.4"
   },
   "scripts": {
     "dev": "esbuild src/browser.tsx --bundle --sourcemap --outdir=../../server/static --watch"

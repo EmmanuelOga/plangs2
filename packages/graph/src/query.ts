@@ -1,4 +1,4 @@
-import type { VID_Plang } from "./schema/entities";
+import type { VID_Plang } from "./schema";
 import type { PlangsGraph } from "./graph";
 import { hasAll, hasAny, addAll } from "./util";
 
