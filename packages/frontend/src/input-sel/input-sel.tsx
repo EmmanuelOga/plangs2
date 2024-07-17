@@ -97,4 +97,19 @@ function dispatchFrom(ev: CustomEvent, dispatch: Dispatch<Actions>) {
   dispatch({ kind: "add", item: ev.detail as Item });
 }
 
-register(InputSel, "input-sel", ["selected"]);
+export type InputSelElement = HTMLElement;
+
+export function registerInputSel() {
+  register(InputSel, "input-sel", ["selected"]);
+}
+
+export function onRemove(sel: InputSelElement, cb: (item: ItemRemoved) => void) {
+  sel.addEventListener(OUT_EVENT_REMOVE, (ev: Event) => {
+    const data = (ev as CustomEvent).detail as ItemRemoved;
+    cb(data);
+  });
+}
+
+export function addItem(sel: InputSelElement, item: Item): void {
+  sel.dispatchEvent(createAddEvent(item));
+}

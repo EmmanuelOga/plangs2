@@ -1,6 +1,12 @@
 /** A completion item has a value and a label. */
 export type Item = [unknown, {name: string}];
 
+export type ItemSelected = {
+  /** Name attribute of the `<input-compl/>` element. */
+  name: string;
+  item: Item;
+}
+
 /**
  * State for InputCompl component.
  */
@@ -8,8 +14,9 @@ export type State = {
   /** The candidates will be an array of indices into completions. */
   candidates: number[];
   completions: Item[];
+  /** Name assigned to the `<input-compl/>` element. */
   name: string;
-  onSelect: (payload: unknown) => void;
+  onSelect: (data: ItemSelected) => void;
   query: string;
   selected: number;
   showPopup: boolean;

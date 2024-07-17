@@ -2,20 +2,26 @@ import "preact/debug";
 
 import { PlangsGraph } from "@plangs/graph";
 
-import "./input-compl/input-compl";
-import { type InputComplProps, OUT_EVENT_SELECT } from "./input-compl/input-compl";
-import type { Item } from "./input-compl/reducer";
-import "./input-sel/input-sel";
-import { createAddEvent, OUT_EVENT_REMOVE } from "./input-sel/input-sel";
+import {
+  type InputComplElement,
+  type Item,
+  onSelect,
+  registerInputCompl,
+  requestFocus,
+} from "./input-compl/input-compl";
+import { type InputSelElement, addItem, onRemove, registerInputSel } from "./input-sel/input-sel";
 
-const $ = (sel: string) => document.querySelector(sel);
-const $$ = (sel: string) => [...document.querySelectorAll(sel)];
+function $<T = HTMLElement>(sel: string): T {
+  return document.querySelector(sel) as T;
+}
+
+function $$<T = HTMLElement>(sel: string): T[] {
+  return [...document.querySelectorAll(sel)] as T[];
+}
 
 async function loadPlangs(): Promise<PlangsGraph> {
   const data = await (await fetch("/plangs.json")).json();
-  const pg = new PlangsGraph();
-  pg.loadJSON(data);
-  return pg;
+  return new PlangsGraph().loadJSON(data);
 }
 
 async function startBrowser() {
@@ -23,42 +29,44 @@ async function startBrowser() {
 
   // Release data.
 
-  const releaseMin = $("labal[for=release-min-date]");
-  const hasReleases = $("input#has-releases");
+  const releaseMin = $("label[for=release-min-date]");
+
+  $("input#has-releases")?.addEventListener("input", (ev) => {
+    const checked = (ev.target as HTMLInputElement).checked;
+    releaseMin.classList.toggle("hide", !checked);
+  });
 
   // Completions.
 
   const langCompletions = [...pg.v_plang] as Item[];
   const peopleCompletions = [...pg.v_person] as Item[];
 
-  for (const elem of $$("input-compl")) {
-    const compl = elem as unknown as InputComplProps & HTMLElement;
-
-    if (elem.getAttribute("name") === "person") {
-      compl.completions = peopleCompletions;
-    } else {
-      compl.completions = langCompletions;
-    }
-
+  for (const compl of $$<InputComplElement>("input-compl")) {
     const name = compl.getAttribute("name");
 
-    const sel = $(`input-sel[name=${name}]`);
-    if (sel) {
-      compl.addEventListener(OUT_EVENT_SELECT, (ev: Event) => {
-        const { item } = (ev as CustomEvent).detail;
-        sel.dispatchEvent(createAddEvent(item));
-      });
+    compl.completions = name === "person" ? peopleCompletions : langCompletions;
 
-      sel.addEventListener(OUT_EVENT_REMOVE, (ev: Event) => {
-        const { by, itemsLeft } = (ev as CustomEvent).detail;
-        if (by === "enterKey" && itemsLeft === 0) {
-          $("input")?.focus();
-        }
-      });
-    } else {
+    const sel = $<InputSelElement>(`input-sel[name=${name}]`);
+    if (!sel) {
       console.log("Warning: no input-sel found for", name);
+      continue;
     }
+
+    onSelect(compl, ({ item }) => addItem(sel, item));
+    
+    onRemove(sel, ({ by, itemsLeft }) => {
+      if (by !== "enterKey" || itemsLeft !== 0) return;
+      requestFocus(compl);
+    });
   }
+
+  // File Extension
+
+  const fileExt = $("input#plan-ext");
 }
+
+// Register the web components.
+registerInputCompl();
+registerInputSel();
 
 startBrowser();
