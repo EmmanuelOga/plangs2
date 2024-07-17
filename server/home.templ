@@ -54,6 +54,7 @@ templ Home(data gjson.Result) {
 			@Input("compl", "Influenced By", "influenced-by")
 			@Input("compl", "Dialect Of", "dialect-of")
 			@Input("compl", "Implements", "implements")
+			<div class="separator"></div>
 			@Input("compl", "Influenced", "influenced")
 			@Input("compl", "Standard For", "standard-for")
 			@Input("compl", "Implemented With", "implemented-with")
@@ -134,21 +135,21 @@ templ FacetOptions(tsys []gjson.Result) {
 	}
 }
 
-templ Input(inputType string, label string, val string) {
-	<label>
+templ Input(inputType string, label string, name string) {
+	<label for={ name }>
 		if inputType == "checkbox" {
-			<input type={ inputType } name={ val }/>
+			<input id={ name } name={ name } type={ inputType }/>
 			<span class="inner-label-checkbox">{ label }</span>
 		} else {
 			<span class="inner-label">{ label }</span>
 			if inputType == "compl" {
-				<input-compl name={ val }></input-compl>
+				<input-compl id={ name } name={ name }></input-compl>
 			} else {
-				<input type={ inputType } name={ val }/>
+				<input id={ name } name={ name } type={ inputType }/>
 			}
 		}
 	</label>
 	if inputType == "compl" {
-		<input-sel name={ val }></input-sel>
+		<input-sel id={ name } name={ name }></input-sel>
 	}
 }

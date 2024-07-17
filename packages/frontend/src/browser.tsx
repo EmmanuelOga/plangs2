@@ -8,6 +8,9 @@ import type { Item } from "./input-compl/reducer";
 import "./input-sel/input-sel";
 import { createAddEvent, OUT_EVENT_REMOVE } from "./input-sel/input-sel";
 
+const $ = (sel: string) => document.querySelector(sel);
+const $$ = (sel: string) => [...document.querySelectorAll(sel)];
+
 async function loadPlangs(): Promise<PlangsGraph> {
   const data = await (await fetch("/plangs.json")).json();
   const pg = new PlangsGraph();
@@ -18,10 +21,17 @@ async function loadPlangs(): Promise<PlangsGraph> {
 async function startBrowser() {
   const pg = await loadPlangs();
 
-  const langCompletions: Item[] = [...pg.v_plang].map(([vid, data]) => [vid, data.name ?? vid.split("+")[1]]);
-  const peopleCompletions: Item[] = [...pg.v_person].map(([vid, data]) => [vid, data.name ?? vid.split("+")[1]]);
+  // Release data.
 
-  for (const elem of [...document.querySelectorAll("input-compl")]) {
+  const releaseMin = $("labal[for=release-min-date]");
+  const hasReleases = $("input#has-releases");
+
+  // Completions.
+
+  const langCompletions = [...pg.v_plang] as Item[];
+  const peopleCompletions = [...pg.v_person] as Item[];
+
+  for (const elem of $$("input-compl")) {
     const compl = elem as unknown as InputComplProps & HTMLElement;
 
     if (elem.getAttribute("name") === "person") {
@@ -32,7 +42,7 @@ async function startBrowser() {
 
     const name = compl.getAttribute("name");
 
-    const sel = document.querySelector(`input-sel[name=${name}]`);
+    const sel = $(`input-sel[name=${name}]`);
     if (sel) {
       compl.addEventListener(OUT_EVENT_SELECT, (ev: Event) => {
         const { item } = (ev as CustomEvent).detail;
@@ -42,7 +52,7 @@ async function startBrowser() {
       sel.addEventListener(OUT_EVENT_REMOVE, (ev: Event) => {
         const { by, itemsLeft } = (ev as CustomEvent).detail;
         if (by === "enterKey" && itemsLeft === 0) {
-          compl.querySelector("input")?.focus();
+          $("input")?.focus();
         }
       });
     } else {

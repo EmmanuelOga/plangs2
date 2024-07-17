@@ -22,6 +22,7 @@ export function InputSel() {
 
   const [state, dispatch] = useReducer(reducer, { selected: [], onRemove });
 
+  // Setup event listener to add items.
   useEffect(() => {
     const root = self.current?.parentElement;
     if (!root) return;
@@ -32,6 +33,7 @@ export function InputSel() {
     };
   });
 
+  // Handle focus after removing an item.
   useEffect(() => {
     if (!lastRemoved.current || !self.current) return;
 
@@ -47,7 +49,7 @@ export function InputSel() {
 
   return (
     <div ref={self as Ref<HTMLDivElement>}>
-      {state.selected.map(([key, label]) => (
+      {state.selected.map(([key, { name }]) => (
         <div
           class="remove-item"
           key={key}
@@ -59,7 +61,7 @@ export function InputSel() {
           <span class="icon" aria-label="remove">
             ❌
           </span>
-          {label}
+          {name ?? key}
         </div>
       ))}
     </div>
@@ -87,7 +89,7 @@ export function createAddEvent(item: Item): CustomEvent {
  * @private used by {@link InputSel} to dispatch to the reducer when an add event is received.
  */
 function dispatchFrom(ev: CustomEvent, dispatch: Dispatch<Actions>) {
-  const validData = Array.isArray(ev.detail) && ev.detail[0] !== undefined && typeof ev.detail[1] === "string";
+  const validData = Array.isArray(ev.detail) && typeof ev.detail[0] === "string" && ev.detail[0].trim().length > 0;
   if (!validData) {
     console.warn("Invalid event data on:", ev);
     return;

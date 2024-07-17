@@ -1,5 +1,5 @@
 /** A completion item has a value and a label. */
-export type Item = [unknown, string];
+export type Item = [unknown, {name: string}];
 
 /**
  * State for InputCompl component.
@@ -93,8 +93,8 @@ function handleUpdateQuery(state: State, { query }: ActionQuery): State {
   const candidates: number[] = [];
 
   const q = query.trim().toLowerCase();
-  state.completions.forEach(([_, val], idx) => {
-    if (q.length === 0 || val.toLowerCase().includes(q)) candidates.push(idx);
+  state.completions.forEach(([key, {name}], idx) => {
+    if (q.length === 0 || (name ?? key).toLowerCase().includes(q)) candidates.push(idx);
   });
 
   return {

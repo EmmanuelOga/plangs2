@@ -83,7 +83,7 @@ export function InputCompl({ name, completions }: InputComplProps) {
             onDblClick={() => dispatch({ kind: "keypress", from: "item", key: "Enter" })}
             onKeyDown={({ key }) => dispatch({ kind: "keypress", from: "item", key })}
             ref={(idx === state.selected ? selRef : undefined) as Ref<HTMLDivElement>}>
-            {state.completions[value][1]}
+            {state.completions[value][1]?.name ?? state.completions[value][0]}
           </div>
         ))}
       </div>

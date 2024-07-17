@@ -179,4 +179,14 @@ main {
             width: 90%;
         }
     }
+
+    .separator {
+        text-align: center;
+        font-size: .75rem;
+        width: 85%;
+    }
+    .separator::before {
+        content: "✧";
+        padding: 0 .5rem;
+    }
 }
