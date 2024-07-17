@@ -39,7 +39,7 @@ templ Home(data gjson.Result) {
 		@Facet("General") {
 			@Input("search", "Language Name", "plang-name")
 			@Input("checkbox", "Known Releases", "has-releases")
-			@Input("date", "Released After", "release-min-date")
+			@InputClass("date", "Released After", "release-min-date", "hide")
 		}
 		@Facet("Type System") {
 			@FacetOptions(sortArray(data.Get("vtables.tsys")))
@@ -70,7 +70,7 @@ templ Home(data gjson.Result) {
 			@Input("checkbox", "Has Logo", "has-logo")
 			@Input("checkbox", "Has Website", "has-website")
 			@Input("checkbox", "Has Wikipedia", "has-wikipedia")
-			@Input("search", "File Extension", "plang-ext")
+			@Input("search+sel", "File Extension", "plang-ext")
 		}
 	</nav>
 	<article id="home-plangs">
@@ -136,7 +136,11 @@ templ FacetOptions(tsys []gjson.Result) {
 }
 
 templ Input(inputType string, label string, name string) {
-	<label for={ name }>
+	@InputClass(inputType, label, name, "")
+}
+
+templ InputClass(inputType string, label string, name string, cssClasses string) {
+	<label class={ cssClasses } for={ name }>
 		if inputType == "checkbox" {
 			<input id={ name } name={ name } type={ inputType }/>
 			<span class="inner-label-checkbox">{ label }</span>
@@ -144,12 +148,14 @@ templ Input(inputType string, label string, name string) {
 			<span class="inner-label">{ label }</span>
 			if inputType == "compl" {
 				<input-compl id={ name } name={ name }></input-compl>
+			} else if inputType == "search+sel" {
+				<input id={ name } name={ name } type="search"/>
 			} else {
 				<input id={ name } name={ name } type={ inputType }/>
 			}
 		}
 	</label>
-	if inputType == "compl" {
-		<input-sel id={ name } name={ name }></input-sel>
+	if inputType == "compl" || inputType == "search+sel" {
+		<input-sel name={ name }></input-sel>
 	}
 }

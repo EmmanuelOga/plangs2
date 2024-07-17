@@ -10,6 +10,10 @@ body {
     flex-direction: column;
 }
 
+.hide {
+    display: none !important;
+}
+
 noscript {
     display: block;
     padding: 1rem;
@@ -141,6 +145,8 @@ main {
 }
 
 .facet {
+    padding-bottom: .75rem;
+
     .title {
         font-weight: bold;
         padding: .5rem;
