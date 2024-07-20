@@ -1,8 +1,7 @@
 {
     "compilerOptions": {
         "module": "ES2022",
-        "moduleResolution": "Bundler",
-        "target": "ES2022",
+        "target": "ES2021",
         "strict": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
@@ -17,7 +16,7 @@
             "@plangs/frontend/*": [ "packages/frontend/src/*"],
             "@plangs/graph-base/*": [ "packages/graph-base/src/*"],
             "@plangs/graph/*": [ "packages/graph/src/*"],
-            "@plangs/sandbox/*": [ "packages/sandbox/src/*"],
+            "@plangs/server/*": [ "packages/server/src/*"],
             "@plangs/wikipedia-scraper/*": [ "archive/wikipedia-scraper/src/*"],
         }
     },
@@ -28,7 +27,7 @@
     //     { "path": "./packages/frontend" },
     //     { "path": "./packages/graph-base" },
     //     { "path": "./packages/graph" },
-    //     { "path": "./packages/sandbox" },
+    //     { "path": "./packages/server" },
     //     { "path": "./archived/wikipedia-scraper" }
     // ],
     "exclude": [

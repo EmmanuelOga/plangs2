@@ -1,0 +1,13 @@
+{
+  "name": "@plangs/serer",
+  "description": "Site server, for development and static site generation.",
+  "version": "0.1.0",
+  "devDependencies": {},
+  "dependencies": {
+    "@plangs/frontend": "workspace:*",
+    "preact-render-to-string": "^6.5.6"
+  },
+  "scripts": {
+    "dev": "bun run --hot src/index.ts"
+  }
+}
