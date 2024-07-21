@@ -1,22 +1,29 @@
 import type { VNode } from "preact";
-import render from "preact-render-to-string";
-import { Home } from "./app";
+import render from "preact-render-to-string/jsx";
+import { HomePage } from "./app";
+import { PlangsGraph } from "@plangs/graph/graph";
 
 function html(component: VNode) {
-  return new Response(render(component), { headers: { "Content-Type": "text/html" } });
+  const page = `<!DOCTYPE html>\n${render(component, {}, { pretty: true })}`;
+  return new Response(page, { headers: { "Content-Type": "text/html" } });
+}
+
+function staticPath(path: string): string {
+  return Bun.fileURLToPath(`file:///${__dirname}/../static/${path}`);
 }
 
 async function resolveStatic(path: string): Promise<Response | undefined> {
-    const staticPath = Bun.fileURLToPath(`file:///${__dirname}/../static/${path}`);
-    const file = Bun.file(staticPath);
-    if (await file.exists()) return new Response(file);
+  const file = Bun.file(staticPath(path));
+  if (await file.exists()) return new Response(file);
 }
+
+const pg = new PlangsGraph().loadJSON(await Bun.file(staticPath("plangs.json")).json());
 
 const server = Bun.serve({
   async fetch(req) {
     const path = new URL(req.url).pathname;
 
-    if (path === "/") return html(Home());
+    if (path === "/") return html(HomePage({ pg }));
 
     const rsp = await resolveStatic(path.slice(1));
     if (rsp) return rsp;
