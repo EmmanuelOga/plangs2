@@ -1,15 +1,12 @@
+/**
+ * Language facet search code.
+ */
 import "preact/debug";
 
 import { PlangsGraph } from "@plangs/graph";
 
-import {
-  type InputComplElement,
-  type Item,
-  onSelect,
-  registerInputCompl,
-  requestFocus,
-} from "./input-compl/input-compl";
-import { type InputSelElement, addItem, onRemove, registerInputSel } from "./input-sel/input-sel";
+import { type InputComplElement, type Item, registerInputCompl } from "./input-compl";
+import { type InputSelElement, registerInputSel } from "./input-sel";
 
 function $<T = HTMLElement>(sel: string): T {
   return document.querySelector(sel) as T;
@@ -52,17 +49,24 @@ async function startBrowser() {
       continue;
     }
 
-    onSelect(compl, ({ item }) => addItem(sel, item));
-    
-    onRemove(sel, ({ by, itemsLeft }) => {
+    compl.onSelect(({ item }) => sel.addItem(item));
+
+    sel.onRemove(({ by, itemsLeft }) => {
       if (by !== "enterKey" || itemsLeft !== 0) return;
-      requestFocus(compl);
+      compl.focus();
     });
   }
 
   // File Extension
 
-  const fileExt = $("input#plan-ext");
+  const fileExt = $<HTMLInputElement>("input#plang-ext");
+  const fileExtSel = $<InputSelElement>("input-sel[name=plang-ext]");
+
+  // On input change, re-filter the list of languages.
+
+  $("#home-nav").addEventListener("input", (ev) => {
+    console.log("Filters changed:  ", ev);
+  });
 }
 
 // Register the web components.

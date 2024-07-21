@@ -1,11 +1,12 @@
 /** A completion item has a value and a label. */
-export type Item = [unknown, {name: string}];
+export type Item = [unknown, { name: string }];
 
+/** Data for an `onSelect` callback. */
 export type ItemSelected = {
   /** Name attribute of the `<input-compl/>` element. */
   name: string;
   item: Item;
-}
+};
 
 /**
  * State for InputCompl component.
@@ -43,12 +44,10 @@ export function reducer(state: State, action: Actions): State {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-function adjustSelection(state: State, offset: 1 | -1): State {
-  const { candidates, selected } = state;
-  if (!candidates) return state;
-  const newSelected = (state.selected + candidates.length + offset) % candidates.length;
-  if (selected !== newSelected) return { ...state, selected: newSelected };
-  return state;
+/** Update anything: mostly used to update state from `props` changes. */
+function handleUpdate(state: State, { state: newState }: ActionUpdate): State {
+  // The dummy query ensures the candidates are updated.
+  return handleUpdateQuery({ ...state, query: "[DUMMY]", ...newState }, { kind: "updateQuery", query: "" });
 }
 
 function handleKeypress(state: State, { from, key }: ActionKeyPress): State {
@@ -63,7 +62,11 @@ function handleKeypress(state: State, { from, key }: ActionKeyPress): State {
     if (from === "input" && !showPopup && candidates.length > 0) {
       return handlePopup({ ...state, selected: 0 }, { kind: "popup", show: true });
     }
-    return adjustSelection(state, key === "ArrowDown" ? 1 : -1);
+
+    const offset = key === "ArrowDown" ? 1 : -1;
+    const newSelected = (state.selected + candidates.length + offset) % candidates.length;
+    if (state.selected !== newSelected) return { ...state, selected: newSelected };
+    return state;
   }
 
   if (key !== "Enter") return state;
@@ -88,11 +91,6 @@ function handlePopup(state: State, { show }: ActionPopup): State {
   return { ...state, showPopup: show };
 }
 
-function handleUpdate(state: State, { state: newState }: ActionUpdate): State {
-  // The dummy query ensures the candidates are updated.
-  return handleUpdateQuery({ ...state, query: "[DUMMY]", ...newState }, { kind: "updateQuery", query: "" });
-}
-
 function handleUpdateQuery(state: State, { query }: ActionQuery): State {
   const { query: prevQuery } = state;
   if (query === prevQuery) return state;
@@ -100,7 +98,7 @@ function handleUpdateQuery(state: State, { query }: ActionQuery): State {
   const candidates: number[] = [];
 
   const q = query.trim().toLowerCase();
-  state.completions.forEach(([key, {name}], idx) => {
+  state.completions.forEach(([key, { name }], idx) => {
     if (q.length === 0 || (name ?? key).toLowerCase().includes(q)) candidates.push(idx);
   });
 

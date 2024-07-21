@@ -1,12 +1,9 @@
 import type { Ref } from "preact";
-import register from "preact-custom-element";
 import { useEffect, useReducer, useRef } from "preact/hooks";
 
 import { type Item, type ItemSelected, reducer } from "./reducer";
 
 import "./input-compl.css";
-
-export { Item, ItemSelected } from "./reducer";
 
 /** {@link InputCompl} props. */
 export type InputComplProps = {
@@ -107,22 +104,4 @@ export const OUT_EVENT_SELECT = "input-compl:select";
 /** Creates a {@link OUT_EVENT_SELECT} CustomEvent to inform an item has been selected. */
 export function createSelectEvent(detail: ItemSelected): CustomEvent {
   return new CustomEvent(OUT_EVENT_SELECT, { detail, bubbles: true, composed: true });
-}
-
-export function registerInputCompl() {
-  register(InputCompl, "input-compl", ["name", "completions"]);
-}
-
-export type InputComplElement = HTMLElement & InputComplProps;
-
-export function onSelect(compl: HTMLElement, cb: (data: ItemSelected) => void) {
-  compl.addEventListener(OUT_EVENT_SELECT, (ev: Event) => {
-    const data = (ev as CustomEvent).detail as ItemSelected;
-    cb(data);
-  });
-}
-
-export function requestFocus(compl: InputComplElement) {
-  // Lil bit of a hack to focus the input element.
-  compl.querySelector("input")?.focus();
 }
