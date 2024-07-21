@@ -7,6 +7,7 @@ import { PlangsGraph } from "@plangs/graph";
 
 import { type InputComplElement, type Item, registerInputCompl } from "./input-compl";
 import { type InputSelElement, registerInputSel } from "./input-sel";
+import { file } from "bun";
 
 function $<T = HTMLElement>(sel: string): T {
   return document.querySelector(sel) as T;
@@ -61,6 +62,20 @@ async function startBrowser() {
 
   const fileExt = $<HTMLInputElement>("input#plang-ext");
   const fileExtSel = $<InputSelElement>("input-sel[name=plang-ext]");
+
+  fileExt.addEventListener("keypress", (ev: KeyboardEvent) => {
+    if (ev.key !== "Enter") return;
+    const value = fileExt.value;
+    if (value === "") return;
+    const name = value[0] === "." ? value : `.${value}`;
+    fileExtSel.addItem([name, { name }]);
+    fileExt.value = "";
+  });
+
+  fileExtSel.onRemove(({ by, itemsLeft }) => {
+    if (by !== "enterKey" || itemsLeft !== 0) return;
+    fileExt.focus();
+  });
 
   // On input change, re-filter the list of languages.
 
