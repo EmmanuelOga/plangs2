@@ -7,7 +7,6 @@ import { PlangsGraph } from "@plangs/graph";
 
 import { type InputComplElement, type Item, registerInputCompl } from "./input-compl";
 import { type InputSelElement, registerInputSel } from "./input-sel";
-import { file } from "bun";
 
 function $<T = HTMLElement>(sel: string): T {
   return document.querySelector(sel) as T;
@@ -24,7 +23,7 @@ async function loadPlangs(): Promise<PlangsGraph> {
 
 const INPUTS = {
   // General
-  plangName : $<HTMLInputElement>("input[name=plang-name]"),
+  plangName: $<HTMLInputElement>("input[name=plang-name]"),
   hasReleases: $<HTMLInputElement>("input[name=has-releases]"),
   releaseMinDate: $<HTMLInputElement>("input[name=release-min-date]"),
 
@@ -59,7 +58,7 @@ const INPUTS = {
   hasWikipedia: $<HTMLInputElement>("input[name=has-wikipedia]"),
 
   plangExt: $<InputSelElement>("input-sel[name=plang-ext]"),
-}
+};
 
 function collectInputs() {
   return {
@@ -89,7 +88,7 @@ function collectInputs() {
     hasWikipedia: INPUTS.hasWikipedia.checked,
 
     plangExt: INPUTS.plangExt.values(),
-  }
+  };
 }
 
 async function startBrowser() {

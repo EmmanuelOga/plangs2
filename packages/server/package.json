@@ -12,6 +12,6 @@
   },
   "scripts": {
     "serve": "bun run --hot src/serve.ts",
-    "bundle" : "esbuild --bundle ../frontend/src/browser.tsx --outdir=static/ --sourcemap --watch"
+    "bundle": "esbuild --bundle ../frontend/src/browser.tsx --outdir=static/ --sourcemap --watch"
   }
 }
