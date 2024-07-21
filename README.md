@@ -1,3 +1,3 @@
-# Plangs2
+# Plangs
 
-Hand-curated index of information about programming languages.
+A programming languages index.

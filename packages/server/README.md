@@ -1,3 +1,4 @@
-# Sandbox
+# Server
 
-Just a place to try things during development.
+Serves the site dynamically during development.
+Renders the site statically for deployment.
