@@ -2,13 +2,16 @@
   "name": "@plangs/serer",
   "description": "Site server, for development and static site generation.",
   "version": "0.1.0",
-  "devDependencies": {},
   "dependencies": {
+    "preact": "^10.22.1",
     "@plangs/frontend": "workspace:*",
-    "@plangs/graph": "workspace:*",
+    "@plangs/graph": "workspace:*"
+  },
+  "devDependencies": {
     "preact-render-to-string": "^6.5.6"
   },
   "scripts": {
-    "dev": "bun run --hot src/index.ts"
+    "dev": "bun run --hot src/serve.ts",
+    "bundle" : "esbuild --bundle ../frontend/src/browser.tsx --outdir=static/ --sourcemap --watch"
   }
 }

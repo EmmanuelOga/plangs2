@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
         "module": "ES2022",
-        "target": "ES2021",
+        "target": "ES2022",
+        "moduleResolution": "Bundler",
         "strict": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
@@ -12,12 +13,24 @@
         ],
         "baseUrl": ".",
         "paths": {
-            "@plangs/definitions/*": [ "packages/definitions/src/*"],
-            "@plangs/frontend/*": [ "packages/frontend/src/*"],
-            "@plangs/graph-base/*": [ "packages/graph-base/src/*"],
-            "@plangs/graph/*": [ "packages/graph/src/*"],
-            "@plangs/server/*": [ "packages/server/src/*"],
-            "@plangs/wikipedia-scraper/*": [ "archive/wikipedia-scraper/src/*"],
+            "@plangs/definitions/*": [
+                "packages/definitions/src/*"
+            ],
+            "@plangs/frontend/*": [
+                "packages/frontend/src/*"
+            ],
+            "@plangs/graph-base/*": [
+                "packages/graph-base/src/*"
+            ],
+            "@plangs/graph/*": [
+                "packages/graph/src/*"
+            ],
+            "@plangs/server/*": [
+                "packages/server/src/*"
+            ],
+            "@plangs/wikipedia-scraper/*": [
+                "archive/wikipedia-scraper/src/*"
+            ],
         }
     },
     // References enable incremental compilation,
