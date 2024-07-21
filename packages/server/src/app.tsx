@@ -93,7 +93,7 @@ export function Home({ pg }: { pg: PlangsGraph }) {
           ))}
         </Facet>
         <Facet title="Misc">
-          <FacetInput type="checkbox" label="Source-to-Source" name="plang-transpiler" />
+          <FacetInput type="checkbox" label="Source-to-Source" name="transpiler" />
           <FacetInput type="checkbox" label="Has Logo" name="has-logo" />
           <FacetInput type="checkbox" label="Has Website" name="has-website" />
           <FacetInput type="checkbox" label="Has Wikipedia" name="has-wikipedia" />
@@ -143,7 +143,7 @@ function FacetInput({ cssClasses, label, name, sel, type, value }: FacetInputPro
   if (type === "checkbox") {
     input = (
       <>
-        <input id={id} name={name} type="checkbox" />
+        <input id={id} name={name} type="checkbox" value={value} />
         <span class="inner-label-checkbox">{label}</span>
       </>
     );

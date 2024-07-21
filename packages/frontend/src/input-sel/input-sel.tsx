@@ -49,7 +49,8 @@ export function InputSel() {
     <div ref={self as Ref<HTMLDivElement>}>
       {state.selected.map(([key, { name }]) => (
         <div
-          class="remove-item"
+          data-value={key}
+          class="item remove-item"
           key={key}
           onClick={() => dispatch({ kind: "remove", key, by: "click" })}
           onKeyDown={(ev) => {

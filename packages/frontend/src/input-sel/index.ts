@@ -20,6 +20,13 @@ const ELEMENT_API = {
   addItem(this: HTMLElement, item: Item): void {
     this.dispatchEvent(createAddEvent(item));
   },
+
+  /** Get the values/keys of the selected items. */
+  values(this: HTMLElement): string[] {
+    return [...this.querySelectorAll(".remove-item")]
+      .map((el) => el.getAttribute("data-value"))
+      .filter((v) => v) as string[];
+  },
 };
 
 /** For casting the `<input-sel/>` elem after DOM selection. */
