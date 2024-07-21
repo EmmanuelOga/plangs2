@@ -181,7 +181,7 @@ function PlangsList({ pg }: PlangsListProps) {
   return (
     <>
       {[...pg.v_plang].map(([vid, pl]) => (
-        <div class="plang-thumb" id={vid} key={vid}>
+        <div class="plang-thumb" data-vid={vid} key={vid}>
           <span class="name">{pl.name}</span>
           <PlangLogo pl={pl} />
         </div>

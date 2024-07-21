@@ -82,6 +82,14 @@ async function startBrowser() {
   $("#home-nav").addEventListener("input", (ev) => {
     console.log("Filters changed:  ", ev);
   });
+
+  // On lang click, display more information.
+  $("#home-plangs").addEventListener("click", (ev) => {
+    const target = ev.target as HTMLElement;
+    const wrapper = target.closest(".plang-thumb") as HTMLDivElement;
+    if (!wrapper) return;
+    console.log("Plang clicked: ", wrapper.dataset.vid);
+  });
 }
 
 // Register the web components.
