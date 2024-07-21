@@ -1,0 +1,3 @@
+# https://github.com/DarthSim/overmind
+serve: bun serve
+bundle: bun bundle

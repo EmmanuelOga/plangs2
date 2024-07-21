@@ -26,7 +26,7 @@ export function Layout({ pageId, children }: LayoutProps) {
       <body>
         <header id="plangs-header">
           <a id="plangs" href="/">
-            Plangs ~ $ _
+            Plangs
           </a>
           <a id="about" href="/about">
             about

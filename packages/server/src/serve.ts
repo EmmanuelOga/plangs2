@@ -28,7 +28,7 @@ const server = Bun.serve({
     const rsp = await resolveStatic(path.slice(1));
     if (rsp) return rsp;
 
-    return new Response("Page not found", { status: 404 });
+    return new Response("Page not found.", { status: 404 });
   },
 });
 
