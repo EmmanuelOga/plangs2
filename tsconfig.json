@@ -1,50 +1,23 @@
 {
-    "compilerOptions": {
-        "module": "ES2022",
-        "target": "ES2022",
-        "moduleResolution": "Bundler",
-        "strict": true,
-        "strictNullChecks": true,
-        "strictFunctionTypes": true,
-        "forceConsistentCasingInFileNames": true,
-        "sourceMap": true,
-        "types": [
-            "bun-types"
-        ],
-        "baseUrl": ".",
-        "paths": {
-            "@plangs/definitions/*": [
-                "packages/definitions/src/*"
-            ],
-            "@plangs/frontend/*": [
-                "packages/frontend/src/*"
-            ],
-            "@plangs/graph-base/*": [
-                "packages/graph-base/src/*"
-            ],
-            "@plangs/graph/*": [
-                "packages/graph/src/*"
-            ],
-            "@plangs/server/*": [
-                "packages/server/src/*"
-            ],
-            "@plangs/wikipedia-scraper/*": [
-                "archive/wikipedia-scraper/src/*"
-            ],
-        }
-    },
-    // References enable incremental compilation,
-    // probably not needed for the current size of the projects.
-    // "references": [
-    //     { "path": "./packages/definitions" },
-    //     { "path": "./packages/frontend" },
-    //     { "path": "./packages/graph-base" },
-    //     { "path": "./packages/graph" },
-    //     { "path": "./packages/server" },
-    //     { "path": "./archived/wikipedia-scraper" }
-    // ],
-    "exclude": [
-        "node_modules",
-        "**/node_modules/*"
-    ]
+  "compilerOptions": {
+    "module": "ES2022",
+    "target": "ES2022",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "types": ["bun-types"],
+    "baseUrl": ".",
+    "paths": {
+      "@plangs/definitions/*": ["packages/definitions/src/*"],
+      "@plangs/frontend/*": ["packages/frontend/src/*"],
+      "@plangs/graph-base/*": ["packages/graph-base/src/*"],
+      "@plangs/graph/*": ["packages/graph/src/*"],
+      "@plangs/server/*": ["packages/server/src/*"],
+      "@plangs/wikipedia-scraper/*": ["archive/wikipedia-scraper/src/*"]
+    }
+  },
+  "exclude": ["node_modules", "**/node_modules/*"]
 }

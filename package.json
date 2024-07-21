@@ -1,10 +1,7 @@
 {
   "name": "@plangs/project",
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "archived/*"
-  ],
+  "workspaces": ["packages/*", "archived/*"],
   "devDependencies": {
     "esbuild": "^0.23.0",
     "@types/bun": "latest",
