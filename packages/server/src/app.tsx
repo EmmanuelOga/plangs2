@@ -22,20 +22,22 @@ export function Layout({ pageId, children }: LayoutProps) {
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
       <body>
-        <header id="plangs-header">
-          <a id="plangs" href="/">
-            Plangs
-          </a>
-          <a id="about" href="/about">
-            about
-          </a>
-        </header>
-        <noscript>
-          <em>Note!</em>
-          This site is fully static and requires JavaScript for the best experience. In particular, the search feature
-          will not work without JavaScript.
-        </noscript>
-        <main id={pageId}>{children}</main>
+        <div id="main-wrapper">
+          <header id="plangs-header">
+            <a id="plangs" href="/">
+              Plangs
+            </a>
+            <a id="about" href="/about">
+              about
+            </a>
+          </header>
+          <noscript>
+            <em>Note!</em>
+            This site is fully static and requires JavaScript for the best experience. In particular, the search feature
+            will not work without JavaScript.
+          </noscript>
+          <main id={pageId}>{children}</main>
+        </div>
       </body>
     </html>
   );
