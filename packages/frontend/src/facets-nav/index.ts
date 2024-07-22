@@ -8,6 +8,7 @@ import { $, $$, loadPlangs } from "../utils";
 import { type InputComplElement, type Item, registerInputCompl } from "../input-compl";
 import { type InputSelElement, registerInputSel } from "../input-sel";
 import { getNavState } from "./inputs";
+import { registerPlangInfo } from "../plang-info";
 
 function updatePlangs() {}
 
@@ -86,6 +87,7 @@ async function startBrowser() {
 }
 
 // Register the web components.
+registerPlangInfo();
 registerInputCompl();
 registerInputSel();
 

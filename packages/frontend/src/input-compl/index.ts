@@ -24,10 +24,10 @@ const ELEMENT_API = {
 /** For casting the `<input-compl/>` elem after DOM selection. */
 export type InputComplElement = HTMLElement & InputComplProps & typeof ELEMENT_API;
 
+export const TAG_NAME = "input-compl";
+
 /** Register the `<input-compl/>` Web Component and add the additional methods custom element. */
 export function registerInputCompl(): void {
-  register(InputCompl, "input-compl", ["name", "completions"]);
-  const htmlClass = window.customElements.get("input-compl");
-  if (!htmlClass) throw new Error("Failed to register <input-compl>.");
-  Object.assign(htmlClass.prototype, ELEMENT_API);
+  register(InputCompl, TAG_NAME, ["name", "completions"]);
+  Object.assign(window.customElements.get(TAG_NAME)?.prototype, ELEMENT_API);
 }

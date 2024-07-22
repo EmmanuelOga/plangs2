@@ -1,9 +1,10 @@
 import register from "preact-custom-element";
 
 import type { Item } from "../input-compl";
-import { OUT_EVENT_REMOVE, createAddEvent, InputSel } from "./input-sel";
+import { InputSel, OUT_EVENT_REMOVE, createAddEvent } from "./input-sel";
 import type { ItemRemoved } from "./reducer";
 
+export type { Item } from "../input-compl";
 export { ItemRemoved } from "./reducer";
 
 /** Additional methods for the custom element. */
@@ -32,10 +33,10 @@ const ELEMENT_API = {
 /** For casting the `<input-sel/>` elem after DOM selection. */
 export type InputSelElement = HTMLElement & typeof ELEMENT_API;
 
+export const TAG_NAME = "input-sel";
+
 /** Register the `<input-compl/>` Web Component and add the additional methods custom element. */
 export function registerInputSel() {
-  register(InputSel, "input-sel", ["selected"]);
-  const htmlClass = window.customElements.get("input-sel");
-  if (!htmlClass) throw new Error("Failed to register <input-compl>.");
-  Object.assign(htmlClass.prototype, ELEMENT_API);
+  register(InputSel, TAG_NAME, ["selected"]);
+  Object.assign(window.customElements.get(TAG_NAME)?.prototype, ELEMENT_API);
 }

@@ -107,7 +107,7 @@ export function Home({ pg }: { pg: PlangsGraph }) {
       </article>
       <nav id="home-side">
         <Facet title="Language">
-          <p>Select a language to show more information.</p>
+          {h("plang-info", {})}
         </Facet>
       </nav>
     </>

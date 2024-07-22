@@ -1,7 +1,8 @@
 import type { Ref } from "preact";
 import { type Dispatch, useEffect, useReducer, useRef } from "preact/hooks";
 
-import { type Actions, type Item, type ItemRemoved, reducer } from "./reducer";
+import type { Item } from "../input-compl";
+import { type Actions, type ItemRemoved, reducer } from "./reducer";
 
 import "./input-sel.css";
 

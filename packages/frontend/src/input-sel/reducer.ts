@@ -1,5 +1,4 @@
-import type { Item } from "../input-compl/reducer";
-export type { Item } from "../input-compl/reducer";
+import type { Item } from "../input-compl";
 
 export type State = {
   selected: Item[];
