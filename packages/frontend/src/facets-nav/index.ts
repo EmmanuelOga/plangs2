@@ -8,7 +8,8 @@ import { $, $$, loadPlangs } from "../utils";
 import { type InputComplElement, type Item, registerInputCompl } from "../input-compl";
 import { type InputSelElement, registerInputSel } from "../input-sel";
 import { getNavState } from "./inputs";
-import { registerPlangInfo } from "../plang-info";
+import { PlangInfoElement, registerPlangInfo } from "../plang-info";
+import { VID_Plang } from "@plangs/graph/schema";
 
 function updatePlangs() {}
 
@@ -78,11 +79,13 @@ async function startBrowser() {
 
   // On lang click, display more information.
 
+  const plangInfo = $<PlangInfoElement>("plang-info");
+
   $("#home-plangs").addEventListener("click", (ev) => {
     const target = ev.target as HTMLElement;
     const wrapper = target.closest(".plang-thumb") as HTMLDivElement;
-    if (!wrapper) return;
-    console.log("Plang clicked: ", wrapper.dataset.vid);
+    if (!wrapper || !wrapper.dataset.vid) return;
+    plangInfo.vid = wrapper.dataset.vid as VID_Plang;
   });
 }
 

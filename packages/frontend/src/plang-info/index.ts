@@ -13,7 +13,9 @@ const ELEMENT_API = {
   }
 };
 
+export type PlangInfoElement = HTMLElement & PlangInfoProps & typeof ELEMENT_API;
+
 export function registerPlangInfo() {
-  register(PlangInfo, TAG_NAME);
+  register(PlangInfo, TAG_NAME, ["vid"]);
   Object.assign(window.customElements.get(TAG_NAME)?.prototype, ELEMENT_API);
 }

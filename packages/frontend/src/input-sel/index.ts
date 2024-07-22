@@ -7,6 +7,8 @@ import type { ItemRemoved } from "./reducer";
 export type { Item } from "../input-compl";
 export { ItemRemoved } from "./reducer";
 
+export const TAG_NAME = "input-sel";
+
 /** Additional methods for the custom element. */
 const ELEMENT_API = {
   /** Add a handler to do something when an item is removed. */
@@ -32,8 +34,6 @@ const ELEMENT_API = {
 
 /** For casting the `<input-sel/>` elem after DOM selection. */
 export type InputSelElement = HTMLElement & typeof ELEMENT_API;
-
-export const TAG_NAME = "input-sel";
 
 /** Register the `<input-compl/>` Web Component and add the additional methods custom element. */
 export function registerInputSel() {

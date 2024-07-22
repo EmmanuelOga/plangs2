@@ -5,6 +5,8 @@ import type { ItemSelected } from "./reducer";
 
 export { Item, ItemSelected } from "./reducer";
 
+export const TAG_NAME = "input-compl";
+
 /** Additional methods for the custom element. */
 const ELEMENT_API = {
   /** Register a handler for selection. */
@@ -23,8 +25,6 @@ const ELEMENT_API = {
 
 /** For casting the `<input-compl/>` elem after DOM selection. */
 export type InputComplElement = HTMLElement & InputComplProps & typeof ELEMENT_API;
-
-export const TAG_NAME = "input-compl";
 
 /** Register the `<input-compl/>` Web Component and add the additional methods custom element. */
 export function registerInputCompl(): void {
