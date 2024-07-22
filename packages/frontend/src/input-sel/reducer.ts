@@ -3,6 +3,7 @@ export type { Item } from "../input-compl/reducer";
 
 export type State = {
   selected: Item[];
+  onAdd: (item: Item) => void;
   onRemove: (data: ItemRemoved) => void;
 };
 
@@ -23,6 +24,7 @@ export function reducer(state: State, action: Actions): State {
   if (action.kind === "add") {
     const existing = selected.find(([key]) => key === action.item[0]);
     if (existing) return state;
+    state.onAdd(action.item);
     return { ...state, selected: [...selected, action.item] };
   }
 

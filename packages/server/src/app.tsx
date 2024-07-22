@@ -16,8 +16,6 @@ export function Layout({ pageId, children }: LayoutProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Plangs</title>
         <link rel="stylesheet" href="/index.css" />
-        <link rel="stylesheet" href="/browser.css" />
-        <script src="/browser.js" defer />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
@@ -54,6 +52,8 @@ export function HomePage({ pg }: { pg: PlangsGraph }) {
 export function Home({ pg }: { pg: PlangsGraph }) {
   return (
     <>
+      <link rel="stylesheet" href="/facets-nav.css" />
+      <script src="/facets-nav.js" defer />
       <nav id="home-nav">
         <Facet title="General">
           <FacetInput type="search" label="Language Name" name="plang-name" />

@@ -13,12 +13,23 @@ export function InputSel() {
   const self = useRef<HTMLDivElement>();
   const lastRemoved = useRef<ItemRemoved>();
 
+  // Dispatch an input event to notify parent of changes.
+  function dispatchInput() {
+    const ev = new Event("input", { bubbles: true, composed: true });
+    self.current?.parentElement?.dispatchEvent(ev);
+  }
+
   function onRemove(data: ItemRemoved) {
     lastRemoved.current = data;
     self.current?.parentElement?.dispatchEvent(createRemoveEvent(data));
+    dispatchInput();
   }
 
-  const [state, dispatch] = useReducer(reducer, { selected: [], onRemove });
+  function onAdd(item: Item) {
+    dispatchInput();
+  }
+
+  const [state, dispatch] = useReducer(reducer, { selected: [], onAdd, onRemove });
 
   // Setup event listener to add items.
   useEffect(() => {

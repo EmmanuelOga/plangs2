@@ -5,14 +5,14 @@
   "main": "src/browser.tsx",
   "files": ["src"],
   "dependencies": {
+    "@plangs/graph": "workspace:*",
+    "lodash-es": "^4.17.21",
     "preact": "^10.22.1",
-    "preact-custom-element": "^4.3.0",
-    "@plangs/graph": "workspace:*"
+    "preact-custom-element": "^4.3.0"
   },
   "devDependencies": {
     "@types/preact-custom-element": "^4.0.4"
   },
   "scripts": {
-    "dev": "esbuild src/browser.tsx --bundle --sourcemap --outdir=../../server/static --watch"
   }
 }
