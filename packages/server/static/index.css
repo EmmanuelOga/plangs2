@@ -1,5 +1,8 @@
 :root {
-    --main-shade: #B6FFB2;
+    --main-shade: hsl(140, 75%, 90%);
+    --soft-shade: hsl(120, 20%, 95%);
+    --border-bottom: 1px solid rgba(0, 128, 0, .5);
+
     --pl-thumb-size: calc(100vw / 15);
 }
 
@@ -32,7 +35,7 @@ main {
     height: 1.8rem;
     padding: 1rem .5rem;
     background-color: var(--main-shade);
-    border-bottom: 1px solid rgba(0, 128, 0, .5);
+    border-bottom: var(--border-bottom);
 
     a {
         color: #0B1B2D;
@@ -54,7 +57,6 @@ main {
 #home-side {
     margin-top: 1rem;
     min-width: 15rem;
-    background-color: white;
 }
 
 #home-nav {
@@ -80,6 +82,9 @@ main {
 .plang-thumb {
     width: var(--pl-thumb-size);
     height: var(--pl-thumb-size);
+
+    border-top-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 
     padding: .5rem;
     margin: 1rem;
@@ -147,22 +152,18 @@ main {
 }
 
 .facet {
-    padding-bottom: .75rem;
+    margin-bottom: 1.5rem;
+    padding: 0.35rem 0;
 
-    .title {
-        font-weight: bold;
-        padding: .5rem;
-        background-color: var(--main-shade);
-        cursor: pointer;
-        font-size: .8rem;
-        margin-bottom: .5rem;
-    }
+    background-color: var(--soft-shade);
+    border-top: var(--border-bottom);
+    border-bottom-right-radius: 1rem;
 
     .controls {
         padding-left: .5rem;
 
         label {
-            padding: .1rem;
+            padding-bottom: .5rem;
             display: block;
             font-size: .8rem;
 
@@ -178,19 +179,9 @@ main {
 
         input-sel {
             font-size: .8rem;
-            padding-left: .25rem;
-            padding-bottom: .5rem;
             width: 90%;
+            margin-top: -.5rem;
+            padding-bottom: .5rem;
         }
-    }
-
-    .separator {
-        text-align: center;
-        font-size: .75rem;
-        width: 85%;
-    }
-    .separator::before {
-        content: "✧";
-        padding: 0 .5rem;
     }
 }

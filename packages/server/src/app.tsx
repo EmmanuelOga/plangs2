@@ -14,7 +14,7 @@ export function Layout({ pageId, children }: LayoutProps) {
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Plangs</title>
+        <title>Plangs! - Programming Languages Database</title>
         <link rel="stylesheet" href="/index.css" />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
@@ -25,7 +25,7 @@ export function Layout({ pageId, children }: LayoutProps) {
         <div id="main-wrapper">
           <header id="plangs-header">
             <a id="plangs" href="/">
-              Plangs
+              Plangs!
             </a>
             <a id="about" href="/about">
               about
@@ -59,8 +59,13 @@ export function Home({ pg }: { pg: PlangsGraph }) {
       <nav id="home-nav">
         <Facet title="General">
           <FacetInput type="search" label="Language Name" name="plang-name" />
+          <FacetInput type="search" sel={true} label="File Extension" name="plang-ext" />
           <FacetInput type="checkbox" label="Known Releases" name="has-releases" />
           <FacetInput type="date" label="Released After" name="release-min-date" cssClasses="hide" />
+          <FacetInput type="checkbox" label="Source-to-Source" name="transpiler" />
+          <FacetInput type="checkbox" label="Has Logo" name="has-logo" />
+          <FacetInput type="checkbox" label="Has Website" name="has-website" />
+          <FacetInput type="checkbox" label="Has Wikipedia" name="has-wikipedia" />
         </Facet>
         <Facet title="Type System">
           <FacetInput type="compl" source="tsys" label="Type System" name="type-system" />
@@ -71,11 +76,12 @@ export function Home({ pg }: { pg: PlangsGraph }) {
         <Facet title="Platform">
           <FacetInput type="compl" source="platf" label="Platform" name="platform" />
         </Facet>
-        <Facet title="Lineage">
+        <Facet title="Lineage (incoming)">
           <FacetInput type="compl" source="plang" label="Influenced By" name="influenced-by" />
           <FacetInput type="compl" source="plang" label="Dialect Of" name="dialect-of" />
           <FacetInput type="compl" source="plang" label="Implements" name="implements" />
-          <div class="separator" />
+        </Facet>
+        <Facet title="Lineage (outgoing)">
           <FacetInput type="compl" source="plang" label="Influenced" name="influenced" />
           <FacetInput type="compl" source="plang" label="Standard For" name="standard-for" />
           <FacetInput type="compl" source="plang" label="Implemented With" name="implemented-with" />
@@ -85,13 +91,6 @@ export function Home({ pg }: { pg: PlangsGraph }) {
         </Facet>
         <Facet title="License">
           <FacetInput type="compl" source="license" label="License" name="license" />
-        </Facet>
-        <Facet title="Misc">
-          <FacetInput type="search" sel={true} label="File Extension" name="plang-ext" />
-          <FacetInput type="checkbox" label="Source-to-Source" name="transpiler" />
-          <FacetInput type="checkbox" label="Has Logo" name="has-logo" />
-          <FacetInput type="checkbox" label="Has Website" name="has-website" />
-          <FacetInput type="checkbox" label="Has Wikipedia" name="has-wikipedia" />
         </Facet>
       </nav>
       <article id="home-plangs">
@@ -111,8 +110,7 @@ type FacetProps = {
 
 function Facet({ title, children }: FacetProps) {
   return (
-    <div class="facet">
-      <div class="title">{title}</div>
+    <div class="facet" title={title}>
       <div class="controls">{children}</div>
     </div>
   );
