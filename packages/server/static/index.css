@@ -59,10 +59,11 @@ noscript {
 #home-nav,
 #home-side {
     margin-top: 1rem;
-    min-width: 15rem;
 }
 
 #home-nav {
+    min-width: 15rem;
+    max-width: 15rem;
     padding-right: .25rem;
 }
 

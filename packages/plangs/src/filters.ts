@@ -46,17 +46,17 @@ export function filter(pg: PlangsGraph, filters: PlangFilters): Set<VID_Plang> {
       (filters.hasWikipedia && !plangHasWikipedia(pl)) ||
       (filters.transpiler && !pl.isTranspiler) ||
       (filters.plangExt.values.size > 0 && !plangHasExt(pl, filters.plangExt)) ||
-      (filters.dialectOf.values.size > 0 && !plangMatchesDialect(pg, pl, filters.dialectOf)) ||
-      (filters.implementedWith.values.size > 0 && !plangMatchesImplementedWith(pg, pl, filters.implementedWith)) ||
-      (filters.implements.values.size > 0 && !plangMatchesImplementedWith(pg, pl, filters.implements)) ||
-      (filters.influenced.values.size > 0 && !plangMatchesInfluenced(pg, pl, filters.influenced)) ||
-      (filters.influencedBy.values.size > 0 && !plangMatchesInfluenced(pg, pl, filters.influencedBy)) ||
-      (filters.licenses.values.size > 0 && !plangMatchesLicenses(pg, pl, filters.licenses)) ||
-      (filters.paradigm.values.size > 0 && !plangMatchesParadigm(pg, pl, filters.paradigm)) ||
-      (filters.people.values.size > 0 && !plangMatchesPeople(pg, pl, filters.people)) ||
-      (filters.platform.values.size > 0 && !plangMatchesParadigm(pg, pl, filters.platform)) ||
-      (filters.standardFor.values.size > 0 && !plangMatchesStandardFor(pg, pl, filters.standardFor)) ||
-      (filters.typeSystems.values.size > 0 && !plangMatchesTypeSystems(pg, pl, filters.typeSystems))
+      (filters.dialectOf.values.size > 0 && !plangMatchesDialect(pg, vid, filters.dialectOf)) ||
+      (filters.standardFor.values.size > 0 && !plangMatchesStandardFor(pg, vid, filters.standardFor)) ||
+      (filters.implements.values.size > 0 && !plangMatchesImplements(pg, vid, filters.implements)) ||
+      (filters.implementedWith.values.size > 0 && !plangMatchesImplementedWith(pg, vid, filters.implementedWith)) ||
+      (filters.influenced.values.size > 0 && !plangMatchesInfluenced(pg, vid, filters.influenced)) ||
+      (filters.influencedBy.values.size > 0 && !plangMatchesInfluencedBy(pg, vid, filters.influencedBy)) ||
+      (filters.licenses.values.size > 0 && !plangMatchesLicenses(pg, vid, filters.licenses)) ||
+      (filters.paradigm.values.size > 0 && !plangMatchesParadigm(pg, vid, filters.paradigm)) ||
+      (filters.people.values.size > 0 && !plangMatchesPeople(pg, vid, filters.people)) ||
+      (filters.platform.values.size > 0 && !plangMatchesPlatform(pg, vid, filters.platform)) ||
+      (filters.typeSystems.values.size > 0 && !plangMatchesTypeSystems(pg, vid, filters.typeSystems))
     ) {
       continue;
     }
@@ -76,24 +76,24 @@ export function plangHasLogo(pl: Partial<V_Plang>): boolean {
   return pl.images?.some((i) => i.kind === "logo") ?? false;
 }
 
-function plangHasReleases(pl: Partial<V_Plang>, minDate?: string): boolean {
+export function plangHasReleases(pl: Partial<V_Plang>, minDate?: string): boolean {
   if (!pl.releases) return false;
   if (!minDate) return pl.releases.length > 0;
   return pl.releases.some((r) => r.date && r.date >= minDate);
 }
 
 /** Has any website, except wikipedia pages. */
-function plangHasWebsites(pl: Partial<V_Plang>): boolean {
+export function plangHasWebsites(pl: Partial<V_Plang>): boolean {
   if (!pl.websites) return false;
   return pl.websites.some((w) => w.kind !== "wikipedia");
 }
 
-function plangHasWikipedia(pl: Partial<V_Plang>): boolean {
+export function plangHasWikipedia(pl: Partial<V_Plang>): boolean {
   if (!pl.websites) return false;
   return pl.websites.some((w) => w.kind === "wikipedia");
 }
 
-function plangHasExt(pl: Partial<V_Plang>, { mode, values }: Filter): boolean {
+export function plangHasExt(pl: Partial<V_Plang>, { mode, values }: Filter): boolean {
   if (!pl.extensions) return false;
   const exts = new Set(pl.extensions.map((e) => e.toLowerCase())); // TODO: persist these sets.
   if (mode === "all") {
@@ -105,34 +105,49 @@ function plangHasExt(pl: Partial<V_Plang>, { mode, values }: Filter): boolean {
   return false;
 }
 
-function plangMatchesDialect(pg: PlangsGraph, pl: Partial<V_Plang>, dialectOf: Filter): boolean {
+export function plangAdjacentsMatchFilter<VID_ADJ>(
+  vid: VID_Plang,
+  { mode, values }: Filter,
+  adjacents: (vid: VID_Plang) => Set<VID_ADJ>,
+): boolean {
+  if (mode === "all") {
+    for (const v of values as Set<VID_ADJ>) if (!adjacents(vid).has(v)) return false;
+    return true;
+  }
+  // any
+  for (const v of values as Set<VID_ADJ>) if (adjacents(vid).has(v)) return true;
   return false;
 }
 
-function plangMatchesImplementedWith(pg: PlangsGraph, pl: Partial<V_Plang>, implementedWith: Filter): boolean {
-  return false;
-}
+export const plangMatchesDialect = (pg: PlangsGraph, vid: VID_Plang, filter: Filter) =>
+  plangAdjacentsMatchFilter(vid, filter, (vid: VID_Plang) => pg.e_dialect_of.adjacentFrom(vid));
 
-function plangMatchesInfluenced(pg: PlangsGraph, pl: Partial<V_Plang>, influenced: Filter): boolean {
-  return false;
-}
+export const plangMatchesImplementedWith = (pg: PlangsGraph, vid: VID_Plang, filter: Filter) =>
+  plangAdjacentsMatchFilter(vid, filter, (vid: VID_Plang) => pg.e_implements.adjacentTo(vid));
 
-function plangMatchesLicenses(pg: PlangsGraph, pl: Partial<V_Plang>, licenses: Filter): boolean {
-  return false;
-}
+export const plangMatchesImplements = (pg: PlangsGraph, vid: VID_Plang, filter: Filter) =>
+  plangAdjacentsMatchFilter(vid, filter, (vid: VID_Plang) => pg.e_implements.adjacentFrom(vid));
 
-function plangMatchesParadigm(pg: PlangsGraph, pl: Partial<V_Plang>, paradigm: Filter): boolean {
-  return false;
-}
+export const plangMatchesInfluenced = (pg: PlangsGraph, vid: VID_Plang, filter: Filter) =>
+  plangAdjacentsMatchFilter(vid, filter, (vid: VID_Plang) => pg.e_l_influenced_l.adjacentFrom(vid));
 
-function plangMatchesPeople(pg: PlangsGraph, pl: Partial<V_Plang>, people: Filter): boolean {
-  return false;
-}
+export const plangMatchesInfluencedBy = (pg: PlangsGraph, vid: VID_Plang, filter: Filter) =>
+  plangAdjacentsMatchFilter(vid, filter, (vid: VID_Plang) => pg.e_l_influenced_l.adjacentTo(vid));
 
-function plangMatchesStandardFor(pg: PlangsGraph, pl: Partial<V_Plang>, standardFor: Filter): boolean {
-  return false;
-}
+export const plangMatchesLicenses = (pg: PlangsGraph, vid: VID_Plang, filter: Filter) =>
+  plangAdjacentsMatchFilter(vid, filter, (vid: VID_Plang) => pg.e_has_license.adjacentFrom(vid));
 
-function plangMatchesTypeSystems(pg: PlangsGraph, pl: Partial<V_Plang>, typeSystems: Filter): boolean {
-  return false;
-}
+export const plangMatchesParadigm = (pg: PlangsGraph, vid: VID_Plang, filter: Filter) =>
+  plangAdjacentsMatchFilter(vid, filter, (vid: VID_Plang) => pg.e_plang_para.adjacentFrom(vid));
+
+export const plangMatchesPeople = (pg: PlangsGraph, vid: VID_Plang, filter: Filter) =>
+  plangAdjacentsMatchFilter(vid, filter, (vid: VID_Plang) => pg.e_person_plang.adjacentTo(vid));
+
+export const plangMatchesPlatform = (pg: PlangsGraph, vid: VID_Plang, filter: Filter) =>
+  plangAdjacentsMatchFilter(vid, filter, (vid: VID_Plang) => pg.e_supports_platf.adjacentFrom(vid));
+
+export const plangMatchesStandardFor = (pg: PlangsGraph, vid: VID_Plang, filter: Filter) =>
+  plangAdjacentsMatchFilter(vid, filter, (vid: VID_Plang) => pg.e_dialect_of.adjacentTo(vid));
+
+export const plangMatchesTypeSystems = (pg: PlangsGraph, vid: VID_Plang, filter: Filter) =>
+  plangAdjacentsMatchFilter(vid, filter, (vid: VID_Plang) => pg.e_plang_tsys.adjacentFrom(vid));
