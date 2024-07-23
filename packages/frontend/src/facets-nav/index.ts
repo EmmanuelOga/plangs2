@@ -4,17 +4,26 @@
 import "preact/debug";
 import { debounce } from "lodash-es";
 
-import { $, $$, loadPlangs } from "../utils";
+import type { PlangsGraph } from "@plangs/plangs";
+import { filter } from "@plangs/plangs/filters";
+import type { VID_Plang } from "@plangs/plangs/schema";
 
-import type { VID_Plang } from "packages/plangs/src/schema";
 import { type InputComplElement, type Item, registerInputCompl } from "../input-compl";
 import { type InputSelElement, registerInputSel } from "../input-sel";
 import { type PlangInfoElement, registerPlangInfo } from "../plang-info";
-import { getNavState } from "./inputs";
+import { $, $$, loadPlangs } from "../utils";
+import { getFilters } from "./inputs";
 
-function updatePlangs() {
-  const filters = getNavState();
-  console.log("Filters:", filters);
+const thumbnails = $$<HTMLDivElement>(".plang-thumb");
+
+function updatePlangs(pg: PlangsGraph) {
+  const filters = getFilters();
+  const vids = filter(pg, filters);
+
+  for (const div of thumbnails) {
+    const vid = div.dataset.vid as VID_Plang;
+    div.classList.toggle("hide", !vids.has(vid));
+  }
 }
 
 async function startFacets() {
@@ -68,9 +77,9 @@ async function startFacets() {
 
   fileExt.addEventListener("keypress", (ev: KeyboardEvent) => {
     if (ev.key !== "Enter") return;
-    const value = fileExt.value;
+    const value = fileExt.value.trim();
     if (value === "") return;
-    const name = value[0] === "." ? value : `.${value}`;
+    const name = (value[0] === "." ? value : `.${value}`).toLowerCase();
     fileExtSel.addItem([name, { name }]);
     fileExt.value = "";
   });
@@ -88,7 +97,7 @@ async function startFacets() {
     const target = ev.target as HTMLInputElement;
     if (target?.matches("input[name=plang-ext]")) return;
 
-    debouncedUpdatePlangs();
+    debouncedUpdatePlangs(pg);
   });
 
   // On lang click, display more information.

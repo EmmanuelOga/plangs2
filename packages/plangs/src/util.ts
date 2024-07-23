@@ -1,11 +1,4 @@
 /**
- * Type assertion for {@link RegExp}
- */
-export function isRegExp(val: unknown): val is RegExp {
-  return Object.prototype.toString.call(val) === "[object RegExp]";
-}
-
-/**
  * Return a caller `line:no` for debugging.
  * @param match find the first line in the backtrace that contains this string.
  * @param dontMatch if given, the line in the backtrace must not contain this string.
@@ -49,24 +42,4 @@ export function arrayMerge<T>(
       target.push(newElem);
     }
   }
-}
-
-export function toggle<T>(target: Set<T>, item: T): Set<T> {
-  target.has(item) ? target.delete(item) : target.add(item);
-  return target;
-}
-
-export function addAll<T>(target: { add(elem: T): void }, values: Iterable<T>): typeof target {
-  for (const elem of values) target.add(elem);
-  return target;
-}
-
-export function hasAll<T>(container: { has(elem: T): boolean }, values: Iterable<T>): boolean {
-  for (const v of values) if (!container.has(v)) return false;
-  return true;
-}
-
-export function hasAny<T>(container: { has(elem: T): boolean }, values: Iterable<T>): boolean {
-  for (const v of values) if (container.has(v)) return true;
-  return false;
 }

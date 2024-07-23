@@ -19,6 +19,8 @@ export interface V_Plang extends V_Base {
   images: Image[];
   releases: Release[];
   scoping: Scoping[];
+  /** We could try to derive this boolean but having a field is more straightforward. */
+  isTranspiler: boolean;
 }
 export type VID_Plang = VID<`pl`>;
 

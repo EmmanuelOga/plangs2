@@ -1,4 +1,4 @@
-import type { PlangFilters } from "@plangs/plangs/query";
+import type { PlangFilters } from "@plangs/plangs/filters";
 import type { InputSelElement } from "../input-sel";
 import { $ } from "../utils";
 
@@ -41,11 +41,11 @@ const INPUTS = {
   plangExt: $<InputSelElement>("input-sel[name=plang-ext]"),
 };
 
-export function getNavState(): PlangFilters {
+export function getFilters(): PlangFilters {
   return {
-    plangName: INPUTS.plangName.value,
+    plangName: INPUTS.plangName.value.trim().toLowerCase(),
     hasReleases: INPUTS.hasReleases.checked,
-    releaseMinDate: INPUTS.releaseMinDate.value,
+    releaseMinDate: INPUTS.releaseMinDate.value.trim(),
 
     typeSystems: INPUTS.typeSystem.values(),
     paradigm: INPUTS.paradigm.values(),

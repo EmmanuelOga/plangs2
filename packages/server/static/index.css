@@ -12,6 +12,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #fbfbfb;
+    overflow-y: scroll;
 }
 
 .hide {
@@ -52,6 +53,7 @@ noscript {
 #home {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 #home-nav,
@@ -78,6 +80,7 @@ noscript {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    align-content: flex-start;
 }
 
 .plang-thumb {
