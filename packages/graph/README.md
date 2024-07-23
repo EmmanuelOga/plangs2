@@ -1,3 +1,3 @@
 # Graph
 
-Basic implementation of a typed directed named graph.
+Basic implementation of a typed, directed graph.

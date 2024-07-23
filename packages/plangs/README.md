@@ -1,5 +1,7 @@
 # Plangs
 
-This is a database of programming language information.
-Having the data as code is very convenient to work with and track collaboration history.
-The objective is to generate a single JSON file with all the collected information to be served by a frontend.
+Defines a `PlangsGraph`, a programming languages graph database.
+
+This package only contains schemas, query methods and other APIs to work with the Graph.
+
+The actual data lives on the `@plangs/definitions` package.
