@@ -60,12 +60,12 @@ export function Home({ pg }: { pg: PlangsGraph }) {
         <Facet title="General">
           <FacetInput type="search" label="Language Name" name="plang-name" />
           <FacetInput type="search" sel={true} label="File Extension" name="plang-ext" />
-          <FacetInput type="checkbox" label="Known Releases" name="has-releases" />
-          <FacetInput type="date" label="Released After" name="release-min-date" cssClasses="hide" />
           <FacetInput type="checkbox" label="Source-to-Source" name="transpiler" />
           <FacetInput type="checkbox" label="Has Logo" name="has-logo" />
           <FacetInput type="checkbox" label="Has Website" name="has-website" />
           <FacetInput type="checkbox" label="Has Wikipedia" name="has-wikipedia" />
+          <FacetInput type="checkbox" label="Known Releases" name="has-releases" />
+          <FacetInput type="date" label="Released After" name="release-min-date" cssClasses="hide" />
         </Facet>
         <Facet title="Type System">
           <FacetInput type="compl" source="tsys" label="Type System" name="type-system" />

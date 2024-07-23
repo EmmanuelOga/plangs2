@@ -1,7 +1,8 @@
 :root {
-    --main-shade: hsl(140, 75%, 90%);
+    --main-shade: hsl(120, 50%, 90%);
     --soft-shade: hsl(120, 20%, 95%);
-    --border-bottom: 1px solid rgba(0, 128, 0, .5);
+    --border-bottom: 1px solid hsl(120, 10%, 70%);
+    --shadow: rgb(99 99 99 / 10%) 0px 2px 8px 0px;
 
     --pl-thumb-size: calc(100vw / 15);
 }
@@ -10,6 +11,7 @@ body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #fbfbfb;
 }
 
 .hide {
@@ -23,10 +25,6 @@ noscript {
     text-align: center;
 }
 
-main {
-    background-color: #fbfbfb;
-}
-
 #plangs-header {
     display: flex;
     justify-content: space-between;
@@ -36,6 +34,9 @@ main {
     padding: 1rem .5rem;
     background-color: var(--main-shade);
     border-bottom: var(--border-bottom);
+
+    box-shadow: var(--shadow);
+    margin-bottom: 8px; /* To allow the shadow to display. */
 
     a {
         color: #0B1B2D;
@@ -155,8 +156,9 @@ main {
     margin-bottom: 1.5rem;
     padding: 0.35rem 0;
 
+    box-shadow: var(--shadow);
     background-color: var(--soft-shade);
-    border-top: var(--border-bottom);
+    border-bottom: var(--border-bottom);
     border-bottom-right-radius: 1rem;
 
     .controls {

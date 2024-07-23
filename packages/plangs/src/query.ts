@@ -9,25 +9,30 @@ type Values = {
 
 /** All possible filters in one. */
 export type PlangFilters = {
+  // String filters are used if the string is non-empty.
   plangName: string;
-  hasReleases: boolean;
   releaseMinDate: string;
-  typeSystems: Values;
-  paradigm: Values;
-  platform: Values;
-  influencedBy: Values;
-  dialectOf: Values;
-  implements: Values;
-  influenced: Values;
-  standardFor: Values;
-  implementedWith: Values;
-  people: Values;
-  licenses: Values;
-  transpiler: boolean;
+
+  // Boolean filters are used if true.
   hasLogo: boolean;
+  hasReleases: boolean;
   hasWebsite: boolean;
   hasWikipedia: boolean;
+  transpiler: boolean;
+
+  // Value filters are used if the set is non-empty.
+  dialectOf: Values;
+  implementedWith: Values;
+  implements: Values;
+  influenced: Values;
+  influencedBy: Values;
+  licenses: Values;
+  paradigm: Values;
+  people: Values;
   plangExt: Values;
+  platform: Values;
+  standardFor: Values;
+  typeSystems: Values;
 };
 
 export type Filter = {
@@ -37,37 +42,24 @@ export type Filter = {
   values: Set<string>;
 };
 
-export type Filters = "typeSystems";
-
-function byTSys(pg: PlangsGraph, values: Set<string>, mode: Filter["valuesMode"]): Set<VID_Plang> {
+export function filter(pg: PlangsGraph, filters: PlangFilters): Set<VID_Plang> {
   const result = new Set<VID_Plang>();
-  for (const vid of pg.v_plang.keys()) {
-    const tsys = pg.e_plang_tsys.adjacentFrom(vid);
-    if (mode === "all-of" ? hasAll(tsys, values) : hasAny(tsys, values)) result.add(vid);
-  }
-  return result;
-}
 
-export function filter(
-  pg: PlangsGraph,
-  filters: Map<Filters, Filter>,
-): { includes?: Set<VID_Plang>; excludes?: Set<VID_Plang> } {
-  const includes = new Set<VID_Plang>();
-  const excludes = new Set<VID_Plang>();
+  // A filter is enabled when there's a non-zero value for it.
+  // We add a plang as soon as it passes any filters:
+  // this implementation never removes languages from the result set.
+  for (const [vid, pl] of pg.v_plang) {
 
-  let useIncludes = false;
-  let useExcludes = false;
+    if (filters.plangName.length > 0) {
+      if ((pl.name ?? '').toLowerCase().includes(filters.plangName.toLowerCase())) {
+        result.add(vid);
+        continue;
+      }
+    }
 
-  const ftTsys = filters.get("typeSystems");
-  if (ftTsys?.enabled && ftTsys.values.size > 0) {
-    if (ftTsys.filterMode === "include") {
-      useIncludes = true;
-      addAll(includes, byTSys(pg, ftTsys.values, ftTsys.valuesMode));
-    } else {
-      useExcludes = true;
-      addAll(excludes, byTSys(pg, ftTsys.values, ftTsys.valuesMode));
+    if (filters.releaseMinDate.length > 0) {
     }
   }
 
-  return { excludes: useExcludes ? excludes : undefined, includes: useIncludes ? includes : undefined };
+  return result;
 }
