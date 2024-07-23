@@ -11,8 +11,8 @@
     "preact-custom-element": "^4.3.0"
   },
   "devDependencies": {
+    "@types/lodash-es": "^4.17.12",
     "@types/preact-custom-element": "^4.0.4"
   },
-  "scripts": {
-  }
+  "scripts": {}
 }

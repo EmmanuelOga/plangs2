@@ -1,5 +1,6 @@
 :root {
-    --main-shade: #eee;
+    --main-shade: #B6FFB2;
+    --pl-thumb-size: calc(100vw / 15);
 }
 
 body {
@@ -34,8 +35,8 @@ main {
     border-bottom: 1px solid rgba(0, 128, 0, .5);
 
     a {
-        color: green;
-        text-decoration: dotted;
+        color: #0B1B2D;
+        text-decoration: none;
         font-weight: bold;
     }
 
@@ -77,10 +78,8 @@ main {
 }
 
 .plang-thumb {
-    --size: calc(100vw / 12.5);
-
-    width: var(--size);
-    height: var(--size);
+    width: var(--pl-thumb-size);
+    height: var(--pl-thumb-size);
 
     padding: .5rem;
     margin: 1rem;
@@ -102,7 +101,7 @@ main {
 
     .name {
         display: inline-block;
-        max-width: var(--size);
+        max-width: var(--pl-thumb-size);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -119,7 +118,7 @@ main {
         display: flex;
         align-items: center;
 
-        --size-img: calc(var(--size) * .6);
+        --size-img: calc(var(--pl-thumb-size) * .6);
 
         width: var(--size-img);
         height: var(--size-img);
@@ -161,10 +160,6 @@ main {
 
     .controls {
         padding-left: .5rem;
-
-        max-height: 20rem;
-        overflow-y: auto;
-        overflow-x: hidden;
 
         label {
             padding: .1rem;

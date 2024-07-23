@@ -59,6 +59,12 @@ export function InputSel() {
 
   return (
     <div ref={self as Ref<HTMLDivElement>}>
+      {state.selected.length > 1 && (
+        <select>
+          <option value="any">Any of</option>
+          <option value="all">All of</option>
+        </select>
+      )}
       {state.selected.map(([key, { name }]) => (
         <div
           data-value={key}

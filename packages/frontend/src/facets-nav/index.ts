@@ -2,18 +2,22 @@
  * Language facet search code.
  */
 import "preact/debug";
+import { debounce, get } from "lodash-es";
 
 import { $, $$, loadPlangs } from "../utils";
 
+import type { VID_Plang } from "@plangs/graph/schema";
 import { type InputComplElement, type Item, registerInputCompl } from "../input-compl";
 import { type InputSelElement, registerInputSel } from "../input-sel";
+import { type PlangInfoElement, registerPlangInfo } from "../plang-info";
 import { getNavState } from "./inputs";
-import { PlangInfoElement, registerPlangInfo } from "../plang-info";
-import { VID_Plang } from "@plangs/graph/schema";
 
-function updatePlangs() {}
+function updatePlangs() {
+  const filters = getNavState();
+  console.log("Filters:", filters);
+}
 
-async function startBrowser() {
+async function startFacets() {
   const pg = await loadPlangs();
 
   // Release data.
@@ -26,14 +30,22 @@ async function startBrowser() {
   });
 
   // Completions.
-
-  const langCompletions = [...pg.v_plang] as Item[];
-  const peopleCompletions = [...pg.v_person] as Item[];
+  const completions = new Map<string, Item[]>([
+    ["license", [...pg.v_license] as Item[]],
+    ["para", [...pg.v_paradigm] as Item[]],
+    ["people", [...pg.v_person] as Item[]],
+    ["plang", [...pg.v_plang] as Item[]],
+    ["platf", [...pg.v_platform] as Item[]],
+    ["tsys", [...pg.v_tsystem] as Item[]],
+  ]);
 
   for (const compl of $$<InputComplElement>("input-compl")) {
     const name = compl.getAttribute("name");
 
-    compl.completions = name === "person" ? peopleCompletions : langCompletions;
+    const data = completions.get(compl.dataset.source ?? '');
+    if (!data) continue;
+
+    compl.completions = data;
 
     const sel = $<InputSelElement>(`input-sel[name=${name}]`);
     if (!sel) {
@@ -70,11 +82,13 @@ async function startBrowser() {
 
   // On input change, re-filter the list of languages.
 
+  const debouncedUpdatePlangs = debounce(updatePlangs, 300);
+
   $("#home-nav").addEventListener("input", (ev) => {
     const target = ev.target as HTMLInputElement;
     if (target?.matches("input[name=plang-ext]")) return;
 
-    console.log(ev.target);
+    debouncedUpdatePlangs();
   });
 
   // On lang click, display more information.
@@ -94,4 +108,4 @@ registerPlangInfo();
 registerInputCompl();
 registerInputSel();
 
-startBrowser();
+startFacets();

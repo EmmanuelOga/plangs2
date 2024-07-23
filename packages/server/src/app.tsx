@@ -33,8 +33,8 @@ export function Layout({ pageId, children }: LayoutProps) {
           </header>
           <noscript>
             <em>Note!</em>
-            This site is fully static and requires JavaScript for the best experience. In particular, the search feature
-            will not work without JavaScript.
+            This site is fully static and requires JavaScript for the best experience.
+            In particular, the search feature will not work without JavaScript.
           </noscript>
           <main id={pageId}>{children}</main>
         </div>
@@ -63,52 +63,42 @@ export function Home({ pg }: { pg: PlangsGraph }) {
           <FacetInput type="date" label="Released After" name="release-min-date" cssClasses="hide" />
         </Facet>
         <Facet title="Type System">
-          {[...pg.v_tsystem].map(([vid, data]) => (
-            <FacetInput key={vid} type="checkbox" label={data.name ?? vid} name="type-system" value={vid} />
-          ))}
+          <FacetInput type="compl" source="tsys" label="Type System" name="type-system" />
         </Facet>
         <Facet title="Paradigm">
-          {[...pg.v_paradigm].map(([vid, data]) => (
-            <FacetInput key={vid} type="checkbox" label={data.name ?? vid} name="paradigm" value={vid} />
-          ))}
+          <FacetInput type="compl" source="para" label="Paradigm" name="paradigm" />
         </Facet>
         <Facet title="Platform">
-          {[...pg.v_platform].map(([vid, data]) => (
-            <FacetInput key={vid} type="checkbox" label={data.name ?? vid} name="platform" value={vid} />
-          ))}
+          <FacetInput type="compl" source="platf" label="Platform" name="platform" />
         </Facet>
         <Facet title="Lineage">
-          <FacetInput type="compl" label="Influenced By" name="influenced-by" />
-          <FacetInput type="compl" label="Dialect Of" name="dialect-of" />
-          <FacetInput type="compl" label="Implements" name="implements" />
+          <FacetInput type="compl" source="plang" label="Influenced By" name="influenced-by" />
+          <FacetInput type="compl" source="plang" label="Dialect Of" name="dialect-of" />
+          <FacetInput type="compl" source="plang" label="Implements" name="implements" />
           <div class="separator" />
-          <FacetInput type="compl" label="Influenced" name="influenced" />
-          <FacetInput type="compl" label="Standard For" name="standard-for" />
-          <FacetInput type="compl" label="Implemented With" name="implemented-with" />
+          <FacetInput type="compl" source="plang" label="Influenced" name="influenced" />
+          <FacetInput type="compl" source="plang" label="Standard For" name="standard-for" />
+          <FacetInput type="compl" source="plang" label="Implemented With" name="implemented-with" />
         </Facet>
         <Facet title="People">
-          <FacetInput type="compl" label="Person Name" name="person" />
+          <FacetInput type="compl" source="people" label="Person Name" name="person" />
         </Facet>
         <Facet title="License">
-          {[...pg.v_license].map(([vid, data]) => (
-            <FacetInput key={vid} type="checkbox" label={data.name ?? vid} name="license" value={vid} />
-          ))}
+          <FacetInput type="compl" source="license" label="License" name="license" />
         </Facet>
         <Facet title="Misc">
+          <FacetInput type="search" sel={true} label="File Extension" name="plang-ext" />
           <FacetInput type="checkbox" label="Source-to-Source" name="transpiler" />
           <FacetInput type="checkbox" label="Has Logo" name="has-logo" />
           <FacetInput type="checkbox" label="Has Website" name="has-website" />
           <FacetInput type="checkbox" label="Has Wikipedia" name="has-wikipedia" />
-          <FacetInput type="search" sel={true} label="File Extension" name="plang-ext" />
         </Facet>
       </nav>
       <article id="home-plangs">
         <PlangsList pg={pg} />
       </article>
       <nav id="home-side">
-        <Facet title="Language">
-          {h("plang-info", {})}
-        </Facet>
+        <Facet title="Language">{h("plang-info", {})}</Facet>
       </nav>
     </>
   );
@@ -132,12 +122,14 @@ type FacetInputProps = {
   cssClasses?: string;
   label: string;
   name: string;
+  /** Data source for completions. */
   sel?: boolean;
+  source?: "tsys" | "para" | "platf" | "plang" | "people" | "license";
   type: "compl" | "search" | "checkbox" | "date";
   value?: string;
 };
 
-function FacetInput({ cssClasses, label, name, sel, type, value }: FacetInputProps) {
+function FacetInput({ cssClasses, label, name, sel, source, type, value }: FacetInputProps) {
   let input: JSX.Element;
 
   const id = value ? `${name}-${value}` : name;
@@ -153,7 +145,10 @@ function FacetInput({ cssClasses, label, name, sel, type, value }: FacetInputPro
     input = (
       <>
         <span class="inner-label">{label}</span>
-        {h("input-compl", { id, name })}
+        {
+          // @ts-ignore: Preact TS types for `h` don't support data- attributes here.
+          h("input-compl", { id, name, "data-source": source })
+        }
       </>
     );
   } else {

@@ -1,6 +1,11 @@
 input-sel {
     display: block;
 
+    select {
+        display: block;
+        margin-top: .25rem;
+    }
+
     .remove-item {
         cursor: pointer;
         display: inline-block;
