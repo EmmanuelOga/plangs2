@@ -1,5 +1,8 @@
 import { Eta } from "eta";
-import { PlangsGraph } from "../schema/graph";
+
+import type { VID_Any } from "@plangs/graph/vertex";
+import type { VertexTable } from "@plangs/graph/vertex_table";
+import { PlangsGraph } from "@plangs/plangs";
 import type {
   E_Base,
   VID_License,
@@ -8,10 +11,9 @@ import type {
   VID_Plang,
   VID_Platform,
   VID_TypeSystem,
-} from "../schema/entities";
-import type { VID_Any } from "../graphs/vertex";
-import type { VertexTable } from "../graphs/vertex_table";
-import { blank, tidy, toAlphaNum } from "../util";
+} from "@plangs/plangs/schema";
+
+import { blank, tidy, toAlphaNum } from "./util";
 import { parseAll } from "./wikipedia_process";
 
 const Templ = new Eta({ views: __dirname, autoEscape: false });

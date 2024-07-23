@@ -5,7 +5,8 @@
 import { unlinkSync } from "node:fs";
 import { mkdir } from "node:fs/promises";
 import { type Cheerio, type Element, load } from "cheerio";
-import { toAlphaNum } from "src/util";
+
+import { toAlphaNum } from "./util";
 
 export const WIKIPEDIA_URL = "https://en.wikipedia.org";
 
@@ -176,7 +177,7 @@ async function fetchWiki(wikiPath: string): Promise<string> {
 }
 
 // Do something with the language data.
-function emit({ title, wikiUrl, img, data }: { title: string; wikiUrl: string; img: string; data: {} }) {
+function emit({ title, wikiUrl, img, data }: { title: string; wikiUrl: string; img: string; data: unknown }) {
   const plKey = toAlphaNum(wikiUrl.split("wiki/")[1]);
   STATE.plangs.set(plKey, { title, wikiUrl, img, data });
 }
@@ -344,12 +345,14 @@ async function scrapLanguagePage(wikiPath: string) {
       const key = toKey($row.find(".infobox-label").text());
       if (key) {
         if (!INFOBOX_KEYS.has(key)) continue;
+        // @ts-ignore: TODO this works but there's something wrong with the infobox type.
         infobox[key] = extractData(key, $row.find(".infobox-data"));
       } else {
         // Option (2): tr.key tr.val
         const key = toKey($row.find(".infobox-header").text());
         if (!INFOBOX_KEYS.has(key)) continue;
         const $elem = $row.next().find(".infobox-full-data").first();
+        // @ts-ignore: TODO this works but there's something wrong with the infobox type.
         if ($elem.length) infobox[key] = extractData(key, $elem);
       }
     } catch (e) {
@@ -366,8 +369,11 @@ async function scrapLanguagePage(wikiPath: string) {
     "successor",
     "written_in",
   ]) {
-    if (Array.isArray(infobox[key]?.links)) {
-      for (const link of infobox[key].links) {
+    // @ts-ignore: TODO this works but there's something wrong with the infobox type.
+    const links = infobox[key]?.links;
+
+    if (Array.isArray(links)) {
+      for (const link of links) {
         if (!link.href?.startsWith("/wiki")) continue;
         await scrapLanguagePage(link.href);
       }

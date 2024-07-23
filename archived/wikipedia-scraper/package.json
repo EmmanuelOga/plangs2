@@ -3,8 +3,13 @@
   "description": "Scraps programming language information from Wikipedia infoboxes.",
   "version": "0.0.1",
   "dependencies": {
-    "@plangs/graph": "workspace:*"
+    "@plangs/graph": "workspace:*",
+    "@plangs/plangs": "workspace:*",
+    "cheerio": "^1.0.0-rc.12",
+    "eta": "^3.4.0"
   },
   "main": "src/generate.ts",
-  "files": ["src"]
+  "files": [
+    "src"
+  ]
 }

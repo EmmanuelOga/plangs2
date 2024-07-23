@@ -3,11 +3,13 @@
  */
 
 import { Glob } from "bun";
-import type { PlangsGraph } from "../schema/graph";
-import type { E_Base, Image, Link, Release, V_Plang } from "../schema/entities";
-import type { VID } from "../graphs/vertex";
-import { toAlphaNum } from "../util";
-import { WIKIPEDIA_URL, cachePath, type DATA_ATTR, type DATA_TYPE } from "./wikipedia_scraper";
+
+import type { VID } from "@plangs/graph/vertex";
+import type { PlangsGraph } from "@plangs/plangs";
+import type { E_Base, Image, Link, Release, V_Plang } from "@plangs/plangs/schema";
+
+import { toAlphaNum } from "./util";
+import { type DATA_ATTR, type DATA_TYPE, WIKIPEDIA_URL, cachePath } from "./wikipedia_scraper";
 
 // biome-ignore lint/suspicious/noExplicitAny: Wikipedia infoboxes really can have any data.
 type _Any = any;
@@ -78,7 +80,6 @@ function mergeLink(links: Link[], newLink: Link) {
 }
 
 function mergeRefs(edata: Partial<E_Base>, refs: Link[]) {
-  if (!refs) return;
   edata.refs ??= [];
   for (const ref of refs) {
     if (!edata.refs.some((r: Link) => r.href === ref.href)) edata.refs.push(ref);
@@ -160,7 +161,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
 
     case "major_implementations":
       if (infoboxType !== "links") return;
-      for (const { title, href, refs } of val.filter(({ href }) => href.startsWith("/wiki"))) {
+      for (const { title, href, refs } of val.filter(({ href }: { href: string }) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
         if (!key || key === pvid) continue;
 
@@ -175,7 +176,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
     case "implementation_language":
       if (infoboxType !== "links") return;
 
-      for (const { title, href, refs } of val.filter(({ href }) => href.startsWith("/wiki"))) {
+      for (const { title, href, refs } of val.filter(({ href } : {href: string}) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
         if (!key || key === pvid) continue;
 
@@ -190,7 +191,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
     case "influenced":
     case "influenced_by":
       if (infoboxType !== "links") return;
-      for (const { title, href, refs } of val.filter(({ href }) => href.startsWith("/wiki"))) {
+      for (const { title, href, refs } of val.filter(({ href } : {href: string}) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
         if (!key || key === pvid) continue;
 
@@ -209,7 +210,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
     case "dialects":
     case "family":
       if (infoboxType !== "links") return;
-      for (const { title, href, refs } of val.filter(({ href }) => href.startsWith("/wiki"))) {
+      for (const { title, href, refs } of val.filter(({ href } : {href: string}) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
         if (!key || key === pvid) continue;
 
@@ -227,7 +228,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
 
     case "license": // links
       if (infoboxType !== "links") return;
-      for (const { title, href, refs } of val.filter(({ href }) => href.startsWith("/wiki"))) {
+      for (const { title, href, refs } of val.filter(({ href } : {href: string}) => href.startsWith("/wiki"))) {
         let key = keyFromWikiUrl(href);
         if (!key) continue;
 
@@ -246,7 +247,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
     case "os":
     case "platform":
       if (infoboxType !== "links") return;
-      for (const { title, href, refs } of val.filter(({ href }) => href.startsWith("/wiki"))) {
+      for (const { title, href, refs } of val.filter(({ href } : {href: string}) => href.startsWith("/wiki"))) {
         let key = keyFromWikiUrl(href);
         if (!key) continue; // We'll ignore some old platforms.
 
@@ -335,7 +336,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
           rel.role = inferred_role;
         }
 
-        if (link) mergeRefs(rel, refs);
+        if (link && refs) mergeRefs(rel, refs);
       }
 
       // Under the "risk" of having duplicated people, we use the name of the person
@@ -343,7 +344,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
       if (infoboxType === "text") {
         for (const who of extractNames(val)) addPerson(who);
       } else if (infoboxType === "links") {
-        for (const { title, href, refs } of val.filter(({ href }) => href.startsWith("/wiki"))) {
+        for (const { title, href, refs } of val.filter(({ href } : {href: string}) => href.startsWith("/wiki"))) {
           const names = extractNames(title);
           if (names.length !== 1) continue;
           addPerson(names[0], { title, href: `${WIKIPEDIA_URL}${href}`, kind: "wikipedia" }, refs);
@@ -359,7 +360,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
             const tsys = cleanTsys(name);
             if (tsys) {
               const e = g.e_plang_tsys.connect(pvid, `tsys+${tsys}`);
-              mergeRefs(e, refs);
+              if (refs) mergeRefs(e, refs);
             }
           }
         }
