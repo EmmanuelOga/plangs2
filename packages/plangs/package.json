@@ -1,0 +1,10 @@
+{
+  "name": "@plangs/plangs",
+  "description": "A database of programming language information.",
+  "version": "0.1.0",
+  "dependencies": {
+    "@plangs/graph": "workspace:*"
+  },
+  "main": "src/graph.ts",
+  "files": ["src"]
+}

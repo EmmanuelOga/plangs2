@@ -1,7 +1,7 @@
 import { type ComponentChildren, type JSX, h } from "preact";
 
-import type { PlangsGraph } from "@plangs/graph";
-import type { V_Plang } from "@plangs/graph/schema";
+import type { PlangsGraph } from "packages/plangs/src/graph";
+import type { V_Plang } from "packages/plangs/src/schema";
 
 type LayoutProps = {
   pageId: string;
@@ -33,8 +33,8 @@ export function Layout({ pageId, children }: LayoutProps) {
           </header>
           <noscript>
             <em>Note!</em>
-            This site is fully static and requires JavaScript for the best experience.
-            In particular, the search feature will not work without JavaScript.
+            This site is fully static and requires JavaScript for the best experience. In particular, the search feature
+            will not work without JavaScript.
           </noscript>
           <main id={pageId}>{children}</main>
         </div>

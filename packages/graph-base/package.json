@@ -1,7 +1,0 @@
-{
-  "name": "@plangs/graph-base",
-  "version": "0.1.0",
-  "description": "A typed directed graph package",
-  "main": "src/graph.ts",
-  "files": ["src"]
-}

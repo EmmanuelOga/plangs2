@@ -2,11 +2,11 @@
  * Language facet search code.
  */
 import "preact/debug";
-import { debounce, get } from "lodash-es";
+import { debounce } from "lodash-es";
 
 import { $, $$, loadPlangs } from "../utils";
 
-import type { VID_Plang } from "@plangs/graph/schema";
+import type { VID_Plang } from "packages/plangs/src/schema";
 import { type InputComplElement, type Item, registerInputCompl } from "../input-compl";
 import { type InputSelElement, registerInputSel } from "../input-sel";
 import { type PlangInfoElement, registerPlangInfo } from "../plang-info";
@@ -42,7 +42,7 @@ async function startFacets() {
   for (const compl of $$<InputComplElement>("input-compl")) {
     const name = compl.getAttribute("name");
 
-    const data = completions.get(compl.dataset.source ?? '');
+    const data = completions.get(compl.dataset.source ?? "");
     if (!data) continue;
 
     compl.completions = data;

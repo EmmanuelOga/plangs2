@@ -2,6 +2,34 @@ import type { VID_Plang } from "./schema";
 import type { PlangsGraph } from "./graph";
 import { hasAll, hasAny, addAll } from "./util";
 
+type Values = {
+  mode: "all" | "any";
+  values: Set<string>;
+};
+
+/** All possible filters in one. */
+export type PlangFilters = {
+  plangName: string;
+  hasReleases: boolean;
+  releaseMinDate: string;
+  typeSystems: Values;
+  paradigm: Values;
+  platform: Values;
+  influencedBy: Values;
+  dialectOf: Values;
+  implements: Values;
+  influenced: Values;
+  standardFor: Values;
+  implementedWith: Values;
+  people: Values;
+  licenses: Values;
+  transpiler: boolean;
+  hasLogo: boolean;
+  hasWebsite: boolean;
+  hasWikipedia: boolean;
+  plangExt: Values;
+};
+
 export type Filter = {
   enabled: boolean;
   filterMode: "include" | "exclude";

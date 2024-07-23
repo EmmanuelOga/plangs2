@@ -1,4 +1,4 @@
-import type { VID_Plang } from "@plangs/graph/schema";
+import type { VID_Plang } from "packages/plangs/src/schema";
 
 export type PlangInfoProps = {
   vid?: VID_Plang;

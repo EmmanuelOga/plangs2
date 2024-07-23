@@ -25,10 +25,12 @@ const ELEMENT_API = {
   },
 
   /** Get the values/keys of the selected items. */
-  values(this: HTMLElement): string[] {
-    return [...this.querySelectorAll(".remove-item")]
+  values(this: HTMLElement): { mode: "all" | "any"; values: Set<string> } {
+    const mode = this.querySelector("select")?.value === "any" ? "any" : "all";
+    const values = [...this.querySelectorAll(".remove-item")]
       .map((el) => el.getAttribute("data-value"))
       .filter((v) => v) as string[];
+    return { mode, values: new Set(values) };
   },
 };
 

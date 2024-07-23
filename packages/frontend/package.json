@@ -5,7 +5,7 @@
   "main": "src/browser.tsx",
   "files": ["src"],
   "dependencies": {
-    "@plangs/graph": "workspace:*",
+    "@plangs/plangs": "workspace:*",
     "lodash-es": "^4.17.21",
     "preact": "^10.22.1",
     "preact-custom-element": "^4.3.0"

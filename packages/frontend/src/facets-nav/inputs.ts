@@ -1,5 +1,6 @@
+import type { PlangFilters } from "@plangs/plangs/query";
 import type { InputSelElement } from "../input-sel";
-import { $, $$ } from "../utils";
+import { $ } from "../utils";
 
 const INPUTS = {
   // General
@@ -8,13 +9,13 @@ const INPUTS = {
   releaseMinDate: $<HTMLInputElement>("input[name=release-min-date]"),
 
   // Type System
-  typeSystem: $$<HTMLInputElement>("input[name=type-system]"),
+  typeSystem: $<InputSelElement>("input-sel[name=type-system]"),
 
   // Paradigm
-  paradigm: $$<HTMLInputElement>("input[name=paradigm]"),
+  paradigm: $<InputSelElement>("input-sel[name=paradigm]"),
 
   // Platform
-  platform: $$<HTMLInputElement>("input[name=platform]"),
+  platform: $<InputSelElement>("input-sel[name=platform]"),
 
   // Lineage
   influencedBy: $<InputSelElement>("input-sel[name=influenced-by]"),
@@ -29,7 +30,7 @@ const INPUTS = {
   person: $<InputSelElement>("input-sel[name=person]"),
 
   // License
-  license: $$<HTMLInputElement>("input[name=license]"),
+  license: $<InputSelElement>("input-sel[name=license]"),
 
   // Misc
   transpiler: $<HTMLInputElement>("input[name=transpiler]"),
@@ -40,38 +41,15 @@ const INPUTS = {
   plangExt: $<InputSelElement>("input-sel[name=plang-ext]"),
 };
 
-/** State of the Nav Browser / Facets. */
-export type NavState = {
-  plangName: string;
-  hasReleases: boolean;
-  releaseMinDate: string;
-  typeSystems: string[];
-  paradigm: string[];
-  platform: string[];
-  influencedBy: string[];
-  dialectOf: string[];
-  implements: string[];
-  influenced: string[];
-  standardFor: string[];
-  implementedWith: string[];
-  people: string[];
-  licenses: string[];
-  transpiler: boolean;
-  hasLogo: boolean;
-  hasWebsite: boolean;
-  hasWikipedia: boolean;
-  plangExt: string[];
-}
-
-export function getNavState(): NavState  {
+export function getNavState(): PlangFilters {
   return {
     plangName: INPUTS.plangName.value,
     hasReleases: INPUTS.hasReleases.checked,
     releaseMinDate: INPUTS.releaseMinDate.value,
 
-    typeSystems: INPUTS.typeSystem.filter((el) => el.checked).map((el) => el.value),
-    paradigm: INPUTS.paradigm.filter((el) => el.checked).map((el) => el.value),
-    platform: INPUTS.platform.filter((el) => el.checked).map((el) => el.value),
+    typeSystems: INPUTS.typeSystem.values(),
+    paradigm: INPUTS.paradigm.values(),
+    platform: INPUTS.platform.values(),
 
     influencedBy: INPUTS.influencedBy.values(),
     dialectOf: INPUTS.dialectOf.values(),
@@ -83,7 +61,7 @@ export function getNavState(): NavState  {
 
     people: INPUTS.person.values(),
 
-    licenses: INPUTS.license.filter((el) => el.checked).map((el) => el.value),
+    licenses: INPUTS.license.values(),
 
     transpiler: INPUTS.transpiler.checked,
     hasLogo: INPUTS.hasLogo.checked,

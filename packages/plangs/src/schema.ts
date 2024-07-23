@@ -2,7 +2,7 @@
 // Types starting with "V_" are used for Vertex data.
 ////////////////////////////////////////////////////////////////////////////////
 
-import type { VID } from "@plangs/graph-base/vertex";
+import type { VID } from "@plangs/graph/vertex";
 
 /** Allow all vertices to have a name and websites. */
 export interface V_Base {

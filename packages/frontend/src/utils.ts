@@ -1,4 +1,4 @@
-import { PlangsGraph } from "@plangs/graph";
+import { PlangsGraph } from "packages/plangs/src/graph";
 
 export function $<T = HTMLElement>(sel: string): T {
   return document.querySelector(sel) as T;

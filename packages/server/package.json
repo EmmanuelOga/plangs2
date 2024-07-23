@@ -5,7 +5,7 @@
   "dependencies": {
     "preact": "^10.22.1",
     "@plangs/frontend": "workspace:*",
-    "@plangs/graph": "workspace:*"
+    "@plangs/plangs": "workspace:*"
   },
   "devDependencies": {
     "preact-render-to-string": "^6.5.6"

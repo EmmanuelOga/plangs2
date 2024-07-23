@@ -3,7 +3,7 @@
   "description": "Data definitions for Plangs",
   "version": "0.1.0",
   "dependencies": {
-    "@plangs/graph": "workspace:*"
+    "@plangs/plangs": "workspace:*"
   },
   "main": "src/definitions.ts",
   "files": ["src"]

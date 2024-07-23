@@ -10,11 +10,12 @@
     "sourceMap": true,
     "types": ["bun-types"],
     "baseUrl": ".",
+    "rootDir": ".",
     "paths": {
       "@plangs/definitions/*": ["packages/definitions/src/*"],
       "@plangs/frontend/*": ["packages/frontend/src/*"],
-      "@plangs/graph-base/*": ["packages/graph-base/src/*"],
       "@plangs/graph/*": ["packages/graph/src/*"],
+      "@plangs/plangs/*": ["packages/plangs/src/*"],
       "@plangs/server/*": ["packages/server/src/*"],
       "@plangs/wikipedia-scraper/*": ["archive/wikipedia-scraper/src/*"]
     }

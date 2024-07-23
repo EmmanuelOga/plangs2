@@ -1,7 +1,7 @@
 import type { VNode } from "preact";
 import render from "preact-render-to-string/jsx";
 import { HomePage } from "./app";
-import { PlangsGraph } from "@plangs/graph";
+import { PlangsGraph } from "packages/plangs/src/graph";
 
 function html(component: VNode) {
   const page = `<!DOCTYPE html>\n${render(component, {}, { pretty: true })}`;

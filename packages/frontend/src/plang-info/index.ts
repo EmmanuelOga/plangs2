@@ -1,6 +1,6 @@
 import register from "preact-custom-element";
 
-import type { PlangsGraph } from "@plangs/graph";
+import type { PlangsGraph } from "packages/plangs/src/graph";
 
 import { PlangInfo, type PlangInfoProps } from "./plang-info";
 
@@ -10,7 +10,7 @@ export const TAG_NAME = "plang-info";
 const ELEMENT_API = {
   setDataSource(this: HTMLElement & PlangInfoProps, pg: PlangsGraph): void {
     // TODO: dispatch an event with the PG object.
-  }
+  },
 };
 
 export type PlangInfoElement = HTMLElement & PlangInfoProps & typeof ELEMENT_API;
