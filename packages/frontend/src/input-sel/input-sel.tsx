@@ -5,6 +5,7 @@ import type { Item } from "../input-compl";
 import { type Actions, type ItemRemoved, reducer } from "./reducer";
 
 import "./input-sel.css";
+import { on, off, send } from "../utils";
 
 /**
  * `<input-sel />` is a list of selected items.
@@ -17,12 +18,12 @@ export function InputSel() {
   // Dispatch an input event to notify parent of changes.
   function dispatchInput() {
     const ev = new Event("input", { bubbles: true, composed: true });
-    self.current?.parentElement?.dispatchEvent(ev);
+    send(self.current?.parentElement, ev);
   }
 
   function onRemove(data: ItemRemoved) {
     lastRemoved.current = data;
-    self.current?.parentElement?.dispatchEvent(createRemoveEvent(data));
+    send(self.current?.parentElement, createRemoveEvent(data));
     dispatchInput();
   }
 
@@ -36,17 +37,14 @@ export function InputSel() {
   useEffect(() => {
     const root = self.current?.parentElement;
     if (!root) return;
-    const handler = (ev: Event) => dispatchFrom(ev as CustomEvent, dispatch);
-    root.addEventListener(IN_EVENT_ADD, handler);
-    return () => {
-      root.removeEventListener(IN_EVENT_ADD, handler);
-    };
+    const handler = (ev: CustomEvent) => dispatchFrom(ev, dispatch);
+    on(root, IN_EVENT_ADD, handler);
+    return () => off(root, IN_EVENT_ADD, handler);
   });
 
   // Handle focus after removing an item.
   useEffect(() => {
     if (!lastRemoved.current || !self.current) return;
-
     const { by, index, itemsLeft } = lastRemoved.current;
     if (by === "enterKey" && itemsLeft > 0) {
       const i = index < itemsLeft ? index : itemsLeft - 1;
@@ -85,9 +83,6 @@ export function InputSel() {
   );
 }
 
-/** Incoming event: request to add an item. */
-export const IN_EVENT_ADD = "input-sel:add";
-
 /** Outgoing event: an item has been removed. */
 export const OUT_EVENT_REMOVE = "input-sel:item-removed";
 
@@ -95,6 +90,9 @@ export const OUT_EVENT_REMOVE = "input-sel:item-removed";
 export function createRemoveEvent(detail: ItemRemoved): CustomEvent {
   return new CustomEvent(OUT_EVENT_REMOVE, { detail, bubbles: true, composed: true });
 }
+
+/** Incoming event: request to add an item. */
+export const IN_EVENT_ADD = "input-sel:add";
 
 /** Dispatch one of these to {@link InputSel} to add an item to the selections. */
 export function createAddEvent(item: Item): CustomEvent {

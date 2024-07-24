@@ -1,9 +1,9 @@
 import register from "preact-custom-element";
 
 import type { Item } from "../input-compl";
+import { on, send } from "../utils";
 import { InputSel, OUT_EVENT_REMOVE, createAddEvent } from "./input-sel";
 import type { ItemRemoved } from "./reducer";
-
 export type { Item } from "../input-compl";
 export { ItemRemoved } from "./reducer";
 
@@ -13,7 +13,7 @@ export const TAG_NAME = "input-sel";
 const ELEMENT_API = {
   /** Add a handler to do something when an item is removed. */
   onRemove(this: HTMLElement, cb: (item: ItemRemoved) => void) {
-    this.addEventListener(OUT_EVENT_REMOVE, (ev: Event) => {
+    on(this, OUT_EVENT_REMOVE, (ev: Event) => {
       const data = (ev as CustomEvent).detail as ItemRemoved;
       cb(data);
     });
@@ -21,7 +21,7 @@ const ELEMENT_API = {
 
   /** Send an event request the item to be added. */
   addItem(this: HTMLElement, item: Item): void {
-    this.dispatchEvent(createAddEvent(item));
+    send(this, createAddEvent(item));
   },
 
   /** Get the values/keys of the selected items. */

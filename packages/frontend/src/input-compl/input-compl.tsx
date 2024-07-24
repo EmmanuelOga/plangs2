@@ -1,6 +1,7 @@
 import type { Ref } from "preact";
 import { useEffect, useReducer, useRef } from "preact/hooks";
 
+import { send } from "../utils";
 import { type Item, type ItemSelected, reducer } from "./reducer";
 
 import "./input-compl.css";
@@ -30,7 +31,7 @@ export function InputCompl({ name, completions }: InputComplProps) {
     selected: 0,
     showPopup: false,
 
-    onSelect: (data: ItemSelected) => inputRef.current?.dispatchEvent(createSelectEvent(data)),
+    onSelect: (data: ItemSelected) => send(inputRef.current, createSelectEvent(data)),
   });
 
   useEffect(() => {

@@ -27,6 +27,7 @@ export function Layout({ pageId, children }: LayoutProps) {
             <a id="plangs" href="/">
               Plangs!
             </a>
+            <span id="status">Displaying all languages.</span>
             <a id="about" href="/about">
               about
             </a>

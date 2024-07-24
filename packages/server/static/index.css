@@ -11,6 +11,7 @@ body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
+    color: #0B1B2D;
     background-color: #fbfbfb;
     overflow-y: scroll;
 }
@@ -37,17 +38,21 @@ noscript {
     border-bottom: var(--border-bottom);
 
     box-shadow: var(--shadow);
-    margin-bottom: 8px; /* To allow the shadow to display. */
+    margin-bottom: 8px;
+    /* To allow the shadow to display. */
 
     a {
         color: #0B1B2D;
-        text-decoration: none;
         font-weight: bold;
     }
 
     #plangs {
         font-size: 1.5rem;
     }
+}
+
+#status {
+    font-size: 0.8rem;
 }
 
 #home {
@@ -73,8 +78,10 @@ noscript {
 
     position: sticky;
     top: 1rem;
-    align-self: flex-start; /* Aligns the sticky column to the start of the container */
-    z-index: 1; /* Ensure it stays on top if needed */
+    align-self: flex-start;
+    /* Aligns the sticky column to the start of the container */
+    z-index: 1;
+    /* Ensure it stays on top if needed */
 }
 
 #home-plangs {

@@ -1,8 +1,8 @@
 import register from "preact-custom-element";
 
+import { on } from "../utils";
 import { InputCompl, type InputComplProps, OUT_EVENT_SELECT } from "./input-compl";
 import type { ItemSelected } from "./reducer";
-
 export { Item, ItemSelected } from "./reducer";
 
 export const TAG_NAME = "input-compl";
@@ -11,7 +11,7 @@ export const TAG_NAME = "input-compl";
 const ELEMENT_API = {
   /** Register a handler for selection. */
   onSelect(this: HTMLElement & InputComplProps, cb: (data: ItemSelected) => void) {
-    this.addEventListener(OUT_EVENT_SELECT, (ev: Event) => {
+    on(this, OUT_EVENT_SELECT, (ev: Event) => {
       const data = (ev as CustomEvent).detail as ItemSelected;
       cb(data);
     });
