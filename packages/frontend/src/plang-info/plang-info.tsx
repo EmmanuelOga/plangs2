@@ -3,7 +3,9 @@ import { useEffect, useRef, useState } from "preact/hooks";
 
 import type { PlangsGraph } from "@plangs/plangs";
 import type { VID_Plang } from "@plangs/plangs/schema";
-import { on, off } from "../utils";
+import { on, off, customEvent } from "../utils";
+
+export const TAG_NAME = "plang-info";
 
 export type PlangInfoProps = {
   vid?: VID_Plang;
@@ -18,8 +20,7 @@ export function PlangInfo({ vid }: PlangInfoProps) {
     const root = self.current?.parentElement as HTMLElement;
     if (!root) return;
     const handler = ({ detail }: CustomEvent) => setPg(detail as PlangsGraph);
-    on(root, IN_EVENT_SETUP, handler);
-    return () => off(root, IN_EVENT_SETUP, handler);
+    return on(root, EVENTS.inSetup.type, handler);
   });
 
   if (!vid) {
@@ -33,9 +34,9 @@ export function PlangInfo({ vid }: PlangInfoProps) {
   return <div ref={self as Ref<HTMLDivElement>}>TODO: {vid}</div>;
 }
 
-/** Incoming event: request to setup the data source. */
-export const IN_EVENT_SETUP = "input-sel:add";
-
-export function createSetupEvent(pg: PlangsGraph): CustomEvent<PlangsGraph> {
-  return new CustomEvent(IN_EVENT_SETUP, { detail: pg, bubbles: true, composed: true });
-}
+export const EVENTS = {
+  inSetup: {
+    type: `${TAG_NAME}:setup`,
+    create: (pg: PlangsGraph) => customEvent(EVENTS.inSetup.type, pg),
+  },
+};

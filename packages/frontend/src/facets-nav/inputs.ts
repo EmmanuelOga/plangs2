@@ -1,73 +1,67 @@
 import type { PlangFilters } from "@plangs/plangs/filters";
+
 import type { InputSelElement } from "../input-sel";
 import { $ } from "../utils";
 
 const INPUTS = {
-  // General
-  plangName: $<HTMLInputElement>("input[name=plang-name]"),
-  hasReleases: $<HTMLInputElement>("input[name=has-releases]"),
-  releaseMinDate: $<HTMLInputElement>("input[name=release-min-date]"),
-
-  // Type System
-  typeSystem: $<InputSelElement>("input-sel[name=type-system]"),
-
-  // Paradigm
-  paradigm: $<InputSelElement>("input-sel[name=paradigm]"),
-
-  // Platform
-  platform: $<InputSelElement>("input-sel[name=platform]"),
-
-  // Lineage
-  influencedBy: $<InputSelElement>("input-sel[name=influenced-by]"),
   dialectOf: $<InputSelElement>("input-sel[name=dialect-of]"),
-  implements: $<InputSelElement>("input-sel[name=implements]"),
-
-  influenced: $<InputSelElement>("input-sel[name=influenced]"),
-  standardFor: $<InputSelElement>("input-sel[name=standard-for]"),
-  implementedWith: $<InputSelElement>("input-sel[name=implemented-with]"),
-
-  // People
-  person: $<InputSelElement>("input-sel[name=person]"),
-
-  // License
-  license: $<InputSelElement>("input-sel[name=license]"),
-
-  // Misc
-  transpiler: $<HTMLInputElement>("input[name=transpiler]"),
   hasLogo: $<HTMLInputElement>("input[name=has-logo]"),
+  hasReleases: $<HTMLInputElement>("input[name=has-releases]"),
   hasWebsite: $<HTMLInputElement>("input[name=has-website]"),
   hasWikipedia: $<HTMLInputElement>("input[name=has-wikipedia]"),
-
+  implementedWith: $<InputSelElement>("input-sel[name=implemented-with]"),
+  implements: $<InputSelElement>("input-sel[name=implements]"),
+  influenced: $<InputSelElement>("input-sel[name=influenced]"),
+  influencedBy: $<InputSelElement>("input-sel[name=influenced-by]"),
+  license: $<InputSelElement>("input-sel[name=license]"),
+  paradigm: $<InputSelElement>("input-sel[name=paradigm]"),
+  person: $<InputSelElement>("input-sel[name=person]"),
   plangExt: $<InputSelElement>("input-sel[name=plang-ext]"),
+  plangName: $<HTMLInputElement>("input[name=plang-name]"),
+  platform: $<InputSelElement>("input-sel[name=platform]"),
+  releaseMinDate: $<HTMLInputElement>("input[name=release-min-date]"),
+  standardFor: $<InputSelElement>("input-sel[name=standard-for]"),
+  transpiler: $<HTMLInputElement>("input[name=transpiler]"),
+  typeSystem: $<InputSelElement>("input-sel[name=type-system]"),
+};
+
+/** Every input element must exist for the nav to work. */
+export function checkInputs(): "valid" | "invalid" {
+  for (const [key, value] of Object.keys(INPUTS)) {
+    if (!value) {
+      console.warn("Missing input for", key);
+      return "invalid";
+    }
+  }
+  return "valid";
+}
+
+type NonNull<T> = {
+  [K in keyof T]: NonNullable<T[K]>;
 };
 
 export function getFilters(): PlangFilters {
+  const inputs = INPUTS as NonNull<typeof INPUTS>;
+  console.log(inputs)
   return {
-    plangName: INPUTS.plangName.value.trim().toLowerCase(),
-    hasReleases: INPUTS.hasReleases.checked,
-    releaseMinDate: INPUTS.releaseMinDate.value.trim(),
-
-    typeSystems: INPUTS.typeSystem.values(),
-    paradigm: INPUTS.paradigm.values(),
-    platform: INPUTS.platform.values(),
-
-    influencedBy: INPUTS.influencedBy.values(),
-    dialectOf: INPUTS.dialectOf.values(),
-    implements: INPUTS.implements.values(),
-
-    influenced: INPUTS.influenced.values(),
-    standardFor: INPUTS.standardFor.values(),
-    implementedWith: INPUTS.implementedWith.values(),
-
-    people: INPUTS.person.values(),
-
-    licenses: INPUTS.license.values(),
-
-    transpiler: INPUTS.transpiler.checked,
-    hasLogo: INPUTS.hasLogo.checked,
-    hasWebsite: INPUTS.hasWebsite.checked,
-    hasWikipedia: INPUTS.hasWikipedia.checked,
-
-    plangExt: INPUTS.plangExt.values(),
+    dialectOf: inputs.dialectOf.values(),
+    hasLogo: inputs.hasLogo.checked,
+    hasReleases: inputs.hasReleases.checked,
+    hasWebsite: inputs.hasWebsite.checked,
+    hasWikipedia: inputs.hasWikipedia.checked,
+    implementedWith: inputs.implementedWith.values(),
+    implements: inputs.implements.values(),
+    influenced: inputs.influenced.values(),
+    influencedBy: inputs.influencedBy.values(),
+    licenses: inputs.license.values(),
+    paradigm: inputs.paradigm.values(),
+    people: inputs.person.values(),
+    plangExt: inputs.plangExt.values(),
+    plangName: inputs.plangName.value.trim().toLowerCase(),
+    platform: inputs.platform.values(),
+    releaseMinDate: inputs.releaseMinDate.value.trim(),
+    standardFor: inputs.standardFor.values(),
+    transpiler: inputs.transpiler.checked,
+    typeSystems: inputs.typeSystem.values(),
   };
 }

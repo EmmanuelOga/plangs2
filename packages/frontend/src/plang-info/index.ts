@@ -1,15 +1,14 @@
 import register from "preact-custom-element";
 
-import type { PlangsGraph } from "packages/plangs/src/graph";
+import type { PlangsGraph } from "@plangs/plangs";
 
-import { PlangInfo, type PlangInfoProps } from "./plang-info";
-
-export const TAG_NAME = "plang-info";
+import { EVENTS, PlangInfo, TAG_NAME, type PlangInfoProps } from "./plang-info";
+import { send } from "../utils";
 
 /** Additional methods for the custom element. */
 const ELEMENT_API = {
   setDataSource(this: HTMLElement & PlangInfoProps, pg: PlangsGraph): void {
-    // TODO: dispatch an event with the PG object.
+    send(this, EVENTS.inSetup.create(pg));
   },
 };
 

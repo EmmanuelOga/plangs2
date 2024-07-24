@@ -1,27 +1,23 @@
 import register from "preact-custom-element";
 
-import type { Item } from "../input-compl";
+import type { Item } from "../input-compl/reducer";
 import { on, send } from "../utils";
-import { InputSel, OUT_EVENT_REMOVE, createAddEvent } from "./input-sel";
+import { EVENTS, InputSel, TAG_NAME } from "./input-sel";
 import type { ItemRemoved } from "./reducer";
-export type { Item } from "../input-compl";
-export { ItemRemoved } from "./reducer";
 
-export const TAG_NAME = "input-sel";
+export { TAG_NAME };
+export type { Item, ItemRemoved };
 
 /** Additional methods for the custom element. */
 const ELEMENT_API = {
-  /** Add a handler to do something when an item is removed. */
-  onRemove(this: HTMLElement, cb: (item: ItemRemoved) => void) {
-    on(this, OUT_EVENT_REMOVE, (ev: Event) => {
-      const data = (ev as CustomEvent).detail as ItemRemoved;
-      cb(data);
-    });
-  },
-
   /** Send an event request the item to be added. */
   addItem(this: HTMLElement, item: Item): void {
-    send(this, createAddEvent(item));
+    send(this, EVENTS.inAdd.create(item));
+  },
+
+  /** Add a handler to do something when an item is removed. */
+  onRemove(this: HTMLElement, cb: (item: ItemRemoved) => void) {
+    on(this, EVENTS.outRemove.type, ({ detail }: CustomEvent) => cb(detail as ItemRemoved));
   },
 
   /** Get the values/keys of the selected items. */
@@ -34,10 +30,9 @@ const ELEMENT_API = {
   },
 };
 
-/** For casting the `<input-sel/>` elem after DOM selection. */
 export type InputSelElement = HTMLElement & typeof ELEMENT_API;
 
-/** Register the `<input-compl/>` Web Component and add the additional methods custom element. */
+/** Register the Custom Element. */
 export function registerInputSel() {
   register(InputSel, TAG_NAME, ["selected"]);
   Object.assign(window.customElements.get(TAG_NAME)?.prototype, ELEMENT_API);

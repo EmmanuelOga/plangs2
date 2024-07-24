@@ -1,12 +1,14 @@
 import type { Ref } from "preact";
 import { useEffect, useReducer, useRef } from "preact/hooks";
 
-import { send } from "../utils";
+import { customEvent, send } from "../utils";
 import { type Item, type ItemSelected, reducer } from "./reducer";
 
 import "./input-compl.css";
 
-/** {@link InputCompl} props. */
+/** HTML tag name for the CustomElement */
+export const TAG_NAME = "input-compl";
+
 export type InputComplProps = {
   /** Name attribute for the input element. */
   name: string;
@@ -14,10 +16,6 @@ export type InputComplProps = {
   completions?: Item[];
 };
 
-/**
- * `<input-compl />` is an input element that can popup an autocomplete list.
- * Emits a custom event {@link OUT_EVENT_SELECT} with the selected item when a selection is made.
- */
 export function InputCompl({ name, completions }: InputComplProps) {
   const inputRef = useRef<HTMLInputElement>();
   const popupRef = useRef<HTMLDivElement>();
@@ -30,8 +28,7 @@ export function InputCompl({ name, completions }: InputComplProps) {
     query: "",
     selected: 0,
     showPopup: false,
-
-    onSelect: (data: ItemSelected) => send(inputRef.current, createSelectEvent(data)),
+    onSelect: (data: ItemSelected) => send(inputRef.current, EVENTS.outSelect.create(data)),
   });
 
   useEffect(() => {
@@ -99,10 +96,11 @@ function alignPopup(input?: HTMLInputElement, popup?: HTMLDivElement): void {
   popup.style.top = `calc(${inPos.bottom + window.scrollY}px + .25rem)`;
 }
 
-/** The selected item will be emitted on a CustomEvent with this name. */
-export const OUT_EVENT_SELECT = "input-compl:select";
-
-/** Creates a {@link OUT_EVENT_SELECT} CustomEvent to inform an item has been selected. */
-export function createSelectEvent(detail: ItemSelected): CustomEvent {
-  return new CustomEvent(OUT_EVENT_SELECT, { detail, bubbles: true, composed: true });
-}
+/** Catalog of incoming and outgoing events, and factory functions for those events. */
+export const EVENTS = {
+  /** Outgoing event: an item has been selected. */
+  outSelect: {
+    type: `${TAG_NAME}:select`,
+    create: (detail: ItemSelected) => customEvent(EVENTS.outSelect.type, detail),
+  },
+};
