@@ -5,7 +5,7 @@
  */
 export function caller(match: string, dontMatch = ""): string {
   // https://stackoverflow.com/a/3806596/855105
-  function getErrorObject() : Error {
+  function getErrorObject(): Error {
     try {
       throw Error("");
     } catch (err) {
@@ -14,7 +14,7 @@ export function caller(match: string, dontMatch = ""): string {
   }
   const err = getErrorObject();
 
-  const caller_line = (err.stack ?? '')
+  const caller_line = (err.stack ?? "")
     .split("\n")
     .find((line: string) => line.includes(match) && (!dontMatch || !line.includes(dontMatch)));
 

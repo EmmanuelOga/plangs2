@@ -176,7 +176,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
     case "implementation_language":
       if (infoboxType !== "links") return;
 
-      for (const { title, href, refs } of val.filter(({ href } : {href: string}) => href.startsWith("/wiki"))) {
+      for (const { title, href, refs } of val.filter(({ href }: { href: string }) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
         if (!key || key === pvid) continue;
 
@@ -191,7 +191,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
     case "influenced":
     case "influenced_by":
       if (infoboxType !== "links") return;
-      for (const { title, href, refs } of val.filter(({ href } : {href: string}) => href.startsWith("/wiki"))) {
+      for (const { title, href, refs } of val.filter(({ href }: { href: string }) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
         if (!key || key === pvid) continue;
 
@@ -210,7 +210,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
     case "dialects":
     case "family":
       if (infoboxType !== "links") return;
-      for (const { title, href, refs } of val.filter(({ href } : {href: string}) => href.startsWith("/wiki"))) {
+      for (const { title, href, refs } of val.filter(({ href }: { href: string }) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
         if (!key || key === pvid) continue;
 
@@ -228,7 +228,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
 
     case "license": // links
       if (infoboxType !== "links") return;
-      for (const { title, href, refs } of val.filter(({ href } : {href: string}) => href.startsWith("/wiki"))) {
+      for (const { title, href, refs } of val.filter(({ href }: { href: string }) => href.startsWith("/wiki"))) {
         let key = keyFromWikiUrl(href);
         if (!key) continue;
 
@@ -247,7 +247,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
     case "os":
     case "platform":
       if (infoboxType !== "links") return;
-      for (const { title, href, refs } of val.filter(({ href } : {href: string}) => href.startsWith("/wiki"))) {
+      for (const { title, href, refs } of val.filter(({ href }: { href: string }) => href.startsWith("/wiki"))) {
         let key = keyFromWikiUrl(href);
         if (!key) continue; // We'll ignore some old platforms.
 
@@ -344,7 +344,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
       if (infoboxType === "text") {
         for (const who of extractNames(val)) addPerson(who);
       } else if (infoboxType === "links") {
-        for (const { title, href, refs } of val.filter(({ href } : {href: string}) => href.startsWith("/wiki"))) {
+        for (const { title, href, refs } of val.filter(({ href }: { href: string }) => href.startsWith("/wiki"))) {
           const names = extractNames(title);
           if (names.length !== 1) continue;
           addPerson(names[0], { title, href: `${WIKIPEDIA_URL}${href}`, kind: "wikipedia" }, refs);

@@ -9,7 +9,5 @@
     "eta": "^3.4.0"
   },
   "main": "src/generate.ts",
-  "files": [
-    "src"
-  ]
+  "files": ["src"]
 }

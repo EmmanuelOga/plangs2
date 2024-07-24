@@ -2,8 +2,8 @@
  * Language facet search code.
  */
 
-import "preact/debug";
 import { debounce } from "lodash-es";
+import "preact/debug";
 
 import { PlangsGraph } from "@plangs/plangs";
 import { filter } from "@plangs/plangs/filters";
