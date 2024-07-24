@@ -42,7 +42,6 @@ type NonNull<T> = {
 
 export function getFilters(): PlangFilters {
   const inputs = INPUTS as NonNull<typeof INPUTS>;
-  console.log(inputs)
   return {
     dialectOf: inputs.dialectOf.values(),
     hasLogo: inputs.hasLogo.checked,

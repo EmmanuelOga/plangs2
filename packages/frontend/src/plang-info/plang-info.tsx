@@ -30,7 +30,7 @@ export function PlangInfo({ vid }: PlangInfoProps) {
   } else if (!pg) {
     content = <p>Loading...</p>;
   } else {
-    content = <span>TODO: {vid}</span>;
+    content = <>TODO: {vid}</>;
   }
 
   return <div ref={self as Ref<HTMLDivElement>}>{content}</div>;

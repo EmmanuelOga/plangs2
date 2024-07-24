@@ -36,18 +36,14 @@ async function startFacets(pg: PlangsGraph) {
   function updatePlangs(pg: PlangsGraph) {
     const filters = getFilters();
     const vids = filter(pg, filters);
-
-    console.log(filters, vids);
-
     for (const div of thumbnails) {
       const vid = div.dataset.vid as VID_Plang;
       div.classList.toggle("hide", !vids.has(vid));
     }
-
     if (status) status.innerText = `Displaying ${vids.size} languages of ${pg.v_plang.size}.`;
   }
 
-  const debouncedUpdatePlangs = debounce(updatePlangs, 300);
+  const debouncedUpdatePlangs = debounce(updatePlangs, 30);
 
   // Release data.
 
