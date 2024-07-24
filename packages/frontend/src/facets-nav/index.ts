@@ -22,8 +22,9 @@ async function startFacets(pg: PlangsGraph) {
   const releaseMin = $("label[for=release-min-date]");
   const status = $<HTMLSpanElement>("#status");
   const thumbnails = $$<HTMLDivElement>(".plang-thumb");
+  const infobox = $<HTMLDivElement>("#plang-infobox");
 
-  if (!(fileExt && fileExtSel && plangInfo && releaseMin && status && thumbnails.length > 0)) {
+  if (!(fileExt && fileExtSel && plangInfo && releaseMin && status && thumbnails.length > 0 && infobox)) {
     console.warn("missing elements for startFacets");
   }
 
@@ -115,6 +116,15 @@ async function startFacets(pg: PlangsGraph) {
     if (!wrapper || !wrapper.dataset.vid) return;
     plangInfo.vid = wrapper.dataset.vid as VID_Plang;
   });
+
+  // On click on a pl-pill in the infobox, update the infobox.
+
+  on(infobox, "click", ({ target }) => {
+    const vid = (target as HTMLElement).dataset.vid as VID_Plang;
+    if (plangInfo && vid) plangInfo.vid = vid;
+  });
+
+  // TODO: on double-click, open the language page.
 }
 
 // Register the web components.
