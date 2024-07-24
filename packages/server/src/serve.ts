@@ -3,6 +3,9 @@ import render from "preact-render-to-string/jsx";
 import { HomePage } from "./app";
 import { PlangsGraph } from "packages/plangs/src/graph";
 
+// biome-ignore lint/style/useNodejsImportProtocol: not needed with Bun.
+import { watch } from "fs";
+
 function html(component: VNode) {
   const page = `<!DOCTYPE html>\n${render(component, {}, { pretty: true })}`;
   return new Response(page, { headers: { "Content-Type": "text/html" } });
@@ -22,6 +25,9 @@ const pg = new PlangsGraph().loadJSON(await Bun.file(staticPath("plangs.json")).
 const server = Bun.serve({
   async fetch(req) {
     const path = new URL(req.url).pathname;
+    console.log(`Request for ${path}`);
+
+    if (path === "/sse") return sse(req);
 
     if (path === "/") return html(HomePage({ pg }));
 
@@ -33,3 +39,31 @@ const server = Bun.serve({
 });
 
 console.log(`Listening on ${server.url}`);
+
+const ROOT = Bun.fileURLToPath(`file:///${__dirname}/../../..`);
+
+/** Respond to SSE connections to /sse by sending file changed events. */
+function sse(req: Request) {
+  const { signal } = req;
+  return new Response(
+    new ReadableStream({
+      start(controller) {
+        const watcher = watch(ROOT, { recursive: true }, (event, filename) => {
+          controller.enqueue(`data: ${JSON.stringify({ event, filename })}\n\n`);
+        });
+        signal.onabort = () => {
+          watcher.close();
+          controller.close();
+        };
+      },
+    }),
+    {
+      status: 200,
+      headers: {
+        "Content-Type": "text/event-stream",
+        "Cache-Control": "no-cache",
+        Connection: "keep-alive",
+      },
+    },
+  );
+}

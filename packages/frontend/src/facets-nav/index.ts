@@ -128,3 +128,8 @@ registerInputSel();
   const pg = new PlangsGraph().loadJSON(data);
   startFacets(pg);
 })();
+
+// SSE listener to reload the page on changes.
+new EventSource("/sse", { withCredentials: false }).onmessage = () => {
+  window.location.reload();
+};
