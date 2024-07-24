@@ -140,6 +140,9 @@ registerInputSel();
 })();
 
 // SSE listener to reload the page on changes.
-new EventSource("/sse", { withCredentials: false }).onmessage = () => {
-  window.location.reload();
+const es = new EventSource("/sse", { withCredentials: false });
+es.onmessage = () => window.location.reload();
+es.onerror = (err) => {
+  console.error("SSE connection error, closing.", err);
+  es.close();
 };
