@@ -1,9 +1,9 @@
-import type { Ref } from "preact";
+import type { JSX, Ref } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
 
 import type { PlangsGraph } from "@plangs/plangs";
 import type { VID_Plang } from "@plangs/plangs/schema";
-import { on, off, customEvent } from "../utils";
+import { on, customEvent } from "../utils";
 
 export const TAG_NAME = "plang-info";
 
@@ -23,15 +23,17 @@ export function PlangInfo({ vid }: PlangInfoProps) {
     return on(root, EVENTS.inSetup.type, handler);
   });
 
+  let content: JSX.Element;
+
   if (!vid) {
-    return <p>Select a language to show more information.</p>;
+    content = <p>Select a language to show more information.</p>;
+  } else if (!pg) {
+    content = <p>Loading...</p>;
+  } else {
+    content = <span>TODO: {vid}</span>;
   }
 
-  if (!pg) {
-    return <p>Loading...</p>;
-  }
-
-  return <div ref={self as Ref<HTMLDivElement>}>TODO: {vid}</div>;
+  return <div ref={self as Ref<HTMLDivElement>}>{content}</div>;
 }
 
 export const EVENTS = {

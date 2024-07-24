@@ -31,6 +31,8 @@ async function startFacets(pg: PlangsGraph) {
     console.warn("missing elements input element for filters on the browser nav");
   }
 
+  plangInfo?.setDataSource(pg);
+
   function updatePlangs(pg: PlangsGraph) {
     const filters = getFilters();
     const vids = filter(pg, filters);
