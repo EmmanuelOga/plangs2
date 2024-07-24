@@ -7,6 +7,7 @@ import type { VID } from "@plangs/graph/vertex";
 /** Allow all vertices to have a name and websites. */
 export interface V_Base {
   name: string;
+  description: string;
   websites: Link[];
 }
 
