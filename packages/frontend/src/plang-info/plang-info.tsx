@@ -19,8 +19,24 @@ export function PlangInfo({ vid }: PlangInfoProps) {
   useEffect(() => {
     const root = self.current?.parentElement as HTMLElement;
     if (!root) return;
-    const handler = ({ detail }: CustomEvent) => setPg(detail as PlangsGraph);
-    return on(root, EVENTS.inSetup.type, handler);
+
+    const div = root.parentElement;
+    if (div) {
+      const height = div.offsetHeight;
+      const viewportHeight = window.innerHeight;
+
+      if (height > viewportHeight) {
+        console.log("stick to bottom");
+        div.classList.remove("stick-to-top");
+        div.classList.add("stick-to-bottom");
+      } else {
+        console.log("stick to top");
+        div.classList.add("stick-to-top");
+        div.classList.remove("stick-to-bottom");
+      }
+    }
+
+    return on(root, EVENTS.inSetData.type, ({ detail }: CustomEvent) => setPg(detail as PlangsGraph));
   });
 
   let content: JSX.Element;
@@ -113,8 +129,9 @@ export function PlangInfo({ vid }: PlangInfoProps) {
 }
 
 export const EVENTS = {
-  inSetup: {
-    type: `${TAG_NAME}:setup`,
-    create: (pg: PlangsGraph) => customEvent(EVENTS.inSetup.type, pg),
+  /** Incoming event: setup the component with a PlangsGraph. */
+  inSetData: {
+    type: `${TAG_NAME}:set-data`,
+    create: (pg: PlangsGraph) => customEvent(EVENTS.inSetData.type, pg),
   },
 };

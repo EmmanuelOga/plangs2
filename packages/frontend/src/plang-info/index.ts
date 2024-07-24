@@ -8,7 +8,7 @@ import { send } from "../utils";
 /** Additional methods for the custom element. */
 const ELEMENT_API = {
   setDataSource(this: HTMLElement & PlangInfoProps, pg: PlangsGraph): void {
-    send(this, EVENTS.inSetup.create(pg));
+    send(this, EVENTS.inSetData.create(pg));
   },
 };
 

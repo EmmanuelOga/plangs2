@@ -97,7 +97,7 @@ export function Home({ pg }: { pg: PlangsGraph }) {
       <article id="home-plangs">
         <PlangsList pg={pg} />
       </article>
-      <nav id="home-side">{h("plang-info", { vid: "pl+ap" })}</nav>
+      <nav id="home-side">{h("plang-info", { vid: "pl+algol" })}</nav>
     </>
   );
 }

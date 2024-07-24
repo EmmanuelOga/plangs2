@@ -73,14 +73,24 @@ noscript {
 
 #home-side {
     min-width: 30rem;
+    max-width: 30rem;
     padding-left: .25rem;
+    z-index: 1;
+}
 
+.stick-to-top {
     position: sticky;
     top: 1rem;
-    align-self: flex-start;
-    /* Aligns the sticky column to the start of the container */
-    z-index: 1;
-    /* Ensure it stays on top if needed */
+    bottom: unset;
+    align-self: self-start;
+
+}
+
+.stick-to-bottom {
+    position: sticky;
+    top: unset;
+    bottom: 1rem;
+    align-self: self-end;
 }
 
 #home-plangs {
@@ -205,7 +215,7 @@ noscript {
     box-shadow: var(--shadow);
 
     margin-top: 1rem;
-    padding: 0 1rem;
+    padding: 0 1rem 1rem;
 
     h2 {
         margin: 0;

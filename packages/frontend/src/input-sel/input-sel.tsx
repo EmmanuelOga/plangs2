@@ -51,7 +51,6 @@ export function InputSel() {
       const div = self.current.querySelector(`.remove-item:nth-child(${i + 1})`) as HTMLDivElement;
       div?.focus();
     }
-
     lastRemoved.current = undefined;
   });
 
