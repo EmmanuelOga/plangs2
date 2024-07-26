@@ -7,6 +7,8 @@ input-compl {
 
     .popup {
         position: absolute;
+
+        color: #333;
         background-color: white;
 
         border: 1px solid rgba(0, 0, 0, 0.2);

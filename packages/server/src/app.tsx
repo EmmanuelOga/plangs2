@@ -23,15 +23,6 @@ export function Layout({ pageId, children }: LayoutProps) {
       </head>
       <body>
         <div id="main-wrapper">
-          <header id="plangs-header">
-            <a id="plangs" href="/">
-              Plangs!
-            </a>
-            <span id="status">Displaying all languages.</span>
-            <a id="about" href="/about">
-              about
-            </a>
-          </header>
           <noscript>
             <em>Note!</em>
             This site is fully static and requires JavaScript for the best experience. In particular, the search feature
@@ -58,41 +49,47 @@ export function Home({ pg }: { pg: PlangsGraph }) {
       <link rel="stylesheet" href="/facets-nav.css" />
       <script src="/facets-nav.js" defer />
       <nav id="home-nav">
-        <Facet title="General">
-          <FacetInput type="search" label="Language Name" name="plang-name" />
-          <FacetInput type="search" sel={true} label="File Extension" name="plang-ext" />
-          <FacetInput type="checkbox" label="Source-to-Source" name="transpiler" />
-          <FacetInput type="checkbox" label="Has Logo" name="has-logo" />
-          <FacetInput type="checkbox" label="Has Website" name="has-website" />
-          <FacetInput type="checkbox" label="Has Wikipedia" name="has-wikipedia" />
-          <FacetInput type="checkbox" label="Known Releases" name="has-releases" />
-          <FacetInput type="date" label="Released After" name="release-min-date" cssClasses="hide" />
-        </Facet>
-        <Facet title="Type System">
-          <FacetInput type="compl" source="tsys" label="Type System" name="type-system" />
-        </Facet>
-        <Facet title="Paradigm">
-          <FacetInput type="compl" source="para" label="Paradigm" name="paradigm" />
-        </Facet>
-        <Facet title="Platform">
-          <FacetInput type="compl" source="platf" label="Platform" name="platform" />
-        </Facet>
-        <Facet title="Lineage (incoming)">
-          <FacetInput type="compl" source="plang" label="Influenced By" name="influenced-by" />
-          <FacetInput type="compl" source="plang" label="Dialect Of" name="dialect-of" />
-          <FacetInput type="compl" source="plang" label="Implements" name="implements" />
-        </Facet>
-        <Facet title="Lineage (outgoing)">
-          <FacetInput type="compl" source="plang" label="Influenced" name="influenced" />
-          <FacetInput type="compl" source="plang" label="Standard For" name="standard-for" />
-          <FacetInput type="compl" source="plang" label="Implemented With" name="implemented-with" />
-        </Facet>
-        <Facet title="People">
-          <FacetInput type="compl" source="people" label="Person Name" name="person" />
-        </Facet>
-        <Facet title="License">
-          <FacetInput type="compl" source="license" label="License" name="license" />
-        </Facet>
+        <div id="facets">
+          <h1 id="logo">
+            <a href="/">Plangs!</a>
+          </h1>
+
+          <Facet title="General">
+            <FacetInput type="search" label="Language Name" name="plang-name" />
+            <FacetInput type="search" sel={true} label="File Extension" name="plang-ext" />
+            <FacetInput type="checkbox" label="Source-to-Source" name="transpiler" />
+            <FacetInput type="checkbox" label="Has Logo" name="has-logo" />
+            <FacetInput type="checkbox" label="Has Website" name="has-website" />
+            <FacetInput type="checkbox" label="Has Wikipedia" name="has-wikipedia" />
+            <FacetInput type="checkbox" label="Known Releases" name="has-releases" />
+            <FacetInput type="date" label="Released After" name="release-min-date" cssClasses="hide" />
+          </Facet>
+          <Facet title="Type System">
+            <FacetInput type="compl" source="tsys" label="Type System" name="type-system" />
+          </Facet>
+          <Facet title="Paradigm">
+            <FacetInput type="compl" source="para" label="Paradigm" name="paradigm" />
+          </Facet>
+          <Facet title="Platform">
+            <FacetInput type="compl" source="platf" label="Platform" name="platform" />
+          </Facet>
+          <Facet title="Lineage (incoming)">
+            <FacetInput type="compl" source="plang" label="Influenced By" name="influenced-by" />
+            <FacetInput type="compl" source="plang" label="Dialect Of" name="dialect-of" />
+            <FacetInput type="compl" source="plang" label="Implements" name="implements" />
+          </Facet>
+          <Facet title="Lineage (outgoing)">
+            <FacetInput type="compl" source="plang" label="Influenced" name="influenced" />
+            <FacetInput type="compl" source="plang" label="Standard For" name="standard-for" />
+            <FacetInput type="compl" source="plang" label="Implemented With" name="implemented-with" />
+          </Facet>
+          <Facet title="People">
+            <FacetInput type="compl" source="people" label="Person Name" name="person" />
+          </Facet>
+          <Facet title="License">
+            <FacetInput type="compl" source="license" label="License" name="license" />
+          </Facet>
+        </div>
       </nav>
       <article id="home-plangs">
         <PlangsList pg={pg} />

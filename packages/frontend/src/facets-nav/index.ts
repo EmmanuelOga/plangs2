@@ -20,11 +20,11 @@ async function startFacets(pg: PlangsGraph) {
   const fileExtSel = $<InputSelElement>("input-sel[name=plang-ext]");
   const plangInfo = $<PlangInfoElement>("plang-info");
   const releaseMin = $("label[for=release-min-date]");
-  const status = $<HTMLSpanElement>("#status");
+  // const status = $<HTMLSpanElement>("#status");
   const thumbnails = $$<HTMLDivElement>(".plang-thumb");
   const infobox = $<HTMLDivElement>("#plang-infobox");
 
-  if (!(fileExt && fileExtSel && plangInfo && releaseMin && status && thumbnails.length > 0 && infobox)) {
+  if (!(fileExt && fileExtSel && plangInfo && releaseMin && thumbnails.length > 0 && infobox)) {
     console.warn("missing elements for startFacets");
   }
 
@@ -41,7 +41,7 @@ async function startFacets(pg: PlangsGraph) {
       const vid = div.dataset.vid as VID_Plang;
       div.classList.toggle("hide", !vids.has(vid));
     }
-    if (status) status.innerText = `Displaying ${vids.size} languages of ${pg.v_plang.size}.`;
+    // if (status) status.innerText = `Displaying ${vids.size} languages of ${pg.v_plang.size}.`;
   }
 
   const debouncedUpdatePlangs = debounce(updatePlangs, 30);
