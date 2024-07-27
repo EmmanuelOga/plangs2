@@ -20,9 +20,19 @@ body {
     box-sizing: border-box;
 }
 
+#main-wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 main {
     color: #ccc;
     background-color: #222;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 #top-header {

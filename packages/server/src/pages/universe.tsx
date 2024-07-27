@@ -1,3 +1,3 @@
 export function Universe() {
-  return <div>Universe: TODO</div>;
+  return <article id="universe-graph">Universe: TODO</article>;
 }
