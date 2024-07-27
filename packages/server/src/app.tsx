@@ -28,6 +28,29 @@ export function Layout({ pageId, children }: LayoutProps) {
             This site is fully static and requires JavaScript for the best experience. In particular, the search feature
             will not work without JavaScript.
           </noscript>
+          <header id="top-header">
+            <h1 id="logo">
+              <a href="/">Plangs!</a>
+            </h1>
+
+            <nav id="top-nav">
+              <a href="/contact" class="current">
+                <span>Browse</span>
+              </a>
+              <a href="/contact">
+                <span>Universe</span>
+              </a>
+              <a href="/contact">
+                <span>Lang</span>
+              </a>
+              <a href="/contact">
+                <span>Blog</span>
+              </a>
+              <a href="/about">
+                <span>About</span>
+              </a>
+            </nav>
+          </header>
           <main id={pageId}>{children}</main>
         </div>
       </body>
@@ -50,10 +73,6 @@ export function Home({ pg }: { pg: PlangsGraph }) {
       <script src="/facets-nav.js" defer />
       <nav id="home-nav">
         <div id="facets">
-          <h1 id="logo">
-            <a href="/">Plangs!</a>
-          </h1>
-
           <Facet title="General">
             <FacetInput type="search" label="Language Name" name="plang-name" />
             <FacetInput type="search" sel={true} label="File Extension" name="plang-ext" />
