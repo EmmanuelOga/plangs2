@@ -124,9 +124,9 @@ noscript {
 #home-side {
     min-width: 30rem;
     max-width: 30rem;
-
-    background-color: #eee;
     min-height: 100vh;
+
+    background-color: #333;
     border-left: 2px solid #555;
 }
 
@@ -276,7 +276,7 @@ input {
 }
 
 #plang-infobox {
-    color: #222;
+    color: #eee;
 
     margin-top: .5rem;
     padding: 0 1.25rem .5rem;
@@ -295,10 +295,12 @@ input {
         margin-bottom: 1rem;
 
         dt {
+            color: #eee;
             padding-top: .5rem;
         }
 
         dd {
+            color: black;
             padding: .75rem;
             margin: 0;
             background-color: white;
