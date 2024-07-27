@@ -1,10 +1,10 @@
 import type { VNode } from "preact";
 import render from "preact-render-to-string/jsx";
-import { HomePage } from "./app";
 import { PlangsGraph } from "packages/plangs/src/graph";
 
 // biome-ignore lint/style/useNodejsImportProtocol: not needed with Bun.
 import { watch } from "fs";
+import { Page } from "./page";
 
 function html(component: VNode) {
   const page = `<!DOCTYPE html>\n${render(component, {}, { pretty: true })}`;
@@ -29,7 +29,11 @@ const server = Bun.serve({
 
     if (path === "/sse") return sse(req);
 
-    if (path === "/") return html(HomePage({ pg }));
+    if (path === "/") return html(Page({ pageId: "home", pg }));
+    if (path === "/about") return html(Page({ pageId: "about", pg }));
+    if (path === "/blog") return html(Page({ pageId: "blog", pg }));
+    if (path === "/lang") return html(Page({ pageId: "lang", pg }));
+    if (path === "/universe") return html(Page({ pageId: "universe", pg }));
 
     const rsp = await resolveStatic(path.slice(1));
     if (rsp) return rsp;

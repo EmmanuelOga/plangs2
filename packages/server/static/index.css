@@ -16,9 +16,13 @@ body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
-    color: #0B1B2D;
     overflow-y: scroll;
     box-sizing: border-box;
+}
+
+main {
+    color: #ccc;
+    background-color: #222;
 }
 
 #top-header {
@@ -41,8 +45,7 @@ body {
 }
 
 #top-nav {
-    margin-right: 35rem;
-    height: 1.85rem;
+    height: 1.6rem;
 
     a {
         border-top-left-radius: 1rem;
@@ -64,6 +67,7 @@ body {
         &.current {
             color: #fff;
             background-color: #222;
+
             span {
                 border-bottom: 4px solid yellowgreen;
             }
@@ -110,7 +114,6 @@ noscript {
 #home-side {
     min-width: 30rem;
     max-width: 30rem;
-    z-index: 1;
 
     background-color: #eee;
     min-height: 100vh;
@@ -134,7 +137,6 @@ noscript {
 
 #home-plangs {
     padding-top: .25rem;
-
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -264,6 +266,8 @@ input {
 }
 
 #plang-infobox {
+    color: #222;
+
     margin-top: .5rem;
     padding: 0 1.25rem .5rem;
 

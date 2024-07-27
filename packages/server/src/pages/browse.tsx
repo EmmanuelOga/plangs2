@@ -2,71 +2,10 @@ import { type ComponentChildren, type JSX, h } from "preact";
 
 import type { PlangsGraph } from "packages/plangs/src/graph";
 import type { V_Plang } from "packages/plangs/src/schema";
+import { useContext } from "preact/hooks";
+import { PlangsData } from "../context";
 
-type LayoutProps = {
-  pageId: string;
-  children?: ComponentChildren;
-};
-
-export function Layout({ pageId, children }: LayoutProps) {
-  return (
-    <html lang="en">
-      <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Plangs! - Programming Languages Database</title>
-        <link rel="stylesheet" href="/index.css" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
-        <link rel="manifest" href="/favicon/site.webmanifest" />
-      </head>
-      <body>
-        <div id="main-wrapper">
-          <noscript>
-            <em>Note!</em>
-            This site is fully static and requires JavaScript for the best experience. In particular, the search feature
-            will not work without JavaScript.
-          </noscript>
-          <header id="top-header">
-            <h1 id="logo">
-              <a href="/">Plangs!</a>
-            </h1>
-
-            <nav id="top-nav">
-              <a href="/contact" class="current">
-                <span>Browse</span>
-              </a>
-              <a href="/contact">
-                <span>Universe</span>
-              </a>
-              <a href="/contact">
-                <span>Lang</span>
-              </a>
-              <a href="/contact">
-                <span>Blog</span>
-              </a>
-              <a href="/about">
-                <span>About</span>
-              </a>
-            </nav>
-          </header>
-          <main id={pageId}>{children}</main>
-        </div>
-      </body>
-    </html>
-  );
-}
-
-export function HomePage({ pg }: { pg: PlangsGraph }) {
-  return (
-    <Layout pageId="home">
-      <Home pg={pg} />
-    </Layout>
-  );
-}
-
-export function Home({ pg }: { pg: PlangsGraph }) {
+export function Browse() {
   return (
     <>
       <link rel="stylesheet" href="/facets-nav.css" />
@@ -111,7 +50,7 @@ export function Home({ pg }: { pg: PlangsGraph }) {
         </div>
       </nav>
       <article id="home-plangs">
-        <PlangsList pg={pg} />
+        <PlangsList />
       </article>
       <nav id="home-side">
         {
@@ -188,11 +127,10 @@ function FacetInput({ cssClasses, label, name, sel, source, type, value }: Facet
   );
 }
 
-type PlangsListProps = {
-  pg: PlangsGraph;
-};
+function PlangsList() {
+  const pg = useContext(PlangsData);
+  if (!pg) return null;
 
-function PlangsList({ pg }: PlangsListProps) {
   return (
     <>
       {[...pg.v_plang].map(([vid, pl]) => (
