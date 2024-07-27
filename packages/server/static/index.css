@@ -1,9 +1,15 @@
 :root {
     --pl-thumb-size: calc(100vw / 15);
-    --shadow: gray 0px 2px 8px 0px;
+}
 
-    --pill: var(--color0);
-    --pl-pill: var(--color1);
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
 
 body {
@@ -11,8 +17,8 @@ body {
     margin: 0;
     padding: 0;
     color: #0B1B2D;
-    background-color: white;
     overflow-y: scroll;
+    box-sizing: border-box;
 }
 
 #logo a {
@@ -48,6 +54,7 @@ noscript {
 
     color: #ccc;
     background-color: #333;
+    border-right: 1px solid #555;
 }
 
 #home-side {
@@ -55,7 +62,7 @@ noscript {
     max-width: 30rem;
     z-index: 1;
 
-    background-color: #fafafa;
+    background-color: #eee;
     min-height: 100vh;
 }
 
@@ -79,10 +86,10 @@ noscript {
     justify-content: center;
     flex-wrap: wrap;
     align-content: flex-start;
+    background-color: #222;
 }
 
 input {
-    color: #444;
     border-bottom-left-radius: .25rem;
     border-top-right-radius: .25rem;
 }
@@ -97,14 +104,15 @@ input {
     padding: .5rem;
     margin: 1rem;
 
-    box-shadow: var(--shadow);
     color: #444;
-    background-color: #fafafa;
+    background-color: #eee;
+    box-shadow: gray 0px 2px 2px 2px;
 
     cursor: pointer;
 
     &:hover {
-        outline: 4px solid black;
+        border: 2px solid black;
+        outline: 5px solid hsl(120, 100%, 80%);
     }
 
     display: flex;
@@ -131,7 +139,7 @@ input {
         display: flex;
         align-items: center;
 
-        --size-img: calc(var(--pl-thumb-size) * .6);
+        --size-img: calc(var(--pl-thumb-size) * .5);
 
         width: var(--size-img);
         height: var(--size-img);
@@ -144,7 +152,7 @@ input {
 
         .placeholder {
             color: #888;
-            background-color: #eee;
+            background-color: #ccc;
 
             width: var(--size-img);
             height: var(--size-img);
