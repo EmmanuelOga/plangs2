@@ -1,6 +1,5 @@
 import { type ComponentChildren, type JSX, h } from "preact";
 
-import type { PlangsGraph } from "packages/plangs/src/graph";
 import type { V_Plang } from "packages/plangs/src/schema";
 import { useContext } from "preact/hooks";
 import { PlangsData } from "../context";
@@ -8,8 +7,6 @@ import { PlangsData } from "../context";
 export function Browse() {
   return (
     <>
-      <link rel="stylesheet" href="/facets-nav.css" />
-      <script src="/facets-nav.js" defer />
       <nav id="home-nav">
         <div id="facets">
           <Facet title="General">
@@ -148,7 +145,11 @@ type PlangLogoProps = {
 };
 
 function PlangLogo({ pl }: PlangLogoProps) {
-  const logo = pl.images?.find((img) => img.kind === "logo");
+  let logo = pl.images?.find((img) => img.kind === "logo");
+
+  if (!logo && pl.images?.length) {
+    logo = pl.images[0];
+  }
 
   return (
     <div class="logo">

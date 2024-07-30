@@ -10,7 +10,7 @@ import { Lang } from "./pages/lang";
 
 type PageProps = {
   pg: PlangsGraph;
-  pageId: LayoutProps['pageId'];
+  pageId: LayoutProps["pageId"];
 };
 
 export function Page({ pageId, pg }: PageProps) {

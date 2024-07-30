@@ -17,6 +17,7 @@ export function Layout({ pageId, children }: LayoutProps) {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
         <link rel="manifest" href="/favicon/site.webmanifest" />
+        <link rel="stylesheet" href="/facets-nav.css" />
       </head>
       <body>
         <div id="main-wrapper">
@@ -26,7 +27,7 @@ export function Layout({ pageId, children }: LayoutProps) {
             will not work without JavaScript.
           </noscript>
           <header id="top-header">
-            <h1 id="logo">
+            <h1 class="logo">
               <a href="/">Plangs!</a>
             </h1>
 
@@ -48,10 +49,11 @@ export function Layout({ pageId, children }: LayoutProps) {
               </a>
             </nav>
 
-            <div>{/* Spacer to center tabs. */}</div>
+            <div />
           </header>
           <main id={pageId}>{children}</main>
         </div>
+        <script src="/facets-nav.js" />
       </body>
     </html>
   );

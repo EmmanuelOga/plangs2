@@ -40,7 +40,9 @@ export function InputCompl({ name, completions }: InputComplProps) {
   }, [state.query]);
 
   useEffect(() => {
-    alignPopup(inputRef.current, popupRef.current);
+    if (popupRef.current && inputRef.current) {
+      popupRef.current.style.width = `${inputRef.current.offsetWidth}px`;
+    }
     selRef.current?.scrollIntoView({ block: "nearest" });
   });
 
@@ -86,14 +88,6 @@ export function InputCompl({ name, completions }: InputComplProps) {
       </div>
     </>
   );
-}
-
-function alignPopup(input?: HTMLInputElement, popup?: HTMLDivElement): void {
-  if (!popup || !input) return;
-  const inPos = input.getBoundingClientRect();
-  popup.style.width = `${inPos.width}px`;
-  popup.style.left = `calc(${inPos.left + window.scrollX}px - .25rem)`;
-  popup.style.top = `calc(${inPos.bottom + window.scrollY}px + .25rem)`;
 }
 
 /** Catalog of incoming and outgoing events, and factory functions for those events. */

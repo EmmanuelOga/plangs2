@@ -1,3 +1,11 @@
 export function Lang() {
-  return <div>Lang: TODO</div>;
+  return (
+    <>
+      <div />
+      <article id="lang-page" class="common-content">
+        LANG
+      </article>
+      <div />
+    </>
+  );
 }

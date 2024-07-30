@@ -1,5 +1,6 @@
 input-compl {
     display: block;
+    position: relative;
 
     .hidden {
         display: none;
@@ -7,6 +8,9 @@ input-compl {
 
     .popup {
         position: absolute;
+        z-index: 10;
+
+        margin-top: .25rem;
 
         color: #333;
         background-color: white;
