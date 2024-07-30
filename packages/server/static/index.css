@@ -26,6 +26,14 @@ body {
     box-sizing: border-box;
 }
 
+a {
+    color: #dfd;
+}
+
+a:visited {
+    color: #afa;
+}
+
 #main-wrapper {
     height: 100vh;
     display: flex;
