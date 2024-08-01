@@ -33,7 +33,7 @@ export function startMap(container: HTMLElement, pg: PlangsGraph): Sigma {
   const renderer = new Sigma(graph, container, {
     renderLabels: true,
     labelSize: 24,
-    labelColor: {color: "gray"},
+    labelColor: { color: "gray" },
     defaultEdgeType: "arrow",
     renderEdgeLabels: true,
   });

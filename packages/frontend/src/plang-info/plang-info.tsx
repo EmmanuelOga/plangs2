@@ -2,13 +2,7 @@ import type { ComponentChildren, JSX, Ref } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
 
 import type { PlangsGraph } from "@plangs/plangs";
-import type {
-  VID_License,
-  VID_Person,
-  VID_Plang,
-  VID_Platform,
-  VID_TypeSystem
-} from "@plangs/plangs/schema";
+import type { VID_License, VID_Person, VID_Plang, VID_Platform, VID_TypeSystem } from "@plangs/plangs/schema";
 import { customEvent, on } from "../utils";
 
 export const TAG_NAME = "plang-info";

@@ -140,7 +140,7 @@ async function startBrowseNav(pg: PlangsGraph) {
 
   on($("#home-nav"), "input", ({ target }) => {
     if ((target as HTMLInputElement)?.matches("input[name=plang-ext]")) return;
-    debouncedUpdatePlangs(pg);
+    debouncedUpdatePlangs();
   });
 
   // On lang click, display more information.
