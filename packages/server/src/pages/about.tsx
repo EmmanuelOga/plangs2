@@ -22,7 +22,7 @@ export function About() {
         <h2>Static Website and Baked Data</h2>
         <p>
           Plangs is built as a static website. All the data on our site is available as a JSON file, following the
-          "baked data" pattern inspired by{" "}
+          "baked data" pattern inspired by
           <a href="https://simonwillison.net/2021/Jul/28/baked-data/">Simon Willison's Baked Data Pattern</a>.
         </p>
         <h2>License</h2>

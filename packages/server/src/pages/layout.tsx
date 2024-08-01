@@ -35,14 +35,14 @@ export function Layout({ pageId, children }: LayoutProps) {
               <a href="/" class={pageId === "home" ? "current" : ""}>
                 <span>Browse</span>
               </a>
-              <a href="/universe" class={pageId === "universe" ? "current" : ""}>
-                <span>Universe</span>
+              <a href="/graph" class={pageId === "universe" ? "current" : ""}>
+                <span>Graph</span>
               </a>
               <a href="/" class={pageId === "lang" ? "current" : ""}>
                 <span>Lang</span>
               </a>
               <a href="/blog" class={pageId === "blog" ? "current" : ""}>
-                <span>Blog</span>
+                <span>News</span>
               </a>
               <a href="/about" class={pageId === "about" ? "current" : ""}>
                 <span>About</span>

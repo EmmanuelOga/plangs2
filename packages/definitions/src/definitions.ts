@@ -1,5 +1,5 @@
 import { Glob } from "bun";
-import { PlangsGraph } from "plangs";
+import { PlangsGraph } from "@plangs/plangs";
 
 /** Imports all definitions and calls the `define` methods */
 export async function loadAll(g: PlangsGraph) {

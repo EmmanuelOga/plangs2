@@ -3,9 +3,11 @@
   "description": "Site server, for development and static site generation.",
   "version": "0.1.0",
   "dependencies": {
-    "preact": "^10.22.1",
     "@plangs/frontend": "workspace:*",
-    "@plangs/plangs": "workspace:*"
+    "@plangs/plangs": "workspace:*",
+    "marked": "^13.0.3",
+    "preact": "^10.22.1",
+    "yaml": "^2.5.0"
   },
   "devDependencies": {
     "preact-render-to-string": "^6.5.6"

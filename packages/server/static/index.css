@@ -5,6 +5,8 @@
     --bg1: #111;
     --bg2: #333;
 
+    --hi0: yellowgreen;
+
     --border: 1px solid #444;
 }
 
@@ -93,7 +95,7 @@ main {
             background-color: var(--bg1);
 
             span {
-                border-bottom: 4px solid yellowgreen;
+                border-bottom: 4px solid var(--hi0);
             }
         }
 
@@ -172,9 +174,13 @@ main {
 .common-content {
     min-width: calc(100vw - 18rem - 30rem);
     max-width: calc(100vw - 18rem - 30rem);
+
     color: #eee;
+
     margin: 1rem;
     padding: 1rem;
+
+    font-size: 1.25rem;
     line-height: 1.5rem;
 }
 
@@ -351,5 +357,19 @@ input {
                 background-color: hsl(120, 100%, 80%);
             }
         }
+    }
+}
+
+.blog-post {
+    margin-bottom: 5rem;
+
+    .post-date {
+        color: var(--hi0);
+        font-weight: bold;
+    }
+
+    .post-title {
+        font-size: 2.5rem;
+        margin: 2rem auto 1rem;
     }
 }
