@@ -5,44 +5,79 @@
 import { debounce } from "lodash-es";
 import "preact/debug";
 
+import type Sigma from "sigma";
+
 import { PlangsGraph } from "@plangs/plangs";
 import { filter } from "@plangs/plangs/filters";
 import type { VID_Plang } from "@plangs/plangs/schema";
 
+import { VID } from "@plangs/graph/vertex";
 import { type InputComplElement, type Item, registerInputCompl } from "../input-compl";
 import { type InputSelElement, registerInputSel } from "../input-sel";
 import { type PlangInfoElement, registerPlangInfo } from "../plang-info";
 import { $, $$, on } from "../utils";
+import { layout, startMap } from "./graph";
 import { checkInputs, getFilters } from "./inputs";
 
-async function startFacets(pg: PlangsGraph) {
+async function startBrowseNav(pg: PlangsGraph) {
+  const plangsMain = $<HTMLDivElement>("#home-plangs");
+  if (!plangsMain) return;
+
+  const mode = plangsMain?.dataset.mode as "grid" | "map";
+
+  let map: Sigma | undefined;
+  if (mode === "map") map = startMap(plangsMain, pg);
+
+  const plangInfo = $<PlangInfoElement>("plang-info");
+  plangInfo?.setDataSource(pg);
+
   const fileExt = $<HTMLInputElement>("input#plang-ext");
   const fileExtSel = $<InputSelElement>("input-sel[name=plang-ext]");
-  const plangInfo = $<PlangInfoElement>("plang-info");
   const releaseMin = $("label[for=release-min-date]");
-  // const status = $<HTMLSpanElement>("#status");
   const thumbnails = $$<HTMLDivElement>(".plang-thumb");
   const infobox = $<HTMLDivElement>("#plang-infobox");
-
-  if (!(fileExt && fileExtSel && plangInfo && releaseMin && thumbnails.length > 0 && infobox)) {
-    console.warn("missing elements for startFacets");
-  }
 
   if (checkInputs() === "invalid") {
     console.warn("missing elements input element for filters on the browser nav");
   }
 
-  plangInfo?.setDataSource(pg);
-
-  function updatePlangs(pg: PlangsGraph) {
+  function updatePlangs() {
     const filters = getFilters();
     const vids = filter(pg, filters);
-    for (const div of thumbnails) {
-      const vid = div.dataset.vid as VID_Plang;
-      div.classList.toggle("hide", !vids.has(vid));
+
+    if (mode === "grid") {
+      for (const div of thumbnails) {
+        const vid = div.dataset.vid as VID_Plang;
+        div.classList.toggle("hide", !vids.has(vid));
+      }
+    } else if (mode === "map" && map) {
+      map.clear();
+
+      const g = map.getGraph();
+      g.clear();
+
+      /* Add nodes and edges to the graph */
+      for (const [vid, plang] of pg.v_plang) {
+        if (!vids.has(vid)) continue;
+        g.addNode(vid, { label: plang.name, color: "yellowgreen", x: Math.random(), y: Math.random(), size: 10 });
+      }
+
+      for (const [key] of pg.e_l_influenced_l) {
+        const [_, from, to] = key.split("~");
+        if (!vids.has(from as VID_Plang) || !vids.has(to as VID_Plang)) continue;
+        g.addEdge(from, to, { type: "arrow", label: "influenced", size: 3 });
+      }
+
+      layout(g);
+
+      map.getCamera().animatedReset();
+      map.refresh();
     }
+
     // if (status) status.innerText = `Displaying ${vids.size} languages of ${pg.v_plang.size}.`;
   }
+
+  updatePlangs();
 
   const debouncedUpdatePlangs = debounce(updatePlangs, 30);
 
@@ -110,12 +145,14 @@ async function startFacets(pg: PlangsGraph) {
 
   // On lang click, display more information.
 
-  on($("#home-plangs"), "click", ({ target }) => {
-    if (!plangInfo) return;
-    const wrapper = (target as HTMLElement).closest(".plang-thumb") as HTMLDivElement;
-    if (!wrapper || !wrapper.dataset.vid) return;
-    plangInfo.vid = wrapper.dataset.vid as VID_Plang;
-  });
+  if (mode === "grid") {
+    on(plangsMain, "click", ({ target }) => {
+      if (!plangInfo) return;
+      const wrapper = (target as HTMLElement).closest(".plang-thumb") as HTMLDivElement;
+      if (!wrapper || !wrapper.dataset.vid) return;
+      plangInfo.vid = wrapper.dataset.vid as VID_Plang;
+    });
+  }
 
   // On click on a pl-pill in the infobox, update the infobox.
 
@@ -136,7 +173,7 @@ registerInputSel();
 (async () => {
   const data = await (await fetch("/plangs.json")).json();
   const pg = new PlangsGraph().loadJSON(data);
-  startFacets(pg);
+  startBrowseNav(pg);
 })();
 
 // SSE listener to reload the page on changes.

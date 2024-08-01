@@ -1,3 +1,7 @@
+/**
+ * <input-compl> Custom Element: provides an input field with autocompletion.
+ */
+
 import register from "preact-custom-element";
 
 import { on } from "../utils";

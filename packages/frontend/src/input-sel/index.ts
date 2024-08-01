@@ -1,3 +1,7 @@
+/**
+ * <input-sel> Custom Element: keeps track of selected items.
+ */
+
 import register from "preact-custom-element";
 
 import type { Item } from "../input-compl/reducer";

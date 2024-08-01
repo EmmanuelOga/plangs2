@@ -1,3 +1,7 @@
+/**
+ * <plang-info> element: displays information about a programming language.
+ */
+
 import register from "preact-custom-element";
 
 import type { PlangsGraph } from "@plangs/plangs";

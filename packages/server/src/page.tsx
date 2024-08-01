@@ -30,13 +30,13 @@ export async function resolvePage(path: string, pg: PlangsGraph): Promise<VNode 
 
   if (path === "/") {
     pageId = "home";
-    content = <Browse />;
+    content = <Browse mode="grid" />;
   } else if (path === "/about") {
     pageId = "about";
     content = <About />;
-  } else if (path === "/universe") {
+  } else if (path === "/graph") {
     pageId = "universe";
-    content = <Universe />;
+    content = <Browse mode="map" />;
   } else if (path === "/blog") {
     pageId = "blog";
     content = <Blog posts={await blogPosts()} />;

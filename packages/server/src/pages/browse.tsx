@@ -4,7 +4,11 @@ import type { V_Plang } from "packages/plangs/src/schema";
 import { useContext } from "preact/hooks";
 import { PlangsData } from "../context";
 
-export function Browse() {
+type BrowseProps = {
+  mode: "grid" | "map";
+};
+
+export function Browse({ mode }: BrowseProps) {
   return (
     <>
       <nav id="home-nav">
@@ -46,13 +50,13 @@ export function Browse() {
           </Facet>
         </div>
       </nav>
-      <article id="home-plangs">
-        <PlangsList />
+      <article id="home-plangs" data-mode={mode}>
+        {mode === "grid" && <PlangsList />}
       </article>
       <nav id="home-side">
         {
           // @ts-ignore: TODO: figure out how to type this.
-          h("plang-info", { vid: "pl+algol" })
+          h("plang-info")
         }
       </nav>
     </>

@@ -6,9 +6,13 @@
   "files": ["src"],
   "dependencies": {
     "@plangs/plangs": "workspace:*",
+    "graphology": "^0.25.4",
+    "graphology-layout": "^0.6.1",
+    "graphology-layout-forceatlas2": "^0.10.1",
     "lodash-es": "^4.17.21",
     "preact": "^10.22.1",
-    "preact-custom-element": "^4.3.0"
+    "preact-custom-element": "^4.3.0",
+    "sigma": "^3.0.0-beta.26"
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.12",

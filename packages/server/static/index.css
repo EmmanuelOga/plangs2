@@ -118,10 +118,6 @@ noscript {
     text-align: center;
 }
 
-#status {
-    font-size: 0.8rem;
-}
-
 main {
     display: flex;
     flex-direction: row;
@@ -169,6 +165,7 @@ main {
     flex-wrap: wrap;
     align-content: flex-start;
     background-color: var(--bg1);
+    flex: 1;
 }
 
 .common-content {

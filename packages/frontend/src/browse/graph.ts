@@ -1,63 +1,47 @@
-// import React from "react";
-// import { createRoot } from "react-dom/client";
-
-// const appEl = document.getElementById("app")!;
-
-// // const root = createRoot(appEl);
-// // root.render(<h1>Hello, world</h1>);
-
 import Graph from "graphology";
-import EdgeCurveProgram from "@sigma/edge-curve";
 import forceAtlas2 from "graphology-layout-forceatlas2";
 import circlepack from "graphology-layout/circlepack";
-import * as components from "graphology-components";
 import Sigma from "sigma";
 import type { EdgeDisplayData, NodeDisplayData } from "sigma/types";
 
-async function render() {
-  const data = await fetch("http://localhost:3000/data.json").then((res) => res.json());
+import type { PlangsGraph } from "@plangs/plangs";
 
-  const graph = new Graph({ multi: true, type: "mixed" });
-  graph.import(data);
-  components.cropToLargestConnectedComponent(graph);
-
-  // Assign node size by degree.
+export function layout(graph: Graph) {
   const degrees = graph.nodes().map((node) => graph.degree(node));
   const minDegree = Math.min(...degrees);
   const maxDegree = Math.max(...degrees);
 
+  const minSize = 5;
+  const maxSize = 25;
+
   graph.forEachNode((node) => {
     const degree = graph.degree(node);
-    const level = (degree - minDegree) / (maxDegree - minDegree);
-    const size = 3 + 25 * 2 ** (3 * level - 3);
-    graph.setNodeAttribute(node, "size", size);
+    graph.setNodeAttribute(
+      node,
+      "size",
+      minSize + ((degree - minDegree) / (maxDegree - minDegree)) * (maxSize - minSize),
+    );
   });
 
-  graph.forEachEdge((edge) => {
-    graph.setEdgeAttribute(edge, "size", 3);
-  });
-
-  // random.assign(graph);
   circlepack.assign(graph, { hierarchyAttributes: ["degree", "community"] });
   const settings = forceAtlas2.inferSettings(graph);
-  forceAtlas2.assign(graph, { settings, iterations: 500 });
-
-  const container = document.getElementById("app") as HTMLElement;
-  const renderer = new Sigma(graph, container, {
-    defaultEdgeType: "curve",
-    edgeProgramClasses: {
-      curve: EdgeCurveProgram,
-    },
-    renderEdgeLabels: true,
-  });
-
-  renderer.refresh();
-
-  setupHover(graph, renderer);
+  forceAtlas2.assign(graph, { settings, iterations: 25 });
 }
 
-render();
+export function startMap(container: HTMLElement, pg: PlangsGraph): Sigma {
+  const graph = new Graph({ multi: true, type: "mixed" });
+  const renderer = new Sigma(graph, container, {
+    renderLabels: true,
+    labelSize: 24,
+    labelColor: {color: "gray"},
+    defaultEdgeType: "arrow",
+    renderEdgeLabels: true,
+  });
+  setupHover(graph, renderer);
+  return renderer;
+}
 
+/** Setup handlers for highlighting the nodes on hover. */
 function setupHover(graph: Graph, renderer: Sigma) {
   // Type and declare internal state:
   interface State {

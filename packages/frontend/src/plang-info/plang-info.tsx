@@ -7,9 +7,7 @@ import type {
   VID_Person,
   VID_Plang,
   VID_Platform,
-  VID_TypeSystem,
-  V_Person,
-  V_Platform,
+  VID_TypeSystem
 } from "@plangs/plangs/schema";
 import { customEvent, on } from "../utils";
 
