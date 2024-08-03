@@ -102,9 +102,9 @@ export function Lang({ pl }: LangProps) {
 
         <h2>Media</h2>
         <div>
-          <img src="https://via.placeholder.com/150" alt="Placeholder Image" />
-          <img src="https://via.placeholder.com/150" alt="Placeholder Image" />
-          <img src="https://via.placeholder.com/150" alt="Placeholder Image" />
+          <img src="https://via.placeholder.com/150" alt="Placeholder" />
+          <img src="https://via.placeholder.com/150" alt="Placeholder" />
+          <img src="https://via.placeholder.com/150" alt="Placeholder" />
         </div>
       </article>
       <nav id="home-side">

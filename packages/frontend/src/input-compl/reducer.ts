@@ -1,11 +1,16 @@
-/** A completion item has a value and a label. */
-export type Item = [unknown, { name: string }];
-
 /** Data for an `onSelect` callback. */
 export type ItemSelected = {
   /** Name attribute of the `<input-compl/>` element. */
-  name: string;
-  item: Item;
+  inputName: string;
+  value: unknown;
+  label: string;
+};
+
+export type CompletionItem = {
+  value: unknown;
+  label: string;
+  /** Pattern to match on keypress, typically the lower-case version of the label. */
+  pattern: string;
 };
 
 /**
@@ -14,7 +19,8 @@ export type ItemSelected = {
 export type State = {
   /** The candidates will be an array of indices into completions. */
   candidates: number[];
-  completions: Item[];
+  /** Built from the provided completions props. */
+  completions: CompletionItem[];
   /** Name assigned to the `<input-compl/>` element. */
   name: string;
   onSelect: (data: ItemSelected) => void;
@@ -74,7 +80,7 @@ function handleKeypress(state: State, { from, key }: ActionKeyPress): State {
   if (!state.showPopup) return handlePopup(state, { kind: "popup", show: true });
 
   const elem = state.completions[state.candidates[state.selected]];
-  state.onSelect({ name: state.name, item: elem });
+  state.onSelect({ inputName: state.name, value: elem.value, label: elem.label });
 
   const queryLess = handleUpdateQuery(state, { kind: "updateQuery", query: "" });
   return handlePopup(queryLess, { kind: "popup", show: false });
@@ -98,8 +104,22 @@ function handleUpdateQuery(state: State, { query }: ActionQuery): State {
   const candidates: number[] = [];
 
   const q = query.trim().toLowerCase();
-  state.completions.forEach(([key, { name }], idx) => {
-    if (q.length === 0 || (name ?? key).toLowerCase().includes(q)) candidates.push(idx);
+  state.completions.forEach(({ pattern }, idx) => {
+    if (q.length === 0 || pattern.includes(q)) candidates.push(idx);
+  });
+
+  candidates.sort((a, b) => {
+    const aLabel = state.completions[a].pattern;
+    const bLabel = state.completions[b].pattern;
+
+    const aMatchStart = aLabel.startsWith(q);
+    const bMatchStart = bLabel.startsWith(q);
+
+    if (aMatchStart && bMatchStart) return aLabel.localeCompare(bLabel);
+    if (aMatchStart) return -1;
+    if (bMatchStart) return 1;
+    if (aLabel.length < bLabel.length) return -1;
+    return aLabel.localeCompare(bLabel);
   });
 
   return {

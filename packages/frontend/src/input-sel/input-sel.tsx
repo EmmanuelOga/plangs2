@@ -1,35 +1,40 @@
 import type { Ref } from "preact";
 import { useEffect, useReducer, useRef } from "preact/hooks";
 
-import type { Item } from "../input-compl";
-import { type ItemRemoved, reducer } from "./reducer";
+import { type Item, type ItemRemoved, reducer } from "./reducer";
 
 import "./input-sel.css";
 import { on, send, customEvent } from "../utils";
 
 export const TAG_NAME = "input-sel";
 
-export function InputSel() {
+export type InputSelProps = {
+  name: string;
+};
+
+export function InputSel({ name }: InputSelProps) {
   const self = useRef<HTMLDivElement>();
   const lastRemoved = useRef<ItemRemoved>();
 
   // Dispatch an input event to notify parent of changes.
-  function dispatchInput() {
-    const ev = new Event("input", { bubbles: true, composed: true });
-    send(self.current?.parentElement, ev);
-  }
+  function dispatchInput() {}
 
-  function onRemove(data: ItemRemoved) {
-    lastRemoved.current = data;
-    send(self.current?.parentElement, EVENTS.outRemove.create(data));
-    dispatchInput();
-  }
+  const [state, dispatch] = useReducer(reducer, {
+    inputName: name,
+    selected: [],
+    onAdd() {
+      send(self.current?.parentElement, EVENTS.outInput.create());
+    },
+    onRemove(data: ItemRemoved) {
+      lastRemoved.current = data;
+      send(self.current?.parentElement, EVENTS.outRemove.create(data));
+      send(self.current?.parentElement, EVENTS.outInput.create());
+    },
+  });
 
-  function onAdd(item: Item) {
-    dispatchInput();
-  }
-
-  const [state, dispatch] = useReducer(reducer, { selected: [], onAdd, onRemove });
+  useEffect(() => {
+    dispatch({ kind: "update", inputName: name });
+  }, [name]);
 
   // Setup event listener to add items.
   useEffect(() => {
@@ -62,20 +67,20 @@ export function InputSel() {
           <option value="all">All of</option>
         </select>
       )}
-      {state.selected.map(([key, { name }]) => (
+      {state.selected.map(({ value, label }) => (
         <div
-          data-value={key}
+          data-value={value}
           class="item remove-item"
-          key={key}
-          onClick={() => dispatch({ kind: "remove", key, by: "click" })}
+          key={value}
+          onClick={() => dispatch({ kind: "remove", value, by: "click" })}
           onKeyDown={(ev) => {
-            if (ev.key === "Enter") dispatch({ kind: "remove", key, by: "enterKey" });
+            if (ev.key === "Enter") dispatch({ kind: "remove", value, by: "enterKey" });
           }}
           tabindex={0}>
           <span class="icon" aria-label="remove">
             ❌
           </span>
-          {name ?? key}
+          {label}
         </div>
       ))}
     </div>
@@ -89,13 +94,18 @@ export const EVENTS = {
     type: `${TAG_NAME}:in-add"`,
     create: (item: Item) => customEvent(EVENTS.inAdd.type, item),
     /** Validate data extracted from a CustomEvent detail field. */
-    valid: ({ detail }: CustomEvent) =>
-      Array.isArray(detail) && typeof detail[0] === "string" && detail[0].trim().length > 0,
+    valid: ({ detail }: CustomEvent) => "value" in detail && typeof detail.label === "string",
   },
 
   /** Outgoing event: an item has been removed. */
   outRemove: {
     type: `${TAG_NAME}:out-item-removed"`,
     create: (detail: ItemRemoved) => customEvent(EVENTS.outRemove.type, detail),
+  },
+
+  outInput: {
+    /** Emits an standard "input" event on input change. */
+    type: "input",
+    create: () => new Event(EVENTS.outInput.type, { bubbles: true, composed: true }),
   },
 };

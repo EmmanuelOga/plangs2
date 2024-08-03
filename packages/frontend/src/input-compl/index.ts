@@ -6,10 +6,10 @@ import register from "preact-custom-element";
 
 import { on } from "../utils";
 import { EVENTS, InputCompl, type InputComplProps, TAG_NAME } from "./input-compl";
-import type { Item, ItemSelected } from "./reducer";
+import type { CompletionItem, ItemSelected } from "./reducer";
 
 export { TAG_NAME };
-export type { Item, ItemSelected };
+export type { CompletionItem, ItemSelected };
 
 /** Additional methods for the custom element. */
 const ELEMENT_API = {

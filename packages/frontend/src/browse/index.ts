@@ -9,7 +9,7 @@ import { PlangsGraph } from "@plangs/plangs";
 import { filter } from "@plangs/plangs/filters";
 import type { VID_Plang } from "@plangs/plangs/schema";
 
-import { type InputComplElement, type Item, registerInputCompl } from "../input-compl";
+import { type CompletionItem, type InputComplElement, registerInputCompl } from "../input-compl";
 import { type InputSelElement, registerInputSel } from "../input-sel";
 import { type PlangInfoElement, registerPlangInfo } from "../plang-info";
 import { $, $$, on } from "../utils";
@@ -54,23 +54,28 @@ function startBrowseNav(pg: PlangsGraph) {
     if (releaseMin) releaseMin.classList.toggle("hide", !checked);
   });
 
-  // Completions.
-  const completions = new Map<string, Item[]>([
-    ["license", [...pg.v_license] as Item[]],
-    ["para", [...pg.v_paradigm] as Item[]],
-    ["people", [...pg.v_person] as Item[]],
-    ["plang", [...pg.v_plang] as Item[]],
-    ["platf", [...pg.v_platform] as Item[]],
-    ["tsys", [...pg.v_tsystem] as Item[]],
-  ]);
+  function completions(vtable: Iterable<any>): CompletionItem[] {
+    const data: CompletionItem[] = [];
+    for (const [vid, value] of vtable) {
+      data.push({ value: vid, label: value.name, pattern: value.name.toLowerCase() });
+    }
+    return data;
+  }
 
   for (const compl of $$<InputComplElement>("input-compl")) {
     const name = compl.getAttribute("name");
+    const { source } = compl.dataset;
 
-    const data = completions.get(compl.dataset.source ?? "");
-    if (!data) continue;
-
-    compl.completions = data;
+    if (source === "license") compl.completions = completions(pg.v_license);
+    else if (source === "para") compl.completions = completions(pg.v_license);
+    else if (source === "people") compl.completions = completions(pg.v_person);
+    else if (source === "plang") compl.completions = completions(pg.v_plang);
+    else if (source === "platf") compl.completions = completions(pg.v_platform);
+    else if (source === "tsys") compl.completions = completions(pg.v_tsystem);
+    else {
+      console.warn("no completions found for", compl);
+      continue;
+    }
 
     const sel = $<InputSelElement>(`input-sel[name=${name}]`);
     if (!sel) {
@@ -78,7 +83,7 @@ function startBrowseNav(pg: PlangsGraph) {
       continue;
     }
 
-    compl.onSelect(({ item }) => sel.addItem(item));
+    compl.onSelect((item) => sel.addItem(item));
 
     sel.onRemove(({ by, itemsLeft }) => {
       if (by !== "enterKey" || itemsLeft !== 0) return;
@@ -93,7 +98,7 @@ function startBrowseNav(pg: PlangsGraph) {
     const value = fileExt.value.trim();
     if (value === "") return;
     const name = (value[0] === "." ? value : `.${value}`).toLowerCase();
-    fileExtSel.addItem([name, { name }]);
+    fileExtSel.addItem({ value: name, label: name });
     fileExt.value = "";
   });
 
@@ -118,11 +123,10 @@ function startBrowseNav(pg: PlangsGraph) {
     plangInfo.vid = wrapper.dataset.vid as VID_Plang;
     if (langTab) {
       langTab.classList.toggle("hide", false);
-      langTab.setAttribute("href", `/${plangInfo.vid.split('+').join('/')}`);
+      langTab.setAttribute("href", `/${plangInfo.vid.split("+").join("/")}`);
       langTab.innerText = wrapper.querySelector(".name")?.textContent ?? plangInfo.vid;
     }
   });
-
 
   // On double-click, open the language page.
 

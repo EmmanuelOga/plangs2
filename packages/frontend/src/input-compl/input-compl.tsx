@@ -2,7 +2,7 @@ import type { Ref } from "preact";
 import { useEffect, useReducer, useRef } from "preact/hooks";
 
 import { customEvent, send } from "../utils";
-import { type Item, type ItemSelected, reducer } from "./reducer";
+import { type CompletionItem, type ItemSelected, reducer } from "./reducer";
 
 import "./input-compl.css";
 
@@ -12,8 +12,7 @@ export const TAG_NAME = "input-compl";
 export type InputComplProps = {
   /** Name attribute for the input element. */
   name: string;
-  /** Array of [data, label] elements. */
-  completions?: Item[];
+  completions?: CompletionItem[];
 };
 
 export function InputCompl({ name, completions }: InputComplProps) {
@@ -32,7 +31,7 @@ export function InputCompl({ name, completions }: InputComplProps) {
   });
 
   useEffect(() => {
-    dispatch({ kind: "update", state: { completions: completions ?? [], name: name } });
+    dispatch({ kind: "update", state: { completions: completions ?? [], name } });
   }, [completions, name]);
 
   useEffect(() => {
@@ -74,15 +73,15 @@ export function InputCompl({ name, completions }: InputComplProps) {
         onKeyDown={({ key }) => dispatch({ kind: "keypress", from: "list", key })}
         ref={popupRef as Ref<HTMLDivElement>}
         tabindex={0}>
-        {state.candidates.map((value, idx) => (
+        {state.candidates.map((complIdx, idx) => (
           <div
             class={`item ${idx === state.selected ? "selected" : ""}`}
-            key={state.completions[value][0]}
+            key={state.completions[complIdx].value}
             onClick={() => dispatch({ kind: "selectIndex", index: idx })}
             onDblClick={() => dispatch({ kind: "keypress", from: "item", key: "Enter" })}
             onKeyDown={({ key }) => dispatch({ kind: "keypress", from: "item", key })}
             ref={(idx === state.selected ? selRef : undefined) as Ref<HTMLDivElement>}>
-            {state.completions[value][1]?.name ?? state.completions[value][0]}
+            {state.completions[complIdx].label}
           </div>
         ))}
       </div>
