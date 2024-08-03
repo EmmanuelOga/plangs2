@@ -285,6 +285,7 @@ input {
 
     &::after {
         height: 2rem;
+        color: yellowgreen;
         content: "✧";
         display: block;
         text-align: center;

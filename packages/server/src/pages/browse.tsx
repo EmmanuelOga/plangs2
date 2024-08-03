@@ -4,11 +4,7 @@ import type { V_Plang } from "packages/plangs/src/schema";
 import { useContext } from "preact/hooks";
 import { PlangsData } from "../context";
 
-type BrowseProps = {
-  mode: "grid" | "map";
-};
-
-export function Browse({ mode }: BrowseProps) {
+export function Browse() {
   return (
     <>
       <nav id="home-nav">
@@ -50,8 +46,8 @@ export function Browse({ mode }: BrowseProps) {
           </Facet>
         </div>
       </nav>
-      <article id="home-plangs" data-mode={mode}>
-        {mode === "grid" && <PlangsList />}
+      <article id="home-plangs">
+        <PlangsList />
       </article>
       <nav id="home-side">
         {

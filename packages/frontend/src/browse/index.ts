@@ -5,28 +5,19 @@
 import { debounce } from "lodash-es";
 import "preact/debug";
 
-import type Sigma from "sigma";
-
 import { PlangsGraph } from "@plangs/plangs";
 import { filter } from "@plangs/plangs/filters";
 import type { VID_Plang } from "@plangs/plangs/schema";
 
-import { VID } from "@plangs/graph/vertex";
 import { type InputComplElement, type Item, registerInputCompl } from "../input-compl";
 import { type InputSelElement, registerInputSel } from "../input-sel";
 import { type PlangInfoElement, registerPlangInfo } from "../plang-info";
 import { $, $$, on } from "../utils";
-import { layout, startMap } from "./graph";
 import { checkInputs, getFilters } from "./inputs";
 
-async function startBrowseNav(pg: PlangsGraph) {
+function startBrowseNav(pg: PlangsGraph) {
   const plangsMain = $<HTMLDivElement>("#home-plangs");
   if (!plangsMain) return;
-
-  const mode = plangsMain?.dataset.mode as "grid" | "map";
-
-  let map: Sigma | undefined;
-  if (mode === "map") map = startMap(plangsMain, pg);
 
   const plangInfo = $<PlangInfoElement>("plang-info");
   plangInfo?.setDataSource(pg);
@@ -36,6 +27,7 @@ async function startBrowseNav(pg: PlangsGraph) {
   const releaseMin = $("label[for=release-min-date]");
   const thumbnails = $$<HTMLDivElement>(".plang-thumb");
   const infobox = $<HTMLDivElement>("#plang-infobox");
+  const langTab = $<HTMLAnchorElement>("#top-nav .lang");
 
   if (checkInputs() === "invalid") {
     console.warn("missing elements input element for filters on the browser nav");
@@ -45,33 +37,9 @@ async function startBrowseNav(pg: PlangsGraph) {
     const filters = getFilters();
     const vids = filter(pg, filters);
 
-    if (mode === "grid") {
-      for (const div of thumbnails) {
-        const vid = div.dataset.vid as VID_Plang;
-        div.classList.toggle("hide", !vids.has(vid));
-      }
-    } else if (mode === "map" && map) {
-      map.clear();
-
-      const g = map.getGraph();
-      g.clear();
-
-      /* Add nodes and edges to the graph */
-      for (const [vid, plang] of pg.v_plang) {
-        if (!vids.has(vid)) continue;
-        g.addNode(vid, { label: plang.name, color: "yellowgreen", x: Math.random(), y: Math.random(), size: 10 });
-      }
-
-      for (const [key] of pg.e_l_influenced_l) {
-        const [_, from, to] = key.split("~");
-        if (!vids.has(from as VID_Plang) || !vids.has(to as VID_Plang)) continue;
-        g.addEdge(from, to, { type: "arrow", label: "influenced", size: 3 });
-      }
-
-      layout(g);
-
-      map.getCamera().animatedReset();
-      map.refresh();
+    for (const div of thumbnails) {
+      const vid = div.dataset.vid as VID_Plang;
+      div.classList.toggle("hide", !vids.has(vid));
     }
 
     // if (status) status.innerText = `Displaying ${vids.size} languages of ${pg.v_plang.size}.`;
@@ -145,14 +113,17 @@ async function startBrowseNav(pg: PlangsGraph) {
 
   // On lang click, display more information.
 
-  if (mode === "grid") {
-    on(plangsMain, "click", ({ target }) => {
-      if (!plangInfo) return;
-      const wrapper = (target as HTMLElement).closest(".plang-thumb") as HTMLDivElement;
-      if (!wrapper || !wrapper.dataset.vid) return;
-      plangInfo.vid = wrapper.dataset.vid as VID_Plang;
-    });
-  }
+  on(plangsMain, "click", ({ target }) => {
+    if (!plangInfo) return;
+    const wrapper = (target as HTMLElement).closest(".plang-thumb") as HTMLDivElement;
+    if (!wrapper || !wrapper.dataset.vid) return;
+    plangInfo.vid = wrapper.dataset.vid as VID_Plang;
+    if (langTab) {
+      langTab.classList.toggle("hide", false);
+      langTab.setAttribute("href", `/${plangInfo.vid.split('+').join('/')}`);
+      langTab.innerText = wrapper.querySelector(".name")?.textContent ?? plangInfo.vid;
+    }
+  });
 
   // On click on a pl-pill in the infobox, update the infobox.
 
@@ -174,12 +145,16 @@ registerInputSel();
   const data = await (await fetch("/plangs.json")).json();
   const pg = new PlangsGraph().loadJSON(data);
   startBrowseNav(pg);
-})();
 
-// SSE listener to reload the page on changes.
-const es = new EventSource("/sse", { withCredentials: false });
-es.onmessage = () => window.location.reload();
-es.onerror = (err) => {
-  console.error("SSE connection error, closing.", err);
-  es.close();
-};
+  try {
+    // SSE listener to reload the page on changes.
+    const es = new EventSource("/sse", { withCredentials: false });
+    es.onmessage = () => window.location.reload();
+    es.onerror = (err) => {
+      console.error("SSE connection error, closing.", err);
+      es.close();
+    };
+  } catch (err) {
+    console.warn(err);
+  }
+})();

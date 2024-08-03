@@ -2,10 +2,12 @@ import type { ComponentChildren } from "preact";
 
 export type LayoutProps = {
   pageId: "about" | "blog" | "home" | "lang" | "universe";
+  plVid?: string;
+  plName?: string;
   children?: ComponentChildren;
 };
 
-export function Layout({ pageId, children }: LayoutProps) {
+export function Layout({ pageId, children, plVid, plName }: LayoutProps) {
   return (
     <html lang="en">
       <head>
@@ -35,11 +37,10 @@ export function Layout({ pageId, children }: LayoutProps) {
               <a href="/" class={pageId === "home" ? "current" : ""}>
                 <span>Browse</span>
               </a>
-              <a href="/graph" class={pageId === "universe" ? "current" : ""}>
-                <span>Graph</span>
-              </a>
-              <a href="/" class={pageId === "lang" ? "current" : ""}>
-                <span>Lang</span>
+              <a
+                href={plVid ? `/pl/${plVid.split("+")[1]}` : "/"}
+                class={`lang ${pageId === "lang" ? "current" : ""} ${plVid ? "" : "hide"}`}>
+                <span>{plName ?? "Lang"}</span>
               </a>
               <a href="/blog" class={pageId === "blog" ? "current" : ""}>
                 <span>News</span>
