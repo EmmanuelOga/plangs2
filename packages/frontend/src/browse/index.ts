@@ -20,8 +20,6 @@ function startBrowseNav(pg: PlangsGraph) {
   if (!plangsMain) return;
 
   const plangInfo = $<PlangInfoElement>("plang-info");
-  plangInfo?.setDataSource(pg);
-
   const fileExt = $<HTMLInputElement>("input#plang-ext");
   const fileExtSel = $<InputSelElement>("input-sel[name=plang-ext]");
   const releaseMin = $("label[for=release-min-date]");
@@ -125,14 +123,22 @@ function startBrowseNav(pg: PlangsGraph) {
     }
   });
 
+
+  // On double-click, open the language page.
+
+  on(plangsMain, "dblclick", ({ target }) => {
+    const wrapper = (target as HTMLElement).closest(".plang-thumb") as HTMLDivElement;
+    if (!wrapper || !wrapper.dataset.vid) return;
+    const vid = wrapper.dataset.vid;
+    window.location.href = `/${vid.split("+").join("/")}`;
+  });
+
   // On click on a pl-pill in the infobox, update the infobox.
 
   on(infobox, "click", ({ target }) => {
     const vid = (target as HTMLElement).dataset.vid as VID_Plang;
     if (plangInfo && vid) plangInfo.vid = vid;
   });
-
-  // TODO: on double-click, open the language page.
 }
 
 // Register the web components.
@@ -144,6 +150,9 @@ registerInputSel();
 (async () => {
   const data = await (await fetch("/plangs.json")).json();
   const pg = new PlangsGraph().loadJSON(data);
+
+  $<PlangInfoElement>("plang-info")?.setDataSource(pg);
+
   startBrowseNav(pg);
 
   try {

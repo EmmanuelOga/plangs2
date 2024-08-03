@@ -23,7 +23,7 @@ export function InputCompl({ name, completions }: InputComplProps) {
 
   const [state, dispatch] = useReducer(reducer, {
     candidates: [],
-    completions: completions ?? [],
+    completions: [],
     name: name,
     query: "",
     selected: 0,

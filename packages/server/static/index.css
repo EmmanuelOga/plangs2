@@ -165,11 +165,14 @@ main {
     flex-wrap: wrap;
     align-content: flex-start;
     background-color: var(--bg1);
+}
+
+#home-plangs,
+#lang-page {
     flex: 1;
 }
 
 .common-content {
-    min-width: calc(100vw - 18rem - 30rem);
     max-width: calc(100vw - 18rem - 30rem);
 
     color: #eee;

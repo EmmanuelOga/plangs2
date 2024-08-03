@@ -48,7 +48,7 @@ export async function resolvePage(path: string, pg: PlangsGraph): Promise<VNode 
     plVid = vid;
     plName = pl.name;
     pageId = "lang";
-    content = <Lang />;
+    content = <Lang pl={pl} />;
   } else {
     return undefined;
   }
