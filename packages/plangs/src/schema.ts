@@ -65,6 +65,24 @@ export interface V_License extends V_Base {
 }
 export type VID_License = VID<`lic`>;
 
+/**
+ * A tool Vertex, e.g., Version Manager, Linter, Formatter,  etc.
+ */
+export interface V_Tool extends V_Base {
+  vid: VID_Tool;
+}
+export type VID_Tool = VID<`tool`>;
+
+/**
+ * A library Vertex.
+ */
+export interface V_Library extends V_Base {
+  vid: VID_Library;
+}
+export type VID_Library = VID<`lib`>;
+
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // Types starting with "E_" are used for Edge data.
 ////////////////////////////////////////////////////////////////////////////////

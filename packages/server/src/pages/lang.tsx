@@ -75,9 +75,9 @@ export function Lang({ pl }: LangProps) {
           </tbody>
         </table>
 
-        <h2>Recommended Bundles</h2>
+        <h2>Tool Bundles</h2>
         <p>
-          We call a bundle a set of tools that work well together. Here are some recommended bundles for this language.
+          A "bundle" is a set of tools that work well together. Here are some recommended bundles for this language.
         </p>
         <dl>
           <dt>Bundle 1</dt>
@@ -97,6 +97,58 @@ export function Lang({ pl }: LangProps) {
               <li>Tool 2</li>
               <li>Tool 3</li>
             </ul>
+          </dd>
+        </dl>
+
+        <h2>{pl.name} Libraries</h2>
+        <p>Libraries are reusable code that can be used to solve common problems. Here are some recommended ones.</p>
+        <dl>
+          <dt>Library 1</dt>
+          <dd>
+            <p>
+              Description of the Library.
+              <a href=".">Link</a>
+            </p>
+          </dd>
+          <dt>Library 2</dt>
+          <dd>
+            <p>
+              Description of the Library.
+              <a href=".">Link</a>
+            </p>
+          </dd>
+          <dt>Library 3</dt>
+          <dd>
+            <p>
+              Description of the Library.
+              <a href=".">Link</a>
+            </p>
+          </dd>
+        </dl>
+
+        <h2>Built with {pl.name}</h2>
+        <p>Example applications built with this language.</p>
+        <dl>
+          <dt>Application 1</dt>
+          <dd>
+            <p>
+              Description of the app.
+              <a href=".">Link</a>
+            </p>
+          </dd>
+          <dt>Application 2</dt>
+          <dd>
+            <p>
+              Description of the app.
+              <a href=".">Link</a>
+            </p>
+          </dd>
+          <dt>Application 3</dt>
+          <dd>
+            <p>
+              Description of the app.
+              <a href=".">Link</a>
+            </p>
           </dd>
         </dl>
 
