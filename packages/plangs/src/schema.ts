@@ -1,10 +1,3 @@
-////////////////////////////////////////////////////////////////////////////////
-// Types starting with "V_" are used for Vertex data.
-////////////////////////////////////////////////////////////////////////////////
-
-import type { VID } from "@plangs/graph/vertex";
-
-/** Allow all vertices to have a name and websites. */
 export interface V_Base {
   name: string;
   description: string;
@@ -15,76 +8,65 @@ export interface V_Base {
  * A programming language Vertex.
  */
 export interface V_Plang extends V_Base {
-  vid: VID_Plang;
+  vid: `pl+${string}`;
   extensions: string[];
   images: Image[];
   releases: Release[];
   scoping: Scoping[];
-  /** We could try to derive this boolean but having a field is more straightforward. */
   isTranspiler: boolean;
 }
-export type VID_Plang = VID<`pl`>;
 
 /**
  * A platform Vertex, e.g., Linux, Windows, etc.
  */
 export interface V_Platform extends V_Base {
-  vid: VID_Platform;
+  vid: `platf+${string}`;
 }
-export type VID_Platform = VID<`platf`>;
 
 /**
  * A type system Vertex, e.g., OOP, Duck, Dynamic, etc.
  */
 export interface V_TypeSystem extends V_Base {
-  vid: VID_TypeSystem;
+  vid: `tsys+${string}`;
 }
-export type VID_TypeSystem = VID<`tsys`>;
 
 /**
  * A programming paradigm Vertex, e.g., Functional, Imperative, etc.
  */
 export interface V_Paradigm extends V_Base {
-  vid: VID_Paradigm;
+  vid: `para+${string}`;
 }
-export type VID_Paradigm = VID<`para`>;
 
 /**
  * A person Vertex, for people involved in the development of a programming language.
  */
 export interface V_Person extends V_Base {
-  vid: VID_Person;
+  vid: `person+${string}`;
 }
-export type VID_Person = VID<`person`>;
 
 /**
  * A license Vertex, e.g., MIT, GPL, etc.
  */
 export interface V_License extends V_Base {
-  vid: VID_License;
+  vid: `lic+${string}`;
 }
-export type VID_License = VID<`lic`>;
 
 /**
  * A tool Vertex, e.g., Version Manager, Linter, Formatter,  etc.
  */
 export interface V_Tool extends V_Base {
-  vid: VID_Tool;
+  vid: `tool+${string}`;
 }
-export type VID_Tool = VID<`tool`>;
 
 /**
  * A library Vertex.
  */
 export interface V_Library extends V_Base {
-  vid: VID_Library;
+  vid: `lib+${string}`;
 }
-export type VID_Library = VID<`lib`>;
-
-
 
 ////////////////////////////////////////////////////////////////////////////////
-// Types starting with "E_" are used for Edge data.
+// Edge Types
 ////////////////////////////////////////////////////////////////////////////////
 
 /** Allow all edge relationships to cite references. */
