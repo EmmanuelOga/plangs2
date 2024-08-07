@@ -1,54 +1,26 @@
 /* Example vertex data interfaces: model a blog. */
 import { expect, test } from "bun:test";
-import { Edge, EdgeMap, Vertex, VertexMap } from ".";
+import { type AnyEdge, type AnyNode, BaseGraph, Edge, Node } from ".";
 
-/** Example: define a graph as a set of vertex and edge maps. */
-class Graph {
-  v_person = new VertexMap<VPerson>((id) => new VPerson(this, id));
-  v_post = new VertexMap<VPost>((id) => new VPost(this, id));
-  v_tag = new VertexMap<VTag>((id) => new VTag(this, id));
+class NPerson extends Node<`person+${string}`, { name: string }> {}
+class NPost extends Node<`post+${string}`, { title: string; content: string }> {}
+class NTag extends Node<`tag+${string}`> {}
 
-  e_person_post = new EdgeMap<EPersonPost>((from, to) => new EPersonPost("person-post", from, to));
-  e_post_tag = new EdgeMap<EPostTag>((from, to) => new EPostTag("post-tag", from, to));
+class Graph extends BaseGraph {
+  v_person = this.nodeMap<NPerson>("person", (key) => new NPerson(key));
+  v_post = this.nodeMap<NPost>("post", (key) => new NPost(key));
+  v_tag = this.nodeMap<NTag>("tag", (key) => new NTag(key));
+
+  e_person_post = this.edgeMap<EPersonPost>(
+    "person-post",
+    (type, source, target) => new EPersonPost(type, source, target),
+  );
+  e_post_tag = this.edgeMap<EPostTag>("post-tag", (type, source, target) => new EPostTag(type, source, target));
 }
 
-/** Example: allow access to other graph elements from every vertex wrapper. */
-class VBase<T_Data extends { id: T }, T = T_Data["id"]> extends Vertex<T_Data> {
-  constructor(
-    public readonly g: Graph,
-    id: T,
-  ) {
-    super(id);
-  }
-}
+class EPersonPost extends Edge<"person-post", NPerson["key"], NPost["key"], { role: "author" | "editor" }> {}
 
-class VPerson extends VBase<{
-  id: `person+${string}`;
-  name: string;
-}> {}
-
-class VPost extends VBase<{
-  id: `post+${string}`;
-  title: string;
-  content: string;
-}> {}
-
-class VTag extends VBase<{
-  id: `tag+${string}`;
-}> {}
-
-class EPersonPost extends Edge<{
-  type: "person-post";
-  from: VPerson["id"];
-  to: VPost["id"];
-  role: "author" | "editor";
-}> {}
-
-class EPostTag extends Edge<{
-  type: "post-tag";
-  from: VPost["id"];
-  to: VTag["id"];
-}> {}
+class EPostTag extends Edge<"post-tag", NPost["key"], NTag["key"], Record<string, never>> {}
 
 test("adjacent vertices", () => {
   const g = new Graph();
@@ -62,32 +34,44 @@ test("adjacent vertices", () => {
 
   const tag = g.v_tag.get("tag+1");
 
-  const e1 = g.e_person_post.connect(person1.id, post1.id).merge({ role: "author" });
-  const e2 = g.e_person_post.connect(person2.id, post2.id).merge({ role: "author" });
-  const e3 = g.e_person_post.connect(person2.id, post3.id).merge({ role: "author" });
-  const e4 = g.e_post_tag.connect(post2.id, tag.id);
+  const e1 = g.e_person_post.connect(person1.key, post1.key).merge({ role: "author" });
+  const e2 = g.e_person_post.connect(person2.key, post2.key).merge({ role: "author" });
+  const e3 = g.e_person_post.connect(person2.key, post3.key).merge({ role: "author" });
+  const e4 = g.e_post_tag.connect(post2.key, tag.key);
 
-  expect(g.e_post_tag.adjFrom(post1.id)).toBeEmpty();
-  expect(g.e_post_tag.adjFrom(post2.id)).toEqual(new Map([[tag.id, e4]]));
-  expect(g.e_post_tag.adjFrom(post3.id)).toBeEmpty();
+  expect(g.e_person_post.adjTo(post1.key)).toEqual(new Map([[person1.key, e1]]));
+  expect(g.e_person_post.adjTo(post2.key)).toEqual(new Map([[person2.key, e2]]));
+  expect(g.e_person_post.adjTo(post3.key)).toEqual(new Map([[person2.key, e3]]));
 
-  expect(g.e_post_tag.adjTo(tag.id)).toEqual(new Map([[post2.id, e4]]));
+  expect(g.e_person_post.adjFrom(person1.key)).toEqual(new Map([[post1.key, e1]]));
+  expect(g.e_person_post.adjFrom(person2.key)).toEqual(
+    new Map([
+      [post2.key, e2],
+      [post3.key, e3],
+    ]),
+  );
+
+  expect(g.e_post_tag.adjFrom(post1.key)).toBeEmpty();
+  expect(g.e_post_tag.adjFrom(post2.key)).toEqual(new Map([[tag.key, e4]]));
+  expect(g.e_post_tag.adjFrom(post3.key)).toBeEmpty();
+
+  expect(g.e_post_tag.adjTo(tag.key)).toEqual(new Map([[post2.key, e4]]));
 });
 
 test("serializing a vertex", () => {
   const g = new Graph();
 
-  const postData: VPost["data"] = { title: "Hello", content: "World" };
+  const postData: NPost["data"] = { title: "Hello", content: "World" };
 
   const person = g.v_person.get("person+1").merge({ name: "Alice" });
   const post = g.v_post.get("post+1").merge(postData);
   const tag = g.v_tag.get("tag+1");
 
-  const rt = (o: Vertex<any>) => JSON.parse(JSON.stringify(o.data));
+  const rt = (n: AnyNode) => JSON.parse(JSON.stringify(n.toJSON()));
 
-  expect(rt(person)).toEqual({ id: "person+1", name: "Alice" });
-  expect(rt(post)).toEqual({ id: "post+1", title: "Hello", content: "World" });
-  expect(rt(tag)).toEqual({ id: "tag+1" });
+  expect(rt(person)).toEqual({ key: "person+1", attributes: { name: "Alice" } });
+  expect(rt(post)).toEqual({ key: "post+1", attributes: { title: "Hello", content: "World" } });
+  expect(rt(tag)).toEqual({ key: "tag+1" });
 });
 
 test("serializing an edge", () => {
@@ -97,11 +81,15 @@ test("serializing an edge", () => {
   const post = g.v_post.get("post+1");
   const tag = g.v_tag.get("tag+1");
 
-  const e1 = g.e_person_post.connect(person.id, post.id).merge({ role: "author" });
-  const e2 = g.e_post_tag.connect(post.id, tag.id);
+  const e1 = g.e_person_post.connect(person.key, post.key).merge({ role: "author" });
+  const e2 = g.e_post_tag.connect(post.key, tag.key);
 
-  const rt = (o: Edge<any>) => JSON.parse(JSON.stringify(o.data));
+  const rt = (e: AnyEdge) => JSON.parse(JSON.stringify(e.toJSON()));
 
-  expect(rt(e1)).toEqual({ type: "person-post", from: "person+1", to: "post+1", role: "author" });
-  expect(rt(e2)).toEqual({ type: "post-tag", from: "post+1", to: "tag+1" });
+  expect(rt(e1)).toEqual({ type: "person-post", source: "person+1", target: "post+1", attributes: { role: "author" } });
+  expect(rt(e2)).toEqual({ type: "post-tag", source: "post+1", target: "tag+1" });
+});
+
+test("serializing a graph", () => {
+  const g = new Graph();
 });
