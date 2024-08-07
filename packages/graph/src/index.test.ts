@@ -5,6 +5,8 @@ import { type AnyEdge, type AnyNode, BaseGraph, Edge, Node } from ".";
 class NPerson extends Node<`person+${string}`, { name: string }> {}
 class NPost extends Node<`post+${string}`, { title: string; content: string }> {}
 class NTag extends Node<`tag+${string}`> {}
+class EPersonPost extends Edge<"person-post", NPerson["key"], NPost["key"], { role: "author" | "editor" }> {}
+class EPostTag extends Edge<"post-tag", NPost["key"], NTag["key"], Record<string, never>> {}
 
 class Graph extends BaseGraph {
   v_person = this.nodeMap<NPerson>("person", (key) => new NPerson(key));
@@ -18,11 +20,7 @@ class Graph extends BaseGraph {
   e_post_tag = this.edgeMap<EPostTag>("post-tag", (type, source, target) => new EPostTag(type, source, target));
 }
 
-class EPersonPost extends Edge<"person-post", NPerson["key"], NPost["key"], { role: "author" | "editor" }> {}
-
-class EPostTag extends Edge<"post-tag", NPost["key"], NTag["key"], Record<string, never>> {}
-
-test("adjacent vertices", () => {
+test("connecting adjacent vertices", () => {
   const g = new Graph();
 
   const person1 = g.v_person.get("person+1");
@@ -67,11 +65,11 @@ test("serializing a vertex", () => {
   const post = g.v_post.get("post+1").merge(postData);
   const tag = g.v_tag.get("tag+1");
 
-  const rt = (n: AnyNode) => JSON.parse(JSON.stringify(n.toJSON()));
+  const rt = (n: AnyNode) => JSON.parse(JSON.stringify(n));
 
-  expect(rt(person)).toEqual({ key: "person+1", attributes: { name: "Alice" } });
-  expect(rt(post)).toEqual({ key: "post+1", attributes: { title: "Hello", content: "World" } });
-  expect(rt(tag)).toEqual({ key: "tag+1" });
+  expect(rt(person)).toEqual({ key: "person+1", data: { name: "Alice" } });
+  expect(rt(post)).toEqual({ key: "post+1", data: { title: "Hello", content: "World" } });
+  expect(rt(tag)).toEqual({ key: "tag+1", data: {} });
 });
 
 test("serializing an edge", () => {
@@ -84,12 +82,28 @@ test("serializing an edge", () => {
   const e1 = g.e_person_post.connect(person.key, post.key).merge({ role: "author" });
   const e2 = g.e_post_tag.connect(post.key, tag.key);
 
-  const rt = (e: AnyEdge) => JSON.parse(JSON.stringify(e.toJSON()));
+  const rt = (e: AnyEdge) => JSON.parse(JSON.stringify(e));
 
-  expect(rt(e1)).toEqual({ type: "person-post", source: "person+1", target: "post+1", attributes: { role: "author" } });
-  expect(rt(e2)).toEqual({ type: "post-tag", source: "post+1", target: "tag+1" });
+  expect(rt(e1)).toEqual({ type: "person-post", source: "person+1", target: "post+1", data: { role: "author" } });
+  expect(rt(e2)).toEqual({ type: "post-tag", source: "post+1", target: "tag+1", data: {} });
 });
 
-test("serializing a graph", () => {
+test("de/serializing a graph", () => {
   const g = new Graph();
+
+  const person1 = g.v_person.get("person+1");
+  const person2 = g.v_person.get("person+2");
+
+  const post1 = g.v_post.get("post+1");
+  const post2 = g.v_post.get("post+2");
+  const post3 = g.v_post.get("post+3");
+
+  const tag = g.v_tag.get("tag+1");
+
+  g.e_person_post.connect(person1.key, post1.key).merge({ role: "author" });
+  g.e_person_post.connect(person2.key, post2.key).merge({ role: "author" });
+  g.e_person_post.connect(person2.key, post3.key).merge({ role: "author" });
+  g.e_post_tag.connect(post2.key, tag.key);
+
+  console.log(JSON.stringify(g.toJSON(), null, 2));
 });

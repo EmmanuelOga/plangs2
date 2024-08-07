@@ -2,12 +2,6 @@
  * @module graph
  *
  * Simple single-edge directed graph data structure.
- *
- * Follows some of the naming conventions of the Graphology library.
- *
- * A JSON export from this library can be imported into a new Graphology Graph.
- *
- * https://graphology.github.io
  */
 
 /** Graph Node. */
@@ -19,15 +13,6 @@ export abstract class Node<T_Key, T_Data = NO_DATA> {
   merge(attributes: Partial<T_Data>): this {
     Object.assign(this.data, attributes);
     return this;
-  }
-
-  /**
-   * Output data ready for JSON serialization.
-   */
-  toJSON(): { key: T_Key; attributes?: Partial<T_Data> } {
-    const data: { key: T_Key; attributes?: Partial<T_Data> } = { key: this.key };
-    if (!isEmpty(this.data)) data.attributes = this.data;
-    return data;
   }
 }
 
@@ -48,6 +33,13 @@ export class NodeMap<T_Node extends Node<T_Key, T_Data>, T_Key = T_Node["key"], 
   has(key: T_Key): boolean {
     return this.#map.has(key);
   }
+
+  /**
+   * Return serializable data.
+   */
+  toJSON(): [T_Key, T_Node][] {
+    return [...this.#map.entries()];
+  }
 }
 
 /** Graph Edge. */
@@ -63,19 +55,6 @@ export abstract class Edge<T_Type extends string, T_Source, T_Target, T_Data = N
   merge(data: Partial<T_Data>): this {
     Object.assign(this.data, data);
     return this;
-  }
-
-  /**
-   * Output data ready for JSON serialization.
-   */
-  toJSON(): { type: T_Type; source: T_Source; target: T_Target; attributes?: Partial<T_Data> } {
-    const data: { type: T_Type; source: T_Source; target: T_Target; attributes?: Partial<T_Data> } = {
-      type: this.type,
-      source: this.source,
-      target: this.target,
-    };
-    if (!isEmpty(this.data)) data.attributes = this.data;
-    return data;
   }
 }
 
@@ -111,6 +90,18 @@ export class EdgeMap<
   adjTo(target: T_Target): Map<T_Source, T_Edge> {
     return this.#adjTo.getMap(target) ?? new Map();
   }
+
+  /**
+   * Return serializable data.
+   */
+  toJSON(): { type: T_Type; edges: T_Edge[] } {
+    let edges: T_Edge[] = [];
+    for (const from of this.#adjFrom.keys()) {
+      const map = this.#adjFrom.getMap(from) as Map<T_Target, T_Edge>;
+      edges = edges.concat([...map.values()]);
+    }
+    return { type: this.type, edges };
+  }
 }
 
 /** Base Graph class with the ability to de/serialize registered node and edge maps. */
@@ -138,6 +129,21 @@ export class BaseGraph {
     this.#emap.set(typeName, m);
     return m;
   }
+
+  toJSON() {
+    const data: { nodes: Record<string, any>; edges: Record<string, any> } = { nodes: {}, edges: {} };
+
+    for (const [typeName, map] of this.#vmap) {
+      data.nodes[typeName] = map.toJSON();
+    }
+
+    for (const [typeName, map] of this.#emap) {
+      const { type, edges } = map.toJSON();
+      data.edges[type] = edges;
+    }
+
+    return data;
+  }
 }
 
 /** Two dimensional Map. */
@@ -164,17 +170,16 @@ export class Map2<K1, K2, V> {
     return this.#map.get(k1);
   }
 
+  /** Returns an iterator of the keys in the first dimension. */
+  keys(): IterableIterator<K1> {
+    return this.#map.keys();
+  }
+
   has(k1: K1, k2: K2): boolean {
     const m2 = this.#map.get(k1);
     if (!m2) return false;
     return m2.has(k2);
   }
-}
-
-/** Returns true if the object given doesn't have keys. */
-function isEmpty(obj: _any) {
-  for (const key in obj) return false;
-  return true;
 }
 
 // biome-ignore lint/suspicious/noExplicitAny: we use any for the generic types... sory biome.
