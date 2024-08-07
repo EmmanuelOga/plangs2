@@ -21,7 +21,8 @@ html {
 }
 
 body {
-    font-family: sans-serif;
+    font-family: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif;
+font-weight: normal;
     margin: 0;
     padding: 0;
     overflow-y: scroll;
