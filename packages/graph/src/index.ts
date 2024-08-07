@@ -5,51 +5,24 @@
  */
 
 /** Graph Node. */
-export abstract class Node<T_Key, T_Data = NO_DATA> {
-  data: Partial<T_Data> = {};
+export abstract class Node<T_Data> {
+  readonly data: Partial<T_Data> = {};
 
-  constructor(public readonly key: T_Key) {}
+  constructor(readonly key: string) {}
 
-  merge(attributes: Partial<T_Data>): this {
-    Object.assign(this.data, attributes);
+  merge(data: Partial<T_Data>): this {
+    Object.assign(this.data, data);
     return this;
   }
 }
 
-/** Graph Node (identity) Map. */
-export class NodeMap<T_Node extends Node<T_Key, T_Data>, T_Key = T_Node["key"], T_Data = T_Node["data"]> {
-  readonly #map = new Map<T_Key, T_Node>();
-
-  constructor(private readonly factory: (key: T_Key) => T_Node) {}
-
-  get(key: T_Key): T_Node {
-    const n = this.#map.get(key);
-    if (n) return n;
-    const newNode = this.factory(key);
-    this.#map.set(key, newNode);
-    return newNode;
-  }
-
-  has(key: T_Key): boolean {
-    return this.#map.has(key);
-  }
-
-  /**
-   * Return serializable data.
-   */
-  toJSON(): [T_Key, T_Node][] {
-    return [...this.#map.entries()];
-  }
-}
-
 /** Graph Edge. */
-export abstract class Edge<T_Type extends string, T_Source, T_Target, T_Data = NO_DATA> {
+export abstract class Edge<T_Source extends Node<Any>, T_Target extends Node<Any>, T_Data> {
   readonly data: Partial<T_Data> = {};
 
   constructor(
-    public readonly type: T_Type,
-    public readonly source: T_Source,
-    public readonly target: T_Target,
+    readonly source: T_Source,
+    readonly target: T_Target,
   ) {}
 
   merge(data: Partial<T_Data>): this {
@@ -58,91 +31,56 @@ export abstract class Edge<T_Type extends string, T_Source, T_Target, T_Data = N
   }
 }
 
+/** Graph Node (identity) Map. */
+export class NodeMap<T_Node> {
+  readonly data: Record<string, T_Node> = {};
+
+  constructor(private readonly factory: (key: string) => T_Node) {}
+
+  get(key: string): T_Node {
+    const n = this.data[key];
+    if (n) return n;
+    const newNode = this.factory(key);
+    this.data[key] = newNode;
+    return newNode;
+  }
+
+  has(key: string): boolean {
+    return !!this.data[key];
+  }
+}
+
 /** Stores edges by the compound keys (from, to) and (to, from). */
-export class EdgeMap<
-  T_Edge extends Edge<T_Type, T_Source, T_Target, T_Data>,
-  T_Type extends string = T_Edge["type"],
-  T_Source = T_Edge["source"],
-  T_Target = T_Edge["target"],
-  T_Data = T_Edge["data"],
-> {
-  readonly #adjFrom = new Map2<T_Source, T_Target, T_Edge>();
-  readonly #adjTo = new Map2<T_Target, T_Source, T_Edge>();
+export class EdgeMap<T_Edge extends Edge<Any, Any, Any>> {
+  readonly adjFrom = new Map2<T_Edge["source"], T_Edge["target"], T_Edge>();
+  readonly adjTo = new Map2<T_Edge["target"], T_Edge["source"], T_Edge>();
 
-  constructor(
-    public readonly type: T_Type,
-    private readonly factory: (type: T_Type, source: T_Source, target: T_Target) => T_Edge,
-  ) {}
+  constructor(private readonly factory: (source: T_Edge["source"], target: T_Edge["target"]) => T_Edge) {}
 
-  connect(source: T_Source, target: T_Target): T_Edge {
-    let edge = this.#adjFrom.get(source, target);
+  connect(source: T_Edge["source"], target: T_Edge["target"]): T_Edge {
+    let edge = this.adjFrom.get(source, target);
     if (edge) return edge;
-    edge = this.factory(this.type, source, target);
-    this.#adjFrom.set(source, target, edge);
-    this.#adjTo.set(target, source, edge);
+    edge = this.factory(source, target);
+    this.adjFrom.set(source, target, edge);
+    this.adjTo.set(target, source, edge);
     return edge;
-  }
-
-  adjFrom(source: T_Source): Map<T_Target, T_Edge> {
-    return this.#adjFrom.getMap(source) ?? new Map();
-  }
-
-  adjTo(target: T_Target): Map<T_Source, T_Edge> {
-    return this.#adjTo.getMap(target) ?? new Map();
-  }
-
-  /**
-   * Return serializable data.
-   */
-  toJSON(): { type: T_Type; edges: T_Edge[] } {
-    let edges: T_Edge[] = [];
-    for (const from of this.#adjFrom.keys()) {
-      const map = this.#adjFrom.getMap(from) as Map<T_Target, T_Edge>;
-      edges = edges.concat([...map.values()]);
-    }
-    return { type: this.type, edges };
   }
 }
 
 /** Base Graph class with the ability to de/serialize registered node and edge maps. */
 export class BaseGraph {
-  #vmap = new Map<string, NodeMap<_any>>();
-  #emap = new Map<string, EdgeMap<_any>>();
+  readonly vmap: Record<string, NodeMap<Any>> = {};
+  readonly emap: Record<string, EdgeMap<Any>> = {};
 
-  nodeMap<T_Node extends Node<T_Key, T_Data>, T_Key = T_Node["key"], T_Data = T_Node["data"]>(
-    typeName: string,
-    factory: (key: T_Key) => T_Node,
-  ): NodeMap<T_Node> {
-    const m = new NodeMap(factory);
-    this.#vmap.set(typeName, m);
-    return m;
+  nodeMap<T_Node extends Node<Any>>(name: string, factory: (key: string) => T_Node): NodeMap<T_Node> {
+    return (this.vmap[name] = new NodeMap(factory));
   }
 
-  edgeMap<
-    T_Edge extends Edge<T_Type, T_Source, T_Target, T_Data>,
-    T_Type extends string = T_Edge["type"],
-    T_Source = T_Edge["source"],
-    T_Target = T_Edge["target"],
-    T_Data = T_Edge["data"],
-  >(typeName: T_Type, factory: (type: T_Type, source: T_Source, target: T_Target) => T_Edge): EdgeMap<T_Edge> {
-    const m = new EdgeMap(typeName, factory);
-    this.#emap.set(typeName, m);
-    return m;
-  }
-
-  toJSON() {
-    const data: { nodes: Record<string, any>; edges: Record<string, any> } = { nodes: {}, edges: {} };
-
-    for (const [typeName, map] of this.#vmap) {
-      data.nodes[typeName] = map.toJSON();
-    }
-
-    for (const [typeName, map] of this.#emap) {
-      const { type, edges } = map.toJSON();
-      data.edges[type] = edges;
-    }
-
-    return data;
+  edgeMap<T_Edge extends Edge<T_Source, T_Target, Any>, T_Source = T_Edge["source"], T_Target = T_Edge["target"]>(
+    name: string,
+    factory: (source: T_Source, target: T_Target) => T_Edge,
+  ): EdgeMap<T_Edge> {
+    return (this.emap[name] = new EdgeMap(factory));
   }
 }
 
@@ -175,6 +113,14 @@ export class Map2<K1, K2, V> {
     return this.#map.keys();
   }
 
+  values(): V[] {
+    let values: V[] = [];
+    for (const [_, map] of this.#map) {
+      values = values.concat([...map.values()]);
+    }
+    return values;
+  }
+
   has(k1: K1, k2: K2): boolean {
     const m2 = this.#map.get(k1);
     if (!m2) return false;
@@ -183,13 +129,7 @@ export class Map2<K1, K2, V> {
 }
 
 // biome-ignore lint/suspicious/noExplicitAny: we use any for the generic types... sory biome.
-type _any = any;
+type Any = any;
 
 /** A type to express emoty object. */
 export type NO_DATA = Record<string, never>;
-
-/** Type alias matching `any` Node. */
-export type AnyNode = Node<_any, _any>;
-
-/** Type alias matching `any` Edge. */
-export type AnyEdge = Edge<_any, _any, _any, _any>;
