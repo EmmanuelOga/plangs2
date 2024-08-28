@@ -1,14 +1,18 @@
 /**
- * @module graph
- *
  * Simple single-edge directed graph data structure.
  */
 
+// biome-ignore lint/suspicious/noExplicitAny: we use any for the generic types... sory biome.
+type Any = any;
+
+/** A type to express empty object. */
+export type NO_DATA = Record<string, never>;
+
 /** Graph Node. */
-export abstract class Node<T_Data> {
+export abstract class Node<T_Key extends string, T_Data = NO_DATA> {
   readonly data: Partial<T_Data> = {};
 
-  constructor(readonly key: string) {}
+  constructor(readonly key: T_Key) {}
 
   merge(data: Partial<T_Data>): this {
     Object.assign(this.data, data);
@@ -17,12 +21,12 @@ export abstract class Node<T_Data> {
 }
 
 /** Graph Edge. */
-export abstract class Edge<T_Source extends Node<Any>, T_Target extends Node<Any>, T_Data> {
+export abstract class Edge<T_From extends Node<Any, Any>, T_To extends Node<Any, Any>, T_Data = NO_DATA> {
   readonly data: Partial<T_Data> = {};
 
   constructor(
-    readonly source: T_Source,
-    readonly target: T_Target,
+    readonly from: T_From["key"],
+    readonly to: T_To["key"],
   ) {}
 
   merge(data: Partial<T_Data>): this {
@@ -32,37 +36,37 @@ export abstract class Edge<T_Source extends Node<Any>, T_Target extends Node<Any
 }
 
 /** Graph Node (identity) Map. */
-export class NodeMap<T_Node> {
-  readonly data: Record<string, T_Node> = {};
+export class NodeMap<T_Node extends Node<Any, Any>> {
+  readonly nodes: Record<T_Node["key"], T_Node> = {} as Record<T_Node["key"], T_Node>;
 
-  constructor(private readonly factory: (key: string) => T_Node) {}
+  constructor(private readonly factory: (key: T_Node["key"]) => T_Node) {}
 
-  get(key: string): T_Node {
-    const n = this.data[key];
+  get(key: T_Node["key"]): T_Node {
+    const n = this.nodes[key];
     if (n) return n;
     const newNode = this.factory(key);
-    this.data[key] = newNode;
+    this.nodes[key] = newNode;
     return newNode;
   }
 
-  has(key: string): boolean {
-    return !!this.data[key];
+  has(key: T_Node["key"]): boolean {
+    return !!this.nodes[key];
   }
 }
 
 /** Stores edges by the compound keys (from, to) and (to, from). */
-export class EdgeMap<T_Edge extends Edge<Any, Any, Any>> {
-  readonly adjFrom = new Map2<T_Edge["source"], T_Edge["target"], T_Edge>();
-  readonly adjTo = new Map2<T_Edge["target"], T_Edge["source"], T_Edge>();
+export class EdgeMap<T_Edge extends Edge<Any, Any>> {
+  readonly adjFrom = new Map2<T_Edge["from"], T_Edge["to"], T_Edge>();
+  readonly adjTo = new Map2<T_Edge["to"], T_Edge["from"], T_Edge>();
 
-  constructor(private readonly factory: (source: T_Edge["source"], target: T_Edge["target"]) => T_Edge) {}
+  constructor(private readonly factory: (from: T_Edge["from"], to: T_Edge["to"]) => T_Edge) {}
 
-  connect(source: T_Edge["source"], target: T_Edge["target"]): T_Edge {
-    let edge = this.adjFrom.get(source, target);
+  connect(from: T_Edge["from"], to: T_Edge["to"]): T_Edge {
+    let edge = this.adjFrom.get(from, to);
     if (edge) return edge;
-    edge = this.factory(source, target);
-    this.adjFrom.set(source, target, edge);
-    this.adjTo.set(target, source, edge);
+    edge = this.factory(from, to);
+    this.adjFrom.set(from, to, edge);
+    this.adjTo.set(to, from, edge);
     return edge;
   }
 }
@@ -72,13 +76,13 @@ export class BaseGraph {
   readonly vmap: Record<string, NodeMap<Any>> = {};
   readonly emap: Record<string, EdgeMap<Any>> = {};
 
-  nodeMap<T_Node extends Node<Any>>(name: string, factory: (key: string) => T_Node): NodeMap<T_Node> {
+  nodeMap<T_Node extends Node<Any, Any>>(name: string, factory: (key: T_Node["key"]) => T_Node): NodeMap<T_Node> {
     return (this.vmap[name] = new NodeMap(factory));
   }
 
-  edgeMap<T_Edge extends Edge<T_Source, T_Target, Any>, T_Source = T_Edge["source"], T_Target = T_Edge["target"]>(
+  edgeMap<T_Edge extends Edge<Any, Any, Any>>(
     name: string,
-    factory: (source: T_Source, target: T_Target) => T_Edge,
+    factory: (from: T_Edge["from"], to: T_Edge["to"]) => T_Edge,
   ): EdgeMap<T_Edge> {
     return (this.emap[name] = new EdgeMap(factory));
   }
@@ -127,9 +131,3 @@ export class Map2<K1, K2, V> {
     return m2.has(k2);
   }
 }
-
-// biome-ignore lint/suspicious/noExplicitAny: we use any for the generic types... sory biome.
-type Any = any;
-
-/** A type to express emoty object. */
-export type NO_DATA = Record<string, never>;

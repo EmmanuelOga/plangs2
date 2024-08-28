@@ -1,61 +1,61 @@
 /* Example vertex data interfaces: model a blog. */
 import { expect, test } from "bun:test";
-import { Node, Edge, BaseGraph, type NO_DATA } from ".";
+import { Node, Edge, BaseGraph } from ".";
 
-class NPerson extends Node<{ name: string }> {}
-class NPost extends Node<{ title: string; content: string }> {}
-class NTag extends Node<NO_DATA> {}
+class NPerson extends Node<`person+${string}`, { name: string }> {}
+class NPost extends Node<`post+${string}`, { title: string; content: string }> {}
+class NTag extends Node<`tag+${string}`> {}
 
 class EPersonPost extends Edge<NPerson, NPost, { role: "author" | "editor" }> {}
-class EPostTag extends Edge<NPost, NTag, NO_DATA> {}
+class EPostTag extends Edge<NPost, NTag> {}
 
-class Graph extends BaseGraph {
-  v_person = this.nodeMap("person", (key) => new NPerson(key));
-  v_post = this.nodeMap("post", (key) => new NPost(key));
-  v_tag = this.nodeMap("tag", (key) => new NTag(key));
+class TestGraph extends BaseGraph {
+  v_person = this.nodeMap<NPerson>("person", (key) => new NPerson(key));
+  v_post = this.nodeMap<NPost>("post", (key) => new NPost(key));
+  v_tag = this.nodeMap<NTag>("tag", (key) => new NTag(key));
 
-  e_person_post = this.edgeMap<EPersonPost>("person-post", (source, target) => new EPersonPost(source, target));
-  e_post_tag = this.edgeMap<EPostTag>("post-tag", (source, target) => new EPostTag(source, target));
+  e_person_post = this.edgeMap<EPersonPost>("person-post", (from, to) => new EPersonPost(from, to));
+  e_post_tag = this.edgeMap<EPostTag>("post-tag", (from, to) => new EPostTag(from, to));
 }
 
 test("connecting adjacent vertices", () => {
-  const g = new Graph();
+  const g = new TestGraph();
 
-  const person1 = g.v_person.get("person+1");
-  const person2 = g.v_person.get("person+2");
+  g.v_person.get("person+1");
+  g.v_person.get("person+2");
 
-  const post1 = g.v_post.get("post+1");
-  const post2 = g.v_post.get("post+2");
-  const post3 = g.v_post.get("post+3");
+  g.v_post.get("post+1");
+  g.v_post.get("post+2");
+  g.v_post.get("post+3");
 
-  const tag = g.v_tag.get("tag+1");
+  g.v_tag.get("tag+1");
 
-  const e1 = g.e_person_post.connect(person1, post1).merge({ role: "author" });
-  const e2 = g.e_person_post.connect(person2, post2).merge({ role: "author" });
-  const e3 = g.e_person_post.connect(person2, post3).merge({ role: "author" });
-  const e4 = g.e_post_tag.connect(post2, tag);
+  const e1 = g.e_person_post.connect("person+1", "post+1").merge({ role: "author" });
+  const e2 = g.e_person_post.connect("person+2", "post+2").merge({ role: "author" });
+  const e3 = g.e_person_post.connect("person+2", "post+3").merge({ role: "author" });
+  const e4 = g.e_post_tag.connect("post+2", "tag+1");
 
-  expect(g.e_person_post.adjTo.getMap(post1)).toEqual(new Map([[person1, e1]]));
-  expect(g.e_person_post.adjTo.getMap(post2)).toEqual(new Map([[person2, e2]]));
-  expect(g.e_person_post.adjTo.getMap(post3)).toEqual(new Map([[person2, e3]]));
+  expect(g.e_person_post.adjTo.getMap("post+1")).toEqual(new Map([["person+1", e1]]));
+  expect(g.e_person_post.adjTo.getMap("post+2")).toEqual(new Map([["person+2", e2]]));
+  expect(g.e_person_post.adjTo.getMap("post+3")).toEqual(new Map([["person+2", e3]]));
 
-  expect(g.e_person_post.adjFrom.getMap(person1)).toEqual(new Map([[post1, e1]]));
-  expect(g.e_person_post.adjFrom.getMap(person2)).toEqual(
+  expect(g.e_person_post.adjFrom.getMap("person+1")).toEqual(new Map([["post+1", e1]]));
+  expect(g.e_person_post.adjFrom.getMap("person+2")).toEqual(
     new Map([
-      [post2, e2],
-      [post3, e3],
+      ["post+2", e2],
+      ["post+3", e3],
     ]),
   );
 
-  expect(g.e_post_tag.adjFrom.getMap(post1)).toBeEmpty();
-  expect(g.e_post_tag.adjFrom.getMap(post2)).toEqual(new Map([[tag, e4]]));
-  expect(g.e_post_tag.adjFrom.getMap(post3)).toBeEmpty();
+  expect(g.e_post_tag.adjFrom.getMap("post+1")).toBeEmpty();
+  expect(g.e_post_tag.adjFrom.getMap("post+2")).toEqual(new Map([["tag+1", e4]]));
+  expect(g.e_post_tag.adjFrom.getMap("post+3")).toBeEmpty();
 
-  expect(g.e_post_tag.adjTo.getMap(tag)).toEqual(new Map([[post2, e4]]));
+  expect(g.e_post_tag.adjTo.getMap("tag+1")).toEqual(new Map([["post+2", e4]]));
 });
 
 test("de/serializing a vertex", () => {
-  const g = new Graph();
+  const g = new TestGraph();
 
   const postData: NPost["data"] = { title: "Hello", content: "World" };
 
@@ -71,35 +71,35 @@ test("de/serializing a vertex", () => {
 });
 
 test("de/serializing an edge", () => {
-  const g = new Graph();
+  const g = new TestGraph();
 
-  const person = g.v_person.get("person+1");
-  const post = g.v_post.get("post+1");
-  const tag = g.v_tag.get("tag+1");
+  g.v_person.get("person+1");
+  g.v_post.get("post+1");
+  g.v_tag.get("tag+1");
 
-  const e1 = g.e_person_post.connect(person, post).merge({ role: "author" });
-  const e2 = g.e_post_tag.connect(post, tag);
+  const e1 = g.e_person_post.connect("person+1", "post+1").merge({ role: "author" });
+  const e2 = g.e_post_tag.connect("post+1", "tag+1");
 
   const rt = (e: any) => JSON.parse(JSON.stringify(e));
 
-  expect(rt(e1)).toEqual({ source: person, target: post, data: { role: "author" } });
-  expect(rt(e2)).toEqual({ source: post, target: tag, data: {} });
+  expect(rt(e1)).toEqual({ from: "person+1", to: "post+1", data: { role: "author" } });
+  expect(rt(e2)).toEqual({ from: "post+1", to: "tag+1", data: {} });
 });
 
 test("de/serializing a graph", () => {
-  const g = new Graph();
+  const g = new TestGraph();
 
-  const person1 = g.v_person.get("person+1");
-  const person2 = g.v_person.get("person+2");
+  g.v_person.get("person+1");
+  g.v_person.get("person+2");
 
-  const post1 = g.v_post.get("post+1");
-  const post2 = g.v_post.get("post+2");
-  const post3 = g.v_post.get("post+3");
+  g.v_post.get("post+1");
+  g.v_post.get("post+2");
+  g.v_post.get("post+3");
 
-  const tag = g.v_tag.get("tag+1");
+  g.v_tag.get("tag+1");
 
-  g.e_person_post.connect(person1, post1).merge({ role: "author" });
-  g.e_person_post.connect(person2, post2).merge({ role: "author" });
-  g.e_person_post.connect(person2, post3).merge({ role: "author" });
-  g.e_post_tag.connect(post2, tag);
+  g.e_person_post.connect("person+1", "post+1").merge({ role: "author" });
+  g.e_person_post.connect("person+2", "post+2").merge({ role: "author" });
+  g.e_person_post.connect("person+2", "post+3").merge({ role: "author" });
+  g.e_post_tag.connect("post+2", "tag+1");
 });
