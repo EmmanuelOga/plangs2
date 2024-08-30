@@ -37,20 +37,24 @@ export abstract class Edge<T_From extends Node<Any, Any>, T_To extends Node<Any,
 
 /** Graph Node (identity) Map. */
 export class NodeMap<T_Node extends Node<Any, Any>> {
-  readonly nodes: Record<T_Node["key"], T_Node> = {} as Record<T_Node["key"], T_Node>;
+  readonly #map = new Map<T_Node["key"], T_Node>();
 
   constructor(private readonly factory: (key: T_Node["key"]) => T_Node) {}
 
   get(key: T_Node["key"]): T_Node {
-    const n = this.nodes[key];
+    const n = this.#map.get(key);
     if (n) return n;
     const newNode = this.factory(key);
-    this.nodes[key] = newNode;
+    this.#map.set(key, newNode);
     return newNode;
   }
 
   has(key: T_Node["key"]): boolean {
-    return !!this.nodes[key];
+    return !!this.#map[key];
+  }
+
+  values(): IterableIterator<T_Node> {
+    return this.#map.values();
   }
 }
 
@@ -71,20 +75,83 @@ export class EdgeMap<T_Edge extends Edge<Any, Any>> {
   }
 }
 
+type SerializedGraph = {
+  /**
+   * Example: { "type" : { "key1" : data1, "key2" : data2, ... } }
+   */
+  nodes: Record<string, Record<string, Any>>;
+
+  /**
+   * Example: { "type" : { "from1" : { "to1" : data1, "to2": data2 }, "from2" : ... } }
+   */
+  edges: Record<string, Record<string, Record<string, Any>>>;
+};
+
 /** Base Graph class with the ability to de/serialize registered node and edge maps. */
 export class BaseGraph {
-  readonly vmap: Record<string, NodeMap<Any>> = {};
-  readonly emap: Record<string, EdgeMap<Any>> = {};
+  readonly nodes: Map<string, NodeMap<Any>> = new Map();
+  readonly edges: Map<string, EdgeMap<Any>> = new Map();
 
   nodeMap<T_Node extends Node<Any, Any>>(name: string, factory: (key: T_Node["key"]) => T_Node): NodeMap<T_Node> {
-    return (this.vmap[name] = new NodeMap(factory));
+    if (this.nodes.has(name)) return this.nodes.get(name) as NodeMap<T_Node>;
+    const m = new NodeMap(factory);
+    this.nodes.set(name, m);
+    return m;
   }
 
   edgeMap<T_Edge extends Edge<Any, Any, Any>>(
     name: string,
     factory: (from: T_Edge["from"], to: T_Edge["to"]) => T_Edge,
   ): EdgeMap<T_Edge> {
-    return (this.emap[name] = new EdgeMap(factory));
+    if (this.edges.has(name)) return this.edges.get(name) as EdgeMap<T_Edge>;
+    const m = new EdgeMap(factory);
+    this.edges.set(name, m);
+    return m;
+  }
+
+  toJSON(): SerializedGraph {
+    const data: SerializedGraph = { nodes: {}, edges: {} };
+
+    for (const [name, nodeMap] of this.nodes) {
+      const m: Record<string, Any> = {};
+      for (const node of nodeMap.values()) {
+        m[node.key] = node.data;
+      }
+      data.nodes[name] = m;
+    }
+
+    for (const [name, edgeMap] of this.edges) {
+      const m: Record<string, Record<string, Any>> = {};
+      for (const edge of edgeMap.adjFrom.values()) {
+        m[edge.from] ??= {};
+        m[edge.from][edge.to] = edge.data;
+      }
+      data.edges[name] = m;
+    }
+
+    return data;
+  }
+
+  loadJSON(data: SerializedGraph): this {
+    for (const [name, nodes] of Object.entries(data.nodes)) {
+      const nodeMap = this.nodes.get(name);
+      if (!nodeMap) continue;
+      for (const [key, nodeData] of Object.entries(nodes)) {
+        nodeMap.get(key).merge(nodeData);
+      }
+    }
+
+    for (const [name, edges] of Object.entries(data.edges)) {
+      const edgeMap = this.edges.get(name);
+      if (!edgeMap) continue;
+      for (const [from, tos] of Object.entries(edges)) {
+        for (const [to, edgeData] of Object.entries(tos)) {
+          edgeMap.connect(from, to).merge(edgeData);
+        }
+      }
+    }
+
+    return this;
   }
 }
 
