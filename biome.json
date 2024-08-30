@@ -20,7 +20,7 @@
     "enabled": true,
     "indentWidth": 2,
     "indentStyle": "space",
-    "lineWidth": 120
+    "lineWidth": 125
   },
   "javascript": {
     "formatter": {

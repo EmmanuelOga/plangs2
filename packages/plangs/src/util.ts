@@ -31,15 +31,26 @@ export function caller(match: string, dontMatch = ""): string {
 export function arrayMerge<T>(
   target: T[],
   newData: T[],
-  similar: (l1: T, l2: T) => boolean,
-  onDuplicate: (prevElem: T, newElem: T) => void,
+  similar: (l1: T, l2: T) => boolean = (l1, l2) => l1 === l2,
+  onDuplicate?: (prevElem: T, newElem: T) => void,
 ) {
   for (const newElem of newData) {
     const prevElem = target.find((elem: T) => similar(elem, newElem));
-    if (prevElem) {
+    if (prevElem && onDuplicate) {
       onDuplicate(prevElem, newElem);
     } else {
       target.push(newElem);
     }
   }
+}
+
+/** Verify a predicate for all or any of the elements. */
+export function verify<T>(elements: Iterable<T>, mode: "all" | "any", predicate: (v: T) => boolean): boolean {
+  if (mode === "all") {
+    for (const v of elements) if (!predicate(v)) return false;
+    return true;
+  }
+
+  for (const v of elements) if (predicate(v)) return true;
+  return false;
 }

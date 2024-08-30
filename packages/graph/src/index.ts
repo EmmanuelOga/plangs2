@@ -5,6 +5,8 @@
 // biome-ignore lint/suspicious/noExplicitAny: we use any for the generic types... sory biome.
 type Any = any;
 
+export type AnyNode = Node<Any, Any>;
+
 /** A type to express empty object. */
 export type NO_DATA = Record<string, never>;
 
@@ -14,6 +16,7 @@ export abstract class Node<T_Key extends string, T_Data = NO_DATA> {
 
   constructor(readonly key: T_Key) {}
 
+  /** Shallow merge data. */
   merge(data: Partial<T_Data>): this {
     Object.assign(this.data, data);
     return this;
@@ -21,7 +24,7 @@ export abstract class Node<T_Key extends string, T_Data = NO_DATA> {
 }
 
 /** Graph Edge. */
-export abstract class Edge<T_From extends Node<Any, Any>, T_To extends Node<Any, Any>, T_Data = NO_DATA> {
+export abstract class Edge<T_From extends AnyNode, T_To extends AnyNode, T_Data = NO_DATA> {
   readonly data: Partial<T_Data> = {};
 
   constructor(
@@ -29,6 +32,7 @@ export abstract class Edge<T_From extends Node<Any, Any>, T_To extends Node<Any,
     readonly to: T_To["key"],
   ) {}
 
+  /** Shallow merge data. */
   merge(data: Partial<T_Data>): this {
     Object.assign(this.data, data);
     return this;
@@ -36,7 +40,7 @@ export abstract class Edge<T_From extends Node<Any, Any>, T_To extends Node<Any,
 }
 
 /** Graph Node (identity) Map. */
-export class NodeMap<T_Node extends Node<Any, Any>> {
+export class NodeMap<T_Node extends AnyNode> implements Iterable<[T_Node["key"], T_Node]> {
   readonly #map = new Map<T_Node["key"], T_Node>();
 
   constructor(private readonly factory: (key: T_Node["key"]) => T_Node) {}
@@ -56,6 +60,10 @@ export class NodeMap<T_Node extends Node<Any, Any>> {
   values(): IterableIterator<T_Node> {
     return this.#map.values();
   }
+
+  [Symbol.iterator](): IterableIterator<[T_Node["key"], T_Node]> {
+    return this.#map[Symbol.iterator]();
+  }
 }
 
 /** Stores edges by the compound keys (from, to) and (to, from). */
@@ -72,6 +80,10 @@ export class EdgeMap<T_Edge extends Edge<Any, Any>> {
     this.adjFrom.set(from, to, edge);
     this.adjTo.set(to, from, edge);
     return edge;
+  }
+
+  adj(direction: "from" | "to"): this["adjFrom"] | this["adjTo"] {
+    return direction === "from" ? this.adjFrom : this.adjTo;
   }
 }
 
@@ -92,7 +104,7 @@ export class BaseGraph {
   readonly nodes: Map<string, NodeMap<Any>> = new Map();
   readonly edges: Map<string, EdgeMap<Any>> = new Map();
 
-  nodeMap<T_Node extends Node<Any, Any>>(name: string, factory: (key: T_Node["key"]) => T_Node): NodeMap<T_Node> {
+  nodeMap<T_Node extends AnyNode>(name: string, factory: (key: T_Node["key"]) => T_Node): NodeMap<T_Node> {
     if (this.nodes.has(name)) return this.nodes.get(name) as NodeMap<T_Node>;
     const m = new NodeMap(factory);
     this.nodes.set(name, m);
