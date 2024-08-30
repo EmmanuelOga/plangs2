@@ -1,7 +1,7 @@
-import type { PlangsGraph } from "../../../schema/graph";
+import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.buildPlang("pl+alef")
+  g.n_plang.define("pl+alef")
     .merge({
       name: "Alef",
       websites: [

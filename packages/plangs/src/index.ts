@@ -172,7 +172,7 @@ export class NPlang extends NBase<
   }
 
   addPlatform(other: NPlatform["key"], data: ESupportsPlatf["data"]): this {
-    this.g.e_supports_platf.connect(this.key, other, data);
+    this.g.e_supports_platf.connect(this.key, other).merge(data);
     return this;
   }
 
@@ -262,6 +262,12 @@ export class NPlang extends NBase<
   relMatchesFilter({ values, mode }: Filter, relationship: Map<string, any> | undefined): boolean {
     if (!relationship) return false;
     return verify(values, mode, (v) => relationship.has(v));
+  }
+
+  logoOrImage(): Image | undefined {
+    if (!this.data.images || this.data.images.length === 0) return undefined;
+    const firstLogo = this.data.images.find((img) => img.kind === "logo");
+    return firstLogo ?? this.data.images[0];
   }
 }
 

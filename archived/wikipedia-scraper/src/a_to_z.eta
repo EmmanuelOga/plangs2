@@ -1,8 +1,8 @@
-import type { PlangsGraph } from '<%= '../'.repeat(it.depth) %>schemas/graph';
+import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
 <% for (const bundle of it.data) { %>
-  g.<%= it.builderName %>(<%= bundle.vid %>)<%= bundle.data ? `.merge(${bundle.data})` : '' %><%= bundle.vrelations?.join('') ?? '' %>;
+  g.<%= it.nodeType %>.define(<%= bundle.vid %>)<%= bundle.data ? `.merge(${bundle.data})` : '' %><%= bundle.vrelations?.join('') ?? '' %>;
 
   /**/
 

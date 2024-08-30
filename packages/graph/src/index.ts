@@ -53,6 +53,11 @@ export class NodeMap<T_Node extends AnyNode> implements Iterable<[T_Node["key"],
     return newNode;
   }
 
+  /** An alias for {@link get}. */
+  define(key: T_Node["key"], data: Partial<T_Node["data"]> = {}): T_Node {
+    return this.get(key).merge(data);
+  }
+
   has(key: T_Node["key"]): boolean {
     return !!this.#map[key];
   }

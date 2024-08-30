@@ -5,6 +5,6 @@
   "dependencies": {
     "@plangs/graph": "workspace:*"
   },
-  "main": "src/graph.ts",
+  "main": "src/index.ts",
   "files": ["src"]
 }

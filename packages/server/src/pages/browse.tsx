@@ -1,7 +1,8 @@
 import { type ComponentChildren, type JSX, h } from "preact";
-
-import type { V_Plang } from "packages/plangs/src/schema";
 import { useContext } from "preact/hooks";
+
+import type { NPlang } from "@plangs/plangs";
+
 import { PlangsData } from "../context";
 
 export function Browse() {
@@ -130,9 +131,9 @@ function PlangsList() {
 
   return (
     <>
-      {[...pg.v_plang].map(([vid, pl]) => (
-        <div class="plang-thumb" data-vid={vid} key={vid}>
-          <span class="name">{pl.name}</span>
+      {[...pg.n_plang].map(([nid, pl]) => (
+        <div class="plang-thumb" data-vid={nid} key={nid}>
+          <span class="name">{pl.data.name}</span>
           <PlangLogo pl={pl} />
         </div>
       ))}
@@ -141,19 +142,15 @@ function PlangsList() {
 }
 
 type PlangLogoProps = {
-  pl: Partial<V_Plang>;
+  pl: NPlang;
 };
 
 function PlangLogo({ pl }: PlangLogoProps) {
-  let logo = pl.images?.find((img) => img.kind === "logo");
-
-  if (!logo && pl.images?.length) {
-    logo = pl.images[0];
-  }
+  const logo = pl.logoOrImage();
 
   return (
     <div class="logo">
-      {logo ? <img class="logo" src={logo.url} alt="Logo" /> : <div class="placeholder">{pl.name ?? "No Logo"}</div>}
+      {logo ? <img class="logo" src={logo.url} alt="Logo" /> : <div class="placeholder">{pl.data.name ?? "No Logo"}</div>}
     </div>
   );
 }

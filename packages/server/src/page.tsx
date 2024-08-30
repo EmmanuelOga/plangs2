@@ -1,7 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs/graph";
-import type { VID_Plang } from "@plangs/plangs/schema";
-
 import type { ComponentChildren, VNode } from "preact";
+
+import type { NPlang, PlangsGraph } from "@plangs/plangs";
+
 import { PlangsData } from "./context";
 import { Layout, type LayoutProps } from "./pages/layout";
 import { Browse } from "./pages/browse";
@@ -14,14 +14,16 @@ type PageProps = {
   pg: PlangsGraph;
   pageId: LayoutProps["pageId"];
   children: ComponentChildren;
-  plVid?: string;
+  plNid?: string;
   plName?: string;
 };
 
-export function Page({ pageId, pg, children, plName, plVid }: PageProps) {
+export function Page({ pageId, pg, children, plName, plNid: plVid }: PageProps) {
   return (
     <PlangsData.Provider value={pg}>
-      <Layout pageId={pageId} plName={plName} plVid={plVid}>{children}</Layout>
+      <Layout pageId={pageId} plName={plName} plVid={plVid}>
+        {children}
+      </Layout>
     </PlangsData.Provider>
   );
 }
@@ -29,7 +31,7 @@ export function Page({ pageId, pg, children, plName, plVid }: PageProps) {
 export async function resolvePage(path: string, pg: PlangsGraph): Promise<VNode | undefined> {
   let pageId: LayoutProps["pageId"];
   let content: VNode;
-  let plVid: string | undefined;
+  let plNid: string | undefined;
   let plName: string | undefined;
 
   if (path === "/") {
@@ -41,12 +43,12 @@ export async function resolvePage(path: string, pg: PlangsGraph): Promise<VNode 
   } else if (path === "/blog") {
     pageId = "blog";
     content = <Blog posts={await blogPosts()} />;
-  } else if (path.startsWith('/pl/') && path.length < 64) {
-    const vid = `pl+${path.slice(4)}`;
-    const pl = pg.v_plang.get(vid as VID_Plang);
+  } else if (path.startsWith("/pl/") && path.length < 64) {
+    const nid: NPlang["key"] = `pl+${path.slice(4)}`;
+    const pl = pg.n_plang.get(nid);
     if (!pl) return undefined;
-    plVid = vid;
-    plName = pl.name;
+    plNid = nid;
+    plName = pl.data.name;
     pageId = "lang";
     content = <Lang pl={pl} />;
   } else {
@@ -54,7 +56,7 @@ export async function resolvePage(path: string, pg: PlangsGraph): Promise<VNode 
   }
 
   return (
-    <Page pageId={pageId} pg={pg} plVid={plVid} plName={plName}>
+    <Page pageId={pageId} pg={pg} plNid={plNid} plName={plName}>
       {content}
     </Page>
   );

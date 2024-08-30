@@ -1,17 +1,6 @@
 import { Eta } from "eta";
 
-import type { VID_Any } from "@plangs/graph/vertex";
-import type { VertexTable } from "@plangs/graph/vertex_table";
 import { PlangsGraph } from "@plangs/plangs";
-import type {
-  E_Base,
-  VID_License,
-  VID_Paradigm,
-  VID_Person,
-  VID_Plang,
-  VID_Platform,
-  VID_TypeSystem,
-} from "@plangs/plangs/schema";
 
 import { blank, tidy, toAlphaNum } from "./util";
 import { parseAll } from "./wikipedia_process";
@@ -43,11 +32,11 @@ async function generateAll() {
 
   console.log(new Date().toISOString());
 
-  generate(g.v_paradigm, "paradigms", "buildParadigm");
-  generate(g.v_tsystem, "type_systems", "buildTypeSystem");
-  generate(g.v_person, "people", "buildPerson");
+  generate(g.n_paradigm, "paradigms", "buildParadigm");
+  generate(g.n_tsystem, "type_systems", "buildTypeSystem");
+  generate(g.n_person, "people", "buildPerson");
 
-  generate(g.v_license, "licenses", "buildLicense", (bundle: AtoZData) => {
+  generate(g.n_license, "licenses", "buildLicense", (bundle: AtoZData) => {
     const vid = JSON.parse(bundle.vid);
 
     if (vid.includes("apache")) return "apache";
@@ -60,7 +49,7 @@ async function generateAll() {
     return defaultCollator(bundle);
   });
 
-  generate(g.v_platform, "platforms", "buildPlatform", (bundle: AtoZData) => {
+  generate(g.n_platform, "platforms", "buildPlatform", (bundle: AtoZData) => {
     const vid = JSON.parse(bundle.vid);
 
     if (vid.includes("mach") || vid.includes("lisp")) return "other";
@@ -99,7 +88,7 @@ async function generateAll() {
   });
 
   generate(
-    g.v_plang,
+    g.n_plang,
     "plangs",
     "buildPlang",
     (bundle: AtoZData) => {
@@ -187,7 +176,7 @@ const PLANG_GROUPS = {
   zig: ["zig"],
 };
 
-function defaultMapper(vid_: VID_Any, vertex: _T_AnyV_Data): AtoZData {
+function defaultMapper(vid_: VID_Any, vertex: _T_Anyn_Data): AtoZData {
   const bundle: AtoZData = { vertex, vid: json(vid_) };
   const data = tidy(vertex);
   const { vid, ...rest } = data;
@@ -208,7 +197,7 @@ function defaultCollator(bundle: AtoZData): string {
 }
 
 function plangMapper(g: PlangsGraph, plvid: VID_Plang): AtoZData {
-  const vertex = g.v_plang.get(plvid);
+  const vertex = g.n_plang.get(plvid);
   if (!vertex || !vertex.name) throw new Error(`Missing plang data: ${plvid}`);
 
   const bundle: AtoZData = { vertex, vid: json(plvid) };
@@ -287,21 +276,21 @@ function plangMapper(g: PlangsGraph, plvid: VID_Plang): AtoZData {
 }
 
 // biome-ignore lint/suspicious/noExplicitAny: let me be.
-type _T_AnyV_Data = any;
+type _T_Anyn_Data = any;
 
 // a_to_z.eta template data:
 type AtoZData = {
-  vertex: _T_AnyV_Data;
+  vertex: _T_Anyn_Data;
   vid: string; // json vertex id
   data?: string; // json vertex data
   vrelations?: string[]; // json vertex relations
 };
 
-type DataMapper = (vid: VID_Any, vertex: _T_AnyV_Data) => AtoZData;
+type DataMapper = (vid: VID_Any, vertex: _T_Anyn_Data) => AtoZData;
 type Collator = (bundle: AtoZData) => string;
 
 function generate(
-  vtable: VertexTable<VID_Any, _T_AnyV_Data>,
+  vtable: VertexTable<VID_Any, _T_Anyn_Data>,
   basename: string,
   builderName: string,
   collator: Collator = defaultCollator,

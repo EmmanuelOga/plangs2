@@ -1,4 +1,4 @@
-import { PlangsGraph } from "packages/plangs/src/graph";
+import { PlangsGraph } from "@plangs/plangs";
 
 // biome-ignore lint/style/useNodejsImportProtocol: not needed with Bun.
 import { watch } from "fs";
