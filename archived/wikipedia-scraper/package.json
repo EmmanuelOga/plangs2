@@ -5,9 +5,10 @@
   "dependencies": {
     "@plangs/graph": "workspace:*",
     "@plangs/plangs": "workspace:*",
-    "cheerio": "^1.0.0-rc.12",
-    "eta": "^3.4.0"
+    "cheerio": "^1.0.0"
   },
   "main": "src/generate.ts",
-  "files": ["src"]
+  "files": [
+    "src"
+  ]
 }

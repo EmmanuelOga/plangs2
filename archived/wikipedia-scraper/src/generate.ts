@@ -1,14 +1,30 @@
-import { Eta } from "eta";
-
 import type { NodeMap } from "@plangs/graph";
 import { type NPlang, PlangsGraph } from "@plangs/plangs";
 
 import { blank, tidy, toAlphaNum } from "./util";
 import { parseAll } from "./wikipedia_process";
 
-const Templ = new Eta({ views: __dirname, autoEscape: false });
-
 const DEF_PATH = Bun.fileURLToPath(`file:${__dirname}/../../../packages/definitions/src`);
+
+function templ(data) {
+  const body: string[] = [];
+
+  for (const bundle of data) {
+    const buf = [`g.${bundle.nodeType}.set(${bundle.key}, ${bundle.data})`];
+
+    for (const rel of bundle.vrelations) {
+      buf.push(rel);
+    }
+
+    body.push(line.join(""));
+  }
+
+  return `
+import type { PlangsGraph } from "@plangs/plangs";
+export function define(g: PlangsGraph) {
+  ${body.join("\n  ")}
+};`;
+}
 
 function tsPath(type: string, name: string): string {
   if (name) {
