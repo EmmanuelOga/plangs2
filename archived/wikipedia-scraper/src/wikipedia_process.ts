@@ -4,9 +4,7 @@
 
 import { Glob } from "bun";
 
-import type { VID } from "@plangs/graph/vertex";
-import type { PlangsGraph } from "@plangs/plangs";
-import type { E_Base, Image, Link, Release, V_Plang } from "@plangs/plangs/schema";
+import type { PlangsGraph, Link, NPlang, Release } from "@plangs/plangs";
 
 import { toAlphaNum } from "./util";
 import { type DATA_ATTR, type DATA_TYPE, WIKIPEDIA_URL, cachePath } from "./wikipedia_scraper";
@@ -20,7 +18,7 @@ type _Any = any;
  */
 export async function parseAll(g: PlangsGraph) {
   function addTsys(name: string, wiki: Link["href"]) {
-    g.v_tsystem.set(`tsys+${name.toLowerCase()}`, {
+    g.n_tsystem.set(`tsys+${name.toLowerCase()}`, {
       name,
       websites: [
         {
@@ -74,18 +72,6 @@ export async function parseAll(g: PlangsGraph) {
   }
 }
 
-function mergeLink(links: Link[], newLink: Link) {
-  if (links.some((l: Link) => l.href.toLowerCase() === newLink.href.toLowerCase())) return;
-  links.push(newLink);
-}
-
-function mergeRefs(edata: Partial<E_Base>, refs: Link[]) {
-  edata.refs ??= [];
-  for (const ref of refs) {
-    if (!edata.refs.some((r: Link) => r.href === ref.href)) edata.refs.push(ref);
-  }
-}
-
 function processLanguage(
   g: PlangsGraph,
   title: string,
@@ -96,15 +82,11 @@ function processLanguage(
   const plKey = keyFromWikiUrl(wikiUrl);
   if (!plKey) return;
 
-  const pl: Partial<V_Plang> = g.v_plang.merge(`pl+${plKey}`, { name: title }); // We may already have the language, from an influence.
-  pl.websites ??= [];
-  mergeLink(pl.websites, { kind: "wikipedia", title: title, href: wikiUrl });
+  const pl = g.n_plang.set(`pl+${plKey}`, { name: title }); // We may already have the language, from an influence.
+  pl.addWebsites([{ kind: "wikipedia", title, href: wikiUrl }]);
 
   if (imageUrl) {
-    pl.images ??= [];
-    if (!pl.images.some((i: Image) => i.url === imageUrl)) {
-      pl.images.push({ kind: /logo/i.test(imageUrl) ? "logo" : "screenshot", url: imageUrl });
-    }
+    pl.addImages([{ kind: /logo/i.test(imageUrl) ? "logo" : "screenshot", url: imageUrl }]);
   }
 
   for (const [attr, attrVal] of Object.entries(data)) {
@@ -116,8 +98,8 @@ function processLanguage(
   }
 }
 
-function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxType: DATA_TYPE, val: _Any): void {
-  const pl = g.v_plang.declare(pvid);
+function assign(g: PlangsGraph, plKey: NPlang["key"], infoboxKey: DATA_ATTR, infoboxType: DATA_TYPE, val: _Any): void {
+  const pl = g.n_plang.get(plKey);
 
   switch (infoboxKey) {
     case "website":
@@ -142,18 +124,14 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
           kind = "wikipedia";
         } else if (href.includes("git")) kind = "repository";
 
-        const link: Link = { kind, title, href };
-        pl.websites ??= [];
-        mergeLink(pl.websites, link);
+        pl.addWebsites([{ kind, title, href }]);
       }
       return;
 
     case "filename_extension":
     case "filename_extensions":
       if (infoboxType !== "extensions") return;
-      pl.extensions ??= [];
-      pl.extensions.push(...val.filter((x: string) => x.length < 8));
-      pl.extensions = [...new Set(pl.extensions)];
+      pl.addExtensions(val.filter((x: string) => x.length < 8));
       return;
 
     case "internet_media_type":
@@ -163,13 +141,13 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
       if (infoboxType !== "links") return;
       for (const { title, href, refs } of val.filter(({ href }: { href: string }) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
-        if (!key || key === pvid) continue;
+        if (!key || key === plKey) continue;
 
-        const p = g.v_plang.merge(`pl+${key}`, { name: title.trim() });
-        p.websites ??= [];
-        mergeLink(p.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
+        const p = g.n_plang.set(`pl+${key}`, { name: title.trim() });
+        p.addWebsites([{ kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` }]);
 
-        mergeRefs(g.e_implements.connect(`pl+${key}`, pvid), refs);
+        const rel = g.e_implements.connect(`pl+${key}`, plKey);
+        if (refs) rel.addRefs(refs);
       }
       return;
 
@@ -178,13 +156,14 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
 
       for (const { title, href, refs } of val.filter(({ href }: { href: string }) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
-        if (!key || key === pvid) continue;
+        if (!key || key === plKey) continue;
 
-        const p = g.v_plang.merge(`pl+${key}`, { name: title.trim() });
-        p.websites ??= [];
-        mergeLink(p.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
+        const p = g.n_plang.set(`pl+${key}`, { name: title.trim() });
+        p.addWebsites([{ kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` }]);
 
-        mergeRefs(g.e_implements.connect(`pl+${key}`, pvid), refs);
+        const rel = g.e_implements.connect(`pl+${key}`, plKey);
+        
+        if (refs) rel.addRefs(refs);
       }
       return;
 
@@ -193,17 +172,14 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
       if (infoboxType !== "links") return;
       for (const { title, href, refs } of val.filter(({ href }: { href: string }) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
-        if (!key || key === pvid) continue;
+        if (!key || key === plKey) continue;
 
-        const otherpl = g.v_plang.merge(`pl+${key}`, { name: title.trim() });
-        otherpl.websites ??= [];
-        mergeLink(otherpl.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
+        const otherpl = g.n_plang.set(`pl+${key}`, { name: title.trim() });
+        otherpl.addWebsites([{ kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` }]);
 
-        if (infoboxKey === "influenced") {
-          mergeRefs(g.e_l_influenced_l.connect(pvid, `pl+${key}`), refs);
-        } else {
-          mergeRefs(g.e_l_influenced_l.connect(`pl+${key}`, pvid), refs);
-        }
+        const rel = infoboxKey === "influenced" ? g.e_l_influenced_l.connect(plKey, `pl+${key}`) : g.e_l_influenced_l.connect(`pl+${key}`, plKey);
+
+        if (refs) rel.addRefs(refs);
       }
       return;
 
@@ -212,17 +188,14 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
       if (infoboxType !== "links") return;
       for (const { title, href, refs } of val.filter(({ href }: { href: string }) => href.startsWith("/wiki"))) {
         const key = keyFromWikiUrl(href);
-        if (!key || key === pvid) continue;
+        if (!key || key === plKey) continue;
 
-        const otherpl = g.v_plang.merge(`pl+${key}`, { name: title.trim() });
-        otherpl.websites ??= [];
-        mergeLink(otherpl.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
+        const otherpl = g.n_plang.set(`pl+${key}`, { name: title.trim() });
+        otherpl.addWebsites([{ kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` }]);
 
-        if (infoboxKey === "dialects") {
-          mergeRefs(g.e_dialect_of.connect(`pl+${key}`, pvid), refs);
-        } else {
-          mergeRefs(g.e_dialect_of.connect(pvid, `pl+${key}`), refs);
-        }
+        const rel = infoboxKey === "dialects" ? g.e_dialect_of.connect(`pl+${key}`, plKey) : g.e_dialect_of.connect(plKey, `pl+${key}`);
+
+        if (refs) rel.addRefs(refs);
       }
       return;
 
@@ -234,13 +207,12 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
 
         key = cleanLicense(key);
 
-        const lic = g.v_license.declare(`lic+${key}`);
-        if (!lic.name || lic.name.length > title.length) lic.name = title.trim(); // Keep the shortest name.
+        const lic = g.n_license.get(`lic+${key}`);
+        if (!lic.data.name || lic.data.name.length > title.length) lic.data.name = title.trim(); // Keep the shortest name.
 
-        lic.websites ??= [];
-        mergeLink(lic.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
+        lic.addWebsites([{ kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` }]);
 
-        mergeRefs(g.e_has_license.connect(pvid, `lic+${key}`), refs);
+        if (refs) g.e_has_license.connect(plKey, `lic+${key}`).addRefs(refs);
       }
       return;
 
@@ -254,12 +226,13 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
         key = cleanPlatform(key);
         if (!key) continue;
 
-        const p = g.v_platform.merge(`platf+${key}`, { name: title.trim() });
+        const p = g.n_platform.set(`platf+${key}`, { name: title.trim() });
 
-        p.websites ??= [];
-        mergeLink(p.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
+        p.addWebsites([{ kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` }]);
 
-        mergeRefs(g.e_supports_platf.connect(pvid, `platf+${key}`), refs);
+        const rel = g.e_supports_platf.connect(plKey, `platf+${key}`);
+
+        if (refs) rel.addRefs(refs);
       }
       return;
 
@@ -276,12 +249,11 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
           continue;
         }
 
-        const p = g.v_paradigm.merge(`para+${key}`, { name: title.split(",")[0] });
+        const p = g.n_paradigm.set(`para+${key}`, { name: title.split(",")[0] });
 
-        p.websites ??= [];
-        mergeLink(p.websites, { kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` });
+        p.addWebsites([{ kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` }]);
 
-        mergeRefs(g.e_plang_para.connect(pvid, `para+${key}`), refs);
+        if (refs) g.e_plang_para.connect(plKey, `para+${key}`).addRefs(refs);
       }
       return;
 
@@ -289,16 +261,13 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
       {
         function processScope(scopes: string): void {
           if (scopes.includes("lexical")) {
-            pl.scoping ??= [];
-            pl.scoping.push("lexical");
+            pl.addScoping(["lexical"]);
           }
           if (scopes.includes("static")) {
-            pl.scoping ??= [];
-            pl.scoping.push("static");
+            pl.addScoping(["static"]);
           }
           if (scopes.includes("dynamic")) {
-            pl.scoping ??= [];
-            pl.scoping.push("dynamic");
+            pl.addScoping(["dynamic"]);
           }
         }
         if (infoboxType === "text") processScope(val);
@@ -321,22 +290,21 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
       function addPerson(name: string, link?: Link, refs?: Link[]) {
         const key = toAlphaNum(name).replaceAll(".", "");
 
-        const person = g.v_person.merge(`person+${key}`, { name: name });
-        person.websites ??= [];
-        if (link) mergeLink(person.websites, link);
+        const person = g.n_person.set(`person+${key}`, { name: name });
+        if (link) person.addWebsites([link]);
 
-        const rel = g.e_person_plang.connect(`person+${key}`, pvid);
+        const rel = g.e_person_plang.connect(`person+${key}`, plKey);
 
         const inferred_role = infoboxKey.includes("developer") ? "developer" : "designer";
 
-        if (!rel.role) {
-          rel.role = inferred_role;
-        } else if (rel.role !== "designer") {
+        if (!rel.data.role) {
+          rel.data.role = inferred_role;
+        } else if (rel.data.role !== "designer") {
           // Prefer the "designer" role if it is already there.
-          rel.role = inferred_role;
+          rel.data.role = inferred_role;
         }
 
-        if (link && refs) mergeRefs(rel, refs);
+        if (refs) rel.addRefs(refs);
       }
 
       // Under the "risk" of having duplicated people, we use the name of the person
@@ -359,8 +327,8 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
           for (const name of str.split(",").map((s: string) => s.toLowerCase())) {
             const tsys = cleanTsys(name);
             if (tsys) {
-              const e = g.e_plang_tsys.connect(pvid, `tsys+${tsys}`);
-              if (refs) mergeRefs(e, refs);
+              const e = g.e_plang_tsys.connect(plKey, `tsys+${tsys}`);
+              if (refs) e.addRefs(refs);
             }
           }
         }
@@ -395,11 +363,7 @@ function assign(g: PlangsGraph, pvid: VID<"pl">, infoboxKey: DATA_ATTR, infoboxT
           kind: KINDS[infoboxKey],
         };
 
-        pl.releases ??= [];
-
-        if (!pl.releases.some((r: Release) => r.version === rel.version && r.date === rel.date)) {
-          pl.releases.push(rel);
-        }
+        pl.addReleases([rel]);
       }
       return;
 
@@ -586,19 +550,7 @@ function keyFromWikiUrl(wikiUrl: string): string | undefined {
 
     if (SKIP_KEYS.test(key)) return;
 
-    for (const l of [
-      "verilog",
-      "sql",
-      "modula",
-      "algol",
-      "basic",
-      "cobol",
-      "coral",
-      "fortran",
-      "pascal",
-      "smalltalk",
-      "turing",
-    ])
+    for (const l of ["verilog", "sql", "modula", "algol", "basic", "cobol", "coral", "fortran", "pascal", "smalltalk", "turing"])
       if (key.includes(l)) return l;
 
     if (key.startsWith("pl-slash")) return "pl-slash";

@@ -128,7 +128,7 @@ export type DATA_ATTR =
 
 export type DATA_TYPE = "extensions" | "links" | "release" | "text";
 
-const CACHE_PATH = Bun.fileURLToPath(`file:///${__dirname}/../../.cache`);
+const CACHE_PATH = Bun.fileURLToPath(`file:///${__dirname}/../../../.cache`);
 
 export function cachePath(type: string, path = ""): string {
   return Bun.fileURLToPath(`file:///${CACHE_PATH}/${type}/${path}`);

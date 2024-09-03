@@ -2,7 +2,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
 <% for (const bundle of it.data) { %>
-  g.<%= it.nodeType %>.define(<%= bundle.vid %>)<%= bundle.data ? `.merge(${bundle.data})` : '' %><%= bundle.vrelations?.join('') ?? '' %>;
+  g.<%= it.nodeType %>.define(<%= bundle.key %>)<%= bundle.data ? `, ${bundle.data})` : ')' %><%= bundle.vrelations?.join('') ?? '' %>;
 
   /**/
 

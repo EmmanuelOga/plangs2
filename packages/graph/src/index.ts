@@ -62,7 +62,7 @@ export class NodeMap<T_Graph extends BaseGraph, T_Node extends Node<T_Graph, Any
     return newNode;
   }
 
-  size() : number {
+  get size() : number {
     return this.#map.size;
   }
 
