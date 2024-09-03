@@ -360,15 +360,7 @@ async function scrapLanguagePage(wikiPath: string) {
     }
   }
 
-  for (const key of [
-    "implementation_language",
-    "influenced",
-    "influenced_by",
-    "major_implementations",
-    "software_used",
-    "successor",
-    "written_in",
-  ]) {
+  for (const key of ["implementation_language", "influenced", "influenced_by", "major_implementations", "software_used", "successor", "written_in"]) {
     // @ts-ignore: TODO this works but there's something wrong with the infobox type.
     const links = infobox[key]?.links;
 

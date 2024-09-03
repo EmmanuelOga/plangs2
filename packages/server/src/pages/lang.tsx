@@ -19,8 +19,8 @@ export function Lang({ pl }: LangProps) {
         </div>
 
         <p>
-          This is the description of the language. This is more text about the language. Then more text about the
-          language. Also we could say more about the language. And more about the language.
+          This is the description of the language. This is more text about the language. Then more text about the language. Also we could say more
+          about the language. And more about the language.
         </p>
 
         <h2>News</h2>
@@ -41,8 +41,8 @@ export function Lang({ pl }: LangProps) {
 
         <h2>Tooling</h2>
         <p>
-          Some languages provide built-in tools like package managers, build tools, linters, etc., while others rely on
-          third-party tools to provide these functionalities.
+          Some languages provide built-in tools like package managers, build tools, linters, etc., while others rely on third-party tools to provide
+          these functionalities.
         </p>
         <table>
           <thead>
@@ -76,9 +76,7 @@ export function Lang({ pl }: LangProps) {
         </table>
 
         <h2>Tool Bundles</h2>
-        <p>
-          A "bundle" is a set of tools that work well together. Here are some recommended bundles for this language.
-        </p>
+        <p>A "bundle" is a set of tools that work well together. Here are some recommended bundles for this language.</p>
         <dl>
           <dt>Bundle 1</dt>
           <dd>

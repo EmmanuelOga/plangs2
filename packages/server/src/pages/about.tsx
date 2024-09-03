@@ -4,27 +4,17 @@ export function About() {
       <div />
       <article id="about" class="common-content">
         <h2>What is Plangs?</h2>
-        <p>
-          Plangs is a website dedicated to aggregating and curating information about a wide variety of programming
-          languages.
-        </p>
+        <p>Plangs is a website dedicated to aggregating and curating information about a wide variety of programming languages.</p>
         <h2>Community Contribution</h2>
         <p>
-          The initial data for Plangs was scraped from Wikipedia infoboxes on programming languages. While Wikipedia
-          offers a rich repository of information, not all programming languages have dedicated pages!
+          The initial data for Plangs was scraped from Wikipedia infoboxes on programming languages. While Wikipedia offers a rich repository of
+          information, not all programming languages have dedicated pages!
         </p>
-        <p>
-          We manually update the entries for each programming language and tool and gladly accept contributions from
-          the community.
-        </p>
-        <p>
-          If you find any mistakes or want to submit new information, please feel free to open a pull request on our
-          GitHub repository.
-        </p>
+        <p>We manually update the entries for each programming language and tool and gladly accept contributions from the community.</p>
+        <p>If you find any mistakes or want to submit new information, please feel free to open a pull request on our GitHub repository.</p>
         <h2>Static Website and Baked Data</h2>
         <p>
-          Plangs is built as a static website. All the data on our site is available as a JSON file, following the
-          "baked data" pattern inspired by
+          Plangs is built as a static website. All the data on our site is available as a JSON file, following the "baked data" pattern inspired by
           <a href="https://simonwillison.net/2021/Jul/28/baked-data/">Simon Willison's Baked Data Pattern</a>.
         </p>
         <h2>License</h2>

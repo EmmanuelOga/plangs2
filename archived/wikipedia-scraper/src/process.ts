@@ -162,7 +162,7 @@ function assign(g: PlangsGraph, plKey: NPlang["key"], infoboxKey: DATA_ATTR, inf
         p.addWebsites([{ kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` }]);
 
         const rel = g.e_implements.connect(`pl+${key}`, plKey);
-        
+
         if (refs) rel.addRefs(refs);
       }
       return;

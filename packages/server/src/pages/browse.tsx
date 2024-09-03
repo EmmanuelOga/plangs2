@@ -148,9 +148,5 @@ type PlangLogoProps = {
 function PlangLogo({ pl }: PlangLogoProps) {
   const logo = pl.logoOrImage();
 
-  return (
-    <div class="logo">
-      {logo ? <img class="logo" src={logo.url} alt="Logo" /> : <div class="placeholder">{pl.data.name ?? "No Logo"}</div>}
-    </div>
-  );
+  return <div class="logo">{logo ? <img class="logo" src={logo.url} alt="Logo" /> : <div class="placeholder">{pl.data.name ?? "No Logo"}</div>}</div>;
 }

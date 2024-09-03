@@ -16,11 +16,7 @@ export function layout(graph: Graph) {
 
   graph.forEachNode((node) => {
     const degree = graph.degree(node);
-    graph.setNodeAttribute(
-      node,
-      "size",
-      minSize + ((degree - minDegree) / (maxDegree - minDegree)) * (maxSize - minSize),
-    );
+    graph.setNodeAttribute(node, "size", minSize + ((degree - minDegree) / (maxDegree - minDegree)) * (maxSize - minSize));
   });
 
   circlepack.assign(graph, { hierarchyAttributes: ["degree", "community"] });

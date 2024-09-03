@@ -25,8 +25,8 @@ export function Layout({ pageId, children, plVid, plName }: LayoutProps) {
         <div id="main-wrapper">
           <noscript>
             <em>Note!</em>
-            This site is fully static and requires JavaScript for the best experience. In particular, the search feature
-            will not work without JavaScript.
+            This site is fully static and requires JavaScript for the best experience. In particular, the search feature will not work without
+            JavaScript.
           </noscript>
           <header id="top-header">
             <h1 class="logo">
@@ -37,9 +37,7 @@ export function Layout({ pageId, children, plVid, plName }: LayoutProps) {
               <a href="/" class={pageId === "home" ? "current" : ""}>
                 <span>Browse</span>
               </a>
-              <a
-                href={plVid ? `/pl/${plVid.split("+")[1]}` : "/"}
-                class={`lang ${pageId === "lang" ? "current" : ""} ${plVid ? "" : "hide"}`}>
+              <a href={plVid ? `/pl/${plVid.split("+")[1]}` : "/"} class={`lang ${pageId === "lang" ? "current" : ""} ${plVid ? "" : "hide"}`}>
                 <span>{plName ?? "Lang"}</span>
               </a>
               <a href="/blog" class={pageId === "blog" ? "current" : ""}>

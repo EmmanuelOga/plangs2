@@ -39,10 +39,6 @@ export function send(target: Element | null | undefined, ev: Event): boolean {
   return target.dispatchEvent(ev);
 }
 
-export function customEvent<T>(
-  type: string,
-  detail: T,
-  options: CustomEventInit = { bubbles: true, composed: true },
-): CustomEvent {
+export function customEvent<T>(type: string, detail: T, options: CustomEventInit = { bubbles: true, composed: true }): CustomEvent {
   return new CustomEvent(type, { detail, ...options });
 }

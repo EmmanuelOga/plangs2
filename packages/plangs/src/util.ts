@@ -14,9 +14,7 @@ export function caller(match: string, dontMatch = ""): string {
   }
   const err = getErrorObject();
 
-  const caller_line = (err.stack ?? "")
-    .split("\n")
-    .find((line: string) => line.includes(match) && (!dontMatch || !line.includes(dontMatch)));
+  const caller_line = (err.stack ?? "").split("\n").find((line: string) => line.includes(match) && (!dontMatch || !line.includes(dontMatch)));
 
   if (!caller_line) return "unknown";
   const index = caller_line.indexOf("at ");
