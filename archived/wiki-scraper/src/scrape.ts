@@ -4,15 +4,13 @@
 
 import { unlinkSync } from "node:fs";
 import { mkdir } from "node:fs/promises";
-import { type Cheerio, type Element, load } from "cheerio";
-
-import { toAlphaNum } from "./util";
+import { type Cheerio, load } from "cheerio";
 
 export const WIKIPEDIA_URL = "https://en.wikipedia.org";
 
-const START_PAGES = ["/wiki/List_of_programming_languages", "/wiki/Category:C_programming_language_family"];
-
-const SHORTLIST = [
+const START_PAGES = [
+  "/wiki/List_of_programming_languages",
+  "/wiki/Category:C_programming_language_family",
   "/wiki/CircuitPython",
   "/wiki/C%2B%2B",
   "/wiki/C_(programming_language)",
@@ -29,112 +27,13 @@ const SHORTLIST = [
   "/wiki/Zig_(programming_language)",
 ];
 
-// Some keys that seem consistent across pages.
-const INFOBOX_KEYS = new Set<string>([
-  "available_in",
-  "bits",
-  "defunct",
-  "design",
-  "designed_by",
-  "designer",
-  "developed_by",
-  "developer",
-  "developers",
-  "dialects",
-  "discontinued",
-  "encoding",
-  "endianness",
-  "family",
-  "filename_extension",
-  "filename_extensions",
-  "final_release",
-  "first_appeared",
-  "floating_point",
-  "founded",
-  "founder",
-  "general-purpose",
-  "implementation_language",
-  "industry",
-  "influenced",
-  "influenced_by",
-  "initial_release",
-  "internet_media_type",
-  "introduced",
-  "kernel_type",
-  "key_people",
-  "latest_release",
-  "license",
-  "major_implementations",
-  "official_website",
-  "operating_system",
-  "original_authors",
-  "os",
-  "os_family",
-  "paradigm",
-  "paradigms",
-  "platform",
-  "platforms",
-  "predecessor",
-  "preview_release",
-  "products",
-  "release_date",
-  "repository",
-  "revenue",
-  "scope",
-  "size",
-  "software_used",
-  "source_model",
-  "stable_release",
-  "successor",
-  "type",
-  "type_of_format",
-  "typing_discipline",
-  "website",
-  "working_state",
-  "written_in",
-]);
-
-// Cover the most important infobox keys as a type.
-export type DATA_ATTR =
-  | "designed_by"
-  | "developed_by"
-  | "developer"
-  | "developers"
-  | "dialects"
-  | "family"
-  | "filename_extension"
-  | "filename_extensions"
-  | "first_appeared"
-  | "founder"
-  | "implementation_language"
-  | "influenced"
-  | "influenced_by"
-  | "initial_release"
-  | "internet_media_type"
-  | "latest_release"
-  | "license"
-  | "major_implementations"
-  | "os"
-  | "paradigm"
-  | "paradigms"
-  | "platform"
-  | "preview_release"
-  | "scope"
-  | "stable_release"
-  | "type"
-  | "type_of_format"
-  | "typing_discipline"
-  | "website";
-
-export type DATA_TYPE = "extensions" | "links" | "release" | "text";
-
 const CACHE_PATH = Bun.fileURLToPath(`file:///${__dirname}/../../../.cache`);
 
-export function cachePath(type: string, path = ""): string {
+export function cachePath(type: string, path: string): string {
   return Bun.fileURLToPath(`file:///${CACHE_PATH}/${type}/${path}`);
 }
 
-export function toBasename(str: string, type = "html"): string {
+export function toFilename(str: string, type: string): string {
   return `${str.replace(/\/|\\|\:/g, "_")}.${type}`;
 }
 
@@ -147,13 +46,12 @@ const STATE = {
 };
 
 /**
- * Fetches a page, caching both to disk and to memory.
+ * HTTP fetch the page. Cache the result: if the file is on disk, the request is not made.
  */
 async function fetchWiki(wikiPath: string): Promise<string> {
-  // biome-ignore lint/style/noNonNullAssertion: the map _has_ the key.
-  if (STATE.fetchCache.has(wikiPath)) return STATE.fetchCache.get(wikiPath)!;
+  if (STATE.fetchCache.has(wikiPath)) return STATE.fetchCache.get(wikiPath) as string;
 
-  const cacheFile = cachePath("wiki", toBasename(wikiPath, "html"));
+  const cacheFile = cachePath("wiki", toFilename(wikiPath, "html"));
 
   const file = Bun.file(cacheFile);
   if (await file.exists()) {
@@ -176,13 +74,7 @@ async function fetchWiki(wikiPath: string): Promise<string> {
   return text;
 }
 
-// Do something with the language data.
-function emit({ title, wikiUrl, img, data }: { title: string; wikiUrl: string; img: string; data: unknown }) {
-  const plKey = toAlphaNum(wikiUrl.split("wiki/")[1]);
-  STATE.plangs.set(plKey, { title, wikiUrl, img, data });
-}
-
-async function scrapLanguagePage(wikiPath: string) {
+async function scrapePage(wikiPath: string) {
   if (STATE.wikiPathScraped.has(wikiPath)) return;
   STATE.wikiPathScraped.add(wikiPath);
 
@@ -336,7 +228,7 @@ async function scrapLanguagePage(wikiPath: string) {
     return str.trim().toLocaleLowerCase().replace(/\s/g, "_").replace(/\(|\)/g, "");
   }
 
-  const infobox: Partial<Record<DATA_ATTR, Partial<Record<DATA_TYPE, any>>>> = {};
+  const infobox: Partial<Record<string, Partial<Record<string, any>>>> = {};
 
   for (const row of $infobox.find("tr")) {
     try {
@@ -344,13 +236,11 @@ async function scrapLanguagePage(wikiPath: string) {
       // Option (1): tr > td.key , td.val
       const key = toKey($row.find(".infobox-label").text());
       if (key) {
-        if (!INFOBOX_KEYS.has(key)) continue;
         // @ts-ignore: TODO this works but there's something wrong with the infobox type.
         infobox[key] = extractData(key, $row.find(".infobox-data"));
       } else {
         // Option (2): tr.key tr.val
         const key = toKey($row.find(".infobox-header").text());
-        if (!INFOBOX_KEYS.has(key)) continue;
         const $elem = $row.next().find(".infobox-full-data").first();
         // @ts-ignore: TODO this works but there's something wrong with the infobox type.
         if ($elem.length) infobox[key] = extractData(key, $elem);
@@ -361,18 +251,18 @@ async function scrapLanguagePage(wikiPath: string) {
   }
 
   for (const key of ["implementation_language", "influenced", "influenced_by", "major_implementations", "software_used", "successor", "written_in"]) {
-    // @ts-ignore: TODO this works but there's something wrong with the infobox type.
     const links = infobox[key]?.links;
 
     if (Array.isArray(links)) {
       for (const link of links) {
         if (!link.href?.startsWith("/wiki")) continue;
-        await scrapLanguagePage(link.href);
+        await scrapePage(link.href);
       }
     }
   }
 
-  emit({ title: plangTitle, wikiUrl: `${WIKIPEDIA_URL}${wikiPath}`, img, data: infobox });
+  const plKey = wikiPath.split("wiki/")[1];
+  STATE.plangs.set(plKey, { title: plangTitle, wikiUrl: `${WIKIPEDIA_URL}${wikiPath}`, img, data: infobox });
 }
 
 function cleanImgUrl(url: string | undefined): string {
@@ -389,36 +279,32 @@ function cleanImgUrl(url: string | undefined): string {
 async function wikiScrape(refresh = false) {
   console.log("Scraping Wikipedia. Using cache: ", CACHE_PATH);
 
-  await mkdir(cachePath("wiki"), { recursive: true }).catch((_) => {});
-  await mkdir(cachePath("json"), { recursive: true }).catch((_) => {});
+  await mkdir(cachePath("wiki", ""), { recursive: true }).catch((_) => {});
+  await mkdir(cachePath("json", ""), { recursive: true }).catch((_) => {});
 
   if (refresh) {
     // Delete starting cache files.
     for (const start of START_PAGES) {
       try {
-        const p = cachePath("wiki", toBasename(start, "html"));
+        const p = cachePath("wiki", toFilename(start, "html"));
         unlinkSync(p);
       } catch (_) {}
     }
   }
 
-  for (const lang of SHORTLIST) {
-    await scrapLanguagePage(lang);
-  }
-
-  for (const start of START_PAGES) {
-    const $ = load(await fetchWiki(start));
+  for (const wikiPath of START_PAGES) {
+    const $ = load(await fetchWiki(wikiPath));
     for (const link of $("#mw-content-text").find("a")) {
       if (link.attribs.href === undefined) continue;
       if (!link.attribs.href?.startsWith("/wiki/")) continue;
-      await scrapLanguagePage(link.attribs.href);
+      await scrapePage(link.attribs.href);
     }
   }
 
-  console.log(`Writing ${STATE.plangs.size} programming languages to ${cachePath("json")}.`);
+  console.log(`Writing ${STATE.plangs.size} programming languages to ${cachePath("json", "")}.`);
 
   for (const [key, value] of STATE.plangs) {
-    Bun.write(cachePath("json", toBasename(key, "json")), JSON.stringify(value, null, 2));
+    Bun.write(cachePath("json", toFilename(key, "json")), JSON.stringify(value, null, 2));
   }
 }
 
