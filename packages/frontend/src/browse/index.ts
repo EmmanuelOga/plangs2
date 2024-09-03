@@ -5,9 +5,7 @@
 import { debounce } from "lodash-es";
 import "preact/debug";
 
-import { PlangsGraph } from "@plangs/plangs";
-import { filter } from "@plangs/plangs/filters";
-import type { VID_Plang } from "@plangs/plangs/schema";
+import { type NPlang, PlangsGraph } from "@plangs/plangs";
 
 import { type CompletionItem, type InputComplElement, registerInputCompl } from "../input-compl";
 import { type InputSelElement, registerInputSel } from "../input-sel";
@@ -33,14 +31,14 @@ function startBrowseNav(pg: PlangsGraph) {
 
   function updatePlangs() {
     const filters = getFilters();
-    const vids = filter(pg, filters);
+    const keys = pg.filterPlangs(filters);
 
     for (const div of thumbnails) {
-      const vid = div.dataset.vid as VID_Plang;
-      div.classList.toggle("hide", !vids.has(vid));
+      const nid = div.dataset.nid as NPlang["key"];
+      div.classList.toggle("hide", !keys.has(nid));
     }
 
-    // if (status) status.innerText = `Displaying ${vids.size} languages of ${pg.v_plang.size}.`;
+    // if (status) status.innerText = `Displaying ${keys.size} languages of ${pg.n_plang.size}.`;
   }
 
   updatePlangs();
@@ -56,8 +54,8 @@ function startBrowseNav(pg: PlangsGraph) {
 
   function completions(vtable: Iterable<any>): CompletionItem[] {
     const data: CompletionItem[] = [];
-    for (const [vid, value] of vtable) {
-      data.push({ value: vid, label: value.name, pattern: value.name.toLowerCase() });
+    for (const [key, value] of vtable) {
+      data.push({ value: key, label: value.name, pattern: value.name.toLowerCase() });
     }
     return data;
   }
@@ -66,12 +64,12 @@ function startBrowseNav(pg: PlangsGraph) {
     const name = compl.getAttribute("name");
     const { source } = compl.dataset;
 
-    if (source === "license") compl.completions = completions(pg.v_license);
-    else if (source === "para") compl.completions = completions(pg.v_license);
-    else if (source === "people") compl.completions = completions(pg.v_person);
-    else if (source === "plang") compl.completions = completions(pg.v_plang);
-    else if (source === "platf") compl.completions = completions(pg.v_platform);
-    else if (source === "tsys") compl.completions = completions(pg.v_tsystem);
+    if (source === "license") compl.completions = completions(pg.n_license);
+    else if (source === "para") compl.completions = completions(pg.n_license);
+    else if (source === "people") compl.completions = completions(pg.n_person);
+    else if (source === "plang") compl.completions = completions(pg.n_plang);
+    else if (source === "platf") compl.completions = completions(pg.n_platform);
+    else if (source === "tsys") compl.completions = completions(pg.n_tsystem);
     else {
       console.warn("no completions found for", compl);
       continue;
@@ -119,12 +117,12 @@ function startBrowseNav(pg: PlangsGraph) {
   on(plangsMain, "click", ({ target }) => {
     if (!plangInfo) return;
     const wrapper = (target as HTMLElement).closest(".plang-thumb") as HTMLDivElement;
-    if (!wrapper || !wrapper.dataset.vid) return;
-    plangInfo.vid = wrapper.dataset.vid as VID_Plang;
+    if (!wrapper || !wrapper.dataset.key) return;
+    plangInfo.key = wrapper.dataset.key as NPlang["key"];
     if (langTab) {
       langTab.classList.toggle("hide", false);
-      langTab.setAttribute("href", `/${plangInfo.vid.split("+").join("/")}`);
-      langTab.innerText = wrapper.querySelector(".name")?.textContent ?? plangInfo.vid;
+      langTab.setAttribute("href", `/${plangInfo.key.split("+").join("/")}`);
+      langTab.innerText = wrapper.querySelector(".name")?.textContent ?? plangInfo.key;
     }
   });
 
@@ -132,16 +130,16 @@ function startBrowseNav(pg: PlangsGraph) {
 
   on(plangsMain, "dblclick", ({ target }) => {
     const wrapper = (target as HTMLElement).closest(".plang-thumb") as HTMLDivElement;
-    if (!wrapper || !wrapper.dataset.vid) return;
-    const vid = wrapper.dataset.vid;
-    window.location.href = `/${vid.split("+").join("/")}`;
+    if (!wrapper || !wrapper.dataset.key) return;
+    const key = wrapper.dataset.key;
+    window.location.href = `/${key.split("+").join("/")}`;
   });
 
   // On click on a pl-pill in the infobox, update the infobox.
 
   on(infobox, "click", ({ target }) => {
-    const vid = (target as HTMLElement).dataset.vid as VID_Plang;
-    if (plangInfo && vid) plangInfo.vid = vid;
+    const key = (target as HTMLElement).dataset.key as NPlang["key"];
+    if (plangInfo && key) plangInfo.key = key;
   });
 }
 

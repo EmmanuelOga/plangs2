@@ -1,18 +1,17 @@
 import type { ComponentChildren, JSX, Ref } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
 
-import type { PlangsGraph } from "@plangs/plangs";
-import type { VID_License, VID_Person, VID_Plang, VID_Platform, VID_TypeSystem } from "@plangs/plangs/schema";
+import type { NPlang, PlangsGraph } from "@plangs/plangs";
 import { customEvent, on } from "../utils";
 
 export const TAG_NAME = "plang-info";
 
 export type PlangInfoProps = {
-  vid?: VID_Plang;
+  key?: NPlang["key"];
 };
 
-/** Display a PL information, if the vid is known. */
-export function PlangInfo({ vid }: PlangInfoProps) {
+/** Display a PL information, if the key is known. */
+export function PlangInfo({ key }: PlangInfoProps) {
   const self = useRef<HTMLDivElement>();
   const [pg, setPg] = useState<PlangsGraph>();
 
@@ -39,31 +38,23 @@ export function PlangInfo({ vid }: PlangInfoProps) {
 
   let content: JSX.Element;
 
-  if (!vid) {
+  if (!key) {
     content = <p>Select a language to show more information.</p>;
   } else {
-    const pl = pg?.v_plang.get(vid);
+    const pl = pg?.n_plang.get(key);
     if (!pl || !pg) {
       content = <p>Loading...</p>;
     } else {
-      /** Go from set of vids to their data. */
-      function collect<T>(vids: Set<string>, getter: (vid: string) => Partial<T> | undefined): T[] {
-        return [...vids].map((vid) => getter(vid)).filter(Boolean) as T[];
-      }
-
-      const people = collect(pg.e_person_plang.adjacentTo(vid), (vid) => pg.v_person.get(vid as VID_Person));
-      const platforms = collect(pg.e_supports_platf.adjacentFrom(vid), (vid) => pg.v_platform.get(vid as VID_Platform));
-      const tsys = collect(pg.e_plang_tsys.adjacentFrom(vid), (vid) => pg.v_tsystem.get(vid as VID_TypeSystem));
-      const licenses = collect(pg.e_has_license.adjacentFrom(vid), (vid) => pg.v_license.get(vid as VID_License));
-
-      const influencedBy = collect(pg.e_l_influenced_l.adjacentTo(vid), (vid) => pg.v_plang.get(vid as VID_Plang));
-      const influenced = collect(pg.e_l_influenced_l.adjacentFrom(vid), (vid) => pg.v_plang.get(vid as VID_Plang));
-
-      const dialectOf = collect(pg.e_dialect_of.adjacentFrom(vid), (vid) => pg.v_plang.get(vid as VID_Plang));
-      const children = collect(pg.e_dialect_of.adjacentTo(vid), (vid) => pg.v_plang.get(vid as VID_Plang));
-
-      const impls = collect(pg.e_implements.adjacentTo(vid), (vid) => pg.v_plang.get(vid as VID_Plang));
-      const standards = collect(pg.e_implements.adjacentFrom(vid), (vid) => pg.v_plang.get(vid as VID_Plang));
+      const people = pl.people();
+      const platforms = pl.platforms();
+      const tsys = pl.typeSystems();
+      const licenses = pl.licenses();
+      const influenced = pl.influenced();
+      const influencedRev = pl.influencedRev();
+      const dialectOf = pl.dialectOf();
+      const dialectOfRev = pl.dialectOfRev();
+      const implements_ = pl.implements();
+      const implementsRev = pl.implementsRev();
 
       function Entry<T>({ title, children }: { title: string; children: ComponentChildren }) {
         return (
@@ -74,10 +65,10 @@ export function PlangInfo({ vid }: PlangInfoProps) {
         );
       }
 
-      function Pill({ vid, name, kind }: { vid: string; kind: string; name: string }) {
+      function Pill({ key, name, kind }: { key: string; kind: string; name: string }) {
         const cssClasses = kind === "pl" ? "pill pl-pill" : "pill";
         return (
-          <div class={cssClasses} key={vid} data-vid={vid} data-kind={kind}>
+          <div class={cssClasses} key={key} data-key={key} data-kind={kind}>
             {name}
           </div>
         );
@@ -85,48 +76,40 @@ export function PlangInfo({ vid }: PlangInfoProps) {
 
       content = (
         <>
-          <h2>{pl.name}</h2>
+          <h2>{pl.data.name ?? key}</h2>
           <dl>
-            {pl.description && <Entry title="Description">{pl.description}</Entry>}
+            {pl.data.description && <Entry title="Description">{pl.data.description}</Entry>}
             {people.length > 0 && (
-              <Entry title="People">{people.map((data) => Pill({ ...data, kind: "person" }))}</Entry>
+              <Entry title="People">{people.map(({ key, data }) => Pill({ key, name: data.name ?? key, kind: "person" }))}</Entry>
             )}
-            {pl.scoping && (
-              <Entry title="Scoping">
-                {pl.scoping.map((data) => Pill({ vid: data, name: data, kind: "scoping" }))}
-              </Entry>
-            )}
-            {pl.extensions && (
-              <Entry title="Extensions">
-                {pl.extensions.map((data) => Pill({ vid: data, name: data, kind: "ext" }))}
-              </Entry>
-            )}
+            {pl.data.scoping && <Entry title="Scoping">{pl.data.scoping.map((data) => Pill({ key: data, name: data, kind: "scoping" }))}</Entry>}
+            {pl.data.extensions && <Entry title="Extensions">{pl.data.extensions.map((data) => Pill({ key: data, name: data, kind: "ext" }))}</Entry>}
             {tsys.length > 0 && (
-              <Entry title="Type Systems">{tsys.map((data) => Pill({ ...data, kind: "tsys" }))}</Entry>
+              <Entry title="Type Systems">{tsys.map(({ key, data }) => Pill({ key, name: data.name ?? key, kind: "tsys" }))}</Entry>
             )}
             {platforms.length > 0 && (
-              <Entry title="Platforms">{platforms.map((data) => Pill({ ...data, kind: "platf" }))}</Entry>
+              <Entry title="Platforms">{platforms.map(({ key, data }) => Pill({ key, name: data.name ?? key, kind: "platf" }))}</Entry>
             )}
-            {influencedBy.length > 0 && (
-              <Entry title="Influenced By">{influencedBy.map((data) => Pill({ ...data, kind: "pl" }))}</Entry>
+            {influencedRev.length > 0 && (
+              <Entry title="Influenced By">{influencedRev.map(({ key, data }) => Pill({ key, name: data.name ?? key, kind: "pl" }))}</Entry>
             )}
             {influenced.length > 0 && (
-              <Entry title="Influenced">{influenced.map((data) => Pill({ ...data, kind: "pl" }))}</Entry>
+              <Entry title="Influenced">{influenced.map(({ key, data }) => Pill({ key, name: data.name ?? key, kind: "pl" }))}</Entry>
             )}
             {dialectOf.length > 0 && (
-              <Entry title="Dialect Of">{dialectOf.map((data) => Pill({ ...data, kind: "pl" }))}</Entry>
+              <Entry title="Dialect Of">{dialectOf.map(({ key, data }) => Pill({ key, name: data.name ?? key, kind: "pl" }))}</Entry>
             )}
-            {children.length > 0 && (
-              <Entry title="Implemented By">{children.map((data) => Pill({ ...data, kind: "pl" }))}</Entry>
+            {dialectOfRev.length > 0 && (
+              <Entry title="Implemented By">{dialectOfRev.map(({ key, data }) => Pill({ key, name: data.name ?? key, kind: "pl" }))}</Entry>
             )}
-            {impls.length > 0 && (
-              <Entry title="Implementations">{impls.map((data) => Pill({ ...data, kind: "pl" }))}</Entry>
+            {implementsRev.length > 0 && (
+              <Entry title="Implementations">{implementsRev.map(({ key, data }) => Pill({ key, name: data.name ?? key, kind: "pl" }))}</Entry>
             )}
-            {standards.length > 0 && (
-              <Entry title="Standard For">{standards.map((data) => Pill({ ...data, kind: "pl" }))}</Entry>
+            {implements_.length > 0 && (
+              <Entry title="Standard For">{implements_.map(({ key, data }) => Pill({ key, name: data.name ?? key, kind: "pl" }))}</Entry>
             )}
             {licenses.length > 0 && (
-              <Entry title="Licenses">{licenses.map((data) => Pill({ ...data, kind: "lic" }))}</Entry>
+              <Entry title="Licenses">{licenses.map(({ key, data }) => Pill({ key, name: data.name ?? key, kind: "lic" }))}</Entry>
             )}
 
             {/*

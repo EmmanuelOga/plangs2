@@ -100,7 +100,7 @@ export function Lang({ pl }: LangProps) {
           </dd>
         </dl>
 
-        <h2>{pl.name} Libraries</h2>
+        <h2>{pl.data.name} Libraries</h2>
         <p>Libraries are reusable code that can be used to solve common problems. Here are some recommended ones.</p>
         <dl>
           <dt>Library 1</dt>
@@ -126,7 +126,7 @@ export function Lang({ pl }: LangProps) {
           </dd>
         </dl>
 
-        <h2>Built with {pl.name}</h2>
+        <h2>Built with {pl.data.name}</h2>
         <p>Example applications built with this language.</p>
         <dl>
           <dt>Application 1</dt>
