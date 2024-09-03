@@ -62,8 +62,16 @@ export class NodeMap<T_Graph extends BaseGraph, T_Node extends Node<T_Graph, Any
     return newNode;
   }
 
-  /** An alias for {@link get}. */
-  define(key: T_Node["key"], data: Partial<T_Node["data"]> = {}): T_Node {
+  size() : number {
+    return this.#map.size;
+  }
+
+  keys(): IterableIterator<T_Node["key"]> {
+    return this.#map.keys();
+  }
+
+  /** Shortcut for {@link get}(key).{@link merge}(data). */
+  set(key: T_Node["key"], data: T_Node["data"] = {}): T_Node {
     return this.get(key).merge(data);
   }
 

@@ -359,7 +359,12 @@ abstract class EBase<T_From extends NBase<Any, Any>, T_To extends NBase<Any, Any
   T_From,
   T_To,
   T_Data
-> {}
+> {
+  addRefs(links: Link[]): this {
+    arrayMerge((this.data.refs ??= []), links, (l1, l2) => l1.href === l2.href);
+    return this;
+  }
+}
 
 export class EDialectOf extends EBase<NPlang, NPlang, CommonEdgeData> {
   get key(): string {
