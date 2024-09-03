@@ -2,20 +2,29 @@
 import { expect, test } from "bun:test";
 import { Node, Edge, BaseGraph } from ".";
 
-class NPerson extends Node<`person+${string}`, { name: string }> {}
-class NPost extends Node<`post+${string}`, { title: string; content: string }> {}
-class NTag extends Node<`tag+${string}`> {}
+class NPerson extends Node<TestGraph, `person+${string}`, { name: string }> {}
+class NPost extends Node<TestGraph, `post+${string}`, { title: string; content: string }> {}
+class NTag extends Node<TestGraph, `tag+${string}`> {}
 
-class EPersonPost extends Edge<NPerson, NPost, { role: "author" | "editor" }> {}
-class EPostTag extends Edge<NPost, NTag> {}
+class EPersonPost extends Edge<TestGraph, NPerson, NPost, { role: "author" | "editor" }> {
+  get key(): string {
+    return `person-post~${this.from}~${this.to}`;
+  }
+}
+
+class EPostTag extends Edge<TestGraph, NPost, NTag> {
+  get key(): string {
+    return `post-tag~${this.from}~${this.to}`;
+  }
+}
 
 class TestGraph extends BaseGraph {
-  v_person = this.nodeMap<NPerson>("person", (key) => new NPerson(key));
-  v_post = this.nodeMap<NPost>("post", (key) => new NPost(key));
-  v_tag = this.nodeMap<NTag>("tag", (key) => new NTag(key));
+  v_person = this.nodeMap<NPerson>("person", (key) => new NPerson(this, key));
+  v_post = this.nodeMap<NPost>("post", (key) => new NPost(this, key));
+  v_tag = this.nodeMap<NTag>("tag", (key) => new NTag(this, key));
 
-  e_person_post = this.edgeMap<EPersonPost>("person-post", (from, to) => new EPersonPost(from, to));
-  e_post_tag = this.edgeMap<EPostTag>("post-tag", (from, to) => new EPostTag(from, to));
+  e_person_post = this.edgeMap<EPersonPost>("person-post", (from, to) => new EPersonPost(this, from, to));
+  e_post_tag = this.edgeMap<EPostTag>("post-tag", (from, to) => new EPostTag(this, from, to));
 }
 
 test("de/serializing a graph", () => {

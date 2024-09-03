@@ -5,31 +5,16 @@
 // biome-ignore lint/suspicious/noExplicitAny: we use any for the generic types... sory biome.
 type Any = any;
 
-export type AnyNode = Node<Any, Any>;
-
 /** A type to express empty object. */
 export type NO_DATA = Record<string, never>;
 
 /** Graph Node. */
-export abstract class Node<T_Key extends string, T_Data = NO_DATA> {
-  readonly data: Partial<T_Data> = {};
-
-  constructor(readonly key: T_Key) {}
-
-  /** Shallow merge data. */
-  merge(data: Partial<T_Data>): this {
-    Object.assign(this.data, data);
-    return this;
-  }
-}
-
-/** Graph Edge. */
-export abstract class Edge<T_From extends AnyNode, T_To extends AnyNode, T_Data = NO_DATA> {
+export abstract class Node<T_Graph extends BaseGraph, T_Key extends string, T_Data = NO_DATA> {
   readonly data: Partial<T_Data> = {};
 
   constructor(
-    readonly from: T_From["key"],
-    readonly to: T_To["key"],
+    readonly graph: T_Graph,
+    readonly key: T_Key,
   ) {}
 
   /** Shallow merge data. */
@@ -39,8 +24,32 @@ export abstract class Edge<T_From extends AnyNode, T_To extends AnyNode, T_Data 
   }
 }
 
+/** Graph Edge. */
+export abstract class Edge<
+  T_Graph extends BaseGraph,
+  T_From extends Node<T_Graph, Any, Any>,
+  T_To extends Node<T_Graph, Any, Any>,
+  T_Data = NO_DATA,
+> {
+  readonly data: Partial<T_Data> = {};
+
+  constructor(
+    readonly graph: T_Graph,
+    readonly from: T_From["key"],
+    readonly to: T_To["key"],
+  ) {}
+
+  /** Shallow merge data. */
+  merge(data: Partial<T_Data>): this {
+    Object.assign(this.data, data);
+    return this;
+  }
+
+  abstract get key(): string;
+}
+
 /** Graph Node (identity) Map. */
-export class NodeMap<T_Node extends AnyNode> implements Iterable<[T_Node["key"], T_Node]> {
+export class NodeMap<T_Graph extends BaseGraph, T_Node extends Node<T_Graph, Any, Any>> implements Iterable<[T_Node["key"], T_Node]> {
   readonly #map = new Map<T_Node["key"], T_Node>();
 
   constructor(private readonly factory: (key: T_Node["key"]) => T_Node) {}
@@ -72,7 +81,7 @@ export class NodeMap<T_Node extends AnyNode> implements Iterable<[T_Node["key"],
 }
 
 /** Stores edges by the compound keys (from, to) and (to, from). */
-export class EdgeMap<T_Edge extends Edge<Any, Any>> {
+export class EdgeMap<T_Graph extends BaseGraph, T_Edge extends Edge<T_Graph, Any, Any, Any>> {
   readonly adjFrom = new Map2<T_Edge["from"], T_Edge["to"], T_Edge>();
   readonly adjTo = new Map2<T_Edge["to"], T_Edge["from"], T_Edge>();
 
@@ -86,43 +95,36 @@ export class EdgeMap<T_Edge extends Edge<Any, Any>> {
     this.adjTo.set(to, from, edge);
     return edge;
   }
-
-  adj(direction: "from" | "to"): this["adjFrom"] | this["adjTo"] {
-    return direction === "from" ? this.adjFrom : this.adjTo;
-  }
 }
 
 type SerializedGraph = {
   /**
-   * Example: { "type" : { "key1" : data1, "key2" : data2, ... } }
+   * Example: { "type" : { "nodeKey1" : data1, "nodeKey2" : data2, ... } }
    */
   nodes: Record<string, Record<string, Any>>;
 
   /**
-   * Example: { "type" : { "from1" : { "to1" : data1, "to2": data2 }, "from2" : ... } }
+   * Example: { "type" : { "fromNodeKey1" : { "toNodeKey1" : data1, "toNodeKey2": data2 }, "fromNodeKey2" : ... } }
    */
   edges: Record<string, Record<string, Record<string, Any>>>;
 };
 
 /** Base Graph class with the ability to de/serialize registered node and edge maps. */
 export class BaseGraph {
-  readonly nodes: Map<string, NodeMap<Any>> = new Map();
-  readonly edges: Map<string, EdgeMap<Any>> = new Map();
+  readonly nodes: Map<string, NodeMap<Any, Any>> = new Map();
+  readonly edges: Map<string, EdgeMap<Any, Any>> = new Map();
 
-  nodeMap<T_Node extends AnyNode>(name: string, factory: (key: T_Node["key"]) => T_Node): NodeMap<T_Node> {
-    if (this.nodes.has(name)) return this.nodes.get(name) as NodeMap<T_Node>;
+  nodeMap<T_Node extends Node<Any, Any, Any>>(kind: string, factory: (key: T_Node["key"]) => T_Node): NodeMap<this, T_Node> {
+    if (this.nodes.has(kind)) return this.nodes.get(kind) as NodeMap<this, T_Node>;
     const m = new NodeMap(factory);
-    this.nodes.set(name, m);
+    this.nodes.set(kind, m);
     return m;
   }
 
-  edgeMap<T_Edge extends Edge<Any, Any, Any>>(
-    name: string,
-    factory: (from: T_Edge["from"], to: T_Edge["to"]) => T_Edge,
-  ): EdgeMap<T_Edge> {
-    if (this.edges.has(name)) return this.edges.get(name) as EdgeMap<T_Edge>;
+  edgeMap<T_Edge extends Edge<Any, Any, Any, Any>>(kind: string, factory: (from: T_Edge["from"], to: T_Edge["to"]) => T_Edge): EdgeMap<this, T_Edge> {
+    if (this.edges.has(kind)) return this.edges.get(kind) as EdgeMap<this, T_Edge>;
     const m = new EdgeMap(factory);
-    this.edges.set(name, m);
+    this.edges.set(kind, m);
     return m;
   }
 
