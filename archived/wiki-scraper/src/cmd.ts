@@ -95,11 +95,11 @@ const cache = new Cache("wikipedia");
 const body = await cache.read(key);
 if (body) {
   const page = new WikiPage(new URL(key.unescaped), body);
-  console.log(page.title)
-  console.log(page.url.href)
+  console.log(page.title);
+  console.log(page.url.href);
   console.log(page.image);
 
   for (const { key, val } of page.infoboxEntries()) {
-    console.log(key, '->', val);
+    console.log(key, "->", val);
   }
 }

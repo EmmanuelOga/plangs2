@@ -17,7 +17,7 @@
       "@plangs/graph/*": ["packages/graph/src/*"],
       "@plangs/plangs/*": ["packages/plangs/src/*"],
       "@plangs/server/*": ["packages/server/src/*"],
-      "@plangs/wikipedia-scraper/*": ["archive/wikipedia-scraper/src/*"]
+      "@plangs/wiki-scraper/*": ["archive/wiki-scraper/src/*"]
     }
   },
   "exclude": ["node_modules", "**/node_modules/*"]
