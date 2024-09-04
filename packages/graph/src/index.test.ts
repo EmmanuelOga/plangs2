@@ -1,7 +1,8 @@
-/* Example vertex data interfaces: model a blog. */
 import { expect, test } from "bun:test";
+
 import { Node, Edge, BaseGraph } from ".";
 
+/* Example vertex data interfaces: model a blog. */
 class NPerson extends Node<TestGraph, `person+${string}`, { name: string }> {}
 class NPost extends Node<TestGraph, `post+${string}`, { title: string; content: string }> {}
 class NTag extends Node<TestGraph, `tag+${string}`> {}

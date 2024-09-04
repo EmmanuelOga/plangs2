@@ -1,8 +1,6 @@
 import type { NodeMap } from "@plangs/graph";
 import { type NPlang, PlangsGraph } from "@plangs/plangs";
 
-import { parseAll } from "./process";
-
 const DEF_PATH = Bun.fileURLToPath(`file:${__dirname}/../../../packages/definitions/src`);
 
 function templ(data) {
