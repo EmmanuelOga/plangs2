@@ -3,25 +3,29 @@ import { BaseGraph, Edge, Node } from "@plangs/graph";
 import { arrayMerge, verify } from "./util";
 
 export class PlangsGraph extends BaseGraph {
-  // Vertex tables.
+  // Node tables.
 
+  readonly n_author = this.nodeMap<NAuthor>("author", (key) => new NAuthor(this, key));
+  readonly n_library = this.nodeMap<NLibrary>("lib", (key) => new NLibrary(this, key));
   readonly n_license = this.nodeMap<NLicense>("lic", (key) => new NLicense(this, key));
   readonly n_paradigm = this.nodeMap<NParadigm>("para", (key) => new NParadigm(this, key));
-  readonly n_person = this.nodeMap<NPerson>("person", (key) => new NPerson(this, key));
   readonly n_plang = this.nodeMap<NPlang>("pl", (key) => new NPlang(this, key));
   readonly n_platform = this.nodeMap<NPlatform>("platf", (key) => new NPlatform(this, key));
+  readonly n_tool = this.nodeMap<NTool>("tool", (key) => new NTool(this, key));
   readonly n_tsystem = this.nodeMap<NTypeSystem>("tsys", (key) => new NTypeSystem(this, key));
 
   // Edge Tables.
 
+  readonly e_author = this.edgeMap<EAuthorPlang>("author", (from, to) => new EAuthorPlang(this, from, to));
   readonly e_dialect_of = this.edgeMap<EDialectOf>("dialect-of", (from, to) => new EDialectOf(this, from, to));
   readonly e_has_license = this.edgeMap<EHasLicense>("has-license", (from, to) => new EHasLicense(this, from, to));
-  readonly e_implements = this.edgeMap<EImplements>("implements", (from, to) => new EImplements(this, from, to));
-  readonly e_l_influenced_l = this.edgeMap<ELInfluencedL>("influenced", (from, to) => new ELInfluencedL(this, from, to));
-  readonly e_person_plang = this.edgeMap<EPersonPlang>("had-role", (from, to) => new EPersonPlang(this, from, to));
-  readonly e_plang_para = this.edgeMap<EPlangPara>("paradigm", (from, to) => new EPlangPara(this, from, to));
-  readonly e_plang_tsys = this.edgeMap<EPlangTsys>("type-system", (from, to) => new EPlangTsys(this, from, to));
-  readonly e_supports_platf = this.edgeMap<ESupportsPlatf>("pl-platf", (from, to) => new ESupportsPlatf(this, from, to));
+  readonly e_implementedWith = this.edgeMap<EImplementedWith>("implemented-with", (from, to) => new EImplementedWith(this, from, to));
+  readonly e_influence = this.edgeMap<EInfluence>("influenced", (from, to) => new EInfluence(this, from, to));
+  readonly e_lib = this.edgeMap<EPlangLib>("lib", (from, to) => new EPlangLib(this, from, to));
+  readonly e_paradigm = this.edgeMap<EPlangPara>("paradigm", (from, to) => new EPlangPara(this, from, to));
+  readonly e_platform = this.edgeMap<ESupportsPlatf>("platform", (from, to) => new ESupportsPlatf(this, from, to));
+  readonly e_tool = this.edgeMap<EPlangTool>("tool", (from, to) => new EPlangTool(this, from, to));
+  readonly e_tsys = this.edgeMap<EPlangTsys>("tsys", (from, to) => new EPlangTsys(this, from, to));
 
   /**
    * Return a set of programming languages that match the given filters.
@@ -38,11 +42,8 @@ export class PlangsGraph extends BaseGraph {
         (filters.hasWikipedia && !pl.hasWikipedia()) ||
         (filters.plangExt.values.size > 0 && !pl.hasExt(filters.plangExt)) ||
         (filters.dialectOf.values.size > 0 && !pl.relMatchesFilter(filters.dialectOf, pl.relDialects)) ||
-        (filters.implements.values.size > 0 && !pl.relMatchesFilter(filters.implements, pl.relImplements)) ||
+        (filters.implementedWith.values.size > 0 && !pl.relMatchesFilter(filters.implementedWith, pl.relImplementedWith)) ||
         (filters.influenced.values.size > 0 && !pl.relMatchesFilter(filters.influenced, pl.relInfluenced)) ||
-        (filters.dialectOfRev.values.size > 0 && !pl.relMatchesFilter(filters.dialectOfRev, pl.relDialects)) ||
-        (filters.implementsRev.values.size > 0 && !pl.relMatchesFilter(filters.implementsRev, pl.relImplements)) ||
-        (filters.influencedRev.values.size > 0 && !pl.relMatchesFilter(filters.influencedRev, pl.relInfluenced)) ||
         (filters.licenses.values.size > 0 && !pl.relMatchesFilter(filters.licenses, pl.relLicenses)) ||
         (filters.paradigm.values.size > 0 && !pl.relMatchesFilter(filters.paradigm, pl.relParadigms)) ||
         (filters.people.values.size > 0 && !pl.relMatchesFilter(filters.people, pl.relPeople)) ||
@@ -72,7 +73,7 @@ abstract class NBase<Key extends string, Data extends CommonNodeData> extends No
   }
 }
 
-/** A programming language Vertex. */
+/** A programming language Node. */
 export class NPlang extends NBase<
   `pl+${string}`,
   CommonNodeData & {
@@ -113,23 +114,23 @@ export class NPlang extends NBase<
     return this;
   }
 
-  addImplementation(other: NPlang["key"], data: EImplements["data"]): this {
-    this.graph.e_implements.connect(other, this.key).merge(data);
+  addImplementation(other: NPlang["key"], data: EImplementedWith["data"]): this {
+    this.graph.e_implementedWith.connect(other, this.key).merge(data);
     return this;
   }
 
   addImplementations(others: NPlang["key"][]): this {
-    for (const other of others) this.graph.e_implements.connect(other, this.key);
+    for (const other of others) this.graph.e_implementedWith.connect(other, this.key);
     return this;
   }
 
-  addInfluence(other: NPlang["key"], data: ELInfluencedL["data"]): this {
-    this.graph.e_l_influenced_l.connect(other, this.key).merge(data);
+  addInfluence(other: NPlang["key"], data: EInfluence["data"]): this {
+    this.graph.e_influence.connect(other, this.key).merge(data);
     return this;
   }
 
   addInfluences(others: NPlang["key"][]): this {
-    for (const other of others) this.graph.e_l_influenced_l.connect(other, this.key);
+    for (const other of others) this.graph.e_influence.connect(other, this.key);
     return this;
   }
 
@@ -144,7 +145,7 @@ export class NPlang extends NBase<
   }
 
   addParadigm(other: NParadigm["key"], data: EPlangPara["data"]): this {
-    this.graph.e_plang_para.connect(this.key, other).merge(data);
+    this.graph.e_paradigm.connect(this.key, other).merge(data);
     return this;
   }
 
@@ -153,23 +154,23 @@ export class NPlang extends NBase<
     return this;
   }
 
-  addPerson(other: NPerson["key"], data: EPersonPlang["data"]): this {
-    this.graph.e_person_plang.connect(other, this.key).merge(data);
+  addAuthor(other: NAuthor["key"], data: EAuthorPlang["data"]): this {
+    this.graph.e_author.connect(other, this.key).merge(data);
     return this;
   }
 
-  addPeople(others: NPerson["key"][]): this {
-    for (const other of others) this.graph.e_person_plang.connect(other, this.key);
+  addAuthors(others: NAuthor["key"][]): this {
+    for (const other of others) this.graph.e_author_plang.connect(other, this.key);
     return this;
   }
 
   addPlatform(other: NPlatform["key"], data: ESupportsPlatf["data"]): this {
-    this.graph.e_supports_platf.connect(this.key, other).merge(data);
+    this.graph.e_platform.connect(this.key, other).merge(data);
     return this;
   }
 
   addPlatforms(others: NPlatform["key"][]): this {
-    for (const other of others) this.graph.e_supports_platf.connect(this.key, other);
+    for (const other of others) this.graph.e_platform.connect(this.key, other);
     return this;
   }
 
@@ -179,7 +180,7 @@ export class NPlang extends NBase<
   }
 
   addTypeSystems(others: NTypeSystem["key"][]): this {
-    for (const other of others) this.graph.e_plang_tsys.connect(this.key, other);
+    for (const other of others) this.graph.e_tsys.connect(this.key, other);
     return this;
   }
 
@@ -224,8 +225,8 @@ export class NPlang extends NBase<
       .filter(Boolean) as T[];
   }
 
-  people(): NPerson[] {
-    return this.#collectRel(this.relPeople, (e) => e.person);
+  people(): NAuthor[] {
+    return this.#collectRel(this.relPeople, (e) => e.author);
   }
 
   platforms(): NPlatform[] {
@@ -244,68 +245,44 @@ export class NPlang extends NBase<
     return this.#collectRel(this.relInfluenced, (e) => e.toPlang);
   }
 
-  influencedRev(): NPlang[] {
-    return this.#collectRel(this.relInfluencedRev, (e) => e.toPlang);
-  }
-
   dialectOf(): NPlang[] {
     return this.#collectRel(this.relDialects, (e) => e.toPlang);
   }
 
-  dialectOfRev(): NPlang[] {
-    return this.#collectRel(this.relDialectsRev, (e) => e.toPlang);
-  }
-
-  implements(): NPlang[] {
-    return this.#collectRel(this.relImplements, (e) => e.toPlang);
-  }
-
-  implementsRev(): NPlang[] {
-    return this.#collectRel(this.relImplementsRev, (e) => e.toPlang);
+  implementedWith(): NPlang[] {
+    return this.#collectRel(this.relImplementedWith, (e) => e.toPlang);
   }
 
   get relDialects(): Map<NPlang["key"], EDialectOf> | undefined {
     return this.graph.e_dialect_of.adjFrom.getMap(this.key);
   }
 
-  get relImplements(): Map<NPlang["key"], EImplements> | undefined {
-    return this.graph.e_implements.adjFrom.getMap(this.key);
+  get relImplementedWith(): Map<NPlang["key"], EImplementedWith> | undefined {
+    return this.graph.e_implementedWith.adjFrom.getMap(this.key);
   }
 
-  get relInfluenced(): Map<NPlang["key"], EImplements> | undefined {
-    return this.graph.e_l_influenced_l.adjFrom.getMap(this.key);
-  }
-
-  get relDialectsRev(): Map<NPlang["key"], EDialectOf> | undefined {
-    return this.graph.e_dialect_of.adjTo.getMap(this.key);
-  }
-
-  get relImplementsRev(): Map<NPlang["key"], EImplements> | undefined {
-    return this.graph.e_implements.adjTo.getMap(this.key);
-  }
-
-  get relInfluencedRev(): Map<NPlang["key"], EImplements> | undefined {
-    return this.graph.e_l_influenced_l.adjTo.getMap(this.key);
+  get relInfluenced(): Map<NPlang["key"], EImplementedWith> | undefined {
+    return this.graph.e_influence.adjFrom.getMap(this.key);
   }
 
   get relLicenses(): Map<NLicense["key"], EHasLicense> | undefined {
     return this.graph.e_has_license.adjFrom.getMap(this.key);
   }
 
-  get relPeople(): Map<NPerson["key"], EPersonPlang> | undefined {
-    return this.graph.e_person_plang.adjTo.getMap(this.key);
+  get relPeople(): Map<NAuthor["key"], EAuthorPlang> | undefined {
+    return this.graph.e_author.adjTo.getMap(this.key);
   }
 
   get relParadigms(): Map<NParadigm["key"], EPlangPara> | undefined {
-    return this.graph.e_plang_para.adjFrom.getMap(this.key);
+    return this.graph.e_paradigm.adjFrom.getMap(this.key);
   }
 
   get relTypeSystems(): Map<NTypeSystem["key"], EPlangTsys> | undefined {
-    return this.graph.e_plang_tsys.adjFrom.getMap(this.key);
+    return this.graph.e_tsys.adjFrom.getMap(this.key);
   }
 
   get relPlatforms(): Map<NPlatform["key"], ESupportsPlatf> | undefined {
-    return this.graph.e_supports_platf.adjFrom.getMap(this.key);
+    return this.graph.e_platform.adjFrom.getMap(this.key);
   }
 
   // biome-ignore lint/suspicious/noExplicitAny: we don't care about the type of the filter values.
@@ -321,25 +298,25 @@ export class NPlang extends NBase<
   }
 }
 
-/** A platform Vertex, e.g., Linux, Windows, etc. */
+/** A platform Node for operating systems or architectures, e.g., Linux, Windows, ARM etc. */
 export class NPlatform extends NBase<`platf+${string}`, CommonNodeData> {}
 
-/** A type system Vertex, e.g., OOP, Duck, Dynamic, etc. */
+/** A type system Node, e.g., OOP, Duck, Dynamic, etc. */
 export class NTypeSystem extends NBase<`tsys+${string}`, CommonNodeData> {}
 
-/** A programming paradigm Vertex, e.g., Functional, Imperative, etc. */
+/** A programming paradigm Node, e.g., Functional, Imperative, etc. */
 export class NParadigm extends NBase<`para+${string}`, CommonNodeData> {}
 
-/** A person Vertex, for people involved in the development of a programming language. */
-export class NPerson extends NBase<`person+${string}`, CommonNodeData> {}
+/** A author or organization Node, for people involved in the development of a programming language. */
+export class NAuthor extends NBase<`author+${string}`, CommonNodeData> {}
 
-/** A license Vertex, e.g., MIT, GPL, etc. */
+/** A license Node, e.g., MIT, GPL, etc. */
 export class NLicense extends NBase<`lic+${string}`, CommonNodeData> {}
 
-/** A tool Vertex, e.g., Version Manager, Linter, Formatter,  etc. */
+/** A tool Node, e.g., Version Manager, Linter, Formatter,  etc. */
 export class NTool extends NBase<`tool+${string}`, CommonNodeData> {}
 
-/** A library Vertex. */
+/** A library Node, for software libraries or frameworks, like jQuery, Rails, etc. */
 export class NLibrary extends NBase<`lib+${string}`, CommonNodeData> {}
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -394,9 +371,9 @@ export class EHasLicense extends EBase<NPlang, NLicense, CommonEdgeData> {
   }
 }
 
-export class EImplements extends EBase<NPlang, NPlang, CommonEdgeData> {
+export class EImplementedWith extends EBase<NPlang, NPlang, CommonEdgeData> {
   get key(): string {
-    return `implements~${this.from}~${this.to}`;
+    return `implemented-with~${this.from}~${this.to}`;
   }
 
   get fromPlang(): NPlang | undefined {
@@ -408,7 +385,7 @@ export class EImplements extends EBase<NPlang, NPlang, CommonEdgeData> {
   }
 }
 
-export class ELInfluencedL extends EBase<NPlang, NPlang, CommonEdgeData> {
+export class EInfluence extends EBase<NPlang, NPlang, CommonEdgeData> {
   get key(): string {
     return `influenced~${this.from}~${this.to}`;
   }
@@ -422,13 +399,13 @@ export class ELInfluencedL extends EBase<NPlang, NPlang, CommonEdgeData> {
   }
 }
 
-export class EPersonPlang extends EBase<NPerson, NPlang, CommonEdgeData & { role: "designer" | "developer" }> {
+export class EAuthorPlang extends EBase<NAuthor, NPlang, CommonEdgeData> {
   get key(): string {
-    return `had-role~${this.from}~${this.to}`;
+    return `author~${this.from}~${this.to}`;
   }
 
-  get person(): NPerson | undefined {
-    return this.graph.n_person.get(this.from);
+  get author(): NAuthor | undefined {
+    return this.graph.n_author.get(this.from);
   }
 
   get plang(): NPlang | undefined {
@@ -466,7 +443,7 @@ export class EPlangTsys extends EBase<NPlang, NTypeSystem, CommonEdgeData> {
 
 export class ESupportsPlatf extends EBase<NPlang, NPlatform, CommonEdgeData> {
   get key(): string {
-    return `pl-platf~${this.from}~${this.to}`;
+    return `platf~${this.from}~${this.to}`;
   }
 
   get plang(): NPlang | undefined {
@@ -475,6 +452,34 @@ export class ESupportsPlatf extends EBase<NPlang, NPlatform, CommonEdgeData> {
 
   get platform(): NPlatform | undefined {
     return this.graph.n_platform.get(this.to);
+  }
+}
+
+export class EPlangLib extends EBase<NPlang, NLibrary, CommonEdgeData> {
+  get key(): string {
+    return `lib~${this.from}~${this.to}`;
+  }
+
+  get plang(): NPlang | undefined {
+    return this.graph.n_plang.get(this.from);
+  }
+
+  get library(): NLibrary | undefined {
+    return this.graph.n_library.get(this.to);
+  }
+}
+
+export class EPlangTool extends EBase<NPlang, NTool, CommonEdgeData> {
+  get key(): string {
+    return `tool~${this.from}~${this.to}`;
+  }
+
+  get plang(): NPlang | undefined {
+    return this.graph.n_plang.get(this.from);
+  }
+
+  get tool(): NTool | undefined {
+    return this.graph.n_tool.get(this.to);
   }
 }
 
@@ -491,8 +496,8 @@ export type Scoping = "lexical" | "static" | "dynamic" | "other";
  * A release of a programming language.
  */
 export interface Release {
-  version: string;
   kind: "first" | "preview" | "stable" | "other";
+  version: string;
   name?: string;
   date?: StrDate;
 }
@@ -541,6 +546,7 @@ export type PlangFilters = {
   releaseMinDate: string;
 
   // Boolean filters are used if true.
+
   hasLogo: boolean;
   hasReleases: boolean;
   hasWebsite: boolean;
@@ -548,13 +554,10 @@ export type PlangFilters = {
   transpiler: boolean;
 
   // Value filters are used if the set is non-empty.
-  dialectOf: Filter;
-  implements: Filter;
-  influenced: Filter;
 
-  dialectOfRev: Filter;
-  implementsRev: Filter;
-  influencedRev: Filter;
+  dialectOf: Filter;
+  implementedWith: Filter;
+  influenced: Filter;
 
   licenses: Filter;
   paradigm: Filter;

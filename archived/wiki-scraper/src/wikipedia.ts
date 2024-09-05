@@ -1,3 +1,4 @@
+import { arrayMerge } from "@plangs/plangs/util";
 import * as cheerio from "cheerio";
 import type { Element } from "domhandler";
 
@@ -7,25 +8,17 @@ export const START_URLS = ["/wiki/List_of_programming_languages", "/wiki/Categor
   (path) => new URL(path, BASE_URL),
 );
 
-function isNiceWikiLink(url: URL) {
-  return (
-    url.hostname === BASE_URL.hostname &&
-    url.pathname.startsWith("/wiki/") &&
-    !/^\/wiki\/(Wiki|User|Template|Help|File|Talk|Special)/.test(url.pathname)
-  );
-}
-
 export class WikiPage {
   readonly $: cheerio.CheerioAPI;
-  readonly infobox: InfoBox | undefined;
+  readonly infobox?: InfoBox;
 
   constructor(
     public url: URL,
     public html: string,
   ) {
     this.$ = cheerio.load(html);
-    const ib = this.$("table.infobox");
-    this.infobox = ib.get(0) ? new InfoBox(this.$, ib) : undefined;
+    const ibel = this.$("table.infobox").get(0);
+    if (ibel) this.infobox = parseInfobox(this.$, ibel);
   }
 
   get image(): string | undefined {
@@ -33,208 +26,223 @@ export class WikiPage {
   }
 
   get isGeneric(): boolean {
-    return /^\/wiki\/(List|Category)/.test(this.url.pathname);
+    return /^\/wiki\/(Wikipedia|List|Category)/.test(this.url.pathname);
   }
 
   get title(): string {
-    return this.$("h1#firstHeading").text();
+    return cleanText(this.$("h1#firstHeading").text());
   }
 
   get categories(): string[] {
-    return this.$("#catlinks")
-      .find("a")
-      .map((i, el) => el.attribs.title.trim().toLocaleLowerCase())
-      .toArray();
+    return this.categoryLinks().map((link) => link.title);
   }
 
   get isPlangCandidate(): boolean {
     if (this.isGeneric) return false;
     const categories = this.categories;
-    if (categories.find((cat) => /(stub|book)s?$/.test(cat))) return false;
+    if (categories.find((cat) => /(stub|book|frameworks|libraries)s?$/.test(cat))) return false;
     if (!this.infobox) return false;
     return categories.find((cat) => cat.includes("programming languages")) !== undefined;
   }
 
-  pageLinks(): { url: URL; title: string | undefined }[] {
+  pageLinks(): { url: URL; title: string }[] {
     return this.getLinks("#mw-content-text");
   }
 
-  categoryLinks(): { url: URL; title: string | undefined }[] {
+  categoryLinks(): { url: URL; title: string }[] {
     return this.getLinks("#catlinks");
   }
 
-  getLinks(selector: string): { url: URL; title: string | undefined }[] {
+  getLinks(selector: string): { url: URL; title: string }[] {
     return this.$(selector)
       .find("a")
       .map((i, el) => {
-        const url = new URL(el.attribs.href, BASE_URL);
-        if (isNiceWikiLink(url)) return { url, title: el.attribs.title.trim() };
+        if (!el.attribs.href || !el.attribs.title) return;
+        const url = new URL(decodeURIComponent(el.attribs.href), BASE_URL);
+        if (isNiceWikiLink(url)) return { url, title: cleanText(el.attribs.title) };
       })
       .toArray();
   }
-
-  *infoboxEntries() {
-    if (this.infobox) yield* this.infobox.entries();
-  }
 }
+
+type Link = { href: string; title: string };
 
 class InfoBox {
-  constructor(
-    readonly $: cheerio.CheerioAPI,
-    readonly el: cheerio.Cheerio<Element>,
-  ) {}
+  summary = "";
+  readonly releases: { version: string; date?: string }[] = [];
+  readonly extensions: string[] = [];
 
-  /** Extract each entry of the infobox. */
-  *entries() {
-    for (const row of this.el.find("tr")) {
-      const $row = this.$(row);
-      // Option (1): tr > td.key , td.val
-      const key = $row.find(".infobox-label").text().trim().toLowerCase();
-      if (key) {
-        const val = this.#processEntry(key, $row.find(".infobox-data"));
-        yield { key, val };
-      } else {
-        // Option (2): tr.key tr.val
-        const key = $row.find(".infobox-header").text().trim().toLowerCase();
-        const $elem = $row.next().find(".infobox-full-data").first();
-        if ($elem.length) {
-          const val = this.#processEntry(key, $elem);
-          yield { key, val };
-        }
-      }
-    }
-  }
+  // SKIP? We can add authors back manually later.
+  readonly authors: Link[] = []; // KEYS_AUTHORS
 
-  #processEntry(key: string, val: cheerio.Cheerio<Element>) {
-    const result: Record<string, any> = {};
+  // CURATE:
+  readonly paradigms: Link[] = []; // KEYS_PARADIGMS
+  readonly platforms: Link[] = []; // KEYS_PLATFORMS
+  readonly licenses: Link[] = []; // KEYS_LICENSES
+  readonly typeSystem: Link[] = []; // KEYS_TYPE_SYSTEM
+  readonly tags: Link[] = []; // KEYS_TAGS
 
-    val.find('style, script, [style*="display:none"]').remove();
-    val.find("br").replaceWith(", ");
+  // Plang links
+  readonly dialects: Link[] = []; // KEYS_DIALECTS
+  readonly family: Link[] = []; // KEYS_FAMILY
+  readonly implementations: Link[] = []; // KEYS_IMPLEMENTATIONS
+  readonly influenced: Link[] = []; // KEYS_INFLUENCED
+  readonly influencedBy: Link[] = []; // KEYS_INFLUENCED_BY
+  readonly writtenIn: Link[] = []; // KEY_WRITTEN_IN
+}
 
-    const text = [
-      ...val
-        .children()
-        .filter((_, e) => e.tagName !== "a" && e.tagName !== "sup")
-        .map((_, e) => this.$(e).text()),
-    ]
-      .join(" ")
-      .trim();
+const KEYS_AUTHORS = new Set(["designed by", "developer", "developer(s)", "original author(s)", "developers"]);
+const KEYS_DIALECTS = new Set(["dialects"]);
+const KEYS_FAMILY = new Set(["family"]);
+const KEYS_IMPLEMENTATIONS = new Set(["major implementations"]);
+const KEYS_INFLUENCED = new Set(["influenced"]);
+const KEYS_INFLUENCED_BY = new Set(["influenced by"]);
+const KEYS_LICENSES = new Set(["license"]);
+const KEYS_PARADIGMS = new Set(["paradigm"]);
+const KEYS_PLATFORMS = new Set(["os", "platform", "operating system"]);
+const KEYS_TAGS = new Set(["type"]);
+const KEYS_TYPE_SYSTEM = new Set(["typing discipline"]);
+const KEYS_WRITTEN_IN = new Set(["implementation language", "written in"]);
+const KEYS_IGNORED = new Set([
+  "available in",
+  "memory management",
+  "scope",
+  "developed by",
+  "type of format",
+  "size",
+  "base standards",
+  "domain",
+  "website",
+  "editors",
+  "related standards",
+  "created by",
+  "successor",
+  "extended from",
+]);
 
-    const anchors = val.children().filter((_, e) => e.tagName === "a");
+function parseInfobox($: cheerio.CheerioAPI, el: Element): InfoBox {
+  const res = new InfoBox();
 
-    if (key.includes("release") || key.includes("appear")) {
-      const data = { ...getDate(text), ...getVersion(text) };
-      if (Object.keys(data).length > 0) result.release = data;
-    } else if (key.includes("extension")) {
-      const data = text
-        .replaceAll(/\([^)]+\)/g, "")
-        .split(/\,|\s+/)
-        .map((s) => s.trim())
-        .filter((s) => s.length > 0 && s[0] === ".");
-      if (data.length) result.extensions = data;
-    } else if (anchors.length) {
-      const processed: ReturnType<typeof this.processA>[] = [];
-      for (const a of anchors) {
-        const $a = this.$(a);
-        const link = this.processA($a);
-        if (link.href && !link.href.includes("/wiki/Wayback_Machine")) {
-          processed.push(link);
-        }
+  const $el = $(el);
+  const summary = cleanText($el.find(".infobox-title.summary").text());
+  if (summary) res.summary = summary;
 
-        // Try to find references in the next <sup> tag.
-        const ref = $a.next("sup");
-        if (ref.index() === $a.index() + 1) {
-          const prefs = this.processSup(ref);
-          if (prefs.length > 0) link.refs = prefs;
-        }
-      }
-      result.links = processed;
+  for (const row of $el.find("tr")) {
+    const $row = $(row);
+    // Option (1): tr > td.key , td.val
+    const key = cleanText($row.find(".infobox-label").text()).toLowerCase();
+    if (key) {
+      const val = $row.find(".infobox-data");
+      processEntry($, key, val, res);
     } else {
-      result.text = text.replace(/\n/g, " ");
+      // Option (2): tr.key tr.val
+      const key = cleanText($row.find(".infobox-header").text()).toLowerCase();
+      const val = $row.next().find(".infobox-full-data").first();
+      if (key && val.length > 0) processEntry($, key, val, res);
     }
-
-    return result;
   }
 
-  get summary(): string {
-    return this.el.find(".infobox-title.summary").text();
-  }
+  return res;
+}
 
-  processA($a: cheerio.Cheerio<Element>): { href: string | undefined; title: string; refs?: { href?: string; title?: string }[] } {
-    const href = $a.attr("href")?.trim();
-    const title = $a.text().trim();
-    return { href, title };
-  }
+function processEntry($: cheerio.CheerioAPI, key: string, val: cheerio.Cheerio<Element>, box: InfoBox) {
+  val.find('style, script, [style*="display:none"]').remove();
+  val.find("br").replaceWith(", ");
 
-  processSup(sup: cheerio.Cheerio<Element>): { href?: string; title?: string }[] {
-    const refs: { href?: string; title?: string }[] = [];
+  const links = val
+    .find("a")
+    .remove()
+    .map((_, a) => {
+      if (!a.attribs.href) return;
+      const $a = $(a);
+      const [href, title] = [decodeURIComponent(a.attribs.href.trim()), cleanText($a.text())];
+      if (href && title && href.startsWith("/wiki")) return { href: new URL(href, BASE_URL).href, title };
+    })
+    .toArray();
+  const text = cleanText(val.text());
 
-    for (const a of sup.find("a")) {
-      const id = this.$(a).attr("href");
-
-      // Wikipedia may have up to two links per reference.
-      const [ref1, ref2] = this.$(id)
-        .find("a")
-        .map((i, a) => this.processA(this.$(a)))
-        .toArray()
-        .filter((a) => a.href?.startsWith("http"));
-
-      // When archived the first link contains the title, and the second the archived URL.
-      // We want to save the archived URL, with the more informative title of the original URL.
-      if (ref1 && ref2 && ref2.title?.toLowerCase().includes("archived")) {
-        ref2.title = unquote(ref1.title ?? "");
-        if (ref2.title) refs.push(ref2);
-      } else if (ref1) {
-        ref1.title = unquote(ref1.title ?? "");
-        if (ref1.title) refs.push(ref1);
-      }
-    }
-
-    return refs;
+  if (key.includes("release") || key.includes("appear")) {
+    const [date, version] = [parseDate(text), parseVersion(text)];
+    if (version) arrayMerge(box.releases, [{ version, date }], (a, b) => a.version === b.version);
+  } else if (key.includes("extension")) {
+    arrayMerge(box.extensions, parseExtensions(text));
+  } else if (KEYS_AUTHORS.has(key)) {
+    arrayMerge(box.authors, links, (a, b) => a.href === b.href);
+  } else if (KEYS_DIALECTS.has(key)) {
+    arrayMerge(box.dialects, links, (a, b) => a.href === b.href);
+  } else if (KEYS_FAMILY.has(key)) {
+    arrayMerge(box.family, links, (a, b) => a.href === b.href);
+  } else if (KEYS_IMPLEMENTATIONS.has(key)) {
+    arrayMerge(box.implementations, links, (a, b) => a.href === b.href);
+  } else if (KEYS_INFLUENCED.has(key)) {
+    arrayMerge(box.influenced, links, (a, b) => a.href === b.href);
+  } else if (KEYS_INFLUENCED_BY.has(key)) {
+    arrayMerge(box.influencedBy, links, (a, b) => a.href === b.href);
+  } else if (KEYS_LICENSES.has(key)) {
+    arrayMerge(box.licenses, links, (a, b) => a.href === b.href);
+  } else if (KEYS_PARADIGMS.has(key)) {
+    arrayMerge(box.paradigms, links, (a, b) => a.href === b.href);
+  } else if (KEYS_PLATFORMS.has(key)) {
+    arrayMerge(box.platforms, links, (a, b) => a.href === b.href);
+  } else if (KEYS_TAGS.has(key)) {
+    arrayMerge(box.tags, links, (a, b) => a.href === b.href);
+  } else if (KEYS_TYPE_SYSTEM.has(key)) {
+    arrayMerge(box.typeSystem, links, (a, b) => a.href === b.href);
+  } else if (KEYS_WRITTEN_IN.has(key)) {
+    arrayMerge(box.writtenIn, links, (a, b) => a.href === b.href);
+  } else if (KEYS_IGNORED.has(key)) {
+    // Do nothing.
+  } else {
+    console.warn("unknown key:", key);
   }
 }
 
-function getVersion(str: string): { version: string } | undefined {
-  const match = str.match(/(\d+\.\d+(\.\d+)*)/);
-  if (match?.[0]) return { version: match[0] };
+function parseVersion(str: string): string | undefined {
+  return str.match(/(\d+\.\d+(\.\d+)*)/)?.[0];
 }
 
-function getMonth(str: string): number {
-  const s = str.toLocaleLowerCase();
+function parseDate(str: string): string | undefined {
+  return (
+    validateDate(str.match(/(\d{4}).(\d{2}).(\d{2})/)?.slice(1)) ??
+    validateDate(str.match(/(\d+)\s+([a-zA-Z]+)\s+(\d{4})/)?.slice(1)) ??
+    validateDate(str.match(/(\d{4})/)?.slice(1))
+  );
+}
+
+function parseMonth(str: string): number {
+  const s = str.toLowerCase();
   const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
   for (const [i, p] of months.entries()) {
     if (s.includes(p)) return i + 1;
   }
-  return 0;
+  return 1;
 }
 
-function date(year: number, month: number, day: number): { date: string } | undefined {
-  if (year < 1900 || year > 2100) return undefined;
-  if (month < 1 || month > 12) return undefined;
-  if (day < 1 || day > 31) return undefined;
-  return {
-    date: `${year}-${month.toString().padStart(2, "0")}-${day.toString().padStart(2, "0")}`,
-  };
+function validateDate(val: string[] | undefined): string | undefined {
+  if (!val) return undefined;
+  const [year, month, day] = val;
+  const [y, m, d] = [Number.parseInt(year), /a-zA-Z/.test(month) ? parseMonth(month) : Number.parseInt(month ?? 1), Number.parseInt(day ?? 1)];
+  if (y < 1900 || y > 2100 || m < 1 || m > 12 || d < 1 || d > 31) return undefined;
+  return `${year}-${`${m}`.padStart(2, "0")}-${`${d}`.padStart(2, "0")}`;
 }
 
-function getDate(str: string): { date: string } | { year: number } | undefined {
-  let match = str.match(/(\d{4}).(\d{2}).(\d{2})/);
-  if (match) {
-    const d = date(Number.parseInt(match[1]), Number.parseInt(match[2]), Number.parseInt(match[3]));
-    if (d) return d;
-  }
-
-  match = str.match(/(\d+)\s+([a-zA-Z]+)\s+(\d{4})/);
-  if (match) {
-    const d = date(Number.parseInt(match[1]), getMonth(match[2]), Number.parseInt(match[3]));
-    if (d) return d;
-  }
-
-  match = str.match(/(\d{4})/);
-  if (match) return { year: Number.parseInt(match[1]) };
+function parseExtensions(str: string): string[] {
+  return str
+    .replaceAll(/\([^)]+\)/g, "")
+    .split(/\,|\s+/)
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0 && s[0] === ".");
 }
 
-function unquote(title: string): string {
-  if (title.startsWith('"') && title.endsWith('"')) return title.slice(1, -1);
-  return title;
+// Replace various types of non-standard whitespace characters with regular spaces
+function cleanText(str: string): string {
+  return str.replace(/[\u00A0\u1680\u2000-\u200A\u202F\u205F\u3000]/g, " ").trim();
+}
+
+function isNiceWikiLink(url: URL) {
+  return (
+    url.hostname === BASE_URL.hostname &&
+    url.pathname.startsWith("/wiki/") &&
+    !/^\/wiki\/(Wiki|User|Template|Help|File|Talk|Special)/.test(url.pathname)
+  );
 }

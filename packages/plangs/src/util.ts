@@ -23,8 +23,7 @@ export function caller(match: string, dontMatch = ""): string {
 }
 
 /**
- * We use arrays as we want plain old JS data in vertices,
- * but sometimes we want the arrays to act like sets.
+ * Insert elements in the array if they are not already present.
  */
 export function arrayMerge<T>(
   target: T[],

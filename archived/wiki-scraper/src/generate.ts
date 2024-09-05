@@ -235,7 +235,7 @@ function plangMapper(g: PlangsGraph, plkey: NPlang["key"]): AtoZData {
 
   addRel("addDialect", "addDialects", g.e_dialect_of.adjTo.getMap(plkey));
   addRel("addImplementation", "addImplementations", g.e_implements.adjTo.getMap(plkey));
-  addRel("addInfluence", "addInfluences", g.e_l_influenced_l.adjTo.getMap(plkey));
+  addRel("addInfluence", "addInfluences", g.e_influence.adjTo.getMap(plkey));
   addRel("addPerson", "addPeople", g.e_person_plang.adjTo.getMap(plkey));
 
   // adj *from* plang.

@@ -1,8 +1,6 @@
-import { data } from "node_modules/cheerio/dist/esm/api/attributes";
 import { Cache, Key } from "./cache";
 import { Fetcher } from "./fetcher";
 import { START_URLS, WikiPage } from "./wikipedia";
-import { walkUpBindingElementsAndPatterns } from "typescript";
 
 async function scrape() {
   const cache = new Cache("wikipedia");
@@ -82,24 +80,17 @@ async function extract() {
     const body = await wikiCache.read(key);
     if (!body) continue;
     const page = new WikiPage(new URL(key.unescaped), body);
-    if (page.title.includes("Python")) console.log(page.url.href, page.title, page.image);
+    // TODO.
   }
 }
+
+const cache = new Cache("wikipedia");
+const key = Key.get("https://en.wikipedia.org/wiki/Python_(programming_language)");
+const body = await cache.read(key);
+const page = new WikiPage(new URL(key.unescaped), body);
+console.log(page.title)
+console.log(page.infobox)
 
 // if (process.argv[2] === "scrape") scrape();
 // if (process.argv[2] === "analyze") analyze();
 // if (process.argv[2] === "extract") extract();
-
-const key = Key.get("https://en.wikipedia.org/wiki/Python_(programming_language)");
-const cache = new Cache("wikipedia");
-const body = await cache.read(key);
-if (body) {
-  const page = new WikiPage(new URL(key.unescaped), body);
-  console.log(page.title);
-  console.log(page.url.href);
-  console.log(page.image);
-
-  for (const { key, val } of page.infoboxEntries()) {
-    console.log(key, "->", val);
-  }
-}

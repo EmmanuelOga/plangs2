@@ -177,7 +177,7 @@ function assign(g: PlangsGraph, plKey: NPlang["key"], infoboxKey: DATA_ATTR, inf
         const otherpl = g.n_plang.set(`pl+${key}`, { name: title.trim() });
         otherpl.addWebsites([{ kind: "wikipedia", title, href: `${WIKIPEDIA_URL}${href}` }]);
 
-        const rel = infoboxKey === "influenced" ? g.e_l_influenced_l.connect(plKey, `pl+${key}`) : g.e_l_influenced_l.connect(`pl+${key}`, plKey);
+        const rel = infoboxKey === "influenced" ? g.e_influence.connect(plKey, `pl+${key}`) : g.e_influence.connect(`pl+${key}`, plKey);
 
         if (refs) rel.addRefs(refs);
       }

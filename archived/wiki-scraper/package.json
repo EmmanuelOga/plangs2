@@ -6,6 +6,8 @@
     "@plangs/graph": "workspace:*",
     "@plangs/plangs": "workspace:*",
     "cheerio": "^1.0.0",
+    "cli-highlight": "^2.1.11",
+    "dom-serializer": "^2.0.0",
     "domhandler": "^5.0.3"
   },
   "main": "src/generate.ts",
