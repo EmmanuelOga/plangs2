@@ -51,3 +51,7 @@ export function verify<T>(elements: Iterable<T>, mode: "all" | "any", predicate:
   for (const v of elements) if (predicate(v)) return true;
   return false;
 }
+
+export function wikipedia(href: `https://en.wikipedia.org/wiki/${string}`, title: string): Link {
+  return { kind: "wikipedia", href, title };
+}

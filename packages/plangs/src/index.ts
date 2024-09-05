@@ -305,7 +305,7 @@ export class NPlatform extends NBase<`platf+${string}`, CommonNodeData> {}
 export class NTypeSystem extends NBase<`tsys+${string}`, CommonNodeData> {}
 
 /** A programming paradigm Node, e.g., Functional, Imperative, etc. */
-export class NParadigm extends NBase<`para+${string}`, CommonNodeData> {}
+export class NParadigm extends NBase<`para+${string}`, CommonNodeData & { keywords: string[] }> {}
 
 /** A author or organization Node, for people involved in the development of a programming language. */
 export class NAuthor extends NBase<`author+${string}`, CommonNodeData> {}

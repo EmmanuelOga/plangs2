@@ -1,1270 +1,140 @@
--------------
-influenced : 377
-https://en.wikipedia.org/wiki/%CE%A9mega: Ωmega
-https://en.wikipedia.org/wiki/*Lisp: *Lisp
-https://en.wikipedia.org/wiki/A+_(programming_language): A and A+
-https://en.wikipedia.org/wiki/ABC_(programming_language): ABC
-https://en.wikipedia.org/wiki/AIMACO: AIMACO
-https://en.wikipedia.org/wiki/ALGOL_58: ALGOL 58
-https://en.wikipedia.org/wiki/ALGOL_W: ALGOL W
-https://en.wikipedia.org/wiki/AMPL: AMPL
-https://en.wikipedia.org/wiki/ATS_(programming_language): ATS
-https://en.wikipedia.org/wiki/AWK: AWK
-https://en.wikipedia.org/wiki/Action!_(programming_language): Action!
-https://en.wikipedia.org/wiki/ActionScript: ActionScript
-https://en.wikipedia.org/wiki/Active_Oberon: Active Oberon
-https://en.wikipedia.org/wiki/Active_Server_Pages: ASP
-https://en.wikipedia.org/wiki/Actor_model: actor model
-https://en.wikipedia.org/wiki/Ada_(programming_language): Ada
-https://en.wikipedia.org/wiki/Ada_(programming_language): Ada 2005
-https://en.wikipedia.org/wiki/Ada_(programming_language): Ada 2012
-https://en.wikipedia.org/wiki/Ada_(programming_language): Ada 95
-https://en.wikipedia.org/wiki/Agda_(programming_language): Agda
-https://en.wikipedia.org/wiki/AgentSheets: AgentSheets
-https://en.wikipedia.org/wiki/Agora_(programming_language): Agora
-https://en.wikipedia.org/wiki/Akka_(toolkit): Akka
-https://en.wikipedia.org/wiki/Alice_(programming_language): Alice
-https://en.wikipedia.org/wiki/Apache_Groovy: Apache Groovy
-https://en.wikipedia.org/wiki/AppleScript: AppleScript
-https://en.wikipedia.org/wiki/Argus_(programming_language): Argus
-https://en.wikipedia.org/wiki/ArkTS: ArkTS
-https://en.wikipedia.org/wiki/AssemblyScript: AssemblyScript
-https://en.wikipedia.org/wiki/AtScript: AtScript
-https://en.wikipedia.org/wiki/AutoLisp: AutoLisp
-https://en.wikipedia.org/wiki/BASIC: BASIC
-https://en.wikipedia.org/wiki/BCPL: BCPL
-https://en.wikipedia.org/wiki/BETA_(programming_language): BETA
-https://en.wikipedia.org/wiki/B_(programming_language): B
-https://en.wikipedia.org/wiki/Bash_(Unix_shell): Bash
-https://en.wikipedia.org/wiki/Basic4android: Basic4android
-https://en.wikipedia.org/wiki/Basic4ppc: Basic4ppc
-https://en.wikipedia.org/wiki/BeanShell: BeanShell
-https://en.wikipedia.org/wiki/Bitcoin#Transactions: Bitcoin Script
-https://en.wikipedia.org/wiki/Bluespec: Bluespec
-https://en.wikipedia.org/wiki/Boo_(programming_language): Boo
-https://en.wikipedia.org/wiki/Bourne_shell: Bourne shell
-https://en.wikipedia.org/wiki/Brainfuck: Brainfuck
-https://en.wikipedia.org/wiki/Bs_(programming_language): bs
-https://en.wikipedia.org/wiki/C*: C*
-https://en.wikipedia.org/wiki/C++11: C++11
-https://en.wikipedia.org/wiki/C++14: C++14
-https://en.wikipedia.org/wiki/C++17: C++17
-https://en.wikipedia.org/wiki/C++20: C++20
-https://en.wikipedia.org/wiki/C++: C++
-https://en.wikipedia.org/wiki/C--: C--
-https://en.wikipedia.org/wiki/C/AL: C/AL
-https://en.wikipedia.org/wiki/C99: C99
-https://en.wikipedia.org/wiki/CLIPS: CLIPS
-https://en.wikipedia.org/wiki/CLU_(programming_language): CLU
-https://en.wikipedia.org/wiki/CMS-2_(programming_language): CMS-2
-https://en.wikipedia.org/wiki/COBOL: COBOL
-https://en.wikipedia.org/wiki/COWSEL: COWSEL
-https://en.wikipedia.org/wiki/C_(programming_language): C
-https://en.wikipedia.org/wiki/C_Sharp_(programming_language): C#
-https://en.wikipedia.org/wiki/C_shell: csh
-https://en.wikipedia.org/wiki/Cach%C3%A9_ObjectScript: Caché ObjectScript
-https://en.wikipedia.org/wiki/Cadence_SKILL: SKILL
-https://en.wikipedia.org/wiki/Carbon_(programming_language): Carbon
-https://en.wikipedia.org/wiki/Category:C_programming_language_family: Numerous
-https://en.wikipedia.org/wiki/Catrobat: Catrobat
-https://en.wikipedia.org/wiki/Cayenne_(programming_language): Cayenne
-https://en.wikipedia.org/wiki/Cedar_(programming_environment): Cedar
-https://en.wikipedia.org/wiki/Cedar_(programming_language): Cedar
-https://en.wikipedia.org/wiki/Ceylon_(programming_language): Ceylon
-https://en.wikipedia.org/wiki/Chapel_(programming_language): Chapel
-https://en.wikipedia.org/wiki/Chisel_(programming_language): Chisel
-https://en.wikipedia.org/wiki/Clean_(programming_language): Clean
-https://en.wikipedia.org/wiki/Clojure: Clojure
-https://en.wikipedia.org/wiki/CobolScript: CobolScript
-https://en.wikipedia.org/wiki/Cobra_(programming_language): Cobra
-https://en.wikipedia.org/wiki/CoffeeScript: CoffeeScript
-https://en.wikipedia.org/wiki/Combined_Programming_Language: CPL
-https://en.wikipedia.org/wiki/Common_Lisp: Common Lisp
-https://en.wikipedia.org/wiki/Common_Lisp_Object_System: Common Lisp Object System
-https://en.wikipedia.org/wiki/Component_Pascal: Component Pascal
-https://en.wikipedia.org/wiki/Computer-aided_manufacturing: Computer-aided manufacturing
-https://en.wikipedia.org/wiki/Concepts_(C++): Concepts
-https://en.wikipedia.org/wiki/Concurrent_Euclid_(programming_language): Concurrent Euclid
-https://en.wikipedia.org/wiki/Constraint_Handling_Rules: CHR
-https://en.wikipedia.org/wiki/Contextual_Query_Language: CQL
-https://en.wikipedia.org/wiki/Control_Language: Control Language
-https://en.wikipedia.org/wiki/Coq_(software): Coq
-https://en.wikipedia.org/wiki/Coral_66: Coral 66
-https://en.wikipedia.org/wiki/Croquet_Project: Croquet
-https://en.wikipedia.org/wiki/Crystal_(programming_language): Crystal
-https://en.wikipedia.org/wiki/Curry_(programming_language): Curry
-https://en.wikipedia.org/wiki/Cyclone_(programming_language): Cyclone
-https://en.wikipedia.org/wiki/DOPE_(Dartmouth_Oversimplified_Programming_Experiment): DOPE
-https://en.wikipedia.org/wiki/D_(programming_language): D
-https://en.wikipedia.org/wiki/Dart_(programming_language): Dart
-https://en.wikipedia.org/wiki/Datalog: Datalog
-https://en.wikipedia.org/wiki/Dataparallel-C: Dataparallel-C
-https://en.wikipedia.org/wiki/Dylan_(programming_language): Dylan
-https://en.wikipedia.org/wiki/ECMAScript: ECMAScript
-https://en.wikipedia.org/wiki/ECMAScript_Harmony: ECMAScript Harmony
-https://en.wikipedia.org/wiki/EGL_(programming_language): EGL
-https://en.wikipedia.org/wiki/Ease_(programming_language): Ease
-https://en.wikipedia.org/wiki/Eiffel_(programming_language): Eiffel
-https://en.wikipedia.org/wiki/Elixir_(programming_language): Elixir
-https://en.wikipedia.org/wiki/Elm_(programming_language): Elm
-https://en.wikipedia.org/wiki/Emacs_Lisp: Emacs Lisp
-https://en.wikipedia.org/wiki/Emerald_(programming_language): Emerald
-https://en.wikipedia.org/wiki/Epigram_(programming_language): Epigram
-https://en.wikipedia.org/wiki/Erlang_(programming_language): Erlang
-https://en.wikipedia.org/wiki/Escher_(programming_language): Escher
-https://en.wikipedia.org/wiki/Etoys_(programming_language): Etoys
-https://en.wikipedia.org/wiki/EuLisp: EuLisp
-https://en.wikipedia.org/wiki/Extempore_(software): Extempore
-https://en.wikipedia.org/wiki/F*_(programming_language): F*
-https://en.wikipedia.org/wiki/FL_(programming_language): FL
-https://en.wikipedia.org/wiki/FP_(programming_language): FP
-https://en.wikipedia.org/wiki/F_Sharp_(programming_language): F#
-https://en.wikipedia.org/wiki/Factor_(programming_language): Factor
-https://en.wikipedia.org/wiki/Fantom_(programming_language): Fantom
-https://en.wikipedia.org/wiki/Flix_(programming_language): Flix
-https://en.wikipedia.org/wiki/Forth_(programming_language): Forth
-https://en.wikipedia.org/wiki/Fortran: Fortran
-https://en.wikipedia.org/wiki/Fortran_90: Fortran 90
-https://en.wikipedia.org/wiki/Fortress_(programming_language): Fortress
-https://en.wikipedia.org/wiki/FreeBASIC: FreeBASIC
-https://en.wikipedia.org/wiki/GDScript: GDScript
-https://en.wikipedia.org/wiki/GNU_Octave: Octave
-https://en.wikipedia.org/wiki/GT.M: GT.M
-https://en.wikipedia.org/wiki/GW-BASIC: GW-BASIC
-https://en.wikipedia.org/wiki/Gambas: Gambas
-https://en.wikipedia.org/wiki/Gambit_(Scheme_implementation): Gambit
-https://en.wikipedia.org/wiki/Generic_Java: Generic Java
-https://en.wikipedia.org/wiki/Generics_in_Java: Generics
-https://en.wikipedia.org/wiki/Gleam_(programming_language): Gleam
-https://en.wikipedia.org/wiki/Go_(programming_language): Go
-https://en.wikipedia.org/wiki/Graph_Query_Language: GQL
-https://en.wikipedia.org/wiki/Groovy_(programming_language): Groovy
-https://en.wikipedia.org/wiki/Hack_(programming_language): Hack
-https://en.wikipedia.org/wiki/Haskell: Haskell
-https://en.wikipedia.org/wiki/Haskell_(programming_language): Haskell
-https://en.wikipedia.org/wiki/Haxe: Haxe
-https://en.wikipedia.org/wiki/Hop_(software): Hop
-https://en.wikipedia.org/wiki/HotSpot_(virtual_machine): HotSpot
-https://en.wikipedia.org/wiki/Hy_(programming_language): Hy
-https://en.wikipedia.org/wiki/IBM_PL/S: PL/S
-https://en.wikipedia.org/wiki/IDL_(programming_language): IDL
-https://en.wikipedia.org/wiki/INTLAB: INTLAB
-https://en.wikipedia.org/wiki/ISETL: ISETL
-https://en.wikipedia.org/wiki/ISLISP: ISLISP
-https://en.wikipedia.org/wiki/Icon_(programming_language): Icon
-https://en.wikipedia.org/wiki/Idris_(programming_language): Idris
-https://en.wikipedia.org/wiki/Inferno_(operating_system): Inferno
-https://en.wikipedia.org/wiki/Interactive_fiction: interactive fiction
-https://en.wikipedia.org/wiki/Interlisp: Interlisp
-https://en.wikipedia.org/wiki/Intermediate_programming_language: Intermediate programming language
-https://en.wikipedia.org/wiki/Io_(programming_language): Io
-https://en.wikipedia.org/wiki/Isabelle_(proof_assistant): Isabelle
-https://en.wikipedia.org/wiki/JS++: JS++
-https://en.wikipedia.org/wiki/JSON: JSON
-https://en.wikipedia.org/wiki/J_(programming_language): J
-https://en.wikipedia.org/wiki/J_Sharp: J#
-https://en.wikipedia.org/wiki/Jakarta_Server_Pages: JSP
-https://en.wikipedia.org/wiki/JavaScript: JavaScript
-https://en.wikipedia.org/wiki/Java_(programming_language): Java
-https://en.wikipedia.org/wiki/Java_Object_Oriented_Querying: jOOQ
-https://en.wikipedia.org/wiki/Java_Persistence_Query_Language: JPQL
-https://en.wikipedia.org/wiki/Joy_(programming_language): Joy
-https://en.wikipedia.org/wiki/Jq_(programming_language): jq
-https://en.wikipedia.org/wiki/Julia_(programming_language): Julia
-https://en.wikipedia.org/wiki/Jupyter: Jupyter
-https://en.wikipedia.org/wiki/KL0: KL0
-https://en.wikipedia.org/wiki/KL1: KL1
-https://en.wikipedia.org/wiki/K_(programming_language): K
-https://en.wikipedia.org/wiki/KornShell: KornShell
-https://en.wikipedia.org/wiki/Korn_Shell: Korn Shell
-https://en.wikipedia.org/wiki/Kotlin_(programming_language): Kotlin
-https://en.wikipedia.org/wiki/LFE_(programming_language): LFE
-https://en.wikipedia.org/wiki/LPC_(programming_language): LPC
-https://en.wikipedia.org/wiki/Language_Integrated_Query: LINQ
-https://en.wikipedia.org/wiki/Lasso_(programming_language): Lasso
-https://en.wikipedia.org/wiki/Leet_(programming_language): l33t
-https://en.wikipedia.org/wiki/Limbo_(programming_language): Limbo
-https://en.wikipedia.org/wiki/Lingo_(programming_language): Lingo
-https://en.wikipedia.org/wiki/Lisp_(programming_language): Lisp
-https://en.wikipedia.org/wiki/Lisp_Machine_Lisp: Lisp Machine Lisp
-https://en.wikipedia.org/wiki/List_of_object-oriented_programming_languages: object-oriented programming languages
-https://en.wikipedia.org/wiki/LiveCode: LiveCode
-https://en.wikipedia.org/wiki/LiveScript_(programming_language): LiveScript
-https://en.wikipedia.org/wiki/Logo_(programming_language): Logo
-https://en.wikipedia.org/wiki/Logtalk: Logtalk
-https://en.wikipedia.org/wiki/Lua_(programming_language): Lua
-https://en.wikipedia.org/wiki/Lucid_(programming_language): Lucid
-https://en.wikipedia.org/wiki/Lustre_(programming_language): Lustre
-https://en.wikipedia.org/wiki/MATH-MATIC: MATH-MATIC
-https://en.wikipedia.org/wiki/MATLAB: MATLAB
-https://en.wikipedia.org/wiki/MBlock: mBlock
-https://en.wikipedia.org/wiki/ML/I: ML/I
-https://en.wikipedia.org/wiki/ML_(programming_language): ML
-https://en.wikipedia.org/wiki/MSX_BASIC: MSX BASIC
-https://en.wikipedia.org/wiki/MUMPS: MUMPS
-https://en.wikipedia.org/wiki/Malbolge: Malbolge
-https://en.wikipedia.org/wiki/Mary_(programming_language): Mary
-https://en.wikipedia.org/wiki/Mercury_(RemObjects_BASIC_programming_language): Mercury
-https://en.wikipedia.org/wiki/Mercury_(programming_language): Mercury
-https://en.wikipedia.org/wiki/Microsoft_Excel: Excel
-https://en.wikipedia.org/wiki/Microsoft_Power_Fx: Microsoft Power Fx
-https://en.wikipedia.org/wiki/Microsoft_Power_Fx: Power Fx
-https://en.wikipedia.org/wiki/Microsoft_Small_Basic: Microsoft Small Basic
-https://en.wikipedia.org/wiki/Microsoft_Small_Basic: Small Basic
-https://en.wikipedia.org/wiki/Mirah_(programming_language): Mirah
-https://en.wikipedia.org/wiki/Miranda_(programming_language): Miranda
-https://en.wikipedia.org/wiki/Modula-2+: Modula-2+
-https://en.wikipedia.org/wiki/Modula-2: -2
-https://en.wikipedia.org/wiki/Modula-2: Modula-2
-https://en.wikipedia.org/wiki/Modula-3: -3
-https://en.wikipedia.org/wiki/Modula-3: Modula-3
-https://en.wikipedia.org/wiki/Modula: Modula
-https://en.wikipedia.org/wiki/Mojo_(programming_language): Mojo
-https://en.wikipedia.org/wiki/MoonScript: MoonScript
-https://en.wikipedia.org/wiki/Moose_(Perl): Moose
-https://en.wikipedia.org/wiki/MultiLisp: MultiLisp
-https://en.wikipedia.org/wiki/N1QL: N1QL
-https://en.wikipedia.org/wiki/NS_Basic: NS Basic
-https://en.wikipedia.org/wiki/Nemerle: Nemerle
-https://en.wikipedia.org/wiki/NetLogo: NetLogo
-https://en.wikipedia.org/wiki/NetRexx: NetRexx
-https://en.wikipedia.org/wiki/Newspeak_(programming_language): Newspeak
-https://en.wikipedia.org/wiki/NewtonScript: NewtonScript
-https://en.wikipedia.org/wiki/Nial: Nial
-https://en.wikipedia.org/wiki/Nim_(programming_language): Nim
-https://en.wikipedia.org/wiki/Nu_(programming_language): Nu
-https://en.wikipedia.org/wiki/NumPy: NumPy
-https://en.wikipedia.org/wiki/OCaml: OCaml
-https://en.wikipedia.org/wiki/OPS5: OPS5
-https://en.wikipedia.org/wiki/Oberon-2: -2
-https://en.wikipedia.org/wiki/Oberon-2: Oberon-2
-https://en.wikipedia.org/wiki/Oberon_(programming_language)#Oberon-07: Oberon-07
-https://en.wikipedia.org/wiki/Oberon_(programming_language): Oberon
-https://en.wikipedia.org/wiki/Object_Pascal: Object Pascal
-https://en.wikipedia.org/wiki/Object_REXX: Object REXX
-https://en.wikipedia.org/wiki/Objective-C++: Objective-C++
-https://en.wikipedia.org/wiki/Objective-C: Objective-C
-https://en.wikipedia.org/wiki/Opa_(programming_language): Opa
-https://en.wikipedia.org/wiki/OpenMP: OpenMP
-https://en.wikipedia.org/wiki/Orwell_(programming_language): Orwell
-https://en.wikipedia.org/wiki/Oxygene_(programming_language): Oxygene
-https://en.wikipedia.org/wiki/Oz_(programming_language): Oz
-https://en.wikipedia.org/wiki/PACT_I: PACT I
-https://en.wikipedia.org/wiki/PHP: PHP
-https://en.wikipedia.org/wiki/PL-6: PL-6
-https://en.wikipedia.org/wiki/PL.8: PL.8
-https://en.wikipedia.org/wiki/PL/I: PL/I
-https://en.wikipedia.org/wiki/PL/M: PL/M
-https://en.wikipedia.org/wiki/PL/SQL: PL/SQL
-https://en.wikipedia.org/wiki/PL/pgSQL: PL/pgSQL
-https://en.wikipedia.org/wiki/POP-11: 11
-https://en.wikipedia.org/wiki/POP-2: POP-2
-https://en.wikipedia.org/wiki/Pandas_(software): pandas
-https://en.wikipedia.org/wiki/ParaSail_(programming_language)#Description: Sparkel
-https://en.wikipedia.org/wiki/ParaSail_(programming_language): ParaSail
-https://en.wikipedia.org/wiki/Pascal_(programming_language): Pascal
-https://en.wikipedia.org/wiki/Perl: Perl
-https://en.wikipedia.org/wiki/Pike_(programming_language): Pike
-https://en.wikipedia.org/wiki/Planner_(programming_language): Planner
-https://en.wikipedia.org/wiki/Polymorphic_Programming_Language: PPL
-https://en.wikipedia.org/wiki/Portable_Document_Format: PDF
-https://en.wikipedia.org/wiki/PostScript: PostScript
-https://en.wikipedia.org/wiki/PowerShell: PowerShell
-https://en.wikipedia.org/wiki/Processing_(programming_language): Processing
-https://en.wikipedia.org/wiki/Profile_Scripting_Language: PSL
-https://en.wikipedia.org/wiki/Programming_Language_for_Business: PL/B
-https://en.wikipedia.org/wiki/Project_Verona: Project Verona
-https://en.wikipedia.org/wiki/Prolog: Prolog
-https://en.wikipedia.org/wiki/PureData: PureData
-https://en.wikipedia.org/wiki/PureScript: PureScript
-https://en.wikipedia.org/wiki/Pyomo: Pyomo
-https://en.wikipedia.org/wiki/Python_(programming_language): Python
-https://en.wikipedia.org/wiki/QB64: QB64
-https://en.wikipedia.org/wiki/QBasic: QBasic
-https://en.wikipedia.org/wiki/Q_(programming_language_from_Kx_Systems): Q
-https://en.wikipedia.org/wiki/Q_(programming_language_from_Kx_Systems): q (kdb)
-https://en.wikipedia.org/wiki/Qore_(programming_language): Qore
-https://en.wikipedia.org/wiki/Qt_(framework): Qt
-https://en.wikipedia.org/wiki/QuickBasic: QuickBasic
-https://en.wikipedia.org/wiki/REBOL: REBOL
-https://en.wikipedia.org/wiki/REXX: REXX
-https://en.wikipedia.org/wiki/RPL_(programming_language): RPL
-https://en.wikipedia.org/wiki/R_(programming_language): R
-https://en.wikipedia.org/wiki/Racket_(programming_language): Racket
-https://en.wikipedia.org/wiki/Raku_(programming_language): Raku
-https://en.wikipedia.org/wiki/Ratfor: Ratfor
-https://en.wikipedia.org/wiki/React_(JavaScript_library): React JS
-https://en.wikipedia.org/wiki/Rebol: Rebol
-https://en.wikipedia.org/wiki/Red_(programming_language): Red
-https://en.wikipedia.org/wiki/Reduce_(computer_algebra_system): Reduce
-https://en.wikipedia.org/wiki/Regency_Systems_R2C: Regency Systems
-https://en.wikipedia.org/wiki/Reia_(programming_language): Reia
-https://en.wikipedia.org/wiki/Ring_(programming_language): Ring
-https://en.wikipedia.org/wiki/Ruby_(programming_language): Ruby
-https://en.wikipedia.org/wiki/Rust_(programming_language): Rust
-https://en.wikipedia.org/wiki/S3_(programming_language): S3
-https://en.wikipedia.org/wiki/SAC_programming_language: SAC
-https://en.wikipedia.org/wiki/SAKO_(programming_language): SAKO
-https://en.wikipedia.org/wiki/SASL_(programming_language): SASL
-https://en.wikipedia.org/wiki/SAS_language: SAS
-https://en.wikipedia.org/wiki/SETL2: SETL2
-https://en.wikipedia.org/wiki/SHACL: SHACL
-https://en.wikipedia.org/wiki/SISAL: SISAL
-https://en.wikipedia.org/wiki/SNOBOL: SNOBOL
-https://en.wikipedia.org/wiki/SPARK_(programming_language): Spark
-https://en.wikipedia.org/wiki/SPARQL: SPARQL
-https://en.wikipedia.org/wiki/SQL/PSM: SQL/PSM
-https://en.wikipedia.org/wiki/SQL: SQL
-https://en.wikipedia.org/wiki/STOIC: STOIC
-https://en.wikipedia.org/wiki/SYMPL: SYMPL
-https://en.wikipedia.org/wiki/S_(programming_language): S
-https://en.wikipedia.org/wiki/Sather: Sather
-https://en.wikipedia.org/wiki/Scala_(programming_language): Scala
-https://en.wikipedia.org/wiki/Scala_programming_language: Scala
-https://en.wikipedia.org/wiki/Scheme_(programming_language): Scheme
-https://en.wikipedia.org/wiki/Scheme_(programming_language): Scheme (R6RS)
-https://en.wikipedia.org/wiki/Scilab: Scilab
-https://en.wikipedia.org/wiki/ScratchJr: ScratchJr
-https://en.wikipedia.org/wiki/Scratch_(programming_language): Scratch
-https://en.wikipedia.org/wiki/Seed7: Seed7
-https://en.wikipedia.org/wiki/Self_(programming_language): Self
-https://en.wikipedia.org/wiki/SenseTalk: SenseTalk
-https://en.wikipedia.org/wiki/Simula: Simula
-https://en.wikipedia.org/wiki/Singularity_(operating_system): Singularity
-https://en.wikipedia.org/wiki/SmallBasic: SmallBasic
-https://en.wikipedia.org/wiki/Smalltalk: Smalltalk
-https://en.wikipedia.org/wiki/Snap!_(programming_language): Snap!
-https://en.wikipedia.org/wiki/Speakeasy_(computational_environment): Speakeasy
-https://en.wikipedia.org/wiki/Squeak: Squeak
-https://en.wikipedia.org/wiki/Stackless_Python: Stackless Python
-https://en.wikipedia.org/wiki/Standard_ML: Standard ML
-https://en.wikipedia.org/wiki/Steelman_language_requirements: Steelman
-https://en.wikipedia.org/wiki/Strand_(programming_language): Strand
-https://en.wikipedia.org/wiki/Structured_text: Structured text
-https://en.wikipedia.org/wiki/SubL: SubL
-https://en.wikipedia.org/wiki/SuperCollider: SuperCollider
-https://en.wikipedia.org/wiki/SuperPascal: SuperPascal
-https://en.wikipedia.org/wiki/SuperTalk: SuperTalk
-https://en.wikipedia.org/wiki/Superplan: Superplan
-https://en.wikipedia.org/wiki/Swift_(programming_language): Swift
-https://en.wikipedia.org/wiki/SystemVerilog: SystemVerilog
-https://en.wikipedia.org/wiki/T_(programming_language): T
-https://en.wikipedia.org/wiki/Tcl: Tcl
-https://en.wikipedia.org/wiki/Tea_(programming_language): Tea
-https://en.wikipedia.org/wiki/Turing_(programming_language): Turing
-https://en.wikipedia.org/wiki/Turing_Plus: Turing Plus
-https://en.wikipedia.org/wiki/Turtlestitch: Turtlestitch
-https://en.wikipedia.org/wiki/TypeScript: TypeScript
-https://en.wikipedia.org/wiki/VAX: VAX
-https://en.wikipedia.org/wiki/VHDL: VHDL
-https://en.wikipedia.org/wiki/V_(programming_language): V
-https://en.wikipedia.org/wiki/V_(programming_language): V (Vlang)
-https://en.wikipedia.org/wiki/Vala_(programming_language): Vala
-https://en.wikipedia.org/wiki/Verilog: Verilog
-https://en.wikipedia.org/wiki/Vilnius_BASIC: Vilnius BASIC
-https://en.wikipedia.org/wiki/Visual_Basic_(.NET): Visual Basic 9.0
-https://en.wikipedia.org/wiki/Visual_Basic_.NET: Visual Basic .NET
-https://en.wikipedia.org/wiki/Visual_Basic_for_Applications: Visual Basic for Applications
-https://en.wikipedia.org/wiki/Visual_J_Sharp: J#
-https://en.wikipedia.org/wiki/Visual_Prolog: Visual Prolog
-https://en.wikipedia.org/wiki/Wikipedia:Citation_needed: citation needed
-https://en.wikipedia.org/wiki/Windows_Forms: Windows Forms
-https://en.wikipedia.org/wiki/Windows_PowerShell: PowerShell
-https://en.wikipedia.org/wiki/Windows_PowerShell: Windows PowerShell
-https://en.wikipedia.org/wiki/Wolfram_Language: Wolfram Language
-https://en.wikipedia.org/wiki/XHarbour: xHarbour
-https://en.wikipedia.org/wiki/Xojo: Xojo
-https://en.wikipedia.org/wiki/Z-machine: ZIL
-https://en.wikipedia.org/wiki/Zig_(programming_language): Zig
-https://en.wikipedia.org/wiki/Zonnon: Zonnon
-
--------------
-influenced by : 326
-https://en.wikipedia.org/wiki/*Lisp: *Lisp
-https://en.wikipedia.org/wiki/A+_(programming_language): A+
-https://en.wikipedia.org/wiki/ABC_(programming_language): ABC
-https://en.wikipedia.org/wiki/AIMACO: AIMACO
-https://en.wikipedia.org/wiki/ALF_(proof_assistant): ALF
-https://en.wikipedia.org/wiki/ALGOL: ALGOL
-https://en.wikipedia.org/wiki/ALGOL_58: ALGOL 58
-https://en.wikipedia.org/wiki/ALGOL_58: IAL, ALGOL 58
-https://en.wikipedia.org/wiki/ALGOL_60: ALGOL 60
-https://en.wikipedia.org/wiki/ALGOL_68: ALGOL 68
-https://en.wikipedia.org/wiki/ALGOL_W: ALGOL W
-https://en.wikipedia.org/wiki/ALGOL_Y: ALGOL Y
-https://en.wikipedia.org/wiki/AMPL: AMPL
-https://en.wikipedia.org/wiki/ANSI_C: ANSI C
-https://en.wikipedia.org/wiki/APL_(programming_language): APL
-https://en.wikipedia.org/wiki/APL_programming_language: APL
-https://en.wikipedia.org/wiki/ARITH-MATIC: ARITH-MATIC
-https://en.wikipedia.org/wiki/ARPAnet: ARPAnet
-https://en.wikipedia.org/wiki/AWK: AWK
-https://en.wikipedia.org/wiki/ActionScript: ActionScript
-https://en.wikipedia.org/wiki/Active_Oberon: Active Oberon
-https://en.wikipedia.org/wiki/Actor-Based_Concurrent_Language: ABCL
-https://en.wikipedia.org/wiki/Actor_model: Actor model
-https://en.wikipedia.org/wiki/Actor_model_middle_history#Actor_programming_languages: Act1
-https://en.wikipedia.org/wiki/Ada_(programming_language): Ada
-https://en.wikipedia.org/wiki/Ada_(programming_language): Ada 83
-https://en.wikipedia.org/wiki/Agda_(programming_language): Agda
-https://en.wikipedia.org/wiki/AgentCubes: AgentCubes
-https://en.wikipedia.org/wiki/AgentSheets: AgentSheets
-https://en.wikipedia.org/wiki/Alef_(programming_language): Alef
-https://en.wikipedia.org/wiki/Alice_(programming_language): Alice
-https://en.wikipedia.org/wiki/Alphard_(programming_language): Alphard
-https://en.wikipedia.org/wiki/AssemblyScript: AssemblyScript
-https://en.wikipedia.org/wiki/Assembly_language: Assembly language
-https://en.wikipedia.org/wiki/AtScript: AtScript
-https://en.wikipedia.org/wiki/Atlas_Autocode: Atlas Autocode
-https://en.wikipedia.org/wiki/BASIC: BASIC
-https://en.wikipedia.org/wiki/BASIC: Basic
-https://en.wikipedia.org/wiki/BASIC_programming_language: BASIC
-https://en.wikipedia.org/wiki/BBN_LISP: BBN LISP
-https://en.wikipedia.org/wiki/BCPL: BCPL
-https://en.wikipedia.org/wiki/BETA_(programming_language): BETA
-https://en.wikipedia.org/wiki/B_(programming_language): B
-https://en.wikipedia.org/wiki/Befunge: Befunge
-https://en.wikipedia.org/wiki/Blockly: Blockly
-https://en.wikipedia.org/wiki/Bluespec: Bluespec
-https://en.wikipedia.org/wiki/Boo_(programming_language): Boo
-https://en.wikipedia.org/wiki/Bourne_shell: Bourne shell
-https://en.wikipedia.org/wiki/Brainfuck: Brainfuck
-https://en.wikipedia.org/wiki/Burroughs_B5000: Burroughs B5000
-https://en.wikipedia.org/wiki/C%CF%89: Cω
-https://en.wikipedia.org/wiki/C++: C++
-https://en.wikipedia.org/wiki/CLU_(programming_language): CLU
-https://en.wikipedia.org/wiki/CMS_EXEC: EXEC
-https://en.wikipedia.org/wiki/COBOL: COBOL
-https://en.wikipedia.org/wiki/COMIT: COMIT
-https://en.wikipedia.org/wiki/COMTRAN: COMTRAN
-https://en.wikipedia.org/wiki/CPL_(programming_language): CPL
-https://en.wikipedia.org/wiki/C_(programming_language): C
-https://en.wikipedia.org/wiki/C_Sharp_(programming_language): C#
-https://en.wikipedia.org/wiki/C_Sharp_(programming_language): C#.NET
-https://en.wikipedia.org/wiki/Caml: Caml
-https://en.wikipedia.org/wiki/Chef_(software): Chef
-https://en.wikipedia.org/wiki/Clarion_(programming_language): Clarion
-https://en.wikipedia.org/wiki/Clean_(programming_language): Clean
-https://en.wikipedia.org/wiki/Clojure: Clojure
-https://en.wikipedia.org/wiki/Clojure_(programming_language): Clojure
-https://en.wikipedia.org/wiki/CoffeeScript: CoffeeScript
-https://en.wikipedia.org/wiki/Common_Lisp: Common Lisp
-https://en.wikipedia.org/wiki/Common_Lisp_Object_System: CLOS
-https://en.wikipedia.org/wiki/Communicating_Sequential_Processes: Communicating Sequential Processes
-https://en.wikipedia.org/wiki/Communicating_sequential_processes: CSP
-https://en.wikipedia.org/wiki/Communicating_sequential_processes: Communicating sequential processes
-https://en.wikipedia.org/wiki/Communicating_sequential_processes: communicating sequential processes
-https://en.wikipedia.org/wiki/Concurrent_Pascal: Concurrent Pascal
-https://en.wikipedia.org/wiki/Control_Language: CL
-https://en.wikipedia.org/wiki/Coq_(software): Coq
-https://en.wikipedia.org/wiki/Cornell_University_Programming_Language: CUPL
-https://en.wikipedia.org/wiki/Cray_MTA: Cray MTA
-https://en.wikipedia.org/wiki/Cray_XMT: XMT
-https://en.wikipedia.org/wiki/Cyclone_(programming_language): Cyclone
-https://en.wikipedia.org/wiki/Cython: Cython
-https://en.wikipedia.org/wiki/DIGITAL_Command_Language: DCL
-https://en.wikipedia.org/wiki/DSSSL: DSSSL
-https://en.wikipedia.org/wiki/DYNAMO_(programming_language): DYNAMO
-https://en.wikipedia.org/wiki/D_(programming_language): D
-https://en.wikipedia.org/wiki/D_language: D
-https://en.wikipedia.org/wiki/Dataflow: dataflow
-https://en.wikipedia.org/wiki/Datalog: Datalog
-https://en.wikipedia.org/wiki/Delphi_(software): Delphi
-https://en.wikipedia.org/wiki/Dependent_ML: Dependent ML
-https://en.wikipedia.org/wiki/Diagram: diagrams
-https://en.wikipedia.org/wiki/DirectShow: DirectShow
-https://en.wikipedia.org/wiki/DirectX: DirectX
-https://en.wikipedia.org/wiki/Dylan_(programming_language): Dylan
-https://en.wikipedia.org/wiki/ECMAScript: ECMAScript
-https://en.wikipedia.org/wiki/EISPACK: EISPACK
-https://en.wikipedia.org/wiki/EXEC_2: EXEC 2
-https://en.wikipedia.org/wiki/E_(programming_language): E
-https://en.wikipedia.org/wiki/Ed_(text_editor): ed
-https://en.wikipedia.org/wiki/Eiffel_(programming_language): Eiffel
-https://en.wikipedia.org/wiki/Elixir_(programming_language): Elixir
-https://en.wikipedia.org/wiki/Elm_(programming_language): Elm
-https://en.wikipedia.org/wiki/Epigram_(programming_language): Epigram
-https://en.wikipedia.org/wiki/Erlang_(programming_language): Erlang
-https://en.wikipedia.org/wiki/Esoteric_programming_language#FALSE: FALSE
-https://en.wikipedia.org/wiki/Etoys_(programming_language): Etoys
-https://en.wikipedia.org/wiki/EuLisp: EuLisp
-https://en.wikipedia.org/wiki/Euclid_(programming_language): Euclid
-https://en.wikipedia.org/wiki/Euler_(programming_language): Euler
-https://en.wikipedia.org/wiki/Excel_function: Excel functions
-https://en.wikipedia.org/wiki/Excel_macro: Excel macros
-https://en.wikipedia.org/wiki/Executive_Systems_Problem_Oriented_Language: ESPOL
-https://en.wikipedia.org/wiki/Executive_Systems_Problem_Oriented_Language: Executive Systems Problem Oriented Language
-https://en.wikipedia.org/wiki/FACT_computer_language: FACT
-https://en.wikipedia.org/wiki/FARGO_(programming_language): FARGO
-https://en.wikipedia.org/wiki/FLOW-MATIC: FLOW-MATIC
-https://en.wikipedia.org/wiki/FORTRAN: FORTRAN
-https://en.wikipedia.org/wiki/FP_(programming_language): FP
-https://en.wikipedia.org/wiki/F_Sharp_(programming_language): F#
-https://en.wikipedia.org/wiki/Flowchart: Flowcharts
-https://en.wikipedia.org/wiki/Forth_(programming_language): Forth
-https://en.wikipedia.org/wiki/Fortran: Fortran
-https://en.wikipedia.org/wiki/Franz_Lisp: Franz Lisp
-https://en.wikipedia.org/wiki/Functional_programming: functional programming
-https://en.wikipedia.org/wiki/GW-BASIC: GW-BASIC
-https://en.wikipedia.org/wiki/Go_(programming_language): Go
-https://en.wikipedia.org/wiki/Gofer_(programming_language): Gofer
-https://en.wikipedia.org/wiki/Gosu_(programming_language): Gosu
-https://en.wikipedia.org/wiki/Groovy_(programming_language): Groovy
-https://en.wikipedia.org/wiki/Haskell: Haskell
-https://en.wikipedia.org/wiki/Haskell_(programming_language): Haskell
-https://en.wikipedia.org/wiki/High_Performance_Fortran: HPF
-https://en.wikipedia.org/wiki/Hope_(programming_language): Hope
-https://en.wikipedia.org/wiki/Hy_(programming_language): Hy
-https://en.wikipedia.org/wiki/HyperCard: HyperCard
-https://en.wikipedia.org/wiki/HyperTalk: HyperTalk
-https://en.wikipedia.org/wiki/IBM_709/90_9PAC: 9PAC
-https://en.wikipedia.org/wiki/IBM_BASICA: IBM BASICA
-https://en.wikipedia.org/wiki/IBM_Cassette_BASIC: IBM Cassette BASIC
-https://en.wikipedia.org/wiki/IBM_Disk_BASIC: IBM Disk BASIC
-https://en.wikipedia.org/wiki/IDL_(programming_language): IDL
-https://en.wikipedia.org/wiki/IMP_(programming_language): IMP
-https://en.wikipedia.org/wiki/INTERCAL: INTERCAL
-https://en.wikipedia.org/wiki/ISWIM: ISWIM
-https://en.wikipedia.org/wiki/Icon_(programming_language): Icon
-https://en.wikipedia.org/wiki/Icon_programming_language: Icon
-https://en.wikipedia.org/wiki/Id_(programming_language): Id
-https://en.wikipedia.org/wiki/Inform: Inform
-https://en.wikipedia.org/wiki/Information_Processing_Language: Information Processing Language
-https://en.wikipedia.org/wiki/Interlisp: Interlisp
-https://en.wikipedia.org/wiki/Interpress: Interpress
-https://en.wikipedia.org/wiki/Io_(programming_language): Io
-https://en.wikipedia.org/wiki/JOSS: JOSS
-https://en.wikipedia.org/wiki/JOVIAL: JOVIAL
-https://en.wikipedia.org/wiki/JSON: JSON
-https://en.wikipedia.org/wiki/JScript: JScript
-https://en.wikipedia.org/wiki/J_Sharp: J#
-https://en.wikipedia.org/wiki/Janus_(concurrent_constraint_programming_language): Janus
-https://en.wikipedia.org/wiki/JavaScript: JavaScript
-https://en.wikipedia.org/wiki/Java_(programming_language): Java
-https://en.wikipedia.org/wiki/Java_virtual_machine: JVM
-https://en.wikipedia.org/wiki/Javascript_(programming_language): Javascript
-https://en.wikipedia.org/wiki/Joule_(programming_language): Joule
-https://en.wikipedia.org/wiki/Joy_(programming_language): Joy
-https://en.wikipedia.org/wiki/Joyce_(programming_language): Joyce
-https://en.wikipedia.org/wiki/K_(programming_language): k
-https://en.wikipedia.org/wiki/Kent_Recursive_Calculator: KRC
-https://en.wikipedia.org/wiki/KornShell: Ksh
-https://en.wikipedia.org/wiki/Kotlin_(programming_language): Kotlin
-https://en.wikipedia.org/wiki/LINPACK: LINPACK
-https://en.wikipedia.org/wiki/LIS_(programming_language): LIS
-https://en.wikipedia.org/wiki/LPC_(programming_language): LPC
-https://en.wikipedia.org/wiki/Laning_and_Zierler_system: Laning and Zierler system
-https://en.wikipedia.org/wiki/Limbo_(programming_language): Limbo
-https://en.wikipedia.org/wiki/Lisp_(programming_language): Lisp
-https://en.wikipedia.org/wiki/Lisp_Machine_Lisp: Lisp Machine Lisp
-https://en.wikipedia.org/wiki/Lisp_programming_language: Lisp
-https://en.wikipedia.org/wiki/Logo_(programming_language): LOGO
-https://en.wikipedia.org/wiki/Logo_(programming_language): Logo
-https://en.wikipedia.org/wiki/Lolcat: Lolcats
-https://en.wikipedia.org/wiki/Lua_(programming_language): Lua
-https://en.wikipedia.org/wiki/MASSCOMP: Laboratory Workbench
-https://en.wikipedia.org/wiki/MATLAB: MATLAB
-https://en.wikipedia.org/wiki/MDL_(programming_language): MDL
-https://en.wikipedia.org/wiki/ML_(programming_language): ML
-https://en.wikipedia.org/wiki/Machine_code: machine code
-https://en.wikipedia.org/wiki/Maclisp: Maclisp
-https://en.wikipedia.org/wiki/Macsyma: Macsyma
-https://en.wikipedia.org/wiki/Maker_culture: Maker Culture
-https://en.wikipedia.org/wiki/Managed_Extensions_for_C++: Managed Extensions for C++
-https://en.wikipedia.org/wiki/Mathematica: Mathematica
-https://en.wikipedia.org/wiki/Mathematical_notation: Mathematical notation
-https://en.wikipedia.org/wiki/Max/MSP: Max/MSP
-https://en.wikipedia.org/wiki/Mesa_(programming_language): Mesa
-https://en.wikipedia.org/wiki/Message_Passing_Interface: MPI
-https://en.wikipedia.org/wiki/Metafont: Metafont
-https://en.wikipedia.org/wiki/Microsoft_BASIC: Microsoft BASIC
-https://en.wikipedia.org/wiki/Miranda_(programming_language): Miranda
-https://en.wikipedia.org/wiki/Modula-2+: Modula-2+
-https://en.wikipedia.org/wiki/Modula-2: Modula-2
-https://en.wikipedia.org/wiki/Modula-3: Modula-3
-https://en.wikipedia.org/wiki/Modula: Modula
-https://en.wikipedia.org/wiki/NESL: NESL
-https://en.wikipedia.org/wiki/Natural_language_programming: Natural language
-https://en.wikipedia.org/wiki/Natural_language_programming: Natural language programming
-https://en.wikipedia.org/wiki/NekoVM: NekoVM
-https://en.wikipedia.org/wiki/Newsqueak: Newsqueak
-https://en.wikipedia.org/wiki/NewtonScript: NewtonScript
-https://en.wikipedia.org/wiki/OCaml: OCaml
-https://en.wikipedia.org/wiki/OPS5: OPS5
-https://en.wikipedia.org/wiki/Oberon-2: Oberon-2
-https://en.wikipedia.org/wiki/Oberon_(programming_language): Oberon
-https://en.wikipedia.org/wiki/Object_Oberon: Object Oberon
-https://en.wikipedia.org/wiki/Object_Pascal: Object Pascal
-https://en.wikipedia.org/wiki/Object_REXX: ooREXX
-https://en.wikipedia.org/wiki/Objective-C: Objective-C
-https://en.wikipedia.org/wiki/Occam_(programming_language): occam
-https://en.wikipedia.org/wiki/Orwell_(programming_language): Orwell
-https://en.wikipedia.org/wiki/Oxygene_(programming_language): Oxygene
-https://en.wikipedia.org/wiki/Oz_(programming_language): Oz
-https://en.wikipedia.org/wiki/P%E2%80%B2%E2%80%B2: P′′
-https://en.wikipedia.org/wiki/PHP: PHP
-https://en.wikipedia.org/wiki/PL/0: PL/0
-https://en.wikipedia.org/wiki/PL/1: PL/1
-https://en.wikipedia.org/wiki/PL/I: PL/I
-https://en.wikipedia.org/wiki/PL/SQL: PL/SQL
-https://en.wikipedia.org/wiki/PLEX_(programming_language): PLEX
-https://en.wikipedia.org/wiki/POP-2: POP-2
-https://en.wikipedia.org/wiki/ParaSail_(programming_language): ParaSail
-https://en.wikipedia.org/wiki/Pascal_(programming_language): Pascal
-https://en.wikipedia.org/wiki/Perl: Perl
-https://en.wikipedia.org/wiki/Pipeline_(Unix): Pipeline (Unix)
-https://en.wikipedia.org/wiki/Pizza_(programming_language): Pizza
-https://en.wikipedia.org/wiki/Plankalk%C3%BCl: Plankalkül
-https://en.wikipedia.org/wiki/Planner_(programming_language): Planner
-https://en.wikipedia.org/wiki/Polymorphic_Programming_Language: PPL
-https://en.wikipedia.org/wiki/Prolog: Prolog
-https://en.wikipedia.org/wiki/Puppet_(software): Puppet
-https://en.wikipedia.org/wiki/Pure_Data: Pure Data
-https://en.wikipedia.org/wiki/Python_(programming_language): Python
-https://en.wikipedia.org/wiki/QBasic: QBasic
-https://en.wikipedia.org/wiki/QML: QML
-https://en.wikipedia.org/wiki/Q_(programming_language_from_Kx_Systems): Q
-https://en.wikipedia.org/wiki/Qt_(framework): Qt
-https://en.wikipedia.org/wiki/QuickBASIC: QuickBASIC
-https://en.wikipedia.org/wiki/REXX: REXX
-https://en.wikipedia.org/wiki/R_(programming_language): R
-https://en.wikipedia.org/wiki/Racket_(programming_language): Racket
-https://en.wikipedia.org/wiki/Rebol: Rebol
-https://en.wikipedia.org/wiki/Regular_expression: Regular expression
-https://en.wikipedia.org/wiki/RelaxNG: RelaxNG
-https://en.wikipedia.org/wiki/Reverse_Polish_Notation: RPN
-https://en.wikipedia.org/wiki/Rexx: Rexx
-https://en.wikipedia.org/wiki/Ruby_(programming_language): Ruby
-https://en.wikipedia.org/wiki/Rust_(programming_language): Rust
-https://en.wikipedia.org/wiki/SAIL_(programming_language): SAIL
-https://en.wikipedia.org/wiki/SASL_(programming_language): SASL
-https://en.wikipedia.org/wiki/SETL: SETL
-https://en.wikipedia.org/wiki/SISAL: SISAL
-https://en.wikipedia.org/wiki/SNOBOL: SNOBOL
-https://en.wikipedia.org/wiki/SP/k: SP/k
-https://en.wikipedia.org/wiki/SPARQL: SPARQL
-https://en.wikipedia.org/wiki/SQL: SQL
-https://en.wikipedia.org/wiki/S_(programming_language): S
-https://en.wikipedia.org/wiki/Scala_(programming_language): Scala
-https://en.wikipedia.org/wiki/Scheme_(programming_language): Scheme
-https://en.wikipedia.org/wiki/Schoonschip: Schoonschip
-https://en.wikipedia.org/wiki/Scratch_(programming_language): Scratch
-https://en.wikipedia.org/wiki/Scratch_(programming_language): Scratch (programming language)
-https://en.wikipedia.org/wiki/Sed: sed
-https://en.wikipedia.org/wiki/Self_(programming_language): Self
-https://en.wikipedia.org/wiki/Semi-Automatic_Ground_Environment: SAGE
-https://en.wikipedia.org/wiki/Simscript: Simscript
-https://en.wikipedia.org/wiki/Simula67: Simula67
-https://en.wikipedia.org/wiki/Simula: Simula
-https://en.wikipedia.org/wiki/Simula_67: Simula 67
-https://en.wikipedia.org/wiki/Sketchpad: Sketchpad
-https://en.wikipedia.org/wiki/Smalltalk: Smalltalk
-https://en.wikipedia.org/wiki/Snap!_(programming_language): Snap!
-https://en.wikipedia.org/wiki/Snobol4: Snobol4
-https://en.wikipedia.org/wiki/Speakeasy_(computational_environment): Speakeasy
-https://en.wikipedia.org/wiki/Speedcoding: Speedcoding
-https://en.wikipedia.org/wiki/Split-C: Split-C
-https://en.wikipedia.org/wiki/Squeak: Squeak
-https://en.wikipedia.org/wiki/Standard_ML: SML
-https://en.wikipedia.org/wiki/Standard_ML: Standard ML
-https://en.wikipedia.org/wiki/StarLogo: StarLogo
-https://en.wikipedia.org/wiki/Stardent_Computer: AVS (Advanced Visualization System)
-https://en.wikipedia.org/wiki/StrongTalk: StrongTalk
-https://en.wikipedia.org/wiki/Strongtalk: Strongtalk
-https://en.wikipedia.org/wiki/Swift_(parallel_scripting_language): Swift (parallel scripting language)
-https://en.wikipedia.org/wiki/Swift_(programming_language): Swift
-https://en.wikipedia.org/wiki/Symbolic_Manipulation_Program: SMP
-https://en.wikipedia.org/wiki/TMG_(language): TMG
-https://en.wikipedia.org/wiki/TRAC_programming_language: TRAC
-https://en.wikipedia.org/wiki/Tcl: Tcl
-https://en.wikipedia.org/wiki/Tk_(software): Tk
-https://en.wikipedia.org/wiki/Turtle_(syntax): Turtle
-https://en.wikipedia.org/wiki/TypeScript: TypeScript
-https://en.wikipedia.org/wiki/UCSD_Pascal: UCSD Pascal
-https://en.wikipedia.org/wiki/Unified_Modeling_Language: UML
-https://en.wikipedia.org/wiki/Unix_shell: Unix shell
-https://en.wikipedia.org/wiki/VB.NET: VB.NET
-https://en.wikipedia.org/wiki/Visual_Basic: VB
-https://en.wikipedia.org/wiki/Visual_Basic: Visual Basic
-https://en.wikipedia.org/wiki/Visual_Basic_(classic): Classic Visual Basic
-https://en.wikipedia.org/wiki/Visual_Basic_(classic): Visual Basic
-https://en.wikipedia.org/wiki/Visual_Basic_.NET: Visual Basic .NET
-https://en.wikipedia.org/wiki/Visual_J++: J++
-https://en.wikipedia.org/wiki/Visual_J++: Visual J++
-https://en.wikipedia.org/wiki/Whiley_(programming_language): Whiley
-https://en.wikipedia.org/wiki/Wikipedia:Citation_needed: citation needed
-https://en.wikipedia.org/wiki/Wolfram_Language: Wolfram Language
-https://en.wikipedia.org/wiki/XACML: XACML
-https://en.wikipedia.org/wiki/XAML: XAML
-https://en.wikipedia.org/wiki/XBase: xBase
-https://en.wikipedia.org/wiki/XML: XML
-https://en.wikipedia.org/wiki/XPL: XPL
-https://en.wikipedia.org/wiki/XPath: XPath
-https://en.wikipedia.org/wiki/XSLT: XSLT
-https://en.wikipedia.org/wiki/YAML: YAML
-https://en.wikipedia.org/wiki/ZPL_(programming_language): ZPL
-https://en.wikipedia.org/wiki/Z_notation: Z
-https://en.wikipedia.org/wiki/ZeroMQ: ØMQ
-https://en.wikipedia.org/wiki/Zig_(programming_language): Zig
-
--------------
-major implementations : 227
-https://en.wikipedia.org/wiki/.NET: .NET
-https://en.wikipedia.org/wiki/.NET_Framework: .NET Framework
-https://en.wikipedia.org/wiki/.NET_Framework_SDK: .NET Framework SDK
-https://en.wikipedia.org/wiki/ALGOL_68-R: ALGOL 68-R
-https://en.wikipedia.org/wiki/ALGOL_68C: ALGOL 68C
-https://en.wikipedia.org/wiki/ALGOL_68RS: ALGOL 68RS
-https://en.wikipedia.org/wiki/ALGOL_68S: ALGOL 68S
-https://en.wikipedia.org/wiki/AMESim: AMESim
-https://en.wikipedia.org/wiki/APLX: APLX
-https://en.wikipedia.org/wiki/ARM_architecture_family: ARM
-https://en.wikipedia.org/wiki/ARexx: ARexx
-https://en.wikipedia.org/wiki/ASP.NET: ASP.NET
-https://en.wikipedia.org/wiki/Absoft_Fortran_Compilers: Absoft
-https://en.wikipedia.org/wiki/ActionScript: ActionScript
-https://en.wikipedia.org/wiki/Active_Scripting: Active Scripting
-https://en.wikipedia.org/wiki/Active_Server_Pages: Active Server Pages
-https://en.wikipedia.org/wiki/Adobe_AIR: Adobe AIR
-https://en.wikipedia.org/wiki/Adobe_Flash_Player: Adobe Flash Player
-https://en.wikipedia.org/wiki/Allegro_Common_Lisp: Allegro CL
-https://en.wikipedia.org/wiki/Amber_Smalltalk: Amber
-https://en.wikipedia.org/wiki/Apache_Flex: Apache Flex
-https://en.wikipedia.org/wiki/Apache_Jena: Apache Jena
-https://en.wikipedia.org/wiki/Armed_Bear_Common_Lisp: ABCL
-https://en.wikipedia.org/wiki/B-Prolog: B-Prolog
-https://en.wikipedia.org/wiki/Berkeley_Software_Distribution: BSD
-https://en.wikipedia.org/wiki/C++Builder: C++Builder
-https://en.wikipedia.org/wiki/C++Builder: Embarcadero C++Builder
-https://en.wikipedia.org/wiki/CATIA: CATIA
-https://en.wikipedia.org/wiki/CDC_6000: CDC 6000
-https://en.wikipedia.org/wiki/CLISP: CLISP
-https://en.wikipedia.org/wiki/CMUCL: CMUCL
-https://en.wikipedia.org/wiki/CPython: CPython
-https://en.wikipedia.org/wiki/C_(programming_language): C
-https://en.wikipedia.org/wiki/C_Sharp_(programming_language): C#
-https://en.wikipedia.org/wiki/Category:Scheme_(programming_language)_implementations: Scheme implementations
-https://en.wikipedia.org/wiki/Chakra_(JScript_engine): Chakra
-https://en.wikipedia.org/wiki/Ciao_(programming_language): Ciao
-https://en.wikipedia.org/wiki/CircuitPython: CircuitPython
-https://en.wikipedia.org/wiki/Clang: Clang
-https://en.wikipedia.org/wiki/Clang: LLVM Clang
-https://en.wikipedia.org/wiki/Clozure_CL: Clozure CL
-https://en.wikipedia.org/wiki/Cocoa_(API): Cocoa
-https://en.wikipedia.org/wiki/Common_Language_Infrastructure: CLI
-https://en.wikipedia.org/wiki/Cray: Cray
-https://en.wikipedia.org/wiki/Croquet_Project: Croquet
-https://en.wikipedia.org/wiki/DDC-I: DDC-I
-https://en.wikipedia.org/wiki/DEC_Systems_Research_Center: SRC
-https://en.wikipedia.org/wiki/Delphi_(software): Delphi
-https://en.wikipedia.org/wiki/Delphi_(software): Embarcadero Delphi
-https://en.wikipedia.org/wiki/Digital_Equipment_Corporation: DEC
-https://en.wikipedia.org/wiki/Dis_virtual_machine: Dis virtual machine
-https://en.wikipedia.org/wiki/Dolphin_Smalltalk: Dolphin Smalltalk
-https://en.wikipedia.org/wiki/Domain-specific_language: Domain-specific language
-https://en.wikipedia.org/wiki/DotGNU: DotGNU
-https://en.wikipedia.org/wiki/Dymola: Dymola
-https://en.wikipedia.org/wiki/ECLiPSe: ECLiPSe
-https://en.wikipedia.org/wiki/Eclipse_(software): Eclipse
-https://en.wikipedia.org/wiki/Edison_Design_Group: EDG
-https://en.wikipedia.org/wiki/EiffelStudio: EiffelStudio
-https://en.wikipedia.org/wiki/Embeddable_Common_Lisp: ECL
-https://en.wikipedia.org/wiki/FANUC: FANUC
-https://en.wikipedia.org/wiki/FLACC: FLACC
-https://en.wikipedia.org/wiki/Flutter_(software): Flutter
-https://en.wikipedia.org/wiki/Free_Pascal: Free Pascal
-https://en.wikipedia.org/wiki/Free_University_of_Berlin: FU Berlin
-https://en.wikipedia.org/wiki/G95: G95
-https://en.wikipedia.org/wiki/GNAT: GNAT
-https://en.wikipedia.org/wiki/GNU_Common_Lisp: GCL
-https://en.wikipedia.org/wiki/GNU_Compiler_Collection: GCC
-https://en.wikipedia.org/wiki/GNU_Data_Language: GNU Data Language
-https://en.wikipedia.org/wiki/GNU_Fortran: GFortran
-https://en.wikipedia.org/wiki/GNU_Octave: GNU Octave
-https://en.wikipedia.org/wiki/GNU_Pascal: GNU Pascal
-https://en.wikipedia.org/wiki/GNU_Prolog: GNU Prolog
-https://en.wikipedia.org/wiki/GNU_Smalltalk: GNU Smalltalk
-https://en.wikipedia.org/wiki/GNU_m4: GNU m4
-https://en.wikipedia.org/wiki/Gemstone_(database): GemStone/S
-https://en.wikipedia.org/wiki/Genera_(operating_system): Symbolics Common Lisp
-https://en.wikipedia.org/wiki/Gforth: Gforth
-https://en.wikipedia.org/wiki/Ghostscript: Ghostscript
-https://en.wikipedia.org/wiki/Glasgow_Haskell_Compiler: GHC
-https://en.wikipedia.org/wiki/GnuCOBOL: GnuCOBOL
-https://en.wikipedia.org/wiki/Google_Apps_Script: Google Apps Script
-https://en.wikipedia.org/wiki/GraalVM#Language_and_Runtime_Support: TruffleRuby
-https://en.wikipedia.org/wiki/Gradle: Gradle
-https://en.wikipedia.org/wiki/Grails_(framework): Grails
-https://en.wikipedia.org/wiki/Green_Hills_Software: Green Hills Software
-https://en.wikipedia.org/wiki/HHVM: HHVM
-https://en.wikipedia.org/wiki/Haas_Automation: Haas
-https://en.wikipedia.org/wiki/Haskell: Haskell
-https://en.wikipedia.org/wiki/Heidenhain: Heidenhain
-https://en.wikipedia.org/wiki/Hitachi: Hitachi
-https://en.wikipedia.org/wiki/Hugs_(interpreter): Hugs
-https://en.wikipedia.org/wiki/IBM: IBM
-https://en.wikipedia.org/wiki/IBM_704: IBM 704
-https://en.wikipedia.org/wiki/IBM_7090: 7090
-https://en.wikipedia.org/wiki/IBM_COBOL: IBM COBOL
-https://en.wikipedia.org/wiki/IBM_System/360: S/360
-https://en.wikipedia.org/wiki/IBM_System/370: IBM System/370
-https://en.wikipedia.org/wiki/IBM_System/370: S/370
-https://en.wikipedia.org/wiki/IBM_VisualAge: VA Smalltalk
-https://en.wikipedia.org/wiki/IBM_XL_C++: IBM XL C++
-https://en.wikipedia.org/wiki/ICT_1900_series: ICL 1900
-https://en.wikipedia.org/wiki/InScript_(JavaScript_engine): InScript
-https://en.wikipedia.org/wiki/Intel_C++_Compiler: Intel C
-https://en.wikipedia.org/wiki/Intel_C++_Compiler: Intel C++ Compiler
-https://en.wikipedia.org/wiki/Intel_Fortran_Compiler: Intel
-https://en.wikipedia.org/wiki/IronPython: IronPython
-https://en.wikipedia.org/wiki/JModelica.org: JModelica.org
-https://en.wikipedia.org/wiki/JRuby: JRuby
-https://en.wikipedia.org/wiki/JScript: JScript
-https://en.wikipedia.org/wiki/JScript_.NET: JScript .NET
-https://en.wikipedia.org/wiki/JavaScript: JavaScript
-https://en.wikipedia.org/wiki/JavaScriptCore: JavaScriptCore
-https://en.wikipedia.org/wiki/Java_(programming_language): Java
-https://en.wikipedia.org/wiki/Java_virtual_machine: Java virtual machine
-https://en.wikipedia.org/wiki/Jython: Jython
-https://en.wikipedia.org/wiki/LibertyEiffel: LibertyEiffel
-https://en.wikipedia.org/wiki/Libxslt: libxslt
-https://en.wikipedia.org/wiki/Linux: Linux
-https://en.wikipedia.org/wiki/LispWorks: LispWorks
-https://en.wikipedia.org/wiki/List_of_relational_database_management_systems: Many
-https://en.wikipedia.org/wiki/Logic_Programming_Associates: LPA Prolog
-https://en.wikipedia.org/wiki/MIL-STD-1750A: MIL-STD-1750A
-https://en.wikipedia.org/wiki/MIPS_architecture: MIPS
-https://en.wikipedia.org/wiki/MLton: MLton
-https://en.wikipedia.org/wiki/MVS: MVS
-https://en.wikipedia.org/wiki/MacOS: macOS
-https://en.wikipedia.org/wiki/Mac_OS_X: Mac OS X
-https://en.wikipedia.org/wiki/MapleSim: MapleSim
-https://en.wikipedia.org/wiki/MariaDB: MariaDB
-https://en.wikipedia.org/wiki/MicroPython: MicroPython
-https://en.wikipedia.org/wiki/Micro_Focus: Micro Focus
-https://en.wikipedia.org/wiki/Microsoft_Visual_C++: Microsoft Visual C++
-https://en.wikipedia.org/wiki/Microsoft_Visual_C_Sharp: Visual C#
-https://en.wikipedia.org/wiki/Microsoft_Visual_Studio: Microsoft Visual Studio
-https://en.wikipedia.org/wiki/Microsoft_Windows: Windows
-https://en.wikipedia.org/wiki/Mimer_SQL: Mimer SQL
-https://en.wikipedia.org/wiki/Mono_(software): Mono
-https://en.wikipedia.org/wiki/Morphic_(software): Morphic
-https://en.wikipedia.org/wiki/Motorola_68000: Motorola 68000
-https://en.wikipedia.org/wiki/Mruby: mruby
-https://en.wikipedia.org/wiki/MySQL: MySQL
-https://en.wikipedia.org/wiki/Numerical_Algorithms_Group: Numerical Algorithms Group
-https://en.wikipedia.org/wiki/Odra_(computer): Odra ALGOL 68
-https://en.wikipedia.org/wiki/Okuma_Corporation: Okuma
-https://en.wikipedia.org/wiki/OpenModelica: OpenModelica
-https://en.wikipedia.org/wiki/OpenVMS: OpenVMS
-https://en.wikipedia.org/wiki/Open_source: open source
-https://en.wikipedia.org/wiki/Oracle_Solaris_Studio: Oracle Solaris Studio
-https://en.wikipedia.org/wiki/Oxygene_(programming_language): Oxygene
-https://en.wikipedia.org/wiki/PDP-10: PDP-10
-https://en.wikipedia.org/wiki/PDP-11: PDP-11
-https://en.wikipedia.org/wiki/PGI_compiler: PGI
-https://en.wikipedia.org/wiki/PL/SQL: PL/SQL
-https://en.wikipedia.org/wiki/PTC_(software_company): PTC
-https://en.wikipedia.org/wiki/Parrot_virtual_machine: Parrot
-https://en.wikipedia.org/wiki/Pascal-P: Pascal-P
-https://en.wikipedia.org/wiki/PathScale: PathScale
-https://en.wikipedia.org/wiki/PeachPie: PeachPie
-https://en.wikipedia.org/wiki/Pharo: Pharo
-https://en.wikipedia.org/wiki/Philco: Philco
-https://en.wikipedia.org/wiki/Poly/ML: Poly/ML
-https://en.wikipedia.org/wiki/Poplog: Poplog
-https://en.wikipedia.org/wiki/Portable_C_Compiler: pcc
-https://en.wikipedia.org/wiki/PowerPC: PowerPC
-https://en.wikipedia.org/wiki/Ppc64: ppc64
-https://en.wikipedia.org/wiki/Prolog: Prolog
-https://en.wikipedia.org/wiki/PyPy: PyPy
-https://en.wikipedia.org/wiki/QtScript: QtScript
-https://en.wikipedia.org/wiki/Quercus_(software): Quercus
-https://en.wikipedia.org/wiki/Quintus_Prolog: Quintus Prolog
-https://en.wikipedia.org/wiki/Rakudo: Rakudo
-https://en.wikipedia.org/wiki/Reference_implementation: reference implementation
-https://en.wikipedia.org/wiki/Robotics: Robotics
-https://en.wikipedia.org/wiki/Roslyn_(compiler): Roslyn Compiler
-https://en.wikipedia.org/wiki/Rubinius: Rubinius
-https://en.wikipedia.org/wiki/RubyMotion: RubyMotion
-https://en.wikipedia.org/wiki/Ruby_MRI: Ruby MRI
-https://en.wikipedia.org/wiki/S-PLUS: S-PLUS
-https://en.wikipedia.org/wiki/SAP_R/2: SAP R/2
-https://en.wikipedia.org/wiki/SAP_R/3: SAP R/3
-https://en.wikipedia.org/wiki/SAP_S/4HANA: SAP S/4HANA
-https://en.wikipedia.org/wiki/SBCL: SBCL
-https://en.wikipedia.org/wiki/SPARC: SPARC
-https://en.wikipedia.org/wiki/SPITBOL: SPITBOL
-https://en.wikipedia.org/wiki/SQL_PL: SQL PL
-https://en.wikipedia.org/wiki/SWI-Prolog: SWI-Prolog
-https://en.wikipedia.org/wiki/Saxon_XSLT: Saxon
-https://en.wikipedia.org/wiki/Scaleform_GFx: Scaleform GFx
-https://en.wikipedia.org/wiki/Scicos: Scicos
-https://en.wikipedia.org/wiki/Scratch_(programming_language): Scratch
-https://en.wikipedia.org/wiki/SemmleCode: SemmleCode
-https://en.wikipedia.org/wiki/Siemens: Siemens
-https://en.wikipedia.org/wiki/Silverfrost_FTN95: Silverfrost
-https://en.wikipedia.org/wiki/SimulationX: SimulationX
-https://en.wikipedia.org/wiki/SmartEiffel: SmartEiffel
-https://en.wikipedia.org/wiki/Space_missions: Space missions
-https://en.wikipedia.org/wiki/SpiderMonkey_(JavaScript_engine): SpiderMonkey
-https://en.wikipedia.org/wiki/Squeak: Squeak
-https://en.wikipedia.org/wiki/Stackless_Python: Stackless Python
-https://en.wikipedia.org/wiki/Standard_ML_of_New_Jersey: SML/NJ
-https://en.wikipedia.org/wiki/Sysquake: Sysquake
-https://en.wikipedia.org/wiki/TrueImage: TrueImage
-https://en.wikipedia.org/wiki/Tweak_(programming_environment): Tweak
-https://en.wikipedia.org/wiki/UCBLogo: UCBLogo
-https://en.wikipedia.org/wiki/UNIVAC_1108: UNIVAC 1108
-https://en.wikipedia.org/wiki/Universal_Windows_Platform: Universal Windows Platform
-https://en.wikipedia.org/wiki/V8_(JavaScript_engine): V8
-https://en.wikipedia.org/wiki/VSI_Pascal: VSI Pascal
-https://en.wikipedia.org/wiki/Virtuoso_Universal_Server: OpenLink Virtuoso
-https://en.wikipedia.org/wiki/VisualWorks: VisualWorks
-https://en.wikipedia.org/wiki/Visual_Eiffel: Visual Eiffel
-https://en.wikipedia.org/wiki/Watcom_C/C++: Watcom C
-https://en.wikipedia.org/wiki/Watcom_C_compiler: Open Watcom
-https://en.wikipedia.org/wiki/Windows_Script_Host: Windows Script Host
-https://en.wikipedia.org/wiki/Wolfram_Mathematica: Mathematica
-https://en.wikipedia.org/wiki/Wolfram_SystemModeler: Wolfram SystemModeler
-https://en.wikipedia.org/wiki/X86: x86
-https://en.wikipedia.org/wiki/XSB: XSB
-https://en.wikipedia.org/wiki/Xalan: Xalan
-https://en.wikipedia.org/wiki/Xcos: Xcos
-https://en.wikipedia.org/wiki/YAP_(Prolog): YAP
-https://en.wikipedia.org/wiki/YARV: YARV
-https://en.wikipedia.org/wiki/Yamazaki_Mazak_Corporation: Mazak
-https://en.wikipedia.org/wiki/Yhc: Yhc
-https://en.wikipedia.org/wiki/Zend_Engine: Zend Engine
-
--------------
-designed by : 227
-https://en.wikipedia.org/wiki/ARINC: ARINC
-https://en.wikipedia.org/wiki/Acadia_University: Acadia University
-https://en.wikipedia.org/wiki/Adele_Goldberg_(computer_scientist): Adele Goldberg
-https://en.wikipedia.org/wiki/Adriaan_van_Wijngaarden: A. van Wijngaarden
-https://en.wikipedia.org/wiki/Adriaan_van_Wijngaarden: van Wijngaarden
-https://en.wikipedia.org/wiki/Alain_Colmerauer: Alain Colmerauer
-https://en.wikipedia.org/wiki/Alan_Jay_Perlis: Perlis
-https://en.wikipedia.org/wiki/Alan_Kay: Alan Kay
-https://en.wikipedia.org/wiki/Alexander_Repenning: Alexander Repenning
-https://en.wikipedia.org/wiki/Alfred_Aho: Alfred Aho
-https://en.wikipedia.org/wiki/Allen_Newell: Allen Newell
-https://en.wikipedia.org/wiki/Anders_Hejlsberg: Anders Hejlsberg
-https://en.wikipedia.org/wiki/Andrei_Alexandrescu: Andrei Alexandrescu
-https://en.wikipedia.org/wiki/Andrey_Ershov: Andrey Ershov
-https://en.wikipedia.org/wiki/Andy_Gavin: Andy Gavin
-https://en.wikipedia.org/wiki/Apple_Inc.: Apple Inc.
-https://en.wikipedia.org/wiki/Arthur_Whitney_(computer_scientist): Arthur Whitney
-https://en.wikipedia.org/wiki/Ateji: Ateji
-https://en.wikipedia.org/wiki/Bank_of_Italy: Bank of Italy
-https://en.wikipedia.org/wiki/Barbara_Liskov: Barbara Liskov
-https://en.wikipedia.org/wiki/Barry_J._Mailloux: B. J. Mailloux
-https://en.wikipedia.org/wiki/Barry_Richmond: Barry Richmond
-https://en.wikipedia.org/wiki/Bell_Labs: Bell Labs
-https://en.wikipedia.org/wiki/Beno%C3%AEt_Minisini: Benoît Minisini
-https://en.wikipedia.org/wiki/Bernard_Galler: Bernard Galler
-https://en.wikipedia.org/wiki/Bernard_Vauquois: Vauquois
-https://en.wikipedia.org/wiki/Bertrand_Meyer: Bertrand Meyer
-https://en.wikipedia.org/wiki/Bill_Gates: Bill Gates
-https://en.wikipedia.org/wiki/Bill_Paxton_(computer_scientist): Bill Paxton
-https://en.wikipedia.org/wiki/Birger_M%C3%B8ller-Pedersen: Birger Møller-Pedersen
-https://en.wikipedia.org/wiki/Bjarne_Stroustrup: Bjarne Stroustrup
-https://en.wikipedia.org/wiki/Brad_Cox: Brad Cox
-https://en.wikipedia.org/wiki/Brendan_Eich: Brendan Eich
-https://en.wikipedia.org/wiki/Brian_Harvey_(lecturer): Brian Harvey
-https://en.wikipedia.org/wiki/Brian_Kernighan: Brian Kernighan
-https://en.wikipedia.org/wiki/Bruce_Arden: Bruce Arden
-https://en.wikipedia.org/wiki/Bruce_Daniels: Bruce Daniels
-https://en.wikipedia.org/wiki/Butler_Lampson: Butler Lampson
-https://en.wikipedia.org/wiki/Calvin_Mooers: Calvin Mooers
-https://en.wikipedia.org/wiki/Carl_Hewitt: Carl Hewitt
-https://en.wikipedia.org/wiki/Carl_Sassenrath: Carl Sassenrath
-https://en.wikipedia.org/wiki/Charles_H._Moore: Charles H. Moore
-https://en.wikipedia.org/wiki/Charles_Katz: Katz
-https://en.wikipedia.org/wiki/Chris_Barker_(linguist): Chris Barker
-https://en.wikipedia.org/wiki/Chris_Lattner: Chris Lattner
-https://en.wikipedia.org/wiki/Christopher_Strachey: Christopher Strachey
-https://en.wikipedia.org/wiki/Chuck_Geschke: Chuck Geschke
-https://en.wikipedia.org/wiki/Cleve_Moler: Cleve Moler
-https://en.wikipedia.org/wiki/Cliff_Shaw: Cliff Shaw
-https://en.wikipedia.org/wiki/Computer_Sciences_Corporation: Computer Sciences Corporation
-https://en.wikipedia.org/wiki/Conor_McBride: Conor McBride
-https://en.wikipedia.org/wiki/Cornelis_H._A._Koster: C. H. A. Koster
-https://en.wikipedia.org/wiki/Corrado_B%C3%B6hm: Corrado Böhm
-https://en.wikipedia.org/wiki/Cynthia_Solomon: Cynthia Solomon
-https://en.wikipedia.org/wiki/Damien_Doligez: Damien Doligez
-https://en.wikipedia.org/wiki/Dan_Ingalls: Dan Ingalls
-https://en.wikipedia.org/wiki/Dan_Weinreb: Dan Weinreb
-https://en.wikipedia.org/wiki/David_A._Moon: David A. Moon
-https://en.wikipedia.org/wiki/David_Gelernter: David Gelernter
-https://en.wikipedia.org/wiki/David_H._Munro: David H. Munro
-https://en.wikipedia.org/wiki/David_J._Farber: David J. Farber
-https://en.wikipedia.org/wiki/David_May_(computer_scientist): David May
-https://en.wikipedia.org/wiki/David_Turner_(computer_scientist): David Turner
-https://en.wikipedia.org/wiki/David_Ungar: David Ungar
-https://en.wikipedia.org/wiki/Dennis_Ritchie: Dennis Ritchie
-https://en.wikipedia.org/wiki/Don_Syme: Don Syme
-https://en.wikipedia.org/wiki/Donald_D._Chamberlin: Donald D. Chamberlin
-https://en.wikipedia.org/wiki/Douglas_T._Ross: Douglas T. Ross
-https://en.wikipedia.org/wiki/ECMAScript: ECMAScript
-https://en.wikipedia.org/wiki/Ecma_International: Ecma International
-https://en.wikipedia.org/wiki/Erik_Meijer_(computer_scientist): Erik Meijer
-https://en.wikipedia.org/wiki/Frank_Leymann: Frank Leymann
-https://en.wikipedia.org/wiki/Friedrich_Ludwig_Bauer: Bauer
-https://en.wikipedia.org/wiki/G%C3%A9rard_Huet: Gérard Huet
-https://en.wikipedia.org/wiki/Gary_Grossman: Gary Grossman
-https://en.wikipedia.org/wiki/Gautam_Mitra: Gautam Mitra
-https://en.wikipedia.org/wiki/Gavin_Wood: Gavin Wood
-https://en.wikipedia.org/wiki/Ge_Wang: Ge Wang
-https://en.wikipedia.org/wiki/Geoffrey_Gordon_(computer_scientist): Geoffrey Gordon
-https://en.wikipedia.org/wiki/Gerald_J._Popek: Gerald J. Popek
-https://en.wikipedia.org/wiki/Gerald_Jay_Sussman: Gerald Jay Sussman
-https://en.wikipedia.org/wiki/Gerald_Sussman: Gerald Sussman
-https://en.wikipedia.org/wiki/Gilad_Bracha: Gilad Bracha
-https://en.wikipedia.org/wiki/Google_scholar: Google scholar
-https://en.wikipedia.org/wiki/Grace_Hopper: Grace Hopper
-https://en.wikipedia.org/wiki/Greg_Nelson_(computer_scientist): Greg Nelson
-https://en.wikipedia.org/wiki/Guido_van_Rossum: Guido van Rossum
-https://en.wikipedia.org/wiki/Guy_L._Steele,_Jr.: Guy L. Steele, Jr.
-https://en.wikipedia.org/wiki/Guy_L._Steele: Guy L. Steele
-https://en.wikipedia.org/wiki/Guy_L._Steele_Jr.: Guy Steele
-https://en.wikipedia.org/wiki/Guy_Steele: Guy Steele
-https://en.wikipedia.org/wiki/Hank_Levy_(computer_scientist): Henry M. Levy
-https://en.wikipedia.org/wiki/Heinz_Rutishauser: Heinz Rutishauser
-https://en.wikipedia.org/wiki/Heinz_Rutishauser: Rutishauser
-https://en.wikipedia.org/wiki/Herbert_A._Simon: Herbert A. Simon
-https://en.wikipedia.org/wiki/Hermann_Bottenbruch: Bottenbruch
-https://en.wikipedia.org/wiki/Hewlett-Packard: Hewlett-Packard
-https://en.wikipedia.org/wiki/Honeywell: Honeywell
-https://en.wikipedia.org/wiki/IBM: IBM
-https://en.wikipedia.org/wiki/ISO: ISO
-https://en.wikipedia.org/wiki/ITU-T: CCITT
-https://en.wikipedia.org/wiki/Intermetrics: Intermetrics
-https://en.wikipedia.org/wiki/J%C3%BCrg_Gutknecht: Jürg Gutknecht
-https://en.wikipedia.org/wiki/Jacob_T._Schwartz: Jacob T. Schwartz
-https://en.wikipedia.org/wiki/James_Clark_(programmer): James Clark
-https://en.wikipedia.org/wiki/James_Cordy: J.R. Cordy
-https://en.wikipedia.org/wiki/James_Cordy: James Cordy
-https://en.wikipedia.org/wiki/James_G._Mitchell: James G. Mitchell
-https://en.wikipedia.org/wiki/James_Gosling: James Gosling
-https://en.wikipedia.org/wiki/James_Strachan_(programmer): James Strachan
-https://en.wikipedia.org/wiki/Java_Community_Process: JCP
-https://en.wikipedia.org/wiki/Jean-Christophe_Baillie: Jean-Christophe Baillie
-https://en.wikipedia.org/wiki/Jean_E._Sammet: Jean E. Sammet
-https://en.wikipedia.org/wiki/Jean_Ichbiah: Jean Ichbiah
-https://en.wikipedia.org/wiki/Jef_Raskin: Jef Raskin
-https://en.wikipedia.org/wiki/Jeffrey_Snover: Jeffrey Snover
-https://en.wikipedia.org/wiki/Jeremy_Ashkenas: Jeremy Ashkenas
-https://en.wikipedia.org/wiki/JetBrains: JetBrains
-https://en.wikipedia.org/wiki/Jim_Horning: Jim Horning
-https://en.wikipedia.org/wiki/Joe_Armstrong_(programmer): Joe Armstrong
-https://en.wikipedia.org/wiki/John_Backus: John Backus
-https://en.wikipedia.org/wiki/John_Barnes_(computer_scientist): J.G.P. Barnes
-https://en.wikipedia.org/wiki/John_Carmack: John Carmack
-https://en.wikipedia.org/wiki/John_E._L._Peck: J. E. L. Peck
-https://en.wikipedia.org/wiki/John_Hughes_(computer_scientist): John Hughes
-https://en.wikipedia.org/wiki/John_Launchbury: John Launchbury
-https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist): John McCarthy
-https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist): McCarthy
-https://en.wikipedia.org/wiki/John_Ousterhout: John Ousterhout
-https://en.wikipedia.org/wiki/John_Warner_Backus: Backus
-https://en.wikipedia.org/wiki/John_Warnock: John Warnock
-https://en.wikipedia.org/wiki/Joseph_Henry_Wegstein: Wegstein
-https://en.wikipedia.org/wiki/KUKA: KUKA
-https://en.wikipedia.org/wiki/Keith_Clark_(computer_scientist): Keith Clark
-https://en.wikipedia.org/wiki/Ken_Thompson: Ken Thompson
-https://en.wikipedia.org/wiki/Ken_Thompson_(computer_programmer): Ken Thompson
-https://en.wikipedia.org/wiki/Kenneth_E._Iverson: Kenneth E. Iverson
-https://en.wikipedia.org/wiki/Kent_Pitman: Kent Pitman
-https://en.wikipedia.org/wiki/Klaus_Samelson: Samelson
-https://en.wikipedia.org/wiki/Konrad_Zuse: Konrad Zuse
-https://en.wikipedia.org/wiki/Kristen_Nygaard: Kristen Nygaard
-https://en.wikipedia.org/wiki/Krzysztof_R._Apt: Krzysztof Apt
-https://en.wikipedia.org/wiki/Lambert_Meertens: Lambert Meertens
-https://en.wikipedia.org/wiki/Larry_Tesler: Larry Tesler
-https://en.wikipedia.org/wiki/Larry_Wall: Larry Wall
-https://en.wikipedia.org/wiki/Lars_Bak_(computer_programmer): Lars Bak
-https://en.wikipedia.org/wiki/Laurent_Ribardi%C3%A8re: Laurent Ribardière
-https://en.wikipedia.org/wiki/Lee_E._McMahon: Lee E. McMahon
-https://en.wikipedia.org/wiki/Lennart_Augustsson: Lennart Augustsson
-https://en.wikipedia.org/wiki/Luca_Cardelli: Luca Cardelli
-https://en.wikipedia.org/wiki/Mahmoud_Samir_Fayed: Mahmoud Samir Fayed
-https://en.wikipedia.org/wiki/Mark_S._Miller: Mark S. Miller
-https://en.wikipedia.org/wiki/Martin_Odersky: Martin Odersky
-https://en.wikipedia.org/wiki/Martin_Richards_(computer_scientist): Martin Richards
-https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology: MIT
-https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology: Massachusetts Institute of Technology
-https://en.wikipedia.org/wiki/Michael_P._Barnett: Michael Barnett
-https://en.wikipedia.org/wiki/Michael_Woodger: Woodger
-https://en.wikipedia.org/wiki/Microsoft: Microsoft
-https://en.wikipedia.org/wiki/Microsoft_Research: Microsoft Research
-https://en.wikipedia.org/wiki/Mike_Cowlishaw: Mike Cowlishaw
-https://en.wikipedia.org/wiki/Mitchel_Resnick: Mitchel Resnick
-https://en.wikipedia.org/wiki/NASA: NASA
-https://en.wikipedia.org/wiki/Neil_Pappalardo: Neil Pappalardo
-https://en.wikipedia.org/wiki/Netscape: Netscape
-https://en.wikipedia.org/wiki/Nico_Habermann: A. N. Habermann
-https://en.wikipedia.org/wiki/Niklaus_Wirth: Niklaus Wirth
-https://en.wikipedia.org/wiki/Ole-Johan_Dahl: Ole-Johan Dahl
-https://en.wikipedia.org/wiki/Paul_Graham_(programmer): Paul Graham
-https://en.wikipedia.org/wiki/Paul_Hudak: Paul Hudak
-https://en.wikipedia.org/wiki/Per_Brinch_Hansen: Per Brinch Hansen
-https://en.wikipedia.org/wiki/Peter_J._Weinberger: Peter Weinberger
-https://en.wikipedia.org/wiki/Peter_Landin: Peter Landin
-https://en.wikipedia.org/wiki/Peter_Naur: Naur
-https://en.wikipedia.org/wiki/Phil_Moorby: Phil Moorby
-https://en.wikipedia.org/wiki/Philip_Wadler: Philip Wadler
-https://en.wikipedia.org/wiki/Philip_Woodward: Philip Woodward
-https://en.wikipedia.org/wiki/Prabhu_Goel: Prabhu Goel
-https://en.wikipedia.org/wiki/RAND_Corporation: RAND
-https://en.wikipedia.org/wiki/Radboud_University_Nijmegen: Radboud University Nijmegen
-https://en.wikipedia.org/wiki/Ralph_Griswold: Ralph Griswold
-https://en.wikipedia.org/wiki/Rasmus_Lerdorf: Rasmus Lerdorf
-https://en.wikipedia.org/wiki/Raymond_F._Boyce: Raymond F. Boyce
-https://en.wikipedia.org/wiki/Remington_Rand: Remington Rand
-https://en.wikipedia.org/wiki/Ric_Holt: R.C. Holt
-https://en.wikipedia.org/wiki/Ric_Holt: Ric Holt
-https://en.wikipedia.org/wiki/Rich_Hickey: Rich Hickey
-https://en.wikipedia.org/wiki/Richard_E._Pattis: Richard E. Pattis
-https://en.wikipedia.org/wiki/Richard_P._Gabriel: Richard P. Gabriel
-https://en.wikipedia.org/wiki/Richard_Stallman: Richard Stallman
-https://en.wikipedia.org/wiki/Rob_Pike: Rob Pike
-https://en.wikipedia.org/wiki/Robert_A._Greenes: Robert A. Greenes
-https://en.wikipedia.org/wiki/Robert_Fourer: Robert Fourer
-https://en.wikipedia.org/wiki/Robert_Gentleman_(statistician): Robert Gentleman
-https://en.wikipedia.org/wiki/Robert_Griesemer: Robert Griesemer
-https://en.wikipedia.org/wiki/Robert_M._Graham_(computer_scientist): Robert M. Graham
-https://en.wikipedia.org/wiki/Robin_Milner: Robin Milner
-https://en.wikipedia.org/wiki/Roger_Hui: Roger Hui
-https://en.wikipedia.org/wiki/Ross_Ihaka: Ross Ihaka
-https://en.wikipedia.org/wiki/SAP_SE: SAP SE
-https://en.wikipedia.org/wiki/SHARE_(computing): SHARE
-https://en.wikipedia.org/wiki/Sanjiva_Weerawarana: Sanjiva Weerawarana
-https://en.wikipedia.org/wiki/Scott_Fahlman: Scott Fahlman
-https://en.wikipedia.org/wiki/Seymour_Papert: Seymour Papert
-https://en.wikipedia.org/wiki/Simon_Peyton_Jones: Simon Peyton Jones
-https://en.wikipedia.org/wiki/Stephen_Wolfram: Stephen Wolfram
-https://en.wikipedia.org/wiki/Steve_Omohundro: Steve Omohundro
-https://en.wikipedia.org/wiki/Steven_Pemberton: Steven Pemberton
-https://en.wikipedia.org/wiki/System_Development_Corporation: System Development Corporation
-https://en.wikipedia.org/wiki/TU_Wien: TU Wien
-https://en.wikipedia.org/wiki/Thinking_Machines_Corporation: Thinking Machines
-https://en.wikipedia.org/wiki/Tim_Sweeney: Tim Sweeney
-https://en.wikipedia.org/wiki/Tom_Duff: Tom Duff
-https://en.wikipedia.org/wiki/Tony_Hoare: Tony Hoare
-https://en.wikipedia.org/wiki/University_of_Edinburgh: University of Edinburgh
-https://en.wikipedia.org/wiki/University_of_Ottawa: University of Ottawa
-https://en.wikipedia.org/wiki/University_of_Oxford: University of Oxford
-https://en.wikipedia.org/wiki/Valentin_Turchin: Valentin Turchin
-https://en.wikipedia.org/wiki/Victor_Yngve: Victor Yngve
-https://en.wikipedia.org/wiki/W3C: W3C
-https://en.wikipedia.org/wiki/WSO2: WSO2
-https://en.wikipedia.org/wiki/Wally_Feurzeig: Wally Feurzeig
-https://en.wikipedia.org/wiki/Walter_Bright: Walter Bright
-https://en.wikipedia.org/wiki/William_Wulf: W. A. Wulf
-https://en.wikipedia.org/wiki/Wroc%C5%82aw_University: Wrocław University
-https://en.wikipedia.org/wiki/Xavier_Leroy: Xavier Leroy
-https://en.wikipedia.org/wiki/Yukihiro_Matsumoto: Yukihiro Matsumoto
-
--------------
 paradigm : 167
-https://en.wikipedia.org/wiki/Agent-based_model: agent-based
-https://en.wikipedia.org/wiki/Agent-oriented_programming: Agent-oriented programming
-https://en.wikipedia.org/wiki/Agent-oriented_programming: agent-oriented
-https://en.wikipedia.org/wiki/Algebraic_types: algebraic types
-https://en.wikipedia.org/wiki/Array_programming: Array
-https://en.wikipedia.org/wiki/Array_programming: array
-https://en.wikipedia.org/wiki/Array_programming: vector-oriented programming
+
 https://en.wikipedia.org/wiki/Aspect-oriented_programming: aspect-oriented
+
 https://en.wikipedia.org/wiki/Assembly_language: Assembly
+
 https://en.wikipedia.org/wiki/Block_(programming): block structured
+
 https://en.wikipedia.org/wiki/Class-based_programming: Class-based
 https://en.wikipedia.org/wiki/Class-based_programming: class-based
 https://en.wikipedia.org/wiki/Class_(computer_programming): class-based
+
 https://en.wikipedia.org/wiki/Compiled_language: compiled
+
 https://en.wikipedia.org/wiki/Concatenative_programming: Concatenative
 https://en.wikipedia.org/wiki/Concatenative_programming_language: concatenative
+
 https://en.wikipedia.org/wiki/Concurrent_computing: Concurrent
 https://en.wikipedia.org/wiki/Concurrent_computing: concurrent
-https://en.wikipedia.org/wiki/Concurrent_constraint_logic_programming: Concurrent constraint logic
-https://en.wikipedia.org/wiki/Concurrent_constraint_logic_programming: concurrent constraint logic
-https://en.wikipedia.org/wiki/Concurrent_object-oriented_programming: Concurrent
 https://en.wikipedia.org/wiki/Concurrent_programming: concurrent
 https://en.wikipedia.org/wiki/Concurrent_programming_language: concurrent
+
+https://en.wikipedia.org/wiki/Concurrent_constraint_logic_programming: Concurrent constraint logic
+https://en.wikipedia.org/wiki/Concurrent_constraint_logic_programming: concurrent constraint logic
+
+https://en.wikipedia.org/wiki/Concurrent_object-oriented_programming: Concurrent
+
 https://en.wikipedia.org/wiki/Constraint_programming: Constraint programming
 https://en.wikipedia.org/wiki/Constraint_programming: constraint
+
 https://en.wikipedia.org/wiki/Data-centric_programming_language: data-centric
+
 https://en.wikipedia.org/wiki/Data-driven_programming: data-driven
+
 https://en.wikipedia.org/wiki/Data_Validation: Data Validation
+
 https://en.wikipedia.org/wiki/Data_exchange_language: data exchange
+
 https://en.wikipedia.org/wiki/Dataflow: Dataflow programming
 https://en.wikipedia.org/wiki/Dataflow_programming: Dataflow
 https://en.wikipedia.org/wiki/Dataflow_programming: dataflow
+
 https://en.wikipedia.org/wiki/Declarative_Language: Declarative Language
 https://en.wikipedia.org/wiki/Declarative_programming: Declarative
 https://en.wikipedia.org/wiki/Declarative_programming: Declarative language
 https://en.wikipedia.org/wiki/Declarative_programming: Declarative programming
 https://en.wikipedia.org/wiki/Declarative_programming: declarative
+
 https://en.wikipedia.org/wiki/Distributed_computing: distributed
 https://en.wikipedia.org/wiki/Distributed_programming: distributed
+
 https://en.wikipedia.org/wiki/Domain-specific_language: domain-specific
+
 https://en.wikipedia.org/wiki/Educational_programming_language: educational
+
 https://en.wikipedia.org/wiki/Esoteric_programming_language: Esoteric
 https://en.wikipedia.org/wiki/Esoteric_programming_language: esoteric
+
 https://en.wikipedia.org/wiki/Event-driven_programming: Event-driven
 https://en.wikipedia.org/wiki/Event-driven_programming: event-driven
+
 https://en.wikipedia.org/wiki/Expert_system: expert system
+
 https://en.wikipedia.org/wiki/Expression-oriented_programming_language: exp-oriented
+
 https://en.wikipedia.org/wiki/Extensible_programming: extensible
+
 https://en.wikipedia.org/wiki/Function-level_programming: Function-level
 https://en.wikipedia.org/wiki/Function-level_programming: function-level
+
 https://en.wikipedia.org/wiki/Functional_programming: Functional
 https://en.wikipedia.org/wiki/Functional_programming: Functional programming
 https://en.wikipedia.org/wiki/Functional_programming: functional
 https://en.wikipedia.org/wiki/Functional_programming_language: Functional
 https://en.wikipedia.org/wiki/Functional_programming_language: functional
+
 https://en.wikipedia.org/wiki/General-purpose_macro_processor: general-purpose macro processor
+
 https://en.wikipedia.org/wiki/General-purpose_programming_language: general-purpose
+
 https://en.wikipedia.org/wiki/Generic_programming: Generic
 https://en.wikipedia.org/wiki/Generic_programming: generic
 https://en.wikipedia.org/wiki/Generic_programming: generics
+
 https://en.wikipedia.org/wiki/Imperative_programming: Imperative
 https://en.wikipedia.org/wiki/Imperative_programming: Imperative programming
 https://en.wikipedia.org/wiki/Imperative_programming: Imperative, procedural
 https://en.wikipedia.org/wiki/Imperative_programming: imperative
 https://en.wikipedia.org/wiki/Imperative_programming_language: imperative
+
 https://en.wikipedia.org/wiki/Interface_(object-oriented_programming): protocol-oriented
+
 https://en.wikipedia.org/wiki/Interpreted_language: interpreted
+
 https://en.wikipedia.org/wiki/Language_oriented_programming: language oriented programming
+
 https://en.wikipedia.org/wiki/Lazy_evaluation: lazy
+
 https://en.wikipedia.org/wiki/Logic_Programming: Logic Programming
 https://en.wikipedia.org/wiki/Logic_programming: Logic
 https://en.wikipedia.org/wiki/Logic_programming: Logic programming
 https://en.wikipedia.org/wiki/Logic_programming: logic
 https://en.wikipedia.org/wiki/Logic_programming: logical
 https://en.wikipedia.org/wiki/Logic_programming_language: logic-paradigm
+
 https://en.wikipedia.org/wiki/Low-code_development_platform: Low-code
+
 https://en.wikipedia.org/wiki/MPMD: MPMD
+
 https://en.wikipedia.org/wiki/Macro_(computer_science): macro
 https://en.wikipedia.org/wiki/Macro_(computer_science): macros
+
 https://en.wikipedia.org/wiki/Message_passing: message passing
+
 https://en.wikipedia.org/wiki/Metaprogramming: Meta
 https://en.wikipedia.org/wiki/Metaprogramming: meta
 https://en.wikipedia.org/wiki/Metaprogramming: metaprogramming
+
 https://en.wikipedia.org/wiki/Modular_programming: Modular
 https://en.wikipedia.org/wiki/Modular_programming: modular
+
 https://en.wikipedia.org/wiki/Multi-paradigm: Multi-paradigm
 https://en.wikipedia.org/wiki/Multi-paradigm: multi-paradigm
 https://en.wikipedia.org/wiki/Multi-paradigm_programming_language: Multi-paradigm
 https://en.wikipedia.org/wiki/Multi-paradigm_programming_language: multi-paradigm
 https://en.wikipedia.org/wiki/Multi-paradigm_programming_language: multiparadigm
+
 https://en.wikipedia.org/wiki/Multiple_dispatch: multi-dis
+
 https://en.wikipedia.org/wiki/Natural_language_programming: Natural language programming
 https://en.wikipedia.org/wiki/Natural_language_programming: natural language programming
+
 https://en.wikipedia.org/wiki/Non-structured_programming: Non-structured
+
 https://en.wikipedia.org/wiki/Object-based_language: Object-based
 https://en.wikipedia.org/wiki/Object-based_language: object-based
+
 https://en.wikipedia.org/wiki/Object-oriented: object-oriented
 https://en.wikipedia.org/wiki/Object-oriented_analysis_and_design: Object oriented
 https://en.wikipedia.org/wiki/Object-oriented_programming: Object-oriented
@@ -1274,139 +144,129 @@ https://en.wikipedia.org/wiki/Object-oriented_programming_language: object-orien
 https://en.wikipedia.org/wiki/Object_oriented: Object oriented
 https://en.wikipedia.org/wiki/Object_oriented_programming: object oriented
 https://en.wikipedia.org/wiki/Object_oriented_programming_language: Object-oriented
+
 https://en.wikipedia.org/wiki/Parallel_programming: parallel
 https://en.wikipedia.org/wiki/Parallel_programming_model: Parallel programming
+
 https://en.wikipedia.org/wiki/Partitioned_global_address_space: Partitioned global address space
+
 https://en.wikipedia.org/wiki/Pattern-matching: Pattern-matching
+
 https://en.wikipedia.org/wiki/Pi_calculus: pi calculus
+
 https://en.wikipedia.org/wiki/Pipeline_(software): pipeline
 https://en.wikipedia.org/wiki/Pipeline_programming: pipeline
+
 https://en.wikipedia.org/wiki/Procedural_language: procedural
 https://en.wikipedia.org/wiki/Procedural_programming: Procedural
 https://en.wikipedia.org/wiki/Procedural_programming: Procedural programming
 https://en.wikipedia.org/wiki/Procedural_programming: procedural
+
 https://en.wikipedia.org/wiki/Production_system_(computer_science): rule processing
+
 https://en.wikipedia.org/wiki/Programming_paradigm#Multi-paradigm: Multi-paradigm
 https://en.wikipedia.org/wiki/Programming_paradigm#Multi-paradigm: Multi-paradigm:
 https://en.wikipedia.org/wiki/Programming_paradigm#Multi-paradigm_programming_language: Multi-paradigm
 https://en.wikipedia.org/wiki/Programming_paradigm#Support_for_multiple_paradigms: Multi-paradigm
 https://en.wikipedia.org/wiki/Programming_paradigm: Multi-paradigm
+
 https://en.wikipedia.org/wiki/Prototype-based_programming: Prototype
 https://en.wikipedia.org/wiki/Prototype-based_programming: prototype-based
 https://en.wikipedia.org/wiki/Prototype-based_programming: prototype-based programming
 https://en.wikipedia.org/wiki/Prototype-oriented_programming: prototype-based
+
 https://en.wikipedia.org/wiki/Purely_functional_programming: Purely functional
 https://en.wikipedia.org/wiki/Purely_functional_programming: pure
+
 https://en.wikipedia.org/wiki/Quantum_programming: Quantum
+
 https://en.wikipedia.org/wiki/Query_language: Query language
+
 https://en.wikipedia.org/wiki/Reactive_programming: reactive
+
 https://en.wikipedia.org/wiki/Reflection_(computer_programming): reflective
 https://en.wikipedia.org/wiki/Reflection_(computer_science): Reflective
 https://en.wikipedia.org/wiki/Reflective_programming: reflective
+
 https://en.wikipedia.org/wiki/SPMD: SPMD
+
 https://en.wikipedia.org/wiki/Scientific_workflow_system: scientific workflow
+
 https://en.wikipedia.org/wiki/Scripting_language: Scripting
 https://en.wikipedia.org/wiki/Scripting_language: scripting
+
 https://en.wikipedia.org/wiki/Shared_memory: shared memory
+
 https://en.wikipedia.org/wiki/Simulation_language: Simulation language
 https://en.wikipedia.org/wiki/Simulation_language: simulation
 https://en.wikipedia.org/wiki/Simulation_language: simulation language
+
 https://en.wikipedia.org/wiki/Stack-oriented_programming: Stack-oriented
 https://en.wikipedia.org/wiki/Stack-oriented_programming: stack-based
 https://en.wikipedia.org/wiki/Stack-oriented_programming_language: stack-based
 https://en.wikipedia.org/wiki/Stack-oriented_programming_language: stack-oriented
+
 https://en.wikipedia.org/wiki/Strongly_typed: strongly typed
+
 https://en.wikipedia.org/wiki/Structured: structured
 https://en.wikipedia.org/wiki/Structured_programming: Structured
 https://en.wikipedia.org/wiki/Structured_programming: structured
+
 https://en.wikipedia.org/wiki/Symbolic_programming: symbolic
+
 https://en.wikipedia.org/wiki/Synchronous_programming_language: synchronous
+
 https://en.wikipedia.org/wiki/Tacit_programming: tacit
+
 https://en.wikipedia.org/wiki/Term-rewriting: Term-rewriting
 https://en.wikipedia.org/wiki/Term-rewriting: term-rewriting
 https://en.wikipedia.org/wiki/Term_rewriting: term rewriting
+
 https://en.wikipedia.org/wiki/The_Task-based_Asynchronous_Pattern: task-driven
+
 https://en.wikipedia.org/wiki/Thread_safe: thread safe
+
 https://en.wikipedia.org/wiki/Typesetting: typesetting
+
 https://en.wikipedia.org/wiki/Unstructured_programming: unstructured
+
 https://en.wikipedia.org/wiki/Visual_programming_language: Visual
 https://en.wikipedia.org/wiki/Visual_programming_language: Visual Programming
 https://en.wikipedia.org/wiki/Visual_programming_language: Visual programming
 https://en.wikipedia.org/wiki/Visual_programming_language: block-based
 https://en.wikipedia.org/wiki/Visual_programming_language: visual
 https://en.wikipedia.org/wiki/Visual_programming_language: visual programming
-https://en.wikipedia.org/wiki/Wikipedia:Citation_needed: citation needed
 
 -------------
 os : 161
 https://en.wikipedia.org/wiki/.NET: .NET
+
 https://en.wikipedia.org/wiki/AIX: AIX
-https://en.wikipedia.org/wiki/Amdahl_UTS: UTS
+
 https://en.wikipedia.org/wiki/Amiga: Amiga
 https://en.wikipedia.org/wiki/AmigaOS: AmigaOS
+
 https://en.wikipedia.org/wiki/Android_(operating_system): Android
 https://en.wikipedia.org/wiki/Android_(operating_system): Android (operating system)
-https://en.wikipedia.org/wiki/ArcaOS: ArcaOS
+
 https://en.wikipedia.org/wiki/Arduino: Arduino
-https://en.wikipedia.org/wiki/Atari_TOS: Atari TOS
-https://en.wikipedia.org/wiki/BOS/360: BOS/360
+
 https://en.wikipedia.org/wiki/BSD: BSD
-https://en.wikipedia.org/wiki/BeOS: BeOS
 https://en.wikipedia.org/wiki/Berkeley_Software_Distribution: BSD
-https://en.wikipedia.org/wiki/Burroughs_MCP: Burroughs MCP
-https://en.wikipedia.org/wiki/CDC_SCOPE: SCOPE
-https://en.wikipedia.org/wiki/CP/M: CP/M
-https://en.wikipedia.org/wiki/Calculator: calculators
-https://en.wikipedia.org/wiki/CentOS: CentOS
-https://en.wikipedia.org/wiki/Chippewa_Operating_System: COS
-https://en.wikipedia.org/wiki/ChromeOS: ChromeOS
-https://en.wikipedia.org/wiki/Classic_MacOS: Classic MacOS
-https://en.wikipedia.org/wiki/Classic_Mac_OS: classic Mac OS
-https://en.wikipedia.org/wiki/Compatible_Time-Sharing_System: CTSS
-https://en.wikipedia.org/wiki/Connection_Machine: Connection Machine
-https://en.wikipedia.org/wiki/Control_Program_Facility: CPF
-https://en.wikipedia.org/wiki/Conversational_Monitor_System: CMS
-https://en.wikipedia.org/wiki/Cross-platform: Cross-platform
-https://en.wikipedia.org/wiki/Cross-platform: Cross-platform (multi-platform)
-https://en.wikipedia.org/wiki/Cross-platform: cross-platform
-https://en.wikipedia.org/wiki/Cross-platform_software: Cross- (multi-) platform
-https://en.wikipedia.org/wiki/Cross-platform_software: Cross-platform
-https://en.wikipedia.org/wiki/Cross-platform_software: cross-platform
-https://en.wikipedia.org/wiki/Cygwin: Cygwin
-https://en.wikipedia.org/wiki/DOS: DOS
-https://en.wikipedia.org/wiki/Darwin_(operating_system): Darwin
-https://en.wikipedia.org/wiki/Data_General_AOS: AOS
-https://en.wikipedia.org/wiki/Debian: Debian
-https://en.wikipedia.org/wiki/Domain/OS#AEGIS: AEGIS
 https://en.wikipedia.org/wiki/DragonFly_BSD: DragonFly BSD
 https://en.wikipedia.org/wiki/DragonflyBSD: DragonflyBSD
-https://en.wikipedia.org/wiki/EComStation: eComStation
-https://en.wikipedia.org/wiki/EPOC_(operating_system): EPOC
-https://en.wikipedia.org/wiki/Fedora_(operating_system): Fedora
 https://en.wikipedia.org/wiki/FreeBSD: FreeBSD
-https://en.wikipedia.org/wiki/GLib: GLib
-https://en.wikipedia.org/wiki/HP_Multi-Programming_Executive: HP MPE
-https://en.wikipedia.org/wiki/HTML5: HTML5
-https://en.wikipedia.org/wiki/Haiku_(operating_system): Haiku
-https://en.wikipedia.org/wiki/HarmonyOS: HarmonyOS
-https://en.wikipedia.org/wiki/Hewlett-Packard: HP
-https://en.wikipedia.org/wiki/IBM_650: IBM 650
-https://en.wikipedia.org/wiki/IBM_704: IBM 704
-https://en.wikipedia.org/wiki/IBM_7090: IBM 7090
-https://en.wikipedia.org/wiki/IBM_AIX: AIX
-https://en.wikipedia.org/wiki/IBM_Z: IBM Z
-https://en.wikipedia.org/wiki/IBM_i: IBM i
-https://en.wikipedia.org/wiki/IBM_i: OS/400
-https://en.wikipedia.org/wiki/IOS: iOS
-https://en.wikipedia.org/wiki/IOS_(Apple): iOS
-https://en.wikipedia.org/wiki/IPadOS: iPadOS
-https://en.wikipedia.org/wiki/Incompatible_Timesharing_System: ITS
-https://en.wikipedia.org/wiki/Inferno_(operating_system): Inferno
-https://en.wikipedia.org/wiki/JOHNNIAC: JOHNNIAC
-https://en.wikipedia.org/wiki/Java_virtual_machine: JVM
-https://en.wikipedia.org/wiki/Linux: Linux
-https://en.wikipedia.org/wiki/MS-DOS: MS-DOS
-https://en.wikipedia.org/wiki/MVS: MVS
+https://en.wikipedia.org/wiki/NetBSD: NetBSD
+https://en.wikipedia.org/wiki/OpenBSD: OpenBSD
+https://en.wikipedia.org/wiki/OpenSUSE: openSUSE
+
+https://en.wikipedia.org/wiki/BeOS: BeOS
+
+https://en.wikipedia.org/wiki/ChromeOS: ChromeOS
+
+https://en.wikipedia.org/wiki/Classic_MacOS: Classic MacOS
+https://en.wikipedia.org/wiki/Classic_Mac_OS: classic Mac OS
+https://en.wikipedia.org/wiki/Darwin_(operating_system): Darwin
 https://en.wikipedia.org/wiki/MacOS: Mac OS X
 https://en.wikipedia.org/wiki/MacOS: MacOS
 https://en.wikipedia.org/wiki/MacOS: macOS
@@ -1416,73 +276,93 @@ https://en.wikipedia.org/wiki/Mac_OS_8: Mac OS 8
 https://en.wikipedia.org/wiki/Mac_OS_9: Mac OS 9
 https://en.wikipedia.org/wiki/Mac_OS_X: Mac OS X
 https://en.wikipedia.org/wiki/Mac_operating_systems: Mac operating systems
-https://en.wikipedia.org/wiki/Michigan_Terminal_System: MTS
-https://en.wikipedia.org/wiki/Michigan_Terminal_System: Michigan Terminal System
+https://en.wikipedia.org/wiki/OS_X: OS X
+https://en.wikipedia.org/wiki/System_7: System 7
+
+https://en.wikipedia.org/wiki/Cross-platform: Cross-platform
+https://en.wikipedia.org/wiki/Cross-platform: Cross-platform (multi-platform)
+https://en.wikipedia.org/wiki/Cross-platform: cross-platform
+https://en.wikipedia.org/wiki/Cross-platform_software: Cross- (multi-) platform
+https://en.wikipedia.org/wiki/Cross-platform_software: Cross-platform
+https://en.wikipedia.org/wiki/Cross-platform_software: cross-platform
+
+https://en.wikipedia.org/wiki/Cygwin: Cygwin
+
+https://en.wikipedia.org/wiki/DOS: DOS
+https://en.wikipedia.org/wiki/MS-DOS: MS-DOS
+
+https://en.wikipedia.org/wiki/CentOS: CentOS
+https://en.wikipedia.org/wiki/Debian: Debian
+https://en.wikipedia.org/wiki/Fedora_(operating_system): Fedora
+https://en.wikipedia.org/wiki/Red_Hat: Red Hat
+https://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux: Red Hat Enterprise Linux
+
+https://en.wikipedia.org/wiki/GLib: GLib
+
+https://en.wikipedia.org/wiki/HTML5: HTML5
+
+https://en.wikipedia.org/wiki/Haiku_(operating_system): Haiku
+
+https://en.wikipedia.org/wiki/HarmonyOS: HarmonyOS
+
+https://en.wikipedia.org/wiki/IOS: iOS
+https://en.wikipedia.org/wiki/IOS_(Apple): iOS
+
+https://en.wikipedia.org/wiki/IPadOS: iPadOS
+
+https://en.wikipedia.org/wiki/Inferno_(operating_system): Inferno
+
+https://en.wikipedia.org/wiki/Java_virtual_machine: JVM
+
+https://en.wikipedia.org/wiki/Linux: Linux
+
 https://en.wikipedia.org/wiki/Microsoft_.NET: Microsoft .NET
+
 https://en.wikipedia.org/wiki/Microsoft_Windows: Microsoft Windows
 https://en.wikipedia.org/wiki/Microsoft_Windows: Win32
 https://en.wikipedia.org/wiki/Microsoft_Windows: Windows
+
 https://en.wikipedia.org/wiki/Mono_(software): Mono
-https://en.wikipedia.org/wiki/Motorola_68000: Motorola 68000
-https://en.wikipedia.org/wiki/Motorola_6809: Motorola 6809
-https://en.wikipedia.org/wiki/NetBSD: NetBSD
-https://en.wikipedia.org/wiki/OS/2: OS/2
-https://en.wikipedia.org/wiki/OS/360: OS/360
-https://en.wikipedia.org/wiki/OS/VS1: OS/VS1
-https://en.wikipedia.org/wiki/OS_X: OS X
-https://en.wikipedia.org/wiki/OpenBSD: OpenBSD
+
 https://en.wikipedia.org/wiki/OpenHarmony: OpenHarmony
+
 https://en.wikipedia.org/wiki/OpenIndiana: OpenIndiana
-https://en.wikipedia.org/wiki/OpenSUSE: openSUSE
+
 https://en.wikipedia.org/wiki/OpenVMS: OpenVMS
 https://en.wikipedia.org/wiki/OpenVMS: VAX/VMS
 https://en.wikipedia.org/wiki/OpenVMS: VMS
+
+https://en.wikipedia.org/wiki/Solaris_(operating_system): Solaris
 https://en.wikipedia.org/wiki/Oracle_Solaris: Solaris
+https://en.wikipedia.org/wiki/SunOS: SunOS
+
 https://en.wikipedia.org/wiki/PC_DOS: PC DOS
-https://en.wikipedia.org/wiki/PDP-11: PDP-11
+
 https://en.wikipedia.org/wiki/POSIX: POSIX
 https://en.wikipedia.org/wiki/POSIX: POSIX-compliant
-https://en.wikipedia.org/wiki/PRIMOS: PRIMOS
-https://en.wikipedia.org/wiki/Pip_(package_manager): pip (package manager)
+
 https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs: Plan 9
 https://en.wikipedia.org/wiki/Plan_9_from_User_Space: Plan 9 from User Space
-https://en.wikipedia.org/wiki/Psion_Organiser: Psion Organiser
-https://en.wikipedia.org/wiki/Python_(programming_language): Python
+
 https://en.wikipedia.org/wiki/Raspberry_Pi: Raspberry Pi
 https://en.wikipedia.org/wiki/Raspberry_Pi_OS: Raspberry Pi OS
-https://en.wikipedia.org/wiki/Red_Hat: Red Hat
-https://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux: Red Hat Enterprise Linux
-https://en.wikipedia.org/wiki/Sintran_III: Sintran III
-https://en.wikipedia.org/wiki/Solaris_(operating_system): Solaris
-https://en.wikipedia.org/wiki/SunOS: SunOS
-https://en.wikipedia.org/wiki/Symbian: Symbian
-https://en.wikipedia.org/wiki/System_7: System 7
-https://en.wikipedia.org/wiki/System_Support_Program: SSP
-https://en.wikipedia.org/wiki/TENEX_(operating_system): TENEX
-https://en.wikipedia.org/wiki/TOPS-10: TOPS-10
-https://en.wikipedia.org/wiki/TOPS-20: TOPS-20
-https://en.wikipedia.org/wiki/Telecommunication: telecommunication
-https://en.wikipedia.org/wiki/Thinking_Machines_Corporation: Thinking Machines
+
 https://en.wikipedia.org/wiki/TvOS: tvOS
-https://en.wikipedia.org/wiki/UNICOS: UNICOS
-https://en.wikipedia.org/wiki/UNIX: UNIX
-https://en.wikipedia.org/wiki/Ubuntu_(operating_system): Ubuntu
-https://en.wikipedia.org/wiki/University_of_Michigan_Executive_System: UMES
-https://en.wikipedia.org/wiki/Unix-like: Unix-like
+
 https://en.wikipedia.org/wiki/Unix: Unix
-https://en.wikipedia.org/wiki/VAX-11: VAX-11
-https://en.wikipedia.org/wiki/VS/9: VS/9
-https://en.wikipedia.org/wiki/VSE_(operating_system): DOS/VSE
-https://en.wikipedia.org/wiki/VSE_(operating_system): VSE/ESA
-https://en.wikipedia.org/wiki/VSE_(operating_system): VSE/SP
-https://en.wikipedia.org/wiki/VSE_(operating_system): z/VSE
-https://en.wikipedia.org/wiki/Version_10_Unix: Version 10 Unix
+https://en.wikipedia.org/wiki/UNIX: UNIX
+https://en.wikipedia.org/wiki/Unix-like: Unix-like
+
+https://en.wikipedia.org/wiki/Ubuntu_(operating_system): Ubuntu
+
 https://en.wikipedia.org/wiki/VisionOS: visionOS
-https://en.wikipedia.org/wiki/Wang_Laboratories#The_Wang_VS_computer_line: Wang VS
+
 https://en.wikipedia.org/wiki/WatchOS: watchOS
+
 https://en.wikipedia.org/wiki/WebAssembly: WebAssembly
 https://en.wikipedia.org/wiki/Web_browser: web browser
 https://en.wikipedia.org/wiki/Web_browser: web browsers
+
 https://en.wikipedia.org/wiki/Windows: Windows
 https://en.wikipedia.org/wiki/Windows_10: Windows 10
 https://en.wikipedia.org/wiki/Windows_7: Windows 7
@@ -1498,168 +378,6 @@ https://en.wikipedia.org/wiki/Windows_Server_2008_R2: Windows Server 2008 R2
 https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux: WSL
 https://en.wikipedia.org/wiki/Windows_Vista: Windows Vista
 https://en.wikipedia.org/wiki/Windows_XP: Windows XP
-https://en.wikipedia.org/wiki/Z/OS: z/OS
-https://en.wikipedia.org/wiki/Z/VM: z/VM
-
--------------
-developer : 157
-https://en.wikipedia.org/wiki/%C3%89cole_Polytechnique_F%C3%A9d%C3%A9rale_de_Lausanne: École Polytechnique Fédérale de Lausanne
-https://en.wikipedia.org/wiki/%C3%89cole_normale_sup%C3%A9rieure_(Paris): ENS
-https://en.wikipedia.org/wiki/4D_SAS: 4D SAS
-https://en.wikipedia.org/wiki/ANSI_C: ANSI C
-https://en.wikipedia.org/wiki/AWS: AWS
-https://en.wikipedia.org/wiki/Aarhus_University: Aarhus University
-https://en.wikipedia.org/wiki/Academician_Pilyugin_Center: Academician Pilyugin Center
-https://en.wikipedia.org/wiki/Acorn_Computers: Acorn
-https://en.wikipedia.org/wiki/Actian: Actian Corporation
-https://en.wikipedia.org/wiki/AdaCore: AdaCore
-https://en.wikipedia.org/wiki/Adobe_Inc.: Adobe Systems
-https://en.wikipedia.org/wiki/Adobe_Systems: Adobe Systems
-https://en.wikipedia.org/wiki/Altair_Engineering: Altair
-https://en.wikipedia.org/wiki/Altran: Altran
-https://en.wikipedia.org/wiki/American_National_Standards_Institute: ANSI
-https://en.wikipedia.org/wiki/Andreas_Raab: Andreas Raab
-https://en.wikipedia.org/wiki/Apache_Software_Foundation: Apache Software Foundation
-https://en.wikipedia.org/wiki/Apple_Computer: Apple Computer
-https://en.wikipedia.org/wiki/Apple_Inc.: Apple Computer Inc.
-https://en.wikipedia.org/wiki/Apple_Inc.: Apple Inc.
-https://en.wikipedia.org/wiki/BBN_Technologies: Bolt, Beranek and Newman
-https://en.wikipedia.org/wiki/Bell_Labs: Bell Labs
-https://en.wikipedia.org/wiki/Bob_Bemer: Bob Bemer
-https://en.wikipedia.org/wiki/Boston_University: Boston University
-https://en.wikipedia.org/wiki/Carnegie_Mellon_University: Carnegie Mellon University
-https://en.wikipedia.org/wiki/Centrum_Wiskunde_&_Informatica: Centrum Wiskunde & Informatica
-https://en.wikipedia.org/wiki/Charles_H._Moore: Charles H. Moore
-https://en.wikipedia.org/wiki/Colorado_State_University: Colorado State University
-https://en.wikipedia.org/wiki/Complutense_University_of_Madrid: Complutense University of Madrid
-https://en.wikipedia.org/wiki/Computer_Sciences_Corporation: Computer Sciences Corporation
-https://en.wikipedia.org/wiki/Cornell_University: Cornell University
-https://en.wikipedia.org/wiki/Courant_Institute_of_Mathematical_Sciences: Courant Institute of Mathematical Sciences
-https://en.wikipedia.org/wiki/Cray: Cray Inc.
-https://en.wikipedia.org/wiki/DEC_Systems_Research_Center: DEC Systems Research Center
-https://en.wikipedia.org/wiki/D_Language_Foundation: D Language Foundation
-https://en.wikipedia.org/wiki/Dan_Ingalls: Dan Ingalls
-https://en.wikipedia.org/wiki/Data_General: Data General
-https://en.wikipedia.org/wiki/Dennis_Ritchie: Dennis Ritchie
-https://en.wikipedia.org/wiki/Diana_Merry: Diana Merry
-https://en.wikipedia.org/wiki/Digital_Equipment_Corporation: DEC
-https://en.wikipedia.org/wiki/ETH_Zurich: ETH Zurich
-https://en.wikipedia.org/wiki/Eclipse_Foundation: Eclipse Foundation
-https://en.wikipedia.org/wiki/Electronic_Industries_Alliance: Electronic Industries Association
-https://en.wikipedia.org/wiki/Epic_Games: Epic Games
-https://en.wikipedia.org/wiki/Ericsson: Ericsson
-https://en.wikipedia.org/wiki/Ethereum: Ethereum
-https://en.wikipedia.org/wiki/F_Sharp_Software_Foundation: The F# Software Foundation
-https://en.wikipedia.org/wiki/Freelance: Independent/Freelance
-https://en.wikipedia.org/wiki/French_Institute_for_Research_in_Computer_Science_and_Automation: INRIA
-https://en.wikipedia.org/wiki/French_Institute_for_Research_in_Computer_Science_and_Automation: Inria
-https://en.wikipedia.org/wiki/GNU_Project: GNU Project
-https://en.wikipedia.org/wiki/GNU_project: GNU project
-https://en.wikipedia.org/wiki/Gary_Kildall: Gary Kildall
-https://en.wikipedia.org/wiki/Google: Google
-https://en.wikipedia.org/wiki/HPCC: HPCC Systems®
-https://en.wikipedia.org/wiki/Harlequin_(software_company): Harlequin
-https://en.wikipedia.org/wiki/Harvard_Medical_School: Harvard Medical School
-https://en.wikipedia.org/wiki/Hewlett_Packard_Enterprise: Hewlett Packard Enterprise
-https://en.wikipedia.org/wiki/Huawei: Huawei
-https://en.wikipedia.org/wiki/IBM: IBM
-https://en.wikipedia.org/wiki/IEEE: IEEE
-https://en.wikipedia.org/wiki/ISO/IEC_JTC_1/SC_22: ISO/IEC JTC 1 (Joint Technical Committee 1) / SC 22 (Subcommittee 22)
-https://en.wikipedia.org/wiki/ISO/IEC_JTC_1/SC_32: ISO/IEC JTC 1 (Joint Technical Committee 1) / SC 32 (Subcommittee 32)
-https://en.wikipedia.org/wiki/ITT_Visual_Information_Solutions: ITT Visual Information Solutions (ITT VIS)
-https://en.wikipedia.org/wiki/Id_Software: id Software
-https://en.wikipedia.org/wiki/Imperial_Chemical_Industries: Imperial Chemical Industries
-https://en.wikipedia.org/wiki/Inmos: Inmos
-https://en.wikipedia.org/wiki/Institut_national_des_sciences_appliqu%C3%A9es_de_Lyon: INSA Lyon
-https://en.wikipedia.org/wiki/Intel: Intel
-https://en.wikipedia.org/wiki/Intermetrics: Intermetrics
-https://en.wikipedia.org/wiki/International_Computers_Limited: International Computers Limited
-https://en.wikipedia.org/wiki/International_Organization_for_Standardization: International Organization for Standardization
-https://en.wikipedia.org/wiki/James_Cordy: J.R. Cordy
-https://en.wikipedia.org/wiki/James_Cordy: James Cordy
-https://en.wikipedia.org/wiki/Jeremy_Ashkenas: Jeremy Ashkenas
-https://en.wikipedia.org/wiki/JetBrains: JetBrains
-https://en.wikipedia.org/wiki/John_Backus: John Backus
-https://en.wikipedia.org/wiki/John_Chambers_(statistician): John Chambers
-https://en.wikipedia.org/wiki/Johnson_Space_Center: Johnson Space Center
-https://en.wikipedia.org/wiki/KUKA: KUKA
-https://en.wikipedia.org/wiki/Karl_Glazebrook: Karl Glazebrook
-https://en.wikipedia.org/wiki/Ken_Thompson_(computer_programmer): Ken Thompson
-https://en.wikipedia.org/wiki/Kiel_University: Kiel University
-https://en.wikipedia.org/wiki/Kristen_Nygaard: Kristen Nygaard
-https://en.wikipedia.org/wiki/L._Peter_Deutsch: Peter Deutsch
-https://en.wikipedia.org/wiki/Lawrence_Livermore_National_Laboratory: LLNL
-https://en.wikipedia.org/wiki/Lawrence_M._Breed: Larry Breed
-https://en.wikipedia.org/wiki/Ludwig_Maximilian_University_of_Munich: Ludwig Maximilian University of Munich
-https://en.wikipedia.org/wiki/MIT_Media_Lab: MIT Media Lab
-https://en.wikipedia.org/wiki/Macromedia: Macromedia
-https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology: MIT
-https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology: Massachusetts Institute of Technology
-https://en.wikipedia.org/wiki/MathWorks: MathWorks
-https://en.wikipedia.org/wiki/Microcomputer_Applications_Associates: Microcomputer Applications Associates
-https://en.wikipedia.org/wiki/Microsoft: Microsoft
-https://en.wikipedia.org/wiki/Microsoft: Microsoft Corporation
-https://en.wikipedia.org/wiki/Microsoft_Research: Microsoft Research
-https://en.wikipedia.org/wiki/Ministry_of_General_Machine_Building: Ministry of General Machine Building
-https://en.wikipedia.org/wiki/Monash_University: Monash University
-https://en.wikipedia.org/wiki/Morgan_Stanley: Morgan Stanley
-https://en.wikipedia.org/wiki/NASA: NASA
-https://en.wikipedia.org/wiki/National_Security_Agency: National Security Agency
-https://en.wikipedia.org/wiki/Naughty_Dog: Naughty Dog
-https://en.wikipedia.org/wiki/Norsk_Data: Norsk Data
-https://en.wikipedia.org/wiki/Northwestern_University: Northwestern University
-https://en.wikipedia.org/wiki/OpenAtom_Foundation: OpenAtom Foundation
-https://en.wikipedia.org/wiki/Oracle_Corporation: Oracle Corporation
-https://en.wikipedia.org/wiki/Osaka_Electro-Communication_University: Osaka Electro-Communication University
-https://en.wikipedia.org/wiki/PARC_(company): Xerox PARC
-https://en.wikipedia.org/wiki/Polish_Academy_of_Sciences: Polish Academy of Sciences
-https://en.wikipedia.org/wiki/Portland_State_University: Portland State University
-https://en.wikipedia.org/wiki/Project_MAC: Project MAC
-https://en.wikipedia.org/wiki/Python_Software_Foundation: Python Software Foundation
-https://en.wikipedia.org/wiki/Qt_Project: Qt Project
-https://en.wikipedia.org/wiki/RemObjects_Software: RemObjects Software
-https://en.wikipedia.org/wiki/Ric_Holt: R.C. Holt
-https://en.wikipedia.org/wiki/Ric_Holt: Ric Holt
-https://en.wikipedia.org/wiki/Richard_H._Lathwell: Dick Lathwell
-https://en.wikipedia.org/wiki/Roger_Moore_(computer_scientist): Roger Moore
-https://en.wikipedia.org/wiki/Royal_Radar_Establishment: Royal Radar Establishment
-https://en.wikipedia.org/wiki/Saarland_University: Saarland University
-https://en.wikipedia.org/wiki/Semmle: Semmle
-https://en.wikipedia.org/wiki/Stanford_University: Stanford University
-https://en.wikipedia.org/wiki/Steve_Russell_(computer_scientist): Steve Russell
-https://en.wikipedia.org/wiki/Sun_Labs: Sun Labs
-https://en.wikipedia.org/wiki/Sun_Microsystems: Sun Microsystems
-https://en.wikipedia.org/wiki/Technical_University_of_Madrid: Technical University of Madrid
-https://en.wikipedia.org/wiki/Ted_Kaehler: Ted Kaehler
-https://en.wikipedia.org/wiki/The_Open_University: The Open University
-https://en.wikipedia.org/wiki/Thinking_Machines_Corporation: Thinking Machines Corporation
-https://en.wikipedia.org/wiki/Timothy_Lethbridge: Timothy Lethbridge
-https://en.wikipedia.org/wiki/Trevor_Hastie: Trevor Hastie
-https://en.wikipedia.org/wiki/University_of_Auckland: University of Auckland
-https://en.wikipedia.org/wiki/University_of_British_Columbia: UBC
-https://en.wikipedia.org/wiki/University_of_California,_Berkeley: University of California, Berkeley
-https://en.wikipedia.org/wiki/University_of_Copenhagen: University of Copenhagen
-https://en.wikipedia.org/wiki/University_of_Edinburgh: University of Edinburgh
-https://en.wikipedia.org/wiki/University_of_Illinois_at_Urbana-Champaign: University of Illinois at Urbana-Champaign
-https://en.wikipedia.org/wiki/University_of_M%C3%BCnster: University of Münster
-https://en.wikipedia.org/wiki/University_of_Manchester: University of Manchester
-https://en.wikipedia.org/wiki/University_of_Melbourne: University of Melbourne
-https://en.wikipedia.org/wiki/University_of_Michigan: University of Michigan
-https://en.wikipedia.org/wiki/University_of_Ottawa: University of Ottawa
-https://en.wikipedia.org/wiki/University_of_Oviedo: University of Oviedo
-https://en.wikipedia.org/wiki/University_of_Waikato: University of Waikato
-https://en.wikipedia.org/wiki/University_of_Washington: University of Washington
-https://en.wikipedia.org/wiki/Viewpoints_Research_Institute: Viewpoints Research Institute
-https://en.wikipedia.org/wiki/Vrije_Universiteit_Brussel: Vrije Universiteit Brussel
-https://en.wikipedia.org/wiki/W3C: W3C
-https://en.wikipedia.org/wiki/WSO2: WSO2
-https://en.wikipedia.org/wiki/Wikipedia:Citation_needed: citation needed
-https://en.wikipedia.org/wiki/William_S._Cleveland: William S. Cleveland
-https://en.wikipedia.org/wiki/Wolfram_Research: Wolfram Research
-https://en.wikipedia.org/wiki/World_Wide_Web_Consortium: World Wide Web Consortium
-https://en.wikipedia.org/wiki/X3J13: X3J13
-https://en.wikipedia.org/wiki/Xerox_PARC: Xerox PARC
-https://en.wikipedia.org/wiki/Zend_Technologies: Zend Technologies
 
 -------------
 platform : 157
@@ -2245,165 +963,6 @@ https://en.wikipedia.org/wiki/Windows_Server_2003: Windows Server 2003
 https://en.wikipedia.org/wiki/Windows_XP: Windows XP
 
 -------------
-dialects : 82
-https://en.wikipedia.org/wiki/.QL: .QL
-https://en.wikipedia.org/wiki/Alice_(programming_language): Alice
-https://en.wikipedia.org/wiki/Arc_(programming_language): Arc
-https://en.wikipedia.org/wiki/AutoLISP: AutoLISP
-https://en.wikipedia.org/wiki/Bazel_(software): Starlark
-https://en.wikipedia.org/wiki/Brainfuck: Brainfuck
-https://en.wikipedia.org/wiki/C%CF%89: Cω
-https://en.wikipedia.org/wiki/C*: C*
-https://en.wikipedia.org/wiki/C++: C++
-https://en.wikipedia.org/wiki/Cadence_SKILL: SKILL
-https://en.wikipedia.org/wiki/Cilk: Cilk
-https://en.wikipedia.org/wiki/Clojure: Clojure
-https://en.wikipedia.org/wiki/Common_Lisp: Common Lisp
-https://en.wikipedia.org/wiki/Concurrent_ML: Concurrent ML
-https://en.wikipedia.org/wiki/Croquet_Project: Croquet
-https://en.wikipedia.org/wiki/Cyclone_(programming_language): Cyclone
-https://en.wikipedia.org/wiki/Cython: Cython
-https://en.wikipedia.org/wiki/Datomic: Datomic
-https://en.wikipedia.org/wiki/Delphi_(software): Delphi
-https://en.wikipedia.org/wiki/Dependent_ML: Dependent ML
-https://en.wikipedia.org/wiki/Emacs_Lisp: Emacs Lisp
-https://en.wikipedia.org/wiki/EuLisp: EuLisp
-https://en.wikipedia.org/wiki/F_Sharp_(programming_language): F#
-https://en.wikipedia.org/wiki/Franz_Lisp: Franz Lisp
-https://en.wikipedia.org/wiki/Free_Pascal: Free Pascal
-https://en.wikipedia.org/wiki/Game_Oriented_Assembly_Lisp: GOAL
-https://en.wikipedia.org/wiki/Gofer_(software): Gofer
-https://en.wikipedia.org/wiki/Hy_(programming_language): Hy
-https://en.wikipedia.org/wiki/ISLISP: ISLISP
-https://en.wikipedia.org/wiki/Interlisp: Interlisp
-https://en.wikipedia.org/wiki/LFE_(programming_language): LFE
-https://en.wikipedia.org/wiki/LeLisp: LeLisp
-https://en.wikipedia.org/wiki/MDL_(programming_language): MDL
-https://en.wikipedia.org/wiki/Maclisp: Maclisp
-https://en.wikipedia.org/wiki/NIL_(programming_language): NIL
-https://en.wikipedia.org/wiki/NetLogo: NetLogo
-https://en.wikipedia.org/wiki/NetRexx: NetRexx
-https://en.wikipedia.org/wiki/NewLISP: newLISP
-https://en.wikipedia.org/wiki/Newspeak_(programming_language): Newspeak
-https://en.wikipedia.org/wiki/OCaml: OCaml
-https://en.wikipedia.org/wiki/Object_REXX: Object REXX
-https://en.wikipedia.org/wiki/Occam-%CF%80: occam-π
-https://en.wikipedia.org/wiki/OoREXX: ooREXX
-https://en.wikipedia.org/wiki/Oxygene_(programming_language): Oxygene
-https://en.wikipedia.org/wiki/PascalABC.NET: PascalABC.NET
-https://en.wikipedia.org/wiki/Pharo: Pharo
-https://en.wikipedia.org/wiki/Picolisp: Picolisp
-https://en.wikipedia.org/wiki/Polyphonic_C_Sharp: Polyphonic C#
-https://en.wikipedia.org/wiki/Portable_Standard_Lisp: Portable Standard Lisp
-https://en.wikipedia.org/wiki/RPG_II: RPG II
-https://en.wikipedia.org/wiki/RPG_III: RPG III
-https://en.wikipedia.org/wiki/RPG_IV: RPG IV
-https://en.wikipedia.org/wiki/RPL_(programming_language): RPL
-https://en.wikipedia.org/wiki/RPython: RPython
-https://en.wikipedia.org/wiki/Racket_(programming_language): Racket
-https://en.wikipedia.org/wiki/Ravenscar_profile: Ravenscar profile
-https://en.wikipedia.org/wiki/SPARK_(programming_language): SPARK
-https://en.wikipedia.org/wiki/SQL-92: SQL-92
-https://en.wikipedia.org/wiki/SQL:1999: SQL:1999
-https://en.wikipedia.org/wiki/SQL:2003: SQL:2003
-https://en.wikipedia.org/wiki/SQL:2006: SQL:2006
-https://en.wikipedia.org/wiki/SQL:2008: SQL:2008
-https://en.wikipedia.org/wiki/SQL:2011: SQL:2011
-https://en.wikipedia.org/wiki/SQL:2016: SQL:2016
-https://en.wikipedia.org/wiki/SQL:2023: SQL:2023
-https://en.wikipedia.org/wiki/Scheme_(programming_language): Scheme
-https://en.wikipedia.org/wiki/Souffl%C3%A9_(programming_language): Soufflé
-https://en.wikipedia.org/wiki/Spice_Lisp: Spice Lisp
-https://en.wikipedia.org/wiki/Split-C: Split-C
-https://en.wikipedia.org/wiki/Standard_ML: Standard ML
-https://en.wikipedia.org/wiki/StarLogo: StarLogo
-https://en.wikipedia.org/wiki/T_(programming_language): T
-https://en.wikipedia.org/wiki/Turbo_Pascal: Turbo Pascal
-https://en.wikipedia.org/wiki/UCSD_Pascal: UCSD Pascal
-https://en.wikipedia.org/wiki/Unicon_(programming_language): Unicon
-https://en.wikipedia.org/wiki/Unified_Parallel_C: Unified Parallel C
-https://en.wikipedia.org/wiki/VHDL-AMS: VHDL-AMS
-https://en.wikipedia.org/wiki/Verilog-AMS: Verilog-AMS
-https://en.wikipedia.org/wiki/WATBOL: WATBOL
-https://en.wikipedia.org/wiki/X/Open: X/Open
-https://en.wikipedia.org/wiki/XEDIT#KEXX: KEXX
-https://en.wikipedia.org/wiki/Zetalisp: Zetalisp
-
--------------
-developer(s) : 71
-https://en.wikipedia.org/wiki/.NET_Foundation: .NET Foundation
-https://en.wikipedia.org/wiki/AT&T_Bell_Laboratories: AT&T Bell Laboratories
-https://en.wikipedia.org/wiki/Accelrys: Accelrys
-https://en.wikipedia.org/wiki/Adobe_Inc.: Adobe Inc.
-https://en.wikipedia.org/wiki/Adobe_Systems: Adobe Systems
-https://en.wikipedia.org/wiki/Apple_Computer: Apple Computer
-https://en.wikipedia.org/wiki/Apple_Inc.: Apple Inc.
-https://en.wikipedia.org/wiki/Atari,_Inc.: Atari, Inc.
-https://en.wikipedia.org/wiki/Bell_Labs: Bell Labs
-https://en.wikipedia.org/wiki/Bell_Telephone_Laboratories: Bell Telephone Laboratories
-https://en.wikipedia.org/wiki/Bill_Gates: Bill Gates
-https://en.wikipedia.org/wiki/Blitz_Research: Blitz Research
-https://en.wikipedia.org/wiki/Borland: Borland
-https://en.wikipedia.org/wiki/Broadcom_Inc: Broadcom Inc
-https://en.wikipedia.org/wiki/Carnegie_Mellon_University: Carnegie Mellon University
-https://en.wikipedia.org/wiki/Cisco_Systems: Cisco Systems
-https://en.wikipedia.org/wiki/Commercial_software: commercial
-https://en.wikipedia.org/wiki/Cycling_'74: Cycling '74
-https://en.wikipedia.org/wiki/Dassault_Syst%C3%A8mes: Dassault Systèmes
-https://en.wikipedia.org/wiki/Donald_Knuth: Donald Knuth
-https://en.wikipedia.org/wiki/Duke_University: Duke University
-https://en.wikipedia.org/wiki/Eclipse_Foundation: Eclipse Foundation
-https://en.wikipedia.org/wiki/Francisco_Jos%C3%A9_Vico_Vela: Francisco Vico
-https://en.wikipedia.org/wiki/Google: Google
-https://en.wikipedia.org/wiki/Graham_Nelson: Graham Nelson
-https://en.wikipedia.org/wiki/Haxe: Haxe
-https://en.wikipedia.org/wiki/INRIA: INRIA
-https://en.wikipedia.org/wiki/Imperial_College_London: Imperial College London
-https://en.wikipedia.org/wiki/Institut_de_recherche_pour_le_d%C3%A9veloppement: IRD
-https://en.wikipedia.org/wiki/JS_Foundation: JS Foundation
-https://en.wikipedia.org/wiki/Keysight_Technologies: Keysight Technologies
-https://en.wikipedia.org/wiki/King's_College_London: King's College London
-https://en.wikipedia.org/wiki/LexisNexis_Risk_Solutions: LexisNexis Risk Solutions
-https://en.wikipedia.org/wiki/Lorinda_Cherry: Lorinda Cherry
-https://en.wikipedia.org/wiki/MIT_Computer_Science_and_Artificial_Intelligence_Laboratory: MIT Computer Science and Artificial Intelligence Laboratory
-https://en.wikipedia.org/wiki/MIT_Media_Lab: MIT Media Lab
-https://en.wikipedia.org/wiki/Mark_A._O'Neill: Mark A. O'Neill
-https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology: MIT
-https://en.wikipedia.org/wiki/MathWorks: MathWorks
-https://en.wikipedia.org/wiki/Mathsoft: Mathsoft
-https://en.wikipedia.org/wiki/Michael_K%C3%B6lling: Michael Kölling
-https://en.wikipedia.org/wiki/Microsoft: Microsoft
-https://en.wikipedia.org/wiki/Monte_Davidoff: Monte Davidoff
-https://en.wikipedia.org/wiki/Motion_Twin: Motion Twin
-https://en.wikipedia.org/wiki/Munich: Munich
-https://en.wikipedia.org/wiki/National_Instruments: National Instruments
-https://en.wikipedia.org/wiki/Native_Instruments: Native Instruments
-https://en.wikipedia.org/wiki/Netochka_Nezvanova_(author): Netochka Nezvanova
-https://en.wikipedia.org/wiki/Open-source_software: open-source
-https://en.wikipedia.org/wiki/Optimized_Systems_Software: Optimized Systems Software
-https://en.wikipedia.org/wiki/PTC_(software_company): PTC
-https://en.wikipedia.org/wiki/Paul_Allen: Paul Allen
-https://en.wikipedia.org/wiki/Progress_Software_Corporation: Progress Software Corporation
-https://en.wikipedia.org/wiki/Randall_Hyde: Randall Hyde
-https://en.wikipedia.org/wiki/Robert_Morris_(cryptographer): Robert Morris
-https://en.wikipedia.org/wiki/Rocket_Software: Rocket Software
-https://en.wikipedia.org/wiki/SAP_AG: SAP
-https://en.wikipedia.org/wiki/SAS_Institute: SAS Institute
-https://en.wikipedia.org/wiki/Shiro_Games: Shiro Games
-https://en.wikipedia.org/wiki/Susan_H._Rodger: Susan H. Rodger
-https://en.wikipedia.org/wiki/Sydney_School_of_Mathematics_and_Statistics: School of Mathematics and Statistics
-https://en.wikipedia.org/wiki/UNICOM_Global: UNICOM Global
-https://en.wikipedia.org/wiki/Uniface_(company): Uniface
-https://en.wikipedia.org/wiki/University_of_Birmingham: University of Birmingham
-https://en.wikipedia.org/wiki/University_of_California,_Berkeley: University of California, Berkeley
-https://en.wikipedia.org/wiki/University_of_M%C3%A1laga: University of Málaga
-https://en.wikipedia.org/wiki/University_of_Sussex: University of Sussex
-https://en.wikipedia.org/wiki/University_of_Sydney: University of Sydney
-https://en.wikipedia.org/wiki/Volunteering: volunteers
-https://en.wikipedia.org/wiki/Waterloo_Maple: Waterloo Maple
-https://en.wikipedia.org/wiki/Wolfram_Research: Wolfram Research
-
--------------
 paradigms : 67
 https://en.wikipedia.org/wiki/Agent-oriented_programming: agent-oriented
 https://en.wikipedia.org/wiki/Array_programming: array
@@ -2479,12 +1038,12 @@ https://en.wikipedia.org/wiki/ALGOL: ALGOL
 https://en.wikipedia.org/wiki/ALGOL_60: ALGOL 60
 https://en.wikipedia.org/wiki/ActionScript: ActionScript
 https://en.wikipedia.org/wiki/Allegro_Common_Lisp: Allegro Common Lisp
+
 https://en.wikipedia.org/wiki/Assembly_language: Assembly
 https://en.wikipedia.org/wiki/Assembly_language: Assembly language
 https://en.wikipedia.org/wiki/Assembly_language: assembly
 https://en.wikipedia.org/wiki/Assembly_language: assembly language
-https://en.wikipedia.org/wiki/Atlas_Autocode: Atlas Autocode
-https://en.wikipedia.org/wiki/BCPL: BCPL
+
 https://en.wikipedia.org/wiki/C++: C++
 https://en.wikipedia.org/wiki/C_(programming_language): C
 https://en.wikipedia.org/wiki/C_Sharp_(programming_language): C#
@@ -2492,59 +1051,51 @@ https://en.wikipedia.org/wiki/Common_Lisp: Common Lisp
 https://en.wikipedia.org/wiki/Erlang_(programming_language): Erlang
 https://en.wikipedia.org/wiki/Fortran: Fortran
 https://en.wikipedia.org/wiki/Go_(programming_language): Go
+
 https://en.wikipedia.org/wiki/HTML5: HTML5
 https://en.wikipedia.org/wiki/HTML: HTML
+
 https://en.wikipedia.org/wiki/Haskell_(programming_language): Haskell
-https://en.wikipedia.org/wiki/Interlisp: Interlisp
 https://en.wikipedia.org/wiki/JavaScript: JavaScript
 https://en.wikipedia.org/wiki/Java_(programming_language): Java
 https://en.wikipedia.org/wiki/LLVM: LLVM
 https://en.wikipedia.org/wiki/Lisp_(programming_language): Lisp
-https://en.wikipedia.org/wiki/MOS_6502: 6502
 https://en.wikipedia.org/wiki/Modula-3: Modula-3
 https://en.wikipedia.org/wiki/OCaml: OCaml
 https://en.wikipedia.org/wiki/Oberon_(programming_language): Oberon
 https://en.wikipedia.org/wiki/Objective-C: Objective-C
-https://en.wikipedia.org/wiki/PL360: PL360
 https://en.wikipedia.org/wiki/Pascal_(programming_language): Pascal
-https://en.wikipedia.org/wiki/Pthreads: Pthreads
-https://en.wikipedia.org/wiki/Qt_(software): Qt
 https://en.wikipedia.org/wiki/Racket_(programming_language): Racket
 https://en.wikipedia.org/wiki/Rust_(programming_language): Rust
 https://en.wikipedia.org/wiki/Scala_(programming_language): Scala
 https://en.wikipedia.org/wiki/Scheme_(programming_language): Scheme
-https://en.wikipedia.org/wiki/Simscript: Simscript
 https://en.wikipedia.org/wiki/Smalltalk: Smalltalk
 https://en.wikipedia.org/wiki/Squeak: Squeak
-https://en.wikipedia.org/wiki/VAX: VAX
-https://en.wikipedia.org/wiki/Visual_FoxPro: Visual FoxPro
 
 -------------
 written in : 42
 https://en.wikipedia.org/wiki/Assembly_language: Assembly language
 https://en.wikipedia.org/wiki/BASIC: BASIC
-https://en.wikipedia.org/wiki/B_(programming_language): B
 https://en.wikipedia.org/wiki/C++: C++
 https://en.wikipedia.org/wiki/C++_(programming_language): C++
 https://en.wikipedia.org/wiki/C_(programming_language): C
 https://en.wikipedia.org/wiki/C_Sharp_(programming_language): C#
 https://en.wikipedia.org/wiki/CoffeeScript: CoffeeScript
 https://en.wikipedia.org/wiki/Delphi_(programming_language): Delphi
-https://en.wikipedia.org/wiki/ECL_(data-centric_programming_language): ECL
+
 https://en.wikipedia.org/wiki/FORTRAN: FORTRAN
 https://en.wikipedia.org/wiki/Fortran: Fortran
+
 https://en.wikipedia.org/wiki/GNU_Octave: GNU Octave
 https://en.wikipedia.org/wiki/HTML: HTML
 https://en.wikipedia.org/wiki/Haskell: Haskell
 https://en.wikipedia.org/wiki/Haxe: Haxe
-https://en.wikipedia.org/wiki/JUCE: JUCE
 https://en.wikipedia.org/wiki/JavaScript: JavaScript
 https://en.wikipedia.org/wiki/Java_(programming_language): Java
 https://en.wikipedia.org/wiki/Kawa_(Scheme_implementation): Kawa
 https://en.wikipedia.org/wiki/LabVIEW: LabVIEW
 https://en.wikipedia.org/wiki/Lua_(programming_language): Lua
 https://en.wikipedia.org/wiki/MATLAB: MATLAB
-https://en.wikipedia.org/wiki/Mortran: Mortran
 https://en.wikipedia.org/wiki/OCaml: OCaml
 https://en.wikipedia.org/wiki/Object_Pascal: Object Pascal
 https://en.wikipedia.org/wiki/Objective-C: Objective-C
@@ -2552,17 +1103,14 @@ https://en.wikipedia.org/wiki/POP-11: POP-11
 https://en.wikipedia.org/wiki/Pascal_(programming_language): Pascal
 https://en.wikipedia.org/wiki/Prolog: Prolog
 https://en.wikipedia.org/wiki/Python_(programming_language): Python
-https://en.wikipedia.org/wiki/Qt_(software): Qt
 https://en.wikipedia.org/wiki/R_(programming_language): R
+
 https://en.wikipedia.org/wiki/Ruby_(programming_language): Ruby
 https://en.wikipedia.org/wiki/Ruby_programming_language: Ruby
+
 https://en.wikipedia.org/wiki/Scheme_(programming_language): Scheme
 https://en.wikipedia.org/wiki/Swift_(programming_language): Swift
-https://en.wikipedia.org/wiki/TeX: TeX
-https://en.wikipedia.org/wiki/WEB: WEB
-https://en.wikipedia.org/wiki/Wikipedia:Citation_needed: citation needed
 https://en.wikipedia.org/wiki/Wolfram_Language: Wolfram Language
-https://en.wikipedia.org/wiki/XAML: XAML
 
 -------------
 family : 27
@@ -2593,155 +1141,3 @@ https://en.wikipedia.org/wiki/Self_(programming_language): Self
 https://en.wikipedia.org/wiki/Smalltalk: Smalltalk
 https://en.wikipedia.org/wiki/Squeak: Squeak
 https://en.wikipedia.org/wiki/Standard_ML: Standard ML
-
--------------
-original author(s) : 25
-https://en.wikipedia.org/wiki/AT&T_Bell_Laboratories: AT&T Bell Laboratories
-https://en.wikipedia.org/wiki/Anders_Hejlsberg: Anders Hejlsberg
-https://en.wikipedia.org/wiki/Brian_Fox_(programmer): Brian Fox
-https://en.wikipedia.org/wiki/Daniel_Murphy_(computer_scientist): Dan Murphy
-https://en.wikipedia.org/wiki/Dynamic_Language_Runtime: Dynamic Language Runtime
-https://en.wikipedia.org/wiki/Ellen_Spertus: Ellen Spertus
-https://en.wikipedia.org/wiki/Graham_Nelson: Graham Nelson
-https://en.wikipedia.org/wiki/Hal_Abelson: Hal Abelson
-https://en.wikipedia.org/wiki/IBM: IBM Emerging Technology
-https://en.wikipedia.org/wiki/Jeff_Rulifson: Jeff Rulifson
-https://en.wikipedia.org/wiki/John_Mashey: John Mashey
-https://en.wikipedia.org/wiki/John_Rosenberg_(academic): John Rosenberg
-https://en.wikipedia.org/wiki/Joseph_J._Allaire: J. J. Allaire
-https://en.wikipedia.org/wiki/Lorinda_Cherry: Lorinda Cherry
-https://en.wikipedia.org/wiki/Macromedia: Macromedia
-https://en.wikipedia.org/wiki/Marc_McDonald: Marc McDonald
-https://en.wikipedia.org/wiki/Michael_K%C3%B6lling: Michael Kölling
-https://en.wikipedia.org/wiki/Micro-Soft: Micro-Soft
-https://en.wikipedia.org/wiki/Microsoft: Microsoft
-https://en.wikipedia.org/wiki/Miller_Puckette: Miller Puckette
-https://en.wikipedia.org/wiki/Ric_Weiland: Ric Weiland
-https://en.wikipedia.org/wiki/Robert_Morris_(cryptographer): Robert Morris
-https://en.wikipedia.org/wiki/Robin_Popplestone: Robin Popplestone
-https://en.wikipedia.org/wiki/Stephen_R._Bourne: Stephen Bourne
-https://en.wikipedia.org/wiki/Why_the_lucky_stiff: _why
-
--------------
-developers : 21
-https://en.wikipedia.org/wiki/ANSI: ANSI
-https://en.wikipedia.org/wiki/Autodesk: Autodesk
-https://en.wikipedia.org/wiki/CODASYL: CODASYL
-https://en.wikipedia.org/wiki/Community_of_practice: community
-https://en.wikipedia.org/wiki/Digital_Equipment_Corporation: DEC
-https://en.wikipedia.org/wiki/ETH_Zurich: ETH Zurich
-https://en.wikipedia.org/wiki/Guy_L._Steele_Jr.: Guy L. Steele Jr.
-https://en.wikipedia.org/wiki/Heriot-Watt_University: Heriot-Watt University
-https://en.wikipedia.org/wiki/Hewlett-Packard: Hewlett-Packard
-https://en.wikipedia.org/wiki/International_Electrotechnical_Commission: IEC
-https://en.wikipedia.org/wiki/International_Organization_for_Standardization: ISO
-https://en.wikipedia.org/wiki/MIT_Media_Lab: Media Lab
-https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology: MIT
-https://en.wikipedia.org/wiki/Olivetti: Olivetti
-https://en.wikipedia.org/wiki/Psion_(company): Psion Ltd
-https://en.wikipedia.org/wiki/Richard_P._Gabriel: Richard P. Gabriel
-https://en.wikipedia.org/wiki/Stanford_University: Stanford University
-https://en.wikipedia.org/wiki/Sun_Microsystems: Sun Microsystems
-https://en.wikipedia.org/wiki/University_of_St_Andrews: University of St Andrews
-https://en.wikipedia.org/wiki/University_of_Utah: University of Utah
-https://en.wikipedia.org/wiki/Zuse_Institute_Berlin: Zuse Institute Berlin
-
--------------
-available in : 15
-https://en.wikipedia.org/wiki/Chinese_language: Chinese
-https://en.wikipedia.org/wiki/Czech_language: Czech
-https://en.wikipedia.org/wiki/English_language: English
-https://en.wikipedia.org/wiki/French_language: French
-https://en.wikipedia.org/wiki/German_language: German
-https://en.wikipedia.org/wiki/Gettext: gettext
-https://en.wikipedia.org/wiki/Italian_language: Italian
-https://en.wikipedia.org/wiki/Japanese_language: Japanese
-https://en.wikipedia.org/wiki/Multilingual: Multilingual
-https://en.wikipedia.org/wiki/Polish_language: Polish
-https://en.wikipedia.org/wiki/Portuguese_language: Portuguese (Brazil)
-https://en.wikipedia.org/wiki/Python_(programming_language): Python
-https://en.wikipedia.org/wiki/Russian_language: Russian
-https://en.wikipedia.org/wiki/Spanish_language: Spanish
-https://en.wikipedia.org/wiki/Ukrainian_language: Ukrainian
-
--------------
-memory management : 13
-https://en.wikipedia.org/wiki/Automatic_Reference_Counting: Automatic Reference Counting
-https://en.wikipedia.org/wiki/BEAM_(Erlang_virtual_machine): BEAM
-https://en.wikipedia.org/wiki/Common_Language_Runtime: CLR
-https://en.wikipedia.org/wiki/Garbage_collection_(computer_science): Automatic garbage collection
-https://en.wikipedia.org/wiki/Garbage_collection_(computer_science): Garbage collection
-https://en.wikipedia.org/wiki/Garbage_collection_(computer_science): automatic
-https://en.wikipedia.org/wiki/Garbage_collection_(computer_science): automatic memory management
-https://en.wikipedia.org/wiki/Garbage_collection_(computer_science): garbage collected
-https://en.wikipedia.org/wiki/JavaScript: JavaScript
-https://en.wikipedia.org/wiki/Java_Virtual_Machine: JVM
-https://en.wikipedia.org/wiki/List_of_programming_languages_by_type#Languages_with_optional_manual_memory_management: optional
-https://en.wikipedia.org/wiki/Manual_memory_management: manual
-https://en.wikipedia.org/wiki/V8_(JavaScript_engine): V8
-
--------------
-scope : 9
-https://en.wikipedia.org/wiki/Computer-aided_software_engineering: Computer-aided software engineering
-https://en.wikipedia.org/wiki/Lexical_scope: Lexical
-https://en.wikipedia.org/wiki/Scope_(computer_science)#Lexical_scoping_and_dynamic_scoping: Lexical
-https://en.wikipedia.org/wiki/Scope_(computer_science): Dynamic
-https://en.wikipedia.org/wiki/Scope_(computer_science): Lexical
-https://en.wikipedia.org/wiki/Scope_(computer_science): Lexical, optional dynamic
-https://en.wikipedia.org/wiki/Scope_(computer_science): lexical
-https://en.wikipedia.org/wiki/Scope_(programming): Static, lexical
-https://en.wikipedia.org/wiki/Semantic_Web: Semantic Web
-
--------------
-developed by : 3
-https://en.wikipedia.org/wiki/Adobe_Systems: Adobe Systems
-https://en.wikipedia.org/wiki/Microsoft: Microsoft
-https://en.wikipedia.org/wiki/World_Wide_Web_Consortium: World Wide Web Consortium
-
--------------
-type of format : 3
-https://en.wikipedia.org/wiki/Markup_language: Markup language
-https://en.wikipedia.org/wiki/Stylesheet_language: Stylesheet language
-https://en.wikipedia.org/wiki/User_interface_markup_language: User interface markup language
-
--------------
-size : 3
-https://en.wikipedia.org/wiki/Kilobyte: KB
-https://en.wikipedia.org/wiki/Megabyte: MB
-https://en.wikipedia.org/wiki/Microsoft_Windows: Windows
-
--------------
-base standards : 2
-https://en.wikipedia.org/wiki/RDFS: RDFS
-https://en.wikipedia.org/wiki/Resource_Description_Framework: Resource Description Framework
-
--------------
-domain : 2
-https://en.wikipedia.org/wiki/SQL: SQL
-https://en.wikipedia.org/wiki/Semantic_Web: Semantic Web
-
--------------
-website : 2
-https://en.wikipedia.org/wiki/Wayback_Machine: Wayback Machine
-https://en.wikipedia.org/wiki/Wikipedia:Link_rot: dead link
-
--------------
-editors : 1
-https://en.wikipedia.org/wiki/BBN_Technologies: BBN Technologies
-
--------------
-related standards : 1
-https://en.wikipedia.org/wiki/SHACL: SHACL
-
--------------
-created by : 1
-https://en.wikipedia.org/wiki/Georgia_Institute_of_Technology: Georgia Institute of Technology
-
--------------
-successor : 1
-https://en.wikipedia.org/wiki/ARexx: ARexx
-
--------------
-extended from : 1
-https://en.wikipedia.org/wiki/XML: XML
-
