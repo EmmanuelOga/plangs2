@@ -88,8 +88,8 @@ const cache = new Cache("wikipedia");
 const key = Key.get("https://en.wikipedia.org/wiki/Python_(programming_language)");
 const body = await cache.read(key);
 const page = new WikiPage(new URL(key.unescaped), body);
-console.log(page.title)
-console.log(page.infobox)
+console.log(page.title);
+console.log(page.infobox);
 
 // if (process.argv[2] === "scrape") scrape();
 // if (process.argv[2] === "analyze") analyze();

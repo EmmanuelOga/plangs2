@@ -12,14 +12,6 @@ export function define(g: PlangsGraph) {
     ],
   });
 
-  g.n_paradigm.set("para+algebraic", {
-    name: "Algebraic Data Types",
-    keywords: ["algebraic", "adt", "product types", "sum types", "variant types", "unions"],
-    description:
-      "In computer programming, especially functional programming and type theory, an algebraic data type (ADT) is a kind of composite type, i.e., a type formed by combining other types.",
-    websites: [wikipedia("https://en.wikipedia.org/wiki/Algebraic_data_type", "Algebraic Data Type")],
-  });
-
   g.n_paradigm.set("para+array", {
     name: "Array Programming",
     keywords: ["array", "vector"],
@@ -225,13 +217,6 @@ export function define(g: PlangsGraph) {
     keywords: ["general-purpose"],
     description: "General-purpose programming languages are designed to solve a wide range of problems.",
     websites: [wikipedia("https://en.wikipedia.org/wiki/General-purpose_programming_language", "general-purpose")],
-  });
-
-  g.n_paradigm.set("para+generic", {
-    name: "Generic Programming",
-    keywords: ["generic"],
-    description: "Generic programming uses algorithms that can work with several different but related data types.",
-    websites: [wikipedia("https://en.wikipedia.org/wiki/Generic_programming", "Generic")],
   });
 
   g.n_paradigm.set("para+imperative", {
@@ -453,21 +438,6 @@ export function define(g: PlangsGraph) {
     keywords: ["stack-oriented"],
     description: "Stack-oriented programming uses a stack-based data structure for passing parameters.",
     websites: [wikipedia("https://en.wikipedia.org/wiki/Stack-oriented_programming_language", "stack-oriented")],
-  });
-
-  g.n_paradigm.set("para+strong", {
-    name: "Strongly Typed Programming",
-    keywords: ["strong"],
-    description: "Strongly typed languages enforce strict type rules, reducing type-related errors at runtime.",
-    websites: [wikipedia("https://en.wikipedia.org/wiki/Strong_and_weak_typing", "Strong and weak typing")],
-  });
-
-  g.n_paradigm.set("para+weak", {
-    name: "Weakly Typed Programming",
-    keywords: ["weak"],
-    description:
-      "A weakly typed language has looser typing rules and may produce unpredictable or even erroneous results or may perform implicit type conversion at runtime.",
-    websites: [wikipedia("https://en.wikipedia.org/wiki/Strong_and_weak_typing", "Strong and weak typing")],
   });
 
   g.n_paradigm.set("para+structured", {
