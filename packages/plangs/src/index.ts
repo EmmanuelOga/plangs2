@@ -13,6 +13,7 @@ export class PlangsGraph extends BaseGraph {
   readonly n_platform = this.nodeMap<NPlatform>("platf", (key) => new NPlatform(this, key));
   readonly n_tool = this.nodeMap<NTool>("tool", (key) => new NTool(this, key));
   readonly n_tsystem = this.nodeMap<NTypeSystem>("tsys", (key) => new NTypeSystem(this, key));
+  readonly n_tags = this.nodeMap<NTag>("tag", (key) => new NTag(this, key));
 
   // Edge Tables.
 
@@ -73,6 +74,9 @@ abstract class NBase<Key extends string, Data extends CommonNodeData> extends No
     return this;
   }
 }
+
+/** A generic tag. */
+export class NTag extends NBase<`tag+${string}`, CommonNodeData> {}
 
 /** A programming language Node. */
 export class NPlang extends NBase<
