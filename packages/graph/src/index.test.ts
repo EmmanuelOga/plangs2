@@ -28,6 +28,43 @@ class TestGraph extends BaseGraph {
   e_post_tag = this.edgeMap<EPostTag>("post-tag", (from, to) => new EPostTag(this, from, to));
 }
 
+test("accessing relationships forward and backward", () => {
+  const g = new TestGraph();
+
+  g.v_person.get("person+1").merge({ name: "Alice" });
+  g.v_post.get("post+1").merge({ title: "Hello", content: "World" });
+  g.v_post.get("post+2").merge({ title: "Hello", content: "World" });
+  g.v_tag.get("tag+1");
+
+  g.e_person_post.connect("person+1", "post+1").merge({ role: "author" });
+  g.e_person_post.connect("person+1", "post+2").merge({ role: "editor" });
+  g.e_post_tag.connect("post+1", "tag+1");
+
+  // Forward
+  expect(g.e_person_post.adjFrom.has("person+1", "post+1")).toBeTrue();
+  expect(g.e_person_post.adjFrom.has("person+2", "post+1")).toBeFalse();
+  expect(g.e_person_post.adjFrom.has("person+1", "post+2")).toBeTrue();
+  expect(g.e_person_post.adjFrom.has("person+2", "post+2")).toBeFalse();
+
+  expect(g.e_post_tag.adjFrom.has("post+1", "tag+1")).toBeTrue();
+  expect(g.e_post_tag.adjFrom.has("post+1", "tag+2")).toBeFalse();
+
+  expect(g.e_post_tag.adjFrom.has("post+2", "tag+1")).toBeFalse();
+  expect(g.e_post_tag.adjFrom.has("post+2", "tag+2")).toBeFalse();
+
+  // Backward
+  expect(g.e_person_post.adjTo.has("post+1", "person+1")).toBeTrue();
+  expect(g.e_person_post.adjTo.has("post+1", "person+2")).toBeFalse();
+  expect(g.e_person_post.adjTo.has("post+2", "person+1")).toBeTrue();
+  expect(g.e_person_post.adjTo.has("post+2", "person+2")).toBeFalse();
+
+  expect(g.e_post_tag.adjTo.has("tag+1", "post+1")).toBeTrue();
+  expect(g.e_post_tag.adjTo.has("tag+1", "post+2")).toBeFalse();
+
+  expect(g.e_post_tag.adjTo.has("tag+2", "post+1")).toBeFalse();
+  expect(g.e_post_tag.adjTo.has("tag+2", "post+2")).toBeFalse();
+});
+
 test("de/serializing a graph", () => {
   const g = new TestGraph();
 
