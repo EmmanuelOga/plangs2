@@ -63,6 +63,7 @@ interface CommonNodeData {
   name: string;
   description: string;
   websites: Link[];
+  keywords: string[];
 }
 
 /** Base type for data on all nodes. */
@@ -305,13 +306,25 @@ export class NPlatform extends NBase<`platf+${string}`, CommonNodeData> {}
 export class NTypeSystem extends NBase<`tsys+${string}`, CommonNodeData> {}
 
 /** A programming paradigm Node, e.g., Functional, Imperative, etc. */
-export class NParadigm extends NBase<`para+${string}`, CommonNodeData & { keywords: string[] }> {}
+export class NParadigm extends NBase<`para+${string}`, CommonNodeData> {}
 
 /** A author or organization Node, for people involved in the development of a programming language. */
 export class NAuthor extends NBase<`author+${string}`, CommonNodeData> {}
 
 /** A license Node, e.g., MIT, GPL, etc. */
-export class NLicense extends NBase<`lic+${string}`, CommonNodeData> {}
+export class NLicense extends NBase<
+  `lic+${string}`,
+  CommonNodeData & {
+    /** spdx: The SPDX identifier from https://spdx.org/licenses/. */
+    spdx?: string;
+
+    /** Wether the license is recognized as Free/Libre by the Free Software Foundation (FSF). */
+    isFSFLibre?: boolean;
+
+    /** Wether the license is approved by the Open Source Initiative (OSI).*/
+    isOSIApproved?: boolean;
+  }
+> {}
 
 /** A tool Node, e.g., Version Manager, Linter, Formatter,  etc. */
 export class NTool extends NBase<`tool+${string}`, CommonNodeData> {}
