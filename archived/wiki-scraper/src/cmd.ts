@@ -1,7 +1,11 @@
 import { Cache, Key } from "./cache";
 import { Fetcher } from "./fetcher";
-import { START_URLS, WikiPage } from "./wikipedia";
+import { START_URLS, UNKNOWN_KEYS, WikiPage } from "./wikipedia";
 
+/**
+ * Starting on a few top pages, scrape a bunch of wikipedia pages
+ * that are candidates for defining programming languages.
+ */
 async function scrape() {
   const cache = new Cache("wikipedia");
   await cache.mkdir();
@@ -40,6 +44,10 @@ async function scrape() {
   }
 }
 
+/**
+ * Since determining if a page is a programming language is slow on its own right,
+ * we first analyze the pages we have and store the candidates.
+ */
 async function analyze() {
   const wikiCache = new Cache("wikipedia");
   const dataCache = new Cache("meta");
@@ -64,6 +72,9 @@ async function analyze() {
   dataCache.write(Key.get("candidates"), JSON.stringify(candidates));
 }
 
+/**
+ * Furter analyze the candidates and extract the relevant information.
+ */
 async function extract() {
   const dataCache = new Cache("meta");
   if (!dataCache.has(Key.get("candidates"))) {
@@ -79,18 +90,12 @@ async function extract() {
     const key = Key.raw(rawKey);
     const body = await wikiCache.read(key);
     if (!body) continue;
+
     const page = new WikiPage(new URL(key.unescaped), body);
-    // TODO.
+    console.log(page.title, page.description);
   }
 }
 
-const cache = new Cache("wikipedia");
-const key = Key.get("https://en.wikipedia.org/wiki/Python_(programming_language)");
-const body = await cache.read(key);
-const page = new WikiPage(new URL(key.unescaped), body);
-console.log(page.title);
-console.log(page.infobox);
-
-// if (process.argv[2] === "scrape") scrape();
-// if (process.argv[2] === "analyze") analyze();
-// if (process.argv[2] === "extract") extract();
+// scrape();
+// analyze();
+extract();

@@ -33,12 +33,19 @@ export class WikiPage {
     return cleanText(this.$("h1#firstHeading").text());
   }
 
+  get description(): string {
+    const p = this.$("#mw-content-text > div.mw-content-ltr.mw-parser-output > p:not([class])").first();
+    p.find("*").remove("sup");
+    return cleanText(p.text());
+  }
+
   get categories(): string[] {
     return this.categoryLinks().map((link) => link.title);
   }
 
   get isPlangCandidate(): boolean {
     if (this.isGeneric) return false;
+    if (this.title.includes("(programming language)")) return true;
     const categories = this.categories;
     if (categories.find((cat) => /(stub|book|frameworks|libraries)s?$/.test(cat))) return false;
     if (!this.infobox) return false;
@@ -72,52 +79,52 @@ class InfoBox {
   readonly releases: { version: string; date?: string }[] = [];
   readonly extensions: string[] = [];
 
-  // SKIP? We can add authors back manually later.
   readonly authors: Link[] = []; // KEYS_AUTHORS
-
-  // CURATE:
   readonly paradigms: Link[] = []; // KEYS_PARADIGMS
   readonly platforms: Link[] = []; // KEYS_PLATFORMS
   readonly licenses: Link[] = []; // KEYS_LICENSES
   readonly typeSystem: Link[] = []; // KEYS_TYPE_SYSTEM
   readonly tags: Link[] = []; // KEYS_TAGS
-
-  // Plang links
   readonly dialects: Link[] = []; // KEYS_DIALECTS
   readonly family: Link[] = []; // KEYS_FAMILY
   readonly implementations: Link[] = []; // KEYS_IMPLEMENTATIONS
   readonly influenced: Link[] = []; // KEYS_INFLUENCED
   readonly influencedBy: Link[] = []; // KEYS_INFLUENCED_BY
   readonly writtenIn: Link[] = []; // KEY_WRITTEN_IN
+  readonly websites: Link[] = []; // KEY_WRITTEN_IN
 }
 
-const KEYS_AUTHORS = new Set(["designed by", "developer", "developer(s)", "original author(s)", "developers"]);
+export const UNKNOWN_KEYS = new Set<string>();
+
 const KEYS_DIALECTS = new Set(["dialects"]);
 const KEYS_FAMILY = new Set(["family"]);
 const KEYS_IMPLEMENTATIONS = new Set(["major implementations"]);
 const KEYS_INFLUENCED = new Set(["influenced"]);
 const KEYS_INFLUENCED_BY = new Set(["influenced by"]);
-const KEYS_LICENSES = new Set(["license"]);
+const KEYS_LICENSES = new Set(["license", "content license"]);
 const KEYS_PARADIGMS = new Set(["paradigm", "paradigms"]);
-const KEYS_PLATFORMS = new Set(["os", "platform", "operating system"]);
+const KEYS_PLATFORMS = new Set(["os", "platform", "operating system", "cpu"]);
 const KEYS_TAGS = new Set(["type"]);
 const KEYS_TYPE_SYSTEM = new Set(["typing discipline"]);
+const KEYS_WEBSITES = new Set(["website", "code repository", "code", "official website"]);
 const KEYS_WRITTEN_IN = new Set(["implementation language", "written in"]);
-const KEYS_IGNORED = new Set([
-  "available in",
-  "memory management",
-  "scope",
-  "developed by",
-  "type of format",
-  "size",
-  "base standards",
-  "domain",
-  "website",
-  "editors",
-  "related standards",
-  "created by",
-  "successor",
-  "extended from",
+
+const KEYS_AUTHORS = new Set([
+  "designed by",
+  "developer",
+  "developer(s)",
+  "original author(s)",
+  "developers",
+  "owners",
+  "author",
+  "designer",
+  "designer(s)",
+  "employees",
+  "employer",
+  "employer(s)",
+  "founder",
+  "founder(s)",
+  "founders",
 ]);
 
 function parseInfobox($: cheerio.CheerioAPI, el: Element): InfoBox {
@@ -161,7 +168,7 @@ function processEntry($: cheerio.CheerioAPI, key: string, val: cheerio.Cheerio<E
     .toArray();
   const text = cleanText(val.text());
 
-  if (key.includes("release") || key.includes("appear")) {
+  if (key.includes("release") || key.includes("appear") || key.includes("version") || key.includes("date")) {
     const [date, version] = [parseDate(text), parseVersion(text)];
     if (version) arrayMerge(box.releases, [{ version, date }], (a, b) => a.version === b.version);
   } else if (key.includes("extension")) {
@@ -190,10 +197,10 @@ function processEntry($: cheerio.CheerioAPI, key: string, val: cheerio.Cheerio<E
     arrayMerge(box.typeSystem, links, (a, b) => a.href === b.href);
   } else if (KEYS_WRITTEN_IN.has(key)) {
     arrayMerge(box.writtenIn, links, (a, b) => a.href === b.href);
-  } else if (KEYS_IGNORED.has(key)) {
-    // Do nothing.
+  } else if (KEYS_WEBSITES.has(key)) {
+    arrayMerge(box.websites, links, (a, b) => a.href === b.href);
   } else {
-    console.warn("unknown key:", key);
+    UNKNOWN_KEYS.add(key); // For debugging.
   }
 }
 
