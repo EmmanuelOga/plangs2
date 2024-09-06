@@ -1,31 +1,18 @@
 paradigm : 167
 
-https://en.wikipedia.org/wiki/Aspect-oriented_programming: aspect-oriented
+https://en.wikipedia.org/wiki/Component-based_software_engineering: component-based
 
-https://en.wikipedia.org/wiki/Assembly_language: Assembly
-
-https://en.wikipedia.org/wiki/Block_(programming): block structured
-
-https://en.wikipedia.org/wiki/Class-based_programming: Class-based
-https://en.wikipedia.org/wiki/Class-based_programming: class-based
-https://en.wikipedia.org/wiki/Class_(computer_programming): class-based
-
-https://en.wikipedia.org/wiki/Compiled_language: compiled
+https://en.wikipedia.org/wiki/Computer_simulation#Types: agent-based
 
 https://en.wikipedia.org/wiki/Concatenative_programming: Concatenative
+
 https://en.wikipedia.org/wiki/Concatenative_programming_language: concatenative
 
-https://en.wikipedia.org/wiki/Concurrent_computing: Concurrent
-https://en.wikipedia.org/wiki/Concurrent_computing: concurrent
-https://en.wikipedia.org/wiki/Concurrent_programming: concurrent
-https://en.wikipedia.org/wiki/Concurrent_programming_language: concurrent
-
+https://en.wikipedia.org/wiki/Constraint_logic_programming: Constraint logic
 https://en.wikipedia.org/wiki/Concurrent_constraint_logic_programming: Concurrent constraint logic
 https://en.wikipedia.org/wiki/Concurrent_constraint_logic_programming: concurrent constraint logic
-
-https://en.wikipedia.org/wiki/Concurrent_object-oriented_programming: Concurrent
-
 https://en.wikipedia.org/wiki/Constraint_programming: Constraint programming
+https://en.wikipedia.org/wiki/Constraint_programming: constraint
 https://en.wikipedia.org/wiki/Constraint_programming: constraint
 
 https://en.wikipedia.org/wiki/Data-centric_programming_language: data-centric
@@ -39,24 +26,25 @@ https://en.wikipedia.org/wiki/Data_exchange_language: data exchange
 https://en.wikipedia.org/wiki/Dataflow: Dataflow programming
 https://en.wikipedia.org/wiki/Dataflow_programming: Dataflow
 https://en.wikipedia.org/wiki/Dataflow_programming: dataflow
-
-https://en.wikipedia.org/wiki/Declarative_Language: Declarative Language
-https://en.wikipedia.org/wiki/Declarative_programming: Declarative
-https://en.wikipedia.org/wiki/Declarative_programming: Declarative language
-https://en.wikipedia.org/wiki/Declarative_programming: Declarative programming
-https://en.wikipedia.org/wiki/Declarative_programming: declarative
+https://en.wikipedia.org/wiki/Dataflow_programming: dataflow
 
 https://en.wikipedia.org/wiki/Distributed_computing: distributed
+https://en.wikipedia.org/wiki/Distributed_programming: distributed
 https://en.wikipedia.org/wiki/Distributed_programming: distributed
 
 https://en.wikipedia.org/wiki/Domain-specific_language: domain-specific
 
 https://en.wikipedia.org/wiki/Educational_programming_language: educational
+https://en.wikipedia.org/wiki/Educational_programming_language: educational
+
+https://en.wikipedia.org/wiki/Embedded_system: embedded
 
 https://en.wikipedia.org/wiki/Esoteric_programming_language: Esoteric
 https://en.wikipedia.org/wiki/Esoteric_programming_language: esoteric
+https://en.wikipedia.org/wiki/Esoteric_programming_language: esoteric
 
 https://en.wikipedia.org/wiki/Event-driven_programming: Event-driven
+https://en.wikipedia.org/wiki/Event-driven_programming: event-driven
 https://en.wikipedia.org/wiki/Event-driven_programming: event-driven
 
 https://en.wikipedia.org/wiki/Expert_system: expert system
@@ -64,15 +52,14 @@ https://en.wikipedia.org/wiki/Expert_system: expert system
 https://en.wikipedia.org/wiki/Expression-oriented_programming_language: exp-oriented
 
 https://en.wikipedia.org/wiki/Extensible_programming: extensible
+https://en.wikipedia.org/wiki/Extensible_programming: extensible
+
+https://en.wikipedia.org/wiki/Formal_language: Formal language
 
 https://en.wikipedia.org/wiki/Function-level_programming: Function-level
 https://en.wikipedia.org/wiki/Function-level_programming: function-level
 
-https://en.wikipedia.org/wiki/Functional_programming: Functional
-https://en.wikipedia.org/wiki/Functional_programming: Functional programming
-https://en.wikipedia.org/wiki/Functional_programming: functional
-https://en.wikipedia.org/wiki/Functional_programming_language: Functional
-https://en.wikipedia.org/wiki/Functional_programming_language: functional
+https://en.wikipedia.org/wiki/Functional_reactive_programming: functional reactive
 
 https://en.wikipedia.org/wiki/General-purpose_macro_processor: general-purpose macro processor
 
@@ -80,22 +67,33 @@ https://en.wikipedia.org/wiki/General-purpose_programming_language: general-purp
 
 https://en.wikipedia.org/wiki/Generic_programming: Generic
 https://en.wikipedia.org/wiki/Generic_programming: generic
+https://en.wikipedia.org/wiki/Generic_programming: generic
 https://en.wikipedia.org/wiki/Generic_programming: generics
 
+https://en.wikipedia.org/wiki/Imperative_programming: Imperative
 https://en.wikipedia.org/wiki/Imperative_programming: Imperative
 https://en.wikipedia.org/wiki/Imperative_programming: Imperative programming
 https://en.wikipedia.org/wiki/Imperative_programming: Imperative, procedural
 https://en.wikipedia.org/wiki/Imperative_programming: imperative
+https://en.wikipedia.org/wiki/Imperative_programming: imperative
 https://en.wikipedia.org/wiki/Imperative_programming_language: imperative
+https://en.wikipedia.org/wiki/Imperative_programming_language: imperative
+
+https://en.wikipedia.org/wiki/Information_hiding: data and procedure hiding
 
 https://en.wikipedia.org/wiki/Interface_(object-oriented_programming): protocol-oriented
 
 https://en.wikipedia.org/wiki/Interpreted_language: interpreted
 
+https://en.wikipedia.org/wiki/JSON: JSON
+
 https://en.wikipedia.org/wiki/Language_oriented_programming: language oriented programming
 
 https://en.wikipedia.org/wiki/Lazy_evaluation: lazy
 
+https://en.wikipedia.org/wiki/List_of_educational_programming_languages: educational
+
+https://en.wikipedia.org/wiki/Logic: Logic programming
 https://en.wikipedia.org/wiki/Logic_Programming: Logic Programming
 https://en.wikipedia.org/wiki/Logic_programming: Logic
 https://en.wikipedia.org/wiki/Logic_programming: Logic programming
@@ -105,76 +103,51 @@ https://en.wikipedia.org/wiki/Logic_programming_language: logic-paradigm
 
 https://en.wikipedia.org/wiki/Low-code_development_platform: Low-code
 
-https://en.wikipedia.org/wiki/MPMD: MPMD
-
 https://en.wikipedia.org/wiki/Macro_(computer_science): macro
 https://en.wikipedia.org/wiki/Macro_(computer_science): macros
 
 https://en.wikipedia.org/wiki/Message_passing: message passing
-
 https://en.wikipedia.org/wiki/Metaprogramming: Meta
 https://en.wikipedia.org/wiki/Metaprogramming: meta
+https://en.wikipedia.org/wiki/Metaprogramming: meta
+https://en.wikipedia.org/wiki/Metaprogramming: metaprogramming
 https://en.wikipedia.org/wiki/Metaprogramming: metaprogramming
 
 https://en.wikipedia.org/wiki/Modular_programming: Modular
 https://en.wikipedia.org/wiki/Modular_programming: modular
-
-https://en.wikipedia.org/wiki/Multi-paradigm: Multi-paradigm
-https://en.wikipedia.org/wiki/Multi-paradigm: multi-paradigm
-https://en.wikipedia.org/wiki/Multi-paradigm_programming_language: Multi-paradigm
-https://en.wikipedia.org/wiki/Multi-paradigm_programming_language: multi-paradigm
-https://en.wikipedia.org/wiki/Multi-paradigm_programming_language: multiparadigm
+https://en.wikipedia.org/wiki/Modular_programming: modular
 
 https://en.wikipedia.org/wiki/Multiple_dispatch: multi-dis
 
 https://en.wikipedia.org/wiki/Natural_language_programming: Natural language programming
-https://en.wikipedia.org/wiki/Natural_language_programming: natural language programming
 
-https://en.wikipedia.org/wiki/Non-structured_programming: Non-structured
-
-https://en.wikipedia.org/wiki/Object-based_language: Object-based
-https://en.wikipedia.org/wiki/Object-based_language: object-based
-
-https://en.wikipedia.org/wiki/Object-oriented: object-oriented
-https://en.wikipedia.org/wiki/Object-oriented_analysis_and_design: Object oriented
-https://en.wikipedia.org/wiki/Object-oriented_programming: Object-oriented
-https://en.wikipedia.org/wiki/Object-oriented_programming: object-oriented
-https://en.wikipedia.org/wiki/Object-oriented_programming: object-oriented programming
-https://en.wikipedia.org/wiki/Object-oriented_programming_language: object-oriented-paradigm
-https://en.wikipedia.org/wiki/Object_oriented: Object oriented
-https://en.wikipedia.org/wiki/Object_oriented_programming: object oriented
-https://en.wikipedia.org/wiki/Object_oriented_programming_language: Object-oriented
-
+https://en.wikipedia.org/wiki/Parallel_computing: Parallel computing
+https://en.wikipedia.org/wiki/Parallel_computing: parallel
 https://en.wikipedia.org/wiki/Parallel_programming: parallel
-https://en.wikipedia.org/wiki/Parallel_programming_model: Parallel programming
-
-https://en.wikipedia.org/wiki/Partitioned_global_address_space: Partitioned global address space
+https://en.wikipedia.org/wiki/Parallel_programming_model: Parallel programming, pgas, mpmd, spmd
 
 https://en.wikipedia.org/wiki/Pattern-matching: Pattern-matching
-
-https://en.wikipedia.org/wiki/Pi_calculus: pi calculus
 
 https://en.wikipedia.org/wiki/Pipeline_(software): pipeline
 https://en.wikipedia.org/wiki/Pipeline_programming: pipeline
 
 https://en.wikipedia.org/wiki/Procedural_language: procedural
 https://en.wikipedia.org/wiki/Procedural_programming: Procedural
+https://en.wikipedia.org/wiki/Procedural_programming: Procedural
 https://en.wikipedia.org/wiki/Procedural_programming: Procedural programming
 https://en.wikipedia.org/wiki/Procedural_programming: procedural
+https://en.wikipedia.org/wiki/Procedural_programming: procedural
 
+https://en.wikipedia.org/wiki/Process-oriented_programming: process-oriented
 https://en.wikipedia.org/wiki/Production_system_(computer_science): rule processing
 
-https://en.wikipedia.org/wiki/Programming_paradigm#Multi-paradigm: Multi-paradigm
-https://en.wikipedia.org/wiki/Programming_paradigm#Multi-paradigm: Multi-paradigm:
-https://en.wikipedia.org/wiki/Programming_paradigm#Multi-paradigm_programming_language: Multi-paradigm
-https://en.wikipedia.org/wiki/Programming_paradigm#Support_for_multiple_paradigms: Multi-paradigm
-https://en.wikipedia.org/wiki/Programming_paradigm: Multi-paradigm
-
 https://en.wikipedia.org/wiki/Prototype-based_programming: Prototype
+https://en.wikipedia.org/wiki/Prototype-based_programming: prototype-based
 https://en.wikipedia.org/wiki/Prototype-based_programming: prototype-based
 https://en.wikipedia.org/wiki/Prototype-based_programming: prototype-based programming
 https://en.wikipedia.org/wiki/Prototype-oriented_programming: prototype-based
 
+https://en.wikipedia.org/wiki/Purely_functional_programming: Purely functional
 https://en.wikipedia.org/wiki/Purely_functional_programming: Purely functional
 https://en.wikipedia.org/wiki/Purely_functional_programming: pure
 
@@ -183,12 +156,17 @@ https://en.wikipedia.org/wiki/Quantum_programming: Quantum
 https://en.wikipedia.org/wiki/Query_language: Query language
 
 https://en.wikipedia.org/wiki/Reactive_programming: reactive
+https://en.wikipedia.org/wiki/Reactive_programming: reactive
+
+https://en.wikipedia.org/wiki/Real-time_computing: real-time
 
 https://en.wikipedia.org/wiki/Reflection_(computer_programming): reflective
+https://en.wikipedia.org/wiki/Reflection_(computer_programming): reflective
 https://en.wikipedia.org/wiki/Reflection_(computer_science): Reflective
+https://en.wikipedia.org/wiki/Reflection_(computer_science): reflective
+https://en.wikipedia.org/wiki/Reflective_programming: Reflective
 https://en.wikipedia.org/wiki/Reflective_programming: reflective
-
-https://en.wikipedia.org/wiki/SPMD: SPMD
+https://en.wikipedia.org/wiki/Reflective_programming: reflective
 
 https://en.wikipedia.org/wiki/Scientific_workflow_system: scientific workflow
 
@@ -198,6 +176,7 @@ https://en.wikipedia.org/wiki/Scripting_language: scripting
 https://en.wikipedia.org/wiki/Shared_memory: shared memory
 
 https://en.wikipedia.org/wiki/Simulation_language: Simulation language
+https://en.wikipedia.org/wiki/Simulation_language: simulation
 https://en.wikipedia.org/wiki/Simulation_language: simulation
 https://en.wikipedia.org/wiki/Simulation_language: simulation language
 
@@ -211,334 +190,22 @@ https://en.wikipedia.org/wiki/Strongly_typed: strongly typed
 https://en.wikipedia.org/wiki/Structured: structured
 https://en.wikipedia.org/wiki/Structured_programming: Structured
 https://en.wikipedia.org/wiki/Structured_programming: structured
+https://en.wikipedia.org/wiki/Structured_programming: structured
 
 https://en.wikipedia.org/wiki/Symbolic_programming: symbolic
 
 https://en.wikipedia.org/wiki/Synchronous_programming_language: synchronous
 
 https://en.wikipedia.org/wiki/Tacit_programming: tacit
+https://en.wikipedia.org/wiki/Tacit_programming: tacit programming
 
 https://en.wikipedia.org/wiki/Term-rewriting: Term-rewriting
 https://en.wikipedia.org/wiki/Term-rewriting: term-rewriting
 https://en.wikipedia.org/wiki/Term_rewriting: term rewriting
 
-https://en.wikipedia.org/wiki/The_Task-based_Asynchronous_Pattern: task-driven
-
-https://en.wikipedia.org/wiki/Thread_safe: thread safe
-
-https://en.wikipedia.org/wiki/Typesetting: typesetting
-
-https://en.wikipedia.org/wiki/Unstructured_programming: unstructured
-
-https://en.wikipedia.org/wiki/Visual_programming_language: Visual
-https://en.wikipedia.org/wiki/Visual_programming_language: Visual Programming
-https://en.wikipedia.org/wiki/Visual_programming_language: Visual programming
-https://en.wikipedia.org/wiki/Visual_programming_language: block-based
-https://en.wikipedia.org/wiki/Visual_programming_language: visual
-https://en.wikipedia.org/wiki/Visual_programming_language: visual programming
+https://en.wikipedia.org/wiki/The_Task-based_Asynchronous_Pattern: task-driven, async
 
 -------------
-os : 161
-https://en.wikipedia.org/wiki/.NET: .NET
-
-https://en.wikipedia.org/wiki/AIX: AIX
-
-https://en.wikipedia.org/wiki/Amiga: Amiga
-https://en.wikipedia.org/wiki/AmigaOS: AmigaOS
-
-https://en.wikipedia.org/wiki/Android_(operating_system): Android
-https://en.wikipedia.org/wiki/Android_(operating_system): Android (operating system)
-
-https://en.wikipedia.org/wiki/Arduino: Arduino
-
-https://en.wikipedia.org/wiki/BSD: BSD
-https://en.wikipedia.org/wiki/Berkeley_Software_Distribution: BSD
-https://en.wikipedia.org/wiki/DragonFly_BSD: DragonFly BSD
-https://en.wikipedia.org/wiki/DragonflyBSD: DragonflyBSD
-https://en.wikipedia.org/wiki/FreeBSD: FreeBSD
-https://en.wikipedia.org/wiki/NetBSD: NetBSD
-https://en.wikipedia.org/wiki/OpenBSD: OpenBSD
-https://en.wikipedia.org/wiki/OpenSUSE: openSUSE
-
-https://en.wikipedia.org/wiki/BeOS: BeOS
-
-https://en.wikipedia.org/wiki/ChromeOS: ChromeOS
-
-https://en.wikipedia.org/wiki/Classic_MacOS: Classic MacOS
-https://en.wikipedia.org/wiki/Classic_Mac_OS: classic Mac OS
-https://en.wikipedia.org/wiki/Darwin_(operating_system): Darwin
-https://en.wikipedia.org/wiki/MacOS: Mac OS X
-https://en.wikipedia.org/wiki/MacOS: MacOS
-https://en.wikipedia.org/wiki/MacOS: macOS
-https://en.wikipedia.org/wiki/MacOS_10.12: macOS 10.12
-https://en.wikipedia.org/wiki/Mac_OS: Mac OS
-https://en.wikipedia.org/wiki/Mac_OS_8: Mac OS 8
-https://en.wikipedia.org/wiki/Mac_OS_9: Mac OS 9
-https://en.wikipedia.org/wiki/Mac_OS_X: Mac OS X
-https://en.wikipedia.org/wiki/Mac_operating_systems: Mac operating systems
-https://en.wikipedia.org/wiki/OS_X: OS X
-https://en.wikipedia.org/wiki/System_7: System 7
-
-https://en.wikipedia.org/wiki/Cross-platform: Cross-platform
-https://en.wikipedia.org/wiki/Cross-platform: Cross-platform (multi-platform)
-https://en.wikipedia.org/wiki/Cross-platform: cross-platform
-https://en.wikipedia.org/wiki/Cross-platform_software: Cross- (multi-) platform
-https://en.wikipedia.org/wiki/Cross-platform_software: Cross-platform
-https://en.wikipedia.org/wiki/Cross-platform_software: cross-platform
-
-https://en.wikipedia.org/wiki/Cygwin: Cygwin
-
-https://en.wikipedia.org/wiki/DOS: DOS
-https://en.wikipedia.org/wiki/MS-DOS: MS-DOS
-
-https://en.wikipedia.org/wiki/CentOS: CentOS
-https://en.wikipedia.org/wiki/Debian: Debian
-https://en.wikipedia.org/wiki/Fedora_(operating_system): Fedora
-https://en.wikipedia.org/wiki/Red_Hat: Red Hat
-https://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux: Red Hat Enterprise Linux
-
-https://en.wikipedia.org/wiki/GLib: GLib
-
-https://en.wikipedia.org/wiki/HTML5: HTML5
-
-https://en.wikipedia.org/wiki/Haiku_(operating_system): Haiku
-
-https://en.wikipedia.org/wiki/HarmonyOS: HarmonyOS
-
-https://en.wikipedia.org/wiki/IOS: iOS
-https://en.wikipedia.org/wiki/IOS_(Apple): iOS
-
-https://en.wikipedia.org/wiki/IPadOS: iPadOS
-
-https://en.wikipedia.org/wiki/Inferno_(operating_system): Inferno
-
-https://en.wikipedia.org/wiki/Java_virtual_machine: JVM
-
-https://en.wikipedia.org/wiki/Linux: Linux
-
-https://en.wikipedia.org/wiki/Microsoft_.NET: Microsoft .NET
-
-https://en.wikipedia.org/wiki/Microsoft_Windows: Microsoft Windows
-https://en.wikipedia.org/wiki/Microsoft_Windows: Win32
-https://en.wikipedia.org/wiki/Microsoft_Windows: Windows
-
-https://en.wikipedia.org/wiki/Mono_(software): Mono
-
-https://en.wikipedia.org/wiki/OpenHarmony: OpenHarmony
-
-https://en.wikipedia.org/wiki/OpenIndiana: OpenIndiana
-
-https://en.wikipedia.org/wiki/OpenVMS: OpenVMS
-https://en.wikipedia.org/wiki/OpenVMS: VAX/VMS
-https://en.wikipedia.org/wiki/OpenVMS: VMS
-
-https://en.wikipedia.org/wiki/Solaris_(operating_system): Solaris
-https://en.wikipedia.org/wiki/Oracle_Solaris: Solaris
-https://en.wikipedia.org/wiki/SunOS: SunOS
-
-https://en.wikipedia.org/wiki/PC_DOS: PC DOS
-
-https://en.wikipedia.org/wiki/POSIX: POSIX
-https://en.wikipedia.org/wiki/POSIX: POSIX-compliant
-
-https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs: Plan 9
-https://en.wikipedia.org/wiki/Plan_9_from_User_Space: Plan 9 from User Space
-
-https://en.wikipedia.org/wiki/Raspberry_Pi: Raspberry Pi
-https://en.wikipedia.org/wiki/Raspberry_Pi_OS: Raspberry Pi OS
-
-https://en.wikipedia.org/wiki/TvOS: tvOS
-
-https://en.wikipedia.org/wiki/Unix: Unix
-https://en.wikipedia.org/wiki/UNIX: UNIX
-https://en.wikipedia.org/wiki/Unix-like: Unix-like
-
-https://en.wikipedia.org/wiki/Ubuntu_(operating_system): Ubuntu
-
-https://en.wikipedia.org/wiki/VisionOS: visionOS
-
-https://en.wikipedia.org/wiki/WatchOS: watchOS
-
-https://en.wikipedia.org/wiki/WebAssembly: WebAssembly
-https://en.wikipedia.org/wiki/Web_browser: web browser
-https://en.wikipedia.org/wiki/Web_browser: web browsers
-
-https://en.wikipedia.org/wiki/Windows: Windows
-https://en.wikipedia.org/wiki/Windows_10: Windows 10
-https://en.wikipedia.org/wiki/Windows_7: Windows 7
-https://en.wikipedia.org/wiki/Windows_8.1: Windows 8.1
-https://en.wikipedia.org/wiki/Windows_8: Windows 8
-https://en.wikipedia.org/wiki/Windows_95: Windows 95
-https://en.wikipedia.org/wiki/Windows_98: Windows 98
-https://en.wikipedia.org/wiki/Windows_Me: Windows Me
-https://en.wikipedia.org/wiki/Windows_Mobile: Windows Mobile
-https://en.wikipedia.org/wiki/Windows_Server_2003: Windows Server 2003
-https://en.wikipedia.org/wiki/Windows_Server_2008: Windows Server 2008
-https://en.wikipedia.org/wiki/Windows_Server_2008_R2: Windows Server 2008 R2
-https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux: WSL
-https://en.wikipedia.org/wiki/Windows_Vista: Windows Vista
-https://en.wikipedia.org/wiki/Windows_XP: Windows XP
-
--------------
-platform : 157
-https://en.wikipedia.org/wiki/.NET: .NET
-https://en.wikipedia.org/wiki/.NET_Framework: .NET Framework
-https://en.wikipedia.org/wiki/.NET_Framework_4.5: .NET Framework 4.5
-https://en.wikipedia.org/wiki/74181: 74181
-https://en.wikipedia.org/wiki/AArch64: AArch64
-https://en.wikipedia.org/wiki/AMD64: AMD64
-https://en.wikipedia.org/wiki/AMD_Am2900: 2901
-https://en.wikipedia.org/wiki/ARM_architecture: ARM
-https://en.wikipedia.org/wiki/ARM_architecture: ARM 32-64
-https://en.wikipedia.org/wiki/ARM_architecture: ARM|AARCH64
-https://en.wikipedia.org/wiki/ARM_architecture: armel, armhf
-https://en.wikipedia.org/wiki/ARM_architecture_family: ARM
-https://en.wikipedia.org/wiki/ARM_architecture_family: Arm
-https://en.wikipedia.org/wiki/Aarch64: Aarch64
-https://en.wikipedia.org/wiki/Advanced_Micro_Devices: AMD
-https://en.wikipedia.org/wiki/Agat_(computer): Agat
-https://en.wikipedia.org/wiki/Altair_8800: Altair 8800
-https://en.wikipedia.org/wiki/Amazon_Web_Services: Amazon Web Services
-https://en.wikipedia.org/wiki/Amiga: Amiga
-https://en.wikipedia.org/wiki/Android_(operating_system): Android
-https://en.wikipedia.org/wiki/Apollo/Domain: Apollo/Domain
-https://en.wikipedia.org/wiki/Apple_M1: M1
-https://en.wikipedia.org/wiki/Apple_M4: M4
-https://en.wikipedia.org/wiki/Apple_iOS: iOS
-https://en.wikipedia.org/wiki/Apple_silicon: Apple silicon
-https://en.wikipedia.org/wiki/Arduino: Arduino
-https://en.wikipedia.org/wiki/Arm64: arm64
-https://en.wikipedia.org/wiki/Atari_8-bit: Atari 8-bit
-https://en.wikipedia.org/wiki/Atari_8-bit_computers: Atari 8-bit computers
-https://en.wikipedia.org/wiki/Burroughs_Corporation: Burroughs
-https://en.wikipedia.org/wiki/Burroughs_large_systems#B5000: Burroughs B5000
-https://en.wikipedia.org/wiki/CDC_6600: CDC 6600
-https://en.wikipedia.org/wiki/Cell_(microprocessor): Cell
-https://en.wikipedia.org/wiki/Ceres_(workstation): Ceres
-https://en.wikipedia.org/wiki/Cocoa_(API): Cocoa
-https://en.wikipedia.org/wiki/Color_Computer_3: Color Computer 3
-https://en.wikipedia.org/wiki/Commodore_128: Commodore 128
-https://en.wikipedia.org/wiki/Commodore_PET: PET
-https://en.wikipedia.org/wiki/Common_Language_Infrastructure: CLI
-https://en.wikipedia.org/wiki/Common_Language_Infrastructure: Common Language Infrastructure
-https://en.wikipedia.org/wiki/Common_Language_Runtime: CLR
-https://en.wikipedia.org/wiki/Common_Language_Runtime: Common Language Runtime
-https://en.wikipedia.org/wiki/Computer_Technology_Limited#Modular_One: Modular-1
-https://en.wikipedia.org/wiki/Computer_Technology_Limited: CTL
-https://en.wikipedia.org/wiki/Connection_Machine: Connection Machine
-https://en.wikipedia.org/wiki/Cray-1: Cray-1
-https://en.wikipedia.org/wiki/Cray: Cray
-https://en.wikipedia.org/wiki/Cray_X-MP: X-MP
-https://en.wikipedia.org/wiki/Cross-Platform: Cross-Platform
-https://en.wikipedia.org/wiki/Cross-platform: Cross-platform
-https://en.wikipedia.org/wiki/Cross-platform: Platform-independent
-https://en.wikipedia.org/wiki/Cross-platform_software: Cross-platform
-https://en.wikipedia.org/wiki/Cross_platform: Cross platform
-https://en.wikipedia.org/wiki/DECSYSTEM-20: DECSYSTEM-20
-https://en.wikipedia.org/wiki/DEC_Alpha: DEC Alpha
-https://en.wikipedia.org/wiki/DEC_PRISM: PRISM
-https://en.wikipedia.org/wiki/Data_General_Eclipse: Eclipse
-https://en.wikipedia.org/wiki/Data_General_Eclipse_MV/8000: Eclipse/MV
-https://en.wikipedia.org/wiki/Data_General_Nova: Nova
-https://en.wikipedia.org/wiki/Digital_Equipment_Corporation: DEC
-https://en.wikipedia.org/wiki/Emacs: Emacs
-https://en.wikipedia.org/wiki/English_Electric_KDF9: English Electric KDF9
-https://en.wikipedia.org/wiki/Erlang_(programming_language): Erlang
-https://en.wikipedia.org/wiki/Ferranti: Ferranti
-https://en.wikipedia.org/wiki/GNU: GNU
-https://en.wikipedia.org/wiki/GNUstep: GNUstep
-https://en.wikipedia.org/wiki/General_Electric_Company: GEC
-https://en.wikipedia.org/wiki/Google_Android: Android
-https://en.wikipedia.org/wiki/HPE_Integrity_Servers: HPE Integrity Servers
-https://en.wikipedia.org/wiki/HTML5: HTML5
-https://en.wikipedia.org/wiki/HarmonyOS: HarmonyOS
-https://en.wikipedia.org/wiki/Honeywell: Honeywell
-https://en.wikipedia.org/wiki/I686: i686
-https://en.wikipedia.org/wiki/IA-32: IA-32
-https://en.wikipedia.org/wiki/IA-64: IA-64
-https://en.wikipedia.org/wiki/IBM_Power_microprocessors: Power
-https://en.wikipedia.org/wiki/IBM_System/360: IBM System/360
-https://en.wikipedia.org/wiki/IBM_z_Systems: IBM z Systems
-https://en.wikipedia.org/wiki/ICL_System_4: ICL System 4
-https://en.wikipedia.org/wiki/IOS: iOS
-https://en.wikipedia.org/wiki/Intel_8080: Intel 8080
-https://en.wikipedia.org/wiki/Itanium: Itanium
-https://en.wikipedia.org/wiki/JVM: JVM
-https://en.wikipedia.org/wiki/JavaScript: JavaScript
-https://en.wikipedia.org/wiki/JavaScript_engine: JavaScript
-https://en.wikipedia.org/wiki/Java_(Sun): Java
-https://en.wikipedia.org/wiki/Java_(software_platform): Java
-https://en.wikipedia.org/wiki/Java_(software_platform): Java platform
-https://en.wikipedia.org/wiki/Java_Platform,_Standard_Edition: Java SE
-https://en.wikipedia.org/wiki/Java_Runtime_Environment: Java Runtime Environment
-https://en.wikipedia.org/wiki/Java_SE: Java SE
-https://en.wikipedia.org/wiki/Java_Virtual_Machine: Java Virtual Machine
-https://en.wikipedia.org/wiki/Java_bytecode: bytecode
-https://en.wikipedia.org/wiki/Java_platform: Java platform
-https://en.wikipedia.org/wiki/Java_virtual_machine: JVM
-https://en.wikipedia.org/wiki/Java_virtual_machine: Java virtual machine
-https://en.wikipedia.org/wiki/LLVM: LLVM
-https://en.wikipedia.org/wiki/Lego_Mindstorms: Lego Mindstorms
-https://en.wikipedia.org/wiki/Lilith_(computer): Lilith
-https://en.wikipedia.org/wiki/Linux: Linux
-https://en.wikipedia.org/wiki/Linux_on_IBM_Z: s390x
-https://en.wikipedia.org/wiki/MIPS_architecture: MIPS
-https://en.wikipedia.org/wiki/MIPS_architecture: MIPS, MIPS64el, MIPSel
-https://en.wikipedia.org/wiki/MOS_Technology_6502: MOS Technology 6502
-https://en.wikipedia.org/wiki/MacOS: macOS
-https://en.wikipedia.org/wiki/Mainframe_computer: Mainframes
-https://en.wikipedia.org/wiki/Microsoft_Windows: Windows
-https://en.wikipedia.org/wiki/Minicomputer: minicomputers
-https://en.wikipedia.org/wiki/Mono_(software): Mono
-https://en.wikipedia.org/wiki/Motorola_68000: 68000
-https://en.wikipedia.org/wiki/Motorola_68000: Motorola 68000
-https://en.wikipedia.org/wiki/Motorola_68000_series: 68000
-https://en.wikipedia.org/wiki/Motorola_68000_series: Motorola 68000 series
-https://en.wikipedia.org/wiki/Motorola_88000: 88000
-https://en.wikipedia.org/wiki/Multiprocessing: multiprocessor
-https://en.wikipedia.org/wiki/ND-500: ND-500
-https://en.wikipedia.org/wiki/NS32000: NS32032
-https://en.wikipedia.org/wiki/Node.js: Node.js
-https://en.wikipedia.org/wiki/Nord-10: Nord-10
-https://en.wikipedia.org/wiki/Nova: Nova
-https://en.wikipedia.org/wiki/PDP-10: PDP-10
-https://en.wikipedia.org/wiki/PDP-11: PDP-11
-https://en.wikipedia.org/wiki/PDP-15: PDP-15
-https://en.wikipedia.org/wiki/PDP-9: PDP-9
-https://en.wikipedia.org/wiki/Personal_computer: PC
-https://en.wikipedia.org/wiki/Pick_operating_system: D3
-https://en.wikipedia.org/wiki/PlayStation_2: PlayStation 2
-https://en.wikipedia.org/wiki/PlayStation_3: PlayStation 3
-https://en.wikipedia.org/wiki/PlayStation_Portable: PlayStation Portable
-https://en.wikipedia.org/wiki/PowerPC: PowerPC
-https://en.wikipedia.org/wiki/Power_ISA: Power
-https://en.wikipedia.org/wiki/Ppc64: ppc64
-https://en.wikipedia.org/wiki/Ppc64: ppc64el
-https://en.wikipedia.org/wiki/RISC-V: RISC-V
-https://en.wikipedia.org/wiki/Raspberry_Pi: Raspberry Pi
-https://en.wikipedia.org/wiki/Rocket_U2: U2
-https://en.wikipedia.org/wiki/S390x: s390x
-https://en.wikipedia.org/wiki/SPARC: SPARC
-https://en.wikipedia.org/wiki/StrongARM: StrongARM
-https://en.wikipedia.org/wiki/Superminicomputer: superminicomputer
-https://en.wikipedia.org/wiki/TRS-80_Color_Computer: TRS-80 Color Computer
-https://en.wikipedia.org/wiki/TvOS: tvOS
-https://en.wikipedia.org/wiki/UNIVAC_1108: UNIVAC 1108
-https://en.wikipedia.org/wiki/UNIVAC_I: UNIVAC I
-https://en.wikipedia.org/wiki/UNIVAC_II: UNIVAC II
-https://en.wikipedia.org/wiki/Universal_Windows_Platform: Universal Windows Platform
-https://en.wikipedia.org/wiki/VAX: VAX
-https://en.wikipedia.org/wiki/WatchOS: watchOS
-https://en.wikipedia.org/wiki/WebAssembly: WebAssembly
-https://en.wikipedia.org/wiki/Web_browser: Web browser
-https://en.wikipedia.org/wiki/Windows: Windows
-https://en.wikipedia.org/wiki/X64: x64
-https://en.wikipedia.org/wiki/X86-64: x86-64
-https://en.wikipedia.org/wiki/X86: x86
-https://en.wikipedia.org/wiki/Xerox_Alto: Xerox Alto
-https://en.wikipedia.org/wiki/Zilog_Z80: Z80
-https://en.wikipedia.org/wiki/Zilog_Z80: Zilog Z80
-
 -------------
 license : 143
 https://en.wikipedia.org/wiki/.NET_Core: .NET Core CLR
@@ -877,267 +544,314 @@ https://en.wikipedia.org/wiki/Visual_programming: Visual programming
 https://en.wikipedia.org/wiki/Visual_programming_language: Visual programming language
 https://en.wikipedia.org/wiki/Visual_programming_language: visual programming language
 
--------------
-operating system : 82
+-- PLATFORM
+https://en.wikipedia.org/wiki/.NET: .NET
+https://en.wikipedia.org/wiki/.NET_Framework: .NET Framework
+https://en.wikipedia.org/wiki/.NET_Framework_4.5: .NET Framework 4.5
+
+
+https://en.wikipedia.org/wiki/AArch64: AArch64
+
+https://en.wikipedia.org/wiki/AIX: AIX
+
+https://en.wikipedia.org/wiki/AMD64: AMD64
+https://en.wikipedia.org/wiki/AMD_Am2900: 2901
+https://en.wikipedia.org/wiki/Advanced_Micro_Devices: AMD
+
+https://en.wikipedia.org/wiki/ARM_architecture: ARM
+https://en.wikipedia.org/wiki/ARM_architecture: ARM 32-64
+https://en.wikipedia.org/wiki/ARM_architecture: ARM|AARCH64
+https://en.wikipedia.org/wiki/ARM_architecture: armel, armhf
+https://en.wikipedia.org/wiki/ARM_architecture_family: ARM
+https://en.wikipedia.org/wiki/ARM_architecture_family: Arm
+
 https://en.wikipedia.org/wiki/AROS: AROS
+
+https://en.wikipedia.org/wiki/Aarch64: Aarch64
+
+https://en.wikipedia.org/wiki/Amazon_Web_Services: Amazon Web Services
+
+https://en.wikipedia.org/wiki/Amiga: Amiga
+https://en.wikipedia.org/wiki/Amiga: Amiga
 https://en.wikipedia.org/wiki/AmigaOS: AmigaOS
+https://en.wikipedia.org/wiki/AmigaOS: AmigaOS
+
 https://en.wikipedia.org/wiki/Android_(operating_system): Android
+https://en.wikipedia.org/wiki/Android_(operating_system): Android
+https://en.wikipedia.org/wiki/Android_(operating_system): Android
+https://en.wikipedia.org/wiki/Android_(operating_system): Android (operating system)
+
 https://en.wikipedia.org/wiki/Apple_II: Apple II
-https://en.wikipedia.org/wiki/BSD: BSDs
-https://en.wikipedia.org/wiki/BeOS: BeOS
-https://en.wikipedia.org/wiki/Berkeley_Software_Distribution: BSD
-https://en.wikipedia.org/wiki/CP/M-86: CP/M-86
-https://en.wikipedia.org/wiki/CP/M: CP/M
+https://en.wikipedia.org/wiki/Apple_M1: M1
+https://en.wikipedia.org/wiki/Apple_M4: M4
+https://en.wikipedia.org/wiki/Apple_iOS: iOS
+https://en.wikipedia.org/wiki/Classic_MacOS: Classic MacOS
 https://en.wikipedia.org/wiki/Classic_Mac_OS: Macintosh
-https://en.wikipedia.org/wiki/Cross-platform: Cross-platform
-https://en.wikipedia.org/wiki/Cross-platform_software: Cross-platform
-https://en.wikipedia.org/wiki/DOS: DOS
-https://en.wikipedia.org/wiki/Debian: Debian
-https://en.wikipedia.org/wiki/Debian_GNU/Linux: Stretch
-https://en.wikipedia.org/wiki/Embedded_system: embedded
-https://en.wikipedia.org/wiki/FreeBSD: FreeBSD
-https://en.wikipedia.org/wiki/FreeDOS: FreeDOS
-https://en.wikipedia.org/wiki/GNU_General_Public_License#Version_2: GPL-2.0-or-later
-https://en.wikipedia.org/wiki/GNU_General_Public_License#Version_3: GPL-3.0-or-later
-https://en.wikipedia.org/wiki/Guadalinex: Guadalinex
-https://en.wikipedia.org/wiki/HP-UX: HP-UX
-https://en.wikipedia.org/wiki/Haiku_(operating_system): Haiku
-https://en.wikipedia.org/wiki/IBM_AIX: AIX
-https://en.wikipedia.org/wiki/IBM_i: IBM i
-https://en.wikipedia.org/wiki/IBM_mainframe: IBM mainframe
-https://en.wikipedia.org/wiki/IOS: iOS
-https://en.wikipedia.org/wiki/IOS_SDK: iPhone SDK
-https://en.wikipedia.org/wiki/Incompatible_Timesharing_System: ITS
-https://en.wikipedia.org/wiki/JVM: JVM
-https://en.wikipedia.org/wiki/Linux: Linux
-https://en.wikipedia.org/wiki/Lubuntu: Lubuntu
+https://en.wikipedia.org/wiki/Classic_Mac_OS: classic Mac OS
+https://en.wikipedia.org/wiki/Cocoa_(API): Cocoa
+https://en.wikipedia.org/wiki/Darwin_(operating_system): Darwin
+https://en.wikipedia.org/wiki/MacOS: Mac OS X
 https://en.wikipedia.org/wiki/MacOS: Mac OS X
 https://en.wikipedia.org/wiki/MacOS: MacOS
+https://en.wikipedia.org/wiki/MacOS: MacOS
 https://en.wikipedia.org/wiki/MacOS: macOS
+https://en.wikipedia.org/wiki/MacOS: macOS
+https://en.wikipedia.org/wiki/MacOS: macOS
+https://en.wikipedia.org/wiki/MacOS_10.12: macOS 10.12
 https://en.wikipedia.org/wiki/MacOS_10.14: macOS 10.14
 https://en.wikipedia.org/wiki/MacOS_Sierra: macOS Sierra
+https://en.wikipedia.org/wiki/Mac_OS: Mac OS
+https://en.wikipedia.org/wiki/Mac_OS_8: Mac OS 8
 https://en.wikipedia.org/wiki/Mac_OS_8: Mac OS 8
 https://en.wikipedia.org/wiki/Mac_OS_9: Mac OS 9
+https://en.wikipedia.org/wiki/Mac_OS_9: Mac OS 9
+https://en.wikipedia.org/wiki/Mac_OS_X: Mac OS X
 https://en.wikipedia.org/wiki/Mac_OS_X: Mac OS X
 https://en.wikipedia.org/wiki/Mac_OS_X_Leopard: Mac OS X Leopard
 https://en.wikipedia.org/wiki/Mac_OS_X_Snow_Leopard: Mac OS X Snow Leopard
 https://en.wikipedia.org/wiki/Mac_OS_X_Tiger: Mac OS X Tiger
+https://en.wikipedia.org/wiki/Mac_operating_systems: Mac operating systems
 https://en.wikipedia.org/wiki/Macintosh: Macintosh
-https://en.wikipedia.org/wiki/Maemo: Maemo
+
+https://en.wikipedia.org/wiki/Arduino: Arduino
+https://en.wikipedia.org/wiki/Arduino: Arduino
+
+https://en.wikipedia.org/wiki/Apple_silicon: Apple silicon
+https://en.wikipedia.org/wiki/Arm64: arm64
+
+https://en.wikipedia.org/wiki/BeOS: BeOS
+
+https://en.wikipedia.org/wiki/BSD: BSD
+https://en.wikipedia.org/wiki/Berkeley_Software_Distribution: BSD
+https://en.wikipedia.org/wiki/DragonFly_BSD: DragonFly BSD
+https://en.wikipedia.org/wiki/DragonflyBSD: DragonflyBSD
+
+https://en.wikipedia.org/wiki/CentOS: CentOS
+
+https://en.wikipedia.org/wiki/ChromeOS: ChromeOS
+
+https://en.wikipedia.org/wiki/Common_Language_Infrastructure: CLI
+https://en.wikipedia.org/wiki/Common_Language_Infrastructure: Common Language Infrastructure
+https://en.wikipedia.org/wiki/Common_Language_Runtime: CLR
+https://en.wikipedia.org/wiki/Common_Language_Runtime: Common Language Runtime
+
+https://en.wikipedia.org/wiki/Cross-Platform: Cross-Platform
+https://en.wikipedia.org/wiki/Cross-platform: Cross-platform
+https://en.wikipedia.org/wiki/Cross-platform: Cross-platform
+https://en.wikipedia.org/wiki/Cross-platform: Cross-platform
+https://en.wikipedia.org/wiki/Cross-platform: Cross-platform (multi-platform)
+https://en.wikipedia.org/wiki/Cross-platform: Platform-independent
+https://en.wikipedia.org/wiki/Cross-platform: cross-platform
+https://en.wikipedia.org/wiki/Cross-platform_software: Cross- (multi-) platform
+https://en.wikipedia.org/wiki/Cross-platform_software: Cross-platform
+https://en.wikipedia.org/wiki/Cross-platform_software: Cross-platform
+https://en.wikipedia.org/wiki/Cross-platform_software: Cross-platform
+https://en.wikipedia.org/wiki/Cross-platform_software: cross-platform
+https://en.wikipedia.org/wiki/Cross_platform: Cross platform
+
+https://en.wikipedia.org/wiki/Cygwin: Cygwin
+
+https://en.wikipedia.org/wiki/DOS: DOS
+https://en.wikipedia.org/wiki/FreeDOS: FreeDOS
+
+https://en.wikipedia.org/wiki/Debian: Debian
+https://en.wikipedia.org/wiki/Debian_GNU/Linux: Stretch
+
+https://en.wikipedia.org/wiki/Embedded_system: embedded
+
+https://en.wikipedia.org/wiki/Erlang_(programming_language): Erlang
+
+https://en.wikipedia.org/wiki/Fedora_(operating_system): Fedora
+
+https://en.wikipedia.org/wiki/FreeBSD: FreeBSD
+
+https://en.wikipedia.org/wiki/GLib: GLib
+
+https://en.wikipedia.org/wiki/GNU: GNU
+https://en.wikipedia.org/wiki/GNU_General_Public_License#Version_2: GPL-2.0-or-later
+
+https://en.wikipedia.org/wiki/HTML5: HTML5
+
+https://en.wikipedia.org/wiki/Haiku_(operating_system): Haiku
+
+https://en.wikipedia.org/wiki/HarmonyOS: HarmonyOS
+
+https://en.wikipedia.org/wiki/I686: i686
+https://en.wikipedia.org/wiki/IA-32: IA-32
+https://en.wikipedia.org/wiki/IA-64: IA-64
+
+https://en.wikipedia.org/wiki/IOS: iOS
+https://en.wikipedia.org/wiki/IOS_(Apple): iOS
+https://en.wikipedia.org/wiki/IOS_SDK: iPhone SDK
+
+https://en.wikipedia.org/wiki/IPadOS: iPadOS
+
+https://en.wikipedia.org/wiki/Inferno_(operating_system): Inferno
+
+https://en.wikipedia.org/wiki/Intel_8080: Intel 8080
+
+https://en.wikipedia.org/wiki/Itanium: Itanium
+
+https://en.wikipedia.org/wiki/JVM: JVM
+https://en.wikipedia.org/wiki/JVM: JVM
+
+https://en.wikipedia.org/wiki/JavaScript: JavaScript
+https://en.wikipedia.org/wiki/JavaScript_engine: JavaScript
+
+https://en.wikipedia.org/wiki/Java_(Sun): Java
+https://en.wikipedia.org/wiki/Java_(software_platform): Java
+https://en.wikipedia.org/wiki/Java_(software_platform): Java platform
+https://en.wikipedia.org/wiki/Java_Platform,_Standard_Edition: Java SE
+https://en.wikipedia.org/wiki/Java_Runtime_Environment: Java Runtime Environment
+https://en.wikipedia.org/wiki/Java_SE: Java SE
+https://en.wikipedia.org/wiki/Java_Virtual_Machine: Java Virtual Machine
+https://en.wikipedia.org/wiki/Java_bytecode: bytecode
+https://en.wikipedia.org/wiki/Java_platform: Java platform
+https://en.wikipedia.org/wiki/Java_virtual_machine: JVM
+https://en.wikipedia.org/wiki/Java_virtual_machine: JVM
+https://en.wikipedia.org/wiki/Java_virtual_machine: Java virtual machine
+
+https://en.wikipedia.org/wiki/LLVM: LLVM
+
+https://en.wikipedia.org/wiki/Lego_Mindstorms: Lego Mindstorms
+
+https://en.wikipedia.org/wiki/Linux: Linux
+https://en.wikipedia.org/wiki/Lubuntu: Lubuntu
+
+https://en.wikipedia.org/wiki/MIPS_architecture: MIPS
+https://en.wikipedia.org/wiki/MIPS_architecture: MIPS, MIPS64el, MIPSel
+
+https://en.wikipedia.org/wiki/MS-DOS: MS-DOS
+
 https://en.wikipedia.org/wiki/Mandrake_Linux: Mandrake Linux
+
+https://en.wikipedia.org/wiki/Microsoft_.NET: Microsoft .NET
+
 https://en.wikipedia.org/wiki/Microsoft_Windows: Microsoft Windows
+https://en.wikipedia.org/wiki/Microsoft_Windows: Microsoft Windows
+https://en.wikipedia.org/wiki/Microsoft_Windows: Win32
+https://en.wikipedia.org/wiki/Microsoft_Windows: Windows
+https://en.wikipedia.org/wiki/Microsoft_Windows: Windows
 https://en.wikipedia.org/wiki/Microsoft_Windows: Windows
 https://en.wikipedia.org/wiki/Microsoft_Windows: Windows 32+bit
-https://en.wikipedia.org/wiki/MorphOS: MorphOS
-https://en.wikipedia.org/wiki/Multics: Multics
+
+https://en.wikipedia.org/wiki/Mono_(software): Mono
+
+https://en.wikipedia.org/wiki/NetBSD: NetBSD
+
+https://en.wikipedia.org/wiki/Node.js: Node.js
+
 https://en.wikipedia.org/wiki/OS/8: OS/8
 https://en.wikipedia.org/wiki/OS_X: OS X
+https://en.wikipedia.org/wiki/OS_X: OS X
+
+https://en.wikipedia.org/wiki/OpenBSD: OpenBSD
+
+https://en.wikipedia.org/wiki/OpenHarmony: OpenHarmony
+
+https://en.wikipedia.org/wiki/OpenIndiana: OpenIndiana
+
+https://en.wikipedia.org/wiki/OpenSUSE: openSUSE
+
+https://en.wikipedia.org/wiki/OpenVMS: OpenVMS
 https://en.wikipedia.org/wiki/OpenVMS: OpenVMS
 https://en.wikipedia.org/wiki/OpenVMS: OpenVMS Alpha
+https://en.wikipedia.org/wiki/OpenVMS: VAX/VMS
 https://en.wikipedia.org/wiki/OpenVMS: VMS
+https://en.wikipedia.org/wiki/OpenVMS: VMS
+
+https://en.wikipedia.org/wiki/Oracle_Solaris: Solaris
+
+https://en.wikipedia.org/wiki/PC_DOS: PC DOS
+
+https://en.wikipedia.org/wiki/POSIX: POSIX
+https://en.wikipedia.org/wiki/POSIX: POSIX-compliant
+
 https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs: Plan 9
+https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs: Plan 9
+https://en.wikipedia.org/wiki/Plan_9_from_User_Space: Plan 9 from User Space
+
 https://en.wikipedia.org/wiki/QNX: QNX
-https://en.wikipedia.org/wiki/RSTS/E: RSTS/E
-https://en.wikipedia.org/wiki/RSX-11: RSX-11
-https://en.wikipedia.org/wiki/RT-11: RT-11
+
+https://en.wikipedia.org/wiki/RISC-V: RISC-V
+
+https://en.wikipedia.org/wiki/Raspberry_Pi: Raspberry Pi
+https://en.wikipedia.org/wiki/Raspberry_Pi: Raspberry Pi
+https://en.wikipedia.org/wiki/Raspberry_Pi_OS: Raspberry Pi OS
+
 https://en.wikipedia.org/wiki/Raspbian: Raspbian
+
 https://en.wikipedia.org/wiki/RedHat_Linux: RedHat Linux
+https://en.wikipedia.org/wiki/Red_Hat: Red Hat
+https://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux: Red Hat Enterprise Linux
+
 https://en.wikipedia.org/wiki/SUSE_Linux: SUSE Linux
+
 https://en.wikipedia.org/wiki/Solaris_(operating_system): Solaris
-https://en.wikipedia.org/wiki/TOPS-10: TOPS-10
-https://en.wikipedia.org/wiki/TOPS-20: TOPS-20
-https://en.wikipedia.org/wiki/TeX: TeX
+https://en.wikipedia.org/wiki/Solaris_(operating_system): Solaris
+
+https://en.wikipedia.org/wiki/StrongARM: StrongARM
+
+https://en.wikipedia.org/wiki/SunOS: SunOS
+
+https://en.wikipedia.org/wiki/System_7: System 7
+
+https://en.wikipedia.org/wiki/TvOS: tvOS
+https://en.wikipedia.org/wiki/TvOS: tvOS
+
 https://en.wikipedia.org/wiki/Ubuntu_(operating_system): Ubuntu
+https://en.wikipedia.org/wiki/Ubuntu_(operating_system): Ubuntu
+
+https://en.wikipedia.org/wiki/Universal_Windows_Platform: Universal Windows Platform
+
+https://en.wikipedia.org/wiki/Unix-like: Unix-like
 https://en.wikipedia.org/wiki/Unix-like: Unix-like
 https://en.wikipedia.org/wiki/Unix: Unix
+https://en.wikipedia.org/wiki/Unix: Unix
+
+https://en.wikipedia.org/wiki/VisionOS: visionOS
+
 https://en.wikipedia.org/wiki/WarpOS: WarpOS
+
+https://en.wikipedia.org/wiki/WatchOS: watchOS
+https://en.wikipedia.org/wiki/WatchOS: watchOS
+
+https://en.wikipedia.org/wiki/WebAssembly: WebAssembly
+https://en.wikipedia.org/wiki/WebAssembly: WebAssembly
 https://en.wikipedia.org/wiki/Web_browser: Web browser
+https://en.wikipedia.org/wiki/Web_browser: Web browser
+https://en.wikipedia.org/wiki/Web_browser: web browser
+https://en.wikipedia.org/wiki/Web_browser: web browsers
+
 https://en.wikipedia.org/wiki/Windows: Windows
+https://en.wikipedia.org/wiki/Windows: Windows
+https://en.wikipedia.org/wiki/Windows: Windows
+https://en.wikipedia.org/wiki/Windows_10: Windows 10
 https://en.wikipedia.org/wiki/Windows_2000: Windows 2000
 https://en.wikipedia.org/wiki/Windows_3.x: Windows 3.x
 https://en.wikipedia.org/wiki/Windows_7: Windows 7
+https://en.wikipedia.org/wiki/Windows_7: Windows 7
+https://en.wikipedia.org/wiki/Windows_8.1: Windows 8.1
+https://en.wikipedia.org/wiki/Windows_8: Windows 8
 https://en.wikipedia.org/wiki/Windows_95: Windows 95
+https://en.wikipedia.org/wiki/Windows_95: Windows 95
+https://en.wikipedia.org/wiki/Windows_98: Windows 98
 https://en.wikipedia.org/wiki/Windows_API: Win32
+https://en.wikipedia.org/wiki/Windows_Me: Windows Me
+https://en.wikipedia.org/wiki/Windows_Mobile: Windows Mobile
 https://en.wikipedia.org/wiki/Windows_Server: Windows Server
 https://en.wikipedia.org/wiki/Windows_Server_2003: Windows Server 2003
+https://en.wikipedia.org/wiki/Windows_Server_2003: Windows Server 2003
+https://en.wikipedia.org/wiki/Windows_Server_2008: Windows Server 2008
+https://en.wikipedia.org/wiki/Windows_Server_2008_R2: Windows Server 2008 R2
+https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux: WSL
+https://en.wikipedia.org/wiki/Windows_Vista: Windows Vista
+https://en.wikipedia.org/wiki/Windows_XP: Windows XP
 https://en.wikipedia.org/wiki/Windows_XP: Windows XP
 
--------------
-paradigms : 67
-https://en.wikipedia.org/wiki/Agent-oriented_programming: agent-oriented
-https://en.wikipedia.org/wiki/Array_programming: array
-https://en.wikipedia.org/wiki/Comparison_of_multi-paradigm_programming_languages: Multi-paradigm
-https://en.wikipedia.org/wiki/Comparison_of_multi-paradigm_programming_languages: multi-paradigm
-https://en.wikipedia.org/wiki/Compiled_language: compiled
-https://en.wikipedia.org/wiki/Component-based_software_engineering: component-based
-https://en.wikipedia.org/wiki/Computer_simulation#Types: agent-based
-https://en.wikipedia.org/wiki/Concurrent_computing: Concurrent
-https://en.wikipedia.org/wiki/Concurrent_computing: concurrent
-https://en.wikipedia.org/wiki/Concurrent_programming: concurrent
-https://en.wikipedia.org/wiki/Concurrent_programming_language: concurrent
-https://en.wikipedia.org/wiki/Constraint_logic_programming: Constraint logic
-https://en.wikipedia.org/wiki/Constraint_programming: constraint
-https://en.wikipedia.org/wiki/Dataflow_programming: dataflow
-https://en.wikipedia.org/wiki/Declarative_programming: Declarative
-https://en.wikipedia.org/wiki/Declarative_programming: Declarative programming
-https://en.wikipedia.org/wiki/Declarative_programming: declarative
-https://en.wikipedia.org/wiki/Distributed_programming: distributed
-https://en.wikipedia.org/wiki/Educational_programming_language: educational
-https://en.wikipedia.org/wiki/Embedded_system: embedded
-https://en.wikipedia.org/wiki/Esoteric_programming_language: esoteric
-https://en.wikipedia.org/wiki/Event-driven_programming: event-driven
-https://en.wikipedia.org/wiki/Extensible_programming: extensible
-https://en.wikipedia.org/wiki/Formal_language: Formal language
-https://en.wikipedia.org/wiki/Functional_programming: Functional
-https://en.wikipedia.org/wiki/Functional_programming: functional
-https://en.wikipedia.org/wiki/Functional_programming_language: Purely functional programming
-https://en.wikipedia.org/wiki/Functional_reactive_programming: functional reactive
-https://en.wikipedia.org/wiki/Generic_programming: generic
-https://en.wikipedia.org/wiki/Imperative_programming: Imperative
-https://en.wikipedia.org/wiki/Imperative_programming: imperative
-https://en.wikipedia.org/wiki/Imperative_programming_language: imperative
-https://en.wikipedia.org/wiki/Information_hiding: data and procedure hiding
-https://en.wikipedia.org/wiki/JSON: JSON
-https://en.wikipedia.org/wiki/List_of_educational_programming_languages: educational
-https://en.wikipedia.org/wiki/Logic: Logic programming
-https://en.wikipedia.org/wiki/Metaprogramming: meta
-https://en.wikipedia.org/wiki/Metaprogramming: metaprogramming
-https://en.wikipedia.org/wiki/Modular_programming: modular
-https://en.wikipedia.org/wiki/Multi-paradigm_programming_language: Multi-paradigm
-https://en.wikipedia.org/wiki/Multi-paradigm_programming_language: Multiparadigm
-https://en.wikipedia.org/wiki/Multi-paradigm_programming_language: multi-paradigm
-https://en.wikipedia.org/wiki/Multiparadigm_programming_language: Multiparadigm
-https://en.wikipedia.org/wiki/Numerical_control: Numerical control
-https://en.wikipedia.org/wiki/Object-oriented_programming: object-oriented
-https://en.wikipedia.org/wiki/Object-oriented_programming_language: Object-oriented
-https://en.wikipedia.org/wiki/Object_oriented_programming: object oriented
-https://en.wikipedia.org/wiki/Parallel_computing: Parallel computing
-https://en.wikipedia.org/wiki/Parallel_computing: parallel
-https://en.wikipedia.org/wiki/Procedural_programming: Procedural
-https://en.wikipedia.org/wiki/Procedural_programming: procedural
-https://en.wikipedia.org/wiki/Process-oriented_programming: process-oriented
-https://en.wikipedia.org/wiki/Programming_paradigm#Multi-paradigm: Multi-paradigm
-https://en.wikipedia.org/wiki/Programming_paradigm: Multi-paradigm
-https://en.wikipedia.org/wiki/Prototype-based_programming: prototype-based
-https://en.wikipedia.org/wiki/Purely_functional_programming: Purely functional
-https://en.wikipedia.org/wiki/Reactive_programming: reactive
-https://en.wikipedia.org/wiki/Real-time_computing: real-time
-https://en.wikipedia.org/wiki/Reflection_(computer_programming): reflective
-https://en.wikipedia.org/wiki/Reflection_(computer_science): reflective
-https://en.wikipedia.org/wiki/Reflective_programming: Reflective
-https://en.wikipedia.org/wiki/Reflective_programming: reflective
-https://en.wikipedia.org/wiki/Simulation_language: simulation
-https://en.wikipedia.org/wiki/Structured_programming: structured
-https://en.wikipedia.org/wiki/Tacit_programming: tacit programming
-https://en.wikipedia.org/wiki/Turing_tarpit: Turing tarpit
-https://en.wikipedia.org/wiki/Visual_programming_language: visual
+https://en.wikipedia.org/wiki/X64: x64
+https://en.wikipedia.org/wiki/X86-64: x86-64
+https://en.wikipedia.org/wiki/X86: x86
 
--------------
-implementation language : 43
-https://en.wikipedia.org/wiki/ALGOL: ALGOL
-https://en.wikipedia.org/wiki/ALGOL_60: ALGOL 60
-https://en.wikipedia.org/wiki/ActionScript: ActionScript
-https://en.wikipedia.org/wiki/Allegro_Common_Lisp: Allegro Common Lisp
-
-https://en.wikipedia.org/wiki/Assembly_language: Assembly
-https://en.wikipedia.org/wiki/Assembly_language: Assembly language
-https://en.wikipedia.org/wiki/Assembly_language: assembly
-https://en.wikipedia.org/wiki/Assembly_language: assembly language
-
-https://en.wikipedia.org/wiki/C++: C++
-https://en.wikipedia.org/wiki/C_(programming_language): C
-https://en.wikipedia.org/wiki/C_Sharp_(programming_language): C#
-https://en.wikipedia.org/wiki/Common_Lisp: Common Lisp
-https://en.wikipedia.org/wiki/Erlang_(programming_language): Erlang
-https://en.wikipedia.org/wiki/Fortran: Fortran
-https://en.wikipedia.org/wiki/Go_(programming_language): Go
-
-https://en.wikipedia.org/wiki/HTML5: HTML5
-https://en.wikipedia.org/wiki/HTML: HTML
-
-https://en.wikipedia.org/wiki/Haskell_(programming_language): Haskell
-https://en.wikipedia.org/wiki/JavaScript: JavaScript
-https://en.wikipedia.org/wiki/Java_(programming_language): Java
-https://en.wikipedia.org/wiki/LLVM: LLVM
-https://en.wikipedia.org/wiki/Lisp_(programming_language): Lisp
-https://en.wikipedia.org/wiki/Modula-3: Modula-3
-https://en.wikipedia.org/wiki/OCaml: OCaml
-https://en.wikipedia.org/wiki/Oberon_(programming_language): Oberon
-https://en.wikipedia.org/wiki/Objective-C: Objective-C
-https://en.wikipedia.org/wiki/Pascal_(programming_language): Pascal
-https://en.wikipedia.org/wiki/Racket_(programming_language): Racket
-https://en.wikipedia.org/wiki/Rust_(programming_language): Rust
-https://en.wikipedia.org/wiki/Scala_(programming_language): Scala
-https://en.wikipedia.org/wiki/Scheme_(programming_language): Scheme
-https://en.wikipedia.org/wiki/Smalltalk: Smalltalk
-https://en.wikipedia.org/wiki/Squeak: Squeak
-
--------------
-written in : 42
-https://en.wikipedia.org/wiki/Assembly_language: Assembly language
-https://en.wikipedia.org/wiki/BASIC: BASIC
-https://en.wikipedia.org/wiki/C++: C++
-https://en.wikipedia.org/wiki/C++_(programming_language): C++
-https://en.wikipedia.org/wiki/C_(programming_language): C
-https://en.wikipedia.org/wiki/C_Sharp_(programming_language): C#
-https://en.wikipedia.org/wiki/CoffeeScript: CoffeeScript
-https://en.wikipedia.org/wiki/Delphi_(programming_language): Delphi
-
-https://en.wikipedia.org/wiki/FORTRAN: FORTRAN
-https://en.wikipedia.org/wiki/Fortran: Fortran
-
-https://en.wikipedia.org/wiki/GNU_Octave: GNU Octave
-https://en.wikipedia.org/wiki/HTML: HTML
-https://en.wikipedia.org/wiki/Haskell: Haskell
-https://en.wikipedia.org/wiki/Haxe: Haxe
-https://en.wikipedia.org/wiki/JavaScript: JavaScript
-https://en.wikipedia.org/wiki/Java_(programming_language): Java
-https://en.wikipedia.org/wiki/Kawa_(Scheme_implementation): Kawa
-https://en.wikipedia.org/wiki/LabVIEW: LabVIEW
-https://en.wikipedia.org/wiki/Lua_(programming_language): Lua
-https://en.wikipedia.org/wiki/MATLAB: MATLAB
-https://en.wikipedia.org/wiki/OCaml: OCaml
-https://en.wikipedia.org/wiki/Object_Pascal: Object Pascal
-https://en.wikipedia.org/wiki/Objective-C: Objective-C
-https://en.wikipedia.org/wiki/POP-11: POP-11
-https://en.wikipedia.org/wiki/Pascal_(programming_language): Pascal
-https://en.wikipedia.org/wiki/Prolog: Prolog
-https://en.wikipedia.org/wiki/Python_(programming_language): Python
-https://en.wikipedia.org/wiki/R_(programming_language): R
-
-https://en.wikipedia.org/wiki/Ruby_(programming_language): Ruby
-https://en.wikipedia.org/wiki/Ruby_programming_language: Ruby
-
-https://en.wikipedia.org/wiki/Scheme_(programming_language): Scheme
-https://en.wikipedia.org/wiki/Swift_(programming_language): Swift
-https://en.wikipedia.org/wiki/Wolfram_Language: Wolfram Language
-
--------------
-family : 27
-https://en.wikipedia.org/wiki/ALGOL: ALGOL
-https://en.wikipedia.org/wiki/BASIC: BASIC
-https://en.wikipedia.org/wiki/C_(programming_language): C
-https://en.wikipedia.org/wiki/C_Sharp_(programming_language): C#
-https://en.wikipedia.org/wiki/Caml: Caml
-https://en.wikipedia.org/wiki/Datalog: Datalog
-https://en.wikipedia.org/wiki/Dependent_ML: Dependent ML
-https://en.wikipedia.org/wiki/ECMAScript: ECMAScript
-https://en.wikipedia.org/wiki/Erlang_(programming_language): Erlang
-https://en.wikipedia.org/wiki/Haskell: Haskell
-https://en.wikipedia.org/wiki/Lisp_(programming_language): Lisp
-https://en.wikipedia.org/wiki/List_of_C-family_programming_languages: C
-https://en.wikipedia.org/wiki/ML_(programming_language): ML
-https://en.wikipedia.org/wiki/Modula: Modula
-https://en.wikipedia.org/wiki/Niklaus_Wirth: Wirth
-https://en.wikipedia.org/wiki/OCaml: OCaml
-https://en.wikipedia.org/wiki/Oberon_(programming_language): Oberon
-https://en.wikipedia.org/wiki/Pascal_(programming_language): Pascal
-https://en.wikipedia.org/wiki/Perl: Perl
-https://en.wikipedia.org/wiki/Prolog: Prolog
-https://en.wikipedia.org/wiki/Python_(programming_language): Python
-https://en.wikipedia.org/wiki/Query_language: Query language
-https://en.wikipedia.org/wiki/SNOBOL: SNOBOL
-https://en.wikipedia.org/wiki/Self_(programming_language): Self
-https://en.wikipedia.org/wiki/Smalltalk: Smalltalk
-https://en.wikipedia.org/wiki/Squeak: Squeak
-https://en.wikipedia.org/wiki/Standard_ML: Standard ML
+https://en.wikipedia.org/wiki/Zilog_Z80: Z80
+https://en.wikipedia.org/wiki/Zilog_Z80: Zilog Z80
