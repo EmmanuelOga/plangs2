@@ -33,8 +33,8 @@ export function arrayMerge<T>(
 ) {
   for (const newElem of newData) {
     const prevElem = target.find((elem: T) => similar(elem, newElem));
-    if (prevElem && onDuplicate) {
-      onDuplicate(prevElem, newElem);
+    if (prevElem) {
+      onDuplicate?.(prevElem, newElem);
     } else {
       target.push(newElem);
     }
