@@ -5,7 +5,6 @@ import { arrayMerge, verify } from "./util";
 export class PlangsGraph extends BaseGraph {
   // Node tables.
 
-  readonly n_author = this.nodeMap<NAuthor>("author", (key) => new NAuthor(this, key));
   readonly n_library = this.nodeMap<NLibrary>("lib", (key) => new NLibrary(this, key));
   readonly n_license = this.nodeMap<NLicense>("lic", (key) => new NLicense(this, key));
   readonly n_paradigm = this.nodeMap<NParadigm>("para", (key) => new NParadigm(this, key));
@@ -17,7 +16,6 @@ export class PlangsGraph extends BaseGraph {
 
   // Edge Tables.
 
-  readonly e_author = this.edgeMap<EAuthorPlang>("author", (from, to) => new EAuthorPlang(this, from, to));
   readonly e_dialect_of = this.edgeMap<EDialectOf>("dialect-of", (from, to) => new EDialectOf(this, from, to));
   readonly e_has_license = this.edgeMap<EHasLicense>("has-license", (from, to) => new EHasLicense(this, from, to));
   readonly e_implementedWith = this.edgeMap<EImplementedWith>("implemented-with", (from, to) => new EImplementedWith(this, from, to));
@@ -47,7 +45,6 @@ export class PlangsGraph extends BaseGraph {
         (filters.influenced.values.size > 0 && !pl.relMatchesFilter(filters.influenced, pl.relInfluenced)) ||
         (filters.licenses.values.size > 0 && !pl.relMatchesFilter(filters.licenses, pl.relLicenses)) ||
         (filters.paradigm.values.size > 0 && !pl.relMatchesFilter(filters.paradigm, pl.relParadigms)) ||
-        (filters.people.values.size > 0 && !pl.relMatchesFilter(filters.people, pl.relPeople)) ||
         (filters.platform.values.size > 0 && !pl.relMatchesFilter(filters.platform, pl.relPlatforms)) ||
         (filters.typeSystems.values.size > 0 && !pl.relMatchesFilter(filters.typeSystems, pl.relTypeSystems))
       ) {
@@ -155,17 +152,7 @@ export class NPlang extends NBase<
   }
 
   addParadigms(others: NParadigm["key"][]): this {
-    for (const otherkey of others) this.graph.e_plang_para.connect(this.key, otherkey);
-    return this;
-  }
-
-  addAuthor(other: NAuthor["key"], data: EAuthorPlang["data"]): this {
-    this.graph.e_author.connect(other, this.key).merge(data);
-    return this;
-  }
-
-  addAuthors(others: NAuthor["key"][]): this {
-    for (const other of others) this.graph.e_author_plang.connect(other, this.key);
+    for (const otherkey of others) this.graph.e_paradigm.connect(this.key, otherkey);
     return this;
   }
 
@@ -180,7 +167,7 @@ export class NPlang extends NBase<
   }
 
   addTypeSystem(other: NTypeSystem["key"], data: EPlangTsys["data"]): this {
-    this.graph.e_plang_tsys.connect(this.key, other).merge(data);
+    this.graph.e_tsys.connect(this.key, other).merge(data);
     return this;
   }
 
@@ -230,10 +217,6 @@ export class NPlang extends NBase<
       .filter(Boolean) as T[];
   }
 
-  people(): NAuthor[] {
-    return this.#collectRel(this.relPeople, (e) => e.author);
-  }
-
   platforms(): NPlatform[] {
     return this.#collectRel(this.relPlatforms, (e) => e.platform);
   }
@@ -274,10 +257,6 @@ export class NPlang extends NBase<
     return this.graph.e_has_license.adjFrom.getMap(this.key);
   }
 
-  get relPeople(): Map<NAuthor["key"], EAuthorPlang> | undefined {
-    return this.graph.e_author.adjTo.getMap(this.key);
-  }
-
   get relParadigms(): Map<NParadigm["key"], EPlangPara> | undefined {
     return this.graph.e_paradigm.adjFrom.getMap(this.key);
   }
@@ -303,19 +282,16 @@ export class NPlang extends NBase<
   }
 }
 
-/** A platform Node for operating systems or architectures, e.g., Linux, Windows, ARM etc. */
+/** A Platform Node for operating systems or architectures, e.g., Linux, Windows, ARM etc. */
 export class NPlatform extends NBase<`platf+${string}`, CommonNodeData> {}
 
-/** A type system Node, e.g., OOP, Duck, Dynamic, etc. */
+/** A Type System Node, e.g., OOP, Duck, Dynamic, etc. */
 export class NTypeSystem extends NBase<`tsys+${string}`, CommonNodeData> {}
 
-/** A programming paradigm Node, e.g., Functional, Imperative, etc. */
+/** A Paradigm Node, e.g., Functional, Imperative, etc. */
 export class NParadigm extends NBase<`para+${string}`, CommonNodeData> {}
 
-/** A author or organization Node, for people involved in the development of a programming language. */
-export class NAuthor extends NBase<`author+${string}`, CommonNodeData> {}
-
-/** A license Node, e.g., MIT, GPL, etc. */
+/** A License Node, e.g., MIT, GPL, etc. */
 export class NLicense extends NBase<
   `lic+${string}`,
   CommonNodeData & {
@@ -412,20 +388,6 @@ export class EInfluence extends EBase<NPlang, NPlang, CommonEdgeData> {
   }
 
   get toPlang(): NPlang | undefined {
-    return this.graph.n_plang.get(this.to);
-  }
-}
-
-export class EAuthorPlang extends EBase<NAuthor, NPlang, CommonEdgeData> {
-  get key(): string {
-    return `author~${this.from}~${this.to}`;
-  }
-
-  get author(): NAuthor | undefined {
-    return this.graph.n_author.get(this.from);
-  }
-
-  get plang(): NPlang | undefined {
     return this.graph.n_plang.get(this.to);
   }
 }
@@ -578,7 +540,6 @@ export type PlangFilters = {
 
   licenses: Filter;
   paradigm: Filter;
-  people: Filter;
   plangExt: Filter;
   platform: Filter;
   standardFor: Filter;

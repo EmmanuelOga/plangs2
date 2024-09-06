@@ -1,8 +1,6 @@
-import { Link } from "@plangs/plangs/index";
 import { Cache, Key } from "./cache";
 import { Fetcher } from "./fetcher";
-import { mergeLinks, START_URLS, UNKNOWN_KEYS, WikiPage } from "./wikipedia";
-import { merge } from "cheerio";
+import { START_URLS, WikiPage } from "./wikipedia";
 
 /**
  * Starting on a few top pages, scrape a bunch of wikipedia pages
@@ -119,7 +117,7 @@ async function extract() {
     const page = new WikiPage(url, body);
     if (page.isPlangCandidate && page.infobox) {
       count++;
-      console.info({title: page.title, key: page.key});
+      console.info({ title: page.title, key: page.key });
     }
   }
 
