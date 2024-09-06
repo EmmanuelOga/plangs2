@@ -8,6 +8,8 @@ export const START_URLS = ["/wiki/List_of_programming_languages", "/wiki/Categor
   (path) => new URL(path, BASE_URL),
 );
 
+const PLR = /programming languages/i;
+
 export class WikiPage {
   readonly $: cheerio.CheerioAPI;
   readonly infobox?: InfoBox;
@@ -45,8 +47,16 @@ export class WikiPage {
     return /^\/wiki\/(Wikipedia|List|Category)/.test(this.url.pathname);
   }
 
-  get title(): string {
+  get mainHeading(): string {
     return cleanText(this.$("h1#firstHeading").text());
+  }
+
+  get title(): string {
+    if (this.infobox) {
+      const title = cleanText(this.$(".infobox-title.summary").text());
+      if (title) return title;
+    }
+    return this.mainHeading;
   }
 
   get description(): string {
@@ -56,16 +66,20 @@ export class WikiPage {
   }
 
   get categories(): string[] {
-    return this.categoryLinks().map((link) => link.title);
+    return this.categoryLinks()
+      .map((link) => link.title.replaceAll("Category:", "").toLowerCase())
+      .sort();
   }
 
   get isPlangCandidate(): boolean {
     if (this.isGeneric) return false;
-    if (this.title.includes("(programming language)")) return true;
+    if (this.mainHeading.toLowerCase().includes('programming language')) return true;
+
     const categories = this.categories;
     if (categories.find((cat) => /(stub|book|frameworks|libraries)s?$/.test(cat))) return false;
+
     if (!this.infobox) return false;
-    return categories.find((cat) => cat.includes("programming languages")) !== undefined;
+    return categories.find((cat) => PLR.test(cat)) !== undefined;
   }
 
   pageLinks(): { url: URL; title: string }[] {

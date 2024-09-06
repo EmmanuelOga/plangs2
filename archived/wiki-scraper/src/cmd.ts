@@ -134,7 +134,22 @@ if (process.argv[2] === "scrape") {
   await analyze();
 } else if (process.argv[2] === "extract") {
   await extract();
+} else if (process.argv[2] === "test") {
+  const wikiCache = new Cache("wikipedia");
+  const url = new URL("https://en.wikipedia.org/wiki/Python_(programming_language)");
+  const body = await wikiCache.read(Key.get(url.href));
+  if (body) {
+    const page = new WikiPage(url, body);
+    console.log({
+      url: page.url.href,
+      title: page.title,
+      key: page.key,
+      description: page.description,
+      image: page.image,
+      categories: page.categories,
+      isPlangCandidate: page.isPlangCandidate,
+    });
+  }
 } else {
-  console.log("Invalid command: ", process.argv);
-  console.log("Usage: cmd <scrape|analyze|extract>");
+  console.log("Usage: cmd <scrape|analyze|extract|test>");
 }
