@@ -1,12 +1,16 @@
+import { Link } from "@plangs/plangs/index";
 import { Cache, Key } from "./cache";
 import { Fetcher } from "./fetcher";
-import { START_URLS, UNKNOWN_KEYS, WikiPage } from "./wikipedia";
+import { mergeLinks, START_URLS, UNKNOWN_KEYS, WikiPage } from "./wikipedia";
+import { merge } from "cheerio";
 
 /**
  * Starting on a few top pages, scrape a bunch of wikipedia pages
  * that are candidates for defining programming languages.
  */
 async function scrape() {
+  console.log("Scraping wikipedia...");
+
   const cache = new Cache("wikipedia");
   await cache.mkdir();
 
@@ -49,10 +53,13 @@ async function scrape() {
  * we first analyze the pages we have and store the candidates.
  */
 async function analyze() {
+  console.log("Analyzing pages scraped...");
+
   const wikiCache = new Cache("wikipedia");
   const dataCache = new Cache("meta");
 
-  const candidates: string[] = [];
+  // Save the candidates as a list of URL hrefs.
+  const candidates = new Set<string>();
   const keyList = await wikiCache.list();
 
   if (keyList.length === 0) {
@@ -60,22 +67,39 @@ async function analyze() {
     return;
   }
 
+  const fetcher = new Fetcher(wikiCache);
+
   for (const key of keyList) {
     const body = await wikiCache.read(key);
     const url = new URL(key.unescaped);
     if (!body) continue;
+
     const page = new WikiPage(url, body);
-    if (page.isPlangCandidate) candidates.push(key.value);
+    if (!page.isPlangCandidate) continue;
+
+    candidates.add(page.url.href);
+
+    if (page.infobox) {
+      // Further analyze the infobox for candidates.
+      for (const link of page.infobox.plangCandidates()) {
+        candidates.add(link.href);
+        // This is why we run multiple analyze passes:
+        // there may be new urls we haven't fetched before.
+        fetcher.fetch(new URL(link.href));
+      }
+    }
   }
 
-  console.log("Found candidates pages: ", candidates.length);
-  dataCache.write(Key.get("candidates"), JSON.stringify(candidates));
+  console.log("Found candidates pages: ", candidates.size);
+  dataCache.write(Key.get("candidates"), JSON.stringify([...candidates].sort()));
 }
 
 /**
  * Furter analyze the candidates and extract the relevant information.
  */
 async function extract() {
+  console.log("extracting candidates...");
+
   const dataCache = new Cache("meta");
   if (!dataCache.has(Key.get("candidates"))) {
     console.error("No candidates found. Run analyze first.");
@@ -83,19 +107,36 @@ async function extract() {
   }
 
   const candidates = JSON.parse((await dataCache.read(Key.get("candidates"))) as string);
-
   const wikiCache = new Cache("wikipedia");
+  const fetcher = new Fetcher(wikiCache);
 
-  for (const rawKey of candidates) {
-    const key = Key.raw(rawKey);
-    const body = await wikiCache.read(key);
+  let count = 0;
+
+  for (const href of candidates) {
+    const [url, body] = await fetcher.fetch(new URL(href));
     if (!body) continue;
 
-    const page = new WikiPage(new URL(key.unescaped), body);
-    console.log(page.title, page.description);
+    const page = new WikiPage(url, body);
+    if (page.isPlangCandidate && page.infobox) {
+      count++;
+      console.info({title: page.title, key: page.key});
+    }
   }
+
+  console.log("Final candidates: ", count);
 }
 
-// scrape();
-// analyze();
-extract();
+if (process.argv[2] === "scrape") {
+  // Inigial Scrape.
+  await scrape();
+} else if (process.argv[2] === "analyze") {
+  // Run several passes: each time the candidates list grows as we parse new infoboxes.
+  await analyze();
+  await analyze();
+  await analyze();
+} else if (process.argv[2] === "extract") {
+  await extract();
+} else {
+  console.log("Invalid command: ", process.argv);
+  console.log("Usage: cmd <scrape|analyze|extract>");
+}

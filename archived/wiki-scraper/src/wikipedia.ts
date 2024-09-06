@@ -21,6 +21,22 @@ export class WikiPage {
     if (ibel) this.infobox = parseInfobox(this.$, ibel);
   }
 
+  get key(): string {
+    const key = decodeURIComponent(this.url.pathname.slice(6))
+      .replaceAll(/\([^\)]+\)/g, "")
+      .replaceAll("programming_language", "")
+      .replaceAll("_", " ")
+      .trim()
+      .replaceAll(" ", "-")
+      .replaceAll("/", "-")
+      .toLowerCase();
+    return `pl+${key}`;
+  }
+
+  get link(): Link {
+    return { href: this.url.href, title: this.title };
+  }
+
   get image(): string | undefined {
     return this.$("meta[property='og:image']").attr("content");
   }
@@ -73,6 +89,8 @@ export class WikiPage {
 }
 
 type Link = { href: string; title: string };
+const cmpLink = (a: Link, b: Link) => a.href === b.href;
+export const mergeLinks = (target: Link[], src: Link[]) => arrayMerge(target, src, cmpLink);
 
 class InfoBox {
   summary = "";
@@ -85,13 +103,25 @@ class InfoBox {
   readonly licenses: Link[] = []; // KEYS_LICENSES
   readonly typeSystem: Link[] = []; // KEYS_TYPE_SYSTEM
   readonly tags: Link[] = []; // KEYS_TAGS
+  readonly websites: Link[] = []; // KEY_WRITTEN_IN
+
   readonly dialects: Link[] = []; // KEYS_DIALECTS
   readonly family: Link[] = []; // KEYS_FAMILY
   readonly implementations: Link[] = []; // KEYS_IMPLEMENTATIONS
   readonly influenced: Link[] = []; // KEYS_INFLUENCED
   readonly influencedBy: Link[] = []; // KEYS_INFLUENCED_BY
   readonly writtenIn: Link[] = []; // KEY_WRITTEN_IN
-  readonly websites: Link[] = []; // KEY_WRITTEN_IN
+
+  plangCandidates(): Link[] {
+    const res: Link[] = [];
+    mergeLinks(res, this.dialects);
+    mergeLinks(res, this.family);
+    mergeLinks(res, this.implementations);
+    mergeLinks(res, this.influenced);
+    mergeLinks(res, this.influencedBy);
+    mergeLinks(res, this.writtenIn);
+    return res;
+  }
 }
 
 export const UNKNOWN_KEYS = new Set<string>();
@@ -174,31 +204,31 @@ function processEntry($: cheerio.CheerioAPI, key: string, val: cheerio.Cheerio<E
   } else if (key.includes("extension")) {
     arrayMerge(box.extensions, parseExtensions(text));
   } else if (KEYS_AUTHORS.has(key)) {
-    arrayMerge(box.authors, links, (a, b) => a.href === b.href);
+    mergeLinks(box.authors, links);
   } else if (KEYS_DIALECTS.has(key)) {
-    arrayMerge(box.dialects, links, (a, b) => a.href === b.href);
+    mergeLinks(box.dialects, links);
   } else if (KEYS_FAMILY.has(key)) {
-    arrayMerge(box.family, links, (a, b) => a.href === b.href);
+    mergeLinks(box.family, links);
   } else if (KEYS_IMPLEMENTATIONS.has(key)) {
-    arrayMerge(box.implementations, links, (a, b) => a.href === b.href);
+    mergeLinks(box.implementations, links);
   } else if (KEYS_INFLUENCED.has(key)) {
-    arrayMerge(box.influenced, links, (a, b) => a.href === b.href);
+    mergeLinks(box.influenced, links);
   } else if (KEYS_INFLUENCED_BY.has(key)) {
-    arrayMerge(box.influencedBy, links, (a, b) => a.href === b.href);
+    mergeLinks(box.influencedBy, links);
   } else if (KEYS_LICENSES.has(key)) {
-    arrayMerge(box.licenses, links, (a, b) => a.href === b.href);
+    mergeLinks(box.licenses, links);
   } else if (KEYS_PARADIGMS.has(key)) {
-    arrayMerge(box.paradigms, links, (a, b) => a.href === b.href);
+    mergeLinks(box.paradigms, links);
   } else if (KEYS_PLATFORMS.has(key)) {
-    arrayMerge(box.platforms, links, (a, b) => a.href === b.href);
+    mergeLinks(box.platforms, links);
   } else if (KEYS_TAGS.has(key)) {
-    arrayMerge(box.tags, links, (a, b) => a.href === b.href);
+    mergeLinks(box.tags, links);
   } else if (KEYS_TYPE_SYSTEM.has(key)) {
-    arrayMerge(box.typeSystem, links, (a, b) => a.href === b.href);
+    mergeLinks(box.typeSystem, links);
   } else if (KEYS_WRITTEN_IN.has(key)) {
-    arrayMerge(box.writtenIn, links, (a, b) => a.href === b.href);
+    mergeLinks(box.writtenIn, links);
   } else if (KEYS_WEBSITES.has(key)) {
-    arrayMerge(box.websites, links, (a, b) => a.href === b.href);
+    mergeLinks(box.websites, links);
   } else {
     UNKNOWN_KEYS.add(key); // For debugging.
   }
