@@ -1,6 +1,6 @@
 import { Glob } from "bun";
 
-import { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs";
 
 /** Imports all definitions and calls the `define` methods */
 export async function loadAll(g: PlangsGraph) {
@@ -11,12 +11,5 @@ export async function loadAll(g: PlangsGraph) {
       module.define(g);
     }
   }
-  console.info(new Date().toISOString(), `Plangs: loaded ${g.numVertices} vertices, ${g.numEdges} edges.`);
-}
-
-/** Generates `plangs.json` */
-export async function genPlangs() {
-  const g = new PlangsGraph();
-  await loadAll(g);
-  Bun.write(Bun.fileURLToPath(`file:///${__dirname}/../server/static/plangs.json`), JSON.stringify(g.toJSON()));
+  console.info(new Date().toISOString(), `Plangs: loaded ${g.numNodes} nodes, ${g.numEdges} edges.`);
 }

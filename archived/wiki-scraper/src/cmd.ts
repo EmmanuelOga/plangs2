@@ -1,3 +1,6 @@
+import { loadAll } from "@plangs/definitions";
+import { PlangsGraph } from "@plangs/plangs";
+
 import { Cache, Key } from "./cache";
 import { Fetcher } from "./fetcher";
 import { START_URLS, WikiPage } from "./wikipedia";
@@ -135,20 +138,27 @@ if (process.argv[2] === "scrape") {
 } else if (process.argv[2] === "extract") {
   await extract();
 } else if (process.argv[2] === "test") {
+  const g = new PlangsGraph();
+  await loadAll(g);
+
   const wikiCache = new Cache("wikipedia");
   const url = new URL("https://en.wikipedia.org/wiki/Python_(programming_language)");
   const body = await wikiCache.read(Key.get(url.href));
   if (body) {
     const page = new WikiPage(url, body);
-    console.log({
-      url: page.url.href,
-      title: page.title,
-      key: page.key,
-      description: page.description,
-      image: page.image,
-      categories: page.categories,
-      isPlangCandidate: page.isPlangCandidate,
-    });
+
+    console.log(page.infobox);
+
+    // console.log({
+    //   url: page.url.href,
+    //   title: page.title,
+    //   key: page.key,
+    //   description: page.description,
+    //   image: page.image,
+    //   categories: page.categories,
+    //   isPlangCandidate: page.isPlangCandidate,
+    // });
+
   }
 } else {
   console.log("Usage: cmd <scrape|analyze|extract|test>");

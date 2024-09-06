@@ -82,7 +82,6 @@ export class NPlang extends NBase<
     extensions: string[];
     images: Image[];
     releases: Release[];
-    scoping: Scoping[];
     isTranspiler: boolean;
   }
 > {
@@ -98,11 +97,6 @@ export class NPlang extends NBase<
 
   addReleases(releases: Release[]): this {
     arrayMerge((this.data.releases ??= []), releases, (r1, r2) => r1.version === r2.version);
-    return this;
-  }
-
-  addScoping(scopings: Scoping[]): this {
-    arrayMerge((this.data.scoping ??= []), scopings);
     return this;
   }
 
@@ -465,11 +459,6 @@ export class EPlangTool extends EBase<NPlang, NTool, CommonEdgeData> {
 ////////////////////////////////////////////////////////////////////////////////
 // Auxiliary Types
 ////////////////////////////////////////////////////////////////////////////////
-
-/**
- * The scoping of a programming language.
- */
-export type Scoping = "lexical" | "static" | "dynamic" | "other";
 
 /**
  * A release of a programming language.

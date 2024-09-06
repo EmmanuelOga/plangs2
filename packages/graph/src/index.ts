@@ -103,6 +103,10 @@ export class EdgeMap<T_Graph extends BaseGraph, T_Edge extends Edge<T_Graph, Any
     this.adjTo.set(to, from, edge);
     return edge;
   }
+
+  set(from: T_Edge["from"], to: T_Edge["to"], data: T_Edge["data"]): T_Edge {
+    return this.connect(from, to).merge(data);
+  }
 }
 
 type SerializedGraph = {
@@ -121,6 +125,18 @@ type SerializedGraph = {
 export class BaseGraph {
   readonly nodes: Map<string, NodeMap<Any, Any>> = new Map();
   readonly edges: Map<string, EdgeMap<Any, Any>> = new Map();
+
+  get numNodes(): number {
+    let count = 0;
+    for (const nodeMap of this.nodes.values()) count += nodeMap.size;
+    return count;
+  }
+
+  get numEdges(): number {
+    let count = 0;
+    for (const edgeMap of this.edges.values()) count += edgeMap.adjFrom.size;
+    return count;
+  }
 
   nodeMap<T_Node extends Node<Any, Any, Any>>(kind: string, factory: (key: T_Node["key"]) => T_Node): NodeMap<this, T_Node> {
     if (this.nodes.has(kind)) return this.nodes.get(kind) as NodeMap<this, T_Node>;
@@ -204,6 +220,12 @@ export class Map2<K1, K2, V> {
 
   getMap(k1: K1): Map<K2, V> | undefined {
     return this.#map.get(k1);
+  }
+
+  get size(): number {
+    let size = 0;
+    for (const [_, map] of this.#map) size += map.size;
+    return size;
   }
 
   /** Returns an iterator of the keys in the first dimension. */
