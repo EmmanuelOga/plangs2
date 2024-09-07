@@ -4,7 +4,7 @@ import { type NPlang, PlangsGraph } from "@plangs/plangs";
 import { Cache, Key } from "./cache";
 import { Fetcher } from "./fetcher";
 import { START_URLS, WikiPage } from "./wikipedia";
-import { generateCode, toPlang } from "./generate";
+import { genAllPlangs, generateCode, toPlang } from "./generate";
 
 /**
  * Starting on a few top pages, scrape a bunch of wikipedia pages
@@ -154,9 +154,7 @@ async function extract() {
 
   console.log("Edges: ", g.numEdges, "Nodes: ", g.numNodes);
 
-  for (const [key, plang] of g.n_plang) {
-    console.log(generateCode(plang));
-  }
+  await genAllPlangs(g);
 }
 
 if (process.argv[2] === "scrape") {
@@ -186,8 +184,8 @@ async function test() {
     const page = new WikiPage(url, body);
     if (!page.infobox) return;
 
-    const plang = toPlang(g, page, new Set());
+    toPlang(g, page, new Set());
 
-    if (plang) console.log(generateCode(plang));
+    await genAllPlangs(g);
   }
 }

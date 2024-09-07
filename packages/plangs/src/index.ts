@@ -106,7 +106,7 @@ export class NPlang extends NBase<
     return this;
   }
 
-  addInfluences(others: NPlang["key"][]): this {
+  addInfluenced(others: NPlang["key"][]): this {
     for (const other of others) this.graph.e_influence.connect(other, this.key);
     return this;
   }

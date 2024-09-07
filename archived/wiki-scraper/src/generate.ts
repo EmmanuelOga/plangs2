@@ -1,7 +1,8 @@
 import type { NodeMap } from "@plangs/graph";
 import type { PlangsGraph, NPlang, Link, NBase } from "@plangs/plangs";
 import { type WikiPage, keyFromWikiURL } from "./wikipedia";
-import { add } from "node_modules/cheerio/dist/esm/api/traversing";
+import { mkdir } from "node:fs/promises";
+import { join } from "node:path";
 
 /** Add a plang instance to the graph using the given wiki page. */
 export function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang["key"]>): NPlang | undefined {
@@ -10,10 +11,10 @@ export function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang["key"
   const data: NPlang["data"] = {
     name: page.title,
     description: page.description,
-    websites: page.websites,
-    extensions: page.infobox.extensions,
-    images: page.images,
-    releases: page.infobox.releases,
+    websites: page.websites.sort(),
+    extensions: page.infobox.extensions.sort(),
+    images: page.images.sort(),
+    releases: page.infobox.releases.sort(),
   };
 
   const plang = g.n_plang.set(page.key, data);
@@ -28,11 +29,11 @@ export function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang["key"
     }
   }
 
-  const keys_license = [...findMatching(page.infobox.licenses, g.n_license)];
-  const keys_paradigm = [...findMatching(page.infobox.paradigms, g.n_paradigm)];
-  const keys_platform = [...findMatching(page.infobox.platforms, g.n_platform)];
-  const keys_tags = [...findMatching(page.infobox.tags, g.n_tags)];
-  const keys_tsystem = [...findMatching(page.infobox.typeSystem, g.n_tsystem)];
+  const keys_license = [...findMatching(page.infobox.licenses, g.n_license)].sort();
+  const keys_paradigm = [...findMatching(page.infobox.paradigms, g.n_paradigm)].sort();
+  const keys_platform = [...findMatching(page.infobox.platforms, g.n_platform)].sort();
+  const keys_tags = [...findMatching(page.infobox.tags, g.n_tags)].sort();
+  const keys_tsystem = [...findMatching(page.infobox.typeSystem, g.n_tsystem)].sort();
 
   plang.addLicenses(keys_license).addParadigms(keys_paradigm).addPlatforms(keys_platform).addTags(keys_tags).addTypeSystems(keys_tsystem);
 
@@ -58,7 +59,7 @@ export function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang["key"
   for (const other of keys_influenced) g.e_influence.connect(plang.key, other);
 
   const keys_influencedBy = mapToPlKeys(page.infobox.influencedBy);
-  for (const other of keys_influencedBy) g.e_influence.connect(plang.key, other);
+  for (const other of keys_influencedBy) g.e_influence.connect(other, plang.key);
 
   // e_writtenIn
   const keys_writtenIn = mapToPlKeys(page.infobox.writtenIn);
@@ -73,7 +74,7 @@ export function generateCode(plang: NPlang): string {
 
   function addRel(methodName: string, keys?: Iterable<string>) {
     if (!keys) return;
-    relations.push(`\n    .${methodName}(${JSON.stringify([...keys])})`);
+    relations.push(`\n    .${methodName}(${JSON.stringify([...keys].sort())})`);
   }
 
   addRel("addDialects", plang.relDialects?.keys());
@@ -96,4 +97,23 @@ export function generateCode(plang: NPlang): string {
   `;
 
   return code;
+}
+
+export const DEFINTIONS_PATH = join(import.meta.dir, "../../../packages/definitions/src/definitions/plangs/");
+
+export async function genAllPlangs(g: PlangsGraph) {
+  for (const [key, plang] of g.n_plang) {
+    console.log("Generating", key);
+
+    const code = generateCode(plang);
+
+    let name = key.split("+")[1];
+    const subfolder = /^[a-z]/.test(name) ? name[0] : "_";
+
+    if (name.startsWith(".")) name = `_${name.slice(1)}`;
+
+    await mkdir(join(DEFINTIONS_PATH, subfolder), { recursive: true }).catch((_) => {});
+
+    await Bun.write(join(DEFINTIONS_PATH, subfolder, `${name}.ts`), code);
+  }
 }
