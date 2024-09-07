@@ -40,7 +40,7 @@ export class WikiPage {
   get key(): NPlang["key"] {
     const key = keyFromWikiURL(this.url);
     if (!key) throw new Error(`Invalid URL: ${this.url}`);
-    return `pl+${key}`;
+    return key;
   }
 
   get link(): Link {
@@ -198,7 +198,7 @@ const KEYS_PARADIGMS = new Set(["paradigm", "paradigms"]);
 const KEYS_PLATFORMS = new Set(["os", "platform", "operating system", "cpu"]);
 const KEYS_TAGS = new Set(["type"]);
 const KEYS_TYPE_SYSTEM = new Set(["typing discipline"]);
-const KEYS_WEBSITES = new Set(["website", "code repository", "code", "official website"]);
+const KEYS_WEBSITES = new Set(["website", "code repository", "code", "official website", "websites"]);
 const KEYS_WRITTEN_IN = new Set(["implementation language", "written in"]);
 
 const KEYS_AUTHORS = new Set([
@@ -258,7 +258,7 @@ function processEntry($: cheerio.CheerioAPI, key: string, val: cheerio.Cheerio<E
       href = href.replace(/#.*$/, "");
       if (href && title) {
         const url = new URL(href, BASE_URL);
-        if (url.pathname.length > 1) return { href: url.href, title };
+        return { href: url.href, title };
       }
     })
     .toArray();

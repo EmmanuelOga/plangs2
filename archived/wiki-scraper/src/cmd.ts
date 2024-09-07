@@ -1,10 +1,10 @@
 import { loadAll } from "@plangs/definitions";
-import type { NodeMap } from "@plangs/graph";
-import { type NPlang, PlangsGraph, type NBase, Link } from "@plangs/plangs";
+import { type NPlang, PlangsGraph } from "@plangs/plangs";
 
 import { Cache, Key } from "./cache";
 import { Fetcher } from "./fetcher";
-import { keyFromWikiURL, START_URLS, WikiPage } from "./wikipedia";
+import { START_URLS, WikiPage } from "./wikipedia";
+import { generateCode, toPlang } from "./generate";
 
 /**
  * Starting on a few top pages, scrape a bunch of wikipedia pages
@@ -141,11 +141,21 @@ async function extract() {
 
     const [url, body] = await fetcher.fetch(entry);
     if (!body) continue;
+    if (seen.has(url.href)) continue;
+    seen.add(url.href);
 
     const page = new WikiPage(url, body);
     if (page.isPlangCandidate && page.infobox) {
       toPlang(g, page, plKeys);
     }
+  }
+
+  // Final pass: save the graph.
+
+  console.log("Edges: ", g.numEdges, "Nodes: ", g.numNodes);
+
+  for (const [key, plang] of g.n_plang) {
+    console.log(generateCode(plang));
   }
 }
 
@@ -170,60 +180,14 @@ async function test() {
   await loadAll(g);
 
   const wikiCache = new Cache("wikipedia");
-  const url = new URL("https://en.wikipedia.org/wiki/Ruby_(programming_language)");
+  const url = new URL("https://en.wikipedia.org/wiki/Python_(programming_language)");
   const body = await wikiCache.read(Key.get(url.href));
   if (body) {
     const page = new WikiPage(url, body);
     if (!page.infobox) return;
 
-    toPlang(g, page, new Set());
+    const plang = toPlang(g, page, new Set());
+
+    if (plang) console.log(generateCode(plang));
   }
-}
-
-function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang["key"]>) {
-  if (!page.infobox) return;
-
-  function* findMatching<K extends string>(links: Link[], nodeMap: NodeMap<PlangsGraph, NBase<K, any>>): Generator<K> {
-    for (const link of links) {
-      for (const node of nodeMap.findAll((node) => node.matchesKeyword(link.title))) {
-        yield node.key;
-      }
-    }
-  }
-
-  const keys_license = [...findMatching(page.infobox.licenses, g.n_license)];
-  const keys_paradigm = [...findMatching(page.infobox.paradigms, g.n_paradigm)];
-  const keys_platform = [...findMatching(page.infobox.platforms, g.n_platform)];
-  const keys_tags = [...findMatching(page.infobox.tags, g.n_tags)];
-  const keys_tsystem = [...findMatching(page.infobox.typeSystem, g.n_tsystem)];
-
-  function mapToPlKeys(links: Link[]): NPlang["key"][] {
-    return links.map((link) => keyFromWikiURL(new URL(link.href))).filter(Boolean) as NPlang["key"][];
-  }
-
-  const keys_dialects = mapToPlKeys(page.infobox.dialects);
-  const keys_family = mapToPlKeys(page.infobox.family);
-  const keys_implementations = mapToPlKeys(page.infobox.implementations);
-  const keys_influenced = mapToPlKeys(page.infobox.influenced);
-  const keys_influencedBy = mapToPlKeys(page.infobox.influencedBy);
-  const keys_writtenIn = mapToPlKeys(page.infobox.writtenIn);
-
-  const data: NPlang["data"] = {
-    name: page.title,
-    description: page.description,
-    websites: page.websites,
-    extensions: page.infobox.extensions,
-    images: page.images,
-    releases: page.infobox.releases,
-  };
-
-  console.log(data);
-  console.log({
-    keys_dialects,
-    keys_family,
-    keys_implementations,
-    keys_influenced,
-    keys_influencedBy,
-    keys_writtenIn,
-  });
 }

@@ -17,14 +17,16 @@ export class PlangsGraph extends BaseGraph {
   // Edge Tables.
 
   readonly e_dialect = this.edgeMap<EDialectOf>("dialect", (from, to) => new EDialectOf(this, from, to));
-  readonly e_license = this.edgeMap<EHasLicense>("license", (from, to) => new EHasLicense(this, from, to));
   readonly e_implementation = this.edgeMap<EImplementedWith>("implementation", (from, to) => new EImplementedWith(this, from, to));
   readonly e_influence = this.edgeMap<EInfluence>("influence", (from, to) => new EInfluence(this, from, to));
   readonly e_lib = this.edgeMap<EPlangLib>("lib", (from, to) => new EPlangLib(this, from, to));
+  readonly e_license = this.edgeMap<EHasLicense>("license", (from, to) => new EHasLicense(this, from, to));
   readonly e_paradigm = this.edgeMap<EPlangPara>("paradigm", (from, to) => new EPlangPara(this, from, to));
   readonly e_platform = this.edgeMap<ESupportsPlatf>("platform", (from, to) => new ESupportsPlatf(this, from, to));
+  readonly e_tags = this.edgeMap<EPlangTag>("tag", (from, to) => new EPlangTag(this, from, to));
   readonly e_tool = this.edgeMap<EPlangTool>("tool", (from, to) => new EPlangTool(this, from, to));
   readonly e_tsys = this.edgeMap<EPlangTsys>("tsys", (from, to) => new EPlangTsys(this, from, to));
+  readonly e_writtenIn = this.edgeMap<EWrittenIn>("written-in", (from, to) => new EWrittenIn(this, from, to));
 }
 
 export interface CommonNodeData {
@@ -124,6 +126,11 @@ export class NPlang extends NBase<
     return this;
   }
 
+  addTags(others: NTag["key"][]): this {
+    for (const other of others) this.graph.e_tags.connect(this.key, other);
+    return this;
+  }
+
   addTools(others: NTool["key"][]): this {
     for (const other of others) this.graph.e_tool.connect(this.key, other);
     return this;
@@ -154,12 +161,24 @@ export class NPlang extends NBase<
     return this.graph.e_paradigm.adjFrom.getMap(this.key);
   }
 
+  get relTags(): Map<NTag["key"], EPlangTag> | undefined {
+    return this.graph.e_tags.adjFrom.getMap(this.key);
+  }
+
   get relTypeSystems(): Map<NTypeSystem["key"], EPlangTsys> | undefined {
     return this.graph.e_tsys.adjFrom.getMap(this.key);
   }
 
+  get relTools(): Map<NTool["key"], EPlangTool> | undefined {
+    return this.graph.e_tool.adjFrom.getMap(this.key);
+  }
+
   get relPlatforms(): Map<NPlatform["key"], ESupportsPlatf> | undefined {
     return this.graph.e_platform.adjFrom.getMap(this.key);
+  }
+
+  get relWrittenIn(): Map<NPlang["key"], EWrittenIn> | undefined {
+    return this.graph.e_writtenIn.adjFrom.getMap(this.key);
   }
 
   hasLogo(): boolean {
@@ -355,6 +374,20 @@ export class EPlangLib extends EBase<NPlang, NLibrary, CommonEdgeData> {
   }
 }
 
+export class EPlangTag extends EBase<NPlang, NTag, CommonEdgeData> {
+  get key(): string {
+    return `tag~${this.from}~${this.to}`;
+  }
+
+  get plang(): NPlang | undefined {
+    return this.graph.n_plang.get(this.from);
+  }
+
+  get tag(): NTag | undefined {
+    return this.graph.n_tags.get(this.to);
+  }
+}
+
 export class EPlangTool extends EBase<NPlang, NTool, CommonEdgeData> {
   get key(): string {
     return `tool~${this.from}~${this.to}`;
@@ -366,6 +399,20 @@ export class EPlangTool extends EBase<NPlang, NTool, CommonEdgeData> {
 
   get tool(): NTool | undefined {
     return this.graph.n_tool.get(this.to);
+  }
+}
+
+export class EWrittenIn extends EBase<NPlang, NPlang, CommonEdgeData> {
+  get key(): string {
+    return `written-in~${this.from}~${this.to}`;
+  }
+
+  get fromPlang(): NPlang | undefined {
+    return this.graph.n_plang.get(this.from);
+  }
+
+  get toPlang(): NPlang | undefined {
+    return this.graph.n_plang.get(this.to);
   }
 }
 
