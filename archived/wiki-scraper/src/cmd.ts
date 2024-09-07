@@ -4,7 +4,7 @@ import { type NPlang, PlangsGraph, type NBase, Link } from "@plangs/plangs";
 
 import { Cache, Key } from "./cache";
 import { Fetcher } from "./fetcher";
-import { START_URLS, WikiPage } from "./wikipedia";
+import { keyFromWikiURL, START_URLS, WikiPage } from "./wikipedia";
 
 /**
  * Starting on a few top pages, scrape a bunch of wikipedia pages
@@ -197,6 +197,17 @@ function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang["key"]>) {
   const keys_tags = [...findMatching(page.infobox.tags, g.n_tags)];
   const keys_tsystem = [...findMatching(page.infobox.typeSystem, g.n_tsystem)];
 
+  function mapToPlKeys(links: Link[]): NPlang["key"][] {
+    return links.map((link) => keyFromWikiURL(new URL(link.href))).filter(Boolean) as NPlang["key"][];
+  }
+
+  const keys_dialects = mapToPlKeys(page.infobox.dialects);
+  const keys_family = mapToPlKeys(page.infobox.family);
+  const keys_implementations = mapToPlKeys(page.infobox.implementations);
+  const keys_influenced = mapToPlKeys(page.infobox.influenced);
+  const keys_influencedBy = mapToPlKeys(page.infobox.influencedBy);
+  const keys_writtenIn = mapToPlKeys(page.infobox.writtenIn);
+
   const data: NPlang["data"] = {
     name: page.title,
     description: page.description,
@@ -207,4 +218,12 @@ function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang["key"]>) {
   };
 
   console.log(data);
+  console.log({
+    keys_dialects,
+    keys_family,
+    keys_implementations,
+    keys_influenced,
+    keys_influencedBy,
+    keys_writtenIn,
+  });
 }

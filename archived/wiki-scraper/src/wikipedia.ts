@@ -11,6 +11,19 @@ export const START_URLS = ["/wiki/List_of_programming_languages", "/wiki/Categor
 
 const PLR = /programming languages/i;
 
+export function keyFromWikiURL(url: URL): NPlang["key"] | undefined {
+  if (url.hostname !== BASE_URL.hostname || !url.pathname.startsWith("/wiki/")) return;
+  const key = decodeURIComponent(url.pathname.slice(6))
+    .replaceAll(/\([^\)]+\)/g, "")
+    .replaceAll("programming_language", "")
+    .replaceAll("_", " ")
+    .trim()
+    .replaceAll(" ", "-")
+    .replaceAll("/", "-")
+    .toLowerCase();
+  return `pl+${key}`;
+}
+
 export class WikiPage {
   readonly $: cheerio.CheerioAPI;
   readonly infobox?: InfoBox;
@@ -25,14 +38,8 @@ export class WikiPage {
   }
 
   get key(): NPlang["key"] {
-    const key = decodeURIComponent(this.url.pathname.slice(6))
-      .replaceAll(/\([^\)]+\)/g, "")
-      .replaceAll("programming_language", "")
-      .replaceAll("_", " ")
-      .trim()
-      .replaceAll(" ", "-")
-      .replaceAll("/", "-")
-      .toLowerCase();
+    const key = keyFromWikiURL(this.url);
+    if (!key) throw new Error(`Invalid URL: ${this.url}`);
     return `pl+${key}`;
   }
 
