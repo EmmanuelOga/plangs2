@@ -87,7 +87,8 @@ async function analyze() {
         candidates.add(link.href);
         // This is why we run multiple analyze passes:
         // there may be new urls we haven't fetched before.
-        fetcher.fetch(new URL(link.href));
+        const url = new URL(link.href);
+        if (url.hostname === "en.wikipedia.org") fetcher.fetch(url);
       }
     }
   }
@@ -111,17 +112,33 @@ async function extract() {
   const candidates = JSON.parse((await dataCache.read(Key.get("candidates"))) as string);
   const wikiCache = new Cache("wikipedia");
   const fetcher = new Fetcher(wikiCache);
+  const seen = new Set<string>();
 
   let count = 0;
 
   for (const href of candidates) {
-    const [url, body] = await fetcher.fetch(new URL(href));
+    const entry = new URL(href);
+    if (entry.hostname !== "en.wikipedia.org") continue;
+
+    const [url, body] = await fetcher.fetch(entry);
     if (!body) continue;
 
     const page = new WikiPage(url, body);
     if (page.isPlangCandidate && page.infobox) {
+      if (seen.has(page.key)) continue;
+      seen.add(page.key);
+
       count++;
-      console.info({ title: page.title, key: page.key });
+      const links = page.infobox.nonWikiLinks();
+
+      if (links.length > 0) {
+        console.info(
+          page.key,
+          page.title,
+          page.url.href,
+          links.map((l) => l.href),
+        );
+      }
     }
   }
 
@@ -149,7 +166,7 @@ async function test() {
   await loadAll(g);
 
   const wikiCache = new Cache("wikipedia");
-  const url = new URL("https://en.wikipedia.org/wiki/C_(programming_language)");
+  const url = new URL("https://en.wikipedia.org/wiki/Ruby_(programming_language)");
   const body = await wikiCache.read(Key.get(url.href));
   if (body) {
     const page = new WikiPage(url, body);

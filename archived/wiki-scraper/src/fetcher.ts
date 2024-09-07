@@ -30,7 +30,10 @@ export class Fetcher {
 
     if (response.redirected && response.url !== url.href && retries < MAX_RETRIES) {
       console.info("Redirected", url.href, "->", response.url);
-      return this.fetch(new URL(response.url), retries + 1);
+      const [newUrl, body] = await this.fetch(new URL(response.url), retries + 1);
+      // Cache th response of the redirected URL with the original key.
+      await this.cache.write(key, body || "");
+      return [newUrl, body];
     }
 
     console.warn("Failed to fetch", url.href, response.status, response.statusText);

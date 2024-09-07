@@ -73,7 +73,7 @@ export class WikiPage {
 
   get isPlangCandidate(): boolean {
     if (this.isGeneric) return false;
-    if (this.mainHeading.toLowerCase().includes('programming language')) return true;
+    if (this.mainHeading.toLowerCase().includes("programming language")) return true;
 
     const categories = this.categories;
     if (categories.find((cat) => /(stub|book|frameworks|libraries)s?$/.test(cat))) return false;
@@ -136,7 +136,11 @@ class InfoBox {
     mergeLinks(res, this.influenced);
     mergeLinks(res, this.influencedBy);
     mergeLinks(res, this.writtenIn);
-    return res;
+    return res.filter((link) => new URL(link.href).hostname === BASE_URL.hostname);
+  }
+
+  nonWikiLinks(): Link[] {
+    return this.websites.filter((link) => new URL(link.href).hostname !== BASE_URL.hostname);
   }
 }
 
@@ -208,8 +212,12 @@ function processEntry($: cheerio.CheerioAPI, key: string, val: cheerio.Cheerio<E
     .map((_, a) => {
       if (!a.attribs.href) return;
       const $a = $(a);
-      const [href, title] = [decodeURIComponent(a.attribs.href.trim()), cleanText($a.text())];
-      if (href && title && href.startsWith("/wiki")) return { href: new URL(href, BASE_URL).href, title };
+      let [href, title] = [decodeURIComponent(a.attribs.href.trim()) ?? "", cleanText($a.text())];
+      href = href.replace(/#.*$/, "");
+      if (href && title) {
+        const url = new URL(href, BASE_URL);
+        if (url.pathname.length > 1) return { href: url.href, title };
+      }
     })
     .toArray();
   const text = cleanText(val.text());
