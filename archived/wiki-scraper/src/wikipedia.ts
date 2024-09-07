@@ -112,11 +112,13 @@ class InfoBox {
   readonly extensions: string[] = [];
 
   readonly authors: Link[] = []; // KEYS_AUTHORS
+
   readonly paradigms: Link[] = []; // KEYS_PARADIGMS
   readonly platforms: Link[] = []; // KEYS_PLATFORMS
   readonly licenses: Link[] = []; // KEYS_LICENSES
   readonly typeSystem: Link[] = []; // KEYS_TYPE_SYSTEM
   readonly tags: Link[] = []; // KEYS_TAGS
+
   readonly websites: Link[] = []; // KEY_WRITTEN_IN
 
   readonly dialects: Link[] = []; // KEYS_DIALECTS

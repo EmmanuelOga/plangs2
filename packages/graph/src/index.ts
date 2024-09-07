@@ -83,6 +83,10 @@ export class NodeMap<T_Graph extends BaseGraph, T_Node extends Node<T_Graph, Any
     return this.#map.values();
   }
 
+  *findAll(predicate: (node: T_Node) => boolean): Generator<T_Node> {
+    for (const node of this.#map.values()) if (predicate(node)) yield node;
+  }
+
   [Symbol.iterator](): IterableIterator<[T_Node["key"], T_Node]> {
     return this.#map[Symbol.iterator]();
   }

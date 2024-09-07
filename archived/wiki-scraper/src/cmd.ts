@@ -1,9 +1,10 @@
 import { loadAll } from "@plangs/definitions";
-import { PlangsGraph } from "@plangs/plangs";
+import type { NodeMap } from "@plangs/graph";
+import { PlangsGraph, type NBase } from "@plangs/plangs";
 
 import { Cache, Key } from "./cache";
 import { Fetcher } from "./fetcher";
-import { Link, START_URLS, WikiPage } from "./wikipedia";
+import { type Link, START_URLS, WikiPage } from "./wikipedia";
 
 /**
  * Starting on a few top pages, scrape a bunch of wikipedia pages
@@ -148,23 +149,26 @@ async function test() {
   await loadAll(g);
 
   const wikiCache = new Cache("wikipedia");
-  const url = new URL("https://en.wikipedia.org/wiki/Python_(programming_language)");
+  const url = new URL("https://en.wikipedia.org/wiki/C_(programming_language)");
   const body = await wikiCache.read(Key.get(url.href));
   if (body) {
     const page = new WikiPage(url, body);
     if (!page.infobox) return;
 
-    function matchTsys(link: Link) {
-      for (const [key, tsys] of g.n_tsystem) {
-        tsys.matchesKewords(link.title) console.log(key, "Matches");
+    function* findMatching<K extends string>(links: Link[], nodeMap: NodeMap<PlangsGraph, NBase<K, any>>): Generator<K> {
+      console.log(links);
+      for (const link of links) {
+        for (const node of nodeMap.findAll((node) => node.matchesKeyword(link.title))) {
+          yield node.key;
+        }
       }
     }
 
-    console.log(page.infobox.typeSystem)
-
-    for (const link of page.infobox.typeSystem) {
-      matchTsys(link);
-    }
+    console.log([...findMatching(page.infobox.licenses, g.n_license)]);
+    console.log([...findMatching(page.infobox.paradigms, g.n_paradigm)]);
+    console.log([...findMatching(page.infobox.platforms, g.n_platform)]);
+    console.log([...findMatching(page.infobox.tags, g.n_tags)]);
+    console.log([...findMatching(page.infobox.typeSystem, g.n_tsystem)]);
 
     // console.log({
     //   url: page.url.href,
