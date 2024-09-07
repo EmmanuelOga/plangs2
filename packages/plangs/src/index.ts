@@ -377,7 +377,6 @@ export class EPlangTool extends EBase<NPlang, NTool, CommonEdgeData> {
  * A release of a programming language.
  */
 export interface Release {
-  kind: "first" | "preview" | "stable" | "other";
   version: string;
   name?: string;
   date?: StrDate;

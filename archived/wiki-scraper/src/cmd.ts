@@ -1,10 +1,10 @@
 import { loadAll } from "@plangs/definitions";
 import type { NodeMap } from "@plangs/graph";
-import { PlangsGraph, type NBase } from "@plangs/plangs";
+import { type NPlang, PlangsGraph, type NBase, Link } from "@plangs/plangs";
 
 import { Cache, Key } from "./cache";
 import { Fetcher } from "./fetcher";
-import { type Link, START_URLS, WikiPage } from "./wikipedia";
+import { START_URLS, WikiPage } from "./wikipedia";
 
 /**
  * Starting on a few top pages, scrape a bunch of wikipedia pages
@@ -112,9 +112,28 @@ async function extract() {
   const candidates = JSON.parse((await dataCache.read(Key.get("candidates"))) as string);
   const wikiCache = new Cache("wikipedia");
   const fetcher = new Fetcher(wikiCache);
+
+  const plKeys = new Set<NPlang["key"]>();
+
+  // First pass: collect all the valid keys.
+  for (const href of candidates) {
+    const entry = new URL(href);
+    if (entry.hostname !== "en.wikipedia.org") continue;
+
+    const [url, body] = await fetcher.fetch(entry);
+    if (!body) continue;
+
+    const page = new WikiPage(url, body);
+    if (page.isPlangCandidate && page.infobox) {
+      plKeys.add(page.key);
+    }
+  }
+
+  // Second pass: extract the data.
   const seen = new Set<string>();
 
-  let count = 0;
+  const g = new PlangsGraph();
+  await loadAll(g);
 
   for (const href of candidates) {
     const entry = new URL(href);
@@ -125,24 +144,9 @@ async function extract() {
 
     const page = new WikiPage(url, body);
     if (page.isPlangCandidate && page.infobox) {
-      if (seen.has(page.key)) continue;
-      seen.add(page.key);
-
-      count++;
-      const links = page.infobox.nonWikiLinks();
-
-      if (links.length > 0) {
-        console.info(
-          page.key,
-          page.title,
-          page.url.href,
-          links.map((l) => l.href),
-        );
-      }
+      toPlang(g, page, plKeys);
     }
   }
-
-  console.log("Final candidates: ", count);
 }
 
 if (process.argv[2] === "scrape") {
@@ -172,29 +176,35 @@ async function test() {
     const page = new WikiPage(url, body);
     if (!page.infobox) return;
 
-    function* findMatching<K extends string>(links: Link[], nodeMap: NodeMap<PlangsGraph, NBase<K, any>>): Generator<K> {
-      console.log(links);
-      for (const link of links) {
-        for (const node of nodeMap.findAll((node) => node.matchesKeyword(link.title))) {
-          yield node.key;
-        }
+    toPlang(g, page, new Set());
+  }
+}
+
+function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang["key"]>) {
+  if (!page.infobox) return;
+
+  function* findMatching<K extends string>(links: Link[], nodeMap: NodeMap<PlangsGraph, NBase<K, any>>): Generator<K> {
+    for (const link of links) {
+      for (const node of nodeMap.findAll((node) => node.matchesKeyword(link.title))) {
+        yield node.key;
       }
     }
-
-    console.log([...findMatching(page.infobox.licenses, g.n_license)]);
-    console.log([...findMatching(page.infobox.paradigms, g.n_paradigm)]);
-    console.log([...findMatching(page.infobox.platforms, g.n_platform)]);
-    console.log([...findMatching(page.infobox.tags, g.n_tags)]);
-    console.log([...findMatching(page.infobox.typeSystem, g.n_tsystem)]);
-
-    // console.log({
-    //   url: page.url.href,
-    //   title: page.title,
-    //   key: page.key,
-    //   description: page.description,
-    //   image: page.image,
-    //   categories: page.categories,
-    //   isPlangCandidate: page.isPlangCandidate,
-    // });
   }
+
+  const keys_license = [...findMatching(page.infobox.licenses, g.n_license)];
+  const keys_paradigm = [...findMatching(page.infobox.paradigms, g.n_paradigm)];
+  const keys_platform = [...findMatching(page.infobox.platforms, g.n_platform)];
+  const keys_tags = [...findMatching(page.infobox.tags, g.n_tags)];
+  const keys_tsystem = [...findMatching(page.infobox.typeSystem, g.n_tsystem)];
+
+  const data: NPlang["data"] = {
+    name: page.title,
+    description: page.description,
+    websites: page.websites,
+    extensions: page.infobox.extensions,
+    images: page.images,
+    releases: page.infobox.releases,
+  };
+
+  console.log(data);
 }

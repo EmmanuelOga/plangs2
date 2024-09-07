@@ -1,3 +1,4 @@
+import type { Link, StrDate, Image, NPlang } from "@plangs/plangs/index";
 import { arrayMerge } from "@plangs/plangs/util";
 import * as cheerio from "cheerio";
 import type { Element } from "domhandler";
@@ -23,7 +24,7 @@ export class WikiPage {
     if (ibel) this.infobox = parseInfobox(this.$, ibel);
   }
 
-  get key(): string {
+  get key(): NPlang["key"] {
     const key = decodeURIComponent(this.url.pathname.slice(6))
       .replaceAll(/\([^\)]+\)/g, "")
       .replaceAll("programming_language", "")
@@ -41,6 +42,40 @@ export class WikiPage {
 
   get image(): string | undefined {
     return this.$("meta[property='og:image']").attr("content");
+  }
+
+  get images(): Image[] {
+    const url = this.image;
+    if (url) return [{ url: url, kind: url.includes("logo") ? "logo" : "other" }];
+    return [];
+  }
+
+  get websites(): Link[] {
+    const sites = this.infobox?.websites ?? [];
+    mergeLinks(sites, [{ href: this.url.href, title: this.title, kind: "wikipedia" }]);
+
+    for (const link of sites) {
+      const url = new URL(link.href);
+      const hostname = url.hostname.toLowerCase();
+
+      if (hostname.includes("wikipedia")) {
+        link.kind = "wikipedia";
+      } else if (
+        hostname.includes("github") ||
+        hostname.includes("gitlab") ||
+        hostname.includes("bitbucket") ||
+        hostname.includes("svn") ||
+        hostname.includes("cvs")
+      ) {
+        link.kind = "repository";
+      } else if (hostname.includes(this.title.toLowerCase())) {
+        link.kind = "homepage";
+      } else {
+        link.kind = "other";
+      }
+    }
+
+    return sites;
   }
 
   get isGeneric(): boolean {
@@ -73,6 +108,7 @@ export class WikiPage {
 
   get isPlangCandidate(): boolean {
     if (this.isGeneric) return false;
+    if (!this.title) return false;
     if (this.mainHeading.toLowerCase().includes("programming language")) return true;
 
     const categories = this.categories;
@@ -102,13 +138,12 @@ export class WikiPage {
   }
 }
 
-export type Link = { href: string; title: string };
 export const cmpLink = (a: Link, b: Link) => a.href === b.href;
 export const mergeLinks = (target: Link[], src: Link[]) => arrayMerge(target, src, cmpLink);
 
 class InfoBox {
   summary = "";
-  readonly releases: { version: string; date?: string }[] = [];
+  readonly releases: { version: string; date?: StrDate }[] = [];
   readonly extensions: string[] = [];
 
   readonly authors: Link[] = []; // KEYS_AUTHORS
@@ -224,7 +259,7 @@ function processEntry($: cheerio.CheerioAPI, key: string, val: cheerio.Cheerio<E
 
   if (key.includes("release") || key.includes("appear") || key.includes("version") || key.includes("date")) {
     const [date, version] = [parseDate(text), parseVersion(text)];
-    if (version) arrayMerge(box.releases, [{ version, date }], (a, b) => a.version === b.version);
+    if (version) arrayMerge(box.releases, [{ version, date: date as StrDate }], (a, b) => a.version === b.version);
   } else if (key.includes("extension")) {
     arrayMerge(box.extensions, parseExtensions(text));
   } else if (KEYS_AUTHORS.has(key)) {
