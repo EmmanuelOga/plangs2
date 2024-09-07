@@ -102,8 +102,8 @@ export class WikiPage {
   }
 }
 
-type Link = { href: string; title: string };
-const cmpLink = (a: Link, b: Link) => a.href === b.href;
+export type Link = { href: string; title: string };
+export const cmpLink = (a: Link, b: Link) => a.href === b.href;
 export const mergeLinks = (target: Link[], src: Link[]) => arrayMerge(target, src, cmpLink);
 
 class InfoBox {

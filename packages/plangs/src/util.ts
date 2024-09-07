@@ -55,3 +55,8 @@ export function verify<T>(elements: Iterable<T>, mode: "all" | "any", predicate:
 export function wikipedia(href: `https://en.wikipedia.org/wiki/${string}`, title: string): Link {
   return { kind: "wikipedia", href, title };
 }
+
+export function keywordsToRegexp(keywords: string[]): RegExp {
+  const lenient = keywords.map((k) => k.replaceAll(/[- ]/g, "\\s*.?\\s*"));
+  return new RegExp(`\\b(${lenient.join("|")})\\b`, "i");
+}

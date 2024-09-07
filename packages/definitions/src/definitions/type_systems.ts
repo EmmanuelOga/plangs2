@@ -86,7 +86,7 @@ export function define(g: PlangsGraph) {
 
   g.n_tsystem.set("tsys+optional", {
     name: "Optional Typing",
-    keywords: ["optional", "optional type annotations"],
+    keywords: ["optional"],
     description: "Optional typing allows for type annotations to be included or omitted, offering flexibility between static and dynamic typing.",
     websites: [wikipedia("https://en.wikipedia.org/wiki/Optional_typing", "Optional Typing")],
   });
@@ -122,7 +122,7 @@ export function define(g: PlangsGraph) {
 
   g.n_tsystem.set("tsys+strong", {
     name: "Strong Typing",
-    keywords: ["strong", "strong typing", "strongly-typed"],
+    keywords: ["strong", "strongly-typed"],
     description: "Strong typing enforces strict type rules, ensuring that variables cannot be implicitly cast or used in an unintended way.",
     websites: [wikipedia("https://en.wikipedia.org/wiki/Strong_typing", "Strong Typing")],
   });
@@ -143,7 +143,7 @@ export function define(g: PlangsGraph) {
 
   g.n_tsystem.set("tsys+uniqueness", {
     name: "Uniqueness Typing",
-    keywords: ["uniqueness"],
+    keywords: ["unique"],
     description:
       "Uniqueness typing enforces that certain values are used only once, allowing optimizations like in-place updates in functional programming.",
     websites: [wikipedia("https://en.wikipedia.org/wiki/Uniqueness_type", "Uniqueness Typing")],
@@ -173,7 +173,7 @@ export function define(g: PlangsGraph) {
 
   g.n_tsystem.set("tsys+algebraic", {
     name: "Algebraic Data Types",
-    keywords: ["algebraic", "adt", "product types", "sum types", "variant types", "unions"],
+    keywords: ["algebraic", "adt", "product types", "sum types", "variant", "unions"],
     description:
       "In computer programming, especially functional programming and type theory, an algebraic data type (ADT) is a kind of composite type, i.e., a type formed by combining other types.",
     websites: [wikipedia("https://en.wikipedia.org/wiki/Algebraic_data_type", "Algebraic Data Type")],

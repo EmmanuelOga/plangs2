@@ -3,7 +3,7 @@ import { PlangsGraph } from "@plangs/plangs";
 
 import { Cache, Key } from "./cache";
 import { Fetcher } from "./fetcher";
-import { START_URLS, WikiPage } from "./wikipedia";
+import { Link, START_URLS, WikiPage } from "./wikipedia";
 
 /**
  * Starting on a few top pages, scrape a bunch of wikipedia pages
@@ -138,6 +138,12 @@ if (process.argv[2] === "scrape") {
 } else if (process.argv[2] === "extract") {
   await extract();
 } else if (process.argv[2] === "test") {
+  await test();
+} else {
+  console.log("Usage: cmd <scrape|analyze|extract|test>");
+}
+
+async function test() {
   const g = new PlangsGraph();
   await loadAll(g);
 
@@ -146,8 +152,19 @@ if (process.argv[2] === "scrape") {
   const body = await wikiCache.read(Key.get(url.href));
   if (body) {
     const page = new WikiPage(url, body);
+    if (!page.infobox) return;
 
-    console.log(page.infobox);
+    function matchTsys(link: Link) {
+      for (const [key, tsys] of g.n_tsystem) {
+        tsys.matchesKewords(link.title) console.log(key, "Matches");
+      }
+    }
+
+    console.log(page.infobox.typeSystem)
+
+    for (const link of page.infobox.typeSystem) {
+      matchTsys(link);
+    }
 
     // console.log({
     //   url: page.url.href,
@@ -158,8 +175,5 @@ if (process.argv[2] === "scrape") {
     //   categories: page.categories,
     //   isPlangCandidate: page.isPlangCandidate,
     // });
-
   }
-} else {
-  console.log("Usage: cmd <scrape|analyze|extract|test>");
 }
