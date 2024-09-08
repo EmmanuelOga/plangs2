@@ -6,7 +6,6 @@ import type { Image, Link, NBase, NPlang, PlangsGraph } from "@plangs/plangs";
 import { type WikiPage, keyFromWikiURL } from "./wikipedia";
 
 export const DEFINTIONS_PATH = join(import.meta.dir, "../../../packages/definitions/src/definitions/plangs/");
-export const IMAGES_PATH = join(import.meta.dir, "../../../packages/server/static/images/plangs");
 
 /** Add a plang instance to the graph using the given wiki page. Attempts to fetch teh plang image if any. */
 export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang["key"]>): Promise<NPlang | undefined> {
@@ -14,20 +13,21 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
 
   const plang = g.n_plang.get(page.key);
 
+  console.log("Processing", plang.key);
+
   const images = [] as Image[];
 
   const fetchImage = await page.fetchImage();
   if (fetchImage) {
     const [imgHref, imgBlob] = fetchImage;
 
-    const path = join(IMAGES_PATH, plang.keyFolder, plang.plainKey, `main${extname(imgHref)}`);
+    const kind = /logo/i.test(imgHref) ? "logo" : /screen/i.test(imgHref) ? "screenshot" : "other";
+
+    const name = plang.plainKey;
+    const path = join(DEFINTIONS_PATH, plang.keyFolder, name.startsWith(".") ? `_${name.slice(1)}` : name, `${kind}${extname(imgHref)}`);
     Bun.write(path, imgBlob);
 
-    images.push({
-      title: page.title,
-      kind: /logo/i.test(imgHref) ? "logo" : /screen/i.test(imgHref) ? "screenshot" : "other",
-      url: path.split("server/static")[1],
-    });
+    images.push({ kind, title: page.title, url: path.split("server/static")[1] });
   }
 
   const data: NPlang["data"] = {
@@ -126,9 +126,9 @@ export async function genAllPlangs(g: PlangsGraph) {
     await mkdir(join(DEFINTIONS_PATH, plang.keyFolder), { recursive: true }).catch((_) => {});
 
     const name = plang.plainKey;
-    const path = join(DEFINTIONS_PATH, plang.keyFolder, `${name.startsWith(".") ? `_${name.slice(1)}` : name}.ts`);
+    const path = join(DEFINTIONS_PATH, plang.keyFolder, name.startsWith(".") ? `_${name.slice(1)}` : name, "plang.ts");
 
-    console.log("Generating", { key, path });
+    console.log("Generating", key, '->', path);
 
     const result = await Bun.write(path, code);
 

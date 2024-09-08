@@ -110,7 +110,7 @@ async function extract() {
   const g = new PlangsGraph();
   await loadAll(g);
 
-  for (const key of await wikiCache.list()) {
+  for (const key of (await wikiCache.list()).sort()) {
     const body = await wikiCache.read(key);
     if (!body) continue;
 
