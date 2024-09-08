@@ -38,6 +38,17 @@ export interface CommonNodeData {
 
 /** Base type for data on all nodes. */
 export abstract class NBase<Key extends string, Data extends CommonNodeData> extends Node<PlangsGraph, Key, Data> {
+  /** The key without the node kind prefix. */
+  get plainKey(): string {
+    return this.key.split("+")[1];
+  }
+
+  /** The first letter of the key, or "_" if it starts with a non-letter. */
+  get keyFolder(): string {
+    const name = this.key.split("+")[1];
+    return /^[a-z]/.test(name) ? name[0] : "_";
+  }
+
   addWebsites(links: Link[]): this {
     arrayMerge((this.data.websites ??= []), links, (l1, l2) => l1.href === l2.href);
     return this;
@@ -72,8 +83,9 @@ export class NPlang extends NBase<
   CommonNodeData & {
     extensions: string[];
     images: Image[];
-    releases: Release[];
     isTranspiler: boolean;
+    mainstream: boolean;
+    releases: Release[];
   }
 > {
   addExtensions(exts: string[]): this {
@@ -138,6 +150,11 @@ export class NPlang extends NBase<
 
   addTypeSystems(others: NTypeSystem["key"][]): this {
     for (const other of others) this.graph.e_tsys.connect(this.key, other);
+    return this;
+  }
+
+  addWrittenIn(others: NPlang["key"][]): this {
+    for (const other of others) this.graph.e_writtenIn.connect(this.key, other);
     return this;
   }
 
@@ -443,6 +460,7 @@ export interface Link {
  */
 export interface Image {
   kind: "logo" | "screenshot" | "other";
+  title: string;
   url: string;
   width?: number;
   height?: number;

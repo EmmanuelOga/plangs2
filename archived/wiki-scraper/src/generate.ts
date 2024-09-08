@@ -1,23 +1,46 @@
-import type { NodeMap } from "@plangs/graph";
-import type { PlangsGraph, NPlang, Link, NBase } from "@plangs/plangs";
-import { type WikiPage, keyFromWikiURL } from "./wikipedia";
 import { mkdir } from "node:fs/promises";
-import { join } from "node:path";
+import { join, extname } from "node:path";
 
-/** Add a plang instance to the graph using the given wiki page. */
-export function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang["key"]>): NPlang | undefined {
+import type { NodeMap } from "@plangs/graph";
+import type { Image, Link, NBase, NPlang, PlangsGraph } from "@plangs/plangs";
+import type { Fetcher } from "./fetcher";
+import { type WikiPage, keyFromWikiURL } from "./wikipedia";
+
+export const DEFINTIONS_PATH = join(import.meta.dir, "../../../packages/definitions/src/definitions/plangs/");
+export const IMAGES_PATH = join(import.meta.dir, "../../../packages/server/static/images/plangs");
+
+/** Add a plang instance to the graph using the given wiki page. Attempts to fetch teh plang image if any. */
+export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang["key"]>): Promise<NPlang | undefined> {
   if (!page.infobox) return;
 
+  const plang = g.n_plang.get(page.key);
+
+  const images = [] as Image[];
+
+  const fetchImage = await page.fetchImage();
+  if (fetchImage) {
+    const [imgHref, imgBlob] = fetchImage;
+
+    const path = join(IMAGES_PATH, plang.keyFolder, plang.plainKey, `main${extname(imgHref)}`);
+    Bun.write(path, imgBlob);
+
+    images.push({
+      title: page.title,
+      kind: /logo/i.test(imgHref) ? "logo" : /screen/i.test(imgHref) ? "screenshot" : "other",
+      url: path.split("server/static")[1],
+    });
+  }
+
   const data: NPlang["data"] = {
+    images,
     name: page.title,
     description: page.description,
     websites: page.websites.sort(),
     extensions: page.infobox.extensions.sort(),
-    images: page.images.sort(),
     releases: page.infobox.releases.sort(),
   };
 
-  const plang = g.n_plang.set(page.key, data);
+  g.n_plang.set(page.key, data);
 
   ////////////////////////////////////////////////////////////////////////////////
 
@@ -40,7 +63,13 @@ export function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang["key"
   ////////////////////////////////////////////////////////////////////////////////
 
   function mapToPlKeys(links: Link[]): NPlang["key"][] {
-    return links.map((link) => keyFromWikiURL(new URL(link.href))).filter((key) => key && plKeys.has(key)) as NPlang["key"][];
+    return links
+      .map((link) => keyFromWikiURL(new URL(link.href)))
+      .filter((key) => {
+        if (!key) return false;
+        if (plKeys.size === 0) return true;
+        return plKeys.has(key);
+      }) as NPlang["key"][];
   }
 
   // e_dialect
@@ -99,21 +128,15 @@ export function generateCode(plang: NPlang): string {
   return code;
 }
 
-export const DEFINTIONS_PATH = join(import.meta.dir, "../../../packages/definitions/src/definitions/plangs/");
-
 export async function genAllPlangs(g: PlangsGraph) {
   for (const [key, plang] of g.n_plang) {
     console.log("Generating", key);
 
     const code = generateCode(plang);
 
-    let name = key.split("+")[1];
-    const subfolder = /^[a-z]/.test(name) ? name[0] : "_";
+    await mkdir(join(DEFINTIONS_PATH, plang.keyFolder), { recursive: true }).catch((_) => {});
 
-    if (name.startsWith(".")) name = `_${name.slice(1)}`;
-
-    await mkdir(join(DEFINTIONS_PATH, subfolder), { recursive: true }).catch((_) => {});
-
-    await Bun.write(join(DEFINTIONS_PATH, subfolder, `${name}.ts`), code);
+    const name = plang.plainKey;
+    await Bun.write(join(DEFINTIONS_PATH, plang.keyFolder, `${name.startsWith(".") ? `_${name.slice(1)}` : name}.ts`), code);
   }
 }

@@ -178,14 +178,22 @@ async function test() {
   await loadAll(g);
 
   const wikiCache = new Cache("wikipedia");
-  const url = new URL("https://en.wikipedia.org/wiki/Python_(programming_language)");
-  const body = await wikiCache.read(Key.get(url.href));
-  if (body) {
+
+  for (const href of [
+    "https://en.wikipedia.org/wiki/Python_(programming_language)",
+    "https://en.wikipedia.org/wiki/Ruby_(programming_language)",
+    "https://en.wikipedia.org/wiki/C++_(programming_language)",
+    "https://en.wikipedia.org/wiki/Crystal_(programming_language)",
+  ]) {
+    const url = new URL(href);
+    const body = await wikiCache.read(Key.get(url.href));
+    if (!body) continue;
+
     const page = new WikiPage(url, body);
-    if (!page.infobox) return;
+    if (!page.infobox) continue;
 
-    toPlang(g, page, new Set());
-
-    await genAllPlangs(g);
+    await toPlang(g, page, new Set());
   }
+
+  await genAllPlangs(g);
 }

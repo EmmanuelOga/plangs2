@@ -2,6 +2,7 @@ import type { Link, StrDate, Image, NPlang } from "@plangs/plangs/index";
 import { arrayMerge } from "@plangs/plangs/util";
 import * as cheerio from "cheerio";
 import type { Element } from "domhandler";
+import { Fetcher } from "./fetcher";
 
 export const BASE_URL = new URL("https://en.wikipedia.org");
 
@@ -51,10 +52,14 @@ export class WikiPage {
     return this.$("meta[property='og:image']").attr("content");
   }
 
-  get images(): Image[] {
-    const url = this.image;
-    if (url) return [{ url: url, kind: url.includes("logo") ? "logo" : "other" }];
-    return [];
+  /** Fetch the image, if any. We don't cache this since the fetcher cache is designed for text files, not blobs. */
+  async fetchImage(): Promise<[string, Blob] | undefined> {
+    const img = this.image;
+    if (!img) return;
+    const resp = await fetch(img);
+    if (!resp.ok) return;
+    const blob = await resp.blob();
+    if (blob.size > 0) return [img, blob];
   }
 
   get websites(): Link[] {

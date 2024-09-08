@@ -1,3 +1,5 @@
+import type { BunFile } from "bun";
+
 import { type Cache, Key } from "./cache";
 
 const MAX_RETRIES = 3;
