@@ -1,10 +1,11 @@
 import { loadAll } from "@plangs/definitions";
-import { type NPlang, PlangsGraph } from "@plangs/plangs";
+import { PlangsGraph } from "@plangs/plangs";
 
 import { Cache, Key } from "./cache";
 import { Fetcher } from "./fetcher";
+import { PL_WHITELIST } from "./filter";
+import { genAllPlangs, toPlang } from "./generate";
 import { START_URLS, WikiPage } from "./wikipedia";
-import { genAllPlangs, generateCode, toPlang } from "./generate";
 
 /**
  * Starting on a few top pages, scrape a bunch of wikipedia pages
@@ -98,59 +99,24 @@ async function analyze() {
 }
 
 /**
- * Furter analyze the candidates and extract the relevant information.
+ * We used {@link analyze} to (manually) determine the PL_WHITELIST,
+ * but now we can just walk through the whitelisted languages.
  */
 async function extract() {
-  console.log("extracting candidates...");
+  console.log("Generating...");
 
-  const dataCache = new Cache("meta");
-  if (!dataCache.has(Key.get("candidates"))) {
-    console.error("No candidates found. Run analyze first.");
-    return;
-  }
-
-  const candidates = JSON.parse((await dataCache.read(Key.get("candidates"))) as string);
   const wikiCache = new Cache("wikipedia");
-  const fetcher = new Fetcher(wikiCache);
-
-  const plKeys = new Set<NPlang["key"]>();
-
-  // First pass: collect all the valid keys.
-  for (const href of candidates) {
-    const entry = new URL(href);
-    if (entry.hostname !== "en.wikipedia.org") continue;
-
-    const [url, body] = await fetcher.fetch(entry);
-    if (!body) continue;
-
-    const page = new WikiPage(url, body);
-    if (page.isPlangCandidate && page.infobox) {
-      plKeys.add(page.key);
-    }
-  }
-
-  // Second pass: extract the data.
-  const seen = new Set<string>();
 
   const g = new PlangsGraph();
   await loadAll(g);
 
-  for (const href of candidates) {
-    const entry = new URL(href);
-    if (entry.hostname !== "en.wikipedia.org") continue;
-
-    const [url, body] = await fetcher.fetch(entry);
+  for (const key of await wikiCache.list()) {
+    const body = await wikiCache.read(key);
     if (!body) continue;
-    if (seen.has(url.href)) continue;
-    seen.add(url.href);
 
-    const page = new WikiPage(url, body);
-    if (page.isPlangCandidate && page.infobox) {
-      toPlang(g, page, plKeys);
-    }
+    const page = new WikiPage(new URL(key.unescaped), body);
+    if (page.key && PL_WHITELIST.has(page.key)) toPlang(g, page, PL_WHITELIST);
   }
-
-  // Final pass: save the graph.
 
   console.log("Edges: ", g.numEdges, "Nodes: ", g.numNodes);
 

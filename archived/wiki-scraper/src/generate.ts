@@ -1,9 +1,8 @@
 import { mkdir } from "node:fs/promises";
-import { join, extname } from "node:path";
+import { extname, join } from "node:path";
 
 import type { NodeMap } from "@plangs/graph";
 import type { Image, Link, NBase, NPlang, PlangsGraph } from "@plangs/plangs";
-import type { Fetcher } from "./fetcher";
 import { type WikiPage, keyFromWikiURL } from "./wikipedia";
 
 export const DEFINTIONS_PATH = join(import.meta.dir, "../../../packages/definitions/src/definitions/plangs/");
@@ -11,7 +10,7 @@ export const IMAGES_PATH = join(import.meta.dir, "../../../packages/server/stati
 
 /** Add a plang instance to the graph using the given wiki page. Attempts to fetch teh plang image if any. */
 export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang["key"]>): Promise<NPlang | undefined> {
-  if (!page.infobox) return;
+  if (!page.infobox || !page.key) return;
 
   const plang = g.n_plang.get(page.key);
 
@@ -73,26 +72,18 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
   }
 
   // e_dialect
-  const keys_dialects = mapToPlKeys(page.infobox.dialects);
-  for (const other of keys_dialects) g.e_dialect.connect(other, plang.key);
-
-  const keys_family = mapToPlKeys(page.infobox.family);
-  for (const other of keys_family) g.e_dialect.connect(plang.key, other);
+  for (const other of mapToPlKeys(page.infobox.dialects)) g.e_dialectOf.connect(other, plang.key);
+  for (const other of mapToPlKeys(page.infobox.family)) g.e_dialectOf.connect(plang.key, other);
 
   // e_implementation
-  const keys_implementations = mapToPlKeys(page.infobox.implementations);
-  for (const other of keys_implementations) g.e_implementation.connect(other, plang.key);
+  for (const other of mapToPlKeys(page.infobox.implementations)) g.e_implements.connect(other, plang.key);
 
-  // e_influence
-  const keys_influenced = mapToPlKeys(page.infobox.influenced);
-  for (const other of keys_influenced) g.e_influence.connect(plang.key, other);
-
-  const keys_influencedBy = mapToPlKeys(page.infobox.influencedBy);
-  for (const other of keys_influencedBy) g.e_influence.connect(other, plang.key);
+  // e_influencedBy
+  for (const other of mapToPlKeys(page.infobox.influenced)) g.e_influencedBy.connect(other, plang.key);
+  for (const other of mapToPlKeys(page.infobox.influencedBy)) g.e_influencedBy.connect(plang.key, other);
 
   // e_writtenIn
-  const keys_writtenIn = mapToPlKeys(page.infobox.writtenIn);
-  for (const other of keys_writtenIn) g.e_writtenIn.connect(plang.key, other);
+  for (const other of mapToPlKeys(page.infobox.writtenIn)) g.e_writtenIn.connect(plang.key, other);
 
   return plang;
 }
@@ -106,9 +97,9 @@ export function generateCode(plang: NPlang): string {
     relations.push(`\n    .${methodName}(${JSON.stringify([...keys].sort())})`);
   }
 
-  addRel("addDialects", plang.relDialects?.keys());
-  addRel("addImplementations", plang.relImplementedWith?.keys());
-  addRel("addInfluenced", plang.relInfluenced?.keys());
+  addRel("addDialectOf", plang.relDialectOf?.keys());
+  addRel("addImplements", plang.relImplements?.keys());
+  addRel("addInfluencedBy", plang.relInfluencedBy?.keys());
   addRel("addLicenses", plang.relLicenses?.keys());
   addRel("addParadigms", plang.relParadigms?.keys());
   addRel("addPlatforms", plang.relPlatforms?.keys());
@@ -129,14 +120,18 @@ export function generateCode(plang: NPlang): string {
 }
 
 export async function genAllPlangs(g: PlangsGraph) {
-  for (const [key, plang] of g.n_plang) {
-    console.log("Generating", key);
-
+  for (const [key, plang] of [...g.n_plang].sort()) {
     const code = generateCode(plang);
 
     await mkdir(join(DEFINTIONS_PATH, plang.keyFolder), { recursive: true }).catch((_) => {});
 
     const name = plang.plainKey;
-    await Bun.write(join(DEFINTIONS_PATH, plang.keyFolder, `${name.startsWith(".") ? `_${name.slice(1)}` : name}.ts`), code);
+    const path = join(DEFINTIONS_PATH, plang.keyFolder, `${name.startsWith(".") ? `_${name.slice(1)}` : name}.ts`);
+
+    console.log("Generating", { key, path });
+
+    const result = await Bun.write(path, code);
+
+    if (!result) console.error("Failed to write", path);
   }
 }

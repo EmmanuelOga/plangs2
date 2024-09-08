@@ -16,9 +16,9 @@ export class PlangsGraph extends BaseGraph {
 
   // Edge Tables.
 
-  readonly e_dialect = this.edgeMap<EDialectOf>("dialect", (from, to) => new EDialectOf(this, from, to));
-  readonly e_implementation = this.edgeMap<EImplementedWith>("implementation", (from, to) => new EImplementedWith(this, from, to));
-  readonly e_influence = this.edgeMap<EInfluence>("influence", (from, to) => new EInfluence(this, from, to));
+  readonly e_dialectOf = this.edgeMap<EDialectOf>("dialect", (from, to) => new EDialectOf(this, from, to));
+  readonly e_implements = this.edgeMap<EImplementedWith>("implementation", (from, to) => new EImplementedWith(this, from, to));
+  readonly e_influencedBy = this.edgeMap<EInfluence>("influence", (from, to) => new EInfluence(this, from, to));
   readonly e_lib = this.edgeMap<EPlangLib>("lib", (from, to) => new EPlangLib(this, from, to));
   readonly e_license = this.edgeMap<EHasLicense>("license", (from, to) => new EHasLicense(this, from, to));
   readonly e_paradigm = this.edgeMap<EPlangPara>("paradigm", (from, to) => new EPlangPara(this, from, to));
@@ -40,7 +40,7 @@ export interface CommonNodeData {
 export abstract class NBase<Key extends string, Data extends CommonNodeData> extends Node<PlangsGraph, Key, Data> {
   /** The key without the node kind prefix. */
   get plainKey(): string {
-    return this.key.split("+")[1];
+    return this.key.replace(/^[a-z]+[+]/, "");
   }
 
   /** The first letter of the key, or "_" if it starts with a non-letter. */
@@ -103,8 +103,8 @@ export class NPlang extends NBase<
     return this;
   }
 
-  addDialects(others: NPlang["key"][]): this {
-    for (const other of others) this.graph.e_dialect.connect(other, this.key);
+  addDialectOf(others: NPlang["key"][]): this {
+    for (const other of others) this.graph.e_dialectOf.connect(this.key, other);
     return this;
   }
 
@@ -113,13 +113,13 @@ export class NPlang extends NBase<
     return this;
   }
 
-  addImplementations(others: NPlang["key"][]): this {
-    for (const other of others) this.graph.e_implementation.connect(other, this.key);
+  addImplements(others: NPlang["key"][]): this {
+    for (const other of others) this.graph.e_implements.connect(this.key, other);
     return this;
   }
 
-  addInfluenced(others: NPlang["key"][]): this {
-    for (const other of others) this.graph.e_influence.connect(other, this.key);
+  addInfluencedBy(others: NPlang["key"][]): this {
+    for (const other of others) this.graph.e_influencedBy.connect(this.key, other);
     return this;
   }
 
@@ -158,16 +158,16 @@ export class NPlang extends NBase<
     return this;
   }
 
-  get relDialects(): Map<NPlang["key"], EDialectOf> | undefined {
-    return this.graph.e_dialect.adjFrom.getMap(this.key);
+  get relDialectOf(): Map<NPlang["key"], EDialectOf> | undefined {
+    return this.graph.e_dialectOf.adjFrom.getMap(this.key);
   }
 
-  get relImplementedWith(): Map<NPlang["key"], EImplementedWith> | undefined {
-    return this.graph.e_implementation.adjFrom.getMap(this.key);
+  get relImplements(): Map<NPlang["key"], EImplementedWith> | undefined {
+    return this.graph.e_implements.adjFrom.getMap(this.key);
   }
 
-  get relInfluenced(): Map<NPlang["key"], EImplementedWith> | undefined {
-    return this.graph.e_influence.adjFrom.getMap(this.key);
+  get relInfluencedBy(): Map<NPlang["key"], EImplementedWith> | undefined {
+    return this.graph.e_influencedBy.adjFrom.getMap(this.key);
   }
 
   get relLicenses(): Map<NLicense["key"], EHasLicense> | undefined {

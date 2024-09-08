@@ -1,8 +1,9 @@
-import type { Link, StrDate, Image, NPlang } from "@plangs/plangs/index";
-import { arrayMerge } from "@plangs/plangs/util";
 import * as cheerio from "cheerio";
 import type { Element } from "domhandler";
-import { Fetcher } from "./fetcher";
+
+import type { Link, NPlang, StrDate } from "@plangs/plangs/index";
+import { arrayMerge } from "@plangs/plangs/util";
+import { PL_WHITELIST } from "./filter";
 
 export const BASE_URL = new URL("https://en.wikipedia.org");
 
@@ -21,7 +22,17 @@ export function keyFromWikiURL(url: URL): NPlang["key"] | undefined {
     .trim()
     .replaceAll(" ", "-")
     .replaceAll("/", "-")
-    .toLowerCase();
+    .toLowerCase()
+    .normalize("NFD")
+    // biome-ignore lint/suspicious/noMisleadingCharacterClass: Should remove combining diacritical marks.
+    .replaceAll(/[\u0300-\u036f]/g, "");
+
+  if (key === "c＃") return "pl+c-sharp";
+  if (key === "assembly-language") return "pl+assembly";
+  if (key === "clozure-cl") return "pl+clozure";
+  if (key === "rascalmpl") return "pl+rascal";
+  if (key === "rpython") return "pl+pypy";
+
   return `pl+${key}`;
 }
 
@@ -34,14 +45,12 @@ export class WikiPage {
     public html: string,
   ) {
     this.$ = cheerio.load(html);
-    const ibel = this.$("table.infobox").get(0);
+    const ibel = this.$("table.infobox").first().get(0);
     if (ibel) this.infobox = parseInfobox(this.$, ibel);
   }
 
-  get key(): NPlang["key"] {
-    const key = keyFromWikiURL(this.url);
-    if (!key) throw new Error(`Invalid URL: ${this.url}`);
-    return key;
+  get key(): NPlang["key"] | undefined {
+    return keyFromWikiURL(this.url);
   }
 
   get link(): Link {
@@ -100,7 +109,7 @@ export class WikiPage {
 
   get title(): string {
     if (this.infobox) {
-      const title = cleanText(this.$(".infobox-title.summary").text());
+      const title = cleanText(this.$(".infobox-title.summary").first().text());
       if (title) return title;
     }
     return this.mainHeading;
@@ -119,6 +128,7 @@ export class WikiPage {
   }
 
   get isPlangCandidate(): boolean {
+    if (this.key && PL_WHITELIST.has(this.key)) return true;
     if (this.isGeneric) return false;
     if (!this.title) return false;
     if (this.mainHeading.toLowerCase().includes("programming language")) return true;
@@ -166,7 +176,7 @@ class InfoBox {
   readonly typeSystem: Link[] = []; // KEYS_TYPE_SYSTEM
   readonly tags: Link[] = []; // KEYS_TAGS
 
-  readonly websites: Link[] = []; // KEY_WRITTEN_IN
+  readonly websites: Link[] = []; // KEYS_WEBSITES
 
   readonly dialects: Link[] = []; // KEYS_DIALECTS
   readonly family: Link[] = []; // KEYS_FAMILY
