@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+hy", {
-      images: [{ kind: "other", title: "Hy" }],
+      images: [{ kind: "other", title: "Hy", url: "/images/plangs/h/hy/other.png" }],
       name: "Hy",
       description:
         "Hy is a dialect of the Lisp programming language designed to interact with Python by translating s-expressions into Python's abstract syntax tree (AST). Hy was introduced at Python Conference (PyCon) 2013 by Paul Tagliamonte. Lisp allows operating on code as data (metaprogramming), thus Hy can be used to write domain-specific languages.",

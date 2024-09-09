@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+bash", {
-      images: [{ kind: "screenshot", title: "Bash" }],
+      images: [{ kind: "screenshot", title: "Bash", url: "/images/plangs/b/bash/screenshot.png" }],
       name: "Bash",
       description:
         "Bash, short for Bourne-Again SHell, is a shell program and command language  supported by the Free Software Foundation and first developed for the GNU Project by Brian Fox. Designed as a 100% free software alternative for the Bourne shell, it was initially released in 1989. Its moniker is a play on words, referencing both its predecessor, the Bourne shell, and the concept of rebirth.",

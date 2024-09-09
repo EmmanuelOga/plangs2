@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+newlisp", {
-      images: [{ kind: "logo", title: "newLISP" }],
+      images: [{ kind: "logo", title: "newLISP", url: "/images/plangs/n/newlisp/logo.png" }],
       name: "newLISP",
       description:
         "newLISP is a scripting language, a dialect of the Lisp family of programming languages. It was designed and developed by Lutz Mueller. Because of its small resource requirements, newLISP is excellent for embedded systems applications. Most of the functions you will ever need are already built in. This includes networking functions, support for distributed and multicore processing, and Bayesian statistics. newLISP is free and open-source software released under the GNU General Public License, version 3 or later.",

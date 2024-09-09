@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+netlogo", {
-      images: [{ kind: "logo", title: "NetLogo" }],
+      images: [{ kind: "logo", title: "NetLogo", url: "/images/plangs/n/netlogo/logo.png" }],
       name: "NetLogo",
       description: "NetLogo is a programming language and integrated development environment (IDE) for agent-based modeling.",
       websites: [

@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+.net", {
-      images: [{ kind: "logo", title: ".NET" }],
+      images: [{ kind: "logo", title: ".NET", url: "/images/plangs/_/_net/logo.png" }],
       name: ".NET",
       description:
         'The .NET platform (pronounced as "dot net") is a free and open-source, managed computer software framework for Windows, Linux, and macOS operating systems. The project is mainly developed by Microsoft employees by way of the .NET Foundation and is released under an MIT License.',

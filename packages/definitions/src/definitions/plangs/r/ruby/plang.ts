@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+ruby", {
-      images: [{ kind: "logo", title: "Ruby" }],
+      images: [{ kind: "logo", title: "Ruby", url: "/images/plangs/r/ruby/logo.png" }],
       name: "Ruby",
       description:
         'Ruby is an interpreted, high-level, general-purpose programming language. It was designed with an emphasis on programming productivity and simplicity. In Ruby, everything is an object, including primitive data types. It was developed in the mid-1990s by Yukihiro "Matz" Matsumoto in Japan.',

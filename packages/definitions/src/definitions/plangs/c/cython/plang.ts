@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+cython", {
-      images: [{ kind: "logo", title: "Cython" }],
+      images: [{ kind: "logo", title: "Cython", url: "/images/plangs/c/cython/logo.png" }],
       name: "Cython",
       description:
         "Cython (/ˈsaɪθɒn/) is a superset of the programming language Python, which allows developers to write Python code (with optional, C-inspired syntax extensions) that yields performance comparable to that of C.",

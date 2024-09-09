@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+factor", {
-      images: [{ kind: "logo", title: "Factor" }],
+      images: [{ kind: "logo", title: "Factor", url: "/images/plangs/f/factor/logo.png" }],
       name: "Factor",
       description:
         "Factor is a stack-oriented programming language created by Slava Pestov. Factor is dynamically typed and has automatic memory management, as well as powerful metaprogramming features. The language has a single implementation featuring a self-hosted optimizing compiler and an interactive development environment. The Factor distribution includes a large standard library.",

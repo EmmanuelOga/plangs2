@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+gremlin", {
-      images: [{ kind: "other", title: "Gremlin" }],
+      images: [{ kind: "other", title: "Gremlin", url: "/images/plangs/g/gremlin/other.png" }],
       name: "Gremlin",
       description:
         "Gremlin is a graph traversal language and virtual machine developed by Apache TinkerPop of the Apache Software Foundation. Gremlin works for both OLTP-based graph databases as well as OLAP-based graph processors. Gremlin's automata and functional language foundation enable Gremlin to naturally support: imperative and declarative querying; host language agnosticism; user-defined domain specific languages; an extensible compiler/optimizer, single- and multi-machine execution models; hybrid depth- and breadth-first evaluation with Turing completeness.",

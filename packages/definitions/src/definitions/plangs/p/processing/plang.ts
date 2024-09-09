@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+processing", {
-      images: [{ kind: "logo", title: "Processing" }],
+      images: [{ kind: "logo", title: "Processing", url: "/images/plangs/p/processing/logo.png" }],
       name: "Processing",
       description:
         "Processing is a free graphics library and integrated development environment (IDE) built for the electronic arts, new media art, and visual design communities with the purpose of teaching non-programmers the fundamentals of computer programming in a visual context.",

@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+agda", {
-      images: [{ kind: "logo", title: "Agda" }],
+      images: [{ kind: "logo", title: "Agda", url: "/images/plangs/a/agda/logo.png" }],
       name: "Agda",
       description:
         "Agda is a dependently typed functional programming language originally developed by Ulf Norell at Chalmers University of Technology with implementation described in his PhD thesis. The original Agda system was developed at Chalmers by Catarina Coquand in 1999. The current version, originally known as Agda 2, is a full rewrite, which should be considered a new language that shares a name and tradition.",

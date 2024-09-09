@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+f-sharp", {
-      images: [{ kind: "logo", title: "F#" }],
+      images: [{ kind: "logo", title: "F#", url: "/images/plangs/f/f-sharp/logo.png" }],
       name: "F#",
       description:
         "F# (pronounced F sharp) is a general-purpose, high-level, strongly typed, multi-paradigm programming language that encompasses functional, imperative, and object-oriented programming methods. It is most often used as a cross-platform Common Language Infrastructure (CLI) language on .NET, but can also generate JavaScript and graphics processing unit (GPU) code.",

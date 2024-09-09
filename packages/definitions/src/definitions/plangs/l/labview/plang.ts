@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+labview", {
-      images: [{ kind: "logo", title: "LabVIEW" }],
+      images: [{ kind: "logo", title: "LabVIEW", url: "/images/plangs/l/labview/logo.jpg" }],
       name: "LabVIEW",
       description:
         "Laboratory Virtual Instrument Engineering Workbench (LabVIEW) is a graphical system design and development platform produced and distributed by National Instruments, based on a programming environment that uses a visual programming language. It is widely used for data acquisition, instrument control, and industrial automation. It provides tools for designing and deploying complex test and measurement systems.",

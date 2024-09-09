@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+scratchjr", {
-      images: [{ kind: "other", title: "ScratchJr" }],
+      images: [{ kind: "other", title: "ScratchJr", url: "/images/plangs/s/scratchjr/other.png" }],
       name: "ScratchJr",
       description:
         "ScratchJr is a visual programming language designed to introduce programming skills to children ages 5–7. The app is considered an introductory programming language. It is available as a free app for iOS, Android and Chromebook.",

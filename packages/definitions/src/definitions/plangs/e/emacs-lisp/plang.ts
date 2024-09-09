@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+emacs-lisp", {
-      images: [{ kind: "other", title: "Emacs Lisp" }],
+      images: [{ kind: "other", title: "Emacs Lisp", url: "/images/plangs/e/emacs-lisp/other.png" }],
       name: "Emacs Lisp",
       description:
         "Emacs Lisp is a  Lisp dialect made for Emacs.\nIt is used for implementing most of the editing functionality built into Emacs, the remainder being written in C, as is the Lisp interpreter.",

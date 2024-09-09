@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+perl", {
-      images: [{ kind: "logo", title: "Perl" }],
+      images: [{ kind: "logo", title: "Perl", url: "/images/plangs/p/perl/logo.png" }],
       name: "Perl",
       description:
         'Perl is a high-level, general-purpose, interpreted, dynamic programming language. Though Perl is not officially an acronym, there are various backronyms in use, including "Practical Extraction and Reporting Language".',

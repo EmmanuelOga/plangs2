@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+alice", {
-      images: [{ kind: "screenshot", title: "Alice" }],
+      images: [{ kind: "screenshot", title: "Alice", url: "/images/plangs/a/alice/screenshot.jpg" }],
       name: "Alice",
       description:
         "Alice is an object-based educational programming language with an integrated development environment (IDE). Alice uses a drag and drop environment to create computer animations using 3D models. The software was developed first at University of Virginia in 1994, then Carnegie Mellon (from 1997), by a research group led by Randy Pausch.",

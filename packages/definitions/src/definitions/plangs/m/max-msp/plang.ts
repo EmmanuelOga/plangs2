@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+max-msp", {
-      images: [{ kind: "logo", title: "Max" }],
+      images: [{ kind: "logo", title: "Max", url: "/images/plangs/m/max-msp/logo.jpg" }],
       name: "Max",
       description:
         "Max, also known as Max/MSP/Jitter, is a visual programming language for music and multimedia developed and maintained by San Francisco-based software company Cycling '74. Over its more than thirty-year history, it has been used by composers, performers, software designers, researchers, and artists to create recordings, performances, and installations.",

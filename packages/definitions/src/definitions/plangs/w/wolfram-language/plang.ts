@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+wolfram-language", {
-      images: [{ kind: "logo", title: "Wolfram Language" }],
+      images: [{ kind: "logo", title: "Wolfram Language", url: "/images/plangs/w/wolfram-language/logo.png" }],
       name: "Wolfram Language",
       description:
         "The Wolfram Language (/ˈwʊlfrəm/ WUUL-frəm) is a proprietary, general, very high-level multi-paradigm programming language developed by Wolfram Research. It emphasizes symbolic computation, functional programming, and rule-based programming and can employ arbitrary structures and data. It is the programming language of the mathematical symbolic computation program Mathematica.",

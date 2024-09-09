@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+vala", {
-      images: [{ kind: "logo", title: "Vala" }],
+      images: [{ kind: "logo", title: "Vala", url: "/images/plangs/v/vala/logo.png" }],
       name: "Vala",
       description: "Vala is an object-oriented programming language with a self-hosting compiler that generates C code and uses the GObject system.",
       websites: [

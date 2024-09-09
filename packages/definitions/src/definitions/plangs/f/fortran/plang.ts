@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+fortran", {
-      images: [{ kind: "other", title: "Fortran" }],
+      images: [{ kind: "other", title: "Fortran", url: "/images/plangs/f/fortran/other.jpg" }],
       name: "Fortran",
       description:
         "Fortran (/ˈfɔːrtræn/; formerly FORTRAN) is a third generation, compiled, imperative programming language that is especially suited to numeric computation and scientific computing.",

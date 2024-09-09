@@ -24,10 +24,15 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
     const kind = /logo/i.test(imgHref) ? "logo" : /screen/i.test(imgHref) ? "screenshot" : "other";
 
     const name = plang.plainKey;
-    const path = join(DEFINTIONS_PATH, plang.keyFolder, name.startsWith(".") ? `_${name.slice(1)}` : name, `${kind}${extname(imgHref)}`);
+    const path = join(
+      DEFINTIONS_PATH,
+      plang.keyFolder,
+      name.startsWith(".") ? `_${name.slice(1)}` : name,
+      `${kind}${extname(imgHref).toLowerCase()}`,
+    );
     Bun.write(path, imgBlob);
 
-    images.push({ kind, title: page.title, url: path.split("server/static")[1] });
+    images.push({ kind, title: page.title, url: `/images${path.split("src/definitions")[1]}` });
   }
 
   const data: NPlang["data"] = {
@@ -128,7 +133,7 @@ export async function genAllPlangs(g: PlangsGraph) {
     const name = plang.plainKey;
     const path = join(DEFINTIONS_PATH, plang.keyFolder, name.startsWith(".") ? `_${name.slice(1)}` : name, "plang.ts");
 
-    console.log("Generating", key, '->', path);
+    console.log("Generating", key, "->", path);
 
     const result = await Bun.write(path, code);
 

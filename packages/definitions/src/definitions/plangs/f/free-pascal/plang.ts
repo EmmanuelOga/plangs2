@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+free-pascal", {
-      images: [{ kind: "screenshot", title: "Free Pascal" }],
+      images: [{ kind: "screenshot", title: "Free Pascal", url: "/images/plangs/f/free-pascal/screenshot.png" }],
       name: "Free Pascal",
       description:
         "Free Pascal Compiler (FPC) is a compiler for the closely related programming-language dialects Pascal and Object Pascal. It is free software released under the GNU General Public License, with exception clauses that allow static linking against its runtime libraries and packages for any purpose in combination with any other software license.",

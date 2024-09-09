@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+gleam", {
-      images: [{ kind: "other", title: "Gleam" }],
+      images: [{ kind: "other", title: "Gleam", url: "/images/plangs/g/gleam/other.png" }],
       name: "Gleam",
       description:
         "Gleam is a general-purpose, concurrent, functional high-level programming language that compiles to Erlang or JavaScript source code.",

@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+shex", {
-      images: [{ kind: "logo", title: "ShEx - Shape Expressions" }],
+      images: [{ kind: "logo", title: "ShEx - Shape Expressions", url: "/images/plangs/s/shex/logo.png" }],
       name: "ShEx - Shape Expressions",
       description: "Shape Expressions (ShEx)  is a data modelling language for validating and describing a Resource Description Framework (RDF).",
       websites: [

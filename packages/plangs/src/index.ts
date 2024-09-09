@@ -19,7 +19,7 @@ export class PlangsGraph extends BaseGraph {
   readonly e_dialectOf = this.edgeMap<EDialectOf>("dialect", (from, to) => new EDialectOf(this, from, to));
   readonly e_implements = this.edgeMap<EImplementedWith>("implementation", (from, to) => new EImplementedWith(this, from, to));
   readonly e_influencedBy = this.edgeMap<EInfluence>("influence", (from, to) => new EInfluence(this, from, to));
-  readonly e_lib = this.edgeMap<EPlangLib>("lib", (from, to) => new EPlangLib(this, from, to));
+  readonly e_library = this.edgeMap<EPlangLib>("lib", (from, to) => new EPlangLib(this, from, to));
   readonly e_license = this.edgeMap<EHasLicense>("license", (from, to) => new EHasLicense(this, from, to));
   readonly e_paradigm = this.edgeMap<EPlangPara>("paradigm", (from, to) => new EPlangPara(this, from, to));
   readonly e_platform = this.edgeMap<ESupportsPlatf>("platform", (from, to) => new ESupportsPlatf(this, from, to));
@@ -124,7 +124,7 @@ export class NPlang extends NBase<
   }
 
   addLibraries(others: NLibrary["key"][]): this {
-    for (const other of others) this.graph.e_lib.connect(this.key, other);
+    for (const other of others) this.graph.e_library.connect(this.key, other);
     return this;
   }
 
@@ -170,6 +170,10 @@ export class NPlang extends NBase<
     return this.graph.e_influencedBy.adjFrom.getMap(this.key);
   }
 
+  get relLibraries(): Map<NLibrary["key"], EPlangLib> | undefined {
+    return this.graph.e_library.adjFrom.getMap(this.key);
+  }
+
   get relLicenses(): Map<NLicense["key"], EHasLicense> | undefined {
     return this.graph.e_license.adjFrom.getMap(this.key);
   }
@@ -178,20 +182,20 @@ export class NPlang extends NBase<
     return this.graph.e_paradigm.adjFrom.getMap(this.key);
   }
 
-  get relTags(): Map<NTag["key"], EPlangTag> | undefined {
-    return this.graph.e_tags.adjFrom.getMap(this.key);
+  get relPlatforms(): Map<NPlatform["key"], ESupportsPlatf> | undefined {
+    return this.graph.e_platform.adjFrom.getMap(this.key);
   }
 
-  get relTypeSystems(): Map<NTypeSystem["key"], EPlangTsys> | undefined {
-    return this.graph.e_tsys.adjFrom.getMap(this.key);
+  get relTags(): Map<NTag["key"], EPlangTag> | undefined {
+    return this.graph.e_tags.adjFrom.getMap(this.key);
   }
 
   get relTools(): Map<NTool["key"], EPlangTool> | undefined {
     return this.graph.e_tool.adjFrom.getMap(this.key);
   }
 
-  get relPlatforms(): Map<NPlatform["key"], ESupportsPlatf> | undefined {
-    return this.graph.e_platform.adjFrom.getMap(this.key);
+  get relTypeSystems(): Map<NTypeSystem["key"], EPlangTsys> | undefined {
+    return this.graph.e_tsys.adjFrom.getMap(this.key);
   }
 
   get relWrittenIn(): Map<NPlang["key"], EWrittenIn> | undefined {

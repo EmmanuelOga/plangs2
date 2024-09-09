@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+ceylon", {
-      images: [{ kind: "logo", title: "Ceylon" }],
+      images: [{ kind: "logo", title: "Ceylon", url: "/images/plangs/c/ceylon/logo.png" }],
       name: "Ceylon",
       description:
         "Ceylon was an object-oriented, strongly statically typed programming language with an emphasis on immutability, created by Red Hat. Ceylon programs run on the Java virtual machine (JVM), and could be compiled to JavaScript.\nThe language design focuses on source code readability, predictability, toolability, modularity, and metaprogrammability.",

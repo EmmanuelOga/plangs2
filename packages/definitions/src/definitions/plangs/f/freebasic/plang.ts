@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+freebasic", {
-      images: [{ kind: "logo", title: "FreeBASIC" }],
+      images: [{ kind: "logo", title: "FreeBASIC", url: "/images/plangs/f/freebasic/logo.gif" }],
       name: "FreeBASIC",
       description:
         "FreeBASIC is a free and open source multiplatform compiler and programming language based on BASIC licensed under the GNU GPL  for Microsoft Windows, protected-mode MS-DOS (DOS extender), Linux, FreeBSD and Xbox.  The Xbox version is no longer maintained.",

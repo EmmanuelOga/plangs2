@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+xojo", {
-      images: [{ kind: "logo", title: "Xojo" }],
+      images: [{ kind: "logo", title: "Xojo", url: "/images/plangs/x/xojo/logo.png" }],
       name: "Xojo",
       description:
         "The Xojo programming environment and programming language is developed and commercially marketed by Xojo, Inc. of Austin, Texas for software development targeting macOS, Microsoft Windows, Linux, iOS, Android, the Web and Raspberry Pi. Xojo uses a proprietary object-oriented language.",

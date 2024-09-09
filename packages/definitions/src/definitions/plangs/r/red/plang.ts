@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+red", {
-      images: [{ kind: "logo", title: "Red" }],
+      images: [{ kind: "logo", title: "Red", url: "/images/plangs/r/red/logo.png" }],
       name: "Red",
       description:
         "Red is a programming language designed to overcome the limitations of the programming language Rebol. Red was introduced in 2011 by Nenad Rakočević, and is both an imperative and functional programming language. Its syntax and general usage overlaps that of the interpreted Rebol language.",

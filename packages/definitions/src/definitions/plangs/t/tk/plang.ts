@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+tk", {
-      images: [{ kind: "other", title: "Tk" }],
+      images: [{ kind: "other", title: "Tk", url: "/images/plangs/t/tk/other.png" }],
       name: "Tk",
       description:
         "Tk is a cross-platform widget toolkit that provides a library of basic elements of GUI widgets for building a graphical user interface (GUI) in many programming languages. It is free and open-source software released under a BSD-style software license.",

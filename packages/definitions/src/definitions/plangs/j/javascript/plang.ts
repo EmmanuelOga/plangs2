@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+javascript", {
-      images: [{ kind: "other", title: "JavaScript" }],
+      images: [{ kind: "other", title: "JavaScript", url: "/images/plangs/j/javascript/other.png" }],
       name: "JavaScript",
       description:
         "JavaScript (/ˈdʒɑːvəskrɪpt/), often abbreviated as JS, is a programming language and core technology of the Web, alongside HTML and CSS. 99% of websites use JavaScript on the client side for webpage behavior.",

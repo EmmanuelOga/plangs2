@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+gdscript", {
-      images: [{ kind: "other", title: "Godot Engine" }],
+      images: [{ kind: "other", title: "Godot Engine", url: "/images/plangs/g/gdscript/other.png" }],
       name: "Godot Engine",
       description:
         "Godot (/ˈɡɒdoʊ/) is a cross-platform, free and open-source game engine released under the permissive MIT license. It was initially developed in Buenos Aires by Argentine software developers Juan Linietsky and Ariel Manzur for several companies in Latin America prior to its public release in 2014. The development environment runs on many platforms, and can export to several more. It is designed to create both 2D and 3D games targeting PC, mobile, and web platforms and can also be used to develop non-game software, including editors.",

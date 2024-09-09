@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+assemblyscript", {
-      images: [{ kind: "logo", title: "AssemblyScript" }],
+      images: [{ kind: "logo", title: "AssemblyScript", url: "/images/plangs/a/assemblyscript/logo.png" }],
       name: "AssemblyScript",
       description:
         "AssemblyScript is a TypeScript-based programming language that is optimized for, and statically compiled to, WebAssembly (currently using asc, the reference AssemblyScript compiler). Resembling ECMAScript and JavaScript, but with static types, the language is developed by the AssemblyScript Project with contributions from the AssemblyScript community.",

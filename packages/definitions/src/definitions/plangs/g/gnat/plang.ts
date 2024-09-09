@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+gnat", {
-      images: [{ kind: "other", title: "GNAT" }],
+      images: [{ kind: "other", title: "GNAT", url: "/images/plangs/g/gnat/other.png" }],
       name: "GNAT",
       description:
         "GNAT is a free-software compiler for the Ada programming language which forms part of the GNU Compiler Collection (GCC). It supports all versions of the language, i.e. Ada 2012, Ada 2005, Ada 95 and Ada 83. Originally its name was an acronym that stood for GNU NYU Ada Translator, but that name no longer applies. The front-end and run-time are written in Ada.",

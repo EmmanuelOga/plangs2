@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+tcsh", {
-      images: [{ kind: "other", title: "TENEX C Shell" }],
+      images: [{ kind: "other", title: "TENEX C Shell", url: "/images/plangs/t/tcsh/other.png" }],
       name: "TENEX C Shell",
       description:
         "tcsh (/ˌtiːˈsiːʃɛl/ “tee-see-shell”, /ˈtiːʃɛl/ “tee-shell”, or as “tee see ess aitch”, tcsh) is a Unix shell based on and backward compatible with the C shell (csh).",

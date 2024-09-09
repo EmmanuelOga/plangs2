@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+scala", {
-      images: [{ kind: "other", title: "Scala" }],
+      images: [{ kind: "other", title: "Scala", url: "/images/plangs/s/scala/other.png" }],
       name: "Scala",
       description:
         "Scala (/ˈskɑːlɑː/ SKAH-lah) is a strong statically typed high-level general-purpose programming language that supports both object-oriented programming and functional programming. Designed to be concise, many of Scala's design decisions are intended to address criticisms of Java.",

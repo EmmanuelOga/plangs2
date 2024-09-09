@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+clojure", {
-      images: [{ kind: "logo", title: "Clojure" }],
+      images: [{ kind: "logo", title: "Clojure", url: "/images/plangs/c/clojure/logo.png" }],
       name: "Clojure",
       description: "Clojure (/ˈkloʊʒər/, like closure) is a dynamic and functional dialect of the Lisp programming language on the Java platform.",
       websites: [

@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+circuitpython", {
-      images: [{ kind: "other", title: "CircuitPython" }],
+      images: [{ kind: "other", title: "CircuitPython", url: "/images/plangs/c/circuitpython/other.png" }],
       name: "CircuitPython",
       description:
         "CircuitPython is an open-source derivative of the MicroPython programming language targeted toward students and beginners. Development of CircuitPython is supported by Adafruit Industries. It is a software implementation of the Python 3 programming language, written in C. It has been ported to run on several modern microcontrollers.",

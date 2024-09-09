@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+c-sharp", {
-      images: [{ kind: "logo", title: "C#" }],
+      images: [{ kind: "logo", title: "C#", url: "/images/plangs/c/c-sharp/logo.png" }],
       name: "C#",
       description:
         "C# (/ˌsiː ˈʃɑːrp/ see SHARP) is a general-purpose high-level programming language supporting multiple paradigms. C# encompasses static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented (class-based), and component-oriented programming disciplines.",

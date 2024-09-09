@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+sass", {
-      images: [{ kind: "logo", title: "Sass" }],
+      images: [{ kind: "logo", title: "Sass", url: "/images/plangs/s/sass/logo.png" }],
       name: "Sass",
       description:
         "Sass (short for syntactically awesome style sheets) is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS). SassScript is the scripting language itself.",

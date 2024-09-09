@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+rakudo", {
-      images: [{ kind: "logo", title: "Rakudo" }],
+      images: [{ kind: "logo", title: "Rakudo", url: "/images/plangs/r/rakudo/logo.png" }],
       name: "Rakudo",
       description:
         "Rakudo is a Raku compiler targeting MoarVM, and the Java Virtual Machine, that implements the Raku specification. It is currently the only major Raku compiler in active development.",
