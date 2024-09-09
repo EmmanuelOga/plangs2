@@ -3,15 +3,16 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+clojure", {
-      images: [{ kind: "logo", title: "Clojure", url: "/images/plangs/c/clojure/logo.png" }],
       name: "Clojure",
       description: "Clojure (/ˈkloʊʒər/, like closure) is a dynamic and functional dialect of the Lisp programming language on the Java platform.",
+      firstAppeared: "2007-01-01",
+      extensions: [".clj", ".cljc", ".cljd", ".cljr", ".cljs", ".edn"],
       websites: [
         { href: "https://clojure.org/", title: "clojure.org", kind: "homepage" },
         { href: "https://en.wikipedia.org/wiki/Clojure_(programming_language)", title: "Clojure", kind: "wikipedia" },
       ],
-      extensions: [".clj", ".cljc", ".cljd", ".cljr", ".cljs", ".edn"],
       releases: [{ version: "1.11.2", date: "2024-01-01" }],
+      images: [{ kind: "logo", title: "Clojure", url: "/images/plangs/c/clojure/logo.png" }],
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy([

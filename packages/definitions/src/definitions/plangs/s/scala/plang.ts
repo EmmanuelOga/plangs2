@@ -3,16 +3,17 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+scala", {
-      images: [{ kind: "other", title: "Scala", url: "/images/plangs/s/scala/other.png" }],
       name: "Scala",
       description:
         "Scala (/ˈskɑːlɑː/ SKAH-lah) is a strong statically typed high-level general-purpose programming language that supports both object-oriented programming and functional programming. Designed to be concise, many of Scala's design decisions are intended to address criticisms of Java.",
+      firstAppeared: "2004-01-01",
+      extensions: [".sc", ".scala"],
       websites: [
         { href: "http://www.scala-lang.org/", title: "www.scala-lang.org", kind: "homepage" },
         { href: "https://en.wikipedia.org/wiki/Scala_programming_language", title: "Scala", kind: "wikipedia" },
       ],
-      extensions: [".sc", ".scala"],
       releases: [{ version: "3.4.0", date: "2024-01-01" }],
+      images: [{ kind: "other", title: "Scala", url: "/images/plangs/s/scala/other.png" }],
     })
     .addInfluencedBy([
       "pl+common-lisp",

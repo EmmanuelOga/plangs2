@@ -3,7 +3,6 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+ironruby", {
-      images: [],
       name: "IronRuby",
       description:
         "IronRuby is an implementation of the Ruby programming language targeting Microsoft .NET Framework. It is implemented on top of the Dynamic Language Runtime (DLR), a library running on top of the Common Language Infrastructure that provides dynamic typing and dynamic method dispatch, among other things, for dynamic languages.",
@@ -11,7 +10,6 @@ export function define(g: PlangsGraph) {
         { href: "http://www.ironruby.net/", title: "www.ironruby.net", kind: "homepage" },
         { href: "https://en.wikipedia.org/wiki/IronRuby", title: "IronRuby", kind: "wikipedia" },
       ],
-      extensions: [],
       releases: [
         { version: "1.0", date: "2010-01-01" },
         { version: "1.1.3", date: "2011-01-01" },

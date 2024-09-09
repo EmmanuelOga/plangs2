@@ -165,6 +165,8 @@ export const mergeLinks = (target: Link[], src: Link[]) => arrayMerge(target, sr
 
 class InfoBox {
   summary = "";
+  firstAppeared?: StrDate;
+
   readonly releases: { version: string; date?: StrDate }[] = [];
   readonly extensions: string[] = [];
 
@@ -279,7 +281,10 @@ function processEntry($: cheerio.CheerioAPI, key: string, val: cheerio.Cheerio<E
     .toArray();
   const text = cleanText(val.text());
 
-  if (key.includes("release") || key.includes("appear") || key.includes("version") || key.includes("date")) {
+  if (key.includes("appear")) {
+    const date = parseDate(text);
+    if (date) box.firstAppeared = date;
+  } else if (key.includes("release") || key.includes("version") || key.includes("date")) {
     const [date, version] = [parseDate(text), parseVersion(text)];
     if (version) arrayMerge(box.releases, [{ version, date: date as StrDate }], (a, b) => a.version === b.version);
   } else if (key.includes("extension")) {
@@ -319,7 +324,7 @@ function parseVersion(str: string): string | undefined {
   return str.match(/(\d+\.\d+(\.\d+)*)/)?.[0];
 }
 
-function parseDate(str: string): string | undefined {
+function parseDate(str: string): StrDate | undefined {
   return (
     validateDate(str.match(/(\d{4}).(\d{2}).(\d{2})/)?.slice(1)) ??
     validateDate(str.match(/(\d+)\s+([a-zA-Z]+)\s+(\d{4})/)?.slice(1)) ??
@@ -336,12 +341,12 @@ function parseMonth(str: string): number {
   return 1;
 }
 
-function validateDate(val: string[] | undefined): string | undefined {
+function validateDate(val: string[] | undefined): StrDate | undefined {
   if (!val) return undefined;
   const [year, month, day] = val;
   const [y, m, d] = [Number.parseInt(year), /a-zA-Z/.test(month) ? parseMonth(month) : Number.parseInt(month ?? 1), Number.parseInt(day ?? 1)];
-  if (y < 1900 || y > 2100 || m < 1 || m > 12 || d < 1 || d > 31) return undefined;
-  return `${year}-${`${m}`.padStart(2, "0")}-${`${d}`.padStart(2, "0")}`;
+  if (y < 1940 || y > 2100 || m < 1 || m > 12 || d < 1 || d > 31) return undefined;
+  return `${y}-${`${m}`.padStart(2, "0")}-${`${d}`.padStart(2, "0")}`;
 }
 
 function parseExtensions(str: string): string[] {

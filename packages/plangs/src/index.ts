@@ -86,6 +86,7 @@ export class NPlang extends NBase<
     isTranspiler: boolean;
     mainstream: boolean;
     releases: Release[];
+    firstAppeared: StrDate;
   }
 > {
   addExtensions(exts: string[]): this {
@@ -474,6 +475,6 @@ export interface Image {
  * A serializable date string.
  */
 export type year = number;
-export type month = number;
-export type day = number;
+export type month = string; // 0 padded
+export type day = string; // 0 padded
 export type StrDate = `${year}-${month}-${day}`;

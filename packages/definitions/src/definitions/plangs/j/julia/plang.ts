@@ -3,19 +3,20 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+julia", {
-      images: [{ kind: "logo", title: "Julia", url: "/images/plangs/j/julia/logo.png" }],
       name: "Julia",
       description:
         "Julia is a high-level, general-purpose dynamic programming language, most commonly used for numerical analysis and computational science. Distinctive aspects of Julia's design include a type system with parametric polymorphism and the use of multiple dispatch as a core programming paradigm, efficient garbage collection, and a just-in-time (JIT) compiler (with support for ahead-of-time compilation).",
+      firstAppeared: "2012-01-01",
+      extensions: [".jl"],
       websites: [
         { href: "https://julialang.org/", title: "JuliaLang.org", kind: "homepage" },
         { href: "https://en.wikipedia.org/wiki/Julia_programming_language", title: "Julia", kind: "wikipedia" },
       ],
-      extensions: [".jl"],
       releases: [
         { version: "1.10.5", date: "2024-01-01" },
         { version: "1.11.0", date: "2024-01-01" },
       ],
+      images: [{ kind: "logo", title: "Julia", url: "/images/plangs/j/julia/logo.png" }],
     })
     .addInfluencedBy([
       "pl+c",

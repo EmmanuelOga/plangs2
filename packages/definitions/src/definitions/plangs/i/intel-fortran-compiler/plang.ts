@@ -3,7 +3,6 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+intel-fortran-compiler", {
-      images: [],
       name: "Intel Fortran Compiler",
       description:
         "Intel Fortran Compiler, as part of Intel OneAPI HPC toolkit, is a group of Fortran compilers from Intel for Windows, macOS, and Linux.",
@@ -15,7 +14,6 @@ export function define(g: PlangsGraph) {
         },
         { href: "https://en.wikipedia.org/wiki/Intel_Fortran_Compiler", title: "Intel Fortran Compiler", kind: "wikipedia" },
       ],
-      extensions: [],
       releases: [{ version: "2023.2.1", date: "2023-01-01" }],
     })
     .addImplements(["pl+fortran"])

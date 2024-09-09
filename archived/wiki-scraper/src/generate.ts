@@ -36,13 +36,21 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
   }
 
   const data: NPlang["data"] = {
-    images,
     name: page.title,
     description: page.description,
-    websites: page.websites.sort(),
+    firstAppeared: page.infobox.firstAppeared,
     extensions: page.infobox.extensions.sort(),
+    websites: page.websites.sort(),
     releases: page.infobox.releases.sort(),
+    images,
   };
+
+  // biome-ignore lint/suspicious/noExplicitAny: we want to remove _any_ empty values.
+  const generic = data as any;
+  for (const [key, value] of Object.entries(generic)) {
+    if (!value) delete generic[key];
+    if (Array.isArray(value) && value.length === 0) delete generic[key];
+  }
 
   g.n_plang.set(page.key, data);
 

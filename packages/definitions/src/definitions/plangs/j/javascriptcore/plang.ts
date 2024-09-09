@@ -3,7 +3,6 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.n_plang
     .set("pl+javascriptcore", {
-      images: [],
       name: "WebKit",
       description:
         "WebKit is a browser engine primarily used in Apple's Safari web browser, as well as all web browsers on iOS and iPadOS. WebKit is also used by the PlayStation consoles starting with the PS3, the Tizen mobile operating systems, the Amazon Kindle e-book reader, Nintendo consoles starting with the 3DS Internet Browser, and the discontinued BlackBerry Browser.",
@@ -11,8 +10,6 @@ export function define(g: PlangsGraph) {
         { href: "http://webkit.org/", title: "webkit.org", kind: "homepage" },
         { href: "https://en.wikipedia.org/wiki/JavaScriptCore", title: "WebKit", kind: "wikipedia" },
       ],
-      extensions: [],
-      releases: [],
     })
     .addImplements(["pl+javascript"])
     .addLicenses(["lic+bsd"])

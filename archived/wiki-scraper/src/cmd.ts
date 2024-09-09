@@ -158,8 +158,12 @@ async function test() {
     const page = new WikiPage(url, body);
     if (!page.infobox) continue;
 
-    await toPlang(g, page, new Set());
-  }
+    const plang = await toPlang(g, page, new Set());
 
-  await genAllPlangs(g);
+    if (!plang) {
+      console.log("Failed to extract:", url.href);
+    } else {
+      console.log(plang.key, plang.data);
+    }
+  }
 }
