@@ -11,7 +11,7 @@ export const DEFINTIONS_PATH = join(import.meta.dir, "../../../packages/definiti
 export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang["key"]>): Promise<NPlang | undefined> {
   if (!page.infobox || !page.key) return;
 
-  const plang = g.n_plang.get(page.key);
+  const plang = g.n_plangs.get(page.key);
 
   console.log("Processing", plang.key);
 
@@ -52,7 +52,7 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
     if (Array.isArray(value) && value.length === 0) delete generic[key];
   }
 
-  g.n_plang.set(page.key, data);
+  g.n_plangs.set(page.key, data);
 
   ////////////////////////////////////////////////////////////////////////////////
 
@@ -64,11 +64,11 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
     }
   }
 
-  const keys_license = [...findMatching(page.infobox.licenses, g.n_license)].sort();
-  const keys_paradigm = [...findMatching(page.infobox.paradigms, g.n_paradigm)].sort();
-  const keys_platform = [...findMatching(page.infobox.platforms, g.n_platform)].sort();
+  const keys_license = [...findMatching(page.infobox.licenses, g.n_licenses)].sort();
+  const keys_paradigm = [...findMatching(page.infobox.paradigms, g.n_paradigms)].sort();
+  const keys_platform = [...findMatching(page.infobox.platforms, g.n_platforms)].sort();
   const keys_tags = [...findMatching(page.infobox.tags, g.n_tags)].sort();
-  const keys_tsystem = [...findMatching(page.infobox.typeSystem, g.n_tsystem)].sort();
+  const keys_tsystem = [...findMatching(page.infobox.typeSystem, g.n_tsystems)].sort();
 
   plang.addLicenses(keys_license).addParadigms(keys_paradigm).addPlatforms(keys_platform).addTags(keys_tags).addTypeSystems(keys_tsystem);
 
@@ -105,26 +105,26 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
 export function generateCode(plang: NPlang): string {
   const relations: string[] = [];
 
-  function addRel(methodName: string, keys?: Iterable<string>) {
-    if (!keys) return;
+  function addRel(methodName: string, keys: string[]) {
+    if (keys.length === 0) return;
     relations.push(`\n    .${methodName}(${JSON.stringify([...keys].sort())})`);
   }
 
-  addRel("addDialectOf", plang.relDialectOf?.keys());
-  addRel("addImplements", plang.relImplements?.keys());
-  addRel("addInfluencedBy", plang.relInfluencedBy?.keys());
-  addRel("addLicenses", plang.relLicenses?.keys());
-  addRel("addParadigms", plang.relParadigms?.keys());
-  addRel("addPlatforms", plang.relPlatforms?.keys());
-  addRel("addTags", plang.relTags?.keys());
-  addRel("addTypeSystems", plang.relTypeSystems?.keys());
-  addRel("addWrittenIn", plang.relWrittenIn?.keys());
+  addRel("addDialectOf", plang.relDialectOf.keys);
+  addRel("addImplements", plang.relImplements.keys);
+  addRel("addInfluencedBy", plang.relInfluencedBy.keys);
+  addRel("addLicenses", plang.relLicenses.keys);
+  addRel("addParadigms", plang.relParadigms.keys);
+  addRel("addPlatforms", plang.relPlatforms.keys);
+  addRel("addTags", plang.relTags.keys);
+  addRel("addTypeSystems", plang.relTypeSystems.keys);
+  addRel("addWrittenIn", plang.relWrittenIn.keys);
 
   const code = `import type { PlangsGraph } from "@plangs/plangs";
 
   export function define(g: PlangsGraph) {
 
-    g.n_plang.set(${JSON.stringify(plang.key)}, ${JSON.stringify(plang.data)})${relations.join("")}
+    g.n_plangs.set(${JSON.stringify(plang.key)}, ${JSON.stringify(plang.data)})${relations.join("")}
 
   }
   `;
@@ -133,13 +133,14 @@ export function generateCode(plang: NPlang): string {
 }
 
 export async function genAllPlangs(g: PlangsGraph) {
-  for (const [key, plang] of [...g.n_plang].sort()) {
+  for (const [key, plang] of [...g.n_plangs].sort()) {
     const code = generateCode(plang);
 
     await mkdir(join(DEFINTIONS_PATH, plang.keyFolder), { recursive: true }).catch((_) => {});
 
     const name = plang.plainKey;
-    const path = join(DEFINTIONS_PATH, plang.keyFolder, name.startsWith(".") ? `_${name.slice(1)}` : name, "plang.ts");
+    const escaped = name.startsWith(".") ? `_${name.slice(1)}` : name;
+    const path = join(DEFINTIONS_PATH, plang.keyFolder, escaped, `${escaped}.ts`);
 
     console.log("Generating", key, "->", path);
 

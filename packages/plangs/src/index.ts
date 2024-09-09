@@ -1,18 +1,19 @@
 import { BaseGraph, Edge, Node } from "@plangs/graph";
 
 import { arrayMerge, keywordsToRegexp, verify } from "./util";
+import type { PlangFilters } from "./filter";
 
 export class PlangsGraph extends BaseGraph {
   // Node tables.
 
-  readonly n_library = this.nodeMap<NLibrary>("lib", (key) => new NLibrary(this, key));
-  readonly n_license = this.nodeMap<NLicense>("lic", (key) => new NLicense(this, key));
-  readonly n_paradigm = this.nodeMap<NParadigm>("para", (key) => new NParadigm(this, key));
-  readonly n_plang = this.nodeMap<NPlang>("pl", (key) => new NPlang(this, key));
-  readonly n_platform = this.nodeMap<NPlatform>("platf", (key) => new NPlatform(this, key));
+  readonly n_libraries = this.nodeMap<NLibrary>("lib", (key) => new NLibrary(this, key));
+  readonly n_licenses = this.nodeMap<NLicense>("lic", (key) => new NLicense(this, key));
+  readonly n_paradigms = this.nodeMap<NParadigm>("para", (key) => new NParadigm(this, key));
+  readonly n_plangs = this.nodeMap<NPlang>("pl", (key) => new NPlang(this, key));
+  readonly n_platforms = this.nodeMap<NPlatform>("platf", (key) => new NPlatform(this, key));
   readonly n_tags = this.nodeMap<NTag>("tag", (key) => new NTag(this, key));
-  readonly n_tool = this.nodeMap<NTool>("tool", (key) => new NTool(this, key));
-  readonly n_tsystem = this.nodeMap<NTypeSystem>("tsys", (key) => new NTypeSystem(this, key));
+  readonly n_tools = this.nodeMap<NTool>("tool", (key) => new NTool(this, key));
+  readonly n_tsystems = this.nodeMap<NTypeSystem>("tsys", (key) => new NTypeSystem(this, key));
 
   // Edge Tables.
 
@@ -27,6 +28,17 @@ export class PlangsGraph extends BaseGraph {
   readonly e_tool = this.edgeMap<EPlangTool>("tool", (from, to) => new EPlangTool(this, from, to));
   readonly e_tsys = this.edgeMap<EPlangTsys>("tsys", (from, to) => new EPlangTsys(this, from, to));
   readonly e_writtenIn = this.edgeMap<EWrittenIn>("written-in", (from, to) => new EWrittenIn(this, from, to));
+
+  // Filter values.
+
+  /** Find all plangs that match the given filters. */
+  plangs(f: PlangFilters): NPlang["key"][] {
+    const keys: NPlang["key"][] = [];
+    for (const pl of this.n_plangs.values()) {
+      if (f.matchAll(pl)) keys.push(pl.key);
+    }
+    return keys;
+  }
 }
 
 export interface CommonNodeData {
@@ -295,11 +307,11 @@ export class EDialectOf extends EBase<NPlang, NPlang, CommonEdgeData> {
   }
 
   get fromPlang(): NPlang | undefined {
-    return this.graph.n_plang.get(this.from);
+    return this.graph.n_plangs.get(this.from);
   }
 
   get toPlang(): NPlang | undefined {
-    return this.graph.n_plang.get(this.to);
+    return this.graph.n_plangs.get(this.to);
   }
 }
 
@@ -309,11 +321,11 @@ export class EHasLicense extends EBase<NPlang, NLicense, CommonEdgeData> {
   }
 
   get plang(): NPlang | undefined {
-    return this.graph.n_plang.get(this.from);
+    return this.graph.n_plangs.get(this.from);
   }
 
   get license(): NLicense | undefined {
-    return this.graph.n_license.get(this.to);
+    return this.graph.n_licenses.get(this.to);
   }
 }
 
@@ -323,11 +335,11 @@ export class EImplementedWith extends EBase<NPlang, NPlang, CommonEdgeData> {
   }
 
   get fromPlang(): NPlang | undefined {
-    return this.graph.n_plang.get(this.from);
+    return this.graph.n_plangs.get(this.from);
   }
 
   get toPlang(): NPlang | undefined {
-    return this.graph.n_plang.get(this.to);
+    return this.graph.n_plangs.get(this.to);
   }
 }
 
@@ -337,11 +349,11 @@ export class EInfluence extends EBase<NPlang, NPlang, CommonEdgeData> {
   }
 
   get fromPlang(): NPlang | undefined {
-    return this.graph.n_plang.get(this.from);
+    return this.graph.n_plangs.get(this.from);
   }
 
   get toPlang(): NPlang | undefined {
-    return this.graph.n_plang.get(this.to);
+    return this.graph.n_plangs.get(this.to);
   }
 }
 
@@ -351,11 +363,11 @@ export class EPlangPara extends EBase<NPlang, NParadigm, CommonEdgeData> {
   }
 
   get plang(): NPlang | undefined {
-    return this.graph.n_plang.get(this.from);
+    return this.graph.n_plangs.get(this.from);
   }
 
   get paradigm(): NParadigm | undefined {
-    return this.graph.n_paradigm.get(this.to);
+    return this.graph.n_paradigms.get(this.to);
   }
 }
 
@@ -365,11 +377,11 @@ export class EPlangTsys extends EBase<NPlang, NTypeSystem, CommonEdgeData> {
   }
 
   get plang(): NPlang | undefined {
-    return this.graph.n_plang.get(this.from);
+    return this.graph.n_plangs.get(this.from);
   }
 
   get typeSystem(): NTypeSystem | undefined {
-    return this.graph.n_tsystem.get(this.to);
+    return this.graph.n_tsystems.get(this.to);
   }
 }
 
@@ -379,11 +391,11 @@ export class ESupportsPlatf extends EBase<NPlang, NPlatform, CommonEdgeData> {
   }
 
   get plang(): NPlang | undefined {
-    return this.graph.n_plang.get(this.from);
+    return this.graph.n_plangs.get(this.from);
   }
 
   get platform(): NPlatform | undefined {
-    return this.graph.n_platform.get(this.to);
+    return this.graph.n_platforms.get(this.to);
   }
 }
 
@@ -393,11 +405,11 @@ export class EPlangLib extends EBase<NPlang, NLibrary, CommonEdgeData> {
   }
 
   get plang(): NPlang | undefined {
-    return this.graph.n_plang.get(this.from);
+    return this.graph.n_plangs.get(this.from);
   }
 
   get library(): NLibrary | undefined {
-    return this.graph.n_library.get(this.to);
+    return this.graph.n_libraries.get(this.to);
   }
 }
 
@@ -407,7 +419,7 @@ export class EPlangTag extends EBase<NPlang, NTag, CommonEdgeData> {
   }
 
   get plang(): NPlang | undefined {
-    return this.graph.n_plang.get(this.from);
+    return this.graph.n_plangs.get(this.from);
   }
 
   get tag(): NTag | undefined {
@@ -421,11 +433,11 @@ export class EPlangTool extends EBase<NPlang, NTool, CommonEdgeData> {
   }
 
   get plang(): NPlang | undefined {
-    return this.graph.n_plang.get(this.from);
+    return this.graph.n_plangs.get(this.from);
   }
 
   get tool(): NTool | undefined {
-    return this.graph.n_tool.get(this.to);
+    return this.graph.n_tools.get(this.to);
   }
 }
 
@@ -435,11 +447,11 @@ export class EWrittenIn extends EBase<NPlang, NPlang, CommonEdgeData> {
   }
 
   get fromPlang(): NPlang | undefined {
-    return this.graph.n_plang.get(this.from);
+    return this.graph.n_plangs.get(this.from);
   }
 
   get toPlang(): NPlang | undefined {
-    return this.graph.n_plang.get(this.to);
+    return this.graph.n_plangs.get(this.to);
   }
 }
 
@@ -466,6 +478,10 @@ class Rel<T extends string, E extends EBase<Any, Any, Any>> {
     if (!m) return false;
     if (values.size === 0) return true;
     return verify(values, mode, (v) => m.has(v as T));
+  }
+
+  get keys(): T[] {
+    return this.map ? [...this.map.keys()] : [];
   }
 
   get edges(): E[] {

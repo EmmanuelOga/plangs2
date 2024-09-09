@@ -3,7 +3,7 @@ import type { Element } from "domhandler";
 
 import type { Link, NPlang, StrDate } from "@plangs/plangs/index";
 import { arrayMerge } from "@plangs/plangs/util";
-import { PL_WHITELIST } from "./filter";
+import { PL_WHITELIST } from "./whitelist";
 
 export const BASE_URL = new URL("https://en.wikipedia.org");
 

@@ -35,27 +35,27 @@ export class PlangFilters {
   };
 
   matchAll(pl: NPlang): boolean {
-    return (
-      this.matchesPlangName(pl) &&
-      this.matchesFirstAppearedMinDate(pl) &&
-      this.matchesReleaseMinDate(pl) &&
-      this.machesHasLogo(pl) &&
-      this.matchesHasReleases(pl) &&
-      this.matchesHasWebsites(pl) &&
-      this.machesHasWikipedia(pl) &&
-      this.machtesIsTranspiler(pl) &&
-      this.matchesIsMainstream(pl) &&
-      this.matchesDialectOf(pl) &&
-      this.matchesImplements(pl) &&
-      this.matchesInfluencedBy(pl) &&
-      this.matchesLicenses(pl) &&
-      this.matchesParadigms(pl) &&
-      this.matchesPlangExts(pl) &&
-      this.matchesPlatforms(pl) &&
-      this.matchesTags(pl) &&
-      this.matchesTypeSystems(pl) &&
-      this.matchesWrittenIn(pl)
-    );
+    if (!this.matchesPlangName(pl)) return false;
+    // if (!this.matchesFirstAppearedMinDate(pl)) return false;
+    // if (!this.matchesReleaseMinDate(pl)) return false;
+    // if (!this.machesHasLogo(pl)) return false;
+    // if (!this.matchesHasReleases(pl)) return false;
+    // if (!this.matchesHasWebsites(pl)) return false;
+    // if (!this.machesHasWikipedia(pl)) return false;
+    // if (!this.machtesIsTranspiler(pl)) return false;
+    // if (!this.matchesIsMainstream(pl)) return false;
+    // if (!this.matchesDialectOf(pl)) return false;
+    // if (!this.matchesImplements(pl)) return false;
+    // if (!this.matchesInfluencedBy(pl)) return false;
+    // if (!this.matchesLicenses(pl)) return false;
+    // if (!this.matchesParadigms(pl)) return false;
+    // if (!this.matchesPlangExts(pl)) return false;
+    // if (!this.matchesPlatforms(pl)) return false;
+    // if (!this.matchesTags(pl)) return false;
+    // if (!this.matchesTypeSystems(pl)) return false;
+    // if (!this.matchesWrittenIn(pl)) return false;
+
+    return true;
   }
 
   matchesPlangName(pl: NPlang): boolean {
