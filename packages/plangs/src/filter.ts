@@ -1,82 +1,139 @@
-/**
- * Used to filter programming languages.
- */
-export type Filter = {
-  mode: "all" | "any";
-  values: Set<string>;
-};
-
-type Filters = {
-  // String filters are used if the string is non-empty.
-  plangName: string;
-  releaseMinDate: string;
-
-  // Boolean filters are used if true.
-
-  hasLogo: boolean;
-  hasReleases: boolean;
-  hasWebsite: boolean;
-  hasWikipedia: boolean;
-  transpiler: boolean;
-
-  // Value filters are used if the set is non-empty.
-
-  dialectOf: Filter;
-  implementedWith: Filter;
-  influenced: Filter;
-
-  licenses: Filter;
-  paradigm: Filter;
-  plangExt: Filter;
-  platform: Filter;
-  standardFor: Filter;
-  typeSystems: Filter;
-};
+import { type NPlang, type StrDate, emptyFilter } from ".";
 
 /**
  * Criteria to filter programming languages.
  */
 export class PlangFilters {
-  values: Filters;
+  values = {
+    // String filters always match if empty.
 
-  /**
-   * Return a set of programming languages that match the given filters.
-   */
-  filterPlangs(filters: PlangFilters): Set<NPlang["key"]> {
-    const result = new Set<NPlang["key"]>();
-    for (const [nid, pl] of this.n_plang) {
-      if (
-        (filters.plangName.length > 0 && !pl.matchesName(filters.plangName)) ||
-        (filters.transpiler && !pl.data.isTranspiler) ||
-        (filters.hasLogo && !pl.hasLogo()) ||
-        (filters.hasReleases && !pl.hasReleases(filters.releaseMinDate)) ||
-        (filters.hasWebsite && !pl.hasWebsites()) ||
-        (filters.hasWikipedia && !pl.hasWikipedia()) ||
-        (filters.plangExt.values.size > 0 && !pl.hasExt(filters.plangExt)) ||
-        (filters.dialectOf.values.size > 0 && !relMatchesFilter(filters.dialectOf, pl.relDialects)) ||
-        (filters.implementedWith.values.size > 0 && !relMatchesFilter(filters.implementedWith, pl.relImplementedWith)) ||
-        (filters.influenced.values.size > 0 && !relMatchesFilter(filters.influenced, pl.relInfluenced)) ||
-        (filters.licenses.values.size > 0 && !relMatchesFilter(filters.licenses, pl.relLicenses)) ||
-        (filters.paradigm.values.size > 0 && !relMatchesFilter(filters.paradigm, pl.relParadigms)) ||
-        (filters.platform.values.size > 0 && !relMatchesFilter(filters.platform, pl.relPlatforms)) ||
-        (filters.typeSystems.values.size > 0 && !relMatchesFilter(filters.typeSystems, pl.relTypeSystems))
-      ) {
-        continue;
-      }
-      result.add(nid);
-    }
+    plangName: undefined as RegExp | undefined,
+    firstAppearedMinDate: undefined as StrDate | undefined,
+    releaseMinDate: undefined as StrDate | undefined,
 
-    return result;
+    // Boolean filters always match if false.
+
+    hasLogo: false,
+    hasReleases: false,
+    hasWebsites: false,
+    hasWikipedia: false,
+    isTranspiler: false,
+    isMainstream: false,
+
+    // Value filters always match if empty.
+
+    dialectOf: emptyFilter(),
+    implements: emptyFilter(),
+    influencedBy: emptyFilter(),
+    licenses: emptyFilter(),
+    paradigms: emptyFilter(),
+    plangExts: emptyFilter(),
+    platforms: emptyFilter(),
+    tags: emptyFilter(),
+    typeSystems: emptyFilter(),
+    writtenIn: emptyFilter(),
+  };
+
+  matchAll(pl: NPlang): boolean {
+    return (
+      this.matchesPlangName(pl) &&
+      this.matchesFirstAppearedMinDate(pl) &&
+      this.matchesReleaseMinDate(pl) &&
+      this.machesHasLogo(pl) &&
+      this.matchesHasReleases(pl) &&
+      this.matchesHasWebsites(pl) &&
+      this.machesHasWikipedia(pl) &&
+      this.machtesIsTranspiler(pl) &&
+      this.matchesIsMainstream(pl) &&
+      this.matchesDialectOf(pl) &&
+      this.matchesImplements(pl) &&
+      this.matchesInfluencedBy(pl) &&
+      this.matchesLicenses(pl) &&
+      this.matchesParadigms(pl) &&
+      this.matchesPlangExts(pl) &&
+      this.matchesPlatforms(pl) &&
+      this.matchesTags(pl) &&
+      this.matchesTypeSystems(pl) &&
+      this.matchesWrittenIn(pl)
+    );
   }
-}
 
-function relValues<F, T>(rel: Map<string, F> | undefined, getter: (e: F) => T | undefined): T[] {
-  return Array.from(rel?.values() ?? [])
-    .map(getter)
-    .filter(Boolean) as T[];
-}
+  matchesPlangName(pl: NPlang): boolean {
+    const { plangName } = this.values;
+    return !plangName || pl.matchesName(plangName);
+  }
 
-function relMatchesFilter({ values, mode }: Filter, relationship: { has: (key: any) => boolean } | undefined): boolean {
-  if (!relationship) return false;
-  return verify(values, mode, (v) => relationship.has(v));
+  matchesFirstAppearedMinDate(pl: NPlang): boolean {
+    const { firstAppearedMinDate } = this.values;
+    return !firstAppearedMinDate || pl.firstAppearedAfter(firstAppearedMinDate);
+  }
+
+  matchesReleaseMinDate(pl: NPlang): boolean {
+    const { releaseMinDate } = this.values;
+    return !releaseMinDate || pl.hasReleases(releaseMinDate);
+  }
+
+  machesHasLogo(pl: NPlang): boolean {
+    return !this.values.hasLogo || pl.hasLogo;
+  }
+
+  matchesHasReleases(pl: NPlang): boolean {
+    return !this.values.hasReleases || pl.hasReleases();
+  }
+
+  matchesHasWebsites(pl: NPlang): boolean {
+    return !this.values.hasWebsites || pl.hasWebsites;
+  }
+
+  machesHasWikipedia(pl: NPlang): boolean {
+    return !this.values.hasWikipedia || pl.hasWikipedia;
+  }
+
+  machtesIsTranspiler(pl: NPlang): boolean {
+    return !this.values.isTranspiler || pl.data.isTranspiler === true;
+  }
+
+  matchesIsMainstream(pl: NPlang): boolean {
+    return !this.values.isMainstream || pl.data.isMainstream === true;
+  }
+
+  matchesDialectOf(pl: NPlang): boolean {
+    return pl.relDialectOf.matches(this.values.dialectOf);
+  }
+
+  matchesImplements(pl: NPlang): boolean {
+    return pl.relImplements.matches(this.values.implements);
+  }
+
+  matchesInfluencedBy(pl: NPlang): boolean {
+    return pl.relInfluencedBy.matches(this.values.influencedBy);
+  }
+
+  matchesLicenses(pl: NPlang): boolean {
+    return pl.relLicenses.matches(this.values.licenses);
+  }
+
+  matchesParadigms(pl: NPlang): boolean {
+    return pl.relParadigms.matches(this.values.paradigms);
+  }
+
+  matchesPlangExts(pl: NPlang): boolean {
+    return pl.hasExtensions(this.values.plangExts);
+  }
+
+  matchesPlatforms(pl: NPlang): boolean {
+    return pl.relPlatforms.matches(this.values.platforms);
+  }
+
+  matchesTags(pl: NPlang): boolean {
+    return pl.relTags.matches(this.values.tags);
+  }
+
+  matchesTypeSystems(pl: NPlang): boolean {
+    return pl.relTypeSystems.matches(this.values.typeSystems);
+  }
+
+  matchesWrittenIn(pl: NPlang): boolean {
+    return pl.relWrittenIn.matches(this.values.writtenIn);
+  }
 }

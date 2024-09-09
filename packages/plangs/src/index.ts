@@ -55,12 +55,12 @@ export abstract class NBase<Key extends string, Data extends CommonNodeData> ext
   }
 
   /** Has any website, except wikipedia pages. */
-  hasWebsites(): boolean {
+  get hasWebsites(): boolean {
     if (!this.data.websites) return false;
     return this.data.websites.some((w) => w.kind !== "wikipedia");
   }
 
-  hasWikipedia(): boolean {
+  get hasWikipedia(): boolean {
     if (!this.data.websites) return false;
     return this.data.websites.some((w) => w.kind === "wikipedia");
   }
@@ -70,10 +70,9 @@ export abstract class NBase<Key extends string, Data extends CommonNodeData> ext
     return keywordsToRegexp(this.data.keywords).test(str);
   }
 
-  matchesName(name?: string): boolean {
-    if (!name || !this.data.name) return false;
-    // TODO: persist these regexes.
-    return new RegExp(`${name}`, "i").test(this.data.name);
+  matchesName(pattern: RegExp): boolean {
+    if (!this.data.name) return false;
+    return pattern.test(this.data.name);
   }
 }
 
@@ -82,11 +81,11 @@ export class NPlang extends NBase<
   `pl+${string}`,
   CommonNodeData & {
     extensions: string[];
+    firstAppeared: StrDate;
     images: Image[];
     isTranspiler: boolean;
-    mainstream: boolean;
+    isMainstream: boolean;
     releases: Release[];
-    firstAppeared: StrDate;
   }
 > {
   addExtensions(exts: string[]): this {
@@ -159,71 +158,77 @@ export class NPlang extends NBase<
     return this;
   }
 
-  get relDialectOf(): Map<NPlang["key"], EDialectOf> | undefined {
-    return this.graph.e_dialectOf.adjFrom.getMap(this.key);
+  get relDialectOf(): Rel<NPlang["key"], EDialectOf> {
+    return new Rel(this.graph.e_dialectOf.adjFrom.getMap(this.key));
   }
 
-  get relImplements(): Map<NPlang["key"], EImplementedWith> | undefined {
-    return this.graph.e_implements.adjFrom.getMap(this.key);
+  get relImplements(): Rel<NPlang["key"], EImplementedWith> {
+    return new Rel(this.graph.e_implements.adjFrom.getMap(this.key));
   }
 
-  get relInfluencedBy(): Map<NPlang["key"], EImplementedWith> | undefined {
-    return this.graph.e_influencedBy.adjFrom.getMap(this.key);
+  get relInfluencedBy(): Rel<NPlang["key"], EImplementedWith> {
+    return new Rel(this.graph.e_influencedBy.adjFrom.getMap(this.key));
   }
 
-  get relLibraries(): Map<NLibrary["key"], EPlangLib> | undefined {
-    return this.graph.e_library.adjFrom.getMap(this.key);
+  get relLibraries(): Rel<NLibrary["key"], EPlangLib> {
+    return new Rel(this.graph.e_library.adjFrom.getMap(this.key));
   }
 
-  get relLicenses(): Map<NLicense["key"], EHasLicense> | undefined {
-    return this.graph.e_license.adjFrom.getMap(this.key);
+  get relLicenses(): Rel<NLicense["key"], EHasLicense> {
+    return new Rel(this.graph.e_license.adjFrom.getMap(this.key));
   }
 
-  get relParadigms(): Map<NParadigm["key"], EPlangPara> | undefined {
-    return this.graph.e_paradigm.adjFrom.getMap(this.key);
+  get relParadigms(): Rel<NParadigm["key"], EPlangPara> {
+    return new Rel(this.graph.e_paradigm.adjFrom.getMap(this.key));
   }
 
-  get relPlatforms(): Map<NPlatform["key"], ESupportsPlatf> | undefined {
-    return this.graph.e_platform.adjFrom.getMap(this.key);
+  get relPlatforms(): Rel<NPlatform["key"], ESupportsPlatf> {
+    return new Rel(this.graph.e_platform.adjFrom.getMap(this.key));
   }
 
-  get relTags(): Map<NTag["key"], EPlangTag> | undefined {
-    return this.graph.e_tags.adjFrom.getMap(this.key);
+  get relTags(): Rel<NTag["key"], EPlangTag> {
+    return new Rel(this.graph.e_tags.adjFrom.getMap(this.key));
   }
 
-  get relTools(): Map<NTool["key"], EPlangTool> | undefined {
-    return this.graph.e_tool.adjFrom.getMap(this.key);
+  get relTools(): Rel<NTool["key"], EPlangTool> {
+    return new Rel(this.graph.e_tool.adjFrom.getMap(this.key));
   }
 
-  get relTypeSystems(): Map<NTypeSystem["key"], EPlangTsys> | undefined {
-    return this.graph.e_tsys.adjFrom.getMap(this.key);
+  get relTypeSystems(): Rel<NTypeSystem["key"], EPlangTsys> {
+    return new Rel(this.graph.e_tsys.adjFrom.getMap(this.key));
   }
 
-  get relWrittenIn(): Map<NPlang["key"], EWrittenIn> | undefined {
-    return this.graph.e_writtenIn.adjFrom.getMap(this.key);
+  get relWrittenIn(): Rel<NPlang["key"], EWrittenIn> {
+    return new Rel(this.graph.e_writtenIn.adjFrom.getMap(this.key));
   }
 
-  hasLogo(): boolean {
+  firstAppearedAfter(minDate: StrDate): boolean {
+    return !!this.data.firstAppeared && this.data.firstAppeared > minDate;
+  }
+
+  get hasLogo(): boolean {
     return this.data.images?.some((i) => i.kind === "logo") ?? false;
   }
 
-  hasReleases(minDate?: string): boolean {
+  hasReleases(minDate?: StrDate): boolean {
     if (!this.data.releases) return false;
     if (!minDate) return this.data.releases.length > 0;
     return this.data.releases.some((r) => r.date && r.date >= minDate);
   }
 
-  hasExt({ values, mode }: Filter): boolean {
-    if (!this.data.extensions) return false;
+  hasExtensions({ values, mode }: Filter): boolean {
+    if (values.size === 0) return true;
+    const { extensions } = this.data;
+    if (!extensions || extensions.length === 0) return false;
     // TODO: persist these sets.
-    const exts = new Set(this.data.extensions.map((e) => e.toLowerCase()));
+    const exts = new Set(extensions.map((e) => e.toLowerCase()));
     return verify(values, mode, (v) => exts.has(v));
   }
 
-  logoOrImage(): Image | undefined {
-    if (!this.data.images || this.data.images.length === 0) return undefined;
-    const firstLogo = this.data.images.find((img) => img.kind === "logo");
-    return firstLogo ?? this.data.images[0];
+  get logoOrImage(): Image | undefined {
+    const images = this.data.images;
+    if (!images || images.length === 0) return undefined;
+    return images.find((img) => img.kind === "logo") ?? images[0];
   }
 }
 
@@ -441,6 +446,33 @@ export class EWrittenIn extends EBase<NPlang, NPlang, CommonEdgeData> {
 ////////////////////////////////////////////////////////////////////////////////
 // Auxiliary Types
 ////////////////////////////////////////////////////////////////////////////////
+
+export type Filter = {
+  mode: "all" | "any";
+  /** By convention, if the values are empty, the filter "matches". */
+  values: Set<string>;
+};
+
+export function emptyFilter(): Filter {
+  return { mode: "any", values: new Set() };
+}
+
+/** A relationship class to wrap a Map from Node key to list of edges. */
+class Rel<T extends string, E extends EBase<Any, Any, Any>> {
+  constructor(private readonly map: Map<T, E> | undefined) {}
+
+  matches({ values, mode }: Filter): boolean {
+    const m = this.map;
+    if (!m) return false;
+    if (values.size === 0) return true;
+    return verify(values, mode, (v) => m.has(v as T));
+  }
+
+  get edges(): E[] {
+    if (!this.map) return [];
+    return [...this.map.values()].filter(Boolean);
+  }
+}
 
 /**
  * A release of a programming language.
