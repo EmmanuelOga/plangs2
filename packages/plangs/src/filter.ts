@@ -1,4 +1,4 @@
-import type { Filter, NPlang, StrDate } from ".";
+import type { Filter, NLicense, NParadigm, NPlang, NPlatform, NTag, NTypeSystem, StrDate } from ".";
 
 /**
  * Criteria to filter programming languages.
@@ -17,37 +17,37 @@ export class PlangFilters {
     isTranspiler: undefined as boolean | undefined,
     isMainstream: undefined as boolean | undefined,
 
-    dialectOf: undefined as Filter | undefined,
-    implements: undefined as Filter | undefined,
-    influencedBy: undefined as Filter | undefined,
-    licenses: undefined as Filter | undefined,
-    paradigms: undefined as Filter | undefined,
-    plangExts: undefined as Filter | undefined,
-    platforms: undefined as Filter | undefined,
-    tags: undefined as Filter | undefined,
-    typeSystems: undefined as Filter | undefined,
-    writtenIn: undefined as Filter | undefined,
+    dialectOf: undefined as Filter<NPlang["key"]> | undefined,
+    implements: undefined as Filter<NPlang["key"]> | undefined,
+    influencedBy: undefined as Filter<NPlang["key"]> | undefined,
+    licenses: undefined as Filter<NLicense["key"]> | undefined,
+    paradigms: undefined as Filter<NParadigm["key"]> | undefined,
+    extensions: undefined as Filter<string> | undefined,
+    platforms: undefined as Filter<NPlatform["key"]> | undefined,
+    tags: undefined as Filter<NTag["key"]> | undefined,
+    typeSystems: undefined as Filter<NTypeSystem["key"]> | undefined,
+    writtenIn: undefined as Filter<NPlang["key"]> | undefined,
   };
 
   matchAll(pl: NPlang): boolean {
     if (!this.machesHasLogo(pl)) return false;
     if (!this.machesHasWikipedia(pl)) return false;
     if (!this.machtesIsTranspiler(pl)) return false;
-    // if (!this.matchesDialectOf(pl)) return false;
+    if (!this.matchesDialectOf(pl)) return false;
     if (!this.matchesFirstAppearedMinDate(pl)) return false;
-    // if (!this.matchesImplements(pl)) return false;
-    // if (!this.matchesInfluencedBy(pl)) return false;
-    // if (!this.matchesIsMainstream(pl)) return false;
-    // if (!this.matchesLicenses(pl)) return false;
-    // if (!this.matchesParadigms(pl)) return false;
-    // if (!this.matchesPlangExts(pl)) return false;
+    if (!this.matchesImplements(pl)) return false;
+    if (!this.matchesInfluencedBy(pl)) return false;
+    if (!this.matchesIsMainstream(pl)) return false;
+    if (!this.matchesLicenses(pl)) return false;
+    if (!this.matchesParadigms(pl)) return false;
+    if (!this.matchesExtensions(pl)) return false;
     if (!this.matchesPlangName(pl)) return false;
-    // if (!this.matchesPlatforms(pl)) return false;
+    if (!this.matchesPlatforms(pl)) return false;
     if (!this.matchesReleaseMinDate(pl)) return false;
     if (!this.matchesHasReleases(pl)) return false;
-    // if (!this.matchesTags(pl)) return false;
-    // if (!this.matchesTypeSystems(pl)) return false;
-    // if (!this.matchesWrittenIn(pl)) return false;
+    if (!this.matchesTags(pl)) return false;
+    if (!this.matchesTypeSystems(pl)) return false;
+    if (!this.matchesWrittenIn(pl)) return false;
 
     return true;
   }
@@ -105,8 +105,8 @@ export class PlangFilters {
     return pl.relParadigms.matches(this.values.paradigms);
   }
 
-  matchesPlangExts(pl: NPlang): boolean {
-    return pl.hasExtensions(this.values.plangExts);
+  matchesExtensions(pl: NPlang): boolean {
+    return pl.hasExtensions(this.values.extensions);
   }
 
   matchesPlatforms(pl: NPlang): boolean {

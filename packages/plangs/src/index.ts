@@ -459,10 +459,10 @@ export class EWrittenIn extends EBase<NPlang, NPlang, CommonEdgeData> {
 // Auxiliary Types
 ////////////////////////////////////////////////////////////////////////////////
 
-export type Filter = {
+export type Filter<T> = {
   mode: "all" | "any";
   /** By convention, if the values are empty, the filter "matches". */
-  values: Set<string>;
+  values: Set<T>;
 };
 
 /** A relationship class to wrap a Map from Node key to list of edges. */
@@ -470,7 +470,7 @@ class Rel<T extends string, E extends EBase<Any, Any, Any>> {
   constructor(private readonly map: Map<T, E> | undefined) {}
 
   /** Undefined or empty values filter always return true. */
-  matches(filter?: Filter): boolean {
+  matches(filter?: Filter<T>): boolean {
     if (!filter || filter.values.size === 0) return true;
     const m = this.map;
     if (!m) return false;
