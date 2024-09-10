@@ -1,4 +1,4 @@
-import type { Filter, NLicense, NParadigm, NPlang, NPlatform, NTag, NTypeSystem, StrDate } from ".";
+import type { Filter, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, StrDate } from ".";
 
 /**
  * Criteria to filter programming languages.
@@ -27,7 +27,7 @@ export class PlangFilters {
     paradigms: undefined as Filter<NParadigm["key"]> | undefined,
     platforms: undefined as Filter<NPlatform["key"]> | undefined,
     tags: undefined as Filter<NTag["key"]> | undefined,
-    typeSystems: undefined as Filter<NTypeSystem["key"]> | undefined,
+    typeSystems: undefined as Filter<NTsys["key"]> | undefined,
     writtenIn: undefined as Filter<NPlang["key"]> | undefined,
   };
 
@@ -125,7 +125,7 @@ export class PlangFilters {
   }
 
   matchesTypeSystems(pl: NPlang): boolean {
-    return pl.relTypeSystems.matches(this.values.typeSystems);
+    return pl.relTsys.matches(this.values.typeSystems);
   }
 
   matchesWrittenIn(pl: NPlang): boolean {
