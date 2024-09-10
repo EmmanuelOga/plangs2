@@ -37,7 +37,7 @@ export class PlangsGraph extends BaseGraph {
     for (const pl of this.n_plangs.values()) {
       if (f.matchAll(pl)) keys.push(pl.key);
     }
-    return keys;
+    return keys.sort();
   }
 }
 
@@ -215,7 +215,7 @@ export class NPlang extends NBase<
   }
 
   firstAppearedAfter(minDate: StrDate): boolean {
-    return !!this.data.firstAppeared && this.data.firstAppeared > minDate;
+    return !!this.data.firstAppeared && this.data.firstAppeared >= minDate;
   }
 
   get hasLogo(): boolean {
@@ -223,18 +223,18 @@ export class NPlang extends NBase<
   }
 
   hasReleases(minDate?: StrDate): boolean {
-    if (!this.data.releases) return false;
+    if (!this.data.releases || this.data.releases.length === 0) return false;
     if (!minDate) return this.data.releases.length > 0;
     return this.data.releases.some((r) => r.date && r.date >= minDate);
   }
 
-  hasExtensions({ values, mode }: Filter): boolean {
-    if (values.size === 0) return true;
+  hasExtensions(filter?: Filter): boolean {
+    if (!filter || filter.values.size === 0) return true;
     const { extensions } = this.data;
     if (!extensions || extensions.length === 0) return false;
     // TODO: persist these sets.
     const exts = new Set(extensions.map((e) => e.toLowerCase()));
-    return verify(values, mode, (v) => exts.has(v));
+    return verify(filter.values, filter.mode, (v) => exts.has(v));
   }
 
   get logoOrImage(): Image | undefined {
@@ -465,19 +465,16 @@ export type Filter = {
   values: Set<string>;
 };
 
-export function emptyFilter(): Filter {
-  return { mode: "any", values: new Set() };
-}
-
 /** A relationship class to wrap a Map from Node key to list of edges. */
 class Rel<T extends string, E extends EBase<Any, Any, Any>> {
   constructor(private readonly map: Map<T, E> | undefined) {}
 
-  matches({ values, mode }: Filter): boolean {
+  /** Undefined or empty values filter always return true. */
+  matches(filter?: Filter): boolean {
+    if (!filter || filter.values.size === 0) return true;
     const m = this.map;
     if (!m) return false;
-    if (values.size === 0) return true;
-    return verify(values, mode, (v) => m.has(v as T));
+    return verify(filter.values, filter.mode, (v) => m.has(v as T));
   }
 
   get keys(): T[] {

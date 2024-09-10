@@ -1,4 +1,4 @@
-import { type NPlang, type StrDate, emptyFilter } from ".";
+import type { Filter, NPlang, StrDate } from ".";
 
 /**
  * Criteria to filter programming languages.
@@ -11,46 +11,40 @@ export class PlangFilters {
     firstAppearedMinDate: undefined as StrDate | undefined,
     releaseMinDate: undefined as StrDate | undefined,
 
-    // Boolean filters always match if false.
+    hasLogo: undefined as boolean | undefined,
+    hasReleases: undefined as boolean | undefined,
+    hasWikipedia: undefined as boolean | undefined,
+    isTranspiler: undefined as boolean | undefined,
+    isMainstream: undefined as boolean | undefined,
 
-    hasLogo: false,
-    hasReleases: false,
-    hasWebsites: false,
-    hasWikipedia: false,
-    isTranspiler: false,
-    isMainstream: false,
-
-    // Value filters always match if empty.
-
-    dialectOf: emptyFilter(),
-    implements: emptyFilter(),
-    influencedBy: emptyFilter(),
-    licenses: emptyFilter(),
-    paradigms: emptyFilter(),
-    plangExts: emptyFilter(),
-    platforms: emptyFilter(),
-    tags: emptyFilter(),
-    typeSystems: emptyFilter(),
-    writtenIn: emptyFilter(),
+    dialectOf: undefined as Filter | undefined,
+    implements: undefined as Filter | undefined,
+    influencedBy: undefined as Filter | undefined,
+    licenses: undefined as Filter | undefined,
+    paradigms: undefined as Filter | undefined,
+    plangExts: undefined as Filter | undefined,
+    platforms: undefined as Filter | undefined,
+    tags: undefined as Filter | undefined,
+    typeSystems: undefined as Filter | undefined,
+    writtenIn: undefined as Filter | undefined,
   };
 
   matchAll(pl: NPlang): boolean {
-    if (!this.matchesPlangName(pl)) return false;
-    // if (!this.matchesFirstAppearedMinDate(pl)) return false;
-    // if (!this.matchesReleaseMinDate(pl)) return false;
-    // if (!this.machesHasLogo(pl)) return false;
-    // if (!this.matchesHasReleases(pl)) return false;
-    // if (!this.matchesHasWebsites(pl)) return false;
-    // if (!this.machesHasWikipedia(pl)) return false;
-    // if (!this.machtesIsTranspiler(pl)) return false;
-    // if (!this.matchesIsMainstream(pl)) return false;
+    if (!this.machesHasLogo(pl)) return false;
+    if (!this.machesHasWikipedia(pl)) return false;
+    if (!this.machtesIsTranspiler(pl)) return false;
     // if (!this.matchesDialectOf(pl)) return false;
+    if (!this.matchesFirstAppearedMinDate(pl)) return false;
     // if (!this.matchesImplements(pl)) return false;
     // if (!this.matchesInfluencedBy(pl)) return false;
+    // if (!this.matchesIsMainstream(pl)) return false;
     // if (!this.matchesLicenses(pl)) return false;
     // if (!this.matchesParadigms(pl)) return false;
     // if (!this.matchesPlangExts(pl)) return false;
+    if (!this.matchesPlangName(pl)) return false;
     // if (!this.matchesPlatforms(pl)) return false;
+    if (!this.matchesReleaseMinDate(pl)) return false;
+    if (!this.matchesHasReleases(pl)) return false;
     // if (!this.matchesTags(pl)) return false;
     // if (!this.matchesTypeSystems(pl)) return false;
     // if (!this.matchesWrittenIn(pl)) return false;
@@ -59,42 +53,36 @@ export class PlangFilters {
   }
 
   matchesPlangName(pl: NPlang): boolean {
-    const { plangName } = this.values;
-    return !plangName || pl.matchesName(plangName);
+    return match(this.values.plangName, (val) => pl.matchesName(val));
   }
 
   matchesFirstAppearedMinDate(pl: NPlang): boolean {
-    const { firstAppearedMinDate } = this.values;
-    return !firstAppearedMinDate || pl.firstAppearedAfter(firstAppearedMinDate);
+    return match(this.values.firstAppearedMinDate, (val) => pl.firstAppearedAfter(val));
   }
 
   matchesReleaseMinDate(pl: NPlang): boolean {
-    const { releaseMinDate } = this.values;
-    return !releaseMinDate || pl.hasReleases(releaseMinDate);
-  }
-
-  machesHasLogo(pl: NPlang): boolean {
-    return !this.values.hasLogo || pl.hasLogo;
+    return match(this.values.releaseMinDate, (val) => pl.hasReleases(val));
   }
 
   matchesHasReleases(pl: NPlang): boolean {
-    return !this.values.hasReleases || pl.hasReleases();
+    const { hasReleases } = this.values;
+    return hasReleases === undefined || hasReleases === pl.hasReleases();
   }
 
-  matchesHasWebsites(pl: NPlang): boolean {
-    return !this.values.hasWebsites || pl.hasWebsites;
+  machesHasLogo(pl: NPlang): boolean {
+    return match(this.values.hasLogo, (val) => val === pl.hasLogo);
   }
 
   machesHasWikipedia(pl: NPlang): boolean {
-    return !this.values.hasWikipedia || pl.hasWikipedia;
+    return match(this.values.hasWikipedia, (val) => val === pl.hasWikipedia);
   }
 
   machtesIsTranspiler(pl: NPlang): boolean {
-    return !this.values.isTranspiler || pl.data.isTranspiler === true;
+    return match(this.values.isTranspiler, (val) => val === (pl.data.isTranspiler ?? false));
   }
 
   matchesIsMainstream(pl: NPlang): boolean {
-    return !this.values.isMainstream || pl.data.isMainstream === true;
+    return match(this.values.isMainstream, (val) => val === (pl.data.isMainstream ?? false));
   }
 
   matchesDialectOf(pl: NPlang): boolean {
@@ -136,4 +124,9 @@ export class PlangFilters {
   matchesWrittenIn(pl: NPlang): boolean {
     return pl.relWrittenIn.matches(this.values.writtenIn);
   }
+}
+
+function match<T>(filter: T | undefined, check: (val: T) => boolean): boolean {
+  // Convention: undefined means "don't care".
+  return filter === undefined || check(filter);
 }
