@@ -116,20 +116,20 @@ export class EdgeMap<T_Graph, T_Edge extends Edge<T_Graph, Any, Any, Any>> {
   }
 }
 
-type SerializedGraph<N extends string | symbol, E extends string | symbol> = {
+type SerializedGraph<N extends string, E extends string> = {
   /**
-   * Example: { "type" : { "nodeKey1" : data1, "nodeKey2" : data2, ... } }
+   * Example: { "node-a" : { "node-a+1" : data1, "node-a+2" : data2, ... } }
    */
-  nodes: Partial<Record<N, Record<string, Any>>>;
+  nodes: Partial<Record<N, Record<`${N}+${string}`, Any>>>;
 
   /**
-   * Example: { "type" : { "fromNodeKey1" : { "toNodeKey1" : data1, "toNodeKey2": data2 }, "fromNodeKey2" : ... } }
+   * Example: { "edge-a" : { "node-a+1" : { "node-b+1" : data1, "node-b+2": data2 }, "node-a+2" : ... } }
    */
-  edges: Partial<Record<E, Partial<Record<string, Record<string, Any>>>>>;
+  edges: Partial<Record<E, Record<`${N}+${string}`, Record<`${N}+${string}`, Any>>>>;
 };
 
 /** Base Graph class with the ability to de/serialize registered node and edge maps. */
-export abstract class BaseGraph<N extends string | symbol, E extends string | symbol, G> {
+export abstract class BaseGraph<N extends string, E extends string, G> {
   abstract readonly nodes: Record<N, NodeMap<G, Any>>;
   abstract readonly edges: Record<E, EdgeMap<G, Any>>;
 
@@ -152,17 +152,19 @@ export abstract class BaseGraph<N extends string | symbol, E extends string | sy
   toJSON(): SerializedGraph<N, E> {
     const data: SerializedGraph<N, E> = { nodes: {}, edges: {} };
 
+    type NK = `${N}+${string}`;
+
     for (const [name, nodeMap] of this.nodeEntries) {
-      const m: Record<string, Any> = {};
-      for (const [key, { data }] of nodeMap) m[key] = data;
+      const m = {} as Record<NK, Any>;
+      for (const [key, { data }] of nodeMap) m[key as NK] = data;
       data.nodes[name] = m;
     }
 
     for (const [name, edgeMap] of this.edgeEntries) {
-      const m: Partial<Record<string, Record<string, Any>>> = {};
+      const m = {} as Record<NK, Record<NK, Any>>;
       for (const edge of edgeMap.adjFrom.values()) {
-        const fromMap = (m[edge.from] ??= {});
-        fromMap[edge.to] = edge.data;
+        const fromMap = (m[edge.from as NK] ??= {} as Record<NK, Any>);
+        fromMap[edge.to as NK] = edge.data;
       }
       data.edges[name] = m;
     }
