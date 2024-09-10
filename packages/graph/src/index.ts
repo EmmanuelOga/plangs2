@@ -9,7 +9,7 @@ type Any = any;
 export type NO_DATA = Record<string, never>;
 
 /** Graph Node. */
-export abstract class Node<T_Graph extends BaseGraph, T_Key extends string, T_Data = NO_DATA> {
+export abstract class Node<T_Graph, T_Key extends string, T_Data> {
   readonly data: Partial<T_Data> = {};
 
   constructor(
@@ -25,12 +25,7 @@ export abstract class Node<T_Graph extends BaseGraph, T_Key extends string, T_Da
 }
 
 /** Graph Edge. */
-export abstract class Edge<
-  T_Graph extends BaseGraph,
-  T_From extends Node<T_Graph, Any, Any>,
-  T_To extends Node<T_Graph, Any, Any>,
-  T_Data = NO_DATA,
-> {
+export abstract class Edge<T_Graph, T_From extends Node<T_Graph, Any, Any>, T_To extends Node<T_Graph, Any, Any>, T_Data> {
   readonly data: Partial<T_Data> = {};
 
   constructor(
@@ -49,7 +44,7 @@ export abstract class Edge<
 }
 
 /** Graph Node (identity) Map. */
-export class NodeMap<T_Graph extends BaseGraph, T_Node extends Node<T_Graph, Any, Any>> implements Iterable<[T_Node["key"], T_Node]> {
+export class NodeMap<T_Graph, T_Node extends Node<T_Graph, Any, Any>> implements Iterable<[T_Node["key"], T_Node]> {
   readonly #map = new Map<T_Node["key"], T_Node>();
 
   constructor(private readonly factory: (key: T_Node["key"]) => T_Node) {}
@@ -93,7 +88,7 @@ export class NodeMap<T_Graph extends BaseGraph, T_Node extends Node<T_Graph, Any
 }
 
 /** Stores edges by the compound keys (from, to) and (to, from). */
-export class EdgeMap<T_Graph extends BaseGraph, T_Edge extends Edge<T_Graph, Any, Any, Any>> {
+export class EdgeMap<T_Graph, T_Edge extends Edge<T_Graph, Any, Any, Any>> {
   readonly adjFrom = new Map2<T_Edge["from"], T_Edge["to"], T_Edge>();
   readonly adjTo = new Map2<T_Edge["to"], T_Edge["from"], T_Edge>();
 
@@ -113,65 +108,53 @@ export class EdgeMap<T_Graph extends BaseGraph, T_Edge extends Edge<T_Graph, Any
   }
 }
 
-type SerializedGraph = {
+type SerializedGraph<N extends string | symbol, E extends string | symbol> = {
   /**
    * Example: { "type" : { "nodeKey1" : data1, "nodeKey2" : data2, ... } }
    */
-  nodes: Record<string, Record<string, Any>>;
+  nodes: Partial<Record<N, Record<string, Any>>>;
 
   /**
    * Example: { "type" : { "fromNodeKey1" : { "toNodeKey1" : data1, "toNodeKey2": data2 }, "fromNodeKey2" : ... } }
    */
-  edges: Record<string, Record<string, Record<string, Any>>>;
+  edges: Partial<Record<E, Partial<Record<string, Record<string, Any>>>>>;
 };
 
 /** Base Graph class with the ability to de/serialize registered node and edge maps. */
-export class BaseGraph {
-  readonly nodes: Map<string, NodeMap<Any, Any>> = new Map();
-  readonly edges: Map<string, EdgeMap<Any, Any>> = new Map();
+export abstract class BaseGraph<N extends string | symbol, E extends string | symbol, G> {
+  abstract readonly nodes: Record<N, NodeMap<G, Any>>;
+  abstract readonly edges: Record<E, EdgeMap<G, Any>>;
 
-  get numNodes(): number {
-    let count = 0;
-    for (const nodeMap of this.nodes.values()) count += nodeMap.size;
-    return count;
+  get nodeEntries() {
+    return Object.entries(this.nodes) as [N, NodeMap<G, Any>][];
   }
 
-  get numEdges(): number {
-    let count = 0;
-    for (const edgeMap of this.edges.values()) count += edgeMap.adjFrom.size;
-    return count;
+  get edgeEntries() {
+    return Object.entries(this.edges) as [E, EdgeMap<G, Any>][];
   }
 
-  nodeMap<T_Node extends Node<Any, Any, Any>>(kind: string, factory: (key: T_Node["key"]) => T_Node): NodeMap<this, T_Node> {
-    if (this.nodes.has(kind)) return this.nodes.get(kind) as NodeMap<this, T_Node>;
-    const m = new NodeMap(factory);
-    this.nodes.set(kind, m);
-    return m;
+  get nodeCount(): number {
+    return this.nodeEntries.reduce((acc, [_, map]) => acc + map.size, 0);
   }
 
-  edgeMap<T_Edge extends Edge<Any, Any, Any, Any>>(kind: string, factory: (from: T_Edge["from"], to: T_Edge["to"]) => T_Edge): EdgeMap<this, T_Edge> {
-    if (this.edges.has(kind)) return this.edges.get(kind) as EdgeMap<this, T_Edge>;
-    const m = new EdgeMap(factory);
-    this.edges.set(kind, m);
-    return m;
+  get edgeCount(): number {
+    return this.edgeEntries.reduce((acc, [_, map]) => acc + map.adjFrom.size, 0);
   }
 
-  toJSON(): SerializedGraph {
-    const data: SerializedGraph = { nodes: {}, edges: {} };
+  toJSON(): SerializedGraph<N, E> {
+    const data: SerializedGraph<N, E> = { nodes: {}, edges: {} };
 
-    for (const [name, nodeMap] of this.nodes) {
+    for (const [name, nodeMap] of this.nodeEntries) {
       const m: Record<string, Any> = {};
-      for (const node of nodeMap.values()) {
-        m[node.key] = node.data;
-      }
+      for (const [key, { data }] of nodeMap) m[key] = data;
       data.nodes[name] = m;
     }
 
-    for (const [name, edgeMap] of this.edges) {
-      const m: Record<string, Record<string, Any>> = {};
+    for (const [name, edgeMap] of this.edgeEntries) {
+      const m: Partial<Record<string, Record<string, Any>>> = {};
       for (const edge of edgeMap.adjFrom.values()) {
-        m[edge.from] ??= {};
-        m[edge.from][edge.to] = edge.data;
+        const fromMap = (m[edge.from] ??= {});
+        fromMap[edge.to] = edge.data;
       }
       data.edges[name] = m;
     }
@@ -179,18 +162,26 @@ export class BaseGraph {
     return data;
   }
 
-  loadJSON(data: SerializedGraph): this {
+  loadJSON(data: SerializedGraph<N, E>): this {
     for (const [name, nodes] of Object.entries(data.nodes)) {
-      const nodeMap = this.nodes.get(name);
-      if (!nodeMap) continue;
+      const nodeMap = this.nodes[name as N];
+
+      if (!nodes) console.warn(`Data has no nodes for type "${name}"`);
+      if (!nodeMap) console.warn(`Graph has no node map for type "${name}"`);
+      if (!nodes || !nodeMap) continue;
+
       for (const [key, nodeData] of Object.entries(nodes)) {
         nodeMap.get(key).merge(nodeData);
       }
     }
 
     for (const [name, edges] of Object.entries(data.edges)) {
-      const edgeMap = this.edges.get(name);
-      if (!edgeMap) continue;
+      const edgeMap = this.edges[name as E];
+
+      if (!edges) console.warn(`Data has no edges for type "${name}"`);
+      if (!edgeMap) console.warn(`Graph has no edge map for type "${name}"`);
+      if (!edges || !edgeMap) continue;
+
       for (const [from, tos] of Object.entries(edges)) {
         for (const [to, edgeData] of Object.entries(tos)) {
           edgeMap.connect(from, to).merge(edgeData);
