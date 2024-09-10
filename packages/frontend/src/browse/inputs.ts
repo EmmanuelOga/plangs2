@@ -1,34 +1,36 @@
-import type { INPUTS_MARKUP } from "@plangs/server/pages/browse";
+import type { SERVER_INPUTS } from "@plangs/server/pages/browse";
 import { PlangFilters } from "@plangs/plangs/filter";
-import type { Filter, NLicense, NParadigm, NPlang, NPlatform, NTag, NTypeSystem, StrDate } from "@plangs/plangs";
+import type { Filter, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, StrDate } from "@plangs/plangs";
 
 import type { InputSelElement } from "../input-sel";
 import { $ } from "../utils";
 
-const INPUTS: { [K in keyof typeof INPUTS_MARKUP]: HTMLElement | null } = {
-  plangName: $("input[name=plang-name]"),
+const input = (kind: "input" | "input-sel", name: keyof typeof SERVER_INPUTS) => $(`${kind}[name=${name}]`);
 
-  firstAppearedMinDate: $("input[name=first-appeared-min-date]"),
-  releaseMinDate: $("input[name=release-min-date]"),
+const INPUTS: { [K in keyof typeof SERVER_INPUTS]: Element | null } = {
+  plangName: input("input", "plangName"),
 
-  hasLogo: $("input[name=has-logo]"),
-  hasReleases: $("input[name=has-releases]"),
-  hasWikipedia: $("input[name=has-wikipedia]"),
-  isMainstream: $("input[name=is-mainstream]"),
-  isTranspiler: $("input[name=is-transpiler]"),
+  appearedAfter: input("input", "appearedAfter"),
+  releasedAfter: input("input", "releasedAfter"),
 
-  dialectOf: $("input-sel[name=dialect-of]"),
-  extensions: $("input-sel[name=extensions]"),
-  implements: $("input-sel[name=implements]"),
-  influenced: $("input-sel[name=influenced]"),
-  influencedBy: $("input-sel[name=influenced-by]"),
-  licenses: $("input-sel[name=licenses]"),
-  paradigms: $("input-sel[name=paradigms]"),
-  platforms: $("input-sel[name=platforms]"),
-  tags: $("input-sel[name=type-system]"),
-  typeSystems: $("input-sel[name=type-systems]"),
-  writtenIn: $("input-sel[name=type-system]"),
-};
+  hasLogo: input("input", "hasLogo"),
+  hasReleases: input("input", "hasReleases"),
+  hasWikipedia: input("input", "hasWikipedia"),
+  isMainstream: input("input", "isMainstream"),
+  isTranspiler: input("input", "isTranspiler"),
+
+  dialectOf: input("input-sel", "dialectOf"),
+  extensions: input("input-sel", "extensions"),
+  implements: input("input-sel", "implements"),
+  influenced: input("input-sel", "influenced"),
+  influencedBy: input("input-sel", "influencedBy"),
+  licenses: input("input-sel", "licenses"),
+  paradigms: input("input-sel", "paradigms"),
+  platforms: input("input-sel", "platforms"),
+  tags: input("input-sel", "tags"),
+  typeSystems: input("input-sel", "typeSystems"),
+  writtenIn: input("input-sel", "writtenIn"),
+} as const;
 
 function map<I, V>(input: I | null, getValue: (input: I) => V, callback: (value: V) => void) {
   if (!input) return;
@@ -40,14 +42,14 @@ export function getFilters(): PlangFilters {
   const filters = new PlangFilters();
   const flt = filters.values;
 
-  const trimVal = (input: HTMLInputElement) => input.value.trim();
+  const trimVal = (input: Element) => (input as HTMLInputElement).value.trim();
 
   map(INPUTS.plangName, trimVal, (val) => (flt.plangName = new RegExp(val, "i")));
 
-  map(INPUTS.firstAppearedMinDate, trimVal, (val) => (flt.firstAppearedMinDate = val as StrDate));
-  map(INPUTS.releaseMinDate, trimVal, (val) => (flt.releaseMinDate = val as StrDate));
+  map(INPUTS.appearedAfter, trimVal, (val) => (flt.appearedAfter = val as StrDate));
+  map(INPUTS.releasedAfter, trimVal, (val) => (flt.releasedAfter = val as StrDate));
 
-  const getChecked = (input: HTMLInputElement) => input.checked;
+  const getChecked = (input: Element) => (input as HTMLInputElement).checked;
 
   map(INPUTS.hasLogo, getChecked, (val) => (flt.hasLogo = val));
   map(INPUTS.hasReleases, getChecked, (val) => (flt.hasReleases = val));
@@ -55,7 +57,7 @@ export function getFilters(): PlangFilters {
   map(INPUTS.isTranspiler, getChecked, (val) => (flt.isTranspiler = val));
   map(INPUTS.isMainstream, getChecked, (val) => (flt.isMainstream = val));
 
-  const getSelection = (input: InputSelElement) => input.values();
+  const getSelection = (input: Element) => (input as InputSelElement).values();
 
   type F<T extends { key: string }> = Filter<T["key"]>;
 
@@ -68,7 +70,7 @@ export function getFilters(): PlangFilters {
   map(INPUTS.paradigms, getSelection, (val) => (flt.paradigms = val as F<NParadigm>));
   map(INPUTS.platforms, getSelection, (val) => (flt.platforms = val as F<NPlatform>));
   map(INPUTS.tags, getSelection, (val) => (flt.tags = val as F<NTag>));
-  map(INPUTS.typeSystems, getSelection, (val) => (flt.typeSystems = val as F<NTypeSystem>));
+  map(INPUTS.typeSystems, getSelection, (val) => (flt.typeSystems = val as F<NTsys>));
   map(INPUTS.writtenIn, getSelection, (val) => (flt.writtenIn = val as F<NPlang>));
 
   return filters;

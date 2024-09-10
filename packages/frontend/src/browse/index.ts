@@ -5,13 +5,13 @@
 import { debounce } from "lodash-es";
 import "preact/debug";
 
-import { type NPlang, PlangsGraph } from "@plangs/plangs";
+import { type N, NODE_NAMES, type NPlang, PlangsGraph } from "@plangs/plangs";
 
 import { type CompletionItem, type InputComplElement, registerInputCompl } from "../input-compl";
 import { type InputSelElement, registerInputSel } from "../input-sel";
 import { type PlangInfoElement, registerPlangInfo } from "../plang-info";
 import { $, $$, on } from "../utils";
-import { checkInputs, getFilters } from "./inputs";
+import { getFilters } from "./inputs";
 
 function startBrowseNav(pg: PlangsGraph) {
   const plangsMain = $<HTMLDivElement>("#home-plangs");
@@ -24,10 +24,6 @@ function startBrowseNav(pg: PlangsGraph) {
   const thumbnails = $$<HTMLDivElement>(".plang-thumb");
   const infobox = $<HTMLDivElement>("#plang-infobox");
   const langTab = $<HTMLAnchorElement>("#top-nav .lang");
-
-  if (checkInputs() === "invalid") {
-    console.warn("missing elements input element for filters on the browser nav");
-  }
 
   function updatePlangs() {
     const filters = getFilters();
@@ -52,26 +48,22 @@ function startBrowseNav(pg: PlangsGraph) {
     if (releaseMin) releaseMin.classList.toggle("hide", !checked);
   });
 
-  function completions(vtable: Iterable<any>): CompletionItem[] {
+  function completions(nodeKind: N): CompletionItem[] {
     const data: CompletionItem[] = [];
-    for (const [key, value] of vtable) {
-      data.push({ value: key, label: value.name, pattern: value.name.toLowerCase() });
+    for (const [key, node] of pg.nodes[nodeKind]) {
+      data.push({ value: key, label: node.data.name ?? key, pattern: (node.data.name ?? key).toLowerCase() });
     }
     return data;
   }
 
   for (const compl of $$<InputComplElement>("input-compl")) {
     const name = compl.getAttribute("name");
-    const { source } = compl.dataset;
+    const source = compl.dataset.source as N;
 
-    if (source === "license") compl.completions = completions(pg.n_license);
-    else if (source === "para") compl.completions = completions(pg.n_license);
-    else if (source === "people") compl.completions = completions(pg.n_person);
-    else if (source === "plang") compl.completions = completions(pg.n_plang);
-    else if (source === "platf") compl.completions = completions(pg.n_platform);
-    else if (source === "tsys") compl.completions = completions(pg.n_tsystem);
-    else {
-      console.warn("no completions found for", compl);
+    if (NODE_NAMES.includes(source)) {
+      compl.completions = completions(source);
+    } else {
+      console.warn("wrong source name (should be a kind of node):", source);
       continue;
     }
 
