@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+algol", {
       name: "ALGOL",
       description:
@@ -10,6 +10,6 @@ export function define(g: PlangsGraph) {
       websites: [{ href: "https://en.wikipedia.org/wiki/ALGOL", title: "ALGOL", kind: "wikipedia" }],
       images: [{ kind: "other", title: "ALGOL", url: "/images/plangs/a/algol/other.jpg" }],
     })
-    .addParadigms(["para+imperative", "para+procedural", "para+structured"])
+    .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+structured"])
     .addTypeSystems(["tsys+static", "tsys+strong"]);
 }

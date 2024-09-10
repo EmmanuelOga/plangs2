@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+cython", {
       name: "Cython",
       description:
@@ -19,6 +19,6 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Cython", url: "/images/plangs/c/cython/logo.png" }],
     })
     .addInfluencedBy(["pl+c"])
-    .addLicenses(["lic+apache"])
-    .addPlatforms(["platf+apple", "platf+linux", "platf+windows"]);
+    .addLicenses(["license+apache"])
+    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"]);
 }

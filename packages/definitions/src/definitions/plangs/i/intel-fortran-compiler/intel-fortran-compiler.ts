@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+intel-fortran-compiler", {
       name: "Intel Fortran Compiler",
       description:
@@ -17,6 +17,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2023.2.1", date: "2023-01-01" }],
     })
     .addImplements(["pl+fortran"])
-    .addPlatforms(["platf+linux", "platf+windows"])
+    .addPlatforms(["plat+linux", "plat+windows"])
     .addTags(["tag+compiler"]);
 }

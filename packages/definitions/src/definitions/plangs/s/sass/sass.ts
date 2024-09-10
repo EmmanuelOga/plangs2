@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+sass", {
       name: "Sass",
       description:
@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.75.0", date: "2024-01-01" }],
       images: [{ kind: "logo", title: "Sass", url: "/images/plangs/s/sass/logo.png" }],
     })
-    .addLicenses(["lic+mit"])
-    .addPlatforms(["platf+cross"])
+    .addLicenses(["license+mit"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+dynamic"]);
 }

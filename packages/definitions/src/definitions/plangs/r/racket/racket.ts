@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+racket", {
       name: "Racket",
       description:
@@ -17,17 +17,17 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+eiffel", "pl+r5rs", "pl+scheme"])
-    .addLicenses(["lic+apache", "lic+mit"])
+    .addLicenses(["license+apache", "license+mit"])
     .addParadigms([
-      "para+functional",
-      "para+imperative",
-      "para+logic",
-      "para+metaprogramming",
-      "para+modular",
-      "para+multi",
-      "para+oop",
-      "para+reflective",
+      "paradigm+functional",
+      "paradigm+imperative",
+      "paradigm+logic",
+      "paradigm+metaprogramming",
+      "paradigm+modular",
+      "paradigm+multi",
+      "paradigm+oop",
+      "paradigm+reflective",
     ])
-    .addPlatforms(["platf+cross"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+dynamic", "tsys+static", "tsys+strong"]);
 }

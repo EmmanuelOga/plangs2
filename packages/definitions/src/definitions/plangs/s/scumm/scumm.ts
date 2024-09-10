@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+scumm", {
       name: "Script Creation Utility for Maniac Mansion",
       description:
@@ -10,5 +10,5 @@ export function define(g: PlangsGraph) {
       websites: [{ href: "https://en.wikipedia.org/wiki/SCUMM", title: "Script Creation Utility for Maniac Mansion", kind: "wikipedia" }],
       images: [{ kind: "other", title: "Script Creation Utility for Maniac Mansion", url: "/images/plangs/s/scumm/other.png" }],
     })
-    .addPlatforms(["platf+cross"]);
+    .addPlatforms(["plat+cross"]);
 }

@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+assemblyscript", {
       name: "AssemblyScript",
       description:
@@ -17,7 +17,7 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+javascript", "pl+typescript"])
     .addInfluencedBy(["pl+javascript", "pl+typescript"])
-    .addLicenses(["lic+apache"])
-    .addParadigms(["para+functional", "para+imperative", "para+multi", "para+oop"])
+    .addLicenses(["license+apache"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
     .addTypeSystems(["tsys+static"]);
 }

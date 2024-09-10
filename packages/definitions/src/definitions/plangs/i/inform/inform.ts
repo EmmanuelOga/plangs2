@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+inform", {
       name: "Inform",
       description:
@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "10.1.1", date: "2022-01-01" }],
     })
-    .addLicenses(["lic+artistic"])
-    .addPlatforms(["platf+linux", "platf+windows"])
+    .addLicenses(["license+artistic"])
+    .addPlatforms(["plat+linux", "plat+windows"])
     .addTags(["tag+if"]);
 }

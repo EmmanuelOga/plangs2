@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+coffeescript", {
       name: "CoffeeScript",
       description:
@@ -15,8 +15,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2.7.0", date: "2022-01-01" }],
     })
     .addInfluencedBy(["pl+haskell", "pl+javascript", "pl+perl", "pl+ruby"])
-    .addLicenses(["lic+mit"])
-    .addParadigms(["para+functional", "para+imperative", "para+multi", "para+prototype", "para+scripting"])
-    .addPlatforms(["platf+cross"])
+    .addLicenses(["license+mit"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+prototype", "paradigm+scripting"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+dynamic"]);
 }

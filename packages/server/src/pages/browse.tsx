@@ -5,46 +5,47 @@ import type { NPlang } from "@plangs/plangs";
 
 import { PlangsData } from "../context";
 
+export const INPUTS_MARKUP = {
+  plangName: <FacetInput type="search" label="Language Name" name="plangName" />,
+
+  firstAppearedMinDate: <FacetInput type="date" label="First Appeared" name="firstAppearedMinDate" cssClasses="hide" />,
+  releaseMinDate: <FacetInput type="date" label="Released After" name="releaseMinDate" cssClasses="hide" />,
+
+  hasLogo: <FacetInput type="checkbox" label="Has Logo" name="has-logo" />,
+  hasReleases: <FacetInput type="checkbox" label="Known Releases" name="hasLogo" />,
+  hasWikipedia: <FacetInput type="checkbox" label="Has Wikipedia" name="hasReleases" />,
+  isMainstream: <FacetInput type="checkbox" label="Source-to-Source" name="hasWikipedia" />,
+  isTranspiler: <FacetInput type="checkbox" label="Source-to-Source" name="isTranspiler" />,
+
+  dialectOf: <FacetInput type="compl" source="plang" label="Dialect Of" name="dialectOf" />,
+  extensions: <FacetInput type="search" isInputSel={true} label="File Extension" name="extensions" />,
+  implements: <FacetInput type="compl" source="plang" label="Implements" name="implements" />,
+  influenced: <FacetInput type="compl" source="plang" label="Influenced" name="influenced" />,
+  influencedBy: <FacetInput type="compl" source="plang" label="Influenced By" name="influencedBy" />,
+  licenses: <FacetInput type="compl" source="license" label="License" name="licenses" />,
+  paradigms: <FacetInput type="compl" source="para" label="Paradigm" name="paradigms" />,
+  platforms: <FacetInput type="compl" source="platf" label="Platform" name="platforms" />,
+  tags: <FacetInput type="compl" source="tags" label="Type System" name="tags" />,
+  typeSystems: <FacetInput type="compl" source="tsys" label="Type System" name="typeSystems" />,
+  writtenIn: <FacetInput type="compl" source="plang" label="Written In" name="writtenIn" />,
+};
+
 export function Browse() {
   return (
     <>
       <nav id="home-nav">
         <div id="facets">
-          <Facet title="General">
-            <FacetInput type="search" label="Language Name" name="plang-name" />
-            <FacetInput type="search" sel={true} label="File Extension" name="plang-ext" />
-            <FacetInput type="checkbox" label="Source-to-Source" name="transpiler" />
-            <FacetInput type="checkbox" label="Has Logo" name="has-logo" />
-            <FacetInput type="checkbox" label="Has Website" name="has-website" />
-            <FacetInput type="checkbox" label="Has Wikipedia" name="has-wikipedia" />
-            <FacetInput type="checkbox" label="Known Releases" name="has-releases" />
-            <FacetInput type="date" label="Released After" name="release-min-date" cssClasses="hide" />
-          </Facet>
-          <Facet title="Type System">
-            <FacetInput type="compl" source="tsys" label="Type System" name="type-system" />
-          </Facet>
-          <Facet title="Paradigm">
-            <FacetInput type="compl" source="para" label="Paradigm" name="paradigm" />
-          </Facet>
-          <Facet title="Platform">
-            <FacetInput type="compl" source="platf" label="Platform" name="platform" />
-          </Facet>
-          <Facet title="Lineage (incoming)">
-            <FacetInput type="compl" source="plang" label="Influenced By" name="influenced-by" />
-            <FacetInput type="compl" source="plang" label="Dialect Of" name="dialect-of" />
-            <FacetInput type="compl" source="plang" label="Implements" name="implements" />
-          </Facet>
-          <Facet title="Lineage (outgoing)">
-            <FacetInput type="compl" source="plang" label="Influenced" name="influenced" />
-            <FacetInput type="compl" source="plang" label="Standard For" name="standard-for" />
-            <FacetInput type="compl" source="plang" label="Implemented With" name="implemented-with" />
-          </Facet>
-          <Facet title="People">
-            <FacetInput type="compl" source="people" label="Person Name" name="person" />
-          </Facet>
-          <Facet title="License">
-            <FacetInput type="compl" source="license" label="License" name="license" />
-          </Facet>
+          <Facet title="General"></Facet>
+
+          <Facet title="Type System"></Facet>
+
+          <Facet title="Paradigm"></Facet>
+
+          <Facet title="Platform"></Facet>
+
+          <Facet title="License"></Facet>
+
+          <Facet title="Lineage"></Facet>
         </div>
       </nav>
       <article id="home-plangs">
@@ -76,15 +77,15 @@ function Facet({ title, children }: FacetProps) {
 type FacetInputProps = {
   cssClasses?: string;
   label: string;
-  name: string;
+  name: keyof typeof INPUTS_MARKUP;
   /** Data source for completions. */
-  sel?: boolean;
-  source?: "tsys" | "para" | "platf" | "plang" | "people" | "license";
+  isInputSel?: boolean;
+  source?: "tsys" | "para" | "platf" | "plang" | "tags" | "license";
   type: "compl" | "search" | "checkbox" | "date";
   value?: string;
 };
 
-function FacetInput({ cssClasses, label, name, sel, source, type, value }: FacetInputProps) {
+function FacetInput({ cssClasses, label, name, isInputSel, source, type, value }: FacetInputProps) {
   let input: JSX.Element;
 
   const id = value ? `${name}-${value}` : name;
@@ -120,7 +121,7 @@ function FacetInput({ cssClasses, label, name, sel, source, type, value }: Facet
       <label class={cssClasses} for={id}>
         {input}
       </label>
-      {sel || type === "compl" ? h("input-sel", { name: name }) : null}
+      {isInputSel || type === "compl" ? h("input-sel", { name: name }) : null}
     </>
   );
 }

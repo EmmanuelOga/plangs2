@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+gdscript", {
       name: "Godot Engine",
       description:
@@ -13,8 +13,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "4.3", date: "2024-01-01" }],
       images: [{ kind: "other", title: "Godot Engine", url: "/images/plangs/g/gdscript/other.png" }],
     })
-    .addLicenses(["lic+mit"])
-    .addPlatforms(["platf+android", "platf+apple", "platf+bsd", "platf+linux", "platf+windows"])
+    .addLicenses(["license+mit"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
     .addTags(["tag+games"])
     .addWrittenIn(["pl+c++"]);
 }

@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+gambit", {
       name: "Gambit",
       description:
@@ -15,8 +15,8 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+lisp", "pl+scheme"])
-    .addLicenses(["lic+apache", "lic+lgpl"])
-    .addParadigms(["para+functional", "para+imperative", "para+metaprogramming", "para+multi"])
-    .addPlatforms(["platf+cross", "platf+x86-64"])
+    .addLicenses(["license+apache", "license+lgpl"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+metaprogramming", "paradigm+multi"])
+    .addPlatforms(["plat+cross", "plat+x86-64"])
     .addTypeSystems(["tsys+dynamic", "tsys+latent", "tsys+strong"]);
 }

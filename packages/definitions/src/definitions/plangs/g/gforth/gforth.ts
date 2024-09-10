@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+gforth", {
       name: "Gforth",
       description:
@@ -17,8 +17,8 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Gforth", url: "/images/plangs/g/gforth/logo.png" }],
     })
     .addImplements(["pl+forth"])
-    .addLicenses(["lic+gnu-gpl"])
-    .addPlatforms(["platf+dos", "platf+windows"])
+    .addLicenses(["license+gnu-gpl"])
+    .addPlatforms(["plat+dos", "plat+windows"])
     .addTags(["tag+interpreter"])
     .addWrittenIn(["pl+c", "pl+forth"]);
 }

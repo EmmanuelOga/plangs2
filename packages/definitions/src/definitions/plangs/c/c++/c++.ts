@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+c++", {
       name: "C++",
       description:
@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+c"])
     .addInfluencedBy(["pl+ada", "pl+apl", "pl+c", "pl+clu", "pl+f-sharp", "pl+ml", "pl+simula"])
-    .addParadigms(["para+functional", "para+imperative", "para+modular", "para+multi", "para+oop", "para+procedural"])
-    .addPlatforms(["platf+cross"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"]);
 }

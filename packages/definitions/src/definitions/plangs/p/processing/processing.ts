@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+processing", {
       name: "Processing",
       description:
@@ -16,6 +16,6 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Processing", url: "/images/plangs/p/processing/logo.png" }],
     })
     .addInfluencedBy(["pl+c"])
-    .addLicenses(["lic+gnu-gpl", "lic+lgpl"])
-    .addParadigms(["para+oop"]);
+    .addLicenses(["license+gnu-gpl", "license+lgpl"])
+    .addParadigms(["paradigm+oop"]);
 }

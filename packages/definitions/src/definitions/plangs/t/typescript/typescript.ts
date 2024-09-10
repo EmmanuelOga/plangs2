@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+typescript", {
       name: "TypeScript",
       description:
@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "5.5.4", date: "2024-01-01" }],
     })
     .addInfluencedBy(["pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+javascript"])
-    .addLicenses(["lic+apache"])
-    .addParadigms(["para+functional", "para+imperative", "para+multi", "para+oop"])
+    .addLicenses(["license+apache"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
     .addTypeSystems(["tsys+duck", "tsys+gradual", "tsys+structural"]);
 }

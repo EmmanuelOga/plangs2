@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+ada", {
       name: "Ada",
       description:
@@ -17,17 +17,17 @@ export function define(g: PlangsGraph) {
     .addDialectOf(["pl+pascal"])
     .addInfluencedBy(["pl+c++", "pl+clu", "pl+eiffel", "pl+pascal"])
     .addParadigms([
-      "para+array",
-      "para+aspect",
-      "para+concurrent",
-      "para+distributed",
-      "para+imperative",
-      "para+metaprogramming",
-      "para+multi",
-      "para+oop",
-      "para+procedural",
-      "para+structured",
+      "paradigm+array",
+      "paradigm+aspect",
+      "paradigm+concurrent",
+      "paradigm+distributed",
+      "paradigm+imperative",
+      "paradigm+metaprogramming",
+      "paradigm+multi",
+      "paradigm+oop",
+      "paradigm+procedural",
+      "paradigm+structured",
     ])
-    .addPlatforms(["platf+cross"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong"]);
 }

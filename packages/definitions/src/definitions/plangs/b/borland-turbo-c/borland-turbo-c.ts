@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+borland-turbo-c", {
       name: "Borland Turbo C",
       description:
@@ -9,5 +9,5 @@ export function define(g: PlangsGraph) {
       websites: [{ href: "https://en.wikipedia.org/wiki/Borland_Turbo_C", title: "Borland Turbo C", kind: "wikipedia" }],
       images: [{ kind: "other", title: "Borland Turbo C", url: "/images/plangs/b/borland-turbo-c/other.jpg" }],
     })
-    .addPlatforms(["platf+dos", "platf+windows"]);
+    .addPlatforms(["plat+dos", "plat+windows"]);
 }

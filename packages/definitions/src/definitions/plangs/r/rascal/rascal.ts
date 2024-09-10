@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+rascal", {
       name: "Rascal",
       description:
@@ -12,6 +12,6 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "0.30.1", date: "2023-01-01" }],
     })
-    .addLicenses(["lic+epl"])
-    .addPlatforms(["platf+linux", "platf+windows"]);
+    .addLicenses(["license+epl"])
+    .addPlatforms(["plat+linux", "plat+windows"]);
 }

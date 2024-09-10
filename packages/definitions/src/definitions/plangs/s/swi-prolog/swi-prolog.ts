@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+swi-prolog", {
       name: "SWI-Prolog",
       description:
@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addImplements(["pl+prolog"])
-    .addLicenses(["lic+bsd", "lic+lgpl"])
-    .addPlatforms(["platf+cross"])
+    .addLicenses(["license+bsd", "license+lgpl"])
+    .addPlatforms(["plat+cross"])
     .addWrittenIn(["pl+c", "pl+prolog"]);
 }

@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+codemonkey", {
       name: "CodeMonkey",
       description:
@@ -11,6 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/CodeMonkey_(software)", title: "CodeMonkey", kind: "wikipedia" },
       ],
     })
-    .addPlatforms(["platf+cross"])
+    .addPlatforms(["plat+cross"])
     .addWrittenIn(["pl+coffeescript", "pl+javascript", "pl+ruby"]);
 }

@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+xslt", {
       name: "XSLT",
       description:
@@ -15,5 +15,5 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.0", date: "2017-01-01" }],
     })
     .addInfluencedBy(["pl+boomerang"])
-    .addParadigms(["para+declarative"]);
+    .addParadigms(["paradigm+declarative"]);
 }

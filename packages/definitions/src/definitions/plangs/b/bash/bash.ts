@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+bash", {
       name: "Bash",
       description:
@@ -13,8 +13,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "5.2.32", date: "2024-01-01" }],
       images: [{ kind: "screenshot", title: "Bash", url: "/images/plangs/b/bash/screenshot.png" }],
     })
-    .addLicenses(["lic+gnu-gpl"])
-    .addPlatforms(["platf+apple", "platf+windows"])
+    .addLicenses(["license+gnu-gpl"])
+    .addPlatforms(["plat+apple", "plat+windows"])
     .addTags(["tag+scripting"])
     .addWrittenIn(["pl+c"]);
 }

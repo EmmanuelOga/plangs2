@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+xpath", {
       name: "XPath",
       description:
@@ -11,5 +11,5 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.1", date: "2017-01-01" }],
     })
     .addInfluencedBy(["pl+xslt"])
-    .addParadigms(["para+query"]);
+    .addParadigms(["paradigm+query"]);
 }

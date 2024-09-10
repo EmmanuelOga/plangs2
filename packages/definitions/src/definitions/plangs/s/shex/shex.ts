@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+shex", {
       name: "ShEx - Shape Expressions",
       description: "Shape Expressions (ShEx)  is a data modelling language for validating and describing a Resource Description Framework (RDF).",
@@ -12,6 +12,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2.1", date: "2018-01-01" }],
       images: [{ kind: "logo", title: "ShEx - Shape Expressions", url: "/images/plangs/s/shex/logo.png" }],
     })
-    .addParadigms(["para+validation"])
+    .addParadigms(["paradigm+validation"])
     .addWrittenIn(["pl+javascript", "pl+scala"]);
 }

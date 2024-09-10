@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+whiley", {
       name: "Whiley",
       description:
@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.6.1", date: "2022-01-01" }],
     })
     .addInfluencedBy(["pl+c", "pl+rust"])
-    .addLicenses(["lic+bsd"])
-    .addParadigms(["para+functional", "para+imperative"])
+    .addLicenses(["license+bsd"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative"])
     .addTypeSystems(["tsys+flow", "tsys+safe", "tsys+strong", "tsys+structural"]);
 }

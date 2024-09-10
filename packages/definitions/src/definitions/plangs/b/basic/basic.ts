@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+basic", {
       name: "BASIC",
       description:
@@ -11,5 +11,5 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "BASIC", url: "/images/plangs/b/basic/other.png" }],
     })
     .addInfluencedBy(["pl+fortran"])
-    .addParadigms(["para+oop", "para+procedural", "para+structured"]);
+    .addParadigms(["paradigm+oop", "paradigm+procedural", "paradigm+structured"]);
 }

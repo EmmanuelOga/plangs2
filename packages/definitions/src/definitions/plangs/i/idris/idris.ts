@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+idris", {
       name: "Idris",
       description:
@@ -18,8 +18,8 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addInfluencedBy(["pl+agda", "pl+clean", "pl+coq", "pl+f-sharp", "pl+haskell", "pl+ml", "pl+rust"])
-    .addLicenses(["lic+bsd"])
-    .addParadigms(["para+functional"])
-    .addPlatforms(["platf+cross"])
+    .addLicenses(["license+bsd"])
+    .addParadigms(["paradigm+functional"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 }

@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+purebasic", {
       name: "PureBasic",
       description:
@@ -16,6 +16,6 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "PureBasic", url: "/images/plangs/p/purebasic/other.png" }],
     })
     .addDialectOf(["pl+basic"])
-    .addParadigms(["para+imperative", "para+procedural", "para+structured"])
-    .addPlatforms(["platf+apple", "platf+linux", "platf+raspberry", "platf+windows"]);
+    .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+structured"])
+    .addPlatforms(["plat+apple", "plat+linux", "plat+raspberry", "plat+windows"]);
 }

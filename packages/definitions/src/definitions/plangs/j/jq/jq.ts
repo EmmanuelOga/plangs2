@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+jq", {
       name: "jq",
       description:
@@ -15,8 +15,8 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "jq", url: "/images/plangs/j/jq/logo.png" }],
     })
     .addInfluencedBy(["pl+icon"])
-    .addLicenses(["lic+mit"])
-    .addParadigms(["para+functional", "para+point-free"])
-    .addPlatforms(["platf+cross"])
+    .addLicenses(["license+mit"])
+    .addParadigms(["paradigm+functional", "paradigm+point-free"])
+    .addPlatforms(["plat+cross"])
     .addWrittenIn(["pl+c", "pl+go", "pl+rust"]);
 }

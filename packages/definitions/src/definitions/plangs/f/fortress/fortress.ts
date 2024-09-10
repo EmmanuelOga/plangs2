@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+fortress", {
       name: "Fortress",
       description:
@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.0" }],
     })
     .addInfluencedBy(["pl+fortran", "pl+haskell", "pl+scala"])
-    .addLicenses(["lic+bsd"])
-    .addPlatforms(["platf+cross", "platf+java"])
+    .addLicenses(["license+bsd"])
+    .addPlatforms(["plat+cross", "plat+java"])
     .addTypeSystems(["tsys+static"]);
 }

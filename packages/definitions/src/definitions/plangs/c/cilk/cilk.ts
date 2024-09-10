@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+cilk", {
       name: "Cilk",
       description:
@@ -14,6 +14,6 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+c"])
     .addInfluencedBy(["pl+c"])
-    .addParadigms(["para+concurrent", "para+imperative", "para+procedural", "para+structured"])
+    .addParadigms(["paradigm+concurrent", "paradigm+imperative", "paradigm+procedural", "paradigm+structured"])
     .addTypeSystems(["tsys+manifest", "tsys+static", "tsys+weak"]);
 }

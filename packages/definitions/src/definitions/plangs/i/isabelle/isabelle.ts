@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+isabelle", {
       name: "Isabelle",
       description:
@@ -13,8 +13,8 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "Isabelle", url: "/images/plangs/i/isabelle/other.png" }],
     })
     .addInfluencedBy(["pl+haskell"])
-    .addLicenses(["lic+bsd"])
-    .addPlatforms(["platf+apple", "platf+linux", "platf+windows"])
+    .addLicenses(["license+bsd"])
+    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
     .addTags(["tag+modeling", "tag+wavelet"])
     .addWrittenIn(["pl+scala", "pl+standard-ml"]);
 }

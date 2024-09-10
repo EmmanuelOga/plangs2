@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+souffle", {
       name: "Soufflé",
       description:
@@ -15,6 +15,6 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+datalog"])
     .addInfluencedBy(["pl+datalog"])
-    .addParadigms(["para+declarative", "para+logic"])
+    .addParadigms(["paradigm+declarative", "paradigm+logic"])
     .addTypeSystems(["tsys+static"]);
 }

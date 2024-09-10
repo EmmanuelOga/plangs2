@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+max-msp", {
       name: "Max",
       description:
@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "8.6.2", date: "2024-01-01" }],
       images: [{ kind: "logo", title: "Max", url: "/images/plangs/m/max-msp/logo.jpg" }],
     })
-    .addPlatforms(["platf+apple", "platf+windows"])
+    .addPlatforms(["plat+apple", "plat+windows"])
     .addTags(["tag+multimedia", "tag+video"])
     .addWrittenIn(["pl+c", "pl+c++"]);
 }

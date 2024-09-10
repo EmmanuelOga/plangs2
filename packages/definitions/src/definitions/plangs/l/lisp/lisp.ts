@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+lisp", {
       name: "Lisp",
       description:
@@ -10,6 +10,6 @@ export function define(g: PlangsGraph) {
       websites: [{ href: "https://en.wikipedia.org/wiki/Lisp_programming_language", title: "Lisp", kind: "wikipedia" }],
       images: [{ kind: "logo", title: "Lisp", url: "/images/plangs/l/lisp/logo.png" }],
     })
-    .addParadigms(["para+functional", "para+metaprogramming", "para+multi", "para+procedural", "para+reflective"])
+    .addParadigms(["paradigm+functional", "paradigm+metaprogramming", "paradigm+multi", "paradigm+procedural", "paradigm+reflective"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 }

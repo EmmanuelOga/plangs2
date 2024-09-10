@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+turbo-pascal", {
       name: "Turbo Pascal",
       description:
@@ -9,5 +9,5 @@ export function define(g: PlangsGraph) {
       websites: [{ href: "https://en.wikipedia.org/wiki/Turbo_Pascal", title: "Turbo Pascal", kind: "wikipedia" }],
     })
     .addDialectOf(["pl+pascal"])
-    .addPlatforms(["platf+dos", "platf+windows"]);
+    .addPlatforms(["plat+dos", "plat+windows"]);
 }

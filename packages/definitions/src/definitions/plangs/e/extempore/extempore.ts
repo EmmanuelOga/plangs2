@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+extempore", {
       name: "Extempore",
       description:
@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.8.9", date: "2021-01-01" }],
     })
     .addInfluencedBy(["pl+impromptu", "pl+lisp", "pl+scheme"])
-    .addParadigms(["para+functional", "para+multi"])
-    .addPlatforms(["platf+linux", "platf+windows"])
+    .addParadigms(["paradigm+functional", "paradigm+multi"])
+    .addPlatforms(["plat+linux", "plat+windows"])
     .addTypeSystems(["tsys+dynamic", "tsys+static"]);
 }

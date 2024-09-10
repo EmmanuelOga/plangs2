@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+alice", {
       name: "Alice",
       description:
@@ -16,8 +16,15 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+ml", "pl+standard-ml"])
     .addInfluencedBy(["pl+ml"])
-    .addLicenses(["lic+mit"])
-    .addParadigms(["para+concurrent", "para+constraint", "para+distributed", "para+functional", "para+imperative", "para+multi"])
-    .addPlatforms(["platf+cross", "platf+java"])
+    .addLicenses(["license+mit"])
+    .addParadigms([
+      "paradigm+concurrent",
+      "paradigm+constraint",
+      "paradigm+distributed",
+      "paradigm+functional",
+      "paradigm+imperative",
+      "paradigm+multi",
+    ])
+    .addPlatforms(["plat+cross", "plat+java"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 }

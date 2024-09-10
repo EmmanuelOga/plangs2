@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+scratch", {
       name: "Scratch",
       description:
@@ -16,8 +16,8 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "Scratch", url: "/images/plangs/s/scratch/other.png" }],
     })
     .addInfluencedBy(["pl+squeak"])
-    .addLicenses(["lic+bsd", "lic+gnu-gpl"])
-    .addParadigms(["para+event-driven", "para+visual"])
-    .addPlatforms(["platf+android", "platf+apple", "platf+linux", "platf+windows"])
+    .addLicenses(["license+bsd", "license+gnu-gpl"])
+    .addParadigms(["paradigm+event-driven", "paradigm+visual"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
     .addWrittenIn(["pl+actionscript", "pl+javascript", "pl+squeak"]);
 }

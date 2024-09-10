@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+dart", {
       name: "Dart",
       description:
@@ -16,8 +16,8 @@ export function define(g: PlangsGraph) {
     })
     .addImplements(["pl+sass"])
     .addInfluencedBy(["pl+c", "pl+c++", "pl+c-sharp", "pl+erlang", "pl+javascript", "pl+ruby", "pl+typescript"])
-    .addLicenses(["lic+bsd"])
-    .addParadigms(["para+functional", "para+imperative", "para+multi", "para+oop", "para+reflective"])
-    .addPlatforms(["platf+cross"])
+    .addLicenses(["license+bsd"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+reflective"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+inferred", "tsys+optional", "tsys+static", "tsys+strong"]);
 }

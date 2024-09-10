@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+netrexx", {
       name: "NetRexx",
       description:
@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "4.06", date: "2024-01-01" }],
     })
-    .addParadigms(["para+multi", "para+oop", "para+procedural", "para+structured"])
-    .addPlatforms(["platf+android", "platf+apple", "platf+cross", "platf+linux", "platf+windows"])
+    .addParadigms(["paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+structured"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .addTypeSystems(["tsys+safe", "tsys+static", "tsys+string", "tsys+strong"]);
 }

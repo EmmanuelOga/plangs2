@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+haxe", {
       name: "Haxe",
       description:
@@ -16,9 +16,9 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+ecmascript"])
     .addInfluencedBy(["pl+actionscript", "pl+c++", "pl+c-sharp", "pl+ecmascript", "pl+javascript", "pl+lua", "pl+ocaml"])
-    .addLicenses(["lic+gnu-gpl", "lic+mit"])
-    .addParadigms(["para+functional", "para+multi", "para+oop"])
-    .addPlatforms(["platf+android", "platf+apple", "platf+arm", "platf+linux", "platf+windows", "platf+x86-64"])
+    .addLicenses(["license+gnu-gpl", "license+mit"])
+    .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+oop"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+arm", "plat+linux", "plat+windows", "plat+x86-64"])
     .addTypeSystems(["tsys+dynamic", "tsys+nominal", "tsys+static"])
     .addWrittenIn(["pl+ocaml"]);
 }

@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+raku", {
       name: "Raku",
       description:
@@ -16,8 +16,8 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+perl"])
     .addInfluencedBy(["pl+haskell", "pl+javascript", "pl+perl", "pl+ruby"])
-    .addLicenses(["lic+artistic"])
-    .addParadigms(["para+multi"])
-    .addPlatforms(["platf+cross"])
+    .addLicenses(["license+artistic"])
+    .addParadigms(["paradigm+multi"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+dynamic", "tsys+gradual"]);
 }

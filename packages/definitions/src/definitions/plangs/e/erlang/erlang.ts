@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+erlang", {
       name: "Erlang",
       description:
@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Erlang", url: "/images/plangs/e/erlang/logo.png" }],
     })
     .addInfluencedBy(["pl+lisp", "pl+ml", "pl+prolog"])
-    .addLicenses(["lic+apache"])
-    .addParadigms(["para+concurrent", "para+functional", "para+multi", "para+oop"])
+    .addLicenses(["license+apache"])
+    .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 }

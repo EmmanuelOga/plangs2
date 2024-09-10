@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+xojo", {
       name: "Xojo",
       description:
@@ -14,5 +14,5 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Xojo", url: "/images/plangs/x/xojo/logo.png" }],
     })
     .addInfluencedBy(["pl+basic", "pl+visual-basic"])
-    .addPlatforms(["platf+android", "platf+apple", "platf+linux", "platf+raspberry", "platf+windows"]);
+    .addPlatforms(["plat+android", "plat+apple", "plat+linux", "plat+raspberry", "plat+windows"]);
 }

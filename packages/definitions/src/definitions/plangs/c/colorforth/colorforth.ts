@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+colorforth", {
       name: "colorForth",
       description:
@@ -13,6 +13,6 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addInfluencedBy(["pl+forth"])
-    .addLicenses(["lic+public-domain"])
-    .addParadigms(["para+procedural", "para+stack-oriented"]);
+    .addLicenses(["license+public-domain"])
+    .addParadigms(["paradigm+procedural", "paradigm+stack-oriented"]);
 }

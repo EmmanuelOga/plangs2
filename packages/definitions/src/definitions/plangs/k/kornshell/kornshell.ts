@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+kornshell", {
       name: "KornShell",
       description:
@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
       ],
       images: [{ kind: "other", title: "KornShell", url: "/images/plangs/k/kornshell/other.png" }],
     })
-    .addLicenses(["lic+isc", "lic+lgpl", "lic+public-domain"])
-    .addPlatforms(["platf+apple", "platf+linux", "platf+windows"])
+    .addLicenses(["license+isc", "license+lgpl", "license+public-domain"])
+    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
     .addWrittenIn(["pl+c"]);
 }

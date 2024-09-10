@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+nim", {
       name: "Nim",
       description:
@@ -17,16 +17,16 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+oberon", "pl+rust"])
     .addParadigms([
-      "para+compiled",
-      "para+concurrent",
-      "para+functional",
-      "para+imperative",
-      "para+metaprogramming",
-      "para+multi",
-      "para+oop",
-      "para+procedural",
+      "paradigm+compiled",
+      "paradigm+concurrent",
+      "paradigm+functional",
+      "paradigm+imperative",
+      "paradigm+metaprogramming",
+      "paradigm+multi",
+      "paradigm+oop",
+      "paradigm+procedural",
     ])
-    .addPlatforms(["platf+arm", "platf+cross", "platf+riscv", "platf+x86-64"])
+    .addPlatforms(["plat+arm", "plat+cross", "plat+riscv", "plat+x86-64"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])
     .addWrittenIn(["pl+pascal"]);
 }

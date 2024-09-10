@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+delphi", {
       name: "Delphi",
       description:
@@ -15,6 +15,6 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+pascal"])
     .addImplements(["pl+pascal"])
-    .addPlatforms(["platf+android", "platf+apple", "platf+linux", "platf+windows"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
     .addTags(["tag+compiler"]);
 }

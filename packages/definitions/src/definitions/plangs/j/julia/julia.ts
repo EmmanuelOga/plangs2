@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+julia", {
       name: "Julia",
       description:
@@ -33,19 +33,19 @@ export function define(g: PlangsGraph) {
       "pl+scheme",
       "pl+wolfram-language",
     ])
-    .addLicenses(["lic+mit"])
+    .addLicenses(["license+mit"])
     .addParadigms([
-      "para+array",
-      "para+functional",
-      "para+imperative",
-      "para+metaprogramming",
-      "para+multi",
-      "para+oop",
-      "para+procedural",
-      "para+reflective",
-      "para+structured",
+      "paradigm+array",
+      "paradigm+functional",
+      "paradigm+imperative",
+      "paradigm+metaprogramming",
+      "paradigm+multi",
+      "paradigm+oop",
+      "paradigm+procedural",
+      "paradigm+reflective",
+      "paradigm+structured",
     ])
-    .addPlatforms(["platf+apple", "platf+bsd", "platf+linux", "platf+windows", "platf+x86-64"])
+    .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])
     .addTypeSystems(["tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+optional", "tsys+strong"])
     .addWrittenIn(["pl+c", "pl+c++", "pl+llvm", "pl+scheme"]);
 }

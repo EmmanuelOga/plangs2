@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+assembly", {
       name: "Assembly language",
       description:
@@ -11,5 +11,5 @@ export function define(g: PlangsGraph) {
       websites: [{ href: "https://en.wikipedia.org/wiki/Assembly_language", title: "Assembly language", kind: "wikipedia" }],
       images: [{ kind: "other", title: "Assembly language", url: "/images/plangs/a/assembly/other.png" }],
     })
-    .addParadigms(["para+imperative", "para+macro", "para+metaprogramming", "para+oop", "para+structured"]);
+    .addParadigms(["paradigm+imperative", "paradigm+macro", "paradigm+metaprogramming", "paradigm+oop", "paradigm+structured"]);
 }

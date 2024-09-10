@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+rakudo", {
       name: "Rakudo",
       description:
@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Rakudo", url: "/images/plangs/r/rakudo/logo.png" }],
     })
     .addImplements(["pl+raku"])
-    .addLicenses(["lic+artistic"])
-    .addPlatforms(["platf+bsd", "platf+linux", "platf+windows"])
+    .addLicenses(["license+artistic"])
+    .addPlatforms(["plat+bsd", "plat+linux", "plat+windows"])
     .addTags(["tag+compiler"]);
 }

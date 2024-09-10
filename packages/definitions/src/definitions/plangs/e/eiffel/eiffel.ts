@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+eiffel", {
       name: "Eiffel",
       description:
@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addInfluencedBy(["pl+ada", "pl+simula"])
-    .addParadigms(["para+concurrent", "para+oop"])
-    .addPlatforms(["platf+apple", "platf+bsd", "platf+cross", "platf+linux", "platf+windows"])
+    .addParadigms(["paradigm+concurrent", "paradigm+oop"])
+    .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .addTypeSystems(["tsys+static"]);
 }

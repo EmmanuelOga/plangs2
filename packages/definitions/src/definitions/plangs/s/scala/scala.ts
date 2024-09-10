@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+scala", {
       name: "Scala",
       description:
@@ -28,8 +28,8 @@ export function define(g: PlangsGraph) {
       "pl+scheme",
       "pl+standard-ml",
     ])
-    .addLicenses(["lic+apache"])
-    .addParadigms(["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+oop"])
-    .addPlatforms(["platf+java", "platf+nodejs"])
+    .addLicenses(["license+apache"])
+    .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
+    .addPlatforms(["plat+java", "plat+nodejs"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
 }

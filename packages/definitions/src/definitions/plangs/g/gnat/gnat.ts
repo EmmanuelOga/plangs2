@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+gnat", {
       name: "GNAT",
       description:
@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "GNAT", url: "/images/plangs/g/gnat/other.png" }],
     })
     .addImplements(["pl+ada"])
-    .addLicenses(["lic+gnu-gpl"])
-    .addPlatforms(["platf+bsd", "platf+linux", "platf+windows"])
+    .addLicenses(["license+gnu-gpl"])
+    .addPlatforms(["plat+bsd", "plat+linux", "plat+windows"])
     .addTags(["tag+compiler"]);
 }

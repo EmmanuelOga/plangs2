@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+faust", {
       name: "FAUST",
       description:
@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "2.60.3", date: "2023-01-01" }],
     })
-    .addLicenses(["lic+gnu-gpl"])
-    .addPlatforms(["platf+linux", "platf+windows"])
+    .addLicenses(["license+gnu-gpl"])
+    .addPlatforms(["plat+linux", "plat+windows"])
     .addWrittenIn(["pl+c++"]);
 }

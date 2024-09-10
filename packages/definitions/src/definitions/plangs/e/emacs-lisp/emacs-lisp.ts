@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+emacs-lisp", {
       name: "Emacs Lisp",
       description:
@@ -17,7 +17,7 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+common-lisp"])
-    .addLicenses(["lic+gnu-gpl"])
-    .addParadigms(["para+functional", "para+metaprogramming", "para+reflective"])
+    .addLicenses(["license+gnu-gpl"])
+    .addParadigms(["paradigm+functional", "paradigm+metaprogramming", "paradigm+reflective"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 }

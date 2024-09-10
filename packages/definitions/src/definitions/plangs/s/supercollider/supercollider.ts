@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+supercollider", {
       name: "SuperCollider",
       description:
@@ -12,8 +12,8 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "3.13.0", date: "2023-01-01" }],
     })
-    .addLicenses(["lic+gnu-gpl"])
-    .addPlatforms(["platf+apple", "platf+bsd", "platf+linux", "platf+windows"])
+    .addLicenses(["license+gnu-gpl"])
+    .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
     .addTags(["tag+audio-dev", "tag+interpreter"])
     .addWrittenIn(["pl+c++"]);
 }

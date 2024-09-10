@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+cpython", {
       name: "CPython",
       description:
@@ -12,6 +12,6 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "3.12.0", date: "2023-01-01" }],
     })
-    .addLicenses(["lic+python"])
+    .addLicenses(["license+python"])
     .addWrittenIn(["pl+c"]);
 }

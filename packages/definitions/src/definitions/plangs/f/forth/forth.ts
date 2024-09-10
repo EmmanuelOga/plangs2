@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+forth", {
       name: "Forth",
       description:
@@ -14,5 +14,5 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addInfluencedBy(["pl+lisp"])
-    .addParadigms(["para+concatenative", "para+procedural", "para+reflective"]);
+    .addParadigms(["paradigm+concatenative", "paradigm+procedural", "paradigm+reflective"]);
 }

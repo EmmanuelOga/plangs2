@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+factor", {
       name: "Factor",
       description:
@@ -15,8 +15,8 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Factor", url: "/images/plangs/f/factor/logo.png" }],
     })
     .addInfluencedBy(["pl+forth", "pl+joy", "pl+lisp", "pl+self"])
-    .addLicenses(["lic+bsd"])
-    .addParadigms(["para+concatenative", "para+functional", "para+multi", "para+oop"])
-    .addPlatforms(["platf+apple", "platf+linux", "platf+windows"])
+    .addLicenses(["license+bsd"])
+    .addParadigms(["paradigm+concatenative", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
+    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 }

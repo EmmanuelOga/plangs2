@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+visual-basic", {
       name: "Visual Basic",
       description:
@@ -16,8 +16,16 @@ export function define(g: PlangsGraph) {
       extensions: [".vb"],
     })
     .addInfluencedBy(["pl+basic", "pl+haskell", "pl+visual-basic"])
-    .addLicenses(["lic+apache"])
-    .addParadigms(["para+declarative", "para+event-driven", "para+imperative", "para+multi", "para+oop", "para+reflective", "para+structured"])
-    .addPlatforms(["platf+android", "platf+apple", "platf+bsd", "platf+dos", "platf+linux", "platf+windows"])
+    .addLicenses(["license+apache"])
+    .addParadigms([
+      "paradigm+declarative",
+      "paradigm+event-driven",
+      "paradigm+imperative",
+      "paradigm+multi",
+      "paradigm+oop",
+      "paradigm+reflective",
+      "paradigm+structured",
+    ])
+    .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+dos", "plat+linux", "plat+windows"])
     .addTypeSystems(["tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong", "tsys+weak"]);
 }

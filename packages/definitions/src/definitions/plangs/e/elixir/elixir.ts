@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+elixir", {
       name: "Elixir",
       description:
@@ -15,8 +15,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.17.2", date: "2024-01-01" }],
     })
     .addInfluencedBy(["pl+clojure", "pl+erlang", "pl+lisp", "pl+ruby"])
-    .addLicenses(["lic+apache"])
-    .addParadigms(["para+concurrent", "para+distributed", "para+functional", "para+multi", "para+process-oriented"])
-    .addPlatforms(["platf+erlang"])
+    .addLicenses(["license+apache"])
+    .addParadigms(["paradigm+concurrent", "paradigm+distributed", "paradigm+functional", "paradigm+multi", "paradigm+process-oriented"])
+    .addPlatforms(["plat+erlang"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 }

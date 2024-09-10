@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+ciao", {
       name: "Ciao",
       description:
@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
     })
     .addImplements(["pl+prolog"])
     .addInfluencedBy(["pl+prolog"])
-    .addLicenses(["lic+gnu-gpl", "lic+lgpl"])
-    .addParadigms(["para+functional", "para+logic", "para+modular", "para+oop"])
-    .addPlatforms(["platf+cross", "platf+windows"]);
+    .addLicenses(["license+gnu-gpl", "license+lgpl"])
+    .addParadigms(["paradigm+functional", "paradigm+logic", "paradigm+modular", "paradigm+oop"])
+    .addPlatforms(["plat+cross", "plat+windows"]);
 }

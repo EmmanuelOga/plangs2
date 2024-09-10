@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+modelica", {
       name: "Modelica",
       description:
@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.6", date: "2023-01-01" }],
       images: [{ kind: "other", title: "Modelica", url: "/images/plangs/m/modelica/other.png" }],
     })
-    .addLicenses(["lic+cc-by"])
-    .addParadigms(["para+declarative"])
-    .addPlatforms(["platf+cross"]);
+    .addLicenses(["license+cc-by"])
+    .addParadigms(["paradigm+declarative"])
+    .addPlatforms(["plat+cross"]);
 }

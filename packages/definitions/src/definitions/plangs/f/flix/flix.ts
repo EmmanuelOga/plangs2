@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+flix", {
       name: "Flix",
       description:
@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addInfluencedBy(["pl+f-sharp", "pl+go", "pl+haskell", "pl+ocaml", "pl+scala"])
-    .addLicenses(["lic+apache"])
-    .addParadigms(["para+functional", "para+imperative", "para+logic", "para+multi"])
+    .addLicenses(["license+apache"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+logic", "paradigm+multi"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
 }

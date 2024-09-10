@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+free-pascal", {
       name: "Free Pascal",
       description:
@@ -14,6 +14,6 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "screenshot", title: "Free Pascal", url: "/images/plangs/f/free-pascal/screenshot.png" }],
     })
     .addImplements(["pl+pascal"])
-    .addPlatforms(["platf+cross", "platf+embedded"])
+    .addPlatforms(["plat+cross", "plat+embedded"])
     .addTags(["tag+compiler"]);
 }

@@ -1,4 +1,4 @@
-import { loadAll } from "@plangs/definitions";
+import { loadAllDefinitions } from "@plangs/definitions";
 import { PlangsGraph } from "@plangs/plangs";
 
 import { Cache, Key } from "./cache";
@@ -108,7 +108,7 @@ async function extract() {
   const wikiCache = new Cache("wikipedia");
 
   const g = new PlangsGraph();
-  await loadAll(g);
+  await loadAllDefinitions(g);
 
   for (const key of (await wikiCache.list()).sort()) {
     const body = await wikiCache.read(key);
@@ -118,7 +118,7 @@ async function extract() {
     if (page.key && PL_WHITELIST.has(page.key)) toPlang(g, page, PL_WHITELIST);
   }
 
-  console.log("Edges: ", g.numEdges, "Nodes: ", g.numNodes);
+  console.log("Edges: ", g.edgeCount, "Nodes: ", g.nodeCount);
 
   await genAllPlangs(g);
 }
@@ -141,7 +141,7 @@ if (process.argv[2] === "scrape") {
 
 async function test() {
   const g = new PlangsGraph();
-  await loadAll(g);
+  await loadAllDefinitions(g);
 
   const wikiCache = new Cache("wikipedia");
 

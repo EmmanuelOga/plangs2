@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+v8", {
       name: "V8",
       description:
@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "11.4", date: "2023-01-01" }],
     })
     .addImplements(["pl+javascript"])
-    .addLicenses(["lic+bsd"])
-    .addPlatforms(["platf+arm", "platf+x86-64"])
+    .addLicenses(["license+bsd"])
+    .addPlatforms(["plat+arm", "plat+x86-64"])
     .addWrittenIn(["pl+c++"]);
 }

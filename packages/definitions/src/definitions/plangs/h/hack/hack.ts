@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+hack", {
       name: "Hack",
       description:
@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "4.172", date: "2022-01-01" }],
     })
     .addInfluencedBy(["pl+c-sharp", "pl+haskell", "pl+ocaml", "pl+scala"])
-    .addLicenses(["lic+mit"])
-    .addPlatforms(["platf+cross"])
+    .addLicenses(["license+mit"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+dynamic", "tsys+gradual", "tsys+static", "tsys+weak"]);
 }

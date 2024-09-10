@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+squirrel", {
       name: "Squirrel",
       description:
@@ -15,8 +15,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.2", date: "2022-01-01" }],
     })
     .addInfluencedBy(["pl+c++", "pl+javascript", "pl+lua", "pl+moonscript"])
-    .addLicenses(["lic+mit"])
-    .addParadigms(["para+functional", "para+imperative", "para+multi", "para+oop", "para+scripting"])
-    .addPlatforms(["platf+cross"])
+    .addLicenses(["license+mit"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+dynamic"]);
 }

@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+f-sharp", {
       name: "F#",
       description:
@@ -18,17 +18,17 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+ml", "pl+ocaml"])
     .addInfluencedBy(["pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ml", "pl+ocaml", "pl+scala", "pl+standard-ml"])
-    .addLicenses(["lic+mit"])
+    .addLicenses(["license+mit"])
     .addParadigms([
-      "para+agents",
-      "para+concurrent",
-      "para+functional",
-      "para+imperative",
-      "para+metaprogramming",
-      "para+multi",
-      "para+oop",
-      "para+reflective",
+      "paradigm+agents",
+      "paradigm+concurrent",
+      "paradigm+functional",
+      "paradigm+imperative",
+      "paradigm+metaprogramming",
+      "paradigm+multi",
+      "paradigm+oop",
+      "paradigm+reflective",
     ])
-    .addPlatforms(["platf+cross"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 }

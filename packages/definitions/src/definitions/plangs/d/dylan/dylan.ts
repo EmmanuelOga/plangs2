@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+dylan", {
       name: "Dylan",
       description:
@@ -15,6 +15,6 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Dylan", url: "/images/plangs/d/dylan/logo.png" }],
     })
     .addInfluencedBy(["pl+algol", "pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme"])
-    .addParadigms(["para+functional", "para+multi", "para+oop"])
-    .addPlatforms(["platf+cross", "platf+x86-64"]);
+    .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+oop"])
+    .addPlatforms(["plat+cross", "plat+x86-64"]);
 }

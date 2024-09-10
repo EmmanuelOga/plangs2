@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+g95", {
       name: "G95",
       description:
@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.93", date: "2012-01-01" }],
     })
     .addImplements(["pl+fortran"])
-    .addLicenses(["lic+gnu-gpl"])
+    .addLicenses(["license+gnu-gpl"])
     .addTags(["tag+compiler"])
     .addWrittenIn(["pl+c"]);
 }

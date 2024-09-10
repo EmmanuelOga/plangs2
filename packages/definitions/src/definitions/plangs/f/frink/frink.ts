@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+frink", {
       name: "Frink",
       description:
@@ -13,5 +13,5 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Frink_(programming_language)", title: "Frink", kind: "wikipedia" },
       ],
     })
-    .addParadigms(["para+functional", "para+imperative", "para+multi", "para+oop"]);
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"]);
 }

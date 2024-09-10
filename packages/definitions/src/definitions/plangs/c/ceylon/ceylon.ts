@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+ceylon", {
       name: "Ceylon",
       description:
@@ -16,8 +16,8 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Ceylon", url: "/images/plangs/c/ceylon/logo.png" }],
     })
     .addInfluencedBy(["pl+lisp", "pl+ml", "pl+scala", "pl+whiley"])
-    .addLicenses(["lic+apache"])
-    .addParadigms(["para+oop"])
-    .addPlatforms(["platf+java", "platf+nodejs"])
+    .addLicenses(["license+apache"])
+    .addParadigms(["paradigm+oop"])
+    .addPlatforms(["plat+java", "plat+nodejs"])
     .addTypeSystems(["tsys+safe", "tsys+static", "tsys+strong"]);
 }

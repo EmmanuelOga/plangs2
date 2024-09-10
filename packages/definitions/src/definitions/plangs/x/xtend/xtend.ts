@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+xtend", {
       name: "Xtend",
       description:
@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2.25.0", date: "2021-01-01" }],
     })
     .addInfluencedBy(["pl+groovy", "pl+scala"])
-    .addParadigms(["para+functional", "para+imperative", "para+oop"])
-    .addPlatforms(["platf+cross", "platf+java"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+oop"])
+    .addPlatforms(["plat+cross", "plat+java"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 }

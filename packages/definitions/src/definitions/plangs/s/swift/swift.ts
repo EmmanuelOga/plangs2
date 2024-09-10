@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+swift", {
       name: "Swift",
       description:
@@ -17,21 +17,21 @@ export function define(g: PlangsGraph) {
       extensions: [".SWIFT", ".swift"],
     })
     .addInfluencedBy(["pl+c", "pl+c-sharp", "pl+clu", "pl+d", "pl+haskell", "pl+lisp", "pl+ruby", "pl+rust"])
-    .addLicenses(["lic+apache"])
+    .addLicenses(["license+apache"])
     .addParadigms([
-      "para+concurrent",
-      "para+dataflow",
-      "para+declarative",
-      "para+distributed",
-      "para+functional",
-      "para+imperative",
-      "para+multi",
-      "para+oop",
-      "para+protocol",
-      "para+scientific",
-      "para+scripting",
-      "para+structured",
+      "paradigm+concurrent",
+      "paradigm+dataflow",
+      "paradigm+declarative",
+      "paradigm+distributed",
+      "paradigm+functional",
+      "paradigm+imperative",
+      "paradigm+multi",
+      "paradigm+oop",
+      "paradigm+protocol",
+      "paradigm+scientific",
+      "paradigm+scripting",
+      "paradigm+structured",
     ])
-    .addPlatforms(["platf+android", "platf+apple", "platf+cross", "platf+java", "platf+linux", "platf+windows"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+windows"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 }

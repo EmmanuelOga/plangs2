@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+oberon", {
       name: "Oberon",
       description:
@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Oberon", url: "/images/plangs/o/oberon/logo.png" }],
     })
     .addInfluencedBy(["pl+pascal"])
-    .addParadigms(["para+imperative", "para+modular", "para+oop", "para+structured"])
-    .addPlatforms(["platf+linux", "platf+windows", "platf+x86-64"])
+    .addParadigms(["paradigm+imperative", "paradigm+modular", "paradigm+oop", "paradigm+structured"])
+    .addPlatforms(["plat+linux", "plat+windows", "plat+x86-64"])
     .addTypeSystems(["tsys+dynamic", "tsys+static", "tsys+strong"]);
 }

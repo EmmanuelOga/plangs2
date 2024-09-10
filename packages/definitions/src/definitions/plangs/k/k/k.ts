@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+k", {
       name: "K",
       description:
@@ -13,6 +13,6 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addInfluencedBy(["pl+apl", "pl+scheme"])
-    .addParadigms(["para+array", "para+functional"])
+    .addParadigms(["paradigm+array", "paradigm+functional"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 }

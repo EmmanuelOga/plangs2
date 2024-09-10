@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+io", {
       name: "Io",
       description:
@@ -14,8 +14,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2019.05.22", date: "2019-05-22" }],
     })
     .addInfluencedBy(["pl+lisp", "pl+lua", "pl+moonscript", "pl+self"])
-    .addLicenses(["lic+bsd"])
-    .addParadigms(["para+oop", "para+prototype"])
-    .addPlatforms(["platf+.net", "platf+apple", "platf+windows", "platf+x86-64"])
+    .addLicenses(["license+bsd"])
+    .addParadigms(["paradigm+oop", "paradigm+prototype"])
+    .addPlatforms(["plat+.net", "plat+apple", "plat+windows", "plat+x86-64"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 }

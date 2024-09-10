@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+reason", {
       name: "Reason",
       description:
@@ -17,6 +17,6 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+ml", "pl+ocaml"])
     .addInfluencedBy(["pl+javascript", "pl+ocaml"])
-    .addLicenses(["lic+mit"])
-    .addParadigms(["para+functional", "para+imperative", "para+modular", "para+multi", "para+oop"]);
+    .addLicenses(["license+mit"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi", "paradigm+oop"]);
 }

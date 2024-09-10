@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+xsb", {
       name: "XSB",
       description:
@@ -15,6 +15,6 @@ export function define(g: PlangsGraph) {
     })
     .addImplements(["pl+prolog"])
     .addInfluencedBy(["pl+prolog"])
-    .addParadigms(["para+logic"])
-    .addPlatforms(["platf+cross"]);
+    .addParadigms(["paradigm+logic"])
+    .addPlatforms(["plat+cross"]);
 }

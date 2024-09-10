@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+labview", {
       name: "LabVIEW",
       description:
@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "5.1", date: "2023-01-01" }],
       images: [{ kind: "logo", title: "LabVIEW", url: "/images/plangs/l/labview/logo.jpg" }],
     })
-    .addPlatforms(["platf+apple", "platf+cross", "platf+linux", "platf+windows"])
+    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+automation", "tag+dataq", "tag+dsp", "tag+embedded", "tag+industrial", "tag+instrument_control", "tag+testing", "tag+wavelet"])
     .addWrittenIn(["pl+c", "pl+c++", "pl+c-sharp"]);
 }

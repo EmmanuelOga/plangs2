@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+brainfuck", {
       name: "Brainfuck",
       description:
@@ -13,5 +13,5 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Brainfuck", title: "Brainfuck", kind: "wikipedia" },
       ],
     })
-    .addParadigms(["para+esoteric", "para+imperative", "para+structured"]);
+    .addParadigms(["paradigm+esoteric", "paradigm+imperative", "paradigm+structured"]);
 }

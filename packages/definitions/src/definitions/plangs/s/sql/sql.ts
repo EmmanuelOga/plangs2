@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+sql", {
       name: "SQL (Structured Query Language)",
       description:
@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addInfluencedBy(["pl+datalog"])
-    .addParadigms(["para+declarative"])
-    .addPlatforms(["platf+cross"])
+    .addParadigms(["paradigm+declarative"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+static", "tsys+strong"]);
 }

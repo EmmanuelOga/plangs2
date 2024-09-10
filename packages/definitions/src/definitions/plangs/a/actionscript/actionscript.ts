@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+actionscript", {
       name: "ActionScript",
       description:
@@ -20,6 +20,6 @@ export function define(g: PlangsGraph) {
     })
     .addImplements(["pl+ecmascript"])
     .addInfluencedBy(["pl+javascript"])
-    .addParadigms(["para+functional", "para+imperative", "para+multi", "para+oop", "para+prototype", "para+scripting"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+prototype", "paradigm+scripting"])
     .addTypeSystems(["tsys+static", "tsys+strong"]);
 }

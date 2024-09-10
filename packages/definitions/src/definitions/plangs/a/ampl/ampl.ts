@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+ampl", {
       name: "AMPL",
       description:
@@ -15,6 +15,6 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "AMPL", url: "/images/plangs/a/ampl/other.jpg" }],
     })
     .addInfluencedBy(["pl+awk", "pl+c"])
-    .addParadigms(["para+declarative", "para+imperative", "para+multi"])
-    .addPlatforms(["platf+apple", "platf+cross", "platf+linux", "platf+windows"]);
+    .addParadigms(["paradigm+declarative", "paradigm+imperative", "paradigm+multi"])
+    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"]);
 }

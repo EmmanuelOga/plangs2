@@ -31,7 +31,7 @@ function startBrowseNav(pg: PlangsGraph) {
 
   function updatePlangs() {
     const filters = getFilters();
-    const keys = pg.filterPlangs(filters);
+    const keys = pg.plangs(filters);
 
     for (const div of thumbnails) {
       const nid = div.dataset.nid as NPlang["key"];

@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+javascriptcore", {
       name: "WebKit",
       description:
@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addImplements(["pl+javascript"])
-    .addLicenses(["lic+bsd"])
-    .addPlatforms(["platf+apple", "platf+linux", "platf+windows"])
+    .addLicenses(["license+bsd"])
+    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
     .addWrittenIn(["pl+c++"]);
 }

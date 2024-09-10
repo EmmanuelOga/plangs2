@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+.net", {
       name: ".NET",
       description:
@@ -17,8 +17,8 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: ".NET", url: "/images/plangs/_/_net/logo.png" }],
     })
     .addImplements(["pl+c-sharp"])
-    .addLicenses(["lic+mit"])
-    .addPlatforms(["platf+android", "platf+apple", "platf+cross", "platf+linux", "platf+windows", "platf+x86-64"])
+    .addLicenses(["license+mit"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+windows", "plat+x86-64"])
     .addTags(["tag+framework"])
     .addWrittenIn(["pl+c++", "pl+c-sharp"]);
 }

@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+zig", {
       name: "Zig",
       description:
@@ -16,8 +16,8 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Zig", url: "/images/plangs/z/zig/logo.png" }],
     })
     .addInfluencedBy(["pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust"])
-    .addLicenses(["lic+mit"])
-    .addParadigms(["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+procedural"])
-    .addPlatforms(["platf+arm", "platf+bsd", "platf+cross", "platf+linux", "platf+riscv", "platf+wasm", "platf+windows", "platf+x86-64"])
+    .addLicenses(["license+mit"])
+    .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+procedural"])
+    .addPlatforms(["plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+riscv", "plat+wasm", "plat+windows", "plat+x86-64"])
     .addTypeSystems(["tsys+generic", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
 }

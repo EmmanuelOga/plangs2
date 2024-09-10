@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+r", {
       name: "R",
       description:
@@ -16,8 +16,16 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "R", url: "/images/plangs/r/r/logo.png" }],
     })
     .addInfluencedBy(["pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme"])
-    .addLicenses(["lic+gnu-gpl"])
-    .addParadigms(["para+array", "para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective"])
-    .addPlatforms(["platf+arm", "platf+x86-64"])
+    .addLicenses(["license+gnu-gpl"])
+    .addParadigms([
+      "paradigm+array",
+      "paradigm+functional",
+      "paradigm+imperative",
+      "paradigm+multi",
+      "paradigm+oop",
+      "paradigm+procedural",
+      "paradigm+reflective",
+    ])
+    .addPlatforms(["plat+arm", "plat+x86-64"])
     .addTypeSystems(["tsys+dynamic"]);
 }

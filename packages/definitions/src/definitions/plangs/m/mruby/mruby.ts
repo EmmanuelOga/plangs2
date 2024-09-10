@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+mruby", {
       name: "mruby",
       description:
@@ -14,8 +14,8 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "mruby", url: "/images/plangs/m/mruby/logo.png" }],
     })
     .addImplements(["pl+ruby"])
-    .addLicenses(["lic+mit"])
-    .addPlatforms(["platf+cross"])
+    .addLicenses(["license+mit"])
+    .addPlatforms(["plat+cross"])
     .addTags(["tag+interpreter"])
     .addWrittenIn(["pl+c", "pl+ruby"]);
 }

@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+haskell", {
       name: "Haskell",
       description:
@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
     })
     .addImplements(["pl+curry"])
     .addInfluencedBy(["pl+clean", "pl+fp", "pl+lisp", "pl+ml", "pl+r5rs", "pl+raku", "pl+scheme", "pl+standard-ml"])
-    .addParadigms(["para+functional"])
-    .addPlatforms(["platf+cross"])
+    .addParadigms(["paradigm+functional"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 }

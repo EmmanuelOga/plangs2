@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+freebasic", {
       name: "FreeBASIC",
       description:
@@ -16,8 +16,8 @@ export function define(g: PlangsGraph) {
     })
     .addImplements(["pl+basic"])
     .addInfluencedBy(["pl+c"])
-    .addLicenses(["lic+gnu-gpl"])
-    .addParadigms(["para+oop", "para+procedural"])
-    .addPlatforms(["platf+bsd", "platf+dos", "platf+linux", "platf+windows"])
+    .addLicenses(["license+gnu-gpl"])
+    .addParadigms(["paradigm+oop", "paradigm+procedural"])
+    .addPlatforms(["plat+bsd", "plat+dos", "plat+linux", "plat+windows"])
     .addTypeSystems(["tsys+static"]);
 }

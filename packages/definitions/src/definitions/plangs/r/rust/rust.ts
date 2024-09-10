@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+rust", {
       name: "Rust",
       description:
@@ -32,9 +32,9 @@ export function define(g: PlangsGraph) {
       "pl+standard-ml",
       "pl+swift",
     ])
-    .addLicenses(["lic+apache", "lic+mit"])
-    .addParadigms(["para+concurrent", "para+functional", "para+imperative", "para+structured"])
-    .addPlatforms(["platf+cross"])
+    .addLicenses(["license+apache", "license+mit"])
+    .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+structured"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+affine", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+ocaml"]);
 }

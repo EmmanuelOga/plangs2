@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+wolfram-language", {
       name: "Wolfram Language",
       description:
@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Wolfram Language", url: "/images/plangs/w/wolfram-language/logo.png" }],
     })
     .addInfluencedBy(["pl+apl", "pl+c", "pl+c++", "pl+fortran", "pl+lisp", "pl+pascal", "pl+prolog", "pl+simula"])
-    .addParadigms(["para+array", "para+functional", "para+multi", "para+procedural", "para+rewriting"])
-    .addPlatforms(["platf+cross"])
+    .addParadigms(["paradigm+array", "paradigm+functional", "paradigm+multi", "paradigm+procedural", "paradigm+rewriting"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 }

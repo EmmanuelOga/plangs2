@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+coldfusion", {
       name: "Adobe ColdFusion",
       description:
@@ -12,6 +12,6 @@ export function define(g: PlangsGraph) {
       ],
       images: [{ kind: "logo", title: "Adobe ColdFusion", url: "/images/plangs/c/coldfusion/logo.png" }],
     })
-    .addPlatforms(["platf+cross"])
+    .addPlatforms(["plat+cross"])
     .addTags(["tag+app", "tag+server"]);
 }

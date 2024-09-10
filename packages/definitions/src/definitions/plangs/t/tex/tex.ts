@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+tex", {
       name: "TeX",
       description:
@@ -11,6 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/TeX", title: "TeX", kind: "wikipedia" },
       ],
     })
-    .addPlatforms(["platf+cross"])
+    .addPlatforms(["plat+cross"])
     .addWrittenIn(["pl+pascal"]);
 }

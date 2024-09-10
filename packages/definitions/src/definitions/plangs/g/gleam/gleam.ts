@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+gleam", {
       name: "Gleam",
       description:
@@ -16,9 +16,9 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "Gleam", url: "/images/plangs/g/gleam/other.png" }],
     })
     .addInfluencedBy(["pl+elixir", "pl+erlang", "pl+go", "pl+javascript", "pl+ocaml", "pl+rust"])
-    .addLicenses(["lic+apache"])
-    .addParadigms(["para+concurrent", "para+functional", "para+multi"])
-    .addPlatforms(["platf+apple", "platf+bsd", "platf+linux", "platf+windows"])
+    .addLicenses(["license+apache"])
+    .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+multi"])
+    .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
     .addTypeSystems(["tsys+inferred", "tsys+safe", "tsys+static"])
     .addWrittenIn(["pl+rust"]);
 }

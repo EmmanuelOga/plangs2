@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+llvm", {
       name: "LLVM",
       description:
@@ -13,8 +13,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "18.1.8", date: "2024-01-01" }],
       images: [{ kind: "logo", title: "LLVM", url: "/images/plangs/l/llvm/logo.png" }],
     })
-    .addLicenses(["lic+apache", "lic+bsd"])
-    .addPlatforms(["platf+cross"])
+    .addLicenses(["license+apache", "license+bsd"])
+    .addPlatforms(["plat+cross"])
     .addTags(["tag+compiler"])
     .addWrittenIn(["pl+c++"]);
 }

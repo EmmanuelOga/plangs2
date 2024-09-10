@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+boomerang", {
       name: "Boomerang",
       description:
@@ -14,5 +14,5 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.2", date: "2009-01-01" }],
     })
     .addInfluencedBy(["pl+ocaml"])
-    .addPlatforms(["platf+linux"]);
+    .addPlatforms(["plat+linux"]);
 }

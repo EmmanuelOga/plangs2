@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+txl", {
       name: "TXL",
       description:
@@ -11,5 +11,5 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/TXL_(programming_language)", title: "TXL", kind: "wikipedia" },
       ],
     })
-    .addParadigms(["para+pattern-matching", "para+rewriting"]);
+    .addParadigms(["paradigm+pattern-matching", "paradigm+rewriting"]);
 }

@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+ecmascript", {
       name: "ECMAScript",
       description:
@@ -17,6 +17,6 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addInfluencedBy(["pl+awk", "pl+c", "pl+coffeescript", "pl+perl", "pl+scheme", "pl+self"])
-    .addParadigms(["para+functional", "para+imperative", "para+multi", "para+prototype"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+prototype"])
     .addTypeSystems(["tsys+dynamic", "tsys+weak"]);
 }

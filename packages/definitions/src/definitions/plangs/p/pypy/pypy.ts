@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+pypy", {
       name: "PyPy",
       description:
@@ -13,6 +13,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "7.3.16", date: "2024-01-01" }],
       images: [{ kind: "logo", title: "PyPy", url: "/images/plangs/p/pypy/logo.png" }],
     })
-    .addLicenses(["lic+mit"])
-    .addPlatforms(["platf+cross"]);
+    .addLicenses(["license+mit"])
+    .addPlatforms(["plat+cross"]);
 }

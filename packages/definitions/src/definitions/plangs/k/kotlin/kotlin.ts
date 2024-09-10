@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+kotlin", {
       name: "Kotlin",
       description:
@@ -15,17 +15,17 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2.0.0", date: "2024-01-01" }],
     })
     .addInfluencedBy(["pl+c-sharp", "pl+eiffel", "pl+groovy", "pl+javascript", "pl+ml", "pl+scala"])
-    .addLicenses(["lic+apache"])
+    .addLicenses(["license+apache"])
     .addParadigms([
-      "para+concurrent",
-      "para+declarative",
-      "para+functional",
-      "para+imperative",
-      "para+multi",
-      "para+oop",
-      "para+reflective",
-      "para+structured",
+      "paradigm+concurrent",
+      "paradigm+declarative",
+      "paradigm+functional",
+      "paradigm+imperative",
+      "paradigm+multi",
+      "paradigm+oop",
+      "paradigm+reflective",
+      "paradigm+structured",
     ])
-    .addPlatforms(["platf+android", "platf+apple", "platf+cross", "platf+linux", "platf+nodejs", "platf+wasm", "platf+windows"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+nodejs", "plat+wasm", "plat+windows"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 }

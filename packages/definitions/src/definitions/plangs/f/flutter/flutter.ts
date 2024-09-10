@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+flutter", {
       name: "Flutter",
       description:
@@ -16,8 +16,8 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addImplements(["pl+dart"])
-    .addLicenses(["lic+bsd"])
-    .addPlatforms(["platf+android", "platf+apple", "platf+linux", "platf+windows"])
+    .addLicenses(["license+bsd"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
     .addTags(["tag+app", "tag+framework"])
     .addWrittenIn(["pl+c", "pl+c++", "pl+dart"]);
 }

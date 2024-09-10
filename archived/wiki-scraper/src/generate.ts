@@ -2,7 +2,7 @@ import { mkdir } from "node:fs/promises";
 import { extname, join } from "node:path";
 
 import type { NodeMap } from "@plangs/graph";
-import type { Image, Link, NBase, NPlang, PlangsGraph } from "@plangs/plangs";
+import type { Image, Link, N, NBase, NLicense, NPlang, PlangsGraph } from "@plangs/plangs";
 import { type WikiPage, keyFromWikiURL } from "./wikipedia";
 
 export const DEFINTIONS_PATH = join(import.meta.dir, "../../../packages/definitions/src/definitions/plangs/");
@@ -11,7 +11,7 @@ export const DEFINTIONS_PATH = join(import.meta.dir, "../../../packages/definiti
 export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang["key"]>): Promise<NPlang | undefined> {
   if (!page.infobox || !page.key) return;
 
-  const plang = g.n_plangs.get(page.key);
+  const plang = g.nodes.pl.get(page.key);
 
   console.log("Processing", plang.key);
 
@@ -52,23 +52,23 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
     if (Array.isArray(value) && value.length === 0) delete generic[key];
   }
 
-  g.n_plangs.set(page.key, data);
+  g.nodes.pl.set(page.key, data);
 
   ////////////////////////////////////////////////////////////////////////////////
 
-  function* findMatching<K extends string>(links: Link[], nodeMap: NodeMap<PlangsGraph, NBase<K, any>>): Generator<K> {
+  function* findMatching<T extends N>(links: Link[], nodeMap: NodeMap<PlangsGraph, NBase<T, any>>): Generator<NBase<T, any>["key"]> {
     for (const link of links) {
       for (const node of nodeMap.findAll((node) => node.matchesKeyword(link.title))) {
-        yield node.key;
+        yield node.key as NBase<T, any>["key"];
       }
     }
   }
 
-  const keys_license = [...findMatching(page.infobox.licenses, g.n_licenses)].sort();
-  const keys_paradigm = [...findMatching(page.infobox.paradigms, g.n_paradigms)].sort();
-  const keys_platform = [...findMatching(page.infobox.platforms, g.n_platforms)].sort();
-  const keys_tags = [...findMatching(page.infobox.tags, g.n_tags)].sort();
-  const keys_tsystem = [...findMatching(page.infobox.typeSystem, g.n_tsystems)].sort();
+  const keys_license = [...findMatching(page.infobox.licenses, g.nodes.license)].sort();
+  const keys_paradigm = [...findMatching(page.infobox.paradigms, g.nodes.paradigm)].sort();
+  const keys_platform = [...findMatching(page.infobox.platforms, g.nodes.plat)].sort();
+  const keys_tags = [...findMatching(page.infobox.tags, g.nodes.tag)].sort();
+  const keys_tsystem = [...findMatching(page.infobox.typeSystem, g.nodes.tsys)].sort();
 
   plang.addLicenses(keys_license).addParadigms(keys_paradigm).addPlatforms(keys_platform).addTags(keys_tags).addTypeSystems(keys_tsystem);
 
@@ -84,19 +84,15 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
       }) as NPlang["key"][];
   }
 
-  // e_dialect
-  for (const other of mapToPlKeys(page.infobox.dialects)) g.e_dialectOf.connect(other, plang.key);
-  for (const other of mapToPlKeys(page.infobox.family)) g.e_dialectOf.connect(plang.key, other);
+  for (const other of mapToPlKeys(page.infobox.dialects)) g.edges.dialect.connect(other, plang.key);
+  for (const other of mapToPlKeys(page.infobox.family)) g.edges.dialect.connect(plang.key, other);
 
-  // e_implementation
-  for (const other of mapToPlKeys(page.infobox.implementations)) g.e_implements.connect(other, plang.key);
+  for (const other of mapToPlKeys(page.infobox.implementations)) g.edges.impl.connect(other, plang.key);
 
-  // e_influencedBy
-  for (const other of mapToPlKeys(page.infobox.influenced)) g.e_influencedBy.connect(other, plang.key);
-  for (const other of mapToPlKeys(page.infobox.influencedBy)) g.e_influencedBy.connect(plang.key, other);
+  for (const other of mapToPlKeys(page.infobox.influenced)) g.edges.influence.connect(other, plang.key);
+  for (const other of mapToPlKeys(page.infobox.influencedBy)) g.edges.influence.connect(plang.key, other);
 
-  // e_writtenIn
-  for (const other of mapToPlKeys(page.infobox.writtenIn)) g.e_writtenIn.connect(plang.key, other);
+  for (const other of mapToPlKeys(page.infobox.writtenIn)) g.edges.writtenIn.connect(plang.key, other);
 
   return plang;
 }
@@ -124,7 +120,7 @@ export function generateCode(plang: NPlang): string {
 
   export function define(g: PlangsGraph) {
 
-    g.n_plangs.set(${JSON.stringify(plang.key)}, ${JSON.stringify(plang.data)})${relations.join("")}
+    g.nodes.pl.set(${JSON.stringify(plang.key)}, ${JSON.stringify(plang.data)})${relations.join("")}
 
   }
   `;
@@ -133,7 +129,7 @@ export function generateCode(plang: NPlang): string {
 }
 
 export async function genAllPlangs(g: PlangsGraph) {
-  for (const [key, plang] of [...g.n_plangs].sort()) {
+  for (const [key, plang] of [...g.nodes.pl].sort()) {
     const code = generateCode(plang);
 
     await mkdir(join(DEFINTIONS_PATH, plang.keyFolder), { recursive: true }).catch((_) => {});

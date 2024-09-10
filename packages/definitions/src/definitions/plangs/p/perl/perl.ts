@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+perl", {
       name: "Perl",
       description:
@@ -19,8 +19,8 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Perl", url: "/images/plangs/p/perl/logo.png" }],
     })
     .addInfluencedBy(["pl+awk", "pl+basic", "pl+c", "pl+c++", "pl+lisp", "pl+raku", "pl+sed"])
-    .addLicenses(["lic+artistic"])
-    .addParadigms(["para+multi"])
-    .addPlatforms(["platf+cross"])
+    .addLicenses(["license+artistic"])
+    .addParadigms(["paradigm+multi"])
+    .addPlatforms(["plat+cross"])
     .addWrittenIn(["pl+c"]);
 }

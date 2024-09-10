@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+c-sharp", {
       name: "C#",
       description:
@@ -29,17 +29,17 @@ export function define(g: PlangsGraph) {
       "pl+scala",
       "pl+visual-basic",
     ])
-    .addLicenses(["lic+gnu-gpl", "lic+lgpl", "lic+mit"])
+    .addLicenses(["license+gnu-gpl", "license+lgpl", "license+mit"])
     .addParadigms([
-      "para+async",
-      "para+concurrent",
-      "para+event-driven",
-      "para+functional",
-      "para+imperative",
-      "para+multi",
-      "para+oop",
-      "para+reflective",
-      "para+structured",
+      "paradigm+async",
+      "paradigm+concurrent",
+      "paradigm+event-driven",
+      "paradigm+functional",
+      "paradigm+imperative",
+      "paradigm+multi",
+      "paradigm+oop",
+      "paradigm+reflective",
+      "paradigm+structured",
     ])
     .addTypeSystems(["tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong"]);
 }

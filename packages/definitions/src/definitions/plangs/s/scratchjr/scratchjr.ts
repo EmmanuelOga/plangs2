@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+scratchjr", {
       name: "ScratchJr",
       description:
@@ -14,5 +14,5 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "ScratchJr", url: "/images/plangs/s/scratchjr/other.png" }],
     })
     .addInfluencedBy(["pl+scratch"])
-    .addPlatforms(["platf+android", "platf+apple"]);
+    .addPlatforms(["plat+android", "plat+apple"]);
 }

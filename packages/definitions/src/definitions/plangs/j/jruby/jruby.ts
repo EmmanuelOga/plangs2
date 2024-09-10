@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+jruby", {
       name: "JRuby",
       description:
@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "9.4.5.0", date: "2023-01-01" }],
     })
     .addImplements(["pl+ruby"])
-    .addLicenses(["lic+epl", "lic+gnu-gpl", "lic+lgpl"])
-    .addPlatforms(["platf+cross", "platf+java"])
+    .addLicenses(["license+epl", "license+gnu-gpl", "license+lgpl"])
+    .addPlatforms(["plat+cross", "plat+java"])
     .addWrittenIn(["pl+ruby"]);
 }

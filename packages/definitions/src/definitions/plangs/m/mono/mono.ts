@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+mono", {
       name: "Mono",
       description:
@@ -14,8 +14,8 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Mono", url: "/images/plangs/m/mono/logo.png" }],
     })
     .addImplements(["pl+c-sharp", "pl+visual-basic"])
-    .addLicenses(["lic+mit"])
-    .addPlatforms(["platf+apple", "platf+linux", "platf+riscv", "platf+windows", "platf+x86-64"])
+    .addLicenses(["license+mit"])
+    .addPlatforms(["plat+apple", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
     .addTags(["tag+framework"])
     .addWrittenIn(["pl+c", "pl+c-sharp"]);
 }

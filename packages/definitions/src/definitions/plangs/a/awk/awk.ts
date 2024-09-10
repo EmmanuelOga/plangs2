@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+awk", {
       name: "AWK",
       description:
@@ -11,6 +11,6 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "AWK", url: "/images/plangs/a/awk/other.png" }],
     })
     .addInfluencedBy(["pl+c", "pl+sed"])
-    .addParadigms(["para+data-driven", "para+procedural", "para+scripting"])
-    .addPlatforms(["platf+cross"]);
+    .addParadigms(["paradigm+data-driven", "paradigm+procedural", "paradigm+scripting"])
+    .addPlatforms(["plat+cross"]);
 }

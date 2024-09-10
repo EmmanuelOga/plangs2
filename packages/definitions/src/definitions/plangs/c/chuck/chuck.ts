@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+chuck", {
       name: "ChucK",
       description:
@@ -14,8 +14,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.5.2.4", date: "2024-01-01" }],
       images: [{ kind: "other", title: "ChucK", url: "/images/plangs/c/chuck/other.png" }],
     })
-    .addLicenses(["lic+gnu-gpl"])
-    .addParadigms(["para+multi"])
-    .addPlatforms(["platf+cross"])
+    .addLicenses(["license+gnu-gpl"])
+    .addParadigms(["paradigm+multi"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+strong"]);
 }

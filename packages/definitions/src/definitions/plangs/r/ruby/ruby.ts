@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+ruby", {
       name: "Ruby",
       description:
@@ -29,8 +29,8 @@ export function define(g: PlangsGraph) {
       "pl+r5rs",
       "pl+scheme",
     ])
-    .addParadigms(["para+functional", "para+imperative", "para+multi", "para+oop", "para+reflective"])
-    .addPlatforms(["platf+cross"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+reflective"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+c"]);
 }

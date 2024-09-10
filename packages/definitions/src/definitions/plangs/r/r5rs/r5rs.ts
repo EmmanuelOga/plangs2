@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+r5rs", {
       name: "Scheme",
       description:
@@ -16,6 +16,6 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+algol", "pl+lisp"])
-    .addParadigms(["para+functional", "para+imperative", "para+metaprogramming", "para+multi"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+metaprogramming", "paradigm+multi"])
     .addTypeSystems(["tsys+dynamic", "tsys+latent", "tsys+strong"]);
 }

@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+squeak", {
       name: "Squeak",
       description:
@@ -15,8 +15,8 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "Squeak", url: "/images/plangs/s/squeak/other.png" }],
     })
     .addInfluencedBy(["pl+lisp", "pl+self", "pl+simula"])
-    .addLicenses(["lic+apache", "lic+mit"])
-    .addParadigms(["para+oop"])
-    .addPlatforms(["platf+apple", "platf+cross", "platf+windows"])
+    .addLicenses(["license+apache", "license+mit"])
+    .addParadigms(["paradigm+oop"])
+    .addPlatforms(["plat+apple", "plat+cross", "plat+windows"])
     .addTypeSystems(["tsys+dynamic"]);
 }

@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+ballerina", {
       name: "Ballerina",
       description: "Ballerina is an open source general-purpose programming language designed by WSO2 for cloud-era application programmers.",
@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addInfluencedBy(["pl+c-sharp", "pl+go", "pl+javascript", "pl+rust"])
-    .addLicenses(["lic+apache"])
-    .addPlatforms(["platf+cross"])
+    .addLicenses(["license+apache"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
 }

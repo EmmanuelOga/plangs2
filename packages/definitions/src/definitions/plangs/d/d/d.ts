@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+d", {
       name: "D programming language",
       description:
@@ -16,8 +16,8 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "D programming language", url: "/images/plangs/d/d/logo.png" }],
     })
     .addInfluencedBy(["pl+ada", "pl+basic", "pl+c", "pl+c++", "pl+c-sharp", "pl+eiffel", "pl+ruby"])
-    .addLicenses(["lic+boost"])
-    .addParadigms(["para+functional", "para+imperative", "para+multi", "para+oop"])
-    .addPlatforms(["platf+apple", "platf+bsd", "platf+linux", "platf+windows"])
+    .addLicenses(["license+boost"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
+    .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 }

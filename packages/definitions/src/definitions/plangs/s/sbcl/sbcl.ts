@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+sbcl", {
       name: "SBCL",
       description:
@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "screenshot", title: "SBCL", url: "/images/plangs/s/sbcl/screenshot.png" }],
     })
     .addImplements(["pl+common-lisp"])
-    .addLicenses(["lic+bsd", "lic+mit", "lic+public-domain"])
-    .addPlatforms(["platf+bsd", "platf+cross", "platf+linux", "platf+windows"])
+    .addLicenses(["license+bsd", "license+mit", "license+public-domain"])
+    .addPlatforms(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+compiler"]);
 }

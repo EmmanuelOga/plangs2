@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+hackety-hack", {
       name: "Hackety Hack",
       description:
@@ -13,8 +13,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.0", date: "2010-01-01" }],
       images: [{ kind: "other", title: "Hackety Hack", url: "/images/plangs/h/hackety-hack/other.png" }],
     })
-    .addLicenses(["lic+mit"])
-    .addPlatforms(["platf+apple", "platf+linux", "platf+windows"])
+    .addLicenses(["license+mit"])
+    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
     .addTags(["tag+edu"])
     .addWrittenIn(["pl+ruby"]);
 }

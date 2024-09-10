@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+apl", {
       name: "APL",
       description:
@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       ],
       images: [{ kind: "logo", title: "APL", url: "/images/plangs/a/apl/logo.png" }],
     })
-    .addParadigms(["para+array", "para+functional", "para+modular", "para+structured"])
-    .addPlatforms(["platf+cross"])
+    .addParadigms(["paradigm+array", "paradigm+functional", "paradigm+modular", "paradigm+structured"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+dynamic"]);
 }

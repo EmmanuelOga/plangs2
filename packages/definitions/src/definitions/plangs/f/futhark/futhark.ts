@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+futhark", {
       name: "Futhark",
       description:
@@ -14,8 +14,8 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+ml"])
     .addInfluencedBy(["pl+apl", "pl+haskell", "pl+standard-ml"])
-    .addLicenses(["lic+isc"])
-    .addParadigms(["para+array", "para+functional"])
-    .addPlatforms(["platf+cross"])
+    .addLicenses(["license+isc"])
+    .addParadigms(["paradigm+array", "paradigm+functional"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong"]);
 }

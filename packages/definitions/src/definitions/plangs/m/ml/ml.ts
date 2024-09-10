@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+ml", {
       name: "ML",
       description:
@@ -10,6 +10,6 @@ export function define(g: PlangsGraph) {
       websites: [{ href: "https://en.wikipedia.org/wiki/ML_programming_language", title: "ML", kind: "wikipedia" }],
     })
     .addInfluencedBy(["pl+lisp"])
-    .addParadigms(["para+functional", "para+imperative", "para+multi"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 }

@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+joy", {
       name: "Joy",
       description:
@@ -10,6 +10,6 @@ export function define(g: PlangsGraph) {
       websites: [{ href: "https://en.wikipedia.org/wiki/Joy_(programming_language)", title: "Joy", kind: "wikipedia" }],
     })
     .addInfluencedBy(["pl+forth", "pl+fp", "pl+scheme"])
-    .addParadigms(["para+concatenative", "para+functional", "para+multi", "para+stack-oriented"])
+    .addParadigms(["paradigm+concatenative", "paradigm+functional", "paradigm+multi", "paradigm+stack-oriented"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 }

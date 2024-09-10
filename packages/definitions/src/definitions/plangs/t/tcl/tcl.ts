@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+tcl", {
       name: "Tcl",
       description:
@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "8.6.14", date: "2024-01-01" }],
     })
     .addInfluencedBy(["pl+awk", "pl+lisp"])
-    .addLicenses(["lic+bsd"])
-    .addParadigms(["para+event-driven", "para+functional", "para+imperative", "para+multi", "para+oop"])
+    .addLicenses(["license+bsd"])
+    .addParadigms(["paradigm+event-driven", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
     .addTypeSystems(["tsys+dynamic", "tsys+string"]);
 }

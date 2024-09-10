@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+go", {
       name: "Go",
       description:
@@ -16,9 +16,9 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Go", url: "/images/plangs/g/go/logo.png" }],
     })
     .addInfluencedBy(["pl+apl", "pl+c", "pl+d", "pl+erlang", "pl+modula", "pl+oberon", "pl+pascal"])
-    .addLicenses(["lic+bsd"])
-    .addParadigms(["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+oop"])
-    .addPlatforms(["platf+apple", "platf+bsd", "platf+linux", "platf+windows"])
+    .addLicenses(["license+bsd"])
+    .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
+    .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
     .addTypeSystems(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong", "tsys+structural"])
     .addWrittenIn(["pl+assembly", "pl+c++"]);
 }

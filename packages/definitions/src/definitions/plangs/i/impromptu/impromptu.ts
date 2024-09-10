@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+impromptu", {
       name: "Impromptu",
       description:
@@ -15,6 +15,6 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "Impromptu", url: "/images/plangs/i/impromptu/other.jpg" }],
     })
     .addInfluencedBy(["pl+lisp", "pl+scheme"])
-    .addParadigms(["para+functional", "para+multi"])
+    .addParadigms(["paradigm+functional", "paradigm+multi"])
     .addTypeSystems(["tsys+dynamic", "tsys+static"]);
 }

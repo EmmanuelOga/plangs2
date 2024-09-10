@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+minizinc", {
       name: "MiniZinc",
       description:
@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "2.8.5", date: "2024-01-01" }],
     })
-    .addParadigms(["para+constraint", "para+logic"])
-    .addPlatforms(["platf+apple", "platf+linux", "platf+windows"])
+    .addParadigms(["paradigm+constraint", "paradigm+logic"])
+    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
     .addWrittenIn(["pl+c++"]);
 }

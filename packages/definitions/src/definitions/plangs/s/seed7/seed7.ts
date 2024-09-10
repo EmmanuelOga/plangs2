@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+seed7", {
       name: "Seed7",
       description:
@@ -14,8 +14,8 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addInfluencedBy(["pl+ada", "pl+c", "pl+c++", "pl+pascal"])
-    .addLicenses(["lic+gnu-gpl", "lic+lgpl"])
-    .addParadigms(["para+extensible", "para+imperative", "para+multi", "para+oop", "para+reflective", "para+structured"])
-    .addPlatforms(["platf+bsd", "platf+cross", "platf+linux", "platf+windows"])
+    .addLicenses(["license+gnu-gpl", "license+lgpl"])
+    .addParadigms(["paradigm+extensible", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+reflective", "paradigm+structured"])
+    .addPlatforms(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .addTypeSystems(["tsys+manifest", "tsys+nominal", "tsys+static", "tsys+strong"]);
 }

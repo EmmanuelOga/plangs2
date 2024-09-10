@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+netlogo", {
       name: "NetLogo",
       description: "NetLogo is a programming language and integrated development environment (IDE) for agent-based modeling.",
@@ -15,9 +15,9 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "NetLogo", url: "/images/plangs/n/netlogo/logo.png" }],
     })
     .addDialectOf(["pl+lisp"])
-    .addLicenses(["lic+gnu-gpl"])
-    .addParadigms(["para+agents", "para+educational", "para+multi", "para+procedural", "para+simulation"])
-    .addPlatforms(["platf+cross", "platf+x86-64"])
+    .addLicenses(["license+gnu-gpl"])
+    .addParadigms(["paradigm+agents", "paradigm+educational", "paradigm+multi", "paradigm+procedural", "paradigm+simulation"])
+    .addPlatforms(["plat+cross", "plat+x86-64"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+scala"]);
 }

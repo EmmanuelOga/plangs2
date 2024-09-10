@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+micropython", {
       name: "MicroPython",
       description:
@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "1.23.0", date: "2024-01-01" }],
     })
-    .addLicenses(["lic+mit"])
-    .addPlatforms(["platf+esp32", "platf+nodejs", "platf+windows"])
+    .addLicenses(["license+mit"])
+    .addPlatforms(["plat+esp32", "plat+nodejs", "plat+windows"])
     .addWrittenIn(["pl+c"]);
 }

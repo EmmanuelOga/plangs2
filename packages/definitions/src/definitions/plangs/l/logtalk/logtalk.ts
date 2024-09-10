@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+logtalk", {
       name: "Logtalk",
       description:
@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.66.0", date: "2023-01-01" }],
     })
     .addInfluencedBy(["pl+prolog"])
-    .addLicenses(["lic+apache", "lic+artistic"])
-    .addParadigms(["para+logic", "para+oop", "para+prototype"])
-    .addPlatforms(["platf+cross"]);
+    .addLicenses(["license+apache", "license+artistic"])
+    .addParadigms(["paradigm+logic", "paradigm+oop", "paradigm+prototype"])
+    .addPlatforms(["plat+cross"]);
 }

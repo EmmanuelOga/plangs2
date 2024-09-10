@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+clojure", {
       name: "Clojure",
       description: "Clojure (/ˈkloʊʒər/, like closure) is a dynamic and functional dialect of the Lisp programming language on the Java platform.",
@@ -30,7 +30,15 @@ export function define(g: PlangsGraph) {
       "pl+scheme",
       "pl+wolfram-language",
     ])
-    .addParadigms(["para+agents", "para+concurrent", "para+functional", "para+logic", "para+macro", "para+multi", "para+pipeline"])
-    .addPlatforms(["platf+java", "platf+nodejs"])
+    .addParadigms([
+      "paradigm+agents",
+      "paradigm+concurrent",
+      "paradigm+functional",
+      "paradigm+logic",
+      "paradigm+macro",
+      "paradigm+multi",
+      "paradigm+pipeline",
+    ])
+    .addPlatforms(["plat+java", "plat+nodejs"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 }

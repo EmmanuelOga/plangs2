@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+high-level-assembly", {
       name: "High Level Assembly (HLA)",
       description:
@@ -12,8 +12,8 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "2.16", date: "2011-01-01" }],
     })
-    .addLicenses(["lic+public-domain"])
-    .addPlatforms(["platf+apple", "platf+bsd", "platf+linux", "platf+windows"])
+    .addLicenses(["license+public-domain"])
+    .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
     .addTags(["tag+asm"])
     .addWrittenIn(["pl+assembly"]);
 }

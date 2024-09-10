@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+lua", {
       name: "Lua",
       description:
@@ -16,18 +16,18 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Lua", url: "/images/plangs/l/lua/logo.png" }],
     })
     .addInfluencedBy(["pl+awk", "pl+c++", "pl+clu", "pl+lisp", "pl+modula", "pl+r5rs", "pl+scheme", "pl+self"])
-    .addLicenses(["lic+mit"])
+    .addLicenses(["license+mit"])
     .addParadigms([
-      "para+functional",
-      "para+imperative",
-      "para+metaprogramming",
-      "para+multi",
-      "para+oop",
-      "para+procedural",
-      "para+prototype",
-      "para+reflective",
-      "para+scripting",
+      "paradigm+functional",
+      "paradigm+imperative",
+      "paradigm+metaprogramming",
+      "paradigm+multi",
+      "paradigm+oop",
+      "paradigm+procedural",
+      "paradigm+prototype",
+      "paradigm+reflective",
+      "paradigm+scripting",
     ])
-    .addPlatforms(["platf+cross"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"]);
 }

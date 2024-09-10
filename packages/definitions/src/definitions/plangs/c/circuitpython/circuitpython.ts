@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+circuitpython", {
       name: "CircuitPython",
       description:
@@ -13,6 +13,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "9.1.1", date: "2024-01-01" }],
       images: [{ kind: "other", title: "CircuitPython", url: "/images/plangs/c/circuitpython/other.png" }],
     })
-    .addLicenses(["lic+mit"])
+    .addLicenses(["license+mit"])
     .addWrittenIn(["pl+c"]);
 }

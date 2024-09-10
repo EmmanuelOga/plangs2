@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+ironpython", {
       name: "IronPython",
       description:
@@ -15,8 +15,8 @@ export function define(g: PlangsGraph) {
         { version: "3.4.0", date: "2022-01-01" },
       ],
     })
-    .addLicenses(["lic+apache"])
-    .addPlatforms(["platf+apple", "platf+linux", "platf+windows"])
+    .addLicenses(["license+apache"])
+    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
     .addTags(["tag+interpreter"])
     .addWrittenIn(["pl+c-sharp"]);
 }

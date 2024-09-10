@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+hotspot", {
       name: "Java HotSpot Virtual Machine",
       description:
@@ -12,6 +12,6 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "23.25", date: "2016-01-01" }],
     })
-    .addPlatforms(["platf+cross"])
+    .addPlatforms(["plat+cross"])
     .addWrittenIn(["pl+assembly", "pl+c++"]);
 }

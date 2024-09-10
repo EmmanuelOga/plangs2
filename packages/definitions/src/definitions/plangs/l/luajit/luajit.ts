@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+luajit", {
       name: "LuaJIT",
       description:
@@ -14,8 +14,8 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "LuaJIT", url: "/images/plangs/l/luajit/other.png" }],
     })
     .addImplements(["pl+lua", "pl+moonscript"])
-    .addLicenses(["lic+mit"])
-    .addPlatforms(["platf+android", "platf+apple", "platf+windows", "platf+x86-64"])
+    .addLicenses(["license+mit"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+windows", "plat+x86-64"])
     .addTags(["tag+compiler"])
     .addWrittenIn(["pl+c", "pl+lua"]);
 }

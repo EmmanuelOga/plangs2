@@ -1,4 +1,4 @@
-import type { NPlang } from "@plangs/plangs/index";
+import type { NPlang } from "@plangs/plangs";
 
 // Arbitrary whitelist.
 export const PL_WHITELIST = new Set<NPlang["key"]>([

@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+curry", {
       name: "Curry",
       description:
@@ -18,8 +18,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.6.0", date: "2023-01-01" }],
     })
     .addInfluencedBy(["pl+haskell", "pl+prolog"])
-    .addLicenses(["lic+bsd"])
-    .addParadigms(["para+functional", "para+logic"])
-    .addPlatforms(["platf+cross", "platf+linux", "platf+x86-64"])
+    .addLicenses(["license+bsd"])
+    .addParadigms(["paradigm+functional", "paradigm+logic"])
+    .addPlatforms(["plat+cross", "plat+linux", "plat+x86-64"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 }

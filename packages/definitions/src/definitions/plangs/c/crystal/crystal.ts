@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+crystal", {
       name: "Crystal",
       description:
@@ -16,8 +16,8 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Crystal", url: "/images/plangs/c/crystal/logo.png" }],
     })
     .addInfluencedBy(["pl+c", "pl+c-sharp", "pl+go", "pl+ruby", "pl+rust"])
-    .addLicenses(["lic+apache"])
-    .addParadigms(["para+concurrent", "para+multi", "para+oop"])
-    .addPlatforms(["platf+apple", "platf+arm", "platf+bsd", "platf+linux", "platf+windows", "platf+x86-64"])
+    .addLicenses(["license+apache"])
+    .addParadigms(["paradigm+concurrent", "paradigm+multi", "paradigm+oop"])
+    .addPlatforms(["plat+apple", "plat+arm", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])
     .addTypeSystems(["tsys+duck", "tsys+nominal", "tsys+static"]);
 }

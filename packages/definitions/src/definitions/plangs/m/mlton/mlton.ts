@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+mlton", {
       name: "MLton",
       description:
@@ -16,6 +16,6 @@ export function define(g: PlangsGraph) {
     .addDialectOf(["pl+ml", "pl+standard-ml"])
     .addImplements(["pl+standard-ml"])
     .addInfluencedBy(["pl+standard-ml"])
-    .addParadigms(["para+functional", "para+imperative", "para+multi"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 }

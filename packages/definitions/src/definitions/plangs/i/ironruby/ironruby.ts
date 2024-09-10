@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+ironruby", {
       name: "IronRuby",
       description:
@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
         { version: "1.1.3", date: "2011-01-01" },
       ],
     })
-    .addLicenses(["lic+apache"])
-    .addPlatforms(["platf+apple", "platf+linux", "platf+windows"])
+    .addLicenses(["license+apache"])
+    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
     .addWrittenIn(["pl+c-sharp"]);
 }

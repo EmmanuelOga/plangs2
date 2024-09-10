@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+datomic", {
       name: "Datomic",
       description:
@@ -13,6 +13,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.0.7180" }],
     })
     .addDialectOf(["pl+datalog"])
-    .addLicenses(["lic+apache"])
+    .addLicenses(["license+apache"])
     .addWrittenIn(["pl+clojure"]);
 }

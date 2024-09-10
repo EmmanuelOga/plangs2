@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+clozure", {
       name: "Clozure CL",
       description:
@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.12.2", date: "2023-01-01" }],
     })
     .addImplements(["pl+common-lisp"])
-    .addLicenses(["lic+apache", "lic+lgpl"])
-    .addPlatforms(["platf+bsd", "platf+cross", "platf+linux", "platf+windows"])
+    .addLicenses(["license+apache", "license+lgpl"])
+    .addPlatforms(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+compiler"]);
 }

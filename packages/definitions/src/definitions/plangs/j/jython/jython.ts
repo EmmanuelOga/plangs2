@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+jython", {
       name: "Jython",
       description:
@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "2.7.4", date: "2024-01-01" }],
     })
-    .addLicenses(["lic+python"])
-    .addPlatforms(["platf+cross", "platf+java"])
+    .addLicenses(["license+python"])
+    .addPlatforms(["plat+cross", "plat+java"])
     .addTags(["tag+interpreter"]);
 }

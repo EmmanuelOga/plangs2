@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+modula", {
       name: "Modula",
       description:
@@ -10,6 +10,6 @@ export function define(g: PlangsGraph) {
       websites: [{ href: "https://en.wikipedia.org/wiki/Modula_programming_language", title: "Modula", kind: "wikipedia" }],
     })
     .addInfluencedBy(["pl+pascal"])
-    .addParadigms(["para+imperative", "para+modular", "para+structured"])
+    .addParadigms(["paradigm+imperative", "paradigm+modular", "paradigm+structured"])
     .addTypeSystems(["tsys+safe", "tsys+static", "tsys+strong"]);
 }

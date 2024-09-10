@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+yabasic", {
       name: "Yabasic",
       description:
@@ -13,6 +13,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2.90.4", date: "2023-01-01" }],
       images: [{ kind: "other", title: "Yabasic", url: "/images/plangs/y/yabasic/other.png" }],
     })
-    .addLicenses(["lic+mit"])
-    .addPlatforms(["platf+windows"]);
+    .addLicenses(["license+mit"])
+    .addPlatforms(["plat+windows"]);
 }

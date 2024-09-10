@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+clu", {
       name: "CLU",
       description:
@@ -14,6 +14,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.5", date: "1989-01-01" }],
     })
     .addInfluencedBy(["pl+lisp", "pl+simula"])
-    .addParadigms(["para+multi", "para+oop", "para+procedural"])
+    .addParadigms(["paradigm+multi", "paradigm+oop", "paradigm+procedural"])
     .addTypeSystems(["tsys+strong"]);
 }

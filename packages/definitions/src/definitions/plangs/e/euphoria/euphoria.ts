@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+euphoria", {
       name: "Euphoria",
       description:
@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "4.1.0", date: "2021-01-01" }],
     })
     .addInfluencedBy(["pl+basic"])
-    .addLicenses(["lic+bsd"])
-    .addParadigms(["para+imperative", "para+procedural"])
-    .addPlatforms(["platf+apple", "platf+bsd", "platf+cross", "platf+linux", "platf+windows"]);
+    .addLicenses(["license+bsd"])
+    .addParadigms(["paradigm+imperative", "paradigm+procedural"])
+    .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"]);
 }

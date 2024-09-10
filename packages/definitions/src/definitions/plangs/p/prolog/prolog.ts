@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+prolog", {
       name: "Prolog",
       description:
@@ -15,5 +15,5 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addImplements(["pl+curry"])
-    .addParadigms(["para+logic"]);
+    .addParadigms(["paradigm+logic"]);
 }

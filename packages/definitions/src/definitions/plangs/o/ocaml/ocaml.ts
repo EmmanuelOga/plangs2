@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+ocaml", {
       name: "OCaml",
       description:
@@ -16,8 +16,8 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+ml"])
     .addInfluencedBy(["pl+c", "pl+ml", "pl+pascal", "pl+standard-ml"])
-    .addParadigms(["para+functional", "para+imperative", "para+modular", "para+multi", "para+oop"])
-    .addPlatforms(["platf+apple", "platf+cross", "platf+linux", "platf+riscv", "platf+windows", "platf+x86-64"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi", "paradigm+oop"])
+    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])
     .addWrittenIn(["pl+c"]);
 }

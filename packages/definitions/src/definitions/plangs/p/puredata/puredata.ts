@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+puredata", {
       name: "Pure Data",
       description:
@@ -13,6 +13,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.53", date: "2023-01-01" }],
       images: [{ kind: "logo", title: "Pure Data", url: "/images/plangs/p/puredata/logo.png" }],
     })
-    .addLicenses(["lic+bsd"])
+    .addLicenses(["license+bsd"])
     .addTags(["tag+interpreter"]);
 }

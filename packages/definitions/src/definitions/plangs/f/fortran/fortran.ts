@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+fortran", {
       name: "Fortran",
       description:
@@ -14,6 +14,6 @@ export function define(g: PlangsGraph) {
       ],
       images: [{ kind: "other", title: "Fortran", url: "/images/plangs/f/fortran/other.jpg" }],
     })
-    .addParadigms(["para+array", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+structured"])
+    .addParadigms(["paradigm+array", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+structured"])
     .addTypeSystems(["tsys+manifest", "tsys+static", "tsys+strong"]);
 }

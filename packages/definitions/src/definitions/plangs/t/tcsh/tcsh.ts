@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+tcsh", {
       name: "TENEX C Shell",
       description:
@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "6.24.13", date: "2024-01-01" }],
       images: [{ kind: "other", title: "TENEX C Shell", url: "/images/plangs/t/tcsh/other.png" }],
     })
-    .addLicenses(["lic+bsd"])
-    .addPlatforms(["platf+cross"])
+    .addLicenses(["license+bsd"])
+    .addPlatforms(["plat+cross"])
     .addWrittenIn(["pl+c"]);
 }

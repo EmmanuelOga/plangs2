@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+cobra", {
       name: "Cobra",
       description:
@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.9.6", date: "2013-01-01" }],
     })
     .addInfluencedBy(["pl+c-sharp", "pl+eiffel"])
-    .addLicenses(["lic+mit"])
-    .addParadigms(["para+multi", "para+oop"])
+    .addLicenses(["license+mit"])
+    .addParadigms(["paradigm+multi", "paradigm+oop"])
     .addTypeSystems(["tsys+dynamic", "tsys+inferred", "tsys+static", "tsys+strong"]);
 }

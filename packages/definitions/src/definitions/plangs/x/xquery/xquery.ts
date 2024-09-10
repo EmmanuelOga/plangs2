@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+xquery", {
       name: "XQuery",
       description:
@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addInfluencedBy(["pl+sql", "pl+xpath", "pl+xslt"])
-    .addParadigms(["para+declarative", "para+functional", "para+modular"])
-    .addPlatforms(["platf+cross"])
+    .addParadigms(["paradigm+declarative", "paradigm+functional", "paradigm+modular"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 }

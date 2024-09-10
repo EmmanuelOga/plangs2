@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+newspeak", {
       name: "Newspeak",
       description:
@@ -14,9 +14,9 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+self", "pl+squeak"])
     .addInfluencedBy(["pl+self"])
-    .addLicenses(["lic+apache"])
-    .addParadigms(["para+functional", "para+oop"])
-    .addPlatforms(["platf+android", "platf+apple", "platf+linux", "platf+windows"])
+    .addLicenses(["license+apache"])
+    .addParadigms(["paradigm+functional", "paradigm+oop"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
     .addTypeSystems(["tsys+dynamic", "tsys+optional"])
     .addWrittenIn(["pl+c++", "pl+javascript"]);
 }

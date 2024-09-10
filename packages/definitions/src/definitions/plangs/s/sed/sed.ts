@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+sed", {
       name: "sed",
       description:
@@ -10,6 +10,6 @@ export function define(g: PlangsGraph) {
       websites: [{ href: "https://en.wikipedia.org/wiki/Sed", title: "sed", kind: "wikipedia" }],
       images: [{ kind: "other", title: "sed", url: "/images/plangs/s/sed/other.jpg" }],
     })
-    .addParadigms(["para+scripting"])
+    .addParadigms(["paradigm+scripting"])
     .addWrittenIn(["pl+c"]);
 }

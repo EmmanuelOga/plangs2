@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+gremlin", {
       name: "Gremlin",
       description:
@@ -15,6 +15,6 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "Gremlin", url: "/images/plangs/g/gremlin/other.png" }],
     })
     .addInfluencedBy(["pl+sql", "pl+xpath"])
-    .addLicenses(["lic+apache"])
-    .addPlatforms(["platf+cross"]);
+    .addLicenses(["license+apache"])
+    .addPlatforms(["plat+cross"]);
 }

@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+graalvm", {
       name: "GraalVM",
       description:
@@ -13,6 +13,6 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "GraalVM", url: "/images/plangs/g/graalvm/logo.png" }],
     })
     .addImplements(["pl+ruby"])
-    .addLicenses(["lic+gnu-gpl"])
-    .addPlatforms(["platf+apple", "platf+java", "platf+linux", "platf+windows"]);
+    .addLicenses(["license+gnu-gpl"])
+    .addPlatforms(["plat+apple", "plat+java", "plat+linux", "plat+windows"]);
 }

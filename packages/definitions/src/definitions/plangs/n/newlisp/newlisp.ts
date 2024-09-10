@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+newlisp", {
       name: "newLISP",
       description:
@@ -19,6 +19,6 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+c", "pl+common-lisp", "pl+perl", "pl+scheme"])
-    .addLicenses(["lic+gnu-gpl"])
-    .addPlatforms(["platf+cross", "platf+windows", "platf+x86-64"]);
+    .addLicenses(["license+gnu-gpl"])
+    .addPlatforms(["plat+cross", "plat+windows", "plat+x86-64"]);
 }

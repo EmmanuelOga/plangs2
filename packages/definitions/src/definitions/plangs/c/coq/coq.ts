@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+coq", {
       name: "Coq (software)",
       description:
@@ -17,7 +17,7 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Coq (software)", url: "/images/plangs/c/coq/logo.png" }],
     })
     .addInfluencedBy(["pl+ml", "pl+ocaml"])
-    .addPlatforms(["platf+cross"])
+    .addPlatforms(["plat+cross"])
     .addTags(["tag+proofs"])
     .addWrittenIn(["pl+ocaml"]);
 }

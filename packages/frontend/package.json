@@ -6,6 +6,7 @@
   "files": ["src"],
   "dependencies": {
     "@plangs/plangs": "workspace:*",
+    "@plangs/server": "workspace:*",
     "graphology": "^0.25.4",
     "graphology-layout": "^0.6.1",
     "graphology-layout-forceatlas2": "^0.10.1",

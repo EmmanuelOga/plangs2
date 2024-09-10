@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.n_plangs
+  g.nodes.pl
     .set("pl+rebol", {
       name: "Rebol",
       description:
@@ -18,8 +18,8 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addInfluencedBy(["pl+forth", "pl+lisp", "pl+self"])
-    .addLicenses(["lic+apache"])
-    .addParadigms(["para+data-exchange", "para+functional", "para+imperative", "para+language-oriented", "para+prototype"])
-    .addPlatforms(["platf+cross"])
+    .addLicenses(["license+apache"])
+    .addParadigms(["paradigm+data-exchange", "paradigm+functional", "paradigm+imperative", "paradigm+language-oriented", "paradigm+prototype"])
+    .addPlatforms(["plat+cross"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 }
