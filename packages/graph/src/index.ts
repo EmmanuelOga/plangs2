@@ -10,6 +10,9 @@ export type NO_DATA = Record<string, never>;
 
 /** Graph Node. */
 export abstract class Node<T_Graph, T_Key extends string, T_Data> {
+  /** Sometimes it is useful to know the kind of node. */
+  abstract readonly kind: string;
+
   readonly data: Partial<T_Data> = {};
 
   constructor(

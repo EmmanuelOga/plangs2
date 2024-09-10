@@ -9,14 +9,18 @@ type G = TestGraph;
 type NK<T extends N> = `${T}+${string}`;
 
 /* Example vertex data interfaces: model a blog. */
-class NPerson extends Node<G, NK<"person">, { name: string }> {}
-class NPost extends Node<G, NK<"post">, { title: string; content: string }> {}
-class NTag extends Node<G, NK<"tag">, NO_DATA> {}
-
+class NPerson extends Node<G, NK<"person">, { name: string }> {
+  override kind: N = "person";
+}
+class NPost extends Node<G, NK<"post">, { title: string; content: string }> {
+  override kind: N = "post";
+}
+class NTag extends Node<G, NK<"tag">, NO_DATA> {
+  override kind: N = "tag";
+}
 class EPersonPost extends Edge<G, NPerson, NPost, { role: "author" | "editor" }> {
   override kind: E = "personPost";
 }
-
 class EPostTag extends Edge<G, NPost, NTag, NO_DATA> {
   override kind: E = "postTag";
 }
