@@ -3,12 +3,12 @@ import { Glob } from "bun";
 import YAML from "yaml";
 
 import { marked } from "marked";
-import { localPath } from "./util";
+import { packagesPath } from "./util";
 
 async function postPaths(): Promise<string[]> {
   const glob = new Glob("**/*.md");
   const postPaths: string[] = [];
-  for await (const path of glob.scan(localPath("posts"))) {
+  for await (const path of glob.scan(packagesPath("server/posts"))) {
     postPaths.push(path);
   }
   return postPaths.sort((a, b) => b.localeCompare(a));
@@ -25,7 +25,7 @@ export async function blogPosts(): Promise<BlogPost[]> {
   const posts = [];
 
   for (const path of await postPaths()) {
-    const src = await Bun.file(localPath(`posts/${path}`)).text();
+    const src = await Bun.file(packagesPath("server/posts", path)).text();
     const [_, yaml, md] = src.toString().split("---");
 
     const header = YAML.parse(yaml);

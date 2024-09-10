@@ -131,7 +131,7 @@ function PlangsList() {
 
   return (
     <>
-      {[...pg.n_plang].map(([nid, pl]) => (
+      {[...pg.n_plangs].map(([nid, pl]) => (
         <div class="plang-thumb" data-vid={nid} key={nid}>
           <span class="name">{pl.data.name}</span>
           <PlangLogo pl={pl} />
@@ -146,7 +146,7 @@ type PlangLogoProps = {
 };
 
 function PlangLogo({ pl }: PlangLogoProps) {
-  const logo = pl.logoOrImage();
-
-  return <div class="logo">{logo ? <img class="logo" src={logo.url} alt="Logo" /> : <div class="placeholder">{pl.data.name ?? "No Logo"}</div>}</div>;
+  const logo = pl.logoOrImage;
+  const content = logo ? <img class="logo" src={logo.url} alt="Logo" /> : <div class="placeholder">{pl.data.name ?? "No Logo"}</div>;
+  return <div class="logo">{content}</div>;
 }

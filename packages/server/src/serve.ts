@@ -1,38 +1,47 @@
+import { join, extname } from "node:path";
+
 import { PlangsGraph } from "@plangs/plangs";
+import { loadAllDefinitions } from "@plangs/definitions";
 
 // biome-ignore lint/style/useNodejsImportProtocol: not needed with Bun.
 import { watch } from "fs";
 
-import { html, localPath } from "./util";
+import { html, packagesPath } from "./util";
 import { resolvePage } from "./page";
 
-async function resolveStatic(path: string): Promise<Response | undefined> {
-  const file = Bun.file(localPath(`static/${path}`));
-  if (await file.exists()) return new Response(file);
-}
-
-const pg = new PlangsGraph().loadJSON(await Bun.file(localPath("static/plangs.json")).json());
+const pg = new PlangsGraph();
+loadAllDefinitions(pg);
 
 const server = Bun.serve({
   async fetch(req) {
     const path = new URL(req.url).pathname;
-    console.log(`Request for ${path}`);
+
+    if (path === "/plangs.json") {
+      return new Response(JSON.stringify(pg), { headers: { "Content-Type": "application/json" } });
+    }
 
     if (path === "/sse") return sse(req);
+
+    if (path.startsWith("/images")) {
+      const img = Bun.file(packagesPath("definitions/src/definitions", path.slice(8)));
+      if (await img.exists()) return new Response(img, { headers: { "Content-Type": `image/${extname(path)}` } });
+      return new Response(null, { status: 404 });
+    }
 
     const page = await resolvePage(path, pg);
     if (page) return html(page);
 
-    const rsp = await resolveStatic(path.slice(1));
-    if (rsp) return rsp;
+    const file = Bun.file(packagesPath("server/static", path.slice(1)));
+    if (await file.exists()) return new Response(file);
 
-    return new Response("Page not found.", { status: 404 });
+    console.warn(`404 for ${path}`);
+    return new Response(`Page not found: ${JSON.stringify(path)}`, { status: 404 });
   },
 });
 
 console.log(`Listening on ${server.url}`);
 
-const ROOT = Bun.fileURLToPath(`file:///${__dirname}/../../..`);
+const ROOT = join(import.meta.dir, "../../.."); // Root of the git repo.
 
 /** Respond to SSE connections to /sse by sending file changed events. */
 function sse(req: Request) {

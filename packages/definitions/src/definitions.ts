@@ -3,7 +3,7 @@ import { Glob } from "bun";
 import type { PlangsGraph } from "@plangs/plangs";
 
 /** Imports all definitions and calls the `define` methods */
-export async function loadAll(g: PlangsGraph) {
+export async function loadAllDefinitions(g: PlangsGraph) {
   const glob = new Glob("**/*.ts");
   for await (const path of glob.scan(`${__dirname}/definitions`)) {
     const module = await import(`./definitions/${path}`);
