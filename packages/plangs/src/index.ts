@@ -1,41 +1,48 @@
-import { BaseGraph, Edge, Node } from "@plangs/graph";
+import { BaseGraph, Edge, EdgeMap, Node, NodeMap } from "@plangs/graph";
 
-import { arrayMerge, keywordsToRegexp, verify } from "./util";
 import type { PlangFilters } from "./filter";
+import { arrayMerge, keywordsToRegexp, verify } from "./util";
 
-export class PlangsGraph extends BaseGraph {
-  // Node tables.
+/** Node names. */
+export type N = "lib" | "license" | "paradigm" | "pl" | "plat" | "tag" | "tool" | "tsys";
 
-  readonly n_libraries = this.nodeMap<NLibrary>("lib", (key) => new NLibrary(this, key));
-  readonly n_licenses = this.nodeMap<NLicense>("lic", (key) => new NLicense(this, key));
-  readonly n_paradigms = this.nodeMap<NParadigm>("para", (key) => new NParadigm(this, key));
-  readonly n_plangs = this.nodeMap<NPlang>("pl", (key) => new NPlang(this, key));
-  readonly n_platforms = this.nodeMap<NPlatform>("platf", (key) => new NPlatform(this, key));
-  readonly n_tags = this.nodeMap<NTag>("tag", (key) => new NTag(this, key));
-  readonly n_tools = this.nodeMap<NTool>("tool", (key) => new NTool(this, key));
-  readonly n_tsystems = this.nodeMap<NTypeSystem>("tsys", (key) => new NTypeSystem(this, key));
+/** Edge names. */
+export type E = "dialect" | "impl" | "influence" | "lib" | "license" | "paradigm" | "plat" | "tag" | "tool" | "tsys" | "writtenIn";
 
-  // Edge Tables.
+/** Alias to define types more succinctly. */
+export type G = PlangsGraph;
 
-  readonly e_dialectOf = this.edgeMap<EDialectOf>("dialect", (from, to) => new EDialectOf(this, from, to));
-  readonly e_implements = this.edgeMap<EImplementedWith>("implementation", (from, to) => new EImplementedWith(this, from, to));
-  readonly e_influencedBy = this.edgeMap<EInfluence>("influence", (from, to) => new EInfluence(this, from, to));
-  readonly e_library = this.edgeMap<EPlangLib>("lib", (from, to) => new EPlangLib(this, from, to));
-  readonly e_license = this.edgeMap<EHasLicense>("license", (from, to) => new EHasLicense(this, from, to));
-  readonly e_paradigm = this.edgeMap<EPlangPara>("paradigm", (from, to) => new EPlangPara(this, from, to));
-  readonly e_platform = this.edgeMap<ESupportsPlatf>("platform", (from, to) => new ESupportsPlatf(this, from, to));
-  readonly e_tags = this.edgeMap<EPlangTag>("tag", (from, to) => new EPlangTag(this, from, to));
-  readonly e_tool = this.edgeMap<EPlangTool>("tool", (from, to) => new EPlangTool(this, from, to));
-  readonly e_tsys = this.edgeMap<EPlangTsys>("tsys", (from, to) => new EPlangTsys(this, from, to));
-  readonly e_writtenIn = this.edgeMap<EWrittenIn>("written-in", (from, to) => new EWrittenIn(this, from, to));
+export class PlangsGraph extends BaseGraph<N, E, G> {
+  readonly nodes = {
+    lib: new NodeMap<G, NLibrary>((key) => new NLibrary(this, key)),
+    license: new NodeMap<G, NLicense>((key) => new NLicense(this, key)),
+    paradigm: new NodeMap<G, NParadigm>((key) => new NParadigm(this, key)),
+    pl: new NodeMap<G, NPlang>((key) => new NPlang(this, key)),
+    plat: new NodeMap<G, NPlatform>((key) => new NPlatform(this, key)),
+    tag: new NodeMap<G, NTag>((key) => new NTag(this, key)),
+    tool: new NodeMap<G, NTool>((key) => new NTool(this, key)),
+    tsys: new NodeMap<G, NTypeSystem>((key) => new NTypeSystem(this, key)),
+  };
 
-  // Filter values.
+  readonly edges = {
+    dialect: new EdgeMap<G, EDialect>((from, to) => new EDialect(this, from, to)),
+    impl: new EdgeMap<G, EImpl>((from, to) => new EImpl(this, from, to)),
+    influence: new EdgeMap<G, EInfluence>((from, to) => new EInfluence(this, from, to)),
+    lib: new EdgeMap<G, ELib>((from, to) => new ELib(this, from, to)),
+    license: new EdgeMap<G, ELicense>((from, to) => new ELicense(this, from, to)),
+    paradigm: new EdgeMap<G, EParadigm>((from, to) => new EParadigm(this, from, to)),
+    plat: new EdgeMap<G, EPlat>((from, to) => new EPlat(this, from, to)),
+    tag: new EdgeMap<G, ETag>((from, to) => new ETag(this, from, to)),
+    tool: new EdgeMap<G, ETool>((from, to) => new ETool(this, from, to)),
+    tsys: new EdgeMap<G, ETsys>((from, to) => new ETsys(this, from, to)),
+    writtenIn: new EdgeMap<G, EWrittenIn>((from, to) => new EWrittenIn(this, from, to)),
+  };
 
   /** Find all plangs that match the given filters. */
   plangs(f: PlangFilters): NPlang["key"][] {
     const keys: NPlang["key"][] = [];
-    for (const pl of this.n_plangs.values()) {
-      if (f.matchAll(pl)) keys.push(pl.key);
+    for (const pl of this.nodes.pl.values()) {
+      if (f.matchesAll(pl)) keys.push(pl.key);
     }
     return keys.sort();
   }
@@ -49,7 +56,7 @@ export interface CommonNodeData {
 }
 
 /** Base type for data on all nodes. */
-export abstract class NBase<Key extends string, Data extends CommonNodeData> extends Node<PlangsGraph, Key, Data> {
+export abstract class NBase<Prefix extends N, Data extends CommonNodeData> extends Node<PlangsGraph, `${Prefix}+${string}`, Data> {
   /** The key without the node kind prefix. */
   get plainKey(): string {
     return this.key.replace(/^[a-z]+[+]/, "");
@@ -90,7 +97,7 @@ export abstract class NBase<Key extends string, Data extends CommonNodeData> ext
 
 /** A programming language Node. */
 export class NPlang extends NBase<
-  `pl+${string}`,
+  "pl",
   CommonNodeData & {
     extensions: string[];
     firstAppeared: StrDate;
@@ -116,102 +123,106 @@ export class NPlang extends NBase<
   }
 
   addDialectOf(others: NPlang["key"][]): this {
-    for (const other of others) this.graph.e_dialectOf.connect(this.key, other);
+    for (const other of others) this.graph.edges.dialect.connect(this.key, other);
     return this;
   }
 
   addLicenses(others: NLicense["key"][]): this {
-    for (const other of others) this.graph.e_license.connect(this.key, other);
+    for (const other of others) this.graph.edges.license.connect(this.key, other);
     return this;
   }
 
   addImplements(others: NPlang["key"][]): this {
-    for (const other of others) this.graph.e_implements.connect(this.key, other);
+    for (const other of others) this.graph.edges.impl.connect(this.key, other);
     return this;
   }
 
   addInfluencedBy(others: NPlang["key"][]): this {
-    for (const other of others) this.graph.e_influencedBy.connect(this.key, other);
+    for (const other of others) this.graph.edges.influence.connect(this.key, other);
     return this;
   }
 
   addLibraries(others: NLibrary["key"][]): this {
-    for (const other of others) this.graph.e_library.connect(this.key, other);
+    for (const other of others) this.graph.edges.lib.connect(this.key, other);
     return this;
   }
 
   addParadigms(others: NParadigm["key"][]): this {
-    for (const otherkey of others) this.graph.e_paradigm.connect(this.key, otherkey);
+    for (const otherkey of others) this.graph.edges.paradigm.connect(this.key, otherkey);
     return this;
   }
 
   addPlatforms(others: NPlatform["key"][]): this {
-    for (const other of others) this.graph.e_platform.connect(this.key, other);
+    for (const other of others) this.graph.edges.plat.connect(this.key, other);
     return this;
   }
 
   addTags(others: NTag["key"][]): this {
-    for (const other of others) this.graph.e_tags.connect(this.key, other);
+    for (const other of others) this.graph.edges.tag.connect(this.key, other);
     return this;
   }
 
   addTools(others: NTool["key"][]): this {
-    for (const other of others) this.graph.e_tool.connect(this.key, other);
+    for (const other of others) this.graph.edges.tool.connect(this.key, other);
     return this;
   }
 
   addTypeSystems(others: NTypeSystem["key"][]): this {
-    for (const other of others) this.graph.e_tsys.connect(this.key, other);
+    for (const other of others) this.graph.edges.tsys.connect(this.key, other);
     return this;
   }
 
   addWrittenIn(others: NPlang["key"][]): this {
-    for (const other of others) this.graph.e_writtenIn.connect(this.key, other);
+    for (const other of others) this.graph.edges.writtenIn.connect(this.key, other);
     return this;
   }
 
-  get relDialectOf(): Rel<NPlang["key"], EDialectOf> {
-    return new Rel(this.graph.e_dialectOf.adjFrom.getMap(this.key));
+  get relDialectOf(): Rel<NPlang["key"], EDialect> {
+    return new Rel(this.graph.edges.dialect.adjFrom.getMap(this.key));
   }
 
-  get relImplements(): Rel<NPlang["key"], EImplementedWith> {
-    return new Rel(this.graph.e_implements.adjFrom.getMap(this.key));
+  get relImplements(): Rel<NPlang["key"], EImpl> {
+    return new Rel(this.graph.edges.impl.adjFrom.getMap(this.key));
   }
 
-  get relInfluencedBy(): Rel<NPlang["key"], EImplementedWith> {
-    return new Rel(this.graph.e_influencedBy.adjFrom.getMap(this.key));
+  get relInfluenced(): Rel<NPlang["key"], EImpl> {
+    return new Rel(this.graph.edges.influence.adjTo.getMap(this.key));
   }
 
-  get relLibraries(): Rel<NLibrary["key"], EPlangLib> {
-    return new Rel(this.graph.e_library.adjFrom.getMap(this.key));
+  get relInfluencedBy(): Rel<NPlang["key"], EImpl> {
+    return new Rel(this.graph.edges.influence.adjFrom.getMap(this.key));
   }
 
-  get relLicenses(): Rel<NLicense["key"], EHasLicense> {
-    return new Rel(this.graph.e_license.adjFrom.getMap(this.key));
+  get relLibraries(): Rel<NLibrary["key"], ELib> {
+    return new Rel(this.graph.edges.lib.adjFrom.getMap(this.key));
   }
 
-  get relParadigms(): Rel<NParadigm["key"], EPlangPara> {
-    return new Rel(this.graph.e_paradigm.adjFrom.getMap(this.key));
+  get relLicenses(): Rel<NLicense["key"], ELicense> {
+    return new Rel(this.graph.edges.license.adjFrom.getMap(this.key));
   }
 
-  get relPlatforms(): Rel<NPlatform["key"], ESupportsPlatf> {
-    return new Rel(this.graph.e_platform.adjFrom.getMap(this.key));
+  get relParadigms(): Rel<NParadigm["key"], EParadigm> {
+    return new Rel(this.graph.edges.paradigm.adjFrom.getMap(this.key));
   }
 
-  get relTags(): Rel<NTag["key"], EPlangTag> {
-    return new Rel(this.graph.e_tags.adjFrom.getMap(this.key));
+  get relPlatforms(): Rel<NPlatform["key"], EPlat> {
+    return new Rel(this.graph.edges.plat.adjFrom.getMap(this.key));
   }
 
-  get relTools(): Rel<NTool["key"], EPlangTool> {
-    return new Rel(this.graph.e_tool.adjFrom.getMap(this.key));
+  get relTags(): Rel<NTag["key"], ETag> {
+    return new Rel(this.graph.edges.tag.adjFrom.getMap(this.key));
   }
 
-  get relTypeSystems(): Rel<NTypeSystem["key"], EPlangTsys> {
-    return new Rel(this.graph.e_tsys.adjFrom.getMap(this.key));
+  get relTools(): Rel<NTool["key"], ETool> {
+    return new Rel(this.graph.edges.tool.adjFrom.getMap(this.key));
+  }
+
+  get relTypeSystems(): Rel<NTypeSystem["key"], ETsys> {
+    return new Rel(this.graph.edges.tsys.adjFrom.getMap(this.key));
   }
 
   get relWrittenIn(): Rel<NPlang["key"], EWrittenIn> {
-    return new Rel(this.graph.e_writtenIn.adjFrom.getMap(this.key));
+    return new Rel(this.graph.edges.writtenIn.adjFrom.getMap(this.key));
   }
 
   firstAppearedAfter(minDate: StrDate): boolean {
@@ -228,7 +239,7 @@ export class NPlang extends NBase<
     return this.data.releases.some((r) => r.date && r.date >= minDate);
   }
 
-  hasExtensions(filter?: Filter): boolean {
+  hasExtensions(filter?: Filter<string>): boolean {
     if (!filter || filter.values.size === 0) return true;
     const { extensions } = this.data;
     if (!extensions || extensions.length === 0) return false;
@@ -245,11 +256,11 @@ export class NPlang extends NBase<
 }
 
 /** A library Node, for software libraries or frameworks, like jQuery, Rails, etc. */
-export class NLibrary extends NBase<`lib+${string}`, CommonNodeData> {}
+export class NLibrary extends NBase<"lib", CommonNodeData> {}
 
 /** A License Node, e.g., MIT, GPL, etc. */
 export class NLicense extends NBase<
-  `lic+${string}`,
+  "license",
   CommonNodeData & {
     /** spdx: The SPDX identifier from https://spdx.org/licenses/. */
     spdx?: string;
@@ -263,19 +274,19 @@ export class NLicense extends NBase<
 > {}
 
 /** A Paradigm Node, e.g., Functional, Imperative, etc. */
-export class NParadigm extends NBase<`para+${string}`, CommonNodeData> {}
+export class NParadigm extends NBase<"paradigm", CommonNodeData> {}
 
 /** A Platform Node for operating systems or architectures, e.g., Linux, Windows, ARM etc. */
-export class NPlatform extends NBase<`platf+${string}`, CommonNodeData> {}
+export class NPlatform extends NBase<"plat", CommonNodeData> {}
 
 /** A generic tag. */
-export class NTag extends NBase<`tag+${string}`, CommonNodeData> {}
+export class NTag extends NBase<"tag", CommonNodeData> {}
 
 /** A tool Node, e.g., Version Manager, Linter, Formatter,  etc. */
-export class NTool extends NBase<`tool+${string}`, CommonNodeData> {}
+export class NTool extends NBase<"tool", CommonNodeData> {}
 
 /** A Type System Node, e.g., OOP, Duck, Dynamic, etc. */
-export class NTypeSystem extends NBase<`tsys+${string}`, CommonNodeData> {}
+export class NTypeSystem extends NBase<"tsys", CommonNodeData> {}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Edge Types
@@ -301,157 +312,139 @@ export abstract class EBase<T_From extends NBase<Any, Any>, T_To extends NBase<A
   }
 }
 
-export class EDialectOf extends EBase<NPlang, NPlang, CommonEdgeData> {
-  get key(): string {
-    return `dialect-of~${this.from}~${this.to}`;
-  }
+export class EDialect extends EBase<NPlang, NPlang, CommonEdgeData> {
+  override kind: E = "dialect";
 
   get fromPlang(): NPlang | undefined {
-    return this.graph.n_plangs.get(this.from);
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get toPlang(): NPlang | undefined {
-    return this.graph.n_plangs.get(this.to);
+    return this.graph.nodes.pl.get(this.to);
   }
 }
 
-export class EHasLicense extends EBase<NPlang, NLicense, CommonEdgeData> {
-  get key(): string {
-    return `has-license~${this.from}~${this.to}`;
-  }
+export class ELicense extends EBase<NPlang, NLicense, CommonEdgeData> {
+  override kind: E = "license";
 
   get plang(): NPlang | undefined {
-    return this.graph.n_plangs.get(this.from);
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get license(): NLicense | undefined {
-    return this.graph.n_licenses.get(this.to);
+    return this.graph.nodes.license.get(this.to);
   }
 }
 
-export class EImplementedWith extends EBase<NPlang, NPlang, CommonEdgeData> {
-  get key(): string {
-    return `implemented-with~${this.from}~${this.to}`;
-  }
+export class EImpl extends EBase<NPlang, NPlang, CommonEdgeData> {
+  override kind: E = "impl";
 
   get fromPlang(): NPlang | undefined {
-    return this.graph.n_plangs.get(this.from);
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get toPlang(): NPlang | undefined {
-    return this.graph.n_plangs.get(this.to);
+    return this.graph.nodes.pl.get(this.to);
   }
 }
 
 export class EInfluence extends EBase<NPlang, NPlang, CommonEdgeData> {
-  get key(): string {
-    return `influenced~${this.from}~${this.to}`;
-  }
+  override kind: E = "influence";
 
   get fromPlang(): NPlang | undefined {
-    return this.graph.n_plangs.get(this.from);
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get toPlang(): NPlang | undefined {
-    return this.graph.n_plangs.get(this.to);
+    return this.graph.nodes.pl.get(this.to);
   }
 }
 
-export class EPlangPara extends EBase<NPlang, NParadigm, CommonEdgeData> {
-  get key(): string {
-    return `paradigm~${this.from}~${this.to}`;
-  }
+export class EParadigm extends EBase<NPlang, NParadigm, CommonEdgeData> {
+  override kind: E = "paradigm";
 
   get plang(): NPlang | undefined {
-    return this.graph.n_plangs.get(this.from);
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get paradigm(): NParadigm | undefined {
-    return this.graph.n_paradigms.get(this.to);
+    return this.graph.nodes.paradigm.get(this.to);
   }
 }
 
-export class EPlangTsys extends EBase<NPlang, NTypeSystem, CommonEdgeData> {
+export class ETsys extends EBase<NPlang, NTypeSystem, CommonEdgeData> {
+  override kind: E = "tsys";
+
   get key(): string {
     return `type-system~${this.from}~${this.to}`;
   }
 
   get plang(): NPlang | undefined {
-    return this.graph.n_plangs.get(this.from);
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get typeSystem(): NTypeSystem | undefined {
-    return this.graph.n_tsystems.get(this.to);
+    return this.graph.nodes.tsys.get(this.to);
   }
 }
 
-export class ESupportsPlatf extends EBase<NPlang, NPlatform, CommonEdgeData> {
-  get key(): string {
-    return `platf~${this.from}~${this.to}`;
-  }
+export class EPlat extends EBase<NPlang, NPlatform, CommonEdgeData> {
+  override kind: E = "plat";
 
   get plang(): NPlang | undefined {
-    return this.graph.n_plangs.get(this.from);
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get platform(): NPlatform | undefined {
-    return this.graph.n_platforms.get(this.to);
+    return this.graph.nodes.plat.get(this.to);
   }
 }
 
-export class EPlangLib extends EBase<NPlang, NLibrary, CommonEdgeData> {
-  get key(): string {
-    return `lib~${this.from}~${this.to}`;
-  }
+export class ELib extends EBase<NPlang, NLibrary, CommonEdgeData> {
+  override kind: E = "lib";
 
   get plang(): NPlang | undefined {
-    return this.graph.n_plangs.get(this.from);
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get library(): NLibrary | undefined {
-    return this.graph.n_libraries.get(this.to);
+    return this.graph.nodes.lib.get(this.to);
   }
 }
 
-export class EPlangTag extends EBase<NPlang, NTag, CommonEdgeData> {
-  get key(): string {
-    return `tag~${this.from}~${this.to}`;
-  }
+export class ETag extends EBase<NPlang, NTag, CommonEdgeData> {
+  override kind: E = "tag";
 
   get plang(): NPlang | undefined {
-    return this.graph.n_plangs.get(this.from);
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get tag(): NTag | undefined {
-    return this.graph.n_tags.get(this.to);
+    return this.graph.nodes.tag.get(this.to);
   }
 }
 
-export class EPlangTool extends EBase<NPlang, NTool, CommonEdgeData> {
-  get key(): string {
-    return `tool~${this.from}~${this.to}`;
-  }
+export class ETool extends EBase<NPlang, NTool, CommonEdgeData> {
+  override kind: E = "tool";
 
   get plang(): NPlang | undefined {
-    return this.graph.n_plangs.get(this.from);
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get tool(): NTool | undefined {
-    return this.graph.n_tools.get(this.to);
+    return this.graph.nodes.tool.get(this.to);
   }
 }
 
 export class EWrittenIn extends EBase<NPlang, NPlang, CommonEdgeData> {
-  get key(): string {
-    return `written-in~${this.from}~${this.to}`;
-  }
+  override kind: E = "writtenIn";
 
   get fromPlang(): NPlang | undefined {
-    return this.graph.n_plangs.get(this.from);
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get toPlang(): NPlang | undefined {
-    return this.graph.n_plangs.get(this.to);
+    return this.graph.nodes.pl.get(this.to);
   }
 }
 

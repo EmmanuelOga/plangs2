@@ -5,7 +5,7 @@ import { PlangFilters } from "./filter";
 function createGraph() {
   const g = new PlangsGraph();
 
-  g.n_plangs
+  g.nodes.pl
     .set("pl+javascript", {
       name: "JavaScript",
       description:
@@ -23,19 +23,19 @@ function createGraph() {
     })
     .addImplements(["pl+ecmascript"])
     .addInfluencedBy(["pl+awk", "pl+c", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+r5rs", "pl+scheme", "pl+self"])
-    .addParadigms(["para+event-driven", "para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural"])
+    .addParadigms(["paradigm+event-driven", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+weak"])
     .addReleases([{ version: "ES12", date: "2020-01-01" }])
     .addImages([{ kind: "other", title: "JavaScript", url: "/images/plangs/j/javascript/other.png" }])
     .addDialectOf(["pl+some-other-language"])
     .addInfluencedBy(["pl+influence-a"])
-    .addLicenses(["lic+a"])
-    .addParadigms(["para+a"])
-    .addPlatforms(["platf+web"])
+    .addLicenses(["license+a"])
+    .addParadigms(["paradigm+a"])
+    .addPlatforms(["plat+web"])
     .addTags(["tag+frontend"])
     .addTypeSystems(["tsys+dynamic"]);
 
-  g.n_plangs
+  g.nodes.pl
     .set("pl+typescript", {
       name: "TypeScript",
       description:
@@ -47,19 +47,19 @@ function createGraph() {
       websites: [{ href: "https://www.typescriptlang.org/", title: "www.typescriptlang.org", kind: "homepage" }],
     })
     .addInfluencedBy(["pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+javascript"])
-    .addLicenses(["lic+apache"])
-    .addParadigms(["para+functional", "para+imperative", "para+multi", "para+oop"])
+    .addLicenses(["license+apache"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
     .addTypeSystems(["tsys+duck", "tsys+gradual", "tsys+structural"])
     .addImages([{ kind: "logo", title: "TypeScript", url: "/images/plangs/j/javascript/other.png" }])
     .addDialectOf(["pl+javascript", "pl+some-other-language"])
     .addInfluencedBy(["pl+influence-b"])
-    .addLicenses(["lic+b"])
-    .addParadigms(["para+b"])
+    .addLicenses(["license+b"])
+    .addParadigms(["paradigm+b"])
     .addTags(["tag+frontend"])
     .addTypeSystems(["tsys+static"])
     .addWrittenIn(["pl+typescript"]);
 
-  g.n_plangs
+  g.nodes.pl
     .set("pl+pascal", {
       name: "Pascal",
       description:
@@ -75,21 +75,21 @@ function createGraph() {
       ],
     })
     .addInfluencedBy(["pl+algol", "pl+simula"])
-    .addParadigms(["para+imperative", "para+structured"])
+    .addParadigms(["paradigm+imperative", "paradigm+structured"])
     .addTypeSystems(["tsys+safe", "tsys+static", "tsys+strong"])
     .addReleases([{ version: "ISO/IEC 10206:1990 Extended Pascal", date: "1990-01-01" }])
     .addInfluencedBy(["pl+influence-b"])
-    .addLicenses(["lic+b"])
-    .addParadigms(["para+a", "para+b"])
+    .addLicenses(["license+b"])
+    .addParadigms(["paradigm+a", "paradigm+b"])
     .addExtensions([".tpu"])
-    .addPlatforms(["platf+backend"])
+    .addPlatforms(["plat+backend"])
     .addTypeSystems(["tsys+static"])
     .addWrittenIn(["pl+assembly", "pl+c"]);
 
-  g.n_tsystems.set("tsys+weak", { keywords: ["weak"] });
-  g.n_tsystems.set("tsys+dynamic", { keywords: ["dynamic"] });
-  g.n_tsystems.set("tsys+strong", { keywords: ["strongly-typed"] });
-  g.n_tsystems.set("tsys+adt", { keywords: ["sum types"] });
+  g.nodes.tsys.set("tsys+weak", { keywords: ["weak"] });
+  g.nodes.tsys.set("tsys+dynamic", { keywords: ["dynamic"] });
+  g.nodes.tsys.set("tsys+strong", { keywords: ["strongly-typed"] });
+  g.nodes.tsys.set("tsys+adt", { keywords: ["sum types"] });
 
   return g;
 }
@@ -115,32 +115,32 @@ test("filters languages by name", () => {
 test("filters languages by first appeareance date", () => {
   const [g, f] = [createGraph(), new PlangFilters()];
 
-  f.values.firstAppearedMinDate = "2000-01-01";
+  f.values.appearedAfter = "2000-01-01";
   expect(g.plangs(f)).toEqual(["pl+typescript"]);
 
-  f.values.firstAppearedMinDate = "1990-01-01";
+  f.values.appearedAfter = "1990-01-01";
   expect(g.plangs(f)).toEqual(["pl+javascript", "pl+typescript"]);
 
-  f.values.firstAppearedMinDate = "1970-01-01";
+  f.values.appearedAfter = "1970-01-01";
   expect(g.plangs(f)).toEqual(["pl+javascript", "pl+pascal", "pl+typescript"]);
 
-  f.values.firstAppearedMinDate = "1960-01-01";
+  f.values.appearedAfter = "1960-01-01";
   expect(g.plangs(f)).toEqual(["pl+javascript", "pl+pascal", "pl+typescript"]);
 
-  f.values.firstAppearedMinDate = undefined;
+  f.values.appearedAfter = undefined;
   expect(g.plangs(f)).toEqual(["pl+javascript", "pl+pascal", "pl+typescript"]);
 });
 
 test("filters languages by min release date", () => {
   const [g, f] = [createGraph(), new PlangFilters()];
 
-  f.values.releaseMinDate = "1989-11-01";
+  f.values.releasedAfter = "1989-11-01";
   expect(g.plangs(f)).toEqual(["pl+javascript", "pl+pascal"]);
 
-  f.values.releaseMinDate = "2010-12-31";
+  f.values.releasedAfter = "2010-12-31";
   expect(g.plangs(f)).toEqual(["pl+javascript"]);
 
-  f.values.releaseMinDate = undefined;
+  f.values.releasedAfter = undefined;
   expect(g.plangs(f)).toEqual(["pl+javascript", "pl+pascal", "pl+typescript"]);
 });
 
@@ -275,26 +275,26 @@ test("filters languages by 'influencedBy'", () => {
 test("filters languages by license", () => {
   const [g, f] = [createGraph(), new PlangFilters()];
 
-  f.values.licenses = { mode: "all", values: new Set(["lic+a"]) };
+  f.values.licenses = { mode: "all", values: new Set(["license+a"]) };
   expect(g.plangs(f)).toEqual(["pl+javascript"]);
 
-  f.values.licenses = { mode: "all", values: new Set(["lic+a", "lic+b"]) };
+  f.values.licenses = { mode: "all", values: new Set(["license+a", "license+b"]) };
   expect(g.plangs(f)).toEqual([]);
 
-  f.values.licenses = { mode: "any", values: new Set(["lic+a", "lic+b"]) };
+  f.values.licenses = { mode: "any", values: new Set(["license+a", "license+b"]) };
   expect(g.plangs(f)).toEqual(["pl+javascript", "pl+pascal", "pl+typescript"]);
 });
 
 test("filters languages by paradigm", () => {
   const [g, f] = [createGraph(), new PlangFilters()];
 
-  f.values.paradigms = { mode: "all", values: new Set(["para+a"]) };
+  f.values.paradigms = { mode: "all", values: new Set(["paradigm+a"]) };
   expect(g.plangs(f)).toEqual(["pl+javascript", "pl+pascal"]);
 
-  f.values.paradigms = { mode: "all", values: new Set(["para+a", "para+b"]) };
+  f.values.paradigms = { mode: "all", values: new Set(["paradigm+a", "paradigm+b"]) };
   expect(g.plangs(f)).toEqual(["pl+pascal"]);
 
-  f.values.paradigms = { mode: "any", values: new Set(["para+a", "para+b"]) };
+  f.values.paradigms = { mode: "any", values: new Set(["paradigm+a", "paradigm+b"]) };
   expect(g.plangs(f)).toEqual(["pl+javascript", "pl+pascal", "pl+typescript"]);
 });
 
@@ -311,16 +311,16 @@ test("filters languages by extensions", () => {
 test("filters languages by platform", () => {
   const [g, f] = [createGraph(), new PlangFilters()];
 
-  f.values.platforms = { mode: "any", values: new Set(["platf+web", "platf+backend"]) };
+  f.values.platforms = { mode: "any", values: new Set(["plat+web", "plat+backend"]) };
   expect(g.plangs(f)).toEqual(["pl+javascript", "pl+pascal"]);
 
-  f.values.platforms = { mode: "all", values: new Set(["platf+web", "platf+backend"]) };
+  f.values.platforms = { mode: "all", values: new Set(["plat+web", "plat+backend"]) };
   expect(g.plangs(f)).toEqual([]);
 
-  f.values.platforms = { mode: "any", values: new Set(["platf+backend"]) };
+  f.values.platforms = { mode: "any", values: new Set(["plat+backend"]) };
   expect(g.plangs(f)).toEqual(["pl+pascal"]);
 
-  f.values.platforms = { mode: "all", values: new Set(["platf+backend"]) };
+  f.values.platforms = { mode: "all", values: new Set(["plat+backend"]) };
   expect(g.plangs(f)).toEqual(["pl+pascal"]);
 });
 

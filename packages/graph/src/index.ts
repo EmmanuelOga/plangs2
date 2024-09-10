@@ -26,6 +26,10 @@ export abstract class Node<T_Graph, T_Key extends string, T_Data> {
 
 /** Graph Edge. */
 export abstract class Edge<T_Graph, T_From extends Node<T_Graph, Any, Any>, T_To extends Node<T_Graph, Any, Any>, T_Data> {
+
+  /** Used to construct a key for the edge. */
+  abstract readonly kind: string;
+
   readonly data: Partial<T_Data> = {};
 
   constructor(
@@ -40,7 +44,9 @@ export abstract class Edge<T_Graph, T_From extends Node<T_Graph, Any, Any>, T_To
     return this;
   }
 
-  abstract get key(): string;
+  get key(): string {
+    return `${this.kind}~${this.from}~${this.to}`;
+  }
 }
 
 /** Graph Node (identity) Map. */

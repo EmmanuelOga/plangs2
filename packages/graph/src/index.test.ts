@@ -14,15 +14,11 @@ class NPost extends Node<G, NK<"post">, { title: string; content: string }> {}
 class NTag extends Node<G, NK<"tag">, NO_DATA> {}
 
 class EPersonPost extends Edge<G, NPerson, NPost, { role: "author" | "editor" }> {
-  get key(): string {
-    return `person-post~${this.from}~${this.to}`;
-  }
+  override kind: E = "personPost";
 }
 
 class EPostTag extends Edge<G, NPost, NTag, NO_DATA> {
-  get key(): string {
-    return `post-tag~${this.from}~${this.to}`;
-  }
+  override kind: E = "postTag";
 }
 
 class TestGraph extends BaseGraph<N, E, G> {

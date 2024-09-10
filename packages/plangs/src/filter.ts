@@ -8,34 +8,37 @@ export class PlangFilters {
     // String filters always match if empty.
 
     plangName: undefined as RegExp | undefined,
-    firstAppearedMinDate: undefined as StrDate | undefined,
-    releaseMinDate: undefined as StrDate | undefined,
+
+    appearedAfter: undefined as StrDate | undefined,
+    releasedAfter: undefined as StrDate | undefined,
 
     hasLogo: undefined as boolean | undefined,
     hasReleases: undefined as boolean | undefined,
     hasWikipedia: undefined as boolean | undefined,
-    isTranspiler: undefined as boolean | undefined,
     isMainstream: undefined as boolean | undefined,
+    isTranspiler: undefined as boolean | undefined,
 
     dialectOf: undefined as Filter<NPlang["key"]> | undefined,
+    extensions: undefined as Filter<string> | undefined,
     implements: undefined as Filter<NPlang["key"]> | undefined,
+    influenced: undefined as Filter<NPlang["key"]> | undefined,
     influencedBy: undefined as Filter<NPlang["key"]> | undefined,
     licenses: undefined as Filter<NLicense["key"]> | undefined,
     paradigms: undefined as Filter<NParadigm["key"]> | undefined,
-    extensions: undefined as Filter<string> | undefined,
     platforms: undefined as Filter<NPlatform["key"]> | undefined,
     tags: undefined as Filter<NTag["key"]> | undefined,
     typeSystems: undefined as Filter<NTypeSystem["key"]> | undefined,
     writtenIn: undefined as Filter<NPlang["key"]> | undefined,
   };
 
-  matchAll(pl: NPlang): boolean {
+  matchesAll(pl: NPlang): boolean {
     if (!this.machesHasLogo(pl)) return false;
     if (!this.machesHasWikipedia(pl)) return false;
     if (!this.machtesIsTranspiler(pl)) return false;
     if (!this.matchesDialectOf(pl)) return false;
-    if (!this.matchesFirstAppearedMinDate(pl)) return false;
+    if (!this.matchesAppearedAfter(pl)) return false;
     if (!this.matchesImplements(pl)) return false;
+    if (!this.matchesInfluenced(pl)) return false;
     if (!this.matchesInfluencedBy(pl)) return false;
     if (!this.matchesIsMainstream(pl)) return false;
     if (!this.matchesLicenses(pl)) return false;
@@ -43,7 +46,7 @@ export class PlangFilters {
     if (!this.matchesExtensions(pl)) return false;
     if (!this.matchesPlangName(pl)) return false;
     if (!this.matchesPlatforms(pl)) return false;
-    if (!this.matchesReleaseMinDate(pl)) return false;
+    if (!this.matchesReleasedAfter(pl)) return false;
     if (!this.matchesHasReleases(pl)) return false;
     if (!this.matchesTags(pl)) return false;
     if (!this.matchesTypeSystems(pl)) return false;
@@ -56,12 +59,12 @@ export class PlangFilters {
     return match(this.values.plangName, (val) => pl.matchesName(val));
   }
 
-  matchesFirstAppearedMinDate(pl: NPlang): boolean {
-    return match(this.values.firstAppearedMinDate, (val) => pl.firstAppearedAfter(val));
+  matchesAppearedAfter(pl: NPlang): boolean {
+    return match(this.values.appearedAfter, (val) => pl.firstAppearedAfter(val));
   }
 
-  matchesReleaseMinDate(pl: NPlang): boolean {
-    return match(this.values.releaseMinDate, (val) => pl.hasReleases(val));
+  matchesReleasedAfter(pl: NPlang): boolean {
+    return match(this.values.releasedAfter, (val) => pl.hasReleases(val));
   }
 
   matchesHasReleases(pl: NPlang): boolean {
@@ -91,6 +94,10 @@ export class PlangFilters {
 
   matchesImplements(pl: NPlang): boolean {
     return pl.relImplements.matches(this.values.implements);
+  }
+
+  matchesInfluenced(pl: NPlang): boolean {
+    return pl.relInfluenced.matches(this.values.influenced);
   }
 
   matchesInfluencedBy(pl: NPlang): boolean {
