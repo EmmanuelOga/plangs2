@@ -110,11 +110,7 @@ export function PlangInfo({ key }: PlangInfoProps) {
     }
   }
 
-  return (
-    <div ref={self as Ref<HTMLDivElement>}>
-      {content}
-    </div>
-  );
+  return <div ref={self as Ref<HTMLDivElement>}>{content}</div>;
 }
 
 export const EVENTS = {

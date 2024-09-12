@@ -42,7 +42,7 @@ export function Browse() {
       <article id={domId("plangs")}>
         {[...pg.nodes.pl].map(([nid, pl]) => (
           <div key={nid} data-key={nid} class={domClass("plThumb")}>
-            <span class="name">{pl.data.name}</span>
+            <span class="name">{pl.name}</span>
             <PlangLogo pl={pl} />
           </div>
         ))}
@@ -138,6 +138,6 @@ function input(key: INPUT) {
 
 function PlangLogo({ pl }: { pl: NPlang }) {
   const logo = pl.logoOrImage;
-  const content = logo ? <img class="logo" src={logo.url} alt="Logo" /> : <div class="placeholder">{pl.data.name ?? "No Logo"}</div>;
+  const content = logo ? <img class="logo" src={logo.url} alt="Logo" /> : <div class="placeholder">{pl.name ?? "No Logo"}</div>;
   return <div class="logo">{content}</div>;
 }

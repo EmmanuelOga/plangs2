@@ -19,7 +19,7 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
 
     for (const div of dom.elems.plThumb) {
       const nodeId = div.dataset.key as NPlang["key"];
-      // div.classList.toggle("hide", !keys.has(nodeId));
+      div.classList.toggle("hide", !keys.has(nodeId));
     }
     // if (status) status.innerText = `Displaying ${keys.size} languages of ${pg.n_plang.size}.`;
   }

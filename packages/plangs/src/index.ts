@@ -59,11 +59,11 @@ export interface CommonNodeData {
 /** Base type for data on all nodes. */
 export abstract class NBase<Prefix extends N, Data extends CommonNodeData> extends Node<PlangsGraph, `${Prefix}+${string}`, Data> {
   get name(): string {
-    return this.data.name ?? this.key;
+    return this.data.name ? this.data.name : this.plainKey;
   }
 
   get description(): string {
-    return this.data.description ?? this.key;
+    return this.data.description || this.name;
   }
 
   /** The key without the node kind prefix. */
