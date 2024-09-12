@@ -10,7 +10,7 @@ export function Lang({ pl }: LangProps) {
     <>
       <nav id="home-nav">{/*Same as Browse, but empty.*/}</nav>
       <article id="lang-page" class="common-content">
-        <h1>{pl.data.name}</h1>
+        <h1>{pl.name}</h1>
 
         <div>
           <a href="emmanueloga.com">Link1</a>

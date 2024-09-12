@@ -16,26 +16,34 @@ export function Browse() {
         <div id={domId("facets")}>
           <Facet title="General">
             {input("plangName")}
-            {input("appearedAfter")}
-            {input("releasedAfter")}
             {input("hasLogo")}
-            {input("hasReleases")}
             {input("hasWikipedia")}
             {input("isMainstream")}
             {input("isTranspiler")}
+            {input("hasReleases")}
+            {input("releasedAfter")}
+            {input("appearedAfter")}
             {input("extensions")}
           </Facet>
-          <Facet title="Type System">{input("typeSystems")}</Facet>
-          <Facet title="Paradigm">{input("paradigms")}</Facet>
-          <Facet title="Platform">{input("platforms")}</Facet>
-          <Facet title="Tags">{input("tags")}</Facet>
-          <Facet title="Lineage">
+
+          <Facet title="Features">
+            {input("typeSystems")}
+            {input("paradigms")}
+            {input("platforms")}
+            {input("tags")}
+          </Facet>
+
+          <Facet title="Influences">
             {input("influenced")}
             {input("influencedBy")}
+          </Facet>
+
+          <Facet title="Lineage">
             {input("dialectOf")}
             {input("implements")}
             {input("writtenIn")}
           </Facet>
+
           <Facet title="License">{input("licenses")}</Facet>
         </div>
       </nav>
@@ -107,7 +115,7 @@ export const INPUT_PROPS = {
   plangName: partialInput("Language Name", { kind: "search" }),
   extensions: partialInput("File Extension", { kind: "search", inputSel: true }),
 
-  appearedAfter: partialInput("First Appeared", { kind: "date" }, "hidden"),
+  appearedAfter: partialInput("First Appeared", { kind: "date" }),
   releasedAfter: partialInput("Released After", { kind: "date" }, "hidden"),
 
   hasLogo: partialInput("Has Logo", { kind: "checkbox" }),

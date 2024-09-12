@@ -30,10 +30,12 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
 
   // Release data.
 
-  on(dom.inputs.hasReleases, "input", (ev) => {
-    const checked = (ev.target as HTMLInputElement).checked;
-    dom.inputs.releasedAfter.classList.toggle("hide", !checked);
+  on(dom.inputs.hasReleases, "input", ({ target }) => {
+    const checked = (target as HTMLInputElement).checked;
+    dom.inputs.releasedAfter.closest("label")?.classList.toggle("hide", !checked);
   });
+
+  // Completions.
 
   function completions(nodeKind: N): CompletionItem[] {
     const data: CompletionItem[] = [];
@@ -92,7 +94,7 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
   }
 
   const plangInfo = dom.elem.plangInfo as PlangInfoElement;
-  const langTab = document.querySelector("#top-nav lang") as HTMLDivElement;
+  const langTab = document.querySelector("#top-nav .lang") as HTMLDivElement;
   if (plangInfo) {
     on(dom.elem.plangs, "click", ({ target }) => {
       const pl = getPl(target);
@@ -101,7 +103,7 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
       console.log("SETTING KEY", pl.key, plangInfo.plangKey, plangInfo);
       if (!langTab) return;
       langTab.classList.toggle("hide", false);
-      langTab.setAttribute("href", `/${pl.plainKey}`);
+      langTab.setAttribute("href", `/pl/${pl.plainKey}`);
       langTab.innerText = pl.name;
     });
   }
@@ -110,7 +112,7 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
 
   on(dom.elem.plangs, "dblclick", ({ target }) => {
     const pl = getPl(target);
-    if (pl) window.location.href = `/${pl.plainKey}`;
+    if (pl) window.location.href = `/pl/${pl.plainKey}`;
   });
 
   // On click on a pl-pill in the infobox, update the infobox.
