@@ -90,7 +90,7 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
   function getPl(target: EventTarget | null): NPlang | undefined {
     const keyHolder = (target as Element).closest("[data-key]") as HTMLElement;
     if (!keyHolder || !keyHolder.dataset.key) return;
-    return pg.nodes.pl.get(keyHolder.dataset.key as NPlang["key"]);
+    return pg.nodes.pl.getExisting(keyHolder.dataset.key as NPlang["key"]);
   }
 
   const plangInfo = dom.elem.plangInfo as PlangInfoElement;
