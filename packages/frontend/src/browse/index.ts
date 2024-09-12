@@ -1,39 +1,26 @@
-/**
- * Language facet search code.
- */
-
 import { debounce } from "lodash-es";
 import "preact/debug";
 
-import { type N, NODE_NAMES, type NPlang, PlangsGraph } from "@plangs/plangs";
+import { type N, type NPlang, PlangsGraph } from "@plangs/plangs";
 
 import { type CompletionItem, type InputComplElement, registerInputCompl } from "../input-compl";
-import { type InputSelElement, registerInputSel } from "../input-sel";
+import { matchingInputSelByName, registerInputSel } from "../input-sel";
 import { type PlangInfoElement, registerPlangInfo } from "../plang-info";
+
 import { $, $$, on } from "../utils";
-import { getFilters } from "./inputs";
 
-function startBrowseNav(pg: PlangsGraph) {
-  const plangsMain = $<HTMLDivElement>("#home-plangs");
-  if (!plangsMain) return;
+import { getDom } from "./dom";
+import { getFilters } from "./filters";
 
-  const plangInfo = $<PlangInfoElement>("plang-info");
-  const fileExt = $<HTMLInputElement>("input#plang-ext");
-  const fileExtSel = $<InputSelElement>("input-sel[name=plang-ext]");
-  const releaseMin = $("label[for=release-min-date]");
-  const thumbnails = $$<HTMLDivElement>(".plang-thumb");
-  const infobox = $<HTMLDivElement>("#plang-infobox");
-  const langTab = $<HTMLAnchorElement>("#top-nav .lang");
-
+function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
   function updatePlangs() {
-    const filters = getFilters();
+    const filters = getFilters(dom.inputs);
     const keys = pg.plangs(filters);
 
-    for (const div of thumbnails) {
-      const nid = div.dataset.nid as NPlang["key"];
-      div.classList.toggle("hide", !keys.has(nid));
+    for (const div of dom.elems.plThumb) {
+      const nodeId = div.dataset.key as NPlang["key"];
+      // div.classList.toggle("hide", !keys.has(nodeId));
     }
-
     // if (status) status.innerText = `Displaying ${keys.size} languages of ${pg.n_plang.size}.`;
   }
 
@@ -43,9 +30,9 @@ function startBrowseNav(pg: PlangsGraph) {
 
   // Release data.
 
-  on($("input#has-releases"), "input", (ev) => {
+  on(dom.inputs.hasReleases, "input", (ev) => {
     const checked = (ev.target as HTMLInputElement).checked;
-    if (releaseMin) releaseMin.classList.toggle("hide", !checked);
+    dom.inputs.releasedAfter.classList.toggle("hide", !checked);
   });
 
   function completions(nodeKind: N): CompletionItem[] {
@@ -57,81 +44,79 @@ function startBrowseNav(pg: PlangsGraph) {
   }
 
   for (const compl of $$<InputComplElement>("input-compl")) {
-    const name = compl.getAttribute("name");
-    const source = compl.dataset.source as N;
-
-    if (NODE_NAMES.includes(source)) {
-      compl.completions = completions(source);
-    } else {
+    const [inputSel, source] = [matchingInputSelByName(compl), compl.dataset.kind as N];
+    if (!inputSel) continue;
+    if (!pg.nodes[source]) {
       console.warn("wrong source name (should be a kind of node):", source);
       continue;
     }
-
-    const sel = $<InputSelElement>(`input-sel[name=${name}]`);
-    if (!sel) {
-      console.warn("no input-sel found for", name);
-      continue;
-    }
-
-    compl.onSelect((item) => sel.addItem(item));
-
-    sel.onRemove(({ by, itemsLeft }) => {
-      if (by !== "enterKey" || itemsLeft !== 0) return;
-      compl.focus();
+    compl.completions = completions(source);
+    compl.onSelect((item) => inputSel.addItem(item));
+    inputSel.onRemove(({ by, itemsLeft }) => {
+      if (by === "enterKey" && itemsLeft === 0) compl.focus();
     });
   }
 
   // File Extension
 
-  on(fileExt, "keypress", ({ key }: KeyboardEvent) => {
-    if (key !== "Enter" || !fileExt || !fileExtSel) return;
-    const value = fileExt.value.trim();
-    if (value === "") return;
-    const name = (value[0] === "." ? value : `.${value}`).toLowerCase();
-    fileExtSel.addItem({ value: name, label: name });
-    fileExt.value = "";
-  });
+  const extensions = dom.inputs.extensions as HTMLInputElement;
+  const extensionsSel = matchingInputSelByName(extensions);
 
-  fileExtSel?.onRemove(({ by, itemsLeft }) => {
-    if (by !== "enterKey" || itemsLeft !== 0) return;
-    fileExt?.focus();
-  });
+  if (extensions && extensionsSel) {
+    on(extensions, "keypress", ({ key }: KeyboardEvent) => {
+      if (key !== "Enter") return;
+      const value = extensions.value.trim();
+      if (value === "") return;
+      const name = (value[0] === "." ? value : `.${value}`).toLowerCase();
+      extensionsSel.addItem({ value: name, label: name });
+      extensions.value = "";
+    });
+    extensionsSel.onRemove(({ by, itemsLeft }) => {
+      if (by !== "enterKey" || itemsLeft !== 0) return;
+      extensions.focus();
+    });
+  }
 
   // On input change, re-filter the list of languages.
 
-  on($("#home-nav"), "input", ({ target }) => {
+  on(dom.elem.nav, "input", ({ target }) => {
     if ((target as HTMLInputElement)?.matches("input[name=plang-ext]")) return;
     debouncedUpdatePlangs();
   });
 
   // On lang click, display more information.
 
-  on(plangsMain, "click", ({ target }) => {
-    if (!plangInfo) return;
-    const wrapper = (target as HTMLElement).closest(".plang-thumb") as HTMLDivElement;
-    if (!wrapper || !wrapper.dataset.key) return;
-    plangInfo.key = wrapper.dataset.key as NPlang["key"];
-    if (langTab) {
+  function getPl(target: EventTarget | null): NPlang | undefined {
+    const keyHolder = (target as Element).closest("[data-key]") as HTMLElement;
+    if (!keyHolder || !keyHolder.dataset.key) return;
+    return pg.nodes.pl.get(keyHolder.dataset.key as NPlang["key"]);
+  }
+
+  const plangInfo = dom.elem.plangInfo as PlangInfoElement;
+  const langTab = document.querySelector("#top-nav lang") as HTMLDivElement;
+  if (plangInfo && langTab) {
+    on(dom.elem.plangs, "click", ({ target }) => {
+      const pl = getPl(target);
+      if (!pl) return;
+      plangInfo.key = pl.key;
       langTab.classList.toggle("hide", false);
-      langTab.setAttribute("href", `/${plangInfo.key.split("+").join("/")}`);
-      langTab.innerText = wrapper.querySelector(".name")?.textContent ?? plangInfo.key;
-    }
-  });
+      langTab.setAttribute("href", `/${pl.plainKey}`);
+      langTab.innerText = pl.name;
+    });
+  }
 
   // On double-click, open the language page.
 
-  on(plangsMain, "dblclick", ({ target }) => {
-    const wrapper = (target as HTMLElement).closest(".plang-thumb") as HTMLDivElement;
-    if (!wrapper || !wrapper.dataset.key) return;
-    const key = wrapper.dataset.key;
-    window.location.href = `/${key.split("+").join("/")}`;
+  on(dom.elem.plangs, "dblclick", ({ target }) => {
+    const pl = getPl(target);
+    if (pl) window.location.href = `/${pl.plainKey}`;
   });
 
   // On click on a pl-pill in the infobox, update the infobox.
 
-  on(infobox, "click", ({ target }) => {
-    const key = (target as HTMLElement).dataset.key as NPlang["key"];
-    if (plangInfo && key) plangInfo.key = key;
+  on(dom.elem.plangInfo, "click", ({ target }) => {
+    const pl = getPl(target);
+    if (pl) plangInfo.key = pl.key;
   });
 }
 
@@ -147,17 +132,24 @@ registerInputSel();
 
   $<PlangInfoElement>("plang-info")?.setDataSource(pg);
 
-  startBrowseNav(pg);
+  const dom = getDom();
+
+  startBrowseNav(pg, dom);
 
   try {
     // SSE listener to reload the page on changes.
     const es = new EventSource("/sse", { withCredentials: false });
-    es.onmessage = () => window.location.reload();
+    es.onmessage = ({ data: json }) => {
+      const data = JSON.parse(json);
+      if (data.event !== "info") window.location.reload();
+    };
     es.onerror = (err) => {
-      console.error("SSE connection error, closing.", err);
-      es.close();
+      // TODO: for some reason we started getting this error after switching to newer bun.js:
+      // GET http://localhost:5000/sse net::ERR_INCOMPLETE_CHUNKED_ENCODING 200 (OK)
+      // console.error("SSE connection error.", err);
+      // es.close();
     };
   } catch (err) {
-    console.warn(err);
+    // console.warn(err);
   }
 })();

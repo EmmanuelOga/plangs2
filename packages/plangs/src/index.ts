@@ -501,7 +501,7 @@ class Rel<T extends `${N}+${string}`, E extends EBase<Any, Any, Any>> {
 
   get edges(): E[] {
     if (!this.map) return [];
-    return [...this.map.values()].filter(Boolean);
+    return [...this.map.values()];
   }
 }
 

@@ -4,7 +4,7 @@
 
 import register from "preact-custom-element";
 
-import { on, send } from "../utils";
+import { $, on, send } from "../utils";
 import { EVENTS, InputSel, type InputSelProps, TAG_NAME } from "./input-sel";
 import type { Item, ItemRemoved } from "./reducer";
 
@@ -30,6 +30,16 @@ const ELEMENT_API = {
     return { mode, values: new Set(values) };
   },
 };
+
+/** Convention: both <input-sel/> and it's source input element should have matching "name" attribute. */
+export function matchingInputSelByName(elem: HTMLElement): InputSelElement | null {
+  const name = elem.getAttribute("name");
+  const inputSel = $<InputSelElement>(`input-sel[name=${name}]`);
+  if (!name || !inputSel) {
+    console.warn("Coud not find a matching <input-sel/> by name", elem, name);
+  }
+  return inputSel;
+}
 
 export type InputSelElement = HTMLElement & typeof ELEMENT_API & InputSelProps;
 

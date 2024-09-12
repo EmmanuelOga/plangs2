@@ -125,21 +125,21 @@ main {
     justify-content: space-between;
 }
 
-#home-nav {
+#browse-elem-nav {
     min-width: 18rem;
     max-width: 18rem;
     border-right: 1px solid #444;
 }
 
-#home-side {
+#browse-elem-side {
     min-width: 30rem;
     max-width: 30rem;
     min-height: 100vh;
     border-left: 1px solid #444;
 }
 
-#home-nav,
-#home-side {
+#browse-elem-nav,
+#browse-elem-side {
     color: #ddd;
     background-color: var(--bg2);
 }
@@ -159,7 +159,7 @@ main {
     align-self: flex-end;
 }
 
-#home-plangs {
+#browse-elem-plangs {
     padding-top: .25rem;
     display: flex;
     justify-content: center;
@@ -168,7 +168,7 @@ main {
     background-color: var(--bg1);
 }
 
-#home-plangs,
+#browse-elem-plangs,
 #lang-page {
     flex: 1;
 }
@@ -190,7 +190,7 @@ input {
     border-top-right-radius: .25rem;
 }
 
-.plang-thumb {
+.browse-elems-plThumb {
     width: var(--pl-thumb-size);
     height: var(--pl-thumb-size);
 
@@ -264,7 +264,7 @@ input {
     }
 }
 
-.facet {
+.browse-elems-facet {
     .controls {
         label {
             padding-bottom: 1rem;
@@ -296,18 +296,18 @@ input {
     }
 }
 
-.facet:last-child {
+.browse-elems-facet:last-child {
     &::after {
         content: "";
     }
 }
 
-#facets {
+#browse-elem-facets {
     margin-top: .5rem;
     padding: 1rem 1.5rem;
 }
 
-#plang-infobox {
+plang-info {
     color: #eee;
 
     margin-top: .5rem;

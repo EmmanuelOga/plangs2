@@ -2,10 +2,6 @@ export const $ = document.querySelector.bind(document);
 
 export const $$ = document.querySelectorAll.bind(document);
 
-function warning<T>(ret: T, ...args: unknown[]): void {
-  console.warn("Warning: nil target", ...args);
-}
-
 /** Adds an event listener to the target, and returns a function to undo the listener. */
 export function on<TEV extends Event>(
   target: Element | null | undefined,
@@ -13,8 +9,11 @@ export function on<TEV extends Event>(
   listener: (ev: TEV) => void,
   options?: AddEventListenerOptions,
 ): () => void {
-  if (!target) warning("setting an event", type, listener, options);
-  target?.addEventListener(type, listener as (ev: Event) => void, options);
+  if (!target) {
+    console.warn("missing event target", type, listener, options);
+    return () => {};
+  }
+  target.addEventListener(type, listener as (ev: Event) => void, options);
   return () => off(target, type, listener, options);
 }
 
@@ -25,7 +24,7 @@ export function off<TEV extends Event>(
   options?: AddEventListenerOptions,
 ): void {
   if (!target) {
-    warning("removing event", type, listener, options);
+    console.warn("missing event target", type, listener, options);
     return;
   }
   target.removeEventListener(type, listener as (ev: Event) => void, options);
@@ -33,7 +32,7 @@ export function off<TEV extends Event>(
 
 export function send(target: Element | null | undefined, ev: Event): boolean {
   if (!target) {
-    warning("dispatching", ev);
+    console.warn("missing event target", ev);
     return false;
   }
   return target.dispatchEvent(ev);

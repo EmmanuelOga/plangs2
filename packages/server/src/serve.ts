@@ -4,7 +4,7 @@ import { PlangsGraph } from "@plangs/plangs";
 import { loadAllDefinitions } from "@plangs/definitions";
 
 // biome-ignore lint/style/useNodejsImportProtocol: not needed with Bun.
-import { watch } from "fs";
+import { type FSWatcher, watch } from "fs";
 
 import { html, packagesPath } from "./util";
 import { resolvePage } from "./page";
@@ -45,26 +45,41 @@ const ROOT = join(import.meta.dir, "../../.."); // Root of the git repo.
 
 /** Respond to SSE connections to /sse by sending file changed events. */
 function sse(req: Request) {
+  console.log("Received SSE connection", req.url);
+
   const { signal } = req;
-  return new Response(
-    new ReadableStream({
-      start(controller) {
-        const watcher = watch(ROOT, { recursive: true }, (event, filename) => {
+
+  const source: UnderlyingDefaultSource = {
+    start(controller): void {
+      let watcher: FSWatcher;
+
+      try {
+        watcher = watch(ROOT, { recursive: true }, (event, filename) => {
           controller.enqueue(`data: ${JSON.stringify({ event, filename })}\n\n`);
         });
-        signal.onabort = () => {
-          watcher.close();
-          controller.close();
-        };
-      },
-    }),
-    {
-      status: 200,
-      headers: {
-        "Content-Type": "text/event-stream",
-        "Cache-Control": "no-cache",
-        Connection: "keep-alive",
-      },
+        controller.enqueue(`data: ${JSON.stringify({ event: "info", message: `Started watcher at ${ROOT}` })}\n\n`);
+      } catch (err) {
+        console.error({ err });
+        controller.error(err);
+        controller.close();
+      }
+
+      signal.onabort = () => {
+        watcher.close();
+        controller.close();
+      };
     },
-  );
+  };
+
+  const init: ResponseInit = {
+    status: 200,
+    statusText: "OK",
+    headers: {
+      "Content-Type": "text/event-stream",
+      "Cache-Control": "no-cache",
+      Connection: "keep-alive",
+    },
+  };
+
+  return new Response(new ReadableStream(source), init);
 }

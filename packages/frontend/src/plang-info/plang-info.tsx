@@ -111,7 +111,7 @@ export function PlangInfo({ key }: PlangInfoProps) {
   }
 
   return (
-    <div id="plang-infobox" ref={self as Ref<HTMLDivElement>}>
+    <div ref={self as Ref<HTMLDivElement>}>
       {content}
     </div>
   );

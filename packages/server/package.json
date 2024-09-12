@@ -1,10 +1,9 @@
 {
-  "name": "@plangs/serer",
+  "name": "@plangs/server",
   "description": "Site server, for development and static site generation.",
   "version": "0.1.0",
   "dependencies": {
     "@plangs/definitions": "workspace:*",
-    "@plangs/frontend": "workspace:*",
     "@plangs/plangs": "workspace:*",
     "marked": "^13.0.3",
     "preact": "^10.22.1",
