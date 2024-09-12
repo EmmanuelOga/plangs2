@@ -15,8 +15,6 @@ export function PlangInfo({ plangKey: key }: PlangInfoProps) {
   const self = useRef<HTMLDivElement>();
   const [pg, setPg] = useState<PlangsGraph>();
 
-  console.log("USING KEY", key);
-
   useEffect(() => {
     const root = self.current?.parentElement as HTMLElement;
     if (!root) return;

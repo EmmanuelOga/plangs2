@@ -22,7 +22,7 @@ html {
 
 body {
     font-family: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif;
-font-weight: normal;
+    font-weight: normal;
     margin: 0;
     padding: 0;
     overflow-y: scroll;
@@ -308,10 +308,12 @@ input {
 }
 
 plang-info {
-    color: #eee;
+    > div {
+        color: #eee;
 
-    margin-top: .5rem;
-    padding: 0 1.25rem .5rem;
+        margin-top: .5rem;
+        padding: 0 1.25rem .5rem;
+    }
 
     h2 {
         margin: 0;

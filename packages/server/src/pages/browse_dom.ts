@@ -16,6 +16,7 @@ export type ELEM =
 /** Elements keyed with ELEMS have a matching css class to select them all. */
 // biome-ignore format: keep a single tag per line.
 export type ELEMS = 
+  | "facet"
   | "plThumb";
 
 /** Similar to ELEM, but for inputs. */

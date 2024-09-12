@@ -1,8 +1,7 @@
 import { mkdir } from "node:fs/promises";
 import { extname, join } from "node:path";
 
-import type { NodeMap } from "@plangs/graph";
-import { Image, Link, N, NBase, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, PlangsGraph } from "@plangs/plangs";
+import type { Image, Link, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, PlangsGraph } from "@plangs/plangs";
 import { type WikiPage, keyFromWikiURL } from "./wikipedia";
 
 export const DEFINTIONS_PATH = join(import.meta.dir, "../../../packages/definitions/src/definitions/plangs/");

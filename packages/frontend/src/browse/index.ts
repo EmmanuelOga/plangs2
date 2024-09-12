@@ -47,7 +47,6 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
     const [inputSel, source] = [matchingInputSelByName(compl), compl.dataset.kind as N];
     if (!inputSel) continue;
     if (!pg.nodes[source]) {
-      console.warn("wrong source name (should be a kind of node):", source);
       continue;
     }
     compl.completions = completions(source);
@@ -143,7 +142,9 @@ registerInputSel();
     const es = new EventSource("/sse", { withCredentials: false });
     es.onmessage = ({ data: json }) => {
       const data = JSON.parse(json);
-      if (data.event !== "info") window.location.reload();
+      if (data.event !== "info") {
+        setTimeout(() => window.location.reload(), 500);
+      }
     };
     es.onerror = (err) => {
       // TODO: for some reason we started getting this error after switching to newer bun.js:
@@ -152,6 +153,6 @@ registerInputSel();
       // es.close();
     };
   } catch (err) {
-    // console.warn(err);
+    console.warn(err);
   }
 })();
