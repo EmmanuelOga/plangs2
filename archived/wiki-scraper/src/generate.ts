@@ -2,7 +2,7 @@ import { mkdir } from "node:fs/promises";
 import { extname, join } from "node:path";
 
 import type { NodeMap } from "@plangs/graph";
-import type { Image, Link, N, NBase, NLicense, NPlang, PlangsGraph } from "@plangs/plangs";
+import { Image, Link, N, NBase, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, PlangsGraph } from "@plangs/plangs";
 import { type WikiPage, keyFromWikiURL } from "./wikipedia";
 
 export const DEFINTIONS_PATH = join(import.meta.dir, "../../../packages/definitions/src/definitions/plangs/");
@@ -56,19 +56,21 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
 
   ////////////////////////////////////////////////////////////////////////////////
 
-  function* findMatching<T extends N>(links: Link[], nodeMap: NodeMap<PlangsGraph, NBase<T, any>>): Generator<NBase<T, any>["key"]> {
+  type PGNodeMap = (typeof g.nodes)[keyof typeof g.nodes];
+
+  function* findMatching<T>(links: Link[], nodeMap: PGNodeMap): Generator<T> {
     for (const link of links) {
       for (const node of nodeMap.findAll((node) => node.matchesKeyword(link.title))) {
-        yield node.key as NBase<T, any>["key"];
+        yield node.key as T;
       }
     }
   }
 
-  const keys_license = [...findMatching(page.infobox.licenses, g.nodes.license)].sort();
-  const keys_paradigm = [...findMatching(page.infobox.paradigms, g.nodes.paradigm)].sort();
-  const keys_platform = [...findMatching(page.infobox.platforms, g.nodes.plat)].sort();
-  const keys_tags = [...findMatching(page.infobox.tags, g.nodes.tag)].sort();
-  const keys_tsystem = [...findMatching(page.infobox.typeSystem, g.nodes.tsys)].sort();
+  const keys_license = [...findMatching<NLicense["key"]>(page.infobox.licenses, g.nodes.license)].sort();
+  const keys_paradigm = [...findMatching<NParadigm["key"]>(page.infobox.paradigms, g.nodes.paradigm)].sort();
+  const keys_platform = [...findMatching<NPlatform["key"]>(page.infobox.platforms, g.nodes.plat)].sort();
+  const keys_tags = [...findMatching<NTag["key"]>(page.infobox.tags, g.nodes.tag)].sort();
+  const keys_tsystem = [...findMatching<NTsys["key"]>(page.infobox.typeSystem, g.nodes.tsys)].sort();
 
   plang.addLicenses(keys_license).addParadigms(keys_paradigm).addPlatforms(keys_platform).addTags(keys_tags).addTypeSystems(keys_tsystem);
 
@@ -113,7 +115,7 @@ export function generateCode(plang: NPlang): string {
   addRel("addParadigms", plang.relParadigms.keys);
   addRel("addPlatforms", plang.relPlatforms.keys);
   addRel("addTags", plang.relTags.keys);
-  addRel("addTypeSystems", plang.relTypeSystems.keys);
+  addRel("addTypeSystems", plang.relTsys.keys);
   addRel("addWrittenIn", plang.relWrittenIn.keys);
 
   const code = `import type { PlangsGraph } from "@plangs/plangs";

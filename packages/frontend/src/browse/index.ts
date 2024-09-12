@@ -94,11 +94,13 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
 
   const plangInfo = dom.elem.plangInfo as PlangInfoElement;
   const langTab = document.querySelector("#top-nav lang") as HTMLDivElement;
-  if (plangInfo && langTab) {
+  if (plangInfo) {
     on(dom.elem.plangs, "click", ({ target }) => {
       const pl = getPl(target);
       if (!pl) return;
-      plangInfo.key = pl.key;
+      plangInfo.plangKey = pl.key;
+      console.log("SETTING KEY", pl.key, plangInfo.plangKey, plangInfo);
+      if (!langTab) return;
       langTab.classList.toggle("hide", false);
       langTab.setAttribute("href", `/${pl.plainKey}`);
       langTab.innerText = pl.name;
@@ -116,7 +118,7 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
 
   on(dom.elem.plangInfo, "click", ({ target }) => {
     const pl = getPl(target);
-    if (pl) plangInfo.key = pl.key;
+    if (pl) plangInfo.plangKey = pl.key;
   });
 }
 

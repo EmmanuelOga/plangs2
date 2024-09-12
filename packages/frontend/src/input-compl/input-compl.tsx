@@ -10,7 +10,6 @@ import "./input-compl.css";
 export const TAG_NAME = "input-compl";
 
 export type InputComplProps = {
-  /** Name attribute for the input element. */
   name: string;
   completions?: CompletionItem[];
 };

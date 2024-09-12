@@ -7,13 +7,15 @@ import { customEvent, on } from "../utils";
 export const TAG_NAME = "plang-info";
 
 export type PlangInfoProps = {
-  key?: NPlang["key"];
+  plangKey?: NPlang["key"];
 };
 
 /** Display a PL information, if the key is known. */
-export function PlangInfo({ key }: PlangInfoProps) {
+export function PlangInfo({ plangKey: key }: PlangInfoProps) {
   const self = useRef<HTMLDivElement>();
   const [pg, setPg] = useState<PlangsGraph>();
+
+  console.log("USING KEY", key);
 
   useEffect(() => {
     const root = self.current?.parentElement as HTMLElement;
@@ -49,7 +51,7 @@ export function PlangInfo({ key }: PlangInfoProps) {
       const tsys = pl.relTsys;
       const licenses = pl.relLicenses;
       const influenced = pl.relInfluenced;
-      const influencedRev = pl.relInfluencedBy;
+      const influencedBy = pl.relInfluencedBy;
       const dialectOf = pl.relDialectOf;
       const implements_ = pl.relImplements;
 
@@ -76,24 +78,24 @@ export function PlangInfo({ key }: PlangInfoProps) {
           <dl>
             {pl.data.description && <Entry title="Description">{pl.data.description}</Entry>}
             {pl.data.extensions && <Entry title="Extensions">{pl.data.extensions.map((name) => Pill({ key: name, name, kind: "ext" }))}</Entry>}
-            {tsys.size > 0 && <Entry title="Type Systems">{tsys.edges.map(({ key, tsys: { name, kind } }) => Pill({ key, name, kind }))}</Entry>}
+            {tsys.size > 0 && <Entry title="Type Systems">{tsys.edges.map(({ tsys: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>}
             {platforms.size > 0 && (
-              <Entry title="Platforms">{platforms.edges.map(({ key, plat: { name, kind } }) => Pill({ key, name, kind }))}</Entry>
+              <Entry title="Platforms">{platforms.edges.map(({ plat: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
             )}
-            {influencedRev.size > 0 && (
-              <Entry title="Influenced By">{influencedRev.edges.map(({ key, fromPl: { name, kind } }) => Pill({ key, name, kind }))}</Entry>
+            {influencedBy.size > 0 && (
+              <Entry title="Influenced By">{influencedBy.edges.map(({ toPl: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
             )}
             {influenced.size > 0 && (
-              <Entry title="Influenced">{influenced.edges.map(({ key, fromPl: { name, kind } }) => Pill({ key, name, kind }))}</Entry>
+              <Entry title="Influenced">{influenced.edges.map(({ fromPl: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
             )}
             {dialectOf.size > 0 && (
-              <Entry title="Dialect Of">{dialectOf.edges.map(({ key, fromPl: { name, kind } }) => Pill({ key, name, kind }))}</Entry>
+              <Entry title="Dialect Of">{dialectOf.edges.map(({ toPl: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
             )}
             {implements_.size > 0 && (
-              <Entry title="Standard For">{implements_.edges.map(({ key, fromPl: { name, kind } }) => Pill({ key, name, kind }))}</Entry>
+              <Entry title="Standard For">{implements_.edges.map(({ toPl: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
             )}
             {licenses.size > 0 && (
-              <Entry title="Licenses">{licenses.edges.map(({ key, license: { name, kind } }) => Pill({ key, name, kind }))}</Entry>
+              <Entry title="Licenses">{licenses.edges.map(({ license: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
             )}
 
             {/*

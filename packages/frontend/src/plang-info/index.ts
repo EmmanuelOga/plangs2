@@ -19,6 +19,7 @@ const ELEMENT_API = {
 export type PlangInfoElement = HTMLElement & PlangInfoProps & typeof ELEMENT_API;
 
 export function registerPlangInfo() {
-  register(PlangInfo, TAG_NAME, ["key"]);
+  const keys: (keyof PlangInfoProps)[] = ["plangKey"];
+  register(PlangInfo, TAG_NAME, keys);
   Object.assign(window.customElements.get(TAG_NAME)?.prototype, ELEMENT_API);
 }

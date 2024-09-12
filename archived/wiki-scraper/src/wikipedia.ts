@@ -109,16 +109,17 @@ export class WikiPage {
   }
 
   get title(): string {
-    if (this.infobox) {
-      const title = cleanText(this.$(".infobox-title.summary").first().text());
-      if (title) return title;
-    }
-    return this.mainHeading;
+    let title: string;
+    if (this.infobox) title = cleanText(this.$(".infobox-title.summary").first().text());
+    title ||= this.mainHeading;
+    title = title.replaceAll(/programming\s*language/gi, "");
+    title = title.replaceAll(/\([^\)]+\)/gi, "");
+    return title.trim();
   }
 
   get description(): string {
     const p = this.$("#mw-content-text > div.mw-content-ltr.mw-parser-output > p:not([class])").first();
-    p.find("*").remove("sup");
+    p.find("*").remove("sup, style, script, [style*='display:none']");
     return cleanText(p.text());
   }
 
