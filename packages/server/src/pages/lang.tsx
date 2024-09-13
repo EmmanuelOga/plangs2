@@ -20,6 +20,8 @@ export function Lang({ pl }: LangProps) {
       <article id="lang-page" class="common-content">
         <h1>{pl.name}</h1>
 
+        <p>{pl.description}</p>
+
         <div>
           <a href="emmanueloga.com">Link1</a>
           <a href="emmanueloga.com">Link2</a>
@@ -110,7 +112,7 @@ export function Lang({ pl }: LangProps) {
 
       <nav id={domId("side")}>
         <div id="server-side-plang-info">
-          <PlangInfo graph={pg} plangKey={pl.key} />
+          <PlangInfo graph={pg} plangKey={pl.key} description={false} />
         </div>
       </nav>
     </>

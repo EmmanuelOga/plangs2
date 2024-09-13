@@ -10,12 +10,13 @@ import { customEvent, on } from "../utils";
 export const TAG_NAME = "plang-info";
 
 export type PlangInfoProps = {
-  plangKey?: NPlang["key"];
   graph?: PlangsGraph;
+  plangKey?: NPlang["key"];
+  description?: boolean;
 };
 
 /** Display a PL information, if the key is known. */
-export function PlangInfo({ plangKey: key, graph }: PlangInfoProps) {
+export function PlangInfo({ plangKey: key, graph, description }: PlangInfoProps) {
   const self = useRef<HTMLDivElement>();
   const [pg, setPg] = graph ? useState<PlangsGraph>(graph) : useState<PlangsGraph>();
 
@@ -55,7 +56,8 @@ export function PlangInfo({ plangKey: key, graph }: PlangInfoProps) {
       <>
         <h2>{pl.data.name ?? key}</h2>
         <dl>
-          {<Entry title="Description">{pl.description}</Entry>}
+          {description && <Entry title="Description">{pl.description}</Entry>}
+
           {pl.relTsys.tap((rel) => (
             <Entry title="Type Systems">{rel.edges.map(({ tsys: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
           ))}
