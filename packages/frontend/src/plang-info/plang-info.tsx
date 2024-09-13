@@ -1,19 +1,23 @@
 import type { ComponentChildren, JSX, Ref } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
 
-import type { CommonNodeData, N, NBase, NPlang, PlangsGraph } from "@plangs/plangs";
+import type { NPlang, PlangsGraph } from "@plangs/plangs";
+
+import "./plang-info.css";
+
 import { customEvent, on } from "../utils";
 
 export const TAG_NAME = "plang-info";
 
 export type PlangInfoProps = {
   plangKey?: NPlang["key"];
+  graph?: PlangsGraph;
 };
 
 /** Display a PL information, if the key is known. */
-export function PlangInfo({ plangKey: key }: PlangInfoProps) {
+export function PlangInfo({ plangKey: key, graph }: PlangInfoProps) {
   const self = useRef<HTMLDivElement>();
-  const [pg, setPg] = useState<PlangsGraph>();
+  const [pg, setPg] = graph ? useState<PlangsGraph>(graph) : useState<PlangsGraph>();
 
   useEffect(() => {
     const root = self.current?.parentElement as HTMLElement;
@@ -33,84 +37,70 @@ export function PlangInfo({ plangKey: key }: PlangInfoProps) {
       }
     }
 
-    return on(root, EVENTS.inSetData.type, ({ detail }: CustomEvent) => setPg(detail as PlangsGraph));
+    return on(root, EVENTS.inSetData.type, ({ detail: pg }: CustomEvent) => setPg(pg as PlangsGraph));
   });
+
+  const pl = pg ? pg.nodes.pl.getExisting(key) : undefined;
 
   let content: JSX.Element;
 
   if (!key) {
     content = <p>Select a language to show more information.</p>;
+  } else if (!pg) {
+    content = <p>Loading graph ...</p>;
+  } else if (!pl) {
+    content = <p>Loading language ...</p>;
   } else {
-    const pl = pg?.nodes.pl.get(key);
-    if (!pl || !pg) {
-      content = <p>Loading...</p>;
-    } else {
-      const platforms = pl.relPlatforms;
-      const tsys = pl.relTsys;
-      const licenses = pl.relLicenses;
-      const influenced = pl.relInfluenced;
-      const influencedBy = pl.relInfluencedBy;
-      const dialectOf = pl.relDialectOf;
-      const implements_ = pl.relImplements;
-
-      function Entry<T>({ title, children }: { title: string; children: ComponentChildren }) {
-        return (
-          <div class="entry">
-            <dt>{title}</dt>
-            <dd>{children}</dd>
-          </div>
-        );
-      }
-
-      function Pill<T extends CommonNodeData>({ key, kind, name }: { key: string; name: string; kind: string }) {
-        return (
-          <div class={`pill ${kind}-pill`} key={key} data-key={key} data-kind={kind}>
-            {name}
-          </div>
-        );
-      }
-
-      content = (
-        <>
-          <h2>{pl.data.name ?? key}</h2>
-          <dl>
-            {pl.data.description && <Entry title="Description">{pl.data.description}</Entry>}
-            {pl.data.extensions && <Entry title="Extensions">{pl.data.extensions.map((name) => Pill({ key: name, name, kind: "ext" }))}</Entry>}
-            {tsys.size > 0 && <Entry title="Type Systems">{tsys.edges.map(({ tsys: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>}
-            {platforms.size > 0 && (
-              <Entry title="Platforms">{platforms.edges.map(({ plat: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
-            )}
-            {influencedBy.size > 0 && (
-              <Entry title="Influenced By">{influencedBy.edges.map(({ toPl: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
-            )}
-            {influenced.size > 0 && (
-              <Entry title="Influenced">{influenced.edges.map(({ fromPl: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
-            )}
-            {dialectOf.size > 0 && (
-              <Entry title="Dialect Of">{dialectOf.edges.map(({ toPl: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
-            )}
-            {implements_.size > 0 && (
-              <Entry title="Standard For">{implements_.edges.map(({ toPl: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
-            )}
-            {licenses.size > 0 && (
-              <Entry title="Licenses">{licenses.edges.map(({ license: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
-            )}
-
-            {/*
-              <dt>Misc</dt>
-              <dd>{pl.isTranspiler && "Source-to-source compiler"}</dd>
-              */}
-
-            {/* images */}
-            {/* releases */}
-            {/* links */}
-          </dl>
-        </>
-      );
-    }
+    content = (
+      <>
+        <h2>{pl.data.name ?? key}</h2>
+        <dl>
+          {<Entry title="Description">{pl.description}</Entry>}
+          {pl.relTsys.tap((rel) => (
+            <Entry title="Type Systems">{rel.edges.map(({ tsys: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
+          ))}
+          {pl.relPlatforms.tap((rel) => (
+            <Entry title="Platforms">{rel.edges.map(({ plat: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
+          ))}
+          {pl.relInfluencedBy.tap((rel) => (
+            <Entry title="Influenced By">{rel.edges.map(({ toPl: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
+          ))}
+          {pl.relInfluenced.tap((rel) => (
+            <Entry title="Influenced">{rel.edges.map(({ fromPl: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
+          ))}
+          {pl.relDialectOf.tap((rel) => (
+            <Entry title="Dialect Of">{rel.edges.map(({ toPl: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
+          ))}
+          {pl.relImplements.tap((rel) => (
+            <Entry title="Standard For">{rel.edges.map(({ toPl: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
+          ))}
+          {pl.relLicenses.tap((rel) => (
+            <Entry title="Licenses">{rel.edges.map(({ license: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
+          ))}
+          {pl.hasFileExtensions && <Entry title="Extensions">{pl.fileExtensions.map((name) => Pill({ key: name, name, kind: "ext" }))}</Entry>}
+        </dl>
+      </>
+    );
   }
 
   return <div ref={self as Ref<HTMLDivElement>}>{content}</div>;
+}
+
+function Entry({ title, children }: { title: string; children: ComponentChildren }) {
+  return (
+    <div class="entry">
+      <dt>{title}</dt>
+      <dd>{children}</dd>
+    </div>
+  );
+}
+
+function Pill({ key, kind, name }: { key: string; name: string; kind: string }) {
+  return (
+    <div class={`pill ${kind}-pill`} key={key} data-key={key} data-kind={kind}>
+      {name}
+    </div>
+  );
 }
 
 export const EVENTS = {

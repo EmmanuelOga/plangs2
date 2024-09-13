@@ -1,14 +1,22 @@
 import type { NPlang } from "@plangs/plangs";
-import { h } from "preact";
+
+import { PlangInfo } from "@plangs/frontend/plang-info/plang-info";
+import { domId } from "./dom";
+import { useContext } from "preact/hooks";
+import { PlangsData } from "../context";
 
 type LangProps = {
   pl: NPlang;
 };
 
 export function Lang({ pl }: LangProps) {
+  const pg = useContext(PlangsData);
+  if (!pg) throw new Error("PlangsGraph should be in the context already.");
+
   return (
     <>
-      <nav id="home-nav">{/*Same as Browse, but empty.*/}</nav>
+      <nav id={domId("nav")}>{/*Same as Browse, but empty.*/}</nav>
+
       <article id="lang-page" class="common-content">
         <h1>{pl.name}</h1>
 
@@ -27,15 +35,6 @@ export function Lang({ pl }: LangProps) {
         <ul>
           <li>
             <a href="emmanueloga.com">News 1</a>
-          </li>
-          <li>
-            <a href="emmanueloga.com">News 2</a>
-          </li>
-          <li>
-            <a href="emmanueloga.com">News 3</a>
-          </li>
-          <li>
-            <a href="emmanueloga.com">News 4</a>
           </li>
         </ul>
 
@@ -60,18 +59,6 @@ export function Lang({ pl }: LangProps) {
               <td>Description</td>
               <td>Periquin.com</td>
             </tr>
-            <tr>
-              <td>Lint-O-Matic</td>
-              <td>Lint</td>
-              <td>Description</td>
-              <td>lolo.com</td>
-            </tr>
-            <tr>
-              <td>Formatter</td>
-              <td>Formatter</td>
-              <td>Description</td>
-              <td>formo.com</td>
-            </tr>
           </tbody>
         </table>
 
@@ -87,18 +74,9 @@ export function Lang({ pl }: LangProps) {
               <li>Tool 3</li>
             </ul>
           </dd>
-          <dt>Bundle 2</dt>
-          <dd>
-            <p>Description of the bundle.</p>
-            <ul>
-              <li>Tool 1</li>
-              <li>Tool 2</li>
-              <li>Tool 3</li>
-            </ul>
-          </dd>
         </dl>
 
-        <h2>{pl.data.name} Libraries</h2>
+        <h2>{pl.name} Libraries</h2>
         <p>Libraries are reusable code that can be used to solve common problems. Here are some recommended ones.</p>
         <dl>
           <dt>Library 1</dt>
@@ -108,40 +86,12 @@ export function Lang({ pl }: LangProps) {
               <a href=".">Link</a>
             </p>
           </dd>
-          <dt>Library 2</dt>
-          <dd>
-            <p>
-              Description of the Library.
-              <a href=".">Link</a>
-            </p>
-          </dd>
-          <dt>Library 3</dt>
-          <dd>
-            <p>
-              Description of the Library.
-              <a href=".">Link</a>
-            </p>
-          </dd>
         </dl>
 
-        <h2>Built with {pl.data.name}</h2>
+        <h2>Built with {pl.name}</h2>
         <p>Example applications built with this language.</p>
         <dl>
           <dt>Application 1</dt>
-          <dd>
-            <p>
-              Description of the app.
-              <a href=".">Link</a>
-            </p>
-          </dd>
-          <dt>Application 2</dt>
-          <dd>
-            <p>
-              Description of the app.
-              <a href=".">Link</a>
-            </p>
-          </dd>
-          <dt>Application 3</dt>
           <dd>
             <p>
               Description of the app.
@@ -157,11 +107,11 @@ export function Lang({ pl }: LangProps) {
           <img src="https://via.placeholder.com/150" alt="Placeholder" />
         </div>
       </article>
-      <nav id="home-side">
-        {
-          // @ts-ignore: TODO: figure out how to type this.
-          h("plang-info", { vid: pl.vid })
-        }
+
+      <nav id={domId("side")}>
+        <div id="server-side-plang-info">
+          <PlangInfo graph={pg} plangKey={pl.key} />
+        </div>
       </nav>
     </>
   );

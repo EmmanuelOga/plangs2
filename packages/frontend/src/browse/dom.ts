@@ -1,6 +1,6 @@
-import type { ELEM, ELEMS, INPUT } from "@plangs/server/pages/browse_dom";
+import type { ELEM, ELEMS, INPUT } from "@plangs/server/pages/dom";
 
-import { elem, elems, input } from "@plangs/server/pages/browse_dom";
+import { elem, elems, input } from "@plangs/server/pages/dom";
 
 export function getByIds(): Record<ELEM, HTMLElement> {
   const get = <T extends ELEM>(key: T) => ({ [key]: elem(key) }) as Record<T, HTMLElement>;
@@ -17,6 +17,7 @@ export function getByClasses(): Record<ELEMS, HTMLCollectionOf<HTMLElement>> {
   const get = <T extends ELEMS>(key: T) => ({ [key]: elems(key) }) as Record<T, HTMLCollectionOf<HTMLElement>>;
   return {
     ...get("plThumb"),
+    ...get("facet"),
   } as const;
 }
 

@@ -125,21 +125,21 @@ main {
     justify-content: space-between;
 }
 
-#browse-elem-nav {
+#elem-nav {
     min-width: 18rem;
     max-width: 18rem;
     border-right: 1px solid #444;
 }
 
-#browse-elem-side {
+#elem-side {
     min-width: 30rem;
     max-width: 30rem;
     min-height: 100vh;
     border-left: 1px solid #444;
 }
 
-#browse-elem-nav,
-#browse-elem-side {
+#elem-nav,
+#elem-side {
     color: #ddd;
     background-color: var(--bg2);
 }
@@ -159,7 +159,7 @@ main {
     align-self: flex-end;
 }
 
-#browse-elem-plangs {
+#elem-plangs {
     padding-top: .25rem;
     display: flex;
     justify-content: center;
@@ -168,7 +168,7 @@ main {
     background-color: var(--bg1);
 }
 
-#browse-elem-plangs,
+#elem-plangs,
 #lang-page {
     flex: 1;
 }
@@ -190,7 +190,7 @@ input {
     border-top-right-radius: .25rem;
 }
 
-.browse-elems-plThumb {
+.elems-plThumb {
     width: var(--pl-thumb-size);
     height: var(--pl-thumb-size);
 
@@ -264,7 +264,7 @@ input {
     }
 }
 
-.browse-elems-facet {
+.elems-facet {
     .controls {
         label {
             padding-bottom: 1rem;
@@ -296,72 +296,15 @@ input {
     }
 }
 
-.browse-elems-facet:last-child {
+.elems-facet:last-child {
     &::after {
         content: "";
     }
 }
 
-#browse-elem-facets {
+#elem-facets {
     margin-top: .5rem;
     padding: 1rem 1.5rem;
-}
-
-plang-info {
-    > div {
-        color: #eee;
-
-        margin-top: .5rem;
-        padding: 0 1.25rem .5rem;
-    }
-
-    h2 {
-        margin: 0;
-        padding-top: 1rem;
-        padding-bottom: 0;
-    }
-
-    dl {
-        margin: 0;
-    }
-
-    .entry {
-        margin-bottom: 1rem;
-
-        dt {
-            color: #eee;
-            padding-top: .5rem;
-        }
-
-        dd {
-            color: black;
-            padding: .75rem;
-            margin: 0;
-            background-color: white;
-            border: 1px solid rgb(118, 118, 118);
-
-            border-bottom-left-radius: 1rem;
-            border-top-right-radius: 1rem;
-
-            .pill {
-                background-color: hsl(120, 20%, 80%);
-                border-bottom: 1px solid gray;
-                border-right: 1px solid gray;
-
-                display: inline-block;
-                margin: .25rem;
-                padding: .25rem .5rem;
-
-                border-bottom-left-radius: .25rem;
-                border-top-right-radius: .25rem;
-            }
-
-            .pl-pill {
-                cursor: pointer;
-                background-color: hsl(120, 100%, 80%);
-            }
-        }
-    }
 }
 
 .blog-post {

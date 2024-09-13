@@ -2,7 +2,6 @@ import { BaseGraph, Edge, EdgeMap, Node, NodeMap } from "@plangs/graph";
 
 import type { PlangFilters } from "./filter";
 import { arrayMerge, keywordsToRegexp, verify } from "./util";
-import { walkUpBindingElementsAndPatterns } from "typescript";
 
 export const NODE_NAMES = ["lib", "license", "paradigm", "pl", "plat", "tag", "tool", "tsys"] as const;
 export const EDGE_NAMES = ["dialect", "impl", "influence", "lib", "license", "paradigm", "plat", "tag", "tool", "tsys", "writtenIn"] as const;
@@ -89,8 +88,7 @@ export abstract class NBase<Prefix extends N, Data extends CommonNodeData> exten
   }
 
   get hasWikipedia(): boolean {
-    if (!this.data.websites) return false;
-    return this.data.websites.some((w) => w.kind === "wikipedia");
+    return this.data.websites?.some((w) => w.kind === "wikipedia") ?? false;
   }
 
   matchesKeyword(str: string): boolean {
@@ -99,8 +97,7 @@ export abstract class NBase<Prefix extends N, Data extends CommonNodeData> exten
   }
 
   matchesName(pattern: RegExp): boolean {
-    if (!this.data.name) return false;
-    return pattern.test(this.data.name);
+    return pattern.test(this.name);
   }
 }
 
@@ -117,6 +114,14 @@ export class NPlang extends NBase<
   }
 > {
   override kind: N = "pl";
+
+  get hasFileExtensions(): boolean {
+    return this.data.extensions ? this.data.extensions.length > 0 : false;
+  }
+
+  get fileExtensions(): string[] {
+    return this.data.extensions ?? [];
+  }
 
   addExtensions(exts: string[]): this {
     arrayMerge((this.data.extensions ??= []), exts);
@@ -502,6 +507,11 @@ class Rel<T extends `${N}+${string}`, E extends EBase<Any, Any, Any>> {
   get edges(): E[] {
     if (!this.map) return [];
     return [...this.map.values()];
+  }
+
+  /** Call the callback if there are any edges. */
+  tap<T>(callback: (rel: this) => T): T | undefined {
+    if (this.size > 0) return callback(this);
   }
 }
 

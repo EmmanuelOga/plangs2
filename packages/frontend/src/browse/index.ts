@@ -137,7 +137,7 @@ registerInputSel();
 
   const dom = getDom();
 
-  startBrowseNav(pg, dom);
+  if (dom.elem.facets) startBrowseNav(pg, dom);
 
   try {
     // SSE listener to reload the page on changes.

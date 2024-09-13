@@ -3,7 +3,7 @@ import { useContext } from "preact/hooks";
 
 import type { N, NPlang } from "@plangs/plangs";
 
-import { domClass, domId, domInputId, type INPUT, type INPUT_ID } from "./browse_dom";
+import { domClass, domId, domInputId, type INPUT, type INPUT_ID } from "./dom";
 import { PlangsData } from "../context";
 
 export function Browse() {
@@ -47,6 +47,7 @@ export function Browse() {
           <Facet title="License">{input("licenses")}</Facet>
         </div>
       </nav>
+
       <article id={domId("plangs")}>
         {[...pg.nodes.pl].map(([nid, pl]) => (
           <div key={nid} data-key={nid} class={domClass("plThumb")}>
@@ -55,6 +56,7 @@ export function Browse() {
           </div>
         ))}
       </article>
+
       <nav id={domId("side")}>{h("plang-info", { id: domId("plangInfo") })}</nav>
     </>
   );

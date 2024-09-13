@@ -66,8 +66,8 @@ export class NodeMap<T_Graph, T_Node extends Node<T_Graph, Any, Any>> implements
   }
 
   /** Sometimes we want the node only if exists. */
-  getExisting(key: T_Node["key"]): T_Node | undefined {
-    return this.#map.get(key);
+  getExisting(key?: T_Node["key"]): T_Node | undefined {
+    return key ? this.#map.get(key) : undefined;
   }
 
   get size(): number {

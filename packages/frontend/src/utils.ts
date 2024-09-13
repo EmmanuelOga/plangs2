@@ -1,6 +1,7 @@
-export const $ = document.querySelector.bind(document);
-
-export const $$ = document.querySelectorAll.bind(document);
+// This is so the server can load the module.
+const doc = typeof document === "undefined" ? undefined : document;
+export const $ = (doc as Document)?.querySelector.bind(document);
+export const $$ = (doc as Document)?.querySelectorAll.bind(document);
 
 /** Adds an event listener to the target, and returns a function to undo the listener. */
 export function on<TEV extends Event>(
