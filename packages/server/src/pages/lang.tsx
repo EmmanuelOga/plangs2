@@ -1,9 +1,10 @@
-import type { NPlang } from "@plangs/plangs";
+import type { Link, NPlang } from "@plangs/plangs";
 
 import { PlangInfo } from "@plangs/frontend/plang-info/plang-info";
 import { domId } from "./dom";
 import { useContext } from "preact/hooks";
 import { PlangsData } from "../context";
+import { toAnchor } from "../util";
 
 type LangProps = {
   pl: NPlang;
@@ -19,19 +20,8 @@ export function Lang({ pl }: LangProps) {
 
       <article id="lang-page" class="common-content">
         <h1>{pl.name}</h1>
-
+        {pl.allWebsites.length > 0 && <p>{pl.allWebsites.map((link) => toAnchor(link))}</p>}
         <p>{pl.description}</p>
-
-        <div>
-          <a href="emmanueloga.com">Link1</a>
-          <a href="emmanueloga.com">Link2</a>
-          <a href="emmanueloga.com">Link3</a>
-        </div>
-
-        <p>
-          This is the description of the language. This is more text about the language. Then more text about the language. Also we could say more
-          about the language. And more about the language.
-        </p>
 
         <h2>News</h2>
         <ul>

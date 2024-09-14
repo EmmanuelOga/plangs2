@@ -320,3 +320,7 @@ input {
         margin: 2rem auto 1rem;
     }
 }
+
+.pl-link {
+    margin-right: 1rem;
+}

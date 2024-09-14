@@ -81,6 +81,11 @@ export abstract class NBase<Prefix extends N, Data extends CommonNodeData> exten
     return this;
   }
 
+  /** All links including wikipedia. */
+  get allWebsites(): Link[] {
+    return this.data.websites ?? [];
+  }
+
   /** Has any website, except wikipedia pages. */
   get hasWebsites(): boolean {
     if (!this.data.websites) return false;

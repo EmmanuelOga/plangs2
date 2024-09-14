@@ -1,6 +1,8 @@
 import { join } from "node:path";
 
-import type { VNode } from "preact";
+import type { Link } from "@plangs/plangs/index";
+
+import type { JSX, VNode } from "preact";
 import render from "preact-render-to-string/jsx";
 
 export function html(component: VNode) {
@@ -10,4 +12,12 @@ export function html(component: VNode) {
 
 export function packagesPath(...path: string[]): string {
   return join(import.meta.dir, "../..", ...path);
+}
+
+export function toAnchor(link: Link): JSX.Element {
+  return (
+    <a href={link.href} title={`${link.kind}:${link.title}`} class={`pl-link ${link.kind}`}>
+      {link.title}
+    </a>
+  );
 }
