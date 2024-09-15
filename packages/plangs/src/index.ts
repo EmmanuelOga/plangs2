@@ -4,7 +4,20 @@ import { IterTap, MapTap, arrayMerge } from "@plangs/graph/auxiliar";
 import type { PlangFilters } from "./filter";
 
 export const NODE_NAMES = ["app", "blog", "bundle", "lib", "license", "paradigm", "pl", "plat", "tag", "tool", "tsys"] as const;
-export const EDGE_NAMES = ["dialect", "impl", "influence", "lib", "license", "paradigm", "plat", "tag", "tool", "tsys", "writtenIn"] as const;
+export const EDGE_NAMES = [
+  "bundle",
+  "dialect",
+  "impl",
+  "influence",
+  "lib",
+  "license",
+  "paradigm",
+  "plat",
+  "tag",
+  "tool",
+  "tsys",
+  "writtenIn",
+] as const;
 
 export type N = (typeof NODE_NAMES)[number];
 export type E = (typeof EDGE_NAMES)[number];
@@ -28,6 +41,8 @@ export class PlangsGraph extends BaseGraph<N, E, G> {
   };
 
   readonly edges = {
+    app: new EdgeMap<G, EApp>((from, to) => new EApp(this, from, to)),
+    bundle: new EdgeMap<G, EBundle>((from, to) => new EBundle(this, from, to)),
     dialect: new EdgeMap<G, EDialect>((from, to) => new EDialect(this, from, to)),
     impl: new EdgeMap<G, EImpl>((from, to) => new EImpl(this, from, to)),
     influence: new EdgeMap<G, EInfluence>((from, to) => new EInfluence(this, from, to)),
@@ -253,6 +268,11 @@ export class NPlang extends NBase<
 /** A library Node, for software libraries or frameworks, like jQuery, Rails, etc. */
 export class NLibrary extends NBase<"lib", CommonNodeData> {
   override kind: N = "lib";
+
+  addPls(others: NPlang["key"][]): this {
+    for (const other of others) this.graph.edges.lib.connect(other, this.key);
+    return this;
+  }
 }
 
 /** A License Node, e.g., MIT, GPL, etc. */
@@ -302,6 +322,11 @@ export class NTag extends NBase<"tag", CommonNodeData> {
 /** A tool Node, e.g., Version Manager, Linter, Formatter,  etc. */
 export class NTool extends NBase<"tool", CommonNodeData> {
   override kind: N = "tool";
+
+  addPls(others: NPlang["key"][]): this {
+    for (const other of others) this.graph.edges.tool.connect(other, this.key);
+    return this;
+  }
 }
 
 /** A Type System Node, e.g., OOP, Duck, Dynamic, etc. */
@@ -312,11 +337,21 @@ export class NTsys extends NBase<"tsys", CommonNodeData> {
 /** An app Node, for any sort of application. */
 export class NApp extends NBase<"app", CommonNodeData> {
   override kind: N = "app";
+
+  addPls(others: NPlang["key"][]): this {
+    for (const other of others) this.graph.edges.app.connect(this.key, other);
+    return this;
+  }
 }
 
 /** Bundle of tools. */
 export class NBundle extends NBase<"bundle", CommonNodeData> {
   override kind: N = "bundle";
+
+  addTools(others: `tool+${string}`[]): this {
+    for (const other of others) this.graph.edges.bundle.connect(other, this.key);
+    return this;
+  }
 }
 
 /** A blog post entry. */
@@ -345,6 +380,30 @@ export abstract class EBase<T_From extends NBase<Any, Any>, T_To extends NBase<A
   addRefs(links: Link[]): this {
     arrayMerge((this.data.refs ??= []), links, (l1, l2) => l1.href === l2.href);
     return this;
+  }
+}
+
+export class EApp extends EBase<NApp, NPlang, CommonEdgeData> {
+  override kind: E = "bundle";
+
+  get app(): NApp | undefined {
+    return this.graph.nodes.app.get(this.from);
+  }
+
+  get pl(): NPlang | undefined {
+    return this.graph.nodes.pl.get(this.to);
+  }
+}
+
+export class EBundle extends EBase<NTool, NBundle, CommonEdgeData> {
+  override kind: E = "bundle";
+
+  get tool(): NTool | undefined {
+    return this.graph.nodes.tool.get(this.from);
+  }
+
+  get bundle(): NBundle | undefined {
+    return this.graph.nodes.bundle.get(this.to);
   }
 }
 

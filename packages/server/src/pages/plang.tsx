@@ -16,8 +16,6 @@ export function Lang({ pl }: LangProps) {
 
   return (
     <>
-      <nav id={domId("nav")}>{/*Same as Browse, but empty.*/}</nav>
-
       <article id="lang-page" class="common-content">
         <h1>{pl.name}</h1>
 
