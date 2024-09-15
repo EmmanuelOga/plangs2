@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.13.2", date: "2024-01-01" }],
       images: [{ kind: "logo", title: "Crystal", url: "/images/plangs/c/crystal/logo.png" }],
     })
-    .addInfluencedBy(["pl+c", "pl+c-sharp", "pl+go", "pl+ruby", "pl+rust"])
+    .addInfluencedBy(["pl+c", "pl+c-sharp", "pl+go", "pl+python", "pl+ruby", "pl+rust"])
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+concurrent", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+apple", "plat+arm", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])

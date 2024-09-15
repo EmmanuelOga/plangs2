@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
       ],
       images: [{ kind: "logo", title: "Groovy", url: "/images/plangs/g/groovy/logo.png" }],
     })
-    .addInfluencedBy(["pl+perl", "pl+ruby"])
+    .addInfluencedBy(["pl+perl", "pl+python", "pl+ruby"])
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+aspect", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
     .addPlatforms(["plat+java"])

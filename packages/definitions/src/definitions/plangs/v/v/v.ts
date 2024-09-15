@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.4.6", date: "2024-01-01" }],
       images: [{ kind: "logo", title: "V", url: "/images/plangs/v/v/logo.png" }],
     })
-    .addInfluencedBy(["pl+c", "pl+go", "pl+kotlin", "pl+oberon", "pl+rust", "pl+swift"])
+    .addInfluencedBy(["pl+c", "pl+go", "pl+kotlin", "pl+oberon", "pl+python", "pl+rust", "pl+swift"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+structured"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])

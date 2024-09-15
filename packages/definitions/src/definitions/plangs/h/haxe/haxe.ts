@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "4.3.6", date: "2024-01-01" }],
     })
     .addDialectOf(["pl+ecmascript"])
-    .addInfluencedBy(["pl+actionscript", "pl+c++", "pl+c-sharp", "pl+ecmascript", "pl+javascript", "pl+lua", "pl+ocaml"])
+    .addInfluencedBy(["pl+actionscript", "pl+c++", "pl+c-sharp", "pl+ecmascript", "pl+javascript", "pl+lua", "pl+ocaml", "pl+python"])
     .addLicenses(["license+gnu-gpl", "license+mit"])
     .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+android", "plat+apple", "plat+arm", "plat+linux", "plat+windows", "plat+x86-64"])

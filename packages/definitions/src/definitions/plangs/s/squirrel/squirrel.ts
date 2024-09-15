@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "3.2", date: "2022-01-01" }],
     })
-    .addInfluencedBy(["pl+c++", "pl+javascript", "pl+lua", "pl+moonscript"])
+    .addInfluencedBy(["pl+c++", "pl+javascript", "pl+lua", "pl+moonscript", "pl+python"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
     .addPlatforms(["plat+cross"])

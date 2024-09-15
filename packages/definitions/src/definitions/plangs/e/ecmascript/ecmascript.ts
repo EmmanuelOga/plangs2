@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/ECMAScript", title: "ECMAScript", kind: "wikipedia" },
       ],
     })
-    .addInfluencedBy(["pl+awk", "pl+c", "pl+coffeescript", "pl+perl", "pl+scheme", "pl+self"])
+    .addInfluencedBy(["pl+awk", "pl+c", "pl+coffeescript", "pl+perl", "pl+python", "pl+scheme", "pl+self"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+prototype"])
     .addTypeSystems(["tsys+dynamic", "tsys+weak"]);
 }

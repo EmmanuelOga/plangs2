@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "JavaScript", url: "/images/plangs/j/javascript/other.png" }],
     })
     .addImplements(["pl+ecmascript"])
-    .addInfluencedBy(["pl+awk", "pl+c", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+r5rs", "pl+scheme", "pl+self"])
+    .addInfluencedBy(["pl+awk", "pl+c", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme", "pl+self"])
     .addParadigms(["paradigm+event-driven", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+weak"]);
 }

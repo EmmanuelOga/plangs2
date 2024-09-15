@@ -27,6 +27,7 @@ export function define(g: PlangsGraph) {
       "pl+lua",
       "pl+moonscript",
       "pl+perl",
+      "pl+python",
       "pl+r",
       "pl+r5rs",
       "pl+ruby",

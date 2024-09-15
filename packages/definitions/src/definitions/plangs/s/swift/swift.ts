@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Swift", url: "/images/plangs/s/swift/logo.png" }],
       extensions: [".SWIFT", ".swift"],
     })
-    .addInfluencedBy(["pl+c", "pl+c-sharp", "pl+clu", "pl+d", "pl+haskell", "pl+lisp", "pl+ruby", "pl+rust"])
+    .addInfluencedBy(["pl+c", "pl+c-sharp", "pl+clu", "pl+d", "pl+haskell", "pl+lisp", "pl+python", "pl+ruby", "pl+rust"])
     .addLicenses(["license+apache"])
     .addParadigms([
       "paradigm+concurrent",

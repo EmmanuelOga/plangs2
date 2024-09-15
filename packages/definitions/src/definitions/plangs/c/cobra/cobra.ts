@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "0.9.6", date: "2013-01-01" }],
     })
-    .addInfluencedBy(["pl+c-sharp", "pl+eiffel"])
+    .addInfluencedBy(["pl+c-sharp", "pl+eiffel", "pl+python"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+multi", "paradigm+oop"])
     .addTypeSystems(["tsys+dynamic", "tsys+inferred", "tsys+static", "tsys+strong"]);

@@ -17,7 +17,7 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "F#", url: "/images/plangs/f/f-sharp/logo.png" }],
     })
     .addDialectOf(["pl+ml", "pl+ocaml"])
-    .addInfluencedBy(["pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ml", "pl+ocaml", "pl+scala", "pl+standard-ml"])
+    .addInfluencedBy(["pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ml", "pl+ocaml", "pl+python", "pl+scala", "pl+standard-ml"])
     .addLicenses(["license+mit"])
     .addParadigms([
       "paradigm+agents",

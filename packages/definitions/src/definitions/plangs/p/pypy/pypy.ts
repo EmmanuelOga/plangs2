@@ -13,6 +13,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "7.3.16", date: "2024-01-01" }],
       images: [{ kind: "logo", title: "PyPy", url: "/images/plangs/p/pypy/logo.png" }],
     })
+    .addDialectOf(["pl+python"])
+    .addImplements(["pl+python"])
     .addLicenses(["license+mit"])
     .addPlatforms(["plat+cross"]);
 }

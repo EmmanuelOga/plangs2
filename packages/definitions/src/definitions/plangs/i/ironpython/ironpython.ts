@@ -15,6 +15,7 @@ export function define(g: PlangsGraph) {
         { version: "3.4.0", date: "2022-01-01" },
       ],
     })
+    .addImplements(["pl+python"])
     .addLicenses(["license+apache"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
     .addTags(["tag+interpreter"])

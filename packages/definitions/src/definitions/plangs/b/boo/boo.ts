@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "0.9.7", date: "2013-01-01" }],
     })
-    .addInfluencedBy(["pl+c-sharp"])
+    .addInfluencedBy(["pl+c-sharp", "pl+python"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+oop"])
     .addTypeSystems(["tsys+duck", "tsys+inferred", "tsys+static", "tsys+strong"])

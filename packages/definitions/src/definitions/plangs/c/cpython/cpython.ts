@@ -12,6 +12,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "3.12.0", date: "2023-01-01" }],
     })
+    .addImplements(["pl+python"])
     .addLicenses(["license+python"])
-    .addWrittenIn(["pl+c"]);
+    .addWrittenIn(["pl+c", "pl+python"]);
 }

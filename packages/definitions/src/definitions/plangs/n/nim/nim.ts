@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2.0.8", date: "2024-01-01" }],
       images: [{ kind: "logo", title: "Nim", url: "/images/plangs/n/nim/logo.png" }],
     })
-    .addInfluencedBy(["pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+oberon", "pl+rust"])
+    .addInfluencedBy(["pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+oberon", "pl+python", "pl+rust"])
     .addParadigms([
       "paradigm+compiled",
       "paradigm+concurrent",

@@ -18,7 +18,9 @@ export function define(g: PlangsGraph) {
       ],
       images: [{ kind: "logo", title: "Cython", url: "/images/plangs/c/cython/logo.png" }],
     })
-    .addInfluencedBy(["pl+c"])
+    .addDialectOf(["pl+python"])
+    .addInfluencedBy(["pl+c", "pl+python"])
     .addLicenses(["license+apache"])
-    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"]);
+    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
+    .addWrittenIn(["pl+python"]);
 }

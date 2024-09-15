@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "2019.05.22", date: "2019-05-22" }],
     })
-    .addInfluencedBy(["pl+lisp", "pl+lua", "pl+moonscript", "pl+self"])
+    .addInfluencedBy(["pl+lisp", "pl+lua", "pl+moonscript", "pl+python", "pl+self"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+oop", "paradigm+prototype"])
     .addPlatforms(["plat+.net", "plat+apple", "plat+windows", "plat+x86-64"])

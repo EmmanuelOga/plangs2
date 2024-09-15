@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.23.0", date: "2024-01-01" }],
       images: [{ kind: "logo", title: "Go", url: "/images/plangs/g/go/logo.png" }],
     })
-    .addInfluencedBy(["pl+apl", "pl+c", "pl+d", "pl+erlang", "pl+modula", "pl+oberon", "pl+pascal"])
+    .addInfluencedBy(["pl+apl", "pl+c", "pl+d", "pl+erlang", "pl+modula", "pl+oberon", "pl+pascal", "pl+python"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
