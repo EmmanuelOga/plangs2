@@ -58,6 +58,10 @@ export class IterTap<T> {
     this.array = Array.isArray(iterable) ? iterable : iterable ? [...iterable] : undefined;
   }
 
+  map<R>(callback: (value: T, index: number, array: T[]) => R) {
+    return this.array ? this.array.map(callback) : [];
+  }
+
   sort(): T[] {
     return this.array ? [...this.array].sort() : [];
   }
@@ -97,8 +101,8 @@ export class MapTap<K, V> {
     return this.map ? this.map.has(val) : false;
   }
 
-  tap<R>(callback: (map: Map<K, V>) => R): R | undefined {
-    if (this.map && this.map.size > 0) return callback(this.map);
+  tap<R>(callback: (tap: this) => R): R | undefined {
+    if (this.map && this.map.size > 0) return callback(this);
   }
 
   get keys(): IterTap<K> {

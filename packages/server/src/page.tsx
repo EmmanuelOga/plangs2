@@ -7,7 +7,7 @@ import { Layout, type LayoutProps } from "./pages/layout";
 import { Browse } from "./pages/browse";
 import { About } from "./pages/about";
 import { Blog } from "./pages/blog";
-import { Lang } from "./pages/lang";
+import { Lang } from "./pages/plang";
 import { blogPosts } from "./blog";
 
 type PageProps = {

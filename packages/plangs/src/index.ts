@@ -1,8 +1,7 @@
 import { BaseGraph, Edge, EdgeMap, Node, NodeMap } from "@plangs/graph";
-import { arrayMerge, type Filter, IterTap, MapTap } from "@plangs/graph/auxiliar";
+import { IterTap, MapTap, arrayMerge } from "@plangs/graph/auxiliar";
 
 import type { PlangFilters } from "./filter";
-import { keywordsToRegexp } from "./util";
 
 export const NODE_NAMES = ["app", "blog", "bundle", "lib", "license", "paradigm", "pl", "plat", "tag", "tool", "tsys"] as const;
 export const EDGE_NAMES = ["dialect", "impl", "influence", "lib", "license", "paradigm", "plat", "tag", "tool", "tsys", "writtenIn"] as const;

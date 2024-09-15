@@ -59,27 +59,29 @@ export function PlangInfo({ plangKey: key, graph, description }: PlangInfoProps)
           {description && <Entry title="Description">{pl.description}</Entry>}
 
           {pl.relTsys.tap((rel) => (
-            <Entry title="Type Systems">{rel.edges.map(({ tsys: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
+            <Entry title="Type Systems">{rel.values.map(({ tsys }) => tsys && Pill(tsys))}</Entry>
           ))}
           {pl.relPlatforms.tap((rel) => (
-            <Entry title="Platforms">{rel.edges.map(({ plat: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
+            <Entry title="Platforms">{rel.values.map(({ plat }) => plat && Pill(plat))}</Entry>
           ))}
           {pl.relInfluencedBy.tap((rel) => (
-            <Entry title="Influenced By">{rel.edges.map(({ toPl: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
+            <Entry title="Influenced By">{rel.values.map(({ toPl }) => toPl && Pill(toPl))}</Entry>
           ))}
           {pl.relInfluenced.tap((rel) => (
-            <Entry title="Influenced">{rel.edges.map(({ fromPl: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
+            <Entry title="Influenced">{rel.values.map(({ fromPl }) => fromPl && Pill(fromPl))}</Entry>
           ))}
           {pl.relDialectOf.tap((rel) => (
-            <Entry title="Dialect Of">{rel.edges.map(({ toPl: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
+            <Entry title="Dialect Of">{rel.values.map(({ toPl }) => toPl && Pill(toPl))}</Entry>
           ))}
           {pl.relImplements.tap((rel) => (
-            <Entry title="Standard For">{rel.edges.map(({ toPl: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
+            <Entry title="Standard For">{rel.values.map(({ toPl }) => toPl && Pill(toPl))}</Entry>
           ))}
           {pl.relLicenses.tap((rel) => (
-            <Entry title="Licenses">{rel.edges.map(({ license: { key, name, kind } }) => Pill({ key, name, kind }))}</Entry>
+            <Entry title="Licenses">{rel.values.map(({ license }) => license && Pill(license))}</Entry>
           ))}
-          {pl.hasFileExtensions && <Entry title="Extensions">{pl.fileExtensions.map((name) => Pill({ key: name, name, kind: "ext" }))}</Entry>}
+          {pl.extensions.tap((extensions) => (
+            <Entry title="Extensions">{extensions.map((name) => Pill({ key: name, name, kind: "ext" }))}</Entry>
+          ))}
         </dl>
       </>
     );

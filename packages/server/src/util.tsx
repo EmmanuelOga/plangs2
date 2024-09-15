@@ -16,7 +16,7 @@ export function packagesPath(...path: string[]): string {
 
 export function toAnchor(link: Link): JSX.Element {
   return (
-    <a href={link.href} title={`${link.kind}:${link.title}`} class={`pl-link ${link.kind}`}>
+    <a key={link.href} href={link.href} title={`${link.kind}:${link.title}`} class={`pl-link ${link.kind}`}>
       {link.title}
     </a>
   );
