@@ -41,7 +41,7 @@ export function PlangInfo({ plangKey: key, graph, description }: PlangInfoProps)
     return on(root, EVENTS.inSetData.type, ({ detail: pg }: CustomEvent) => setPg(pg as PlangsGraph));
   });
 
-  const pl = pg ? pg.nodes.pl.getExisting(key) : undefined;
+  const pl = pg ? pg.nodes.pl.get(key) : undefined;
 
   let content: JSX.Element;
 

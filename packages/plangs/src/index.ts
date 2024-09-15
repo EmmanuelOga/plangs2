@@ -1,9 +1,10 @@
 import { BaseGraph, Edge, EdgeMap, Node, NodeMap } from "@plangs/graph";
+import { arrayMerge, type Filter, IterTap, MapTap } from "@plangs/graph/auxiliar";
 
 import type { PlangFilters } from "./filter";
-import { arrayMerge, keywordsToRegexp, verify } from "./util";
+import { keywordsToRegexp } from "./util";
 
-export const NODE_NAMES = ["lib", "license", "paradigm", "pl", "plat", "tag", "tool", "tsys"] as const;
+export const NODE_NAMES = ["app", "blog", "bundle", "lib", "license", "paradigm", "pl", "plat", "tag", "tool", "tsys"] as const;
 export const EDGE_NAMES = ["dialect", "impl", "influence", "lib", "license", "paradigm", "plat", "tag", "tool", "tsys", "writtenIn"] as const;
 
 export type N = (typeof NODE_NAMES)[number];
@@ -14,6 +15,9 @@ export type G = PlangsGraph;
 
 export class PlangsGraph extends BaseGraph<N, E, G> {
   readonly nodes = {
+    app: new NodeMap<G, NApp>((key) => new NApp(this, key)),
+    blog: new NodeMap<G, NBlogPost>((key) => new NBlogPost(this, key)),
+    bundle: new NodeMap<G, NBundle>((key) => new NBundle(this, key)),
     lib: new NodeMap<G, NLibrary>((key) => new NLibrary(this, key)),
     license: new NodeMap<G, NLicense>((key) => new NLicense(this, key)),
     paradigm: new NodeMap<G, NParadigm>((key) => new NParadigm(this, key)),
@@ -65,44 +69,24 @@ export abstract class NBase<Prefix extends N, Data extends CommonNodeData> exten
     return this.data.description || this.name;
   }
 
-  /** The key without the node kind prefix. */
-  get plainKey(): string {
-    return this.key.replace(/^[a-z]+[+]/, "");
+  get websites(): IterTap<Link> {
+    return new IterTap(this.data.websites);
   }
 
-  /** The first letter of the key, or "_" if it starts with a non-letter. */
-  get keyFolder(): string {
-    const name = this.key.split("+")[1];
-    return /^[a-z]/.test(name) ? name[0] : "_";
+  get keywords(): IterTap<string> {
+    return new IterTap(this.data.keywords);
+  }
+
+  get keywordsRegexp(): RegExp | undefined {
+    const { keywords } = this.data;
+    if (!keywords) return undefined;
+    const lenient = keywords.map((k) => k.replaceAll(/[- ]/g, "\\s*.?\\s*"));
+    return new RegExp(`\\b(${lenient.join("|")})\\b`, "i");
   }
 
   addWebsites(links: Link[]): this {
     arrayMerge((this.data.websites ??= []), links, (l1, l2) => l1.href === l2.href);
     return this;
-  }
-
-  /** All links including wikipedia. */
-  get allWebsites(): Link[] {
-    return this.data.websites ?? [];
-  }
-
-  /** Has any website, except wikipedia pages. */
-  get hasWebsites(): boolean {
-    if (!this.data.websites) return false;
-    return this.data.websites.some((w) => w.kind !== "wikipedia");
-  }
-
-  get hasWikipedia(): boolean {
-    return this.data.websites?.some((w) => w.kind === "wikipedia") ?? false;
-  }
-
-  matchesKeyword(str: string): boolean {
-    if (!this.data.keywords || this.data.keywords.length === 0) return false;
-    return keywordsToRegexp(this.data.keywords).test(str);
-  }
-
-  matchesName(pattern: RegExp): boolean {
-    return pattern.test(this.name);
   }
 }
 
@@ -120,12 +104,32 @@ export class NPlang extends NBase<
 > {
   override kind: N = "pl";
 
-  get hasFileExtensions(): boolean {
-    return this.data.extensions ? this.data.extensions.length > 0 : false;
+  get extensions(): IterTap<string> {
+    return new IterTap(this.data.extensions);
   }
 
-  get fileExtensions(): string[] {
-    return this.data.extensions ?? [];
+  get firstAppeared(): StrDate | undefined {
+    return this.data.firstAppeared;
+  }
+
+  firstAppearedAfter(minDate: StrDate): boolean {
+    return !!this.data.firstAppeared && this.data.firstAppeared >= minDate;
+  }
+
+  get images() {
+    return new IterTap(this.data.images);
+  }
+
+  get isTranspiler(): boolean {
+    return this.data.isTranspiler === true;
+  }
+
+  get isMainstream(): boolean {
+    return this.data.isMainstream === true;
+  }
+
+  get releases(): IterTap<Release> {
+    return new IterTap(this.data.releases);
   }
 
   addExtensions(exts: string[]): this {
@@ -198,81 +202,52 @@ export class NPlang extends NBase<
     return this;
   }
 
-  get relDialectOf(): Rel<NPlang["key"], EDialect> {
-    return new Rel(this.graph.edges.dialect.adjFrom.getMap(this.key));
+  get relDialectOf(): MapTap<NPlang["key"], EDialect> {
+    return new MapTap(this.graph.edges.dialect.adjFrom.getMap(this.key));
   }
 
-  get relImplements(): Rel<NPlang["key"], EImpl> {
-    return new Rel(this.graph.edges.impl.adjFrom.getMap(this.key));
+  get relImplements(): MapTap<NPlang["key"], EImpl> {
+    return new MapTap(this.graph.edges.impl.adjFrom.getMap(this.key));
   }
 
-  get relInfluenced(): Rel<NPlang["key"], EImpl> {
-    return new Rel(this.graph.edges.influence.adjTo.getMap(this.key));
+  get relInfluenced(): MapTap<NPlang["key"], EImpl> {
+    return new MapTap(this.graph.edges.influence.adjTo.getMap(this.key));
   }
 
-  get relInfluencedBy(): Rel<NPlang["key"], EImpl> {
-    return new Rel(this.graph.edges.influence.adjFrom.getMap(this.key));
+  get relInfluencedBy(): MapTap<NPlang["key"], EImpl> {
+    return new MapTap(this.graph.edges.influence.adjFrom.getMap(this.key));
   }
 
-  get relLibraries(): Rel<NLibrary["key"], ELib> {
-    return new Rel(this.graph.edges.lib.adjFrom.getMap(this.key));
+  get relLibraries(): MapTap<NLibrary["key"], ELib> {
+    return new MapTap(this.graph.edges.lib.adjFrom.getMap(this.key));
   }
 
-  get relLicenses(): Rel<NLicense["key"], ELicense> {
-    return new Rel(this.graph.edges.license.adjFrom.getMap(this.key));
+  get relLicenses(): MapTap<NLicense["key"], ELicense> {
+    return new MapTap(this.graph.edges.license.adjFrom.getMap(this.key));
   }
 
-  get relParadigms(): Rel<NParadigm["key"], EParadigm> {
-    return new Rel(this.graph.edges.paradigm.adjFrom.getMap(this.key));
+  get relParadigms(): MapTap<NParadigm["key"], EParadigm> {
+    return new MapTap(this.graph.edges.paradigm.adjFrom.getMap(this.key));
   }
 
-  get relPlatforms(): Rel<NPlatform["key"], EPlat> {
-    return new Rel(this.graph.edges.plat.adjFrom.getMap(this.key));
+  get relPlatforms(): MapTap<NPlatform["key"], EPlat> {
+    return new MapTap(this.graph.edges.plat.adjFrom.getMap(this.key));
   }
 
-  get relTags(): Rel<NTag["key"], ETag> {
-    return new Rel(this.graph.edges.tag.adjFrom.getMap(this.key));
+  get relTags(): MapTap<NTag["key"], ETag> {
+    return new MapTap(this.graph.edges.tag.adjFrom.getMap(this.key));
   }
 
-  get relTools(): Rel<NTool["key"], ETool> {
-    return new Rel(this.graph.edges.tool.adjFrom.getMap(this.key));
+  get relTools(): MapTap<NTool["key"], ETool> {
+    return new MapTap(this.graph.edges.tool.adjFrom.getMap(this.key));
   }
 
-  get relTsys(): Rel<NTsys["key"], ETsys> {
-    return new Rel(this.graph.edges.tsys.adjFrom.getMap(this.key));
+  get relTsys(): MapTap<NTsys["key"], ETsys> {
+    return new MapTap(this.graph.edges.tsys.adjFrom.getMap(this.key));
   }
 
-  get relWrittenIn(): Rel<NPlang["key"], EWrittenIn> {
-    return new Rel(this.graph.edges.writtenIn.adjFrom.getMap(this.key));
-  }
-
-  firstAppearedAfter(minDate: StrDate): boolean {
-    return !!this.data.firstAppeared && this.data.firstAppeared >= minDate;
-  }
-
-  get hasLogo(): boolean {
-    return this.data.images?.some((i) => i.kind === "logo") ?? false;
-  }
-
-  hasReleases(minDate?: StrDate): boolean {
-    if (!this.data.releases || this.data.releases.length === 0) return false;
-    if (!minDate) return this.data.releases.length > 0;
-    return this.data.releases.some((r) => r.date && r.date >= minDate);
-  }
-
-  hasExtensions(filter?: Filter<string>): boolean {
-    if (!filter || filter.values.size === 0) return true;
-    const { extensions } = this.data;
-    if (!extensions || extensions.length === 0) return false;
-    // TODO: persist these sets.
-    const exts = new Set(extensions.map((e) => e.toLowerCase()));
-    return verify(filter.values, filter.mode, (v) => exts.has(v));
-  }
-
-  get logoOrImage(): Image | undefined {
-    const images = this.data.images;
-    if (!images || images.length === 0) return undefined;
-    return images.find((img) => img.kind === "logo") ?? images[0];
+  get relWrittenIn(): MapTap<NPlang["key"], EWrittenIn> {
+    return new MapTap(this.graph.edges.writtenIn.adjFrom.getMap(this.key));
   }
 }
 
@@ -296,6 +271,18 @@ export class NLicense extends NBase<
   }
 > {
   override kind: N = "license";
+
+  get spdx(): string | undefined {
+    return this.data.spdx;
+  }
+
+  get isFSFLibre(): boolean {
+    return this.data.isFSFLibre === true;
+  }
+
+  get isOSIApproved(): boolean {
+    return this.data.isOSIApproved === true;
+  }
 }
 
 /** A Paradigm Node, e.g., Functional, Imperative, etc. */
@@ -321,6 +308,21 @@ export class NTool extends NBase<"tool", CommonNodeData> {
 /** A Type System Node, e.g., OOP, Duck, Dynamic, etc. */
 export class NTsys extends NBase<"tsys", CommonNodeData> {
   override kind: N = "tsys";
+}
+
+/** An app Node, for any sort of application. */
+export class NApp extends NBase<"app", CommonNodeData> {
+  override kind: N = "app";
+}
+
+/** Bundle of tools. */
+export class NBundle extends NBase<"bundle", CommonNodeData> {
+  override kind: N = "bundle";
+}
+
+/** A blog post entry. */
+export class NBlogPost extends NBase<"blog", CommonNodeData> {
+  override kind: N = "blog";
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -350,11 +352,11 @@ export abstract class EBase<T_From extends NBase<Any, Any>, T_To extends NBase<A
 export class EDialect extends EBase<NPlang, NPlang, CommonEdgeData> {
   override kind: E = "dialect";
 
-  get fromPl(): NPlang {
+  get fromPl(): NPlang | undefined {
     return this.graph.nodes.pl.get(this.from);
   }
 
-  get toPl(): NPlang {
+  get toPl(): NPlang | undefined {
     return this.graph.nodes.pl.get(this.to);
   }
 }
@@ -362,11 +364,11 @@ export class EDialect extends EBase<NPlang, NPlang, CommonEdgeData> {
 export class ELicense extends EBase<NPlang, NLicense, CommonEdgeData> {
   override kind: E = "license";
 
-  get pl(): NPlang {
+  get pl(): NPlang | undefined {
     return this.graph.nodes.pl.get(this.from);
   }
 
-  get license(): NLicense {
+  get license(): NLicense | undefined {
     return this.graph.nodes.license.get(this.to);
   }
 }
@@ -374,11 +376,11 @@ export class ELicense extends EBase<NPlang, NLicense, CommonEdgeData> {
 export class EImpl extends EBase<NPlang, NPlang, CommonEdgeData> {
   override kind: E = "impl";
 
-  get fromPl(): NPlang {
+  get fromPl(): NPlang | undefined {
     return this.graph.nodes.pl.get(this.from);
   }
 
-  get toPl(): NPlang {
+  get toPl(): NPlang | undefined {
     return this.graph.nodes.pl.get(this.to);
   }
 }
@@ -386,11 +388,11 @@ export class EImpl extends EBase<NPlang, NPlang, CommonEdgeData> {
 export class EInfluence extends EBase<NPlang, NPlang, CommonEdgeData> {
   override kind: E = "influence";
 
-  get fromPl(): NPlang {
+  get fromPl(): NPlang | undefined {
     return this.graph.nodes.pl.get(this.from);
   }
 
-  get toPl(): NPlang {
+  get toPl(): NPlang | undefined {
     return this.graph.nodes.pl.get(this.to);
   }
 }
@@ -398,11 +400,11 @@ export class EInfluence extends EBase<NPlang, NPlang, CommonEdgeData> {
 export class EParadigm extends EBase<NPlang, NParadigm, CommonEdgeData> {
   override kind: E = "paradigm";
 
-  get pl(): NPlang {
+  get pl(): NPlang | undefined {
     return this.graph.nodes.pl.get(this.from);
   }
 
-  get paradigm(): NParadigm {
+  get paradigm(): NParadigm | undefined {
     return this.graph.nodes.paradigm.get(this.to);
   }
 }
@@ -410,11 +412,11 @@ export class EParadigm extends EBase<NPlang, NParadigm, CommonEdgeData> {
 export class ETsys extends EBase<NPlang, NTsys, CommonEdgeData> {
   override kind: E = "tsys";
 
-  get pl(): NPlang {
+  get pl(): NPlang | undefined {
     return this.graph.nodes.pl.get(this.from);
   }
 
-  get tsys(): NTsys {
+  get tsys(): NTsys | undefined {
     return this.graph.nodes.tsys.get(this.to);
   }
 }
@@ -422,11 +424,11 @@ export class ETsys extends EBase<NPlang, NTsys, CommonEdgeData> {
 export class EPlat extends EBase<NPlang, NPlatform, CommonEdgeData> {
   override kind: E = "plat";
 
-  get pl(): NPlang {
+  get pl(): NPlang | undefined {
     return this.graph.nodes.pl.get(this.from);
   }
 
-  get plat(): NPlatform {
+  get plat(): NPlatform | undefined {
     return this.graph.nodes.plat.get(this.to);
   }
 }
@@ -434,11 +436,11 @@ export class EPlat extends EBase<NPlang, NPlatform, CommonEdgeData> {
 export class ELib extends EBase<NPlang, NLibrary, CommonEdgeData> {
   override kind: E = "lib";
 
-  get pl(): NPlang {
+  get pl(): NPlang | undefined {
     return this.graph.nodes.pl.get(this.from);
   }
 
-  get lib(): NLibrary {
+  get lib(): NLibrary | undefined {
     return this.graph.nodes.lib.get(this.to);
   }
 }
@@ -446,11 +448,11 @@ export class ELib extends EBase<NPlang, NLibrary, CommonEdgeData> {
 export class ETag extends EBase<NPlang, NTag, CommonEdgeData> {
   override kind: E = "tag";
 
-  get pl(): NPlang {
+  get pl(): NPlang | undefined {
     return this.graph.nodes.pl.get(this.from);
   }
 
-  get tag(): NTag {
+  get tag(): NTag | undefined {
     return this.graph.nodes.tag.get(this.to);
   }
 }
@@ -458,11 +460,11 @@ export class ETag extends EBase<NPlang, NTag, CommonEdgeData> {
 export class ETool extends EBase<NPlang, NTool, CommonEdgeData> {
   override kind: E = "tool";
 
-  get pl(): NPlang {
+  get pl(): NPlang | undefined {
     return this.graph.nodes.pl.get(this.from);
   }
 
-  get tool(): NTool {
+  get tool(): NTool | undefined {
     return this.graph.nodes.tool.get(this.to);
   }
 }
@@ -470,11 +472,11 @@ export class ETool extends EBase<NPlang, NTool, CommonEdgeData> {
 export class EWrittenIn extends EBase<NPlang, NPlang, CommonEdgeData> {
   override kind: E = "writtenIn";
 
-  get fromPl(): NPlang {
+  get fromPl(): NPlang | undefined {
     return this.graph.nodes.pl.get(this.from);
   }
 
-  get toPl(): NPlang {
+  get toPl(): NPlang | undefined {
     return this.graph.nodes.pl.get(this.to);
   }
 }
@@ -482,43 +484,6 @@ export class EWrittenIn extends EBase<NPlang, NPlang, CommonEdgeData> {
 ////////////////////////////////////////////////////////////////////////////////
 // Auxiliary Types
 ////////////////////////////////////////////////////////////////////////////////
-
-export type Filter<T> = {
-  mode: "all" | "any";
-  /** By convention, if the values are empty, the filter "matches". */
-  values: Set<T>;
-};
-
-/** A relationship class to wrap a Map from Node key to list of edges. */
-class Rel<T extends `${N}+${string}`, E extends EBase<Any, Any, Any>> {
-  constructor(private readonly map: Map<T, E> | undefined) {}
-
-  /** Undefined or empty values filter always return true. */
-  matches(filter?: Filter<T>): boolean {
-    if (!filter || filter.values.size === 0) return true;
-    const m = this.map;
-    if (!m) return false;
-    return verify(filter.values, filter.mode, (v) => m.has(v as T));
-  }
-
-  get size(): number {
-    return this.map ? this.map.size : 0;
-  }
-
-  get keys(): T[] {
-    return this.map ? [...this.map.keys()] : [];
-  }
-
-  get edges(): E[] {
-    if (!this.map) return [];
-    return [...this.map.values()];
-  }
-
-  /** Call the callback if there are any edges. */
-  tap<T>(callback: (rel: this) => T): T | undefined {
-    if (this.size > 0) return callback(this);
-  }
-}
 
 /**
  * A release of a programming language.

@@ -41,10 +41,10 @@ class TestGraph extends BaseGraph<N, E, G> {
 test("accessing relationships forward and backward", () => {
   const g = new TestGraph();
 
-  g.nodes.person.get("person+1").merge({ name: "Alice" });
-  g.nodes.post.get("post+1").merge({ title: "Hello", content: "World" });
-  g.nodes.post.get("post+2").merge({ title: "Hello", content: "World" });
-  g.nodes.tag.get("tag+1");
+  g.nodes.person.set("person+1").merge({ name: "Alice" });
+  g.nodes.post.set("post+1").merge({ title: "Hello", content: "World" });
+  g.nodes.post.set("post+2").merge({ title: "Hello", content: "World" });
+  g.nodes.tag.set("tag+1");
 
   g.edges.personPost.connect("person+1", "post+1").merge({ role: "author" });
   g.edges.personPost.connect("person+1", "post+2").merge({ role: "editor" });
@@ -78,12 +78,12 @@ test("accessing relationships forward and backward", () => {
 test("de/serializing a graph", () => {
   const g = new TestGraph();
 
-  g.nodes.person.get("person+1").merge({ name: "Alice" });
-  g.nodes.person.get("person+2").merge({ name: "Bob" });
+  g.nodes.person.set("person+1").merge({ name: "Alice" });
+  g.nodes.person.set("person+2").merge({ name: "Bob" });
 
-  g.nodes.post.get("post+1").merge({ title: "Hello", content: "World" });
-  g.nodes.post.get("post+2").merge({ title: "Hello 2", content: "World 2" });
-  g.nodes.post.get("post+3").merge({ title: "Hello 3", content: "World 3" });
+  g.nodes.post.set("post+1").merge({ title: "Hello", content: "World" });
+  g.nodes.post.set("post+2").merge({ title: "Hello 2", content: "World 2" });
+  g.nodes.post.set("post+3").merge({ title: "Hello 3", content: "World 3" });
 
   g.nodes.tag.get("tag+1");
 
@@ -94,14 +94,14 @@ test("de/serializing a graph", () => {
 
   const g2 = new TestGraph().loadJSON(JSON.parse(JSON.stringify(g)));
 
-  expect(g2.nodes.person.get("person+1").data).toEqual({ name: "Alice" });
-  expect(g2.nodes.person.get("person+2").data).toEqual({ name: "Bob" });
+  expect(g2.nodes.person.set("person+1").data).toEqual({ name: "Alice" });
+  expect(g2.nodes.person.set("person+2").data).toEqual({ name: "Bob" });
 
-  expect(g2.nodes.post.get("post+1").data).toEqual({ title: "Hello", content: "World" });
-  expect(g2.nodes.post.get("post+2").data).toEqual({ title: "Hello 2", content: "World 2" });
-  expect(g2.nodes.post.get("post+3").data).toEqual({ title: "Hello 3", content: "World 3" });
+  expect(g2.nodes.post.set("post+1").data).toEqual({ title: "Hello", content: "World" });
+  expect(g2.nodes.post.set("post+2").data).toEqual({ title: "Hello 2", content: "World 2" });
+  expect(g2.nodes.post.set("post+3").data).toEqual({ title: "Hello 3", content: "World 3" });
 
-  expect(g2.nodes.tag.get("tag+1").data).toEqual({});
+  expect(g2.nodes.tag.set("tag+1").data).toEqual({});
 
   expect(g2.edges.personPost.adjFrom.get("person+1", "post+1")?.data).toEqual({ role: "author" });
   expect(g2.edges.personPost.adjFrom.get("person+2", "post+2")?.data).toEqual({ role: "author" });

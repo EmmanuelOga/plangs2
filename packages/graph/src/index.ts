@@ -2,6 +2,8 @@
  * Simple single-edge directed graph data structure.
  */
 
+import { Map2 } from "./auxiliar";
+
 // biome-ignore lint/suspicious/noExplicitAny: we use any for the generic types... sory biome.
 type Any = any;
 
@@ -24,6 +26,17 @@ export abstract class Node<T_Graph, T_Key extends string, T_Data> {
   merge(data: Partial<T_Data>): this {
     Object.assign(this.data, data);
     return this;
+  }
+
+  /** The key without the node kind prefix. */
+  get plainKey(): string {
+    return this.key.replace(/^[a-z]+[+]/, "");
+  }
+
+  /** The first letter of the key, or "_" if it starts with a non-letter. */
+  get keyPrefix(): string {
+    const pk = this.plainKey;
+    return /^[a-z]/.test(pk) ? pk[0] : "_";
   }
 }
 
@@ -51,22 +64,13 @@ export abstract class Edge<T_Graph, T_From extends Node<T_Graph, Any, Any>, T_To
   }
 }
 
-/** Graph Node (identity) Map. */
+/** Graph Node Map. */
 export class NodeMap<T_Graph, T_Node extends Node<T_Graph, Any, Any>> implements Iterable<[T_Node["key"], T_Node]> {
   readonly #map = new Map<T_Node["key"], T_Node>();
 
   constructor(private readonly factory: (key: T_Node["key"]) => T_Node) {}
 
-  get(key: T_Node["key"]): T_Node {
-    const n = this.#map.get(key);
-    if (n) return n;
-    const newNode = this.factory(key);
-    this.#map.set(key, newNode);
-    return newNode;
-  }
-
-  /** Sometimes we want the node only if exists. */
-  getExisting(key?: T_Node["key"]): T_Node | undefined {
+  get(key: T_Node["key"] | undefined): T_Node | undefined {
     return key ? this.#map.get(key) : undefined;
   }
 
@@ -78,9 +82,13 @@ export class NodeMap<T_Graph, T_Node extends Node<T_Graph, Any, Any>> implements
     return this.#map.keys();
   }
 
-  /** Shortcut for {@link get}(key).{@link merge}(data). */
   set(key: T_Node["key"], data: T_Node["data"] = {}): T_Node {
-    return this.get(key).merge(data);
+    let n = this.#map.get(key);
+    if (n === undefined) {
+      n = this.factory(key);
+      this.#map.set(key, n);
+    }
+    return n.merge(data);
   }
 
   has(key: T_Node["key"]): boolean {
@@ -186,7 +194,7 @@ export abstract class BaseGraph<N extends string, E extends string, G> {
       if (!nodes || !nodeMap) continue;
 
       for (const [key, nodeData] of Object.entries(nodes)) {
-        nodeMap.get(key).merge(nodeData);
+        nodeMap.set(key).merge(nodeData);
       }
     }
 
@@ -205,55 +213,5 @@ export abstract class BaseGraph<N extends string, E extends string, G> {
     }
 
     return this;
-  }
-}
-
-/** Two dimensional Map. */
-export class Map2<K1, K2, V> {
-  #map = new Map<K1, Map<K2, V>>();
-
-  set(k1: K1, k2: K2, v: V): this {
-    let m2 = this.#map.get(k1);
-    if (!m2) {
-      m2 = new Map();
-      this.#map.set(k1, m2);
-    }
-    m2.set(k2, v);
-    return this;
-  }
-
-  get(k1: K1, k2: K2): V | undefined {
-    const m2 = this.#map.get(k1);
-    if (!m2) return undefined;
-    return m2.get(k2);
-  }
-
-  getMap(k1: K1): Map<K2, V> | undefined {
-    return this.#map.get(k1);
-  }
-
-  get size(): number {
-    let size = 0;
-    for (const [_, map] of this.#map) size += map.size;
-    return size;
-  }
-
-  /** Returns an iterator of the keys in the first dimension. */
-  keys(): IterableIterator<K1> {
-    return this.#map.keys();
-  }
-
-  values(): V[] {
-    let values: V[] = [];
-    for (const [_, map] of this.#map) {
-      values = values.concat([...map.values()]);
-    }
-    return values;
-  }
-
-  has(k1: K1, k2: K2): boolean {
-    const m2 = this.#map.get(k1);
-    if (!m2) return false;
-    return m2.has(k2);
   }
 }

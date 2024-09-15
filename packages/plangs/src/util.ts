@@ -1,3 +1,5 @@
+import type { Link } from ".";
+
 /**
  * Return a caller `line:no` for debugging.
  * @param match find the first line in the backtrace that contains this string.
@@ -22,41 +24,6 @@ export function caller(match: string, dontMatch = ""): string {
   return clean.trim();
 }
 
-/**
- * Insert elements in the array if they are not already present.
- */
-export function arrayMerge<T>(
-  target: T[],
-  newData: T[],
-  similar: (l1: T, l2: T) => boolean = (l1, l2) => l1 === l2,
-  onDuplicate?: (prevElem: T, newElem: T) => void,
-) {
-  for (const newElem of newData) {
-    const prevElem = target.find((elem: T) => similar(elem, newElem));
-    if (prevElem) {
-      onDuplicate?.(prevElem, newElem);
-    } else {
-      target.push(newElem);
-    }
-  }
-}
-
-/** Verify a predicate for all or any of the elements. */
-export function verify<T>(elements: Iterable<T>, mode: "all" | "any", predicate: (v: T) => boolean): boolean {
-  if (mode === "all") {
-    for (const v of elements) if (!predicate(v)) return false;
-    return true;
-  }
-
-  for (const v of elements) if (predicate(v)) return true;
-  return false;
-}
-
 export function wikipedia(href: `https://en.wikipedia.org/wiki/${string}`, title: string): Link {
   return { kind: "wikipedia", href, title };
-}
-
-export function keywordsToRegexp(keywords: string[]): RegExp {
-  const lenient = keywords.map((k) => k.replaceAll(/[- ]/g, "\\s*.?\\s*"));
-  return new RegExp(`\\b(${lenient.join("|")})\\b`, "i");
 }

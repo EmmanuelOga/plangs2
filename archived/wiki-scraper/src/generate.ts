@@ -3,6 +3,7 @@ import { extname, join } from "node:path";
 
 import type { Image, Link, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, PlangsGraph } from "@plangs/plangs";
 import { type WikiPage, keyFromWikiURL } from "./wikipedia";
+import { IterTap } from "@plangs/graph/auxiliar";
 
 export const DEFINTIONS_PATH = join(import.meta.dir, "../../../packages/definitions/src/definitions/plangs/");
 
@@ -10,7 +11,7 @@ export const DEFINTIONS_PATH = join(import.meta.dir, "../../../packages/definiti
 export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang["key"]>): Promise<NPlang | undefined> {
   if (!page.infobox || !page.key) return;
 
-  const plang = g.nodes.pl.get(page.key);
+  const plang = g.nodes.pl.set(page.key);
 
   console.log("Processing", plang.key);
 
@@ -25,7 +26,7 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
     const name = plang.plainKey;
     const path = join(
       DEFINTIONS_PATH,
-      plang.keyFolder,
+      plang.keyPrefix,
       name.startsWith(".") ? `_${name.slice(1)}` : name,
       `${kind}${extname(imgHref).toLowerCase()}`,
     );
@@ -59,7 +60,7 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
 
   function* findMatching<T>(links: Link[], nodeMap: PGNodeMap): Generator<T> {
     for (const link of links) {
-      for (const node of nodeMap.findAll((node) => node.matchesKeyword(link.title))) {
+      for (const node of nodeMap.findAll((node) => !!node.keywordsRegexp?.test(link.title))) {
         yield node.key as T;
       }
     }
@@ -102,9 +103,9 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
 export function generateCode(plang: NPlang): string {
   const relations: string[] = [];
 
-  function addRel(methodName: string, keys: string[]) {
-    if (keys.length === 0) return;
-    relations.push(`\n    .${methodName}(${JSON.stringify([...keys].sort())})`);
+  function addRel(methodName: string, keys: IterTap<string>) {
+    if (keys.size === 0) return;
+    relations.push(`\n    .${methodName}(${JSON.stringify(keys.sort())})`);
   }
 
   addRel("addDialectOf", plang.relDialectOf.keys);
@@ -133,11 +134,11 @@ export async function genAllPlangs(g: PlangsGraph) {
   for (const [key, plang] of [...g.nodes.pl].sort()) {
     const code = generateCode(plang);
 
-    await mkdir(join(DEFINTIONS_PATH, plang.keyFolder), { recursive: true }).catch((_) => {});
+    await mkdir(join(DEFINTIONS_PATH, plang.keyPrefix), { recursive: true }).catch((_) => {});
 
     const name = plang.plainKey;
     const escaped = name.startsWith(".") ? `_${name.slice(1)}` : name;
-    const path = join(DEFINTIONS_PATH, plang.keyFolder, escaped, `${escaped}.ts`);
+    const path = join(DEFINTIONS_PATH, plang.keyPrefix, escaped, `${escaped}.ts`);
 
     console.log("Generating", key, "->", path);
 

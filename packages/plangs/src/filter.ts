@@ -1,139 +1,52 @@
-import type { Filter, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, StrDate } from ".";
+import type { Filter } from "@plangs/graph/auxiliar";
+
+import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, StrDate } from ".";
+
+type Predicate<T> = (pl: NPlang, value: T) => boolean;
+
+const filter = <T>(predicate: Predicate<T>) => ({ value: undefined as T | undefined, predicate });
 
 /**
  * Criteria to filter programming languages.
  */
 export class PlangFilters {
-  values = {
-    // String filters always match if empty.
+  filters = {
+    plangName: filter((pl, regexp: RegExp) => regexp.test(pl.name)),
 
-    plangName: undefined as RegExp | undefined,
+    appearedAfter: filter((pl, date: StrDate) => pl.firstAppearedAfter(date)),
+    releasedAfter: filter((pl, date: StrDate) => pl.releases.some((rel) => !!rel.date && rel.date > date)),
 
-    appearedAfter: undefined as StrDate | undefined,
-    releasedAfter: undefined as StrDate | undefined,
+    hasLogo: filter((pl, val: boolean) => val === pl.images.some((img) => img.kind === "logo")),
+    hasReleases: filter((pl, val: boolean) => val !== pl.releases.isEmpty),
+    hasWikipedia: filter((pl, val: boolean) => val === pl.websites.some((site) => site.kind === "wikipedia")),
+    isMainstream: filter((pl, val: boolean) => val === pl.isMainstream),
+    isTranspiler: filter((pl, val: boolean) => val === pl.isTranspiler),
 
-    hasLogo: undefined as boolean | undefined,
-    hasReleases: undefined as boolean | undefined,
-    hasWikipedia: undefined as boolean | undefined,
-    isMainstream: undefined as boolean | undefined,
-    isTranspiler: undefined as boolean | undefined,
+    extensions: filter(({ extensions }, flt: Filter<string>) => flt.matches((key) => extensions.includes(key))),
 
-    dialectOf: undefined as Filter<NPlang["key"]> | undefined,
-    extensions: undefined as Filter<string> | undefined,
-    implements: undefined as Filter<NPlang["key"]> | undefined,
-    influenced: undefined as Filter<NPlang["key"]> | undefined,
-    influencedBy: undefined as Filter<NPlang["key"]> | undefined,
-    licenses: undefined as Filter<NLicense["key"]> | undefined,
-    paradigms: undefined as Filter<NParadigm["key"]> | undefined,
-    platforms: undefined as Filter<NPlatform["key"]> | undefined,
-    tags: undefined as Filter<NTag["key"]> | undefined,
-    typeSystems: undefined as Filter<NTsys["key"]> | undefined,
-    writtenIn: undefined as Filter<NPlang["key"]> | undefined,
-  };
+    dialectOf: filter(({ relDialectOf }, flt: Filter<NPlang["key"]>) => flt.matches((key) => relDialectOf.has(key))),
+    implements: filter(({ relImplements }, flt: Filter<NPlang["key"]>) => flt.matches((key) => relImplements.has(key))),
+    influenced: filter(({ relInfluenced }, flt: Filter<NPlang["key"]>) => flt.matches((key) => relInfluenced.has(key))),
+    influencedBy: filter(({ relInfluencedBy }, flt: Filter<NPlang["key"]>) => flt.matches((key) => relInfluencedBy.has(key))),
+    licenses: filter(({ relLicenses }, flt: Filter<NLicense["key"]>) => flt.matches((key) => relLicenses.has(key))),
+    paradigms: filter(({ relParadigms }, flt: Filter<NParadigm["key"]>) => flt.matches((key) => relParadigms.has(key))),
+    platforms: filter(({ relPlatforms }, flt: Filter<NPlatform["key"]>) => flt.matches((key) => relPlatforms.has(key))),
+    tags: filter(({ relTags }, flt: Filter<NTag["key"]>) => flt.matches((key) => relTags.has(key))),
+    typeSystems: filter(({ relTsys }, flt: Filter<NTsys["key"]>) => flt.matches((key) => relTsys.has(key))),
+    writtenIn: filter(({ relWrittenIn }, flt: Filter<NPlang["key"]>) => flt.matches((key) => relWrittenIn.has(key))),
+  } as const;
+
+  matches(key: PlangFiltersKey, pl: NPlang): boolean {
+    const { value, predicate } = this.filters[key];
+    return value === undefined || (predicate as Predicate<typeof value>)(pl, value);
+  }
 
   matchesAll(pl: NPlang): boolean {
-    if (!this.machesHasLogo(pl)) return false;
-    if (!this.machesHasWikipedia(pl)) return false;
-    if (!this.machtesIsTranspiler(pl)) return false;
-    if (!this.matchesDialectOf(pl)) return false;
-    if (!this.matchesAppearedAfter(pl)) return false;
-    if (!this.matchesImplements(pl)) return false;
-    if (!this.matchesInfluenced(pl)) return false;
-    if (!this.matchesInfluencedBy(pl)) return false;
-    if (!this.matchesIsMainstream(pl)) return false;
-    if (!this.matchesLicenses(pl)) return false;
-    if (!this.matchesParadigms(pl)) return false;
-    if (!this.matchesExtensions(pl)) return false;
-    if (!this.matchesPlangName(pl)) return false;
-    if (!this.matchesPlatforms(pl)) return false;
-    if (!this.matchesReleasedAfter(pl)) return false;
-    if (!this.matchesHasReleases(pl)) return false;
-    if (!this.matchesTags(pl)) return false;
-    if (!this.matchesTypeSystems(pl)) return false;
-    if (!this.matchesWrittenIn(pl)) return false;
-
+    for (const key of Object.keys(this.filters)) {
+      if (!this.matches(key as PlangFiltersKey, pl)) return false;
+    }
     return true;
   }
-
-  matchesPlangName(pl: NPlang): boolean {
-    return match(this.values.plangName, (val) => pl.matchesName(val));
-  }
-
-  matchesAppearedAfter(pl: NPlang): boolean {
-    return match(this.values.appearedAfter, (val) => pl.firstAppearedAfter(val));
-  }
-
-  matchesReleasedAfter(pl: NPlang): boolean {
-    return match(this.values.releasedAfter, (val) => pl.hasReleases(val));
-  }
-
-  matchesHasReleases(pl: NPlang): boolean {
-    const { hasReleases } = this.values;
-    return hasReleases === undefined || hasReleases === pl.hasReleases();
-  }
-
-  machesHasLogo(pl: NPlang): boolean {
-    return match(this.values.hasLogo, (val) => val === pl.hasLogo);
-  }
-
-  machesHasWikipedia(pl: NPlang): boolean {
-    return match(this.values.hasWikipedia, (val) => val === pl.hasWikipedia);
-  }
-
-  machtesIsTranspiler(pl: NPlang): boolean {
-    return match(this.values.isTranspiler, (val) => val === (pl.data.isTranspiler ?? false));
-  }
-
-  matchesIsMainstream(pl: NPlang): boolean {
-    return match(this.values.isMainstream, (val) => val === (pl.data.isMainstream ?? false));
-  }
-
-  matchesDialectOf(pl: NPlang): boolean {
-    return pl.relDialectOf.matches(this.values.dialectOf);
-  }
-
-  matchesImplements(pl: NPlang): boolean {
-    return pl.relImplements.matches(this.values.implements);
-  }
-
-  matchesInfluenced(pl: NPlang): boolean {
-    return pl.relInfluenced.matches(this.values.influenced);
-  }
-
-  matchesInfluencedBy(pl: NPlang): boolean {
-    return pl.relInfluencedBy.matches(this.values.influencedBy);
-  }
-
-  matchesLicenses(pl: NPlang): boolean {
-    return pl.relLicenses.matches(this.values.licenses);
-  }
-
-  matchesParadigms(pl: NPlang): boolean {
-    return pl.relParadigms.matches(this.values.paradigms);
-  }
-
-  matchesExtensions(pl: NPlang): boolean {
-    return pl.hasExtensions(this.values.extensions);
-  }
-
-  matchesPlatforms(pl: NPlang): boolean {
-    return pl.relPlatforms.matches(this.values.platforms);
-  }
-
-  matchesTags(pl: NPlang): boolean {
-    return pl.relTags.matches(this.values.tags);
-  }
-
-  matchesTypeSystems(pl: NPlang): boolean {
-    return pl.relTsys.matches(this.values.typeSystems);
-  }
-
-  matchesWrittenIn(pl: NPlang): boolean {
-    return pl.relWrittenIn.matches(this.values.writtenIn);
-  }
 }
 
-function match<T>(filter: T | undefined, check: (val: T) => boolean): boolean {
-  // Convention: undefined means "don't care".
-  return filter === undefined || check(filter);
-}
+export type PlangFiltersKey = keyof PlangFilters["filters"];

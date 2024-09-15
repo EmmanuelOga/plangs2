@@ -1,13 +1,14 @@
-import type { Filter, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, StrDate } from "@plangs/plangs";
+import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, StrDate } from "@plangs/plangs";
 import { PlangFilters } from "@plangs/plangs/filter";
-import { matchingInputSelByName, type InputSelElement } from "../input-sel";
-import type { INPUT } from "@plangs/server/pages/browse_dom";
-import { InputComplElement } from "../input-compl";
+import type { INPUT } from "@plangs/server/pages/dom";
+
+import { matchingInputSelByName } from "../input-sel";
+import { Filter } from "@plangs/graph/auxiliar";
 
 /** Create a plan filter from the inputs values. */
 export function getFilters(inputs: Record<INPUT, HTMLElement | null>): PlangFilters {
   const filters = new PlangFilters();
-  const flt = filters.values;
+  const flt = filters.filters;
 
   function collect<I, V>(name: INPUT, getValue: (input: I) => V, callback: (value: V) => void) {
     const input = inputs[name];
@@ -21,34 +22,35 @@ export function getFilters(inputs: Record<INPUT, HTMLElement | null>): PlangFilt
 
   const trimVal = (input: HTMLElement) => (input as HTMLInputElement).value.trim();
 
-  collect("plangName", trimVal, (val) => (flt.plangName = new RegExp(val, "i")));
+  collect("plangName", trimVal, (val) => (flt.plangName.value = new RegExp(val, "i")));
 
-  collect("appearedAfter", trimVal, (val) => (flt.appearedAfter = val as StrDate));
-  collect("releasedAfter", trimVal, (val) => (flt.releasedAfter = val as StrDate));
+  collect("appearedAfter", trimVal, (val) => (flt.appearedAfter.value = val as StrDate));
+  collect("releasedAfter", trimVal, (val) => (flt.releasedAfter.value = val as StrDate));
 
   const getChecked = (input: HTMLElement) => (input as HTMLInputElement).checked;
 
-  collect("hasLogo", getChecked, (val) => (flt.hasLogo = val));
-  collect("hasReleases", getChecked, (val) => (flt.hasReleases = val));
-  collect("hasWikipedia", getChecked, (val) => (flt.hasWikipedia = val));
-  collect("isTranspiler", getChecked, (val) => (flt.isTranspiler = val));
-  collect("isMainstream", getChecked, (val) => (flt.isMainstream = val));
+  collect("hasLogo", getChecked, (val) => (flt.hasLogo.value = val));
+  collect("hasReleases", getChecked, (val) => (flt.hasReleases.value = val));
+  collect("hasWikipedia", getChecked, (val) => (flt.hasWikipedia.value = val));
+  collect("isTranspiler", getChecked, (val) => (flt.isTranspiler.value = val));
+  collect("isMainstream", getChecked, (val) => (flt.isMainstream.value = val));
 
-  const getSelection = (input: HTMLElement) => matchingInputSelByName(input)?.values();
+  function getFilter<T>(input: HTMLElement): Filter<T> | undefined {
+    const filter = matchingInputSelByName(input)?.values();
+    return filter ? new Filter<T>(filter.mode, filter.values as Set<T>) : undefined;
+  }
 
-  type F<T extends { key: string }> = Filter<T["key"]>;
-
-  collect("dialectOf", getSelection, (val) => (flt.dialectOf = val as F<NPlang>));
-  collect("extensions", getSelection, (val) => (flt.extensions = val as F<NPlang>));
-  collect("implements", getSelection, (val) => (flt.implements = val as F<NPlang>));
-  collect("influenced", getSelection, (val) => (flt.influenced = val as F<NPlang>));
-  collect("influencedBy", getSelection, (val) => (flt.influencedBy = val as F<NPlang>));
-  collect("licenses", getSelection, (val) => (flt.licenses = val as F<NLicense>));
-  collect("paradigms", getSelection, (val) => (flt.paradigms = val as F<NParadigm>));
-  collect("platforms", getSelection, (val) => (flt.platforms = val as F<NPlatform>));
-  collect("tags", getSelection, (val) => (flt.tags = val as F<NTag>));
-  collect("typeSystems", getSelection, (val) => (flt.typeSystems = val as F<NTsys>));
-  collect("writtenIn", getSelection, (val) => (flt.writtenIn = val as F<NPlang>));
+  collect("dialectOf", getFilter<NPlang["key"]>, (val) => (flt.dialectOf.value = val));
+  collect("extensions", getFilter<string>, (val) => (flt.extensions.value = val));
+  collect("implements", getFilter<NPlang["key"]>, (val) => (flt.implements.value = val));
+  collect("influenced", getFilter<NPlang["key"]>, (val) => (flt.influenced.value = val));
+  collect("influencedBy", getFilter<NPlang["key"]>, (val) => (flt.influencedBy.value = val));
+  collect("licenses", getFilter<NLicense["key"]>, (val) => (flt.licenses.value = val));
+  collect("paradigms", getFilter<NParadigm["key"]>, (val) => (flt.paradigms.value = val));
+  collect("platforms", getFilter<NPlatform["key"]>, (val) => (flt.platforms.value = val));
+  collect("tags", getFilter<NTag["key"]>, (val) => (flt.tags.value = val));
+  collect("typeSystems", getFilter<NTsys["key"]>, (val) => (flt.typeSystems.value = val));
+  collect("writtenIn", getFilter<NPlang["key"]>, (val) => (flt.writtenIn.value = val));
 
   return filters;
 }

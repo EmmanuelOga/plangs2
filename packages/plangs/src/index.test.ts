@@ -11,8 +11,10 @@ test("matching keywords", () => {
 
   const matches = [];
 
+  const text = " a .. strongly typed .. dynamic .. language with .. sum-types ";
+
   for (const [id, node] of g.nodes.tsys) {
-    if (node.matchesKeyword(" a .. strongly typed .. dynamic .. language with .. sum-types ")) matches.push(id);
+    if (node.keywordsRegexp?.test(text)) matches.push(id);
   }
 
   expect(matches.sort()).toEqual(["tsys+adt", "tsys+dynamic", "tsys+strong"]);
