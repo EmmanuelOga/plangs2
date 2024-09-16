@@ -30,8 +30,8 @@ export async function blogPosts(): Promise<BlogPost[]> {
 
     const header = YAML.parse(yaml);
 
-    if (!header.date || !header.title) {
-      throw new Error(`Post ${path} is missing date or title.`);
+    if (!header.title) {
+      throw new Error(`Post ${path} is missing a title.`);
     }
 
     // Remove the most common zerowidth characters from the start of the file.

@@ -147,7 +147,7 @@ function input(key: INPUT) {
 }
 
 function PlangLogo({ pl }: { pl: NPlang }) {
-  const logo = pl.logoOrImage;
+  const logo = pl.images.find(({ kind }) => kind === "logo") ?? pl.images.first
   const content = logo ? <img class="logo" src={logo.url} alt="Logo" /> : <div class="placeholder">{pl.name ?? "No Logo"}</div>;
   return <div class="logo">{content}</div>;
 }

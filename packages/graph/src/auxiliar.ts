@@ -58,6 +58,10 @@ export class IterTap<T> {
     this.array = Array.isArray(iterable) ? iterable : iterable ? [...iterable] : undefined;
   }
 
+  get first(): T | undefined {
+    return this.array ? this.array[0] : undefined;
+  }
+
   map<R>(callback: (value: T, index: number, array: T[]) => R) {
     return this.array ? this.array.map(callback) : [];
   }
@@ -76,6 +80,10 @@ export class IterTap<T> {
 
   some(predicate: (value: T, index: number, array: T[]) => boolean): boolean {
     return this.array ? this.array.some(predicate) : false;
+  }
+
+  find(predicate: (value: T, index?: number, obj?: T[]) => boolean): T | undefined {
+    return this.array?.find(predicate);
   }
 
   get size(): number {
