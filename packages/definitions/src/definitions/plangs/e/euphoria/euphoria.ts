@@ -17,5 +17,18 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+basic"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+imperative", "paradigm+procedural"])
-    .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"]);
+    .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .addTags([
+      "tag+app",
+      "tag+compiler",
+      "tag+dbms",
+      "tag+if",
+      "tag+interpreter",
+      "tag+low-code",
+      "tag+modeling",
+      "tag+rad",
+      "tag+ray-tracer",
+      "tag+ui",
+      "tag+wavelet",
+    ]);
 }

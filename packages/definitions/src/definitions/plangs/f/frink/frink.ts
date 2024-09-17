@@ -13,5 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Frink_(programming_language)", title: "Frink", kind: "wikipedia" },
       ],
     })
-    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"]);
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
+    .addTags(["tag+interpreter"]);
 }

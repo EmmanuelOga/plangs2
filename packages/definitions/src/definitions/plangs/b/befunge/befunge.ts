@@ -12,5 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Befunge", title: "Befunge", kind: "wikipedia" },
       ],
     })
-    .addInfluencedBy(["pl+forth"]);
+    .addInfluencedBy(["pl+forth"])
+    .addTags(["tag+app", "tag+compiler", "tag+if", "tag+industrial", "tag+interpreter"]);
 }

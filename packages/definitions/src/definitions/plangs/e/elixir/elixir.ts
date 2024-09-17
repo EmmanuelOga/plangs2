@@ -18,5 +18,6 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+concurrent", "paradigm+distributed", "paradigm+functional", "paradigm+multi", "paradigm+process-oriented"])
     .addPlatforms(["plat+erlang"])
+    .addTags(["tag+analysis", "tag+interpreter"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 }

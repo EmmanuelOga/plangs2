@@ -9,5 +9,6 @@ export function define(g: PlangsGraph) {
       websites: [{ href: "https://en.wikipedia.org/wiki/Borland_Turbo_C", title: "Borland Turbo C", kind: "wikipedia" }],
       images: [{ kind: "other", title: "Borland Turbo C", url: "/images/plangs/b/borland-turbo-c/other.jpg" }],
     })
-    .addPlatforms(["plat+dos", "plat+windows"]);
+    .addPlatforms(["plat+dos", "plat+windows"])
+    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+editor", "tag+interpreter", "tag+ray-tracer"]);
 }

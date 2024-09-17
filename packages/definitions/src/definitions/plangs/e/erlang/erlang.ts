@@ -18,5 +18,6 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+lisp", "pl+ml", "pl+prolog"])
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
+    .addTags(["tag+app", "tag+compiler", "tag+dbms", "tag+framework", "tag+if", "tag+interpreter"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 }

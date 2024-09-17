@@ -17,5 +17,6 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+c"])
     .addLicenses(["license+gnu-gpl", "license+lgpl"])
-    .addParadigms(["paradigm+oop"]);
+    .addParadigms(["paradigm+oop"])
+    .addTags(["tag+app", "tag+framework", "tag+games", "tag+if", "tag+industrial", "tag+interpreter", "tag+ray-tracer"]);
 }

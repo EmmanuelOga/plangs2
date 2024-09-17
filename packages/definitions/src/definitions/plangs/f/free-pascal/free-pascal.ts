@@ -15,5 +15,5 @@ export function define(g: PlangsGraph) {
     })
     .addImplements(["pl+pascal"])
     .addPlatforms(["plat+cross", "plat+embedded"])
-    .addTags(["tag+compiler"]);
+    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+dbms", "tag+industrial", "tag+interpreter", "tag+ui"]);
 }

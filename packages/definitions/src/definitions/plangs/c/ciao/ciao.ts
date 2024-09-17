@@ -17,5 +17,6 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+prolog"])
     .addLicenses(["license+gnu-gpl", "license+lgpl"])
     .addParadigms(["paradigm+functional", "paradigm+logic", "paradigm+modular", "paradigm+oop"])
-    .addPlatforms(["plat+cross", "plat+windows"]);
+    .addPlatforms(["plat+cross", "plat+windows"])
+    .addTags(["tag+3dg", "tag+app", "tag+compiler", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+viz"]);
 }

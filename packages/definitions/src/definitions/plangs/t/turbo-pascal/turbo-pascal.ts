@@ -9,5 +9,17 @@ export function define(g: PlangsGraph) {
       websites: [{ href: "https://en.wikipedia.org/wiki/Turbo_Pascal", title: "Turbo Pascal", kind: "wikipedia" }],
     })
     .addDialectOf(["pl+pascal"])
-    .addPlatforms(["plat+dos", "plat+windows"]);
+    .addPlatforms(["plat+dos", "plat+windows"])
+    .addTags([
+      "tag+app",
+      "tag+asm",
+      "tag+automation",
+      "tag+compiler",
+      "tag+editor",
+      "tag+if",
+      "tag+interpreter",
+      "tag+rad",
+      "tag+ray-tracer",
+      "tag+ui",
+    ]);
 }

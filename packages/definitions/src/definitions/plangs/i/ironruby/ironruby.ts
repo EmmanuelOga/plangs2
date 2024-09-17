@@ -17,5 +17,6 @@ export function define(g: PlangsGraph) {
     })
     .addLicenses(["license+apache"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
+    .addTags(["tag+compiler", "tag+framework", "tag+interpreter", "tag+scripting"])
     .addWrittenIn(["pl+c-sharp"]);
 }

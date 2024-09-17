@@ -17,5 +17,20 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+algol", "pl+simula"])
     .addParadigms(["paradigm+imperative", "paradigm+structured"])
+    .addTags([
+      "tag+4gl",
+      "tag+app",
+      "tag+asm",
+      "tag+compiler",
+      "tag+framework",
+      "tag+games",
+      "tag+if",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+modeling",
+      "tag+rad",
+      "tag+viz",
+      "tag+wavelet",
+    ])
     .addTypeSystems(["tsys+safe", "tsys+static", "tsys+strong"]);
 }

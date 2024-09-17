@@ -27,5 +27,20 @@ export function define(g: PlangsGraph) {
       "paradigm+structured",
     ])
     .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+dos", "plat+linux", "plat+windows"])
+    .addTags([
+      "tag+app",
+      "tag+cli",
+      "tag+compiler",
+      "tag+dbms",
+      "tag+editor",
+      "tag+framework",
+      "tag+if",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+low-code",
+      "tag+rad",
+      "tag+testing",
+      "tag+ui",
+    ])
     .addTypeSystems(["tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong", "tsys+weak"]);
 }

@@ -16,6 +16,7 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+c-sharp", "pl+python"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+oop"])
+    .addTags(["tag+compiler", "tag+games", "tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+duck", "tsys+inferred", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c-sharp"]);
 }

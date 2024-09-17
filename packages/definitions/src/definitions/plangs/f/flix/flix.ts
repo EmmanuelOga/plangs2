@@ -15,5 +15,6 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+f-sharp", "pl+go", "pl+haskell", "pl+ocaml", "pl+scala"])
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+logic", "paradigm+multi"])
+    .addTags(["tag+app", "tag+audio-dev", "tag+compiler", "tag+if", "tag+industrial", "tag+interpreter"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
 }

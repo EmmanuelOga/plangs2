@@ -17,5 +17,6 @@ export function define(g: PlangsGraph) {
     })
     .addLicenses(["license+cc-by"])
     .addParadigms(["paradigm+declarative"])
-    .addPlatforms(["plat+cross"]);
+    .addPlatforms(["plat+cross"])
+    .addTags(["tag+app", "tag+industrial", "tag+interpreter", "tag+modeling", "tag+viz"]);
 }

@@ -18,5 +18,6 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+lisp", "pl+lua", "pl+moonscript", "pl+rebol", "pl+scala"])
     .addLicenses(["license+boost", "license+bsd"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+symbolic"])
-    .addPlatforms(["plat+linux", "plat+windows"]);
+    .addPlatforms(["plat+linux", "plat+windows"])
+    .addTags(["tag+app", "tag+asm", "tag+dataflow", "tag+flow", "tag+interpreter", "tag+ui"]);
 }

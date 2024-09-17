@@ -18,5 +18,6 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+haskell", "pl+javascript"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+functional"])
+    .addTags(["tag+app", "tag+compiler", "tag+editor", "tag+interpreter"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 }

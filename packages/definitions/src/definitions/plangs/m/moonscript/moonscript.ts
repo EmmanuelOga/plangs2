@@ -29,5 +29,18 @@ export function define(g: PlangsGraph) {
       "paradigm+scripting",
     ])
     .addPlatforms(["plat+cross"])
+    .addTags([
+      "tag+app",
+      "tag+compiler",
+      "tag+dbms",
+      "tag+editor",
+      "tag+games",
+      "tag+if",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+ray-tracer",
+      "tag+scripting",
+      "tag+viz",
+    ])
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"]);
 }

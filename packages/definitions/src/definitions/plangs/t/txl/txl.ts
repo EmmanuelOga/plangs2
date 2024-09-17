@@ -11,5 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/TXL_(programming_language)", title: "TXL", kind: "wikipedia" },
       ],
     })
-    .addParadigms(["paradigm+pattern-matching", "paradigm+rewriting"]);
+    .addParadigms(["paradigm+pattern-matching", "paradigm+rewriting"])
+    .addTags(["tag+analysis", "tag+app", "tag+industrial", "tag+interpreter"]);
 }

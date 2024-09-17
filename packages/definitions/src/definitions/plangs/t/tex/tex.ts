@@ -12,5 +12,18 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addPlatforms(["plat+cross"])
+    .addTags([
+      "tag+3dg",
+      "tag+analysis",
+      "tag+app",
+      "tag+if",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+modeling",
+      "tag+stats",
+      "tag+testing",
+      "tag+viz",
+      "tag+wavelet",
+    ])
     .addWrittenIn(["pl+pascal"]);
 }

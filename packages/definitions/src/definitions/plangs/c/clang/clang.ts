@@ -15,6 +15,6 @@ export function define(g: PlangsGraph) {
     .addImplements(["pl+c", "pl+c++"])
     .addLicenses(["license+apache"])
     .addPlatforms(["plat+arm", "plat+x86-64"])
-    .addTags(["tag+compiler"])
+    .addTags(["tag+analysis", "tag+app", "tag+automation", "tag+cli", "tag+compiler", "tag+if", "tag+ray-tracer", "tag+viz"])
     .addWrittenIn(["pl+c++"]);
 }

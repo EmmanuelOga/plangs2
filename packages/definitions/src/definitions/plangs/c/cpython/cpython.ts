@@ -14,5 +14,6 @@ export function define(g: PlangsGraph) {
     })
     .addImplements(["pl+python"])
     .addLicenses(["license+python"])
+    .addTags(["tag+app", "tag+audio-dev", "tag+compiler", "tag+dbms", "tag+interpreter", "tag+ray-tracer"])
     .addWrittenIn(["pl+c", "pl+python"]);
 }

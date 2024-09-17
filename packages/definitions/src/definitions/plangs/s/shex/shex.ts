@@ -13,5 +13,6 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "ShEx - Shape Expressions", url: "/images/plangs/s/shex/logo.png" }],
     })
     .addParadigms(["paradigm+validation"])
+    .addTags(["tag+framework"])
     .addWrittenIn(["pl+javascript", "pl+scala"]);
 }

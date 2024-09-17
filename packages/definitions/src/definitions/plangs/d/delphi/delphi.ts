@@ -16,5 +16,21 @@ export function define(g: PlangsGraph) {
     .addDialectOf(["pl+pascal"])
     .addImplements(["pl+pascal"])
     .addPlatforms(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
-    .addTags(["tag+compiler"]);
+    .addTags([
+      "tag+app",
+      "tag+asm",
+      "tag+automation",
+      "tag+compiler",
+      "tag+dbms",
+      "tag+editor",
+      "tag+framework",
+      "tag+if",
+      "tag+industrial",
+      "tag+instrument_control",
+      "tag+interpreter",
+      "tag+rad",
+      "tag+ui",
+      "tag+uml",
+      "tag+viz",
+    ]);
 }

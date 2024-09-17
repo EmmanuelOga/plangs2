@@ -10,5 +10,16 @@ export function define(g: PlangsGraph) {
       websites: [{ href: "https://en.wikipedia.org/wiki/SCUMM", title: "Script Creation Utility for Maniac Mansion", kind: "wikipedia" }],
       images: [{ kind: "other", title: "Script Creation Utility for Maniac Mansion", url: "/images/plangs/s/scumm/other.png" }],
     })
-    .addPlatforms(["plat+cross"]);
+    .addPlatforms(["plat+cross"])
+    .addTags([
+      "tag+app",
+      "tag+audio-dev",
+      "tag+compiler",
+      "tag+editor",
+      "tag+games",
+      "tag+interpreter",
+      "tag+midi",
+      "tag+ray-tracer",
+      "tag+scripting",
+    ]);
 }

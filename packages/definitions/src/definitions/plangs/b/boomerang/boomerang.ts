@@ -14,5 +14,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.2", date: "2009-01-01" }],
     })
     .addInfluencedBy(["pl+ocaml"])
-    .addPlatforms(["plat+linux"]);
+    .addPlatforms(["plat+linux"])
+    .addTags(["tag+interpreter"]);
 }

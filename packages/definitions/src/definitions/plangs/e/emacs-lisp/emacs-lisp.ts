@@ -19,5 +19,6 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+common-lisp"])
     .addLicenses(["license+gnu-gpl"])
     .addParadigms(["paradigm+functional", "paradigm+metaprogramming", "paradigm+reflective"])
+    .addTags(["tag+app", "tag+compiler", "tag+editor", "tag+if", "tag+industrial", "tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 }

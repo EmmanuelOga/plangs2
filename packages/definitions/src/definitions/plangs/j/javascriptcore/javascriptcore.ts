@@ -14,5 +14,19 @@ export function define(g: PlangsGraph) {
     .addImplements(["pl+javascript"])
     .addLicenses(["license+bsd"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
+    .addTags([
+      "tag+3dg",
+      "tag+app",
+      "tag+compiler",
+      "tag+dbms",
+      "tag+framework",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+low-code",
+      "tag+ray-tracer",
+      "tag+scripting",
+      "tag+ui",
+      "tag+viz",
+    ])
     .addWrittenIn(["pl+c++"]);
 }

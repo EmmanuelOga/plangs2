@@ -12,5 +12,6 @@ export function define(g: PlangsGraph) {
       ],
       releases: [{ version: "3.15.0", date: "2016-01-01" }],
     })
+    .addTags(["tag+analysis", "tag+interpreter", "tag+viz"])
     .addWrittenIn(["pl+c++", "pl+ocaml", "pl+rust"]);
 }

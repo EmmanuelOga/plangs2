@@ -15,6 +15,15 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+haskell"])
     .addLicenses(["license+bsd"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
-    .addTags(["tag+modeling", "tag+wavelet"])
+    .addTags([
+      "tag+automation",
+      "tag+framework",
+      "tag+industrial",
+      "tag+instrument_control",
+      "tag+interpreter",
+      "tag+modeling",
+      "tag+proofs",
+      "tag+wavelet",
+    ])
     .addWrittenIn(["pl+scala", "pl+standard-ml"]);
 }

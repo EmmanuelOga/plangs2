@@ -14,5 +14,5 @@ export function define(g: PlangsGraph) {
     })
     .addLicenses(["license+artistic"])
     .addPlatforms(["plat+linux", "plat+windows"])
-    .addTags(["tag+if"]);
+    .addTags(["tag+app", "tag+compiler", "tag+editor", "tag+games", "tag+if", "tag+interpreter", "tag+testing"]);
 }

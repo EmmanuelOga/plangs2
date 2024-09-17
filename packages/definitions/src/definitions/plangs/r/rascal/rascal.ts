@@ -13,5 +13,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.30.1", date: "2023-01-01" }],
     })
     .addLicenses(["license+epl"])
-    .addPlatforms(["plat+linux", "plat+windows"]);
+    .addPlatforms(["plat+linux", "plat+windows"])
+    .addTags(["tag+analysis", "tag+app"]);
 }

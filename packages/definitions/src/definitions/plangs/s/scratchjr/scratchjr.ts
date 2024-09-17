@@ -14,5 +14,6 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "ScratchJr", url: "/images/plangs/s/scratchjr/other.png" }],
     })
     .addInfluencedBy(["pl+scratch"])
-    .addPlatforms(["plat+android", "plat+apple"]);
+    .addPlatforms(["plat+android", "plat+apple"])
+    .addTags(["tag+app", "tag+editor", "tag+interpreter", "tag+modeling", "tag+wavelet"]);
 }

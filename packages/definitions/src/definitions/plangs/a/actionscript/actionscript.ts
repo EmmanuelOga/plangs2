@@ -21,5 +21,18 @@ export function define(g: PlangsGraph) {
     .addImplements(["pl+ecmascript"])
     .addInfluencedBy(["pl+javascript"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+prototype", "paradigm+scripting"])
+    .addTags([
+      "tag+app",
+      "tag+audio-dev",
+      "tag+compiler",
+      "tag+dbms",
+      "tag+editor",
+      "tag+framework",
+      "tag+games",
+      "tag+if",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+scripting",
+    ])
     .addTypeSystems(["tsys+static", "tsys+strong"]);
 }

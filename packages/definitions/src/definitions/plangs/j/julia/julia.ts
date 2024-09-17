@@ -47,6 +47,24 @@ export function define(g: PlangsGraph) {
       "paradigm+structured",
     ])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])
+    .addTags([
+      "tag+3dg",
+      "tag+analysis",
+      "tag+app",
+      "tag+audio-dev",
+      "tag+compiler",
+      "tag+dbms",
+      "tag+embedded",
+      "tag+industrial",
+      "tag+instrument_control",
+      "tag+interpreter",
+      "tag+modeling",
+      "tag+numeric",
+      "tag+sci",
+      "tag+scripting",
+      "tag+ui",
+      "tag+wavelet",
+    ])
     .addTypeSystems(["tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+optional", "tsys+strong"])
     .addWrittenIn(["pl+c", "pl+c++", "pl+llvm", "pl+scheme"]);
 }

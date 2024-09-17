@@ -18,6 +18,6 @@ export function define(g: PlangsGraph) {
     .addImplements(["pl+python"])
     .addLicenses(["license+apache"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
-    .addTags(["tag+interpreter"])
+    .addTags(["tag+app", "tag+cli", "tag+compiler", "tag+framework", "tag+interpreter", "tag+scripting"])
     .addWrittenIn(["pl+c-sharp"]);
 }

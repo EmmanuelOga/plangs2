@@ -18,5 +18,6 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+apache", "license+mit"])
     .addParadigms(["paradigm+oop"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+windows"])
+    .addTags(["tag+interpreter"])
     .addTypeSystems(["tsys+dynamic"]);
 }

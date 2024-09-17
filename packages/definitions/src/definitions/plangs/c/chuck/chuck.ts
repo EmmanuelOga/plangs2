@@ -17,5 +17,6 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+gnu-gpl"])
     .addParadigms(["paradigm+multi"])
     .addPlatforms(["plat+cross"])
+    .addTags(["tag+app", "tag+audio-dev", "tag+industrial", "tag+interpreter"])
     .addTypeSystems(["tsys+strong"]);
 }

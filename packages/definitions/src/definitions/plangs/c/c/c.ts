@@ -18,5 +18,22 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+algol", "pl+fortran"])
     .addParadigms(["paradigm+imperative", "paradigm+multi", "paradigm+procedural", "paradigm+structured"])
     .addPlatforms(["plat+cross"])
+    .addTags([
+      "tag+app",
+      "tag+asm",
+      "tag+compiler",
+      "tag+embedded",
+      "tag+flow",
+      "tag+framework",
+      "tag+if",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+modeling",
+      "tag+scripting",
+      "tag+testing",
+      "tag+ui",
+      "tag+viz",
+      "tag+wavelet",
+    ])
     .addTypeSystems(["tsys+manifest", "tsys+nominal", "tsys+static", "tsys+weak"]);
 }

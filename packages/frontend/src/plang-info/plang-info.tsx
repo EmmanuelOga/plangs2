@@ -54,12 +54,15 @@ export function PlangInfo({ plangKey: key, graph, description }: PlangInfoProps)
   } else {
     content = (
       <>
-        {description && <h2>{pl.name ?? key}</h2>}
+        {description !== false && <h2>{pl.name ?? key}</h2>}
         <dl>
-          {description && <Entry title="Description">{pl.description}</Entry>}
+          {description !== false && <Entry title="Description">{pl.description}</Entry>}
 
           {pl.relTsys.tap((rel) => (
             <Entry title="Type Systems">{rel.values.map(({ tsys }) => tsys && Pill(tsys))}</Entry>
+          ))}
+          {pl.relTags.tap((rel) => (
+            <Entry title="Type Systems">{rel.values.map(({ tag }) => tag && Pill(tag))}</Entry>
           ))}
           {pl.relPlatforms.tap((rel) => (
             <Entry title="Platforms">{rel.values.map(({ plat }) => plat && Pill(plat))}</Entry>

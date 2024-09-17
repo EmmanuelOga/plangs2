@@ -19,5 +19,6 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+reflective"])
     .addPlatforms(["plat+cross"])
+    .addTags(["tag+analysis", "tag+app", "tag+audio-dev", "tag+cli", "tag+editor", "tag+framework", "tag+interpreter", "tag+ui"])
     .addTypeSystems(["tsys+inferred", "tsys+optional", "tsys+static", "tsys+strong"]);
 }

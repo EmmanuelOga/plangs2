@@ -19,5 +19,6 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+artistic"])
     .addParadigms(["paradigm+multi"])
     .addPlatforms(["plat+cross"])
+    .addTags(["tag+app", "tag+compiler", "tag+interpreter", "tag+testing"])
     .addTypeSystems(["tsys+dynamic", "tsys+gradual"]);
 }

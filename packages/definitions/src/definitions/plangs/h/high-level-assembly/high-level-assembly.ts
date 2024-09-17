@@ -14,6 +14,6 @@ export function define(g: PlangsGraph) {
     })
     .addLicenses(["license+public-domain"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
-    .addTags(["tag+asm"])
+    .addTags(["tag+4gl", "tag+app", "tag+asm", "tag+compiler", "tag+if", "tag+industrial", "tag+interpreter", "tag+viz"])
     .addWrittenIn(["pl+assembly"]);
 }

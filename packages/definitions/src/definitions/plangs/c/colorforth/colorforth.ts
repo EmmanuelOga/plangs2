@@ -14,5 +14,6 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+forth"])
     .addLicenses(["license+public-domain"])
-    .addParadigms(["paradigm+procedural", "paradigm+stack-oriented"]);
+    .addParadigms(["paradigm+procedural", "paradigm+stack-oriented"])
+    .addTags(["tag+app", "tag+compiler", "tag+interpreter", "tag+scripting"]);
 }

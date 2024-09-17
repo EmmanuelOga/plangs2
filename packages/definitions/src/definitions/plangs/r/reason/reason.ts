@@ -18,5 +18,6 @@ export function define(g: PlangsGraph) {
     .addDialectOf(["pl+ml", "pl+ocaml"])
     .addInfluencedBy(["pl+javascript", "pl+ocaml"])
     .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi", "paradigm+oop"]);
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi", "paradigm+oop"])
+    .addTags(["tag+compiler", "tag+framework", "tag+interpreter"]);
 }

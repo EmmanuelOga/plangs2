@@ -14,5 +14,6 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+datalog"])
     .addLicenses(["license+apache"])
+    .addTags(["tag+dbms"])
     .addWrittenIn(["pl+clojure"]);
 }

@@ -16,6 +16,19 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+python"])
     .addLicenses(["license+mit"])
     .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
-    .addTags(["tag+games"])
+    .addTags([
+      "tag+3dg",
+      "tag+app",
+      "tag+audio-dev",
+      "tag+dbms",
+      "tag+editor",
+      "tag+games",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+ray-tracer",
+      "tag+scripting",
+      "tag+testing",
+      "tag+ui",
+    ])
     .addWrittenIn(["pl+c++"]);
 }

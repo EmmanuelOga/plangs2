@@ -12,5 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Asm.js", title: "asm.js", kind: "wikipedia" },
       ],
     })
-    .addInfluencedBy(["pl+javascript"]);
+    .addInfluencedBy(["pl+javascript"])
+    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+games", "tag+if", "tag+interpreter"]);
 }

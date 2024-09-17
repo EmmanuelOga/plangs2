@@ -15,5 +15,24 @@ export function define(g: PlangsGraph) {
     })
     .addParadigms(["paradigm+array", "paradigm+functional", "paradigm+modular", "paradigm+structured"])
     .addPlatforms(["plat+cross"])
+    .addTags([
+      "tag+3dg",
+      "tag+analysis",
+      "tag+app",
+      "tag+automation",
+      "tag+compiler",
+      "tag+dbms",
+      "tag+editor",
+      "tag+embedded",
+      "tag+framework",
+      "tag+if",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+modeling",
+      "tag+ray-tracer",
+      "tag+server",
+      "tag+viz",
+      "tag+wavelet",
+    ])
     .addTypeSystems(["tsys+dynamic"]);
 }

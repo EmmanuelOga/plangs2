@@ -18,5 +18,6 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+prototype", "paradigm+scripting"])
     .addPlatforms(["plat+cross"])
+    .addTags(["tag+compiler", "tag+editor", "tag+framework", "tag+games", "tag+if", "tag+industrial", "tag+interpreter"])
     .addTypeSystems(["tsys+dynamic"]);
 }

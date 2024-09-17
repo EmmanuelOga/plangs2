@@ -32,6 +32,19 @@ export function define(g: PlangsGraph) {
     ])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+reflective"])
     .addPlatforms(["plat+cross"])
+    .addTags([
+      "tag+analysis",
+      "tag+app",
+      "tag+compiler",
+      "tag+framework",
+      "tag+if",
+      "tag+industrial",
+      "tag+instrument_control",
+      "tag+interpreter",
+      "tag+scripting",
+      "tag+ui",
+      "tag+viz",
+    ])
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+c"]);
 }

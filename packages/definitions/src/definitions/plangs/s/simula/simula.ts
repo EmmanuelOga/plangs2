@@ -17,5 +17,6 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+algol"])
     .addParadigms(["paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+structured"])
     .addPlatforms(["plat+windows"])
+    .addTags(["tag+app", "tag+compiler", "tag+framework", "tag+if", "tag+interpreter", "tag+modeling", "tag+ray-tracer", "tag+viz"])
     .addTypeSystems(["tsys+nominal", "tsys+static"]);
 }

@@ -27,6 +27,20 @@ export function define(g: PlangsGraph) {
       "paradigm+procedural",
     ])
     .addPlatforms(["plat+arm", "plat+cross", "plat+riscv", "plat+x86-64"])
+    .addTags([
+      "tag+3dg",
+      "tag+analysis",
+      "tag+app",
+      "tag+compiler",
+      "tag+editor",
+      "tag+games",
+      "tag+if",
+      "tag+interpreter",
+      "tag+iot",
+      "tag+ray-tracer",
+      "tag+stats",
+      "tag+viz",
+    ])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])
     .addWrittenIn(["pl+pascal"]);
 }

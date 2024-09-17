@@ -27,5 +27,20 @@ export function define(g: PlangsGraph) {
       "paradigm+reflective",
     ])
     .addPlatforms(["plat+arm", "plat+x86-64"])
+    .addTags([
+      "tag+3dg",
+      "tag+analysis",
+      "tag+app",
+      "tag+cli",
+      "tag+dsp",
+      "tag+genomics",
+      "tag+interpreter",
+      "tag+multivar",
+      "tag+ray-tracer",
+      "tag+scripting",
+      "tag+stats",
+      "tag+ui",
+      "tag+viz",
+    ])
     .addTypeSystems(["tsys+dynamic"]);
 }

@@ -16,5 +16,6 @@ export function define(g: PlangsGraph) {
     .addDialectOf(["pl+ml"])
     .addInfluencedBy(["pl+ml", "pl+pascal"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi"])
+    .addTags(["tag+app", "tag+compiler", "tag+if", "tag+industrial", "tag+interpreter", "tag+proofs", "tag+ray-tracer"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 }

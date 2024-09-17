@@ -18,6 +18,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+gnu-gpl"])
     .addParadigms(["paradigm+agents", "paradigm+educational", "paradigm+multi", "paradigm+procedural", "paradigm+simulation"])
     .addPlatforms(["plat+cross", "plat+x86-64"])
+    .addTags(["tag+compiler", "tag+interpreter", "tag+modeling", "tag+uml"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+scala"]);
 }

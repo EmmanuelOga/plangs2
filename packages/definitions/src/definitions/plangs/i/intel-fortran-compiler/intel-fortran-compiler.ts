@@ -18,5 +18,5 @@ export function define(g: PlangsGraph) {
     })
     .addImplements(["pl+fortran"])
     .addPlatforms(["plat+linux", "plat+windows"])
-    .addTags(["tag+compiler"]);
+    .addTags(["tag+3dg", "tag+analysis", "tag+app", "tag+cli", "tag+compiler", "tag+ui", "tag+viz"]);
 }

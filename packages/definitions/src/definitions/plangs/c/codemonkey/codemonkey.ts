@@ -12,5 +12,6 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addPlatforms(["plat+cross"])
+    .addTags(["tag+app", "tag+games", "tag+industrial"])
     .addWrittenIn(["pl+coffeescript", "pl+javascript", "pl+ruby"]);
 }

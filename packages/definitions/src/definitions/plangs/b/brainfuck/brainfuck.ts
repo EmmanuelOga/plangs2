@@ -13,5 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Brainfuck", title: "Brainfuck", kind: "wikipedia" },
       ],
     })
-    .addParadigms(["paradigm+esoteric", "paradigm+imperative", "paradigm+structured"]);
+    .addParadigms(["paradigm+esoteric", "paradigm+imperative", "paradigm+structured"])
+    .addTags(["tag+app", "tag+compiler", "tag+if", "tag+interpreter"]);
 }

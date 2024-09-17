@@ -14,5 +14,6 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Xojo", url: "/images/plangs/x/xojo/logo.png" }],
     })
     .addInfluencedBy(["pl+basic", "pl+visual-basic"])
-    .addPlatforms(["plat+android", "plat+apple", "plat+linux", "plat+raspberry", "plat+windows"]);
+    .addPlatforms(["plat+android", "plat+apple", "plat+linux", "plat+raspberry", "plat+windows"])
+    .addTags(["tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreter"]);
 }

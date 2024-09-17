@@ -20,5 +20,6 @@ export function define(g: PlangsGraph) {
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+c", "pl+common-lisp", "pl+perl", "pl+scheme"])
     .addLicenses(["license+gnu-gpl"])
-    .addPlatforms(["plat+cross", "plat+windows", "plat+x86-64"]);
+    .addPlatforms(["plat+cross", "plat+windows", "plat+x86-64"])
+    .addTags(["tag+analysis", "tag+app", "tag+dbms", "tag+industrial", "tag+multivar", "tag+ray-tracer", "tag+scripting", "tag+stats", "tag+ui"]);
 }

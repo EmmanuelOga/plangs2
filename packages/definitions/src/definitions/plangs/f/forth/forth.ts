@@ -14,5 +14,20 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addInfluencedBy(["pl+lisp"])
-    .addParadigms(["paradigm+concatenative", "paradigm+procedural", "paradigm+reflective"]);
+    .addParadigms(["paradigm+concatenative", "paradigm+procedural", "paradigm+reflective"])
+    .addTags([
+      "tag+app",
+      "tag+asm",
+      "tag+compiler",
+      "tag+dbms",
+      "tag+dsp",
+      "tag+editor",
+      "tag+embedded",
+      "tag+games",
+      "tag+if",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+ray-tracer",
+      "tag+testing",
+    ]);
 }

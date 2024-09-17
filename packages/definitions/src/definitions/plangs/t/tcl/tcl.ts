@@ -18,5 +18,19 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+awk", "pl+lisp"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+event-driven", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
+    .addTags([
+      "tag+app",
+      "tag+automation",
+      "tag+dbms",
+      "tag+framework",
+      "tag+if",
+      "tag+industrial",
+      "tag+instrument_control",
+      "tag+interpreter",
+      "tag+ray-tracer",
+      "tag+scripting",
+      "tag+testing",
+      "tag+ui",
+    ])
     .addTypeSystems(["tsys+dynamic", "tsys+string"]);
 }

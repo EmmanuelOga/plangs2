@@ -16,5 +16,19 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+ada", "pl+simula"])
     .addParadigms(["paradigm+concurrent", "paradigm+oop"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .addTags([
+      "tag+3dg",
+      "tag+analysis",
+      "tag+app",
+      "tag+compiler",
+      "tag+framework",
+      "tag+if",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+modeling",
+      "tag+testing",
+      "tag+viz",
+      "tag+wavelet",
+    ])
     .addTypeSystems(["tsys+static"]);
 }

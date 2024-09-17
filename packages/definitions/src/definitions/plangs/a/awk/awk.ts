@@ -12,5 +12,6 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+c", "pl+sed"])
     .addParadigms(["paradigm+data-driven", "paradigm+procedural", "paradigm+scripting"])
-    .addPlatforms(["plat+cross"]);
+    .addPlatforms(["plat+cross"])
+    .addTags(["tag+app", "tag+dataflow", "tag+editor", "tag+if", "tag+interpreter", "tag+scripting"]);
 }

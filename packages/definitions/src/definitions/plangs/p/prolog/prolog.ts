@@ -15,5 +15,23 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addImplements(["pl+curry"])
-    .addParadigms(["paradigm+logic"]);
+    .addParadigms(["paradigm+logic"])
+    .addTags([
+      "tag+analysis",
+      "tag+app",
+      "tag+audio-dev",
+      "tag+compiler",
+      "tag+dbms",
+      "tag+framework",
+      "tag+if",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+low-code",
+      "tag+modeling",
+      "tag+proofs",
+      "tag+ray-tracer",
+      "tag+uml",
+      "tag+viz",
+      "tag+wavelet",
+    ]);
 }

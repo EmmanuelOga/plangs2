@@ -13,5 +13,18 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Adobe ColdFusion", url: "/images/plangs/c/coldfusion/logo.png" }],
     })
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+app", "tag+server"]);
+    .addTags([
+      "tag+3dg",
+      "tag+app",
+      "tag+dataflow",
+      "tag+dataq",
+      "tag+dbms",
+      "tag+if",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+scripting",
+      "tag+server",
+      "tag+testing",
+      "tag+viz",
+    ]);
 }

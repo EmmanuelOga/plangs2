@@ -19,5 +19,6 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+functional"])
     .addPlatforms(["plat+cross"])
+    .addTags(["tag+app", "tag+compiler", "tag+interpreter"])
     .addTypeSystems(["tsys+dynamic", "tsys+static", "tsys+strong"]);
 }

@@ -16,5 +16,6 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+awk", "pl+c"])
     .addParadigms(["paradigm+declarative", "paradigm+imperative", "paradigm+multi"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"]);
+    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .addTags(["tag+industrial", "tag+interpreter", "tag+stats"]);
 }

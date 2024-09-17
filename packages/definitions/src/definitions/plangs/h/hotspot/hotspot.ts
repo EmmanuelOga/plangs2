@@ -13,5 +13,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "23.25", date: "2016-01-01" }],
     })
     .addPlatforms(["plat+cross"])
+    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+interpreter"])
     .addWrittenIn(["pl+assembly", "pl+c++"]);
 }

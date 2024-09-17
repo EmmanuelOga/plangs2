@@ -21,5 +21,17 @@ export function define(g: PlangsGraph) {
     .addImplements(["pl+ecmascript"])
     .addInfluencedBy(["pl+awk", "pl+c", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme", "pl+self"])
     .addParadigms(["paradigm+event-driven", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
+    .addTags([
+      "tag+app",
+      "tag+asm",
+      "tag+dbms",
+      "tag+framework",
+      "tag+if",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+ray-tracer",
+      "tag+scripting",
+      "tag+viz",
+    ])
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+weak"]);
 }

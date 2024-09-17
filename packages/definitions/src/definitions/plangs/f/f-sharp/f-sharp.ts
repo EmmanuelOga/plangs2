@@ -30,5 +30,18 @@ export function define(g: PlangsGraph) {
       "paradigm+reflective",
     ])
     .addPlatforms(["plat+cross"])
+    .addTags([
+      "tag+app",
+      "tag+automation",
+      "tag+cli",
+      "tag+compiler",
+      "tag+framework",
+      "tag+if",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+ray-tracer",
+      "tag+scripting",
+      "tag+viz",
+    ])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 }

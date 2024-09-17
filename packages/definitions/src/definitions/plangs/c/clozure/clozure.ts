@@ -15,5 +15,5 @@ export function define(g: PlangsGraph) {
     .addImplements(["pl+common-lisp"])
     .addLicenses(["license+apache", "license+lgpl"])
     .addPlatforms(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+compiler"]);
+    .addTags(["tag+compiler", "tag+editor"]);
 }

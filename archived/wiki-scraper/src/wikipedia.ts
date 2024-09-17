@@ -123,6 +123,12 @@ export class WikiPage {
     return cleanText(p.text());
   }
 
+  get contentText(): string {
+    const p = this.$("#mw-content-text > div.mw-content-ltr.mw-parser-output > p:not([class])");
+    p.find("*").remove("sup, style, script, [style*='display:none']");
+    return cleanText(p.text());
+  }
+
   get categories(): string[] {
     return this.categoryLinks()
       .map((link) => link.title.replaceAll("Category:", "").toLowerCase())

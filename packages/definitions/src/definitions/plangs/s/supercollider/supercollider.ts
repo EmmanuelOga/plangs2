@@ -14,6 +14,6 @@ export function define(g: PlangsGraph) {
     })
     .addLicenses(["license+gnu-gpl"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
-    .addTags(["tag+audio-dev", "tag+interpreter"])
+    .addTags(["tag+app", "tag+audio-dev", "tag+dsp", "tag+framework", "tag+industrial", "tag+interpreter", "tag+ray-tracer", "tag+wavelet"])
     .addWrittenIn(["pl+c++"]);
 }

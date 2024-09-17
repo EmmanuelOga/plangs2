@@ -15,5 +15,17 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "screenshot", title: "PowerBASIC", url: "/images/plangs/p/powerbasic/screenshot.png" }],
     })
     .addImplements(["pl+basic"])
-    .addPlatforms(["plat+dos", "plat+windows"]);
+    .addPlatforms(["plat+dos", "plat+windows"])
+    .addTags([
+      "tag+app",
+      "tag+asm",
+      "tag+compiler",
+      "tag+editor",
+      "tag+if",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+ray-tracer",
+      "tag+testing",
+      "tag+ui",
+    ]);
 }

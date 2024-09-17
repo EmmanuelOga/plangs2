@@ -11,5 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/SHACL", title: "SHACL", kind: "wikipedia" },
       ],
     })
-    .addInfluencedBy(["pl+shex"]);
+    .addInfluencedBy(["pl+shex"])
+    .addTags(["tag+app", "tag+dbms", "tag+framework", "tag+if"]);
 }

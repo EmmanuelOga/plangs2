@@ -41,5 +41,19 @@ export function define(g: PlangsGraph) {
       "paradigm+reflective",
       "paradigm+structured",
     ])
+    .addTags([
+      "tag+app",
+      "tag+cli",
+      "tag+compiler",
+      "tag+dbms",
+      "tag+editor",
+      "tag+framework",
+      "tag+games",
+      "tag+if",
+      "tag+interpreter",
+      "tag+scripting",
+      "tag+ui",
+      "tag+viz",
+    ])
     .addTypeSystems(["tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong"]);
 }

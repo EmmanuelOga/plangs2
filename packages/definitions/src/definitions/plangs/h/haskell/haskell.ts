@@ -17,5 +17,6 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+clean", "pl+fp", "pl+lisp", "pl+ml", "pl+r5rs", "pl+raku", "pl+scheme", "pl+standard-ml"])
     .addParadigms(["paradigm+functional"])
     .addPlatforms(["plat+cross"])
+    .addTags(["tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreter"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 }

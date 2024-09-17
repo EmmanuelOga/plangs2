@@ -72,6 +72,12 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
   const keys_tags = [...findMatching<NTag["key"]>(page.infobox.tags, g.nodes.tag)].sort();
   const keys_tsystem = [...findMatching<NTsys["key"]>(page.infobox.typeSystem, g.nodes.tsys)].sort();
 
+  // Check the content text for tags.
+  const contentText = page.contentText;
+  for (const [_, tag] of g.nodes.tag) {
+    if (tag.keywordsRegexp?.test(contentText)) keys_tags.push(tag.key);
+  }
+
   plang.addLicenses(keys_license).addParadigms(keys_paradigm).addPlatforms(keys_platform).addTags(keys_tags).addTypeSystems(keys_tsystem);
 
   ////////////////////////////////////////////////////////////////////////////////

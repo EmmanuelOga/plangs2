@@ -15,6 +15,17 @@ export function define(g: PlangsGraph) {
     })
     .addLicenses(["license+gnu-gpl"])
     .addPlatforms(["plat+apple", "plat+windows"])
-    .addTags(["tag+scripting"])
+    .addTags([
+      "tag+app",
+      "tag+automation",
+      "tag+compiler",
+      "tag+editor",
+      "tag+if",
+      "tag+industrial",
+      "tag+instrument_control",
+      "tag+interpreter",
+      "tag+scripting",
+      "tag+viz",
+    ])
     .addWrittenIn(["pl+c"]);
 }

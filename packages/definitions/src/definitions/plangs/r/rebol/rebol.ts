@@ -21,5 +21,18 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+data-exchange", "paradigm+functional", "paradigm+imperative", "paradigm+language-oriented", "paradigm+prototype"])
     .addPlatforms(["plat+cross"])
+    .addTags([
+      "tag+3dg",
+      "tag+app",
+      "tag+audio-dev",
+      "tag+dbms",
+      "tag+if",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+multimedia",
+      "tag+ray-tracer",
+      "tag+ui",
+      "tag+video",
+    ])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 }

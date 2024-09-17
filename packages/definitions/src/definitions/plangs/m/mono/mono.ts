@@ -16,6 +16,19 @@ export function define(g: PlangsGraph) {
     .addImplements(["pl+c-sharp", "pl+visual-basic"])
     .addLicenses(["license+mit"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+framework"])
+    .addTags([
+      "tag+3dg",
+      "tag+app",
+      "tag+automation",
+      "tag+cli",
+      "tag+compiler",
+      "tag+dataq",
+      "tag+dbms",
+      "tag+framework",
+      "tag+games",
+      "tag+if",
+      "tag+scripting",
+      "tag+ui",
+    ])
     .addWrittenIn(["pl+c", "pl+c-sharp"]);
 }

@@ -15,5 +15,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.0", date: "2017-01-01" }],
     })
     .addInfluencedBy(["pl+boomerang"])
-    .addParadigms(["paradigm+declarative"]);
+    .addParadigms(["paradigm+declarative"])
+    .addTags(["tag+analysis", "tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+if", "tag+industrial", "tag+viz"]);
 }

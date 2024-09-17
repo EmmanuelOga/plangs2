@@ -19,5 +19,19 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+boost"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
+    .addTags([
+      "tag+analysis",
+      "tag+app",
+      "tag+asm",
+      "tag+compiler",
+      "tag+games",
+      "tag+if",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+numeric",
+      "tag+sci",
+      "tag+ui",
+      "tag+viz",
+    ])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 }

@@ -16,5 +16,6 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+sql", "pl+xpath"])
     .addLicenses(["license+apache"])
-    .addPlatforms(["plat+cross"]);
+    .addPlatforms(["plat+cross"])
+    .addTags(["tag+compiler"]);
 }

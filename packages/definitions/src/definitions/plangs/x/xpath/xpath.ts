@@ -11,5 +11,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.1", date: "2017-01-01" }],
     })
     .addInfluencedBy(["pl+xslt"])
-    .addParadigms(["paradigm+query"]);
+    .addParadigms(["paradigm+query"])
+    .addTags(["tag+if"]);
 }

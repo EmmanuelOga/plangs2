@@ -14,6 +14,28 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "LabVIEW", url: "/images/plangs/l/labview/logo.jpg" }],
     })
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+automation", "tag+dataq", "tag+dsp", "tag+embedded", "tag+industrial", "tag+instrument_control", "tag+testing", "tag+wavelet"])
+    .addTags([
+      "tag+analysis",
+      "tag+app",
+      "tag+automation",
+      "tag+compiler",
+      "tag+dataflow",
+      "tag+dataq",
+      "tag+dsp",
+      "tag+embedded",
+      "tag+flow",
+      "tag+framework",
+      "tag+if",
+      "tag+industrial",
+      "tag+instrument_control",
+      "tag+interpreter",
+      "tag+low-code",
+      "tag+modeling",
+      "tag+scripting",
+      "tag+stats",
+      "tag+testing",
+      "tag+viz",
+      "tag+wavelet",
+    ])
     .addWrittenIn(["pl+c", "pl+c++", "pl+c-sharp"]);
 }

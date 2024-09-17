@@ -16,5 +16,6 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+c-sharp", "pl+erlang", "pl+ruby", "pl+scala"])
     .addParadigms(["paradigm+multi"])
+    .addTags(["tag+interpreter"])
     .addTypeSystems(["tsys+dynamic", "tsys+static"]);
 }

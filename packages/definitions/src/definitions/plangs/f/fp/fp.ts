@@ -9,5 +9,6 @@ export function define(g: PlangsGraph) {
       firstAppeared: "1977-01-01",
       websites: [{ href: "https://en.wikipedia.org/wiki/FP_(programming_language)", title: "FP", kind: "wikipedia" }],
     })
-    .addInfluencedBy(["pl+apl"]);
+    .addInfluencedBy(["pl+apl"])
+    .addTags(["tag+app", "tag+interpreter"]);
 }

@@ -16,5 +16,6 @@ export function define(g: PlangsGraph) {
     .addDialectOf(["pl+python"])
     .addImplements(["pl+python"])
     .addLicenses(["license+mit"])
-    .addPlatforms(["plat+cross"]);
+    .addPlatforms(["plat+cross"])
+    .addTags(["tag+analysis", "tag+compiler", "tag+framework", "tag+interpreter", "tag+testing"]);
 }

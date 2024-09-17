@@ -22,5 +22,6 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+clojure", "pl+common-lisp"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+functional", "paradigm+metaprogramming", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+reflective"])
-    .addPlatforms(["plat+cross", "plat+x86-64"]);
+    .addPlatforms(["plat+cross", "plat+x86-64"])
+    .addTags(["tag+interpreter"]);
 }

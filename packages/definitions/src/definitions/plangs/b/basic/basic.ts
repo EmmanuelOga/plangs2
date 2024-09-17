@@ -11,5 +11,18 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "BASIC", url: "/images/plangs/b/basic/other.png" }],
     })
     .addInfluencedBy(["pl+fortran"])
-    .addParadigms(["paradigm+oop", "paradigm+procedural", "paradigm+structured"]);
+    .addParadigms(["paradigm+oop", "paradigm+procedural", "paradigm+structured"])
+    .addTags([
+      "tag+app",
+      "tag+compiler",
+      "tag+embedded",
+      "tag+games",
+      "tag+if",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+modeling",
+      "tag+ray-tracer",
+      "tag+ui",
+      "tag+wavelet",
+    ]);
 }

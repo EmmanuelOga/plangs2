@@ -16,6 +16,6 @@ export function define(g: PlangsGraph) {
     .addImplements(["pl+lua", "pl+moonscript"])
     .addLicenses(["license+mit"])
     .addPlatforms(["plat+android", "plat+apple", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+compiler"])
+    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+industrial", "tag+interpreter"])
     .addWrittenIn(["pl+c", "pl+lua"]);
 }

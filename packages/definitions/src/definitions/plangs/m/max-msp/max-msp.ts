@@ -14,6 +14,22 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Max", url: "/images/plangs/m/max-msp/logo.jpg" }],
     })
     .addPlatforms(["plat+apple", "plat+windows"])
-    .addTags(["tag+multimedia", "tag+video"])
+    .addTags([
+      "tag+3dg",
+      "tag+app",
+      "tag+audio-dev",
+      "tag+dsp",
+      "tag+flow",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+midi",
+      "tag+modular",
+      "tag+multimedia",
+      "tag+ray-tracer",
+      "tag+ui",
+      "tag+video",
+      "tag+viz",
+      "tag+wavelet",
+    ])
     .addWrittenIn(["pl+c", "pl+c++"]);
 }

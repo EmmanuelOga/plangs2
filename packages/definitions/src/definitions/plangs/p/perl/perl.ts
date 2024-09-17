@@ -22,5 +22,16 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+artistic"])
     .addParadigms(["paradigm+multi"])
     .addPlatforms(["plat+cross"])
+    .addTags([
+      "tag+app",
+      "tag+compiler",
+      "tag+dbms",
+      "tag+framework",
+      "tag+genomics",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+scripting",
+      "tag+viz",
+    ])
     .addWrittenIn(["pl+c"]);
 }

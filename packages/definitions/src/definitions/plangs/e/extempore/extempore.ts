@@ -16,5 +16,6 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+impromptu", "pl+lisp", "pl+scheme"])
     .addParadigms(["paradigm+functional", "paradigm+multi"])
     .addPlatforms(["plat+linux", "plat+windows"])
+    .addTags(["tag+compiler", "tag+dsp", "tag+multimedia", "tag+wavelet"])
     .addTypeSystems(["tsys+dynamic", "tsys+static"]);
 }

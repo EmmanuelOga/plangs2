@@ -16,5 +16,6 @@ export function define(g: PlangsGraph) {
     })
     .addParadigms(["paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+structured"])
     .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .addTags(["tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+safe", "tsys+static", "tsys+string", "tsys+strong"]);
 }

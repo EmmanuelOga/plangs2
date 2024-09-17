@@ -14,5 +14,6 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "Yabasic", url: "/images/plangs/y/yabasic/other.png" }],
     })
     .addLicenses(["license+mit"])
-    .addPlatforms(["plat+windows"]);
+    .addPlatforms(["plat+windows"])
+    .addTags(["tag+games", "tag+interpreter", "tag+ui"]);
 }

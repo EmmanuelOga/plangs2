@@ -14,5 +14,20 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Pure Data", url: "/images/plangs/p/puredata/logo.png" }],
     })
     .addLicenses(["license+bsd"])
-    .addTags(["tag+interpreter"]);
+    .addTags([
+      "tag+app",
+      "tag+audio-dev",
+      "tag+dataflow",
+      "tag+dsp",
+      "tag+flow",
+      "tag+games",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+midi",
+      "tag+multimedia",
+      "tag+ray-tracer",
+      "tag+ui",
+      "tag+video",
+      "tag+wavelet",
+    ]);
 }

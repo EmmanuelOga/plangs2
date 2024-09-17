@@ -15,5 +15,6 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+datalog"])
     .addParadigms(["paradigm+declarative"])
     .addPlatforms(["plat+cross"])
+    .addTags(["tag+4gl", "tag+app", "tag+dbms", "tag+industrial", "tag+interpreter", "tag+multimedia", "tag+testing", "tag+video", "tag+viz"])
     .addTypeSystems(["tsys+static", "tsys+strong"]);
 }

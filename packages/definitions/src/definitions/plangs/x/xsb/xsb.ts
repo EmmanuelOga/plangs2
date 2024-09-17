@@ -16,5 +16,6 @@ export function define(g: PlangsGraph) {
     .addImplements(["pl+prolog"])
     .addInfluencedBy(["pl+prolog"])
     .addParadigms(["paradigm+logic"])
-    .addPlatforms(["plat+cross"]);
+    .addPlatforms(["plat+cross"])
+    .addTags(["tag+dbms", "tag+interpreter"]);
 }

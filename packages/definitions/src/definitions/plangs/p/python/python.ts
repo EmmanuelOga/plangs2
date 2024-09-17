@@ -41,6 +41,26 @@ export function define(g: PlangsGraph) {
       "paradigm+structured",
     ])
     .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+linux", "plat+raspberry", "plat+wasm", "plat+windows"])
+    .addTags([
+      "tag+analysis",
+      "tag+app",
+      "tag+cas",
+      "tag+compiler",
+      "tag+dbms",
+      "tag+framework",
+      "tag+games",
+      "tag+if",
+      "tag+industrial",
+      "tag+interpreter",
+      "tag+modeling",
+      "tag+numeric",
+      "tag+sci",
+      "tag+scripting",
+      "tag+testing",
+      "tag+ui",
+      "tag+viz",
+      "tag+wavelet",
+    ])
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+optional", "tsys+strong"]);
 
   const addPyTool = (key: NTool["key"], data: NTool["data"]) => g.nodes.tool.set(key, data).addPls(["pl+python"]);

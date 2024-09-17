@@ -17,5 +17,6 @@ export function define(g: PlangsGraph) {
     })
     .addLicenses(["license+mit"])
     .addPlatforms(["plat+cross"])
+    .addTags(["tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic"]);
 }

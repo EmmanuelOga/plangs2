@@ -14,6 +14,6 @@ export function define(g: PlangsGraph) {
     })
     .addImplements(["pl+fortran"])
     .addLicenses(["license+gnu-gpl"])
-    .addTags(["tag+compiler"])
+    .addTags(["tag+compiler", "tag+interpreter"])
     .addWrittenIn(["pl+c"]);
 }
