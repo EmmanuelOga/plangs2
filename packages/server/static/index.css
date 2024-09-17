@@ -308,6 +308,7 @@ input {
 }
 
 .blog-post {
+    color: white;
     margin-bottom: 5rem;
 
     .post-date {

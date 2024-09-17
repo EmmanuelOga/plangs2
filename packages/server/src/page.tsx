@@ -1,13 +1,14 @@
 import type { ComponentChildren, VNode } from "preact";
 
-import type { NPlang, PlangsGraph } from "@plangs/plangs";
+import type { NPlang, NPost, PlangsGraph } from "@plangs/plangs";
 
 import { PlangsContext } from "./context";
 import { Layout, type LayoutProps } from "./pages/layout";
 import { Browse } from "./pages/browse";
 import { About } from "./pages/about";
-import { Blog } from "./pages/blog";
+import { Blog, BlogPost } from "./pages/blog";
 import { Lang } from "./pages/plang";
+import { loadBlogPost } from "./blog";
 
 type PageProps = {
   pg: PlangsGraph;
@@ -42,6 +43,16 @@ export async function resolvePage(path: string, pg: PlangsGraph): Promise<VNode 
   } else if (path === "/blog") {
     pageId = "blog";
     content = <Blog />;
+  } else if (path.startsWith("/blog/") && path.length < 256) {
+    const key: NPost["key"] = `post+${path.slice(6)}`;
+    const post = pg.nodes.post.get(key);
+    if (!post?.path) {
+      console.warn(`Post not found: ${key}`);
+      return undefined;
+    }
+    pageId = "blogPost";
+    const { html } = await loadBlogPost(post.path);
+    content = <BlogPost post={post} content={html} />;
   } else if (path.startsWith("/pl/") && path.length < 64) {
     const nid: NPlang["key"] = `pl+${path.slice(4)}`;
     const pl = pg.nodes.pl.get(nid);

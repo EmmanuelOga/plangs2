@@ -18,7 +18,7 @@ async function postPaths(): Promise<string[]> {
 }
 
 // biome-ignore lint/suspicious/noExplicitAny: we don't know what the header will look like.
-async function loadBlogPost(path: string): Promise<{ header: any; html: string }> {
+export async function loadBlogPost(path: string): Promise<{ header: any; html: string }> {
   const src = await Bun.file(packagesPath("server/posts", path)).text();
 
   const match = src.match(/^(.*?)\n---\n(.*)$/s);

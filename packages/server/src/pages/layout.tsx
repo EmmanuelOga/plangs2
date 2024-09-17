@@ -1,7 +1,7 @@
 import type { ComponentChildren } from "preact";
 
 export type LayoutProps = {
-  pageId: "about" | "blog" | "home" | "lang" | "universe";
+  pageId: "about" | "blog" | "blogPost" | "home" | "lang" | "universe";
   plVid?: string;
   plName?: string;
   children?: ComponentChildren;
