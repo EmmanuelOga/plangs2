@@ -3,9 +3,10 @@
   "private": true,
   "workspaces": ["packages/*", "archived/*"],
   "devDependencies": {
-    "esbuild": "^0.23.0",
+    "@biomejs/biome": "^1.9.0",
     "@types/bun": "latest",
-    "@biomejs/biome": "^1.8.3"
+    "esbuild": "^0.23.0",
+    "tailwindcss": "^3.4.11"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

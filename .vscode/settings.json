@@ -7,10 +7,20 @@
         "**/.DS_Store": true,
     },
     // ---------------------------------------------------------------------------- 
-    // Go Environment.
+    // TailwindCSS IntelliSense.
     //
-    "go.alternateTools": {
-        "go": "${workspaceFolder}/.pixi/envs/default/bin/go"
+    "files.associations": {
+        "*.css": "tailwindcss"
+    },
+    "editor.quickSuggestions": {
+        "strings": "on"
+    },
+    "editor.defaultFormatter": "biomejs.biome",
+    "[css]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[tailwindcss]": {
+        "editor.defaultFormatter": "biomejs.biome"
     },
     // ---------------------------------------------------------------------------- 
     // BunJS Environment.
