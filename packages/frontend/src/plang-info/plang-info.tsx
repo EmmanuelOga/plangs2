@@ -3,8 +3,6 @@ import { useEffect, useRef, useState } from "preact/hooks";
 
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
-import "./plang-info.css";
-
 import { customEvent, on } from "../utils";
 
 export const TAG_NAME = "plang-info";
@@ -90,21 +88,29 @@ export function PlangInfo({ plangKey: key, graph, description }: PlangInfoProps)
     );
   }
 
-  return <div ref={self as Ref<HTMLDivElement>}>{content}</div>;
+  return (
+    <div class="mt-2 px-5; pt-0 pb-2 text-[#eee]" ref={self as Ref<HTMLDivElement>}>
+      {content}
+    </div>
+  );
 }
 
 function Entry({ title, children }: { title: string; children: ComponentChildren }) {
   return (
     <div class="entry">
       <dt>{title}</dt>
-      <dd>{children}</dd>
+      <dd class="m-0 rounded-tr-2xl rounded-bl-2xl border border-solid bg-[white] p-3 text-[black]">{children}</dd>
     </div>
   );
 }
 
 function Pill({ key, kind, name }: { key: string; name: string; kind: string }) {
   return (
-    <div class={`pill ${kind}-pill`} key={key} data-key={key} data-kind={kind}>
+    <div
+      class="m-1 inline-block rounded-tr rounded-bl border-r border-r-[gray] border-b border-b-[gray] border-solid px-2 py-1"
+      key={key}
+      data-key={key}
+      data-kind={kind}>
       {name}
     </div>
   );

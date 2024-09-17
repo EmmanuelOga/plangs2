@@ -1,3 +1,82 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+:root {
+    --pl-thumb-size: 9rem;
+    --bg0: black;
+    --bg1: #111;
+    --bg2: #333;
+    --hi0: yellowgreen;
+    --border: 1px solid #444;
+}
+
+body {
+    font-family: ui-rounded, "Hiragino Maru Gothic ProN", Quicksand, Comfortaa,
+        Manjari, "Arial Rounded MT", "Arial Rounded MT Bold", Calibri,
+        source-sans-pro, sans-serif;
+    color: white;
+}
+
+a {
+    @apply text-[#dfd] visited:text-[#afa];
+}
+
+#top-nav a span {
+    @apply px-4 py-1;
+}
+
+#top-nav a.current {
+    @apply bg-[color:var(--bg1)];
+}
+
+#top-nav a.current span {
+    @apply border-b-[color:var(--hi0)] border-b-4 border-solid;
+}
+
+#top-nav a:hover span {
+    @apply border-b-4 border-b-[yellow] border-solid;
+}
+
+.hide {
+    @apply hidden;
+}
+
+.stick-to-top {
+    @apply sticky self-start top-0 bottom-[unset];
+}
+
+.stick-to-bottom {
+    @apply sticky self-end top-[unset] bottom-0;
+}
+
+.common-content {
+    @apply max-w-[calc(100vw_-_18rem_-_30rem)] text-[#eee] text-xl leading-6 m-4 p-4;
+}
+
+.elems-plThumb {
+    @apply w-[var(--pl-thumb-size)] h-[var(--pl-thumb-size)] text-[#444] bg-[#eee] shadow-[gray_0px_2px_2px_2px] cursor-pointer m-4 p-2 rounded-tr-2xl rounded-bl-2xl hover:border hover:border-solid hover:border-[black] flex flex-col justify-evenly items-center;
+}
+
+.elems-plThumb:hover {
+    outline: 5px solid hsl(120, 100%, 80%);
+}
+
+.elems-plThumb .name {
+    @apply inline-block max-w-[var(--pl-thumb-size)] overflow-hidden text-ellipsis whitespace-nowrap text-[1.1rem];
+}
+
+.elems-plThumb .links a {
+    @apply no-underline text-[black] ml-4;
+}
+
+.elems-plThumb .logo {
+    @apply flex items-center w-[var(--size-img)] h-[var(--size-img)];
+    --size-img: calc(var(--pl-thumb-size) * 0.5);
+}
+
+.elems-plThumb .logo img {
+    @apply max-w-[var(--size-img)] max-h-[var(--size-img)] h-[initial];
+}
+
+.elems-plThumb .logo .placeholder {
+    @apply text-[#888] bg-[#ccc] w-[var(--size-img)] h-[var(--size-img)] items-center flex text-xs justify-center overflow-hidden text-center rotate-[-10deg] rounded-2xl;
+}

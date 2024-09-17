@@ -3,7 +3,6 @@ import { useEffect, useReducer, useRef } from "preact/hooks";
 
 import { type Item, type ItemRemoved, reducer } from "./reducer";
 
-import "./input-sel.css";
 import { customEvent, on, send } from "../utils";
 
 export const TAG_NAME = "input-sel";
@@ -60,9 +59,9 @@ export function InputSel({ name }: InputSelProps) {
   });
 
   return (
-    <div ref={self as Ref<HTMLDivElement>}>
+    <div ref={self as Ref<HTMLDivElement>} class="block">
       {state.selected.length > 1 && (
-        <select>
+        <select class="mt-1 block">
           <option value="any">Any of</option>
           <option value="all">All of</option>
         </select>
@@ -70,14 +69,14 @@ export function InputSel({ name }: InputSelProps) {
       {state.selected.map(({ value, label }) => (
         <div
           data-value={value}
-          class="item remove-item"
+          class="item remove-item inline-block max-w-[90%] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap rounded p-1"
           key={value}
           onClick={() => dispatch({ kind: "remove", value, by: "click" })}
           onKeyDown={ev => {
             if (ev.key === "Enter") dispatch({ kind: "remove", value, by: "enterKey" });
           }}
           tabindex={0}>
-          <span class="icon" aria-label="remove">
+          <span class="icon pr-2" aria-label="remove">
             ❌
           </span>
           {label}

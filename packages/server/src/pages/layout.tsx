@@ -19,21 +19,20 @@ export function Layout({ pageId, children, plVid, plName }: LayoutProps) {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
         <link rel="manifest" href="/favicon/site.webmanifest" />
-        <link rel="stylesheet" href="/browse.css" />
       </head>
       <body>
-        <div id="main-wrapper">
-          <noscript>
+        <div>
+          <noscript class="block bg-[lightyellow] p-4 text-center">
             <em>Note!</em>
             This site is fully static and requires JavaScript for the best experience. In particular, the search feature will not work without
             JavaScript.
           </noscript>
-          <header id="top-header">
-            <h1 class="logo">
+          <header class="flex h-24 items-end justify-between border-b-[length:var(--border)] bg-[color:var(--bg0)] px-6 py-0">
+            <h1 class="text-[2.5rem] italic">
               <a href="/">Plangs!</a>
             </h1>
 
-            <nav id="top-nav">
+            <nav id="top-nav" class="h-[1.6rem]">
               <a href="/" class={pageId === "home" ? "current" : ""}>
                 <span>Browse</span>
               </a>
@@ -50,7 +49,9 @@ export function Layout({ pageId, children, plVid, plName }: LayoutProps) {
 
             <div />
           </header>
-          <main id={pageId}>{children}</main>
+          <main id={pageId} class="relative flex flex flex-1 flex-row flex-col justify-between bg-[color:var(--bg1)]">
+            {children}
+          </main>
         </div>
         <script src="/browse.js" />
       </body>

@@ -4,8 +4,6 @@ import { useEffect, useReducer, useRef } from "preact/hooks";
 import { customEvent, send } from "../utils";
 import { type CompletionItem, type ItemSelected, reducer } from "./reducer";
 
-import "./input-compl.css";
-
 /** HTML tag name for the CustomElement */
 export const TAG_NAME = "input-compl";
 
@@ -49,7 +47,7 @@ export function InputCompl({ name, completions }: InputComplProps) {
   return (
     <>
       <input
-        class={`${showPopup ? "focused" : ""}`}
+        class={`${showPopup ? "focused" : ""} relative block`}
         autocomplete="off"
         name={name}
         onBlur={({ relatedTarget }) => {
@@ -64,7 +62,7 @@ export function InputCompl({ name, completions }: InputComplProps) {
         type="search"
       />
       <div
-        class={`popup ${showPopup ? "" : "hidden"}`}
+        class={`popup ${showPopup ? "" : "hidden"} absolute z-10 mt-1 max-h-80 max-w-[15rem] overflow-y-auto overflow-x-hidden border border-solid bg-[white] p-1 text-[#333]`}
         onBlur={({ relatedTarget }) => {
           if (relatedTarget === inputRef.current) return;
           dispatch({ kind: "popup", show: false });
@@ -74,7 +72,7 @@ export function InputCompl({ name, completions }: InputComplProps) {
         tabindex={0}>
         {state.candidates.map((complIdx, idx) => (
           <div
-            class={`item ${idx === state.selected ? "selected" : ""}`}
+            class={`item ${idx === state.selected ? "selected" : ""} min-w-[8rem]`}
             key={state.completions[complIdx].value}
             onClick={() => dispatch({ kind: "selectIndex", index: idx })}
             onDblClick={() => dispatch({ kind: "keypress", from: "item", key: "Enter" })}

@@ -15,6 +15,7 @@
   },
   "scripts": {
     "serve": "bun run --hot src/serve.ts",
+    "css": "bun x @tailwindcss/cli@next -i src/input.css -o static/index.css --watch",
     "bundle": "esbuild --bundle ../frontend/src/browse --sourcemap --outdir=static/ --watch"
   }
 }

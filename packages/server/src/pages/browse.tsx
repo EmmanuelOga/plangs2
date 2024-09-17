@@ -12,7 +12,7 @@ export function Browse() {
 
   return (
     <>
-      <nav id={domId("nav")}>
+      <nav id={domId("nav")} class="min-w-[18rem] max-w-[18rem] border-r border-r-[#444] border-solid">
         <div id={domId("facets")}>
           <Facet title="General">
             {input("plangName")}
@@ -48,7 +48,7 @@ export function Browse() {
         </div>
       </nav>
 
-      <article id={domId("plangs")}>
+      <article id={domId("plangs")} class="flex flex-1 flex-wrap content-start justify-center bg-[color:var(--bg1)] pt-1">
         {[...pg.nodes.pl].map(([nid, pl]) => (
           <div key={nid} data-key={nid} class={domClass("plThumb")}>
             <span class="name">{pl.name}</span>
@@ -57,7 +57,9 @@ export function Browse() {
         ))}
       </article>
 
-      <nav id={domId("side")}>{h("plang-info", { id: domId("plangInfo") })}</nav>
+      <nav id={domId("side")} class="min-h-screen min-w-[30rem] max-w-[30rem] border-l border-l-[#444] border-solid">
+        {h("plang-info", { id: domId("plangInfo") })}
+      </nav>
     </>
   );
 }
