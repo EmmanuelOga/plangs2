@@ -79,7 +79,7 @@ export function define(g: PlangsGraph) {
   });
 
   const addPyBundle = (key: NBundle["key"], data: NBundle["data"], tools: NTool["key"][]) => {
-    g.nodes.bundle.set(key, data).addTools(tools);
+    g.nodes.bundle.set(key, data).addTools(tools).addPls(["pl+python"]);
   };
 
   addPyBundle(
@@ -95,12 +95,14 @@ export function define(g: PlangsGraph) {
 
   addPyLib("lib+msgspec", {
     name: "Msgspec",
+    keywords: ["serialization", "validation", "json", "messagepack", "yaml", "toml"],
     description: "msgspec is a fast serialization and validation library, with builtin support for JSON, MessagePack, YAML, and TOML.",
     websites: [{ href: "https://jcristharif.com/msgspec/", title: "Msgspec", kind: "homepage" }],
   });
 
   addPyLib("lib+flask", {
     name: "Flask",
+    keywords: ["web", "framework", "wsgi"],
     description: "Flask is a lightweight WSGI web application framework.",
     websites: [{ href: "https://flask.palletsprojects.com/", title: "Flask", kind: "homepage" }],
   });
@@ -109,24 +111,28 @@ export function define(g: PlangsGraph) {
 
   addPyApp("app+harlequin", {
     name: "Harlequin",
+    keywords: ["database", "client", "terminal"],
     description: "An easy, fast, and beautiful database client for the terminal.",
     websites: [{ href: "https://harlequin.sh/", title: "Harlequin", kind: "homepage" }],
   });
 
   addPyApp("app+glances", {
     name: "Glances",
+    keywords: ["monitoring", "system", "terminal"],
     description: "Glances is a cross-platform system monitoring tool written in Python.",
     websites: [{ href: "https://nicolargo.github.io/glances/", title: "Glances", kind: "homepage" }],
   });
 
   addPyApp("app+zulip", {
     name: "Zulip",
+    keywords: ["chat", "group", "communication"],
     description: "Zulip is a powerful, open source group chat application.",
     websites: [{ href: "https://github.com/zulip/zulip", title: "Zulip", kind: "homepage" }],
   });
 
   addPyApp("app+aider", {
     name: "Aider",
+    keywords: ["pair programming", "llm", "git"],
     description:
       "Aider lets you pair program with LLMs, to edit code in your local git repository. Start a new project or work with an existing git repo. Aider works best with GPT-4o & Claude 3.5 Sonnet and can connect to almost any LLM.",
     websites: [{ href: "https://aider.chat/", title: "Aider", kind: "homepage" }],

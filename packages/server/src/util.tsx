@@ -1,9 +1,9 @@
 import { join } from "node:path";
 
-import type { Link } from "@plangs/plangs/index";
-
 import type { JSX, VNode } from "preact";
 import render from "preact-render-to-string/jsx";
+
+import type { Link, StrDate } from "@plangs/plangs/index";
 
 export function html(component: VNode) {
   const page = `<!DOCTYPE html>\n${render(component, {}, { pretty: true })}`;

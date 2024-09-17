@@ -12,6 +12,7 @@ export const EDGE_NAMES = [
   "lib",
   "license",
   "paradigm",
+  "plBundle",
   "plat",
   "post",
   "tag",
@@ -50,6 +51,7 @@ export class PlangsGraph extends BaseGraph<N, E, G> {
     lib: new EdgeMap<G, ELib>((from, to) => new ELib(this, from, to)),
     license: new EdgeMap<G, ELicense>((from, to) => new ELicense(this, from, to)),
     paradigm: new EdgeMap<G, EParadigm>((from, to) => new EParadigm(this, from, to)),
+    plBundle: new EdgeMap<G, EPlBundle>((from, to) => new EPlBundle(this, from, to)),
     plat: new EdgeMap<G, EPlat>((from, to) => new EPlat(this, from, to)),
     post: new EdgeMap<G, EPost>((from, to) => new EPost(this, from, to)),
     tag: new EdgeMap<G, ETag>((from, to) => new ETag(this, from, to)),
@@ -223,6 +225,10 @@ export class NPlang extends NBase<
     return this;
   }
 
+  get relApps(): MapTap<NApp["key"], EApp> {
+    return new MapTap(this.graph.edges.app.adjFrom.getMap(this.key));
+  }
+
   get relDialectOf(): MapTap<NPlang["key"], EDialect> {
     return new MapTap(this.graph.edges.dialect.adjFrom.getMap(this.key));
   }
@@ -239,7 +245,7 @@ export class NPlang extends NBase<
     return new MapTap(this.graph.edges.influence.adjFrom.getMap(this.key));
   }
 
-  get relLibraries(): MapTap<NLibrary["key"], ELib> {
+  get relLibs(): MapTap<NLibrary["key"], ELib> {
     return new MapTap(this.graph.edges.lib.adjFrom.getMap(this.key));
   }
 
@@ -249,6 +255,10 @@ export class NPlang extends NBase<
 
   get relParadigms(): MapTap<NParadigm["key"], EParadigm> {
     return new MapTap(this.graph.edges.paradigm.adjFrom.getMap(this.key));
+  }
+
+  get relPlBundles(): MapTap<NBundle["key"], EPlBundle> {
+    return new MapTap(this.graph.edges.plBundle.adjFrom.getMap(this.key));
   }
 
   get relPlatforms(): MapTap<NPlatform["key"], EPlat> {
@@ -350,7 +360,7 @@ export class NApp extends NBase<"app", CommonNodeData> {
   override kind: N = "app";
 
   addPls(others: NPlang["key"][]): this {
-    for (const other of others) this.graph.edges.app.connect(this.key, other);
+    for (const other of others) this.graph.edges.app.connect(other, this.key);
     return this;
   }
 }
@@ -360,8 +370,21 @@ export class NBundle extends NBase<"bundle", CommonNodeData> {
   override kind: N = "bundle";
 
   addTools(others: `tool+${string}`[]): this {
-    for (const other of others) this.graph.edges.bundle.connect(other, this.key);
+    for (const other of others) this.graph.edges.bundle.connect(this.key, other);
     return this;
+  }
+
+  addPls(others: NPlang["key"][]): this {
+    for (const other of others) this.graph.edges.plBundle.connect(other, this.key);
+    return this;
+  }
+
+  get relTools(): MapTap<NTool["key"], EBundle> {
+    return new MapTap(this.graph.edges.bundle.adjFrom.getMap(this.key));
+  }
+
+  get relPls(): MapTap<NPlang["key"], EPlBundle> {
+    return new MapTap(this.graph.edges.plBundle.adjTo.getMap(this.key));
   }
 }
 
@@ -418,27 +441,28 @@ export abstract class EBase<T_From extends NBase<Any, Any>, T_To extends NBase<A
   }
 }
 
-export class EApp extends EBase<NApp, NPlang, CommonEdgeData> {
+export class EApp extends EBase<NPlang, NApp, CommonEdgeData> {
   override kind: E = "bundle";
 
-  get app(): NApp | undefined {
-    return this.graph.nodes.app.get(this.from);
+  get pl(): NPlang | undefined {
+    return this.graph.nodes.pl.get(this.from);
   }
 
-  get pl(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.to);
+  get app(): NApp | undefined {
+    return this.graph.nodes.app.get(this.to);
   }
 }
 
-export class EBundle extends EBase<NTool, NBundle, CommonEdgeData> {
+/** Edge from a tool to a bundle. */
+export class EBundle extends EBase<NBundle, NTool, CommonEdgeData> {
   override kind: E = "bundle";
 
-  get tool(): NTool | undefined {
-    return this.graph.nodes.tool.get(this.from);
+  get bundle(): NBundle | undefined {
+    return this.graph.nodes.bundle.get(this.from);
   }
 
-  get bundle(): NBundle | undefined {
-    return this.graph.nodes.bundle.get(this.to);
+  get tool(): NTool | undefined {
+    return this.graph.nodes.tool.get(this.to);
   }
 }
 
@@ -511,6 +535,19 @@ export class ETsys extends EBase<NPlang, NTsys, CommonEdgeData> {
 
   get tsys(): NTsys | undefined {
     return this.graph.nodes.tsys.get(this.to);
+  }
+}
+
+/** Edge from a PLang to a Bundle. */
+export class EPlBundle extends EBase<NPlang, NBundle, CommonEdgeData> {
+  override kind: E = "plBundle";
+
+  get pl(): NPlang | undefined {
+    return this.graph.nodes.pl.get(this.from);
+  }
+
+  get bundle(): NBundle | undefined {
+    return this.graph.nodes.bundle.get(this.to);
   }
 }
 

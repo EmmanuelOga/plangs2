@@ -54,7 +54,7 @@ export function PlangInfo({ plangKey: key, graph, description }: PlangInfoProps)
   } else {
     content = (
       <>
-        <h2>{pl.data.name ?? key}</h2>
+        {description && <h2>{pl.name ?? key}</h2>}
         <dl>
           {description && <Entry title="Description">{pl.description}</Entry>}
 

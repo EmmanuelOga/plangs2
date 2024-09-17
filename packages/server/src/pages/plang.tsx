@@ -1,10 +1,12 @@
-import type { Link, NPlang } from "@plangs/plangs";
+import { Fragment } from "preact";
+import { useContext } from "preact/hooks";
 
 import { PlangInfo } from "@plangs/frontend/plang-info/plang-info";
-import { domId } from "./dom";
-import { useContext } from "preact/hooks";
+import type { NPlang } from "@plangs/plangs";
+
 import { PlangsContext } from "../context";
 import { toAnchor } from "../util";
+import { domId } from "./dom";
 
 type LangProps = {
   pl: NPlang;
@@ -15,7 +17,31 @@ export function Lang({ pl }: LangProps) {
   if (!pg) throw new Error("PlangsGraph should be in the context already.");
 
   return (
-    <>
+    <Fragment>
+      <style>
+        {`
+          h1 {
+            font-size: 2.5rem;
+          }
+          h1, h2 {
+            color: yellowgreen;
+            font-weight: bolder;
+          }
+          h2 {
+            margin-top: 2.5rem;
+          }
+
+          table {
+            width: 100%;
+            border-collapse: collapse;
+          }
+          th, td {
+            border: 1px solid gray;
+            padding: .5rem 1rem;
+          }
+        `}
+      </style>
+
       <article id="lang-page" class="common-content">
         <h1>{pl.name}</h1>
 
@@ -26,69 +52,135 @@ export function Lang({ pl }: LangProps) {
         <p>{pl.description}</p>
 
         {pl.relPosts.tap((posts) => (
-          <>
+          <Fragment>
             <h2>News</h2>
-            {posts.values.map(({ post }) => post?.link && <p key={post.key}>{toAnchor(post.link)}</p>)}
-          </>
+            {posts.values.map(
+              ({ post }) =>
+                post?.link && (
+                  <p key={post.key}>
+                    {post.date} {toAnchor(post.link)}
+                  </p>
+                ),
+            )}
+          </Fragment>
         ))}
 
-        <h2>Tooling</h2>
+        {pl.relApps.tap((apps) => (
+          <Fragment>
+            <h2>Applications</h2>
+            <p>Example open source applications created with {pl.name}.</p>
 
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Tags</th>
-              <th>Description</th>
-              <th>Link</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>BuildMaster</td>
-              <td>build</td>
-              <td>Description</td>
-              <td>Periquin.com</td>
-            </tr>
-          </tbody>
-        </table>
+            <table>
+              <thead>
+                <tr>
+                  <th>App</th>
+                  <th>Keywords</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                {apps.values.map(
+                  ({ app }) =>
+                    app && (
+                      <tr key={app.key}>
+                        <td>{app.websites.map((link) => toAnchor(link))}</td>
+                        <td>{app.keywords.join(", ")}</td>
+                        <td>{app.description}</td>
+                      </tr>
+                    ),
+                )}
+              </tbody>
+            </table>
+          </Fragment>
+        ))}
 
-        <h2>Tool Bundles</h2>
-        <p>A "bundle" is a set of tools that work well together. Here are some recommended ones.</p>
-        <dl>
-          <dt>Bundle 1</dt>
-          <dd>
-            <p>Description of the bundle.</p>
-            <ul>
-              <li>Tool 1</li>
-              <li>Tool 2</li>
-              <li>Tool 3</li>
-            </ul>
-          </dd>
-        </dl>
+        {pl.relLibs.tap((libraries) => (
+          <Fragment>
+            <h2>Libraries</h2>
+            <p>Example open source libraries that can be used with {pl.name}.</p>
 
-        <h2>{pl.name} Libraries</h2>
-        <dl>
-          <dt>Library 1</dt>
-          <dd>
-            <p>
-              Description of the Library.
-              <a href=".">Link</a>
-            </p>
-          </dd>
-        </dl>
+            <table>
+              <thead>
+                <tr>
+                  <th>Lib</th>
+                  <th>Keywords</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                {libraries.values.map(
+                  ({ lib }) =>
+                    lib && (
+                      <tr key={lib.key}>
+                        <td>{lib.websites.map((link) => toAnchor(link))}</td>
+                        <td>{lib.keywords.join(", ")}</td>
+                        <td>{lib.description}</td>
+                      </tr>
+                    ),
+                )}
+              </tbody>
+            </table>
+          </Fragment>
+        ))}
 
-        <h2>Built with {pl.name}</h2>
-        <p>Example applications built with {pl.name}.</p>
-        <dl>
-          <dt>Application 1</dt>
-          <dd>
-            <p>
-              Description of the app.
-              <a href=".">Link</a>
-            </p>
-          </dd>
-        </dl>
+        {pl.relTools.tap((tools) => (
+          <Fragment>
+            <h2>Tooling</h2>
+            <p>Additional tooling available for {pl.name}.</p>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Tool</th>
+                  <th>Keywords</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                {tools.values.map(
+                  ({ tool }) =>
+                    tool && (
+                      <tr key={tool.key}>
+                        <td>{tool.websites.map((link) => toAnchor(link))}</td>
+                        <td>{tool.keywords.join(", ")}</td>
+                        <td>{tool.description}</td>
+                      </tr>
+                    ),
+                )}
+              </tbody>
+            </table>
+
+            {pl.relPlBundles.tap((plBundles) =>
+              plBundles.values.tap((bundles) => (
+                <Fragment>
+                  <h2>Tool Bundles</h2>
+                  <p>A "bundle" is a set of tools that work well together.</p>
+
+                  {bundles.map(
+                    ({ bundle }) =>
+                      bundle && (
+                        <Fragment>
+                          <p key={bundle.key} style="margin-bottom: 1rem">
+                            {bundle.relTools.values.map(
+                              ({ tool }) =>
+                                tool && (
+                                  <div
+                                    key={tool.key}
+                                    style="border: 2px solid green; background-color: #141; padding: .5rem 1rem; margin-right: .5rem; display: inline-block;">
+                                    {tool.name}
+                                  </div>
+                                ),
+                            )}
+                          </p>
+                          <p>{bundle.description}</p>
+                        </Fragment>
+                      ),
+                  )}
+                </Fragment>
+              )),
+            )}
+          </Fragment>
+        ))}
       </article>
 
       <nav id={domId("side")}>
@@ -96,6 +188,6 @@ export function Lang({ pl }: LangProps) {
           <PlangInfo graph={pg} plangKey={pl.key} description={false} />
         </div>
       </nav>
-    </>
+    </Fragment>
   );
 }
