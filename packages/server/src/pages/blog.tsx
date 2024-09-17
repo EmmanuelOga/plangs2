@@ -10,8 +10,8 @@ export function Blog() {
   const pg = useContext(PlangsContext);
   if (!pg) throw new Error("PlangsGraph should be in the context already.");
 
-  const postLinks = pg.nodes.post.values.tap((posts) => {
-    return posts.map((post) => {
+  const postLinks = pg.nodes.post.values.tap(posts => {
+    return posts.map(post => {
       return (
         post.link && (
           <h2 key={post.key}>

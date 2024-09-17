@@ -26,8 +26,8 @@ export type ID = `elem-${ELEM}`;
 export type CLASS = `elems-${ELEMS}`;
 export type INPUT_ID = `input-${INPUT}`;
 
-export const domId: (key: ELEM) => ID = (key) => `elem-${key}`;
-export const domInputId: (key: INPUT) => INPUT_ID = (key) => `input-${key}`;
+export const domId: (key: ELEM) => ID = key => `elem-${key}`;
+export const domInputId: (key: INPUT) => INPUT_ID = key => `input-${key}`;
 export const domClass: (key: ELEMS, others?: string) => `${CLASS} ${string}` = (key, others) => `elems-${key} ${others ?? ""}`;
 
 export function elem<T extends ELEM>(key: T): HTMLElement {

@@ -3,6 +3,17 @@
   "organizeImports": {
     "enabled": true
   },
+  "css": {
+    "formatter": {
+      "enabled": true
+    },
+    "linter": {
+      "enabled": true
+    },
+    "parser": {
+      "cssModules": true
+    }
+  },
   "linter": {
     "enabled": true,
     "rules": {
@@ -13,10 +24,14 @@
       "suspicious": {
         "noAssignInExpressions": "off",
         "noExplicitAny": "info"
+      },
+      "nursery": {
+        "useSortedClasses": "error"
       }
     }
   },
   "formatter": {
+    "formatWithErrors": true,
     "enabled": true,
     "indentWidth": 2,
     "indentStyle": "space",
@@ -24,6 +39,7 @@
   },
   "javascript": {
     "formatter": {
+      "arrowParentheses": "asNeeded",
       "bracketSameLine": true
     }
   }

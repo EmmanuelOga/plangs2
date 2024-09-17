@@ -45,7 +45,7 @@ export class Cache {
   }
 
   async mkdir() {
-    return mkdir(this.cachePath, { recursive: true }).catch((_) => {});
+    return mkdir(this.cachePath, { recursive: true }).catch(_ => {});
   }
 
   async has(key: Key): Promise<boolean> {

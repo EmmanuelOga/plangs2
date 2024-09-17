@@ -73,7 +73,7 @@ export function InputSel({ name }: InputSelProps) {
           class="item remove-item"
           key={value}
           onClick={() => dispatch({ kind: "remove", value, by: "click" })}
-          onKeyDown={(ev) => {
+          onKeyDown={ev => {
             if (ev.key === "Enter") dispatch({ kind: "remove", value, by: "enterKey" });
           }}
           tabindex={0}>

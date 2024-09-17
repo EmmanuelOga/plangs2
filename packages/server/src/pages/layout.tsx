@@ -37,7 +37,7 @@ export function Layout({ pageId, children, plVid, plName }: LayoutProps) {
               <a href="/" class={pageId === "home" ? "current" : ""}>
                 <span>Browse</span>
               </a>
-              <a href={plVid ? `/pl/${plVid.split("+")[1]}` : "/"} class={`lang ${pageId === "lang" ? "current" : ""} ${plVid ? "" : "hide"}`}>
+              <a href={plVid ? `/pl/${plVid.split("+")[1]}` : "/"} class={`lang ${pageId === "lang" ? "current" : ""}${plVid ? "" : "hide"}`}>
                 <span>{plName ?? "Lang"}</span>
               </a>
               <a href="/blog" class={pageId === "blog" ? "current" : ""}>

@@ -7,14 +7,14 @@ import type { EdgeDisplayData, NodeDisplayData } from "sigma/types";
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function layout(graph: Graph) {
-  const degrees = graph.nodes().map((node) => graph.degree(node));
+  const degrees = graph.nodes().map(node => graph.degree(node));
   const minDegree = Math.min(...degrees);
   const maxDegree = Math.max(...degrees);
 
   const minSize = 5;
   const maxSize = 25;
 
-  graph.forEachNode((node) => {
+  graph.forEachNode(node => {
     const degree = graph.degree(node);
     graph.setNodeAttribute(node, "size", minSize + ((degree - minDegree) / (maxDegree - minDegree)) * (maxSize - minSize));
   });
@@ -55,9 +55,9 @@ function setupHover(graph: Graph, renderer: Sigma) {
     }
 
     // Compute the partial that we need to re-render to optimize the refresh
-    const nodes = graph.filterNodes((n) => n !== state.hoveredNode && !state.hoveredNeighbors?.has(n));
+    const nodes = graph.filterNodes(n => n !== state.hoveredNode && !state.hoveredNeighbors?.has(n));
     const nodesIndex = new Set(nodes);
-    const edges = graph.filterEdges((e) => graph.extremities(e).some((n) => nodesIndex.has(n)));
+    const edges = graph.filterEdges(e => graph.extremities(e).some(n => nodesIndex.has(n)));
 
     if (!node) {
       state.hoveredNode = undefined;

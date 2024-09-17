@@ -9,7 +9,7 @@ import { PL_WHITELIST } from "./whitelist";
 export const BASE_URL = new URL("https://en.wikipedia.org");
 
 export const START_URLS = ["/wiki/List_of_programming_languages", "/wiki/Category:C_programming_language_family"].map(
-  (path) => new URL(path, BASE_URL),
+  path => new URL(path, BASE_URL),
 );
 
 const PLR = /programming languages/i;
@@ -131,7 +131,7 @@ export class WikiPage {
 
   get categories(): string[] {
     return this.categoryLinks()
-      .map((link) => link.title.replaceAll("Category:", "").toLowerCase())
+      .map(link => link.title.replaceAll("Category:", "").toLowerCase())
       .sort();
   }
 
@@ -142,10 +142,10 @@ export class WikiPage {
     if (this.mainHeading.toLowerCase().includes("programming language")) return true;
 
     const categories = this.categories;
-    if (categories.find((cat) => /(stub|book|frameworks|libraries)s?$/.test(cat))) return false;
+    if (categories.find(cat => /(stub|book|frameworks|libraries)s?$/.test(cat))) return false;
 
     if (!this.infobox) return false;
-    return categories.find((cat) => PLR.test(cat)) !== undefined;
+    return categories.find(cat => PLR.test(cat)) !== undefined;
   }
 
   pageLinks(): { url: URL; title: string }[] {
@@ -203,11 +203,11 @@ class InfoBox {
     mergeLinks(res, this.influenced);
     mergeLinks(res, this.influencedBy);
     mergeLinks(res, this.writtenIn);
-    return res.filter((link) => new URL(link.href).hostname === BASE_URL.hostname);
+    return res.filter(link => new URL(link.href).hostname === BASE_URL.hostname);
   }
 
   nonWikiLinks(): Link[] {
-    return this.websites.filter((link) => new URL(link.href).hostname !== BASE_URL.hostname);
+    return this.websites.filter(link => new URL(link.href).hostname !== BASE_URL.hostname);
   }
 }
 
@@ -361,8 +361,8 @@ function parseExtensions(str: string): string[] {
   return str
     .replaceAll(/\([^)]+\)/g, "")
     .split(/\,|\s+/)
-    .map((s) => s.trim())
-    .filter((s) => s.length > 0 && s[0] === ".");
+    .map(s => s.trim())
+    .filter(s => s.length > 0 && s[0] === ".");
 }
 
 // Replace various types of non-standard whitespace characters with regular spaces

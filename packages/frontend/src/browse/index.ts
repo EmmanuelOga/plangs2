@@ -52,7 +52,7 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
       continue;
     }
     compl.completions = completions(source);
-    compl.onSelect((item) => inputSel.addItem(item));
+    compl.onSelect(item => inputSel.addItem(item));
     inputSel.onRemove(({ by, itemsLeft }) => {
       if (by === "enterKey" && itemsLeft === 0) compl.focus();
     });
@@ -148,7 +148,7 @@ registerInputSel();
         setTimeout(() => window.location.reload(), 500);
       }
     };
-    es.onerror = (err) => {
+    es.onerror = err => {
       // TODO: for some reason we started getting this error after switching to newer bun.js:
       // GET http://localhost:5000/sse net::ERR_INCOMPLETE_CHUNKED_ENCODING 200 (OK)
       // console.error("SSE connection error.", err);

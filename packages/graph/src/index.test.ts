@@ -27,9 +27,9 @@ class EPostTag extends Edge<G, NPost, NTag, NO_DATA> {
 
 class TestGraph extends BaseGraph<N, E, G> {
   nodes = {
-    person: new Nodes<G, NPerson>((key) => new NPerson(this, key)),
-    post: new Nodes<G, NPost>((key) => new NPost(this, key)),
-    tag: new Nodes<G, NTag>((key) => new NTag(this, key)),
+    person: new Nodes<G, NPerson>(key => new NPerson(this, key)),
+    post: new Nodes<G, NPost>(key => new NPost(this, key)),
+    tag: new Nodes<G, NTag>(key => new NTag(this, key)),
   };
 
   edges = {

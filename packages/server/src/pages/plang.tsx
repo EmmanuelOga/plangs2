@@ -45,13 +45,13 @@ export function Lang({ pl }: LangProps) {
       <article id="lang-page" class="common-content">
         <h1>{pl.name}</h1>
 
-        {pl.websites.tap((websites) => (
-          <p>{websites.map((link) => toAnchor(link))}</p>
+        {pl.websites.tap(websites => (
+          <p>{websites.map(link => toAnchor(link))}</p>
         ))}
 
         <p>{pl.description}</p>
 
-        {pl.relPosts.tap((posts) => (
+        {pl.relPosts.tap(posts => (
           <Fragment>
             <h2>News</h2>
             {posts.values.map(
@@ -65,7 +65,7 @@ export function Lang({ pl }: LangProps) {
           </Fragment>
         ))}
 
-        {pl.relApps.tap((apps) => (
+        {pl.relApps.tap(apps => (
           <Fragment>
             <h2>Applications</h2>
             <p>Example open source applications created with {pl.name}.</p>
@@ -83,7 +83,7 @@ export function Lang({ pl }: LangProps) {
                   ({ app }) =>
                     app && (
                       <tr key={app.key}>
-                        <td>{app.websites.map((link) => toAnchor(link))}</td>
+                        <td>{app.websites.map(link => toAnchor(link))}</td>
                         <td>{app.keywords.join(", ")}</td>
                         <td>{app.description}</td>
                       </tr>
@@ -94,7 +94,7 @@ export function Lang({ pl }: LangProps) {
           </Fragment>
         ))}
 
-        {pl.relLibs.tap((libraries) => (
+        {pl.relLibs.tap(libraries => (
           <Fragment>
             <h2>Libraries</h2>
             <p>Example open source libraries that can be used with {pl.name}.</p>
@@ -112,7 +112,7 @@ export function Lang({ pl }: LangProps) {
                   ({ lib }) =>
                     lib && (
                       <tr key={lib.key}>
-                        <td>{lib.websites.map((link) => toAnchor(link))}</td>
+                        <td>{lib.websites.map(link => toAnchor(link))}</td>
                         <td>{lib.keywords.join(", ")}</td>
                         <td>{lib.description}</td>
                       </tr>
@@ -123,7 +123,7 @@ export function Lang({ pl }: LangProps) {
           </Fragment>
         ))}
 
-        {pl.relTools.tap((tools) => (
+        {pl.relTools.tap(tools => (
           <Fragment>
             <h2>Tooling</h2>
             <p>Additional tooling available for {pl.name}.</p>
@@ -141,7 +141,7 @@ export function Lang({ pl }: LangProps) {
                   ({ tool }) =>
                     tool && (
                       <tr key={tool.key}>
-                        <td>{tool.websites.map((link) => toAnchor(link))}</td>
+                        <td>{tool.websites.map(link => toAnchor(link))}</td>
                         <td>{tool.keywords.join(", ")}</td>
                         <td>{tool.description}</td>
                       </tr>
@@ -150,8 +150,8 @@ export function Lang({ pl }: LangProps) {
               </tbody>
             </table>
 
-            {pl.relPlBundles.tap((plBundles) =>
-              plBundles.values.tap((bundles) => (
+            {pl.relPlBundles.tap(plBundles =>
+              plBundles.values.tap(bundles => (
                 <Fragment>
                   <h2>Tool Bundles</h2>
                   <p>A "bundle" is a set of tools that work well together.</p>

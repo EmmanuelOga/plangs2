@@ -60,7 +60,7 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
 
   function* findMatching<T>(links: Link[], nodeMap: PGNodeMap): Generator<T> {
     for (const link of links) {
-      for (const node of nodeMap.findAll((node) => !!node.keywordsRegexp?.test(link.title))) {
+      for (const node of nodeMap.findAll(node => !!node.keywordsRegexp?.test(link.title))) {
         yield node.key as T;
       }
     }
@@ -84,8 +84,8 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
 
   function mapToPlKeys(links: Link[]): NPlang["key"][] {
     return links
-      .map((link) => keyFromWikiURL(new URL(link.href)))
-      .filter((key) => {
+      .map(link => keyFromWikiURL(new URL(link.href)))
+      .filter(key => {
         if (!key) return false;
         if (plKeys.size === 0) return true;
         return plKeys.has(key);
@@ -140,7 +140,7 @@ export async function genAllPlangs(g: PlangsGraph) {
   for (const [key, plang] of [...g.nodes.pl].sort()) {
     const code = generateCode(plang);
 
-    await mkdir(join(DEFINTIONS_PATH, plang.keyPrefix), { recursive: true }).catch((_) => {});
+    await mkdir(join(DEFINTIONS_PATH, plang.keyPrefix), { recursive: true }).catch(_ => {});
 
     const name = plang.plainKey;
     const escaped = name.startsWith(".") ? `_${name.slice(1)}` : name;

@@ -29,17 +29,17 @@ export type G = PlangsGraph;
 
 export class PlangsGraph extends BaseGraph<N, E, G> {
   readonly nodes = {
-    app: new NodeMap<G, NApp>((key) => new NApp(this, key)),
-    post: new NodeMap<G, NPost>((key) => new NPost(this, key)),
-    bundle: new NodeMap<G, NBundle>((key) => new NBundle(this, key)),
-    lib: new NodeMap<G, NLibrary>((key) => new NLibrary(this, key)),
-    license: new NodeMap<G, NLicense>((key) => new NLicense(this, key)),
-    paradigm: new NodeMap<G, NParadigm>((key) => new NParadigm(this, key)),
-    pl: new NodeMap<G, NPlang>((key) => new NPlang(this, key)),
-    plat: new NodeMap<G, NPlatform>((key) => new NPlatform(this, key)),
-    tag: new NodeMap<G, NTag>((key) => new NTag(this, key)),
-    tool: new NodeMap<G, NTool>((key) => new NTool(this, key)),
-    tsys: new NodeMap<G, NTsys>((key) => new NTsys(this, key)),
+    app: new NodeMap<G, NApp>(key => new NApp(this, key)),
+    post: new NodeMap<G, NPost>(key => new NPost(this, key)),
+    bundle: new NodeMap<G, NBundle>(key => new NBundle(this, key)),
+    lib: new NodeMap<G, NLibrary>(key => new NLibrary(this, key)),
+    license: new NodeMap<G, NLicense>(key => new NLicense(this, key)),
+    paradigm: new NodeMap<G, NParadigm>(key => new NParadigm(this, key)),
+    pl: new NodeMap<G, NPlang>(key => new NPlang(this, key)),
+    plat: new NodeMap<G, NPlatform>(key => new NPlatform(this, key)),
+    tag: new NodeMap<G, NTag>(key => new NTag(this, key)),
+    tool: new NodeMap<G, NTool>(key => new NTool(this, key)),
+    tsys: new NodeMap<G, NTsys>(key => new NTsys(this, key)),
   };
 
   readonly edges = {
@@ -98,7 +98,7 @@ export abstract class NBase<Prefix extends N, Data extends CommonNodeData> exten
   get keywordsRegexp(): RegExp | undefined {
     const { keywords } = this.data;
     if (!keywords) return undefined;
-    const lenient = keywords.map((k) => k.replaceAll(/[- ]/g, "\\s*.?\\s*"));
+    const lenient = keywords.map(k => k.replaceAll(/[- ]/g, "\\s*.?\\s*"));
     return new RegExp(`\\b(${lenient.join("|")})\\b`, "i");
   }
 

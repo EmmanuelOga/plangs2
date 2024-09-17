@@ -58,32 +58,32 @@ export function PlangInfo({ plangKey: key, graph, description }: PlangInfoProps)
         <dl>
           {description !== false && <Entry title="Description">{pl.description}</Entry>}
 
-          {pl.relTsys.tap((rel) => (
+          {pl.relTsys.tap(rel => (
             <Entry title="Type Systems">{rel.values.map(({ tsys }) => tsys && Pill(tsys))}</Entry>
           ))}
-          {pl.relTags.tap((rel) => (
+          {pl.relTags.tap(rel => (
             <Entry title="Tags">{rel.values.map(({ tag }) => tag && Pill(tag))}</Entry>
           ))}
-          {pl.relPlatforms.tap((rel) => (
+          {pl.relPlatforms.tap(rel => (
             <Entry title="Platforms">{rel.values.map(({ plat }) => plat && Pill(plat))}</Entry>
           ))}
-          {pl.relInfluencedBy.tap((rel) => (
+          {pl.relInfluencedBy.tap(rel => (
             <Entry title="Influenced By">{rel.values.map(({ toPl }) => toPl && Pill(toPl))}</Entry>
           ))}
-          {pl.relInfluenced.tap((rel) => (
+          {pl.relInfluenced.tap(rel => (
             <Entry title="Influenced">{rel.values.map(({ fromPl }) => fromPl && Pill(fromPl))}</Entry>
           ))}
-          {pl.relDialectOf.tap((rel) => (
+          {pl.relDialectOf.tap(rel => (
             <Entry title="Dialect Of">{rel.values.map(({ toPl }) => toPl && Pill(toPl))}</Entry>
           ))}
-          {pl.relImplements.tap((rel) => (
+          {pl.relImplements.tap(rel => (
             <Entry title="Standard For">{rel.values.map(({ toPl }) => toPl && Pill(toPl))}</Entry>
           ))}
-          {pl.relLicenses.tap((rel) => (
+          {pl.relLicenses.tap(rel => (
             <Entry title="Licenses">{rel.values.map(({ license }) => license && Pill(license))}</Entry>
           ))}
-          {pl.extensions.tap((extensions) => (
-            <Entry title="Extensions">{extensions.map((name) => Pill({ key: name, name, kind: "ext" }))}</Entry>
+          {pl.extensions.tap(extensions => (
+            <Entry title="Extensions">{extensions.map(name => Pill({ key: name, name, kind: "ext" }))}</Entry>
           ))}
         </dl>
       </>
