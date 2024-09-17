@@ -8,9 +8,11 @@ import { type FSWatcher, watch } from "fs";
 
 import { html, packagesPath } from "./util";
 import { resolvePage } from "./page";
+import { loadBlogPosts } from "./blog";
 
 const pg = new PlangsGraph();
-loadAllDefinitions(pg);
+await loadAllDefinitions(pg);
+await loadBlogPosts(pg);
 
 const server = Bun.serve({
   async fetch(req) {

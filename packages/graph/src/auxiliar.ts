@@ -51,7 +51,7 @@ export class Map2<K1, K2, V> {
 /**
  * Wrapper to work with potentially empty or undefined iterables.
  */
-export class IterTap<T> {
+export class IterTap<T> implements Iterable<T> {
   readonly array: T[] | undefined;
 
   constructor(iterable: Iterable<T> | undefined) {
@@ -93,12 +93,16 @@ export class IterTap<T> {
   tap<R>(callback: (array: T[]) => R): R | undefined {
     if (this.array && this.array.length > 0) return callback(this.array);
   }
+
+  [Symbol.iterator](): Iterator<T> {
+    return this.array ? this.array[Symbol.iterator]() : [].values();
+  }
 }
 
 /**
  * Wrapper to work with potentially empty or undefined maps.
  */
-export class MapTap<K, V> {
+export class MapTap<K, V> implements Iterable<[K, V]> {
   constructor(private readonly map: Map<K, V> | undefined) {}
 
   get size(): number {
@@ -123,6 +127,10 @@ export class MapTap<K, V> {
 
   get entries(): IterTap<[K, V]> {
     return new IterTap(this.map?.entries());
+  }
+
+  [Symbol.iterator](): Iterator<[K, V]> {
+    return this.map ? this.map[Symbol.iterator]() : [].values();
   }
 }
 

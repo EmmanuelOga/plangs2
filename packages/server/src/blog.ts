@@ -1,9 +1,12 @@
 import { Glob } from "bun";
-
-import YAML from "yaml";
+import { basename } from "node:path";
 
 import { marked } from "marked";
-import { packagesPath } from "./util";
+import YAML from "yaml";
+
+import type { NPlang, PlangsGraph } from "@plangs/plangs/index";
+
+import { packagesPath, parseDate } from "./util";
 
 async function postPaths(): Promise<string[]> {
   const glob = new Glob("**/*.md");
@@ -14,32 +17,60 @@ async function postPaths(): Promise<string[]> {
   return postPaths.sort((a, b) => b.localeCompare(a));
 }
 
-export type BlogPost = {
-  path: string;
-  date: string;
-  title: string;
-  html: string;
-};
+// biome-ignore lint/suspicious/noExplicitAny: we don't know what the header will look like.
+async function loadBlogPost(path: string): Promise<{ header: any; html: string }> {
+  const src = await Bun.file(packagesPath("server/posts", path)).text();
 
-export async function blogPosts(): Promise<BlogPost[]> {
-  const posts = [];
+  const match = src.match(/^(.*?)\n---\n(.*)$/s);
+  if (!match) throw new Error(`Post ${path} is missing a YAML header.`);
+  const [_, yaml, md] = match;
+
+  const header = YAML.parse(yaml);
+  // biome-ignore lint/suspicious/noMisleadingCharacterClass: remove zero width characters
+  const html = await marked.parse(md.replace(/^[\u200B\u200C\u200D\u200E\u200F\uFEFF]/, ""));
+
+  return { header, html };
+}
+
+/**
+ * Scan the blog posts folder and create NPost entries.
+ */
+export async function loadBlogPosts(pg: PlangsGraph) {
+  const errors = [];
 
   for (const path of await postPaths()) {
-    const src = await Bun.file(packagesPath("server/posts", path)).text();
-    const [_, yaml, md] = src.toString().split("---");
+    const { header } = await loadBlogPost(path);
+    const { title, author, pls } = header;
+    const date = parseDate(basename(path));
 
-    const header = YAML.parse(yaml);
-
-    if (!header.title) {
-      throw new Error(`Post ${path} is missing a title.`);
+    if (date === undefined) {
+      errors.push(`Invalid date in post ${path}`);
+      continue;
     }
 
-    // Remove the most common zerowidth characters from the start of the file.
-    // biome-ignore lint/suspicious/noMisleadingCharacterClass: it is ok.
-    const html = marked.parse(md.replace(/^[\u200B\u200C\u200D\u200E\u200F\uFEFF]/, ""));
+    if (date && typeof title === "string" && typeof author === "string" && (pls === undefined || Array.isArray(pls))) {
+      const post = pg.nodes.post.set(`post+${basename(path).replace(/\.md$/, "")}`, { path, title, author, date });
 
-    posts.push({ ...header, path, html });
+      post.link = { href: `/blog/${post.plainKey}`, title, kind: "plangsPost" };
+
+      for (const plKey of pls ?? []) {
+        const pl = pg.nodes.pl.get(plKey as NPlang["key"]);
+        if (!pl) {
+          errors.push(`Post ${path} references unknown PL ${plKey}`);
+          continue;
+        }
+        pl.addPosts([post.key]);
+      }
+
+      continue;
+    }
+
+    errors.push(`Invalid header for post ${path}: ${JSON.stringify(header)}`);
   }
 
-  return posts;
+  if (errors.length) throw new Error(errors.join("\n"));
 }
+
+// const pg = new PlangsGraph();
+// await loadAllDefinitions(pg);
+// await loadBlogPosts(pg);

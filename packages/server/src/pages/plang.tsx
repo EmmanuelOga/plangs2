@@ -3,7 +3,7 @@ import type { Link, NPlang } from "@plangs/plangs";
 import { PlangInfo } from "@plangs/frontend/plang-info/plang-info";
 import { domId } from "./dom";
 import { useContext } from "preact/hooks";
-import { PlangsData } from "../context";
+import { PlangsContext } from "../context";
 import { toAnchor } from "../util";
 
 type LangProps = {
@@ -11,7 +11,7 @@ type LangProps = {
 };
 
 export function Lang({ pl }: LangProps) {
-  const pg = useContext(PlangsData);
+  const pg = useContext(PlangsContext);
   if (!pg) throw new Error("PlangsGraph should be in the context already.");
 
   return (
@@ -25,12 +25,10 @@ export function Lang({ pl }: LangProps) {
 
         <p>{pl.description}</p>
 
-        {pl.websites.tap((websites) => (
+        {pl.relPosts.tap((posts) => (
           <>
             <h2>News</h2>
-            {websites.map((link) => (
-              <p key={link.href}>{toAnchor(link)}</p>
-            ))}
+            {posts.values.map(({ post }) => post?.link && <p key={post.key}>{toAnchor(post.link)}</p>)}
           </>
         ))}
 

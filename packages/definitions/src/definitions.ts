@@ -1,6 +1,6 @@
 import { Glob } from "bun";
 
-import type { PlangsGraph } from "@plangs/plangs";
+import { PlangsGraph } from "@plangs/plangs";
 
 /** Imports all definitions and calls the `define` methods */
 export async function loadAllDefinitions(g: PlangsGraph) {
@@ -12,4 +12,11 @@ export async function loadAllDefinitions(g: PlangsGraph) {
     }
   }
   console.info(new Date().toISOString(), `Plangs: loaded ${g.nodeCount} nodes, ${g.edgeCount} edges.`);
+}
+
+/** Load all definitions and serialize them to the given path. */
+export async function serialize(path: string) {
+  const g = new PlangsGraph();
+  await loadAllDefinitions(g);
+  Bun.write(path, JSON.stringify(g));
 }

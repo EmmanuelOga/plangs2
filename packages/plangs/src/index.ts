@@ -3,7 +3,7 @@ import { IterTap, MapTap, arrayMerge } from "@plangs/graph/auxiliar";
 
 import type { PlangFilters } from "./filter";
 
-export const NODE_NAMES = ["app", "blog", "bundle", "lib", "license", "paradigm", "pl", "plat", "tag", "tool", "tsys"] as const;
+export const NODE_NAMES = ["app", "bundle", "lib", "license", "paradigm", "pl", "plat", "post", "tag", "tool", "tsys"] as const;
 export const EDGE_NAMES = [
   "bundle",
   "dialect",
@@ -13,6 +13,7 @@ export const EDGE_NAMES = [
   "license",
   "paradigm",
   "plat",
+  "post",
   "tag",
   "tool",
   "tsys",
@@ -28,7 +29,7 @@ export type G = PlangsGraph;
 export class PlangsGraph extends BaseGraph<N, E, G> {
   readonly nodes = {
     app: new NodeMap<G, NApp>((key) => new NApp(this, key)),
-    blog: new NodeMap<G, NBlogPost>((key) => new NBlogPost(this, key)),
+    post: new NodeMap<G, NPost>((key) => new NPost(this, key)),
     bundle: new NodeMap<G, NBundle>((key) => new NBundle(this, key)),
     lib: new NodeMap<G, NLibrary>((key) => new NLibrary(this, key)),
     license: new NodeMap<G, NLicense>((key) => new NLicense(this, key)),
@@ -50,6 +51,7 @@ export class PlangsGraph extends BaseGraph<N, E, G> {
     license: new EdgeMap<G, ELicense>((from, to) => new ELicense(this, from, to)),
     paradigm: new EdgeMap<G, EParadigm>((from, to) => new EParadigm(this, from, to)),
     plat: new EdgeMap<G, EPlat>((from, to) => new EPlat(this, from, to)),
+    post: new EdgeMap<G, EPost>((from, to) => new EPost(this, from, to)),
     tag: new EdgeMap<G, ETag>((from, to) => new ETag(this, from, to)),
     tool: new EdgeMap<G, ETool>((from, to) => new ETool(this, from, to)),
     tsys: new EdgeMap<G, ETsys>((from, to) => new ETsys(this, from, to)),
@@ -59,7 +61,7 @@ export class PlangsGraph extends BaseGraph<N, E, G> {
   /** Find all plangs that match the given filters. */
   plangs(f: PlangFilters): Set<NPlang["key"]> {
     const keys = new Set<NPlang["key"]>();
-    for (const pl of this.nodes.pl.values()) {
+    for (const pl of this.nodes.pl.values) {
       if (f.matchesAll(pl)) keys.add(pl.key);
     }
     return keys;
@@ -196,6 +198,11 @@ export class NPlang extends NBase<
     return this;
   }
 
+  addPosts(others: NPost["key"][]): this {
+    for (const other of others) this.graph.edges.post.connect(this.key, other);
+    return this;
+  }
+
   addTags(others: NTag["key"][]): this {
     for (const other of others) this.graph.edges.tag.connect(this.key, other);
     return this;
@@ -262,6 +269,10 @@ export class NPlang extends NBase<
 
   get relWrittenIn(): MapTap<NPlang["key"], EWrittenIn> {
     return new MapTap(this.graph.edges.writtenIn.adjFrom.getMap(this.key));
+  }
+
+  get relPosts(): MapTap<NPost["key"], EPost> {
+    return new MapTap(this.graph.edges.post.adjFrom.getMap(this.key));
   }
 }
 
@@ -354,9 +365,33 @@ export class NBundle extends NBase<"bundle", CommonNodeData> {
   }
 }
 
-/** A blog post entry. */
-export class NBlogPost extends NBase<"blog", CommonNodeData> {
-  override kind: N = "blog";
+/**
+ * A blog post entry.
+ * Repurposes the `websites` field to point to plangs blog posts.
+ * The blog posts are scanned at build time and added to the graph.
+ */
+export class NPost extends NBase<"post", CommonNodeData & { path: string; title: string; author: string; date: StrDate }> {
+  override kind: N = "post";
+
+  get path(): string | undefined {
+    return this.data.path;
+  }
+
+  get title(): string | undefined {
+    return this.data.title;
+  }
+
+  get date(): StrDate | undefined {
+    return this.data.date;
+  }
+
+  set link(link: Link) {
+    this.data.websites = [link];
+  }
+
+  get link(): Link | undefined {
+    return this.websites.first;
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -491,6 +526,18 @@ export class EPlat extends EBase<NPlang, NPlatform, CommonEdgeData> {
   }
 }
 
+export class EPost extends EBase<NPlang, NPost, CommonEdgeData> {
+  override kind: E = "post";
+
+  get pl(): NPlang | undefined {
+    return this.graph.nodes.pl.get(this.from);
+  }
+
+  get post(): NPost | undefined {
+    return this.graph.nodes.post.get(this.to);
+  }
+}
+
 export class ELib extends EBase<NPlang, NLibrary, CommonEdgeData> {
   override kind: E = "lib";
 
@@ -556,7 +603,7 @@ export interface Release {
  * A reference to a web page.
  */
 export interface Link {
-  kind?: "homepage" | "repository" | "releases" | "apidocs" | "wikipedia" | "other";
+  kind?: "homepage" | "repository" | "releases" | "apidocs" | "wikipedia" | "plangsPost" | "other";
   href: string;
   title: string;
 }

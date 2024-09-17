@@ -2,7 +2,7 @@
  * Simple single-edge directed graph data structure.
  */
 
-import { Map2 } from "./auxiliar";
+import { IterTap, Map2 } from "./auxiliar";
 
 // biome-ignore lint/suspicious/noExplicitAny: we use any for the generic types... sory biome.
 type Any = any;
@@ -95,8 +95,8 @@ export class NodeMap<T_Graph, T_Node extends Node<T_Graph, Any, Any>> implements
     return !!this.#map[key];
   }
 
-  values(): IterableIterator<T_Node> {
-    return this.#map.values();
+  get values(): IterTap<T_Node> {
+    return new IterTap(this.#map.values());
   }
 
   *findAll(predicate: (node: T_Node) => boolean): Generator<T_Node> {

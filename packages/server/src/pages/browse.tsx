@@ -4,10 +4,10 @@ import { useContext } from "preact/hooks";
 import type { N, NPlang } from "@plangs/plangs";
 
 import { domClass, domId, domInputId, type INPUT, type INPUT_ID } from "./dom";
-import { PlangsData } from "../context";
+import { PlangsContext } from "../context";
 
 export function Browse() {
-  const pg = useContext(PlangsData);
+  const pg = useContext(PlangsContext);
   if (!pg) throw new Error("PlangsGraph should be in the context already.");
 
   return (
@@ -147,7 +147,7 @@ function input(key: INPUT) {
 }
 
 function PlangLogo({ pl }: { pl: NPlang }) {
-  const logo = pl.images.find(({ kind }) => kind === "logo") ?? pl.images.first
+  const logo = pl.images.find(({ kind }) => kind === "logo") ?? pl.images.first;
   const content = logo ? <img class="logo" src={logo.url} alt="Logo" /> : <div class="placeholder">{pl.name ?? "No Logo"}</div>;
   return <div class="logo">{content}</div>;
 }

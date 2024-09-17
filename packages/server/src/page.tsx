@@ -2,13 +2,12 @@ import type { ComponentChildren, VNode } from "preact";
 
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
-import { PlangsData } from "./context";
+import { PlangsContext } from "./context";
 import { Layout, type LayoutProps } from "./pages/layout";
 import { Browse } from "./pages/browse";
 import { About } from "./pages/about";
 import { Blog } from "./pages/blog";
 import { Lang } from "./pages/plang";
-import { blogPosts } from "./blog";
 
 type PageProps = {
   pg: PlangsGraph;
@@ -20,11 +19,11 @@ type PageProps = {
 
 export function Page({ pageId, pg, children, plName, plNid: plVid }: PageProps) {
   return (
-    <PlangsData.Provider value={pg}>
+    <PlangsContext.Provider value={pg}>
       <Layout pageId={pageId} plName={plName} plVid={plVid}>
         {children}
       </Layout>
-    </PlangsData.Provider>
+    </PlangsContext.Provider>
   );
 }
 
@@ -42,7 +41,7 @@ export async function resolvePage(path: string, pg: PlangsGraph): Promise<VNode 
     content = <About />;
   } else if (path === "/blog") {
     pageId = "blog";
-    content = <Blog posts={await blogPosts()} />;
+    content = <Blog />;
   } else if (path.startsWith("/pl/") && path.length < 64) {
     const nid: NPlang["key"] = `pl+${path.slice(4)}`;
     const pl = pg.nodes.pl.get(nid);
