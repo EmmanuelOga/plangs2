@@ -3,8 +3,8 @@ import { useContext } from "preact/hooks";
 
 import type { N, NPlang } from "@plangs/plangs";
 
-import { domClass, domId, domInputId, type INPUT, type INPUT_ID } from "./dom";
 import { PlangsContext } from "../context";
+import { type INPUT, type INPUT_ID, domClass, domId, domInputId } from "./dom";
 
 export function Browse() {
   const pg = useContext(PlangsContext);

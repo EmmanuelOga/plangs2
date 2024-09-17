@@ -1,4 +1,4 @@
-import { expect, test, beforeAll } from "bun:test";
+import { beforeAll, expect, test } from "bun:test";
 
 import { Cache, Key } from "./cache";
 

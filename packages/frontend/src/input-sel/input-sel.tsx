@@ -4,7 +4,7 @@ import { useEffect, useReducer, useRef } from "preact/hooks";
 import { type Item, type ItemRemoved, reducer } from "./reducer";
 
 import "./input-sel.css";
-import { on, send, customEvent } from "../utils";
+import { customEvent, on, send } from "../utils";
 
 export const TAG_NAME = "input-sel";
 

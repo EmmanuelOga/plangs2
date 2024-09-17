@@ -6,8 +6,8 @@ import register from "preact-custom-element";
 
 import type { PlangsGraph } from "@plangs/plangs";
 
-import { EVENTS, PlangInfo, TAG_NAME, type PlangInfoProps } from "./plang-info";
 import { send } from "../utils";
+import { EVENTS, PlangInfo, type PlangInfoProps, TAG_NAME } from "./plang-info";
 
 /** Additional methods for the custom element. */
 const ELEMENT_API = {

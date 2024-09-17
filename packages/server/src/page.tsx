@@ -2,13 +2,13 @@ import type { ComponentChildren, VNode } from "preact";
 
 import type { NPlang, NPost, PlangsGraph } from "@plangs/plangs";
 
+import { loadBlogPost } from "./blog";
 import { PlangsContext } from "./context";
-import { Layout, type LayoutProps } from "./pages/layout";
-import { Browse } from "./pages/browse";
 import { About } from "./pages/about";
 import { Blog, BlogPost } from "./pages/blog";
+import { Browse } from "./pages/browse";
+import { Layout, type LayoutProps } from "./pages/layout";
 import { Lang } from "./pages/plang";
-import { loadBlogPost } from "./blog";
 
 type PageProps = {
   pg: PlangsGraph;

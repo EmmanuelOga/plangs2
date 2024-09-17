@@ -1,14 +1,15 @@
-import { join, extname } from "node:path";
+// @ts-ignore
+import { extname, join } from "node:path";
 
-import { PlangsGraph } from "@plangs/plangs";
 import { loadAllDefinitions } from "@plangs/definitions";
+import { PlangsGraph } from "@plangs/plangs";
 
 // biome-ignore lint/style/useNodejsImportProtocol: not needed with Bun.
 import { type FSWatcher, watch } from "fs";
 
-import { html, packagesPath } from "./util";
-import { resolvePage } from "./page";
 import { loadBlogPosts } from "./blog";
+import { resolvePage } from "./page";
+import { html, packagesPath } from "./util";
 
 const pg = new PlangsGraph();
 await loadAllDefinitions(pg);

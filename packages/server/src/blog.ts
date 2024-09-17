@@ -1,5 +1,5 @@
-import { Glob } from "bun";
 import { basename } from "node:path";
+import { Glob } from "bun";
 
 import { marked } from "marked";
 import YAML from "yaml";

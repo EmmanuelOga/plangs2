@@ -3,8 +3,8 @@ import { PlangsGraph } from "@plangs/plangs";
 
 import { Cache, Key } from "./cache";
 import { Fetcher } from "./fetcher";
-import { PL_WHITELIST } from "./whitelist";
 import { genAllPlangs, toPlang } from "./generate";
+import { PL_WHITELIST } from "./whitelist";
 import { START_URLS, WikiPage } from "./wikipedia";
 
 /**
