@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
     })
     .addLicenses(["license+bsd"])
     .addTags([
-      "tag+app",
       "tag+audio-dev",
       "tag+dataflow",
       "tag+dsp",

@@ -13,16 +13,5 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "Cg/HLSL", url: "/images/plangs/c/cg/other.png" }],
     })
     .addInfluencedBy(["pl+c"])
-    .addTags([
-      "tag+3dg",
-      "tag+app",
-      "tag+asm",
-      "tag+compiler",
-      "tag+editor",
-      "tag+games",
-      "tag+if",
-      "tag+industrial",
-      "tag+interpreter",
-      "tag+ray-tracer",
-    ]);
+    .addTags(["tag+3dg", "tag+asm", "tag+compiler", "tag+editor", "tag+games", "tag+industrial", "tag+interpreter", "tag+ray-tracer"]);
 }

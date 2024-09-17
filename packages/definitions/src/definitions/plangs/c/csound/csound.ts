@@ -14,6 +14,6 @@ export function define(g: PlangsGraph) {
     })
     .addLicenses(["license+lgpl"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+app", "tag+audio-dev", "tag+industrial", "tag+interpreter", "tag+midi", "tag+testing"])
+    .addTags(["tag+audio-dev", "tag+industrial", "tag+interpreter", "tag+midi", "tag+testing"])
     .addWrittenIn(["pl+c"]);
 }

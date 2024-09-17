@@ -15,5 +15,5 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+scratch"])
     .addPlatforms(["plat+android", "plat+apple"])
-    .addTags(["tag+app", "tag+editor", "tag+interpreter", "tag+modeling", "tag+wavelet"]);
+    .addTags(["tag+editor", "tag+interpreter", "tag+modeling", "tag+wavelet"]);
 }

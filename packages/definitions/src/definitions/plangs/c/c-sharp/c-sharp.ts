@@ -49,9 +49,9 @@ export function define(g: PlangsGraph) {
       "tag+editor",
       "tag+framework",
       "tag+games",
-      "tag+if",
       "tag+interpreter",
       "tag+scripting",
+      "tag+shell",
       "tag+ui",
       "tag+viz",
     ])

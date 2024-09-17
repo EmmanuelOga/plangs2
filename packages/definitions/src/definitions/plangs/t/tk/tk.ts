@@ -15,6 +15,6 @@ export function define(g: PlangsGraph) {
     })
     .addLicenses(["license+bsd"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+3dg", "tag+app", "tag+framework", "tag+if", "tag+interpreter", "tag+scripting", "tag+ui"])
+    .addTags(["tag+3dg", "tag+app", "tag+framework", "tag+interpreter", "tag+scripting", "tag+shell", "tag+ui"])
     .addWrittenIn(["pl+c"]);
 }

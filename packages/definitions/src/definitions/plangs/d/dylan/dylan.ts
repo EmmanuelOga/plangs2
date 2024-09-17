@@ -17,5 +17,5 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+algol", "pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme"])
     .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+cross", "plat+x86-64"])
-    .addTags(["tag+app", "tag+compiler", "tag+if", "tag+industrial", "tag+interpreter", "tag+testing"]);
+    .addTags(["tag+compiler", "tag+industrial", "tag+interpreter", "tag+testing"]);
 }

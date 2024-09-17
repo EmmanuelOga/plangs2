@@ -25,6 +25,7 @@ export function define(g: PlangsGraph) {
       "tag+low-code",
       "tag+ray-tracer",
       "tag+scripting",
+      "tag+shell",
       "tag+ui",
       "tag+viz",
     ])

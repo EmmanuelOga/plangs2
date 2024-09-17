@@ -26,11 +26,11 @@ export function define(g: PlangsGraph) {
       "tag+asm",
       "tag+dbms",
       "tag+framework",
-      "tag+if",
       "tag+industrial",
       "tag+interpreter",
       "tag+ray-tracer",
       "tag+scripting",
+      "tag+shell",
       "tag+viz",
     ])
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+weak"]);

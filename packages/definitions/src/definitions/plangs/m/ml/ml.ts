@@ -11,6 +11,6 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+lisp"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi"])
-    .addTags(["tag+app", "tag+compiler", "tag+genomics", "tag+interpreter", "tag+modeling", "tag+proofs", "tag+wavelet"])
+    .addTags(["tag+compiler", "tag+genomics", "tag+interpreter", "tag+modeling", "tag+proofs", "tag+wavelet"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 }

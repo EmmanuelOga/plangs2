@@ -17,6 +17,6 @@ export function define(g: PlangsGraph) {
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+algol", "pl+lisp"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+metaprogramming", "paradigm+multi"])
-    .addTags(["tag+analysis", "tag+app", "tag+compiler", "tag+if", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+testing"])
+    .addTags(["tag+analysis", "tag+compiler", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+testing"])
     .addTypeSystems(["tsys+dynamic", "tsys+latent", "tsys+strong"]);
 }

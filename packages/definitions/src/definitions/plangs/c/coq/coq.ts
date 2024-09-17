@@ -18,6 +18,6 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+ml", "pl+ocaml"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+app", "tag+interpreter", "tag+proofs"])
+    .addTags(["tag+interpreter", "tag+proofs"])
     .addWrittenIn(["pl+ocaml"]);
 }

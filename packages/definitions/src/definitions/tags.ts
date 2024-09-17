@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
 
   g.nodes.tag.set("tag+app", {
     name: "Application Software",
-    keywords: ["application", "app", "program"],
+    keywords: ["applications"],
     description: "Software designed to perform specific tasks for users.",
     websites: [wikipedia("https://en.wikipedia.org/wiki/Application_software", "Application Software")],
   });
@@ -203,7 +203,7 @@ export function define(g: PlangsGraph) {
 
   g.nodes.tag.set("tag+if", {
     name: "Interactive Fiction",
-    keywords: ["interactive fiction", "text-based games", "IF"],
+    keywords: ["interactive fiction", "text-based games"],
     description: "Software for creating and playing narrative-driven interactive stories.",
     websites: [wikipedia("https://en.wikipedia.org/wiki/Interactive_fiction", "Interactive Fiction")],
   });
@@ -312,6 +312,13 @@ export function define(g: PlangsGraph) {
     keywords: ["test automation", "software testing", "quality assurance", "testing"],
     description: "Tools that automatically execute tests on software to ensure quality and performance.",
     websites: [wikipedia("https://en.wikipedia.org/wiki/Test_automation", "Test Automation")],
+  });
+
+  g.nodes.tag.set("tag+shell", {
+    name: "Shell",
+    keywords: ["shell", "command-line interface", "CLI"],
+    description: "A command-line interface that interprets text commands to control the operating system.",
+    websites: [wikipedia("https://en.wikipedia.org/wiki/Shell_(computing)", "Shell")],
   });
 
   g.nodes.tag.set("tag+editor", {

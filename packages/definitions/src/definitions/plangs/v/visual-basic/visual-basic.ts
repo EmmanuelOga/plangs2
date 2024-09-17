@@ -34,11 +34,11 @@ export function define(g: PlangsGraph) {
       "tag+dbms",
       "tag+editor",
       "tag+framework",
-      "tag+if",
       "tag+industrial",
       "tag+interpreter",
       "tag+low-code",
       "tag+rad",
+      "tag+shell",
       "tag+testing",
       "tag+ui",
     ])

@@ -19,6 +19,6 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+oop"])
     .addPlatforms(["plat+java", "plat+nodejs"])
-    .addTags(["tag+app", "tag+interpreter"])
+    .addTags(["tag+interpreter"])
     .addTypeSystems(["tsys+safe", "tsys+static", "tsys+strong"]);
 }

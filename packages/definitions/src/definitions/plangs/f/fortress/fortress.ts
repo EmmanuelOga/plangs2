@@ -16,6 +16,6 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+fortran", "pl+haskell", "pl+scala"])
     .addLicenses(["license+bsd"])
     .addPlatforms(["plat+cross", "plat+java"])
-    .addTags(["tag+app", "tag+compiler", "tag+interpreter", "tag+modeling", "tag+wavelet"])
+    .addTags(["tag+compiler", "tag+interpreter", "tag+modeling", "tag+wavelet"])
     .addTypeSystems(["tsys+static"]);
 }

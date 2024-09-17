@@ -11,6 +11,6 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "ALGOL", url: "/images/plangs/a/algol/other.jpg" }],
     })
     .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+structured"])
-    .addTags(["tag+app", "tag+compiler", "tag+editor", "tag+if", "tag+interpreter"])
+    .addTags(["tag+app", "tag+compiler", "tag+editor", "tag+interpreter"])
     .addTypeSystems(["tsys+static", "tsys+strong"]);
 }

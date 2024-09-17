@@ -15,6 +15,6 @@ export function define(g: PlangsGraph) {
     })
     .addLicenses(["license+mit"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
-    .addTags(["tag+app", "tag+edu", "tag+interpreter", "tag+ui"])
+    .addTags(["tag+edu", "tag+interpreter", "tag+ui"])
     .addWrittenIn(["pl+ruby"]);
 }

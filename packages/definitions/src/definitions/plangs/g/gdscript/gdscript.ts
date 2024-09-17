@@ -18,7 +18,6 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
     .addTags([
       "tag+3dg",
-      "tag+app",
       "tag+audio-dev",
       "tag+dbms",
       "tag+editor",

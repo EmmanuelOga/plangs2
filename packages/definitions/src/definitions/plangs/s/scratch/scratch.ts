@@ -19,17 +19,6 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+bsd", "license+gnu-gpl"])
     .addParadigms(["paradigm+event-driven", "paradigm+visual"])
     .addPlatforms(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
-    .addTags([
-      "tag+app",
-      "tag+audio-dev",
-      "tag+editor",
-      "tag+games",
-      "tag+interpreter",
-      "tag+multimedia",
-      "tag+ray-tracer",
-      "tag+stats",
-      "tag+video",
-      "tag+viz",
-    ])
+    .addTags(["tag+audio-dev", "tag+editor", "tag+games", "tag+interpreter", "tag+multimedia", "tag+ray-tracer", "tag+stats", "tag+video", "tag+viz"])
     .addWrittenIn(["pl+actionscript", "pl+javascript", "pl+squeak"]);
 }

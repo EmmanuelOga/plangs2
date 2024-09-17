@@ -62,6 +62,7 @@ export function define(g: PlangsGraph) {
       "tag+numeric",
       "tag+sci",
       "tag+scripting",
+      "tag+shell",
       "tag+ui",
       "tag+wavelet",
     ])

@@ -26,6 +26,6 @@ export function define(g: PlangsGraph) {
       "paradigm+multi",
     ])
     .addPlatforms(["plat+cross", "plat+java"])
-    .addTags(["tag+app", "tag+flow", "tag+interpreter", "tag+testing"])
+    .addTags(["tag+flow", "tag+interpreter", "tag+testing"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 }

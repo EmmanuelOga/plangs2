@@ -18,6 +18,6 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+functional", "paradigm+point-free"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+app", "tag+editor", "tag+interpreter"])
+    .addTags(["tag+app", "tag+editor", "tag+interpreter", "tag+shell"])
     .addWrittenIn(["pl+c", "pl+go", "pl+rust"]);
 }

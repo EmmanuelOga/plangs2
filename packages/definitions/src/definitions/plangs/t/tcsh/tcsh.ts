@@ -15,5 +15,6 @@ export function define(g: PlangsGraph) {
     })
     .addLicenses(["license+bsd"])
     .addPlatforms(["plat+cross"])
+    .addTags(["tag+shell"])
     .addWrittenIn(["pl+c"]);
 }

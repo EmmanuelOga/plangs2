@@ -18,6 +18,6 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+awk", "pl+c", "pl+coffeescript", "pl+perl", "pl+python", "pl+scheme", "pl+self"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+prototype"])
-    .addTags(["tag+analysis", "tag+app", "tag+framework", "tag+if", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+testing"])
+    .addTags(["tag+analysis", "tag+app", "tag+framework", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+testing"])
     .addTypeSystems(["tsys+dynamic", "tsys+weak"]);
 }

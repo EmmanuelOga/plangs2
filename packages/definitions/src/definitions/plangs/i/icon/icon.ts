@@ -15,6 +15,6 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+algol"])
     .addParadigms(["paradigm+multi", "paradigm+structured"])
-    .addTags(["tag+app", "tag+asm", "tag+if", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+testing"])
+    .addTags(["tag+app", "tag+asm", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+testing"])
     .addTypeSystems(["tsys+dynamic"]);
 }

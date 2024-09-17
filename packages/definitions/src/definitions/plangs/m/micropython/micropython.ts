@@ -15,6 +15,6 @@ export function define(g: PlangsGraph) {
     .addImplements(["pl+python"])
     .addLicenses(["license+mit"])
     .addPlatforms(["plat+esp32", "plat+nodejs", "plat+windows"])
-    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+editor", "tag+embedded", "tag+if", "tag+interpreter", "tag+testing"])
+    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+editor", "tag+embedded", "tag+interpreter", "tag+testing"])
     .addWrittenIn(["pl+c"]);
 }

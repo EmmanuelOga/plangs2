@@ -24,10 +24,10 @@ export function define(g: PlangsGraph) {
       "tag+editor",
       "tag+embedded",
       "tag+games",
-      "tag+if",
       "tag+industrial",
       "tag+interpreter",
       "tag+ray-tracer",
+      "tag+shell",
       "tag+testing",
     ]);
 }

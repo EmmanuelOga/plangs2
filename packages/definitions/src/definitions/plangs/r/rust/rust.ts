@@ -35,7 +35,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+apache", "license+mit"])
     .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+structured"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+app", "tag+compiler", "tag+dataq", "tag+editor", "tag+if", "tag+industrial", "tag+interpreter", "tag+iot", "tag+viz"])
+    .addTags(["tag+app", "tag+compiler", "tag+dataq", "tag+editor", "tag+industrial", "tag+interpreter", "tag+iot", "tag+viz"])
     .addTypeSystems(["tsys+affine", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+ocaml"]);
 }

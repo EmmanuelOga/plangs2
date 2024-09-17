@@ -16,6 +16,6 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+c-sharp", "pl+haskell", "pl+ocaml", "pl+scala"])
     .addLicenses(["license+mit"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+audio-dev", "tag+if", "tag+interpreter", "tag+scripting"])
+    .addTags(["tag+audio-dev", "tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic", "tsys+gradual", "tsys+static", "tsys+weak"]);
 }

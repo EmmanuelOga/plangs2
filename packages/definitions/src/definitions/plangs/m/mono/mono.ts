@@ -26,8 +26,8 @@ export function define(g: PlangsGraph) {
       "tag+dbms",
       "tag+framework",
       "tag+games",
-      "tag+if",
       "tag+scripting",
+      "tag+shell",
       "tag+ui",
     ])
     .addWrittenIn(["pl+c", "pl+c-sharp"]);

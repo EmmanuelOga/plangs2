@@ -19,7 +19,6 @@ export function define(g: PlangsGraph) {
       "tag+dataflow",
       "tag+dataq",
       "tag+dbms",
-      "tag+if",
       "tag+industrial",
       "tag+interpreter",
       "tag+scripting",

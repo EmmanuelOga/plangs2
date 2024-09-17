@@ -11,6 +11,6 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+pascal"])
     .addParadigms(["paradigm+imperative", "paradigm+modular", "paradigm+structured"])
-    .addTags(["tag+app", "tag+interpreter"])
+    .addTags(["tag+interpreter"])
     .addTypeSystems(["tsys+safe", "tsys+static", "tsys+strong"]);
 }

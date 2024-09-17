@@ -22,6 +22,6 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+c", "pl+python"])
     .addLicenses(["license+apache"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
-    .addTags(["tag+app", "tag+cas", "tag+compiler", "tag+interpreter"])
+    .addTags(["tag+cas", "tag+compiler", "tag+interpreter"])
     .addWrittenIn(["pl+python"]);
 }

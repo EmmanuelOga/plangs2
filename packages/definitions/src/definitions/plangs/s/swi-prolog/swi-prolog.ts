@@ -18,6 +18,6 @@ export function define(g: PlangsGraph) {
     .addImplements(["pl+prolog"])
     .addLicenses(["license+bsd", "license+lgpl"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreter", "tag+testing", "tag+ui", "tag+viz"])
+    .addTags(["tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreter", "tag+testing", "tag+ui", "tag+viz"])
     .addWrittenIn(["pl+c", "pl+prolog"]);
 }

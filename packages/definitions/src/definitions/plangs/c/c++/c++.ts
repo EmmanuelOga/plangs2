@@ -24,7 +24,6 @@ export function define(g: PlangsGraph) {
       "tag+dataq",
       "tag+embedded",
       "tag+games",
-      "tag+if",
       "tag+industrial",
       "tag+instrument_control",
       "tag+interpreter",

@@ -36,11 +36,11 @@ export function define(g: PlangsGraph) {
       "tag+cli",
       "tag+compiler",
       "tag+framework",
-      "tag+if",
       "tag+industrial",
       "tag+interpreter",
       "tag+ray-tracer",
       "tag+scripting",
+      "tag+shell",
       "tag+viz",
     ])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);

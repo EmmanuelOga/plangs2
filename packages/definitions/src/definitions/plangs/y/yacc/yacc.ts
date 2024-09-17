@@ -10,6 +10,6 @@ export function define(g: PlangsGraph) {
     })
     .addLicenses(["license+mit"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+analysis", "tag+app", "tag+compiler", "tag+if", "tag+interpreter"])
+    .addTags(["tag+analysis", "tag+compiler", "tag+interpreter"])
     .addWrittenIn(["pl+c"]);
 }

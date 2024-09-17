@@ -30,7 +30,6 @@ export function define(g: PlangsGraph) {
     .addTags([
       "tag+3dg",
       "tag+analysis",
-      "tag+app",
       "tag+cli",
       "tag+dsp",
       "tag+genomics",
@@ -38,6 +37,7 @@ export function define(g: PlangsGraph) {
       "tag+multivar",
       "tag+ray-tracer",
       "tag+scripting",
+      "tag+shell",
       "tag+stats",
       "tag+ui",
       "tag+viz",

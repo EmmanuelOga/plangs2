@@ -20,11 +20,11 @@ export function define(g: PlangsGraph) {
       "tag+automation",
       "tag+compiler",
       "tag+editor",
-      "tag+if",
       "tag+industrial",
       "tag+instrument_control",
       "tag+interpreter",
       "tag+scripting",
+      "tag+shell",
       "tag+viz",
     ])
     .addWrittenIn(["pl+c"]);

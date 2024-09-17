@@ -21,13 +21,13 @@ export function define(g: PlangsGraph) {
     .addTags([
       "tag+app",
       "tag+compiler",
-      "tag+if",
       "tag+industrial",
       "tag+interpreter",
       "tag+low-code",
       "tag+modeling",
       "tag+rad",
       "tag+scripting",
+      "tag+shell",
       "tag+viz",
       "tag+wavelet",
     ])

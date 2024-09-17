@@ -16,16 +16,5 @@ export function define(g: PlangsGraph) {
     })
     .addImplements(["pl+basic"])
     .addPlatforms(["plat+dos", "plat+windows"])
-    .addTags([
-      "tag+app",
-      "tag+asm",
-      "tag+compiler",
-      "tag+editor",
-      "tag+if",
-      "tag+industrial",
-      "tag+interpreter",
-      "tag+ray-tracer",
-      "tag+testing",
-      "tag+ui",
-    ]);
+    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+editor", "tag+industrial", "tag+interpreter", "tag+ray-tracer", "tag+testing", "tag+ui"]);
 }

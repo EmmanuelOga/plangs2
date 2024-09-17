@@ -10,5 +10,5 @@ export function define(g: PlangsGraph) {
       websites: [{ href: "https://en.wikipedia.org/wiki/FP_(programming_language)", title: "FP", kind: "wikipedia" }],
     })
     .addInfluencedBy(["pl+apl"])
-    .addTags(["tag+app", "tag+interpreter"]);
+    .addTags(["tag+interpreter"]);
 }

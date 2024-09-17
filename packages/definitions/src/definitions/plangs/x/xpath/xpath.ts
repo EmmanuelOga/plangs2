@@ -12,5 +12,5 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+xslt"])
     .addParadigms(["paradigm+query"])
-    .addTags(["tag+if"]);
+    .addTags(["tag+app"]);
 }

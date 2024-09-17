@@ -12,5 +12,5 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addInfluencedBy(["pl+shex"])
-    .addTags(["tag+app", "tag+dbms", "tag+framework", "tag+if"]);
+    .addTags(["tag+dbms", "tag+framework"]);
 }

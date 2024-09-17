@@ -19,5 +19,5 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+javascript", "pl+ocaml"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi", "paradigm+oop"])
-    .addTags(["tag+compiler", "tag+framework", "tag+interpreter"]);
+    .addTags(["tag+app", "tag+compiler", "tag+framework", "tag+interpreter"]);
 }

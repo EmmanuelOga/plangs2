@@ -13,5 +13,5 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addInfluencedBy(["pl+javascript"])
-    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+games", "tag+if", "tag+interpreter"]);
+    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+games", "tag+interpreter"]);
 }

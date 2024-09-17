@@ -19,6 +19,6 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+concurrent", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+apple", "plat+arm", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+app", "tag+compiler", "tag+interpreter", "tag+scripting"])
+    .addTags(["tag+compiler", "tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+duck", "tsys+nominal", "tsys+static"]);
 }

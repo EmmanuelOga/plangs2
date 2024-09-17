@@ -11,6 +11,6 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+forth", "pl+fp", "pl+scheme"])
     .addParadigms(["paradigm+concatenative", "paradigm+functional", "paradigm+multi", "paradigm+stack-oriented"])
-    .addTags(["tag+app", "tag+interpreter"])
+    .addTags(["tag+interpreter"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 }

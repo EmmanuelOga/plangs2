@@ -29,7 +29,6 @@ export function define(g: PlangsGraph) {
       "tag+editor",
       "tag+framework",
       "tag+games",
-      "tag+if",
       "tag+industrial",
       "tag+interpreter",
       "tag+scripting",

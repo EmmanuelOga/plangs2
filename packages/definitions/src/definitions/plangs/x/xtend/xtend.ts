@@ -16,6 +16,6 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+groovy", "pl+scala"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+oop"])
     .addPlatforms(["plat+cross", "plat+java"])
-    .addTags(["tag+editor", "tag+if", "tag+interpreter"])
+    .addTags(["tag+editor", "tag+interpreter"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 }

@@ -35,7 +35,6 @@ export function define(g: PlangsGraph) {
       "tag+dbms",
       "tag+editor",
       "tag+games",
-      "tag+if",
       "tag+industrial",
       "tag+interpreter",
       "tag+ray-tracer",

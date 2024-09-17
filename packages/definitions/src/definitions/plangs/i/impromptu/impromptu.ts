@@ -16,6 +16,6 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+lisp", "pl+scheme"])
     .addParadigms(["paradigm+functional", "paradigm+multi"])
-    .addTags(["tag+app", "tag+audio-dev", "tag+compiler", "tag+editor", "tag+interpreter", "tag+ray-tracer"])
+    .addTags(["tag+audio-dev", "tag+compiler", "tag+editor", "tag+interpreter", "tag+ray-tracer"])
     .addTypeSystems(["tsys+dynamic", "tsys+static"]);
 }

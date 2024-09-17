@@ -12,5 +12,5 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "Assembly language", url: "/images/plangs/a/assembly/other.png" }],
     })
     .addParadigms(["paradigm+imperative", "paradigm+macro", "paradigm+metaprogramming", "paradigm+oop", "paradigm+structured"])
-    .addTags(["tag+3dg", "tag+4gl", "tag+app", "tag+asm", "tag+compiler", "tag+embedded", "tag+if", "tag+industrial", "tag+interpreter", "tag+viz"]);
+    .addTags(["tag+3dg", "tag+4gl", "tag+app", "tag+asm", "tag+compiler", "tag+embedded", "tag+industrial", "tag+interpreter", "tag+viz"]);
 }

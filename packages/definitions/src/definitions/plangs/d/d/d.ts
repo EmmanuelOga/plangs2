@@ -25,7 +25,6 @@ export function define(g: PlangsGraph) {
       "tag+asm",
       "tag+compiler",
       "tag+games",
-      "tag+if",
       "tag+industrial",
       "tag+interpreter",
       "tag+numeric",

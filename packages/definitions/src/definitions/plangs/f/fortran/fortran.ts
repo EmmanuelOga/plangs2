@@ -22,7 +22,6 @@ export function define(g: PlangsGraph) {
       "tag+compiler",
       "tag+dsp",
       "tag+framework",
-      "tag+if",
       "tag+industrial",
       "tag+interpreter",
       "tag+modeling",

@@ -11,6 +11,6 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "other", title: "sed", url: "/images/plangs/s/sed/other.jpg" }],
     })
     .addParadigms(["paradigm+scripting"])
-    .addTags(["tag+app", "tag+editor", "tag+games", "tag+if", "tag+industrial", "tag+interpreter", "tag+scripting"])
+    .addTags(["tag+editor", "tag+games", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+shell"])
     .addWrittenIn(["pl+c"]);
 }

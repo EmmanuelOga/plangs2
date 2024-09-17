@@ -17,16 +17,6 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+javascript"])
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
-    .addTags([
-      "tag+analysis",
-      "tag+app",
-      "tag+automation",
-      "tag+compiler",
-      "tag+if",
-      "tag+industrial",
-      "tag+instrument_control",
-      "tag+interpreter",
-      "tag+viz",
-    ])
+    .addTags(["tag+analysis", "tag+app", "tag+automation", "tag+compiler", "tag+industrial", "tag+instrument_control", "tag+interpreter", "tag+viz"])
     .addTypeSystems(["tsys+duck", "tsys+gradual", "tsys+structural"]);
 }

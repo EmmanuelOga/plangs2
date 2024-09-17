@@ -19,6 +19,6 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+javascript", "pl+typescript"])
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
-    .addTags(["tag+4gl", "tag+app", "tag+asm", "tag+audio-dev", "tag+compiler", "tag+if", "tag+industrial", "tag+interpreter", "tag+scripting"])
+    .addTags(["tag+4gl", "tag+app", "tag+asm", "tag+audio-dev", "tag+compiler", "tag+industrial", "tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+static"]);
 }

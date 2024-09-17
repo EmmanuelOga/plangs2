@@ -18,6 +18,6 @@ export function define(g: PlangsGraph) {
     .addImplements(["pl+dart"])
     .addLicenses(["license+bsd"])
     .addPlatforms(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
-    .addTags(["tag+3dg", "tag+app", "tag+framework", "tag+if", "tag+industrial", "tag+ray-tracer", "tag+ui"])
+    .addTags(["tag+3dg", "tag+app", "tag+framework", "tag+industrial", "tag+ray-tracer", "tag+ui"])
     .addWrittenIn(["pl+c", "pl+c++", "pl+dart"]);
 }

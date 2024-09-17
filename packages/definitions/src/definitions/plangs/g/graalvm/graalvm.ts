@@ -15,5 +15,5 @@ export function define(g: PlangsGraph) {
     .addImplements(["pl+ruby"])
     .addLicenses(["license+gnu-gpl"])
     .addPlatforms(["plat+apple", "plat+java", "plat+linux", "plat+windows"])
-    .addTags(["tag+app", "tag+compiler", "tag+framework", "tag+if", "tag+industrial", "tag+interpreter"]);
+    .addTags(["tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreter"]);
 }

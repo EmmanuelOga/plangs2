@@ -11,6 +11,6 @@ export function define(g: PlangsGraph) {
       images: [{ kind: "logo", title: "Lisp", url: "/images/plangs/l/lisp/logo.png" }],
     })
     .addParadigms(["paradigm+functional", "paradigm+metaprogramming", "paradigm+multi", "paradigm+procedural", "paradigm+reflective"])
-    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+editor", "tag+if", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+viz"])
+    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+editor", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+viz"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 }

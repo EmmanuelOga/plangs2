@@ -14,5 +14,5 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addParadigms(["paradigm+esoteric", "paradigm+imperative", "paradigm+structured"])
-    .addTags(["tag+app", "tag+compiler", "tag+if", "tag+interpreter"]);
+    .addTags(["tag+compiler", "tag+interpreter"]);
 }

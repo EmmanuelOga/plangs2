@@ -20,10 +20,8 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
     .addTags([
       "tag+analysis",
-      "tag+app",
       "tag+automation",
       "tag+compiler",
-      "tag+if",
       "tag+industrial",
       "tag+instrument_control",
       "tag+interpreter",

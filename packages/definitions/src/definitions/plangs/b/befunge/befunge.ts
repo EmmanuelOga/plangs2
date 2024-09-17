@@ -13,5 +13,5 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addInfluencedBy(["pl+forth"])
-    .addTags(["tag+app", "tag+compiler", "tag+if", "tag+industrial", "tag+interpreter"]);
+    .addTags(["tag+compiler", "tag+industrial", "tag+interpreter"]);
 }

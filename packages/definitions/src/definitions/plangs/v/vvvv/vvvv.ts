@@ -17,6 +17,6 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+apl", "pl+max-msp"])
     .addParadigms(["paradigm+visual"])
     .addPlatforms(["plat+windows"])
-    .addTags(["tag+3dg", "tag+audio-dev", "tag+dataflow", "tag+flow", "tag+framework", "tag+if", "tag+ray-tracer"])
+    .addTags(["tag+3dg", "tag+app", "tag+audio-dev", "tag+dataflow", "tag+flow", "tag+framework", "tag+ray-tracer"])
     .addTypeSystems(["tsys+strong"]);
 }

@@ -14,5 +14,5 @@ export function define(g: PlangsGraph) {
     })
     .addLicenses(["license+epl"])
     .addPlatforms(["plat+linux", "plat+windows"])
-    .addTags(["tag+analysis", "tag+app"]);
+    .addTags(["tag+analysis"]);
 }
