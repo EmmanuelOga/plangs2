@@ -18,31 +18,7 @@ export function Lang({ pl }: LangProps) {
 
   return (
     <Fragment>
-      <style>
-        {`
-          h1 {
-            font-size: 2.5rem;
-          }
-          h1, h2 {
-            color: yellowgreen;
-            font-weight: bolder;
-          }
-          h2 {
-            margin-top: 2.5rem;
-          }
-
-          table {
-            width: 100%;
-            border-collapse: collapse;
-          }
-          th, td {
-            border: 1px solid gray;
-            padding: .5rem 1rem;
-          }
-        `}
-      </style>
-
-      <article id="lang-page" class="common-content">
+      <article id="lang-page" class="common-content prose prose-invert prose-green xl:prose-xs 2xl:prose-2xl">
         <h1>{pl.name}</h1>
 
         {pl.websites.tap(websites => (

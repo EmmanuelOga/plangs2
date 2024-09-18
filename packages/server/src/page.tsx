@@ -51,8 +51,8 @@ export async function resolvePage(path: string, pg: PlangsGraph): Promise<VNode 
       return undefined;
     }
     pageId = "blogPost";
-    const { html } = await loadBlogPost(post.path);
-    content = <BlogPost post={post} content={html} />;
+    const { htmlContent } = await loadBlogPost(post.path);
+    content = <BlogPost post={post} content={htmlContent} />;
   } else if (path.startsWith("/pl/") && path.length < 64) {
     const nid: NPlang["key"] = `pl+${path.slice(4)}`;
     const pl = pg.nodes.pl.get(nid);

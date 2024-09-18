@@ -1,4 +1,4 @@
 # https://github.com/DarthSim/overmind
 serve: bun serve
-css: bun css
+css: bun csswatch
 bundle: bun bundle

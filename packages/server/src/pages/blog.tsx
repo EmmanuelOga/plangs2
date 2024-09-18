@@ -2,7 +2,6 @@ import { useContext } from "preact/hooks";
 
 import type { NPost } from "@plangs/plangs/index";
 
-import { loadBlogPost } from "../blog";
 import { PlangsContext } from "../context";
 import { toAnchor } from "../util";
 
@@ -39,14 +38,11 @@ export function BlogPost({ post, content }: { post: NPost; content: string }) {
   return (
     <>
       <div />
-      <article id="blog-page" class="common-content blog-post" key={post.key}>
-        <h2 id={post.plainKey} class="post-title">
-          <a href={post.link.href}>{post.link.title}</a>
-        </h2>
-        <div class="post-date">Posted on {post.date}</div>
-        {/* biome-ignore lint/security/noDangerouslySetInnerHtml: markdown render result. */}
-        <div class="post-content" dangerouslySetInnerHTML={{ __html: content }} />
-      </article>
+      <article
+        class="common-content prose prose-green prose-invert lg:prose-xl 2xl:prose-2xl"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
       <div />
     </>
   );
