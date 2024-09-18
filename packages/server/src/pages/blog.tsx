@@ -14,7 +14,7 @@ export function Blog() {
       return (
         post.link && (
           <h2 key={post.key}>
-            {post.date} {toAnchor(post.link)}
+            <span class="text-lg">{post.date}</span> {toAnchor(post.link)}
           </h2>
         )
       );
@@ -24,9 +24,7 @@ export function Blog() {
   return (
     <>
       <div />
-      <article id="blog-page" class="common-content">
-        {postLinks ?? "No posts yet."}
-      </article>
+      <article class="common-content readable">{postLinks ?? "No posts yet."}</article>
       <div />
     </>
   );
@@ -39,7 +37,7 @@ export function BlogPost({ post, content }: { post: NPost; content: string }) {
     <>
       <div />
       <article
-        class="common-content prose prose-green prose-invert lg:prose-xl 2xl:prose-2xl"
+        class="common-content readable"
         // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
         dangerouslySetInnerHTML={{ __html: content }}
       />

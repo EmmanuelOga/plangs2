@@ -53,7 +53,7 @@ export function PlangInfo({ plangKey: key, graph, description }: PlangInfoProps)
     content = (
       <>
         {description !== false && <h2>{pl.name ?? key}</h2>}
-        <dl class="prose prose-invert">
+        <dl class="readable">
           {description !== false && <Entry title="Description">{pl.description}</Entry>}
 
           {pl.relTsys.tap(rel => (
@@ -89,7 +89,7 @@ export function PlangInfo({ plangKey: key, graph, description }: PlangInfoProps)
   }
 
   return (
-    <div class="prose prose-invert mt-2 px-5; pt-0 pb-2 text-[#eee]" ref={self as Ref<HTMLDivElement>}>
+    <div class="readable mt-2 px-5; pt-0 pb-2 text-[#eee]" ref={self as Ref<HTMLDivElement>}>
       {content}
     </div>
   );
@@ -97,10 +97,10 @@ export function PlangInfo({ plangKey: key, graph, description }: PlangInfoProps)
 
 function Entry({ title, children }: { title: string; children: ComponentChildren }) {
   return (
-    <div class="entry">
+    <>
       <dt>{title}</dt>
       <dd class="m-0 rounded-tr-2xl rounded-bl-2xl border border-solid bg-[white] p-3 text-[black]">{children}</dd>
-    </div>
+    </>
   );
 }
 

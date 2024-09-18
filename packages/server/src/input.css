@@ -2,6 +2,12 @@
 
 @config "../tailwind.config.js";
 
+@layer components {
+  .readable {
+    @apply prose prose-invert prose-green;
+  }
+}
+
 @theme {
   --font-family-sans: ui-rounded, "Hiragino Maru Gothic ProN", Quicksand, Comfortaa, Manjari, "Arial Rounded MT", "Arial Rounded MT Bold", Calibri,
     source-sans-pro, sans-serif;
@@ -14,8 +20,6 @@
   --bg2: #333;
   --hi0: yellowgreen;
   --border: 1px solid #444;
-
-  --tw-prose-headings: yellowgreen;
 }
 
 #top-nav a span {

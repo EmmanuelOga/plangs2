@@ -18,7 +18,7 @@ export function Lang({ pl }: LangProps) {
 
   return (
     <Fragment>
-      <article id="lang-page" class="common-content prose prose-invert prose-green xl:prose-xs 2xl:prose-2xl">
+      <article id="lang-page" class="common-content readable">
         <h1>{pl.name}</h1>
 
         {pl.websites.tap(websites => (
