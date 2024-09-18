@@ -2,7 +2,7 @@ export function About() {
   return (
     <>
       <div />
-      <article id="about" class="common-content">
+      <article id="about" class="common-content prose prose-invert">
         <h2>What is Plangs?</h2>
         <p>Plangs is a website dedicated to aggregating and curating information about a wide variety of programming languages.</p>
         <h2>Community Contribution</h2>
