@@ -84,13 +84,13 @@ function FacetInput({ input, label, config }: FacetInputProps) {
     inner = (
       <>
         <input id={domInputId(input)} name={input} type="checkbox" value={config.val} />
-        <span class="inner-label-checkbox">{label.val}</span>
+        <div>{label.val}</div>
       </>
     );
   } else if (config.kind === "compl") {
     inner = (
       <>
-        <span class="inner-label">{label.val}</span>
+        <div>{label.val}</div>
         {/* biome-ignore lint/suspicious/noExplicitAny: TODO preact h chokes on data attributes here. */}
         {h("input-compl", { id: domInputId(input), name: input, "data-kind": config.nodeMap } as any)}
       </>
@@ -98,8 +98,8 @@ function FacetInput({ input, label, config }: FacetInputProps) {
   } else {
     inner = (
       <>
-        <span class="inner-label">{label.val}</span>
-        <input id={domInputId(input)} name={input} type={config.kind} />
+        {label.val}
+        <input class="inline-block" id={domInputId(input)} name={input} type={config.kind} />
       </>
     );
   }
@@ -107,10 +107,11 @@ function FacetInput({ input, label, config }: FacetInputProps) {
   const useInputSel = config.kind === "compl" || (config.kind === "search" && config.inputSel);
   return (
     <>
-      <label class={label.hide ? "hide" : ""} for={domInputId(input)}>
+      <label class={`inline-block ${label.hide ? "hidden" : ""}`} for={domInputId(input)}>
         {inner}
       </label>
       {useInputSel ? h("input-sel", { name: input }) : null}
+      <br />
     </>
   );
 }

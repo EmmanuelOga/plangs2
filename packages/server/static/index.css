@@ -546,6 +546,15 @@
   .static {
     position: static;
   }
+  .float-left {
+    float: left;
+  }
+  .float-right {
+    float: right;
+  }
+  .clear-both {
+    clear: both;
+  }
   .block {
     display: block;
   }
