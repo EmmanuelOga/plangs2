@@ -20,7 +20,7 @@ export function Layout({ pageId, children, plVid, plName }: LayoutProps) {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
-      <body>
+      <body class="text-white">
         <div>
           <noscript class="block bg-[lightyellow] p-4 text-center">
             <em>Note!</em>

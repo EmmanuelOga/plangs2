@@ -356,9 +356,9 @@
     --width-6xl: 72rem;
     --width-7xl: 80rem;
     --width-prose: 65ch;
-    --font-family-sans: ui-sans-serif, system-ui, sans-serif,
-      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-      "Noto Color Emoji";
+    --font-family-sans: ui-rounded, "Hiragino Maru Gothic ProN", Quicksand, Comfortaa,
+        Manjari, "Arial Rounded MT", "Arial Rounded MT Bold", Calibri,
+        source-sans-pro, sans-serif;
     --font-family-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times,
       serif;
     --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
@@ -671,6 +671,9 @@
   .italic {
     font-style: italic;
   }
+  .text-white {
+    color: var(--color-white, #fff);
+  }
 }
 :root {
   --pl-thumb-size: 9rem;
@@ -679,10 +682,6 @@
   --bg2: #333;
   --hi0: yellowgreen;
   --border: 1px solid #444;
-}
-body {
-  font-family: ui-rounded, "Hiragino Maru Gothic ProN", Quicksand, Comfortaa, Manjari, "Arial Rounded MT", "Arial Rounded MT Bold", Calibri, source-sans-pro, sans-serif;
-  color: white;
 }
 a {
   color: #dfd;
