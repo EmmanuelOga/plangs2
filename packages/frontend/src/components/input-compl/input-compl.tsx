@@ -48,8 +48,8 @@ export function InputCompl({ name, completions }: InputComplProps) {
   return (
     <>
       <input
-        class={`${showPopup ? "focused" : ""} relative block`}
         autocomplete="off"
+        class={`${showPopup ? "focused" : ""} relative block`}
         name={name}
         onBlur={({ relatedTarget }) => {
           if (relatedTarget === popupRef.current) return;
@@ -58,6 +58,7 @@ export function InputCompl({ name, completions }: InputComplProps) {
         onClick={() => dispatch({ kind: "popup", show: true })}
         onInput={() => dispatch({ kind: "updateQuery", query: inputRef.current?.value ?? "" })}
         onKeyDown={({ key }) => dispatch({ kind: "keypress", from: "input", key })}
+        placeholder="Search"
         ref={inputRef as Ref<HTMLInputElement>}
         tabIndex={0}
         type="search"

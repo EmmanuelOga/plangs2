@@ -20,6 +20,6 @@
   "scripts": {
     "js": "esbuild --bundle packages/frontend/src/app --sourcemap --outdir=packages/server/static/ --watch",
     "css": "bun x @tailwindcss/cli@next -i ./styles.css -o packages/server/static/index.css --watch",
-    "serve": "bun run --hot --cwd packages/server src/serve.ts"
+    "serve": "bun run --watch --cwd $(pwd)/packages/server src/serve.ts"
   }
 }

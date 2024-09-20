@@ -1,3 +1,5 @@
+import type { ServerWebSocket } from "bun";
+
 // biome-ignore lint/style/useNodejsImportProtocol: not needed with Bun.
 import { watch } from "fs";
 
@@ -8,16 +10,9 @@ import { loadAllDefinitions } from "@plangs/definitions";
 import { PlangsGraph } from "@plangs/plangs";
 
 import { createNPosts } from "./content";
-import { WEBSOCKETS, notifyWebsockets } from "./livereload";
+import { notifyWebsockets, trackWebsocket, untrackWebsocket } from "./livereload";
 import { resolvePage } from "./resolve_page";
 import { contentTypeFor, staticResponse, vdomToHTML } from "./util";
-
-const watchPath = join(import.meta.dir, "..");
-console.info("Watching for file changes in:", watchPath);
-watch(watchPath, { recursive: true }, (event, filename) => {
-  console.info("File System: ", event, filename);
-  notifyWebsockets("reload");
-});
 
 const pg = new PlangsGraph();
 await loadAllDefinitions(pg);
@@ -48,7 +43,6 @@ const server = Bun.serve({
 
     const contentType = contentTypeFor(path);
     if (contentType) {
-      console.log("static request:", path, contentType);
       const file = Bun.file(join(import.meta.dir, "../static", path.slice(1)));
       if (await file.exists()) return staticResponse(file, contentType);
     }
@@ -57,15 +51,16 @@ const server = Bun.serve({
     return new Response(`Page not found: ${JSON.stringify(path)}`, { status: 404 });
   },
   websocket: {
-    async message(ws, message) {
+    async message(ws: ServerWebSocket, message) {
       if (message === "PING") return;
-      WEBSOCKETS.add(ws);
-      console.info("livereload:", message, "current websockets:", WEBSOCKETS.size);
+      trackWebsocket(ws);
     },
     close(ws) {
-      WEBSOCKETS.delete(ws);
+      untrackWebsocket(ws);
     },
   },
 });
 
-console.log("Listening on", { url: server.url.href });
+const watchPath = join(import.meta.dir, "..");
+watch(watchPath, { recursive: true }, (event, filename) => notifyWebsockets("RELOAD"));
+console.log(server.url.href, "watching", watchPath, pg.nodeCount, "plang nodes,", pg.edgeCount, "edges.");

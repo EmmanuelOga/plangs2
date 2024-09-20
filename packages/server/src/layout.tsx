@@ -1,12 +1,12 @@
 import type { ComponentChildren } from "preact";
 
-export function Layout({ children }: { children: ComponentChildren }) {
+export function Layout({ title, children }: { title: string; children: ComponentChildren }) {
   return (
-    <html lang="en">
+    <html lang="en" class="bg-background text-foreground">
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Plangs! - Programming Languages Database</title>
+        <title>Plangs! - {title}</title>
         <link rel="stylesheet" href="/index.css" />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
@@ -22,7 +22,7 @@ export function Layout({ children }: { children: ComponentChildren }) {
           </noscript>
 
           <header>
-            <h1>
+            <h1 class="text-primary">
               <a href="/">Plangs!</a>
             </h1>
 

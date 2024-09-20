@@ -2,7 +2,7 @@ import { h } from "preact";
 
 import type { N, PlangsGraph } from "@plangs/plangs";
 
-import { PlLogo } from "../../../frontend/src/components/misc/pl-logo";
+import { PlThumb } from "../../../frontend/src/components/misc/pl-thumb";
 
 import { type INPUT, domInputId } from "./dom";
 
@@ -10,48 +10,39 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
   const input = (key: INPUT) => <FacetInput {...INPUT_PROPS[key]} input={key} />;
   return (
     <>
-      <nav>
-        <div>
-          <div title="General">
-            {input("plangName")}
-            {input("hasLogo")}
-            {input("hasWikipedia")}
-            {input("isMainstream")}
-            {input("isTranspiler")}
-            {input("hasReleases")}
-            {input("releasedAfter")}
-            {input("appearedAfter")}
-            {input("extensions")}
-          </div>
-
-          <div title="Features">
-            {input("typeSystems")}
-            {input("paradigms")}
-            {input("platforms")}
-            {input("tags")}
-          </div>
-
-          <div title="Influences">
-            {input("influenced")}
-            {input("influencedBy")}
-          </div>
-
-          <div title="Lineage">
-            {input("dialectOf")}
-            {input("implements")}
-            {input("writtenIn")}
-          </div>
-
-          <div title="License">{input("licenses")}</div>
+      <nav class="hidden md:block">
+        <div title="General">
+          {input("plangName")}
+          {input("hasLogo")}
+          {input("hasWikipedia")}
+          {input("isMainstream")}
+          {input("isTranspiler")}
+          {input("hasReleases")}
+          {input("releasedAfter")}
+          {input("appearedAfter")}
+          {input("extensions")}
         </div>
+        <div title="Features">
+          {input("typeSystems")}
+          {input("paradigms")}
+          {input("platforms")}
+          {input("tags")}
+        </div>
+        <div title="Influences">
+          {input("influenced")}
+          {input("influencedBy")}
+        </div>
+        <div title="Lineage">
+          {input("dialectOf")}
+          {input("implements")}
+          {input("writtenIn")}
+        </div>
+        <div title="License">{input("licenses")}</div>
       </nav>
 
-      <article>
+      <article class="flex flex-wrap justify-center">
         {[...pg.nodes.pl].map(([nid, pl]) => (
-          <div key={nid} data-key={nid}>
-            <span>{pl.name}</span>
-            <PlLogo pl={pl} />
-          </div>
+          <PlThumb key={nid} pl={pl} />
         ))}
       </article>
 

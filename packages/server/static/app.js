@@ -1991,8 +1991,8 @@
       /* @__PURE__ */ u5(
         "input",
         {
-          class: `${showPopup ? "focused" : ""} relative block`,
           autocomplete: "off",
+          class: `${showPopup ? "focused" : ""} relative block`,
           name,
           onBlur: ({ relatedTarget }) => {
             if (relatedTarget === popupRef.current) return;
@@ -2001,6 +2001,7 @@
           onClick: () => dispatch({ kind: "popup", show: true }),
           onInput: () => dispatch({ kind: "updateQuery", query: inputRef.current?.value ?? "" }),
           onKeyDown: ({ key }) => dispatch({ kind: "keypress", from: "input", key }),
+          placeholder: "Search",
           ref: inputRef,
           tabIndex: 0,
           type: "search"
@@ -2260,25 +2261,30 @@
 
   // packages/frontend/src/app/livereload.ts
   var pingTimer;
-  function connectLivereload(timeout = 2500, fromError = false) {
+  var INITIAL_TIMEOUT_MS = 10;
+  var PING_FREQ_MS = 10;
+  var RELOAD_LATENCY_MS = 10;
+  function connectLivereload(timeout = INITIAL_TIMEOUT_MS, lifecycle = "start") {
     if (pingTimer) {
       clearInterval(pingTimer);
       pingTimer = void 0;
     }
-    const socket = new WebSocket("/livereload");
     const reconnect = () => {
-      if (socket.readyState === WebSocket.OPEN) socket.close();
       console.info("attempting livereload reconnect in", timeout, "ms");
-      setTimeout(() => connectLivereload(timeout * 1.25, true), timeout);
+      setTimeout(() => connectLivereload(timeout * 1.5, "error"), timeout);
     };
+    const reload = () => {
+      setTimeout(() => window.location.reload(), RELOAD_LATENCY_MS);
+    };
+    const socket = new WebSocket("/livereload");
     socket.addEventListener("open", () => {
-      if (fromError) return window.location.reload();
+      if (lifecycle === "error") return reload();
       socket.send("CONNECT");
-      console.info("livereload", "connected");
-      pingTimer = setInterval(() => socket.readyState === WebSocket.OPEN && socket.send("PING"), 500);
+      pingTimer = setInterval(() => socket.readyState === WebSocket.OPEN && socket.send("PING"), PING_FREQ_MS);
     });
     socket.addEventListener("message", (event) => {
-      if (event.data === "reload") window.location.reload();
+      if (event.data === "ACK") console.info("livereload connected", /* @__PURE__ */ new Date());
+      if (event.data === "RELOAD") reload();
     });
     socket.addEventListener("close", (event) => {
       reconnect();
@@ -2290,7 +2296,7 @@
     function updatePlangs() {
       const filters = getFilters(dom.inputs);
       const keys = pg.plangs(filters);
-      for (const div of dom.elems.plThumb) {
+      for (const div of []) {
         const nodeId = div.dataset.key;
         div.classList.toggle("hide", !keys.has(nodeId));
       }
@@ -2336,7 +2342,7 @@
         extensions.focus();
       });
     }
-    on(dom.elem.nav, "input", ({ target }) => {
+    on(dom.elem.TODO, "input", ({ target }) => {
       if (target?.matches("input[name=plang-ext]")) return;
       debouncedUpdatePlangs();
     });
@@ -2345,27 +2351,26 @@
       if (!keyHolder || !keyHolder.dataset.key) return;
       return pg.nodes.pl.get(keyHolder.dataset.key);
     }
-    const plangInfo = dom.elem.plangInfo;
+    const plInfo = dom.elem.TODO;
     const langTab = document.querySelector("#top-nav .lang");
-    if (plangInfo) {
-      on(dom.elem.plangs, "click", ({ target }) => {
+    if (plInfo) {
+      on(dom.elem.TODO, "click", ({ target }) => {
         const pl = getPl(target);
         if (!pl) return;
-        plangInfo.key = pl.key;
-        console.log("SETTING KEY", pl.key, plangInfo.key, plangInfo);
+        plInfo.pl = pl;
         if (!langTab) return;
         langTab.classList.toggle("hide", false);
         langTab.setAttribute("href", `/pl/${pl.plainKey}`);
         langTab.innerText = pl.name;
       });
     }
-    on(dom.elem.plangs, "dblclick", ({ target }) => {
+    on(dom.elem.TODO, "dblclick", ({ target }) => {
       const pl = getPl(target);
       if (pl) window.location.href = `/pl/${pl.plainKey}`;
     });
-    on(dom.elem.plangInfo, "click", ({ target }) => {
+    on(dom.elem.TODO, "click", ({ target }) => {
       const pl = getPl(target);
-      if (pl) plangInfo.key = pl.key;
+      if (pl) plInfo.pl = pl;
     });
   }
   (async () => {
@@ -2377,7 +2382,7 @@
     const pg = new PlangsGraph().loadJSON(data);
     $2("plang-info")?.setDataSource(pg);
     const dom = getDom();
-    if (dom.elem.facets) startBrowseNav(pg, dom);
+    if (dom.elem.TODO) startBrowseNav(pg, dom);
   })();
 })();
 /*! Bundled license information:

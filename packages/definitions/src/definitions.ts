@@ -11,7 +11,6 @@ export async function loadAllDefinitions(g: PlangsGraph) {
       module.define(g);
     }
   }
-  console.info(new Date().toISOString(), `Plangs: loaded ${g.nodeCount} nodes, ${g.edgeCount} edges.`);
 }
 
 /** Load all definitions and serialize them to the given path. */

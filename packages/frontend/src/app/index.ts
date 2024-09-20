@@ -18,7 +18,7 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
     const filters = getFilters(dom.inputs);
     const keys = pg.plangs(filters);
 
-    for (const div of dom.elems.plThumb) {
+    for (const div of [] as HTMLElement[]) {
       const nodeId = div.dataset.key as NPlang["key"];
       div.classList.toggle("hide", !keys.has(nodeId));
     }
@@ -81,7 +81,7 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
 
   // On input change, re-filter the list of languages.
 
-  on(dom.elem.nav, "input", ({ target }) => {
+  on(dom.elem.TODO, "input", ({ target }) => {
     if ((target as HTMLInputElement)?.matches("input[name=plang-ext]")) return;
     debouncedUpdatePlangs();
   });
@@ -94,14 +94,13 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
     return pg.nodes.pl.get(keyHolder.dataset.key as NPlang["key"]);
   }
 
-  const plangInfo = dom.elem.plangInfo as PlangInfoElement;
+  const plInfo = dom.elem.TODO as PlInfoElement;
   const langTab = document.querySelector("#top-nav .lang") as HTMLDivElement;
-  if (plangInfo) {
-    on(dom.elem.plangs, "click", ({ target }) => {
+  if (plInfo) {
+    on(dom.elem.TODO, "click", ({ target }) => {
       const pl = getPl(target);
       if (!pl) return;
-      plangInfo.key = pl.key;
-      console.log("SETTING KEY", pl.key, plangInfo.key, plangInfo);
+      plInfo.pl = pl;
       if (!langTab) return;
       langTab.classList.toggle("hide", false);
       langTab.setAttribute("href", `/pl/${pl.plainKey}`);
@@ -111,16 +110,16 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
 
   // On double-click, open the language page.
 
-  on(dom.elem.plangs, "dblclick", ({ target }) => {
+  on(dom.elem.TODO, "dblclick", ({ target }) => {
     const pl = getPl(target);
     if (pl) window.location.href = `/pl/${pl.plainKey}`;
   });
 
   // On click on a pl-pill in the infobox, update the infobox.
 
-  on(dom.elem.plangInfo, "click", ({ target }) => {
+  on(dom.elem.TODO, "click", ({ target }) => {
     const pl = getPl(target);
-    if (pl) plangInfo.key = pl.key;
+    if (pl) plInfo.pl = pl;
   });
 }
 
@@ -140,5 +139,5 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
 
   const dom = getDom();
 
-  if (dom.elem.facets) startBrowseNav(pg, dom);
+  if (dom.elem.TODO) startBrowseNav(pg, dom);
 })();

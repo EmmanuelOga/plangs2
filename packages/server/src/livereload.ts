@@ -1,30 +1,47 @@
-type WS = { send: (msg: string) => void };
+import type { ServerWebSocket } from "bun";
 
-/** Add websockets here to notify them. */
-export const WEBSOCKETS = new Set<WS>();
+// NOTE: livereload only works with --watch right now.
+// For some reason --hot keeps connections alive but unreachable,
+// and keeping things around in gobalThis did not help.
+const WEBSOCKETS = new Set<ServerWebSocket>();
 
-function sendMessage(msg: string) {
-  for (const ws of WEBSOCKETS) {
-    try {
-      ws.send(msg);
-    } catch (e) {
-      WEBSOCKETS.delete(ws);
+export function trackWebsocket(ws: ServerWebSocket) {
+  try {
+    if (ws.readyState === 1) {
+      ws.send("ACK");
+      WEBSOCKETS.add(ws);
+    } else {
+      ws.close();
     }
+  } catch (e) {
+    console.error(e);
+    untrackWebsocket(ws);
   }
 }
 
-// biome-ignore lint/complexity/noBannedTypes: We don't care about Function's args here.
-function debounce(fn: Function, delay: number) {
-  let timeoutId: Timer;
-  // biome-ignore lint/suspicious/noExplicitAny: any kind of args are allowed.
-  return (...args: any) => {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => fn(...args), delay);
-  };
+export function untrackWebsocket(ws: ServerWebSocket) {
+  WEBSOCKETS.delete(ws);
+  try {
+    if (ws.readyState !== 3) ws.close();
+  } catch (e) {
+    console.error(e);
+  }
 }
 
-/**
- * Notify any registered websockets.
- * Debounced to give time to process events.
- */
-export const notifyWebsockets = debounce(sendMessage, 500);
+export function notifyWebsockets(msg: string) {
+  if (WEBSOCKETS.size === 0) return;
+
+  console.info("Sending message to", WEBSOCKETS.size, "websockets:", msg);
+
+  for (const ws of WEBSOCKETS) {
+    try {
+      if (ws.readyState === 1) {
+        ws.send(msg);
+      } else {
+        untrackWebsocket(ws);
+      }
+    } catch (e) {
+      untrackWebsocket(ws);
+    }
+  }
+}

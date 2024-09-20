@@ -8,6 +8,22 @@
   }
 }
 
+/* Base Theme (Light Mode by Default) */
+:root {
+  --color-primary: rgba(0 232 0);
+  --color-secondary: rgba(0 128 0);
+  --color-background: rgba(16 16 16);
+  --color-foreground: rgba(212 212 212);
+}
+
+/* Dark Mode */
+.dark {
+  --color-primary: rgba(0 232 0);
+  --color-secondary: rgba(0 128 0);
+  --color-background: rgba(212 212 212);
+  --color-foreground: rgba(16 16 16);
+}
+
 @theme {
   --font-family-sans: ui-rounded, "Hiragino Maru Gothic ProN", Quicksand, Comfortaa, Manjari, "Arial Rounded MT", "Arial Rounded MT Bold", Calibri,
     source-sans-pro, sans-serif;
