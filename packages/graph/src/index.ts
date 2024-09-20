@@ -92,7 +92,7 @@ export class NodeMap<T_Graph, T_Node extends Node<T_Graph, Any, Any>> implements
   }
 
   has(key: T_Node["key"]): boolean {
-    return !!this.#map[key];
+    return this.#map.has(key);
   }
 
   get values(): IterTap<T_Node> {

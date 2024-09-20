@@ -200,11 +200,6 @@ export class NPlang extends NBase<
     return this;
   }
 
-  addPosts(others: NPost["key"][]): this {
-    for (const other of others) this.graph.edges.post.connect(this.key, other);
-    return this;
-  }
-
   addTags(others: NTag["key"][]): this {
     for (const other of others) this.graph.edges.tag.connect(this.key, other);
     return this;
@@ -414,6 +409,11 @@ export class NPost extends NBase<"post", CommonNodeData & { path: string; title:
 
   get link(): Link | undefined {
     return this.websites.first;
+  }
+
+  addPls(others: `pl+${string}`[]) {
+    for (const other of others) this.graph.edges.post.connect(other, this.key);
+    return this;
   }
 }
 

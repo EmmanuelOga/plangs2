@@ -1,20 +1,20 @@
 import type { ComponentChildren, JSX, Ref } from "preact";
-import { useEffect, useRef, useState } from "preact/hooks";
+import { useEffect, useRef } from "preact/hooks";
 
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
-import { customEvent, on } from "../../utils";
+import { customEvent } from "../../utils";
 
 export const TAG_NAME = "plang-info";
 
-export type PlangInfoProps = {
-  graph?: PlangsGraph;
-  pl?: NPlang;
+export type PlInfoProps = {
   header?: boolean;
+  pg?: PlangsGraph;
+  pl?: NPlang;
 };
 
 /** Display a PL information, if the key is known. */
-export function PlInfo({ graph, pl, header: description }: PlangInfoProps) {
+export function PlInfo({ pg, pl, header }: PlInfoProps) {
   const self = useRef<HTMLDivElement>();
 
   useEffect(() => {
@@ -49,9 +49,9 @@ export function PlInfo({ graph, pl, header: description }: PlangInfoProps) {
   } else {
     content = (
       <>
-        {description !== false && <h2>{pl.name ?? plKey}</h2>}
+        {header !== false && <h2>{pl.name}</h2>}
         <dl class="readable">
-          {description !== false && <Entry title="Description">{pl.description}</Entry>}
+          {header !== false && <Entry title="Description">{pl.description}</Entry>}
 
           {pl.relTsys.tap(rel => (
             <Entry title="Type Systems">{rel.values.map(({ tsys }) => tsys && Pill(tsys))}</Entry>

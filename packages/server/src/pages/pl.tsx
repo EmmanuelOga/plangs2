@@ -2,8 +2,8 @@ import { Fragment } from "preact";
 
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
-import { Anchor } from "@plangs/frontend/components/misc/anchor";
-import { PlInfo } from "@plangs/frontend/components/pl-info/pl-info";
+import { Anchor } from "../../../frontend/src/components/misc/anchor";
+import { PlInfo } from "../../../frontend/src/components/pl-info/pl-info";
 
 export function Pl({ pg, pl }: { pg: PlangsGraph; pl: NPlang }) {
   return (
@@ -148,7 +148,7 @@ export function Pl({ pg, pl }: { pg: PlangsGraph; pl: NPlang }) {
       </article>
 
       <nav>
-        <PlInfo graph={pg} pl={pl} header={false} />
+        <PlInfo pg={pg} pl={pl} header={false} />
       </nav>
     </Fragment>
   );

@@ -12,9 +12,14 @@
     "@tailwindcss/typography": "^0.5.15",
     "@types/bun": "latest",
     "esbuild": "^0.23.0",
-    "tailwindcss": "^4.0.0-alpha.24"
+    "tailwindcss": "next"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "js": "esbuild --bundle packages/frontend/src/app --sourcemap --outdir=packages/server/static/ --watch",
+    "css": "bun x @tailwindcss/cli@next -i ./styles.css -o packages/server/static/index.css --watch",
+    "serve": "bun run --hot --cwd packages/server src/serve.ts"
   }
 }

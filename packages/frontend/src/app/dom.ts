@@ -1,22 +1,17 @@
 import type { ELEM, ELEMS, INPUT } from "@plangs/server/pages/dom";
-import { elem, elems, input } from "@plangs/server/pages/dom";
+import { elem, elems, input } from "../utils";
 
 export function getByIds(): Record<ELEM, HTMLElement> {
   const get = <T extends ELEM>(key: T) => ({ [key]: elem(key) }) as Record<T, HTMLElement>;
   return {
-    ...get("facets"),
-    ...get("nav"),
-    ...get("plangInfo"),
-    ...get("plangs"),
-    ...get("side"),
+    ...get("TODO"),
   } as const;
 }
 
 export function getByClasses(): Record<ELEMS, HTMLCollectionOf<HTMLElement>> {
   const get = <T extends ELEMS>(key: T) => ({ [key]: elems(key) }) as Record<T, HTMLCollectionOf<HTMLElement>>;
   return {
-    ...get("plThumb"),
-    ...get("facet"),
+    ...get("TODO"),
   } as const;
 }
 

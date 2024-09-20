@@ -1,6 +1,8 @@
-import { type JSX, h } from "preact";
+import { h } from "preact";
 
 import type { N, PlangsGraph } from "@plangs/plangs";
+
+import { PlLogo } from "../../../frontend/src/components/misc/pl-logo";
 
 import { type INPUT, domInputId } from "./dom";
 
@@ -60,73 +62,63 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
 
 type FacetInputProps = {
   input: keyof typeof INPUT_PROPS;
-  label: { val: string; hide?: boolean };
+  label: { val: string; hidden?: boolean };
   config: { kind: "checkbox"; val?: string } | { kind: "compl"; nodeMap: N } | { kind: "search"; inputSel?: boolean } | { kind: "date" };
 };
 
 function FacetInput({ input, label, config }: FacetInputProps) {
-  let inner: JSX.Element;
-  if (config.kind === "checkbox") {
-    inner = (
-      <>
-        <input id={domInputId(input)} name={input} type="checkbox" value={config.val} />
-        <div>{label.val}</div>
-      </>
-    );
-  } else if (config.kind === "compl") {
-    inner = (
-      <>
-        <div>{label.val}</div>
-        {/* biome-ignore lint/suspicious/noExplicitAny: TODO preact h chokes on data attributes here. */}
-        {h("input-compl", { id: domInputId(input), name: input, "data-kind": config.nodeMap } as any)}
-      </>
-    );
-  } else {
-    inner = (
-      <>
-        {label.val}
-        <input id={domInputId(input)} name={input} type={config.kind} />
-      </>
-    );
-  }
-
   const useInputSel = config.kind === "compl" || (config.kind === "search" && config.inputSel);
   return (
     <>
-      <label class={`inline-block ${label.hide ? "hidden" : ""}`} for={domInputId(input)}>
-        {inner}
+      <label class={label.hidden ? "hidden" : ""} for={domInputId(input)}>
+        {config.kind === "checkbox" ? (
+          <>
+            <input id={domInputId(input)} name={input} type="checkbox" value={config.val} />
+            <div>{label.val}</div>
+          </>
+        ) : config.kind === "compl" ? (
+          <>
+            <div>{label.val}</div>
+            {h("input-compl", { id: domInputId(input), name: input, "data-kind": config.nodeMap } as Record<string, string>)}
+          </>
+        ) : (
+          <>
+            {label.val}
+            <input id={domInputId(input)} name={input} type={config.kind} />
+          </>
+        )}
       </label>
-      {useInputSel ? h("input-sel", { name: input }) : null}
-      <br />
+      {useInputSel ? h("input-sel", { name: input }) : undefined}
     </>
   );
 }
 
-function defInput(label: string, config: FacetInputProps["config"], hidden?: "hidden"): Pick<FacetInputProps, "label" | "config"> {
-  return { label: { val: label, hide: hidden === "hidden" }, config };
-}
+export const INPUT_PROPS = (() => {
+  function facet(label: string, config: FacetInputProps["config"], hidden?: "hidden"): Pick<FacetInputProps, "label" | "config"> {
+    return { label: { val: label, hidden: hidden === "hidden" }, config };
+  }
+  return {
+    plangName: facet("Language Name", { kind: "search" }),
+    extensions: facet("File Extension", { kind: "search", inputSel: true }),
 
-export const INPUT_PROPS = {
-  plangName: defInput("Language Name", { kind: "search" }),
-  extensions: defInput("File Extension", { kind: "search", inputSel: true }),
+    appearedAfter: facet("First Appeared", { kind: "date" }),
+    releasedAfter: facet("Released After", { kind: "date" }, "hidden"),
 
-  appearedAfter: defInput("First Appeared", { kind: "date" }),
-  releasedAfter: defInput("Released After", { kind: "date" }, "hidden"),
+    hasLogo: facet("Has Logo", { kind: "checkbox" }),
+    hasReleases: facet("Known Releases", { kind: "checkbox" }),
+    hasWikipedia: facet("Has Wikipedia", { kind: "checkbox" }),
+    isMainstream: facet("Is Mainstream", { kind: "checkbox" }),
+    isTranspiler: facet("Is Transpiler", { kind: "checkbox" }),
 
-  hasLogo: defInput("Has Logo", { kind: "checkbox" }),
-  hasReleases: defInput("Known Releases", { kind: "checkbox" }),
-  hasWikipedia: defInput("Has Wikipedia", { kind: "checkbox" }),
-  isMainstream: defInput("Is Mainstream", { kind: "checkbox" }),
-  isTranspiler: defInput("Is Transpiler", { kind: "checkbox" }),
-
-  dialectOf: defInput("Dialect Of", { kind: "compl", nodeMap: "pl" }),
-  implements: defInput("Implements", { kind: "compl", nodeMap: "pl" }),
-  influenced: defInput("Influenced", { kind: "compl", nodeMap: "pl" }),
-  influencedBy: defInput("Influenced By", { kind: "compl", nodeMap: "pl" }),
-  licenses: defInput("Licenses", { kind: "compl", nodeMap: "license" }),
-  paradigms: defInput("Paradigms", { kind: "compl", nodeMap: "paradigm" }),
-  platforms: defInput("Platforms", { kind: "compl", nodeMap: "plat" }),
-  tags: defInput("Tags", { kind: "compl", nodeMap: "tag" }),
-  typeSystems: defInput("Type System", { kind: "compl", nodeMap: "tsys" }),
-  writtenIn: defInput("Written In", { kind: "compl", nodeMap: "pl" }),
-} as const;
+    dialectOf: facet("Dialect Of", { kind: "compl", nodeMap: "pl" }),
+    implements: facet("Implements", { kind: "compl", nodeMap: "pl" }),
+    influenced: facet("Influenced", { kind: "compl", nodeMap: "pl" }),
+    influencedBy: facet("Influenced By", { kind: "compl", nodeMap: "pl" }),
+    licenses: facet("Licenses", { kind: "compl", nodeMap: "license" }),
+    paradigms: facet("Paradigms", { kind: "compl", nodeMap: "paradigm" }),
+    platforms: facet("Platforms", { kind: "compl", nodeMap: "plat" }),
+    tags: facet("Tags", { kind: "compl", nodeMap: "tag" }),
+    typeSystems: facet("Type System", { kind: "compl", nodeMap: "tsys" }),
+    writtenIn: facet("Written In", { kind: "compl", nodeMap: "pl" }),
+  } as const;
+})();

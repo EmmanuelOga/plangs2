@@ -1,5 +1,6 @@
-import { Anchor } from "@plangs/frontend/components/misc/anchor";
-import type { PlangsGraph } from "@plangs/plangs/index";
+import type { PlangsGraph } from "@plangs/plangs";
+
+import { Anchor } from "../../../frontend/src/components/misc/anchor";
 
 export function Blog({ pg }: { pg: PlangsGraph }) {
   const postLinks = pg.nodes.post.values.tap(posts => {

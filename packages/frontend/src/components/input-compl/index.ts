@@ -4,9 +4,10 @@
 
 import register from "preact-custom-element";
 
+import { on } from "../../utils";
+
 import { type InputSelElement, matchingInputSelByName } from "../input-sel";
 
-import { on } from "../../utils";
 import { EVENTS, InputCompl, type InputComplProps, TAG_NAME } from "./input-compl";
 import type { CompletionItem, ItemSelected } from "./reducer";
 

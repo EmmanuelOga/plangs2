@@ -5,12 +5,13 @@ import { type N, type NPlang, PlangsGraph } from "@plangs/plangs";
 
 import { type CompletionItem, type InputComplElement, registerInputCompl } from "../components/input-compl";
 import { matchingInputSelByName, registerInputSel } from "../components/input-sel";
-import { type PlangInfoElement, registerPlangInfo } from "../components/pl-info";
+import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
 
 import { $, $$, on } from "../utils";
 
 import { getDom } from "./dom";
 import { getFilters } from "./filters";
+import { connectLivereload } from "./livereload";
 
 function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
   function updatePlangs() {
@@ -125,6 +126,8 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
 
 // Do not use top level await.
 (async () => {
+  connectLivereload();
+
   // Register the web components.
   registerPlangInfo();
   registerInputCompl();
@@ -133,7 +136,7 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
   const data = await (await fetch("/plangs.json")).json();
   const pg = new PlangsGraph().loadJSON(data);
 
-  $<PlangInfoElement>("plang-info")?.setDataSource(pg);
+  $<PlInfoElement>("plang-info")?.setDataSource(pg);
 
   const dom = getDom();
 
