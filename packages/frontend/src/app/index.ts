@@ -3,9 +3,9 @@ import "preact/debug";
 
 import { type N, type NPlang, PlangsGraph } from "@plangs/plangs";
 
-import { type CompletionItem, type InputComplElement, registerInputCompl } from "../input-compl";
-import { matchingInputSelByName, registerInputSel } from "../input-sel";
-import { type PlangInfoElement, registerPlangInfo } from "../plang-info";
+import { type CompletionItem, type InputComplElement, registerInputCompl } from "../components/input-compl";
+import { matchingInputSelByName, registerInputSel } from "../components/input-sel";
+import { type PlangInfoElement, registerPlangInfo } from "../components/pl-info";
 
 import { $, $$, on } from "../utils";
 
@@ -99,8 +99,8 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
     on(dom.elem.plangs, "click", ({ target }) => {
       const pl = getPl(target);
       if (!pl) return;
-      plangInfo.plangKey = pl.key;
-      console.log("SETTING KEY", pl.key, plangInfo.plangKey, plangInfo);
+      plangInfo.key = pl.key;
+      console.log("SETTING KEY", pl.key, plangInfo.key, plangInfo);
       if (!langTab) return;
       langTab.classList.toggle("hide", false);
       langTab.setAttribute("href", `/pl/${pl.plainKey}`);
@@ -119,17 +119,17 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
 
   on(dom.elem.plangInfo, "click", ({ target }) => {
     const pl = getPl(target);
-    if (pl) plangInfo.plangKey = pl.key;
+    if (pl) plangInfo.key = pl.key;
   });
 }
 
-// Register the web components.
-registerPlangInfo();
-registerInputCompl();
-registerInputSel();
-
 // Do not use top level await.
 (async () => {
+  // Register the web components.
+  registerPlangInfo();
+  registerInputCompl();
+  registerInputSel();
+
   const data = await (await fetch("/plangs.json")).json();
   const pg = new PlangsGraph().loadJSON(data);
 
@@ -138,23 +138,4 @@ registerInputSel();
   const dom = getDom();
 
   if (dom.elem.facets) startBrowseNav(pg, dom);
-
-  try {
-    // SSE listener to reload the page on changes.
-    const es = new EventSource("/sse", { withCredentials: false });
-    es.onmessage = ({ data: json }) => {
-      const data = JSON.parse(json);
-      if (data.event !== "info") {
-        setTimeout(() => window.location.reload(), 500);
-      }
-    };
-    es.onerror = err => {
-      // TODO: for some reason we started getting this error after switching to newer bun.js:
-      // GET http://localhost:5000/sse net::ERR_INCOMPLETE_CHUNKED_ENCODING 200 (OK)
-      // console.error("SSE connection error.", err);
-      // es.close();
-    };
-  } catch (err) {
-    console.warn(err);
-  }
 })();

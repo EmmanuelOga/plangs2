@@ -1,29 +1,15 @@
 import { Fragment } from "preact";
-import { useContext } from "preact/hooks";
 
-import { PlangInfo } from "@plangs/frontend/plang-info/plang-info";
-import type { NPlang } from "@plangs/plangs";
+import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
-import { PlangsContext } from "../context";
-import { toAnchor } from "../util";
-import { domId } from "./dom";
+import { Anchor } from "@plangs/frontend/components/misc/anchor";
+import { PlInfo } from "@plangs/frontend/components/pl-info/pl-info";
 
-type LangProps = {
-  pl: NPlang;
-};
-
-export function Lang({ pl }: LangProps) {
-  const pg = useContext(PlangsContext);
-  if (!pg) throw new Error("PlangsGraph should be in the context already.");
-
+export function Pl({ pg, pl }: { pg: PlangsGraph; pl: NPlang }) {
   return (
     <Fragment>
-      <article id="lang-page" class="common-content readable">
+      <article id="lang-page" class="readable">
         <h1>{pl.name}</h1>
-
-        {pl.websites.tap(websites => (
-          <p>{websites.map(link => toAnchor(link))}</p>
-        ))}
 
         <p>{pl.description}</p>
 
@@ -34,7 +20,8 @@ export function Lang({ pl }: LangProps) {
               ({ post }) =>
                 post?.link && (
                   <p key={post.key}>
-                    {post.date} {toAnchor(post.link)}
+                    {post.date}
+                    <Anchor link={post.link} />
                   </p>
                 ),
             )}
@@ -59,7 +46,11 @@ export function Lang({ pl }: LangProps) {
                   ({ app }) =>
                     app && (
                       <tr key={app.key}>
-                        <td>{app.websites.map(link => toAnchor(link))}</td>
+                        <td>
+                          {app.websites.map(link => (
+                            <Anchor key={link.href} link={link} />
+                          ))}
+                        </td>
                         <td>{app.keywords.join(", ")}</td>
                         <td>{app.description}</td>
                       </tr>
@@ -88,7 +79,11 @@ export function Lang({ pl }: LangProps) {
                   ({ lib }) =>
                     lib && (
                       <tr key={lib.key}>
-                        <td>{lib.websites.map(link => toAnchor(link))}</td>
+                        <td>
+                          {lib.websites.map(link => (
+                            <Anchor key={link.href} link={link} />
+                          ))}
+                        </td>
                         <td>{lib.keywords.join(", ")}</td>
                         <td>{lib.description}</td>
                       </tr>
@@ -117,7 +112,11 @@ export function Lang({ pl }: LangProps) {
                   ({ tool }) =>
                     tool && (
                       <tr key={tool.key}>
-                        <td>{tool.websites.map(link => toAnchor(link))}</td>
+                        <td>
+                          {tool.websites.map(link => (
+                            <Anchor key={link.href} link={link} />
+                          ))}
+                        </td>
                         <td>{tool.keywords.join(", ")}</td>
                         <td>{tool.description}</td>
                       </tr>
@@ -135,19 +134,8 @@ export function Lang({ pl }: LangProps) {
                   {bundles.map(
                     ({ bundle }) =>
                       bundle && (
-                        <Fragment>
-                          <p key={bundle.key} style="margin-bottom: 1rem">
-                            {bundle.relTools.values.map(
-                              ({ tool }) =>
-                                tool && (
-                                  <div
-                                    key={tool.key}
-                                    style="border: 2px solid green; background-color: #141; padding: .5rem 1rem; margin-right: .5rem; display: inline-block;">
-                                    {tool.name}
-                                  </div>
-                                ),
-                            )}
-                          </p>
+                        <Fragment key={bundle.key}>
+                          <p>{bundle.relTools.values.map(({ tool }) => tool && <div key={tool.key}>{tool.name}</div>)}</p>
                           <p>{bundle.description}</p>
                         </Fragment>
                       ),
@@ -159,10 +147,8 @@ export function Lang({ pl }: LangProps) {
         ))}
       </article>
 
-      <nav id={domId("side")}>
-        <div id="server-side-plang-info">
-          <PlangInfo graph={pg} plangKey={pl.key} description={false} />
-        </div>
+      <nav>
+        <PlInfo graph={pg} pl={pl} header={false} />
       </nav>
     </Fragment>
   );

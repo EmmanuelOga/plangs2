@@ -6,9 +6,10 @@ import { basename } from "node:path";
 import { marked } from "marked";
 import YAML from "yaml";
 
-import type { NPlang, PlangsGraph, StrDate } from "@plangs/plangs/index";
+import type { NPlang, PlangsGraph, StrDate } from "@plangs/plangs";
+import { parseDate } from "@plangs/plangs/util";
 
-import { packagesPath, parseDate } from "./util";
+import { ZERO_WIDTH, packagesPath } from "./util";
 
 async function postPaths(): Promise<string[]> {
   const glob = new Glob("**/*.md");
@@ -19,15 +20,15 @@ async function postPaths(): Promise<string[]> {
   return postPaths.sort((a, b) => b.localeCompare(a));
 }
 
-type BlogPost = {
+export type Content = {
   title: string;
   author: string;
   plKeys: NPlang["key"][];
   date: StrDate;
-  htmlContent: string;
+  html: string;
 };
 
-export async function loadBlogPost(path: string): Promise<BlogPost> {
+export async function loadContent(path: string): Promise<Content> {
   const date = parseDate(basename(path));
   if (!date) throw new Error(`Post ${path} is missing a date in the filename.`);
 
@@ -43,18 +44,15 @@ export async function loadBlogPost(path: string): Promise<BlogPost> {
 
   const htmlContent = await marked.parse(`${date}\n# ${title}\n\n${mdBody}`.replace(ZERO_WIDTH, ""));
 
-  return { title, author, plKeys: plKeys ?? [], date, htmlContent };
+  return { title, author, plKeys: plKeys ?? [], date, html: htmlContent };
 }
-
-// biome-ignore lint/suspicious/noMisleadingCharacterClass: remove zero width characters
-const ZERO_WIDTH = /^[\u200B\u200C\u200D\u200E\u200F\uFEFF]/;
 
 /**
  * Scan the blog posts folder and create NPost entries.
  */
 export async function loadBlogPosts(pg: PlangsGraph) {
   for (const path of await postPaths()) {
-    const { title, author, plKeys, date } = await loadBlogPost(path);
+    const { title, author, plKeys, date } = await loadContent(path);
 
     const post = pg.nodes.post.set(`post+${basename(path).replace(/\.md$/, "")}`, { path, title, author, date });
 

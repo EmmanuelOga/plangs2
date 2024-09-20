@@ -1,47 +1,19 @@
-import { useContext } from "preact/hooks";
+import { Anchor } from "@plangs/frontend/components/misc/anchor";
+import type { PlangsGraph } from "@plangs/plangs/index";
 
-import type { NPost } from "@plangs/plangs/index";
-
-import { PlangsContext } from "../context";
-import { toAnchor } from "../util";
-
-export function Blog() {
-  const pg = useContext(PlangsContext);
-  if (!pg) throw new Error("PlangsGraph should be in the context already.");
-
+export function Blog({ pg }: { pg: PlangsGraph }) {
   const postLinks = pg.nodes.post.values.tap(posts => {
     return posts.map(post => {
       return (
         post.link && (
           <h2 key={post.key}>
-            <span class="text-lg">{post.date}</span> {toAnchor(post.link)}
+            <span>{post.date}</span>
+            <Anchor link={post.link} />
           </h2>
         )
       );
     });
   });
 
-  return (
-    <>
-      <div />
-      <article class="common-content readable">{postLinks ?? "No posts yet."}</article>
-      <div />
-    </>
-  );
-}
-
-export function BlogPost({ post, content }: { post: NPost; content: string }) {
-  if (!post.link || !post.path) throw new Error(`Post ${post.key} is missing data: ${JSON.stringify(post.data)}`);
-
-  return (
-    <>
-      <div />
-      <article
-        class="common-content readable"
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
-      <div />
-    </>
-  );
+  return <article class="readable">{postLinks ?? <h2>No posts yet</h2>}</article>;
 }

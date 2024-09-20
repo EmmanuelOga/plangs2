@@ -4,7 +4,7 @@
 
 import register from "preact-custom-element";
 
-import { $, on, send } from "../utils";
+import { $, on, send } from "../../utils";
 import { EVENTS, InputSel, type InputSelProps, TAG_NAME } from "./input-sel";
 import type { Item, ItemRemoved } from "./reducer";
 

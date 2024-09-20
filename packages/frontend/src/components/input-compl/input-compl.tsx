@@ -1,7 +1,7 @@
 import type { Ref } from "preact";
 import { useEffect, useReducer, useRef } from "preact/hooks";
 
-import { customEvent, send } from "../utils";
+import { customEvent, send } from "../../utils";
 import { type CompletionItem, type ItemSelected, reducer } from "./reducer";
 
 /** HTML tag name for the CustomElement */

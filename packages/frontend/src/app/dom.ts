@@ -1,5 +1,4 @@
 import type { ELEM, ELEMS, INPUT } from "@plangs/server/pages/dom";
-
 import { elem, elems, input } from "@plangs/server/pages/dom";
 
 export function getByIds(): Record<ELEM, HTMLElement> {

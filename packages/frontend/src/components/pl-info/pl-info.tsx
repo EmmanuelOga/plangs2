@@ -3,20 +3,19 @@ import { useEffect, useRef, useState } from "preact/hooks";
 
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
-import { customEvent, on } from "../utils";
+import { customEvent, on } from "../../utils";
 
 export const TAG_NAME = "plang-info";
 
 export type PlangInfoProps = {
   graph?: PlangsGraph;
-  plangKey?: NPlang["key"];
-  description?: boolean;
+  pl?: NPlang;
+  header?: boolean;
 };
 
 /** Display a PL information, if the key is known. */
-export function PlangInfo({ plangKey: key, graph, description }: PlangInfoProps) {
+export function PlInfo({ graph, pl, header: description }: PlangInfoProps) {
   const self = useRef<HTMLDivElement>();
-  const [pg, setPg] = graph ? useState<PlangsGraph>(graph) : useState<PlangsGraph>();
 
   useEffect(() => {
     const root = self.current?.parentElement as HTMLElement;
@@ -36,14 +35,12 @@ export function PlangInfo({ plangKey: key, graph, description }: PlangInfoProps)
       }
     }
 
-    return on(root, EVENTS.inSetData.type, ({ detail: pg }: CustomEvent) => setPg(pg as PlangsGraph));
+    // return on(root, EVENTS.inSetData.type, ({ detail: pg }: CustomEvent) => setPg(pg as PlangsGraph));
   });
-
-  const pl = pg ? pg.nodes.pl.get(key) : undefined;
 
   let content: JSX.Element;
 
-  if (!key) {
+  if (!pl) {
     content = <p>Select a language to show more information.</p>;
   } else if (!pg) {
     content = <p>Loading graph ...</p>;
@@ -52,7 +49,7 @@ export function PlangInfo({ plangKey: key, graph, description }: PlangInfoProps)
   } else {
     content = (
       <>
-        {description !== false && <h2>{pl.name ?? key}</h2>}
+        {description !== false && <h2>{pl.name ?? plKey}</h2>}
         <dl class="readable">
           {description !== false && <Entry title="Description">{pl.description}</Entry>}
 
@@ -89,7 +86,7 @@ export function PlangInfo({ plangKey: key, graph, description }: PlangInfoProps)
   }
 
   return (
-    <div class="readable mt-2 px-5; pt-0 pb-2 text-[#eee]" ref={self as Ref<HTMLDivElement>}>
+    <div class="readable" ref={self as Ref<HTMLDivElement>}>
       {content}
     </div>
   );
@@ -99,18 +96,14 @@ function Entry({ title, children }: { title: string; children: ComponentChildren
   return (
     <>
       <dt>{title}</dt>
-      <dd class="m-0 rounded-tr-2xl rounded-bl-2xl border border-solid bg-[white] p-3 text-[black]">{children}</dd>
+      <dd>{children}</dd>
     </>
   );
 }
 
 function Pill({ key, kind, name }: { key: string; name: string; kind: string }) {
   return (
-    <div
-      class="m-1 inline-block rounded-tr rounded-bl border-r border-r-[gray] border-b border-b-[gray] border-solid px-2 py-1"
-      key={key}
-      data-key={key}
-      data-kind={kind}>
+    <div key={key} data-key={key} data-kind={kind}>
       {name}
     </div>
   );

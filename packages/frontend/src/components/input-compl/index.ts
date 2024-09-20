@@ -6,7 +6,7 @@ import register from "preact-custom-element";
 
 import { type InputSelElement, matchingInputSelByName } from "../input-sel";
 
-import { on } from "../utils";
+import { on } from "../../utils";
 import { EVENTS, InputCompl, type InputComplProps, TAG_NAME } from "./input-compl";
 import type { CompletionItem, ItemSelected } from "./reducer";
 

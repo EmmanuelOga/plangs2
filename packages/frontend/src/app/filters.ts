@@ -1,9 +1,11 @@
 import { Filter } from "@plangs/graph/auxiliar";
+
 import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, StrDate } from "@plangs/plangs";
 import { PlangFilters } from "@plangs/plangs/filter";
+
 import type { INPUT } from "@plangs/server/pages/dom";
 
-import { matchingInputSelByName } from "../input-sel";
+import { matchingInputSelByName } from "../components/input-sel";
 
 /** Create a plan filter from the inputs values. */
 export function getFilters(inputs: Record<INPUT, HTMLElement | null>): PlangFilters {

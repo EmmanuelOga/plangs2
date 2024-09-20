@@ -14,7 +14,8 @@
     "preact-render-to-string": "^6.5.6"
   },
   "scripts": {
-    "bundle": "esbuild --bundle ../frontend/src/browse --sourcemap --outdir=static/ --watch",
+    "bundle": "esbuild --bundle ../frontend/src/app --sourcemap --outdir=static/",
+    "bundlewatch": "esbuild --bundle ../frontend/src/app --sourcemap --outdir=static/",
     "css": "bun x @tailwindcss/cli@next -i src/input.css -o static/index.css",
     "csswatch": "bun x @tailwindcss/cli@next -i src/input.css -o static/index.css --watch",
     "serve": "bun run --hot src/serve.ts"
