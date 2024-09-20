@@ -10,7 +10,7 @@ import { Pl } from "./pages/pl";
 export async function resolvePage(path: string, pg: PlangsGraph) {
   if (path === "/") {
     return (
-      <Layout title={"Find your next favorite programming language!"}>
+      <Layout title="Find your next favorite programming language!">
         <Browse pg={pg} />
       </Layout>
     );
@@ -27,7 +27,7 @@ export async function resolvePage(path: string, pg: PlangsGraph) {
 
   if (path === "/blog") {
     return (
-      <Layout title={"Find our latest news"}>
+      <Layout title="Read our latest news">
         <Blog pg={pg} />
       </Layout>
     );

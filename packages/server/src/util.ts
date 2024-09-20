@@ -9,7 +9,7 @@ import render from "preact-render-to-string/jsx";
 /** Render a JSX tree as HTML, include the doctype. */
 export function vdomToHTML(component: JSX.Element): string {
   const html = render(component, {}, { pretty: true });
-  return `<!DOCTYPE html>\n${html}}`;
+  return `<!DOCTYPE html>\n${html}`;
 }
 
 /** Static response, including headers to stop the browser from caching the result. */

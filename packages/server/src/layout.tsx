@@ -2,7 +2,7 @@ import type { ComponentChildren } from "preact";
 
 export function Layout({ title, children }: { title: string; children: ComponentChildren }) {
   return (
-    <html lang="en" class="bg-background text-foreground">
+    <html lang="en" class="dark bg-background text-foreground">
       <head>
         <meta charset="utf-8" />
         <title>Plangs! - {title}</title>
@@ -13,40 +13,41 @@ export function Layout({ title, children }: { title: string; children: Component
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
-      <body>
-        <div>
-          <noscript>
-            <em>Note!</em>
-            <p>This site is fully static and requires JavaScript for the best experience.</p>
-            <p>In particular, the search feature will not work without JavaScript.</p>
-          </noscript>
+      <body class="flex flex-wrap">
+        <noscript>
+          <em>Note!</em>
+          <p>This site is fully static and requires JavaScript for the best experience.</p>
+          <p>In particular, the search feature will not work without JavaScript.</p>
+        </noscript>
 
-          <header>
-            <h1 class="text-primary">
-              <a href="/">Plangs!</a>
-            </h1>
+        <header class="flex w-full flex-col bg-secondary">
+          <h1 class="p-4 font-black text-4xl text-primary">
+            <a href="/">Plangs!</a>
+          </h1>
 
-            <nav>
-              <a href="/">
-                <span>Browse</span>
-              </a>
-              <a href="/pl/Python">
-                <span>Python</span>
-              </a>
-              <a href="/blog">
-                <span>News</span>
-              </a>
-              <a href="/about">
-                <span>About</span>
-              </a>
-            </nav>
-          </header>
+          <nav class="self-center *:p-3">
+            <a href="/">
+              <span>Browse</span>
+            </a>
+            <a href="/pl/Python">
+              <span>Python</span>
+            </a>
+            <a href="/blog">
+              <span>News</span>
+            </a>
+            <a href="/about">
+              <span>About</span>
+            </a>
+          </nav>
 
-          <main>{children}</main>
-        </div>
+          <div class="hidden" />
+        </header>
 
-        <script src="/app.js" />
+        <main class="w-full p-4">{children}</main>
+
+        <footer class="w-full bg-secondary">Plangs!</footer>
       </body>
+      <script src="/app.js" />
     </html>
   );
 }

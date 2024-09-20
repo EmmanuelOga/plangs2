@@ -10,7 +10,7 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
   const input = (key: INPUT) => <FacetInput {...INPUT_PROPS[key]} input={key} />;
   return (
     <>
-      <nav class="hidden md:block">
+      <nav class="hidden">
         <div title="General">
           {input("plangName")}
           {input("hasLogo")}
@@ -46,7 +46,7 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
         ))}
       </article>
 
-      <nav>{h("plang-info", {})}</nav>
+      <nav class="hidden">{h("plang-info", {})}</nav>
     </>
   );
 }
