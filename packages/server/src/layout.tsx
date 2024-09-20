@@ -5,8 +5,8 @@ export function Layout({ title, children }: { title: string; children: Component
     <html lang="en" class="bg-background text-foreground">
       <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Plangs! - {title}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="/index.css" />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
@@ -17,8 +17,8 @@ export function Layout({ title, children }: { title: string; children: Component
         <div>
           <noscript>
             <em>Note!</em>
-            This site is fully static and requires JavaScript for the best experience. In particular, the search feature will not work without
-            JavaScript.
+            <p>This site is fully static and requires JavaScript for the best experience.</p>
+            <p>In particular, the search feature will not work without JavaScript.</p>
           </noscript>
 
           <header>

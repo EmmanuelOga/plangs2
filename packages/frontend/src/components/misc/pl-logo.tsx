@@ -1,5 +1,4 @@
 import type { NPlang } from "@plangs/plangs";
-import type { JSX } from "preact/jsx-runtime";
 
 export function PlLogo({ pl }: { pl: NPlang }) {
   const logo = pl.images.find(({ kind }) => kind === "logo") ?? pl.images.first;

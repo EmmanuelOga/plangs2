@@ -1,7 +1,7 @@
 import { Glob } from "bun";
 
 // @ts-ignore types for these?
-import { basename, extname, join } from "node:path";
+import { basename, join } from "node:path";
 
 import { marked } from "marked";
 import YAML from "yaml";
