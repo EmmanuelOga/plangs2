@@ -24,7 +24,6 @@ const server = Bun.serve({
 
     if (path === "/livereload") {
       const success = server.upgrade(req);
-      console.info("websocket update success:", success);
       return success ? new Response("OK.", { status: 404 }) : new Response("ERROR.", { status: 500 });
     }
 
