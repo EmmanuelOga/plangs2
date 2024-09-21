@@ -3,7 +3,7 @@ import type { JSX } from "preact/jsx-runtime";
 
 export function Anchor({ link }: { link: Link }): JSX.Element {
   return (
-    <a key={link.href} href={link.href} title={`${link.kind}:${link.title}`} class={`pl-link ${link.kind}`}>
+    <a href={link.href} title={`${link.title} (${link.kind})`}>
       {link.title}
     </a>
   );

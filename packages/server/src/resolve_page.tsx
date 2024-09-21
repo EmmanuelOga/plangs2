@@ -10,16 +10,16 @@ import { Pl } from "./pages/pl";
 export async function resolvePage(path: string, pg: PlangsGraph) {
   if (path === "/") {
     return (
-      <Layout title="Find your next favorite programming language!">
+      <Layout title="Find your next favorite programming language!" tab="browse">
         <Browse pg={pg} />
       </Layout>
     );
   }
 
   if (path === "/about") {
-    const md = await loadContent("about.md");
+    const md = await loadContent("2024_09_20_about.md");
     return (
-      <Layout title={md.title}>
+      <Layout title={md.title} tab="about">
         <HtmlContent content={md} />
       </Layout>
     );
@@ -27,7 +27,7 @@ export async function resolvePage(path: string, pg: PlangsGraph) {
 
   if (path === "/blog") {
     return (
-      <Layout title="Read our latest news">
+      <Layout title="Read our latest news" tab="blog">
         <Blog pg={pg} />
       </Layout>
     );
@@ -40,9 +40,9 @@ export async function resolvePage(path: string, pg: PlangsGraph) {
       return;
     }
 
-    const md = await loadContent(post.path);
+    const md = await loadContent(`posts/${post.path}`);
     return (
-      <Layout title={md.title}>
+      <Layout title={md.title} tab="blog">
         <HtmlContent content={md} />
       </Layout>
     );
@@ -55,7 +55,7 @@ export async function resolvePage(path: string, pg: PlangsGraph) {
       return;
     }
     return (
-      <Layout title={`${pl.name} details`}>
+      <Layout title={`${pl.name} details`} tab="pl">
         <Pl pg={pg} pl={pl} />
       </Layout>
     );

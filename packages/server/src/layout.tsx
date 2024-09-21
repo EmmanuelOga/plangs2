@@ -1,8 +1,14 @@
 import type { ComponentChildren } from "preact";
 
-export function Layout({ title, children }: { title: string; children: ComponentChildren }) {
+export type LayoutProps = {
+  title: string;
+  tab: "browse" | "blog" | "about" | "pl";
+  children: ComponentChildren;
+};
+
+export function Layout({ title, children, tab }: LayoutProps) {
   return (
-    <html lang="en" class="dark bg-background text-foreground">
+    <html lang="en" class="dark">
       <head>
         <meta charset="utf-8" />
         <title>Plangs! - {title}</title>
@@ -13,41 +19,41 @@ export function Layout({ title, children }: { title: string; children: Component
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
-      <body class="flex flex-wrap">
+      <body class="flex min-h-screen flex-col flex-nowrap bg-background text-foreground" data-tab={tab}>
         <noscript>
           <em>Note!</em>
           <p>This site is fully static and requires JavaScript for the best experience.</p>
           <p>In particular, the search feature will not work without JavaScript.</p>
         </noscript>
 
-        <header class="flex w-full flex-col bg-secondary">
-          <h1 class="p-4 font-black text-4xl text-primary">
+        <header class="sticky top-0 z-10 flex flex-row items-end justify-between border-background border-b-8 bg-secondary">
+          <h1 class="px-4 py-2 font-black text-lg text-primary italic lg:text-2xl">
             <a href="/">Plangs!</a>
           </h1>
 
-          <nav class="self-center *:p-3">
-            <a href="/">
-              <span>Browse</span>
-            </a>
-            <a href="/pl/Python">
-              <span>Python</span>
-            </a>
-            <a href="/blog">
-              <span>News</span>
-            </a>
-            <a href="/about">
-              <span>About</span>
-            </a>
+          <nav class="text-sm">
+            <NavTab href="/" title="Browse" current={tab === "browse"} />
+            <NavTab href="/blog" title="News" current={tab === "blog"} />
+            <NavTab href="/about" title="About" current={tab === "about"} />
           </nav>
-
-          <div class="hidden" />
+          <div />
         </header>
 
-        <main class="w-full p-4">{children}</main>
+        <main class="flex-1 self-center p-4">{children}</main>
 
-        <footer class="w-full bg-secondary">Plangs!</footer>
+        <footer class="bg-secondary px-4 py-2 text-center">Plangs!</footer>
       </body>
       <script src="/app.js" />
     </html>
+  );
+}
+
+function NavTab({ href, title, current }: { href: string; title: string; current: boolean }) {
+  return (
+    <a
+      href={href}
+      class={`mx-1 inline-block min-w-16 rounded-t border-background border-t-1 px-2.5 pt-1 pb-1 text-center text-xs ${current ? "bg-background" : "bg-background/25 text-foreground/75"}`}>
+      <span class={`pb-0.5 ${current ? "border-primary border-b-2" : "hover:border-yellow-200 hover:border-b-2"}`}>{title}</span>
+    </a>
   );
 }

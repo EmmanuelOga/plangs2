@@ -359,7 +359,7 @@
     };
   }
   function O(n2, u6, t3, i7, o4, r4, f5, e3, c5, s5) {
-    var a5, h3, p5, v4, w4, _2, g2, m3, x2, C3, M2, P2, $3, I2, H, L2, T3 = u6.type;
+    var a5, h3, p5, v4, w4, _2, g2, m3, x2, C3, M2, P2, $4, I2, H, L2, T3 = u6.type;
     if (void 0 !== u6.constructor) return null;
     128 & t3.__u && (c5 = !!(32 & t3.__u), r4 = [e3 = u6.__e = t3.__e]), (a5 = l.__b) && a5(u6);
     n: if ("function" == typeof T3) try {
@@ -376,11 +376,11 @@
           h3.componentDidUpdate(v4, w4, _2);
         });
       }
-      if (h3.context = M2, h3.props = m3, h3.__P = n2, h3.__e = false, $3 = l.__r, I2 = 0, x2) {
-        for (h3.state = h3.__s, h3.__d = false, $3 && $3(u6), a5 = h3.render(h3.props, h3.state, h3.context), H = 0; H < h3._sb.length; H++) h3.__h.push(h3._sb[H]);
+      if (h3.context = M2, h3.props = m3, h3.__P = n2, h3.__e = false, $4 = l.__r, I2 = 0, x2) {
+        for (h3.state = h3.__s, h3.__d = false, $4 && $4(u6), a5 = h3.render(h3.props, h3.state, h3.context), H = 0; H < h3._sb.length; H++) h3.__h.push(h3._sb[H]);
         h3._sb = [];
       } else do {
-        h3.__d = false, $3 && $3(u6), a5 = h3.render(h3.props, h3.state, h3.context), h3.state = h3.__s;
+        h3.__d = false, $4 && $4(u6), a5 = h3.render(h3.props, h3.state, h3.context), h3.state = h3.__s;
       } while (h3.__d && ++I2 < 25);
       h3.state = h3.__s, null != h3.getChildContext && (i7 = d(d({}, i7), h3.getChildContext())), x2 && !p5 && null != h3.getSnapshotBeforeUpdate && (_2 = h3.getSnapshotBeforeUpdate(v4, w4)), S(n2, y(L2 = null != a5 && a5.type === k && null == a5.key ? a5.props.children : a5) ? L2 : [L2], u6, t3, i7, o4, r4, f5, e3, c5, s5), h3.base = u6.__e, u6.__u &= -161, h3.__h.length && f5.push(h3), g2 && (h3.__E = h3.__ = null);
     } catch (n3) {
@@ -1258,6 +1258,9 @@
   };
   var NPost = class extends NBase {
     kind = "post";
+    get author() {
+      return this.data.author;
+    }
     get path() {
       return this.data.path;
     }
@@ -1519,6 +1522,9 @@
 
   // packages/frontend/src/utils.ts
   var doc = typeof document === "undefined" ? void 0 : document;
+  var win = typeof window === "undefined" ? void 0 : window;
+  var TW_md = "48rem";
+  var twBreakMd = () => win?.matchMedia(`(min-width: ${TW_md})`).matches ?? false;
   var $2 = doc?.querySelector.bind(document);
   var $$ = doc?.querySelectorAll.bind(document);
   function on(target, type, listener, options) {
@@ -2063,8 +2069,8 @@
   }
 
   // packages/frontend/src/components/pl-info/pl-info.tsx
-  var TAG_NAME3 = "plang-info";
-  function PlInfo({ pg, pl, header }) {
+  var TAG_NAME3 = "pl-info";
+  function PlInfo({ pg, pl }) {
     const self2 = A2();
     y3(() => {
       const root2 = self2.current?.parentElement;
@@ -2091,9 +2097,10 @@
       content = /* @__PURE__ */ u5("p", { children: "Loading language ..." });
     } else {
       content = /* @__PURE__ */ u5(k, { children: [
-        header !== false && /* @__PURE__ */ u5("h2", { children: pl.name }),
-        /* @__PURE__ */ u5("dl", { class: "readable", children: [
-          header !== false && /* @__PURE__ */ u5(Entry, { title: "Description", children: pl.description }),
+        /* @__PURE__ */ u5("h1", { children: pl.name }),
+        /* @__PURE__ */ u5("p", { children: pl.description }),
+        /* @__PURE__ */ u5("details", { class: "-mb-4 mt-8", open: twBreakMd(), children: [
+          /* @__PURE__ */ u5("summary", { class: "font-bold text-xl", children: "Details" }),
           pl.relTsys.tap((rel) => /* @__PURE__ */ u5(Entry, { title: "Type Systems", children: rel.values.map(({ tsys }) => tsys && Pill(tsys)) })),
           pl.relTags.tap((rel) => /* @__PURE__ */ u5(Entry, { title: "Tags", children: rel.values.map(({ tag }) => tag && Pill(tag)) })),
           pl.relPlatforms.tap((rel) => /* @__PURE__ */ u5(Entry, { title: "Platforms", children: rel.values.map(({ plat }) => plat && Pill(plat)) })),
@@ -2106,16 +2113,25 @@
         ] })
       ] });
     }
-    return /* @__PURE__ */ u5("div", { class: "readable", ref: self2, children: content });
+    return /* @__PURE__ */ u5("div", { class: "readable dark:prose-invert", ref: self2, children: content });
   }
   function Entry({ title, children }) {
     return /* @__PURE__ */ u5(k, { children: [
-      /* @__PURE__ */ u5("dt", { children: title }),
-      /* @__PURE__ */ u5("dd", { children })
+      /* @__PURE__ */ u5("h3", { children: title }),
+      /* @__PURE__ */ u5("p", { children })
     ] });
   }
   function Pill({ key, kind, name }) {
-    return /* @__PURE__ */ u5("div", { "data-key": key, "data-kind": kind, children: name }, key);
+    return /* @__PURE__ */ u5(
+      "div",
+      {
+        "data-key": key,
+        "data-kind": kind,
+        class: "-skew-y-2 mr-1 mb-3 inline-block bg-primary p-1.5 font-bold font-bold text-background text-sm shadow-lg shadow-secondary outline-2 outline-secondary",
+        children: name
+      },
+      key
+    );
   }
   var EVENTS3 = {
     /** Incoming event: setup the component with a PlangsGraph. */
@@ -2380,7 +2396,6 @@
     registerInputSel();
     const data = await (await fetch("/plangs.json")).json();
     const pg = new PlangsGraph().loadJSON(data);
-    $2("plang-info")?.setDataSource(pg);
     const dom = getDom();
     if (dom.elem.TODO) startBrowseNav(pg, dom);
   })();

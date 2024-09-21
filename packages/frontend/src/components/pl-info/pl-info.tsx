@@ -3,18 +3,17 @@ import { useEffect, useRef } from "preact/hooks";
 
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
-import { customEvent } from "../../utils";
+import { customEvent, twBreakMd } from "../../utils";
 
-export const TAG_NAME = "plang-info";
+export const TAG_NAME = "pl-info";
 
 export type PlInfoProps = {
-  header?: boolean;
   pg?: PlangsGraph;
   pl?: NPlang;
 };
 
 /** Display a PL information, if the key is known. */
-export function PlInfo({ pg, pl, header }: PlInfoProps) {
+export function PlInfo({ pg, pl }: PlInfoProps) {
   const self = useRef<HTMLDivElement>();
 
   useEffect(() => {
@@ -49,10 +48,10 @@ export function PlInfo({ pg, pl, header }: PlInfoProps) {
   } else {
     content = (
       <>
-        {header !== false && <h2>{pl.name}</h2>}
-        <dl class="readable">
-          {header !== false && <Entry title="Description">{pl.description}</Entry>}
-
+        <h1>{pl.name}</h1>
+        <p>{pl.description}</p>
+        <details class="-mb-4 mt-8" open={twBreakMd()}>
+          <summary class="font-bold text-xl">Details</summary>
           {pl.relTsys.tap(rel => (
             <Entry title="Type Systems">{rel.values.map(({ tsys }) => tsys && Pill(tsys))}</Entry>
           ))}
@@ -80,13 +79,13 @@ export function PlInfo({ pg, pl, header }: PlInfoProps) {
           {pl.extensions.tap(extensions => (
             <Entry title="Extensions">{extensions.map(name => Pill({ key: name, name, kind: "ext" }))}</Entry>
           ))}
-        </dl>
+        </details>
       </>
     );
   }
 
   return (
-    <div class="readable" ref={self as Ref<HTMLDivElement>}>
+    <div class="readable dark:prose-invert" ref={self as Ref<HTMLDivElement>}>
       {content}
     </div>
   );
@@ -95,15 +94,19 @@ export function PlInfo({ pg, pl, header }: PlInfoProps) {
 function Entry({ title, children }: { title: string; children: ComponentChildren }) {
   return (
     <>
-      <dt>{title}</dt>
-      <dd>{children}</dd>
+      <h3>{title}</h3>
+      <p>{children}</p>
     </>
   );
 }
 
 function Pill({ key, kind, name }: { key: string; name: string; kind: string }) {
   return (
-    <div key={key} data-key={key} data-kind={kind}>
+    <div
+      key={key}
+      data-key={key}
+      data-kind={kind}
+      class="-skew-y-2 mr-1 mb-3 inline-block bg-primary p-1.5 font-bold font-bold text-background text-sm shadow-lg shadow-secondary outline-2 outline-secondary">
       {name}
     </div>
   );

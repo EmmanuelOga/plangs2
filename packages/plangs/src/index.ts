@@ -391,6 +391,10 @@ export class NBundle extends NBase<"bundle", CommonNodeData> {
 export class NPost extends NBase<"post", CommonNodeData & { path: string; title: string; author: string; date: StrDate }> {
   override kind: N = "post";
 
+  get author(): string | undefined {
+    return this.data.author;
+  }
+
   get path(): string | undefined {
     return this.data.path;
   }
@@ -640,7 +644,7 @@ export interface Release {
  * A reference to a web page.
  */
 export interface Link {
-  kind?: "homepage" | "repository" | "releases" | "apidocs" | "wikipedia" | "plangsPost" | "other";
+  kind?: "homepage" | "repository" | "releases" | "apidocs" | "wikipedia" | "plangs" | "other";
   href: string;
   title: string;
 }

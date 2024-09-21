@@ -1,11 +1,17 @@
 import { type ELEM, type ELEMS, type INPUT, domClass, domId, domInputId } from "@plangs/server/pages/dom";
 
-// Fake a document object for server side rendering.
-// Document is not used in SSR mode anyway.
+// SSR compatibility
 const doc = typeof document === "undefined" ? undefined : document;
+const win = typeof window === "undefined" ? undefined : window;
 
-export const $ = (doc as Document)?.querySelector.bind(document);
-export const $$ = (doc as Document)?.querySelectorAll.bind(document);
+// We could resolve this from TW's config, but this works fine too for now.
+const TW_md = "48rem";
+
+/** Check if the current windows matches TW's md breakpoint. */
+export const twBreakMd = () => win?.matchMedia(`(min-width: ${TW_md})`).matches ?? false;
+
+export const $ = doc?.querySelector.bind(document);
+export const $$ = doc?.querySelectorAll.bind(document);
 
 /** Adds an event listener to the target, and returns a function to undo the listener. */
 export function on<TEV extends Event>(

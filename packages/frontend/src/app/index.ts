@@ -135,7 +135,7 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
   const data = await (await fetch("/plangs.json")).json();
   const pg = new PlangsGraph().loadJSON(data);
 
-  $<PlInfoElement>("plang-info")?.setDataSource(pg);
+  // $<PlInfoElement>("pl-info")?.setDataSource(pg);
 
   const dom = getDom();
 

@@ -32,13 +32,15 @@ export async function loadContent(path: string): Promise<Content> {
   if (!match) throw new Error(`Post ${path} is missing a YAML header.`);
   const [_, yaml, mdBody] = match;
 
-  const { title, author, plKeys } = YAML.parse(yaml);
+  const { title, author, plKeys, hideDate } = YAML.parse(yaml);
   if (!title || !author) throw new Error(`Post ${path} is missing a title or author in the YAML header.`);
   if (plKeys !== undefined && !Array.isArray(plKeys)) throw new Error(`Post ${path} has an invalid plKeys field in the YAML header.`);
 
-  const htmlContent = await marked.parse(`${date}\n# ${title}\n\n${mdBody}`.replace(ZERO_WIDTH, ""));
+  const md = `# ${title}\n\n${mdBody.replace(ZERO_WIDTH, "")}`;
+  const mdHtml = await marked.parse(md);
+  const html = `<span class="text-sm font-black ${hideDate ? "hidden" : ""}">${date}</span>${mdHtml}`;
 
-  return { title, author, plKeys: plKeys ?? [], date, html: htmlContent, basename: basename(path).replace(/\.md$/, "") };
+  return { title, author, plKeys: plKeys ?? [], date, html, basename: basename(path).replace(/\.md$/, "") };
 }
 
 /**

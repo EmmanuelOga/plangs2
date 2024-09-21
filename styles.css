@@ -10,18 +10,18 @@
 
 /* Base Theme (Light Mode by Default) */
 :root {
-  --color-primary: rgba(0 232 0);
-  --color-secondary: rgba(0 128 0);
-  --color-background: rgba(212 212 212);
-  --color-foreground: rgba(16 16 16);
+  --color-primary: darkgreen;
+  --color-secondary: chartreuse;
+  --color-background: mintcream;
+  --color-foreground: #001;
 }
 
 /* Dark Mode */
 .dark {
-  --color-primary: rgba(0 232 0);
-  --color-secondary: rgba(0 128 0);
-  --color-background: rgba(16 16 16);
-  --color-foreground: rgba(212 212 212);
+  --color-primary: chartreuse;
+  --color-secondary: darkgreen;
+  --color-background: #001;
+  --color-foreground: mintcream;
 }
 
 @theme {
