@@ -10,10 +10,11 @@ export const TAG_NAME = "input-compl";
 
 export type InputComplProps = {
   name: string;
+  class?: string;
   completions?: CompletionItem[];
 };
 
-export function InputCompl({ name, completions }: InputComplProps) {
+export function InputCompl({ name, class: cssClass, completions }: InputComplProps) {
   const inputRef = useRef<HTMLInputElement>();
   const popupRef = useRef<HTMLDivElement>();
   const selRef = useRef<HTMLDivElement>();
@@ -22,6 +23,7 @@ export function InputCompl({ name, completions }: InputComplProps) {
     candidates: [],
     completions: [],
     name: name,
+    cssClass: cssClass,
     query: "",
     selected: 0,
     showPopup: false,
@@ -29,8 +31,8 @@ export function InputCompl({ name, completions }: InputComplProps) {
   });
 
   useEffect(() => {
-    dispatch({ kind: "update", state: { completions: completions ?? [], name } });
-  }, [completions, name]);
+    dispatch({ kind: "update", state: { completions: completions ?? [], name, cssClass } });
+  }, [completions, cssClass, name]);
 
   useEffect(() => {
     if (inputRef.current) inputRef.current.value = state.query;
@@ -49,7 +51,7 @@ export function InputCompl({ name, completions }: InputComplProps) {
     <>
       <input
         autocomplete="off"
-        class={`${showPopup ? "focused" : ""} relative block`}
+        class={`${showPopup ? "focused" : ""} relative block ${state.cssClass ?? ""}`}
         name={name}
         onBlur={({ relatedTarget }) => {
           if (relatedTarget === popupRef.current) return;

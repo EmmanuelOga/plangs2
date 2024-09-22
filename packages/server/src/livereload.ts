@@ -30,9 +30,6 @@ export function untrackWebsocket(ws: ServerWebSocket) {
 
 export function notifyWebsockets(msg: string) {
   if (WEBSOCKETS.size === 0) return;
-
-  console.info("Sending message to", WEBSOCKETS.size, "websockets:", msg);
-
   for (const ws of WEBSOCKETS) {
     try {
       if (ws.readyState === 1) {

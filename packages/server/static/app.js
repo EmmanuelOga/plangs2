@@ -1083,6 +1083,9 @@
     get images() {
       return new IterTap(this.data.images);
     }
+    get thumbUrl() {
+      return (this.images.find(({ kind }) => kind === "logo") ?? this.images.first)?.url;
+    }
     get isTranspiler() {
       return this.data.isTranspiler === true;
     }
@@ -1523,8 +1526,6 @@
   // packages/frontend/src/utils.ts
   var doc = typeof document === "undefined" ? void 0 : document;
   var win = typeof window === "undefined" ? void 0 : window;
-  var TW_md = "48rem";
-  var twBreakMd = () => win?.matchMedia(`(min-width: ${TW_md})`).matches ?? false;
   var $2 = doc?.querySelector.bind(document);
   var $$ = doc?.querySelectorAll.bind(document);
   function on(target, type, listener, options) {
@@ -1579,6 +1580,8 @@
     }
     return collection;
   }
+  var TW_md = "48rem";
+  var twBreakMd = () => win?.matchMedia(`(min-width: ${TW_md})`).matches ?? false;
 
   // node_modules/preact/hooks/dist/hooks.module.js
   var t2;
@@ -1743,8 +1746,7 @@
       return { ...state, selected: filtered };
     }
     if (action.kind === "update") {
-      if (state.inputName === action.inputName) return state;
-      return { ...state, inputName: action.inputName };
+      return { ...state, inputName: action.inputName, cssClass: action.cssClass };
     }
     return state;
   }
@@ -1763,14 +1765,12 @@
 
   // packages/frontend/src/components/input-sel/input-sel.tsx
   var TAG_NAME = "input-sel";
-  function InputSel({ name }) {
+  function InputSel({ name, class: cssClass }) {
     const self2 = A2();
     const lastRemoved = A2();
-    function dispatchInput() {
-    }
     const [state, dispatch] = p4(reducer, {
       inputName: name,
-      selected: [],
+      selected: ["perico", "periquin"],
       onAdd() {
         send(self2.current?.parentElement, EVENTS.outInput.create());
       },
@@ -1781,8 +1781,8 @@
       }
     });
     y3(() => {
-      dispatch({ kind: "update", inputName: name });
-    }, [name]);
+      dispatch({ kind: "update", inputName: name, cssClass });
+    }, [name, cssClass]);
     y3(() => {
       const root2 = self2.current?.parentElement;
       if (!root2) return;
@@ -1802,7 +1802,7 @@
       }
       lastRemoved.current = void 0;
     });
-    return /* @__PURE__ */ u5("div", { ref: self2, children: [
+    return /* @__PURE__ */ u5("div", { ref: self2, class: cssClass, children: [
       state.selected.length > 1 && /* @__PURE__ */ u5("select", { title: "Match all or any of the elements", children: [
         /* @__PURE__ */ u5("option", { value: "any", children: "Any of" }),
         /* @__PURE__ */ u5("option", { value: "all", children: "All of" })
@@ -1810,12 +1810,13 @@
       state.selected.map(({ value, label }) => /* @__PURE__ */ u5(
         "div",
         {
+          class: "item",
+          tabindex: 0,
           "data-value": value,
           onClick: () => dispatch({ kind: "remove", value, by: "click" }),
           onKeyDown: (ev) => {
             if (ev.key === "Enter") dispatch({ kind: "remove", value, by: "enterKey" });
           },
-          tabindex: 0,
           children: [
             /* @__PURE__ */ u5("span", { "aria-label": "remove", children: "\u274C" }),
             label
@@ -1967,7 +1968,7 @@
 
   // packages/frontend/src/components/input-compl/input-compl.tsx
   var TAG_NAME2 = "input-compl";
-  function InputCompl({ name, completions }) {
+  function InputCompl({ name, class: cssClass, completions }) {
     const inputRef = A2();
     const popupRef = A2();
     const selRef = A2();
@@ -1975,14 +1976,15 @@
       candidates: [],
       completions: [],
       name,
+      cssClass,
       query: "",
       selected: 0,
       showPopup: false,
       onSelect: (data) => send(inputRef.current, EVENTS2.outSelect.create(data))
     });
     y3(() => {
-      dispatch({ kind: "update", state: { completions: completions ?? [], name } });
-    }, [completions, name]);
+      dispatch({ kind: "update", state: { completions: completions ?? [], name, cssClass } });
+    }, [completions, cssClass, name]);
     y3(() => {
       if (inputRef.current) inputRef.current.value = state.query;
     }, [state.query]);
@@ -1998,7 +2000,7 @@
         "input",
         {
           autocomplete: "off",
-          class: `${showPopup ? "focused" : ""} relative block`,
+          class: `${showPopup ? "focused" : ""} relative block ${state.cssClass ?? ""}`,
           name,
           onBlur: ({ relatedTarget }) => {
             if (relatedTarget === popupRef.current) return;

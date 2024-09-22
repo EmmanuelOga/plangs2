@@ -9,14 +9,12 @@ export const TAG_NAME = "input-sel";
 
 export type InputSelProps = {
   name: string;
+  class?: string;
 };
 
-export function InputSel({ name }: InputSelProps) {
+export function InputSel({ name, class: cssClass }: InputSelProps) {
   const self = useRef<HTMLDivElement>();
   const lastRemoved = useRef<ItemRemoved>();
-
-  // Dispatch an input event to notify parent of changes.
-  function dispatchInput() {}
 
   const [state, dispatch] = useReducer(reducer, {
     inputName: name,
@@ -32,8 +30,8 @@ export function InputSel({ name }: InputSelProps) {
   });
 
   useEffect(() => {
-    dispatch({ kind: "update", inputName: name });
-  }, [name]);
+    dispatch({ kind: "update", inputName: name, cssClass });
+  }, [name, cssClass]);
 
   // Setup event listener to add items.
   useEffect(() => {
@@ -59,7 +57,7 @@ export function InputSel({ name }: InputSelProps) {
   });
 
   return (
-    <div ref={self as Ref<HTMLDivElement>}>
+    <div ref={self as Ref<HTMLDivElement>} class={cssClass}>
       {state.selected.length > 1 && (
         <select title="Match all or any of the elements">
           <option value="any">Any of</option>
@@ -68,13 +66,14 @@ export function InputSel({ name }: InputSelProps) {
       )}
       {state.selected.map(({ value, label }) => (
         <div
-          data-value={value}
           key={value}
+          class="item"
+          tabindex={0}
+          data-value={value}
           onClick={() => dispatch({ kind: "remove", value, by: "click" })}
           onKeyDown={ev => {
             if (ev.key === "Enter") dispatch({ kind: "remove", value, by: "enterKey" });
-          }}
-          tabindex={0}>
+          }}>
           <span aria-label="remove">❌</span>
           {label}
         </div>

@@ -10,7 +10,7 @@
 
 /* Base Theme (Light Mode by Default) */
 :root {
-  --color-primary: darkgreen;
+  --color-primary: #609;
   --color-secondary: chartreuse;
   --color-background: mintcream;
   --color-foreground: #001;
@@ -19,7 +19,7 @@
 /* Dark Mode */
 .dark {
   --color-primary: chartreuse;
-  --color-secondary: darkgreen;
+  --color-secondary: #609;
   --color-background: #001;
   --color-foreground: mintcream;
 }

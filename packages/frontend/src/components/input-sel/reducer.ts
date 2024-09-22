@@ -1,5 +1,6 @@
 export type State = {
   inputName: string;
+  cssClass?: string;
   selected: Item[];
   onAdd: (item: Item) => void;
   onRemove: (data: ItemRemoved) => void;
@@ -18,7 +19,7 @@ export type ItemRemoved = {
   itemsLeft: number;
 };
 
-export type ActionUpdate = { kind: "update"; inputName: string };
+export type ActionUpdate = { kind: "update"; inputName: string; cssClass?: string };
 export type ActionAdd = { kind: "add"; item: Item };
 export type ActionRemove = { kind: "remove"; value: Item["value"]; by: ItemRemoved["by"] };
 export type Actions = ActionAdd | ActionRemove | ActionUpdate;
@@ -52,8 +53,7 @@ export function reducer(state: State, action: Actions): State {
   }
 
   if (action.kind === "update") {
-    if (state.inputName === action.inputName) return state;
-    return { ...state, inputName: action.inputName };
+    return { ...state, inputName: action.inputName, cssClass: action.cssClass };
   }
 
   return state;

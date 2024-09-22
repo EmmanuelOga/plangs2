@@ -23,6 +23,7 @@ export type State = {
   completions: CompletionItem[];
   /** Name assigned to the `<input-compl/>` element. */
   name: string;
+  cssClass?: string;
   onSelect: (data: ItemSelected) => void;
   query: string;
   selected: number;
