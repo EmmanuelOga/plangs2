@@ -1,16 +1,54 @@
-import { type ComponentChildren, h } from "preact";
+import { h } from "preact";
 
+import { PlThumb } from "@plangs/frontend/components/misc/pl-thumb";
+import { tw } from "@plangs/frontend/utils";
 import type { N, PlangsGraph } from "@plangs/plangs";
 
-import { PlThumb } from "../../../frontend/src/components/misc/pl-thumb";
-
-import { tw } from "@plangs/frontend/utils";
-import { type INPUT, domInputId } from "./dom";
+import { cssId } from "./dom";
 
 export function Browse({ pg }: { pg: PlangsGraph }) {
   return (
-    <>
-      <aside class="-my-4 -mx-4 mb-1 grid hidden h-[50dvh] grid-cols-2 gap-4 overflow-x-hidden overflow-y-scroll border-secondary border-b-4 shadow-lg shadow-secondary ring-1 ring-secondary">
+    <div class={tw("flex flex-1 flex-col", "overflow-hidden")}>
+      <Filters
+        id={cssId("filters")}
+        class={tw(
+          // ---
+          "h-[35dvh] p-3",
+          "overflow-y-auto",
+          "ring-1 ring-secondary",
+          "shadow-lg shadow-secondary",
+          "border-secondary border-b-4",
+          "shadow-background/50 shadow-md",
+        )}
+      />
+
+      <article
+        class={tw(
+          // ---
+          "flex-1",
+          "px-2 pt-1 pb-2",
+          "overflow-y-auto",
+        )}>
+        <div
+          class={tw(
+            // ---
+            "grid grid-cols-[repeat(auto-fit,minmax(5rem,1fr))] gap-2.5",
+          )}>
+          {[...pg.nodes.pl].map(([key, pl]) => (
+            <PlThumb key={key} pl={pl} />
+          ))}
+        </div>
+      </article>
+
+      <aside class="hidden">{h("plang-info", {})}</aside>
+    </div>
+  );
+}
+
+function Filters({ class: cssClass, id }: { class?: string; id?: string }) {
+  return (
+    <aside id={id} class={cssClass ?? ""}>
+      <div class="prose dark:prose-invert grid grid-cols-2 gap-4">
         <section title="General">
           {facet("plangName")}
           {facet("releasedAfter")}
@@ -40,30 +78,16 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
           {facet("writtenIn")}
         </section>
         <section title="License">{facet("licenses")}</section>
-      </aside>
-
-      <article
-        class={tw(
-          "flex-1",
-          "grid grid-cols-[repeat(auto-fit,minmax(5rem,1fr))] gap-2.5",
-          "px-2 pt-1 pb-2",
-        )}>
-        {[...pg.nodes.pl].map(([key, pl]) => (
-          <PlThumb key={key} pl={pl} />
-        ))}
-      </article>
-
-      <aside class="hidden">{h("plang-info", {})}</aside>
-    </>
+      </div>
+    </aside>
   );
 
-  function facet(key: INPUT) {
+  function facet(key: keyof typeof INPUT_PROPS) {
     const { label, input } = INPUT_PROPS[key];
-    const showSel =
-      input.kind === "compl" || (input.kind === "search" && "inputSel" in input && input.inputSel);
+    const showSel = input.kind === "compl" || (input.kind === "search" && "inputSel" in input && input.inputSel);
     return (
       <div class="min-h-20 [&_select]:text-center">
-        <label for={domInputId(key)} class="block pb-2">
+        <label for={cssId(key)} class="block pb-2">
           <div>{label}</div>
           <FacetInput key={key} input={input} />
         </label>
@@ -79,22 +103,17 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
 
 type FacetInputProps = {
   key: keyof typeof INPUT_PROPS;
-  input:
-    | { kind: "checkbox"; val?: string }
-    | { kind: "compl"; nodeMap: N }
-    | { kind: "search"; inputSel?: boolean }
-    | { kind: "date" };
+  input: { kind: "checkbox"; val?: string } | { kind: "compl"; nodeMap: N } | { kind: "search"; inputSel?: boolean } | { kind: "date" };
 };
 
 function FacetInput({ key, input }: FacetInputProps) {
   const props = {
-    id: domInputId(key),
+    id: cssId(key),
     class: input.kind === "checkbox" ? "mt-[0.75rem]" : "w-full",
     name: key,
   };
   if (input.kind === "checkbox") return <input {...props} type="checkbox" value={input.val} />;
-  if (input.kind === "compl")
-    return h("input-compl", { ...props, "data-kind": input.nodeMap } as Record<string, string>);
+  if (input.kind === "compl") return h("input-compl", { ...props, "data-kind": input.nodeMap } as Record<string, string>);
   return <input {...props} type={input.kind} />;
 }
 

@@ -1,5 +1,6 @@
 import { tw } from "@plangs/frontend/utils";
 import type { ComponentChildren } from "preact";
+import { cssId } from "./pages/dom";
 
 export type LayoutProps = {
   title: string;
@@ -20,9 +21,7 @@ export function Layout({ title, children, tab }: LayoutProps) {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
-      <body
-        class={tw("h-dvh w-full", "flex flex-col flex-nowrap", "bg-background text-foreground")}
-        data-tab={tab}>
+      <body class={tw("h-dvh w-full", "flex flex-col flex-nowrap", "bg-background text-foreground")} data-tab={tab}>
         <noscript>
           <em>Note!</em>
           <p>This site is fully static and requires JavaScript for the best experience.</p>
@@ -33,7 +32,9 @@ export function Layout({ title, children, tab }: LayoutProps) {
           class={tw(
             "flex flex-row items-end justify-between",
             "sticky top-0 z-10",
-            "border-background border-b-3 bg-secondary",
+            "shadow-background/75 shadow-md",
+            "border-background border-b-3",
+            "bg-secondary",
           )}>
           <h1 class={tw("px-4 py-2", "font-black text-primary", "text-lg italic")}>
             <a href="/">Plangs!</a>
@@ -45,7 +46,7 @@ export function Layout({ title, children, tab }: LayoutProps) {
             <NavTab href="/about" title="About" current={tab === "about"} />
           </nav>
 
-          <Hamb class={tw("mx-4 h-full pt-1", "text-foreground", "hover:text-primary")} />
+          <Hamb id={cssId("filterToggle")} class={tw("mx-4 size-6 h-full pt-1", "text-foreground", "hover:text-primary")} />
         </header>
 
         {children}
@@ -69,28 +70,20 @@ function NavTab({ href, title, current }: { href: string; title: string; current
         "border-background border-t-1",
         current ? "bg-background" : "bg-background/25 text-foreground/75",
       )}>
-      <span
-        class={tw(
-          "pb-0.5",
-          current ? "border-primary border-b-2" : "hover:border-yellow-200 hover:border-b-2",
-        )}>
-        {title}
-      </span>
+      <span class={tw("pb-0.5", current ? "border-primary border-b-2" : "hover:border-yellow-200 hover:border-b-2")}>{title}</span>
     </a>
   );
 }
 
-function Hamb(props: { class: string }) {
+function Hamb({ id, class: cssClass }: { id: string; class: string }) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      class={`size-6 ${props.class}`}>
+    <svg id={id} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class={cssClass}>
       <title>Filter</title>
+      <filter id="shadow" color-interpolation-filters="sRGB">
+        <feDropShadow dx="3" dy="5" stdDeviation="2" flood-opacity="0.5" flood-color="black" />
+      </filter>
       <path
+        filter="url(#shadow)"
         strokeLinecap="round"
         strokeLinejoin="round"
         d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z"

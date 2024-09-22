@@ -16,5 +16,5 @@ export function Blog({ pg }: { pg: PlangsGraph }) {
     });
   });
 
-  return <article class="readable">{postLinks ?? <h2>No posts yet</h2>}</article>;
+  return <article class="readable p-4">{postLinks ?? <h2>No posts yet</h2>}</article>;
 }

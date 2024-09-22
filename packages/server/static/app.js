@@ -849,7 +849,7 @@
   };
   function arrayMerge(target, newData, similar = (l1, l22) => l1 === l22, onDuplicate) {
     for (const newElem of newData) {
-      const prevElem = target.find((elem2) => similar(elem2, newElem));
+      const prevElem = target.find((elem) => similar(elem, newElem));
       if (prevElem) {
         onDuplicate?.(prevElem, newElem);
       } else {
@@ -1518,11 +1518,6 @@
     }), customElements.define(e3 || t3.tagName || t3.displayName || t3.name, r4);
   }
 
-  // packages/server/src/pages/dom.ts
-  var domId = (key) => `elem-${key}`;
-  var domInputId = (key) => `input-${key}`;
-  var domClass = (key, others) => `elems-${key} ${others ?? ""}`;
-
   // packages/frontend/src/utils.ts
   var doc = typeof document === "undefined" ? void 0 : document;
   var win = typeof window === "undefined" ? void 0 : window;
@@ -1553,32 +1548,6 @@
   }
   function customEvent(type, detail, options = { bubbles: true, composed: true }) {
     return new CustomEvent(type, { detail, ...options });
-  }
-  function elem(key) {
-    const element = document.getElementById(domId(key));
-    if (!(element instanceof HTMLElement) && key !== "TODO") {
-      console.warn(`Element ${key} is not an HTMLElement. Actual: ${element}`);
-    }
-    return element;
-  }
-  function input(key) {
-    const element = document.getElementById(domInputId(key));
-    if (!(element instanceof HTMLElement) && key !== "TODO") {
-      console.warn(`Element ${key} is not an HTMLElement. Actual: ${element}`);
-    }
-    return element;
-  }
-  function elems(key) {
-    const collection = document.getElementsByClassName(domClass(key));
-    if ((!(collection instanceof HTMLCollection) || collection.length === 0) && key !== "TODO") {
-      console.warn(`No elements found for class ${key}`);
-    }
-    for (const element of collection) {
-      if (!(element instanceof HTMLElement)) {
-        console.warn(`Element ${key} is not an HTMLElement. Actual: ${element}`);
-      }
-    }
-    return collection;
   }
   var TW_md = "48rem";
   var twBreakMd = () => win?.matchMedia(`(min-width: ${TW_md})`).matches ?? false;
@@ -1770,7 +1739,7 @@
     const lastRemoved = A2();
     const [state, dispatch] = p4(reducer, {
       inputName: name,
-      selected: ["perico", "periquin"],
+      selected: [],
       onAdd() {
         send(self2.current?.parentElement, EVENTS.outInput.create());
       },
@@ -1863,11 +1832,11 @@
       return { mode, values: new Set(values) };
     }
   };
-  function matchingInputSelByName(elem2) {
-    const name = elem2.getAttribute("name");
+  function matchingInputSelByName(elem) {
+    const name = elem.getAttribute("name");
     const inputSel = $2(`input-sel[name=${name}]`);
     if (!name || !inputSel) {
-      console.warn("Coud not find a matching <input-sel/> by name", elem2, name);
+      console.warn("Coud not find a matching <input-sel/> by name", elem, name);
     }
     return inputSel;
   }
@@ -1914,8 +1883,8 @@
     }
     if (key !== "Enter") return state;
     if (!state.showPopup) return handlePopup(state, { kind: "popup", show: true });
-    const elem2 = state.completions[state.candidates[state.selected]];
-    state.onSelect({ inputName: state.name, value: elem2.value, label: elem2.label });
+    const elem = state.completions[state.candidates[state.selected]];
+    state.onSelect({ inputName: state.name, value: elem.value, label: elem.label });
     const queryLess = handleUpdateQuery(state, { kind: "updateQuery", query: "" });
     return handlePopup(queryLess, { kind: "popup", show: false });
   }
@@ -2155,49 +2124,53 @@
     Object.assign(window.customElements.get(TAG_NAME3)?.prototype, ELEMENT_API3);
   }
 
+  // packages/server/src/pages/browse.tsx
+  var INPUT_PROPS = {
+    plangName: { label: "Lang Name", input: { kind: "search" } },
+    extensions: { label: "File Extension", input: { kind: "search", inputSel: true } },
+    appearedAfter: { label: "Appeared After", input: { kind: "date" } },
+    releasedAfter: { label: "Released After", input: { kind: "date" } },
+    hasLogo: { label: "Has Logo", input: { kind: "checkbox" } },
+    hasReleases: { label: "Known Releases", input: { kind: "checkbox" } },
+    hasWikipedia: { label: "Has Wikipedia", input: { kind: "checkbox" } },
+    isMainstream: { label: "Is Mainstream", input: { kind: "checkbox" } },
+    isTranspiler: { label: "Is Transpiler", input: { kind: "checkbox" } },
+    dialectOf: { label: "Dialect Of", input: { kind: "compl", nodeMap: "pl" } },
+    implements: { label: "Implements", input: { kind: "compl", nodeMap: "pl" } },
+    influenced: { label: "Influenced", input: { kind: "compl", nodeMap: "pl" } },
+    influencedBy: { label: "Influenced By", input: { kind: "compl", nodeMap: "pl" } },
+    licenses: { label: "Licenses", input: { kind: "compl", nodeMap: "license" } },
+    paradigms: { label: "Paradigms", input: { kind: "compl", nodeMap: "paradigm" } },
+    platforms: { label: "Platforms", input: { kind: "compl", nodeMap: "plat" } },
+    tags: { label: "Tags", input: { kind: "compl", nodeMap: "tag" } },
+    typeSystems: { label: "Type System", input: { kind: "compl", nodeMap: "tsys" } },
+    writtenIn: { label: "Written In", input: { kind: "compl", nodeMap: "pl" } }
+  };
+
+  // packages/server/src/pages/dom.ts
+  var FILTER_KEY = Object.keys(INPUT_PROPS);
+  var ID_KEYS = ["todo", "filterToggle", "filters", ...FILTER_KEY];
+  var CL_KEYS = ["todo"];
+  var cssId = (key) => `id-${key}`;
+  var cssCl = (key) => `cl-${key}`;
+
   // packages/frontend/src/app/dom.ts
-  function getByIds() {
-    const get = (key) => ({ [key]: elem(key) });
-    return {
-      ...get("TODO")
-    };
-  }
-  function getByClasses() {
-    const get = (key) => ({ [key]: elems(key) });
-    return {
-      ...get("TODO")
-    };
-  }
-  function getInputs() {
-    const get = (key) => ({ [key]: input(key) });
-    return {
-      ...get("plangName"),
-      ...get("appearedAfter"),
-      ...get("releasedAfter"),
-      ...get("hasLogo"),
-      ...get("hasReleases"),
-      ...get("hasWikipedia"),
-      ...get("isMainstream"),
-      ...get("isTranspiler"),
-      ...get("dialectOf"),
-      ...get("extensions"),
-      ...get("implements"),
-      ...get("influenced"),
-      ...get("influencedBy"),
-      ...get("licenses"),
-      ...get("paradigms"),
-      ...get("platforms"),
-      ...get("tags"),
-      ...get("typeSystems"),
-      ...get("writtenIn")
-    };
-  }
-  function getDom() {
-    return {
-      elem: getByIds(),
-      elems: getByClasses(),
-      inputs: getInputs()
-    };
+  function queryDOM() {
+    const ids = ID_KEYS.reduce(
+      (ids2, key) => {
+        ids2[key] = $2(`#${cssId(key)}`);
+        return ids2;
+      },
+      {}
+    );
+    const cls = CL_KEYS.reduce(
+      (cls2, key) => {
+        cls2[key] = $$(`.${cssCl(key)}`);
+        return cls2;
+      },
+      {}
+    );
+    return { ids, cls };
   }
 
   // packages/plangs/src/filter.ts
@@ -2241,26 +2214,26 @@
     const filters = new PlangFilters();
     const flt = filters.filters;
     function collect(name, getValue, callback) {
-      const input2 = inputs[name];
-      if (!input2) {
+      const input = inputs[name];
+      if (!input) {
         console.warn("Input not found");
         return;
       }
-      const value = getValue(input2);
+      const value = getValue(input);
       if (value) callback(value);
     }
-    const trimVal = (input2) => input2.value.trim();
+    const trimVal = (input) => input.value.trim();
     collect("plangName", trimVal, (val) => flt.plangName.value = new RegExp(val, "i"));
     collect("appearedAfter", trimVal, (val) => flt.appearedAfter.value = val);
     collect("releasedAfter", trimVal, (val) => flt.releasedAfter.value = val);
-    const getChecked = (input2) => input2.checked;
+    const getChecked = (input) => input.checked;
     collect("hasLogo", getChecked, (val) => flt.hasLogo.value = val);
     collect("hasReleases", getChecked, (val) => flt.hasReleases.value = val);
     collect("hasWikipedia", getChecked, (val) => flt.hasWikipedia.value = val);
     collect("isTranspiler", getChecked, (val) => flt.isTranspiler.value = val);
     collect("isMainstream", getChecked, (val) => flt.isMainstream.value = val);
-    function getFilter(input2) {
-      const filter2 = matchingInputSelByName(input2)?.values();
+    function getFilter(input) {
+      const filter2 = matchingInputSelByName(input)?.values();
       return filter2 ? new Filter(filter2.mode, filter2.values) : void 0;
     }
     collect("dialectOf", getFilter, (val) => flt.dialectOf.value = val);
@@ -2360,7 +2333,7 @@
         extensions.focus();
       });
     }
-    on(dom.elem.TODO, "input", ({ target }) => {
+    on(dom.ids.todo, "input", ({ target }) => {
       if (target?.matches("input[name=plang-ext]")) return;
       debouncedUpdatePlangs();
     });
@@ -2369,10 +2342,10 @@
       if (!keyHolder || !keyHolder.dataset.key) return;
       return pg.nodes.pl.get(keyHolder.dataset.key);
     }
-    const plInfo = dom.elem.TODO;
+    const plInfo = dom.ids.todo;
     const langTab = document.querySelector("#top-nav .lang");
     if (plInfo) {
-      on(dom.elem.TODO, "click", ({ target }) => {
+      on(dom.ids.todo, "click", ({ target }) => {
         const pl = getPl(target);
         if (!pl) return;
         plInfo.pl = pl;
@@ -2382,11 +2355,11 @@
         langTab.innerText = pl.name;
       });
     }
-    on(dom.elem.TODO, "dblclick", ({ target }) => {
+    on(dom.ids.todo, "dblclick", ({ target }) => {
       const pl = getPl(target);
       if (pl) window.location.href = `/pl/${pl.plainKey}`;
     });
-    on(dom.elem.TODO, "click", ({ target }) => {
+    on(dom.ids.todo, "click", ({ target }) => {
       const pl = getPl(target);
       if (pl) plInfo.pl = pl;
     });
@@ -2398,8 +2371,11 @@
     registerInputSel();
     const data = await (await fetch("/plangs.json")).json();
     const pg = new PlangsGraph().loadJSON(data);
-    const dom = getDom();
-    if (dom.elem.TODO) startBrowseNav(pg, dom);
+    const dom = queryDOM();
+    on(dom.ids.filterToggle, "click", () => {
+      dom.ids.filters.classList.toggle("hidden");
+    });
+    if (dom.ids.todo) startBrowseNav(pg, dom);
   })();
 })();
 /*! Bundled license information:

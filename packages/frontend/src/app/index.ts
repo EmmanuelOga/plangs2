@@ -9,11 +9,11 @@ import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
 
 import { $, $$, on } from "../utils";
 
-import { getDom } from "./dom";
+import { queryDOM } from "./dom";
 import { getFilters } from "./filters";
 import { connectLivereload } from "./livereload";
 
-function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
+function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof queryDOM>) {
   function updatePlangs() {
     const filters = getFilters(dom.inputs);
     const keys = pg.plangs(filters);
@@ -81,7 +81,7 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
 
   // On input change, re-filter the list of languages.
 
-  on(dom.elem.TODO, "input", ({ target }) => {
+  on(dom.ids.todo, "input", ({ target }) => {
     if ((target as HTMLInputElement)?.matches("input[name=plang-ext]")) return;
     debouncedUpdatePlangs();
   });
@@ -94,10 +94,10 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
     return pg.nodes.pl.get(keyHolder.dataset.key as NPlang["key"]);
   }
 
-  const plInfo = dom.elem.TODO as PlInfoElement;
+  const plInfo = dom.ids.todo as PlInfoElement;
   const langTab = document.querySelector("#top-nav .lang") as HTMLDivElement;
   if (plInfo) {
-    on(dom.elem.TODO, "click", ({ target }) => {
+    on(dom.ids.todo, "click", ({ target }) => {
       const pl = getPl(target);
       if (!pl) return;
       plInfo.pl = pl;
@@ -110,14 +110,14 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
 
   // On double-click, open the language page.
 
-  on(dom.elem.TODO, "dblclick", ({ target }) => {
+  on(dom.ids.todo, "dblclick", ({ target }) => {
     const pl = getPl(target);
     if (pl) window.location.href = `/pl/${pl.plainKey}`;
   });
 
   // On click on a pl-pill in the infobox, update the infobox.
 
-  on(dom.elem.TODO, "click", ({ target }) => {
+  on(dom.ids.todo, "click", ({ target }) => {
     const pl = getPl(target);
     if (pl) plInfo.pl = pl;
   });
@@ -137,7 +137,11 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof getDom>) {
 
   // $<PlInfoElement>("pl-info")?.setDataSource(pg);
 
-  const dom = getDom();
+  const dom = queryDOM();
 
-  if (dom.elem.TODO) startBrowseNav(pg, dom);
+  on(dom.ids.filterToggle, "click", () => {
+    dom.ids.filters.classList.toggle("hidden");
+  });
+
+  if (dom.ids.todo) startBrowseNav(pg, dom);
 })();
