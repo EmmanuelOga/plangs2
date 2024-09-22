@@ -1,4 +1,4 @@
-import { h } from "preact";
+import { type JSX, h } from "preact";
 
 import { PlThumb } from "@plangs/frontend/components/misc/pl-thumb";
 import { tw } from "@plangs/frontend/utils";
@@ -13,6 +13,7 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
         id={cssId("filters")}
         class={tw(
           // ---
+          "hidden",
           "h-[35dvh] p-3",
           "overflow-y-auto",
           "ring-1 ring-secondary",
@@ -40,7 +41,7 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
         </div>
       </article>
 
-      <aside class="hidden">{h("plang-info", {})}</aside>
+      <aside class="hidden">{h("pl-info", {})}</aside>
     </div>
   );
 }
@@ -84,12 +85,25 @@ function Filters({ class: cssClass, id }: { class?: string; id?: string }) {
 
   function facet(key: keyof typeof INPUT_PROPS) {
     const { label, input } = INPUT_PROPS[key];
+
+    const inputProps = {
+      id: cssId(key),
+      class: input.kind === "checkbox" ? "mt-[0.75rem]" : "w-full",
+      name: key,
+    };
+
+    let inputElem: JSX.Element;
+    if (input.kind === "checkbox") inputElem = <input {...inputProps} type="checkbox" value={input.val} />;
+    if (input.kind === "compl") inputElem = h("input-compl", { ...inputProps, "data-kind": input.nodeMap } as Record<string, string>);
+    inputElem ??= <input {...inputProps} type={input.kind} />;
+
     const showSel = input.kind === "compl" || (input.kind === "search" && "inputSel" in input && input.inputSel);
+
     return (
       <div class="min-h-20 [&_select]:text-center">
         <label for={cssId(key)} class="block pb-2">
           <div>{label}</div>
-          <FacetInput key={key} input={input} />
+          {inputElem}
         </label>
         {showSel &&
           h("input-sel", {
@@ -99,22 +113,6 @@ function Filters({ class: cssClass, id }: { class?: string; id?: string }) {
       </div>
     );
   }
-}
-
-type FacetInputProps = {
-  key: keyof typeof INPUT_PROPS;
-  input: { kind: "checkbox"; val?: string } | { kind: "compl"; nodeMap: N } | { kind: "search"; inputSel?: boolean } | { kind: "date" };
-};
-
-function FacetInput({ key, input }: FacetInputProps) {
-  const props = {
-    id: cssId(key),
-    class: input.kind === "checkbox" ? "mt-[0.75rem]" : "w-full",
-    name: key,
-  };
-  if (input.kind === "checkbox") return <input {...props} type="checkbox" value={input.val} />;
-  if (input.kind === "compl") return h("input-compl", { ...props, "data-kind": input.nodeMap } as Record<string, string>);
-  return <input {...props} type={input.kind} />;
 }
 
 export const INPUT_PROPS = {

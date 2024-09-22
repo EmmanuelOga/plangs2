@@ -1,21 +1,20 @@
 import { Filter } from "@plangs/graph/auxiliar";
-
 import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, StrDate } from "@plangs/plangs";
 import { PlangFilters } from "@plangs/plangs/filter";
-
-import type { INPUT } from "@plangs/server/pages/dom";
+import type { IDKey } from "@plangs/server/pages/dom";
 
 import { matchingInputSelByName } from "../components/input-sel";
+import { elem } from "../utils";
 
 /** Create a plan filter from the inputs values. */
-export function getFilters(inputs: Record<INPUT, HTMLElement | null>): PlangFilters {
+export function getFilters(): PlangFilters {
   const filters = new PlangFilters();
   const flt = filters.filters;
 
-  function collect<I, V>(name: INPUT, getValue: (input: I) => V, callback: (value: V) => void) {
-    const input = inputs[name];
+  function collect<I, V>(key: IDKey, getValue: (input: I) => V, callback: (value: V) => void) {
+    const input = elem(key);
     if (!input) {
-      console.warn("Input not found");
+      console.warn("Missing input", key);
       return;
     }
     const value = getValue(input as I);

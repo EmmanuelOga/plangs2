@@ -1,9 +1,19 @@
+import { type CLKey, type IDKey, cssCl, cssId } from "@plangs/server/pages/dom";
+
 // SSR compatibility
 const doc = (typeof document === "undefined" ? undefined : document) as Document;
 const win = (typeof window === "undefined" ? undefined : window) as Window;
 
 export const $ = doc?.querySelector.bind(document);
 export const $$ = doc?.querySelectorAll.bind(document);
+
+export function elem(key: IDKey): HTMLElement | undefined {
+  return $<HTMLElement>(`#${cssId(key)}`) ?? undefined;
+}
+
+export function elems(key: CLKey): NodeListOf<HTMLElement> {
+  return $$(`.${cssCl(key)}`);
+}
 
 /** Adds an event listener to the target, and returns a function to undo the listener. */
 export function on<TEV extends Event>(

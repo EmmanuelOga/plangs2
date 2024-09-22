@@ -7,21 +7,22 @@ import { type CompletionItem, type InputComplElement, registerInputCompl } from 
 import { matchingInputSelByName, registerInputSel } from "../components/input-sel";
 import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
 
-import { $, $$, on } from "../utils";
+import { $, $$, elem, elems, on } from "../utils";
 
-import { queryDOM } from "./dom";
 import { getFilters } from "./filters";
 import { connectLivereload } from "./livereload";
 
-function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof queryDOM>) {
-  function updatePlangs() {
-    const filters = getFilters(dom.inputs);
-    const keys = pg.plangs(filters);
+function startBrowseNav(pg: PlangsGraph) {
+  console.info("Starting PL browser.");
 
-    for (const div of [] as HTMLElement[]) {
-      const nodeId = div.dataset.key as NPlang["key"];
-      div.classList.toggle("hide", !keys.has(nodeId));
+  function updatePlangs() {
+    const plKeys = pg.plangs(getFilters());
+
+    for (const div of elems("plThumb")) {
+      const plKey = div.dataset.key as NPlang["key"];
+      div.classList.toggle("hidden", !plKeys.has(plKey));
     }
+
     // if (status) status.innerText = `Displaying ${keys.size} languages of ${pg.n_plang.size}.`;
   }
 
@@ -31,9 +32,9 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof queryDOM>) {
 
   // Release data.
 
-  on(dom.inputs.hasReleases, "input", ({ target }) => {
+  on(elem("hasReleases"), "input", ({ target }) => {
     const checked = (target as HTMLInputElement).checked;
-    dom.inputs.releasedAfter.closest("label")?.classList.toggle("hide", !checked);
+    elem("releasedAfter")?.closest("label")?.classList.toggle("hide", !checked);
   });
 
   // Completions.
@@ -61,7 +62,7 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof queryDOM>) {
 
   // File Extension
 
-  const extensions = dom.inputs.extensions as HTMLInputElement;
+  const extensions = elem("extensions") as HTMLInputElement;
   const extensionsSel = matchingInputSelByName(extensions);
 
   if (extensions && extensionsSel) {
@@ -81,7 +82,7 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof queryDOM>) {
 
   // On input change, re-filter the list of languages.
 
-  on(dom.ids.todo, "input", ({ target }) => {
+  on(elem("filters"), "input", ({ target }) => {
     if ((target as HTMLInputElement)?.matches("input[name=plang-ext]")) return;
     debouncedUpdatePlangs();
   });
@@ -94,10 +95,10 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof queryDOM>) {
     return pg.nodes.pl.get(keyHolder.dataset.key as NPlang["key"]);
   }
 
-  const plInfo = dom.ids.todo as PlInfoElement;
+  const plInfo = elem("todo") as PlInfoElement;
   const langTab = document.querySelector("#top-nav .lang") as HTMLDivElement;
   if (plInfo) {
-    on(dom.ids.todo, "click", ({ target }) => {
+    on(elem("todo"), "click", ({ target }) => {
       const pl = getPl(target);
       if (!pl) return;
       plInfo.pl = pl;
@@ -110,14 +111,14 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof queryDOM>) {
 
   // On double-click, open the language page.
 
-  on(dom.ids.todo, "dblclick", ({ target }) => {
+  on(elem("todo"), "dblclick", ({ target }) => {
     const pl = getPl(target);
     if (pl) window.location.href = `/pl/${pl.plainKey}`;
   });
 
   // On click on a pl-pill in the infobox, update the infobox.
 
-  on(dom.ids.todo, "click", ({ target }) => {
+  on(elem("todo"), "click", ({ target }) => {
     const pl = getPl(target);
     if (pl) plInfo.pl = pl;
   });
@@ -135,13 +136,11 @@ function startBrowseNav(pg: PlangsGraph, dom: ReturnType<typeof queryDOM>) {
   const data = await (await fetch("/plangs.json")).json();
   const pg = new PlangsGraph().loadJSON(data);
 
-  // $<PlInfoElement>("pl-info")?.setDataSource(pg);
+  $<PlInfoElement>("pl-info")?.setDataSource(pg);
 
-  const dom = queryDOM();
-
-  on(dom.ids.filterToggle, "click", () => {
-    dom.ids.filters.classList.toggle("hidden");
+  on(elem("filterToggle"), "click", () => {
+    elem("filters")?.classList?.toggle("hidden");
   });
 
-  if (dom.ids.todo) startBrowseNav(pg, dom);
+  if (elem("plangName")) startBrowseNav(pg);
 })();

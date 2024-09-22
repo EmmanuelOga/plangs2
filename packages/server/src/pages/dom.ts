@@ -6,10 +6,15 @@ import { INPUT_PROPS } from "./browse";
  */
 export const FILTER_KEY = Object.keys(INPUT_PROPS) as (keyof typeof INPUT_PROPS)[];
 export const ID_KEYS = ["todo", "filterToggle", "filters", ...FILTER_KEY] as const;
-export const CL_KEYS = ["todo"];
+export const CL_KEYS = ["todo", "plThumb"] as const;
 
 export type IDKey = (typeof ID_KEYS)[number];
 export type CLKey = (typeof CL_KEYS)[number];
 
-export const cssId: (key: IDKey) => `id-${IDKey}` = key => `id-${key}`;
-export const cssCl: (key: CLKey) => `cl-${CLKey}` = key => `cl-${key}`;
+export function cssId(key: IDKey): `id-${IDKey}` {
+  return `id-${key}`;
+}
+
+export function cssCl(key: CLKey): `cl-${CLKey}` {
+  return `cl-${key}`;
+}

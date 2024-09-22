@@ -3,19 +3,7 @@ import { IterTap, MapTap, arrayMerge } from "@plangs/graph/auxiliar";
 
 import type { PlangFilters } from "./filter";
 
-export const NODE_NAMES = [
-  "app",
-  "bundle",
-  "lib",
-  "license",
-  "paradigm",
-  "pl",
-  "plat",
-  "post",
-  "tag",
-  "tool",
-  "tsys",
-] as const;
+export const NODE_NAMES = ["app", "bundle", "lib", "license", "paradigm", "pl", "plat", "post", "tag", "tool", "tsys"] as const;
 export const EDGE_NAMES = [
   "bundle",
   "dialect",
@@ -90,11 +78,7 @@ export interface CommonNodeData {
 }
 
 /** Base type for data on all nodes. */
-export abstract class NBase<Prefix extends N, Data extends CommonNodeData> extends Node<
-  PlangsGraph,
-  `${Prefix}+${string}`,
-  Data
-> {
+export abstract class NBase<Prefix extends N, Data extends CommonNodeData> extends Node<PlangsGraph, `${Prefix}+${string}`, Data> {
   get name(): string {
     return this.data.name ? this.data.name : this.plainKey;
   }
@@ -408,10 +392,7 @@ export class NBundle extends NBase<"bundle", CommonNodeData> {
  * Repurposes the `websites` field to point to plangs blog posts.
  * The blog posts are scanned at build time and added to the graph.
  */
-export class NPost extends NBase<
-  "post",
-  CommonNodeData & { path: string; title: string; author: string; date: StrDate }
-> {
+export class NPost extends NBase<"post", CommonNodeData & { path: string; title: string; author: string; date: StrDate }> {
   override kind: N = "post";
 
   get author(): string | undefined {
@@ -456,11 +437,12 @@ export interface CommonEdgeData {
 type Any = any;
 
 /** Base type for data on all edges. */
-export abstract class EBase<
-  T_From extends NBase<Any, Any>,
-  T_To extends NBase<Any, Any>,
-  T_Data extends CommonEdgeData,
-> extends Edge<PlangsGraph, T_From, T_To, T_Data> {
+export abstract class EBase<T_From extends NBase<Any, Any>, T_To extends NBase<Any, Any>, T_Data extends CommonEdgeData> extends Edge<
+  PlangsGraph,
+  T_From,
+  T_To,
+  T_Data
+> {
   addRefs(links: Link[]): this {
     arrayMerge((this.data.refs ??= []), links, (l1, l2) => l1.href === l2.href);
     return this;
