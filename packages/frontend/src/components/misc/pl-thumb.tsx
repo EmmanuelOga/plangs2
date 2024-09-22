@@ -24,11 +24,23 @@ export function PlThumb({ pl }: { pl: NPlang }): JSX.Element {
         "hover:outline-2 hover:ring-3",
         "hover:shadow-primary/75 hover:outline-slate-800 hover:ring-primary",
       )}>
-      <div class={tw("m-1 p-0.5", "overflow-clip text-ellipsis whitespace-nowrap", "text-center text-sm", "bg-primary text-secondary")}>
+      <div
+        class={tw(
+          // ---
+          "m-1 p-0.5",
+          "overflow-clip text-ellipsis whitespace-nowrap",
+          "text-center text-xs",
+          "bg-primary text-secondary",
+        )}>
         {pl.name}
       </div>
       <div
-        class={tw(thumbUrl ? "" : "opacity-10", "max-h-[50%] w-[75%] flex-1 self-center")}
+        class={tw(
+          // ---
+          "flex-1 self-center",
+          "max-h-[50%] w-[75%]",
+          thumbUrl ? "" : "opacity-10",
+        )}
         style={`background: url('${thumbUrl || PLACEHOLDER}') no-repeat center/contain`}
       />
     </div>
