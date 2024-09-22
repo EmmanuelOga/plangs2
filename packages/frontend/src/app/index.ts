@@ -7,22 +7,44 @@ import { type CompletionItem, type InputComplElement, registerInputCompl } from 
 import { matchingInputSelByName, registerInputSel } from "../components/input-sel";
 import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
 
-import { $, $$, elem, elems, on } from "../utils";
+import { $, $$, elem, elems, on, size } from "../utils";
 
 import { getFilters } from "./filters";
 import { connectLivereload } from "./livereload";
 
+const CSS_COLS_KEY = "grid-template-columns";
+
+/** Adjusts the number of columns in the grid to stop the gap from growing too large. */
+function adjusutGrid(plGrid: HTMLElement, widthThumb: number, visibleThumbs: number) {
+  const widthRow = window.innerWidth;
+  const numCols = Math.min(Math.floor(widthRow / widthThumb), visibleThumbs);
+  const maxCols = Math.floor(widthRow / (5 * 16));
+  if (numCols < maxCols) {
+    plGrid.style.setProperty(CSS_COLS_KEY, `repeat(${maxCols}, minmax(0, 1fr))`);
+  } else {
+    plGrid.style.removeProperty(CSS_COLS_KEY);
+  }
+}
+
 function startBrowseNav(pg: PlangsGraph) {
   console.info("Starting PL browser.");
 
-  function updatePlangs() {
-    const plKeys = pg.plangs(getFilters());
+  const plGrid = elem("plGrid");
+  const thumbs = elems("plThumb");
 
-    for (const div of elems("plThumb")) {
+  function updatePlangs() {
+    if (thumbs.length === 0 || plGrid === undefined) return;
+
+    const plKeys = pg.plangs(getFilters());
+    let widthThumb: number | undefined;
+    for (const div of thumbs) {
       const plKey = div.dataset.key as NPlang["key"];
-      div.classList.toggle("hidden", !plKeys.has(plKey));
+      const visible = plKeys.has(plKey);
+      div.classList.toggle("hidden", !visible);
+      if (visible) widthThumb ??= size(div)[0];
     }
 
+    if (widthThumb !== undefined) adjusutGrid(plGrid, widthThumb, plKeys.size);
     // if (status) status.innerText = `Displaying ${keys.size} languages of ${pg.n_plang.size}.`;
   }
 

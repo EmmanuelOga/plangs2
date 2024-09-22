@@ -15,6 +15,11 @@ export function elems(key: CLKey): NodeListOf<HTMLElement> {
   return $$(`.${cssCl(key)}`);
 }
 
+export function size(el: HTMLElement): [number, number] {
+  const style = getComputedStyle(el);
+  return [Number.parseInt(style.width), Number.parseInt(style.height)];
+}
+
 /** Adds an event listener to the target, and returns a function to undo the listener. */
 export function on<TEV extends Event>(
   target: Element | null | undefined,

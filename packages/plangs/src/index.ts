@@ -61,9 +61,10 @@ export class PlangsGraph extends BaseGraph<N, E, G> {
   };
 
   /** Find all plangs that match the given filters. */
-  plangs(f: PlangFilters): Set<NPlang["key"]> {
+  plangs(f: PlangFilters, limit = -1): Set<NPlang["key"]> {
     const keys = new Set<NPlang["key"]>();
     for (const pl of this.nodes.pl.values) {
+      if (limit >= 0 && keys.size >= limit) break;
       if (f.matchesAll(pl)) keys.add(pl.key);
     }
     return keys;

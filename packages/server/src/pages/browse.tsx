@@ -31,9 +31,11 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
           "overflow-y-auto",
         )}>
         <div
+          id={cssId("plGrid")}
           class={tw(
             // ---
-            "grid grid-cols-[repeat(auto-fit,minmax(5rem,1fr))] gap-2.5",
+            "grid gap-2.5",
+            "grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]",
           )}>
           {[...pg.nodes.pl].map(([key, pl]) => (
             <PlThumb key={key} pl={pl} />
