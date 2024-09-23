@@ -9,6 +9,7 @@ const PLACEHOLDER = "/favicon/android-chrome-512x512.png";
 
 export function PlThumb({ pl }: { pl: NPlang }): JSX.Element {
   const thumbUrl = pl.thumbUrl;
+
   return (
     <div
       data-key={pl.key}
@@ -25,14 +26,13 @@ export function PlThumb({ pl }: { pl: NPlang }): JSX.Element {
         "hover:outline-1 hover:outline-slate-800",
         "hover:ring-3 hover:ring-primary",
       )}>
-      {script('console.log("ok!")')}
       <div
         class={tw(
           // ---
           "m-0.5 p-0.5",
           "rounded-sm",
-          "overflow-clip text-ellipsis whitespace-nowrap",
           "text-center text-xs",
+          "overflow-clip text-ellipsis whitespace-nowrap",
           "bg-secondary text-foreground",
         )}>
         {pl.name}
@@ -41,8 +41,8 @@ export function PlThumb({ pl }: { pl: NPlang }): JSX.Element {
         <div
           class={tw(
             // ---
-            "absolute inset-1",
-            thumbUrl ? "" : "opacity-10",
+            "absolute",
+            thumbUrl ? "inset-1" : "inset-3 opacity-25 grayscale",
           )}
           style={`background: url('${thumbUrl || PLACEHOLDER}') no-repeat center/contain`}
         />

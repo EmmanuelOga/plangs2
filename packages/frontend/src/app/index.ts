@@ -1,4 +1,4 @@
-import { debounce } from "lodash-es";
+import { debounce, max } from "lodash-es";
 import "preact/debug";
 
 import { type N, type NPlang, PlangsGraph } from "@plangs/plangs";
@@ -19,8 +19,8 @@ function adjusutGrid(plGrid: HTMLElement, widthThumb: number, visibleThumbs: num
   const widthRow = window.innerWidth;
   const numCols = Math.min(Math.floor(widthRow / widthThumb), visibleThumbs);
   const maxCols = Math.floor(widthRow / (5 * 16));
-  if (numCols < maxCols) {
-    plGrid.style.setProperty(CSS_COLS_KEY, `repeat(${maxCols}, minmax(0, 1fr))`);
+  if (numCols < maxCols && visibleThumbs < maxCols) {
+    plGrid.style.setProperty(CSS_COLS_KEY, `repeat(${maxCols}, minmax(5.35rem, 0fr))`);
   } else {
     plGrid.style.removeProperty(CSS_COLS_KEY);
   }
