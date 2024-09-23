@@ -1,3 +1,5 @@
+import { type JSX, h } from "preact";
+
 import { type CLKey, type IDKey, cssCl, cssId } from "@plangs/server/pages/dom";
 
 // SSR compatibility
@@ -81,4 +83,11 @@ export function tw(...classes: (number | string | undefined)[]): string {
     .map(k => (typeof k === "number" ? `outline-2 ${TW_COLORS[k % TW_COLORS.length]} debug-bg-${k % 3}` : k))
     .filter(Boolean)
     .join(" ");
+}
+
+/**
+ * Insert a script tag with the given source, mostly for debugging.
+ */
+export function script(src: string): JSX.Element {
+  return h("script", { dangerouslySetInnerHTML: { __html: src } });
 }
