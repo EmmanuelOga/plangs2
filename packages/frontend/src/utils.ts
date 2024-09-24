@@ -2,6 +2,8 @@ import { type JSX, h } from "preact";
 
 import { type CLKey, type IDKey, cssCl, cssId } from "@plangs/server/pages/dom";
 
+export type Nil = null | undefined;
+
 // SSR compatibility
 const doc = (typeof document === "undefined" ? undefined : document) as Document;
 const win = (typeof window === "undefined" ? undefined : window) as Window;
@@ -9,12 +11,28 @@ const win = (typeof window === "undefined" ? undefined : window) as Window;
 export const $ = doc?.querySelector.bind(document);
 export const $$ = doc?.querySelectorAll.bind(document);
 
-export function elem(key: IDKey): HTMLElement | undefined {
-  return $<HTMLElement>(`#${cssId(key)}`) ?? undefined;
+export const elem = (key: IDKey) => $<HTMLElement>(`#${cssId(key)}`) ?? undefined;
+export const elems = (key: CLKey) => $$<HTMLElement>(`.${cssCl(key)}`);
+
+/** Adds an event listener to the target, and returns a function to undo the listener. */
+export function on<T>(target: Element | Nil, type: string, listener: (ev: T) => void, opt?: AddEventListenerOptions): () => void {
+  if (!target) console.warn("missing target", { type, listener, opt });
+  target?.addEventListener(type, listener as EventListener, opt);
+  return target ? () => off(target, type, listener, opt) : () => {};
 }
 
-export function elems(key: CLKey): NodeListOf<HTMLElement> {
-  return $$(`.${cssCl(key)}`);
+export function off<T>(target: Element | Nil, type: string, listener: (ev: T) => void, opt?: AddEventListenerOptions): void {
+  if (!target) console.warn("missing target", { type, listener, opt });
+  target?.removeEventListener(type, listener as EventListener, opt);
+}
+
+export function send<T extends Event>(target: Element | Nil, ev: T): boolean | undefined {
+  if (!target) console.warn("missing target", ev);
+  return target?.dispatchEvent(ev);
+}
+
+export function customEvent<T>(type: string, detail: T, options: CustomEventInit<T> = { bubbles: true, composed: true }) {
+  return new CustomEvent(type, { detail, ...options });
 }
 
 export function size(el: HTMLElement): [number, number] {
@@ -22,72 +40,13 @@ export function size(el: HTMLElement): [number, number] {
   return [Number.parseInt(style.width), Number.parseInt(style.height)];
 }
 
-/** Adds an event listener to the target, and returns a function to undo the listener. */
-export function on<TEV extends Event>(
-  target: Element | null | undefined,
-  type: string,
-  listener: (ev: TEV) => void,
-  options?: AddEventListenerOptions,
-): () => void {
-  if (!target) {
-    console.warn("missing event target", type, listener, options);
-    return () => {};
-  }
-  target.addEventListener(type, listener as (ev: Event) => void, options);
-  return () => off(target, type, listener, options);
-}
-
-export function off<TEV extends Event>(
-  target: Element | null | undefined,
-  type: string,
-  listener: (ev: TEV) => void,
-  options?: AddEventListenerOptions,
-): void {
-  if (!target) {
-    console.warn("missing event target", type, listener, options);
-    return;
-  }
-  target.removeEventListener(type, listener as (ev: Event) => void, options);
-}
-
-export function send(target: Element | null | undefined, ev: Event): boolean {
-  if (!target) {
-    console.warn("missing event target", ev);
-    return false;
-  }
-  return target.dispatchEvent(ev);
-}
-
-export function customEvent<T>(type: string, detail: T, options: CustomEventInit = { bubbles: true, composed: true }): CustomEvent {
-  return new CustomEvent(type, { detail, ...options });
-}
-
-// We could resolve this from TW's config, but this works fine for now.
-const TW_md = "48rem";
+/** Collect tailwind classes. Passing a number adds an outline and bg color. */
+export const tw = (...classes: (string | undefined | boolean)[]) => classes.filter(s => typeof s === "string" && !/^;|;$/.test(s)).join(" ");
 
 /** Check if the current windows matches TW's md breakpoint. */
 export const twBreakMd = () => win?.matchMedia(`(min-width: ${TW_md})`).matches ?? false;
+const TW_md = "48rem"; // We could resolve this from TW's config, but this works fine for now.
 
-const TW_COLORS = [
-  // "debugging" colors.
-  "outline-red-500 bg-red-500/30",
-  "outline-green-500 bg-green-500/30",
-  "outline-blue-500 bg-blue-500/30",
-];
-
-/**
- * Collect tailwind classes. Passing a number adds an outline and bg color.
- */
-export function tw(...classes: (number | string | undefined | boolean)[]): string {
-  return classes
-    .map(k => (typeof k === "number" ? `outline-2 ${TW_COLORS[k % TW_COLORS.length]} debug-bg-${k % 3}` : k === true ? "" : k))
-    .filter(Boolean)
-    .join(" ");
-}
-
-/**
- * Insert a script tag with the given source, mostly for debugging.
- */
-export function script(src: string): JSX.Element {
-  return h("script", { dangerouslySetInnerHTML: { __html: src } });
-}
+export const script = (src: string) => tag("script", src);
+export const style = (src: string) => tag("style", src);
+export const tag = (tag: "script" | "style", __html: string) => h(tag, { dangerouslySetInnerHTML: { __html } });

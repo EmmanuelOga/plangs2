@@ -1,8 +1,5 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.9.1/schema.json",
-  "organizeImports": {
-    "enabled": true
-  },
   "css": {
     "formatter": {
       "enabled": true
@@ -14,31 +11,11 @@
       "cssModules": true
     }
   },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true,
-      "a11y": {
-        "noBlankTarget": "off"
-      },
-      "suspicious": {
-        "noAssignInExpressions": "off",
-        "noExplicitAny": "info"
-      },
-      "nursery": {
-        "useSortedClasses": {
-          "fix": "safe",
-          "level": "error",
-          "options": {}
-        }
-      }
-    }
-  },
   "formatter": {
-    "formatWithErrors": true,
     "enabled": true,
-    "indentWidth": 2,
+    "formatWithErrors": true,
     "indentStyle": "space",
+    "indentWidth": 2,
     "lineWidth": 150
   },
   "javascript": {
@@ -46,5 +23,31 @@
       "arrowParentheses": "asNeeded",
       "bracketSameLine": true
     }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "a11y": {
+        "noBlankTarget": "off"
+      },
+      "correctness": {
+        "noChildrenProp": "off"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "fix": "safe",
+          "level": "error",
+          "options": {}
+        }
+      },
+      "recommended": true,
+      "suspicious": {
+        "noAssignInExpressions": "off",
+        "noExplicitAny": "info"
+      }
+    }
+  },
+  "organizeImports": {
+    "enabled": true
   }
 }

@@ -1,126 +1,112 @@
-import { type JSX, h } from "preact";
+import { type ComponentChildren, h } from "preact";
 
 import { PlThumb } from "@plangs/frontend/components/misc/pl-thumb";
-import { tw } from "@plangs/frontend/utils";
-import type { N, PlangsGraph } from "@plangs/plangs";
+import { style, tw } from "@plangs/frontend/utils";
+import type { PlangsGraph } from "@plangs/plangs";
 
 import { cssId } from "./dom";
 
 export function Browse({ pg }: { pg: PlangsGraph }) {
   return (
-    <div class={tw("flex flex-1 flex-col", "overflow-hidden")}>
-      <Filters
+    <>
+      <aside
         id={cssId("filters")}
         class={tw(
-          // ---
-          "hidden",
+          "max-h-[33dvh]",
           "z-10",
-          "h-[35dvh] p-3",
-          "overflow-y-auto",
-          "shadow-nav",
-        )}
-      />
-
-      <article
-        class={tw(
-          // ---
-          "flex-1",
-          "px-2 pt-1.5 pb-2",
-          "overflow-y-auto",
+          "grid grid-cols-2",
+          "gap-3 px-3 pt-2",
+          "border-background border-b-4",
+          "overflow-hidden overflow-y-auto",
+          "shadow-background/75 shadow-md",
         )}>
-        <div
-          id={cssId("plGrid")}
-          class={tw(
-            // ---
-            "grid gap-2.5",
-            "grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]",
-          )}>
-          {[...pg.nodes.pl].map(([key, pl]) => (
-            <PlThumb key={key} pl={pl} />
-          ))}
-        </div>
+        {Object.entries(INPUT_GROUPS).map(([key, group]) => (
+          <div key={key}>
+            {group.map(({ title, keys }) => (
+              <InputGroup key={title} title={title} children={keys.map(renderInput)} />
+            ))}
+          </div>
+        ))}
+      </aside>
+      <article
+        id={cssId("plGrid")}
+        class={tw("flex-initial", "grid grid-cols-[repeat(auto-fit,minmax(5rem,1fr))] gap-3", "px-2 pt-1.5 pb-2", "overflow-hidden overflow-y-auto")}>
+        {pg.nodes.pl.batch().map(([key, pl]) => (
+          <PlThumb key={key} pl={pl} />
+        ))}
       </article>
 
+      {/* Filler */}
+      <div class="flex-auto" />
+
       <aside class="hidden">{h("pl-info", {})}</aside>
+    </>
+  );
+}
+
+function InputGroup({ title, children }: { title: string; children: ComponentChildren }) {
+  return (
+    <details
+      class={tw(
+        "group",
+        "mb-3 p-1 last:mb-1",
+        "-skew-y-5 rotate-5",
+        "open:-skew-y-1 open:rotate-1",
+        "ring-1 ring-secondary",
+        "bg-gradient-to-br from-white/95 to-white text-slate-800",
+      )}>
+      <summary class={tw("p-0.5", "text-sm", "group-open:mb-2", "bg-secondary text-foreground")}>{title}</summary>
+      {children}
+    </details>
+  );
+}
+
+function renderInput(key: keyof typeof INPUT_PROPS) {
+  const { label, input } = INPUT_PROPS[key];
+
+  const inputTextColor = "text-slate-800 placeholder:text-slate-800/50";
+  const inputProps = {
+    name: key,
+    id: cssId(key),
+    class: tw(inputTextColor, input.kind === "checkbox" ? "-mt-1" : "w-full"),
+  };
+
+  let inputElem = <input {...inputProps} type={input.kind} />;
+  if (input.kind === "checkbox") inputElem = <input {...inputProps} type="checkbox" />;
+  if (input.kind === "compl") inputElem = h("input-compl", { ...inputProps, "data-kind": input.nodeMap } as Record<string, string>);
+
+  const showSel = input.kind === "compl" || (input.kind === "search" && "inputSel" in input && input.inputSel);
+  return (
+    <div class={tw("[&_select]:text-center")}>
+      <label for={inputProps.id} class={tw("block h-full pb-1.5")}>
+        {input.kind === "checkbox" ? (
+          <>
+            {inputElem}
+            {label}
+          </>
+        ) : (
+          <>
+            <div>{label}</div>
+            {inputElem}
+          </>
+        )}
+      </label>
+      {showSel &&
+        h("input-sel", {
+          name: key,
+          class: tw("w-full text-center", inputTextColor, "[&_.item]:text-left"),
+        })}
     </div>
   );
 }
 
-function Filters({ class: cssClass, id }: { class?: string; id?: string }) {
-  return (
-    <aside id={id} class={cssClass ?? ""}>
-      <div class="prose dark:prose-invert grid grid-cols-2 gap-4">
-        <section title="General">
-          {facet("plangName")}
-          {facet("releasedAfter")}
-          {facet("appearedAfter")}
-          {facet("extensions")}
-        </section>
-        <section title="Toggles">
-          {facet("hasLogo")}
-          {facet("hasWikipedia")}
-          {facet("isMainstream")}
-          {facet("isTranspiler")}
-          {facet("hasReleases")}
-        </section>
-        <section title="Features">
-          {facet("typeSystems")}
-          {facet("paradigms")}
-          {facet("platforms")}
-          {facet("tags")}
-        </section>
-        <section title="Influences">
-          {facet("influenced")}
-          {facet("influencedBy")}
-        </section>
-        <section title="Lineage">
-          {facet("dialectOf")}
-          {facet("implements")}
-          {facet("writtenIn")}
-        </section>
-        <section title="License">{facet("licenses")}</section>
-      </div>
-    </aside>
-  );
-
-  function facet(key: keyof typeof INPUT_PROPS) {
-    const { label, input } = INPUT_PROPS[key];
-
-    const inputProps = {
-      id: cssId(key),
-      class: input.kind === "checkbox" ? "mt-[0.75rem]" : "w-full",
-      name: key,
-    };
-
-    let inputElem: JSX.Element;
-    if (input.kind === "checkbox") inputElem = <input {...inputProps} type="checkbox" value={input.val} />;
-    if (input.kind === "compl") inputElem = h("input-compl", { ...inputProps, "data-kind": input.nodeMap } as Record<string, string>);
-    inputElem ??= <input {...inputProps} type={input.kind} />;
-
-    const showSel = input.kind === "compl" || (input.kind === "search" && "inputSel" in input && input.inputSel);
-
-    return (
-      <div class="min-h-20 [&_select]:text-center">
-        <label for={cssId(key)} class="block pb-2">
-          <div>{label}</div>
-          {inputElem}
-        </label>
-        {showSel &&
-          h("input-sel", {
-            name: key,
-            class: "w-full text-center [&_.item]:text-left  text-slate-800",
-          })}
-      </div>
-    );
-  }
-}
-
+/** Configure for every kind of input: its label, its kind, etc. */
 export const INPUT_PROPS = {
   plangName: { label: "Lang Name", input: { kind: "search" } },
   extensions: { label: "File Extension", input: { kind: "search", inputSel: true } },
 
-  appearedAfter: { label: "Appeared After", input: { kind: "date" } },
-  releasedAfter: { label: "Released After", input: { kind: "date" } },
+  appearedAfter: { label: "Appeared After", input: { kind: "month" } },
+  releasedAfter: { label: "Released After", input: { kind: "month" } },
 
   hasLogo: { label: "Has Logo", input: { kind: "checkbox" } },
   hasReleases: { label: "Known Releases", input: { kind: "checkbox" } },
@@ -138,4 +124,19 @@ export const INPUT_PROPS = {
   tags: { label: "Tags", input: { kind: "compl", nodeMap: "tag" } },
   typeSystems: { label: "Type System", input: { kind: "compl", nodeMap: "tsys" } },
   writtenIn: { label: "Written In", input: { kind: "compl", nodeMap: "pl" } },
+} as const;
+
+const INPUT_GROUPS = {
+  column1: [
+    { title: "Name/File Ext.", keys: ["plangName", "extensions"] },
+    { title: "Releases/Dates", keys: ["hasReleases", "releasedAfter", "appearedAfter"] },
+    { title: "License", keys: ["licenses"] },
+    { title: "Logo/Wikipedia", keys: ["hasLogo", "hasWikipedia"] },
+  ],
+  column2: [
+    { title: "Popular/Transp", keys: ["isMainstream", "isTranspiler"] },
+    { title: "Features", keys: ["typeSystems", "paradigms", "platforms", "tags"] },
+    { title: "Influences", keys: ["influenced", "influencedBy"] },
+    { title: "Lineage", keys: ["dialectOf", "implements", "writtenIn"] },
+  ],
 } as const;

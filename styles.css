@@ -14,7 +14,6 @@
   --color-secondary: chartreuse;
   --color-background: mintcream;
   --color-foreground: #001;
-  --color-debug: rgba(255, 255, 255, 0.25);
 }
 
 /* Dark Mode */
@@ -30,15 +29,13 @@
     source-sans-pro, sans-serif;
 }
 
-.shadow-nav {
-  --color-nav: var(--color-background);
-  box-shadow: 0 10px 15px -3px var(--color-nav)
-            , 0 4px 6px -4px var(--color-nav)
-            , inset 0 10px 15px -3px var(--color-nav)
-            , inset 0 4px 6px -4px var(--color-nav)
-            ;
+* {
+  scrollbar-color: var(--color-secondary) var(--color-background);
 }
 
-.debug-bg-0 { background-image: repeating-linear-gradient(0deg, var(--color-debug) 0, var(--color-debug) 1px, transparent 0, transparent 50%); background-size: 10px 10px; }
-.debug-bg-1 { background-image: repeating-linear-gradient(45deg, var(--color-debug) 0, var(--color-debug) 1px, transparent 0, transparent 50%); background-size: 10px 10px; }
-.debug-bg-2 { background-image: repeating-linear-gradient(90deg, var(--color-debug) 0, var(--color-debug) 1px, transparent 0, transparent 50%); background-size: 10px 10px; }
+
+/** Debugging Helpers */
+
+.db-r { outline: 1px dashed rgb(255 0 0); background-image: repeating-linear-gradient(0deg,  rgb(255 0 0) 0, rgb(255 0 0) 1px, transparent 0, transparent 50%); background-size: 10px 10px; }
+.db-g { outline: 1px dashed rgb(0 255 0); background-image: repeating-linear-gradient(45deg, rgb(0 255 0) 0, rgb(0 255 0) 1px, transparent 0, transparent 50%); background-size: 10px 10px; }
+.db-b { outline: 1px dashed rgb(0 0 255); background-image: repeating-linear-gradient(-45deg, rgb(0 0 255) 0, rgb(0 0 255) 1px, transparent 0, transparent 50%); background-size: 10px 10px; }

@@ -47,14 +47,14 @@ export function Layout({ title, children, tab }: LayoutProps) {
             "sticky top-0 z-10",
             "flex flex-row items-end justify-end",
             "bg-secondary",
-            "border-background border-b-4",
+            "border-background border-b-6",
             "shadow-background/75 shadow-md",
           )}
           style="outline-top-width: 0;">
           <NavTab href="/" title="Browse" current={tab === "browse"} />
           <NavTab href="/blog" title="News" current={tab === "blog"} />
           <NavTab href="/about" title="About" current={tab === "about"} />
-          {tab === "browse" && <NavTab class="ml-6" title="Filter" id={cssId("filterToggle")} />}
+          <NavTab class={tw("mr-4 ml-6", tab !== "browse" && "invisible")} title="Filter" id={cssId("filterToggle")} />
         </nav>
 
         {children}
@@ -72,31 +72,19 @@ function NavTab({ id, class: cssClass, href, title, current }: { id?: string; cl
       id={id}
       href={href}
       class={tw(
-        "mx-1 px-2.5 pt-0.5 pb-1",
-        "text-center text-xs",
+        "mx-2 px-3 pt-0.5 pb-1",
+        "text-center text-sm",
         "rounded-t-lg",
         "border-background border-t-1",
         "*:border-background/25 *:border-b-2",
-        "*:hover:border-yellow-200",
+        href && "*:hover:border-yellow-200",
         !href && "hover:bg-background",
         current ? "bg-background" : "bg-background/25 text-foreground/75",
         cssClass,
       )}>
-      <span class={tw("min-w-20 pb-1", current && "border-primary")}>
-        {href ? (
-          title
-        ) : (
-          <span
-            class={tw(
-              // ---
-              "relative top-0.5 block size-4",
-              "cursor-pointer",
-              "bg-[url('/images/filter.svg')]",
-            )}>
-            &nbsp;
-          </span>
-        )}
-      </span>
+      <span class={tw("inline-block", href && "min-w-12", current && "border-primary")}>{href ? title : FILTER_ICON}</span>
     </a>
   );
 }
+
+const FILTER_ICON = <span class={tw("relative top-1", "block size-4", "cursor-pointer", "bg-[url('/images/filter.svg')]")} children="&nbsp;" />;

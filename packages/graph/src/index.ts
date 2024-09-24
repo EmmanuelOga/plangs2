@@ -103,8 +103,12 @@ export class NodeMap<T_Graph, T_Node extends Node<T_Graph, Any, Any>> implements
     for (const node of this.#map.values()) if (predicate(node)) yield node;
   }
 
-  [Symbol.iterator](): IterableIterator<[T_Node["key"], T_Node]> {
+  [Symbol.iterator](n?: number): IterableIterator<[T_Node["key"], T_Node]> {
     return this.#map[Symbol.iterator]();
+  }
+
+  batch(maxEntries?: number): [T_Node["key"], T_Node][] {
+    return Array.from(this.#map).slice(0, maxEntries);
   }
 }
 

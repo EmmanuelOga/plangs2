@@ -19,6 +19,7 @@ function adjusutGrid(plGrid: HTMLElement, widthThumb: number, visibleThumbs: num
   const widthRow = window.innerWidth;
   const numCols = Math.min(Math.floor(widthRow / widthThumb), visibleThumbs);
   const maxCols = Math.floor(widthRow / (5 * 16));
+
   if (numCols < maxCols && visibleThumbs < maxCols) {
     plGrid.style.setProperty(CSS_COLS_KEY, `repeat(${maxCols}, minmax(5.35rem, 0fr))`);
   } else {
@@ -54,7 +55,7 @@ function startBrowseNav(pg: PlangsGraph) {
 
   // Release data.
 
-  on(elem("hasReleases"), "input", ({ target }) => {
+  on(elem("hasReleases"), "input", ({ target }: InputEvent) => {
     const checked = (target as HTMLInputElement).checked;
     elem("releasedAfter")?.closest("label")?.classList.toggle("hide", !checked);
   });
@@ -104,7 +105,7 @@ function startBrowseNav(pg: PlangsGraph) {
 
   // On input change, re-filter the list of languages.
 
-  on(elem("filters"), "input", ({ target }) => {
+  on(elem("filters"), "input", ({ target }: InputEvent) => {
     if ((target as HTMLInputElement)?.matches("input[name=plang-ext]")) return;
     debouncedUpdatePlangs();
   });
@@ -120,7 +121,7 @@ function startBrowseNav(pg: PlangsGraph) {
   const plInfo = elem("todo") as PlInfoElement;
   const langTab = document.querySelector("#top-nav .lang") as HTMLDivElement;
   if (plInfo) {
-    on(elem("todo"), "click", ({ target }) => {
+    on(elem("todo"), "click", ({ target }: MouseEvent) => {
       const pl = getPl(target);
       if (!pl) return;
       plInfo.pl = pl;
@@ -133,14 +134,14 @@ function startBrowseNav(pg: PlangsGraph) {
 
   // On double-click, open the language page.
 
-  on(elem("todo"), "dblclick", ({ target }) => {
+  on(elem("todo"), "dblclick", ({ target }: MouseEvent) => {
     const pl = getPl(target);
     if (pl) window.location.href = `/pl/${pl.plainKey}`;
   });
 
   // On click on a pl-pill in the infobox, update the infobox.
 
-  on(elem("todo"), "click", ({ target }) => {
+  on(elem("todo"), "click", ({ target }: MouseEvent) => {
     const pl = getPl(target);
     if (pl) plInfo.pl = pl;
   });
@@ -160,9 +161,19 @@ function startBrowseNav(pg: PlangsGraph) {
 
   $<PlInfoElement>("pl-info")?.setDataSource(pg);
 
-  on(elem("filterToggle"), "click", () => {
-    elem("filters")?.classList?.toggle("hidden");
-  });
+  const [toggle, filters] = [elem("filterToggle"), elem("filters")];
+  if (toggle && filters) {
+    const updateToggle = () => {
+      const hidden = filters.classList.contains("hidden");
+      toggle.classList.toggle("bg-background/75", !hidden);
+    };
 
+    on(toggle, "click", () => {
+      filters.classList.toggle("hidden");
+      updateToggle();
+    });
+
+    updateToggle();
+  }
   if (elem("plangName")) startBrowseNav(pg);
 })();

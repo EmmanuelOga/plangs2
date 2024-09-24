@@ -1,9 +1,9 @@
 import type { JSX } from "preact/jsx-runtime";
 
 import type { NPlang } from "@plangs/plangs";
-
 import { cssCl } from "@plangs/server/pages/dom";
-import { script, tw } from "../../utils";
+
+import { tw } from "../../utils";
 
 const PLACEHOLDER = "/favicon/android-chrome-512x512.png";
 
@@ -17,8 +17,7 @@ export function PlThumb({ pl }: { pl: NPlang }): JSX.Element {
         cssCl("plThumb"),
         "flex flex-col",
         "aspect-square overflow-hidden",
-        "max-h-28 max-w-28",
-        "rounded-sm",
+        "max-h-[15rem] min-h-[5.35rem]",
         "-skew-y-5 rotate-5",
         "bg-white",
         "shadow-lg shadow-secondary",
@@ -28,7 +27,6 @@ export function PlThumb({ pl }: { pl: NPlang }): JSX.Element {
       )}>
       <div
         class={tw(
-          // ---
           "m-0.5 p-0.5",
           "rounded-sm",
           "text-center text-xs",
@@ -39,11 +37,7 @@ export function PlThumb({ pl }: { pl: NPlang }): JSX.Element {
       </div>
       <div class={tw("flex-1", "relative")}>
         <div
-          class={tw(
-            // ---
-            "absolute",
-            thumbUrl ? "inset-1" : "inset-3 opacity-25 grayscale",
-          )}
+          class={tw("absolute", thumbUrl ? "inset-1" : "inset-3 opacity-25 grayscale")}
           style={`background: url('${thumbUrl || PLACEHOLDER}') no-repeat center/contain`}
         />
       </div>
