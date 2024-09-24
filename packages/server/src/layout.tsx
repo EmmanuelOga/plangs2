@@ -30,24 +30,30 @@ export function Layout({ title, children, tab }: LayoutProps) {
 
         <header
           class={tw(
-            "flex flex-row items-end justify-between",
-            "sticky top-0 z-10",
-            "shadow-background/75 shadow-md",
-            "border-background border-b-3",
-            "bg-secondary",
+            // ---
+            "px-4 pt-0.5 pb-2",
+            "font-black text-lg italic",
+            "bg-secondary text-primary",
           )}>
-          <h1 class={tw("px-4 py-2", "font-black text-primary", "text-lg italic")}>
+          <h1>
             <a href="/">Plangs!</a>
           </h1>
-
-          <nav class="text-sm">
-            <NavTab href="/" title="Browse" current={tab === "browse"} />
-            <NavTab href="/blog" title="News" current={tab === "blog"} />
-            <NavTab href="/about" title="About" current={tab === "about"} />
-          </nav>
-
-          <Hamb id={cssId("filterToggle")} class={tw("mx-4 size-6 h-full pt-1", "text-foreground", "hover:text-primary")} />
         </header>
+
+        <nav
+          class={tw(
+            // ---
+            "flex flex-row items-end justify-end",
+            "max-h-4 px-1",
+            "sticky top-0 z-10",
+            "shadow-background/75 shadow-md",
+            "bg-secondary",
+          )}>
+          <NavTab href="/" title="Browse" current={tab === "browse"} />
+          <NavTab href="/blog" title="News" current={tab === "blog"} />
+          <NavTab href="/about" title="About" current={tab === "about"} />
+          {tab === "browse" && <NavTab title="Filter" id={cssId("filterToggle")} />}
+        </nav>
 
         {children}
 
@@ -58,36 +64,24 @@ export function Layout({ title, children, tab }: LayoutProps) {
   );
 }
 
-function NavTab({ href, title, current }: { href: string; title: string; current: boolean }) {
+function NavTab({ id, href, title, current }: { id?: string; href?: string; title: string; current?: boolean }) {
   return (
     <a
+      id={id}
       href={href}
       class={tw(
-        "inline-block",
-        "mx-1 min-w-16 px-2.5 pt-1 pb-1",
+        "mx-1 px-2 pt-1",
         "text-center text-xs",
         "rounded-t-lg",
         "border-background border-t-1",
+        "*:border-transparent *:border-b-2",
+        "*:hover:border-yellow-200",
+        !href && "hover:bg-background",
         current ? "bg-background" : "bg-background/25 text-foreground/75",
       )}>
-      <span class={tw("pb-0.5", current ? "border-primary border-b-2" : "hover:border-yellow-200 hover:border-b-2")}>{title}</span>
+      <span class={tw("min-w-20 pb-0.5", current && "border-primary")}>
+        {href ? title : <span class={tw("inline-block size-4 bg-[url('/images/filter.svg')]")}>&nbsp;</span>}
+      </span>
     </a>
-  );
-}
-
-function Hamb({ id, class: cssClass }: { id: string; class: string }) {
-  return (
-    <svg id={id} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class={cssClass}>
-      <title>Filter</title>
-      <filter id="shadow" color-interpolation-filters="sRGB">
-        <feDropShadow dx="3" dy="5" stdDeviation="2" flood-opacity="0.5" flood-color="black" />
-      </filter>
-      <path
-        filter="url(#shadow)"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z"
-      />
-    </svg>
   );
 }

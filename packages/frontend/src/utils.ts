@@ -78,9 +78,9 @@ const TW_COLORS = [
 /**
  * Collect tailwind classes. Passing a number adds an outline and bg color.
  */
-export function tw(...classes: (number | string | undefined)[]): string {
+export function tw(...classes: (number | string | undefined | boolean)[]): string {
   return classes
-    .map(k => (typeof k === "number" ? `outline-2 ${TW_COLORS[k % TW_COLORS.length]} debug-bg-${k % 3}` : k))
+    .map(k => (typeof k === "number" ? `outline-2 ${TW_COLORS[k % TW_COLORS.length]} debug-bg-${k % 3}` : k === true ? "" : k))
     .filter(Boolean)
     .join(" ");
 }

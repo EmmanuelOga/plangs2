@@ -31,14 +31,14 @@ const server = Bun.serve({
       return staticResponse(JSON.stringify(pg), "application/json");
     }
 
+    const page = await resolvePage(path, pg);
+    if (page) return staticResponse(vdomToHTML(page), "text/html");
+
     if (path.startsWith("/images")) {
       const img = Bun.file(join(import.meta.dir, "../../definitions/src/definitions", path.slice(8)));
       if (await img.exists()) return staticResponse(img, `image/${extname(path)}`);
-      return new Response(null, { status: 404 });
+      // Do not return, allow checking for a static image.
     }
-
-    const page = await resolvePage(path, pg);
-    if (page) return staticResponse(vdomToHTML(page), "text/html");
 
     const contentType = contentTypeFor(path);
     if (contentType) {
