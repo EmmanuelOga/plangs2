@@ -14,12 +14,10 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
         class={tw(
           // ---
           "hidden",
+          "z-10",
           "h-[35dvh] p-3",
           "overflow-y-auto",
-          "ring-1 ring-secondary",
-          "shadow-lg shadow-secondary",
-          "border-secondary border-b-4",
-          "shadow-background/50 shadow-md",
+          "shadow-nav",
         )}
       />
 
@@ -27,7 +25,7 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
         class={tw(
           // ---
           "flex-1",
-          "px-2 pt-1 pb-2",
+          "px-2 pt-1.5 pb-2",
           "overflow-y-auto",
         )}>
         <div

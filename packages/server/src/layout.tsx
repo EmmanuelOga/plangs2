@@ -31,7 +31,7 @@ export function Layout({ title, children, tab }: LayoutProps) {
         <header
           class={tw(
             // ---
-            "px-4 pt-0.5 pb-2",
+            "px-4 py-1",
             "font-black text-lg italic",
             "bg-secondary text-primary",
           )}>
@@ -43,16 +43,18 @@ export function Layout({ title, children, tab }: LayoutProps) {
         <nav
           class={tw(
             // ---
-            "flex flex-row items-end justify-end",
-            "max-h-4 px-1",
+            "z-20 px-1",
             "sticky top-0 z-10",
-            "shadow-background/75 shadow-md",
+            "flex flex-row items-end justify-end",
             "bg-secondary",
-          )}>
+            "border-background border-b-4",
+            "shadow-background/75 shadow-md",
+          )}
+          style="outline-top-width: 0;">
           <NavTab href="/" title="Browse" current={tab === "browse"} />
           <NavTab href="/blog" title="News" current={tab === "blog"} />
           <NavTab href="/about" title="About" current={tab === "about"} />
-          {tab === "browse" && <NavTab title="Filter" id={cssId("filterToggle")} />}
+          {tab === "browse" && <NavTab class="ml-6" title="Filter" id={cssId("filterToggle")} />}
         </nav>
 
         {children}
@@ -64,23 +66,36 @@ export function Layout({ title, children, tab }: LayoutProps) {
   );
 }
 
-function NavTab({ id, href, title, current }: { id?: string; href?: string; title: string; current?: boolean }) {
+function NavTab({ id, class: cssClass, href, title, current }: { id?: string; class?: string; href?: string; title: string; current?: boolean }) {
   return (
     <a
       id={id}
       href={href}
       class={tw(
-        "mx-1 px-2 pt-1",
+        "mx-1 px-2.5 pt-0.5 pb-1",
         "text-center text-xs",
         "rounded-t-lg",
         "border-background border-t-1",
-        "*:border-transparent *:border-b-2",
+        "*:border-background/25 *:border-b-2",
         "*:hover:border-yellow-200",
         !href && "hover:bg-background",
         current ? "bg-background" : "bg-background/25 text-foreground/75",
+        cssClass,
       )}>
-      <span class={tw("min-w-20 pb-0.5", current && "border-primary")}>
-        {href ? title : <span class={tw("inline-block size-4 bg-[url('/images/filter.svg')]")}>&nbsp;</span>}
+      <span class={tw("min-w-20 pb-1", current && "border-primary")}>
+        {href ? (
+          title
+        ) : (
+          <span
+            class={tw(
+              // ---
+              "relative top-0.5 block size-4",
+              "cursor-pointer",
+              "bg-[url('/images/filter.svg')]",
+            )}>
+            &nbsp;
+          </span>
+        )}
       </span>
     </a>
   );
