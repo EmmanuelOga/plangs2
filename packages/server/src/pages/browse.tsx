@@ -12,7 +12,7 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
       <aside
         id={cssId("filters")}
         class={tw(
-          "max-h-[33dvh]",
+          "max-h-[33dvh] shrink-0 grow-1",
           "z-10",
           "grid grid-cols-2",
           "gap-3 px-3 pt-2",
