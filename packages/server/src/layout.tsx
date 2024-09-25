@@ -45,8 +45,8 @@ export function Layout({ title, children, tab }: LayoutProps) {
         <nav
           class={tw(
             // ---
-            "z-20 px-1",
-            "sticky top-0 z-10",
+            "px-1",
+            "sticky top-0",
             "flex flex-row items-end justify-end",
             "bg-secondary",
             "border-background border-b-6",
@@ -61,7 +61,7 @@ export function Layout({ title, children, tab }: LayoutProps) {
 
         {children}
 
-        <footer class={tw("px-4 py-2", "text-center", "bg-secondary")}>Plangs!</footer>
+        <footer class={tw("mt-1 px-4 py-1", "text-center", "bg-secondary", "border-1 border-foreground/50")}>Plangs!</footer>
       </body>
       <script src="/app.js" />
     </html>

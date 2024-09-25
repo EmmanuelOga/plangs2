@@ -27,16 +27,15 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
           </div>
         ))}
       </aside>
-      <article
-        id={id("plGrid")}
-        class={tw("flex-initial", "grid grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]", "gap-2 p-1", "overflow-hidden overflow-y-auto")}>
+
+      <article id={id("plGrid")} class={tw("grid grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]", "gap-2 p-1", "overflow-hidden overflow-y-auto")}>
         {pg.nodes.pl.batch().map(([key, pl]) => (
           <PlThumb key={key} pl={pl} />
         ))}
       </article>
 
-      {/* Filler */}
-      <div class="flex-auto" />
+      {/* Filler to remove big gaps between the grid rows. */}
+      <div class="grow" />
 
       <aside class="hidden">{h("pl-info", {})}</aside>
     </>
@@ -45,9 +44,11 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
 
 function InputGroup({ title, children }: { title: string; children: ComponentChildren }) {
   return (
-    <details class={tw("group", "mb-3 p-1 last:mb-1", "ring-1 ring-secondary", "bg-gradient-to-br from-white/95 to-white text-slate-800")}>
-      <summary class={tw("p-0.5", "text-sm", "group-open:mb-2", "bg-secondary text-foreground")}>{title}</summary>
-      {children}
+    <details
+      open={true}
+      class={tw("group", "mb-3 p-1 last:mb-1", "text-sm", "ring-1 ring-secondary", "bg-gradient-to-br from-white/95 to-white text-slate-800")}>
+      <summary class={tw("p-1.5", "group-open:mb-2", "bg-secondary text-foreground")}>{title}</summary>
+      <div class="px-1">{children}</div>
     </details>
   );
 }

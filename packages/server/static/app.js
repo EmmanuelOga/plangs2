@@ -2021,7 +2021,7 @@
       /* @__PURE__ */ u4(
         "div",
         {
-          class: `popup ${showPopup ? "" : "hidden"} absolute z-10 mt-1 max-h-80 max-w-[15rem] overflow-y-auto overflow-x-hidden border border-solid bg-[white] p-1 text-[#333]`,
+          class: `popup ${showPopup ? "" : "hidden"} mt-1 max-h-80 max-w-[15rem] overflow-y-auto overflow-x-hidden border border-solid bg-[white] p-1 text-[#333]`,
           onBlur: ({ relatedTarget }) => {
             if (relatedTarget === inputRef.current) return;
             dispatch({ kind: "popup", show: false });
