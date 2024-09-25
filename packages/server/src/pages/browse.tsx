@@ -14,7 +14,7 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
         class={tw(
           "max-h-[33dvh] shrink-0 grow-1",
           "grid grid-cols-2",
-          "gap-3 px-3 pt-2",
+          "gap-3 px-2 pt-2",
           "border-background border-b-4",
           "overflow-hidden overflow-y-auto",
           "shadow-background/75 shadow-md",
@@ -29,7 +29,7 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
       </aside>
 
       <article id={id("plGrid")} class={tw("grid grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]", "gap-2 p-1", "overflow-hidden overflow-y-auto")}>
-        {pg.nodes.pl.batch().map(([key, pl]) => (
+        {pg.nodes.pl.batch(30).map(([key, pl]) => (
           <PlThumb key={key} pl={pl} />
         ))}
       </article>
