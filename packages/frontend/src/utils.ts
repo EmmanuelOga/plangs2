@@ -1,6 +1,6 @@
 import { type JSX, h } from "preact";
 
-import { type CLKey, type IDKey, cssCl, cssId } from "@plangs/server/pages/dom";
+import { type CLKey, type IDKey, cl, id } from "@plangs/server/pages/dom";
 
 export type Nil = null | undefined;
 
@@ -11,8 +11,8 @@ const win = (typeof window === "undefined" ? undefined : window) as Window;
 export const $ = doc?.querySelector.bind(document);
 export const $$ = doc?.querySelectorAll.bind(document);
 
-export const elem = (key: IDKey) => $<HTMLElement>(`#${cssId(key)}`) ?? undefined;
-export const elems = (key: CLKey) => $$<HTMLElement>(`.${cssCl(key)}`);
+export const elem = (key: IDKey) => $<HTMLElement>(`#${id(key)}`) ?? undefined;
+export const elems = (key: CLKey) => $$<HTMLElement>(`.${cl(key)}`);
 
 /** Adds an event listener to the target, and returns a function to undo the listener. */
 export function on<T>(target: Element | Nil, type: string, listener: (ev: T) => void, opt?: AddEventListenerOptions): () => void {

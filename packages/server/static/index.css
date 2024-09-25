@@ -561,12 +561,6 @@
   .sticky {
     position: sticky;
   }
-  .inset-1 {
-    inset: var(--spacing-1, 0.25rem);
-  }
-  .inset-3 {
-    inset: var(--spacing-3, 0.75rem);
-  }
   .top-0 {
     top: var(--spacing-0, 0px);
   }
@@ -581,6 +575,12 @@
   }
   .m-0\.5 {
     margin: var(--spacing-0_5, 0.125rem);
+  }
+  .m-1 {
+    margin: var(--spacing-1, 0.25rem);
+  }
+  .m-2 {
+    margin: var(--spacing-2, 0.5rem);
   }
   .mx-2 {
     margin-left: var(--spacing-2, 0.5rem);
@@ -690,15 +690,8 @@
   .grow-1 {
     flex-grow: 1;
   }
-  .rotate-5 {
-    rotate: 5deg;
-  }
   .-skew-y-2 {
     --tw-skew-y: skewY(calc(2deg * -1));
-    transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
-  }
-  .-skew-y-5 {
-    --tw-skew-y: skewY(calc(5deg * -1));
     transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
   }
   .transform {
@@ -731,11 +724,11 @@
   .justify-end {
     justify-content: flex-end;
   }
+  .gap-2 {
+    gap: var(--spacing-2, 0.5rem);
+  }
   .gap-3 {
     gap: var(--spacing-3, 0.75rem);
-  }
-  .overflow-clip {
-    overflow: clip;
   }
   .overflow-hidden {
     overflow: hidden;
@@ -784,6 +777,9 @@
   }
   .border-primary {
     border-color: var(--color-primary);
+  }
+  .bg-\[ {
+    background-color: ;
   }
   .bg-\[white\] {
     background-color: white;
@@ -843,19 +839,12 @@
   .pt-0\.5 {
     padding-top: var(--spacing-0_5, 0.125rem);
   }
-  .pt-1\.5 {
-    padding-top: var(--spacing-1_5, 0.375rem);
-  }
   .pt-2 {
     padding-top: var(--spacing-2, 0.5rem);
   }
   .px-1 {
     padding-left: var(--spacing-1, 0.25rem);
     padding-right: var(--spacing-1, 0.25rem);
-  }
-  .px-2 {
-    padding-left: var(--spacing-2, 0.5rem);
-    padding-right: var(--spacing-2, 0.5rem);
   }
   .px-3 {
     padding-left: var(--spacing-3, 0.75rem);
@@ -870,9 +859,6 @@
   }
   .pb-1\.5 {
     padding-bottom: var(--spacing-1_5, 0.375rem);
-  }
-  .pb-2 {
-    padding-bottom: var(--spacing-2, 0.5rem);
   }
   .text-center {
     text-align: center;
@@ -950,8 +936,24 @@
     --tw-shadow-color: color-mix(in srgb, var(--color-background) 75%, transparent);
     --tw-shadow: var(--tw-shadow-colored);
   }
+  .shadow-primary\/50 {
+    --tw-shadow-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
+    --tw-shadow: var(--tw-shadow-colored);
+  }
   .shadow-secondary {
     --tw-shadow-color: var(--color-secondary);
+    --tw-shadow: var(--tw-shadow-colored);
+  }
+  .shadow-secondary\/25 {
+    --tw-shadow-color: color-mix(in srgb, var(--color-secondary) 25%, transparent);
+    --tw-shadow: var(--tw-shadow-colored);
+  }
+  .shadow-secondary\/50 {
+    --tw-shadow-color: color-mix(in srgb, var(--color-secondary) 50%, transparent);
+    --tw-shadow: var(--tw-shadow-colored);
+  }
+  .shadow-secondary\/75 {
+    --tw-shadow-color: color-mix(in srgb, var(--color-secondary) 75%, transparent);
     --tw-shadow: var(--tw-shadow-colored);
   }
   .ring-secondary {
@@ -965,8 +967,15 @@
     outline-style: var(--tw-outline-style);
     outline-width: 2px;
   }
+  .outline-2\.5 {
+    outline-style: var(--tw-outline-style);
+    outline-width: 2.5px;
+  }
   .outline-secondary {
     outline-color: var(--color-secondary);
+  }
+  .outline-secondary\/75 {
+    outline-color: color-mix(in srgb, var(--color-secondary) 75%, transparent);
   }
   .grayscale {
     --tw-grayscale: grayscale(100%);
@@ -1001,26 +1010,9 @@
       margin-bottom: var(--spacing-1, 0.25rem);
     }
   }
-  .open\:rotate-1 {
-    &:is([open], :popover-open) {
-      rotate: 1deg;
-    }
-  }
-  .open\:-skew-y-1 {
-    &:is([open], :popover-open) {
-      --tw-skew-y: skewY(calc(1deg * -1));
-      transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
-    }
-  }
   .hover\:bg-background {
     &:hover {
       background-color: var(--color-background);
-    }
-  }
-  .hover\:ring-3 {
-    &:hover {
-      --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentColor);
-      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
   .hover\:shadow-primary\/75 {
@@ -1029,20 +1021,9 @@
       --tw-shadow: var(--tw-shadow-colored);
     }
   }
-  .hover\:ring-primary {
+  .hover\:outline-primary {
     &:hover {
-      --tw-ring-color: var(--color-primary);
-    }
-  }
-  .hover\:outline-1 {
-    &:hover {
-      outline-style: var(--tw-outline-style);
-      outline-width: 1px;
-    }
-  }
-  .hover\:outline-slate-800 {
-    &:hover {
-      outline-color: var(--color-slate-800, #1e293b);
+      outline-color: var(--color-primary);
     }
   }
   .\*\:hover\:border-yellow-200 {

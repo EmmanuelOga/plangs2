@@ -4,16 +4,15 @@ import { PlThumb } from "@plangs/frontend/components/misc/pl-thumb";
 import { style, tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 
-import { cssId } from "./dom";
+import { id } from "./dom";
 
 export function Browse({ pg }: { pg: PlangsGraph }) {
   return (
     <>
       <aside
-        id={cssId("filters")}
+        id={id("filters")}
         class={tw(
           "max-h-[33dvh] shrink-0 grow-1",
-          "z-10",
           "grid grid-cols-2",
           "gap-3 px-3 pt-2",
           "border-background border-b-4",
@@ -29,8 +28,8 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
         ))}
       </aside>
       <article
-        id={cssId("plGrid")}
-        class={tw("flex-initial", "grid grid-cols-[repeat(auto-fit,minmax(5rem,1fr))] gap-3", "px-2 pt-1.5 pb-2", "overflow-hidden overflow-y-auto")}>
+        id={id("plGrid")}
+        class={tw("flex-initial", "grid grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]", "gap-2 p-1", "overflow-hidden overflow-y-auto")}>
         {pg.nodes.pl.batch().map(([key, pl]) => (
           <PlThumb key={key} pl={pl} />
         ))}
@@ -46,15 +45,7 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
 
 function InputGroup({ title, children }: { title: string; children: ComponentChildren }) {
   return (
-    <details
-      class={tw(
-        "group",
-        "mb-3 p-1 last:mb-1",
-        "-skew-y-5 rotate-5",
-        "open:-skew-y-1 open:rotate-1",
-        "ring-1 ring-secondary",
-        "bg-gradient-to-br from-white/95 to-white text-slate-800",
-      )}>
+    <details class={tw("group", "mb-3 p-1 last:mb-1", "ring-1 ring-secondary", "bg-gradient-to-br from-white/95 to-white text-slate-800")}>
       <summary class={tw("p-0.5", "text-sm", "group-open:mb-2", "bg-secondary text-foreground")}>{title}</summary>
       {children}
     </details>
@@ -67,7 +58,7 @@ function renderInput(key: keyof typeof INPUT_PROPS) {
   const inputTextColor = "text-slate-800 placeholder:text-slate-800/50";
   const inputProps = {
     name: key,
-    id: cssId(key),
+    id: id(key),
     class: tw(inputTextColor, input.kind === "checkbox" ? "-mt-1" : "w-full"),
   };
 

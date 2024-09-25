@@ -11,10 +11,10 @@ export const CL_KEYS = ["todo", "plThumb"] as const;
 export type IDKey = (typeof ID_KEYS)[number];
 export type CLKey = (typeof CL_KEYS)[number];
 
-export function cssId(key: IDKey): `id-${IDKey}` {
+export function id(key: IDKey): `id-${IDKey}` {
   return `id-${key}`;
 }
 
-export function cssCl(key: CLKey): `cl-${CLKey}` {
+export function cl(key: CLKey): `cl-${CLKey}` {
   return `cl-${key}`;
 }

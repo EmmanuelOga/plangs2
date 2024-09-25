@@ -1,6 +1,8 @@
-import { tw } from "@plangs/frontend/utils";
 import type { ComponentChildren } from "preact";
-import { cssId } from "./pages/dom";
+
+import { tw } from "@plangs/frontend/utils";
+
+import { id } from "./pages/dom";
 
 export type LayoutProps = {
   title: string;
@@ -54,7 +56,7 @@ export function Layout({ title, children, tab }: LayoutProps) {
           <NavTab href="/" title="Browse" current={tab === "browse"} />
           <NavTab href="/blog" title="News" current={tab === "blog"} />
           <NavTab href="/about" title="About" current={tab === "about"} />
-          <NavTab class={tw("mr-4 ml-6", tab !== "browse" && "invisible")} title="Filter" id={cssId("filterToggle")} />
+          <NavTab class={tw("mr-4 ml-6", tab !== "browse" && "invisible")} title="Filter" id={id("filterToggle")} />
         </nav>
 
         {children}

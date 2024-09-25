@@ -1560,10 +1560,10 @@
   // packages/server/src/pages/dom.ts
   var FILTER_KEY = Object.keys(INPUT_PROPS);
   var ID_KEYS = ["todo", "plGrid", "filterToggle", "filters", ...FILTER_KEY];
-  function cssId(key) {
+  function id(key) {
     return `id-${key}`;
   }
-  function cssCl(key) {
+  function cl(key) {
     return `cl-${key}`;
   }
 
@@ -1572,8 +1572,8 @@
   var win = typeof window === "undefined" ? void 0 : window;
   var $2 = doc?.querySelector.bind(document);
   var $$ = doc?.querySelectorAll.bind(document);
-  var elem = (key) => $2(`#${cssId(key)}`) ?? void 0;
-  var elems = (key) => $$(`.${cssCl(key)}`);
+  var elem = (key) => $2(`#${id(key)}`) ?? void 0;
+  var elems = (key) => $$(`.${cl(key)}`);
   function on(target, type, listener, opt) {
     if (!target) console.warn("missing target", { type, listener, opt });
     target?.addEventListener(type, listener, opt);

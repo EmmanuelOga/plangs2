@@ -1,7 +1,7 @@
 import type { JSX } from "preact/jsx-runtime";
 
 import type { NPlang } from "@plangs/plangs";
-import { cssCl } from "@plangs/server/pages/dom";
+import { cl } from "@plangs/server/pages/dom";
 
 import { tw } from "../../utils";
 
@@ -11,35 +11,28 @@ export function PlThumb({ pl }: { pl: NPlang }): JSX.Element {
   const thumbUrl = pl.thumbUrl;
 
   return (
-    <div
-      data-key={pl.key}
-      class={tw(
-        cssCl("plThumb"),
-        "flex flex-col",
-        "aspect-square overflow-hidden",
-        "max-h-[15rem] min-h-[5.35rem]",
-        "-skew-y-5 rotate-5",
-        "bg-white",
-        "shadow-lg shadow-secondary",
-        "hover:shadow-primary/75",
-        "hover:outline-1 hover:outline-slate-800",
-        "hover:ring-3 hover:ring-primary",
-      )}>
+    <div data-key={pl.key} class={tw(cl("plThumb"), "aspect-square max-h-[15rem] min-h-[5.35rem] p-0.5")}>
       <div
         class={tw(
-          "m-0.5 p-0.5",
-          "rounded-sm",
-          "text-center text-xs",
-          "overflow-clip text-ellipsis whitespace-nowrap",
-          "bg-secondary text-foreground",
+          "bg-white",
+          "flex h-full w-full flex-col",
+          "outline-2.5 outline-secondary/75 hover:outline-primary",
+          "shadow-md shadow-primary/50 hover:shadow-primary/75",
         )}>
-        {pl.name}
-      </div>
-      <div class={tw("flex-1", "relative")}>
         <div
-          class={tw("absolute", thumbUrl ? "inset-1" : "inset-3 opacity-25 grayscale")}
-          style={`background: url('${thumbUrl || PLACEHOLDER}') no-repeat center/contain`}
-        />
+          class={tw(
+            "m-0.5 p-0.5",
+            "overflow-hidden",
+            "text-center text-xs",
+            "rounded-sm",
+            "text-ellipsis whitespace-nowrap",
+            "bg-secondary text-foreground",
+          )}>
+          {pl.name}
+        </div>
+        <div class={tw("flex-1", thumbUrl ? "m-1" : "m-2 opacity-25 grayscale")}>
+          <div class={tw("h-full w-full bg-[]")} style={`background: url('${thumbUrl || PLACEHOLDER}') no-repeat center/contain`} />
+        </div>
       </div>
     </div>
   );
