@@ -30,36 +30,28 @@ export function Layout({ title, children, tab }: LayoutProps) {
           <p>In particular, the search feature will not work without JavaScript.</p>
         </noscript>
 
-        <header
-          class={tw(
-            // ---
-            "h-fit px-3 pt-2 sm:pt-4 sm:text-3xl",
-            "font-black text-lg italic",
-            "bg-secondary text-primary",
-          )}>
-          <h1>
+        <header class={tw("px-2 pt-2 sm:pt-4", "bg-secondary text-primary")}>
+          <h1 class={tw("text-lg sm:text-3xl", "font-black italic")}>
             <a href="/">Plangs!</a>
           </h1>
         </header>
 
         <nav
           class={tw(
-            // ---
-            "z-10 px-1",
+            "px-3",
             "sticky top-0",
-            "flex flex-row items-end justify-end",
+            "flex flex-row justify-end",
             "bg-secondary",
             "border-background border-b-2",
             "shadow-background/75 shadow-md",
-          )}
-          style="outline-top-width: 0;">
+          )}>
           <NavTab href="/" title="Browse" current={tab === "browse"} />
           <NavTab href="/blog" title="News" current={tab === "blog"} />
           <NavTab href="/about" title="About" current={tab === "about"} />
-          <NavTab class={tw(tab !== "browse" && "invisible")} title="Filter" id={id("filterToggle")} />
+          <NavTab id={id("filterToggle")} class={tw(tab !== "browse" && "invisible")} title="Filter" />
         </nav>
 
-        {children}
+        <div class={tw("flex-1", "overflow-hidden", "db-b")}>{children}</div>
 
         <footer class={tw("mt-1 px-2 py-0.5", "text-sm", "bg-secondary", "border-foreground/75 border-t-1")}>Plangs!</footer>
       </body>
@@ -72,7 +64,7 @@ function NavTab({ id, class: cssClass, href, title, current }: { id?: string; cl
   return (
     <a
       id={id}
-      href={href}
+      href={href ?? "#"}
       class={tw(
         "mx-1.5 px-2.5 py-1",
         "text-center text-sm",

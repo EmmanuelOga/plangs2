@@ -11,26 +11,31 @@ export function PlThumb({ pl }: { pl: NPlang }): JSX.Element {
   const thumbUrl = pl.thumbUrl;
 
   return (
-    <div data-key={pl.key} class={tw(cl("plThumb"), "aspect-square")}>
-      <div
-        class={tw(
-          "bg-white",
-          "flex h-full w-full flex-col",
-          "outline-2.5 outline-secondary/75 hover:outline-primary",
-          "shadow-md shadow-primary/50 hover:shadow-primary/75",
-        )}>
+    <div
+      data-key={pl.key}
+      class={tw(
+        cl("plThumb"),
+        // ---
+        "group",
+        "aspect-square",
+        "cursor-pointer",
+        "hover:outline-1 hover:outline-secondary",
+        "shadow-lg shadow-secondary hover:shadow-primary",
+      )}>
+      <div class={tw("bg-white", "flex h-full w-full flex-col")}>
         <div
           class={tw(
-            "m-0.5 p-0.5",
+            "m-0.5 px-1.5 py-1",
             "overflow-hidden",
-            "text-center text-xs",
-            "rounded-sm",
+            "text-center text-xs sm:text-lg",
             "text-ellipsis whitespace-nowrap",
-            "bg-secondary text-foreground",
+            "bg-secondary group-hover:bg-primary",
+            "text-foreground group-hover:text-background",
+            "border-1 group-hover:border-secondary",
           )}>
           {pl.name}
         </div>
-        <div class={tw("flex-1", thumbUrl ? "m-1" : "m-2 opacity-25 grayscale sm:m-5")}>
+        <div class={tw("flex-1", thumbUrl ? "m-1 sm:m-2" : "m-2 opacity-20 grayscale sm:m-8")}>
           <div class={tw("h-full w-full bg-[]")} style={`background: url('${thumbUrl || PLACEHOLDER}') no-repeat center/contain`} />
         </div>
       </div>
