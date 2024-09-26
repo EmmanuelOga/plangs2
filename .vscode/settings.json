@@ -30,4 +30,7 @@
     "bun.runtime": "${workspaceFolder}/.bun/bin/bun",
     "bun.debugTerminal.enabled": true,
     "bun.debugTerminal.stopOnEntry": false,
+    "[ignore]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
 }

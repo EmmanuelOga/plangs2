@@ -17,7 +17,7 @@ export function Layout({ title, children, tab }: LayoutProps) {
         <meta charset="utf-8" />
         <title>Plangs! - {title}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="/index.css" />
+        <link rel="stylesheet" href="/bundle/app.css" />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
@@ -33,7 +33,7 @@ export function Layout({ title, children, tab }: LayoutProps) {
         <header
           class={tw(
             // ---
-            "px-2 py-2.5",
+            "h-fit px-3 pt-2 sm:pt-4 sm:text-3xl",
             "font-black text-lg italic",
             "bg-secondary text-primary",
           )}>
@@ -63,7 +63,7 @@ export function Layout({ title, children, tab }: LayoutProps) {
 
         <footer class={tw("mt-1 px-2 py-0.5", "text-sm", "bg-secondary", "border-foreground/75 border-t-1")}>Plangs!</footer>
       </body>
-      <script src="/app.js" />
+      <script src="/bundle/app.js" />
     </html>
   );
 }

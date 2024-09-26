@@ -12,9 +12,10 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
       <aside
         id={id("filters")}
         class={tw(
-          "max-h-[33dvh] shrink-0 grow-1",
+          "max-h-[40dvh] min-h-[25vh]",
+          "grow",
           "grid grid-cols-2",
-          "gap-3 px-2 pt-2",
+          "gap-3 pt-1 pr-2 pl-2.5",
           "border-background border-b-4",
           "overflow-hidden overflow-y-auto",
           "shadow-background/75 shadow-md",
@@ -28,16 +29,23 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
         ))}
       </aside>
 
-      <article id={id("plGrid")} class={tw("grid grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]", "gap-2 p-1", "overflow-hidden overflow-y-auto")}>
-        {pg.nodes.pl.batch(30).map(([key, pl]) => (
+      <article
+        id={id("plGrid")}
+        class={tw(
+          "grid grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]",
+          "md:grid-cols-[repeat(auto-fit,minmax(10rem,1fr))]",
+          "gap-4 p-2",
+          "overflow-hidden overflow-y-auto",
+        )}>
+        {pg.nodes.pl.batch().map(([key, pl]) => (
           <PlThumb key={key} pl={pl} />
         ))}
       </article>
 
-      {/* Filler to remove big gaps between the grid rows. */}
+      {/* Filler to remove big gaps between the grid rows.  */}
       <div class="grow" />
 
-      <aside class="hidden">{h("pl-info", {})}</aside>
+      <aside>{h("pl-info", {})}</aside>
     </>
   );
 }
@@ -45,8 +53,9 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
 function InputGroup({ title, children }: { title: string; children: ComponentChildren }) {
   return (
     <details
-      open={true}
-      class={tw("group", "mb-3 p-1 last:mb-1", "text-sm", "ring-1 ring-secondary", "bg-gradient-to-br from-white/95 to-white text-slate-800")}>
+      // open={true}
+      class={tw("group", "mb-3 p-1 last:mb-1", "text-sm", "ring-1 ring-secondary", "bg-gradient-to-br from-white/95 to-white text-slate-800")}
+    >
       <summary class={tw("p-1.5", "group-open:mb-2", "bg-secondary text-foreground")}>{title}</summary>
       <div class="px-1">{children}</div>
     </details>
@@ -61,6 +70,7 @@ function renderInput(key: keyof typeof INPUT_PROPS) {
     name: key,
     id: id(key),
     class: tw(inputTextColor, input.kind === "checkbox" ? "-mt-1" : "w-full"),
+    value: "value" in input ? input.value : undefined,
   };
 
   let inputElem = <input {...inputProps} type={input.kind} />;
@@ -100,7 +110,7 @@ export const INPUT_PROPS = {
   appearedAfter: { label: "Appeared After", input: { kind: "month" } },
   releasedAfter: { label: "Released After", input: { kind: "month" } },
 
-  hasLogo: { label: "Has Logo", input: { kind: "checkbox" } },
+  hasLogo: { label: "Has Logo", input: { kind: "checkbox", value: "1" } },
   hasReleases: { label: "Known Releases", input: { kind: "checkbox" } },
   hasWikipedia: { label: "Has Wikipedia", input: { kind: "checkbox" } },
   isMainstream: { label: "Is Mainstream", input: { kind: "checkbox" } },

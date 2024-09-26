@@ -30,7 +30,11 @@ export function getFilters(): PlangFilters {
 
   const getChecked = (input: HTMLElement) => (input as HTMLInputElement).checked;
 
-  collect("hasLogo", getChecked, val => (flt.hasLogo.value = val));
+  collect("hasLogo", getChecked, val => {
+    console.log(val);
+    return (flt.hasLogo.value = val);
+  });
+
   collect("hasReleases", getChecked, val => (flt.hasReleases.value = val));
   collect("hasWikipedia", getChecked, val => (flt.hasWikipedia.value = val));
   collect("isTranspiler", getChecked, val => (flt.isTranspiler.value = val));

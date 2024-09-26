@@ -18,8 +18,8 @@
     "typescript": "^5.0.0"
   },
   "scripts": {
-    "js": "esbuild --bundle packages/frontend/src/app --sourcemap --outdir=packages/server/static/ --watch",
-    "css": "bun x @tailwindcss/cli@next -i ./styles.css -o packages/server/static/index.css --watch",
+    "js": "esbuild --bundle packages/frontend/src/app --sourcemap --outdir=packages/server/static/bundle --watch",
+    "css": "bun x @tailwindcss/cli@next -i ./styles.css -o packages/server/static/bundle/app.css --watch",
     "serve": "bun run --watch --cwd $(pwd)/packages/server src/serve.ts"
   }
 }

@@ -11,7 +11,7 @@ export function PlThumb({ pl }: { pl: NPlang }): JSX.Element {
   const thumbUrl = pl.thumbUrl;
 
   return (
-    <div data-key={pl.key} class={tw(cl("plThumb"), "aspect-square max-h-[15rem] min-h-[5.35rem] p-0.5")}>
+    <div data-key={pl.key} class={tw(cl("plThumb"), "aspect-square")}>
       <div
         class={tw(
           "bg-white",
@@ -30,7 +30,7 @@ export function PlThumb({ pl }: { pl: NPlang }): JSX.Element {
           )}>
           {pl.name}
         </div>
-        <div class={tw("flex-1", thumbUrl ? "m-1" : "m-2 opacity-25 grayscale")}>
+        <div class={tw("flex-1", thumbUrl ? "m-1" : "m-2 opacity-25 grayscale sm:m-5")}>
           <div class={tw("h-full w-full bg-[]")} style={`background: url('${thumbUrl || PLACEHOLDER}') no-repeat center/contain`} />
         </div>
       </div>
