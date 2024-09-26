@@ -3,7 +3,7 @@ import { useEffect, useRef } from "preact/hooks";
 
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
-import { customEvent, twBreakMd } from "../../utils";
+import { customEvent, tw, twBreakMd } from "../../utils";
 
 export const TAG_NAME = "pl-info";
 
@@ -85,7 +85,7 @@ export function PlInfo({ pg, pl }: PlInfoProps) {
   }
 
   return (
-    <div class="readable dark:prose-invert" ref={self as Ref<HTMLDivElement>}>
+    <div class={tw("readable dark:prose-invert", "pt-4")} ref={self as Ref<HTMLDivElement>}>
       {content}
     </div>
   );

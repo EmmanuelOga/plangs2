@@ -58,6 +58,10 @@ export class IterTap<T> implements Iterable<T> {
     this.array = Array.isArray(iterable) ? iterable : iterable ? [...iterable] : undefined;
   }
 
+  get reverse(): IterTap<T> {
+    return new IterTap(this.array?.reverse());
+  }
+
   get first(): T | undefined {
     return this.array ? this.array[0] : undefined;
   }

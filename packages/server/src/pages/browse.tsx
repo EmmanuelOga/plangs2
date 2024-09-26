@@ -19,7 +19,6 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
           "border-background border-b-4",
           "overflow-hidden overflow-y-auto",
           "shadow-background/75 shadow-md",
-          "db-g",
         )}>
         {Object.entries(INPUT_GROUPS).map(([key, group]) => (
           <div class="flex flex-col gap-4" key={key}>
@@ -30,7 +29,7 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
         ))}
       </aside>
 
-      <article class="db-r flex-1">
+      <article class="flex-1">
         <div
           id={id("plGrid")}
           class={tw(
@@ -46,7 +45,7 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
         <div class="grow" />
       </article>
 
-      <aside class="db-b p-4">{h("pl-info", {})}</aside>
+      <aside class="p-4">{h("pl-info", {})}</aside>
     </div>
   );
 }
@@ -60,7 +59,7 @@ function InputGroup({ title, children }: { title: string; children: ComponentChi
         "cursor-pointer select-none",
         "hover:outline-1 hover:outline-secondary",
         "shadow-lg shadow-secondary hover:shadow-primary/75",
-        "bg-gradient-to-br from-white/95 to-white text-slate-800",
+        "bg-gradient-to-br from-white to-white/75 text-slate-800",
       )}>
       <summary
         class={tw(
