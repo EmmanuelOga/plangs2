@@ -15,20 +15,19 @@ export function PlThumb({ pl }: { pl: NPlang }): JSX.Element {
       data-key={pl.key}
       class={tw(
         cl("plThumb"),
-        // ---
         "group",
-        "aspect-square",
+        // ---
         "cursor-pointer",
+        "aspect-square",
         "hover:outline-1 hover:outline-secondary",
-        "shadow-lg shadow-secondary hover:shadow-primary",
+        "shadow-lg shadow-secondary hover:shadow-primary/75",
       )}>
       <div class={tw("bg-white", "flex h-full w-full flex-col")}>
         <div
           class={tw(
             "m-0.5 px-1.5 py-1",
-            "overflow-hidden",
+            "overflow-hidden text-ellipsis whitespace-nowrap",
             "text-center text-xs sm:text-lg",
-            "text-ellipsis whitespace-nowrap",
             "bg-secondary group-hover:bg-primary",
             "text-foreground group-hover:text-background",
             "border-1 group-hover:border-secondary",

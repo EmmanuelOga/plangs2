@@ -8,20 +8,21 @@ import { id } from "./dom";
 
 export function Browse({ pg }: { pg: PlangsGraph }) {
   return (
-    <>
+    <div class={tw("h-full overflow-hidden overflow-y-auto", "flex flex-col sm:flex-row-reverse")}>
       <aside
         id={id("filters")}
         class={tw(
-          "max-h-[40dvh] min-h-[25vh]",
-          "grow",
+          "max-h-[33dvh] sm:max-h-[unset] sm:min-w-[35rem]",
+          "text-sm sm:text-lg",
           "grid grid-cols-2",
-          "gap-3 pt-1 pr-2 pl-2.5",
+          "gap-4 p-2",
           "border-background border-b-4",
           "overflow-hidden overflow-y-auto",
           "shadow-background/75 shadow-md",
+          "db-g",
         )}>
         {Object.entries(INPUT_GROUPS).map(([key, group]) => (
-          <div key={key}>
+          <div class="flex flex-col gap-4" key={key}>
             {group.map(({ title, keys }) => (
               <InputGroup key={title} title={title} children={keys.map(renderInput)} />
             ))}
@@ -29,35 +30,50 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
         ))}
       </aside>
 
-      <article
-        id={id("plGrid")}
-        class={tw(
-          "grid grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]",
-          "md:grid-cols-[repeat(auto-fit,minmax(10rem,1fr))]",
-          "gap-4 p-2",
-          "overflow-hidden overflow-y-auto",
-        )}>
-        {pg.nodes.pl.batch().map(([key, pl]) => (
-          <PlThumb key={key} pl={pl} />
-        ))}
+      <article class="db-r flex-1">
+        <div
+          id={id("plGrid")}
+          class={tw(
+            // ---
+            "grid grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]",
+            "md:grid-cols-[repeat(auto-fit,minmax(10rem,1fr))]",
+            "gap-4 p-2",
+          )}>
+          {pg.nodes.pl.batch().map(([key, pl]) => (
+            <PlThumb key={key} pl={pl} />
+          ))}
+        </div>
+        <div class="grow" />
       </article>
 
-      {/* Filler to remove big gaps between the grid rows.  */}
-      <div class="grow" />
-
-      <aside>{h("pl-info", {})}</aside>
-    </>
+      <aside class="db-b p-4">{h("pl-info", {})}</aside>
+    </div>
   );
 }
 
 function InputGroup({ title, children }: { title: string; children: ComponentChildren }) {
   return (
     <details
-      // open={true}
-      class={tw("group", "mb-3 p-1 last:mb-1", "text-sm", "ring-1 ring-secondary", "bg-gradient-to-br from-white/95 to-white text-slate-800")}
-    >
-      <summary class={tw("p-1.5", "group-open:mb-2", "bg-secondary text-foreground")}>{title}</summary>
-      <div class="px-1">{children}</div>
+      open={true}
+      class={tw(
+        "p-0.5",
+        "cursor-pointer select-none",
+        "hover:outline-1 hover:outline-secondary",
+        "shadow-lg shadow-secondary hover:shadow-primary/75",
+        "bg-gradient-to-br from-white/95 to-white text-slate-800",
+      )}>
+      <summary
+        class={tw(
+          "px-1.5 py-1",
+          "overflow-hidden text-ellipsis whitespace-nowrap",
+          "text-xs sm:text-lg",
+          "bg-secondary hover:bg-primary",
+          "text-foreground hover:text-background",
+          "border-1 hover:border-secondary",
+        )}>
+        {title}
+      </summary>
+      <div class="flex flex-col gap-3 p-1.5">{children}</div>
     </details>
   );
 }
@@ -65,7 +81,7 @@ function InputGroup({ title, children }: { title: string; children: ComponentChi
 function renderInput(key: keyof typeof INPUT_PROPS) {
   const { label, input } = INPUT_PROPS[key];
 
-  const inputTextColor = "text-slate-800 placeholder:text-slate-800/50";
+  const inputTextColor = "placeholder:text-background/50";
   const inputProps = {
     name: key,
     id: id(key),
@@ -80,18 +96,9 @@ function renderInput(key: keyof typeof INPUT_PROPS) {
   const showSel = input.kind === "compl" || (input.kind === "search" && "inputSel" in input && input.inputSel);
   return (
     <div class={tw("[&_select]:text-center")}>
-      <label for={inputProps.id} class={tw("block h-full pb-1.5")}>
-        {input.kind === "checkbox" ? (
-          <>
-            {inputElem}
-            {label}
-          </>
-        ) : (
-          <>
-            <div>{label}</div>
-            {inputElem}
-          </>
-        )}
+      <label for={inputProps.id} class={tw("block", "p-0")}>
+        {input.kind === "checkbox" ? inputElem : <div>{label}</div>}
+        {input.kind === "checkbox" ? label : inputElem}
       </label>
       {showSel &&
         h("input-sel", {
