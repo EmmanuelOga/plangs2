@@ -45,7 +45,7 @@ export type InputSelElement = HTMLElement & typeof ELEMENT_API & InputSelProps;
 
 /** Register the Custom Element. */
 export function registerInputSel() {
-  const keys: (keyof InputSelProps)[] = ["name"];
+  const keys: (keyof InputSelProps)[] = ["name", "class"];
   register(InputSel, TAG_NAME, keys);
   Object.assign(window.customElements.get(TAG_NAME)?.prototype, ELEMENT_API);
 }

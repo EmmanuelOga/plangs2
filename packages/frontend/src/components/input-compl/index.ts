@@ -35,7 +35,7 @@ export type InputComplElement = HTMLElement & InputComplProps & typeof ELEMENT_A
 
 /** Register the Custom Element. */
 export function registerInputCompl(): void {
-  const keys: (keyof InputComplProps)[] = ["name", "completions"];
+  const keys: (keyof InputComplProps)[] = ["name", "completions", "class"];
   register(InputCompl, TAG_NAME, keys);
   Object.assign(window.customElements.get(TAG_NAME)?.prototype, ELEMENT_API);
 }

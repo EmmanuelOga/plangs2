@@ -22,26 +22,29 @@ export function PlInfo({ pg, pl, class: cssClass }: PlInfoProps) {
     if (!root) return;
   });
 
-  const content = !pl ? (
-    <p>Select a language to show more information.</p>
-  ) : !pg ? (
-    <p>Loading graph ...</p>
-  ) : (
-    <div class="readable dark:prose-invert">
-      <h1>{pl.name}</h1>
-      <p>{pl.description}</p>
-      <details open={true || twBreakMd()}>
-        <summary class="cursor-pointer text-xl">Details</summary>
-        {relations(pl).map(([title, iterTap]) => (
-          <Fragment key={title}>
-            <h2 class="mt-4 text-xl">{title}</h2>
-            <p>{iterTap.existing.map(Pill)}</p>
-          </Fragment>
-        ))}
-      </details>
+  return (
+    <div class={tw(cssClass)} ref={self as Ref<HTMLDivElement>}>
+      {!pl ? (
+        <p>Select a language to show more information.</p>
+      ) : !pg ? (
+        <p>Loading graph...</p>
+      ) : (
+        <div class="readable dark:prose-invert">
+          <h1>{pl.name}</h1>
+          <p>{pl.description}</p>
+          <details open={true || twBreakMd()}>
+            <summary class="cursor-pointer text-xl">Details</summary>
+            {relations(pl).map(([title, iterTap]) => (
+              <Fragment key={title}>
+                <h2 class="mt-4 text-xl">{title}</h2>
+                <p>{iterTap.existing.map(Pill)}</p>
+              </Fragment>
+            ))}
+          </details>
+        </div>
+      )}
     </div>
   );
-  return <div class={tw(cssClass)} ref={self as Ref<HTMLDivElement>} children={content} />;
 }
 
 function Pill({ key, kind, name }: { key: string; name: string; kind: string }) {

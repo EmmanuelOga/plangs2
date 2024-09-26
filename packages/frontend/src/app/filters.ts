@@ -13,11 +13,8 @@ export function getFilters(): PlangFilters {
 
   function collect<I, V>(key: IDKey, getValue: (input: I) => V, callback: (value: V) => void) {
     const input = elem(key);
-    if (!input) {
-      console.warn("Missing input", key);
-      return;
-    }
-    const value = getValue(input as I);
+    if (!input) console.warn("Missing input", key);
+    const value = input && getValue(input as I);
     if (value) callback(value);
   }
 

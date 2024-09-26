@@ -1,4 +1,4 @@
-import { debounce, max } from "lodash-es";
+import { debounce } from "lodash-es";
 import "preact/debug";
 
 import { type N, type NPlang, PlangsGraph } from "@plangs/plangs";

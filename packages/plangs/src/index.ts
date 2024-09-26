@@ -40,7 +40,7 @@ export class PlangsGraph extends BaseGraph<N, E, G> {
     tag: new NodeMap<G, NTag>(key => new NTag(this, key)),
     tool: new NodeMap<G, NTool>(key => new NTool(this, key)),
     tsys: new NodeMap<G, NTsys>(key => new NTsys(this, key)),
-  };
+  } as const;
 
   readonly edges = {
     app: new EdgeMap<G, EApp>((from, to) => new EApp(this, from, to)),
@@ -58,7 +58,7 @@ export class PlangsGraph extends BaseGraph<N, E, G> {
     tool: new EdgeMap<G, ETool>((from, to) => new ETool(this, from, to)),
     tsys: new EdgeMap<G, ETsys>((from, to) => new ETsys(this, from, to)),
     writtenIn: new EdgeMap<G, EWrittenIn>((from, to) => new EWrittenIn(this, from, to)),
-  };
+  } as const;
 
   /** Find all plangs that match the given filters. */
   plangs(f: PlangFilters, limit = -1): Set<NPlang["key"]> {
