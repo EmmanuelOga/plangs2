@@ -1,7 +1,7 @@
 import { type ComponentChildren, h } from "preact";
 
 import { PlThumb } from "@plangs/frontend/components/misc/pl-thumb";
-import { style, tw } from "@plangs/frontend/utils";
+import { tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 
 import { PlInfo } from "@plangs/frontend/src/components/pl-info/pl-info";
@@ -14,13 +14,14 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
       class={tw(
         "h-full w-full flex-1",
         // ---
-        "overflow-hidden overflow-y-auto",
+        "overflow-hidden",
         "flex flex-col sm:flex-row",
       )}>
       <PlFilters
         class={tw(
           "db-r",
           // ---
+          "overflow-y-auto",
         )}
       />
       <PlGrid
@@ -29,6 +30,7 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
           "db-g",
           // ---
           "flex-1",
+          "overflow-y-auto",
         )}
       />
       <PlInfo
@@ -37,7 +39,8 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
         class={tw(
           "db-b",
           // ---
-          "max-w-[20rem] p-2",
+          "max-w-[30rem] p-2",
+          "overflow-y-auto",
         )}
       />
     </div>
@@ -170,17 +173,29 @@ export const INPUT_PROPS = {
   writtenIn: { label: "Written In", input: { kind: "compl", nodeMap: "pl" } },
 } as const;
 
+const group = (title: string, keys: (keyof typeof INPUT_PROPS)[]) => ({ title, keys });
+
 const INPUT_GROUPS = {
   column1: [
-    { title: "Name/File Ext.", keys: ["plangName", "extensions"] },
-    { title: "Releases/Dates", keys: ["hasReleases", "releasedAfter", "appearedAfter"] },
-    { title: "License", keys: ["licenses"] },
-    { title: "Logo/Wikipedia", keys: ["hasLogo", "hasWikipedia"] },
+    group("Creation Date", ["appearedAfter"]),
+    group("Dialect Of", ["dialectOf"]),
+    group("Extensions", ["extensions"]),
+    group("Implements", ["implements"]),
+    group("Influenced By", ["influencedBy"]),
+    group("Influenced", ["influenced"]),
+    group("Licenses", ["licenses"]),
+    group("Logo", ["hasLogo"]),
+    group("Name", ["plangName"]),
   ],
   column2: [
-    { title: "Popular/Transp", keys: ["isMainstream", "isTranspiler"] },
-    { title: "Features", keys: ["typeSystems", "paradigms", "platforms", "tags"] },
-    { title: "Influences", keys: ["influenced", "influencedBy"] },
-    { title: "Lineage", keys: ["dialectOf", "implements", "writtenIn"] },
+    group("Paradigms", ["paradigms"]),
+    group("Platforms", ["platforms"]),
+    group("Popular", ["isMainstream"]),
+    group("Releases", ["hasReleases", "releasedAfter"]),
+    group("Tags", ["tags"]),
+    group("Transpiler", ["isTranspiler"]),
+    group("Type Systems", ["typeSystems"]),
+    group("Wikipedia", ["hasWikipedia"]),
+    group("Written In", ["writtenIn"]),
   ],
 } as const;
