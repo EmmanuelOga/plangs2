@@ -12,13 +12,14 @@ export type N = "app" | "bundle" | "lib" | "license" | "paradigm" | "pl" | "plat
 // biome-ignore format: keep in one line.
 export type E = "bundle" | "dialect" | "impl" | "influence" | "lib" | "license" | "paradigm" | "plBundle" | "plat" | "post" | "tag" | "tool" | "tsys" | "writtenIn";
 
-// Helpers to construct type-safe node and edge maps.
-type _N<G> = Node<G, `${N}+${string}`, CommonNodeData>;
-type _E<G> = Edge<G, _N<G>, _N<G>, CommonEdgeData>;
+type AnyNode = NBase<N, CommonNodeData>;
+
+type AnyEdge = EBase<AnyNode, AnyNode, CommonEdgeData>;
 
 export class PlangsGraph extends BaseGraph<N, E, G> {
-  #nodeMap = <TN extends _N<G>>(ctor: new (g: G, key: TN["key"]) => TN) => new NodeMap<G, TN>(key => new ctor(this, key));
-  #edgeMap = <TE extends _E<G>>(ctor: new (g: G, from: TE["from"], to: TE["to"]) => TE) => new EdgeMap<G, TE>((from, to) => new ctor(this, from, to));
+  #nodeMap = <TN extends AnyNode>(ctor: new (g: G, key: TN["key"]) => TN) => new NodeMap<G, TN>(key => new ctor(this, key));
+  #edgeMap = <TE extends AnyEdge>(ctor: new (g: G, from: TE["from"], to: TE["to"]) => TE) =>
+    new EdgeMap<G, TE>((from, to) => new ctor(this, from, to));
 
   readonly nodes = {
     app: this.#nodeMap(NApp),
@@ -422,15 +423,12 @@ export class NPost extends NBase<"post", CommonNodeData & { path: string; title:
 // Edge Types
 ////////////////////////////////////////////////////////////////////////////////
 
-// biome-ignore lint/suspicious/noExplicitAny: we use any for the generic types... sory biome.
-type Any = any;
-
 export interface CommonEdgeData {
   refs: Link[];
 }
 
 /** Base type for data on all edges. */
-export abstract class EBase<T_From extends NBase<Any, Any>, T_To extends NBase<Any, Any>, T_Data extends CommonEdgeData> extends Edge<
+export abstract class EBase<T_From extends AnyNode, T_To extends AnyNode, T_Data extends CommonEdgeData> extends Edge<
   PlangsGraph,
   T_From,
   T_To,
