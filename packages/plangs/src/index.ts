@@ -3,61 +3,53 @@ import { IterTap, MapTap, arrayMerge } from "@plangs/graph/auxiliar";
 
 import type { PlangFilters } from "./filter";
 
-export const NODE_NAMES = ["app", "bundle", "lib", "license", "paradigm", "pl", "plat", "post", "tag", "tool", "tsys"] as const;
-export const EDGE_NAMES = [
-  "bundle",
-  "dialect",
-  "impl",
-  "influence",
-  "lib",
-  "license",
-  "paradigm",
-  "plBundle",
-  "plat",
-  "post",
-  "tag",
-  "tool",
-  "tsys",
-  "writtenIn",
-] as const;
-
-export type N = (typeof NODE_NAMES)[number];
-export type E = (typeof EDGE_NAMES)[number];
-
-/** Alias to define types more succinctly. */
+// alias for better readability
 export type G = PlangsGraph;
 
+// biome-ignore format: keep in one line.
+export type N = "app" | "bundle" | "lib" | "license" | "paradigm" | "pl" | "plat" | "post" | "tag" | "tool" | "tsys";
+
+// biome-ignore format: keep in one line.
+export type E = "bundle" | "dialect" | "impl" | "influence" | "lib" | "license" | "paradigm" | "plBundle" | "plat" | "post" | "tag" | "tool" | "tsys" | "writtenIn";
+
+// Helpers to construct type-safe node and edge maps.
+type _N<G> = Node<G, `${N}+${string}`, CommonNodeData>;
+type _E<G> = Edge<G, _N<G>, _N<G>, CommonEdgeData>;
+
 export class PlangsGraph extends BaseGraph<N, E, G> {
+  #nodeMap = <TN extends _N<G>>(ctor: new (g: G, key: TN["key"]) => TN) => new NodeMap<G, TN>(key => new ctor(this, key));
+  #edgeMap = <TE extends _E<G>>(ctor: new (g: G, from: TE["from"], to: TE["to"]) => TE) => new EdgeMap<G, TE>((from, to) => new ctor(this, from, to));
+
   readonly nodes = {
-    app: new NodeMap<G, NApp>(key => new NApp(this, key)),
-    post: new NodeMap<G, NPost>(key => new NPost(this, key)),
-    bundle: new NodeMap<G, NBundle>(key => new NBundle(this, key)),
-    lib: new NodeMap<G, NLibrary>(key => new NLibrary(this, key)),
-    license: new NodeMap<G, NLicense>(key => new NLicense(this, key)),
-    paradigm: new NodeMap<G, NParadigm>(key => new NParadigm(this, key)),
-    pl: new NodeMap<G, NPlang>(key => new NPlang(this, key)),
-    plat: new NodeMap<G, NPlatform>(key => new NPlatform(this, key)),
-    tag: new NodeMap<G, NTag>(key => new NTag(this, key)),
-    tool: new NodeMap<G, NTool>(key => new NTool(this, key)),
-    tsys: new NodeMap<G, NTsys>(key => new NTsys(this, key)),
+    app: this.#nodeMap(NApp),
+    post: this.#nodeMap(NPost),
+    bundle: this.#nodeMap(NBundle),
+    lib: this.#nodeMap(NLibrary),
+    license: this.#nodeMap(NLicense),
+    paradigm: this.#nodeMap(NParadigm),
+    pl: this.#nodeMap(NPlang),
+    plat: this.#nodeMap(NPlatform),
+    tag: this.#nodeMap(NTag),
+    tool: this.#nodeMap(NTool),
+    tsys: this.#nodeMap(NTsys),
   } as const;
 
   readonly edges = {
-    app: new EdgeMap<G, EApp>((from, to) => new EApp(this, from, to)),
-    bundle: new EdgeMap<G, EBundle>((from, to) => new EBundle(this, from, to)),
-    dialect: new EdgeMap<G, EDialect>((from, to) => new EDialect(this, from, to)),
-    impl: new EdgeMap<G, EImpl>((from, to) => new EImpl(this, from, to)),
-    influence: new EdgeMap<G, EInfluence>((from, to) => new EInfluence(this, from, to)),
-    lib: new EdgeMap<G, ELib>((from, to) => new ELib(this, from, to)),
-    license: new EdgeMap<G, ELicense>((from, to) => new ELicense(this, from, to)),
-    paradigm: new EdgeMap<G, EParadigm>((from, to) => new EParadigm(this, from, to)),
-    plBundle: new EdgeMap<G, EPlBundle>((from, to) => new EPlBundle(this, from, to)),
-    plat: new EdgeMap<G, EPlat>((from, to) => new EPlat(this, from, to)),
-    post: new EdgeMap<G, EPost>((from, to) => new EPost(this, from, to)),
-    tag: new EdgeMap<G, ETag>((from, to) => new ETag(this, from, to)),
-    tool: new EdgeMap<G, ETool>((from, to) => new ETool(this, from, to)),
-    tsys: new EdgeMap<G, ETsys>((from, to) => new ETsys(this, from, to)),
-    writtenIn: new EdgeMap<G, EWrittenIn>((from, to) => new EWrittenIn(this, from, to)),
+    app: this.#edgeMap(EApp),
+    bundle: this.#edgeMap(EBundle),
+    dialect: this.#edgeMap(EDialect),
+    impl: this.#edgeMap(EImpl),
+    influence: this.#edgeMap(EInfluence),
+    lib: this.#edgeMap(ELib),
+    license: this.#edgeMap(ELicense),
+    paradigm: this.#edgeMap(EParadigm),
+    plBundle: this.#edgeMap(EPlBundle),
+    plat: this.#edgeMap(EPlat),
+    post: this.#edgeMap(EPost),
+    tag: this.#edgeMap(ETag),
+    tool: this.#edgeMap(ETool),
+    tsys: this.#edgeMap(ETsys),
+    writtenIn: this.#edgeMap(EWrittenIn),
   } as const;
 
   /** Find all plangs that match the given filters. */
@@ -77,8 +69,6 @@ export interface CommonNodeData {
   websites: Link[];
   keywords: string[];
 }
-
-export type AnyNode = NPlang | NLibrary | NLicense | NParadigm | NPlatform | NTag | NTool | NTsys | NApp | NBundle | NPost;
 
 /** Base type for data on all nodes. */
 export abstract class NBase<Prefix extends N, Data extends CommonNodeData> extends Node<PlangsGraph, `${Prefix}+${string}`, Data> {
@@ -432,12 +422,12 @@ export class NPost extends NBase<"post", CommonNodeData & { path: string; title:
 // Edge Types
 ////////////////////////////////////////////////////////////////////////////////
 
+// biome-ignore lint/suspicious/noExplicitAny: we use any for the generic types... sory biome.
+type Any = any;
+
 export interface CommonEdgeData {
   refs: Link[];
 }
-
-// biome-ignore lint/suspicious/noExplicitAny: we use any for the generic types... sory biome.
-type Any = any;
 
 /** Base type for data on all edges. */
 export abstract class EBase<T_From extends NBase<Any, Any>, T_To extends NBase<Any, Any>, T_Data extends CommonEdgeData> extends Edge<
