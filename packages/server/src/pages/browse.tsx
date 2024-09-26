@@ -2,7 +2,7 @@ import { type ComponentChildren, h } from "preact";
 
 import { PlThumb } from "@plangs/frontend/components/misc/pl-thumb";
 import { tw } from "@plangs/frontend/utils";
-import type { PlangsGraph } from "@plangs/plangs";
+import type { N, PlangsGraph } from "@plangs/plangs";
 
 import { PlInfo } from "@plangs/frontend/src/components/pl-info/pl-info";
 
@@ -129,7 +129,7 @@ function renderInput(key: keyof typeof INPUT_PROPS) {
 
   let inputElem = <input {...inputProps} type={input.kind} />;
   if (input.kind === "checkbox") inputElem = <input {...inputProps} type="checkbox" />;
-  if (input.kind === "compl") inputElem = h("input-compl", { ...inputProps, "data-kind": input.nodeMap } as Record<string, string>);
+  if (input.kind === "compl") inputElem = h("input-compl", { ...inputProps, "data-kind": input.node } as Record<string, string>);
 
   const showSel = input.kind === "compl" || (input.kind === "search" && "inputSel" in input && input.inputSel);
   return (
@@ -147,33 +147,37 @@ function renderInput(key: keyof typeof INPUT_PROPS) {
   );
 }
 
-/** Configure for every kind of input: its label, its kind, etc. */
+const search = (label: string, sel?: "trackSelection") => ({ label, input: { kind: "search", inputSel: sel === "trackSelection" } }) as const;
+const month = (label: string) => ({ label, input: { kind: "month" } }) as const;
+const checkbox = (label: string, value?: string) => ({ label, input: { kind: "checkbox", value } }) as const;
+const compl = (label: string, node: N) => ({ label, input: { kind: "compl", node } }) as const;
+
 export const INPUT_PROPS = {
-  plangName: { label: "Lang Name", input: { kind: "search" } },
-  extensions: { label: "File Extension", input: { kind: "search", inputSel: true } },
+  plangName: search("Lang Name"),
+  extensions: search("File Extension", "trackSelection"),
 
-  appearedAfter: { label: "Appeared After", input: { kind: "month" } },
-  releasedAfter: { label: "Released After", input: { kind: "month" } },
+  appearedAfter: month("Appeared After"),
+  releasedAfter: month("Released After"),
 
-  hasLogo: { label: "Has Logo", input: { kind: "checkbox", value: "1" } },
-  hasReleases: { label: "Known Releases", input: { kind: "checkbox" } },
-  hasWikipedia: { label: "Has Wikipedia", input: { kind: "checkbox" } },
-  isMainstream: { label: "Is Mainstream", input: { kind: "checkbox" } },
-  isTranspiler: { label: "Is Transpiler", input: { kind: "checkbox" } },
+  hasLogo: checkbox("Has Logo", "1"),
+  hasReleases: checkbox("Known Releases"),
+  hasWikipedia: checkbox("Has Wikipedia"),
+  isMainstream: checkbox("Is Mainstream"),
+  isTranspiler: checkbox("Is Transpiler"),
 
-  dialectOf: { label: "Dialect Of", input: { kind: "compl", nodeMap: "pl" } },
-  implements: { label: "Implements", input: { kind: "compl", nodeMap: "pl" } },
-  influenced: { label: "Influenced", input: { kind: "compl", nodeMap: "pl" } },
-  influencedBy: { label: "Influenced By", input: { kind: "compl", nodeMap: "pl" } },
-  licenses: { label: "Licenses", input: { kind: "compl", nodeMap: "license" } },
-  paradigms: { label: "Paradigms", input: { kind: "compl", nodeMap: "paradigm" } },
-  platforms: { label: "Platforms", input: { kind: "compl", nodeMap: "plat" } },
-  tags: { label: "Tags", input: { kind: "compl", nodeMap: "tag" } },
-  typeSystems: { label: "Type System", input: { kind: "compl", nodeMap: "tsys" } },
-  writtenIn: { label: "Written In", input: { kind: "compl", nodeMap: "pl" } },
+  dialectOf: compl("Dialect Of", "pl"),
+  implements: compl("Implements", "pl"),
+  influenced: compl("Influenced", "pl"),
+  influencedBy: compl("Influenced By", "pl"),
+  licenses: compl("Licenses", "license"),
+  paradigms: compl("Paradigms", "paradigm"),
+  platforms: compl("Platforms", "plat"),
+  tags: compl("Tags", "tag"),
+  typeSystems: compl("Type System", "tsys"),
+  writtenIn: compl("Written In", "pl"),
 } as const;
 
-const group = (title: string, keys: (keyof typeof INPUT_PROPS)[]) => ({ title, keys });
+const group = (title: string, keys: (keyof typeof INPUT_PROPS)[]) => ({ title, keys }) as const;
 
 const INPUT_GROUPS = {
   column1: [

@@ -52,7 +52,7 @@ export async function createNPosts(pg: PlangsGraph) {
 
     const post = pg.nodes.post.set(`post+${basename}`, { path, title, author, date });
 
-    post.link = { href: `/blog/${post.plainKey}`, title, kind: "plangsPost" };
+    post.link = { href: `/blog/${post.plainKey}`, title, kind: "plangs" };
 
     for (const plKey of plKeys) {
       if (!pg.nodes.pl.has(plKey)) throw new Error(`Post ${path} references unknown PL ${plKey}`);
