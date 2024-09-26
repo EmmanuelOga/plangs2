@@ -55,7 +55,7 @@ export function Layout({ title, children, tab }: LayoutProps) {
           <NavTab id={id("filterToggle")} class={tw(tab !== "browse" && "hidden")} title="Filter" />
         </nav>
 
-        <div class={tw("flex-1", "flex flex-col items-center", "overflow-hidden")}>{children}</div>
+        <main class={tw("flex-1", "flex flex-col items-center", "overflow-hidden")}>{children}</main>
 
         <footer class={tw("mt-1 px-4 py-1", "text-sm", "bg-secondary", "border-foreground/50 border-t-1")}>Plangs!</footer>
       </body>

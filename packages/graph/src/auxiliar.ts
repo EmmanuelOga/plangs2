@@ -58,6 +58,10 @@ export class IterTap<T> implements Iterable<T> {
     this.array = Array.isArray(iterable) ? iterable : iterable ? [...iterable] : undefined;
   }
 
+  get existing(): NonNullable<T>[] {
+    return this.filter(v => !!v) as NonNullable<T>[];
+  }
+
   get reverse(): IterTap<T> {
     return new IterTap(this.array?.reverse());
   }
@@ -66,8 +70,12 @@ export class IterTap<T> implements Iterable<T> {
     return this.array ? this.array[0] : undefined;
   }
 
-  map<R>(callback: (value: T, index: number, array: T[]) => R) {
-    return this.array ? this.array.map(callback) : [];
+  filter(callback: (value: T, index: number, array: T[]) => boolean) {
+    return this.array ? this.array.filter(callback) : [];
+  }
+
+  map<R>(callback: (value: T, index: number, array: T[]) => R): IterTap<R> {
+    return new IterTap(this.array ? this.array.map(callback) : []);
   }
 
   sort(): T[] {

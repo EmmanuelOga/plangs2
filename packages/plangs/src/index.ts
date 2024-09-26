@@ -78,6 +78,8 @@ export interface CommonNodeData {
   keywords: string[];
 }
 
+export type AnyNode = NPlang | NLibrary | NLicense | NParadigm | NPlatform | NTag | NTool | NTsys | NApp | NBundle | NPost;
+
 /** Base type for data on all nodes. */
 export abstract class NBase<Prefix extends N, Data extends CommonNodeData> extends Node<PlangsGraph, `${Prefix}+${string}`, Data> {
   get name(): string {

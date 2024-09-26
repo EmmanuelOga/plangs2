@@ -4,48 +4,84 @@ import { PlThumb } from "@plangs/frontend/components/misc/pl-thumb";
 import { style, tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 
+import { PlInfo } from "@plangs/frontend/src/components/pl-info/pl-info";
+
 import { id } from "./dom";
 
 export function Browse({ pg }: { pg: PlangsGraph }) {
   return (
-    <div class={tw("h-full overflow-hidden overflow-y-auto", "flex flex-col sm:flex-row-reverse")}>
-      <aside
-        id={id("filters")}
+    <div
+      class={tw(
+        "h-full w-full flex-1",
+        // ---
+        "overflow-hidden overflow-y-auto",
+        "flex flex-col sm:flex-row",
+      )}>
+      <PlFilters
         class={tw(
-          "max-h-[33dvh] sm:max-h-[unset] sm:min-w-[35rem]",
-          "text-sm sm:text-lg",
-          "grid grid-cols-2",
-          "gap-4 p-2",
-          "border-background border-b-4",
-          "overflow-hidden overflow-y-auto",
-          "shadow-background/75 shadow-md",
-        )}>
-        {Object.entries(INPUT_GROUPS).map(([key, group]) => (
-          <div class="flex flex-col gap-4" key={key}>
-            {group.map(({ title, keys }) => (
-              <InputGroup key={title} title={title} children={keys.map(renderInput)} />
-            ))}
-          </div>
-        ))}
-      </aside>
+          "db-r",
+          // ---
+        )}
+      />
+      <PlGrid
+        pg={pg}
+        class={tw(
+          "db-g",
+          // ---
+          "flex-1",
+        )}
+      />
+      <PlInfo
+        pg={pg}
+        pl={pg.nodes.pl.get("pl+python")}
+        class={tw(
+          "db-b",
+          // ---
+          "max-w-[20rem] p-2",
+        )}
+      />
+    </div>
+  );
+}
 
-      <article class="flex-1">
-        <div
-          id={id("plGrid")}
-          class={tw(
-            // ---
-            "grid grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]",
-            "md:grid-cols-[repeat(auto-fit,minmax(10rem,1fr))]",
-            "gap-4 p-2",
-          )}>
-          {pg.nodes.pl.batch().map(([key, pl]) => (
-            <PlThumb key={key} pl={pl} />
+// FILTERS
+// "max-h-[33dvh] sm:max-h-[unset] sm:min-w-[35rem]",
+// "text-sm sm:text-lg",
+// "border-background border-b-4",
+// "overflow-hidden overflow-y-auto",
+// "shadow-background/75 shadow-md",
+
+function PlFilters({ class: cssClass }: { class: string }) {
+  return (
+    <aside id={id("filters")} class={tw(cssClass, "grid grid-cols-2", "gap-4 p-2")}>
+      {Object.entries(INPUT_GROUPS).map(([key, group]) => (
+        <div class="flex flex-col gap-4" key={key}>
+          {group.map(({ title, keys }) => (
+            <InputGroup key={title} title={title} children={keys.map(renderInput)} />
           ))}
         </div>
-        <div class="grow" />
-      </article>
+      ))}
+    </aside>
+  );
+}
 
-      <aside class="p-4">{h("pl-info", {})}</aside>
+function PlGrid({ pg, class: cssClass }: { pg: PlangsGraph; class: string }) {
+  return (
+    <div class={tw(cssClass)}>
+      <div
+        id={id("plGrid")}
+        class={tw(
+          // ---
+          "grid grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]",
+          "md:grid-cols-[repeat(auto-fit,minmax(10rem,1fr))]",
+          "gap-4 p-2",
+        )}>
+        {pg.nodes.pl.batch().map(([key, pl]) => (
+          <PlThumb key={key} pl={pl} />
+        ))}
+      </div>
+      {/* Filler to avoid big gaps between rows. */}
+      <div class="grow" />
     </div>
   );
 }

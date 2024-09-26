@@ -3,7 +3,7 @@ import { type ComponentChildren, Fragment } from "preact";
 import { Anchor } from "@plangs/frontend/src/components/misc/anchor";
 import { PlInfo } from "@plangs/frontend/src/components/pl-info/pl-info";
 import { tw } from "@plangs/frontend/utils";
-import type { NApp, NBundle, NLibrary, NPlang, NTool, PlangsGraph } from "@plangs/plangs";
+import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
 export function Pl({ pg, pl }: { pg: PlangsGraph; pl: NPlang }) {
   return (
@@ -26,7 +26,7 @@ export function PlBody({ pl }: { pl: NPlang }) {
 }
 
 function PlNews({ pl: { relPosts } }: { pl: NPlang }) {
-  const posts = relPosts.values.map(({ post }) => post);
+  const posts = relPosts.values.map(({ post }) => post).existing;
   return posts.length === 0 ? null : (
     <Fragment>
       <h2>News</h2>
@@ -44,7 +44,7 @@ function PlNews({ pl: { relPosts } }: { pl: NPlang }) {
 }
 
 function PlApps({ pl }: { pl: NPlang }) {
-  const apps = pl.relApps.values.map(({ app }) => app).filter((v): v is NApp => !!v);
+  const apps = pl.relApps.values.map(({ app }) => app).existing;
   const thead = (
     <tr>
       <th>App</th>
@@ -73,7 +73,7 @@ function PlApps({ pl }: { pl: NPlang }) {
 }
 
 function PlLibs({ pl }: { pl: NPlang }) {
-  const libs = pl.relLibs.values.map(({ lib }) => lib).filter((v): v is NLibrary => !!v);
+  const libs = pl.relLibs.values.map(({ lib }) => lib).existing;
   const thead = (
     <tr>
       <th>Lib</th>
@@ -102,7 +102,7 @@ function PlLibs({ pl }: { pl: NPlang }) {
 }
 
 function PlTools({ pl }: { pl: NPlang }) {
-  const tools = pl.relTools.values.map(({ tool }) => tool).filter((v): v is NTool => !!v);
+  const tools = pl.relTools.values.map(({ tool }) => tool).existing;
   const thead = (
     <tr>
       <th>Tool</th>
@@ -132,7 +132,7 @@ function PlTools({ pl }: { pl: NPlang }) {
 }
 
 function PlBundles({ pl }: { pl: NPlang }) {
-  const bundles = pl.relPlBundles.values.map(({ bundle }) => bundle).filter((v): v is NBundle => !!v);
+  const bundles = pl.relPlBundles.values.map(({ bundle }) => bundle).existing;
   return bundles.length === 0 ? null : (
     <Fragment>
       <h2>Tool Bundles</h2>

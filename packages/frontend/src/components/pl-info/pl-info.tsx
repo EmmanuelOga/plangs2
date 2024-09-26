@@ -1,4 +1,4 @@
-import type { ComponentChildren, JSX, Ref } from "preact";
+import { Fragment, type Ref } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
@@ -10,94 +10,38 @@ export const TAG_NAME = "pl-info";
 export type PlInfoProps = {
   pg?: PlangsGraph;
   pl?: NPlang;
+  class?: string;
 };
 
 /** Display a PL information, if the key is known. */
-export function PlInfo({ pg, pl }: PlInfoProps) {
+export function PlInfo({ pg, pl, class: cssClass }: PlInfoProps) {
   const self = useRef<HTMLDivElement>();
 
   useEffect(() => {
     const root = self.current?.parentElement as HTMLElement;
     if (!root) return;
-
-    const div = root.parentElement;
-    if (div) {
-      const height = div.offsetHeight;
-      const viewportHeight = window.innerHeight;
-
-      if (height > viewportHeight) {
-        div.classList.remove("stick-to-top");
-        div.classList.add("stick-to-bottom");
-      } else {
-        div.classList.add("stick-to-top");
-        div.classList.remove("stick-to-bottom");
-      }
-    }
-
-    // return on(root, EVENTS.inSetData.type, ({ detail: pg }: CustomEvent) => setPg(pg as PlangsGraph));
   });
 
-  let content: JSX.Element;
-
-  if (!pl) {
-    content = <p>Select a language to show more information.</p>;
-  } else if (!pg) {
-    content = <p>Loading graph ...</p>;
-  } else if (!pl) {
-    content = <p>Loading language ...</p>;
-  } else {
-    content = (
-      <>
-        <h1>{pl.name}</h1>
-        <p>{pl.description}</p>
-        <details class="-mb-4 mt-8" open={twBreakMd()}>
-          <summary class="font-bold text-xl">Details</summary>
-          {pl.relTsys.tap(rel => (
-            <Entry title="Type Systems">{rel.values.map(({ tsys }) => tsys && Pill(tsys))}</Entry>
-          ))}
-          {pl.relTags.tap(rel => (
-            <Entry title="Tags">{rel.values.map(({ tag }) => tag && Pill(tag))}</Entry>
-          ))}
-          {pl.relPlatforms.tap(rel => (
-            <Entry title="Platforms">{rel.values.map(({ plat }) => plat && Pill(plat))}</Entry>
-          ))}
-          {pl.relInfluencedBy.tap(rel => (
-            <Entry title="Influenced By">{rel.values.map(({ toPl }) => toPl && Pill(toPl))}</Entry>
-          ))}
-          {pl.relInfluenced.tap(rel => (
-            <Entry title="Influenced">{rel.values.map(({ fromPl }) => fromPl && Pill(fromPl))}</Entry>
-          ))}
-          {pl.relDialectOf.tap(rel => (
-            <Entry title="Dialect Of">{rel.values.map(({ toPl }) => toPl && Pill(toPl))}</Entry>
-          ))}
-          {pl.relImplements.tap(rel => (
-            <Entry title="Standard For">{rel.values.map(({ toPl }) => toPl && Pill(toPl))}</Entry>
-          ))}
-          {pl.relLicenses.tap(rel => (
-            <Entry title="Licenses">{rel.values.map(({ license }) => license && Pill(license))}</Entry>
-          ))}
-          {pl.extensions.tap(extensions => (
-            <Entry title="Extensions">{extensions.map(name => Pill({ key: name, name, kind: "ext" }))}</Entry>
-          ))}
-        </details>
-      </>
-    );
-  }
-
-  return (
-    <div class={tw("readable dark:prose-invert", "pt-4")} ref={self as Ref<HTMLDivElement>}>
-      {content}
+  const content = !pl ? (
+    <p>Select a language to show more information.</p>
+  ) : !pg ? (
+    <p>Loading graph ...</p>
+  ) : (
+    <div class="readable dark:prose-invert">
+      <h1>{pl.name}</h1>
+      <p>{pl.description}</p>
+      <details open={true || twBreakMd()}>
+        <summary class="cursor-pointer text-xl">Details</summary>
+        {relations(pl).map(([title, iterTap]) => (
+          <Fragment key={title}>
+            <h2 class="mt-4 text-xl">{title}</h2>
+            <p>{iterTap.existing.map(Pill)}</p>
+          </Fragment>
+        ))}
+      </details>
     </div>
   );
-}
-
-function Entry({ title, children }: { title: string; children: ComponentChildren }) {
-  return (
-    <>
-      <h3>{title}</h3>
-      <p>{children}</p>
-    </>
-  );
+  return <div class={tw(cssClass)} ref={self as Ref<HTMLDivElement>} children={content} />;
 }
 
 function Pill({ key, kind, name }: { key: string; name: string; kind: string }) {
@@ -106,11 +50,31 @@ function Pill({ key, kind, name }: { key: string; name: string; kind: string }) 
       key={key}
       data-key={key}
       data-kind={kind}
-      class="-skew-y-2 mr-1 mb-3 inline-block bg-primary p-1.5 font-bold font-bold text-background text-sm shadow-lg shadow-secondary outline-2 outline-secondary">
+      class={tw(
+        "inline-block",
+        "mr-1 mb-3 p-1.5",
+        "bg-primary text-background",
+        "font-bold text-sm",
+        "shadow-lg shadow-secondary",
+        "outline-2 outline-secondary",
+      )}>
       {name}
     </div>
   );
 }
+
+const relations = (pl: NPlang) =>
+  [
+    ["Type Systems", pl.relTsys.values.map(({ tsys }) => tsys)],
+    ["Tags", pl.relTags.values.map(({ tag }) => tag)],
+    ["Platforms", pl.relPlatforms.values.map(({ plat }) => plat)],
+    ["Influenced By", pl.relInfluencedBy.values.map(({ toPl }) => toPl)],
+    ["Influenced", pl.relInfluenced.values.map(({ fromPl }) => fromPl)],
+    ["Dialect Of", pl.relDialectOf.values.map(({ toPl }) => toPl)],
+    ["Standard For", pl.relImplements.values.map(({ toPl }) => toPl)],
+    ["Licenses", pl.relLicenses.values.map(({ license }) => license)],
+    ["Extensions", pl.extensions.map(name => ({ key: name, name, kind: "ext" }))],
+  ] as const;
 
 export const EVENTS = {
   /** Incoming event: setup the component with a PlangsGraph. */
@@ -119,3 +83,18 @@ export const EVENTS = {
     create: (pg: PlangsGraph) => customEvent(EVENTS.inSetData.type, pg),
   },
 };
+
+// Sticking to top or bottom based on the content height.
+// const div = root.parentElement;
+// if (div) {
+//   const height = div.offsetHeight;
+//   const viewportHeight = window.innerHeight;
+//   if (height > viewportHeight) {
+//     div.classList.remove("stick-to-top");
+//     div.classList.add("stick-to-bottom");
+//   } else {
+//     div.classList.add("stick-to-top");
+//     div.classList.remove("stick-to-bottom");
+//   }
+// }
+// return on(root, EVENTS.inSetData.type, ({ detail: pg }: CustomEvent) => setPg(pg as PlangsGraph));
