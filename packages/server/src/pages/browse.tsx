@@ -68,7 +68,7 @@ function PlGrid({ pg, class: cssClass }: { pg: PlangsGraph; class: string }) {
           "flex-1",
 
           "grid grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]",
-          "md:grid-cols-[repeat(auto-fit,minmax(8rem,1fr))]",
+          "sm:grid-cols-[repeat(auto-fit,minmax(8rem,1fr))]",
           "mt-1 gap-4 p-2",
 
           "overflow-y-auto",
