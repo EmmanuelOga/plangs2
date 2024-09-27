@@ -11,7 +11,7 @@ import { Layout } from "./layout";
 export function Browse({ pg }: { pg: PlangsGraph }) {
   return (
     <Layout title="Find your next favorite programming language!" tab="browse">
-      <div class={tw("h-full w-full flex-1", "flex flex-col sm:flex-row", "gap-2")}>
+      <div class={tw("h-full w-full flex-1", "flex flex-col lg:flex-row", "gap-2")}>
         <div class={tw("flex-1", "flex flex-col", "overflow-auto")}>
           <PlFilters class={tw("overflow-y-auto overflow-x-hidden")} />
           <PlGrid pg={pg} />
@@ -21,7 +21,7 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
           pg={pg}
           pl={pg.nodes.pl.get("pl+python")}
           class={tw(
-            "w-[33%] overflow-y-auto p-4",
+            "max-h-[20dvh] overflow-y-auto p-4 lg:w-[33%]",
 
             // Apply and remove pl-info styles for mobile.
             "[&>h1]:text-lg sm:[&>h1]:text-4xl",
