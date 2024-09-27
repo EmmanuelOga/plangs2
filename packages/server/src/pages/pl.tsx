@@ -154,12 +154,19 @@ function PlBundles({ pl }: { pl: NPlang }) {
     <>
       <h1>Tool Bundles</h1>
       <p>A "bundle" is a set of tools that work well together.</p>
-      {bundles.map(bundle => (
-        <p key={bundle.key}>
+      {bundles.concat(bundles).map(bundle => (
+        <div
+          key={bundle.key}
+          class={tw(
+            "bg-linear-to-b from-background to-primary/20",
+            "shadow-lg shadow-primary/20",
+            "border-b-1 border-b-primary border-dotted",
+            "my-8",
+          )}>
           <h1>{bundle.name}</h1>
           <p>{bundle.relTools.values.map(({ tool }) => tool && <Pill name={tool.name} />).existing}</p>
           <p>{bundle.description}</p>
-        </p>
+        </div>
       ))}
     </>
   );

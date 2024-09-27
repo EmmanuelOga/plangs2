@@ -30,10 +30,10 @@ export function PlInfo({ pg, pl, class: cssClass }: PlInfoProps) {
         "sm:w-[30%]",
 
         "readable dark:prose-invert",
-        "bg-linear-to-b from-background to-primary/20",
 
+        "bg-linear-to-b from-background to-primary/20",
         "shadow-lg shadow-primary/25",
-        "border-b-1 border-b-primary",
+        "border-b-1 border-b-primary border-dotted",
 
         cssClass,
       )}

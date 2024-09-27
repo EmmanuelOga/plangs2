@@ -23,8 +23,8 @@ export function PlThumb({ pl, class: cssClass }: { class?: string; pl: NPlang })
         "max-w-[7rem] sm:max-w-[15rem]",
         "max-h-[7rem] sm:max-h-[15rem]",
 
-        "rounded",
         "bg-white/90",
+        "border-1 border-foreground",
         "hover:outline-1 hover:outline-secondary",
         "shadow-lg shadow-secondary hover:shadow-primary/75",
 
@@ -32,14 +32,13 @@ export function PlThumb({ pl, class: cssClass }: { class?: string; pl: NPlang })
       )}>
       <div
         class={tw(
-          "m-0.5 px-1.5 py-1",
+          "px-1.5 py-1",
           "text-center text-xs sm:text-lg",
           "overflow-hidden text-ellipsis whitespace-nowrap",
 
-          "rounded",
           "bg-secondary group-hover:bg-primary",
           "text-foreground/90 group-hover:text-background",
-          "border-1 group-hover:border-secondary",
+          "border-b-1 group-hover:border-secondary",
         )}>
         {pl.name}
       </div>
