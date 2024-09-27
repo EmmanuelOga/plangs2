@@ -1,9 +1,10 @@
-import { Fragment, type Ref } from "preact";
+import type { Ref } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
-import { customEvent, tw, twBreakMd } from "../../utils";
+import { customEvent, tw } from "../../utils";
+import { Pill } from "../misc/pill";
 
 export const TAG_NAME = "pl-info";
 
@@ -26,12 +27,13 @@ export function PlInfo({ pg, pl, class: cssClass }: PlInfoProps) {
     <div
       class={tw(
         "h-fit",
+        "sm:w-[30%]",
 
         "readable dark:prose-invert",
         "bg-linear-to-b from-background to-primary/20",
 
-        "border-b-1 border-b-primary",
         "shadow-lg shadow-primary/25",
+        "border-b-1 border-b-primary",
 
         cssClass,
       )}
@@ -41,42 +43,21 @@ export function PlInfo({ pg, pl, class: cssClass }: PlInfoProps) {
       ) : !pg ? (
         <p>Loading graph...</p>
       ) : (
-        <Fragment>
+        <>
           <h1>{pl.name}</h1>
           <span class="dash hidden">&#8212;</span>
           <p>{pl.description}</p>
           <details class="pb-4">
             <summary class="cursor-pointer text-xl">Details</summary>
             {relations(pl).map(([title, iterTap]) => (
-              <Fragment key={title}>
+              <div key={title}>
                 <h2 class="mt-4 text-xl">{title}</h2>
                 <p>{iterTap.existing.map(Pill)}</p>
-              </Fragment>
+              </div>
             ))}
           </details>
-        </Fragment>
+        </>
       )}
-    </div>
-  );
-}
-
-function Pill({ key, kind, name }: { key: string; name: string; kind: string }) {
-  return (
-    <div
-      key={key}
-      data-key={key}
-      data-kind={kind}
-      class={tw(
-        "inline-block",
-        "mr-1 mb-3 p-1.5",
-        "bg-primary text-background",
-        "font-bold text-sm",
-
-        "rounded",
-        "shadow-lg shadow-secondary",
-        "outline-2 outline-secondary",
-      )}>
-      {name}
     </div>
   );
 }

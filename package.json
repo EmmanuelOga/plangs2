@@ -6,16 +6,16 @@
     "archived/*"
   ],
   "devDependencies": {
-    "@biomejs/biome": "^1.9.0",
-    "@tailwindcss/cli": "^4.0.0-alpha.24",
+    "@biomejs/biome": "^1.9.2",
+    "@tailwindcss/cli": "^4.0.0-alpha.25",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
     "@types/bun": "latest",
-    "esbuild": "^0.23.0",
+    "esbuild": "^0.23.1",
     "tailwindcss": "next"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.6.2"
   },
   "scripts": {
     "js": "esbuild --bundle packages/frontend/src/app --sourcemap --outdir=packages/server/static/bundle --watch",

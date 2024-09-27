@@ -2,15 +2,21 @@ import type { ComponentChildren } from "preact";
 
 import { tw } from "@plangs/frontend/utils";
 
-import { id } from "./pages/dom";
+import { id } from "../../elements";
 
-export type LayoutProps = {
+type TAB = "browse" | "blog" | "about" | "pl";
+
+export function Layout({
+  title,
+  children,
+  tab,
+  overflow = "overflow-hidden",
+}: {
   title: string;
-  tab: "browse" | "blog" | "about" | "pl";
+  tab: TAB;
   children: ComponentChildren;
-};
-
-export function Layout({ title, children, tab }: LayoutProps) {
+  overflow?: "overflow-hidden" | "overflow-y-auto";
+}) {
   return (
     <html lang="en" class="dark">
       <head>
@@ -23,7 +29,14 @@ export function Layout({ title, children, tab }: LayoutProps) {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
-      <body class={tw("h-dvh w-full", "flex flex-col flex-nowrap", "bg-background text-foreground")} data-tab={tab}>
+      <body
+        class={tw(
+          "h-dvh w-full",
+          "flex flex-col flex-nowrap",
+
+          "bg-background text-foreground",
+        )}
+        data-tab={tab}>
         <noscript>
           <em>Note!</em>
           <p>This site is fully static and requires JavaScript for the best experience.</p>
@@ -42,6 +55,7 @@ export function Layout({ title, children, tab }: LayoutProps) {
             "flex flex-row",
             "gap-3 px-1 sm:px-4",
             "justify-center sm:justify-end",
+
             "text-sm lg:text-lg",
             "bg-secondary",
             "border-background border-b-2",
@@ -54,9 +68,7 @@ export function Layout({ title, children, tab }: LayoutProps) {
           <NavTab href="/about" title="About" current={tab === "about"} />
         </nav>
 
-        <main class={tw("flex-1", "flex flex-col", "items-center", "overflow-hidden", "p-1")}>{children}</main>
-
-        <footer class={tw("mt-1 px-4 py-1", "text-sm", "bg-secondary", "border-foreground/50 border-t-1")}>Plangs!</footer>
+        <main class={tw("flex-1", "flex flex-col", "items-center", overflow)}>{children}</main>
       </body>
       <script src="/bundle/app.js" />
     </html>

@@ -1,33 +1,38 @@
-import { type ComponentChildren, Fragment } from "preact";
+import type { ComponentChildren } from "preact";
 
 import { Anchor } from "@plangs/frontend/src/components/misc/anchor";
 import { PlInfo } from "@plangs/frontend/src/components/pl-info/pl-info";
 import { tw } from "@plangs/frontend/utils";
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
+import { Pill } from "@plangs/frontend/components/misc/pill";
+import { Layout } from "./layout";
+
 export function Pl({ pg, pl }: { pg: PlangsGraph; pl: NPlang }) {
   return (
-    <article class={tw("sm:flex sm:flex-row-reverse", "gap-2", "overflow-y-auto")}>
-      <PlInfo
-        pg={pg}
-        pl={pg.nodes.pl.get("pl+python")}
-        class={tw(
-          "p-4 sm:px-0 sm:py-2",
+    <Layout title={`${pl.name} details`} tab="pl">
+      <article class={tw("sm:flex sm:flex-row-reverse", "gap-2", "overflow-y-auto")}>
+        <PlInfo
+          pg={pg}
+          pl={pg.nodes.pl.get("pl+python")}
+          class={tw(
+            "p-4",
 
-          "mb-2 sm:mb-0",
-        )}
-      />
+            "mb-2 sm:mb-0",
+          )}
+        />
 
-      <PlBody
-        pl={pl}
-        class={tw(
-          "p-4 sm:p-2",
+        <PlBody
+          pl={pl}
+          class={tw(
+            "p-4 sm:p-2",
 
-          "sm:overflow-y-auto",
-          "sm:ml-[29.5rem]",
-        )}
-      />
-    </article>
+            "sm:overflow-y-auto",
+            "sm:ml-[29.5rem]",
+          )}
+        />
+      </article>
+    </Layout>
   );
 }
 
@@ -52,7 +57,7 @@ export function PlBody({ pl, class: cssClass }: { class: string; pl: NPlang }) {
 function PlNews({ pl: { relPosts } }: { pl: NPlang }) {
   const posts = relPosts.values.map(({ post }) => post).existing;
   return posts.length === 0 ? null : (
-    <Fragment>
+    <>
       <h1>News</h1>
       {posts.map(
         post =>
@@ -63,7 +68,7 @@ function PlNews({ pl: { relPosts } }: { pl: NPlang }) {
             </p>
           ),
       )}
-    </Fragment>
+    </>
   );
 }
 
@@ -84,11 +89,11 @@ function PlApps({ pl }: { pl: NPlang }) {
     </tr>
   ));
   return apps.length === 0 ? null : (
-    <Fragment>
+    <>
       <h1>Applications</h1>
       <p>Example open source applications created with {pl.name}.</p>
       <Table thead={thead} tbody={tbody} />
-    </Fragment>
+    </>
   );
 }
 
@@ -109,11 +114,11 @@ function PlLibs({ pl }: { pl: NPlang }) {
     </tr>
   ));
   return libs.length === 0 ? null : (
-    <Fragment>
+    <>
       <h1>Libraries</h1>
       <p>Example open source libraries that can be used with {pl.name}.</p>
       <Table thead={thead} tbody={tbody} />
-    </Fragment>
+    </>
   );
 }
 
@@ -134,28 +139,29 @@ function PlTools({ pl }: { pl: NPlang }) {
     </tr>
   ));
   return tools.length === 0 ? null : (
-    <Fragment>
+    <>
       <h1>Tooling</h1>
       <p>Additional tooling available for {pl.name}.</p>
       <Table thead={thead} tbody={tbody} />
       <PlBundles pl={pl} />
-    </Fragment>
+    </>
   );
 }
 
 function PlBundles({ pl }: { pl: NPlang }) {
   const bundles = pl.relPlBundles.values.map(({ bundle }) => bundle).existing;
   return bundles.length === 0 ? null : (
-    <Fragment>
+    <>
       <h1>Tool Bundles</h1>
       <p>A "bundle" is a set of tools that work well together.</p>
       {bundles.map(bundle => (
-        <Fragment key={bundle.key}>
-          <p>{bundle.relTools.values.map(({ tool }) => tool && <div key={tool.key}>{tool.name}</div>)}</p>
+        <p key={bundle.key}>
+          <h1>{bundle.name}</h1>
+          <p>{bundle.relTools.values.map(({ tool }) => tool && <Pill name={tool.name} />).existing}</p>
           <p>{bundle.description}</p>
-        </Fragment>
+        </p>
       ))}
-    </Fragment>
+    </>
   );
 }
 

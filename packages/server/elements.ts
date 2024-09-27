@@ -1,9 +1,9 @@
-import { INPUT_PROPS } from "./filters";
-
 /**
- * Utilities to type check DOM "id" and "class" attributes
- * that are used in both the frontend and the backend.
+ * @file utilities to type check DOM "id" and "class" attributes.
  */
+
+import { INPUT_PROPS } from "./src/pages/filters";
+
 export const FILTER_KEY = Object.keys(INPUT_PROPS) as (keyof typeof INPUT_PROPS)[];
 export const ID_KEYS = ["todo", "plGrid", "filterToggle", "filters", ...FILTER_KEY] as const;
 export const CL_KEYS = ["todo", "plThumb"] as const;

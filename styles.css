@@ -36,8 +36,9 @@
 }
 
 * {
-  scrollbar-color: var(--color-primary) var(--color-background);
+  scrollbar-color: var(--color-primary) transparent;
 }
+*::-webkit-scrollbar-track { background-color: transparent; }
 
 :root {
   --pl-bg-size: 8px 8px;

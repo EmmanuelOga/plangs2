@@ -1,7 +1,7 @@
 import type { JSX } from "preact/jsx-runtime";
 
 import type { NPlang } from "@plangs/plangs";
-import { cl } from "@plangs/server/pages/dom";
+import { cl } from "@plangs/server/elements";
 
 import { tw } from "../../utils";
 
@@ -19,6 +19,9 @@ export function PlThumb({ pl, class: cssClass }: { class?: string; pl: NPlang })
         "flex flex-col",
         "aspect-square",
         "cursor-pointer",
+
+        "max-w-[7rem] sm:max-w-[15rem]",
+        "max-h-[7rem] sm:max-h-[15rem]",
 
         "rounded",
         "bg-white/90",

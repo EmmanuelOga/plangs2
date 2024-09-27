@@ -1,6 +1,6 @@
-import { type JSX, h } from "preact";
+import { h } from "preact";
 
-import { type CLKey, type IDKey, cl, id } from "@plangs/server/pages/dom";
+import { type CLKey, type IDKey, cl, id } from "@plangs/server/elements";
 
 export type Nil = null | undefined;
 

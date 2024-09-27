@@ -6,7 +6,7 @@ import { basename, join } from "node:path";
 import { marked } from "marked";
 import YAML from "yaml";
 
-import type { NPlang, PlangsGraph, StrDate } from "@plangs/plangs";
+import type { NPlang, NPost, PlangsGraph, StrDate } from "@plangs/plangs";
 import { parseDate } from "@plangs/plangs/util";
 
 import { ZERO_WIDTH } from "./util";
@@ -59,4 +59,9 @@ export async function createNPosts(pg: PlangsGraph) {
       post.addPls([plKey]);
     }
   }
+}
+
+export async function loadBlogPost(pg: PlangsGraph, key: NPost["key"]): Promise<Content | undefined> {
+  const post = pg.nodes.post.get(key);
+  if (post?.path) return loadContent(`posts/${post.path}`);
 }
