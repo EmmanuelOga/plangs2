@@ -1,4 +1,4 @@
-import { INPUT_PROPS } from "./browse";
+import { INPUT_PROPS } from "./filters";
 
 /**
  * Utilities to type check DOM "id" and "class" attributes

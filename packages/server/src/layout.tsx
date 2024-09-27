@@ -30,7 +30,7 @@ export function Layout({ title, children, tab }: LayoutProps) {
           <p>In particular, the search feature will not work without JavaScript.</p>
         </noscript>
 
-        <header class={tw("p-4 pb-3 sm:pb-1", "bg-secondary text-primary")}>
+        <header class={tw("px-2 py-3", "bg-secondary text-primary")}>
           <h1 class={tw("text-lg sm:text-3xl", "font-black italic")}>
             <a href="/">Plangs!</a>
           </h1>
@@ -40,22 +40,21 @@ export function Layout({ title, children, tab }: LayoutProps) {
           class={tw(
             "sticky top-0",
             "flex flex-row",
-            "gap-3 sm:px-4",
+            "gap-3 px-1 sm:px-4",
             "justify-center sm:justify-end",
             "text-sm lg:text-lg",
             "bg-secondary",
             "border-background border-b-2",
             "shadow-background/75 shadow-md",
           )}>
+          <NavTab id={id("filterToggle")} class={tw("mr-auto", tab !== "browse" && "hidden")} title="Filter" />
           <NavTab href="/" title="Browse" current={tab === "browse"} />
           <NavTab href="/pl/python" title="Python" current={tab === "pl"} />
           <NavTab href="/blog" title="News" current={tab === "blog"} />
           <NavTab href="/about" title="About" current={tab === "about"} />
-
-          <NavTab id={id("filterToggle")} class={tw(tab !== "browse" && "hidden")} title="Filter" />
         </nav>
 
-        <main class={tw("flex-1", "flex flex-col items-center", "overflow-hidden")}>{children}</main>
+        <main class={tw("flex-1", "flex flex-col items-center", "overflow-hidden", "p-1")}>{children}</main>
 
         <footer class={tw("mt-1 px-4 py-1", "text-sm", "bg-secondary", "border-foreground/50 border-t-1")}>Plangs!</footer>
       </body>

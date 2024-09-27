@@ -20,7 +20,8 @@ export function PlThumb({ pl }: { pl: NPlang }): JSX.Element {
         "cursor-pointer",
         "aspect-square",
 
-        "bg-white",
+        "rounded",
+        "bg-white/90",
         "hover:outline-1 hover:outline-secondary",
         "shadow-lg shadow-secondary hover:shadow-primary/75",
       )}>
@@ -30,7 +31,7 @@ export function PlThumb({ pl }: { pl: NPlang }): JSX.Element {
           "text-center text-xs sm:text-lg",
           "overflow-hidden text-ellipsis whitespace-nowrap",
           "bg-secondary group-hover:bg-primary",
-          "text-foreground group-hover:text-background",
+          "text-foreground/90 group-hover:text-background",
           "border-1 group-hover:border-secondary",
         )}>
         {pl.name}

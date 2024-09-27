@@ -7,16 +7,17 @@ import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
 export function Pl({ pg, pl }: { pg: PlangsGraph; pl: NPlang }) {
   return (
-    <Fragment>
-      <PlInfo pl={pl} pg={pg} />
-      <PlBody pl={pl} />
-    </Fragment>
+    <article class={tw("h-full w-full flex-1", "overflow-hidden", "flex flex-col justify-end sm:flex-row")}>
+      <div class="mr-auto min-w-[29.5rem]" />
+      <PlBody pl={pl} class={tw("overflow-y-auto", "grow")} />
+      <PlInfo pg={pg} pl={pg.nodes.pl.get("pl+python")} class={tw("max-w-[30rem] p-2", "overflow-y-auto")} />
+    </article>
   );
 }
 
-export function PlBody({ pl }: { pl: NPlang }) {
+export function PlBody({ pl, class: cssClass }: { class: string; pl: NPlang }) {
   return (
-    <article id="lang-page" class={tw("readable dark:prose-invert")}>
+    <article id="lang-page" class={tw("readable dark:prose-invert max-w-full", "p-4", cssClass)}>
       <PlNews pl={pl} />
       <PlApps pl={pl} />
       <PlLibs pl={pl} />
@@ -29,7 +30,7 @@ function PlNews({ pl: { relPosts } }: { pl: NPlang }) {
   const posts = relPosts.values.map(({ post }) => post).existing;
   return posts.length === 0 ? null : (
     <Fragment>
-      <h2>News</h2>
+      <h1>News</h1>
       {posts.map(
         post =>
           post?.link && (
@@ -65,7 +66,7 @@ function PlApps({ pl }: { pl: NPlang }) {
   ));
   return apps.length === 0 ? null : (
     <Fragment>
-      <h2>Applications</h2>
+      <h1>Applications</h1>
       <p>Example open source applications created with {pl.name}.</p>
       <Table thead={thead} tbody={tbody} />
     </Fragment>
@@ -94,7 +95,7 @@ function PlLibs({ pl }: { pl: NPlang }) {
   ));
   return libs.length === 0 ? null : (
     <Fragment>
-      <h2>Libraries</h2>
+      <h1>Libraries</h1>
       <p>Example open source libraries that can be used with {pl.name}.</p>
       <Table thead={thead} tbody={tbody} />
     </Fragment>
@@ -123,7 +124,7 @@ function PlTools({ pl }: { pl: NPlang }) {
   ));
   return tools.length === 0 ? null : (
     <Fragment>
-      <h2>Tooling</h2>
+      <h1>Tooling</h1>
       <p>Additional tooling available for {pl.name}.</p>
       <Table thead={thead} tbody={tbody} />
       <PlBundles pl={pl} />
@@ -135,7 +136,7 @@ function PlBundles({ pl }: { pl: NPlang }) {
   const bundles = pl.relPlBundles.values.map(({ bundle }) => bundle).existing;
   return bundles.length === 0 ? null : (
     <Fragment>
-      <h2>Tool Bundles</h2>
+      <h1>Tool Bundles</h1>
       <p>A "bundle" is a set of tools that work well together.</p>
       {bundles.map(bundle => (
         <Fragment key={bundle.key}>

@@ -23,13 +23,13 @@ export function PlInfo({ pg, pl, class: cssClass }: PlInfoProps) {
   });
 
   return (
-    <div class={tw(cssClass)} ref={self as Ref<HTMLDivElement>}>
+    <div class={tw("readable dark:prose-invert", cssClass)} ref={self as Ref<HTMLDivElement>}>
       {!pl ? (
         <p>Select a language to show more information.</p>
       ) : !pg ? (
         <p>Loading graph...</p>
       ) : (
-        <div class="readable dark:prose-invert">
+        <Fragment>
           <h1>{pl.name}</h1>
           <p>{pl.description}</p>
           <details open={true || twBreakMd()}>
@@ -41,7 +41,7 @@ export function PlInfo({ pg, pl, class: cssClass }: PlInfoProps) {
               </Fragment>
             ))}
           </details>
-        </div>
+        </Fragment>
       )}
     </div>
   );
