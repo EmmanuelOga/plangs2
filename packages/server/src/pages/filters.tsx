@@ -24,12 +24,12 @@ export function PlFilters({ class: cssClass }: { class: string }) {
 function InputGroup({ title, children }: { title: string; children: ComponentChildren }) {
   return (
     <details
-      open={true}
       class={tw(
-        "p-0.5",
+        "p-[1px]",
         "cursor-pointer select-none",
         "hover:outline-1 hover:outline-secondary",
         "shadow-lg shadow-secondary hover:shadow-primary/75",
+
         "bg-white/95 text-slate-950",
         "sm:min-w-[16rem]",
       )}>
@@ -38,6 +38,7 @@ function InputGroup({ title, children }: { title: string; children: ComponentChi
           "px-1.5 py-1",
           "overflow-hidden text-ellipsis whitespace-nowrap",
           "text-xs sm:text-lg",
+
           "bg-secondary hover:bg-primary",
           "text-foreground/90 hover:text-background",
           "border-1 hover:border-secondary",

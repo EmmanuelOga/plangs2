@@ -7,7 +7,7 @@ import { tw } from "../../utils";
 
 const PLACEHOLDER = "/favicon/android-chrome-512x512.png";
 
-export function PlThumb({ pl }: { pl: NPlang }): JSX.Element {
+export function PlThumb({ pl, class: cssClass }: { class?: string; pl: NPlang }): JSX.Element {
   const thumbUrl = pl.thumbUrl;
   return (
     <div
@@ -16,20 +16,24 @@ export function PlThumb({ pl }: { pl: NPlang }): JSX.Element {
         cl("plThumb"),
         "group",
 
-        "flex h-full w-full flex-col",
-        "cursor-pointer",
+        "flex flex-col",
         "aspect-square",
+        "cursor-pointer",
 
         "rounded",
         "bg-white/90",
         "hover:outline-1 hover:outline-secondary",
         "shadow-lg shadow-secondary hover:shadow-primary/75",
+
+        cssClass,
       )}>
       <div
         class={tw(
           "m-0.5 px-1.5 py-1",
           "text-center text-xs sm:text-lg",
           "overflow-hidden text-ellipsis whitespace-nowrap",
+
+          "rounded",
           "bg-secondary group-hover:bg-primary",
           "text-foreground/90 group-hover:text-background",
           "border-1 group-hover:border-secondary",

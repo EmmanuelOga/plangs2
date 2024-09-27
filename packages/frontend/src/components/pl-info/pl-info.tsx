@@ -32,7 +32,7 @@ export function PlInfo({ pg, pl, class: cssClass }: PlInfoProps) {
         <Fragment>
           <h1>{pl.name}</h1>
           <p>{pl.description}</p>
-          <details open={true || twBreakMd()}>
+          <details>
             <summary class="cursor-pointer text-xl">Details</summary>
             {relations(pl).map(([title, iterTap]) => (
               <Fragment key={title}>
@@ -58,6 +58,8 @@ function Pill({ key, kind, name }: { key: string; name: string; kind: string }) 
         "mr-1 mb-3 p-1.5",
         "bg-primary text-background",
         "font-bold text-sm",
+
+        "rounded",
         "shadow-lg shadow-secondary",
         "outline-2 outline-secondary",
       )}>

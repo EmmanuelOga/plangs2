@@ -12,7 +12,7 @@ export function Blog({ pg }: { pg: PlangsGraph }) {
           <Anchor link={post.link} />
         </p>
       ),
-  );
+  ).existing;
 
   return (
     <article class={tw("readable dark:prose-invert", "p-4 sm:min-w-[40rem]")}>

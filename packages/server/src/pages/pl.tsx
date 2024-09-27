@@ -7,17 +7,37 @@ import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
 export function Pl({ pg, pl }: { pg: PlangsGraph; pl: NPlang }) {
   return (
-    <article class={tw("h-full w-full flex-1", "overflow-hidden", "flex flex-col justify-end sm:flex-row")}>
-      <div class="mr-auto min-w-[29.5rem]" />
-      <PlBody pl={pl} class={tw("overflow-y-auto", "grow")} />
-      <PlInfo pg={pg} pl={pg.nodes.pl.get("pl+python")} class={tw("max-w-[30rem] p-2", "overflow-y-auto")} />
+    <article
+      class={tw(
+        "h-full w-full flex-1",
+        "overflow-hidden",
+
+        "flex flex-col-reverse justify-end sm:flex-row",
+        "gap-2",
+      )}>
+      <div class="mr-auto hidden min-w-[29.5rem] sm:block" />
+      <PlBody pl={pl} class={tw("overflow-y-auto", "p-4", "grow")} />
+      <PlInfo
+        pg={pg}
+        pl={pg.nodes.pl.get("pl+python")}
+        class={tw(
+          "p-2 sm:px-0",
+          "min-h-[30dvh] min-w-[30dvw]",
+
+          "bg-linear-to-b from-secondary/25 to-primary/25",
+          "ring-1 ring-primary/50 sm:ring-0",
+          "shadow-lg shadow-primary/25",
+
+          "overflow-y-scroll",
+        )}
+      />
     </article>
   );
 }
 
 export function PlBody({ pl, class: cssClass }: { class: string; pl: NPlang }) {
   return (
-    <article id="lang-page" class={tw("readable dark:prose-invert max-w-full", "p-4", cssClass)}>
+    <article id="lang-page" class={tw("readable dark:prose-invert max-w-full", cssClass)}>
       <PlNews pl={pl} />
       <PlApps pl={pl} />
       <PlLibs pl={pl} />
@@ -55,11 +75,7 @@ function PlApps({ pl }: { pl: NPlang }) {
   );
   const tbody = apps.map(app => (
     <tr key={app.key}>
-      <td>
-        {app.websites.map(link => (
-          <Anchor key={link.href} link={link} />
-        ))}
-      </td>
+      <td>{app.websites.map(link => <Anchor key={link.href} link={link} />).existing}</td>
       <td>{app.keywords.join(", ")}</td>
       <td>{app.description}</td>
     </tr>
@@ -84,11 +100,7 @@ function PlLibs({ pl }: { pl: NPlang }) {
   );
   const tbody = libs.map(lib => (
     <tr key={lib.key}>
-      <td>
-        {lib.websites.map(link => (
-          <Anchor key={link.href} link={link} />
-        ))}
-      </td>
+      <td>{lib.websites.map(link => <Anchor key={link.href} link={link} />).existing}</td>
       <td>{lib.keywords.join(", ")}</td>
       <td>{lib.description}</td>
     </tr>
@@ -113,11 +125,7 @@ function PlTools({ pl }: { pl: NPlang }) {
   );
   const tbody = tools.map(tool => (
     <tr key={tool.key}>
-      <td>
-        {tool.websites.map(link => (
-          <Anchor key={link.href} link={link} />
-        ))}
-      </td>
+      <td>{tool.websites.map(link => <Anchor key={link.href} link={link} />).existing}</td>
       <td>{tool.keywords.join(", ")}</td>
       <td>{tool.description}</td>
     </tr>
