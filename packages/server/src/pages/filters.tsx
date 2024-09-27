@@ -1,7 +1,7 @@
 import { tw } from "@plangs/frontend/utils";
 import type { N } from "@plangs/plangs/index";
 import { type ComponentChildren, h } from "preact";
-import { id } from "../../elements";
+import { id } from "../elements";
 
 export function PlFilters({ class: cssClass }: { class: string }) {
   return (

@@ -3,6 +3,7 @@ import { useEffect, useRef } from "preact/hooks";
 
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
+import { READABLE_CLASSES } from "@plangs/server/elements";
 import { customEvent, tw } from "../../utils";
 import { Pill } from "../misc/pill";
 
@@ -12,10 +13,11 @@ export type PlInfoProps = {
   pg?: PlangsGraph;
   pl?: NPlang;
   class?: string;
+  open?: boolean;
 };
 
 /** Display a PL information, if the key is known. */
-export function PlInfo({ pg, pl, class: cssClass }: PlInfoProps) {
+export function PlInfo({ pg, pl, open, class: cssClass }: PlInfoProps) {
   const self = useRef<HTMLDivElement>();
 
   useEffect(() => {
@@ -27,14 +29,10 @@ export function PlInfo({ pg, pl, class: cssClass }: PlInfoProps) {
     <div
       class={tw(
         "h-fit",
-        "sm:w-[30%]",
-
-        "readable dark:prose-invert",
-
+        READABLE_CLASSES,
         "bg-linear-to-b from-background to-primary/20",
         "shadow-lg shadow-primary/25",
         "border-b-1 border-b-primary border-dotted",
-
         cssClass,
       )}
       ref={self as Ref<HTMLDivElement>}>
@@ -47,7 +45,7 @@ export function PlInfo({ pg, pl, class: cssClass }: PlInfoProps) {
           <h1>{pl.name}</h1>
           <span class="dash hidden">&#8212;</span>
           <p>{pl.description}</p>
-          <details class="pb-4">
+          <details class="pb-4" open={open}>
             <summary class="cursor-pointer text-xl">Details</summary>
             {relations(pl).map(([title, iterTap]) => (
               <div key={title}>

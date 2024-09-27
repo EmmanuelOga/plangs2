@@ -38,7 +38,7 @@ export async function loadContent(path: string): Promise<Content> {
 
   const md = `# ${title}\n\n${mdBody.replace(ZERO_WIDTH, "")}`;
   const mdHtml = await marked.parse(md);
-  const html = `<span class="text-sm font-black ${hideDate ? "hidden" : ""}">${date}</span>${mdHtml}`;
+  const html = `<p class="m-0 text-lg ${hideDate ? "hidden" : ""}">${date}</p>${mdHtml}`;
 
   return { title, author, plKeys: plKeys ?? [], date, html, basename: basename(path).replace(/\.md$/, "") };
 }

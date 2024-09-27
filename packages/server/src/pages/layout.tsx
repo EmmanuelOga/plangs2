@@ -2,7 +2,7 @@ import type { ComponentChildren } from "preact";
 
 import { tw } from "@plangs/frontend/utils";
 
-import { id } from "../../elements";
+import { id } from "../elements";
 
 type TAB = "browse" | "blog" | "about" | "pl";
 

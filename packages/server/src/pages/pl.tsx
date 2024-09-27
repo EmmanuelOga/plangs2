@@ -1,74 +1,32 @@
 import type { ComponentChildren } from "preact";
 
+import { Pill } from "@plangs/frontend/components/misc/pill";
 import { Anchor } from "@plangs/frontend/src/components/misc/anchor";
 import { PlInfo } from "@plangs/frontend/src/components/pl-info/pl-info";
 import { tw } from "@plangs/frontend/utils";
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
-import { Pill } from "@plangs/frontend/components/misc/pill";
+import { READABLE_CLASSES } from "../elements";
 import { Layout } from "./layout";
 
 export function Pl({ pg, pl }: { pg: PlangsGraph; pl: NPlang }) {
   return (
     <Layout title={`${pl.name} details`} tab="pl">
-      <article class={tw("sm:flex sm:flex-row-reverse", "gap-2", "overflow-y-auto")}>
-        <PlInfo
-          pg={pg}
-          pl={pg.nodes.pl.get("pl+python")}
-          class={tw(
-            "p-4",
-
-            "mb-2 sm:mb-0",
-          )}
-        />
-
-        <PlBody
-          pl={pl}
-          class={tw(
-            "p-4 sm:p-2",
-
-            "sm:overflow-y-auto",
-            "sm:ml-[29.5rem]",
-          )}
-        />
-      </article>
+      <div class={tw("overflow-y-auto", "w-full", "sm:flex sm:flex-row-reverse", "gap-2")}>
+        <PlInfo pg={pg} pl={pg.nodes.pl.get("pl+python")} class={tw("w-[33%] overflow-y-auto p-4")} />
+        <PlBody pl={pl} class={tw("flex-1", "p-4", "sm:overflow-y-auto")} />
+      </div>
     </Layout>
   );
 }
 
 export function PlBody({ pl, class: cssClass }: { class: string; pl: NPlang }) {
   return (
-    <article
-      id="lang-page"
-      class={tw(
-        "readable dark:prose-invert",
-        "max-w-full p-4",
-
-        cssClass,
-      )}>
-      <PlNews pl={pl} />
+    <article class={tw(READABLE_CLASSES, cssClass)}>
       <PlApps pl={pl} />
       <PlLibs pl={pl} />
       <PlTools pl={pl} />
     </article>
-  );
-}
-
-function PlNews({ pl: { relPosts } }: { pl: NPlang }) {
-  const posts = relPosts.values.map(({ post }) => post).existing;
-  return posts.length === 0 ? null : (
-    <>
-      <h1>News</h1>
-      {posts.map(
-        post =>
-          post?.link && (
-            <p key={post.key}>
-              {post.date}
-              <Anchor link={post.link} />
-            </p>
-          ),
-      )}
-    </>
   );
 }
 

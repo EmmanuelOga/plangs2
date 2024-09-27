@@ -2,7 +2,7 @@
  * @file utilities to type check DOM "id" and "class" attributes.
  */
 
-import { INPUT_PROPS } from "./src/pages/filters";
+import { INPUT_PROPS } from "./pages/filters";
 
 export const FILTER_KEY = Object.keys(INPUT_PROPS) as (keyof typeof INPUT_PROPS)[];
 export const ID_KEYS = ["todo", "plGrid", "filterToggle", "filters", ...FILTER_KEY] as const;
@@ -18,3 +18,5 @@ export function id(key: IDKey): `id-${IDKey}` {
 export function cl(key: CLKey): `cl-${CLKey}` {
   return `cl-${key}`;
 }
+
+export const READABLE_CLASSES = "readable dark:prose-invert max-w-[unset] 2xl:max-w-[96rem]";
