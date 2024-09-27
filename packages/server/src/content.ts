@@ -17,9 +17,11 @@ export type Content = {
   basename: string;
   date: StrDate;
   html: string;
-  plKeys: NPlang["key"][];
+  pls: NPlang["key"][];
   title: string;
 };
+
+const YAML_KEYS = new Set(["title", "author", "pls", "hideDate"]);
 
 /** {@param path} relative to the content/ folder (ex: "about.md"). */
 export async function loadContent(path: string): Promise<Content> {
@@ -32,15 +34,20 @@ export async function loadContent(path: string): Promise<Content> {
   if (!match) throw new Error(`Post ${path} is missing a YAML header.`);
   const [_, yaml, mdBody] = match;
 
-  const { title, author, plKeys, hideDate } = YAML.parse(yaml);
+  const data = YAML.parse(yaml);
+  const { title, author, pls, hideDate } = data;
+
+  const unknown = new Set(Object.keys(data)).difference(YAML_KEYS);
+  if (unknown.size) throw new Error(`Post ${path} has unknown fields in the YAML header: ${[...unknown].join(", ")}`);
+
   if (!title || !author) throw new Error(`Post ${path} is missing a title or author in the YAML header.`);
-  if (plKeys !== undefined && !Array.isArray(plKeys)) throw new Error(`Post ${path} has an invalid plKeys field in the YAML header.`);
+  if (pls !== undefined && !Array.isArray(pls)) throw new Error(`Post ${path} has an invalid pls field in the YAML header.`);
 
   const md = `# ${title}\n\n${mdBody.replace(ZERO_WIDTH, "")}`;
   const mdHtml = await marked.parse(md);
   const html = `<p class="m-0 text-lg ${hideDate ? "hidden" : ""}">${date}</p>${mdHtml}`;
 
-  return { title, author, plKeys: plKeys ?? [], date, html, basename: basename(path).replace(/\.md$/, "") };
+  return { title, author, pls: pls ?? [], date, html, basename: basename(path).replace(/\.md$/, "") };
 }
 
 /**
@@ -48,13 +55,13 @@ export async function loadContent(path: string): Promise<Content> {
  */
 export async function createNPosts(pg: PlangsGraph) {
   for await (const path of new Glob("*.md").scan(join(import.meta.dir, "../content/posts"))) {
-    const { title, author, plKeys, date, basename } = await loadContent(`posts/${path}`);
+    const { title, author, pls, date, basename } = await loadContent(`posts/${path}`);
 
     const post = pg.nodes.post.set(`post+${basename}`, { path, title, author, date });
 
     post.link = { href: `/blog/${post.plainKey}`, title, kind: "plangs" };
 
-    for (const plKey of plKeys) {
+    for (const plKey of pls) {
       if (!pg.nodes.pl.has(plKey)) throw new Error(`Post ${path} references unknown PL ${plKey}`);
       post.addPls([plKey]);
     }
