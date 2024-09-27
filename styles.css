@@ -2,12 +2,6 @@
 
 @config "./tailwind.config.js";
 
-@layer components {
-  .readable {
-    @apply prose prose-green;
-  }
-}
-
 /* Base Theme (Light Mode by Default) */
 :root {
   --color-primary: #609;
@@ -24,13 +18,21 @@
   --color-foreground: mintcream;
 }
 
+@layer components {
+  .readable {
+    @apply prose;
+    --tw-prose-links: var(--color-primary);
+    --tw-prose-invert-links: var(--color-primary);
+  }
+}
+
 @theme {
   --font-family-sans: ui-rounded, "Hiragino Maru Gothic ProN", Quicksand, Comfortaa, Manjari, "Arial Rounded MT", "Arial Rounded MT Bold", Calibri,
     source-sans-pro, sans-serif;
 }
 
 * {
-  scrollbar-color: var(--color-secondary) var(--color-background);
+  scrollbar-color: var(--color-primary) var(--color-background);
 }
 
 :root {

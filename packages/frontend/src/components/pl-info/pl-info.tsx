@@ -23,7 +23,19 @@ export function PlInfo({ pg, pl, class: cssClass }: PlInfoProps) {
   });
 
   return (
-    <div class={tw("readable dark:prose-invert", cssClass)} ref={self as Ref<HTMLDivElement>}>
+    <div
+      class={tw(
+        "h-fit",
+
+        "readable dark:prose-invert",
+        "bg-linear-to-b from-background to-primary/20",
+
+        "border-b-1 border-b-primary",
+        "shadow-lg shadow-primary/25",
+
+        cssClass,
+      )}
+      ref={self as Ref<HTMLDivElement>}>
       {!pl ? (
         <p>Select a language to show more information.</p>
       ) : !pg ? (
@@ -31,8 +43,9 @@ export function PlInfo({ pg, pl, class: cssClass }: PlInfoProps) {
       ) : (
         <Fragment>
           <h1>{pl.name}</h1>
+          <span class="dash hidden">&#8212;</span>
           <p>{pl.description}</p>
-          <details>
+          <details class="pb-4">
             <summary class="cursor-pointer text-xl">Details</summary>
             {relations(pl).map(([title, iterTap]) => (
               <Fragment key={title}>

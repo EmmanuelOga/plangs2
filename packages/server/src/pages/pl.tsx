@@ -7,28 +7,24 @@ import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
 export function Pl({ pg, pl }: { pg: PlangsGraph; pl: NPlang }) {
   return (
-    <article
-      class={tw(
-        "h-full w-full flex-1",
-        "overflow-hidden",
-
-        "flex flex-col-reverse justify-end sm:flex-row",
-        "gap-2",
-      )}>
-      <div class="mr-auto hidden min-w-[29.5rem] sm:block" />
-      <PlBody pl={pl} class={tw("overflow-y-auto", "p-4", "grow")} />
+    <article class={tw("sm:flex sm:flex-row-reverse", "gap-2", "overflow-y-auto")}>
       <PlInfo
         pg={pg}
         pl={pg.nodes.pl.get("pl+python")}
         class={tw(
-          "p-2 sm:px-0",
-          "min-h-[30dvh] min-w-[30dvw]",
+          "p-4 sm:px-0 sm:py-2",
 
-          "bg-linear-to-b from-secondary/25 to-primary/25",
-          "ring-1 ring-primary/50 sm:ring-0",
-          "shadow-lg shadow-primary/25",
+          "mb-2 sm:mb-0",
+        )}
+      />
 
-          "overflow-y-scroll",
+      <PlBody
+        pl={pl}
+        class={tw(
+          "p-4 sm:p-2",
+
+          "sm:overflow-y-auto",
+          "sm:ml-[29.5rem]",
         )}
       />
     </article>
@@ -37,7 +33,14 @@ export function Pl({ pg, pl }: { pg: PlangsGraph; pl: NPlang }) {
 
 export function PlBody({ pl, class: cssClass }: { class: string; pl: NPlang }) {
   return (
-    <article id="lang-page" class={tw("readable dark:prose-invert max-w-full", cssClass)}>
+    <article
+      id="lang-page"
+      class={tw(
+        "readable dark:prose-invert",
+        "max-w-full p-4",
+
+        cssClass,
+      )}>
       <PlNews pl={pl} />
       <PlApps pl={pl} />
       <PlLibs pl={pl} />

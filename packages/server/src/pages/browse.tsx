@@ -15,8 +15,6 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
 
         "flex flex-col sm:flex-row",
         "gap-2",
-
-        "sm:overflow-hidden",
       )}>
       <PlGrid pg={pg} class={tw("flex-1")} />
 
@@ -25,10 +23,18 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
         pl={pg.nodes.pl.get("pl+python")}
         class={tw(
           "px-2 sm:px-0 sm:py-2",
-          "shrink grow",
 
-          "max-h-[25dvh] sm:max-h-[unset] sm:max-w-[40dvh]",
+          "max-h-[20dvh] sm:max-h-[unset]",
+          "sm:min-w-[30dvh] sm:max-w-[30dvh]",
+
           "overflow-y-auto",
+
+          // Apply and remove pl-info styles for mobile.
+          "[&>h1]:text-lg sm:[&>h1]:text-4xl",
+          "[&>h1]:inline sm:[&>h1]:block",
+          "[&>.dash]:inline sm:[&>.dash]:hidden",
+          "[&>p]:inline sm:[&>p]:block",
+          "[&>details]:hidden sm:[&>details]:block",
         )}
       />
     </article>
@@ -50,7 +56,7 @@ function PlGrid({ pg, class: cssClass }: { pg: PlangsGraph; class: string }) {
           "grid grid-cols-2",
           "gap-4 p-2",
 
-          "max-h-[25dvh]",
+          "max-h-[20dvh]",
 
           "overflow-y-auto",
         )}

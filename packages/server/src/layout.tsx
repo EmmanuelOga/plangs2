@@ -54,7 +54,7 @@ export function Layout({ title, children, tab }: LayoutProps) {
           <NavTab href="/about" title="About" current={tab === "about"} />
         </nav>
 
-        <main class={tw("flex-1", "flex flex-col items-center", "overflow-hidden", "p-1")}>{children}</main>
+        <main class={tw("flex-1", "flex flex-col", "items-center", "overflow-hidden", "p-1")}>{children}</main>
 
         <footer class={tw("mt-1 px-4 py-1", "text-sm", "bg-secondary", "border-foreground/50 border-t-1")}>Plangs!</footer>
       </body>
