@@ -7,7 +7,7 @@ export function PlFilters({ class: cssClass }: { class: string }) {
   return (
     <aside id={id("filters")} class={tw(cssClass)}>
       {Object.entries(INPUT_GROUPS).map(([key, group]) => (
-        <div class="flex flex-col gap-4" key={key}>
+        <div class="flex flex-col gap-6 pt-2" key={key}>
           {group.map(({ title, keys }) => (
             <InputGroup key={title} title={title}>
               {keys.map(key => (

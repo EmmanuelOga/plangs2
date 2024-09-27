@@ -149,31 +149,42 @@ function startBrowseNav(pg: PlangsGraph) {
 
 // Do not use top level await.
 (async () => {
-  connectLivereload();
-
   // Register the web components.
   registerPlangInfo();
   registerInputCompl();
   registerInputSel();
 
+  // Load the data and send it to the pl-info component.
   const data = await (await fetch("/plangs.json")).json();
   const pg = new PlangsGraph().loadJSON(data);
-
   $<PlInfoElement>("pl-info")?.setDataSource(pg);
 
+  // Handle the togle of the filters.
   const [toggle, filters] = [elem("filterToggle"), elem("filters")];
   if (toggle && filters) {
     const updateToggle = () => {
       const hidden = filters.classList.contains("hidden");
       toggle.classList.toggle("bg-background/75", !hidden);
     };
-
     on(toggle, "click", () => {
       filters.classList.toggle("hidden");
       updateToggle();
     });
-
     updateToggle();
   }
   if (elem("plangName")) startBrowseNav(pg);
+
+  // Scroll into view when a summary is clicked.
+  // TODO: use delegation.
+  for (const sum of $$("summary")) {
+    on<MouseEvent>(sum, "click", ({ target }) => {
+      const details = (target as HTMLElement)?.closest("details");
+      const aboutToOpen = details?.open === false;
+      if (aboutToOpen) {
+        details.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  }
+
+  connectLivereload();
 })();
