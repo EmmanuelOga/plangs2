@@ -43,13 +43,33 @@
   --pl-bg-r: rgba(255 0 0 / 0.75);
   --pl-bg-b: rgba(0 0 255 / 0.75);
   --pl-bg-g: rgba(0 255 0 / 0.5 );
-  --pl-bg-n: rgba(255 255 255 / 0.7);
+  --pl-bg-n: rgba(255 255 255 / 0.3);
 }
 
 .pl-bg-r { background-image: repeating-linear-gradient(var(--pl-bg-angle), var(--pl-bg-r) 0, var(--pl-bg-r) 1px, var(--color-background) 0, var(--color-background) 50%); background-size: var(--pl-bg-size); }
 .pl-bg-g { background-image: repeating-linear-gradient(var(--pl-bg-angle), var(--pl-bg-g) 0, var(--pl-bg-g) 1px, var(--color-background) 0, var(--color-background) 50%); background-size: var(--pl-bg-size); }
 .pl-bg-b { background-image: repeating-linear-gradient(var(--pl-bg-angle), var(--pl-bg-b) 0, var(--pl-bg-b) 1px, var(--color-background) 0, var(--color-background) 50%); background-size: var(--pl-bg-size); }
-.pl-bg-n { background-image: repeating-linear-gradient(var(--pl-bg-angle), var(--pl-bg-n) 0, var(--pl-bg-n) 1px, var(--color-background) 0, var(--color-background) 50%); background-size: var(--pl-bg-size); }
+
+.pl-bg-0 {
+  --pl-bg-angle: -45deg;
+  --pl-bg-n: #609;
+  background-image: repeating-linear-gradient(var(--pl-bg-angle), var(--pl-bg-n) 0, var(--pl-bg-n) 1px, var(--color-background) 0, var(--color-background) 50%); background-size: var(--pl-bg-size);
+}
+.pl-bg-1 {
+  --pl-bg-angle: 45deg;
+  --pl-bg-n: #609;
+  background-image: repeating-linear-gradient(var(--pl-bg-angle), var(--pl-bg-n) 0, var(--pl-bg-n) 1px, var(--color-background) 0, var(--color-background) 50%); background-size: var(--pl-bg-size);
+}
+.pl-bg-2 {
+  --pl-bg-angle: 135deg;
+  --pl-bg-n: #609;
+  background-image: repeating-linear-gradient(var(--pl-bg-angle), var(--pl-bg-n) 0, var(--pl-bg-n) 1px, var(--color-background) 0, var(--color-background) 50%); background-size: var(--pl-bg-size);
+}
+.pl-bg-3 {
+  --pl-bg-angle: -135deg;
+  --pl-bg-n: #609;
+  background-image: repeating-linear-gradient(var(--pl-bg-angle), var(--pl-bg-n) 0, var(--pl-bg-n) 1px, var(--color-background) 0, var(--color-background) 50%); background-size: var(--pl-bg-size);
+}
 
 
 /** Debugging Helpers */

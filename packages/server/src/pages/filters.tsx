@@ -1,63 +1,58 @@
-import { tw } from "@plangs/frontend/utils";
+import { style, tw } from "@plangs/frontend/utils";
 import type { N } from "@plangs/plangs/index";
 import { type ComponentChildren, h } from "preact";
 import { id } from "../elements";
 
 export function PlFilters({ class: cssClass }: { class: string }) {
-  return (
-    <aside
-      id={id("filters")}
-      class={tw(
-        "grid",
-
-        "mr-1.5 pt-5 pr-3 pl-6",
-        "overflow-y-auto overflow-x-hidden",
-
-        "gap-5 p-5",
-        "grid-cols-2",
-        "sm:grid-cols-[repeat(auto-fit,minmax(15rem,1fr))]",
-        "grid-flow-row-dense",
-
-        "max-h-[35%]",
-
-        cssClass,
-      )}>
-      {INPUT_GROUPS.map(({ title, keys }) => (
+  const inputs = (group: Group[], cssClass: string) => (
+    <div class={tw("m-1 flex flex-col gap-4", cssClass)}>
+      {group.map(({ title, keys }) => (
         <InputGroup key={title} title={title}>
           {keys.map(key => (
             <Input key={key} inputKey={key} />
           ))}
         </InputGroup>
       ))}
+    </div>
+  );
+
+  const [group1, group2, group3, group4] = INPUT_GROUPS.map((group, i) => inputs(group, `pl-bg-${i}`));
+
+  return (
+    <aside id={id("filters")} class={tw("grid grid-cols-2 gap-2 sm:grid-cols-4", cssClass)}>
+      {group1}
+      {group2}
+      {group3}
+      {group4}
     </aside>
   );
 }
 
 function InputGroup({ title, children }: { title: string; children: ComponentChildren }) {
   return (
-    <div>
-      <details
-        class={tw(
-          "cursor-pointer select-none",
-          "hover:outline-1 hover:outline-secondary",
-          "shadow-lg shadow-secondary hover:shadow-primary/75",
-          "bg-white/95 text-slate-950",
-        )}>
-        <summary
-          class={tw(
-            "px-1.5 py-1",
-            "overflow-hidden text-ellipsis whitespace-nowrap",
-            "text-xs sm:text-lg",
+    <details
+      // open={true}
+      class={tw(
+        "cursor-pointer select-none",
 
-            "bg-secondary hover:bg-primary",
-            "text-foreground/90 hover:text-background",
-            "border-1 hover:border-secondary",
-          )}>
-          {title}
-        </summary>
-        <div class="flex flex-col gap-3 p-1.5">{children}</div>
-      </details>
-    </div>
+        "shadow-md shadow-secondary hover:shadow-primary/50",
+        "bg-white/95 text-slate-950",
+      )}
+    >
+      <summary
+        class={tw(
+          "px-1.5 py-1",
+          "overflow-hidden text-ellipsis whitespace-nowrap",
+          "text-xs sm:text-lg",
+
+          "bg-secondary hover:bg-primary",
+          "text-foreground/90 hover:text-background",
+          "border-1 border-foreground/50 hover:border-bacground/50",
+        )}>
+        {title}
+      </summary>
+      <div class="flex flex-col gap-3 p-1.5">{children}</div>
+    </details>
   );
 }
 
@@ -122,25 +117,31 @@ export const INPUT_PROPS = {
   writtenIn: compl("Written In", "pl"),
 } as const;
 
+type Group = { title: string; keys: (keyof typeof INPUT_PROPS)[] };
 const group = (title: string, keys: (keyof typeof INPUT_PROPS)[]) => ({ title, keys }) as const;
 
 const INPUT_GROUPS = [
-  group("Creation Date", ["appearedAfter"]),
-  group("Dialect Of", ["dialectOf"]),
-  group("Extensions", ["extensions"]),
-  group("Implements", ["implements"]),
-  group("Influenced By", ["influencedBy"]),
-  group("Influenced", ["influenced"]),
-  group("Licenses", ["licenses"]),
-  group("Logo", ["hasLogo"]),
-  group("Name", ["plangName"]),
-  group("Paradigms", ["paradigms"]),
-  group("Platforms", ["platforms"]),
-  group("Popular", ["isMainstream"]),
-  group("Releases", ["hasReleases", "releasedAfter"]),
-  group("Tags", ["tags"]),
-  group("Transpiler", ["isTranspiler"]),
-  group("Type Systems", ["typeSystems"]),
-  group("Wikipedia", ["hasWikipedia"]),
-  group("Written In", ["writtenIn"]),
-] as const;
+  [group("Name", ["plangName"]), group("Creation Date", ["appearedAfter"]), group("Releases", ["hasReleases", "releasedAfter"])],
+  [
+    group("Popular", ["isMainstream"]),
+    group("Has Logo", ["hasLogo"]),
+    group("Has Wikipedia", ["hasWikipedia"]),
+    group("Licenses", ["licenses"]),
+    group("Extensions", ["extensions"]),
+  ],
+
+  [
+    group("Dialect Of", ["dialectOf"]),
+    group("Implements", ["implements"]),
+    group("Influenced By", ["influencedBy"]),
+    group("Influenced", ["influenced"]),
+    group("Written In", ["writtenIn"]),
+  ],
+  [
+    group("Transpiler", ["isTranspiler"]),
+    group("Paradigms", ["paradigms"]),
+    group("Platforms", ["platforms"]),
+    group("Type Systems", ["typeSystems"]),
+    group("Tags", ["tags"]),
+  ],
+] as Group[][];

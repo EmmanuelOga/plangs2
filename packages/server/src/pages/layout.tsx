@@ -15,7 +15,7 @@ export function Layout({
   title: string;
   tab: TAB;
   children: ComponentChildren;
-  overflow?: "overflow-hidden" | "overflow-y-auto";
+  overflow?: "overflow-hidden" | "overflow-y-auto" | "overflow-auto";
 }) {
   return (
     <html lang="en" class="dark">
@@ -29,14 +29,7 @@ export function Layout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
-      <body
-        class={tw(
-          "h-dvh w-full",
-          "flex flex-col flex-nowrap",
-
-          "bg-background text-foreground",
-        )}
-        data-tab={tab}>
+      <body class={tw("h-dvh w-full", "flex flex-col flex-nowrap", "bg-background text-foreground")} data-tab={tab}>
         <noscript>
           <em>Note!</em>
           <p>This site is fully static and requires JavaScript for the best experience.</p>
@@ -59,7 +52,7 @@ export function Layout({
             "text-sm lg:text-lg",
             "bg-secondary",
             "border-background border-b-2",
-            "shadow-background/75 shadow-md",
+            // "shadow-background/75 shadow-md",
           )}>
           <NavTab id={id("filterToggle")} class={tw("mr-auto", tab !== "browse" && "hidden")} title="Filter" />
           <NavTab href="/" title="Browse" current={tab === "browse"} />

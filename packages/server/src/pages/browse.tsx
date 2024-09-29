@@ -8,22 +8,25 @@ import { id } from "../elements";
 import { PlFilters } from "./filters";
 import { Layout } from "./layout";
 
+const SCROLL = tw("p-3", "overflow-y-scroll overflow-x-hidden");
+
 export function Browse({ pg }: { pg: PlangsGraph }) {
   return (
-    <Layout title="Find your next favorite programming language!" tab="browse">
-      <div class={tw("h-full w-full flex-1", "flex flex-col lg:flex-row", "gap-2")}>
-        <div class={tw("flex-1", "flex flex-col", "overflow-auto")}>
-          <PlFilters class={tw("overflow-y-auto overflow-x-hidden")} />
-          <PlGrid pg={pg} />
+    <Layout title="Find your next favorite programming language!" tab="browse" overflow="overflow-auto">
+      <div class={tw("h-full w-full flex-1", "flex flex-col lg:flex-row", "overflow-hidden")}>
+        <div class={tw("flex-1", "flex flex-col", "gap-2", "overflow-auto")}>
+          <PlFilters class={tw(SCROLL, "max-h-[15%]", "border-1 border-secondary", "mt-2")} />
+          <PlGrid pg={pg} class={tw("border-1 border-primary")} />
         </div>
 
         <PlInfo
           pg={pg}
           pl={pg.nodes.pl.get("pl+python")}
           class={tw(
-            "max-h-[20dvh] overflow-y-auto p-4 lg:w-[33%]",
+            SCROLL,
+            "w-full lg:w-[33%]",
+            "max-h-[20dvh] sm:max-h-[unset]",
 
-            // Apply and remove pl-info styles for mobile.
             "[&>h1]:text-lg sm:[&>h1]:text-4xl",
             "[&>h1]:inline sm:[&>h1]:block",
             "[&>.dash]:inline sm:[&>.dash]:hidden",
@@ -36,15 +39,15 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
   );
 }
 
-function PlGrid({ pg }: { pg: PlangsGraph }) {
+function PlGrid({ pg, class: cssClass }: { pg: PlangsGraph; class: string }) {
   return (
     <div
       id={id("plGrid")}
       class={tw(
         "flex-1",
-
-        "mr-1.5 pt-5 pr-3 pl-6",
-        "overflow-y-auto overflow-x-hidden",
+        SCROLL,
+        "pl-bg-g",
+        cssClass,
 
         "grid gap-3 sm:gap-5 ",
         "grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]",
@@ -55,22 +58,4 @@ function PlGrid({ pg }: { pg: PlangsGraph }) {
       ))}
     </div>
   );
-}
-
-export function randomWord() {
-  const vowels = ["a", "e", "i", "o", "u"];
-  const consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"];
-  const pick = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)];
-
-  const wordLength = Math.floor(Math.random() * 7) + 3; // Random word length between 3 and 9
-
-  return Array.from({ length: wordLength })
-    .map(() => (Math.random() > 0.4 ? pick(consonants) : pick(vowels)))
-    .join("");
-}
-
-export function loremIpsum(words: number) {
-  return Array.from({ length: words })
-    .map(() => randomWord())
-    .join(" ");
 }
