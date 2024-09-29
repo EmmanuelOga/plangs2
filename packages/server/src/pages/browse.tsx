@@ -25,7 +25,7 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
           class={tw(
             SCROLL,
             "w-full lg:w-[33%]",
-            "max-h-[20dvh] sm:max-h-[unset]",
+            "max-h-[20dvh] sm:max-h-[35dvh]",
 
             "[&>h1]:text-lg sm:[&>h1]:text-4xl",
             "[&>h1]:inline sm:[&>h1]:block",
