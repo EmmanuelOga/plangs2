@@ -15,6 +15,8 @@ export function Pill({ name, key, kind }: { name: string; key: string; kind: str
         "bg-primary text-background",
         "shadow-lg shadow-secondary",
         "outline-2 outline-secondary",
+
+        kind === "pl" && "hover:bg-yellow-200",
       )}>
       {name}
     </div>

@@ -19,7 +19,7 @@ export function PlFilters({ class: cssClass }: { class: string }) {
   const [group1, group2, group3, group4] = INPUT_GROUPS.map((group, i) => inputs(group, `pl-bg-${i}`));
 
   return (
-    <aside id={id("filters")} class={tw("grid grid-cols-2 gap-2 sm:grid-cols-4", cssClass)}>
+    <aside id={id("filters")} class={tw("grid grid-cols-2 gap-2 md:grid-cols-4", cssClass)}>
       {group1}
       {group2}
       {group3}

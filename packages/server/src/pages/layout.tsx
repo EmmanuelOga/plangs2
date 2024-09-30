@@ -40,24 +40,24 @@ export function Layout({
         </noscript>
 
         <header class={tw("px-2 py-3", "bg-secondary text-primary")}>
-          <h1 class={tw("text-lg sm:text-3xl", "font-black italic")}>
-            <a href="/">Plangs!</a>
+          <h1 class={tw("text-center text-lg sm:text-3xl", "font-black italic")}>
+            <a href="/" class="inline-block">
+              <img src="/images/plangs.svg" class="h-[3rem] sm:mt-5 sm:h-[8rem]" alt="Plangs!" title="Plangs!" />
+            </a>
           </h1>
         </header>
 
         <nav
           class={tw(
             "sticky top-0",
-            "flex flex-row",
+            "flex flex-row justify-evenly",
             "gap-3 px-1 sm:px-4",
-            "justify-center sm:justify-end",
 
             "text-sm lg:text-lg",
             "bg-secondary",
             "border-background border-b-2",
-            // "shadow-background/75 shadow-md",
           )}>
-          <NavTab tab="filter" id={id("filterToggle")} class={tw("mr-auto", tab !== "browse" && "hidden")} title="Filter" />
+          <NavTab tab="filter" id={id("filterToggle")} class={tw("mr-auto", tab !== "browse" && "invisible")} title="Filter" />
           <NavTab tab="browse" href="/" title="Browse" current={tab === "browse"} />
           <NavTab tab="pl" id={id("plTab")} href={`/pl/${pl?.plainKey ?? "python"}`} title={pl?.name ?? "Python"} current={tab === "pl"} />
           <NavTab tab="blog" href="/blog" title="News" current={tab === "blog"} />
@@ -101,7 +101,7 @@ function NavTab({
       )}>
       <span
         class={tw(
-          "inline-block max-w-[5rem]",
+          "inline-block max-w-[5rem] sm:max-w-[unset]",
           "overflow-hidden text-ellipsis whitespace-nowrap",
           !isIcon && "min-w-12",
           current && "border-primary",
