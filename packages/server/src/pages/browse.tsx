@@ -22,9 +22,9 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
           id: id("plInfo"),
           class: tw(
             SCROLL,
-            "w-full lg:w-[33%]",
+
+            "lg:w-[33dvw]",
             "max-h-[20dvh] sm:max-h-[35dvh] lg:max-h-[unset]",
-            "h-fit w-full",
 
             "[&>h1]:text-lg sm:[&>h1]:text-4xl",
             "[&>h1]:inline sm:[&>h1]:block",

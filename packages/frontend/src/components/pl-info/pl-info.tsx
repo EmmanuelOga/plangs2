@@ -20,8 +20,9 @@ export function PlInfo({ pl, class: cssClass, open }: PlInfoProps) {
   return (
     <div
       class={tw(
+        "h-fit p-3",
         READABLE_CLASSES,
-        "bg-linear-to-b from-background to-primary/20",
+        "bg-linear-to-b from-background to-secondary/50",
         "shadow-lg shadow-primary/25",
         "border-b-1 border-b-primary border-dotted",
         cssClass,
