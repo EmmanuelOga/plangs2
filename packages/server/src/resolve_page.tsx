@@ -21,7 +21,7 @@ export async function resolvePage(path: string, pg: PlangsGraph) {
 
   if (path.startsWith("/pl/") && path.length < 64) {
     const pl = pg.nodes.pl.get(`pl+${path.slice(4)}`);
-    if (pl) return <Pl pg={pg} pl={pl} />;
+    if (pl) return <Pl pl={pl} />;
     console.warn(`PL not found: ${path}`);
     return;
   }

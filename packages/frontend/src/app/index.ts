@@ -113,15 +113,16 @@ function startBrowseNav(pg: PlangsGraph) {
   }
 
   const plInfo = elem("plInfo") as PlInfoElement;
+  const plTab = elem("plTab") as HTMLAnchorElement;
+  const plTabSpan = plTab.querySelector("span");
   if (plInfo) {
     on(elem("plGrid"), "click", ({ target }: MouseEvent) => {
       const pl = getPl(target);
       if (!pl) return;
       plInfo.pl = pl;
-      // if (!langTab) return;
-      // langTab.classList.toggle("hide", false);
-      // langTab.setAttribute("href", `/pl/${pl.plainKey}`);
-      // langTab.innerText = pl.name;
+      if (!plTab || !plTabSpan) return;
+      plTab.setAttribute("href", `/pl/${pl.plainKey}`);
+      plTabSpan.innerText = pl.name;
     });
   }
 

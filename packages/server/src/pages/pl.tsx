@@ -3,27 +3,28 @@ import type { ComponentChildren } from "preact";
 import { Anchor } from "@plangs/frontend/src/components/misc/anchor";
 import { PlInfo } from "@plangs/frontend/src/components/pl-info/pl-info";
 import { tw } from "@plangs/frontend/utils";
-import type { NPlang, PlangsGraph } from "@plangs/plangs";
+import type { NPlang } from "@plangs/plangs";
 
 import { Pill } from "@plangs/frontend/components/misc/pill";
 import { READABLE_CLASSES } from "../elements";
+import { SCROLL } from "./browse";
 import { Layout } from "./layout";
 
-export function Pl({ pg, pl }: { pg: PlangsGraph; pl: NPlang }) {
+export function Pl({ pl }: { pl: NPlang }) {
   return (
-    <Layout title={`${pl.name} details`} tab="pl">
-      <div class={tw("overflow-y-auto", "w-full", "sm:flex sm:flex-row-reverse", "gap-2")}>
-        <PlInfo pl={pg.nodes.pl.get("pl+python")} class={tw("w-full overflow-y-auto p-4 sm:w-[33%]")} />
-        <PlBody pg={pg} pl={pl} class={tw("flex-1", "p-4")} />
+    <Layout title={pl.name} tab="pl" overflow="overflow-auto">
+      <div class={tw("w-full", "sm:flex sm:flex-row-reverse", "gap-2", "overflow-auto")}>
+        <PlInfo pl={pl} class={tw(SCROLL, "mt-4 p-4 pl-8", "w-full sm:w-[33dvw]")} />
+        <PlBody pl={pl} class={tw("flex-1", "p-4", "2xl:ml-[15dvw]")} />
       </div>
     </Layout>
   );
 }
 
-export function PlBody({ pg, pl, class: cssClass }: { class: string; pl: NPlang; pg: PlangsGraph }) {
+export function PlBody({ pl, class: cssClass }: { class: string; pl: NPlang }) {
   return (
     <article class={tw(READABLE_CLASSES, cssClass)}>
-      <PlNews pg={pg} pl={pl} />
+      <PlNews pl={pl} />
       <PlApps pl={pl} />
       <PlLibs pl={pl} />
       <PlTools pl={pl} />
@@ -31,12 +32,14 @@ export function PlBody({ pg, pl, class: cssClass }: { class: string; pl: NPlang;
   );
 }
 
-function PlNews({ pg, pl: { relPosts } }: { pl: NPlang; pg: PlangsGraph }) {
+function PlNews({ pl: { relPosts } }: { pl: NPlang }) {
   const posts = relPosts.values.map(({ post }) => post);
-  return posts.isEmpty ? null : (
+  return (
     <>
       <h1>News</h1>
-      {
+      {posts.isEmpty ? (
+        <p>No news just yet!</p>
+      ) : (
         posts.map(
           post =>
             post?.link && (
@@ -46,7 +49,7 @@ function PlNews({ pg, pl: { relPosts } }: { pl: NPlang; pg: PlangsGraph }) {
               </p>
             ),
         ).existing
-      }
+      )}
     </>
   );
 }
@@ -67,11 +70,11 @@ function PlApps({ pl }: { pl: NPlang }) {
       <td>{app.description}</td>
     </tr>
   ));
-  return apps.length === 0 ? null : (
+  return (
     <>
       <h1>Applications</h1>
       <p>Example open source applications created with {pl.name}.</p>
-      <Table thead={thead} tbody={tbody} />
+      {apps.length === 0 ? <p>No applications just yet!</p> : <Table thead={thead} tbody={tbody} />}
     </>
   );
 }
@@ -92,11 +95,11 @@ function PlLibs({ pl }: { pl: NPlang }) {
       <td>{lib.description}</td>
     </tr>
   ));
-  return libs.length === 0 ? null : (
+  return (
     <>
       <h1>Libraries</h1>
       <p>Example open source libraries that can be used with {pl.name}.</p>
-      <Table thead={thead} tbody={tbody} />
+      {libs.length === 0 ? <p>No libraries just yet!</p> : <Table thead={thead} tbody={tbody} />}
     </>
   );
 }
@@ -117,12 +120,18 @@ function PlTools({ pl }: { pl: NPlang }) {
       <td>{tool.description}</td>
     </tr>
   ));
-  return tools.length === 0 ? null : (
+  return (
     <>
       <h1>Tooling</h1>
       <p>Additional tooling available for {pl.name}.</p>
-      <Table thead={thead} tbody={tbody} />
-      <PlBundles pl={pl} />
+      {tools.length === 0 ? (
+        <p>No tools just yet!</p>
+      ) : (
+        <>
+          <Table thead={thead} tbody={tbody} />
+          <PlBundles pl={pl} />
+        </>
+      )}
     </>
   );
 }

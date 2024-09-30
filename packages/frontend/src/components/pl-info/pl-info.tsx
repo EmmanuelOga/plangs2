@@ -20,7 +20,7 @@ export function PlInfo({ pl, class: cssClass, open }: PlInfoProps) {
   return (
     <div
       class={tw(
-        "h-fit p-3",
+        "h-fit",
         READABLE_CLASSES,
         "bg-linear-to-b from-background to-secondary/50",
         "shadow-lg shadow-primary/25",
@@ -30,7 +30,7 @@ export function PlInfo({ pl, class: cssClass, open }: PlInfoProps) {
       {!pl ? (
         <p>Select a language to show more information.</p>
       ) : (
-        <div>
+        <div class="readable dark:prose-invert">
           <h1>{pl.name}</h1>
           <span class="dash hidden">&#8212;</span>
           <p>{pl.description}</p>
@@ -39,7 +39,7 @@ export function PlInfo({ pl, class: cssClass, open }: PlInfoProps) {
             {relations(pl).map(([title, iterTap]) => (
               <div key={title}>
                 <h2 class="mt-4 text-xl">{title}</h2>
-                <p>{iterTap.existing.map(Pill)}</p>
+                <div>{iterTap.existing.map(Pill)}</div>
               </div>
             ))}
           </details>
@@ -49,8 +49,8 @@ export function PlInfo({ pl, class: cssClass, open }: PlInfoProps) {
   );
 }
 
-const relations = (pl: NPlang) =>
-  [
+function relations(pl: NPlang) {
+  const all = [
     ["Type Systems", pl.relTsys.values.map(({ tsys }) => tsys)],
     ["Tags", pl.relTags.values.map(({ tag }) => tag)],
     ["Platforms", pl.relPlatforms.values.map(({ plat }) => plat)],
@@ -61,6 +61,9 @@ const relations = (pl: NPlang) =>
     ["Licenses", pl.relLicenses.values.map(({ license }) => license)],
     ["Extensions", pl.extensions.map(name => ({ key: name, name, kind: "ext" }))],
   ] as const;
+
+  return all.filter(([_, iterTap]) => iterTap.isEmpty === false);
+}
 
 export const EVENTS = {
   /** Incoming event: setup the component with a PlangsGraph. */

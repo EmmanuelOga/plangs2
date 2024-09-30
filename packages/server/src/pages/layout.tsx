@@ -56,7 +56,7 @@ export function Layout({
           )}>
           <NavTab id={id("filterToggle")} class={tw("mr-auto", tab !== "browse" && "hidden")} title="Filter" />
           <NavTab href="/" title="Browse" current={tab === "browse"} />
-          <NavTab href="/pl/python" title="Python" current={tab === "pl"} />
+          <NavTab id={id("plTab")} href="/pl/python" title="Python" current={tab === "pl"} />
           <NavTab href="/blog" title="News" current={tab === "blog"} />
           <NavTab href="/about" title="About" current={tab === "about"} />
         </nav>

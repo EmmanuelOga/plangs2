@@ -5,7 +5,7 @@
 import { INPUT_PROPS } from "./pages/filters";
 
 export const FILTER_KEY = Object.keys(INPUT_PROPS) as (keyof typeof INPUT_PROPS)[];
-export const ID_KEYS = ["todo", "plInfo", "plGrid", "filterToggle", "filters", ...FILTER_KEY] as const;
+export const ID_KEYS = ["todo", "plTab", "plInfo", "plGrid", "filterToggle", "filters", ...FILTER_KEY] as const;
 export const CL_KEYS = ["todo", "plThumb"] as const;
 
 export type IDKey = (typeof ID_KEYS)[number];

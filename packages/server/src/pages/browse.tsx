@@ -3,11 +3,11 @@ import { tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 
 import { h } from "preact";
-import { READABLE_CLASSES, id } from "../elements";
+import { id } from "../elements";
 import { PlFilters } from "./filters";
 import { Layout } from "./layout";
 
-const SCROLL = tw("p-3", "overflow-y-scroll overflow-x-hidden");
+export const SCROLL = tw("overflow-y-auto overflow-x-hidden");
 
 export function Browse({ pg }: { pg: PlangsGraph }) {
   return (
@@ -22,6 +22,7 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
           id: id("plInfo"),
           class: tw(
             SCROLL,
+            "p-4",
 
             "lg:w-[33dvw]",
             "max-h-[20dvh] sm:max-h-[35dvh] lg:max-h-[unset]",
@@ -48,6 +49,7 @@ function PlGrid({ pg, class: cssClass }: { pg: PlangsGraph; class: string }) {
         "pl-bg-g",
         cssClass,
 
+        "p-4",
         "grid gap-3 sm:gap-5 ",
         "grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]",
         "sm:grid-cols-[repeat(auto-fit,minmax(8rem,1fr))]",
