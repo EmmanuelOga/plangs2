@@ -1,7 +1,7 @@
 import type { Ref } from "preact";
 import { useEffect, useReducer, useRef } from "preact/hooks";
 
-import { customEvent, on, send } from "../../utils";
+import { customEvent, elem, on, send, tw, withinContainer } from "../../utils";
 
 import { type Item, type ItemRemoved, reducer } from "./reducer";
 
@@ -21,6 +21,11 @@ export function InputSel({ name, class: cssClass }: InputSelProps) {
     selected: [],
     onAdd() {
       send(self.current?.parentElement, EVENTS.outInput.create());
+      // Ensure the last added item is visible.
+      setTimeout(() => {
+        const [li, filters] = [self.current?.querySelector("ul :last-child"), elem("filters")];
+        if (li && filters && !withinContainer(li, filters)) li.parentElement?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }, 30);
     },
     onRemove(data: ItemRemoved) {
       lastRemoved.current = data;
@@ -57,27 +62,28 @@ export function InputSel({ name, class: cssClass }: InputSelProps) {
   });
 
   return (
-    <div ref={self as Ref<HTMLDivElement>} class={cssClass}>
+    <div ref={self as Ref<HTMLDivElement>} class={tw(cssClass)}>
       {state.selected.length > 1 && (
-        <select title="Match all or any of the elements">
+        <select title="Match all or any of the elements" class="mb-2">
           <option value="any">Any of</option>
           <option value="all">All of</option>
         </select>
       )}
-      {state.selected.map(({ value, label }) => (
-        <div
-          key={value}
-          class="item"
-          tabindex={0}
-          data-value={value}
-          onClick={() => dispatch({ kind: "remove", value, by: "click" })}
-          onKeyDown={ev => {
-            if (ev.key === "Enter") dispatch({ kind: "remove", value, by: "enterKey" });
-          }}>
-          <span aria-label="remove">❌</span>
-          {label}
-        </div>
-      ))}
+      <ul tabindex={0}>
+        {state.selected.map(({ value, label }) => (
+          <li
+            key={value}
+            data-value={value}
+            class="p-2"
+            aria-label="remove"
+            onClick={() => dispatch({ kind: "remove", value, by: "click" })}
+            onKeyDown={ev => {
+              if (ev.key === "Enter") dispatch({ kind: "remove", value, by: "enterKey" });
+            }}>
+            ❌ {label}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

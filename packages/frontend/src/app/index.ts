@@ -9,6 +9,7 @@ import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
 
 import { $, $$, elem, elems, on, size } from "../utils";
 
+import { id } from "@plangs/server/elements";
 import { getFilters } from "./filters";
 import { connectLivereload } from "./livereload";
 
@@ -52,13 +53,6 @@ function startBrowseNav(pg: PlangsGraph) {
   updatePlangs();
 
   const debouncedUpdatePlangs = debounce(updatePlangs, 30);
-
-  // Release data.
-
-  on(elem("hasReleases"), "input", ({ target }: InputEvent) => {
-    const checked = (target as HTMLInputElement).checked;
-    elem("releasedAfter")?.closest("label")?.classList.toggle("hide", !checked);
-  });
 
   // Completions.
 
@@ -106,7 +100,7 @@ function startBrowseNav(pg: PlangsGraph) {
   // On input change, re-filter the list of languages.
 
   on(elem("filters"), "input", ({ target }: InputEvent) => {
-    if ((target as HTMLInputElement)?.matches("input[name=plang-ext]")) return;
+    if ((target as HTMLInputElement)?.matches(`#${id("extensions")}`)) return;
     debouncedUpdatePlangs();
   });
 
@@ -118,33 +112,32 @@ function startBrowseNav(pg: PlangsGraph) {
     return pg.nodes.pl.get(keyHolder.dataset.key as NPlang["key"]);
   }
 
-  const plInfo = elem("todo") as PlInfoElement;
-  const langTab = document.querySelector("#top-nav .lang") as HTMLDivElement;
+  const plInfo = elem("plInfo") as PlInfoElement;
   if (plInfo) {
-    on(elem("todo"), "click", ({ target }: MouseEvent) => {
+    on(elem("plGrid"), "click", ({ target }: MouseEvent) => {
       const pl = getPl(target);
       if (!pl) return;
       plInfo.pl = pl;
-      if (!langTab) return;
-      langTab.classList.toggle("hide", false);
-      langTab.setAttribute("href", `/pl/${pl.plainKey}`);
-      langTab.innerText = pl.name;
+      // if (!langTab) return;
+      // langTab.classList.toggle("hide", false);
+      // langTab.setAttribute("href", `/pl/${pl.plainKey}`);
+      // langTab.innerText = pl.name;
     });
   }
 
   // On double-click, open the language page.
 
-  on(elem("todo"), "dblclick", ({ target }: MouseEvent) => {
+  on(elem("plGrid"), "dblclick", ({ target }: MouseEvent) => {
     const pl = getPl(target);
     if (pl) window.location.href = `/pl/${pl.plainKey}`;
   });
 
   // On click on a pl-pill in the infobox, update the infobox.
 
-  on(elem("todo"), "click", ({ target }: MouseEvent) => {
-    const pl = getPl(target);
-    if (pl) plInfo.pl = pl;
-  });
+  // on(elem("todo"), "click", ({ target }: MouseEvent) => {
+  //   const pl = getPl(target);
+  //   if (pl) plInfo.pl = pl;
+  // });
 }
 
 // Do not use top level await.
@@ -157,7 +150,8 @@ function startBrowseNav(pg: PlangsGraph) {
   // Load the data and send it to the pl-info component.
   const data = await (await fetch("/plangs.json")).json();
   const pg = new PlangsGraph().loadJSON(data);
-  $<PlInfoElement>("pl-info")?.setDataSource(pg);
+
+  elem<PlInfoElement>("plInfo")?.setDataSource(pg);
 
   // Handle the togle of the filters.
   const [toggle, filters] = [elem("filterToggle"), elem("filters")];

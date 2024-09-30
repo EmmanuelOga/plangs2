@@ -10,38 +10,26 @@ import { Pill } from "../misc/pill";
 export const TAG_NAME = "pl-info";
 
 export type PlInfoProps = {
-  pg?: PlangsGraph;
   pl?: NPlang;
-  class?: string;
   open?: boolean;
+  class?: string;
 };
 
 /** Display a PL information, if the key is known. */
-export function PlInfo({ pg, pl, open, class: cssClass }: PlInfoProps) {
-  const self = useRef<HTMLDivElement>();
-
-  useEffect(() => {
-    const root = self.current?.parentElement as HTMLElement;
-    if (!root) return;
-  });
-
+export function PlInfo({ pl, class: cssClass, open }: PlInfoProps) {
   return (
     <div
       class={tw(
-        "h-fit",
         READABLE_CLASSES,
         "bg-linear-to-b from-background to-primary/20",
         "shadow-lg shadow-primary/25",
         "border-b-1 border-b-primary border-dotted",
         cssClass,
-      )}
-      ref={self as Ref<HTMLDivElement>}>
+      )}>
       {!pl ? (
         <p>Select a language to show more information.</p>
-      ) : !pg ? (
-        <p>Loading graph...</p>
       ) : (
-        <>
+        <div>
           <h1>{pl.name}</h1>
           <span class="dash hidden">&#8212;</span>
           <p>{pl.description}</p>
@@ -54,7 +42,7 @@ export function PlInfo({ pg, pl, open, class: cssClass }: PlInfoProps) {
               </div>
             ))}
           </details>
-        </>
+        </div>
       )}
     </div>
   );
@@ -80,18 +68,3 @@ export const EVENTS = {
     create: (pg: PlangsGraph) => customEvent(EVENTS.inSetData.type, pg),
   },
 };
-
-// Sticking to top or bottom based on the content height.
-// const div = root.parentElement;
-// if (div) {
-//   const height = div.offsetHeight;
-//   const viewportHeight = window.innerHeight;
-//   if (height > viewportHeight) {
-//     div.classList.remove("stick-to-top");
-//     div.classList.add("stick-to-bottom");
-//   } else {
-//     div.classList.add("stick-to-top");
-//     div.classList.remove("stick-to-bottom");
-//   }
-// }
-// return on(root, EVENTS.inSetData.type, ({ detail: pg }: CustomEvent) => setPg(pg as PlangsGraph));

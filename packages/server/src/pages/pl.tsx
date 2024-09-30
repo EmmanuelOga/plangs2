@@ -13,7 +13,7 @@ export function Pl({ pg, pl }: { pg: PlangsGraph; pl: NPlang }) {
   return (
     <Layout title={`${pl.name} details`} tab="pl">
       <div class={tw("overflow-y-auto", "w-full", "sm:flex sm:flex-row-reverse", "gap-2")}>
-        <PlInfo pg={pg} pl={pg.nodes.pl.get("pl+python")} class={tw("w-[33%] overflow-y-auto p-4")} />
+        <PlInfo pl={pg.nodes.pl.get("pl+python")} class={tw("w-full overflow-y-auto p-4 sm:w-[33%]")} />
         <PlBody pg={pg} pl={pl} class={tw("flex-1", "p-4", "sm:overflow-y-auto")} />
       </div>
     </Layout>

@@ -11,8 +11,8 @@ const win = (typeof window === "undefined" ? undefined : window) as Window;
 export const $ = doc?.querySelector.bind(document);
 export const $$ = doc?.querySelectorAll.bind(document);
 
-export const elem = (key: IDKey) => $<HTMLElement>(`#${id(key)}`) ?? undefined;
-export const elems = (key: CLKey) => $$<HTMLElement>(`.${cl(key)}`);
+export const elem = <T extends Element>(key: IDKey) => $<T>(`#${id(key)}`) ?? undefined;
+export const elems = <T extends Element>(key: CLKey) => $$<T>(`.${cl(key)}`);
 
 /** Adds an event listener to the target, and returns a function to undo the listener. */
 export function on<T>(target: Element | Nil, type: string, listener: (ev: T) => void, opt?: AddEventListenerOptions): () => void {
@@ -38,6 +38,11 @@ export function customEvent<T>(type: string, detail: T, options: CustomEventInit
 export function size(el: HTMLElement): [number, number] {
   const style = getComputedStyle(el);
   return [Number.parseInt(style.width), Number.parseInt(style.height)];
+}
+
+export function withinContainer(el: Element, container: Element): boolean {
+  const [rect, parent] = [el.getBoundingClientRect(), container.getBoundingClientRect()];
+  return rect.top >= parent.top && rect.bottom <= parent.bottom && rect.left >= parent.left && rect.right <= parent.right;
 }
 
 /** Collect tailwind classes. Passing a number adds an outline and bg color. */

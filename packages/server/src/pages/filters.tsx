@@ -1,4 +1,4 @@
-import { style, tw } from "@plangs/frontend/utils";
+import { script, style, tw } from "@plangs/frontend/utils";
 import type { N } from "@plangs/plangs/index";
 import { type ComponentChildren, h } from "preact";
 import { id } from "../elements";
@@ -31,23 +31,23 @@ export function PlFilters({ class: cssClass }: { class: string }) {
 function InputGroup({ title, children }: { title: string; children: ComponentChildren }) {
   return (
     <details
-      // open={true}
+      open={true}
       class={tw(
+        "group",
         "cursor-pointer select-none",
 
         "shadow-md shadow-secondary hover:shadow-primary/50",
         "bg-white/95 text-slate-950",
-      )}
-    >
+      )}>
       <summary
         class={tw(
           "px-1.5 py-1",
           "overflow-hidden text-ellipsis whitespace-nowrap",
           "text-xs sm:text-lg",
 
-          "bg-secondary hover:bg-primary",
-          "text-foreground/90 hover:text-background",
-          "border-1 border-foreground/50 hover:border-bacground/50",
+          "bg-secondary group-hover:bg-primary",
+          "text-foreground/90 group-hover:text-background",
+          "border-1 border-foreground/50 group-hover:border-bacground/50",
         )}>
         {title}
       </summary>
@@ -73,17 +73,13 @@ function Input({ inputKey: key }: { inputKey: keyof typeof INPUT_PROPS }) {
 
   const showSel = input.kind === "compl" || (input.kind === "search" && "inputSel" in input && input.inputSel);
   return (
-    <div class={tw("[&_select]:text-center")}>
+    <>
       <label for={inputProps.id} class={tw("block", "p-0")}>
         {input.kind === "checkbox" ? inputElem : <div>{label}</div>}
         {input.kind === "checkbox" ? label : inputElem}
       </label>
-      {showSel &&
-        h("input-sel", {
-          name: key,
-          class: tw("w-full text-center", inputTextColor, "[&_.item]:text-left"),
-        })}
-    </div>
+      {showSel && h("input-sel", { name: key, class: tw("w-full", inputTextColor) })}
+    </>
   );
 }
 

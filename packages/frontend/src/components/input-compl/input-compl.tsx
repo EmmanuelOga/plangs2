@@ -1,8 +1,9 @@
 import type { Ref } from "preact";
 import { useEffect, useReducer, useRef } from "preact/hooks";
 
-import { customEvent, send } from "../../utils";
+import { $, customEvent, on, send, tw } from "../../utils";
 
+import { elem, id } from "@plangs/server/elements";
 import { type CompletionItem, type ItemSelected, reducer } from "./reducer";
 
 /** HTML tag name for the CustomElement */
@@ -17,7 +18,7 @@ export type InputComplProps = {
 export function InputCompl({ name, class: cssClass, completions }: InputComplProps) {
   const inputRef = useRef<HTMLInputElement>();
   const popupRef = useRef<HTMLDivElement>();
-  const selRef = useRef<HTMLDivElement>();
+  const selectionRef = useRef<HTMLDivElement>();
 
   const [state, dispatch] = useReducer(reducer, {
     candidates: [],
@@ -38,11 +39,17 @@ export function InputCompl({ name, class: cssClass, completions }: InputComplPro
     if (inputRef.current) inputRef.current.value = state.query;
   }, [state.query]);
 
+  const adjustSelScroll = () => selectionRef.current?.scrollIntoView({ block: "nearest" });
+
   useEffect(() => {
-    if (popupRef.current && inputRef.current) {
-      popupRef.current.style.width = `${inputRef.current.offsetWidth}px`;
-    }
-    selRef.current?.scrollIntoView({ block: "nearest" });
+    adjustSelScroll();
+
+    // Adjust the popup position in relation to the filters container.
+    const container = elem("filters");
+    return on(container, "scroll", ev => {
+      if (!popupRef.current || !inputRef.current || !container) return;
+      popupRef.current.style.top = `${inputRef.current.getBoundingClientRect().bottom}px`;
+    });
   });
 
   const showPopup = state.candidates.length > 0 && state.showPopup;
@@ -50,8 +57,9 @@ export function InputCompl({ name, class: cssClass, completions }: InputComplPro
   return (
     <>
       <input
+        ref={inputRef as Ref<HTMLInputElement>}
+        class={tw(showPopup && "focused", "relative block", state.cssClass)}
         autocomplete="off"
-        class={`${showPopup ? "focused" : ""} relative block ${state.cssClass ?? ""}`}
         name={name}
         onBlur={({ relatedTarget }) => {
           if (relatedTarget === popupRef.current) return;
@@ -61,27 +69,33 @@ export function InputCompl({ name, class: cssClass, completions }: InputComplPro
         onInput={() => dispatch({ kind: "updateQuery", query: inputRef.current?.value ?? "" })}
         onKeyDown={({ key }) => dispatch({ kind: "keypress", from: "input", key })}
         placeholder="Search"
-        ref={inputRef as Ref<HTMLInputElement>}
         tabIndex={0}
         type="search"
       />
       <div
-        class={`popup ${showPopup ? "" : "hidden"} mt-1 max-h-80 max-w-[15rem] overflow-y-auto overflow-x-hidden border border-solid bg-[white] p-1 text-[#333]`}
+        ref={popupRef as Ref<HTMLDivElement>}
+        class={tw(
+          "absolute z-20",
+          "mt-1 max-h-80 max-w-[15rem] p-1",
+          showPopup || "hidden",
+          "overflow-y-auto overflow-x-hidden",
+          "border-1 border-solid",
+          "bg-[white] text-[#333]",
+        )}
         onBlur={({ relatedTarget }) => {
           if (relatedTarget === inputRef.current) return;
           dispatch({ kind: "popup", show: false });
         }}
         onKeyDown={({ key }) => dispatch({ kind: "keypress", from: "list", key })}
-        ref={popupRef as Ref<HTMLDivElement>}
         tabindex={0}>
         {state.candidates.map((complIdx, idx) => (
           <div
-            class={`item ${idx === state.selected ? "selected" : ""} min-w-[8rem]`}
+            ref={(idx === state.selected ? selectionRef : undefined) as Ref<HTMLDivElement>}
+            class={tw("min-w-[8rem]", idx === state.selected && "bg-primary", "cursor-pointer")}
             key={state.completions[complIdx].value}
             onClick={() => dispatch({ kind: "selectIndex", index: idx })}
             onDblClick={() => dispatch({ kind: "keypress", from: "item", key: "Enter" })}
-            onKeyDown={({ key }) => dispatch({ kind: "keypress", from: "item", key })}
-            ref={(idx === state.selected ? selRef : undefined) as Ref<HTMLDivElement>}>
+            onKeyDown={({ key }) => dispatch({ kind: "keypress", from: "item", key })}>
             {state.completions[complIdx].label}
           </div>
         ))}
