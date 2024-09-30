@@ -1,4 +1,4 @@
-import { debounce } from "lodash-es";
+import { debounce, set } from "lodash-es";
 import "preact/debug";
 
 import { type N, type NPlang, PlangsGraph } from "@plangs/plangs";
@@ -9,7 +9,7 @@ import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
 
 import { $, $$, elem, elems, on, size } from "../utils";
 
-import { id } from "@plangs/server/elements";
+import { cl, id } from "@plangs/server/elements";
 import { getFilters } from "./filters";
 import { connectLivereload } from "./livereload";
 
@@ -31,8 +31,34 @@ function adjusutGrid(plGrid: HTMLElement, widthThumb: number, visibleThumbs: num
 function startBrowseNav(pg: PlangsGraph) {
   console.info("Starting PL browser.");
 
-  const plGrid = elem("plGrid");
-  const thumbs = elems("plThumb");
+  // Handle the togle of the filters.
+  const [toggle, filters] = [elem("filterToggle"), elem("filters")];
+  if (toggle && filters) {
+    const updateToggle = () => {
+      const hidden = filters.classList.contains("hidden");
+      toggle.classList.toggle("bg-background/75", !hidden);
+    };
+    on(toggle, "click", () => {
+      filters.classList.toggle("hidden");
+      updateToggle();
+    });
+    updateToggle();
+  }
+
+  // Scroll into view when a summary is clicked.
+  // TODO: use delegation.
+  for (const sum of $$("summary")) {
+    on<MouseEvent>(sum, "click", ({ target }) => {
+      const details = (target as HTMLElement)?.closest("details");
+      const aboutToOpen = details?.open === false;
+      if (aboutToOpen) {
+        details.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  }
+
+  const plGrid = elem<HTMLDivElement>("plGrid");
+  const thumbs = elems<HTMLDivElement>("plThumb");
 
   function updatePlangs() {
     if (thumbs.length === 0 || plGrid === undefined) return;
@@ -112,33 +138,46 @@ function startBrowseNav(pg: PlangsGraph) {
     return pg.nodes.pl.get(keyHolder.dataset.key as NPlang["key"]);
   }
 
-  const plInfo = elem("plInfo") as PlInfoElement;
   const plTab = elem("plTab") as HTMLAnchorElement;
   const plTabSpan = plTab.querySelector("span");
+  const setTab = (pl: NPlang) => {
+    if (!plTab || !plTabSpan) return;
+    plTab.setAttribute("href", `/pl/${pl.plainKey}`);
+    plTabSpan.innerText = pl.name;
+  };
+
+  const plInfo = elem<PlInfoElement>("plInfo");
   if (plInfo) {
     on(elem("plGrid"), "click", ({ target }: MouseEvent) => {
       const pl = getPl(target);
       if (!pl) return;
       plInfo.pl = pl;
-      if (!plTab || !plTabSpan) return;
-      plTab.setAttribute("href", `/pl/${pl.plainKey}`);
-      plTabSpan.innerText = pl.name;
+      setTab(pl);
     });
   }
 
-  // On double-click, open the language page.
+  const currentTab = () => $<HTMLAnchorElement>(`.${cl("navLink")}[data-current]`)?.dataset?.tab;
 
+  // On click on a pl-pill in the infobox, update the infobox.
+  on(plInfo, "click", ({ target }: MouseEvent) => {
+    const pl = getPl(target);
+    console.log(pl);
+    if (!pl) return;
+
+    const tab = currentTab();
+    if (tab === "browse" && plInfo) {
+      plInfo.pl = pl;
+      setTab(pl);
+    } else {
+      window.location.href = `/pl/${pl.plainKey}`;
+    }
+  });
+
+  // On double-click, open the language page.
   on(elem("plGrid"), "dblclick", ({ target }: MouseEvent) => {
     const pl = getPl(target);
     if (pl) window.location.href = `/pl/${pl.plainKey}`;
   });
-
-  // On click on a pl-pill in the infobox, update the infobox.
-
-  // on(elem("todo"), "click", ({ target }: MouseEvent) => {
-  //   const pl = getPl(target);
-  //   if (pl) plInfo.pl = pl;
-  // });
 }
 
 // Do not use top level await.
@@ -152,32 +191,7 @@ function startBrowseNav(pg: PlangsGraph) {
   const data = await (await fetch("/plangs.json")).json();
   const pg = new PlangsGraph().loadJSON(data);
 
-  // Handle the togle of the filters.
-  const [toggle, filters] = [elem("filterToggle"), elem("filters")];
-  if (toggle && filters) {
-    const updateToggle = () => {
-      const hidden = filters.classList.contains("hidden");
-      toggle.classList.toggle("bg-background/75", !hidden);
-    };
-    on(toggle, "click", () => {
-      filters.classList.toggle("hidden");
-      updateToggle();
-    });
-    updateToggle();
-  }
-  if (elem("plangName")) startBrowseNav(pg);
-
-  // Scroll into view when a summary is clicked.
-  // TODO: use delegation.
-  for (const sum of $$("summary")) {
-    on<MouseEvent>(sum, "click", ({ target }) => {
-      const details = (target as HTMLElement)?.closest("details");
-      const aboutToOpen = details?.open === false;
-      if (aboutToOpen) {
-        details.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
-  }
+  startBrowseNav(pg);
 
   connectLivereload();
 })();

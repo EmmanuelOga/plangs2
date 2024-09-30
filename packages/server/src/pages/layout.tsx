@@ -2,20 +2,23 @@ import type { ComponentChildren } from "preact";
 
 import { tw } from "@plangs/frontend/utils";
 
-import { id } from "../elements";
+import type { NPlang } from "@plangs/plangs/index";
+import { cl, id } from "../elements";
 
 type TAB = "browse" | "blog" | "about" | "pl";
 
 export function Layout({
-  title,
   children,
-  tab,
   overflow = "overflow-hidden",
+  pl,
+  tab,
+  title,
 }: {
-  title: string;
-  tab: TAB;
   children: ComponentChildren;
   overflow?: "overflow-hidden" | "overflow-y-auto" | "overflow-auto";
+  pl?: NPlang;
+  tab: TAB;
+  title: string;
 }) {
   return (
     <html lang="en" class="dark">
@@ -54,11 +57,11 @@ export function Layout({
             "border-background border-b-2",
             // "shadow-background/75 shadow-md",
           )}>
-          <NavTab id={id("filterToggle")} class={tw("mr-auto", tab !== "browse" && "hidden")} title="Filter" />
-          <NavTab href="/" title="Browse" current={tab === "browse"} />
-          <NavTab id={id("plTab")} href="/pl/python" title="Python" current={tab === "pl"} />
-          <NavTab href="/blog" title="News" current={tab === "blog"} />
-          <NavTab href="/about" title="About" current={tab === "about"} />
+          <NavTab tab="filter" id={id("filterToggle")} class={tw("mr-auto", tab !== "browse" && "hidden")} title="Filter" />
+          <NavTab tab="browse" href="/" title="Browse" current={tab === "browse"} />
+          <NavTab tab="pl" id={id("plTab")} href={`/pl/${pl?.plainKey ?? "python"}`} title={pl?.name ?? "Python"} current={tab === "pl"} />
+          <NavTab tab="blog" href="/blog" title="News" current={tab === "blog"} />
+          <NavTab tab="about" href="/about" title="About" current={tab === "about"} />
         </nav>
 
         <main class={tw("flex-1", "flex flex-col", "items-center", overflow)}>{children}</main>
@@ -68,13 +71,23 @@ export function Layout({
   );
 }
 
-function NavTab({ id, class: cssClass, href, title, current }: { id?: string; class?: string; href?: string; title: string; current?: boolean }) {
+function NavTab({
+  id,
+  class: cssClass,
+  href,
+  title,
+  current,
+  tab,
+}: { id?: string; class?: string; href?: string; title: string; current?: boolean; tab: string }) {
   const isIcon = !href;
   return (
     <a
       id={id}
+      data-tab={tab}
+      data-current={current ? "1" : undefined}
       href={isIcon ? "#" : href}
       class={tw(
+        cl("navLink"),
         "user-select-none cursor-pointer",
         "px-2 pt-1 sm:px-4",
         "text-center",

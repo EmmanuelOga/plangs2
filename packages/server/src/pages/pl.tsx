@@ -12,7 +12,7 @@ import { Layout } from "./layout";
 
 export function Pl({ pl }: { pl: NPlang }) {
   return (
-    <Layout title={pl.name} tab="pl" overflow="overflow-auto">
+    <Layout title={pl.name} tab="pl" overflow="overflow-auto" pl={pl}>
       <div class={tw("h-full w-full flex-1", "flex flex-col-reverse lg:flex-row", "overflow-auto")}>
         <div class={tw("flex-1", "flex flex-col", "gap-2", "overflow-auto")}>
           <PlBody pl={pl} class={tw("flex-1", "p-4", "2xl:ml-[15dvw]")} />

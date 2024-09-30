@@ -32,7 +32,8 @@ const ELEMENT_API = {
 };
 
 /** Convention: both <input-sel/> and it's source input element should have matching "name" attribute. */
-export function matchingInputSelByName(elem: HTMLElement): InputSelElement | null {
+export function matchingInputSelByName(elem?: HTMLElement): InputSelElement | null {
+  if (!elem) return null;
   const name = elem.getAttribute("name");
   const inputSel = $<InputSelElement>(`input-sel[name=${name}]`);
   if (!name || !inputSel) {
