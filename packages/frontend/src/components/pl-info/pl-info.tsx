@@ -13,12 +13,14 @@ export type PlInfoProps = {
   pl?: NPlang;
   open?: boolean;
   class?: string;
+  id?: string;
 };
 
 /** Display a PL information, if the key is known. */
-export function PlInfo({ pl, class: cssClass, open }: PlInfoProps) {
+export function PlInfo({ pl, id, class: cssClass, open }: PlInfoProps) {
   return (
     <div
+      id={id ?? ""}
       class={tw(
         "h-fit",
         READABLE_CLASSES,

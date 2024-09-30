@@ -6,16 +6,35 @@ import { tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs";
 
 import { Pill } from "@plangs/frontend/components/misc/pill";
-import { READABLE_CLASSES } from "../elements";
+import { READABLE_CLASSES, id } from "../elements";
 import { SCROLL } from "./browse";
 import { Layout } from "./layout";
 
 export function Pl({ pl }: { pl: NPlang }) {
   return (
     <Layout title={pl.name} tab="pl" overflow="overflow-auto">
-      <div class={tw("w-full", "sm:flex sm:flex-row-reverse", "gap-2", "overflow-auto")}>
-        <PlInfo pl={pl} class={tw(SCROLL, "mt-4 p-4 pl-8", "w-full sm:w-[33dvw]")} />
-        <PlBody pl={pl} class={tw("flex-1", "p-4", "2xl:ml-[15dvw]")} />
+      <div class={tw("h-full w-full flex-1", "flex flex-col-reverse lg:flex-row", "overflow-auto")}>
+        <div class={tw("flex-1", "flex flex-col", "gap-2", "overflow-auto")}>
+          <PlBody pl={pl} class={tw("flex-1", "p-4", "2xl:ml-[15dvw]")} />
+        </div>
+
+        <PlInfo
+          id={id("plInfo")}
+          pl={pl}
+          class={tw(
+            SCROLL,
+            "p-8 pb-4",
+
+            "lg:w-[33dvw]",
+            "max-h-[20dvh] sm:max-h-[35dvh] lg:max-h-[unset]",
+
+            "[&>h1]:text-lg sm:[&>h1]:text-4xl",
+            "[&>h1]:inline sm:[&>h1]:block",
+            "[&>.dash]:inline sm:[&>.dash]:hidden",
+            "[&>p]:inline sm:[&>p]:block",
+            "[&>details]:hidden sm:[&>details]:block",
+          )}
+        />
       </div>
     </Layout>
   );

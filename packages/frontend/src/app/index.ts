@@ -152,8 +152,6 @@ function startBrowseNav(pg: PlangsGraph) {
   const data = await (await fetch("/plangs.json")).json();
   const pg = new PlangsGraph().loadJSON(data);
 
-  elem<PlInfoElement>("plInfo")?.setDataSource(pg);
-
   // Handle the togle of the filters.
   const [toggle, filters] = [elem("filterToggle"), elem("filters")];
   if (toggle && filters) {
