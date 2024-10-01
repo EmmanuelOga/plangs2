@@ -1,31 +1,47 @@
 import "preact/debug";
 
 import { PlangsGraph } from "@plangs/plangs";
+import pgData from "@plangs/server/plangs.json";
 
 import { registerInputCompl } from "../components/input-compl";
 import { registerInputSel } from "../components/input-sel";
-import { registerPlangInfo } from "../components/pl-info";
+import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
 
+import { elem, on } from "../utils";
 import { startBrowseNav } from "./browse";
+import { lastPlang } from "./last-plang";
 import { connectLivereload } from "./livereload";
-import { restorePlTab } from "./tabs";
+import { hookPlInfo } from "./pg-info";
+import { setPlTab } from "./tabs";
 
-// We need this ASAP to avoid FOUC.
-registerPlangInfo();
+// Declare some globals that are called as the page is being loaded to avoid flashing the wrong content.
+declare global {
+  interface Window {
+    restorePlTab: () => void;
+    restorePlInfo: () => void;
+  }
+}
 
-// @ts-ignore for now.
-window.restorePlTab = restorePlTab;
-
-// Do not use top level await.
-(async () => {
+function start() {
+  registerPlangInfo();
   registerInputCompl();
   registerInputSel();
 
-  // Load the data and send it to the pl-info component.
-  const data = await (await fetch("/plangs.json")).json();
-  const pg = new PlangsGraph().loadJSON(data);
+  const pg = new PlangsGraph().loadJSON(pgData);
 
-  // Do this "a bit later" to hopefully allow for faster first paint.
-  setTimeout(() => startBrowseNav(pg));
-  setTimeout(() => connectLivereload());
-})();
+  window.restorePlTab = () => setPlTab(lastPlang(pg));
+  window.restorePlInfo = () => {
+    const plInfo = elem<PlInfoElement>("plInfo");
+    if (plInfo) plInfo.pl = lastPlang(pg);
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    startBrowseNav(pg);
+    hookPlInfo(pg);
+
+    // Debugging.
+    connectLivereload();
+  });
+}
+
+start();

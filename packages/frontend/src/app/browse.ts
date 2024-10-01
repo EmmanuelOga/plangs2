@@ -2,36 +2,51 @@ import { debounce } from "lodash-es";
 import "preact/debug";
 
 import type { N, NPlang, PlangsGraph } from "@plangs/plangs";
+import { id } from "@plangs/server/elements";
 
 import type { CompletionItem, InputComplElement } from "../components/input-compl";
 import { matchingInputSelByName } from "../components/input-sel";
 import type { PlInfoElement } from "../components/pl-info";
-
-import { $, $$, elem, elems, on } from "../utils";
-
-import { cl, id } from "@plangs/server/elements";
+import { $$, elem, elems, on } from "../utils";
 import { getFilters } from "./filters";
+import { getPl } from "./pl";
 import { setPlTab } from "./tabs";
 
 export function startBrowseNav(pg: PlangsGraph) {
   console.info("Starting PL browser.");
 
-  // Handle the togle of the filters.
-  const [toggle, filters] = [elem("filterToggle"), elem("filters")];
-  if (toggle && filters) {
-    const updateToggle = () => {
-      const hidden = filters.classList.contains("hidden");
-      toggle.classList.toggle("bg-background/75", !hidden);
-    };
-    on(toggle, "click", () => {
-      filters.classList.toggle("hidden");
-      updateToggle();
-    });
-    updateToggle();
+  const extensions = elem<HTMLInputElement>("extensions");
+  const extensionsSel = matchingInputSelByName(extensions);
+  const filters = elem("filters");
+  const plGrid = elem<HTMLDivElement>("plGrid");
+  const plInfo = elem<PlInfoElement>("plInfo");
+  const toggle = elem("filterToggle");
+
+  const thumbs = elems<HTMLDivElement>("plThumb");
+
+  if (!extensions || !extensionsSel || !filters || !plGrid || !plInfo || !toggle || thumbs.length === 0) {
+    console.log({ extensions, extensionsSel, filters, plGrid, plInfo, toggle, thumbs });
+    console.warn("Skipping PL browser, missing elements.");
+    return;
   }
 
+  //////////////////////////////////////////////////////////////////////////////////
+  // Toggle the filters.
+
+  on(toggle, "click", () => {
+    filters.classList.toggle("hidden");
+    updateToggle();
+  });
+  const updateToggle = () => {
+    const hidden = filters.classList.contains("hidden");
+    toggle.classList.toggle("bg-background/75", !hidden);
+  };
+  updateToggle();
+
+  //////////////////////////////////////////////////////////////////////////////////
   // Scroll into view when a summary is clicked.
   // TODO: use delegation.
+
   for (const sum of $$("summary")) {
     on<MouseEvent>(sum, "click", ({ target }) => {
       const details = (target as HTMLElement)?.closest("details");
@@ -42,8 +57,8 @@ export function startBrowseNav(pg: PlangsGraph) {
     });
   }
 
-  const plGrid = elem<HTMLDivElement>("plGrid");
-  const thumbs = elems<HTMLDivElement>("plThumb");
+  //////////////////////////////////////////////////////////////////////////////////
+  // Filter the list of languages.
 
   function updatePlangs() {
     if (thumbs.length === 0 || plGrid === undefined) return;
@@ -56,12 +71,12 @@ export function startBrowseNav(pg: PlangsGraph) {
       div.classList.toggle("hidden", !visible);
     }
   }
-
   updatePlangs();
 
   const debouncedUpdatePlangs = debounce(updatePlangs, 30);
 
-  // Completions.
+  //////////////////////////////////////////////////////////////////////////////////
+  // Setup completions.
 
   function completions(nodeKind: N): CompletionItem[] {
     const data: CompletionItem[] = [];
@@ -84,70 +99,44 @@ export function startBrowseNav(pg: PlangsGraph) {
     });
   }
 
-  // File Extension
+  //////////////////////////////////////////////////////////////////////////////////
+  // Handle the file extension selection.
 
-  const extensions = elem("extensions") as HTMLInputElement;
-  const extensionsSel = matchingInputSelByName(extensions);
+  on(extensions, "keypress", ({ key }: KeyboardEvent) => {
+    if (key !== "Enter") return;
+    const value = extensions.value.trim();
+    if (value === "") return;
+    const name = (value[0] === "." ? value : `.${value}`).toLowerCase();
+    extensionsSel.addItem({ value: name, label: name });
+    extensions.value = "";
+  });
+  extensionsSel.onRemove(({ by, itemsLeft }) => {
+    if (by !== "enterKey" || itemsLeft !== 0) return;
+    extensions.focus();
+  });
 
-  if (extensions && extensionsSel) {
-    on(extensions, "keypress", ({ key }: KeyboardEvent) => {
-      if (key !== "Enter") return;
-      const value = extensions.value.trim();
-      if (value === "") return;
-      const name = (value[0] === "." ? value : `.${value}`).toLowerCase();
-      extensionsSel.addItem({ value: name, label: name });
-      extensions.value = "";
-    });
-    extensionsSel.onRemove(({ by, itemsLeft }) => {
-      if (by !== "enterKey" || itemsLeft !== 0) return;
-      extensions.focus();
-    });
-  }
-
+  //////////////////////////////////////////////////////////////////////////////////
   // On input change, re-filter the list of languages.
 
-  on(elem("filters"), "input", ({ target }: InputEvent) => {
+  on(filters, "input", ({ target }: InputEvent) => {
     if ((target as HTMLInputElement)?.matches(`#${id("extensions")}`)) return;
     debouncedUpdatePlangs();
   });
 
-  // On lang click, display more information.
-
-  function getPl(target: EventTarget | null): NPlang | undefined {
-    const keyHolder = (target as Element).closest("[data-key]") as HTMLElement;
-    if (!keyHolder || !keyHolder.dataset.key) return;
-    return pg.nodes.pl.get(keyHolder.dataset.key as NPlang["key"]);
-  }
-
-  const plInfo = elem<PlInfoElement>("plInfo");
-  if (plInfo) {
-    on(elem("plGrid"), "click", ({ target }: MouseEvent) => {
-      const pl = getPl(target);
-      if (!pl) return;
-      plInfo.pl = pl;
-      setPlTab(pl);
-    });
-  }
-
-  const currentTab = () => $<HTMLAnchorElement>(`.${cl("navLink")}[data-current]`)?.dataset?.tab;
-
-  // On click on a pl-pill in the infobox, update the infobox.
-  on(plInfo, "click", ({ target }: MouseEvent) => {
-    const pl = getPl(target);
-    if (!pl) return;
-
-    const tab = currentTab();
-    if (tab === "browse" && plInfo) {
-      plInfo.pl = pl;
-      setPlTab(pl);
-    } else {
-      window.location.href = `/${pl.plainKey}`;
-    }
+  //////////////////////////////////////////////////////////////////////////////////
+  // On double-click, open the language page.
+  on(plGrid, "dblclick", ({ target }: MouseEvent) => {
+    const pl = getPl(pg, target);
+    if (pl) window.location.href = `/${pl.plainKey}`;
   });
 
-  // On double-click, open the language page.
-  on(elem("plGrid"), "dblclick", ({ target }: MouseEvent) => {
-    const pl = getPl(target);
-    if (pl) window.location.href = `/${pl.plainKey}`;
+  //////////////////////////////////////////////////////////////////////////////////
+  // On thumb click, display more information.
+
+  on(plGrid, "click", ({ target }: MouseEvent) => {
+    const pl = getPl(pg, target);
+    if (!pl) return;
+    plInfo.pl = pl;
+    setPlTab(pl);
   });
 }

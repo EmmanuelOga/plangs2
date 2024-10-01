@@ -13,8 +13,17 @@ export function vdomToHTML(component: JSX.Element): string {
 }
 
 /** Static response, including headers to stop the browser from caching the result. */
-export function staticResponse(content: BunFile | string, contentType: ContentType): Response {
-  return new Response(content, { headers: { ...STATIC_HEADERS, "Content-Type": contentType } });
+export async function staticResponse(req: Request, content: BunFile | string, contentType: ContentType): Promise<Response> {
+  const meta = { headers: { ...STATIC_HEADERS, "Content-Type": contentType } as Record<string, string> };
+
+  // Send compressed content if the client supports it.
+  if (req.headers.get("accept-encoding")?.includes("gzip")) {
+    const data = typeof content === "string" ? content : await content.arrayBuffer();
+    meta.headers["Content-Encoding"] = "gzip";
+    return new Response(Bun.gzipSync(data), meta);
+  }
+
+  return new Response(content, meta);
 }
 
 const STATIC_HEADERS = {

@@ -1,5 +1,5 @@
 import { PlThumb } from "@plangs/frontend/components/misc/pl-thumb";
-import { tw } from "@plangs/frontend/utils";
+import { script, tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 
 import { h } from "preact";
@@ -35,6 +35,7 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
             "[&>details]:hidden sm:[&>details]:block",
           ),
         })}
+        {script("window.restorePlInfo()")}
       </div>
     </Layout>
   );

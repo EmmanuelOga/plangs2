@@ -116,6 +116,10 @@ export class NPlang extends NBase<
 > {
   override kind: N = "pl";
 
+  get href(): string {
+    return `/${this.plainKey}`;
+  }
+
   get extensions(): IterTap<string> {
     return new IterTap(this.data.extensions);
   }

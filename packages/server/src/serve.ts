@@ -19,7 +19,7 @@ await loadAllDefinitions(pg);
 await createNPosts(pg);
 
 const server = Bun.serve({
-  async fetch(req): Promise<Response> {
+  async fetch(req: Request): Promise<Response> {
     const path = new URL(req.url).pathname;
 
     if (path === "/livereload") {
@@ -28,22 +28,22 @@ const server = Bun.serve({
     }
 
     if (path === "/plangs.json") {
-      return staticResponse(JSON.stringify(pg), "application/json");
+      return staticResponse(req, JSON.stringify(pg), "application/json");
     }
 
     const page = await resolvePage(path, pg);
-    if (page) return staticResponse(vdomToHTML(page), "text/html");
+    if (page) return staticResponse(req, vdomToHTML(page), "text/html");
 
     if (path.startsWith("/images")) {
       const img = Bun.file(join(import.meta.dir, "../../definitions/src/definitions", path.slice(8)));
-      if (await img.exists()) return staticResponse(img, `image/${extname(path)}`);
+      if (await img.exists()) return staticResponse(req, img, `image/${extname(path)}`);
       // Do not return, allow checking for a static image.
     }
 
     const contentType = contentTypeFor(path);
     if (contentType) {
       const file = Bun.file(join(import.meta.dir, "../static", path.slice(1)));
-      if (await file.exists()) return staticResponse(file, contentType);
+      if (await file.exists()) return staticResponse(req, file, contentType);
     }
 
     console.warn("404", path);

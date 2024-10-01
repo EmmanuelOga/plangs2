@@ -23,8 +23,7 @@ export function Layout({
   return (
     <html lang="en" class="dark">
       <head>
-        {pl &&
-          script(`localStorage.setItem("last-plang", ${JSON.stringify(JSON.stringify({ key: pl.key, href: `/${pl.plainKey}`, name: pl.name }))});`)}
+        {pl && script(`localStorage.setItem("last-plang", ${JSON.stringify(JSON.stringify({ key: pl.key, data: pl.data }))});`)}
         <script src="/bundle/app.js" />
         <meta charset="utf-8" />
         <title>Plangs! - {title}</title>
@@ -63,7 +62,7 @@ export function Layout({
           <NavTab tab="filter" id={id("filterToggle")} class={tw("mr-auto", tab !== "browse" && "invisible")} title="Filter" />
           <NavTab tab="browse" href="/" title="Browse" current={tab === "browse"} />
           <NavTab tab="pl" id={id("plTab")} href={pl ? `/${pl.plainKey}` : "#"} title={pl?.name ?? "_"} current={tab === "pl"} />
-          {script("window.restorePlTab()")}
+          {!pl && script("window.restorePlTab()")}
           <NavTab tab="blog" href="/blog" title="News" current={tab === "blog"} />
           <NavTab tab="about" href="/about" title="About" current={tab === "about"} />
         </nav>
