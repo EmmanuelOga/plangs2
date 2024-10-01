@@ -2,7 +2,7 @@ import type { ComponentChildren } from "preact";
 
 import { Anchor } from "@plangs/frontend/src/components/misc/anchor";
 import { PlInfo } from "@plangs/frontend/src/components/pl-info/pl-info";
-import { tw } from "@plangs/frontend/utils";
+import { script, tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs";
 
 import { Pill } from "@plangs/frontend/components/misc/pill";

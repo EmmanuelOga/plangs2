@@ -28,7 +28,6 @@ export function getFilters(): PlangFilters {
   const getChecked = (input: HTMLElement) => (input as HTMLInputElement).checked;
 
   collect("hasLogo", getChecked, val => {
-    console.log(val);
     return (flt.hasLogo.value = val);
   });
 

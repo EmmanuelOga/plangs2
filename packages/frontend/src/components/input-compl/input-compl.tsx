@@ -39,15 +39,22 @@ export function InputCompl({ name, class: cssClass, completions }: InputComplPro
     if (inputRef.current) inputRef.current.value = state.query;
   }, [state.query]);
 
-  const adjustSelScroll = () => selectionRef.current?.scrollIntoView({ block: "nearest" });
+  const makeSelVisible = () => selectionRef.current?.scrollIntoView({ block: "nearest" });
+  const tweakPopupWidth = () => {
+    if (popupRef.current && inputRef.current) {
+      popupRef.current.style.width = `${inputRef.current.getBoundingClientRect().width}px`;
+    }
+  };
 
   useEffect(() => {
-    adjustSelScroll();
+    makeSelVisible();
+    tweakPopupWidth();
 
     // Adjust the popup position in relation to the filters container.
     const container = elem("filters");
     return on(container, "scroll", ev => {
       if (!popupRef.current || !inputRef.current || !container) return;
+      popupRef.current.style.width = `${inputRef.current.getBoundingClientRect().width}px`;
       popupRef.current.style.top = `${inputRef.current.getBoundingClientRect().bottom}px`;
     });
   });
@@ -76,7 +83,7 @@ export function InputCompl({ name, class: cssClass, completions }: InputComplPro
         ref={popupRef as Ref<HTMLDivElement>}
         class={tw(
           "absolute z-20",
-          "mt-1 max-h-80 max-w-[15rem] p-1",
+          "mt-1 max-h-80 p-1",
           showPopup || "hidden",
           "overflow-y-auto overflow-x-hidden",
           "border-1 border-solid",

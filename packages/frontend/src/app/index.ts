@@ -48,7 +48,8 @@ function startBrowseNav(pg: PlangsGraph) {
   function updatePlangs() {
     if (thumbs.length === 0 || plGrid === undefined) return;
 
-    const plKeys = pg.plangs(getFilters());
+    const filters = getFilters();
+    const plKeys = pg.plangs(filters);
     for (const div of thumbs) {
       const plKey = div.dataset.key as NPlang["key"];
       const visible = plKeys.has(plKey);
@@ -122,6 +123,7 @@ function startBrowseNav(pg: PlangsGraph) {
   const plTabSpan = plTab.querySelector("span");
   const setTab = (pl: NPlang) => {
     if (!plTab || !plTabSpan) return;
+    plTab.classList.remove("hidden");
     plTab.setAttribute("href", `/pl/${pl.plainKey}`);
     plTabSpan.innerText = pl.name;
   };

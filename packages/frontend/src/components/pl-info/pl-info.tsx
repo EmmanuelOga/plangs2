@@ -1,6 +1,3 @@
-import type { Ref } from "preact";
-import { useEffect, useRef } from "preact/hooks";
-
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
 import { READABLE_CLASSES } from "@plangs/server/elements";
@@ -29,13 +26,11 @@ export function PlInfo({ pl, id, class: cssClass, open }: PlInfoProps) {
         "border-b-1 border-b-primary border-dotted",
         cssClass,
       )}>
-      {!pl ? (
-        <p>Select a language to show more information.</p>
-      ) : (
-        <div class="readable dark:prose-invert">
-          <h1>{pl.name}</h1>
-          <span class="dash hidden">&#8212;</span>
-          <p>{pl.description}</p>
+      <div class="readable dark:prose-invert">
+        <h1 class="w-full">{pl?.name ?? ""}</h1>
+        <span class="dash hidden">&#8212;</span>
+        <p>{pl?.description || "..."}</p>
+        {pl && (
           <details class="pb-4" open={open}>
             <summary class="cursor-pointer text-xl">Details</summary>
             {relations(pl).map(([title, iterTap]) => (
@@ -45,8 +40,8 @@ export function PlInfo({ pl, id, class: cssClass, open }: PlInfoProps) {
               </div>
             ))}
           </details>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
