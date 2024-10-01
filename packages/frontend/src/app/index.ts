@@ -1,4 +1,4 @@
-import { debounce, set } from "lodash-es";
+import { debounce } from "lodash-es";
 import "preact/debug";
 
 import { type N, type NPlang, PlangsGraph } from "@plangs/plangs";
@@ -7,26 +7,11 @@ import { type CompletionItem, type InputComplElement, registerInputCompl } from 
 import { matchingInputSelByName, registerInputSel } from "../components/input-sel";
 import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
 
-import { $, $$, elem, elems, on, size } from "../utils";
+import { $, $$, elem, elems, on } from "../utils";
 
 import { cl, id } from "@plangs/server/elements";
 import { getFilters } from "./filters";
 import { connectLivereload } from "./livereload";
-
-const CSS_COLS_KEY = "grid-template-columns";
-
-/** Adjusts the number of columns in the grid to stop the gap from growing too large. */
-function adjusutGrid(plGrid: HTMLElement, widthThumb: number, visibleThumbs: number) {
-  const widthRow = window.innerWidth;
-  const numCols = Math.min(Math.floor(widthRow / widthThumb), visibleThumbs);
-  const maxCols = Math.floor(widthRow / (5 * 16));
-
-  if (numCols < maxCols && visibleThumbs < maxCols) {
-    plGrid.style.setProperty(CSS_COLS_KEY, `repeat(${maxCols}, minmax(5.35rem, 0fr))`);
-  } else {
-    plGrid.style.removeProperty(CSS_COLS_KEY);
-  }
-}
 
 function startBrowseNav(pg: PlangsGraph) {
   console.info("Starting PL browser.");
@@ -64,16 +49,11 @@ function startBrowseNav(pg: PlangsGraph) {
     if (thumbs.length === 0 || plGrid === undefined) return;
 
     const plKeys = pg.plangs(getFilters());
-    let widthThumb: number | undefined;
     for (const div of thumbs) {
       const plKey = div.dataset.key as NPlang["key"];
       const visible = plKeys.has(plKey);
       div.classList.toggle("hidden", !visible);
-      if (visible) widthThumb ??= size(div)[0];
     }
-
-    if (widthThumb !== undefined) adjusutGrid(plGrid, widthThumb, plKeys.size);
-    // if (status) status.innerText = `Displaying ${keys.size} languages of ${pg.n_plang.size}.`;
   }
 
   updatePlangs();
