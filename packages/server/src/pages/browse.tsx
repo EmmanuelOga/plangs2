@@ -13,7 +13,7 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
   return (
     <Layout title="Find your next favorite programming language!" tab="browse" overflow="overflow-auto">
       <div class={tw("h-full w-full flex-1", "flex flex-col lg:flex-row", "gap-4", "overflow-auto")}>
-        <div class={tw("flex-1", "flex flex-col", "gap-2", "overflow-auto")}>
+        <div class={tw("flex-1", "flex flex-col", "gap-2", "overflow-auto", "sm:p-1")}>
           <PlFilters class={tw(SCROLL, "z-10", "max-h-[35%]", "border-1 border-secondary", "mt-2")} />
           <PlGrid pg={pg} class={tw("flex-1", "border-1 border-primary")} />
         </div>
@@ -32,7 +32,12 @@ function PlGrid({ pg, class: cssClass }: { pg: PlangsGraph; class: string }) {
     <div class={tw(SCROLL, "pl-bg-g", cssClass, "p-4")}>
       <div
         id={id("plGrid")}
-        class={tw("grid gap-3 sm:gap-5 ", "grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]", "sm:grid-cols-[repeat(auto-fit,minmax(8rem,1fr))]")}>
+        class={tw(
+          "grid gap-3 sm:gap-5 ",
+
+          "grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]",
+          "sm:grid-cols-[repeat(auto-fit,minmax(8rem,1fr))]",
+        )}>
         {pg.nodes.pl.batch().map(([key, pl]) => (
           <PlThumb key={key} pl={pl} class="max-h-[15rem]" />
         ))}

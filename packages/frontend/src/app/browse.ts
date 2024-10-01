@@ -7,7 +7,7 @@ import { id } from "@plangs/server/elements";
 import type { CompletionItem, InputComplElement } from "../components/input-compl";
 import { matchingInputSelByName } from "../components/input-sel";
 import type { PlInfoElement } from "../components/pl-info";
-import { $$, elem, elems, on } from "../utils";
+import { $$, elem, elems, minWidthBP, on, size } from "../utils";
 import { getFilters } from "./filters";
 import { getPl } from "./pl";
 import { setPlTab } from "./tabs";
@@ -64,15 +64,20 @@ export function startBrowseNav(pg: PlangsGraph) {
 
     const filters = getFilters();
     const plKeys = pg.plangs(filters);
+    let widthThumb: number | undefined;
     for (const div of thumbs) {
       const plKey = div.dataset.nodeKey as NPlang["key"];
       const visible = plKeys.has(plKey);
       div.classList.toggle("hidden", !visible);
+      if (visible) widthThumb ??= size(div)[0];
     }
+    if (widthThumb !== undefined) adjustGrid(plGrid, widthThumb, plKeys.size);
   }
   updatePlangs();
 
   const debouncedUpdatePlangs = debounce(updatePlangs, 30);
+
+  window.addEventListener("resize", debouncedUpdatePlangs);
 
   //////////////////////////////////////////////////////////////////////////////////
   // Setup completions.
@@ -138,4 +143,19 @@ export function startBrowseNav(pg: PlangsGraph) {
     plInfo.pl = pl;
     setPlTab(pl);
   });
+}
+
+const CSS_COLS_KEY = "grid-template-columns";
+
+/** Adjusts the number of columns in the grid to stop the gap from growing too large. */
+function adjustGrid(plGrid: HTMLElement, widthThumb: number, visibleThumbs: number) {
+  const widthRow = size(plGrid)[0];
+  const numCols = Math.min(Math.floor(widthRow / widthThumb), visibleThumbs);
+  const maxCols = Math.floor(widthRow / (5 * 16));
+
+  if (numCols < maxCols && visibleThumbs < maxCols && minWidthBP("48rem")) {
+    plGrid.style.setProperty(CSS_COLS_KEY, `repeat(${maxCols}, minmax(8rem, 0fr))`);
+  } else {
+    plGrid.style.removeProperty(CSS_COLS_KEY);
+  }
 }

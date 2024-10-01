@@ -48,9 +48,8 @@ export function withinContainer(el: Element, container: Element): boolean {
 /** Collect tailwind classes. Passing a number adds an outline and bg color. */
 export const tw = (...classes: (string | undefined | boolean)[]) => classes.filter(s => typeof s === "string" && !/^;|;$/.test(s)).join(" ");
 
-/** Check if the current windows matches TW's md breakpoint. */
-export const twBreakMd = () => win?.matchMedia(`(min-width: ${TW_md})`).matches ?? false;
-const TW_md = "48rem"; // We could resolve this from TW's config, but this works fine for now.
+/** Check if the min-width breakpoint applies right now.  */
+export const minWidthBP = (size: string) => win?.matchMedia(`(min-width: ${size})`).matches ?? false;
 
 export const script = (src: string) => tag("script", src);
 export const style = (src: string) => tag("style", src);
