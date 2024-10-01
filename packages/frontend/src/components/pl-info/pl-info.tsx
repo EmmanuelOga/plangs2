@@ -8,17 +8,15 @@ export const TAG_NAME = "pl-info";
 export type PlInfoProps = {
   pl?: NPlang;
   open?: boolean;
-  id?: string;
   kind?: "browse" | "pl";
 };
 
 /** Display a PL information, if the key is known. */
-export function PlInfo({ pl, id, open, kind: plInfoKind }: PlInfoProps) {
+export function PlInfo({ pl, open, kind: plInfoKind }: PlInfoProps) {
   const forPl = plInfoKind === "pl";
   const forBrowse = !forPl;
   return (
     <div
-      id={id ?? ""}
       class={tw(
         "p-4",
         "h-fit w-full",

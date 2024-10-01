@@ -15,7 +15,9 @@ export function Pl({ pl }: { pl: NPlang }) {
     <Layout title={pl.name} tab="pl" overflow="overflow-auto" pl={pl}>
       <div class={tw("h-full w-full flex-1", "lg:flex lg:flex-row-reverse", "lg:overflow-hidden")}>
         <div class={tw(SCROLL, "lg:w-[33dvw] lg:max-w-[40rem]")}>
-          <PlInfo id={id("plInfo")} pl={pl} open={true} kind="pl" />
+          <div id={id("plInfo")}>
+            <PlInfo pl={pl} open={true} kind="pl" />
+          </div>
         </div>
 
         <div class={tw("flex-1", "p-4", "flex flex-col lg:items-center", "overflow-auto")}>
