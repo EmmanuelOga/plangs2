@@ -8,7 +8,6 @@ import { setPlTab } from "./tabs";
 
 export function hookPlInfo(pg: PlangsGraph) {
   const plInfo = elem<PlInfoElement>("plInfo");
-  console.log("hookPlInfo", plInfo);
   if (!plInfo) return;
 
   const currentTab = () => $<HTMLAnchorElement>(`.${cl("navLink")}[data-current]`)?.dataset?.tab;

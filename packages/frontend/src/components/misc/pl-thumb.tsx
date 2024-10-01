@@ -11,7 +11,7 @@ export function PlThumb({ pl, class: cssClass }: { class?: string; pl: NPlang })
   const thumbUrl = pl.thumbUrl;
   return (
     <div
-      data-key={pl.key}
+      data-node-key={pl.key}
       class={tw(
         cl("plThumb"),
         "group",

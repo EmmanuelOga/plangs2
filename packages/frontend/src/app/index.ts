@@ -7,7 +7,7 @@ import { registerInputCompl } from "../components/input-compl";
 import { registerInputSel } from "../components/input-sel";
 import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
 
-import { elem, on } from "../utils";
+import { elem } from "../utils";
 import { startBrowseNav } from "./browse";
 import { lastPlang } from "./last-plang";
 import { connectLivereload } from "./livereload";

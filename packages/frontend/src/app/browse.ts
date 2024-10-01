@@ -65,7 +65,7 @@ export function startBrowseNav(pg: PlangsGraph) {
     const filters = getFilters();
     const plKeys = pg.plangs(filters);
     for (const div of thumbs) {
-      const plKey = div.dataset.key as NPlang["key"];
+      const plKey = div.dataset.nodeKey as NPlang["key"];
       const visible = plKeys.has(plKey);
       div.classList.toggle("hidden", !visible);
     }
