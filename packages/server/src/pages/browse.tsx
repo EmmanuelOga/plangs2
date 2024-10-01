@@ -20,6 +20,7 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
 
         {h("pl-info", {
           id: id("plInfo"),
+          open: true,
           class: tw(
             SCROLL,
             "p-4",

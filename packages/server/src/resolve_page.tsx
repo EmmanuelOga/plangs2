@@ -19,10 +19,9 @@ export async function resolvePage(path: string, pg: PlangsGraph) {
     return;
   }
 
-  if (path.startsWith("/pl/") && path.length < 64) {
-    const pl = pg.nodes.pl.get(`pl+${path.slice(4)}`);
+  if (path.startsWith("/") && path.length > 1 && path.length < 32) {
+    const pl = pg.nodes.pl.get(`pl+${path.slice(1)}`);
     if (pl) return <Pl pl={pl} />;
-    console.warn(`PL not found: ${path}`);
     return;
   }
 }

@@ -2,7 +2,7 @@ import type { ComponentChildren } from "preact";
 
 import { Anchor } from "@plangs/frontend/src/components/misc/anchor";
 import { PlInfo } from "@plangs/frontend/src/components/pl-info/pl-info";
-import { script, tw } from "@plangs/frontend/utils";
+import { tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs";
 
 import { Pill } from "@plangs/frontend/components/misc/pill";
@@ -17,6 +17,7 @@ export function Pl({ pl }: { pl: NPlang }) {
         <PlInfo
           id={id("plInfo")}
           pl={pl}
+          open={true}
           class={tw(
             SCROLL,
             "p-8 pb-4",
