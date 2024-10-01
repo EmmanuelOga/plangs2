@@ -26,5 +26,3 @@ export function elems(key: CLKey): HTMLCollectionOf<HTMLElement> {
 export function cl(key: CLKey): `cl-${CLKey}` {
   return `cl-${key}`;
 }
-
-export const READABLE_CLASSES = "readable dark:prose-invert max-w-[unset] 2xl:max-w-[96rem]";

@@ -1,40 +1,25 @@
 import type { ComponentChildren } from "preact";
 
-import { Anchor } from "@plangs/frontend/src/components/misc/anchor";
-import { PlInfo } from "@plangs/frontend/src/components/pl-info/pl-info";
+import { Anchor } from "@plangs/frontend/components/misc/anchor";
+import { Pill } from "@plangs/frontend/components/misc/pill";
+import { PlInfo } from "@plangs/frontend/components/pl-info/pl-info";
 import { tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs";
 
-import { Pill } from "@plangs/frontend/components/misc/pill";
-import { READABLE_CLASSES, id } from "../elements";
+import { id } from "../elements";
 import { SCROLL } from "./browse";
 import { Layout } from "./layout";
 
 export function Pl({ pl }: { pl: NPlang }) {
   return (
     <Layout title={pl.name} tab="pl" overflow="overflow-auto" pl={pl}>
-      <div class={tw("h-full w-full flex-1", "md:flex md:flex-col lg:flex-row-reverse", "overflow-auto")}>
-        <PlInfo
-          id={id("plInfo")}
-          pl={pl}
-          open={true}
-          class={tw(
-            SCROLL,
-            "p-8 pb-4",
+      <div class={tw("h-full w-full flex-1", "sm:flex sm:flex-col lg:flex-row-reverse", "overflow-hidden")}>
+        <div class={tw(SCROLL, "max-w-[40rem] lg:w-[33dvw]")}>
+          <PlInfo pl={pl} open={true} kind="pl" />
+        </div>
 
-            "lg:w-[33dvw]",
-            "md:max-h-[35dvh] lg:max-h-[unset]",
-
-            "[&>h1]:text-lg sm:[&>h1]:text-4xl",
-            "[&>h1]:inline sm:[&>h1]:block",
-            "[&>.dash]:inline sm:[&>.dash]:hidden",
-            "[&>p]:inline sm:[&>p]:block",
-            "[&>details]:hidden sm:[&>details]:block",
-          )}
-        />
-
-        <div class={tw("flex-1", "flex flex-col", "gap-2", "overflow-auto")}>
-          <PlBody pl={pl} class={tw("flex-1", "p-4", "2xl:ml-[15dvw]")} />
+        <div class={tw("flex-1", "flex flex-col items-end", "gap-2", "overflow-auto")}>
+          <PlBody pl={pl} class={tw("flex-1", "p-4")} />
         </div>
       </div>
     </Layout>
@@ -43,7 +28,7 @@ export function Pl({ pl }: { pl: NPlang }) {
 
 export function PlBody({ pl, class: cssClass }: { class: string; pl: NPlang }) {
   return (
-    <article class={tw(READABLE_CLASSES, cssClass)}>
+    <article class={tw("readable dark:prose-invert max-w-[unset] 2xl:max-w-[80rem]", cssClass)}>
       <PlNews pl={pl} />
       <PlApps pl={pl} />
       <PlLibs pl={pl} />
@@ -162,17 +147,17 @@ function PlBundles({ pl }: { pl: NPlang }) {
     <>
       <h1>Tool Bundles</h1>
       <p>A "bundle" is a set of tools that work well together.</p>
-      {bundles.concat(bundles).map(bundle => (
+      {bundles.map(bundle => (
         <div
           key={bundle.key}
           class={tw(
-            "bg-linear-to-b from-background to-primary/20",
+            "bg-linear-to-b from-background to-secondary/50",
             "shadow-lg shadow-primary/20",
             "border-b-1 border-b-primary border-dotted",
             "my-8",
           )}>
           <h1>{bundle.name}</h1>
-          <p>{bundle.relTools.values.map(({ tool }) => tool && <Pill name={tool.name} />).existing}</p>
+          <p>{bundle.relTools.values.map(({ tool }) => tool && <Pill name={tool.name} key={tool.key} kind={tool.kind} />).existing}</p>
           <p>{bundle.description}</p>
         </div>
       ))}

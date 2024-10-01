@@ -1,6 +1,5 @@
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
-import { READABLE_CLASSES } from "@plangs/server/elements";
 import { customEvent, tw } from "../../utils";
 import { Pill } from "../misc/pill";
 
@@ -9,39 +8,38 @@ export const TAG_NAME = "pl-info";
 export type PlInfoProps = {
   pl?: NPlang;
   open?: boolean;
-  class?: string;
   id?: string;
+  kind?: "browse" | "pl";
 };
 
 /** Display a PL information, if the key is known. */
-export function PlInfo({ pl, id, class: cssClass, open }: PlInfoProps) {
+export function PlInfo({ pl, open, kind: plInfoKind }: PlInfoProps) {
   return (
     <div
-      id={id ?? ""}
       class={tw(
-        "h-fit",
-        READABLE_CLASSES,
+        "p-4",
+        "h-fit w-full",
+        "readable dark:prose-invert max-w-[unset]",
         "bg-linear-to-b from-background to-secondary/50",
         "shadow-lg shadow-primary/25",
         "border-b-1 border-b-primary border-dotted",
-        cssClass,
       )}>
-      <div class="readable dark:prose-invert">
-        <h1 class="w-full">{pl?.name ?? ""}</h1>
-        <span class="dash hidden">&#8212;</span>
-        <p>{pl?.description || "..."}</p>
-        {pl && (
-          <details class="pb-4" open={open}>
-            <summary class="cursor-pointer text-xl">Details</summary>
-            {relations(pl).map(([title, iterTap]) => (
-              <div key={title}>
-                <h2 class="mt-4 text-xl">{title}</h2>
-                <div>{iterTap.existing.map(Pill)}</div>
-              </div>
-            ))}
-          </details>
-        )}
-      </div>
+      <h1 class={tw("text-lg sm:text-4xl", "inline sm:block")}>{pl?.name ?? ""}</h1>
+      <span class="dash sm:hidden">&#8212;</span>
+      <p class="inline sm:block">{pl?.description || "..."}</p>
+      {pl && (
+        <details class={tw("pb-4", plInfoKind === "browse" && "hidden sm:block")} open={open}>
+          <summary class="cursor-pointer text-xl">Details</summary>
+          {relations(pl).map(([title, iterTap]) => (
+            <div key={title}>
+              <h2 class="mt-4 text-xl">{title}</h2>
+              {iterTap.existing.map(({ name, key, kind }) => (
+                <Pill name={name} key={key} kind={kind} plInfoKind={plInfoKind} />
+              ))}
+            </div>
+          ))}
+        </details>
+      )}
     </div>
   );
 }

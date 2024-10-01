@@ -19,7 +19,7 @@ const ELEMENT_API = {
 export type PlInfoElement = HTMLElement & PlInfoProps & typeof ELEMENT_API;
 
 export function registerPlangInfo() {
-  const keys: (keyof PlInfoProps)[] = ["id", "class", "open", "pl"];
+  const keys: (keyof PlInfoProps)[] = ["id", "open", "pl", "kind"];
   register(PlInfo, TAG_NAME, keys);
   Object.assign(window.customElements.get(TAG_NAME)?.prototype, ELEMENT_API);
 }

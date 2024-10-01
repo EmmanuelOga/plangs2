@@ -18,25 +18,11 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
           <PlGrid pg={pg} class={tw("flex-1", "border-1 border-primary")} />
         </div>
 
-        {h("pl-info", {
-          id: id("plInfo"),
-          open: true,
-          class: tw(
-            SCROLL,
-            "p-4",
-
-            "lg:w-[33dvw]",
-            "max-h-[20dvh] sm:max-h-[35dvh] lg:max-h-[unset]",
-
-            "[&>h1]:text-lg sm:[&>h1]:text-4xl",
-            "[&>h1]:inline sm:[&>h1]:block",
-            "[&>.dash]:inline sm:[&>.dash]:hidden",
-            "[&>p]:inline sm:[&>p]:block",
-            "[&>details]:hidden sm:[&>details]:block",
-          ),
-        })}
-        {script("window.restorePlInfo()")}
+        <div class={tw(SCROLL, "lg:w-[33dvw] lg:max-w-[40rem]", "max-h-[20dvh] sm:max-h-[35dvh] lg:max-h-[unset]")}>
+          {h("pl-info", { id: id("plInfo"), kind: "browse", open: true })}
+        </div>
       </div>
+      {script("window.restorePlInfo()")}
     </Layout>
   );
 }

@@ -1,17 +1,20 @@
 import { tw } from "@plangs/frontend/utils";
 
-export function Pill({ name, key, kind }: { name: string; key: string; kind: string }) {
+export function Pill({ name, key, kind, plInfoKind }: { name: string; key: string; kind: string; plInfoKind?: string }) {
   return (
     <div
       data-key={key}
       class={tw(
-        kind === "pl" && "cursor-pointer",
-
         "inline-block text-center",
-        "mr-1 mb-3 min-w-8 p-1.5",
-        "font-black text-sm",
+        // NOTE: this approximately solves a mistmatch between rendering as a web component and as a Preact component,
+        // but it's not perfect. This bug makes no sense so far and I need to find the root cause.
+        plInfoKind === "browse" ? "mr-4 mb-4" : "mr-[10.65px] mb-4",
+        plInfoKind === "browse" ? "min-w-8 p-1.5" : "min-w-8 px-[6.025px] py-1.5",
+
+        "font-bold text-sm",
 
         "rounded",
+        kind === "pl" && "cursor-pointer",
         kind === "pl" ? "bg-primary text-background" : "bg-secondary text-foreground",
         "shadow-lg shadow-secondary",
         "outline-2 outline-secondary",

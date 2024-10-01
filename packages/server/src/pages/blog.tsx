@@ -2,7 +2,6 @@ import { Anchor } from "@plangs/frontend/components/misc/anchor";
 import { tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 
-import { READABLE_CLASSES } from "../elements";
 import { Layout } from "./layout";
 
 export function Blog({ pg }: { pg: PlangsGraph }) {
@@ -20,7 +19,7 @@ export function Blog({ pg }: { pg: PlangsGraph }) {
 
   return (
     <Layout title="Read our latest news" tab="blog" overflow="overflow-y-auto">
-      <article class={tw(READABLE_CLASSES, "p-4", "overflow-y-auto", "w-full")}>
+      <article class={tw("readable dark:prose-invert", "p-4", "overflow-y-auto", "w-full")}>
         <h1>News</h1>
         {postLinks.isEmpty ? <p>No posts yet.</p> : postLinks.existing}
       </article>

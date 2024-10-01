@@ -20,9 +20,9 @@
 
 @layer components {
   .readable {
-    @apply prose;
     --tw-prose-links: var(--color-primary);
     --tw-prose-invert-links: var(--color-primary);
+    @apply prose;
   }
 }
 
