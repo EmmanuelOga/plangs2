@@ -13,22 +13,22 @@ import { Layout } from "./layout";
 export function Pl({ pl }: { pl: NPlang }) {
   return (
     <Layout title={pl.name} tab="pl" overflow="overflow-auto" pl={pl}>
-      <div class={tw("h-full w-full flex-1", "sm:flex sm:flex-col lg:flex-row-reverse", "overflow-hidden")}>
-        <div class={tw(SCROLL, "max-w-[40rem] lg:w-[33dvw]")}>
-          <PlInfo pl={pl} open={true} kind="pl" />
+      <div class={tw("h-full w-full flex-1", "lg:flex lg:flex-row-reverse", "lg:overflow-hidden")}>
+        <div class={tw(SCROLL, "lg:w-[33dvw] lg:max-w-[40rem]")}>
+          <PlInfo id={id("plInfo")} pl={pl} open={true} kind="pl" />
         </div>
 
-        <div class={tw("flex-1", "flex flex-col items-end", "gap-2", "overflow-auto")}>
-          <PlBody pl={pl} class={tw("flex-1", "p-4")} />
+        <div class={tw("flex-1", "p-4", "flex flex-col lg:items-center", "overflow-auto")}>
+          <PlBody pl={pl} />
         </div>
       </div>
     </Layout>
   );
 }
 
-export function PlBody({ pl, class: cssClass }: { class: string; pl: NPlang }) {
+export function PlBody({ pl, class: cssClass }: { class?: string; pl: NPlang }) {
   return (
-    <article class={tw("readable dark:prose-invert max-w-[unset] 2xl:max-w-[80rem]", cssClass)}>
+    <article class={tw("readable dark:prose-invert max-w-[80rem]", cssClass)}>
       <PlNews pl={pl} />
       <PlApps pl={pl} />
       <PlLibs pl={pl} />
@@ -157,7 +157,7 @@ function PlBundles({ pl }: { pl: NPlang }) {
             "my-8",
           )}>
           <h1>{bundle.name}</h1>
-          <p>{bundle.relTools.values.map(({ tool }) => tool && <Pill name={tool.name} key={tool.key} kind={tool.kind} />).existing}</p>
+          <p>{bundle.relTools.values.map(({ tool }) => tool && <Pill name={tool.name} plKey={tool.key} kind={tool.kind} />).existing}</p>
           <p>{bundle.description}</p>
         </div>
       ))}

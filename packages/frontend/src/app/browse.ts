@@ -13,20 +13,19 @@ import { getPl } from "./pl";
 import { setPlTab } from "./tabs";
 
 export function startBrowseNav(pg: PlangsGraph) {
-  console.info("Starting PL browser.");
+  const filters = elem("filters");
+  if (!filters) return;
 
   const extensions = elem<HTMLInputElement>("extensions");
   const extensionsSel = matchingInputSelByName(extensions);
-  const filters = elem("filters");
   const plGrid = elem<HTMLDivElement>("plGrid");
   const plInfo = elem<PlInfoElement>("plInfo");
   const toggle = elem("filterToggle");
 
   const thumbs = elems<HTMLDivElement>("plThumb");
 
-  if (!extensions || !extensionsSel || !filters || !plGrid || !plInfo || !toggle || thumbs.length === 0) {
-    console.log({ extensions, extensionsSel, filters, plGrid, plInfo, toggle, thumbs });
-    console.warn("Skipping PL browser, missing elements.");
+  if (!extensions || !extensionsSel || !plGrid || !plInfo || !toggle || thumbs.length === 0) {
+    console.warn("Skipping PL browser, missing elements.", { extensions, extensionsSel, filters, plGrid, plInfo, toggle, thumbs });
     return;
   }
 

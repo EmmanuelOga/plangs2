@@ -13,9 +13,12 @@ export type PlInfoProps = {
 };
 
 /** Display a PL information, if the key is known. */
-export function PlInfo({ pl, open, kind: plInfoKind }: PlInfoProps) {
+export function PlInfo({ pl, id, open, kind: plInfoKind }: PlInfoProps) {
+  const forPl = plInfoKind === "pl";
+  const forBrowse = !forPl;
   return (
     <div
+      id={id ?? ""}
       class={tw(
         "p-4",
         "h-fit w-full",
@@ -24,17 +27,17 @@ export function PlInfo({ pl, open, kind: plInfoKind }: PlInfoProps) {
         "shadow-lg shadow-primary/25",
         "border-b-1 border-b-primary border-dotted",
       )}>
-      <h1 class={tw("text-lg sm:text-4xl", "inline sm:block")}>{pl?.name ?? ""}</h1>
-      <span class="dash sm:hidden">&#8212;</span>
-      <p class="inline sm:block">{pl?.description || "..."}</p>
+      <h1 class={tw(forPl && "text-4xl", forBrowse && "inline text-lg sm:block sm:text-4xl")}>{pl?.name ?? ""}</h1>
+      <span class={tw(forBrowse ? "dash sm:hidden" : "hidden")}>&#8212;</span>
+      <p class={tw(forBrowse && "inline sm:block")}>{pl?.description || "..."}</p>
       {pl && (
-        <details class={tw("pb-4", plInfoKind === "browse" && "hidden sm:block")} open={open}>
+        <details class={tw("pb-4", forBrowse && "hidden sm:block")} open={open}>
           <summary class="cursor-pointer text-xl">Details</summary>
           {relations(pl).map(([title, iterTap]) => (
             <div key={title}>
               <h2 class="mt-4 text-xl">{title}</h2>
               {iterTap.existing.map(({ name, key, kind }) => (
-                <Pill name={name} key={key} kind={kind} plInfoKind={plInfoKind} />
+                <Pill key={key} name={name} nodeKey={key} kind={kind} plInfoKind={plInfoKind} />
               ))}
             </div>
           ))}

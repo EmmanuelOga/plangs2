@@ -1,11 +1,15 @@
+import { tw } from "@plangs/frontend/utils";
 import type { Content } from "../content";
-import { HtmlContent } from "./html_content";
 import { Layout } from "./layout";
 
 export function BlogPost({ post }: { post: Content }) {
   return (
     <Layout title={post.title} tab="blog" overflow="overflow-y-auto">
-      <HtmlContent content={post} />
+      <article
+        class={tw("readable dark:prose-invert max-w-[80rem]", "w-full p-4")}
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+        dangerouslySetInnerHTML={{ __html: post.html }}
+      />
     </Layout>
   );
 }

@@ -8,6 +8,7 @@ import { setPlTab } from "./tabs";
 
 export function hookPlInfo(pg: PlangsGraph) {
   const plInfo = elem<PlInfoElement>("plInfo");
+  console.log("hookPlInfo", plInfo);
   if (!plInfo) return;
 
   const currentTab = () => $<HTMLAnchorElement>(`.${cl("navLink")}[data-current]`)?.dataset?.tab;
@@ -16,9 +17,8 @@ export function hookPlInfo(pg: PlangsGraph) {
   // On click on a pl-pill in the infobox, update the infobox.
 
   on(plInfo, "click", ({ target }: MouseEvent) => {
-    console.log("plInfo click", target);
     const pl = getPl(pg, target);
-    console.log("plInfo click", pl);
+    console.log("plInfo click", target, pl);
     if (!pl) return;
 
     const tab = currentTab();

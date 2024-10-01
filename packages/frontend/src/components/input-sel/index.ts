@@ -36,9 +36,7 @@ export function matchingInputSelByName(elem?: HTMLElement): InputSelElement | nu
   if (!elem) return null;
   const name = elem.getAttribute("name");
   const inputSel = $<InputSelElement>(`input-sel[name=${name}]`);
-  if (!name || !inputSel) {
-    console.warn("Coud not find a matching <input-sel/> by name", elem, name);
-  }
+  if (!name || !inputSel) console.warn("Coud not find a matching <input-sel/> by name", elem, name);
   return inputSel;
 }
 

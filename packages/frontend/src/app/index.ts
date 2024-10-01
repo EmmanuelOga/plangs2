@@ -11,7 +11,7 @@ import { elem, on } from "../utils";
 import { startBrowseNav } from "./browse";
 import { lastPlang } from "./last-plang";
 import { connectLivereload } from "./livereload";
-import { hookPlInfo } from "./pg-info";
+import { hookPlInfo } from "./pl-info";
 import { setPlTab } from "./tabs";
 
 // Declare some globals that are called as the page is being loaded to avoid flashing the wrong content.

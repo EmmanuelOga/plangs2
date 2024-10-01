@@ -1,9 +1,9 @@
 import { tw } from "@plangs/frontend/utils";
 
-export function Pill({ name, key, kind, plInfoKind }: { name: string; key: string; kind: string; plInfoKind?: string }) {
+export function Pill({ name, nodeKey, kind, plInfoKind }: { name: string; nodeKey: string; kind: string; plInfoKind?: string }) {
   return (
     <div
-      data-key={key}
+      data-node-key={nodeKey ?? "NONE"}
       class={tw(
         "inline-block text-center",
         // NOTE: this approximately solves a mistmatch between rendering as a web component and as a Preact component,
