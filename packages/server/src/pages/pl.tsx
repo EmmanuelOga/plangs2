@@ -13,7 +13,7 @@ import { Layout } from "./layout";
 export function Pl({ pl }: { pl: NPlang }) {
   return (
     <Layout title={pl.name} tab="pl" overflow="overflow-auto" pl={pl}>
-      <div class={tw("h-full w-full flex-1", "lg:flex lg:flex-row-reverse", "lg:overflow-hidden")}>
+      <div class={tw("h-full w-full flex-1", "lg:flex lg:flex-row-reverse", "lg:overflow-hidden", "gap-6")}>
         <div class={tw(SCROLL, "lg:w-[33dvw] lg:max-w-[40rem]")}>
           <div id={id("plInfo")}>
             <PlInfo pl={pl} open={true} kind="pl" />

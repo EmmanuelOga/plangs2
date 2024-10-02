@@ -41,15 +41,22 @@ export function Layout({
           <p>In particular, the search feature will not work without JavaScript.</p>
         </noscript>
 
-        <header class={tw("px-2 py-3", "text-primary", "bg-linear-to-b from-background to-secondary")}>
+        <header
+          class={tw(
+            "px-2 py-3",
+            "text-primary",
+
+            "bg-linear-to-b from-secondary to-background",
+          )}>
           <h1 class={tw("text-center text-lg sm:text-3xl", "font-black italic")}>
             <a
               href="/"
+              style="background: url('/images/plangs.svg') no-repeat center/contain"
               class={tw(
                 "inline-block",
-                "h-[3rem] w-[28rem] border-1 sm:mt-5 sm:h-[8rem]",
                 "text-transparent",
-                "bg-[url('/images/plangs.svg')] bg-cover bg-blend-multiply",
+
+                "h-[3rem] w-[20rem] sm:mt-3 sm:h-[6rem]",
               )}>
               Plangs!
             </a>
@@ -63,8 +70,8 @@ export function Layout({
             "gap-3 px-1 sm:px-4",
 
             "text-sm lg:text-lg",
-            "bg-secondary",
-            "border-background border-b-2",
+            "bg-background",
+            "border-primary border-b-1",
           )}>
           <NavTab tab="filter" id={id("filterToggle")} class={tw("mr-auto", tab !== "browse" && "invisible")} title="Filter" />
           <NavTab tab="browse" href="/" title="Browse" current={tab === "browse"} />
@@ -102,19 +109,11 @@ function NavTab({
         "text-center",
         "rounded-t-md",
         "border-primary/50 border-t-1",
-        !isIcon && "*:border-foreground/50 *:border-b-2",
-        !isIcon && "*:hover:border-yellow-200",
-        isIcon && "hover:bg-background",
-        current ? "bg-background" : "bg-background/25 text-foreground/75",
+        "hover:bg-linear-to-b hover:from-background hover:to-secondary",
+        current ? "bg-linear-to-b from-background to-primary/50" : "bg-background/25 text-foreground/75",
         cssClass,
       )}>
-      <span
-        class={tw(
-          "inline-block max-w-[5rem] sm:max-w-[unset]",
-          "overflow-hidden text-ellipsis whitespace-nowrap",
-          !isIcon && "min-w-12",
-          current && "border-primary",
-        )}>
+      <span class={tw("inline-block max-w-[5rem] sm:max-w-[unset]", "overflow-hidden text-ellipsis whitespace-nowrap", !isIcon && "min-w-12")}>
         {isIcon ? FILTER_ICON : title}
       </span>
     </a>

@@ -118,14 +118,13 @@ type Group = { title: string; keys: (keyof typeof INPUT_PROPS)[] };
 const group = (title: string, keys: (keyof typeof INPUT_PROPS)[]) => ({ title, keys }) as const;
 
 const INPUT_GROUPS = [
-  [group("Name", ["plangName"]), group("Creation Date", ["appearedAfter"]), group("Releases", ["hasReleases", "releasedAfter"])],
   [
-    group("Popular", ["isMainstream"]),
-    group("Has Logo", ["hasLogo"]),
-    group("Has Wikipedia", ["hasWikipedia"]),
-    group("Licenses", ["licenses"]),
-    group("Extensions", ["extensions"]),
+    group("Name", ["plangName"]),
+    group("Creation Date", ["appearedAfter"]),
+    group("Releases", ["hasReleases", "releasedAfter"]),
+    group("File Extensions", ["extensions"]),
   ],
+  [group("Popular", ["isMainstream"]), group("Has Logo", ["hasLogo"]), group("Has Wikipedia", ["hasWikipedia"]), group("Licenses", ["licenses"])],
 
   [
     group("Dialect Of", ["dialectOf"]),
