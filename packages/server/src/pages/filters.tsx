@@ -96,7 +96,7 @@ export const INPUT_PROPS = {
   releasedAfter: month("Released After"),
 
   hasLogo: checkbox("Has Logo", "1"),
-  hasReleases: checkbox("Known Releases"),
+  hasReleases: checkbox("Any Known Release"),
   hasWikipedia: checkbox("Has Wikipedia"),
   isMainstream: checkbox("Is Mainstream"),
   isTranspiler: checkbox("Is Transpiler"),

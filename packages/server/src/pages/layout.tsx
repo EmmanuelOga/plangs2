@@ -41,10 +41,17 @@ export function Layout({
           <p>In particular, the search feature will not work without JavaScript.</p>
         </noscript>
 
-        <header class={tw("px-2 py-3", "bg-secondary text-primary")}>
+        <header class={tw("px-2 py-3", "text-primary", "bg-linear-to-b from-background to-secondary")}>
           <h1 class={tw("text-center text-lg sm:text-3xl", "font-black italic")}>
-            <a href="/" class="inline-block">
-              <img src="/images/plangs.svg" class="h-[3rem] sm:mt-5 sm:h-[8rem]" alt="Plangs!" title="Plangs!" />
+            <a
+              href="/"
+              class={tw(
+                "inline-block",
+                "h-[3rem] w-[28rem] border-1 sm:mt-5 sm:h-[8rem]",
+                "text-transparent",
+                "bg-[url('/images/plangs.svg')] bg-cover bg-blend-multiply",
+              )}>
+              Plangs!
             </a>
           </h1>
         </header>
