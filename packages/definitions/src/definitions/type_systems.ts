@@ -135,7 +135,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.nodes.tsys.set("tsys+safe", {
-    name: "Type Safety",
+    name: "Type Safe",
     keywords: ["safe"],
     description: "Type safety ensures that operations are performed on compatible types, preventing unintended behavior and runtime errors.",
     websites: [wikipedia("https://en.wikipedia.org/wiki/Type_safety", "Type Safety")],
