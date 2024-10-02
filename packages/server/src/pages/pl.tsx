@@ -159,7 +159,7 @@ function PlBundles({ pl }: { pl: NPlang }) {
             "my-8",
           )}>
           <h1>{bundle.name}</h1>
-          <p>{bundle.relTools.values.map(({ tool }) => tool && <Pill name={tool.name} plKey={tool.key} kind={tool.kind} />).existing}</p>
+          <p>{bundle.relTools.values.map(({ tool }) => tool && <Pill name={tool.name} nodeKey={tool.key} kind={tool.kind} />).existing}</p>
           <p>{bundle.description}</p>
         </div>
       ))}

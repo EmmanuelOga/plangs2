@@ -41,11 +41,25 @@ export async function loadContent(path: string): Promise<Content> {
   if (unknown.size) throw new Error(`Post ${path} has unknown fields in the YAML header: ${[...unknown].join(", ")}`);
 
   if (!title || !author) throw new Error(`Post ${path} is missing a title or author in the YAML header.`);
-  if (pls !== undefined && !Array.isArray(pls)) throw new Error(`Post ${path} has an invalid pls field in the YAML header.`);
+
+  let pills = "";
+  if (pls !== undefined) {
+    if (!Array.isArray(pls)) throw new Error(`Post ${path} has an invalid pls field in the YAML header.`);
+
+    if (pls.length > 0) {
+      pills = ` - ${pls
+        .map(pl => {
+          // TODO: render <Pill name={tool.name} nodeKey={tool.key} kind={tool.kind} />
+          const plainKey = pl.slice(3);
+          return `<a href="/${plainKey}" class="pill">${plainKey}</a>`;
+        })
+        .join(" ")}`;
+    }
+  }
 
   const md = `# ${title}\n\n${mdBody.replace(ZERO_WIDTH, "")}`;
   const mdHtml = await marked.parse(md);
-  const html = `<p class="m-0 text-lg ${hideDate ? "hidden" : ""}">${date}</p>${mdHtml}`;
+  const html = `<p class="m-0 text-lg ${hideDate ? "hidden" : ""}">${date}${pills}</p>\n${mdHtml}`;
 
   return { title, author, pls: pls ?? [], date, html, basename: basename(path).replace(/\.md$/, "") };
 }
