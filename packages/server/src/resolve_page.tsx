@@ -9,7 +9,7 @@ import { Pl } from "./pages/pl";
 
 export async function resolvePage(path: string, pg: PlangsGraph) {
   if (path === "/") return <Browse pg={pg} />;
-  if (path === "/about") return <About content={await loadContent("2024_09_20_about.md")} />;
+  if (path === "/about") return <About content={await loadContent("2024_09_20_about.md", pg)} />;
   if (path === "/blog") return <Blog pg={pg} />;
 
   if (path.startsWith("/blog/") && path.length < 512) {

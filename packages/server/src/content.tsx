@@ -4,11 +4,13 @@ import { Glob } from "bun";
 import { basename, join } from "node:path";
 
 import { marked } from "marked";
+import render from "preact-render-to-string/jsx";
 import YAML from "yaml";
 
 import type { NPlang, NPost, PlangsGraph, StrDate } from "@plangs/plangs";
 import { parseDate } from "@plangs/plangs/util";
 
+import { Pill } from "@plangs/frontend/components/misc/pill";
 import { ZERO_WIDTH } from "./util";
 
 /** Markdown Content and metadata generated from the .md files on packages/server/content/ */
@@ -24,7 +26,7 @@ export type Content = {
 const YAML_KEYS = new Set(["title", "author", "pls", "hideDate"]);
 
 /** {@param path} relative to the content/ folder (ex: "about.md"). */
-export async function loadContent(path: string): Promise<Content> {
+export async function loadContent(path: string, pg: PlangsGraph): Promise<Content> {
   const date = parseDate(basename(path));
   if (!date) throw new Error(`Post ${path} is missing a date in the filename.`);
 
@@ -42,24 +44,21 @@ export async function loadContent(path: string): Promise<Content> {
 
   if (!title || !author) throw new Error(`Post ${path} is missing a title or author in the YAML header.`);
 
-  let pills = "";
+  const pills = [render(<Pill key={date} nodeKey={date} kind={"--date--"} name={date} />, { pretty: true })];
   if (pls !== undefined) {
     if (!Array.isArray(pls)) throw new Error(`Post ${path} has an invalid pls field in the YAML header.`);
-
     if (pls.length > 0) {
-      pills = ` - ${pls
-        .map(pl => {
-          // TODO: render <Pill name={tool.name} nodeKey={tool.key} kind={tool.kind} />
-          const plainKey = pl.slice(3);
-          return `<a href="/${plainKey}" class="pill">${plainKey}</a>`;
-        })
-        .join(" ")}`;
+      for (const plKey of pls) {
+        const pl = pg.nodes.pl.get(plKey);
+        if (!pl) throw new Error(`Post ${path} references unknown PL ${plKey}`);
+        pills.push(render(<Pill key={pl.key} nodeKey={pl.key} kind={pl.kind} name={pl.name} />, { pretty: true }));
+      }
     }
   }
 
-  const md = `# ${title}\n\n${mdBody.replace(ZERO_WIDTH, "")}`;
-  const mdHtml = await marked.parse(md);
-  const html = `<p class="m-0 text-lg ${hideDate ? "hidden" : ""}">${date}${pills}</p>\n${mdHtml}`;
+  const pillsHtml = `<div class="${hideDate ? "hidden" : ""}">${pills.join("")}</div>`;
+  const md = `${pillsHtml}\n\n# ${title}\n\n${mdBody.replace(ZERO_WIDTH, "")}`;
+  const html = await marked.parse(md);
 
   return { title, author, pls: pls ?? [], date, html, basename: basename(path).replace(/\.md$/, "") };
 }
@@ -69,7 +68,7 @@ export async function loadContent(path: string): Promise<Content> {
  */
 export async function createNPosts(pg: PlangsGraph) {
   for await (const path of new Glob("*.md").scan(join(import.meta.dir, "../content/posts"))) {
-    const { title, author, pls, date, basename } = await loadContent(`posts/${path}`);
+    const { title, author, pls, date, basename } = await loadContent(`posts/${path}`, pg);
 
     const post = pg.nodes.post.set(`post+${basename}`, { path, title, author, date });
 
@@ -84,5 +83,5 @@ export async function createNPosts(pg: PlangsGraph) {
 
 export async function loadBlogPost(pg: PlangsGraph, key: NPost["key"]): Promise<Content | undefined> {
   const post = pg.nodes.post.get(key);
-  if (post?.path) return loadContent(`posts/${post.path}`);
+  if (post?.path) return loadContent(`posts/${post.path}`, pg);
 }
