@@ -24,6 +24,7 @@ export class PlangFilters {
 
     extensions: filter(({ extensions }, flt: Filter<string>) => flt.matches(key => extensions.includes(key))),
 
+    compilesTo: filter(({ relCompilesTo }, flt: Filter<NPlang["key"]>) => flt.matches(key => relCompilesTo.has(key))),
     dialectOf: filter(({ relDialectOf }, flt: Filter<NPlang["key"]>) => flt.matches(key => relDialectOf.has(key))),
     implements: filter(({ relImplements }, flt: Filter<NPlang["key"]>) => flt.matches(key => relImplements.has(key))),
     influenced: filter(({ relInfluenced }, flt: Filter<NPlang["key"]>) => flt.matches(key => relInfluenced.has(key))),

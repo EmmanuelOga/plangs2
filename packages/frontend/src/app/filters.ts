@@ -1,7 +1,7 @@
 import { Filter } from "@plangs/graph/auxiliar";
 import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, StrDate } from "@plangs/plangs";
 import { PlangFilters } from "@plangs/plangs/filter";
-import type { IDKey } from "@plangs/server/pages/dom";
+import type { IDKey } from "@plangs/server/elements";
 
 import { matchingInputSelByName } from "../components/input-sel";
 import { elem } from "../utils";
@@ -42,6 +42,7 @@ export function getFilters(): PlangFilters {
   }
 
   collect("dialectOf", getFilter<NPlang["key"]>, val => (flt.dialectOf.value = val));
+  collect("compilesTo", getFilter<NPlang["key"]>, val => (flt.compilesTo.value = val));
   collect("extensions", getFilter<string>, val => (flt.extensions.value = val));
   collect("implements", getFilter<NPlang["key"]>, val => (flt.implements.value = val));
   collect("influenced", getFilter<NPlang["key"]>, val => (flt.influenced.value = val));

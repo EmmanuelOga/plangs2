@@ -10,7 +10,7 @@ export type G = PlangsGraph;
 export type N = "app" | "bundle" | "lib" | "license" | "paradigm" | "pl" | "plat" | "post" | "tag" | "tool" | "tsys";
 
 // biome-ignore format: keep in one line.
-export type E = "bundle" | "dialect" | "impl" | "influence" | "lib" | "license" | "paradigm" | "plBundle" | "plat" | "post" | "tag" | "tool" | "tsys" | "writtenIn";
+export type E = "bundle" | "dialect" | "impl" | "influence" | "lib" | "license" | "paradigm" | "plBundle" | "plat" | "post" | "tag" | "tool" | "tsys" | "writtenIn" | "compilesTo";
 
 type AnyNode = NBase<N, CommonNodeData>;
 
@@ -38,6 +38,7 @@ export class PlangsGraph extends BaseGraph<N, E, G> {
   readonly edges = {
     app: this.#edgeMap(EApp),
     bundle: this.#edgeMap(EBundle),
+    compilesTo: this.#edgeMap(ECompilesTo),
     dialect: this.#edgeMap(EDialect),
     impl: this.#edgeMap(EImpl),
     influence: this.#edgeMap(EInfluence),
@@ -167,6 +168,12 @@ export class NPlang extends NBase<
     return this;
   }
 
+  addCompilesTo(others: NPlang["key"][]): this {
+    if (others.length > 0) this.data.isTranspiler = true;
+    for (const other of others) this.graph.edges.compilesTo.connect(this.key, other);
+    return this;
+  }
+
   addDialectOf(others: NPlang["key"][]): this {
     for (const other of others) this.graph.edges.dialect.connect(this.key, other);
     return this;
@@ -224,6 +231,10 @@ export class NPlang extends NBase<
 
   get relApps(): MapTap<NApp["key"], EApp> {
     return new MapTap(this.graph.edges.app.adjFrom.getMap(this.key));
+  }
+
+  get relCompilesTo(): MapTap<NPlang["key"], EDialect> {
+    return new MapTap(this.graph.edges.compilesTo.adjFrom.getMap(this.key));
   }
 
   get relDialectOf(): MapTap<NPlang["key"], EDialect> {
@@ -466,6 +477,18 @@ export class EBundle extends EBase<NBundle, NTool, CommonEdgeData> {
 
   get tool(): NTool | undefined {
     return this.graph.nodes.tool.get(this.to);
+  }
+}
+
+export class ECompilesTo extends EBase<NPlang, NPlang, CommonEdgeData> {
+  override kind: E = "compilesTo";
+
+  get fromPl(): NPlang | undefined {
+    return this.graph.nodes.pl.get(this.from);
+  }
+
+  get toPl(): NPlang | undefined {
+    return this.graph.nodes.pl.get(this.to);
   }
 }
 

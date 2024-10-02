@@ -1,4 +1,4 @@
-import { script, style, tw } from "@plangs/frontend/utils";
+import { tw } from "@plangs/frontend/utils";
 import type { N } from "@plangs/plangs/index";
 import { type ComponentChildren, h } from "preact";
 import { id } from "../elements";
@@ -101,6 +101,7 @@ export const INPUT_PROPS = {
   isMainstream: checkbox("Is Mainstream"),
   isTranspiler: checkbox("Is Transpiler"),
 
+  compilesTo: compl("Compiles To", "pl"),
   dialectOf: compl("Dialect Of", "pl"),
   implements: compl("Implements", "pl"),
   influenced: compl("Influenced", "pl"),
@@ -134,7 +135,7 @@ const INPUT_GROUPS = [
     group("Written In", ["writtenIn"]),
   ],
   [
-    group("Transpiler", ["isTranspiler"]),
+    group("Transpiler", ["isTranspiler", "compilesTo"]),
     group("Paradigms", ["paradigms"]),
     group("Platforms", ["platforms"]),
     group("Type Systems", ["typeSystems"]),
