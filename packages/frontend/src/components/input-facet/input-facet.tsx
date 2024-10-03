@@ -15,7 +15,14 @@ export function InputFacet({ pg, edge, dir }: InputFacetProps) {
 
   if (!emap) return <div>...</div>;
 
-  const tmp: [string, number][] = [...emap.keys()].map(key => [key, emap.getMap(key as any)?.size ?? 0]);
+  const tmp: [string, any][] = [...emap.keys()].map(key => {
+    const aux = emap.getMap(key as any);
+    if (!aux) return [key, ""];
+
+    const info = `${aux.size}`;
+
+    return [key, info];
+  });
 
   return (
     <div class="readable">
