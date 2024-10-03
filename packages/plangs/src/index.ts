@@ -465,11 +465,11 @@ export class EApp extends EBase<NPlang, NApp, CommonEdgeData> {
   override kind: E = "bundle";
 
   get nodeFrom(): NPlang | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get nodeTo(): NApp | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.app.get(this.to);
   }
 }
 
@@ -478,11 +478,11 @@ export class EBundle extends EBase<NBundle, NTool, CommonEdgeData> {
   override kind: E = "bundle";
 
   get nodeFrom(): NBundle | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.bundle.get(this.from);
   }
 
   get nodeTo(): NTool | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.tool.get(this.to);
   }
 }
 
@@ -490,11 +490,11 @@ export class ECompilesTo extends EBase<NPlang, NPlang, CommonEdgeData> {
   override kind: E = "compilesTo";
 
   get nodeFrom(): NPlang | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get nodeTo(): NPlang | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.pl.get(this.to);
   }
 }
 
@@ -502,11 +502,11 @@ export class EDialect extends EBase<NPlang, NPlang, CommonEdgeData> {
   override kind: E = "dialect";
 
   get nodeFrom(): NPlang | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get nodeTo(): NPlang | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.pl.get(this.to);
   }
 }
 
@@ -514,11 +514,11 @@ export class ELicense extends EBase<NPlang, NLicense, CommonEdgeData> {
   override kind: E = "license";
 
   get nodeFrom(): NPlang | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get nodeTo(): NLicense | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.license.get(this.to);
   }
 }
 
@@ -526,10 +526,11 @@ export class EImpl extends EBase<NPlang, NPlang, CommonEdgeData> {
   override kind: E = "impl";
 
   get nodeFrom(): NPlang | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.pl.get(this.from);
   }
+
   get nodeTo(): NPlang | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.pl.get(this.to);
   }
 }
 
@@ -537,11 +538,11 @@ export class EInfluence extends EBase<NPlang, NPlang, CommonEdgeData> {
   override kind: E = "influence";
 
   get nodeFrom(): NPlang | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get nodeTo(): NPlang | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.pl.get(this.to);
   }
 }
 
@@ -549,11 +550,11 @@ export class EParadigm extends EBase<NPlang, NParadigm, CommonEdgeData> {
   override kind: E = "paradigm";
 
   get nodeFrom(): NPlang | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get nodeTo(): NParadigm | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.paradigm.get(this.to);
   }
 }
 
@@ -561,18 +562,10 @@ export class ETsys extends EBase<NPlang, NTsys, CommonEdgeData> {
   override kind: E = "tsys";
 
   get nodeFrom(): NPlang | undefined {
-    throw new Error("Method not implemented.");
-  }
-
-  get nodeTo(): NTsys | undefined {
-    throw new Error("Method not implemented.");
-  }
-
-  get pl(): NPlang | undefined {
     return this.graph.nodes.pl.get(this.from);
   }
 
-  get tsys(): NTsys | undefined {
+  get nodeTo(): NTsys | undefined {
     return this.graph.nodes.tsys.get(this.to);
   }
 }
@@ -582,11 +575,11 @@ export class EPlBundle extends EBase<NPlang, NBundle, CommonEdgeData> {
   override kind: E = "plBundle";
 
   get nodeFrom(): NPlang | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get nodeTo(): NBundle | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.bundle.get(this.to);
   }
 }
 
@@ -594,11 +587,11 @@ export class EPlat extends EBase<NPlang, NPlatform, CommonEdgeData> {
   override kind: E = "plat";
 
   get nodeFrom(): NPlang | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get nodeTo(): NPlatform | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.plat.get(this.to);
   }
 }
 
@@ -606,11 +599,11 @@ export class EPost extends EBase<NPlang, NPost, CommonEdgeData> {
   override kind: E = "post";
 
   get nodeFrom(): NPlang | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get nodeTo(): NPost | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.post.get(this.to);
   }
 }
 
@@ -618,11 +611,11 @@ export class ELib extends EBase<NPlang, NLibrary, CommonEdgeData> {
   override kind: E = "lib";
 
   get nodeFrom(): NPlang | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get nodeTo(): NLibrary | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.lib.get(this.to);
   }
 }
 
@@ -630,11 +623,11 @@ export class ETag extends EBase<NPlang, NTag, CommonEdgeData> {
   override kind: E = "tag";
 
   get nodeFrom(): NPlang | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get nodeTo(): NTag | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.tag.get(this.to);
   }
 }
 
@@ -642,11 +635,11 @@ export class ETool extends EBase<NPlang, NTool, CommonEdgeData> {
   override kind: E = "tool";
 
   get nodeFrom(): NPlang | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get nodeTo(): NTool | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.tool.get(this.to);
   }
 }
 
@@ -654,11 +647,11 @@ export class EWrittenIn extends EBase<NPlang, NPlang, CommonEdgeData> {
   override kind: E = "writtenIn";
 
   get nodeFrom(): NPlang | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.pl.get(this.from);
   }
 
   get nodeTo(): NPlang | undefined {
-    throw new Error("Method not implemented.");
+    return this.graph.nodes.pl.get(this.to);
   }
 }
 
