@@ -13,9 +13,7 @@ export class Map2<K1, K2, V> {
   }
 
   get(k1: K1, k2: K2): V | undefined {
-    const m2 = this.#map.get(k1);
-    if (!m2) return undefined;
-    return m2.get(k2);
+    return this.#map.get(k1)?.get(k2);
   }
 
   getMap(k1: K1): Map<K2, V> | undefined {
@@ -24,7 +22,7 @@ export class Map2<K1, K2, V> {
 
   get size(): number {
     let size = 0;
-    for (const [_, map] of this.#map) size += map.size;
+    for (const map of this.#map.values()) size += map.size;
     return size;
   }
 
@@ -33,18 +31,24 @@ export class Map2<K1, K2, V> {
     return this.#map.keys();
   }
 
-  values(): V[] {
-    let values: V[] = [];
-    for (const [_, map] of this.#map) {
-      values = values.concat([...map.values()]);
+  entries(): IterableIterator<[K1, Map<K2, V>]> {
+    return this.#map.entries();
+  }
+
+  /** Returns all entries but also some value from the second dimension. */
+  *entries2(): Generator<[K1, V, Map<K2, V>]> {
+    for (const [k1, map] of this.#map.entries()) {
+      const anyVal = map.values().next().value as V;
+      yield [k1, anyVal, map];
     }
-    return values;
+  }
+
+  values(): V[] {
+    return [...this.#map.values()].flatMap(map => [...map.values()]);
   }
 
   has(k1: K1, k2: K2): boolean {
-    const m2 = this.#map.get(k1);
-    if (!m2) return false;
-    return m2.has(k2);
+    return this.#map.get(k1)?.has(k2) ?? false;
   }
 }
 

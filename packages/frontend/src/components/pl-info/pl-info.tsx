@@ -73,17 +73,17 @@ export function PlInfo({ pl, open, kind: plInfoKind }: PlInfoProps) {
 
 function relations(pl: NPlang) {
   const all = [
-    ["Type Systems", pl.relTsys.values.map(({ tsys }) => tsys)],
-    ["Tags", pl.relTags.values.map(({ tag }) => tag)],
-    ["Platforms", pl.relPlatforms.values.map(({ plat }) => plat)],
+    ["Type Systems", pl.relTsys.values.map(({ nodeTo }) => nodeTo)],
+    ["Tags", pl.relTags.values.map(({ nodeTo }) => nodeTo)],
+    ["Platforms", pl.relPlatforms.values.map(({ nodeTo }) => nodeTo)],
 
-    ["Influenced By", pl.relInfluencedBy.values.map(({ toPl }) => toPl)],
-    ["Influenced", pl.relInfluenced.values.map(({ fromPl }) => fromPl)],
-    ["Dialect Of", pl.relDialectOf.values.map(({ toPl }) => toPl)],
-    ["Implements", pl.relImplements.values.map(({ toPl }) => toPl)],
-    ["Compiles To", pl.relCompilesTo.values.map(({ toPl }) => toPl)],
+    ["Influenced By", pl.relInfluencedBy.values.map(({ nodeTo }) => nodeTo)],
+    ["Influenced", pl.relInfluenced.values.map(({ nodeFrom }) => nodeFrom)],
+    ["Dialect Of", pl.relDialectOf.values.map(({ nodeTo }) => nodeTo)],
+    ["Implements", pl.relImplements.values.map(({ nodeTo }) => nodeTo)],
+    ["Compiles To", pl.relCompilesTo.values.map(({ nodeTo }) => nodeTo)],
 
-    ["Licenses", pl.relLicenses.values.map(({ license }) => license)],
+    ["Licenses", pl.relLicenses.values.map(({ nodeTo }) => nodeTo)],
     ["Extensions", pl.extensions.map(name => ({ key: name, name, kind: "ext" }))],
   ] as const;
 

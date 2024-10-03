@@ -12,9 +12,9 @@ export type N = "app" | "bundle" | "lib" | "license" | "paradigm" | "pl" | "plat
 // biome-ignore format: keep in one line.
 export type E = "bundle" | "dialect" | "impl" | "influence" | "lib" | "license" | "paradigm" | "plBundle" | "plat" | "post" | "tag" | "tool" | "tsys" | "writtenIn" | "compilesTo";
 
-type AnyNode = NBase<N, CommonNodeData>;
+export type AnyNode = NBase<N, CommonNodeData>;
 
-type AnyEdge = EBase<AnyNode, AnyNode, CommonEdgeData>;
+export type AnyEdge = EBase<AnyNode, AnyNode, CommonEdgeData>;
 
 export class PlangsGraph extends BaseGraph<N, E, G> {
   #nodeMap = <TN extends AnyNode>(ctor: new (g: G, key: TN["key"]) => TN) => new NodeMap<G, TN>(key => new ctor(this, key));

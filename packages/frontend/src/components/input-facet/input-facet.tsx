@@ -1,4 +1,4 @@
-import type { E, PlangsGraph } from "@plangs/plangs/index";
+import type { AnyEdge, E, PlangsGraph } from "@plangs/plangs/index";
 
 export const TAG_NAME = "input-facet";
 
@@ -15,17 +15,17 @@ export function InputFacet({ pg, edge, dir }: InputFacetProps) {
 
   if (!emap) return <div>...</div>;
 
-  const tmp: [string, any][] = [...emap.keys()].map(key => {
-    const aux = emap.getMap(key as any);
-    if (!aux) return [key, ""];
-
-    const info = `${aux.size}`;
-
-    return [key, info];
+  const tmp: [string, number][] = [...emap.entries2()].map(([_, anyEdge, edges]) => {
+    const name = (dir === "direct" ? anyEdge.nodeTo : anyEdge.nodeFrom)?.name ?? "";
+    return [name, edges.size];
   });
 
+  tmp.sort((a, b) => a[0].localeCompare(b[0]));
+  tmp.sort((a, b) => b[1] - a[1]);
+
   return (
-    <div class="readable">
+    <div class="readable max-h-[20rem] overflow-x-hidden overflow-y-scroll">
+      <input type="text" placeholder="Facet" />
       <table>
         <thead>
           <tr>
@@ -36,7 +36,7 @@ export function InputFacet({ pg, edge, dir }: InputFacetProps) {
         {tmp.map(([key, count]) => (
           <tr key="key">
             <td>{key}</td>
-            <td>{count}</td>
+            <td class="text-center">{count}</td>
           </tr>
         ))}
       </table>
