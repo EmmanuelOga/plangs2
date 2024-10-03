@@ -70,16 +70,17 @@ function Input({ inputKey: key }: { inputKey: keyof typeof INPUT_PROPS }) {
 
   let inputElem = <input {...inputProps} type={input.kind} />;
   if (input.kind === "checkbox") inputElem = <input {...inputProps} type="checkbox" />;
-  if (input.kind === "compl") inputElem = h("input-compl", { ...inputProps, "data-kind": input.node } as Record<string, string>);
+  if (input.kind === "facet") inputElem = h("input-facet", { ...inputProps, "data-kind": input.node } as Record<string, string>);
 
-  const showSel = input.kind === "compl" || (input.kind === "search" && "inputSel" in input && input.inputSel);
-  return (
+  return input.kind === "facet" ? (
+    inputElem
+  ) : (
     <>
       <label for={inputProps.id} class={tw("block", "p-0")}>
         {input.kind === "checkbox" ? inputElem : <div>{label}</div>}
         {input.kind === "checkbox" ? label : inputElem}
       </label>
-      {showSel && h("input-sel", { name: key, class: tw("w-full", inputTextColor) })}
+      {input.kind === "search" && "inputSel" in input && input.inputSel && h("input-sel", { name: key, class: tw("w-full", inputTextColor) })}
     </>
   );
 }
@@ -87,7 +88,7 @@ function Input({ inputKey: key }: { inputKey: keyof typeof INPUT_PROPS }) {
 const search = (label: string, sel?: "trackSelection") => ({ label, input: { kind: "search", inputSel: sel === "trackSelection" } }) as const;
 const month = (label: string) => ({ label, input: { kind: "month" } }) as const;
 const checkbox = (label: string, value?: string) => ({ label, input: { kind: "checkbox", value } }) as const;
-const compl = (label: string, node: N) => ({ label, input: { kind: "compl", node } }) as const;
+const facet = (label: string, node: N) => ({ label, input: { kind: "facet", node } }) as const;
 
 export const INPUT_PROPS = {
   plangName: search("Lang Name"),
@@ -102,17 +103,17 @@ export const INPUT_PROPS = {
   isMainstream: checkbox("Is Mainstream"),
   isTranspiler: checkbox("Is Transpiler"),
 
-  compilesTo: compl("Compiles To", "pl"),
-  dialectOf: compl("Dialect Of", "pl"),
-  implements: compl("Implements", "pl"),
-  influenced: compl("Influenced", "pl"),
-  influencedBy: compl("Influenced By", "pl"),
-  licenses: compl("Licenses", "license"),
-  paradigms: compl("Paradigms", "paradigm"),
-  platforms: compl("Platforms", "plat"),
-  tags: compl("Tags", "tag"),
-  typeSystems: compl("Type System", "tsys"),
-  writtenIn: compl("Written In", "pl"),
+  compilesTo: facet("Compiles To", "pl"),
+  dialectOf: facet("Dialect Of", "pl"),
+  implements: facet("Implements", "pl"),
+  influenced: facet("Influenced", "pl"),
+  influencedBy: facet("Influenced By", "pl"),
+  licenses: facet("Licenses", "license"),
+  paradigms: facet("Paradigms", "paradigm"),
+  platforms: facet("Platforms", "plat"),
+  tags: facet("Tags", "tag"),
+  typeSystems: facet("Type System", "tsys"),
+  writtenIn: facet("Written In", "pl"),
 } as const;
 
 type Group = { title: string; keys: (keyof typeof INPUT_PROPS)[] };
@@ -124,17 +125,18 @@ const INPUT_GROUPS = [
     group("Creation Date", ["appearedAfter"]),
     group("Releases", ["hasReleases", "releasedAfter"]),
     group("File Extensions", ["extensions"]),
+    group("Popular", ["isMainstream"]),
+    group("Has Logo", ["hasLogo"]),
+    group("Has Wikipedia", ["hasWikipedia"]),
   ],
-  [group("Popular", ["isMainstream"]), group("Has Logo", ["hasLogo"]), group("Has Wikipedia", ["hasWikipedia"]), group("Licenses", ["licenses"])],
+  [group("Licenses", ["licenses"])],
 
+  [group("Dialect Of", ["dialectOf"])],
   [
-    group("Dialect Of", ["dialectOf"]),
     group("Implements", ["implements"]),
     group("Influenced By", ["influencedBy"]),
     group("Influenced", ["influenced"]),
     group("Written In", ["writtenIn"]),
-  ],
-  [
     group("Transpiler", ["isTranspiler", "compilesTo"]),
     group("Paradigms", ["paradigms"]),
     group("Platforms", ["platforms"]),

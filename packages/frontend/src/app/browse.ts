@@ -5,6 +5,7 @@ import type { N, NPlang, PlangsGraph } from "@plangs/plangs";
 import { id } from "@plangs/server/elements";
 
 import type { CompletionItem, InputComplElement } from "../components/input-compl";
+import type { InputFacetElement } from "../components/input-facet";
 import { matchingInputSelByName } from "../components/input-sel";
 import type { PlInfoElement } from "../components/pl-info";
 import { $$, elem, elems, minWidthBP, on, size } from "../utils";
@@ -27,6 +28,10 @@ export function startBrowseNav(pg: PlangsGraph) {
   if (!extensions || !extensionsSel || !plGrid || !plInfo || !toggle || thumbs.length === 0) {
     console.warn("Skipping PL browser, missing elements.", { extensions, extensionsSel, filters, plGrid, plInfo, toggle, thumbs });
     return;
+  }
+
+  for (const elem of $$<InputFacetElement>("input-facet")) {
+    elem.pg = pg;
   }
 
   //////////////////////////////////////////////////////////////////////////////////

@@ -37,7 +37,7 @@ export function getFilters(): PlangFilters {
   collect("isMainstream", getChecked, val => (flt.isMainstream.value = val));
 
   function getFilter<T>(input: HTMLElement): Filter<T> | undefined {
-    const filter = matchingInputSelByName(input)?.values();
+    const filter = undefined as any; // matchingInputSelByName(input)?.values();
     return filter ? new Filter<T>(filter.mode, filter.values as Set<T>) : undefined;
   }
 

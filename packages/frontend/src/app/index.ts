@@ -7,6 +7,7 @@ import { registerInputCompl } from "../components/input-compl";
 import { registerInputSel } from "../components/input-sel";
 import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
 
+import { registerInputFacet } from "../components/input-facet";
 import { elem } from "../utils";
 import { startBrowseNav } from "./browse";
 import { lastPlang } from "./last-plang";
@@ -26,6 +27,7 @@ function start() {
   registerPlangInfo();
   registerInputCompl();
   registerInputSel();
+  registerInputFacet();
 
   const pg = new PlangsGraph().loadJSON(pgData);
 
