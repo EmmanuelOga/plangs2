@@ -1,6 +1,7 @@
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
 import { customEvent, tw } from "../../utils";
+import { Anchor } from "../misc/anchor";
 import { Pill } from "../misc/pill";
 
 export const TAG_NAME = "pl-info";
@@ -25,21 +26,46 @@ export function PlInfo({ pl, open, kind: plInfoKind }: PlInfoProps) {
         "shadow-lg shadow-primary/25",
         "border-b-1 border-b-primary border-dotted",
       )}>
-      <h1 class={tw(forPl && "text-4xl", forBrowse && "inline text-lg sm:block sm:text-4xl")}>{pl?.name ?? ""}</h1>
-      <span class={tw(forBrowse ? "dash sm:hidden" : "hidden")}>&#8212;</span>
-      <p class={tw(forBrowse && "inline sm:block")}>{pl?.description || "..."}</p>
+      <h1 class={tw(forPl && "text-4xl", forBrowse && "inline text-lg sm:block sm:text-4xl")}>{pl?.name ?? "Plang"}</h1>
       {pl && (
-        <details class={tw("pb-4", forBrowse && "hidden sm:block")} open={open}>
-          <summary class="cursor-pointer text-xl">Details</summary>
-          {relations(pl).map(([title, iterTap]) => (
-            <div key={title}>
-              <h2 class="mt-4 text-xl">{title}</h2>
-              {iterTap.existing.map(({ name, key, kind }) => (
-                <Pill key={key} name={name} nodeKey={key} kind={kind} plInfoKind={plInfoKind} />
-              ))}
-            </div>
-          ))}
-        </details>
+        <>
+          <span class={tw(forBrowse ? "dash sm:hidden" : "hidden")}>&#8212;</span>
+          <div class={tw(forBrowse && "hidden")}>
+            {pl.firstAppeared && <Pill name={`Appeared ${pl.firstAppeared}`} nodeKey="NA" kind="firstAppeared" plInfoKind={plInfoKind} />}
+            {pl.lastRelease && (
+              <Pill name={`Last Rel ${pl.lastRelease.date ?? pl.lastRelease.version}`} nodeKey="NA" kind="firstAppeared" plInfoKind={plInfoKind} />
+            )}
+            {pl.isTranspiler && <Pill name="Transpiler" nodeKey="NA" kind="transpiler" plInfoKind={plInfoKind} />}
+            {pl.isMainstream && <Pill name="Mainstream" nodeKey="NA" kind="mainstream" plInfoKind={plInfoKind} />}
+          </div>
+          <p class={tw(forBrowse && "inline sm:block")}>{pl.description || "..."}</p>
+          <details class={tw("pb-4", forBrowse && "hidden sm:block")} open={open}>
+            <summary class="cursor-pointer text-xl">Details</summary>
+
+            {!pl.websites.isEmpty && (
+              <div>
+                <h2>Websites</h2>
+                {
+                  pl.websites.map(link => (
+                    <div key={link.href} class={tw("overflow-hidden text-ellipsis whitespace-nowrap")}>
+                      <Pill name={link.kind ?? "link"} nodeKey="NA" kind={link.kind ?? "link"} />
+                      <Anchor link={link} />
+                    </div>
+                  )).existing
+                }
+              </div>
+            )}
+
+            {relations(pl).map(([title, iterTap]) => (
+              <div key={title}>
+                <h2 class="mt-4 text-xl">{title}</h2>
+                {iterTap.existing.map(({ name, key, kind }) => (
+                  <Pill key={key} name={name} nodeKey={key} kind={kind} plInfoKind={plInfoKind} />
+                ))}
+              </div>
+            ))}
+          </details>
+        </>
       )}
     </div>
   );
@@ -50,10 +76,13 @@ function relations(pl: NPlang) {
     ["Type Systems", pl.relTsys.values.map(({ tsys }) => tsys)],
     ["Tags", pl.relTags.values.map(({ tag }) => tag)],
     ["Platforms", pl.relPlatforms.values.map(({ plat }) => plat)],
+
     ["Influenced By", pl.relInfluencedBy.values.map(({ toPl }) => toPl)],
     ["Influenced", pl.relInfluenced.values.map(({ fromPl }) => fromPl)],
     ["Dialect Of", pl.relDialectOf.values.map(({ toPl }) => toPl)],
-    ["Standard For", pl.relImplements.values.map(({ toPl }) => toPl)],
+    ["Implements", pl.relImplements.values.map(({ toPl }) => toPl)],
+    ["Compiles To", pl.relCompilesTo.values.map(({ toPl }) => toPl)],
+
     ["Licenses", pl.relLicenses.values.map(({ license }) => license)],
     ["Extensions", pl.extensions.map(name => ({ key: name, name, kind: "ext" }))],
   ] as const;

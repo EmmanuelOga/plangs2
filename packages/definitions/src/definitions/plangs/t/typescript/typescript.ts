@@ -13,6 +13,8 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/TypeScript", title: "TypeScript", kind: "wikipedia" },
       ],
       releases: [{ version: "5.5.4", date: "2024-01-01" }],
+      isMainstream: true,
+      isTranspiler: true,
     })
     .addInfluencedBy(["pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+javascript"])
     .addLicenses(["license+apache"])

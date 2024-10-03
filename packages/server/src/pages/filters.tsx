@@ -65,6 +65,7 @@ function Input({ inputKey: key }: { inputKey: keyof typeof INPUT_PROPS }) {
     id: id(key),
     class: tw(inputTextColor, input.kind === "checkbox" ? "-mt-1" : "w-full"),
     value: "value" in input ? input.value : undefined,
+    placeholder: label,
   };
 
   let inputElem = <input {...inputProps} type={input.kind} />;

@@ -78,8 +78,8 @@ export class IterTap<T> implements Iterable<T> {
     return new IterTap(this.array ? this.array.map(callback) : []);
   }
 
-  sort(): T[] {
-    return this.array ? [...this.array].sort() : [];
+  sort(cmp?: (a: T, b: T) => number): T[] {
+    return this.array ? [...this.array].sort(cmp) : [];
   }
 
   join(str: string): string {

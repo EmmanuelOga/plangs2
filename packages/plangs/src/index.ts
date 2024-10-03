@@ -153,6 +153,12 @@ export class NPlang extends NBase<
     return new IterTap(this.data.releases);
   }
 
+  get lastRelease(): Release | undefined {
+    const rel = this.releases.sort((r1, r2) => r2.date?.localeCompare(r1.date ?? "") ?? 0);
+    if (rel.length === 0) return undefined;
+    return rel[0];
+  }
+
   addExtensions(exts: string[]): this {
     arrayMerge((this.data.extensions ??= []), exts);
     return this;
