@@ -45,8 +45,8 @@ export function getFilters(): PlangFilters {
   collect("compilesTo", getFilter<NPlang["key"]>, val => (flt.compilesTo.value = val));
   collect("extensions", getFilter<string>, val => (flt.extensions.value = val));
   collect("implements", getFilter<NPlang["key"]>, val => (flt.implements.value = val));
-  collect("influenced", getFilter<NPlang["key"]>, val => (flt.influenced.value = val));
-  collect("influencedBy", getFilter<NPlang["key"]>, val => (flt.influencedBy.value = val));
+  // collect("influenced", getFilter<NPlang["key"]>, val => (flt.influenced.value = val));
+  // collect("influencedBy", getFilter<NPlang["key"]>, val => (flt.influencedBy.value = val));
   collect("licenses", getFilter<NLicense["key"]>, val => (flt.licenses.value = val));
   collect("paradigms", getFilter<NParadigm["key"]>, val => (flt.paradigms.value = val));
   collect("platforms", getFilter<NPlatform["key"]>, val => (flt.platforms.value = val));

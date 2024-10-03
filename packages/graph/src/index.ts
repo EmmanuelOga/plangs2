@@ -65,6 +65,10 @@ export abstract class Edge<T_Graph, T_From extends Node<T_Graph, Any, Any>, T_To
 
   abstract get nodeFrom(): T_From | undefined;
   abstract get nodeTo(): T_To | undefined;
+
+  toString(): string {
+    return `${this.from} -[${this.kind}]-> ${this.to}`;
+  }
 }
 
 /** Graph Node Map. */
