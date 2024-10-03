@@ -13,7 +13,7 @@ const ELEMENT_API = {};
 export type InputFacetElement = HTMLElement & InputFacetProps & typeof ELEMENT_API;
 
 export function registerInputFacet() {
-  const keys: (keyof InputFacetProps)[] = ["pg"];
+  const keys: (keyof InputFacetProps)[] = ["pg", "edge", "dir"];
   register(InputFacet, TAG_NAME, keys);
   Object.assign(window.customElements.get(TAG_NAME)?.prototype, ELEMENT_API);
 }

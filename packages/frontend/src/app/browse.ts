@@ -1,7 +1,7 @@
 import { debounce } from "lodash-es";
 import "preact/debug";
 
-import type { N, NPlang, PlangsGraph } from "@plangs/plangs";
+import type { E, N, NPlang, PlangsGraph } from "@plangs/plangs";
 import { id } from "@plangs/server/elements";
 
 import type { CompletionItem, InputComplElement } from "../components/input-compl";
@@ -32,6 +32,8 @@ export function startBrowseNav(pg: PlangsGraph) {
 
   for (const elem of $$<InputFacetElement>("input-facet")) {
     elem.pg = pg;
+    elem.edge = elem.dataset.edge as E;
+    elem.dir = elem.dataset.dir === "inverse" ? "inverse" : "direct";
   }
 
   //////////////////////////////////////////////////////////////////////////////////
