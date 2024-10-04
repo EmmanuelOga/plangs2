@@ -35,7 +35,7 @@ function InputGroup({ title, children }: { title: string; children: ComponentChi
         "group",
         "cursor-pointer select-none",
 
-        "shadow-md shadow-secondary hover:shadow-primary/50",
+        "shadow-md shadow-secondary hover:shadow-primary",
         "bg-white/95 text-slate-950",
       )}>
       <summary
@@ -44,8 +44,8 @@ function InputGroup({ title, children }: { title: string; children: ComponentChi
           "overflow-hidden text-ellipsis whitespace-nowrap",
           "text-xs sm:text-lg",
 
-          "bg-secondary group-hover:bg-primary",
-          "text-foreground/90 group-hover:text-background",
+          "bg-secondary group-hover:underline",
+          "text-foreground/90 group-hover:text-foreground",
           "border-1 border-foreground/50 group-hover:border-bacground/50",
         )}>
         {title}
