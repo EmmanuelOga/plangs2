@@ -81,7 +81,6 @@ export function startBrowseNav(pg: PlangsGraph) {
 
   function updatePlangs() {
     if (thumbs.length === 0 || plGrid === undefined) return;
-
     const filters = getFilters();
     const plKeys = pg.plangs(filters);
     let widthThumb: number | undefined;
@@ -92,9 +91,6 @@ export function startBrowseNav(pg: PlangsGraph) {
       if (visible) widthThumb ??= size(div)[0];
     }
     if (widthThumb !== undefined) adjustGrid(plGrid, widthThumb, plKeys.size);
-
-    // Push the filters to the URL to allow sharing.
-    window.location.hash = RISON.stringify(filters.encodable());
   }
   updatePlangs();
 
@@ -121,9 +117,16 @@ export function startBrowseNav(pg: PlangsGraph) {
   //////////////////////////////////////////////////////////////////////////////////
   // On input change, re-filter the list of languages.
 
+  // Push the filters to the URL to allow sharing.
+  const updateFragment = () => (window.location.hash = RISON.stringify(getFilters().encodable()));
+
+  // We don't need to do this as often.
+  const debouncedUpdateFragment = debounce(updateFragment, 250);
+
   on(filters, "input", ({ target }: InputEvent) => {
     if ((target as HTMLInputElement)?.matches(`#${id("extensions")}`)) return;
     debouncedUpdatePlangs();
+    debouncedUpdateFragment();
   });
 
   //////////////////////////////////////////////////////////////////////////////////
