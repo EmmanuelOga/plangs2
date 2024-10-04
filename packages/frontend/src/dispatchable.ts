@@ -12,7 +12,7 @@ export abstract class Dispatchable<T> {
     return clone;
   }
 
-  update() {
+  dispatch() {
     if (!this.dispatcher) throw new Error("No dispatcher. Did you forget to call useDispatchable?");
     this.dispatcher(this.clone());
   }

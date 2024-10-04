@@ -1,10 +1,4 @@
-export type State = {
-  inputName: string;
-  cssClass?: string;
-  selected: Item[];
-  onAdd: (item: Item) => void;
-  onRemove: (data: ItemRemoved) => void;
-};
+import { Dispatchable } from "@plangs/frontend/dispatchable";
 
 export type Item = {
   value: unknown;
@@ -15,46 +9,54 @@ export type ItemRemoved = {
   by: "click" | "enterKey";
   index: number;
   inputName: string;
-  item: Item;
+  removed: Item;
   itemsLeft: number;
 };
 
-export type ActionUpdate = { kind: "update"; inputName: string; cssClass?: string };
-export type ActionAdd = { kind: "add"; item: Item };
-export type ActionRemove = { kind: "remove"; value: Item["value"]; by: ItemRemoved["by"] };
-export type Actions = ActionAdd | ActionRemove | ActionUpdate;
-
-export function reducer(state: State, action: Actions): State {
-  const { selected } = state;
-
-  if (action.kind === "add") {
-    const existing = selected.find(({ value }) => value === action.item.value);
-    if (existing) return state;
-    state.onAdd(action.item);
-    return { ...state, selected: [...selected, action.item] };
+export class InputSelState extends Dispatchable<{
+  cssClass?: string;
+  inputName: string;
+  onAdd: (item: Item) => void;
+  onRemove: (data: ItemRemoved) => void;
+  selected: Item[];
+}> {
+  add(item: Item) {
+    if (this.has(item.value)) return;
+    this.selected.push(item);
+    this.data.onAdd(item);
+    this.dispatch();
   }
 
-  if (action.kind === "remove") {
-    let idx: number | undefined;
-    const filtered = selected.filter(({ value }, index) => {
-      if (value !== action.value) return true;
-      idx = index;
+  remove(value: Item["value"], by: ItemRemoved["by"]) {
+    const { removed, index, filtered } = this.selectedWithout(value);
+    if (!removed) return;
+    this.data.selected = filtered;
+    this.data.onRemove({ by, removed, index, inputName: this.data.inputName, itemsLeft: filtered.length });
+    this.dispatch();
+  }
+
+  update(inputName: string, cssClass?: string) {
+    this.data.inputName = inputName;
+    this.data.cssClass = cssClass;
+    this.dispatch();
+  }
+
+  get selected(): Item[] {
+    return this.data.selected;
+  }
+
+  has(value: Item["value"]): boolean {
+    return this.selected.some(item => item.value === value);
+  }
+
+  selectedWithout(value: Item["value"]): { index: number; removed?: Item; filtered: Item[] } {
+    const result = { index: -1, removed: undefined as Item | undefined, filtered: [] as Item[] };
+    result.filtered = this.selected.filter((item, index) => {
+      if (item.value !== value) return true;
+      result.removed = item;
+      result.index = index;
       return false;
     });
-    if (idx === undefined) return state;
-    state.onRemove({
-      index: idx,
-      item: selected[idx],
-      itemsLeft: filtered.length,
-      by: action.by,
-      inputName: state.inputName,
-    });
-    return { ...state, selected: filtered };
+    return result;
   }
-
-  if (action.kind === "update") {
-    return { ...state, inputName: action.inputName, cssClass: action.cssClass };
-  }
-
-  return state;
 }

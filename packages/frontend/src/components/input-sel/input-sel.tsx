@@ -1,9 +1,10 @@
 import type { Ref } from "preact";
-import { useEffect, useReducer, useRef } from "preact/hooks";
+import { useEffect, useRef } from "preact/hooks";
 
 import { customEvent, elem, on, send, tw, withinContainer } from "../../utils";
 
-import { type Item, type ItemRemoved, reducer } from "./reducer";
+import { useDispatchable } from "@plangs/frontend/dispatchable";
+import { InputSelState, type Item, type ItemRemoved } from "./reducer";
 
 export const TAG_NAME = "input-sel";
 
@@ -16,26 +17,29 @@ export function InputSel({ name, class: cssClass }: InputSelProps) {
   const self = useRef<HTMLDivElement>();
   const lastRemoved = useRef<ItemRemoved>();
 
-  const [state, dispatch] = useReducer(reducer, {
-    inputName: name,
-    selected: [],
-    onAdd() {
-      send(self.current?.parentElement, EVENTS.outInput.create());
-      // Ensure the last added item is visible.
-      setTimeout(() => {
-        const [li, filters] = [self.current?.querySelector("ul :last-child"), elem("filters")];
-        if (li && filters && !withinContainer(li, filters)) li.parentElement?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      }, 30);
-    },
-    onRemove(data: ItemRemoved) {
-      lastRemoved.current = data;
-      send(self.current?.parentElement, EVENTS.outRemove.create(data));
-      send(self.current?.parentElement, EVENTS.outInput.create());
-    },
-  });
+  const state = useDispatchable(
+    new InputSelState({
+      inputName: name,
+      selected: [],
+      onAdd() {
+        send(self.current?.parentElement, EVENTS.outInput.create());
+        // Ensure the last added item is visible.
+        setTimeout(() => {
+          const [li, filters] = [self.current?.querySelector("ul :last-child"), elem("filters")];
+          if (li && filters && !withinContainer(li, filters)) li.parentElement?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }, 30);
+      },
+      onRemove(data: ItemRemoved) {
+        lastRemoved.current = data;
+        send(self.current?.parentElement, EVENTS.outRemove.create(data));
+        send(self.current?.parentElement, EVENTS.outInput.create());
+      },
+    }),
+  );
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: state is a dispatchable.
   useEffect(() => {
-    dispatch({ kind: "update", inputName: name, cssClass });
+    state.update(name, cssClass);
   }, [name, cssClass]);
 
   // Setup event listener to add items.
@@ -44,7 +48,7 @@ export function InputSel({ name, class: cssClass }: InputSelProps) {
     if (!root) return;
     const handler = (ev: CustomEvent) => {
       if (!EVENTS.inAdd.valid(ev)) return console.warn("Invalid event data on:", ev);
-      dispatch({ kind: "add", item: ev.detail as Item });
+      state.add(ev.detail as Item);
     };
     return on(root, EVENTS.inAdd.type, handler);
   });
@@ -76,9 +80,9 @@ export function InputSel({ name, class: cssClass }: InputSelProps) {
             data-value={value}
             class="p-2"
             aria-label="remove"
-            onClick={() => dispatch({ kind: "remove", value, by: "click" })}
+            onClick={() => state.remove(value, "click")}
             onKeyDown={ev => {
-              if (ev.key === "Enter") dispatch({ kind: "remove", value, by: "enterKey" });
+              if (ev.key === "Enter") state.remove(value, "enterKey");
             }}>
             ❌ {label}
           </li>
