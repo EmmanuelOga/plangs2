@@ -18,7 +18,7 @@ export function startBrowseNav(pg: PlangsGraph) {
   if (!filters) return;
 
   const extensions = elem<HTMLInputElement>("extensions");
-  const extensionsSel = matchingInputSelByName(extensions);
+  const extensionsSel = matchingInputSelByName(extensions?.getAttribute("name"));
   const plGrid = elem<HTMLDivElement>("plGrid");
   const plInfo = elem<PlInfoElement>("plInfo");
   const toggle = elem("filterToggle");

@@ -16,6 +16,8 @@ export type InputFacetProps = {
 
 export const TAG_NAME = "input-facet";
 
+const CLICKTXT = tw("w-full cursor-pointer", "hover:text-secondary hover:underline", "overflow-hidden text-ellipsis whitespace-nowrap");
+
 export function InputFacet({ pg, edge, dir }: InputFacetProps) {
   if (!pg || !edge || !dir) return <div>...</div>;
 
@@ -34,17 +36,17 @@ export function InputFacet({ pg, edge, dir }: InputFacetProps) {
 
   return (
     <div>
-      <div class={tw("mb-4", "max-h-[20rem]", "overflow-x-hidden overflow-y-scroll")}>
+      <div class={tw("mb-4", "max-h-[15rem]", "overflow-x-hidden overflow-y-scroll")}>
         <table class={tw("readable w-full max-w-[unset]")}>
           <thead class="sticky top-0 bg-foreground">
             <tr>
-              <th>
-                <button class="w-full text-left italic" type="button" onClick={toggleFacet} onKeyDown={toggleFacet}>
+              <th class="pt-1">
+                <button class={tw(CLICKTXT, "text-left italic")} type="button" onClick={toggleFacet} onKeyDown={toggleFacet}>
                   Facet
                 </button>
               </th>
               <th>
-                <button class="w-full text-center italic" type="button" onClick={toggleCount} onKeyDown={toggleCount}>
+                <button class={tw(CLICKTXT, "text-left italic")} type="button" onClick={toggleCount} onKeyDown={toggleCount}>
                   Count
                 </button>
               </th>
@@ -54,11 +56,11 @@ export function InputFacet({ pg, edge, dir }: InputFacetProps) {
             {[...state.entries()].map(entry => (
               <tr key={entry.value}>
                 <td>
-                  <button type="button" onClick={() => addEntry(entry)}>
+                  <button type="button" class={tw(CLICKTXT, "text-left")} onClick={() => addEntry(entry)}>
                     {entry.label}
                   </button>
                 </td>
-                <td class="w-[4rem] text-center">{entry.count}</td>
+                <td class="w-[4rem] text-left">{entry.count}</td>
               </tr>
             ))}
           </tbody>
@@ -66,7 +68,7 @@ export function InputFacet({ pg, edge, dir }: InputFacetProps) {
       </div>
 
       {/* @ts-ignore TODO: need to add the definition so preact won't complain. */}
-      {h("input-sel", { ref: selectionRef, name: `${edge}-${dir}-selection` })}
+      {h("input-sel", { ref: selectionRef, name: `${edge}-${dir}` })}
     </div>
   );
 }

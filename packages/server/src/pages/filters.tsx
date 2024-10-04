@@ -31,7 +31,6 @@ export function PlFilters({ class: cssClass }: { class: string }) {
 function InputGroup({ title, children }: { title: string; children: ComponentChildren }) {
   return (
     <details
-      open={true}
       class={tw(
         "group",
         "cursor-pointer select-none",
@@ -71,7 +70,7 @@ function Input({ inputKey: key }: { inputKey: keyof typeof INPUT_PROPS }) {
   let inputElem = <input {...inputProps} type={input.kind} />;
   if (input.kind === "checkbox") inputElem = <input {...inputProps} type="checkbox" />;
   if (input.kind === "facet")
-    inputElem = h("input-facet", { ...inputProps, "data-edge": input.edge, "data-dir": input.dir } as Record<string, string>);
+    inputElem = h("input-facet", { ...inputProps, name: input.edge, "data-edge": input.edge, "data-dir": input.dir } as Record<string, string>);
 
   return input.kind === "facet" ? (
     inputElem
@@ -107,8 +106,8 @@ export const INPUT_PROPS = {
   compilesTo: facet("Compiles To", "compilesTo"),
   dialectOf: facet("Dialect Of", "dialect"),
   implements: facet("Implements", "impl"),
-  // influenced: facet("Influenced", "influence", "inverse"),
-  // influencedBy: facet("Influenced By", "influence"),
+  influenced: facet("Influenced", "influence", "inverse"),
+  influencedBy: facet("Influenced By", "influence"),
   licenses: facet("Licenses", "license"),
   paradigms: facet("Paradigms", "paradigm"),
   platforms: facet("Platforms", "plat"),
@@ -126,22 +125,10 @@ const INPUT_GROUPS = [
     group("Creation Date", ["appearedAfter"]),
     group("Releases", ["hasReleases", "releasedAfter"]),
     group("File Extensions", ["extensions"]),
-    group("Popular", ["isMainstream"]),
-    group("Has Logo", ["hasLogo"]),
-    group("Has Wikipedia", ["hasWikipedia"]),
-  ],
-  [group("Licenses", ["licenses"])],
-
-  [group("Dialect Of", ["dialectOf"])],
-  [
-    group("Implements", ["implements"]),
-    // group("Influenced By", ["influencedBy"]),
-    // group("Influenced", ["influenced"]),
-    group("Written In", ["writtenIn"]),
-    group("Transpiler", ["isTranspiler", "compilesTo"]),
-    group("Paradigms", ["paradigms"]),
-    group("Platforms", ["platforms"]),
-    group("Type Systems", ["typeSystems"]),
+    group("Logo/Wikipedia/Popular", ["hasLogo", "hasWikipedia", "isMainstream"]),
     group("Tags", ["tags"]),
   ],
+  [group("Dialect Of", ["dialectOf"]), group("Implements", ["implements"]), group("Written In", ["writtenIn"])],
+  [group("Transpiler", ["isTranspiler", "compilesTo"]), group("Influenced By", ["influencedBy"]), group("Influenced", ["influenced"])],
+  [group("Paradigms", ["paradigms"]), group("Platforms", ["platforms"]), group("Type Systems", ["typeSystems"]), group("Licenses", ["licenses"])],
 ] as Group[][];

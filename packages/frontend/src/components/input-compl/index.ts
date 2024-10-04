@@ -27,7 +27,7 @@ const ELEMENT_API = {
   },
 
   matchingInputSel(this: HTMLElement & InputComplProps): InputSelElement | null {
-    return matchingInputSelByName(this);
+    return matchingInputSelByName(this?.getAttribute("name"));
   },
 } as const;
 

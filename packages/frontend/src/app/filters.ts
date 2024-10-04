@@ -37,7 +37,8 @@ export function getFilters(): PlangFilters {
   collect("isMainstream", getChecked, val => (flt.isMainstream.value = val));
 
   function getFilter<T>(input: HTMLElement): Filter<T> | undefined {
-    const filter = undefined as any; // matchingInputSelByName(input)?.values();
+    const [name, dir] = [input?.getAttribute("name"), input?.dataset.dir];
+    const filter = matchingInputSelByName(dir ? `${name}-${dir}` : name)?.values();
     return filter ? new Filter<T>(filter.mode, filter.values as Set<T>) : undefined;
   }
 
@@ -45,8 +46,8 @@ export function getFilters(): PlangFilters {
   collect("compilesTo", getFilter<NPlang["key"]>, val => (flt.compilesTo.value = val));
   collect("extensions", getFilter<string>, val => (flt.extensions.value = val));
   collect("implements", getFilter<NPlang["key"]>, val => (flt.implements.value = val));
-  // collect("influenced", getFilter<NPlang["key"]>, val => (flt.influenced.value = val));
-  // collect("influencedBy", getFilter<NPlang["key"]>, val => (flt.influencedBy.value = val));
+  collect("influenced", getFilter<NPlang["key"]>, val => (flt.influenced.value = val));
+  collect("influencedBy", getFilter<NPlang["key"]>, val => (flt.influencedBy.value = val));
   collect("licenses", getFilter<NLicense["key"]>, val => (flt.licenses.value = val));
   collect("paradigms", getFilter<NParadigm["key"]>, val => (flt.paradigms.value = val));
   collect("platforms", getFilter<NPlatform["key"]>, val => (flt.platforms.value = val));
