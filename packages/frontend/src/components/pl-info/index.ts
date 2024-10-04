@@ -4,17 +4,10 @@
 
 import register from "preact-custom-element";
 
-import type { PlangsGraph } from "@plangs/plangs";
-
-import { send } from "../../utils";
-import { EVENTS, PlInfo, type PlInfoProps, TAG_NAME } from "./pl-info";
+import { PlInfo, type PlInfoProps, TAG_NAME } from "./pl-info";
 
 /** Additional methods for the custom element. */
-const ELEMENT_API = {
-  setDataSource(this: HTMLElement & PlInfoProps, pg: PlangsGraph): void {
-    send(this, EVENTS.inSetData.create(pg));
-  },
-};
+const ELEMENT_API = {} as const;
 
 export type PlInfoElement = HTMLElement & PlInfoProps & typeof ELEMENT_API;
 

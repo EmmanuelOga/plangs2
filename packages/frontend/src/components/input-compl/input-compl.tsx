@@ -118,4 +118,4 @@ export const EVENTS = {
     type: `${TAG_NAME}:select`,
     create: (detail: ItemSelected) => customEvent(EVENTS.outSelect.type, detail),
   },
-};
+} as const;

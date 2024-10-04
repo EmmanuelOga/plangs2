@@ -8,7 +8,7 @@ import { TAG_NAME } from "./input-facet";
 import { InputFacet, type InputFacetProps } from "./input-facet";
 
 /** Additional methods for the custom element. */
-const ELEMENT_API = {};
+const ELEMENT_API = {} as const;
 
 export type InputFacetElement = HTMLElement & InputFacetProps & typeof ELEMENT_API;
 

@@ -14,12 +14,13 @@ export type ItemRemoved = {
 };
 
 export class InputSelState extends Dispatchable<{
-  cssClass?: string;
   inputName: string;
   onAdd: (item: Item) => void;
   onRemove: (data: ItemRemoved) => void;
   selected: Item[];
 }> {
+  /** Actions */
+
   add(item: Item) {
     if (this.has(item.value)) return;
     this.selected.push(item);
@@ -35,11 +36,13 @@ export class InputSelState extends Dispatchable<{
     this.dispatch();
   }
 
-  update(inputName: string, cssClass?: string) {
-    this.data.inputName = inputName;
-    this.data.cssClass = cssClass;
+  update(name: string) {
+    if (this.data.inputName === name) return;
+    this.data.inputName = name;
     this.dispatch();
   }
+
+  /** Queries */
 
   get selected(): Item[] {
     return this.data.selected;

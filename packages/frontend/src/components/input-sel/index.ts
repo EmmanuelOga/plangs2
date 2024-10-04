@@ -29,7 +29,7 @@ const ELEMENT_API = {
     const values = [...this.querySelectorAll("li")].map(el => el.getAttribute("data-value")).filter(v => v) as string[];
     return { mode, values: new Set(values) };
   },
-};
+} as const;
 
 /** Convention: both <input-sel/> and it's source input element should have matching "name" attribute. */
 export function matchingInputSelByName(elem?: HTMLElement): InputSelElement | null {

@@ -12,7 +12,7 @@ export type InputFacetProps = {
 class FacetState extends Dispatchable<{ count: number }> {
   increment() {
     this.data.count++;
-    this.update();
+    this.dispatch();
   }
 
   decrement() {
@@ -70,4 +70,4 @@ export function InputFacet({ pg, edge, dir }: InputFacetProps) {
   );
 }
 
-export const EVENTS = {};
+export const EVENTS = {} as const;

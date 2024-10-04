@@ -29,7 +29,7 @@ const ELEMENT_API = {
   matchingInputSel(this: HTMLElement & InputComplProps): InputSelElement | null {
     return matchingInputSelByName(this);
   },
-};
+} as const;
 
 export type InputComplElement = HTMLElement & InputComplProps & typeof ELEMENT_API;
 

@@ -38,20 +38,15 @@ export function InputSel({ name, class: cssClass }: InputSelProps) {
   );
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: state is a dispatchable.
-  useEffect(() => {
-    state.update(name, cssClass);
-  }, [name, cssClass]);
+  useEffect(() => state.update(name), [name]);
 
   // Setup event listener to add items.
-  useEffect(() => {
-    const root = self.current?.parentElement;
-    if (!root) return;
-    const handler = (ev: CustomEvent) => {
+  useEffect(() =>
+    on(self.current?.parentElement, EVENTS.inAdd.type, (ev: CustomEvent) => {
       if (!EVENTS.inAdd.valid(ev)) return console.warn("Invalid event data on:", ev);
       state.add(ev.detail as Item);
-    };
-    return on(root, EVENTS.inAdd.type, handler);
-  });
+    }),
+  );
 
   // Handle focus after removing an item.
   useEffect(() => {
@@ -114,4 +109,4 @@ export const EVENTS = {
     type: "input",
     create: () => new Event(EVENTS.outInput.type, { bubbles: true, composed: true }),
   },
-};
+} as const;

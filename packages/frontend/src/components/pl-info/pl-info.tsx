@@ -90,10 +90,4 @@ function relations(pl: NPlang) {
   return all.filter(([_, iterTap]) => iterTap.isEmpty === false);
 }
 
-export const EVENTS = {
-  /** Incoming event: setup the component with a PlangsGraph. */
-  inSetData: {
-    type: `${TAG_NAME}:set-data`,
-    create: (pg: PlangsGraph) => customEvent(EVENTS.inSetData.type, pg),
-  },
-};
+export const EVENTS = {} as const;
