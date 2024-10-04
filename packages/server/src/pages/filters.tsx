@@ -126,9 +126,14 @@ const INPUT_GROUPS = [
     group("Releases", ["hasReleases", "releasedAfter"]),
     group("File Extensions", ["extensions"]),
     group("Logo/Wikipedia/Popular", ["hasLogo", "hasWikipedia", "isMainstream"]),
+  ],
+  [
+    group("Transpiler", ["isTranspiler", "compilesTo"]),
     group("Tags", ["tags"]),
+    group("Paradigms", ["paradigms"]),
+    group("Platforms", ["platforms"]),
+    group("Type Systems", ["typeSystems"]),
   ],
   [group("Dialect Of", ["dialectOf"]), group("Implements", ["implements"]), group("Written In", ["writtenIn"])],
-  [group("Transpiler", ["isTranspiler", "compilesTo"]), group("Influenced By", ["influencedBy"]), group("Influenced", ["influenced"])],
-  [group("Paradigms", ["paradigms"]), group("Platforms", ["platforms"]), group("Type Systems", ["typeSystems"]), group("Licenses", ["licenses"])],
+  [group("Influenced By", ["influencedBy"]), group("Influenced", ["influenced"]), group("Licenses", ["licenses"])],
 ] as Group[][];
