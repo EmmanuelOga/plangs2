@@ -1,5 +1,10 @@
+import { h } from "preact";
+
 import { Dispatchable, useDispatchable } from "@plangs/frontend/dispatchable";
+import { tw } from "@plangs/frontend/utils";
 import type { E, PlangsGraph } from "@plangs/plangs/index";
+import { useRef } from "preact/hooks";
+import type { InputSelElement } from "../input-sel";
 
 export const TAG_NAME = "input-facet";
 
@@ -58,37 +63,50 @@ export function InputFacet({ pg, edge, dir }: InputFacetProps) {
   if (!pg || !edge || !dir) return <div>...</div>;
 
   const state = useDispatchable(new InputFacetState({ pg, edge, dir, entries: [], order: "facet-asc" }).generateEntries());
+  const selRef = useRef<InputSelElement | undefined>();
 
   const toggleFacet = () => state.toggleOrder("facet");
   const toggleCount = () => state.toggleOrder("count");
 
+  const addEntry = (value: string) => {
+    selRef.current?.addItem({ value, label: value });
+  };
+
   return (
-    <div class="readable max-h-[30rem] overflow-x-hidden overflow-y-scroll">
-      <input type="text" placeholder="Facet" />
-      <table>
-        <thead>
-          <tr>
-            <th>
-              <button class="italic" type="button" onClick={toggleFacet} onKeyDown={toggleFacet}>
-                Facet
-              </button>
-            </th>
-            <th>
-              <button class="italic" type="button" onClick={toggleCount} onKeyDown={toggleCount}>
-                Count
-              </button>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {state.entries.map(([key, count]) => (
-            <tr key={`${edge}-${dir}-${key}`}>
-              <td>{key}</td>
-              <td class="text-center">{count}</td>
+    <div>
+      <div class={tw("mb-4", "max-h-[20rem]", "overflow-x-hidden overflow-y-scroll")}>
+        <table class={tw("readable")}>
+          <thead class="sticky top-0">
+            <tr>
+              <th>
+                <button class="w-full text-left italic" type="button" onClick={toggleFacet} onKeyDown={toggleFacet}>
+                  Facet
+                </button>
+              </th>
+              <th>
+                <button class="w-full text-center italic" type="button" onClick={toggleCount} onKeyDown={toggleCount}>
+                  Count
+                </button>
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {state.entries.map(([add, count]) => (
+              <tr key={add}>
+                <td>
+                  <button type="button" onClick={() => addEntry(add)}>
+                    {add}
+                  </button>
+                </td>
+                <td class="text-center">{count}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* @ts-ignore TODO: need to add the definition so preact won't complain. */}
+      {h("input-sel", { ref: selRef, name: `${edge}-${dir}-selection` })}
     </div>
   );
 }
