@@ -9,56 +9,79 @@ export type InputFacetProps = {
   dir?: "direct" | "inverse";
 };
 
-class FacetState extends Dispatchable<{ count: number }> {
-  increment() {
-    this.data.count++;
-    this.dispatch();
+type Order = "facet-asc" | "facet-desc" | "count-asc" | "count-desc";
+type Entry = [string, number];
+type Cmp = (a: Entry, b: Entry) => number;
+
+class InputFacetState extends Dispatchable<Required<InputFacetProps> & { entries: Entry[]; order: Order }> {
+  get entries() {
+    return this.data.entries;
   }
 
-  decrement() {
-    this.data.count--;
+  generateEntries(): this {
+    this.data.entries = [];
+
+    const { pg, edge, dir } = this.data;
+    const emap = dir === "direct" ? pg.edges[edge].adjTo : pg.edges[edge].adjFrom;
+    if (!emap) return this;
+
+    this.data.entries = [...emap.entries2()].map(([_, anyEdge, edges]) => {
+      const name = (dir === "direct" ? anyEdge.nodeTo : anyEdge.nodeFrom)?.name ?? "";
+      return [name, edges.size];
+    });
+    this.sort();
+    return this;
+  }
+
+  sort() {
+    const { entries, order } = this.data;
+    const cmp: Cmp =
+      order === "facet-asc"
+        ? (a, b) => a[0].localeCompare(b[0])
+        : order === "facet-desc"
+          ? (a, b) => b[0].localeCompare(a[0])
+          : order === "count-asc"
+            ? (a, b) => a[1] - b[1]
+            : (a, b) => b[1] - a[1];
+    entries.sort(cmp);
+  }
+
+  toggleOrder(which: "facet" | "count") {
+    const { order } = this.data;
+    this.data.order = which === "facet" ? (order === "facet-asc" ? "facet-desc" : "facet-asc") : order === "count-desc" ? "count-asc" : "count-desc";
+    this.sort();
+    this.dispatch();
   }
 }
 
 export function InputFacet({ pg, edge, dir }: InputFacetProps) {
   if (!pg || !edge || !dir) return <div>...</div>;
 
-  const state = useDispatchable(new FacetState({ count: 0 }));
+  const state = useDispatchable(new InputFacetState({ pg, edge, dir, entries: [], order: "facet-asc" }).generateEntries());
 
-  const emap = dir === "direct" ? pg.edges[edge].adjTo : pg.edges[edge].adjFrom;
-
-  if (!emap) return <div>...</div>;
-
-  const tmp: [string, number][] = [...emap.entries2()].map(([_, anyEdge, edges]) => {
-    const name = (dir === "direct" ? anyEdge.nodeTo : anyEdge.nodeFrom)?.name ?? "";
-    return [name, edges.size];
-  });
-
-  // tmp.sort((a, b) => a[0].localeCompare(b[0]));
-  tmp.sort((a, b) => b[1] - a[1]);
+  const toggleFacet = () => state.toggleOrder("facet");
+  const toggleCount = () => state.toggleOrder("count");
 
   return (
-    <div class="readable max-h-[20rem] overflow-x-hidden overflow-y-scroll">
-      <button type="button" onClick={() => state.increment()}>
-        Increment
-      </button>
-
-      <button type="button" onClick={() => state.decrement()}>
-        Decrement
-      </button>
-
-      <div>{state.data.count}</div>
-
+    <div class="readable max-h-[30rem] overflow-x-hidden overflow-y-scroll">
       <input type="text" placeholder="Facet" />
       <table>
         <thead>
           <tr>
-            <th>Facet</th>
-            <th>Count</th>
+            <th>
+              <button class="italic" type="button" onClick={toggleFacet} onKeyDown={toggleFacet}>
+                Facet
+              </button>
+            </th>
+            <th>
+              <button class="italic" type="button" onClick={toggleCount} onKeyDown={toggleCount}>
+                Count
+              </button>
+            </th>
           </tr>
         </thead>
         <tbody>
-          {tmp.map(([key, count]) => (
+          {state.entries.map(([key, count]) => (
             <tr key={`${edge}-${dir}-${key}`}>
               <td>{key}</td>
               <td class="text-center">{count}</td>
