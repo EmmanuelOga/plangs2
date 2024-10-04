@@ -73,13 +73,14 @@ export function InputSel({ name, class: cssClass }: InputSelProps) {
           <option value="all">All of</option>
         </select>
       )}
-      <ul tabindex={0}>
+      <ul>
         {state.selected.map(({ value, label }) => (
           <li
             key={value}
             data-value={value}
             class="p-2"
             aria-label="remove"
+            tabindex={0}
             onClick={() => state.remove(value, "click")}
             onKeyDown={ev => {
               if (ev.key === "Enter") state.remove(value, "enterKey");
