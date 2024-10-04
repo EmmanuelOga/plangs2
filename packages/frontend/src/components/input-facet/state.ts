@@ -10,21 +10,7 @@ export type Entry = Item & {
 };
 
 export class InputFacetState extends Dispatchable<Required<InputFacetProps> & { entries: Entry[]; order: Order; selected: Set<unknown> }> {
-  *entries(): Generator<Entry> {
-    for (const entry of this.data.entries) {
-      if (!this.data.selected.has(entry.value)) yield entry;
-    }
-  }
-
-  addSelected(entry: Entry) {
-    this.data.selected.add(entry.value);
-    this.dispatch();
-  }
-
-  removeSelected(removed: Item): void {
-    this.data.selected.delete(removed.value);
-    this.dispatch();
-  }
+  /** Initialization */
 
   generateEntries(): this {
     this.data.entries = [];
@@ -41,6 +27,35 @@ export class InputFacetState extends Dispatchable<Required<InputFacetProps> & { 
     return this;
   }
 
+  /** Actions */
+
+  addSelected(entry: Entry) {
+    this.data.selected.add(entry.value);
+    this.dispatch();
+  }
+
+  removeSelected(removed: Item): void {
+    this.data.selected.delete(removed.value);
+    this.dispatch();
+  }
+
+  toggleOrder(which: "facet" | "count") {
+    const { order } = this.data;
+    this.data.order = which === "facet" ? (order === "facet-asc" ? "facet-desc" : "facet-asc") : order === "count-desc" ? "count-asc" : "count-desc";
+    this.sort();
+    this.dispatch();
+  }
+
+  /** Queries */
+
+  *entries(): Generator<Entry> {
+    for (const entry of this.data.entries) {
+      if (!this.data.selected.has(entry.value)) yield entry;
+    }
+  }
+
+  /** Helpers */
+
   sort() {
     const { entries, order } = this.data;
     const cmp: Cmp =
@@ -52,12 +67,5 @@ export class InputFacetState extends Dispatchable<Required<InputFacetProps> & { 
             ? (a, b) => a.count - b.count
             : (a, b) => b.count - a.count;
     entries.sort(cmp);
-  }
-
-  toggleOrder(which: "facet" | "count") {
-    const { order } = this.data;
-    this.data.order = which === "facet" ? (order === "facet-asc" ? "facet-desc" : "facet-asc") : order === "count-desc" ? "count-asc" : "count-desc";
-    this.sort();
-    this.dispatch();
   }
 }

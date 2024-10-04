@@ -1,7 +1,7 @@
 import { tw } from "@plangs/frontend/utils";
 import type { E, N } from "@plangs/plangs/index";
 import { type ComponentChildren, h } from "preact";
-import { id } from "../elements";
+import { cl, id } from "../elements";
 
 export function PlFilters({ class: cssClass }: { class: string }) {
   const inputs = (group: Group[], cssClass: string) => (
@@ -44,9 +44,11 @@ function InputGroup({ title, children }: { title: string; children: ComponentChi
           "overflow-hidden text-ellipsis whitespace-nowrap",
           "text-xs sm:text-lg",
 
-          "bg-secondary group-hover:underline",
-          "text-foreground/90 group-hover:text-foreground",
-          "border-1 border-foreground/50 group-hover:border-bacground/50",
+          "bg-secondary text-foreground/90",
+          "border-1 border-foreground/50 group-hover:border-background/50",
+
+          "group-has-[[data-pl-filters=active]]:bg-primary/75",
+          "group-has-[[data-pl-filters=active]]:text-background",
         )}>
         {title}
       </summary>
@@ -56,31 +58,33 @@ function InputGroup({ title, children }: { title: string; children: ComponentChi
 }
 
 function Input({ inputKey: key }: { inputKey: keyof typeof INPUT_PROPS }) {
+  const baseProps = { id: id(key), name: key };
+
   const { label, input } = INPUT_PROPS[key];
 
+  if (input.kind === "facet") {
+    return h("input-facet", { ...baseProps, name: input.edge, "data-edge": input.edge, "data-dir": input.dir } as Record<string, string>);
+  }
+
+  const withInputSel = input.kind === "search" && "inputSel" in input && input.inputSel;
   const inputTextColor = "placeholder:text-background/50";
-  const inputProps = {
-    name: key,
-    id: id(key),
-    class: tw(inputTextColor, input.kind === "checkbox" ? "-mt-1" : "w-full"),
-    value: "value" in input ? input.value : undefined,
-    placeholder: label,
-  };
+  const inputElem = (
+    <input
+      {...baseProps}
+      class={tw(inputTextColor, input.kind === "checkbox" ? "-mt-1" : "w-full", !withInputSel && cl("inputFilter"))}
+      value={"value" in input ? input.value : undefined}
+      placeholder={label}
+      type={input.kind}
+    />
+  );
 
-  let inputElem = <input {...inputProps} type={input.kind} />;
-  if (input.kind === "checkbox") inputElem = <input {...inputProps} type="checkbox" />;
-  if (input.kind === "facet")
-    inputElem = h("input-facet", { ...inputProps, name: input.edge, "data-edge": input.edge, "data-dir": input.dir } as Record<string, string>);
-
-  return input.kind === "facet" ? (
-    inputElem
-  ) : (
+  return (
     <>
-      <label for={inputProps.id} class={tw("block", "p-0")}>
+      <label for={baseProps.id} class={tw("block", "p-0")}>
         {input.kind === "checkbox" ? inputElem : <div>{label}</div>}
         {input.kind === "checkbox" ? label : inputElem}
       </label>
-      {input.kind === "search" && "inputSel" in input && input.inputSel && h("input-sel", { name: key, class: tw("w-full", inputTextColor) })}
+      {withInputSel && h("input-sel", { name: key, class: tw("w-full", inputTextColor) })}
     </>
   );
 }
@@ -123,17 +127,20 @@ const INPUT_GROUPS = [
   [
     group("Name", ["plangName"]),
     group("Creation Date", ["appearedAfter"]),
-    group("Releases", ["hasReleases", "releasedAfter"]),
     group("File Extensions", ["extensions"]),
     group("Logo/Wikipedia/Popular", ["hasLogo", "hasWikipedia", "isMainstream"]),
   ],
+  [group("Tags", ["tags"]), group("Paradigms", ["paradigms"]), group("Platforms", ["platforms"]), group("Type Systems", ["typeSystems"])],
   [
+    group("Dialect Of", ["dialectOf"]),
+    group("Implements", ["implements"]),
+    group("Written In", ["writtenIn"]),
     group("Transpiler", ["isTranspiler", "compilesTo"]),
-    group("Tags", ["tags"]),
-    group("Paradigms", ["paradigms"]),
-    group("Platforms", ["platforms"]),
-    group("Type Systems", ["typeSystems"]),
   ],
-  [group("Dialect Of", ["dialectOf"]), group("Implements", ["implements"]), group("Written In", ["writtenIn"])],
-  [group("Influenced By", ["influencedBy"]), group("Influenced", ["influenced"]), group("Licenses", ["licenses"])],
+  [
+    group("Influenced By", ["influencedBy"]),
+    group("Influenced", ["influenced"]),
+    group("Releases", ["hasReleases", "releasedAfter"]),
+    group("Licenses", ["licenses"]),
+  ],
 ] as Group[][];

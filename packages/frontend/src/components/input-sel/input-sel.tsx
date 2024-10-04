@@ -61,7 +61,7 @@ export function InputSel({ name, class: cssClass }: InputSelProps) {
   });
 
   return (
-    <div ref={self as Ref<HTMLDivElement>} class={tw(cssClass)}>
+    <div ref={self as Ref<HTMLDivElement>} class={tw(cssClass)} data-pl-filters={state.selected.length > 0 ? "active" : ""}>
       {state.selected.length > 1 && (
         <select title="Match all or any of the elements" class="mb-2">
           <option value="any">Any of</option>

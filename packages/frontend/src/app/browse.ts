@@ -22,11 +22,12 @@ export function startBrowseNav(pg: PlangsGraph) {
   const plGrid = elem<HTMLDivElement>("plGrid");
   const plInfo = elem<PlInfoElement>("plInfo");
   const toggle = elem("filterToggle");
+  const inputFilters = elems<HTMLInputElement>("inputFilter");
 
   const thumbs = elems<HTMLDivElement>("plThumb");
 
-  if (!extensions || !extensionsSel || !plGrid || !plInfo || !toggle || thumbs.length === 0) {
-    console.warn("Skipping PL browser, missing elements.", { extensions, extensionsSel, filters, plGrid, plInfo, toggle, thumbs });
+  if (!extensions || !extensionsSel || !plGrid || !plInfo || !toggle || thumbs.length === 0 || inputFilters.length === 0) {
+    console.warn("Skipping PL browser, missing elements.", { extensions, extensionsSel, filters, plGrid, plInfo, toggle, thumbs, inputFilters });
     return;
   }
 
@@ -48,6 +49,19 @@ export function startBrowseNav(pg: PlangsGraph) {
     toggle.classList.toggle("bg-background/75", !hidden);
   };
   updateToggle();
+
+  //////////////////////////////////////////////////////////////////////////////////
+  // When an input filter has a non-empty value, add the active data attribute.
+
+  for (const input of inputFilters) {
+    on(input, "input", () => {
+      if (input.getAttribute("type") === "checkbox") {
+        input.dataset.plFilters = input.checked ? "active" : "";
+        return;
+      }
+      input.dataset.plFilters = input.value.trim() !== "" ? "active" : "";
+    });
+  }
 
   //////////////////////////////////////////////////////////////////////////////////
   // Scroll into view when a summary is clicked.
