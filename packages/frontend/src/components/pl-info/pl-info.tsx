@@ -39,7 +39,7 @@ export function PlInfo({ pl, open, kind: plInfoKind }: PlInfoProps) {
             {pl.isMainstream && <Pill name="Mainstream" nodeKey="NA" kind="mainstream" plInfoKind={plInfoKind} />}
           </div>
           <p class={tw(forBrowse && "inline sm:block")}>{pl.description || "..."}</p>
-          <details class={tw("pb-4", forBrowse && "hidden sm:block")} open={open}>
+          <details class={tw(forBrowse && "hidden sm:block")} open={open}>
             <summary class="cursor-pointer text-xl">Details</summary>
 
             {!pl.websites.isEmpty && (

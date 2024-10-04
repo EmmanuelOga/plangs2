@@ -40,7 +40,7 @@ export function PlBody({ pl, class: cssClass }: { class?: string; pl: NPlang }) 
 }
 
 function PlNews({ pl: { relPosts } }: { pl: NPlang }) {
-  const posts = relPosts.values.map(({ post }) => post);
+  const posts = relPosts.values.map(({ nodeTo }) => nodeTo);
   return (
     <>
       <h1>News</h1>
@@ -62,7 +62,7 @@ function PlNews({ pl: { relPosts } }: { pl: NPlang }) {
 }
 
 function PlApps({ pl }: { pl: NPlang }) {
-  const apps = pl.relApps.values.map(({ app }) => app).existing;
+  const apps = pl.relApps.values.map(({ nodeTo }) => nodeTo).existing;
   const thead = (
     <tr>
       <th>App</th>
@@ -87,7 +87,7 @@ function PlApps({ pl }: { pl: NPlang }) {
 }
 
 function PlLibs({ pl }: { pl: NPlang }) {
-  const libs = pl.relLibs.values.map(({ lib }) => lib).existing;
+  const libs = pl.relLibs.values.map(({ nodeTo }) => nodeTo).existing;
   const thead = (
     <tr>
       <th>Lib</th>
@@ -112,7 +112,7 @@ function PlLibs({ pl }: { pl: NPlang }) {
 }
 
 function PlTools({ pl }: { pl: NPlang }) {
-  const tools = pl.relTools.values.map(({ tool }) => tool).existing;
+  const tools = pl.relTools.values.map(({ nodeTo }) => nodeTo).existing;
   const thead = (
     <tr>
       <th>Tool</th>
@@ -144,7 +144,7 @@ function PlTools({ pl }: { pl: NPlang }) {
 }
 
 function PlBundles({ pl }: { pl: NPlang }) {
-  const bundles = pl.relPlBundles.values.map(({ bundle }) => bundle).existing;
+  const bundles = pl.relPlBundles.values.map(({ nodeTo }) => nodeTo).existing;
   return bundles.length === 0 ? null : (
     <>
       <h1>Tool Bundles</h1>
@@ -159,7 +159,7 @@ function PlBundles({ pl }: { pl: NPlang }) {
             "my-8",
           )}>
           <h1>{bundle.name}</h1>
-          <p>{bundle.relTools.values.map(({ tool }) => tool && <Pill name={tool.name} nodeKey={tool.key} kind={tool.kind} />).existing}</p>
+          <p>{bundle.relTools.values.map(({ nodeTo }) => nodeTo && <Pill name={nodeTo.name} nodeKey={nodeTo.key} kind={nodeTo.kind} />).existing}</p>
           <p>{bundle.description}</p>
         </div>
       ))}
