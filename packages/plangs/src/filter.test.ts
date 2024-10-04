@@ -360,3 +360,33 @@ test("filters languages by written in", () => {
   f.filters.writtenIn.value = new Filter<NPlang["key"]>("all", new Set(["pl+typescript"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+typescript"]));
 });
+
+test("serializing filters", () => {
+  const [g, f] = [createGraph(), new PlangFilters()];
+
+  f.filters.appearedAfter.value = "2000-01-01";
+  f.filters.hasLogo.value = true;
+  f.filters.hasReleases.value = false;
+  f.filters.plangName.value = /script/i;
+  f.filters.releasedAfter.value = "2010-12-31";
+  f.filters.typeSystems.value = new Filter<NTsys["key"]>("all", new Set(["tsys+dynamic"]));
+  f.filters.writtenIn.value = new Filter<NPlang["key"]>("any", new Set(["pl+c", "pl+assembly"]));
+  f.filters.influencedBy.value = new Filter<NPlang["key"]>("all", new Set());
+
+  const serialized = JSON.stringify(f, null, 2);
+
+  expect(JSON.parse(serialized)).toEqual({
+    plangName: "script",
+    appearedAfter: "2000-01-01",
+    releasedAfter: "2010-12-31",
+    hasLogo: true,
+    typeSystems: {
+      mode: "all",
+      values: ["tsys+dynamic"],
+    },
+    writtenIn: {
+      mode: "any",
+      values: ["pl+c", "pl+assembly"],
+    },
+  });
+});

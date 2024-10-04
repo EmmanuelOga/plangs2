@@ -177,6 +177,10 @@ export class Filter<T> {
     public readonly values: Set<T> = new Set(),
   ) {}
 
+  get isEmpty(): boolean {
+    return this.values.size === 0;
+  }
+
   matches(predicate: Predicate<T>): boolean {
     return this.mode === "all" ? this.all(predicate) : this.any(predicate);
   }
@@ -191,6 +195,10 @@ export class Filter<T> {
     if (this.values.size === 0) return true;
     for (const v of this.values) if (predicate(v)) return true;
     return false;
+  }
+
+  toJSON() {
+    return { mode: this.mode, values: [...this.values] };
   }
 }
 

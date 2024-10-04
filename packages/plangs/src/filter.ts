@@ -1,4 +1,4 @@
-import type { Filter } from "@plangs/graph/auxiliar";
+import { Filter } from "@plangs/graph/auxiliar";
 
 import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, StrDate } from ".";
 
@@ -47,6 +47,25 @@ export class PlangFilters {
       if (!this.matches(key as PlangFiltersKey, pl)) return false;
     }
     return true;
+  }
+
+  toJSON() {
+    return Object.fromEntries(
+      Object.entries(this.filters)
+        .map(([key, { value }]) => {
+          if (!value) return [key, undefined];
+
+          if (value instanceof Set) return [key, [...value]];
+          if (value instanceof RegExp) return [key, value.source];
+          if (typeof value === "boolean") return [key, value];
+          if (typeof value === "string") return [key, value];
+          if (value instanceof Filter) return [key, value.isEmpty ? undefined : value];
+
+          console.warn("Unknown filter value", value);
+          return [key, undefined];
+        })
+        .filter(([, value]) => value !== undefined),
+    );
   }
 }
 
