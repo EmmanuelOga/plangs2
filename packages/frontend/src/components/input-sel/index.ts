@@ -14,13 +14,13 @@ export type { Item, ItemRemoved };
 /** Additional methods for the custom element. */
 const ELEMENT_API = {
   /** Send an event request the item to be added. */
-  addItem(this: HTMLElement, item: Item): void {
-    send(this, EVENTS.inAdd.create(item));
+  addItem(this: HTMLElement, item: Item) {
+    return send(this, EVENTS.inAdd.create(item));
   },
 
   /** Add a handler to do something when an item is removed. */
-  onRemove(this: HTMLElement, cb: (item: ItemRemoved) => void) {
-    on(this, EVENTS.outRemove.type, ({ detail }: CustomEvent) => cb(detail as ItemRemoved));
+  onRemove(this: HTMLElement, cb: (item: ItemRemoved) => void): () => void {
+    return on(this, EVENTS.outRemove.type, ({ detail }: CustomEvent) => cb(detail as ItemRemoved));
   },
 
   /** Get the values/keys of the selected items. */
