@@ -4,7 +4,7 @@ import { useEffect, useRef } from "preact/hooks";
 import { customEvent, elem, on, send, tw, withinContainer } from "../../utils";
 
 import { useDispatchable } from "@plangs/frontend/dispatchable";
-import { InputSelState, type Item, type ItemRemoved } from "./reducer";
+import { InputSelState, type Item, type ItemRemoved } from "./state";
 
 export const TAG_NAME = "input-sel";
 
