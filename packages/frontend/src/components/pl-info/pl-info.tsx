@@ -30,7 +30,7 @@ export function PlInfo({ pl, open, kind: plInfoKind }: PlInfoProps) {
       {pl && (
         <>
           <span class={tw(forBrowse ? "dash sm:hidden" : "hidden")}>&#8212;</span>
-          <div class={tw(forBrowse && "hidden")}>
+          <div class={tw(forBrowse && "hidden sm:block")}>
             {pl.firstAppeared && <Pill name={`Appeared ${pl.firstAppeared}`} nodeKey="NA" kind="firstAppeared" plInfoKind={plInfoKind} />}
             {pl.lastRelease && (
               <Pill name={`Last Rel ${pl.lastRelease.date ?? pl.lastRelease.version}`} nodeKey="NA" kind="firstAppeared" plInfoKind={plInfoKind} />

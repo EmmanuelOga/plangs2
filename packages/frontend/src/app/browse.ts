@@ -1,10 +1,9 @@
 import { debounce } from "lodash-es";
-import "preact/debug";
+import { RISON } from "rison2";
 
-import type { E, N, NPlang, PlangsGraph } from "@plangs/plangs";
+import type { E, NPlang, PlangsGraph } from "@plangs/plangs";
 import { id } from "@plangs/server/elements";
 
-import type { CompletionItem, InputComplElement } from "../components/input-compl";
 import type { InputFacetElement } from "../components/input-facet";
 import { matchingInputSelByName } from "../components/input-sel";
 import type { PlInfoElement } from "../components/pl-info";
@@ -93,36 +92,15 @@ export function startBrowseNav(pg: PlangsGraph) {
       if (visible) widthThumb ??= size(div)[0];
     }
     if (widthThumb !== undefined) adjustGrid(plGrid, widthThumb, plKeys.size);
+
+    // Push the filters to the URL to allow sharing.
+    window.location.hash = RISON.stringify(filters.encodable());
   }
   updatePlangs();
 
   const debouncedUpdatePlangs = debounce(updatePlangs, 30);
 
   window.addEventListener("resize", debouncedUpdatePlangs);
-
-  //////////////////////////////////////////////////////////////////////////////////
-  // Setup completions.
-
-  function completions(nodeKind: N): CompletionItem[] {
-    const data: CompletionItem[] = [];
-    for (const [key, node] of pg.nodes[nodeKind]) {
-      data.push({ value: key, label: node.data.name ?? key, pattern: (node.data.name ?? key).toLowerCase() });
-    }
-    return data;
-  }
-
-  for (const compl of $$<InputComplElement>("input-compl")) {
-    const [inputSel, source] = [matchingInputSelByName(compl), compl.dataset.kind as N];
-    if (!inputSel) continue;
-    if (!pg.nodes[source]) {
-      continue;
-    }
-    compl.completions = completions(source);
-    compl.onSelect(item => inputSel.addItem(item));
-    inputSel.onRemove(({ by, itemsLeft }) => {
-      if (by === "enterKey" && itemsLeft === 0) compl.focus();
-    });
-  }
 
   //////////////////////////////////////////////////////////////////////////////////
   // Handle the file extension selection.

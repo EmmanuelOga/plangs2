@@ -197,8 +197,9 @@ export class Filter<T> {
     return false;
   }
 
-  toJSON() {
-    return { mode: this.mode, values: [...this.values] };
+  /** Strips the prefixes form the values as they can be inferred from elsewhere. */
+  encodable() {
+    return { mode: this.mode, values: [...this.values].map(v => `${v}`.replace(/^([^\+]+\+)/, "")) };
   }
 }
 

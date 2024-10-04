@@ -361,7 +361,7 @@ test("filters languages by written in", () => {
   expect(g.plangs(f)).toEqual(new Set(["pl+typescript"]));
 });
 
-test("serializing filters", () => {
+test("turning filters into an 'encodable' object", () => {
   const [g, f] = [createGraph(), new PlangFilters()];
 
   f.filters.appearedAfter.value = "2000-01-01";
@@ -373,20 +373,18 @@ test("serializing filters", () => {
   f.filters.writtenIn.value = new Filter<NPlang["key"]>("any", new Set(["pl+c", "pl+assembly"]));
   f.filters.influencedBy.value = new Filter<NPlang["key"]>("all", new Set());
 
-  const serialized = JSON.stringify(f, null, 2);
-
-  expect(JSON.parse(serialized)).toEqual({
+  expect(f.encodable()).toEqual({
     plangName: "script",
     appearedAfter: "2000-01-01",
     releasedAfter: "2010-12-31",
     hasLogo: true,
     typeSystems: {
       mode: "all",
-      values: ["tsys+dynamic"],
+      values: ["dynamic"],
     },
     writtenIn: {
       mode: "any",
-      values: ["pl+c", "pl+assembly"],
+      values: ["c", "assembly"],
     },
   });
 });

@@ -49,7 +49,11 @@ export class PlangFilters {
     return true;
   }
 
-  toJSON() {
+  /**
+   * This is similar to converting to something reaady to JSON serialization.
+   * We are targetting RISON and trying to make the resulting encoding URL friendly.
+   */
+  encodable() {
     return Object.fromEntries(
       Object.entries(this.filters)
         .map(([key, { value }]) => {
@@ -59,7 +63,7 @@ export class PlangFilters {
           if (value instanceof RegExp) return [key, value.source];
           if (typeof value === "boolean") return [key, value];
           if (typeof value === "string") return [key, value];
-          if (value instanceof Filter) return [key, value.isEmpty ? undefined : value];
+          if (value instanceof Filter) return [key, value.isEmpty ? undefined : value.encodable()];
 
           console.warn("Unknown filter value", value);
           return [key, undefined];

@@ -77,8 +77,8 @@ export function Layout({
             "border-primary border-b-1",
           )}>
           <NavTab tab="filter" id={id("filterToggle")} class={tw("mr-auto", tab !== "browse" && "invisible")} title="Filter" />
-          <NavTab tab="browse" href="/" title="Browse" current={tab === "browse"} />
           <NavTab tab="pl" id={id("plTab")} href={pl ? `/${pl.plainKey}` : "#"} title={pl?.name ?? "_"} current={tab === "pl"} />
+          <NavTab tab="browse" href="/" title="Browse" current={tab === "browse"} />
           {!pl && script("window.restorePlTab()")}
           <NavTab tab="blog" href="/blog" title="News" current={tab === "blog"} />
           <NavTab tab="about" href="/about" title="About" current={tab === "about"} />

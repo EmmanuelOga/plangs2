@@ -30,6 +30,7 @@ const STATIC_HEADERS = {
   "Cache-Control": "no-store",
   Pragma: "no-cache",
   Expires: "0",
+  // "Cache-Control": "public, max-age=120", // Cache for 2 minutes
 } as const;
 
 export type ContentType =
