@@ -9,12 +9,14 @@ type TAB = "browse" | "blog" | "about" | "pl";
 
 export function Layout({
   children,
+  description,
   overflow = "overflow-hidden",
   pl,
   tab,
   title,
 }: {
   children: ComponentChildren;
+  description?: string;
   overflow?: "overflow-hidden" | "overflow-y-auto" | "overflow-auto";
   pl?: NPlang;
   tab: TAB;
@@ -25,6 +27,7 @@ export function Layout({
       <head>
         {pl && script(`localStorage.setItem("last-plang", ${JSON.stringify(JSON.stringify({ key: pl.key, data: pl.data }))});`)}
         <script src="/bundle/app.js" />
+        <meta name="description" content={description} />
         <meta charset="utf-8" />
         <title>Plangs! - {title}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />

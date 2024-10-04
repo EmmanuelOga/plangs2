@@ -11,7 +11,11 @@ export const SCROLL = tw("overflow-y-auto overflow-x-hidden");
 
 export function Browse({ pg }: { pg: PlangsGraph }) {
   return (
-    <Layout title="Find your next favorite programming language!" tab="browse" overflow="overflow-auto">
+    <Layout
+      tab="browse"
+      title="Find your next favorite programming language!"
+      description="Discover https://plangs.page faceted search engine to find your next favorite programming language."
+      overflow="overflow-auto">
       <div class={tw("h-full w-full flex-1", "flex flex-col lg:flex-row", "gap-4", "overflow-auto")}>
         <div class={tw("flex-1", "flex flex-col", "gap-2", "overflow-auto")}>
           <PlFilters class={tw(SCROLL, "z-10", "px-4 py-2", "max-h-[40%]", "border-1 border-primary border-t-0")} />
