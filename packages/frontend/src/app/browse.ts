@@ -118,7 +118,14 @@ export function startBrowseNav(pg: PlangsGraph) {
   // On input change, re-filter the list of languages.
 
   // Push the filters to the URL to allow sharing.
-  const updateFragment = () => (window.location.hash = RISON.stringify(getFilters().encodable()));
+  const updateFragment = () => {
+    const filters = getFilters().encodable();
+    if (Object.keys(filters).length > 0) {
+      window.location.hash = RISON.stringify(filters);
+    } else {
+      window.location.hash = "";
+    }
+  };
 
   // We don't need to do this as often.
   const debouncedUpdateFragment = debounce(updateFragment, 250);
