@@ -210,12 +210,12 @@ export function startBrowseNav(pg: PlangsGraph) {
     const value = extensions.value.trim();
     if (value === "") return;
     const name = (value[0] === "." ? value : `.${value}`).toLowerCase();
-    extensionsSel.addItems({ value: name, label: name });
+    extensionsSel.addItems([{ value: name, label: name }]);
     extensions.value = "";
   });
   extensionsSel.onRemove(({ by, itemsLeft }) => {
-    if (by !== "enterKey" || itemsLeft !== 0) return;
-    extensions.focus();
+    extensions.dataset.plFilters = itemsLeft > 0 ? "active" : "";
+    if (by === "enterKey" && itemsLeft === 0) extensions.focus();
   });
 
   //////////////////////////////////////////////////////////////////////////////////
