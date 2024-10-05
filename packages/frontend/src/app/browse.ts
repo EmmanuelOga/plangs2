@@ -103,6 +103,11 @@ export function startBrowseNav(pg: PlangsGraph) {
     const el = elem<HTMLInputElement>(id);
     if (!el) return;
 
+    const activate = () => {
+      el.dataset.plFilters = "active";
+      el.closest("details")?.setAttribute("open", "true");
+    };
+
     const tag = el.tagName.toLowerCase();
     const type = el.getAttribute("type");
 
@@ -114,7 +119,8 @@ export function startBrowseNav(pg: PlangsGraph) {
         if (sel) {
           // I'm not sure why a timeout is necessary, but it is. Maybe some preact lifecycle thing?
           setTimeout(() => {
-            for (const item of value.values) sel.addItems({ value: item, label: item });
+            sel.addItems(value.values.map(v => ({ value: v, label: v })));
+            activate();
           }, 10);
         } else {
           console.warn("Missing input-sel", { id, value });
@@ -122,10 +128,11 @@ export function startBrowseNav(pg: PlangsGraph) {
       } else {
         console.warn("Unknown input type", { id, type, value });
       }
-      el.closest("details")?.setAttribute("open", "true");
-      el.dataset.plFilters = "active";
     } else if (tag === "input-facet" && isEncodedFilter(value)) {
-      (el as unknown as InputFacetElement).setFacet(value);
+      setTimeout(() => {
+        (el as unknown as InputFacetElement).setFacet(value);
+        activate();
+      }, 10);
     } else {
       console.warn("Unknown input type", { id, type, value });
     }

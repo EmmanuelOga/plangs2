@@ -46,6 +46,7 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
       if (!EVENTS.inSetFacet.valid(ev) || !isEncodedFilter(ev.detail)) return console.warn("Invalid event data on:", ev);
       const entries = state.setFacets(ev.detail);
       selectionRef.current?.addItems(entries);
+      state.dispatch();
     }),
   );
 

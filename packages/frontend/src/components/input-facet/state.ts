@@ -35,10 +35,6 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
 
   /** Actions */
 
-  setFacets(facet: EncodedFilter): Entry[] {
-    return [];
-  }
-
   addEntry(entry: Entry) {
     this.data.selected.add(entry.value);
     this.dispatch();
@@ -56,7 +52,31 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
     this.dispatch();
   }
 
+  /** NOTE: doesn't dispatch! (so the caller can batch actions). */
+  setFacets({ values }: EncodedFilter): Entry[] {
+    const result: Entry[] = [];
+    const byVal = this.entriesByValue;
+
+    for (const val of values) {
+      // Prefix is stripped for brevity of URL encoding.
+      const key = `${this.data.node}+${val}`;
+      const entry = byVal.get(key);
+      if (entry && !this.data.selected.has(key)) {
+        result.push(entry);
+        this.data.selected.add(key);
+      }
+    }
+
+    return result;
+  }
+
   /** Queries */
+
+  get entriesByValue(): Map<string, Entry> {
+    const entries = new Map<string, Entry>();
+    for (const entry of this.data.entries) entries.set(entry.value as string, entry);
+    return entries;
+  }
 
   get size() {
     return this.data.entries.length;
