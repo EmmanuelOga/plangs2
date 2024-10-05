@@ -198,7 +198,7 @@ export class Filter<T> {
   }
 
   /** Strips the prefixes form the values as they can be inferred from elsewhere. */
-  encodable() {
+  encodable(): { mode: "all" | "any"; values: string[] } {
     return { mode: this.mode, values: [...this.values].map(v => `${v}`.replace(/^([^\+]+\+)/, "")) };
   }
 }

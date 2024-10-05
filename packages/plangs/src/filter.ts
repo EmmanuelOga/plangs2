@@ -6,6 +6,8 @@ type Predicate<T> = (pl: NPlang, value: T) => boolean;
 
 const filter = <T>(predicate: Predicate<T>) => ({ value: undefined as T | undefined, predicate });
 
+export type EncodedFilter = string | string[] | boolean | { mode: "all" | "any"; values: string[] };
+
 /**
  * Criteria to filter programming languages.
  */
@@ -53,7 +55,7 @@ export class PlangFilters {
    * This is similar to converting to something reaady to JSON serialization.
    * We are targetting RISON and trying to make the resulting encoding URL friendly.
    */
-  encodable() {
+  encodable(): Record<string, EncodedFilter> {
     return Object.fromEntries(
       Object.entries(this.filters)
         .map(([key, { value }]) => {
@@ -69,7 +71,7 @@ export class PlangFilters {
           return [key, undefined];
         })
         .filter(([, value]) => value !== undefined),
-    );
+    ) as Record<string, EncodedFilter>;
   }
 }
 
