@@ -1,8 +1,8 @@
 import { debounce } from "lodash-es";
 import { RISON } from "rison2";
 
-import type { E, NPlang, PlangsGraph } from "@plangs/plangs";
-import type { EncodedFilter, PlangFilters } from "@plangs/plangs/filter";
+import type { E, N, NPlang, PlangsGraph } from "@plangs/plangs";
+import type { EncodedPlangFilters, PlangFilters } from "@plangs/plangs/filter";
 import { FILTER_KEY, type IDKey, id } from "@plangs/server/elements";
 
 import type { InputFacetElement } from "../components/input-facet";
@@ -11,6 +11,7 @@ import type { PlInfoElement } from "../components/pl-info";
 
 import { $$, elem, elems, minWidthBP, on, size } from "../utils";
 
+import { isEncodedFilter } from "@plangs/graph/auxiliar";
 import { getFilters } from "./filters";
 import { getPl } from "./pl";
 import { setPlTab } from "./tabs";
@@ -64,6 +65,7 @@ export function startBrowseNav(pg: PlangsGraph) {
   for (const elem of $$<InputFacetElement>("input-facet")) {
     elem.pg = pg;
     elem.edge = elem.dataset.edge as E;
+    elem.node = elem.dataset.node as N;
     elem.dir = elem.dataset.dir === "inverse" ? "inverse" : "direct";
   }
 
@@ -74,7 +76,7 @@ export function startBrowseNav(pg: PlangsGraph) {
     try {
       const data = window.location.hash.slice(1).trim();
       if (data.length > 2 && data.startsWith("(") && data.endsWith(")")) {
-        const filters = RISON.parse(data) as Record<string, EncodedFilter>;
+        const filters = RISON.parse(data) as EncodedPlangFilters;
         return filters;
       }
     } catch (e) {
@@ -87,7 +89,7 @@ export function startBrowseNav(pg: PlangsGraph) {
     const stored = localStorage.getItem("plangs-filters");
     if (stored) {
       try {
-        const filters = JSON.parse(stored) as Record<string, EncodedFilter>;
+        const filters = JSON.parse(stored) as EncodedPlangFilters;
         return filters;
       } catch (e) {
         console.warn("Failed to parse localStorage filters.", stored);
@@ -97,7 +99,7 @@ export function startBrowseNav(pg: PlangsGraph) {
   };
 
   // TODO: maybe we can turn the details into a component to hand this more elegantly.
-  const loadStoredInput = (id: IDKey, value: EncodedFilter) => {
+  const loadStoredInput = (id: IDKey, value: EncodedPlangFilters[string]) => {
     const el = elem<HTMLInputElement>(id);
     if (!el) return;
 
@@ -112,19 +114,20 @@ export function startBrowseNav(pg: PlangsGraph) {
         if (sel) {
           // I'm not sure why a timeout is necessary, but it is. Maybe some preact lifecycle thing?
           setTimeout(() => {
-            for (const item of value.values) sel.addItem({ value: item, label: item });
+            for (const item of value.values) sel.addItems({ value: item, label: item });
           }, 10);
         } else {
           console.warn("Missing input-sel", { id, value });
         }
       } else {
         console.warn("Unknown input type", { id, type, value });
-        return;
       }
       el.closest("details")?.setAttribute("open", "true");
       el.dataset.plFilters = "active";
-    } else if (tag === "input-facet") {
-      console.log("TODO");
+    } else if (tag === "input-facet" && isEncodedFilter(value)) {
+      (el as unknown as InputFacetElement).setFacet(value);
+    } else {
+      console.warn("Unknown input type", { id, type, value });
     }
   };
 
@@ -200,7 +203,7 @@ export function startBrowseNav(pg: PlangsGraph) {
     const value = extensions.value.trim();
     if (value === "") return;
     const name = (value[0] === "." ? value : `.${value}`).toLowerCase();
-    extensionsSel.addItem({ value: name, label: name });
+    extensionsSel.addItems({ value: name, label: name });
     extensions.value = "";
   });
   extensionsSel.onRemove(({ by, itemsLeft }) => {

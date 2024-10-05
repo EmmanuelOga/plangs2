@@ -1,21 +1,27 @@
 import { Dispatchable } from "@plangs/frontend/dispatchable";
 
+import type { EncodedFilter } from "@plangs/graph/auxiliar";
+import type { E, PlangsGraph } from "@plangs/plangs/index";
 import type { Item } from "../input-sel";
 import type { InputFacetProps } from "./input-facet";
 
 export type Order = "facet-asc" | "facet-desc" | "count-asc" | "count-desc";
-export type Cmp = (a: Entry, b: Entry) => number;
 export type Entry = Item & {
   count: number;
 };
 
-export class InputFacetState extends Dispatchable<Required<InputFacetProps> & { entries: Entry[]; order: Order; selected: Set<unknown> }> {
+export type Cmp = (a: Entry, b: Entry) => number;
+
+export class InputFacetState extends Dispatchable<InputFacetProps & { entries: Entry[]; order: Order; selected: Set<unknown> }> {
   /** Initialization */
 
-  generateEntries(): this {
+  /** Updates is used when updating from a prop change. */
+  generateEntries(updates?: InputFacetProps): this {
     this.data.entries = [];
+    if (updates) Object.assign(this.data, updates);
+    const { pg, edge, dir, node } = this.data;
+    if (!pg || !edge || !dir || !node) return this;
 
-    const { pg, edge, dir } = this.data;
     const emap = dir === "direct" ? pg.edges[edge].adjTo : pg.edges[edge].adjFrom;
     if (!emap) return this;
 
@@ -29,12 +35,16 @@ export class InputFacetState extends Dispatchable<Required<InputFacetProps> & { 
 
   /** Actions */
 
-  addSelected(entry: Entry) {
+  setFacets(facet: EncodedFilter): Entry[] {
+    return [];
+  }
+
+  addEntry(entry: Entry) {
     this.data.selected.add(entry.value);
     this.dispatch();
   }
 
-  removeSelected(removed: Item): void {
+  removeEntry(removed: Item): void {
     this.data.selected.delete(removed.value);
     this.dispatch();
   }
@@ -48,6 +58,10 @@ export class InputFacetState extends Dispatchable<Required<InputFacetProps> & { 
 
   /** Queries */
 
+  get size() {
+    return this.data.entries.length;
+  }
+
   *entries(): Generator<Entry> {
     for (const entry of this.data.entries) {
       if (!this.data.selected.has(entry.value)) yield entry;
@@ -58,14 +72,13 @@ export class InputFacetState extends Dispatchable<Required<InputFacetProps> & { 
 
   sort() {
     const { entries, order } = this.data;
-    const cmp: Cmp =
-      order === "facet-asc"
-        ? (a, b) => a.label.localeCompare(b.label)
-        : order === "facet-desc"
-          ? (a, b) => b.label.localeCompare(a.label)
-          : order === "count-asc"
-            ? (a, b) => a.count - b.count
-            : (a, b) => b.count - a.count;
-    entries.sort(cmp);
+    entries.sort(CMP[order]);
   }
 }
+
+const CMP: Record<Order, Cmp> = {
+  "facet-asc": (a, b) => a.label.localeCompare(b.label),
+  "facet-desc": (a, b) => b.label.localeCompare(a.label),
+  "count-asc": (a, b) => a.count - b.count,
+  "count-desc": (a, b) => b.count - a.count,
+} as const;

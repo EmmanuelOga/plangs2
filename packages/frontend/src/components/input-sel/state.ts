@@ -5,6 +5,10 @@ export type Item = {
   label: string;
 };
 
+export function isItem(value: unknown): value is Item {
+  return typeof value === "object" && value !== null && "value" in value && "label" in value && typeof value.value !== "undefined";
+}
+
 export type ItemRemoved = {
   by: "click" | "enterKey";
   index: number;
@@ -21,11 +25,17 @@ export class InputSelState extends Dispatchable<{
 }> {
   /** Actions */
 
-  add(item: Item) {
-    if (this.has(item.value)) return;
-    this.selected.push(item);
-    this.data.onAdd(item);
-    this.dispatch();
+  add(items: Item[]) {
+    let added = false;
+
+    for (const item of items) {
+      if (this.has(item.value)) continue;
+      added = true;
+      this.selected.push(item);
+      this.data.onAdd(item);
+    }
+
+    if (added) this.dispatch();
   }
 
   remove(value: Item["value"], by: ItemRemoved["by"]) {

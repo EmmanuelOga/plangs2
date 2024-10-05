@@ -115,7 +115,8 @@ export class NPlang extends NBase<
     releases: Release[];
   }
 > {
-  override kind: N = "pl";
+  static readonly kind: N = "pl";
+  override kind = NPlang.kind;
 
   get href(): string {
     return `/${this.plainKey}`;
@@ -302,7 +303,8 @@ export class NPlang extends NBase<
 
 /** A library Node, for software libraries or frameworks, like jQuery, Rails, etc. */
 export class NLibrary extends NBase<"lib", CommonNodeData> {
-  override kind: N = "lib";
+  static readonly kind: N = "lib";
+  override kind = NLibrary.kind;
 
   addPls(others: NPlang["key"][]): this {
     for (const other of others) this.graph.edges.lib.connect(other, this.key);
@@ -324,7 +326,8 @@ export class NLicense extends NBase<
     isOSIApproved?: boolean;
   }
 > {
-  override kind: N = "license";
+  static readonly kind: N = "license";
+  override kind: N = NLicense.kind;
 
   get spdx(): string | undefined {
     return this.data.spdx;
@@ -341,22 +344,26 @@ export class NLicense extends NBase<
 
 /** A Paradigm Node, e.g., Functional, Imperative, etc. */
 export class NParadigm extends NBase<"paradigm", CommonNodeData> {
-  override kind: N = "paradigm";
+  static readonly kind: N = "paradigm";
+  override kind: N = NParadigm.kind;
 }
 
 /** A Platform Node for operating systems or architectures, e.g., Linux, Windows, ARM etc. */
 export class NPlatform extends NBase<"plat", CommonNodeData> {
-  override kind: N = "plat";
+  static readonly kind: N = "plat" as const;
+  override kind = NPlatform.kind;
 }
 
 /** A generic tag. */
 export class NTag extends NBase<"tag", CommonNodeData> {
-  override kind: N = "tag";
+  static readonly kind: N = "tag";
+  override kind = NTag.kind;
 }
 
 /** A tool Node, e.g., Version Manager, Linter, Formatter,  etc. */
 export class NTool extends NBase<"tool", CommonNodeData> {
-  override kind: N = "tool";
+  static readonly kind: N = "tool";
+  override kind = NTool.kind;
 
   addPls(others: NPlang["key"][]): this {
     for (const other of others) this.graph.edges.tool.connect(other, this.key);
@@ -366,12 +373,14 @@ export class NTool extends NBase<"tool", CommonNodeData> {
 
 /** A Type System Node, e.g., OOP, Duck, Dynamic, etc. */
 export class NTsys extends NBase<"tsys", CommonNodeData> {
-  override kind: N = "tsys";
+  static readonly kind: N = "tsys";
+  override kind = NTsys.kind;
 }
 
 /** An app Node, for any sort of application. */
 export class NApp extends NBase<"app", CommonNodeData> {
-  override kind: N = "app";
+  static readonly kind: N = "app";
+  override kind = NApp.kind;
 
   addPls(others: NPlang["key"][]): this {
     for (const other of others) this.graph.edges.app.connect(other, this.key);
@@ -381,7 +390,8 @@ export class NApp extends NBase<"app", CommonNodeData> {
 
 /** Bundle of tools. */
 export class NBundle extends NBase<"bundle", CommonNodeData> {
-  override kind: N = "bundle";
+  static readonly kind: N = "bundle";
+  override kind = NBundle.kind;
 
   addTools(others: `tool+${string}`[]): this {
     for (const other of others) this.graph.edges.bundle.connect(this.key, other);
@@ -408,7 +418,8 @@ export class NBundle extends NBase<"bundle", CommonNodeData> {
  * The blog posts are scanned at build time and added to the graph.
  */
 export class NPost extends NBase<"post", CommonNodeData & { path: string; title: string; author: string; date: StrDate }> {
-  override kind: N = "post";
+  static readonly kind: N = "post";
+  override kind = NPost.kind;
 
   get author(): string | undefined {
     return this.data.author;

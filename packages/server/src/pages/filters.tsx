@@ -1,5 +1,5 @@
 import { tw } from "@plangs/frontend/utils";
-import type { E, N } from "@plangs/plangs/index";
+import { type E, type N, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs/index";
 import { type ComponentChildren, h } from "preact";
 import { cl, id } from "../elements";
 
@@ -63,7 +63,13 @@ function Input({ inputKey: key }: { inputKey: keyof typeof INPUT_PROPS }) {
   const { label, input } = INPUT_PROPS[key];
 
   if (input.kind === "facet") {
-    return h("input-facet", { ...baseProps, name: input.edge, "data-edge": input.edge, "data-dir": input.dir } as Record<string, string>);
+    return h("input-facet", {
+      ...baseProps,
+      name: input.edge,
+      "data-edge": input.edge,
+      "data-node": input.node,
+      "data-dir": input.dir,
+    } as Record<string, string>);
   }
 
   const withInputSel = input.kind === "search" && "inputSel" in input && input.inputSel;
@@ -92,7 +98,8 @@ function Input({ inputKey: key }: { inputKey: keyof typeof INPUT_PROPS }) {
 const search = (label: string, sel?: "trackSelection") => ({ label, input: { kind: "search", inputSel: sel === "trackSelection" } }) as const;
 const month = (label: string) => ({ label, input: { kind: "month" } }) as const;
 const checkbox = (label: string, value?: string) => ({ label, input: { kind: "checkbox", value } }) as const;
-const facet = (label: string, edge: E, dir: "direct" | "inverse" = "direct") => ({ label, input: { kind: "facet", edge, dir } }) as const;
+const facet = (label: string, edge: E, node: N, dir: "direct" | "inverse" = "direct") =>
+  ({ label, input: { kind: "facet", edge, dir, node } }) as const;
 
 export const INPUT_PROPS = {
   plangName: search("Lang Name"),
@@ -107,17 +114,17 @@ export const INPUT_PROPS = {
   isMainstream: checkbox("Is Mainstream"),
   isTranspiler: checkbox("Is Transpiler"),
 
-  compilesTo: facet("Compiles To", "compilesTo"),
-  dialectOf: facet("Dialect Of", "dialect"),
-  implements: facet("Implements", "impl"),
-  influenced: facet("Influenced", "influence", "inverse"),
-  influencedBy: facet("Influenced By", "influence"),
-  licenses: facet("Licenses", "license"),
-  paradigms: facet("Paradigms", "paradigm"),
-  platforms: facet("Platforms", "plat"),
-  tags: facet("Tags", "tag"),
-  typeSystems: facet("Type System", "tsys"),
-  writtenIn: facet("Written In", "writtenIn"),
+  compilesTo: facet("Compiles To", "compilesTo", NPlang.kind),
+  dialectOf: facet("Dialect Of", "dialect", NPlang.kind),
+  implements: facet("Implements", "impl", NPlang.kind),
+  influenced: facet("Influenced", "influence", NPlang.kind, "inverse"),
+  influencedBy: facet("Influenced By", "influence", NPlang.kind),
+  licenses: facet("Licenses", "license", NLicense.kind),
+  paradigms: facet("Paradigms", "paradigm", NParadigm.kind),
+  platforms: facet("Platforms", "plat", NPlatform.kind),
+  tags: facet("Tags", "tag", NTag.kind),
+  typeSystems: facet("Type System", "tsys", NTsys.kind),
+  writtenIn: facet("Written In", "writtenIn", NPlang.kind),
 } as const;
 
 type Group = { title: string; keys: (keyof typeof INPUT_PROPS)[] };

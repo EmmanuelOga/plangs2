@@ -1,4 +1,4 @@
-import { Filter } from "@plangs/graph/auxiliar";
+import { type EncodedFilter, Filter } from "@plangs/graph/auxiliar";
 
 import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, StrDate } from ".";
 
@@ -6,7 +6,9 @@ type Predicate<T> = (pl: NPlang, value: T) => boolean;
 
 const filter = <T>(predicate: Predicate<T>) => ({ value: undefined as T | undefined, predicate });
 
-export type EncodedFilter = string | string[] | boolean | { mode: "all" | "any"; values: string[] };
+export type EncodedPlangFilters = Record<string, string | string[] | boolean | EncodedFilter>;
+
+export type PlangFiltersKey = keyof PlangFilters["filters"];
 
 /**
  * Criteria to filter programming languages.
@@ -55,7 +57,7 @@ export class PlangFilters {
    * This is similar to converting to something reaady to JSON serialization.
    * We are targetting RISON and trying to make the resulting encoding URL friendly.
    */
-  encodable(): Record<string, EncodedFilter> {
+  encodable(): EncodedPlangFilters {
     return Object.fromEntries(
       Object.entries(this.filters)
         .map(([key, { value }]) => {
@@ -71,8 +73,6 @@ export class PlangFilters {
           return [key, undefined];
         })
         .filter(([, value]) => value !== undefined),
-    ) as Record<string, EncodedFilter>;
+    );
   }
 }
-
-export type PlangFiltersKey = keyof PlangFilters["filters"];

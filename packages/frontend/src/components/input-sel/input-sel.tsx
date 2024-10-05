@@ -4,7 +4,7 @@ import { useEffect, useRef } from "preact/hooks";
 import { customEvent, elem, on, send, tw, withinContainer } from "../../utils";
 
 import { useDispatchable } from "@plangs/frontend/dispatchable";
-import { InputSelState, type Item, type ItemRemoved } from "./state";
+import { InputSelState, type Item, type ItemRemoved, isItem } from "./state";
 
 export const TAG_NAME = "input-sel";
 
@@ -44,7 +44,7 @@ export function InputSel({ name, class: cssClass }: InputSelProps) {
   useEffect(() =>
     on(self.current?.parentElement, EVENTS.inAdd.type, (ev: CustomEvent) => {
       if (!EVENTS.inAdd.valid(ev)) return console.warn("Invalid event data on:", ev);
-      state.add(ev.detail as Item);
+      state.add(ev.detail as Item[]);
     }),
   );
 
@@ -93,9 +93,9 @@ export const EVENTS = {
   /** Incoming event: request to add an item. */
   inAdd: {
     type: `${TAG_NAME}:in-add"`,
-    create: (item: Item) => customEvent(EVENTS.inAdd.type, item),
+    create: (items: Item[]) => customEvent(EVENTS.inAdd.type, items),
     /** Validate data extracted from a CustomEvent detail field. */
-    valid: ({ detail }: CustomEvent) => "value" in detail && typeof detail.label === "string",
+    valid: ({ detail }: CustomEvent) => Array.isArray(detail) && detail.every(isItem),
   },
 
   /** Outgoing event: an item has been removed. */
