@@ -5,7 +5,7 @@ import { script, tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs/index";
 import { cl, id } from "../elements";
 
-type TAB = "browse" | "blog" | "about" | "pl";
+export type TAB = "browse" | "blog" | "about" | "pl";
 
 export function Layout({
   children,

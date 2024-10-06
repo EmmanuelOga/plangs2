@@ -4,24 +4,14 @@ import { PlangsGraph } from "@plangs/plangs";
 import pgData from "@plangs/server/plangs.json";
 
 import { registerInputCompl } from "../components/input-compl";
+import { registerInputFacet } from "../components/input-facet";
 import { registerInputSel } from "../components/input-sel";
 import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
-
-import { registerInputFacet } from "../components/input-facet";
 import { elem } from "../utils";
 import { startBrowseNav } from "./browse";
-import { lastPlang } from "./last-plang";
 import { connectLivereload } from "./livereload";
-import { hookPlInfo } from "./pl-info";
+import { hookPlInfo, lastPlang } from "./pl";
 import { setPlTab } from "./tabs";
-
-// Declare some globals that are called as the page is being loaded to avoid flashing the wrong content.
-declare global {
-  interface Window {
-    restorePlTab: () => void;
-    restorePlInfo: () => void;
-  }
-}
 
 function start() {
   registerPlangInfo();
@@ -47,3 +37,11 @@ function start() {
 }
 
 start();
+
+// Declare some globals that are called as the page is being loaded to avoid flashing the wrong content.
+declare global {
+  interface Window {
+    restorePlTab: () => void;
+    restorePlInfo: () => void;
+  }
+}

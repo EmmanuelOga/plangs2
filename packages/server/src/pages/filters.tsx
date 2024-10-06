@@ -86,10 +86,14 @@ function Input({ inputKey: key }: { inputKey: keyof typeof INPUT_PROPS }) {
 
   return (
     <>
-      <label for={baseProps.id} class={tw("block", "p-0")}>
-        {input.kind === "checkbox" ? inputElem : <div>{label}</div>}
-        {input.kind === "checkbox" ? label : inputElem}
-      </label>
+      {input.kind !== "checkbox" ? (
+        inputElem
+      ) : (
+        <label for={baseProps.id} class={tw("block", "p-0")}>
+          {inputElem}
+          {label}
+        </label>
+      )}
       {withInputSel && h("input-sel", { name: key, class: tw("w-full", inputTextColor) })}
     </>
   );
@@ -133,8 +137,8 @@ const group = (title: string, keys: (keyof typeof INPUT_PROPS)[]) => ({ title, k
 const INPUT_GROUPS = [
   [
     group("Name", ["plangName"]),
-    group("Creation Date", ["appearedAfter"]),
-    group("File Extensions", ["extensions"]),
+    group("Created Date", ["appearedAfter"]),
+    group("Release Date", ["releasedAfter", "hasReleases"]),
     group("Logo/Wikipedia/Popular", ["hasLogo", "hasWikipedia", "isMainstream"]),
   ],
   [group("Tags", ["tags"]), group("Paradigms", ["paradigms"]), group("Platforms", ["platforms"]), group("Type Systems", ["typeSystems"])],
@@ -147,7 +151,7 @@ const INPUT_GROUPS = [
   [
     group("Influenced By", ["influencedBy"]),
     group("Influenced", ["influenced"]),
-    group("Releases", ["hasReleases", "releasedAfter"]),
+    group("File Extensions", ["extensions"]),
     group("Licenses", ["licenses"]),
   ],
 ] as Group[][];
