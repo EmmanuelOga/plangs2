@@ -14,13 +14,19 @@ export type { Item, ItemRemoved };
 /** Additional methods for the custom element. */
 const ELEMENT_API = {
   /** Send an event request the item to be added. */
-  addItems(this: HTMLElement, items: Item[]) {
+  addItems(this: HTMLElement, items: Item[]): boolean | undefined {
     return send(this, EVENTS.inAdd.create(items));
   },
 
   /** Add a handler to do something when an item is removed. */
   onRemove(this: HTMLElement, cb: (item: ItemRemoved) => void): () => void {
     return on(this, EVENTS.outRemove.type, ({ detail }: CustomEvent) => cb(detail as ItemRemoved));
+  },
+
+  setMode(this: HTMLElement, mode: "all" | "any"): void {
+    const sel = this.querySelector<HTMLSelectElement>("select");
+    if (!sel) console.warn("Could not find the select element in <input-sel/>", this);
+    if (sel) sel.value = mode;
   },
 
   /** Get the values/keys of the selected items. */

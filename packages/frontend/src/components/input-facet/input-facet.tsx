@@ -49,8 +49,10 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
   useEffect(() =>
     on(self.current?.parentElement, EVENTS.inSetFacet.type, (ev: CustomEvent) => {
       if (!EVENTS.inSetFacet.valid(ev) || !isEncodedFilter(ev.detail)) return console.warn("Invalid event data on:", ev);
-      const entries = state.setFacets(ev.detail);
+      const filter = ev.detail;
+      const entries = state.setFacets(filter);
       selectionRef.current?.addItems(entries);
+      setTimeout(() => selectionRef.current?.setMode(filter.mode), 10); // TODO: set it through state.
       state.dispatch();
     }),
   );
