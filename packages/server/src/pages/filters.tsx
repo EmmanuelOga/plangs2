@@ -47,8 +47,8 @@ function InputGroup({ title, children }: { title: string; children: ComponentChi
           "bg-secondary text-foreground/90",
           "border-1 border-foreground/50 group-hover:border-background/50",
 
-          "group-has-[[data-pl-filters=active]]:bg-primary/75",
-          "group-has-[[data-pl-filters=active]]:text-background",
+          "group-has-[.pl-filters-active]:bg-primary/75",
+          "group-has-[.pl-filters-active]:text-background",
         )}>
         {title}
       </summary>
