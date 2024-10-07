@@ -36,7 +36,8 @@ const server = Bun.serve({
 
     if (path.startsWith("/images")) {
       const img = Bun.file(join(import.meta.dir, "../../definitions/src/definitions", path.slice(8)));
-      if (await img.exists()) return staticResponse(req, img, `image/${extname(path)}`);
+      const ct = contentTypeFor(path);
+      if ((await img.exists()) && ct) return staticResponse(req, img, ct);
       // Do not return, allow checking for a static image.
     }
 

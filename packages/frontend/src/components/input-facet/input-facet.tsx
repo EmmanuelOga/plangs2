@@ -39,7 +39,12 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
     state.generateEntries({ pg, edge, node, dir });
   }, [pg, edge, node, dir]);
 
-  useEffect(() => selectionRef.current?.onRemove(entry => state.removeEntry(entry.removed)));
+  useEffect(() =>
+    selectionRef.current?.onRemove(({ removed, itemsLeft, by }) => {
+      state.removeEntry(removed);
+      if (by === "enterKey" && itemsLeft === 0) self.current?.querySelector<HTMLButtonElement>("tbody button")?.focus();
+    }),
+  );
 
   useEffect(() =>
     on(self.current?.parentElement, EVENTS.inSetFacet.type, (ev: CustomEvent) => {

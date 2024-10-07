@@ -76,8 +76,8 @@ export function Layout({
             "bg-background",
             "border-primary border-b-1",
           )}>
-          <NavTab tab="filter" id={id("filterToggle")} class={tw("mr-auto", tab !== "browse" && "invisible")} title="Filter" />
-          <NavTab tab="pl" id={id("plTab")} href={pl ? `/${pl.plainKey}` : "#"} title={pl?.name ?? "_"} current={tab === "pl"} />
+          <NavTab tab="filter" id={id("filterToggle")} class={tw("mr-auto", tab !== "browse" && "invisible")} title="Toggle Filters" />
+          <NavTab tab="pl" id={id("plTab")} href={pl ? `/${pl.plainKey}` : "#"} title={pl?.name ?? "Plang"} current={tab === "pl"} />
           <NavTab tab="browse" href="/" title="Browse" current={tab === "browse"} />
           {!pl && script("window.restorePlTab()")}
           <NavTab tab="blog" href="/blog" title="News" current={tab === "blog"} />
@@ -105,6 +105,7 @@ function NavTab({
       data-tab={tab}
       data-current={current ? "1" : undefined}
       href={isIcon ? "#" : href}
+      title={title}
       class={tw(
         cl("navLink"),
         "user-select-none cursor-pointer",
