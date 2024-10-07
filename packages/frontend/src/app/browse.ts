@@ -40,10 +40,10 @@ export function startBrowseNav(pg: PlangsGraph) {
   for (const input of inputFilters) {
     on(input, "input", () => {
       if (input.getAttribute("type") === "checkbox") {
-        input.dataset.plFilters = input.checked ? "active" : "";
+        input.classList.toggle("pl-filters-active", input.checked);
         return;
       }
-      input.dataset.plFilters = input.value.trim() !== "" ? "active" : "";
+      if (input.tagName === "INPUT") input.classList.toggle("pl-filters-active", input.value.trim() !== "");
     });
   }
 
@@ -100,42 +100,45 @@ export function startBrowseNav(pg: PlangsGraph) {
 
   // TODO: maybe we can turn the details into a component to hand this more elegantly.
   const loadStoredInput = (id: IDKey, value: EncodedPlangFilters[string]) => {
-    const el = elem<HTMLInputElement>(id);
+    const el = elem<HTMLElement>(id);
     if (!el) return;
-
-    const activate = () => {
-      el.dataset.plFilters = "active";
-      el.closest("details")?.setAttribute("open", "true");
-    };
 
     const tag = el.tagName.toLowerCase();
     const type = el.getAttribute("type");
 
-    if (tag === "input") {
-      if ((type === "search" || type === "month" || type === "text") && typeof value === "string") el.value = value;
-      else if (type === "checkbox" && typeof value === "boolean") el.checked = value;
-      else if (typeof value === "object" && "mode" in value && "values" in value) {
-        const sel = matchingInputSelByName(el.getAttribute("name"));
-        if (sel) {
-          // I'm not sure why a timeout is necessary, but it is. Maybe some preact lifecycle thing?
-          setTimeout(() => {
-            sel.addItems(value.values.map(v => ({ value: v, label: v })));
-            activate();
-          }, 10);
-        } else {
-          console.warn("Missing input-sel", { id, value });
-        }
-      } else {
-        console.warn("Unknown input type", { id, type, value });
-      }
-    } else if (tag === "input-facet" && isEncodedFilter(value)) {
+    const activate = () => {
+      if (tag === "input") el.classList.toggle("pl-filters-active", true);
+      el.closest("details")?.setAttribute("open", "true");
+    };
+
+    // I'm not sure why a timeout is necessary for components, but it is.'
+    // Maybe some preact lifecycle thing?
+    const activateLater = (cbk = () => {}) =>
       setTimeout(() => {
-        (el as unknown as InputFacetElement).setFacet(value);
+        cbk();
         activate();
       }, 10);
-    } else {
-      console.warn("Unknown input type", { id, type, value });
+
+    if (tag === "input" && (type === "search" || type === "month" || type === "text") && typeof value === "string") {
+      (el as HTMLInputElement).value = value;
+      return activate();
     }
+
+    if (tag === "input" && type === "checkbox" && typeof value === "boolean") {
+      (el as HTMLInputElement).checked = value;
+      return activate();
+    }
+
+    if (tag === "input" && typeof value === "object" && "mode" in value && "values" in value) {
+      const sel = matchingInputSelByName(el.getAttribute("name"));
+      return sel ? activateLater(() => sel.addItems(value.values.map(v => ({ value: v, label: v })))) : console.warn("Missing input-sel", id, value);
+    }
+
+    if (tag === "input-facet" && isEncodedFilter(value)) {
+      return activateLater(() => (el as InputFacetElement).setFacet(value));
+    }
+
+    console.warn("Unknown input type", { id, type, value });
   };
 
   // Attempt to revive stored filters, if any.
@@ -214,7 +217,7 @@ export function startBrowseNav(pg: PlangsGraph) {
     extensions.value = "";
   });
   extensionsSel.onRemove(({ by, itemsLeft }) => {
-    extensions.dataset.plFilters = itemsLeft > 0 ? "active" : "";
+    extensions.classList.toggle("pl-filters-active", itemsLeft > 0);
     if (by === "enterKey" && itemsLeft === 0) extensions.focus();
   });
 
