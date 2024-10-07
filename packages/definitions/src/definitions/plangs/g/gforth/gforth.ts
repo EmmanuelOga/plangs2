@@ -14,7 +14,6 @@ export function define(g: PlangsGraph) {
         { version: "0.7.3", date: "2014-01-01" },
         { version: "0.7.9", date: "2020-01-01" },
       ],
-      images: [{ kind: "logo", title: "Gforth", url: "/images/plangs/g/gforth/logo.png" }],
     })
     .addImplements(["pl+forth"])
     .addLicenses(["license+gnu-gpl"])

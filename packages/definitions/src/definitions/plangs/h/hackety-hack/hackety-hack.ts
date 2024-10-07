@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Hackety_Hack", title: "Hackety Hack", kind: "wikipedia" },
       ],
       releases: [{ version: "1.0", date: "2010-01-01" }],
-      images: [{ kind: "other", title: "Hackety Hack", url: "/images/plangs/h/hackety-hack/other.png" }],
     })
     .addLicenses(["license+mit"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])

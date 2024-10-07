@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Impromptu_(programming_environment)", title: "Impromptu", kind: "wikipedia" },
       ],
       releases: [{ version: "2.5" }],
-      images: [{ kind: "other", title: "Impromptu", url: "/images/plangs/i/impromptu/other.jpg" }],
     })
     .addInfluencedBy(["pl+lisp", "pl+scheme"])
     .addParadigms(["paradigm+functional", "paradigm+multi"])

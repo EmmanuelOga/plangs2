@@ -14,7 +14,6 @@ export function define(g: PlangsGraph) {
         { version: "4.10", date: "1989-01-01" },
         { version: "8.19.2", date: "2024-01-01" },
       ],
-      images: [{ kind: "logo", title: "Coq", url: "/images/plangs/c/coq/logo.png" }],
     })
     .addInfluencedBy(["pl+ml", "pl+ocaml"])
     .addPlatforms(["plat+cross"])

@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "http://raku.org/", title: "raku.org", kind: "homepage" },
         { href: "https://en.wikipedia.org/wiki/Raku_(programming_language)", title: "Raku", kind: "wikipedia" },
       ],
-      images: [{ kind: "other", title: "Raku", url: "/images/plangs/r/raku/other.png" }],
     })
     .addDialectOf(["pl+perl"])
     .addInfluencedBy(["pl+haskell", "pl+javascript", "pl+perl", "pl+ruby"])

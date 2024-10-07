@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
         { version: "5.40.0", date: "2024-01-01" },
         { version: "5.41.3", date: "2024-01-01" },
       ],
-      images: [{ kind: "logo", title: "Perl", url: "/images/plangs/p/perl/logo.png" }],
     })
     .addInfluencedBy(["pl+awk", "pl+basic", "pl+c", "pl+c++", "pl+lisp", "pl+raku", "pl+sed"])
     .addLicenses(["license+artistic"])

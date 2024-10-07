@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Emacs_Lisp", title: "Emacs Lisp", kind: "wikipedia" },
       ],
       releases: [{ version: "29.4", date: "2024-01-01" }],
-      images: [{ kind: "other", title: "Emacs Lisp", url: "/images/plangs/e/emacs-lisp/other.png" }],
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+common-lisp"])

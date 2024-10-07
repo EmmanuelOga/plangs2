@@ -14,7 +14,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/F_Sharp_programming_language", title: "F#", kind: "wikipedia" },
       ],
       releases: [{ version: "8.0.0", date: "2023-01-01" }],
-      images: [{ kind: "logo", title: "F#", url: "/images/plangs/f/f-sharp/logo.png" }],
     })
     .addDialectOf(["pl+ml", "pl+ocaml"])
     .addInfluencedBy(["pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ml", "pl+ocaml", "pl+python", "pl+scala", "pl+standard-ml"])

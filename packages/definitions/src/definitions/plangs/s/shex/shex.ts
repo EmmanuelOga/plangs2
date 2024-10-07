@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/ShEx", title: "ShEx - Shape Expressions", kind: "wikipedia" },
       ],
       releases: [{ version: "2.1", date: "2018-01-01" }],
-      images: [{ kind: "logo", title: "ShEx - Shape Expressions", url: "/images/plangs/s/shex/logo.png" }],
     })
     .addParadigms(["paradigm+validation"])
     .addTags(["tag+framework"])

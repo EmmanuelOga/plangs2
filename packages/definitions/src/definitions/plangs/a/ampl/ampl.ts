@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "http://www.ampl.com/", title: "www.ampl.com", kind: "homepage" },
         { href: "https://en.wikipedia.org/wiki/AMPL", title: "AMPL", kind: "wikipedia" },
       ],
-      images: [{ kind: "other", title: "AMPL", url: "/images/plangs/a/ampl/other.jpg" }],
     })
     .addInfluencedBy(["pl+awk", "pl+c"])
     .addParadigms(["paradigm+declarative", "paradigm+imperative", "paradigm+multi"])

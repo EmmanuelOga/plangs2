@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/C%EF%BC%83_(programming_language)", title: "C#", kind: "wikipedia" },
       ],
       releases: [{ version: "12.0", date: "2023-01-01" }],
-      images: [{ kind: "logo", title: "C#", url: "/images/plangs/c/c-sharp/logo.png" }],
     })
     .addDialectOf(["pl+c"])
     .addInfluencedBy([

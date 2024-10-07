@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/PyPy", title: "PyPy", kind: "wikipedia" },
       ],
       releases: [{ version: "7.3.16", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "PyPy", url: "/images/plangs/p/pypy/logo.png" }],
     })
     .addDialectOf(["pl+python"])
     .addImplements(["pl+python"])

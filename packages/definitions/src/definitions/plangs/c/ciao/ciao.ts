@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "http://www.ciao-lang.org/", title: "www.ciao-lang.org", kind: "homepage" },
         { href: "https://en.wikipedia.org/wiki/Ciao_(programming_language)", title: "Ciao", kind: "wikipedia" },
       ],
-      images: [{ kind: "logo", title: "Ciao", url: "/images/plangs/c/ciao/logo.png" }],
     })
     .addImplements(["pl+prolog"])
     .addInfluencedBy(["pl+prolog"])

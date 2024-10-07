@@ -14,7 +14,6 @@ export function define(g: PlangsGraph) {
         { version: "8.0.8", date: "2024-01-01" },
         { version: "9.0.0", date: "2024-01-01" },
       ],
-      images: [{ kind: "logo", title: ".NET", url: "/images/plangs/_/_net/logo.png" }],
     })
     .addImplements(["pl+c-sharp"])
     .addLicenses(["license+mit"])

@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/NetLogo", title: "NetLogo", kind: "wikipedia" },
       ],
       releases: [{ version: "6.4.0", date: "2023-01-01" }],
-      images: [{ kind: "logo", title: "NetLogo", url: "/images/plangs/n/netlogo/logo.png" }],
     })
     .addDialectOf(["pl+lisp"])
     .addLicenses(["license+gnu-gpl"])

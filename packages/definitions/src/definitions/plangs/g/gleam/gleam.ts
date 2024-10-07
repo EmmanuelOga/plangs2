@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Gleam_(programming_language)", title: "Gleam", kind: "wikipedia" },
       ],
       releases: [{ version: "1.4.1", date: "2024-01-01" }],
-      images: [{ kind: "other", title: "Gleam", url: "/images/plangs/g/gleam/other.png" }],
     })
     .addInfluencedBy(["pl+elixir", "pl+erlang", "pl+go", "pl+javascript", "pl+ocaml", "pl+rust"])
     .addLicenses(["license+apache"])

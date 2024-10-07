@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Wolfram_language", title: "Wolfram Language", kind: "wikipedia" },
       ],
       releases: [{ version: "14.1.0", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "Wolfram Language", url: "/images/plangs/w/wolfram-language/logo.png" }],
     })
     .addInfluencedBy(["pl+apl", "pl+c", "pl+c++", "pl+fortran", "pl+lisp", "pl+pascal", "pl+prolog", "pl+simula"])
     .addParadigms(["paradigm+array", "paradigm+functional", "paradigm+multi", "paradigm+procedural", "paradigm+rewriting"])

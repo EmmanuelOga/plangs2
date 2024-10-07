@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Free_Pascal", title: "Free Pascal", kind: "wikipedia" },
       ],
       releases: [{ version: "3.2.2", date: "2021-01-01" }, { version: "3.3.1" }],
-      images: [{ kind: "screenshot", title: "Free Pascal", url: "/images/plangs/f/free-pascal/screenshot.png" }],
     })
     .addImplements(["pl+pascal"])
     .addPlatforms(["plat+cross", "plat+embedded"])

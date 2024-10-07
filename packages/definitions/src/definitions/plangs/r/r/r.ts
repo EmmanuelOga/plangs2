@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/R_(programming_language)", title: "R", kind: "wikipedia" },
       ],
       releases: [{ version: "4.4.1", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "R", url: "/images/plangs/r/r/logo.png" }],
     })
     .addInfluencedBy(["pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme"])
     .addLicenses(["license+gnu-gpl"])

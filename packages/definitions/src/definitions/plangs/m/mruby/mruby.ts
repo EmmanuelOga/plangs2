@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Mruby", title: "mruby", kind: "wikipedia" },
       ],
       releases: [{ version: "3.3.0", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "mruby", url: "/images/plangs/m/mruby/logo.png" }],
     })
     .addImplements(["pl+ruby"])
     .addLicenses(["license+mit"])

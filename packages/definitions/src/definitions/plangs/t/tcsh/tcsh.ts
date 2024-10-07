@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Tcsh", title: "TENEX C Shell", kind: "wikipedia" },
       ],
       releases: [{ version: "6.24.13", date: "2024-01-01" }],
-      images: [{ kind: "other", title: "TENEX C Shell", url: "/images/plangs/t/tcsh/other.png" }],
     })
     .addLicenses(["license+bsd"])
     .addPlatforms(["plat+cross"])

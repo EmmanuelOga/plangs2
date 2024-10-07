@@ -13,13 +13,10 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/TypeScript", title: "TypeScript", kind: "wikipedia" },
       ],
       releases: [{ version: "5.5.4", date: "2024-01-01" }],
-      isMainstream: true,
-      isTranspiler: true,
     })
     .addInfluencedBy(["pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+javascript"])
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
     .addTags(["tag+analysis", "tag+app", "tag+automation", "tag+compiler", "tag+industrial", "tag+instrument_control", "tag+interpreter", "tag+viz"])
-    .addTypeSystems(["tsys+duck", "tsys+gradual", "tsys+structural"])
-    .addCompilesTo(["pl+javascript"]);
+    .addTypeSystems(["tsys+duck", "tsys+gradual", "tsys+structural"]);
 }

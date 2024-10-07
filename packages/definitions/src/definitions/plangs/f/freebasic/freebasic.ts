@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/FreeBASIC", title: "FreeBASIC", kind: "wikipedia" },
       ],
       releases: [{ version: "1.10.1", date: "2023-01-01" }],
-      images: [{ kind: "logo", title: "FreeBASIC", url: "/images/plangs/f/freebasic/logo.gif" }],
     })
     .addImplements(["pl+basic"])
     .addInfluencedBy(["pl+c"])

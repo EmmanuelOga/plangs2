@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Self_(programming_language)", title: "Self", kind: "wikipedia" },
       ],
       releases: [{ version: "2017.1", date: "2017-01-01" }],
-      images: [{ kind: "logo", title: "Self", url: "/images/plangs/s/self/logo.png" }],
     })
     .addInfluencedBy(["pl+apl"])
     .addLicenses(["license+bsd"])

@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Simulink", title: "Simulink", kind: "wikipedia" },
       ],
       releases: [{ version: "10.7", date: "2023-01-01" }],
-      images: [{ kind: "other", title: "Simulink", url: "/images/plangs/s/simulink/other.jpg" }],
     })
     .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
     .addTags(["tag+analysis", "tag+dsp", "tag+embedded", "tag+industrial", "tag+modeling", "tag+testing", "tag+wavelet"]);

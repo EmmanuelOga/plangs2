@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "http://www.squeak.org/", title: "www.squeak.org", kind: "homepage" },
         { href: "https://en.wikipedia.org/wiki/Squeak", title: "Squeak", kind: "wikipedia" },
       ],
-      images: [{ kind: "other", title: "Squeak", url: "/images/plangs/s/squeak/other.png" }],
     })
     .addInfluencedBy(["pl+lisp", "pl+self", "pl+simula"])
     .addLicenses(["license+apache", "license+mit"])

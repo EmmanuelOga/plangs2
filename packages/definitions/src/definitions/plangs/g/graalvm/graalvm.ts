@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
         { href: "https://www.graalvm.org/", title: "www.graalvm.org", kind: "homepage" },
         { href: "https://en.wikipedia.org/wiki/GraalVM#Language_and_Runtime_Support", title: "GraalVM", kind: "wikipedia" },
       ],
-      images: [{ kind: "logo", title: "GraalVM", url: "/images/plangs/g/graalvm/logo.png" }],
     })
     .addImplements(["pl+ruby"])
     .addLicenses(["license+gnu-gpl"])

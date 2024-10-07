@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Yabasic", title: "Yabasic", kind: "wikipedia" },
       ],
       releases: [{ version: "2.90.4", date: "2023-01-01" }],
-      images: [{ kind: "other", title: "Yabasic", url: "/images/plangs/y/yabasic/other.png" }],
     })
     .addLicenses(["license+mit"])
     .addPlatforms(["plat+windows"])

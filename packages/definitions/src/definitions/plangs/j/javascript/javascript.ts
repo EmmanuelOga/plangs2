@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
         },
         { href: "https://en.wikipedia.org/wiki/Javascript_(programming_language)", title: "JavaScript", kind: "wikipedia" },
       ],
-      images: [{ kind: "other", title: "JavaScript", url: "/images/plangs/j/javascript/other.png" }],
     })
     .addImplements(["pl+ecmascript"])
     .addInfluencedBy(["pl+awk", "pl+c", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme", "pl+self"])

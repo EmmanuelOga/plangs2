@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/PureScript", title: "PureScript", kind: "wikipedia" },
       ],
       releases: [{ version: "0.15.15", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "PureScript", url: "/images/plangs/p/purescript/logo.png" }],
     })
     .addInfluencedBy(["pl+haskell", "pl+javascript"])
     .addLicenses(["license+bsd"])

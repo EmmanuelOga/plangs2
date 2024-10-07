@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/V_(programming_language)", title: "V", kind: "wikipedia" },
       ],
       releases: [{ version: "0.4.6", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "V", url: "/images/plangs/v/v/logo.png" }],
     })
     .addInfluencedBy(["pl+c", "pl+go", "pl+kotlin", "pl+oberon", "pl+python", "pl+rust", "pl+swift"])
     .addLicenses(["license+mit"])

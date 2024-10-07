@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Pure_(programming_language)", title: "Pure", kind: "wikipedia" },
       ],
       releases: [{ version: "0.68", date: "2018-01-01" }],
-      images: [{ kind: "logo", title: "Pure", url: "/images/plangs/p/pure/logo.png" }],
     })
     .addInfluencedBy(["pl+alice", "pl+haskell", "pl+lisp"])
     .addParadigms(["paradigm+declarative", "paradigm+functional", "paradigm+rewriting"])

@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/PureData", title: "Pure Data", kind: "wikipedia" },
       ],
       releases: [{ version: "0.53", date: "2023-01-01" }],
-      images: [{ kind: "logo", title: "Pure Data", url: "/images/plangs/p/puredata/logo.png" }],
     })
     .addLicenses(["license+bsd"])
     .addTags([

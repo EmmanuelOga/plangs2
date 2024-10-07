@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Agda_(programming_language)", title: "Agda", kind: "wikipedia" },
       ],
       releases: [{ version: "2.6.3", date: "2023-01-01" }],
-      images: [{ kind: "logo", title: "Agda", url: "/images/plangs/a/agda/logo.png" }],
     })
     .addInfluencedBy(["pl+coq", "pl+haskell"])
     .addLicenses(["license+bsd"])

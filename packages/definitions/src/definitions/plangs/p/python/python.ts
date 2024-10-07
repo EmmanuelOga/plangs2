@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Python_(programming_language)", title: "Python", kind: "wikipedia" },
       ],
       releases: [{ version: "3.12.5", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "Python", url: "/images/plangs/p/python/logo.png" }],
     })
     .addInfluencedBy([
       "pl+ada",
@@ -49,7 +48,6 @@ export function define(g: PlangsGraph) {
       "tag+dbms",
       "tag+framework",
       "tag+games",
-      "tag+if",
       "tag+industrial",
       "tag+interpreter",
       "tag+modeling",

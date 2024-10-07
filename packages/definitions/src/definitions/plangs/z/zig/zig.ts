@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Zig_(programming_language)", title: "Zig", kind: "wikipedia" },
       ],
       releases: [{ version: "0.13.0", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "Zig", url: "/images/plangs/z/zig/logo.png" }],
     })
     .addInfluencedBy(["pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust"])
     .addLicenses(["license+mit"])

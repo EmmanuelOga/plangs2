@@ -1,8 +1,11 @@
+// @ts-ignore types for node:fs/promises?
 import { mkdir } from "node:fs/promises";
+// @ts-ignore types for node:fs/promises?
 import { extname, join } from "node:path";
 
 import type { IterTap } from "@plangs/graph/auxiliar";
-import type { Image, Link, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, PlangsGraph } from "@plangs/plangs";
+import type { Link, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, PlangsGraph } from "@plangs/plangs";
+
 import { type WikiPage, keyFromWikiURL } from "./wikipedia";
 
 export const DEFINTIONS_PATH = join(import.meta.dir, "../../../packages/definitions/src/definitions/plangs/");
@@ -15,8 +18,6 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
 
   console.log("Processing", plang.key);
 
-  const images = [] as Image[];
-
   const fetchImage = await page.fetchImage();
   if (fetchImage) {
     const [imgHref, imgBlob] = fetchImage;
@@ -28,11 +29,9 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
       DEFINTIONS_PATH,
       plang.keyPrefix,
       name.startsWith(".") ? `_${name.slice(1)}` : name,
-      `${kind}${extname(imgHref).toLowerCase()}`,
+      `${plang.plainKey}.${kind}${extname(imgHref).toLowerCase()}`,
     );
     Bun.write(path, imgBlob);
-
-    images.push({ kind, title: page.title, url: `/images${path.split("src/definitions")[1]}` });
   }
 
   const data: NPlang["data"] = {
@@ -42,7 +41,6 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
     extensions: page.infobox.extensions.sort(),
     websites: page.websites.sort(),
     releases: page.infobox.releases.sort(),
-    images,
   };
 
   // biome-ignore lint/suspicious/noExplicitAny: we want to remove _any_ empty values.

@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Tk_(software)", title: "Tk", kind: "wikipedia" },
       ],
       releases: [{ version: "8.6.13", date: "2022-01-01" }],
-      images: [{ kind: "other", title: "Tk", url: "/images/plangs/t/tk/other.png" }],
     })
     .addLicenses(["license+bsd"])
     .addPlatforms(["plat+cross"])

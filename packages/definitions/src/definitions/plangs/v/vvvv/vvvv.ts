@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "http://www.visualprogramming.net/", title: "www.visualprogramming.net", kind: "other" },
         { href: "https://en.wikipedia.org/wiki/Vvvv", title: "vvvv", kind: "wikipedia" },
       ],
-      images: [{ kind: "logo", title: "vvvv", url: "/images/plangs/v/vvvv/logo.png" }],
     })
     .addInfluencedBy(["pl+apl", "pl+max-msp"])
     .addParadigms(["paradigm+visual"])

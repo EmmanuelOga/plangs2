@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/LabVIEW", title: "LabVIEW", kind: "wikipedia" },
       ],
       releases: [{ version: "5.1", date: "2023-01-01" }],
-      images: [{ kind: "logo", title: "LabVIEW", url: "/images/plangs/l/labview/logo.jpg" }],
     })
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .addTags([

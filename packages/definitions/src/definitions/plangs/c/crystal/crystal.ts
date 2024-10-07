@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Crystal_(programming_language)", title: "Crystal", kind: "wikipedia" },
       ],
       releases: [{ version: "1.13.2", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "Crystal", url: "/images/plangs/c/crystal/logo.png" }],
     })
     .addInfluencedBy(["pl+c", "pl+c-sharp", "pl+go", "pl+python", "pl+ruby", "pl+rust"])
     .addLicenses(["license+apache"])

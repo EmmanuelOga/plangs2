@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Rust_(programming_language)", title: "Rust", kind: "wikipedia" },
       ],
       releases: [{ version: "1.80.1", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "Rust", url: "/images/plangs/r/rust/logo.png" }],
     })
     .addInfluencedBy([
       "pl+c",

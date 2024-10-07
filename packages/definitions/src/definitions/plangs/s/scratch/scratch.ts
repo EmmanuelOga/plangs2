@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Scratch_(programming_language)", title: "Scratch", kind: "wikipedia" },
       ],
       releases: [{ version: "3.0", date: "2019-01-01" }],
-      images: [{ kind: "other", title: "Scratch", url: "/images/plangs/s/scratch/other.png" }],
     })
     .addInfluencedBy(["pl+squeak"])
     .addLicenses(["license+bsd", "license+gnu-gpl"])

@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/CircuitPython", title: "CircuitPython", kind: "wikipedia" },
       ],
       releases: [{ version: "9.1.1", date: "2024-01-01" }],
-      images: [{ kind: "other", title: "CircuitPython", url: "/images/plangs/c/circuitpython/other.png" }],
     })
     .addImplements(["pl+python"])
     .addLicenses(["license+mit"])

@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Alice_(software)", title: "Alice", kind: "wikipedia" },
       ],
       releases: [{ version: "3.6.0.3", date: "2021-01-01" }],
-      images: [{ kind: "screenshot", title: "Alice", url: "/images/plangs/a/alice/screenshot.jpg" }],
     })
     .addDialectOf(["pl+ml", "pl+standard-ml"])
     .addInfluencedBy(["pl+ml"])

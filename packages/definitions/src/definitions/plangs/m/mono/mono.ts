@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Mono_(software)", title: "Mono", kind: "wikipedia" },
       ],
       releases: [{ version: "6.12.0.206", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "Mono", url: "/images/plangs/m/mono/logo.png" }],
     })
     .addImplements(["pl+c-sharp", "pl+visual-basic"])
     .addLicenses(["license+mit"])

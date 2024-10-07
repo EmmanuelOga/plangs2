@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Processing_(programming_language)", title: "Processing", kind: "wikipedia" },
       ],
       releases: [{ version: "4.3", date: "2023-01-01" }],
-      images: [{ kind: "logo", title: "Processing", url: "/images/plangs/p/processing/logo.png" }],
     })
     .addInfluencedBy(["pl+c"])
     .addLicenses(["license+gnu-gpl", "license+lgpl"])

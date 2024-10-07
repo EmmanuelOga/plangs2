@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/ActionScript", title: "ActionScript", kind: "wikipedia" },
       ],
       releases: [{ version: "3.0", date: "2006-01-01" }],
-      images: [{ kind: "logo", title: "ActionScript", url: "/images/plangs/a/actionscript/other.png" }],
     })
     .addImplements(["pl+ecmascript"])
     .addInfluencedBy(["pl+javascript"])

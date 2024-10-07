@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/PureBasic", title: "PureBasic", kind: "wikipedia" },
       ],
       releases: [{ version: "6.11", date: "2024-01-01" }],
-      images: [{ kind: "other", title: "PureBasic", url: "/images/plangs/p/purebasic/other.png" }],
     })
     .addDialectOf(["pl+basic"])
     .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+structured"])

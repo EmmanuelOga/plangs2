@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
         { href: "http://kornshell.com/", title: "kornshell.com", kind: "homepage" },
         { href: "https://en.wikipedia.org/wiki/KornShell", title: "KornShell", kind: "wikipedia" },
       ],
-      images: [{ kind: "other", title: "KornShell", url: "/images/plangs/k/kornshell/other.png" }],
     })
     .addLicenses(["license+isc", "license+lgpl", "license+public-domain"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])

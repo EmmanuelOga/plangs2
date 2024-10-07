@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Gremlin_(programming_language)", title: "Gremlin", kind: "wikipedia" },
       ],
       releases: [{ version: "3.7.0", date: "2023-01-01" }],
-      images: [{ kind: "other", title: "Gremlin", url: "/images/plangs/g/gremlin/other.png" }],
     })
     .addInfluencedBy(["pl+sql", "pl+xpath"])
     .addLicenses(["license+apache"])

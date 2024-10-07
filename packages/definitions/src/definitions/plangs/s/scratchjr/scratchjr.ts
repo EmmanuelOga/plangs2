@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "http://www.scratchjr.org/", title: "www.scratchjr.org", kind: "homepage" },
         { href: "https://en.wikipedia.org/wiki/ScratchJr", title: "ScratchJr", kind: "wikipedia" },
       ],
-      images: [{ kind: "other", title: "ScratchJr", url: "/images/plangs/s/scratchjr/other.png" }],
     })
     .addInfluencedBy(["pl+scratch"])
     .addPlatforms(["plat+android", "plat+apple"])

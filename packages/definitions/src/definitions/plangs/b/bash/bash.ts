@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Bash_(Unix_shell)", title: "Bash", kind: "wikipedia" },
       ],
       releases: [{ version: "5.2.32", date: "2024-01-01" }],
-      images: [{ kind: "screenshot", title: "Bash", url: "/images/plangs/b/bash/screenshot.png" }],
     })
     .addLicenses(["license+gnu-gpl"])
     .addPlatforms(["plat+apple", "plat+windows"])

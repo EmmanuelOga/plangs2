@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/GDScript", title: "Godot Engine", kind: "wikipedia" },
       ],
       releases: [{ version: "4.3", date: "2024-01-01" }],
-      images: [{ kind: "other", title: "Godot Engine", url: "/images/plangs/g/gdscript/other.png" }],
     })
     .addInfluencedBy(["pl+python"])
     .addLicenses(["license+mit"])

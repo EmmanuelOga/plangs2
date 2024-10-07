@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Sass_(style_sheet_language)", title: "Sass", kind: "wikipedia" },
       ],
       releases: [{ version: "1.75.0", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "Sass", url: "/images/plangs/s/sass/logo.png" }],
     })
     .addLicenses(["license+mit"])
     .addPlatforms(["plat+cross"])

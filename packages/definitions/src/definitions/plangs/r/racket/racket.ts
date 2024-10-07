@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Racket_(programming_language)", title: "Racket", kind: "wikipedia" },
       ],
       releases: [{ version: "8.14", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "Racket", url: "/images/plangs/r/racket/logo.png" }],
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+eiffel", "pl+r5rs", "pl+scheme"])

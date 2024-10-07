@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
         { href: "https://isabelle.in.tum.de/", title: "isabelle.in.tum.de", kind: "homepage" },
         { href: "https://en.wikipedia.org/wiki/Isabelle_(proof_assistant)", title: "Isabelle", kind: "wikipedia" },
       ],
-      images: [{ kind: "other", title: "Isabelle", url: "/images/plangs/i/isabelle/other.png" }],
     })
     .addInfluencedBy(["pl+haskell"])
     .addLicenses(["license+bsd"])

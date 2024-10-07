@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Delphi_(software)", title: "Delphi", kind: "wikipedia" },
       ],
       releases: [{ version: "12.1", date: "2024-01-01" }],
-      images: [{ kind: "screenshot", title: "Delphi", url: "/images/plangs/d/delphi/screenshot.png" }],
     })
     .addDialectOf(["pl+pascal"])
     .addImplements(["pl+pascal"])

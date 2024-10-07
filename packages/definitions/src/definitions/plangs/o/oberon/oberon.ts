@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://projectoberon.net/", title: "projectoberon.net", kind: "homepage" },
         { href: "https://en.wikipedia.org/wiki/Oberon_programming_language", title: "Oberon", kind: "wikipedia" },
       ],
-      images: [{ kind: "logo", title: "Oberon", url: "/images/plangs/o/oberon/logo.png" }],
     })
     .addInfluencedBy(["pl+pascal"])
     .addParadigms(["paradigm+imperative", "paradigm+modular", "paradigm+oop", "paradigm+structured"])

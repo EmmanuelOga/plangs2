@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
         { href: "https://developer.nvidia.com/cg-toolkit", title: "developer.nvidia.com/cg-toolkit", kind: "other" },
         { href: "https://en.wikipedia.org/wiki/Cg_(programming_language)", title: "Cg/HLSL", kind: "wikipedia" },
       ],
-      images: [{ kind: "other", title: "Cg/HLSL", url: "/images/plangs/c/cg/other.png" }],
     })
     .addInfluencedBy(["pl+c"])
     .addTags(["tag+3dg", "tag+asm", "tag+compiler", "tag+editor", "tag+games", "tag+industrial", "tag+interpreter", "tag+ray-tracer"]);

@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Rakudo", title: "Rakudo", kind: "wikipedia" },
       ],
       releases: [{ version: "2024.08", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "Rakudo", url: "/images/plangs/r/rakudo/logo.png" }],
     })
     .addImplements(["pl+raku"])
     .addLicenses(["license+artistic"])

@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/LuaJIT", title: "LuaJIT", kind: "wikipedia" },
       ],
       releases: [{ version: "2.0.5", date: "2023-01-01" }],
-      images: [{ kind: "other", title: "LuaJIT", url: "/images/plangs/l/luajit/other.png" }],
     })
     .addImplements(["pl+lua", "pl+moonscript"])
     .addLicenses(["license+mit"])

@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Ruby_programming_language", title: "Ruby", kind: "wikipedia" },
       ],
       releases: [{ version: "3.3.5", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "Ruby", url: "/images/plangs/r/ruby/logo.png" }],
     })
     .addInfluencedBy([
       "pl+ada",

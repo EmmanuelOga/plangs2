@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://isocpp.org/", title: "isocpp.org", kind: "other" },
         { href: "https://en.wikipedia.org/wiki/C%2B%2B", title: "C++", kind: "wikipedia" },
       ],
-      images: [{ kind: "logo", title: "C++", url: "/images/plangs/c/c++/logo.png" }],
     })
     .addDialectOf(["pl+c"])
     .addInfluencedBy(["pl+ada", "pl+apl", "pl+c", "pl+clu", "pl+f-sharp", "pl+ml", "pl+simula"])

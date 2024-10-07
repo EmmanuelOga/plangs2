@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "http://common-lisp.net/", title: "common-lisp.net", kind: "other" },
         { href: "https://en.wikipedia.org/wiki/Common_Lisp", title: "Common Lisp", kind: "wikipedia" },
       ],
-      images: [{ kind: "logo", title: "Common Lisp", url: "/images/plangs/c/common-lisp/logo.png" }],
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+lisp", "pl+r5rs", "pl+scheme"])

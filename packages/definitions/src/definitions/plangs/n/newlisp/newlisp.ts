@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
         { version: "10.7.5", date: "2019-01-01" },
         { version: "10.7.4", date: "2018-01-01" },
       ],
-      images: [{ kind: "logo", title: "newLISP", url: "/images/plangs/n/newlisp/logo.png" }],
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+c", "pl+common-lisp", "pl+perl", "pl+scheme"])

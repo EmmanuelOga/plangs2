@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/AssemblyScript", title: "AssemblyScript", kind: "wikipedia" },
       ],
       releases: [{ version: "0.27.29", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "AssemblyScript", url: "/images/plangs/a/assemblyscript/logo.png" }],
     })
     .addDialectOf(["pl+javascript", "pl+typescript"])
     .addInfluencedBy(["pl+javascript", "pl+typescript"])

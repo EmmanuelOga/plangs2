@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://www.scheme.org/", title: "www.scheme.org", kind: "homepage" },
         { href: "https://en.wikipedia.org/wiki/Scheme_(programming_language)", title: "Scheme", kind: "wikipedia" },
       ],
-      images: [{ kind: "other", title: "Scheme", url: "/images/plangs/s/scheme/other.png" }],
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+algol", "pl+lisp", "pl+mzscheme", "pl+racket"])

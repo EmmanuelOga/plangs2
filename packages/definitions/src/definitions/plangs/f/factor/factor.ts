@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Factor_(programming_language)", title: "Factor", kind: "wikipedia" },
       ],
       releases: [{ version: "0.99", date: "2023-01-01" }],
-      images: [{ kind: "logo", title: "Factor", url: "/images/plangs/f/factor/logo.png" }],
     })
     .addInfluencedBy(["pl+forth", "pl+joy", "pl+lisp", "pl+self"])
     .addLicenses(["license+bsd"])

@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Reason_(programming_language)", title: "Reason", kind: "wikipedia" },
       ],
       releases: [{ version: "3.12.0", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "Reason", url: "/images/plangs/r/reason/logo.png" }],
     })
     .addDialectOf(["pl+ml", "pl+ocaml"])
     .addInfluencedBy(["pl+javascript", "pl+ocaml"])

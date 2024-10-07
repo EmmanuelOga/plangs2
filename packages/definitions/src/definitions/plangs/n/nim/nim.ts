@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Nim_(programming_language)", title: "Nim", kind: "wikipedia" },
       ],
       releases: [{ version: "2.0.8", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "Nim", url: "/images/plangs/n/nim/logo.png" }],
     })
     .addInfluencedBy(["pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+oberon", "pl+python", "pl+rust"])
     .addParadigms([

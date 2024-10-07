@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
         { version: "0.29.0", date: "2024-01-01" },
         { version: "1.0", date: "2022-01-01" },
       ],
-      images: [{ kind: "other", title: "Hy", url: "/images/plangs/h/hy/other.png" }],
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+clojure", "pl+common-lisp"])

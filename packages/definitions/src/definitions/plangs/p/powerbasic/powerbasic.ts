@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/PowerBASIC", title: "PowerBASIC", kind: "wikipedia" },
       ],
       releases: [{ version: "10.0", date: "2011-01-01" }],
-      images: [{ kind: "screenshot", title: "PowerBASIC", url: "/images/plangs/p/powerbasic/screenshot.png" }],
     })
     .addImplements(["pl+basic"])
     .addPlatforms(["plat+dos", "plat+windows"])

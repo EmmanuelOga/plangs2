@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
         { href: "https://adobe.com/products/coldfusion-family.html", title: "adobe.com/products/coldfusion-family.html", kind: "other" },
         { href: "https://en.wikipedia.org/wiki/ColdFusion", title: "Adobe ColdFusion", kind: "wikipedia" },
       ],
-      images: [{ kind: "logo", title: "Adobe ColdFusion", url: "/images/plangs/c/coldfusion/logo.png" }],
     })
     .addPlatforms(["plat+cross"])
     .addTags([

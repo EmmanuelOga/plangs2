@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Clojure_(programming_language)", title: "Clojure", kind: "wikipedia" },
       ],
       releases: [{ version: "1.11.2", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "Clojure", url: "/images/plangs/c/clojure/logo.png" }],
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy([

@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
         { version: "3.0.11", date: "2024-01-01" },
         { version: "3.0.0", date: "2023-01-01" },
       ],
-      images: [{ kind: "logo", title: "Cython", url: "/images/plangs/c/cython/logo.png" }],
     })
     .addDialectOf(["pl+python"])
     .addInfluencedBy(["pl+c", "pl+python"])

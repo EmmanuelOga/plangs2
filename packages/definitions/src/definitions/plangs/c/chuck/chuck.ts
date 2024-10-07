@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/ChucK", title: "ChucK", kind: "wikipedia" },
       ],
       releases: [{ version: "1.5.2.4", date: "2024-01-01" }],
-      images: [{ kind: "other", title: "ChucK", url: "/images/plangs/c/chuck/other.png" }],
     })
     .addLicenses(["license+gnu-gpl"])
     .addParadigms(["paradigm+multi"])

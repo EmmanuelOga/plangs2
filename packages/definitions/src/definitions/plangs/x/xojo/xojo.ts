@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Xojo", title: "Xojo", kind: "wikipedia" },
       ],
       releases: [{ version: "3.1", date: "2023-01-01" }],
-      images: [{ kind: "logo", title: "Xojo", url: "/images/plangs/x/xojo/logo.png" }],
     })
     .addInfluencedBy(["pl+basic", "pl+visual-basic"])
     .addPlatforms(["plat+android", "plat+apple", "plat+linux", "plat+raspberry", "plat+windows"])

@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Lua_(programming_language)", title: "Lua", kind: "wikipedia" },
       ],
       releases: [{ version: "5.4.7", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "Lua", url: "/images/plangs/l/lua/logo.png" }],
     })
     .addInfluencedBy(["pl+awk", "pl+c++", "pl+clu", "pl+lisp", "pl+modula", "pl+r5rs", "pl+scheme", "pl+self"])
     .addLicenses(["license+mit"])

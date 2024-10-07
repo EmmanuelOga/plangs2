@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Modelica", title: "Modelica", kind: "wikipedia" },
       ],
       releases: [{ version: "3.6", date: "2023-01-01" }],
-      images: [{ kind: "other", title: "Modelica", url: "/images/plangs/m/modelica/other.png" }],
     })
     .addLicenses(["license+cc-by"])
     .addParadigms(["paradigm+declarative"])

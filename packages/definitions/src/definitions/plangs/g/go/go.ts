@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Go_(programming_language)", title: "Go", kind: "wikipedia" },
       ],
       releases: [{ version: "1.23.0", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "Go", url: "/images/plangs/g/go/logo.png" }],
     })
     .addInfluencedBy(["pl+apl", "pl+c", "pl+d", "pl+erlang", "pl+modula", "pl+oberon", "pl+pascal", "pl+python"])
     .addLicenses(["license+bsd"])

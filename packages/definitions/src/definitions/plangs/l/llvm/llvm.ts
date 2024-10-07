@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/LLVM", title: "LLVM", kind: "wikipedia" },
       ],
       releases: [{ version: "18.1.8", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "LLVM", url: "/images/plangs/l/llvm/logo.png" }],
     })
     .addLicenses(["license+apache", "license+bsd"])
     .addPlatforms(["plat+cross"])

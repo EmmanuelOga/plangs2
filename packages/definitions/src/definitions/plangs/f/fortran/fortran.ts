@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://fortran-lang.org/", title: "fortran-lang.org", kind: "homepage" },
         { href: "https://en.wikipedia.org/wiki/Fortran", title: "Fortran", kind: "wikipedia" },
       ],
-      images: [{ kind: "other", title: "Fortran", url: "/images/plangs/f/fortran/other.jpg" }],
     })
     .addParadigms(["paradigm+array", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+structured"])
     .addTags([

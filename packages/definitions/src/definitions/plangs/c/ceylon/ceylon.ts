@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Ceylon_(programming_language)", title: "Ceylon", kind: "wikipedia" },
       ],
       releases: [{ version: "1.3.3", date: "2017-01-01" }],
-      images: [{ kind: "logo", title: "Ceylon", url: "/images/plangs/c/ceylon/logo.png" }],
     })
     .addInfluencedBy(["pl+lisp", "pl+ml", "pl+scala", "pl+whiley"])
     .addLicenses(["license+apache"])

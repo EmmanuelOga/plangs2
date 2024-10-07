@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Max/MSP", title: "Max", kind: "wikipedia" },
       ],
       releases: [{ version: "8.6.2", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "Max", url: "/images/plangs/m/max-msp/logo.jpg" }],
     })
     .addPlatforms(["plat+apple", "plat+windows"])
     .addTags([

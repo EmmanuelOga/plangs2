@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/SBCL", title: "SBCL", kind: "wikipedia" },
       ],
       releases: [{ version: "2.4.5", date: "2024-01-01" }],
-      images: [{ kind: "screenshot", title: "SBCL", url: "/images/plangs/s/sbcl/screenshot.png" }],
     })
     .addImplements(["pl+common-lisp"])
     .addLicenses(["license+bsd", "license+mit", "license+public-domain"])

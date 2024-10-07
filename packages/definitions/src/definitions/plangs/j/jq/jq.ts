@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Jq_(programming_language)", title: "jq", kind: "wikipedia" },
       ],
       releases: [{ version: "1.7.1", date: "2023-01-01" }],
-      images: [{ kind: "logo", title: "jq", url: "/images/plangs/j/jq/logo.png" }],
     })
     .addInfluencedBy(["pl+icon"])
     .addLicenses(["license+mit"])

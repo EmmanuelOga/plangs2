@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Clean_(programming_language)", title: "Clean", kind: "wikipedia" },
       ],
       releases: [{ version: "3.1", date: "2022-01-01" }],
-      images: [{ kind: "logo", title: "Clean", url: "/images/plangs/c/clean/logo.png" }],
     })
     .addInfluencedBy(["pl+haskell"])
     .addLicenses(["license+bsd"])

@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/D_(programming_language)", title: "D", kind: "wikipedia" },
       ],
       releases: [{ version: "2.109.1", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "D", url: "/images/plangs/d/d/logo.png" }],
     })
     .addInfluencedBy(["pl+ada", "pl+basic", "pl+c", "pl+c++", "pl+c-sharp", "pl+eiffel", "pl+python", "pl+ruby"])
     .addLicenses(["license+boost"])

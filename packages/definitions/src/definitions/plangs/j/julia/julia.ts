@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
         { version: "1.10.5", date: "2024-01-01" },
         { version: "1.11.0", date: "2024-01-01" },
       ],
-      images: [{ kind: "logo", title: "Julia", url: "/images/plangs/j/julia/logo.png" }],
     })
     .addInfluencedBy([
       "pl+c",

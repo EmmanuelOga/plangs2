@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Visual_Basic_(.NET)", title: "Visual Basic", kind: "wikipedia" },
       ],
       releases: [{ version: "17.9.2", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "Visual Basic", url: "/images/plangs/v/visual-basic/logo.png" }],
       extensions: [".vb"],
     })
     .addInfluencedBy(["pl+basic", "pl+haskell", "pl+visual-basic"])

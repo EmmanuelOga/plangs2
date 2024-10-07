@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "http://www.simula67.info/", title: "www.simula67.info", kind: "homepage" },
         { href: "https://en.wikipedia.org/wiki/Simula", title: "Simula", kind: "wikipedia" },
       ],
-      images: [{ kind: "logo", title: "Simula", url: "/images/plangs/s/simula/logo.png" }],
     })
     .addDialectOf(["pl+algol"])
     .addInfluencedBy(["pl+algol"])

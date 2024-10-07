@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { href: "https://aplwiki.com/", title: "aplwiki.com", kind: "homepage" },
         { href: "https://en.wikipedia.org/wiki/APL_programming_language", title: "APL", kind: "wikipedia" },
       ],
-      images: [{ kind: "logo", title: "APL", url: "/images/plangs/a/apl/logo.png" }],
     })
     .addParadigms(["paradigm+array", "paradigm+functional", "paradigm+modular", "paradigm+structured"])
     .addPlatforms(["plat+cross"])

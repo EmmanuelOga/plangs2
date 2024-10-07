@@ -5,11 +5,13 @@
   "dependencies": {
     "@plangs/graph": "workspace:*",
     "@plangs/plangs": "workspace:*",
-    "cheerio": "^1.0.0",
+    "cheerio": "1.0.0-rc.12",
     "cli-highlight": "^2.1.11",
+    "css-what": "^6.1.0",
     "dom-serializer": "^2.0.0",
     "domhandler": "^5.0.3"
   },
+  "type": "module",
   "main": "src/generate.ts",
   "files": ["src"]
 }

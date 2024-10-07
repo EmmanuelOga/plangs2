@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
         { version: "4.0.22", date: "2024-01-01" },
         { version: "4.0.0", date: "2021-01-01" },
       ],
-      images: [{ kind: "logo", title: "Groovy", url: "/images/plangs/g/groovy/logo.png" }],
     })
     .addInfluencedBy(["pl+perl", "pl+python", "pl+ruby"])
     .addLicenses(["license+apache"])

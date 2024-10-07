@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Erlang_(programming_language)", title: "Erlang", kind: "wikipedia" },
       ],
       releases: [{ version: "27.0.1", date: "2024-01-01" }],
-      images: [{ kind: "logo", title: "Erlang", url: "/images/plangs/e/erlang/logo.png" }],
     })
     .addInfluencedBy(["pl+lisp", "pl+ml", "pl+prolog"])
     .addLicenses(["license+apache"])

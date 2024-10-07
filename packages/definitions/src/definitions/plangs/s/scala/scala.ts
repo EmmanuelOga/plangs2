@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Scala_programming_language", title: "Scala", kind: "wikipedia" },
       ],
       releases: [{ version: "3.4.0", date: "2024-01-01" }],
-      images: [{ kind: "other", title: "Scala", url: "/images/plangs/s/scala/other.png" }],
     })
     .addInfluencedBy([
       "pl+common-lisp",

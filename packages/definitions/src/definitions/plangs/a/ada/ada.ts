@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://www.adaic.org/", title: "www.adaic.org", kind: "homepage" },
         { href: "https://en.wikipedia.org/wiki/Ada_programming_language", title: "Ada", kind: "wikipedia" },
       ],
-      images: [{ kind: "logo", title: "Ada", url: "/images/plangs/a/ada/logo.png" }],
     })
     .addDialectOf(["pl+pascal"])
     .addInfluencedBy(["pl+c++", "pl+clu", "pl+eiffel", "pl+pascal"])

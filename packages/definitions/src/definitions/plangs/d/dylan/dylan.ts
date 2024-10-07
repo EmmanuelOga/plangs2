@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/Dylan_(programming_language)", title: "Dylan", kind: "wikipedia" },
       ],
       releases: [{ version: "2022.1", date: "2022-01-01" }],
-      images: [{ kind: "logo", title: "Dylan", url: "/images/plangs/d/dylan/logo.png" }],
     })
     .addInfluencedBy(["pl+algol", "pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme"])
     .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+oop"])

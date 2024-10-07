@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { href: "https://en.wikipedia.org/wiki/GNAT", title: "GNAT", kind: "wikipedia" },
       ],
       releases: [{ version: "14.1", date: "2024-05-07" }],
-      images: [{ kind: "other", title: "GNAT", url: "/images/plangs/g/gnat/other.png" }],
     })
     .addImplements(["pl+ada"])
     .addLicenses(["license+gnu-gpl"])
