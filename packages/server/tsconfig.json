@@ -6,5 +6,5 @@
     "jsxImportSource": "preact",
     "moduleResolution": "Bundler"
   },
-  "include": ["src", "../frontend/src/components", "src/elements.ts"]
+  "include": ["src"]
 }

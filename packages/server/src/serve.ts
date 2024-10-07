@@ -9,14 +9,14 @@ import { extname, join } from "node:path";
 import { loadAllDefinitions } from "@plangs/definitions";
 import { PlangsGraph } from "@plangs/plangs";
 
-import { createNPosts } from "./content";
+import { loadPosts } from "./content";
 import { notifyWebsockets, trackWebsocket, untrackWebsocket } from "./livereload";
 import { resolvePage } from "./resolve_page";
 import { contentTypeFor, staticResponse, vdomToHTML } from "./util";
 
 const pg = new PlangsGraph();
 await loadAllDefinitions(pg);
-await createNPosts(pg);
+await loadPosts(pg);
 
 const server = Bun.serve({
   async fetch(req: Request): Promise<Response> {
@@ -35,9 +35,9 @@ const server = Bun.serve({
     if (page) return staticResponse(req, vdomToHTML(page), "text/html");
 
     if (path.startsWith("/images")) {
-      const img = Bun.file(join(import.meta.dir, "../../definitions/src/definitions", path.slice(8)));
+      const img = Bun.file(join(import.meta.dir, "../../definitions/src/definitions/plangs", path.slice(8)));
       const ct = contentTypeFor(path);
-      if ((await img.exists()) && ct) return staticResponse(req, img, ct);
+      if (ct && (await img.exists())) return staticResponse(req, img, ct);
       // Do not return, allow checking for a static image.
     }
 

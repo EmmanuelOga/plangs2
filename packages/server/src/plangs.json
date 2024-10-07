@@ -710,7 +710,7 @@
           { "href": "https://en.wikipedia.org/wiki/.NET", "title": ".NET", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "8.0.8", "date": "2024-01-01" }, { "version": "9.0.0", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": ".NET", "url": "/images/plangs/_/_net/logo.png" }]
+        "images": [{ "kind": "logo", "title": ".NET", "url": "/images/_/_net/_net.logo.png" }]
       },
       "pl+actionscript": {
         "name": "ActionScript",
@@ -725,7 +725,7 @@
           { "href": "https://en.wikipedia.org/wiki/ActionScript", "title": "ActionScript", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "3.0", "date": "2006-01-01" }],
-        "images": [{ "kind": "logo", "title": "ActionScript", "url": "/images/plangs/a/actionscript/other.png" }]
+        "images": [{ "kind": "other", "title": "ActionScript", "url": "/images/a/actionscript/actionscript.other.png" }]
       },
       "pl+ada": {
         "name": "Ada",
@@ -736,7 +736,7 @@
           { "href": "https://www.adaic.org/", "title": "www.adaic.org", "kind": "homepage" },
           { "href": "https://en.wikipedia.org/wiki/Ada_programming_language", "title": "Ada", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "logo", "title": "Ada", "url": "/images/plangs/a/ada/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Ada", "url": "/images/a/ada/ada.logo.png" }]
       },
       "pl+agda": {
         "name": "Agda",
@@ -748,14 +748,14 @@
           { "href": "https://en.wikipedia.org/wiki/Agda_(programming_language)", "title": "Agda", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "2.6.3", "date": "2023-01-01" }],
-        "images": [{ "kind": "logo", "title": "Agda", "url": "/images/plangs/a/agda/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Agda", "url": "/images/a/agda/agda.logo.png" }]
       },
       "pl+algol": {
         "name": "ALGOL",
         "description": "ALGOL (/ˈælɡɒl, -ɡɔːl/; short for \"Algorithmic Language\") is a family of imperative computer programming languages originally developed in 1958. ALGOL heavily influenced many other languages and was the standard method for algorithm description used by the Association for Computing Machinery (ACM) in textbooks and academic sources for more than thirty years.",
         "firstAppeared": "1958-01-01",
         "websites": [{ "href": "https://en.wikipedia.org/wiki/ALGOL", "title": "ALGOL", "kind": "wikipedia" }],
-        "images": [{ "kind": "other", "title": "ALGOL", "url": "/images/plangs/a/algol/other.jpg" }]
+        "images": [{ "kind": "other", "title": "ALGOL", "url": "/images/a/algol/algol.other.jpg" }]
       },
       "pl+alice": {
         "name": "Alice",
@@ -766,7 +766,7 @@
           { "href": "https://en.wikipedia.org/wiki/Alice_(software)", "title": "Alice", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "3.6.0.3", "date": "2021-01-01" }],
-        "images": [{ "kind": "screenshot", "title": "Alice", "url": "/images/plangs/a/alice/screenshot.jpg" }]
+        "images": [{ "kind": "screenshot", "title": "Alice", "url": "/images/a/alice/alice.screenshot.jpg" }]
       },
       "pl+ampl": {
         "name": "AMPL",
@@ -777,7 +777,7 @@
           { "href": "http://www.ampl.com/", "title": "www.ampl.com", "kind": "homepage" },
           { "href": "https://en.wikipedia.org/wiki/AMPL", "title": "AMPL", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "other", "title": "AMPL", "url": "/images/plangs/a/ampl/other.jpg" }]
+        "images": [{ "kind": "other", "title": "AMPL", "url": "/images/a/ampl/ampl.other.jpg" }]
       },
       "pl+apl": {
         "name": "APL",
@@ -787,7 +787,7 @@
           { "href": "https://aplwiki.com/", "title": "aplwiki.com", "kind": "homepage" },
           { "href": "https://en.wikipedia.org/wiki/APL_programming_language", "title": "APL", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "logo", "title": "APL", "url": "/images/plangs/a/apl/logo.png" }]
+        "images": [{ "kind": "logo", "title": "APL", "url": "/images/a/apl/apl.logo.png" }]
       },
       "pl+asm.js": {
         "name": "asm.js",
@@ -804,7 +804,7 @@
         "firstAppeared": "1947-01-01",
         "extensions": [".SRC", ".asm", ".inc", ".s", ".wla"],
         "websites": [{ "href": "https://en.wikipedia.org/wiki/Assembly_language", "title": "Assembly language", "kind": "wikipedia" }],
-        "images": [{ "kind": "other", "title": "Assembly language", "url": "/images/plangs/a/assembly/other.png" }]
+        "images": [{ "kind": "other", "title": "Assembly language", "url": "/images/a/assembly/assembly.other.png" }]
       },
       "pl+assemblyscript": {
         "name": "AssemblyScript",
@@ -816,14 +816,14 @@
           { "href": "https://en.wikipedia.org/wiki/AssemblyScript", "title": "AssemblyScript", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "0.27.29", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "AssemblyScript", "url": "/images/plangs/a/assemblyscript/logo.png" }]
+        "images": [{ "kind": "logo", "title": "AssemblyScript", "url": "/images/a/assemblyscript/assemblyscript.logo.png" }]
       },
       "pl+awk": {
         "name": "AWK",
         "description": "AWK (/ɔːk/) is a domain-specific language designed for text processing and typically used as a data extraction and reporting tool. Like sed and grep, it is a filter, and is a standard feature of most Unix-like operating systems.",
         "firstAppeared": "1977-01-01",
         "websites": [{ "href": "https://en.wikipedia.org/wiki/AWK_programming_language", "title": "AWK", "kind": "wikipedia" }],
-        "images": [{ "kind": "other", "title": "AWK", "url": "/images/plangs/a/awk/other.png" }]
+        "images": [{ "kind": "other", "title": "AWK", "url": "/images/a/awk/awk.other.png" }]
       },
       "pl+ballerina": {
         "name": "Ballerina",
@@ -842,14 +842,14 @@
           { "href": "https://en.wikipedia.org/wiki/Bash_(Unix_shell)", "title": "Bash", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "5.2.32", "date": "2024-01-01" }],
-        "images": [{ "kind": "screenshot", "title": "Bash", "url": "/images/plangs/b/bash/screenshot.png" }]
+        "images": [{ "kind": "screenshot", "title": "Bash", "url": "/images/b/bash/bash.screenshot.png" }]
       },
       "pl+basic": {
         "name": "BASIC",
         "description": "BASIC (Beginners' All-purpose Symbolic Instruction Code) is a family of general-purpose, high-level programming languages designed for ease of use. The original version was created by John G. Kemeny and Thomas E. Kurtz at Dartmouth College in 1963. They wanted to enable students in non-scientific fields to use computers. At the time, nearly all computers required writing custom software, which only scientists and mathematicians tended to learn.",
         "firstAppeared": "1964-01-01",
         "websites": [{ "href": "https://en.wikipedia.org/wiki/BASIC", "title": "BASIC", "kind": "wikipedia" }],
-        "images": [{ "kind": "other", "title": "BASIC", "url": "/images/plangs/b/basic/other.png" }]
+        "images": [{ "kind": "other", "title": "BASIC", "url": "/images/b/basic/basic.other.png" }]
       },
       "pl+befunge": {
         "name": "Befunge",
@@ -884,7 +884,7 @@
         "name": "Borland Turbo C",
         "description": "Turbo C is a discontinued integrated development environment (IDE) and compiler for the C programming language from Borland. First introduced in 1987, it was noted for its integrated development environment, small size, fast compile speed, comprehensive manuals and low price.",
         "websites": [{ "href": "https://en.wikipedia.org/wiki/Borland_Turbo_C", "title": "Borland Turbo C", "kind": "wikipedia" }],
-        "images": [{ "kind": "other", "title": "Borland Turbo C", "url": "/images/plangs/b/borland-turbo-c/other.jpg" }]
+        "images": [{ "kind": "other", "title": "Borland Turbo C", "url": "/images/b/borland-turbo-c/borland-turbo-c.other.jpg" }]
       },
       "pl+brainfuck": {
         "name": "Brainfuck",
@@ -905,7 +905,7 @@
           { "href": "https://isocpp.org/", "title": "isocpp.org", "kind": "other" },
           { "href": "https://en.wikipedia.org/wiki/C%2B%2B", "title": "C++", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "logo", "title": "C++", "url": "/images/plangs/c/c++/logo.png" }]
+        "images": [{ "kind": "logo", "title": "C++", "url": "/images/c/c++/c++.logo.png" }]
       },
       "pl+c-sharp": {
         "name": "C#",
@@ -917,7 +917,7 @@
           { "href": "https://en.wikipedia.org/wiki/C%EF%BC%83_(programming_language)", "title": "C#", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "12.0", "date": "2023-01-01" }],
-        "images": [{ "kind": "logo", "title": "C#", "url": "/images/plangs/c/c-sharp/logo.png" }]
+        "images": [{ "kind": "logo", "title": "C#", "url": "/images/c/c-sharp/c-sharp.logo.png" }]
       },
       "pl+c": {
         "name": "C",
@@ -940,7 +940,7 @@
           { "href": "https://en.wikipedia.org/wiki/Ceylon_(programming_language)", "title": "Ceylon", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "1.3.3", "date": "2017-01-01" }],
-        "images": [{ "kind": "logo", "title": "Ceylon", "url": "/images/plangs/c/ceylon/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Ceylon", "url": "/images/c/ceylon/ceylon.logo.png" }]
       },
       "pl+cg": {
         "name": "Cg/HLSL",
@@ -949,7 +949,7 @@
           { "href": "https://developer.nvidia.com/cg-toolkit", "title": "developer.nvidia.com/cg-toolkit", "kind": "other" },
           { "href": "https://en.wikipedia.org/wiki/Cg_(programming_language)", "title": "Cg/HLSL", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "other", "title": "Cg/HLSL", "url": "/images/plangs/c/cg/other.png" }]
+        "images": [{ "kind": "other", "title": "Cg/HLSL", "url": "/images/c/cg/cg.other.png" }]
       },
       "pl+chuck": {
         "name": "ChucK",
@@ -960,7 +960,7 @@
           { "href": "https://en.wikipedia.org/wiki/ChucK", "title": "ChucK", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "1.5.2.4", "date": "2024-01-01" }],
-        "images": [{ "kind": "other", "title": "ChucK", "url": "/images/plangs/c/chuck/other.png" }]
+        "images": [{ "kind": "other", "title": "ChucK", "url": "/images/c/chuck/chuck.other.png" }]
       },
       "pl+ciao": {
         "name": "Ciao",
@@ -970,7 +970,7 @@
           { "href": "http://www.ciao-lang.org/", "title": "www.ciao-lang.org", "kind": "homepage" },
           { "href": "https://en.wikipedia.org/wiki/Ciao_(programming_language)", "title": "Ciao", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "logo", "title": "Ciao", "url": "/images/plangs/c/ciao/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Ciao", "url": "/images/c/ciao/ciao.logo.png" }]
       },
       "pl+cilk": {
         "name": "Cilk",
@@ -989,7 +989,7 @@
           { "href": "https://en.wikipedia.org/wiki/CircuitPython", "title": "CircuitPython", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "9.1.1", "date": "2024-01-01" }],
-        "images": [{ "kind": "other", "title": "CircuitPython", "url": "/images/plangs/c/circuitpython/other.png" }]
+        "images": [{ "kind": "other", "title": "CircuitPython", "url": "/images/c/circuitpython/circuitpython.other.png" }]
       },
       "pl+clang": {
         "name": "Clang",
@@ -1010,7 +1010,7 @@
           { "href": "https://en.wikipedia.org/wiki/Clean_(programming_language)", "title": "Clean", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "3.1", "date": "2022-01-01" }],
-        "images": [{ "kind": "logo", "title": "Clean", "url": "/images/plangs/c/clean/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Clean", "url": "/images/c/clean/clean.logo.png" }]
       },
       "pl+clojure": {
         "name": "Clojure",
@@ -1022,7 +1022,7 @@
           { "href": "https://en.wikipedia.org/wiki/Clojure_(programming_language)", "title": "Clojure", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "1.11.2", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Clojure", "url": "/images/plangs/c/clojure/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Clojure", "url": "/images/c/clojure/clojure.logo.png" }]
       },
       "pl+clozure": {
         "name": "Clozure CL",
@@ -1080,7 +1080,7 @@
           { "href": "https://adobe.com/products/coldfusion-family.html", "title": "adobe.com/products/coldfusion-family.html", "kind": "other" },
           { "href": "https://en.wikipedia.org/wiki/ColdFusion", "title": "Adobe ColdFusion", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "logo", "title": "Adobe ColdFusion", "url": "/images/plangs/c/coldfusion/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Adobe ColdFusion", "url": "/images/c/coldfusion/coldfusion.logo.png" }]
       },
       "pl+colorforth": {
         "name": "colorForth",
@@ -1100,7 +1100,7 @@
           { "href": "http://common-lisp.net/", "title": "common-lisp.net", "kind": "other" },
           { "href": "https://en.wikipedia.org/wiki/Common_Lisp", "title": "Common Lisp", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "logo", "title": "Common Lisp", "url": "/images/plangs/c/common-lisp/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Common Lisp", "url": "/images/c/common-lisp/common-lisp.logo.png" }]
       },
       "pl+coq": {
         "name": "Coq",
@@ -1110,7 +1110,7 @@
           { "href": "https://en.wikipedia.org/wiki/Coq_(software)", "title": "Coq", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "4.10", "date": "1989-01-01" }, { "version": "8.19.2", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Coq", "url": "/images/plangs/c/coq/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Coq", "url": "/images/c/coq/coq.logo.png" }]
       },
       "pl+cpython": {
         "name": "CPython",
@@ -1131,7 +1131,7 @@
           { "href": "https://en.wikipedia.org/wiki/Crystal_(programming_language)", "title": "Crystal", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "1.13.2", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Crystal", "url": "/images/plangs/c/crystal/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Crystal", "url": "/images/c/crystal/crystal.logo.png" }]
       },
       "pl+csound": {
         "name": "Csound",
@@ -1166,7 +1166,7 @@
           { "href": "https://en.wikipedia.org/wiki/Cython", "title": "Cython", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "3.0.11", "date": "2024-01-01" }, { "version": "3.0.0", "date": "2023-01-01" }],
-        "images": [{ "kind": "logo", "title": "Cython", "url": "/images/plangs/c/cython/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Cython", "url": "/images/c/cython/cython.logo.png" }]
       },
       "pl+d": {
         "name": "D",
@@ -1178,7 +1178,7 @@
           { "href": "https://en.wikipedia.org/wiki/D_(programming_language)", "title": "D", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "2.109.1", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "D", "url": "/images/plangs/d/d/logo.png" }]
+        "images": [{ "kind": "logo", "title": "D", "url": "/images/d/d/d.logo.png" }]
       },
       "pl+dart": {
         "name": "Dart",
@@ -1214,7 +1214,7 @@
           { "href": "https://en.wikipedia.org/wiki/Delphi_(software)", "title": "Delphi", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "12.1", "date": "2024-01-01" }],
-        "images": [{ "kind": "screenshot", "title": "Delphi", "url": "/images/plangs/d/delphi/screenshot.png" }]
+        "images": [{ "kind": "screenshot", "title": "Delphi", "url": "/images/d/delphi/delphi.screenshot.png" }]
       },
       "pl+dylan": {
         "name": "Dylan",
@@ -1225,7 +1225,7 @@
           { "href": "https://en.wikipedia.org/wiki/Dylan_(programming_language)", "title": "Dylan", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "2022.1", "date": "2022-01-01" }],
-        "images": [{ "kind": "logo", "title": "Dylan", "url": "/images/plangs/d/dylan/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Dylan", "url": "/images/d/dylan/dylan.logo.png" }]
       },
       "pl+ecmascript": {
         "name": "ECMAScript",
@@ -1271,7 +1271,7 @@
           { "href": "https://en.wikipedia.org/wiki/Emacs_Lisp", "title": "Emacs Lisp", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "29.4", "date": "2024-01-01" }],
-        "images": [{ "kind": "other", "title": "Emacs Lisp", "url": "/images/plangs/e/emacs-lisp/other.png" }]
+        "images": [{ "kind": "other", "title": "Emacs Lisp", "url": "/images/e/emacs-lisp/emacs-lisp.other.png" }]
       },
       "pl+erlang": {
         "name": "Erlang",
@@ -1283,7 +1283,7 @@
           { "href": "https://en.wikipedia.org/wiki/Erlang_(programming_language)", "title": "Erlang", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "27.0.1", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Erlang", "url": "/images/plangs/e/erlang/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Erlang", "url": "/images/e/erlang/erlang.logo.png" }]
       },
       "pl+euphoria": {
         "name": "Euphoria",
@@ -1317,7 +1317,7 @@
           { "href": "https://en.wikipedia.org/wiki/F_Sharp_programming_language", "title": "F#", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "8.0.0", "date": "2023-01-01" }],
-        "images": [{ "kind": "logo", "title": "F#", "url": "/images/plangs/f/f-sharp/logo.png" }]
+        "images": [{ "kind": "logo", "title": "F#", "url": "/images/f/f-sharp/f-sharp.logo.png" }]
       },
       "pl+factor": {
         "name": "Factor",
@@ -1328,7 +1328,7 @@
           { "href": "https://en.wikipedia.org/wiki/Factor_(programming_language)", "title": "Factor", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "0.99", "date": "2023-01-01" }],
-        "images": [{ "kind": "logo", "title": "Factor", "url": "/images/plangs/f/factor/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Factor", "url": "/images/f/factor/factor.logo.png" }]
       },
       "pl+fantom": {
         "name": "Fantom",
@@ -1387,7 +1387,7 @@
           { "href": "https://fortran-lang.org/", "title": "fortran-lang.org", "kind": "homepage" },
           { "href": "https://en.wikipedia.org/wiki/Fortran", "title": "Fortran", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "other", "title": "Fortran", "url": "/images/plangs/f/fortran/other.jpg" }]
+        "images": [{ "kind": "other", "title": "Fortran", "url": "/images/f/fortran/fortran.other.jpg" }]
       },
       "pl+fortress": {
         "name": "Fortress",
@@ -1413,7 +1413,7 @@
           { "href": "https://en.wikipedia.org/wiki/Free_Pascal", "title": "Free Pascal", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "3.2.2", "date": "2021-01-01" }, { "version": "3.3.1" }],
-        "images": [{ "kind": "screenshot", "title": "Free Pascal", "url": "/images/plangs/f/free-pascal/screenshot.png" }]
+        "images": [{ "kind": "screenshot", "title": "Free Pascal", "url": "/images/f/free-pascal/free-pascal.screenshot.png" }]
       },
       "pl+freebasic": {
         "name": "FreeBASIC",
@@ -1423,8 +1423,7 @@
           { "href": "http://www.freebasic.net/", "title": "www.freebasic.net", "kind": "homepage" },
           { "href": "https://en.wikipedia.org/wiki/FreeBASIC", "title": "FreeBASIC", "kind": "wikipedia" }
         ],
-        "releases": [{ "version": "1.10.1", "date": "2023-01-01" }],
-        "images": [{ "kind": "logo", "title": "FreeBASIC", "url": "/images/plangs/f/freebasic/logo.gif" }]
+        "releases": [{ "version": "1.10.1", "date": "2023-01-01" }]
       },
       "pl+frink": {
         "name": "Frink",
@@ -1472,7 +1471,7 @@
           { "href": "https://en.wikipedia.org/wiki/GDScript", "title": "Godot Engine", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "4.3", "date": "2024-01-01" }],
-        "images": [{ "kind": "other", "title": "Godot Engine", "url": "/images/plangs/g/gdscript/other.png" }]
+        "images": [{ "kind": "other", "title": "Godot Engine", "url": "/images/g/gdscript/gdscript.other.png" }]
       },
       "pl+gforth": {
         "name": "Gforth",
@@ -1482,7 +1481,7 @@
           { "href": "https://en.wikipedia.org/wiki/Gforth", "title": "Gforth", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "0.7.3", "date": "2014-01-01" }, { "version": "0.7.9", "date": "2020-01-01" }],
-        "images": [{ "kind": "logo", "title": "Gforth", "url": "/images/plangs/g/gforth/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Gforth", "url": "/images/g/gforth/gforth.logo.png" }]
       },
       "pl+gleam": {
         "name": "Gleam",
@@ -1494,7 +1493,7 @@
           { "href": "https://en.wikipedia.org/wiki/Gleam_(programming_language)", "title": "Gleam", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "1.4.1", "date": "2024-01-01" }],
-        "images": [{ "kind": "other", "title": "Gleam", "url": "/images/plangs/g/gleam/other.png" }]
+        "images": [{ "kind": "other", "title": "Gleam", "url": "/images/g/gleam/gleam.other.png" }]
       },
       "pl+gnat": {
         "name": "GNAT",
@@ -1505,7 +1504,7 @@
           { "href": "https://en.wikipedia.org/wiki/GNAT", "title": "GNAT", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "14.1", "date": "2024-05-07" }],
-        "images": [{ "kind": "other", "title": "GNAT", "url": "/images/plangs/g/gnat/other.png" }]
+        "images": [{ "kind": "other", "title": "GNAT", "url": "/images/g/gnat/gnat.other.png" }]
       },
       "pl+go": {
         "name": "Go",
@@ -1517,7 +1516,7 @@
           { "href": "https://en.wikipedia.org/wiki/Go_(programming_language)", "title": "Go", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "1.23.0", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Go", "url": "/images/plangs/g/go/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Go", "url": "/images/g/go/go.logo.png" }]
       },
       "pl+graalvm": {
         "name": "GraalVM",
@@ -1526,7 +1525,7 @@
           { "href": "https://www.graalvm.org/", "title": "www.graalvm.org", "kind": "homepage" },
           { "href": "https://en.wikipedia.org/wiki/GraalVM#Language_and_Runtime_Support", "title": "GraalVM", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "logo", "title": "GraalVM", "url": "/images/plangs/g/graalvm/logo.png" }]
+        "images": [{ "kind": "logo", "title": "GraalVM", "url": "/images/g/graalvm/graalvm.logo.png" }]
       },
       "pl+gremlin": {
         "name": "Gremlin",
@@ -1537,7 +1536,7 @@
           { "href": "https://en.wikipedia.org/wiki/Gremlin_(programming_language)", "title": "Gremlin", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "3.7.0", "date": "2023-01-01" }],
-        "images": [{ "kind": "other", "title": "Gremlin", "url": "/images/plangs/g/gremlin/other.png" }]
+        "images": [{ "kind": "other", "title": "Gremlin", "url": "/images/g/gremlin/gremlin.other.png" }]
       },
       "pl+groovy": {
         "name": "Groovy",
@@ -1549,7 +1548,7 @@
           { "href": "https://en.wikipedia.org/wiki/Groovy_(programming_language)", "title": "Groovy", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "4.0.22", "date": "2024-01-01" }, { "version": "4.0.0", "date": "2021-01-01" }],
-        "images": [{ "kind": "logo", "title": "Groovy", "url": "/images/plangs/g/groovy/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Groovy", "url": "/images/g/groovy/groovy.logo.png" }]
       },
       "pl+hack": {
         "name": "Hack",
@@ -1569,7 +1568,7 @@
           { "href": "https://en.wikipedia.org/wiki/Hackety_Hack", "title": "Hackety Hack", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "1.0", "date": "2010-01-01" }],
-        "images": [{ "kind": "other", "title": "Hackety Hack", "url": "/images/plangs/h/hackety-hack/other.png" }]
+        "images": [{ "kind": "other", "title": "Hackety Hack", "url": "/images/h/hackety-hack/hackety-hack.other.png" }]
       },
       "pl+haskell": {
         "name": "Haskell",
@@ -1629,7 +1628,7 @@
           { "href": "https://en.wikipedia.org/wiki/Hy_(programming_language)", "title": "Hy", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "0.29.0", "date": "2024-01-01" }, { "version": "1.0", "date": "2022-01-01" }],
-        "images": [{ "kind": "other", "title": "Hy", "url": "/images/plangs/h/hy/other.png" }]
+        "images": [{ "kind": "other", "title": "Hy", "url": "/images/h/hy/hy.other.png" }]
       },
       "pl+icon": {
         "name": "Icon",
@@ -1661,7 +1660,7 @@
           { "href": "https://en.wikipedia.org/wiki/Impromptu_(programming_environment)", "title": "Impromptu", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "2.5" }],
-        "images": [{ "kind": "other", "title": "Impromptu", "url": "/images/plangs/i/impromptu/other.jpg" }]
+        "images": [{ "kind": "other", "title": "Impromptu", "url": "/images/i/impromptu/impromptu.other.jpg" }]
       },
       "pl+inform": {
         "name": "Inform",
@@ -1720,7 +1719,7 @@
           { "href": "https://isabelle.in.tum.de/", "title": "isabelle.in.tum.de", "kind": "homepage" },
           { "href": "https://en.wikipedia.org/wiki/Isabelle_(proof_assistant)", "title": "Isabelle", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "other", "title": "Isabelle", "url": "/images/plangs/i/isabelle/other.png" }]
+        "images": [{ "kind": "other", "title": "Isabelle", "url": "/images/i/isabelle/isabelle.other.png" }]
       },
       "pl+javascript": {
         "name": "JavaScript",
@@ -1735,7 +1734,7 @@
           },
           { "href": "https://en.wikipedia.org/wiki/Javascript_(programming_language)", "title": "JavaScript", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "other", "title": "JavaScript", "url": "/images/plangs/j/javascript/other.png" }]
+        "images": [{ "kind": "other", "title": "JavaScript", "url": "/images/j/javascript/javascript.other.png" }]
       },
       "pl+javascriptcore": {
         "name": "WebKit",
@@ -1760,7 +1759,7 @@
           { "href": "https://en.wikipedia.org/wiki/Jq_(programming_language)", "title": "jq", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "1.7.1", "date": "2023-01-01" }],
-        "images": [{ "kind": "logo", "title": "jq", "url": "/images/plangs/j/jq/logo.png" }]
+        "images": [{ "kind": "logo", "title": "jq", "url": "/images/j/jq/jq.logo.png" }]
       },
       "pl+jruby": {
         "name": "JRuby",
@@ -1781,7 +1780,7 @@
           { "href": "https://en.wikipedia.org/wiki/Julia_programming_language", "title": "Julia", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "1.10.5", "date": "2024-01-01" }, { "version": "1.11.0", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Julia", "url": "/images/plangs/j/julia/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Julia", "url": "/images/j/julia/julia.logo.png" }]
       },
       "pl+jython": {
         "name": "Jython",
@@ -1808,7 +1807,7 @@
           { "href": "http://kornshell.com/", "title": "kornshell.com", "kind": "homepage" },
           { "href": "https://en.wikipedia.org/wiki/KornShell", "title": "KornShell", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "other", "title": "KornShell", "url": "/images/plangs/k/kornshell/other.png" }]
+        "images": [{ "kind": "other", "title": "KornShell", "url": "/images/k/kornshell/kornshell.other.png" }]
       },
       "pl+kotlin": {
         "name": "Kotlin",
@@ -1829,14 +1828,14 @@
           { "href": "https://en.wikipedia.org/wiki/LabVIEW", "title": "LabVIEW", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "5.1", "date": "2023-01-01" }],
-        "images": [{ "kind": "logo", "title": "LabVIEW", "url": "/images/plangs/l/labview/logo.jpg" }]
+        "images": [{ "kind": "logo", "title": "LabVIEW", "url": "/images/l/labview/labview.logo.jpg" }]
       },
       "pl+lisp": {
         "name": "Lisp",
         "description": "Lisp (historically LISP, an abbreviation of \"list processing\") is a family of programming languages with a long history and a distinctive, fully parenthesized prefix notation.\nOriginally specified in the late 1950s, it is the second-oldest high-level programming language still in common use, after Fortran. Lisp has changed since its early days, and many dialects have existed over its history. Today, the best-known general-purpose Lisp dialects are Common Lisp, Scheme, Racket, and Clojure.",
         "firstAppeared": "1960-01-01",
         "websites": [{ "href": "https://en.wikipedia.org/wiki/Lisp_programming_language", "title": "Lisp", "kind": "wikipedia" }],
-        "images": [{ "kind": "logo", "title": "Lisp", "url": "/images/plangs/l/lisp/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Lisp", "url": "/images/l/lisp/lisp.logo.png" }]
       },
       "pl+llvm": {
         "name": "LLVM",
@@ -1846,7 +1845,7 @@
           { "href": "https://en.wikipedia.org/wiki/LLVM", "title": "LLVM", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "18.1.8", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "LLVM", "url": "/images/plangs/l/llvm/logo.png" }]
+        "images": [{ "kind": "logo", "title": "LLVM", "url": "/images/l/llvm/llvm.logo.png" }]
       },
       "pl+logtalk": {
         "name": "Logtalk",
@@ -1868,7 +1867,7 @@
           { "href": "https://en.wikipedia.org/wiki/Lua_(programming_language)", "title": "Lua", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "5.4.7", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Lua", "url": "/images/plangs/l/lua/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Lua", "url": "/images/l/lua/lua.logo.png" }]
       },
       "pl+luajit": {
         "name": "LuaJIT",
@@ -1878,7 +1877,7 @@
           { "href": "https://en.wikipedia.org/wiki/LuaJIT", "title": "LuaJIT", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "2.0.5", "date": "2023-01-01" }],
-        "images": [{ "kind": "other", "title": "LuaJIT", "url": "/images/plangs/l/luajit/other.png" }]
+        "images": [{ "kind": "other", "title": "LuaJIT", "url": "/images/l/luajit/luajit.other.png" }]
       },
       "pl+max-msp": {
         "name": "Max",
@@ -1888,7 +1887,7 @@
           { "href": "https://en.wikipedia.org/wiki/Max/MSP", "title": "Max", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "8.6.2", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Max", "url": "/images/plangs/m/max-msp/logo.jpg" }]
+        "images": [{ "kind": "logo", "title": "Max", "url": "/images/m/max-msp/max-msp.logo.jpg" }]
       },
       "pl+micropython": {
         "name": "MicroPython",
@@ -1936,7 +1935,7 @@
           { "href": "https://en.wikipedia.org/wiki/Modelica", "title": "Modelica", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "3.6", "date": "2023-01-01" }],
-        "images": [{ "kind": "other", "title": "Modelica", "url": "/images/plangs/m/modelica/other.png" }]
+        "images": [{ "kind": "other", "title": "Modelica", "url": "/images/m/modelica/modelica.other.png" }]
       },
       "pl+modula": {
         "name": "Modula",
@@ -1952,13 +1951,19 @@
           { "href": "https://en.wikipedia.org/wiki/Mono_(software)", "title": "Mono", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "6.12.0.206", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Mono", "url": "/images/plangs/m/mono/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Mono", "url": "/images/m/mono/mono.logo.png" }]
       },
       "pl+moonscript": {
-        "name": "Moonscript",
-        "description": "MoonScript is a dynamic scripting language that compiles into Lua. It gives the full power of Lua in a more concise syntax.",
-        "extensions": [".moon"],
-        "websites": [{ "href": "https://moonscript.org/", "title": "moonscript.org", "kind": "homepage" }]
+        "name": "Lua",
+        "description": "Lua (/ˈluːə/ LOO-ə; from Portuguese: lua [ˈlu(w)ɐ] meaning moon) is a lightweight, high-level, multi-paradigm programming language designed mainly for embedded use in applications. Lua is cross-platform software, since the interpreter of compiled bytecode is written in ANSI C, and Lua has a relatively simple C application programming interface (API) to embed it into applications.",
+        "firstAppeared": "1993-01-01",
+        "extensions": [".lua"],
+        "websites": [
+          { "href": "https://www.lua.org/", "title": "www.lua.org", "kind": "homepage" },
+          { "href": "https://en.wikipedia.org/wiki/MoonScript", "title": "Lua", "kind": "wikipedia" }
+        ],
+        "releases": [{ "version": "5.4.7", "date": "2024-01-01" }],
+        "images": [{ "kind": "logo", "title": "Lua", "url": "/images/m/moonscript/moonscript.logo.png" }]
       },
       "pl+mruby": {
         "name": "mruby",
@@ -1968,7 +1973,7 @@
           { "href": "https://en.wikipedia.org/wiki/Mruby", "title": "mruby", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "3.3.0", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "mruby", "url": "/images/plangs/m/mruby/logo.png" }]
+        "images": [{ "kind": "logo", "title": "mruby", "url": "/images/m/mruby/mruby.logo.png" }]
       },
       "pl+mzscheme": {
         "name": "Racket",
@@ -1980,7 +1985,7 @@
           { "href": "https://en.wikipedia.org/wiki/Mzscheme", "title": "Racket", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "8.14", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Racket", "url": "/images/plangs/m/mzscheme/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Racket", "url": "/images/m/mzscheme/mzscheme.logo.png" }]
       },
       "pl+netlogo": {
         "name": "NetLogo",
@@ -1992,7 +1997,7 @@
           { "href": "https://en.wikipedia.org/wiki/NetLogo", "title": "NetLogo", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "6.4.0", "date": "2023-01-01" }],
-        "images": [{ "kind": "logo", "title": "NetLogo", "url": "/images/plangs/n/netlogo/logo.png" }]
+        "images": [{ "kind": "logo", "title": "NetLogo", "url": "/images/n/netlogo/netlogo.logo.png" }]
       },
       "pl+netrexx": {
         "name": "NetRexx",
@@ -2014,7 +2019,7 @@
           { "href": "https://en.wikipedia.org/wiki/NewLISP", "title": "newLISP", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "10.7.5", "date": "2019-01-01" }, { "version": "10.7.4", "date": "2018-01-01" }],
-        "images": [{ "kind": "logo", "title": "newLISP", "url": "/images/plangs/n/newlisp/logo.png" }]
+        "images": [{ "kind": "logo", "title": "newLISP", "url": "/images/n/newlisp/newlisp.logo.png" }]
       },
       "pl+newspeak": {
         "name": "Newspeak",
@@ -2035,7 +2040,7 @@
           { "href": "https://en.wikipedia.org/wiki/Nim_(programming_language)", "title": "Nim", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "2.0.8", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Nim", "url": "/images/plangs/n/nim/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Nim", "url": "/images/n/nim/nim.logo.png" }]
       },
       "pl+oberon": {
         "name": "Oberon",
@@ -2045,7 +2050,7 @@
           { "href": "https://projectoberon.net/", "title": "projectoberon.net", "kind": "homepage" },
           { "href": "https://en.wikipedia.org/wiki/Oberon_programming_language", "title": "Oberon", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "logo", "title": "Oberon", "url": "/images/plangs/o/oberon/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Oberon", "url": "/images/o/oberon/oberon.logo.png" }]
       },
       "pl+ocaml": {
         "name": "OCaml",
@@ -2080,7 +2085,7 @@
           { "href": "https://en.wikipedia.org/wiki/Perl", "title": "Perl", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "5.40.0", "date": "2024-01-01" }, { "version": "5.41.3", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Perl", "url": "/images/plangs/p/perl/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Perl", "url": "/images/p/perl/perl.logo.png" }]
       },
       "pl+powerbasic": {
         "name": "PowerBASIC",
@@ -2091,7 +2096,7 @@
           { "href": "https://en.wikipedia.org/wiki/PowerBASIC", "title": "PowerBASIC", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "10.0", "date": "2011-01-01" }],
-        "images": [{ "kind": "screenshot", "title": "PowerBASIC", "url": "/images/plangs/p/powerbasic/screenshot.png" }]
+        "images": [{ "kind": "screenshot", "title": "PowerBASIC", "url": "/images/p/powerbasic/powerbasic.screenshot.png" }]
       },
       "pl+processing": {
         "name": "Processing",
@@ -2103,7 +2108,7 @@
           { "href": "https://en.wikipedia.org/wiki/Processing_(programming_language)", "title": "Processing", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "4.3", "date": "2023-01-01" }],
-        "images": [{ "kind": "logo", "title": "Processing", "url": "/images/plangs/p/processing/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Processing", "url": "/images/p/processing/processing.logo.png" }]
       },
       "pl+prolog": {
         "name": "Prolog",
@@ -2125,7 +2130,7 @@
           { "href": "https://en.wikipedia.org/wiki/Pure_(programming_language)", "title": "Pure", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "0.68", "date": "2018-01-01" }],
-        "images": [{ "kind": "logo", "title": "Pure", "url": "/images/plangs/p/pure/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Pure", "url": "/images/p/pure/pure.logo.png" }]
       },
       "pl+purebasic": {
         "name": "PureBasic",
@@ -2137,7 +2142,7 @@
           { "href": "https://en.wikipedia.org/wiki/PureBasic", "title": "PureBasic", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "6.11", "date": "2024-01-01" }],
-        "images": [{ "kind": "other", "title": "PureBasic", "url": "/images/plangs/p/purebasic/other.png" }]
+        "images": [{ "kind": "other", "title": "PureBasic", "url": "/images/p/purebasic/purebasic.other.png" }]
       },
       "pl+puredata": {
         "name": "Pure Data",
@@ -2147,7 +2152,7 @@
           { "href": "https://en.wikipedia.org/wiki/PureData", "title": "Pure Data", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "0.53", "date": "2023-01-01" }],
-        "images": [{ "kind": "logo", "title": "Pure Data", "url": "/images/plangs/p/puredata/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Pure Data", "url": "/images/p/puredata/puredata.logo.png" }]
       },
       "pl+purescript": {
         "name": "PureScript",
@@ -2159,7 +2164,7 @@
           { "href": "https://en.wikipedia.org/wiki/PureScript", "title": "PureScript", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "0.15.15", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "PureScript", "url": "/images/plangs/p/purescript/logo.png" }]
+        "images": [{ "kind": "logo", "title": "PureScript", "url": "/images/p/purescript/purescript.logo.png" }]
       },
       "pl+pypy": {
         "name": "PyPy",
@@ -2169,7 +2174,7 @@
           { "href": "https://en.wikipedia.org/wiki/PyPy", "title": "PyPy", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "7.3.16", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "PyPy", "url": "/images/plangs/p/pypy/logo.png" }]
+        "images": [{ "kind": "logo", "title": "PyPy", "url": "/images/p/pypy/pypy.logo.png" }]
       },
       "pl+python": {
         "name": "Python",
@@ -2181,7 +2186,7 @@
           { "href": "https://en.wikipedia.org/wiki/Python_(programming_language)", "title": "Python", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "3.12.5", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Python", "url": "/images/plangs/p/python/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Python", "url": "/images/p/python/python.logo.png" }]
       },
       "pl+r": {
         "name": "R",
@@ -2193,7 +2198,7 @@
           { "href": "https://en.wikipedia.org/wiki/R_(programming_language)", "title": "R", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "4.4.1", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "R", "url": "/images/plangs/r/r/logo.png" }]
+        "images": [{ "kind": "logo", "title": "R", "url": "/images/r/r/r.logo.png" }]
       },
       "pl+r5rs": {
         "name": "Scheme",
@@ -2204,7 +2209,7 @@
           { "href": "https://www.scheme.org/", "title": "www.scheme.org", "kind": "homepage" },
           { "href": "https://en.wikipedia.org/wiki/R5RS", "title": "Scheme", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "other", "title": "Scheme", "url": "/images/plangs/r/r5rs/other.png" }]
+        "images": [{ "kind": "other", "title": "Scheme", "url": "/images/r/r5rs/r5rs.other.png" }]
       },
       "pl+racket": {
         "name": "Racket",
@@ -2216,7 +2221,7 @@
           { "href": "https://en.wikipedia.org/wiki/Racket_(programming_language)", "title": "Racket", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "8.14", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Racket", "url": "/images/plangs/r/racket/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Racket", "url": "/images/r/racket/racket.logo.png" }]
       },
       "pl+raku": {
         "name": "Raku",
@@ -2227,7 +2232,7 @@
           { "href": "http://raku.org/", "title": "raku.org", "kind": "homepage" },
           { "href": "https://en.wikipedia.org/wiki/Raku_(programming_language)", "title": "Raku", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "other", "title": "Raku", "url": "/images/plangs/r/raku/other.png" }]
+        "images": [{ "kind": "other", "title": "Raku", "url": "/images/r/raku/raku.other.png" }]
       },
       "pl+rakudo": {
         "name": "Rakudo",
@@ -2237,7 +2242,7 @@
           { "href": "https://en.wikipedia.org/wiki/Rakudo", "title": "Rakudo", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "2024.08", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Rakudo", "url": "/images/plangs/r/rakudo/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Rakudo", "url": "/images/r/rakudo/rakudo.logo.png" }]
       },
       "pl+rascal": {
         "name": "Rascal",
@@ -2258,7 +2263,7 @@
           { "href": "https://en.wikipedia.org/wiki/Reason_(programming_language)", "title": "Reason", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "3.12.0", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Reason", "url": "/images/plangs/r/reason/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Reason", "url": "/images/r/reason/reason.logo.png" }]
       },
       "pl+rebol": {
         "name": "Rebol",
@@ -2281,7 +2286,7 @@
           { "href": "https://en.wikipedia.org/wiki/Red_(programming_language)", "title": "Red", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "0.6.5", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Red", "url": "/images/plangs/r/red/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Red", "url": "/images/r/red/red.logo.png" }]
       },
       "pl+ruby": {
         "name": "Ruby",
@@ -2293,7 +2298,7 @@
           { "href": "https://en.wikipedia.org/wiki/Ruby_programming_language", "title": "Ruby", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "3.3.5", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Ruby", "url": "/images/plangs/r/ruby/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Ruby", "url": "/images/r/ruby/ruby.logo.png" }]
       },
       "pl+rust": {
         "name": "Rust",
@@ -2305,7 +2310,7 @@
           { "href": "https://en.wikipedia.org/wiki/Rust_(programming_language)", "title": "Rust", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "1.80.1", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Rust", "url": "/images/plangs/r/rust/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Rust", "url": "/images/r/rust/rust.logo.png" }]
       },
       "pl+sass": {
         "name": "Sass",
@@ -2317,7 +2322,7 @@
           { "href": "https://en.wikipedia.org/wiki/Sass_(style_sheet_language)", "title": "Sass", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "1.75.0", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Sass", "url": "/images/plangs/s/sass/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Sass", "url": "/images/s/sass/sass.logo.png" }]
       },
       "pl+sbcl": {
         "name": "SBCL",
@@ -2327,7 +2332,7 @@
           { "href": "https://en.wikipedia.org/wiki/SBCL", "title": "SBCL", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "2.4.5", "date": "2024-01-01" }],
-        "images": [{ "kind": "screenshot", "title": "SBCL", "url": "/images/plangs/s/sbcl/screenshot.png" }]
+        "images": [{ "kind": "screenshot", "title": "SBCL", "url": "/images/s/sbcl/sbcl.screenshot.png" }]
       },
       "pl+scala": {
         "name": "Scala",
@@ -2339,7 +2344,7 @@
           { "href": "https://en.wikipedia.org/wiki/Scala_programming_language", "title": "Scala", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "3.4.0", "date": "2024-01-01" }],
-        "images": [{ "kind": "other", "title": "Scala", "url": "/images/plangs/s/scala/other.png" }]
+        "images": [{ "kind": "other", "title": "Scala", "url": "/images/s/scala/scala.other.png" }]
       },
       "pl+scheme": {
         "name": "Scheme",
@@ -2350,7 +2355,7 @@
           { "href": "https://www.scheme.org/", "title": "www.scheme.org", "kind": "homepage" },
           { "href": "https://en.wikipedia.org/wiki/Scheme_(programming_language)", "title": "Scheme", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "other", "title": "Scheme", "url": "/images/plangs/s/scheme/other.png" }]
+        "images": [{ "kind": "other", "title": "Scheme", "url": "/images/s/scheme/scheme.other.png" }]
       },
       "pl+scratch": {
         "name": "Scratch",
@@ -2362,7 +2367,7 @@
           { "href": "https://en.wikipedia.org/wiki/Scratch_(programming_language)", "title": "Scratch", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "3.0", "date": "2019-01-01" }],
-        "images": [{ "kind": "other", "title": "Scratch", "url": "/images/plangs/s/scratch/other.png" }]
+        "images": [{ "kind": "other", "title": "Scratch", "url": "/images/s/scratch/scratch.other.png" }]
       },
       "pl+scratchjr": {
         "name": "ScratchJr",
@@ -2372,21 +2377,21 @@
           { "href": "http://www.scratchjr.org/", "title": "www.scratchjr.org", "kind": "homepage" },
           { "href": "https://en.wikipedia.org/wiki/ScratchJr", "title": "ScratchJr", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "other", "title": "ScratchJr", "url": "/images/plangs/s/scratchjr/other.png" }]
+        "images": [{ "kind": "other", "title": "ScratchJr", "url": "/images/s/scratchjr/scratchjr.other.png" }]
       },
       "pl+scumm": {
         "name": "Script Creation Utility for Maniac Mansion",
         "description": "Script Creation Utility for Maniac Mansion (SCUMM) is a video game engine developed at Lucasfilm Games, later renamed LucasArts, to ease development on their graphic adventure game Maniac Mansion (1987). It was subsequently used as the engine for later LucasArts adventure games and Humongous Entertainment games.",
         "firstAppeared": "1987-01-01",
         "websites": [{ "href": "https://en.wikipedia.org/wiki/SCUMM", "title": "Script Creation Utility for Maniac Mansion", "kind": "wikipedia" }],
-        "images": [{ "kind": "other", "title": "Script Creation Utility for Maniac Mansion", "url": "/images/plangs/s/scumm/other.png" }]
+        "images": [{ "kind": "other", "title": "Script Creation Utility for Maniac Mansion", "url": "/images/s/scumm/scumm.other.png" }]
       },
       "pl+sed": {
         "name": "sed",
         "description": "sed (\"stream editor\") is a Unix utility that parses and transforms text, using a simple, compact programming language. It was developed from 1973 to 1974 by Lee E. McMahon of Bell Labs,\nand is available today for most operating systems. sed was based on the scripting features of the interactive editor ed (\"editor\", 1971) and the earlier qed (\"quick editor\", 1965–66). It was one of the earliest tools to support regular expressions, and remains in use for text processing, most notably with the substitution command. Popular alternative tools for plaintext string manipulation and \"stream editing\" include AWK and Perl.",
         "firstAppeared": "1974-01-01",
         "websites": [{ "href": "https://en.wikipedia.org/wiki/Sed", "title": "sed", "kind": "wikipedia" }],
-        "images": [{ "kind": "other", "title": "sed", "url": "/images/plangs/s/sed/other.jpg" }]
+        "images": [{ "kind": "other", "title": "sed", "url": "/images/s/sed/sed.other.jpg" }]
       },
       "pl+seed7": {
         "name": "Seed7",
@@ -2407,7 +2412,7 @@
           { "href": "https://en.wikipedia.org/wiki/Self_(programming_language)", "title": "Self", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "2017.1", "date": "2017-01-01" }],
-        "images": [{ "kind": "logo", "title": "Self", "url": "/images/plangs/s/self/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Self", "url": "/images/s/self/self.logo.png" }]
       },
       "pl+shacl": {
         "name": "SHACL",
@@ -2425,7 +2430,7 @@
           { "href": "https://en.wikipedia.org/wiki/ShEx", "title": "ShEx - Shape Expressions", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "2.1", "date": "2018-01-01" }],
-        "images": [{ "kind": "logo", "title": "ShEx - Shape Expressions", "url": "/images/plangs/s/shex/logo.png" }]
+        "images": [{ "kind": "logo", "title": "ShEx - Shape Expressions", "url": "/images/s/shex/shex.logo.png" }]
       },
       "pl+simula": {
         "name": "Simula",
@@ -2435,7 +2440,7 @@
           { "href": "http://www.simula67.info/", "title": "www.simula67.info", "kind": "homepage" },
           { "href": "https://en.wikipedia.org/wiki/Simula", "title": "Simula", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "logo", "title": "Simula", "url": "/images/plangs/s/simula/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Simula", "url": "/images/s/simula/simula.logo.png" }]
       },
       "pl+simulink": {
         "name": "Simulink",
@@ -2445,7 +2450,7 @@
           { "href": "https://en.wikipedia.org/wiki/Simulink", "title": "Simulink", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "10.7", "date": "2023-01-01" }],
-        "images": [{ "kind": "other", "title": "Simulink", "url": "/images/plangs/s/simulink/other.jpg" }]
+        "images": [{ "kind": "other", "title": "Simulink", "url": "/images/s/simulink/simulink.other.jpg" }]
       },
       "pl+souffle": {
         "name": "Soufflé",
@@ -2475,7 +2480,7 @@
           { "href": "http://www.squeak.org/", "title": "www.squeak.org", "kind": "homepage" },
           { "href": "https://en.wikipedia.org/wiki/Squeak", "title": "Squeak", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "other", "title": "Squeak", "url": "/images/plangs/s/squeak/other.png" }]
+        "images": [{ "kind": "other", "title": "Squeak", "url": "/images/s/squeak/squeak.other.png" }]
       },
       "pl+squirrel": {
         "name": "Squirrel",
@@ -2526,8 +2531,8 @@
           { "href": "https://en.wikipedia.org/wiki/Swift_(programming_language)", "title": "Swift", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "5.10.1", "date": "2024-01-01" }, { "version": "6.0" }],
-        "images": [{ "kind": "logo", "title": "Swift", "url": "/images/plangs/s/swift/logo.png" }],
-        "extensions": [".SWIFT", ".swift"]
+        "extensions": [".SWIFT", ".swift"],
+        "images": [{ "kind": "logo", "title": "Swift", "url": "/images/s/swift/swift.logo.png" }]
       },
       "pl+tcl": {
         "name": "Tcl",
@@ -2549,7 +2554,7 @@
           { "href": "https://en.wikipedia.org/wiki/Tcsh", "title": "TENEX C Shell", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "6.24.13", "date": "2024-01-01" }],
-        "images": [{ "kind": "other", "title": "TENEX C Shell", "url": "/images/plangs/t/tcsh/other.png" }]
+        "images": [{ "kind": "other", "title": "TENEX C Shell", "url": "/images/t/tcsh/tcsh.other.png" }]
       },
       "pl+tex": {
         "name": "TeX",
@@ -2567,7 +2572,7 @@
           { "href": "https://en.wikipedia.org/wiki/Tk_(software)", "title": "Tk", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "8.6.13", "date": "2022-01-01" }],
-        "images": [{ "kind": "other", "title": "Tk", "url": "/images/plangs/t/tk/other.png" }]
+        "images": [{ "kind": "other", "title": "Tk", "url": "/images/t/tk/tk.other.png" }]
       },
       "pl+turbo-pascal": {
         "name": "Turbo Pascal",
@@ -2591,9 +2596,7 @@
           { "href": "https://www.typescriptlang.org/", "title": "www.typescriptlang.org", "kind": "homepage" },
           { "href": "https://en.wikipedia.org/wiki/TypeScript", "title": "TypeScript", "kind": "wikipedia" }
         ],
-        "releases": [{ "version": "5.5.4", "date": "2024-01-01" }],
-        "isMainstream": true,
-        "isTranspiler": true
+        "releases": [{ "version": "5.5.4", "date": "2024-01-01" }]
       },
       "pl+v": {
         "name": "V",
@@ -2605,7 +2608,7 @@
           { "href": "https://en.wikipedia.org/wiki/V_(programming_language)", "title": "V", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "0.4.6", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "V", "url": "/images/plangs/v/v/logo.png" }]
+        "images": [{ "kind": "logo", "title": "V", "url": "/images/v/v/v.logo.png" }]
       },
       "pl+v8": {
         "name": "V8",
@@ -2616,18 +2619,7 @@
         ],
         "releases": [{ "version": "11.4", "date": "2023-01-01" }]
       },
-      "pl+vala": {
-        "name": "Vala",
-        "description": "Vala is an object-oriented programming language with a self-hosting compiler that generates C code and uses the GObject system.",
-        "firstAppeared": "2006-01-01",
-        "extensions": [".vala", ".vapi"],
-        "websites": [
-          { "href": "https://vala.dev/", "title": "vala.dev", "kind": "homepage" },
-          { "href": "https://en.wikipedia.org/wiki/Vala_(programming_language)", "title": "Vala", "kind": "wikipedia" }
-        ],
-        "releases": [{ "version": "0.57.0", "date": "2023-01-01" }],
-        "images": [{ "kind": "logo", "title": "Vala", "url": "/images/plangs/v/vala/logo.png" }]
-      },
+      "pl+vala": { "images": [{ "kind": "logo", "title": "vala", "url": "/images/v/vala/vala.logo.png" }] },
       "pl+visual-basic": {
         "name": "Visual Basic",
         "description": "Visual Basic (VB), originally called Visual Basic .NET (VB.NET), is a multi-paradigm, object-oriented programming language, implemented on .NET, Mono, and the .NET Framework. Microsoft launched VB.NET in 2002 as the successor to its original Visual Basic language, the last version of which was Visual Basic 6.0. Although the \".NET\" portion of the name was dropped in 2005, this article uses \"Visual Basic [.NET]\" to refer to all Visual Basic languages released since 2002, in order to distinguish between them and the classic Visual Basic. Along with C# and F#, it is one of the three main languages targeting the .NET ecosystem. Microsoft updated its VB language strategy on 6 February 2023, stating that VB is a stable language now and Microsoft will keep maintaining it.",
@@ -2637,8 +2629,8 @@
           { "href": "https://en.wikipedia.org/wiki/Visual_Basic_(.NET)", "title": "Visual Basic", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "17.9.2", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Visual Basic", "url": "/images/plangs/v/visual-basic/logo.png" }],
-        "extensions": [".vb"]
+        "extensions": [".vb"],
+        "images": [{ "kind": "logo", "title": "Visual Basic", "url": "/images/v/visual-basic/visual-basic.logo.png" }]
       },
       "pl+vvvv": {
         "name": "vvvv",
@@ -2649,7 +2641,7 @@
           { "href": "http://www.visualprogramming.net/", "title": "www.visualprogramming.net", "kind": "other" },
           { "href": "https://en.wikipedia.org/wiki/Vvvv", "title": "vvvv", "kind": "wikipedia" }
         ],
-        "images": [{ "kind": "logo", "title": "vvvv", "url": "/images/plangs/v/vvvv/logo.png" }]
+        "images": [{ "kind": "logo", "title": "vvvv", "url": "/images/v/vvvv/vvvv.logo.png" }]
       },
       "pl+whiley": {
         "name": "Whiley",
@@ -2671,7 +2663,7 @@
           { "href": "https://en.wikipedia.org/wiki/Wolfram_language", "title": "Wolfram Language", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "14.1.0", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Wolfram Language", "url": "/images/plangs/w/wolfram-language/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Wolfram Language", "url": "/images/w/wolfram-language/wolfram-language.logo.png" }]
       },
       "pl+xojo": {
         "name": "Xojo",
@@ -2681,7 +2673,7 @@
           { "href": "https://en.wikipedia.org/wiki/Xojo", "title": "Xojo", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "3.1", "date": "2023-01-01" }],
-        "images": [{ "kind": "logo", "title": "Xojo", "url": "/images/plangs/x/xojo/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Xojo", "url": "/images/x/xojo/xojo.logo.png" }]
       },
       "pl+xpath": {
         "name": "XPath",
@@ -2745,7 +2737,7 @@
           { "href": "https://en.wikipedia.org/wiki/Yabasic", "title": "Yabasic", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "2.90.4", "date": "2023-01-01" }],
-        "images": [{ "kind": "other", "title": "Yabasic", "url": "/images/plangs/y/yabasic/other.png" }]
+        "images": [{ "kind": "other", "title": "Yabasic", "url": "/images/y/yabasic/yabasic.other.png" }]
       },
       "pl+yacc": {
         "name": "Yacc",
@@ -2762,7 +2754,7 @@
           { "href": "https://en.wikipedia.org/wiki/Zig_(programming_language)", "title": "Zig", "kind": "wikipedia" }
         ],
         "releases": [{ "version": "0.13.0", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "Zig", "url": "/images/plangs/z/zig/logo.png" }]
+        "images": [{ "kind": "logo", "title": "Zig", "url": "/images/z/zig/zig.logo.png" }]
       }
     },
     "plat": {
@@ -3388,7 +3380,7 @@
   "edges": {
     "app": { "pl+python": { "app+harlequin": {}, "app+glances": {}, "app+zulip": {}, "app+aider": {} } },
     "bundle": { "bundle+py-one": { "tool+pixi": {}, "tool+ruff": {}, "tool+pyright": {}, "tool+vscode-python": {} } },
-    "compilesTo": { "pl+typescript": { "pl+javascript": {} } },
+    "compilesTo": {},
     "dialect": {
       "pl+ada": { "pl+pascal": {} },
       "pl+alice": { "pl+ml": {}, "pl+standard-ml": {} },
@@ -3613,7 +3605,7 @@
       "pl+ml": { "pl+lisp": {} },
       "pl+mlton": { "pl+standard-ml": {} },
       "pl+modula": { "pl+pascal": {} },
-      "pl+moonscript": { "pl+lua": {} },
+      "pl+moonscript": { "pl+c++": {}, "pl+clu": {}, "pl+coffeescript": {}, "pl+modula": {}, "pl+scheme": {} },
       "pl+mzscheme": { "pl+eiffel": {}, "pl+scheme": {} },
       "pl+newlisp": { "pl+c": {}, "pl+common-lisp": {}, "pl+perl": {}, "pl+scheme": {} },
       "pl+newspeak": { "pl+self": {} },
@@ -3718,7 +3710,7 @@
       "pl+tcl": { "pl+awk": {}, "pl+lisp": {} },
       "pl+typescript": { "pl+actionscript": {}, "pl+c-sharp": {}, "pl+f-sharp": {}, "pl+javascript": {} },
       "pl+v": { "pl+c": {}, "pl+go": {}, "pl+kotlin": {}, "pl+oberon": {}, "pl+python": {}, "pl+rust": {}, "pl+swift": {} },
-      "pl+vala": { "pl+boo": {}, "pl+c": {}, "pl+c++": {}, "pl+c-sharp": {}, "pl+d": {} },
+      "pl+vala": { "pl+boo": {}, "pl+c": {}, "pl+c-sharp": {}, "pl+d": {} },
       "pl+visual-basic": { "pl+basic": {}, "pl+haskell": {}, "pl+visual-basic": {} },
       "pl+vvvv": { "pl+apl": {}, "pl+max-msp": {} },
       "pl+whiley": { "pl+c": {}, "pl+python": {}, "pl+rust": {} },
@@ -4203,7 +4195,6 @@
       "pl+txl": { "paradigm+pattern-matching": {}, "paradigm+rewriting": {} },
       "pl+typescript": { "paradigm+functional": {}, "paradigm+imperative": {}, "paradigm+multi": {}, "paradigm+oop": {} },
       "pl+v": { "paradigm+concurrent": {}, "paradigm+functional": {}, "paradigm+imperative": {}, "paradigm+multi": {}, "paradigm+structured": {} },
-      "pl+vala": { "paradigm+imperative": {}, "paradigm+multi": {}, "paradigm+oop": {}, "paradigm+structured": {} },
       "pl+visual-basic": {
         "paradigm+declarative": {},
         "paradigm+event-driven": {},
@@ -4379,7 +4370,6 @@
       "pl+turbo-pascal": { "plat+dos": {}, "plat+windows": {} },
       "pl+v": { "plat+apple": {}, "plat+bsd": {}, "plat+linux": {}, "plat+windows": {}, "plat+x86-64": {} },
       "pl+v8": { "plat+arm": {}, "plat+x86-64": {} },
-      "pl+vala": { "plat+cross": {} },
       "pl+visual-basic": { "plat+android": {}, "plat+apple": {}, "plat+bsd": {}, "plat+dos": {}, "plat+linux": {}, "plat+windows": {} },
       "pl+vvvv": { "plat+windows": {} },
       "pl+wolfram-language": { "plat+cross": {} },
@@ -5030,7 +5020,18 @@
         "tag+shell": {},
         "tag+ui": {}
       },
-      "pl+moonscript": { "tag+app": {}, "tag+compiler": {}, "tag+games": {} },
+      "pl+moonscript": {
+        "tag+app": {},
+        "tag+compiler": {},
+        "tag+dbms": {},
+        "tag+editor": {},
+        "tag+games": {},
+        "tag+industrial": {},
+        "tag+interpreter": {},
+        "tag+ray-tracer": {},
+        "tag+scripting": {},
+        "tag+viz": {}
+      },
       "pl+mruby": { "tag+compiler": {}, "tag+interpreter": {} },
       "pl+mzscheme": {
         "tag+analysis": {},
@@ -5177,7 +5178,6 @@
         "tag+dbms": {},
         "tag+framework": {},
         "tag+games": {},
-        "tag+if": {},
         "tag+industrial": {},
         "tag+interpreter": {},
         "tag+modeling": {},
@@ -5423,17 +5423,6 @@
       },
       "pl+v": { "tag+compiler": {}, "tag+interpreter": {} },
       "pl+v8": { "tag+app": {}, "tag+asm": {}, "tag+compiler": {}, "tag+interpreter": {} },
-      "pl+vala": {
-        "tag+app": {},
-        "tag+asm": {},
-        "tag+compiler": {},
-        "tag+interpreter": {},
-        "tag+multimedia": {},
-        "tag+scripting": {},
-        "tag+ui": {},
-        "tag+video": {},
-        "tag+viz": {}
-      },
       "pl+visual-basic": {
         "tag+app": {},
         "tag+cli": {},
@@ -5576,7 +5565,6 @@
       "pl+tcl": { "tsys+dynamic": {}, "tsys+string": {} },
       "pl+typescript": { "tsys+duck": {}, "tsys+gradual": {}, "tsys+structural": {} },
       "pl+v": { "tsys+inferred": {}, "tsys+static": {}, "tsys+strong": {} },
-      "pl+vala": { "tsys+inferred": {}, "tsys+static": {}, "tsys+strong": {}, "tsys+structural": {} },
       "pl+visual-basic": { "tsys+nominal": {}, "tsys+safe": {}, "tsys+static": {}, "tsys+strong": {}, "tsys+weak": {} },
       "pl+vvvv": { "tsys+strong": {} },
       "pl+whiley": { "tsys+flow": {}, "tsys+safe": {}, "tsys+strong": {}, "tsys+structural": {} },

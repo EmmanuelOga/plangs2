@@ -66,7 +66,7 @@ export async function loadContent(path: string, pg: PlangsGraph): Promise<Conten
 /**
  * Scan the content folder and create matching NPost entries.
  */
-export async function createNPosts(pg: PlangsGraph) {
+export async function loadPosts(pg: PlangsGraph) {
   for await (const path of new Glob("*.md").scan(join(import.meta.dir, "../content/posts"))) {
     const { title, author, pls, date, basename } = await loadContent(`posts/${path}`, pg);
 
