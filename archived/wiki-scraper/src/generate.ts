@@ -25,12 +25,8 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
     const kind = /logo/i.test(imgHref) ? "logo" : /screen/i.test(imgHref) ? "screenshot" : "other";
 
     const name = plang.plainKey;
-    const path = join(
-      DEFINTIONS_PATH,
-      plang.keyPrefix,
-      name.startsWith(".") ? `_${name.slice(1)}` : name,
-      `${plang.plainKey}.${kind}${extname(imgHref).toLowerCase()}`,
-    );
+    const escapedName = name.startsWith(".") ? `_${name.slice(1)}` : name;
+    const path = join(DEFINTIONS_PATH, plang.keyPrefix, escapedName, `${escapedName}.${kind}${extname(imgHref).toLowerCase()}`);
     Bun.write(path, imgBlob);
   }
 
