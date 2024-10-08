@@ -27,31 +27,50 @@ async function generateJsonSchemas() {
 }
 
 /**
+ * Strict generates schemas that comply with OpenAI strict mode:
+ * removes all patterns from schemas and makes everything required.
+ * If not using strict mode, the generated schemas are more permissive
+ * and closer to real life use.
+ */
+const STRICT = false;
+
+/**
  * Since the schemas are used mainly for OpenAI structured ouptut,
  * we need to "massage" the schemas to fit OpenAI's requirements.
  * https://platform.openai.com/docs/guides/structured-outputs/how-to-use
  */
 function massageForOpenAI(schema: TJS.Definition): TJS.Definition {
-  schema.additionalProperties = false;
-
   const properties = new Map(Object.entries(schema.properties ?? {}));
   const definitions = schema.definitions ?? {};
 
-  const mergeProps = (def: boolean | TJS.Definition) => {
+  // Clean up a property definition to comply with OpenAI.
+  const massageProp = (def: TJS.DefinitionOrBoolean): TJS.DefinitionOrBoolean => {
+    if (STRICT) {
+      // "pattern" is not supported by OpenAI.
+      if (typeof def === "object" && "pattern" in def) {
+        // biome-ignore lint/performance/noDelete: it is ok here.
+        delete def.pattern;
+      }
+    }
+    return def;
+  };
+
+  const mergeProps = (def: TJS.Definition) => {
     if (typeof def === "object" && "properties" in def) {
       for (const [prop, val] of Object.entries(def.properties ?? {})) {
-        properties.set(prop, val);
+        properties.set(prop, massageProp(val));
       }
       return;
     }
 
     if (typeof def === "object" && "$ref" in def && def.$ref?.startsWith("#/definitions/")) {
-      mergeProps(definitions[def.$ref.replace("#/definitions/", "")]);
+      const referred = definitions[def.$ref.replace("#/definitions/", "")];
+      if (typeof referred === "object") mergeProps(referred);
     }
   };
 
   // Remove allOf and merge them into the main schema.
-  for (const def of schema.allOf ?? []) mergeProps(def);
+  for (const def of schema.allOf ?? []) if (typeof def === "object") mergeProps(def);
 
   // biome-ignore lint/performance/noDelete: it is ok here.
   delete schema.allOf;
@@ -62,7 +81,22 @@ function massageForOpenAI(schema: TJS.Definition): TJS.Definition {
 
   schema.type = "object";
   schema.properties = Object.fromEntries(properties);
+
+  // Technically we should not make everything required unless STRICT is true,
+  // but for now it is ok.
   schema.required = [...properties.keys()].sort();
+
+  // Make all properties required, even inside definitions.
+  if (STRICT) {
+    schema.additionalProperties = false;
+    for (const val of Object.values(definitions)) {
+      if (typeof val === "object" && val.type === "object") {
+        val.additionalProperties = false;
+        val.required = Object.keys(val.properties ?? {}).sort();
+        for (const def of Object.values(val.properties ?? {})) massageProp(def);
+      }
+    }
+  }
 
   return schema;
 }
