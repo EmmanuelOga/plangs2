@@ -1,89 +1,6 @@
 {
   "description": "Programming language data.",
-  "allOf": [
-    {
-      "$ref": "#/definitions/CommonNodeData"
-    },
-    {
-      "type": "object",
-      "properties": {
-        "extensions": {
-          "description": "File extensions supported by the language.",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "firstAppeared": {
-          "description": "Date the language first appeared.",
-          "type": "string",
-          "pattern": "^[0-9]*-.*-.*$"
-        },
-        "images": {
-          "description": "Logos, screenshots or other images relevant to the language.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Image"
-          }
-        },
-        "isTranspiler": {
-          "description": "Can this particular implementation compile source-code to source-code?",
-          "type": "boolean"
-        },
-        "isMainstream": {
-          "description": "Languages like C, C++, Java, Python, JavaScript, etc. are mainstream and production ready.",
-          "type": "boolean"
-        },
-        "releases": {
-          "description": "A list of note worthy releases, not all of them. For instance, noteworthy release could be the latest for each major version.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Release"
-          }
-        }
-      },
-      "required": [
-        "extensions",
-        "firstAppeared",
-        "images",
-        "isMainstream",
-        "isTranspiler",
-        "releases"
-      ]
-    }
-  ],
   "definitions": {
-    "CommonNodeData": {
-      "description": "Node data shared across all Node types.",
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "websites": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Link"
-          }
-        },
-        "keywords": {
-          "description": "Keywords can be used to match against text content.",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "description",
-        "keywords",
-        "name",
-        "websites"
-      ]
-    },
     "Link": {
       "description": "A reference to a web page.",
       "type": "object",
@@ -98,22 +15,11 @@
         },
         "kind": {
           "description": "A link kind helps us quickly find the kind of link we are looking for.",
-          "enum": [
-            "apidocs",
-            "homepage",
-            "other",
-            "plangs",
-            "releases",
-            "repository",
-            "wikipedia"
-          ],
+          "enum": ["apidocs", "homepage", "other", "plangs", "releases", "repository", "wikipedia"],
           "type": "string"
         }
       },
-      "required": [
-        "href",
-        "title"
-      ]
+      "required": ["href", "title"]
     },
     "Image": {
       "description": "An image, e.g., a logo.",
@@ -121,11 +27,7 @@
       "properties": {
         "kind": {
           "description": "The kind of image.",
-          "enum": [
-            "logo",
-            "other",
-            "screenshot"
-          ],
+          "enum": ["logo", "other", "screenshot"],
           "type": "string"
         },
         "title": {
@@ -145,11 +47,7 @@
           "type": "number"
         }
       },
-      "required": [
-        "kind",
-        "title",
-        "url"
-      ]
+      "required": ["kind", "title", "url"]
     },
     "Release": {
       "description": "A release of a programming language.",
@@ -169,10 +67,66 @@
           "pattern": "^[0-9]*-.*-.*$"
         }
       },
-      "required": [
-        "version"
-      ]
+      "required": ["version"]
     }
   },
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "websites": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Link"
+      }
+    },
+    "keywords": {
+      "description": "Keywords can be used to match against text content.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "extensions": {
+      "description": "File extensions supported by the language.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "firstAppeared": {
+      "description": "Date the language first appeared.",
+      "type": "string",
+      "pattern": "^[0-9]*-.*-.*$"
+    },
+    "images": {
+      "description": "Logos, screenshots or other images relevant to the language.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Image"
+      }
+    },
+    "isTranspiler": {
+      "description": "Can this particular implementation compile source-code to source-code?",
+      "type": "boolean"
+    },
+    "isMainstream": {
+      "description": "Languages like C, C++, Java, Python, JavaScript, etc. are mainstream and production ready.",
+      "type": "boolean"
+    },
+    "releases": {
+      "description": "A list of note worthy releases, not all of them. For instance, noteworthy release could be the latest for each major version.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Release"
+      }
+    }
+  },
+  "required": ["description", "extensions", "firstAppeared", "images", "isMainstream", "isTranspiler", "keywords", "name", "releases", "websites"]
 }

@@ -1,59 +1,6 @@
 {
   "description": "License data.",
-  "allOf": [
-    {
-      "$ref": "#/definitions/CommonNodeData"
-    },
-    {
-      "type": "object",
-      "properties": {
-        "spdx": {
-          "description": "spdx: The SPDX identifier from https://spdx.org/licenses/.",
-          "type": "string"
-        },
-        "isFSFLibre": {
-          "description": "Wether the license is recognized as Free/Libre by the Free Software Foundation (FSF).",
-          "type": "boolean"
-        },
-        "isOSIApproved": {
-          "description": "Wether the license is approved by the Open Source Initiative (OSI).",
-          "type": "boolean"
-        }
-      }
-    }
-  ],
   "definitions": {
-    "CommonNodeData": {
-      "description": "Node data shared across all Node types.",
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "websites": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Link"
-          }
-        },
-        "keywords": {
-          "description": "Keywords can be used to match against text content.",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "description",
-        "keywords",
-        "name",
-        "websites"
-      ]
-    },
     "Link": {
       "description": "A reference to a web page.",
       "type": "object",
@@ -68,23 +15,48 @@
         },
         "kind": {
           "description": "A link kind helps us quickly find the kind of link we are looking for.",
-          "enum": [
-            "apidocs",
-            "homepage",
-            "other",
-            "plangs",
-            "releases",
-            "repository",
-            "wikipedia"
-          ],
+          "enum": ["apidocs", "homepage", "other", "plangs", "releases", "repository", "wikipedia"],
           "type": "string"
         }
       },
-      "required": [
-        "href",
-        "title"
-      ]
+      "required": ["href", "title"]
     }
   },
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "websites": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Link"
+      }
+    },
+    "keywords": {
+      "description": "Keywords can be used to match against text content.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "spdx": {
+      "description": "spdx: The SPDX identifier from https://spdx.org/licenses/.",
+      "type": "string"
+    },
+    "isFSFLibre": {
+      "description": "Wether the license is recognized as Free/Libre by the Free Software Foundation (FSF).",
+      "type": "boolean"
+    },
+    "isOSIApproved": {
+      "description": "Wether the license is approved by the Open Source Initiative (OSI).",
+      "type": "boolean"
+    }
+  },
+  "required": ["description", "isFSFLibre", "isOSIApproved", "keywords", "name", "spdx", "websites"]
 }

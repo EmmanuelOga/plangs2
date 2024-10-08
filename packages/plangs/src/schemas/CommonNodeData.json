@@ -22,12 +22,7 @@
       }
     }
   },
-  "required": [
-    "description",
-    "keywords",
-    "name",
-    "websites"
-  ],
+  "required": ["description", "keywords", "name", "websites"],
   "definitions": {
     "Link": {
       "description": "A reference to a web page.",
@@ -43,23 +38,13 @@
         },
         "kind": {
           "description": "A link kind helps us quickly find the kind of link we are looking for.",
-          "enum": [
-            "apidocs",
-            "homepage",
-            "other",
-            "plangs",
-            "releases",
-            "repository",
-            "wikipedia"
-          ],
+          "enum": ["apidocs", "homepage", "other", "plangs", "releases", "repository", "wikipedia"],
           "type": "string"
         }
       },
-      "required": [
-        "href",
-        "title"
-      ]
+      "required": ["href", "title"]
     }
   },
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false
 }

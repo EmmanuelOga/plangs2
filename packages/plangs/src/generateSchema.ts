@@ -19,12 +19,52 @@ async function generateJsonSchemas() {
   );
 
   for (const type of types) {
-    const result = generator.getSchemaForSymbol(type);
-    result.additionalProperties = false;
+    const result = massageForOpenAI(generator.getSchemaForSymbol(type));
     const path = join(import.meta.dir, `schemas/${type}.json`);
     console.info("Generating schema for", type, "at", path);
     Bun.write(path, JSON.stringify(result, null, 2));
   }
+}
+
+/**
+ * Since the schemas are used mainly for OpenAI structured ouptut,
+ * we need to "massage" the schemas to fit OpenAI's requirements.
+ * https://platform.openai.com/docs/guides/structured-outputs/how-to-use
+ */
+function massageForOpenAI(schema: TJS.Definition): TJS.Definition {
+  schema.additionalProperties = false;
+
+  const properties = new Map(Object.entries(schema.properties ?? {}));
+  const definitions = schema.definitions ?? {};
+
+  const mergeProps = (def: boolean | TJS.Definition) => {
+    if (typeof def === "object" && "properties" in def) {
+      for (const [prop, val] of Object.entries(def.properties ?? {})) {
+        properties.set(prop, val);
+      }
+      return;
+    }
+
+    if (typeof def === "object" && "$ref" in def && def.$ref?.startsWith("#/definitions/")) {
+      mergeProps(definitions[def.$ref.replace("#/definitions/", "")]);
+    }
+  };
+
+  // Remove allOf and merge them into the main schema.
+  for (const def of schema.allOf ?? []) mergeProps(def);
+
+  // biome-ignore lint/performance/noDelete: it is ok here.
+  delete schema.allOf;
+  // biome-ignore lint/performance/noDelete: it is ok here.
+  delete schema.definitions?.CommonNodeData;
+  // biome-ignore lint/performance/noDelete: it is ok here.
+  delete schema.definitions?.CommonEdgeData;
+
+  schema.type = "object";
+  schema.properties = Object.fromEntries(properties);
+  schema.required = [...properties.keys()].sort();
+
+  return schema;
 }
 
 await generateJsonSchemas();

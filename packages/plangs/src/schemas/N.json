@@ -1,18 +1,9 @@
 {
   "description": "Name of all nodes.",
-  "enum": [
-    "app",
-    "bundle",
-    "lib",
-    "license",
-    "paradigm",
-    "pl",
-    "plat",
-    "post",
-    "tag",
-    "tool",
-    "tsys"
-  ],
-  "type": "string",
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "enum": ["app", "bundle", "lib", "license", "paradigm", "pl", "plat", "post", "tag", "tool", "tsys"],
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {},
+  "required": []
 }
