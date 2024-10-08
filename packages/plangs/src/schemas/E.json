@@ -1,0 +1,22 @@
+{
+  "description": "Name of all edges.",
+  "enum": [
+    "bundle",
+    "compilesTo",
+    "dialect",
+    "impl",
+    "influence",
+    "lib",
+    "license",
+    "paradigm",
+    "plBundle",
+    "plat",
+    "post",
+    "tag",
+    "tool",
+    "tsys",
+    "writtenIn"
+  ],
+  "type": "string",
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

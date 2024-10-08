@@ -1,0 +1,178 @@
+{
+  "description": "Programming language data.",
+  "allOf": [
+    {
+      "$ref": "#/definitions/CommonNodeData"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "extensions": {
+          "description": "File extensions supported by the language.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "firstAppeared": {
+          "description": "Date the language first appeared.",
+          "type": "string",
+          "pattern": "^[0-9]*-.*-.*$"
+        },
+        "images": {
+          "description": "Logos, screenshots or other images relevant to the language.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Image"
+          }
+        },
+        "isTranspiler": {
+          "description": "Can this particular implementation compile source-code to source-code?",
+          "type": "boolean"
+        },
+        "isMainstream": {
+          "description": "Languages like C, C++, Java, Python, JavaScript, etc. are mainstream and production ready.",
+          "type": "boolean"
+        },
+        "releases": {
+          "description": "A list of note worthy releases, not all of them. For instance, noteworthy release could be the latest for each major version.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Release"
+          }
+        }
+      },
+      "required": [
+        "extensions",
+        "firstAppeared",
+        "images",
+        "isMainstream",
+        "isTranspiler",
+        "releases"
+      ]
+    }
+  ],
+  "definitions": {
+    "CommonNodeData": {
+      "description": "Node data shared across all Node types.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "websites": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "keywords": {
+          "description": "Keywords can be used to match against text content.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "description",
+        "keywords",
+        "name",
+        "websites"
+      ]
+    },
+    "Link": {
+      "description": "A reference to a web page.",
+      "type": "object",
+      "properties": {
+        "title": {
+          "description": "Title of the link, generally used for anchors (<a>).",
+          "type": "string"
+        },
+        "href": {
+          "description": "Can be a complete URL including protocol (http/https) or a relative link if it links to https://plangs.page.",
+          "type": "string"
+        },
+        "kind": {
+          "description": "A link kind helps us quickly find the kind of link we are looking for.",
+          "enum": [
+            "apidocs",
+            "homepage",
+            "other",
+            "plangs",
+            "releases",
+            "repository",
+            "wikipedia"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "href",
+        "title"
+      ]
+    },
+    "Image": {
+      "description": "An image, e.g., a logo.",
+      "type": "object",
+      "properties": {
+        "kind": {
+          "description": "The kind of image.",
+          "enum": [
+            "logo",
+            "other",
+            "screenshot"
+          ],
+          "type": "string"
+        },
+        "title": {
+          "description": "A title for the image.",
+          "type": "string"
+        },
+        "url": {
+          "description": "Full URL for the image, or path if it belongs to https://plangs.page.",
+          "type": "string"
+        },
+        "width": {
+          "description": "Width in pixels.",
+          "type": "number"
+        },
+        "height": {
+          "description": "Height in pixels.",
+          "type": "number"
+        }
+      },
+      "required": [
+        "kind",
+        "title",
+        "url"
+      ]
+    },
+    "Release": {
+      "description": "A release of a programming language.",
+      "type": "object",
+      "properties": {
+        "version": {
+          "description": "Arbitrary version string used by the artifact.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the release, if there's any.",
+          "type": "string"
+        },
+        "date": {
+          "description": "Date of the release, if it is known.",
+          "type": "string",
+          "pattern": "^[0-9]*-.*-.*$"
+        }
+      },
+      "required": [
+        "version"
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

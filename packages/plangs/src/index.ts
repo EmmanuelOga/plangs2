@@ -3,14 +3,11 @@ import { IterTap, MapTap, arrayMerge } from "@plangs/graph/auxiliar";
 
 import type { PlangFilters } from "./filter";
 
+import type { CommonEdgeData, CommonNodeData, E, Image, Link, N, NLicenseData, NPlangData, NPostData, Release, StrDate } from "./schema";
+export type { E, N } from "./schema";
+
 // alias for better readability
 export type G = PlangsGraph;
-
-// biome-ignore format: keep in one line.
-export type N = "app" | "bundle" | "lib" | "license" | "paradigm" | "pl" | "plat" | "post" | "tag" | "tool" | "tsys";
-
-// biome-ignore format: keep in one line.
-export type E = "bundle" | "dialect" | "impl" | "influence" | "lib" | "license" | "paradigm" | "plBundle" | "plat" | "post" | "tag" | "tool" | "tsys" | "writtenIn" | "compilesTo";
 
 export type AnyNode = NBase<N, CommonNodeData>;
 
@@ -65,13 +62,6 @@ export class PlangsGraph extends BaseGraph<N, E, G> {
   }
 }
 
-export interface CommonNodeData {
-  name: string;
-  description: string;
-  websites: Link[];
-  keywords: string[];
-}
-
 /** Base type for data on all nodes. */
 export abstract class NBase<Prefix extends N, Data extends CommonNodeData> extends Node<PlangsGraph, `${Prefix}+${string}`, Data> {
   get name(): string {
@@ -104,17 +94,7 @@ export abstract class NBase<Prefix extends N, Data extends CommonNodeData> exten
 }
 
 /** A programming language Node. */
-export class NPlang extends NBase<
-  "pl",
-  CommonNodeData & {
-    extensions: string[];
-    firstAppeared: StrDate;
-    images: Image[];
-    isTranspiler: boolean;
-    isMainstream: boolean;
-    releases: Release[];
-  }
-> {
+export class NPlang extends NBase<"pl", NPlangData> {
   static readonly kind: N = "pl";
   override kind = NPlang.kind;
 
@@ -313,19 +293,7 @@ export class NLibrary extends NBase<"lib", CommonNodeData> {
 }
 
 /** A License Node, e.g., MIT, GPL, etc. */
-export class NLicense extends NBase<
-  "license",
-  CommonNodeData & {
-    /** spdx: The SPDX identifier from https://spdx.org/licenses/. */
-    spdx?: string;
-
-    /** Wether the license is recognized as Free/Libre by the Free Software Foundation (FSF). */
-    isFSFLibre?: boolean;
-
-    /** Wether the license is approved by the Open Source Initiative (OSI).*/
-    isOSIApproved?: boolean;
-  }
-> {
+export class NLicense extends NBase<"license", NLicenseData> {
   static readonly kind: N = "license";
   override kind: N = NLicense.kind;
 
@@ -417,7 +385,7 @@ export class NBundle extends NBase<"bundle", CommonNodeData> {
  * Repurposes the `websites` field to point to plangs blog posts.
  * The blog posts are scanned at build time and added to the graph.
  */
-export class NPost extends NBase<"post", CommonNodeData & { path: string; title: string; author: string; date: StrDate }> {
+export class NPost extends NBase<"post", NPostData> {
   static readonly kind: N = "post";
   override kind = NPost.kind;
 
@@ -454,10 +422,6 @@ export class NPost extends NBase<"post", CommonNodeData & { path: string; title:
 ////////////////////////////////////////////////////////////////////////////////
 // Edge Types
 ////////////////////////////////////////////////////////////////////////////////
-
-export interface CommonEdgeData {
-  refs: Link[];
-}
 
 /** Base type for data on all edges. */
 export abstract class EBase<T_From extends AnyNode, T_To extends AnyNode, T_Data extends CommonEdgeData> extends Edge<
@@ -665,44 +629,3 @@ export class EWrittenIn extends EBase<NPlang, NPlang, CommonEdgeData> {
     return this.graph.nodes.pl.get(this.to);
   }
 }
-
-////////////////////////////////////////////////////////////////////////////////
-// Auxiliary Types
-////////////////////////////////////////////////////////////////////////////////
-
-/**
- * A release of a programming language.
- */
-export interface Release {
-  version: string;
-  name?: string;
-  date?: StrDate;
-}
-
-/**
- * A reference to a web page.
- */
-export interface Link {
-  kind?: "homepage" | "repository" | "releases" | "apidocs" | "wikipedia" | "plangs" | "other";
-  href: string;
-  title: string;
-}
-
-/**
- * An image, e.g., a logo.
- */
-export interface Image {
-  kind: "logo" | "screenshot" | "other";
-  title: string;
-  url: string;
-  width?: number;
-  height?: number;
-}
-
-/**
- * A serializable date string.
- */
-export type year = number;
-export type month = string; // 0 padded
-export type day = string; // 0 padded
-export type StrDate = `${year}-${month}-${day}`;
