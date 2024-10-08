@@ -1,4 +1,3 @@
-import { debounce } from "lodash-es";
 import { RISON } from "rison2";
 
 import type { E, N, NPlang, PlangsGraph } from "@plangs/plangs";
@@ -9,7 +8,7 @@ import type { InputFacetElement } from "../components/input-facet";
 import { matchingInputSelByName } from "../components/input-sel";
 import type { PlInfoElement } from "../components/pl-info";
 
-import { $$, elem, elems, minWidthBP, on, size } from "../utils";
+import { $$, debounce, elem, elems, minWidthBP, on, size } from "../utils";
 
 import { isEncodedFilter } from "@plangs/graph/auxiliar";
 import { getFilters } from "./filters";

@@ -54,3 +54,11 @@ export const minWidthBP = (size: string) => win?.matchMedia(`(min-width: ${size}
 export const script = (src: string) => tag("script", src);
 export const style = (src: string) => tag("style", src);
 export const tag = (tag: "script" | "style", __html: string) => h(tag, { dangerouslySetInnerHTML: { __html } });
+
+export function debounce(callback: () => void, millies: number): () => void {
+  let timeout: Timer | undefined;
+  return () => {
+    if (timeout) clearTimeout(timeout);
+    timeout = setTimeout(callback, millies);
+  };
+}
