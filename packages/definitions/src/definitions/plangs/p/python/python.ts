@@ -59,7 +59,8 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+optional", "tsys+strong"]);
+    .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+optional", "tsys+strong"])
+    .addWrittenIn(["pl+c", "pl+python"]);
 
   const addPyTool = (key: NTool["key"], data: NTool["data"]) => g.nodes.tool.set(key, data).addPls(["pl+python"]);
 

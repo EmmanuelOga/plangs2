@@ -1,0 +1,304 @@
+{
+  "description": "Programming language information.",
+  "type": "object",
+  "properties": {
+    "data": {
+      "$ref": "#/definitions/NPlangData"
+    },
+    "apps": {
+      "description": "A list of applications written in this programming language, if any.\nEach element is a key with prefix \"app+\", for instance: \"app+word\",\nwhere \"word\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "compilesTo": {
+      "description": "List of programming languages that this language compiles to, if any.\nEach element is a key with prefix \"pl+\", for instance: \"pl+python\",\nwhere \"python\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dialectOf": {
+      "description": "List of programming languages that this language is a dialect of, if any.\nEach element is a key with prefix \"pl+\", for instance: \"pl+python\",\nwhere \"python\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "implements": {
+      "description": "List of programming languages that this language is implements, if any.\nEach element is a key with prefix \"pl+\", for instance: \"pl+python\",\nwhere \"python\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "influencedBy": {
+      "description": "List of programming languages that this language was influenced by, if any.\nEach element is a key with prefix \"pl+\", for instance: \"pl+python\",\nwhere \"python\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "influenced": {
+      "description": "List of programming languages that this language influenced, if any.\nEach element is a key with prefix \"pl+\", for instance: \"pl+python\",\nwhere \"python\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "libraries": {
+      "description": "List of libraries for this programming language, if any.\nEach element is a key with prefix \"lib+\", for instance: \"lib+ncurses\",\nwhere \"ncurses\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "licenses": {
+      "description": "List of licenses for this programming language, if any.\nEach element is a key with prefix \"license+\", for instance: \"license+mit\",\nwhere \"mit\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "paradigms": {
+      "description": "List of paradigms for this programming language, if any.\nEach element is a key with prefix \"paradigm+\", for instance: \"paradigm+oop\",\nwhere \"oop\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "platforms": {
+      "description": "List of platforms for this programming language, if any.\nEach element is a key with prefix \"plat+\", for instance: \"plat+windows\",\nwhere \"windows\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tags": {
+      "description": "List of tags for this programming language, if any.\nEach element is a key with prefix \"tag+\", for instance: \"tag+games\",\nwhere \"games\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tools": {
+      "description": "List of tools for this programming language, if any.\nEach element is a key with prefix \"tool+\", for instance: \"tool+make\",\nwhere \"make\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "typeSystems": {
+      "description": "List of type systems for this programming language, if any.\nEach element is a key with prefix \"tsys+\", for instance: \"tsys+strong\",\nwhere \"strong\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "writtenIn": {
+      "description": "List of programming languages uses to implement this programming language, if any.\nEach element is a key with prefix \"lib+\", for instance: \"pl+python\",\nwhere \"python\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "apps",
+    "compilesTo",
+    "data",
+    "dialectOf",
+    "implements",
+    "influenced",
+    "influencedBy",
+    "libraries",
+    "licenses",
+    "paradigms",
+    "platforms",
+    "tags",
+    "tools",
+    "typeSystems",
+    "writtenIn"
+  ],
+  "definitions": {
+    "NPlangData": {
+      "description": "Programming language data.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "description": "Name of the language.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "description": {
+          "description": "Description of the language.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "keywords": {
+          "description": "Keywords can be used to match against text content.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "websites": {
+          "description": "Websites related to the programming language.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "extensions": {
+          "description": "File extensions supported by the language.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "firstAppeared": {
+          "description": "Date the language first appeared.",
+          "type": "string"
+        },
+        "images": {
+          "description": "Logos, screenshots or other images relevant to the language.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Image"
+          }
+        },
+        "isTranspiler": {
+          "description": "Can this particular implementation compile source-code to source-code?",
+          "type": "boolean"
+        },
+        "isMainstream": {
+          "description": "Languages like C, C++, Java, Python, JavaScript, etc. are mainstream and production ready.",
+          "type": "boolean"
+        },
+        "releases": {
+          "description": "A list of note worthy releases, not all of them. For instance, noteworthy release could be the latest for each major version.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Release"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "description",
+        "keywords",
+        "websites",
+        "extensions",
+        "firstAppeared",
+        "images",
+        "isMainstream",
+        "isTranspiler",
+        "releases"
+      ]
+    },
+    "Link": {
+      "description": "A reference to a web page.",
+      "type": "object",
+      "properties": {
+        "title": {
+          "description": "Title of the link, generally used for anchors (<a>).",
+          "type": "string"
+        },
+        "href": {
+          "description": "Can be a complete URL including protocol (http/https) or a relative link if it links to https://plangs.page.",
+          "type": "string"
+        },
+        "kind": {
+          "description": "A link kind helps us quickly find the kind of link we are looking for.",
+          "enum": [
+            "apidocs",
+            "homepage",
+            "other",
+            "plangs",
+            "releases",
+            "repository",
+            "wikipedia"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "href",
+        "kind",
+        "title"
+      ],
+      "additionalProperties": false
+    },
+    "Image": {
+      "description": "An image, e.g., a logo.",
+      "type": "object",
+      "properties": {
+        "kind": {
+          "description": "The kind of image.",
+          "enum": [
+            "logo",
+            "other",
+            "screenshot"
+          ],
+          "type": "string"
+        },
+        "title": {
+          "description": "A title for the image.",
+          "type": "string"
+        },
+        "url": {
+          "description": "Full URL for the image, or path if it belongs to https://plangs.page.",
+          "type": "string"
+        },
+        "width": {
+          "description": "Width in pixels.",
+          "type": "number"
+        },
+        "height": {
+          "description": "Height in pixels.",
+          "type": "number"
+        }
+      },
+      "required": [
+        "height",
+        "kind",
+        "title",
+        "url",
+        "width"
+      ],
+      "additionalProperties": false
+    },
+    "Release": {
+      "description": "A release of a programming language.",
+      "type": "object",
+      "properties": {
+        "version": {
+          "description": "Arbitrary version string used by the artifact.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the release, if there's any.",
+          "type": "string"
+        },
+        "date": {
+          "description": "Date of the release, if it is known.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "date",
+        "name",
+        "version"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false
+}

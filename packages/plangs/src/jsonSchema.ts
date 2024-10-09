@@ -2,9 +2,11 @@ import { join } from "node:path";
 
 import * as TJS from "typescript-json-schema";
 
+const SYMBOLS = ["PlAiResult"];
+
 async function generateJsonSchemas() {
   const program = TJS.getProgramFromFiles(
-    [join(import.meta.dir, "index.ts")],
+    [join(import.meta.dir, "schema.ts")],
     JSON.parse(await Bun.file(join(import.meta.dir, "../tsconfig.json")).text()),
     join(import.meta.dir, ".."),
   );
@@ -12,16 +14,10 @@ async function generateJsonSchemas() {
   const generator = TJS.buildGenerator(program, { ignoreErrors: true, required: true, strictNullChecks: true });
   if (!generator) throw new Error("Failed to build generator.");
 
-  const symbols = generator.getUserSymbols();
-
-  const types = ["N", "E", "CommonNodeData", "CommonEdgeData"].concat(
-    symbols.filter(s => (s.startsWith("N") || s.startsWith("E")) && s.endsWith("Data")),
-  );
-
-  for (const type of types) {
-    const result = massageForOpenAI(generator.getSchemaForSymbol(type));
-    const path = join(import.meta.dir, `schemas/${type}.json`);
-    console.info("Generating schema for", type, "at", path);
+  for (const sym of SYMBOLS) {
+    const result = massageForOpenAI(generator.getSchemaForSymbol(sym));
+    const path = join(import.meta.dir, `schemas/${sym}.json`);
+    console.info("Generating schema for", sym, "at", path);
     Bun.write(path, JSON.stringify(result, null, 2));
   }
 }
@@ -32,7 +28,7 @@ async function generateJsonSchemas() {
  * If not using strict mode, the generated schemas are more permissive
  * and closer to real life use.
  */
-const STRICT = false;
+const STRICT = true;
 
 /**
  * Since the schemas are used mainly for OpenAI structured ouptut,

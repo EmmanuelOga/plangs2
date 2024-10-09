@@ -29,8 +29,11 @@ export type E =
 
 /** Node data shared across all Node types. */
 export interface CommonNodeData {
+  /* Name of the node. */
   name: string;
+  /* Description of the node. */
   description: string;
+  /* Websites related to the node. */
   websites: Link[];
   /** Keywords can be used to match against text content. */
   keywords: string[];
@@ -139,3 +142,110 @@ export type month = string; // 0 padded
 export type day = string; // 0 padded
 /** A 0-padded YYYY-MM-DD date. Example: 2024-01-01. */
 export type StrDate = `${year}-${month}-${day}`;
+
+////////////////////////////////////////////////////////////////////////////////
+// Types used to interact with OpenAI.
+////////////////////////////////////////////////////////////////////////////////
+
+/** Programming language information. */
+export type PlAiResult = {
+  data: NPlangData;
+
+  /**
+   * A list of applications written in this programming language, if any.
+   * Each element is a key with prefix "app+", for instance: "app+word",
+   * where "word" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  apps: string[];
+
+  /**
+   * List of programming languages that this language compiles to, if any.
+   * Each element is a key with prefix "pl+", for instance: "pl+python",
+   * where "python" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  compilesTo: string[];
+
+  /**
+   * List of programming languages that this language is a dialect of, if any.
+   * Each element is a key with prefix "pl+", for instance: "pl+python",
+   * where "python" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  dialectOf: string[];
+
+  /**
+   * List of programming languages that this language is implements, if any.
+   * Each element is a key with prefix "pl+", for instance: "pl+python",
+   * where "python" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  implements: string[];
+
+  /**
+   * List of programming languages that this language was influenced by, if any.
+   * Each element is a key with prefix "pl+", for instance: "pl+python",
+   * where "python" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  influencedBy: string[];
+
+  /**
+   * List of programming languages that this language influenced, if any.
+   * Each element is a key with prefix "pl+", for instance: "pl+python",
+   * where "python" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  influenced: string[];
+
+  /**
+   * List of libraries for this programming language, if any.
+   * Each element is a key with prefix "lib+", for instance: "lib+ncurses",
+   * where "ncurses" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  libraries: string[];
+
+  /**
+   * List of licenses for this programming language, if any.
+   * Each element is a key with prefix "license+", for instance: "license+mit",
+   * where "mit" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  licenses: string[];
+
+  /**
+   * List of paradigms for this programming language, if any.
+   * Each element is a key with prefix "paradigm+", for instance: "paradigm+oop",
+   * where "oop" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  paradigms: string[];
+
+  /**
+   * List of platforms for this programming language, if any.
+   * Each element is a key with prefix "plat+", for instance: "plat+windows",
+   * where "windows" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  platforms: string[];
+
+  /**
+   * List of tags for this programming language, if any.
+   * Each element is a key with prefix "tag+", for instance: "tag+games",
+   * where "games" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  tags: string[];
+
+  /**
+   * List of tools for this programming language, if any.
+   * Each element is a key with prefix "tool+", for instance: "tool+make",
+   * where "make" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  tools: string[];
+
+  /**
+   * List of type systems for this programming language, if any.
+   * Each element is a key with prefix "tsys+", for instance: "tsys+strong",
+   * where "strong" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  typeSystems: string[];
+
+  /**
+   * List of programming languages uses to implement this programming language, if any.
+   * Each element is a key with prefix "lib+", for instance: "pl+python",
+   * where "python" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  writtenIn: string[];
+};
