@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "BeefLang Official Website", href: "https://www.beeflang.org/", kind: "homepage" },
         { title: "BeefLang GitHub Repository", href: "https://github.com/beefytech/Beef", kind: "repository" },
-        { title: "Beef Scripting", href: "https://en.wikipedia.org/wiki/Beef_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".bf"],
       firstAppeared: "2020-01-01",
