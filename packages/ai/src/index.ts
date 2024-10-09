@@ -31,8 +31,11 @@ export async function aiGenerate(pl: NPlang) {
     "",
     "Here's an example of proper output for a language like Python (key: pl+python):",
     "",
-    // biome-ignore lint/style/noNonNullAssertion: it exists.
-    JSON.stringify(example(pg.nodes.pl.get("pl+python")!), null, 2),
+    JSON.stringify(example(pg.nodes.pl.get("pl+python") as NPlang), null, 2),
+    "",
+    "Here's the existing data for this language, that you will hopefully improve on. Please reuse the existing data unless it is wrong in some way:",
+    "",
+    JSON.stringify(example(pl), null, 2),
   ].join("\n");
 
   const completion = await openai.chat.completions.create({
