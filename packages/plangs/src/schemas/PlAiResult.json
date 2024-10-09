@@ -129,17 +129,11 @@
       "properties": {
         "name": {
           "description": "Name of the language.",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "type": "string"
         },
         "description": {
           "description": "Description of the language.",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "type": "string"
         },
         "keywords": {
           "description": "Keywords can be used to match against text content.",
@@ -189,7 +183,18 @@
           }
         }
       },
-      "required": ["name", "description", "keywords", "websites", "extensions", "firstAppeared", "images", "isMainstream", "isTranspiler", "releases"]
+      "required": [
+        "name",
+        "description",
+        "keywords",
+        "websites",
+        "extensions",
+        "firstAppeared",
+        "images",
+        "isMainstream",
+        "isTranspiler",
+        "releases"
+      ]
     },
     "Link": {
       "description": "A reference to a web page.",
@@ -205,11 +210,23 @@
         },
         "kind": {
           "description": "A link kind helps us quickly find the kind of link we are looking for.",
-          "enum": ["apidocs", "homepage", "other", "plangs", "releases", "repository", "wikipedia"],
+          "enum": [
+            "apidocs",
+            "homepage",
+            "other",
+            "plangs",
+            "releases",
+            "repository",
+            "wikipedia"
+          ],
           "type": "string"
         }
       },
-      "required": ["href", "kind", "title"],
+      "required": [
+        "href",
+        "kind",
+        "title"
+      ],
       "additionalProperties": false
     },
     "Image": {
@@ -218,7 +235,11 @@
       "properties": {
         "kind": {
           "description": "The kind of image.",
-          "enum": ["logo", "other", "screenshot"],
+          "enum": [
+            "logo",
+            "other",
+            "screenshot"
+          ],
           "type": "string"
         },
         "title": {
@@ -238,7 +259,13 @@
           "type": "number"
         }
       },
-      "required": ["height", "kind", "title", "url", "width"],
+      "required": [
+        "height",
+        "kind",
+        "title",
+        "url",
+        "width"
+      ],
       "additionalProperties": false
     },
     "Release": {
@@ -258,7 +285,11 @@
           "type": "string"
         }
       },
-      "required": ["date", "name", "version"],
+      "required": [
+        "date",
+        "name",
+        "version"
+      ],
       "additionalProperties": false
     }
   },

@@ -1,6 +1,22 @@
-import type { NPlang } from "@plangs/plangs/index";
-import type { NPlangData, PlAiResult } from "@plangs/plangs/schema";
+import type { NPlang, PlangsGraph } from "@plangs/plangs/index";
+import type { N, NPlangData, PlAiResult } from "@plangs/plangs/schema";
 
+/** Generate a JSON object including keys to known nodes. */
+export function existingData(pg: PlangsGraph): Record<string, Record<string, string>> {
+  const toMap = (k: N) => Object.fromEntries([...pg.nodes[k]].map(([key, data]) => [key, data.name]));
+  return {
+    apps: toMap("app"),
+    tools: toMap("tool"),
+    libraries: toMap("lib"),
+    licenses: toMap("license"),
+    paradigms: toMap("paradigm"),
+    platforms: toMap("plat"),
+    tags: toMap("tag"),
+    typeSystems: toMap("tsys"),
+  };
+}
+
+/** Return an example using existing data to show OpenAI what a good result looks like. */
 export function example(pl: NPlang): PlAiResult {
   return {
     data: pl.data as NPlangData,
