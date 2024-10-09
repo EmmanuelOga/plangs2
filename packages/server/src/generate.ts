@@ -13,11 +13,11 @@ await loadPosts(pg);
 async function test() {
   for (const [_, pl] of pg.nodes.pl) {
     if (pl.images.isEmpty) {
-      for (const w of pl.websites.existing)
-        await Bun.spawn(["open", w.href], {
-          stdout: "pipe",
-          stderr: "pipe",
-        });
+      for (const w of pl.websites.existing) console.log(pl.name, w);
+      // await Bun.spawn(["open", w.href], {
+      //   stdout: "pipe",
+      //   stderr: "pipe",
+      // });
     }
   }
 }
@@ -26,8 +26,7 @@ if (process.argv[2] === "plangs.json") {
   const path = join(import.meta.dir, "plangs.json");
   Bun.write(path, JSON.stringify(pg));
   console.info("Wrote", path);
-}
-if (process.argv[2] === "test") {
+} else if (process.argv[2] === "test") {
   await test();
 } else {
   console.log("Usage: cmd plangs.json");
