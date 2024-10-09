@@ -745,23 +745,14 @@
           { "title": "ActionScript", "href": "https://en.wikipedia.org/wiki/ActionScript", "kind": "wikipedia" }
         ],
         "extensions": [".as", ".swf"],
-        "images": [
-          {
-            "kind": "other",
-            "title": "ActionScript",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/ActionScript.svg",
-            "width": 512,
-            "height": 512
-          },
-          { "kind": "other", "title": "ActionScript", "url": "/images/a/actionscript/actionscript.other.png" }
-        ],
         "isTranspiler": false,
         "isMainstream": false,
         "releases": [
           { "version": "1.0", "name": "ActionScript 1.0", "date": "2000-01-01" },
           { "version": "2.0", "name": "ActionScript 2.0", "date": "2003-01-01" },
           { "version": "3.0", "name": "ActionScript 3.0", "date": "2006-01-01" }
-        ]
+        ],
+        "images": [{ "kind": "other", "title": "ActionScript", "url": "/images/a/actionscript/actionscript.other.png" }]
       },
       "pl+ada": {
         "name": "Ada",
@@ -819,13 +810,10 @@
         ],
         "extensions": [],
         "firstAppeared": "2000-01-01",
-        "images": [
-          { "kind": "screenshot", "title": "Alice", "url": "http://www.alice.org/images/Alice3_screenshot.jpg", "width": 512, "height": 512 },
-          { "kind": "screenshot", "title": "Alice", "url": "/images/a/alice/alice.screenshot.jpg" }
-        ],
         "isTranspiler": false,
         "isMainstream": false,
-        "releases": [{ "version": "3.6.0.3", "name": "Alice 3.6.0.3", "date": "2021-01-01" }]
+        "releases": [{ "version": "3.6.0.3", "name": "Alice 3.6.0.3", "date": "2021-01-01" }],
+        "images": [{ "kind": "screenshot", "title": "Alice", "url": "/images/a/alice/alice.screenshot.jpg" }]
       },
       "pl+amber": {
         "name": "Amber",
@@ -834,9 +822,6 @@
         "websites": [{ "title": "Amber", "href": "https://amber-lang.com", "kind": "homepage" }],
         "extensions": [".amber"],
         "firstAppeared": "2015-01-01",
-        "images": [
-          { "kind": "logo", "title": "Amber Logo", "url": "https://amber-lang.com/assets/img/amber-logo.png", "width": 1024, "height": 512 }
-        ],
         "isTranspiler": true,
         "releases": [{ "version": "0.3.5.alpha", "date": "2024-09-04" }]
       },
@@ -850,19 +835,10 @@
         ],
         "extensions": [".dat", ".mod", ".run"],
         "firstAppeared": "1985-01-01",
-        "images": [
-          {
-            "kind": "other",
-            "title": "AMPL",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/0/08/AMPL-logo.jpg",
-            "width": 512,
-            "height": 512
-          },
-          { "kind": "other", "title": "AMPL", "url": "/images/a/ampl/ampl.other.jpg" }
-        ],
         "isTranspiler": false,
         "isMainstream": false,
-        "releases": []
+        "releases": [],
+        "images": [{ "kind": "other", "title": "AMPL", "url": "/images/a/ampl/ampl.other.jpg" }]
       },
       "pl+apl": {
         "name": "APL",
@@ -898,18 +874,9 @@
         "websites": [{ "title": "Assembly language", "href": "https://en.wikipedia.org/wiki/Assembly_language", "kind": "wikipedia" }],
         "extensions": [".asm", ".s", ".inc", ".src", ".a51"],
         "firstAppeared": "1947-01-01",
-        "images": [
-          {
-            "kind": "other",
-            "title": "Assembly language",
-            "url": "http://upload.wikimedia.org/wikipedia/commons/6/67/A_sobering_assembly_language_mindstorm.png",
-            "width": 512,
-            "height": 512
-          },
-          { "kind": "other", "title": "Assembly language", "url": "/images/a/assembly/assembly.other.png" }
-        ],
         "isTranspiler": false,
-        "isMainstream": true
+        "isMainstream": true,
+        "images": [{ "kind": "other", "title": "Assembly language", "url": "/images/a/assembly/assembly.other.png" }]
       },
       "pl+assemblyscript": {
         "name": "AssemblyScript",
@@ -977,19 +944,10 @@
         "websites": [{ "title": "BASIC", "href": "https://en.wikipedia.org/wiki/BASIC", "kind": "wikipedia" }],
         "extensions": [".bas", ".bi", ".bb", ".pb", ".fb"],
         "firstAppeared": "1964-01-01",
-        "images": [
-          {
-            "kind": "other",
-            "title": "BASIC",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Dartmouth_TIME_SHARING_1964.png",
-            "width": 1000,
-            "height": 1328
-          },
-          { "kind": "other", "title": "BASIC", "url": "/images/b/basic/basic.other.png" }
-        ],
         "isTranspiler": false,
         "isMainstream": true,
-        "releases": [{ "version": "1.0", "name": "Initial Release", "date": "1964-01-01" }]
+        "releases": [{ "version": "1.0", "name": "Initial Release", "date": "1964-01-01" }],
+        "images": [{ "kind": "other", "title": "BASIC", "url": "/images/b/basic/basic.other.png" }]
       },
       "pl+befunge": {
         "name": "Befunge",
@@ -1044,18 +1002,9 @@
         "keywords": ["turbo c", "c programming", "borland", "ide", "compiler"],
         "websites": [{ "title": "Borland Turbo C", "href": "https://en.wikipedia.org/wiki/Borland_Turbo_C", "kind": "wikipedia" }],
         "firstAppeared": "1987-01-01",
-        "images": [
-          {
-            "kind": "other",
-            "title": "Borland Turbo C",
-            "url": "https://upload.wikimedia.org/wikipedia/en/1/14/Turbo_C%2B%2B_3.0_Ide.png",
-            "width": 640,
-            "height": 480
-          },
-          { "kind": "other", "title": "Borland Turbo C", "url": "/images/b/borland-turbo-c/borland-turbo-c.other.jpg" }
-        ],
         "isTranspiler": false,
-        "isMainstream": false
+        "isMainstream": false,
+        "images": [{ "kind": "other", "title": "Borland Turbo C", "url": "/images/b/borland-turbo-c/borland-turbo-c.other.jpg" }]
       },
       "pl+brainfuck": {
         "name": "Brainfuck",
@@ -1134,7 +1083,7 @@
         ],
         "extensions": [".c3"],
         "firstAppeared": "2020-01-01",
-        "images": [{ "kind": "logo", "title": "C3 logo", "url": "https://c3-lang.org/images/c3-logo.png", "width": 800, "height": 600 }],
+        "images": [{ "kind": "logo", "title": "C3 logo", "url": "https://c3-lang.org/logo.svg", "width": 800, "height": 600 }],
         "releases": [{ "version": "0.1.0", "name": "C3 Initial Release", "date": "2020-05-01" }]
       },
       "pl+casette": {
@@ -1185,19 +1134,10 @@
         ],
         "extensions": [".ck"],
         "firstAppeared": "2003-01-01",
-        "images": [
-          {
-            "kind": "other",
-            "title": "ChucK",
-            "url": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/ChucK_Logo.png/250px-ChucK_Logo.png",
-            "width": 512,
-            "height": 512
-          },
-          { "kind": "other", "title": "ChucK", "url": "/images/c/chuck/chuck.other.png" }
-        ],
         "isTranspiler": false,
         "isMainstream": false,
-        "releases": [{ "version": "1.5.2.4", "name": "ChucK 1.5.2.4", "date": "2024-01-01" }]
+        "releases": [{ "version": "1.5.2.4", "name": "ChucK 1.5.2.4", "date": "2024-01-01" }],
+        "images": [{ "kind": "other", "title": "ChucK", "url": "/images/c/chuck/chuck.other.png" }]
       },
       "pl+ciao": {
         "name": "Ciao",
@@ -1209,13 +1149,10 @@
         ],
         "extensions": [".pl", ".ciao"],
         "firstAppeared": "1999-01-01",
-        "images": [
-          { "kind": "logo", "title": "Ciao", "url": "https://www.ciao-lang.org/icons/ciao.png", "width": 512, "height": 512 },
-          { "kind": "logo", "title": "Ciao", "url": "/images/c/ciao/ciao.logo.png" }
-        ],
         "isTranspiler": false,
         "isMainstream": false,
-        "releases": [{ "version": "v1.20", "name": "Ciao v1.20", "date": "2022-06-01" }]
+        "releases": [{ "version": "v1.20", "name": "Ciao v1.20", "date": "2022-06-01" }],
+        "images": [{ "kind": "logo", "title": "Ciao", "url": "/images/c/ciao/ciao.logo.png" }]
       },
       "pl+cilk": {
         "name": "Cilk",
@@ -1339,15 +1276,6 @@
           { "title": "CodeMonkey", "href": "https://en.wikipedia.org/wiki/CodeMonkey_(software)", "kind": "wikipedia" }
         ],
         "firstAppeared": "2014-01-01",
-        "images": [
-          {
-            "kind": "logo",
-            "title": "CodeMonkey Logo",
-            "url": "https://www.codemonkey.com/assets/int/img/icons/codemonkey-icon4.png",
-            "width": 512,
-            "height": 512
-          }
-        ],
         "isTranspiler": false,
         "isMainstream": false,
         "releases": [{ "version": "1.0", "name": "CodeMonkey 1.0", "date": "2014-01-01" }]
@@ -1447,16 +1375,13 @@
         ],
         "extensions": [".cr"],
         "firstAppeared": "2014-01-01",
-        "images": [
-          { "kind": "logo", "title": "Crystal", "url": "https://crystal-lang.org/assets/icon/crystal-logo.svg", "width": 512, "height": 512 },
-          { "kind": "logo", "title": "Crystal", "url": "/images/c/crystal/crystal.logo.png" }
-        ],
         "isTranspiler": false,
         "isMainstream": false,
         "releases": [
           { "version": "1.0.0", "name": "Crystal 1.0.0", "date": "2021-03-31" },
           { "version": "1.13.2", "name": "Crystal 1.13.2", "date": "2024-01-01" }
-        ]
+        ],
+        "images": [{ "kind": "logo", "title": "Crystal", "url": "/images/c/crystal/crystal.logo.png" }]
       },
       "pl+csound": {
         "name": "Csound",
@@ -1556,15 +1481,6 @@
           { "title": "Datomic", "href": "https://en.wikipedia.org/wiki/Datomic", "kind": "wikipedia" }
         ],
         "firstAppeared": "2012-08-10",
-        "images": [
-          {
-            "kind": "logo",
-            "title": "Datomic Logo",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Datomic_logo.png",
-            "width": 512,
-            "height": 512
-          }
-        ],
         "isTranspiler": false,
         "isMainstream": false,
         "releases": [{ "version": "1.0.7180", "name": "Datomic 1.0", "date": "2012-08-10" }]
@@ -1789,7 +1705,7 @@
         ],
         "extensions": [".fnl"],
         "firstAppeared": "2020-01-01",
-        "images": [{ "kind": "logo", "title": "Fennel Logo", "url": "https://fennel-lang.org/favicon.png", "width": 512, "height": 512 }],
+        "images": [{ "kind": "logo", "title": "Fennel Logo", "url": "https://fennel-lang.org/logo.svg", "width": 512, "height": 512 }],
         "isTranspiler": true,
         "releases": [
           { "version": "0.6.0", "name": "Fennel 0.6.0", "date": "2021-07-22" },
@@ -1807,7 +1723,15 @@
         ],
         "extensions": [".flix"],
         "firstAppeared": "2015-01-01",
-        "images": [{ "kind": "logo", "title": "Flix logo", "url": "https://flix.dev/img/logo.svg", "width": 512, "height": 512 }],
+        "images": [
+          {
+            "kind": "logo",
+            "title": "Flix logo",
+            "url": "https://raw.githubusercontent.com/flix/flix/master/docs/logo.png",
+            "width": 512,
+            "height": 512
+          }
+        ],
         "isTranspiler": false,
         "isMainstream": false,
         "releases": [
@@ -1836,7 +1760,7 @@
         "description": "Flyde is a visual programming language designed to build and manage complex workflows easily. It is aimed at enhancing the development process by utilizing a visual interface for coding, assisting users in strategy development, logic sequencing, and overall workflow optimization.",
         "keywords": ["flyde", "visual", "workflow"],
         "websites": [{ "title": "Flyde", "href": "https://www.flyde.dev/", "kind": "homepage" }],
-        "images": [{ "kind": "logo", "title": "Flyde Logo", "url": "https://www.flyde.dev/logo.png", "width": 512, "height": 512 }]
+        "images": [{ "kind": "logo", "title": "Flyde Logo", "url": "https://www.flyde.dev/img/flyde_icon.png", "width": 512, "height": 512 }]
       },
       "pl+forth": {
         "name": "Forth",
@@ -1861,16 +1785,6 @@
         ],
         "extensions": [".f", ".f90", ".for"],
         "firstAppeared": "1957-01-01",
-        "images": [
-          {
-            "kind": "other",
-            "title": "Fortran",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Fortran.gif",
-            "width": 512,
-            "height": 512
-          },
-          { "kind": "other", "title": "Fortran", "url": "/images/f/fortran/fortran.other.jpg" }
-        ],
         "isTranspiler": false,
         "isMainstream": true,
         "releases": [
@@ -1881,7 +1795,8 @@
           { "version": "2003", "name": "Fortran 2003", "date": "2004-01-01" },
           { "version": "2008", "name": "Fortran 2008", "date": "2010-01-01" },
           { "version": "2018", "name": "Fortran 2018", "date": "2018-01-01" }
-        ]
+        ],
+        "images": [{ "kind": "other", "title": "Fortran", "url": "/images/f/fortran/fortran.other.jpg" }]
       },
       "pl+fortress": {
         "name": "Fortress",
@@ -1948,7 +1863,6 @@
         ],
         "extensions": [".frink"],
         "firstAppeared": "2001-01-01",
-        "images": [{ "kind": "logo", "title": "Frink Logo", "url": "https://frinklang.org/images/frinklogo.png", "width": 512, "height": 512 }],
         "isTranspiler": false,
         "isMainstream": false
       },
@@ -2240,19 +2154,13 @@
         ],
         "extensions": [".hy"],
         "firstAppeared": "2013-01-01",
-        "images": [
-          {
-            "kind": "logo",
-            "title": "Hy Logo",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Hy_Lang_Logo.png",
-            "width": 512,
-            "height": 512
-          },
-          { "kind": "other", "title": "Hy", "url": "/images/h/hy/hy.other.png" }
-        ],
         "isTranspiler": true,
         "isMainstream": false,
-        "releases": [{ "version": "1.0", "name": "Hy 1.0", "date": "2022-01-01" }, { "version": "0.29.0", "name": "Hy 0.29.0", "date": "2024-01-01" }]
+        "releases": [
+          { "version": "1.0", "name": "Hy 1.0", "date": "2022-01-01" },
+          { "version": "0.29.0", "name": "Hy 0.29.0", "date": "2024-01-01" }
+        ],
+        "images": [{ "kind": "other", "title": "Hy", "url": "/images/h/hy/hy.other.png" }]
       },
       "pl+icon": {
         "name": "Icon",
@@ -2296,7 +2204,6 @@
         ],
         "extensions": [".imba"],
         "firstAppeared": "2013-01-01",
-        "images": [{ "kind": "logo", "title": "Imba Logo", "url": "https://imba.io/logo.png", "width": 512, "height": 512 }],
         "isTranspiler": true,
         "releases": [
           { "version": "v1.5.0", "name": "Imba 1.5.0", "date": "2020-06-15" },
@@ -2331,7 +2238,6 @@
         ],
         "extensions": [".inform", ".ni", ".z5", ".z8"],
         "firstAppeared": "1993-01-01",
-        "images": [{ "kind": "logo", "title": "Inform Logo", "url": "https://inform7.com/misc/logo.png", "width": 512, "height": 512 }],
         "isTranspiler": false,
         "isMainstream": false,
         "releases": [{ "version": "10.1.1", "name": "Inform 10.1.1", "date": "2022-01-01" }]
@@ -2489,7 +2395,6 @@
         ],
         "extensions": [".rb"],
         "firstAppeared": "2001-01-01",
-        "images": [{ "kind": "logo", "title": "JRuby Logo", "url": "https://www.jruby.org/images/jruby-logo.svg", "width": 800, "height": 600 }],
         "isTranspiler": false,
         "isMainstream": true,
         "releases": [{ "version": "9.4.5.0", "name": "JRuby 9.4.5.0", "date": "2023-01-01" }]
@@ -2535,15 +2440,6 @@
           { "title": "K", "href": "https://en.wikipedia.org/wiki/K_(programming_language)", "kind": "wikipedia" }
         ],
         "firstAppeared": "1993-01-01",
-        "images": [
-          {
-            "kind": "logo",
-            "title": "Kx Systems",
-            "url": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b8/Kx_Systems_logo.svg/512px-Kx_Systems_logo.svg.png",
-            "width": 512,
-            "height": 227
-          }
-        ],
         "isTranspiler": false,
         "isMainstream": false
       },
@@ -2585,19 +2481,10 @@
         ],
         "extensions": [".vi", ".lvproj"],
         "firstAppeared": "1986-01-01",
-        "images": [
-          {
-            "kind": "logo",
-            "title": "LabVIEW",
-            "url": "https://upload.wikimedia.org/wikipedia/en/2/2d/LabVIEW-logo.svg",
-            "width": 512,
-            "height": 512
-          },
-          { "kind": "logo", "title": "LabVIEW", "url": "/images/l/labview/labview.logo.jpg" }
-        ],
         "isTranspiler": false,
         "isMainstream": true,
-        "releases": [{ "version": "5.1", "name": "LabVIEW 5.1", "date": "2023-01-01" }]
+        "releases": [{ "version": "5.1", "name": "LabVIEW 5.1", "date": "2023-01-01" }],
+        "images": [{ "kind": "logo", "title": "LabVIEW", "url": "/images/l/labview/labview.logo.jpg" }]
       },
       "pl+lisp": {
         "name": "Lisp",
@@ -2677,13 +2564,10 @@
         ],
         "extensions": [".maxpat", ".mxb", ".mxt"],
         "firstAppeared": "1988-01-01",
-        "images": [
-          { "kind": "logo", "title": "Max", "url": "https://cycling74.com/content/images/max-hero-msp@2x.png", "width": 1024, "height": 512 },
-          { "kind": "logo", "title": "Max", "url": "/images/m/max-msp/max-msp.logo.jpg" }
-        ],
         "isTranspiler": false,
         "isMainstream": false,
-        "releases": [{ "version": "8.6.2", "name": "Max 8.6.2", "date": "2024-01-01" }]
+        "releases": [{ "version": "8.6.2", "name": "Max 8.6.2", "date": "2024-01-01" }],
+        "images": [{ "kind": "logo", "title": "Max", "url": "/images/m/max-msp/max-msp.logo.jpg" }]
       },
       "pl+micropython": {
         "name": "MicroPython",
@@ -2817,19 +2701,10 @@
         ],
         "extensions": [".nlogo", ".nlogo3d", ".nls"],
         "firstAppeared": "1999-01-01",
-        "images": [
-          {
-            "kind": "logo",
-            "title": "NetLogo",
-            "url": "https://upload.wikimedia.org/wikipedia/en/thumb/2/29/NetLogo_logo.png/512px-NetLogo_logo.png",
-            "width": 512,
-            "height": 512
-          },
-          { "kind": "logo", "title": "NetLogo", "url": "/images/n/netlogo/netlogo.logo.png" }
-        ],
         "isTranspiler": false,
         "isMainstream": true,
-        "releases": [{ "version": "6.4.0", "name": "NetLogo 6.4.0", "date": "2023-01-01" }]
+        "releases": [{ "version": "6.4.0", "name": "NetLogo 6.4.0", "date": "2023-01-01" }],
+        "images": [{ "kind": "logo", "title": "NetLogo", "url": "/images/n/netlogo/netlogo.logo.png" }]
       },
       "pl+netrexx": {
         "name": "NetRexx",
@@ -2841,7 +2716,6 @@
         ],
         "extensions": [".nrx"],
         "firstAppeared": "1996-01-01",
-        "images": [{ "kind": "logo", "title": "NetRexx", "url": "https://www.netrexx.org/logo.png", "width": 512, "height": 512 }],
         "isTranspiler": true,
         "isMainstream": false,
         "releases": [{ "version": "4.06", "name": "NetRexx 4.06 Release", "date": "2024-01-01" }]
@@ -2977,7 +2851,6 @@
         ],
         "extensions": [".pkl"],
         "firstAppeared": "2021-06-01",
-        "images": [{ "kind": "logo", "title": "PKL Logo", "url": "https://pkl-lang.org/logo.png", "width": 800, "height": 800 }],
         "releases": [{ "version": "1.0.0", "name": "PKL 1.0.0", "date": "2021-06-01" }]
       },
       "pl+pony": {
@@ -2994,7 +2867,6 @@
         ],
         "extensions": [".pony"],
         "firstAppeared": "2015-09-18",
-        "images": [{ "kind": "logo", "title": "Pony Logo", "url": "https://www.ponylang.io/images/pony-logo.png", "width": 800, "height": 800 }],
         "releases": [{ "version": "0.41.0", "name": "Pony 0.41.0", "date": "2023-09-01" }]
       },
       "pl+powerbasic": {
@@ -3038,15 +2910,6 @@
         ],
         "extensions": [".P", ".pl", ".pro"],
         "firstAppeared": "1972-01-01",
-        "images": [
-          {
-            "kind": "logo",
-            "title": "Prolog Logo",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Atoms_in_Prolog.JPG",
-            "width": 512,
-            "height": 512
-          }
-        ],
         "isTranspiler": false,
         "isMainstream": true
       },
@@ -3219,13 +3082,10 @@
           { "title": "Rakudo", "href": "https://en.wikipedia.org/wiki/Rakudo", "kind": "wikipedia" }
         ],
         "firstAppeared": "2008-07-29",
-        "images": [
-          { "kind": "logo", "title": "Rakudo", "url": "https://www.rakudo.org/images/rakudo.logo.png", "width": 600, "height": 600 },
-          { "kind": "logo", "title": "Rakudo", "url": "/images/r/rakudo/rakudo.logo.png" }
-        ],
         "isTranspiler": false,
         "isMainstream": false,
-        "releases": [{ "version": "2024.08", "name": "Rakudo 2024.08", "date": "2024-01-01" }]
+        "releases": [{ "version": "2024.08", "name": "Rakudo 2024.08", "date": "2024-01-01" }],
+        "images": [{ "kind": "logo", "title": "Rakudo", "url": "/images/r/rakudo/rakudo.logo.png" }]
       },
       "pl+rascal": {
         "name": "Rascal",
@@ -3428,19 +3288,10 @@
         "websites": [{ "title": "sed", "href": "https://en.wikipedia.org/wiki/Sed", "kind": "wikipedia" }],
         "extensions": [".sed"],
         "firstAppeared": "1974-01-01",
-        "images": [
-          {
-            "kind": "other",
-            "title": "sed",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Sedutils.svg/1024px-Sedutils.svg.png",
-            "width": 512,
-            "height": 512
-          },
-          { "kind": "other", "title": "sed", "url": "/images/s/sed/sed.other.jpg" }
-        ],
         "isTranspiler": false,
         "isMainstream": true,
-        "releases": [{ "version": "1.0", "name": "Initial Version", "date": "1974-01-01" }]
+        "releases": [{ "version": "1.0", "name": "Initial Version", "date": "1974-01-01" }],
+        "images": [{ "kind": "other", "title": "sed", "url": "/images/s/sed/sed.other.jpg" }]
       },
       "pl+seed7": {
         "name": "Seed7",
@@ -3496,7 +3347,7 @@
         "releases": [{ "version": "22.2", "name": "Shen 22.2", "date": "2023-08-01" }]
       },
       "pl+shex": {
-        "name": "ShEx - Shape Expressions",
+        "name": "ShEx",
         "description": "Shape Expressions (ShEx) is a data modeling language used for validating and describing Resource Description Framework (RDF) data. It specifically targets semantic web technologies and offers a concise syntax for expressing constraints.",
         "keywords": ["shex", "shape expressions"],
         "websites": [
@@ -3505,19 +3356,10 @@
         ],
         "extensions": [".shex"],
         "firstAppeared": "2014-01-01",
-        "images": [
-          {
-            "kind": "logo",
-            "title": "ShEx - Shape Expressions",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/2/29/ShEx_Logo.svg",
-            "width": 512,
-            "height": 512
-          },
-          { "kind": "logo", "title": "ShEx - Shape Expressions", "url": "/images/s/shex/shex.logo.png" }
-        ],
         "isTranspiler": false,
         "isMainstream": false,
-        "releases": [{ "version": "2.1", "name": "ShEx 2.1", "date": "2018-01-01" }]
+        "releases": [{ "version": "2.1", "name": "ShEx 2.1", "date": "2018-01-01" }],
+        "images": [{ "kind": "logo", "title": "ShEx", "url": "/images/s/shex/shex.logo.png" }]
       },
       "pl+simula": {
         "name": "Simula",
@@ -3541,19 +3383,10 @@
           { "title": "Simulink", "href": "https://en.wikipedia.org/wiki/Simulink", "kind": "wikipedia" }
         ],
         "firstAppeared": "1988-01-01",
-        "images": [
-          {
-            "kind": "logo",
-            "title": "Simulink Logo",
-            "url": "https://upload.wikimedia.org/wikipedia/en/3/3b/Simulink_Logo.png",
-            "width": 512,
-            "height": 512
-          },
-          { "kind": "other", "title": "Simulink", "url": "/images/s/simulink/simulink.other.jpg" }
-        ],
         "isTranspiler": false,
         "isMainstream": true,
-        "releases": [{ "version": "10.7", "name": "Simulink Release 10.7", "date": "2023-01-01" }]
+        "releases": [{ "version": "10.7", "name": "Simulink Release 10.7", "date": "2023-01-01" }],
+        "images": [{ "kind": "other", "title": "Simulink", "url": "/images/s/simulink/simulink.other.jpg" }]
       },
       "pl+souffle": {
         "name": "Soufflé",
@@ -3565,15 +3398,6 @@
         ],
         "extensions": [".dl"],
         "firstAppeared": "2016-01-01",
-        "images": [
-          {
-            "kind": "other",
-            "title": "Soufflé Overview",
-            "url": "https://souffle-lang.github.io/images/souffle-overview.png",
-            "width": 512,
-            "height": 512
-          }
-        ],
         "isTranspiler": false,
         "isMainstream": false,
         "releases": [{ "version": "2.3", "name": "Soufflé 2.3", "date": "2023-05-01" }]
@@ -3736,15 +3560,6 @@
         ],
         "extensions": [".tex"],
         "firstAppeared": "1978-05-30",
-        "images": [
-          {
-            "kind": "logo",
-            "title": "TeX Logo",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/1/14/TeX_logo.svg",
-            "width": 512,
-            "height": 512
-          }
-        ],
         "isTranspiler": false,
         "isMainstream": true,
         "releases": [{ "version": "3.14159265", "name": "TeX 3", "date": "1989-11-01" }]
@@ -3802,15 +3617,6 @@
         ],
         "extensions": [".cts", ".mts", ".ts", ".tsx"],
         "firstAppeared": "2012-10-01",
-        "images": [
-          {
-            "kind": "logo",
-            "title": "TypeScript Logo",
-            "url": "https://www.typescriptlang.org/assets/images/icons/favicon-512x512.png",
-            "width": 512,
-            "height": 512
-          }
-        ],
         "isTranspiler": true,
         "isMainstream": true,
         "releases": [{ "version": "5.2", "name": "TypeScript 5.2", "date": "2023-08-01" }]
@@ -3883,12 +3689,9 @@
           { "title": "vvvv", "href": "https://en.wikipedia.org/wiki/Vvvv", "kind": "wikipedia" }
         ],
         "firstAppeared": "2002-01-01",
-        "images": [
-          { "kind": "logo", "title": "vvvv", "url": "https://www.vvvv.org/logos/logo.svg", "width": 512, "height": 512 },
-          { "kind": "logo", "title": "vvvv", "url": "/images/v/vvvv/vvvv.logo.png" }
-        ],
         "isTranspiler": false,
-        "isMainstream": false
+        "isMainstream": false,
+        "images": [{ "kind": "logo", "title": "vvvv", "url": "/images/v/vvvv/vvvv.logo.png" }]
       },
       "pl+whiley": {
         "name": "Whiley",
@@ -3954,15 +3757,6 @@
         ],
         "extensions": [".xpl"],
         "firstAppeared": "2010-05-11",
-        "images": [
-          {
-            "kind": "logo",
-            "title": "XProc Logo",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/XProc_logo.svg/512px-XProc_logo.svg.png",
-            "width": 512,
-            "height": 512
-          }
-        ],
         "isTranspiler": false,
         "isMainstream": false,
         "releases": [{ "version": "1.0", "name": "XProc 1.0", "date": "2010-05-11" }, { "version": "3.0", "name": "XProc 3.0", "date": "2020-08-18" }]
@@ -3977,15 +3771,6 @@
         ],
         "extensions": [".xq", ".xql", ".xqm", ".xquery", ".xqy"],
         "firstAppeared": "2007-01-01",
-        "images": [
-          {
-            "kind": "logo",
-            "title": "XQuery Logo",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/XMLQuerylogo.svg",
-            "width": 512,
-            "height": 512
-          }
-        ],
         "isTranspiler": false,
         "isMainstream": true,
         "releases": [

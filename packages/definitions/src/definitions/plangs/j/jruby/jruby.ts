@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".rb"],
       firstAppeared: "2001-01-01",
-      images: [{ kind: "logo", title: "JRuby Logo", url: "https://www.jruby.org/images/jruby-logo.svg", width: 800, height: 600 }],
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "9.4.5.0", name: "JRuby 9.4.5.0", date: "2023-01-01" }],

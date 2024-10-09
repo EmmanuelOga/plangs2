@@ -13,15 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".ck"],
       firstAppeared: "2003-01-01",
-      images: [
-        {
-          kind: "other",
-          title: "ChucK",
-          url: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/ChucK_Logo.png/250px-ChucK_Logo.png",
-          width: 512,
-          height: 512,
-        },
-      ],
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.5.2.4", name: "ChucK 1.5.2.4", date: "2024-01-01" }],

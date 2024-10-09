@@ -13,7 +13,9 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".flix"],
       firstAppeared: "2015-01-01",
-      images: [{ kind: "logo", title: "Flix logo", url: "https://flix.dev/img/logo.svg", width: 512, height: 512 }],
+      images: [
+        { kind: "logo", title: "Flix logo", url: "https://raw.githubusercontent.com/flix/flix/master/docs/logo.png", width: 512, height: 512 },
+      ],
       isTranspiler: false,
       isMainstream: false,
       releases: [

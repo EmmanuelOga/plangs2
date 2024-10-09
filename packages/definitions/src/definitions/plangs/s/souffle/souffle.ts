@@ -13,9 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".dl"],
       firstAppeared: "2016-01-01",
-      images: [
-        { kind: "other", title: "Soufflé Overview", url: "https://souffle-lang.github.io/images/souffle-overview.png", width: 512, height: 512 },
-      ],
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2.3", name: "Soufflé 2.3", date: "2023-05-01" }],

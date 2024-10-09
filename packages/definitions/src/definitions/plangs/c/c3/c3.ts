@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".c3"],
       firstAppeared: "2020-01-01",
-      images: [{ kind: "logo", title: "C3 logo", url: "https://c3-lang.org/images/c3-logo.png", width: 800, height: 600 }],
+      images: [{ kind: "logo", title: "C3 logo", url: "https://c3-lang.org/logo.svg", width: 800, height: 600 }],
       releases: [{ version: "0.1.0", name: "C3 Initial Release", date: "2020-05-01" }],
     })
     .addInfluencedBy(["pl+c"])

@@ -10,15 +10,6 @@ export function define(g: PlangsGraph) {
       websites: [{ title: "BASIC", href: "https://en.wikipedia.org/wiki/BASIC", kind: "wikipedia" }],
       extensions: [".bas", ".bi", ".bb", ".pb", ".fb"],
       firstAppeared: "1964-01-01",
-      images: [
-        {
-          kind: "other",
-          title: "BASIC",
-          url: "https://upload.wikimedia.org/wikipedia/commons/3/35/Dartmouth_TIME_SHARING_1964.png",
-          width: 1000,
-          height: 1328,
-        },
-      ],
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "1.0", name: "Initial Release", date: "1964-01-01" }],

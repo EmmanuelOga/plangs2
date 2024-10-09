@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
         { title: "vvvv", href: "https://en.wikipedia.org/wiki/Vvvv", kind: "wikipedia" },
       ],
       firstAppeared: "2002-01-01",
-      images: [{ kind: "logo", title: "vvvv", url: "https://www.vvvv.org/logos/logo.svg", width: 512, height: 512 }],
       isTranspiler: false,
       isMainstream: false,
     })

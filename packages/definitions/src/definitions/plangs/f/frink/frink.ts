@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".frink"],
       firstAppeared: "2001-01-01",
-      images: [{ kind: "logo", title: "Frink Logo", url: "https://frinklang.org/images/frinklogo.png", width: 512, height: 512 }],
       isTranspiler: false,
       isMainstream: false,
     })

@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".f", ".f90", ".for"],
       firstAppeared: "1957-01-01",
-      images: [{ kind: "other", title: "Fortran", url: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Fortran.gif", width: 512, height: 512 }],
       isTranspiler: false,
       isMainstream: true,
       releases: [

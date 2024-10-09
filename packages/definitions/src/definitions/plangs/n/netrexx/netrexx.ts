@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".nrx"],
       firstAppeared: "1996-01-01",
-      images: [{ kind: "logo", title: "NetRexx", url: "https://www.netrexx.org/logo.png", width: 512, height: 512 }],
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "4.06", name: "NetRexx 4.06 Release", date: "2024-01-01" }],

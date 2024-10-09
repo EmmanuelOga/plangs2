@@ -10,15 +10,6 @@ export function define(g: PlangsGraph) {
       websites: [{ title: "Assembly language", href: "https://en.wikipedia.org/wiki/Assembly_language", kind: "wikipedia" }],
       extensions: [".asm", ".s", ".inc", ".src", ".a51"],
       firstAppeared: "1947-01-01",
-      images: [
-        {
-          kind: "other",
-          title: "Assembly language",
-          url: "http://upload.wikimedia.org/wikipedia/commons/6/67/A_sobering_assembly_language_mindstorm.png",
-          width: 512,
-          height: 512,
-        },
-      ],
       isTranspiler: false,
       isMainstream: true,
     })

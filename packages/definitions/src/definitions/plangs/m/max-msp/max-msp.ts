@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".maxpat", ".mxb", ".mxt"],
       firstAppeared: "1988-01-01",
-      images: [{ kind: "logo", title: "Max", url: "https://cycling74.com/content/images/max-hero-msp@2x.png", width: 1024, height: 512 }],
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "8.6.2", name: "Max 8.6.2", date: "2024-01-01" }],

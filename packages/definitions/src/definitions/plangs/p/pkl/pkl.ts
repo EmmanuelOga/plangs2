@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".pkl"],
       firstAppeared: "2021-06-01",
-      images: [{ kind: "logo", title: "PKL Logo", url: "https://pkl-lang.org/logo.png", width: 800, height: 800 }],
       releases: [{ version: "1.0.0", name: "PKL 1.0.0", date: "2021-06-01" }],
     })
     .addLicenses(["license+mit"])

@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".cr"],
       firstAppeared: "2014-01-01",
-      images: [{ kind: "logo", title: "Crystal", url: "https://crystal-lang.org/assets/icon/crystal-logo.svg", width: 512, height: 512 }],
       isTranspiler: false,
       isMainstream: false,
       releases: [

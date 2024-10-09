@@ -14,15 +14,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".P", ".pl", ".pro"],
       firstAppeared: "1972-01-01",
-      images: [
-        {
-          kind: "logo",
-          title: "Prolog Logo",
-          url: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Atoms_in_Prolog.JPG",
-          width: 512,
-          height: 512,
-        },
-      ],
       isTranspiler: false,
       isMainstream: true,
     })

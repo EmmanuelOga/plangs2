@@ -12,9 +12,6 @@ export function define(g: PlangsGraph) {
         { title: "Simulink", href: "https://en.wikipedia.org/wiki/Simulink", kind: "wikipedia" },
       ],
       firstAppeared: "1988-01-01",
-      images: [
-        { kind: "logo", title: "Simulink Logo", url: "https://upload.wikimedia.org/wikipedia/en/3/3b/Simulink_Logo.png", width: 512, height: 512 },
-      ],
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "10.7", name: "Simulink Release 10.7", date: "2023-01-01" }],

@@ -14,7 +14,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".imba"],
       firstAppeared: "2013-01-01",
-      images: [{ kind: "logo", title: "Imba Logo", url: "https://imba.io/logo.png", width: 512, height: 512 }],
       isTranspiler: true,
       releases: [
         { version: "v1.5.0", name: "Imba 1.5.0", date: "2020-06-15" },

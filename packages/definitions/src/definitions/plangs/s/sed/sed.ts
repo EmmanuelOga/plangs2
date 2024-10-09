@@ -10,15 +10,6 @@ export function define(g: PlangsGraph) {
       websites: [{ title: "sed", href: "https://en.wikipedia.org/wiki/Sed", kind: "wikipedia" }],
       extensions: [".sed"],
       firstAppeared: "1974-01-01",
-      images: [
-        {
-          kind: "other",
-          title: "sed",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Sedutils.svg/1024px-Sedutils.svg.png",
-          width: 512,
-          height: 512,
-        },
-      ],
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "1.0", name: "Initial Version", date: "1974-01-01" }],

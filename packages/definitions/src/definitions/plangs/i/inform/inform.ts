@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".inform", ".ni", ".z5", ".z8"],
       firstAppeared: "1993-01-01",
-      images: [{ kind: "logo", title: "Inform Logo", url: "https://inform7.com/misc/logo.png", width: 512, height: 512 }],
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "10.1.1", name: "Inform 10.1.1", date: "2022-01-01" }],

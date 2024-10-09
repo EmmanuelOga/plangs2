@@ -12,15 +12,6 @@ export function define(g: PlangsGraph) {
         { title: "CodeMonkey", href: "https://en.wikipedia.org/wiki/CodeMonkey_(software)", kind: "wikipedia" },
       ],
       firstAppeared: "2014-01-01",
-      images: [
-        {
-          kind: "logo",
-          title: "CodeMonkey Logo",
-          url: "https://www.codemonkey.com/assets/int/img/icons/codemonkey-icon4.png",
-          width: 512,
-          height: 512,
-        },
-      ],
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.0", name: "CodeMonkey 1.0", date: "2014-01-01" }],

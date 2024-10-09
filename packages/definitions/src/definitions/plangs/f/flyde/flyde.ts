@@ -8,7 +8,7 @@ export function define(g: PlangsGraph) {
         "Flyde is a visual programming language designed to build and manage complex workflows easily. It is aimed at enhancing the development process by utilizing a visual interface for coding, assisting users in strategy development, logic sequencing, and overall workflow optimization.",
       keywords: ["flyde", "visual", "workflow"],
       websites: [{ title: "Flyde", href: "https://www.flyde.dev/", kind: "homepage" }],
-      images: [{ kind: "logo", title: "Flyde Logo", url: "https://www.flyde.dev/logo.png", width: 512, height: 512 }],
+      images: [{ kind: "logo", title: "Flyde Logo", url: "https://www.flyde.dev/img/flyde_icon.png", width: 512, height: 512 }],
     })
     .addParadigms(["paradigm+declarative", "paradigm+visual", "paradigm+workflow"])
     .addPlatforms(["plat+web"])

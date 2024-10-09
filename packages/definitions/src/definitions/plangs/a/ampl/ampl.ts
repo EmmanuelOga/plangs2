@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".dat", ".mod", ".run"],
       firstAppeared: "1985-01-01",
-      images: [{ kind: "other", title: "AMPL", url: "https://upload.wikimedia.org/wikipedia/commons/0/08/AMPL-logo.jpg", width: 512, height: 512 }],
       isTranspiler: false,
       isMainstream: false,
       releases: [],

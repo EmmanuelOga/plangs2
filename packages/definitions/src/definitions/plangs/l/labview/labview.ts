@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".vi", ".lvproj"],
       firstAppeared: "1986-01-01",
-      images: [{ kind: "logo", title: "LabVIEW", url: "https://upload.wikimedia.org/wikipedia/en/2/2d/LabVIEW-logo.svg", width: 512, height: 512 }],
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "5.1", name: "LabVIEW 5.1", date: "2023-01-01" }],

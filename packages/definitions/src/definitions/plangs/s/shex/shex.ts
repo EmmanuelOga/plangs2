@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.nodes.pl
     .set("pl+shex", {
-      name: "ShEx - Shape Expressions",
+      name: "ShEx",
       description:
         "Shape Expressions (ShEx) is a data modeling language used for validating and describing Resource Description Framework (RDF) data. It specifically targets semantic web technologies and offers a concise syntax for expressing constraints.",
       keywords: ["shex", "shape expressions"],
@@ -13,15 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".shex"],
       firstAppeared: "2014-01-01",
-      images: [
-        {
-          kind: "logo",
-          title: "ShEx - Shape Expressions",
-          url: "https://upload.wikimedia.org/wikipedia/commons/2/29/ShEx_Logo.svg",
-          width: 512,
-          height: 512,
-        },
-      ],
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2.1", name: "ShEx 2.1", date: "2018-01-01" }],

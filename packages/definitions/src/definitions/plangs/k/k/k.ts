@@ -12,15 +12,6 @@ export function define(g: PlangsGraph) {
         { title: "K", href: "https://en.wikipedia.org/wiki/K_(programming_language)", kind: "wikipedia" },
       ],
       firstAppeared: "1993-01-01",
-      images: [
-        {
-          kind: "logo",
-          title: "Kx Systems",
-          url: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b8/Kx_Systems_logo.svg/512px-Kx_Systems_logo.svg.png",
-          width: 512,
-          height: 227,
-        },
-      ],
       isTranspiler: false,
       isMainstream: false,
     })

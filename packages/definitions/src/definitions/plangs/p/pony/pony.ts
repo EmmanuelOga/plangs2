@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".pony"],
       firstAppeared: "2015-09-18",
-      images: [{ kind: "logo", title: "Pony Logo", url: "https://www.ponylang.io/images/pony-logo.png", width: 800, height: 800 }],
       releases: [{ version: "0.41.0", name: "Pony 0.41.0", date: "2023-09-01" }],
     })
     .addInfluencedBy(["pl+erlang", "pl+ml", "pl+scala"])

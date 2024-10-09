@@ -13,9 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".xq", ".xql", ".xqm", ".xquery", ".xqy"],
       firstAppeared: "2007-01-01",
-      images: [
-        { kind: "logo", title: "XQuery Logo", url: "https://upload.wikimedia.org/wikipedia/commons/e/e1/XMLQuerylogo.svg", width: 512, height: 512 },
-      ],
       isTranspiler: false,
       isMainstream: true,
       releases: [

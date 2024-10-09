@@ -14,15 +14,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".cts", ".mts", ".ts", ".tsx"],
       firstAppeared: "2012-10-01",
-      images: [
-        {
-          kind: "logo",
-          title: "TypeScript Logo",
-          url: "https://www.typescriptlang.org/assets/images/icons/favicon-512x512.png",
-          width: 512,
-          height: 512,
-        },
-      ],
       isTranspiler: true,
       isMainstream: true,
       releases: [{ version: "5.2", name: "TypeScript 5.2", date: "2023-08-01" }],

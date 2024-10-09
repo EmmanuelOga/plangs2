@@ -12,9 +12,6 @@ export function define(g: PlangsGraph) {
         { title: "Datomic", href: "https://en.wikipedia.org/wiki/Datomic", kind: "wikipedia" },
       ],
       firstAppeared: "2012-08-10",
-      images: [
-        { kind: "logo", title: "Datomic Logo", url: "https://upload.wikimedia.org/wikipedia/commons/7/79/Datomic_logo.png", width: 512, height: 512 },
-      ],
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.0.7180", name: "Datomic 1.0", date: "2012-08-10" }],

@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".tex"],
       firstAppeared: "1978-05-30",
-      images: [{ kind: "logo", title: "TeX Logo", url: "https://upload.wikimedia.org/wikipedia/commons/1/14/TeX_logo.svg", width: 512, height: 512 }],
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "3.14159265", name: "TeX 3", date: "1989-11-01" }],

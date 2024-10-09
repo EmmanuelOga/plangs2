@@ -13,9 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".hy"],
       firstAppeared: "2013-01-01",
-      images: [
-        { kind: "logo", title: "Hy Logo", url: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Hy_Lang_Logo.png", width: 512, height: 512 },
-      ],
       isTranspiler: true,
       isMainstream: false,
       releases: [

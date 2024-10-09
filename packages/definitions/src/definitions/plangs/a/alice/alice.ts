@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [],
       firstAppeared: "2000-01-01",
-      images: [{ kind: "screenshot", title: "Alice", url: "http://www.alice.org/images/Alice3_screenshot.jpg", width: 512, height: 512 }],
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "3.6.0.3", name: "Alice 3.6.0.3", date: "2021-01-01" }],

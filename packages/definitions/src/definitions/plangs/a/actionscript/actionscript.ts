@@ -17,15 +17,6 @@ export function define(g: PlangsGraph) {
         { title: "ActionScript", href: "https://en.wikipedia.org/wiki/ActionScript", kind: "wikipedia" },
       ],
       extensions: [".as", ".swf"],
-      images: [
-        {
-          kind: "other",
-          title: "ActionScript",
-          url: "https://upload.wikimedia.org/wikipedia/commons/0/0d/ActionScript.svg",
-          width: 512,
-          height: 512,
-        },
-      ],
       isTranspiler: false,
       isMainstream: false,
       releases: [

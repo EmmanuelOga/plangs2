@@ -13,15 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".xpl"],
       firstAppeared: "2010-05-11",
-      images: [
-        {
-          kind: "logo",
-          title: "XProc Logo",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/XProc_logo.svg/512px-XProc_logo.svg.png",
-          width: 512,
-          height: 512,
-        },
-      ],
       isTranspiler: false,
       isMainstream: false,
       releases: [

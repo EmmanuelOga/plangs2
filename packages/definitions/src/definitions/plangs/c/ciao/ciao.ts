@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".pl", ".ciao"],
       firstAppeared: "1999-01-01",
-      images: [{ kind: "logo", title: "Ciao", url: "https://www.ciao-lang.org/icons/ciao.png", width: 512, height: 512 }],
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "v1.20", name: "Ciao v1.20", date: "2022-06-01" }],
