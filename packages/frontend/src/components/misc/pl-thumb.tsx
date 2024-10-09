@@ -5,7 +5,7 @@ import { cl } from "@plangs/server/elements";
 
 import { tw } from "../../utils";
 
-const PLACEHOLDER = "/favicon/android-chrome-512x512.png";
+const PLACEHOLDER = "/images/placeholder.png";
 
 export function PlThumb({ pl, class: cssClass }: { class?: string; pl: NPlang }): JSX.Element {
   const thumbUrl = pl.thumbUrl;

@@ -1,12 +1,62 @@
 [
   {
-    "name": "PHP",
-    "key": "pl+php",
-    "websites": ["https://www.php.net/"]
+    "name": "Scopes",
+    "key": "pl+scopes",
+    "websites": ["https://hg.sr.ht/~duangle/scopes"]
   },
   {
-    "name": "Java",
-    "key": "pl+java",
-    "websites": ["https://www.java.com/en/"]
+    "name": "Mojo",
+    "key": "pl+mojo",
+    "websites": ["https://www.modular.com/mojo"]
+  },
+  {
+    "name": "Enso",
+    "key": "pl+enso",
+    "websites": ["https://ensoanalytics.com/"]
+  },
+  {
+    "name": "Odin",
+    "key": "pl+odin",
+    "websites": ["https://odin-lang.org/"]
+  },
+  {
+    "name": "Unison",
+    "key": "pl+unison",
+    "websites": ["https://www.unison-lang.org/"]
+  },
+  {
+    "name": "Alda",
+    "key": "pl+alda",
+    "websites": ["https://alda.io/"]
+  },
+  {
+    "name": "Wing",
+    "key": "pl+wing",
+    "websites": ["https://www.winglang.io/"]
+  },
+  {
+    "name": "Orca",
+    "key": "pl+orca",
+    "websites": ["https://100r.co/site/orca.html"]
+  },
+  {
+    "name": "Gravity",
+    "key": "pl+gravity",
+    "websites": ["https://www.gravity-lang.org/"]
+  },
+  {
+    "name": "Lobster",
+    "key": "pl+lobster",
+    "websites": ["https://strlen.com/lobster/"]
+  },
+  {
+    "name": "Beef",
+    "key": "pl+beef",
+    "websites": ["https://www.beeflang.org/"]
+  },
+  {
+    "name": "Janet",
+    "key": "pl+janet",
+    "websites": ["https://janet-lang.org/"]
   }
 ]
