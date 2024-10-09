@@ -27,5 +27,6 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+cross"])
     .addTags(["tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic"])
-    .addWrittenIn(["pl+lua"]);
+    .addWrittenIn(["pl+lua"])
+    .addCompilesTo(["pl+lua"]);
 }
