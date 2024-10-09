@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "Inko", href: "https://inko-lang.org/", kind: "homepage" },
         { title: "Inko on GitHub", href: "https://github.com/inko-lang/inko", kind: "repository" },
-        { title: "Inko Wikipedia", href: "https://en.wikipedia.org/wiki/Inko_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".inko"],
       firstAppeared: "2016-01-01",
