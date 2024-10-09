@@ -1,52 +1,12 @@
 [
   {
-    "name": "PKL",
-    "key": "pl+pkl",
-    "websites": ["https://pkl-lang.org/"]
+    "name": "PHP",
+    "key": "pl+php",
+    "websites": ["https://www.php.net/"]
   },
   {
-    "name": "Nickel",
-    "key": "pl+nickel",
-    "websites": ["https://nickel-lang.org/"]
-  },
-  {
-    "name": "Amber",
-    "key": "pl+amber",
-    "websites": ["https://amber-lang.com"]
-  },
-  {
-    "name": "Inko",
-    "key": "pl+inko",
-    "websites": ["https://inko-lang.org/"]
-  },
-  {
-    "name": "Shen",
-    "key": "pl+shen",
-    "websites": ["https://shenlanguage.org/"]
-  },
-  {
-    "name": "Fennel",
-    "key": "pl+fennel",
-    "websites": ["https://fennel-lang.org/"]
-  },
-  {
-    "name": "Casette",
-    "key": "pl+casette",
-    "websites": ["https://cassette-lang.com/"]
-  },
-  {
-    "name": "Rye",
-    "key": "pl+rye",
-    "websites": ["https://ryelang.org/"]
-  },
-  {
-    "name": "Pony",
-    "key": "pl+pony",
-    "websites": ["https://www.ponylang.io/"]
-  },
-  {
-    "name": "Elvish",
-    "key": "pl+elvish",
-    "websites": ["https://elv.sh/"]
+    "name": "Java",
+    "key": "pl+java",
+    "websites": ["https://www.java.com/en/"]
   }
 ]

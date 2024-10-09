@@ -4500,7 +4500,7 @@
       "pl+amber": { "pl+bash": {} },
       "pl+dart": { "pl+javascript": {} },
       "pl+gleam": { "pl+erlang": {}, "pl+javascript": {} },
-      "pl+haxe": { "pl+cpp": {}, "pl+csharp": {}, "pl+javascript": {}, "pl+java": {}, "pl+lua": {}, "pl+neko": {}, "pl+php": {}, "pl+python": {} },
+      "pl+haxe": { "pl+c++": {}, "pl+c-sharp": {}, "pl+javascript": {}, "pl+java": {}, "pl+lua": {}, "pl+neko": {}, "pl+php": {}, "pl+python": {} },
       "pl+moonscript": { "pl+lua": {} },
       "pl+yacc": { "pl+c": {} }
     },

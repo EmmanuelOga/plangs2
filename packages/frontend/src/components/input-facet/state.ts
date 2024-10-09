@@ -26,7 +26,7 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
     if (!emap) return this;
 
     this.data.entries = [...emap.entries2()].map(([key, anyEdge, edges]) => {
-      const name = (dir === "direct" ? anyEdge.nodeTo : anyEdge.nodeFrom)?.name ?? "";
+      const name = (dir === "direct" ? anyEdge.nodeTo : anyEdge.nodeFrom)?.name ?? anyEdge.key;
       return { value: key, label: name, count: edges.size };
     });
     this.sort();

@@ -25,5 +25,5 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+app", "tag+compiler", "tag+industrial", "tag+instrument_control", "tag+interpreter", "tag+viz"])
     .addTypeSystems(["tsys+dynamic", "tsys+nominal", "tsys+static"])
     .addWrittenIn(["pl+ocaml"])
-    .addCompilesTo(["pl+cpp", "pl+csharp", "pl+javascript", "pl+java", "pl+lua", "pl+neko", "pl+php", "pl+python"]);
+    .addCompilesTo(["pl+c++", "pl+c-sharp", "pl+javascript", "pl+java", "pl+lua", "pl+php", "pl+python"]);
 }
