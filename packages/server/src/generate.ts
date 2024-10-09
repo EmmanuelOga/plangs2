@@ -10,6 +10,26 @@ const pg = new PlangsGraph();
 await loadAllDefinitions(pg);
 await loadPosts(pg);
 
-const path = join(import.meta.dir, "plangs.json");
-Bun.write(path, JSON.stringify(pg));
-console.info("Wrote", path);
+function test() {
+  for (const [_, pl] of pg.nodes.pl) {
+    if (pl.images.isEmpty) {
+      console.warn(
+        "No images for",
+        pl.key,
+        pl.name,
+        pl.websites.existing.map(w => w.href),
+      );
+    }
+  }
+}
+
+if (process.argv[2] === "plangs.json") {
+  const path = join(import.meta.dir, "plangs.json");
+  Bun.write(path, JSON.stringify(pg));
+  console.info("Wrote", path);
+}
+if (process.argv[2] === "test") {
+  test();
+} else {
+  console.log("Usage: cmd plangs.json");
+}

@@ -3,7 +3,7 @@ import { basename, join } from "node:path";
 
 import { Glob } from "bun";
 
-import type { PlangsGraph } from "@plangs/plangs";
+import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
 async function getPaths(glob: Glob, basePath: string): Promise<string[]> {
   const paths = [] as string[];
@@ -12,7 +12,7 @@ async function getPaths(glob: Glob, basePath: string): Promise<string[]> {
 }
 
 /** Imports all definitions and calls the `define` methods */
-export async function loadAllDefinitions(g: PlangsGraph) {
+export async function loadAllDefinitions(g: PlangsGraph, scanImages: "scanImages" | "noScan" = "scanImages") {
   for (const path of await getPaths(new Glob("**/*.ts"), join(import.meta.dir, "definitions"))) {
     const module = await import(`./definitions/${path}`);
     if (typeof module.define === "function") module.define(g);
@@ -20,16 +20,14 @@ export async function loadAllDefinitions(g: PlangsGraph) {
 
   // Add any images to the nodes.
 
-  for (const path of await getPaths(new Glob("**/*.{png,jpg}"), join(import.meta.dir, "definitions/plangs"))) {
-    let [plainKey, kind] = basename(path).split(".");
-    if (plainKey.startsWith("_")) plainKey = `.${plainKey.slice(1)}`;
-    const pl = g.nodes.pl.get(`pl+${plainKey}`);
-
-    if (!pl) {
-      console.warn("Can't find plang", `pl+${plainKey}`, "for image", path);
-      continue;
+  if (scanImages === "scanImages") {
+    for (const path of await getPaths(new Glob("**/*.{png,jpg,svg}"), join(import.meta.dir, "definitions/plangs"))) {
+      const [pk, k] = basename(path).split(".");
+      const kind = k === "screenshot" || k === "logo" ? k : "other";
+      const plKey: NPlang["key"] = `pl+${pk.startsWith("_") ? `.${pk.slice(1)}` : pk}`;
+      const pl = g.nodes.pl.get(plKey);
+      if (!pl) console.warn("Can't find plang", plKey, "for image", path);
+      pl?.addImages([{ kind, title: pl.name, url: `/images/${path}` }]);
     }
-
-    pl.addImages([{ kind, title: pl.name, url: `/images/${path}` }]);
   }
 }
