@@ -1,3 +1,8 @@
+/**
+ * {@fileoverview} Would be nice to place this file in the ai package,
+ * but for some reason it is not able to pickup the types if I do.
+ */
+
 import { join } from "node:path";
 
 import * as TJS from "typescript-json-schema";

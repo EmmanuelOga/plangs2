@@ -1,11 +1,16 @@
 import OpenAI from "openai";
 const openai = new OpenAI();
 
+import { mkdir } from "node:fs/promises";
+import { dirname, join } from "node:path";
+
 import schema from "@plangs/plangs/schemas/PlAiResult.json";
 
 import { loadAllDefinitions } from "@plangs/definitions";
 import { type N, type NPlang, PlangsGraph } from "@plangs/plangs";
-import type { NPlangData, PlAiResult } from "@plangs/plangs/schema";
+import type { PlAiResult } from "@plangs/plangs/schema";
+import { example } from "./example";
+import { generateCode } from "./generate";
 
 const pg = new PlangsGraph();
 await loadAllDefinitions(pg);
@@ -24,29 +29,10 @@ const existingData = {
 };
 
 const pl = {
-  key: "pl+typescript",
+  key: "pl+typescript" as NPlang["key"],
+  plainKey: "typescript",
   name: "TypeScript",
   urls: ["https://www.typescriptlang.org/"],
-};
-
-const py = pg.nodes.pl.get("pl+python") as NPlang;
-const example: PlAiResult = {
-  data: py.data as NPlangData,
-  compilesTo: py.relCompilesTo.keys.existing,
-  dialectOf: py.relDialectOf.keys.existing,
-  implements: py.relImplements.keys.existing,
-  influencedBy: py.relInfluencedBy.keys.existing,
-  influenced: py.relInfluenced.keys.existing,
-  licenses: py.relLicenses.keys.existing,
-  paradigms: py.relParadigms.keys.existing,
-  platforms: py.relPlatforms.keys.existing,
-  tags: py.relTags.keys.existing,
-  typeSystems: py.relTsys.keys.existing,
-  writtenIn: py.relWrittenIn.keys.existing,
-
-  apps: py.relApps.keys.existing,
-  tools: py.relTools.keys.existing,
-  libraries: py.relLibs.keys.existing,
 };
 
 const prompt = [
@@ -57,10 +43,12 @@ const prompt = [
   "For fields that accept string keys, like licenses, paradigms, platforms, influences, etc., please use the keys from the following lists:",
   JSON.stringify(existingData, null, 2),
   "For apps, tools and libraries, feel free to fill a URL instead of a key, if you can't find a matching key.",
+  "If you link images, ensure the width and height are at least 512px each, or skip it.",
   "",
   "Here's an example of proper output for a language like Python (key: pl+python):",
   "",
-  JSON.stringify(example, null, 2),
+  // biome-ignore lint/style/noNonNullAssertion: it exists.
+  JSON.stringify(example(pg.nodes.pl.get("pl+python")!), null, 2),
 ].join("\n");
 
 const completion = await openai.chat.completions.create({
@@ -80,4 +68,15 @@ const completion = await openai.chat.completions.create({
   },
 });
 
-console.log(JSON.stringify(JSON.parse(completion.choices[0].message.content ?? "{}"), null, 2));
+const result = JSON.parse(completion.choices[0].message.content ?? "{}") as PlAiResult;
+const code = generateCode(pl.key, result);
+
+export const DEFINTIONS_PATH = join(import.meta.dir, "../../definitions/src/definitions/plangs/");
+
+const name = pl.plainKey;
+const escaped = name.startsWith(".") ? `_${name.slice(1)}` : name;
+const path = join(DEFINTIONS_PATH, name[0], escaped, `${escaped}.ts`);
+await mkdir(dirname(path), { recursive: true }).catch(() => {});
+
+console.log("Writing result to", path);
+Bun.write(path, code);

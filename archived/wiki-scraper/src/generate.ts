@@ -4,7 +4,8 @@ import { mkdir } from "node:fs/promises";
 import { extname, join } from "node:path";
 
 import type { IterTap } from "@plangs/graph/auxiliar";
-import type { Link, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, PlangsGraph } from "@plangs/plangs";
+import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, PlangsGraph } from "@plangs/plangs";
+import type { Link } from "@plangs/plangs/schema";
 
 import { type WikiPage, keyFromWikiURL } from "./wikipedia";
 

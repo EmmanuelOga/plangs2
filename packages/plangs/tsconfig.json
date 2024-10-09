@@ -1,8 +1,5 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {},
-  "include": [
-    "src",
-    "src/jsonSchema.ts"
-  ]
+  "include": ["src", "src/jsonSchema.ts"]
 }

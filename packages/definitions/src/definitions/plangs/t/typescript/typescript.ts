@@ -5,18 +5,24 @@ export function define(g: PlangsGraph) {
     .set("pl+typescript", {
       name: "TypeScript",
       description:
-        "TypeScript is a free and open-source high-level programming language developed by Microsoft that adds static typing with optional type annotations to JavaScript. It is designed for the development of large applications and transpiles to JavaScript. Because TypeScript is a superset of JavaScript, all JavaScript programs are syntactically valid TypeScript, but they can fail to type-check for safety reasons.",
-      firstAppeared: "2012-01-01",
-      extensions: [".cts", ".mts", ".ts", ".tsx"],
+        "TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale. Developed by Microsoft, TypeScript extends JavaScript by adding types.",
+      keywords: ["typescript", "ts"],
       websites: [
-        { href: "https://www.typescriptlang.org/", title: "www.typescriptlang.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/TypeScript", title: "TypeScript", kind: "wikipedia" },
+        { title: "TypeScript Official Website", href: "https://www.typescriptlang.org/", kind: "homepage" },
+        { title: "TypeScript GitHub", href: "https://github.com/microsoft/TypeScript", kind: "repository" },
+        { title: "TypeScript Wikipedia", href: "https://en.wikipedia.org/wiki/TypeScript", kind: "wikipedia" },
       ],
-      releases: [{ version: "5.5.4", date: "2024-01-01" }],
+      extensions: [".cts", ".mts", ".ts", ".tsx"],
+      firstAppeared: "2012-10-01",
+      isTranspiler: true,
+      isMainstream: true,
+      releases: [{ version: "5.2", name: "TypeScript 5.2", date: "2023-08-01" }],
     })
-    .addInfluencedBy(["pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+javascript"])
-    .addLicenses(["license+apache"])
+    .addInfluencedBy(["pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+javascript", "pl+java"])
+    .addLicenses(["license+apache-2.0"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
-    .addTags(["tag+analysis", "tag+app", "tag+automation", "tag+compiler", "tag+industrial", "tag+instrument_control", "tag+interpreter", "tag+viz"])
-    .addTypeSystems(["tsys+duck", "tsys+gradual", "tsys+structural"]);
+    .addPlatforms(["plat+cross"])
+    .addTags(["tag+web"])
+    .addTypeSystems(["tsys+duck", "tsys+gradual", "tsys+structural", "tsys+optional", "tsys+strong"])
+    .addWrittenIn(["pl+javascript", "pl+typescript"]);
 }
