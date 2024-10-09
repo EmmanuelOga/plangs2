@@ -10,15 +10,14 @@ const pg = new PlangsGraph();
 await loadAllDefinitions(pg);
 await loadPosts(pg);
 
-function test() {
+async function test() {
   for (const [_, pl] of pg.nodes.pl) {
     if (pl.images.isEmpty) {
-      console.warn(
-        "No images for",
-        pl.key,
-        pl.name,
-        pl.websites.existing.map(w => w.href),
-      );
+      for (const w of pl.websites.existing)
+        await Bun.spawn(["open", w.href], {
+          stdout: "pipe",
+          stderr: "pipe",
+        });
     }
   }
 }
@@ -29,7 +28,7 @@ if (process.argv[2] === "plangs.json") {
   console.info("Wrote", path);
 }
 if (process.argv[2] === "test") {
-  test();
+  await test();
 } else {
   console.log("Usage: cmd plangs.json");
 }
