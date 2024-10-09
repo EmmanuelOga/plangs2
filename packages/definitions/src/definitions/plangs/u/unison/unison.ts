@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".u"],
       firstAppeared: "2010-01-01",
-      images: [{ kind: "logo", title: "Unison", url: "https://www.unison-lang.org/images/unison-logo.svg", width: 600, height: 600 }],
       releases: [{ version: "1.0.0", name: "Unison M1a", date: "2023-09-15" }],
     })
     .addInfluencedBy(["pl+elm", "pl+haskeL"])

@@ -2733,8 +2733,7 @@
         "firstAppeared": "2009-01-01",
         "isTranspiler": false,
         "isMainstream": false,
-        "releases": [{ "version": "2.8.5", "name": "MiniZinc 2.8.5", "date": "2024-01-01" }],
-        "images": [{ "kind": "logo", "title": "MiniZinc", "url": "/images/m/minizinc/minizinc.logo.svg" }]
+        "releases": [{ "version": "2.8.5", "name": "MiniZinc 2.8.5", "date": "2024-01-01" }]
       },
       "pl+ml": {
         "name": "ML",
@@ -2969,7 +2968,10 @@
         ],
         "extensions": [".odin"],
         "firstAppeared": "2016-04-20",
-        "images": [{ "kind": "logo", "title": "Odin Logo", "url": "https://odin-lang.org/assets/img/gophervoid.png", "width": 512, "height": 512 }],
+        "images": [
+          { "kind": "logo", "title": "Odin Logo", "url": "https://odin-lang.org/assets/img/gophervoid.png", "width": 512, "height": 512 },
+          { "kind": "logo", "title": "Odin", "url": "/images/o/odin/odin.logo.svg" }
+        ],
         "isMainstream": true,
         "releases": [{ "version": "0.13.0", "name": "Odin 0.13.0", "date": "2023-08-21" }]
       },
@@ -3852,8 +3854,8 @@
         ],
         "extensions": [".u"],
         "firstAppeared": "2010-01-01",
-        "images": [{ "kind": "logo", "title": "Unison", "url": "https://www.unison-lang.org/images/unison-logo.svg", "width": 600, "height": 600 }],
-        "releases": [{ "version": "1.0.0", "name": "Unison M1a", "date": "2023-09-15" }]
+        "releases": [{ "version": "1.0.0", "name": "Unison M1a", "date": "2023-09-15" }],
+        "images": [{ "kind": "logo", "title": "Unison", "url": "/images/u/unison/unison.logo.svg" }]
       },
       "pl+v": {
         "name": "V",
