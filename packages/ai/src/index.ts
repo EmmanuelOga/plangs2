@@ -8,7 +8,7 @@ import schema from "@plangs/plangs/schemas/PlAiResult.json";
 
 import { loadAllDefinitions } from "@plangs/definitions";
 import { type NPlang, PlangsGraph } from "@plangs/plangs";
-import type { PlAiResult } from "@plangs/plangs/schema";
+import type { Link, N, PlAiResult } from "@plangs/plangs/schema";
 
 import { example, existingData } from "./example";
 import { generateCode } from "./generate";
@@ -67,6 +67,8 @@ export async function aiGenerate(pl: NPlang) {
   Bun.write(path, code);
 }
 
+const GENERATE_SAMPLE = [{ name: "Python", key: "pl+python", websites: ["https://python.org"] }] as const;
+
 if (process.argv[2] === "improve-all") {
   console.log("Re-generating all definitions... this may take a while.");
   let count = pg.nodes.pl.size;
@@ -76,13 +78,22 @@ if (process.argv[2] === "improve-all") {
   }
 } else if (process.argv[2] === "generate") {
   try {
-    const data = JSON.parse(process.argv[3]);
-    console.log("TODO: generate", data);
+    const data = JSON.parse(await Bun.file(process.argv[3]).text()) as {
+      name: string;
+      key: NPlang["key"];
+      websites: string[];
+    }[];
+
+    for (const plData of data) {
+      const pl = pg.nodes.pl.set(plData.key, { name: plData.name, websites: plData.websites.map(href => ({ href, title: plData.name })) });
+      await aiGenerate(pl);
+    }
   } catch (e) {
-    console.error(
-      "Invalid JSON data provided. Data must be a JSON object like: '{ key: 'pl+python', name: 'Python', websites: ['https://python.org'] }'",
-    );
+    console.log(`Error parsing (${e}). Data should look lilke this:\n\n${JSON.stringify(GENERATE_SAMPLE)}`);
   }
 } else {
-  console.log("Usage: cmd <improve-all|generate>");
+  console.log(
+    "Usage: cmd improve-all - WARNING: will call openai to regenerate all definitions! This can be done every now and then to attempt to find more data.",
+  );
+  console.log(`Usage: cmd generate input.json - Requires a JSON array of objects, example: ${JSON.stringify(GENERATE_SAMPLE)}`);
 }
