@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
       releases: [
         { version: "3.9.7", name: "Python 3.9.7", date: "2021-08-30" },
         { version: "3.10.0", name: "Python 3.10.0", date: "2021-10-04" },
-        { version: "3.12.5", date: "2024-01-01" },
+        { version: "3.12.5", name: "Python 3.12.5", date: "2024-01-01" },
       ],
     })
     .addInfluencedBy([
@@ -26,7 +26,6 @@ export function define(g: PlangsGraph) {
       "pl+ada",
       "pl+algol",
       "pl+apl",
-      "pl+c",
       "pl+c",
       "pl+c++",
       "pl+clu",

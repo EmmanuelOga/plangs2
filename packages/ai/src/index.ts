@@ -38,6 +38,8 @@ export async function aiGenerate(pl: NPlang) {
     JSON.stringify(example(pl), null, 2),
   ].join("\n");
 
+  console.info("Prompt: ", prompt);
+
   const completion = await openai.chat.completions.create({
     model: "gpt-4o",
     messages: [
@@ -54,8 +56,6 @@ export async function aiGenerate(pl: NPlang) {
       },
     },
   });
-
-  console.info("Prompt: ", prompt);
 
   const result = JSON.parse(completion.choices[0].message.content ?? "{}") as PlAiResult;
   const code = generateCode(pl.key, result);
