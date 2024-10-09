@@ -6,15 +6,19 @@ export function define(g: PlangsGraph) {
       name: "Nim",
       description:
         'Nim is a general-purpose, multi-paradigm, statically typed, compiled high-level system programming language, designed and developed by a team around Andreas Rumpf. Nim is designed to be "efficient, expressive, and elegant", supporting metaprogramming, functional, message passing, procedural, and object-oriented programming styles by providing several features such as compile time code generation, algebraic data types, a foreign function interface (FFI) with C, C++, Objective-C, and JavaScript, and supporting compiling to those same languages as intermediate representations.',
-      firstAppeared: "2008-01-01",
-      extensions: [".nim", ".nimble", ".nims"],
+      keywords: ["nim"],
       websites: [
-        { href: "http://nim-lang.org/", title: "nim-lang.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Nim_(programming_language)", title: "Nim", kind: "wikipedia" },
+        { title: "nim-lang.org", href: "http://nim-lang.org/", kind: "homepage" },
+        { title: "Nim", href: "https://en.wikipedia.org/wiki/Nim_(programming_language)", kind: "wikipedia" },
       ],
-      releases: [{ version: "2.0.8", date: "2024-01-01" }],
+      extensions: [".nim", ".nimble", ".nims"],
+      firstAppeared: "2008-01-01",
+      isTranspiler: true,
+      isMainstream: false,
+      releases: [{ version: "2.0.8", name: "Nim 2.0.8", date: "2024-01-01" }],
     })
     .addInfluencedBy(["pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+oberon", "pl+python", "pl+rust"])
+    .addLicenses(["license+mit"])
     .addParadigms([
       "paradigm+compiled",
       "paradigm+concurrent",
@@ -25,7 +29,7 @@ export function define(g: PlangsGraph) {
       "paradigm+oop",
       "paradigm+procedural",
     ])
-    .addPlatforms(["plat+arm", "plat+cross", "plat+riscv", "plat+x86-64"])
+    .addPlatforms(["plat+arm", "plat+cross", "plat+linux", "plat+riscv", "plat+x86-64"])
     .addTags([
       "tag+3dg",
       "tag+analysis",

@@ -5,14 +5,22 @@ export function define(g: PlangsGraph) {
     .set("pl+rascal", {
       name: "Rascal",
       description:
-        "Rascal is a domain-specific language for metaprogramming and language oriented programming, such as static code analysis, program transformation, program generation and implementation of domain-specific languages. It is a general meta language in the sense that it does not have a bias for any particular software language. It includes primitives from relational calculus and term rewriting. Its syntax and semantics are based on procedural (imperative) and functional programming.",
+        "Rascal is a domain-specific language for metaprogramming and language-oriented programming, which includes tasks like static code analysis, program transformation, program generation, and the implementation of domain-specific languages. It serves as a general meta language without bias towards any specific software language. Rascal incorporates elements from both relational calculus and term rewriting, while its syntax and semantics are a blend of procedural (imperative) and functional programming.",
+      keywords: ["rascal", "metaprogramming", "dsl"],
       websites: [
-        { href: "http://www.rascal-mpl.org/", title: "http://www.rascal-mpl.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/RascalMPL", title: "Rascal", kind: "wikipedia" },
+        { title: "Rascal", href: "http://www.rascal-mpl.org/", kind: "homepage" },
+        { title: "Rascal", href: "https://en.wikipedia.org/wiki/RascalMPL", kind: "wikipedia" },
       ],
-      releases: [{ version: "0.30.1", date: "2023-01-01" }],
+      extensions: [".rsc"],
+      firstAppeared: "2009-01-01",
+      isTranspiler: false,
+      isMainstream: false,
+      releases: [{ version: "0.30.1", name: "Rascal 0.30.1", date: "2023-01-01" }],
     })
     .addLicenses(["license+epl"])
-    .addPlatforms(["plat+linux", "plat+windows"])
-    .addTags(["tag+analysis"]);
+    .addParadigms(["paradigm+declarative", "paradigm+functional", "paradigm+imperative", "paradigm+language-oriented", "paradigm+scripting"])
+    .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
+    .addTags(["tag+analysis", "tag+dsl", "tag+transformation"])
+    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
+    .addWrittenIn(["pl+java"]);
 }

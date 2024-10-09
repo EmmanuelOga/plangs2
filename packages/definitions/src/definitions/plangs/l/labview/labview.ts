@@ -6,12 +6,19 @@ export function define(g: PlangsGraph) {
       name: "LabVIEW",
       description:
         "Laboratory Virtual Instrument Engineering Workbench (LabVIEW) is a graphical system design and development platform produced and distributed by National Instruments, based on a programming environment that uses a visual programming language. It is widely used for data acquisition, instrument control, and industrial automation. It provides tools for designing and deploying complex test and measurement systems.",
+      keywords: ["labview"],
       websites: [
-        { href: "https://www.ni.com/labview", title: "www.ni.com/labview", kind: "other" },
-        { href: "https://en.wikipedia.org/wiki/LabVIEW", title: "LabVIEW", kind: "wikipedia" },
+        { title: "www.ni.com/labview", href: "https://www.ni.com/labview", kind: "homepage" },
+        { title: "LabVIEW", href: "https://en.wikipedia.org/wiki/LabVIEW", kind: "wikipedia" },
       ],
-      releases: [{ version: "5.1", date: "2023-01-01" }],
+      extensions: [".vi", ".lvproj"],
+      firstAppeared: "1986-01-01",
+      images: [{ kind: "logo", title: "LabVIEW", url: "https://upload.wikimedia.org/wikipedia/en/2/2d/LabVIEW-logo.svg", width: 512, height: 512 }],
+      isTranspiler: false,
+      isMainstream: true,
+      releases: [{ version: "5.1", name: "LabVIEW 5.1", date: "2023-01-01" }],
     })
+    .addParadigms(["paradigm+concurrent", "paradigm+dataflow", "paradigm+event-driven", "paradigm+low-code", "paradigm+multi", "paradigm+visual"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .addTags([
       "tag+analysis",

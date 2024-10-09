@@ -5,15 +5,29 @@ export function define(g: PlangsGraph) {
     .set("pl+fortran", {
       name: "Fortran",
       description:
-        "Fortran (/ˈfɔːrtræn/; formerly FORTRAN) is a third generation, compiled, imperative programming language that is especially suited to numeric computation and scientific computing.",
-      firstAppeared: "1957-01-01",
-      extensions: [".f", ".f90", ".for"],
+        "Fortran (/ˈfɔːrtræn/; formerly FORTRAN) is a third generation, compiled, imperative programming language that is especially suited to numeric computation and scientific computing. It was originally developed by IBM in the 1950s for scientific and engineering applications.",
+      keywords: ["fortran"],
       websites: [
-        { href: "https://fortran-lang.org/", title: "fortran-lang.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Fortran", title: "Fortran", kind: "wikipedia" },
+        { title: "fortran-lang.org", href: "https://fortran-lang.org/", kind: "homepage" },
+        { title: "Fortran", href: "https://en.wikipedia.org/wiki/Fortran", kind: "wikipedia" },
+      ],
+      extensions: [".f", ".f90", ".for"],
+      firstAppeared: "1957-01-01",
+      images: [{ kind: "other", title: "Fortran", url: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Fortran.gif", width: 512, height: 512 }],
+      isTranspiler: false,
+      isMainstream: true,
+      releases: [
+        { version: "IV", name: "FORTRAN IV", date: "1962-01-01" },
+        { version: "77", name: "FORTRAN 77", date: "1978-01-01" },
+        { version: "90", name: "Fortran 90", date: "1991-01-01" },
+        { version: "95", name: "Fortran 95", date: "1997-01-01" },
+        { version: "2003", name: "Fortran 2003", date: "2004-01-01" },
+        { version: "2008", name: "Fortran 2008", date: "2010-01-01" },
+        { version: "2018", name: "Fortran 2018", date: "2018-01-01" },
       ],
     })
     .addParadigms(["paradigm+array", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+structured"])
+    .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
     .addTags([
       "tag+analysis",
       "tag+app",

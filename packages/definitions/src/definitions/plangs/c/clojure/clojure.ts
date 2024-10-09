@@ -4,14 +4,18 @@ export function define(g: PlangsGraph) {
   g.nodes.pl
     .set("pl+clojure", {
       name: "Clojure",
-      description: "Clojure (/ˈkloʊʒər/, like closure) is a dynamic and functional dialect of the Lisp programming language on the Java platform.",
-      firstAppeared: "2007-01-01",
-      extensions: [".clj", ".cljc", ".cljd", ".cljr", ".cljs", ".edn"],
+      description:
+        "Clojure (/ˈkloʊʒər/, like closure) is a dynamic and functional dialect of the Lisp programming language on the Java platform. It is known for its expressiveness, immutability, and concurrency.",
+      keywords: ["clojure"],
       websites: [
-        { href: "https://clojure.org/", title: "clojure.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Clojure_(programming_language)", title: "Clojure", kind: "wikipedia" },
+        { title: "clojure.org", href: "https://clojure.org/", kind: "homepage" },
+        { title: "Clojure", href: "https://en.wikipedia.org/wiki/Clojure_(programming_language)", kind: "wikipedia" },
       ],
-      releases: [{ version: "1.11.2", date: "2024-01-01" }],
+      extensions: [".clj", ".cljc", ".cljd", ".cljr", ".cljs", ".edn"],
+      firstAppeared: "2007-01-01",
+      isTranspiler: false,
+      isMainstream: true,
+      releases: [{ version: "1.11.2", name: "Clojure 1.11.2", date: "2024-01-01" }],
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy([
@@ -21,7 +25,6 @@ export function define(g: PlangsGraph) {
       "pl+erlang",
       "pl+haskell",
       "pl+ml",
-      "pl+mzscheme",
       "pl+prolog",
       "pl+r5rs",
       "pl+racket",
@@ -29,6 +32,7 @@ export function define(g: PlangsGraph) {
       "pl+scheme",
       "pl+wolfram-language",
     ])
+    .addLicenses(["license+epl"])
     .addParadigms([
       "paradigm+agents",
       "paradigm+concurrent",
@@ -38,7 +42,7 @@ export function define(g: PlangsGraph) {
       "paradigm+multi",
       "paradigm+pipeline",
     ])
-    .addPlatforms(["plat+java", "plat+nodejs"])
+    .addPlatforms(["plat+cross", "plat+java", "plat+nodejs"])
     .addTags([
       "tag+app",
       "tag+automation",
@@ -50,5 +54,6 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
       "tag+shell",
     ])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
+    .addTypeSystems(["tsys+dynamic", "tsys+strong"])
+    .addWrittenIn(["pl+java", "pl+clojure"]);
 }

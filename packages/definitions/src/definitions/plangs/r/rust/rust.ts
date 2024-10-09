@@ -6,13 +6,16 @@ export function define(g: PlangsGraph) {
       name: "Rust",
       description:
         'Rust is a general-purpose programming language emphasizing performance, type safety, and concurrency. It enforces memory safety, meaning that all references point to valid memory, without a garbage collector. To simultaneously enforce memory safety and prevent data races, its "borrow checker" tracks the object lifetime of all references in a program during compiling.',
-      firstAppeared: "2015-01-01",
-      extensions: [".rlib", ".rs"],
+      keywords: ["rust"],
       websites: [
-        { href: "https://www.rust-lang.org/", title: "www.rust-lang.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Rust_(programming_language)", title: "Rust", kind: "wikipedia" },
+        { title: "Rust", href: "https://www.rust-lang.org/", kind: "homepage" },
+        { title: "Rust", href: "https://en.wikipedia.org/wiki/Rust_(programming_language)", kind: "wikipedia" },
       ],
-      releases: [{ version: "1.80.1", date: "2024-01-01" }],
+      extensions: [".rlib", ".rs"],
+      firstAppeared: "2015-01-01",
+      isTranspiler: false,
+      isMainstream: true,
+      releases: [{ version: "1.80.1", name: "Rust 1.80.1", date: "2024-01-01" }],
     })
     .addInfluencedBy([
       "pl+c",
@@ -22,7 +25,6 @@ export function define(g: PlangsGraph) {
       "pl+erlang",
       "pl+haskell",
       "pl+ml",
-      "pl+mzscheme",
       "pl+ocaml",
       "pl+r5rs",
       "pl+racket",
@@ -32,8 +34,8 @@ export function define(g: PlangsGraph) {
       "pl+swift",
     ])
     .addLicenses(["license+apache", "license+mit"])
-    .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+structured"])
-    .addPlatforms(["plat+cross"])
+    .addParadigms(["paradigm+compiled", "paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+structured"])
+    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
     .addTags(["tag+app", "tag+compiler", "tag+dataq", "tag+editor", "tag+industrial", "tag+interpreter", "tag+iot", "tag+viz"])
     .addTypeSystems(["tsys+affine", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+ocaml"]);

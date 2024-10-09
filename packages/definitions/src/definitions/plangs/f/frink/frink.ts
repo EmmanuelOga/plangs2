@@ -5,14 +5,22 @@ export function define(g: PlangsGraph) {
     .set("pl+frink", {
       name: "Frink",
       description:
-        'Frink is a computer programming language. It is, according to creator of the language, "designed to make physical calculations simple, to help ensure that answers come out right, and to make a tool that\'s really useful in the real world. It tracks units of measure (feet, meters, kilograms, watts, etc.) through all calculations, allowing you to mix units of measure transparently, and helps you easily verify that your answers make sense."',
-      firstAppeared: "2001-01-01",
-      extensions: [".frink"],
+        "Frink is a computer programming language focused on performing physical calculations while tracking units of measure, ensuring that calculations have the right dimensions and that the answers are meaningful.",
+      keywords: ["frink", "units", "measurement", "calculation"],
       websites: [
-        { href: "https://frinklang.org/", title: "frinklang.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Frink_(programming_language)", title: "Frink", kind: "wikipedia" },
+        { title: "frinklang.org", href: "https://frinklang.org/", kind: "homepage" },
+        { title: "Frink", href: "https://en.wikipedia.org/wiki/Frink_(programming_language)", kind: "wikipedia" },
       ],
+      extensions: [".frink"],
+      firstAppeared: "2001-01-01",
+      images: [{ kind: "logo", title: "Frink Logo", url: "https://frinklang.org/images/frinklogo.png", width: 512, height: 512 }],
+      isTranspiler: false,
+      isMainstream: false,
     })
-    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
-    .addTags(["tag+interpreter"]);
+    .addLicenses(["license+artistic"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+oop"])
+    .addPlatforms(["plat+cross"])
+    .addTags(["tag+interpreter", "tag+numeric", "tag+sci"])
+    .addTypeSystems(["tsys+dynamic", "tsys+strong"])
+    .addWrittenIn(["pl+java"]);
 }

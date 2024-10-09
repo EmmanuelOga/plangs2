@@ -5,14 +5,26 @@ export function define(g: PlangsGraph) {
     .set("pl+inform", {
       name: "Inform",
       description:
-        "Inform is a programming language and design system for interactive fiction originally created in 1993 by Graham Nelson. Inform can generate programs designed for the Z-code or Glulx virtual machines. Versions 1 through 5 were released between 1993 and 1996. Around 1996, Nelson rewrote Inform from first principles to create version 6 (or Inform 6). Over the following decade, version 6 became reasonably stable and a popular language for writing interactive fiction. In 2006, Nelson released Inform 7 (briefly known as Natural Inform), a completely new language based on principles of natural language and a new set of tools based around a book-publishing metaphor.",
+        "Inform is a programming language and design system for interactive fiction originally created in 1993 by Graham Nelson. It allows authors to create stories that operate through natural language sentences and can compile to platforms that support the Z-code or Glulx virtual machines. Inform's significant redesigns include Inform 7, which supports natural language-based story writing.",
+      keywords: ["inform", "interactive fiction"],
       websites: [
-        { href: "https://ganelson.github.io/inform-website/", title: "https://ganelson.github.io/inform-website/", kind: "repository" },
-        { href: "https://en.wikipedia.org/wiki/Inform_(programming_language)", title: "Inform", kind: "wikipedia" },
+        { title: "Inform's GitHub Website", href: "https://ganelson.github.io/inform-website/", kind: "homepage" },
+        {
+          title: "Inform (programming language) - Wikipedia",
+          href: "https://en.wikipedia.org/wiki/Inform_(programming_language)",
+          kind: "wikipedia",
+        },
       ],
-      releases: [{ version: "10.1.1", date: "2022-01-01" }],
+      extensions: [".inform", ".ni", ".z5", ".z8"],
+      firstAppeared: "1993-01-01",
+      images: [{ kind: "logo", title: "Inform Logo", url: "https://inform7.com/misc/logo.png", width: 512, height: 512 }],
+      isTranspiler: false,
+      isMainstream: false,
+      releases: [{ version: "10.1.1", name: "Inform 10.1.1", date: "2022-01-01" }],
     })
     .addLicenses(["license+artistic"])
-    .addPlatforms(["plat+linux", "plat+windows"])
-    .addTags(["tag+compiler", "tag+editor", "tag+games", "tag+if", "tag+interpreter", "tag+testing"]);
+    .addParadigms(["paradigm+dsl", "paradigm+natural-language"])
+    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
+    .addTags(["tag+compiler", "tag+editor", "tag+games", "tag+if", "tag+interpreter", "tag+testing"])
+    .addTypeSystems(["tsys+dynamic", "tsys+untyped"]);
 }

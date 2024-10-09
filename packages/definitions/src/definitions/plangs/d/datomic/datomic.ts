@@ -5,15 +5,25 @@ export function define(g: PlangsGraph) {
     .set("pl+datomic", {
       name: "Datomic",
       description:
-        "Datomic is a distributed database and implementation of Datalog. It has ACID transactions, joins, and a logical query language, Datalog. A distinguishing feature of Datomic is that time is a basic feature of data entities.",
+        "Datomic is a distributed database and implementation of Datalog. It supports ACID transactions, joins, and a logical query language, Datalog. A distinguishing feature of Datomic is its immutable data model where time is a basic feature of data entities, allowing for temporal queries.",
+      keywords: ["datomic"],
       websites: [
-        { href: "http://datomic.com/", title: "datomic.com", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Datomic", title: "Datomic", kind: "wikipedia" },
+        { title: "datomic.com", href: "http://datomic.com/", kind: "homepage" },
+        { title: "Datomic", href: "https://en.wikipedia.org/wiki/Datomic", kind: "wikipedia" },
       ],
-      releases: [{ version: "1.0.7180" }],
+      firstAppeared: "2012-08-10",
+      images: [
+        { kind: "logo", title: "Datomic Logo", url: "https://upload.wikimedia.org/wikipedia/commons/7/79/Datomic_logo.png", width: 512, height: 512 },
+      ],
+      isTranspiler: false,
+      isMainstream: false,
+      releases: [{ version: "1.0.7180", name: "Datomic 1.0", date: "2012-08-10" }],
     })
     .addDialectOf(["pl+datalog"])
+    .addInfluencedBy(["pl+clojure"])
     .addLicenses(["license+apache"])
-    .addTags(["tag+dbms"])
+    .addParadigms(["paradigm+declarative", "paradigm+distributed", "paradigm+query"])
+    .addPlatforms(["plat+cross", "plat+java"])
+    .addTags(["tag+dataflow", "tag+dbms"])
     .addWrittenIn(["pl+clojure"]);
 }

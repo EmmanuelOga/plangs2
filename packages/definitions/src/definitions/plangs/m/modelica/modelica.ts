@@ -5,17 +5,20 @@ export function define(g: PlangsGraph) {
     .set("pl+modelica", {
       name: "Modelica",
       description:
-        "Modelica is an object-oriented, declarative, multi-domain modeling language for component-oriented modeling of complex systems, e.g., systems containing mechanical, electrical, electronic, hydraulic, thermal, control, electric power or process-oriented subcomponents.\nThe free Modelica language\nis developed by the non-profit Modelica Association. The Modelica Association also develops the free Modelica Standard Library that contains about 1400 generic model components and 1200 functions in various domains, as of version 4.0.0.",
-      firstAppeared: "1997-01-01",
-      extensions: [".mo"],
+        "Modelica is an object-oriented, declarative, multi-domain modeling language for component-oriented modeling of complex systems, such as mechanical, electrical, electronic, hydraulic, thermal, control, and electric power systems. It enables efficient development of complex multi-domain systems using reusable components.\n\nThe language is developed by the Modelica Association, which also maintains the Modelica Standard Library offering numerous generic model components and functions across various domains.",
+      keywords: ["modelica"],
       websites: [
-        { href: "https://www.modelica.org/", title: "www.modelica.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Modelica", title: "Modelica", kind: "wikipedia" },
+        { title: "www.modelica.org", href: "https://www.modelica.org/", kind: "homepage" },
+        { title: "Modelica", href: "https://en.wikipedia.org/wiki/Modelica", kind: "wikipedia" },
       ],
-      releases: [{ version: "3.6", date: "2023-01-01" }],
+      extensions: [".mo"],
+      firstAppeared: "1997-01-01",
+      isTranspiler: false,
+      isMainstream: false,
+      releases: [{ version: "3.6", name: "Modelica 3.6", date: "2023-01-01" }],
     })
     .addLicenses(["license+cc-by"])
-    .addParadigms(["paradigm+declarative"])
+    .addParadigms(["paradigm+declarative", "paradigm+multi", "paradigm+object-oriented"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+app", "tag+industrial", "tag+interpreter", "tag+modeling", "tag+viz"]);
+    .addTags(["tag+app", "tag+industrial", "tag+modeling", "tag+sci", "tag+viz"]);
 }

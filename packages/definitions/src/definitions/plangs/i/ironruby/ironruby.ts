@@ -6,17 +6,25 @@ export function define(g: PlangsGraph) {
       name: "IronRuby",
       description:
         "IronRuby is an implementation of the Ruby programming language targeting Microsoft .NET Framework. It is implemented on top of the Dynamic Language Runtime (DLR), a library running on top of the Common Language Infrastructure that provides dynamic typing and dynamic method dispatch, among other things, for dynamic languages.",
+      keywords: ["ironruby"],
       websites: [
-        { href: "http://www.ironruby.net/", title: "www.ironruby.net", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/IronRuby", title: "IronRuby", kind: "wikipedia" },
+        { title: "www.ironruby.net", href: "http://www.ironruby.net/", kind: "homepage" },
+        { title: "IronRuby", href: "https://en.wikipedia.org/wiki/IronRuby", kind: "wikipedia" },
       ],
+      firstAppeared: "2010-01-01",
+      isTranspiler: false,
+      isMainstream: false,
       releases: [
-        { version: "1.0", date: "2010-01-01" },
-        { version: "1.1.3", date: "2011-01-01" },
+        { version: "1.0", name: "IronRuby 1.0", date: "2010-01-01" },
+        { version: "1.1.3", name: "IronRuby 1.1.3", date: "2011-01-01" },
       ],
     })
+    .addDialectOf(["pl+ruby"])
+    .addInfluencedBy(["pl+ruby"])
     .addLicenses(["license+apache"])
-    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
+    .addParadigms(["paradigm+interpreted", "paradigm+oop", "paradigm+scripting"])
+    .addPlatforms(["plat+.net", "plat+apple", "plat+linux", "plat+windows"])
     .addTags(["tag+app", "tag+compiler", "tag+framework", "tag+interpreter", "tag+scripting"])
+    .addTypeSystems(["tsys+duck", "tsys+dynamic"])
     .addWrittenIn(["pl+c-sharp"]);
 }

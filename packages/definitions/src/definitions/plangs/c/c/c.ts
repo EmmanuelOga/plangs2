@@ -6,18 +6,25 @@ export function define(g: PlangsGraph) {
       name: "C",
       description:
         "C (pronounced /ˈsiː/ – like the letter c) is a general-purpose programming language. It was created in the 1970s by Dennis Ritchie and remains very widely used and influential. By design, C's features cleanly reflect the capabilities of the targeted CPUs. It has found lasting use in operating systems code (especially in kernels), device drivers, and protocol stacks, but its use in application software has been decreasing. C is commonly used on computer architectures that range from the largest supercomputers to the smallest microcontrollers and embedded systems.",
-      firstAppeared: "1972-01-01",
-      extensions: [".c", ".h"],
+      keywords: ["c", "general-purpose", "systems programming"],
       websites: [
-        { href: "https://www.iso.org/standard/74528.html", title: "www.iso.org/standard/74528.html", kind: "other" },
-        { href: "http://www.open-std.org/jtc1/sc22/wg14/", title: "www.open-std.org/jtc1/sc22/wg14/", kind: "other" },
-        { href: "https://en.wikipedia.org/wiki/C_(programming_language)", title: "C", kind: "wikipedia" },
+        { title: "ISO C Standard Documentation", href: "https://www.iso.org/standard/74528.html", kind: "other" },
+        { title: "WG14 Committee (C Language)", href: "http://www.open-std.org/jtc1/sc22/wg14/", kind: "other" },
+        { title: "C Language (Wikipedia)", href: "https://en.wikipedia.org/wiki/C_(programming_language)", kind: "wikipedia" },
+      ],
+      extensions: [".c", ".h"],
+      firstAppeared: "1972-01-01",
+      isTranspiler: false,
+      isMainstream: true,
+      releases: [
+        { version: "C18", name: "Standard C18", date: "2018-06-01" },
+        { version: "C11", name: "Standard C11", date: "2011-12-08" },
       ],
     })
-    .addImplements(["pl+curry"])
     .addInfluencedBy(["pl+algol", "pl+fortran"])
-    .addParadigms(["paradigm+imperative", "paradigm+multi", "paradigm+procedural", "paradigm+structured"])
-    .addPlatforms(["plat+cross"])
+    .addLicenses(["license+bsd"])
+    .addParadigms(["paradigm+compiled", "paradigm+imperative", "paradigm+multi", "paradigm+procedural", "paradigm+structured"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+dos", "plat+linux", "plat+windows"])
     .addTags([
       "tag+app",
       "tag+asm",

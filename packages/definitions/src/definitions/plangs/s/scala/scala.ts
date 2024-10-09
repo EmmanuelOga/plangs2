@@ -6,13 +6,16 @@ export function define(g: PlangsGraph) {
       name: "Scala",
       description:
         "Scala (/ˈskɑːlɑː/ SKAH-lah) is a strong statically typed high-level general-purpose programming language that supports both object-oriented programming and functional programming. Designed to be concise, many of Scala's design decisions are intended to address criticisms of Java.",
-      firstAppeared: "2004-01-01",
-      extensions: [".sc", ".scala"],
+      keywords: ["scala"],
       websites: [
-        { href: "http://www.scala-lang.org/", title: "www.scala-lang.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Scala_programming_language", title: "Scala", kind: "wikipedia" },
+        { title: "www.scala-lang.org", href: "http://www.scala-lang.org/", kind: "homepage" },
+        { title: "Scala", href: "https://en.wikipedia.org/wiki/Scala_programming_language", kind: "wikipedia" },
       ],
-      releases: [{ version: "3.4.0", date: "2024-01-01" }],
+      extensions: [".sc", ".scala"],
+      firstAppeared: "2004-01-01",
+      isTranspiler: false,
+      isMainstream: true,
+      releases: [{ version: "3.4.0", name: "Scala 3.4.0", date: "2024-01-01" }],
     })
     .addInfluencedBy([
       "pl+common-lisp",

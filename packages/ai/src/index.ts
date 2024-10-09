@@ -38,8 +38,6 @@ export async function aiGenerate(pl: NPlang) {
     JSON.stringify(example(pl), null, 2),
   ].join("\n");
 
-  console.info("Prompt: ", prompt);
-
   const completion = await openai.chat.completions.create({
     model: "gpt-4o",
     messages: [
@@ -69,5 +67,22 @@ export async function aiGenerate(pl: NPlang) {
   Bun.write(path, code);
 }
 
-const py = pg.nodes.pl.get("pl+python") as NPlang;
-await aiGenerate(py);
+if (process.argv[2] === "improve-all") {
+  console.log("Re-generating all definitions... this may take a while.");
+  let count = pg.nodes.pl.size;
+  for (const pl of pg.nodes.pl.values) {
+    console.log("Prompting node #", count--, pl.key, pl.name, pl.websites.existing);
+    await aiGenerate(pl);
+  }
+} else if (process.argv[2] === "generate") {
+  try {
+    const data = JSON.parse(process.argv[3]);
+    console.log("TODO: generate", data);
+  } catch (e) {
+    console.error(
+      "Invalid JSON data provided. Data must be a JSON object like: '{ key: 'pl+python', name: 'Python', websites: ['https://python.org'] }'",
+    );
+  }
+} else {
+  console.log("Usage: cmd <improve-all|generate>");
+}

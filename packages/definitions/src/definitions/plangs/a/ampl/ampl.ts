@@ -5,16 +5,23 @@ export function define(g: PlangsGraph) {
     .set("pl+ampl", {
       name: "AMPL",
       description:
-        "AMPL (A Mathematical Programming Language) is an algebraic modeling language to describe and solve high-complexity problems for large-scale mathematical computing (e.g. large-scale optimization and scheduling-type problems).\nIt was developed by Robert Fourer, David Gay, and Brian Kernighan at Bell Laboratories.\nAMPL supports dozens of solvers, both open source and commercial software, including CBC, CPLEX, FortMP, MOSEK, MINOS, IPOPT, SNOPT, KNITRO, and LGO. Problems are passed to solvers as nl files.\nAMPL is used by more than 100 corporate clients, and by government agencies and academic institutions.",
-      firstAppeared: "1985-01-01",
-      extensions: [".dat", ".mod", ".run"],
+        "AMPL (A Mathematical Programming Language) is an algebraic modeling language to describe and solve high-complexity problems for large-scale mathematical computing (e.g., large-scale optimization and scheduling-type problems).\nIt was developed by Robert Fourer, David Gay, and Brian Kernighan at Bell Laboratories.\nAMPL supports dozens of solvers, both open source and commercial software, including CBC, CPLEX, FortMP, MOSEK, MINOS, IPOPT, SNOPT, KNITRO, and LGO. Problems are passed to solvers as .nl files.\nAMPL is used by more than 100 corporate clients, and by government agencies and academic institutions.",
+      keywords: ["ampl", "mathematical programming language", "optimization", "scheduling"],
       websites: [
-        { href: "http://www.ampl.com/", title: "www.ampl.com", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/AMPL", title: "AMPL", kind: "wikipedia" },
+        { title: "www.ampl.com", href: "http://www.ampl.com/", kind: "homepage" },
+        { title: "AMPL", href: "https://en.wikipedia.org/wiki/AMPL", kind: "wikipedia" },
       ],
+      extensions: [".dat", ".mod", ".run"],
+      firstAppeared: "1985-01-01",
+      images: [{ kind: "other", title: "AMPL", url: "https://upload.wikimedia.org/wikipedia/commons/0/08/AMPL-logo.jpg", width: 512, height: 512 }],
+      isTranspiler: false,
+      isMainstream: false,
+      releases: [],
     })
     .addInfluencedBy(["pl+awk", "pl+c"])
-    .addParadigms(["paradigm+declarative", "paradigm+imperative", "paradigm+multi"])
+    .addLicenses(["license+proprietary"])
+    .addParadigms(["paradigm+declarative", "paradigm+dsl", "paradigm+imperative", "paradigm+multi"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+industrial", "tag+interpreter", "tag+stats"]);
+    .addTags(["tag+industrial", "tag+interpreter", "tag+modeling", "tag+stats"])
+    .addTypeSystems(["tsys+untyped"]);
 }

@@ -6,15 +6,18 @@ export function define(g: PlangsGraph) {
       name: "Idris",
       description:
         "Idris is a purely-functional programming language with dependent types, optional lazy evaluation, and features such as a totality checker. Idris may be used as a proof assistant, but is designed to be a general-purpose programming language similar to Haskell.",
-      firstAppeared: "2007-01-01",
-      extensions: [".idr", ".lidr"],
+      keywords: ["idris"],
       websites: [
-        { href: "http://idris-lang.org/", title: "idris-lang.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Idris_(programming_language)", title: "Idris", kind: "wikipedia" },
+        { title: "idris-lang.org", href: "http://idris-lang.org/", kind: "homepage" },
+        { title: "Idris", href: "https://en.wikipedia.org/wiki/Idris_(programming_language)", kind: "wikipedia" },
       ],
+      extensions: [".idr", ".lidr"],
+      firstAppeared: "2007-01-01",
+      isTranspiler: false,
+      isMainstream: false,
       releases: [
-        { version: "1.3.4", date: "2021-01-01" },
-        { version: "0.7.0", date: "2023-01-01" },
+        { version: "1.3.4", name: "Idris 1.3.4", date: "2021-01-01" },
+        { version: "0.7.0", name: "Idris 0.7.0", date: "2023-01-01" },
       ],
     })
     .addInfluencedBy(["pl+agda", "pl+clean", "pl+coq", "pl+f-sharp", "pl+haskell", "pl+ml", "pl+rust"])
@@ -22,5 +25,5 @@ export function define(g: PlangsGraph) {
     .addParadigms(["paradigm+functional"])
     .addPlatforms(["plat+cross"])
     .addTags(["tag+interpreter", "tag+proofs"])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    .addTypeSystems(["tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong"]);
 }

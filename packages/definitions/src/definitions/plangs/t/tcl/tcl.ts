@@ -5,19 +5,26 @@ export function define(g: PlangsGraph) {
     .set("pl+tcl", {
       name: "Tcl",
       description:
-        'Tcl (pronounced "tickle" or as an initialism) is a high-level, general-purpose, interpreted, dynamic programming language. It was designed with the goal of being very simple but powerful. Tcl casts everything into the mold of a command, even programming constructs like variable assignment and procedure definition. Tcl supports multiple programming paradigms, including object-oriented, imperative, functional, and procedural styles.',
-      firstAppeared: "1988-01-01",
-      extensions: [".tbc", ".tcl"],
+        'Tcl (pronounced "tickle" or as an initialism) is a high-level, general-purpose, interpreted, dynamic programming language. It was designed for embeddability, as a part of GUI applications, or in networking. Tcl casts everything into the mold of a command, including programming constructs like variable assignment and procedure definition. Tcl supports multiple programming paradigms, including imperative, functional, object-oriented, and procedural styles.',
+      keywords: ["tcl", "tk"],
       websites: [
-        { href: "https://www.tcl-lang.org/", title: "www.tcl-lang.org", kind: "homepage" },
-        { href: "https://www.tcl.tk/", title: "www.tcl.tk", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Tcl", title: "Tcl", kind: "wikipedia" },
+        { title: "www.tcl-lang.org", href: "https://www.tcl-lang.org/", kind: "homepage" },
+        { title: "www.tcl.tk", href: "https://www.tcl.tk/", kind: "homepage" },
+        { title: "Tcl", href: "https://en.wikipedia.org/wiki/Tcl", kind: "wikipedia" },
       ],
-      releases: [{ version: "8.6.14", date: "2024-01-01" }],
+      extensions: [".tbc", ".tcl"],
+      firstAppeared: "1988-01-01",
+      isTranspiler: false,
+      isMainstream: true,
+      releases: [
+        { version: "8.6.13", name: "Tcl 8.6.13", date: "2023-04-11" },
+        { version: "8.6.14", name: "Tcl 8.6.14", date: "2024-01-01" },
+      ],
     })
     .addInfluencedBy(["pl+awk", "pl+lisp"])
     .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+event-driven", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
+    .addParadigms(["paradigm+event-driven", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
+    .addPlatforms(["plat+cross", "plat+linux", "plat+mac", "plat+windows"])
     .addTags([
       "tag+app",
       "tag+automation",
@@ -31,5 +38,6 @@ export function define(g: PlangsGraph) {
       "tag+testing",
       "tag+ui",
     ])
-    .addTypeSystems(["tsys+dynamic", "tsys+string"]);
+    .addTypeSystems(["tsys+dynamic", "tsys+string"])
+    .addWrittenIn(["pl+c"]);
 }

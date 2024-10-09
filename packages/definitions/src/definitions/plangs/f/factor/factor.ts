@@ -6,12 +6,16 @@ export function define(g: PlangsGraph) {
       name: "Factor",
       description:
         "Factor is a stack-oriented programming language created by Slava Pestov. Factor is dynamically typed and has automatic memory management, as well as powerful metaprogramming features. The language has a single implementation featuring a self-hosted optimizing compiler and an interactive development environment. The Factor distribution includes a large standard library.",
-      firstAppeared: "2003-01-01",
+      keywords: ["factor"],
       websites: [
-        { href: "http://factorcode.org/", title: "factorcode.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Factor_(programming_language)", title: "Factor", kind: "wikipedia" },
+        { title: "factorcode.org", href: "http://factorcode.org/", kind: "homepage" },
+        { title: "Factor", href: "https://en.wikipedia.org/wiki/Factor_(programming_language)", kind: "wikipedia" },
       ],
-      releases: [{ version: "0.99", date: "2023-01-01" }],
+      extensions: [".factor"],
+      firstAppeared: "2003-01-01",
+      isTranspiler: false,
+      isMainstream: false,
+      releases: [{ version: "0.99", name: "Factor 0.99", date: "2023-01-01" }],
     })
     .addInfluencedBy(["pl+forth", "pl+joy", "pl+lisp", "pl+self"])
     .addLicenses(["license+bsd"])

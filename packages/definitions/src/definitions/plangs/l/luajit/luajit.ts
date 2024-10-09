@@ -5,16 +5,25 @@ export function define(g: PlangsGraph) {
     .set("pl+luajit", {
       name: "LuaJIT",
       description:
-        "LuaJIT is a tracing just-in-time compiler for the Lua programming language. Mike Pall, a primary maintainer of the project had resigned in 2015, resorting only to occasional patching to the future 2.1 version.",
+        "LuaJIT is a tracing just-in-time compiler for the Lua programming language. It aims to optimize the execution speed and reduce memory usage while staying compatible with existing Lua code. Mike Pall, a primary maintainer of the project, resigned in 2015, resulting in occasional patching for future version 2.1.",
+      keywords: ["luajit"],
       websites: [
-        { href: "https://luajit.org/", title: "luajit.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/LuaJIT", title: "LuaJIT", kind: "wikipedia" },
+        { title: "luajit.org", href: "https://luajit.org/", kind: "homepage" },
+        { title: "LuaJIT", href: "https://en.wikipedia.org/wiki/LuaJIT", kind: "wikipedia" },
       ],
-      releases: [{ version: "2.0.5", date: "2023-01-01" }],
+      extensions: [".lua", ".luajit"],
+      firstAppeared: "2005-06-01",
+      isTranspiler: false,
+      isMainstream: true,
+      releases: [{ version: "2.0.5", name: "LuaJIT 2.0.5", date: "2023-01-01" }],
     })
-    .addImplements(["pl+lua", "pl+moonscript"])
+    .addDialectOf(["pl+lua"])
+    .addImplements(["pl+lua"])
+    .addInfluencedBy(["pl+c", "pl+lua"])
     .addLicenses(["license+mit"])
-    .addPlatforms(["plat+android", "plat+apple", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+asm", "tag+compiler", "tag+industrial", "tag+interpreter"])
-    .addWrittenIn(["pl+c", "pl+lua"]);
+    .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+scripting"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+linux", "plat+windows", "plat+x86-64"])
+    .addTags(["tag+compiler", "tag+interpreter", "tag+scripting"])
+    .addTypeSystems(["tsys+dynamic"])
+    .addWrittenIn(["pl+c"]);
 }

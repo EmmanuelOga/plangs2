@@ -6,11 +6,14 @@ export function define(g: PlangsGraph) {
       name: "Newspeak",
       description:
         "Newspeak is a programming language and platform in the tradition of Smalltalk and Self being developed by a team led by Gilad Bracha. The platform includes an integrated development environment (IDE), a graphical user interface (GUI) library, and standard libraries. Starting in 2006, Cadence Design Systems funded its development and employed the main contributors, but ended funding in January 2009.",
-      firstAppeared: "2006-01-01",
+      keywords: ["newspeak"],
       websites: [
-        { href: "http://newspeaklanguage.org/", title: "newspeaklanguage.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Newspeak_(programming_language)", title: "Newspeak", kind: "wikipedia" },
+        { title: "newspeaklanguage.org", href: "http://newspeaklanguage.org/", kind: "homepage" },
+        { title: "Newspeak", href: "https://en.wikipedia.org/wiki/Newspeak_(programming_language)", kind: "wikipedia" },
       ],
+      firstAppeared: "2006-01-01",
+      isTranspiler: false,
+      isMainstream: false,
     })
     .addDialectOf(["pl+self", "pl+squeak"])
     .addInfluencedBy(["pl+self"])

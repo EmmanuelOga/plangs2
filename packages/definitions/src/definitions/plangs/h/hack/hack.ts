@@ -5,17 +5,24 @@ export function define(g: PlangsGraph) {
     .set("pl+hack", {
       name: "Hack",
       description:
-        "Hack is a programming language for the HipHop Virtual Machine (HHVM), created by Meta (formerly Facebook) as a dialect of PHP. The language implementation is open-source, licensed under the MIT License.",
-      firstAppeared: "2014-01-01",
+        "Hack is a programming language for the HipHop Virtual Machine (HHVM), created by Meta (formerly Facebook) as a dialect of PHP. It is designed to provide improved performance, better safety, and new features compared to PHP. Hack offers features like type annotations, generics, collections, and lambda expressions while allowing incremental typing. The language implementation is open-source and licensed under the MIT License.",
+      keywords: ["hack", "hhvm"],
       websites: [
-        { href: "https://hacklang.org/", title: "hacklang.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Hack_(programming_language)", title: "Hack", kind: "wikipedia" },
+        { title: "hacklang.org", href: "https://hacklang.org/", kind: "homepage" },
+        { title: "Hack", href: "https://en.wikipedia.org/wiki/Hack_(programming_language)", kind: "wikipedia" },
       ],
-      releases: [{ version: "4.172", date: "2022-01-01" }],
+      extensions: [".hh", ".hack"],
+      firstAppeared: "2014-01-01",
+      isTranspiler: false,
+      isMainstream: true,
+      releases: [{ version: "4.172", name: "", date: "2022-01-01" }],
     })
-    .addInfluencedBy(["pl+c-sharp", "pl+haskell", "pl+ocaml", "pl+scala"])
+    .addDialectOf(["pl+php"])
+    .addInfluencedBy(["pl+c-sharp", "pl+haskell", "pl+ocaml", "pl+php", "pl+scala"])
     .addLicenses(["license+mit"])
+    .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+audio-dev", "tag+interpreter", "tag+scripting"])
-    .addTypeSystems(["tsys+dynamic", "tsys+gradual", "tsys+static", "tsys+weak"]);
+    .addTags(["tag+interpreter", "tag+scripting"])
+    .addTypeSystems(["tsys+gradual", "tsys+manifest", "tsys+safe", "tsys+static", "tsys+strong"])
+    .addWrittenIn(["pl+ocaml"]);
 }

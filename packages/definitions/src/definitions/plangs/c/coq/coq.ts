@@ -6,17 +6,24 @@ export function define(g: PlangsGraph) {
       name: "Coq",
       description:
         "Coq is an interactive theorem prover first released in 1989. It allows for expressing mathematical assertions, mechanically checks proofs of these assertions, helps find formal proofs, and extracts a certified program from the constructive proof of its formal specification. Coq works within the theory of the calculus of inductive constructions, a derivative of the calculus of constructions. Coq is not an automated theorem prover but includes automatic theorem proving tactics (procedures) and various decision procedures.",
+      keywords: ["coq"],
       websites: [
-        { href: "https://coq.inria.fr/", title: "coq.inria.fr", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Coq_(software)", title: "Coq", kind: "wikipedia" },
+        { title: "coq.inria.fr", href: "https://coq.inria.fr/", kind: "homepage" },
+        { title: "Coq", href: "https://en.wikipedia.org/wiki/Coq_(software)", kind: "wikipedia" },
       ],
+      firstAppeared: "1989-01-01",
+      isTranspiler: false,
+      isMainstream: false,
       releases: [
         { version: "4.10", date: "1989-01-01" },
         { version: "8.19.2", date: "2024-01-01" },
       ],
     })
     .addInfluencedBy(["pl+ml", "pl+ocaml"])
+    .addLicenses(["license+lgpl"])
+    .addParadigms(["paradigm+declarative", "paradigm+functional", "paradigm+logic"])
     .addPlatforms(["plat+cross"])
     .addTags(["tag+interpreter", "tag+proofs"])
+    .addTypeSystems(["tsys+dependent", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+ocaml"]);
 }

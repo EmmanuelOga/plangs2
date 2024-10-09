@@ -5,11 +5,25 @@ export function define(g: PlangsGraph) {
     .set("pl+assembly", {
       name: "Assembly language",
       description:
-        "In computer programming,  assembly language (alternatively assembler language or symbolic machine code), often referred to simply as assembly and commonly abbreviated as ASM or asm, is any low-level programming language with a very strong correspondence between the instructions in the language and the architecture's machine code instructions. Assembly language usually has one statement per machine instruction (1:1), but  constants, comments, assembler directives, symbolic labels of, e.g., memory locations, registers, and macros are generally also supported.",
+        "Assembly language, often simply referred to as assembly and abbreviated as ASM or asm, is a low-level programming language with a strong correspondence between its instructions and the machine code of the architecture it's designed for. Assembly language usually has a 1:1 mapping with machine instructions but also supports constants, comments, assembler directives, symbolic labels, and macros.",
+      keywords: ["assembly", "asm", "assembler"],
+      websites: [{ title: "Assembly language", href: "https://en.wikipedia.org/wiki/Assembly_language", kind: "wikipedia" }],
+      extensions: [".asm", ".s", ".inc", ".src", ".a51"],
       firstAppeared: "1947-01-01",
-      extensions: [".SRC", ".asm", ".inc", ".s", ".wla"],
-      websites: [{ href: "https://en.wikipedia.org/wiki/Assembly_language", title: "Assembly language", kind: "wikipedia" }],
+      images: [
+        {
+          kind: "other",
+          title: "Assembly language",
+          url: "http://upload.wikimedia.org/wikipedia/commons/6/67/A_sobering_assembly_language_mindstorm.png",
+          width: 512,
+          height: 512,
+        },
+      ],
+      isTranspiler: false,
+      isMainstream: true,
     })
-    .addParadigms(["paradigm+imperative", "paradigm+macro", "paradigm+metaprogramming", "paradigm+oop", "paradigm+structured"])
-    .addTags(["tag+3dg", "tag+4gl", "tag+app", "tag+asm", "tag+compiler", "tag+embedded", "tag+industrial", "tag+interpreter", "tag+viz"]);
+    .addParadigms(["paradigm+imperative", "paradigm+macro", "paradigm+metaprogramming", "paradigm+structured"])
+    .addPlatforms(["plat+apple", "plat+arm", "plat+cross", "plat+embedded", "plat+linux", "plat+windows", "plat+x86-64"])
+    .addTags(["tag+asm", "tag+compiler", "tag+embedded", "tag+industrial", "tag+interpreter"])
+    .addTypeSystems(["tsys+untyped"]);
 }

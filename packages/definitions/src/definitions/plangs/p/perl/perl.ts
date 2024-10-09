@@ -6,20 +6,23 @@ export function define(g: PlangsGraph) {
       name: "Perl",
       description:
         'Perl is a high-level, general-purpose, interpreted, dynamic programming language. Though Perl is not officially an acronym, there are various backronyms in use, including "Practical Extraction and Reporting Language".',
-      firstAppeared: "1987-01-01",
-      extensions: [".cgi", ".pl", ".pls", ".plx", ".pm", ".pod", ".psgi", ".t", ".xs"],
+      keywords: ["perl"],
       websites: [
-        { href: "https://www.perl.org/", title: "perl.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Perl", title: "Perl", kind: "wikipedia" },
+        { title: "perl.org", href: "https://www.perl.org/", kind: "homepage" },
+        { title: "Perl", href: "https://en.wikipedia.org/wiki/Perl", kind: "wikipedia" },
       ],
+      extensions: [".cgi", ".pl", ".pls", ".plx", ".pm", ".pod", ".psgi", ".t", ".xs"],
+      firstAppeared: "1987-01-01",
+      isTranspiler: false,
+      isMainstream: true,
       releases: [
-        { version: "5.40.0", date: "2024-01-01" },
-        { version: "5.41.3", date: "2024-01-01" },
+        { version: "5.40.0", name: "Perl 5.40.0", date: "2024-01-01" },
+        { version: "5.41.3", name: "Perl 5.41.3", date: "2024-01-01" },
       ],
     })
     .addInfluencedBy(["pl+awk", "pl+basic", "pl+c", "pl+c++", "pl+lisp", "pl+raku", "pl+sed"])
     .addLicenses(["license+artistic"])
-    .addParadigms(["paradigm+multi"])
+    .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+scripting"])
     .addPlatforms(["plat+cross"])
     .addTags([
       "tag+app",
@@ -33,5 +36,6 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+viz",
     ])
+    .addTypeSystems(["tsys+duck", "tsys+dynamic"])
     .addWrittenIn(["pl+c"]);
 }

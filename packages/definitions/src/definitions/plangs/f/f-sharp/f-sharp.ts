@@ -6,14 +6,17 @@ export function define(g: PlangsGraph) {
       name: "F#",
       description:
         "F# (pronounced F sharp) is a general-purpose, high-level, strongly typed, multi-paradigm programming language that encompasses functional, imperative, and object-oriented programming methods. It is most often used as a cross-platform Common Language Infrastructure (CLI) language on .NET, but can also generate JavaScript and graphics processing unit (GPU) code.",
-      firstAppeared: "2005-01-01",
-      extensions: [".fs", ".fsi", ".fsscript", ".fsx"],
+      keywords: ["f#", "fsharp"],
       websites: [
-        { href: "https://fsharp.org/", title: "fsharp.org", kind: "other" },
-        { href: "https://learn.microsoft.com/en-us/dotnet/fsharp", title: "learn.microsoft.com/en-us/dotnet/fsharp", kind: "other" },
-        { href: "https://en.wikipedia.org/wiki/F_Sharp_programming_language", title: "F#", kind: "wikipedia" },
+        { title: "fsharp.org", href: "https://fsharp.org/", kind: "homepage" },
+        { title: "learn.microsoft.com/en-us/dotnet/fsharp", href: "https://learn.microsoft.com/en-us/dotnet/fsharp", kind: "plangs" },
+        { title: "F#", href: "https://en.wikipedia.org/wiki/F_Sharp_programming_language", kind: "wikipedia" },
       ],
-      releases: [{ version: "8.0.0", date: "2023-01-01" }],
+      extensions: [".fs", ".fsi", ".fsscript", ".fsx"],
+      firstAppeared: "2005-01-01",
+      isTranspiler: false,
+      isMainstream: true,
+      releases: [{ version: "8.0.0", name: "F# 8.0", date: "2023-01-01" }],
     })
     .addDialectOf(["pl+ml", "pl+ocaml"])
     .addInfluencedBy(["pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ml", "pl+ocaml", "pl+python", "pl+scala", "pl+standard-ml"])
@@ -28,7 +31,7 @@ export function define(g: PlangsGraph) {
       "paradigm+oop",
       "paradigm+reflective",
     ])
-    .addPlatforms(["plat+cross"])
+    .addPlatforms(["plat+.net", "plat+cross", "plat+linux", "plat+windows"])
     .addTags([
       "tag+app",
       "tag+automation",
@@ -42,5 +45,6 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+viz",
     ])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
+    .addWrittenIn(["pl+c-sharp"]);
 }

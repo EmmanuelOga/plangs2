@@ -5,18 +5,26 @@ export function define(g: PlangsGraph) {
     .set("pl+squeak", {
       name: "Squeak",
       description:
-        "Squeak is an object-oriented, class-based, and reflective programming language. It was derived from Smalltalk-80 by a group that included some of Smalltalk-80's original developers, initially at Apple Computer, then at Walt Disney Imagineering, where it was intended for use in internal Disney projects. The group later was supported by HP Labs, SAP, and most recently, Y Combinator.",
-      firstAppeared: "1996-01-01",
-      extensions: [".changes", ".image", ".sources", ".st"],
+        "Squeak is an object-oriented, class-based, and reflective programming language known for its portability across multiple platforms. Derived from Smalltalk-80, it was initially created by a team of developers at Apple Computer, and has since been supported by Disney Imagineering, HP Labs, and SAP. Squeak is notable for its educational use in environments like Scratch, and serves as a powerful environment for research and development across domains.",
+      keywords: ["squeak"],
       websites: [
-        { href: "http://www.squeak.org/", title: "www.squeak.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Squeak", title: "Squeak", kind: "wikipedia" },
+        { title: "Squeak", href: "http://www.squeak.org/", kind: "homepage" },
+        { title: "Squeak", href: "https://en.wikipedia.org/wiki/Squeak", kind: "wikipedia" },
+      ],
+      extensions: [".changes", ".image", ".sources", ".st"],
+      firstAppeared: "1996-01-01",
+      isTranspiler: false,
+      isMainstream: false,
+      releases: [
+        { version: "5.3", name: "Squeak 5.3", date: "2020-12-01" },
+        { version: "6.0", name: "Squeak 6.0", date: "2022-05-01" },
       ],
     })
-    .addInfluencedBy(["pl+lisp", "pl+self", "pl+simula"])
+    .addDialectOf(["pl+smalltalk"])
+    .addInfluencedBy(["pl+lisp", "pl+self", "pl+smalltalk"])
     .addLicenses(["license+apache", "license+mit"])
-    .addParadigms(["paradigm+oop"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+windows"])
-    .addTags(["tag+interpreter"])
+    .addParadigms(["paradigm+educational", "paradigm+interpreted", "paradigm+oop", "paradigm+reflective"])
+    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .addTags(["tag+edu", "tag+interpreter"])
     .addTypeSystems(["tsys+dynamic"]);
 }

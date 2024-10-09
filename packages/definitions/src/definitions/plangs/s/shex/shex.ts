@@ -4,14 +4,31 @@ export function define(g: PlangsGraph) {
   g.nodes.pl
     .set("pl+shex", {
       name: "ShEx - Shape Expressions",
-      description: "Shape Expressions (ShEx)  is a data modelling language for validating and describing a Resource Description Framework (RDF).",
+      description:
+        "Shape Expressions (ShEx) is a data modeling language used for validating and describing Resource Description Framework (RDF) data. It specifically targets semantic web technologies and offers a concise syntax for expressing constraints.",
+      keywords: ["shex", "shape expressions"],
       websites: [
-        { href: "https://www.w3.org/community/shex/", title: "www.w3.org/community/shex/", kind: "other" },
-        { href: "https://en.wikipedia.org/wiki/ShEx", title: "ShEx - Shape Expressions", kind: "wikipedia" },
+        { title: "ShEx at w3.org", href: "https://www.w3.org/community/shex/", kind: "homepage" },
+        { title: "ShEx - Shape Expressions Wikipedia", href: "https://en.wikipedia.org/wiki/ShEx", kind: "wikipedia" },
       ],
-      releases: [{ version: "2.1", date: "2018-01-01" }],
+      extensions: [".shex"],
+      firstAppeared: "2014-01-01",
+      images: [
+        {
+          kind: "logo",
+          title: "ShEx - Shape Expressions",
+          url: "https://upload.wikimedia.org/wikipedia/commons/2/29/ShEx_Logo.svg",
+          width: 512,
+          height: 512,
+        },
+      ],
+      isTranspiler: false,
+      isMainstream: false,
+      releases: [{ version: "2.1", name: "ShEx 2.1", date: "2018-01-01" }],
     })
-    .addParadigms(["paradigm+validation"])
-    .addTags(["tag+framework"])
+    .addLicenses(["license+cc-by"])
+    .addParadigms(["paradigm+dsl", "paradigm+validation"])
+    .addPlatforms(["plat+cross"])
+    .addTags(["tag+framework", "tag+scripting"])
     .addWrittenIn(["pl+javascript", "pl+scala"]);
 }

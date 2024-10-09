@@ -6,12 +6,20 @@ export function define(g: PlangsGraph) {
       name: "Befunge",
       description:
         'Befunge is a two-dimensional stack-based, reflective, esoteric programming language. It differs from conventional languages in that programs are arranged on a two-dimensional grid. "Arrow" instructions direct the control flow to the left, right, up or down, and loops are constructed by sending the control flow in a cycle. It has been described as "a cross between Forth and Lemmings".',
-      firstAppeared: "1993-01-01",
+      keywords: ["befunge"],
       websites: [
-        { href: "http://catseye.tc/node/Befunge-93.html", title: "catseye.tc/node/Befunge-93.html", kind: "other" },
-        { href: "https://en.wikipedia.org/wiki/Befunge", title: "Befunge", kind: "wikipedia" },
+        { title: "catseye.tc/node/Befunge-93.html", href: "http://catseye.tc/node/Befunge-93.html", kind: "homepage" },
+        { title: "Befunge", href: "https://en.wikipedia.org/wiki/Befunge", kind: "wikipedia" },
       ],
+      extensions: [".befunge"],
+      firstAppeared: "1993-01-01",
+      isTranspiler: false,
+      isMainstream: false,
     })
     .addInfluencedBy(["pl+forth"])
-    .addTags(["tag+compiler", "tag+industrial", "tag+interpreter"]);
+    .addLicenses(["license+public-domain"])
+    .addParadigms(["paradigm+esoteric", "paradigm+stack-oriented"])
+    .addPlatforms(["plat+cross"])
+    .addTags(["tag+compiler", "tag+interpreter", "tag+scripting"])
+    .addTypeSystems(["tsys+untyped"]);
 }

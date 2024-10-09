@@ -6,15 +6,22 @@ export function define(g: PlangsGraph) {
       name: "Jython",
       description:
         "Jython is an implementation of the Python programming language designed to run on the Java platform. It was known as JPython until 1999.",
+      keywords: ["jython", "jpython"],
       websites: [
-        { href: "https://www.jython.org/", title: "www.jython.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Jython", title: "Jython", kind: "wikipedia" },
+        { title: "www.jython.org", href: "https://www.jython.org/", kind: "homepage" },
+        { title: "Jython", href: "https://en.wikipedia.org/wiki/Jython", kind: "wikipedia" },
       ],
-      releases: [{ version: "2.7.4", date: "2024-01-01" }],
+      extensions: [".py"],
+      firstAppeared: "2000-10-00",
+      isTranspiler: false,
+      isMainstream: false,
+      releases: [{ version: "2.7.4", name: "Jython 2.7.4", date: "2024-01-01" }],
     })
     .addImplements(["pl+python"])
     .addLicenses(["license+python"])
+    .addParadigms(["paradigm+interpreted", "paradigm+oop", "paradigm+scripting"])
     .addPlatforms(["plat+cross", "plat+java"])
     .addTags(["tag+interpreter"])
-    .addWrittenIn(["pl+python"]);
+    .addTypeSystems(["tsys+duck", "tsys+dynamic"])
+    .addWrittenIn(["pl+java"]);
 }

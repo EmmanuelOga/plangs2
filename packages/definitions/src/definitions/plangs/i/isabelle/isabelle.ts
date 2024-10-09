@@ -6,13 +6,20 @@ export function define(g: PlangsGraph) {
       name: "Isabelle",
       description:
         "The Isabelle automated theorem prover is a higher-order logic (HOL) theorem prover, written in Standard ML and Scala. As an LCF-style theorem prover, it is based on a small logical core (kernel) to increase the trustworthiness of proofs without requiring — yet supporting — explicit proof objects.",
+      keywords: ["isabelle"],
       websites: [
-        { href: "https://isabelle.in.tum.de/", title: "isabelle.in.tum.de", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Isabelle_(proof_assistant)", title: "Isabelle", kind: "wikipedia" },
+        { title: "isabelle.in.tum.de", href: "https://isabelle.in.tum.de/", kind: "homepage" },
+        { title: "Isabelle", href: "https://en.wikipedia.org/wiki/Isabelle_(proof_assistant)", kind: "wikipedia" },
       ],
+      extensions: [".thy"],
+      firstAppeared: "1986-01-01",
+      isTranspiler: false,
+      isMainstream: false,
+      releases: [{ version: "2023", name: "Isabelle 2023", date: "2023-06-15" }],
     })
     .addInfluencedBy(["pl+haskell"])
     .addLicenses(["license+bsd"])
+    .addParadigms(["paradigm+dsl", "paradigm+logic"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
     .addTags([
       "tag+automation",
@@ -24,5 +31,6 @@ export function define(g: PlangsGraph) {
       "tag+proofs",
       "tag+wavelet",
     ])
+    .addTypeSystems(["tsys+dependent", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+scala", "pl+standard-ml"]);
 }

@@ -5,16 +5,22 @@ export function define(g: PlangsGraph) {
     .set("pl+v8", {
       name: "V8",
       description:
-        "V8 is a JavaScript and WebAssembly engine developed by Google for its Chrome browser. V8 is free and open-source software that is part of the Chromium project and also used separately in non-browser contexts, notably the Node.js runtime system.",
+        "V8 is a high-performance JavaScript and WebAssembly engine developed by Google. It is primarily used in the Chrome browser and is a key component of the Chromium open-source project. V8 is also used in server-side environments like Node.js, providing fast and efficient execution of JavaScript code.",
+      keywords: ["v8", "node.js", "chromium"],
       websites: [
-        { href: "https://v8.dev/", title: "v8.dev", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/V8_(JavaScript_engine)", title: "V8", kind: "wikipedia" },
+        { title: "v8.dev", href: "https://v8.dev/", kind: "homepage" },
+        { title: "V8", href: "https://en.wikipedia.org/wiki/V8_(JavaScript_engine)", kind: "wikipedia" },
       ],
-      releases: [{ version: "11.4", date: "2023-01-01" }],
+      firstAppeared: "2008-09-02",
+      isTranspiler: false,
+      isMainstream: true,
+      releases: [{ version: "11.4", name: "V8 11.4", date: "2023-01-01" }],
     })
     .addImplements(["pl+javascript"])
     .addLicenses(["license+bsd"])
-    .addPlatforms(["plat+arm", "plat+x86-64"])
-    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+interpreter"])
+    .addParadigms(["paradigm+event-driven", "paradigm+interpreted"])
+    .addPlatforms(["plat+arm", "plat+cross", "plat+wasm", "plat+x86-64"])
+    .addTags(["tag+compiler", "tag+interpreter", "tag+scripting", "tag+server"])
+    .addTypeSystems(["tsys+duck", "tsys+dynamic"])
     .addWrittenIn(["pl+c++"]);
 }

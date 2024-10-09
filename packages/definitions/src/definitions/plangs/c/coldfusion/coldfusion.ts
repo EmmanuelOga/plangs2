@@ -5,24 +5,20 @@ export function define(g: PlangsGraph) {
     .set("pl+coldfusion", {
       name: "Adobe ColdFusion",
       description:
-        "Adobe ColdFusion is a commercial rapid web-application development computing platform created by J. J. Allaire in 1995. (The programming language used with that platform is also commonly called ColdFusion, though is more accurately known as CFML.) ColdFusion was originally designed to make it easier to connect simple HTML pages to a database. By version 2 (1996) it had become a full platform that included an IDE in addition to a full scripting language.",
+        "Adobe ColdFusion is a commercial rapid web-application development computing platform created by J. J. Allaire in 1995. The programming language used with the platform is known as CFML (ColdFusion Markup Language). ColdFusion was initially designed to simplify connecting HTML pages to a database, and quickly evolved into a comprehensive platform featuring a full scripting language and an integrated development environment (IDE).",
+      keywords: ["coldfusion", "cfml"],
       websites: [
-        { href: "https://adobe.com/products/coldfusion-family.html", title: "adobe.com/products/coldfusion-family.html", kind: "other" },
-        { href: "https://en.wikipedia.org/wiki/ColdFusion", title: "Adobe ColdFusion", kind: "wikipedia" },
+        { title: "adobe.com/products/coldfusion-family.html", href: "https://adobe.com/products/coldfusion-family.html", kind: "homepage" },
+        { title: "Adobe ColdFusion", href: "https://en.wikipedia.org/wiki/ColdFusion", kind: "wikipedia" },
       ],
+      extensions: [".cfm", ".cfml"],
+      firstAppeared: "1995-01-01",
+      isTranspiler: false,
+      isMainstream: true,
+      releases: [{ version: "2023", name: "Adobe ColdFusion 2023", date: "2023-05-01" }],
     })
-    .addPlatforms(["plat+cross"])
-    .addTags([
-      "tag+3dg",
-      "tag+app",
-      "tag+dataflow",
-      "tag+dataq",
-      "tag+dbms",
-      "tag+industrial",
-      "tag+interpreter",
-      "tag+scripting",
-      "tag+server",
-      "tag+testing",
-      "tag+viz",
-    ]);
+    .addParadigms(["paradigm+event-driven", "paradigm+multi", "paradigm+procedural", "paradigm+scripting"])
+    .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
+    .addTags(["tag+app", "tag+dataflow", "tag+dbms", "tag+scripting", "tag+server"])
+    .addTypeSystems(["tsys+duck", "tsys+dynamic"]);
 }

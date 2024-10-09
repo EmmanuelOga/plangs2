@@ -6,13 +6,16 @@ export function define(g: PlangsGraph) {
       name: "Zig",
       description:
         "Zig is an imperative, general-purpose, statically typed, compiled system programming language designed by Andrew Kelley. It is intended as a successor to the language C, with the intent of being even smaller and simpler to program in, while offering more function. It is free and open-source software, released under an MIT License.",
-      firstAppeared: "2016-01-01",
-      extensions: [".zig", ".zigr", ".zir", ".zon"],
+      keywords: ["zig"],
       websites: [
-        { href: "https://ziglang.org/", title: "ziglang.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Zig_(programming_language)", title: "Zig", kind: "wikipedia" },
+        { title: "ziglang.org", href: "https://ziglang.org/", kind: "homepage" },
+        { title: "Zig (Wikipedia)", href: "https://en.wikipedia.org/wiki/Zig_(programming_language)", kind: "wikipedia" },
       ],
-      releases: [{ version: "0.13.0", date: "2024-01-01" }],
+      extensions: [".zig", ".zigr", ".zir", ".zon"],
+      firstAppeared: "2016-01-01",
+      isTranspiler: false,
+      isMainstream: false,
+      releases: [{ version: "0.13.0", name: "Zig 0.13.0", date: "2024-01-01" }],
     })
     .addInfluencedBy(["pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust"])
     .addLicenses(["license+mit"])

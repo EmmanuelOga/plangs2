@@ -5,14 +5,24 @@ export function define(g: PlangsGraph) {
     .set("pl+yabasic", {
       name: "Yabasic",
       description:
-        "Yabasic (Yet Another BASIC) is a free, open-source BASIC interpreter for Microsoft Windows and Unix platforms. Yabasic was originally developed by Marc-Oliver Ihm, who released the last stable version 2.77.3 in 2016. From version 2.77.1, the project has adopted the MIT License as well as the source code being moved to GitHub to encourage others to participate in its development.",
+        "Yabasic (Yet Another BASIC) is a free, open-source BASIC interpreter for Microsoft Windows and Unix platforms. Yabasic allows you to write code for simple computing tasks and has features like loops, arrays, subroutines, and file handling. Although it follows the BASIC language traditions, Yabasic adds extensions to make programs more concise and maintainable. Originally developed in the 1990s, it continues to be maintained and updated, providing a platform for learning and experimenting with BASIC programming.",
+      keywords: ["yabasic", "basic", "open-source", "basic interpreter"],
       websites: [
-        { href: "http://www.yabasic.de/", title: "www.yabasic.de", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Yabasic", title: "Yabasic", kind: "wikipedia" },
+        { title: "www.yabasic.de", href: "http://www.yabasic.de/", kind: "homepage" },
+        { title: "GitHub Repository", href: "https://github.com/marcIhm/yabasic", kind: "repository" },
+        { title: "Yabasic", href: "https://en.wikipedia.org/wiki/Yabasic", kind: "wikipedia" },
       ],
-      releases: [{ version: "2.90.4", date: "2023-01-01" }],
+      extensions: [".yab"],
+      firstAppeared: "1995-01-01",
+      isTranspiler: false,
+      isMainstream: false,
+      releases: [{ version: "2.90.4", name: "Yabasic 2.90.4", date: "2023-01-01" }],
     })
+    .addInfluencedBy(["pl+basic"])
     .addLicenses(["license+mit"])
-    .addPlatforms(["plat+windows"])
-    .addTags(["tag+games", "tag+interpreter", "tag+ui"]);
+    .addParadigms(["paradigm+interpreted", "paradigm+procedural", "paradigm+scripting"])
+    .addPlatforms(["plat+linux", "plat+windows"])
+    .addTags(["tag+educational", "tag+games", "tag+interpreter", "tag+scripting", "tag+ui"])
+    .addTypeSystems(["tsys+dynamic", "tsys+weak"])
+    .addWrittenIn(["pl+c"]);
 }

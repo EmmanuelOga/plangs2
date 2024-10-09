@@ -6,16 +6,22 @@ export function define(g: PlangsGraph) {
       name: "Sass",
       description:
         "Sass (short for syntactically awesome style sheets) is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS). SassScript is the scripting language itself.",
-      firstAppeared: "2006-01-01",
-      extensions: [".sass", ".scss"],
+      keywords: ["sass"],
       websites: [
-        { href: "https://sass-lang.com/", title: "sass-lang.com", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Sass_(style_sheet_language)", title: "Sass", kind: "wikipedia" },
+        { title: "Sass", href: "https://sass-lang.com/", kind: "homepage" },
+        { title: "Sass", href: "https://en.wikipedia.org/wiki/Sass_(style_sheet_language)", kind: "wikipedia" },
       ],
-      releases: [{ version: "1.75.0", date: "2024-01-01" }],
+      extensions: [".sass", ".scss"],
+      firstAppeared: "2006-01-01",
+      isTranspiler: true,
+      isMainstream: true,
+      releases: [{ version: "1.75.0", name: "Sass 1.75.0", date: "2024-01-01" }],
     })
+    .addInfluencedBy(["pl+css"])
     .addLicenses(["license+mit"])
+    .addParadigms(["paradigm+dsl"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+interpreter", "tag+scripting"])
-    .addTypeSystems(["tsys+dynamic"]);
+    .addTags(["tag+automation", "tag+scripting"])
+    .addTypeSystems(["tsys+dynamic"])
+    .addWrittenIn(["pl+ruby"]);
 }

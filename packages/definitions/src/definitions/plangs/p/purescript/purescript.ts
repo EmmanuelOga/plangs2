@@ -5,18 +5,23 @@ export function define(g: PlangsGraph) {
     .set("pl+purescript", {
       name: "PureScript",
       description:
-        "PureScript is a strongly-typed, purely-functional programming language that transpiles to JavaScript, C++11, Erlang, and Go. It can be used to develop web applications, server side apps, and also desktop applications with use of Electron or via C++11 and Go compilers with suitable libraries. Its syntax is mostly comparable to that of Haskell. In addition, it introduces row polymorphism and extensible records. Also, contrary to Haskell, the PureScript language is defined as having a strict evaluation strategy, although there are non-conforming back ends which implement a lazy evaluation strategy.",
-      firstAppeared: "2013-01-01",
-      extensions: [".purs"],
+        "PureScript is a strongly-typed, purely-functional programming language that transpiles to JavaScript, C++11, Erlang, and Go. It can be used to develop web applications, server-side apps, and also desktop applications with the use of Electron or via C++11 and Go compilers with suitable libraries. Its syntax is mostly comparable to that of Haskell. Additionally, PureScript introduces features like row polymorphism and extensible records. Unlike Haskell, PureScript is defined with a strict evaluation strategy, although some backends offer lazy evaluation.",
+      keywords: ["purescript"],
       websites: [
-        { href: "https://www.purescript.org/", title: "www.purescript.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/PureScript", title: "PureScript", kind: "wikipedia" },
+        { title: "www.purescript.org", href: "https://www.purescript.org/", kind: "homepage" },
+        { title: "PureScript", href: "https://en.wikipedia.org/wiki/PureScript", kind: "wikipedia" },
       ],
-      releases: [{ version: "0.15.15", date: "2024-01-01" }],
+      extensions: [".purs"],
+      firstAppeared: "2013-01-01",
+      isTranspiler: true,
+      isMainstream: false,
+      releases: [{ version: "0.15.15", name: "PureScript 0.15.15", date: "2024-01-01" }],
     })
     .addInfluencedBy(["pl+haskell", "pl+javascript"])
     .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+functional"])
+    .addParadigms(["paradigm+declarative", "paradigm+functional"])
+    .addPlatforms(["plat+cross", "plat+nodejs"])
     .addTags(["tag+app", "tag+compiler", "tag+editor", "tag+interpreter"])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
+    .addWrittenIn(["pl+haskell", "pl+javascript"]);
 }

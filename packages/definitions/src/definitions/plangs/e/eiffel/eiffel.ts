@@ -5,16 +5,20 @@ export function define(g: PlangsGraph) {
     .set("pl+eiffel", {
       name: "Eiffel",
       description:
-        "Eiffel is an object-oriented programming language designed by Bertrand Meyer (an object-orientation proponent and author of Object-Oriented Software Construction) and Eiffel Software. Meyer conceived the language in 1985 with the goal of increasing the reliability of commercial software development; the first version becoming available in 1986. In 2005, Eiffel became an ISO-standardized language.",
-      firstAppeared: "1986-01-01",
-      extensions: [".e"],
+        "Eiffel is an object-oriented programming language designed by Bertrand Meyer, known for its emphasis on software reliability and design by contract method. Initially developed in 1985, Eiffel aimed to improve commercial software reliability, becoming available in 1986 and achieving ISO standardization in 2005.",
+      keywords: ["eiffel"],
       websites: [
-        { href: "http://eiffel.org/", title: "eiffel.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Eiffel_(programming_language)", title: "Eiffel", kind: "wikipedia" },
+        { title: "eiffel.org", href: "http://eiffel.org/", kind: "homepage" },
+        { title: "Eiffel", href: "https://en.wikipedia.org/wiki/Eiffel_(programming_language)", kind: "wikipedia" },
       ],
+      extensions: [".e"],
+      firstAppeared: "1986-01-01",
+      isTranspiler: false,
+      isMainstream: false,
     })
     .addInfluencedBy(["pl+ada", "pl+simula"])
-    .addParadigms(["paradigm+concurrent", "paradigm+oop"])
+    .addLicenses(["license+epl"])
+    .addParadigms(["paradigm+compiled", "paradigm+concurrent", "paradigm+oop", "paradigm+contracts"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .addTags([
       "tag+3dg",
@@ -29,5 +33,5 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
-    .addTypeSystems(["tsys+static"]);
+    .addTypeSystems(["tsys+static", "tsys+strong"]);
 }

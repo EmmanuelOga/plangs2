@@ -5,15 +5,23 @@ export function define(g: PlangsGraph) {
     .set("pl+clozure", {
       name: "Clozure CL",
       description:
-        "Clozure CL (CCL) is a Common Lisp implementation. It implements the full ANSI Common Lisp standard with several extensions (CLOS MOP, threads, CLOS conditions, CLOS streams, ...). It contains a command line development environment, an experimental integrated development environment (IDE) for Mac OS X using the Hemlock editor, and can also be used with SLIME (a Common Lisp development environment for GNU Emacs).  Clozure CL is open source and the project is hosted by Clozure Associates.",
+        "Clozure CL (CCL) is a Common Lisp implementation. It implements the full ANSI Common Lisp standard with several extensions including the Common Lisp Object System (CLOS) Metaobject Protocol (MOP), threads, CLOS conditions, and streams. It features a command line development environment, an experimental integrated development environment (IDE) for macOS with the Hemlock editor, and compatibility with SLIME, a Common Lisp environment for GNU Emacs. Clozure CL is open-source and is managed by Clozure Associates.",
+      keywords: ["common lisp", "ccl", "clozure"],
       websites: [
-        { href: "http://ccl.clozure.com/", title: "ccl.clozure.com", kind: "other" },
-        { href: "https://en.wikipedia.org/wiki/Clozure_CL", title: "Clozure CL", kind: "wikipedia" },
+        { title: "ccl.clozure.com", href: "http://ccl.clozure.com/", kind: "other" },
+        { title: "Clozure CL", href: "https://en.wikipedia.org/wiki/Clozure_CL", kind: "wikipedia" },
       ],
-      releases: [{ version: "1.12.2", date: "2023-01-01" }],
+      extensions: [".lisp", ".cl"],
+      firstAppeared: "2000-01-01",
+      isTranspiler: false,
+      isMainstream: false,
+      releases: [{ version: "1.12.2", name: "Clozure CL 1.12.2", date: "2023-01-01" }],
     })
     .addImplements(["pl+common-lisp"])
     .addLicenses(["license+apache", "license+lgpl"])
-    .addPlatforms(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+compiler", "tag+editor"]);
+    .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+oop"])
+    .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .addTags(["tag+compiler", "tag+editor"])
+    .addTypeSystems(["tsys+dynamic"])
+    .addWrittenIn(["pl+c"]);
 }

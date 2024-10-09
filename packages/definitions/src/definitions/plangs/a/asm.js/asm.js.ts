@@ -6,12 +6,19 @@ export function define(g: PlangsGraph) {
       name: "asm.js",
       description:
         "asm.js is a subset of JavaScript designed to allow computer software written in languages such as C to be run as web applications while maintaining performance characteristics considerably better than standard JavaScript, which is the typical language used for such applications.",
-      firstAppeared: "2013-01-01",
+      keywords: ["asm.js"],
       websites: [
-        { href: "http://asmjs.org/", title: "asmjs.org", kind: "other" },
-        { href: "https://en.wikipedia.org/wiki/Asm.js", title: "asm.js", kind: "wikipedia" },
+        { title: "asmjs.org", href: "http://asmjs.org/", kind: "homepage" },
+        { title: "asm.js", href: "https://en.wikipedia.org/wiki/Asm.js", kind: "wikipedia" },
       ],
+      firstAppeared: "2013-01-01",
+      isTranspiler: false,
+      isMainstream: false,
     })
     .addInfluencedBy(["pl+javascript"])
-    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+games", "tag+interpreter"]);
+    .addParadigms(["paradigm+compiled", "paradigm+dsl"])
+    .addPlatforms(["plat+cross", "plat+wasm"])
+    .addTags(["tag+asm"])
+    .addTypeSystems(["tsys+untyped"])
+    .addWrittenIn(["pl+javascript"]);
 }

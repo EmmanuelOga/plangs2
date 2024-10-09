@@ -6,15 +6,22 @@ export function define(g: PlangsGraph) {
       name: "Clang",
       description:
         "Clang (/ˈklæŋ/) is a compiler front end for the C, C++, Objective-C, and Objective-C++ programming languages, as well as the OpenMP, OpenCL, RenderScript, CUDA, SYCL, and HIP frameworks. It acts as a drop-in replacement for the GNU Compiler Collection (GCC), supporting most of its compilation flags and unofficial language extensions. It includes a static analyzer, and several code analysis tools.",
+      keywords: ["clang"],
       websites: [
-        { href: "https://clang.llvm.org/", title: "clang.llvm.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Clang", title: "Clang", kind: "wikipedia" },
+        { title: "clang.llvm.org", href: "https://clang.llvm.org/", kind: "homepage" },
+        { title: "Clang", href: "https://en.wikipedia.org/wiki/Clang", kind: "wikipedia" },
       ],
-      releases: [{ version: "18.1.8", date: "2024-01-01" }],
+      firstAppeared: "2007-07-01",
+      isTranspiler: false,
+      isMainstream: true,
+      releases: [{ version: "18.1.8", name: "Clang 18.1.8", date: "2024-01-01" }],
     })
     .addImplements(["pl+c", "pl+c++"])
+    .addInfluencedBy(["pl+gcc", "pl+llvm"])
     .addLicenses(["license+apache"])
-    .addPlatforms(["plat+arm", "plat+x86-64"])
+    .addParadigms(["paradigm+compiled"])
+    .addPlatforms(["plat+apple", "plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+windows", "plat+x86-64"])
     .addTags(["tag+analysis", "tag+automation", "tag+cli", "tag+compiler", "tag+ray-tracer", "tag+shell", "tag+viz"])
+    .addTypeSystems(["tsys+manifest", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c++"]);
 }

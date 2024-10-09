@@ -3,30 +3,29 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.nodes.pl
     .set("pl+gdscript", {
-      name: "Godot Engine",
+      name: "GDScript",
       description:
-        "Godot (/ˈɡɒdoʊ/) is a cross-platform, free and open-source game engine released under the permissive MIT license. It was initially developed in Buenos Aires by Argentine software developers Juan Linietsky and Ariel Manzur for several companies in Latin America prior to its public release in 2014. The development environment runs on many platforms, and can export to several more. It is designed to create both 2D and 3D games targeting PC, mobile, and web platforms and can also be used to develop non-game software, including editors.",
+        "GDScript is a high-level, dynamically typed programming language used to create content within the Godot Engine. It is influenced by Python and designed specifically for ease of use within game development. It is lightweight yet expressive, offering flexibility particularly for rapid prototyping and development within the Godot ecosystem.",
+      keywords: ["gdscript", "godot engine"],
       websites: [
-        { href: "https://godotengine.org/", title: "godotengine.org", kind: "other" },
-        { href: "https://en.wikipedia.org/wiki/GDScript", title: "Godot Engine", kind: "wikipedia" },
+        { title: "godotengine.org", href: "https://godotengine.org/", kind: "homepage" },
+        { title: "Godot Engine - Wikipedia", href: "https://en.wikipedia.org/wiki/GDScript", kind: "wikipedia" },
       ],
-      releases: [{ version: "4.3", date: "2024-01-01" }],
+      extensions: [".gd"],
+      firstAppeared: "2014-01-01",
+      images: [{ kind: "logo", title: "Godot Engine", url: "https://godotengine.org/assets/logo.svg", width: 512, height: 512 }],
+      isTranspiler: false,
+      isMainstream: true,
+      releases: [
+        { version: "3.2", name: "GDScript 3.2", date: "2020-01-29" },
+        { version: "4.0", name: "GDScript 4.0", date: "2023-01-23" },
+      ],
     })
     .addInfluencedBy(["pl+python"])
     .addLicenses(["license+mit"])
-    .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
-    .addTags([
-      "tag+3dg",
-      "tag+audio-dev",
-      "tag+dbms",
-      "tag+editor",
-      "tag+games",
-      "tag+industrial",
-      "tag+interpreter",
-      "tag+ray-tracer",
-      "tag+scripting",
-      "tag+testing",
-      "tag+ui",
-    ])
+    .addParadigms(["paradigm+imperative", "paradigm+oop", "paradigm+scripting"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .addTags(["tag+3dg", "tag+audio-dev", "tag+games", "tag+scripting", "tag+ui"])
+    .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+c++"]);
 }

@@ -90,6 +90,14 @@ export function define(g: PlangsGraph) {
     websites: [wikipedia("https://en.wikipedia.org/wiki/WebAssembly", "WebAssembly")],
   });
 
+  g.nodes.plat.set("plat+web", {
+    name: "WebAssembly",
+    keywords: ["web"],
+    description:
+      "The World Wide Web (WWW) is an information space where documents and other web resources are identified by URLs, interlinked by hypertext links.",
+    websites: [wikipedia("https://en.wikipedia.org/wiki/World_Wide_Web", "World Wide Web")],
+  });
+
   g.nodes.plat.set("plat+dos", {
     name: "DOS",
     keywords: ["dos", "ms-dos", "pc-dos"],

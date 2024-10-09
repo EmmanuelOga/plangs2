@@ -52,6 +52,22 @@ export function define(g: PlangsGraph) {
     websites: [wikipedia("https://en.wikipedia.org/wiki/Multi-paradigm_programming_language", "Multi-paradigm Programming")],
   });
 
+  g.nodes.paradigm.set("paradigm+bidirectional", {
+    name: "Bidirectional Programming",
+    keywords: ["bi-directional", "bidirectional"],
+    description:
+      "Programs in which a single piece of code can be run in several ways, such that the same data are sometimes considered as input, and sometimes as output.",
+    websites: [wikipedia("https://en.wikipedia.org/wiki/Bidirectional_transformation", "Bidirectional Programming")],
+  });
+
+  g.nodes.paradigm.set("paradigm+contracts", {
+    name: "Design by Contract",
+    keywords: ["dbc", "design by contract", "contracts"],
+    description:
+      "Design by Contract is a software design approach that uses contracts to define the obligations and guarantees of software components.",
+    websites: [wikipedia("https://en.wikipedia.org/wiki/Design_by_contract", "Design by contract")],
+  });
+
   g.nodes.paradigm.set("paradigm+compiled", {
     name: "Compiled Language",
     keywords: ["compiled", "compilation", "compiler"],

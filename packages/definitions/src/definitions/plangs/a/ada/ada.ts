@@ -8,13 +8,18 @@ export function define(g: PlangsGraph) {
         "Ada is a structured, statically typed, imperative, and object-oriented high-level programming language, inspired by Pascal and other languages. It has built-in language support for design by contract (DbC), extremely strong typing, explicit concurrency, tasks, synchronous message passing, protected objects, and non-determinism. Ada improves code safety and maintainability by using the compiler to find errors in favor of runtime errors. Ada is an international technical standard, jointly defined by the International Organization for Standardization (ISO), and the International Electrotechnical Commission (IEC). As of May 2023, the standard, called Ada 2022 informally, is ISO/IEC 8652:2023.",
       firstAppeared: "1980-01-01",
       extensions: [".adb", ".ads"],
+      keywords: ["ada", "pascal", "object-oriented", "concurrency"],
       websites: [
-        { href: "https://www.adaic.org/", title: "www.adaic.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Ada_programming_language", title: "Ada", kind: "wikipedia" },
+        { title: "www.adaic.org", href: "https://www.adaic.org/", kind: "homepage" },
+        { title: "Ada", href: "https://en.wikipedia.org/wiki/Ada_programming_language", kind: "wikipedia" },
       ],
+      isTranspiler: false,
+      isMainstream: true,
+      releases: [{ version: "ISO/IEC 8652:2023", name: "Ada 2022", date: "2023-05-01" }],
     })
     .addDialectOf(["pl+pascal"])
     .addInfluencedBy(["pl+c++", "pl+clu", "pl+eiffel", "pl+pascal"])
+    .addLicenses(["license+gnu-gpl"])
     .addParadigms([
       "paradigm+array",
       "paradigm+aspect",

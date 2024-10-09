@@ -6,13 +6,16 @@ export function define(g: PlangsGraph) {
       name: "C#",
       description:
         "C# (/ˌsiː ˈʃɑːrp/ see SHARP) is a general-purpose high-level programming language supporting multiple paradigms. C# encompasses static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented (class-based), and component-oriented programming disciplines.",
-      firstAppeared: "2000-01-01",
-      extensions: [".cs", ".csx"],
+      keywords: ["c-sharp", "csharp"],
       websites: [
-        { href: "https://learn.microsoft.com/en-us/dotnet/csharp/", title: "learn.microsoft.com/en-us/dotnet/csharp/", kind: "other" },
-        { href: "https://en.wikipedia.org/wiki/C%EF%BC%83_(programming_language)", title: "C#", kind: "wikipedia" },
+        { title: "learn.microsoft.com/en-us/dotnet/csharp/", href: "https://learn.microsoft.com/en-us/dotnet/csharp/", kind: "other" },
+        { title: "C#", href: "https://en.wikipedia.org/wiki/C%EF%BC%83_(programming_language)", kind: "wikipedia" },
       ],
-      releases: [{ version: "12.0", date: "2023-01-01" }],
+      extensions: [".cs", ".csx"],
+      firstAppeared: "2000-01-01",
+      isTranspiler: false,
+      isMainstream: true,
+      releases: [{ version: "12.0", name: "C# 12", date: "2023-01-01" }],
     })
     .addDialectOf(["pl+c"])
     .addInfluencedBy([
@@ -40,6 +43,7 @@ export function define(g: PlangsGraph) {
       "paradigm+reflective",
       "paradigm+structured",
     ])
+    .addPlatforms(["plat+.net", "plat+cross"])
     .addTags([
       "tag+app",
       "tag+cli",

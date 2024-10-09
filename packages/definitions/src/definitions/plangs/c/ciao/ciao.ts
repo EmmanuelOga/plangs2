@@ -6,16 +6,23 @@ export function define(g: PlangsGraph) {
       name: "Ciao",
       description:
         "Ciao is a general-purpose programming language which supports logic, constraint, functional, higher-order, and object-oriented programming styles. Its main design objectives are high expressive power, extensibility, safety, reliability, and efficient execution.",
-      firstAppeared: "1984-01-01",
+      keywords: ["ciao", "logic", "programming"],
       websites: [
-        { href: "http://www.ciao-lang.org/", title: "www.ciao-lang.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Ciao_(programming_language)", title: "Ciao", kind: "wikipedia" },
+        { title: "www.ciao-lang.org", href: "http://www.ciao-lang.org/", kind: "homepage" },
+        { title: "Ciao", href: "https://en.wikipedia.org/wiki/Ciao_(programming_language)", kind: "wikipedia" },
       ],
+      extensions: [".pl", ".ciao"],
+      firstAppeared: "1999-01-01",
+      images: [{ kind: "logo", title: "Ciao", url: "https://www.ciao-lang.org/icons/ciao.png", width: 512, height: 512 }],
+      isTranspiler: false,
+      isMainstream: false,
+      releases: [{ version: "v1.20", name: "Ciao v1.20", date: "2022-06-01" }],
     })
     .addImplements(["pl+prolog"])
-    .addInfluencedBy(["pl+prolog"])
+    .addInfluencedBy(["pl+prolog", "pl+scheme"])
     .addLicenses(["license+gnu-gpl", "license+lgpl"])
     .addParadigms(["paradigm+functional", "paradigm+logic", "paradigm+modular", "paradigm+oop"])
-    .addPlatforms(["plat+cross", "plat+windows"])
-    .addTags(["tag+3dg", "tag+compiler", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+shell", "tag+viz"]);
+    .addPlatforms(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .addTags(["tag+3dg", "tag+compiler", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+shell", "tag+viz"])
+    .addTypeSystems(["tsys+dynamic", "tsys+inferred", "tsys+static"]);
 }

@@ -5,13 +5,20 @@ export function define(g: PlangsGraph) {
     .set("pl+max-msp", {
       name: "Max",
       description:
-        "Max, also known as Max/MSP/Jitter, is a visual programming language for music and multimedia developed and maintained by San Francisco-based software company Cycling '74. Over its more than thirty-year history, it has been used by composers, performers, software designers, researchers, and artists to create recordings, performances, and installations.",
+        "Max, also known as Max/MSP/Jitter, is a visual programming language for music and multimedia developed and maintained by San Francisco-based software company Cycling '74. It allows users to create interactive sound, graphics, and media applications through a modular and flexible visual interface.",
+      keywords: ["max msp", "maxmsp"],
       websites: [
-        { href: "https://cycling74.com/products/max/", title: "cycling74.com/products/max/", kind: "other" },
-        { href: "https://en.wikipedia.org/wiki/Max/MSP", title: "Max", kind: "wikipedia" },
+        { title: "cycling74.com/products/max/", href: "https://cycling74.com/products/max/", kind: "other" },
+        { title: "Max", href: "https://en.wikipedia.org/wiki/Max/MSP", kind: "wikipedia" },
       ],
-      releases: [{ version: "8.6.2", date: "2024-01-01" }],
+      extensions: [".maxpat", ".mxb", ".mxt"],
+      firstAppeared: "1988-01-01",
+      images: [{ kind: "logo", title: "Max", url: "https://cycling74.com/content/images/max-hero-msp@2x.png", width: 1024, height: 512 }],
+      isTranspiler: false,
+      isMainstream: false,
+      releases: [{ version: "8.6.2", name: "Max 8.6.2", date: "2024-01-01" }],
     })
+    .addParadigms(["paradigm+dataflow", "paradigm+event-driven", "paradigm+visual"])
     .addPlatforms(["plat+apple", "plat+windows"])
     .addTags([
       "tag+3dg",
@@ -30,5 +37,6 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
+    .addTypeSystems(["tsys+dynamic"])
     .addWrittenIn(["pl+c", "pl+c++"]);
 }

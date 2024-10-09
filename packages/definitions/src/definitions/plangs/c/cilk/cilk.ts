@@ -6,15 +6,20 @@ export function define(g: PlangsGraph) {
       name: "Cilk",
       description:
         "Cilk, Cilk++, Cilk Plus and OpenCilk are general-purpose programming languages designed for multithreaded parallel computing. They are based on the C and C++ programming languages, which they extend with constructs to express parallel loops and the fork–join idiom.",
-      firstAppeared: "1994-01-01",
+      keywords: ["cilk"],
       websites: [
-        { href: "https://cilk.mit.edu/", title: "cilk.mit.edu", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Cilk", title: "Cilk", kind: "wikipedia" },
+        { title: "cilk.mit.edu", href: "https://cilk.mit.edu/", kind: "homepage" },
+        { title: "Cilk", href: "https://en.wikipedia.org/wiki/Cilk", kind: "wikipedia" },
       ],
+      extensions: [".cilk"],
+      firstAppeared: "1994-01-01",
+      isTranspiler: false,
+      isMainstream: false,
     })
     .addDialectOf(["pl+c"])
-    .addInfluencedBy(["pl+c"])
-    .addParadigms(["paradigm+concurrent", "paradigm+imperative", "paradigm+procedural", "paradigm+structured"])
-    .addTags(["tag+compiler", "tag+interpreter"])
+    .addInfluencedBy(["pl+c", "pl+c++"])
+    .addParadigms(["paradigm+concurrent", "paradigm+imperative", "paradigm+parallel", "paradigm+procedural", "paradigm+structured"])
+    .addPlatforms(["plat+cross", "plat+linux", "plat+x86-64"])
+    .addTags(["tag+compiler", "tag+parallel-computing"])
     .addTypeSystems(["tsys+manifest", "tsys+static", "tsys+weak"]);
 }

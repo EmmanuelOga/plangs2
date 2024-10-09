@@ -6,15 +6,21 @@ export function define(g: PlangsGraph) {
       name: "Dylan",
       description:
         "Dylan is a multi-paradigm programming language that includes support for functional and object-oriented programming (OOP), and is dynamic and reflective while providing a programming model designed to support generating efficient machine code, including fine-grained control over dynamic and static behaviors. It was created in the early 1990s by a group led by Apple Computer.",
-      firstAppeared: "1992-01-01",
+      keywords: ["dylan"],
       websites: [
-        { href: "https://opendylan.org/", title: "opendylan.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Dylan_(programming_language)", title: "Dylan", kind: "wikipedia" },
+        { title: "opendylan.org", href: "https://opendylan.org/", kind: "homepage" },
+        { title: "Dylan", href: "https://en.wikipedia.org/wiki/Dylan_(programming_language)", kind: "wikipedia" },
       ],
-      releases: [{ version: "2022.1", date: "2022-01-01" }],
+      firstAppeared: "1992-01-01",
+      isTranspiler: false,
+      isMainstream: false,
+      releases: [{ version: "2022.1", name: "", date: "2022-01-01" }],
     })
     .addInfluencedBy(["pl+algol", "pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme"])
+    .addLicenses(["license+mit"])
     .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+cross", "plat+x86-64"])
-    .addTags(["tag+compiler", "tag+industrial", "tag+interpreter", "tag+testing"]);
+    .addTags(["tag+compiler", "tag+industrial", "tag+interpreter", "tag+testing"])
+    .addTypeSystems(["tsys+dynamic", "tsys+static"])
+    .addWrittenIn(["pl+c"]);
 }

@@ -5,15 +5,23 @@ export function define(g: PlangsGraph) {
     .set("pl+faust", {
       name: "FAUST",
       description:
-        "FAUST (Functional AUdio STream) is a domain-specific purely functional programming language for implementing signal processing algorithms in the form of libraries, audio plug-ins, or standalone applications. A FAUST program denotes a signal processor: a mathematical function that is applied to some input signal and then fed out.",
+        "FAUST (Functional AUdio STream) is a domain-specific, purely functional programming language used for real-time signal processing and audio applications. FAUST is designed to facilitate the creation of signal processing algorithms that are directly compiled into efficient C++ code, enabling high-performance standalone applications, audio plug-ins, or even embedded software.",
+      keywords: ["faust"],
       websites: [
-        { href: "http://faust.grame.fr/", title: "faust.grame.fr", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/FAUST_(programming_language)", title: "FAUST", kind: "wikipedia" },
+        { title: "faust.grame.fr", href: "http://faust.grame.fr/", kind: "homepage" },
+        { title: "FAUST", href: "https://en.wikipedia.org/wiki/FAUST_(programming_language)", kind: "wikipedia" },
       ],
-      releases: [{ version: "2.60.3", date: "2023-01-01" }],
+      extensions: [".dsp"],
+      firstAppeared: "2002-01-01",
+      isTranspiler: true,
+      isMainstream: false,
+      releases: [{ version: "2.60.3", name: "FAUST 2.60.3", date: "2023-01-01" }],
     })
+    .addInfluencedBy(["pl+c"])
     .addLicenses(["license+gnu-gpl"])
-    .addPlatforms(["plat+linux", "plat+windows"])
+    .addParadigms(["paradigm+compiled", "paradigm+dataflow", "paradigm+declarative", "paradigm+dsl", "paradigm+functional"])
+    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+app", "tag+audio-dev", "tag+compiler", "tag+dsp", "tag+interpreter", "tag+ui", "tag+wavelet"])
+    .addTypeSystems(["tsys+manifest", "tsys+strong"])
     .addWrittenIn(["pl+c++"]);
 }

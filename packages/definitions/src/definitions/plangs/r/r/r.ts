@@ -5,16 +5,22 @@ export function define(g: PlangsGraph) {
     .set("pl+r", {
       name: "R",
       description:
-        "R is a programming language for statistical computing and data visualization. It has been adopted in the fields of data mining, bioinformatics, and data analysis.",
-      firstAppeared: "1993-01-01",
-      extensions: [".r.rdata.rhistory.rds.rda"],
+        "R is a language and environment for statistical computing and graphics. It is widely used among statisticians and data miners for data analysis and developing statistical software.",
       websites: [
-        { href: "https://www.r-project.org/", title: "www.r-project.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/R_(programming_language)", title: "R", kind: "wikipedia" },
+        { title: "R", href: "https://www.r-project.org/", kind: "homepage" },
+        { title: "R", href: "https://en.wikipedia.org/wiki/R_(programming_language)", kind: "wikipedia" },
       ],
-      releases: [{ version: "4.4.1", date: "2024-01-01" }],
+      extensions: [".r", ".rdata", ".rhistory", ".rds", ".rda"],
+      firstAppeared: "1993-08-01",
+      images: [{ kind: "logo", title: "R", url: "https://www.r-project.org/logo/Rlogo.png", width: 512, height: 512 }],
+      isTranspiler: false,
+      isMainstream: true,
+      releases: [
+        { version: "4.0.0", name: "R 4.0.0", date: "2020-04-24" },
+        { version: "4.4.1", name: "R 4.4.1", date: "2024-01-01" },
+      ],
     })
-    .addInfluencedBy(["pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme"])
+    .addInfluencedBy(["pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+s", "pl+scheme", "pl+xlispstat"])
     .addLicenses(["license+gnu-gpl"])
     .addParadigms([
       "paradigm+array",
@@ -25,21 +31,8 @@ export function define(g: PlangsGraph) {
       "paradigm+procedural",
       "paradigm+reflective",
     ])
-    .addPlatforms(["plat+arm", "plat+x86-64"])
-    .addTags([
-      "tag+3dg",
-      "tag+analysis",
-      "tag+cli",
-      "tag+dsp",
-      "tag+genomics",
-      "tag+interpreter",
-      "tag+multivar",
-      "tag+ray-tracer",
-      "tag+scripting",
-      "tag+shell",
-      "tag+stats",
-      "tag+ui",
-      "tag+viz",
-    ])
-    .addTypeSystems(["tsys+dynamic"]);
+    .addPlatforms(["plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+windows", "plat+x86-64"])
+    .addTags(["tag+analysis", "tag+cli", "tag+dataq", "tag+genomics", "tag+interpreter", "tag+multivar", "tag+scripting", "tag+stats", "tag+viz"])
+    .addTypeSystems(["tsys+dynamic", "tsys+strong"])
+    .addWrittenIn(["pl+c", "pl+fortran"]);
 }

@@ -5,14 +5,22 @@ export function define(g: PlangsGraph) {
     .set("pl+puredata", {
       name: "Pure Data",
       description:
-        "Pure Data (Pd) is a visual programming language developed by Miller Puckette in the 1990s for creating interactive computer music and multimedia works. While Puckette is the main author of the program, Pd is an open-source project with a large developer base working on new extensions. It is released under BSD-3-Clause. It runs on Linux, MacOS, iOS, Android and Windows.  Ports exist for FreeBSD and IRIX.",
+        "Pure Data (Pd) is a visual programming language developed by Miller Puckette in the 1990s for creating interactive computer music and multimedia works. While Puckette is the main author of the program, Pd is an open-source project with a large developer base working on new extensions. It is released under the BSD-3-Clause license. It runs on Linux, macOS, iOS, Android, and Windows with ports for FreeBSD and IRIX.",
+      keywords: ["puredata", "pure data"],
       websites: [
-        { href: "http://puredata.info/", title: "puredata.info", kind: "other" },
-        { href: "https://en.wikipedia.org/wiki/PureData", title: "Pure Data", kind: "wikipedia" },
+        { title: "Pure Data", href: "http://puredata.info/", kind: "other" },
+        { title: "Pure Data", href: "https://en.wikipedia.org/wiki/PureData", kind: "wikipedia" },
       ],
-      releases: [{ version: "0.53", date: "2023-01-01" }],
+      extensions: [".pd"],
+      firstAppeared: "1996-01-01",
+      isTranspiler: false,
+      isMainstream: true,
+      releases: [{ version: "0.53", name: "Pd 0.53", date: "2023-01-01" }],
     })
+    .addInfluencedBy(["pl+max"])
     .addLicenses(["license+bsd"])
+    .addParadigms(["paradigm+concurrent", "paradigm+dataflow", "paradigm+event-driven", "paradigm+visual"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .addTags([
       "tag+audio-dev",
       "tag+dataflow",
@@ -27,5 +35,7 @@ export function define(g: PlangsGraph) {
       "tag+ui",
       "tag+video",
       "tag+wavelet",
-    ]);
+    ])
+    .addTypeSystems(["tsys+untyped"])
+    .addWrittenIn(["pl+c"]);
 }

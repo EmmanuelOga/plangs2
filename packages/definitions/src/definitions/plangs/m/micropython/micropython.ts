@@ -5,16 +5,24 @@ export function define(g: PlangsGraph) {
     .set("pl+micropython", {
       name: "MicroPython",
       description:
-        "MicroPython is a software implementation of a programming language largely compatible with Python 3, written in C, that is optimized to run on a microcontroller.",
+        "MicroPython is a lean and efficient implementation of the Python 3 programming language, encompassing a small subset of the standard library optimized to run on microcontrollers and embedded systems.",
+      keywords: ["micropython", "micro python"],
       websites: [
-        { href: "https://micropython.org/", title: "micropython.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/MicroPython", title: "MicroPython", kind: "wikipedia" },
+        { title: "MicroPython Official Site", href: "https://micropython.org/", kind: "homepage" },
+        { title: "MicroPython - Wikipedia", href: "https://en.wikipedia.org/wiki/MicroPython", kind: "wikipedia" },
       ],
-      releases: [{ version: "1.23.0", date: "2024-01-01" }],
+      extensions: [".py"],
+      firstAppeared: "2013-04-01",
+      isTranspiler: false,
+      isMainstream: false,
+      releases: [{ version: "1.23.0", name: "MicroPython 1.23.0", date: "2024-01-01" }],
     })
     .addImplements(["pl+python"])
+    .addInfluencedBy(["pl+python"])
     .addLicenses(["license+mit"])
-    .addPlatforms(["plat+esp32", "plat+nodejs", "plat+windows"])
-    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+editor", "tag+embedded", "tag+interpreter", "tag+testing"])
+    .addParadigms(["paradigm+embedded", "paradigm+interpreted", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
+    .addPlatforms(["plat+arduino", "plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry"])
+    .addTags(["tag+app", "tag+embedded", "tag+interpreter", "tag+iot", "tag+scripting", "tag+testing"])
+    .addTypeSystems(["tsys+duck", "tsys+dynamic"])
     .addWrittenIn(["pl+c"]);
 }

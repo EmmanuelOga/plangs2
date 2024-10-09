@@ -6,16 +6,29 @@ export function define(g: PlangsGraph) {
       name: "Prolog",
       description:
         "Prolog is a logic programming language that has its origins in artificial intelligence, automated theorem proving and computational linguistics.",
-      firstAppeared: "1972-01-01",
-      extensions: [".P", ".pl", ".pro"],
+      keywords: ["prolog"],
       websites: [
-        { href: "https://www.iso.org/standard/21413.html", title: "www.iso.org/standard/21413.html", kind: "other" },
-        { href: "https://www.iso.org/standard/20775.html", title: "www.iso.org/standard/20775.html", kind: "other" },
-        { href: "https://en.wikipedia.org/wiki/Prolog", title: "Prolog", kind: "wikipedia" },
+        { title: "ISO Prolog - Part 1 and Part 2", href: "https://www.iso.org/standard/21413.html", kind: "other" },
+        { title: "ISO Prolog - Information technology", href: "https://www.iso.org/standard/20775.html", kind: "other" },
+        { title: "Prolog", href: "https://en.wikipedia.org/wiki/Prolog", kind: "wikipedia" },
       ],
+      extensions: [".P", ".pl", ".pro"],
+      firstAppeared: "1972-01-01",
+      images: [
+        {
+          kind: "logo",
+          title: "Prolog Logo",
+          url: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Atoms_in_Prolog.JPG",
+          width: 512,
+          height: 512,
+        },
+      ],
+      isTranspiler: false,
+      isMainstream: true,
     })
     .addImplements(["pl+curry"])
     .addParadigms(["paradigm+logic"])
+    .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
     .addTags([
       "tag+analysis",
       "tag+app",
@@ -32,5 +45,6 @@ export function define(g: PlangsGraph) {
       "tag+uml",
       "tag+viz",
       "tag+wavelet",
-    ]);
+    ])
+    .addTypeSystems(["tsys+untyped"]);
 }

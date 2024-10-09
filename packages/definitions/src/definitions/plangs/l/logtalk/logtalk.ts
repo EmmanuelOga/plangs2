@@ -6,12 +6,15 @@ export function define(g: PlangsGraph) {
       name: "Logtalk",
       description:
         "Logtalk is an object-oriented logic programming language that extends and leverages the Prolog language with a feature set suitable for programming in the large. It provides support for encapsulation and data hiding, separation of concerns and enhanced code reuse. Logtalk uses standard Prolog syntax with the addition of a few operators and directives.",
-      firstAppeared: "1998-01-01",
+      keywords: ["logtalk"],
       websites: [
-        { href: "https://logtalk.org/", title: "logtalk.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Logtalk", title: "Logtalk", kind: "wikipedia" },
+        { title: "logtalk.org", href: "https://logtalk.org/", kind: "homepage" },
+        { title: "Logtalk", href: "https://en.wikipedia.org/wiki/Logtalk", kind: "wikipedia" },
       ],
-      releases: [{ version: "3.66.0", date: "2023-01-01" }],
+      firstAppeared: "1998-01-01",
+      isTranspiler: false,
+      isMainstream: false,
+      releases: [{ version: "3.66.0", name: "", date: "2023-01-01" }],
     })
     .addInfluencedBy(["pl+prolog"])
     .addLicenses(["license+apache", "license+artistic"])

@@ -5,13 +5,16 @@ export function define(g: PlangsGraph) {
     .set("pl+rebol", {
       name: "Rebol",
       description:
-        "Rebol (/ˈrɛbəl/ REB-əl; historically REBOL) is a cross-platform data exchange language and a multi-paradigm dynamic programming language designed by Carl Sassenrath for network communications and distributed computing.  It introduces the concept of dialecting: small, optimized, domain-specific languages for code and data, which is also the most notable property of the language according to its designer Carl Sassenrath:",
-      firstAppeared: "1997-01-01",
-      extensions: [".r", ".reb"],
+        "Rebol (/ˈrɛbəl/ REB-əl; historically REBOL) is a cross-platform data exchange language and a multi-paradigm dynamic programming language designed by Carl Sassenrath for network communications and distributed computing. It introduces the concept of dialecting: small, optimized, domain-specific languages for code and data, which is also the most notable property of the language according to its designer Carl Sassenrath.",
+      keywords: ["rebol"],
       websites: [
-        { href: "http://www.rebol.com/", title: "www.rebol.com", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Rebol", title: "Rebol", kind: "wikipedia" },
+        { title: "Rebol", href: "http://www.rebol.com/", kind: "homepage" },
+        { title: "Rebol", href: "https://en.wikipedia.org/wiki/Rebol", kind: "wikipedia" },
       ],
+      extensions: [".r", ".reb"],
+      firstAppeared: "1997-01-01",
+      isTranspiler: false,
+      isMainstream: false,
       releases: [
         { version: "2.7.8", date: "2011-01-01" },
         { version: "2.101.0", date: "2012-01-01" },

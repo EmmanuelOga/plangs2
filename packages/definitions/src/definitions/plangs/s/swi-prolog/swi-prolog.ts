@@ -5,19 +5,27 @@ export function define(g: PlangsGraph) {
     .set("pl+swi-prolog", {
       name: "SWI-Prolog",
       description:
-        "SWI-Prolog is a free implementation of the programming language Prolog, commonly used for teaching and semantic web applications. It has a rich set of features, libraries for constraint logic programming, multithreading, unit testing, GUI, interfacing to Java, ODBC and others, literate programming, a web server, SGML, RDF, RDFS, developer tools (including an IDE with a GUI debugger and GUI profiler), and extensive documentation.",
+        "SWI-Prolog is a versatile and open-source implementation of the Prolog programming language, designed with a rich set of libraries and features for teaching, semantic web applications, and more. It supports constraint logic programming, multithreading, unit testing, and has various interfaces for Java, ODBC, GUI development, web services, and more. It includes tools like an IDE with a GUI debugger and profiler.",
+      keywords: ["swi-prolog", "prolog", "semantic web", "logic programming", "constraint logic programming"],
       websites: [
-        { href: "http://swi-prolog.org/", title: "swi-prolog.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/SWI-Prolog", title: "SWI-Prolog", kind: "wikipedia" },
+        { title: "SWI-Prolog", href: "http://swi-prolog.org/", kind: "homepage" },
+        { title: "SWI-Prolog", href: "https://en.wikipedia.org/wiki/SWI-Prolog", kind: "wikipedia" },
       ],
+      extensions: [".pl", ".pro"],
+      firstAppeared: "1987-01-01",
+      isTranspiler: false,
+      isMainstream: true,
       releases: [
-        { version: "9.2.2", date: "2024-01-01" },
-        { version: "9.3.2", date: "2024-01-01" },
+        { version: "9.2.2", name: "SWI-Prolog 9.2.2", date: "2024-01-01" },
+        { version: "9.3.2", name: "SWI-Prolog 9.3.2", date: "2024-01-01" },
       ],
     })
     .addImplements(["pl+prolog"])
+    .addInfluencedBy(["pl+prolog"])
     .addLicenses(["license+bsd", "license+lgpl"])
-    .addPlatforms(["plat+cross"])
+    .addParadigms(["paradigm+concurrent", "paradigm+constraint", "paradigm+declarative", "paradigm+logic"])
+    .addPlatforms(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreter", "tag+testing", "tag+ui", "tag+viz"])
-    .addWrittenIn(["pl+c", "pl+prolog"]);
+    .addTypeSystems(["tsys+untyped"])
+    .addWrittenIn(["pl+c"]);
 }

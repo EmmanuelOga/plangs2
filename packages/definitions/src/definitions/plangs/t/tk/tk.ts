@@ -6,14 +6,21 @@ export function define(g: PlangsGraph) {
       name: "Tk",
       description:
         "Tk is a cross-platform widget toolkit that provides a library of basic elements of GUI widgets for building a graphical user interface (GUI) in many programming languages. It is free and open-source software released under a BSD-style software license.",
+      keywords: ["tk", "tcl", "tcl tk", "tcl/tk", "tkinter"],
       websites: [
-        { href: "http://www.tcl.tk/", title: "tcl.tk", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/Tk_(software)", title: "Tk", kind: "wikipedia" },
+        { title: "tcl.tk", href: "http://www.tcl.tk/", kind: "homepage" },
+        { title: "Tk", href: "https://en.wikipedia.org/wiki/Tk_(software)", kind: "wikipedia" },
       ],
-      releases: [{ version: "8.6.13", date: "2022-01-01" }],
+      firstAppeared: "1991-01-01",
+      isTranspiler: false,
+      isMainstream: true,
+      releases: [{ version: "8.6.13", name: "Tk 8.6.13", date: "2022-01-01" }],
     })
+    .addInfluencedBy(["pl+tcl"])
     .addLicenses(["license+bsd"])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+3dg", "tag+app", "tag+framework", "tag+interpreter", "tag+scripting", "tag+shell", "tag+ui"])
+    .addParadigms(["paradigm+event-driven", "paradigm+scripting"])
+    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .addTags(["tag+app", "tag+framework", "tag+scripting", "tag+ui"])
+    .addTypeSystems(["tsys+untyped"])
     .addWrittenIn(["pl+c"]);
 }

@@ -5,19 +5,27 @@ export function define(g: PlangsGraph) {
     .set("pl+ironpython", {
       name: "IronPython",
       description:
-        "IronPython is an implementation of the Python programming language targeting the .NET and Mono frameworks. The project is currently maintained by a group of volunteers at GitHub. It is free and open-source software, and can be implemented with Python Tools for Visual Studio, which is a free and open-source extension for Microsoft's Visual Studio IDE.",
+        "IronPython is an implementation of the Python programming language targeting the .NET and Mono frameworks. It is integrated with the .NET Framework and is well-suited for embedding into applications written in .NET languages. The project is maintained by a group of volunteers on GitHub and is open-source software.",
+      keywords: ["ironpython", "python", ".net", "mono"],
       websites: [
-        { href: "https://ironpython.net/", title: "ironpython.net", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/IronPython", title: "IronPython", kind: "wikipedia" },
+        { title: "ironpython.net", href: "https://ironpython.net/", kind: "homepage" },
+        { title: "IronPython", href: "https://en.wikipedia.org/wiki/IronPython", kind: "wikipedia" },
       ],
+      extensions: [".py", ".pyi"],
+      firstAppeared: "2006-01-01",
+      isTranspiler: false,
+      isMainstream: false,
       releases: [
-        { version: "3.4.1", date: "2023-01-01" },
-        { version: "3.4.0", date: "2022-01-01" },
+        { version: "3.4.1", name: "3.4.1", date: "2023-01-01" },
+        { version: "3.4.0", name: "3.4.0", date: "2022-01-01" },
       ],
     })
     .addImplements(["pl+python"])
+    .addInfluencedBy(["pl+.net", "pl+c-sharp"])
     .addLicenses(["license+apache"])
-    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
+    .addParadigms(["paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
+    .addPlatforms(["plat+.net", "plat+apple", "plat+linux", "plat+windows"])
     .addTags(["tag+app", "tag+cli", "tag+compiler", "tag+framework", "tag+interpreter", "tag+scripting", "tag+shell"])
+    .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+c-sharp"]);
 }

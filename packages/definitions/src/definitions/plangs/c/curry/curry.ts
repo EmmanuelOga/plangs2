@@ -6,20 +6,20 @@ export function define(g: PlangsGraph) {
       name: "Curry",
       description:
         "Curry is a declarative programming language, an implementation of the functional logic programming paradigm, and based on the Haskell language. It merges elements of functional and logic programming, including constraint programming integration.",
-      firstAppeared: "1995-01-01",
+      keywords: ["curry"],
       websites: [
-        {
-          href: "http://curry.pages.ps.informatik.uni-kiel.de/curry-lang.org",
-          title: "curry.pages.ps.informatik.uni-kiel.de/curry-lang.org",
-          kind: "homepage",
-        },
-        { href: "https://en.wikipedia.org/wiki/Curry_(programming_language)", title: "Curry", kind: "wikipedia" },
+        { title: "Curry Language", href: "http://curry.pages.ps.informatik.uni-kiel.de/curry-lang.org", kind: "homepage" },
+        { title: "Curry", href: "https://en.wikipedia.org/wiki/Curry_(programming_language)", kind: "wikipedia" },
       ],
-      releases: [{ version: "3.6.0", date: "2023-01-01" }],
+      extensions: [".curry"],
+      firstAppeared: "1995-01-01",
+      isTranspiler: false,
+      isMainstream: false,
+      releases: [{ version: "3.6.0", name: "Curry 3.6.0", date: "2023-01-01" }],
     })
     .addInfluencedBy(["pl+haskell", "pl+prolog"])
     .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+functional", "paradigm+logic"])
+    .addParadigms(["paradigm+constraint", "paradigm+functional", "paradigm+logic"])
     .addPlatforms(["plat+cross", "plat+linux", "plat+x86-64"])
     .addTags(["tag+audio-dev", "tag+interpreter", "tag+testing"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);

@@ -3,31 +3,24 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.nodes.pl
     .set("pl+javascriptcore", {
-      name: "WebKit",
+      name: "JavaScriptCore",
       description:
-        "WebKit is a browser engine primarily used in Apple's Safari web browser, as well as all web browsers on iOS and iPadOS. WebKit is also used by the PlayStation consoles starting with the PS3, the Tizen mobile operating systems, the Amazon Kindle e-book reader, Nintendo consoles starting with the 3DS Internet Browser, and the discontinued BlackBerry Browser.",
+        "JavaScriptCore, also known as SquirrelFish, is a JavaScript engine developed as part of the WebKit project. It is widely known for being used in the Safari web browser and provides a robust implementation of the ECMAScript standards.",
+      keywords: ["javascriptcore", "webkit", "js engine"],
       websites: [
-        { href: "http://webkit.org/", title: "webkit.org", kind: "homepage" },
-        { href: "https://en.wikipedia.org/wiki/JavaScriptCore", title: "WebKit", kind: "wikipedia" },
+        { title: "webkit.org", href: "http://webkit.org/", kind: "homepage" },
+        { title: "JavaScriptCore", href: "https://en.wikipedia.org/wiki/JavaScriptCore", kind: "wikipedia" },
       ],
+      firstAppeared: "2007-09-01",
+      isTranspiler: false,
+      isMainstream: false,
     })
     .addImplements(["pl+javascript"])
+    .addInfluencedBy(["pl+javascript"])
     .addLicenses(["license+bsd"])
-    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
-    .addTags([
-      "tag+3dg",
-      "tag+app",
-      "tag+compiler",
-      "tag+dbms",
-      "tag+framework",
-      "tag+industrial",
-      "tag+interpreter",
-      "tag+low-code",
-      "tag+ray-tracer",
-      "tag+scripting",
-      "tag+shell",
-      "tag+ui",
-      "tag+viz",
-    ])
+    .addParadigms(["paradigm+interpreted", "paradigm+oop", "paradigm+scripting"])
+    .addPlatforms(["plat+apple", "plat+arm", "plat+linux", "plat+windows"])
+    .addTags(["tag+interpreter", "tag+low-code", "tag+scripting", "tag+ui"])
+    .addTypeSystems(["tsys+dynamic", "tsys+weak"])
     .addWrittenIn(["pl+c++"]);
 }

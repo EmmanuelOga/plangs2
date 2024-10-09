@@ -14,15 +14,24 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".cts", ".mts", ".ts", ".tsx"],
       firstAppeared: "2012-10-01",
+      images: [
+        {
+          kind: "logo",
+          title: "TypeScript Logo",
+          url: "https://www.typescriptlang.org/assets/images/icons/favicon-512x512.png",
+          width: 512,
+          height: 512,
+        },
+      ],
       isTranspiler: true,
       isMainstream: true,
       releases: [{ version: "5.2", name: "TypeScript 5.2", date: "2023-08-01" }],
     })
-    .addInfluencedBy(["pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+javascript", "pl+java"])
-    .addLicenses(["license+apache-2.0"])
+    .addInfluencedBy(["pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+java", "pl+javascript"])
+    .addLicenses(["license+apache"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+web"])
-    .addTypeSystems(["tsys+duck", "tsys+gradual", "tsys+structural", "tsys+optional", "tsys+strong"])
-    .addWrittenIn(["pl+javascript", "pl+typescript"]);
+    .addPlatforms(["plat+cross", "plat+nodejs"])
+    .addTags(["tag+compiler", "tag+framework", "tag+scripting", "tag+web"])
+    .addTypeSystems(["tsys+duck", "tsys+gradual", "tsys+optional", "tsys+strong", "tsys+structural"])
+    .addWrittenIn(["pl+javascript"]);
 }
