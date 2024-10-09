@@ -752,7 +752,7 @@
           { "version": "2.0", "name": "ActionScript 2.0", "date": "2003-01-01" },
           { "version": "3.0", "name": "ActionScript 3.0", "date": "2006-01-01" }
         ],
-        "images": [{ "kind": "other", "title": "ActionScript", "url": "/images/a/actionscript/actionscript.other.png" }]
+        "images": [{ "kind": "logo", "title": "ActionScript", "url": "/images/a/actionscript/actionscript.logo.png" }]
       },
       "pl+ada": {
         "name": "Ada",
@@ -2691,6 +2691,17 @@
         "releases": [{ "version": "2.0.5", "name": "LuaJIT 2.0.5", "date": "2023-01-01" }],
         "images": [{ "kind": "other", "title": "LuaJIT", "url": "/images/l/luajit/luajit.other.png" }]
       },
+      "pl+luau": {
+        "name": "Luau",
+        "description": "Luau is a fast, small, safe, gradual scripting language derived from Lua and developed by Roblox for their platform. It is specifically optimized for the developer community within Roblox, providing features like type inference and static analysis to catch bugs before runtime.",
+        "keywords": ["luau", "roblox", "scripting", "lua"],
+        "websites": [{ "title": "Luau", "href": "https://luau.org/", "kind": "homepage" }],
+        "extensions": [".luau"],
+        "firstAppeared": "2019-11-13",
+        "isMainstream": true,
+        "releases": [{ "version": "1.0", "name": "Luau 1.0", "date": "2021-02-18" }],
+        "images": [{ "kind": "logo", "title": "Luau", "url": "/images/l/luau/luau.logo.png" }]
+      },
       "pl+max-msp": {
         "name": "Max",
         "description": "Max, also known as Max/MSP/Jitter, is a visual programming language for music and multimedia developed and maintained by San Francisco-based software company Cycling '74. It allows users to create interactive sound, graphics, and media applications through a modular and flexible visual interface.",
@@ -2806,7 +2817,7 @@
         "images": [{ "kind": "logo", "title": "Mono", "url": "/images/m/mono/mono.logo.png" }]
       },
       "pl+moonscript": {
-        "name": "Lua",
+        "name": "MoonScript",
         "description": "MoonScript is a dynamic scripting language that compiles into Lua. It gives you the power of one of the fastest scripting languages combined with a rich set of features.",
         "keywords": ["moonscript"],
         "websites": [
@@ -2816,7 +2827,7 @@
         "firstAppeared": "2011-05-01",
         "isTranspiler": true,
         "isMainstream": true,
-        "images": [{ "kind": "logo", "title": "Lua", "url": "/images/m/moonscript/moonscript.logo.png" }]
+        "images": [{ "kind": "logo", "title": "MoonScript", "url": "/images/m/moonscript/moonscript.logo.png" }]
       },
       "pl+mruby": {
         "name": "mruby",
@@ -4784,6 +4795,7 @@
       "pl+hy": { "pl+lisp": {} },
       "pl+ironruby": { "pl+ruby": {} },
       "pl+luajit": { "pl+lua": {} },
+      "pl+luau": { "pl+lua": {} },
       "pl+mlton": { "pl+ml": {}, "pl+standard-ml": {} },
       "pl+netlogo": { "pl+lisp": {} },
       "pl+newlisp": { "pl+lisp": {} },
@@ -5019,6 +5031,7 @@
       "pl+logtalk": { "pl+prolog": {} },
       "pl+lua": { "pl+awk": {}, "pl+c++": {}, "pl+clu": {}, "pl+lisp": {}, "pl+modula": {}, "pl+r5rs": {}, "pl+scheme": {}, "pl+self": {} },
       "pl+luajit": { "pl+c": {}, "pl+lua": {} },
+      "pl+luau": { "pl+lua": {} },
       "pl+micropython": { "pl+python": {} },
       "pl+ml": { "pl+lisp": {} },
       "pl+mlton": { "pl+standard-ml": {} },
@@ -5291,6 +5304,7 @@
       "pl+logtalk": { "license+apache": {}, "license+artistic": {} },
       "pl+lua": { "license+mit": {} },
       "pl+luajit": { "license+mit": {} },
+      "pl+luau": { "license+mit": {} },
       "pl+micropython": { "license+mit": {} },
       "pl+minizinc": { "license+mit": {} },
       "pl+modelica": { "license+cc-by": {} },
@@ -5674,6 +5688,7 @@
         "paradigm+scripting": {}
       },
       "pl+luajit": { "paradigm+imperative": {}, "paradigm+procedural": {}, "paradigm+scripting": {} },
+      "pl+luau": { "paradigm+imperative": {}, "paradigm+multi": {}, "paradigm+oop": {}, "paradigm+procedural": {}, "paradigm+scripting": {} },
       "pl+max-msp": { "paradigm+dataflow": {}, "paradigm+event-driven": {}, "paradigm+visual": {} },
       "pl+micropython": { "paradigm+embedded": {}, "paradigm+interpreted": {}, "paradigm+multi": {}, "paradigm+oop": {}, "paradigm+scripting": {} },
       "pl+minizinc": { "paradigm+constraint": {}, "paradigm+logic": {} },
@@ -6057,6 +6072,7 @@
       "pl+logtalk": { "plat+cross": {} },
       "pl+lua": { "plat+cross": {} },
       "pl+luajit": { "plat+android": {}, "plat+apple": {}, "plat+linux": {}, "plat+windows": {}, "plat+x86-64": {} },
+      "pl+luau": { "plat+arm": {}, "plat+cross": {}, "plat+embedded": {}, "plat+linux": {}, "plat+windows": {} },
       "pl+max-msp": { "plat+apple": {}, "plat+windows": {} },
       "pl+micropython": { "plat+arduino": {}, "plat+arm": {}, "plat+embedded": {}, "plat+esp32": {}, "plat+raspberry": {} },
       "pl+minizinc": { "plat+apple": {}, "plat+cross": {}, "plat+linux": {}, "plat+windows": {} },
@@ -6691,6 +6707,7 @@
         "tag+viz": {}
       },
       "pl+luajit": { "tag+compiler": {}, "tag+interpreter": {}, "tag+scripting": {} },
+      "pl+luau": { "tag+games": {}, "tag+scripting": {} },
       "pl+max-msp": {
         "tag+3dg": {},
         "tag+app": {},
@@ -7238,6 +7255,7 @@
       "pl+lobster": { "tsys+inferred": {}, "tsys+static": {}, "tsys+strong": {} },
       "pl+lua": { "tsys+duck": {}, "tsys+dynamic": {}, "tsys+strong": {} },
       "pl+luajit": { "tsys+dynamic": {} },
+      "pl+luau": { "tsys+dynamic": {}, "tsys+gradual": {} },
       "pl+max-msp": { "tsys+dynamic": {} },
       "pl+micropython": { "tsys+duck": {}, "tsys+dynamic": {} },
       "pl+minizinc": { "tsys+static": {} },
@@ -7407,6 +7425,7 @@
       "pl+lobster": { "pl+cpp": {} },
       "pl+lua": { "pl+c": {} },
       "pl+luajit": { "pl+c": {} },
+      "pl+luau": { "pl+c": {}, "pl+cpp": {} },
       "pl+max-msp": { "pl+c": {}, "pl+c++": {} },
       "pl+micropython": { "pl+c": {} },
       "pl+minizinc": { "pl+c++": {} },

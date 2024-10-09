@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.nodes.pl
     .set("pl+moonscript", {
-      name: "Lua",
+      name: "MoonScript",
       description:
         "MoonScript is a dynamic scripting language that compiles into Lua. It gives you the power of one of the fastest scripting languages combined with a rich set of features.",
       keywords: ["moonscript"],
