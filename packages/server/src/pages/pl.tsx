@@ -21,7 +21,7 @@ export function Pl({ pl }: { pl: NPlang }) {
       <div class={tw("h-full w-full flex-1", "lg:flex lg:flex-row-reverse", "lg:overflow-hidden", "gap-6")}>
         <div class={tw(SCROLL, "lg:w-[33dvw] lg:max-w-[40rem]")}>
           <div id={id("plInfo")}>
-            <PlInfo pl={pl} open={true} kind="pl" />
+            <PlInfo pl={pl} open={true} tab="pl" />
           </div>
         </div>
 
