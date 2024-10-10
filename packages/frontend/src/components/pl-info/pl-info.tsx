@@ -21,7 +21,7 @@ export function PlInfo({ pl, open, tab }: PlInfoProps) {
       class={tw(
         "p-4",
         "h-fit w-full",
-        "prose dark:prose-invert max-w-[unset]",
+        "prose prose-green dark:prose-invert max-w-[unset]",
         "bg-linear-to-b from-background to-secondary/50",
         "shadow-lg shadow-primary/25",
         "border-b-1 border-b-primary border-dotted",

@@ -35,7 +35,7 @@ export function Pl({ pl }: { pl: NPlang }) {
 
 export function PlBody({ pl, class: cssClass }: { class?: string; pl: NPlang }) {
   return (
-    <article class={tw("prose dark:prose-invert max-w-[80rem]", cssClass)}>
+    <article class={tw("prose prose-green dark:prose-invert max-w-[80rem]", cssClass)}>
       <PlNews pl={pl} />
       <PlApps pl={pl} />
       <PlLibs pl={pl} />
