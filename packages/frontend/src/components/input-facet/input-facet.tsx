@@ -60,7 +60,7 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
   return (
     <div ref={self as Ref<HTMLDivElement>}>
       <div class={tw("mb-4", "max-h-[15rem]", "overflow-x-hidden overflow-y-scroll")}>
-        <table class={tw("readable w-full max-w-[unset]")}>
+        <table class={tw("prose w-full max-w-[unset]")}>
           <thead class="sticky top-0 bg-foreground">
             <tr>
               <th class="pt-1">

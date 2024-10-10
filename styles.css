@@ -8,6 +8,9 @@
   --color-secondary: chartreuse;
   --color-background: mintcream;
   --color-foreground: #001;
+
+  --tw-prose-links: var(--color-primary);
+  --tw-prose-invert-links: var(--color-primary);
 }
 
 /* Dark Mode */
@@ -16,14 +19,6 @@
   --color-secondary: #609;
   --color-background: #001;
   --color-foreground: mintcream;
-}
-
-@layer components {
-  .readable {
-    @apply prose;
-    --tw-prose-links: var(--color-primary);
-    --tw-prose-invert-links: var(--color-primary);
-  }
 }
 
 @theme {

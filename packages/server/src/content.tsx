@@ -7,10 +7,12 @@ import { marked } from "marked";
 import render from "preact-render-to-string/jsx";
 import YAML from "yaml";
 
-import type { NPlang, NPost, PlangsGraph, StrDate } from "@plangs/plangs";
+import type { NPlang, NPost, PlangsGraph } from "@plangs/plangs";
+import type { StrDate } from "@plangs/plangs/schema";
 import { parseDate } from "@plangs/plangs/util";
 
 import { Pill } from "@plangs/frontend/components/misc/pill";
+
 import { ZERO_WIDTH } from "./util";
 
 /** Markdown Content and metadata generated from the .md files on packages/server/content/ */
@@ -58,7 +60,7 @@ export async function loadContent(path: string, pg: PlangsGraph): Promise<Conten
 
   const pillsHtml = `<div class="${hideDate ? "hidden" : ""}">${pills.join("")}</div>`;
   const md = `${pillsHtml}\n\n# ${title}\n\n${mdBody.replace(ZERO_WIDTH, "")}`;
-  const html = await marked.parse(md);
+  const html = await marked.use(customHeadingId()).parse(md);
 
   return { title, author, pls: pls ?? [], date, html, basename: basename(path).replace(/\.md$/, "") };
 }
@@ -84,4 +86,25 @@ export async function loadPosts(pg: PlangsGraph) {
 export async function loadBlogPost(pg: PlangsGraph, key: NPost["key"]): Promise<Content | undefined> {
   const post = pg.nodes.post.get(key);
   if (post?.path) return loadContent(`posts/${post.path}`, pg);
+}
+
+/**
+ * Add a css ID to headings.
+ * Lifted from https://github.com/markedjs/marked-custom-heading-id
+ */
+export function customHeadingId() {
+  return {
+    useNewRenderer: true,
+    renderer: {
+      heading({ text, depth }: { text: string; depth: number }) {
+        const headingIdRegex = /(?: +|^)\{#([a-z][\w-]*)\}(?: +|$)/i;
+        const hasId = text.match(headingIdRegex);
+        if (!hasId) {
+          // fallback to original heading renderer
+          return false;
+        }
+        return `<h${depth} id="${hasId[1]}">${text.replace(headingIdRegex, "")}</h${depth}>\n`;
+      },
+    },
+  };
 }
