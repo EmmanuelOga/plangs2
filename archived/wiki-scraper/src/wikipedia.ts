@@ -2,7 +2,8 @@ import * as cheerio from "cheerio";
 import type { Element } from "domhandler";
 
 import { arrayMerge } from "@plangs/graph/auxiliar";
-import type { Link, NPlang, StrDate } from "@plangs/plangs";
+import type { NPlang } from "@plangs/plangs";
+import type { Link, StrDate } from "@plangs/plangs/schema";
 
 import { PL_WHITELIST } from "./whitelist";
 

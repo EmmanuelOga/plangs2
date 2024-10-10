@@ -7,7 +7,7 @@ export function define(g: PlangsGraph) {
     keywords: ["bsd", "bsd3", "bsd4"],
     description:
       "BSD licenses are a family of permissive free software licenses, imposing minimal restrictions on the use and distribution of covered software.",
-    websites: [wikipedia("https://en.wikipedia.org/wiki/BSD_licenses", "BSD licenses"), {}],
+    websites: [wikipedia("https://en.wikipedia.org/wiki/BSD_licenses", "BSD licenses")],
     spdx: "BSD-3-Clause",
     isFSFLibre: true,
     isOSIApproved: true,

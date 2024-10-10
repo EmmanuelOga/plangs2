@@ -1,6 +1,7 @@
 import { Filter } from "@plangs/graph/auxiliar";
-import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, StrDate } from "@plangs/plangs";
+import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs";
 import { PlangFilters } from "@plangs/plangs/filter";
+import type { StrDate } from "@plangs/plangs/schema";
 import type { IDKey } from "@plangs/server/elements";
 
 import { matchingInputSelByName } from "../components/input-sel";

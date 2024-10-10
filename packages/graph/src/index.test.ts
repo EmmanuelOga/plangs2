@@ -20,9 +20,22 @@ class NTag extends Node<G, NK<"tag">, NO_DATA> {
 }
 class EPersonPost extends Edge<G, NPerson, NPost, { role: "author" | "editor" }> {
   override kind: E = "personPost";
+
+  get nodeFrom(): NPerson | undefined {
+    return this.graph.nodes.person.get(this.from);
+  }
+  get nodeTo(): NPost | undefined {
+    return this.graph.nodes.post.get(this.to);
+  }
 }
 class EPostTag extends Edge<G, NPost, NTag, NO_DATA> {
   override kind: E = "postTag";
+  get nodeFrom(): NPost | undefined {
+    return this.graph.nodes.post.get(this.from);
+  }
+  get nodeTo(): NTag | undefined {
+    return this.graph.nodes.tag.get(this.to);
+  }
 }
 
 class TestGraph extends BaseGraph<N, E, G> {

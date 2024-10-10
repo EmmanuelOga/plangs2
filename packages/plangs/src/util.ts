@@ -1,4 +1,4 @@
-import type { Link, StrDate } from ".";
+import type { Link, StrDate } from "./schema";
 
 /**
  * Return a caller `line:no` for debugging.

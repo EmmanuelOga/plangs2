@@ -1,6 +1,7 @@
 import { type EncodedFilter, Filter } from "@plangs/graph/auxiliar";
 
-import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, StrDate } from ".";
+import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from ".";
+import type { StrDate } from "./schema";
 
 type Predicate<T> = (pl: NPlang, value: T) => boolean;
 
