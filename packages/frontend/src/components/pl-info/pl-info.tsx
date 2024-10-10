@@ -1,4 +1,4 @@
-import type { NPlang } from "@plangs/plangs";
+import type { N, NPlang } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/pages/layout";
 
 import { tw } from "../../utils";
@@ -60,7 +60,7 @@ export function PlInfo({ pl, open, tab }: PlInfoProps) {
               <div key={title}>
                 <h2 class="mt-4 text-xl">{title}</h2>
                 {iterTap.existing.map(({ name, key, kind }) => (
-                  <Pill key={key} name={name} nodeKey={key} kind={kind} plInfoKind={tab} />
+                  <Pill key={key} name={name} nodeKey={key} kind={kind} tab={tab} />
                 ))}
               </div>
             ))}

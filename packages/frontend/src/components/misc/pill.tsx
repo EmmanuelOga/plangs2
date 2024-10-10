@@ -3,6 +3,7 @@ import type { TAB } from "@plangs/server/pages/layout";
 import { tw } from "@plangs/frontend/utils";
 import { cl } from "@plangs/server/elements";
 
+/* TODO: `kind: string;` is too permissive. Should be either a Node kind N or a set of other known options. */
 export function Pill({ name, nodeKey, kind, tab }: { name: string; nodeKey: string; kind: string; tab?: TAB }) {
   return (
     <div
