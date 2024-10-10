@@ -65,14 +65,14 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
         <div class="prose prose-green grid grid-cols-[1fr_auto]">
           <button
             type="button"
-            class={tw(CLICKTXT, STICKY, "text-left italic")}
+            class={tw(CLICKTXT, STICKY, "pb-2 text-left italic")}
             onClick={toggleFacet}
             onKeyDown={ev => ev.key === "Enter" && toggleFacet()}>
             Facet
           </button>
           <button
             type="button"
-            class={tw(CLICKTXT, STICKY, "text-right italic")}
+            class={tw(CLICKTXT, STICKY, "pb-2 text-right italic")}
             onClick={toggleCount}
             onKeyDown={ev => ev.key === "Enter" && toggleCount()}>
             Count
@@ -87,7 +87,7 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
                 onKeyDown={ev => ev.key === "Enter" && addEntry(entry)}>
                 {entry.label}
               </button>
-              <div class={tw(NOBREAK, "text-center italic")}>{entry.count}</div>
+              <div class={tw(NOBREAK, "text-center")}>{entry.count}</div>
             </Fragment>
           ))}
         </div>
