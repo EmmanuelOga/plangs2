@@ -19,7 +19,7 @@ export function PlInfo({ pl, open, tab }: PlInfoProps) {
   return (
     <div
       class={tw(
-        "p-4",
+        "px-4 sm:py-4",
         "h-fit w-full",
         "prose prose-green dark:prose-invert max-w-[unset]",
         "bg-linear-to-b from-background to-secondary/50",
@@ -31,9 +31,9 @@ export function PlInfo({ pl, open, tab }: PlInfoProps) {
         <>
           <span class={tw(forGrid ? "dash sm:hidden" : "hidden")}>&#8212;</span>
           <div class={tw(forGrid && "hidden sm:block")}>
-            {pl.firstAppeared && <Pill name={`Appeared ${pl.firstAppeared}`} nodeKey="NA" kind="firstAppeared" plInfoKind={tab} />}
+            {pl.firstAppeared && <Pill name={`Appeared ${pl.firstAppeared}`} nodeKey="NA" kind="firstAppeared" tab={tab} />}
             {pl.lastRelease && (
-              <Pill name={`Last Rel ${pl.lastRelease.date ?? pl.lastRelease.version}`} nodeKey="NA" kind="firstAppeared" plInfoKind={tab} />
+              <Pill name={`Last Rel ${pl.lastRelease.date ?? pl.lastRelease.version}`} nodeKey="NA" kind="firstAppeared" tab={tab} />
             )}
             {pl.isTranspiler && <Pill name="Transpiler" nodeKey="NA" kind="transpiler" tab={tab} />}
             {pl.isMainstream && <Pill name="Mainstream" nodeKey="NA" kind="mainstream" tab={tab} />}
