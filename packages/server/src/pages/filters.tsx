@@ -33,6 +33,7 @@ export function PlFilters({ class: cssClass }: { class: string }) {
 function InputGroup({ title, children }: { title: string; children: ComponentChildren }) {
   return (
     <details
+      open={true}
       class={tw(
         "group",
         "cursor-pointer select-none",

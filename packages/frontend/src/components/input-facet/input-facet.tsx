@@ -1,4 +1,4 @@
-import { type Ref, h } from "preact";
+import { Fragment, type Ref, h } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
 import { useDispatchable } from "@plangs/frontend/dispatchable";
@@ -17,8 +17,6 @@ export type InputFacetProps = {
 };
 
 export const TAG_NAME = "input-facet";
-
-const CLICKTXT = tw("w-full cursor-pointer", "hover:text-secondary hover:underline", "overflow-hidden text-ellipsis whitespace-nowrap");
 
 export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
   const self = useRef<HTMLDivElement>();
@@ -57,49 +55,42 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
     }),
   );
 
+  const STICKY = "sticky top-0 bg-white text-slate-800";
+  const NOBREAK = "whitespace-nowrap overflow-hidden text-ellipsis";
+  const CLICKTXT = tw("px-2", "cursor-pointer", "hover:text-secondary hover:underline", "overflow-hidden text-ellipsis whitespace-nowrap");
+
   return (
     <div ref={self as Ref<HTMLDivElement>}>
-      <div class={tw("mb-4", "max-h-[15rem]", "overflow-x-hidden overflow-y-scroll")}>
-        <table class={tw("prose prose-green w-full max-w-[unset]")}>
-          <thead class="sticky top-0 bg-foreground">
-            <tr>
-              <th class="pt-1">
-                <button
-                  type="button"
-                  class={tw(CLICKTXT, "text-left italic")}
-                  onClick={toggleFacet}
-                  onKeyDown={ev => ev.key === "Enter" && toggleFacet()}>
-                  Facet
-                </button>
-              </th>
-              <th>
-                <button
-                  type="button"
-                  class={tw(CLICKTXT, "text-left italic")}
-                  onClick={toggleCount}
-                  onKeyDown={ev => ev.key === "Enter" && toggleCount()}>
-                  Count
-                </button>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {[...state.entries()].map(entry => (
-              <tr key={entry.value}>
-                <td>
-                  <button
-                    type="button"
-                    class={tw(CLICKTXT, "text-left")}
-                    onClick={() => addEntry(entry)}
-                    onKeyDown={ev => ev.key === "Enter" && addEntry(entry)}>
-                    {entry.label}
-                  </button>
-                </td>
-                <td class="w-[4rem] text-left">{entry.count}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div class={tw("mb-4", "max-h-[15rem] max-w-full", "overflow-x-hidden overflow-y-scroll")}>
+        <div class="prose prose-green grid grid-cols-[1fr_auto]">
+          <button
+            type="button"
+            class={tw(CLICKTXT, STICKY, "text-left italic")}
+            onClick={toggleFacet}
+            onKeyDown={ev => ev.key === "Enter" && toggleFacet()}>
+            Facet
+          </button>
+          <button
+            type="button"
+            class={tw(CLICKTXT, STICKY, "text-right italic")}
+            onClick={toggleCount}
+            onKeyDown={ev => ev.key === "Enter" && toggleCount()}>
+            Count
+          </button>
+
+          {[...state.entries()].map(entry => (
+            <Fragment key={entry.value}>
+              <button
+                type="button"
+                class={tw(CLICKTXT, "pt-1", "text-left")}
+                onClick={() => addEntry(entry)}
+                onKeyDown={ev => ev.key === "Enter" && addEntry(entry)}>
+                {entry.label}
+              </button>
+              <div class={tw(NOBREAK, "text-center italic")}>{entry.count}</div>
+            </Fragment>
+          ))}
+        </div>
       </div>
 
       {/* @ts-ignore TODO: need to add the definition so preact won't complain. */}
