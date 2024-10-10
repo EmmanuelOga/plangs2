@@ -8,7 +8,7 @@ import { registerInputFacet } from "../components/input-facet";
 import { registerInputSel } from "../components/input-sel";
 import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
 import { elem } from "../utils";
-import { startBrowseNav } from "./browse";
+import { startGridNav } from "./gridNav";
 import { connectLivereload } from "./livereload";
 import { hookPlInfo, lastPlang } from "./pl";
 import { setPlTab } from "./tabs";
@@ -28,7 +28,7 @@ function start() {
   };
 
   document.addEventListener("DOMContentLoaded", () => {
-    startBrowseNav(pg);
+    startGridNav(pg);
     hookPlInfo(pg);
 
     // Debugging.

@@ -19,7 +19,7 @@ export function getPl(pg: PlangsGraph, target: EventTarget | null): NPlang | und
 export function hookPlInfo(pg: PlangsGraph) {
   on(document.body, "click", ({ target }: MouseEvent) => {
     const isPill = (target as HTMLElement)?.matches(`.${cl("pill")}`);
-    if (isPill && currentTab() !== "browse") {
+    if (isPill && currentTab() !== "plangs") {
       const pl = getPl(pg, target);
       if (pl) window.location.href = `/${pl.plainKey}`;
     }
@@ -31,7 +31,7 @@ export function hookPlInfo(pg: PlangsGraph) {
       const pl = getPl(pg, target);
       if (!pl) return;
 
-      if (currentTab() === "browse") {
+      if (currentTab() === "plangs") {
         plInfo.pl = pl;
         setPlTab(pl);
       } else {

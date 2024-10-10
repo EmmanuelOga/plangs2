@@ -15,7 +15,7 @@ import { getFilters } from "./filters";
 import { getPl } from "./pl";
 import { setPlTab } from "./tabs";
 
-export function startBrowseNav(pg: PlangsGraph) {
+export function startGridNav(pg: PlangsGraph) {
   const filters = elem("filters");
   if (!filters) return;
 

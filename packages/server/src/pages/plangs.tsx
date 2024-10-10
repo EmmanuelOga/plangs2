@@ -9,10 +9,10 @@ import { Layout } from "./layout";
 
 export const SCROLL = tw("overflow-y-auto overflow-x-hidden");
 
-export function Browse({ pg }: { pg: PlangsGraph }) {
+export function Plangs({ pg }: { pg: PlangsGraph }) {
   return (
     <Layout
-      tab="browse"
+      tab="plangs"
       title="Find your next favorite programming language!"
       description="Discover https://plangs.page faceted search engine to find your next favorite programming language."
       overflow="overflow-auto">
@@ -23,7 +23,8 @@ export function Browse({ pg }: { pg: PlangsGraph }) {
         </div>
 
         <div class={tw(SCROLL, "lg:w-[33dvw] lg:max-w-[40rem]", "max-h-[20dvh] sm:max-h-[35dvh] lg:max-h-[unset]")}>
-          {h("pl-info", { id: id("plInfo"), kind: "browse", open: true })}
+          {/* @ts-ignore TODO: declare pl-info type. */}
+          {h("pl-info", { id: id("plInfo"), tab: "plangs", open: true })}
         </div>
       </div>
       {script("window.restorePlInfo()")}

@@ -1,6 +1,7 @@
-import type { NPlang, PlangsGraph } from "@plangs/plangs";
+import type { NPlang } from "@plangs/plangs";
+import type { TAB } from "@plangs/server/pages/layout";
 
-import { customEvent, tw } from "../../utils";
+import { tw } from "../../utils";
 import { Anchor } from "../misc/anchor";
 import { Pill } from "../misc/pill";
 
@@ -9,13 +10,12 @@ export const TAG_NAME = "pl-info";
 export type PlInfoProps = {
   pl?: NPlang;
   open?: boolean;
-  kind?: "browse" | "pl";
+  tab?: TAB;
 };
 
 /** Display a PL information, if the key is known. */
-export function PlInfo({ pl, open, kind: plInfoKind }: PlInfoProps) {
-  const forPl = plInfoKind === "pl";
-  const forBrowse = !forPl;
+export function PlInfo({ pl, open, tab }: PlInfoProps) {
+  const forGrid = tab === "plangs";
   return (
     <div
       class={tw(
@@ -26,20 +26,20 @@ export function PlInfo({ pl, open, kind: plInfoKind }: PlInfoProps) {
         "shadow-lg shadow-primary/25",
         "border-b-1 border-b-primary border-dotted",
       )}>
-      <h1 class={tw(forPl && "text-4xl", forBrowse && "inline text-lg sm:block sm:text-4xl")}>{pl?.name ?? "Plang"}</h1>
+      <h1 class={tw(!forGrid && "text-4xl", forGrid && "inline text-lg sm:block sm:text-4xl")}>{pl?.name ?? "Plang"}</h1>
       {pl && (
         <>
-          <span class={tw(forBrowse ? "dash sm:hidden" : "hidden")}>&#8212;</span>
-          <div class={tw(forBrowse && "hidden sm:block")}>
-            {pl.firstAppeared && <Pill name={`Appeared ${pl.firstAppeared}`} nodeKey="NA" kind="firstAppeared" plInfoKind={plInfoKind} />}
+          <span class={tw(forGrid ? "dash sm:hidden" : "hidden")}>&#8212;</span>
+          <div class={tw(forGrid && "hidden sm:block")}>
+            {pl.firstAppeared && <Pill name={`Appeared ${pl.firstAppeared}`} nodeKey="NA" kind="firstAppeared" plInfoKind={tab} />}
             {pl.lastRelease && (
-              <Pill name={`Last Rel ${pl.lastRelease.date ?? pl.lastRelease.version}`} nodeKey="NA" kind="firstAppeared" plInfoKind={plInfoKind} />
+              <Pill name={`Last Rel ${pl.lastRelease.date ?? pl.lastRelease.version}`} nodeKey="NA" kind="firstAppeared" plInfoKind={tab} />
             )}
-            {pl.isTranspiler && <Pill name="Transpiler" nodeKey="NA" kind="transpiler" plInfoKind={plInfoKind} />}
-            {pl.isMainstream && <Pill name="Mainstream" nodeKey="NA" kind="mainstream" plInfoKind={plInfoKind} />}
+            {pl.isTranspiler && <Pill name="Transpiler" nodeKey="NA" kind="transpiler" tab={tab} />}
+            {pl.isMainstream && <Pill name="Mainstream" nodeKey="NA" kind="mainstream" tab={tab} />}
           </div>
-          <p class={tw(forBrowse && "inline sm:block")}>{pl.description || "..."}</p>
-          <details class={tw(forBrowse && "hidden sm:block")} open={open}>
+          <p class={tw(forGrid && "inline sm:block")}>{pl.description || "..."}</p>
+          <details class={tw(forGrid && "hidden sm:block")} open={open}>
             <summary class="cursor-pointer text-xl">Details</summary>
 
             {!pl.websites.isEmpty && (
@@ -60,7 +60,7 @@ export function PlInfo({ pl, open, kind: plInfoKind }: PlInfoProps) {
               <div key={title}>
                 <h2 class="mt-4 text-xl">{title}</h2>
                 {iterTap.existing.map(({ name, key, kind }) => (
-                  <Pill key={key} name={name} nodeKey={key} kind={kind} plInfoKind={plInfoKind} />
+                  <Pill key={key} name={name} nodeKey={key} kind={kind} plInfoKind={tab} />
                 ))}
               </div>
             ))}

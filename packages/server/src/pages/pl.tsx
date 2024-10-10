@@ -7,8 +7,8 @@ import { tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs";
 
 import { id } from "../elements";
-import { SCROLL } from "./browse";
 import { Layout } from "./layout";
+import { SCROLL } from "./plangs";
 
 export function Pl({ pl }: { pl: NPlang }) {
   return (

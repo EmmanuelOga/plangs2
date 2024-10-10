@@ -5,7 +5,7 @@ import { script, tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs/index";
 import { cl, id } from "../elements";
 
-export type TAB = "browse" | "blog" | "about" | "pl";
+export type TAB = "plangs" | "blog" | "about" | "pl" | "filter";
 
 export function Layout({
   children,
@@ -76,9 +76,9 @@ export function Layout({
             "bg-background",
             "border-primary border-b-1",
           )}>
-          <NavTab tab="filter" id={id("filterToggle")} class={tw("mr-auto", tab !== "browse" && "invisible")} title="Toggle Filters" />
+          <NavTab tab="filter" id={id("filterToggle")} class={tw("mr-auto", tab !== "plangs" && "invisible")} title="Toggle Filters" />
           <NavTab tab="pl" id={id("plTab")} href={pl ? `/${pl.plainKey}` : "#"} title={pl?.name ?? "Plang"} current={tab === "pl"} />
-          <NavTab tab="browse" href="/" title="Browse" current={tab === "browse"} />
+          <NavTab tab="plangs" href="/" title="Plangs" current={tab === "plangs"} />
           {!pl && script("window.restorePlTab()")}
           <NavTab tab="blog" href="/blog" title="News" current={tab === "blog"} />
           <NavTab tab="about" href="/about" title="About" current={tab === "about"} />
@@ -97,7 +97,7 @@ function NavTab({
   title,
   current,
   tab,
-}: { id?: string; class?: string; href?: string; title: string; current?: boolean; tab: string }) {
+}: { id?: string; class?: string; href?: string; title: string; current?: boolean; tab: TAB }) {
   const isIcon = tab === "filter";
   return (
     <a

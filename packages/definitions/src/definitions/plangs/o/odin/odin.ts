@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".odin"],
       firstAppeared: "2016-04-20",
-      images: [{ kind: "logo", title: "Odin Logo", url: "https://odin-lang.org/assets/img/gophervoid.png", width: 512, height: 512 }],
       isMainstream: true,
       releases: [{ version: "0.13.0", name: "Odin 0.13.0", date: "2023-08-21" }],
     })
