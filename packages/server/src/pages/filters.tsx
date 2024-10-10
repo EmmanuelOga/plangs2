@@ -1,6 +1,8 @@
+import { type ComponentChildren, h } from "preact";
+
 import { tw } from "@plangs/frontend/utils";
 import { type E, type N, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs/index";
-import { type ComponentChildren, h } from "preact";
+
 import { cl, id } from "../elements";
 
 export function PlFilters({ class: cssClass }: { class: string }) {

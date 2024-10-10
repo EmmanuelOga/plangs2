@@ -18,7 +18,9 @@ export function Plangs({ pg }: { pg: PlangsGraph }) {
       overflow="overflow-auto">
       <div class={tw("h-full w-full flex-1", "flex flex-col lg:flex-row", "gap-4", "overflow-auto")}>
         <div class={tw("flex-1", "flex flex-col", "gap-2", "overflow-auto", "pl-bg-g")}>
-          <PlFilters class={tw(SCROLL, "z-10", "px-2 pt-4 pb-0", "max-h-[40%]", "bg-linear-to-b from-black to-transparent")} />
+          <PlFilters
+            class={tw("overflow-x-hidden overflow-y-scroll", "z-10", "px-2 pt-4 pb-0", "max-h-[40%]", "bg-linear-to-b from-black to-transparent")}
+          />
           <PlGrid pg={pg} class={tw(SCROLL, "px-4 py-2 sm:py-4", "flex-1")} />
         </div>
 
