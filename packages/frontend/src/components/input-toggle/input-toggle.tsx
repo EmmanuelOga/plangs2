@@ -26,6 +26,7 @@ export function InputToggle({ action }: InputToggleProps) {
 
     if (action === "lights") {
       document.body.classList.toggle("dark", newMode === 0);
+      localStorage.setItem("lightMode", newMode === 0 ? "dark" : "light");
     } else if (action === "hamburger") {
       elem("mainNav")?.classList.toggle("hidden", newMode === 1);
     }

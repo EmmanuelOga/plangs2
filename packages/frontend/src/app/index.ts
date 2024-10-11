@@ -28,6 +28,10 @@ function start() {
     const plInfo = elem<PlInfoElement>("plInfo");
     if (plInfo) plInfo.pl = lastPlang(pg);
   };
+  window.restoreLightMode = () => {
+    const lastMode = localStorage.getItem("lightMode") ?? "dark";
+    document.body.classList.toggle("dark", lastMode === "dark");
+  };
 
   document.addEventListener("DOMContentLoaded", () => {
     startGridNav(pg);
@@ -45,5 +49,6 @@ declare global {
   interface Window {
     restorePlTab: () => void;
     restorePlInfo: () => void;
+    restoreLightMode: () => void;
   }
 }

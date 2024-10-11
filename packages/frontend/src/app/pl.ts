@@ -52,5 +52,5 @@ export function lastPlang(pg: PlangsGraph): NPlang {
   } catch (err) {
     console.warn(err);
   }
-  return pg.nodes.pl.set("pl+c", { name: "C", description: "The C programming language." });
+  return pg.nodes.pl.set("pl+python", { name: "Python", description: "Python" });
 }

@@ -36,6 +36,8 @@ export function Layout({ title, description, tab, pl, overflow = "overflow-hidde
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
       <body class={tw("h-dvh w-full", "flex flex-col flex-nowrap", "bg-background text-foreground", "overflow-hidden", "dark")} data-tab={tab}>
+        {script("window.restoreLightMode();")}
+
         <noscript>
           <em>Note!</em>
           <p>This site is fully static and requires JavaScript for the best experience.</p>
@@ -62,6 +64,7 @@ export function Layout({ title, description, tab, pl, overflow = "overflow-hidde
               "z-10 h-full",
               "w-[12rem]",
               "bg-linear-to-t from-secondary to-background",
+              "border-primary/75 border-r-2 border-l-2",
               "overflow-hidden overflow-y-auto",
             )}>
             <NavSection
