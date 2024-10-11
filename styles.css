@@ -30,6 +30,6 @@
 
 /** Debugging Helpers */
 
-.db-r { outline: 2px dashed rgb(255 0 0); background-image: repeating-linear-gradient(0deg,  rgb(255 0 0) 0, rgb(255 0 0) 1px, transparent 0, transparent 50%); background-size: 10px 10px; }
-.db-g { outline: 2px dashed rgb(0 255 0); background-image: repeating-linear-gradient(45deg, rgb(0 255 0) 0, rgb(0 255 0) 1px, transparent 0, transparent 50%); background-size: 10px 10px; }
-.db-b { outline: 2px dashed rgb(0 0 255); background-image: repeating-linear-gradient(-45deg, rgb(0 0 255) 0, rgb(0 0 255) 1px, transparent 0, transparent 50%); background-size: 10px 10px; }
+.db-r { outline: 2px dashed rgb(255 0 0); background: repeating-linear-gradient(  0deg, rgb(255 0 0) 0, rgb(255 0 0) 1px, transparent 0, transparent 50%) top left / 10px 10px; }
+.db-g { outline: 2px dashed rgb(0 255 0); background: repeating-linear-gradient( 45deg, rgb(0 255 0) 0, rgb(0 255 0) 1px, transparent 0, transparent 50%) top left / 10px 10px; }
+.db-b { outline: 2px dashed rgb(0 0 255); background: repeating-linear-gradient(-45deg, rgb(0 0 255) 0, rgb(0 0 255) 1px, transparent 0, transparent 50%) top left / 10px 10px; }
