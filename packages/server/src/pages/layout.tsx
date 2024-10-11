@@ -1,11 +1,12 @@
 import { type ComponentChildren, h } from "preact";
 
 import { NOWRAP_TEXT } from "@plangs/frontend/styles";
-import { script, style, tw } from "@plangs/frontend/utils";
+import { script, tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs";
+
 import { id } from "../elements";
 
-export type TAB = "plangs" | "blog" | "about" | "pl" | "filter";
+export type TAB = "plangs" | "blog" | "about" | "pl" | "tools" | "apps" | "libs" | "tsys" | "paradigms" | "platforms" | "tags" | "licenses" | "NA";
 
 type LayoutProps = {
   children: ComponentChildren;
@@ -22,7 +23,7 @@ export function Layout({ title, description, tab, pl, overflow = "overflow-hidde
       <head>
         <meta charset="utf-8" />
         <title>Plangs! - {title}</title>
-        <meta name="description" content={description} />
+        <meta name="description" content={description ?? title} />
 
         {pl && script(`localStorage.setItem("last-plang", ${JSON.stringify(JSON.stringify({ key: pl.key, data: pl.data }))});`)}
         <script src="/bundle/app.js" />
@@ -64,39 +65,42 @@ export function Layout({ title, description, tab, pl, overflow = "overflow-hidde
               "overflow-hidden overflow-y-auto",
             )}>
             <NavSection
+              tab={tab}
               title="Explore"
               links={[
-                { title: "Plangs!", href: "/" },
-                { title: "Python", href: "/plangs/python", nested: true },
-                { title: "Tools", href: "/tools" },
-                { title: "Apps", href: "/apps" },
-                { title: "Libraries", href: "/libs" },
+                { title: "Plangs!", href: "/", forTab: "plangs" },
+                { title: "Python", href: "/python", nested: true, forTab: "pl" },
+                { title: "Tools", href: "/tools", forTab: "tools" },
+                { title: "Apps", href: "/apps", forTab: "apps" },
+                { title: "Libraries", href: "/libs", forTab: "libs" },
               ]}
             />
 
-            <NavSection title="Blog" links={[{ title: "All Posts", href: "/blog" }]} />
+            <NavSection tab={tab} title="Blog" links={[{ title: "All Posts", href: "/blog", forTab: "blog" }]} />
 
             <NavSection
+              tab={tab}
               title="Website"
               links={[
-                { title: "About", href: "/about" },
-                { title: "Source Code", href: "/about", current: true },
+                { title: "About", href: "/about", forTab: "about" },
+                { title: "Source Code", href: "https://github.com/EmmanuelOga/plangs2", forTab: "NA" },
               ]}
             />
 
             <NavSection
+              tab={tab}
               title="Reference"
               links={[
-                { title: "Type Systems", href: "/tsys" },
-                { title: "Paradigms", href: "/paradigms" },
-                { title: "Platforms", href: "/platforms" },
-                { title: "Tags", href: "/tags" },
-                { title: "Licenses", href: "/licenses" },
+                { title: "Type Systems", href: "/tsys", forTab: "tsys" },
+                { title: "Paradigms", href: "/paradigms", forTab: "paradigms" },
+                { title: "Platforms", href: "/platforms", forTab: "platforms" },
+                { title: "Tags", href: "/tags", forTab: "tags" },
+                { title: "Licenses", href: "/licenses", forTab: "licenses" },
               ]}
             />
           </aside>
 
-          <main class={tw("flex-1", "flex flex-col", "items-center", overflow)}>{children}</main>
+          <main class={tw("flex-1", "flex flex-col items-center", "p-2", overflow)}>{children}</main>
         </div>
       </body>
     </html>
@@ -111,7 +115,6 @@ function PlangsLogo({ class: cssClass }: { class?: string }) {
         class={tw(
           "block h-full w-full",
           "text-6xl text-transparent",
-
           "bg-contain bg-left bg-no-repeat",
           "bg-[url('/images/plangs-light.svg')] dark:bg-[url('/images/plangs.svg')]",
         )}>
@@ -121,21 +124,21 @@ function PlangsLogo({ class: cssClass }: { class?: string }) {
   );
 }
 
-type NavLink = { title: string; href: string; nested?: boolean; current?: boolean };
+type NavLink = { title: string; href: string; nested?: boolean; forTab: TAB };
 
-function NavSection({ title, links }: { title: string; links: NavLink[] }) {
+function NavSection({ title, links, tab }: { tab: TAB; title: string; links: NavLink[] }) {
   return (
     <nav class={tw("mb-1 pt-5 sm:mb-8", "border-primary/25 border-t-1 border-dotted first:border-t-0")}>
       <header class={tw("ml-4 sm:mb-4", "uppercase", "text-primary")}>{title}</header>
       <ul>
-        {links.map(({ title, href, nested, current }) => (
+        {links.map(({ title, href, nested, forTab }) => (
           <li
             key={href}
             class={tw(
               "px-4 py-2 sm:mb-1",
 
-              current && "bg-primary text-background shadow-lg shadow-secondary",
-              !current && "hover:bg-primary/25",
+              tab === forTab && "bg-primary/85 text-background", //"shadow-md shadow-primary",
+              tab !== forTab && "hover:bg-primary/25",
             )}>
             <a class={tw("block cursor-pointer", NOWRAP_TEXT, nested ? "pl-10" : "pl-4")} href={href}>
               {title}
