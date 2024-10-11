@@ -59,7 +59,7 @@ export function Layout({ title, description, tab, pl, mainClasses, children }: L
           </div>
         </header>
 
-        <div class={tw("flex-1", "flex flex-row-reverse sm:flex-row", "overflow-hidden")}>
+        <div class={tw("flex-1", "flex flex-row-reverse", "overflow-hidden")}>
           <aside
             id={id("mainNav")}
             class={tw(

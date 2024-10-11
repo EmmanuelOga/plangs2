@@ -6,22 +6,19 @@ import { type E, type N, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } f
 import { cl, id } from "../elements";
 
 export function PlFilters({ class: cssClass }: { class?: string }) {
-  console.log(INPUT_GROUPS);
   return (
     <aside
       id={id("filters")}
       class={tw(
         "p-1",
-
-        "flex flex-row gap-2",
-        "border-primary/75 border-t-1 border-b-1",
+        "flex flex-row gap-2 sm:flex-col",
         "overflow-hidden",
 
         cssClass,
       )}>
       <div class={tw("overflow-y-scroll", "pr-1 pl-3")}>
         {INPUT_GROUPS.map(({ title, key }) => (
-          <div class={tw("py-1 pr-1")} key={key}>
+          <div class={tw("py-1 pr-1", "sm:inline-block")} key={key}>
             <a
               class={tw("text-primary underline")}
               href={`javascript:document.querySelector('#${key}').scrollIntoView({ behavior: "smooth", block: "start" })`}>
@@ -62,7 +59,7 @@ function Input({ inputKey: key }: { inputKey: keyof typeof INPUT_PROPS }) {
   }
 
   const withInputSel = input.kind === "search" && "inputSel" in input && input.inputSel;
-  const inputTextColor = "placeholder:text-background/50";
+  const inputTextColor = "text-slate-800 placeholder:text-slate-800";
   const inputElem = (
     <input
       {...baseProps}
