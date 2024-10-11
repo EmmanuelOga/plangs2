@@ -1,6 +1,6 @@
 import { type ComponentChildren, h } from "preact";
 
-import { NOWRAP_TEXT } from "@plangs/frontend/styles";
+import { NOWRAP_TEXT, stripes } from "@plangs/frontend/styles";
 import { script, tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs";
 
@@ -60,7 +60,7 @@ export function Layout({ title, description, tab, pl, overflow = "overflow-hidde
             class={tw(
               "fixed sm:static",
               "z-10 h-full",
-              "w-[12rem] sm:w-[20rem]",
+              "w-[12rem]",
               "bg-linear-to-t from-secondary to-background",
               "overflow-hidden overflow-y-auto",
             )}>
@@ -100,7 +100,9 @@ export function Layout({ title, description, tab, pl, overflow = "overflow-hidde
             />
           </aside>
 
-          <main class={tw("flex-1", "flex flex-col items-center", "p-2", overflow)}>{children}</main>
+          <main style={stripes()} class={tw("flex-1", "flex flex-col items-center", "p-2", overflow)}>
+            {children}
+          </main>
         </div>
       </body>
     </html>

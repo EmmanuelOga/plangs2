@@ -20,7 +20,7 @@ export function Plangs({ pg }: { pg: PlangsGraph }) {
           <PlGrid pg={pg} />
         </div>
 
-        {/* @ts-ignore TODO https://preactjs.com/guide/v10/typescript#extending-built-in-jsx-types */}
+        {/* @ts-ignore TODO https://preactjs.com/guide/v10/typescript#extending-built-in-jsx-types  */}
         <div>{h("pl-info", { id: id("plInfo"), tab: "plangs", open: true })}</div>
       </div>
       {script("window.restorePlInfo()")}
@@ -31,7 +31,7 @@ export function Plangs({ pg }: { pg: PlangsGraph }) {
 function PlGrid({ pg, class: cssClass }: { pg: PlangsGraph; class?: string }) {
   return (
     <div class={tw(cssClass)}>
-      <div id={id("plGrid")}>
+      <div id={id("plGrid")} class="grid grid-cols-12 gap-4 p-4">
         {pg.nodes.pl.batch().map(([key, pl]) => (
           <PlThumb key={key} pl={pl} class="max-h-[15rem]" />
         ))}
