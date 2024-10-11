@@ -1,4 +1,4 @@
-import { type ComponentChildren, h } from "preact";
+import { h } from "preact";
 
 import { tw } from "@plangs/frontend/utils";
 import { type E, type N, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs/index";
@@ -19,9 +19,7 @@ export function PlFilters({ class: cssClass }: { class?: string }) {
       <div class={tw("overflow-y-scroll", "pr-1 pl-3")}>
         {INPUT_GROUPS.map(({ title, key }) => (
           <div class={tw("py-1 pr-1", "sm:inline-block")} key={key}>
-            <a
-              class={tw("text-primary underline")}
-              href={`javascript:document.querySelector('#${key}').scrollIntoView({ behavior: "smooth", block: "start" })`}>
+            <a class={tw("text-primary underline")} href={`javascript:window.focusFilter('${key}')`}>
               {title}
             </a>
           </div>
@@ -31,7 +29,17 @@ export function PlFilters({ class: cssClass }: { class?: string }) {
       {/* Generous padding right for easier scrolling. */}
       <div class={tw("overflow-y-scroll", "flex-1", "pr-8")}>
         {INPUT_GROUPS.map(({ title, key, keys }) => (
-          <div class={tw("mb-2 px-2 py-1", "bg-secondary")} key={key} id={key}>
+          <div class={tw("relative overflow-hidden", "mb-2 px-2 py-1", "bg-secondary")} key={key} id={key}>
+            <span
+              class={tw(
+                cl("filterAnim"),
+                "hidden",
+                "z-10",
+                "absolute block h-full w-full",
+                "animate-[ping_.2s_cubic-bezier(1,0,0,1)_infinite]",
+                "bg-foreground/75",
+              )}
+            />
             <header class="mb-1 text-primary text-xs">{title}</header>
             {keys.map(key => (
               <Input key={key} inputKey={key} />

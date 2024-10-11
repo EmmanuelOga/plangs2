@@ -1,6 +1,7 @@
 import "preact/debug";
 
 import { PlangsGraph } from "@plangs/plangs";
+import { cl } from "@plangs/server/elements";
 import pgData from "@plangs/server/plangs.json";
 
 import { registerInputCompl } from "../components/input-compl";
@@ -31,6 +32,15 @@ function start() {
   };
   window.restoreLightMode = () => ToggleLights.initial().sideEffects();
   window.restoreHamburguer = () => ToggleHamburguer.initial().sideEffects();
+  window.focusFilter = (id: string) => {
+    const elem = document.getElementById(id);
+    if (!elem) return;
+    elem.scrollIntoView({ behavior: "smooth", block: "start" });
+    const anim = elem.querySelector(`.${cl("filterAnim")}`);
+    if (!anim || !anim.classList.contains("hidden")) return;
+    anim.classList.remove("hidden");
+    setTimeout(() => anim.classList.add("hidden"), 1000);
+  };
 
   document.addEventListener("DOMContentLoaded", () => {
     startGridNav(pg);
@@ -50,5 +60,6 @@ declare global {
     restorePlInfo: () => void;
     restoreLightMode: () => void;
     restoreHamburguer: () => void;
+    focusFilter: (id: string) => void;
   }
 }
