@@ -1,4 +1,4 @@
-import type { N, NPlang } from "@plangs/plangs";
+import type { NPlang } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/pages/layout";
 
 import { tw } from "../../utils";

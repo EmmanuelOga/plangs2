@@ -6,6 +6,7 @@ import pgData from "@plangs/server/plangs.json";
 import { registerInputCompl } from "../components/input-compl";
 import { registerInputFacet } from "../components/input-facet";
 import { registerInputSel } from "../components/input-sel";
+import { registerInputToggle } from "../components/input-toggle";
 import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
 import { elem } from "../utils";
 import { startGridNav } from "./gridNav";
@@ -18,6 +19,7 @@ function start() {
   registerInputCompl();
   registerInputSel();
   registerInputFacet();
+  registerInputToggle();
 
   const pg = new PlangsGraph().loadJSON(pgData);
 

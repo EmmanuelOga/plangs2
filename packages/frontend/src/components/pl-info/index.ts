@@ -1,7 +1,3 @@
-/**
- * <plang-info> element: displays information about a programming language.
- */
-
 import register from "preact-custom-element";
 
 import { PlInfo, type PlInfoProps, TAG_NAME } from "./pl-info";
