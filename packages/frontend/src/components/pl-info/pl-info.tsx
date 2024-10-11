@@ -19,7 +19,7 @@ export function PlInfo({ pl, open, tab }: PlInfoProps) {
   return (
     <div
       class={tw(
-        "px-4 sm:py-4",
+        "px-2 sm:py-4",
         "h-fit w-full",
         "prose prose-green dark:prose-invert max-w-[unset]",
         "bg-linear-to-b from-background to-secondary/50",

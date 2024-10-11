@@ -22,7 +22,7 @@ export function Blog({ pg }: { pg: PlangsGraph }) {
       tab="blog"
       title="Read https://plangs.page latest news"
       description="Read the latest news from https://plangs.page, a website about programming languages and the ecosystems around them."
-      overflow="overflow-y-auto">
+      mainClasses="overflow-y-auto">
       <article class={tw("prose prose-green dark:prose-invert max-w-[80rem]", "p-4", "overflow-y-auto", "w-full")}>
         <h1>News</h1>
         {postLinks.isEmpty ? <p>No posts yet.</p> : postLinks.existing}

@@ -63,7 +63,7 @@ export function InputSel({ name, class: cssClass }: InputSelProps) {
   return (
     <div ref={self as Ref<HTMLDivElement>} class={tw(cssClass, state.selected.length > 0 && "pl-filters-active")}>
       {state.selected.length > 1 && (
-        <select title="Match all or any of the elements" class="mb-2">
+        <select title="Match all or any of the elements" class="my-2 text-slate-800">
           <option value="any">Any of</option>
           <option value="all">All of</option>
         </select>
@@ -73,7 +73,7 @@ export function InputSel({ name, class: cssClass }: InputSelProps) {
           <li
             key={value}
             data-value={value}
-            class="p-2"
+            class="py-2"
             aria-label="remove"
             tabindex={0}
             onClick={() => state.remove(value, "click")}

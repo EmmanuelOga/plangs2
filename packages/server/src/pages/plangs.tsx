@@ -13,16 +13,17 @@ export function Plangs({ pg }: { pg: PlangsGraph }) {
       tab="plangs"
       title="Find your next favorite programming language!"
       description="Discover https://plangs.page faceted search engine to find your next favorite programming language."
-      overflow="overflow-auto">
-      <div>
-        <div>
-          <PlFilters />
-          <PlGrid pg={pg} />
-        </div>
+      mainClasses={tw("overflow-hidden", "flex flex-col gap-2")}>
+      {/* --- */}
 
+      <PlFilters class={tw("max-h-[35dvh]")} />
+      <PlGrid pg={pg} class={tw("flex-1", "overflow-y-scroll", "m-1")} />
+
+      <div class={tw("overflow-hidden overflow-y-scroll", "max-h-[20dvh]")}>
         {/* @ts-ignore TODO https://preactjs.com/guide/v10/typescript#extending-built-in-jsx-types  */}
-        <div>{h("pl-info", { id: id("plInfo"), tab: "plangs", open: true })}</div>
+        {h("pl-info", { id: id("plInfo"), tab: "plangs", open: true })}
       </div>
+
       {script("window.restorePlInfo()")}
     </Layout>
   );
@@ -31,9 +32,9 @@ export function Plangs({ pg }: { pg: PlangsGraph }) {
 function PlGrid({ pg, class: cssClass }: { pg: PlangsGraph; class?: string }) {
   return (
     <div class={tw(cssClass)}>
-      <div id={id("plGrid")} class="grid grid-cols-12 gap-4 p-4">
+      <div id={id("plGrid")} class="grid grid-cols-4 gap-2 px-2">
         {pg.nodes.pl.batch().map(([key, pl]) => (
-          <PlThumb key={key} pl={pl} class="max-h-[15rem]" />
+          <PlThumb key={key} pl={pl} />
         ))}
       </div>
     </div>

@@ -16,25 +16,10 @@ import { getPl } from "./pl";
 import { setPlTab } from "./tabs";
 
 export function startGridNav(pg: PlangsGraph) {
-  const filters = elem("filters");
-  if (!filters) return;
-
-  const extensions = elem<HTMLInputElement>("extensions");
-  const extensionsSel = matchingInputSelByName(extensions?.getAttribute("name"));
-  const plGrid = elem<HTMLDivElement>("plGrid");
-  const plInfo = elem<PlInfoElement>("plInfo");
-  const toggle = elem("filterToggle");
-  const inputFilters = elems<HTMLInputElement>("inputFilter");
-
-  const thumbs = elems<HTMLDivElement>("plThumb");
-
-  if (!extensions || !extensionsSel || !plGrid || !plInfo || !toggle || thumbs.length === 0 || inputFilters.length === 0) {
-    console.warn("Skipping PL browser, missing elements.", { extensions, extensionsSel, filters, plGrid, plInfo, toggle, thumbs, inputFilters });
-    return;
-  }
-
   //////////////////////////////////////////////////////////////////////////////////
   // When an input filter has a non-empty value, add the active data attribute.
+
+  const inputFilters = elems<HTMLInputElement>("inputFilter");
 
   for (const input of inputFilters) {
     on(input, "input", () => {
@@ -154,19 +139,6 @@ export function startGridNav(pg: PlangsGraph) {
   }
 
   //////////////////////////////////////////////////////////////////////////////////
-  // Filters toggle button.
-
-  on(toggle, "click", () => {
-    filters.classList.toggle("hidden");
-    updateToggle();
-  });
-  const updateToggle = () => {
-    const hidden = filters.classList.contains("hidden");
-    toggle.classList.toggle("bg-background/75", !hidden);
-  };
-  updateToggle();
-
-  //////////////////////////////////////////////////////////////////////////////////
   // Scroll into view when a summary is clicked.
   // TODO: use delegation.
 
@@ -182,6 +154,9 @@ export function startGridNav(pg: PlangsGraph) {
 
   //////////////////////////////////////////////////////////////////////////////////
   // Filter the list of languages.
+
+  const plGrid = elem<HTMLDivElement>("plGrid");
+  const thumbs = elems<HTMLDivElement>("plThumb");
 
   function updatePlangs() {
     if (thumbs.length === 0 || plGrid === undefined) return;
@@ -207,23 +182,28 @@ export function startGridNav(pg: PlangsGraph) {
   //////////////////////////////////////////////////////////////////////////////////
   // Handle the file extension selection.
 
-  on(extensions, "keypress", ({ key }: KeyboardEvent) => {
-    if (key !== "Enter") return;
-    const value = extensions.value.trim();
-    if (value === "") return;
-    const name = (value[0] === "." ? value : `.${value}`).toLowerCase();
-    extensionsSel.addItems([{ value: name, label: name }]);
-    extensions.value = "";
-  });
-  extensionsSel.onRemove(({ by, itemsLeft }) => {
-    extensions.classList.toggle("pl-filters-active", itemsLeft > 0);
-    if (by === "enterKey" && itemsLeft === 0) extensions.focus();
-  });
+  const extensions = elem<HTMLInputElement>("extensions");
+  const extensionsSel = matchingInputSelByName(extensions?.getAttribute("name"));
+
+  if (extensions && extensionsSel) {
+    on(extensions, "keypress", ({ key }: KeyboardEvent) => {
+      if (key !== "Enter") return;
+      const value = extensions.value.trim();
+      if (value === "") return;
+      const name = (value[0] === "." ? value : `.${value}`).toLowerCase();
+      extensionsSel.addItems([{ value: name, label: name }]);
+      extensions.value = "";
+    });
+    extensionsSel.onRemove(({ by, itemsLeft }) => {
+      extensions.classList.toggle("pl-filters-active", itemsLeft > 0);
+      if (by === "enterKey" && itemsLeft === 0) extensions.focus();
+    });
+  }
 
   //////////////////////////////////////////////////////////////////////////////////
   // On input change, re-filter the list of languages.
 
-  on(filters, "input", ({ target }: InputEvent) => {
+  on(elem("filters"), "input", ({ target }: InputEvent) => {
     if ((target as HTMLInputElement)?.matches(`#${id("extensions")}`)) return;
     debouncedUpdatePlangs();
   });
@@ -238,12 +218,15 @@ export function startGridNav(pg: PlangsGraph) {
   //////////////////////////////////////////////////////////////////////////////////
   // On thumb click, display more information.
 
-  on(plGrid, "click", ({ target }: MouseEvent) => {
-    const pl = getPl(pg, target);
-    if (!pl) return;
-    plInfo.pl = pl;
-    setPlTab(pl);
-  });
+  const plInfo = elem<PlInfoElement>("plInfo");
+  if (plInfo) {
+    on(plGrid, "click", ({ target }: MouseEvent) => {
+      const pl = getPl(pg, target);
+      if (!pl) return;
+      plInfo.pl = pl;
+      setPlTab(pl);
+    });
+  }
 }
 
 const CSS_COLS_KEY = "grid-template-columns";

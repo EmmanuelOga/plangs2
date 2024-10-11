@@ -9,7 +9,7 @@ export function About({ content }: { content: Content }) {
       tab="about"
       title={content.title}
       description="Discover https://plangs.page, a website about programing languages and the ecosystems aroudn them."
-      overflow="overflow-y-auto">
+      mainClasses="overflow-y-auto">
       <article
         class={tw("prose prose-green dark:prose-invert max-w-[80rem]", "w-full p-4")}
         // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>

@@ -11,13 +11,13 @@ export type TAB = "plangs" | "blog" | "about" | "pl" | "tools" | "apps" | "libs"
 type LayoutProps = {
   children: ComponentChildren;
   description?: string;
-  overflow?: "overflow-hidden" | "overflow-y-auto" | "overflow-auto";
+  mainClasses?: string;
   pl?: NPlang;
   tab: TAB;
   title: string;
 };
 
-export function Layout({ title, description, tab, pl, overflow = "overflow-hidden", children }: LayoutProps) {
+export function Layout({ title, description, tab, pl, mainClasses, children }: LayoutProps) {
   return (
     <html lang="en">
       <head>
@@ -35,7 +35,10 @@ export function Layout({ title, description, tab, pl, overflow = "overflow-hidde
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
-      <body class={tw("h-dvh w-full", "flex flex-col flex-nowrap", "bg-background text-foreground", "overflow-hidden", "dark")} data-tab={tab}>
+      <body
+        style={stripes()}
+        class={tw("h-dvh w-full", "flex flex-col flex-nowrap", "bg-background text-foreground", "overflow-hidden", "dark")}
+        data-tab={tab}>
         {script("window.restoreLightMode();")}
 
         <noscript>
@@ -105,9 +108,7 @@ export function Layout({ title, description, tab, pl, overflow = "overflow-hidde
             />
           </aside>
 
-          <main style={stripes()} class={tw("flex-1", "flex flex-col items-center", "p-2", overflow)}>
-            {children}
-          </main>
+          <main class={tw("flex-1", mainClasses)}>{children}</main>
         </div>
       </body>
     </html>

@@ -6,57 +6,43 @@ import { type E, type N, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } f
 import { cl, id } from "../elements";
 
 export function PlFilters({ class: cssClass }: { class?: string }) {
-  const inputs = (group: Group[], cssClass: string) => (
-    <div class={tw("m-1 flex flex-col gap-4", cssClass)}>
-      {group.map(({ title, keys }) => (
-        <InputGroup key={title} title={title}>
-          {keys.map(key => (
-            <Input key={key} inputKey={key} />
-          ))}
-        </InputGroup>
-      ))}
-    </div>
-  );
-
-  const [group1, group2, group3, group4] = INPUT_GROUPS.map((group, i) => inputs(group, `pl-bg-${i}`));
-
+  console.log(INPUT_GROUPS);
   return (
-    <aside id={id("filters")} class={tw("grid grid-cols-2 gap-2 md:grid-cols-4", cssClass)}>
-      {group1}
-      {group2}
-      {group3}
-      {group4}
-    </aside>
-  );
-}
-
-function InputGroup({ title, children }: { title: string; children: ComponentChildren }) {
-  return (
-    <details
-      open={true}
+    <aside
+      id={id("filters")}
       class={tw(
-        "group",
-        "cursor-pointer select-none",
+        "p-1",
 
-        "shadow-md shadow-secondary hover:shadow-primary",
-        "bg-white/95 text-slate-950",
+        "flex flex-row gap-2",
+        "border-primary/75 border-t-1 border-b-1",
+        "overflow-hidden",
+
+        cssClass,
       )}>
-      <summary
-        class={tw(
-          "px-1.5 py-1",
-          "overflow-hidden text-ellipsis whitespace-nowrap",
-          "text-xs sm:text-lg",
+      <div class={tw("overflow-y-scroll", "pr-1 pl-3")}>
+        {INPUT_GROUPS.map(({ title, key }) => (
+          <div class={tw("py-1 pr-1")} key={key}>
+            <a
+              class={tw("text-primary underline")}
+              href={`javascript:document.querySelector('#${key}').scrollIntoView({ behavior: "smooth", block: "start" })`}>
+              {title}
+            </a>
+          </div>
+        ))}
+      </div>
 
-          "bg-secondary text-foreground/90",
-          "border-1 border-foreground/50 group-hover:border-background/50",
-
-          "group-has-[.pl-filters-active]:bg-primary/75",
-          "group-has-[.pl-filters-active]:text-background",
-        )}>
-        {title}
-      </summary>
-      <div class="flex flex-col gap-3 p-1.5">{children}</div>
-    </details>
+      {/* Generous padding right for easier scrolling. */}
+      <div class={tw("overflow-y-scroll", "flex-1", "pr-8")}>
+        {INPUT_GROUPS.map(({ title, key, keys }) => (
+          <div class={tw("mb-2 px-2 py-1", "bg-secondary")} key={key} id={key}>
+            <header class="mb-1 text-primary text-xs">{title}</header>
+            {keys.map(key => (
+              <Input key={key} inputKey={key} />
+            ))}
+          </div>
+        ))}
+      </div>
+    </aside>
   );
 }
 
@@ -134,27 +120,29 @@ export const INPUT_PROPS = {
   writtenIn: facet("Written In", "writtenIn", NPlang.kind),
 } as const;
 
-type Group = { title: string; keys: (keyof typeof INPUT_PROPS)[] };
-const group = (title: string, keys: (keyof typeof INPUT_PROPS)[]) => ({ title, keys }) as const;
+type Group = { title: string; key: string; keys: (keyof typeof INPUT_PROPS)[] };
+
+function group(title: string, keys: (keyof typeof INPUT_PROPS)[]): Group {
+  return { title, key: title.replaceAll(/[\/\s]/g, "-").toLowerCase(), keys };
+}
 
 const INPUT_GROUPS = [
-  [
-    group("Name", ["plangName"]),
-    group("Created Date", ["appearedAfter"]),
-    group("Release Date", ["releasedAfter", "hasReleases"]),
-    group("Logo/Wikipedia/Popular", ["hasLogo", "hasWikipedia", "isMainstream"]),
-  ],
-  [group("Tags", ["tags"]), group("Paradigms", ["paradigms"]), group("Platforms", ["platforms"]), group("Type Systems", ["typeSystems"])],
-  [
-    group("Dialect Of", ["dialectOf"]),
-    group("Implements", ["implements"]),
-    group("Written In", ["writtenIn"]),
-    group("Transpiler", ["isTranspiler", "compilesTo"]),
-  ],
-  [
-    group("Influenced By", ["influencedBy"]),
-    group("Influenced", ["influenced"]),
-    group("File Extensions", ["extensions"]),
-    group("Licenses", ["licenses"]),
-  ],
-] as Group[][];
+  group("Created Date", ["appearedAfter"]),
+  group("Dialect Of", ["dialectOf"]),
+  group("File Extensions", ["extensions"]),
+  group("Implements", ["implements"]),
+  group("Influenced By", ["influencedBy"]),
+  group("Influenced", ["influenced"]),
+  group("Licenses", ["licenses"]),
+  group("Logo", ["hasLogo"]),
+  group("Name", ["plangName"]),
+  group("Paradigms", ["paradigms"]),
+  group("Platforms", ["platforms"]),
+  group("Popular", ["isMainstream"]),
+  group("Release Date", ["releasedAfter", "hasReleases"]),
+  group("Tags", ["tags"]),
+  group("Transpiler", ["isTranspiler", "compilesTo"]),
+  group("Type Systems", ["typeSystems"]),
+  group("Wikipedia", ["hasWikipedia"]),
+  group("Written In", ["writtenIn"]),
+] as Group[];

@@ -16,7 +16,7 @@ export function Pl({ pl }: { pl: NPlang }) {
       tab="pl"
       title={`${pl.name} at https://plangs.page`}
       description={`${pl.name} at https://plangs.page: A language is much more than just a syntax. It's an ecosystem of tools, libraries, and applications.`}
-      overflow="overflow-auto">
+      mainClasses="overflow-auto">
       <div>
         <div>
           <div id={id("plInfo")}>
