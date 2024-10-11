@@ -24,7 +24,8 @@ export abstract class Dispatchable<T> {
  *
  * The instance needs to call `update` to notify the component of changes.
  */
-export function useDispatchable<T extends Dispatchable<D>, D>(instance: T): T {
+// biome-ignore lint/suspicious/noExplicitAny: we want to accept any kind of Dispatchable.
+export function useDispatchable<T extends Dispatchable<any>>(instance: T): T {
   const [state, dispatcher] = useState(instance);
   instance.dispatcher = dispatcher;
   return state;

@@ -7,6 +7,7 @@ import { registerInputCompl } from "../components/input-compl";
 import { registerInputFacet } from "../components/input-facet";
 import { registerInputSel } from "../components/input-sel";
 import { registerInputToggle } from "../components/input-toggle";
+import { ToggleHamburguer, ToggleLights } from "../components/input-toggle/state";
 import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
 import { elem } from "../utils";
 import { startGridNav } from "./gridNav";
@@ -28,10 +29,8 @@ function start() {
     const plInfo = elem<PlInfoElement>("plInfo");
     if (plInfo) plInfo.pl = lastPlang(pg);
   };
-  window.restoreLightMode = () => {
-    const lastMode = localStorage.getItem("lightMode") ?? "dark";
-    document.body.classList.toggle("dark", lastMode === "dark");
-  };
+  window.restoreLightMode = () => ToggleLights.initial().sideEffects();
+  window.restoreHamburguer = () => ToggleHamburguer.initial().sideEffects();
 
   document.addEventListener("DOMContentLoaded", () => {
     startGridNav(pg);
@@ -50,5 +49,6 @@ declare global {
     restorePlTab: () => void;
     restorePlInfo: () => void;
     restoreLightMode: () => void;
+    restoreHamburguer: () => void;
   }
 }

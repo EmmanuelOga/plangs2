@@ -60,13 +60,15 @@ export function Layout({ title, description, tab, pl, overflow = "overflow-hidde
           <aside
             id={id("mainNav")}
             class={tw(
-              "fixed sm:static",
+              "fixed hidden sm:static",
               "z-10 h-full",
               "w-[12rem]",
               "bg-linear-to-t from-secondary to-background",
               "border-primary/75 border-r-2 border-l-2",
               "overflow-hidden overflow-y-auto",
             )}>
+            {script("window.restoreHamburguer();")}
+
             <NavSection
               tab={tab}
               title="Explore"
