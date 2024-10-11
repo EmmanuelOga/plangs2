@@ -8,7 +8,6 @@ import type { NPlang } from "@plangs/plangs";
 
 import { id } from "../elements";
 import { Layout } from "./layout";
-import { SCROLL } from "./plangs";
 
 export function Pl({ pl }: { pl: NPlang }) {
   return (
@@ -18,8 +17,8 @@ export function Pl({ pl }: { pl: NPlang }) {
       title={`${pl.name} at https://plangs.page`}
       description={`${pl.name} at https://plangs.page: A language is much more than just a syntax. It's an ecosystem of tools, libraries, and applications.`}
       overflow="overflow-auto">
-      <div class={tw("h-full w-full flex-1", "lg:flex lg:flex-row-reverse", "lg:overflow-hidden", "gap-6")}>
-        <div class={tw(SCROLL, "lg:w-[33dvw] lg:max-w-[40rem]")}>
+      <div>
+        <div>
           <div id={id("plInfo")}>
             <PlInfo pl={pl} open={true} tab="pl" />
           </div>

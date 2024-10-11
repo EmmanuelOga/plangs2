@@ -5,7 +5,7 @@ import { type E, type N, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } f
 
 import { cl, id } from "../elements";
 
-export function PlFilters({ class: cssClass }: { class: string }) {
+export function PlFilters({ class: cssClass }: { class?: string }) {
   const inputs = (group: Group[], cssClass: string) => (
     <div class={tw("m-1 flex flex-col gap-4", cssClass)}>
       {group.map(({ title, keys }) => (
