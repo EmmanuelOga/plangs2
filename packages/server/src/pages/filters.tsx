@@ -10,9 +10,11 @@ export function PlFilters({ class: cssClass }: { class?: string }) {
     <aside
       id={id("filters")}
       class={tw(
+        "hidden",
         "flex flex-col gap-2",
         "overflow-y-scroll",
 
+        "border-primary border-b-1 border-dotted",
         cssClass,
       )}>
       {script("window.restoreFilters();")}

@@ -2,7 +2,7 @@
  * {@fileoverview Some useful CSS styles }
  */
 
-export const PROSE = "prose prose-green dark:prose-invert max-w-[unset]";
+export const PROSE = "prose prose-green dark:prose-invert sm:prose-sm lg:prose-lg xl:prose-xl 2xl:prose-2xl max-w-[80ch] mx-auto";
 
 export const NOWRAP_TEXT = "overflow-hidden text-ellipsis whitespace-nowrap";
 

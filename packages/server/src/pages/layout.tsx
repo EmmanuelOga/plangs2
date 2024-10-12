@@ -1,10 +1,10 @@
 import { type ComponentChildren, h } from "preact";
 
 import { NOWRAP_TEXT, stripes } from "@plangs/frontend/styles";
-import { script, tw } from "@plangs/frontend/utils";
+import { script, style, tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs";
 
-import { id } from "../elements";
+import { cl, id } from "../elements";
 
 export type TAB = "plangs" | "blog" | "about" | "pl" | "tools" | "apps" | "libs" | "tsys" | "paradigms" | "platforms" | "tags" | "licenses" | "NA";
 
@@ -47,14 +47,19 @@ export function Layout({ title, description, tab, pl, mainClasses, children }: L
           <p>In particular, the search feature will not work without JavaScript.</p>
         </noscript>
 
-        <header class={tw("w-full", "bg-linear-to-b from-secondary to-background")}>
-          <div class="flex flex-row items-center justify-between gap-4 pr-4">
-            <PlangsLogo class={tw("flex-1", "m-2 sm:m-4", "h-[2.5rem] sm:h-[4rem]")} />
-            {/* @ts-ignore TODO add tag to globals */}
-            {h("input-toggle", { action: "filters" })}
-            {/* @ts-ignore TODO add tag to globals */}
+        <header
+          class={tw(
+            //
+            "flex flex-row",
+            "items-end",
+            "px-4",
+            "border-primary border-b-1 border-dotted",
+            "bg-linear-to-b from-secondary to-background",
+          )}>
+          <PlangsLogo class={tw("flex-1 sm:mx-auto", "mb-1", "mt-2 sm:mt-3 lg:mt-4 xl:mt-5 2xl:mt-6", "h-12 sm:h-16 lg:h-20 xl:h-24 2xl:h-28")} />
+          <div class={tw("flex flex-row", "items-center justify-between", "gap-4", "-translate-y-3 sm:-translate-y-5")}>
+            {tab === "plangs" && h("input-toggle", { action: "filters" })}
             {h("input-toggle", { action: "lights" })}
-            {/* @ts-ignore TODO add tag to globals */}
             {h("input-toggle", { action: "hamburger" })}
           </div>
         </header>
@@ -64,10 +69,11 @@ export function Layout({ title, description, tab, pl, mainClasses, children }: L
             id={id("mainNav")}
             class={tw(
               "fixed hidden sm:static",
-              "z-10 h-full",
+              "z-20 h-full",
               "w-[12rem]",
-              "bg-linear-to-t from-secondary to-background",
               "overflow-hidden overflow-y-auto",
+              "bg-linear-to-t from-secondary to-background",
+              "border-primary border-l-1 border-dotted",
             )}>
             {script("window.restoreHamburguer();")}
 
@@ -116,12 +122,13 @@ export function Layout({ title, description, tab, pl, mainClasses, children }: L
 
 function PlangsLogo({ class: cssClass }: { class?: string }) {
   return (
-    <div class={tw(cssClass)}>
+    <div style="aspect-ratio: 16 / 4.5;" class={tw("overflow-hidden", cssClass)}>
       <a
         href="/"
         class={tw(
           "block h-full w-full",
-          "text-6xl text-transparent",
+          "text-[clamp(2.5rem,5vw,7rem)]",
+          "text-transparent",
           "bg-contain bg-left bg-no-repeat",
           "bg-[url('/images/plangs-light.svg')] dark:bg-[url('/images/plangs.svg')]",
         )}>
@@ -144,10 +151,14 @@ function NavSection({ title, links, tab }: { tab: TAB; title: string; links: Nav
             class={tw(
               "px-4 py-2 sm:mb-1",
 
-              tab === forTab && "bg-primary/85 text-background", //"shadow-md shadow-primary",
+              tab === forTab && "bg-primary/85 text-background",
               tab !== forTab && "hover:bg-primary/25",
             )}>
-            <a class={tw("block cursor-pointer", NOWRAP_TEXT, nested ? "pl-10" : "pl-4")} href={href}>
+            <a
+              data-tab={forTab}
+              data-current={tab === forTab ? "1" : undefined}
+              class={tw(cl("navLink"), "block cursor-pointer", NOWRAP_TEXT, nested ? "pl-10" : "pl-4")}
+              href={href}>
               {title}
             </a>
           </li>

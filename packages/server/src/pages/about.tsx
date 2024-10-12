@@ -12,7 +12,7 @@ export function About({ content }: { content: Content }) {
       description="Discover https://plangs.page, a website about programing languages and the ecosystems aroudn them."
       mainClasses="overflow-y-auto">
       <article
-        class={tw(PROSE, "w-full p-4")}
+        class={tw(PROSE, "p-4")}
         // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
         dangerouslySetInnerHTML={{ __html: content.html }}
       />

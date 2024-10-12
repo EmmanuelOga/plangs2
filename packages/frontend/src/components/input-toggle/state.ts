@@ -1,7 +1,7 @@
 import { Dispatchable } from "@plangs/frontend/dispatchable";
 import { elem } from "@plangs/server/elements";
 
-import { CLOSE, FILTER_CLOSE, FILTER_EDIT, MENU, MOON, SUN } from "./icons";
+import { CLOSE, FILTER_CLOSE, FILTER_EDIT, MENU, MOON, SUN } from "../../icons";
 
 export class ToggleLights extends Dispatchable<{ mode: "dark" | "light" }> {
   static initial() {

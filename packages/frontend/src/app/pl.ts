@@ -1,10 +1,9 @@
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 import { cl } from "@plangs/server/elements";
 
-import type { TAB } from "@plangs/server/pages/layout";
 import type { PlInfoElement } from "../components/pl-info";
-import { $, elem, on } from "../utils";
-import { setPlTab } from "./tabs";
+import { elem, on } from "../utils";
+import { currentTab, setPlTab } from "./tabs";
 
 /** Attempt to load a plang using the nearest data-key attribute. */
 export function getPl(pg: PlangsGraph, target: EventTarget | null): NPlang | undefined {
@@ -38,10 +37,6 @@ export function hookPlInfo(pg: PlangsGraph) {
         window.location.href = `/${pl.plainKey}`;
       }
     });
-}
-
-export function currentTab(): TAB | undefined {
-  return $<HTMLAnchorElement>(`.${cl("navLink")}[data-current]`)?.dataset?.tab as TAB | undefined;
 }
 
 /** Get the latest plang from local storage, or a default one. */

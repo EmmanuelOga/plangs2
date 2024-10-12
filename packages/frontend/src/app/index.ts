@@ -14,7 +14,7 @@ import { elem } from "../utils";
 import { startGridNav } from "./gridNav";
 import { connectLivereload } from "./livereload";
 import { hookPlInfo, lastPlang } from "./pl";
-import { setPlTab } from "./tabs";
+import { currentTab, setPlTab } from "./tabs";
 
 function start() {
   registerPlangInfo();
@@ -47,7 +47,7 @@ function start() {
   };
 
   document.addEventListener("DOMContentLoaded", () => {
-    startGridNav(pg);
+    if (currentTab() === "plangs") startGridNav(pg);
     hookPlInfo(pg);
 
     // Debugging.
