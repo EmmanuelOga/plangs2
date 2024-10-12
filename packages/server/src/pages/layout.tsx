@@ -56,7 +56,9 @@ export function Layout({ title, description, tab, pl, mainClasses, children }: L
             "border-primary border-b-1 border-dotted",
             "bg-linear-to-b from-secondary to-background",
           )}>
-          <PlangsLogo class={tw("flex-1 sm:mx-auto", "mb-1", "mt-2 sm:mt-3 lg:mt-4 xl:mt-5 2xl:mt-6", "h-12 sm:h-16 lg:h-20 xl:h-24 2xl:h-28")} />
+          <PlangsLogo
+            class={tw("flex-1 sm:mx-auto sm:flex-none", "mb-1", "mt-2 sm:mt-3 lg:mt-4 xl:mt-5 2xl:mt-6", "h-12 sm:h-16 lg:h-20 xl:h-24 2xl:h-28")}
+          />
           <div class={tw("flex flex-row", "items-center justify-between", "gap-4", "-translate-y-3 sm:-translate-y-5")}>
             {tab === "plangs" && h("input-toggle", { action: "filters" })}
             {h("input-toggle", { action: "lights" })}
