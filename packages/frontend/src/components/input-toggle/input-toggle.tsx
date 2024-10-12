@@ -17,8 +17,16 @@ const ACTION_STATE = {
 
 export function InputToggle({ action }: InputToggleProps) {
   const state = ACTION_STATE[action]();
+
+  const toggle = (key?: string) => {
+    if (key !== undefined && key !== "Enter") return;
+    state.toggleMode();
+    state.runEffects();
+    state.dispatch();
+  };
+
   return (
-    <div class="text-primary" onClick={() => state.toggle()} onKeyDown={({ key }) => state.toggle(key)}>
+    <div class="text-primary" onClick={() => toggle()} onKeyDown={({ key }) => toggle(key)}>
       <div class={tw("cursor-pointer", "hover:stroke-1 hover:stroke-foreground/75")}>{state.icon}</div>
     </div>
   );

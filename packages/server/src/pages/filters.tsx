@@ -1,6 +1,6 @@
 import { type ComponentChildren, h } from "preact";
 
-import { tw } from "@plangs/frontend/utils";
+import { script, tw } from "@plangs/frontend/utils";
 import { type E, type N, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs/index";
 
 import { cl, id } from "../elements";
@@ -15,6 +15,8 @@ export function PlFilters({ class: cssClass }: { class?: string }) {
 
         cssClass,
       )}>
+      {script("window.restoreFilters();")}
+
       <InputGroup id="go-to-facet" title="Go To Facet" class="sticky top-0 z-10">
         {INPUT_GROUPS.map(({ title, key }) => (
           <a key={key} class={tw("text-foreground underline")} href={`javascript:window.focusFilter('${key}')`}>

@@ -4,7 +4,7 @@
 
 export const NOWRAP_TEXT = "overflow-hidden text-ellipsis whitespace-nowrap";
 
-export const HOVER = "hover:bg-yellow-200 hover:text-slate-800 cursor-pointer";
+export const HOVER = "hover:bg-yellow-300 hover:text-slate-800 cursor-pointer";
 
 /** Generate a stripped background image style. */
 export function stripes(size = "10px", col1 = "var(--color-secondary)", col2 = "var(--color-background)") {

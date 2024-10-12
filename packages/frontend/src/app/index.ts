@@ -8,7 +8,7 @@ import { registerInputCompl } from "../components/input-compl";
 import { registerInputFacet } from "../components/input-facet";
 import { registerInputSel } from "../components/input-sel";
 import { registerInputToggle } from "../components/input-toggle";
-import { ToggleHamburguer, ToggleLights } from "../components/input-toggle/state";
+import { ToggleFilters, ToggleHamburguer, ToggleLights } from "../components/input-toggle/state";
 import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
 import { elem } from "../utils";
 import { startGridNav } from "./gridNav";
@@ -25,13 +25,17 @@ function start() {
 
   const pg = new PlangsGraph().loadJSON(pgData);
 
+  window.restoreFilters = () => ToggleFilters.initial().runEffects();
+  window.restoreHamburguer = () => ToggleHamburguer.initial().runEffects();
+  window.restoreLightMode = () => ToggleLights.initial().runEffects();
+
   window.restorePlTab = () => setPlTab(lastPlang(pg));
+
   window.restorePlInfo = () => {
     const plInfo = elem<PlInfoElement>("plInfo");
     if (plInfo) plInfo.pl = lastPlang(pg);
   };
-  window.restoreLightMode = () => ToggleLights.initial().sideEffects();
-  window.restoreHamburguer = () => ToggleHamburguer.initial().sideEffects();
+
   window.focusFilter = (id: string) => {
     const elem = document.getElementById(id);
     if (!elem) return;
@@ -56,10 +60,11 @@ start();
 // Declare some globals that are called as the page is being loaded to avoid flashing the wrong content.
 declare global {
   interface Window {
-    restorePlTab: () => void;
-    restorePlInfo: () => void;
-    restoreLightMode: () => void;
-    restoreHamburguer: () => void;
     focusFilter: (id: string) => void;
+    restoreFilters: () => void;
+    restoreHamburguer: () => void;
+    restoreLightMode: () => void;
+    restorePlInfo: () => void;
+    restorePlTab: () => void;
   }
 }

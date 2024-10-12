@@ -16,7 +16,7 @@ export function Plangs({ pg }: { pg: PlangsGraph }) {
       mainClasses={tw("overflow-hidden", "flex flex-col sm:flex-row", "gap-2")}>
       {/* --- */}
 
-      <PlFilters class={tw("hidden", "max-h-[35dvh] sm:max-h-[unset] sm:w-[25rem]")} />
+      <PlFilters class={tw("max-h-[35dvh] sm:max-h-[unset] sm:w-[25rem]")} />
       <PlGrid pg={pg} class={tw("flex-1", "overflow-y-scroll", "m-1")} />
 
       <div class={tw("overflow-hidden overflow-y-scroll", "max-h-[20dvh] sm:max-h-[unset] sm:w-[25rem]")}>

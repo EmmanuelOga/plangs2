@@ -20,16 +20,9 @@ export class ToggleLights extends Dispatchable<{ mode: "dark" | "light" }> {
     this.data.mode = this.isDark ? "light" : "dark";
   }
 
-  sideEffects() {
+  runEffects() {
     document.body.classList.toggle("dark", this.isDark);
     localStorage.setItem("lightMode", this.data.mode);
-  }
-
-  toggle(key?: string) {
-    if (key !== undefined && key !== "Enter") return;
-    this.toggleMode();
-    this.sideEffects();
-    this.dispatch();
   }
 }
 
@@ -50,16 +43,9 @@ export class ToggleHamburguer extends Dispatchable<{ mode: "show" | "hide" }> {
     this.data.mode = this.hide ? "show" : "hide";
   }
 
-  sideEffects() {
+  runEffects() {
     elem("mainNav")?.classList.toggle("hidden", this.hide);
     localStorage.setItem("hamburguer", this.data.mode);
-  }
-
-  toggle(key?: string) {
-    if (key !== undefined && key !== "Enter") return;
-    this.toggleMode();
-    this.sideEffects();
-    this.dispatch();
   }
 }
 
@@ -80,14 +66,8 @@ export class ToggleFilters extends Dispatchable<{ mode: "show" | "hide" }> {
     this.data.mode = this.show ? "hide" : "show";
   }
 
-  sideEffects() {
+  runEffects() {
     elem("filters")?.classList.toggle("hidden", !this.show);
-  }
-
-  toggle(key?: string) {
-    if (key !== undefined && key !== "Enter") return;
-    this.toggleMode();
-    this.sideEffects();
-    this.dispatch();
+    localStorage.setItem("filters", this.data.mode);
   }
 }
