@@ -1,8 +1,8 @@
 import { PROSE } from "@plangs/frontend/styles";
 import { tw } from "@plangs/frontend/utils";
 
+import { Layout } from "../components/layout";
 import type { Content } from "../content";
-import { Layout } from "./layout";
 
 export function About({ content }: { content: Content }) {
   return (

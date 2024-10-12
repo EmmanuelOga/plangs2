@@ -2,7 +2,7 @@
  * @file utilities to type check DOM "id" and "class" attributes.
  */
 
-import { INPUT_PROPS } from "./pages/filters";
+import { INPUT_PROPS } from "./components/filters";
 
 export const FILTER_KEY = Object.keys(INPUT_PROPS) as (keyof typeof INPUT_PROPS)[];
 export const ID_KEYS = ["todo", "mainNav", "plTab", "plInfo", "plGrid", "filterToggle", "filters", ...FILTER_KEY] as const;

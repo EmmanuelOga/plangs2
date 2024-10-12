@@ -1,5 +1,5 @@
 import type { NPlang } from "@plangs/plangs";
-import type { TAB } from "@plangs/server/pages/layout";
+import type { TAB } from "@plangs/server/components/layout";
 
 import { PROSE } from "@plangs/frontend/styles";
 import { tw } from "../../utils";

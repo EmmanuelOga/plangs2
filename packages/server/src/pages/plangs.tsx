@@ -3,9 +3,9 @@ import { script, tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 
 import { h } from "preact";
+import { PlFilters } from "../components/filters";
+import { Layout } from "../components/layout";
 import { id } from "../elements";
-import { PlFilters } from "./filters";
-import { Layout } from "./layout";
 
 export function Plangs({ pg }: { pg: PlangsGraph }) {
   return (

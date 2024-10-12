@@ -3,7 +3,7 @@ import { PROSE } from "@plangs/frontend/styles";
 import { tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 
-import { Layout } from "./layout";
+import { Layout } from "../components/layout";
 
 export function Blog({ pg }: { pg: PlangsGraph }) {
   const postLinks = pg.nodes.post.values.reverse.map(

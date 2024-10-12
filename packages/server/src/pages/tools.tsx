@@ -2,7 +2,7 @@ import { PROSE } from "@plangs/frontend/styles";
 import { tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 
-import { Layout } from "./layout";
+import { Layout } from "../components/layout";
 
 export function Tools({ pg }: { pg: PlangsGraph }) {
   return (

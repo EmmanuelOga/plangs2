@@ -6,7 +6,7 @@ import type { PlangFilters } from "./filter";
 import type { CommonEdgeData, CommonNodeData, E, Image, Link, N, NLicenseData, NPlangData, NPostData, Release, StrDate } from "./schema";
 export type { E, N } from "./schema";
 
-// alias for better readability
+/** Alias for better readability. */
 export type G = PlangsGraph;
 
 export type AnyNode = NBase<N, CommonNodeData>;

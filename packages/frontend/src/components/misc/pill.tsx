@@ -1,4 +1,4 @@
-import type { TAB } from "@plangs/server/pages/layout";
+import type { TAB } from "@plangs/server/components/layout";
 
 import { HOVER } from "@plangs/frontend/styles";
 import { tw } from "@plangs/frontend/utils";

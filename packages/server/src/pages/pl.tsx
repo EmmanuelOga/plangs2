@@ -1,5 +1,3 @@
-import type { ComponentChildren } from "preact";
-
 import { Anchor } from "@plangs/frontend/components/misc/anchor";
 import { Pill } from "@plangs/frontend/components/misc/pill";
 import { PlInfo } from "@plangs/frontend/components/pl-info/pl-info";
@@ -7,8 +5,9 @@ import { PROSE } from "@plangs/frontend/styles";
 import { tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs";
 
+import { Layout } from "../components/layout";
+import { Table } from "../components/table";
 import { id } from "../elements";
-import { Layout } from "./layout";
 
 export function Pl({ pl }: { pl: NPlang }) {
   return (
@@ -165,14 +164,5 @@ function PlBundles({ pl }: { pl: NPlang }) {
         </div>
       ))}
     </>
-  );
-}
-
-function Table({ thead, tbody }: { tbody: ComponentChildren; thead: ComponentChildren }) {
-  return (
-    <table>
-      <thead>{thead}</thead>
-      <tbody>{tbody}</tbody>
-    </table>
   );
 }
