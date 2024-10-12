@@ -1,7 +1,7 @@
 import { type ComponentChildren, h } from "preact";
 
 import { NOWRAP_TEXT, stripes } from "@plangs/frontend/styles";
-import { script, style, tw } from "@plangs/frontend/utils";
+import { script, tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs";
 
 import { cl, id } from "../elements";
@@ -49,33 +49,32 @@ export function Layout({ title, description, tab, pl, mainClasses, children }: L
 
         <header
           class={tw(
-            //
+            "px-2 sm:px-4",
             "flex flex-row",
-            "items-end",
-            "px-4",
+            "items-end justify-between",
             "border-primary border-b-1 border-dotted",
             "bg-linear-to-b from-secondary to-background",
           )}>
-          <PlangsLogo
-            class={tw("flex-1 sm:mx-auto sm:flex-none", "mb-1", "mt-2 sm:mt-3 lg:mt-4 xl:mt-5 2xl:mt-6", "h-12 sm:h-16 lg:h-20 xl:h-24 2xl:h-28")}
-          />
-          <div class={tw("flex flex-row", "items-center justify-between", "gap-4", "-translate-y-3 sm:-translate-y-5")}>
-            {tab === "plangs" && h("input-toggle", { action: "filters" })}
-            {h("input-toggle", { action: "lights" })}
+          <div class={tw("flex flex-row", "gap-4", "-translate-y-3 sm:-translate-y-5")}>
             {h("input-toggle", { action: "hamburger" })}
+            {tab === "plangs" && h("input-toggle", { action: "filters" })}
           </div>
+
+          <PlangsLogo class={tw("mx-auto", "mb-4 sm:mb-8", "mt-2 sm:mt-3 lg:mt-4 xl:mt-5 2xl:mt-6", "h-12 sm:h-16 lg:h-20 xl:h-24 2xl:h-28")} />
+
+          <div class={tw("-translate-y-3 sm:-translate-y-5")}>{h("input-toggle", { action: "lights" })}</div>
         </header>
 
-        <div class={tw("flex-1", "flex flex-row-reverse", "overflow-hidden")}>
+        <div class={tw("flex-1", "flex flex-row", "overflow-y-auto")}>
           <aside
             id={id("mainNav")}
             class={tw(
-              "fixed hidden sm:static",
-              "z-20 h-full",
+              "hidden sm:static",
+              "z-20",
               "w-[12rem]",
               "overflow-hidden overflow-y-auto",
               "bg-linear-to-t from-secondary to-background",
-              "border-primary border-l-1 border-dotted",
+              "border-primary border-r-1 border-dotted",
             )}>
             {script("window.restoreHamburguer();")}
 
