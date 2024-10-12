@@ -18,9 +18,9 @@ export function Pl({ pl }: { pl: NPlang }) {
       title={`${pl.name} at https://plangs.page`}
       description={`${pl.name} at https://plangs.page: A language is much more than just a syntax. It's an ecosystem of tools, libraries, and applications.`}
       mainClasses={tw("overflow-hidden", "flex flex-col sm:flex-row sm:place-content-end", "gap-2")}>
-      <PlBody class="flex-1 px-4" pl={pl} />
+      <PlBody class={tw("flex-1", "px-4", "overflow-y-auto")} pl={pl} />
 
-      <div class={tw("overflow-hidden overflow-y-scroll", "max-h-[20dvh] sm:max-h-[unset] sm:w-[25rem]")}>
+      <div class={tw("overflow-hidden overflow-y-auto", "max-h-[20dvh] sm:max-h-[unset] sm:w-[25rem]")}>
         <div id={id("plInfo")}>
           <PlInfo pl={pl} open={true} tab="pl" />
         </div>

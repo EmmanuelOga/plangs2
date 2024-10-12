@@ -6,8 +6,10 @@ import { Layout } from "./layout";
 
 export function Tags({ pg }: { pg: PlangsGraph }) {
   return (
-    <Layout tab="tags" title="Browse the Tags used across Plangs! for categorization.">
-      <div class={tw(PROSE)}>TAGS TODO</div>
+    <Layout tab="tags" title="Browse the Tags used across Plangs! for categorization." mainClasses="overflow-y-auto">
+      <article class={tw(PROSE, "p-4")}>
+        <h1>Tags</h1>
+      </article>
     </Layout>
   );
 }

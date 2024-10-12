@@ -6,8 +6,10 @@ import { Layout } from "./layout";
 
 export function TSys({ pg }: { pg: PlangsGraph }) {
   return (
-    <Layout tab="tsys" title="Browse some of the type systems implemented by your favorite programming languages!">
-      <div class={tw(PROSE)}>TSYS TODO</div>
+    <Layout tab="tsys" title="Browse some of the type systems implemented by your favorite programming languages!" mainClasses="overflow-y-auto">
+      <article class={tw(PROSE, "p-4")}>
+        <h1>Type Systems</h1>
+      </article>
     </Layout>
   );
 }

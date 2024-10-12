@@ -9,12 +9,13 @@ export function Blog({ pg }: { pg: PlangsGraph }) {
   const postLinks = pg.nodes.post.values.reverse.map(
     post =>
       post.link && (
-        <p class="pb-1">
-          <p class="m-0 text-lg">{post.date}</p>
-          <h1 class="mt-0">
+        <div class="mb-8">
+          <div>{post.date}</div>
+          {/* This looks like some sort of prose issue: setting margin to 0 thorugh m-0 or mt-0 doesn't work. */}
+          <h2 style="margin: 0">
             <Anchor link={post.link} />
-          </h1>
-        </p>
+          </h2>
+        </div>
       ),
   );
 
