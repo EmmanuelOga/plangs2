@@ -22,7 +22,7 @@ export function PlInfo({ pl, open, tab }: PlInfoProps) {
       class={tw(
         "px-2 sm:py-4",
         "h-fit w-full",
-        PROSE,
+        "prose prose-green dark:prose-invert sm:prose-sm lg:prose-lg xl:prose-xl max-w-[unset]",
         "bg-linear-to-b from-background to-secondary/50",
         "shadow-lg shadow-primary/25",
         "border-b-1 border-b-primary border-dotted",
