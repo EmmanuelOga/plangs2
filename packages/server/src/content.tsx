@@ -58,7 +58,7 @@ export async function loadContent(path: string, pg: PlangsGraph): Promise<Conten
     }
   }
 
-  const pillsHtml = `<div class="${hideDate ? "hidden" : ""}">${pills.join("")}</div>`;
+  const pillsHtml = `<div style="float: right;" class="${hideDate ? "hidden" : ""}">${pills.join("")}</div>`;
   const md = `${pillsHtml}\n\n# ${title}\n\n${mdBody.replace(ZERO_WIDTH, "")}`;
   const html = await marked.use(customHeadingId()).parse(md);
 

@@ -6,8 +6,10 @@ import { Layout } from "./layout";
 
 export function Apps({ pg }: { pg: PlangsGraph }) {
   return (
-    <Layout tab="apps" title="Browse applications made with your favorite programming languages!">
-      <div class={tw(PROSE)}>APPS TODO</div>
+    <Layout tab="apps" title="Browse applications made with your favorite programming languages!" mainClasses="overflow-y-auto">
+      <article class={tw(PROSE, "p-4")}>
+        <h1>Apps</h1>
+      </article>
     </Layout>
   );
 }

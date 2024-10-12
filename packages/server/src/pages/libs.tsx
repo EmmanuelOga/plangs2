@@ -6,8 +6,10 @@ import { Layout } from "./layout";
 
 export function Libs({ pg }: { pg: PlangsGraph }) {
   return (
-    <Layout tab="libs" title="Browse libraries made with your favorite programming languages!">
-      <div class={tw(PROSE)}>LIBS TODO</div>
+    <Layout tab="libs" title="Browse libraries made with your favorite programming languages!" mainClasses="overflow-y-auto">
+      <article class={tw(PROSE, "p-4")}>
+        <h1>Libraries</h1>
+      </article>
     </Layout>
   );
 }
