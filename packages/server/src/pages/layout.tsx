@@ -37,7 +37,7 @@ export function Layout({ title, description, tab, pl, mainClasses, children }: L
       </head>
       <body
         style={stripes()}
-        class={tw("h-dvh w-full", "flex flex-col flex-nowrap", "bg-background text-foreground", "overflow-hidden", "dark")}
+        class={tw("h-dvh w-full", "flex flex-col flex-nowrap", "bg-background text-foreground", "overflow-hidden")}
         data-tab={tab}>
         {script("window.restoreLightMode();")}
 
