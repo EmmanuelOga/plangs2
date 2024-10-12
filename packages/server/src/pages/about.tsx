@@ -1,3 +1,4 @@
+import { PROSE } from "@plangs/frontend/styles";
 import { tw } from "@plangs/frontend/utils";
 
 import type { Content } from "../content";
@@ -11,7 +12,7 @@ export function About({ content }: { content: Content }) {
       description="Discover https://plangs.page, a website about programing languages and the ecosystems aroudn them."
       mainClasses="overflow-y-auto">
       <article
-        class={tw("prose prose-green dark:prose-invert max-w-[80rem]", "w-full p-4")}
+        class={tw(PROSE, "w-full p-4")}
         // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
         dangerouslySetInnerHTML={{ __html: content.html }}
       />

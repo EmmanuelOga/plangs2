@@ -1,4 +1,5 @@
 import { Anchor } from "@plangs/frontend/components/misc/anchor";
+import { PROSE } from "@plangs/frontend/styles";
 import { tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 
@@ -23,7 +24,7 @@ export function Blog({ pg }: { pg: PlangsGraph }) {
       title="Read https://plangs.page latest news"
       description="Read the latest news from https://plangs.page, a website about programming languages and the ecosystems around them."
       mainClasses="overflow-y-auto">
-      <article class={tw("prose prose-green dark:prose-invert max-w-[80rem]", "p-4", "overflow-y-auto", "w-full")}>
+      <article class={tw(PROSE, "p-4", "overflow-y-auto", "w-full")}>
         <h1>News</h1>
         {postLinks.isEmpty ? <p>No posts yet.</p> : postLinks.existing}
       </article>

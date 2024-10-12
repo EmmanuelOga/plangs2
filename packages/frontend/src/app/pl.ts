@@ -1,4 +1,4 @@
-import type { NPlang, PlangsGraph } from "@plangs/plangs/index";
+import type { NPlang, PlangsGraph } from "@plangs/plangs";
 import { cl } from "@plangs/server/elements";
 
 import type { TAB } from "@plangs/server/pages/layout";

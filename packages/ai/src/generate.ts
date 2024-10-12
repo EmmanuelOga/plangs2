@@ -1,4 +1,4 @@
-import type { NPlang } from "@plangs/plangs/index";
+import type { NPlang } from "@plangs/plangs";
 import type { PlAiResult } from "@plangs/plangs/schema";
 
 /** Generate code that can reconstruct the state of a NPlang node. */

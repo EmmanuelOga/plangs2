@@ -3,6 +3,7 @@ import type { ComponentChildren } from "preact";
 import { Anchor } from "@plangs/frontend/components/misc/anchor";
 import { Pill } from "@plangs/frontend/components/misc/pill";
 import { PlInfo } from "@plangs/frontend/components/pl-info/pl-info";
+import { PROSE } from "@plangs/frontend/styles";
 import { tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs";
 
@@ -16,16 +17,12 @@ export function Pl({ pl }: { pl: NPlang }) {
       tab="pl"
       title={`${pl.name} at https://plangs.page`}
       description={`${pl.name} at https://plangs.page: A language is much more than just a syntax. It's an ecosystem of tools, libraries, and applications.`}
-      mainClasses="overflow-auto">
-      <div>
-        <div>
-          <div id={id("plInfo")}>
-            <PlInfo pl={pl} open={true} tab="pl" />
-          </div>
-        </div>
+      mainClasses={tw("overflow-hidden", "flex flex-col sm:flex-row sm:place-content-end", "gap-2")}>
+      <PlBody pl={pl} />
 
-        <div class={tw("flex-1", "p-4", "flex flex-col lg:items-center", "overflow-auto")}>
-          <PlBody pl={pl} />
+      <div class={tw("overflow-hidden overflow-y-scroll", "max-h-[20dvh] sm:max-h-[unset] sm:w-[25rem]")}>
+        <div id={id("plInfo")}>
+          <PlInfo pl={pl} open={true} tab="pl" />
         </div>
       </div>
     </Layout>
@@ -34,7 +31,7 @@ export function Pl({ pl }: { pl: NPlang }) {
 
 export function PlBody({ pl, class: cssClass }: { class?: string; pl: NPlang }) {
   return (
-    <article class={tw("prose prose-green dark:prose-invert max-w-[80rem]", cssClass)}>
+    <article class={tw(PROSE, cssClass)}>
       <PlNews pl={pl} />
       <PlApps pl={pl} />
       <PlLibs pl={pl} />

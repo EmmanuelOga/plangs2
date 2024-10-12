@@ -2,6 +2,8 @@
  * {@fileoverview Some useful CSS styles }
  */
 
+export const PROSE = "prose prose-green dark:prose-invert max-w-[unset]";
+
 export const NOWRAP_TEXT = "overflow-hidden text-ellipsis whitespace-nowrap";
 
 export const HOVER = "hover:bg-yellow-300 hover:text-slate-800 cursor-pointer";

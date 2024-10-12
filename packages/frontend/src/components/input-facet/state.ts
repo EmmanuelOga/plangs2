@@ -1,7 +1,6 @@
 import { Dispatchable } from "@plangs/frontend/dispatchable";
-
 import type { EncodedFilter } from "@plangs/graph/auxiliar";
-import type { E, PlangsGraph } from "@plangs/plangs/index";
+
 import type { Item } from "../input-sel";
 import type { InputFacetProps } from "./input-facet";
 

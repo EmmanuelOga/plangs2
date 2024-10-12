@@ -2,11 +2,11 @@ import { Fragment, type Ref, h } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
 import { useDispatchable } from "@plangs/frontend/dispatchable";
-import { customEvent, on, tw } from "@plangs/frontend/utils";
-import type { E, N, PlangsGraph } from "@plangs/plangs/index";
-
 import { HOVER, NOWRAP_TEXT } from "@plangs/frontend/styles";
+import { customEvent, on, tw } from "@plangs/frontend/utils";
 import { type EncodedFilter, isEncodedFilter } from "@plangs/graph/auxiliar";
+import type { E, N, PlangsGraph } from "@plangs/plangs";
+
 import type { InputSelElement } from "../input-sel";
 import { type Entry, InputFacetState } from "./state";
 

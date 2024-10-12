@@ -1,6 +1,7 @@
 import type { NPlang } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/pages/layout";
 
+import { PROSE } from "@plangs/frontend/styles";
 import { tw } from "../../utils";
 import { Anchor } from "../misc/anchor";
 import { Pill } from "../misc/pill";
@@ -21,7 +22,7 @@ export function PlInfo({ pl, open, tab }: PlInfoProps) {
       class={tw(
         "px-2 sm:py-4",
         "h-fit w-full",
-        "prose prose-green dark:prose-invert max-w-[unset]",
+        PROSE,
         "bg-linear-to-b from-background to-secondary/50",
         "shadow-lg shadow-primary/25",
         "border-b-1 border-b-primary border-dotted",

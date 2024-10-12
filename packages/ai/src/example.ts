@@ -1,4 +1,4 @@
-import type { NPlang, PlangsGraph } from "@plangs/plangs/index";
+import type { NPlang, PlangsGraph } from "@plangs/plangs";
 import type { N, NPlangData, PlAiResult } from "@plangs/plangs/schema";
 
 /** Generate a JSON object including keys to known nodes. */

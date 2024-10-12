@@ -1,7 +1,7 @@
 import { type ComponentChildren, h } from "preact";
 
 import { script, tw } from "@plangs/frontend/utils";
-import { type E, type N, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs/index";
+import { type E, type N, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs";
 
 import { cl, id } from "../elements";
 
