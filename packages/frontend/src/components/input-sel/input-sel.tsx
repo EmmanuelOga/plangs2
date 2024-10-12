@@ -4,6 +4,7 @@ import { useEffect, useRef } from "preact/hooks";
 import { customEvent, elem, on, send, tw, withinContainer } from "../../utils";
 
 import { useDispatchable } from "@plangs/frontend/dispatchable";
+import { HOVER } from "@plangs/frontend/styles";
 import { InputSelState, type Item, type ItemRemoved, isItem } from "./state";
 
 export const TAG_NAME = "input-sel";
@@ -71,7 +72,7 @@ export function InputSel({ name, class: cssClass }: InputSelProps) {
       <ul>
         {state.selected.map(({ value, label }) => (
           <li
-            class="cursor-pointer py-2 hover:bg-yellow-200 hover:text-slate-800"
+            class={tw("cursor-pointer py-2", HOVER)}
             key={value}
             data-value={value}
             aria-label="remove"

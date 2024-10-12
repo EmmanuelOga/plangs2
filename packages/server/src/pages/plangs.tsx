@@ -3,7 +3,7 @@ import { script, tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 
 import { h } from "preact";
-import { id } from "../elements";
+import { cl, id } from "../elements";
 import { PlFilters } from "./filters";
 import { Layout } from "./layout";
 
@@ -16,7 +16,7 @@ export function Plangs({ pg }: { pg: PlangsGraph }) {
       mainClasses={tw("overflow-hidden", "flex flex-col sm:flex-row", "gap-2")}>
       {/* --- */}
 
-      <PlFilters class={tw("max-h-[35dvh] sm:max-h-[unset] sm:w-[25rem]")} />
+      <PlFilters class={tw("hidden", "max-h-[35dvh] sm:max-h-[unset] sm:w-[25rem]")} />
       <PlGrid pg={pg} class={tw("flex-1", "overflow-y-scroll", "m-1")} />
 
       <div class={tw("overflow-hidden overflow-y-scroll", "max-h-[20dvh] sm:max-h-[unset] sm:w-[25rem]")}>

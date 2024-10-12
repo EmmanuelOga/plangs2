@@ -1,5 +1,6 @@
 import type { TAB } from "@plangs/server/pages/layout";
 
+import { HOVER } from "@plangs/frontend/styles";
 import { tw } from "@plangs/frontend/utils";
 import { cl } from "@plangs/server/elements";
 
@@ -20,12 +21,11 @@ export function Pill({ name, nodeKey, kind, tab }: { name: string; nodeKey: stri
         "font-bold text-sm",
 
         "rounded",
-        kind === "pl" && "cursor-pointer",
         kind === "pl" ? "bg-primary text-background" : "bg-secondary text-foreground",
         "shadow-lg shadow-secondary",
         "outline-2 outline-secondary",
 
-        kind === "pl" && "hover:bg-yellow-200 hover:text-slate-800",
+        kind === "pl" && HOVER,
       )}>
       {name}
     </div>

@@ -5,8 +5,9 @@ import { useDispatchable } from "@plangs/frontend/dispatchable";
 import { customEvent, on, tw } from "@plangs/frontend/utils";
 import type { E, N, PlangsGraph } from "@plangs/plangs/index";
 
+import { HOVER, NOWRAP_TEXT } from "@plangs/frontend/styles";
 import { type EncodedFilter, isEncodedFilter } from "@plangs/graph/auxiliar";
-import type { InputSelElement, Item } from "../input-sel";
+import type { InputSelElement } from "../input-sel";
 import { type Entry, InputFacetState } from "./state";
 
 export type InputFacetProps = {
@@ -56,8 +57,6 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
   );
 
   const STICKY = "sticky top-0 bg-background border-b-2 border-secondary";
-  const NOBREAK = "whitespace-nowrap overflow-hidden text-ellipsis";
-  const CLICKTXT = tw("px-2", "cursor-pointer", "hover:text-secondary hover:underline", "overflow-hidden text-ellipsis whitespace-nowrap");
 
   return (
     <div ref={self as Ref<HTMLDivElement>}>
@@ -65,14 +64,14 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
         <div class="grid grid-cols-[1fr_auto]">
           <button
             type="button"
-            class={tw(CLICKTXT, STICKY, "text-left italic")}
+            class={tw(STICKY, "p-2", "text-left italic")}
             onClick={toggleFacet}
             onKeyDown={ev => ev.key === "Enter" && toggleFacet()}>
             Facet
           </button>
           <button
             type="button"
-            class={tw(CLICKTXT, STICKY, "text-right italic")}
+            class={tw(STICKY, "p-2", "text-right italic")}
             onClick={toggleCount}
             onKeyDown={ev => ev.key === "Enter" && toggleCount()}>
             Count
@@ -82,12 +81,12 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
             <Fragment key={entry.value}>
               <button
                 type="button"
-                class={tw(CLICKTXT, "pt-1", "text-left")}
+                class={tw(NOWRAP_TEXT, HOVER, "p-2", "text-left")}
                 onClick={() => addEntry(entry)}
                 onKeyDown={ev => ev.key === "Enter" && addEntry(entry)}>
                 {entry.label}
               </button>
-              <div class={tw(NOBREAK, "text-center")}>{entry.count}</div>
+              <div class={tw("p-2", "text-center")}>{entry.count}</div>
             </Fragment>
           ))}
         </div>
