@@ -32,7 +32,7 @@ export function Plangs({ pg }: { pg: PlangsGraph }) {
 function PlGrid({ pg, class: cssClass }: { pg: PlangsGraph; class?: string }) {
   return (
     <div class={tw(cssClass)}>
-      <div id={id("plGrid")} class="grid grid-cols-4 gap-2 px-2">
+      <div id={id("plGrid")} class="grid grid-cols-4 gap-4 px-2">
         {pg.nodes.pl.batch().map(([key, pl]) => (
           <PlThumb key={key} pl={pl} />
         ))}

@@ -1,4 +1,4 @@
-import { h } from "preact";
+import { type ComponentChildren, h } from "preact";
 
 import { tw } from "@plangs/frontend/utils";
 import { type E, type N, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs/index";
@@ -10,46 +10,48 @@ export function PlFilters({ class: cssClass }: { class?: string }) {
     <aside
       id={id("filters")}
       class={tw(
-        "p-1",
-        "flex flex-row gap-2 sm:flex-col",
-        "overflow-hidden",
+        "flex flex-col gap-2",
+        "overflow-y-scroll",
 
         cssClass,
       )}>
-      <div class={tw("overflow-y-scroll", "pr-1 pl-3 sm:mb-4")}>
+      <InputGroup id="go-to-facet" title="Go To Facet" class="sticky top-0 z-10">
         {INPUT_GROUPS.map(({ title, key }) => (
-          <div class={tw("py-1 pr-1", "sm:inline-block")} key={key}>
-            <a class={tw("text-primary underline")} href={`javascript:window.focusFilter('${key}')`}>
-              {title}
-            </a>
-          </div>
+          <a key={key} class={tw("text-foreground underline")} href={`javascript:window.focusFilter('${key}')`}>
+            {title}
+          </a>
         ))}
-      </div>
+      </InputGroup>
 
-      {/* Generous padding right for easier scrolling. */}
-      <div class={tw("overflow-y-scroll", "flex-1", "pr-8")}>
-        {INPUT_GROUPS.map(({ title, key, keys }) => (
-          <div key={key} id={key}>
-            <header class="mb-1 px-4 py-2 text-foreground">{title}</header>
-            <div class={tw("relative overflow-hidden", "mb-2 p-2", "bg-secondary")}>
-              <span
-                class={tw(
-                  cl("filterAnim"),
-                  "hidden",
-                  "z-10",
-                  "absolute block h-full w-full",
-                  "animate-[ping_.2s_cubic-bezier(1,0,0,1)_infinite]",
-                  "bg-foreground/75",
-                )}
-              />
-              {keys.map(key => (
-                <Input key={key} inputKey={key} />
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+      {INPUT_GROUPS.map(({ title, key, keys }) => (
+        <InputGroup key={key} id={key} title={title}>
+          {keys.map(key => (
+            <Input key={key} inputKey={key} />
+          ))}
+        </InputGroup>
+      ))}
     </aside>
+  );
+}
+
+function InputGroup({ id, class: cssClass, title, children }: { id: string; class?: string; title: string; children: ComponentChildren }) {
+  return (
+    <div id={id} class={tw("mb-4 pr-8 pl-4", "bg-background", cssClass)}>
+      <header class="px-4 pb-1 text-foreground">{title}</header>
+      <div class={tw("relative overflow-hidden", "mb-2 p-2", "bg-secondary")}>
+        <span
+          class={tw(
+            cl("filterAnim"),
+            "hidden",
+            "z-10",
+            "absolute block h-full w-full",
+            "animate-[ping_.2s_cubic-bezier(1,0,0,1)_infinite]",
+            "bg-foreground/75",
+          )}
+        />
+        {children}
+      </div>
+    </div>
   );
 }
 
@@ -69,7 +71,7 @@ function Input({ inputKey: key }: { inputKey: keyof typeof INPUT_PROPS }) {
   }
 
   const withInputSel = input.kind === "search" && "inputSel" in input && input.inputSel;
-  const inputTextColor = "text-slate-800 placeholder:text-slate-800";
+  const inputTextColor = "bg-background text-foreground placeholder:text-foreground/50";
   const inputElem = (
     <input
       {...baseProps}

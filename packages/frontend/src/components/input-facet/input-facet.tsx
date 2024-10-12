@@ -55,14 +55,14 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
     }),
   );
 
-  const STICKY = "sticky top-0 bg-white border-b-2 border-secondary";
+  const STICKY = "sticky top-0 bg-background border-b-2 border-secondary";
   const NOBREAK = "whitespace-nowrap overflow-hidden text-ellipsis";
   const CLICKTXT = tw("px-2", "cursor-pointer", "hover:text-secondary hover:underline", "overflow-hidden text-ellipsis whitespace-nowrap");
 
   return (
     <div ref={self as Ref<HTMLDivElement>}>
-      <div class={tw("mb-1", "max-h-[10rem] max-w-full", "overflow-x-hidden overflow-y-scroll", "bg-white")}>
-        <div class="prose prose-green grid grid-cols-[1fr_auto]">
+      <div class={tw("mb-1", "max-h-[10rem] max-w-full", "overflow-x-hidden overflow-y-scroll", "bg-background")}>
+        <div class="grid grid-cols-[1fr_auto]">
           <button
             type="button"
             class={tw(CLICKTXT, STICKY, "text-left italic")}
