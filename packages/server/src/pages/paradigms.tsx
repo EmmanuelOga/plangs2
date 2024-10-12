@@ -25,7 +25,7 @@ export function Paradigms({ pg }: { pg: PlangsGraph }) {
     </tr>
   )).existing;
   return (
-    <Layout tab="paradigms" title="Browse some of the paradigms used by your favorite programming languages!" mainClasses="overflow-y-auto">
+    <Layout tab="paradigms" title="Paradigms used by your favorite programming languages!" mainClasses="overflow-y-auto">
       <article class={tw(PROSE, "p-4")}>
         <h1>Paradigms</h1>
         {para.isEmpty ? <p>No paradigms just yet!</p> : <Table thead={thead} tbody={tbody} />}

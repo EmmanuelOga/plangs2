@@ -25,7 +25,7 @@ export function Platforms({ pg }: { pg: PlangsGraph }) {
     </tr>
   )).existing;
   return (
-    <Layout tab="platforms" title="Browse the platforms your favorite programming languages and apps supports!" mainClasses="overflow-y-auto">
+    <Layout tab="platforms" title="Platforms your favorite programming languages support!" mainClasses="overflow-y-auto">
       <article class={tw(PROSE, "p-4")}>
         <h1>Platforms</h1>
         {platforms.isEmpty ? <p>No platforms just yet!</p> : <Table thead={thead} tbody={tbody} />}

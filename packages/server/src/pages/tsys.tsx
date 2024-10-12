@@ -25,7 +25,7 @@ export function TSys({ pg }: { pg: PlangsGraph }) {
     </tr>
   )).existing;
   return (
-    <Layout tab="tsys" title="Browse some of the type systems implemented by your favorite programming languages!" mainClasses="overflow-y-auto">
+    <Layout tab="tsys" title="Type systems implemented by your favorite programming languages!" mainClasses="overflow-y-auto">
       <article class={tw(PROSE, "p-4")}>
         <h1>Type Systems</h1>
         {tsys.isEmpty ? <p>No type systems just yet!</p> : <Table thead={thead} tbody={tbody} />}

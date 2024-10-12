@@ -25,7 +25,7 @@ export function Licenses({ pg }: { pg: PlangsGraph }) {
     </tr>
   )).existing;
   return (
-    <Layout tab="licenses" title="Browse Licenses commonly used by open source projects." mainClasses="overflow-y-auto">
+    <Layout tab="licenses" title="Licenses commonly used by open source projects." mainClasses="overflow-y-auto">
       <article class={tw(PROSE, "p-4")}>
         <h1>Licenses</h1>
         {licenses.isEmpty ? <p>No licenses just yet!</p> : <Table thead={thead} tbody={tbody} />}
