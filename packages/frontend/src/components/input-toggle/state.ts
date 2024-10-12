@@ -1,7 +1,7 @@
 import { Dispatchable } from "@plangs/frontend/dispatchable";
 import { elem } from "@plangs/server/elements";
 
-import { CLOSE, FILTER, MENU, MOON, SUN } from "./icons";
+import { CLOSE, FILTER_CLOSE, FILTER_EDIT, MENU, MOON, SUN } from "./icons";
 
 export class ToggleLights extends Dispatchable<{ mode: "dark" | "light" }> {
   static initial() {
@@ -68,12 +68,26 @@ export class ToggleFilters extends Dispatchable<{ mode: "show" | "hide" }> {
     return new ToggleFilters({ mode: localStorage.getItem("filters") === "show" ? "show" : "hide" });
   }
 
+  get show(): boolean {
+    return this.data.mode === "show";
+  }
+
   get icon() {
-    return FILTER;
+    return this.show ? FILTER_CLOSE : FILTER_EDIT;
+  }
+
+  toggleMode() {
+    this.data.mode = this.show ? "hide" : "show";
+  }
+
+  sideEffects() {
+    elem("filters")?.classList.toggle("hidden", !this.show);
   }
 
   toggle(key?: string) {
     if (key !== undefined && key !== "Enter") return;
-    console.log("TODO");
+    this.toggleMode();
+    this.sideEffects();
+    this.dispatch();
   }
 }

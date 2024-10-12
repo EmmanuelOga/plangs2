@@ -3,7 +3,7 @@ import { script, tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 
 import { h } from "preact";
-import { cl, id } from "../elements";
+import { id } from "../elements";
 import { PlFilters } from "./filters";
 import { Layout } from "./layout";
 
