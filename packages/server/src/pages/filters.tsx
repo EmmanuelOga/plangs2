@@ -16,7 +16,7 @@ export function PlFilters({ class: cssClass }: { class?: string }) {
 
         cssClass,
       )}>
-      <div class={tw("overflow-y-scroll", "pr-1 pl-3")}>
+      <div class={tw("overflow-y-scroll", "pr-1 pl-3 sm:mb-4")}>
         {INPUT_GROUPS.map(({ title, key }) => (
           <div class={tw("py-1 pr-1", "sm:inline-block")} key={key}>
             <a class={tw("text-primary underline")} href={`javascript:window.focusFilter('${key}')`}>
@@ -29,21 +29,23 @@ export function PlFilters({ class: cssClass }: { class?: string }) {
       {/* Generous padding right for easier scrolling. */}
       <div class={tw("overflow-y-scroll", "flex-1", "pr-8")}>
         {INPUT_GROUPS.map(({ title, key, keys }) => (
-          <div class={tw("relative overflow-hidden", "mb-2 px-2 py-1", "bg-secondary")} key={key} id={key}>
-            <span
-              class={tw(
-                cl("filterAnim"),
-                "hidden",
-                "z-10",
-                "absolute block h-full w-full",
-                "animate-[ping_.2s_cubic-bezier(1,0,0,1)_infinite]",
-                "bg-foreground/75",
-              )}
-            />
-            <header class="mb-1 text-primary text-xs">{title}</header>
-            {keys.map(key => (
-              <Input key={key} inputKey={key} />
-            ))}
+          <div key={key} id={key}>
+            <header class="mb-1 px-4 py-2 text-foreground">{title}</header>
+            <div class={tw("relative overflow-hidden", "mb-2 p-2", "bg-secondary")}>
+              <span
+                class={tw(
+                  cl("filterAnim"),
+                  "hidden",
+                  "z-10",
+                  "absolute block h-full w-full",
+                  "animate-[ping_.2s_cubic-bezier(1,0,0,1)_infinite]",
+                  "bg-foreground/75",
+                )}
+              />
+              {keys.map(key => (
+                <Input key={key} inputKey={key} />
+              ))}
+            </div>
           </div>
         ))}
       </div>

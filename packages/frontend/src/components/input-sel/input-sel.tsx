@@ -71,9 +71,9 @@ export function InputSel({ name, class: cssClass }: InputSelProps) {
       <ul>
         {state.selected.map(({ value, label }) => (
           <li
+            class="cursor-pointer py-2 hover:bg-yellow-200 hover:text-slate-800"
             key={value}
             data-value={value}
-            class="py-2"
             aria-label="remove"
             tabindex={0}
             onClick={() => state.remove(value, "click")}

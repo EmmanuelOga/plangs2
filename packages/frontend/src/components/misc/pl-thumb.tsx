@@ -17,7 +17,7 @@ export function PlThumb({ pl, class: cssClass }: { class?: string; pl: NPlang })
         cl("plThumb"),
         "group",
 
-        "flex flex-col-reverse",
+        "flex flex-col",
         "aspect-square",
         "cursor-pointer",
 
@@ -32,7 +32,7 @@ export function PlThumb({ pl, class: cssClass }: { class?: string; pl: NPlang })
       )}>
       <div
         class={tw(
-          "px-1.5 py-1",
+          "p-1",
           "text-center text-xs sm:text-lg",
           NOWRAP_TEXT,
 
