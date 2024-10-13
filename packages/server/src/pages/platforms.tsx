@@ -1,5 +1,5 @@
 import { Anchor } from "@plangs/frontend/components/misc/anchor";
-import { PROSE } from "@plangs/frontend/styles";
+import { BORDER, PROSE } from "@plangs/frontend/styles";
 import { tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 
@@ -7,7 +7,7 @@ import { Layout } from "../components/layout";
 
 export function Platforms({ pg }: { pg: PlangsGraph }) {
   const entries = pg.nodes.plat.values.map(node => (
-    <div key={node.key} class={tw("mb-8", "border-primary/50 border-b-1 border-dotted")}>
+    <div key={node.key} class={tw("mb-8", tw(BORDER, "border-b-1"))}>
       <div class="float-right">{node.websites.map(link => <Anchor key={link.href} link={link} />).existing}</div>
       <header class="font-extrabold text-3xl">{node.name}</header>
       <p>{node.description}</p>

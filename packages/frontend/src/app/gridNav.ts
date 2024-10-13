@@ -19,9 +19,7 @@ export function startGridNav(pg: PlangsGraph) {
   //////////////////////////////////////////////////////////////////////////////////
   // When an input filter has a non-empty value, add the active data attribute.
 
-  const inputFilters = elems<HTMLInputElement>("inputFilter");
-
-  for (const input of inputFilters) {
+  for (const input of elems<HTMLInputElement>("facetInput")) {
     on(input, "input", () => {
       if (input.getAttribute("type") === "checkbox") {
         input.classList.toggle("pl-filters-active", input.checked);

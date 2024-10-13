@@ -12,7 +12,7 @@ import { PlangsGraph } from "@plangs/plangs";
 import { loadPosts } from "./content";
 import { notifyWebsockets, trackWebsocket, untrackWebsocket } from "./livereload";
 import { resolvePage } from "./resolve_page";
-import { contentTypeFor, staticResponse, vdomToHTML } from "./util";
+import { contentTypeFor, staticResponse, vdomToHTML } from "./utils/server";
 
 const pg = new PlangsGraph();
 await loadAllDefinitions(pg);

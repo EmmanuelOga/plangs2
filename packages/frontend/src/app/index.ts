@@ -1,7 +1,6 @@
 import "preact/debug";
 
 import { PlangsGraph } from "@plangs/plangs";
-import { cl } from "@plangs/server/elements";
 import pgData from "@plangs/server/plangs.json";
 
 import { registerInputCompl } from "../components/input-compl";
@@ -10,7 +9,7 @@ import { registerInputSel } from "../components/input-sel";
 import { registerInputToggle } from "../components/input-toggle";
 import { ToggleFilters, ToggleHamburguer, ToggleLights } from "../components/input-toggle/state";
 import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
-import { elem } from "../utils";
+import { elem, elems } from "../utils";
 import { startGridNav } from "./gridNav";
 import { connectLivereload } from "./livereload";
 import { hookPlInfo, lastPlang } from "./pl";
@@ -39,11 +38,8 @@ function start() {
   window.focusFilter = (id: string) => {
     const elem = document.getElementById(id);
     if (!elem) return;
-    elem.scrollIntoView({ behavior: "smooth", block: "start" });
-    const anim = elem.querySelector(`.${cl("filterAnim")}`);
-    if (!anim || !anim.classList.contains("hidden")) return;
-    anim.classList.remove("hidden");
-    setTimeout(() => anim.classList.add("hidden"), 1000);
+    for (const elem of elems("facet")) elem.classList.add("hidden");
+    elem.classList.remove("hidden");
   };
 
   document.addEventListener("DOMContentLoaded", () => {

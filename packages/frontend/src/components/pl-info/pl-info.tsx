@@ -1,7 +1,7 @@
 import type { NPlang } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/components/layout";
 
-import { PROSE } from "@plangs/frontend/styles";
+import { BORDER } from "@plangs/frontend/styles";
 import { tw } from "../../utils";
 import { Anchor } from "../misc/anchor";
 import { Pill } from "../misc/pill";
@@ -20,13 +20,12 @@ export function PlInfo({ pl, open, tab }: PlInfoProps) {
   return (
     <div
       class={tw(
-        "h-fit w-full",
+        "max-h-full w-full overflow-y-scroll",
         "px-2 pt-2 sm:p-4",
         !forGrid && "-mx-4", // Compensate for padding so it aligns with the rest of the content.
         "prose prose-green dark:prose-invert sm:prose-sm lg:prose-lg xl:prose-xl max-w-[unset]",
         forGrid && "bg-linear-to-b to-secondary/50",
-        "border-primary/50 border-dotted",
-        forGrid ? "border-t-1" : "border-b-1",
+        tw(BORDER, forGrid ? "border-t-1" : "border-b-1"),
       )}>
       <h1 class={tw(!forGrid && "text-4xl", forGrid && "inline text-lg sm:block sm:text-4xl")}>
         <a class="text-foreground decoration-1 decoration-dotted" href={`/${pl?.plainKey}`}>

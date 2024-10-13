@@ -1,12 +1,13 @@
 import { type ComponentChildren, h } from "preact";
 
-import { NOWRAP_TEXT, stripes } from "@plangs/frontend/styles";
+import { BORDER, stripes } from "@plangs/frontend/styles";
 import { script, tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs";
 
-import { cl, id } from "../elements";
+import { MainNav } from "./main-nav";
+import { PlangsLogo } from "./plangs-logo";
 
-export type TAB = "plangs" | "blog" | "about" | "pl" | "tools" | "apps" | "libs" | "tsys" | "paradigms" | "platforms" | "tags" | "licenses" | "NA";
+export type TAB = "about" | "apps" | "blog" | "libs" | "licenses" | "paradigms" | "pl" | "plangs" | "platforms" | "tags" | "tools" | "tsys" | "NA";
 
 type LayoutProps = {
   children: ComponentChildren;
@@ -36,10 +37,10 @@ export function Layout({ title, description, tab, pl, mainClasses, children }: L
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
       <body
+        data-tab={tab}
         style={stripes()}
-        class={tw("h-dvh w-full", "flex flex-col flex-nowrap", "bg-background text-foreground", "overflow-hidden")}
-        data-tab={tab}>
-        {script("window.restoreLightMode();")}
+        class={tw("h-dvh w-full", "flex flex-col flex-nowrap", "bg-background text-foreground", "overflow-hidden")}>
+        {script("window.restoreLightMode()")}
 
         <noscript>
           <em>Note!</em>
@@ -48,13 +49,7 @@ export function Layout({ title, description, tab, pl, mainClasses, children }: L
         </noscript>
 
         <header
-          class={tw(
-            "px-4",
-            "flex flex-row",
-            "items-end justify-between",
-            "border-primary border-b-1 border-dotted",
-            "bg-linear-to-b from-secondary to-background",
-          )}>
+          class={tw("px-4", "flex flex-row", "items-end justify-between", tw(BORDER, "border-b-1"), "bg-linear-to-b from-secondary to-background")}>
           <div class={tw("flex flex-row", "gap-4", "-translate-y-3 sm:-translate-y-5")}>
             {h("input-toggle", { action: "hamburger" })}
             {tab === "plangs" && h("input-toggle", { action: "filters" })}
@@ -66,105 +61,10 @@ export function Layout({ title, description, tab, pl, mainClasses, children }: L
         </header>
 
         <div class={tw("flex-1", "flex flex-row", "overflow-y-auto")}>
-          <aside
-            id={id("mainNav")}
-            class={tw(
-              "hidden sm:static",
-              "z-20",
-              "w-[12rem]",
-              "overflow-hidden overflow-y-auto",
-              "bg-linear-to-t from-secondary to-background",
-              "border-primary border-r-1 border-dotted",
-            )}>
-            {script("window.restoreHamburguer();")}
-
-            <NavSection
-              tab={tab}
-              title="Explore"
-              links={[
-                { title: "Plangs!", href: "/", forTab: "plangs" },
-                { title: "Python", href: "/python", nested: true, forTab: "pl" },
-                { title: "Tools", href: "/tools", forTab: "tools" },
-                { title: "Apps", href: "/apps", forTab: "apps" },
-                { title: "Libraries", href: "/libs", forTab: "libs" },
-              ]}
-            />
-
-            <NavSection tab={tab} title="Blog" links={[{ title: "All Posts", href: "/blog", forTab: "blog" }]} />
-
-            <NavSection
-              tab={tab}
-              title="Website"
-              links={[
-                { title: "About", href: "/about", forTab: "about" },
-                { title: "Source Code", href: "https://github.com/EmmanuelOga/plangs2", forTab: "NA" },
-              ]}
-            />
-
-            <NavSection
-              tab={tab}
-              title="Reference"
-              links={[
-                { title: "Type Systems", href: "/tsys", forTab: "tsys" },
-                { title: "Paradigms", href: "/paradigms", forTab: "paradigms" },
-                { title: "Platforms", href: "/platforms", forTab: "platforms" },
-                { title: "Tags", href: "/tags", forTab: "tags" },
-                { title: "Licenses", href: "/licenses", forTab: "licenses" },
-              ]}
-            />
-          </aside>
-
+          <MainNav tab={tab} class={tw("hidden sm:static", "z-20", "w-[12rem]", "overflow-hidden overflow-y-auto")} />
           <main class={tw("flex-1", mainClasses)}>{children}</main>
         </div>
       </body>
     </html>
-  );
-}
-
-function PlangsLogo({ class: cssClass }: { class?: string }) {
-  return (
-    <div style="aspect-ratio: 16 / 4.5;" class={tw("overflow-hidden", cssClass)}>
-      <a
-        href="/"
-        class={tw(
-          "block h-full w-full",
-          "text-[clamp(2.5rem,5vw,7rem)]",
-          "text-transparent",
-          "bg-contain bg-left bg-no-repeat",
-          "bg-[url('/images/plangs-light.svg')] dark:bg-[url('/images/plangs.svg')]",
-        )}>
-        Plangs!
-      </a>
-    </div>
-  );
-}
-
-type NavLink = { title: string; href: string; nested?: boolean; forTab: TAB };
-
-function NavSection({ title, links, tab }: { tab: TAB; title: string; links: NavLink[] }) {
-  return (
-    <nav class={tw("mb-1 pt-5 sm:mb-8", "border-primary/25 border-t-1 border-dotted first:border-t-0")}>
-      <header class={tw("ml-4 sm:mb-4", "uppercase", "text-primary")}>{title}</header>
-      <ul>
-        {links.map(({ title, href, nested, forTab }) => (
-          <li
-            key={href}
-            class={tw(
-              "px-4 py-2 sm:mb-1",
-
-              tab === forTab && "bg-primary/85 text-background",
-              tab !== forTab && "hover:bg-primary/25",
-            )}>
-            <a
-              data-tab={forTab}
-              data-current={tab === forTab ? "1" : undefined}
-              class={tw(cl("navLink"), "block cursor-pointer", NOWRAP_TEXT, nested ? "pl-10" : "pl-4")}
-              href={href}>
-              {title}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
   );
 }

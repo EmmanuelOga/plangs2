@@ -4,7 +4,7 @@ import { loadBlogPost, loadContent } from "./content";
 import { About } from "./pages/about";
 import { Apps } from "./pages/apps";
 import { Blog } from "./pages/blog";
-import { BlogPost } from "./pages/blog_post";
+import { BlogPost } from "./pages/blog-post";
 import { Libs } from "./pages/libs";
 import { Licenses } from "./pages/licenses";
 import { Paradigms } from "./pages/paradigms";

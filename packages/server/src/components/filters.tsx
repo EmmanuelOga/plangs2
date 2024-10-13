@@ -1,60 +1,47 @@
 import { type ComponentChildren, h } from "preact";
 
+import { BORDER, NOWRAP_TEXT } from "@plangs/frontend/styles";
 import { script, tw } from "@plangs/frontend/utils";
+
 import { type E, type N, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs";
 
 import { cl, id } from "../elements";
 
 export function PlFilters({ class: cssClass }: { class?: string }) {
-  return (
-    <aside
-      id={id("filters")}
-      class={tw(
-        "hidden",
-        "flex flex-col gap-2",
-        "overflow-y-scroll",
+  const facetLinks = INPUT_GROUPS.map(({ title, key }) => (
+    <a
+      key={key}
+      class={tw("block", NOWRAP_TEXT, "py-1 text-foreground/85 underline decoration-1 decoration-dotted")}
+      href={`javascript:window.focusFilter('${key}')`}>
+      {title}
+    </a>
+  ));
 
-        "border-primary border-b-1 border-dotted",
-        cssClass,
-      )}>
+  const facets = INPUT_GROUPS.map(({ title, key, keys }) => (
+    <InputGroup key={key} id={key} title={title}>
+      {keys.map(key => (
+        <Input key={key} inputKey={key} />
+      ))}
+    </InputGroup>
+  ));
+
+  return (
+    <aside id={id("filters")} class={tw("hidden", "flex flex-row", "overflow-hidden", tw(BORDER, "border-b-1"), cssClass)}>
       {script("window.restoreFilters();")}
 
-      <InputGroup id="go-to-facet" title="Go To Facet" class="sticky top-0 z-10">
-        {INPUT_GROUPS.map(({ title, key }) => (
-          <a key={key} class={tw("text-foreground underline")} href={`javascript:window.focusFilter('${key}')`}>
-            {title}
-          </a>
-        ))}
-      </InputGroup>
+      <div class={tw("overflow-y-scroll", "px-2")}>{facetLinks}</div>
+      <div class={tw("overflow-hidden", "flex-1", "flex flex-col")}>{facets}</div>
 
-      {INPUT_GROUPS.map(({ title, key, keys }) => (
-        <InputGroup key={key} id={key} title={title}>
-          {keys.map(key => (
-            <Input key={key} inputKey={key} />
-          ))}
-        </InputGroup>
-      ))}
+      {script(`setTimeout(() => window.focusFilter('transpiler'), 100);`)}
     </aside>
   );
 }
 
 function InputGroup({ id, class: cssClass, title, children }: { id: string; class?: string; title: string; children: ComponentChildren }) {
   return (
-    <div id={id} class={tw("mb-4 pr-8 pl-4", "bg-background", cssClass)}>
-      <header class="px-4 pb-1 text-foreground">{title}</header>
-      <div class={tw("relative overflow-hidden", "mb-2 p-2", "bg-secondary")}>
-        <span
-          class={tw(
-            cl("filterAnim"),
-            "hidden",
-            "z-10",
-            "absolute block h-full w-full",
-            "animate-[ping_.2s_cubic-bezier(1,0,0,1)_infinite]",
-            "bg-foreground/75",
-          )}
-        />
-        {children}
-      </div>
+    <div id={id} class={tw(cl("facet"), "hidden", "flex-1", "flex flex-col gap-2", "max-h-full overflow-hidden", "p-2", cssClass)}>
+      <header class="hidden">{title}</header>
+      {children}
     </div>
   );
 }
@@ -65,13 +52,18 @@ function Input({ inputKey: key }: { inputKey: keyof typeof INPUT_PROPS }) {
   const { label, input } = INPUT_PROPS[key];
 
   if (input.kind === "facet") {
-    return h("input-facet", {
-      ...baseProps,
-      name: input.edge,
-      "data-edge": input.edge,
-      "data-node": input.node,
-      "data-dir": input.dir,
-    } as Record<string, string>);
+    return (
+      // relative so the inputSel can absolutely fill the whole container.
+      <div class="relative flex-1">
+        {h("input-facet", {
+          ...baseProps,
+          name: input.edge,
+          "data-edge": input.edge,
+          "data-node": input.node,
+          "data-dir": input.dir,
+        } as Record<string, string>)}
+      </div>
+    );
   }
 
   const withInputSel = input.kind === "search" && "inputSel" in input && input.inputSel;
@@ -79,7 +71,7 @@ function Input({ inputKey: key }: { inputKey: keyof typeof INPUT_PROPS }) {
   const inputElem = (
     <input
       {...baseProps}
-      class={tw(inputTextColor, input.kind === "checkbox" ? "-mt-1" : "w-full", !withInputSel && cl("inputFilter"))}
+      class={tw(cl("facetInput"), inputTextColor, input.kind === "checkbox" ? "-mt-1" : "w-full")}
       value={"value" in input ? input.value : undefined}
       placeholder={label}
       type={input.kind}
@@ -88,13 +80,13 @@ function Input({ inputKey: key }: { inputKey: keyof typeof INPUT_PROPS }) {
 
   return (
     <>
-      {input.kind !== "checkbox" ? (
-        inputElem
-      ) : (
+      {input.kind === "checkbox" ? (
         <label for={baseProps.id} class={tw("block", "p-0")}>
           {inputElem}
           {label}
         </label>
+      ) : (
+        inputElem
       )}
       {withInputSel && h("input-sel", { name: key, class: tw("w-full", inputTextColor) })}
     </>
@@ -140,6 +132,7 @@ function group(title: string, keys: (keyof typeof INPUT_PROPS)[]): Group {
 }
 
 const INPUT_GROUPS = [
+  group("Name", ["plangName"]),
   group("Created Date", ["appearedAfter"]),
   group("Dialect Of", ["dialectOf"]),
   group("File Extensions", ["extensions"]),
@@ -148,7 +141,6 @@ const INPUT_GROUPS = [
   group("Influenced", ["influenced"]),
   group("Licenses", ["licenses"]),
   group("Logo", ["hasLogo"]),
-  group("Name", ["plangName"]),
   group("Paradigms", ["paradigms"]),
   group("Platforms", ["platforms"]),
   group("Popular", ["isMainstream"]),

@@ -5,8 +5,31 @@
 import { INPUT_PROPS } from "./components/filters";
 
 export const FILTER_KEY = Object.keys(INPUT_PROPS) as (keyof typeof INPUT_PROPS)[];
-export const ID_KEYS = ["todo", "mainNav", "plTab", "plInfo", "plGrid", "filterToggle", "filters", ...FILTER_KEY] as const;
-export const CL_KEYS = ["todo", "filterAnim", "plThumb", "navLink", "inputFilter", "pill"] as const;
+
+export const ID_KEYS = [
+  "todo",
+
+  "filterToggle",
+  "filters",
+  "mainNav",
+  "plGrid",
+  "plInfo",
+  "plTab",
+
+  ...FILTER_KEY,
+] as const;
+
+export const CL_KEYS = [
+  "todo",
+
+  "facet", // A box containing the input filters of a facet.
+  "facetInput", // An input filter of a facet.
+  "facetLink", // A link to a facet box.
+
+  "navLink",
+  "pill",
+  "plThumb",
+] as const;
 
 export type IDKey = (typeof ID_KEYS)[number];
 export type CLKey = (typeof CL_KEYS)[number];

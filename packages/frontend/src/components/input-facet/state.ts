@@ -5,14 +5,14 @@ import type { Item } from "../input-sel";
 import type { InputFacetProps } from "./input-facet";
 
 export type Order = "facet-asc" | "facet-desc" | "count-asc" | "count-desc";
-export type Entry = Item & {
-  count: number;
-};
-
+export type Entry = Item & { count: number };
 export type Cmp = (a: Entry, b: Entry) => number;
 
 export class InputFacetState extends Dispatchable<InputFacetProps & { entries: Entry[]; order: Order; selected: Set<unknown> }> {
-  /** Initialization */
+  /** Factory function for creating the initial state. */
+  static initial(props: InputFacetProps): InputFacetState {
+    return new InputFacetState({ ...props, entries: [], order: "facet-asc", selected: new Set() }).generateEntries();
+  }
 
   /** Updates is used when updating from a prop change. */
   generateEntries(updates?: InputFacetProps): this {
@@ -44,7 +44,9 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
     this.dispatch();
   }
 
-  toggleOrder(which: "facet" | "count") {
+  toggleOrder(which: "facet" | "count", fromKey?: string) {
+    if (fromKey !== undefined && fromKey !== "enter") return;
+
     const { order } = this.data;
     this.data.order = which === "facet" ? (order === "facet-asc" ? "facet-desc" : "facet-asc") : order === "count-desc" ? "count-asc" : "count-desc";
     this.sort();

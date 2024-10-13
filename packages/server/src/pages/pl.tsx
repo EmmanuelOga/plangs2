@@ -1,7 +1,7 @@
 import { Anchor } from "@plangs/frontend/components/misc/anchor";
 import { Pill } from "@plangs/frontend/components/misc/pill";
 import { PlInfo } from "@plangs/frontend/components/pl-info/pl-info";
-import { PROSE } from "@plangs/frontend/styles";
+import { BORDER, PROSE } from "@plangs/frontend/styles";
 import { tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs";
 
@@ -132,14 +132,7 @@ function PlBundles({ pl }: { pl: NPlang }) {
       <h1>Tool Bundles</h1>
       <p>A "bundle" is a set of tools that work well together.</p>
       {bundles.map(bundle => (
-        <div
-          key={bundle.key}
-          class={tw(
-            "bg-linear-to-b to-secondary/50",
-            "shadow-lg shadow-primary/20",
-            "border-b-1 border-b-primary/50 border-dotted",
-            "-mx-4 my-8 p-4",
-          )}>
+        <div key={bundle.key} class={tw("bg-linear-to-b to-secondary/50", "shadow-lg shadow-primary/20", tw(BORDER, "border-b-1"), "-mx-4 my-8 p-4")}>
           <h1>{bundle.name}</h1>
           <p>{bundle.relTools.values.map(({ nodeTo }) => nodeTo && <Pill name={nodeTo.name} nodeKey={nodeTo.key} kind={nodeTo.kind} />).existing}</p>
           <p>{bundle.description}</p>

@@ -13,7 +13,7 @@ import { parseDate } from "@plangs/plangs/util";
 
 import { Pill } from "@plangs/frontend/components/misc/pill";
 
-import { ZERO_WIDTH } from "./util";
+import { ZERO_WIDTH } from "./utils/server";
 
 /** Markdown Content and metadata generated from the .md files on packages/server/content/ */
 export type Content = {
