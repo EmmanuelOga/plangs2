@@ -39,7 +39,7 @@ export function PlFilters({ class: cssClass }: { class?: string }) {
 
 function InputGroup({ id, class: cssClass, title, children }: { id: string; class?: string; title: string; children: ComponentChildren }) {
   return (
-    <div id={id} class={tw(cl("facet"), "hidden", "flex-1", "flex flex-col gap-2", "max-h-full overflow-hidden", "p-2", cssClass)}>
+    <div id={id} class={tw(cl("facet"), "hidden", "flex-1", "flex flex-col gap-4", "max-h-full overflow-hidden", "p-2", cssClass)}>
       <header class="hidden">{title}</header>
       {children}
     </div>
@@ -81,9 +81,9 @@ function Input({ inputKey: key }: { inputKey: keyof typeof INPUT_PROPS }) {
   return (
     <>
       {input.kind === "checkbox" ? (
-        <label for={baseProps.id} class={tw("block", "p-0")}>
+        <label for={baseProps.id} class={tw("block", "px-2")}>
           {inputElem}
-          {label}
+          <span class="ml-2">{label}</span>
         </label>
       ) : (
         inputElem

@@ -6,7 +6,6 @@ import { BORDER, HOVER, HOVER_LIST, NOWRAP_TEXT } from "@plangs/frontend/styles"
 import { customEvent, on, tw } from "@plangs/frontend/utils";
 import { type EncodedFilter, isEncodedFilter } from "@plangs/graph/auxiliar";
 import type { E, N, PlangsGraph } from "@plangs/plangs";
-import { loremIpsum } from "@plangs/server/utils/lorem";
 
 import type { InputSelElement } from "../input-sel";
 import { type Entry, InputFacetState } from "./state";
@@ -55,21 +54,22 @@ export function InputFacet(props: InputFacetProps) {
     state.addEntry(entry);
   };
 
-  const HALF = "max-h-[50%] overflow-y-scroll";
-  const STICKY = "sticky top-0 bg-background border-b-2 border-secondary";
+  const BG = "bg-thumbnails/75";
+  const SCROLL = "overflow-y-scroll";
+  const HEADER = tw("sticky top-0 cursor-pointer", "bg-primary text-background/80", tw(BORDER, "border-t-1"));
 
   const facets = (
-    <div class={tw(HALF, "mb-1", "grid grid-cols-[1fr_auto]", "bg-background/25", BORDER, "border-b-1")}>
+    <div class={tw(SCROLL, "min-h-32", "grid grid-cols-[1fr_auto]", BG, tw(BORDER, "border-b-1"))}>
       <button
         type="button"
-        class={tw(STICKY, "p-2", "text-left italic")}
+        class={tw(HEADER, "p-2", "text-left italic")}
         onClick={() => state.toggleOrder("facet")}
         onKeyDown={({ key }) => state.toggleOrder("facet", key)}>
         Facet
       </button>
       <button
         type="button"
-        class={tw(STICKY, "p-2", "text-right italic")}
+        class={tw(HEADER, "p-2", "text-right italic")}
         onClick={() => state.toggleOrder("count")}
         onKeyDown={({ key }) => state.toggleOrder("count", key)}>
         Count
@@ -93,7 +93,11 @@ export function InputFacet(props: InputFacetProps) {
     </div>
   );
 
-  const selection = <div class={tw(HALF)}>{h("input-sel", { ref: selectionRef, name: `${edge}-${dir}` })}</div>;
+  // @ts-ignore TODO declare input-sel in global scope.
+  const selection = (
+    <div class={tw(SCROLL, BG, "min-h-10", state.emptySelection && "hidden")}>{h("input-sel", { ref: selectionRef, name: `${edge}-${dir}` })}</div>
+  );
+
   return (
     <div ref={self as Ref<HTMLDivElement>} class={tw("absolute inset-0 flex flex-col")}>
       {facets}

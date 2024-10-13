@@ -79,8 +79,13 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
     return entries;
   }
 
-  get size() {
+  /** Total number of entries, selected or not. */
+  get size(): number {
     return this.data.entries.length;
+  }
+
+  get emptySelection(): boolean {
+    return this.data.selected.size === 0;
   }
 
   *entries(): Generator<Entry> {
