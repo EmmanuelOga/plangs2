@@ -1,4 +1,4 @@
-import { Fragment, type Ref, h } from "preact";
+import { Fragment, type Ref } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
 import { useDispatchable } from "@plangs/frontend/dispatchable";
@@ -7,7 +7,6 @@ import { customEvent, on, tw } from "@plangs/frontend/utils";
 import { type EncodedFilter, isEncodedFilter } from "@plangs/graph/auxiliar";
 import type { E, N, PlangsGraph } from "@plangs/plangs";
 
-import type { InputSelElement } from "../input-sel";
 import { type Entry, InputFacetState } from "./state";
 
 export type InputFacetProps = {
@@ -23,7 +22,6 @@ export function InputFacet(props: InputFacetProps) {
   const { pg, edge, node, dir } = props;
 
   const self = useRef<HTMLDivElement>();
-  const selectionRef = useRef<InputSelElement | undefined>();
   const state = useDispatchable(InputFacetState.initial(props));
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: only missing state, which is a dispatchable.
@@ -32,77 +30,62 @@ export function InputFacet(props: InputFacetProps) {
   }, [pg, edge, node, dir]);
 
   useEffect(() =>
-    selectionRef.current?.onRemove(({ removed, itemsLeft, by }) => {
-      state.removeEntry(removed);
-      if (by === "enterKey" && itemsLeft === 0) self.current?.querySelector<HTMLButtonElement>("tbody button")?.focus();
-    }),
-  );
-
-  useEffect(() =>
     on(self.current?.parentElement, EVENTS.inSetFacet.type, (ev: CustomEvent) => {
       if (!EVENTS.inSetFacet.valid(ev) || !isEncodedFilter(ev.detail)) return console.warn("Invalid event data on:", ev);
       const filter = ev.detail;
-      const entries = state.setFacets(filter);
-      selectionRef.current?.addItems(entries);
-      setTimeout(() => selectionRef.current?.setMode(filter.mode), 10); // TODO: set it through state.
+      state.setFacets(filter);
       state.dispatch();
     }),
   );
-
-  const addEntry = (entry: Entry) => {
-    selectionRef.current?.addItems([entry]);
-    state.addEntry(entry);
-  };
 
   const BG = "bg-thumbnails/75";
   const SCROLL = "overflow-y-scroll";
   const HEADER = tw("sticky top-0 cursor-pointer", "bg-primary text-background/80", tw(BORDER, "border-t-1"));
 
   const facets = (
-    <div class={tw(SCROLL, "min-h-32", "grid grid-cols-[1fr_auto]", BG, tw(BORDER, "border-b-1"))}>
-      <button
-        type="button"
-        class={tw(HEADER, "p-2", "text-left italic")}
-        onClick={() => state.toggleOrder("facet")}
-        onKeyDown={({ key }) => state.toggleOrder("facet", key)}>
-        Facet
-      </button>
-      <button
-        type="button"
-        class={tw(HEADER, "p-2", "text-right italic")}
-        onClick={() => state.toggleOrder("count")}
-        onKeyDown={({ key }) => state.toggleOrder("count", key)}>
-        Count
-      </button>
+    <div class={tw(SCROLL, "min-h-32", "grid grid-cols-[1fr_1fr_auto]", BG, tw(BORDER, "border-b-1"))}>
+      <FacetButton class={tw(HEADER, "p-2", "text-left italic")} action={() => state.toggleOrder("facet")} label="Facet" />
+      <FacetButton class={tw(HEADER, "p-2", "text-right italic")} action={() => state.toggleOrder("count")} label="Count" />
+      <FacetButton class={tw(HEADER, "p-2", "text-right italic")} action={() => state.toggleOrder("sel")} label="Sel" />
 
-      {[...state.entries()].map(entry => (
+      {state.entries.map(entry => (
         <Fragment key={entry.value}>
-          <button
-            type="button"
+          <FacetButton
             class={tw(NOWRAP_TEXT, HOVER, "p-2", "text-left")}
-            onClick={() => addEntry(entry)}
-            onKeyDown={ev => ev.key === "Enter" && addEntry(entry)}
-            // Would be nice to use tailwind's sibling selector for these, but it's not working for wathever reason.
-            onMouseEnter={({ target }) => (target as Element).nextElementSibling?.classList.add(...HOVER_LIST)}
-            onMouseLeave={({ target }) => (target as Element).nextElementSibling?.classList.remove(...HOVER_LIST)}>
-            {entry.label}
-          </button>
+            action={() => state.toggleSelected(entry.value)}
+            label={entry.label}
+            hoverNext={true}
+          />
           <div class={tw("p-2", "text-center")}>{entry.count}</div>
+          <div class={tw("p-2", "text-center")}>{state.isSelected(entry.value) ? "1" : "0"}</div>
         </Fragment>
       ))}
     </div>
   );
 
-  // @ts-ignore TODO declare input-sel in global scope.
-  const selection = (
-    <div class={tw(SCROLL, BG, "min-h-10", state.emptySelection && "hidden")}>{h("input-sel", { ref: selectionRef, name: `${edge}-${dir}` })}</div>
-  );
-
   return (
-    <div ref={self as Ref<HTMLDivElement>} class={tw("absolute inset-0 flex flex-col")}>
+    <div ref={self as Ref<HTMLDivElement>} class={tw("absolute inset-0", "flex flex-col")}>
       {facets}
-      {selection}
     </div>
+  );
+}
+
+// Would be nice to use tailwind's sibling selector for these, but it's not working for wathever reason.
+const HOVER_HANDLER = {
+  onMouseEnter: ({ target }: MouseEvent) => (target as Element).nextElementSibling?.classList.add(...HOVER_LIST),
+  onMouseLeave: ({ target }: MouseEvent) => (target as Element).nextElementSibling?.classList.remove(...HOVER_LIST),
+};
+
+function FacetButton({ hoverNext, label, action, class: cssClass }: { hoverNext?: boolean; label: string; class?: string; action: () => void }) {
+  return (
+    <button
+      type="button"
+      class={cssClass}
+      {...(hoverNext ? HOVER_HANDLER : {})}
+      onClick={action}
+      onKeyDown={({ key }) => key === "Enter" && action()}>
+      {label}
+    </button>
   );
 }
 

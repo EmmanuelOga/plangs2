@@ -1,12 +1,9 @@
 import { Dispatchable } from "@plangs/frontend/dispatchable";
 import type { EncodedFilter } from "@plangs/graph/auxiliar";
 
-import type { Item } from "../input-sel";
 import type { InputFacetProps } from "./input-facet";
 
-export type Order = "facet-asc" | "facet-desc" | "count-asc" | "count-desc";
-export type Entry = Item & { count: number };
-export type Cmp = (a: Entry, b: Entry) => number;
+export type Entry = { value: string; label: string; count: number };
 
 export class InputFacetState extends Dispatchable<InputFacetProps & { entries: Entry[]; order: Order; selected: Set<unknown> }> {
   /** Factory function for creating the initial state. */
@@ -34,21 +31,20 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
 
   /** Actions */
 
-  addEntry(entry: Entry) {
-    this.data.selected.add(entry.value);
+  toggleSelected(value: Entry["value"]) {
+    const set = this.data.selected;
+    set.has(value) ? set.delete(value) : set.add(value);
     this.dispatch();
   }
 
-  removeEntry(removed: Item): void {
-    this.data.selected.delete(removed.value);
+  removeEntry(value: Entry["value"]) {
+    this.data.selected.delete(value);
     this.dispatch();
   }
 
-  toggleOrder(which: "facet" | "count", fromKey?: string) {
-    if (fromKey !== undefined && fromKey !== "enter") return;
-
+  toggleOrder(which: "facet" | "count" | "sel") {
     const { order } = this.data;
-    this.data.order = which === "facet" ? (order === "facet-asc" ? "facet-desc" : "facet-asc") : order === "count-desc" ? "count-asc" : "count-desc";
+    this.data.order = opposite(which, order);
     this.sort();
     this.dispatch();
   }
@@ -73,6 +69,10 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
 
   /** Queries */
 
+  isSelected(value: Entry["value"]): boolean {
+    return this.data.selected.has(value);
+  }
+
   get entriesByValue(): Map<string, Entry> {
     const entries = new Map<string, Entry>();
     for (const entry of this.data.entries) entries.set(entry.value as string, entry);
@@ -88,23 +88,33 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
     return this.data.selected.size === 0;
   }
 
-  *entries(): Generator<Entry> {
-    for (const entry of this.data.entries) {
-      if (!this.data.selected.has(entry.value)) yield entry;
-    }
+  get entries() {
+    return this.data.entries;
   }
 
   /** Helpers */
 
   sort() {
     const { entries, order } = this.data;
-    entries.sort(CMP[order]);
+    entries.sort((a, b) => CMP[order](this, a, b));
   }
 }
 
+export type Order = "facet-asc" | "facet-desc" | "count-asc" | "count-desc" | "sel-asc" | "sel-desc";
+
+function opposite(which: "facet" | "count" | "sel", order: string): Order {
+  if (which === "facet") return order === "facet-asc" ? "facet-desc" : "facet-asc";
+  if (which === "count") return order === "count-desc" ? "count-asc" : "count-desc";
+  return order === "sel-desc" ? "sel-asc" : "sel-desc";
+}
+
+export type Cmp = (state: InputFacetState, a: Entry, b: Entry) => number;
+
 const CMP: Record<Order, Cmp> = {
-  "facet-asc": (a, b) => a.label.localeCompare(b.label),
-  "facet-desc": (a, b) => b.label.localeCompare(a.label),
-  "count-asc": (a, b) => a.count - b.count,
-  "count-desc": (a, b) => b.count - a.count,
+  "facet-asc": (_, a, b) => a.label.localeCompare(b.label),
+  "facet-desc": (_, a, b) => b.label.localeCompare(a.label),
+  "count-asc": (_, a, b) => a.count - b.count,
+  "count-desc": (_, a, b) => b.count - a.count,
+  "sel-asc": (s, a, b) => Number(s.isSelected(a.value)) - Number(s.isSelected(b.value)),
+  "sel-desc": (s, a, b) => Number(s.isSelected(b.value)) - Number(s.isSelected(a.value)),
 } as const;

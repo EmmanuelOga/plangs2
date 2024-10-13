@@ -46,7 +46,11 @@ export function withinContainer(el: Element, container: Element): boolean {
 }
 
 /** Collect tailwind classes. Passing a number adds an outline and bg color. */
-export const tw = (...classes: (string | undefined | boolean)[]) => classes.filter(s => typeof s === "string" && !/^;|;$/.test(s)).join(" ");
+export const tw = (...classes: (string | undefined | boolean | string[])[]) =>
+  classes
+    .flat(5) // Arbirtrary depth to flatten 🤷‍♂ (in practice we don't really use more than 1 level).
+    .filter(s => typeof s === "string" && !/^;|;$/.test(s))
+    .join(" ");
 
 /** Check if the min-width breakpoint applies right now.  */
 export const minWidthBP = (size: string) => win?.matchMedia(`(min-width: ${size})`).matches ?? false;

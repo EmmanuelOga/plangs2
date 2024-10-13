@@ -1,10 +1,9 @@
-import { Filter } from "@plangs/graph/auxiliar";
+import type { Filter } from "@plangs/graph/auxiliar";
 import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs";
 import { PlangFilters } from "@plangs/plangs/filter";
 import type { StrDate } from "@plangs/plangs/schema";
 import type { IDKey } from "@plangs/server/elements";
 
-import { matchingInputSelByName } from "../components/input-sel";
 import { elem } from "../utils";
 
 /** Create a plan filter from the inputs values. */
@@ -39,8 +38,10 @@ export function getFilters(): PlangFilters {
 
   function getFilter<T>(input: HTMLElement): Filter<T> | undefined {
     const [name, dir] = [input?.getAttribute("name"), input?.dataset.dir];
-    const filter = matchingInputSelByName(dir ? `${name}-${dir}` : name)?.values();
-    return filter ? new Filter<T>(filter.mode, filter.values as Set<T>) : undefined;
+    // TODO: use the new input-facet component.
+    // const filter = matchingInputSelByName(dir ? `${name}-${dir}` : name)?.values();
+    // return filter ? new Filter<T>(filter.mode, filter.values as Set<T>) : undefined;
+    return undefined;
   }
 
   collect("dialectOf", getFilter<NPlang["key"]>, val => (flt.dialectOf.value = val));

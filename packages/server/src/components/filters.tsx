@@ -11,8 +11,9 @@ export function PlFilters({ class: cssClass }: { class?: string }) {
   const facetLinks = INPUT_GROUPS.map(({ title, key }) => (
     <a
       key={key}
-      class={tw("block", NOWRAP_TEXT, "py-1 text-foreground/85 underline decoration-1 decoration-dotted")}
-      href={`javascript:window.focusFilter('${key}')`}>
+      data-facet={key}
+      href={`javascript:window.focusFilter('${key}')`}
+      class={tw(cl("facetLink"), "block", NOWRAP_TEXT, "px-1 py-1 ", "text-foreground/85", "underline decoration-1 decoration-dotted")}>
       {title}
     </a>
   ));

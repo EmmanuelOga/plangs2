@@ -35,10 +35,21 @@ function start() {
     if (plInfo) plInfo.pl = lastPlang(pg);
   };
 
-  window.focusFilter = (id: string) => {
-    const elem = document.getElementById(id);
+  window.focusFilter = (facetKey: string) => {
+    const elem = document.getElementById(facetKey);
     if (!elem) return;
-    for (const elem of elems("facet")) elem.classList.add("hidden");
+
+    for (const elem of elems<HTMLElement>("facetLink")) {
+      const current = elem.dataset.facet === facetKey;
+      elem.classList.toggle("bg-primary", current);
+      elem.classList.toggle("text-secondary", current);
+      if (current) elem.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    for (const elem of elems("facet")) {
+      elem.classList.add("hidden");
+    }
+
     elem.classList.remove("hidden");
   };
 
