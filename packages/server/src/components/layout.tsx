@@ -49,7 +49,7 @@ export function Layout({ title, description, tab, pl, mainClasses, children }: L
 
         <header
           class={tw(
-            "px-2 sm:px-4",
+            "px-4",
             "flex flex-row",
             "items-end justify-between",
             "border-primary border-b-1 border-dotted",
@@ -60,7 +60,7 @@ export function Layout({ title, description, tab, pl, mainClasses, children }: L
             {tab === "plangs" && h("input-toggle", { action: "filters" })}
           </div>
 
-          <PlangsLogo class={tw("mx-auto", "mb-4 sm:mb-8", "mt-2 sm:mt-3 lg:mt-4 xl:mt-5 2xl:mt-6", "h-12 sm:h-16 lg:h-20 xl:h-24 2xl:h-28")} />
+          <PlangsLogo class={tw("mb-4 sm:mb-8", "mt-2 sm:mt-3 lg:mt-4 xl:mt-5 2xl:mt-6", "h-12 sm:h-16 lg:h-20 xl:h-24 2xl:h-28")} />
 
           <div class={tw("-translate-y-3 sm:-translate-y-5")}>{h("input-toggle", { action: "lights" })}</div>
         </header>
