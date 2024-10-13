@@ -31,7 +31,7 @@ function PlGrid({ pg, class: cssClass }: { pg: PlangsGraph; class?: string }) {
     <div class={tw(cssClass)}>
       <div
         id={id("plGrid")}
-        class={tw("grid gap-4", "grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]", "sm:grid-cols-[repeat(auto-fit,minmax(8rem,1fr))]")}>
+        class={tw("mr-3 grid gap-4", "grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]", "sm:grid-cols-[repeat(auto-fit,minmax(8rem,1fr))]")}>
         {pg.nodes.pl.batch().map(([key, pl]) => (
           <PlThumb key={key} pl={pl} />
         ))}
