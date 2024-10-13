@@ -30,7 +30,7 @@ export function PlThumb({ pl, class: cssClass }: { class?: string; pl: NPlang })
           "p-4",
           "aspect-square ",
           "flex items-center justify-center",
-          "bg-secondary",
+          "bg-thumbnails",
           "shadow-background shadow-lg group-hover:shadow-md group-hover:shadow-primary",
         )}>
         <img alt={`${pl.name}'s logo`} class="max-h-full max-w-full object-contain" src={thumbUrl ?? PLACEHOLDER} />

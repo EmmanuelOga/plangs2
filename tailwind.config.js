@@ -9,6 +9,7 @@ module.exports = {
         secondary: "var(--color-secondary)",
         background: "var(--color-background)",
         foreground: "var(--color-foreground)",
+        thumbnails: "var(--color-thumbnails)",
       },
     },
   },

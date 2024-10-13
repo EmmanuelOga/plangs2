@@ -8,6 +8,7 @@
   --color-secondary: chartreuse;
   --color-background: mintcream;
   --color-foreground: #001;
+  --color-thumbnails: rgba(255, 255, 255, .85)
 }
 
 /* Dark Mode */
@@ -16,6 +17,7 @@
   --color-secondary: #609;
   --color-background: #001;
   --color-foreground: mintcream;
+  --color-thumbnails: rgba(102, 0, 153, .85);
 }
 
 @theme {
