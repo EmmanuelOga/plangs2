@@ -21,7 +21,8 @@ export function PlInfo({ pl, open, tab }: PlInfoProps) {
     <div
       class={tw(
         "h-fit w-full",
-        "px-2 pt-2 sm:py-4",
+        "px-2 pt-2 sm:p-4",
+        !forGrid && "-mx-4", // Compensate for padding so it aligns with the rest of the content.
         "prose prose-green dark:prose-invert sm:prose-sm lg:prose-lg xl:prose-xl max-w-[unset]",
         forGrid && "bg-linear-to-b to-secondary/50",
         "border-primary/50 border-dotted",
