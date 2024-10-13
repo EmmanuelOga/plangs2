@@ -62,80 +62,70 @@ function PlNews({ pl: { relPosts } }: { pl: NPlang }) {
 }
 
 function PlApps({ pl }: { pl: NPlang }) {
-  const apps = pl.relApps.values.map(({ nodeTo }) => nodeTo).existing;
-  const thead = (
-    <tr>
-      <th>App</th>
-      <th>Keywords</th>
-      <th>Description</th>
-    </tr>
-  );
-  const tbody = apps.map(app => (
-    <tr key={app.key}>
-      <td>{app.websites.map(link => <Anchor key={link.href} link={link} />).existing}</td>
-      <td>{app.keywords.join(", ")}</td>
-      <td>{app.description}</td>
-    </tr>
-  ));
+  const apps = pl.relApps.values.map(({ nodeTo }) => nodeTo);
   return (
     <>
       <h1>Applications</h1>
       <p>Example open source applications created with {pl.name}.</p>
-      {apps.length === 0 ? <p>No applications just yet!</p> : <Table thead={thead} tbody={tbody} />}
+      {apps.isEmpty ? (
+        <p>No applications just yet!</p>
+      ) : (
+        <Table headers={["App", "Keywords", "Description"]}>
+          {apps.existing.map(app => (
+            <tr key={app.key}>
+              <td>{app.websites.map(link => <Anchor key={link.href} link={link} />).existing}</td>
+              <td>{app.keywords.join(", ")}</td>
+              <td>{app.description}</td>
+            </tr>
+          ))}
+        </Table>
+      )}
     </>
   );
 }
 
 function PlLibs({ pl }: { pl: NPlang }) {
-  const libs = pl.relLibs.values.map(({ nodeTo }) => nodeTo).existing;
-  const thead = (
-    <tr>
-      <th>Lib</th>
-      <th>Keywords</th>
-      <th>Description</th>
-    </tr>
-  );
-  const tbody = libs.map(lib => (
-    <tr key={lib.key}>
-      <td>{lib.websites.map(link => <Anchor key={link.href} link={link} />).existing}</td>
-      <td>{lib.keywords.join(", ")}</td>
-      <td>{lib.description}</td>
-    </tr>
-  ));
+  const libs = pl.relLibs.values.map(({ nodeTo }) => nodeTo);
   return (
     <>
       <h1>Libraries</h1>
       <p>Example open source libraries that can be used with {pl.name}.</p>
-      {libs.length === 0 ? <p>No libraries just yet!</p> : <Table thead={thead} tbody={tbody} />}
+      {libs.isEmpty ? (
+        <p>No libraries just yet!</p>
+      ) : (
+        <Table headers={["Lib", "Keywords", "Description"]}>
+          {libs.existing.map(lib => (
+            <tr key={lib.key}>
+              <td>{lib.websites.map(link => <Anchor key={link.href} link={link} />).existing}</td>
+              <td>{lib.keywords.join(", ")}</td>
+              <td>{lib.description}</td>
+            </tr>
+          ))}
+        </Table>
+      )}
     </>
   );
 }
 
 function PlTools({ pl }: { pl: NPlang }) {
-  const tools = pl.relTools.values.map(({ nodeTo }) => nodeTo).existing;
-  const thead = (
-    <tr>
-      <th>Tool</th>
-      <th>Keywords</th>
-      <th>Description</th>
-    </tr>
-  );
-  const tbody = tools.map(tool => (
-    <tr key={tool.key}>
-      <td>{tool.websites.map(link => <Anchor key={link.href} link={link} />).existing}</td>
-      <td>{tool.keywords.join(", ")}</td>
-      <td>{tool.description}</td>
-    </tr>
-  ));
+  const tools = pl.relTools.values.map(({ nodeTo }) => nodeTo);
   return (
     <>
       <h1>Tooling</h1>
       <p>Additional tooling available for {pl.name}.</p>
-      {tools.length === 0 ? (
+      {tools.isEmpty ? (
         <p>No tools just yet!</p>
       ) : (
         <>
-          <Table thead={thead} tbody={tbody} />
+          <Table headers={["Tool", "Keywords", "Description"]}>
+            {tools.existing.map(tool => (
+              <tr key={tool.key}>
+                <td>{tool.websites.map(link => <Anchor key={link.href} link={link} />).existing}</td>
+                <td>{tool.keywords.join(", ")}</td>
+                <td>{tool.description}</td>
+              </tr>
+            ))}
+          </Table>
           <PlBundles pl={pl} />
         </>
       )}

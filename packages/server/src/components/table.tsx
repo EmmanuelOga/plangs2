@@ -1,10 +1,16 @@
 import type { ComponentChildren } from "preact";
 
-export function Table({ thead, tbody }: { tbody: ComponentChildren; thead: ComponentChildren }) {
+export function Table({ headers, children }: { headers: string[]; children: ComponentChildren }) {
   return (
     <table>
-      <thead>{thead}</thead>
-      <tbody>{tbody}</tbody>
+      <thead>
+        <tr>
+          {headers.map(header => (
+            <th key={header}>{header}</th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>{children}</tbody>
     </table>
   );
 }
