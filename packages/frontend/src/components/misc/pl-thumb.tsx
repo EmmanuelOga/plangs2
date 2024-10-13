@@ -26,11 +26,11 @@ export function PlThumb({ pl, class: cssClass }: { class?: string; pl: NPlang })
 
       <div
         class={tw(
-          "border-1 border-primary",
           "p-4",
-          "aspect-square ",
+          "aspect-square overflow-hidden",
           "flex items-center justify-center",
           "bg-thumbnails",
+          "border-1 border-primary",
           "shadow-background shadow-lg group-hover:shadow-md group-hover:shadow-primary",
         )}>
         <img alt={`${pl.name}'s logo`} class="max-h-full max-w-full object-contain" src={thumbUrl ?? PLACEHOLDER} />
