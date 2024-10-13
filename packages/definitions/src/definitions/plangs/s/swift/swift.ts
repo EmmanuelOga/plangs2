@@ -14,15 +14,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".swift"],
       firstAppeared: "2014-06-02",
-      images: [
-        {
-          kind: "logo",
-          title: "Swift Logo",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Swift_logo.svg/512px-Swift_logo.svg.png",
-          width: 512,
-          height: 512,
-        },
-      ],
       isTranspiler: false,
       isMainstream: true,
       releases: [
