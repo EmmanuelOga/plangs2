@@ -20,14 +20,18 @@ export function PlInfo({ pl, open, tab }: PlInfoProps) {
   return (
     <div
       class={tw(
-        "px-2 sm:py-4",
         "h-fit w-full",
+        "px-2 pt-2 sm:py-4",
         "prose prose-green dark:prose-invert sm:prose-sm lg:prose-lg xl:prose-xl max-w-[unset]",
         "bg-linear-to-b from-background to-secondary/50",
         "shadow-lg shadow-primary/25",
-        "border-b-1 border-b-primary border-dotted",
+        "border-t-1 border-t-primary border-dotted",
       )}>
-      <h1 class={tw(!forGrid && "text-4xl", forGrid && "inline text-lg sm:block sm:text-4xl")}>{pl?.name ?? "Plang"}</h1>
+      <h1 class={tw(!forGrid && "text-4xl", forGrid && "inline text-lg sm:block sm:text-4xl")}>
+        <a class="text-foreground decoration-1 decoration-dotted" href={`/${pl?.plainKey}`}>
+          {pl?.name ?? "Plang"}
+        </a>
+      </h1>
       {pl && (
         <>
           <span class={tw(forGrid ? "dash sm:hidden" : "hidden")}>&#8212;</span>
