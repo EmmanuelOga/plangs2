@@ -72,7 +72,7 @@ export function InputSel({ name, class: cssClass }: InputSelProps) {
       <ul>
         {state.selected.map(({ value, label }) => (
           <li
-            class={tw("cursor-pointer py-2", HOVER)}
+            class={tw("cursor-pointer p-2", HOVER)}
             key={value}
             data-value={value}
             aria-label="remove"

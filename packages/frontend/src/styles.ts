@@ -7,6 +7,7 @@ export const PROSE = "prose prose-green dark:prose-invert sm:prose-sm lg:prose-l
 export const NOWRAP_TEXT = "overflow-hidden text-ellipsis whitespace-nowrap";
 
 export const HOVER = "hover:bg-yellow-300 hover:text-slate-800 cursor-pointer";
+export const HOVER_LIST = ["bg-yellow-300", "text-slate-800"]; // for classList add/remove
 
 /** Generate a stripped background image style. */
 export function stripes(size = "10px", col1 = "var(--color-stripes)", col2 = "var(--color-background)") {

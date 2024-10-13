@@ -2,7 +2,7 @@ import { Fragment, type Ref, h } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
 import { useDispatchable } from "@plangs/frontend/dispatchable";
-import { HOVER, NOWRAP_TEXT } from "@plangs/frontend/styles";
+import { HOVER, HOVER_LIST, NOWRAP_TEXT } from "@plangs/frontend/styles";
 import { customEvent, on, tw } from "@plangs/frontend/utils";
 import { type EncodedFilter, isEncodedFilter } from "@plangs/graph/auxiliar";
 import type { E, N, PlangsGraph } from "@plangs/plangs";
@@ -83,6 +83,9 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
                 type="button"
                 class={tw(NOWRAP_TEXT, HOVER, "p-2", "text-left")}
                 onClick={() => addEntry(entry)}
+                // Would be nice to use tailwind's sibling selector, but it's not working for wathever reason.
+                onMouseEnter={({ target }) => (target as Element).nextElementSibling?.classList.add(...HOVER_LIST)}
+                onMouseLeave={({ target }) => (target as Element).nextElementSibling?.classList.remove(...HOVER_LIST)}
                 onKeyDown={ev => ev.key === "Enter" && addEntry(entry)}>
                 {entry.label}
               </button>
