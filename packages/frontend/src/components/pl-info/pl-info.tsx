@@ -23,9 +23,9 @@ export function PlInfo({ pl, open, tab }: PlInfoProps) {
         "h-fit w-full",
         "px-2 pt-2 sm:py-4",
         "prose prose-green dark:prose-invert sm:prose-sm lg:prose-lg xl:prose-xl max-w-[unset]",
-        "bg-linear-to-b from-background to-secondary/50",
-        "shadow-lg shadow-primary/25",
-        "border-t-1 border-t-primary border-dotted",
+        forGrid && "bg-linear-to-b to-secondary/50",
+        "border-primary/50 border-dotted",
+        forGrid ? "border-t-1" : "border-b-1",
       )}>
       <h1 class={tw(!forGrid && "text-4xl", forGrid && "inline text-lg sm:block sm:text-4xl")}>
         <a class="text-foreground decoration-1 decoration-dotted" href={`/${pl?.plainKey}`}>
@@ -44,12 +44,12 @@ export function PlInfo({ pl, open, tab }: PlInfoProps) {
             {pl.isMainstream && <Pill name="Mainstream" nodeKey="NA" kind="mainstream" tab={tab} />}
           </div>
           <p class={tw(forGrid && "inline sm:block")}>{pl.description || "..."}</p>
-          <details class={tw(forGrid && "hidden sm:block")} open={open}>
+          <details class={tw(forGrid && "hidden sm:block", "pb-4")} open={open}>
             <summary class="cursor-pointer text-xl">Details</summary>
 
             {!pl.websites.isEmpty && (
               <div>
-                <h2>Websites</h2>
+                <h2 class="mt-4">Websites</h2>
                 {
                   pl.websites.map(link => (
                     <div key={link.href} class={tw("overflow-hidden text-ellipsis whitespace-nowrap")}>

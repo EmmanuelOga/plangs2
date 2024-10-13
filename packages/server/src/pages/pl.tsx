@@ -16,26 +16,18 @@ export function Pl({ pl }: { pl: NPlang }) {
       tab="pl"
       title={`${pl.name} at https://plangs.page`}
       description={`${pl.name} at https://plangs.page: A language is much more than just a syntax. It's an ecosystem of tools, libraries, and applications.`}
-      mainClasses={tw("overflow-hidden", "flex flex-col sm:flex-row sm:place-content-end", "gap-2")}>
-      <PlBody class={tw("flex-1", "px-4", "overflow-y-auto")} pl={pl} />
-
-      <div class={tw("overflow-hidden overflow-y-auto", "max-h-[20dvh] sm:max-h-[unset] sm:w-[25rem]")}>
-        <div id={id("plInfo")}>
-          <PlInfo pl={pl} open={true} tab="pl" />
+      mainClasses={tw("overflow-y-scroll")}>
+      <article class={tw(PROSE, "p-4")}>
+        <div id={id("plInfo")} class="mb-8">
+          <PlInfo pl={pl} open={false} tab="pl" />
         </div>
-      </div>
-    </Layout>
-  );
-}
 
-export function PlBody({ pl, class: cssClass }: { class?: string; pl: NPlang }) {
-  return (
-    <article class={tw(PROSE, "p-4", cssClass)}>
-      <PlNews pl={pl} />
-      <PlApps pl={pl} />
-      <PlLibs pl={pl} />
-      <PlTools pl={pl} />
-    </article>
+        <PlNews pl={pl} />
+        <PlApps pl={pl} />
+        <PlLibs pl={pl} />
+        <PlTools pl={pl} />
+      </article>
+    </Layout>
   );
 }
 
@@ -143,10 +135,10 @@ function PlBundles({ pl }: { pl: NPlang }) {
         <div
           key={bundle.key}
           class={tw(
-            "bg-linear-to-b from-background to-secondary/50",
+            "bg-linear-to-b to-secondary/50",
             "shadow-lg shadow-primary/20",
-            "border-b-1 border-b-primary border-dotted",
-            "my-8",
+            "border-b-1 border-b-primary/50 border-dotted",
+            "-mx-4 my-8 p-4",
           )}>
           <h1>{bundle.name}</h1>
           <p>{bundle.relTools.values.map(({ nodeTo }) => nodeTo && <Pill name={nodeTo.name} nodeKey={nodeTo.key} kind={nodeTo.kind} />).existing}</p>
