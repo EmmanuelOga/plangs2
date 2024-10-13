@@ -31,9 +31,10 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
 
   /** Actions */
 
-  toggleSelected(value: Entry["value"]) {
-    const set = this.data.selected;
-    set.has(value) ? set.delete(value) : set.add(value);
+  toggleSelected(value: Entry["value"], key?: string) {
+    if (key !== undefined && key !== "Enter") return;
+    const { selected } = this.data;
+    selected.has(value) ? selected.delete(value) : selected.add(value);
     this.dispatch();
   }
 

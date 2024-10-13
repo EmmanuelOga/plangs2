@@ -38,29 +38,39 @@ export function InputFacet(props: InputFacetProps) {
     }),
   );
 
-  const BG = "bg-thumbnails/75";
-  const SCROLL = "overflow-y-scroll";
-  const HEADER = tw("sticky top-0 cursor-pointer", "bg-primary text-background/80", tw(BORDER, "border-t-1"));
+  const actions = (entry: Entry) => ({
+    onClick: () => state.toggleSelected(entry.value),
+    onKeyDown: ({ key }: { key: string }) => state.toggleSelected(entry.value, key),
+  });
 
   const facets = (
-    <div class={tw(SCROLL, "min-h-32", "grid grid-cols-[1fr_1fr_auto]", BG, tw(BORDER, "border-b-1"))}>
-      <FacetButton class={tw(HEADER, "p-2", "text-left italic")} action={() => state.toggleOrder("facet")} label="Facet" />
-      <FacetButton class={tw(HEADER, "p-2", "text-right italic")} action={() => state.toggleOrder("count")} label="Count" />
-      <FacetButton class={tw(HEADER, "p-2", "text-right italic")} action={() => state.toggleOrder("sel")} label="Sel" />
+    <table class={tw("bg-thumbnails/75", "overflow-y-scroll")}>
+      <thead class={tw("sticky top-0 cursor-pointer", "bg-primary text-background/80", tw(BORDER, "border-b-1"))}>
+        <tr>
+          <td>
+            <FacetButton class={tw("p-2", "text-left italic")} action={() => state.toggleOrder("facet")} label="Facet" />
+          </td>
+          <td>
+            <FacetButton class={tw("p-2", "text-right italic")} action={() => state.toggleOrder("count")} label="Count" />
+          </td>
+          <td>
+            <FacetButton class={tw("p-2", "text-right italic")} action={() => state.toggleOrder("sel")} label="Sel" />
+          </td>
+        </tr>
+      </thead>
 
-      {state.entries.map(entry => (
-        <Fragment key={entry.value}>
-          <FacetButton
-            class={tw(NOWRAP_TEXT, HOVER, "p-2", "text-left")}
-            action={() => state.toggleSelected(entry.value)}
-            label={entry.label}
-            hoverNext={true}
-          />
-          <div class={tw("p-2", "text-center")}>{entry.count}</div>
-          <div class={tw("p-2", "text-center")}>{state.isSelected(entry.value) ? "1" : "0"}</div>
-        </Fragment>
-      ))}
-    </div>
+      <tbody>
+        {state.entries.map(entry => (
+          <tr key={entry.value} class={HOVER} {...actions(entry)}>
+            <td class={tw(NOWRAP_TEXT, "p-2", "text-left")}>{entry.label}</td>
+            <td class={tw("p-2", "text-center")}>{entry.count}</td>
+            <td class={tw("p-2", "text-center")}>
+              <input type="checkbox" checked={state.isSelected(entry.value)} {...actions(entry)} />
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 
   return (
@@ -70,20 +80,9 @@ export function InputFacet(props: InputFacetProps) {
   );
 }
 
-// Would be nice to use tailwind's sibling selector for these, but it's not working for wathever reason.
-const HOVER_HANDLER = {
-  onMouseEnter: ({ target }: MouseEvent) => (target as Element).nextElementSibling?.classList.add(...HOVER_LIST),
-  onMouseLeave: ({ target }: MouseEvent) => (target as Element).nextElementSibling?.classList.remove(...HOVER_LIST),
-};
-
-function FacetButton({ hoverNext, label, action, class: cssClass }: { hoverNext?: boolean; label: string; class?: string; action: () => void }) {
+function FacetButton({ label, action, class: cssClass }: { label: string; class?: string; action: () => void }) {
   return (
-    <button
-      type="button"
-      class={cssClass}
-      {...(hoverNext ? HOVER_HANDLER : {})}
-      onClick={action}
-      onKeyDown={({ key }) => key === "Enter" && action()}>
+    <button type="button" class={cssClass} onClick={action} onKeyDown={({ key }) => key === "Enter" && action()}>
       {label}
     </button>
   );
