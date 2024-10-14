@@ -133,22 +133,27 @@ function group(title: string, keys: (keyof typeof INPUT_PROPS)[]): Group {
 }
 
 const INPUT_GROUPS = [
-  group("Name", ["plangName"]),
-  group("Created Date", ["appearedAfter"]),
+  group("General", ["plangName", "hasLogo", "hasWikipedia", "isMainstream", "extensions"]), // +Released Recently
+
+  // Dates
+
+  group("Created Year", ["appearedAfter"]),
+  group("Released Year", ["hasReleases", "releasedAfter"]),
+
+  // Features
+
+  group("Paradigms", ["paradigms"]),
+  group("Type Systems", ["typeSystems"]),
+  group("Platforms", ["platforms"]),
+  group("Tags", ["tags"]),
+  group("Licenses", ["licenses"]),
+
+  // Lineage
+
   group("Dialect Of", ["dialectOf"]),
-  group("File Extensions", ["extensions"]),
   group("Implements", ["implements"]),
   group("Influenced By", ["influencedBy"]),
   group("Influenced", ["influenced"]),
-  group("Licenses", ["licenses"]),
-  group("Logo", ["hasLogo"]),
-  group("Paradigms", ["paradigms"]),
-  group("Platforms", ["platforms"]),
-  group("Popular", ["isMainstream"]),
-  group("Release Date", ["releasedAfter", "hasReleases"]),
-  group("Tags", ["tags"]),
   group("Transpiler", ["isTranspiler", "compilesTo"]),
-  group("Type Systems", ["typeSystems"]),
-  group("Wikipedia", ["hasWikipedia"]),
   group("Written In", ["writtenIn"]),
 ] as Group[];

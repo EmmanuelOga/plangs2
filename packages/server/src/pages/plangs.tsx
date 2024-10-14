@@ -14,7 +14,7 @@ export function Plangs({ pg }: { pg: PlangsGraph }) {
       title="Find your next favorite programming language!"
       description="Discover https://plangs.page faceted search engine to find your next favorite programming language."
       mainClasses={tw("overflow-hidden", "flex flex-col sm:flex-row", "gap-2")}>
-      <PlFilters class={tw("max-h-[45dvh] sm:max-h-[unset] sm:w-[25rem]")} />
+      <PlFilters class={tw("max-h-[45dvh] sm:max-h-[unset] sm:w-[35rem]")} />
       <PlGrid pg={pg} class={tw("flex-1", "overflow-y-scroll", "m-1")} />
 
       <div class={tw("overflow-hidden overflow-y-scroll", "max-h-[15dvh] sm:max-h-[unset] sm:w-[25rem]")}>

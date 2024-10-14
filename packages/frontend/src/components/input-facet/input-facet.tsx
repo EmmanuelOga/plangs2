@@ -50,7 +50,7 @@ export function InputFacet(props: InputFacetProps) {
   const ROW = tw(SUBGRID, HOVER, tw("border-b-1", BORDER));
 
   const facets = (
-    <div class={tw("bg-thumbnails/75", "flex-1", "grid grid-cols-[1fr_auto_auto]", "w-full overflow-hidden overflow-y-scroll")}>
+    <div class={tw("bg-thumbnails/75", "grid grid-cols-[1fr_auto_auto]", "w-full overflow-hidden overflow-y-scroll")}>
       <div class={tw(ROW, "sticky top-0 cursor-pointer", "bg-primary text-background/80", tw(BORDER, "border-b-1"))}>
         <FacetButton class={tw("px-2 py-1", "text-left italic")} action={() => state.toggleOrder("facet")} label={state.header("facet")} />
         <FacetButton class={tw("px-2 py-1", "text-center italic")} action={() => state.toggleOrder("count")} label={state.header("count")} />
