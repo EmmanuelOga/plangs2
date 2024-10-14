@@ -59,7 +59,7 @@ export function InputFacet(props: InputFacetProps) {
 
       {state.entries.map(entry => (
         <div key={entry.value} class={tw(ROW)} {...actions(entry)}>
-          <div class={tw("p-2", "text-left", "overflow-hidden text-ellipsis")}>{entry.label}</div>
+          <div class={tw("p-2", "text-left", "overflow-hidden text-ellipsis", "line-clamp-2")}>{entry.label}</div>
           <div class={tw("p-2", "text-center")}>{entry.count}</div>
           <div class={tw("p-2", "text-right")}>
             <input type="checkbox" checked={state.isSelected(entry.value)} {...actions(entry)} />
