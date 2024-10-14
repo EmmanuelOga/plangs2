@@ -39,38 +39,34 @@ export function InputFacet(props: InputFacetProps) {
   );
 
   const actions = (entry: Entry) => ({
-    onClick: () => state.toggleSelected(entry.value),
+    onClick: (ev: MouseEvent) => {
+      ev.stopPropagation(); // Both TR and INPUT are clickable.
+      state.toggleSelected(entry.value);
+    },
     onKeyDown: ({ key }: { key: string }) => state.toggleSelected(entry.value, key),
   });
 
-  const facets = (
-    <table class={tw("bg-thumbnails/75", "overflow-y-scroll")}>
-      <thead class={tw("sticky top-0 cursor-pointer", "bg-primary text-background/80", tw(BORDER, "border-b-1"))}>
-        <tr>
-          <td>
-            <FacetButton class={tw("p-2", "text-left italic")} action={() => state.toggleOrder("facet")} label="Facet" />
-          </td>
-          <td>
-            <FacetButton class={tw("p-2", "text-right italic")} action={() => state.toggleOrder("count")} label="Count" />
-          </td>
-          <td>
-            <FacetButton class={tw("p-2", "text-right italic")} action={() => state.toggleOrder("sel")} label="Sel" />
-          </td>
-        </tr>
-      </thead>
+  const SUBGRID = tw("col-span-3", "grid grid-cols-subgrid", "items-center");
+  const ROW = tw(SUBGRID, HOVER, tw("border-b-1", BORDER));
 
-      <tbody>
-        {state.entries.map(entry => (
-          <tr key={entry.value} class={HOVER} {...actions(entry)}>
-            <td class={tw(NOWRAP_TEXT, "p-2", "text-left")}>{entry.label}</td>
-            <td class={tw("p-2", "text-center")}>{entry.count}</td>
-            <td class={tw("p-2", "text-center")}>
-              <input type="checkbox" checked={state.isSelected(entry.value)} {...actions(entry)} />
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+  const facets = (
+    <div class={tw("bg-thumbnails/75", "flex-1", "grid grid-cols-[1fr_auto_auto]", "w-full overflow-scroll")}>
+      <div class={tw(ROW, "sticky top-0 cursor-pointer", "bg-primary text-background/80", tw(BORDER, "border-b-1"))}>
+        <FacetButton class={tw("px-2 py-1", "text-left italic")} action={() => state.toggleOrder("facet")} label={state.header("facet")} />
+        <FacetButton class={tw("px-2 py-1", "text-center italic")} action={() => state.toggleOrder("count")} label={state.header("count")} />
+        <FacetButton class={tw("px-2 py-1", "text-right italic")} action={() => state.toggleOrder("sel")} label={state.header("sel")} />
+      </div>
+
+      {state.entries.map(entry => (
+        <div key={entry.value} class={tw(ROW)} {...actions(entry)}>
+          <div class={tw("p-2", "text-left")}>{entry.label}</div>
+          <div class={tw("p-2", "text-center")}>{entry.count}</div>
+          <div class={tw("p-2", "text-right")}>
+            <input type="checkbox" checked={state.isSelected(entry.value)} {...actions(entry)} />
+          </div>
+        </div>
+      ))}
+    </div>
   );
 
   return (
@@ -82,7 +78,11 @@ export function InputFacet(props: InputFacetProps) {
 
 function FacetButton({ label, action, class: cssClass }: { label: string; class?: string; action: () => void }) {
   return (
-    <button type="button" class={cssClass} onClick={action} onKeyDown={({ key }) => key === "Enter" && action()}>
+    <button
+      type="button"
+      class={tw("cursor-pointer", "underline decoration-1 decoration-dotted", HOVER, cssClass)}
+      onClick={action}
+      onKeyDown={({ key }) => key === "Enter" && action()}>
       {label}
     </button>
   );

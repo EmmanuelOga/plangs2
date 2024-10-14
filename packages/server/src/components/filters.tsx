@@ -33,7 +33,7 @@ export function PlFilters({ class: cssClass }: { class?: string }) {
       <div class={tw("overflow-y-scroll", "px-2")}>{facetLinks}</div>
       <div class={tw("overflow-hidden", "flex-1", "flex flex-col")}>{facets}</div>
 
-      {script(`setTimeout(() => window.focusFilter('transpiler'), 100);`)}
+      {script(`setTimeout(() => window.focusFilter('type-systems'), 100);`)}
     </aside>
   );
 }
@@ -54,7 +54,7 @@ function Input({ inputKey: key }: { inputKey: keyof typeof INPUT_PROPS }) {
 
   if (input.kind === "facet") {
     return (
-      // relative so the inputSel can absolutely fill the whole container.
+      // Relative positioning so the input-facet can absolutely fill the container.
       <div class="relative flex-1">
         {h("input-facet", {
           ...baseProps,

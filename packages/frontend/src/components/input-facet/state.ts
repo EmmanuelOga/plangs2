@@ -43,9 +43,9 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
     this.dispatch();
   }
 
-  toggleOrder(which: "facet" | "count" | "sel") {
+  toggleOrder(col: Col) {
     const { order } = this.data;
-    this.data.order = opposite(which, order);
+    this.data.order = opposite(col, order);
     this.sort();
     this.dispatch();
   }
@@ -69,6 +69,13 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
   }
 
   /** Queries */
+
+  header(col: Col): string {
+    const { order } = this.data;
+    if (col === "facet") return order === "facet-asc" ? "Facet ▲" : order === "facet-desc" ? "Facet ▼" : "Facet";
+    if (col === "count") return order === "count-asc" ? "Count ▲" : order === "count-desc" ? "Count ▼" : "Count";
+    return order === "sel-asc" ? "Sel ▲" : order === "sel-desc" ? "Sel ▼" : "Sel";
+  }
 
   isSelected(value: Entry["value"]): boolean {
     return this.data.selected.has(value);
@@ -101,11 +108,12 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
   }
 }
 
+export type Col = "facet" | "count" | "sel";
 export type Order = "facet-asc" | "facet-desc" | "count-asc" | "count-desc" | "sel-asc" | "sel-desc";
 
-function opposite(which: "facet" | "count" | "sel", order: string): Order {
-  if (which === "facet") return order === "facet-asc" ? "facet-desc" : "facet-asc";
-  if (which === "count") return order === "count-desc" ? "count-asc" : "count-desc";
+function opposite(col: Col, order: string): Order {
+  if (col === "facet") return order === "facet-asc" ? "facet-desc" : "facet-asc";
+  if (col === "count") return order === "count-desc" ? "count-asc" : "count-desc";
   return order === "sel-desc" ? "sel-asc" : "sel-desc";
 }
 

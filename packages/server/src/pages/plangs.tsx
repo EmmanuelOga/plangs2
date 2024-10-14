@@ -1,5 +1,5 @@
 import { PlThumb } from "@plangs/frontend/components/misc/pl-thumb";
-import { script, tw } from "@plangs/frontend/utils";
+import { script, style, tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 
 import { h } from "preact";
