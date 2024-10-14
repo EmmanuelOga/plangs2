@@ -33,7 +33,8 @@ export function Layout({ title, description, tab, pl, mainClasses, children }: L
         <link rel="stylesheet" href="/bundle/app.css" />
         <link type="image/png" rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png" />
         <link type="image/png" rel="icon" sizes="192x192" href="/icons/icon-192x192.png" />
-        <link type="image/png" rel="icon" sizes="72x72" href="/icons/favicon-72x72.png" />
+        <link type="image/png" rel="icon" sizes="72x72" href="/icons/icon-72x72.png" />
+        <link rel="icon" href="/icons/icon-72x72.png" />
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body
