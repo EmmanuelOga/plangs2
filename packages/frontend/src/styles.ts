@@ -4,8 +4,6 @@
 
 export const PROSE = "prose prose-green dark:prose-invert sm:prose-sm lg:prose-lg xl:prose-xl 2xl:prose-2xl max-w-[80ch] mx-auto";
 
-export const NOWRAP_TEXT = "overflow-hidden text-ellipsis whitespace-nowrap";
-
 export const BORDER = "border-primary/85 border-dotted";
 
 export const HOVER = "hover:bg-yellow-300 hover:text-slate-800 cursor-pointer";

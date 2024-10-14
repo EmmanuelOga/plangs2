@@ -3,7 +3,6 @@ import type { JSX } from "preact/jsx-runtime";
 import type { NPlang } from "@plangs/plangs";
 import { cl } from "@plangs/server/elements";
 
-import { NOWRAP_TEXT } from "../../styles";
 import { tw } from "../../utils";
 
 const PLACEHOLDER = "/images/placeholder.png";
@@ -22,7 +21,7 @@ export function PlThumb({ pl, class: cssClass }: { class?: string; pl: NPlang })
         "bg-background/50",
         cssClass,
       )}>
-      <div class={tw("p-1", "text-center", NOWRAP_TEXT, "text-foreground group-hover:text-primary")}>{pl.name}</div>
+      <div class={tw("p-1", "truncate text-center", "text-foreground group-hover:text-primary")}>{pl.name}</div>
 
       <div
         class={tw(

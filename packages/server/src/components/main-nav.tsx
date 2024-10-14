@@ -1,4 +1,4 @@
-import { BORDER, NOWRAP_TEXT } from "@plangs/frontend/styles";
+import { BORDER } from "@plangs/frontend/styles";
 import { script, tw } from "@plangs/frontend/utils";
 
 import { cl, id } from "../elements";
@@ -66,7 +66,7 @@ function NavSection({ title, links, tab }: { tab: TAB; title: string; links: Nav
             <a
               data-tab={forTab}
               data-current={tab === forTab ? "1" : undefined}
-              class={tw(cl("navLink"), "block cursor-pointer", NOWRAP_TEXT, nested ? "pl-10" : "pl-4")}
+              class={tw(cl("navLink"), "block cursor-pointer", "truncate", nested ? "pl-10" : "pl-4")}
               href={href}>
               {title}
             </a>

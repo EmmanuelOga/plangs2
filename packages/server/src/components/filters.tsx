@@ -1,6 +1,6 @@
 import { type ComponentChildren, h } from "preact";
 
-import { BORDER, NOWRAP_TEXT } from "@plangs/frontend/styles";
+import { BORDER } from "@plangs/frontend/styles";
 import { script, tw } from "@plangs/frontend/utils";
 
 import { type E, type N, NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs";
@@ -13,7 +13,7 @@ export function PlFilters({ class: cssClass }: { class?: string }) {
       key={key}
       data-facet={key}
       href={`javascript:window.focusFilter('${key}')`}
-      class={tw(cl("facetLink"), "block", NOWRAP_TEXT, "px-1 py-1 ", "text-foreground/85", "underline decoration-1 decoration-dotted")}>
+      class={tw(cl("facetLink"), "block", "truncate", "px-1 py-1 ", "text-foreground/85", "underline decoration-1 decoration-dotted")}>
       {title}
     </a>
   ));
@@ -33,7 +33,7 @@ export function PlFilters({ class: cssClass }: { class?: string }) {
       <div class={tw("overflow-y-scroll", "px-2")}>{facetLinks}</div>
       <div class={tw("overflow-hidden", "flex-1", "flex flex-col")}>{facets}</div>
 
-      {script(`setTimeout(() => window.focusFilter('type-systems'), 100);`)}
+      {script(`setTimeout(() => window.focusFilter('written-in'), 100);`)}
     </aside>
   );
 }

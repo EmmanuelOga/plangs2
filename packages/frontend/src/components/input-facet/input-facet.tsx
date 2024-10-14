@@ -2,7 +2,7 @@ import { Fragment, type Ref } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
 import { useDispatchable } from "@plangs/frontend/dispatchable";
-import { BORDER, HOVER, HOVER_LIST, NOWRAP_TEXT } from "@plangs/frontend/styles";
+import { BORDER, HOVER } from "@plangs/frontend/styles";
 import { customEvent, on, tw } from "@plangs/frontend/utils";
 import { type EncodedFilter, isEncodedFilter } from "@plangs/graph/auxiliar";
 import type { E, N, PlangsGraph } from "@plangs/plangs";
@@ -50,7 +50,7 @@ export function InputFacet(props: InputFacetProps) {
   const ROW = tw(SUBGRID, HOVER, tw("border-b-1", BORDER));
 
   const facets = (
-    <div class={tw("bg-thumbnails/75", "flex-1", "grid grid-cols-[1fr_auto_auto]", "w-full overflow-scroll")}>
+    <div class={tw("bg-thumbnails/75", "flex-1", "grid grid-cols-[1fr_auto_auto]", "w-full overflow-hidden overflow-y-scroll")}>
       <div class={tw(ROW, "sticky top-0 cursor-pointer", "bg-primary text-background/80", tw(BORDER, "border-b-1"))}>
         <FacetButton class={tw("px-2 py-1", "text-left italic")} action={() => state.toggleOrder("facet")} label={state.header("facet")} />
         <FacetButton class={tw("px-2 py-1", "text-center italic")} action={() => state.toggleOrder("count")} label={state.header("count")} />
@@ -59,7 +59,7 @@ export function InputFacet(props: InputFacetProps) {
 
       {state.entries.map(entry => (
         <div key={entry.value} class={tw(ROW)} {...actions(entry)}>
-          <div class={tw("p-2", "text-left")}>{entry.label}</div>
+          <div class={tw("p-2", "text-left", "overflow-hidden text-ellipsis")}>{entry.label}</div>
           <div class={tw("p-2", "text-center")}>{entry.count}</div>
           <div class={tw("p-2", "text-right")}>
             <input type="checkbox" checked={state.isSelected(entry.value)} {...actions(entry)} />
