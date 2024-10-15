@@ -1,8 +1,8 @@
 import { BAR, BORDER } from "@plangs/frontend/styles";
 import { script, tw } from "@plangs/frontend/utils";
 
+import { h } from "preact";
 import { cl, id } from "../elements";
-import { loremIpsum } from "../utils/lorem";
 import { FacetInput } from "./facet-input";
 import { PL_FACET_GROUPS } from "./pl_config";
 
@@ -34,7 +34,7 @@ export function PlFacets({ class: cssClass }: { class?: string }) {
           <div key={key} id={key} class={tw(cl("facet"), "hidden", "flex-1", "flex flex-col")}>
             <header class={tw(BAR, "max-w-full", "p-2", "flex flex-row", "justify-between", "gap-2", "text-primary", tw(BORDER, "border-b-1"))}>
               <span class="shrink truncate">{title}</span>
-              <span class="shrink-0 grow-0">All/Any</span>
+              <span class="shrink-0 grow-0">{h("input-toggle", { action: "allAny" })}</span>
             </header>
             <div class={tw("flex-1", "flex flex-col", "gap-4")}>
               {keys.map(key => (

@@ -1,7 +1,7 @@
 import { useDispatchable } from "@plangs/frontend/dispatchable";
 
 import { tw } from "@plangs/frontend/utils";
-import { ToggleFacets, ToggleHamburguer, ToggleLights } from "./state";
+import { ToggleFacetMode, ToggleFacets, ToggleHamburguer, ToggleLights } from "./state";
 
 export const TAG_NAME = "input-toggle";
 
@@ -13,6 +13,7 @@ const ACTION_STATE = {
   lights: () => useDispatchable(ToggleLights.initial()),
   hamburger: () => useDispatchable(ToggleHamburguer.initial()),
   facets: () => useDispatchable(ToggleFacets.initial()),
+  allAny: () => useDispatchable(ToggleFacetMode.initial()),
 } as const;
 
 export function InputToggle({ action }: InputToggleProps) {

@@ -1,7 +1,8 @@
 import { Dispatchable } from "@plangs/frontend/dispatchable";
 import { elem } from "@plangs/server/elements";
 
-import { CLOSE, FILTER, FILTER_EDIT, MENU, MOON, SUN } from "../../icons";
+import { tw } from "@plangs/frontend/utils";
+import { BOOLEAN, CLOSE, FILTER, FILTER_EDIT, MENU, MOON, SUN } from "../../icons";
 
 export class ToggleLights extends Dispatchable<{ mode: "dark" | "light" }> {
   static initial() {
@@ -69,5 +70,33 @@ export class ToggleFacets extends Dispatchable<{ mode: "show" | "hide" }> {
   runEffects() {
     elem("facets")?.classList.toggle("hidden", !this.show);
     localStorage.setItem("facets", this.data.mode);
+  }
+}
+
+export class ToggleFacetMode extends Dispatchable<{ mode: "all" | "any" }> {
+  static initial() {
+    return new ToggleFacetMode({ mode: "any" });
+  }
+
+  get mode(): "all" | "any" {
+    return this.data.mode;
+  }
+
+  get icon() {
+    return (
+      <span class={tw("flex flex-row gap-2")}>
+        <span>All</span>
+        <span class={tw("inline-block", "mt-[1px]", this.mode === "any" && "rotate-180")}>{BOOLEAN}</span>
+        <span>Any</span>
+      </span>
+    );
+  }
+
+  toggleMode() {
+    this.data.mode = this.mode === "all" ? "any" : "all";
+  }
+
+  runEffects() {
+    console.log("TODO");
   }
 }
