@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
       firstAppeared: "2011-10-01",
       releases: [{ version: "22.2", name: "Shen 22.2", date: "2023-08-01" }],
     })
-    .addImplements(["pl+kl"])
     .addInfluencedBy(["pl+assembler", "pl+prolog", "pl+scheme"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+functional", "paradigm+logic", "paradigm+multi", "paradigm+symbolic"])

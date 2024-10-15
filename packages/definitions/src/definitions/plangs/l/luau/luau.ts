@@ -20,5 +20,5 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+arm", "plat+cross", "plat+embedded", "plat+linux", "plat+windows"])
     .addTags(["tag+games", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic", "tsys+gradual"])
-    .addWrittenIn(["pl+c", "pl+cpp"]);
+    .addWrittenIn(["pl+c", "pl+c++"]);
 }

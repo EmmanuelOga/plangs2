@@ -21,5 +21,5 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+games", "tag+real-time", "tag+scripting"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+cpp"]);
+    .addWrittenIn(["pl+c++"]);
 }
