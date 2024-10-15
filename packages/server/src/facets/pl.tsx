@@ -28,11 +28,11 @@ export function PlFacets({ class: cssClass }: { class?: string }) {
         </div>
       </div>
 
-      <div class={tw("flex-1", "bg-linear-to-b to-secondary/50")}>
+      <div class={tw("flex-1", "bg-linear-to-b to-secondary/50", "flex flex-col")}>
         {groups.flat(1).map(({ key, title, keys }) => (
-          <div key={key} id={key} class={tw(cl("facet"), "hidden")}>
+          <div key={key} id={key} class={tw(cl("facet"), "hidden", "flex-1", "flex flex-col")}>
             <header class={tw(BAR, "p-2", "text-primary", tw(BORDER, "border-b-1"))}>{title}</header>
-            <div class="flex flex-col gap-4 p-2 pt-4">
+            <div class={tw("flex-1", "flex flex-col", "gap-4")}>
               {keys.map(key => (
                 <FacetInput key={key} inputKey={key} />
               ))}

@@ -10,18 +10,14 @@ export function FacetInput<T extends PlInputKey>({ inputKey: key }: { inputKey: 
   const { label, input } = PL_INPUTS[key];
 
   if (input.kind === "facet") {
-    return (
-      // Relative positioning so the input-facet can absolutely fill the container.
-      <div class="relative flex-1">
-        {h("input-facet", {
-          ...baseProps,
-          name: input.edge,
-          "data-edge": input.edge,
-          "data-node": input.node,
-          "data-dir": input.dir,
-        } as Record<string, string>)}
-      </div>
-    );
+    return h("input-facet", {
+      ...baseProps,
+      name: input.edge,
+      "data-edge": input.edge,
+      "data-node": input.node,
+      "data-dir": input.dir,
+      class: tw("relative", "flex-1"),
+    } as Record<string, string>);
   }
 
   const withInputSel = input.kind === "search" && "inputSel" in input && input.inputSel;
