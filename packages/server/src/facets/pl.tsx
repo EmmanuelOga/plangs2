@@ -16,7 +16,7 @@ export function PlFacets({ class: cssClass }: { class?: string }) {
       {script("window.restoreFilters();")}
 
       {/* Wrapper to avoid streteching the links to the bottom of the screen. */}
-      <div class={tw(tw(BORDER, "border-r-1"), "overflow-y-scroll", "flex-grow-0", "flex-shrink-0")}>
+      <div class={tw(tw(BORDER, "border-r-1"), "overflow-y-scroll", "shrink-0 grow-0")}>
         <div class={tw("grid grid-cols-[auto_auto]", "gap-2", "pt-1")}>
           {groups.flatMap(groups => (
             // Subgrid respects the alignment of indicators while allowing to group the links and add a border.
@@ -29,12 +29,12 @@ export function PlFacets({ class: cssClass }: { class?: string }) {
         </div>
       </div>
 
-      <div class={tw("max-w-full", "flex-grow-1", "bg-linear-to-b to-secondary/50", "flex flex-col")}>
+      <div class={tw("grow-1", "overflow-hidden", "bg-linear-to-b to-secondary/50", "flex flex-col")}>
         {groups.flat(1).map(({ key, title, keys }) => (
           <div key={key} id={key} class={tw(cl("facet"), "hidden", "flex-1", "flex flex-col")}>
-            <header class={tw(BAR, "p-2", "flex flex-row", "gap-2", "text-primary", "truncate", tw(BORDER, "border-b-1"))}>
-              <span>{title}</span>
-              <span>X Y Z {loremIpsum(100)}</span>
+            <header class={tw(BAR, "max-w-full", "p-2", "flex flex-row", "justify-between", "gap-2", "text-primary", tw(BORDER, "border-b-1"))}>
+              <span class="shrink truncate">{title}</span>
+              <span class="shrink-0 grow-0">All/Any</span>
             </header>
             <div class={tw("flex-1", "flex flex-col", "gap-4")}>
               {keys.map(key => (
