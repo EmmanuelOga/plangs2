@@ -5,6 +5,7 @@
 export const PROSE = "prose prose-green dark:prose-invert sm:prose-sm lg:prose-lg xl:prose-xl 2xl:prose-2xl max-w-[80ch] mx-auto";
 
 export const BORDER = "border-primary/85 border-dotted";
+export const BAR = "bg-linear-to-b from-secondary to-background";
 
 export const HOVER = "hover:bg-yellow-300 hover:text-slate-800 cursor-pointer";
 export const HOVER_LIST = ["bg-yellow-300", "text-slate-800"]; // for classList add/remove

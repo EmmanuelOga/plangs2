@@ -13,7 +13,6 @@ import { $$, debounce, elem, elems, minWidthBP, on, size } from "../utils";
 import { isEncodedFilter } from "@plangs/graph/auxiliar";
 import { getFilters } from "./filters";
 import { getPl } from "./pl";
-import { setPlTab } from "./tabs";
 
 export function startGridNav(pg: PlangsGraph) {
   //////////////////////////////////////////////////////////////////////////////////
@@ -222,7 +221,6 @@ export function startGridNav(pg: PlangsGraph) {
       const pl = getPl(pg, target);
       if (!pl) return;
       plInfo.pl = pl;
-      setPlTab(pl);
     });
   }
 }

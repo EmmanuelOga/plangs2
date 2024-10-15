@@ -3,7 +3,7 @@ import { cl } from "@plangs/server/elements";
 
 import type { PlInfoElement } from "../components/pl-info";
 import { elem, on } from "../utils";
-import { currentTab, setPlTab } from "./tabs";
+import { currentTab } from "./tabs";
 
 /** Attempt to load a plang using the nearest data-key attribute. */
 export function getPl(pg: PlangsGraph, target: EventTarget | null): NPlang | undefined {
@@ -32,7 +32,6 @@ export function hookPlInfo(pg: PlangsGraph) {
 
       if (currentTab() === "plangs") {
         plInfo.pl = pl;
-        setPlTab(pl);
       } else {
         window.location.href = `/${pl.plainKey}`;
       }

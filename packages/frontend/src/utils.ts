@@ -82,3 +82,10 @@ export function debounce(callback: () => void, millies: number): () => void {
     timeout = setTimeout(callback, millies);
   };
 }
+
+/** Allow classList.toggle with more than one class. */
+export function toggleClasses(element: HTMLElement | null | undefined, classes: string | string[], check: boolean) {
+  if (!element) return;
+  const all = Array.isArray(classes) ? classes : classes.split(" ");
+  for (const c of all) element.classList.toggle(c, check);
+}

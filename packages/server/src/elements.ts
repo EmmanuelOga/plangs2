@@ -9,12 +9,12 @@ export const FILTER_KEY = Object.keys(PL_INPUTS) as (keyof typeof PL_INPUTS)[];
 export const ID_KEYS = [
   "todo",
 
-  "filterToggle",
+  "mainNav", // Main navigation bar, toggled by the hamburger icon.
+  "currentFacet", // Header of the current facet on the filters panel.
+
   "filters",
-  "mainNav",
   "plGrid",
   "plInfo",
-  "plTab",
 
   ...FILTER_KEY,
 ] as const;

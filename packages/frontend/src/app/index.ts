@@ -9,11 +9,11 @@ import { registerInputSel } from "../components/input-sel";
 import { registerInputToggle } from "../components/input-toggle";
 import { ToggleFilters, ToggleHamburguer, ToggleLights } from "../components/input-toggle/state";
 import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
-import { elem, elems } from "../utils";
+import { elem, elems, toggleClasses } from "../utils";
 import { startGridNav } from "./gridNav";
 import { connectLivereload } from "./livereload";
 import { hookPlInfo, lastPlang } from "./pl";
-import { currentTab, setPlTab } from "./tabs";
+import { currentTab } from "./tabs";
 
 function start() {
   registerPlangInfo();
@@ -28,33 +28,34 @@ function start() {
   window.restoreHamburguer = () => ToggleHamburguer.initial().runEffects();
   window.restoreLightMode = () => ToggleLights.initial().runEffects();
 
-  window.restorePlTab = () => setPlTab(lastPlang(pg));
-
   window.restorePlInfo = () => {
     const plInfo = elem<PlInfoElement>("plInfo");
     if (plInfo) plInfo.pl = lastPlang(pg);
   };
 
   window.focusFilter = (facetKey: string) => {
-    const elem = document.getElementById(facetKey);
-    if (!elem) return;
+    console.log(facetKey);
 
-    for (const elem of elems<HTMLElement>("facetLink")) {
-      const current = elem.dataset.facet === facetKey;
-      elem.classList.toggle("bg-primary", current);
-      elem.classList.toggle("text-secondary", current);
-      if (current) elem.scrollIntoView({ behavior: "smooth", block: "center" });
+    const facet = document.getElementById(facetKey);
+    if (!facet) return;
+
+    for (const link of elems<HTMLElement>("facetLink")) {
+      const current = link.dataset.facet === facetKey;
+      toggleClasses(link, "text-primary", current);
+
+      if (current) {
+        const title = elem("currentFacet");
+        if (title) title.textContent = link.textContent;
+        link.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
     }
 
-    for (const elem of elems("facet")) {
-      elem.classList.add("hidden");
-    }
-
-    elem.classList.remove("hidden");
+    for (const elem of elems("facet")) elem.classList.add("hidden");
+    facet.classList.remove("hidden");
   };
 
   document.addEventListener("DOMContentLoaded", () => {
-    // if (currentTab() === "plangs") startGridNav(pg);
+    if (currentTab() === "plangs" && false) startGridNav(pg);
     hookPlInfo(pg);
 
     // Debugging.
@@ -72,6 +73,5 @@ declare global {
     restoreHamburguer: () => void;
     restoreLightMode: () => void;
     restorePlInfo: () => void;
-    restorePlTab: () => void;
   }
 }
