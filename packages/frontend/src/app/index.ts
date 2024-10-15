@@ -34,8 +34,6 @@ function start() {
   };
 
   window.focusFilter = (facetKey: string) => {
-    console.log(facetKey);
-
     const facet = document.getElementById(facetKey);
     if (!facet) return;
 
@@ -55,7 +53,7 @@ function start() {
   };
 
   document.addEventListener("DOMContentLoaded", () => {
-    if (currentTab() === "plangs" && false) startGridNav(pg);
+    if (currentTab() === "plangs") startGridNav(pg);
     hookPlInfo(pg);
 
     // Debugging.

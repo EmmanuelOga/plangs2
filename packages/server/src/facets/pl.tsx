@@ -8,28 +8,31 @@ import { PL_FACET_GROUPS } from "./pl_config";
 export function PlFacets({ class: cssClass }: { class?: string }) {
   const groups = PL_FACET_GROUPS;
 
-  const facetLinks = (
-    <div class={tw("grid grid-cols-[auto_auto]", "gap-2")}>
-      {groups.flatMap(groups => (
-        <div key={groups} class={tw("col-span-2", "grid grid-cols-subgrid", "pb-4", tw(BORDER, "border-b-1"))}>
-          {groups.map(({ title, key }) => (
-            <FacetLink key={key} facetKey={key} title={title} href={`javascript:window.focusFilter('${key}')`} />
-          ))}
-        </div>
-      ))}
-    </div>
-  );
-
   return (
-    <aside id={id("filters")} class={tw("hidden", "flex flex-row", "overflow-hidden", tw(BORDER, "border-b-1", "sm:border-r-1"), cssClass)}>
+    <aside
+      id={id("filters")}
+      class={tw("hidden", "flex flex-row", "overflow-hidden", tw(BORDER, "border-b-1", "border-t-1", "sm:border-r-1"), cssClass)}>
       {script("window.restoreFilters();")}
 
-      <div class={tw("flex flex-col", "overflow-y-scroll")}>{facetLinks}</div>
-      <div class={tw("flex flex-col", "flex-1")}>
+      {/* Wrapper to avoid streteching the links to the bottom of the screen unnecesarily. */}
+      <div class={tw(tw(BORDER, "border-r-1"), "overflow-y-scroll")}>
+        <div class={tw("grid grid-cols-[auto_auto]", "gap-2", "pt-1")}>
+          {groups.flatMap(groups => (
+            // The subgrid respects the alignment of indicators while allowing to group the links and add a border.
+            <div key={groups} class={tw("col-span-2", "grid grid-cols-subgrid", "pb-2", tw(BORDER, "border-b-1"))}>
+              {groups.map(({ title, key }) => (
+                <FacetLink key={key} facetKey={key} title={title} href={`javascript:window.focusFilter('${key}')`} />
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class={tw("flex-1", "bg-linear-to-b to-secondary/50")}>
         {groups.flat(1).map(({ key, title, keys }) => (
           <div key={key} id={key} class={tw(cl("facet"), "hidden")}>
-            <header class={tw(BAR, "p-2", "text-primary")}>{title}</header>
-            <div class="p-2 pt-4">
+            <header class={tw(BAR, "p-2", "text-primary", tw(BORDER, "border-b-1"))}>{title}</header>
+            <div class="flex flex-col gap-4 p-2 pt-4">
               {keys.map(key => (
                 <FacetInput key={key} inputKey={key} />
               ))}
