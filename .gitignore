@@ -31,3 +31,4 @@ web_modules/
 # pixi environments
 .pixi
 *.egg-info
+.aider*

@@ -1,0 +1,15 @@
+[project]
+authors = ["Emmanuel Oga <contact@github.emmanueloga.com>"]
+channels = ["conda-forge"]
+description = "Add a short description here"
+name = "plangs2"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = "3.12.*"
+
+[pypi-dependencies]
+aider-chat = ">=0.59.1, <0.60"
