@@ -14,14 +14,13 @@ export function MainNav({ tab, class: cssClass }: { tab: TAB; class?: string }) 
         title="Explore"
         links={[
           { title: "Plangs!", href: "/", forTab: "plangs" },
-          { title: "Python", href: "/python", nested: true, forTab: "pl" },
           { title: "Tools", href: "/tools", forTab: "tools" },
           { title: "Apps", href: "/apps", forTab: "apps" },
           { title: "Libraries", href: "/libs", forTab: "libs" },
         ]}
       />
 
-      <NavSection tab={tab} title="Blog" links={[{ title: "All Posts", href: "/blog", forTab: "blog" }]} />
+      <NavSection tab={tab} title="Blog" links={[{ title: "Blog Posts", href: "/blog", forTab: "blog" }]} />
 
       <NavSection
         tab={tab}
