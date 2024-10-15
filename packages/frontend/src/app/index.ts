@@ -54,7 +54,7 @@ function start() {
   };
 
   document.addEventListener("DOMContentLoaded", () => {
-    if (currentTab() === "plangs") startGridNav(pg);
+    // if (currentTab() === "plangs") startGridNav(pg);
     hookPlInfo(pg);
 
     // Debugging.

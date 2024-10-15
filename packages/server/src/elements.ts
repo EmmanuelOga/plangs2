@@ -2,9 +2,9 @@
  * @file utilities to type check DOM "id" and "class" attributes.
  */
 
-import { INPUT_PROPS } from "./components/filters";
+import { PL_INPUTS } from "./facets/pl_config";
 
-export const FILTER_KEY = Object.keys(INPUT_PROPS) as (keyof typeof INPUT_PROPS)[];
+export const FILTER_KEY = Object.keys(PL_INPUTS) as (keyof typeof PL_INPUTS)[];
 
 export const ID_KEYS = [
   "todo",
@@ -22,9 +22,10 @@ export const ID_KEYS = [
 export const CL_KEYS = [
   "todo",
 
-  "facet", // A box containing the input filters of a facet.
-  "facetInput", // An input filter of a facet.
-  "facetLink", // A link to a facet box.
+  "facet", // Box containing the input filters of a facet.
+  "facetInput", // Input filter of a facet.
+  "facetLink", // Link to a facet box.
+  "facetIndicator", // Indicator next to facet link.
 
   "navLink",
   "pill",
