@@ -51,12 +51,12 @@ export function InputCompl({ name, class: cssClass, completions }: InputComplPro
     tweakPopupWidth();
 
     // Adjust the popup position in relation to the filters container.
-    const container = elem("filters");
-    return on(container, "scroll", ev => {
-      if (!popupRef.current || !inputRef.current || !container) return;
-      popupRef.current.style.width = `${inputRef.current.getBoundingClientRect().width}px`;
-      popupRef.current.style.top = `${inputRef.current.getBoundingClientRect().bottom}px`;
-    });
+    // const container = elem("facets");
+    // return on(container, "scroll", ev => {
+    //   if (!popupRef.current || !inputRef.current || !container) return;
+    //   popupRef.current.style.width = `${inputRef.current.getBoundingClientRect().width}px`;
+    //   popupRef.current.style.top = `${inputRef.current.getBoundingClientRect().bottom}px`;
+    // });
   });
 
   const showPopup = state.candidates.length > 0 && state.showPopup;

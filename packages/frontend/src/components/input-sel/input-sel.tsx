@@ -26,8 +26,8 @@ export function InputSel({ name, class: cssClass }: InputSelProps) {
         send(self.current?.parentElement, EVENTS.outInput.create());
         // Ensure the last added item is visible.
         setTimeout(() => {
-          const [li, filters] = [self.current?.querySelector("ul :last-child"), elem("filters")];
-          if (li && filters && !withinContainer(li, filters)) li.parentElement?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          const [li, facets] = [self.current?.querySelector("ul :last-child"), elem("facets")];
+          if (li && facets && !withinContainer(li, facets)) li.parentElement?.scrollIntoView({ behavior: "smooth", block: "nearest" });
         }, 30);
       },
       onRemove(data: ItemRemoved) {

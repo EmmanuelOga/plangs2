@@ -10,7 +10,7 @@ export function PlFacets({ class: cssClass }: { class?: string }) {
 
   return (
     <aside
-      id={id("filters")}
+      id={id("facets")}
       class={tw("hidden", "flex flex-row", "overflow-hidden", tw(BORDER, "border-b-1", "border-t-1", "sm:border-r-1"), cssClass)}>
       {script("window.restoreFilters();")}
 
@@ -41,7 +41,7 @@ export function PlFacets({ class: cssClass }: { class?: string }) {
         ))}
       </div>
 
-      {script(`setTimeout(() => window.focusFilter('general'), 100);`)}
+      {script(`setTimeout(() => window.focusFilter('tags'), 100);`)}
     </aside>
   );
 }

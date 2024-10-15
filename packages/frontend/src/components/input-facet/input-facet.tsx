@@ -71,6 +71,7 @@ export function InputFacet(props: InputFacetProps) {
 
   return (
     <div ref={self as Ref<HTMLDivElement>} class={tw("absolute inset-0", "flex flex-col")}>
+      {edge}-{node}-{dir}
       {facets}
     </div>
   );

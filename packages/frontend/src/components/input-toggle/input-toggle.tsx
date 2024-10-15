@@ -1,18 +1,18 @@
 import { useDispatchable } from "@plangs/frontend/dispatchable";
 
 import { tw } from "@plangs/frontend/utils";
-import { ToggleFilters, ToggleHamburguer, ToggleLights } from "./state";
+import { ToggleFacets, ToggleHamburguer, ToggleLights } from "./state";
 
 export const TAG_NAME = "input-toggle";
 
 export type InputToggleProps = {
-  action: "filters" | "hamburger" | "lights";
+  action: "facets" | "hamburger" | "lights";
 };
 
 const ACTION_STATE = {
   lights: () => useDispatchable(ToggleLights.initial()),
   hamburger: () => useDispatchable(ToggleHamburguer.initial()),
-  filters: () => useDispatchable(ToggleFilters.initial()),
+  facets: () => useDispatchable(ToggleFacets.initial()),
 } as const;
 
 export function InputToggle({ action }: InputToggleProps) {

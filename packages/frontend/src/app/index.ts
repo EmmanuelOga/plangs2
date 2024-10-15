@@ -7,7 +7,7 @@ import { registerInputCompl } from "../components/input-compl";
 import { registerInputFacet } from "../components/input-facet";
 import { registerInputSel } from "../components/input-sel";
 import { registerInputToggle } from "../components/input-toggle";
-import { ToggleFilters, ToggleHamburguer, ToggleLights } from "../components/input-toggle/state";
+import { ToggleFacets, ToggleHamburguer, ToggleLights } from "../components/input-toggle/state";
 import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
 import { elem, elems, toggleClasses } from "../utils";
 import { startGridNav } from "./gridNav";
@@ -24,7 +24,7 @@ function start() {
 
   const pg = new PlangsGraph().loadJSON(pgData);
 
-  window.restoreFilters = () => ToggleFilters.initial().runEffects();
+  window.restoreFilters = () => ToggleFacets.initial().runEffects();
   window.restoreHamburguer = () => ToggleHamburguer.initial().runEffects();
   window.restoreLightMode = () => ToggleLights.initial().runEffects();
 

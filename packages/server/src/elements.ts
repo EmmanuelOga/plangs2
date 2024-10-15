@@ -11,8 +11,8 @@ export const ID_KEYS = [
 
   "mainNav", // Main navigation bar, toggled by the hamburger icon.
   "currentFacet", // Header of the current facet on the filters panel.
+  "facets", // The Facets panel.
 
-  "filters",
   "plGrid",
   "plInfo",
 

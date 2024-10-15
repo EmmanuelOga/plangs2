@@ -49,9 +49,9 @@ export class ToggleHamburguer extends Dispatchable<{ mode: "show" | "hide" }> {
   }
 }
 
-export class ToggleFilters extends Dispatchable<{ mode: "show" | "hide" }> {
+export class ToggleFacets extends Dispatchable<{ mode: "show" | "hide" }> {
   static initial() {
-    return new ToggleFilters({ mode: localStorage.getItem("filters") === "show" ? "show" : "hide" });
+    return new ToggleFacets({ mode: localStorage.getItem("facets") === "show" ? "show" : "hide" });
   }
 
   get show(): boolean {
@@ -67,7 +67,7 @@ export class ToggleFilters extends Dispatchable<{ mode: "show" | "hide" }> {
   }
 
   runEffects() {
-    elem("filters")?.classList.toggle("hidden", !this.show);
-    localStorage.setItem("filters", this.data.mode);
+    elem("facets")?.classList.toggle("hidden", !this.show);
+    localStorage.setItem("facets", this.data.mode);
   }
 }

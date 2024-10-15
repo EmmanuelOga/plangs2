@@ -200,7 +200,7 @@ export function startGridNav(pg: PlangsGraph) {
   //////////////////////////////////////////////////////////////////////////////////
   // On input change, re-filter the list of languages.
 
-  on(elem("filters"), "input", ({ target }: InputEvent) => {
+  on(elem("facets"), "input", ({ target }: InputEvent) => {
     if ((target as HTMLInputElement)?.matches(`#${id("extensions")}`)) return;
     debouncedUpdatePlangs();
   });
