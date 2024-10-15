@@ -49,14 +49,7 @@ export function Layout({ title, description, tab, pl, mainClasses, children }: L
           <p>In particular, the search feature will not work without JavaScript.</p>
         </noscript>
 
-        <header
-          class={tw(
-            "px-2 sm:px-4",
-            "flex flex-row",
-            "items-end justify-between",
-            tw(BORDER, "border-b-1"),
-            "bg-linear-to-b from-secondary to-background",
-          )}>
+        <header class={tw("px-2 sm:px-4", "flex flex-row", "items-end justify-between", "bg-linear-to-b from-secondary to-background")}>
           <div class={tw("flex flex-row", "gap-4", "-translate-y-3 sm:-translate-y-5")}>
             {h("input-toggle", { action: "hamburger" })}
             {tab === "plangs" && h("input-toggle", { action: "filters" })}

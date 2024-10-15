@@ -9,7 +9,7 @@ export function PlFacets({ class: cssClass }: { class?: string }) {
   const groups = PL_FACET_GROUPS;
 
   const facetLinks = (
-    <div class={tw("grid grid-cols-[auto_auto]", "gap-2", tw(BORDER, "border-r-1"))}>
+    <div class={tw("grid grid-cols-[auto_auto]", "gap-2")}>
       {groups.flatMap(groups => (
         <div key={groups} class={tw("col-span-2", "grid grid-cols-subgrid", "pb-4", tw(BORDER, "border-b-1"))}>
           {groups.map(({ title, key }) => (
@@ -21,31 +21,19 @@ export function PlFacets({ class: cssClass }: { class?: string }) {
   );
 
   return (
-    <aside
-      id={id("filters")}
-      class={tw(
-        "hidden",
-        "grid grid-cols-[auto_1fr] grid-rows-[auto_auto_1fr]",
-        "overflow-hidden",
-        tw(BORDER, "border-b-1", "sm:border-r-1"),
-        cssClass,
-      )}>
+    <aside id={id("filters")} class={tw("hidden", "flex flex-row", "overflow-hidden", tw(BORDER, "border-b-1", "sm:border-r-1"), cssClass)}>
       {script("window.restoreFilters();")}
 
-      <div class={tw("col-span-2", "grid grid-cols-subgrid", tw(BORDER, "border-b-1"), BAR)}>
-        <header class="p-2">[CLEAR]</header>
-        <header class="p-2" id={id("currentFacet")}>
-          Facet
-        </header>
-      </div>
-
       <div class={tw("flex flex-col", "overflow-y-scroll")}>{facetLinks}</div>
-      <div class={tw("flex flex-col")}>
-        {groups.flat(1).map(({ key, keys }) => (
+      <div class={tw("flex flex-col", "flex-1")}>
+        {groups.flat(1).map(({ key, title, keys }) => (
           <div key={key} id={key} class={tw(cl("facet"), "hidden")}>
-            {keys.map(key => (
-              <FacetInput key={key} inputKey={key} />
-            ))}
+            <header class={tw(BAR, "p-2", "text-primary")}>{title}</header>
+            <div class="p-2 pt-4">
+              {keys.map(key => (
+                <FacetInput key={key} inputKey={key} />
+              ))}
+            </div>
           </div>
         ))}
       </div>
@@ -58,7 +46,7 @@ export function PlFacets({ class: cssClass }: { class?: string }) {
 function FacetLink({ facetKey, title, href }: { facetKey: string; title: string; href: string }) {
   return (
     <>
-      <div class={tw(cl("facetIndicator"), "mt-[.45rem] pl-2", "text-primary text-xs")}>⬤</div>
+      <div class={tw(cl("facetIndicator"), "mt-[.45rem] pl-2", "text-foreground/50 text-xs")}>⬤</div>
       <a
         href={href}
         data-facet={facetKey}

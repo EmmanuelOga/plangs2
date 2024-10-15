@@ -6,12 +6,13 @@ import type { TAB } from "./layout";
 
 export function MainNav({ tab, class: cssClass }: { tab: TAB; class?: string }) {
   return (
-    <aside id={id("mainNav")} class={tw("bg-linear-to-t from-secondary to-background", tw(BORDER, "border-r-1"), cssClass)}>
+    <aside id={id("mainNav")} class={tw("bg-linear-to-t from-secondary to-background", cssClass)}>
       {script("window.restoreHamburguer();")}
 
       <NavSection
         tab={tab}
         title="Explore"
+        border={false}
         links={[
           { title: "Plangs!", href: "/", forTab: "plangs" },
           { title: "Tools", href: "/tools", forTab: "tools" },
@@ -48,9 +49,9 @@ export function MainNav({ tab, class: cssClass }: { tab: TAB; class?: string }) 
 
 type NavLink = { title: string; href: string; nested?: boolean; forTab: TAB };
 
-function NavSection({ title, links, tab }: { tab: TAB; title: string; links: NavLink[] }) {
+function NavSection({ title, links, tab, border }: { tab: TAB; title: string; links: NavLink[]; border?: boolean }) {
   return (
-    <nav class={tw("mb-1 pt-5 sm:mb-8", tw(BORDER, "border-t-1 first:border-t-0"))}>
+    <nav class={tw("mb-1 pt-5 sm:mb-8", (border === undefined || border) && tw(BORDER, "border-t-1"))}>
       <header class={tw("ml-4 sm:mb-4", "uppercase", "text-primary")}>{title}</header>
       <ul>
         {links.map(({ title, href, nested, forTab }) => (
