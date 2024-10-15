@@ -1,7 +1,7 @@
 import { Dispatchable } from "@plangs/frontend/dispatchable";
 import { elem } from "@plangs/server/elements";
 
-import { CLOSE, FILTER_CLOSE, FILTER_EDIT, MENU, MOON, SUN } from "../../icons";
+import { CLOSE, FILTER, FILTER_EDIT, MENU, MOON, SUN } from "../../icons";
 
 export class ToggleLights extends Dispatchable<{ mode: "dark" | "light" }> {
   static initial() {
@@ -59,7 +59,7 @@ export class ToggleFacets extends Dispatchable<{ mode: "show" | "hide" }> {
   }
 
   get icon() {
-    return this.show ? FILTER_CLOSE : FILTER_EDIT;
+    return this.show ? FILTER : FILTER_EDIT;
   }
 
   toggleMode() {
