@@ -56,6 +56,7 @@ export function InputFacet(props: InputFacetProps) {
             <span
               // biome-ignore lint/a11y/noNoninteractiveTabindex: we make it interactive.
               tabIndex={0}
+              {...onClickOnEnter(() => state.resetSelected())}
               class={tw("group", "inline-flex", CENTER_ROW, state.hasSelection ? "text-foreground" : "text-foreground/50")}>
               <span class={tw(state.hasSelection && "group-hover:text-hiliteb")}>Reset</span>
               <span class={tw(state.hasSelection && HOVER_SVG_GROUP, "scale-50")}>{DESELECT}</span>

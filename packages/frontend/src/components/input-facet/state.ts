@@ -71,6 +71,11 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
     return result;
   }
 
+  resetSelected() {
+    this.data.selected.clear();
+    this.dispatch();
+  }
+
   /** Queries */
 
   header(col: Col): string {

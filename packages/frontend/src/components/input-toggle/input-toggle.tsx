@@ -2,6 +2,7 @@ import { useDispatchable } from "@plangs/frontend/dispatchable";
 
 import { HOVER_SVG } from "@plangs/frontend/styles";
 import { onClickOnEnter, tw } from "@plangs/frontend/utils";
+import { useEffect } from "preact/hooks";
 import { ToggleFacetMode, ToggleFacets, ToggleHamburguer, ToggleLights } from "./state";
 
 export const TAG_NAME = "input-toggle";
@@ -27,6 +28,15 @@ export function InputToggle({ action, disabled }: InputToggleProps) {
     state.runEffects();
     state.dispatch();
   };
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: state is not a dependency since it is a dispatchable.
+  useEffect(() => {
+    const newval = disabled === undefined ? false : disabled;
+    if (newval !== state.data.disabled) {
+      state.data.disabled = newval;
+      state.dispatch();
+    }
+  }, [disabled]);
 
   return (
     <div
