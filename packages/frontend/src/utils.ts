@@ -109,3 +109,9 @@ export function onClickOnEnter(action: () => void) {
 
 // Tap aka Thrush aka T combinator.
 export const tap = <T, R>(item: T, action: (item: T) => R): R => action(item);
+
+/** Return all keys that are missing. Useful for debugging. */
+export const keyMissing = (obj: any) =>
+  Object.entries(obj)
+    .filter(([, v]) => !v)
+    .map(([k]) => k);
