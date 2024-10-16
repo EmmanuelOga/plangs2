@@ -11,7 +11,6 @@ module.exports = {
         foreground: "var(--color-foreground)",
         thumbnails: "var(--color-thumbnails)",
         stripes: "var(--color-stripes)",
-
         hiliteb: "var(--color-hiliteb)",
         hilitef: "var(--color-hilitef)",
       },
