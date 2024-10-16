@@ -40,12 +40,15 @@ export function InputFacet(props: InputFacetProps) {
     });
   });
 
-  const actions = (entry: Entry) => ({
+  const toggle = (entry: Entry) => ({
     onClick: (ev: MouseEvent) => {
       ev.stopPropagation(); // Both TR and INPUT are clickable.
       state.toggleSelected(entry.value);
     },
-    onKeyDown: ({ key }: { key: string }) => state.toggleSelected(entry.value, key),
+    onKeyDown: (ev: KeyboardEvent) => {
+      ev.stopPropagation(); // Both TR and INPUT are clickable.
+      if (ev.key === "Enter") state.toggleSelected(entry.value);
+    },
   });
 
   const SUBGRID = tw("col-span-3", "grid grid-cols-subgrid", "items-center");
@@ -57,13 +60,16 @@ export function InputFacet(props: InputFacetProps) {
     <div ref={self as Ref<HTMLDivElement>} class={tw("absolute inset-0", "flex flex-col")}>
       <div class={tw("grid grid-cols-[1fr_auto_auto]", "flex-1", "overflow-y-scroll")}>
         <div class={tw(ROW, "sticky top-0 cursor-pointer", tw(BORDER, "border-b-1"))}>
-          <div class={tw("col-span-3", "shrink-0", "flex flex-row", CENTER_ROW, tw(BORDER, "border-t-1"))}>
-            <span class={tw("inline-flex", CENTER_ROW, "text-foreground/50", "pl-2")}>
-              <InputToggle action="allAny" />
+          <div class={tw("col-span-3", "py-1", "flex shrink-0 flex-row", "bg-background", CENTER_ROW, tw(BORDER, "border-t-1"))}>
+            <span class={tw("inline-flex", CENTER_ROW, state.selected.size < 2 ? "text-foreground/50" : "text-foreground", "pl-2")}>
+              <InputToggle action="allAny" disabled={state.selected.size < 2} />
             </span>
-            <span class={tw("group", "inline-flex", CENTER_ROW, "text-foreground/50")}>
-              <span class="group-hover:text-hiliteb">Reset</span>
-              <span class={tw("scale-50", HOVER_SVG_GROUP)}>{DESELECT}</span>
+            <span
+              // biome-ignore lint/a11y/noNoninteractiveTabindex: we make it interactive.
+              tabIndex={0}
+              class={tw("group", "inline-flex", CENTER_ROW, state.hasSelection ? "text-foreground" : "text-foreground/50")}>
+              <span class={tw(state.hasSelection && "group-hover:text-hiliteb")}>Reset</span>
+              <span class={tw(state.hasSelection && HOVER_SVG_GROUP, "scale-50")}>{DESELECT}</span>
             </span>
           </div>
 
@@ -75,11 +81,11 @@ export function InputFacet(props: InputFacetProps) {
         </div>
 
         {state.entries.map(entry => (
-          <div key={entry.value} class={tw(ROW, HOVER)} {...actions(entry)}>
+          <div key={entry.value} class={tw(ROW, state.isSelected(entry.value) && "bg-primary/20", HOVER)} {...toggle(entry)}>
             <div class={tw("p-2", "text-left", "overflow-hidden text-ellipsis", "line-clamp-3")}>{entry.label}</div>
             <div class={tw("p-2", "text-center")}>{entry.count}</div>
             <div class={tw("p-2", "text-right")}>
-              <input type="checkbox" checked={state.isSelected(entry.value)} {...actions(entry)} />
+              <input type="checkbox" checked={state.isSelected(entry.value)} {...toggle(entry)} />
             </div>
           </div>
         ))}
@@ -93,8 +99,17 @@ function FacetButton({ label, action, class: cssClass }: { label: string; class?
     <button
       type="button"
       class={tw("cursor-pointer", "underline decoration-1 decoration-dotted", HOVER, cssClass)}
-      onClick={action}
-      onKeyDown={({ key }) => key === "Enter" && action()}>
+      onClick={ev => {
+        ev.stopPropagation();
+        action();
+      }}
+      onKeyDown={ev => {
+        ev.stopPropagation();
+        if (ev.key === "Enter") {
+          ev.preventDefault();
+          action();
+        }
+      }}>
       {label}
     </button>
   );

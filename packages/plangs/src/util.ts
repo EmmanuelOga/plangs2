@@ -5,7 +5,7 @@ import type { Link, StrDate } from "./schema";
  * @param match find the first line in the backtrace that contains this string.
  * @param dontMatch if given, the line in the backtrace must not contain this string.
  */
-export function caller(match: string, dontMatch = ""): string {
+export function caller(match = "", dontMatch = ""): string {
   // https://stackoverflow.com/a/3806596/855105
   function getErrorObject(): Error {
     try {

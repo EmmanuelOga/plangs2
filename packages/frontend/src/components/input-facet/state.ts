@@ -1,6 +1,7 @@
 import { Dispatchable } from "@plangs/frontend/dispatchable";
 import type { EncodedFilter } from "@plangs/graph/auxiliar";
 
+import { caller } from "@plangs/plangs/util";
 import type { InputFacetProps } from "./input-facet";
 
 export type Entry = { value: string; label: string; count: number };
@@ -31,10 +32,12 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
 
   /** Actions */
 
-  toggleSelected(value: Entry["value"], key?: string) {
-    if (key !== undefined && key !== "Enter") return;
+  toggleSelected(value: Entry["value"]) {
+    console.log(caller());
     const { selected } = this.data;
+    console.log("bef", JSON.stringify([...selected]));
     selected.has(value) ? selected.delete(value) : selected.add(value);
+    console.log("aft", JSON.stringify([...selected]));
     this.dispatch();
   }
 
@@ -87,17 +90,16 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
     return entries;
   }
 
-  /** Total number of entries, selected or not. */
-  get size(): number {
-    return this.data.entries.length;
-  }
-
-  get emptySelection(): boolean {
-    return this.data.selected.size === 0;
-  }
-
   get entries() {
     return this.data.entries;
+  }
+
+  get selected() {
+    return this.data.selected;
+  }
+
+  get hasSelection(): boolean {
+    return this.data.selected.size > 0;
   }
 
   /** Helpers */

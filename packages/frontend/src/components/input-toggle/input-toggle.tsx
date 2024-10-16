@@ -8,27 +8,42 @@ export const TAG_NAME = "input-toggle";
 
 export type InputToggleProps = {
   action: "facets" | "hamburger" | "lights" | "allAny";
+  disabled?: boolean;
 };
 
 const ACTION_STATE = {
-  lights: () => useDispatchable(ToggleLights.initial()),
-  hamburger: () => useDispatchable(ToggleHamburguer.initial()),
-  facets: () => useDispatchable(ToggleFacets.initial()),
-  allAny: () => useDispatchable(ToggleFacetMode.initial()),
+  lights: (disabled?: boolean) => useDispatchable(ToggleLights.initial(disabled)),
+  hamburger: (disabled?: boolean) => useDispatchable(ToggleHamburguer.initial(disabled)),
+  facets: (disabled?: boolean) => useDispatchable(ToggleFacets.initial(disabled)),
+  allAny: (disabled?: boolean) => useDispatchable(ToggleFacetMode.initial(disabled)),
 } as const;
 
-export function InputToggle({ action }: InputToggleProps) {
-  const state = ACTION_STATE[action]();
+export function InputToggle({ action, disabled }: InputToggleProps) {
+  const state = ACTION_STATE[action](disabled === undefined ? false : disabled);
 
-  const toggle = (key?: string) => {
-    if (key !== undefined && key !== "Enter") return;
+  const toggle = () => {
+    if (disabled) return;
     state.toggleMode();
     state.runEffects();
     state.dispatch();
   };
 
   return (
-    <div onClick={() => toggle()} onKeyDown={({ key }) => toggle(key)} class={tw("group", "cursor-pointer", HOVER_SVG)}>
+    <div
+      // biome-ignore lint/a11y/noNoninteractiveTabindex: we make it interactive.
+      tabIndex={0}
+      onClick={ev => {
+        ev.stopPropagation();
+        toggle();
+      }}
+      onKeyDown={ev => {
+        ev.stopPropagation();
+        if (ev.key === "Enter") {
+          ev.preventDefault();
+          toggle();
+        }
+      }}
+      class={tw("group", "cursor-pointer", !disabled && HOVER_SVG)}>
       {state.icon}
     </div>
   );

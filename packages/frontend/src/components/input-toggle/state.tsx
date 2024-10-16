@@ -4,9 +4,9 @@ import { elem } from "@plangs/server/elements";
 import { tw } from "@plangs/frontend/utils";
 import { BOOLEAN, CLOSE, FILTER, FILTER_EDIT, MENU, MOON, SUN } from "../../icons";
 
-export class ToggleLights extends Dispatchable<{ mode: "dark" | "light" }> {
-  static initial() {
-    return new ToggleLights({ mode: localStorage.getItem("lightMode") === "dark" ? "dark" : "light" });
+export class ToggleLights extends Dispatchable<{ mode: "dark" | "light"; disabled: boolean }> {
+  static initial(disabled = false) {
+    return new ToggleLights({ mode: localStorage.getItem("lightMode") === "dark" ? "dark" : "light", disabled });
   }
 
   get isDark(): boolean {
@@ -27,9 +27,9 @@ export class ToggleLights extends Dispatchable<{ mode: "dark" | "light" }> {
   }
 }
 
-export class ToggleHamburguer extends Dispatchable<{ mode: "show" | "hide" }> {
-  static initial() {
-    return new ToggleHamburguer({ mode: localStorage.getItem("hamburguer") === "show" ? "show" : "hide" });
+export class ToggleHamburguer extends Dispatchable<{ mode: "show" | "hide"; disabled: boolean }> {
+  static initial(disabled = false) {
+    return new ToggleHamburguer({ mode: localStorage.getItem("hamburguer") === "show" ? "show" : "hide", disabled });
   }
 
   get hide(): boolean {
@@ -50,9 +50,9 @@ export class ToggleHamburguer extends Dispatchable<{ mode: "show" | "hide" }> {
   }
 }
 
-export class ToggleFacets extends Dispatchable<{ mode: "show" | "hide" }> {
-  static initial() {
-    return new ToggleFacets({ mode: localStorage.getItem("facets") === "show" ? "show" : "hide" });
+export class ToggleFacets extends Dispatchable<{ mode: "show" | "hide"; disabled: boolean }> {
+  static initial(disabled = false) {
+    return new ToggleFacets({ mode: localStorage.getItem("facets") === "show" ? "show" : "hide", disabled });
   }
 
   get show(): boolean {
@@ -73,9 +73,9 @@ export class ToggleFacets extends Dispatchable<{ mode: "show" | "hide" }> {
   }
 }
 
-export class ToggleFacetMode extends Dispatchable<{ mode: "all" | "any" }> {
-  static initial() {
-    return new ToggleFacetMode({ mode: "any" });
+export class ToggleFacetMode extends Dispatchable<{ mode: "all" | "any"; disabled: boolean }> {
+  static initial(disabled = false) {
+    return new ToggleFacetMode({ mode: "any", disabled });
   }
 
   get mode(): "all" | "any" {
@@ -85,9 +85,9 @@ export class ToggleFacetMode extends Dispatchable<{ mode: "all" | "any" }> {
   get icon() {
     return (
       <span class={tw("flex flex-row gap-1", "items-center")}>
-        <span class="group-hover:text-hiliteb">All</span>
+        <span class={tw(!this.data.disabled && "group-hover:text-hiliteb")}>All</span>
         <span class={tw("inline-block", "mt-[1px]", "scale-85", this.mode === "any" && "rotate-180")}>{BOOLEAN}</span>
-        <span class="group-hover:text-hiliteb">Any</span>
+        <span class={tw(!this.data.disabled && "group-hover:text-hiliteb")}>Any</span>
       </span>
     );
   }
@@ -97,6 +97,6 @@ export class ToggleFacetMode extends Dispatchable<{ mode: "all" | "any" }> {
   }
 
   runEffects() {
-    console.log("TODO");
+    // Nothing for now.
   }
 }
