@@ -1,7 +1,6 @@
 import { BAR, BORDER } from "@plangs/frontend/styles";
 import { script, tw } from "@plangs/frontend/utils";
 
-import { h } from "preact";
 import { cl, id } from "../elements";
 import { FacetInput } from "./facet-input";
 import { PL_FACET_GROUPS } from "./pl_config";

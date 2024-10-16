@@ -7,8 +7,11 @@ export const PROSE = "prose prose-green dark:prose-invert sm:prose-sm lg:prose-l
 export const BORDER = "border-primary/85 border-dotted";
 export const BAR = "bg-linear-to-b from-secondary to-background";
 
-export const HOVER = "hover:bg-yellow-300 hover:text-slate-800 cursor-pointer";
-export const HOVER_LIST = ["bg-yellow-300", "text-slate-800"]; // for classList add/remove
+export const HOVER = "hover:bg-hiliteb hover:text-hilitef cursor-pointer";
+export const HOVER_LIST = ["bg-hiliteb", "text-hilitef"]; // for classList add/remove
+
+export const HOVER_SVG = "hover:stroke-1 hover:stroke-hiliteb";
+export const HOVER_SVG_GROUP = "group-hover:stroke-1 group-hover:stroke-hiliteb";
 
 /** Generate a stripped background image style. */
 export function stripes(size = "10px", col1 = "var(--color-stripes)", col2 = "var(--color-background)") {

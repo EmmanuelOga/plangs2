@@ -2,7 +2,7 @@ import type { Ref } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
 import { useDispatchable } from "@plangs/frontend/dispatchable";
-import { BORDER, HOVER } from "@plangs/frontend/styles";
+import { BORDER, HOVER, HOVER_SVG_GROUP } from "@plangs/frontend/styles";
 import { customEvent, on, tw } from "@plangs/frontend/utils";
 import { type EncodedFilter, isEncodedFilter } from "@plangs/graph/auxiliar";
 import type { E, N, PlangsGraph } from "@plangs/plangs";
@@ -61,9 +61,9 @@ export function InputFacet(props: InputFacetProps) {
             <span class={tw("inline-flex", CENTER_ROW, "text-foreground/50", "pl-2")}>
               <InputToggle action="allAny" />
             </span>
-            <span class={tw("inline-flex", CENTER_ROW, "text-foreground/50")}>
-              <span>Reset</span>
-              <span class="scale-50">{DESELECT}</span>
+            <span class={tw("group", "inline-flex", CENTER_ROW, "text-foreground/50")}>
+              <span class="group-hover:text-hiliteb">Reset</span>
+              <span class={tw("scale-50", HOVER_SVG_GROUP)}>{DESELECT}</span>
             </span>
           </div>
 

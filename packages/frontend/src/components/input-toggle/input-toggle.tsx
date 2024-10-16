@@ -1,5 +1,6 @@
 import { useDispatchable } from "@plangs/frontend/dispatchable";
 
+import { HOVER_SVG } from "@plangs/frontend/styles";
 import { tw } from "@plangs/frontend/utils";
 import { ToggleFacetMode, ToggleFacets, ToggleHamburguer, ToggleLights } from "./state";
 
@@ -27,8 +28,8 @@ export function InputToggle({ action }: InputToggleProps) {
   };
 
   return (
-    <div onClick={() => toggle()} onKeyDown={({ key }) => toggle(key)}>
-      <div class={tw("cursor-pointer", "hover:stroke-1 hover:stroke-foreground/75")}>{state.icon}</div>
+    <div onClick={() => toggle()} onKeyDown={({ key }) => toggle(key)} class={tw("group", "cursor-pointer", HOVER_SVG)}>
+      {state.icon}
     </div>
   );
 }

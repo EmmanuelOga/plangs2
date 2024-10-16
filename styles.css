@@ -4,6 +4,9 @@
 
 /* Base Theme (Light Mode by Default) */
 :root {
+  --color-hiliteb: yellow;
+  --color-hilitef: #222;
+
   --color-primary: #609;
   --color-secondary: chartreuse;
   --color-background: mintcream;
