@@ -4,19 +4,19 @@ import { h } from "preact";
 import { cl, id } from "../elements";
 import { PL_INPUTS, type PlInputKey } from "./pl_config";
 
-export function FacetInput<T extends PlInputKey>({ inputKey: key }: { inputKey: T }) {
-  const baseProps = { id: id(key), name: key };
+export function FacetInput<T extends PlInputKey>({ inputKey }: { inputKey: T }) {
+  const baseProps = { id: id(inputKey), name: inputKey };
 
-  const { label, input } = PL_INPUTS[key];
+  const { label, input } = PL_INPUTS[inputKey];
 
   if (input.kind === "facet") {
     return h("input-facet", {
       ...baseProps,
-      name: input.edge,
-      "data-edge": input.edge,
-      "data-node": input.node,
-      "data-dir": input.dir,
       class: tw("relative", "flex-1"),
+      dir: input.dir,
+      edge: input.edge,
+      node: input.node,
+      // pg needs to assigned on the frontend.
     } as Record<string, string>);
   }
 
@@ -42,7 +42,7 @@ export function FacetInput<T extends PlInputKey>({ inputKey: key }: { inputKey: 
       ) : (
         inputElem
       )}
-      {withInputSel && h("input-sel", { name: key, class: tw("w-full", inputTextColor) })}
+      {withInputSel && h("input-sel", { name: inputKey, class: tw("w-full", inputTextColor) })}
     </>
   );
 }

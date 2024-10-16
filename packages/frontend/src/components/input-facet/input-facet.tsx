@@ -9,16 +9,17 @@ import type { E, N, PlangsGraph } from "@plangs/plangs";
 
 import { DESELECT } from "@plangs/frontend/icons";
 import { InputToggle } from "../input-toggle/input-toggle";
-import { type Entry, InputFacetState } from "./state";
+import { InputFacetState } from "./state";
 
 export type InputFacetProps = {
-  dir?: "direct" | "inverse";
-  edge?: E;
-  node?: N;
   pg?: PlangsGraph;
+  node?: N;
+  edge?: E;
+  dir?: "direct" | "inverse";
 };
 
 export const TAG_NAME = "input-facet";
+export const PROP_KEYS: (keyof InputFacetProps)[] = ["pg", "node", "edge", "dir"];
 
 export function InputFacet(props: InputFacetProps) {
   const { pg, edge, node, dir } = props;
@@ -28,11 +29,18 @@ export function InputFacet(props: InputFacetProps) {
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: only missing state, which is a dispatchable.
   useEffect(() => {
-    state.generateEntries({ pg, edge, node, dir });
+    const { children, ...rest } = props as InputFacetProps & { children?: ComponentChildren };
+    state.generateEntries(rest);
   }, [pg, edge, node, dir]);
 
   useEffect(() => {
-    on(self.current?.parentElement, EVENTS.inSetFacet.type, (ev: CustomEvent) => {
+    const container = self.current?.parentElement; // should be the customElement when this is used as webcomponent.
+    if (!container) {
+      console.error("No container found for:", self);
+      return;
+    }
+
+    return on(container, EVENTS.inSetFacet.type, (ev: CustomEvent) => {
       if (!EVENTS.inSetFacet.valid(ev) || !isEncodedFilter(ev.detail)) return console.warn("Invalid event data on:", ev);
       const filter = ev.detail;
       state.setFacets(filter);
@@ -42,12 +50,11 @@ export function InputFacet(props: InputFacetProps) {
 
   const SUBGRID = tw("col-span-3", "grid grid-cols-subgrid", "items-center");
   const ROW = tw(SUBGRID, tw("border-b-1", BORDER));
-
   const CENTER_ROW = tw("items-center justify-between");
 
   return (
     <div ref={self as Ref<HTMLDivElement>} class={tw("absolute inset-0", "flex flex-col")}>
-      <div class={tw("grid grid-cols-[1fr_auto_auto]", "flex-1", "overflow-y-scroll")}>
+      <div class={tw("grid grid-cols-[1fr_auto_auto]", "overflow-y-auto")}>
         <div class={tw(ROW, "sticky top-0 cursor-pointer", tw(BORDER, "border-b-1"))}>
           <div class={tw("col-span-3", "py-1", "flex shrink-0 flex-row", "bg-background", CENTER_ROW, tw(BORDER, "border-t-1"))}>
             <span class={tw("inline-flex", CENTER_ROW, state.selected.size < 2 ? "text-foreground/50" : "text-foreground", "pl-2")}>

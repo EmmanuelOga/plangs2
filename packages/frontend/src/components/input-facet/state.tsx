@@ -1,8 +1,7 @@
 import { Dispatchable } from "@plangs/frontend/dispatchable";
 import type { EncodedFilter } from "@plangs/graph/auxiliar";
 
-import { DESELECT, SORT_DOWN, SORT_UP } from "@plangs/frontend/icons";
-import { HOVER_SVG_GROUP } from "@plangs/frontend/styles";
+import { SORT_DOWN, SORT_UP } from "@plangs/frontend/icons";
 import { tw } from "@plangs/frontend/utils";
 import type { JSX } from "preact/jsx-runtime";
 import type { InputFacetProps } from "./input-facet";
@@ -17,29 +16,35 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
 
   /** Updates is used when updating from a prop change. */
   generateEntries(updates?: InputFacetProps): this {
-    this.data.entries = [];
     if (updates) Object.assign(this.data, updates);
     const { pg, edge, dir, node } = this.data;
+
+    this.data.entries = [];
+
+    // We need all the properties to generate the entries, so bail out (wait for props).
     if (!pg || !edge || !dir || !node) return this;
 
     const emap = dir === "direct" ? pg.edges[edge].adjTo : pg.edges[edge].adjFrom;
-    if (!emap) return this;
+    if (!emap) {
+      console.error("No edges found for:", edge, dir);
+      return this;
+    }
 
     this.data.entries = [...emap.entries2()].map(([key, anyEdge, edges]) => {
       const name = (dir === "direct" ? anyEdge.nodeTo : anyEdge.nodeFrom)?.name ?? anyEdge.key;
       return { value: key, label: name, count: edges.size };
     });
+
     this.sort();
-    return this;
+
+    return this.maybeDispatch();
   }
 
   /** Actions */
 
   toggleSelected(value: Entry["value"]) {
     const { selected } = this.data;
-    console.log("bef", JSON.stringify([...selected]));
     selected.has(value) ? selected.delete(value) : selected.add(value);
-    console.log("aft", JSON.stringify([...selected]));
     this.dispatch();
   }
 

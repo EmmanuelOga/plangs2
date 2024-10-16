@@ -41,14 +41,9 @@ export function startGridNav(pg: PlangsGraph) {
   };
 
   //////////////////////////////////////////////////////////////////////////////////
-  // Initialize the input facets.
+  // Provide the graph to every facet.
 
-  for (const elem of $$<InputFacetElement>("input-facet")) {
-    elem.pg = pg;
-    elem.edge = elem.dataset.edge as E;
-    elem.node = elem.dataset.node as N;
-    elem.dir = elem.dataset.dir === "inverse" ? "inverse" : "direct";
-  }
+  for (const elem of $$<InputFacetElement>("input-facet")) elem.pg = pg;
 
   //////////////////////////////////////////////////////////////////////////////////
   // Lookup the filters 1) from the URL 2) from the local storage.
