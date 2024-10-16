@@ -21,7 +21,7 @@ export function PlFacets({ class: cssClass }: { class?: string }) {
             // Subgrid respects the alignment of indicators while allowing to group the links and add a border.
             <div key={groups} class={tw("col-span-2", "grid grid-cols-subgrid", "pb-2", tw(BORDER, "border-b-1"))}>
               {groups.map(({ title, key }) => (
-                <FacetLink key={key} facetKey={key} title={title} href={`javascript:window.focusFilter('${key}')`} />
+                <FacetLink key={key} facetKey={key} title={title} />
               ))}
             </div>
           ))}
@@ -46,15 +46,15 @@ export function PlFacets({ class: cssClass }: { class?: string }) {
   );
 }
 
-function FacetLink({ facetKey, title, href }: { facetKey: string; title: string; href: string }) {
+function FacetLink({ facetKey, title }: { facetKey: string; title: string }) {
   return (
     <>
-      <div data-facet={facetKey} class={tw(cl("facetIndicator"), "mt-[.45rem] pl-2", "text-foreground/50 text-xs")}>
+      <div data-facet={facetKey} class={tw(cl("facetIndicator"), "mt-[.45rem] pl-2", "text-foreground/20 text-xs")}>
         ⬤
       </div>
       <a
-        href={href}
         data-facet={facetKey}
+        href={`javascript:window.focusFilter('${facetKey}')`}
         class={tw(cl("facetLink"), "block", "truncate", "py-1 pr-2", "text-foreground/85", "underline decoration-1 decoration-dotted")}>
         {title}
       </a>

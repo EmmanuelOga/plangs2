@@ -3,11 +3,12 @@ import { useEffect, useRef } from "preact/hooks";
 
 import { useDispatchable } from "@plangs/frontend/dispatchable";
 import { BORDER, HOVER, HOVER_SVG_GROUP } from "@plangs/frontend/styles";
-import { customEvent, on, onClickOnEnter, tap, tw } from "@plangs/frontend/utils";
+import { $, $$, customEvent, elems, on, onClickOnEnter, tap, tw } from "@plangs/frontend/utils";
 import { type EncodedFilter, isEncodedFilter } from "@plangs/graph/auxiliar";
 import type { E, N, PlangsGraph } from "@plangs/plangs";
 
 import { DESELECT } from "@plangs/frontend/icons";
+import { cl } from "@plangs/server/elements";
 import { InputToggle } from "../input-toggle/input-toggle";
 import { InputFacetState } from "./state";
 
@@ -34,13 +35,17 @@ export function InputFacet(props: InputFacetProps) {
   }, [pg, edge, node, dir]);
 
   useEffect(() => {
-    const container = self.current?.parentElement; // should be the customElement when this is used as webcomponent.
-    if (!container) {
+    const elemTag = self.current?.parentElement; // should be the customElement when this is used as webcomponent.
+    if (!elemTag) {
       console.error("No container found for:", self);
       return;
     }
 
-    return on(container, EVENTS.inSetFacet.type, (ev: CustomEvent) => {
+    // toggle indicator.
+    const facet = elemTag.closest(`.${cl("facet")}`);
+    $(`.${cl("facetIndicator")}[data-facet=${facet?.id}]`)?.classList.toggle("text-primary", state.hasSelection);
+
+    return on(elemTag, EVENTS.inSetFacet.type, (ev: CustomEvent) => {
       if (!EVENTS.inSetFacet.valid(ev) || !isEncodedFilter(ev.detail)) return console.warn("Invalid event data on:", ev);
       const filter = ev.detail;
       state.setFacets(filter);
