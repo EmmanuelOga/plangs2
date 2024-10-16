@@ -12,9 +12,20 @@ export abstract class Dispatchable<T> {
     return clone;
   }
 
-  dispatch() {
+  dispatch(): this {
     if (!this.dispatcher) throw new Error("No dispatcher. Did you forget to call useDispatchable?");
     this.dispatcher(this.clone());
+    return this;
+  }
+
+  /**
+   * Normally attempting Dispatch without having a dispatcher is an error,
+   * but if we are being intentional, sometimes we we want to dispath *if* we are already setup:
+   * for axample, if we use the same method in a factory function and for prop updates in useEffect hook.
+   */
+  maybeDispatch(): this {
+    if (this.dispatcher) this.dispatcher(this.clone());
+    return this;
   }
 }
 
