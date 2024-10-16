@@ -1,7 +1,6 @@
 import { Dispatchable } from "@plangs/frontend/dispatchable";
 import type { EncodedFilter } from "@plangs/graph/auxiliar";
 
-import { caller } from "@plangs/plangs/util";
 import type { InputFacetProps } from "./input-facet";
 
 export type Entry = { value: string; label: string; count: number };
@@ -33,7 +32,6 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
   /** Actions */
 
   toggleSelected(value: Entry["value"]) {
-    console.log(caller());
     const { selected } = this.data;
     console.log("bef", JSON.stringify([...selected]));
     selected.has(value) ? selected.delete(value) : selected.add(value);
