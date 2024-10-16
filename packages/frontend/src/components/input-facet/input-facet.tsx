@@ -6,8 +6,9 @@ import { BORDER, HOVER } from "@plangs/frontend/styles";
 import { customEvent, on, tw } from "@plangs/frontend/utils";
 import { type EncodedFilter, isEncodedFilter } from "@plangs/graph/auxiliar";
 import type { E, N, PlangsGraph } from "@plangs/plangs";
-import { loremIpsum } from "@plangs/server/utils/lorem";
 
+import { DESELECT } from "@plangs/frontend/icons";
+import { InputToggle } from "../input-toggle/input-toggle";
 import { type Entry, InputFacetState } from "./state";
 
 export type InputFacetProps = {
@@ -48,18 +49,33 @@ export function InputFacet(props: InputFacetProps) {
   });
 
   const SUBGRID = tw("col-span-3", "grid grid-cols-subgrid", "items-center");
-  const ROW = tw(SUBGRID, HOVER, tw("border-b-1", BORDER));
+  const ROW = tw(SUBGRID, tw("border-b-1", BORDER));
+
+  const CENTER_ROW = tw("items-center justify-between");
 
   return (
-    <div ref={self as Ref<HTMLDivElement>} class={tw("absolute inset-0", "overflow-y-scroll")}>
-      <div class={tw("grid grid-cols-[1fr_auto_auto]", "flex-1")}>
-        <div class={tw(ROW, "sticky top-0 cursor-pointer", "bg-primary text-background/80", tw(BORDER, "border-b-1"))}>
-          <FacetButton class={tw("px-2 py-1", "text-left italic")} action={() => state.toggleOrder("facet")} label={state.header("facet")} />
-          <FacetButton class={tw("px-2 py-1", "text-center italic")} action={() => state.toggleOrder("count")} label={state.header("count")} />
-          <FacetButton class={tw("px-2 py-1", "text-right italic")} action={() => state.toggleOrder("sel")} label={state.header("sel")} />
+    <div ref={self as Ref<HTMLDivElement>} class={tw("absolute inset-0", "flex flex-col")}>
+      <div class={tw("grid grid-cols-[1fr_auto_auto]", "flex-1", "overflow-y-scroll")}>
+        <div class={tw(ROW, "sticky top-0 cursor-pointer", tw(BORDER, "border-b-1"))}>
+          <div class={tw("col-span-3", "shrink-0", "flex flex-row", CENTER_ROW, tw(BORDER, "border-t-1"))}>
+            <span class={tw("inline-flex", CENTER_ROW, "text-foreground/50", "pl-2")}>
+              <InputToggle action="allAny" />
+            </span>
+            <span class={tw("inline-flex", CENTER_ROW, "text-foreground/50")}>
+              <span>Reset</span>
+              <span class="scale-50">{DESELECT}</span>
+            </span>
+          </div>
+
+          <div class={tw(ROW, "col-span-3", "bg-primary text-background/80")}>
+            <FacetButton class={tw("px-2 py-1", "text-left italic")} action={() => state.toggleOrder("facet")} label={state.header("facet")} />
+            <FacetButton class={tw("px-2 py-1", "text-center italic")} action={() => state.toggleOrder("count")} label={state.header("count")} />
+            <FacetButton class={tw("px-2 py-1", "text-right italic")} action={() => state.toggleOrder("sel")} label={state.header("sel")} />
+          </div>
         </div>
+
         {state.entries.map(entry => (
-          <div key={entry.value} class={tw(ROW)} {...actions(entry)}>
+          <div key={entry.value} class={tw(ROW, HOVER)} {...actions(entry)}>
             <div class={tw("p-2", "text-left", "overflow-hidden text-ellipsis", "line-clamp-3")}>{entry.label}</div>
             <div class={tw("p-2", "text-center")}>{entry.count}</div>
             <div class={tw("p-2", "text-right")}>

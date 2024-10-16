@@ -78,12 +78,12 @@ export const DESELECT = (
 
 export const LINKOUT = (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" class={css}>
-    <title>LinkOut</title>
+    <title>Link Out</title>
     <path d="M11.77,1.4265l1.6945,1.695-4.773,4.773a.25.25,0,0,0,0,.3535L9.75,9.3085a.25.25,0,0,0,.3535,0l4.773-4.773L16.571,6.23A.25.25,0,0,0,17,6.0535V1H11.9465a.25.25,0,0,0-.1765.4265Z" />
   </svg>
 );
 
-const SORT_DOWN = (
+export const SORT_DOWN = (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" class={css}>
     <title>Sort Down</title>
     <rect id="Canvas" fill="#ff13dc" opacity="0" width="18" height="18" />

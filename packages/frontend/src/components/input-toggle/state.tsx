@@ -84,9 +84,9 @@ export class ToggleFacetMode extends Dispatchable<{ mode: "all" | "any" }> {
 
   get icon() {
     return (
-      <span class={tw("flex flex-row gap-2")}>
+      <span class={tw("flex flex-row gap-1", "items-center")}>
         <span>All</span>
-        <span class={tw("inline-block", "mt-[1px]", this.mode === "any" && "rotate-180")}>{BOOLEAN}</span>
+        <span class={tw("inline-block", "mt-[1px]", "scale-85", this.mode === "any" && "rotate-180")}>{BOOLEAN}</span>
         <span>Any</span>
       </span>
     );

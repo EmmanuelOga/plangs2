@@ -32,10 +32,7 @@ export function PlFacets({ class: cssClass }: { class?: string }) {
       <div class={tw("grow-1", "overflow-hidden", "bg-linear-to-b to-secondary/50", "flex flex-col")}>
         {groups.flat(1).map(({ key, title, keys }) => (
           <div key={key} id={key} class={tw(cl("facet"), "hidden", "flex-1", "flex flex-col")}>
-            <header class={tw(BAR, "max-w-full", "p-2", "flex flex-row", "justify-between", "gap-2", "text-primary", tw(BORDER, "border-b-1"))}>
-              <span class="shrink truncate">{title}</span>
-              <span class="shrink-0 grow-0">{h("input-toggle", { action: "allAny" })}</span>
-            </header>
+            <header class={tw(BAR, "p-2", "truncate", "text-primary", tw(BORDER, "border-b-1"))}>{title}</header>
             <div class={tw("flex-1", "flex flex-col", "gap-4")}>
               {keys.map(key => (
                 <FacetInput key={key} inputKey={key} />

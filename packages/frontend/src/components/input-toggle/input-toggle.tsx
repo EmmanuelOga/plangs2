@@ -6,7 +6,7 @@ import { ToggleFacetMode, ToggleFacets, ToggleHamburguer, ToggleLights } from ".
 export const TAG_NAME = "input-toggle";
 
 export type InputToggleProps = {
-  action: "facets" | "hamburger" | "lights";
+  action: "facets" | "hamburger" | "lights" | "allAny";
 };
 
 const ACTION_STATE = {
@@ -27,7 +27,7 @@ export function InputToggle({ action }: InputToggleProps) {
   };
 
   return (
-    <div class="text-primary" onClick={() => toggle()} onKeyDown={({ key }) => toggle(key)}>
+    <div onClick={() => toggle()} onKeyDown={({ key }) => toggle(key)}>
       <div class={tw("cursor-pointer", "hover:stroke-1 hover:stroke-foreground/75")}>{state.icon}</div>
     </div>
   );
