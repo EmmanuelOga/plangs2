@@ -1,7 +1,7 @@
 import { useDispatchable } from "@plangs/frontend/dispatchable";
 
 import { HOVER_SVG } from "@plangs/frontend/styles";
-import { tw } from "@plangs/frontend/utils";
+import { onClickOnEnter, tw } from "@plangs/frontend/utils";
 import { ToggleFacetMode, ToggleFacets, ToggleHamburguer, ToggleLights } from "./state";
 
 export const TAG_NAME = "input-toggle";
@@ -32,17 +32,7 @@ export function InputToggle({ action, disabled }: InputToggleProps) {
     <div
       // biome-ignore lint/a11y/noNoninteractiveTabindex: we make it interactive.
       tabIndex={0}
-      onClick={ev => {
-        ev.stopPropagation();
-        toggle();
-      }}
-      onKeyDown={ev => {
-        ev.stopPropagation();
-        if (ev.key === "Enter") {
-          ev.preventDefault();
-          toggle();
-        }
-      }}
+      {...onClickOnEnter(toggle)}
       class={tw("group", "cursor-pointer", !disabled && HOVER_SVG)}>
       {state.icon}
     </div>

@@ -89,3 +89,23 @@ export function toggleClasses(element: HTMLElement | null | undefined, classes: 
   const all = Array.isArray(classes) ? classes : classes.split(" ");
   for (const c of all) element.classList.toggle(c, check);
 }
+
+/** Call the same action on Enter or Click. */
+export function onClickOnEnter(action: () => void) {
+  return {
+    onClick: (ev: MouseEvent) => {
+      ev.stopPropagation();
+      action();
+    },
+    onKeyDown: (ev: KeyboardEvent) => {
+      ev.stopPropagation();
+      if (ev.key === "Enter") {
+        ev.preventDefault();
+        action();
+      }
+    },
+  };
+}
+
+// Tap aka Thrush aka T combinator.
+export const tap = <T, R>(item: T, action: (item: T) => R): R => action(item);

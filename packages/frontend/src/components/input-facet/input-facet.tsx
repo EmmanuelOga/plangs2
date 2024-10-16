@@ -3,7 +3,7 @@ import { useEffect, useRef } from "preact/hooks";
 
 import { useDispatchable } from "@plangs/frontend/dispatchable";
 import { BORDER, HOVER, HOVER_SVG_GROUP } from "@plangs/frontend/styles";
-import { customEvent, on, tw } from "@plangs/frontend/utils";
+import { customEvent, on, onClickOnEnter, tap, tw } from "@plangs/frontend/utils";
 import { type EncodedFilter, isEncodedFilter } from "@plangs/graph/auxiliar";
 import type { E, N, PlangsGraph } from "@plangs/plangs";
 
@@ -40,17 +40,6 @@ export function InputFacet(props: InputFacetProps) {
     });
   });
 
-  const toggle = (entry: Entry) => ({
-    onClick: (ev: MouseEvent) => {
-      ev.stopPropagation(); // Both TR and INPUT are clickable.
-      state.toggleSelected(entry.value);
-    },
-    onKeyDown: (ev: KeyboardEvent) => {
-      ev.stopPropagation(); // Both TR and INPUT are clickable.
-      if (ev.key === "Enter") state.toggleSelected(entry.value);
-    },
-  });
-
   const SUBGRID = tw("col-span-3", "grid grid-cols-subgrid", "items-center");
   const ROW = tw(SUBGRID, tw("border-b-1", BORDER));
 
@@ -80,15 +69,20 @@ export function InputFacet(props: InputFacetProps) {
           </div>
         </div>
 
-        {state.entries.map(entry => (
-          <div key={entry.value} class={tw(ROW, state.isSelected(entry.value) && "bg-primary/20", HOVER)} {...toggle(entry)}>
-            <div class={tw("p-2", "text-left", "overflow-hidden text-ellipsis", "line-clamp-3")}>{entry.label}</div>
-            <div class={tw("p-2", "text-center")}>{entry.count}</div>
-            <div class={tw("p-2", "text-right")}>
-              <input type="checkbox" checked={state.isSelected(entry.value)} {...toggle(entry)} />
-            </div>
-          </div>
-        ))}
+        {state.entries.map(entry =>
+          tap(
+            onClickOnEnter(() => state.toggleSelected(entry.value)),
+            toggle => (
+              <div key={entry.value} class={tw(ROW, state.isSelected(entry.value) && "bg-primary/20", HOVER)} {...toggle}>
+                <div class={tw("p-2", "text-left", "overflow-hidden text-ellipsis", "line-clamp-3")}>{entry.label}</div>
+                <div class={tw("p-2", "text-center")}>{entry.count}</div>
+                <div class={tw("p-2", "text-right")}>
+                  <input type="checkbox" checked={state.isSelected(entry.value)} {...toggle} />
+                </div>
+              </div>
+            ),
+          ),
+        )}
       </div>
     </div>
   );
@@ -96,20 +90,7 @@ export function InputFacet(props: InputFacetProps) {
 
 function FacetButton({ label, action, class: cssClass }: { label: string; class?: string; action: () => void }) {
   return (
-    <button
-      type="button"
-      class={tw("cursor-pointer", "underline decoration-1 decoration-dotted", HOVER, cssClass)}
-      onClick={ev => {
-        ev.stopPropagation();
-        action();
-      }}
-      onKeyDown={ev => {
-        ev.stopPropagation();
-        if (ev.key === "Enter") {
-          ev.preventDefault();
-          action();
-        }
-      }}>
+    <button type="button" class={tw("cursor-pointer", "underline decoration-1 decoration-dotted", HOVER, cssClass)} {...onClickOnEnter(action)}>
       {label}
     </button>
   );
