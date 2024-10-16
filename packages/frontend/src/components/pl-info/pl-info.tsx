@@ -6,13 +6,14 @@ import { tw } from "../../utils";
 import { Anchor } from "../misc/anchor";
 import { Pill } from "../misc/pill";
 
-export const TAG_NAME = "pl-info";
-
 export type PlInfoProps = {
   pl?: NPlang;
   open?: boolean;
   tab?: TAB;
 };
+
+export const TAG_NAME = "pl-info";
+export const PROP_KEYS = ["pl", "open", "tab"] as const;
 
 /** Display a PL information, if the key is known. */
 export function PlInfo({ pl, open, tab }: PlInfoProps) {

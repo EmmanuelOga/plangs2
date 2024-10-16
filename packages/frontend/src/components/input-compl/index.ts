@@ -8,7 +8,7 @@ import { on } from "../../utils";
 
 import { type InputSelElement, matchingInputSelByName } from "../input-sel";
 
-import { EVENTS, InputCompl, type InputComplProps, TAG_NAME } from "./input-compl";
+import { EVENTS, InputCompl, type InputComplProps, PROP_KEYS, TAG_NAME } from "./input-compl";
 import type { CompletionItem, ItemSelected } from "./reducer";
 
 export { TAG_NAME };
@@ -35,7 +35,6 @@ export type InputComplElement = HTMLElement & InputComplProps & typeof ELEMENT_A
 
 /** Register the Custom Element. */
 export function registerInputCompl(): void {
-  const keys: (keyof InputComplProps)[] = ["name", "completions", "class"];
-  register(InputCompl, TAG_NAME, keys);
+  register(InputCompl, TAG_NAME, PROP_KEYS);
   Object.assign(window.customElements.get(TAG_NAME)?.prototype, ELEMENT_API);
 }

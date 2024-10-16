@@ -7,12 +7,13 @@ import { useDispatchable } from "@plangs/frontend/dispatchable";
 import { HOVER } from "@plangs/frontend/styles";
 import { InputSelState, type Item, type ItemRemoved, isItem } from "./state";
 
-export const TAG_NAME = "input-sel";
-
 export type InputSelProps = {
   name: string;
   class?: string;
 };
+
+export const TAG_NAME = "input-sel";
+export const PROP_KEYS: (keyof InputSelProps)[] = ["name", "class"] as const;
 
 export function InputSel({ name, class: cssClass }: InputSelProps) {
   const self = useRef<HTMLDivElement>();

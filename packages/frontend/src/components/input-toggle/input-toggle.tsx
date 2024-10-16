@@ -5,12 +5,13 @@ import { onClickOnEnter, tw } from "@plangs/frontend/utils";
 import { useEffect } from "preact/hooks";
 import { ToggleFacetMode, ToggleFacets, ToggleHamburguer, ToggleLights } from "./state";
 
-export const TAG_NAME = "input-toggle";
-
 export type InputToggleProps = {
   action: "facets" | "hamburger" | "lights" | "allAny";
   disabled?: boolean;
 };
+
+export const TAG_NAME = "input-toggle";
+export const PROP_KEYS: (keyof InputToggleProps)[] = ["action", "disabled"];
 
 const ACTION_STATE = {
   lights: (disabled?: boolean) => useDispatchable(ToggleLights.initial(disabled)),

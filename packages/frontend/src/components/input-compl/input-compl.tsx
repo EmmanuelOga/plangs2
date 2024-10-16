@@ -1,19 +1,17 @@
 import type { Ref } from "preact";
 import { useEffect, useReducer, useRef } from "preact/hooks";
 
-import { $, customEvent, on, send, tw } from "../../utils";
-
-import { elem, id } from "@plangs/server/elements";
+import { customEvent, send, tw } from "../../utils";
 import { type CompletionItem, type ItemSelected, reducer } from "./reducer";
-
-/** HTML tag name for the CustomElement */
-export const TAG_NAME = "input-compl";
 
 export type InputComplProps = {
   name: string;
   class?: string;
   completions?: CompletionItem[];
 };
+
+export const TAG_NAME = "input-compl";
+export const PROP_KEYS: (keyof InputComplProps)[] = ["name", "class", "completions"];
 
 export function InputCompl({ name, class: cssClass, completions }: InputComplProps) {
   const inputRef = useRef<HTMLInputElement>();

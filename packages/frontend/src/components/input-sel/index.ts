@@ -5,7 +5,7 @@
 import register from "preact-custom-element";
 
 import { $, on, send } from "../../utils";
-import { EVENTS, InputSel, type InputSelProps, TAG_NAME } from "./input-sel";
+import { EVENTS, InputSel, type InputSelProps, PROP_KEYS, TAG_NAME } from "./input-sel";
 import type { Item, ItemRemoved } from "./state";
 
 export { TAG_NAME };
@@ -48,7 +48,6 @@ export type InputSelElement = HTMLElement & typeof ELEMENT_API & InputSelProps;
 
 /** Register the Custom Element. */
 export function registerInputSel() {
-  const keys: (keyof InputSelProps)[] = ["name", "class"];
-  register(InputSel, TAG_NAME, keys);
+  register(InputSel, TAG_NAME, PROP_KEYS);
   Object.assign(window.customElements.get(TAG_NAME)?.prototype, ELEMENT_API);
 }
