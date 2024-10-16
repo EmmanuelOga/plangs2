@@ -1,4 +1,4 @@
-import type { Ref } from "preact";
+import type { ComponentChildren, Ref } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
 import { useDispatchable } from "@plangs/frontend/dispatchable";
@@ -64,9 +64,17 @@ export function InputFacet(props: InputFacetProps) {
           </div>
 
           <div class={tw(ROW, "col-span-3", "bg-primary text-background/80")}>
-            <FacetButton class={tw("px-2 py-1", "text-left italic")} action={() => state.toggleOrder("facet")} label={state.header("facet")} />
-            <FacetButton class={tw("px-2 py-1", "text-center italic")} action={() => state.toggleOrder("count")} label={state.header("count")} />
-            <FacetButton class={tw("px-2 py-1", "text-right italic")} action={() => state.toggleOrder("sel")} label={state.header("sel")} />
+            <FacetButton class={tw("px-2 py-1", "text-left italic")} action={() => state.toggleOrder("facet")}>
+              {state.header("facet")}
+            </FacetButton>
+
+            <FacetButton class={tw("px-2 py-1", "text-center italic")} action={() => state.toggleOrder("count")}>
+              {state.header("count")}
+            </FacetButton>
+
+            <FacetButton class={tw("px-2 py-1", "text-right italic")} action={() => state.toggleOrder("sel")}>
+              {state.header("sel")}
+            </FacetButton>
           </div>
         </div>
 
@@ -89,10 +97,10 @@ export function InputFacet(props: InputFacetProps) {
   );
 }
 
-function FacetButton({ label, action, class: cssClass }: { label: string; class?: string; action: () => void }) {
+function FacetButton({ action, class: cssClass, children }: { class?: string; action: () => void; children: ComponentChildren }) {
   return (
     <button type="button" class={tw("cursor-pointer", "underline decoration-1 decoration-dotted", HOVER, cssClass)} {...onClickOnEnter(action)}>
-      {label}
+      {children}
     </button>
   );
 }

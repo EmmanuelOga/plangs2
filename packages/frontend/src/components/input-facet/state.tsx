@@ -1,6 +1,10 @@
 import { Dispatchable } from "@plangs/frontend/dispatchable";
 import type { EncodedFilter } from "@plangs/graph/auxiliar";
 
+import { DESELECT, SORT_DOWN, SORT_UP } from "@plangs/frontend/icons";
+import { HOVER_SVG_GROUP } from "@plangs/frontend/styles";
+import { tw } from "@plangs/frontend/utils";
+import type { JSX } from "preact/jsx-runtime";
 import type { InputFacetProps } from "./input-facet";
 
 export type Entry = { value: string; label: string; count: number };
@@ -76,11 +80,21 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
 
   /** Queries */
 
-  header(col: Col): string {
-    const { order } = this.data;
-    if (col === "facet") return order === "facet-asc" ? "Facet ▲" : order === "facet-desc" ? "Facet ▼" : "Facet";
-    if (col === "count") return order === "count-asc" ? "Count ▲" : order === "count-desc" ? "Count ▼" : "Count";
-    return order === "sel-asc" ? "Sel ▲" : order === "sel-desc" ? "Sel ▼" : "Sel";
+  header(col: Col) {
+    const { node, order } = this.data;
+
+    let icon: JSX.Element | false;
+
+    if (col === "facet") icon = (order === "facet-asc" && SORT_UP) || (order === "facet-desc" && SORT_DOWN);
+    else if (col === "count") icon = (order === "count-asc" && SORT_UP) || (order === "count-desc" && SORT_DOWN);
+    else icon = (order === "sel-asc" && SORT_UP) || (order === "sel-desc" && SORT_DOWN);
+
+    return (
+      <span class={tw("inline-flex", "items-center justify-between", "gap-1")}>
+        <span class={tw()}>{col === "facet" ? node : col}</span>
+        <span class={tw("scale-75", "mt-1")}>{icon}</span>
+      </span>
+    );
   }
 
   isSelected(value: Entry["value"]): boolean {
