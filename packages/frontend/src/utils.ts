@@ -1,5 +1,6 @@
 import { h } from "preact";
 
+import { caller } from "@plangs/plangs/util";
 import { type CLKey, type IDKey, cl, id } from "@plangs/server/elements";
 
 export type Nil = null | undefined;
@@ -115,3 +116,14 @@ export const keyMissing = (obj: any) =>
   Object.entries(obj)
     .filter(([, v]) => !v)
     .map(([k]) => k);
+
+/** Return callers of a function for debbuging. */
+export function callers(): string {
+  const lines = caller({
+    dontMatch: /preact|[A-Z]@/,
+    clean: new RegExp(`${window.location.href.split("#")[0]}bundle/`, "g"),
+  }).slice(1);
+
+  // JSON is more readable for this use case.
+  return JSON.stringify(lines, null, 2);
+}

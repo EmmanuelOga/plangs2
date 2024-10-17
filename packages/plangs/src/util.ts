@@ -5,7 +5,7 @@ import type { Link, StrDate } from "./schema";
  * @param match find the first line in the backtrace that contains this string.
  * @param dontMatch if given, the line in the backtrace must not contain this string.
  */
-export function caller(match = "", dontMatch = ""): string {
+export function caller({ clean, match, dontMatch }: { match?: RegExp; dontMatch?: RegExp; clean?: RegExp } = {}): string[] {
   // https://stackoverflow.com/a/3806596/855105
   function getErrorObject(): Error {
     try {
@@ -16,12 +16,14 @@ export function caller(match = "", dontMatch = ""): string {
   }
   const err = getErrorObject();
 
-  const caller_line = (err.stack ?? "").split("\n").find((line: string) => line.includes(match) && (!dontMatch || !line.includes(dontMatch)));
+  let callers = (err.stack ?? "").split("\n").slice(1);
+  if (match) callers = callers.filter((line: string) => match.test(line));
+  if (dontMatch) callers = callers.filter((line: string) => !dontMatch.test(line));
 
-  if (!caller_line) return "unknown";
-  const index = caller_line.indexOf("at ");
-  const clean = caller_line.slice(index + 2, caller_line.length);
-  return clean.trim();
+  if (callers.length === 0) return ["empty backtrace after filtering"];
+
+  if (clean) return callers.map(line => line.replaceAll(clean, "").trim());
+  return callers;
 }
 
 export function wikipedia(href: `https://en.wikipedia.org/wiki/${string}`, title: string): Link {
