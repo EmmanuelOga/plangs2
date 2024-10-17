@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    /** Do not type check code in node_modules. */
+    "skipLibCheck": true,
     "module": "ES2022",
     "target": "ES2022",
     "moduleResolution": "Bundler",
