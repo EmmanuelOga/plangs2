@@ -3,7 +3,7 @@ import { useEffect, useRef } from "preact/hooks";
 
 import { setComponentState } from "@plangs/frontend/dispatchable";
 import { HOVER_SVG } from "@plangs/frontend/styles";
-import { onClickOnEnter, tw } from "@plangs/frontend/utils";
+import { onClickOnEnter, send, tw } from "@plangs/frontend/utils";
 
 import { isInputToggleElement } from ".";
 import { useToggleState } from "./state";
@@ -38,6 +38,7 @@ export function InputToggle({ action, disabled }: InputToggleProps) {
     state.toggleMode();
     state.runEffects();
     state.dispatch();
+    send(self.current?.parentElement, new Event("input", { bubbles: true, composed: true }));
   };
 
   return (

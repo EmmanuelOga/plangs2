@@ -27,9 +27,15 @@ export class InputSelState extends Dispatchable<{
     return new InputSelState({ ...partial, selected: [] });
   }
 
+  propUpdate({ inputName }: { inputName: string }) {
+    if (this.data.inputName === inputName) return;
+    this.data.inputName = inputName;
+    this.dispatch();
+  }
+
   /** Actions */
 
-  add(items: Item[]) {
+  doAdd(items: Item[]) {
     let added = false;
 
     for (const item of items) {
@@ -42,17 +48,11 @@ export class InputSelState extends Dispatchable<{
     if (added) this.dispatch();
   }
 
-  remove(value: Item["value"], by: ItemRemoved["by"]) {
+  doRemove(value: Item["value"], by: ItemRemoved["by"]) {
     const { removed, index, filtered } = this.selectedWithout(value);
     if (!removed) return;
     this.data.selected = filtered;
     this.data.onRemove({ by, removed, index, inputName: this.data.inputName, itemsLeft: filtered.length });
-    this.dispatch();
-  }
-
-  update({ inputName }: { inputName: string }) {
-    if (this.data.inputName === inputName) return;
-    this.data.inputName = inputName;
     this.dispatch();
   }
 

@@ -1,15 +1,13 @@
 import { RISON } from "rison2";
 
-import type { E, N, NPlang, PlangsGraph } from "@plangs/plangs";
-import type { EncodedPlangFilters, PlangFacets } from "@plangs/plangs/filter";
-import { FILTER_KEY, type IDKey, id } from "@plangs/server/elements";
-
-import type { InputFacetElement } from "../components/input-facet";
-import type { PlInfoElement } from "../components/pl-info";
+import type { InputFacetElement } from "@plangs/frontend/components/input-facet";
+import type { PlInfoElement } from "@plangs/frontend/components/pl-info";
+import type { NPlang, PlangsGraph } from "@plangs/plangs";
+import type { PlangFacets } from "@plangs/plangs/facets";
+import { FILTER_KEY, id } from "@plangs/server/elements";
 
 import { $$, debounce, elem, elems, minWidthBP, on, size } from "../utils";
 
-import { isEncodedFilter } from "@plangs/graph/auxiliar";
 import { facetsFromFragment, facetsFromLocalStorage, getFacets } from "./facets";
 import { getPl } from "./pl";
 
@@ -85,6 +83,8 @@ export function startGridNav(pg: PlangsGraph) {
 
   // On input change, re-filter the list of languages.
   on(elem("facets"), "input", ({ target }: InputEvent) => {
+    console.log("input", target);
+
     // Because we don't care update when the input changes, only when the selection changes.
     if ((target as HTMLInputElement)?.matches(`#${id("extensions")}`)) return;
 

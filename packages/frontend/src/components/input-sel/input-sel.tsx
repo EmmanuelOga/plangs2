@@ -3,7 +3,7 @@ import { useEffect, useRef } from "preact/hooks";
 
 import { setComponentState, useDispatchable } from "@plangs/frontend/dispatchable";
 import { HOVER } from "@plangs/frontend/styles";
-import { elem, tw, withinContainer } from "@plangs/frontend/utils";
+import { elem, send, tw, withinContainer } from "@plangs/frontend/utils";
 
 import { isInputSelElement } from ".";
 import { InputSelState, type ItemRemoved } from "./state";
@@ -29,17 +29,19 @@ export function InputSel({ name: inputName, class: cssClass }: InputSelProps) {
         setTimeout(() => {
           const [li, facets] = [self.current?.querySelector("ul :last-child"), elem("facets")];
           if (li && facets && !withinContainer(li, facets)) li.parentElement?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          send(self.current?.parentElement, new Event("input", { bubbles: true, composed: true }));
         }, 30);
       },
 
       onRemove(data: ItemRemoved) {
         lastRemoved.current = data;
+        send(self.current?.parentElement, new Event("input", { bubbles: true, composed: true }));
       },
     }),
   );
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: state is a dispatchable.
-  useEffect(() => state.update({ inputName }), [{ inputName }]);
+  useEffect(() => state.propUpdate({ inputName }), [inputName]);
 
   useEffect(() => {
     setComponentState(self, isInputSelElement, state);
@@ -71,9 +73,9 @@ export function InputSel({ name: inputName, class: cssClass }: InputSelProps) {
             data-value={value}
             aria-label="remove"
             tabindex={0}
-            onClick={() => state.remove(value, "click")}
+            onClick={() => state.doRemove(value, "click")}
             onKeyDown={ev => {
-              if (ev.key === "Enter") state.remove(value, "enterKey");
+              if (ev.key === "Enter") state.doRemove(value, "enterKey");
             }}>
             ❌ {label}
           </li>

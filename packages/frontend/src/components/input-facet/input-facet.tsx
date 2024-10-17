@@ -5,7 +5,7 @@ import { InputToggle } from "@plangs/frontend/components/input-toggle/input-togg
 import { setComponentState, useDispatchable } from "@plangs/frontend/dispatchable";
 import { DESELECT } from "@plangs/frontend/icons";
 import { BORDER, HOVER, HOVER_SVG_GROUP } from "@plangs/frontend/styles";
-import { $, onClickOnEnter, tap, tw } from "@plangs/frontend/utils";
+import { $, onClickOnEnter, send, tap, tw } from "@plangs/frontend/utils";
 import type { E, N, PlangsGraph } from "@plangs/plangs";
 import { cl } from "@plangs/server/elements";
 
@@ -24,7 +24,14 @@ export const PROP_KEYS: (keyof InputFacetProps)[] = ["pg", "node", "edge", "dir"
 
 export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
   const self = useRef<HTMLDivElement>();
-  const state = useDispatchable(InputFacetState.initial({ pg, edge, node, dir }));
+  const state = useDispatchable(
+    InputFacetState.initial({
+      ...{ pg, edge, node, dir },
+      onChange() {
+        send(self.current?.parentElement, new Event("input", { bubbles: true, composed: true }));
+      },
+    }),
+  );
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: only missing state, which is a dispatchable.
   useEffect(() => {
@@ -55,7 +62,7 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
             <span
               // biome-ignore lint/a11y/noNoninteractiveTabindex: we make it interactive.
               tabIndex={0}
-              {...onClickOnEnter(() => state.resetSelected())}
+              {...onClickOnEnter(() => state.doResetSelection())}
               class={tw("group", "inline-flex", CENTER_ROW, state.hasSelection ? "text-foreground" : "text-foreground/50")}>
               <span class={tw(state.hasSelection && "group-hover:text-hiliteb")}>Reset</span>
               <span class={tw(state.hasSelection && HOVER_SVG_GROUP, "scale-50")}>{DESELECT}</span>
@@ -63,15 +70,15 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
           </div>
 
           <div class={tw(ROW, "col-span-3", "bg-primary text-background/80")}>
-            <FacetButton class={tw("px-2 py-1", "text-left italic")} action={() => state.toggleOrder("facet")}>
+            <FacetButton class={tw("px-2 py-1", "text-left italic")} action={() => state.doToggleOrder("facet")}>
               {state.header("facet")}
             </FacetButton>
 
-            <FacetButton class={tw("px-2 py-1", "text-center italic")} action={() => state.toggleOrder("count")}>
+            <FacetButton class={tw("px-2 py-1", "text-center italic")} action={() => state.doToggleOrder("count")}>
               {state.header("count")}
             </FacetButton>
 
-            <FacetButton class={tw("px-2 py-1", "text-right italic")} action={() => state.toggleOrder("sel")}>
+            <FacetButton class={tw("px-2 py-1", "text-right italic")} action={() => state.doToggleOrder("sel")}>
               {state.header("sel")}
             </FacetButton>
           </div>
@@ -79,13 +86,13 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
 
         {state.entries.map(entry =>
           tap(
-            onClickOnEnter(() => state.toggleSelected(entry.value)),
-            toggle => (
-              <div key={entry.value} class={tw(ROW, state.isSelected(entry.value) && "bg-primary/20", HOVER)} {...toggle}>
+            onClickOnEnter(() => state.doToggle(entry.value)),
+            clickOrEnter => (
+              <div key={entry.value} class={tw(ROW, state.isSelected(entry.value) && "bg-primary/20", HOVER)} {...clickOrEnter}>
                 <div class={tw("p-2", "text-left", "overflow-hidden text-ellipsis", "line-clamp-3")}>{entry.label}</div>
                 <div class={tw("p-2", "text-center")}>{entry.count}</div>
                 <div class={tw("p-2", "text-right")}>
-                  <input type="checkbox" checked={state.isSelected(entry.value)} {...toggle} />
+                  <input type="checkbox" checked={state.isSelected(entry.value)} {...clickOrEnter} />
                 </div>
               </div>
             ),

@@ -9,9 +9,11 @@ import type { InputFacetProps } from "./input-facet";
 
 export type Entry = { value: string; label: string; count: number };
 
-export class InputFacetState extends Dispatchable<InputFacetProps & { entries: Entry[]; order: Order; selected: Set<unknown> }> {
+export class InputFacetState extends Dispatchable<
+  InputFacetProps & { entries: Entry[]; order: Order; selected: Set<unknown>; onChange: () => void }
+> {
   /** Factory function for creating the initial state. */
-  static initial(props: InputFacetProps): InputFacetState {
+  static initial(props: InputFacetProps & { onChange: () => void }): InputFacetState {
     return new InputFacetState({ ...props, entries: [], order: "facet-asc", selected: new Set() }).generateEntries();
   }
 
@@ -43,27 +45,20 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
 
   /** Actions */
 
-  toggleSelected(value: Entry["value"]) {
+  doToggle(value: Entry["value"]) {
     const { selected } = this.data;
     selected.has(value) ? selected.delete(value) : selected.add(value);
-    this.dispatch();
+    this.dispatchChange();
   }
 
-  removeEntry(value: Entry["value"]) {
-    this.data.selected.delete(value);
-    this.dispatch();
-  }
-
-  toggleOrder(col: Col) {
+  doToggleOrder(col: Col) {
     const { order } = this.data;
     this.data.order = opposite(col, order);
     this.sort();
     this.dispatch();
   }
 
-  /** NOTE: doesn't dispatch! (so the caller can batch actions). */
-  setFacets({ values }: EncodedFilter): Entry[] {
-    const result: Entry[] = [];
+  doSetFacets({ values }: EncodedFilter) {
     const byVal = this.entriesByValue;
 
     for (const val of values) {
@@ -71,17 +66,15 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
       const key = `${this.data.node}+${val}`;
       const entry = byVal.get(key);
       if (entry && !this.data.selected.has(key)) {
-        result.push(entry);
         this.data.selected.add(key);
       }
     }
-
-    return result;
+    this.dispatchChange();
   }
 
-  resetSelected() {
+  doResetSelection() {
     this.data.selected.clear();
-    this.dispatch();
+    this.dispatchChange();
   }
 
   /** Queries */
@@ -126,6 +119,11 @@ export class InputFacetState extends Dispatchable<InputFacetProps & { entries: E
   }
 
   /** Helpers */
+
+  dispatchChange() {
+    this.dispatch();
+    this.data.onChange();
+  }
 
   sort() {
     const { entries, order } = this.data;
