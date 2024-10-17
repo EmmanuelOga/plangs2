@@ -114,9 +114,9 @@ export class ToggleFacetMode extends Dispatchable<{ mode: "all" | "any"; disable
 
     return (
       <span class={tw("flex flex-row gap-1", "items-center")}>
-        <span class={tw(shadeAll && "opacity-50", !disabled && "group-hover:text-hiliteb")}>All</span>
+        <span class={tw(shadeAll && "opacity-50", !disabled && "group-hover:text-hiliteb")}>All of</span>
         <span class={tw("inline-block", "mt-[1px]", "scale-85", this.mode === "all" && "rotate-180")}>{BOOLEAN}</span>
-        <span class={tw(shadeAny && "opacity-50", !disabled && "group-hover:text-hiliteb")}>Any</span>
+        <span class={tw(shadeAny && "opacity-50", !disabled && "group-hover:text-hiliteb")}>Any of</span>
       </span>
     );
   }

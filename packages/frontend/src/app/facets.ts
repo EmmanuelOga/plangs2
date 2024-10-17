@@ -1,6 +1,6 @@
 import { RISON } from "rison2";
 
-import type { Filter } from "@plangs/graph/auxiliar";
+import { Filter } from "@plangs/graph/auxiliar";
 import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs";
 import { PlangFacets } from "@plangs/plangs/facets";
 import type { EncodedPlangFilters } from "@plangs/plangs/facets";
@@ -41,14 +41,10 @@ export function getFacets(): PlangFacets {
   collect("isMainstream", getChecked, val => (flt.isMainstream.value = val));
 
   function getFacet<T>(input: HTMLElement): Filter<T> | undefined {
-    if (isInputFacetElement(input)) {
-      if (input.state?.hasSelection) {
-        console.log(input.id, input.state?.selected, input.state.mode);
-      }
+    if (isInputFacetElement(input) && input.state) {
+      const { selected, mode } = input.state;
+      return new Filter<T>(mode, selected as Set<T>);
     }
-    // TODO: use the new input-facet component.
-    // const filter = matchingInputSelByName(dir ? `${name}-${dir}` : name)?.values();
-    // return filter ? new Filter<T>(filter.mode, filter.values as Set<T>) : undefined;
     return undefined;
   }
 

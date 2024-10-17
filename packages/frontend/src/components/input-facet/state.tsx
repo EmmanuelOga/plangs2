@@ -10,7 +10,7 @@ import type { InputFacetProps } from "./input-facet";
 export type Entry = { value: string; label: string; count: number };
 
 export class InputFacetState extends Dispatchable<
-  InputFacetProps & { entries: Entry[]; order: Order; selected: Set<unknown>; onChange: () => void; mode: "all" | "any" }
+  InputFacetProps & { entries: Entry[]; order: Order; selected: Set<string>; onChange: () => void; mode: "all" | "any" }
 > {
   /** Factory function for creating the initial state. */
   static initial(props: InputFacetProps & { onChange: () => void; mode: "all" | "any" }): InputFacetState {
