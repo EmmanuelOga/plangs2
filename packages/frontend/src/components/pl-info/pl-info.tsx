@@ -25,7 +25,7 @@ export function PlInfo({ pl, open, tab }: PlInfoProps) {
         !forGrid && "-mx-4", // Compensate for padding so it aligns with the rest of the content.
         "prose prose-green dark:prose-invert sm:prose-sm lg:prose-lg xl:prose-xl max-w-[unset]",
         forGrid && "bg-linear-to-b to-secondary/50",
-        tw(BORDER, forGrid ? "border-t-1" : "border-b-1"),
+        tw(BORDER, forGrid && "border-b-1"),
       )}>
       <h1 class={tw(!forGrid && "text-4xl", forGrid && "inline text-lg sm:block sm:text-4xl")}>
         <a class="text-foreground decoration-1 decoration-dotted" href={`/${pl?.plainKey}`}>
