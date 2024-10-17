@@ -2,7 +2,7 @@
  * @file utilities to type check DOM "id" and "class" attributes.
  */
 
-import { PL_INPUTS } from "./facets/pl_config";
+import { PL_INPUTS } from "./facets/pl_inputs";
 
 export const FILTER_KEY = Object.keys(PL_INPUTS) as (keyof typeof PL_INPUTS)[];
 

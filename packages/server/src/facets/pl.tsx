@@ -3,7 +3,7 @@ import { script, tw } from "@plangs/frontend/utils";
 
 import { cl, id } from "../elements";
 import { FacetInput } from "./facet-input";
-import { PL_FACET_GROUPS } from "./pl_config";
+import { PL_FACET_GROUPS } from "./pl_inputs";
 
 export function PlFacets({ class: cssClass }: { class?: string }) {
   const groups = PL_FACET_GROUPS;

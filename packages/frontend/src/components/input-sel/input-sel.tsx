@@ -6,6 +6,7 @@ import { HOVER } from "@plangs/frontend/styles";
 import { elem, send, tw, withinContainer } from "@plangs/frontend/utils";
 
 import { isInputSelElement } from ".";
+import { InputToggle } from "../input-toggle/input-toggle";
 import { InputSelState, type ItemRemoved } from "./state";
 
 export type InputSelProps = {
@@ -59,12 +60,9 @@ export function InputSel({ name: inputName, class: cssClass }: InputSelProps) {
 
   return (
     <div ref={self as Ref<HTMLDivElement>} class={tw(cssClass, state.selected.length > 0 && "pl-filters-active")}>
-      {state.selected.length > 1 && (
-        <select title="Match all or any of the elements" class="my-2 text-slate-800">
-          <option value="any">Any of</option>
-          <option value="all">All of</option>
-        </select>
-      )}
+      <span class={tw("inline-flex", "items-center justify-between", state.selected.size < 2 ? "text-foreground/50" : "text-foreground", "pl-2")}>
+        <InputToggle action="allAny" disabled={state.selected.size < 2} initial={"any"} />
+      </span>
       <ul>
         {state.selected.map(({ value, label }) => (
           <li

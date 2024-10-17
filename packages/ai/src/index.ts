@@ -8,7 +8,7 @@ import schema from "@plangs/plangs/schemas/PlAiResult.json";
 
 import { loadAllDefinitions } from "@plangs/definitions";
 import { type NPlang, PlangsGraph } from "@plangs/plangs";
-import type { Link, N, PlAiResult } from "@plangs/plangs/schema";
+import type { PlAiResult } from "@plangs/plangs/schema";
 
 import { example, existingData } from "./example";
 import { generateCode } from "./generate";
@@ -19,6 +19,8 @@ const pg = new PlangsGraph();
 await loadAllDefinitions(pg);
 
 export async function aiGenerate(pl: NPlang) {
+  // TODO: this is not gonna be as accurate as possible because the model won't crawl the page.
+  // So, we need to crawl the page/s here and then send the data to the model.
   const prompt = [
     `Describe the "${pl.name}" programming language, which we give key "${pl.key}" and has websites: ${pl.websites.map(({ href }) => href).join(", ")}.`,
     "All possible fields must be filled, and any that cannot be should be left empty or explained.",
@@ -50,7 +52,7 @@ export async function aiGenerate(pl: NPlang) {
         name: "PlAiResult",
         description: "https://plangs.page programming language data",
         schema: schema,
-        strict: true, // Strict is "too strict" ... we need human review on the output anyway.
+        strict: true,
       },
     },
   });

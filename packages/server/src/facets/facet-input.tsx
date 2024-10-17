@@ -2,7 +2,7 @@ import { tw } from "@plangs/frontend/utils";
 
 import { h } from "preact";
 import { cl, id } from "../elements";
-import { PL_INPUTS, type PlInputKey } from "./pl_config";
+import { PL_INPUTS, type PlInputKey } from "./pl_inputs";
 
 export function FacetInput<T extends PlInputKey>({ inputKey }: { inputKey: T }) {
   const baseProps = { id: id(inputKey), name: inputKey };
@@ -20,7 +20,6 @@ export function FacetInput<T extends PlInputKey>({ inputKey }: { inputKey: T }) 
     } as Record<string, string>);
   }
 
-  const withInputSel = input.kind === "search" && "inputSel" in input && input.inputSel;
   const inputTextColor = "bg-background text-foreground placeholder:text-foreground/50";
   const inputElem = (
     <input
@@ -42,7 +41,6 @@ export function FacetInput<T extends PlInputKey>({ inputKey }: { inputKey: T }) 
       ) : (
         inputElem
       )}
-      {withInputSel && h("input-sel", { name: inputKey, class: tw("w-full", inputTextColor) })}
     </>
   );
 }
