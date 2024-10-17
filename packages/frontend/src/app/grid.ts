@@ -42,6 +42,7 @@ export function startGridNav(pg: PlangsGraph) {
   const plGrid = elem<HTMLDivElement>("plGrid");
   const thumbs = elems<HTMLDivElement>("plThumb");
   function updatePlangs() {
+    console.log("Call upd grid");
     if (thumbs.length === 0 || plGrid === undefined) return;
     const filters = getFacets();
 
@@ -83,8 +84,6 @@ export function startGridNav(pg: PlangsGraph) {
 
   // On input change, re-filter the list of languages.
   on(elem("facets"), "input", ({ target }: InputEvent) => {
-    console.log("input", target);
-
     // Because we don't care update when the input changes, only when the selection changes.
     if ((target as HTMLInputElement)?.matches(`#${id("extensions")}`)) return;
 

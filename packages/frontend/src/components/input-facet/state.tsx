@@ -10,10 +10,10 @@ import type { InputFacetProps } from "./input-facet";
 export type Entry = { value: string; label: string; count: number };
 
 export class InputFacetState extends Dispatchable<
-  InputFacetProps & { entries: Entry[]; order: Order; selected: Set<unknown>; onChange: () => void }
+  InputFacetProps & { entries: Entry[]; order: Order; selected: Set<unknown>; onChange: () => void; mode: "all" | "any" }
 > {
   /** Factory function for creating the initial state. */
-  static initial(props: InputFacetProps & { onChange: () => void }): InputFacetState {
+  static initial(props: InputFacetProps & { onChange: () => void; mode: "all" | "any" }): InputFacetState {
     return new InputFacetState({ ...props, entries: [], order: "facet-asc", selected: new Set() }).generateEntries();
   }
 
@@ -44,6 +44,11 @@ export class InputFacetState extends Dispatchable<
   }
 
   /** Actions */
+
+  doSetMode(mode: "all" | "any") {
+    this.data.mode = mode;
+    this.dispatchChange();
+  }
 
   doToggle(value: Entry["value"]) {
     const { selected } = this.data;
@@ -116,6 +121,10 @@ export class InputFacetState extends Dispatchable<
 
   get hasSelection(): boolean {
     return this.data.selected.size > 0;
+  }
+
+  get mode() {
+    return this.data.mode ?? "TODO";
   }
 
   /** Helpers */

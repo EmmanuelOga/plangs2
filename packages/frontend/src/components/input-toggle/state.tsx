@@ -7,11 +7,11 @@ import type { InputToggleProps } from "./input-toggle";
 
 export type InputToggleState = ToggleDummy | ToggleLights | ToggleHamburguer | ToggleFacets | ToggleFacetMode;
 
-export function useToggleState({ action, disabled }: InputToggleProps): InputToggleState {
+export function useToggleState({ action, disabled, initial }: InputToggleProps): InputToggleState {
   if (action === "lights") return useDispatchable(ToggleLights.initial(disabled));
   if (action === "hamburger") return useDispatchable(ToggleHamburguer.initial(disabled));
   if (action === "facets") return useDispatchable(ToggleFacets.initial(disabled));
-  if (action === "allAny") return useDispatchable(ToggleFacetMode.initial(disabled));
+  if (action === "allAny") return useDispatchable(ToggleFacetMode.initial(initial, disabled));
   console.error(`Unknown action: ${action}`);
   return useDispatchable(ToggleDummy.initial(disabled));
 }
@@ -84,7 +84,7 @@ export class ToggleFacets extends Dispatchable<{ mode: "show" | "hide"; disabled
   }
 
   get icon() {
-    return this.show ? FILTER : FILTER_EDIT;
+    return <span class={tw("inline-block", "mt-[1px] scale-85", this.show ? "text-hiliteb" : "text-primary")}>{FILTER_EDIT}</span>;
   }
 
   toggleMode() {
@@ -98,8 +98,8 @@ export class ToggleFacets extends Dispatchable<{ mode: "show" | "hide"; disabled
 }
 
 export class ToggleFacetMode extends Dispatchable<{ mode: "all" | "any"; disabled: boolean }> {
-  static initial(disabled = false) {
-    return new ToggleFacetMode({ mode: "any", disabled });
+  static initial(initial: string | undefined, disabled = false) {
+    return new ToggleFacetMode({ mode: initial === "all" ? "all" : "any", disabled });
   }
 
   get mode(): "all" | "any" {

@@ -5,7 +5,7 @@ import { InputToggle } from "@plangs/frontend/components/input-toggle/input-togg
 import { setComponentState, useDispatchable } from "@plangs/frontend/dispatchable";
 import { DESELECT } from "@plangs/frontend/icons";
 import { BORDER, HOVER, HOVER_SVG_GROUP } from "@plangs/frontend/styles";
-import { $, onClickOnEnter, send, tap, tw } from "@plangs/frontend/utils";
+import { $, on, onClickOnEnter, send, tap, tw } from "@plangs/frontend/utils";
 import type { E, N, PlangsGraph } from "@plangs/plangs";
 import { cl } from "@plangs/server/elements";
 
@@ -24,9 +24,11 @@ export const PROP_KEYS: (keyof InputFacetProps)[] = ["pg", "node", "edge", "dir"
 
 export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
   const self = useRef<HTMLDivElement>();
+
+  const allAnyDefault = "any";
   const state = useDispatchable(
     InputFacetState.initial({
-      ...{ pg, edge, node, dir },
+      ...{ pg, edge, node, dir, mode: allAnyDefault },
       onChange() {
         send(self.current?.parentElement, new Event("input", { bubbles: true, composed: true }));
       },
@@ -45,6 +47,11 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
     // Toggle indicator.
     const facet = wrapper.closest(`.${cl("facet")}`);
     $(`.${cl("facetIndicator")}[data-facet=${facet?.id}]`)?.classList.toggle("text-primary", state.hasSelection);
+
+    return on(self?.current, "input-toggle", (ev: CustomEvent) => {
+      ev.stopPropagation();
+      state.doSetMode(ev.detail.mode === "all" ? "all" : "any");
+    });
   });
 
   const SUBGRID = tw("col-span-3", "grid grid-cols-subgrid", "items-center");
@@ -57,7 +64,7 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
         <div class={tw(ROW, "sticky top-0 cursor-pointer", tw(BORDER, "border-b-1"))}>
           <div class={tw("col-span-3", "py-1", "flex shrink-0 flex-row", "bg-background", CENTER_ROW, tw(BORDER, "border-t-1"))}>
             <span class={tw("inline-flex", CENTER_ROW, state.selected.size < 2 ? "text-foreground/50" : "text-foreground", "pl-2")}>
-              <InputToggle action="allAny" disabled={state.selected.size < 2} />
+              <InputToggle action="allAny" disabled={state.selected.size < 2} initial={allAnyDefault} />
             </span>
             <span
               // biome-ignore lint/a11y/noNoninteractiveTabindex: we make it interactive.

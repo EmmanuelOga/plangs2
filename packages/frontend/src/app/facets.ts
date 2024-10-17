@@ -7,6 +7,7 @@ import type { EncodedPlangFilters } from "@plangs/plangs/facets";
 import type { StrDate } from "@plangs/plangs/schema";
 import type { IDKey } from "@plangs/server/elements";
 
+import { isInputFacetElement } from "../components/input-facet";
 import { elem } from "../utils";
 
 /** Create a plan filter from the inputs values. */
@@ -40,7 +41,11 @@ export function getFacets(): PlangFacets {
   collect("isMainstream", getChecked, val => (flt.isMainstream.value = val));
 
   function getFacet<T>(input: HTMLElement): Filter<T> | undefined {
-    const [name, dir] = [input?.getAttribute("name"), input?.dataset.dir];
+    if (isInputFacetElement(input)) {
+      if (input.state?.hasSelection) {
+        console.log(input.id, input.state?.selected, input.state.mode);
+      }
+    }
     // TODO: use the new input-facet component.
     // const filter = matchingInputSelByName(dir ? `${name}-${dir}` : name)?.values();
     // return filter ? new Filter<T>(filter.mode, filter.values as Set<T>) : undefined;

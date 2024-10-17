@@ -9,7 +9,7 @@ import { registerInputToggle } from "../components/input-toggle";
 import { ToggleFacets, ToggleHamburguer, ToggleLights } from "../components/input-toggle/state";
 import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
 import { elem, elems, toggleClasses } from "../utils";
-import { startGridNav } from "./gridNav";
+import { startGridNav } from "./grid";
 import { connectLivereload } from "./livereload";
 import { hookPlInfo, lastPlang } from "./pl";
 import { currentTab } from "./tabs";
