@@ -1,8 +1,32 @@
-import { Dispatchable } from "@plangs/frontend/dispatchable";
+import { Dispatchable, useDispatchable } from "@plangs/frontend/dispatchable";
+import { BOOLEAN, CLOSE, FILTER, FILTER_EDIT, FULLCIRCLE, MENU, MOON, SUN } from "@plangs/frontend/icons";
+import { tw } from "@plangs/frontend/utils";
 import { elem } from "@plangs/server/elements";
 
-import { tw } from "@plangs/frontend/utils";
-import { BOOLEAN, CLOSE, FILTER, FILTER_EDIT, MENU, MOON, SUN } from "../../icons";
+import type { InputToggleProps } from "./input-toggle";
+
+export type InputToggleState = ToggleDummy | ToggleLights | ToggleHamburguer | ToggleFacets | ToggleFacetMode;
+
+export function useToggleState({ action, disabled }: InputToggleProps): InputToggleState {
+  if (action === "lights") return useDispatchable(ToggleLights.initial(disabled));
+  if (action === "hamburger") return useDispatchable(ToggleHamburguer.initial(disabled));
+  if (action === "facets") return useDispatchable(ToggleFacets.initial(disabled));
+  if (action === "allAny") return useDispatchable(ToggleFacetMode.initial(disabled));
+  console.error(`Unknown action: ${action}`);
+  return useDispatchable(ToggleDummy.initial(disabled));
+}
+
+/** Dummy state for when the action is missing. */
+export class ToggleDummy extends Dispatchable<Record<string, never>> {
+  static initial(disabled: boolean | undefined) {
+    return new ToggleDummy({});
+  }
+  get icon() {
+    return FULLCIRCLE;
+  }
+  toggleMode() {}
+  runEffects() {}
+}
 
 export class ToggleLights extends Dispatchable<{ mode: "dark" | "light"; disabled: boolean }> {
   static initial(disabled = false) {

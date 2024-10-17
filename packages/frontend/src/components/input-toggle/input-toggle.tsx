@@ -1,9 +1,12 @@
-import { useDispatchable } from "@plangs/frontend/dispatchable";
+import type { Ref } from "preact";
+import { useEffect, useRef } from "preact/hooks";
 
+import { setWrapperState } from "@plangs/frontend/dispatchable";
 import { HOVER_SVG } from "@plangs/frontend/styles";
 import { onClickOnEnter, tw } from "@plangs/frontend/utils";
-import { useEffect } from "preact/hooks";
-import { ToggleFacetMode, ToggleFacets, ToggleHamburguer, ToggleLights } from "./state";
+
+import { isInputToggleElement } from ".";
+import { useToggleState } from "./state";
 
 export type InputToggleProps = {
   action: "facets" | "hamburger" | "lights" | "allAny";
@@ -13,22 +16,13 @@ export type InputToggleProps = {
 export const TAG_NAME = "input-toggle";
 export const PROP_KEYS: (keyof InputToggleProps)[] = ["action", "disabled"];
 
-const ACTION_STATE = {
-  lights: (disabled?: boolean) => useDispatchable(ToggleLights.initial(disabled)),
-  hamburger: (disabled?: boolean) => useDispatchable(ToggleHamburguer.initial(disabled)),
-  facets: (disabled?: boolean) => useDispatchable(ToggleFacets.initial(disabled)),
-  allAny: (disabled?: boolean) => useDispatchable(ToggleFacetMode.initial(disabled)),
-} as const;
-
 export function InputToggle({ action, disabled }: InputToggleProps) {
-  const state = ACTION_STATE[action](disabled === undefined ? false : disabled);
+  const self = useRef<HTMLDivElement>();
+  const state = useToggleState({ action, disabled });
 
-  const toggle = () => {
-    if (disabled) return;
-    state.toggleMode();
-    state.runEffects();
-    state.dispatch();
-  };
+  useEffect(() => {
+    setWrapperState(self, isInputToggleElement, state);
+  });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: state is not a dependency since it is a dispatchable.
   useEffect(() => {
@@ -39,8 +33,16 @@ export function InputToggle({ action, disabled }: InputToggleProps) {
     }
   }, [disabled]);
 
+  const toggle = () => {
+    if (disabled) return;
+    state.toggleMode();
+    state.runEffects();
+    state.dispatch();
+  };
+
   return (
     <div
+      ref={self as Ref<HTMLDivElement>}
       // biome-ignore lint/a11y/noNoninteractiveTabindex: we make it interactive.
       tabIndex={0}
       {...onClickOnEnter(toggle)}
@@ -49,5 +51,3 @@ export function InputToggle({ action, disabled }: InputToggleProps) {
     </div>
   );
 }
-
-export const EVENTS = {} as const;

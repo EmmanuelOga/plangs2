@@ -1,9 +1,10 @@
-import { Dispatchable } from "@plangs/frontend/dispatchable";
-import type { EncodedFilter } from "@plangs/graph/auxiliar";
+import type { JSX } from "preact/jsx-runtime";
 
+import { Dispatchable } from "@plangs/frontend/dispatchable";
 import { SORT_DOWN, SORT_UP } from "@plangs/frontend/icons";
 import { tw } from "@plangs/frontend/utils";
-import type { JSX } from "preact/jsx-runtime";
+import type { EncodedFilter } from "@plangs/graph/auxiliar";
+
 import type { InputFacetProps } from "./input-facet";
 
 export type Entry = { value: string; label: string; count: number };

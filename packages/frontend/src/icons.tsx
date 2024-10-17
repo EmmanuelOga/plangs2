@@ -2,6 +2,13 @@
 
 const css = "fill-current size-[1.5rem] sm:size-[1.75rem] lg:size-[2rem] xl:size-[2.25rem] 2xl:size-[2.5rem]";
 
+export const FULLCIRCLE = (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" class={css}>
+    <title>Circle</title>
+    <circle class="fill" cx="9" cy="9" r="8" />
+  </svg>
+);
+
 export const SUN = (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" class={css}>
     <title>Sun</title>

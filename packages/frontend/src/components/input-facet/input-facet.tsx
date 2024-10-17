@@ -1,15 +1,15 @@
 import type { ComponentChildren, Ref } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
-import { useDispatchable } from "@plangs/frontend/dispatchable";
-import { BORDER, HOVER, HOVER_SVG_GROUP } from "@plangs/frontend/styles";
-import { $, $$, customEvent, elems, on, onClickOnEnter, tap, tw } from "@plangs/frontend/utils";
-import { type EncodedFilter, isEncodedFilter } from "@plangs/graph/auxiliar";
-import type { E, N, PlangsGraph } from "@plangs/plangs";
-
+import { InputToggle } from "@plangs/frontend/components/input-toggle/input-toggle";
+import { setWrapperState, useDispatchable } from "@plangs/frontend/dispatchable";
 import { DESELECT } from "@plangs/frontend/icons";
+import { BORDER, HOVER, HOVER_SVG_GROUP } from "@plangs/frontend/styles";
+import { $, onClickOnEnter, tap, tw } from "@plangs/frontend/utils";
+import type { E, N, PlangsGraph } from "@plangs/plangs";
 import { cl } from "@plangs/server/elements";
-import { InputToggle } from "../input-toggle/input-toggle";
+
+import { isInputFacetElement } from ".";
 import { InputFacetState } from "./state";
 
 export type InputFacetProps = {
@@ -22,35 +22,22 @@ export type InputFacetProps = {
 export const TAG_NAME = "input-facet";
 export const PROP_KEYS: (keyof InputFacetProps)[] = ["pg", "node", "edge", "dir"];
 
-export function InputFacet(props: InputFacetProps) {
-  const { pg, edge, node, dir } = props;
-
+export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
   const self = useRef<HTMLDivElement>();
-  const state = useDispatchable(InputFacetState.initial(props));
+  const state = useDispatchable(InputFacetState.initial({ pg, edge, node, dir }));
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: only missing state, which is a dispatchable.
   useEffect(() => {
-    const { children, ...rest } = props as InputFacetProps & { children?: ComponentChildren };
-    state.generateEntries(rest);
+    state.generateEntries({ pg, edge, node, dir });
   }, [pg, edge, node, dir]);
 
   useEffect(() => {
-    const elemTag = self.current?.parentElement; // should be the customElement when this is used as webcomponent.
-    if (!elemTag) {
-      console.error("No container found for:", self);
-      return;
-    }
+    const wrapper = setWrapperState(self, isInputFacetElement, state);
+    if (!wrapper) return;
 
-    // toggle indicator.
-    const facet = elemTag.closest(`.${cl("facet")}`);
+    // Toggle indicator.
+    const facet = wrapper.closest(`.${cl("facet")}`);
     $(`.${cl("facetIndicator")}[data-facet=${facet?.id}]`)?.classList.toggle("text-primary", state.hasSelection);
-
-    return on(elemTag, EVENTS.inSetFacet.type, (ev: CustomEvent) => {
-      if (!EVENTS.inSetFacet.valid(ev) || !isEncodedFilter(ev.detail)) return console.warn("Invalid event data on:", ev);
-      const filter = ev.detail;
-      state.setFacets(filter);
-      state.dispatch();
-    });
   });
 
   const SUBGRID = tw("col-span-3", "grid grid-cols-subgrid", "items-center");
@@ -116,14 +103,3 @@ function FacetButton({ action, class: cssClass, children }: { class?: string; ac
     </button>
   );
 }
-
-/** Catalog of incoming and outgoing events, and factory functions for those events. */
-export const EVENTS = {
-  /** Incoming event: request to add an item. */
-  inSetFacet: {
-    type: `${TAG_NAME}:in-add"`,
-    create: (facet: EncodedFilter) => customEvent(EVENTS.inSetFacet.type, facet),
-    /** Validate data extracted from a CustomEvent detail field. */
-    valid: ({ detail }: CustomEvent) => isEncodedFilter(detail),
-  },
-} as const;

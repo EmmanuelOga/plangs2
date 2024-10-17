@@ -1,4 +1,4 @@
-import { type Dispatch, useState } from "preact/hooks";
+import { type Dispatch, type MutableRef, useState } from "preact/hooks";
 
 export abstract class Dispatchable<T> {
   dispatcher!: Dispatch<this>;
@@ -40,4 +40,24 @@ export function useDispatchable<T extends Dispatchable<any>>(instance: T): T {
   const [state, dispatcher] = useState(instance);
   instance.dispatcher = dispatcher;
   return state;
+}
+
+/** Utility to set a property "state" on a customElement. */
+export function setWrapperState<T extends HTMLElement & { state?: S }, S>(
+  self: MutableRef<HTMLElement | undefined>,
+  typeChecker: (el?: HTMLElement) => el is T,
+  state: S,
+): HTMLElement | undefined {
+  // The preact element is the direct child of the custom element.
+  const wrapper = self.current?.parentElement;
+  if (!wrapper) {
+    console.error("No container found for:", self);
+    return;
+  }
+  if (!customElements.get(wrapper.tagName.toLowerCase())) console.warn("Typically, the parentElement should be a custom element.", wrapper);
+  if (typeChecker(wrapper)) {
+    wrapper.state = state;
+    return wrapper;
+  }
+  console.warn("Failed to set state, wrapper doesn't type check", { self, typeChecker, state });
 }

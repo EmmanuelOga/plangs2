@@ -1,10 +1,9 @@
+import { Anchor } from "@plangs/frontend/components/misc/anchor";
+import { Pill } from "@plangs/frontend/components/misc/pill";
+import { BORDER } from "@plangs/frontend/styles";
+import { tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/components/layout";
-
-import { BORDER } from "@plangs/frontend/styles";
-import { tw } from "../../utils";
-import { Anchor } from "../misc/anchor";
-import { Pill } from "../misc/pill";
 
 export type PlInfoProps = {
   pl?: NPlang;
@@ -13,7 +12,7 @@ export type PlInfoProps = {
 };
 
 export const TAG_NAME = "pl-info";
-export const PROP_KEYS = ["pl", "open", "tab"] as const;
+export const PROP_KEYS: (keyof PlInfoProps)[] = ["pl", "open", "tab"] as const;
 
 /** Display a PL information, if the key is known. */
 export function PlInfo({ pl, open, tab }: PlInfoProps) {

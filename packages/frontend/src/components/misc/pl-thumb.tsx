@@ -1,9 +1,8 @@
 import type { JSX } from "preact/jsx-runtime";
 
+import { tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs";
 import { cl } from "@plangs/server/elements";
-
-import { tw } from "../../utils";
 
 const PLACEHOLDER = "/images/placeholder.png";
 

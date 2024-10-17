@@ -3,7 +3,6 @@ import "preact/debug";
 import { PlangsGraph } from "@plangs/plangs";
 import pgData from "@plangs/server/plangs.json";
 
-import { registerInputCompl } from "../components/input-compl";
 import { registerInputFacet } from "../components/input-facet";
 import { registerInputSel } from "../components/input-sel";
 import { registerInputToggle } from "../components/input-toggle";
@@ -17,7 +16,6 @@ import { currentTab } from "./tabs";
 
 function start() {
   registerPlangInfo();
-  registerInputCompl();
   registerInputSel();
   registerInputFacet();
   registerInputToggle();

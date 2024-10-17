@@ -23,6 +23,10 @@ export class InputSelState extends Dispatchable<{
   onRemove: (data: ItemRemoved) => void;
   selected: Item[];
 }> {
+  static initial(partial: Pick<InputSelState["data"], "inputName" | "onAdd" | "onRemove">) {
+    return new InputSelState({ ...partial, selected: [] });
+  }
+
   /** Actions */
 
   add(items: Item[]) {
@@ -46,9 +50,9 @@ export class InputSelState extends Dispatchable<{
     this.dispatch();
   }
 
-  update(name: string) {
-    if (this.data.inputName === name) return;
-    this.data.inputName = name;
+  update({ inputName }: { inputName: string }) {
+    if (this.data.inputName === inputName) return;
+    this.data.inputName = inputName;
     this.dispatch();
   }
 

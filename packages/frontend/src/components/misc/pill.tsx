@@ -1,7 +1,6 @@
-import type { TAB } from "@plangs/server/components/layout";
-
 import { HOVER } from "@plangs/frontend/styles";
 import { tw } from "@plangs/frontend/utils";
+import type { TAB } from "@plangs/server/components/layout";
 import { cl } from "@plangs/server/elements";
 
 /* TODO: `kind: string;` is too permissive. Should be either a Node kind N or a set of other known options. */
