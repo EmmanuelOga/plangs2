@@ -43,9 +43,9 @@ export function useDispatchable<T extends Dispatchable<any>>(instance: T): T {
 }
 
 /** Utility to set a property "state" on a customElement. */
-export function setWrapperState<T extends HTMLElement & { state?: S }, S>(
+export function setComponentState<T extends HTMLElement & { state?: S }, S>(
   self: MutableRef<HTMLElement | undefined>,
-  typeChecker: (el?: HTMLElement) => el is T,
+  isComponent: (el?: HTMLElement) => el is T,
   state: S,
 ): HTMLElement | undefined {
   // The preact element is the direct child of the custom element.
@@ -54,10 +54,14 @@ export function setWrapperState<T extends HTMLElement & { state?: S }, S>(
     console.error("No container found for:", self);
     return;
   }
-  if (!customElements.get(wrapper.tagName.toLowerCase())) console.warn("Typically, the parentElement should be a custom element.", wrapper);
-  if (typeChecker(wrapper)) {
+
+  // We only need to set the state if the compoent is being used as a custom element.
+  if (!customElements.get(wrapper.tagName.toLowerCase())) return;
+
+  if (isComponent(wrapper)) {
     wrapper.state = state;
     return wrapper;
   }
-  console.warn("Failed to set state, wrapper doesn't type check", { self, typeChecker, state });
+
+  console.warn("Failed to set state, wrapper doesn't type check", { self, typeChecker: isComponent, state });
 }

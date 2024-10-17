@@ -1,7 +1,7 @@
 import type { Ref } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
-import { setWrapperState, useDispatchable } from "@plangs/frontend/dispatchable";
+import { setComponentState, useDispatchable } from "@plangs/frontend/dispatchable";
 import { HOVER } from "@plangs/frontend/styles";
 import { elem, tw, withinContainer } from "@plangs/frontend/utils";
 
@@ -42,7 +42,7 @@ export function InputSel({ name: inputName, class: cssClass }: InputSelProps) {
   useEffect(() => state.update({ inputName }), [{ inputName }]);
 
   useEffect(() => {
-    setWrapperState(self, isInputSelElement, state);
+    setComponentState(self, isInputSelElement, state);
 
     // Handle focus after removing an item.
     if (!lastRemoved.current || !self.current) return;

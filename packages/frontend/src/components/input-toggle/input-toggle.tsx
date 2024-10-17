@@ -1,7 +1,7 @@
 import type { Ref } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
-import { setWrapperState } from "@plangs/frontend/dispatchable";
+import { setComponentState } from "@plangs/frontend/dispatchable";
 import { HOVER_SVG } from "@plangs/frontend/styles";
 import { onClickOnEnter, tw } from "@plangs/frontend/utils";
 
@@ -21,7 +21,7 @@ export function InputToggle({ action, disabled }: InputToggleProps) {
   const state = useToggleState({ action, disabled });
 
   useEffect(() => {
-    setWrapperState(self, isInputToggleElement, state);
+    setComponentState(self, isInputToggleElement, state);
   });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: state is not a dependency since it is a dispatchable.

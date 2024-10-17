@@ -9,13 +9,13 @@ const filter = <T>(predicate: Predicate<T>) => ({ value: undefined as T | undefi
 
 export type EncodedPlangFilters = Record<string, string | string[] | boolean | EncodedFilter>;
 
-export type PlangFiltersKey = keyof PlangFilters["filters"];
+export type PlangFiltersKey = keyof PlangFacets["facets"];
 
 /**
  * Criteria to filter programming languages.
  */
-export class PlangFilters {
-  filters = {
+export class PlangFacets {
+  facets = {
     plangName: filter((pl, regexp: RegExp) => regexp.test(pl.name)),
 
     appearedAfter: filter((pl, date: StrDate) => pl.firstAppearedAfter(date)),
@@ -43,12 +43,12 @@ export class PlangFilters {
   } as const;
 
   matches(key: PlangFiltersKey, pl: NPlang): boolean {
-    const { value, predicate } = this.filters[key];
+    const { value, predicate } = this.facets[key];
     return value === undefined || (predicate as Predicate<typeof value>)(pl, value);
   }
 
   matchesAll(pl: NPlang): boolean {
-    for (const key of Object.keys(this.filters)) {
+    for (const key of Object.keys(this.facets)) {
       if (!this.matches(key as PlangFiltersKey, pl)) return false;
     }
     return true;
@@ -60,7 +60,7 @@ export class PlangFilters {
    */
   encodable(): EncodedPlangFilters {
     return Object.fromEntries(
-      Object.entries(this.filters)
+      Object.entries(this.facets)
         .map(([key, { value }]) => {
           if (!value) return [key, undefined];
 

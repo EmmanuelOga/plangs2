@@ -4,7 +4,7 @@ import { Filter } from "@plangs/graph/auxiliar";
 
 import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from ".";
 import { PlangsGraph } from ".";
-import { PlangFilters } from "./filter";
+import { PlangFacets } from "./facets";
 
 function createGraph() {
   const g = new PlangsGraph();
@@ -99,279 +99,279 @@ function createGraph() {
 }
 
 test("empty filters match all languages", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 });
 
 test("filters languages by name", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.filters.plangName.value = /script/i;
+  f.facets.plangName.value = /script/i;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+typescript"]));
 
-  f.filters.plangName.value = /pascal/i;
+  f.facets.plangName.value = /pascal/i;
   expect(g.plangs(f)).toEqual(new Set(["pl+pascal"]));
 
-  f.filters.plangName.value = undefined;
+  f.facets.plangName.value = undefined;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 });
 
 test("filters languages by first appeareance date", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.filters.appearedAfter.value = "2000-01-01";
+  f.facets.appearedAfter.value = "2000-01-01";
   expect(g.plangs(f)).toEqual(new Set(["pl+typescript"]));
 
-  f.filters.appearedAfter.value = "1990-01-01";
+  f.facets.appearedAfter.value = "1990-01-01";
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+typescript"]));
 
-  f.filters.appearedAfter.value = "1970-01-01";
+  f.facets.appearedAfter.value = "1970-01-01";
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 
-  f.filters.appearedAfter.value = "1960-01-01";
+  f.facets.appearedAfter.value = "1960-01-01";
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 
-  f.filters.appearedAfter.value = undefined;
+  f.facets.appearedAfter.value = undefined;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 });
 
 test("filters languages by min release date", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.filters.releasedAfter.value = "1989-11-01";
+  f.facets.releasedAfter.value = "1989-11-01";
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal"]));
 
-  f.filters.releasedAfter.value = "2010-12-31";
+  f.facets.releasedAfter.value = "2010-12-31";
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript"]));
 
-  f.filters.releasedAfter.value = undefined;
+  f.facets.releasedAfter.value = undefined;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 });
 
 test("filters languages by whether they have a logo", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.filters.hasLogo.value = true;
+  f.facets.hasLogo.value = true;
   expect(g.plangs(f)).toEqual(new Set(["pl+typescript"]));
 
-  f.filters.hasLogo.value = false;
+  f.facets.hasLogo.value = false;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal"]));
 
-  f.filters.hasLogo.value = undefined;
+  f.facets.hasLogo.value = undefined;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 });
 
 test("filters languages by whether they have any releases", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.filters.hasReleases.value = true;
+  f.facets.hasReleases.value = true;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal"]));
 
-  f.filters.hasReleases.value = false;
+  f.facets.hasReleases.value = false;
   expect(g.plangs(f)).toEqual(new Set(["pl+typescript"]));
 
-  f.filters.hasReleases.value = undefined;
+  f.facets.hasReleases.value = undefined;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 });
 
 test("filters languages by whether they have a wikipedia page", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.filters.hasWikipedia.value = true;
+  f.facets.hasWikipedia.value = true;
   expect(g.plangs(f)).toEqual(new Set(["pl+pascal"]));
 
-  f.filters.hasWikipedia.value = false;
+  f.facets.hasWikipedia.value = false;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+typescript"]));
 
-  f.filters.hasWikipedia.value = undefined;
+  f.facets.hasWikipedia.value = undefined;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 });
 
 test("filters transpilers", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.filters.isTranspiler.value = true;
+  f.facets.isTranspiler.value = true;
   expect(g.plangs(f)).toEqual(new Set(["pl+typescript"]));
 
-  f.filters.isTranspiler.value = false;
+  f.facets.isTranspiler.value = false;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal"]));
 
-  f.filters.isTranspiler.value = undefined;
+  f.facets.isTranspiler.value = undefined;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 });
 
 test("filters mainstream languages", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.filters.isMainstream.value = true;
+  f.facets.isMainstream.value = true;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+typescript"]));
 
-  f.filters.isMainstream.value = false;
+  f.facets.isMainstream.value = false;
   expect(g.plangs(f)).toEqual(new Set(["pl+pascal"]));
 
-  f.filters.isMainstream.value = undefined;
+  f.facets.isMainstream.value = undefined;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 });
 
 test("filters languages by dialect", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.filters.dialectOf.value = new Filter<NPlang["key"]>("any", new Set());
+  f.facets.dialectOf.value = new Filter<NPlang["key"]>("any", new Set());
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 
-  f.filters.dialectOf.value = new Filter<NPlang["key"]>("all", new Set());
+  f.facets.dialectOf.value = new Filter<NPlang["key"]>("all", new Set());
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 
-  f.filters.dialectOf.value = new Filter<NPlang["key"]>("any", new Set(["pl+javascript"]));
+  f.facets.dialectOf.value = new Filter<NPlang["key"]>("any", new Set(["pl+javascript"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+typescript"]));
 
-  f.filters.dialectOf.value = new Filter<NPlang["key"]>("all", new Set(["pl+javascript"]));
+  f.facets.dialectOf.value = new Filter<NPlang["key"]>("all", new Set(["pl+javascript"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+typescript"]));
 
-  f.filters.dialectOf.value = new Filter<NPlang["key"]>("any", new Set(["pl+javascript", "pl+some-other-language"]));
+  f.facets.dialectOf.value = new Filter<NPlang["key"]>("any", new Set(["pl+javascript", "pl+some-other-language"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+typescript"]));
 
-  f.filters.dialectOf.value = new Filter<NPlang["key"]>("all", new Set(["pl+javascript", "pl+some-other-language"]));
+  f.facets.dialectOf.value = new Filter<NPlang["key"]>("all", new Set(["pl+javascript", "pl+some-other-language"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+typescript"]));
 
-  f.filters.dialectOf.value = undefined;
+  f.facets.dialectOf.value = undefined;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 });
 
 test("filters languages by 'implements'", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.filters.implements.value = new Filter<NPlang["key"]>("any", new Set());
+  f.facets.implements.value = new Filter<NPlang["key"]>("any", new Set());
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 
-  f.filters.implements.value = new Filter<NPlang["key"]>("all", new Set());
+  f.facets.implements.value = new Filter<NPlang["key"]>("all", new Set());
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 
-  f.filters.implements.value = new Filter<NPlang["key"]>("any", new Set(["pl+ecmascript"]));
+  f.facets.implements.value = new Filter<NPlang["key"]>("any", new Set(["pl+ecmascript"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript"]));
 
-  f.filters.implements.value = new Filter<NPlang["key"]>("all", new Set(["pl+ecmascript"]));
+  f.facets.implements.value = new Filter<NPlang["key"]>("all", new Set(["pl+ecmascript"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript"]));
 
-  f.filters.implements.value = new Filter<NPlang["key"]>("any", new Set(["pl+ecmascript", "pl+some-other-language"]));
+  f.facets.implements.value = new Filter<NPlang["key"]>("any", new Set(["pl+ecmascript", "pl+some-other-language"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript"]));
 
-  f.filters.implements.value = new Filter<NPlang["key"]>("all", new Set(["pl+ecmascript", "pl+some-other-language"]));
+  f.facets.implements.value = new Filter<NPlang["key"]>("all", new Set(["pl+ecmascript", "pl+some-other-language"]));
   expect(g.plangs(f)).toEqual(new Set([]));
 
-  f.filters.implements.value = undefined;
+  f.facets.implements.value = undefined;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 });
 
 test("filters languages by 'influencedBy'", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.filters.influencedBy.value = new Filter<NPlang["key"]>("all", new Set(["pl+influence-a"]));
+  f.facets.influencedBy.value = new Filter<NPlang["key"]>("all", new Set(["pl+influence-a"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript"]));
 
-  f.filters.influencedBy.value = new Filter<NPlang["key"]>("all", new Set(["pl+influence-a", "pl+influence-b"]));
+  f.facets.influencedBy.value = new Filter<NPlang["key"]>("all", new Set(["pl+influence-a", "pl+influence-b"]));
   expect(g.plangs(f)).toEqual(new Set([]));
 
-  f.filters.influencedBy.value = new Filter<NPlang["key"]>("any", new Set(["pl+influence-a", "pl+influence-b"]));
+  f.facets.influencedBy.value = new Filter<NPlang["key"]>("any", new Set(["pl+influence-a", "pl+influence-b"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 });
 
 test("filters languages by license", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.filters.licenses.value = new Filter<NLicense["key"]>("all", new Set(["license+a"]));
+  f.facets.licenses.value = new Filter<NLicense["key"]>("all", new Set(["license+a"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript"]));
 
-  f.filters.licenses.value = new Filter<NLicense["key"]>("all", new Set(["license+a", "license+b"]));
+  f.facets.licenses.value = new Filter<NLicense["key"]>("all", new Set(["license+a", "license+b"]));
   expect(g.plangs(f)).toEqual(new Set([]));
 
-  f.filters.licenses.value = new Filter<NLicense["key"]>("any", new Set(["license+a", "license+b"]));
+  f.facets.licenses.value = new Filter<NLicense["key"]>("any", new Set(["license+a", "license+b"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 });
 
 test("filters languages by paradigm", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.filters.paradigms.value = new Filter<NParadigm["key"]>("all", new Set(["paradigm+a"]));
+  f.facets.paradigms.value = new Filter<NParadigm["key"]>("all", new Set(["paradigm+a"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal"]));
 
-  f.filters.paradigms.value = new Filter<NParadigm["key"]>("all", new Set(["paradigm+a", "paradigm+b"]));
+  f.facets.paradigms.value = new Filter<NParadigm["key"]>("all", new Set(["paradigm+a", "paradigm+b"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+pascal"]));
 
-  f.filters.paradigms.value = new Filter<NParadigm["key"]>("any", new Set(["paradigm+a", "paradigm+b"]));
+  f.facets.paradigms.value = new Filter<NParadigm["key"]>("any", new Set(["paradigm+a", "paradigm+b"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 });
 
 test("filters languages by extensions", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.filters.extensions.value = new Filter<string>("any", new Set([".tpu", ".js"]));
+  f.facets.extensions.value = new Filter<string>("any", new Set([".tpu", ".js"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal"]));
 
-  f.filters.extensions.value = new Filter<string>("all", new Set([".ts", ".d.ts"]));
+  f.facets.extensions.value = new Filter<string>("all", new Set([".ts", ".d.ts"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+typescript"]));
 });
 
 test("filters languages by platform", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.filters.platforms.value = new Filter<NPlatform["key"]>("any", new Set(["plat+web", "plat+backend"]));
+  f.facets.platforms.value = new Filter<NPlatform["key"]>("any", new Set(["plat+web", "plat+backend"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal"]));
 
-  f.filters.platforms.value = new Filter<NPlatform["key"]>("all", new Set(["plat+web", "plat+backend"]));
+  f.facets.platforms.value = new Filter<NPlatform["key"]>("all", new Set(["plat+web", "plat+backend"]));
   expect(g.plangs(f)).toEqual(new Set([]));
 
-  f.filters.platforms.value = new Filter<NPlatform["key"]>("any", new Set(["plat+backend"]));
+  f.facets.platforms.value = new Filter<NPlatform["key"]>("any", new Set(["plat+backend"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+pascal"]));
 
-  f.filters.platforms.value = new Filter<NPlatform["key"]>("all", new Set(["plat+backend"]));
+  f.facets.platforms.value = new Filter<NPlatform["key"]>("all", new Set(["plat+backend"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+pascal"]));
 });
 
 test("filters languages by tags", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.filters.tags.value = new Filter<NTag["key"]>("any", new Set(["tag+frontend"]));
+  f.facets.tags.value = new Filter<NTag["key"]>("any", new Set(["tag+frontend"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+typescript"]));
 
-  f.filters.tags.value = new Filter<NTag["key"]>("all", new Set(["tag+other"]));
+  f.facets.tags.value = new Filter<NTag["key"]>("all", new Set(["tag+other"]));
   expect(g.plangs(f)).toEqual(new Set([]));
 
-  f.filters.tags.value = new Filter<NTag["key"]>("any", new Set(["tag+other", "tag+another"]));
+  f.facets.tags.value = new Filter<NTag["key"]>("any", new Set(["tag+other", "tag+another"]));
   expect(g.plangs(f)).toEqual(new Set([]));
 });
 
 test("filters languages by type systems", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.filters.typeSystems.value = new Filter<NTsys["key"]>("any", new Set(["tsys+static"]));
+  f.facets.typeSystems.value = new Filter<NTsys["key"]>("any", new Set(["tsys+static"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+pascal", "pl+typescript"]));
 
-  f.filters.typeSystems.value = new Filter<NTsys["key"]>("all", new Set(["tsys+dynamic"]));
+  f.facets.typeSystems.value = new Filter<NTsys["key"]>("all", new Set(["tsys+dynamic"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript"]));
 });
 
 test("filters languages by written in", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.filters.writtenIn.value = new Filter<NPlang["key"]>("all", new Set(["pl+c", "pl+assembly"]));
+  f.facets.writtenIn.value = new Filter<NPlang["key"]>("all", new Set(["pl+c", "pl+assembly"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+pascal"]));
 
-  f.filters.writtenIn.value = new Filter<NPlang["key"]>("all", new Set(["pl+typescript"]));
+  f.facets.writtenIn.value = new Filter<NPlang["key"]>("all", new Set(["pl+typescript"]));
   expect(g.plangs(f)).toEqual(new Set(["pl+typescript"]));
 });
 
 test("turning filters into an 'encodable' object", () => {
-  const [g, f] = [createGraph(), new PlangFilters()];
+  const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.filters.appearedAfter.value = "2000-01-01";
-  f.filters.hasLogo.value = true;
-  f.filters.hasReleases.value = false;
-  f.filters.plangName.value = /script/i;
-  f.filters.releasedAfter.value = "2010-12-31";
-  f.filters.typeSystems.value = new Filter<NTsys["key"]>("all", new Set(["tsys+dynamic"]));
-  f.filters.writtenIn.value = new Filter<NPlang["key"]>("any", new Set(["pl+c", "pl+assembly"]));
-  f.filters.influencedBy.value = new Filter<NPlang["key"]>("all", new Set());
+  f.facets.appearedAfter.value = "2000-01-01";
+  f.facets.hasLogo.value = true;
+  f.facets.hasReleases.value = false;
+  f.facets.plangName.value = /script/i;
+  f.facets.releasedAfter.value = "2010-12-31";
+  f.facets.typeSystems.value = new Filter<NTsys["key"]>("all", new Set(["tsys+dynamic"]));
+  f.facets.writtenIn.value = new Filter<NPlang["key"]>("any", new Set(["pl+c", "pl+assembly"]));
+  f.facets.influencedBy.value = new Filter<NPlang["key"]>("all", new Set());
 
   expect(f.encodable()).toEqual({
     plangName: "script",

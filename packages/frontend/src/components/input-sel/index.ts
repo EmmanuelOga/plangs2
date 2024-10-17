@@ -13,7 +13,7 @@ export type { Item, ItemRemoved };
 export type InputSelElement = HTMLElement & InputSelProps & { state?: InputSelState };
 
 export function isInputSelElement(el?: HTMLElement): el is InputSelElement {
-  return !!el && el.tagName === TAG_NAME;
+  return !!el && el.tagName.toLowerCase() === TAG_NAME;
 }
 
 /** Register the Custom Element. */

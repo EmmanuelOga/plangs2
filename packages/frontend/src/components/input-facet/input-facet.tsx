@@ -2,7 +2,7 @@ import type { ComponentChildren, Ref } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
 import { InputToggle } from "@plangs/frontend/components/input-toggle/input-toggle";
-import { setWrapperState, useDispatchable } from "@plangs/frontend/dispatchable";
+import { setComponentState, useDispatchable } from "@plangs/frontend/dispatchable";
 import { DESELECT } from "@plangs/frontend/icons";
 import { BORDER, HOVER, HOVER_SVG_GROUP } from "@plangs/frontend/styles";
 import { $, onClickOnEnter, tap, tw } from "@plangs/frontend/utils";
@@ -32,7 +32,7 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
   }, [pg, edge, node, dir]);
 
   useEffect(() => {
-    const wrapper = setWrapperState(self, isInputFacetElement, state);
+    const wrapper = setComponentState(self, isInputFacetElement, state);
     if (!wrapper) return;
 
     // Toggle indicator.

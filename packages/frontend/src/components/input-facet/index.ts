@@ -6,7 +6,7 @@ import type { InputFacetState } from "./state";
 export type InputFacetElement = HTMLElement & InputFacetProps & { state?: InputFacetState };
 
 export function isInputFacetElement(el?: HTMLElement): el is InputFacetElement {
-  return !!el && el.tagName === TAG_NAME;
+  return !!el && el.tagName.toLowerCase() === TAG_NAME;
 }
 
 export function registerInputFacet() {

@@ -6,7 +6,7 @@ import type { InputToggleState } from "./state";
 export type InputToggleElement = HTMLElement & InputToggleProps & { state?: InputToggleState };
 
 export function isInputToggleElement(el?: HTMLElement): el is InputToggleElement {
-  return !!el && el.tagName === TAG_NAME;
+  return !!el && el.tagName.toLowerCase() === TAG_NAME;
 }
 
 export function registerInputToggle() {

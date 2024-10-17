@@ -1,7 +1,7 @@
 import { BaseGraph, Edge, EdgeMap, Node, NodeMap } from "@plangs/graph";
 import { IterTap, MapTap, arrayMerge } from "@plangs/graph/auxiliar";
 
-import type { PlangFilters } from "./filter";
+import type { PlangFacets } from "./facets";
 
 import type { CommonEdgeData, CommonNodeData, E, Image, Link, N, NLicenseData, NPlangData, NPostData, Release, StrDate } from "./schema";
 export type { E, N } from "./schema";
@@ -52,7 +52,7 @@ export class PlangsGraph extends BaseGraph<N, E, G> {
   } as const;
 
   /** Find all plangs that match the given filters. */
-  plangs(f: PlangFilters, limit = -1): Set<NPlang["key"]> {
+  plangs(f: PlangFacets, limit = -1): Set<NPlang["key"]> {
     const keys = new Set<NPlang["key"]>();
     for (const pl of this.nodes.pl.values) {
       if (limit >= 0 && keys.size >= limit) break;
