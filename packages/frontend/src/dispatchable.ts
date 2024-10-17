@@ -1,10 +1,12 @@
 import { type Dispatch, type MutableRef, useState } from "preact/hooks";
-import { callers } from "./utils";
 
 export abstract class Dispatchable<T> {
   dispatcher!: Dispatch<this>;
 
-  constructor(public data: T) {}
+  constructor(protected data: T) {
+    // NOTE: we can't use private #data because we want to subclass. Protected is a good compromise.
+    // Protected will ensure, at least in TypeScritp land, that data is only accessed through getters.
+  }
 
   clone(): this {
     const Ctor = this.constructor as new (data: T) => this;
@@ -14,15 +16,13 @@ export abstract class Dispatchable<T> {
   }
 
   dispatch(): this {
-    if (!this.dispatcher) throw new Error("No dispatcher. Did you forget to call useDispatchable?");
-    this.dispatcher(this.clone());
-    return this;
+    if (!this.dispatcher) console.error("No dispatcher. Did you forget to call useDispatchable?");
+    return this.maybeDispatch();
   }
 
   /**
-   * Normally attempting Dispatch without having a dispatcher is an error,
-   * but if we are being intentional, sometimes we we want to dispath *if* we are already setup:
-   * for axample, if we use the same method in a factory function and for prop updates in useEffect hook.
+   * If we are aware and intentional,
+   * attempting to dispatch without a dispatcher may be ok.
    */
   maybeDispatch(): this {
     if (this.dispatcher) this.dispatcher(this.clone());
@@ -31,34 +31,32 @@ export abstract class Dispatchable<T> {
 }
 
 /**
- * Allows using a class for state, this way we can just call methods instead
- * of manually implementing method dispatch as with reducers.
- *
- * The instance needs to call `update` to notify the component of changes.
+ * Setup a {@link Dispatchable} instance with a {@link useState} dispatcher.
  */
-// biome-ignore lint/suspicious/noExplicitAny: we want to accept any kind of Dispatchable.
+// biome-ignore lint/suspicious/noExplicitAny: accept any kind of Dispatchable.
 export function useDispatchable<T extends Dispatchable<any>>(instance: T): T {
   const [state, dispatcher] = useState(instance);
   instance.dispatcher = dispatcher;
   return state;
 }
 
-/** Utility to set a property "state" on a customElement. */
+/**
+ * Utility to allow accessing the state when using web components.
+ * {@returns} The customElement, if it is a {@link T}.
+ */
 export function setComponentState<T extends HTMLElement & { state?: S }, S>(
   reactRoot: MutableRef<HTMLElement | undefined>,
   isComponent: (el?: HTMLElement) => el is T,
   state: S,
-): HTMLElement | undefined {
+): T | undefined {
   // The preact element is the direct child of the custom element.
   const wrapper = reactRoot.current?.parentElement;
   if (!wrapper) {
     console.error("No container found for:", reactRoot);
     return;
   }
-
   // We only need to set the state if the compoent is being used as a custom element.
   if (!customElements.get(wrapper.tagName.toLowerCase())) return;
-
   if (isComponent(wrapper)) {
     wrapper.state = state;
     return wrapper;
