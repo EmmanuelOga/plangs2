@@ -10,13 +10,11 @@ export function FacetInput<T extends PlInputKey>({ inputKey }: { inputKey: T }) 
   const baseProps = { id: id(inputKey), name: inputKey };
   const { kind, label, ...rest } = PL_INPUTS[inputKey];
 
+  if (kind === "multiple") return h("input-sel", { ...baseProps, placeholder: label });
+
   if (kind === "facet") {
     if ("props" in rest) Object.assign(baseProps, rest.props);
-    return h("input-facet", { ...baseProps, class: tw("relative", "flex-1") } as Record<string, string>);
-  }
-
-  if (kind === "multiple") {
-    return h("input-sel", { ...baseProps, class: tw("relative", "flex-1"), placeholder: label } as Record<string, string>);
+    return h("input-facet", { ...baseProps });
   }
 
   const inputElem = (

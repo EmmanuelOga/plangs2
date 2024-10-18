@@ -30,9 +30,6 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
     InputFacetState.initial({
       ...{ pg, edge, node, dir, mode: allAnyDefault },
       onChange() {
-        // TODO: this should be done outside the component,
-        // that way we don't have to implement it in every component,
-        // and for things that are not components, like the search input.
         send(self.current?.parentElement, new Event("input", { bubbles: true, composed: true }));
       },
     }),
@@ -62,7 +59,7 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
   const CENTER_ROW = tw("items-center justify-between");
 
   return (
-    <div ref={self as Ref<HTMLDivElement>} class={tw("absolute inset-0", "flex flex-col")}>
+    <div ref={self as Ref<HTMLDivElement>} class={tw("flex flex-col")}>
       <div class={tw("grid grid-cols-[1fr_auto_auto]", "overflow-y-auto")}>
         <div class={tw(ROW, "sticky top-0 cursor-pointer", tw(BORDER, "border-b-1"))}>
           <div class={tw("col-span-3", "py-1", "flex shrink-0 flex-row", "bg-background", CENTER_ROW, tw(BORDER, "border-t-1"))}>

@@ -43,3 +43,7 @@
 .db-r { box-shadow: inset 0 0 0 4px rgba(255 0 0 / .85); background: repeating-linear-gradient(  0deg, rgba(255 0 0 / .5) 0, rgba(255 0 0 / .5) 1px, transparent 0, transparent 50%) top left / 10px 10px; }
 .db-g { box-shadow: inset 0 0 0 4px rgba(0 255 0 / .85); background: repeating-linear-gradient( 45deg, rgba(0 255 0 / .5) 0, rgba(0 255 0 / .5) 1px, transparent 0, transparent 50%) top left / 10px 10px; }
 .db-b { box-shadow: inset 0 0 0 4px rgba(0 0 255 / .85); background: repeating-linear-gradient(-45deg, rgba(0 0 255 / .5) 0, rgba(0 0 255 / .5) 1px, transparent 0, transparent 50%) top left / 10px 10px; }
+
+.quick-pulse {
+  animation: pulse .2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

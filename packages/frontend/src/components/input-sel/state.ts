@@ -1,11 +1,10 @@
 import { Dispatchable } from "@plangs/frontend/dispatchable";
 
 export class InputSelState extends Dispatchable<{
-  onChange: () => void;
   selected: Set<string>; // Set preserves insertion order.
 }> {
-  static initial({ onChange }: { onChange: () => void }): InputSelState {
-    return new InputSelState({ selected: new Set(), onChange });
+  static initial(): InputSelState {
+    return new InputSelState({ selected: new Set(["a", "b", "c", "d"]) });
   }
 
   /** Actions */
@@ -15,10 +14,10 @@ export class InputSelState extends Dispatchable<{
     const { selected } = this.data;
     for (const value of values) {
       if (!value || selected.has(value)) continue;
-      selected.add(value.startsWith(".") ? value : `.${value}`);
+      selected.add(value);
       added = true;
     }
-    if (added) this.dispatchChange();
+    if (added) this.dispatch();
     return added;
   }
 
@@ -31,7 +30,7 @@ export class InputSelState extends Dispatchable<{
       selected.delete(value);
       removed = true;
     }
-    if (removed) this.dispatchChange();
+    if (removed) this.dispatch();
     return removed;
   }
 
@@ -39,10 +38,5 @@ export class InputSelState extends Dispatchable<{
 
   get values() {
     return this.data.selected;
-  }
-
-  dispatchChange() {
-    this.dispatch();
-    this.data.onChange();
   }
 }

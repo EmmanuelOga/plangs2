@@ -30,8 +30,8 @@ export function PlFacets({ class: cssClass }: { class?: string }) {
 
       <div class={tw("grow-1", "overflow-hidden", "bg-linear-to-b to-secondary/50", "flex flex-col")}>
         {groups.flat(1).map(({ key: facetKey, title, keys }) => (
-          <div key={facetKey} id={facetKey} class={tw(cl("facet"), "hidden", "flex-1", "flex flex-col")}>
-            <header class={tw(BAR, "p-2", "truncate", "text-primary", tw(BORDER, "border-b-1"))}>{title}</header>
+          <div key={facetKey} id={facetKey} class={tw(cl("facet"), "hidden", "flex-1", "flex flex-col", "overflow-y-scroll")}>
+            <header class={tw("shrink-0", "p-2", "truncate", "text-primary", tw(BORDER, "border-b-1"), BAR)}>{title}</header>
             <div class={tw("flex-1", "flex flex-col", "gap-4")}>
               {keys.map(inputKey => (
                 <FacetInput key={inputKey} inputKey={inputKey} />

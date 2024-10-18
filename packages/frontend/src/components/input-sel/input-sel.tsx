@@ -4,7 +4,7 @@ import { useEffect, useRef } from "preact/hooks";
 import { InputToggle } from "@plangs/frontend/components/input-toggle/input-toggle";
 import { setComponentState, useDispatchable } from "@plangs/frontend/dispatchable";
 import { HOVER, INPUT } from "@plangs/frontend/styles";
-import { onClickOnEnter, send, tw, withinContainer } from "@plangs/frontend/utils";
+import { $$, debounce, onClickOnEnter, send, tw, withinContainer } from "@plangs/frontend/utils";
 import { cl } from "@plangs/server/elements";
 
 import { isInputSelElement } from ".";
@@ -21,21 +21,7 @@ export const PROP_KEYS: (keyof InputSelProps)[] = ["name", "class"] as const;
 
 export function InputSel({ name: inputName, placeholder, class: cssClass }: InputSelProps) {
   const self = useRef<HTMLDivElement>();
-
-  const state = useDispatchable(
-    InputSelState.initial({
-      onChange() {
-        const dom = self.current;
-        if (!dom) return;
-        const li = dom.querySelector("ul :last-child");
-        const facet = dom.closest(`.${cl("facet")}`);
-        if (li && facet && !withinContainer(li, facet)) li.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        send(dom.parentElement, new Event("input", { bubbles: true, composed: true }));
-        // TODO: better focus handling.
-        if (state.values.size > 0) dom.querySelector("li")?.focus();
-      },
-    }),
-  );
+  const state = useDispatchable(InputSelState.initial());
 
   useEffect(() => {
     setComponentState(self, isInputSelElement, state);
@@ -49,18 +35,36 @@ export function InputSel({ name: inputName, placeholder, class: cssClass }: Inpu
     return Array.from([...state.values].entries().map(cbk));
   }
 
+  /** Scroll the selection so we can see what's been added. */
+  const maybeScroll = (value: string) =>
+    self.current?.querySelector(`button[data-value="${value}"]`)?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+  /** Remove all instances of the pulse animation. */
+  const removePulse = debounce(() => {
+    for (const li of self.current?.querySelectorAll(".quick-pulse") ?? []) li.classList.remove("quick-pulse");
+  }, 150);
+
   return (
-    <div ref={self as Ref<HTMLDivElement>} class={tw(cssClass)}>
+    <div ref={self as Ref<HTMLDivElement>} class={tw(cssClass, "flex flex-col")}>
       <input
         type="search"
         name={inputName}
         placeholder={placeholder}
         class={tw(INPUT, "w-full")}
+        // An input becomes an input on enter key, so don't bubbla these intermediate events up.
+        onInput={(ev: InputEvent) => ev.stopImmediatePropagation()}
         onKeyDown={(ev: KeyboardEvent) => {
           ev.stopPropagation();
           if (ev.key !== "Enter") return;
           const input = ev.target as HTMLInputElement;
-          if (state.doAdd([input.value])) input.value = "";
+          // NOTE: this is ok because input-sel is only used for extensions right now,
+          // but for general usage we should always add a dot as prefix.
+          const val = input.value.startsWith(".") ? input.value : `.${input.value}`;
+          if (state.doAdd([val])) {
+            send(self.current, new Event("input", { bubbles: true, composed: true }));
+            setTimeout(() => maybeScroll(val), 100);
+          }
+          input.value = "";
         }}
       />
 
@@ -80,9 +84,15 @@ export function InputSel({ name: inputName, placeholder, class: cssClass }: Inpu
                 const key = "key" in ev;
                 const b = ev.target as HTMLButtonElement;
                 if (state.doRemove([b.dataset.value])) {
+                  // Timeout: wait till next render.
                   setTimeout(() => {
-                    (nthButton(idx + 1) ?? nthButton(idx) ?? inp())?.focus();
-                  }, 50);
+                    const nb = nthButton(idx + 1) ?? nthButton(idx);
+                    (nb ?? inp())?.focus();
+                    send(self.current, new Event("input", { bubbles: true, composed: true }));
+                    if (!nb) return;
+                    nb.classList.add("quick-pulse"); // Add a pulsing animation to show what's being focused next.
+                    setTimeout(() => removePulse(), 150);
+                  }, 10);
                 }
               })}>
               ❌ {value}
