@@ -1,79 +1,48 @@
 import { Dispatchable } from "@plangs/frontend/dispatchable";
 
-export type Item = {
-  value: unknown;
-  label: string;
-};
-
-export function isItem(value: unknown): value is Item {
-  return typeof value === "object" && value !== null && "value" in value && "label" in value && typeof value.value !== "undefined";
-}
-
-export type ItemRemoved = {
-  by: "click" | "enterKey";
-  index: number;
-  inputName: string;
-  removed: Item;
-  itemsLeft: number;
-};
-
 export class InputSelState extends Dispatchable<{
-  inputName: string;
-  onAdd: (item: Item) => void;
-  onRemove: (data: ItemRemoved) => void;
-  selected: Item[];
+  onChange: () => void;
+  selected: Set<string>; // Set preserves insertion order.
 }> {
-  static initial(partial: Pick<InputSelState["data"], "inputName" | "onAdd" | "onRemove">) {
-    return new InputSelState({ ...partial, selected: [] });
-  }
-
-  propUpdate({ inputName }: { inputName: string }) {
-    if (this.data.inputName === inputName) return;
-    this.data.inputName = inputName;
-    this.dispatch();
+  static initial({ onChange }: { onChange: () => void }): InputSelState {
+    return new InputSelState({ selected: new Set(), onChange });
   }
 
   /** Actions */
 
-  doAdd(items: Item[]) {
+  doAdd(values: (string | undefined)[]): boolean {
     let added = false;
-
-    for (const item of items) {
-      if (this.has(item.value)) continue;
+    const { selected } = this.data;
+    for (const value of values) {
+      if (!value || selected.has(value)) continue;
+      selected.add(value.startsWith(".") ? value : `.${value}`);
       added = true;
-      this.selected.push(item);
-      this.data.onAdd(item);
     }
-
-    if (added) this.dispatch();
+    if (added) this.dispatchChange();
+    return added;
   }
 
-  doRemove(value: Item["value"], by: ItemRemoved["by"]) {
-    const { removed, index, filtered } = this.selectedWithout(value);
-    if (!removed) return;
-    this.data.selected = filtered;
-    this.data.onRemove({ by, removed, index, inputName: this.data.inputName, itemsLeft: filtered.length });
-    this.dispatch();
+  /** Returns the nth next button to focus, if there still values. */
+  doRemove(values: (string | undefined)[]): boolean {
+    let removed = false;
+    const { selected } = this.data;
+    for (const [i, value] of values.entries()) {
+      if (!value || !selected.has(value)) continue;
+      selected.delete(value);
+      removed = true;
+    }
+    if (removed) this.dispatchChange();
+    return removed;
   }
 
   /** Queries */
 
-  get selected(): Item[] {
+  get values() {
     return this.data.selected;
   }
 
-  has(value: Item["value"]): boolean {
-    return this.selected.some(item => item.value === value);
-  }
-
-  selectedWithout(value: Item["value"]): { index: number; removed?: Item; filtered: Item[] } {
-    const result = { index: -1, removed: undefined as Item | undefined, filtered: [] as Item[] };
-    result.filtered = this.selected.filter((item, index) => {
-      if (item.value !== value) return true;
-      result.removed = item;
-      result.index = index;
-      return false;
-    });
-    return result;
+  dispatchChange() {
+    this.dispatch();
+    this.data.onChange();
   }
 }
