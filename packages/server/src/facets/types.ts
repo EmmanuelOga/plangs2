@@ -14,31 +14,25 @@ export type Facet<T extends string> = {
 
 /** Definition for a facet: groups inputs under a title,  and derives a unique key from the title. */
 export function facetGroup<T extends string>(title: string, keys: T[]): Facet<T> {
-  return { title, key: title.replaceAll(/[\/\s]/g, "-").toLowerCase(), keys };
+  return { title, key: title.replaceAll(/[\/\s]/g, "-").toLowerCase(), keys } as const;
 }
 
 /** Data for a checkbox input. */
 export function checkbox(label: string) {
-  return { label, input: { kind: "checkbox" } } as const;
+  return { kind: "checkbox", label } as const;
 }
 
 /** Data for a facet input (input-facet tag). */
 export function facet(label: string, props: { edge: E; node: N; dir?: "direct" | "inverse" } | { source: string }) {
-  if (!("source" in props)) if (!props.dir) props.dir = "direct";
-  return { label, input: { kind: "facet", ...props } } as const;
-}
-
-/** Data for a month input. */
-export function month(label: string) {
-  return { label, input: { kind: "month" } } as const;
+  return { kind: "facet", label, props: "source" in props ? props : { dir: "direct", ...props } } as const;
 }
 
 /** Data for a multiple selection (input-sel tag). */
 export function multiple(label: string) {
-  return { label, input: { kind: "search" } } as const;
+  return { kind: "multiple", label } as const;
 }
 
 /** Data for a search input. */
 export function search(label: string) {
-  return { label, input: { kind: "search" } } as const;
+  return { kind: "search", label } as const;
 }

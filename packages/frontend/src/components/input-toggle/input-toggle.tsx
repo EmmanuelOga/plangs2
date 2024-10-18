@@ -29,27 +29,26 @@ export function InputToggle({ action, disabled, initial }: InputToggleProps) {
   // biome-ignore lint/correctness/useExhaustiveDependencies: state is not a dependency since it is a dispatchable.
   useEffect(() => {
     const newval = disabled === undefined ? false : disabled;
-    if (newval !== state.data.disabled) {
-      state.data.disabled = newval;
+    if (newval !== state.disabled) {
+      state.disabled = newval;
       state.dispatch();
     }
   }, [disabled]);
 
   const toggle = () => {
-    // if (disabled) return;
+    if (disabled) return;
+
     state.toggleMode();
     state.runEffects();
     state.dispatch();
 
-    // Notify data change.
-    send(self.current, customEvent(TAG_NAME, state.data));
+    send(self.current, customEvent(TAG_NAME, state.value));
   };
 
   return (
     <div
       ref={self as Ref<HTMLDivElement>}
-      // biome-ignore lint/a11y/noNoninteractiveTabindex: we make it interactive.
-      tabIndex={0}
+      tabIndex={disabled ? undefined : 0}
       {...onClickOnEnter(toggle)}
       class={tw("group", "cursor-pointer", !disabled && HOVER_SVG)}>
       {state.icon}

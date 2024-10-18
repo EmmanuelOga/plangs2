@@ -13,6 +13,8 @@ export const HOVER_LIST = ["bg-hiliteb", "text-hilitef"]; // for classList add/r
 export const HOVER_SVG = "hover:stroke-1 hover:stroke-hiliteb";
 export const HOVER_SVG_GROUP = "group-hover:stroke-1 group-hover:stroke-hiliteb";
 
+export const INPUT = "bg-background text-foreground placeholder:text-foreground/50";
+
 /** Generate a stripped background image style. */
 export function stripes(size = "10px", col1 = "var(--color-stripes)", col2 = "var(--color-background)") {
   const grad = "radial-gradient(transparent 0, var(--color-background) 75%) top left / 100% 100%";

@@ -46,22 +46,6 @@ export function withinContainer(el: Element, container: Element): boolean {
   return rect.top >= parent.top && rect.bottom <= parent.bottom && rect.left >= parent.left && rect.right <= parent.right;
 }
 
-/**
- * Check if the target of an event is of a certain type.
- * We ask for the target and not the event because of how TS type assertions work.
- * {@example} `if (assertEventTarget<HtmlInputElement>(ev.target, t => 'tagName' in t && t.tagName === "INPUT")){
- *   ev.target // is now an HtmlInputElement
- * }`
- */
-export function checkEventTarget<T>(target: unknown, check: (target: T) => boolean): target is T {
-  try {
-    return target !== undefined && check(target as T);
-  } catch (e) {
-    console.warn("Error checking assertion", e);
-  }
-  return false;
-}
-
 /** Collect tailwind classes. Passing a number adds an outline and bg color. */
 export const tw = (...classes: (string | undefined | boolean | string[])[]) =>
   classes
@@ -92,17 +76,17 @@ export function toggleClasses(element: HTMLElement | null | undefined, classes: 
 }
 
 /** Call the same action on Enter or Click. */
-export function onClickOnEnter(action: () => void) {
+export function onClickOnEnter(action: (ev: UIEvent) => void) {
   return {
     onClick: (ev: MouseEvent) => {
       ev.stopPropagation();
-      action();
+      action(ev);
     },
     onKeyDown: (ev: KeyboardEvent) => {
       ev.stopPropagation();
       if (ev.key === "Enter") {
         ev.preventDefault();
-        action();
+        action(ev);
       }
     },
   };

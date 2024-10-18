@@ -1,5 +1,5 @@
 import { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs/index";
-import { checkbox, facet, facetGroup, month, multiple, search } from "./types";
+import { checkbox, facet, facetGroup, multiple, search } from "./types";
 
 /** All the inputs: we'll distribute them among facets. */
 export const PL_INPUTS = {
@@ -7,15 +7,15 @@ export const PL_INPUTS = {
 
   extensions: multiple("File Extension"),
 
+  createdRecently: checkbox("Created recently"),
   hasLogo: checkbox("Has Logo"),
   hasWikipedia: checkbox("Has Wikipedia"),
   isMainstream: checkbox("Is Mainstream"),
   isTranspiler: checkbox("Is Transpiler"),
-  releasesRecently: checkbox("Released recently"),
-
-  creationDate: facet("Creation Date", { source: "creationDate" }),
+  releasedRecently: checkbox("Released recently"),
 
   compilesTo: facet("Compiles To", { edge: "compilesTo", node: NPlang.kind }),
+  creationDate: facet("Creation Date", { source: "creationDate" }),
   dialectOf: facet("Dialect Of", { edge: "dialect", node: NPlang.kind }),
   implements: facet("Implements", { edge: "impl", node: NPlang.kind }),
   influenced: facet("Influenced", { edge: "influence", node: NPlang.kind, dir: "inverse" }),
@@ -28,23 +28,35 @@ export const PL_INPUTS = {
   writtenIn: facet("Written In", { edge: "writtenIn", node: NPlang.kind }),
 } as const;
 
+type K = keyof typeof PL_INPUTS;
+
 /** Groups of facets for Plangs. */
 export const PL_FACET_GROUPS = [
   [
-    facetGroup("General", ["plangName", "hasLogo", "hasWikipedia", "isMainstream", "extensions"]), // +Released Recently
-    facetGroup("Tags", ["tags"]),
+    facetGroup<K>("General", ["plangName", "createdRecently", "releasedRecently", "hasLogo", "hasWikipedia", "isMainstream", "extensions"]),
+    // fmt.
   ],
-  [facetGroup("Platforms", ["platforms"]), facetGroup("Paradigms", ["paradigms"]), facetGroup("Type Systems", ["typeSystems"])],
   [
-    facetGroup("Written In", ["writtenIn"]),
-    facetGroup("Transpiler", ["isTranspiler", "compilesTo"]),
-    facetGroup("Dialect Of", ["dialectOf"]),
-    facetGroup("Implements", ["implements"]),
-    facetGroup("Influenced By", ["influencedBy"]),
-    facetGroup("Influenced", ["influenced"]),
+    facetGroup<K>("Platforms", ["platforms"]),
+    facetGroup<K>("Paradigms", ["paradigms"]),
+    facetGroup<K>("Type Systems", ["typeSystems"]),
+    // fmt.
   ],
-  [facetGroup("Created Year", ["appearedAfter"]), facetGroup("Released Year", ["hasReleases", "releasedAfter"])],
-  [facetGroup("Licenses", ["licenses"])],
+  [
+    facetGroup<K>("Written In", ["writtenIn"]),
+    facetGroup<K>("Transpiler", ["isTranspiler", "compilesTo"]),
+    facetGroup<K>("Dialect Of", ["dialectOf"]),
+    facetGroup<K>("Implements", ["implements"]),
+    facetGroup<K>("Influenced By", ["influencedBy"]),
+    facetGroup<K>("Influenced", ["influenced"]),
+    // fmt.
+  ],
+  [
+    facetGroup<K>("Tags", ["tags"]),
+    facetGroup<K>("Creation Year", ["creationDate"]),
+    facetGroup<K>("Licenses", ["licenses"]),
+    // fmt.
+  ],
 ] as const;
 
 export type PlInputKey = keyof typeof PL_INPUTS;

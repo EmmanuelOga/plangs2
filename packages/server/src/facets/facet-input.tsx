@@ -1,46 +1,35 @@
-import { tw } from "@plangs/frontend/utils";
-
 import { h } from "preact";
-import { cl, id } from "../elements";
+
+import { INPUT } from "@plangs/frontend/styles";
+import { tw } from "@plangs/frontend/utils";
+import { cl, id } from "@plangs/server/elements";
+
 import { PL_INPUTS, type PlInputKey } from "./pl_inputs";
 
 export function FacetInput<T extends PlInputKey>({ inputKey }: { inputKey: T }) {
   const baseProps = { id: id(inputKey), name: inputKey };
+  const { kind, label, ...rest } = PL_INPUTS[inputKey];
 
-  const { label, input } = PL_INPUTS[inputKey];
-
-  if (input.kind === "facet") {
-    return h("input-facet", {
-      ...baseProps,
-      class: tw("relative", "flex-1"),
-      dir: input.dir,
-      edge: input.edge,
-      node: input.node,
-      // pg needs to assigned on the frontend.
-    } as Record<string, string>);
+  if (kind === "facet") {
+    if ("props" in rest) Object.assign(baseProps, rest.props);
+    return h("input-facet", { ...baseProps, class: tw("relative", "flex-1") } as Record<string, string>);
   }
 
-  const inputTextColor = "bg-background text-foreground placeholder:text-foreground/50";
+  if (kind === "multiple") {
+    return h("input-sel", { ...baseProps, class: tw("relative", "flex-1"), placeholder: label } as Record<string, string>);
+  }
+
   const inputElem = (
-    <input
-      {...baseProps}
-      class={tw(cl("facetInput"), inputTextColor, input.kind === "checkbox" ? "-mt-1" : "w-full")}
-      value={"value" in input ? input.value : undefined}
-      placeholder={label}
-      type={input.kind}
-    />
+    <input {...baseProps} type={kind} placeholder={label} class={tw(cl("facetInput"), kind === "checkbox" ? "-mt-1" : "w-full", INPUT)} />
   );
 
-  return (
-    <>
-      {input.kind === "checkbox" ? (
-        <label for={baseProps.id} class={tw("block", "px-2")}>
-          {inputElem}
-          <span class="ml-2">{label}</span>
-        </label>
-      ) : (
-        inputElem
-      )}
-    </>
-  );
+  if (kind === "checkbox")
+    return (
+      <label for={baseProps.id} class={tw("block", "px-2")}>
+        {inputElem}
+        <span class="ml-2">{label}</span>
+      </label>
+    );
+
+  return inputElem;
 }

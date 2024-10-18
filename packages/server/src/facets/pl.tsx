@@ -40,8 +40,7 @@ export function PlFacets({ class: cssClass }: { class?: string }) {
           </div>
         ))}
       </div>
-
-      {script(`setTimeout(() => window.focusFilter('tags'), 100);`)}
+      {script(`setTimeout(() => window.focusFilter('general'), 1);`)}
     </aside>
   );
 }

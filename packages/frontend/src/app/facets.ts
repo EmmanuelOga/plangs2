@@ -26,19 +26,16 @@ export function getFacets(): PlangFacets {
 
   collect("plangName", trimVal, val => (flt.plangName.value = new RegExp(val, "i")));
 
-  collect("appearedAfter", trimVal, val => (flt.appearedAfter.value = val as StrDate));
-  collect("releasedAfter", trimVal, val => (flt.releasedAfter.value = val as StrDate));
-
   const getChecked = (input: HTMLElement) => (input as HTMLInputElement).checked;
 
-  collect("hasLogo", getChecked, val => {
-    return (flt.hasLogo.value = val);
-  });
+  // collect("extensions", getFacet<string>, val => (flt.extensions.value = val));
 
-  collect("hasReleases", getChecked, val => (flt.hasReleases.value = val));
+  collect("createdRecently", getChecked, val => (flt.hasReleases.value = val));
+  collect("hasLogo", getChecked, val => (flt.hasLogo.value = val));
   collect("hasWikipedia", getChecked, val => (flt.hasWikipedia.value = val));
-  collect("isTranspiler", getChecked, val => (flt.isTranspiler.value = val));
   collect("isMainstream", getChecked, val => (flt.isMainstream.value = val));
+  collect("isTranspiler", getChecked, val => (flt.isTranspiler.value = val));
+  collect("releasedRecently", getChecked, val => (flt.hasReleases.value = val));
 
   function getFacet<T>(input: HTMLElement): Filter<T> | undefined {
     if (isInputFacetElement(input) && input.state) {
@@ -48,9 +45,9 @@ export function getFacets(): PlangFacets {
     return undefined;
   }
 
-  collect("dialectOf", getFacet<NPlang["key"]>, val => (flt.dialectOf.value = val));
   collect("compilesTo", getFacet<NPlang["key"]>, val => (flt.compilesTo.value = val));
-  collect("extensions", getFacet<string>, val => (flt.extensions.value = val));
+  collect("creationDate", getFacet<NPlang["key"]>, val => console.log("creationDate", "TODO"));
+  collect("dialectOf", getFacet<NPlang["key"]>, val => (flt.dialectOf.value = val));
   collect("implements", getFacet<NPlang["key"]>, val => (flt.implements.value = val));
   collect("influenced", getFacet<NPlang["key"]>, val => (flt.influenced.value = val));
   collect("influencedBy", getFacet<NPlang["key"]>, val => (flt.influencedBy.value = val));

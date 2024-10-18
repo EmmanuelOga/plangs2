@@ -30,6 +30,9 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
     InputFacetState.initial({
       ...{ pg, edge, node, dir, mode: allAnyDefault },
       onChange() {
+        // TODO: this should be done outside the component,
+        // that way we don't have to implement it in every component,
+        // and for things that are not components, like the search input.
         send(self.current?.parentElement, new Event("input", { bubbles: true, composed: true }));
       },
     }),
