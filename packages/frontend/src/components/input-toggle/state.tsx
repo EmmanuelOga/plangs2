@@ -7,11 +7,9 @@ import { elem } from "@plangs/server/elements";
 
 import type { InputToggleProps } from "./input-toggle";
 
-export function useToggleState({
-  action,
-  disabled,
-  initial,
-}: InputToggleProps): ToggleLights | ToggleHamburguer | ToggleFacets | ToggleFacetMode | ToggleDummy {
+export type InputToggleState = ToggleLights | ToggleHamburguer | ToggleFacets | ToggleFacetMode | ToggleDummy;
+
+export function useToggleState({ action, disabled, initial }: InputToggleProps): InputToggleState {
   if (action === "lights") return useDispatchable(ToggleLights.initial(disabled));
   if (action === "hamburger") return useDispatchable(ToggleHamburguer.initial(disabled));
   if (action === "facets") return useDispatchable(ToggleFacets.initial(disabled));
