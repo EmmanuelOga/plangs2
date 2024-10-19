@@ -1,8 +1,8 @@
+import type { PlInfoElement } from "@plangs/frontend/components/pl-info";
+import { elem, on } from "@plangs/frontend/utils";
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 import { cl } from "@plangs/server/elements";
 
-import type { PlInfoElement } from "../components/pl-info";
-import { elem, on } from "../utils";
 import { currentTab } from "./tabs";
 
 /** Attempt to load a plang using the nearest data-key attribute. */

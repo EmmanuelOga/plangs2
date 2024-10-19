@@ -5,9 +5,8 @@ import { InputToggle } from "@plangs/frontend/components/input-toggle/input-togg
 import { setComponentState, useDispatchable } from "@plangs/frontend/dispatchable";
 import { DESELECT } from "@plangs/frontend/icons";
 import { BORDER, HOVER, HOVER_SVG_GROUP } from "@plangs/frontend/styles";
-import { $, on, onClickOnEnter, send, tap, tw } from "@plangs/frontend/utils";
+import { on, onClickOnEnter, send, tap, tw } from "@plangs/frontend/utils";
 import type { E, N, PlangsGraph } from "@plangs/plangs";
-import { cl } from "@plangs/server/elements";
 
 import { isInputFacetElement } from ".";
 import { InputFacetState } from "./state";

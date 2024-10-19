@@ -2,13 +2,11 @@ import { RISON } from "rison2";
 
 import type { InputFacetElement } from "@plangs/frontend/components/input-facet";
 import type { PlInfoElement } from "@plangs/frontend/components/pl-info";
+import { $, $$, debounce, elem, elems, minWidthBP, on, size } from "@plangs/frontend/utils";
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 import type { PlangFacets } from "@plangs/plangs/facets";
-import { FILTER_KEY, cl, id } from "@plangs/server/elements";
+import { FILTER_KEY, cl } from "@plangs/server/elements";
 
-import { $, $$, debounce, elem, elems, minWidthBP, on, size } from "../utils";
-
-import type { InputKind } from "@plangs/server/facets/types";
 import { facetsFromFragment, facetsFromLocalStorage, getFacets, inputIsActive } from "./facets";
 import { getPl } from "./pl";
 

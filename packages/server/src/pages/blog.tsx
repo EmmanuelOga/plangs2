@@ -2,8 +2,7 @@ import { Anchor } from "@plangs/frontend/components/misc/anchor";
 import { PROSE } from "@plangs/frontend/styles";
 import { tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
-
-import { Layout } from "../components/layout";
+import { Layout } from "@plangs/server/components/layout";
 
 export function Blog({ pg }: { pg: PlangsGraph }) {
   const postLinks = pg.nodes.post.values.reverse.map(

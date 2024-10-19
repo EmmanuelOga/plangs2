@@ -1,14 +1,14 @@
 import "preact/debug";
 
+import { registerInputFacet } from "@plangs/frontend/components/input-facet";
+import { registerInputSel } from "@plangs/frontend/components/input-sel";
+import { registerInputToggle } from "@plangs/frontend/components/input-toggle";
+import { ToggleFacets, ToggleHamburguer, ToggleLights } from "@plangs/frontend/components/input-toggle/state";
+import { type PlInfoElement, registerPlangInfo } from "@plangs/frontend/components/pl-info";
+import { elem, elems, toggleClasses } from "@plangs/frontend/utils";
 import { PlangsGraph } from "@plangs/plangs";
 import pgData from "@plangs/server/plangs.json";
 
-import { registerInputFacet } from "../components/input-facet";
-import { registerInputSel } from "../components/input-sel";
-import { registerInputToggle } from "../components/input-toggle";
-import { ToggleFacets, ToggleHamburguer, ToggleLights } from "../components/input-toggle/state";
-import { type PlInfoElement, registerPlangInfo } from "../components/pl-info";
-import { elem, elems, toggleClasses } from "../utils";
 import { startGridNav } from "./grid";
 import { connectLivereload } from "./livereload";
 import { hookPlInfo, lastPlang } from "./pl";

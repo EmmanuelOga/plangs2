@@ -1,7 +1,7 @@
 import { BORDER } from "@plangs/frontend/styles";
 import { script, tw } from "@plangs/frontend/utils";
+import { cl, id } from "@plangs/server/elements";
 
-import { cl, id } from "../elements";
 import type { TAB } from "./layout";
 
 export function MainNav({ tab, class: cssClass }: { tab: TAB; class?: string }) {

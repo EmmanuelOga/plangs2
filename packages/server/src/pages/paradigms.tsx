@@ -1,9 +1,8 @@
+import { Anchor } from "@plangs/frontend/components/misc/anchor";
 import { BORDER, PROSE } from "@plangs/frontend/styles";
 import { tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
-
-import { Anchor } from "@plangs/frontend/components/misc/anchor";
-import { Layout } from "../components/layout";
+import { Layout } from "@plangs/server/components/layout";
 
 export function Paradigms({ pg }: { pg: PlangsGraph }) {
   const entries = pg.nodes.paradigm.values.map(node => (

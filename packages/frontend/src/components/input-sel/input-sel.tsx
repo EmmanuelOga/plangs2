@@ -4,8 +4,7 @@ import { useEffect, useRef } from "preact/hooks";
 import { InputToggle } from "@plangs/frontend/components/input-toggle/input-toggle";
 import { setComponentState, useDispatchable } from "@plangs/frontend/dispatchable";
 import { HOVER, INPUT } from "@plangs/frontend/styles";
-import { $$, debounce, onClickOnEnter, send, tw, withinContainer } from "@plangs/frontend/utils";
-import { cl } from "@plangs/server/elements";
+import { debounce, onClickOnEnter, send, tw } from "@plangs/frontend/utils";
 
 import { isInputSelElement } from ".";
 import { InputSelState } from "./state";

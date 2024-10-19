@@ -4,10 +4,9 @@ import { PlInfo } from "@plangs/frontend/components/pl-info/pl-info";
 import { BORDER, PROSE } from "@plangs/frontend/styles";
 import { tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs";
-
-import { Layout } from "../components/layout";
-import { Table } from "../components/table";
-import { id } from "../elements";
+import { Layout } from "@plangs/server/components/layout";
+import { Table } from "@plangs/server/components/table";
+import { id } from "@plangs/server/elements";
 
 export function Pl({ pl }: { pl: NPlang }) {
   return (

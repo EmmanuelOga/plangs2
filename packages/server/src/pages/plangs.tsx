@@ -1,11 +1,11 @@
-import { PlThumb } from "@plangs/frontend/components/misc/pl-thumb";
-import { script, style, tw } from "@plangs/frontend/utils";
-import type { PlangsGraph } from "@plangs/plangs";
-
 import { h } from "preact";
-import { Layout } from "../components/layout";
-import { id } from "../elements";
-import { PlFacets } from "../facets/pl";
+
+import { PlThumb } from "@plangs/frontend/components/misc/pl-thumb";
+import { script, tw } from "@plangs/frontend/utils";
+import type { PlangsGraph } from "@plangs/plangs";
+import { Layout } from "@plangs/server/components/layout";
+import { id } from "@plangs/server/elements";
+import { PlFacets } from "@plangs/server/facets/pl";
 
 export function Plangs({ pg }: { pg: PlangsGraph }) {
   return (

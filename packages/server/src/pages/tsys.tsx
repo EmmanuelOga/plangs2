@@ -2,8 +2,7 @@ import { Anchor } from "@plangs/frontend/components/misc/anchor";
 import { BORDER, PROSE } from "@plangs/frontend/styles";
 import { tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
-
-import { Layout } from "../components/layout";
+import { Layout } from "@plangs/server/components/layout";
 
 export function TSys({ pg }: { pg: PlangsGraph }) {
   const entries = pg.nodes.tsys.values.map(tsys => (
