@@ -40,7 +40,7 @@ export function PlFacets({ class: cssClass }: { class?: string }) {
           </div>
         ))}
       </div>
-      {script(`setTimeout(() => window.focusFilter('general'), 1);`)}
+      {script(`setTimeout(() => window.focusFilter('platforms'), 1);`)}
     </aside>
   );
 }

@@ -4,13 +4,12 @@ import { Dispatchable } from "@plangs/frontend/dispatchable";
 import { SORT_DOWN, SORT_UP } from "@plangs/frontend/icons";
 import { tw } from "@plangs/frontend/utils";
 import type { EncodedFilter } from "@plangs/graph/auxiliar";
+import type { E, N } from "@plangs/plangs";
 
 import type { InputFacetProps } from "./input-facet";
 
-export type Entry = { value: string; label: string; count: number };
-
 export class InputFacetState extends Dispatchable<
-  InputFacetProps & { entries: Entry[]; order: Order; selected: Set<string>; onChange: () => void; mode: "all" | "any" }
+  InputFacetProps & { entries: Entry[]; order: Order; selected: Set<string>; onChange: () => void; config?: InputFacetConfig; mode: "all" | "any" }
 > {
   /** Factory function for creating the initial state. */
   static initial(props: InputFacetProps & { onChange: () => void; mode: "all" | "any" }): InputFacetState {
@@ -20,27 +19,46 @@ export class InputFacetState extends Dispatchable<
   /** Updates is used when updating from a prop change. */
   generateEntries(updates?: InputFacetProps): this {
     if (updates) Object.assign(this.data, updates);
-    const { pg, edge, dir, node } = this.data;
+    const { pg, jsonconf } = this.data;
 
+    this.data.config = undefined;
     this.data.entries = [];
 
-    // We need all the properties to generate the entries, so bail out (wait for props).
-    if (!pg || !edge || !dir || !node) return this;
+    // We need both to generate entries.
+    if (!pg || !jsonconf) return this;
 
-    const emap = dir === "direct" ? pg.edges[edge].adjTo : pg.edges[edge].adjFrom;
-    if (!emap) {
-      console.error("No edges found for:", edge, dir);
+    const config = parseConfig(jsonconf);
+    if (!config) {
+      console.error("Invalid config:", jsonconf);
+      return this;
+    }
+    this.data.config = config;
+
+    if (config.kind === "noderel") {
+      const { edge, dir } = config;
+
+      const emap = dir === "direct" ? pg.edges[edge].adjTo : pg.edges[edge].adjFrom;
+      if (!emap) {
+        console.error("No edges found for:", edge, dir);
+        return this;
+      }
+
+      this.data.entries = [...emap.entries2()].map(([key, anyEdge, edges]) => {
+        const name = (dir === "direct" ? anyEdge.nodeTo : anyEdge.nodeFrom)?.name ?? anyEdge.key;
+        return { value: key, label: name, count: edges.size };
+      });
+
+      this.sort();
+
+      return this.maybeDispatch();
+    }
+
+    if (config.kind === "year") {
+      console.error("TODO: Implement year facet.");
       return this;
     }
 
-    this.data.entries = [...emap.entries2()].map(([key, anyEdge, edges]) => {
-      const name = (dir === "direct" ? anyEdge.nodeTo : anyEdge.nodeFrom)?.name ?? anyEdge.key;
-      return { value: key, label: name, count: edges.size };
-    });
-
-    this.sort();
-
-    return this.maybeDispatch();
+    return this;
   }
 
   /** Actions */
@@ -85,7 +103,7 @@ export class InputFacetState extends Dispatchable<
   /** Queries */
 
   header(col: Col) {
-    const { node, order } = this.data;
+    const { order, config } = this.data;
 
     let icon: JSX.Element | false;
 
@@ -95,7 +113,7 @@ export class InputFacetState extends Dispatchable<
 
     return (
       <span class={tw("inline-flex", "items-center justify-between", "gap-1")}>
-        <span class={tw()}>{col === "facet" ? node : col}</span>
+        <span class={tw()}>{col === "facet" ? (config?.node ?? "-") : col}</span>
         <span class={tw("scale-75", "mt-1")}>{icon}</span>
       </span>
     );
@@ -134,7 +152,7 @@ export class InputFacetState extends Dispatchable<
     this.data.onChange();
   }
 
-  sort() {
+  private sort() {
     const { entries, order } = this.data;
     entries.sort((a, b) => CMP[order](this, a, b));
   }
@@ -159,3 +177,17 @@ const CMP: Record<Order, Cmp> = {
   "sel-asc": (s, a, b) => Number(s.isSelected(a.value)) - Number(s.isSelected(b.value)),
   "sel-desc": (s, a, b) => Number(s.isSelected(b.value)) - Number(s.isSelected(a.value)),
 } as const;
+
+export type Entry = { value: string; label: string; count: number };
+
+export type InputFacetConfig = { kind: "noderel"; node: N; edge: E; dir: "direct" | "inverse" } | { kind: "year"; node: N };
+
+/** Return a typechecked configuration, or undefined if the properties are not found. */
+export function parseConfig(jsonconf: string): InputFacetConfig | undefined {
+  const config = JSON.parse(jsonconf);
+  const { node, edge, dir } = config;
+  if (config.kind === "noderel" && node && edge && dir) {
+    return { kind: "noderel", node, edge, dir };
+  }
+  if (config.kind === "year" && config.node) return { kind: "year", node: config.node };
+}

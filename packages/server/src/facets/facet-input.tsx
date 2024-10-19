@@ -13,8 +13,9 @@ export function FacetInput<T extends PlInputKey>({ inputKey }: { inputKey: T }) 
   if (kind === "multiple") return h("input-sel", { ...baseProps, placeholder: label });
 
   if (kind === "facet") {
-    if ("props" in rest) Object.assign(baseProps, rest.props);
-    return h("input-facet", { ...baseProps });
+    if (!("jsonconf" in rest)) throw new Error("Facet input must have a jsonconf prop");
+    // @ts-ignore need to define the props on input-facet on global namespace.
+    return h("input-facet", { ...baseProps, jsonconf: JSON.stringify(rest.jsonconf) });
   }
 
   const inputElem = (

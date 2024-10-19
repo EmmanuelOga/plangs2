@@ -1,6 +1,6 @@
 /** Utils to construct facet data. */
 
-import type { E, N } from "@plangs/plangs/schema";
+import type { InputFacetConfig } from "@plangs/frontend/components/input-facet/state";
 
 /** Configuration for a facet: a titled group of inputs to use to filter nodes. */
 export type Facet<T extends string> = {
@@ -26,9 +26,9 @@ export function checkbox(label: string) {
 }
 
 /** Data for a facet input (input-facet tag). */
-export function facet(label: string, props: { edge: E; node: N; dir?: "direct" | "inverse" } | { source: string }) {
+export function facet(label: string, jsonconf: InputFacetConfig) {
   const kind: InputKind = "facet";
-  return { kind, label, props: "source" in props ? props : { dir: "direct", ...props } } as const;
+  return { kind, label, jsonconf } as const;
 }
 
 /** Data for a multiple selection (input-sel tag). */

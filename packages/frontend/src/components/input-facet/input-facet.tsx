@@ -6,28 +6,31 @@ import { setComponentState, useDispatchable } from "@plangs/frontend/dispatchabl
 import { DESELECT } from "@plangs/frontend/icons";
 import { BORDER, HOVER, HOVER_SVG_GROUP } from "@plangs/frontend/styles";
 import { on, onClickOnEnter, send, tap, tw } from "@plangs/frontend/utils";
-import type { E, N, PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs";
 
 import { isInputFacetElement } from ".";
 import { InputFacetState } from "./state";
 
 export type InputFacetProps = {
   pg?: PlangsGraph;
-  node?: N;
-  edge?: E;
-  dir?: "direct" | "inverse";
+  /**
+   * This needs to be JSON because the facet is configured from the server's static HTML.
+   * An alternative would be to have manu unrelated props for each kind of facet, so we pick our poison :-).
+   * The result of parsing this JSON should be of type InputFacetConfig.
+   */
+  jsonconf?: string;
 };
 
 export const TAG_NAME = "input-facet";
-export const PROP_KEYS: (keyof InputFacetProps)[] = ["pg", "node", "edge", "dir"];
+export const PROP_KEYS: (keyof InputFacetProps)[] = ["pg", "jsonconf"] as const;
 
-export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
+export function InputFacet({ pg, jsonconf }: InputFacetProps) {
   const self = useRef<HTMLDivElement>();
 
   const allAnyDefault = "any";
   const state = useDispatchable(
     InputFacetState.initial({
-      ...{ pg, edge, node, dir, mode: allAnyDefault },
+      ...{ pg, jsonconf, mode: allAnyDefault },
       onChange() {
         send(self.current?.parentElement, new Event("input", { bubbles: true, composed: true }));
       },
@@ -36,8 +39,8 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: only missing state, which is a dispatchable.
   useEffect(() => {
-    state.generateEntries({ pg, edge, node, dir });
-  }, [pg, edge, node, dir]);
+    state.generateEntries({ pg, jsonconf });
+  }, [pg, jsonconf]);
 
   useEffect(() => {
     const wrapper = setComponentState(self, isInputFacetElement, state);

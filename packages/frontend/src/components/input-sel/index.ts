@@ -9,7 +9,6 @@ export function isInputSelElement(el?: HTMLElement): el is InputSelElement {
   return !!el && el.tagName.toLowerCase() === TAG_NAME;
 }
 
-/** Register the Custom Element. */
 export function registerInputSel() {
   register(InputSel, TAG_NAME, PROP_KEYS);
 }
