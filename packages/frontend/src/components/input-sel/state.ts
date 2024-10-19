@@ -4,7 +4,7 @@ export class InputSelState extends Dispatchable<{
   selected: Set<string>; // Set preserves insertion order.
 }> {
   static initial(): InputSelState {
-    return new InputSelState({ selected: new Set(["a", "b", "c", "d"]) });
+    return new InputSelState({ selected: new Set() });
   }
 
   /** Actions */
@@ -38,5 +38,9 @@ export class InputSelState extends Dispatchable<{
 
   get values() {
     return this.data.selected;
+  }
+
+  get hasSelection(): boolean {
+    return this.values.size > 0;
   }
 }

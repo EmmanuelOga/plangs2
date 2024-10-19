@@ -46,7 +46,7 @@ export class InputFacetState extends Dispatchable<
   /** Actions */
 
   doSetMode(mode: "all" | "any") {
-    this.data.mode = mode;
+    this.data.mode = mode === "all" ? "all" : "any";
     this.dispatchChange();
   }
 
@@ -115,7 +115,7 @@ export class InputFacetState extends Dispatchable<
     return this.data.entries;
   }
 
-  get selected() {
+  get values() {
     return this.data.selected;
   }
 

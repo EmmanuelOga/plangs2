@@ -44,10 +44,6 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
     const wrapper = setComponentState(self, isInputFacetElement, state);
     if (!wrapper) return;
 
-    // Toggle indicator.
-    const facet = wrapper.closest(`.${cl("facet")}`);
-    $(`.${cl("facetIndicator")}[data-facet=${facet?.id}]`)?.classList.toggle("text-primary", state.hasSelection);
-
     return on(self?.current, "input-toggle", (ev: CustomEvent) => {
       ev.stopPropagation();
       state.doSetMode(ev.detail.mode === "all" ? "all" : "any");
@@ -63,8 +59,8 @@ export function InputFacet({ pg, edge, node, dir }: InputFacetProps) {
       <div class={tw("grid grid-cols-[1fr_auto_auto]", "overflow-y-auto")}>
         <div class={tw(ROW, "sticky top-0 cursor-pointer", tw(BORDER, "border-b-1"))}>
           <div class={tw("col-span-3", "py-1", "flex shrink-0 flex-row", "bg-background", CENTER_ROW, tw(BORDER, "border-t-1"))}>
-            <span class={tw("inline-flex", CENTER_ROW, state.selected.size < 2 ? "text-foreground/50" : "text-foreground", "pl-2")}>
-              <InputToggle action="allAny" disabled={state.selected.size < 2} initial={allAnyDefault} />
+            <span class={tw("inline-flex", CENTER_ROW, state.values.size < 2 ? "text-foreground/50" : "text-foreground", "pl-2")}>
+              <InputToggle action="allAny" disabled={state.values.size < 2} initial={allAnyDefault} />
             </span>
             <span
               // biome-ignore lint/a11y/noNoninteractiveTabindex: we make it interactive.

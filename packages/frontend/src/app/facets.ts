@@ -7,7 +7,9 @@ import type { EncodedPlangFilters } from "@plangs/plangs/facets";
 import type { StrDate } from "@plangs/plangs/schema";
 import type { IDKey } from "@plangs/server/elements";
 
-import { isInputFacetElement } from "../components/input-facet";
+import type { InputKind } from "@plangs/server/facets/types";
+import { type InputFacetElement, isInputFacetElement } from "../components/input-facet";
+import type { InputSelElement } from "../components/input-sel";
 import { elem } from "../utils";
 
 /** Create a plan filter from the inputs values. */
@@ -39,7 +41,7 @@ export function getFacets(): PlangFacets {
 
   function getFacet<T>(input: HTMLElement): Filter<T> | undefined {
     if (isInputFacetElement(input) && input.state) {
-      const { selected, mode } = input.state;
+      const { values: selected, mode } = input.state;
       return new Filter<T>(mode, selected as Set<T>);
     }
     return undefined;
@@ -85,4 +87,14 @@ export function facetsFromLocalStorage(): EncodedPlangFilters | undefined {
       localStorage.removeItem("plangs-filters");
     }
   }
+}
+
+/** Check wether a facet input has aset value or not. */
+export function inputIsActive(input: HTMLElement): boolean {
+  const kind = input.dataset.facetInput as InputKind;
+  if (kind === "checkbox") return (input as HTMLInputElement).checked;
+  if (kind === "search") return (input as HTMLInputElement).value.trim().length > 0;
+  if (kind === "facet") return !!(input as InputFacetElement).state?.hasSelection;
+  if (kind === "multiple") return !!(input as InputSelElement).state?.hasSelection;
+  return false;
 }

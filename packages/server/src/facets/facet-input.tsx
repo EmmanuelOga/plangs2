@@ -7,8 +7,8 @@ import { cl, id } from "@plangs/server/elements";
 import { PL_INPUTS, type PlInputKey } from "./pl_inputs";
 
 export function FacetInput<T extends PlInputKey>({ inputKey }: { inputKey: T }) {
-  const baseProps = { id: id(inputKey), name: inputKey };
   const { kind, label, ...rest } = PL_INPUTS[inputKey];
+  const baseProps = { id: id(inputKey), name: inputKey, "data-facet-input": kind };
 
   if (kind === "multiple") return h("input-sel", { ...baseProps, placeholder: label });
 

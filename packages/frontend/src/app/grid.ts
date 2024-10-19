@@ -4,11 +4,12 @@ import type { InputFacetElement } from "@plangs/frontend/components/input-facet"
 import type { PlInfoElement } from "@plangs/frontend/components/pl-info";
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 import type { PlangFacets } from "@plangs/plangs/facets";
-import { FILTER_KEY, id } from "@plangs/server/elements";
+import { FILTER_KEY, cl, id } from "@plangs/server/elements";
 
-import { $$, debounce, elem, elems, minWidthBP, on, size } from "../utils";
+import { $, $$, debounce, elem, elems, minWidthBP, on, size } from "../utils";
 
-import { facetsFromFragment, facetsFromLocalStorage, getFacets } from "./facets";
+import type { InputKind } from "@plangs/server/facets/types";
+import { facetsFromFragment, facetsFromLocalStorage, getFacets, inputIsActive } from "./facets";
 import { getPl } from "./pl";
 
 export function startGridNav(pg: PlangsGraph) {
@@ -42,7 +43,6 @@ export function startGridNav(pg: PlangsGraph) {
   const plGrid = elem<HTMLDivElement>("plGrid");
   const thumbs = elems<HTMLDivElement>("plThumb");
   function updatePlangs() {
-    console.log("Call upd grid");
     if (thumbs.length === 0 || plGrid === undefined) return;
     const filters = getFacets();
 
@@ -64,28 +64,21 @@ export function startGridNav(pg: PlangsGraph) {
   const debouncedUpdatePlangs = debounce(updatePlangs, 30);
   window.addEventListener("resize", debouncedUpdatePlangs);
 
-  // Handle the file extension selection.
-  // const extensions = elem<HTMLInputElement>("extensions");
-  // const extensionsSel = matchingInputSelByName(extensions?.getAttribute("name"));
-  // if (extensions && extensionsSel) {
-  //   on(extensions, "keypress", ({ key }: KeyboardEvent) => {
-  //     if (key !== "Enter") return;
-  //     const value = extensions.value.trim();
-  //     if (value === "") return;
-  //     const name = (value[0] === "." ? value : `.${value}`).toLowerCase();
-  //     extensionsSel.addItems([{ value: name, label: name }]);
-  //     extensions.value = "";
-  //   });
-  //   extensionsSel.onRemove(({ by, itemsLeft }) => {
-  //     extensions.classList.toggle("pl-filters-active", itemsLeft > 0);
-  //     if (by === "enterKey" && itemsLeft === 0) extensions.focus();
-  //   });
-  // }
-
-  // On input change, re-filter the list of languages.
+  // On input change, re-filter the list of languages, and toggle the facet indicators.
   on(elem("facets"), "input", ({ target }: InputEvent) => {
-    // Because we don't care update when the input changes, only when the selection changes.
-    if ((target as HTMLInputElement)?.matches(`#${id("extensions")}`)) return;
+    const facet = (target as HTMLInputElement).closest(`.${cl("facet")}`);
+    const indic = $(`.${cl("facetIndicator")}[data-facet=${facet?.id}]`);
+    const inputs = facet?.querySelectorAll<HTMLElement>("[data-facet-input]");
+
+    if (!facet || !indic || !inputs?.length) return;
+
+    indic?.classList.toggle("text-primary", false);
+    for (const input of inputs) {
+      if (inputIsActive(input)) {
+        indic.classList.toggle("text-primary", true);
+        break;
+      }
+    }
 
     debouncedUpdatePlangs();
   });
