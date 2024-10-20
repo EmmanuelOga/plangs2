@@ -2,6 +2,7 @@ import { BAR, BORDER } from "@plangs/frontend/styles";
 import { script, tw } from "@plangs/frontend/utils";
 import { cl, id } from "@plangs/server/elements";
 
+import { FULLCIRCLE } from "@plangs/frontend/icons";
 import { FacetInput } from "./facet-input";
 import { PL_FACET_GROUPS } from "./pl_inputs";
 
@@ -49,7 +50,7 @@ function FacetLink({ facetKey, title }: { facetKey: string; title: string }) {
   return (
     <>
       <div data-facet={facetKey} class={tw(cl("facetIndicator"), "mt-[.45rem] pl-2", "text-foreground/20 text-xs")}>
-        ⬤
+        <div class="-mt-[2px] scale-75">{FULLCIRCLE}</div>
       </div>
       <a
         data-facet={facetKey}

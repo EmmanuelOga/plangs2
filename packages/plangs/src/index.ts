@@ -140,6 +140,17 @@ export class NPlang extends NBase<"pl", NPlangData> {
     return rel[0];
   }
 
+  get year(): number | undefined {
+    const { firstAppeared } = this.data;
+    if (!firstAppeared) return undefined;
+    try {
+      return Number.parseInt(firstAppeared.split("-")[0]);
+    } catch (e) {
+      console.error(`Error parsing year for ${this.key}: ${e}`);
+      return undefined;
+    }
+  }
+
   addExtensions(exts: string[]): this {
     arrayMerge((this.data.extensions ??= []), exts);
     return this;

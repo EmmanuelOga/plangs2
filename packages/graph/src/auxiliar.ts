@@ -35,14 +35,6 @@ export class Map2<K1, K2, V> {
     return this.#map.entries();
   }
 
-  /** Returns all entries but also some value from the second dimension. */
-  *entries2(): Generator<[K1, V, Map<K2, V>]> {
-    for (const [k1, map] of this.#map.entries()) {
-      const anyVal = map.values().next().value as V;
-      yield [k1, anyVal, map];
-    }
-  }
-
   values(): V[] {
     return [...this.#map.values()].flatMap(map => [...map.values()]);
   }
