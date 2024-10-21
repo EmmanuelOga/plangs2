@@ -11,7 +11,7 @@ import pgData from "@plangs/server/plangs.json";
 
 import { startGridNav } from "./grid";
 import { connectLivereload } from "./livereload";
-import { hookPlInfo, lastPlang } from "./pl";
+import { lastPlang } from "./pl";
 import { currentTab } from "./tabs";
 
 function start() {
@@ -52,7 +52,6 @@ function start() {
 
   document.addEventListener("DOMContentLoaded", () => {
     if (currentTab() === "plangs") startGridNav(pg);
-    hookPlInfo(pg);
 
     // Debugging.
     connectLivereload();
