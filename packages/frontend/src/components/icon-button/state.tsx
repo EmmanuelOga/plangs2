@@ -114,7 +114,18 @@ export class ToggleFacetsMenu extends IconButtonBaseState<{ mode: "show" | "hide
   }
 
   override get icon() {
-    return <span class={tw("inline-block", "mt-[1px] scale-85", this.show ? "text-hiliteb" : "text-primary")}>{FILTER_EDIT}</span>;
+    return (
+      <span
+        class={tw(
+          "inline-block",
+          "mt-[1px] scale-85",
+          this.show && "stroke-[1px] stroke-foreground/50",
+          this.show ? "text-hiliteb" : "text-primary",
+          // fmt.
+        )}>
+        {FILTER_EDIT}
+      </span>
+    );
   }
 
   override doAction() {
