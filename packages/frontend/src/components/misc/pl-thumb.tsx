@@ -20,7 +20,7 @@ export function PlThumb({ pl, class: cssClass }: { class?: string; pl: NPlang })
         "bg-background/50",
         cssClass,
       )}>
-      <div class={tw("p-1", "truncate text-center", "text-foreground group-hover:text-primary")}>{pl.name}</div>
+      <div class={tw("truncate text-center", "text-foreground group-hover:text-primary")}>{pl.name}</div>
 
       <div
         class={tw(
