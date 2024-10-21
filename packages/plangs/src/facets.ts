@@ -19,18 +19,21 @@ export class PlangFacets {
   facets = {
     plangName: facet((pl, regexp: RegExp) => regexp.test(pl.name)),
 
-    appearedAfter: facet((pl, date: StrDate) => pl.firstAppearedAfter(date)),
-    releasedAfter: facet((pl, date: StrDate) => pl.releases.some(rel => !!rel.date && rel.date > date)),
-
     hasLogo: facet((pl, val: boolean) => val === pl.images.some(img => img.kind === "logo")),
     hasReleases: facet((pl, val: boolean) => val !== pl.releases.isEmpty),
     hasWikipedia: facet((pl, val: boolean) => val === pl.websites.some(site => site.kind === "wikipedia")),
     isMainstream: facet((pl, val: boolean) => val === pl.isMainstream),
     isTranspiler: facet((pl, val: boolean) => val === pl.isTranspiler),
-
     extensions: facet(({ extensions }, flt: Filter<string>) => flt.matches(key => extensions.includes(key))),
 
-    creationDate: facet(({ firstAppeared }, flt: Filter<string>) => flt.matches(val => firstAppeared?.startsWith(val) ?? false)),
+    creationDate: facet(({ createdDate: firstAppeared }, flt: Filter<string>) => flt.matches(val => firstAppeared?.startsWith(val) ?? false)),
+
+    appearedAfter: facet((pl, date: StrDate) => pl.createdAfter(date)),
+    releasedAfter: facet((pl, date: StrDate) => {
+      const last = pl.lastRelease?.date;
+      if (!last) return false;
+      return last >= date;
+    }),
 
     compilesTo: facet(({ relCompilesTo }, flt: Filter<NPlang["key"]>) => flt.matches(key => relCompilesTo.has(key))),
     dialectOf: facet(({ relDialectOf }, flt: Filter<NPlang["key"]>) => flt.matches(key => relDialectOf.has(key))),

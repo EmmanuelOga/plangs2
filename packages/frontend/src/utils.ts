@@ -1,5 +1,6 @@
 import { h } from "preact";
 
+import type { StrDate } from "@plangs/plangs/schema";
 import { caller } from "@plangs/plangs/util";
 import { type CLKey, type IDKey, cl, id } from "@plangs/server/elements";
 
@@ -110,4 +111,11 @@ export function callers(): string {
 
   // JSON is more readable for this use case.
   return JSON.stringify(lines, null, 2);
+}
+
+/** Returns a date string representing the date `years` years ago from today. */
+export function yearsAgo(years: number): StrDate {
+  const date = new Date();
+  date.setFullYear(date.getFullYear() - years);
+  return date.toISOString().split("T")[0] as StrDate;
 }

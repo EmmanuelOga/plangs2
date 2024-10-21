@@ -2,13 +2,16 @@ import { RISON } from "rison2";
 
 import { type InputFacetElement, isInputFacetElement } from "@plangs/frontend/components/input-facet";
 import type { InputSelElement } from "@plangs/frontend/components/input-sel";
-import { elem } from "@plangs/frontend/utils";
+import { elem, yearsAgo } from "@plangs/frontend/utils";
 import { Filter } from "@plangs/graph/auxiliar";
 import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs";
 import type { EncodedPlangFilters } from "@plangs/plangs/facets";
 import { PlangFacets } from "@plangs/plangs/facets";
 import type { IDKey } from "@plangs/server/elements";
 import type { InputKind } from "@plangs/server/facets/types";
+
+const oneYearAgo = yearsAgo(1);
+const fiveYearsAgo = yearsAgo(5);
 
 /** Create a plan filter from the inputs values. */
 export function getFacets(): PlangFacets {
@@ -28,12 +31,13 @@ export function getFacets(): PlangFacets {
 
   const getChecked = (input: HTMLElement) => (input as HTMLInputElement).checked;
 
-  collect("createdRecently", getChecked, val => (flt.hasReleases.value = val));
   collect("hasLogo", getChecked, val => (flt.hasLogo.value = val));
   collect("hasWikipedia", getChecked, val => (flt.hasWikipedia.value = val));
   collect("isMainstream", getChecked, val => (flt.isMainstream.value = val));
   collect("isTranspiler", getChecked, val => (flt.isTranspiler.value = val));
-  collect("releasedRecently", getChecked, val => (flt.hasReleases.value = val));
+
+  collect("createdRecently", getChecked, val => (flt.appearedAfter.value = val ? fiveYearsAgo : undefined));
+  collect("releasedRecently", getChecked, val => (flt.releasedAfter.value = val ? oneYearAgo : undefined));
 
   function getFacet<T>(input: HTMLElement): Filter<T> | undefined {
     if (isInputFacetElement(input) && input.state) {

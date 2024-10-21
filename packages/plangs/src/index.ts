@@ -106,11 +106,11 @@ export class NPlang extends NBase<"pl", NPlangData> {
     return new IterTap(this.data.extensions);
   }
 
-  get firstAppeared(): StrDate | undefined {
+  get createdDate(): StrDate | undefined {
     return this.data.firstAppeared;
   }
 
-  firstAppearedAfter(minDate: StrDate): boolean {
+  createdAfter(minDate: StrDate): boolean {
     return !!this.data.firstAppeared && this.data.firstAppeared >= minDate;
   }
 

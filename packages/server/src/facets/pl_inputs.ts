@@ -7,11 +7,12 @@ export const PL_INPUTS = {
 
   extensions: multiple("File Extension"),
 
-  createdRecently: checkbox("Created recently"),
   hasLogo: checkbox("Has Logo"),
   hasWikipedia: checkbox("Has Wikipedia"),
   isMainstream: checkbox("Is Mainstream"),
   isTranspiler: checkbox("Is Transpiler"),
+
+  createdRecently: checkbox("Created recently"),
   releasedRecently: checkbox("Released recently"),
 
   compilesTo: facet("Compiles To", { kind: "noderel", edge: "compilesTo", node: NPlang.kind, dir: "direct" }),
