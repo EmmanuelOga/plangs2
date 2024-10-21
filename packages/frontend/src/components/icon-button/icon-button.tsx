@@ -6,7 +6,7 @@ import { HOVER_SVG } from "@plangs/frontend/styles";
 import { customEvent, onClickOnEnter, send, tw } from "@plangs/frontend/utils";
 
 import { isIconButtonElement } from ".";
-import { useToggleState } from "./state";
+import { useIconButtonState } from "./state";
 
 export type IconButtonProps = {
   action: "facets" | "hamburger" | "lights" | "allAny";
@@ -21,7 +21,7 @@ export const PROP_KEYS: (keyof IconButtonProps)[] = ["action", "disabled"];
 
 export function IconButton({ action, disabled, initial, class: cssClass }: IconButtonProps) {
   const self = useRef<HTMLDivElement>();
-  const state = useToggleState({ action, disabled, initial });
+  const state = useIconButtonState({ action, disabled, initial });
 
   useEffect(() => {
     setComponentState(self, isIconButtonElement, state);
@@ -39,7 +39,7 @@ export function IconButton({ action, disabled, initial, class: cssClass }: IconB
   const toggle = () => {
     if (disabled) return;
 
-    state.toggleMode();
+    state.doAction();
     state.runEffects();
     state.dispatch();
 

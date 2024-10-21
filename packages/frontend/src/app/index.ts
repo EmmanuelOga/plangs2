@@ -1,7 +1,7 @@
 import "preact/debug";
 
 import { registerIconButton } from "@plangs/frontend/components/icon-button";
-import { ToggleFacets, ToggleHamburguer, ToggleLights } from "@plangs/frontend/components/icon-button/state";
+import { ToggleFacetsMenu, ToggleHamburguer, ToggleLights } from "@plangs/frontend/components/icon-button/state";
 import { registerInputFacet } from "@plangs/frontend/components/input-facet";
 import { registerInputSel } from "@plangs/frontend/components/input-sel";
 import { type PlInfoElement, registerPlangInfo } from "@plangs/frontend/components/pl-info";
@@ -22,7 +22,7 @@ function start() {
 
   const pg = new PlangsGraph().loadJSON(pgData);
 
-  window.restoreFilters = () => ToggleFacets.initial().runEffects();
+  window.restoreFilters = () => ToggleFacetsMenu.initial().runEffects();
   window.restoreHamburguer = () => ToggleHamburguer.initial().runEffects();
   window.restoreLightMode = () => ToggleLights.initial().runEffects();
 

@@ -7,19 +7,19 @@ import { elem } from "@plangs/server/elements";
 
 import type { IconButtonProps } from "./icon-button";
 
-export type IconButtonState = ToggleLights | ToggleHamburguer | ToggleFacets | ToggleFacetMode | ToggleDummy;
+export type IconButtonState = ToggleLights | ToggleHamburguer | ToggleFacetsMenu | TogglAllAny | DummyState;
 
-export function useToggleState({ action, disabled, initial }: IconButtonProps): IconButtonState {
+export function useIconButtonState({ action, disabled, initial }: IconButtonProps): IconButtonState {
   if (action === "lights") return useDispatchable(ToggleLights.initial(disabled));
   if (action === "hamburger") return useDispatchable(ToggleHamburguer.initial(disabled));
-  if (action === "facets") return useDispatchable(ToggleFacets.initial(disabled));
-  if (action === "allAny") return useDispatchable(ToggleFacetMode.initial(initial, disabled));
+  if (action === "facets") return useDispatchable(ToggleFacetsMenu.initial(disabled));
+  if (action === "allAny") return useDispatchable(TogglAllAny.initial(initial, disabled));
   console.error(`Unknown action: ${action}`);
-  return useDispatchable(ToggleDummy.initial(disabled));
+  return useDispatchable(DummyState.initial(disabled));
 }
 
-abstract class ToggleState<T> extends Dispatchable<T & { disabled: boolean }> {
-  abstract toggleMode(): void;
+abstract class IconButtonBaseState<T> extends Dispatchable<T & { disabled: boolean }> {
+  abstract doAction(): void;
 
   /** Side effects handler, if any. */
   abstract runEffects(): void;
@@ -42,12 +42,12 @@ abstract class ToggleState<T> extends Dispatchable<T & { disabled: boolean }> {
 
 /** Dummy state for when the action is missing. */
 // biome-ignore lint/complexity/noBannedTypes: Empty type here is OK, we don't need additional data for the dummy state.
-export class ToggleDummy extends ToggleState<{}> {
+export class DummyState extends IconButtonBaseState<{}> {
   static initial(disabled: boolean | undefined) {
-    return new ToggleDummy({ disabled: disabled ?? false });
+    return new DummyState({ disabled: disabled ?? false });
   }
 
-  override toggleMode() {}
+  override doAction() {}
   override runEffects() {}
 
   override get icon() {
@@ -55,7 +55,8 @@ export class ToggleDummy extends ToggleState<{}> {
   }
 }
 
-export class ToggleLights extends ToggleState<{ mode: "dark" | "light" }> {
+/** State for a dark/ligh mode button */
+export class ToggleLights extends IconButtonBaseState<{ mode: "dark" | "light" }> {
   static initial(disabled = false) {
     return new ToggleLights({ mode: localStorage.getItem("lightMode") === "dark" ? "dark" : "light", disabled });
   }
@@ -68,7 +69,7 @@ export class ToggleLights extends ToggleState<{ mode: "dark" | "light" }> {
     return this.isDark ? SUN : MOON;
   }
 
-  override toggleMode() {
+  override doAction() {
     this.data.mode = this.isDark ? "light" : "dark";
   }
 
@@ -78,7 +79,8 @@ export class ToggleLights extends ToggleState<{ mode: "dark" | "light" }> {
   }
 }
 
-export class ToggleHamburguer extends ToggleState<{ mode: "show" | "hide" }> {
+/** State for a "hamburguer" menu. */
+export class ToggleHamburguer extends IconButtonBaseState<{ mode: "show" | "hide" }> {
   static initial(disabled = false) {
     return new ToggleHamburguer({ mode: localStorage.getItem("hamburguer") === "show" ? "show" : "hide", disabled });
   }
@@ -91,7 +93,7 @@ export class ToggleHamburguer extends ToggleState<{ mode: "show" | "hide" }> {
     return this.hide ? MENU : CLOSE;
   }
 
-  override toggleMode() {
+  override doAction() {
     this.data.mode = this.hide ? "show" : "hide";
   }
 
@@ -101,9 +103,10 @@ export class ToggleHamburguer extends ToggleState<{ mode: "show" | "hide" }> {
   }
 }
 
-export class ToggleFacets extends ToggleState<{ mode: "show" | "hide" }> {
+/** State for a the facets menu. */
+export class ToggleFacetsMenu extends IconButtonBaseState<{ mode: "show" | "hide" }> {
   static initial(disabled = false) {
-    return new ToggleFacets({ mode: localStorage.getItem("facets") === "show" ? "show" : "hide", disabled });
+    return new ToggleFacetsMenu({ mode: localStorage.getItem("facets") === "show" ? "show" : "hide", disabled });
   }
 
   get show(): boolean {
@@ -114,7 +117,7 @@ export class ToggleFacets extends ToggleState<{ mode: "show" | "hide" }> {
     return <span class={tw("inline-block", "mt-[1px] scale-85", this.show ? "text-hiliteb" : "text-primary")}>{FILTER_EDIT}</span>;
   }
 
-  override toggleMode() {
+  override doAction() {
     this.data.mode = this.show ? "hide" : "show";
   }
 
@@ -124,9 +127,10 @@ export class ToggleFacets extends ToggleState<{ mode: "show" | "hide" }> {
   }
 }
 
-export class ToggleFacetMode extends ToggleState<{ mode: "all" | "any" }> {
+/** State for toggling between "and" and "all" modes. */
+export class TogglAllAny extends IconButtonBaseState<{ mode: "all" | "any" }> {
   static initial(initial: string | undefined, disabled = false) {
-    return new ToggleFacetMode({ mode: initial === "all" ? "all" : "any", disabled });
+    return new TogglAllAny({ mode: initial === "all" ? "all" : "any", disabled });
   }
 
   get mode(): "all" | "any" {
@@ -148,7 +152,7 @@ export class ToggleFacetMode extends ToggleState<{ mode: "all" | "any" }> {
     );
   }
 
-  override toggleMode() {
+  override doAction() {
     this.data.mode = this.mode === "all" ? "any" : "all";
   }
 
