@@ -1,7 +1,7 @@
 import type { Ref } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
-import { InputToggle } from "@plangs/frontend/components/input-toggle/input-toggle";
+import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
 import { setComponentState, useDispatchable } from "@plangs/frontend/dispatchable";
 import { HOVER, INPUT } from "@plangs/frontend/styles";
 import { debounce, onClickOnEnter, send, tw } from "@plangs/frontend/utils";
@@ -68,7 +68,7 @@ export function InputSel({ name: inputName, placeholder, class: cssClass }: Inpu
       />
 
       <span class={tw("inline-flex", "items-center justify-between", state.values.size < 2 ? "text-foreground/50" : "text-foreground", "pl-2")}>
-        <InputToggle action="allAny" disabled={state.values.size < 2} initial={"any"} />
+        <IconButton action="allAny" disabled={state.values.size < 2} initial={"any"} />
       </span>
 
       <ul>

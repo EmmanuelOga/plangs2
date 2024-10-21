@@ -1,7 +1,7 @@
 import type { ComponentChildren, Ref } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
-import { InputToggle } from "@plangs/frontend/components/input-toggle/input-toggle";
+import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
 import { setComponentState, useDispatchable } from "@plangs/frontend/dispatchable";
 import { DESELECT } from "@plangs/frontend/icons";
 import { BORDER, HOVER, HOVER_SVG_GROUP } from "@plangs/frontend/styles";
@@ -62,7 +62,7 @@ export function InputFacet({ pg, jsonconf }: InputFacetProps) {
         <div class={tw(ROW, "sticky top-0 cursor-pointer", tw(BORDER, "border-b-1"))}>
           <div class={tw("col-span-3", "py-1", "flex shrink-0 flex-row", "bg-background", CENTER_ROW, tw(BORDER, "border-t-1"))}>
             <span class={tw("pl-2", CENTER_ROW, state.values.size < 2 ? "text-foreground/50" : "text-foreground")}>
-              <InputToggle
+              <IconButton
                 action="allAny"
                 disabled={state.values.size < 2}
                 initial={allAnyDefault}

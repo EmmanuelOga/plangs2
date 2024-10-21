@@ -1,9 +1,9 @@
 import "preact/debug";
 
+import { registerIconButton } from "@plangs/frontend/components/icon-button";
+import { ToggleFacets, ToggleHamburguer, ToggleLights } from "@plangs/frontend/components/icon-button/state";
 import { registerInputFacet } from "@plangs/frontend/components/input-facet";
 import { registerInputSel } from "@plangs/frontend/components/input-sel";
-import { registerInputToggle } from "@plangs/frontend/components/input-toggle";
-import { ToggleFacets, ToggleHamburguer, ToggleLights } from "@plangs/frontend/components/input-toggle/state";
 import { type PlInfoElement, registerPlangInfo } from "@plangs/frontend/components/pl-info";
 import { elem, elems, toggleClasses } from "@plangs/frontend/utils";
 import { PlangsGraph } from "@plangs/plangs";
@@ -18,7 +18,7 @@ function start() {
   registerPlangInfo();
   registerInputSel();
   registerInputFacet();
-  registerInputToggle();
+  registerIconButton();
 
   const pg = new PlangsGraph().loadJSON(pgData);
 

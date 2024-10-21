@@ -5,11 +5,11 @@ import { BOOLEAN, CLOSE, FILTER_EDIT, FULLCIRCLE, MENU, MOON, SUN } from "@plang
 import { tw } from "@plangs/frontend/utils";
 import { elem } from "@plangs/server/elements";
 
-import type { InputToggleProps } from "./input-toggle";
+import type { IconButtonProps } from "./icon-button";
 
-export type InputToggleState = ToggleLights | ToggleHamburguer | ToggleFacets | ToggleFacetMode | ToggleDummy;
+export type IconButtonState = ToggleLights | ToggleHamburguer | ToggleFacets | ToggleFacetMode | ToggleDummy;
 
-export function useToggleState({ action, disabled, initial }: InputToggleProps): InputToggleState {
+export function useToggleState({ action, disabled, initial }: IconButtonProps): IconButtonState {
   if (action === "lights") return useDispatchable(ToggleLights.initial(disabled));
   if (action === "hamburger") return useDispatchable(ToggleHamburguer.initial(disabled));
   if (action === "facets") return useDispatchable(ToggleFacets.initial(disabled));

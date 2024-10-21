@@ -20,7 +20,7 @@ export function PlInfo({ pl, open, tab }: PlInfoProps) {
   return (
     <div
       class={tw(
-        "max-h-full w-full overflow-y-scroll",
+        "w-full overflow-y-scroll",
         "px-2 pt-2 sm:p-4",
         !forGrid && "-mx-4", // Compensate for padding so it aligns with the rest of the content.
         "prose prose-green dark:prose-invert sm:prose-sm lg:prose-lg xl:prose-xl max-w-[unset]",

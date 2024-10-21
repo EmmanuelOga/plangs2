@@ -5,10 +5,10 @@ import { setComponentState } from "@plangs/frontend/dispatchable";
 import { HOVER_SVG } from "@plangs/frontend/styles";
 import { customEvent, onClickOnEnter, send, tw } from "@plangs/frontend/utils";
 
-import { isInputToggleElement } from ".";
+import { isIconButtonElement } from ".";
 import { useToggleState } from "./state";
 
-export type InputToggleProps = {
+export type IconButtonProps = {
   action: "facets" | "hamburger" | "lights" | "allAny";
   disabled?: boolean;
   /** An initial value for the toggle button. */
@@ -17,14 +17,14 @@ export type InputToggleProps = {
 };
 
 export const TAG_NAME = "input-toggle";
-export const PROP_KEYS: (keyof InputToggleProps)[] = ["action", "disabled"];
+export const PROP_KEYS: (keyof IconButtonProps)[] = ["action", "disabled"];
 
-export function InputToggle({ action, disabled, initial, class: cssClass }: InputToggleProps) {
+export function IconButton({ action, disabled, initial, class: cssClass }: IconButtonProps) {
   const self = useRef<HTMLDivElement>();
   const state = useToggleState({ action, disabled, initial });
 
   useEffect(() => {
-    setComponentState(self, isInputToggleElement, state);
+    setComponentState(self, isIconButtonElement, state);
   });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: state is not a dependency since it is a dispatchable.
