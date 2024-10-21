@@ -5,7 +5,8 @@ import type { StrDate } from "./schema";
 
 type Predicate<T> = (pl: NPlang, value: T) => boolean;
 
-const filter = <T>(predicate: Predicate<T>) => ({ value: undefined as T | undefined, predicate });
+/** A facet requires a value and a predicte. Here we initialize the value to undefined. */
+const facet = <T>(predicate: Predicate<T>) => ({ value: undefined as T | undefined, predicate });
 
 export type EncodedPlangFilters = Record<string, string | string[] | boolean | EncodedFilter>;
 
@@ -16,30 +17,32 @@ export type PlangFiltersKey = keyof PlangFacets["facets"];
  */
 export class PlangFacets {
   facets = {
-    plangName: filter((pl, regexp: RegExp) => regexp.test(pl.name)),
+    plangName: facet((pl, regexp: RegExp) => regexp.test(pl.name)),
 
-    appearedAfter: filter((pl, date: StrDate) => pl.firstAppearedAfter(date)),
-    releasedAfter: filter((pl, date: StrDate) => pl.releases.some(rel => !!rel.date && rel.date > date)),
+    appearedAfter: facet((pl, date: StrDate) => pl.firstAppearedAfter(date)),
+    releasedAfter: facet((pl, date: StrDate) => pl.releases.some(rel => !!rel.date && rel.date > date)),
 
-    hasLogo: filter((pl, val: boolean) => val === pl.images.some(img => img.kind === "logo")),
-    hasReleases: filter((pl, val: boolean) => val !== pl.releases.isEmpty),
-    hasWikipedia: filter((pl, val: boolean) => val === pl.websites.some(site => site.kind === "wikipedia")),
-    isMainstream: filter((pl, val: boolean) => val === pl.isMainstream),
-    isTranspiler: filter((pl, val: boolean) => val === pl.isTranspiler),
+    hasLogo: facet((pl, val: boolean) => val === pl.images.some(img => img.kind === "logo")),
+    hasReleases: facet((pl, val: boolean) => val !== pl.releases.isEmpty),
+    hasWikipedia: facet((pl, val: boolean) => val === pl.websites.some(site => site.kind === "wikipedia")),
+    isMainstream: facet((pl, val: boolean) => val === pl.isMainstream),
+    isTranspiler: facet((pl, val: boolean) => val === pl.isTranspiler),
 
-    extensions: filter(({ extensions }, flt: Filter<string>) => flt.matches(key => extensions.includes(key))),
+    extensions: facet(({ extensions }, flt: Filter<string>) => flt.matches(key => extensions.includes(key))),
 
-    compilesTo: filter(({ relCompilesTo }, flt: Filter<NPlang["key"]>) => flt.matches(key => relCompilesTo.has(key))),
-    dialectOf: filter(({ relDialectOf }, flt: Filter<NPlang["key"]>) => flt.matches(key => relDialectOf.has(key))),
-    implements: filter(({ relImplements }, flt: Filter<NPlang["key"]>) => flt.matches(key => relImplements.has(key))),
-    influenced: filter(({ relInfluenced }, flt: Filter<NPlang["key"]>) => flt.matches(key => relInfluenced.has(key))),
-    influencedBy: filter(({ relInfluencedBy }, flt: Filter<NPlang["key"]>) => flt.matches(key => relInfluencedBy.has(key))),
-    licenses: filter(({ relLicenses }, flt: Filter<NLicense["key"]>) => flt.matches(key => relLicenses.has(key))),
-    paradigms: filter(({ relParadigms }, flt: Filter<NParadigm["key"]>) => flt.matches(key => relParadigms.has(key))),
-    platforms: filter(({ relPlatforms }, flt: Filter<NPlatform["key"]>) => flt.matches(key => relPlatforms.has(key))),
-    tags: filter(({ relTags }, flt: Filter<NTag["key"]>) => flt.matches(key => relTags.has(key))),
-    typeSystems: filter(({ relTsys }, flt: Filter<NTsys["key"]>) => flt.matches(key => relTsys.has(key))),
-    writtenIn: filter(({ relWrittenIn }, flt: Filter<NPlang["key"]>) => flt.matches(key => relWrittenIn.has(key))),
+    creationDate: facet(({ firstAppeared }, flt: Filter<string>) => flt.matches(val => firstAppeared?.startsWith(val) ?? false)),
+
+    compilesTo: facet(({ relCompilesTo }, flt: Filter<NPlang["key"]>) => flt.matches(key => relCompilesTo.has(key))),
+    dialectOf: facet(({ relDialectOf }, flt: Filter<NPlang["key"]>) => flt.matches(key => relDialectOf.has(key))),
+    implements: facet(({ relImplements }, flt: Filter<NPlang["key"]>) => flt.matches(key => relImplements.has(key))),
+    influenced: facet(({ relInfluenced }, flt: Filter<NPlang["key"]>) => flt.matches(key => relInfluenced.has(key))),
+    influencedBy: facet(({ relInfluencedBy }, flt: Filter<NPlang["key"]>) => flt.matches(key => relInfluencedBy.has(key))),
+    licenses: facet(({ relLicenses }, flt: Filter<NLicense["key"]>) => flt.matches(key => relLicenses.has(key))),
+    paradigms: facet(({ relParadigms }, flt: Filter<NParadigm["key"]>) => flt.matches(key => relParadigms.has(key))),
+    platforms: facet(({ relPlatforms }, flt: Filter<NPlatform["key"]>) => flt.matches(key => relPlatforms.has(key))),
+    tags: facet(({ relTags }, flt: Filter<NTag["key"]>) => flt.matches(key => relTags.has(key))),
+    typeSystems: facet(({ relTsys }, flt: Filter<NTsys["key"]>) => flt.matches(key => relTsys.has(key))),
+    writtenIn: facet(({ relWrittenIn }, flt: Filter<NPlang["key"]>) => flt.matches(key => relWrittenIn.has(key))),
   } as const;
 
   matches(key: PlangFiltersKey, pl: NPlang): boolean {

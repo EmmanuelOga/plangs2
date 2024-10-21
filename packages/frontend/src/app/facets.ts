@@ -44,7 +44,7 @@ export function getFacets(): PlangFacets {
   }
 
   collect("compilesTo", getFacet<NPlang["key"]>, val => (flt.compilesTo.value = val));
-  collect("creationDate", getFacet<NPlang["key"]>, val => undefined);
+  collect("creationDate", getFacet<NPlang["key"]>, val => (flt.creationDate.value = val));
   collect("dialectOf", getFacet<NPlang["key"]>, val => (flt.dialectOf.value = val));
   collect("implements", getFacet<NPlang["key"]>, val => (flt.implements.value = val));
   collect("influenced", getFacet<NPlang["key"]>, val => (flt.influenced.value = val));
