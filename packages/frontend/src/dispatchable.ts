@@ -1,7 +1,7 @@
 import { type Dispatch, type MutableRef, useState } from "preact/hooks";
 
 export abstract class Dispatchable<T> {
-  dispatcher!: Dispatch<this>;
+  dispatcher?: Dispatch<this>;
 
   constructor(protected data: T) {
     // NOTE: we can't use private #data because we want to subclass. Protected is a good compromise.
