@@ -1,11 +1,9 @@
 import { RISON } from "rison2";
 
-import type { InputFacetElement } from "@plangs/frontend/components/input-facet";
 import type { PlInfoElement } from "@plangs/frontend/components/pl-info";
-import { $, $$, debounce, elem, elems, minWidthBP, on, size } from "@plangs/frontend/utils";
+import { $, debounce, elem, elems, minWidthBP, on, size } from "@plangs/frontend/utils";
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 import type { PlangFacets } from "@plangs/plangs/facets";
-import { FILTER_KEY, cl } from "@plangs/server/elements";
 
 import { facetsFromFragment, facetsFromLocalStorage, getFacets, inputIsActive } from "./facets";
 import { getPl } from "./pl";
@@ -22,16 +20,16 @@ export function startGridNav(pg: PlangsGraph) {
   };
 
   // Provide the graph to every facet.
-  for (const elem of $$<InputFacetElement>("input-facet")) elem.pg = pg;
+  // for (const elem of $$<FacetTableElement>("input-facet")) elem.pg = pg;
 
   // Revive stored filters, if any.
   {
     const filters = facetsFromFragment() ?? facetsFromLocalStorage();
     if (filters) {
-      for (const key of FILTER_KEY) {
-        const value = filters[key];
-        // TODO: Update the facets with the value.
-      }
+      // for (const key of FILTER_KEY) {
+      //   const value = filters[key];
+      //   // TODO: Update the facets with the value.
+      // }
       // Update the filters to whatever the outcome of the update was.
       updateFragment(getFacets());
     }

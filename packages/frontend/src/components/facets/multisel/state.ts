@@ -1,10 +1,10 @@
 import { Dispatchable } from "@plangs/frontend/dispatchable";
 
-export class InputSelState extends Dispatchable<{
+export class FacetMultiState extends Dispatchable<{
   selected: Set<string>; // Set preserves insertion order.
 }> {
-  static initial(): InputSelState {
-    return new InputSelState({ selected: new Set() });
+  static initial(): FacetMultiState {
+    return new FacetMultiState({ selected: new Set() });
   }
 
   /** Actions */

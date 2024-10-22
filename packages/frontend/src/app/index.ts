@@ -2,23 +2,19 @@ import "preact/debug";
 
 import { registerIconButton } from "@plangs/frontend/components/icon-button";
 import { ToggleFacetsMenu, ToggleHamburguer, ToggleLights } from "@plangs/frontend/components/icon-button/state";
-import { registerInputFacet } from "@plangs/frontend/components/input-facet";
-import { registerInputSel } from "@plangs/frontend/components/input-sel";
 import { type PlInfoElement, registerPlangInfo } from "@plangs/frontend/components/pl-info";
-import { elem, elems, toggleClasses } from "@plangs/frontend/utils";
+import { elem } from "@plangs/frontend/utils";
 import { PlangsGraph } from "@plangs/plangs";
 import pgData from "@plangs/server/plangs.json";
 
-import { startGridNav } from "./grid";
+import { type FacetsMainElement, registerFacetsMain } from "../components/facets/main";
 import { connectLivereload } from "./livereload";
 import { lastPlang } from "./pl";
-import { currentTab } from "./tabs";
 
 function start() {
   registerPlangInfo();
-  registerInputSel();
-  registerInputFacet();
   registerIconButton();
+  registerFacetsMain();
 
   const pg = new PlangsGraph().loadJSON(pgData);
 
@@ -31,29 +27,8 @@ function start() {
     if (plInfo) plInfo.pl = lastPlang(pg);
   };
 
-  window.focusFilter = (facetKey: string) => {
-    const facet = document.getElementById(facetKey);
-    if (!facet) return;
-
-    for (const link of elems<HTMLElement>("facetLink")) {
-      const current = link.dataset.facet === facetKey;
-      toggleClasses(link, "text-primary", current);
-
-      if (current) {
-        const title = elem("currentFacet");
-        if (title) title.textContent = link.textContent;
-        link.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-    }
-
-    for (const elem of elems("facet")) elem.classList.add("hidden");
-    facet.classList.remove("hidden");
-  };
-
   document.addEventListener("DOMContentLoaded", () => {
-    if (currentTab() === "plangs") startGridNav(pg);
-
-    // Debugging.
+    for (const el of document.querySelectorAll<FacetsMainElement>("facets-main")) el.pg = pg;
     connectLivereload();
   });
 }

@@ -5,7 +5,6 @@ import { script, tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 import { Layout } from "@plangs/server/components/layout";
 import { id } from "@plangs/server/elements";
-import { PlFacets } from "@plangs/server/facets/pl";
 
 export function Plangs({ pg }: { pg: PlangsGraph }) {
   return (
@@ -14,7 +13,11 @@ export function Plangs({ pg }: { pg: PlangsGraph }) {
       title="Find your next favorite programming language!"
       description="Discover https://plangs.page faceted search engine to find your next favorite programming language."
       mainClasses={tw("overflow-hidden", "flex flex-col sm:flex-row", "gap-2")}>
-      <PlFacets class={tw("max-h-[45dvh] sm:max-h-[unset]", "max-w-full sm:w-[35rem]")} />
+      {/* fmt. */}
+
+      {/* @ts-ignore TODO fix global declaration of components.  */}
+      {h("facets-main", { tab: "plangs", class: tw("max-h-[45dvh] sm:max-h-[unset]", "max-w-full sm:w-[35rem]") })}
+
       <PlGrid pg={pg} class={tw("flex-1", "overflow-y-scroll", "m-1")} />
 
       <div class={tw("overflow-hidden overflow-y-scroll", "max-h-[15dvh] sm:max-h-[unset] sm:w-[25rem]")}>

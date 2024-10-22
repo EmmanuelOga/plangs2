@@ -1,30 +1,21 @@
 import type { Ref } from "preact";
-import { useEffect, useRef } from "preact/hooks";
+import { useRef } from "preact/hooks";
 
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
-import { setComponentState, useDispatchable } from "@plangs/frontend/dispatchable";
+import { useDispatchable } from "@plangs/frontend/dispatchable";
 import { HOVER, INPUT } from "@plangs/frontend/styles";
 import { debounce, onClickOnEnter, send, tw } from "@plangs/frontend/utils";
 
-import { isInputSelElement } from ".";
-import { InputSelState } from "./state";
+import { FacetMultiState } from "./state";
 
-export type InputSelProps = {
-  name: string;
-  class?: string;
-  placeholder?: string;
+export type FacetMultiProps<T> = {
+  label: string;
+  facetKey: T;
 };
 
-export const TAG_NAME = "input-sel";
-export const PROP_KEYS: (keyof InputSelProps)[] = ["name", "class"] as const;
-
-export function InputSel({ name: inputName, placeholder, class: cssClass }: InputSelProps) {
+export function FacetMulti<T>({ label, facetKey }: FacetMultiProps<T>) {
   const self = useRef<HTMLDivElement>();
-  const state = useDispatchable(InputSelState.initial());
-
-  useEffect(() => {
-    setComponentState(self, isInputSelElement, state);
-  });
+  const state = useDispatchable(FacetMultiState.initial());
 
   const nthButton = (n: number) => self.current?.querySelector<HTMLButtonElement>(`li:nth-child(${n})>button`);
   const inp = () => self.current?.querySelector<HTMLInputElement>("input");
@@ -44,11 +35,11 @@ export function InputSel({ name: inputName, placeholder, class: cssClass }: Inpu
   }, 150);
 
   return (
-    <div ref={self as Ref<HTMLDivElement>} class={tw(cssClass, "flex flex-col")}>
+    <div ref={self as Ref<HTMLDivElement>} class={tw("flex flex-col")}>
       <input
         type="search"
-        name={inputName}
-        placeholder={placeholder}
+        name={facetKey as string}
+        placeholder={label}
         class={tw(INPUT, "w-full")}
         // An input becomes an input on enter key, so don't bubbla these intermediate events up.
         onInput={(ev: InputEvent) => ev.stopImmediatePropagation()}
@@ -56,7 +47,7 @@ export function InputSel({ name: inputName, placeholder, class: cssClass }: Inpu
           ev.stopPropagation();
           if (ev.key !== "Enter") return;
           const input = ev.target as HTMLInputElement;
-          // NOTE: this is ok because input-sel is only used for extensions right now,
+          // NOTE: this is ok because facet-multi is only used for extensions right now,
           // but for general usage we should always add a dot as prefix.
           const val = input.value.startsWith(".") ? input.value : `.${input.value}`;
           if (state.doAdd([val])) {

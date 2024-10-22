@@ -1,6 +1,6 @@
 import { type ComponentChildren, h } from "preact";
 
-import { BORDER, stripes } from "@plangs/frontend/styles";
+import { stripes } from "@plangs/frontend/styles";
 import { script, tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs";
 

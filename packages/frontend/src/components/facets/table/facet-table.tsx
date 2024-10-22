@@ -1,36 +1,31 @@
 import type { ComponentChildren, Ref } from "preact";
-import { useEffect, useRef } from "preact/hooks";
+import { useContext, useEffect, useRef } from "preact/hooks";
 
+import { PGContext } from "@plangs/frontend/components/facets/main/facets-main";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
-import { setComponentState, useDispatchable } from "@plangs/frontend/dispatchable";
+import { useDispatchable } from "@plangs/frontend/dispatchable";
 import { DESELECT } from "@plangs/frontend/icons";
 import { BORDER, HOVER, HOVER_SVG_GROUP } from "@plangs/frontend/styles";
 import { on, onClickOnEnter, send, tap, tw } from "@plangs/frontend/utils";
-import type { PlangsGraph } from "@plangs/plangs";
+import type { E, N } from "@plangs/plangs";
 
-import { isInputFacetElement } from ".";
-import { InputFacetState } from "./state";
+import { FacetTableState } from "./state";
 
-export type InputFacetProps = {
-  pg?: PlangsGraph;
-  /**
-   * This needs to be JSON because the facet is configured from the server's static HTML.
-   * An alternative would be to have manu unrelated props for each kind of facet, so we pick our poison :-).
-   * The result of parsing this JSON should be of type InputFacetConfig.
-   */
-  jsonconf?: string;
+export type FacetTableConfig = { kind: "noderel"; node: N; edge: E; dir: "direct" | "inverse" } | { kind: "year"; node: N } | { kind: "missing" };
+
+export type FacetTableProps<T> = {
+  facetKey: T;
+  config: FacetTableConfig;
 };
 
-export const TAG_NAME = "input-facet";
-export const PROP_KEYS: (keyof InputFacetProps)[] = ["pg", "jsonconf"] as const;
-
-export function InputFacet({ pg, jsonconf }: InputFacetProps) {
+export function FacetTable<T>({ facetKey, config }: FacetTableProps<T>) {
   const self = useRef<HTMLDivElement>();
+  const pg = useContext(PGContext);
 
   const allAnyDefault = "any";
   const state = useDispatchable(
-    InputFacetState.initial({
-      ...{ pg, jsonconf, mode: allAnyDefault },
+    FacetTableState.initial({
+      ...{ pg, facetKey, config, mode: allAnyDefault },
       onChange() {
         send(self.current?.parentElement, new Event("input", { bubbles: true, composed: true }));
       },
@@ -39,13 +34,10 @@ export function InputFacet({ pg, jsonconf }: InputFacetProps) {
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: only missing state, which is a dispatchable.
   useEffect(() => {
-    state.generateEntries({ pg, jsonconf });
-  }, [pg, jsonconf]);
+    state.generateEntries({ pg, facetKey, config });
+  }, [pg, facetKey, config]);
 
   useEffect(() => {
-    const wrapper = setComponentState(self, isInputFacetElement, state);
-    if (!wrapper) return;
-
     return on(self?.current, "input-toggle", (ev: CustomEvent) => {
       ev.stopPropagation();
       state.doSetMode(ev.detail.mode === "all" ? "all" : "any");

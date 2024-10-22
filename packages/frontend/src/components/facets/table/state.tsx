@@ -4,29 +4,25 @@ import { Dispatchable } from "@plangs/frontend/dispatchable";
 import { SORT_DOWN, SORT_UP } from "@plangs/frontend/icons";
 import { tw } from "@plangs/frontend/utils";
 import type { EncodedFilter } from "@plangs/graph/auxiliar";
-import type { E, N } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/index";
 
-import type { InputFacetProps } from "./input-facet";
+import type { FacetTableProps } from "./facet-table";
 
-export class InputFacetState extends Dispatchable<
-  InputFacetProps & { entries: Entry[]; order: Order; selected: Set<string>; onChange: () => void; config: InputFacetConfig; mode: "all" | "any" }
+export class FacetTableState<T> extends Dispatchable<
+  FacetTableProps<T> & { pg?: PlangsGraph; entries: Entry[]; order: Order; selected: Set<string>; onChange: () => void; mode: "all" | "any" }
 > {
   /** Factory function for creating the initial state. */
-  static initial(props: InputFacetProps & { onChange: () => void; mode: "all" | "any" }): InputFacetState {
-    return new InputFacetState({ ...props, entries: [], order: "facet-asc", selected: new Set(), config: { kind: "missing" } }).generateEntries();
+  static initial<T>(props: FacetTableProps<T> & { pg?: PlangsGraph; onChange: () => void; mode: "all" | "any" }): FacetTableState<T> {
+    return new FacetTableState({ ...props, entries: [], order: "facet-asc", selected: new Set() }).generateEntries();
   }
 
   /** Updates is used when updating from a prop change. */
-  generateEntries(updates?: InputFacetProps): this {
+  generateEntries(updates?: FacetTableProps<T>): this {
     if (updates) Object.assign(this.data, updates);
-    const { pg, jsonconf } = this.data;
 
-    this.data.config = { kind: "missing" };
+    const { pg, config } = this.data;
     this.data.entries = [];
-
     if (!pg) return this;
-
-    const config = (this.data.config = parseConfig(jsonconf));
 
     if (config.kind === "noderel") {
       const { edge, dir } = config;
@@ -195,7 +191,8 @@ function opposite(col: Col, order: string): Order {
   return order === "sel-desc" ? "sel-asc" : "sel-desc";
 }
 
-export type Cmp = (state: InputFacetState, a: Entry, b: Entry) => number;
+// biome-ignore lint/suspicious/noExplicitAny: it is ok here because we don't care about the type of table state.
+export type Cmp = (state: FacetTableState<any>, a: Entry, b: Entry) => number;
 
 const CMP: Record<Order, Cmp> = {
   "facet-asc": (_, a, b) => a.label.localeCompare(b.label),
@@ -207,18 +204,3 @@ const CMP: Record<Order, Cmp> = {
 } as const;
 
 export type Entry = { value: string; label: string; count: number };
-
-export type InputFacetConfig = { kind: "noderel"; node: N; edge: E; dir: "direct" | "inverse" } | { kind: "year"; node: N } | { kind: "missing" };
-
-/** Return a typechecked configuration, with a fallback to a missing configuration. */
-export function parseConfig(jsonconf: string | undefined): InputFacetConfig {
-  try {
-    const config = JSON.parse(jsonconf ?? "{}");
-    const { node, edge, dir } = config;
-    if (config.kind === "noderel" && node && edge && dir) return { kind: "noderel", node, edge, dir };
-    if (config.kind === "year" && config.node) return { kind: "year", node: config.node };
-  } catch (e) {
-    console.error("Error parsing JSON config:", e);
-  }
-  return { kind: "missing" };
-}

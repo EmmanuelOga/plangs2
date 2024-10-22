@@ -1,14 +1,11 @@
 import { RISON } from "rison2";
 
-import { type InputFacetElement, isInputFacetElement } from "@plangs/frontend/components/input-facet";
-import type { InputSelElement } from "@plangs/frontend/components/input-sel";
 import { elem, yearsAgo } from "@plangs/frontend/utils";
 import { Filter } from "@plangs/graph/auxiliar";
 import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs";
 import type { EncodedPlangFilters } from "@plangs/plangs/facets";
 import { PlangFacets } from "@plangs/plangs/facets";
 import type { IDKey } from "@plangs/server/elements";
-import type { InputKind } from "@plangs/server/facets/types";
 
 const oneYearAgo = yearsAgo(1);
 const fiveYearsAgo = yearsAgo(5);
@@ -40,7 +37,7 @@ export function getFacets(): PlangFacets {
   collect("releasedRecently", getChecked, val => (flt.releasedAfter.value = val ? oneYearAgo : undefined));
 
   function getFacet<T>(input: HTMLElement): Filter<T> | undefined {
-    if (isInputFacetElement(input) && input.state) {
+    if (isFacetTableElement(input) && input.state) {
       const { values: selected, mode } = input.state;
       return new Filter<T>(mode, selected as Set<T>);
     }
@@ -94,7 +91,7 @@ export function inputIsActive(input: HTMLElement): boolean {
   const kind = input.dataset.facetInput as InputKind;
   if (kind === "checkbox") return (input as HTMLInputElement).checked;
   if (kind === "search") return (input as HTMLInputElement).value.trim().length > 0;
-  if (kind === "facet") return !!(input as InputFacetElement).state?.hasSelection;
-  if (kind === "multiple") return !!(input as InputSelElement).state?.hasSelection;
+  if (kind === "facet") return !!(input as FacetTableElement).state?.hasSelection;
+  if (kind === "multiple") return !!(input as FacetMultiElement).state?.hasSelection;
   return false;
 }

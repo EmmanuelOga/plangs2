@@ -151,6 +151,16 @@ export class NPlang extends NBase<"pl", NPlangData> {
     }
   }
 
+  releasedRecently(year: number): boolean {
+    // TODO: Implement this
+    return true;
+  }
+
+  createdRecently(year: number): boolean {
+    // TODO: Implement this
+    return true;
+  }
+
   addExtensions(exts: string[]): this {
     arrayMerge((this.data.extensions ??= []), exts);
     return this;

@@ -2,30 +2,17 @@
  * @file utilities to type check DOM "id" and "class" attributes.
  */
 
-import { PL_INPUTS } from "./facets/pl_inputs";
-
-export const FILTER_KEY = Object.keys(PL_INPUTS) as (keyof typeof PL_INPUTS)[];
-
 export const ID_KEYS = [
   "todo",
 
   "mainNav", // Main navigation bar, toggled by the hamburger icon.
-  "currentFacet", // Header of the current facet on the filters panel.
-  "facets", // The Facets panel.
 
   "plGrid",
   "plInfo",
-
-  ...FILTER_KEY,
 ] as const;
 
 export const CL_KEYS = [
   "todo",
-
-  "facet", // Box containing the input filters of a facet.
-  "facetInput", // Input filter of a facet.
-  "facetLink", // Link to a facet box.
-  "facetIndicator", // Indicator next to facet link.
 
   "navLink",
   "pill",
