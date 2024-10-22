@@ -20,7 +20,7 @@ export function PlFacets({ class: cssClass }: { class?: string }) {
         <div class={tw("grid grid-cols-[auto_auto]", "gap-2", "pt-1")}>
           {groups.flatMap(groups => (
             // Subgrid respects the alignment of indicators while allowing to group the links and add a border.
-            <div key={groups} class={tw("col-span-2", "grid grid-cols-subgrid", "pb-2", tw(BORDER, "border-b-1"))}>
+            <div key={groups} class={tw("col-span-2", "grid grid-cols-subgrid", "items-center", "pb-2", tw(BORDER, "border-b-1"))}>
               {groups.map(({ title, key }) => (
                 <FacetLink key={key} facetKey={key} title={title} />
               ))}
@@ -49,13 +49,13 @@ export function PlFacets({ class: cssClass }: { class?: string }) {
 function FacetLink({ facetKey, title }: { facetKey: string; title: string }) {
   return (
     <>
-      <div data-facet={facetKey} class={tw(cl("facetIndicator"), "mt-[.45rem] pl-2", "text-foreground/20 text-xs")}>
-        <div class="-mt-[2px] scale-75">{FULLCIRCLE}</div>
+      <div data-facet={facetKey} class={tw(cl("facetIndicator"), "mt-[.45rem] pl-1", "text-foreground/20 text-xs")}>
+        <div class="-mt-[2px] scale-66">{FULLCIRCLE}</div>
       </div>
       <a
         data-facet={facetKey}
         href={`javascript:window.focusFilter('${facetKey}')`}
-        class={tw(cl("facetLink"), "block", "truncate", "py-1 pr-2", "text-foreground/85", "underline decoration-1 decoration-dotted")}>
+        class={tw(cl("facetLink"), "block", "truncate", "py-1 pr-1", "text-foreground/85", "underline decoration-1 decoration-dotted")}>
         {title}
       </a>
     </>
