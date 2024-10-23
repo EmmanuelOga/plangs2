@@ -56,7 +56,7 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
                         "block",
                         "truncate text-left",
                         "py-1 pr-1",
-                        "text-foreground/85",
+                        state.isCurrent(key) ? "text-primary" : "text-foreground/85",
                         "underline decoration-1 decoration-dotted",
                         "cursor-pointer",
                       )}>
