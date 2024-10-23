@@ -2,7 +2,7 @@ import { Dispatchable, useDispatchable } from "@plangs/frontend/dispatchable";
 
 import type { JSX } from "preact/jsx-runtime";
 import type { FacetsMainProps } from "./facets-main";
-import { PLANGS_DEFAULT_FACET, PLANGS_FACET_GROUPS, PLANGS_NAV } from "./plangs";
+import { DEFAULT_GROUP, GROUP_LABELS, NAV, PlangsFacetGroups } from "./plangs";
 
 export type FacetsMainState = DummyFacetsState | PlangsFacetsState;
 
@@ -27,9 +27,17 @@ export abstract class BaseState extends Dispatchable<FacetsMainProps & { current
     }
   }
 
+  /** Actions */
+
   doSetCurrent(key: string): void {
     this.data.current = key;
     this.dispatch();
+  }
+
+  /** Queries */
+
+  get current(): string {
+    return this.data.current;
   }
 
   isCurrent(key: string): boolean {
@@ -38,7 +46,7 @@ export abstract class BaseState extends Dispatchable<FacetsMainProps & { current
 
   /** Get the title of the group from its component. */
   groupTitle(key: string): string {
-    return this.groupsByKey[key]?.props.title ?? key;
+    return key;
   }
 
   /** Navigation to facet groups. */
@@ -46,14 +54,9 @@ export abstract class BaseState extends Dispatchable<FacetsMainProps & { current
     return [];
   }
 
-  /** Facet groups for the entity type. */
-  get groupsByKey(): Record<string, JSX.Element> {
-    return {};
-  }
-
-  /** This should return all the groups, with adjusted visibility according to `this.data.current`.  */
-  get groups(): JSX.Element[] {
-    return [];
+  /** Return a component to render the facet groups. */
+  get facetGroupsComponent(): ({ current }: { current: string }) => JSX.Element | null {
+    return () => null;
   }
 }
 
@@ -66,28 +69,18 @@ export class DummyFacetsState extends BaseState {
 
 export class PlangsFacetsState extends BaseState {
   static initial(props: FacetsMainProps): PlangsFacetsState {
-    return new PlangsFacetsState({ ...props, current: PLANGS_DEFAULT_FACET });
+    return new PlangsFacetsState({ ...props, current: DEFAULT_GROUP });
   }
 
   get nav(): string[][] {
-    return PLANGS_NAV;
+    return NAV;
   }
 
-  /** Facet groups for the entity type. */
-  override get groupsByKey(): Record<string, JSX.Element> {
-    return PLANGS_FACET_GROUPS;
+  override groupTitle(key: string): string {
+    return GROUP_LABELS[key as keyof typeof GROUP_LABELS] ?? key;
   }
 
-  get groups(): JSX.Element[] {
-    const groups = Object.entries(this.groupsByKey).map(([key, group]) => {
-      const show = this.isCurrent(key);
-      if (group.props.visible === show) return group;
-      group.key = `${key}-${show}`;
-      group.props.visible = show;
-      group.props.pg = this.data.pg;
-      return group;
-    });
-
-    return groups;
+  override get facetGroupsComponent(): ({ current }: { current: string }) => JSX.Element | null {
+    return PlangsFacetGroups;
   }
 }
