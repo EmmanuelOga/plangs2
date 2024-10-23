@@ -1,7 +1,6 @@
 import type { ComponentChildren, Ref } from "preact";
 import { useContext, useEffect, useRef } from "preact/hooks";
 
-import { PGContext } from "@plangs/frontend/components/facets/main/facets-main";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
 import { useDispatchable } from "@plangs/frontend/dispatchable";
 import { DESELECT } from "@plangs/frontend/icons";
@@ -9,6 +8,7 @@ import { BORDER, HOVER, HOVER_SVG_GROUP } from "@plangs/frontend/styles";
 import { on, onClickOnEnter, send, tap, tw } from "@plangs/frontend/utils";
 import type { E, N } from "@plangs/plangs";
 
+import { FacetsMainContext } from "../main/facets-main";
 import { FacetTableState } from "./state";
 
 export type FacetTableConfig = { kind: "noderel"; node: N; edge: E; dir: "direct" | "inverse" } | { kind: "year"; node: N } | { kind: "missing" };
@@ -20,12 +20,12 @@ export type FacetTableProps<T> = {
 
 export function FacetTable<T>({ facetKey, config }: FacetTableProps<T>) {
   const self = useRef<HTMLDivElement>();
-  const pg = useContext(PGContext);
+  const main = useContext(FacetsMainContext);
 
   const allAnyDefault = "any";
   const state = useDispatchable(
     FacetTableState.initial({
-      ...{ pg, facetKey, config, mode: allAnyDefault },
+      ...{ pg: main?.pg, facetKey, config, mode: allAnyDefault },
       onChange() {
         send(self.current?.parentElement, new Event("input", { bubbles: true, composed: true }));
       },
@@ -34,8 +34,8 @@ export function FacetTable<T>({ facetKey, config }: FacetTableProps<T>) {
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: only missing state, which is a dispatchable.
   useEffect(() => {
-    state.generateEntries({ pg, facetKey, config });
-  }, [pg, facetKey, config]);
+    state.generateEntries({ pg: main?.pg, facetKey, config });
+  }, [main, facetKey, config]);
 
   useEffect(() => {
     return on(self?.current, "input-toggle", (ev: CustomEvent) => {

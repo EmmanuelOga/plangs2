@@ -1,5 +1,6 @@
 import { Dispatchable, useDispatchable } from "@plangs/frontend/dispatchable";
 
+import type { PlangsGraph } from "@plangs/plangs/index";
 import type { JSX } from "preact/jsx-runtime";
 import type { FacetsMainProps } from "./facets-main";
 import { DEFAULT_GROUP, GROUP_LABELS, NAV, PlangsFacetGroups } from "./plangs";
@@ -35,6 +36,10 @@ export abstract class BaseState extends Dispatchable<FacetsMainProps & { current
   }
 
   /** Queries */
+
+  get pg(): PlangsGraph | undefined {
+    return this.data.pg;
+  }
 
   get current(): string {
     return this.data.current;

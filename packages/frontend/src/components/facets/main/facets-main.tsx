@@ -10,7 +10,7 @@ import type { TAB } from "@plangs/server/components/layout";
 import { createContext } from "preact";
 
 import { isFacetsMainElement } from ".";
-import { useFacetState } from "./state";
+import { type FacetsMainState, useFacetState } from "./state";
 
 export type FacetsMainProps = {
   tab: TAB;
@@ -20,8 +20,7 @@ export type FacetsMainProps = {
 export const TAG_NAME = "facets-main";
 export const PROP_KEYS: (keyof FacetsMainProps)[] = ["tab", "pg"] as const;
 
-/** Provide the PlangsGraph through a context */
-export const PGContext = createContext<PlangsGraph | undefined>(undefined);
+export const FacetsMainContext = createContext<FacetsMainState | undefined>(undefined);
 
 export function FacetsMain({ tab, pg }: FacetsMainProps) {
   const self = useRef<HTMLElement>();
@@ -38,7 +37,7 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
 
   return (
     <aside ref={self as Ref<HTMLElement>} class={tw("flex flex-row", "overflow-hidden", tw(BORDER, "border-b-1", "border-t-1", "sm:border-r-1"))}>
-      <PGContext.Provider value={pg}>
+      <FacetsMainContext.Provider value={state}>
         {/* Wrapper to avoid streteching the links to the bottom of the screen. */}
         <div class={tw(tw(BORDER, "border-r-1"), "overflow-y-scroll", "shrink-0 grow-0")}>
           <div class={tw("grid grid-cols-[auto_auto]", "gap-2", "pt-1")}>
@@ -71,7 +70,7 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
         <div class={tw("grow-1", "overflow-hidden", "bg-linear-to-b to-secondary/50", "flex flex-col")}>
           <state.facetGroupsComponent current={state.current} />
         </div>
-      </PGContext.Provider>
+      </FacetsMainContext.Provider>
     </aside>
   );
 }
