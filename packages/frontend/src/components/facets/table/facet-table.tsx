@@ -38,7 +38,7 @@ export function FacetTable<T>({ facetKey, config }: FacetTableProps<T>) {
   }, [main, facetKey, config]);
 
   useEffect(() => {
-    return on(self?.current, "input-toggle", (ev: CustomEvent) => {
+    return on(self?.current, "icon-button", (ev: CustomEvent) => {
       ev.stopPropagation();
       state.doSetMode(ev.detail.mode === "all" ? "all" : "any");
     });

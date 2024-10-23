@@ -16,7 +16,7 @@ export type IconButtonProps = {
   class?: string;
 };
 
-export const TAG_NAME = "input-toggle";
+export const TAG_NAME = "icon-button";
 export const PROP_KEYS: (keyof IconButtonProps)[] = ["action", "disabled"];
 
 export function IconButton({ action, disabled, initial, class: cssClass }: IconButtonProps) {
