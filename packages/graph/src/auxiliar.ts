@@ -12,6 +12,10 @@ export class Map2<K1, K2, V> {
     return this;
   }
 
+  delete(k1: K1, k2: K2): boolean {
+    return this.#map.get(k1)?.delete(k2) ?? false;
+  }
+
   get(k1: K1, k2: K2): V | undefined {
     return this.#map.get(k1)?.get(k2);
   }

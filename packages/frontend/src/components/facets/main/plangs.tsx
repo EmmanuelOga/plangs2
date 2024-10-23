@@ -39,13 +39,13 @@ type FG = keyof typeof GROUP_LABELS;
 
 function Group({ groupKey, current, children }: { groupKey: FG; current: string; children: ComponentChildren }) {
   return (
-    <FacetGroup title={GROUP_LABELS[groupKey]} visible={current === groupKey}>
+    <FacetGroup<FG> title={GROUP_LABELS[groupKey]} visible={current === groupKey} groupKey={groupKey}>
       {children}
     </FacetGroup>
   );
 }
 
-export function PlangsFacetGroups({ current }: { current: string }) {
+export function PlangsFacetGroups({ currentFacetGroup: current }: { currentFacetGroup: string }) {
   return (
     <>
       <Group groupKey="general" current={current}>

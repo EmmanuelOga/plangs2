@@ -68,7 +68,7 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
           </div>
         </div>
         <div class={tw("grow-1", "overflow-hidden", "bg-linear-to-b to-secondary/50", "flex flex-col")}>
-          <state.facetGroupsComponent current={state.current} />
+          <state.facetGroupsComponent currentFacetGroup={state.current} />
         </div>
       </FacetsMainContext.Provider>
     </aside>

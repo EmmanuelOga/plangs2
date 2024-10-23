@@ -93,6 +93,13 @@ export function onClickOnEnter(action: (ev: UIEvent) => void) {
   };
 }
 
+/** Util to type cast and check an event handler. */
+export function handler<T extends HTMLElement>(action: (target: T, ev: UIEvent) => void) {
+  return (ev: UIEvent) => {
+    if (ev.target && "tagName" in ev.target) action(ev.target as T, ev);
+  };
+}
+
 // Tap aka Thrush aka T combinator.
 export const tap = <T, R>(item: T, action: (item: T) => R): R => action(item);
 

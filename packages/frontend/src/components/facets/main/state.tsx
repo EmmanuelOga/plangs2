@@ -1,5 +1,6 @@
 import { Dispatchable, useDispatchable } from "@plangs/frontend/dispatchable";
 
+import { Map2 } from "@plangs/graph/auxiliar";
 import type { PlangsGraph } from "@plangs/plangs/index";
 import type { JSX } from "preact/jsx-runtime";
 import type { FacetsMainProps } from "./facets-main";
@@ -12,7 +13,7 @@ export function useFacetState(props: FacetsMainProps): FacetsMainState {
   return DummyFacetsState.initial(props);
 }
 
-export abstract class BaseState extends Dispatchable<FacetsMainProps & { current: string }> {
+export abstract class BaseState extends Dispatchable<FacetsMainProps & { currentFacetGroup: string; facetsData: Map2<string, string, any> }> {
   /** Update the props, dispatch as necessary. */
   update(props: FacetsMainProps): void {
     if (this.data.pg === props.pg && this.data.tab === props.tab) return;
@@ -31,7 +32,7 @@ export abstract class BaseState extends Dispatchable<FacetsMainProps & { current
   /** Actions */
 
   doSetCurrent(key: string): void {
-    this.data.current = key;
+    this.data.currentFacetGroup = key;
     this.dispatch();
   }
 
@@ -42,11 +43,11 @@ export abstract class BaseState extends Dispatchable<FacetsMainProps & { current
   }
 
   get current(): string {
-    return this.data.current;
+    return this.data.currentFacetGroup;
   }
 
   isCurrent(key: string): boolean {
-    return this.data.current === key;
+    return this.data.currentFacetGroup === key;
   }
 
   /** Get the title of the group from its component. */
@@ -60,21 +61,24 @@ export abstract class BaseState extends Dispatchable<FacetsMainProps & { current
   }
 
   /** Return a component to render the facet groups. */
-  get facetGroupsComponent(): ({ current }: { current: string }) => JSX.Element | null {
+  get facetGroupsComponent(): FacetsGroupComponent {
     return () => null;
   }
 }
 
+/** A p/react function component to render a facet group. */
+type FacetsGroupComponent = ({ currentFacetGroup }: { currentFacetGroup: string }) => JSX.Element | null;
+
 /** The dummy state is a catcher for the error of supplying the wrong TAB prop. */
 export class DummyFacetsState extends BaseState {
   static initial(props: FacetsMainProps): DummyFacetsState {
-    return new DummyFacetsState({ ...props, current: "" });
+    return new DummyFacetsState({ ...props, currentFacetGroup: "", facetsData: new Map2() });
   }
 }
 
 export class PlangsFacetsState extends BaseState {
   static initial(props: FacetsMainProps): PlangsFacetsState {
-    return new PlangsFacetsState({ ...props, current: DEFAULT_GROUP });
+    return new PlangsFacetsState({ ...props, currentFacetGroup: DEFAULT_GROUP, facetsData: new Map2() });
   }
 
   get nav(): string[][] {
@@ -85,7 +89,7 @@ export class PlangsFacetsState extends BaseState {
     return GROUP_LABELS[key as keyof typeof GROUP_LABELS] ?? key;
   }
 
-  override get facetGroupsComponent(): ({ current }: { current: string }) => JSX.Element | null {
+  override get facetGroupsComponent(): FacetsGroupComponent {
     return PlangsFacetGroups;
   }
 }
