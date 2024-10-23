@@ -17,7 +17,7 @@ export class FacetTableState<T> extends Dispatchable<
   }
 
   /** Updates is used when updating from a prop change. */
-  generateEntries(updates?: FacetTableProps<T>): this {
+  generateEntries(updates?: FacetTableProps<T> & { pg?: PlangsGraph }): this {
     if (updates) Object.assign(this.data, updates);
 
     const { pg, config } = this.data;

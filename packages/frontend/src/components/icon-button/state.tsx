@@ -133,7 +133,7 @@ export class ToggleFacetsMenu extends IconButtonBaseState<{ mode: "show" | "hide
   }
 
   override runEffects() {
-    elem("facets")?.classList.toggle("hidden", !this.show);
+    // elem("facets")?.classList.toggle("hidden", !this.show);
     localStorage.setItem("facets", this.data.mode);
   }
 }

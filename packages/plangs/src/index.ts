@@ -140,6 +140,16 @@ export class NPlang extends NBase<"pl", NPlangData> {
     return rel[0];
   }
 
+  get lastReleaseYear(): number | undefined {
+    const rel = this.lastRelease;
+    if (!rel) return undefined;
+    try {
+      return Number.parseInt(rel.date?.split("-")[0] ?? "");
+    } catch (e) {
+      return undefined;
+    }
+  }
+
   get year(): number | undefined {
     const { firstAppeared } = this.data;
     if (!firstAppeared) return undefined;
@@ -151,14 +161,16 @@ export class NPlang extends NBase<"pl", NPlangData> {
     }
   }
 
-  releasedRecently(year: number): boolean {
-    // TODO: Implement this
-    return true;
+  releasedRecently(minYear: number): boolean {
+    const relYear = this.lastReleaseYear;
+    if (!relYear) return false;
+    return relYear >= minYear;
   }
 
-  createdRecently(year: number): boolean {
-    // TODO: Implement this
-    return true;
+  createdRecently(minYear: number): boolean {
+    const ownYear = this.year;
+    if (!ownYear) return false;
+    return ownYear >= minYear;
   }
 
   addExtensions(exts: string[]): this {

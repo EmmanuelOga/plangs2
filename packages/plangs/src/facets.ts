@@ -7,9 +7,9 @@ type Predicate<T> = (pl: NPlang, value: T) => boolean;
 /** A facet requires a value and a predicte. Here we initialize the value to undefined. */
 const facet = <T>(predicate: Predicate<T>) => ({ value: undefined as T | undefined, predicate });
 
-export type EncodedPlangFilters = Record<string, string | string[] | boolean | EncodedFilter>;
-
 export type PlangFacetKey = keyof PlangFacets["facets"];
+
+export type EncodedPlangFilters = Partial<Record<PlangFacetKey, string | string[] | boolean | number | EncodedFilter>>;
 
 /**
  * Criteria to filter programming languages.
@@ -65,6 +65,7 @@ export class PlangFacets {
 
           if (value instanceof Set) return [key, [...value]];
           if (value instanceof RegExp) return [key, value.source];
+          if (typeof value === "number") return [key, value];
           if (typeof value === "boolean") return [key, value];
           if (typeof value === "string") return [key, value];
           if (value instanceof Filter) return [key, value.isEmpty ? undefined : value.encodable()];

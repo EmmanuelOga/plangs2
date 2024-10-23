@@ -7,10 +7,10 @@ import type { EncodedPlangFilters } from "@plangs/plangs/facets";
 import { PlangFacets } from "@plangs/plangs/facets";
 import type { IDKey } from "@plangs/server/elements";
 
+/*
 const oneYearAgo = yearsAgo(1);
 const fiveYearsAgo = yearsAgo(5);
 
-/** Create a plan filter from the inputs values. */
 export function getFacets(): PlangFacets {
   const filters = new PlangFacets();
   const flt = filters.facets;
@@ -60,6 +60,16 @@ export function getFacets(): PlangFacets {
   return filters;
 }
 
+export function inputIsActive(input: HTMLElement): boolean {
+  const kind = input.dataset.facetInput as InputKind;
+  if (kind === "checkbox") return (input as HTMLInputElement).checked;
+  if (kind === "search") return (input as HTMLInputElement).value.trim().length > 0;
+  if (kind === "facet") return !!(input as FacetTableElement).state?.hasSelection;
+  if (kind === "multiple") return !!(input as FacetMultiElement).state?.hasSelection;
+  return false;
+}
+*/
+
 export function facetsFromFragment(): EncodedPlangFilters | undefined {
   try {
     const data = window.location.hash.slice(1).trim();
@@ -84,14 +94,4 @@ export function facetsFromLocalStorage(): EncodedPlangFilters | undefined {
       localStorage.removeItem("plangs-filters");
     }
   }
-}
-
-/** Check wether a facet input has aset value or not. */
-export function inputIsActive(input: HTMLElement): boolean {
-  const kind = input.dataset.facetInput as InputKind;
-  if (kind === "checkbox") return (input as HTMLInputElement).checked;
-  if (kind === "search") return (input as HTMLInputElement).value.trim().length > 0;
-  if (kind === "facet") return !!(input as FacetTableElement).state?.hasSelection;
-  if (kind === "multiple") return !!(input as FacetMultiElement).state?.hasSelection;
-  return false;
 }

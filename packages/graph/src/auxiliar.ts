@@ -160,7 +160,7 @@ export class MapTap<K, V> implements Iterable<[K, V]> {
 
 export type Predicate<T> = (v: T) => boolean;
 
-export type EncodedFilter = { mode: "all" | "any"; values: string[] };
+export type EncodedFilter = { mode: "all" | "any"; values: (string | number)[] };
 
 export function isEncodedFilter(value: unknown): value is EncodedFilter {
   return typeof value === "object" && value !== null && "mode" in value && "values" in value && Array.isArray(value.values);
@@ -197,7 +197,11 @@ export class Filter<T> {
 
   /** Strips the prefixes form the values as they can be inferred from elsewhere. */
   encodable(): EncodedFilter {
-    return { mode: this.mode, values: [...this.values].map(v => `${v}`.replace(/^([^\+]+\+)/, "")) };
+    const values = [...this.values].map(v => {
+      if (typeof v === "number") return v;
+      return `${v}`.replace(/^([^\+]+\+)/, "");
+    });
+    return { mode: this.mode, values };
   }
 }
 

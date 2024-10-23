@@ -5,7 +5,7 @@ import { $, debounce, elem, elems, minWidthBP, on, size } from "@plangs/frontend
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 import type { PlangFacets } from "@plangs/plangs/facets";
 
-import { facetsFromFragment, facetsFromLocalStorage, getFacets, inputIsActive } from "./facets";
+import { facetsFromFragment, facetsFromLocalStorage } from "./facets";
 import { getPl } from "./pl";
 
 export function startGridNav(pg: PlangsGraph) {
@@ -31,7 +31,7 @@ export function startGridNav(pg: PlangsGraph) {
       //   // TODO: Update the facets with the value.
       // }
       // Update the filters to whatever the outcome of the update was.
-      updateFragment(getFacets());
+      // updateFragment(getFacets());
     }
   }
 
@@ -40,44 +40,44 @@ export function startGridNav(pg: PlangsGraph) {
   const thumbs = elems<HTMLDivElement>("plThumb");
   function updatePlangs() {
     if (thumbs.length === 0 || plGrid === undefined) return;
-    const filters = getFacets();
+    // const filters = getFacets();
 
     // Save the filters to localStorage and the fragment.
-    localStorage.setItem("plangs-filters", JSON.stringify(filters.encodable()));
-    updateFragment(filters);
+    // localStorage.setItem("plangs-filters", JSON.stringify(filters.encodable()));
+    // updateFragment(filters);
 
-    const plKeys = pg.plangs(filters);
-    let widthThumb: number | undefined;
-    for (const div of thumbs) {
-      const plKey = div.dataset.nodeKey as NPlang["key"];
-      const visible = plKeys.has(plKey);
-      div.classList.toggle("hidden", !visible);
-      if (visible) widthThumb ??= size(div)[0];
-    }
-    if (widthThumb !== undefined) adjustGrid(plGrid, widthThumb, plKeys.size);
+    // const plKeys = pg.plangs(filters);
+    // let widthThumb: number | undefined;
+    // for (const div of thumbs) {
+    //   const plKey = div.dataset.nodeKey as NPlang["key"];
+    //   const visible = plKeys.has(plKey);
+    //   div.classList.toggle("hidden", !visible);
+    //   if (visible) widthThumb ??= size(div)[0];
+    // }
+    // if (widthThumb !== undefined) adjustGrid(plGrid, widthThumb, plKeys.size);
   }
   updatePlangs();
   const debouncedUpdatePlangs = debounce(updatePlangs, 30);
   window.addEventListener("resize", debouncedUpdatePlangs);
 
   // On input change, re-filter the list of languages, and toggle the facet indicators.
-  on(elem("facets"), "input", ({ target }: InputEvent) => {
-    const facet = (target as HTMLInputElement).closest(`.${cl("facet")}`);
-    const indic = $(`.${cl("facetIndicator")}[data-facet=${facet?.id}]`);
-    const inputs = facet?.querySelectorAll<HTMLElement>("[data-facet-input]");
+  // on(elem("facets"), "input", ({ target }: InputEvent) => {
+  //   const facet = (target as HTMLInputElement).closest(`.${cl("facet")}`);
+  //   const indic = $(`.${cl("facetIndicator")}[data-facet=${facet?.id}]`);
+  //   const inputs = facet?.querySelectorAll<HTMLElement>("[data-facet-input]");
 
-    if (!facet || !indic || !inputs?.length) return;
+  //   if (!facet || !indic || !inputs?.length) return;
 
-    indic?.classList.toggle("text-primary", false);
-    for (const input of inputs) {
-      if (inputIsActive(input)) {
-        indic.classList.toggle("text-primary", true);
-        break;
-      }
-    }
+  //   indic?.classList.toggle("text-primary", false);
+  //   for (const input of inputs) {
+  //     if (inputIsActive(input)) {
+  //       indic.classList.toggle("text-primary", true);
+  //       break;
+  //     }
+  //   }
 
-    debouncedUpdatePlangs();
-  });
+  //   debouncedUpdatePlangs();
+  // });
 
   // On double-click, open the language page.
   on(plGrid, "dblclick", ({ target }: MouseEvent) => {

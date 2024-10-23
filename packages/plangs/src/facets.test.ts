@@ -119,32 +119,32 @@ test("filters languages by name", () => {
 test("filters languages by first appeareance date", () => {
   const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.facets.appearedAfter.value = "2000-01-01";
+  f.facets.createdRecently.value = 2000;
   expect(g.plangs(f)).toEqual(new Set(["pl+typescript"]));
 
-  f.facets.appearedAfter.value = "1990-01-01";
+  f.facets.createdRecently.value = 1990;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+typescript"]));
 
-  f.facets.appearedAfter.value = "1970-01-01";
+  f.facets.createdRecently.value = 1970;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 
-  f.facets.appearedAfter.value = "1960-01-01";
+  f.facets.createdRecently.value = 1960;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 
-  f.facets.appearedAfter.value = undefined;
+  f.facets.createdRecently.value = undefined;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 });
 
 test("filters languages by min release date", () => {
   const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.facets.releasedAfter.value = "1989-11-01";
+  f.facets.releasedRecently.value = 1989;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal"]));
 
-  f.facets.releasedAfter.value = "2010-12-31";
+  f.facets.releasedRecently.value = 2010;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript"]));
 
-  f.facets.releasedAfter.value = undefined;
+  f.facets.releasedRecently.value = undefined;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 });
 
@@ -158,19 +158,6 @@ test("filters languages by whether they have a logo", () => {
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal"]));
 
   f.facets.hasLogo.value = undefined;
-  expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
-});
-
-test("filters languages by whether they have any releases", () => {
-  const [g, f] = [createGraph(), new PlangFacets()];
-
-  f.facets.hasReleases.value = true;
-  expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal"]));
-
-  f.facets.hasReleases.value = false;
-  expect(g.plangs(f)).toEqual(new Set(["pl+typescript"]));
-
-  f.facets.hasReleases.value = undefined;
   expect(g.plangs(f)).toEqual(new Set(["pl+javascript", "pl+pascal", "pl+typescript"]));
 });
 
@@ -364,27 +351,22 @@ test("filters languages by written in", () => {
 test("turning filters into an 'encodable' object", () => {
   const [g, f] = [createGraph(), new PlangFacets()];
 
-  f.facets.appearedAfter.value = "2000-01-01";
+  f.facets.createdRecently.value = 2000;
   f.facets.hasLogo.value = true;
-  f.facets.hasReleases.value = false;
+  f.facets.releasedRecently.value = 2010;
   f.facets.plangName.value = /script/i;
-  f.facets.releasedAfter.value = "2010-12-31";
+  f.facets.creationYear.value = new Filter<number>("any", new Set([1990]));
   f.facets.typeSystems.value = new Filter<NTsys["key"]>("all", new Set(["tsys+dynamic"]));
   f.facets.writtenIn.value = new Filter<NPlang["key"]>("any", new Set(["pl+c", "pl+assembly"]));
   f.facets.influencedBy.value = new Filter<NPlang["key"]>("all", new Set());
 
   expect(f.encodable()).toEqual({
-    plangName: "script",
-    appearedAfter: "2000-01-01",
-    releasedAfter: "2010-12-31",
+    createdRecently: 2000,
+    creationYear: { mode: "any", values: [1990] },
     hasLogo: true,
-    typeSystems: {
-      mode: "all",
-      values: ["dynamic"],
-    },
-    writtenIn: {
-      mode: "any",
-      values: ["c", "assembly"],
-    },
+    plangName: "script",
+    releasedRecently: 2010,
+    typeSystems: { mode: "all", values: ["dynamic"] },
+    writtenIn: { mode: "any", values: ["c", "assembly"] },
   });
 });
