@@ -32,3 +32,4 @@ web_modules/
 .pixi
 *.egg-info
 .aider*
+.env
