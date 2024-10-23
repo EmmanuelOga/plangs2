@@ -26,10 +26,6 @@ export function caller({ clean, match, dontMatch }: { match?: RegExp; dontMatch?
   return callers;
 }
 
-export function wikipedia(href: `https://en.wikipedia.org/wiki/${string}`, title: string): Link {
-  return { kind: "wikipedia", href, title };
-}
-
 export function parseDate(path: string): StrDate | undefined {
   const match = path.match(/(\d{4})_(\d{2})_(\d{2})/);
   if (!match) return;

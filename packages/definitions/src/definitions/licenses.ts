@@ -1,5 +1,5 @@
+import { wikipedia } from "@plangs/definitions/shortcuts";
 import type { PlangsGraph } from "@plangs/plangs";
-import { wikipedia } from "@plangs/plangs/util";
 
 export function define(g: PlangsGraph) {
   g.nodes.license.set("license+bsd", {
