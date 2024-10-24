@@ -12,7 +12,7 @@ export type PlangFacetKey = keyof PlangFacets["facets"];
  * Criteria to filter programming languages.
  */
 export class PlangFacets {
-  facets = {
+  readonly facets = {
     plangName: facet((pl, regexp: RegExp) => regexp.test(pl.name)),
     createdRecently: facet((pl, year?: number) => !year || pl.createdRecently(year)),
     releasedRecently: facet((pl, year?: number) => !year || pl.releasedRecently(year)),

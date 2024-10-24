@@ -33,9 +33,11 @@ export const NAV: FG[][] = [
 
 export const DEFAULT_GROUP = "general";
 
+export type PlangFacetGroupKey = keyof typeof GROUP_LABELS;
+
 /** Aliases for brevity. */
 type FK = PlangFacetKey;
-type FG = keyof typeof GROUP_LABELS;
+type FG = PlangFacetGroupKey;
 
 function Group({ groupKey, current, children }: { groupKey: FG; current: string; children: ComponentChildren }) {
   return (

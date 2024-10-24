@@ -24,6 +24,15 @@ export class Map2<K1, K2, V> {
     return this.#map.get(k1);
   }
 
+  /** Get a consolidated map of all keys in the second dimension. */
+  getMap2(): Map<K2, V> {
+    const res = new Map<K2, V>();
+    for (const [_k1, map2] of this.#map) {
+      for (const [k2, v] of map2) res.set(k2, v);
+    }
+    return res;
+  }
+
   get size(): number {
     let size = 0;
     for (const map of this.#map.values()) size += map.size;
