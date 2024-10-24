@@ -1,8 +1,8 @@
 import { useContext } from "preact/hooks";
 
+import { INPUT } from "@plangs/frontend/auxiliar/styles";
+import { handler, tw } from "@plangs/frontend/auxiliar/utils";
 import { FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
-import { INPUT } from "@plangs/frontend/styles";
-import { handler, tw } from "@plangs/frontend/utils";
 import { Val } from "@plangs/graph/value";
 
 import { getGroupKey } from "./facet-group";

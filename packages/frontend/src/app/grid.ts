@@ -1,83 +1,52 @@
 import { RISON } from "rison2";
 
+import { $, debounce, elem, elems, minWidthBP, on, size } from "@plangs/frontend/auxiliar/utils";
 import type { PlInfoElement } from "@plangs/frontend/components/pl-info";
-import { $, debounce, elem, elems, minWidthBP, on, size } from "@plangs/frontend/utils";
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 import type { PlangFacets } from "@plangs/plangs/facets";
 
-import { facetsFromFragment, facetsFromLocalStorage } from "./facets";
 import { getPl } from "./pl";
 
 export function startGridNav(pg: PlangsGraph) {
   // Push the filters to the URL to allow sharing.
-  // const updateFragment = (pf: PlangFacets) => {
-  //   const filters = pf.encodable();
-  //   if (Object.keys(filters).length > 0) {
-  //     window.location.hash = RISON.stringify(filters);
-  //   } else {
-  //     window.location.hash = "";
-  //   }
-  // };
+  const updateFragment = (pf: PlangFacets) => {
+    const filters = "TODO"; // pf.encodable();
+    if (Object.keys(filters).length > 0) {
+      window.location.hash = RISON.stringify(filters);
+    } else {
+      window.location.hash = "";
+    }
+  };
 
-  // // Provide the graph to every facet.
-  // // for (const elem of $$<FacetTableElement>("input-facet")) elem.pg = pg;
+  // Revive stored filters, if any.
+  const filters = facetsFromFragment() ?? facetsFromLocalStorage();
 
-  // // Revive stored filters, if any.
-  // {
-  //   const filters = facetsFromFragment() ?? facetsFromLocalStorage();
-  //   if (filters) {
-  //     // for (const key of FILTER_KEY) {
-  //     //   const value = filters[key];
-  //     //   // TODO: Update the facets with the value.
-  //     // }
-  //     // Update the filters to whatever the outcome of the update was.
-  //     // updateFragment(getFacets());
-  //   }
-  // }
-
-  // // Filter the list of languages.
+  // Filter the list of languages.
   const plGrid = elem<HTMLDivElement>("plGrid");
-  // const thumbs = elems<HTMLDivElement>("plThumb");
-  // function updatePlangs() {
-  //   if (thumbs.length === 0 || plGrid === undefined) return;
-  //   // const filters = getFacets();
+  const thumbs = elems<HTMLDivElement>("plThumb");
+  function updatePlangs() {
+    if (thumbs.length === 0 || plGrid === undefined) return;
 
-  //   // Save the filters to localStorage and the fragment.
-  //   // localStorage.setItem("plangs-filters", JSON.stringify(filters.encodable()));
-  //   // updateFragment(filters);
+    // Save the filters to localStorage and the fragment.
+    localStorage.setItem("plangs-filters", JSON.stringify(filters.encodable()));
+    updateFragment(filters);
 
-  //   // const plKeys = pg.plangs(filters);
-  //   // let widthThumb: number | undefined;
-  //   // for (const div of thumbs) {
-  //   //   const plKey = div.dataset.nodeKey as NPlang["key"];
-  //   //   const visible = plKeys.has(plKey);
-  //   //   div.classList.toggle("hidden", !visible);
-  //   //   if (visible) widthThumb ??= size(div)[0];
-  //   // }
-  //   // if (widthThumb !== undefined) adjustGrid(plGrid, widthThumb, plKeys.size);
-  // }
-  // updatePlangs();
-  // const debouncedUpdatePlangs = debounce(updatePlangs, 30);
-  // window.addEventListener("resize", debouncedUpdatePlangs);
+    const plKeys = pg.plangs(filters);
+    let widthThumb: number | undefined;
+    for (const div of thumbs) {
+      const plKey = div.dataset.nodeKey as NPlang["key"];
+      const visible = plKeys.has(plKey);
+      div.classList.toggle("hidden", !visible);
+      if (visible) widthThumb ??= size(div)[0];
+    }
+    if (widthThumb !== undefined) adjustGrid(plGrid, widthThumb, plKeys.size);
+  }
+  updatePlangs();
+  const debouncedUpdatePlangs = debounce(updatePlangs, 30);
+  window.addEventListener("resize", debouncedUpdatePlangs);
 
   // On input change, re-filter the list of languages, and toggle the facet indicators.
-  // on(elem("facets"), "input", ({ target }: InputEvent) => {
-  //   const facet = (target as HTMLInputElement).closest(`.${cl("facet")}`);
-  //   const indic = $(`.${cl("facetIndicator")}[data-facet=${facet?.id}]`);
-  //   const inputs = facet?.querySelectorAll<HTMLElement>("[data-facet-input]");
-
-  //   if (!facet || !indic || !inputs?.length) return;
-
-  //   indic?.classList.toggle("text-primary", false);
-  //   for (const input of inputs) {
-  //     if (inputIsActive(input)) {
-  //       indic.classList.toggle("text-primary", true);
-  //       break;
-  //     }
-  //   }
-
-  //   debouncedUpdatePlangs();
-  // });
+  debouncedUpdatePlangs();
 
   // On double-click, open the language page.
   on(plGrid, "dblclick", ({ target }: MouseEvent) => {
@@ -108,5 +77,31 @@ function adjustGrid(plGrid: HTMLElement, widthThumb: number, visibleThumbs: numb
     plGrid.style.setProperty(CSS_COLS_KEY, `repeat(${maxCols}, minmax(8rem, 0fr))`);
   } else {
     plGrid.style.removeProperty(CSS_COLS_KEY);
+  }
+}
+
+export function facetsFromFragment() {
+  try {
+    const data = window.location.hash.slice(1).trim();
+    if (data.length > 2 && data.startsWith("(") && data.endsWith(")")) {
+      const filters = RISON.parse(data);
+      return filters;
+    }
+  } catch (e) {
+    console.warn("Failed to parse URL fragment.");
+    window.location.hash = "";
+  }
+}
+
+export function facetsFromLocalStorage() {
+  const stored = localStorage.getItem("plangs-filters");
+  if (stored) {
+    try {
+      const filters = JSON.parse(stored);
+      return filters;
+    } catch (e) {
+      console.warn("Failed to parse localStorage filters.", stored);
+      localStorage.removeItem("plangs-filters");
+    }
   }
 }

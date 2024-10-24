@@ -1,4 +1,4 @@
-import { Dispatchable } from "@plangs/frontend/dispatchable";
+import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import type { Filter } from "@plangs/graph/filters";
 
 export class FacetMultiState extends Dispatchable<{

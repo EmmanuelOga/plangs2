@@ -1,7 +1,7 @@
+import { BORDER } from "@plangs/frontend/auxiliar/styles";
+import { tw } from "@plangs/frontend/auxiliar/utils";
 import { Anchor } from "@plangs/frontend/components/misc/anchor";
 import { Pill } from "@plangs/frontend/components/misc/pill";
-import { BORDER } from "@plangs/frontend/styles";
-import { tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/components/layout";
 

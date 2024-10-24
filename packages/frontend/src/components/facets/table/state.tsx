@@ -1,8 +1,8 @@
 import type { JSX } from "preact/jsx-runtime";
 
-import { Dispatchable } from "@plangs/frontend/dispatchable";
-import { SORT_DOWN, SORT_UP } from "@plangs/frontend/icons";
-import { tw } from "@plangs/frontend/utils";
+import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
+import { SORT_DOWN, SORT_UP } from "@plangs/frontend/auxiliar/icons";
+import { tw } from "@plangs/frontend/auxiliar/utils";
 import type { Filter } from "@plangs/graph/filters";
 import type { PlangsGraph } from "@plangs/plangs/index";
 

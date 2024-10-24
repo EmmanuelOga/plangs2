@@ -1,4 +1,4 @@
-import { tw } from "@plangs/frontend/utils";
+import { tw } from "@plangs/frontend/auxiliar/utils";
 
 export function PlangsLogo({ class: cssClass }: { class?: string }) {
   return (

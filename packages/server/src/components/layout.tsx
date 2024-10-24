@@ -1,7 +1,7 @@
 import { type ComponentChildren, h } from "preact";
 
-import { stripes } from "@plangs/frontend/styles";
-import { script, tw } from "@plangs/frontend/utils";
+import { stripes } from "@plangs/frontend/auxiliar/styles";
+import { script, tw } from "@plangs/frontend/auxiliar/utils";
 import type { NPlang } from "@plangs/plangs";
 
 import { MainNav } from "./main-nav";

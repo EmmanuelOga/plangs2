@@ -1,5 +1,5 @@
-import { INPUT } from "@plangs/frontend/styles";
-import { handler, onClickOnEnter, tw } from "@plangs/frontend/utils";
+import { INPUT } from "@plangs/frontend/auxiliar/styles";
+import { handler, onClickOnEnter, tw } from "@plangs/frontend/auxiliar/utils";
 import { Val } from "@plangs/graph/value";
 import { useContext } from "preact/hooks";
 import { FacetsMainContext } from "../main/facets-main";

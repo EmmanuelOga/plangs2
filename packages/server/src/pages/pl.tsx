@@ -1,8 +1,8 @@
+import { BORDER, PROSE } from "@plangs/frontend/auxiliar/styles";
+import { tw } from "@plangs/frontend/auxiliar/utils";
 import { Anchor } from "@plangs/frontend/components/misc/anchor";
 import { Pill } from "@plangs/frontend/components/misc/pill";
 import { PlInfo } from "@plangs/frontend/components/pl-info/pl-info";
-import { BORDER, PROSE } from "@plangs/frontend/styles";
-import { tw } from "@plangs/frontend/utils";
 import type { NPlang } from "@plangs/plangs";
 import { Layout } from "@plangs/server/components/layout";
 import { Table } from "@plangs/server/components/table";

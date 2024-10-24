@@ -1,12 +1,12 @@
 import type { Ref } from "preact";
 import { useContext, useEffect, useRef } from "preact/hooks";
 
+import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
+import { HOVER, INPUT } from "@plangs/frontend/auxiliar/styles";
+import { debounce, handler, on, onClickOnEnter, tw } from "@plangs/frontend/auxiliar/utils";
 import { FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
 import { getGroupKey } from "@plangs/frontend/components/facets/misc/facet-group";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
-import { useDispatchable } from "@plangs/frontend/dispatchable";
-import { HOVER, INPUT } from "@plangs/frontend/styles";
-import { debounce, handler, on, onClickOnEnter, tw } from "@plangs/frontend/utils";
 import { Filter } from "@plangs/graph/filters";
 
 import { FacetMultiState } from "./state";

@@ -1,9 +1,9 @@
 import "preact/debug";
 
+import { elem } from "@plangs/frontend/auxiliar/utils";
 import { registerIconButton } from "@plangs/frontend/components/icon-button";
 import { ToggleFacetsMenu, ToggleHamburguer, ToggleLights } from "@plangs/frontend/components/icon-button/state";
 import { type PlInfoElement, registerPlangInfo } from "@plangs/frontend/components/pl-info";
-import { elem } from "@plangs/frontend/utils";
 import { PlangsGraph } from "@plangs/plangs";
 import pgData from "@plangs/server/plangs.json";
 

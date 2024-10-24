@@ -1,6 +1,6 @@
 import type { JSX } from "preact/jsx-runtime";
 
-import { tw } from "@plangs/frontend/utils";
+import { tw } from "@plangs/frontend/auxiliar/utils";
 import type { NPlang } from "@plangs/plangs";
 import { cl } from "@plangs/server/elements";
 

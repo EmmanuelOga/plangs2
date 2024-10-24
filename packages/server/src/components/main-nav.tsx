@@ -1,5 +1,5 @@
-import { BORDER } from "@plangs/frontend/styles";
-import { script, tw } from "@plangs/frontend/utils";
+import { BORDER } from "@plangs/frontend/auxiliar/styles";
+import { script, tw } from "@plangs/frontend/auxiliar/utils";
 import { cl, id } from "@plangs/server/elements";
 
 import type { TAB } from "./layout";

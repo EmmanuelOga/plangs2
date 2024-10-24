@@ -1,6 +1,6 @@
+import { PROSE } from "@plangs/frontend/auxiliar/styles";
+import { tw } from "@plangs/frontend/auxiliar/utils";
 import { Anchor } from "@plangs/frontend/components/misc/anchor";
-import { PROSE } from "@plangs/frontend/styles";
-import { tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 import { Layout } from "@plangs/server/components/layout";
 

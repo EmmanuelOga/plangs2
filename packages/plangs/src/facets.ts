@@ -1,4 +1,4 @@
-import type { Filter } from "@plangs/plangs/filters";
+import type { Filter } from "@plangs/graph/filters";
 import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from ".";
 
 type Predicate<T> = (pl: NPlang, value: T) => boolean;

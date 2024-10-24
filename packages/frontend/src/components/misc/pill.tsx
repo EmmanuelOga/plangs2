@@ -1,5 +1,5 @@
-import { HOVER } from "@plangs/frontend/styles";
-import { tw } from "@plangs/frontend/utils";
+import { HOVER } from "@plangs/frontend/auxiliar/styles";
+import { tw } from "@plangs/frontend/auxiliar/utils";
 import type { TAB } from "@plangs/server/components/layout";
 import { cl } from "@plangs/server/elements";
 

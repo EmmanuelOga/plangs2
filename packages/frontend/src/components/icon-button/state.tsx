@@ -1,8 +1,8 @@
 import type { ComponentChild } from "preact";
 
-import { Dispatchable, useDispatchable } from "@plangs/frontend/dispatchable";
-import { BOOLEAN, CLOSE, FILTER_EDIT, FULLCIRCLE, MENU, MOON, SUN } from "@plangs/frontend/icons";
-import { tw } from "@plangs/frontend/utils";
+import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
+import { BOOLEAN, CLOSE, FILTER_EDIT, FULLCIRCLE, MENU, MOON, SUN } from "@plangs/frontend/auxiliar/icons";
+import { tw } from "@plangs/frontend/auxiliar/utils";
 import { elem } from "@plangs/server/elements";
 
 import type { IconButtonProps } from "./icon-button";

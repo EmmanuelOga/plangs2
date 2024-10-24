@@ -1,7 +1,7 @@
 import { h } from "preact";
 
+import { script, tw } from "@plangs/frontend/auxiliar/utils";
 import { PlThumb } from "@plangs/frontend/components/misc/pl-thumb";
-import { script, tw } from "@plangs/frontend/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 import { Layout } from "@plangs/server/components/layout";
 import { id } from "@plangs/server/elements";

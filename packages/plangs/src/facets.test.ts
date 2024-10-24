@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test";
 
-import { Filter } from "@plangs/graph/auxiliar";
+import { Filter } from "@plangs/graph/filters";
 
 import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from ".";
 import { PlangsGraph } from ".";
@@ -360,7 +360,7 @@ test("turning filters into an 'encodable' object", () => {
   f.facets.writtenIn.value = new Filter<NPlang["key"]>("any", new Set(["pl+c", "pl+assembly"]));
   f.facets.influencedBy.value = new Filter<NPlang["key"]>("all", new Set());
 
-  expect(f.encodable()).toEqual({
+  expect(f.serializable()).toEqual({
     createdRecently: 2000,
     creationYear: { mode: "any", values: [1990] },
     hasLogo: true,

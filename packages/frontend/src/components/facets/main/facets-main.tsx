@@ -1,14 +1,15 @@
 import { Fragment, type Ref } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
-import { setComponentState } from "@plangs/frontend/dispatchable";
-import { FULLCIRCLE } from "@plangs/frontend/icons";
-import { BORDER } from "@plangs/frontend/styles";
-import { onClickOnEnter, tw } from "@plangs/frontend/utils";
+import { setComponentState } from "@plangs/frontend/auxiliar/dispatchable";
+import { FULLCIRCLE } from "@plangs/frontend/auxiliar/icons";
+import { BORDER } from "@plangs/frontend/auxiliar/styles";
+import { elems, onClickOnEnter, tw } from "@plangs/frontend/auxiliar/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/components/layout";
 import { createContext } from "preact";
 
+import { useDOMReady } from "@plangs/frontend/auxiliar/use_dom";
 import { isFacetsMainElement } from ".";
 import { type FacetsMainState, useFacetState } from "./state";
 
@@ -24,7 +25,8 @@ export const FacetsMainContext = createContext<FacetsMainState | undefined>(unde
 
 export function FacetsMain({ tab, pg }: FacetsMainProps) {
   const self = useRef<HTMLElement>();
-  const state = useFacetState({ tab, pg });
+  const thumbns = useDOMReady(() => Array.from(elems<HTMLDivElement>("plThumb")));
+  const state = useFacetState({ tab, pg, thumbns });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: state is dispatchable and should be updated when tab or pg change.
   useEffect(() => {

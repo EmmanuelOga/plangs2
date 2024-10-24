@@ -1,17 +1,17 @@
 import type { JSX } from "preact/jsx-runtime";
 
-import { Dispatchable, useDispatchable } from "@plangs/frontend/dispatchable";
-import { Filter } from "@plangs/graph/filters";
+import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { Map2 } from "@plangs/graph/map2";
 import type { PlangsGraph } from "@plangs/plangs/index";
 
-import type { AnyValue, Value } from "@plangs/graph/value";
+import type { AnyValue } from "@plangs/graph/value";
+import type { Ref } from "preact";
 import type { FacetsMainProps } from "./facets-main";
 import { DEFAULT_GROUP, GROUP_LABELS, NAV, PlangsFacetGroups } from "./plangs";
 
 export type FacetsMainState = DummyFacetsState | PlangsFacetsState;
 
-export function useFacetState(props: FacetsMainProps): FacetsMainState {
+export function useFacetState(props: FacetsMainProps & { thumbns: Ref<HTMLDivElement[]> }): FacetsMainState {
   if (props.tab === "plangs") return useDispatchable(PlangsFacetsState.initial(props));
   return DummyFacetsState.initial(props);
 }
@@ -19,7 +19,9 @@ export function useFacetState(props: FacetsMainProps): FacetsMainState {
 type GroupKey = string;
 type FacetKey = string;
 
-export abstract class BaseState extends Dispatchable<FacetsMainProps & { currentGroupKey: GroupKey; values: Map2<GroupKey, FacetKey, AnyValue> }> {
+export abstract class BaseState extends Dispatchable<
+  FacetsMainProps & { currentGroupKey: GroupKey; values: Map2<GroupKey, FacetKey, AnyValue>; thumbns: Ref<HTMLDivElement[]> }
+> {
   /** Update the props, dispatch as necessary. */
   update(props: FacetsMainProps): void {
     if (this.data.pg === props.pg && this.data.tab === props.tab) return;
@@ -51,10 +53,16 @@ export abstract class BaseState extends Dispatchable<FacetsMainProps & { current
     } else {
       values.delete(groupKey, facetKey);
     }
-    this.maybeDispatch();
+    console.log("UPDATE:", this.thumbns);
+    this.dispatch();
   }
 
   /** Queries */
+
+  get thumbns(): HTMLDivElement[] {
+    const { thumbns } = this.data;
+    return thumbns && "current" in thumbns ? (thumbns.current ?? []) : [];
+  }
 
   get values() {
     return this.data.values;
@@ -93,12 +101,12 @@ type FacetsGroupComponent = ({ currentFacetGroup }: { currentFacetGroup: string 
 /** The dummy state is a catcher for the error of supplying the wrong TAB prop. */
 export class DummyFacetsState extends BaseState {
   static initial(props: FacetsMainProps): DummyFacetsState {
-    return new DummyFacetsState({ ...props, currentGroupKey: "", values: new Map2() });
+    return new DummyFacetsState({ ...props, currentGroupKey: "", values: new Map2(), thumbns: { current: null } });
   }
 }
 
 export class PlangsFacetsState extends BaseState {
-  static initial(props: FacetsMainProps): PlangsFacetsState {
+  static initial(props: FacetsMainProps & { thumbns: Ref<HTMLDivElement[]> }): PlangsFacetsState {
     return new PlangsFacetsState({ ...props, currentGroupKey: DEFAULT_GROUP, values: new Map2() });
   }
 
