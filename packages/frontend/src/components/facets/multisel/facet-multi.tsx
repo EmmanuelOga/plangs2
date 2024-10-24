@@ -2,13 +2,13 @@ import type { Ref } from "preact";
 import { useContext, useRef } from "preact/hooks";
 
 import { FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
+import { getGroupKey } from "@plangs/frontend/components/facets/misc/facet-group";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
 import { useDispatchable } from "@plangs/frontend/dispatchable";
 import { HOVER, INPUT } from "@plangs/frontend/styles";
-import { debounce, handler, onClickOnEnter, send, tw } from "@plangs/frontend/utils";
-
+import { debounce, handler, onClickOnEnter, tw } from "@plangs/frontend/utils";
 import { Val } from "@plangs/graph/value";
-import { getGroupKey } from "../misc/facet-group";
+
 import { FacetMultiState } from "./state";
 
 export type FacetMultiProps<T extends string> = {

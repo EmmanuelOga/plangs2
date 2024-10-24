@@ -18,6 +18,27 @@ export class Filter<T> implements Value<Filter<T>> {
     return this.values.size === 0;
   }
 
+  add(value: T): this {
+    this.values.add(value);
+    return this;
+  }
+
+  delete(value: T): boolean {
+    return this.values.delete(value);
+  }
+
+  has(value: T): boolean {
+    return this.values.has(value);
+  }
+
+  clear() {
+    this.values.clear();
+  }
+
+  get size(): number {
+    return this.values.size;
+  }
+
   matches(predicate: Predicate<T>): boolean {
     return this.mode === "all" ? this.all(predicate) : this.any(predicate);
   }

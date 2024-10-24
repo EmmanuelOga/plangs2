@@ -3,16 +3,17 @@ import type { JSX } from "preact/jsx-runtime";
 import { Dispatchable } from "@plangs/frontend/dispatchable";
 import { SORT_DOWN, SORT_UP } from "@plangs/frontend/icons";
 import { tw } from "@plangs/frontend/utils";
+import type { Filter } from "@plangs/graph/filters";
 import type { PlangsGraph } from "@plangs/plangs/index";
 
 import type { FacetTableProps } from "./facet-table";
 
 export class FacetTableState<T extends string> extends Dispatchable<
-  FacetTableProps<T> & { pg?: PlangsGraph; entries: Entry[]; order: Order; selected: Set<string>; onChange: () => void; mode: "all" | "any" }
+  FacetTableProps<T> & { pg?: PlangsGraph; entries: Entry[]; order: Order; value: Filter<string> }
 > {
   /** Factory function for creating the initial state. */
-  static initial<T extends string>(props: FacetTableProps<T> & { pg?: PlangsGraph; onChange: () => void; mode: "all" | "any" }): FacetTableState<T> {
-    return new FacetTableState({ ...props, entries: [], order: "facet-asc", selected: new Set() }).generateEntries();
+  static initial<T extends string>(props: FacetTableProps<T> & { pg?: PlangsGraph; value: Filter<string> }): FacetTableState<T> {
+    return new FacetTableState({ ...props, entries: [], order: "facet-asc" }).generateEntries();
   }
 
   /** Updates is used when updating from a prop change. */
@@ -66,14 +67,14 @@ export class FacetTableState<T extends string> extends Dispatchable<
   /** Actions */
 
   doSetMode(mode: "all" | "any") {
-    this.data.mode = mode === "all" ? "all" : "any";
-    this.dispatchChange();
+    this.value.mode = mode === "all" ? "all" : "any";
+    this.dispatch();
   }
 
-  doToggle(value: Entry["value"]) {
-    const { selected } = this.data;
-    selected.has(value) ? selected.delete(value) : selected.add(value);
-    this.dispatchChange();
+  doToggle(entryVal: Entry["value"]) {
+    const { value } = this.data;
+    value.has(entryVal) ? value.delete(entryVal) : value.add(entryVal);
+    this.dispatch();
   }
 
   doToggleOrder(col: Col) {
@@ -82,28 +83,29 @@ export class FacetTableState<T extends string> extends Dispatchable<
     this.sort();
   }
 
-  doSetFacets({ values }: EncodedFilter) {
-    const byVal = this.entriesByValue;
+  doSetFacets(...params: any[]) {
+    console.log("TODO");
+    // const byVal = this.entriesByValue;
 
-    if (this.config.kind === "missing") {
-      console.warn("Couldn't set facets: missing facet configuration.");
-      return;
-    }
+    // if (this.config.kind === "missing") {
+    //   console.warn("Couldn't set facets: missing facet configuration.");
+    //   return;
+    // }
 
-    for (const val of values) {
-      // Prefix is stripped for brevity of URL encoding.
-      const key = `${this.config.node}+${val}`;
-      const entry = byVal.get(key);
-      if (entry && !this.data.selected.has(key)) {
-        this.data.selected.add(key);
-      }
-    }
-    this.dispatchChange();
+    // for (const val of values) {
+    //   // Prefix is stripped for brevity of URL encoding.
+    //   const key = `${this.config.node}+${val}`;
+    //   const entry = byVal.get(key);
+    //   if (entry && !this.data.selected.has(key)) {
+    //     this.data.selected.add(key);
+    //   }
+    // }
+    this.dispatch();
   }
 
   doResetSelection() {
-    this.data.selected.clear();
-    this.dispatchChange();
+    this.value.clear();
+    this.dispatch();
   }
 
   /** Queries */
@@ -135,8 +137,8 @@ export class FacetTableState<T extends string> extends Dispatchable<
     );
   }
 
-  isSelected(value: Entry["value"]): boolean {
-    return this.data.selected.has(value);
+  isSelected(entryVal: Entry["value"]): boolean {
+    return this.value.has(entryVal);
   }
 
   get config() {
@@ -153,30 +155,16 @@ export class FacetTableState<T extends string> extends Dispatchable<
     return this.data.entries;
   }
 
-  get values() {
-    return this.data.selected;
-  }
-
-  get hasSelection(): boolean {
-    return this.data.selected.size > 0;
-  }
-
-  get mode() {
-    return this.data.mode ?? "TODO";
+  get value() {
+    return this.data.value;
   }
 
   /** Helpers */
-
-  dispatchChange() {
-    this.dispatch();
-    this.data.onChange();
-  }
 
   private sort(): this {
     const { entries, order } = this.data;
     entries.sort((a, b) => CMP[order](this, a, b));
     this.maybeDispatch(); // This way we can use a state instance even without a preact component.
-    this.data.onChange();
     return this;
   }
 }
