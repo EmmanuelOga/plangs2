@@ -1,8 +1,11 @@
-import { Dispatchable, useDispatchable } from "@plangs/frontend/dispatchable";
-
-import { Map2 } from "@plangs/graph/auxiliar";
-import type { PlangsGraph } from "@plangs/plangs/index";
 import type { JSX } from "preact/jsx-runtime";
+
+import { Dispatchable, useDispatchable } from "@plangs/frontend/dispatchable";
+import { Filter } from "@plangs/graph/filters";
+import { Map2 } from "@plangs/graph/map2";
+import type { PlangsGraph } from "@plangs/plangs/index";
+
+import type { AnyValue, Value } from "@plangs/graph/value";
 import type { FacetsMainProps } from "./facets-main";
 import { DEFAULT_GROUP, GROUP_LABELS, NAV, PlangsFacetGroups } from "./plangs";
 
@@ -13,7 +16,10 @@ export function useFacetState(props: FacetsMainProps): FacetsMainState {
   return DummyFacetsState.initial(props);
 }
 
-export abstract class BaseState extends Dispatchable<FacetsMainProps & { currentFacetGroup: string; facetsData: Map2<string, string, any> }> {
+type GroupKey = string;
+type FacetKey = string;
+
+export abstract class BaseState extends Dispatchable<FacetsMainProps & { currentGroupKey: GroupKey; values: Map2<GroupKey, FacetKey, AnyValue> }> {
   /** Update the props, dispatch as necessary. */
   update(props: FacetsMainProps): void {
     if (this.data.pg === props.pg && this.data.tab === props.tab) return;
@@ -31,38 +37,53 @@ export abstract class BaseState extends Dispatchable<FacetsMainProps & { current
 
   /** Actions */
 
-  doSetCurrent(key: string): void {
-    this.data.currentFacetGroup = key;
+  doSetCurrent(groupKey: GroupKey): void {
+    this.data.currentGroupKey = groupKey;
     this.dispatch();
   }
 
+  /** This dispatches since we want to change the indicator of active state. */
+  doSetValue(groupKey: GroupKey, facetKey: FacetKey, value: AnyValue): void {
+    const { values } = this.data;
+    if (value.isPresent) {
+      if (value.equalTo(values.get(groupKey, facetKey))) return;
+      values.set(groupKey, facetKey, value);
+    } else {
+      values.delete(groupKey, facetKey);
+    }
+    this.maybeDispatch();
+  }
+
   /** Queries */
+
+  get values() {
+    return this.data.values;
+  }
 
   get pg(): PlangsGraph | undefined {
     return this.data.pg;
   }
 
-  get current(): string {
-    return this.data.currentFacetGroup;
+  get currentGroupKey(): GroupKey {
+    return this.data.currentGroupKey;
   }
 
-  isCurrent(key: string): boolean {
-    return this.data.currentFacetGroup === key;
+  groupTitle(groupKey: GroupKey): string {
+    return groupKey;
   }
 
-  /** Get the title of the group from its component. */
-  groupTitle(key: string): string {
-    return key;
-  }
-
-  /** Navigation to facet groups. */
-  get nav(): string[][] {
+  /** Links to FacetGroups appear in groups. */
+  get nav(): GroupKey[][] {
     return [];
   }
 
   /** Return a component to render the facet groups. */
   get facetGroupsComponent(): FacetsGroupComponent {
     return () => null;
+  }
+
+  isActive(groupKey: GroupKey): boolean {
+    return this.values.size2(groupKey) > 0;
   }
 }
 
@@ -72,20 +93,20 @@ type FacetsGroupComponent = ({ currentFacetGroup }: { currentFacetGroup: string 
 /** The dummy state is a catcher for the error of supplying the wrong TAB prop. */
 export class DummyFacetsState extends BaseState {
   static initial(props: FacetsMainProps): DummyFacetsState {
-    return new DummyFacetsState({ ...props, currentFacetGroup: "", facetsData: new Map2() });
+    return new DummyFacetsState({ ...props, currentGroupKey: "", values: new Map2() });
   }
 }
 
 export class PlangsFacetsState extends BaseState {
   static initial(props: FacetsMainProps): PlangsFacetsState {
-    return new PlangsFacetsState({ ...props, currentFacetGroup: DEFAULT_GROUP, facetsData: new Map2() });
+    return new PlangsFacetsState({ ...props, currentGroupKey: DEFAULT_GROUP, values: new Map2() });
   }
 
-  get nav(): string[][] {
+  get nav(): GroupKey[][] {
     return NAV;
   }
 
-  override groupTitle(key: string): string {
+  override groupTitle(key: GroupKey): string {
     return GROUP_LABELS[key as keyof typeof GROUP_LABELS] ?? key;
   }
 

@@ -4,7 +4,7 @@ import type { ComponentChildren } from "preact";
 
 const DATASET_ATTR = "data-group-key";
 
-export function FacetGroup<T>({
+export function FacetGroup<T extends string>({
   groupKey,
   title,
   visible,

@@ -44,22 +44,22 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
             {state.nav.flatMap(keys => (
               // Subgrid respects the alignment of indicators while allowing to group the links and add a border.
               <div key={keys.join("-")} class={tw("col-span-2", "grid grid-cols-subgrid", "items-center", "pb-2", tw(BORDER, "border-b-1"))}>
-                {keys.map(key => (
-                  <Fragment key={key}>
-                    <div class={tw("mt-[.45rem] pl-1", "text-foreground/20 text-xs")}>
+                {keys.map(groupKey => (
+                  <Fragment key={groupKey}>
+                    <div class={tw("mt-[.45rem] pl-1", state.isActive(groupKey) ? "text-primary" : "text-foreground/20 text-xs")}>
                       <div class="-mt-[2px] scale-66">{FULLCIRCLE}</div>
                     </div>
                     <button
-                      {...onClickOnEnter(() => state.doSetCurrent(key))}
+                      {...onClickOnEnter(() => state.doSetCurrent(groupKey))}
                       class={tw(
                         "block",
                         "truncate text-left",
                         "py-1 pr-1",
-                        state.isCurrent(key) ? "text-primary" : "text-foreground/85",
+                        state.currentGroupKey === groupKey ? "text-primary" : "text-foreground/85",
                         "underline decoration-1 decoration-dotted",
                         "cursor-pointer",
                       )}>
-                      {state.groupTitle(key)}
+                      {state.groupTitle(groupKey)}
                     </button>
                   </Fragment>
                 ))}
@@ -68,7 +68,7 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
           </div>
         </div>
         <div class={tw("grow-1", "overflow-hidden", "bg-linear-to-b to-secondary/50", "flex flex-col")}>
-          <state.facetGroupsComponent currentFacetGroup={state.current} />
+          <state.facetGroupsComponent currentFacetGroup={state.currentGroupKey} />
         </div>
       </FacetsMainContext.Provider>
     </aside>

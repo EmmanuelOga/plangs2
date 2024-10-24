@@ -94,8 +94,8 @@ export function onClickOnEnter(action: (ev: UIEvent) => void) {
 }
 
 /** Util to type cast and check an event handler. */
-export function handler<T extends HTMLElement>(action: (target: T, ev: UIEvent) => void) {
-  return (ev: UIEvent) => {
+export function handler<T extends HTMLElement, Ev extends UIEvent = UIEvent>(action: (target: T, ev: Ev) => void) {
+  return (ev: Ev) => {
     if (ev.target && "tagName" in ev.target) action(ev.target as T, ev);
   };
 }

@@ -2,7 +2,8 @@
  * Simple single-edge directed graph data structure.
  */
 
-import { IterTap, Map2 } from "./auxiliar";
+import { IterTap } from "./auxiliar";
+import { Map2 } from "./map2";
 
 // biome-ignore lint/suspicious/noExplicitAny: we use any for the generic types... sory biome.
 type Any = any;

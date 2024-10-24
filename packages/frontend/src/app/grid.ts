@@ -10,55 +10,55 @@ import { getPl } from "./pl";
 
 export function startGridNav(pg: PlangsGraph) {
   // Push the filters to the URL to allow sharing.
-  const updateFragment = (pf: PlangFacets) => {
-    const filters = pf.encodable();
-    if (Object.keys(filters).length > 0) {
-      window.location.hash = RISON.stringify(filters);
-    } else {
-      window.location.hash = "";
-    }
-  };
+  // const updateFragment = (pf: PlangFacets) => {
+  //   const filters = pf.encodable();
+  //   if (Object.keys(filters).length > 0) {
+  //     window.location.hash = RISON.stringify(filters);
+  //   } else {
+  //     window.location.hash = "";
+  //   }
+  // };
 
-  // Provide the graph to every facet.
-  // for (const elem of $$<FacetTableElement>("input-facet")) elem.pg = pg;
+  // // Provide the graph to every facet.
+  // // for (const elem of $$<FacetTableElement>("input-facet")) elem.pg = pg;
 
-  // Revive stored filters, if any.
-  {
-    const filters = facetsFromFragment() ?? facetsFromLocalStorage();
-    if (filters) {
-      // for (const key of FILTER_KEY) {
-      //   const value = filters[key];
-      //   // TODO: Update the facets with the value.
-      // }
-      // Update the filters to whatever the outcome of the update was.
-      // updateFragment(getFacets());
-    }
-  }
+  // // Revive stored filters, if any.
+  // {
+  //   const filters = facetsFromFragment() ?? facetsFromLocalStorage();
+  //   if (filters) {
+  //     // for (const key of FILTER_KEY) {
+  //     //   const value = filters[key];
+  //     //   // TODO: Update the facets with the value.
+  //     // }
+  //     // Update the filters to whatever the outcome of the update was.
+  //     // updateFragment(getFacets());
+  //   }
+  // }
 
-  // Filter the list of languages.
+  // // Filter the list of languages.
   const plGrid = elem<HTMLDivElement>("plGrid");
-  const thumbs = elems<HTMLDivElement>("plThumb");
-  function updatePlangs() {
-    if (thumbs.length === 0 || plGrid === undefined) return;
-    // const filters = getFacets();
+  // const thumbs = elems<HTMLDivElement>("plThumb");
+  // function updatePlangs() {
+  //   if (thumbs.length === 0 || plGrid === undefined) return;
+  //   // const filters = getFacets();
 
-    // Save the filters to localStorage and the fragment.
-    // localStorage.setItem("plangs-filters", JSON.stringify(filters.encodable()));
-    // updateFragment(filters);
+  //   // Save the filters to localStorage and the fragment.
+  //   // localStorage.setItem("plangs-filters", JSON.stringify(filters.encodable()));
+  //   // updateFragment(filters);
 
-    // const plKeys = pg.plangs(filters);
-    // let widthThumb: number | undefined;
-    // for (const div of thumbs) {
-    //   const plKey = div.dataset.nodeKey as NPlang["key"];
-    //   const visible = plKeys.has(plKey);
-    //   div.classList.toggle("hidden", !visible);
-    //   if (visible) widthThumb ??= size(div)[0];
-    // }
-    // if (widthThumb !== undefined) adjustGrid(plGrid, widthThumb, plKeys.size);
-  }
-  updatePlangs();
-  const debouncedUpdatePlangs = debounce(updatePlangs, 30);
-  window.addEventListener("resize", debouncedUpdatePlangs);
+  //   // const plKeys = pg.plangs(filters);
+  //   // let widthThumb: number | undefined;
+  //   // for (const div of thumbs) {
+  //   //   const plKey = div.dataset.nodeKey as NPlang["key"];
+  //   //   const visible = plKeys.has(plKey);
+  //   //   div.classList.toggle("hidden", !visible);
+  //   //   if (visible) widthThumb ??= size(div)[0];
+  //   // }
+  //   // if (widthThumb !== undefined) adjustGrid(plGrid, widthThumb, plKeys.size);
+  // }
+  // updatePlangs();
+  // const debouncedUpdatePlangs = debounce(updatePlangs, 30);
+  // window.addEventListener("resize", debouncedUpdatePlangs);
 
   // On input change, re-filter the list of languages, and toggle the facet indicators.
   // on(elem("facets"), "input", ({ target }: InputEvent) => {

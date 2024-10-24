@@ -1,53 +1,3 @@
-/** Two dimensional Map. */
-export class Map2<K1, K2, V> {
-  #map = new Map<K1, Map<K2, V>>();
-
-  set(k1: K1, k2: K2, v: V): this {
-    let m2 = this.#map.get(k1);
-    if (!m2) {
-      m2 = new Map();
-      this.#map.set(k1, m2);
-    }
-    m2.set(k2, v);
-    return this;
-  }
-
-  delete(k1: K1, k2: K2): boolean {
-    return this.#map.get(k1)?.delete(k2) ?? false;
-  }
-
-  get(k1: K1, k2: K2): V | undefined {
-    return this.#map.get(k1)?.get(k2);
-  }
-
-  getMap(k1: K1): Map<K2, V> | undefined {
-    return this.#map.get(k1);
-  }
-
-  get size(): number {
-    let size = 0;
-    for (const map of this.#map.values()) size += map.size;
-    return size;
-  }
-
-  /** Returns an iterator of the keys in the first dimension. */
-  keys(): IterableIterator<K1> {
-    return this.#map.keys();
-  }
-
-  entries(): IterableIterator<[K1, Map<K2, V>]> {
-    return this.#map.entries();
-  }
-
-  values(): V[] {
-    return [...this.#map.values()].flatMap(map => [...map.values()]);
-  }
-
-  has(k1: K1, k2: K2): boolean {
-    return this.#map.get(k1)?.has(k2) ?? false;
-  }
-}
-
 /**
  * Wrapper to work with potentially empty or undefined iterables.
  */
@@ -159,53 +109,6 @@ export class MapTap<K, V> implements Iterable<[K, V]> {
 
   [Symbol.iterator](): Iterator<[K, V]> {
     return this.map ? this.map[Symbol.iterator]() : [].values();
-  }
-}
-
-export type Predicate<T> = (v: T) => boolean;
-
-export type EncodedFilter = { mode: "all" | "any"; values: (string | number)[] };
-
-export function isEncodedFilter(value: unknown): value is EncodedFilter {
-  return typeof value === "object" && value !== null && "mode" in value && "values" in value && Array.isArray(value.values);
-}
-
-/**
- * A filter that can match any or all of the elements against a predicate.
- */
-export class Filter<T> {
-  constructor(
-    public mode: "all" | "any" = "all",
-    public readonly values: Set<T> = new Set(),
-  ) {}
-
-  get isEmpty(): boolean {
-    return this.values.size === 0;
-  }
-
-  matches(predicate: Predicate<T>): boolean {
-    return this.mode === "all" ? this.all(predicate) : this.any(predicate);
-  }
-
-  all(predicate: Predicate<T>): boolean {
-    if (this.values.size === 0) return true;
-    for (const v of this.values) if (!predicate(v)) return false;
-    return true;
-  }
-
-  any(predicate: Predicate<T>): boolean {
-    if (this.values.size === 0) return true;
-    for (const v of this.values) if (predicate(v)) return true;
-    return false;
-  }
-
-  /** Strips the prefixes form the values as they can be inferred from elsewhere. */
-  encodable(): EncodedFilter {
-    const values = [...this.values].map(v => {
-      if (typeof v === "number") return v;
-      return `${v}`.replace(/^([^\+]+\+)/, "");
-    });
-    return { mode: this.mode, values };
   }
 }
 

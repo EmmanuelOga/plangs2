@@ -1,5 +1,4 @@
-import { type EncodedFilter, Filter } from "@plangs/graph/auxiliar";
-
+import type { Filter } from "@plangs/plangs/filters";
 import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from ".";
 
 type Predicate<T> = (pl: NPlang, value: T) => boolean;
@@ -8,8 +7,6 @@ type Predicate<T> = (pl: NPlang, value: T) => boolean;
 const facet = <T>(predicate: Predicate<T>) => ({ value: undefined as T | undefined, predicate });
 
 export type PlangFacetKey = keyof PlangFacets["facets"];
-
-export type EncodedPlangFilters = Partial<Record<PlangFacetKey, string | string[] | boolean | number | EncodedFilter>>;
 
 /**
  * Criteria to filter programming languages.
@@ -51,29 +48,5 @@ export class PlangFacets {
       if (!this.matches(key as PlangFacetKey, pl)) return false;
     }
     return true;
-  }
-
-  /**
-   * This is similar to converting to something reaady to JSON serialization.
-   * We are targetting RISON and trying to make the resulting encoding URL friendly.
-   */
-  encodable(): EncodedPlangFilters {
-    return Object.fromEntries(
-      Object.entries(this.facets)
-        .map(([key, { value }]) => {
-          if (!value) return [key, undefined];
-
-          if (value instanceof Set) return [key, [...value]];
-          if (value instanceof RegExp) return [key, value.source];
-          if (typeof value === "number") return [key, value];
-          if (typeof value === "boolean") return [key, value];
-          if (typeof value === "string") return [key, value];
-          if (value instanceof Filter) return [key, value.isEmpty ? undefined : value.encodable()];
-
-          console.warn("Unknown filter value", value);
-          return [key, undefined];
-        })
-        .filter(([, value]) => value !== undefined),
-    );
   }
 }

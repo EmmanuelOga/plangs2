@@ -3,16 +3,15 @@ import type { JSX } from "preact/jsx-runtime";
 import { Dispatchable } from "@plangs/frontend/dispatchable";
 import { SORT_DOWN, SORT_UP } from "@plangs/frontend/icons";
 import { tw } from "@plangs/frontend/utils";
-import type { EncodedFilter } from "@plangs/graph/auxiliar";
 import type { PlangsGraph } from "@plangs/plangs/index";
 
 import type { FacetTableProps } from "./facet-table";
 
-export class FacetTableState<T> extends Dispatchable<
+export class FacetTableState<T extends string> extends Dispatchable<
   FacetTableProps<T> & { pg?: PlangsGraph; entries: Entry[]; order: Order; selected: Set<string>; onChange: () => void; mode: "all" | "any" }
 > {
   /** Factory function for creating the initial state. */
-  static initial<T>(props: FacetTableProps<T> & { pg?: PlangsGraph; onChange: () => void; mode: "all" | "any" }): FacetTableState<T> {
+  static initial<T extends string>(props: FacetTableProps<T> & { pg?: PlangsGraph; onChange: () => void; mode: "all" | "any" }): FacetTableState<T> {
     return new FacetTableState({ ...props, entries: [], order: "facet-asc", selected: new Set() }).generateEntries();
   }
 
