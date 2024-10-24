@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.1/schema.json",
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
   "css": {
     "formatter": {
       "enabled": true
@@ -11,6 +11,10 @@
       "cssModules": true
     }
   },
+  "files": {
+    "ignore": [],
+    "ignoreUnknown": false
+  },
   "formatter": {
     "enabled": true,
     "formatWithErrors": true,
@@ -21,7 +25,8 @@
   "javascript": {
     "formatter": {
       "arrowParentheses": "asNeeded",
-      "bracketSameLine": true
+      "bracketSameLine": true,
+      "quoteStyle": "double"
     }
   },
   "linter": {
@@ -49,5 +54,10 @@
   },
   "organizeImports": {
     "enabled": true
+  },
+  "vcs": {
+    "clientKind": "git",
+    "enabled": false,
+    "useIgnoreFile": true
   }
 }
