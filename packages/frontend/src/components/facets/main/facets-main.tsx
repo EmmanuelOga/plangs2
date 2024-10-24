@@ -35,6 +35,7 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
 
   useEffect(() => {
     setComponentState(self, isFacetsMainElement, state);
+    state.sideEffects();
   });
 
   return (

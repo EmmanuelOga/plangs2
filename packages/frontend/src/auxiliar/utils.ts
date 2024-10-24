@@ -37,9 +37,14 @@ export function customEvent<T>(type: string, detail: T, options: CustomEventInit
   return new CustomEvent(type, { detail, ...options });
 }
 
-export function size(el: HTMLElement): [number, number] {
-  const style = getComputedStyle(el);
-  return [Number.parseInt(style.width), Number.parseInt(style.height)];
+export function size(el: HTMLElement): { width: number; height: number } {
+  try {
+    const style = getComputedStyle(el);
+    return { width: Number.parseInt(style.width), height: Number.parseInt(style.height) };
+  } catch (err) {
+    console.error("Error getting size", el, err);
+  }
+  return { width: 0, height: 0 };
 }
 
 export function withinContainer(el: Element, container: Element): boolean {
@@ -61,11 +66,13 @@ export const script = (src: string) => tag("script", src);
 export const style = (src: string) => tag("style", src);
 export const tag = (tag: "script" | "style", __html: string) => h(tag, { dangerouslySetInnerHTML: { __html } });
 
-export function debounce(callback: () => void, millies: number): () => void {
+// biome-ignore lint/suspicious/noExplicitAny: We want to debounce any function.
+type AnyFunc = (...args: any[]) => any;
+export function debounce<T extends AnyFunc>(callback: T, millies: number): (...args: Parameters<T>) => void {
   let timeout: Timer | undefined;
-  return () => {
+  return (...args: Parameters<AnyFunc>) => {
     if (timeout) clearTimeout(timeout);
-    timeout = setTimeout(callback, millies);
+    timeout = setTimeout(() => callback(...args), millies);
   };
 }
 

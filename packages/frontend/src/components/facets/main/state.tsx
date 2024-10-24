@@ -7,6 +7,7 @@ import type { PlangsGraph } from "@plangs/plangs/index";
 import type { AnyValue } from "@plangs/graph/value";
 import type { Ref } from "preact";
 import type { FacetsMainProps } from "./facets-main";
+import { updateThumbns } from "./grid";
 import { DEFAULT_GROUP, GROUP_LABELS, NAV, PlangsFacetGroups } from "./plangs";
 
 export type FacetsMainState = DummyFacetsState | PlangsFacetsState;
@@ -53,7 +54,7 @@ export abstract class BaseState extends Dispatchable<
     } else {
       values.delete(groupKey, facetKey);
     }
-    console.log("UPDATE:", this.thumbns);
+    this.sideEffects();
     this.dispatch();
   }
 
@@ -92,6 +93,17 @@ export abstract class BaseState extends Dispatchable<
 
   isActive(groupKey: GroupKey): boolean {
     return this.values.size2(groupKey) > 0;
+  }
+
+  /** Results is a set of node keys that are the result of applying the filters. */
+  get results(): Set<string> {
+    return new Set(["pl+python"]);
+  }
+
+  sideEffects() {
+    // localStorage.setItem("plangs-filters", JSON.stringify(facets.serializable()));
+    // updateFragment(facets);
+    updateThumbns(this.thumbns, this.results);
   }
 }
 
