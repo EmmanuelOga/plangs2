@@ -1,10 +1,11 @@
 import { Dispatchable } from "@plangs/frontend/dispatchable";
+import type { Filter } from "@plangs/graph/filters";
 
 export class FacetMultiState extends Dispatchable<{
-  value: Set<string>; // Set preserves insertion order.
+  value: Filter<string>; // Set preserves insertion order.
 }> {
-  static initial(): FacetMultiState {
-    return new FacetMultiState({ value: new Set() });
+  static initial({ value }: { value: Filter<string> }): FacetMultiState {
+    return new FacetMultiState({ value });
   }
 
   /** Actions */
@@ -32,6 +33,10 @@ export class FacetMultiState extends Dispatchable<{
     }
     if (removed) this.dispatch();
     return removed;
+  }
+
+  doSetMode(mode: "all" | "any"): void {
+    this.value.mode = mode === "all" ? "all" : "any";
   }
 
   /** Queries */

@@ -1,13 +1,13 @@
 import type { Ref } from "preact";
-import { useContext, useRef } from "preact/hooks";
+import { useContext, useEffect, useRef } from "preact/hooks";
 
 import { FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
 import { getGroupKey } from "@plangs/frontend/components/facets/misc/facet-group";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
 import { useDispatchable } from "@plangs/frontend/dispatchable";
 import { HOVER, INPUT } from "@plangs/frontend/styles";
-import { debounce, handler, onClickOnEnter, tw } from "@plangs/frontend/utils";
-import { Val } from "@plangs/graph/value";
+import { debounce, handler, on, onClickOnEnter, tw } from "@plangs/frontend/utils";
+import { Filter } from "@plangs/graph/filters";
 
 import { FacetMultiState } from "./state";
 
@@ -18,14 +18,22 @@ export type FacetMultiProps<T extends string> = {
 
 export function FacetMulti<T extends string>({ label, facetKey }: FacetMultiProps<T>) {
   const self = useRef<HTMLDivElement>();
-  const state = useDispatchable(FacetMultiState.initial());
+  const state = useDispatchable(FacetMultiState.initial(new Filter("any")));
   const input = useRef<HTMLInputElement>();
 
   const main = useContext(FacetsMainContext);
   const notifyMain = () => {
     const groupKey = getGroupKey(self.current);
-    if (main && groupKey) main.doSetValue(groupKey, facetKey, Val.wrap(state.value));
+    if (main && groupKey) main.doSetValue(groupKey, facetKey, state.value);
   };
+
+  useEffect(() => {
+    return on(self?.current, "icon-button", (ev: CustomEvent) => {
+      ev.stopPropagation();
+      state.doSetMode(ev.detail.mode);
+      notifyMain();
+    });
+  });
 
   /** Scroll the selection so we can see what's been added. */
   const maybeScroll = (value: string) =>
@@ -69,9 +77,9 @@ export function FacetMulti<T extends string>({ label, facetKey }: FacetMultiProp
       }
     });
 
-  // Helper to enumerate the entries, map them, then return the array (instead of an iterator).
+  // Helper to enumerate the entries, map them, then return an array (instead of an iterator).
   function mapEntries<T>(mapper: (entry: [number, string]) => T): T[] {
-    return Array.from([...state.value].entries().map(mapper));
+    return Array.from([...state.value.values].entries().map(mapper));
   }
 
   return (
@@ -85,14 +93,18 @@ export function FacetMulti<T extends string>({ label, facetKey }: FacetMultiProp
         onKeyDown={add}
       />
 
-      <span class={tw("inline-flex", "items-center justify-between", state.value.size < 2 ? "text-foreground/50" : "text-foreground", "pl-2")}>
+      <span class={tw(state.value.size < 2 ? "text-foreground/50" : "text-foreground", "pl-2")}>
         <IconButton action="allAny" disabled={state.value.size < 2} initial={"any"} />
       </span>
 
       <ul>
         {mapEntries(([idx, value]) => (
-          <li key={value} class={tw("cursor-pointer p-2", HOVER)}>
-            <button data-value={value} type="button" class="cursor-pointer" {...onClickOnEnter(remover(idx))}>
+          <li key={value}>
+            <button
+              type="button"
+              data-value={value}
+              class={tw("block", "p-2", "w-full text-left", "cursor-pointer", HOVER)}
+              {...onClickOnEnter(remover(idx))}>
               ❌ {value}
             </button>
           </li>
