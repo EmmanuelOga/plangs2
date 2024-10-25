@@ -110,14 +110,6 @@ export class NPlang extends NBase<"pl", NPlangData> {
     return new IterTap(this.data.extensions);
   }
 
-  get createdDate(): StrDate | undefined {
-    return this.data.firstAppeared;
-  }
-
-  createdAfter(minDate: StrDate): boolean {
-    return !!this.data.firstAppeared && this.data.firstAppeared >= minDate;
-  }
-
   get images() {
     return new IterTap(this.data.images);
   }

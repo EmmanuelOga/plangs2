@@ -36,7 +36,7 @@ export function PlInfo({ pl, open, tab }: PlInfoProps) {
         <>
           <span class={tw(forGrid ? "dash sm:hidden" : "hidden")}>&#8212;</span>
           <div class={tw(forGrid && "hidden sm:block")}>
-            {pl.createdDate && <Pill name={`Appeared ${pl.createdDate}`} nodeKey="NA" kind="firstAppeared" tab={tab} />}
+            {pl.year && <Pill name={`Appeared ${pl.year}`} nodeKey="NA" kind="firstAppeared" tab={tab} />}
             {pl.lastRelease && (
               <Pill name={`Last Rel ${pl.lastRelease.date ?? pl.lastRelease.version}`} nodeKey="NA" kind="firstAppeared" tab={tab} />
             )}
