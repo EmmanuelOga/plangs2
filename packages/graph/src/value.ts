@@ -52,6 +52,12 @@ export abstract class ValBase<T> implements Value<T> {
   }
 }
 
+export class ValNil extends ValBase<null | undefined> {
+  equalTo(other?: AnyValue): boolean {
+    return other instanceof ValNil;
+  }
+}
+
 export class ValNumber extends ValBase<number> {
   equalTo(other?: AnyValue): boolean {
     return other instanceof ValNumber && this.value === other.value;

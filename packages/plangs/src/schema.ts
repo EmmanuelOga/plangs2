@@ -143,6 +143,17 @@ export type day = string; // 0 padded
 /** A 0-padded YYYY-MM-DD date. Example: 2024-01-01. */
 export type StrDate = `${year}-${month}-${day}`;
 
+/** Extract the year from a StrDate. */
+export function getStrDateYear(strDate?: StrDate): number | undefined {
+  if (!strDate) return undefined;
+  try {
+    const year = Number.parseInt(strDate?.split("-")[0] ?? "");
+    if (year >= 1900 && year <= 2100) return year;
+  } catch (e) {
+    return undefined;
+  }
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // Types used to interact with OpenAI.
 ////////////////////////////////////////////////////////////////////////////////

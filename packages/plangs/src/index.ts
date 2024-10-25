@@ -1,10 +1,23 @@
 import { BaseGraph, Edge, EdgeMap, Node, NodeMap } from "@plangs/graph";
 import { IterTap, MapTap, arrayMerge } from "@plangs/graph/auxiliar";
 
-import { PLANG_FACET_PREDICATES, type PlangFacetKey, type PlangFacets, type Pred, plangMatches } from "./facets";
+import { type PlangFacetKey, plangMatches } from "./facets";
 
 import type { AnyValue } from "@plangs/graph/value";
-import type { CommonEdgeData, CommonNodeData, E, Image, Link, N, NLicenseData, NPlangData, NPostData, Release, StrDate } from "./schema";
+import {
+  type CommonEdgeData,
+  type CommonNodeData,
+  type E,
+  type Image,
+  type Link,
+  type N,
+  type NLicenseData,
+  type NPlangData,
+  type NPostData,
+  type Release,
+  type StrDate,
+  getStrDateYear,
+} from "./schema";
 export type { E, N } from "./schema";
 
 /** Alias for better readability. */
@@ -142,13 +155,7 @@ export class NPlang extends NBase<"pl", NPlangData> {
   }
 
   get lastReleaseYear(): number | undefined {
-    const rel = this.lastRelease;
-    if (!rel) return undefined;
-    try {
-      return Number.parseInt(rel.date?.split("-")[0] ?? "");
-    } catch (e) {
-      return undefined;
-    }
+    return getStrDateYear(this.lastRelease?.date);
   }
 
   get year(): number | undefined {
