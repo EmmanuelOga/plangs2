@@ -120,8 +120,8 @@ export const keyMissing = (obj: any) =>
 export function callers(): string {
   const lines = caller({
     dontMatch: /preact|[A-Z]@/,
-    clean: new RegExp(`${window.location.href.split("#")[0]}bundle/`, "g"),
-  }).slice(2);
+    clean: { regExp: new RegExp(`${window.location.href.split("#")[0]}bundle/`, "g"), replacer: () => "" },
+  }).slice(1);
 
   // JSON is more readable for this use case.
   return JSON.stringify(lines, null, 2);

@@ -68,6 +68,11 @@ export class PlangsGraph extends BaseGraph<N, E, G> {
 
 /** Base type for data on all nodes. */
 export abstract class NBase<Prefix extends N, Data extends CommonNodeData> extends Node<PlangsGraph, `${Prefix}+${string}`, Data> {
+  addWebsites(links: Link[]): this {
+    arrayMerge((this.data.websites ??= []), links, (l1, l2) => l1.href === l2.href);
+    return this;
+  }
+
   get name(): string {
     return this.data.name ? this.data.name : this.plainKey;
   }
@@ -89,11 +94,6 @@ export abstract class NBase<Prefix extends N, Data extends CommonNodeData> exten
     if (!keywords) return undefined;
     const lenient = keywords.map(k => k.replaceAll(/[- ]/g, "\\s*.?\\s*"));
     return new RegExp(`\\b(${lenient.join("|")})\\b`, "i");
-  }
-
-  addWebsites(links: Link[]): this {
-    arrayMerge((this.data.websites ??= []), links, (l1, l2) => l1.href === l2.href);
-    return this;
   }
 }
 
@@ -154,6 +154,11 @@ export class NPlang extends NBase<"pl", NPlangData> {
     return !!this.year && this.year >= minYear;
   }
 
+  addApps(others: NApp["key"][]): this {
+    for (const other of others) this.graph.edges.app.connect(this.key, other);
+    return this;
+  }
+
   addExtensions(exts: string[]): this {
     arrayMerge((this.data.extensions ??= []), exts);
     return this;
@@ -195,7 +200,7 @@ export class NPlang extends NBase<"pl", NPlangData> {
     return this;
   }
 
-  addLibraries(others: NLibrary["key"][]): this {
+  addLibs(others: NLibrary["key"][]): this {
     for (const other of others) this.graph.edges.lib.connect(this.key, other);
     return this;
   }

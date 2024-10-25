@@ -366,3 +366,16 @@ test("plangMatches", () => {
   expect(plangMatches(plang, filters)).toBe(true);
   expect(plangMatches(other, filters)).toBe(false);
 });
+
+test("Plangs.plangs", () => {
+  const pg = new PlangsGraph();
+  const plang = pg.nodes.pl.set("pl+plang", { name: "MyPlang" }).addWrittenIn(["pl+one", "pl+two"]);
+  const other = pg.nodes.pl.set("pl+other", { name: "MyOtherPlang" }).addWrittenIn(["pl+two"]);
+
+  const writtenIn = new Filter<NPlang["key"]>("any").add("pl+one").add("pl+two");
+  const filters = new Map(Object.entries({ writtenIn }) as [PlangFacetKey, AnyValue][]);
+
+  expect(pg.plangs(filters)).toEqual(new Set([plang.key, other.key]));
+  expect(pg.plangs(filters, 1)).toEqual(new Set([plang.key]));
+  expect(pg.plangs(filters, 1000)).toEqual(new Set([plang.key, other.key]));
+});
