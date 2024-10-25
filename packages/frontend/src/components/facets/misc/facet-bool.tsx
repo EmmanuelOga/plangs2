@@ -1,6 +1,6 @@
 import { INPUT } from "@plangs/frontend/auxiliar/styles";
 import { handler, onClickOnEnter, tw } from "@plangs/frontend/auxiliar/utils";
-import { ValBool } from "@plangs/graph/value";
+import { ValBool } from "packages/auxiliar/src/value";
 import { useContext } from "preact/hooks";
 import { FacetsMainContext } from "../main/facets-main";
 import { getGroupKey } from "./facet-group";

@@ -7,7 +7,7 @@ import { debounce, handler, on, onClickOnEnter, tw } from "@plangs/frontend/auxi
 import { FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
 import { getGroupKey } from "@plangs/frontend/components/facets/misc/facet-group";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
-import { Filter } from "@plangs/graph/filters";
+import { Filter } from "packages/auxiliar/src/filters";
 
 import { FacetMultiState } from "./state";
 

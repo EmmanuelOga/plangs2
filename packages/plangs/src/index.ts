@@ -1,23 +1,13 @@
-import { BaseGraph, Edge, EdgeMap, Node, NodeMap } from "@plangs/graph";
-import { IterTap, MapTap, arrayMerge } from "@plangs/graph/auxiliar";
+import { arrayMerge } from "@plangs/auxiliar/array";
+import { BaseGraph, Edge, EdgeMap, Node, NodeMap } from "@plangs/auxiliar/graph";
+import { IterTap } from "@plangs/auxiliar/iter_tap";
+import { MapTap } from "@plangs/auxiliar/map_tap";
 
 import { type PlangFacetKey, plangMatches } from "./facets";
 
-import type { AnyValue } from "@plangs/graph/value";
-import {
-  type CommonEdgeData,
-  type CommonNodeData,
-  type E,
-  type Image,
-  type Link,
-  type N,
-  type NLicenseData,
-  type NPlangData,
-  type NPostData,
-  type Release,
-  type StrDate,
-  getStrDateYear,
-} from "./schema";
+import type { AnyValue } from "packages/auxiliar/src/value";
+import type { CommonEdgeData, CommonNodeData, E, Image, Link, N, NLicenseData, NPlangData, NPostData, Release, StrDate } from "./schema";
+import { getStrDateYear } from "./util";
 export type { E, N } from "./schema";
 
 /** Alias for better readability. */

@@ -10,20 +10,37 @@
     "strictFunctionTypes": true,
     "forceConsistentCasingInFileNames": true,
     "sourceMap": true,
-    "types": ["bun-types"],
+    "types": [
+      "bun-types"
+    ],
     "baseUrl": ".",
     "rootDir": ".",
     "paths": {
-      "@plangs/definitions/*": ["packages/definitions/src/*"],
-      "@plangs/frontend/*": ["packages/frontend/src/*"],
-      "@plangs/graph/*": ["packages/graph/src/*"],
-      "@plangs/plangs/*": ["packages/plangs/src/*"],
-      "@plangs/server/*": ["packages/server/src/*"],
-      "@plangs/wiki-scraper/*": ["archive/wiki-scraper/src/*"]
+      "@plangs/definitions/*": [
+        "packages/definitions/src/*"
+      ],
+      "@plangs/frontend/*": [
+        "packages/frontend/src/*"
+      ],
+      "@plangs/auxiliar/*": [
+        "packages/auxiliar/src/*"
+      ],
+      "@plangs/plangs/*": [
+        "packages/plangs/src/*"
+      ],
+      "@plangs/server/*": [
+        "packages/server/src/*"
+      ],
+      "@plangs/wiki-scraper/*": [
+        "archive/wiki-scraper/src/*"
+      ]
     },
     // Preact stuff.
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
   },
-  "exclude": ["node_modules", "**/node_modules/*"]
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*"
+  ]
 }

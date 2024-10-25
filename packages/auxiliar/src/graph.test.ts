@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test";
 
-import { BaseGraph, Edge, EdgeMap as Edges, type NO_DATA, Node, NodeMap as Nodes } from ".";
+import { BaseGraph, Edge, EdgeMap as Edges, type NO_DATA, Node, NodeMap as Nodes } from "./graph";
 
 type N = "person" | "post" | "tag";
 type E = "personPost" | "postTag";

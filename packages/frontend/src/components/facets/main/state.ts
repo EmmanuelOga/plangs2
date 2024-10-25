@@ -1,11 +1,11 @@
 import type { JSX } from "preact/jsx-runtime";
 
 import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
-import { Map2 } from "@plangs/graph/map2";
 import type { NPlang, PlangsGraph } from "@plangs/plangs/index";
+import { Map2 } from "packages/auxiliar/src/map2";
 
-import type { AnyValue } from "@plangs/graph/value";
 import type { PlangFacetKey } from "@plangs/plangs/facets";
+import type { AnyValue } from "packages/auxiliar/src/value";
 import type { Ref } from "preact";
 import type { FacetsMainProps } from "./facets-main";
 import { updateThumbns } from "./grid";

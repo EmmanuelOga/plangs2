@@ -35,3 +35,14 @@ export function parseDate(path: string): StrDate | undefined {
   const strDate: StrDate = `${y}-${`${m}`.padStart(2, "0")}-${`${d}`.padStart(2, "0")}`;
   return strDate;
 }
+
+/** Extract the year from a StrDate. */
+export function getStrDateYear(strDate?: StrDate): number | undefined {
+  if (!strDate) return undefined;
+  try {
+    const year = Number.parseInt(strDate?.slice(0, 4));
+    if (year >= 1900 && year <= 2100) return year;
+  } catch (e) {
+    return undefined;
+  }
+}

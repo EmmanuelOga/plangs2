@@ -4,7 +4,7 @@ import { INPUT } from "@plangs/frontend/auxiliar/styles";
 import { handler, tw } from "@plangs/frontend/auxiliar/utils";
 import { FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
 
-import { ValRegExp } from "@plangs/graph/value";
+import { ValRegExp } from "packages/auxiliar/src/value";
 import { getGroupKey } from "./facet-group";
 
 export function FacetText<T extends string>({ facetKey, label }: { facetKey: T; label: string }) {

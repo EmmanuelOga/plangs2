@@ -2,7 +2,7 @@
  * Simple single-edge directed graph data structure.
  */
 
-import { IterTap } from "./auxiliar";
+import { IterTap } from "./iter_tap";
 import { Map2 } from "./map2";
 
 // biome-ignore lint/suspicious/noExplicitAny: we use any for the generic types... sory biome.

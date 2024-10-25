@@ -3,9 +3,11 @@
   "description": "A database of programming language information.",
   "version": "0.1.0",
   "dependencies": {
-    "@plangs/graph": "workspace:*",
+    "@plangs/auxiliar": "workspace:*",
     "typescript-json-schema": "^0.65.1"
   },
   "main": "src/index.ts",
-  "files": ["src"]
+  "files": [
+    "src"
+  ]
 }

@@ -1,5 +1,5 @@
 import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
-import type { Filter } from "@plangs/graph/filters";
+import type { Filter } from "packages/auxiliar/src/filters";
 
 export class FacetMultiState extends Dispatchable<{
   value: Filter<string>; // Set preserves insertion order.

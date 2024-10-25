@@ -1,5 +1,4 @@
-import { transpileModule } from "typescript";
-import type { AnyValue, Value } from "./value";
+import type { Value } from "./value";
 
 export type Predicate<T> = (v: T) => boolean;
 

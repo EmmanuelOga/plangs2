@@ -10,7 +10,7 @@ import { getGroupKey } from "@plangs/frontend/components/facets/misc/facet-group
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
 import type { E, N } from "@plangs/plangs";
 
-import { Filter } from "@plangs/graph/filters";
+import { Filter } from "packages/auxiliar/src/filters";
 import { FacetTableState } from "./state";
 
 export type FacetTableConfig = { kind: "noderel"; node: N; edge: E; dir: "direct" | "inverse" } | { kind: "year"; node: N } | { kind: "missing" };

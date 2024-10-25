@@ -1,7 +1,7 @@
 import * as cheerio from "cheerio";
 import type { Element } from "domhandler";
 
-import { arrayMerge } from "@plangs/graph/auxiliar";
+import { arrayMerge } from "@plangs/auxiliar/array";
 import type { NPlang } from "@plangs/plangs";
 import type { Link, StrDate } from "@plangs/plangs/schema";
 
@@ -175,6 +175,7 @@ export const mergeLinks = (target: Link[], src: Link[]) => arrayMerge(target, sr
 class InfoBox {
   summary = "";
   firstAppeared?: StrDate;
+  year?: number;
 
   readonly releases: { version: string; date?: StrDate }[] = [];
   readonly extensions: string[] = [];
@@ -292,7 +293,10 @@ function processEntry($: cheerio.CheerioAPI, key: string, val: cheerio.Cheerio<E
 
   if (key.includes("appear")) {
     const date = parseDate(text);
-    if (date) box.firstAppeared = date;
+    if (date) {
+      box.firstAppeared = date;
+      box.year = Number.parseInt(date.slice(0, 4));
+    }
   } else if (key.includes("release") || key.includes("version") || key.includes("date")) {
     const [date, version] = [parseDate(text), parseVersion(text)];
     if (version) arrayMerge(box.releases, [{ version, date: date as StrDate }], (a, b) => a.version === b.version);

@@ -1,8 +1,8 @@
 import { expect, test } from "bun:test";
 
-import { Filter } from "@plangs/graph/filters";
+import { Filter } from "packages/auxiliar/src/filters";
 
-import { type AnyValue, ValBool, ValNumber, ValRegExp } from "@plangs/graph/value";
+import { type AnyValue, ValBool, ValNumber, ValRegExp } from "packages/auxiliar/src/value";
 import { type NLicense, type NParadigm, type NPlang, type NPlatform, type NTag, type NTsys, PlangsGraph } from ".";
 import { PLANG_FACET_PREDICATES, type PlangFacetKey, plangMatches } from "./facets";
 

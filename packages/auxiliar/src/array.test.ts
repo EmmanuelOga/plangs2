@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { arrayMerge } from "./auxiliar";
+import { arrayMerge } from "./array";
 
 test("arrayMerge", () => {
   const link = {

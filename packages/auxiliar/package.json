@@ -1,0 +1,9 @@
+{
+  "name": "@plangs/auxiliar",
+  "version": "0.1.0",
+  "description": "Auxiliar utils and data structures",
+  "main": "src/index.ts",
+  "files": [
+    "src"
+  ]
+}

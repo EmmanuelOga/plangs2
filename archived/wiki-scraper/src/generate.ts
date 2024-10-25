@@ -3,7 +3,7 @@ import { mkdir } from "node:fs/promises";
 // @ts-ignore types for node:fs/promises?
 import { extname, join } from "node:path";
 
-import type { IterTap } from "@plangs/graph/auxiliar";
+import type { IterTap } from "@plangs/auxiliar/iter_tap";
 import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, PlangsGraph } from "@plangs/plangs";
 import type { Link } from "@plangs/plangs/schema";
 
@@ -34,7 +34,7 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
   const data: NPlang["data"] = {
     name: page.title,
     description: page.description,
-    firstAppeared: page.infobox.firstAppeared,
+    year: page.infobox.year,
     extensions: page.infobox.extensions.sort(),
     websites: page.websites.sort(),
     releases: page.infobox.releases.sort(),

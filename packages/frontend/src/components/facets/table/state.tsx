@@ -3,8 +3,8 @@ import type { JSX } from "preact/jsx-runtime";
 import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { SORT_DOWN, SORT_UP } from "@plangs/frontend/auxiliar/icons";
 import { tw } from "@plangs/frontend/auxiliar/utils";
-import type { Filter } from "@plangs/graph/filters";
 import type { PlangsGraph } from "@plangs/plangs/index";
+import type { Filter } from "packages/auxiliar/src/filters";
 
 import type { FacetTableProps } from "./facet-table";
 

@@ -3,7 +3,7 @@
   "description": "Scraps programming language information from Wikipedia infoboxes.",
   "version": "0.0.1",
   "dependencies": {
-    "@plangs/graph": "workspace:*",
+    "@plangs/auxiliar": "workspace:*",
     "@plangs/plangs": "workspace:*",
     "cheerio": "1.0.0-rc.12",
     "cli-highlight": "^2.1.11",
@@ -13,5 +13,7 @@
   },
   "type": "module",
   "main": "src/generate.ts",
-  "files": ["src"]
+  "files": [
+    "src"
+  ]
 }
