@@ -2,9 +2,9 @@ import { expect, test } from "bun:test";
 
 import { Filter } from "@plangs/graph/filters";
 
-import { ValBool, ValNumber, ValRegExp } from "@plangs/graph/value";
+import { type AnyValue, ValBool, ValNumber, ValRegExp } from "@plangs/graph/value";
 import { type NLicense, type NParadigm, type NPlang, type NPlatform, type NTag, type NTsys, PlangsGraph } from ".";
-import { PLANG_FACET_PREDICATES } from "./facets";
+import { PLANG_FACET_PREDICATES, type PlangFacetKey, plangMatches } from "./facets";
 
 test("compilesTo", () => {
   const pg = new PlangsGraph();
@@ -339,4 +339,30 @@ test("writtenIn", () => {
   expect(check(pl, new Filter<NPlang["key"]>("any").add("pl+three"))).toBe(false);
   expect(check(pl, new Filter<NPlang["key"]>("any").add("pl+two"))).toBe(true);
   expect(check(pl, new Filter<NPlang["key"]>("any").add("pl+two").add("pl+three"))).toBe(true);
+});
+
+test("plangMatches", () => {
+  const pg = new PlangsGraph();
+  const plang = pg.nodes.pl.set("pl+plang", { name: "MyPlang" }).addWrittenIn(["pl+one", "pl+two"]);
+  const other = pg.nodes.pl.set("pl+other", { name: "MyOtherPlang" }).addWrittenIn(["pl+two"]);
+
+  const writtenIn = new Filter<NPlang["key"]>("any").add("pl+one").add("pl+two");
+
+  const filters = new Map(Object.entries({ writtenIn }) as [PlangFacetKey, AnyValue][]);
+
+  expect(plangMatches(plang, filters)).toBe(true);
+  expect(plangMatches(other, filters)).toBe(true);
+
+  writtenIn.mode = "all";
+
+  expect(plangMatches(plang, filters)).toBe(true);
+  expect(plangMatches(other, filters)).toBe(false);
+
+  const plangName = new ValRegExp(/myplang/i);
+
+  writtenIn.mode = "any";
+  filters.set("plangName", plangName);
+
+  expect(plangMatches(plang, filters)).toBe(true);
+  expect(plangMatches(other, filters)).toBe(false);
 });
