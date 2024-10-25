@@ -3,7 +3,7 @@ import { useEffect, useRef } from "preact/hooks";
 
 import { setComponentState } from "@plangs/frontend/auxiliar/dispatchable";
 import { FULLCIRCLE } from "@plangs/frontend/auxiliar/icons";
-import { BORDER } from "@plangs/frontend/auxiliar/styles";
+import { BORDER, HOVER } from "@plangs/frontend/auxiliar/styles";
 import { elems, onClickOnEnter, tw } from "@plangs/frontend/auxiliar/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/components/layout";
@@ -58,10 +58,11 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
                       class={tw(
                         "block",
                         "truncate text-left",
-                        "py-1 pr-1",
+                        "mr-2 px-1 py-1",
                         state.currentGroupKey === groupKey ? "text-primary" : "text-foreground/85",
                         "underline decoration-1 decoration-dotted",
                         "cursor-pointer",
+                        HOVER,
                       )}>
                       {state.groupTitle(groupKey)}
                     </button>
@@ -71,7 +72,7 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
             ))}
           </div>
         </div>
-        <div class={tw("grow-1", "overflow-hidden", "bg-linear-to-b to-secondary/50", "flex flex-col")}>
+        <div class={tw("grow-1", "overflow-y-auto", "bg-linear-to-b to-secondary/50", "flex flex-col")}>
           <state.facetGroupsComponent currentFacetGroup={state.currentGroupKey} />
         </div>
       </FacetsMainContext.Provider>

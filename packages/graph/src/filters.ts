@@ -44,23 +44,17 @@ export class Filter<T> implements Value<Filter<T>> {
   }
 
   all(predicate: Predicate<T>): boolean {
-    if (this.values.size === 0) return true;
     for (const v of this.values) if (!predicate(v)) return false;
     return true;
   }
 
   any(predicate: Predicate<T>): boolean {
-    if (this.values.size === 0) return true;
     for (const v of this.values) if (predicate(v)) return true;
     return false;
   }
 
   toJSON(): EncodedFilter<T> {
     return { mode: this.mode, values: [...this.values] };
-  }
-
-  serializable() {
-    return this.isEmpty ? undefined : this.toJSON();
   }
 
   get value() {
@@ -71,22 +65,26 @@ export class Filter<T> implements Value<Filter<T>> {
     return !this.isEmpty;
   }
 
-  get isAbsent(): boolean {
-    return !this.isPresent;
-  }
-
   equalTo(other?: Filter<T>): boolean {
     if (!other) return false;
 
-    if (!(other.value instanceof Filter)) return false;
-    if (this.mode !== other.value.mode) return false;
-    if (this.values.size !== other.value.values.size) return false;
-    for (const v of this.values) if (!other.value.values.has(v)) return false;
+    if (!(other instanceof Filter)) return false;
+    if (this.mode !== other.mode) return false;
+    if (this.values.size !== other.values.size) return false;
+    for (const v of this.values) if (!other.values.has(v)) return false;
     return true;
+  }
+
+  serializable() {
+    return this.isEmpty ? undefined : this.toJSON();
+  }
+
+  clone(): this {
+    return new Filter(this.mode, new Set(this.values)) as this;
   }
 }
 
 // biome-ignore lint/suspicious/noExplicitAny: there's no _precise_ way to know the type of the values here.
 export function isEncodedFilter(value: unknown): value is EncodedFilter<any> {
-  return typeof value === "object" && value !== null && "mode" in value && "values" in value && Array.isArray(value.values);
+  return typeof value === "object" && value !== null && value !== undefined && "mode" in value && "values" in value && Array.isArray(value.values);
 }

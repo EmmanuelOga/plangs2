@@ -17,8 +17,6 @@ export interface Value<T> {
    */
   get isPresent(): boolean;
 
-  get isAbsent(): boolean;
-
   /** Compare values. */
   equalTo(other?: AnyValue): boolean;
 
@@ -39,15 +37,11 @@ export abstract class ValBase<T> implements Value<T> {
   constructor(readonly value: T) {}
 
   get isNil(): boolean {
-    return this.value !== undefined && this.value !== null;
+    return this.value === undefined || this.value === null;
   }
 
   get isPresent(): boolean {
     return !this.isNil;
-  }
-
-  get isAbsent(): boolean {
-    return !this.isPresent;
   }
 
   abstract equalTo(other?: AnyValue): boolean;

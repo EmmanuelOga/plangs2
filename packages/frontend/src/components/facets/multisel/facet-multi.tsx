@@ -25,7 +25,7 @@ export function FacetMulti<T extends string>({ label, facetKey }: FacetMultiProp
   const notifyMain = () => {
     const groupKey = getGroupKey(self.current);
     // biome-ignore lint/suspicious/noExplicitAny: this facetKey could be any: a plang key, a tool key, etc.
-    if (main && groupKey) main.doSetValue(groupKey, facetKey as any, state.value);
+    if (main && groupKey) main.doSetValue(groupKey, facetKey as any, state.value.clone());
   };
 
   useEffect(() => {
