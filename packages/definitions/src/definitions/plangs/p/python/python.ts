@@ -1,7 +1,7 @@
 import type { NApp, NBundle, NLibrary, NTool, PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
+  const py = g.nodes.pl
     .set("pl+python", {
       name: "Python",
       description:
@@ -76,98 +76,94 @@ export function define(g: PlangsGraph) {
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+optional", "tsys+strong"])
     .addWrittenIn(["pl+c", "pl+python"]);
 
-  const addPyTool = (key: NTool["key"], data: NTool["data"]) => g.nodes.tool.set(key, data).addPls(["pl+python"]);
-
-  addPyTool("tool+pixi", {
-    name: "Pixi",
-    keywords: ["package manager", "dependency manager", "package management"],
-    description:
-      "Pixi is a package management tool for developers. It allows the developer to install libraries and applications in a reproducible way. Use pixi cross-platform, on Windows, Mac and Linux.",
-    websites: [{ href: "https://pixi.sh/", title: "Pixi", kind: "homepage" }],
-  });
-
-  addPyTool("tool+ruff", {
-    name: "Ruff",
-    keywords: ["linter", "formatter", "code quality"],
-    description: "An extremely fast Python linter and code formatter, written in Rust.",
-    websites: [{ href: "https://docs.astral.sh/ruff/", title: "Ruff", kind: "homepage" }],
-  });
-
-  addPyTool("tool+pyright", {
-    name: "Pyright",
-    keywords: ["type checker", "static analysis", "type inference"],
-    description:
-      "Pyright is a full-featured, standards-compliant static type checker for Python. It is designed for high performance and can be used with large Python source bases.",
-    websites: [{ href: "https://microsoft.github.io/pyright/", kind: "homepage", title: "Pyright" }],
-  });
-
-  addPyTool("tool+vscode-python", {
-    name: "Python for Visual Studio Code",
-    keywords: ["intellisense", "debugging", "linting", "formatting", "refactoring"],
-    description:
-      "Python language support with extension access points for IntelliSense (Pylance), Debugging (Python Debugger), linting, formatting, refactoring, unit tests, and more.",
-    websites: [
-      { href: "https://marketplace.visualstudio.com/items?itemName=ms-python.python", title: "Python for Visual Studio Code", kind: "homepage" },
-    ],
-  });
-
-  const addPyBundle = (key: NBundle["key"], data: NBundle["data"], tools: NTool["key"][]) => {
-    g.nodes.bundle.set(key, data).addTools(tools).addPls(["pl+python"]);
-  };
-
-  addPyBundle(
-    "bundle+py-one",
-    {
+  py.addTools([
+    g.nodes.tool.set("tool+pixi", {
+      name: "Pixi",
+      keywords: ["package manager", "dependency manager", "package management"],
       description:
-        "Python is well known for having a confusing package management story, but with Pixi you can manage your dependencies with ease, including non-Python dependencies like C libraries. Ruff is a super fast linter and code formatter. Type checking in Python is optional but highly recommended, specially as code grows larger. Pyright is a full-featured, standards-compliant static type checker. This bundle also includes the Python extension for Visual Studio Code.",
-    },
-    ["tool+pixi", "tool+ruff", "tool+pyright", "tool+vscode-python"],
-  );
+        "Pixi is a package management tool for developers. It allows the developer to install libraries and applications in a reproducible way. Use pixi cross-platform, on Windows, Mac and Linux.",
+      websites: [{ href: "https://pixi.sh/", title: "Pixi", kind: "homepage" }],
+    }).key,
 
-  const addPyLib = (key: NLibrary["key"], data: NLibrary["data"]) => g.nodes.lib.set(key, data).addPls(["pl+python"]);
+    g.nodes.tool.set("tool+ruff", {
+      name: "Ruff",
+      keywords: ["linter", "formatter", "code quality"],
+      description: "An extremely fast Python linter and code formatter, written in Rust.",
+      websites: [{ href: "https://docs.astral.sh/ruff/", title: "Ruff", kind: "homepage" }],
+    }).key,
 
-  addPyLib("lib+msgspec", {
-    name: "Msgspec",
-    keywords: ["serialization", "validation", "json", "messagepack", "yaml", "toml"],
-    description: "msgspec is a fast serialization and validation library, with builtin support for JSON, MessagePack, YAML, and TOML.",
-    websites: [{ href: "https://jcristharif.com/msgspec/", title: "Msgspec", kind: "homepage" }],
-  });
+    g.nodes.tool.set("tool+pyright", {
+      name: "Pyright",
+      keywords: ["type checker", "static analysis", "type inference"],
+      description:
+        "Pyright is a full-featured, standards-compliant static type checker for Python. It is designed for high performance and can be used with large Python source bases.",
+      websites: [{ href: "https://microsoft.github.io/pyright/", kind: "homepage", title: "Pyright" }],
+    }).key,
 
-  addPyLib("lib+flask", {
-    name: "Flask",
-    keywords: ["web", "framework", "wsgi"],
-    description: "Flask is a lightweight WSGI web application framework.",
-    websites: [{ href: "https://flask.palletsprojects.com/", title: "Flask", kind: "homepage" }],
-  });
+    g.nodes.tool.set("tool+vscode-python", {
+      name: "Python for Visual Studio Code",
+      keywords: ["intellisense", "debugging", "linting", "formatting", "refactoring"],
+      description:
+        "Python language support with extension access points for IntelliSense (Pylance), Debugging (Python Debugger), linting, formatting, refactoring, unit tests, and more.",
+      websites: [
+        { href: "https://marketplace.visualstudio.com/items?itemName=ms-python.python", title: "Python for Visual Studio Code", kind: "homepage" },
+      ],
+    }).key,
+  ]);
 
-  const addPyApp = (key: NApp["key"], data: NApp["data"]) => g.nodes.app.set(key, data).addPls(["pl+python"]);
+  py.addBundles([
+    g.nodes.bundle
+      .set("bundle+py-one", {
+        description:
+          "Python is well known for having a confusing package management story, but with Pixi you can manage your dependencies with ease, including non-Python dependencies like C libraries. Ruff is a super fast linter and code formatter. Type checking in Python is optional but highly recommended, specially as code grows larger. Pyright is a full-featured, standards-compliant static type checker. This bundle also includes the Python extension for Visual Studio Code.",
+      })
+      .addTools(["tool+pixi", "tool+ruff", "tool+pyright", "tool+vscode-python"]).key,
+  ]);
 
-  addPyApp("app+harlequin", {
-    name: "Harlequin",
-    keywords: ["database", "client", "terminal"],
-    description: "An easy, fast, and beautiful database client for the terminal.",
-    websites: [{ href: "https://harlequin.sh/", title: "Harlequin", kind: "homepage" }],
-  });
+  py.addLibs([
+    g.nodes.lib.set("lib+msgspec", {
+      name: "Msgspec",
+      keywords: ["serialization", "validation", "json", "messagepack", "yaml", "toml"],
+      description: "msgspec is a fast serialization and validation library, with builtin support for JSON, MessagePack, YAML, and TOML.",
+      websites: [{ href: "https://jcristharif.com/msgspec/", title: "Msgspec", kind: "homepage" }],
+    }).key,
 
-  addPyApp("app+glances", {
-    name: "Glances",
-    keywords: ["monitoring", "system", "terminal"],
-    description: "Glances is a cross-platform system monitoring tool written in Python.",
-    websites: [{ href: "https://nicolargo.github.io/glances/", title: "Glances", kind: "homepage" }],
-  });
+    g.nodes.lib.set("lib+flask", {
+      name: "Flask",
+      keywords: ["web", "framework", "wsgi"],
+      description: "Flask is a lightweight WSGI web application framework.",
+      websites: [{ href: "https://flask.palletsprojects.com/", title: "Flask", kind: "homepage" }],
+    }).key,
+  ]);
 
-  addPyApp("app+zulip", {
-    name: "Zulip",
-    keywords: ["chat", "group", "communication"],
-    description: "Zulip is a powerful, open source group chat application.",
-    websites: [{ href: "https://github.com/zulip/zulip", title: "Zulip", kind: "homepage" }],
-  });
+  py.addApps([
+    g.nodes.app.set("app+harlequin", {
+      name: "Harlequin",
+      keywords: ["database", "client", "terminal"],
+      description: "An easy, fast, and beautiful database client for the terminal.",
+      websites: [{ href: "https://harlequin.sh/", title: "Harlequin", kind: "homepage" }],
+    }).key,
 
-  addPyApp("app+aider", {
-    name: "Aider",
-    keywords: ["pair programming", "llm", "git"],
-    description:
-      "Aider lets you pair program with LLMs, to edit code in your local git repository. Start a new project or work with an existing git repo. Aider works best with GPT-4o & Claude 3.5 Sonnet and can connect to almost any LLM.",
-    websites: [{ href: "https://aider.chat/", title: "Aider", kind: "homepage" }],
-  });
+    g.nodes.app.set("app+glances", {
+      name: "Glances",
+      keywords: ["monitoring", "system", "terminal"],
+      description: "Glances is a cross-platform system monitoring tool written in Python.",
+      websites: [{ href: "https://nicolargo.github.io/glances/", title: "Glances", kind: "homepage" }],
+    }).key,
+
+    g.nodes.app.set("app+zulip", {
+      name: "Zulip",
+      keywords: ["chat", "group", "communication"],
+      description: "Zulip is a powerful, open source group chat application.",
+      websites: [{ href: "https://github.com/zulip/zulip", title: "Zulip", kind: "homepage" }],
+    }).key,
+
+    g.nodes.app.set("app+aider", {
+      name: "Aider",
+      keywords: ["pair programming", "llm", "git"],
+      description:
+        "Aider lets you pair program with LLMs, to edit code in your local git repository. Start a new project or work with an existing git repo. Aider works best with GPT-4o & Claude 3.5 Sonnet and can connect to almost any LLM.",
+      websites: [{ href: "https://aider.chat/", title: "Aider", kind: "homepage" }],
+    }).key,
+  ]);
 }

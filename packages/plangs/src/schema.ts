@@ -70,8 +70,6 @@ export type NLicenseData = CommonNodeData & {
 export type NPostData = CommonNodeData & {
   /** Path of the blog post at https://plangs.page */
   path: string;
-  /** Title of the blog post. */
-  title: string;
   /** Author of the blog post. */
   author: string;
   /** Website of the author of the blog post. */

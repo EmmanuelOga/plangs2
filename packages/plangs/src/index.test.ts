@@ -8,6 +8,7 @@ test("base node apis", () => {
 
   expect(pl.name).toEqual("pascal");
   expect(pl.description).toEqual("pascal");
+  expect(pl.keywords.size).toEqual(0);
 
   pl.data.name = "Pascal";
   expect(pl.name).toEqual("Pascal");
@@ -74,6 +75,16 @@ test("base node apis", () => {
   pl.addParadigms(["paradigm+procedural"]);
   expect(pl.relParadigms.size).toBe(1);
   expect(pl.relParadigms.values.first?.to).toEqual("paradigm+procedural");
+
+  expect(pl.relPlBundles.size).toBe(0);
+  pl.addBundles(["bundle+my-bundle"]);
+  expect(pl.relPlBundles.size).toBe(1);
+  expect(pl.relPlBundles.values.first?.to).toEqual("bundle+my-bundle");
+
+  expect(pl.relPosts.size).toBe(0);
+  pl.addPosts(["post+my-post"]);
+  expect(pl.relPosts.size).toBe(1);
+  expect(pl.relPosts.values.first?.to).toEqual("post+my-post");
 
   expect(pl.relTags.size).toBe(0);
   pl.addTags(["tag+cool"]);
@@ -308,6 +319,35 @@ test("edge types", () => {
   }
 });
 
+test("app nodes", () => {
+  const g = new PlangsGraph();
+  const app = g.nodes.app.set("app+my-app", { name: "My App" });
+  const apps = g.edges.app;
+
+  expect(apps.size).toBe(0);
+  app.addPls(["pl+pascal"]);
+  expect(apps.size).toBe(1);
+});
+
+test("bundle nodes", () => {
+  const g = new PlangsGraph();
+  const bundle = g.nodes.bundle.set("bundle+my-bundle", { name: "Humble Bundle" });
+  const bundles = g.edges.bundle;
+  const tools = g.edges.tool;
+
+  expect(bundle.relTools.size).toBe(0);
+  expect(bundles.size).toBe(0);
+  bundle.addTools(["tool+my-tool"]);
+  expect(bundles.size).toBe(1);
+  expect(bundle.relTools.size).toBe(1);
+  expect(bundle.relTools.values.first?.to).toEqual("tool+my-tool");
+
+  expect(bundle.relPls.size).toBe(0);
+  bundle.addPls(["pl+pascal"]);
+  expect(bundle.relPls.size).toBe(1);
+  expect(bundle.relPls.values.first?.from).toEqual("pl+pascal");
+});
+
 test("library nodes", () => {
   const g = new PlangsGraph();
   const lib = g.nodes.lib.set("lib+my-lib", { name: "My Pascal Unit" });
@@ -316,4 +356,59 @@ test("library nodes", () => {
   expect(libs.size).toBe(0);
   lib.addPls(["pl+pascal"]);
   expect(libs.size).toBe(1);
+});
+
+test("license nodes", () => {
+  const g = new PlangsGraph();
+  const mit = g.nodes.license.set("license+mit", { name: "MIT", spdx: "MIT", isFSFLibre: true, isOSIApproved: true });
+  const yolo = g.nodes.license.set("license+yolo", { name: "YOLO" });
+
+  expect(mit.spdx).toEqual("MIT");
+  expect(mit.isFSFLibre).toBeTrue();
+  expect(mit.isOSIApproved).toBeTrue();
+
+  expect(yolo.spdx).toBeUndefined();
+  expect(yolo.isFSFLibre).toBeFalse();
+  expect(yolo.isOSIApproved).toBeFalse();
+});
+
+test("post nodes", () => {
+  const g = new PlangsGraph();
+  const post = g.nodes.post.set("post+hello", { name: "Hello World!", author: "Tony Mottola", path: "/some/path.md", date: "2021-01-01" });
+
+  expect(post.author).toEqual("Tony Mottola");
+  expect(post.date).toEqual("2021-01-01");
+  expect(post.path).toEqual("/some/path.md");
+  expect(post.title).toEqual("Hello World!");
+  expect(post.name).toEqual("Hello World!");
+
+  expect(post.link).toBeUndefined();
+  const link = { href: "https://emmanueloga.com", title: "Emmanuel Oga's Homepage" };
+  post.link = link;
+  expect(post.link).toEqual(link);
+
+  expect(post.relPls.size).toBe(0);
+  post.addPls(["pl+pascal"]);
+  expect(post.relPls.size).toBe(1);
+  expect(post.relPls.values.first?.from).toEqual("pl+pascal");
+});
+
+test("tool nodes", () => {
+  const g = new PlangsGraph();
+  const tool = g.nodes.tool.set("tool+my-tool", { name: "My Tool" });
+  const tools = g.edges.tool;
+
+  expect(tools.size).toBe(0);
+  tool.addPls(["pl+pascal"]);
+  expect(tools.size).toBe(1);
+});
+
+test("plBundle nodes", () => {
+  const g = new PlangsGraph();
+  const bundle = g.nodes.bundle.set("bundle+my-bundle", { name: "My Bundle" });
+  const plBundles = g.edges.plBundle;
+
+  expect(plBundles.size).toBe(0);
+  bundle.addPls(["pl+pascal"]);
+  expect(plBundles.size).toBe(1);
 });

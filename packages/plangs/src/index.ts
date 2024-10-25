@@ -159,6 +159,11 @@ export class NPlang extends NBase<"pl", NPlangData> {
     return this;
   }
 
+  addBundles(others: NBundle["key"][]): this {
+    for (const other of others) this.graph.edges.plBundle.connect(this.key, other);
+    return this;
+  }
+
   addExtensions(exts: string[]): this {
     arrayMerge((this.data.extensions ??= []), exts);
     return this;
@@ -212,6 +217,11 @@ export class NPlang extends NBase<"pl", NPlangData> {
 
   addPlatforms(others: NPlatform["key"][]): this {
     for (const other of others) this.graph.edges.plat.connect(this.key, other);
+    return this;
+  }
+
+  addPosts(others: NPost["key"][]): this {
+    for (const other of others) this.graph.edges.post.connect(this.key, other);
     return this;
   }
 
@@ -412,16 +422,16 @@ export class NPost extends NBase<"post", NPostData> {
     return this.data.author;
   }
 
+  get date(): StrDate | undefined {
+    return this.data.date;
+  }
+
   get path(): string | undefined {
     return this.data.path;
   }
 
   get title(): string | undefined {
-    return this.data.title;
-  }
-
-  get date(): StrDate | undefined {
-    return this.data.date;
+    return this.name;
   }
 
   set link(link: Link) {
@@ -435,6 +445,10 @@ export class NPost extends NBase<"post", NPostData> {
   addPls(others: `pl+${string}`[]) {
     for (const other of others) this.graph.edges.post.connect(other, this.key);
     return this;
+  }
+
+  get relPls(): MapTap<NPlang["key"], EPost> {
+    return new MapTap(this.graph.edges.post.adjTo.getMap(this.key));
   }
 }
 
