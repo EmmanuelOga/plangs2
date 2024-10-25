@@ -71,6 +71,10 @@ export class Filter<T> implements Value<Filter<T>> {
     return !this.isEmpty;
   }
 
+  get isAbsent(): boolean {
+    return !this.isPresent;
+  }
+
   equalTo(other?: Filter<T>): boolean {
     if (!other) return false;
 

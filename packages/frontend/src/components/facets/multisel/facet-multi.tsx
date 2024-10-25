@@ -24,7 +24,8 @@ export function FacetMulti<T extends string>({ label, facetKey }: FacetMultiProp
   const main = useContext(FacetsMainContext);
   const notifyMain = () => {
     const groupKey = getGroupKey(self.current);
-    if (main && groupKey) main.doSetValue(groupKey, facetKey, state.value);
+    // biome-ignore lint/suspicious/noExplicitAny: this facetKey could be any: a plang key, a tool key, etc.
+    if (main && groupKey) main.doSetValue(groupKey, facetKey as any, state.value);
   };
 
   useEffect(() => {
@@ -93,7 +94,7 @@ export function FacetMulti<T extends string>({ label, facetKey }: FacetMultiProp
         onKeyDown={add}
       />
 
-      <span class={tw(state.value.size < 2 ? "text-foreground/50" : "text-foreground", "pl-2")}>
+      <span class={tw(state.value.size === 0 && "hidden", state.value.size < 2 ? "text-foreground/50" : "text-foreground", "pl-2")}>
         <IconButton action="allAny" disabled={state.value.size < 2} initial={"any"} />
       </span>
 

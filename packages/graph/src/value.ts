@@ -6,7 +6,8 @@
  * if we want to check there are any present values on a form, etc.
  */
 export interface Value<T> {
-  readonly value: T;
+  // biome-ignore lint/suspicious/noExplicitAny: without a generic value type the wrappers are useless.
+  readonly value: any;
 
   /**
    * "Presence" implies that the value is not blank or empty:
@@ -15,6 +16,8 @@ export interface Value<T> {
    * * Containers of any kind (Set, Map, Array) are present if they have at least one element.
    */
   get isPresent(): boolean;
+
+  get isAbsent(): boolean;
 
   /** Compare values. */
   equalTo(other?: AnyValue): boolean;
@@ -32,61 +35,85 @@ export interface Value<T> {
 // biome-ignore lint/suspicious/noExplicitAny: Allow for flexibility in the type of the value.
 export type AnyValue = Value<any>;
 
-// biome-ignore lint/suspicious/noExplicitAny: we don't care about the type of set, only if it is empty or not.
-type ValWrapped = number | boolean | string | Set<any> | RegExp | undefined | null;
+export abstract class ValBase<T> implements Value<T> {
+  constructor(readonly value: T) {}
 
-/** Wrapper for a few common types. */
-export class Val implements Value<ValWrapped> {
-  /** Be explicit about what we are doing here: just wrapping a value. */
-  static wrap(val: ValWrapped): Val {
-    return new Val(val);
-  }
-
-  constructor(readonly value: ValWrapped) {}
-
-  serializable() {
-    if (!this.isPresent) return undefined;
-
-    const { value } = this;
-
-    if (value instanceof Set) return ["set", [...value]];
-    if (value instanceof RegExp) return ["regexp", value.source];
-    if (typeof value === "number" || typeof value === "boolean" || typeof value === "string") return value;
-
-    console.warn("Unknown value type attempting to return an encodable:", value);
-  }
-
-  equalTo(other?: AnyValue): boolean {
-    if (!other) return false;
-
-    const { value } = this;
-
-    if (value === other.value) return true;
-
-    if (typeof value !== typeof other.value) return false;
-    if (typeof value === "number") return value === other.value;
-    if (typeof value === "string") return value === other.value;
-    if (typeof value === "boolean") return value === other.value;
-
-    if (value instanceof RegExp && other.value instanceof RegExp) return value.source === other.value.source;
-    if (value instanceof Set && other.value instanceof Set) {
-      if (value.size !== other.value.size) return false;
-      for (const v of value) if (!other.value.has(v)) return false;
-      return true;
-    }
-
-    console.warn("Unknown value type comparing a value", this, other);
-
-    return false;
+  get isNil(): boolean {
+    return this.value !== undefined && this.value !== null;
   }
 
   get isPresent(): boolean {
-    if (this.value === undefined || this.value === null) return false;
-    if (this.value instanceof Set) return this.value.size > 0;
-    if (this.value instanceof RegExp) return true;
+    return !this.isNil;
+  }
 
-    // Zero (0) is considered to be present / non-blank
-    if (typeof this.value === "number") return true;
-    return !!this.value;
+  get isAbsent(): boolean {
+    return !this.isPresent;
+  }
+
+  abstract equalTo(other?: AnyValue): boolean;
+
+  // biome-ignore lint/suspicious/noExplicitAny: We can't be more specific here.
+  serializable(): any {
+    return this.isPresent ? this.value : undefined;
+  }
+}
+
+export class ValNumber extends ValBase<number> {
+  equalTo(other?: AnyValue): boolean {
+    return other instanceof ValNumber && this.value === other.value;
+  }
+}
+
+export class ValBool extends ValBase<boolean> {
+  override get isPresent(): boolean {
+    return !this.isNil && this.value === true;
+  }
+
+  equalTo(other?: AnyValue): boolean {
+    return other instanceof ValBool && this.value === other.value;
+  }
+}
+
+export class ValString extends ValBase<string> {
+  override get isPresent(): boolean {
+    return !this.isNil && this.value.length > 0 && !/^\s*$/.test(this.value);
+  }
+
+  equalTo(other?: AnyValue): boolean {
+    return other instanceof ValString && this.value === other.value;
+  }
+}
+
+export class ValSet<T> extends ValBase<Set<T>> {
+  override get isPresent(): boolean {
+    return !this.isNil && this.value.size > 0;
+  }
+
+  equalTo(other?: AnyValue): boolean {
+    if (!(other instanceof ValSet)) return false;
+    if (this.value === other.value) return true;
+    if (this.value.size !== other.value.size) return false;
+    for (const v of this.value) if (!other.value.has(v)) return false;
+    return true;
+  }
+
+  override serializable() {
+    return this.isPresent ? ["Set", [...this.value]] : undefined;
+  }
+}
+
+const EMPTY_REGEX = /(?:)/;
+
+export class ValRegExp extends ValBase<RegExp> {
+  override get isPresent(): boolean {
+    return !this.isNil && this.value.source !== EMPTY_REGEX.source;
+  }
+
+  equalTo(other?: AnyValue): boolean {
+    return other instanceof ValRegExp && this.value.source === other.value.source;
+  }
+
+  override serializable() {
+    return this.isPresent ? ["RegExp", this.value.source] : undefined;
   }
 }

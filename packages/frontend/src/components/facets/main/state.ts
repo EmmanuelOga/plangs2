@@ -2,7 +2,7 @@ import type { JSX } from "preact/jsx-runtime";
 
 import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { Map2 } from "@plangs/graph/map2";
-import type { PlangsGraph } from "@plangs/plangs/index";
+import type { NPlang, PlangsGraph } from "@plangs/plangs/index";
 
 import type { AnyValue } from "@plangs/graph/value";
 import type { PlangFacetKey } from "@plangs/plangs/facets";
@@ -96,8 +96,7 @@ export abstract class BaseState<GroupKey, FacetKey extends string> extends Dispa
 
   /** Results is a set of node keys that are the result of applying the filters. */
   get results(): Set<string> {
-    if (!this.pg) return new Set();
-    return this.pg.plangs(this.values.getMap2());
+    return new Set();
   }
 
   sideEffects() {
@@ -132,5 +131,10 @@ export class PlangsFacetsState extends BaseState<PlangFacetGroupKey, PlangFacetK
 
   override get facetGroupsComponent() {
     return PlangsFacetGroups;
+  }
+
+  override get results(): Set<NPlang["key"]> {
+    if (!this.pg) return new Set();
+    return this.pg.plangs(this.values.getMap2());
   }
 }

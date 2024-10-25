@@ -1,52 +1,43 @@
 import type { Filter } from "@plangs/graph/filters";
+import type { AnyValue, ValBool, ValNumber, ValRegExp, Value } from "@plangs/graph/value";
+
 import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from ".";
 
-type Predicate<T> = (pl: NPlang, value: T) => boolean;
-
-/** A facet requires a value and a predicte. Here we initialize the value to undefined. */
-const facet = <T>(predicate: Predicate<T>) => ({ value: undefined as T | undefined, predicate });
-
-export type PlangFacetKey = keyof PlangFacets["facets"];
+export type Pred<T extends Value<AnyValue>> = (pl: NPlang, value: T) => boolean;
 
 /**
- * Criteria to filter programming languages.
+ * Predicates to use to filter programming languages.
  */
-export class PlangFacets {
-  readonly facets = {
-    plangName: facet((pl, regexp: RegExp) => regexp.test(pl.name)),
-    createdRecently: facet((pl, year?: number) => !year || pl.createdRecently(year)),
-    releasedRecently: facet((pl, year?: number) => !year || pl.releasedRecently(year)),
-    hasLogo: facet((pl, val: boolean) => val === pl.images.some(img => img.kind === "logo")),
-    hasWikipedia: facet((pl, val: boolean) => val === pl.websites.some(site => site.kind === "wikipedia")),
-    isMainstream: facet((pl, val: boolean) => val === pl.isMainstream),
-    extensions: facet(({ extensions }, flt: Filter<string>) => flt.matches(key => extensions.includes(key))),
+export const PLANG_FACET_PREDICATES = {
+  compilesTo: (({ relCompilesTo }, flt) => flt.matches(key => relCompilesTo.has(key))) as Pred<Filter<NPlang["key"]>>,
+  createdRecently: ((pl, year) => pl.createdRecently(year.value)) as Pred<ValNumber>,
+  creationYear: ((pl, flt) => flt.matches(year => pl.year === year)) as Pred<Filter<number>>,
+  dialectOf: (({ relDialectOf }, flt) => flt.matches(key => relDialectOf.has(key))) as Pred<Filter<NPlang["key"]>>,
+  extensions: (({ extensions }, flt) => flt.matches(key => extensions.includes(key))) as Pred<Filter<string>>,
+  hasLogo: ((pl, val) => val.value === pl.images.some(img => img.kind === "logo")) as Pred<ValBool>,
+  hasWikipedia: ((pl, val) => val.value === pl.websites.some(site => site.kind === "wikipedia")) as Pred<ValBool>,
+  implements: (({ relImplements }, flt) => flt.matches(key => relImplements.has(key))) as Pred<Filter<NPlang["key"]>>,
+  influenced: (({ relInfluenced }, flt) => flt.matches(key => relInfluenced.has(key))) as Pred<Filter<NPlang["key"]>>,
+  influencedBy: (({ relInfluencedBy }, flt) => flt.matches(key => relInfluencedBy.has(key))) as Pred<Filter<NPlang["key"]>>,
+  isMainstream: ((pl, val) => val.value === pl.isMainstream) as Pred<ValBool>,
+  isTranspiler: ((pl, val) => val.value === pl.isTranspiler) as Pred<ValBool>,
+  licenses: (({ relLicenses }, flt) => flt.matches(key => relLicenses.has(key))) as Pred<Filter<NLicense["key"]>>,
+  paradigms: (({ relParadigms }, flt) => flt.matches(key => relParadigms.has(key))) as Pred<Filter<NParadigm["key"]>>,
+  plangName: ((pl, regexp) => regexp.value.test(pl.name)) as Pred<ValRegExp>,
+  platforms: (({ relPlatforms }, flt) => flt.matches(key => relPlatforms.has(key))) as Pred<Filter<NPlatform["key"]>>,
+  releasedRecently: ((pl, year) => pl.releasedRecently(year.value)) as Pred<ValNumber>,
+  tags: (({ relTags }, flt) => flt.matches(key => relTags.has(key))) as Pred<Filter<NTag["key"]>>,
+  typeSystems: (({ relTsys }, flt) => flt.matches(key => relTsys.has(key))) as Pred<Filter<NTsys["key"]>>,
+  writtenIn: (({ relWrittenIn }, flt) => flt.matches(key => relWrittenIn.has(key))) as Pred<Filter<NPlang["key"]>>,
+} as const;
 
-    platforms: facet(({ relPlatforms }, flt: Filter<NPlatform["key"]>) => flt.matches(key => relPlatforms.has(key))),
-    paradigms: facet(({ relParadigms }, flt: Filter<NParadigm["key"]>) => flt.matches(key => relParadigms.has(key))),
-    typeSystems: facet(({ relTsys }, flt: Filter<NTsys["key"]>) => flt.matches(key => relTsys.has(key))),
+export type PlangFacetKey = keyof typeof PLANG_FACET_PREDICATES;
 
-    writtenIn: facet(({ relWrittenIn }, flt: Filter<NPlang["key"]>) => flt.matches(key => relWrittenIn.has(key))),
-    isTranspiler: facet((pl, val: boolean) => val === pl.isTranspiler),
-    compilesTo: facet(({ relCompilesTo }, flt: Filter<NPlang["key"]>) => flt.matches(key => relCompilesTo.has(key))),
-    dialectOf: facet(({ relDialectOf }, flt: Filter<NPlang["key"]>) => flt.matches(key => relDialectOf.has(key))),
-    implements: facet(({ relImplements }, flt: Filter<NPlang["key"]>) => flt.matches(key => relImplements.has(key))),
-    influencedBy: facet(({ relInfluencedBy }, flt: Filter<NPlang["key"]>) => flt.matches(key => relInfluencedBy.has(key))),
-    influenced: facet(({ relInfluenced }, flt: Filter<NPlang["key"]>) => flt.matches(key => relInfluenced.has(key))),
-
-    tags: facet(({ relTags }, flt: Filter<NTag["key"]>) => flt.matches(key => relTags.has(key))),
-    creationYear: facet((pl, flt: Filter<number>) => flt.matches(year => pl.year === year)),
-    licenses: facet(({ relLicenses }, flt: Filter<NLicense["key"]>) => flt.matches(key => relLicenses.has(key))),
-  } as const;
-
-  matches(key: PlangFacetKey, pl: NPlang): boolean {
-    const { value, predicate } = this.facets[key];
-    return value === undefined || (predicate as Predicate<typeof value>)(pl, value);
+export function plangMatches(pl: NPlang, values: Map<PlangFacetKey, AnyValue>): boolean {
+  for (const [key, value] of values) {
+    const pred = PLANG_FACET_PREDICATES[key] as Pred<AnyValue>;
+    if (!pred) console.error(`No predicate found for key: ${key}`);
+    if (pred && value.isPresent && !pred(pl, value)) return false;
   }
-
-  matchesAll(pl: NPlang): boolean {
-    for (const key of Object.keys(this.facets)) {
-      if (!this.matches(key as PlangFacetKey, pl)) return false;
-    }
-    return true;
-  }
+  return true;
 }

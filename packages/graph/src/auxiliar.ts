@@ -17,7 +17,7 @@ export class IterTap<T> implements Iterable<T> {
   }
 
   get first(): T | undefined {
-    return this.array ? this.array[0] : undefined;
+    return this.array && this.array.length > 0 ? this.array[0] : undefined;
   }
 
   filter(callback: (value: T, index: number, array: T[]) => boolean) {

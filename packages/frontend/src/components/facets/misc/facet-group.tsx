@@ -19,6 +19,7 @@ export function FacetGroup<T extends string>({
 }
 
 /** Look for the group key from a child. Cleaner, quicker and easier than threading this through or using a context. */
-export function getGroupKey(child?: HTMLElement): string | undefined {
+// biome-ignore lint/suspicious/noExplicitAny: TODO: We would have to know all possible group keys to type this.
+export function getGroupKey(child?: HTMLElement): any {
   return child?.closest<HTMLElement>(`[${DATASET_ATTR}]`)?.dataset.groupKey;
 }

@@ -1,6 +1,6 @@
 import { INPUT } from "@plangs/frontend/auxiliar/styles";
 import { handler, onClickOnEnter, tw } from "@plangs/frontend/auxiliar/utils";
-import { Val } from "@plangs/graph/value";
+import { ValBool } from "@plangs/graph/value";
 import { useContext } from "preact/hooks";
 import { FacetsMainContext } from "../main/facets-main";
 import { getGroupKey } from "./facet-group";
@@ -9,7 +9,8 @@ export function FacetBool<T extends string>({ facetKey, label }: { facetKey: T; 
   const main = useContext(FacetsMainContext);
   const toggle = handler((checkbox: HTMLInputElement) => {
     const groupKey = getGroupKey(checkbox);
-    if (main && groupKey) main.doSetValue(groupKey, facetKey, Val.wrap(checkbox.checked));
+    // biome-ignore lint/suspicious/noExplicitAny: this facetKey could be any: a plang key, a tool key, etc.
+    if (main && groupKey) main.doSetValue(groupKey, facetKey as any, new ValBool(checkbox.checked));
   });
   return (
     <label for={facetKey} class={tw("block", "px-2")}>

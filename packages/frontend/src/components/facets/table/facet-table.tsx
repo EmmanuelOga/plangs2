@@ -32,7 +32,8 @@ export function FacetTable<T extends string>({ facetKey, config }: FacetTablePro
 
   const notifyMain = () => {
     const groupKey = getGroupKey(self.current);
-    if (main && groupKey) main.doSetValue(groupKey, facetKey, state.value);
+    // biome-ignore lint/suspicious/noExplicitAny: this facetKey could be any: a plang key, a tool key, etc.
+    if (main && groupKey) main.doSetValue(groupKey, facetKey as any, state.value);
   };
 
   useEffect(() => {

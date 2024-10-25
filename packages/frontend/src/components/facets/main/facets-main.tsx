@@ -47,7 +47,8 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
             {state.nav.flatMap(keys => (
               // Subgrid respects the alignment of indicators while allowing to group the links and add a border.
               <div key={keys.join("-")} class={tw("col-span-2", "grid grid-cols-subgrid", "items-center", "pb-2", tw(BORDER, "border-b-1"))}>
-                {keys.map(groupKey => (
+                {/* biome-ignore lint/suspicious/noExplicitAny: we set as any here since the groupKey is actually a string that can belong to _any_ facet group. */}
+                {keys.map((groupKey: any) => (
                   <Fragment key={groupKey}>
                     <div class={tw("mt-[.45rem] pl-1", state.isActive(groupKey) ? "text-primary" : "text-foreground/20 text-xs")}>
                       <div class="-mt-[2px] scale-66">{FULLCIRCLE}</div>
