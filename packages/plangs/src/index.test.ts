@@ -307,3 +307,13 @@ test("edge types", () => {
     expect(edge.nodeTo).toBe(plPerl);
   }
 });
+
+test("library nodes", () => {
+  const g = new PlangsGraph();
+  const lib = g.nodes.lib.set("lib+my-lib", { name: "My Pascal Unit" });
+  const libs = g.edges.lib;
+
+  expect(libs.size).toBe(0);
+  lib.addPls(["pl+pascal"]);
+  expect(libs.size).toBe(1);
+});
