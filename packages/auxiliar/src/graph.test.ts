@@ -88,6 +88,93 @@ test("accessing relationships forward and backward", () => {
   expect(g.edges.postTag.adjTo.has("tag+2", "post+2")).toBeFalse();
 });
 
+test("node apis", () => {
+  const g = new TestGraph();
+  const m = g.nodes.person;
+  const p = m.set("person+1");
+  expect(p.data).toEqual({});
+  expect(p.merge({ name: "Alice" })).toBe(p);
+  expect(p.data).toEqual({ name: "Alice" });
+  expect(`${p}`).toEqual("person+1");
+  expect(p.plainKey).toBe("1");
+
+  expect(m.set("person+1").keyPrefix).toBe("_");
+  expect(m.set("person+tony").keyPrefix).toBe("t");
+  expect(m.set("person+.net").keyPrefix).toBe("_");
+});
+
+test("edge apis", () => {
+  const g = new TestGraph();
+
+  g.nodes.person.set("person+1").merge({ name: "Alice" });
+  g.nodes.post.set("post+1").merge({ title: "Hello", content: "World" });
+
+  const edge = g.edges.personPost.connect("person+1", "post+1");
+
+  expect(edge.data).toEqual({});
+  expect(edge.merge({ role: "author" })).toBe(edge);
+  expect(edge.data).toEqual({ role: "author" });
+  expect(edge.key).toBe("personPost~person+1~post+1");
+  expect(`${edge}`).toEqual("person+1 -[personPost]-> post+1");
+});
+
+test("node map apis", () => {
+  const g = new TestGraph();
+  const map = g.nodes.person;
+
+  const p1 = g.nodes.person.set("person+1");
+  const p2 = g.nodes.person.set("person+2");
+  const p3 = g.nodes.person.set("person+3");
+
+  expect(map.get("person+1")).toBe(p1);
+  expect(map.get("person+2")).toBe(p2);
+  expect(map.get("person+3")).toBe(p3);
+  expect(map.get("person+4")).toBeUndefined();
+
+  expect([...map.keys()]).toEqual(["person+1", "person+2", "person+3"]);
+
+  expect(map.has("person+1")).toBeTrue();
+  expect(map.has("person+2")).toBeTrue();
+  expect(map.has("person+3")).toBeTrue();
+  expect(map.has("person+4")).toBeFalse();
+
+  expect([...map.values]).toEqual([p1, p2, p3]);
+  expect([...map.findAll(node => node.key.includes("+2"))]).toEqual([p2]);
+
+  expect([...map.batch(0)]).toEqual([]);
+  expect([...map.batch(1)]).toEqual([[p1.key, p1]]);
+  expect([...map.batch(2)]).toEqual([
+    [p1.key, p1],
+    [p2.key, p2],
+  ]);
+  expect([...map.batch(2)]).toEqual([
+    [p1.key, p1],
+    [p2.key, p2],
+  ]);
+  expect([...map.batch(1000, 1)]).toEqual([
+    [p2.key, p2],
+    [p3.key, p3],
+  ]);
+
+  expect(`${map}`).toEqual("NodeMap(size: 3)");
+});
+
+test("edge map apis", () => {
+  const g = new TestGraph();
+
+  g.nodes.person.set("person+1").merge({ name: "Alice" });
+  g.nodes.post.set("post+1").merge({ title: "Hello", content: "World" });
+
+  const map = g.edges.personPost;
+  const edge = map.connect("person+1", "post+1");
+
+  expect(edge.data).toEqual({});
+  expect(map.set("person+1", "post+1", { role: "author" })).toBe(edge);
+  expect(edge.data).toEqual({ role: "author" });
+
+  expect(`${map}`).toEqual("EdgeMap(size: 1)");
+});
+
 test("de/serializing a graph", () => {
   const g = new TestGraph();
 
@@ -122,4 +209,29 @@ test("de/serializing a graph", () => {
 
   expect(g2.edges.postTag.adjFrom.get("post+1", "tag+1")?.data).toBeUndefined();
   expect(g2.edges.postTag.adjFrom.get("post+2", "tag+1")?.data).toEqual({});
+});
+
+test("other graph apis", () => {
+  const g = new TestGraph();
+
+  g.nodes.person.set("person+1").merge({ name: "Alice" });
+  g.nodes.post.set("post+1").merge({ title: "Hello", content: "World" });
+  g.nodes.post.set("post+2").merge({ title: "Hello", content: "World" });
+  g.nodes.tag.set("tag+1");
+
+  g.edges.personPost.connect("person+1", "post+1").merge({ role: "author" });
+  g.edges.personPost.connect("person+1", "post+2").merge({ role: "editor" });
+  g.edges.postTag.connect("post+1", "tag+1");
+
+  expect(g.nodeEntries).toEqual([
+    ["person", g.nodes.person],
+    ["post", g.nodes.post],
+    ["tag", g.nodes.tag],
+  ]);
+  expect(g.edgeEntries).toEqual([
+    ["personPost", g.edges.personPost],
+    ["postTag", g.edges.postTag],
+  ]);
+  expect(g.nodeCount).toEqual(4);
+  expect(g.edgeCount).toEqual(3);
 });

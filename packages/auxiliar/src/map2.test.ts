@@ -12,7 +12,10 @@ test("empty Map2", () => {
   expect(m.size2("a")).toBe(0);
   expect([...m.keys()]).toEqual([]);
   expect([...m.entries()]).toEqual([]);
+  expect([...m.flatEntries()]).toEqual([]);
   expect(m.values()).toEqual([]);
+  expect(m.getMap2()).toEqual(new Map());
+  expect(`${m}`).toEqual("Map2(size: 0)");
 });
 
 test("non empty Map2", () => {
@@ -58,5 +61,18 @@ test("non empty Map2", () => {
       ]),
     ],
   ]);
+  expect([...m.flatEntries()]).toEqual([
+    ["b", 2, "dos"],
+    ["b", 3, "three"],
+  ]);
   expect(m.values()).toEqual(["dos", "three"]);
+
+  expect(m.getMap2()).toEqual(
+    new Map([
+      [2, "dos"],
+      [3, "three"],
+    ]),
+  );
+
+  expect(`${m}`).toEqual("Map2(size: 2) { (b, 2) => dos, (b, 3) => three }");
 });

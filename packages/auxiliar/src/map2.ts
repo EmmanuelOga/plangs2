@@ -57,7 +57,18 @@ export class Map2<K1, K2, V> {
     return this.#map.entries().filter(([_k1, map2]) => map2.size > 0);
   }
 
+  *flatEntries(): IterableIterator<[K1, K2, V]> {
+    for (const [k1, map2] of this.#map) {
+      for (const [k2, v] of map2) yield [k1, k2, v];
+    }
+  }
+
   values(): V[] {
     return [...this.#map.values()].flatMap(map => [...map.values()]);
+  }
+
+  toString(): string {
+    const entries = [...this.flatEntries()].map(([k1, k2, v]) => `(${k1}, ${k2}) => ${v}`);
+    return `Map2(size: ${this.size})${entries.length > 0 ? ` { ${entries.join(", ")} }` : ""}`;
   }
 }

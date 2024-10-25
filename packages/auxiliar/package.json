@@ -5,5 +5,8 @@
   "main": "src/index.ts",
   "files": [
     "src"
-  ]
+  ],
+  "scripts": {
+    "coverage": "bun test --coverage --coverage-reporter lcov && pixi run genhtml coverage/lcov.info --output-directory coverage/html"
+  }
 }

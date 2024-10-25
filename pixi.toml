@@ -11,6 +11,7 @@ version = "0.1.0"
 [dependencies]
 python = "3.12.*"
 pip = ">=24.2,<25"
+lcov = ">=1.16,<2"
 
 [pypi-dependencies]
 aider-chat = ">=0.60.0, <0.61"

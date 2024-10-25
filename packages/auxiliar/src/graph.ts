@@ -39,6 +39,10 @@ export abstract class Node<T_Graph, T_Key extends string, T_Data> {
     const pk = this.plainKey;
     return /^[a-z]/.test(pk) ? pk[0] : "_";
   }
+
+  toString(): string {
+    return this.key;
+  }
 }
 
 /** Graph Edge. */
@@ -115,8 +119,12 @@ export class NodeMap<T_Graph, T_Node extends Node<T_Graph, Any, Any>> implements
     return this.#map[Symbol.iterator]();
   }
 
-  batch(maxEntries?: number): [T_Node["key"], T_Node][] {
-    return Array.from(this.#map).slice(0, maxEntries);
+  batch(maxEntries?: number, start = 0): [T_Node["key"], T_Node][] {
+    return Array.from(this.#map).slice(start, maxEntries);
+  }
+
+  toString(): string {
+    return `NodeMap(size: ${this.size})`;
   }
 }
 
@@ -138,6 +146,14 @@ export class EdgeMap<T_Graph, T_Edge extends Edge<T_Graph, Any, Any, Any>> {
 
   set(from: T_Edge["from"], to: T_Edge["to"], data: T_Edge["data"]): T_Edge {
     return this.connect(from, to).merge(data);
+  }
+
+  get size(): number {
+    return this.adjFrom.size;
+  }
+
+  toString(): string {
+    return `EdgeMap(size: ${this.size})`;
   }
 }
 
