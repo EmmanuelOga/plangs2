@@ -2,6 +2,10 @@
 export class Map2<K1, K2, V> {
   #map = new Map<K1, Map<K2, V>>();
 
+  has(k1: K1, k2: K2): boolean {
+    return this.#map.get(k1)?.has(k2) ?? false;
+  }
+
   set(k1: K1, k2: K2, v: V): this {
     let m2 = this.#map.get(k1);
     if (!m2) {
@@ -46,18 +50,14 @@ export class Map2<K1, K2, V> {
 
   /** Returns an iterator of the keys in the first dimension. */
   keys(): IterableIterator<K1> {
-    return this.#map.keys();
+    return this.#map.keys().filter(k1 => (this.#map.get(k1)?.size ?? 0) > 0);
   }
 
   entries(): IterableIterator<[K1, Map<K2, V>]> {
-    return this.#map.entries();
+    return this.#map.entries().filter(([_k1, map2]) => map2.size > 0);
   }
 
   values(): V[] {
     return [...this.#map.values()].flatMap(map => [...map.values()]);
-  }
-
-  has(k1: K1, k2: K2): boolean {
-    return this.#map.get(k1)?.has(k2) ?? false;
   }
 }

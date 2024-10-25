@@ -33,6 +33,7 @@ test("IterTap of empty array", () => {
   expect(t.map(() => 1).size).toEqual(0);
   expect(t.sort()).toEqual([]);
   expect(t.join("")).toEqual("");
+  // @ts-ignore we want to test the corner case.
   expect(t.includes(1)).toEqual(false);
   expect(t.some(() => true)).toEqual(false);
   expect(t.find(() => true)).toEqual(undefined);
