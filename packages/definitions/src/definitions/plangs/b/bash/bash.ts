@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Bash (Unix Shell) - Wikipedia", href: "https://en.wikipedia.org/wiki/Bash_(Unix_shell)", kind: "wikipedia" },
       ],
       extensions: [".sh", ".bash"],
-      firstAppeared: "1989-06-08",
+      year: 1989,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "5.2.32", name: "Bash 5.2.32", date: "2024-01-01" }],

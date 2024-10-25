@@ -121,7 +121,7 @@ export function callers(): string {
   const lines = caller({
     dontMatch: /preact|[A-Z]@/,
     clean: new RegExp(`${window.location.href.split("#")[0]}bundle/`, "g"),
-  }).slice(1);
+  }).slice(2);
 
   // JSON is more readable for this use case.
   return JSON.stringify(lines, null, 2);

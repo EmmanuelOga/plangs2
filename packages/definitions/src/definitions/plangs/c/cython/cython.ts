@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Cython", href: "https://en.wikipedia.org/wiki/Cython", kind: "wikipedia" },
       ],
       extensions: [".pxd", ".pxi", ".pyx"],
-      firstAppeared: "2007-01-01",
+      year: 2007,
       isTranspiler: false,
       isMainstream: true,
       releases: [

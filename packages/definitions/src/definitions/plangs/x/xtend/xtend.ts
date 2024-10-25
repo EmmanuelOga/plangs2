@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Xtend", href: "https://en.wikipedia.org/wiki/Xtend", kind: "wikipedia" },
       ],
       extensions: [".xtend"],
-      firstAppeared: "2011-01-01",
+      year: 2011,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "2.25.0", name: "Xtend 2.25.0", date: "2021-01-01" }],

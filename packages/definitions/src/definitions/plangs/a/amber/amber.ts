@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["amber"],
       websites: [{ title: "Amber", href: "https://amber-lang.com", kind: "homepage" }],
       extensions: [".amber"],
-      firstAppeared: "2015-01-01",
+      year: 2015,
       isTranspiler: true,
       releases: [{ version: "0.3.5.alpha", date: "2024-09-04" }],
     })

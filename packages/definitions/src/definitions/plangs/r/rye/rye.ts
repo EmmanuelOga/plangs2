@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["rye", "ryelang"],
       websites: [{ title: "Rye", href: "https://ryelang.org/", kind: "homepage" }],
       extensions: [".ry"],
-      firstAppeared: "2022-01-01",
+      year: 2022,
       images: [{ kind: "logo", title: "Rye Logo", url: "https://ryelang.org/images/logo.png", width: 512, height: 512 }],
       releases: [
         { version: "1.0", name: "Rye 1.0", date: "2022-01-01" },

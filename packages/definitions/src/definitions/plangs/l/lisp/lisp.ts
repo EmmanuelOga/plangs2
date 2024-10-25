@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["lisp"],
       websites: [{ title: "Lisp", href: "https://en.wikipedia.org/wiki/Lisp_programming_language", kind: "wikipedia" }],
       extensions: [".lisp", ".lsp", ".cl", ".fasl"],
-      firstAppeared: "1960-01-01",
+      year: 1960,
       isTranspiler: false,
       isMainstream: true,
     })

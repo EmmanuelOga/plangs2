@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
         },
       ],
       extensions: [".pas", ".pp", ".p"],
-      firstAppeared: "1970-01-01",
+      year: 1970,
       isTranspiler: false,
       isMainstream: true,
     })

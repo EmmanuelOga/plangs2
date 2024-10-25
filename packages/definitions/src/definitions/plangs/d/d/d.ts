@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "D", href: "https://en.wikipedia.org/wiki/D_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".d"],
-      firstAppeared: "2001-01-01",
+      year: 2001,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "2.109.1", name: "D 2.109.1", date: "2024-01-01" }],

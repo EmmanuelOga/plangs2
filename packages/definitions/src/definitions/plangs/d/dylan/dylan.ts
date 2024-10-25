@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "opendylan.org", href: "https://opendylan.org/", kind: "homepage" },
         { title: "Dylan", href: "https://en.wikipedia.org/wiki/Dylan_(programming_language)", kind: "wikipedia" },
       ],
-      firstAppeared: "1992-01-01",
+      year: 1992,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2022.1", name: "", date: "2022-01-01" }],

@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "www.ironruby.net", href: "http://www.ironruby.net/", kind: "homepage" },
         { title: "IronRuby", href: "https://en.wikipedia.org/wiki/IronRuby", kind: "wikipedia" },
       ],
-      firstAppeared: "2010-01-01",
+      year: 2010,
       isTranspiler: false,
       isMainstream: false,
       releases: [

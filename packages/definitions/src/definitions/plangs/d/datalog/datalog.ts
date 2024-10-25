@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["datalog", "logic programming", "query language", "deductive databases"],
       websites: [{ title: "Datalog", href: "https://en.wikipedia.org/wiki/Datalog", kind: "wikipedia" }],
       extensions: [".dl"],
-      firstAppeared: "1977-01-01",
+      year: 1977,
       isTranspiler: false,
       isMainstream: false,
     })

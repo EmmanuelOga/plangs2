@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Jython", href: "https://en.wikipedia.org/wiki/Jython", kind: "wikipedia" },
       ],
       extensions: [".py"],
-      firstAppeared: "2000-10-00",
+      year: 2000,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2.7.4", name: "Jython 2.7.4", date: "2024-01-01" }],

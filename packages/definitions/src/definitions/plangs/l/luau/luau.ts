@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["luau", "roblox", "scripting", "lua"],
       websites: [{ title: "Luau", href: "https://luau.org/", kind: "homepage" }],
       extensions: [".luau"],
-      firstAppeared: "2019-11-13",
+      year: 2019,
       isMainstream: true,
       releases: [{ version: "1.0", name: "Luau 1.0", date: "2021-02-18" }],
     })

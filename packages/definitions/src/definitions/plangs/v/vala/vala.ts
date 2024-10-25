@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
         { title: "Vala", href: "https://wiki.gnome.org/Projects/Vala#Valac_the_Compiler", kind: "apidocs" },
       ],
       extensions: [".vala"],
-      firstAppeared: "2006-07-17",
+      year: 2006,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "0.56", name: "Vala 0.56", date: "2023-03-22" }],

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Ballerina", href: "https://en.wikipedia.org/wiki/Ballerina_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".bal"],
-      firstAppeared: "2017-01-01",
+      year: 2017,
       isTranspiler: false,
       isMainstream: false,
       releases: [

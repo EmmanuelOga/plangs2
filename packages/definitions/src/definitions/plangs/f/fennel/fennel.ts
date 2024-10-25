@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Fennel", href: "https://en.wikipedia.org/wiki/Fennel_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".fnl"],
-      firstAppeared: "2020-01-01",
+      year: 2020,
       images: [{ kind: "logo", title: "Fennel Logo", url: "https://fennel-lang.org/logo.svg", width: 512, height: 512 }],
       isTranspiler: true,
       releases: [

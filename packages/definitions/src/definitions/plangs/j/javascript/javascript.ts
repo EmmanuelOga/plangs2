@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "JavaScript", href: "https://en.wikipedia.org/wiki/Javascript_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".cjs", ".js", ".mjs"],
-      firstAppeared: "1995-01-01",
+      year: 1995,
       isTranspiler: false,
       isMainstream: true,
     })

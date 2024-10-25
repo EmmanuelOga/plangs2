@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Clozure CL", href: "https://en.wikipedia.org/wiki/Clozure_CL", kind: "wikipedia" },
       ],
       extensions: [".lisp", ".cl"],
-      firstAppeared: "2000-01-01",
+      year: 2000,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.12.2", name: "Clozure CL 1.12.2", date: "2023-01-01" }],

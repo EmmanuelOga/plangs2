@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Emacs Lisp - Wikipedia", href: "https://en.wikipedia.org/wiki/Emacs_Lisp", kind: "wikipedia" },
       ],
       extensions: [".el", ".elc", ".eln"],
-      firstAppeared: "1985-01-01",
+      year: 1985,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "29.4", name: "Emacs Lisp 29.4", date: "2024-01-01" }],

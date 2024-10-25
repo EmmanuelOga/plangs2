@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Free Pascal", href: "https://en.wikipedia.org/wiki/Free_Pascal", kind: "wikipedia" },
       ],
       extensions: [".pas", ".pp", ".p"],
-      firstAppeared: "1993-11-01",
+      year: 1993,
       isTranspiler: false,
       isMainstream: false,
       releases: [

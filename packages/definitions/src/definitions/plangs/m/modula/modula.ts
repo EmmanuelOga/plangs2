@@ -8,7 +8,7 @@ export function define(g: PlangsGraph) {
         "The Modula programming language is a descendant of the Pascal language. It was developed in Switzerland, at ETH Zurich, in the mid-1970s by Niklaus Wirth, the same person who designed Pascal. The main innovation of Modula over Pascal is a module system, used for grouping sets of related declarations into program units; hence the name Modula. The language is defined in a report by Wirth called Modula. A language for modular multiprogramming published 1976.",
       keywords: ["modula"],
       websites: [{ title: "Modula", href: "https://en.wikipedia.org/wiki/Modula_programming_language", kind: "wikipedia" }],
-      firstAppeared: "1975-01-01",
+      year: 1975,
       isTranspiler: false,
       isMainstream: false,
     })

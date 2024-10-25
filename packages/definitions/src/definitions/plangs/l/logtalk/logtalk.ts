@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "logtalk.org", href: "https://logtalk.org/", kind: "homepage" },
         { title: "Logtalk", href: "https://en.wikipedia.org/wiki/Logtalk", kind: "wikipedia" },
       ],
-      firstAppeared: "1998-01-01",
+      year: 1998,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "3.66.0", name: "", date: "2023-01-01" }],

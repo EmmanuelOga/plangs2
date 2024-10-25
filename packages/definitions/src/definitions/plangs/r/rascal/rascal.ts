@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Rascal", href: "https://en.wikipedia.org/wiki/RascalMPL", kind: "wikipedia" },
       ],
       extensions: [".rsc"],
-      firstAppeared: "2009-01-01",
+      year: 2009,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "0.30.1", name: "Rascal 0.30.1", date: "2023-01-01" }],

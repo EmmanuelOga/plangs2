@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Gleam", href: "https://en.wikipedia.org/wiki/Gleam_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".gleam"],
-      firstAppeared: "2016-01-01",
+      year: 2016,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "1.4.1", name: "Version 1.4.1", date: "2024-01-01" }],

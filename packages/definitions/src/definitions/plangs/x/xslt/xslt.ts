@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "XSLT on Wikipedia", href: "https://en.wikipedia.org/wiki/XSLT", kind: "wikipedia" },
       ],
       extensions: [".xslt"],
-      firstAppeared: "1998-01-01",
+      year: 1998,
       isTranspiler: false,
       isMainstream: true,
       releases: [

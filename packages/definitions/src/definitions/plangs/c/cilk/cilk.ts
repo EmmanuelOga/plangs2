@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Cilk", href: "https://en.wikipedia.org/wiki/Cilk", kind: "wikipedia" },
       ],
       extensions: [".cilk"],
-      firstAppeared: "1994-01-01",
+      year: 1994,
       isTranspiler: false,
       isMainstream: false,
     })

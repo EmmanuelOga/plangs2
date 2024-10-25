@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Oberon", href: "https://en.wikipedia.org/wiki/Oberon_programming_language", kind: "wikipedia" },
       ],
       extensions: [".oberon", ".ob"],
-      firstAppeared: "1987-01-01",
+      year: 1987,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.0", name: "Oberon 1.0", date: "1987-01-01" }],

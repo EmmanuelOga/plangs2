@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Fantom", href: "https://en.wikipedia.org/wiki/Fantom_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".fan", ".fwt", ".pod"],
-      firstAppeared: "2005-01-01",
+      year: 2005,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.0.79", name: "Fantom 1.0.79", date: "2023-01-01" }],

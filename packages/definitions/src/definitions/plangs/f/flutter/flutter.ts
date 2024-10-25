@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "flutter.dev", href: "https://flutter.dev/", kind: "homepage" },
         { title: "Flutter", href: "https://en.wikipedia.org/wiki/Flutter_(software)", kind: "wikipedia" },
       ],
-      firstAppeared: "2017-05-01",
+      year: 2017,
       isTranspiler: false,
       isMainstream: true,
       releases: [

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Eiffel", href: "https://en.wikipedia.org/wiki/Eiffel_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".e"],
-      firstAppeared: "1986-01-01",
+      year: 1986,
       isTranspiler: false,
       isMainstream: false,
     })

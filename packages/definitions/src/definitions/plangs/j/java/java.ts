@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
         { title: "OpenJDK", href: "https://openjdk.java.net/", kind: "repository" },
       ],
       extensions: [".java"],
-      firstAppeared: "1995-05-23",
+      year: 1995,
       isMainstream: true,
       releases: [
         { version: "17", name: "Java SE 17", date: "2021-09-14" },

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Standard ML", href: "https://en.wikipedia.org/wiki/Standard_ML", kind: "wikipedia" },
       ],
       extensions: [".sml", ".sig"],
-      firstAppeared: "1983-01-01",
+      year: 1983,
       isTranspiler: false,
       isMainstream: false,
     })

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Enso on GitHub", href: "https://github.com/enso-org/enso", kind: "repository" },
       ],
       extensions: [".enso"],
-      firstAppeared: "2021-03-01",
+      year: 2021,
       releases: [{ version: "2.0.0", name: "Enso 2.0", date: "2022-09-15" }],
     })
     .addLicenses(["license+apache"])

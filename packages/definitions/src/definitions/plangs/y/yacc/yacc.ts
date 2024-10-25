@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["yacc", "parser", "compiler", "lalr"],
       websites: [{ title: "Yacc", href: "https://en.wikipedia.org/wiki/Yacc", kind: "wikipedia" }],
       extensions: [".y"],
-      firstAppeared: "1970-01-01",
+      year: 1970,
       isTranspiler: true,
       isMainstream: true,
     })

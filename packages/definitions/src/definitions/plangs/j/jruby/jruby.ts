@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "JRuby on Wikipedia", href: "https://en.wikipedia.org/wiki/JRuby", kind: "wikipedia" },
       ],
       extensions: [".rb"],
-      firstAppeared: "2001-01-01",
+      year: 2001,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "9.4.5.0", name: "JRuby 9.4.5.0", date: "2023-01-01" }],

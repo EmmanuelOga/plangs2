@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Unison on GitHub", href: "https://github.com/unisonweb/unison", kind: "repository" },
       ],
       extensions: [".u"],
-      firstAppeared: "2010-01-01",
+      year: 2010,
       releases: [{ version: "1.0.0", name: "Unison M1a", date: "2023-09-15" }],
     })
     .addInfluencedBy(["pl+elm", "pl+haskeL"])

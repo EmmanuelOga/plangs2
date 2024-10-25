@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "rakudo.org", href: "http://rakudo.org/", kind: "homepage" },
         { title: "Rakudo", href: "https://en.wikipedia.org/wiki/Rakudo", kind: "wikipedia" },
       ],
-      firstAppeared: "2008-07-29",
+      year: 2008,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2024.08", name: "Rakudo 2024.08", date: "2024-01-01" }],

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Csound", href: "https://en.wikipedia.org/wiki/Csound", kind: "wikipedia" },
       ],
       extensions: [".orc", ".sco"],
-      firstAppeared: "1986-01-01",
+      year: 1986,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "6.18.1", name: "Csound 6.18.1", date: "2022-01-01" }],

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Zig (Wikipedia)", href: "https://en.wikipedia.org/wiki/Zig_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".zig", ".zigr", ".zir", ".zon"],
-      firstAppeared: "2016-01-01",
+      year: 2016,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "0.13.0", name: "Zig 0.13.0", date: "2024-01-01" }],

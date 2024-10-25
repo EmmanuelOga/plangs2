@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Ciao", href: "https://en.wikipedia.org/wiki/Ciao_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".pl", ".ciao"],
-      firstAppeared: "1999-01-01",
+      year: 1999,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "v1.20", name: "Ciao v1.20", date: "2022-06-01" }],

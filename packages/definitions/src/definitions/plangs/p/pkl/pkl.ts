@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "PKL Wikipedia", href: "https://en.wikipedia.org/wiki/PKL_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".pkl"],
-      firstAppeared: "2021-06-01",
+      year: 2021,
       releases: [{ version: "1.0.0", name: "PKL 1.0.0", date: "2021-06-01" }],
     })
     .addLicenses(["license+mit"])

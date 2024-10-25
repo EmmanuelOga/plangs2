@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Xojo", href: "https://en.wikipedia.org/wiki/Xojo", kind: "wikipedia" },
       ],
       extensions: [".xojo_code", ".xojo_binary_project", ".xojo_xml_project"],
-      firstAppeared: "1996-01-01",
+      year: 1996,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "3.1", name: "Xojo 3.1", date: "2023-01-01" }],

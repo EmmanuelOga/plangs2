@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "AMPL", href: "https://en.wikipedia.org/wiki/AMPL", kind: "wikipedia" },
       ],
       extensions: [".dat", ".mod", ".run"],
-      firstAppeared: "1985-01-01",
+      year: 1985,
       isTranspiler: false,
       isMainstream: false,
       releases: [],

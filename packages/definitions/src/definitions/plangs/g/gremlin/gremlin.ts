@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "tinkerpop.apache.org", href: "https://tinkerpop.apache.org/", kind: "homepage" },
         { title: "Gremlin", href: "https://en.wikipedia.org/wiki/Gremlin_(programming_language)", kind: "wikipedia" },
       ],
-      firstAppeared: "2009-01-01",
+      year: 2009,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "3.7.0", name: "Gremlin 3.7.0", date: "2023-01-01" }],

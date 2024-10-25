@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "LabVIEW", href: "https://en.wikipedia.org/wiki/LabVIEW", kind: "wikipedia" },
       ],
       extensions: [".vi", ".lvproj"],
-      firstAppeared: "1986-01-01",
+      year: 1986,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "5.1", name: "LabVIEW 5.1", date: "2023-01-01" }],

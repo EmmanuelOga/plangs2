@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "jq", href: "https://en.wikipedia.org/wiki/Jq_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".jq"],
-      firstAppeared: "2012-01-01",
+      year: 2012,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.7.1", name: "jq 1.7.1", date: "2023-01-01" }],

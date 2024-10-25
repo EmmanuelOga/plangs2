@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "ShEx - Shape Expressions Wikipedia", href: "https://en.wikipedia.org/wiki/ShEx", kind: "wikipedia" },
       ],
       extensions: [".shex"],
-      firstAppeared: "2014-01-01",
+      year: 2014,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2.1", name: "ShEx 2.1", date: "2018-01-01" }],

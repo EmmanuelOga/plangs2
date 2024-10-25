@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
         { title: "C Language (Wikipedia)", href: "https://en.wikipedia.org/wiki/C_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".c", ".h"],
-      firstAppeared: "1972-01-01",
+      year: 1972,
       isTranspiler: false,
       isMainstream: true,
       releases: [

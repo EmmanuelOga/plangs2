@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "PowerBASIC", href: "https://en.wikipedia.org/wiki/PowerBASIC", kind: "wikipedia" },
       ],
       extensions: [".bas", ".pb"],
-      firstAppeared: "1989-01-01",
+      year: 1989,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "10.0", name: "PowerBASIC 10.0", date: "2011-01-01" }],

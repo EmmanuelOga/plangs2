@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Brainfuck", href: "https://en.wikipedia.org/wiki/Brainfuck", kind: "wikipedia" },
       ],
       extensions: [".b", ".bf"],
-      firstAppeared: "1993-01-01",
+      year: 1993,
       isTranspiler: false,
       isMainstream: false,
     })

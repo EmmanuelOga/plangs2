@@ -7,7 +7,7 @@ export function define(g: PlangsGraph) {
       description:
         "ActionScript is an object-oriented programming language originally developed by Macromedia Inc. (later acquired by Adobe). It is influenced by HyperTalk, the scripting language for HyperCard. It is now an implementation of ECMAScript (meaning it is a superset of the syntax and semantics of the language more widely known as JavaScript), though it originally arose as a sibling, both being influenced by HyperTalk. ActionScript code is usually converted to byte-code format by a compiler.",
       keywords: ["actionscript", "flash"],
-      firstAppeared: "1998-01-01",
+      year: 1998,
       websites: [
         {
           title: "ActionScript",

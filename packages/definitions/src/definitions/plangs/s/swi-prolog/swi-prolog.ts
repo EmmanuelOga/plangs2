@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "SWI-Prolog", href: "https://en.wikipedia.org/wiki/SWI-Prolog", kind: "wikipedia" },
       ],
       extensions: [".pl", ".pro"],
-      firstAppeared: "1987-01-01",
+      year: 1987,
       isTranspiler: false,
       isMainstream: true,
       releases: [

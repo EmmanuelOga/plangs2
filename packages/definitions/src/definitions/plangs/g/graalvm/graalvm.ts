@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "www.graalvm.org", href: "https://www.graalvm.org/", kind: "homepage" },
         { title: "GraalVM", href: "https://en.wikipedia.org/wiki/GraalVM#Language_and_Runtime_Support", kind: "wikipedia" },
       ],
-      firstAppeared: "2019-05-27",
+      year: 2019,
       isTranspiler: false,
       isMainstream: true,
       releases: [

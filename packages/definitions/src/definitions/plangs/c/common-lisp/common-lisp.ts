@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Common Lisp", href: "https://en.wikipedia.org/wiki/Common_Lisp", kind: "wikipedia" },
       ],
       extensions: [".cl", ".fasl", ".l", ".lisp", ".lsp"],
-      firstAppeared: "1984-01-01",
+      year: 1984,
       isTranspiler: false,
       isMainstream: true,
     })

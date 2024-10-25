@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "C++", href: "https://en.wikipedia.org/wiki/C%2B%2B", kind: "wikipedia" },
       ],
       extensions: [".C", ".H", ".c++", ".cc", ".cpp", ".cppm", ".cxx", ".h", ".h++", ".hh", ".hpp", ".hxx", ".ixx"],
-      firstAppeared: "1985-01-01",
+      year: 1985,
       isTranspiler: false,
       isMainstream: true,
       releases: [

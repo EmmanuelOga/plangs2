@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Curry", href: "https://en.wikipedia.org/wiki/Curry_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".curry"],
-      firstAppeared: "1995-01-01",
+      year: 1995,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "3.6.0", name: "Curry 3.6.0", date: "2023-01-01" }],

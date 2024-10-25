@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Cobra", href: "https://en.wikipedia.org/wiki/Cobra_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".cobra"],
-      firstAppeared: "2006-01-01",
+      year: 2006,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "0.9.6", name: "", date: "2013-01-01" }],

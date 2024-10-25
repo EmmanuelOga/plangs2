@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "FreeBASIC", href: "https://en.wikipedia.org/wiki/FreeBASIC", kind: "wikipedia" },
       ],
       extensions: [".bas", ".bi"],
-      firstAppeared: "2004-01-01",
+      year: 2004,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.10.1", name: "", date: "2023-01-01" }],

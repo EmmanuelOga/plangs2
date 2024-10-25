@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Pony (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Pony_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".pony"],
-      firstAppeared: "2015-09-18",
+      year: 2015,
       releases: [{ version: "0.41.0", name: "Pony 0.41.0", date: "2023-09-01" }],
     })
     .addInfluencedBy(["pl+erlang", "pl+ml", "pl+scala"])

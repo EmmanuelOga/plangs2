@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Boo", href: "https://en.wikipedia.org/wiki/Boo_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".boo"],
-      firstAppeared: "2003-01-01",
+      year: 2003,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "0.9.7", name: "Boo 0.9.7", date: "2013-01-01" }],

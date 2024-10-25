@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["casette"],
       websites: [{ title: "Cassette Lang", href: "https://cassette-lang.com/", kind: "homepage" }],
       extensions: [".cassette"],
-      firstAppeared: "2021-05-01",
+      year: 2021,
       releases: [{ version: "1.0.0", name: "Initial Release", date: "2021-05-01" }],
     })
     .addLicenses(["license+mit"])

@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
         { title: "Prolog", href: "https://en.wikipedia.org/wiki/Prolog", kind: "wikipedia" },
       ],
       extensions: [".P", ".pl", ".pro"],
-      firstAppeared: "1972-01-01",
+      year: 1972,
       isTranspiler: false,
       isMainstream: true,
     })

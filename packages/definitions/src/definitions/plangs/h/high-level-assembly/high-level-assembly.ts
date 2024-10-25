@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "High Level Assembly", href: "https://en.wikipedia.org/wiki/High_Level_Assembly", kind: "wikipedia" },
       ],
       extensions: [".hla"],
-      firstAppeared: "2003-01-01",
+      year: 2003,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2.16", name: "HLA 2.16", date: "2011-01-01" }],

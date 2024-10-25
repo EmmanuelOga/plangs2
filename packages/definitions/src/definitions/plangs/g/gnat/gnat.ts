@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
         { title: "GNAT", href: "https://en.wikipedia.org/wiki/GNAT", kind: "wikipedia" },
       ],
       extensions: [".adb", ".ads"],
-      firstAppeared: "1993-01-01",
+      year: 1993,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "14.1", name: "GNAT 14.1", date: "2024-05-07" }],

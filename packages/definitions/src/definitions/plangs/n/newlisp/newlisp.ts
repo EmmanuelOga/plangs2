@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "newLISP", href: "https://en.wikipedia.org/wiki/NewLISP", kind: "wikipedia" },
       ],
       extensions: [".lsp", ".nl"],
-      firstAppeared: "2001-11-01",
+      year: 2001,
       isTranspiler: false,
       isMainstream: false,
       releases: [

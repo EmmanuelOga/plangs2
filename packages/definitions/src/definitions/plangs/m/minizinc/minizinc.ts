@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "MiniZinc", href: "https://en.wikipedia.org/wiki/MiniZinc", kind: "wikipedia" },
       ],
       extensions: [".dzn", ".fzn", ".mzn"],
-      firstAppeared: "2009-01-01",
+      year: 2009,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2.8.5", name: "MiniZinc 2.8.5", date: "2024-01-01" }],

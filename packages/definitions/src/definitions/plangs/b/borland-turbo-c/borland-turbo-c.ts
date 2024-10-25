@@ -8,7 +8,7 @@ export function define(g: PlangsGraph) {
         "Turbo C is a discontinued integrated development environment (IDE) and compiler for the C programming language from Borland. First introduced in 1987, it was noted for its integrated development environment, small size, fast compile speed, comprehensive manuals and low price.",
       keywords: ["turbo c", "c programming", "borland", "ide", "compiler"],
       websites: [{ title: "Borland Turbo C", href: "https://en.wikipedia.org/wiki/Borland_Turbo_C", kind: "wikipedia" }],
-      firstAppeared: "1987-01-01",
+      year: 1987,
       isTranspiler: false,
       isMainstream: false,
     })

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Euphoria", href: "https://en.wikipedia.org/wiki/Euphoria_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".e", ".edb", ".ex", ".exw"],
-      firstAppeared: "1993-01-01",
+      year: 1993,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "4.1.0", name: "openEuphoria 4.1.0", date: "2021-01-01" }],

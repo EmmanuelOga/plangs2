@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Haxe", href: "https://en.wikipedia.org/wiki/Haxe", kind: "wikipedia" },
       ],
       extensions: [".hx", ".hxml"],
-      firstAppeared: "2005-01-01",
+      year: 2005,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "4.3.6", name: "Haxe 4.3.6", date: "2024-01-01" }],

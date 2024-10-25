@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "MoonScript", href: "https://moonscript.org/", kind: "homepage" },
         { title: "MoonScript", href: "https://en.wikipedia.org/wiki/MoonScript", kind: "wikipedia" },
       ],
-      firstAppeared: "2011-05-01",
+      year: 2011,
       isTranspiler: false,
       isMainstream: true,
     })

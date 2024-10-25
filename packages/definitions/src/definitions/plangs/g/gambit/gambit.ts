@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Gambit", href: "https://en.wikipedia.org/wiki/Gambit_(scheme_implementation)", kind: "wikipedia" },
       ],
       extensions: [".scm"],
-      firstAppeared: "1988-01-01",
+      year: 1988,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "4.9.5", name: "Gambit 4.9.5", date: "2023-01-01" }],

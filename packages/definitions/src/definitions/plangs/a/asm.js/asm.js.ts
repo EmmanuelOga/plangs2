@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "asmjs.org", href: "http://asmjs.org/", kind: "homepage" },
         { title: "asm.js", href: "https://en.wikipedia.org/wiki/Asm.js", kind: "wikipedia" },
       ],
-      firstAppeared: "2013-01-01",
+      year: 2013,
       isTranspiler: false,
       isMainstream: false,
     })

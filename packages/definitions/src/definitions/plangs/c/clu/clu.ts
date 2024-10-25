@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "CLU", href: "https://en.wikipedia.org/wiki/CLU_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".clu"],
-      firstAppeared: "1975-01-01",
+      year: 1975,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.5", name: "CLU 1.5", date: "1989-01-01" }],

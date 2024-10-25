@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Rebol", href: "https://en.wikipedia.org/wiki/Rebol", kind: "wikipedia" },
       ],
       extensions: [".r", ".reb"],
-      firstAppeared: "1997-01-01",
+      year: 1997,
       isTranspiler: false,
       isMainstream: false,
       releases: [

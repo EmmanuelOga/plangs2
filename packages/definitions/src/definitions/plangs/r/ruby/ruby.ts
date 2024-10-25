@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Ruby", href: "https://en.wikipedia.org/wiki/Ruby_programming_language", kind: "wikipedia" },
       ],
       extensions: [".rb", ".ru"],
-      firstAppeared: "1995-01-01",
+      year: 1995,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "3.3.5", name: "Ruby 3.3.5", date: "2024-01-01" }],

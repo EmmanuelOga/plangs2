@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Reason", href: "https://en.wikipedia.org/wiki/Reason_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".re", ".rei"],
-      firstAppeared: "2016-01-01",
+      year: 2016,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "3.12.0", name: "Reason 3.12.0", date: "2024-01-01" }],

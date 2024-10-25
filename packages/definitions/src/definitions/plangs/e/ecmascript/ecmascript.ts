@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
         { title: "ECMAScript", href: "https://en.wikipedia.org/wiki/ECMAScript", kind: "wikipedia" },
       ],
       extensions: [".js", ".mjs"],
-      firstAppeared: "1997-01-01",
+      year: 1997,
       images: [],
       isTranspiler: false,
       isMainstream: true,

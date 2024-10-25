@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "gnu.org/s/gforth/", href: "http://gnu.org/s/gforth/", kind: "homepage" },
         { title: "Gforth", href: "https://en.wikipedia.org/wiki/Gforth", kind: "wikipedia" },
       ],
-      firstAppeared: "1992-01-01",
+      year: 1992,
       isTranspiler: false,
       isMainstream: false,
       releases: [

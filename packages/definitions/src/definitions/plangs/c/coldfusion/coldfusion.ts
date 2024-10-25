@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Adobe ColdFusion", href: "https://en.wikipedia.org/wiki/ColdFusion", kind: "wikipedia" },
       ],
       extensions: [".cfm", ".cfml"],
-      firstAppeared: "1995-01-01",
+      year: 1995,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "2023", name: "Adobe ColdFusion 2023", date: "2023-05-01" }],

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Crystal", href: "https://en.wikipedia.org/wiki/Crystal_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".cr"],
-      firstAppeared: "2014-01-01",
+      year: 2014,
       isTranspiler: false,
       isMainstream: false,
       releases: [

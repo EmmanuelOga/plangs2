@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Scala", href: "https://en.wikipedia.org/wiki/Scala_programming_language", kind: "wikipedia" },
       ],
       extensions: [".sc", ".scala"],
-      firstAppeared: "2004-01-01",
+      year: 2004,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "3.4.0", name: "Scala 3.4.0", date: "2024-01-01" }],

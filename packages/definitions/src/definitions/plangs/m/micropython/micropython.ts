@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "MicroPython - Wikipedia", href: "https://en.wikipedia.org/wiki/MicroPython", kind: "wikipedia" },
       ],
       extensions: [".py"],
-      firstAppeared: "2013-04-01",
+      year: 2013,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.23.0", name: "MicroPython 1.23.0", date: "2024-01-01" }],

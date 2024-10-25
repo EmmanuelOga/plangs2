@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Lua", href: "https://en.wikipedia.org/wiki/Lua_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".lua"],
-      firstAppeared: "1993-01-01",
+      year: 1993,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "5.4.7", name: "Lua 5.4.7", date: "2024-01-01" }],

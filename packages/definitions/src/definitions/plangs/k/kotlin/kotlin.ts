@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Kotlin", href: "https://en.wikipedia.org/wiki/Kotlin_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".kexe", ".klib", ".kt", ".kts"],
-      firstAppeared: "2011-01-01",
+      year: 2011,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "2.0.0", name: "Kotlin 2.0.0", date: "2024-01-01" }],

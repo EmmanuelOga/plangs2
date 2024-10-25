@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Io", href: "https://en.wikipedia.org/wiki/Io_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".io"],
-      firstAppeared: "2002-01-01",
+      year: 2002,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2019.05.22", name: "Io 2019.05.22", date: "2019-05-22" }],

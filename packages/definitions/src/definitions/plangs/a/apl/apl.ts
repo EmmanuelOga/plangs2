@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "APL on Wikipedia", href: "https://en.wikipedia.org/wiki/APL_programming_language", kind: "wikipedia" },
       ],
       extensions: [".apl"],
-      firstAppeared: "1966-01-01",
+      year: 1966,
       isTranspiler: false,
       isMainstream: false,
       releases: [

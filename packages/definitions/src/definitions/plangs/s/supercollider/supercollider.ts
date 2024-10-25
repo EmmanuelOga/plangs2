@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "SuperCollider", href: "https://en.wikipedia.org/wiki/SuperCollider", kind: "wikipedia" },
       ],
       extensions: [".scd"],
-      firstAppeared: "1996-01-01",
+      year: 1996,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "3.13.0", name: "SuperCollider 3.13.0", date: "2023-01-01" }],

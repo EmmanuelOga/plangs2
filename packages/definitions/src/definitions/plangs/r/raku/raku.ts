@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Raku", href: "https://en.wikipedia.org/wiki/Raku_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".raku", ".rakudoc", ".rakumod", ".rakutest", ".t"],
-      firstAppeared: "2015-01-01",
+      year: 2015,
       isTranspiler: false,
       isMainstream: false,
       releases: [

@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
         { title: "F#", href: "https://en.wikipedia.org/wiki/F_Sharp_programming_language", kind: "wikipedia" },
       ],
       extensions: [".fs", ".fsi", ".fsscript", ".fsx"],
-      firstAppeared: "2005-01-01",
+      year: 2005,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "8.0.0", name: "F# 8.0", date: "2023-01-01" }],

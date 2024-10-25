@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Idris", href: "https://en.wikipedia.org/wiki/Idris_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".idr", ".lidr"],
-      firstAppeared: "2007-01-01",
+      year: 2007,
       isTranspiler: false,
       isMainstream: false,
       releases: [

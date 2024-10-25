@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
         { title: "Tcl", href: "https://en.wikipedia.org/wiki/Tcl", kind: "wikipedia" },
       ],
       extensions: [".tbc", ".tcl"],
-      firstAppeared: "1988-01-01",
+      year: 1988,
       isTranspiler: false,
       isMainstream: true,
       releases: [

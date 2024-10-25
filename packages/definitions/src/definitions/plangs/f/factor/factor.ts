@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Factor", href: "https://en.wikipedia.org/wiki/Factor_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".factor"],
-      firstAppeared: "2003-01-01",
+      year: 2003,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "0.99", name: "Factor 0.99", date: "2023-01-01" }],

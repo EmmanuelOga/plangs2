@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Soufflé", href: "https://en.wikipedia.org/wiki/Souffl%C3%A9_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".dl"],
-      firstAppeared: "2016-01-01",
+      year: 2016,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2.3", name: "Soufflé 2.3", date: "2023-05-01" }],

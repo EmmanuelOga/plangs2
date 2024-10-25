@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "MathWorks", href: "https://www.mathworks.com/products/simulink.html", kind: "homepage" },
         { title: "Simulink", href: "https://en.wikipedia.org/wiki/Simulink", kind: "wikipedia" },
       ],
-      firstAppeared: "1988-01-01",
+      year: 1988,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "10.7", name: "Simulink Release 10.7", date: "2023-01-01" }],

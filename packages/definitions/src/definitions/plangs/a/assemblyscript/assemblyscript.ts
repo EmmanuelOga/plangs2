@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "AssemblyScript", href: "https://en.wikipedia.org/wiki/AssemblyScript", kind: "wikipedia" },
       ],
       extensions: [".ts"],
-      firstAppeared: "2017-01-01",
+      year: 2017,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "0.27.29", name: "AssemblyScript 0.27.29", date: "2024-01-01" }],

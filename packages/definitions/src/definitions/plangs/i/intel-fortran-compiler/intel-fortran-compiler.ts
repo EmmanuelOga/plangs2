@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
         { title: "Intel Fortran Compiler", href: "https://en.wikipedia.org/wiki/Intel_Fortran_Compiler", kind: "wikipedia" },
       ],
       extensions: [".f", " .for", " .f90", " .f95"],
-      firstAppeared: "2003-01-01",
+      year: 2003,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "2023.2.1", name: "2023.2.1", date: "2023-01-01" }],

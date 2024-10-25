@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "R", href: "https://en.wikipedia.org/wiki/R_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".r", ".rdata", ".rhistory", ".rds", ".rda"],
-      firstAppeared: "1993-08-01",
+      year: 1993,
       images: [{ kind: "logo", title: "R", url: "https://www.r-project.org/logo/Rlogo.png", width: 512, height: 512 }],
       isTranspiler: false,
       isMainstream: true,

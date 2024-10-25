@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "NetLogo", href: "https://en.wikipedia.org/wiki/NetLogo", kind: "wikipedia" },
       ],
       extensions: [".nlogo", ".nlogo3d", ".nls"],
-      firstAppeared: "1999-01-01",
+      year: 1999,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "6.4.0", name: "NetLogo 6.4.0", date: "2023-01-01" }],

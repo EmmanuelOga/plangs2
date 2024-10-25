@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "impromptu.moso.com.au", href: "http://impromptu.moso.com.au/", kind: "homepage" },
         { title: "Impromptu", href: "https://en.wikipedia.org/wiki/Impromptu_(programming_environment)", kind: "wikipedia" },
       ],
-      firstAppeared: "2005-01-01",
+      year: 2005,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2.5" }],

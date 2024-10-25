@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "PHP on Wikipedia", href: "https://en.wikipedia.org/wiki/PHP", kind: "wikipedia" },
       ],
       extensions: [".php", ".php3", ".php4", ".php5", ".phtml"],
-      firstAppeared: "1995-06-08",
+      year: 1995,
       images: [{ kind: "logo", title: "PHP Logo", url: "https://www.php.net/images/logos/new-php-logo.svg", width: 512, height: 512 }],
       isMainstream: true,
       releases: [

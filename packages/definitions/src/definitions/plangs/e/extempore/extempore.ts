@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "github.com/digego/extempore", href: "https://github.com/digego/extempore", kind: "repository" },
         { title: "Extempore", href: "https://en.wikipedia.org/wiki/Extempore_(software)", kind: "wikipedia" },
       ],
-      firstAppeared: "2011-01-01",
+      year: 2011,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "0.8.9", name: "Extempore 0.8.9", date: "2021-01-01" }],

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Nim", href: "https://en.wikipedia.org/wiki/Nim_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".nim", ".nimble", ".nims"],
-      firstAppeared: "2008-01-01",
+      year: 2008,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "2.0.8", name: "Nim 2.0.8", date: "2024-01-01" }],

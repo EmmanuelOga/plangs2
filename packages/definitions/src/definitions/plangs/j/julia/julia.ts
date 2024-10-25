@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Julia", href: "https://en.wikipedia.org/wiki/Julia_programming_language", kind: "wikipedia" },
       ],
       extensions: [".jl"],
-      firstAppeared: "2012-01-01",
+      year: 2012,
       isTranspiler: false,
       isMainstream: true,
       releases: [

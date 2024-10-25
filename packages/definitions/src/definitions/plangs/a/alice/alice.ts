@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Alice", href: "https://en.wikipedia.org/wiki/Alice_(software)", kind: "wikipedia" },
       ],
       extensions: [],
-      firstAppeared: "2000-01-01",
+      year: 2000,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "3.6.0.3", name: "Alice 3.6.0.3", date: "2021-01-01" }],

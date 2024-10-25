@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["sed", "stream editor"],
       websites: [{ title: "sed", href: "https://en.wikipedia.org/wiki/Sed", kind: "wikipedia" }],
       extensions: [".sed"],
-      firstAppeared: "1974-01-01",
+      year: 1974,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "1.0", name: "Initial Version", date: "1974-01-01" }],

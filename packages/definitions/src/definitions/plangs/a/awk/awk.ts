@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["awk"],
       websites: [{ title: "AWK", href: "https://en.wikipedia.org/wiki/AWK_programming_language", kind: "wikipedia" }],
       extensions: [".awk", ".gawk", ".mawk", ".nawk"],
-      firstAppeared: "1977-01-01",
+      year: 1977,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "1.0", name: "Initial Release", date: "1977-01-01" }],

@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "hhvm.com", href: "https://hhvm.com/", kind: "homepage" },
         { title: "HHVM", href: "https://en.wikipedia.org/wiki/HHVM", kind: "wikipedia" },
       ],
-      firstAppeared: "2011-12-03",
+      year: 2011,
       isTranspiler: false,
       isMainstream: false,
       releases: [

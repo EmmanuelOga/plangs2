@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Modelica", href: "https://en.wikipedia.org/wiki/Modelica", kind: "wikipedia" },
       ],
       extensions: [".mo"],
-      firstAppeared: "1997-01-01",
+      year: 1997,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "3.6", name: "Modelica 3.6", date: "2023-01-01" }],

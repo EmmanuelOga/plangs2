@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Wing - Wikipedia", href: "https://en.wikipedia.org/wiki/Wing_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".w"],
-      firstAppeared: "2022-06-01",
+      year: 2022,
       isTranspiler: true,
       releases: [{ version: "1.0.0", name: "Wing Initial Release", date: "2022-09-01" }],
     })

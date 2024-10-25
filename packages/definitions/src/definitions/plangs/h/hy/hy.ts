@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Hy", href: "https://en.wikipedia.org/wiki/Hy_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".hy"],
-      firstAppeared: "2013-01-01",
+      year: 2013,
       isTranspiler: true,
       isMainstream: false,
       releases: [

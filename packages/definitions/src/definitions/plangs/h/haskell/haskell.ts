@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Haskell", href: "https://en.wikipedia.org/wiki/Haskell_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".hs", ".lhs"],
-      firstAppeared: "1990-01-01",
+      year: 1990,
       isTranspiler: false,
       isMainstream: true,
     })

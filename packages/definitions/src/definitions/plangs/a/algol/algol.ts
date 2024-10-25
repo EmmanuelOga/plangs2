@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["algol"],
       websites: [{ title: "ALGOL", href: "https://en.wikipedia.org/wiki/ALGOL", kind: "wikipedia" }],
       extensions: [".algol"],
-      firstAppeared: "1958-01-01",
+      year: 1958,
       isTranspiler: false,
       isMainstream: false,
       releases: [

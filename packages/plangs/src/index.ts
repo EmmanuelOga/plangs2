@@ -152,14 +152,7 @@ export class NPlang extends NBase<"pl", NPlangData> {
   }
 
   get year(): number | undefined {
-    const { firstAppeared } = this.data;
-    if (!firstAppeared) return undefined;
-    try {
-      return Number.parseInt(firstAppeared.split("-")[0]);
-    } catch (e) {
-      console.error(`Error parsing year for ${this.key}: ${e}`);
-      return undefined;
-    }
+    return this.data.year;
   }
 
   releasedRecently(minYear: number): boolean {
@@ -169,9 +162,7 @@ export class NPlang extends NBase<"pl", NPlangData> {
   }
 
   createdRecently(minYear: number): boolean {
-    const ownYear = this.year;
-    if (!ownYear) return false;
-    return ownYear >= minYear;
+    return !!this.year && this.year >= minYear;
   }
 
   addExtensions(exts: string[]): this {

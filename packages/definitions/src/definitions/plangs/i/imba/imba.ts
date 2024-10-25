@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
         { title: "Imba", href: "https://github.com/imba/imba", kind: "repository" },
       ],
       extensions: [".imba"],
-      firstAppeared: "2013-01-01",
+      year: 2013,
       isTranspiler: true,
       releases: [
         { version: "v1.5.0", name: "Imba 1.5.0", date: "2020-06-15" },

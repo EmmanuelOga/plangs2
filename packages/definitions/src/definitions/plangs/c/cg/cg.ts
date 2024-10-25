@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Cg/HLSL", href: "https://en.wikipedia.org/wiki/Cg_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".cg", ".hlsl"],
-      firstAppeared: "2002-01-01",
+      year: 2002,
       isTranspiler: false,
       isMainstream: false,
     })

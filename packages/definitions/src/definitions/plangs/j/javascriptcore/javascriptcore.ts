@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "webkit.org", href: "http://webkit.org/", kind: "homepage" },
         { title: "JavaScriptCore", href: "https://en.wikipedia.org/wiki/JavaScriptCore", kind: "wikipedia" },
       ],
-      firstAppeared: "2007-09-01",
+      year: 2007,
       isTranspiler: false,
       isMainstream: false,
     })

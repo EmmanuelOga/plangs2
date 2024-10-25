@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Gravity on GitHub", href: "https://github.com/marcobambini/gravity", kind: "repository" },
       ],
       extensions: [".gravity"],
-      firstAppeared: "2015-01-01",
+      year: 2015,
       releases: [{ version: "0.8", name: "Gravity 0.8", date: "2023-01-01" }],
     })
     .addInfluencedBy(["pl+lua", "pl+swift"])

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Shen Wikipedia", href: "https://en.wikipedia.org/wiki/Shen_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".shen"],
-      firstAppeared: "2011-10-01",
+      year: 2011,
       releases: [{ version: "22.2", name: "Shen 22.2", date: "2023-08-01" }],
     })
     .addInfluencedBy(["pl+assembler", "pl+prolog", "pl+scheme"])

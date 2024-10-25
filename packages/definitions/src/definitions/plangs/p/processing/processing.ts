@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Processing", href: "https://en.wikipedia.org/wiki/Processing_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".pde"],
-      firstAppeared: "2001-01-01",
+      year: 2001,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "4.3", name: "Processing 4.3", date: "2023-01-01" }],

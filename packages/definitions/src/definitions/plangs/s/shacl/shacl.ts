@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "SHACL", href: "https://en.wikipedia.org/wiki/SHACL", kind: "wikipedia" },
       ],
       extensions: [".shacl"],
-      firstAppeared: "2017-07-20",
+      year: 2017,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.0", name: "SHACL 1.0", date: "2017-07-20" }],

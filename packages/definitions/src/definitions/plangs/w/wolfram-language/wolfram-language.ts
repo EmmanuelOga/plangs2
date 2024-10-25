@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Wolfram Language", href: "https://en.wikipedia.org/wiki/Wolfram_language", kind: "wikipedia" },
       ],
       extensions: [".m", ".nb", ".wl"],
-      firstAppeared: "1988-01-01",
+      year: 1988,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "14.1.0", name: "Wolfram Language 14.1.0", date: "2024-01-01" }],

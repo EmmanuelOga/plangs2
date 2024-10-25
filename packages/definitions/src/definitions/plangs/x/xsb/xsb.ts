@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "XSB", href: "https://en.wikipedia.org/wiki/XSB", kind: "wikipedia" },
       ],
       extensions: [".P"],
-      firstAppeared: "1993-01-01",
+      year: 1993,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "5.0", name: "XSB 5.0", date: "2022-01-01" }],

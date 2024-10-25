@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
           kind: "wikipedia",
         },
       ],
-      firstAppeared: "2008-01-01",
+      year: 2008,
       isTranspiler: false,
       isMainstream: false,
       releases: [

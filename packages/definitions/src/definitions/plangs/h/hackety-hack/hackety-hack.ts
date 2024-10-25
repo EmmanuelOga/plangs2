@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "github.com/hacketyhack/hacketyhack", href: "https://github.com/hacketyhack/hacketyhack", kind: "repository" },
         { title: "Hackety Hack", href: "https://en.wikipedia.org/wiki/Hackety_Hack", kind: "wikipedia" },
       ],
-      firstAppeared: "2009-10-01",
+      year: 2009,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.0", name: "Hackety Hack 1.0", date: "2010-01-01" }],

@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["assembly", "asm", "assembler"],
       websites: [{ title: "Assembly language", href: "https://en.wikipedia.org/wiki/Assembly_language", kind: "wikipedia" }],
       extensions: [".asm", ".s", ".inc", ".src", ".a51"],
-      firstAppeared: "1947-01-01",
+      year: 1947,
       isTranspiler: false,
       isMainstream: true,
     })

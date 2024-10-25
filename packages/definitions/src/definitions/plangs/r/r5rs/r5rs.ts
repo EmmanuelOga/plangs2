@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Scheme", href: "https://en.wikipedia.org/wiki/R5RS", kind: "wikipedia" },
       ],
       extensions: [".scm", ".ss"],
-      firstAppeared: "1975-01-01",
+      year: 1975,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "R5RS", name: "Revised^5 Report on the Algorithmic Language Scheme", date: "1998-01-01" }],

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "LuaJIT", href: "https://en.wikipedia.org/wiki/LuaJIT", kind: "wikipedia" },
       ],
       extensions: [".lua", ".luajit"],
-      firstAppeared: "2005-06-01",
+      year: 2005,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "2.0.5", name: "LuaJIT 2.0.5", date: "2023-01-01" }],

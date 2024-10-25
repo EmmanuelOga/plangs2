@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
         { title: "TypeScript Wikipedia", href: "https://en.wikipedia.org/wiki/TypeScript", kind: "wikipedia" },
       ],
       extensions: [".cts", ".mts", ".ts", ".tsx"],
-      firstAppeared: "2012-10-01",
+      year: 2012,
       isTranspiler: true,
       isMainstream: true,
       releases: [{ version: "5.2", name: "TypeScript 5.2", date: "2023-08-01" }],

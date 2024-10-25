@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "PyPy", href: "https://en.wikipedia.org/wiki/PyPy", kind: "wikipedia" },
       ],
       extensions: [".py"],
-      firstAppeared: "2007-10-01",
+      year: 2007,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "7.3.16", name: "PyPy 7.3.16", date: "2024-01-01" }],

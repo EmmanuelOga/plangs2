@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Delphi (software) - Wikipedia", href: "https://en.wikipedia.org/wiki/Delphi_(software)", kind: "wikipedia" },
       ],
       extensions: [".pas", ".dpr"],
-      firstAppeared: "1995-01-01",
+      year: 1995,
       isTranspiler: false,
       isMainstream: true,
       releases: [

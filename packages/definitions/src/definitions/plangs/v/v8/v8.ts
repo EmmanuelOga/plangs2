@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "v8.dev", href: "https://v8.dev/", kind: "homepage" },
         { title: "V8", href: "https://en.wikipedia.org/wiki/V8_(JavaScript_engine)", kind: "wikipedia" },
       ],
-      firstAppeared: "2008-09-02",
+      year: 2008,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "11.4", name: "V8 11.4", date: "2023-01-01" }],

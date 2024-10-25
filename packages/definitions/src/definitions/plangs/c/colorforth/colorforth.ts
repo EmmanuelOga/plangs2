@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "colorForth", href: "https://colorforth.github.io/", kind: "homepage" },
         { title: "colorForth", href: "https://en.wikipedia.org/wiki/ColorForth", kind: "wikipedia" },
       ],
-      firstAppeared: "1990-01-01",
+      year: 1990,
       isTranspiler: false,
       isMainstream: false,
     })

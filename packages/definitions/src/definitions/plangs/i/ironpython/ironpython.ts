@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "IronPython", href: "https://en.wikipedia.org/wiki/IronPython", kind: "wikipedia" },
       ],
       extensions: [".py", ".pyi"],
-      firstAppeared: "2006-01-01",
+      year: 2006,
       isTranspiler: false,
       isMainstream: false,
       releases: [

@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "www.iso.org/standard/76583.html", href: "https://www.iso.org/standard/76583.html", kind: "other" },
         { title: "SQL", href: "https://en.wikipedia.org/wiki/SQL", kind: "wikipedia" },
       ],
-      firstAppeared: "1974-01-01",
+      year: 1974,
       isTranspiler: false,
       isMainstream: true,
     })

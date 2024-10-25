@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "G95", href: "https://en.wikipedia.org/wiki/G95", kind: "wikipedia" },
       ],
       extensions: [".f95", ".for", ".f90", ".f"],
-      firstAppeared: "2001-12-01",
+      year: 2001,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "0.93", name: "G95 0.93", date: "2012-01-01" }],

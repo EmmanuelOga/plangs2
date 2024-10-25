@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Jank on GitHub", href: "https://github.com/jank-lang/jank", kind: "repository" },
       ],
       extensions: [".jank"],
-      firstAppeared: "2015-01-24",
+      year: 2015,
       isTranspiler: false,
     })
     .addInfluencedBy(["pl+clojure"])

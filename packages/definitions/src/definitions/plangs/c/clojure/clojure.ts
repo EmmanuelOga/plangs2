@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Clojure", href: "https://en.wikipedia.org/wiki/Clojure_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".clj", ".cljc", ".cljd", ".cljr", ".cljs", ".edn"],
-      firstAppeared: "2007-01-01",
+      year: 2007,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "1.11.2", name: "Clojure 1.11.2", date: "2024-01-01" }],

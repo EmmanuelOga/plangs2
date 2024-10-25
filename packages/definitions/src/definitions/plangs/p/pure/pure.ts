@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Pure", href: "https://en.wikipedia.org/wiki/Pure_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".pure"],
-      firstAppeared: "2008-01-01",
+      year: 2008,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "0.68", name: "Pure 0.68", date: "2018-01-01" }],

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Squeak", href: "https://en.wikipedia.org/wiki/Squeak", kind: "wikipedia" },
       ],
       extensions: [".changes", ".image", ".sources", ".st"],
-      firstAppeared: "1996-01-01",
+      year: 1996,
       isTranspiler: false,
       isMainstream: false,
       releases: [

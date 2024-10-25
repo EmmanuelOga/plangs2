@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "CoffeeScript", href: "https://en.wikipedia.org/wiki/CoffeeScript", kind: "wikipedia" },
       ],
       extensions: [".coffee", ".litcoffee"],
-      firstAppeared: "2009-01-01",
+      year: 2009,
       images: [],
       isTranspiler: true,
       isMainstream: false,

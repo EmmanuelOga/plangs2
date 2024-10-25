@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
         },
       ],
       extensions: [".inform", ".ni", ".z5", ".z8"],
-      firstAppeared: "1993-01-01",
+      year: 1993,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "10.1.1", name: "Inform 10.1.1", date: "2022-01-01" }],

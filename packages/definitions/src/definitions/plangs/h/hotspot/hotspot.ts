@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "openjdk.org/groups/hotspot/", href: "https://openjdk.org/groups/hotspot/", kind: "other" },
         { title: "Java HotSpot Virtual Machine", href: "https://en.wikipedia.org/wiki/HotSpot_(virtual_machine)", kind: "wikipedia" },
       ],
-      firstAppeared: "1999-04-27",
+      year: 1999,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "23.25", name: "JDK 9", date: "2016-01-01" }],

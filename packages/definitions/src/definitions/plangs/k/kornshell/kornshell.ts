@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "KornShell", href: "https://en.wikipedia.org/wiki/KornShell", kind: "wikipedia" },
       ],
       extensions: [".ksh", ".sh"],
-      firstAppeared: "1983-07-14",
+      year: 1983,
       isTranspiler: false,
       isMainstream: false,
     })

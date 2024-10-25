@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Rust", href: "https://en.wikipedia.org/wiki/Rust_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".rlib", ".rs"],
-      firstAppeared: "2015-01-01",
+      year: 2015,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "1.80.1", name: "Rust 1.80.1", date: "2024-01-01" }],

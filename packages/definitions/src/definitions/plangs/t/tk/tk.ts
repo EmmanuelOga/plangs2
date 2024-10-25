@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "tcl.tk", href: "http://www.tcl.tk/", kind: "homepage" },
         { title: "Tk", href: "https://en.wikipedia.org/wiki/Tk_(software)", kind: "wikipedia" },
       ],
-      firstAppeared: "1991-01-01",
+      year: 1991,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "8.6.13", name: "Tk 8.6.13", date: "2022-01-01" }],

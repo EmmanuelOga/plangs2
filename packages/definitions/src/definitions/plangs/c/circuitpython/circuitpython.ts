@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "CircuitPython", href: "https://en.wikipedia.org/wiki/CircuitPython", kind: "wikipedia" },
       ],
       extensions: [".py"],
-      firstAppeared: "2017-07-01",
+      year: 2017,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "9.1.1", name: "CircuitPython 9.1.1", date: "2024-01-01" }],

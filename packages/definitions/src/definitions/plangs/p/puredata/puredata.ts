@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Pure Data", href: "https://en.wikipedia.org/wiki/PureData", kind: "wikipedia" },
       ],
       extensions: [".pd"],
-      firstAppeared: "1996-01-01",
+      year: 1996,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "0.53", name: "Pd 0.53", date: "2023-01-01" }],

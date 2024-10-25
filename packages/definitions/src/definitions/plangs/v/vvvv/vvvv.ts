@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "vvvv", href: "http://www.vvvv.org/", kind: "homepage" },
         { title: "vvvv", href: "https://en.wikipedia.org/wiki/Vvvv", kind: "wikipedia" },
       ],
-      firstAppeared: "2002-01-01",
+      year: 2002,
       isTranspiler: false,
       isMainstream: false,
     })

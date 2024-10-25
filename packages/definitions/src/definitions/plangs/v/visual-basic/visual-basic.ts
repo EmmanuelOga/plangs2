@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Visual Basic", href: "https://en.wikipedia.org/wiki/Visual_Basic_(.NET)", kind: "wikipedia" },
       ],
       extensions: [".vb"],
-      firstAppeared: "2001-01-01",
+      year: 2001,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "17.9.2", name: "Visual Basic 17.9.2", date: "2024-01-01" }],

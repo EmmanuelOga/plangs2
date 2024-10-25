@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "mruby", href: "https://en.wikipedia.org/wiki/Mruby", kind: "wikipedia" },
       ],
       extensions: [".rb"],
-      firstAppeared: "2012-04-01",
+      year: 2012,
       isTranspiler: false,
       isMainstream: false,
       releases: [

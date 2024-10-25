@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Groovy", href: "https://en.wikipedia.org/wiki/Groovy_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".groovy", ".gsh", ".gvy", ".gy"],
-      firstAppeared: "2003-01-01",
+      year: 2003,
       isTranspiler: false,
       isMainstream: true,
       releases: [

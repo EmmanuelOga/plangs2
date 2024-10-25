@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Isabelle", href: "https://en.wikipedia.org/wiki/Isabelle_(proof_assistant)", kind: "wikipedia" },
       ],
       extensions: [".thy"],
-      firstAppeared: "1986-01-01",
+      year: 1986,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2023", name: "Isabelle 2023", date: "2023-06-15" }],

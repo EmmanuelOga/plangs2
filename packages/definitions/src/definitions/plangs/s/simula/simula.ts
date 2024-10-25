@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "Simula67", href: "http://www.simula67.info/", kind: "homepage" },
         { title: "Simula", href: "https://en.wikipedia.org/wiki/Simula", kind: "wikipedia" },
       ],
-      firstAppeared: "1967-01-01",
+      year: 1967,
       isTranspiler: false,
       isMainstream: false,
     })

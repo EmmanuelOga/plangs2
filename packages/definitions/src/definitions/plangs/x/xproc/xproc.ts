@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Official XProc Website", href: "https://xproc.org/", kind: "homepage" },
       ],
       extensions: [".xpl"],
-      firstAppeared: "2010-05-11",
+      year: 2010,
       isTranspiler: false,
       isMainstream: false,
       releases: [

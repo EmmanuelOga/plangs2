@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
         { title: "Elvish Repository", href: "https://github.com/elves/elvish", kind: "repository" },
       ],
       extensions: [".elv"],
-      firstAppeared: "2016-12-21",
+      year: 2016,
       releases: [{ version: "0.18.0", name: "Elvish 0.18.0", date: "2023-09-15" }],
     })
     .addInfluencedBy(["pl+fish", "pl+zsh"])

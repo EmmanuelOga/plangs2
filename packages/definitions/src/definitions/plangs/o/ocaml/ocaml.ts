@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "OCaml", href: "https://en.wikipedia.org/wiki/OCaml", kind: "wikipedia" },
       ],
       extensions: [".ml", ".mli"],
-      firstAppeared: "1996-01-01",
+      year: 1996,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "5.2.0", name: "OCaml 5.2.0", date: "2024-01-01" }],

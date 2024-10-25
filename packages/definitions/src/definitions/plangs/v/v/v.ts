@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "V", href: "https://en.wikipedia.org/wiki/V_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".v", ".vsh"],
-      firstAppeared: "2019-01-01",
+      year: 2019,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "0.4.6", name: "V 0.4.6", date: "2024-01-01" }],

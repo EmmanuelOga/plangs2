@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Go", href: "https://en.wikipedia.org/wiki/Go_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".go"],
-      firstAppeared: "2009-01-01",
+      year: 2009,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "1.23.0", name: "", date: "2024-01-01" }],

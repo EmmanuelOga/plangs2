@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Fortran", href: "https://en.wikipedia.org/wiki/Fortran", kind: "wikipedia" },
       ],
       extensions: [".f", ".f90", ".for"],
-      firstAppeared: "1957-01-01",
+      year: 1957,
       isTranspiler: false,
       isMainstream: true,
       releases: [

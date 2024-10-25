@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Forth", href: "https://en.wikipedia.org/wiki/Forth_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".4th", ".f", ".forth", ".fs", ".fth"],
-      firstAppeared: "1970-01-01",
+      year: 1970,
       isTranspiler: false,
       isMainstream: false,
     })

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Odin", href: "https://en.wikipedia.org/wiki/Odin_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".odin"],
-      firstAppeared: "2016-04-20",
+      year: 2016,
       isMainstream: true,
       releases: [{ version: "0.13.0", name: "Odin 0.13.0", date: "2023-08-21" }],
     })

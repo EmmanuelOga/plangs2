@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "XQuery on Wikipedia", href: "https://en.wikipedia.org/wiki/XQuery", kind: "wikipedia" },
       ],
       extensions: [".xq", ".xql", ".xqm", ".xquery", ".xqy"],
-      firstAppeared: "2007-01-01",
+      year: 2007,
       isTranspiler: false,
       isMainstream: true,
       releases: [

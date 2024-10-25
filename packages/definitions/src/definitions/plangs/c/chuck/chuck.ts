@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "ChucK", href: "https://en.wikipedia.org/wiki/ChucK", kind: "wikipedia" },
       ],
       extensions: [".ck"],
-      firstAppeared: "2003-01-01",
+      year: 2003,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.5.2.4", name: "ChucK 1.5.2.4", date: "2024-01-01" }],

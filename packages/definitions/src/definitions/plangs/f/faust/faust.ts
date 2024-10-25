@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "FAUST", href: "https://en.wikipedia.org/wiki/FAUST_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".dsp"],
-      firstAppeared: "2002-01-01",
+      year: 2002,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "2.60.3", name: "FAUST 2.60.3", date: "2023-01-01" }],

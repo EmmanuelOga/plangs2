@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Python",
       description:
         "Python is a high-level, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation.",
-      firstAppeared: "1991-01-01",
+      year: 1991,
       extensions: [".py", ".pyc", ".pyd", ".pyi", ".pyw", ".pyz"],
       keywords: ["python"],
       websites: [

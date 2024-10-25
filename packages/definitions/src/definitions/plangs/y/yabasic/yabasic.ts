@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
         { title: "Yabasic", href: "https://en.wikipedia.org/wiki/Yabasic", kind: "wikipedia" },
       ],
       extensions: [".yab"],
-      firstAppeared: "1995-01-01",
+      year: 1995,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2.90.4", name: "Yabasic 2.90.4", date: "2023-01-01" }],

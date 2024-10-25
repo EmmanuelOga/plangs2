@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Frink", href: "https://en.wikipedia.org/wiki/Frink_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".frink"],
-      firstAppeared: "2001-01-01",
+      year: 2001,
       isTranspiler: false,
       isMainstream: false,
     })

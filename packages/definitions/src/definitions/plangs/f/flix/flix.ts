@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Flix", href: "https://en.wikipedia.org/wiki/Flix_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".flix"],
-      firstAppeared: "2015-01-01",
+      year: 2015,
       images: [
         { kind: "logo", title: "Flix logo", url: "https://raw.githubusercontent.com/flix/flix/master/docs/logo.png", width: 512, height: 512 },
       ],

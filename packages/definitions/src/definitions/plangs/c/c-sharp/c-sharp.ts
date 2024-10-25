@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "C#", href: "https://en.wikipedia.org/wiki/C%EF%BC%83_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".cs", ".csx"],
-      firstAppeared: "2000-01-01",
+      year: 2000,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "12.0", name: "C# 12", date: "2023-01-01" }],

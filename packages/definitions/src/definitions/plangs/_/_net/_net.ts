@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: ".NET", href: "https://en.wikipedia.org/wiki/.NET", kind: "wikipedia" },
       ],
       extensions: [".csproj", ".vbproj", ".fsproj", ".sln"],
-      firstAppeared: "2002-02-13",
+      year: 2002,
       isTranspiler: false,
       isMainstream: true,
       releases: [

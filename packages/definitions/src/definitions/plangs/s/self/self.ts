@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "Self", href: "http://www.selflanguage.org/", kind: "homepage" },
         { title: "Self", href: "https://en.wikipedia.org/wiki/Self_(programming_language)", kind: "wikipedia" },
       ],
-      firstAppeared: "1987-01-01",
+      year: 1987,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2017.1", date: "2017-01-01" }],

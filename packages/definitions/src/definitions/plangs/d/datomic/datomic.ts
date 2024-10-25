@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "datomic.com", href: "http://datomic.com/", kind: "homepage" },
         { title: "Datomic", href: "https://en.wikipedia.org/wiki/Datomic", kind: "wikipedia" },
       ],
-      firstAppeared: "2012-08-10",
+      year: 2012,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.0.7180", name: "Datomic 1.0", date: "2012-08-10" }],

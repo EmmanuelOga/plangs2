@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Godot Engine - Wikipedia", href: "https://en.wikipedia.org/wiki/GDScript", kind: "wikipedia" },
       ],
       extensions: [".gd"],
-      firstAppeared: "2014-01-01",
+      year: 2014,
       images: [{ kind: "logo", title: "Godot Engine", url: "https://godotengine.org/assets/logo.svg", width: 512, height: 512 }],
       isTranspiler: false,
       isMainstream: true,

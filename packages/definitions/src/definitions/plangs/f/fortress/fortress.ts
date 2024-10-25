@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Fortress", href: "https://en.wikipedia.org/wiki/Fortress_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".fss"],
-      firstAppeared: "2006-01-01",
+      year: 2006,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.0", name: "Fortress 1.0", date: "2012-04-01" }],

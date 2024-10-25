@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Icon", href: "https://en.wikipedia.org/wiki/Icon_programming_language", kind: "wikipedia" },
       ],
       extensions: [".icn"],
-      firstAppeared: "1977-01-01",
+      year: 1977,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "9.5.24", name: "Icon 9.5.24", date: "2024-01-01" }],

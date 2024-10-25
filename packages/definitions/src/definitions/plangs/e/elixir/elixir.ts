@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Wikipedia", href: "https://en.wikipedia.org/wiki/Elixir_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".ex", ".exs"],
-      firstAppeared: "2012-01-01",
+      year: 2012,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "1.17.2", name: "Elixir 1.17.2", date: "2024-01-01" }],

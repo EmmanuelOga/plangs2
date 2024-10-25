@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["scopes", "metaprogramming", "extensible", "macro system"],
       websites: [{ title: "Scopes", href: "https://hg.sr.ht/~duangle/scopes", kind: "homepage" }],
       extensions: [".scopes"],
-      firstAppeared: "2015-01-01",
+      year: 2015,
       releases: [{ version: "0.1", name: "Initial release", date: "2015-01-01" }],
     })
     .addParadigms(["paradigm+extensible", "paradigm+macro", "paradigm+metaprogramming"])

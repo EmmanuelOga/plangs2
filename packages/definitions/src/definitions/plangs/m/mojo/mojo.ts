@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["mojo", "modular", "performance", "programming"],
       websites: [{ title: "Mojo", href: "https://www.modular.com/mojo", kind: "homepage" }],
       extensions: [".mojo"],
-      firstAppeared: "2023-10-01",
+      year: 2023,
     })
     .addInfluencedBy(["pl+python"])
     .addLicenses(["license+apache"])

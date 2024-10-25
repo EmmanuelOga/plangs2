@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "coq.inria.fr", href: "https://coq.inria.fr/", kind: "homepage" },
         { title: "Coq", href: "https://en.wikipedia.org/wiki/Coq_(software)", kind: "wikipedia" },
       ],
-      firstAppeared: "1989-01-01",
+      year: 1989,
       isTranspiler: false,
       isMainstream: false,
       releases: [

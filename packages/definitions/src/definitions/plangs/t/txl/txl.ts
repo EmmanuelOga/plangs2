@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "TXL", href: "https://en.wikipedia.org/wiki/TXL_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".txl"],
-      firstAppeared: "1985-01-01",
+      year: 1985,
       isTranspiler: false,
       isMainstream: false,
     })

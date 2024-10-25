@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["alda", "music programming", "sound synthesis"],
       websites: [{ title: "Alda Official Website", href: "https://alda.io/", kind: "homepage" }],
       extensions: [".alda"],
-      firstAppeared: "2015-01-01",
+      year: 2015,
     })
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+dsl"])

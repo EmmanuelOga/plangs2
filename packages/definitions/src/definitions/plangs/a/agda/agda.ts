@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Agda",
       description:
         "Agda is a dependently typed functional programming language originally developed by Ulf Norell at Chalmers University of Technology with implementation described in his PhD thesis. The original Agda system was developed at Chalmers by Catarina Coquand in 1999. The current version, originally known as Agda 2, is a full rewrite, which should be considered a new language that shares a name and tradition.",
-      firstAppeared: "2007-01-01",
+      year: 2007,
       extensions: [".agda", ".lagda", ".lagda.md", ".lagda.rst", ".lagda.tex"],
       keywords: ["agda"],
       websites: [

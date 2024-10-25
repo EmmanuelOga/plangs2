@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "clang.llvm.org", href: "https://clang.llvm.org/", kind: "homepage" },
         { title: "Clang", href: "https://en.wikipedia.org/wiki/Clang", kind: "wikipedia" },
       ],
-      firstAppeared: "2007-07-01",
+      year: 2007,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "18.1.8", name: "Clang 18.1.8", date: "2024-01-01" }],

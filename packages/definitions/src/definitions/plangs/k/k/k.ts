@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "kx.com", href: "http://kx.com/", kind: "homepage" },
         { title: "K", href: "https://en.wikipedia.org/wiki/K_(programming_language)", kind: "wikipedia" },
       ],
-      firstAppeared: "1993-01-01",
+      year: 1993,
       isTranspiler: false,
       isMainstream: false,
     })

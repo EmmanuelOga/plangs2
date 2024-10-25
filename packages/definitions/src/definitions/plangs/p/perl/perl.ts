@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Perl", href: "https://en.wikipedia.org/wiki/Perl", kind: "wikipedia" },
       ],
       extensions: [".cgi", ".pl", ".pls", ".plx", ".pm", ".pod", ".psgi", ".t", ".xs"],
-      firstAppeared: "1987-01-01",
+      year: 1987,
       isTranspiler: false,
       isMainstream: true,
       releases: [

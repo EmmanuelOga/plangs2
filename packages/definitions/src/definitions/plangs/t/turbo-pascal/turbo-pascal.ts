@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["turbo pascal"],
       websites: [{ title: "Turbo Pascal", href: "https://en.wikipedia.org/wiki/Turbo_Pascal", kind: "wikipedia" }],
       extensions: [".pas", ".tp"],
-      firstAppeared: "1983-01-01",
+      year: 1983,
       isTranspiler: false,
       isMainstream: false,
       releases: [

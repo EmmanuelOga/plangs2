@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Lobster on GitHub", href: "https://github.com/aardappel/lobster", kind: "repository" },
       ],
       extensions: [".lobster"],
-      firstAppeared: "2016-01-01",
+      year: 2016,
       releases: [{ version: "1.0", name: "Initial Release", date: "2016-01-01" }],
     })
     .addInfluencedBy(["pl+cpp", "pl+python"])

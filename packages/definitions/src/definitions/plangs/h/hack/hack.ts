@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Hack", href: "https://en.wikipedia.org/wiki/Hack_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".hh", ".hack"],
-      firstAppeared: "2014-01-01",
+      year: 2014,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "4.172", name: "", date: "2022-01-01" }],

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Orca GitHub Repository", href: "https://github.com/hundredrabbits/Orca", kind: "repository" },
       ],
       extensions: [".orca"],
-      firstAppeared: "2019-01-01",
+      year: 2019,
       releases: [{ version: "0.9.0", name: "Orca 0.9.0", date: "2019-05-01" }],
     })
     .addLicenses(["license+mit"])

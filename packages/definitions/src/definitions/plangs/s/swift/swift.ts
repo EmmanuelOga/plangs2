@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
         { title: "Swift", href: "https://en.wikipedia.org/wiki/Swift_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".swift"],
-      firstAppeared: "2014-06-02",
+      year: 2014,
       isTranspiler: false,
       isMainstream: true,
       releases: [

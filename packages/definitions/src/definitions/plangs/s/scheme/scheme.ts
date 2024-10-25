@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Scheme", href: "https://en.wikipedia.org/wiki/Scheme_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".scm", ".ss"],
-      firstAppeared: "1975-01-01",
+      year: 1975,
       isTranspiler: false,
       isMainstream: false,
     })

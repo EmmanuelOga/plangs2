@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["basic"],
       websites: [{ title: "BASIC", href: "https://en.wikipedia.org/wiki/BASIC", kind: "wikipedia" }],
       extensions: [".bas", ".bi", ".bb", ".pb", ".fb"],
-      firstAppeared: "1964-01-01",
+      year: 1964,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "1.0", name: "Initial Release", date: "1964-01-01" }],

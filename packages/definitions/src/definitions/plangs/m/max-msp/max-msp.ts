@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Max", href: "https://en.wikipedia.org/wiki/Max/MSP", kind: "wikipedia" },
       ],
       extensions: [".maxpat", ".mxb", ".mxt"],
-      firstAppeared: "1988-01-01",
+      year: 1988,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "8.6.2", name: "Max 8.6.2", date: "2024-01-01" }],

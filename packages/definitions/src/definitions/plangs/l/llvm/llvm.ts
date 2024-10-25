@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "www.llvm.org", href: "https://www.llvm.org/", kind: "homepage" },
         { title: "LLVM", href: "https://en.wikipedia.org/wiki/LLVM", kind: "wikipedia" },
       ],
-      firstAppeared: "2003-01-01",
+      year: 2003,
       isTranspiler: true,
       isMainstream: true,
       releases: [{ version: "18.1.8", name: "LLVM 18.1.8", date: "2024-01-01" }],

@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "newspeaklanguage.org", href: "http://newspeaklanguage.org/", kind: "homepage" },
         { title: "Newspeak", href: "https://en.wikipedia.org/wiki/Newspeak_(programming_language)", kind: "wikipedia" },
       ],
-      firstAppeared: "2006-01-01",
+      year: 2006,
       isTranspiler: false,
       isMainstream: false,
     })

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Ceylon", href: "https://en.wikipedia.org/wiki/Ceylon_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".ceylon"],
-      firstAppeared: "2011-01-01",
+      year: 2011,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "1.3.3", name: "Ceylon 1.3.3", date: "2017-01-01" }],

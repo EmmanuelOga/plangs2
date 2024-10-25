@@ -43,8 +43,8 @@ export interface CommonNodeData {
 export type NPlangData = CommonNodeData & {
   /** File extensions supported by the language. */
   extensions: string[];
-  /** Date the language first appeared. */
-  firstAppeared: StrDate;
+  /** Year the language first appeared. */
+  year: number;
   /** Logos, screenshots or other images relevant to the language. */
   images: Image[];
   /** Can this particular implementation compile source-code to source-code? */

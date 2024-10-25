@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
         { title: "C3", href: "https://en.wikipedia.org/wiki/C3_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".c3"],
-      firstAppeared: "2020-01-01",
+      year: 2020,
       images: [{ kind: "logo", title: "C3 logo", url: "https://c3-lang.org/logo.svg", width: 800, height: 600 }],
       releases: [{ version: "0.1.0", name: "C3 Initial Release", date: "2020-05-01" }],
     })

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Befunge", href: "https://en.wikipedia.org/wiki/Befunge", kind: "wikipedia" },
       ],
       extensions: [".befunge"],
-      firstAppeared: "1993-01-01",
+      year: 1993,
       isTranspiler: false,
       isMainstream: false,
     })

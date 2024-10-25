@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Seed7", href: "https://en.wikipedia.org/wiki/Seed7", kind: "wikipedia" },
       ],
       extensions: [".s7i", ".sd7"],
-      firstAppeared: "2005-01-01",
+      year: 2005,
       isTranspiler: true,
       isMainstream: false,
     })

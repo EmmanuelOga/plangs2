@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Janet on GitHub", href: "https://github.com/janet-lang/janet", kind: "repository" },
       ],
       extensions: [".janet"],
-      firstAppeared: "2020-01-01",
+      year: 2020,
       releases: [{ version: "1.17.0", name: "Janet 1.17.0", date: "2023-06-15" }],
     })
     .addInfluencedBy(["pl+lisps", "pl+scheme"])

@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
         { title: "Nickel Wikipedia", href: "https://en.wikipedia.org/wiki/Nickel_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".ncl"],
-      firstAppeared: "2021-01-01",
+      year: 2021,
       releases: [{ version: "1.0.0", name: "Nickel 1.0.0", date: "2023-09-01" }],
     })
     .addInfluencedBy(["pl+rust"])

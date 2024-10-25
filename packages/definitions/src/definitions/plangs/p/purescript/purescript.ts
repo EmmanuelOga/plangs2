@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "PureScript", href: "https://en.wikipedia.org/wiki/PureScript", kind: "wikipedia" },
       ],
       extensions: [".purs"],
-      firstAppeared: "2013-01-01",
+      year: 2013,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "0.15.15", name: "PureScript 0.15.15", date: "2024-01-01" }],

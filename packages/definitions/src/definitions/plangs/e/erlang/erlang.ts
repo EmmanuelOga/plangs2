@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Erlang", href: "https://en.wikipedia.org/wiki/Erlang_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".erl", ".hrl"],
-      firstAppeared: "1986-01-01",
+      year: 1986,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "27.0.1", name: "Erlang/OTP 27.0.1", date: "2024-01-01" }],

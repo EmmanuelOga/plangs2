@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "ScratchJr", href: "http://www.scratchjr.org/", kind: "homepage" },
         { title: "ScratchJr", href: "https://en.wikipedia.org/wiki/ScratchJr", kind: "wikipedia" },
       ],
-      firstAppeared: "2014-01-01",
+      year: 2014,
       isTranspiler: false,
       isMainstream: false,
     })

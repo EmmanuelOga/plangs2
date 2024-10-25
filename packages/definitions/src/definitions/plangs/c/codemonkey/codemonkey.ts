@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "www.codemonkey.com", href: "https://www.codemonkey.com/", kind: "homepage" },
         { title: "CodeMonkey", href: "https://en.wikipedia.org/wiki/CodeMonkey_(software)", kind: "wikipedia" },
       ],
-      firstAppeared: "2014-01-01",
+      year: 2014,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.0", name: "CodeMonkey 1.0", date: "2014-01-01" }],

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Squirrel", href: "https://en.wikipedia.org/wiki/Squirrel_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".nut"],
-      firstAppeared: "2003-01-01",
+      year: 2003,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "3.2", name: "Squirrel 3.2", date: "2022-01-01" }],

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Futhark", href: "https://en.wikipedia.org/wiki/Futhark_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".fut"],
-      firstAppeared: "2014-01-01",
+      year: 2014,
       isTranspiler: true,
       isMainstream: false,
       releases: [

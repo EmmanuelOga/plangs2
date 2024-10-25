@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "TeX", href: "https://en.wikipedia.org/wiki/TeX", kind: "wikipedia" },
       ],
       extensions: [".tex"],
-      firstAppeared: "1978-05-30",
+      year: 1978,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "3.14159265", name: "TeX 3", date: "1989-11-01" }],

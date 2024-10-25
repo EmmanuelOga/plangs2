@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Whiley", href: "https://en.wikipedia.org/wiki/Whiley_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".whiley"],
-      firstAppeared: "2010-01-01",
+      year: 2010,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "0.6.1", date: "2022-01-01" }],

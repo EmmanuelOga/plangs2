@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Racket", href: "https://en.wikipedia.org/wiki/Racket_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".rkt"],
-      firstAppeared: "1995-01-01",
+      year: 1995,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "8.14", name: "Racket 8.14", date: "2024-01-01" }],

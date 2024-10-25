@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "NetRexx", href: "https://en.wikipedia.org/wiki/NetRexx", kind: "wikipedia" },
       ],
       extensions: [".nrx"],
-      firstAppeared: "1996-01-01",
+      year: 1996,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "4.06", name: "NetRexx 4.06 Release", date: "2024-01-01" }],

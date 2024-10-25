@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "BeefLang GitHub Repository", href: "https://github.com/beefytech/Beef", kind: "repository" },
       ],
       extensions: [".bf"],
-      firstAppeared: "2020-01-01",
+      year: 2020,
       releases: [{ version: "0.42.8", name: "Beef 0.42.8", date: "2023-09-01" }],
     })
     .addInfluencedBy(["pl+c", "pl+c++", "pl+delphi", "pl+rust"])

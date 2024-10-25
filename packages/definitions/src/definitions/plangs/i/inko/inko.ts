@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Inko on GitHub", href: "https://github.com/inko-lang/inko", kind: "repository" },
       ],
       extensions: [".inko"],
-      firstAppeared: "2016-01-01",
+      year: 2016,
       releases: [
         { version: "0.9.0", name: "Inko 0.9.0", date: "2019-01-01" },
         { version: "1.0.0", name: "Inko 1.0.0", date: "2020-06-01" },

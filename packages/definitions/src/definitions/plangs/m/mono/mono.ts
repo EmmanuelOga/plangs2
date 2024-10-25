@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Mono", href: "https://en.wikipedia.org/wiki/Mono_(software)", kind: "wikipedia" },
       ],
       extensions: [".cs", ".vb"],
-      firstAppeared: "2004-06-30",
+      year: 2004,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "6.12.0.206", name: "Mono 6.12.0.206", date: "2024-01-01" }],

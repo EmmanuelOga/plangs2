@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Clean", href: "https://en.wikipedia.org/wiki/Clean_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".abc", ".dcl", ".icl"],
-      firstAppeared: "1987-01-01",
+      year: 1987,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "3.1", name: "Clean 3.1", date: "2022-01-01" }],

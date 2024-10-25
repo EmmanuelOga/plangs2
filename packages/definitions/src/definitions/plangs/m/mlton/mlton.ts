@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "MLton", href: "https://en.wikipedia.org/wiki/MLton", kind: "wikipedia" },
       ],
       extensions: [".sml"],
-      firstAppeared: "1997-01-01",
+      year: 1997,
       isTranspiler: false,
       isMainstream: false,
     })

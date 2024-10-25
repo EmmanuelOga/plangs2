@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Scratch", href: "https://en.wikipedia.org/wiki/Scratch_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".sb", ".sb2", ".sb3", ".sprite", ".sprite2", ".sprite3"],
-      firstAppeared: "2003-01-01",
+      year: 2003,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "3.0", name: "Scratch 3.0", date: "2019-01-01" }],

@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Red", href: "https://en.wikipedia.org/wiki/Red_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".red", ".reds"],
-      firstAppeared: "2011-01-01",
+      year: 2011,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "0.6.5", name: "Red 0.6.5", date: "2024-01-01" }],

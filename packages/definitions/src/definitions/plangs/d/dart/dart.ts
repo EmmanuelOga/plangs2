@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Dart", href: "https://en.wikipedia.org/wiki/Dart_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".dart"],
-      firstAppeared: "2011-10-10",
+      year: 2011,
       isTranspiler: true,
       isMainstream: true,
       releases: [
