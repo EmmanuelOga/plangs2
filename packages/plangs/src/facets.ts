@@ -1,5 +1,5 @@
-import type { Filter } from "packages/auxiliar/src/filters";
-import type { AnyValue, ValBool, ValNumber, ValRegExp, Value } from "packages/auxiliar/src/value";
+import type { Filter } from "@plangs/auxiliar/filters";
+import type { AnyValue, ValBool, ValNumber, ValRegExp, Value } from "@plangs/auxiliar/value";
 
 import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from ".";
 

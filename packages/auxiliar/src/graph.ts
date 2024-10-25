@@ -144,6 +144,10 @@ export class EdgeMap<T_Graph, T_Edge extends Edge<T_Graph, Any, Any, Any>> {
     return edge;
   }
 
+  get(from: T_Edge["from"], to: T_Edge["to"]): T_Edge | undefined {
+    return this.adjFrom.get(from, to);
+  }
+
   set(from: T_Edge["from"], to: T_Edge["to"], data: T_Edge["data"]): T_Edge {
     return this.connect(from, to).merge(data);
   }

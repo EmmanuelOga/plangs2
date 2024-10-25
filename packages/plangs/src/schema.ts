@@ -7,6 +7,7 @@ export type N = "app" | "bundle" | "lib" | "license" | "paradigm" | "pl" | "plat
 
 /** Name of all edges. */
 export type E =
+  | "app"
   | "bundle"
   | "compilesTo"
   | "dialect"

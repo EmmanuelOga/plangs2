@@ -453,10 +453,14 @@ export abstract class EBase<T_From extends AnyNode, T_To extends AnyNode, T_Data
     arrayMerge((this.data.refs ??= []), links, (l1, l2) => l1.href === l2.href);
     return this;
   }
+
+  get refs() {
+    return new IterTap(this.data.refs);
+  }
 }
 
 export class EApp extends EBase<NPlang, NApp, CommonEdgeData> {
-  override kind: E = "bundle";
+  override kind: E = "app";
 
   get nodeFrom(): NPlang | undefined {
     return this.graph.nodes.pl.get(this.from);
