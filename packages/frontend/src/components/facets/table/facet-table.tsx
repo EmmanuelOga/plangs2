@@ -10,10 +10,13 @@ import { getGroupKey } from "@plangs/frontend/components/facets/misc/facet-group
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
 import type { E, N } from "@plangs/plangs";
 
-import { Filter } from "packages/auxiliar/src/filters";
 import { FacetTableState } from "./state";
 
-export type FacetTableConfig = { kind: "noderel"; node: N; edge: E; dir: "direct" | "inverse" } | { kind: "year"; node: N } | { kind: "missing" };
+export type FacetTableConfig =
+  | { kind: "noderel"; node: N; edge: E; dir: "direct" | "inverse" }
+  | { kind: "year"; node: N }
+  // Fallback.
+  | { kind: "missing" };
 
 export type FacetTableProps<FacetKey extends string> = {
   facetKey: FacetKey;
@@ -24,12 +27,12 @@ export type FacetTableProps<FacetKey extends string> = {
 export function FacetTable<FacetKey extends string>({ facetKey, config, active }: FacetTableProps<FacetKey>) {
   const self = useRef<HTMLDivElement>();
   const main = useContext(FacetsMainContext);
-  const state = useDispatchable(() => FacetTableState.initial({ pg: main?.pg, facetKey, config, active, value: new Filter("any") }));
+  const state = useDispatchable(() => FacetTableState.initial(config, main?.pg));
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: only missing state, which is a dispatchable.
   useEffect(() => {
-    state.generateEntries({ pg: main?.pg, facetKey, config, active });
-  }, [main, facetKey, config]);
+    if (state.notGenerated) state.generateEntries(main?.pg);
+  }, [main?.pg]);
 
   const notifyMain = () => {
     const groupKey = getGroupKey(self.current);

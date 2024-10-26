@@ -4,31 +4,32 @@ import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { SORT_DOWN, SORT_UP } from "@plangs/frontend/auxiliar/icons";
 import { tw } from "@plangs/frontend/auxiliar/utils";
 import type { PlangsGraph } from "@plangs/plangs/index";
-import type { Filter } from "packages/auxiliar/src/filters";
+import { Filter } from "packages/auxiliar/src/filters";
 
-import type { FacetTableProps } from "./facet-table";
+import type { FacetTableConfig } from "./facet-table";
 
-export class FacetTableState<FacetKey extends string> extends Dispatchable<
-  /** Facet Table State Data: props plus everything needed to generate entries and keep the selection. */
-  FacetTableProps<FacetKey> & {
-    entries: Entry[];
-    order: Order;
-    pg?: PlangsGraph;
-    value: Filter<string | number>;
-  }
-> {
+export class FacetTableState extends Dispatchable<{ config: FacetTableConfig; entries: Entry[]; order: Order; value: Filter<string | number> }> {
   /** Factory function for creating the initial state. */
-  static initial<T extends string>(props: FacetTableProps<T> & { pg?: PlangsGraph; value: Filter<string> }): FacetTableState<T> {
-    return new FacetTableState({ ...props, entries: [], order: "facet-asc" }).generateEntries();
+  static initial<T extends string>(config: FacetTableConfig, pg: PlangsGraph | undefined): FacetTableState {
+    return new FacetTableState({
+      config,
+      entries: [],
+      order: config.kind === "year" ? "facet-desc" : "facet-asc",
+      value: new Filter("any"),
+    }).generateEntries(pg);
+  }
+
+  private alreadyGenerated = false;
+
+  get notGenerated() {
+    return !this.alreadyGenerated;
   }
 
   /** Updates is used when updating from a prop change. */
-  generateEntries(updates?: FacetTableProps<FacetKey> & { pg?: PlangsGraph }): this {
-    if (updates) Object.assign(this.data, updates);
+  generateEntries(pg: PlangsGraph | undefined): this {
+    const { config } = this.data;
 
-    const { pg, config, active } = this.data;
-    this.data.entries = [];
-    if (!pg || !active) return this;
+    if (!pg || this.alreadyGenerated) return this;
 
     if (config.kind === "noderel") {
       const { edge, dir } = config;
@@ -48,12 +49,13 @@ export class FacetTableState<FacetKey extends string> extends Dispatchable<
           return { value: key, label: name, count: edges.size };
         });
 
+      this.alreadyGenerated = true;
       return this.sort();
     }
 
     if (config.kind === "year") {
       const years: Map<number, number> = new Map(); // year -> count
-      for (const [key, { year }] of pg.nodes.pl) {
+      for (const { year } of pg.nodes.pl.values) {
         if (!year) continue;
         years.set(year, (years.get(year) ?? 0) + 1);
       }
@@ -63,7 +65,7 @@ export class FacetTableState<FacetKey extends string> extends Dispatchable<
         return { value: year, label: strYear, count };
       });
 
-      this.data.order = "facet-desc";
+      this.alreadyGenerated = true;
       return this.sort();
     }
 

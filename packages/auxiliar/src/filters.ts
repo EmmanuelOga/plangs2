@@ -9,7 +9,7 @@ export type EncodedFilter<T> = { mode: "all" | "any"; values: T[] };
  */
 export class Filter<T> implements Value<Filter<T>> {
   constructor(
-    public mode: "all" | "any" = "all",
+    public mode: "all" | "any" = "any",
     public readonly values: Set<T> = new Set(),
   ) {}
 
