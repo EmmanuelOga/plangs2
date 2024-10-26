@@ -12,11 +12,12 @@ import { Filter } from "packages/auxiliar/src/filters";
 import { FacetMultiState } from "./state";
 
 export type FacetMultiProps<T extends string> = {
+  active: boolean;
   label: string;
   facetKey: T;
 };
 
-export function FacetMulti<T extends string>({ label, facetKey }: FacetMultiProps<T>) {
+export function FacetMulti<T extends string>({ label, facetKey, active }: FacetMultiProps<T>) {
   const self = useRef<HTMLDivElement>();
   const state = useDispatchable(() => FacetMultiState.initial(new Filter("any")));
   const input = useRef<HTMLInputElement>();
@@ -83,8 +84,8 @@ export function FacetMulti<T extends string>({ label, facetKey }: FacetMultiProp
     return Array.from([...state.value.values].entries().map(mapper));
   }
 
-  return (
-    <div ref={self as Ref<HTMLDivElement>} class={tw("flex flex-col")}>
+  const body = () => (
+    <>
       <input
         type="search"
         name={facetKey as string}
@@ -111,6 +112,12 @@ export function FacetMulti<T extends string>({ label, facetKey }: FacetMultiProp
           </li>
         ))}
       </ul>
+    </>
+  );
+
+  return (
+    <div ref={self as Ref<HTMLDivElement>} class={tw("flex flex-col")}>
+      {active ? body() : null}
     </div>
   );
 }

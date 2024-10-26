@@ -19,7 +19,6 @@ export class FacetTableState<FacetKey extends string> extends Dispatchable<
 > {
   /** Factory function for creating the initial state. */
   static initial<T extends string>(props: FacetTableProps<T> & { pg?: PlangsGraph; value: Filter<string> }): FacetTableState<T> {
-    console.log("WAT");
     return new FacetTableState({ ...props, entries: [], order: "facet-asc" }).generateEntries();
   }
 
@@ -27,9 +26,9 @@ export class FacetTableState<FacetKey extends string> extends Dispatchable<
   generateEntries(updates?: FacetTableProps<FacetKey> & { pg?: PlangsGraph }): this {
     if (updates) Object.assign(this.data, updates);
 
-    const { pg, config } = this.data;
+    const { pg, config, active } = this.data;
     this.data.entries = [];
-    if (!pg) return this;
+    if (!pg || !active) return this;
 
     if (config.kind === "noderel") {
       const { edge, dir } = config;

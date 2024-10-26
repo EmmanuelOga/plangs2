@@ -12,10 +12,10 @@ export class FacetMultiState extends Dispatchable<{
 
   doAdd(values: (string | undefined)[]): boolean {
     let added = false;
-    const { value: selected } = this.data;
-    for (const value of values) {
-      if (!value || selected.has(value)) continue;
-      selected.add(value);
+    const { value } = this.data;
+    for (const item of values) {
+      if (!item || value.has(item)) continue;
+      value.add(item);
       added = true;
     }
     if (added) this.dispatch();
@@ -25,10 +25,10 @@ export class FacetMultiState extends Dispatchable<{
   /** Returns the nth next button to focus, if there still values. */
   doRemove(values: (string | undefined)[]): boolean {
     let removed = false;
-    const { value: selected } = this.data;
-    for (const [i, value] of values.entries()) {
-      if (!value || !selected.has(value)) continue;
-      selected.delete(value);
+    const { value } = this.data;
+    for (const [i, item] of values.entries()) {
+      if (!item || !value.has(item)) continue;
+      value.delete(item);
       removed = true;
     }
     if (removed) this.dispatch();

@@ -72,7 +72,7 @@ export async function loadPosts(pg: PlangsGraph) {
   for await (const path of new Glob("*.md").scan(join(import.meta.dir, "../content/posts"))) {
     const { title, author, pls, date, basename } = await loadContent(`posts/${path}`, pg);
 
-    const post = pg.nodes.post.set(`post+${basename}`, { path, title, author, date });
+    const post = pg.nodes.post.set(`post+${basename}`, { path, name: title, author, date });
 
     post.link = { href: `/blog/${post.plainKey}`, title, kind: "plangs" };
 

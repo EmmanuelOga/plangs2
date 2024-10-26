@@ -25,7 +25,9 @@ export abstract class Dispatchable<T> {
    * attempting to dispatch without a dispatcher may be ok.
    */
   maybeDispatch(): this {
-    if (this.dispatcher) this.dispatcher(this.clone());
+    if (this.dispatcher) {
+      this.dispatcher(this.clone());
+    }
     return this;
   }
 }

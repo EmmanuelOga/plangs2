@@ -7,7 +7,6 @@ import { BORDER, HOVER } from "@plangs/frontend/auxiliar/styles";
 import { elems, onClickOnEnter, tw } from "@plangs/frontend/auxiliar/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/components/layout";
-import { loremIpsum } from "@plangs/server/utils/lorem";
 import { createContext } from "preact";
 
 import { useDOMReady } from "@plangs/frontend/auxiliar/use_dom";

@@ -41,7 +41,7 @@ type FG = PlangFacetGroupKey;
 
 function Group({ groupKey, current, children }: { groupKey: FG; current: string; children: ComponentChildren }) {
   return (
-    <FacetGroup<FG> title={GROUP_LABELS[groupKey]} visible={current === groupKey} groupKey={groupKey}>
+    <FacetGroup<FG> title={GROUP_LABELS[groupKey]} active={current === groupKey} groupKey={groupKey}>
       {children}
     </FacetGroup>
   );
@@ -57,44 +57,84 @@ export function PlangsFacetGroups({ currentFacetGroup: current }: { currentFacet
         <FacetBool<FK> facetKey="hasLogo" label="Has Logo" />
         <FacetBool<FK> facetKey="hasWikipedia" label="Has Wikipedia" />
         <FacetBool<FK> facetKey="isMainstream" label="Is Mainstream" />
-        <FacetMulti<FK> facetKey="extensions" label="File Extension" />
+        <FacetMulti<FK> facetKey="extensions" label="File Extension" active={current === "general"} />
       </Group>
       <Group groupKey="platforms" current={current}>
-        <FacetTable<FK> facetKey="platforms" config={{ kind: "noderel", edge: "plat", node: NPlatform.kind, dir: "direct" }} />
+        <FacetTable<FK>
+          facetKey="platforms"
+          config={{ kind: "noderel", edge: "plat", node: NPlatform.kind, dir: "direct" }}
+          active={current === "platforms"}
+        />
       </Group>
       <Group groupKey="paradigms" current={current}>
-        <FacetTable<FK> facetKey="paradigms" config={{ kind: "noderel", edge: "paradigm", node: NParadigm.kind, dir: "direct" }} />
+        <FacetTable<FK>
+          facetKey="paradigms"
+          config={{ kind: "noderel", edge: "paradigm", node: NParadigm.kind, dir: "direct" }}
+          active={current === "paradigms"}
+        />
       </Group>
       <Group groupKey="typeSystems" current={current}>
-        <FacetTable<FK> facetKey="typeSystems" config={{ kind: "noderel", edge: "tsys", node: NTsys.kind, dir: "direct" }} />
+        <FacetTable<FK>
+          facetKey="typeSystems"
+          config={{ kind: "noderel", edge: "tsys", node: NTsys.kind, dir: "direct" }}
+          active={current === "typeSystems"}
+        />
       </Group>
       <Group groupKey="writtenIn" current={current}>
-        <FacetTable<FK> facetKey="writtenIn" config={{ kind: "noderel", edge: "writtenIn", node: NPlang.kind, dir: "direct" }} />
+        <FacetTable<FK>
+          facetKey="writtenIn"
+          config={{ kind: "noderel", edge: "writtenIn", node: NPlang.kind, dir: "direct" }}
+          active={current === "writtenIn"}
+        />
       </Group>
       <Group groupKey="transpiler" current={current}>
         <FacetBool<FK> facetKey="isTranspiler" label="Is Transpiler" />
-        <FacetTable<FK> facetKey="compilesTo" config={{ kind: "noderel", edge: "compilesTo", node: NPlang.kind, dir: "direct" }} />
+        <FacetTable<FK>
+          facetKey="compilesTo"
+          config={{ kind: "noderel", edge: "compilesTo", node: NPlang.kind, dir: "direct" }}
+          active={current === "transpiler"}
+        />
       </Group>
       <Group groupKey="dialectOf" current={current}>
-        <FacetTable<FK> facetKey="dialectOf" config={{ kind: "noderel", edge: "dialect", node: NPlang.kind, dir: "direct" }} />
+        <FacetTable<FK>
+          facetKey="dialectOf"
+          config={{ kind: "noderel", edge: "dialect", node: NPlang.kind, dir: "direct" }}
+          active={current === "dialectOf"}
+        />
       </Group>
       <Group groupKey="implements" current={current}>
-        <FacetTable<FK> facetKey="implements" config={{ kind: "noderel", edge: "impl", node: NPlang.kind, dir: "direct" }} />
+        <FacetTable<FK>
+          facetKey="implements"
+          config={{ kind: "noderel", edge: "impl", node: NPlang.kind, dir: "direct" }}
+          active={current === "implements"}
+        />
       </Group>
       <Group groupKey="influencedBy" current={current}>
-        <FacetTable<FK> facetKey="influencedBy" config={{ kind: "noderel", edge: "influence", node: NPlang.kind, dir: "direct" }} />
+        <FacetTable<FK>
+          facetKey="influencedBy"
+          config={{ kind: "noderel", edge: "influence", node: NPlang.kind, dir: "direct" }}
+          active={current === "influencedBy"}
+        />
       </Group>
       <Group groupKey="influenced" current={current}>
-        <FacetTable<FK> facetKey="influenced" config={{ kind: "noderel", edge: "influence", node: NPlang.kind, dir: "inverse" }} />
+        <FacetTable<FK>
+          facetKey="influenced"
+          config={{ kind: "noderel", edge: "influence", node: NPlang.kind, dir: "inverse" }}
+          active={current === "influenced"}
+        />
       </Group>
       <Group groupKey="tags" current={current}>
-        <FacetTable<FK> facetKey="tags" config={{ kind: "noderel", edge: "tag", node: NTag.kind, dir: "direct" }} />
+        <FacetTable<FK> facetKey="tags" config={{ kind: "noderel", edge: "tag", node: NTag.kind, dir: "direct" }} active={current === "tags"} />
       </Group>
       <Group groupKey="creationYear" current={current}>
-        <FacetTable<FK> facetKey="creationYear" config={{ kind: "year", node: NPlang.kind }} />
+        <FacetTable<FK> facetKey="creationYear" config={{ kind: "year", node: NPlang.kind }} active={current === "creationYear"} />
       </Group>
       <Group groupKey="licenses" current={current}>
-        <FacetTable<FK> facetKey="licenses" config={{ kind: "noderel", edge: "license", node: NLicense.kind, dir: "direct" }} />
+        <FacetTable<FK>
+          facetKey="licenses"
+          config={{ kind: "noderel", edge: "license", node: NLicense.kind, dir: "direct" }}
+          active={current === "licenses"}
+        />
       </Group>
     </>
   );
