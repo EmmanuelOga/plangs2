@@ -23,7 +23,7 @@ export type FacetTableProps<FacetKey extends string> = {
 export function FacetTable<FacetKey extends string>({ facetKey, config }: FacetTableProps<FacetKey>) {
   const self = useRef<HTMLDivElement>();
   const main = useContext(FacetsMainContext);
-  const state = useDispatchable(FacetTableState.initial({ pg: main?.pg, facetKey, config, value: new Filter("any") }));
+  const state = useDispatchable(() => FacetTableState.initial({ pg: main?.pg, facetKey, config, value: new Filter("any") }));
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: only missing state, which is a dispatchable.
   useEffect(() => {

@@ -10,12 +10,12 @@ import type { IconButtonProps } from "./icon-button";
 export type IconButtonState = ToggleLights | ToggleHamburguer | ToggleFacetsMenu | TogglAllAny | DummyState;
 
 export function useIconButtonState({ action, disabled, initial }: IconButtonProps): IconButtonState {
-  if (action === "lights") return useDispatchable(ToggleLights.initial(disabled));
-  if (action === "hamburger") return useDispatchable(ToggleHamburguer.initial(disabled));
-  if (action === "facets") return useDispatchable(ToggleFacetsMenu.initial(disabled));
-  if (action === "allAny") return useDispatchable(TogglAllAny.initial(initial, disabled));
+  if (action === "lights") return useDispatchable(() => ToggleLights.initial(disabled));
+  if (action === "hamburger") return useDispatchable(() => ToggleHamburguer.initial(disabled));
+  if (action === "facets") return useDispatchable(() => ToggleFacetsMenu.initial(disabled));
+  if (action === "allAny") return useDispatchable(() => TogglAllAny.initial(initial, disabled));
   console.error(`Unknown action: ${action}`);
-  return useDispatchable(DummyState.initial(disabled));
+  return useDispatchable(() => DummyState.initial(disabled));
 }
 
 abstract class IconButtonBaseState<T> extends Dispatchable<T & { disabled: boolean }> {

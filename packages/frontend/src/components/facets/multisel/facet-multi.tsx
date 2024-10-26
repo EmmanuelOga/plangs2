@@ -18,7 +18,7 @@ export type FacetMultiProps<T extends string> = {
 
 export function FacetMulti<T extends string>({ label, facetKey }: FacetMultiProps<T>) {
   const self = useRef<HTMLDivElement>();
-  const state = useDispatchable(FacetMultiState.initial(new Filter("any")));
+  const state = useDispatchable(() => FacetMultiState.initial(new Filter("any")));
   const input = useRef<HTMLInputElement>();
 
   const main = useContext(FacetsMainContext);

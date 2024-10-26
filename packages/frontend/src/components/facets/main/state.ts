@@ -14,7 +14,7 @@ import { DEFAULT_GROUP, GROUP_LABELS, NAV, type PlangFacetGroupKey, PlangsFacetG
 export type FacetsMainState = DummyFacetsState | PlangsFacetsState;
 
 export function useFacetState(props: FacetsMainProps & { thumbns: Ref<HTMLDivElement[]> }): FacetsMainState {
-  if (props.tab === "plangs") return useDispatchable(PlangsFacetsState.initial(props));
+  if (props.tab === "plangs") return useDispatchable(() => PlangsFacetsState.initial(props));
   return DummyFacetsState.initial(props);
 }
 

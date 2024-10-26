@@ -19,6 +19,7 @@ export class FacetTableState<FacetKey extends string> extends Dispatchable<
 > {
   /** Factory function for creating the initial state. */
   static initial<T extends string>(props: FacetTableProps<T> & { pg?: PlangsGraph; value: Filter<string> }): FacetTableState<T> {
+    console.log("WAT");
     return new FacetTableState({ ...props, entries: [], order: "facet-asc" }).generateEntries();
   }
 

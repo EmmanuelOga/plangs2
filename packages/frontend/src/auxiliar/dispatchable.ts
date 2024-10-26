@@ -34,9 +34,9 @@ export abstract class Dispatchable<T> {
  * Setup a {@link Dispatchable} instance with a {@link useState} dispatcher.
  */
 // biome-ignore lint/suspicious/noExplicitAny: accept any kind of Dispatchable.
-export function useDispatchable<T extends Dispatchable<any>>(instance: T): T {
-  const [state, dispatcher] = useState(instance);
-  instance.dispatcher = dispatcher;
+export function useDispatchable<T extends Dispatchable<any>>(factory: () => T): T {
+  const [state, dispatcher] = useState(factory);
+  state.dispatcher = dispatcher;
   return state;
 }
 
