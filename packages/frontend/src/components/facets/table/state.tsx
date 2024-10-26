@@ -8,8 +8,14 @@ import type { Filter } from "packages/auxiliar/src/filters";
 
 import type { FacetTableProps } from "./facet-table";
 
-export class FacetTableState<T extends string> extends Dispatchable<
-  FacetTableProps<T> & { pg?: PlangsGraph; entries: Entry[]; order: Order; value: Filter<string> }
+export class FacetTableState<FacetKey extends string> extends Dispatchable<
+  /** Facet Table State Data: props plus everything needed to generate entries and keep the selection. */
+  FacetTableProps<FacetKey> & {
+    entries: Entry[];
+    order: Order;
+    pg?: PlangsGraph;
+    value: Filter<string | number>;
+  }
 > {
   /** Factory function for creating the initial state. */
   static initial<T extends string>(props: FacetTableProps<T> & { pg?: PlangsGraph; value: Filter<string> }): FacetTableState<T> {
@@ -17,7 +23,7 @@ export class FacetTableState<T extends string> extends Dispatchable<
   }
 
   /** Updates is used when updating from a prop change. */
-  generateEntries(updates?: FacetTableProps<T> & { pg?: PlangsGraph }): this {
+  generateEntries(updates?: FacetTableProps<FacetKey> & { pg?: PlangsGraph }): this {
     if (updates) Object.assign(this.data, updates);
 
     const { pg, config } = this.data;
@@ -54,7 +60,7 @@ export class FacetTableState<T extends string> extends Dispatchable<
 
       this.data.entries = [...years.entries()].map(([year, count]) => {
         const strYear = `${year}`;
-        return { value: strYear, label: strYear, count };
+        return { value: year, label: strYear, count };
       });
 
       this.data.order = "facet-desc";
@@ -190,4 +196,4 @@ const CMP: Record<Order, Cmp> = {
   "sel-desc": (s, a, b) => Number(s.isSelected(b.value)) - Number(s.isSelected(a.value)),
 } as const;
 
-export type Entry = { value: string; label: string; count: number };
+export type Entry = { value: any; label: string; count: number };

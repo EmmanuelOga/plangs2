@@ -16,7 +16,7 @@ export function Plangs({ pg }: { pg: PlangsGraph }) {
       {/* fmt. */}
 
       {/* @ts-ignore TODO fix global declaration of components.  */}
-      {h("facets-main", { tab: "plangs", class: tw("max-h-[45dvh] sm:max-h-[unset]", "max-w-full sm:w-[35rem]") })}
+      {h("facets-main", { tab: "plangs", class: tw("max-h-[45dvh] sm:max-h-[unset]", "max-w-full sm:w-[35rem]", "overflow-hidden") })}
 
       <PlGrid pg={pg} class={tw("flex-1", "overflow-y-scroll", "m-1")} />
 

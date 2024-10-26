@@ -7,6 +7,7 @@ import { BORDER, HOVER } from "@plangs/frontend/auxiliar/styles";
 import { elems, onClickOnEnter, tw } from "@plangs/frontend/auxiliar/utils";
 import type { PlangsGraph } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/components/layout";
+import { loremIpsum } from "@plangs/server/utils/lorem";
 import { createContext } from "preact";
 
 import { useDOMReady } from "@plangs/frontend/auxiliar/use_dom";
@@ -39,7 +40,9 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
   });
 
   return (
-    <aside ref={self as Ref<HTMLElement>} class={tw("flex flex-row", "overflow-hidden", tw(BORDER, "border-b-1", "border-t-1", "sm:border-r-1"))}>
+    <aside
+      ref={self as Ref<HTMLElement>}
+      class={tw("flex flex-row", "max-h-full overflow-hidden overflow-y-scroll", tw(BORDER, "border-b-1", "border-t-1", "sm:border-r-1"))}>
       <FacetsMainContext.Provider value={state}>
         {/* Wrapper to avoid streteching the links to the bottom of the screen. */}
         <div class={tw(tw(BORDER, "border-r-1"), "overflow-y-scroll", "shrink-0 grow-0")}>

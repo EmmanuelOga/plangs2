@@ -15,12 +15,12 @@ import { FacetTableState } from "./state";
 
 export type FacetTableConfig = { kind: "noderel"; node: N; edge: E; dir: "direct" | "inverse" } | { kind: "year"; node: N } | { kind: "missing" };
 
-export type FacetTableProps<T extends string> = {
-  facetKey: T;
+export type FacetTableProps<FacetKey extends string> = {
+  facetKey: FacetKey;
   config: FacetTableConfig;
 };
 
-export function FacetTable<T extends string>({ facetKey, config }: FacetTableProps<T>) {
+export function FacetTable<FacetKey extends string>({ facetKey, config }: FacetTableProps<FacetKey>) {
   const self = useRef<HTMLDivElement>();
   const main = useContext(FacetsMainContext);
   const state = useDispatchable(FacetTableState.initial({ pg: main?.pg, facetKey, config, value: new Filter("any") }));
