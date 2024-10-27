@@ -186,8 +186,7 @@ function opposite(col: Col, order: string): Order {
   return order === "sel-desc" ? "sel-asc" : "sel-desc";
 }
 
-// biome-ignore lint/suspicious/noExplicitAny: it is ok here because we don't care about the type of table state.
-export type Cmp = (state: FacetTableState<any>, a: Entry, b: Entry) => number;
+export type Cmp = (state: FacetTableState, a: Entry, b: Entry) => number;
 
 const CMP: Record<Order, Cmp> = {
   "facet-asc": (_, a, b) => a.label.localeCompare(b.label),
