@@ -1,43 +1,33 @@
+import type { Ref } from "preact";
 import type { JSX } from "preact/jsx-runtime";
 
 import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
-import type { NPlang, PlangsGraph } from "@plangs/plangs/index";
+import type { NPlang, PlangsGraph } from "@plangs/plangs";
 import { Map2 } from "packages/auxiliar/src/map2";
 
 import type { PlangFacetKey } from "@plangs/plangs/facets";
+import type { TAB } from "@plangs/server/components/layout";
 import type { AnyValue } from "packages/auxiliar/src/value";
-import type { Ref } from "preact";
+
 import type { FacetsMainProps } from "./facets-main";
 import { updateThumbns } from "./grid";
 import { DEFAULT_GROUP, GROUP_LABELS, NAV, type PlangFacetGroupKey, PlangsFacetGroups } from "./plangs";
 
-export type FacetsMainState = DummyFacetsState | PlangsFacetsState;
+export type FacetsMainState = PlangsFacetsState;
 
-export function useFacetState(props: FacetsMainProps & { thumbns: Ref<HTMLDivElement[]> }): FacetsMainState {
-  if (props.tab === "plangs") return useDispatchable(() => PlangsFacetsState.initial(props));
-  return DummyFacetsState.initial(props);
+export function useFacetState(tab: TAB): FacetsMainState | undefined {
+  if (tab === "plangs") return useDispatchable(() => PlangsFacetsState.initial());
 }
 
 export abstract class BaseState<GroupKey, FacetKey extends string> extends Dispatchable<
-  FacetsMainProps & { currentGroupKey: GroupKey; values: Map2<GroupKey, FacetKey, AnyValue>; thumbns: Ref<HTMLDivElement[]> }
+  FacetsMainProps & { currentGroupKey: GroupKey; values: Map2<GroupKey, FacetKey, AnyValue> }
 > {
-  /** Update the props, dispatch as necessary. */
-  update(props: FacetsMainProps): void {
-    if (this.data.pg === props.pg && this.data.tab === props.tab) return;
-    Object.assign(this.data, props);
-
-    if (!this.dispatcher) return;
-
-    if (this.data.tab === "plangs" && !(this instanceof PlangsFacetsState)) {
-      // Switch to the correct state, instead of dispatching a clone of this.
-      const { values, ...rest } = this.data; // The values will be reset.
-      this.dispatcher(PlangsFacetsState.initial(rest) as this);
-    } else {
-      this.dispatch(); // if the instance is correct, just dispatch.
-    }
-  }
-
   /** Actions */
+
+  doSetGraph(pg: PlangsGraph | undefined): void {
+    this.data.pg = pg;
+    this.dispatch();
+  }
 
   doSetCurrent(groupKey: GroupKey): void {
     this.data.currentGroupKey = groupKey;
@@ -57,27 +47,28 @@ export abstract class BaseState<GroupKey, FacetKey extends string> extends Dispa
     this.dispatch();
   }
 
-  /** Queries */
-
-  get thumbns(): HTMLDivElement[] {
-    const { thumbns } = this.data;
-    return thumbns && "current" in thumbns ? (thumbns.current ?? []) : [];
+  sideEffects() {
+    // localStorage.setItem("plangs-filters", JSON.stringify(facets.serializable()));
+    // updateFragment(facets);
+    updateThumbns(this.results);
   }
 
-  get values() {
-    return this.data.values;
+  /** Queries */
+
+  get ready(): boolean {
+    return this.pg !== undefined;
   }
 
   get pg(): PlangsGraph | undefined {
     return this.data.pg;
   }
 
-  get currentGroupKey(): GroupKey {
-    return this.data.currentGroupKey;
+  get values() {
+    return this.data.values;
   }
 
-  groupTitle(groupKey: GroupKey): string {
-    return groupKey as string;
+  get currentGroupKey(): GroupKey {
+    return this.data.currentGroupKey;
   }
 
   /** Links to FacetGroups appear in groups. */
@@ -90,35 +81,26 @@ export abstract class BaseState<GroupKey, FacetKey extends string> extends Dispa
     return () => null;
   }
 
-  isActive(groupKey: GroupKey): boolean {
-    return this.values.size2(groupKey) > 0;
-  }
-
   /** Results is a set of node keys that are the result of applying the filters. */
   get results(): Set<string> {
     return new Set();
   }
 
-  sideEffects() {
-    // localStorage.setItem("plangs-filters", JSON.stringify(facets.serializable()));
-    // updateFragment(facets);
-    updateThumbns(this.thumbns, this.results);
+  groupTitle(groupKey: GroupKey): string {
+    return groupKey as string;
+  }
+
+  isActive(groupKey: GroupKey): boolean {
+    return this.values.size2(groupKey) > 0;
   }
 }
 
 /** A p/react function component to render a facet group. */
 type FacetsGroupComponent = ({ currentFacetGroup }: { currentFacetGroup: string }) => JSX.Element | null;
 
-/** The dummy state is a catcher for the error of supplying the wrong TAB prop. */
-export class DummyFacetsState extends BaseState<string, string> {
-  static initial(props: FacetsMainProps): DummyFacetsState {
-    return new DummyFacetsState({ ...props, currentGroupKey: "", values: new Map2(), thumbns: { current: null } });
-  }
-}
-
 export class PlangsFacetsState extends BaseState<PlangFacetGroupKey, PlangFacetKey> {
-  static initial(props: FacetsMainProps & { thumbns: Ref<HTMLDivElement[]> }): PlangsFacetsState {
-    return new PlangsFacetsState({ ...props, currentGroupKey: DEFAULT_GROUP, values: new Map2() });
+  static initial(): PlangsFacetsState {
+    return new PlangsFacetsState({ currentGroupKey: DEFAULT_GROUP, values: new Map2() });
   }
 
   override get nav() {

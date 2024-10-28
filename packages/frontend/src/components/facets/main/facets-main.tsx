@@ -14,8 +14,8 @@ import { isFacetsMainElement } from ".";
 import { type FacetsMainState, useFacetState } from "./state";
 
 export type FacetsMainProps = {
-  tab: TAB;
-  pg?: PlangsGraph;
+  tab: TAB; // Server side prop.
+  pg?: PlangsGraph; // Client side prop.
 };
 
 export const TAG_NAME = "facets-main";
@@ -25,23 +25,21 @@ export const FacetsMainContext = createContext<FacetsMainState | undefined>(unde
 
 export function FacetsMain({ tab, pg }: FacetsMainProps) {
   const self = useRef<HTMLElement>();
-  const thumbns = useDOMReady(() => Array.from(elems<HTMLDivElement>("plThumb")));
-  const state = useFacetState({ tab, pg, thumbns });
+  const state = useFacetState(tab); // The graph will always be undefined since it needs to be loaded.
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: state is dispatchable and should be updated when tab or pg change.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: state is a dispatchable and should not be included in the dependencies.
   useEffect(() => {
-    state.update({ tab, pg });
-  }, [tab, pg]);
+    state?.doSetGraph(pg);
+  }, [pg]);
 
   useEffect(() => {
+    if (!state) return;
     setComponentState(self, isFacetsMainElement, state);
     state.sideEffects();
   });
 
-  return (
-    <aside
-      ref={self as Ref<HTMLElement>}
-      class={tw("flex flex-row", "max-h-full overflow-hidden overflow-y-scroll", tw(BORDER, "border-b-1", "border-t-1", "sm:border-r-1"))}>
+  const body = () =>
+    !state?.ready ? null : (
       <FacetsMainContext.Provider value={state}>
         {/* Wrapper to avoid streteching the links to the bottom of the screen. */}
         <div class={tw(tw(BORDER, "border-r-1"), "overflow-y-scroll", "shrink-0 grow-0")}>
@@ -78,6 +76,13 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
           <state.facetGroupsComponent currentFacetGroup={state.currentGroupKey} />
         </div>
       </FacetsMainContext.Provider>
+    );
+
+  return (
+    <aside
+      ref={self as Ref<HTMLElement>}
+      class={tw("flex flex-row", "max-h-full overflow-hidden overflow-y-scroll", tw(BORDER, "border-b-1", "border-t-1", "sm:border-r-1"))}>
+      {body()}
     </aside>
   );
 }

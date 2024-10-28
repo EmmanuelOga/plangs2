@@ -1,7 +1,7 @@
 import type { Ref } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
-export function useDOMReady<T>(domReacyAction: () => T): Ref<T> {
+export function useDOMReady<T>(domReacyAction: () => T): Ref<T | undefined> {
   const ref = useRef<T>();
 
   useEffect(() => {
@@ -14,5 +14,5 @@ export function useDOMReady<T>(domReacyAction: () => T): Ref<T> {
     return () => document.removeEventListener("DOMContentLoaded", updateRef);
   }, [domReacyAction]);
 
-  return ref as Ref<T>;
+  return ref as Ref<T | undefined>;
 }

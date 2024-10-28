@@ -1,9 +1,10 @@
 import { debounce, minWidthBP } from "@plangs/frontend/auxiliar/utils";
 import type { NPlang } from "@plangs/plangs";
+import { elems } from "@plangs/server/elements";
 
 /** A static thumbnail grid will be render server side, we just need to show or hide each element.  */
-export function doUpdateThumbns(thumbns: HTMLDivElement[], nodeKeys: Set<string>) {
-  for (const div of thumbns) {
+export function doUpdateThumbns(nodeKeys: Set<string>) {
+  for (const div of elems("plThumb")) {
     const plKey = div.dataset.nodeKey as NPlang["key"];
     const visible = nodeKeys.has(plKey);
     div.classList.toggle("hidden", !visible);
