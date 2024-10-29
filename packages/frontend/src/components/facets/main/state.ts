@@ -4,11 +4,12 @@ import { Map2 } from "@plangs/auxiliar/map2";
 import type { AnyValue } from "@plangs/auxiliar/value";
 import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
-import type { PlangFacetKey } from "@plangs/plangs/facets";
+import type { PlangFacetKey } from "@plangs/plangs/facets/plangs";
 import type { TAB } from "@plangs/server/components/layout";
 
 import { updateThumbns } from "./grid";
 import { DEFAULT_GROUP, GROUP_LABELS, NAV, type PlangFacetGroupKey, PlangsFacetGroups } from "./plangs";
+import { updateFragment } from "./storage";
 
 /** Generic state so components can work with any group and facet key. */
 export type AnyFacetsMainState = FacetsMainState<string, string>;
@@ -44,12 +45,16 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
   }
 
   sideEffects() {
-    // localStorage.setItem("plangs-filters", JSON.stringify(facets.serializable()));
-    // updateFragment(facets);
+    const data = this.serialized;
+    localStorage.setItem(this.kind, JSON.stringify(data));
+    updateFragment(data);
     updateThumbns(this.results);
   }
 
   /** Queries */
+
+  /** Used to store and load the state from local storage. */
+  abstract get kind(): string;
 
   get pg(): PlangsGraph {
     return this.data.pg;
@@ -57,6 +62,14 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
 
   get values() {
     return this.data.values;
+  }
+
+  get serialized() {
+    const data: Partial<Record<FacetKey, ReturnType<AnyValue["serializable"]>>> = {};
+    for (const [_, facetKey, value] of this.values.flatEntries()) {
+      data[facetKey] = value.serializable();
+    }
+    return data;
   }
 
   get currentGroupKey(): GroupKey {
@@ -88,6 +101,10 @@ type FacetsGroupComponent = ({ currentFacetGroup }: { currentFacetGroup: string 
 export class PlangsFacetsState extends FacetsMainState<PlangFacetGroupKey, PlangFacetKey> {
   static initial(pg: PlangsGraph): PlangsFacetsState {
     return new PlangsFacetsState({ currentGroupKey: DEFAULT_GROUP, values: new Map2(), pg });
+  }
+
+  override get kind() {
+    return "plangs";
   }
 
   override get nav() {

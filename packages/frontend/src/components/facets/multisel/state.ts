@@ -1,6 +1,6 @@
+import type { Filter } from "@plangs/auxiliar/filters";
 import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
-import type { Filter } from "packages/auxiliar/src/filters";
-import type { AnyFacetsMainState } from "../main/state";
+import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/state";
 
 export class FacetMultiState extends Dispatchable<{
   facetKey: string;

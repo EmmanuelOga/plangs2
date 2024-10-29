@@ -1,7 +1,6 @@
 import type { Filter } from "@plangs/auxiliar/filters";
 import type { AnyValue, ValBool, ValNumber, ValRegExp, Value } from "@plangs/auxiliar/value";
-
-import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from ".";
+import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs";
 
 export type Pred<T extends Value<AnyValue>> = (pl: NPlang, value: T) => boolean;
 

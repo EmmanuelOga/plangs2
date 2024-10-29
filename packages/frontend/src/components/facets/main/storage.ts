@@ -2,6 +2,7 @@
 
 import { RISON } from "rison2";
 
+import { isEmpty } from "@plangs/frontend/auxiliar/utils";
 import type { TAB } from "@plangs/server/components/layout";
 
 /**
@@ -26,10 +27,10 @@ export function facetsFromFragment() {
  * Removes the fragment if the data is falsy.
  */
 export function updateFragment(data: any) {
-  if (data) {
-    window.location.hash = RISON.stringify(data);
+  if (isEmpty(data)) {
+    if (window.location.hash) window.location.hash = "";
   } else {
-    window.location.hash = "";
+    window.location.hash = RISON.stringify(data);
   }
 }
 

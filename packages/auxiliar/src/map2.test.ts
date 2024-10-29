@@ -76,3 +76,14 @@ test("non empty Map2", () => {
 
   expect(`${m}`).toEqual("Map2(size: 2) { (b, 2) => dos, (b, 3) => three }");
 });
+
+test("Map2 to object", () => {
+  const m = new Map2<string, number, string>();
+  expect(m.toObject(id => id)).toEqual({});
+
+  m.set("a", 1, "one");
+  expect(m.toObject(id => id)).toEqual({ a: { 1: "one" } });
+
+  m.set("b", 2, "two");
+  expect(m.toObject(id => `${id} ${id}`)).toEqual({ a: { 1: "one one" }, b: { 2: "two two" } });
+});

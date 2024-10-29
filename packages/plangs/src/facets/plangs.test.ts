@@ -1,10 +1,10 @@
 import { expect, test } from "bun:test";
 
-import { Filter } from "packages/auxiliar/src/filters";
+import { Filter } from "@plangs/auxiliar/filters";
+import { type AnyValue, ValBool, ValNumber, ValRegExp } from "@plangs/auxiliar/value";
+import { type NLicense, type NParadigm, type NPlang, type NPlatform, type NTag, type NTsys, PlangsGraph } from "@plangs/plangs";
 
-import { type AnyValue, ValBool, ValNumber, ValRegExp } from "packages/auxiliar/src/value";
-import { type NLicense, type NParadigm, type NPlang, type NPlatform, type NTag, type NTsys, PlangsGraph } from ".";
-import { PLANG_FACET_PREDICATES, type PlangFacetKey, plangMatches } from "./facets";
+import { PLANG_FACET_PREDICATES, type PlangFacetKey, plangMatches } from "./plangs";
 
 test("compilesTo", () => {
   const pg = new PlangsGraph();

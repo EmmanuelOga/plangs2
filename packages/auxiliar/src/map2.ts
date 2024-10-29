@@ -67,8 +67,24 @@ export class Map2<K1, K2, V> {
     return [...this.#map.values()].flatMap(map => [...map.values()]);
   }
 
+  /**
+   * NOTE: This will work best if the keys are strings, symbols or numbers.
+   * Otherwise JavaScript will convert them to strings, which may not be what you want.
+   */
+  toObject<T>(mapper: (val: V) => T): ToObject<T> {
+    const object: ToObject<T> = {};
+    for (const [k1, k2, v] of this.flatEntries() as IterableIterator<[AnyKey, AnyKey, V]>) {
+      (object[k1] = object[k1] ?? {})[k2] = mapper(v);
+    }
+    return object;
+  }
+
   toString(): string {
     const entries = [...this.flatEntries()].map(([k1, k2, v]) => `(${k1}, ${k2}) => ${v}`);
     return `Map2(size: ${this.size})${entries.length > 0 ? ` { ${entries.join(", ")} }` : ""}`;
   }
 }
+
+// biome-ignore lint/suspicious/noExplicitAny: Any object key is valid.
+type AnyKey = keyof any;
+type ToObject<Map2V> = Record<AnyKey, Record<AnyKey, Map2V>>;

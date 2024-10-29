@@ -6,7 +6,7 @@ import { FacetText } from "@plangs/frontend/components/facets/misc/facet-text";
 import { FacetMulti } from "@plangs/frontend/components/facets/multisel/facet-multi";
 import { FacetTable, type FacetTableConfig } from "@plangs/frontend/components/facets/table/facet-table";
 import { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs";
-import { PLANG_FACETS_LABELS, type PlangFacetKey } from "@plangs/plangs/facets";
+import { PLANG_FACETS_LABELS, type PlangFacetKey } from "@plangs/plangs/facets/plangs";
 
 export const GROUP_LABELS = {
   general: "General",
@@ -55,7 +55,7 @@ export function PlangsFacetGroups({ currentFacetGroup }: { currentFacetGroup: GK
   const table = (facetKey: FK, config: FacetTableConfig) => (groupKey: GK) => <FacetTable<GK, FK> {...props(groupKey, facetKey)} config={config} />;
 
   const group = (groupKey: GK, children: ((gk: GK) => JSX.Element)[]) => (
-    <FacetGroup<GK> groupKey={groupKey} label={GROUP_LABELS[groupKey]} active={currentFacetGroup === groupKey}>
+    <FacetGroup label={GROUP_LABELS[groupKey]} active={currentFacetGroup === groupKey}>
       {children.map(factory => factory(groupKey))}
     </FacetGroup>
   );

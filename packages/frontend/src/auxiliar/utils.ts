@@ -30,3 +30,12 @@ export function callers(): string {
   // JSON is more readable for this use case.
   return JSON.stringify(lines, null, 2);
 }
+
+// https://stackoverflow.com/a/32108184
+// biome-ignore lint/suspicious/noExplicitAny: checks if _any_ object is empty.
+export function isEmpty(obj: any) {
+  for (const prop in obj) {
+    if (Object.hasOwn(obj, prop)) return false;
+  }
+  return true;
+}

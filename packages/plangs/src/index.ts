@@ -2,10 +2,10 @@ import { arrayMerge } from "@plangs/auxiliar/array";
 import { BaseGraph, Edge, EdgeMap, Node, NodeMap } from "@plangs/auxiliar/graph";
 import { IterTap } from "@plangs/auxiliar/iter_tap";
 import { MapTap } from "@plangs/auxiliar/map_tap";
+import type { AnyValue } from "@plangs/auxiliar/value";
 
-import { type PlangFacetKey, plangMatches } from "./facets";
+import { type PlangFacetKey, plangMatches } from "./facets/plangs";
 
-import type { AnyValue } from "packages/auxiliar/src/value";
 import type { CommonEdgeData, CommonNodeData, E, Image, Link, N, NLicenseData, NPlangData, NPostData, Release, StrDate } from "./schema";
 import { getStrDateYear } from "./util";
 export type { E, N } from "./schema";
@@ -151,7 +151,8 @@ export class NPlang extends NBase<"pl", NPlangData> {
   }
 
   createdRecently(minYear: number): boolean {
-    return !!this.year && this.year >= minYear;
+    if (!this.year) return false;
+    return this.year >= minYear;
   }
 
   addApps(others: NApp["key"][]): this {
