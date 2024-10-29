@@ -10,14 +10,15 @@ import type { TAB } from "@plangs/server/components/layout";
 import { updateThumbns } from "./grid";
 import { DEFAULT_GROUP, GROUP_LABELS, NAV, type PlangFacetGroupKey, PlangsFacetGroups } from "./plangs";
 
-export type FacetsMainState = PlangsFacetsState;
+/** Generic state so components can work with any group and facet key. */
+export type AnyFacetsMainState = FacetsMainState<string, string>;
 
-export function useFacetState(tab: TAB, pg: PlangsGraph): FacetsMainState | undefined {
-  if (tab === "plangs") return useDispatchable(() => PlangsFacetsState.initial(pg));
+export function useFacetState(tab: TAB, pg: PlangsGraph): AnyFacetsMainState | undefined {
+  if (tab === "plangs") return useDispatchable(() => PlangsFacetsState.initial(pg) as AnyFacetsMainState);
   console.error("Unknown tab", tab);
 }
 
-export abstract class BaseState<GroupKey, FacetKey extends string> extends Dispatchable<{
+export abstract class FacetsMainState<GroupKey extends string, FacetKey extends string> extends Dispatchable<{
   currentGroupKey: GroupKey;
   values: Map2<GroupKey, FacetKey, AnyValue>;
   pg: PlangsGraph;
@@ -84,7 +85,7 @@ export abstract class BaseState<GroupKey, FacetKey extends string> extends Dispa
 type FacetsGroupComponent = ({ currentFacetGroup }: { currentFacetGroup: string }) => JSX.Element | null;
 
 /** Implementation of the state for Faceted search of Programming Languages. */
-export class PlangsFacetsState extends BaseState<PlangFacetGroupKey, PlangFacetKey> {
+export class PlangsFacetsState extends FacetsMainState<PlangFacetGroupKey, PlangFacetKey> {
   static initial(pg: PlangsGraph): PlangsFacetsState {
     return new PlangsFacetsState({ currentGroupKey: DEFAULT_GROUP, values: new Map2(), pg });
   }
@@ -98,7 +99,7 @@ export class PlangsFacetsState extends BaseState<PlangFacetGroupKey, PlangFacetK
   }
 
   override get facetGroupsComponent() {
-    return PlangsFacetGroups;
+    return PlangsFacetGroups as FacetsGroupComponent;
   }
 
   override get results(): Set<NPlang["key"]> {

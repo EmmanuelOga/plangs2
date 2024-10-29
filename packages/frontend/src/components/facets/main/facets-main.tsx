@@ -6,14 +6,14 @@ import { BORDER, HOVER, tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsGraph } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/components/layout";
 
-import { type FacetsMainState, useFacetState } from "./state";
+import { type AnyFacetsMainState, useFacetState } from "./state";
 
 export type FacetsMainProps = {
   tab: TAB;
   pg: PlangsGraph;
 };
 
-export const FacetsMainContext = createContext<FacetsMainState | undefined>(undefined);
+export const FacetsMainContext = createContext<AnyFacetsMainState | undefined>(undefined);
 
 export function FacetsMain({ tab, pg }: FacetsMainProps) {
   const state = useFacetState(tab, pg);

@@ -1,41 +1,39 @@
 import type { Ref } from "preact";
 import { useContext, useEffect, useRef } from "preact/hooks";
 
+import { Filter } from "@plangs/auxiliar/filters";
 import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { handler, on } from "@plangs/frontend/auxiliar/events";
 import { HOVER, INPUT, tw } from "@plangs/frontend/auxiliar/styles";
 import { debounce } from "@plangs/frontend/auxiliar/utils";
 import { FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
-import { getGroupKey } from "@plangs/frontend/components/facets/misc/facet-group";
+import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/state";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
-import { Filter } from "packages/auxiliar/src/filters";
 
+import { CLOSE } from "@plangs/frontend/auxiliar/icons";
 import { FacetMultiState } from "./state";
 
-export type FacetMultiProps<T extends string> = {
+export function FacetMulti<GroupKey extends string, FacetKey extends string>({
+  active,
+  facetKey,
+  groupKey,
+  label,
+}: {
   active: boolean;
+  facetKey: FacetKey;
+  groupKey: GroupKey;
   label: string;
-  facetKey: T;
-};
-
-export function FacetMulti<T extends string>({ label, facetKey, active }: FacetMultiProps<T>) {
-  const self = useRef<HTMLDivElement>();
-  const state = useDispatchable(() => FacetMultiState.initial(new Filter("any")));
-  const input = useRef<HTMLInputElement>();
-
-  const main = useContext(FacetsMainContext);
-  const notifyMain = () => {
-    const groupKey = getGroupKey(self.current);
-    // biome-ignore lint/suspicious/noExplicitAny: this facetKey could be any: a plang key, a tool key, etc.
-    if (main && groupKey) main.doSetValue(groupKey, facetKey as any, state.value.clone());
-  };
+}) {
+  const self = useRef<HTMLDivElement>(); // We perform various queries on the root element.
+  const input = useRef<HTMLInputElement>(); // Used to focus on the input after adding a value.
+  const main = useContext(FacetsMainContext) as AnyFacetsMainState; // It exists, since it spawned this component.
+  const state = useDispatchable(() => new FacetMultiState({ main, groupKey, facetKey, value: new Filter("any") }));
 
   useEffect(() => {
     return on(self?.current, "icon-button", (ev: CustomEvent) => {
       ev.stopPropagation();
       state.doSetMode(ev.detail.mode);
-      notifyMain();
     });
   });
 
@@ -49,12 +47,7 @@ export function FacetMulti<T extends string>({ label, facetKey, active }: FacetM
 
     // NOTE: if we use facet-multi for anything other than extensions, we should make value transform configurable.
     const val = input.value.startsWith(".") ? input.value : `.${input.value}`;
-
-    if (state.doAdd([val])) {
-      notifyMain();
-      setTimeout(() => maybeScroll(val), 100);
-    }
-
+    if (state.doAdd([val])) setTimeout(() => maybeScroll(val), 100);
     input.value = "";
   });
 
@@ -69,7 +62,6 @@ export function FacetMulti<T extends string>({ label, facetKey, active }: FacetM
     handler((b: HTMLButtonElement, ev) => {
       ev.stopPropagation();
       if (state.doRemove([b.dataset.value])) {
-        notifyMain();
         // Determine next focus an add a lil animation. Timeout: wait till next render.
         setTimeout(() => {
           const nb = nthButton(idx + 1) ?? nthButton(idx);
@@ -82,7 +74,7 @@ export function FacetMulti<T extends string>({ label, facetKey, active }: FacetM
     });
 
   // Helper to enumerate the entries, map them, then return an array (instead of an iterator).
-  function mapEntries<T>(mapper: (entry: [number, string]) => T): T[] {
+  function mapEntries<T>(mapper: (entry: [number, string | number | boolean]) => T): T[] {
     return Array.from([...state.value.values].entries().map(mapper));
   }
 
@@ -107,9 +99,10 @@ export function FacetMulti<T extends string>({ label, facetKey, active }: FacetM
             <button
               type="button"
               data-value={value}
-              class={tw("block", "p-2", "w-full text-left", "cursor-pointer", HOVER)}
+              class={tw("inline-flex flex-row", "p-2", "w-full text-left", "cursor-pointer", HOVER)}
               {...onClickOnEnter(remover(idx))}>
-              ❌ {value}
+              <div class="-mt-[2px] inline-block scale-75 text-red-500">{CLOSE}</div>
+              {value}
             </button>
           </li>
         ))}

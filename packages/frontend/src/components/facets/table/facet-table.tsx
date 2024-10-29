@@ -8,39 +8,37 @@ import { DESELECT } from "@plangs/frontend/auxiliar/icons";
 import { BORDER, HOVER, HOVER_SVG_GROUP, tw } from "@plangs/frontend/auxiliar/styles";
 import { tap } from "@plangs/frontend/auxiliar/utils";
 import { FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
-import { getGroupKey } from "@plangs/frontend/components/facets/misc/facet-group";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
 import type { E, N } from "@plangs/plangs";
 
-import type { FacetsMainState } from "../main/state";
+import type { AnyFacetsMainState } from "../main/state";
 import { FacetTableState } from "./state";
 
 export type FacetTableConfig = { kind: "noderel"; node: N; edge: E; dir: "direct" | "inverse" } | { kind: "year"; node: N };
 
-export type FacetTableProps<FacetKey extends string> = {
+export type FacetTableProps<GroupKey extends string, FacetKey extends string> = {
+  groupKey: GroupKey;
   facetKey: FacetKey;
   config: FacetTableConfig;
   active: boolean;
 };
 
-export function FacetTable<FacetKey extends string>({ facetKey, config, active }: FacetTableProps<FacetKey>) {
+export function FacetTable<GroupKey extends string, FacetKey extends string>({
+  groupKey,
+  facetKey,
+  config,
+  active,
+}: FacetTableProps<GroupKey, FacetKey>) {
   const self = useRef<HTMLDivElement>();
-  const main = useContext(FacetsMainContext) as FacetsMainState; // It exists, since it spawned this component.
-  const state = useDispatchable(() => FacetTableState.initial(config, main.pg));
+  const main = useContext(FacetsMainContext) as AnyFacetsMainState; // It exists, since it spawned this component.
+  const state = useDispatchable(() => FacetTableState.initial(main, { groupKey, facetKey, config }));
 
-  const notifyMain = () => {
-    const groupKey = getGroupKey(self.current);
-    // biome-ignore lint/suspicious/noExplicitAny: this facetKey could be any: a plang key, a tool key, etc.
-    if (main && groupKey) main.doSetValue(groupKey, facetKey as any, state.value.clone());
-  };
-
-  useEffect(() => {
-    return on(self?.current, "icon-button", (ev: CustomEvent) => {
+  useEffect(() =>
+    on(self?.current, "icon-button", (ev: CustomEvent) => {
       ev.stopPropagation();
       state.doSetMode(ev.detail.mode === "all" ? "all" : "any");
-      notifyMain();
-    });
-  });
+    }),
+  );
 
   const SUBGRID = tw("col-span-3", "grid grid-cols-subgrid", "items-center");
   const ROW = tw(SUBGRID, tw("border-b-1", BORDER));
@@ -58,7 +56,6 @@ export function FacetTable<FacetKey extends string>({ facetKey, config, active }
             tabIndex={0}
             {...onClickOnEnter(() => {
               state.doResetSelection();
-              notifyMain();
             })}
             class={tw("group", "inline-flex", CENTER_ROW, state.value.isEmpty ? "text-foreground/50" : "text-foreground")}>
             <span class={tw(!state.value.isEmpty && "group-hover:text-hiliteb")}>Reset</span>
@@ -77,7 +74,6 @@ export function FacetTable<FacetKey extends string>({ facetKey, config, active }
         tap(
           onClickOnEnter(() => {
             state.doToggle(entry.value);
-            notifyMain();
           }),
           clickOrEnter => (
             <div key={entry.value} class={tw(ROW, state.isSelected(entry.value) && "bg-primary/20", HOVER)} {...clickOrEnter}>

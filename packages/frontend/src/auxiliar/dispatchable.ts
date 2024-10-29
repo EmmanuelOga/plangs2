@@ -3,10 +3,7 @@ import { type Dispatch, useState } from "preact/hooks";
 export abstract class Dispatchable<T> {
   dispatcher?: Dispatch<this>;
 
-  constructor(protected data: T) {
-    // NOTE: we can't use private #data because we want to subclass. Protected is a good compromise.
-    // Protected will ensure, at least in TypeScritp land, that data is only accessed through getters.
-  }
+  constructor(protected data: T) {}
 
   clone(): this {
     const Ctor = this.constructor as new (data: T) => this;
@@ -25,10 +22,16 @@ export abstract class Dispatchable<T> {
    * attempting to dispatch without a dispatcher may be ok.
    */
   maybeDispatch(): this {
-    if (this.dispatcher) {
-      this.dispatcher(this.clone());
-    }
+    this.runDispatcher();
     return this;
+  }
+
+  /**
+   * Actually run the dispatcher. Subclasses can override to do something different:
+   * for example, to trigger the dispatcher of a parent element.
+   */
+  protected runDispatcher(): void {
+    this.dispatcher?.(this.clone());
   }
 }
 

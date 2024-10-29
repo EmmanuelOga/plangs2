@@ -33,6 +33,29 @@ export const PLANG_FACET_PREDICATES = {
 
 export type PlangFacetKey = keyof typeof PLANG_FACET_PREDICATES;
 
+export const PLANG_FACETS_LABELS: Record<PlangFacetKey, string> = {
+  compilesTo: "Compiles To",
+  createdRecently: "Created Recently",
+  creationYear: "Creation Year",
+  dialectOf: "Dialect Of",
+  extensions: "Extensions",
+  hasLogo: "Has Logo",
+  hasWikipedia: "Has Wikipedia",
+  implements: "Implements",
+  influenced: "Influenced",
+  influencedBy: "Influenced By",
+  isMainstream: "Is Mainstream",
+  isTranspiler: "Is Transpiler",
+  licenses: "Licenses",
+  paradigms: "Paradigms",
+  plangName: "Plang Name",
+  platforms: "Platforms",
+  releasedRecently: "Released Recently",
+  tags: "Tags",
+  typeSystems: "Type Systems",
+  writtenIn: "Written In",
+} as const;
+
 export function plangMatches(pl: NPlang, values: Map<PlangFacetKey, AnyValue>): boolean {
   for (const [key, value] of values) {
     const pred = PLANG_FACET_PREDICATES[key] as Pred<AnyValue>;

@@ -4,16 +4,17 @@ import { ValRegExp } from "@plangs/auxiliar/value";
 import { handler } from "@plangs/frontend/auxiliar/events";
 import { INPUT, tw } from "@plangs/frontend/auxiliar/styles";
 import { FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
+import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/state";
 
-import { getGroupKey } from "./facet-group";
-
-export function FacetText<T extends string>({ facetKey, label }: { facetKey: T; label: string }) {
-  const main = useContext(FacetsMainContext);
+export function FacetText<GroupKey extends string, FacetKey extends string>({
+  groupKey,
+  facetKey,
+  label,
+}: { groupKey: GroupKey; facetKey: FacetKey; label: string }) {
+  const main = useContext(FacetsMainContext) as AnyFacetsMainState; // It exists, since it spawned this component.
   const onInput = handler((input: HTMLInputElement) => {
-    const groupKey = getGroupKey(input);
     // TODO maybe escape the input value to avoid malicious regexes.
-    // biome-ignore lint/suspicious/noExplicitAny: this facetKey could be any: a plang key, a tool key, etc.
-    if (main && groupKey) main.doSetValue(groupKey, facetKey as any, new ValRegExp(new RegExp(`${input.value}`, "i")));
+    main.doSetValue(groupKey, facetKey, new ValRegExp(new RegExp(`${input.value}`, "i")));
   });
   return <input type="search" onInput={onInput} placeholder={label} class={tw("w-full", INPUT)} />;
 }

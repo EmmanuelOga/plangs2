@@ -1,13 +1,13 @@
 import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import type { Filter } from "packages/auxiliar/src/filters";
+import type { AnyFacetsMainState } from "../main/state";
 
 export class FacetMultiState extends Dispatchable<{
-  value: Filter<string>; // Set preserves insertion order.
+  facetKey: string;
+  groupKey: string;
+  main: AnyFacetsMainState;
+  value: Filter<string | number | boolean>; // Set preserves insertion order.
 }> {
-  static initial({ value }: { value: Filter<string> }): FacetMultiState {
-    return new FacetMultiState({ value });
-  }
-
   /** Actions */
 
   doAdd(values: (string | undefined)[]): boolean {
@@ -36,7 +36,9 @@ export class FacetMultiState extends Dispatchable<{
   }
 
   doSetMode(mode: "all" | "any"): void {
+    if (this.value.mode === mode) return;
     this.value.mode = mode === "all" ? "all" : "any";
+    this.dispatch();
   }
 
   /** Queries */
@@ -47,5 +49,12 @@ export class FacetMultiState extends Dispatchable<{
 
   get hasSelection(): boolean {
     return this.value.size > 0;
+  }
+
+  /** Dispatching on the the parent will trigger a render here too, so no need to dispatch twice. */
+  override runDispatcher(): this {
+    const { main, groupKey, facetKey, value } = this.data;
+    main.doSetValue(groupKey, facetKey, value.clone());
+    return this;
   }
 }

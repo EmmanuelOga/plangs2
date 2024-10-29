@@ -4,24 +4,31 @@ import { Filter } from "@plangs/auxiliar/filters";
 import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { SORT_DOWN, SORT_UP } from "@plangs/frontend/auxiliar/icons";
 import { tw } from "@plangs/frontend/auxiliar/styles";
-import type { PlangsGraph } from "@plangs/plangs/index";
+import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/state";
 
-import type { FacetTableConfig } from "./facet-table";
+import type { FacetTableProps } from "./facet-table";
 
-export class FacetTableState extends Dispatchable<{ config: FacetTableConfig; entries: Entry[]; order: Order; value: Filter<string | number> }> {
+/** These we want to keep in the state for easy access. */
+type PartialProps = Pick<FacetTableProps<string, string>, "groupKey" | "facetKey" | "config">;
+
+export class FacetTableState extends Dispatchable<
+  { main: AnyFacetsMainState; entries: Entry[]; order: Order; value: Filter<string | number | boolean> } & PartialProps
+> {
   /** Factory function for creating the initial state. */
-  static initial(config: FacetTableConfig, pg: PlangsGraph): FacetTableState {
+  static initial(main: AnyFacetsMainState, props: PartialProps): FacetTableState {
     return new FacetTableState({
-      config,
+      ...props,
+      main,
       entries: [],
-      order: config.kind === "year" ? "facet-desc" : "facet-asc",
+      order: props.config.kind === "year" ? "facet-desc" : "facet-asc",
       value: new Filter("any"),
-    }).generateEntries(pg);
+    }).generateEntries();
   }
 
   /** Called on construction to generate the entries. */
-  generateEntries(pg: PlangsGraph): this {
-    const { config } = this.data;
+  generateEntries(): this {
+    const { config, main } = this.data;
+    const pg = main.pg;
 
     if (config.kind === "noderel") {
       const { edge, dir } = config;
@@ -141,6 +148,13 @@ export class FacetTableState extends Dispatchable<{ config: FacetTableConfig; en
     this.maybeDispatch(); // This way we can use a state instance even without a preact component.
     return this;
   }
+
+  /** Dispatching on the the parent will trigger a render here too, so no need to dispatch twice. */
+  override runDispatcher(): this {
+    const { main, groupKey, facetKey, value } = this.data;
+    main.doSetValue(groupKey, facetKey, value.clone());
+    return this;
+  }
 }
 
 export type Col = "facet" | "count" | "sel";
@@ -163,4 +177,4 @@ const CMP: Record<Order, Cmp> = {
   "sel-desc": (s, a, b) => Number(s.isSelected(b.value)) - Number(s.isSelected(a.value)),
 } as const;
 
-export type Entry = { value: any; label: string; count: number };
+export type Entry = { value: string | number | boolean; label: string; count: number };
