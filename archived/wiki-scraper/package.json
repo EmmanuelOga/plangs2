@@ -13,7 +13,5 @@
   },
   "type": "module",
   "main": "src/generate.ts",
-  "files": [
-    "src"
-  ]
+  "files": ["src"]
 }

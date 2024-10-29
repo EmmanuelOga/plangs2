@@ -1,6 +1,6 @@
-import { BAR, BORDER } from "@plangs/frontend/auxiliar/styles";
-import { tw } from "@plangs/frontend/auxiliar/utils";
 import type { ComponentChildren } from "preact";
+
+import { BAR, BORDER, tw } from "@plangs/frontend/auxiliar/styles";
 
 const DATASET_ATTR = "data-group-key";
 

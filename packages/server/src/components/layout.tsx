@@ -1,7 +1,7 @@
 import { type ComponentChildren, h } from "preact";
 
-import { stripes } from "@plangs/frontend/auxiliar/styles";
-import { script, tw } from "@plangs/frontend/auxiliar/utils";
+import { stripes, tw } from "@plangs/frontend/auxiliar/styles";
+import { script } from "@plangs/frontend/auxiliar/utils";
 import { iconButton } from "@plangs/frontend/components/icon-button";
 import type { NPlang } from "@plangs/plangs";
 

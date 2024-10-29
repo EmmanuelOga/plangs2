@@ -1,4 +1,4 @@
-import { tw } from "@plangs/frontend/auxiliar/utils";
+import { tw } from "@plangs/frontend/auxiliar/styles";
 import type { Link } from "@plangs/plangs/schema";
 
 export function Anchor({ link, class: cssClass }: { link: Link; class?: string }) {

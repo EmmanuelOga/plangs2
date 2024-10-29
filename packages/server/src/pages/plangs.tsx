@@ -1,12 +1,11 @@
-import { h } from "preact";
-
-import { script, tw } from "@plangs/frontend/auxiliar/utils";
+import { tw } from "@plangs/frontend/auxiliar/styles";
+import { script } from "@plangs/frontend/auxiliar/utils";
 import { facetsMain } from "@plangs/frontend/components/facets/main";
 import { PlThumb } from "@plangs/frontend/components/misc/pl-thumb";
 import { plInfo } from "@plangs/frontend/components/pl-info";
 import type { PlangsGraph } from "@plangs/plangs";
 import { Layout } from "@plangs/server/components/layout";
-import { id } from "@plangs/server/elements";
+import { cssID } from "@plangs/server/elements";
 
 export function Plangs({ pg }: { pg: PlangsGraph }) {
   return (
@@ -34,7 +33,7 @@ function PlGrid({ pg, class: cssClass }: { pg: PlangsGraph; class?: string }) {
   return (
     <div class={tw(cssClass)}>
       <div
-        id={id("plGrid")}
+        id={cssID("plGrid")}
         class={tw("grid gap-4 2xl:mx-4", "grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]", "2xl:grid-cols-[repeat(auto-fit,minmax(8rem,1fr))]")}>
         {pg.nodes.pl.batch().map(([key, pl]) => (
           <PlThumb key={key} pl={pl} />

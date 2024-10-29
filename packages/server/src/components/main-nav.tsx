@@ -1,12 +1,12 @@
-import { BORDER } from "@plangs/frontend/auxiliar/styles";
-import { script, tw } from "@plangs/frontend/auxiliar/utils";
-import { cl, id } from "@plangs/server/elements";
+import { BORDER, tw } from "@plangs/frontend/auxiliar/styles";
+import { script } from "@plangs/frontend/auxiliar/utils";
+import { cssID } from "@plangs/server/elements";
 
 import type { TAB } from "./layout";
 
 export function MainNav({ tab, class: cssClass }: { tab: TAB; class?: string }) {
   return (
-    <aside id={id("mainNav")} class={tw("bg-linear-to-t from-secondary to-background", cssClass)}>
+    <aside id={cssID("mainNav")} class={tw("bg-linear-to-t from-secondary to-background", cssClass)}>
       {script("window.restoreHamburguer();")}
 
       <NavSection

@@ -1,5 +1,4 @@
-import { PROSE } from "@plangs/frontend/auxiliar/styles";
-import { tw } from "@plangs/frontend/auxiliar/utils";
+import { PROSE, tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsGraph } from "@plangs/plangs";
 import { Layout } from "@plangs/server/components/layout";
 

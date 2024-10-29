@@ -2,8 +2,10 @@ import type { Ref } from "preact";
 import { useContext, useEffect, useRef } from "preact/hooks";
 
 import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
-import { HOVER, INPUT } from "@plangs/frontend/auxiliar/styles";
-import { debounce, handler, on, onClickOnEnter, tw } from "@plangs/frontend/auxiliar/utils";
+import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
+import { handler, on } from "@plangs/frontend/auxiliar/events";
+import { HOVER, INPUT, tw } from "@plangs/frontend/auxiliar/styles";
+import { debounce } from "@plangs/frontend/auxiliar/utils";
 import { FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
 import { getGroupKey } from "@plangs/frontend/components/facets/misc/facet-group";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";

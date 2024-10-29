@@ -1,3 +1,5 @@
+import type { ComponentChildren } from "preact";
+
 import { FacetBool } from "@plangs/frontend/components/facets/misc/facet-bool";
 import { FacetGroup } from "@plangs/frontend/components/facets/misc/facet-group";
 import { FacetText } from "@plangs/frontend/components/facets/misc/facet-text";
@@ -5,7 +7,6 @@ import { FacetMulti } from "@plangs/frontend/components/facets/multisel/facet-mu
 import { FacetTable } from "@plangs/frontend/components/facets/table/facet-table";
 import { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs";
 import type { PlangFacetKey } from "@plangs/plangs/facets";
-import type { ComponentChildren } from "preact";
 
 export const GROUP_LABELS = {
   general: "General",

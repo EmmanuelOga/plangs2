@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "description": "Auxiliar utils and data structures",
   "main": "src/index.ts",
-  "files": [
-    "src"
-  ],
+  "files": ["src"],
   "scripts": {
     "coverage": "bun test --coverage --coverage-reporter lcov && pixi run genhtml coverage/lcov.info --output-directory coverage/html"
   }

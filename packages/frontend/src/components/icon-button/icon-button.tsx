@@ -1,8 +1,9 @@
 import type { Ref } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
-import { HOVER_SVG } from "@plangs/frontend/auxiliar/styles";
-import { customEvent, onClickOnEnter, send, tw } from "@plangs/frontend/auxiliar/utils";
+import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
+import { customEvent, send } from "@plangs/frontend/auxiliar/events";
+import { HOVER_SVG, tw } from "@plangs/frontend/auxiliar/styles";
 
 import { useIconButtonState } from "./state";
 

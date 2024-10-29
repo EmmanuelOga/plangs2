@@ -1,7 +1,6 @@
-import { HOVER } from "@plangs/frontend/auxiliar/styles";
-import { tw } from "@plangs/frontend/auxiliar/utils";
+import { HOVER, tw } from "@plangs/frontend/auxiliar/styles";
 import type { TAB } from "@plangs/server/components/layout";
-import { cl } from "@plangs/server/elements";
+import { cssClass } from "@plangs/server/elements";
 
 /* TODO: `kind: string;` is too permissive. Should be either a Node kind N or a set of other known options. */
 export function Pill({ name, nodeKey, kind, tab }: { name: string; nodeKey: string; kind: string; tab?: TAB }) {
@@ -9,7 +8,7 @@ export function Pill({ name, nodeKey, kind, tab }: { name: string; nodeKey: stri
     <div
       data-node-key={nodeKey ?? "NONE"}
       class={tw(
-        cl("pill"),
+        cssClass("pill"),
         "inline-block text-center",
 
         // NOTE: this approximately solves a mistmatch between rendering as a web component and as a Preact component,

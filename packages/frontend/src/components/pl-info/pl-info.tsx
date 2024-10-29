@@ -1,5 +1,4 @@
-import { BORDER } from "@plangs/frontend/auxiliar/styles";
-import { tw } from "@plangs/frontend/auxiliar/utils";
+import { BORDER, tw } from "@plangs/frontend/auxiliar/styles";
 import { Anchor } from "@plangs/frontend/components/misc/anchor";
 import { Pill } from "@plangs/frontend/components/misc/pill";
 import type { NPlang } from "@plangs/plangs";

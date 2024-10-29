@@ -1,27 +1,18 @@
 import type { JSX } from "preact/jsx-runtime";
 
-import { tw } from "@plangs/frontend/auxiliar/utils";
+import { tw } from "@plangs/frontend/auxiliar/styles";
 import type { NPlang } from "@plangs/plangs";
-import { cl } from "@plangs/server/elements";
+import { cssClass } from "@plangs/server/elements";
 
 const PLACEHOLDER = "/images/placeholder.png";
 
-export function PlThumb({ pl, class: cssClass }: { class?: string; pl: NPlang }): JSX.Element {
+export function PlThumb({ pl, class: klass }: { class?: string; pl: NPlang }): JSX.Element {
   const thumbUrl = pl.thumbUrl;
   return (
     <div
       data-node-key={pl.key}
-      class={tw(
-        cl("plThumb"),
-        "group",
-        "cursor-pointer",
-        "max-w-[7rem] sm:max-w-[15rem]",
-        "max-h-[7rem] sm:max-h-[15rem]",
-        "bg-background/50",
-        cssClass,
-      )}>
+      class={tw(cssClass("plThumb"), "group", "cursor-pointer", "max-w-[7rem] sm:max-w-[15rem]", "max-h-[7rem] sm:max-h-[15rem]", klass)}>
       <div class={tw("truncate text-center", "text-foreground group-hover:text-primary")}>{pl.name}</div>
-
       <div
         class={tw(
           "p-4",

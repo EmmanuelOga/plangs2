@@ -1,13 +1,12 @@
-import { Fragment, type Ref } from "preact";
-import { useEffect, useRef } from "preact/hooks";
+import { Fragment } from "preact";
 
 import { FULLCIRCLE } from "@plangs/frontend/auxiliar/icons";
-import { BORDER, HOVER } from "@plangs/frontend/auxiliar/styles";
-import { elems, onClickOnEnter, tw } from "@plangs/frontend/auxiliar/utils";
+import { BORDER, HOVER, tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsGraph } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/components/layout";
 import { createContext } from "preact";
 
+import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { type FacetsMainState, useFacetState } from "./state";
 
 export type FacetsMainProps = {

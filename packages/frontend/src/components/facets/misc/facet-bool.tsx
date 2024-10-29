@@ -1,7 +1,11 @@
-import { handler, onClickOnEnter, tw } from "@plangs/frontend/auxiliar/utils";
-import { ValBool } from "packages/auxiliar/src/value";
 import { useContext } from "preact/hooks";
-import { FacetsMainContext } from "../main/facets-main";
+
+import { ValBool } from "@plangs/auxiliar/value";
+import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
+import { handler } from "@plangs/frontend/auxiliar/events";
+import { tw } from "@plangs/frontend/auxiliar/styles";
+import { FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
+
 import { getGroupKey } from "./facet-group";
 
 export function FacetBool<T extends string>({ facetKey, label }: { facetKey: T; label: string }) {

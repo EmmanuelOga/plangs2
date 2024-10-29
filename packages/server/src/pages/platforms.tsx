@@ -1,5 +1,4 @@
-import { BORDER, PROSE } from "@plangs/frontend/auxiliar/styles";
-import { tw } from "@plangs/frontend/auxiliar/utils";
+import { BORDER, PROSE, tw } from "@plangs/frontend/auxiliar/styles";
 import { Anchor } from "@plangs/frontend/components/misc/anchor";
 import type { PlangsGraph } from "@plangs/plangs";
 import { Layout } from "@plangs/server/components/layout";

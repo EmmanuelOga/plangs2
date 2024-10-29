@@ -1,15 +1,17 @@
 import { render } from "preact";
 
-import { tw } from "@plangs/frontend/auxiliar/utils";
+import { elems } from "@plangs/frontend/auxiliar/dom";
+import { tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsGraph } from "@plangs/plangs/index";
 import type { TAB } from "@plangs/server/components/layout";
-import { cl, elems } from "@plangs/server/elements";
+import { cssClass } from "@plangs/server/elements";
+
 import { FacetsMain, type FacetsMainProps } from "./facets-main";
 
 const CL = "facetsMain";
 
-export function facetsMain({ tab, class: cssClass }: { tab: TAB; class: string }) {
-  return <div data-tab={tab} class={tw(cssClass, cl(CL))} />;
+export function facetsMain({ tab, class: klass }: { tab: TAB; class: string }) {
+  return <div data-tab={tab} class={tw(klass, cssClass(CL))} />;
 }
 
 export function activateFacetsMain(pg: PlangsGraph) {

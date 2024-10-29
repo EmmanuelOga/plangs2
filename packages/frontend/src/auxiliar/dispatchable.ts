@@ -1,4 +1,4 @@
-import { type Dispatch, type MutableRef, useState } from "preact/hooks";
+import { type Dispatch, useState } from "preact/hooks";
 
 export abstract class Dispatchable<T> {
   dispatcher?: Dispatch<this>;

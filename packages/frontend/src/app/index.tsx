@@ -1,13 +1,13 @@
 import "preact/debug";
 
+import { elem } from "@plangs/frontend/auxiliar/dom";
+import { on } from "@plangs/frontend/auxiliar/events";
 import { connectLivereload } from "@plangs/frontend/auxiliar/livereload";
 import { activateFacetsMain } from "@plangs/frontend/components/facets/main";
 import { activateIconButtons } from "@plangs/frontend/components/icon-button";
 import { ToggleFacetsMenu, ToggleHamburguer, ToggleLights } from "@plangs/frontend/components/icon-button/state";
 import { renderLastPlInfo, renderPlInfo } from "@plangs/frontend/components/pl-info";
 import { PlangsGraph } from "@plangs/plangs";
-import { elem } from "@plangs/server/elements";
-import { on } from "../auxiliar/utils";
 
 import { getPl } from "./pl";
 
