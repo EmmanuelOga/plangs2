@@ -12,13 +12,10 @@ import { getGroupKey } from "@plangs/frontend/components/facets/misc/facet-group
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
 import type { E, N } from "@plangs/plangs";
 
+import type { FacetsMainState } from "../main/state";
 import { FacetTableState } from "./state";
 
-export type FacetTableConfig =
-  | { kind: "noderel"; node: N; edge: E; dir: "direct" | "inverse" }
-  | { kind: "year"; node: N }
-  // Fallback.
-  | { kind: "missing" };
+export type FacetTableConfig = { kind: "noderel"; node: N; edge: E; dir: "direct" | "inverse" } | { kind: "year"; node: N };
 
 export type FacetTableProps<FacetKey extends string> = {
   facetKey: FacetKey;
@@ -28,13 +25,8 @@ export type FacetTableProps<FacetKey extends string> = {
 
 export function FacetTable<FacetKey extends string>({ facetKey, config, active }: FacetTableProps<FacetKey>) {
   const self = useRef<HTMLDivElement>();
-  const main = useContext(FacetsMainContext);
-  const state = useDispatchable(() => FacetTableState.initial(config, main?.pg));
-
-  // biome-ignore lint/correctness/useExhaustiveDependencies: only missing state, which is a dispatchable.
-  useEffect(() => {
-    if (state.notGenerated) state.generateEntries(main?.pg);
-  }, [main?.pg]);
+  const main = useContext(FacetsMainContext) as FacetsMainState; // It exists, since it spawned this component.
+  const state = useDispatchable(() => FacetTableState.initial(config, main.pg));
 
   const notifyMain = () => {
     const groupKey = getGroupKey(self.current);
@@ -59,12 +51,7 @@ export function FacetTable<FacetKey extends string>({ facetKey, config, active }
       <div class={tw(ROW, "sticky top-0 cursor-pointer", tw(BORDER, "border-b-1"))}>
         <div class={tw("col-span-3", "py-1", "flex shrink-0 flex-row", "bg-background", CENTER_ROW, tw(BORDER, "border-t-1"))}>
           <span class={tw("pl-2", CENTER_ROW, state.value.size < 2 ? "text-foreground/50" : "text-foreground")}>
-            <IconButton
-              action="allAny"
-              disabled={state.value.size < 2}
-              initial={"any"}
-              class={tw((state.config.kind === "missing" || state.config.kind === "year") && "hidden")}
-            />
+            <IconButton action="allAny" disabled={state.value.size < 2} initial={"any"} class={tw(state.config.kind === "year" && "hidden")} />
           </span>
           <span
             // biome-ignore lint/a11y/noNoninteractiveTabindex: we make it interactive.

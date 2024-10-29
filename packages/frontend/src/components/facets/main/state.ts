@@ -14,6 +14,7 @@ export type FacetsMainState = PlangsFacetsState;
 
 export function useFacetState(tab: TAB, pg: PlangsGraph): FacetsMainState | undefined {
   if (tab === "plangs") return useDispatchable(() => PlangsFacetsState.initial(pg));
+  console.error("Unknown tab", tab);
 }
 
 export abstract class BaseState<GroupKey, FacetKey extends string> extends Dispatchable<{
@@ -61,33 +62,28 @@ export abstract class BaseState<GroupKey, FacetKey extends string> extends Dispa
     return this.data.currentGroupKey;
   }
 
-  /** Links to FacetGroups appear in groups. */
-  get nav(): GroupKey[][] {
-    return [];
-  }
-
-  /** Return a component to render the facet groups. */
-  get facetGroupsComponent(): FacetsGroupComponent {
-    return () => null;
-  }
-
-  /** Results is a set of node keys that are the result of applying the filters. */
-  get results(): Set<string> {
-    return new Set();
-  }
-
-  groupTitle(groupKey: GroupKey): string {
-    return groupKey as string;
-  }
-
   isActive(groupKey: GroupKey): boolean {
     return this.values.size2(groupKey) > 0;
   }
+
+  /** Abstract Methods. */
+
+  /** Links to FacetGroups appear in groups. */
+  abstract get nav(): GroupKey[][];
+
+  abstract groupTitle(groupKey: GroupKey): string;
+
+  /** The component that defines the content of a facet group. */
+  abstract get facetGroupsComponent(): FacetsGroupComponent;
+
+  /** A set of node keys that are the result of applying the filters. */
+  abstract get results(): Set<string>;
 }
 
-/** A p/react function component to render a facet group. */
+/** A preact function component to render a facet group. */
 type FacetsGroupComponent = ({ currentFacetGroup }: { currentFacetGroup: string }) => JSX.Element | null;
 
+/** Implementation of the state for Faceted search of Programming Languages. */
 export class PlangsFacetsState extends BaseState<PlangFacetGroupKey, PlangFacetKey> {
   static initial(pg: PlangsGraph): PlangsFacetsState {
     return new PlangsFacetsState({ currentGroupKey: DEFAULT_GROUP, values: new Map2(), pg });

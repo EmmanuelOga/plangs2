@@ -1,12 +1,11 @@
-import { Fragment } from "preact";
+import { Fragment, createContext } from "preact";
 
+import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { FULLCIRCLE } from "@plangs/frontend/auxiliar/icons";
 import { BORDER, HOVER, tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsGraph } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/components/layout";
-import { createContext } from "preact";
 
-import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { type FacetsMainState, useFacetState } from "./state";
 
 export type FacetsMainProps = {
@@ -17,7 +16,7 @@ export type FacetsMainProps = {
 export const FacetsMainContext = createContext<FacetsMainState | undefined>(undefined);
 
 export function FacetsMain({ tab, pg }: FacetsMainProps) {
-  const state = useFacetState(tab, pg); // The graph will always be undefined since it needs to be loaded.
+  const state = useFacetState(tab, pg);
 
   const body = () =>
     !state ? null : (

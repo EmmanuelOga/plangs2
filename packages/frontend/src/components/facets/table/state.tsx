@@ -10,7 +10,7 @@ import type { FacetTableConfig } from "./facet-table";
 
 export class FacetTableState extends Dispatchable<{ config: FacetTableConfig; entries: Entry[]; order: Order; value: Filter<string | number> }> {
   /** Factory function for creating the initial state. */
-  static initial<T extends string>(config: FacetTableConfig, pg: PlangsGraph | undefined): FacetTableState {
+  static initial(config: FacetTableConfig, pg: PlangsGraph): FacetTableState {
     return new FacetTableState({
       config,
       entries: [],
@@ -19,17 +19,9 @@ export class FacetTableState extends Dispatchable<{ config: FacetTableConfig; en
     }).generateEntries(pg);
   }
 
-  private alreadyGenerated = false;
-
-  get notGenerated() {
-    return !this.alreadyGenerated;
-  }
-
-  /** Updates is used when updating from a prop change. */
-  generateEntries(pg: PlangsGraph | undefined): this {
+  /** Called on construction to generate the entries. */
+  generateEntries(pg: PlangsGraph): this {
     const { config } = this.data;
-
-    if (!pg || this.alreadyGenerated) return this;
 
     if (config.kind === "noderel") {
       const { edge, dir } = config;
@@ -49,7 +41,6 @@ export class FacetTableState extends Dispatchable<{ config: FacetTableConfig; en
           return { value: key, label: name, count: edges.size };
         });
 
-      this.alreadyGenerated = true;
       return this.sort();
     }
 
@@ -65,9 +56,10 @@ export class FacetTableState extends Dispatchable<{ config: FacetTableConfig; en
         return { value: year, label: strYear, count };
       });
 
-      this.alreadyGenerated = true;
       return this.sort();
     }
+
+    console.error("Unknown config kind", config);
 
     return this;
   }
@@ -91,26 +83,6 @@ export class FacetTableState extends Dispatchable<{ config: FacetTableConfig; en
     this.sort();
   }
 
-  doSetFacets(...params: any[]) {
-    console.log("TODO");
-    // const byVal = this.entriesByValue;
-
-    // if (this.config.kind === "missing") {
-    //   console.warn("Couldn't set facets: missing facet configuration.");
-    //   return;
-    // }
-
-    // for (const val of values) {
-    //   // Prefix is stripped for brevity of URL encoding.
-    //   const key = `${this.config.node}+${val}`;
-    //   const entry = byVal.get(key);
-    //   if (entry && !this.data.selected.has(key)) {
-    //     this.data.selected.add(key);
-    //   }
-    // }
-    this.dispatch();
-  }
-
   doResetSelection() {
     this.value.clear();
     this.dispatch();
@@ -131,11 +103,9 @@ export class FacetTableState extends Dispatchable<{ config: FacetTableConfig; en
 
     let icon: JSX.Element | false = false;
 
-    if (config.kind !== "missing") {
-      if (col === "facet") icon = (order === "facet-asc" && SORT_UP) || (order === "facet-desc" && SORT_DOWN);
-      else if (col === "count") icon = (order === "count-asc" && SORT_UP) || (order === "count-desc" && SORT_DOWN);
-      else icon = (order === "sel-asc" && SORT_UP) || (order === "sel-desc" && SORT_DOWN);
-    }
+    if (col === "facet") icon = (order === "facet-asc" && SORT_UP) || (order === "facet-desc" && SORT_DOWN);
+    else if (col === "count") icon = (order === "count-asc" && SORT_UP) || (order === "count-desc" && SORT_DOWN);
+    else icon = (order === "sel-asc" && SORT_UP) || (order === "sel-desc" && SORT_DOWN);
 
     return (
       <span class={tw("inline-flex", "items-center justify-between", "gap-1")}>
@@ -153,16 +123,12 @@ export class FacetTableState extends Dispatchable<{ config: FacetTableConfig; en
     return this.data.config;
   }
 
-  get entriesByValue(): Map<string, Entry> {
-    const entries = new Map<string, Entry>();
-    for (const entry of this.data.entries) entries.set(entry.value as string, entry);
-    return entries;
-  }
-
+  /** All entries. */
   get entries() {
     return this.data.entries;
   }
 
+  /** Selected entries. */
   get value() {
     return this.data.value;
   }
