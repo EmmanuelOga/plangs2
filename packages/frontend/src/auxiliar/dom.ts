@@ -1,7 +1,13 @@
 import { type CLKey, type IDKey, cssClass, cssID } from "@plangs/server/elements";
 
-export const $ = document.querySelector.bind(document);
-export const $$ = document.querySelectorAll.bind(document);
+/**
+ * Bun will attempt to load this code from the server even if it is not imported explicitly.
+ * We need to define a valid document (even if it is undefined) to avoid errors.
+ */
+const doc = (typeof document === "undefined" ? undefined : document) as Document;
+
+export const $ = doc?.querySelector.bind(doc);
+export const $$ = doc?.querySelectorAll.bind(doc);
 
 export const elem = <T extends HTMLElement>(key: IDKey) => $<T>(`#${cssID(key)}`) ?? undefined;
 export const elems = <T extends HTMLElement>(key: CLKey) => $$<T>(`.${cssClass(key)}`);
