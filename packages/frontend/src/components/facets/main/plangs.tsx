@@ -1,5 +1,6 @@
 import type { JSX } from "preact";
 
+import { type AnyValue, ValBool, ValNumber } from "@plangs/auxiliar/value";
 import { FacetBool } from "@plangs/frontend/components/facets/misc/facet-bool";
 import { FacetGroup } from "@plangs/frontend/components/facets/misc/facet-group";
 import { FacetText } from "@plangs/frontend/components/facets/misc/facet-text";
@@ -49,8 +50,10 @@ export function PlangsFacetGroups({ currentFacetGroup }: { currentFacetGroup: GK
     label: PLANG_FACETS_LABELS[facetKey],
   });
 
+  const bool =
+    (facetKey: FK, value: (checked: boolean) => AnyValue = c => new ValBool(c)) =>
+    (groupKey: GK) => <FacetBool<GK, FK> {...props(groupKey, facetKey)} value={value} />;
   const text = (facetKey: FK) => (groupKey: GK) => <FacetText<GK, FK> {...props(groupKey, facetKey)} />;
-  const bool = (facetKey: FK) => (groupKey: GK) => <FacetBool<GK, FK> {...props(groupKey, facetKey)} />;
   const multi = (facetKey: FK) => (groupKey: GK) => <FacetMulti<GK, FK> {...props(groupKey, facetKey)} />;
   const table = (facetKey: FK, config: FacetTableConfig) => (groupKey: GK) => <FacetTable<GK, FK> {...props(groupKey, facetKey)} config={config} />;
 
@@ -64,8 +67,9 @@ export function PlangsFacetGroups({ currentFacetGroup }: { currentFacetGroup: GK
     <>
       {group("general", [
         text("plangName"),
-        bool("createdRecently"),
-        bool("releasedRecently"),
+        // TODO: replace these with select inputs for the years (maybe last 10 years?).
+        bool("createdRecently", c => new ValNumber(c ? new Date().getFullYear() - 5 : 0)),
+        bool("releasedRecently", c => new ValNumber(c ? new Date().getFullYear() - 1 : 0)),
         bool("hasLogo"),
         bool("hasWikipedia"),
         bool("isMainstream"),

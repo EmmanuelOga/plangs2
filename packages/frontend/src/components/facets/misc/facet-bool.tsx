@@ -1,6 +1,6 @@
 import { useContext } from "preact/hooks";
 
-import { ValBool } from "@plangs/auxiliar/value";
+import { type AnyValue, ValBool } from "@plangs/auxiliar/value";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { handler } from "@plangs/frontend/auxiliar/events";
 import { tw } from "@plangs/frontend/auxiliar/styles";
@@ -11,10 +11,11 @@ export function FacetBool<GroupKey extends string, FacetKey extends string>({
   groupKey,
   facetKey,
   label,
-}: { facetKey: FacetKey; groupKey: GroupKey; label: string }) {
+  value,
+}: { facetKey: FacetKey; groupKey: GroupKey; label: string; value: (checked: boolean) => AnyValue }) {
   const main = useContext(FacetsMainContext) as AnyFacetsMainState; // It exists, since it spawned this component.
   const toggle = handler((checkbox: HTMLInputElement) => {
-    main.doSetValue(groupKey, facetKey, new ValBool(checkbox.checked));
+    main.doSetValue(groupKey, facetKey, value(checkbox.checked));
   });
   return (
     <label for={facetKey} class={tw("block", "px-2")}>
