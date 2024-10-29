@@ -10,6 +10,7 @@ import { cssID } from "@plangs/server/elements";
 export function Plangs({ pg }: { pg: PlangsGraph }) {
   return (
     <Layout
+      pg={pg}
       tab="plangs"
       title="Find your next favorite programming language!"
       description="Discover https://plangs.page faceted search engine to find your next favorite programming language."

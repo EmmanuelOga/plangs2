@@ -12,7 +12,7 @@ export function TSys({ pg }: { pg: PlangsGraph }) {
     </div>
   ));
   return (
-    <Layout tab="tsys" title="Type systems implemented by your favorite programming languages!" mainClasses="overflow-y-auto">
+    <Layout pg={pg} tab="tsys" title="Type systems implemented by your favorite programming languages!" mainClasses="overflow-y-auto">
       <article class={tw(PROSE, "p-4")}>
         <h1>Type Systems</h1>
         {entries.isEmpty ? <p>No type systems just yet!</p> : entries.existing}

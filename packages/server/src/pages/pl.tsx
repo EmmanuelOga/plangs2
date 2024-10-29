@@ -2,14 +2,15 @@ import { BORDER, PROSE, tw } from "@plangs/frontend/auxiliar/styles";
 import { Anchor } from "@plangs/frontend/components/misc/anchor";
 import { Pill } from "@plangs/frontend/components/misc/pill";
 import { PlInfo } from "@plangs/frontend/components/pl-info/pl-info";
-import type { NPlang } from "@plangs/plangs";
+import type { NPlang, PlangsGraph } from "@plangs/plangs";
 import { Layout } from "@plangs/server/components/layout";
 import { Table } from "@plangs/server/components/table";
 import { cssID } from "@plangs/server/elements";
 
-export function Pl({ pl }: { pl: NPlang }) {
+export function Pl({ pl, pg }: { pl: NPlang; pg: PlangsGraph }) {
   return (
     <Layout
+      pg={pg}
       pl={pl}
       tab="pl"
       title={`${pl.name} at https://plangs.page`}

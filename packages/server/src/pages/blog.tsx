@@ -19,6 +19,7 @@ export function Blog({ pg }: { pg: PlangsGraph }) {
 
   return (
     <Layout
+      pg={pg}
       tab="blog"
       title="Read https://plangs.page latest news"
       description="Read the latest news from https://plangs.page, a website about programming languages and the ecosystems around them."

@@ -3,7 +3,7 @@ import { type ComponentChildren, h } from "preact";
 import { stripes, tw } from "@plangs/frontend/auxiliar/styles";
 import { script } from "@plangs/frontend/auxiliar/utils";
 import { iconButton } from "@plangs/frontend/components/icon-button";
-import type { NPlang } from "@plangs/plangs";
+import type { NPlang, PlangsGraph } from "@plangs/plangs";
 
 import { MainNav } from "./main-nav";
 import { PlangsLogo } from "./plangs-logo";
@@ -14,12 +14,16 @@ type LayoutProps = {
   children: ComponentChildren;
   description?: string;
   mainClasses?: string;
+  pg: PlangsGraph;
   pl?: NPlang;
   tab: TAB;
   title: string;
 };
 
-export function Layout({ title, description, tab, pl, mainClasses, children }: LayoutProps) {
+const localStore = (pl: NPlang) => `localStorage.setItem("last-plang", ${JSON.stringify(JSON.stringify({ key: pl.key, data: pl.data }))})`;
+const maybeLocalStore = (pl: NPlang) => `if (!localStorage.getItem("last-plang")) { ${localStore(pl)} }`;
+
+export function Layout({ title, description, tab, pg, pl, mainClasses, children }: LayoutProps) {
   return (
     <html lang="en">
       <head>
@@ -27,7 +31,9 @@ export function Layout({ title, description, tab, pl, mainClasses, children }: L
         <title>Plangs! - {title}</title>
         <meta name="description" content={description ?? title} />
 
-        {pl && script(`localStorage.setItem("last-plang", ${JSON.stringify(JSON.stringify({ key: pl.key, data: pl.data }))});`)}
+        {/* biome-ignore lint/style/noNonNullAssertion: pl+python exists in the data. */}
+        {script(pl ? localStore(pl) : maybeLocalStore(pg.nodes.pl.get("pl+python")!))}
+
         <script src="/bundle/app.js" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />

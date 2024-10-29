@@ -27,18 +27,18 @@ export async function resolvePage(path: string, pg: PlangsGraph) {
   if (path === "/tools") return <Tools pg={pg} />;
   if (path === "/tsys") return <TSys pg={pg} />;
 
-  if (path === "/about") return <About content={await loadContent("2024_09_20_about.md", pg)} />;
+  if (path === "/about") return <About pg={pg} content={await loadContent("2024_09_20_about.md", pg)} />;
 
   if (path.startsWith("/blog/") && path.length < 512) {
     const post = await loadBlogPost(pg, `post+${path.slice(6)}`);
-    if (post) return <BlogPost post={post} />;
+    if (post) return <BlogPost pg={pg} post={post} />;
     console.warn(`Blog post not found: ${path}`);
     return;
   }
 
   if (path.startsWith("/") && path.length > 1 && path.length < 32) {
     const pl = pg.nodes.pl.get(`pl+${path.slice(1)}`);
-    if (pl) return <Pl pl={pl} />;
+    if (pl) return <Pl pg={pg} pl={pl} />;
     return;
   }
 }
