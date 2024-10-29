@@ -11,9 +11,6 @@ export type PlInfoProps = {
   tab?: TAB;
 };
 
-export const TAG_NAME = "pl-info";
-export const PROP_KEYS: (keyof PlInfoProps)[] = ["pl", "open", "tab"] as const;
-
 /** Display a PL information, if the key is known. */
 export function PlInfo({ pl, open, tab }: PlInfoProps) {
   const forGrid = tab === "plangs";

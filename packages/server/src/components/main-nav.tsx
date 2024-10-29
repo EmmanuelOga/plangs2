@@ -66,7 +66,7 @@ function NavSection({ title, links, tab, border }: { tab: TAB; title: string; li
             <a
               data-tab={forTab}
               data-current={tab === forTab ? "1" : undefined}
-              class={tw(cl("navLink"), "block cursor-pointer", "truncate", nested ? "pl-10" : "pl-4")}
+              class={tw("block cursor-pointer", "truncate", nested ? "pl-10" : "pl-4")}
               href={href}>
               {title}
             </a>

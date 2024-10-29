@@ -15,19 +15,16 @@ import { DEFAULT_GROUP, GROUP_LABELS, NAV, type PlangFacetGroupKey, PlangsFacetG
 
 export type FacetsMainState = PlangsFacetsState;
 
-export function useFacetState(tab: TAB): FacetsMainState | undefined {
-  if (tab === "plangs") return useDispatchable(() => PlangsFacetsState.initial());
+export function useFacetState(tab: TAB, pg: PlangsGraph): FacetsMainState | undefined {
+  if (tab === "plangs") return useDispatchable(() => PlangsFacetsState.initial(pg));
 }
 
-export abstract class BaseState<GroupKey, FacetKey extends string> extends Dispatchable<
-  FacetsMainProps & { currentGroupKey: GroupKey; values: Map2<GroupKey, FacetKey, AnyValue> }
-> {
+export abstract class BaseState<GroupKey, FacetKey extends string> extends Dispatchable<{
+  currentGroupKey: GroupKey;
+  values: Map2<GroupKey, FacetKey, AnyValue>;
+  pg: PlangsGraph;
+}> {
   /** Actions */
-
-  doSetGraph(pg: PlangsGraph | undefined): void {
-    this.data.pg = pg;
-    this.dispatch();
-  }
 
   doSetCurrent(groupKey: GroupKey): void {
     this.data.currentGroupKey = groupKey;
@@ -55,11 +52,7 @@ export abstract class BaseState<GroupKey, FacetKey extends string> extends Dispa
 
   /** Queries */
 
-  get ready(): boolean {
-    return this.pg !== undefined;
-  }
-
-  get pg(): PlangsGraph | undefined {
+  get pg(): PlangsGraph {
     return this.data.pg;
   }
 
@@ -99,8 +92,8 @@ export abstract class BaseState<GroupKey, FacetKey extends string> extends Dispa
 type FacetsGroupComponent = ({ currentFacetGroup }: { currentFacetGroup: string }) => JSX.Element | null;
 
 export class PlangsFacetsState extends BaseState<PlangFacetGroupKey, PlangFacetKey> {
-  static initial(): PlangsFacetsState {
-    return new PlangsFacetsState({ currentGroupKey: DEFAULT_GROUP, values: new Map2() });
+  static initial(pg: PlangsGraph): PlangsFacetsState {
+    return new PlangsFacetsState({ currentGroupKey: DEFAULT_GROUP, values: new Map2(), pg });
   }
 
   override get nav() {

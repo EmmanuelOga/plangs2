@@ -41,27 +41,3 @@ export function useDispatchable<T extends Dispatchable<any>>(factory: () => T): 
   state.dispatcher = dispatcher;
   return state;
 }
-
-/**
- * Utility to allow accessing the state when using web components.
- * {@returns} The customElement, if it is a {@link T}.
- */
-export function setComponentState<T extends HTMLElement & { state?: S }, S>(
-  reactRoot: MutableRef<HTMLElement | undefined>,
-  isComponent: (el?: HTMLElement) => el is T,
-  state: S,
-): T | undefined {
-  // The preact element is the direct child of the custom element.
-  const wrapper = reactRoot.current?.parentElement;
-  if (!wrapper) {
-    console.error("No container found for:", reactRoot);
-    return;
-  }
-  // We only need to set the state if the compoent is being used as a custom element.
-  if (!customElements.get(wrapper.tagName.toLowerCase())) return;
-  if (isComponent(wrapper)) {
-    wrapper.state = state;
-    return wrapper;
-  }
-  console.warn("Failed to set state, wrapper doesn't type check", { self: reactRoot, typeChecker: isComponent, state });
-}

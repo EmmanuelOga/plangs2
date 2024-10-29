@@ -14,6 +14,8 @@ export const ID_KEYS = [
 export const CL_KEYS = [
   "todo",
 
+  "facetsMain",
+  "iconButton",
   "navLink",
   "pill",
   "plThumb",

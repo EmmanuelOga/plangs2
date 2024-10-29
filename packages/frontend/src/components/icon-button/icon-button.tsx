@@ -1,31 +1,21 @@
 import type { Ref } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
-import { setComponentState } from "@plangs/frontend/auxiliar/dispatchable";
 import { HOVER_SVG } from "@plangs/frontend/auxiliar/styles";
 import { customEvent, onClickOnEnter, send, tw } from "@plangs/frontend/auxiliar/utils";
 
-import { isIconButtonElement } from ".";
 import { useIconButtonState } from "./state";
 
 export type IconButtonProps = {
   action: "facets" | "hamburger" | "lights" | "allAny";
-  disabled?: boolean;
-  /** An initial value for the toggle button. */
-  initial?: string;
   class?: string;
+  disabled?: boolean;
+  initial?: string;
 };
-
-export const TAG_NAME = "icon-button";
-export const PROP_KEYS: (keyof IconButtonProps)[] = ["action", "disabled"];
 
 export function IconButton({ action, disabled, initial, class: cssClass }: IconButtonProps) {
   const self = useRef<HTMLDivElement>();
   const state = useIconButtonState({ action, disabled, initial });
-
-  useEffect(() => {
-    setComponentState(self, isIconButtonElement, state);
-  });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: state is not a dependency since it is a dispatchable.
   useEffect(() => {
@@ -43,7 +33,7 @@ export function IconButton({ action, disabled, initial, class: cssClass }: IconB
     state.runEffects();
     state.dispatch();
 
-    send(self.current, customEvent(TAG_NAME, state.value));
+    send(self.current, customEvent("icon-button", state.value));
   };
 
   return (

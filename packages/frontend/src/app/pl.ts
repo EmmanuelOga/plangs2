@@ -1,4 +1,4 @@
-import type { NPlang, PlangsGraph } from "@plangs/plangs";
+import { NPlang, type PlangsGraph } from "@plangs/plangs";
 
 /** Attempt to load a plang using the nearest data-key attribute. */
 export function getPl(pg: PlangsGraph, target: EventTarget | null): NPlang | undefined {
@@ -8,12 +8,13 @@ export function getPl(pg: PlangsGraph, target: EventTarget | null): NPlang | und
 }
 
 /** Get the latest plang from local storage, or a default one. */
-export function lastPlang(pg: PlangsGraph): NPlang {
+export function lastPlang(pg: PlangsGraph): NPlang | undefined {
   try {
     const { key, data } = JSON.parse(localStorage.getItem("last-plang") || "{}");
-    if (key && data) return pg.nodes.pl.set(key as NPlang["key"], data);
+    // This instance will not be part of the plangs graph node map,
+    // but that's okay, since it's only used for rendering once on load.
+    return new NPlang(pg, key).merge(data);
   } catch (err) {
     console.warn(err);
   }
-  return pg.nodes.pl.set("pl+python", { name: "Python", description: "Python" });
 }

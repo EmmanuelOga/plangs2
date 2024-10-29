@@ -2,6 +2,7 @@ import { type ComponentChildren, h } from "preact";
 
 import { stripes } from "@plangs/frontend/auxiliar/styles";
 import { script, tw } from "@plangs/frontend/auxiliar/utils";
+import { iconButton } from "@plangs/frontend/components/icon-button";
 import type { NPlang } from "@plangs/plangs";
 
 import { MainNav } from "./main-nav";
@@ -51,13 +52,13 @@ export function Layout({ title, description, tab, pl, mainClasses, children }: L
 
         <header class={tw("px-2 sm:px-4", "flex flex-row", "items-end justify-between", "bg-linear-to-b from-secondary to-background")}>
           <div class={tw("flex flex-row", "gap-4", "-translate-y-3 sm:-translate-y-5")}>
-            {h("icon-button", { action: "hamburger", class: "text-primary" })}
-            {tab === "plangs" && h("icon-button", { action: "facets", class: "text-primary" })}
+            {iconButton("hamburger")}
+            {tab === "plangs" && iconButton("facets")}
           </div>
 
           <PlangsLogo class={tw("mb-4 sm:mb-8", "mt-2 sm:mt-3 lg:mt-4 xl:mt-5 2xl:mt-6", "h-12 sm:h-16 lg:h-20 xl:h-24 2xl:h-28")} />
 
-          <div class={tw("-translate-y-3 sm:-translate-y-5")}>{h("icon-button", { class: "text-primary", action: "lights" })}</div>
+          <div class={tw("-translate-y-3 sm:-translate-y-5")}>{iconButton("lights")}</div>
         </header>
 
         <div class={tw("flex-1", "flex flex-row", "overflow-y-auto")}>

@@ -1,4 +1,3 @@
-import { INPUT } from "@plangs/frontend/auxiliar/styles";
 import { handler, onClickOnEnter, tw } from "@plangs/frontend/auxiliar/utils";
 import { ValBool } from "packages/auxiliar/src/value";
 import { useContext } from "preact/hooks";
@@ -14,7 +13,7 @@ export function FacetBool<T extends string>({ facetKey, label }: { facetKey: T; 
   });
   return (
     <label for={facetKey} class={tw("block", "px-2")}>
-      <input id={facetKey} name={facetKey} type="checkbox" {...onClickOnEnter(toggle)} placeholder={label} class={tw("-mt-1", INPUT)} />
+      <input id={facetKey} name={facetKey} type="checkbox" {...onClickOnEnter(toggle)} placeholder={label} class={tw("-mt-1")} />
       <span class="ml-2">{label}</span>
     </label>
   );

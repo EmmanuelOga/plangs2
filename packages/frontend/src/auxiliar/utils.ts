@@ -133,3 +133,9 @@ export function yearsAgo(years: number): StrDate {
   date.setFullYear(date.getFullYear() - years);
   return date.toISOString().split("T")[0] as StrDate;
 }
+
+export function cssClasses(elem: Element, { except }: { except: string }) {
+  return Array.from(elem.classList)
+    .filter(c => c !== except)
+    .join(" ");
+}

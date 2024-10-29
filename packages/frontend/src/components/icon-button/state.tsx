@@ -2,7 +2,7 @@ import type { ComponentChild } from "preact";
 
 import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { BOOLEAN, CLOSE, FILTER_EDIT, FULLCIRCLE, MENU, MOON, SUN } from "@plangs/frontend/auxiliar/icons";
-import { $, tw } from "@plangs/frontend/auxiliar/utils";
+import { $, elems, tw } from "@plangs/frontend/auxiliar/utils";
 import { elem } from "@plangs/server/elements";
 
 import type { IconButtonProps } from "./icon-button";
@@ -133,7 +133,8 @@ export class ToggleFacetsMenu extends IconButtonBaseState<{ mode: "show" | "hide
   }
 
   override runEffects() {
-    $("facets-main")?.classList.toggle("hidden", !this.show);
+    const fm = elems("facetsMain");
+    if (fm.length > 0) fm[0].classList.toggle("hidden", !this.show);
     localStorage.setItem("facets", this.data.mode);
   }
 }
