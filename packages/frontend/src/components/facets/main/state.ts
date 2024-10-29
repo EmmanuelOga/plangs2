@@ -9,13 +9,15 @@ import type { TAB } from "@plangs/server/components/layout";
 
 import { updateThumbns } from "./grid";
 import { DEFAULT_GROUP, GROUP_LABELS, NAV, type PlangFacetGroupKey, PlangsFacetGroups } from "./plangs";
-import { updateFragment } from "./storage";
+import { facetsFromFragment, facetsFromLocalStorage, updateFragment, updateLocalStorage } from "./storage";
 
 /** Generic state so components can work with any group and facet key. */
 export type AnyFacetsMainState = FacetsMainState<string, string>;
 
+export type SerializedFacets<FacetKey extends string> = Partial<Record<FacetKey, ReturnType<AnyValue["serializable"]>>>;
+
 export function useFacetState(tab: TAB, pg: PlangsGraph): AnyFacetsMainState | undefined {
-  if (tab === "plangs") return useDispatchable(() => PlangsFacetsState.initial(pg) as AnyFacetsMainState);
+  if (tab === "plangs") return useDispatchable(() => PlangsFacetsState.initial(pg, tab) as AnyFacetsMainState);
   console.error("Unknown tab", tab);
 }
 
@@ -23,6 +25,7 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
   currentGroupKey: GroupKey;
   values: Map2<GroupKey, FacetKey, AnyValue>;
   pg: PlangsGraph;
+  tab: TAB;
 }> {
   /** Actions */
 
@@ -46,15 +49,16 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
 
   sideEffects() {
     const data = this.serialized;
-    localStorage.setItem(this.kind, JSON.stringify(data));
+    updateLocalStorage(this.tab, data);
     updateFragment(data);
     updateThumbns(this.results);
   }
 
   /** Queries */
 
-  /** Used to store and load the state from local storage. */
-  abstract get kind(): string;
+  get tab(): TAB {
+    return this.data.tab;
+  }
 
   get pg(): PlangsGraph {
     return this.data.pg;
@@ -64,8 +68,8 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
     return this.data.values;
   }
 
-  get serialized() {
-    const data: Partial<Record<FacetKey, ReturnType<AnyValue["serializable"]>>> = {};
+  get serialized(): SerializedFacets<FacetKey> {
+    const data: SerializedFacets<FacetKey> = {};
     for (const [_, facetKey, value] of this.values.flatEntries()) {
       data[facetKey] = value.serializable();
     }
@@ -99,12 +103,16 @@ type FacetsGroupComponent = ({ currentFacetGroup }: { currentFacetGroup: string 
 
 /** Implementation of the state for Faceted search of Programming Languages. */
 export class PlangsFacetsState extends FacetsMainState<PlangFacetGroupKey, PlangFacetKey> {
-  static initial(pg: PlangsGraph): PlangsFacetsState {
-    return new PlangsFacetsState({ currentGroupKey: DEFAULT_GROUP, values: new Map2(), pg });
+  static initial(pg: PlangsGraph, tab: TAB): PlangsFacetsState {
+    return new PlangsFacetsState({ currentGroupKey: DEFAULT_GROUP, values: new Map2(), pg, tab }).deserialize();
   }
 
-  override get kind() {
-    return "plangs";
+  /** Attempt to deserialize from fragment (prioritary) or localStorage. */
+  deserialize(): this {
+    const fragment = facetsFromFragment();
+    const storage = facetsFromLocalStorage(this.tab);
+    console.log("TODO: revive", { fragment, storage });
+    return this;
   }
 
   override get nav() {

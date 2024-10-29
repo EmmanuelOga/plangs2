@@ -4,12 +4,13 @@ import { RISON } from "rison2";
 
 import { isEmpty } from "@plangs/frontend/auxiliar/utils";
 import type { TAB } from "@plangs/server/components/layout";
+import type { SerializedFacets } from "./state";
 
 /**
  * Attempts to deserialize the URL Fragment (expects RISON encoding).
  * Clears the fragment if a bad encoding is found.
  */
-export function facetsFromFragment() {
+export function facetsFromFragment(): SerializedFacets<string> | undefined {
   try {
     const data = window.location.hash.slice(1).trim();
     if (data.length > 2 && data.startsWith("(") && data.endsWith(")")) {
@@ -22,30 +23,34 @@ export function facetsFromFragment() {
   }
 }
 
-/**
- * Replace the URL framgment with the RISON serialization of the provided data.
- * Removes the fragment if the data is falsy.
- */
-export function updateFragment(data: any) {
-  if (isEmpty(data)) {
-    if (window.location.hash) window.location.hash = "";
-  } else {
-    window.location.hash = RISON.stringify(data);
+export function facetsFromLocalStorage(tab: TAB): SerializedFacets<string> | undefined {
+  const sk = storageKey(tab);
+  const stored = localStorage.getItem(sk);
+  if (stored) {
+    try {
+      const filters = JSON.parse(stored);
+      return filters as SerializedFacets<string>;
+    } catch (e) {
+      console.warn("Failed to parse localStorage filters.", stored);
+      localStorage.removeItem(sk);
+    }
   }
 }
 
 const storageKey = (key: TAB) => `facets-${key}`;
 
-export function fromLocalStorage(key: TAB) {
-  const sk = storageKey(key);
-  const stored = localStorage.getItem(sk);
-  if (stored) {
-    try {
-      const filters = JSON.parse(stored);
-      return filters;
-    } catch (e) {
-      console.warn("Failed to parse localStorage filters.", stored);
-      localStorage.removeItem(sk);
-    }
+export function updateLocalStorage(tab: TAB, data: SerializedFacets<string>): void {
+  localStorage.setItem(storageKey(tab), JSON.stringify(data));
+}
+
+/**
+ * Replace the URL framgment with the RISON serialization of the provided data.
+ * Removes the fragment if the data is falsy.
+ */
+export function updateFragment(data: any): void {
+  if (isEmpty(data)) {
+    if (window.location.hash) window.location.hash = "";
+  } else {
+    window.location.hash = RISON.stringify(data);
   }
 }
