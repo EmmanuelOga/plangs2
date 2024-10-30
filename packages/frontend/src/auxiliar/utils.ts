@@ -39,3 +39,12 @@ export function isEmpty(obj: any) {
   }
   return true;
 }
+
+/**
+ * Returns the fragment (possible empty): the string after the first '#' of a URL or HREF.
+ */
+export function getFragment(fragmentOrURL: URL | Location | string): string {
+  if (fragmentOrURL instanceof URL || fragmentOrURL instanceof Location) return fragmentOrURL.hash.slice(1);
+  const hashIndex = fragmentOrURL.indexOf("#");
+  return hashIndex !== -1 ? fragmentOrURL.slice(hashIndex + 1) : "";
+}

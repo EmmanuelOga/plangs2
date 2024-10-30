@@ -17,7 +17,7 @@ export function send<T extends Event>(target: EventTarget | Nil, ev: T): boolean
   return target?.dispatchEvent(ev);
 }
 
-export function customEvent<T>(type: string, detail: T, options: CustomEventInit<T> = { bubbles: true, composed: true }) {
+export function customEvent<T>(type: string, detail: T, options: CustomEventInit<T> = { bubbles: true, composed: true, cancelable: undefined }) {
   return new CustomEvent(type, { detail, ...options });
 }
 
