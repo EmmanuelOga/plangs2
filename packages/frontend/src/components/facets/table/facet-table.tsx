@@ -72,9 +72,7 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
 
       {state.entries.map(entry =>
         tap(
-          onClickOnEnter(() => {
-            state.doToggle(entry.value);
-          }),
+          onClickOnEnter(() => state.doToggle(entry.value)),
           clickOrEnter => (
             <div key={entry.value} class={tw(ROW, state.isSelected(entry.value) && "bg-primary/20", HOVER)} {...clickOrEnter}>
               <div class={tw("p-2", "text-left", "overflow-hidden text-ellipsis", "line-clamp-3")}>{entry.label}</div>

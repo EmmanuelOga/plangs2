@@ -22,13 +22,12 @@ export function useFacetState(tab: TAB, pg: PlangsGraph): AnyFacetsMainState | u
 }
 
 export abstract class FacetsMainState<GroupKey extends string, FacetKey extends string> extends Dispatchable<{
+  tab: TAB;
+  pg: PlangsGraph;
   currentGroupKey: GroupKey;
   values: Map2<GroupKey, FacetKey, AnyValue>;
-  pg: PlangsGraph;
-  tab: TAB;
+  initialValues?: SerializedFacets<FacetKey>;
 }> {
-  /** Actions */
-
   doSetCurrent(groupKey: GroupKey): void {
     this.data.currentGroupKey = groupKey;
     this.dispatch();
@@ -43,18 +42,39 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
     } else {
       values.delete(groupKey, facetKey);
     }
+
+    // We want to hold-off dispatch and side effects until child components have used these values.
+    if (this.data.initialValues) return;
+
     this.sideEffects();
     this.dispatch();
   }
 
   sideEffects() {
     const data = this.serialized;
-    updateLocalStorage(this.tab, data);
     updateFragment(data);
+    updateLocalStorage(this.tab, data);
     updateThumbns(this.results);
   }
 
+  /**
+   * This should be called once after the first render:
+   * The presence of initial values is used to hold-off rendering and sideEffects
+   * while the components are loading the initial values.
+   */
+  doRemoveInitialValues() {
+    if (!this.data.initialValues) return;
+    this.data.initialValues = undefined;
+    this.sideEffects();
+    this.dispatch();
+  }
+
   /** Queries */
+
+  /** Return an initial value. If any, it will only be available on first render. */
+  initialValue(key: FacetKey): ReturnType<AnyValue["serializable"]> {
+    return this.data.initialValues?.[key];
+  }
 
   get tab(): TAB {
     return this.data.tab;
@@ -104,15 +124,13 @@ type FacetsGroupComponent = ({ currentFacetGroup }: { currentFacetGroup: string 
 /** Implementation of the state for Faceted search of Programming Languages. */
 export class PlangsFacetsState extends FacetsMainState<PlangFacetGroupKey, PlangFacetKey> {
   static initial(pg: PlangsGraph, tab: TAB): PlangsFacetsState {
-    return new PlangsFacetsState({ currentGroupKey: DEFAULT_GROUP, values: new Map2(), pg, tab }).deserialize();
-  }
-
-  /** Attempt to deserialize from fragment (prioritary) or localStorage. */
-  deserialize(): this {
-    const fragment = facetsFromFragment();
-    const storage = facetsFromLocalStorage(this.tab);
-    console.log("TODO: revive", { fragment, storage });
-    return this;
+    return new PlangsFacetsState({
+      pg,
+      tab,
+      values: new Map2(),
+      currentGroupKey: DEFAULT_GROUP,
+      initialValues: facetsFromFragment() ?? facetsFromLocalStorage(tab),
+    });
   }
 
   override get nav() {

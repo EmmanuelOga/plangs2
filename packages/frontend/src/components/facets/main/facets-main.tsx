@@ -1,4 +1,5 @@
 import { Fragment, createContext } from "preact";
+import { useEffect } from "preact/hooks";
 
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { FULLCIRCLE } from "@plangs/frontend/auxiliar/icons";
@@ -17,6 +18,10 @@ export const FacetsMainContext = createContext<AnyFacetsMainState | undefined>(u
 
 export function FacetsMain({ tab, pg }: FacetsMainProps) {
   const state = useFacetState(tab, pg);
+
+  // Only do this once after first render.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: state should not be passed here.
+  useEffect(() => state?.doRemoveInitialValues(), []);
 
   const body = () =>
     !state ? null : (

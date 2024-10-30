@@ -23,6 +23,10 @@ export function facetsFromFragment(): SerializedFacets<string> | undefined {
   }
 }
 
+/**
+ * Attempts to deserialize from localStorage (expects JSON encoding).
+ * Clears the stored key if a bad encoding is found.
+ */
 export function facetsFromLocalStorage(tab: TAB): SerializedFacets<string> | undefined {
   const sk = storageKey(tab);
   const stored = localStorage.getItem(sk);
@@ -39,6 +43,9 @@ export function facetsFromLocalStorage(tab: TAB): SerializedFacets<string> | und
 
 const storageKey = (key: TAB) => `facets-${key}`;
 
+/**
+ * Storing the facets in localStorage allows for keeping the state even if the url fragment goes away.
+ */
 export function updateLocalStorage(tab: TAB, data: SerializedFacets<string>): void {
   localStorage.setItem(storageKey(tab), JSON.stringify(data));
 }
@@ -46,6 +53,7 @@ export function updateLocalStorage(tab: TAB, data: SerializedFacets<string>): vo
 /**
  * Replace the URL framgment with the RISON serialization of the provided data.
  * Removes the fragment if the data is falsy.
+ * Storing the facets in the fragments allow for sharing a filtered selection by copying the URL.
  */
 export function updateFragment(data: any): void {
   if (isEmpty(data)) {
