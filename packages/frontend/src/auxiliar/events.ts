@@ -1,18 +1,18 @@
 export type Nil = null | undefined;
 
 /** Adds an event listener to the target, and returns a function to undo the listener. */
-export function on<T>(target: Element | Nil, type: string, listener: (ev: T) => void, opt?: AddEventListenerOptions): () => void {
+export function on<T>(target: EventTarget | Nil, type: string, listener: (ev: T) => void, opt?: AddEventListenerOptions): undefined | (() => void) {
   if (!target) console.warn("missing target", { type, listener, opt });
   target?.addEventListener(type, listener as EventListener, opt);
-  return target ? () => off(target, type, listener, opt) : () => {};
+  if (target) return () => off(target, type, listener, opt);
 }
 
-export function off<T>(target: Element | Nil, type: string, listener: (ev: T) => void, opt?: AddEventListenerOptions): void {
+export function off<T>(target: EventTarget | Nil, type: string, listener: (ev: T) => void, opt?: AddEventListenerOptions): void {
   if (!target) console.warn("missing target", { type, listener, opt });
   target?.removeEventListener(type, listener as EventListener, opt);
 }
 
-export function send<T extends Event>(target: Element | Nil, ev: T): boolean | undefined {
+export function send<T extends Event>(target: EventTarget | Nil, ev: T): boolean | undefined {
   if (!target) console.warn("missing target", ev);
   return target?.dispatchEvent(ev);
 }
