@@ -1,6 +1,6 @@
 import type { JSX } from "preact";
 
-import { type AnyValue, ValBool, ValNumber } from "@plangs/auxiliar/value";
+import { type AnyValue, ValBool, ValNil, ValNumber } from "@plangs/auxiliar/value";
 import { FacetBool } from "@plangs/frontend/components/facets/misc/facet-bool";
 import { FacetGroup } from "@plangs/frontend/components/facets/misc/facet-group";
 import { FacetText } from "@plangs/frontend/components/facets/misc/facet-text";
@@ -68,8 +68,8 @@ export function PlangsFacetGroups({ currentFacetGroup }: { currentFacetGroup: GK
       {group("general", [
         text("plangName"),
         // TODO: replace these with select inputs for the years (maybe last 10 years?).
-        bool("createdRecently", c => new ValNumber(c ? new Date().getFullYear() - 5 : 0)),
-        bool("releasedRecently", c => new ValNumber(c ? new Date().getFullYear() - 1 : 0)),
+        bool("createdRecently", checked => (checked ? new ValNumber(new Date().getFullYear() - 5) : new ValNil())),
+        bool("releasedRecently", checked => (checked ? new ValNumber(new Date().getFullYear() - 1) : new ValNil())),
         bool("hasLogo"),
         bool("hasWikipedia"),
         bool("isMainstream"),

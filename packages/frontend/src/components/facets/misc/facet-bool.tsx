@@ -1,7 +1,7 @@
 import type { Ref } from "preact";
 import { useContext, useEffect, useRef } from "preact/hooks";
 
-import type { AnyValue } from "@plangs/auxiliar/value";
+import { type AnyValue, ValNumber } from "@plangs/auxiliar/value";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { handler } from "@plangs/frontend/auxiliar/events";
 import { tw } from "@plangs/frontend/auxiliar/styles";
@@ -21,9 +21,20 @@ export function FacetBool<GroupKey extends string, FacetKey extends string>({
     main.doSetValue(groupKey, facetKey, value(checkbox.checked));
   });
 
-  // Initialize the checkbox by clicking it. This will only happen on first render.
   const init = main.initialValue(facetKey);
-  if (init) useEffect(() => input.current?.click(), []);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: We don't want dependencies here: we want a run-once hook.
+  useEffect(() => {
+    if (init === undefined || !input.current) return;
+    // We used a function to map true/false to some reasonable Value.
+    // If the user passed a reasonable value through the params, try that.
+    if (typeof init === "number" && init > 1900 && init <= 2100) {
+      input.current.checked = true;
+      main.doSetValue(groupKey, facetKey, new ValNumber(init));
+    } else {
+      // This will just invoke the handler, which should check the checkbox and use the default.
+      input.current.click();
+    }
+  }, []);
 
   return (
     <label for={facetKey} class={tw("block", "px-2")}>

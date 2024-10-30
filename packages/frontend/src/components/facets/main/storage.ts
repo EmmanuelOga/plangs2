@@ -10,9 +10,9 @@ import type { SerializedFacets } from "./state";
  * Attempts to deserialize the URL Fragment (expects RISON encoding).
  * Clears the fragment if a bad encoding is found.
  */
-export function facetsFromFragment(): SerializedFacets<string> | undefined {
+export function facetsFromFragment(fragment = window.location.hash): SerializedFacets<string> | undefined {
   try {
-    const data = window.location.hash.slice(1).trim();
+    const data = fragment.slice(fragment.indexOf("#") + 1).trim();
     if (data.length > 2 && data.startsWith("(") && data.endsWith(")")) {
       const filters = RISON.parse(data);
       return filters;

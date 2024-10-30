@@ -1,7 +1,7 @@
 import type { JSX } from "preact/jsx-runtime";
 
 import { Map2 } from "@plangs/auxiliar/map2";
-import type { AnyValue } from "@plangs/auxiliar/value";
+import { type AnyValue, deserializeValue } from "@plangs/auxiliar/value";
 import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 import type { PlangFacetKey } from "@plangs/plangs/facets/plangs";
@@ -91,7 +91,7 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
   get serialized(): SerializedFacets<FacetKey> {
     const data: SerializedFacets<FacetKey> = {};
     for (const [_, facetKey, value] of this.values.flatEntries()) {
-      data[facetKey] = value.serializable();
+      if (value.isPresent) data[facetKey] = value.serializable();
     }
     return data;
   }
@@ -149,4 +149,15 @@ export class PlangsFacetsState extends FacetsMainState<PlangFacetGroupKey, Plang
     if (!this.pg) return new Set();
     return this.pg.plangs(this.values.getMap2());
   }
+}
+
+/** Compare the state values to serialized values, used whatever is current state as reference. */
+// biome-ignore lint/suspicious/noExplicitAny: The serialized data is not strictly typed.
+function isEqualData(reference: Map2<string, string, AnyValue>, serialized: Partial<Record<string, any>> | undefined): boolean {
+  if (serialized === undefined) return reference.size === 0;
+  for (const [_, fk, value] of reference.flatEntries()) {
+    const other = deserializeValue(serialized[fk]);
+    if (!other || !other.isPresent || !other.equalTo(value)) return false;
+  }
+  return true;
 }

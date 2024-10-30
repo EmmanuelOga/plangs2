@@ -16,11 +16,8 @@ export function facetsMain({ tab, class: klass }: { tab: TAB; class: string }) {
 
 export function activateFacetsMain(pg: PlangsGraph) {
   for (const elem of elems(CL)) {
-    if (elem.dataset.tab) {
-      const props: FacetsMainProps = {
-        pg: pg,
-        tab: elem.dataset.tab as TAB,
-      };
+    if (pg && elem.dataset.tab) {
+      const props: FacetsMainProps = { pg: pg, tab: elem.dataset.tab as TAB };
       render(<FacetsMain {...props} />, elem);
     } else {
       console.error("Missing prop for FacetsMain component.");
