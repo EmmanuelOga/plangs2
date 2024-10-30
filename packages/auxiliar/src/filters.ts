@@ -52,10 +52,6 @@ export class Filter<T> implements Value<Filter<T>> {
     return false;
   }
 
-  toJSON(): EncodedFilter<T> {
-    return { mode: this.mode, values: [...this.values] };
-  }
-
   get value() {
     return this;
   }
@@ -74,12 +70,23 @@ export class Filter<T> implements Value<Filter<T>> {
     return true;
   }
 
+  clone(): this {
+    return new Filter(this.mode, new Set(this.values)) as this;
+  }
+
+  toJSON(): EncodedFilter<T> {
+    return { mode: this.mode, values: [...this.values] };
+  }
+
   serializable() {
     return this.isEmpty ? undefined : this.toJSON();
   }
 
-  clone(): this {
-    return new Filter(this.mode, new Set(this.values)) as this;
+  // biome-ignore lint/suspicious/noExplicitAny: we can't know for sure the type of the values here.
+  static isSerialized(val: unknown): val is { mode: "all" | "any"; values: any[] } {
+    return (
+      !!val && typeof val === "object" && "mode" in val && (val.mode === "all" || val.mode === "any") && "values" in val && Array.isArray(val.values)
+    );
   }
 }
 

@@ -1,6 +1,7 @@
 import { expect, test } from "bun:test";
+import { Filter } from "./filters";
 import type { AnyValue, Value } from "./value";
-import { ValBool, ValNil, ValNumber, ValRegExp, ValSet, ValString } from "./value";
+import { ValBool, ValNil, ValNumber, ValRegExp, ValSet, ValString, deserializeValue } from "./value";
 
 test("ValNil null", () => {
   const nil = new ValNil(null);
@@ -215,4 +216,28 @@ test("ValRegExp non empty regexp", () => {
   // biome-ignore lint/complexity/useRegexLiterals: I want to instantiate an empty regexp.
   expect(val.equalTo(new ValRegExp(new RegExp("x")))).toBe(true);
   expect(val.serializable()).toEqual(["RegExp", "x"]);
+});
+
+test("Serialization / deserialization", () => {
+  const roundtrip = (val: AnyValue) => {
+    const data = val.serializable();
+    const rtrip = data !== undefined && data !== null ? JSON.parse(JSON.stringify(data)) : data; // JSON can't encode undefined.
+    return deserializeValue(rtrip);
+  };
+
+  expect(roundtrip(new ValNumber(42))?.value).toBe(42);
+
+  expect(roundtrip(new ValBool(false))).toBeInstanceOf(ValNil);
+  expect(roundtrip(new ValBool(true))?.value).toBe(true);
+
+  expect(roundtrip(new ValString(""))).toBeInstanceOf(ValNil);
+  expect(roundtrip(new ValString("Hello"))?.value).toBe("Hello");
+
+  expect(roundtrip(new ValRegExp(/(?:)/))?.value).toBeUndefined();
+  expect(roundtrip(new ValRegExp(/hello/))?.value).toEqual(/hello/);
+  expect(roundtrip(new ValRegExp(/World/i))?.value).toEqual(/World/i);
+
+  expect(roundtrip(new Filter())).toBeInstanceOf(ValNil);
+  expect(roundtrip(new Filter("any", new Set(["1"])))?.equalTo(new Filter("any", new Set(["1"])))).toBeTrue();
+  expect(roundtrip(new Filter("all", new Set(["1", "2"])))?.equalTo(new Filter("all", new Set(["1", "2"])))).toBeTrue();
 });

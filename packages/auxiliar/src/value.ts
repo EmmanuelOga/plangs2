@@ -1,9 +1,14 @@
+import { Filter } from "./filters";
+
 /**
  * The objective of this interface is to simplify checking if a value is present (aka "non blank").
  * This avoids the need to sprinkle runtime type checks all over the place.
  *
  * This is useful in places were we don't want to serialize empty values,
  * if we want to check there are any present values on a form, etc.
+ *
+ * Also we want to avoid serializing values that are not "present".
+ * This is because for things like URL encoding, we don't want to have a lot of keys pointing to blank values.
  */
 export interface Value<T> {
   // biome-ignore lint/suspicious/noExplicitAny: without a generic value type the wrappers are useless.
@@ -100,6 +105,11 @@ export class ValSet<T> extends ValBase<Set<T>> {
   override serializable() {
     return this.isPresent ? ["Set", [...this.value]] : undefined;
   }
+
+  // biome-ignore lint/suspicious/noExplicitAny: we cannot know for sure the type of the values.
+  static isSerialized(val: unknown): val is [string, any[]] {
+    return Array.isArray(val) && val[0] === "Set" && Array.isArray(val[1]);
+  }
 }
 
 const EMPTY_REGEX = /(?:)/;
@@ -114,6 +124,31 @@ export class ValRegExp extends ValBase<RegExp> {
   }
 
   override serializable() {
-    return this.isPresent ? ["RegExp", this.value.source] : undefined;
+    const { value } = this;
+    return this.isPresent ? (value.flags ? ["RegExp", value.source, value.flags] : ["RegExp", value.source]) : undefined;
   }
+
+  static isSerialized(val: unknown): val is [string, string, string?] {
+    return Array.isArray(val) && val[0] === "RegExp" && typeof val[1] === "string" && (val[2] === undefined || typeof val[2] === "string");
+  }
+}
+
+/** Matches the serialized "shape" and returns a deserialized value, or undefined if it can't recognize the shape. */
+export function deserializeValue(val: unknown): AnyValue | undefined {
+  if (val === undefined || val === null) return new ValNil(val);
+
+  switch (typeof val) {
+    case "number":
+      return new ValNumber(val);
+    case "boolean":
+      return new ValBool(val);
+    case "string":
+      return new ValString(val);
+  }
+
+  if (ValRegExp.isSerialized(val)) return new ValRegExp(new RegExp(val[1], val[2]));
+  if (ValSet.isSerialized(val)) return new ValSet(new Set(val[1]));
+  if (Filter.isSerialized(val)) return new Filter(val.mode, new Set(val.values));
+
+  console.log("Attempt to deserialize an unrecognized value shape:", val);
 }
