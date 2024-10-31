@@ -77,6 +77,18 @@ test("non empty Map2", () => {
   expect(`${m}`).toEqual("Map2(size: 2) { (b, 2) => dos, (b, 3) => three }");
 });
 
+test("Map2 getOrSet", () => {
+  const m = new Map2<string, number, string>();
+
+  expect(m.getOrSet("a", 1, () => "one")).toBe("one");
+  expect(m.getOrSet("a", 1, () => "uno")).toBe("one");
+
+  expect(m.getOrSet("b", 2, () => "two")).toBe("two");
+  expect(m.getOrSet("b", 2, () => "dos")).toBe("two");
+  m.delete("b", 2);
+  expect(m.getOrSet("b", 2, () => "dos")).toBe("dos");
+});
+
 test("Map2 to object", () => {
   const m = new Map2<string, number, string>();
   expect(m.toObject(id => id)).toEqual({});

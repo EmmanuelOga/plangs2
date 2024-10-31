@@ -16,6 +16,12 @@ export class Map2<K1, K2, V> {
     return this;
   }
 
+  getOrSet(k1: K1, k2: K2, whenMissing: () => V): V {
+    let v = this.get(k1, k2);
+    if (v === undefined) this.set(k1, k2, (v = whenMissing()));
+    return v;
+  }
+
   delete(k1: K1, k2: K2): boolean {
     return this.#map.get(k1)?.delete(k2) ?? false;
   }
