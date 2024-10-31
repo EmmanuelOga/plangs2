@@ -1,4 +1,4 @@
-import type { ComponentChildren, Ref } from "preact";
+import type { Ref } from "preact";
 import { useContext, useEffect, useRef } from "preact/hooks";
 
 import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
@@ -8,13 +8,12 @@ import { DESELECT } from "@plangs/frontend/auxiliar/icons";
 import { BORDER, HOVER, HOVER_SVG_GROUP, tw } from "@plangs/frontend/auxiliar/styles";
 import { tap } from "@plangs/frontend/auxiliar/utils";
 import { FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
+import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/state";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
-import type { E, N } from "@plangs/plangs";
 
-import type { AnyFacetsMainState } from "../main/state";
+import { type FacetTableConfig, generateEntries } from "./entries";
+import { Header } from "./header";
 import { FacetTableState } from "./state";
-
-export type FacetTableConfig = { kind: "noderel"; node: N; edge: E; dir: "direct" | "inverse" } | { kind: "year"; node: N };
 
 export type FacetTableProps<GroupKey extends string, FacetKey extends string> = {
   groupKey: GroupKey;
@@ -31,7 +30,8 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
 }: FacetTableProps<GroupKey, FacetKey>) {
   const self = useRef<HTMLDivElement>();
   const main = useContext(FacetsMainContext) as AnyFacetsMainState; // It exists, since it spawned this component.
-  const state = useDispatchable(() => FacetTableState.initial(main, { groupKey, facetKey, config }));
+  const order = config.kind === "year" ? "facet-desc" : "facet-asc";
+  const state = useDispatchable(() => new FacetTableState({ main, groupKey, facetKey, config, order, entries: generateEntries(main.pg, config) }));
 
   useEffect(() =>
     on(self?.current, "icon-button", (ev: CustomEvent) => {
@@ -49,7 +49,7 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
       <div class={tw(ROW, "sticky top-0 cursor-pointer", tw(BORDER, "border-b-1"))}>
         <div class={tw("col-span-3", "py-1", "flex shrink-0 flex-row", "bg-background", CENTER_ROW, tw(BORDER, "border-t-1"))}>
           <span class={tw("pl-2", CENTER_ROW, state.value.size < 2 ? "text-foreground/50" : "text-foreground")}>
-            <IconButton action="allAny" disabled={state.value.size < 2} initial={"any"} class={tw(state.config.kind === "year" && "hidden")} />
+            <IconButton action="allAny" disabled={state.value.size < 2} initial={state.value.mode} class={tw(config.kind === "year" && "hidden")} />
           </span>
           <span
             // biome-ignore lint/a11y/noNoninteractiveTabindex: we make it interactive.
@@ -64,9 +64,9 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
         </div>
 
         <div class={tw(ROW, "col-span-3", "bg-primary text-background/80")}>
-          <HeaderButton class={"text-left"} action={() => state.doToggleOrder("facet")} children={state.header("facet")} />
-          <HeaderButton class={"text-center"} action={() => state.doToggleOrder("count")} children={state.header("count")} />
-          <HeaderButton class={"text-right"} action={() => state.doToggleOrder("sel")} children={state.header("sel")} />
+          <Header class={"text-left"} action={() => state.doToggleOrder("facet")} col="facet" config={config} order={state.order} />
+          <Header class={"text-center"} action={() => state.doToggleOrder("count")} col="count" config={config} order={state.order} />
+          <Header class={"text-right"} action={() => state.doToggleOrder("sel")} col="sel" config={config} order={state.order} />
         </div>
       </div>
 
@@ -74,11 +74,11 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
         tap(
           onClickOnEnter(() => state.doToggle(entry.value)),
           clickOrEnter => (
-            <div key={entry.value} class={tw(ROW, state.isSelected(entry.value) && "bg-primary/20", HOVER)} {...clickOrEnter}>
+            <div key={entry.value} class={tw(ROW, state.value.has(entry.value) && "bg-primary/20", HOVER)} {...clickOrEnter}>
               <div class={tw("p-2", "text-left", "overflow-hidden text-ellipsis", "line-clamp-3")}>{entry.label}</div>
               <div class={tw("p-2", "text-center")}>{entry.count}</div>
               <div class={tw("p-2", "text-right")}>
-                <input type="checkbox" checked={state.isSelected(entry.value)} {...clickOrEnter} />
+                <input type="checkbox" checked={state.value.has(entry.value)} {...clickOrEnter} />
               </div>
             </div>
           ),
@@ -91,16 +91,5 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
     <div ref={self as Ref<HTMLDivElement>} class={tw("flex flex-col")}>
       {active ? body() : null}
     </div>
-  );
-}
-
-function HeaderButton({ action, class: cssClass, children }: { class?: string; action: () => void; children: ComponentChildren }) {
-  return (
-    <button
-      type="button"
-      class={tw("px-2 py-1", "italic", "underline decoration-1 decoration-dotted", "cursor-pointer", HOVER, cssClass)}
-      {...onClickOnEnter(action)}>
-      {children}
-    </button>
   );
 }

@@ -5,9 +5,9 @@ import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main
 type Val = string | number | boolean;
 
 /** NOTE: we don't need to dispatch when calling actions of the main state. */
-export class FacetMultiState extends Dispatchable<{
-  facetKey: string;
-  groupKey: string;
+export class FacetMultiState<GroupKey extends string, FacetKey extends string> extends Dispatchable<{
+  groupKey: GroupKey;
+  facetKey: FacetKey;
   main: AnyFacetsMainState;
 }> {
   /** Actions */
@@ -48,10 +48,6 @@ export class FacetMultiState extends Dispatchable<{
 
   get value() {
     const { main, groupKey, facetKey } = this.data;
-    return main.values.getOrSet(groupKey, facetKey, () => new Filter("any")) as Filter<string | number | boolean>;
-  }
-
-  get hasSelection(): boolean {
-    return this.value.size > 0;
+    return main.values.getOrSet(groupKey, facetKey, () => new Filter("any")) as Filter<Val>;
   }
 }

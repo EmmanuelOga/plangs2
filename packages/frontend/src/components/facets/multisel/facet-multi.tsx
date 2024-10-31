@@ -22,7 +22,7 @@ export function FacetMulti<GroupKey extends string, FacetKey extends string>({
   const self = useRef<HTMLDivElement>(); // We perform various queries on the root element.
   const input = useRef<HTMLInputElement>(); // Used to focus on the input after adding a value.
   const main = useContext(FacetsMainContext) as AnyFacetsMainState; // It exists, since it spawned this component.
-  const state = useDispatchable(() => new FacetMultiState({ main, groupKey, facetKey }));
+  const state = useDispatchable(() => new FacetMultiState<GroupKey, FacetKey>({ main, groupKey, facetKey }));
 
   useEffect(() => {
     return on(self?.current, "icon-button", (ev: CustomEvent) => {
@@ -69,7 +69,7 @@ export function FacetMulti<GroupKey extends string, FacetKey extends string>({
 
   // Helper to enumerate the entries, map them, then return an array (instead of an iterator).
   function mapEntries<T>(mapper: (entry: [number, string | number | boolean]) => T): T[] {
-    return Array.from([...state.value.values].entries().map(mapper));
+    return [...state.value.values].entries().map(mapper).toArray();
   }
 
   const body = () => (
