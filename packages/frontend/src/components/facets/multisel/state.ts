@@ -1,60 +1,57 @@
-import type { Filter } from "@plangs/auxiliar/filters";
+import { Filter } from "@plangs/auxiliar/filters";
 import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/state";
 
+type Val = string | number | boolean;
+
+/** NOTE: we don't need to dispatch when calling actions of the main state. */
 export class FacetMultiState extends Dispatchable<{
   facetKey: string;
   groupKey: string;
   main: AnyFacetsMainState;
-  value: Filter<string | number | boolean>; // Set preserves insertion order.
 }> {
   /** Actions */
 
-  doAdd(values: (string | undefined)[]): boolean {
-    let added = false;
-    const { value } = this.data;
-    for (const item of values) {
-      if (!item || value.has(item)) continue;
-      value.add(item);
-      added = true;
-    }
-    if (added) this.dispatch();
-    return added;
+  doSetValue(val: Filter<Val>): "changed" | "unchanged" {
+    const { main, data } = this;
+    return main.doSetValue(data.groupKey, data.facetKey, val);
   }
 
-  /** Returns the nth next button to focus, if there still values. */
-  doRemove(values: (string | undefined)[]): boolean {
-    let removed = false;
-    const { value } = this.data;
-    for (const [i, item] of values.entries()) {
-      if (!item || !value.has(item)) continue;
-      value.delete(item);
-      removed = true;
-    }
-    if (removed) this.dispatch();
-    return removed;
+  doAdd(val: Val): boolean {
+    if (!val) return false;
+    const { value } = this;
+    if (value.has(val)) return false;
+    value.add(val);
+    return this.doSetValue(value) === "changed";
+  }
+
+  doRemove(val: string | undefined): boolean {
+    if (!val) return false;
+    const { value } = this;
+    if (!value.has(val)) return false;
+    value.delete(val);
+    return this.doSetValue(value) === "changed";
   }
 
   doSetMode(mode: "all" | "any"): void {
-    if (this.value.mode === mode) return;
+    const { value } = this;
+    if (value.mode === mode) return;
     this.value.mode = mode === "all" ? "all" : "any";
-    this.dispatch();
+    this.doSetValue(value);
   }
 
   /** Queries */
 
+  get main() {
+    return this.data.main;
+  }
+
   get value() {
-    return this.data.value;
+    const { main, groupKey, facetKey } = this.data;
+    return main.values.getOrSet(groupKey, facetKey, () => new Filter("any")) as Filter<string | number | boolean>;
   }
 
   get hasSelection(): boolean {
     return this.value.size > 0;
-  }
-
-  /** Dispatching on the the parent will trigger a render here too, so no need to dispatch twice. */
-  override runDispatcher(): this {
-    const { main, groupKey, facetKey, value } = this.data;
-    main.doSetValue(groupKey, facetKey, value.clone());
-    return this;
   }
 }

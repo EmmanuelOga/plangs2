@@ -58,6 +58,10 @@ export abstract class ValBase<T> implements Value<T> {
 }
 
 export class ValNil extends ValBase<null | undefined> {
+  constructor(value: null | undefined = undefined) {
+    super(value);
+  }
+
   equalTo(other?: AnyValue): boolean {
     return other instanceof ValNil;
   }

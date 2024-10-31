@@ -2,6 +2,8 @@
 
 import { RISON } from "rison2";
 
+import { Map2 } from "@plangs/auxiliar/map2";
+import { type AnyValue, deserializeValue } from "@plangs/auxiliar/value";
 import { isEmpty } from "@plangs/frontend/auxiliar/utils";
 import type { TAB } from "@plangs/server/components/layout";
 import type { SerializedFacets } from "./state";
@@ -61,4 +63,28 @@ export function updateFragment(data: any): void {
   } else {
     window.location.hash = RISON.stringify(data);
   }
+}
+
+/** Attempt to reconstruct the value structure from  fragment or local storage. */
+export function loadFacets<GK, FK>(groupsByFacetKey: Map<FK, GK>): Map2<GK, FK, AnyValue> {
+  const result = new Map2<GK, FK, AnyValue>();
+
+  const values = facetsFromFragment() ?? facetsFromLocalStorage("plangs");
+  if (!values) return result;
+
+  for (const [facetKey, rawValue] of Object.entries(values)) {
+    const groupKey = groupsByFacetKey.get(facetKey as FK);
+    if (!groupKey) {
+      console.error("missing group for facet", facetKey);
+      continue;
+    }
+    const value = deserializeValue(rawValue);
+    if (value?.isPresent) {
+      result.set(groupKey, facetKey as FK, value);
+    } else {
+      console.error("failed to deserialize value", facetKey, rawValue);
+    }
+  }
+
+  return result;
 }

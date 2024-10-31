@@ -1,17 +1,16 @@
 import type { Ref } from "preact";
 import { useContext, useEffect, useRef } from "preact/hooks";
 
-import { Filter } from "@plangs/auxiliar/filters";
 import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { handler, on } from "@plangs/frontend/auxiliar/events";
+import { CLOSE } from "@plangs/frontend/auxiliar/icons";
 import { HOVER, INPUT, tw } from "@plangs/frontend/auxiliar/styles";
 import { debounce } from "@plangs/frontend/auxiliar/utils";
 import { FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
 import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/state";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
 
-import { CLOSE } from "@plangs/frontend/auxiliar/icons";
 import { FacetMultiState } from "./state";
 
 export function FacetMulti<GroupKey extends string, FacetKey extends string>({
@@ -19,16 +18,11 @@ export function FacetMulti<GroupKey extends string, FacetKey extends string>({
   facetKey,
   groupKey,
   label,
-}: {
-  active: boolean;
-  facetKey: FacetKey;
-  groupKey: GroupKey;
-  label: string;
-}) {
+}: { active: boolean; facetKey: FacetKey; groupKey: GroupKey; label: string }) {
   const self = useRef<HTMLDivElement>(); // We perform various queries on the root element.
   const input = useRef<HTMLInputElement>(); // Used to focus on the input after adding a value.
   const main = useContext(FacetsMainContext) as AnyFacetsMainState; // It exists, since it spawned this component.
-  const state = useDispatchable(() => new FacetMultiState({ main, groupKey, facetKey, value: new Filter("any") }));
+  const state = useDispatchable(() => new FacetMultiState({ main, groupKey, facetKey }));
 
   useEffect(() => {
     return on(self?.current, "icon-button", (ev: CustomEvent) => {
@@ -47,7 +41,7 @@ export function FacetMulti<GroupKey extends string, FacetKey extends string>({
 
     // NOTE: if we use facet-multi for anything other than extensions, we should make value transform configurable.
     const val = input.value.startsWith(".") ? input.value : `.${input.value}`;
-    if (state.doAdd([val])) setTimeout(() => maybeScroll(val), 100);
+    if (state.doAdd(val)) setTimeout(() => maybeScroll(val), 100);
     input.value = "";
   });
 
@@ -61,7 +55,7 @@ export function FacetMulti<GroupKey extends string, FacetKey extends string>({
   const remover = (idx: number) =>
     handler((b: HTMLButtonElement, ev) => {
       ev.stopPropagation();
-      if (state.doRemove([b.dataset.value])) {
+      if (state.doRemove(b.dataset.value)) {
         // Determine next focus an add a lil animation. Timeout: wait till next render.
         setTimeout(() => {
           const nb = nthButton(idx + 1) ?? nthButton(idx);

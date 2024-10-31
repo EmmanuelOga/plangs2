@@ -6,23 +6,8 @@
 export type N = "app" | "bundle" | "lib" | "license" | "paradigm" | "pl" | "plat" | "post" | "tag" | "tool" | "tsys";
 
 /** Name of all edges. */
-export type E =
-  | "app"
-  | "bundle"
-  | "compilesTo"
-  | "dialect"
-  | "impl"
-  | "influence"
-  | "lib"
-  | "license"
-  | "paradigm"
-  | "plBundle"
-  | "plat"
-  | "post"
-  | "tag"
-  | "tool"
-  | "tsys"
-  | "writtenIn";
+// biome-ignore format: Keep it in one line.
+export type E = "app" | "bundle" | "compilesTo" | "dialect" | "impl" | "influence" | "lib" | "license" | "paradigm" | "plBundle" | "plat" | "post" | "tag" | "tool" | "tsys" | "writtenIn";
 
 ////////////////////////////////////////////////////////////////////////////////
 // Nodes can use CommonNodeData directly or extend it with more data.

@@ -19,16 +19,6 @@ export const FacetsMainContext = createContext<AnyFacetsMainState | undefined>(u
 export function FacetsMain({ tab, pg }: FacetsMainProps) {
   const state = useFacetState(tab, pg);
 
-  // Remove initially deserialized data.
-  useEffect(() => state?.doRemoveInitialValues());
-
-  // TODO: React to hash change initiated by user.
-  // useEffect(() =>
-  //   on(window, "hashchange", ({ newURL }: HashChangeEvent) => {
-  //     state?.doReactToFragment(facetsFromFragment(newURL));
-  //   }),
-  // );
-
   const body = () =>
     !state ? null : (
       <FacetsMainContext.Provider value={state}>

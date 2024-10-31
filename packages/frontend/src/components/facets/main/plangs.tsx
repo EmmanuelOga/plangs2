@@ -1,29 +1,59 @@
-import type { JSX } from "preact";
-
-import { type AnyValue, ValBool, ValNil, ValNumber } from "@plangs/auxiliar/value";
-import { FacetBool } from "@plangs/frontend/components/facets/misc/facet-bool";
-import { FacetGroup } from "@plangs/frontend/components/facets/misc/facet-group";
-import { FacetText } from "@plangs/frontend/components/facets/misc/facet-text";
-import { FacetMulti } from "@plangs/frontend/components/facets/multisel/facet-multi";
-import { FacetTable, type FacetTableConfig } from "@plangs/frontend/components/facets/table/facet-table";
+import { ValNil, ValNumber } from "@plangs/auxiliar/value";
 import { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs";
-import { PLANG_FACETS_LABELS, type PlangFacetKey } from "@plangs/plangs/facets/plangs";
+import type { PlangFacetKey } from "@plangs/plangs/facets/plangs";
+import type { FunctionComponent } from "preact";
+import { FacetBool } from "../misc/facet-bool";
+import { FacetGroup } from "../misc/facet-group";
+import { FacetText } from "../misc/facet-text";
+import { FacetMulti } from "../multisel/facet-multi";
+import { FacetTable } from "../table/facet-table";
+import { type FacetConfig, bool, defineFacets, defineGroups, group, mapGroups, multi, table, text } from "./types";
 
-export const GROUP_LABELS = {
-  general: "General",
-  platforms: "Platforms",
-  paradigms: "Paradigms",
-  typeSystems: "Type Systems",
-  writtenIn: "Written In",
-  transpiler: "Transpiler",
-  dialectOf: "Dialect Of",
-  implements: "Implements",
-  influencedBy: "Influenced By",
-  influenced: "Influenced",
-  tags: "Tags",
-  creationYear: "Creation Year",
-  licenses: "Licenses",
-} as const;
+type FK = PlangFacetKey;
+
+export const FACETS: Map<FK, FacetConfig<FK>> = defineFacets<FK>(
+  bool("createdRecently", "Created Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 5) : new ValNil())),
+  bool("hasLogo", "Has Logo"),
+  bool("hasWikipedia", "Has Wikipedia"),
+  bool("isMainstream", "Is Mainstream"),
+  bool("isTranspiler", "Is Transpiler"),
+  bool("releasedRecently", "Released Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 1) : new ValNil())),
+  multi("extensions", "Extensions"),
+  table("compilesTo", "Compiles To", { kind: "noderel", edge: "compilesTo", node: NPlang.kind, dir: "direct" }),
+  table("creationYear", "Creation Year", { kind: "year", node: NPlang.kind }),
+  table("dialectOf", "Dialect Of", { kind: "noderel", edge: "dialect", node: NPlang.kind, dir: "direct" }),
+  table("implements", "Implements", { kind: "noderel", edge: "impl", node: NPlang.kind, dir: "direct" }),
+  table("influenced", "Influenced", { kind: "noderel", edge: "influence", node: NPlang.kind, dir: "inverse" }),
+  table("influencedBy", "Influenced By", { kind: "noderel", edge: "influence", node: NPlang.kind, dir: "direct" }),
+  table("paradigms", "Paradigms", { kind: "noderel", edge: "paradigm", node: NParadigm.kind, dir: "direct" }),
+  table("platforms", "Platforms", { kind: "noderel", edge: "plat", node: NPlatform.kind, dir: "direct" }),
+  table("tags", "Tags", { kind: "noderel", edge: "tag", node: NTag.kind, dir: "direct" }),
+  table("typeSystems", "Type Systems", { kind: "noderel", edge: "tsys", node: NTsys.kind, dir: "direct" }),
+  table("writtenIn", "Written In", { kind: "noderel", edge: "writtenIn", node: NPlang.kind, dir: "direct" }),
+  table("licenses", "Licenses", { kind: "noderel", edge: "license", node: NLicense.kind, dir: "direct" }),
+  text("plangName", "Plang Name"),
+);
+
+// biome-ignore format: Keep it in one line.
+export type PlangFacetGroupKey = "creationYear" | "dialectOf" | "general" | "implements" | "influenced" | "influencedBy" | "licenses" | "paradigms" | "platforms" | "tags" | "transpiler" | "typeSystems" | "writtenIn";
+
+type GK = PlangFacetGroupKey;
+
+export const [GROUPS, GROUP_FOR_FACET_KEY] = defineGroups<GK, FK>(
+  group("creationYear", "Creation Year", ["creationYear"]),
+  group("dialectOf", "Dialect Of", ["dialectOf"]),
+  group("general", "General", ["plangName", "createdRecently", "releasedRecently", "hasLogo", "hasWikipedia", "isMainstream", "extensions"]),
+  group("implements", "Implements", ["implements"]),
+  group("influenced", "Influenced", ["influenced"]),
+  group("influencedBy", "Influenced By", ["influencedBy"]),
+  group("licenses", "Licenses", ["licenses"]),
+  group("paradigms", "Paradigms", ["paradigms"]),
+  group("platforms", "Platforms", ["platforms"]),
+  group("tags", "Tags", ["tags"]),
+  group("transpiler", "Transpiler", ["isTranspiler", "compilesTo"]),
+  group("typeSystems", "Type Systems", ["typeSystems"]),
+  group("writtenIn", "Written In", ["writtenIn"]),
+);
 
 /** Group keys for the navigation menu.  */
 export const NAV: GK[][] = [
@@ -35,59 +65,27 @@ export const NAV: GK[][] = [
 
 export const DEFAULT_GROUP = "general";
 
-export type PlangFacetGroupKey = keyof typeof GROUP_LABELS;
-
-/** Aliases for brevity. */
-type GK = PlangFacetGroupKey;
-type FK = PlangFacetKey;
-
-export function PlangsFacetGroups({ currentFacetGroup }: { currentFacetGroup: GK }) {
-  // Common props.
-  const props = (groupKey: GK, facetKey: FK) => ({
-    facetKey,
-    groupKey,
-    active: groupKey === currentFacetGroup,
-    label: PLANG_FACETS_LABELS[facetKey],
-  });
-
-  const bool =
-    (facetKey: FK, value: (checked: boolean) => AnyValue = c => new ValBool(c)) =>
-    (groupKey: GK) => <FacetBool<GK, FK> {...props(groupKey, facetKey)} value={value} />;
-  const text = (facetKey: FK) => (groupKey: GK) => <FacetText<GK, FK> {...props(groupKey, facetKey)} />;
-  const multi = (facetKey: FK) => (groupKey: GK) => <FacetMulti<GK, FK> {...props(groupKey, facetKey)} />;
-  const table = (facetKey: FK, config: FacetTableConfig) => (groupKey: GK) => <FacetTable<GK, FK> {...props(groupKey, facetKey)} config={config} />;
-
-  const group = (groupKey: GK, children: ((gk: GK) => JSX.Element)[]) => (
-    <FacetGroup label={GROUP_LABELS[groupKey]} active={currentFacetGroup === groupKey}>
-      {children.map(factory => factory(groupKey))}
-    </FacetGroup>
-  );
-
-  return (
-    <>
-      {group("general", [
-        text("plangName"),
-        // TODO: replace these with select inputs for the years (maybe last 10 years?).
-        bool("createdRecently", checked => (checked ? new ValNumber(new Date().getFullYear() - 5) : new ValNil())),
-        bool("releasedRecently", checked => (checked ? new ValNumber(new Date().getFullYear() - 1) : new ValNil())),
-        bool("hasLogo"),
-        bool("hasWikipedia"),
-        bool("isMainstream"),
-        multi("extensions"),
-      ])}
-      {group("platforms", [table("platforms", { kind: "noderel", edge: "plat", node: NPlatform.kind, dir: "direct" })])}
-      {group("paradigms", [table("paradigms", { kind: "noderel", edge: "paradigm", node: NParadigm.kind, dir: "direct" })])}
-      {group("typeSystems", [table("paradigms", { kind: "noderel", edge: "paradigm", node: NParadigm.kind, dir: "direct" })])}
-      {group("typeSystems", [table("typeSystems", { kind: "noderel", edge: "tsys", node: NTsys.kind, dir: "direct" })])}
-      {group("writtenIn", [table("writtenIn", { kind: "noderel", edge: "writtenIn", node: NPlang.kind, dir: "direct" })])}
-      {group("transpiler", [bool("isTranspiler"), table("compilesTo", { kind: "noderel", edge: "compilesTo", node: NPlang.kind, dir: "direct" })])}
-      {group("dialectOf", [table("dialectOf", { kind: "noderel", edge: "dialect", node: NPlang.kind, dir: "direct" })])}
-      {group("implements", [table("implements", { kind: "noderel", edge: "impl", node: NPlang.kind, dir: "direct" })])}
-      {group("influencedBy", [table("influencedBy", { kind: "noderel", edge: "influence", node: NPlang.kind, dir: "direct" })])}
-      {group("influenced", [table("influenced", { kind: "noderel", edge: "influence", node: NPlang.kind, dir: "inverse" })])}
-      {group("tags", [table("tags", { kind: "noderel", edge: "tag", node: NTag.kind, dir: "direct" })])}
-      {group("creationYear", [table("creationYear", { kind: "year", node: NPlang.kind })])}
-      {group("licenses", [table("licenses", { kind: "noderel", edge: "license", node: NLicense.kind, dir: "direct" })])}
-    </>
-  );
-}
+export const PlangsFacetGroups: FunctionComponent<{ currentFacetGroup: GK }> = ({ currentFacetGroup }) => (
+  <>
+    {mapGroups<GK, FK>(GROUPS, currentFacetGroup, ({ groupKey, active, label, facetKeys }) => (
+      <FacetGroup key={groupKey} label={label} active={active}>
+        {facetKeys.map(facetKey => {
+          const facet = FACETS.get(facetKey);
+          const props = (f: FacetConfig<FK>) => ({ groupKey, facetKey, label: f.label, active });
+          switch (facet?.kind) {
+            case "bool":
+              return <FacetBool {...props(facet)} valueMapper={facet.valueMapper} />;
+            case "multi":
+              return <FacetMulti {...props(facet)} />;
+            case "table":
+              return <FacetTable {...props(facet)} config={facet.config} />;
+            case "text":
+              return <FacetText {...props(facet)} />;
+            default:
+              console.error("Facet not found", facetKey);
+          }
+        })}
+      </FacetGroup>
+    ))}
+  </>
+);
