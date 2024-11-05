@@ -1,4 +1,5 @@
-import { type Dispatch, useState } from "preact/hooks";
+import type { RefObject } from "preact";
+import { type Dispatch, useEffect, useRef, useState } from "preact/hooks";
 
 export abstract class Dispatchable<T> {
   dispatcher?: Dispatch<this>;
@@ -13,25 +14,8 @@ export abstract class Dispatchable<T> {
   }
 
   dispatch(): this {
-    if (!this.dispatcher) console.error("No dispatcher. Did you forget to call useDispatchable?");
-    return this.maybeDispatch();
-  }
-
-  /**
-   * If we are aware and intentional,
-   * attempting to dispatch without a dispatcher may be ok.
-   */
-  maybeDispatch(): this {
-    this.runDispatcher();
-    return this;
-  }
-
-  /**
-   * Actually run the dispatcher. Subclasses can override to do something different:
-   * for example, to trigger the dispatcher of a parent element.
-   */
-  protected runDispatcher(): void {
     this.dispatcher?.(this.clone());
+    return this;
   }
 }
 
@@ -43,4 +27,17 @@ export function useDispatchable<T extends Dispatchable<any>>(factory: () => T): 
   const [state, dispatcher] = useState(factory);
   state.dispatcher = dispatcher;
   return state;
+}
+
+/**
+ * Saves the state of the component on the HTML wrapper element of a preact component.
+ * Returns a ref that should be attached to the root element of the component.
+ */
+export function useRootState<Container extends HTMLElement, T>(state: T): RefObject<Container | undefined> {
+  const ref = useRef<Container | undefined>();
+  useEffect(() => {
+    const root = ref.current?.parentElement as Container & { state?: T };
+    if (root && state) root.state = state;
+  }, [state]);
+  return ref as RefObject<Container | undefined>;
 }
