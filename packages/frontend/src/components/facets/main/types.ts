@@ -1,7 +1,12 @@
+import type { ComponentChild } from "preact";
+
 import type { AnyValue } from "@plangs/auxiliar/value";
 import type { FacetBoolMapper } from "@plangs/frontend/components/facets/misc/facet-bool";
-import type { FacetTableConfig } from "@plangs/frontend/components/facets/table/facet-table";
-import type { ComponentChild } from "preact";
+import type { FacetTableConfig } from "@plangs/frontend/components/facets/table/entries";
+
+////////////////////////////////////////////////////////////////////////////////
+/// Facet Input Configuration
+////////////////////////////////////////////////////////////////////////////////
 
 export type FacetConfigBase<Kind extends string, FK> = { kind: Kind; label: string; facetKey: FK };
 
@@ -36,6 +41,10 @@ export function defineFacets<FK extends string>(...facets: readonly FacetConfig<
     return map;
   }, new Map<FK, FacetConfig<FK>>());
 }
+
+////////////////////////////////////////////////////////////////////////////////
+/// Facet Group Configuration
+////////////////////////////////////////////////////////////////////////////////
 
 /** Type of a group of facets. */
 export type FacetGroupConfig<GK, FK> = { groupKey: GK; label: string; facetKeys: readonly FK[] };
