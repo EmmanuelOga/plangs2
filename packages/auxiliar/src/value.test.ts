@@ -7,17 +7,17 @@ test("ValNil null", () => {
   const nil = new ValNil(null);
 
   expect(nil.value).toBeNull();
-  expect(nil.isPresent).toBe(false);
-  expect(nil.isNil).toBe(true);
+  expect(nil.isPresent).toBeFalse();
+  expect(nil.isNil).toBeTrue();
 
   const val = nil as AnyValue;
 
-  expect(val.equalTo()).toBe(false);
-  expect(val.equalTo(null as any)).toBe(false);
-  expect(val.equalTo(undefined)).toBe(false);
-  expect(val.equalTo(1 as any)).toBe(false);
-  expect(val.equalTo(new ValNil(null))).toBe(true);
-  expect(val.equalTo(new ValNil(undefined))).toBe(true);
+  expect(val.equalTo()).toBeFalse();
+  expect(val.equalTo(null as any)).toBeFalse();
+  expect(val.equalTo(undefined)).toBeFalse();
+  expect(val.equalTo(1 as any)).toBeFalse();
+  expect(val.equalTo(new ValNil(null))).toBeTrue();
+  expect(val.equalTo(new ValNil(undefined))).toBeTrue();
   expect(val.serializable()).toBe(undefined);
 });
 
@@ -25,17 +25,17 @@ test("ValNil undefined", () => {
   const nil = new ValNil(undefined);
 
   expect(nil.value).toBeUndefined();
-  expect(nil.isPresent).toBe(false);
-  expect(nil.isNil).toBe(true);
+  expect(nil.isPresent).toBeFalse();
+  expect(nil.isNil).toBeTrue();
 
   const val = nil as AnyValue;
 
-  expect(val.equalTo()).toBe(false);
-  expect(val.equalTo(null as any)).toBe(false);
-  expect(val.equalTo(undefined)).toBe(false);
-  expect(val.equalTo(1 as any)).toBe(false);
-  expect(val.equalTo(new ValNil(null))).toBe(true);
-  expect(val.equalTo(new ValNil(undefined))).toBe(true);
+  expect(val.equalTo()).toBeFalse();
+  expect(val.equalTo(null as any)).toBeFalse();
+  expect(val.equalTo(undefined)).toBeFalse();
+  expect(val.equalTo(1 as any)).toBeFalse();
+  expect(val.equalTo(new ValNil(null))).toBeTrue();
+  expect(val.equalTo(new ValNil(undefined))).toBeTrue();
   expect(val.serializable()).toBe(undefined);
 });
 
@@ -43,75 +43,75 @@ test("ValNumber", () => {
   const num = new ValNumber(0);
 
   expect(num.value).toBe(0);
-  expect(num.isPresent).toBe(true);
-  expect(num.isNil).toBe(false);
+  expect(num.isPresent).toBeTrue();
+  expect(num.isNil).toBeFalse();
 
   const val = num as AnyValue;
 
-  expect(val.equalTo()).toBe(false);
-  expect(val.equalTo(null as any)).toBe(false);
-  expect(val.equalTo(undefined)).toBe(false);
-  expect(val.equalTo(0 as any)).toBe(false);
-  expect(val.equalTo(1 as any)).toBe(false);
-  expect(val.equalTo(new ValNumber(0))).toBe(true);
-  expect(val.equalTo(new ValNumber(1))).toBe(false);
+  expect(val.equalTo()).toBeFalse();
+  expect(val.equalTo(null as any)).toBeFalse();
+  expect(val.equalTo(undefined)).toBeFalse();
+  expect(val.equalTo(0 as any)).toBeFalse();
+  expect(val.equalTo(1 as any)).toBeFalse();
+  expect(val.equalTo(new ValNumber(0))).toBeTrue();
+  expect(val.equalTo(new ValNumber(1))).toBeFalse();
   expect(val.serializable()).toBe(0);
 });
 
 test("ValBool of false", () => {
   const bool = new ValBool(false);
 
-  expect(bool.value).toBe(false);
-  expect(bool.isPresent).toBe(false);
-  expect(bool.isNil).toBe(false);
+  expect(bool.value).toBeFalse();
+  expect(bool.isPresent).toBeFalse();
+  expect(bool.isNil).toBeFalse();
 
   const val = bool as AnyValue;
 
-  expect(val.equalTo()).toBe(false);
-  expect(val.equalTo(null as any)).toBe(false);
-  expect(val.equalTo(undefined)).toBe(false);
-  expect(val.equalTo(0 as any)).toBe(false);
-  expect(val.equalTo(1 as any)).toBe(false);
-  expect(val.equalTo(new ValBool(true))).toBe(false);
-  expect(val.equalTo(new ValBool(false))).toBe(true);
+  expect(val.equalTo()).toBeFalse();
+  expect(val.equalTo(null as any)).toBeFalse();
+  expect(val.equalTo(undefined)).toBeFalse();
+  expect(val.equalTo(0 as any)).toBeFalse();
+  expect(val.equalTo(1 as any)).toBeFalse();
+  expect(val.equalTo(new ValBool(true))).toBeFalse();
+  expect(val.equalTo(new ValBool(false))).toBeTrue();
   expect(val.serializable()).toBeUndefined();
 });
 
 test("ValBool of true", () => {
   const bool = new ValBool(true);
 
-  expect(bool.value).toBe(true);
-  expect(bool.isPresent).toBe(true);
-  expect(bool.isNil).toBe(false);
+  expect(bool.value).toBeTrue();
+  expect(bool.isPresent).toBeTrue();
+  expect(bool.isNil).toBeFalse();
 
   const val = bool as AnyValue;
 
-  expect(val.equalTo()).toBe(false);
-  expect(val.equalTo(null as any)).toBe(false);
-  expect(val.equalTo(undefined)).toBe(false);
-  expect(val.equalTo(0 as any)).toBe(false);
-  expect(val.equalTo(1 as any)).toBe(false);
-  expect(val.equalTo(new ValBool(true))).toBe(true);
-  expect(val.equalTo(new ValBool(false))).toBe(false);
-  expect(val.serializable()).toBe(true);
+  expect(val.equalTo()).toBeFalse();
+  expect(val.equalTo(null as any)).toBeFalse();
+  expect(val.equalTo(undefined)).toBeFalse();
+  expect(val.equalTo(0 as any)).toBeFalse();
+  expect(val.equalTo(1 as any)).toBeFalse();
+  expect(val.equalTo(new ValBool(true))).toBeTrue();
+  expect(val.equalTo(new ValBool(false))).toBeFalse();
+  expect(val.serializable()).toBeTrue();
 });
 
 test("ValString of ''", () => {
   const bool = new ValString("");
 
   expect(bool.value).toBe("");
-  expect(bool.isPresent).toBe(false);
-  expect(bool.isNil).toBe(false);
+  expect(bool.isPresent).toBeFalse();
+  expect(bool.isNil).toBeFalse();
 
   const val = bool as AnyValue;
 
-  expect(val.equalTo()).toBe(false);
-  expect(val.equalTo(null as any)).toBe(false);
-  expect(val.equalTo(undefined)).toBe(false);
-  expect(val.equalTo(0 as any)).toBe(false);
-  expect(val.equalTo(1 as any)).toBe(false);
-  expect(val.equalTo(new ValString(""))).toBe(true);
-  expect(val.equalTo(new ValString("x"))).toBe(false);
+  expect(val.equalTo()).toBeFalse();
+  expect(val.equalTo(null as any)).toBeFalse();
+  expect(val.equalTo(undefined)).toBeFalse();
+  expect(val.equalTo(0 as any)).toBeFalse();
+  expect(val.equalTo(1 as any)).toBeFalse();
+  expect(val.equalTo(new ValString(""))).toBeTrue();
+  expect(val.equalTo(new ValString("x"))).toBeFalse();
   expect(val.serializable()).toBeUndefined();
 });
 
@@ -119,18 +119,18 @@ test("ValString of non empty string", () => {
   const bool = new ValString("x");
 
   expect(bool.value).toBe("x");
-  expect(bool.isPresent).toBe(true);
-  expect(bool.isNil).toBe(false);
+  expect(bool.isPresent).toBeTrue();
+  expect(bool.isNil).toBeFalse();
 
   const val = bool as AnyValue;
 
-  expect(val.equalTo()).toBe(false);
-  expect(val.equalTo(null as any)).toBe(false);
-  expect(val.equalTo(undefined)).toBe(false);
-  expect(val.equalTo(0 as any)).toBe(false);
-  expect(val.equalTo(1 as any)).toBe(false);
-  expect(val.equalTo(new ValString(""))).toBe(false);
-  expect(val.equalTo(new ValString("x"))).toBe(true);
+  expect(val.equalTo()).toBeFalse();
+  expect(val.equalTo(null as any)).toBeFalse();
+  expect(val.equalTo(undefined)).toBeFalse();
+  expect(val.equalTo(0 as any)).toBeFalse();
+  expect(val.equalTo(1 as any)).toBeFalse();
+  expect(val.equalTo(new ValString(""))).toBeFalse();
+  expect(val.equalTo(new ValString("x"))).toBeTrue();
   expect(val.serializable()).toBe("x");
 });
 
@@ -138,18 +138,18 @@ test("ValSet of empty set", () => {
   const bool = new ValSet<any>(new Set());
 
   expect(bool.value).toEqual(new Set());
-  expect(bool.isPresent).toBe(false);
-  expect(bool.isNil).toBe(false);
+  expect(bool.isPresent).toBeFalse();
+  expect(bool.isNil).toBeFalse();
 
   const val = bool as AnyValue;
 
-  expect(val.equalTo()).toBe(false);
-  expect(val.equalTo(null as any)).toBe(false);
-  expect(val.equalTo(undefined)).toBe(false);
-  expect(val.equalTo(0 as any)).toBe(false);
-  expect(val.equalTo(1 as any)).toBe(false);
-  expect(val.equalTo(new ValSet(new Set()))).toBe(true);
-  expect(val.equalTo(new ValSet(new Set(["x"])))).toBe(false);
+  expect(val.equalTo()).toBeFalse();
+  expect(val.equalTo(null as any)).toBeFalse();
+  expect(val.equalTo(undefined)).toBeFalse();
+  expect(val.equalTo(0 as any)).toBeFalse();
+  expect(val.equalTo(1 as any)).toBeFalse();
+  expect(val.equalTo(new ValSet(new Set()))).toBeTrue();
+  expect(val.equalTo(new ValSet(new Set(["x"])))).toBeFalse();
   expect(val.serializable()).toBeUndefined();
 });
 
@@ -157,18 +157,18 @@ test("ValSet of non empty set", () => {
   const bool = new ValSet(new Set(["x"]));
 
   expect(bool.value).toEqual(new Set(["x"]));
-  expect(bool.isPresent).toBe(true);
-  expect(bool.isNil).toBe(false);
+  expect(bool.isPresent).toBeTrue();
+  expect(bool.isNil).toBeFalse();
 
   const val = bool as AnyValue;
 
-  expect(val.equalTo()).toBe(false);
-  expect(val.equalTo(null as any)).toBe(false);
-  expect(val.equalTo(undefined)).toBe(false);
-  expect(val.equalTo(0 as any)).toBe(false);
-  expect(val.equalTo(1 as any)).toBe(false);
-  expect(val.equalTo(new ValSet(new Set()))).toBe(false);
-  expect(val.equalTo(new ValSet(new Set(["x"])))).toBe(true);
+  expect(val.equalTo()).toBeFalse();
+  expect(val.equalTo(null as any)).toBeFalse();
+  expect(val.equalTo(undefined)).toBeFalse();
+  expect(val.equalTo(0 as any)).toBeFalse();
+  expect(val.equalTo(1 as any)).toBeFalse();
+  expect(val.equalTo(new ValSet(new Set()))).toBeFalse();
+  expect(val.equalTo(new ValSet(new Set(["x"])))).toBeTrue();
   expect(val.serializable()).toEqual(["Set", ["x"]]);
 });
 
@@ -178,20 +178,20 @@ test("ValRegExp empty regexp", () => {
 
   // biome-ignore lint/complexity/useRegexLiterals: I want to instantiate an empty regexp.
   expect(num.value.source).toBe(new RegExp("").source);
-  expect(num.isPresent).toBe(false);
-  expect(num.isNil).toBe(false);
+  expect(num.isPresent).toBeFalse();
+  expect(num.isNil).toBeFalse();
 
   const val = num as AnyValue;
 
-  expect(val.equalTo()).toBe(false);
-  expect(val.equalTo(null as any)).toBe(false);
-  expect(val.equalTo(undefined)).toBe(false);
-  expect(val.equalTo(0 as any)).toBe(false);
-  expect(val.equalTo(1 as any)).toBe(false);
+  expect(val.equalTo()).toBeFalse();
+  expect(val.equalTo(null as any)).toBeFalse();
+  expect(val.equalTo(undefined)).toBeFalse();
+  expect(val.equalTo(0 as any)).toBeFalse();
+  expect(val.equalTo(1 as any)).toBeFalse();
   // biome-ignore lint/complexity/useRegexLiterals: I want to instantiate an empty regexp.
-  expect(val.equalTo(new ValRegExp(new RegExp("")))).toBe(true);
+  expect(val.equalTo(new ValRegExp(new RegExp("")))).toBeTrue();
   // biome-ignore lint/complexity/useRegexLiterals: I want to instantiate an empty regexp.
-  expect(val.equalTo(new ValRegExp(new RegExp("x")))).toBe(false);
+  expect(val.equalTo(new ValRegExp(new RegExp("x")))).toBeFalse();
   expect(val.serializable()).toBeUndefined();
 });
 
@@ -201,20 +201,20 @@ test("ValRegExp non empty regexp", () => {
 
   // biome-ignore lint/complexity/useRegexLiterals: I want to instantiate an empty regexp.
   expect(num.value.source).toBe(new RegExp("x").source);
-  expect(num.isPresent).toBe(true);
-  expect(num.isNil).toBe(false);
+  expect(num.isPresent).toBeTrue();
+  expect(num.isNil).toBeFalse();
 
   const val = num as AnyValue;
 
-  expect(val.equalTo()).toBe(false);
-  expect(val.equalTo(null as any)).toBe(false);
-  expect(val.equalTo(undefined)).toBe(false);
-  expect(val.equalTo(0 as any)).toBe(false);
-  expect(val.equalTo(1 as any)).toBe(false);
+  expect(val.equalTo()).toBeFalse();
+  expect(val.equalTo(null as any)).toBeFalse();
+  expect(val.equalTo(undefined)).toBeFalse();
+  expect(val.equalTo(0 as any)).toBeFalse();
+  expect(val.equalTo(1 as any)).toBeFalse();
   // biome-ignore lint/complexity/useRegexLiterals: I want to instantiate an empty regexp.
-  expect(val.equalTo(new ValRegExp(new RegExp("")))).toBe(false);
+  expect(val.equalTo(new ValRegExp(new RegExp("")))).toBeFalse();
   // biome-ignore lint/complexity/useRegexLiterals: I want to instantiate an empty regexp.
-  expect(val.equalTo(new ValRegExp(new RegExp("x")))).toBe(true);
+  expect(val.equalTo(new ValRegExp(new RegExp("x")))).toBeTrue();
   expect(val.serializable()).toEqual(["RegExp", "x"]);
 });
 
@@ -228,7 +228,7 @@ test("Serialization / deserialization", () => {
   expect(roundtrip(new ValNumber(42))?.value).toBe(42);
 
   expect(roundtrip(new ValBool(false))).toBeInstanceOf(ValNil);
-  expect(roundtrip(new ValBool(true))?.value).toBe(true);
+  expect(roundtrip(new ValBool(true))?.value).toBeTrue();
 
   expect(roundtrip(new ValString(""))).toBeInstanceOf(ValNil);
   expect(roundtrip(new ValString("Hello"))?.value).toBe("Hello");

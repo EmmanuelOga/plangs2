@@ -11,7 +11,7 @@ test("arrayMerge", () => {
 
   const cmp = (a: typeof link, b: typeof link) => a.href === b.href;
 
-  expect(cmp(link, dupe())).toBe(true);
+  expect(cmp(link, dupe())).toBeTrue();
 
   const target: (typeof link)[] = [];
   arrayMerge(target, [link, dupe(), dupe()], cmp);

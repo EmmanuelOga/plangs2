@@ -13,7 +13,7 @@ test("IterTap of undefined", () => {
   expect(t.some(() => true)).toEqual(false);
   expect(t.find(() => true)).toEqual(undefined);
   expect(t.tap(() => 1)).toBeUndefined();
-  expect(t.isEmpty).toBe(true);
+  expect(t.isEmpty).toBeTrue();
   expect(t.size).toEqual(0);
   expect(t.existing).toEqual([]);
   expect(t.reverse.size).toEqual(0);
@@ -38,7 +38,7 @@ test("IterTap of empty array", () => {
   expect(t.some(() => true)).toEqual(false);
   expect(t.find(() => true)).toEqual(undefined);
   expect(t.tap(() => 1)).toBeUndefined();
-  expect(t.isEmpty).toBe(true);
+  expect(t.isEmpty).toBeTrue();
   expect(t.size).toEqual(0);
   expect(t.existing).toEqual([]);
   expect(t.reverse.size).toEqual(0);
@@ -74,7 +74,7 @@ test("IterTap of a non empty array", () => {
   expect(t.tap(arr => arr.length)).toBe(4);
   expect(t.tap(_ => 42)).toBe(42);
 
-  expect(t.isEmpty).toBe(false);
+  expect(t.isEmpty).toBeFalse();
   expect(t.size).toEqual(4);
 
   t.array?.push(undefined as any);
