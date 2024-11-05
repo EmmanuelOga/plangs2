@@ -5,21 +5,24 @@ import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { customEvent, send } from "@plangs/frontend/auxiliar/events";
 import { HOVER_SVG, tw } from "@plangs/frontend/auxiliar/styles";
 
+import { useRootState } from "@plangs/frontend/auxiliar/dispatchable";
 import { useIconButtonState } from "./state";
 
 export type IconButtonProps = {
-  action: "facets" | "hamburger" | "lights" | "allAny";
+  action: "facets" | "clearFacets" | "hamburger" | "lights" | "allAny";
   class?: string;
   disabled?: boolean;
   initial?: string;
 };
 
 export function IconButton({ action, disabled, initial, class: cssClass }: IconButtonProps) {
-  const self = useRef<HTMLDivElement>();
   const state = useIconButtonState({ action, disabled, initial });
+  const self = useRootState(state);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: state is not a dependency since it is a dispatchable.
   useEffect(() => {
+    if (!state) return;
+
     const newval = disabled === undefined ? false : disabled;
     if (newval !== state.disabled) {
       state.disabled = newval;
@@ -28,7 +31,7 @@ export function IconButton({ action, disabled, initial, class: cssClass }: IconB
   }, [disabled]);
 
   const toggle = () => {
-    if (disabled) return;
+    if (!state) return;
 
     state.doAction();
     state.runEffects();
@@ -43,7 +46,7 @@ export function IconButton({ action, disabled, initial, class: cssClass }: IconB
       tabIndex={disabled ? undefined : 0}
       {...onClickOnEnter(toggle)}
       class={tw("group", "cursor-pointer", !disabled && HOVER_SVG, cssClass)}>
-      {state.icon}
+      {state?.icon}
     </div>
   );
 }

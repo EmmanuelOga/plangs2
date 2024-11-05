@@ -2,20 +2,21 @@ import type { ComponentChild } from "preact";
 
 import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { elem, elems } from "@plangs/frontend/auxiliar/dom";
-import { BOOLEAN, CLOSE, FILTER_EDIT, FULLCIRCLE, MENU, MOON, SUN } from "@plangs/frontend/auxiliar/icons";
+import { BOOLEAN, CLOSE, DESELECT, FILTER_CLOSE, FILTER_EDIT, FULLCIRCLE, MENU, MOON, SUN } from "@plangs/frontend/auxiliar/icons";
 import { tw } from "@plangs/frontend/auxiliar/styles";
 
+import type { FacetsMainElement } from "../facets/main";
 import type { IconButtonProps } from "./icon-button";
 
-export type IconButtonState = ToggleLights | ToggleHamburguer | ToggleFacetsMenu | TogglAllAny | DummyState;
+export type IconButtonState = ToggleLights | ToggleHamburguer | ToggleFacetsMenu | ToggleAllAny | ToggleClearFacets | undefined;
 
 export function useIconButtonState({ action, disabled, initial }: IconButtonProps): IconButtonState {
   if (action === "lights") return useDispatchable(() => ToggleLights.initial(disabled));
   if (action === "hamburger") return useDispatchable(() => ToggleHamburguer.initial(disabled));
   if (action === "facets") return useDispatchable(() => ToggleFacetsMenu.initial(disabled));
-  if (action === "allAny") return useDispatchable(() => TogglAllAny.initial(initial, disabled));
+  if (action === "allAny") return useDispatchable(() => ToggleAllAny.initial(initial, disabled));
+  if (action === "clearFacets") return useDispatchable(() => ToggleClearFacets.initial(disabled));
   console.error(`Unknown action: ${action}`);
-  return useDispatchable(() => DummyState.initial(disabled));
 }
 
 abstract class IconButtonBaseState<T> extends Dispatchable<T & { disabled: boolean }> {
@@ -37,21 +38,6 @@ abstract class IconButtonBaseState<T> extends Dispatchable<T & { disabled: boole
   get value() {
     const { disabled, ...data } = this.data;
     return data;
-  }
-}
-
-/** Dummy state for when the action is missing. */
-// biome-ignore lint/complexity/noBannedTypes: Empty type here is OK, we don't need additional data for the dummy state.
-export class DummyState extends IconButtonBaseState<{}> {
-  static initial(disabled: boolean | undefined) {
-    return new DummyState({ disabled: disabled ?? false });
-  }
-
-  override doAction() {}
-  override runEffects() {}
-
-  override get icon() {
-    return FULLCIRCLE;
   }
 }
 
@@ -103,7 +89,7 @@ export class ToggleHamburguer extends IconButtonBaseState<{ mode: "show" | "hide
   }
 }
 
-/** State for a the facets menu. */
+/** State for the facets menu. */
 export class ToggleFacetsMenu extends IconButtonBaseState<{ mode: "show" | "hide" }> {
   static initial(disabled = false) {
     return new ToggleFacetsMenu({ mode: localStorage.getItem("facets") === "show" ? "show" : "hide", disabled });
@@ -140,9 +126,9 @@ export class ToggleFacetsMenu extends IconButtonBaseState<{ mode: "show" | "hide
 }
 
 /** State for toggling between "and" and "all" modes. */
-export class TogglAllAny extends IconButtonBaseState<{ mode: "all" | "any" }> {
+export class ToggleAllAny extends IconButtonBaseState<{ mode: "all" | "any" }> {
   static initial(initial: string | undefined, disabled = false) {
-    return new TogglAllAny({ mode: initial === "all" ? "all" : "any", disabled });
+    return new ToggleAllAny({ mode: initial === "all" ? "all" : "any", disabled });
   }
 
   get mode(): "all" | "any" {
@@ -170,5 +156,29 @@ export class TogglAllAny extends IconButtonBaseState<{ mode: "all" | "any" }> {
 
   override runEffects() {
     // nada.
+  }
+}
+
+/** State for clearing any selection from the facets menu. */
+export class ToggleClearFacets extends IconButtonBaseState<{ mode: "clearFacets" | "" }> {
+  static initial(disabled = false) {
+    return new ToggleClearFacets({ disabled, mode: "" });
+  }
+
+  override get icon() {
+    return this.data.mode === "clearFacets" ? DESELECT : null;
+  }
+
+  override doAction() {
+    this.data.mode = "";
+  }
+
+  doToggleMode(mode: "clearFacets" | "") {
+    this.data.mode = mode;
+    this.dispatch();
+  }
+
+  override runEffects() {
+    for (const el of elems<FacetsMainElement>("facetsMain")) el.state?.doResetAll();
   }
 }
