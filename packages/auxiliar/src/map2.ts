@@ -26,6 +26,20 @@ export class Map2<K1, K2, V> {
     return this.#map.get(k1)?.delete(k2) ?? false;
   }
 
+  // Delete all keys [k1, *] from the map.
+  delete1(k1: K1): boolean {
+    const map = this.#map.get(k1);
+    if (map) {
+      this.#map.delete(k1);
+      return map.size > 0;
+    }
+    return false;
+  }
+
+  clear() {
+    this.#map.clear();
+  }
+
   get(k1: K1, k2: K2): V | undefined {
     return this.#map.get(k1)?.get(k2);
   }
@@ -47,6 +61,11 @@ export class Map2<K1, K2, V> {
     let size = 0;
     for (const map of this.#map.values()) size += map.size;
     return size;
+  }
+
+  get isEmpty(): boolean {
+    for (const map of this.#map.values()) if (map.size > 0) return false;
+    return true;
   }
 
   /** Returns the size of the second dimension for a given key in the first dimension. */
