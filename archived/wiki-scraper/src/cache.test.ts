@@ -18,7 +18,7 @@ test("key values can be escaped and unescaped", () => {
 test("cached keys can be read and written", async () => {
   const key = Key.get("https://example.com");
 
-  expect(await cache.file(key).exists()).toBe(false);
+  expect(await cache.file(key).exists()).toBeFalse();
   expect(await cache.list()).toEqual([]);
 
   expect(await cache.has(key)).toBeFalse();
@@ -27,16 +27,16 @@ test("cached keys can be read and written", async () => {
 
   await cache.write(key, "hello world");
 
-  expect(await cache.file(key).exists()).toBe(true);
+  expect(await cache.file(key).exists()).toBeTrue();
   expect(await cache.list()).toEqual([key]);
 
-  expect(await cache.has(key)).toBe(true);
+  expect(await cache.has(key)).toBeTrue();
   expect(await cache.read(key)).toBe("hello world");
   expect(await cache.file(key).exists()).toBeTrue();
 
   await cache.remove(key);
 
-  expect(await cache.file(key).exists()).toBe(false);
+  expect(await cache.file(key).exists()).toBeFalse();
   expect(await cache.list()).toEqual([]);
 
   expect(await cache.has(key)).toBeFalse();
