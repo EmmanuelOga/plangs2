@@ -68,7 +68,7 @@ export const DEFAULT_GROUP = "general";
 export const PlangsFacetGroups: FunctionComponent<{ currentFacetGroup: GK }> = ({ currentFacetGroup }) => (
   <>
     {mapGroups<GK, FK>(GROUPS, currentFacetGroup, ({ groupKey, active, label, facetKeys }) => (
-      <FacetGroup key={groupKey} label={label} active={active}>
+      <FacetGroup<GK> key={groupKey} groupKey={groupKey} label={label} active={active}>
         {facetKeys.map(facetKey => {
           const facet = FACETS.get(facetKey);
           const props = (f: FacetConfig<FK>) => ({ groupKey, facetKey, label: f.label, active });

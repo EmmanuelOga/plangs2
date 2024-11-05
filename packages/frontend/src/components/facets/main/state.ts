@@ -1,12 +1,14 @@
 import type { FunctionComponent } from "preact";
 
 import type { Map2 } from "@plangs/auxiliar/map2";
-import { type AnyValue, deserializeValue } from "@plangs/auxiliar/value";
+import type { AnyValue } from "@plangs/auxiliar/value";
 import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 import type { PlangFacetKey } from "@plangs/plangs/facets/plangs";
 import type { TAB } from "@plangs/server/components/layout";
 
+import { $, elem } from "@plangs/frontend/auxiliar/dom";
+import type { ToggleClearFacets } from "../../icon-button/state";
 import { updateThumbns } from "./grid";
 import { DEFAULT_GROUP, GROUPS, GROUP_FOR_FACET_KEY, NAV, type PlangFacetGroupKey, PlangsFacetGroups } from "./plangs";
 import { loadFacets, updateFragment, updateLocalStorage } from "./storage";
@@ -17,7 +19,7 @@ export type AnyFacetsMainState = FacetsMainState<string, string>;
 export type SerializedFacets<FacetKey extends string> = Partial<Record<FacetKey, ReturnType<AnyValue["serializable"]>>>;
 
 export function useFacetState(tab: TAB, pg: PlangsGraph): AnyFacetsMainState | undefined {
-  if (tab === "plangs") return useDispatchable(() => PlangsFacetsState.initial(pg, tab) as AnyFacetsMainState);
+  if (tab === "plangs") return useDispatchable(() => PlangsFacetsState.initial(pg) as AnyFacetsMainState);
   console.error("Unknown tab", tab);
 }
 
@@ -29,6 +31,18 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
 }> {
   doSetCurrent(groupKey: GroupKey): void {
     this.data.currentGroupKey = groupKey;
+    this.dispatch();
+  }
+
+  /** Removes any and all values for the given group.  */
+  doResetGroup(groupKey: GroupKey): void {
+    this.values.delete1(groupKey);
+    this.dispatch();
+  }
+
+  /** Removes any and all values for the given group.  */
+  doResetAll(): void {
+    this.values.clear();
     this.dispatch();
   }
 
@@ -49,17 +63,8 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
       result = values.delete(groupKey, facetKey) ? "changed" : "unchanged";
     }
 
-    this.sideEffects();
     this.dispatch();
-
     return result;
-  }
-
-  sideEffects() {
-    const data = this.serialized;
-    updateFragment(data);
-    updateLocalStorage(this.tab, data);
-    updateThumbns(this.results);
   }
 
   /** Queries */
@@ -88,13 +93,36 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
     return this.data.currentGroupKey;
   }
 
-  isActive(groupKey: GroupKey): boolean {
+  groupHasValues(groupKey: GroupKey): boolean {
     return (
       this.values
         .getMap(groupKey)
         ?.values()
         .some(v => v.isPresent) ?? false
     );
+  }
+
+  /** Helpers */
+
+  /** Update the clear facets button on the toolbar. */
+  updateClearFacets(): this {
+    const clearAll = $<HTMLElement & { state?: ToggleClearFacets }>("#icon-button-clearFacets");
+    if (!clearAll?.state) return this;
+    clearAll.state.doToggleMode(this.values.isEmpty ? "" : "clearFacets");
+    return this;
+  }
+
+  override dispatch(): this {
+    super.dispatch();
+
+    const data = this.serialized;
+    updateFragment(data);
+    updateLocalStorage(this.tab, data);
+    updateThumbns(this.results);
+
+    this.updateClearFacets();
+
+    return this;
   }
 
   /** Abstract Methods. */
@@ -113,8 +141,9 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
 
 /** Implementation of the state for Faceted search of Programming Languages. */
 export class PlangsFacetsState extends FacetsMainState<PlangFacetGroupKey, PlangFacetKey> {
-  static initial(pg: PlangsGraph, tab: TAB): PlangsFacetsState {
-    return new PlangsFacetsState({ pg, tab, values: loadFacets(GROUP_FOR_FACET_KEY), currentGroupKey: DEFAULT_GROUP });
+  static initial(pg: PlangsGraph): PlangsFacetsState {
+    const tab: TAB = "plangs";
+    return new PlangsFacetsState({ pg, tab, values: loadFacets(tab, GROUP_FOR_FACET_KEY), currentGroupKey: DEFAULT_GROUP }).updateClearFacets();
   }
 
   override get nav() {

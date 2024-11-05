@@ -32,10 +32,12 @@ export class FacetTableState<GroupKey extends string, FacetKey extends string> e
     this.doSetValue(value);
   }
 
+  // Note that this is the only place where we dispatch locally instead of through the main state.
   doToggleOrder(col: Column) {
     const { order } = this.data;
     this.data.order = opposite(col, order);
     this.sort();
+    this.dispatch();
   }
 
   doResetSelection() {
@@ -70,7 +72,6 @@ export class FacetTableState<GroupKey extends string, FacetKey extends string> e
     const { entries, order } = this.data;
     const genericThis = this as unknown as FacetTableState<string, string>;
     entries.sort((a, b) => CMP[order](genericThis, a, b));
-    this.maybeDispatch(); // This way we can use a state instance even without a preact component.
     return this;
   }
 }

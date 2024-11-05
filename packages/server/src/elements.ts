@@ -13,8 +13,8 @@ export const ID_KEYS = [
 export const CL_KEYS = [
   "todo",
 
-  "facetsMain",
-  "iconButton",
+  "facetsMain", // A Div wrapper for FacetsMain component.
+  "iconButton", // A Div wrapper for IconButton component.
   "navLink",
   "pill",
   "plThumb",

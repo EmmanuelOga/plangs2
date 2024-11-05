@@ -66,10 +66,10 @@ export function updateFragment(data: any): void {
 }
 
 /** Attempt to reconstruct the value structure from  fragment or local storage. */
-export function loadFacets<GK, FK>(groupsByFacetKey: Map<FK, GK>): Map2<GK, FK, AnyValue> {
+export function loadFacets<GK, FK>(tab: TAB, groupsByFacetKey: Map<FK, GK>): Map2<GK, FK, AnyValue> {
   const result = new Map2<GK, FK, AnyValue>();
 
-  const values = facetsFromFragment() ?? facetsFromLocalStorage("plangs");
+  const values = facetsFromFragment() ?? facetsFromLocalStorage(tab);
   if (!values) return result;
 
   for (const [facetKey, rawValue] of Object.entries(values)) {

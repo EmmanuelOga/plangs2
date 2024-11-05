@@ -51,16 +51,6 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
           <span class={tw("pl-2", CENTER_ROW, state.value.size < 2 ? "text-foreground/50" : "text-foreground")}>
             <IconButton action="allAny" disabled={state.value.size < 2} initial={state.value.mode} class={tw(config.kind === "year" && "hidden")} />
           </span>
-          <span
-            // biome-ignore lint/a11y/noNoninteractiveTabindex: we make it interactive.
-            tabIndex={0}
-            {...onClickOnEnter(() => {
-              state.doResetSelection();
-            })}
-            class={tw("group", "inline-flex", CENTER_ROW, state.value.isEmpty ? "text-foreground/50" : "text-foreground")}>
-            <span class={tw(!state.value.isEmpty && "group-hover:text-hiliteb")}>Reset</span>
-            <span class={tw(!state.value.isEmpty && HOVER_SVG_GROUP, "scale-50")}>{DESELECT}</span>
-          </span>
         </div>
 
         <div class={tw(ROW, "col-span-3", "bg-primary text-background/80")}>

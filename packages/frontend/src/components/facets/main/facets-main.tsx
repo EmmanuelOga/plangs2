@@ -1,6 +1,6 @@
-import { Fragment, createContext } from "preact";
-import { useEffect } from "preact/hooks";
+import { Fragment, type Ref, createContext } from "preact";
 
+import { useRootState } from "@plangs/frontend/auxiliar/dispatchable";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { FULLCIRCLE } from "@plangs/frontend/auxiliar/icons";
 import { BORDER, HOVER, tw } from "@plangs/frontend/auxiliar/styles";
@@ -18,6 +18,7 @@ export const FacetsMainContext = createContext<AnyFacetsMainState | undefined>(u
 
 export function FacetsMain({ tab, pg }: FacetsMainProps) {
   const state = useFacetState(tab, pg);
+  const self = useRootState(state);
 
   const body = () =>
     !state ? null : (
@@ -31,7 +32,7 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
                 {/* biome-ignore lint/suspicious/noExplicitAny: we set as any here since the groupKey is actually a string that can belong to _any_ facet group. */}
                 {keys.map((groupKey: any) => (
                   <Fragment key={groupKey}>
-                    <div class={tw("mt-[.45rem] pl-1", state.isActive(groupKey) ? "text-primary" : "text-foreground/20 text-xs")}>
+                    <div class={tw("mt-[.45rem] pl-1", state.groupHasValues(groupKey) ? "text-primary" : "text-foreground/20 text-xs")}>
                       <div class="-mt-[2px] scale-66">{FULLCIRCLE}</div>
                     </div>
                     <button
@@ -60,7 +61,9 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
     );
 
   return (
-    <aside class={tw("flex flex-row", "max-h-full overflow-hidden overflow-y-scroll", tw(BORDER, "border-b-1", "border-t-1", "sm:border-r-1"))}>
+    <aside
+      ref={self as Ref<HTMLElement>}
+      class={tw("flex flex-row", "max-h-full overflow-hidden overflow-y-scroll", tw(BORDER, "border-b-1", "border-t-1", "sm:border-r-1"))}>
       {body()}
     </aside>
   );

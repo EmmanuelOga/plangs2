@@ -7,8 +7,11 @@ import type { TAB } from "@plangs/server/components/layout";
 import { cssClass } from "@plangs/server/elements";
 
 import { FacetsMain, type FacetsMainProps } from "./facets-main";
+import type { AnyFacetsMainState } from "./state";
 
 const CL = "facetsMain";
+
+export type FacetsMainElement = HTMLDivElement & { state?: AnyFacetsMainState };
 
 export function facetsMain({ tab, class: klass }: { tab: TAB; class: string }) {
   return <div data-tab={tab} class={tw(klass, cssClass(CL))} />;
