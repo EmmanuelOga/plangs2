@@ -5,7 +5,7 @@
       "1c-enterprise"
     ],
     "defaultAlias": "1c-enterprise",
-    "githubLangId": 0,
+    "githubLangId": "0",
     "color": "#814CCC",
     "extensions": [
       ".bsl",
@@ -23,7 +23,7 @@
       "2-dimensional-array"
     ],
     "defaultAlias": "2-dimensional-array",
-    "githubLangId": 387204628,
+    "githubLangId": "387204628",
     "color": "#38761D",
     "extensions": [
       ".2da"
@@ -40,7 +40,7 @@
       "4d"
     ],
     "defaultAlias": "4d",
-    "githubLangId": 577529595,
+    "githubLangId": "577529595",
     "color": "#004289",
     "extensions": [
       ".4dm"
@@ -57,7 +57,7 @@
       "abap"
     ],
     "defaultAlias": "abap",
-    "githubLangId": 1,
+    "githubLangId": "1",
     "color": "#E8274B",
     "extensions": [
       ".abap"
@@ -74,7 +74,7 @@
       "abap-cds"
     ],
     "defaultAlias": "abap-cds",
-    "githubLangId": 452681853,
+    "githubLangId": "452681853",
     "color": "#555e25",
     "extensions": [
       ".asddls"
@@ -91,7 +91,7 @@
       "abnf"
     ],
     "defaultAlias": "abnf",
-    "githubLangId": 429,
+    "githubLangId": "429",
     "extensions": [
       ".abnf"
     ],
@@ -108,7 +108,7 @@
       "ags"
     ],
     "defaultAlias": "ags-script",
-    "githubLangId": 2,
+    "githubLangId": "2",
     "color": "#B9D9FF",
     "extensions": [
       ".asc",
@@ -128,7 +128,7 @@
       "aidl"
     ],
     "defaultAlias": "aidl",
-    "githubLangId": 451700185,
+    "githubLangId": "451700185",
     "color": "#34EB6B",
     "extensions": [
       ".aidl"
@@ -148,7 +148,7 @@
       "al"
     ],
     "defaultAlias": "al",
-    "githubLangId": 658971832,
+    "githubLangId": "658971832",
     "color": "#3AA2B5",
     "extensions": [
       ".al"
@@ -165,7 +165,7 @@
       "ampl"
     ],
     "defaultAlias": "ampl",
-    "githubLangId": 3,
+    "githubLangId": "3",
     "color": "#E6EFBB",
     "extensions": [
       ".ampl",
@@ -183,7 +183,7 @@
       "antlr"
     ],
     "defaultAlias": "antlr",
-    "githubLangId": 4,
+    "githubLangId": "4",
     "color": "#9DC3FF",
     "extensions": [
       ".g4"
@@ -200,7 +200,7 @@
       "api-blueprint"
     ],
     "defaultAlias": "api-blueprint",
-    "githubLangId": 5,
+    "githubLangId": "5",
     "color": "#2ACCA8",
     "extensions": [
       ".apib"
@@ -217,7 +217,7 @@
       "apl"
     ],
     "defaultAlias": "apl",
-    "githubLangId": 6,
+    "githubLangId": "6",
     "color": "#5A8164",
     "extensions": [
       ".apl",
@@ -242,7 +242,7 @@
       "asl"
     ],
     "defaultAlias": "asl",
-    "githubLangId": 124996147,
+    "githubLangId": "124996147",
     "extensions": [
       ".asl",
       ".dsl"
@@ -259,7 +259,7 @@
       "asn.1"
     ],
     "defaultAlias": "asn.1",
-    "githubLangId": 7,
+    "githubLangId": "7",
     "extensions": [
       ".asn",
       ".asn1"
@@ -280,7 +280,7 @@
       "aspx-vb"
     ],
     "defaultAlias": "asp.net",
-    "githubLangId": 564186416,
+    "githubLangId": "564186416",
     "color": "#9400ff",
     "extensions": [
       ".asax",
@@ -305,7 +305,7 @@
       "ats2"
     ],
     "defaultAlias": "ats",
-    "githubLangId": 9,
+    "githubLangId": "9",
     "color": "#1ac620",
     "extensions": [
       ".dats",
@@ -327,7 +327,7 @@
       "as3"
     ],
     "defaultAlias": "actionscript",
-    "githubLangId": 10,
+    "githubLangId": "10",
     "color": "#882B0F",
     "extensions": [
       ".as"
@@ -346,7 +346,7 @@
       "ada2005"
     ],
     "defaultAlias": "ada",
-    "githubLangId": 11,
+    "githubLangId": "11",
     "color": "#02f88c",
     "extensions": [
       ".adb",
@@ -369,7 +369,7 @@
       "adblock"
     ],
     "defaultAlias": "adblock-filter-list",
-    "githubLangId": 884614762,
+    "githubLangId": "884614762",
     "color": "#800000",
     "extensions": [
       ".txt"
@@ -390,7 +390,7 @@
       "amfm"
     ],
     "defaultAlias": "adobe-font-metrics",
-    "githubLangId": 147198098,
+    "githubLangId": "147198098",
     "color": "#fa0f00",
     "extensions": [
       ".afm"
@@ -407,7 +407,7 @@
       "agda"
     ],
     "defaultAlias": "agda",
-    "githubLangId": 12,
+    "githubLangId": "12",
     "color": "#315665",
     "extensions": [
       ".agda"
@@ -424,7 +424,7 @@
       "alloy"
     ],
     "defaultAlias": "alloy",
-    "githubLangId": 13,
+    "githubLangId": "13",
     "color": "#64C800",
     "extensions": [
       ".als"
@@ -444,7 +444,7 @@
       "apkbuild"
     ],
     "defaultAlias": "alpine-abuild",
-    "githubLangId": 14,
+    "githubLangId": "14",
     "color": "#0D597F",
     "filenames": [
       "APKBUILD"
@@ -464,7 +464,7 @@
       "altium"
     ],
     "defaultAlias": "altium-designer",
-    "githubLangId": 187772328,
+    "githubLangId": "187772328",
     "color": "#A89663",
     "extensions": [
       ".OutJob",
@@ -484,7 +484,7 @@
       "angelscript"
     ],
     "defaultAlias": "angelscript",
-    "githubLangId": 389477596,
+    "githubLangId": "389477596",
     "color": "#C7D7DC",
     "extensions": [
       ".as",
@@ -504,7 +504,7 @@
       "ant-build-system"
     ],
     "defaultAlias": "ant-build-system",
-    "githubLangId": 15,
+    "githubLangId": "15",
     "color": "#A9157E",
     "filenames": [
       "ant.xml",
@@ -524,7 +524,7 @@
       "antlers"
     ],
     "defaultAlias": "antlers",
-    "githubLangId": 1067292663,
+    "githubLangId": "1067292663",
     "color": "#ff269e",
     "extensions": [
       ".antlers.html",
@@ -545,7 +545,7 @@
       "apache"
     ],
     "defaultAlias": "apacheconf",
-    "githubLangId": 16,
+    "githubLangId": "16",
     "color": "#d12127",
     "extensions": [
       ".apacheconf",
@@ -568,7 +568,7 @@
       "apex"
     ],
     "defaultAlias": "apex",
-    "githubLangId": 17,
+    "githubLangId": "17",
     "color": "#1797c0",
     "extensions": [
       ".cls",
@@ -589,7 +589,7 @@
       "apollo-guidance-computer"
     ],
     "defaultAlias": "apollo-guidance-computer",
-    "githubLangId": 18,
+    "githubLangId": "18",
     "color": "#0B3D91",
     "extensions": [
       ".agc"
@@ -607,7 +607,7 @@
       "osascript"
     ],
     "defaultAlias": "applescript",
-    "githubLangId": 19,
+    "githubLangId": "19",
     "color": "#101F1F",
     "extensions": [
       ".applescript",
@@ -628,7 +628,7 @@
       "arc"
     ],
     "defaultAlias": "arc",
-    "githubLangId": 20,
+    "githubLangId": "20",
     "color": "#aa2afe",
     "extensions": [
       ".arc"
@@ -645,7 +645,7 @@
       "asciidoc"
     ],
     "defaultAlias": "asciidoc",
-    "githubLangId": 22,
+    "githubLangId": "22",
     "color": "#73a0c5",
     "extensions": [
       ".asciidoc",
@@ -664,7 +664,7 @@
       "aspectj"
     ],
     "defaultAlias": "aspectj",
-    "githubLangId": 23,
+    "githubLangId": "23",
     "color": "#a957b0",
     "extensions": [
       ".aj"
@@ -683,7 +683,7 @@
       "nasm"
     ],
     "defaultAlias": "assembly",
-    "githubLangId": 24,
+    "githubLangId": "24",
     "color": "#6E4C13",
     "extensions": [
       ".asm",
@@ -705,7 +705,7 @@
       "astro"
     ],
     "defaultAlias": "astro",
-    "githubLangId": 578209015,
+    "githubLangId": "578209015",
     "color": "#ff5a03",
     "extensions": [
       ".astro"
@@ -724,7 +724,7 @@
       "asymptote"
     ],
     "defaultAlias": "asymptote",
-    "githubLangId": 591605007,
+    "githubLangId": "591605007",
     "color": "#ff0000",
     "extensions": [
       ".asy"
@@ -746,7 +746,7 @@
       "augeas"
     ],
     "defaultAlias": "augeas",
-    "githubLangId": 25,
+    "githubLangId": "25",
     "color": "#9CC134",
     "extensions": [
       ".aug"
@@ -764,7 +764,7 @@
       "ahk"
     ],
     "defaultAlias": "autohotkey",
-    "githubLangId": 26,
+    "githubLangId": "26",
     "color": "#6594b9",
     "extensions": [
       ".ahk",
@@ -785,7 +785,7 @@
       "AutoItScript"
     ],
     "defaultAlias": "autoit",
-    "githubLangId": 27,
+    "githubLangId": "27",
     "color": "#1C3552",
     "extensions": [
       ".au3"
@@ -802,7 +802,7 @@
       "avro-idl"
     ],
     "defaultAlias": "avro-idl",
-    "githubLangId": 785497837,
+    "githubLangId": "785497837",
     "color": "#0040FF",
     "extensions": [
       ".avdl"
@@ -819,7 +819,7 @@
       "awk"
     ],
     "defaultAlias": "awk",
-    "githubLangId": 28,
+    "githubLangId": "28",
     "color": "#c30e9b",
     "extensions": [
       ".awk",
@@ -847,7 +847,7 @@
       "basic for android"
     ],
     "defaultAlias": "b4x",
-    "githubLangId": 96642275,
+    "githubLangId": "96642275",
     "color": "#00e4ff",
     "extensions": [
       ".bas"
@@ -866,7 +866,7 @@
       "basic"
     ],
     "defaultAlias": "basic",
-    "githubLangId": 28923963,
+    "githubLangId": "28923963",
     "color": "#ff0000",
     "extensions": [
       ".bas"
@@ -883,7 +883,7 @@
       "bqn"
     ],
     "defaultAlias": "bqn",
-    "githubLangId": 330386870,
+    "githubLangId": "330386870",
     "color": "#2b7067",
     "extensions": [
       ".bqn"
@@ -900,7 +900,7 @@
       "ballerina"
     ],
     "defaultAlias": "ballerina",
-    "githubLangId": 720859680,
+    "githubLangId": "720859680",
     "color": "#FF5000",
     "extensions": [
       ".bal"
@@ -921,7 +921,7 @@
       "winbatch"
     ],
     "defaultAlias": "batchfile",
-    "githubLangId": 29,
+    "githubLangId": "29",
     "color": "#C1F12E",
     "extensions": [
       ".bat",
@@ -939,7 +939,7 @@
       "beef"
     ],
     "defaultAlias": "beef",
-    "githubLangId": 545626333,
+    "githubLangId": "545626333",
     "color": "#a52f4e",
     "extensions": [
       ".bf"
@@ -958,7 +958,7 @@
       "befunge"
     ],
     "defaultAlias": "befunge",
-    "githubLangId": 30,
+    "githubLangId": "30",
     "extensions": [
       ".befunge",
       ".bf"
@@ -976,7 +976,7 @@
       "be"
     ],
     "defaultAlias": "berry",
-    "githubLangId": 121855308,
+    "githubLangId": "121855308",
     "color": "#15A13C",
     "extensions": [
       ".be"
@@ -994,7 +994,7 @@
       "bibtex"
     ],
     "defaultAlias": "bibtex",
-    "githubLangId": 982188347,
+    "githubLangId": "982188347",
     "color": "#778899",
     "extensions": [
       ".bib",
@@ -1014,7 +1014,7 @@
       "bicep"
     ],
     "defaultAlias": "bicep",
-    "githubLangId": 321200902,
+    "githubLangId": "321200902",
     "color": "#519aba",
     "extensions": [
       ".bicep",
@@ -1032,7 +1032,7 @@
       "bikeshed"
     ],
     "defaultAlias": "bikeshed",
-    "githubLangId": 1055528081,
+    "githubLangId": "1055528081",
     "color": "#5562ac",
     "extensions": [
       ".bs"
@@ -1052,7 +1052,7 @@
       "bison"
     ],
     "defaultAlias": "bison",
-    "githubLangId": 31,
+    "githubLangId": "31",
     "color": "#6A463F",
     "extensions": [
       ".bison"
@@ -1069,7 +1069,7 @@
       "bitbake"
     ],
     "defaultAlias": "bitbake",
-    "githubLangId": 32,
+    "githubLangId": "32",
     "color": "#00bce4",
     "extensions": [
       ".bb",
@@ -1089,7 +1089,7 @@
       "blade"
     ],
     "defaultAlias": "blade",
-    "githubLangId": 33,
+    "githubLangId": "33",
     "color": "#f7523f",
     "extensions": [
       ".blade",
@@ -1111,7 +1111,7 @@
       "bplus"
     ],
     "defaultAlias": "blitzbasic",
-    "githubLangId": 34,
+    "githubLangId": "34",
     "color": "#00FFAE",
     "extensions": [
       ".bb",
@@ -1130,7 +1130,7 @@
       "bmax"
     ],
     "defaultAlias": "blitzmax",
-    "githubLangId": 35,
+    "githubLangId": "35",
     "color": "#cd6400",
     "extensions": [
       ".bmx"
@@ -1149,7 +1149,7 @@
       "bsv"
     ],
     "defaultAlias": "bluespec",
-    "githubLangId": 36,
+    "githubLangId": "36",
     "color": "#12223c",
     "extensions": [
       ".bsv"
@@ -1171,7 +1171,7 @@
       "bluespec classic"
     ],
     "defaultAlias": "bluespec-bh",
-    "githubLangId": 641580358,
+    "githubLangId": "641580358",
     "color": "#12223c",
     "extensions": [
       ".bs"
@@ -1190,7 +1190,7 @@
       "boo"
     ],
     "defaultAlias": "boo",
-    "githubLangId": 37,
+    "githubLangId": "37",
     "color": "#d4bec1",
     "extensions": [
       ".boo"
@@ -1207,7 +1207,7 @@
       "boogie"
     ],
     "defaultAlias": "boogie",
-    "githubLangId": 955017407,
+    "githubLangId": "955017407",
     "color": "#c80fa0",
     "extensions": [
       ".bpl"
@@ -1227,7 +1227,7 @@
       "brainfuck"
     ],
     "defaultAlias": "brainfuck",
-    "githubLangId": 38,
+    "githubLangId": "38",
     "color": "#2F2530",
     "extensions": [
       ".b",
@@ -1247,7 +1247,7 @@
       "brighterscript"
     ],
     "defaultAlias": "brighterscript",
-    "githubLangId": 943571030,
+    "githubLangId": "943571030",
     "color": "#66AABB",
     "extensions": [
       ".bs"
@@ -1264,7 +1264,7 @@
       "brightscript"
     ],
     "defaultAlias": "brightscript",
-    "githubLangId": 39,
+    "githubLangId": "39",
     "color": "#662D91",
     "extensions": [
       ".brs"
@@ -1281,7 +1281,7 @@
       "browserslist"
     ],
     "defaultAlias": "browserslist",
-    "githubLangId": 153503348,
+    "githubLangId": "153503348",
     "color": "#ffd539",
     "filenames": [
       ".browserslistrc",
@@ -1299,7 +1299,7 @@
       "c"
     ],
     "defaultAlias": "c",
-    "githubLangId": 41,
+    "githubLangId": "41",
     "color": "#555555",
     "extensions": [
       ".c",
@@ -1327,7 +1327,7 @@
       "cakescript"
     ],
     "defaultAlias": "c#",
-    "githubLangId": 42,
+    "githubLangId": "42",
     "color": "#178600",
     "extensions": [
       ".cs",
@@ -1351,7 +1351,7 @@
       "cpp"
     ],
     "defaultAlias": "c++",
-    "githubLangId": 43,
+    "githubLangId": "43",
     "color": "#f34b7d",
     "extensions": [
       ".cpp",
@@ -1389,7 +1389,7 @@
       "c-objdump"
     ],
     "defaultAlias": "c-objdump",
-    "githubLangId": 44,
+    "githubLangId": "44",
     "extensions": [
       ".c-objdump"
     ],
@@ -1407,7 +1407,7 @@
       "c2hs"
     ],
     "defaultAlias": "c2hs-haskell",
-    "githubLangId": 45,
+    "githubLangId": "45",
     "extensions": [
       ".chs"
     ],
@@ -1426,7 +1426,7 @@
       "cds"
     ],
     "defaultAlias": "cap-cds",
-    "githubLangId": 390788699,
+    "githubLangId": "390788699",
     "color": "#0092d1",
     "extensions": [
       ".cds"
@@ -1443,7 +1443,7 @@
       "cil"
     ],
     "defaultAlias": "cil",
-    "githubLangId": 29176339,
+    "githubLangId": "29176339",
     "extensions": [
       ".cil"
     ],
@@ -1459,7 +1459,7 @@
       "clips"
     ],
     "defaultAlias": "clips",
-    "githubLangId": 46,
+    "githubLangId": "46",
     "color": "#00A300",
     "extensions": [
       ".clp"
@@ -1476,7 +1476,7 @@
       "cmake"
     ],
     "defaultAlias": "cmake",
-    "githubLangId": 47,
+    "githubLangId": "47",
     "color": "#DA3434",
     "extensions": [
       ".cmake",
@@ -1499,7 +1499,7 @@
       "cobol"
     ],
     "defaultAlias": "cobol",
-    "githubLangId": 48,
+    "githubLangId": "48",
     "extensions": [
       ".cob",
       ".cbl",
@@ -1521,7 +1521,7 @@
       "codeowners"
     ],
     "defaultAlias": "codeowners",
-    "githubLangId": 321684729,
+    "githubLangId": "321684729",
     "filenames": [
       "CODEOWNERS"
     ],
@@ -1537,7 +1537,7 @@
       "collada"
     ],
     "defaultAlias": "collada",
-    "githubLangId": 49,
+    "githubLangId": "49",
     "color": "#F1A42B",
     "extensions": [
       ".dae"
@@ -1556,7 +1556,7 @@
       "cson"
     ],
     "defaultAlias": "cson",
-    "githubLangId": 424,
+    "githubLangId": "424",
     "color": "#244776",
     "extensions": [
       ".cson"
@@ -1575,7 +1575,7 @@
       "css"
     ],
     "defaultAlias": "css",
-    "githubLangId": 50,
+    "githubLangId": "50",
     "color": "#563d7c",
     "extensions": [
       ".css"
@@ -1594,7 +1594,7 @@
       "csv"
     ],
     "defaultAlias": "csv",
-    "githubLangId": 51,
+    "githubLangId": "51",
     "color": "#237346",
     "extensions": [
       ".csv"
@@ -1611,7 +1611,7 @@
       "cue"
     ],
     "defaultAlias": "cue",
-    "githubLangId": 356063509,
+    "githubLangId": "356063509",
     "color": "#5886E1",
     "extensions": [
       ".cue"
@@ -1628,7 +1628,7 @@
       "cweb"
     ],
     "defaultAlias": "cweb",
-    "githubLangId": 657332628,
+    "githubLangId": "657332628",
     "color": "#00007a",
     "extensions": [
       ".w"
@@ -1646,7 +1646,7 @@
       "Cabal"
     ],
     "defaultAlias": "cabal-config",
-    "githubLangId": 677095381,
+    "githubLangId": "677095381",
     "color": "#483465",
     "extensions": [
       ".cabal"
@@ -1670,7 +1670,7 @@
       "Caddy"
     ],
     "defaultAlias": "caddyfile",
-    "githubLangId": 615465151,
+    "githubLangId": "615465151",
     "color": "#22b638",
     "extensions": [
       ".caddyfile"
@@ -1690,7 +1690,7 @@
       "cadence"
     ],
     "defaultAlias": "cadence",
-    "githubLangId": 270184138,
+    "githubLangId": "270184138",
     "color": "#00ef8b",
     "extensions": [
       ".cdc"
@@ -1707,7 +1707,7 @@
       "cairo"
     ],
     "defaultAlias": "cairo",
-    "githubLangId": 620599567,
+    "githubLangId": "620599567",
     "color": "#ff4a48",
     "extensions": [
       ".cairo"
@@ -1725,7 +1725,7 @@
       "cairo-zero"
     ],
     "defaultAlias": "cairo-zero",
-    "githubLangId": 891399890,
+    "githubLangId": "891399890",
     "color": "#ff4a48",
     "extensions": [
       ".cairo"
@@ -1743,7 +1743,7 @@
       "cameligo"
     ],
     "defaultAlias": "cameligo",
-    "githubLangId": 829207807,
+    "githubLangId": "829207807",
     "color": "#3be133",
     "extensions": [
       ".mligo"
@@ -1762,7 +1762,7 @@
       "cap'n-proto"
     ],
     "defaultAlias": "cap'n-proto",
-    "githubLangId": 52,
+    "githubLangId": "52",
     "color": "#c42727",
     "extensions": [
       ".capnp"
@@ -1779,7 +1779,7 @@
       "carbon"
     ],
     "defaultAlias": "carbon",
-    "githubLangId": 55627273,
+    "githubLangId": "55627273",
     "color": "#222222",
     "extensions": [
       ".carbon"
@@ -1799,7 +1799,7 @@
       "Carto"
     ],
     "defaultAlias": "cartocss",
-    "githubLangId": 53,
+    "githubLangId": "53",
     "extensions": [
       ".mss"
     ],
@@ -1815,7 +1815,7 @@
       "ceylon"
     ],
     "defaultAlias": "ceylon",
-    "githubLangId": 54,
+    "githubLangId": "54",
     "color": "#dfa535",
     "extensions": [
       ".ceylon"
@@ -1833,7 +1833,7 @@
       "chpl"
     ],
     "defaultAlias": "chapel",
-    "githubLangId": 55,
+    "githubLangId": "55",
     "color": "#8dc63f",
     "extensions": [
       ".chpl"
@@ -1850,7 +1850,7 @@
       "charity"
     ],
     "defaultAlias": "charity",
-    "githubLangId": 56,
+    "githubLangId": "56",
     "extensions": [
       ".ch"
     ],
@@ -1871,7 +1871,7 @@
       "sums"
     ],
     "defaultAlias": "checksums",
-    "githubLangId": 372063053,
+    "githubLangId": "372063053",
     "extensions": [
       ".crc32",
       ".md2",
@@ -1908,7 +1908,7 @@
       "chuck"
     ],
     "defaultAlias": "chuck",
-    "githubLangId": 57,
+    "githubLangId": "57",
     "color": "#3f8000",
     "extensions": [
       ".ck"
@@ -1927,7 +1927,7 @@
       "circom"
     ],
     "defaultAlias": "circom",
-    "githubLangId": 1042332086,
+    "githubLangId": "1042332086",
     "color": "#707575",
     "extensions": [
       ".circom"
@@ -1944,7 +1944,7 @@
       "cirru"
     ],
     "defaultAlias": "cirru",
-    "githubLangId": 58,
+    "githubLangId": "58",
     "color": "#ccccff",
     "extensions": [
       ".cirru"
@@ -1961,7 +1961,7 @@
       "clarion"
     ],
     "defaultAlias": "clarion",
-    "githubLangId": 59,
+    "githubLangId": "59",
     "color": "#db901e",
     "extensions": [
       ".clw"
@@ -1978,7 +1978,7 @@
       "clarity"
     ],
     "defaultAlias": "clarity",
-    "githubLangId": 91493841,
+    "githubLangId": "91493841",
     "color": "#5546ff",
     "extensions": [
       ".clar"
@@ -1996,7 +1996,7 @@
       "asp"
     ],
     "defaultAlias": "classic-asp",
-    "githubLangId": 8,
+    "githubLangId": "8",
     "color": "#6a40fd",
     "extensions": [
       ".asp"
@@ -2013,7 +2013,7 @@
       "clean"
     ],
     "defaultAlias": "clean",
-    "githubLangId": 60,
+    "githubLangId": "60",
     "color": "#3F85AF",
     "extensions": [
       ".icl",
@@ -2031,7 +2031,7 @@
       "click"
     ],
     "defaultAlias": "click",
-    "githubLangId": 61,
+    "githubLangId": "61",
     "color": "#E4E6F3",
     "extensions": [
       ".click"
@@ -2048,7 +2048,7 @@
       "clojure"
     ],
     "defaultAlias": "clojure",
-    "githubLangId": 62,
+    "githubLangId": "62",
     "color": "#db5855",
     "extensions": [
       ".clj",
@@ -2083,7 +2083,7 @@
       "soy"
     ],
     "defaultAlias": "closure-templates",
-    "githubLangId": 357046146,
+    "githubLangId": "357046146",
     "color": "#0d948f",
     "extensions": [
       ".soy"
@@ -2102,7 +2102,7 @@
       "cloud-firestore-security-rules"
     ],
     "defaultAlias": "cloud-firestore-security-rules",
-    "githubLangId": 407996372,
+    "githubLangId": "407996372",
     "color": "#FFA000",
     "filenames": [
       "firestore.rules"
@@ -2123,7 +2123,7 @@
       "CoNLL-X"
     ],
     "defaultAlias": "conll-u",
-    "githubLangId": 421026389,
+    "githubLangId": "421026389",
     "extensions": [
       ".conllu",
       ".conll"
@@ -2141,7 +2141,7 @@
       "ql"
     ],
     "defaultAlias": "codeql",
-    "githubLangId": 424259634,
+    "githubLangId": "424259634",
     "color": "#140f46",
     "extensions": [
       ".ql",
@@ -2161,7 +2161,7 @@
       "coffee-script"
     ],
     "defaultAlias": "coffeescript",
-    "githubLangId": 63,
+    "githubLangId": "63",
     "color": "#244776",
     "extensions": [
       ".coffee",
@@ -2193,7 +2193,7 @@
       "coldfusion html"
     ],
     "defaultAlias": "coldfusion",
-    "githubLangId": 64,
+    "githubLangId": "64",
     "color": "#ed2cd6",
     "extensions": [
       ".cfm",
@@ -2213,7 +2213,7 @@
       "cfc"
     ],
     "defaultAlias": "coldfusion-cfc",
-    "githubLangId": 65,
+    "githubLangId": "65",
     "color": "#ed2cd6",
     "extensions": [
       ".cfc"
@@ -2231,7 +2231,7 @@
       "lisp"
     ],
     "defaultAlias": "common-lisp",
-    "githubLangId": 66,
+    "githubLangId": "66",
     "color": "#3fb68b",
     "extensions": [
       ".lisp",
@@ -2265,7 +2265,7 @@
       "cwl"
     ],
     "defaultAlias": "common-workflow-language",
-    "githubLangId": 988547172,
+    "githubLangId": "988547172",
     "color": "#B5314C",
     "extensions": [
       ".cwl"
@@ -2287,7 +2287,7 @@
       "component-pascal"
     ],
     "defaultAlias": "component-pascal",
-    "githubLangId": 67,
+    "githubLangId": "67",
     "color": "#B0CE4E",
     "extensions": [
       ".cp",
@@ -2307,7 +2307,7 @@
       "cool"
     ],
     "defaultAlias": "cool",
-    "githubLangId": 68,
+    "githubLangId": "68",
     "extensions": [
       ".cl"
     ],
@@ -2323,7 +2323,7 @@
       "coq"
     ],
     "defaultAlias": "coq",
-    "githubLangId": 69,
+    "githubLangId": "69",
     "color": "#d0b68c",
     "extensions": [
       ".coq",
@@ -2342,7 +2342,7 @@
       "c++-objdump"
     ],
     "defaultAlias": "cpp-objdump",
-    "githubLangId": 70,
+    "githubLangId": "70",
     "extensions": [
       ".cppobjdump",
       ".c++-objdump",
@@ -2362,7 +2362,7 @@
       "creole"
     ],
     "defaultAlias": "creole",
-    "githubLangId": 71,
+    "githubLangId": "71",
     "extensions": [
       ".creole"
     ],
@@ -2378,7 +2378,7 @@
       "crystal"
     ],
     "defaultAlias": "crystal",
-    "githubLangId": 72,
+    "githubLangId": "72",
     "color": "#000100",
     "extensions": [
       ".cr"
@@ -2401,7 +2401,7 @@
       "csound-orc"
     ],
     "defaultAlias": "csound",
-    "githubLangId": 73,
+    "githubLangId": "73",
     "color": "#1a1a1a",
     "extensions": [
       ".orc",
@@ -2420,7 +2420,7 @@
       "csound-csd"
     ],
     "defaultAlias": "csound-document",
-    "githubLangId": 74,
+    "githubLangId": "74",
     "color": "#1a1a1a",
     "extensions": [
       ".csd"
@@ -2438,7 +2438,7 @@
       "csound-sco"
     ],
     "defaultAlias": "csound-score",
-    "githubLangId": 75,
+    "githubLangId": "75",
     "color": "#1a1a1a",
     "extensions": [
       ".sco"
@@ -2455,7 +2455,7 @@
       "cuda"
     ],
     "defaultAlias": "cuda",
-    "githubLangId": 77,
+    "githubLangId": "77",
     "color": "#3A4E3A",
     "extensions": [
       ".cu",
@@ -2475,7 +2475,7 @@
       "cue-sheet"
     ],
     "defaultAlias": "cue-sheet",
-    "githubLangId": 942714150,
+    "githubLangId": "942714150",
     "extensions": [
       ".cue"
     ],
@@ -2491,7 +2491,7 @@
       "curry"
     ],
     "defaultAlias": "curry",
-    "githubLangId": 439829048,
+    "githubLangId": "439829048",
     "color": "#531242",
     "extensions": [
       ".curry"
@@ -2508,7 +2508,7 @@
       "cycript"
     ],
     "defaultAlias": "cycript",
-    "githubLangId": 78,
+    "githubLangId": "78",
     "extensions": [
       ".cy"
     ],
@@ -2527,7 +2527,7 @@
       "cylc"
     ],
     "defaultAlias": "cylc",
-    "githubLangId": 476447814,
+    "githubLangId": "476447814",
     "color": "#00b3fd",
     "extensions": [
       ".cylc"
@@ -2547,7 +2547,7 @@
       "cypher"
     ],
     "defaultAlias": "cypher",
-    "githubLangId": 850806976,
+    "githubLangId": "850806976",
     "color": "#34c0eb",
     "extensions": [
       ".cyp",
@@ -2566,7 +2566,7 @@
       "pyrex"
     ],
     "defaultAlias": "cython",
-    "githubLangId": 79,
+    "githubLangId": "79",
     "color": "#fedf5b",
     "extensions": [
       ".pyx",
@@ -2588,7 +2588,7 @@
       "Dlang"
     ],
     "defaultAlias": "d",
-    "githubLangId": 80,
+    "githubLangId": "80",
     "color": "#ba595e",
     "extensions": [
       ".d",
@@ -2608,7 +2608,7 @@
       "d-objdump"
     ],
     "defaultAlias": "d-objdump",
-    "githubLangId": 81,
+    "githubLangId": "81",
     "extensions": [
       ".d-objdump"
     ],
@@ -2625,7 +2625,7 @@
       "d2lang"
     ],
     "defaultAlias": "d2",
-    "githubLangId": 37531557,
+    "githubLangId": "37531557",
     "color": "#526ee8",
     "extensions": [
       ".d2"
@@ -2643,7 +2643,7 @@
       "dcl"
     ],
     "defaultAlias": "digital-command-language",
-    "githubLangId": 82,
+    "githubLangId": "82",
     "extensions": [
       ".com"
     ],
@@ -2660,7 +2660,7 @@
       "byond"
     ],
     "defaultAlias": "dm",
-    "githubLangId": 83,
+    "githubLangId": "83",
     "color": "#447265",
     "extensions": [
       ".dm"
@@ -2677,7 +2677,7 @@
       "dns-zone"
     ],
     "defaultAlias": "dns-zone",
-    "githubLangId": 84,
+    "githubLangId": "84",
     "extensions": [
       ".zone",
       ".arpa"
@@ -2695,7 +2695,7 @@
       "dtrace-script"
     ],
     "defaultAlias": "dtrace",
-    "githubLangId": 85,
+    "githubLangId": "85",
     "extensions": [
       ".d"
     ],
@@ -2716,7 +2716,7 @@
       "dafny"
     ],
     "defaultAlias": "dafny",
-    "githubLangId": 969323346,
+    "githubLangId": "969323346",
     "color": "#FFEC25",
     "extensions": [
       ".dfy"
@@ -2737,7 +2737,7 @@
       "dpatch"
     ],
     "defaultAlias": "darcs-patch",
-    "githubLangId": 86,
+    "githubLangId": "86",
     "color": "#8eff23",
     "extensions": [
       ".darcspatch",
@@ -2755,7 +2755,7 @@
       "dart"
     ],
     "defaultAlias": "dart",
-    "githubLangId": 87,
+    "githubLangId": "87",
     "color": "#00B4AB",
     "extensions": [
       ".dart"
@@ -2777,7 +2777,7 @@
       "dataweave"
     ],
     "defaultAlias": "dataweave",
-    "githubLangId": 974514097,
+    "githubLangId": "974514097",
     "color": "#003a52",
     "extensions": [
       ".dwl"
@@ -2794,7 +2794,7 @@
       "debian-package-control-file"
     ],
     "defaultAlias": "debian-package-control-file",
-    "githubLangId": 527438264,
+    "githubLangId": "527438264",
     "color": "#D70751",
     "extensions": [
       ".dsc"
@@ -2811,7 +2811,7 @@
       "denizenscript"
     ],
     "defaultAlias": "denizenscript",
-    "githubLangId": 435000929,
+    "githubLangId": "435000929",
     "color": "#FBEE96",
     "extensions": [
       ".dsc"
@@ -2830,7 +2830,7 @@
       "dhall"
     ],
     "defaultAlias": "dhall",
-    "githubLangId": 793969321,
+    "githubLangId": "793969321",
     "color": "#dfafff",
     "extensions": [
       ".dhall"
@@ -2850,7 +2850,7 @@
       "udiff"
     ],
     "defaultAlias": "diff",
-    "githubLangId": 88,
+    "githubLangId": "88",
     "extensions": [
       ".diff",
       ".patch"
@@ -2869,7 +2869,7 @@
       "directx-3d-file"
     ],
     "defaultAlias": "directx-3d-file",
-    "githubLangId": 201049282,
+    "githubLangId": "201049282",
     "color": "#aace60",
     "extensions": [
       ".x"
@@ -2887,7 +2887,7 @@
       "Containerfile"
     ],
     "defaultAlias": "dockerfile",
-    "githubLangId": 89,
+    "githubLangId": "89",
     "color": "#384d54",
     "extensions": [
       ".dockerfile"
@@ -2910,7 +2910,7 @@
       "dogescript"
     ],
     "defaultAlias": "dogescript",
-    "githubLangId": 90,
+    "githubLangId": "90",
     "color": "#cca760",
     "extensions": [
       ".djs"
@@ -2927,7 +2927,7 @@
       "dotenv"
     ],
     "defaultAlias": "dotenv",
-    "githubLangId": 111148035,
+    "githubLangId": "111148035",
     "color": "#e5d559",
     "extensions": [
       ".env"
@@ -2959,7 +2959,7 @@
       "dune"
     ],
     "defaultAlias": "dune",
-    "githubLangId": 754574151,
+    "githubLangId": "754574151",
     "color": "#89421e",
     "filenames": [
       "dune-project"
@@ -2976,7 +2976,7 @@
       "dylan"
     ],
     "defaultAlias": "dylan",
-    "githubLangId": 91,
+    "githubLangId": "91",
     "color": "#6c616e",
     "extensions": [
       ".dylan",
@@ -2998,7 +2998,7 @@
       "e"
     ],
     "defaultAlias": "e",
-    "githubLangId": 92,
+    "githubLangId": "92",
     "color": "#ccce35",
     "extensions": [
       ".e"
@@ -3022,7 +3022,7 @@
       "mbox"
     ],
     "defaultAlias": "e-mail",
-    "githubLangId": 529653389,
+    "githubLangId": "529653389",
     "extensions": [
       ".eml",
       ".mbox"
@@ -3041,7 +3041,7 @@
       "ebnf"
     ],
     "defaultAlias": "ebnf",
-    "githubLangId": 430,
+    "githubLangId": "430",
     "extensions": [
       ".ebnf"
     ],
@@ -3059,7 +3059,7 @@
       "ecl"
     ],
     "defaultAlias": "ecl",
-    "githubLangId": 93,
+    "githubLangId": "93",
     "color": "#8a1267",
     "extensions": [
       ".ecl",
@@ -3080,7 +3080,7 @@
       "eclipse"
     ],
     "defaultAlias": "eclipse",
-    "githubLangId": 94,
+    "githubLangId": "94",
     "color": "#001d9d",
     "extensions": [
       ".ecl"
@@ -3097,7 +3097,7 @@
       "ejs"
     ],
     "defaultAlias": "ejs",
-    "githubLangId": 95,
+    "githubLangId": "95",
     "color": "#a91e50",
     "extensions": [
       ".ejs",
@@ -3117,7 +3117,7 @@
       "eq"
     ],
     "defaultAlias": "eq",
-    "githubLangId": 96,
+    "githubLangId": "96",
     "color": "#a78649",
     "extensions": [
       ".eq"
@@ -3136,7 +3136,7 @@
       "eagle"
     ],
     "defaultAlias": "eagle",
-    "githubLangId": 97,
+    "githubLangId": "97",
     "extensions": [
       ".sch",
       ".brd"
@@ -3156,7 +3156,7 @@
       "Earthfile"
     ],
     "defaultAlias": "earthly",
-    "githubLangId": 963512632,
+    "githubLangId": "963512632",
     "color": "#2af0ff",
     "filenames": [
       "Earthfile"
@@ -3174,7 +3174,7 @@
       "easybuild"
     ],
     "defaultAlias": "easybuild",
-    "githubLangId": 342840477,
+    "githubLangId": "342840477",
     "color": "#069406",
     "extensions": [
       ".eb"
@@ -3194,7 +3194,7 @@
       "ecere-projects"
     ],
     "defaultAlias": "ecere-projects",
-    "githubLangId": 98,
+    "githubLangId": "98",
     "color": "#913960",
     "extensions": [
       ".epj"
@@ -3215,7 +3215,7 @@
       "ecmarkdown"
     ],
     "defaultAlias": "ecmarkup",
-    "githubLangId": 844766630,
+    "githubLangId": "844766630",
     "color": "#eb8131",
     "extensions": [
       ".html"
@@ -3234,7 +3234,7 @@
       "edge"
     ],
     "defaultAlias": "edge",
-    "githubLangId": 460509620,
+    "githubLangId": "460509620",
     "color": "#0dffe0",
     "extensions": [
       ".edge"
@@ -3252,7 +3252,7 @@
       "esdl"
     ],
     "defaultAlias": "edgeql",
-    "githubLangId": 925235833,
+    "githubLangId": "925235833",
     "color": "#31A7FF",
     "extensions": [
       ".edgeql",
@@ -3272,7 +3272,7 @@
       "editor-config"
     ],
     "defaultAlias": "editorconfig",
-    "githubLangId": 96139566,
+    "githubLangId": "96139566",
     "color": "#fff1f2",
     "extensions": [
       ".editorconfig"
@@ -3294,7 +3294,7 @@
       "edje-data-collection"
     ],
     "defaultAlias": "edje-data-collection",
-    "githubLangId": 342840478,
+    "githubLangId": "342840478",
     "extensions": [
       ".edc"
     ],
@@ -3312,7 +3312,7 @@
       "eiffel"
     ],
     "defaultAlias": "eiffel",
-    "githubLangId": 99,
+    "githubLangId": "99",
     "color": "#4d6977",
     "extensions": [
       ".e"
@@ -3331,7 +3331,7 @@
       "elixir"
     ],
     "defaultAlias": "elixir",
-    "githubLangId": 100,
+    "githubLangId": "100",
     "color": "#6e4a7e",
     "extensions": [
       ".ex",
@@ -3355,7 +3355,7 @@
       "elm"
     ],
     "defaultAlias": "elm",
-    "githubLangId": 101,
+    "githubLangId": "101",
     "color": "#60B5CC",
     "extensions": [
       ".elm"
@@ -3374,7 +3374,7 @@
       "elvish"
     ],
     "defaultAlias": "elvish",
-    "githubLangId": 570996448,
+    "githubLangId": "570996448",
     "color": "#55BB55",
     "extensions": [
       ".elv"
@@ -3395,7 +3395,7 @@
       "elvish-transcript"
     ],
     "defaultAlias": "elvish-transcript",
-    "githubLangId": 452025714,
+    "githubLangId": "452025714",
     "color": "#55BB55",
     "githubPopular": false,
     "type": "programming",
@@ -3411,7 +3411,7 @@
       "emacs"
     ],
     "defaultAlias": "emacs-lisp",
-    "githubLangId": 102,
+    "githubLangId": "102",
     "color": "#c065db",
     "extensions": [
       ".el",
@@ -3444,7 +3444,7 @@
       "emberscript"
     ],
     "defaultAlias": "emberscript",
-    "githubLangId": 103,
+    "githubLangId": "103",
     "color": "#FFF4F3",
     "extensions": [
       ".em",
@@ -3464,7 +3464,7 @@
       "erlang"
     ],
     "defaultAlias": "erlang",
-    "githubLangId": 104,
+    "githubLangId": "104",
     "color": "#B83998",
     "extensions": [
       ".erl",
@@ -3499,7 +3499,7 @@
       "euphoria"
     ],
     "defaultAlias": "euphoria",
-    "githubLangId": 880693982,
+    "githubLangId": "880693982",
     "color": "#FF790B",
     "extensions": [
       ".e",
@@ -3522,7 +3522,7 @@
       "fsharp"
     ],
     "defaultAlias": "f#",
-    "githubLangId": 105,
+    "githubLangId": "105",
     "color": "#b845fc",
     "extensions": [
       ".fs",
@@ -3545,7 +3545,7 @@
       "fstar"
     ],
     "defaultAlias": "f*",
-    "githubLangId": 336943375,
+    "githubLangId": "336943375",
     "color": "#572e30",
     "extensions": [
       ".fst",
@@ -3564,7 +3564,7 @@
       "FIGfont"
     ],
     "defaultAlias": "figlet-font",
-    "githubLangId": 686129783,
+    "githubLangId": "686129783",
     "color": "#FFDDBB",
     "extensions": [
       ".flf"
@@ -3581,7 +3581,7 @@
       "firrtl"
     ],
     "defaultAlias": "firrtl",
-    "githubLangId": 906694254,
+    "githubLangId": "906694254",
     "color": "#2f632f",
     "extensions": [
       ".fir"
@@ -3598,7 +3598,7 @@
       "flux"
     ],
     "defaultAlias": "flux",
-    "githubLangId": 106,
+    "githubLangId": "106",
     "color": "#88ccff",
     "extensions": [
       ".fx",
@@ -3616,7 +3616,7 @@
       "factor"
     ],
     "defaultAlias": "factor",
-    "githubLangId": 108,
+    "githubLangId": "108",
     "color": "#636746",
     "extensions": [
       ".factor"
@@ -3639,7 +3639,7 @@
       "fancy"
     ],
     "defaultAlias": "fancy",
-    "githubLangId": 109,
+    "githubLangId": "109",
     "color": "#7b9db4",
     "extensions": [
       ".fy",
@@ -3660,7 +3660,7 @@
       "fantom"
     ],
     "defaultAlias": "fantom",
-    "githubLangId": 110,
+    "githubLangId": "110",
     "color": "#14253c",
     "extensions": [
       ".fan"
@@ -3677,7 +3677,7 @@
       "faust"
     ],
     "defaultAlias": "faust",
-    "githubLangId": 622529198,
+    "githubLangId": "622529198",
     "color": "#c37240",
     "extensions": [
       ".dsp"
@@ -3694,7 +3694,7 @@
       "fennel"
     ],
     "defaultAlias": "fennel",
-    "githubLangId": 239946126,
+    "githubLangId": "239946126",
     "color": "#fff3d7",
     "extensions": [
       ".fnl"
@@ -3714,7 +3714,7 @@
       "filebench-wml"
     ],
     "defaultAlias": "filebench-wml",
-    "githubLangId": 111,
+    "githubLangId": "111",
     "color": "#F6B900",
     "extensions": [
       ".f"
@@ -3732,7 +3732,7 @@
       "filterscript"
     ],
     "defaultAlias": "filterscript",
-    "githubLangId": 112,
+    "githubLangId": "112",
     "extensions": [
       ".fs"
     ],
@@ -3748,7 +3748,7 @@
       "fluent"
     ],
     "defaultAlias": "fluent",
-    "githubLangId": 206353404,
+    "githubLangId": "206353404",
     "color": "#ffcc33",
     "extensions": [
       ".ftl"
@@ -3765,7 +3765,7 @@
       "formatted"
     ],
     "defaultAlias": "formatted",
-    "githubLangId": 113,
+    "githubLangId": "113",
     "extensions": [
       ".for",
       ".eam.fs"
@@ -3782,7 +3782,7 @@
       "forth"
     ],
     "defaultAlias": "forth",
-    "githubLangId": 114,
+    "githubLangId": "114",
     "color": "#341708",
     "extensions": [
       ".fth",
@@ -3808,7 +3808,7 @@
       "fortran"
     ],
     "defaultAlias": "fortran",
-    "githubLangId": 107,
+    "githubLangId": "107",
     "color": "#4d41b1",
     "extensions": [
       ".f",
@@ -3831,7 +3831,7 @@
       "fortran-free-form"
     ],
     "defaultAlias": "fortran-free-form",
-    "githubLangId": 761352333,
+    "githubLangId": "761352333",
     "color": "#4d41b1",
     "extensions": [
       ".f90",
@@ -3854,7 +3854,7 @@
       "fb"
     ],
     "defaultAlias": "freebasic",
-    "githubLangId": 472896659,
+    "githubLangId": "472896659",
     "color": "#141AC9",
     "extensions": [
       ".bi",
@@ -3875,7 +3875,7 @@
       "ftl"
     ],
     "defaultAlias": "freemarker",
-    "githubLangId": 115,
+    "githubLangId": "115",
     "color": "#0050b2",
     "extensions": [
       ".ftl"
@@ -3892,7 +3892,7 @@
       "frege"
     ],
     "defaultAlias": "frege",
-    "githubLangId": 116,
+    "githubLangId": "116",
     "color": "#00cafe",
     "extensions": [
       ".fr"
@@ -3909,7 +3909,7 @@
       "futhark"
     ],
     "defaultAlias": "futhark",
-    "githubLangId": 97358117,
+    "githubLangId": "97358117",
     "color": "#5f021f",
     "extensions": [
       ".fut"
@@ -3926,7 +3926,7 @@
       "g-code"
     ],
     "defaultAlias": "g-code",
-    "githubLangId": 117,
+    "githubLangId": "117",
     "color": "#D08CF2",
     "extensions": [
       ".g",
@@ -3946,7 +3946,7 @@
       "gaml"
     ],
     "defaultAlias": "gaml",
-    "githubLangId": 290345951,
+    "githubLangId": "290345951",
     "color": "#FFC766",
     "extensions": [
       ".gaml"
@@ -3963,7 +3963,7 @@
       "gams"
     ],
     "defaultAlias": "gams",
-    "githubLangId": 118,
+    "githubLangId": "118",
     "color": "#f49a22",
     "extensions": [
       ".gms"
@@ -3980,7 +3980,7 @@
       "gap"
     ],
     "defaultAlias": "gap",
-    "githubLangId": 119,
+    "githubLangId": "119",
     "color": "#0000cc",
     "extensions": [
       ".g",
@@ -4001,7 +4001,7 @@
       "gcc-machine-description"
     ],
     "defaultAlias": "gcc-machine-description",
-    "githubLangId": 121,
+    "githubLangId": "121",
     "color": "#FFCFAB",
     "extensions": [
       ".md"
@@ -4020,7 +4020,7 @@
       "gdb"
     ],
     "defaultAlias": "gdb",
-    "githubLangId": 122,
+    "githubLangId": "122",
     "extensions": [
       ".gdb",
       ".gdbinit"
@@ -4037,7 +4037,7 @@
       "gdscript"
     ],
     "defaultAlias": "gdscript",
-    "githubLangId": 123,
+    "githubLangId": "123",
     "color": "#355570",
     "extensions": [
       ".gd"
@@ -4054,7 +4054,7 @@
       "gedcom"
     ],
     "defaultAlias": "gedcom",
-    "githubLangId": 459577965,
+    "githubLangId": "459577965",
     "color": "#003058",
     "extensions": [
       ".ged"
@@ -4071,7 +4071,7 @@
       "glsl"
     ],
     "defaultAlias": "glsl",
-    "githubLangId": 124,
+    "githubLangId": "124",
     "color": "#5686a5",
     "extensions": [
       ".glsl",
@@ -4110,7 +4110,7 @@
       "gn"
     ],
     "defaultAlias": "gn",
-    "githubLangId": 302957008,
+    "githubLangId": "302957008",
     "extensions": [
       ".gn",
       ".gni"
@@ -4135,7 +4135,7 @@
       "gsc"
     ],
     "defaultAlias": "gsc",
-    "githubLangId": 257856279,
+    "githubLangId": "257856279",
     "color": "#FF6800",
     "extensions": [
       ".gsc",
@@ -4156,7 +4156,7 @@
       "game-maker-language"
     ],
     "defaultAlias": "game-maker-language",
-    "githubLangId": 125,
+    "githubLangId": "125",
     "color": "#71b417",
     "extensions": [
       ".gml"
@@ -4175,7 +4175,7 @@
       "gemfile.lock"
     ],
     "defaultAlias": "gemfile.lock",
-    "githubLangId": 907065713,
+    "githubLangId": "907065713",
     "color": "#701516",
     "filenames": [
       "Gemfile.lock"
@@ -4193,7 +4193,7 @@
       "gemtext"
     ],
     "defaultAlias": "gemini",
-    "githubLangId": 310828396,
+    "githubLangId": "310828396",
     "color": "#ff6900",
     "extensions": [
       ".gmi"
@@ -4210,7 +4210,7 @@
       "genero-4gl"
     ],
     "defaultAlias": "genero-4gl",
-    "githubLangId": 986054050,
+    "githubLangId": "986054050",
     "color": "#63408e",
     "extensions": [
       ".4gl"
@@ -4227,7 +4227,7 @@
       "genero-per"
     ],
     "defaultAlias": "genero-per",
-    "githubLangId": 902995658,
+    "githubLangId": "902995658",
     "color": "#d8df39",
     "extensions": [
       ".per"
@@ -4244,7 +4244,7 @@
       "genie"
     ],
     "defaultAlias": "genie",
-    "githubLangId": 792408528,
+    "githubLangId": "792408528",
     "color": "#fb855d",
     "extensions": [
       ".gs"
@@ -4263,7 +4263,7 @@
       "xml+kid"
     ],
     "defaultAlias": "genshi",
-    "githubLangId": 126,
+    "githubLangId": "126",
     "color": "#951531",
     "extensions": [
       ".kid"
@@ -4283,7 +4283,7 @@
       "gentoo-ebuild"
     ],
     "defaultAlias": "gentoo-ebuild",
-    "githubLangId": 127,
+    "githubLangId": "127",
     "color": "#9400ff",
     "extensions": [
       ".ebuild"
@@ -4303,7 +4303,7 @@
       "gentoo-eclass"
     ],
     "defaultAlias": "gentoo-eclass",
-    "githubLangId": 128,
+    "githubLangId": "128",
     "color": "#9400ff",
     "extensions": [
       ".eclass"
@@ -4323,7 +4323,7 @@
       "rs-274x"
     ],
     "defaultAlias": "gerber-image",
-    "githubLangId": 404627610,
+    "githubLangId": "404627610",
     "color": "#d20b00",
     "extensions": [
       ".gbr",
@@ -4360,7 +4360,7 @@
       "pot"
     ],
     "defaultAlias": "gettext-catalog",
-    "githubLangId": 129,
+    "githubLangId": "129",
     "extensions": [
       ".po",
       ".pot"
@@ -4378,7 +4378,7 @@
       "cucumber"
     ],
     "defaultAlias": "gherkin",
-    "githubLangId": 76,
+    "githubLangId": "76",
     "color": "#5B2063",
     "extensions": [
       ".feature",
@@ -4397,7 +4397,7 @@
       "gitattributes"
     ],
     "defaultAlias": "git-attributes",
-    "githubLangId": 956324166,
+    "githubLangId": "956324166",
     "color": "#F44D27",
     "filenames": [
       ".gitattributes"
@@ -4419,7 +4419,7 @@
       "gitmodules"
     ],
     "defaultAlias": "git-config",
-    "githubLangId": 807968997,
+    "githubLangId": "807968997",
     "color": "#F44D27",
     "extensions": [
       ".gitconfig"
@@ -4443,7 +4443,7 @@
       "Git Blame Ignore Revs"
     ],
     "defaultAlias": "git-revision-list",
-    "githubLangId": 461881235,
+    "githubLangId": "461881235",
     "color": "#F44D27",
     "filenames": [
       ".git-blame-ignore-revs"
@@ -4460,7 +4460,7 @@
       "gleam"
     ],
     "defaultAlias": "gleam",
-    "githubLangId": 1054258749,
+    "githubLangId": "1054258749",
     "color": "#ffaff3",
     "extensions": [
       ".gleam"
@@ -4478,7 +4478,7 @@
       "glimmer-js"
     ],
     "defaultAlias": "glimmer-js",
-    "githubLangId": 5523150,
+    "githubLangId": "5523150",
     "color": "#F5835F",
     "extensions": [
       ".gjs"
@@ -4496,7 +4496,7 @@
       "glimmer-ts"
     ],
     "defaultAlias": "glimmer-ts",
-    "githubLangId": 95110458,
+    "githubLangId": "95110458",
     "color": "#3178c6",
     "extensions": [
       ".gts"
@@ -4513,7 +4513,7 @@
       "glyph"
     ],
     "defaultAlias": "glyph",
-    "githubLangId": 130,
+    "githubLangId": "130",
     "color": "#c1ac7f",
     "extensions": [
       ".glf"
@@ -4532,7 +4532,7 @@
       "glyph-bitmap-distribution-format"
     ],
     "defaultAlias": "glyph-bitmap-distribution-format",
-    "githubLangId": 997665271,
+    "githubLangId": "997665271",
     "extensions": [
       ".bdf"
     ],
@@ -4548,7 +4548,7 @@
       "gnuplot"
     ],
     "defaultAlias": "gnuplot",
-    "githubLangId": 131,
+    "githubLangId": "131",
     "color": "#f0a9f0",
     "extensions": [
       ".gp",
@@ -4574,7 +4574,7 @@
       "golang"
     ],
     "defaultAlias": "go",
-    "githubLangId": 132,
+    "githubLangId": "132",
     "color": "#00ADD8",
     "extensions": [
       ".go"
@@ -4597,7 +4597,7 @@
       "go work sum"
     ],
     "defaultAlias": "go-checksums",
-    "githubLangId": 1054391671,
+    "githubLangId": "1054391671",
     "color": "#00ADD8",
     "filenames": [
       "go.sum",
@@ -4617,7 +4617,7 @@
       "go mod"
     ],
     "defaultAlias": "go-module",
-    "githubLangId": 947461016,
+    "githubLangId": "947461016",
     "color": "#00ADD8",
     "filenames": [
       "go.mod"
@@ -4636,7 +4636,7 @@
       "go work"
     ],
     "defaultAlias": "go-workspace",
-    "githubLangId": 934546256,
+    "githubLangId": "934546256",
     "color": "#00ADD8",
     "filenames": [
       "go.work"
@@ -4653,7 +4653,7 @@
       "godot-resource"
     ],
     "defaultAlias": "godot-resource",
-    "githubLangId": 738107771,
+    "githubLangId": "738107771",
     "color": "#355570",
     "extensions": [
       ".gdnlib",
@@ -4676,7 +4676,7 @@
       "golo"
     ],
     "defaultAlias": "golo",
-    "githubLangId": 133,
+    "githubLangId": "133",
     "color": "#88562A",
     "extensions": [
       ".golo"
@@ -4693,7 +4693,7 @@
       "gosu"
     ],
     "defaultAlias": "gosu",
-    "githubLangId": 134,
+    "githubLangId": "134",
     "color": "#82937f",
     "extensions": [
       ".gs",
@@ -4713,7 +4713,7 @@
       "grace"
     ],
     "defaultAlias": "grace",
-    "githubLangId": 135,
+    "githubLangId": "135",
     "color": "#615f8b",
     "extensions": [
       ".grace"
@@ -4730,7 +4730,7 @@
       "gradle"
     ],
     "defaultAlias": "gradle",
-    "githubLangId": 136,
+    "githubLangId": "136",
     "color": "#02303a",
     "extensions": [
       ".gradle"
@@ -4748,7 +4748,7 @@
       "gradle-kotlin-dsl"
     ],
     "defaultAlias": "gradle-kotlin-dsl",
-    "githubLangId": 432600901,
+    "githubLangId": "432600901",
     "color": "#02303a",
     "extensions": [
       ".gradle.kts"
@@ -4766,7 +4766,7 @@
       "gf"
     ],
     "defaultAlias": "grammatical-framework",
-    "githubLangId": 137,
+    "githubLangId": "137",
     "color": "#ff0000",
     "extensions": [
       ".gf"
@@ -4785,7 +4785,7 @@
       "graph-modeling-language"
     ],
     "defaultAlias": "graph-modeling-language",
-    "githubLangId": 138,
+    "githubLangId": "138",
     "extensions": [
       ".gml"
     ],
@@ -4801,7 +4801,7 @@
       "graphql"
     ],
     "defaultAlias": "graphql",
-    "githubLangId": 139,
+    "githubLangId": "139",
     "color": "#e10098",
     "extensions": [
       ".graphql",
@@ -4820,7 +4820,7 @@
       "graphviz-(dot)"
     ],
     "defaultAlias": "graphviz-(dot)",
-    "githubLangId": 140,
+    "githubLangId": "140",
     "color": "#2596be",
     "extensions": [
       ".dot",
@@ -4838,7 +4838,7 @@
       "groovy"
     ],
     "defaultAlias": "groovy",
-    "githubLangId": 142,
+    "githubLangId": "142",
     "color": "#4298b8",
     "extensions": [
       ".groovy",
@@ -4869,7 +4869,7 @@
       "java server page"
     ],
     "defaultAlias": "groovy-server-pages",
-    "githubLangId": 143,
+    "githubLangId": "143",
     "color": "#4298b8",
     "extensions": [
       ".gsp"
@@ -4888,7 +4888,7 @@
       "haproxy"
     ],
     "defaultAlias": "haproxy",
-    "githubLangId": 366607477,
+    "githubLangId": "366607477",
     "color": "#106da9",
     "extensions": [
       ".cfg"
@@ -4910,7 +4910,7 @@
       "terraform"
     ],
     "defaultAlias": "hcl",
-    "githubLangId": 144,
+    "githubLangId": "144",
     "color": "#844FBA",
     "extensions": [
       ".hcl",
@@ -4933,7 +4933,7 @@
       "hlsl"
     ],
     "defaultAlias": "hlsl",
-    "githubLangId": 145,
+    "githubLangId": "145",
     "color": "#aace60",
     "extensions": [
       ".hlsl",
@@ -4954,7 +4954,7 @@
       "hocon"
     ],
     "defaultAlias": "hocon",
-    "githubLangId": 679725279,
+    "githubLangId": "679725279",
     "color": "#9ff8ee",
     "extensions": [
       ".hocon"
@@ -4976,7 +4976,7 @@
       "xhtml"
     ],
     "defaultAlias": "html",
-    "githubLangId": 146,
+    "githubLangId": "146",
     "color": "#e34c26",
     "extensions": [
       ".html",
@@ -5003,7 +5003,7 @@
       "ecr"
     ],
     "defaultAlias": "html+ecr",
-    "githubLangId": 148,
+    "githubLangId": "148",
     "color": "#2e1052",
     "extensions": [
       ".ecr"
@@ -5026,7 +5026,7 @@
       "leex"
     ],
     "defaultAlias": "html+eex",
-    "githubLangId": 149,
+    "githubLangId": "149",
     "color": "#6e4a7e",
     "extensions": [
       ".eex",
@@ -5051,7 +5051,7 @@
       "html+ruby"
     ],
     "defaultAlias": "html+erb",
-    "githubLangId": 150,
+    "githubLangId": "150",
     "color": "#701516",
     "extensions": [
       ".erb",
@@ -5073,7 +5073,7 @@
       "html+php"
     ],
     "defaultAlias": "html+php",
-    "githubLangId": 151,
+    "githubLangId": "151",
     "color": "#4f5d95",
     "extensions": [
       ".phtml"
@@ -5094,7 +5094,7 @@
       "razor"
     ],
     "defaultAlias": "html+razor",
-    "githubLangId": 479039817,
+    "githubLangId": "479039817",
     "color": "#512be4",
     "extensions": [
       ".cshtml",
@@ -5114,7 +5114,7 @@
       "http"
     ],
     "defaultAlias": "http",
-    "githubLangId": 152,
+    "githubLangId": "152",
     "color": "#005C9C",
     "extensions": [
       ".http"
@@ -5133,7 +5133,7 @@
       "hxml"
     ],
     "defaultAlias": "hxml",
-    "githubLangId": 786683730,
+    "githubLangId": "786683730",
     "color": "#f68712",
     "extensions": [
       ".hxml"
@@ -5150,7 +5150,7 @@
       "hack"
     ],
     "defaultAlias": "hack",
-    "githubLangId": 153,
+    "githubLangId": "153",
     "color": "#878787",
     "extensions": [
       ".hack",
@@ -5172,7 +5172,7 @@
       "haml"
     ],
     "defaultAlias": "haml",
-    "githubLangId": 154,
+    "githubLangId": "154",
     "color": "#ece2a9",
     "extensions": [
       ".haml",
@@ -5194,7 +5194,7 @@
       "htmlbars"
     ],
     "defaultAlias": "handlebars",
-    "githubLangId": 155,
+    "githubLangId": "155",
     "color": "#f7931e",
     "extensions": [
       ".handlebars",
@@ -5212,7 +5212,7 @@
       "harbour"
     ],
     "defaultAlias": "harbour",
-    "githubLangId": 156,
+    "githubLangId": "156",
     "color": "#0e60e3",
     "extensions": [
       ".hb"
@@ -5229,7 +5229,7 @@
       "haskell"
     ],
     "defaultAlias": "haskell",
-    "githubLangId": 157,
+    "githubLangId": "157",
     "color": "#5e5086",
     "extensions": [
       ".hs",
@@ -5255,7 +5255,7 @@
       "haxe"
     ],
     "defaultAlias": "haxe",
-    "githubLangId": 158,
+    "githubLangId": "158",
     "color": "#df7900",
     "extensions": [
       ".hx",
@@ -5275,7 +5275,7 @@
       "hiveql"
     ],
     "defaultAlias": "hiveql",
-    "githubLangId": 931814087,
+    "githubLangId": "931814087",
     "color": "#dce200",
     "extensions": [
       ".q",
@@ -5293,7 +5293,7 @@
       "holyc"
     ],
     "defaultAlias": "holyc",
-    "githubLangId": 928121743,
+    "githubLangId": "928121743",
     "color": "#ffefaf",
     "extensions": [
       ".hc"
@@ -5313,7 +5313,7 @@
       "hosts"
     ],
     "defaultAlias": "hosts-file",
-    "githubLangId": 231021894,
+    "githubLangId": "231021894",
     "color": "#308888",
     "filenames": [
       "HOSTS",
@@ -5333,7 +5333,7 @@
       "hylang"
     ],
     "defaultAlias": "hy",
-    "githubLangId": 159,
+    "githubLangId": "159",
     "color": "#7790B2",
     "extensions": [
       ".hy"
@@ -5353,7 +5353,7 @@
       "hyphy"
     ],
     "defaultAlias": "hyphy",
-    "githubLangId": 160,
+    "githubLangId": "160",
     "extensions": [
       ".bf"
     ],
@@ -5369,7 +5369,7 @@
       "idl"
     ],
     "defaultAlias": "idl",
-    "githubLangId": 161,
+    "githubLangId": "161",
     "color": "#a3522f",
     "extensions": [
       ".pro",
@@ -5391,7 +5391,7 @@
       "igorpro"
     ],
     "defaultAlias": "igor-pro",
-    "githubLangId": 162,
+    "githubLangId": "162",
     "color": "#0000cc",
     "extensions": [
       ".ipf"
@@ -5409,7 +5409,7 @@
       "dosini"
     ],
     "defaultAlias": "ini",
-    "githubLangId": 163,
+    "githubLangId": "163",
     "color": "#d1dbe0",
     "extensions": [
       ".ini",
@@ -5448,7 +5448,7 @@
       "irc logs"
     ],
     "defaultAlias": "irc-log",
-    "githubLangId": 164,
+    "githubLangId": "164",
     "extensions": [
       ".irclog",
       ".weechatlog"
@@ -5467,7 +5467,7 @@
       "idris"
     ],
     "defaultAlias": "idris",
-    "githubLangId": 165,
+    "githubLangId": "165",
     "color": "#b30000",
     "extensions": [
       ".idr",
@@ -5488,7 +5488,7 @@
       "git-ignore"
     ],
     "defaultAlias": "ignore-list",
-    "githubLangId": 74444240,
+    "githubLangId": "74444240",
     "color": "#000000",
     "extensions": [
       ".gitignore"
@@ -5528,7 +5528,7 @@
       "ijm"
     ],
     "defaultAlias": "imagej-macro",
-    "githubLangId": 575143428,
+    "githubLangId": "575143428",
     "color": "#99AAFF",
     "extensions": [
       ".ijm"
@@ -5545,7 +5545,7 @@
       "imba"
     ],
     "defaultAlias": "imba",
-    "githubLangId": 1057618448,
+    "githubLangId": "1057618448",
     "color": "#16cec6",
     "extensions": [
       ".imba"
@@ -5564,7 +5564,7 @@
       "inform7"
     ],
     "defaultAlias": "inform-7",
-    "githubLangId": 166,
+    "githubLangId": "166",
     "extensions": [
       ".ni",
       ".i7x"
@@ -5581,7 +5581,7 @@
       "ink"
     ],
     "defaultAlias": "ink",
-    "githubLangId": 838252715,
+    "githubLangId": "838252715",
     "extensions": [
       ".ink"
     ],
@@ -5597,7 +5597,7 @@
       "inno-setup"
     ],
     "defaultAlias": "inno-setup",
-    "githubLangId": 167,
+    "githubLangId": "167",
     "color": "#264b99",
     "extensions": [
       ".iss",
@@ -5615,7 +5615,7 @@
       "io"
     ],
     "defaultAlias": "io",
-    "githubLangId": 168,
+    "githubLangId": "168",
     "color": "#a9188d",
     "extensions": [
       ".io"
@@ -5635,7 +5635,7 @@
       "ioke"
     ],
     "defaultAlias": "ioke",
-    "githubLangId": 169,
+    "githubLangId": "169",
     "color": "#078193",
     "extensions": [
       ".ik"
@@ -5655,7 +5655,7 @@
       "isabelle"
     ],
     "defaultAlias": "isabelle",
-    "githubLangId": 170,
+    "githubLangId": "170",
     "color": "#FEFE00",
     "extensions": [
       ".thy"
@@ -5673,7 +5673,7 @@
       "isabelle-root"
     ],
     "defaultAlias": "isabelle-root",
-    "githubLangId": 171,
+    "githubLangId": "171",
     "color": "#FEFE00",
     "filenames": [
       "ROOT"
@@ -5690,7 +5690,7 @@
       "j"
     ],
     "defaultAlias": "j",
-    "githubLangId": 172,
+    "githubLangId": "172",
     "color": "#9EEDFF",
     "extensions": [
       ".ijs"
@@ -5710,7 +5710,7 @@
       "jar-manifest"
     ],
     "defaultAlias": "jar-manifest",
-    "githubLangId": 447261135,
+    "githubLangId": "447261135",
     "color": "#b07219",
     "filenames": [
       "MANIFEST.MF"
@@ -5727,7 +5727,7 @@
       "jcl"
     ],
     "defaultAlias": "jcl",
-    "githubLangId": 316620079,
+    "githubLangId": "316620079",
     "color": "#d90e09",
     "extensions": [
       ".jcl"
@@ -5745,7 +5745,7 @@
       "jflex"
     ],
     "defaultAlias": "jflex",
-    "githubLangId": 173,
+    "githubLangId": "173",
     "color": "#DBCA00",
     "extensions": [
       ".flex",
@@ -5767,7 +5767,7 @@
       "topojson"
     ],
     "defaultAlias": "json",
-    "githubLangId": 174,
+    "githubLangId": "174",
     "color": "#292929",
     "extensions": [
       ".json",
@@ -5824,7 +5824,7 @@
       "jsonc"
     ],
     "defaultAlias": "json-with-comments",
-    "githubLangId": 423,
+    "githubLangId": "423",
     "color": "#292929",
     "extensions": [
       ".jsonc",
@@ -5874,7 +5874,7 @@
       "json5"
     ],
     "defaultAlias": "json5",
-    "githubLangId": 175,
+    "githubLangId": "175",
     "color": "#267CB9",
     "extensions": [
       ".json5"
@@ -5893,7 +5893,7 @@
       "jsonld"
     ],
     "defaultAlias": "jsonld",
-    "githubLangId": 176,
+    "githubLangId": "176",
     "color": "#0c479c",
     "extensions": [
       ".jsonld"
@@ -5912,7 +5912,7 @@
       "jsoniq"
     ],
     "defaultAlias": "jsoniq",
-    "githubLangId": 177,
+    "githubLangId": "177",
     "color": "#40d47e",
     "extensions": [
       ".jq"
@@ -5931,7 +5931,7 @@
       "janet"
     ],
     "defaultAlias": "janet",
-    "githubLangId": 1028705371,
+    "githubLangId": "1028705371",
     "color": "#0886a5",
     "extensions": [
       ".janet"
@@ -5953,7 +5953,7 @@
       "jasmin"
     ],
     "defaultAlias": "jasmin",
-    "githubLangId": 180,
+    "githubLangId": "180",
     "color": "#d03600",
     "extensions": [
       ".j"
@@ -5970,7 +5970,7 @@
       "java"
     ],
     "defaultAlias": "java",
-    "githubLangId": 181,
+    "githubLangId": "181",
     "color": "#b07219",
     "extensions": [
       ".java",
@@ -5991,7 +5991,7 @@
       "java-properties"
     ],
     "defaultAlias": "java-properties",
-    "githubLangId": 519377561,
+    "githubLangId": "519377561",
     "color": "#2A6277",
     "extensions": [
       ".properties"
@@ -6012,7 +6012,7 @@
       "jsp"
     ],
     "defaultAlias": "java-server-pages",
-    "githubLangId": 182,
+    "githubLangId": "182",
     "color": "#2A6277",
     "extensions": [
       ".jsp",
@@ -6034,7 +6034,7 @@
       "jte"
     ],
     "defaultAlias": "java-template-engine",
-    "githubLangId": 599494012,
+    "githubLangId": "599494012",
     "color": "#2A6277",
     "extensions": [
       ".jte"
@@ -6053,7 +6053,7 @@
       "node"
     ],
     "defaultAlias": "javascript",
-    "githubLangId": 183,
+    "githubLangId": "183",
     "color": "#f1e05a",
     "extensions": [
       ".js",
@@ -6112,7 +6112,7 @@
       "javascript+erb"
     ],
     "defaultAlias": "javascript+erb",
-    "githubLangId": 914318960,
+    "githubLangId": "914318960",
     "color": "#f1e05a",
     "extensions": [
       ".js.erb"
@@ -6131,7 +6131,7 @@
       "jest-snapshot"
     ],
     "defaultAlias": "jest-snapshot",
-    "githubLangId": 774635084,
+    "githubLangId": "774635084",
     "color": "#15c213",
     "extensions": [
       ".snap"
@@ -6151,7 +6151,7 @@
       "mps"
     ],
     "defaultAlias": "jetbrains-mps",
-    "githubLangId": 465165328,
+    "githubLangId": "465165328",
     "color": "#21D789",
     "extensions": [
       ".mps",
@@ -6176,7 +6176,7 @@
       "htmldjango"
     ],
     "defaultAlias": "jinja",
-    "githubLangId": 147,
+    "githubLangId": "147",
     "color": "#a52a22",
     "extensions": [
       ".jinja",
@@ -6198,7 +6198,7 @@
       "jison"
     ],
     "defaultAlias": "jison",
-    "githubLangId": 284531423,
+    "githubLangId": "284531423",
     "color": "#56b3cb",
     "extensions": [
       ".jison"
@@ -6216,7 +6216,7 @@
       "jison-lex"
     ],
     "defaultAlias": "jison-lex",
-    "githubLangId": 406395330,
+    "githubLangId": "406395330",
     "color": "#56b3cb",
     "extensions": [
       ".jisonlex"
@@ -6233,7 +6233,7 @@
       "jolie"
     ],
     "defaultAlias": "jolie",
-    "githubLangId": 998078858,
+    "githubLangId": "998078858",
     "color": "#843179",
     "extensions": [
       ".ol",
@@ -6254,7 +6254,7 @@
       "jsonnet"
     ],
     "defaultAlias": "jsonnet",
-    "githubLangId": 664885656,
+    "githubLangId": "664885656",
     "color": "#0064bd",
     "extensions": [
       ".jsonnet",
@@ -6272,7 +6272,7 @@
       "julia"
     ],
     "defaultAlias": "julia",
-    "githubLangId": 184,
+    "githubLangId": "184",
     "color": "#a270ba",
     "extensions": [
       ".jl"
@@ -6295,7 +6295,7 @@
       "julia-repl"
     ],
     "defaultAlias": "julia-repl",
-    "githubLangId": 220689142,
+    "githubLangId": "220689142",
     "color": "#a270ba",
     "githubPopular": false,
     "type": "programming",
@@ -6310,7 +6310,7 @@
       "IPython Notebook"
     ],
     "defaultAlias": "jupyter-notebook",
-    "githubLangId": 185,
+    "githubLangId": "185",
     "color": "#DA5B0B",
     "extensions": [
       ".ipynb"
@@ -6333,7 +6333,7 @@
       "Justfile"
     ],
     "defaultAlias": "just",
-    "githubLangId": 128447695,
+    "githubLangId": "128447695",
     "color": "#384d54",
     "extensions": [
       ".just"
@@ -6358,7 +6358,7 @@
       "krl"
     ],
     "defaultAlias": "krl",
-    "githubLangId": 186,
+    "githubLangId": "186",
     "color": "#28430A",
     "extensions": [
       ".krl"
@@ -6376,7 +6376,7 @@
       "ksy"
     ],
     "defaultAlias": "kaitai-struct",
-    "githubLangId": 818804755,
+    "githubLangId": "818804755",
     "color": "#773b37",
     "extensions": [
       ".ksy"
@@ -6397,7 +6397,7 @@
       "kakscript"
     ],
     "defaultAlias": "kakounescript",
-    "githubLangId": 603336474,
+    "githubLangId": "603336474",
     "color": "#6f8042",
     "extensions": [
       ".kak"
@@ -6417,7 +6417,7 @@
       "kerboscript"
     ],
     "defaultAlias": "kerboscript",
-    "githubLangId": 59716426,
+    "githubLangId": "59716426",
     "color": "#41adf0",
     "extensions": [
       ".ks"
@@ -6435,7 +6435,7 @@
       "pcbnew"
     ],
     "defaultAlias": "kicad-layout",
-    "githubLangId": 187,
+    "githubLangId": "187",
     "color": "#2f4aab",
     "extensions": [
       ".kicad_pcb",
@@ -6459,7 +6459,7 @@
       "kicad-legacy-layout"
     ],
     "defaultAlias": "kicad-legacy-layout",
-    "githubLangId": 140848857,
+    "githubLangId": "140848857",
     "color": "#2f4aab",
     "extensions": [
       ".brd"
@@ -6477,7 +6477,7 @@
       "eeschema schematic"
     ],
     "defaultAlias": "kicad-schematic",
-    "githubLangId": 622447435,
+    "githubLangId": "622447435",
     "color": "#2f4aab",
     "extensions": [
       ".kicad_sch",
@@ -6495,7 +6495,7 @@
       "kickstart"
     ],
     "defaultAlias": "kickstart",
-    "githubLangId": 692635484,
+    "githubLangId": "692635484",
     "extensions": [
       ".ks"
     ],
@@ -6511,7 +6511,7 @@
       "kit"
     ],
     "defaultAlias": "kit",
-    "githubLangId": 188,
+    "githubLangId": "188",
     "extensions": [
       ".kit"
     ],
@@ -6529,7 +6529,7 @@
       "kotlin"
     ],
     "defaultAlias": "kotlin",
-    "githubLangId": 189,
+    "githubLangId": "189",
     "color": "#A97BFF",
     "extensions": [
       ".kt",
@@ -6550,7 +6550,7 @@
       "kusto"
     ],
     "defaultAlias": "kusto",
-    "githubLangId": 225697190,
+    "githubLangId": "225697190",
     "extensions": [
       ".csl",
       ".kql"
@@ -6567,7 +6567,7 @@
       "lfe"
     ],
     "defaultAlias": "lfe",
-    "githubLangId": 190,
+    "githubLangId": "190",
     "color": "#4C3023",
     "extensions": [
       ".lfe"
@@ -6586,7 +6586,7 @@
       "llvm"
     ],
     "defaultAlias": "llvm",
-    "githubLangId": 191,
+    "githubLangId": "191",
     "color": "#185619",
     "extensions": [
       ".ll"
@@ -6603,7 +6603,7 @@
       "lolcode"
     ],
     "defaultAlias": "lolcode",
-    "githubLangId": 192,
+    "githubLangId": "192",
     "color": "#cc9900",
     "extensions": [
       ".lol"
@@ -6620,7 +6620,7 @@
       "lsl"
     ],
     "defaultAlias": "lsl",
-    "githubLangId": 193,
+    "githubLangId": "193",
     "color": "#3d9970",
     "extensions": [
       ".lsl",
@@ -6641,7 +6641,7 @@
       "ltspice-symbol"
     ],
     "defaultAlias": "ltspice-symbol",
-    "githubLangId": 1013566805,
+    "githubLangId": "1013566805",
     "extensions": [
       ".asy"
     ],
@@ -6659,7 +6659,7 @@
       "labview"
     ],
     "defaultAlias": "labview",
-    "githubLangId": 194,
+    "githubLangId": "194",
     "color": "#fede06",
     "extensions": [
       ".lvproj",
@@ -6680,7 +6680,7 @@
       "lark"
     ],
     "defaultAlias": "lark",
-    "githubLangId": 758480799,
+    "githubLangId": "758480799",
     "color": "#2980B9",
     "extensions": [
       ".lark"
@@ -6700,7 +6700,7 @@
       "lassoscript"
     ],
     "defaultAlias": "lasso",
-    "githubLangId": 195,
+    "githubLangId": "195",
     "color": "#999999",
     "extensions": [
       ".lasso",
@@ -6720,7 +6720,7 @@
       "latte"
     ],
     "defaultAlias": "latte",
-    "githubLangId": 196,
+    "githubLangId": "196",
     "color": "#f2a542",
     "extensions": [
       ".latte"
@@ -6739,7 +6739,7 @@
       "lean"
     ],
     "defaultAlias": "lean",
-    "githubLangId": 197,
+    "githubLangId": "197",
     "extensions": [
       ".lean",
       ".hlean"
@@ -6757,7 +6757,7 @@
       "lean-4"
     ],
     "defaultAlias": "lean-4",
-    "githubLangId": 455147478,
+    "githubLangId": "455147478",
     "extensions": [
       ".lean"
     ],
@@ -6774,7 +6774,7 @@
       "less-css"
     ],
     "defaultAlias": "less",
-    "githubLangId": 198,
+    "githubLangId": "198",
     "color": "#1d365d",
     "extensions": [
       ".less"
@@ -6794,7 +6794,7 @@
       "flex"
     ],
     "defaultAlias": "lex",
-    "githubLangId": 199,
+    "githubLangId": "199",
     "color": "#DBCA00",
     "extensions": [
       ".l",
@@ -6816,7 +6816,7 @@
       "ligolang"
     ],
     "defaultAlias": "ligolang",
-    "githubLangId": 1040646257,
+    "githubLangId": "1040646257",
     "color": "#0e74ff",
     "extensions": [
       ".ligo"
@@ -6835,7 +6835,7 @@
       "lilypond"
     ],
     "defaultAlias": "lilypond",
-    "githubLangId": 200,
+    "githubLangId": "200",
     "color": "#9ccc7c",
     "extensions": [
       ".ly",
@@ -6853,7 +6853,7 @@
       "limbo"
     ],
     "defaultAlias": "limbo",
-    "githubLangId": 201,
+    "githubLangId": "201",
     "extensions": [
       ".b",
       ".m"
@@ -6870,7 +6870,7 @@
       "linker-script"
     ],
     "defaultAlias": "linker-script",
-    "githubLangId": 202,
+    "githubLangId": "202",
     "extensions": [
       ".ld",
       ".lds",
@@ -6891,7 +6891,7 @@
       "linux-kernel-module"
     ],
     "defaultAlias": "linux-kernel-module",
-    "githubLangId": 203,
+    "githubLangId": "203",
     "extensions": [
       ".mod"
     ],
@@ -6907,7 +6907,7 @@
       "liquid"
     ],
     "defaultAlias": "liquid",
-    "githubLangId": 204,
+    "githubLangId": "204",
     "color": "#67b8de",
     "extensions": [
       ".liquid"
@@ -6925,7 +6925,7 @@
       "literate-agda"
     ],
     "defaultAlias": "literate-agda",
-    "githubLangId": 205,
+    "githubLangId": "205",
     "color": "#315665",
     "extensions": [
       ".lagda"
@@ -6944,7 +6944,7 @@
       "litcoffee"
     ],
     "defaultAlias": "literate-coffeescript",
-    "githubLangId": 206,
+    "githubLangId": "206",
     "color": "#244776",
     "extensions": [
       ".litcoffee",
@@ -6965,7 +6965,7 @@
       "lhs"
     ],
     "defaultAlias": "literate-haskell",
-    "githubLangId": 207,
+    "githubLangId": "207",
     "color": "#5e5086",
     "extensions": [
       ".lhs"
@@ -6984,7 +6984,7 @@
       "livecode-script"
     ],
     "defaultAlias": "livecode-script",
-    "githubLangId": 891017,
+    "githubLangId": "891017",
     "color": "#0c5ba5",
     "extensions": [
       ".livecodescript"
@@ -7003,7 +7003,7 @@
       "ls"
     ],
     "defaultAlias": "livescript",
-    "githubLangId": 208,
+    "githubLangId": "208",
     "color": "#499886",
     "extensions": [
       ".ls",
@@ -7026,7 +7026,7 @@
       "logos"
     ],
     "defaultAlias": "logos",
-    "githubLangId": 209,
+    "githubLangId": "209",
     "extensions": [
       ".xm",
       ".x",
@@ -7044,7 +7044,7 @@
       "logtalk"
     ],
     "defaultAlias": "logtalk",
-    "githubLangId": 210,
+    "githubLangId": "210",
     "color": "#295b9a",
     "extensions": [
       ".lgt",
@@ -7062,7 +7062,7 @@
       "lookml"
     ],
     "defaultAlias": "lookml",
-    "githubLangId": 211,
+    "githubLangId": "211",
     "color": "#652B81",
     "extensions": [
       ".lkml",
@@ -7082,7 +7082,7 @@
       "loomscript"
     ],
     "defaultAlias": "loomscript",
-    "githubLangId": 212,
+    "githubLangId": "212",
     "extensions": [
       ".ls"
     ],
@@ -7098,7 +7098,7 @@
       "lua"
     ],
     "defaultAlias": "lua",
-    "githubLangId": 213,
+    "githubLangId": "213",
     "color": "#000080",
     "extensions": [
       ".lua",
@@ -7130,7 +7130,7 @@
       "luau"
     ],
     "defaultAlias": "luau",
-    "githubLangId": 365050359,
+    "githubLangId": "365050359",
     "color": "#00A2FF",
     "extensions": [
       ".luau"
@@ -7153,7 +7153,7 @@
       "mumps"
     ],
     "defaultAlias": "m",
-    "githubLangId": 214,
+    "githubLangId": "214",
     "extensions": [
       ".mumps",
       ".m"
@@ -7172,7 +7172,7 @@
       "m4"
     ],
     "defaultAlias": "m4",
-    "githubLangId": 215,
+    "githubLangId": "215",
     "extensions": [
       ".m4",
       ".mc"
@@ -7191,7 +7191,7 @@
       "autoconf"
     ],
     "defaultAlias": "m4sugar",
-    "githubLangId": 216,
+    "githubLangId": "216",
     "extensions": [
       ".m4"
     ],
@@ -7211,7 +7211,7 @@
       "octave"
     ],
     "defaultAlias": "matlab",
-    "githubLangId": 225,
+    "githubLangId": "225",
     "color": "#e16737",
     "extensions": [
       ".matlab",
@@ -7231,7 +7231,7 @@
       "maxscript"
     ],
     "defaultAlias": "maxscript",
-    "githubLangId": 217,
+    "githubLangId": "217",
     "color": "#00a6a6",
     "extensions": [
       ".ms",
@@ -7249,7 +7249,7 @@
       "mdx"
     ],
     "defaultAlias": "mdx",
-    "githubLangId": 512838272,
+    "githubLangId": "512838272",
     "color": "#fcb32c",
     "extensions": [
       ".mdx"
@@ -7268,7 +7268,7 @@
       "mlir"
     ],
     "defaultAlias": "mlir",
-    "githubLangId": 448253929,
+    "githubLangId": "448253929",
     "color": "#5EC8DB",
     "extensions": [
       ".mlir"
@@ -7285,7 +7285,7 @@
       "mql4"
     ],
     "defaultAlias": "mql4",
-    "githubLangId": 426,
+    "githubLangId": "426",
     "color": "#62A8D6",
     "extensions": [
       ".mq4",
@@ -7303,7 +7303,7 @@
       "mql5"
     ],
     "defaultAlias": "mql5",
-    "githubLangId": 427,
+    "githubLangId": "427",
     "color": "#4A76B8",
     "extensions": [
       ".mq5",
@@ -7321,7 +7321,7 @@
       "mtml"
     ],
     "defaultAlias": "mtml",
-    "githubLangId": 218,
+    "githubLangId": "218",
     "color": "#b7e1f4",
     "extensions": [
       ".mtml"
@@ -7341,7 +7341,7 @@
       "muf"
     ],
     "defaultAlias": "muf",
-    "githubLangId": 219,
+    "githubLangId": "219",
     "extensions": [
       ".muf",
       ".m"
@@ -7361,7 +7361,7 @@
       "m2"
     ],
     "defaultAlias": "macaulay2",
-    "githubLangId": 34167825,
+    "githubLangId": "34167825",
     "color": "#d8ffff",
     "extensions": [
       ".m2"
@@ -7384,7 +7384,7 @@
       "mf"
     ],
     "defaultAlias": "makefile",
-    "githubLangId": 220,
+    "githubLangId": "220",
     "color": "#427819",
     "extensions": [
       ".mak",
@@ -7426,7 +7426,7 @@
       "mako"
     ],
     "defaultAlias": "mako",
-    "githubLangId": 221,
+    "githubLangId": "221",
     "color": "#7e858d",
     "extensions": [
       ".mako",
@@ -7446,7 +7446,7 @@
       "pandoc"
     ],
     "defaultAlias": "markdown",
-    "githubLangId": 222,
+    "githubLangId": "222",
     "color": "#083fa1",
     "extensions": [
       ".md",
@@ -7479,7 +7479,7 @@
       "markojs"
     ],
     "defaultAlias": "marko",
-    "githubLangId": 932782397,
+    "githubLangId": "932782397",
     "color": "#42bff2",
     "extensions": [
       ".marko"
@@ -7498,7 +7498,7 @@
       "mask"
     ],
     "defaultAlias": "mask",
-    "githubLangId": 223,
+    "githubLangId": "223",
     "color": "#f97732",
     "extensions": [
       ".mask"
@@ -7520,7 +7520,7 @@
       "wl"
     ],
     "defaultAlias": "mathematica",
-    "githubLangId": 224,
+    "githubLangId": "224",
     "color": "#dd1100",
     "extensions": [
       ".mathematica",
@@ -7548,7 +7548,7 @@
       "maven-pom"
     ],
     "defaultAlias": "maven-pom",
-    "githubLangId": 226,
+    "githubLangId": "226",
     "filenames": [
       "pom.xml"
     ],
@@ -7568,7 +7568,7 @@
       "maxmsp"
     ],
     "defaultAlias": "max",
-    "githubLangId": 227,
+    "githubLangId": "227",
     "color": "#c4a79c",
     "extensions": [
       ".maxpat",
@@ -7591,7 +7591,7 @@
       "mercury"
     ],
     "defaultAlias": "mercury",
-    "githubLangId": 229,
+    "githubLangId": "229",
     "color": "#ff2b2b",
     "extensions": [
       ".m",
@@ -7613,7 +7613,7 @@
       "mermaid example"
     ],
     "defaultAlias": "mermaid",
-    "githubLangId": 385992043,
+    "githubLangId": "385992043",
     "color": "#ff3670",
     "extensions": [
       ".mmd",
@@ -7631,7 +7631,7 @@
       "meson"
     ],
     "defaultAlias": "meson",
-    "githubLangId": 799141244,
+    "githubLangId": "799141244",
     "color": "#007800",
     "filenames": [
       "meson.build",
@@ -7649,7 +7649,7 @@
       "metal"
     ],
     "defaultAlias": "metal",
-    "githubLangId": 230,
+    "githubLangId": "230",
     "color": "#8f14e9",
     "extensions": [
       ".metal"
@@ -7668,7 +7668,7 @@
       "microsoft-developer-studio-project"
     ],
     "defaultAlias": "microsoft-developer-studio-project",
-    "githubLangId": 800983837,
+    "githubLangId": "800983837",
     "extensions": [
       ".dsp"
     ],
@@ -7684,7 +7684,7 @@
       "microsoft-visual-studio-solution"
     ],
     "defaultAlias": "microsoft-visual-studio-solution",
-    "githubLangId": 849523096,
+    "githubLangId": "849523096",
     "extensions": [
       ".sln"
     ],
@@ -7700,7 +7700,7 @@
       "minid"
     ],
     "defaultAlias": "minid",
-    "githubLangId": 231,
+    "githubLangId": "231",
     "extensions": [
       ".minid"
     ],
@@ -7716,7 +7716,7 @@
       "miniyaml"
     ],
     "defaultAlias": "miniyaml",
-    "githubLangId": 4896465,
+    "githubLangId": "4896465",
     "color": "#ff1111",
     "extensions": [
       ".yaml",
@@ -7736,7 +7736,7 @@
       "mint"
     ],
     "defaultAlias": "mint",
-    "githubLangId": 968740319,
+    "githubLangId": "968740319",
     "color": "#02b046",
     "extensions": [
       ".mint"
@@ -7753,7 +7753,7 @@
       "mirah"
     ],
     "defaultAlias": "mirah",
-    "githubLangId": 232,
+    "githubLangId": "232",
     "color": "#c7a938",
     "extensions": [
       ".druby",
@@ -7774,7 +7774,7 @@
       "modelica"
     ],
     "defaultAlias": "modelica",
-    "githubLangId": 233,
+    "githubLangId": "233",
     "color": "#de1d31",
     "extensions": [
       ".mo"
@@ -7793,7 +7793,7 @@
       "modula-2"
     ],
     "defaultAlias": "modula-2",
-    "githubLangId": 234,
+    "githubLangId": "234",
     "color": "#10253f",
     "extensions": [
       ".mod"
@@ -7810,7 +7810,7 @@
       "modula-3"
     ],
     "defaultAlias": "modula-3",
-    "githubLangId": 564743864,
+    "githubLangId": "564743864",
     "color": "#223388",
     "extensions": [
       ".i3",
@@ -7830,7 +7830,7 @@
       "module-management-system"
     ],
     "defaultAlias": "module-management-system",
-    "githubLangId": 235,
+    "githubLangId": "235",
     "extensions": [
       ".mms",
       ".mmk"
@@ -7851,7 +7851,7 @@
       "mojo"
     ],
     "defaultAlias": "mojo",
-    "githubLangId": 1045019587,
+    "githubLangId": "1045019587",
     "color": "#ff4c1f",
     "extensions": [
       ".mojo"
@@ -7870,7 +7870,7 @@
       "monkey"
     ],
     "defaultAlias": "monkey",
-    "githubLangId": 236,
+    "githubLangId": "236",
     "extensions": [
       ".monkey",
       ".monkey2"
@@ -7887,7 +7887,7 @@
       "monkey-c"
     ],
     "defaultAlias": "monkey-c",
-    "githubLangId": 231751931,
+    "githubLangId": "231751931",
     "color": "#8D6747",
     "extensions": [
       ".mc"
@@ -7906,7 +7906,7 @@
       "moocode"
     ],
     "defaultAlias": "moocode",
-    "githubLangId": 237,
+    "githubLangId": "237",
     "extensions": [
       ".moo"
     ],
@@ -7922,7 +7922,7 @@
       "moonscript"
     ],
     "defaultAlias": "moonscript",
-    "githubLangId": 238,
+    "githubLangId": "238",
     "color": "#ff4585",
     "extensions": [
       ".moon"
@@ -7942,7 +7942,7 @@
       "motoko"
     ],
     "defaultAlias": "motoko",
-    "githubLangId": 202937027,
+    "githubLangId": "202937027",
     "color": "#fbb03b",
     "extensions": [
       ".mo"
@@ -7961,7 +7961,7 @@
       "m68k"
     ],
     "defaultAlias": "motorola-68k-assembly",
-    "githubLangId": 477582706,
+    "githubLangId": "477582706",
     "color": "#005daa",
     "extensions": [
       ".asm",
@@ -7982,7 +7982,7 @@
       "move"
     ],
     "defaultAlias": "move",
-    "githubLangId": 638334599,
+    "githubLangId": "638334599",
     "color": "#4a137a",
     "extensions": [
       ".move"
@@ -8001,7 +8001,7 @@
       "emacs muse"
     ],
     "defaultAlias": "muse",
-    "githubLangId": 474864066,
+    "githubLangId": "474864066",
     "extensions": [
       ".muse"
     ],
@@ -8017,7 +8017,7 @@
       "mustache"
     ],
     "defaultAlias": "mustache",
-    "githubLangId": 638334590,
+    "githubLangId": "638334590",
     "color": "#724b3b",
     "extensions": [
       ".mustache"
@@ -8036,7 +8036,7 @@
       "myghty"
     ],
     "defaultAlias": "myghty",
-    "githubLangId": 239,
+    "githubLangId": "239",
     "extensions": [
       ".myt"
     ],
@@ -8052,7 +8052,7 @@
       "nasl"
     ],
     "defaultAlias": "nasl",
-    "githubLangId": 171666519,
+    "githubLangId": "171666519",
     "extensions": [
       ".nasl",
       ".inc"
@@ -8069,7 +8069,7 @@
       "ncl"
     ],
     "defaultAlias": "ncl",
-    "githubLangId": 240,
+    "githubLangId": "240",
     "color": "#28431f",
     "extensions": [
       ".ncl"
@@ -8088,7 +8088,7 @@
       "ne-on"
     ],
     "defaultAlias": "neon",
-    "githubLangId": 481192983,
+    "githubLangId": "481192983",
     "extensions": [
       ".neon"
     ],
@@ -8104,7 +8104,7 @@
       "nl"
     ],
     "defaultAlias": "nl",
-    "githubLangId": 241,
+    "githubLangId": "241",
     "extensions": [
       ".nl"
     ],
@@ -8120,7 +8120,7 @@
       "nmodl"
     ],
     "defaultAlias": "nmodl",
-    "githubLangId": 136456478,
+    "githubLangId": "136456478",
     "color": "#00356B",
     "extensions": [
       ".mod"
@@ -8139,7 +8139,7 @@
       "npmrc"
     ],
     "defaultAlias": "npm-config",
-    "githubLangId": 685022663,
+    "githubLangId": "685022663",
     "color": "#cb3837",
     "filenames": [
       ".npmrc"
@@ -8156,7 +8156,7 @@
       "nsis"
     ],
     "defaultAlias": "nsis",
-    "githubLangId": 242,
+    "githubLangId": "242",
     "extensions": [
       ".nsi",
       ".nsh"
@@ -8175,7 +8175,7 @@
       "nwscript"
     ],
     "defaultAlias": "nwscript",
-    "githubLangId": 731233819,
+    "githubLangId": "731233819",
     "color": "#111522",
     "extensions": [
       ".nss"
@@ -8194,7 +8194,7 @@
       "nasal"
     ],
     "defaultAlias": "nasal",
-    "githubLangId": 178322513,
+    "githubLangId": "178322513",
     "color": "#1d2c4e",
     "extensions": [
       ".nas"
@@ -8211,7 +8211,7 @@
       "nearley"
     ],
     "defaultAlias": "nearley",
-    "githubLangId": 521429430,
+    "githubLangId": "521429430",
     "color": "#990000",
     "extensions": [
       ".ne",
@@ -8229,7 +8229,7 @@
       "nemerle"
     ],
     "defaultAlias": "nemerle",
-    "githubLangId": 243,
+    "githubLangId": "243",
     "color": "#3d3c6e",
     "extensions": [
       ".n"
@@ -8246,7 +8246,7 @@
       "netlinx"
     ],
     "defaultAlias": "netlinx",
-    "githubLangId": 244,
+    "githubLangId": "244",
     "color": "#0aa0ff",
     "extensions": [
       ".axs",
@@ -8264,7 +8264,7 @@
       "netlinx+erb"
     ],
     "defaultAlias": "netlinx+erb",
-    "githubLangId": 245,
+    "githubLangId": "245",
     "color": "#747faa",
     "extensions": [
       ".axs.erb",
@@ -8282,7 +8282,7 @@
       "netlogo"
     ],
     "defaultAlias": "netlogo",
-    "githubLangId": 246,
+    "githubLangId": "246",
     "color": "#ff6375",
     "extensions": [
       ".nlogo"
@@ -8301,7 +8301,7 @@
       "newlisp"
     ],
     "defaultAlias": "newlisp",
-    "githubLangId": 247,
+    "githubLangId": "247",
     "color": "#87AED7",
     "extensions": [
       ".nl",
@@ -8325,7 +8325,7 @@
       "nextflow"
     ],
     "defaultAlias": "nextflow",
-    "githubLangId": 506780613,
+    "githubLangId": "506780613",
     "color": "#3ac486",
     "extensions": [
       ".nf"
@@ -8349,7 +8349,7 @@
       "nginx configuration file"
     ],
     "defaultAlias": "nginx",
-    "githubLangId": 248,
+    "githubLangId": "248",
     "color": "#009639",
     "extensions": [
       ".nginx",
@@ -8373,7 +8373,7 @@
       "nim"
     ],
     "defaultAlias": "nim",
-    "githubLangId": 249,
+    "githubLangId": "249",
     "color": "#ffc200",
     "extensions": [
       ".nim",
@@ -8397,7 +8397,7 @@
       "ninja"
     ],
     "defaultAlias": "ninja",
-    "githubLangId": 250,
+    "githubLangId": "250",
     "extensions": [
       ".ninja"
     ],
@@ -8413,7 +8413,7 @@
       "nit"
     ],
     "defaultAlias": "nit",
-    "githubLangId": 251,
+    "githubLangId": "251",
     "color": "#009917",
     "extensions": [
       ".nit"
@@ -8431,7 +8431,7 @@
       "nixos"
     ],
     "defaultAlias": "nix",
-    "githubLangId": 252,
+    "githubLangId": "252",
     "color": "#7e7eff",
     "extensions": [
       ".nix"
@@ -8449,7 +8449,7 @@
       "nargo"
     ],
     "defaultAlias": "noir",
-    "githubLangId": 813068465,
+    "githubLangId": "813068465",
     "color": "#2f1f49",
     "extensions": [
       ".nr"
@@ -8469,7 +8469,7 @@
       "nush"
     ],
     "defaultAlias": "nu",
-    "githubLangId": 253,
+    "githubLangId": "253",
     "color": "#c9df40",
     "extensions": [
       ".nu"
@@ -8495,7 +8495,7 @@
       "numpy"
     ],
     "defaultAlias": "numpy",
-    "githubLangId": 254,
+    "githubLangId": "254",
     "color": "#9C8AF9",
     "extensions": [
       ".numpy",
@@ -8517,7 +8517,7 @@
       "njk"
     ],
     "defaultAlias": "nunjucks",
-    "githubLangId": 461856962,
+    "githubLangId": "461856962",
     "color": "#3d8137",
     "extensions": [
       ".njk"
@@ -8536,7 +8536,7 @@
       "nushell-script"
     ],
     "defaultAlias": "nushell",
-    "githubLangId": 446573572,
+    "githubLangId": "446573572",
     "color": "#4E9906",
     "extensions": [
       ".nu"
@@ -8559,7 +8559,7 @@
       "oasv2-json"
     ],
     "defaultAlias": "oasv2-json",
-    "githubLangId": 834374816,
+    "githubLangId": "834374816",
     "color": "#85ea2d",
     "extensions": [
       ".json"
@@ -8579,7 +8579,7 @@
       "oasv2-yaml"
     ],
     "defaultAlias": "oasv2-yaml",
-    "githubLangId": 105187618,
+    "githubLangId": "105187618",
     "color": "#85ea2d",
     "extensions": [
       ".yaml",
@@ -8600,7 +8600,7 @@
       "oasv3-json"
     ],
     "defaultAlias": "oasv3-json",
-    "githubLangId": 980062566,
+    "githubLangId": "980062566",
     "color": "#85ea2d",
     "extensions": [
       ".json"
@@ -8620,7 +8620,7 @@
       "oasv3-yaml"
     ],
     "defaultAlias": "oasv3-yaml",
-    "githubLangId": 51239111,
+    "githubLangId": "51239111",
     "color": "#85ea2d",
     "extensions": [
       ".yaml",
@@ -8640,7 +8640,7 @@
       "ocaml"
     ],
     "defaultAlias": "ocaml",
-    "githubLangId": 255,
+    "githubLangId": "255",
     "color": "#ef7a08",
     "extensions": [
       ".ml",
@@ -8670,7 +8670,7 @@
       "oberon"
     ],
     "defaultAlias": "oberon",
-    "githubLangId": 677210597,
+    "githubLangId": "677210597",
     "extensions": [
       ".ob2"
     ],
@@ -8686,7 +8686,7 @@
       "objdump"
     ],
     "defaultAlias": "objdump",
-    "githubLangId": 256,
+    "githubLangId": "256",
     "extensions": [
       ".objdump"
     ],
@@ -8702,7 +8702,7 @@
       "object-data-instance-notation"
     ],
     "defaultAlias": "object-data-instance-notation",
-    "githubLangId": 985227236,
+    "githubLangId": "985227236",
     "extensions": [
       ".odin"
     ],
@@ -8718,7 +8718,7 @@
       "objectscript"
     ],
     "defaultAlias": "objectscript",
-    "githubLangId": 202735509,
+    "githubLangId": "202735509",
     "color": "#424893",
     "extensions": [
       ".cls"
@@ -8738,7 +8738,7 @@
       "objectivec"
     ],
     "defaultAlias": "objective-c",
-    "githubLangId": 257,
+    "githubLangId": "257",
     "color": "#438eff",
     "extensions": [
       ".m",
@@ -8761,7 +8761,7 @@
       "objectivec++"
     ],
     "defaultAlias": "objective-c++",
-    "githubLangId": 258,
+    "githubLangId": "258",
     "color": "#6866fb",
     "extensions": [
       ".mm"
@@ -8783,7 +8783,7 @@
       "objj"
     ],
     "defaultAlias": "objective-j",
-    "githubLangId": 259,
+    "githubLangId": "259",
     "color": "#ff0c5a",
     "extensions": [
       ".j",
@@ -8803,7 +8803,7 @@
       "odin-lang"
     ],
     "defaultAlias": "odin",
-    "githubLangId": 889244082,
+    "githubLangId": "889244082",
     "color": "#60AFFE",
     "extensions": [
       ".odin"
@@ -8820,7 +8820,7 @@
       "omgrofl"
     ],
     "defaultAlias": "omgrofl",
-    "githubLangId": 260,
+    "githubLangId": "260",
     "color": "#cabbff",
     "extensions": [
       ".omgrofl"
@@ -8837,7 +8837,7 @@
       "opa"
     ],
     "defaultAlias": "opa",
-    "githubLangId": 261,
+    "githubLangId": "261",
     "extensions": [
       ".opa"
     ],
@@ -8853,7 +8853,7 @@
       "opal"
     ],
     "defaultAlias": "opal",
-    "githubLangId": 262,
+    "githubLangId": "262",
     "color": "#f7ede0",
     "extensions": [
       ".opal"
@@ -8870,7 +8870,7 @@
       "open-policy-agent"
     ],
     "defaultAlias": "open-policy-agent",
-    "githubLangId": 840483232,
+    "githubLangId": "840483232",
     "color": "#7d9199",
     "extensions": [
       ".rego"
@@ -8888,7 +8888,7 @@
       "oasv2"
     ],
     "defaultAlias": "openapi-specification-v2",
-    "githubLangId": 848295328,
+    "githubLangId": "848295328",
     "color": "#85ea2d",
     "githubPopular": false,
     "type": "data",
@@ -8903,7 +8903,7 @@
       "oasv3"
     ],
     "defaultAlias": "openapi-specification-v3",
-    "githubLangId": 557959099,
+    "githubLangId": "557959099",
     "color": "#85ea2d",
     "githubPopular": false,
     "type": "data",
@@ -8918,7 +8918,7 @@
       "opencl"
     ],
     "defaultAlias": "opencl",
-    "githubLangId": 263,
+    "githubLangId": "263",
     "color": "#ed2e2d",
     "extensions": [
       ".cl",
@@ -8941,7 +8941,7 @@
       "abl"
     ],
     "defaultAlias": "openedge-abl",
-    "githubLangId": 264,
+    "githubLangId": "264",
     "color": "#5ce600",
     "extensions": [
       ".p",
@@ -8960,7 +8960,7 @@
       "openqasm"
     ],
     "defaultAlias": "openqasm",
-    "githubLangId": 153739399,
+    "githubLangId": "153739399",
     "color": "#AA70FF",
     "extensions": [
       ".qasm"
@@ -8979,7 +8979,7 @@
       "openrc"
     ],
     "defaultAlias": "openrc-runscript",
-    "githubLangId": 265,
+    "githubLangId": "265",
     "interpreters": [
       "openrc-run"
     ],
@@ -8997,7 +8997,7 @@
       "openscad"
     ],
     "defaultAlias": "openscad",
-    "githubLangId": 266,
+    "githubLangId": "266",
     "color": "#e5cd45",
     "extensions": [
       ".scad"
@@ -9014,7 +9014,7 @@
       "openstep-property-list"
     ],
     "defaultAlias": "openstep-property-list",
-    "githubLangId": 598917541,
+    "githubLangId": "598917541",
     "extensions": [
       ".plist",
       ".glyphs"
@@ -9032,7 +9032,7 @@
       "AFDKO"
     ],
     "defaultAlias": "opentype-feature-file",
-    "githubLangId": 374317347,
+    "githubLangId": "374317347",
     "extensions": [
       ".fea"
     ],
@@ -9050,7 +9050,7 @@
       "ackrc"
     ],
     "defaultAlias": "option-list",
-    "githubLangId": 723589315,
+    "githubLangId": "723589315",
     "color": "#476732",
     "filenames": [
       ".ackrc",
@@ -9073,7 +9073,7 @@
       "org"
     ],
     "defaultAlias": "org",
-    "githubLangId": 267,
+    "githubLangId": "267",
     "color": "#77aa99",
     "extensions": [
       ".org"
@@ -9090,7 +9090,7 @@
       "ox"
     ],
     "defaultAlias": "ox",
-    "githubLangId": 268,
+    "githubLangId": "268",
     "extensions": [
       ".ox",
       ".oxh",
@@ -9108,7 +9108,7 @@
       "oxygene"
     ],
     "defaultAlias": "oxygene",
-    "githubLangId": 269,
+    "githubLangId": "269",
     "color": "#cdd0e3",
     "extensions": [
       ".oxygene"
@@ -9125,7 +9125,7 @@
       "oz"
     ],
     "defaultAlias": "oz",
-    "githubLangId": 270,
+    "githubLangId": "270",
     "color": "#fab738",
     "extensions": [
       ".oz"
@@ -9144,7 +9144,7 @@
       "p4"
     ],
     "defaultAlias": "p4",
-    "githubLangId": 348895984,
+    "githubLangId": "348895984",
     "color": "#7055b5",
     "extensions": [
       ".p4"
@@ -9161,7 +9161,7 @@
       "pddl"
     ],
     "defaultAlias": "pddl",
-    "githubLangId": 736235603,
+    "githubLangId": "736235603",
     "color": "#0d00ff",
     "extensions": [
       ".pddl"
@@ -9178,7 +9178,7 @@
       "peg.js"
     ],
     "defaultAlias": "peg.js",
-    "githubLangId": 81442128,
+    "githubLangId": "81442128",
     "color": "#234d6b",
     "extensions": [
       ".pegjs",
@@ -9199,7 +9199,7 @@
       "inc"
     ],
     "defaultAlias": "php",
-    "githubLangId": 272,
+    "githubLangId": "272",
     "color": "#4F5D95",
     "extensions": [
       ".php",
@@ -9236,7 +9236,7 @@
       "plsql"
     ],
     "defaultAlias": "plsql",
-    "githubLangId": 273,
+    "githubLangId": "273",
     "color": "#dad8d8",
     "extensions": [
       ".pls",
@@ -9270,7 +9270,7 @@
       "plpgsql"
     ],
     "defaultAlias": "plpgsql",
-    "githubLangId": 274,
+    "githubLangId": "274",
     "color": "#336790",
     "extensions": [
       ".pgsql",
@@ -9292,7 +9292,7 @@
       "povray"
     ],
     "defaultAlias": "pov-ray-sdl",
-    "githubLangId": 275,
+    "githubLangId": "275",
     "color": "#6bac65",
     "extensions": [
       ".pov",
@@ -9310,7 +9310,7 @@
       "pact"
     ],
     "defaultAlias": "pact",
-    "githubLangId": 756774415,
+    "githubLangId": "756774415",
     "color": "#F7A8B8",
     "extensions": [
       ".pact"
@@ -9327,7 +9327,7 @@
       "pan"
     ],
     "defaultAlias": "pan",
-    "githubLangId": 276,
+    "githubLangId": "276",
     "color": "#cc0000",
     "extensions": [
       ".pan"
@@ -9344,7 +9344,7 @@
       "papyrus"
     ],
     "defaultAlias": "papyrus",
-    "githubLangId": 277,
+    "githubLangId": "277",
     "color": "#6600cc",
     "extensions": [
       ".psc"
@@ -9361,7 +9361,7 @@
       "parrot"
     ],
     "defaultAlias": "parrot",
-    "githubLangId": 278,
+    "githubLangId": "278",
     "color": "#f3ca0a",
     "extensions": [
       ".parrot"
@@ -9380,7 +9380,7 @@
       "pasm"
     ],
     "defaultAlias": "parrot-assembly",
-    "githubLangId": 279,
+    "githubLangId": "279",
     "extensions": [
       ".pasm"
     ],
@@ -9401,7 +9401,7 @@
       "pir"
     ],
     "defaultAlias": "parrot-internal-representation",
-    "githubLangId": 280,
+    "githubLangId": "280",
     "extensions": [
       ".pir"
     ],
@@ -9422,7 +9422,7 @@
       "objectpascal"
     ],
     "defaultAlias": "pascal",
-    "githubLangId": 281,
+    "githubLangId": "281",
     "color": "#E3F171",
     "extensions": [
       ".pas",
@@ -9450,7 +9450,7 @@
       "pawn"
     ],
     "defaultAlias": "pawn",
-    "githubLangId": 271,
+    "githubLangId": "271",
     "color": "#dbb284",
     "extensions": [
       ".pwn",
@@ -9469,7 +9469,7 @@
       "pep8"
     ],
     "defaultAlias": "pep8",
-    "githubLangId": 840372442,
+    "githubLangId": "840372442",
     "color": "#C76F5B",
     "extensions": [
       ".pep"
@@ -9487,7 +9487,7 @@
       "cperl"
     ],
     "defaultAlias": "perl",
-    "githubLangId": 282,
+    "githubLangId": "282",
     "color": "#0298c3",
     "extensions": [
       ".pl",
@@ -9529,7 +9529,7 @@
       "pikchr"
     ],
     "defaultAlias": "pic",
-    "githubLangId": 425,
+    "githubLangId": "425",
     "extensions": [
       ".pic",
       ".chem"
@@ -9548,7 +9548,7 @@
       "pickle"
     ],
     "defaultAlias": "pickle",
-    "githubLangId": 284,
+    "githubLangId": "284",
     "extensions": [
       ".pkl"
     ],
@@ -9564,7 +9564,7 @@
       "picolisp"
     ],
     "defaultAlias": "picolisp",
-    "githubLangId": 285,
+    "githubLangId": "285",
     "color": "#6067af",
     "extensions": [
       ".l"
@@ -9585,7 +9585,7 @@
       "piglatin"
     ],
     "defaultAlias": "piglatin",
-    "githubLangId": 286,
+    "githubLangId": "286",
     "color": "#fcd7de",
     "extensions": [
       ".pig"
@@ -9602,7 +9602,7 @@
       "pike"
     ],
     "defaultAlias": "pike",
-    "githubLangId": 287,
+    "githubLangId": "287",
     "color": "#005390",
     "extensions": [
       ".pike",
@@ -9623,7 +9623,7 @@
       "pip-requirements"
     ],
     "defaultAlias": "pip-requirements",
-    "githubLangId": 684385621,
+    "githubLangId": "684385621",
     "color": "#FFD343",
     "filenames": [
       "requirements-dev.txt",
@@ -9641,7 +9641,7 @@
       "pkl"
     ],
     "defaultAlias": "pkl",
-    "githubLangId": 288822799,
+    "githubLangId": "288822799",
     "color": "#6b9543",
     "extensions": [
       ".pkl"
@@ -9661,7 +9661,7 @@
       "plantuml"
     ],
     "defaultAlias": "plantuml",
-    "githubLangId": 833504686,
+    "githubLangId": "833504686",
     "color": "#fbbd16",
     "extensions": [
       ".puml",
@@ -9680,7 +9680,7 @@
       "pod"
     ],
     "defaultAlias": "pod",
-    "githubLangId": 288,
+    "githubLangId": "288",
     "extensions": [
       ".pod"
     ],
@@ -9701,7 +9701,7 @@
       "pod-6"
     ],
     "defaultAlias": "pod-6",
-    "githubLangId": 155357471,
+    "githubLangId": "155357471",
     "extensions": [
       ".pod",
       ".pod6"
@@ -9721,7 +9721,7 @@
       "pogoscript"
     ],
     "defaultAlias": "pogoscript",
-    "githubLangId": 289,
+    "githubLangId": "289",
     "color": "#d80074",
     "extensions": [
       ".pogo"
@@ -9738,7 +9738,7 @@
       "polar"
     ],
     "defaultAlias": "polar",
-    "githubLangId": 839112914,
+    "githubLangId": "839112914",
     "color": "#ae81ff",
     "extensions": [
       ".polar"
@@ -9755,7 +9755,7 @@
       "pony"
     ],
     "defaultAlias": "pony",
-    "githubLangId": 290,
+    "githubLangId": "290",
     "extensions": [
       ".pony"
     ],
@@ -9771,7 +9771,7 @@
       "portugol"
     ],
     "defaultAlias": "portugol",
-    "githubLangId": 832391833,
+    "githubLangId": "832391833",
     "color": "#f8bd00",
     "extensions": [
       ".por"
@@ -9789,7 +9789,7 @@
       "postcss"
     ],
     "defaultAlias": "postcss",
-    "githubLangId": 262764437,
+    "githubLangId": "262764437",
     "color": "#dc3a0c",
     "extensions": [
       ".pcss",
@@ -9808,7 +9808,7 @@
       "postscr"
     ],
     "defaultAlias": "postscript",
-    "githubLangId": 291,
+    "githubLangId": "291",
     "color": "#da291c",
     "extensions": [
       ".ps",
@@ -9828,7 +9828,7 @@
       "powerbuilder"
     ],
     "defaultAlias": "powerbuilder",
-    "githubLangId": 292,
+    "githubLangId": "292",
     "color": "#8f0f8d",
     "extensions": [
       ".pbt",
@@ -9850,7 +9850,7 @@
       "pwsh"
     ],
     "defaultAlias": "powershell",
-    "githubLangId": 293,
+    "githubLangId": "293",
     "color": "#012456",
     "extensions": [
       ".ps1",
@@ -9874,7 +9874,7 @@
       "praat"
     ],
     "defaultAlias": "praat",
-    "githubLangId": 106029007,
+    "githubLangId": "106029007",
     "color": "#c8506d",
     "extensions": [
       ".praat"
@@ -9891,7 +9891,7 @@
       "prisma"
     ],
     "defaultAlias": "prisma",
-    "githubLangId": 499933428,
+    "githubLangId": "499933428",
     "color": "#0c344b",
     "extensions": [
       ".prisma"
@@ -9908,7 +9908,7 @@
       "processing"
     ],
     "defaultAlias": "processing",
-    "githubLangId": 294,
+    "githubLangId": "294",
     "color": "#0096D8",
     "extensions": [
       ".pde"
@@ -9925,7 +9925,7 @@
       "procfile"
     ],
     "defaultAlias": "procfile",
-    "githubLangId": 305313959,
+    "githubLangId": "305313959",
     "color": "#3B2F63",
     "filenames": [
       "Procfile"
@@ -9942,7 +9942,7 @@
       "proguard"
     ],
     "defaultAlias": "proguard",
-    "githubLangId": 716513858,
+    "githubLangId": "716513858",
     "extensions": [
       ".pro"
     ],
@@ -9958,7 +9958,7 @@
       "prolog"
     ],
     "defaultAlias": "prolog",
-    "githubLangId": 295,
+    "githubLangId": "295",
     "color": "#74283c",
     "extensions": [
       ".pl",
@@ -9983,7 +9983,7 @@
       "promela"
     ],
     "defaultAlias": "promela",
-    "githubLangId": 441858312,
+    "githubLangId": "441858312",
     "color": "#de0000",
     "extensions": [
       ".pml"
@@ -10000,7 +10000,7 @@
       "propeller-spin"
     ],
     "defaultAlias": "propeller-spin",
-    "githubLangId": 296,
+    "githubLangId": "296",
     "color": "#7fa2a7",
     "extensions": [
       ".spin"
@@ -10020,7 +10020,7 @@
       "Protocol Buffers"
     ],
     "defaultAlias": "protocol-buffer",
-    "githubLangId": 297,
+    "githubLangId": "297",
     "extensions": [
       ".proto"
     ],
@@ -10040,7 +10040,7 @@
       "protobuf text format"
     ],
     "defaultAlias": "protocol-buffer-text-format",
-    "githubLangId": 436568854,
+    "githubLangId": "436568854",
     "extensions": [
       ".textproto",
       ".pbt",
@@ -10058,7 +10058,7 @@
       "public-key"
     ],
     "defaultAlias": "public-key",
-    "githubLangId": 298,
+    "githubLangId": "298",
     "extensions": [
       ".asc",
       ".pub"
@@ -10077,7 +10077,7 @@
       "pug"
     ],
     "defaultAlias": "pug",
-    "githubLangId": 179,
+    "githubLangId": "179",
     "color": "#a86454",
     "extensions": [
       ".jade",
@@ -10097,7 +10097,7 @@
       "puppet"
     ],
     "defaultAlias": "puppet",
-    "githubLangId": 299,
+    "githubLangId": "299",
     "color": "#302B6D",
     "extensions": [
       ".pp"
@@ -10119,7 +10119,7 @@
       "pure-data"
     ],
     "defaultAlias": "pure-data",
-    "githubLangId": 300,
+    "githubLangId": "300",
     "extensions": [
       ".pd"
     ],
@@ -10135,7 +10135,7 @@
       "purebasic"
     ],
     "defaultAlias": "purebasic",
-    "githubLangId": 301,
+    "githubLangId": "301",
     "color": "#5a6986",
     "extensions": [
       ".pb",
@@ -10153,7 +10153,7 @@
       "purescript"
     ],
     "defaultAlias": "purescript",
-    "githubLangId": 302,
+    "githubLangId": "302",
     "color": "#1D222D",
     "extensions": [
       ".purs"
@@ -10172,7 +10172,7 @@
       "pyret"
     ],
     "defaultAlias": "pyret",
-    "githubLangId": 252961827,
+    "githubLangId": "252961827",
     "color": "#ee1e10",
     "extensions": [
       ".arr"
@@ -10191,7 +10191,7 @@
       "rusthon"
     ],
     "defaultAlias": "python",
-    "githubLangId": 303,
+    "githubLangId": "303",
     "color": "#3572A5",
     "extensions": [
       ".py",
@@ -10243,7 +10243,7 @@
       "pycon"
     ],
     "defaultAlias": "python-console",
-    "githubLangId": 428,
+    "githubLangId": "428",
     "color": "#3572A5",
     "githubPopular": false,
     "type": "programming",
@@ -10258,7 +10258,7 @@
       "python-traceback"
     ],
     "defaultAlias": "python-traceback",
-    "githubLangId": 304,
+    "githubLangId": "304",
     "color": "#3572A5",
     "extensions": [
       ".pytb"
@@ -10276,7 +10276,7 @@
       "qsharp"
     ],
     "defaultAlias": "q#",
-    "githubLangId": 697448245,
+    "githubLangId": "697448245",
     "color": "#fed659",
     "extensions": [
       ".qs"
@@ -10293,7 +10293,7 @@
       "qml"
     ],
     "defaultAlias": "qml",
-    "githubLangId": 305,
+    "githubLangId": "305",
     "color": "#44a51c",
     "extensions": [
       ".qml",
@@ -10311,7 +10311,7 @@
       "qmake"
     ],
     "defaultAlias": "qmake",
-    "githubLangId": 306,
+    "githubLangId": "306",
     "extensions": [
       ".pro",
       ".pri"
@@ -10331,7 +10331,7 @@
       "qt-script"
     ],
     "defaultAlias": "qt-script",
-    "githubLangId": 558193693,
+    "githubLangId": "558193693",
     "color": "#00b841",
     "extensions": [
       ".qs"
@@ -10354,7 +10354,7 @@
       "quake"
     ],
     "defaultAlias": "quake",
-    "githubLangId": 375265331,
+    "githubLangId": "375265331",
     "color": "#882233",
     "filenames": [
       "m3makefile",
@@ -10374,7 +10374,7 @@
       "splus"
     ],
     "defaultAlias": "r",
-    "githubLangId": 307,
+    "githubLangId": "307",
     "color": "#198CE7",
     "extensions": [
       ".r",
@@ -10402,7 +10402,7 @@
       "raml"
     ],
     "defaultAlias": "raml",
-    "githubLangId": 308,
+    "githubLangId": "308",
     "color": "#77d9fb",
     "extensions": [
       ".raml"
@@ -10422,7 +10422,7 @@
       "rbs"
     ],
     "defaultAlias": "rbs",
-    "githubLangId": 899227493,
+    "githubLangId": "899227493",
     "color": "#701516",
     "extensions": [
       ".rbs"
@@ -10441,7 +10441,7 @@
       "rdoc"
     ],
     "defaultAlias": "rdoc",
-    "githubLangId": 309,
+    "githubLangId": "309",
     "color": "#701516",
     "extensions": [
       ".rdoc"
@@ -10458,7 +10458,7 @@
       "realbasic"
     ],
     "defaultAlias": "realbasic",
-    "githubLangId": 310,
+    "githubLangId": "310",
     "extensions": [
       ".rbbas",
       ".rbfrm",
@@ -10480,7 +10480,7 @@
       "arexx"
     ],
     "defaultAlias": "rexx",
-    "githubLangId": 311,
+    "githubLangId": "311",
     "color": "#d90e09",
     "extensions": [
       ".rexx",
@@ -10503,7 +10503,7 @@
       "rmarkdown"
     ],
     "defaultAlias": "rmarkdown",
-    "githubLangId": 313,
+    "githubLangId": "313",
     "color": "#198ce7",
     "extensions": [
       ".qmd",
@@ -10523,7 +10523,7 @@
       "ron"
     ],
     "defaultAlias": "ron",
-    "githubLangId": 587855233,
+    "githubLangId": "587855233",
     "color": "#a62c00",
     "extensions": [
       ".ron"
@@ -10543,7 +10543,7 @@
       "xdr"
     ],
     "defaultAlias": "rpc",
-    "githubLangId": 1031374237,
+    "githubLangId": "1031374237",
     "extensions": [
       ".x"
     ],
@@ -10561,7 +10561,7 @@
       "sqlrpgle"
     ],
     "defaultAlias": "rpgle",
-    "githubLangId": 609977990,
+    "githubLangId": "609977990",
     "color": "#2BDE21",
     "extensions": [
       ".rpgle",
@@ -10580,7 +10580,7 @@
       "specfile"
     ],
     "defaultAlias": "rpm-spec",
-    "githubLangId": 314,
+    "githubLangId": "314",
     "extensions": [
       ".spec"
     ],
@@ -10598,7 +10598,7 @@
       "runoff"
     ],
     "defaultAlias": "runoff",
-    "githubLangId": 315,
+    "githubLangId": "315",
     "color": "#665a4e",
     "extensions": [
       ".rnh",
@@ -10616,7 +10616,7 @@
       "racket"
     ],
     "defaultAlias": "racket",
-    "githubLangId": 316,
+    "githubLangId": "316",
     "color": "#3c5caa",
     "extensions": [
       ".rkt",
@@ -10641,7 +10641,7 @@
       "ragel-ruby"
     ],
     "defaultAlias": "ragel",
-    "githubLangId": 317,
+    "githubLangId": "317",
     "color": "#9d5200",
     "extensions": [
       ".rl"
@@ -10660,7 +10660,7 @@
       "perl-6"
     ],
     "defaultAlias": "raku",
-    "githubLangId": 283,
+    "githubLangId": "283",
     "color": "#0000fb",
     "extensions": [
       ".6pl",
@@ -10696,7 +10696,7 @@
       "rascal"
     ],
     "defaultAlias": "rascal",
-    "githubLangId": 173616037,
+    "githubLangId": "173616037",
     "color": "#fffaa0",
     "extensions": [
       ".rsc"
@@ -10714,7 +10714,7 @@
       "raw"
     ],
     "defaultAlias": "raw-token-data",
-    "githubLangId": 318,
+    "githubLangId": "318",
     "extensions": [
       ".raw"
     ],
@@ -10730,7 +10730,7 @@
       "rescript"
     ],
     "defaultAlias": "rescript",
-    "githubLangId": 501875647,
+    "githubLangId": "501875647",
     "color": "#ed5051",
     "extensions": [
       ".res"
@@ -10755,7 +10755,7 @@
       "readline"
     ],
     "defaultAlias": "readline-config",
-    "githubLangId": 538732839,
+    "githubLangId": "538732839",
     "filenames": [
       ".inputrc",
       "inputrc"
@@ -10772,7 +10772,7 @@
       "reason"
     ],
     "defaultAlias": "reason",
-    "githubLangId": 869538413,
+    "githubLangId": "869538413",
     "color": "#ff5847",
     "extensions": [
       ".re",
@@ -10793,7 +10793,7 @@
       "reasonligo"
     ],
     "defaultAlias": "reasonligo",
-    "githubLangId": 319002153,
+    "githubLangId": "319002153",
     "color": "#ff5847",
     "extensions": [
       ".religo"
@@ -10812,7 +10812,7 @@
       "rebol"
     ],
     "defaultAlias": "rebol",
-    "githubLangId": 319,
+    "githubLangId": "319",
     "color": "#358a5b",
     "extensions": [
       ".reb",
@@ -10833,7 +10833,7 @@
       "record-jar"
     ],
     "defaultAlias": "record-jar",
-    "githubLangId": 865765202,
+    "githubLangId": "865765202",
     "color": "#0673ba",
     "filenames": [
       "language-subtag-registry.txt"
@@ -10853,7 +10853,7 @@
       "red/system"
     ],
     "defaultAlias": "red",
-    "githubLangId": 320,
+    "githubLangId": "320",
     "color": "#f50000",
     "extensions": [
       ".red",
@@ -10871,7 +10871,7 @@
       "redcode"
     ],
     "defaultAlias": "redcode",
-    "githubLangId": 321,
+    "githubLangId": "321",
     "extensions": [
       ".cw"
     ],
@@ -10888,7 +10888,7 @@
       "redirects"
     ],
     "defaultAlias": "redirect-rules",
-    "githubLangId": 1020148948,
+    "githubLangId": "1020148948",
     "filenames": [
       "_redirects"
     ],
@@ -10906,7 +10906,7 @@
       "regex"
     ],
     "defaultAlias": "regular-expression",
-    "githubLangId": 363378884,
+    "githubLangId": "363378884",
     "color": "#009a00",
     "extensions": [
       ".regexp",
@@ -10925,7 +10925,7 @@
       "renpy"
     ],
     "defaultAlias": "ren'py",
-    "githubLangId": 322,
+    "githubLangId": "322",
     "color": "#ff7f7f",
     "extensions": [
       ".rpy"
@@ -10942,7 +10942,7 @@
       "renderscript"
     ],
     "defaultAlias": "renderscript",
-    "githubLangId": 323,
+    "githubLangId": "323",
     "extensions": [
       ".rs",
       ".rsh"
@@ -10959,7 +10959,7 @@
       "rez"
     ],
     "defaultAlias": "rez",
-    "githubLangId": 498022874,
+    "githubLangId": "498022874",
     "color": "#FFDAB3",
     "extensions": [
       ".r"
@@ -10976,7 +10976,7 @@
       "rich-text-format"
     ],
     "defaultAlias": "rich-text-format",
-    "githubLangId": 51601661,
+    "githubLangId": "51601661",
     "extensions": [
       ".rtf"
     ],
@@ -10992,7 +10992,7 @@
       "ring"
     ],
     "defaultAlias": "ring",
-    "githubLangId": 431,
+    "githubLangId": "431",
     "color": "#2D54CB",
     "extensions": [
       ".ring"
@@ -11009,7 +11009,7 @@
       "riot"
     ],
     "defaultAlias": "riot",
-    "githubLangId": 878396783,
+    "githubLangId": "878396783",
     "color": "#A71E49",
     "extensions": [
       ".riot"
@@ -11026,7 +11026,7 @@
       "robotframework"
     ],
     "defaultAlias": "robotframework",
-    "githubLangId": 324,
+    "githubLangId": "324",
     "color": "#00c0b5",
     "extensions": [
       ".robot",
@@ -11044,7 +11044,7 @@
       "roc"
     ],
     "defaultAlias": "roc",
-    "githubLangId": 440182480,
+    "githubLangId": "440182480",
     "color": "#7c38f5",
     "extensions": [
       ".roc"
@@ -11069,7 +11069,7 @@
       "troff"
     ],
     "defaultAlias": "roff",
-    "githubLangId": 141,
+    "githubLangId": "141",
     "color": "#ecdebe",
     "extensions": [
       ".roff",
@@ -11123,7 +11123,7 @@
       "roff-manpage"
     ],
     "defaultAlias": "roff-manpage",
-    "githubLangId": 612669833,
+    "githubLangId": "612669833",
     "color": "#ecdebe",
     "extensions": [
       ".1",
@@ -11161,7 +11161,7 @@
       "rouge"
     ],
     "defaultAlias": "rouge",
-    "githubLangId": 325,
+    "githubLangId": "325",
     "color": "#cc0088",
     "extensions": [
       ".rg"
@@ -11180,7 +11180,7 @@
       "routeros-script"
     ],
     "defaultAlias": "routeros-script",
-    "githubLangId": 592853203,
+    "githubLangId": "592853203",
     "color": "#DE3941",
     "extensions": [
       ".rsc"
@@ -11205,7 +11205,7 @@
       "rbx"
     ],
     "defaultAlias": "ruby",
-    "githubLangId": 326,
+    "githubLangId": "326",
     "color": "#701516",
     "extensions": [
       ".rb",
@@ -11278,7 +11278,7 @@
       "rs"
     ],
     "defaultAlias": "rust",
-    "githubLangId": 327,
+    "githubLangId": "327",
     "color": "#dea584",
     "extensions": [
       ".rs",
@@ -11301,7 +11301,7 @@
       "sas"
     ],
     "defaultAlias": "sas",
-    "githubLangId": 328,
+    "githubLangId": "328",
     "color": "#B34936",
     "extensions": [
       ".sas"
@@ -11320,7 +11320,7 @@
       "scss"
     ],
     "defaultAlias": "scss",
-    "githubLangId": 329,
+    "githubLangId": "329",
     "color": "#c6538c",
     "extensions": [
       ".scss"
@@ -11341,7 +11341,7 @@
       "sepolicy"
     ],
     "defaultAlias": "selinux-policy",
-    "githubLangId": 880010326,
+    "githubLangId": "880010326",
     "extensions": [
       ".te"
     ],
@@ -11364,7 +11364,7 @@
       "smt"
     ],
     "defaultAlias": "smt",
-    "githubLangId": 330,
+    "githubLangId": "330",
     "extensions": [
       ".smt2",
       ".smt"
@@ -11393,7 +11393,7 @@
       "sparql"
     ],
     "defaultAlias": "sparql",
-    "githubLangId": 331,
+    "githubLangId": "331",
     "color": "#0C4597",
     "extensions": [
       ".sparql",
@@ -11413,7 +11413,7 @@
       "sqf"
     ],
     "defaultAlias": "sqf",
-    "githubLangId": 332,
+    "githubLangId": "332",
     "color": "#3F3F3F",
     "extensions": [
       ".sqf",
@@ -11431,7 +11431,7 @@
       "sql"
     ],
     "defaultAlias": "sql",
-    "githubLangId": 333,
+    "githubLangId": "333",
     "color": "#e38c00",
     "extensions": [
       ".sql",
@@ -11458,7 +11458,7 @@
       "sqlpl"
     ],
     "defaultAlias": "sqlpl",
-    "githubLangId": 334,
+    "githubLangId": "334",
     "color": "#e38c00",
     "extensions": [
       ".sql",
@@ -11478,7 +11478,7 @@
       "srecode-template"
     ],
     "defaultAlias": "srecode-template",
-    "githubLangId": 335,
+    "githubLangId": "335",
     "color": "#348a34",
     "extensions": [
       ".srt"
@@ -11498,7 +11498,7 @@
       "ssh-config"
     ],
     "defaultAlias": "ssh-config",
-    "githubLangId": 554920715,
+    "githubLangId": "554920715",
     "filenames": [
       "ssh-config",
       "ssh_config",
@@ -11519,7 +11519,7 @@
       "star"
     ],
     "defaultAlias": "star",
-    "githubLangId": 424510560,
+    "githubLangId": "424510560",
     "extensions": [
       ".star"
     ],
@@ -11537,7 +11537,7 @@
       "stla"
     ],
     "defaultAlias": "stl",
-    "githubLangId": 455361735,
+    "githubLangId": "455361735",
     "color": "#373b5e",
     "extensions": [
       ".stl"
@@ -11555,7 +11555,7 @@
       "ston"
     ],
     "defaultAlias": "ston",
-    "githubLangId": 336,
+    "githubLangId": "336",
     "extensions": [
       ".ston"
     ],
@@ -11571,7 +11571,7 @@
       "svg"
     ],
     "defaultAlias": "svg",
-    "githubLangId": 337,
+    "githubLangId": "337",
     "color": "#ff9900",
     "extensions": [
       ".svg"
@@ -11590,7 +11590,7 @@
       "swig"
     ],
     "defaultAlias": "swig",
-    "githubLangId": 1066250075,
+    "githubLangId": "1066250075",
     "extensions": [
       ".i"
     ],
@@ -11608,7 +11608,7 @@
       "sage"
     ],
     "defaultAlias": "sage",
-    "githubLangId": 338,
+    "githubLangId": "338",
     "extensions": [
       ".sage",
       ".sagews"
@@ -11629,7 +11629,7 @@
       "salt"
     ],
     "defaultAlias": "saltstack",
-    "githubLangId": 339,
+    "githubLangId": "339",
     "color": "#646464",
     "extensions": [
       ".sls"
@@ -11648,7 +11648,7 @@
       "sass"
     ],
     "defaultAlias": "sass",
-    "githubLangId": 340,
+    "githubLangId": "340",
     "color": "#a53b70",
     "extensions": [
       ".sass"
@@ -11667,7 +11667,7 @@
       "scala"
     ],
     "defaultAlias": "scala",
-    "githubLangId": 341,
+    "githubLangId": "341",
     "color": "#c22d40",
     "extensions": [
       ".scala",
@@ -11692,7 +11692,7 @@
       "scaml"
     ],
     "defaultAlias": "scaml",
-    "githubLangId": 342,
+    "githubLangId": "342",
     "color": "#bd181a",
     "extensions": [
       ".scaml"
@@ -11709,7 +11709,7 @@
       "scenic"
     ],
     "defaultAlias": "scenic",
-    "githubLangId": 619814037,
+    "githubLangId": "619814037",
     "color": "#fdc700",
     "extensions": [
       ".scenic"
@@ -11729,7 +11729,7 @@
       "scheme"
     ],
     "defaultAlias": "scheme",
-    "githubLangId": 343,
+    "githubLangId": "343",
     "color": "#1e4aec",
     "extensions": [
       ".scm",
@@ -11762,7 +11762,7 @@
       "scilab"
     ],
     "defaultAlias": "scilab",
-    "githubLangId": 344,
+    "githubLangId": "344",
     "color": "#ca0f21",
     "extensions": [
       ".sci",
@@ -11781,7 +11781,7 @@
       "self"
     ],
     "defaultAlias": "self",
-    "githubLangId": 345,
+    "githubLangId": "345",
     "color": "#0579aa",
     "extensions": [
       ".self"
@@ -11798,7 +11798,7 @@
       "shaderlab"
     ],
     "defaultAlias": "shaderlab",
-    "githubLangId": 664257356,
+    "githubLangId": "664257356",
     "color": "#222c37",
     "extensions": [
       ".shader"
@@ -11820,7 +11820,7 @@
       "envrc"
     ],
     "defaultAlias": "shell",
-    "githubLangId": 346,
+    "githubLangId": "346",
     "color": "#89e051",
     "extensions": [
       ".sh",
@@ -11901,7 +11901,7 @@
       "shellcheckrc"
     ],
     "defaultAlias": "shellcheck-config",
-    "githubLangId": 687511714,
+    "githubLangId": "687511714",
     "color": "#cecfcb",
     "filenames": [
       ".shellcheckrc"
@@ -11922,7 +11922,7 @@
       "console"
     ],
     "defaultAlias": "shellsession",
-    "githubLangId": 347,
+    "githubLangId": "347",
     "extensions": [
       ".sh-session"
     ],
@@ -11940,7 +11940,7 @@
       "shen"
     ],
     "defaultAlias": "shen",
-    "githubLangId": 348,
+    "githubLangId": "348",
     "color": "#120F14",
     "extensions": [
       ".shen"
@@ -11957,7 +11957,7 @@
       "sieve"
     ],
     "defaultAlias": "sieve",
-    "githubLangId": 208976687,
+    "githubLangId": "208976687",
     "extensions": [
       ".sieve"
     ],
@@ -11977,7 +11977,7 @@
       "sfv"
     ],
     "defaultAlias": "simple-file-verification",
-    "githubLangId": 735623761,
+    "githubLangId": "735623761",
     "color": "#C9BFED",
     "extensions": [
       ".sfv"
@@ -11996,7 +11996,7 @@
       "singularity"
     ],
     "defaultAlias": "singularity",
-    "githubLangId": 987024632,
+    "githubLangId": "987024632",
     "color": "#64E6AD",
     "filenames": [
       "Singularity"
@@ -12013,7 +12013,7 @@
       "slash"
     ],
     "defaultAlias": "slash",
-    "githubLangId": 349,
+    "githubLangId": "349",
     "color": "#007eff",
     "extensions": [
       ".sl"
@@ -12030,7 +12030,7 @@
       "slice"
     ],
     "defaultAlias": "slice",
-    "githubLangId": 894641667,
+    "githubLangId": "894641667",
     "color": "#003fa2",
     "extensions": [
       ".ice"
@@ -12047,7 +12047,7 @@
       "slim"
     ],
     "defaultAlias": "slim",
-    "githubLangId": 350,
+    "githubLangId": "350",
     "color": "#2b2b2b",
     "extensions": [
       ".slim"
@@ -12066,7 +12066,7 @@
       "slint"
     ],
     "defaultAlias": "slint",
-    "githubLangId": 119900149,
+    "githubLangId": "119900149",
     "color": "#2379F4",
     "extensions": [
       ".slint"
@@ -12084,7 +12084,7 @@
       "coccinelle"
     ],
     "defaultAlias": "smpl",
-    "githubLangId": 164123055,
+    "githubLangId": "164123055",
     "color": "#c94949",
     "extensions": [
       ".cocci"
@@ -12101,7 +12101,7 @@
       "smali"
     ],
     "defaultAlias": "smali",
-    "githubLangId": 351,
+    "githubLangId": "351",
     "extensions": [
       ".smali"
     ],
@@ -12118,7 +12118,7 @@
       "squeak"
     ],
     "defaultAlias": "smalltalk",
-    "githubLangId": 352,
+    "githubLangId": "352",
     "color": "#596706",
     "extensions": [
       ".st",
@@ -12138,7 +12138,7 @@
       "smarty"
     ],
     "defaultAlias": "smarty",
-    "githubLangId": 353,
+    "githubLangId": "353",
     "color": "#f0c040",
     "extensions": [
       ".tpl"
@@ -12157,7 +12157,7 @@
       "smithy"
     ],
     "defaultAlias": "smithy",
-    "githubLangId": 1027892786,
+    "githubLangId": "1027892786",
     "color": "#c44536",
     "extensions": [
       ".smithy"
@@ -12178,7 +12178,7 @@
       "snakefile"
     ],
     "defaultAlias": "snakemake",
-    "githubLangId": 151241392,
+    "githubLangId": "151241392",
     "color": "#419179",
     "extensions": [
       ".smk",
@@ -12201,7 +12201,7 @@
       "solidity"
     ],
     "defaultAlias": "solidity",
-    "githubLangId": 237469032,
+    "githubLangId": "237469032",
     "color": "#AA6746",
     "extensions": [
       ".sol"
@@ -12218,7 +12218,7 @@
       "soong"
     ],
     "defaultAlias": "soong",
-    "githubLangId": 222900098,
+    "githubLangId": "222900098",
     "filenames": [
       "Android.bp"
     ],
@@ -12235,7 +12235,7 @@
       "sourcemod"
     ],
     "defaultAlias": "sourcepawn",
-    "githubLangId": 354,
+    "githubLangId": "354",
     "color": "#f69e1d",
     "extensions": [
       ".sp",
@@ -12253,7 +12253,7 @@
       "spline-font-database"
     ],
     "defaultAlias": "spline-font-database",
-    "githubLangId": 767169629,
+    "githubLangId": "767169629",
     "extensions": [
       ".sfd"
     ],
@@ -12269,7 +12269,7 @@
       "squirrel"
     ],
     "defaultAlias": "squirrel",
-    "githubLangId": 355,
+    "githubLangId": "355",
     "color": "#800000",
     "extensions": [
       ".nut"
@@ -12288,7 +12288,7 @@
       "stan"
     ],
     "defaultAlias": "stan",
-    "githubLangId": 356,
+    "githubLangId": "356",
     "color": "#b2011d",
     "extensions": [
       ".stan"
@@ -12306,7 +12306,7 @@
       "sml"
     ],
     "defaultAlias": "standard-ml",
-    "githubLangId": 357,
+    "githubLangId": "357",
     "color": "#dc566d",
     "extensions": [
       ".ml",
@@ -12330,7 +12330,7 @@
       "bzl"
     ],
     "defaultAlias": "starlark",
-    "githubLangId": 960266174,
+    "githubLangId": "960266174",
     "color": "#76d275",
     "extensions": [
       ".bzl",
@@ -12359,7 +12359,7 @@
       "stata"
     ],
     "defaultAlias": "stata",
-    "githubLangId": 358,
+    "githubLangId": "358",
     "color": "#1a5f91",
     "extensions": [
       ".do",
@@ -12382,7 +12382,7 @@
       "stringtemplate"
     ],
     "defaultAlias": "stringtemplate",
-    "githubLangId": 89855901,
+    "githubLangId": "89855901",
     "color": "#3fb34f",
     "extensions": [
       ".st"
@@ -12401,7 +12401,7 @@
       "stylus"
     ],
     "defaultAlias": "stylus",
-    "githubLangId": 359,
+    "githubLangId": "359",
     "color": "#ff6347",
     "extensions": [
       ".styl"
@@ -12418,7 +12418,7 @@
       "subrip-text"
     ],
     "defaultAlias": "subrip-text",
-    "githubLangId": 360,
+    "githubLangId": "360",
     "color": "#9e0101",
     "extensions": [
       ".srt"
@@ -12435,7 +12435,7 @@
       "sugarss"
     ],
     "defaultAlias": "sugarss",
-    "githubLangId": 826404698,
+    "githubLangId": "826404698",
     "color": "#2fcc9f",
     "extensions": [
       ".sss"
@@ -12452,7 +12452,7 @@
       "supercollider"
     ],
     "defaultAlias": "supercollider",
-    "githubLangId": 361,
+    "githubLangId": "361",
     "color": "#46390b",
     "extensions": [
       ".sc",
@@ -12474,7 +12474,7 @@
       "svelte"
     ],
     "defaultAlias": "svelte",
-    "githubLangId": 928734530,
+    "githubLangId": "928734530",
     "color": "#ff3e00",
     "extensions": [
       ".svelte"
@@ -12493,7 +12493,7 @@
       "sway"
     ],
     "defaultAlias": "sway",
-    "githubLangId": 271471144,
+    "githubLangId": "271471144",
     "color": "#00F58C",
     "extensions": [
       ".sw"
@@ -12512,7 +12512,7 @@
       "sweave"
     ],
     "defaultAlias": "sweave",
-    "githubLangId": 558779190,
+    "githubLangId": "558779190",
     "color": "#198ce7",
     "extensions": [
       ".rnw"
@@ -12529,7 +12529,7 @@
       "swift"
     ],
     "defaultAlias": "swift",
-    "githubLangId": 362,
+    "githubLangId": "362",
     "color": "#F05138",
     "extensions": [
       ".swift"
@@ -12548,7 +12548,7 @@
       "systemverilog"
     ],
     "defaultAlias": "systemverilog",
-    "githubLangId": 363,
+    "githubLangId": "363",
     "color": "#DAE1C2",
     "extensions": [
       ".sv",
@@ -12569,7 +12569,7 @@
       "ti-program"
     ],
     "defaultAlias": "ti-program",
-    "githubLangId": 422,
+    "githubLangId": "422",
     "color": "#A0AA87",
     "extensions": [
       ".8xp",
@@ -12587,7 +12587,7 @@
       "tl-verilog"
     ],
     "defaultAlias": "tl-verilog",
-    "githubLangId": 118656070,
+    "githubLangId": "118656070",
     "color": "#C40023",
     "extensions": [
       ".tlv"
@@ -12604,7 +12604,7 @@
       "tla"
     ],
     "defaultAlias": "tla",
-    "githubLangId": 364,
+    "githubLangId": "364",
     "color": "#4b0079",
     "extensions": [
       ".tla"
@@ -12621,7 +12621,7 @@
       "toml"
     ],
     "defaultAlias": "toml",
-    "githubLangId": 365,
+    "githubLangId": "365",
     "color": "#9c4221",
     "extensions": [
       ".toml"
@@ -12649,7 +12649,7 @@
       "tsql"
     ],
     "defaultAlias": "tsql",
-    "githubLangId": 918334941,
+    "githubLangId": "918334941",
     "color": "#e38c00",
     "extensions": [
       ".sql"
@@ -12667,7 +12667,7 @@
       "tab-seperated values"
     ],
     "defaultAlias": "tsv",
-    "githubLangId": 1035892117,
+    "githubLangId": "1035892117",
     "color": "#237346",
     "extensions": [
       ".tsv",
@@ -12686,7 +12686,7 @@
       "tsx"
     ],
     "defaultAlias": "tsx",
-    "githubLangId": 94901924,
+    "githubLangId": "94901924",
     "color": "#3178c6",
     "extensions": [
       ".tsx"
@@ -12705,7 +12705,7 @@
       "txl"
     ],
     "defaultAlias": "txl",
-    "githubLangId": 366,
+    "githubLangId": "366",
     "color": "#0178b8",
     "extensions": [
       ".txl"
@@ -12722,7 +12722,7 @@
       "talon"
     ],
     "defaultAlias": "talon",
-    "githubLangId": 959889508,
+    "githubLangId": "959889508",
     "color": "#333333",
     "extensions": [
       ".talon"
@@ -12741,7 +12741,7 @@
       "xdc"
     ],
     "defaultAlias": "tcl",
-    "githubLangId": 367,
+    "githubLangId": "367",
     "color": "#e4cc98",
     "extensions": [
       ".tcl",
@@ -12774,7 +12774,7 @@
       "tcsh"
     ],
     "defaultAlias": "tcsh",
-    "githubLangId": 368,
+    "githubLangId": "368",
     "extensions": [
       ".tcsh",
       ".csh"
@@ -12798,7 +12798,7 @@
       "latex"
     ],
     "defaultAlias": "tex",
-    "githubLangId": 369,
+    "githubLangId": "369",
     "color": "#3D6117",
     "extensions": [
       ".tex",
@@ -12830,7 +12830,7 @@
       "tea"
     ],
     "defaultAlias": "tea",
-    "githubLangId": 370,
+    "githubLangId": "370",
     "extensions": [
       ".tea"
     ],
@@ -12846,7 +12846,7 @@
       "terra"
     ],
     "defaultAlias": "terra",
-    "githubLangId": 371,
+    "githubLangId": "371",
     "color": "#00004c",
     "extensions": [
       ".t"
@@ -12869,7 +12869,7 @@
       "terraform-template"
     ],
     "defaultAlias": "terraform-template",
-    "githubLangId": 856832701,
+    "githubLangId": "856832701",
     "color": "#7b42bb",
     "extensions": [
       ".tftpl"
@@ -12888,7 +12888,7 @@
       "texinfo"
     ],
     "defaultAlias": "texinfo",
-    "githubLangId": 988020015,
+    "githubLangId": "988020015",
     "extensions": [
       ".texinfo",
       ".texi",
@@ -12911,7 +12911,7 @@
       "plain text"
     ],
     "defaultAlias": "text",
-    "githubLangId": 372,
+    "githubLangId": "372",
     "extensions": [
       ".txt",
       ".fr",
@@ -12958,7 +12958,7 @@
       "textgrid"
     ],
     "defaultAlias": "textgrid",
-    "githubLangId": 965696054,
+    "githubLangId": "965696054",
     "color": "#c8506d",
     "extensions": [
       ".TextGrid"
@@ -12976,7 +12976,7 @@
       "tm-properties"
     ],
     "defaultAlias": "textmate-properties",
-    "githubLangId": 981795023,
+    "githubLangId": "981795023",
     "color": "#df66e4",
     "filenames": [
       ".tm_properties"
@@ -12995,7 +12995,7 @@
       "textile"
     ],
     "defaultAlias": "textile",
-    "githubLangId": 373,
+    "githubLangId": "373",
     "color": "#ffe7ac",
     "extensions": [
       ".textile"
@@ -13014,7 +13014,7 @@
       "thrift"
     ],
     "defaultAlias": "thrift",
-    "githubLangId": 374,
+    "githubLangId": "374",
     "color": "#D12127",
     "extensions": [
       ".thrift"
@@ -13031,7 +13031,7 @@
       "toit"
     ],
     "defaultAlias": "toit",
-    "githubLangId": 356554395,
+    "githubLangId": "356554395",
     "color": "#c2c9fb",
     "extensions": [
       ".toit"
@@ -13048,7 +13048,7 @@
       "turing"
     ],
     "defaultAlias": "turing",
-    "githubLangId": 375,
+    "githubLangId": "375",
     "color": "#cf142b",
     "extensions": [
       ".t",
@@ -13066,7 +13066,7 @@
       "turtle"
     ],
     "defaultAlias": "turtle",
-    "githubLangId": 376,
+    "githubLangId": "376",
     "extensions": [
       ".ttl"
     ],
@@ -13084,7 +13084,7 @@
       "twig"
     ],
     "defaultAlias": "twig",
-    "githubLangId": 377,
+    "githubLangId": "377",
     "color": "#c1d026",
     "extensions": [
       ".twig"
@@ -13104,7 +13104,7 @@
       "tl"
     ],
     "defaultAlias": "type-language",
-    "githubLangId": 632765617,
+    "githubLangId": "632765617",
     "extensions": [
       ".tl"
     ],
@@ -13121,7 +13121,7 @@
       "ts"
     ],
     "defaultAlias": "typescript",
-    "githubLangId": 378,
+    "githubLangId": "378",
     "color": "#3178c6",
     "extensions": [
       ".ts",
@@ -13148,7 +13148,7 @@
       "typ"
     ],
     "defaultAlias": "typst",
-    "githubLangId": 704730682,
+    "githubLangId": "704730682",
     "color": "#239dad",
     "extensions": [
       ".typ"
@@ -13166,7 +13166,7 @@
       "unified-parallel-c"
     ],
     "defaultAlias": "unified-parallel-c",
-    "githubLangId": 379,
+    "githubLangId": "379",
     "color": "#4e3617",
     "extensions": [
       ".upc"
@@ -13185,7 +13185,7 @@
       "unity3d-asset"
     ],
     "defaultAlias": "unity3d-asset",
-    "githubLangId": 380,
+    "githubLangId": "380",
     "color": "#222c37",
     "extensions": [
       ".anim",
@@ -13214,7 +13214,7 @@
       "unix asm"
     ],
     "defaultAlias": "unix-assembly",
-    "githubLangId": 120,
+    "githubLangId": "120",
     "extensions": [
       ".s",
       ".ms"
@@ -13231,7 +13231,7 @@
       "uno"
     ],
     "defaultAlias": "uno",
-    "githubLangId": 381,
+    "githubLangId": "381",
     "color": "#9933cc",
     "extensions": [
       ".uno"
@@ -13250,7 +13250,7 @@
       "unrealscript"
     ],
     "defaultAlias": "unrealscript",
-    "githubLangId": 382,
+    "githubLangId": "382",
     "color": "#a54c4d",
     "extensions": [
       ".uc"
@@ -13271,7 +13271,7 @@
       "Ur"
     ],
     "defaultAlias": "urweb",
-    "githubLangId": 383,
+    "githubLangId": "383",
     "color": "#ccccee",
     "extensions": [
       ".ur",
@@ -13290,7 +13290,7 @@
       "vlang"
     ],
     "defaultAlias": "v",
-    "githubLangId": 603371597,
+    "githubLangId": "603371597",
     "color": "#4f87c4",
     "extensions": [
       ".v"
@@ -13310,7 +13310,7 @@
       "visual basic for applications"
     ],
     "defaultAlias": "vba",
-    "githubLangId": 399230729,
+    "githubLangId": "399230729",
     "color": "#867db1",
     "extensions": [
       ".bas",
@@ -13332,7 +13332,7 @@
       "vbscript"
     ],
     "defaultAlias": "vbscript",
-    "githubLangId": 408016005,
+    "githubLangId": "408016005",
     "color": "#15dcdc",
     "extensions": [
       ".vbs"
@@ -13351,7 +13351,7 @@
       "vcl"
     ],
     "defaultAlias": "vcl",
-    "githubLangId": 384,
+    "githubLangId": "384",
     "color": "#148AA8",
     "extensions": [
       ".vcl"
@@ -13368,7 +13368,7 @@
       "vhdl"
     ],
     "defaultAlias": "vhdl",
-    "githubLangId": 385,
+    "githubLangId": "385",
     "color": "#adb2cb",
     "extensions": [
       ".vhdl",
@@ -13394,7 +13394,7 @@
       "vala"
     ],
     "defaultAlias": "vala",
-    "githubLangId": 386,
+    "githubLangId": "386",
     "color": "#a56de2",
     "extensions": [
       ".vala",
@@ -13414,7 +13414,7 @@
       "vdf"
     ],
     "defaultAlias": "valve-data-format",
-    "githubLangId": 544060961,
+    "githubLangId": "544060961",
     "color": "#f26025",
     "extensions": [
       ".vdf"
@@ -13433,7 +13433,7 @@
       "velocity"
     ],
     "defaultAlias": "velocity-template-language",
-    "githubLangId": 292377326,
+    "githubLangId": "292377326",
     "color": "#507cff",
     "extensions": [
       ".vtl"
@@ -13452,7 +13452,7 @@
       "verilog"
     ],
     "defaultAlias": "verilog",
-    "githubLangId": 387,
+    "githubLangId": "387",
     "color": "#b2b7f8",
     "extensions": [
       ".v",
@@ -13474,7 +13474,7 @@
       "vimhelp"
     ],
     "defaultAlias": "vim-help-file",
-    "githubLangId": 508563686,
+    "githubLangId": "508563686",
     "color": "#199f4b",
     "extensions": [
       ".txt"
@@ -13495,7 +13495,7 @@
       "vimscript"
     ],
     "defaultAlias": "vim-script",
-    "githubLangId": 388,
+    "githubLangId": "388",
     "color": "#199f4b",
     "extensions": [
       ".vim",
@@ -13529,7 +13529,7 @@
       "NeoSnippet"
     ],
     "defaultAlias": "vim-snippet",
-    "githubLangId": 81265970,
+    "githubLangId": "81265970",
     "color": "#199f4b",
     "extensions": [
       ".snip",
@@ -13552,7 +13552,7 @@
       "vb.net"
     ],
     "defaultAlias": "visual-basic-.net",
-    "githubLangId": 389,
+    "githubLangId": "389",
     "color": "#945db7",
     "extensions": [
       ".vb",
@@ -13577,7 +13577,7 @@
       "classic visual basic"
     ],
     "defaultAlias": "visual-basic-6.0",
-    "githubLangId": 679594952,
+    "githubLangId": "679594952",
     "color": "#2c6353",
     "extensions": [
       ".bas",
@@ -13600,7 +13600,7 @@
       "volt"
     ],
     "defaultAlias": "volt",
-    "githubLangId": 390,
+    "githubLangId": "390",
     "color": "#1F1F1F",
     "extensions": [
       ".volt"
@@ -13619,7 +13619,7 @@
       "vue"
     ],
     "defaultAlias": "vue",
-    "githubLangId": 391,
+    "githubLangId": "391",
     "color": "#41b883",
     "extensions": [
       ".vue"
@@ -13636,7 +13636,7 @@
       "vyper"
     ],
     "defaultAlias": "vyper",
-    "githubLangId": 1055641948,
+    "githubLangId": "1055641948",
     "color": "#2980b9",
     "extensions": [
       ".vy"
@@ -13654,7 +13654,7 @@
       "Workflow Description Language"
     ],
     "defaultAlias": "wdl",
-    "githubLangId": 374521672,
+    "githubLangId": "374521672",
     "color": "#42f1f4",
     "extensions": [
       ".wdl"
@@ -13671,7 +13671,7 @@
       "wgsl"
     ],
     "defaultAlias": "wgsl",
-    "githubLangId": 836605993,
+    "githubLangId": "836605993",
     "color": "#1a5e9a",
     "extensions": [
       ".wgsl"
@@ -13688,7 +13688,7 @@
       "wavefront-material"
     ],
     "defaultAlias": "wavefront-material",
-    "githubLangId": 392,
+    "githubLangId": "392",
     "extensions": [
       ".mtl"
     ],
@@ -13704,7 +13704,7 @@
       "wavefront-object"
     ],
     "defaultAlias": "wavefront-object",
-    "githubLangId": 393,
+    "githubLangId": "393",
     "extensions": [
       ".obj"
     ],
@@ -13720,7 +13720,7 @@
       "web-ontology-language"
     ],
     "defaultAlias": "web-ontology-language",
-    "githubLangId": 394,
+    "githubLangId": "394",
     "color": "#5b70bd",
     "extensions": [
       ".owl"
@@ -13739,7 +13739,7 @@
       "wasm"
     ],
     "defaultAlias": "webassembly",
-    "githubLangId": 956556503,
+    "githubLangId": "956556503",
     "color": "#04133b",
     "extensions": [
       ".wast",
@@ -13760,7 +13760,7 @@
       "wit"
     ],
     "defaultAlias": "webassembly-interface-type",
-    "githubLangId": 134534086,
+    "githubLangId": "134534086",
     "color": "#6250e7",
     "extensions": [
       ".wit"
@@ -13779,7 +13779,7 @@
       "webidl"
     ],
     "defaultAlias": "webidl",
-    "githubLangId": 395,
+    "githubLangId": "395",
     "extensions": [
       ".webidl"
     ],
@@ -13798,7 +13798,7 @@
       "vtt"
     ],
     "defaultAlias": "webvtt",
-    "githubLangId": 658679714,
+    "githubLangId": "658679714",
     "extensions": [
       ".vtt"
     ],
@@ -13816,7 +13816,7 @@
       "wgetrc"
     ],
     "defaultAlias": "wget-config",
-    "githubLangId": 668457123,
+    "githubLangId": "668457123",
     "filenames": [
       ".wgetrc"
     ],
@@ -13832,7 +13832,7 @@
       "whiley"
     ],
     "defaultAlias": "whiley",
-    "githubLangId": 888779559,
+    "githubLangId": "888779559",
     "color": "#d5c397",
     "extensions": [
       ".whiley"
@@ -13851,7 +13851,7 @@
       "wiki"
     ],
     "defaultAlias": "wikitext",
-    "githubLangId": 228,
+    "githubLangId": "228",
     "color": "#fc5757",
     "extensions": [
       ".mediawiki",
@@ -13870,7 +13870,7 @@
       "win32-message-file"
     ],
     "defaultAlias": "win32-message-file",
-    "githubLangId": 950967261,
+    "githubLangId": "950967261",
     "extensions": [
       ".mc"
     ],
@@ -13888,7 +13888,7 @@
       "windows-registry-entries"
     ],
     "defaultAlias": "windows-registry-entries",
-    "githubLangId": 969674868,
+    "githubLangId": "969674868",
     "color": "#52d5ff",
     "extensions": [
       ".reg"
@@ -13907,7 +13907,7 @@
       "witcher-script"
     ],
     "defaultAlias": "witcher-script",
-    "githubLangId": 686821385,
+    "githubLangId": "686821385",
     "color": "#ff0000",
     "extensions": [
       ".ws"
@@ -13924,7 +13924,7 @@
       "wollok"
     ],
     "defaultAlias": "wollok",
-    "githubLangId": 632745969,
+    "githubLangId": "632745969",
     "color": "#a23738",
     "extensions": [
       ".wlk"
@@ -13941,7 +13941,7 @@
       "world-of-warcraft-addon-data"
     ],
     "defaultAlias": "world-of-warcraft-addon-data",
-    "githubLangId": 396,
+    "githubLangId": "396",
     "color": "#f7e43f",
     "extensions": [
       ".toc"
@@ -13959,7 +13959,7 @@
       "wrenlang"
     ],
     "defaultAlias": "wren",
-    "githubLangId": 713580619,
+    "githubLangId": "713580619",
     "color": "#383838",
     "extensions": [
       ".wren"
@@ -13978,7 +13978,7 @@
       "xbm"
     ],
     "defaultAlias": "x-bitmap",
-    "githubLangId": 782911107,
+    "githubLangId": "782911107",
     "extensions": [
       ".xbm"
     ],
@@ -13996,7 +13996,7 @@
       "x-font-directory-index"
     ],
     "defaultAlias": "x-font-directory-index",
-    "githubLangId": 208700028,
+    "githubLangId": "208700028",
     "filenames": [
       "encodings.dir",
       "fonts.alias",
@@ -14017,7 +14017,7 @@
       "xpm"
     ],
     "defaultAlias": "x-pixmap",
-    "githubLangId": 781846279,
+    "githubLangId": "781846279",
     "extensions": [
       ".xpm",
       ".pm"
@@ -14037,7 +14037,7 @@
       "xten"
     ],
     "defaultAlias": "x10",
-    "githubLangId": 397,
+    "githubLangId": "397",
     "color": "#4B6BEF",
     "extensions": [
       ".x10"
@@ -14054,7 +14054,7 @@
       "xc"
     ],
     "defaultAlias": "xc",
-    "githubLangId": 398,
+    "githubLangId": "398",
     "color": "#99DA07",
     "extensions": [
       ".xc"
@@ -14073,7 +14073,7 @@
       "xcompose"
     ],
     "defaultAlias": "xcompose",
-    "githubLangId": 225167241,
+    "githubLangId": "225167241",
     "filenames": [
       ".XCompose",
       "XCompose",
@@ -14094,7 +14094,7 @@
       "wsdl"
     ],
     "defaultAlias": "xml",
-    "githubLangId": 399,
+    "githubLangId": "399",
     "color": "#0060ac",
     "extensions": [
       ".xml",
@@ -14231,7 +14231,7 @@
       "xml-property-list"
     ],
     "defaultAlias": "xml-property-list",
-    "githubLangId": 75622871,
+    "githubLangId": "75622871",
     "color": "#0060ac",
     "extensions": [
       ".plist",
@@ -14256,7 +14256,7 @@
       "xpages"
     ],
     "defaultAlias": "xpages",
-    "githubLangId": 400,
+    "githubLangId": "400",
     "extensions": [
       ".xsp-config",
       ".xsp.metadata"
@@ -14275,7 +14275,7 @@
       "xproc"
     ],
     "defaultAlias": "xproc",
-    "githubLangId": 401,
+    "githubLangId": "401",
     "extensions": [
       ".xpl",
       ".xproc"
@@ -14294,7 +14294,7 @@
       "xquery"
     ],
     "defaultAlias": "xquery",
-    "githubLangId": 402,
+    "githubLangId": "402",
     "color": "#5232e7",
     "extensions": [
       ".xquery",
@@ -14317,7 +14317,7 @@
       "xs"
     ],
     "defaultAlias": "xs",
-    "githubLangId": 403,
+    "githubLangId": "403",
     "extensions": [
       ".xs"
     ],
@@ -14336,7 +14336,7 @@
       "xsl"
     ],
     "defaultAlias": "xslt",
-    "githubLangId": 404,
+    "githubLangId": "404",
     "color": "#EB8CEB",
     "extensions": [
       ".xslt",
@@ -14356,7 +14356,7 @@
       "xojo"
     ],
     "defaultAlias": "xojo",
-    "githubLangId": 405,
+    "githubLangId": "405",
     "color": "#81bd41",
     "extensions": [
       ".xojo_code",
@@ -14378,7 +14378,7 @@
       "xonsh"
     ],
     "defaultAlias": "xonsh",
-    "githubLangId": 614078284,
+    "githubLangId": "614078284",
     "color": "#285EEF",
     "extensions": [
       ".xsh"
@@ -14397,7 +14397,7 @@
       "xtend"
     ],
     "defaultAlias": "xtend",
-    "githubLangId": 406,
+    "githubLangId": "406",
     "color": "#24255d",
     "extensions": [
       ".xtend"
@@ -14415,7 +14415,7 @@
       "yml"
     ],
     "defaultAlias": "yaml",
-    "githubLangId": 407,
+    "githubLangId": "407",
     "color": "#cb171e",
     "extensions": [
       ".yml",
@@ -14451,7 +14451,7 @@
       "yang"
     ],
     "defaultAlias": "yang",
-    "githubLangId": 408,
+    "githubLangId": "408",
     "extensions": [
       ".yang"
     ],
@@ -14467,7 +14467,7 @@
       "yara"
     ],
     "defaultAlias": "yara",
-    "githubLangId": 805122868,
+    "githubLangId": "805122868",
     "color": "#220000",
     "extensions": [
       ".yar",
@@ -14487,7 +14487,7 @@
       "yas"
     ],
     "defaultAlias": "yasnippet",
-    "githubLangId": 378760102,
+    "githubLangId": "378760102",
     "color": "#32AB90",
     "extensions": [
       ".yasnippet"
@@ -14504,7 +14504,7 @@
       "yacc"
     ],
     "defaultAlias": "yacc",
-    "githubLangId": 409,
+    "githubLangId": "409",
     "color": "#4B6C4B",
     "extensions": [
       ".y",
@@ -14523,7 +14523,7 @@
       "yul"
     ],
     "defaultAlias": "yul",
-    "githubLangId": 237469033,
+    "githubLangId": "237469033",
     "color": "#794932",
     "extensions": [
       ".yul"
@@ -14540,7 +14540,7 @@
       "zap"
     ],
     "defaultAlias": "zap",
-    "githubLangId": 952972794,
+    "githubLangId": "952972794",
     "color": "#0d665e",
     "extensions": [
       ".zap",
@@ -14558,7 +14558,7 @@
       "zil"
     ],
     "defaultAlias": "zil",
-    "githubLangId": 973483626,
+    "githubLangId": "973483626",
     "color": "#dc75e5",
     "extensions": [
       ".zil",
@@ -14577,7 +14577,7 @@
       "bro"
     ],
     "defaultAlias": "zeek",
-    "githubLangId": 40,
+    "githubLangId": "40",
     "extensions": [
       ".zeek",
       ".bro"
@@ -14594,7 +14594,7 @@
       "zenscript"
     ],
     "defaultAlias": "zenscript",
-    "githubLangId": 494938890,
+    "githubLangId": "494938890",
     "color": "#00BCD1",
     "extensions": [
       ".zs"
@@ -14611,7 +14611,7 @@
       "zephir"
     ],
     "defaultAlias": "zephir",
-    "githubLangId": 410,
+    "githubLangId": "410",
     "color": "#118f9e",
     "extensions": [
       ".zep"
@@ -14628,7 +14628,7 @@
       "zig"
     ],
     "defaultAlias": "zig",
-    "githubLangId": 646424281,
+    "githubLangId": "646424281",
     "color": "#ec915c",
     "extensions": [
       ".zig",
@@ -14646,7 +14646,7 @@
       "zimpl"
     ],
     "defaultAlias": "zimpl",
-    "githubLangId": 411,
+    "githubLangId": "411",
     "color": "#d67711",
     "extensions": [
       ".zimpl",
@@ -14667,7 +14667,7 @@
       "curlrc"
     ],
     "defaultAlias": "curl-config",
-    "githubLangId": 992375436,
+    "githubLangId": "992375436",
     "filenames": [
       ".curlrc",
       "_curlrc"
@@ -14686,7 +14686,7 @@
       "cron table"
     ],
     "defaultAlias": "crontab",
-    "githubLangId": 705203557,
+    "githubLangId": "705203557",
     "color": "#ead7ac",
     "filenames": [
       "crontab"
@@ -14703,7 +14703,7 @@
       "desktop"
     ],
     "defaultAlias": "desktop",
-    "githubLangId": 412,
+    "githubLangId": "412",
     "extensions": [
       ".desktop",
       ".desktop.in",
@@ -14721,7 +14721,7 @@
       "dircolors"
     ],
     "defaultAlias": "dircolors",
-    "githubLangId": 691605112,
+    "githubLangId": "691605112",
     "extensions": [
       ".dircolors"
     ],
@@ -14745,7 +14745,7 @@
       "ec"
     ],
     "defaultAlias": "ec",
-    "githubLangId": 413,
+    "githubLangId": "413",
     "color": "#913960",
     "extensions": [
       ".ec",
@@ -14763,7 +14763,7 @@
       "edn"
     ],
     "defaultAlias": "edn",
-    "githubLangId": 414,
+    "githubLangId": "414",
     "extensions": [
       ".edn"
     ],
@@ -14782,7 +14782,7 @@
       "fish"
     ],
     "defaultAlias": "fish",
-    "githubLangId": 415,
+    "githubLangId": "415",
     "color": "#4aae47",
     "extensions": [
       ".fish"
@@ -14802,7 +14802,7 @@
       "hoon"
     ],
     "defaultAlias": "hoon",
-    "githubLangId": 560883276,
+    "githubLangId": "560883276",
     "color": "#00b171",
     "extensions": [
       ".hoon"
@@ -14820,7 +14820,7 @@
       "iCal"
     ],
     "defaultAlias": "icalendar",
-    "githubLangId": 98384424,
+    "githubLangId": "98384424",
     "color": "#ec564c",
     "extensions": [
       ".ics",
@@ -14840,7 +14840,7 @@
       "jq"
     ],
     "defaultAlias": "jq",
-    "githubLangId": 905371884,
+    "githubLangId": "905371884",
     "color": "#c7254e",
     "extensions": [
       ".jq"
@@ -14865,7 +14865,7 @@
       "kvlang"
     ],
     "defaultAlias": "kvlang",
-    "githubLangId": 970675279,
+    "githubLangId": "970675279",
     "color": "#1da6e0",
     "extensions": [
       ".kv"
@@ -14882,7 +14882,7 @@
       "mirc-script"
     ],
     "defaultAlias": "mirc-script",
-    "githubLangId": 517654727,
+    "githubLangId": "517654727",
     "color": "#3d57c3",
     "extensions": [
       ".mrc"
@@ -14899,7 +14899,7 @@
       "mcfunction"
     ],
     "defaultAlias": "mcfunction",
-    "githubLangId": 462488745,
+    "githubLangId": "462488745",
     "color": "#E22837",
     "extensions": [
       ".mcfunction"
@@ -14916,7 +14916,7 @@
       "mupad"
     ],
     "defaultAlias": "mupad",
-    "githubLangId": 416,
+    "githubLangId": "416",
     "color": "#244963",
     "extensions": [
       ".mu"
@@ -14934,7 +14934,7 @@
       "nanorc"
     ],
     "defaultAlias": "nanorc",
-    "githubLangId": 775996197,
+    "githubLangId": "775996197",
     "color": "#2d004d",
     "extensions": [
       ".nanorc"
@@ -14955,7 +14955,7 @@
       "nesc"
     ],
     "defaultAlias": "nesc",
-    "githubLangId": 417,
+    "githubLangId": "417",
     "color": "#94B0C7",
     "extensions": [
       ".nc"
@@ -14972,7 +14972,7 @@
       "ooc"
     ],
     "defaultAlias": "ooc",
-    "githubLangId": 418,
+    "githubLangId": "418",
     "color": "#b0b77e",
     "extensions": [
       ".ooc"
@@ -14989,7 +14989,7 @@
       "q"
     ],
     "defaultAlias": "q",
-    "githubLangId": 970539067,
+    "githubLangId": "970539067",
     "color": "#0040cd",
     "extensions": [
       ".q"
@@ -15007,7 +15007,7 @@
       "rst"
     ],
     "defaultAlias": "restructuredtext",
-    "githubLangId": 419,
+    "githubLangId": "419",
     "color": "#141414",
     "extensions": [
       ".rst",
@@ -15031,7 +15031,7 @@
       "robots txt"
     ],
     "defaultAlias": "robots.txt",
-    "githubLangId": 674736065,
+    "githubLangId": "674736065",
     "filenames": [
       "robots.txt"
     ],
@@ -15047,7 +15047,7 @@
       "sed"
     ],
     "defaultAlias": "sed",
-    "githubLangId": 847830017,
+    "githubLangId": "847830017",
     "color": "#64b970",
     "extensions": [
       ".sed"
@@ -15070,7 +15070,7 @@
       "templ"
     ],
     "defaultAlias": "templ",
-    "githubLangId": 795579337,
+    "githubLangId": "795579337",
     "color": "#66D0DD",
     "extensions": [
       ".templ"
@@ -15089,7 +15089,7 @@
       "electronic business card"
     ],
     "defaultAlias": "vcard",
-    "githubLangId": 851476558,
+    "githubLangId": "851476558",
     "color": "#ee2647",
     "extensions": [
       ".vcf"
@@ -15108,7 +15108,7 @@
       "wisp"
     ],
     "defaultAlias": "wisp",
-    "githubLangId": 420,
+    "githubLangId": "420",
     "color": "#7582D1",
     "extensions": [
       ".wisp"
@@ -15130,7 +15130,7 @@
       "foxpro"
     ],
     "defaultAlias": "xbase",
-    "githubLangId": 421,
+    "githubLangId": "421",
     "color": "#403a40",
     "extensions": [
       ".prg",

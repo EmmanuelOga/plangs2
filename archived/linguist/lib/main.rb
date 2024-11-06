@@ -10,7 +10,7 @@ def get_lang_data
     data['groupName'] = group.name if group && group.name != lang.name
     data['aliases'] = lang.aliases || []
     data['defaultAlias'] = lang.default_alias
-    data['githubLangId'] = lang.language_id
+    data['githubLangId'] = lang.language_id.to_s
 
     data['color'] = lang.color
     data['extensions'] = lang.extensions
