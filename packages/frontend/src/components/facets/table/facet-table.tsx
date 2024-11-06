@@ -4,14 +4,13 @@ import { useContext, useEffect, useRef } from "preact/hooks";
 import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { on } from "@plangs/frontend/auxiliar/events";
-import { DESELECT } from "@plangs/frontend/auxiliar/icons";
-import { BORDER, HOVER, HOVER_SVG_GROUP, tw } from "@plangs/frontend/auxiliar/styles";
+import { BORDER, HOVER, tw } from "@plangs/frontend/auxiliar/styles";
 import { tap } from "@plangs/frontend/auxiliar/utils";
 import { FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
 import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/state";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
 
-import { type FacetTableConfig, generateEntries } from "./entries";
+import { type FacetTableConfig, generateEntries, sortEntries } from "./entries";
 import { Header } from "./header";
 import { FacetTableState } from "./state";
 
@@ -30,8 +29,12 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
 }: FacetTableProps<GroupKey, FacetKey>) {
   const self = useRef<HTMLDivElement>();
   const main = useContext(FacetsMainContext) as AnyFacetsMainState; // It exists, since it spawned this component.
-  const order = config.kind === "year" ? "facet-desc" : "facet-asc";
-  const state = useDispatchable(() => new FacetTableState({ main, groupKey, facetKey, config, order, entries: generateEntries(main.pg, config) }));
+
+  const state = useDispatchable(() => {
+    const order = config.kind === "year" ? "facet-desc" : "facet-asc";
+    const entries = sortEntries(generateEntries(main.pg, config), order);
+    return new FacetTableState({ config, entries, facetKey, groupKey, main, order });
+  });
 
   useEffect(() =>
     on(self?.current, "icon-button", (ev: CustomEvent) => {

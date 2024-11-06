@@ -2,7 +2,7 @@ import { Filter } from "@plangs/auxiliar/filters";
 import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/state";
 
-import { CMP, type Column, type Entry, type Order, type Val, opposite } from "./entries";
+import { CMP, type Column, type Entry, type Order, type Val, opposite, sortEntries } from "./entries";
 import type { FacetTableProps } from "./facet-table";
 
 type StateData<GroupKey extends string, FacetKey extends string> = Pick<FacetTableProps<GroupKey, FacetKey>, "config" | "facetKey" | "groupKey"> & {
@@ -36,7 +36,7 @@ export class FacetTableState<GroupKey extends string, FacetKey extends string> e
   doToggleOrder(col: Column) {
     const { order } = this.data;
     this.data.order = opposite(col, order);
-    this.sort();
+    sortEntries(this.data.entries, this.data.order, entry => this.value.has(entry.value));
     this.dispatch();
   }
 
@@ -64,14 +64,5 @@ export class FacetTableState<GroupKey extends string, FacetKey extends string> e
 
   get order() {
     return this.data.order;
-  }
-
-  /** Helpers */
-
-  private sort(): this {
-    const { entries, order } = this.data;
-    const genericThis = this as unknown as FacetTableState<string, string>;
-    entries.sort((a, b) => CMP[order](genericThis, a, b));
-    return this;
   }
 }

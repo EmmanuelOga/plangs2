@@ -1,7 +1,7 @@
+import type { JSX } from "preact/jsx-runtime";
+
 import { SORT_DOWN, SORT_UP } from "@plangs/frontend/auxiliar/icons";
 import type { E, N, PlangsGraph } from "@plangs/plangs/index";
-import type { JSX } from "preact/jsx-runtime";
-import type { FacetTableState } from "./state";
 
 export type Val = string | number | boolean;
 export type Entry = { value: Val; label: string; count: number };
@@ -10,16 +10,13 @@ export type FacetTableConfig = { kind: "noderel"; node: N; edge: E; dir: "direct
 export function generateEntries(pg: PlangsGraph, config: FacetTableConfig): Entry[] {
   if (config.kind === "noderel") {
     const { node, edge, dir } = config;
-
     // TODO: check the node.
-
     const emap = dir === "direct" ? pg.edges[edge].adjTo : pg.edges[edge].adjFrom;
     if (!emap) {
       console.error("No edges found for:", edge, dir);
       return [];
     }
-
-    const entries = [...emap.entries()]
+    return [...emap.entries()]
       .filter(([, edges]) => edges.size > 0)
       .map(([key, edges]) => {
         // biome-ignore lint/style/noNonNullAssertion: the filter above ensures there is at least one edge.
@@ -27,9 +24,6 @@ export function generateEntries(pg: PlangsGraph, config: FacetTableConfig): Entr
         const name = (dir === "direct" ? anyEdge.nodeTo : anyEdge.nodeFrom)?.name ?? anyEdge.key;
         return { value: key, label: name, count: edges.size };
       });
-    // sort.
-
-    return entries;
   }
 
   if (config.kind === "year") {
@@ -38,17 +32,13 @@ export function generateEntries(pg: PlangsGraph, config: FacetTableConfig): Entr
       if (!year) continue;
       years.set(year, (years.get(year) ?? 0) + 1);
     }
-
-    const entries = [...years.entries()].map(([year, count]) => {
+    return [...years.entries()].map(([year, count]) => {
       const strYear = `${year}`;
       return { value: year, label: strYear, count };
     });
-    // sort;
-    return entries;
   }
 
   console.error("Unknown config kind", config);
-
   return [];
 }
 
@@ -73,13 +63,19 @@ export function opposite(col: Column, order: string): Order {
   return order === "sel-desc" ? "sel-asc" : "sel-desc";
 }
 
-export type Cmp<GroupKey extends string, FacetKey extends string> = (state: FacetTableState<GroupKey, FacetKey>, a: Entry, b: Entry) => number;
+export type IsSel = (entry: Entry) => boolean;
+export type Cmp = (a: Entry, b: Entry, isSel?: IsSel) => number;
 
-export const CMP: Record<Order, Cmp<string, string>> = {
-  "facet-asc": (_, a, b) => a.label.localeCompare(b.label),
-  "facet-desc": (_, a, b) => b.label.localeCompare(a.label),
-  "count-asc": (_, a, b) => a.count - b.count,
-  "count-desc": (_, a, b) => b.count - a.count,
-  "sel-asc": (s, a, b) => Number(s.value.has(a.value)) - Number(s.value.has(b.value)),
-  "sel-desc": (s, a, b) => Number(s.value.has(b.value)) - Number(s.value.has(a.value)),
+export const CMP: Record<Order, Cmp> = {
+  "facet-asc": (a, b) => a.label.localeCompare(b.label),
+  "facet-desc": (a, b) => b.label.localeCompare(a.label),
+  "count-asc": (a, b) => a.count - b.count,
+  "count-desc": (a, b) => b.count - a.count,
+  "sel-asc": (a, b, isSel) => (isSel ? Number(isSel(a)) - Number(isSel(b)) : 0),
+  "sel-desc": (a, b, isSel) => (isSel ? Number(isSel(b)) - Number(isSel(a)) : 0),
 } as const;
+
+export function sortEntries(entries: Entry[], order: Order, isSel?: IsSel): Entry[] {
+  const less = CMP[order];
+  return entries.sort((a, b) => less(a, b, isSel));
+}
