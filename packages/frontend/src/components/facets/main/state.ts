@@ -27,11 +27,13 @@ export function useFacetState(tab: TAB, pg: PlangsGraph): AnyFacetsMainState | u
 export abstract class FacetsMainState<GroupKey extends string, FacetKey extends string> extends Dispatchable<{
   tab: TAB;
   pg: PlangsGraph;
+  defaultGroup: GroupKey;
   currentGroupKey: GroupKey;
   values: Map2<GroupKey, FacetKey, AnyValue>;
 }> {
   doSetCurrent(groupKey: GroupKey): void {
     this.data.currentGroupKey = groupKey;
+    updateLocalStorage(this.tab, "lastGroup", groupKey);
     this.dispatch();
   }
 
@@ -44,7 +46,7 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
   /** Removes any and all values for the given group.  */
   doResetAll(): void {
     this.values.clear();
-    this.dispatch();
+    this.doSetCurrent(this.defaultGroup);
   }
 
   /** This dispatches since we want to change the indicator of active state. */
@@ -72,6 +74,10 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
 
   get tab(): TAB {
     return this.data.tab;
+  }
+
+  get defaultGroup() {
+    return this.data.defaultGroup;
   }
 
   get pg(): PlangsGraph {
@@ -144,7 +150,13 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
 export class PlangsFacetsState extends FacetsMainState<PlangFacetGroupKey, PlangFacetKey> {
   static initial(pg: PlangsGraph): PlangsFacetsState {
     const tab: TAB = "plangs";
-    return new PlangsFacetsState({ pg, tab, values: loadFacets(tab, GROUP_FOR_FACET_KEY), currentGroupKey: DEFAULT_GROUP }).updateClearFacets();
+    return new PlangsFacetsState({
+      pg,
+      tab,
+      values: loadFacets(tab, GROUP_FOR_FACET_KEY),
+      defaultGroup: DEFAULT_GROUP,
+      currentGroupKey: loadLocalStorage(tab, "lastGroup") ?? DEFAULT_GROUP,
+    }).updateClearFacets();
   }
 
   override get nav() {
