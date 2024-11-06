@@ -62,7 +62,7 @@ export function Layout({ title, description, tab, pg, pl, mainClasses, children 
           <div class={tw("flex flex-row", "gap-4", "items-center justify-between", "-translate-y-3 sm:-translate-y-5")}>
             {iconButton("hamburger")}
             {tab === "plangs" && iconButton("facets")}
-            {iconButton("clearFacets")}
+            {tab === "plangs" && iconButton("clearFacets")}
             <div class="flex-1" />
             {iconButton("lights")}
           </div>

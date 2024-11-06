@@ -58,7 +58,7 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
             ))}
           </div>
         </div>
-        <div class={tw("grow-1", "overflow-y-auto", "bg-linear-to-b to-secondary/50", "flex flex-col")}>
+        <div class={tw("flex w-full flex-col", "overflow-hidden", "bg-linear-to-b to-secondary/50")}>
           <state.facetGroupsComponent currentFacetGroup={state.currentGroupKey} />
         </div>
       </FacetsMainContext.Provider>
@@ -67,7 +67,7 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
   return (
     <aside
       ref={self as Ref<HTMLElement>}
-      class={tw("flex flex-row", "max-h-full overflow-hidden overflow-y-scroll", tw(BORDER, "border-b-1", "border-t-1", "sm:border-r-1"))}>
+      class={tw("flex flex-row", "max-h-full overflow-hidden", tw(BORDER, "border-b-1", "border-t-1", "sm:border-r-1"))}>
       {body()}
     </aside>
   );

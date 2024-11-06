@@ -104,7 +104,7 @@ export class ToggleFacetsMenu extends IconButtonBaseState<{ mode: "show" | "hide
       <span
         class={tw(
           "inline-block",
-          "mt-[1px] scale-85",
+          "mt-[6px] scale-85",
           this.show && "stroke-[1px] stroke-foreground/50",
           this.show ? "text-hiliteb" : "text-primary",
           // fmt.

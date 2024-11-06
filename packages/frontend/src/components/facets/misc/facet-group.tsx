@@ -16,9 +16,19 @@ export function FacetGroup<GroupKey extends string>({
   const main = useContext(FacetsMainContext) as AnyFacetsMainState; // It exists, since it spawned this component.
   const hasValues = main.groupHasValues(groupKey);
   return (
-    <div class={tw("flex-1", "flex flex-col", "overflow-y-scroll", !active && "hidden")}>
+    <div class={tw("flex-1", "flex flex-col", "overflow-hidden", !active && "hidden")}>
       <header
-        class={tw("shrink-0", "p-2", "flex flex-row", "items-center justify-between", "truncate", "text-primary", tw(BORDER, "border-b-1"), BAR)}>
+        class={tw(
+          "sticky top-0 z-10",
+          "shrink-0",
+          "p-2",
+          "flex flex-row",
+          "items-center justify-between",
+          "truncate",
+          "text-primary",
+          tw(BORDER, "border-b-1"),
+          BAR,
+        )}>
         <span class="inline-block">{label}</span>
 
         <span
@@ -35,7 +45,7 @@ export function FacetGroup<GroupKey extends string>({
         </span>
       </header>
 
-      <div class={tw("flex-1", "flex flex-col", "gap-4")}>{children}</div>
+      <div class={tw("flex-1", "flex flex-col", "gap-4", "overflow-y-scroll", "relative")}>{children}</div>
     </div>
   );
 }

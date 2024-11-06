@@ -13,12 +13,13 @@ export function Header({
   return (
     <button
       type="button"
-      class={tw("px-2 py-1", "italic", "underline decoration-1 decoration-dotted", "cursor-pointer", HOVER, cssClass)}
+      class={tw("p-1", "italic", "underline decoration-1 decoration-dotted", "cursor-pointer", cssClass)}
       {...onClickOnEnter(action)}>
-      <span class={tw("inline-flex", "items-center justify-between", "gap-1")}>
+      <div class={tw(HOVER, "inline-flex w-full", "p-1", "items-center justify-between", "gap-1")}>
         <span>{label(col, config)}</span>
         <span class={tw("scale-75", "mt-1")}>{icon(col, order)}</span>
-      </span>
+        <span class="flex-1" />
+      </div>
     </button>
   );
 }

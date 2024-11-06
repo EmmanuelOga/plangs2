@@ -48,7 +48,7 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
   const CENTER_ROW = tw("items-center justify-between");
 
   const body = () => (
-    <div class={tw("grid grid-cols-[1fr_auto_auto]", "overflow-y-auto")}>
+    <div class={tw("grid grid-cols-[1fr_auto_auto]", "overflow-y-auto", "relative")}>
       <div class={tw(ROW, "sticky top-0 cursor-pointer", tw(BORDER, "border-b-1"))}>
         <div class={tw("col-span-3", "py-1", "flex shrink-0 flex-row", "bg-background", CENTER_ROW, tw(BORDER, "border-t-1"))}>
           <span class={tw("pl-2", CENTER_ROW, state.value.size < 2 ? "text-foreground/50" : "text-foreground")}>
@@ -67,7 +67,7 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
         tap(
           onClickOnEnter(() => state.doToggle(entry.value)),
           clickOrEnter => (
-            <div key={entry.value} class={tw(ROW, state.value.has(entry.value) && "bg-primary/20", HOVER)} {...clickOrEnter}>
+            <div key={entry.value} class={tw(ROW, HOVER, state.value.has(entry.value) && "bg-primary/20")} {...clickOrEnter}>
               <div class={tw("p-2", "text-left", "overflow-hidden text-ellipsis", "line-clamp-3")}>{entry.label}</div>
               <div class={tw("p-2", "text-center")}>{entry.count}</div>
               <div class={tw("p-2", "text-right")}>
