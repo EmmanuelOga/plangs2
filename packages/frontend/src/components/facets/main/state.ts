@@ -31,7 +31,28 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
   currentGroupKey: GroupKey;
   values: Map2<GroupKey, FacetKey, AnyValue>;
 }> {
-  doSetCurrent(groupKey: GroupKey): void {
+  /** Attempt to reconstruct a structured "form value" from generic data. */
+  // biome-ignore lint/suspicious/noExplicitAny: this data is the result of a de/serialization process and is not typed.
+  static dataToValue<GK, FK>(groupsByFacetKey: Map<FK, GK>, genericData: any): Map2<GK, FK, AnyValue> {
+    const result = new Map2<GK, FK, AnyValue>();
+    if (!genericData) return result;
+    for (const [facetKey, rawValue] of Object.entries(genericData)) {
+      const groupKey = groupsByFacetKey.get(facetKey as FK);
+      if (!groupKey) {
+        console.error("missing group for facet", facetKey);
+        continue;
+      }
+      const value = deserializeValue(rawValue);
+      if (value?.isPresent) {
+        result.set(groupKey, facetKey as FK, value);
+      } else {
+        console.error("failed to deserialize value", facetKey, rawValue);
+      }
+    }
+    return result;
+  }
+
+  doSetCurrentGroup(groupKey: GroupKey): void {
     this.data.currentGroupKey = groupKey;
     updateLocalStorage(this.tab, "lastGroup", groupKey);
     this.dispatch();
@@ -44,17 +65,20 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
   }
 
   /** Removes any and all values for the given group.  */
-  doResetAll(): void {
-    this.values.clear();
-    this.doSetCurrent(this.defaultGroup);
+  // biome-ignore lint/suspicious/noExplicitAny: coming from deserialize we'll have to deal with it.
+  doResetAll(values?: any): void {
+    if (values) {
+      this.data.values = FacetsMainState.dataToValue<GroupKey, FacetKey>(GROUP_FOR_FACET_KEY as Map<FacetKey, GroupKey>, values);
+    } else {
+      this.values.clear();
+    }
+    this.doSetCurrentGroup(this.defaultGroup);
   }
 
   /** This dispatches since we want to change the indicator of active state. */
   doSetValue(groupKey: GroupKey, facetKey: FacetKey, value: AnyValue): "changed" | "unchanged" {
     const { values } = this.data;
-
     let result: "changed" | "unchanged";
-
     if (value.isPresent) {
       if (!value.equalTo(values.get(groupKey, facetKey))) {
         values.set(groupKey, facetKey, value);
@@ -65,7 +89,6 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
     } else {
       result = values.delete(groupKey, facetKey) ? "changed" : "unchanged";
     }
-
     this.dispatch();
     return result;
   }
@@ -153,9 +176,9 @@ export class PlangsFacetsState extends FacetsMainState<PlangFacetGroupKey, Plang
     return new PlangsFacetsState({
       pg,
       tab,
-      values: loadFacets(tab, GROUP_FOR_FACET_KEY),
       defaultGroup: DEFAULT_GROUP,
       currentGroupKey: loadLocalStorage(tab, "lastGroup") ?? DEFAULT_GROUP,
+      values: FacetsMainState.dataToValue(GROUP_FOR_FACET_KEY, FragmentTracker.deserialize() ?? loadLocalStorage(tab, "inputs")),
     }).updateClearFacets();
   }
 
@@ -175,28 +198,4 @@ export class PlangsFacetsState extends FacetsMainState<PlangFacetGroupKey, Plang
     if (!this.pg) return new Set();
     return this.pg.plangs(this.values.getMap2());
   }
-}
-
-/** Attempt to reconstruct the value structure from  fragment or local storage. */
-export function loadFacets<GK, FK>(tab: TAB, groupsByFacetKey: Map<FK, GK>): Map2<GK, FK, AnyValue> {
-  const result = new Map2<GK, FK, AnyValue>();
-
-  const values = FragmentTracker.deserialize() ?? loadLocalStorage(tab, "inputs");
-  if (!values) return result;
-
-  for (const [facetKey, rawValue] of Object.entries(values)) {
-    const groupKey = groupsByFacetKey.get(facetKey as FK);
-    if (!groupKey) {
-      console.error("missing group for facet", facetKey);
-      continue;
-    }
-    const value = deserializeValue(rawValue);
-    if (value?.isPresent) {
-      result.set(groupKey, facetKey as FK, value);
-    } else {
-      console.error("failed to deserialize value", facetKey, rawValue);
-    }
-  }
-
-  return result;
 }

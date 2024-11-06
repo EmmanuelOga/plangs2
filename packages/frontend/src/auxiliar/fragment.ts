@@ -1,4 +1,5 @@
 import { RISON } from "rison2";
+import { on } from "./events";
 import { isEmpty } from "./utils";
 
 // Bun loads this code so we need to define a valid window (even if it is not defined).
@@ -110,6 +111,10 @@ export class FragmentTracker extends EventTarget {
     win.location.hash = getFragment(fragmentOrURL);
   }
 
+  onUserChange(callback: (ev: FragmentChangeEvent) => void): (() => void) | undefined {
+    return on(this, FRAGMENT_USER_CHANGE, callback);
+  }
+
   #createEvent(type: FragmentEventType): FragmentChangeEvent {
     return new FragmentChangeEvent(type, { fragment: this.#fragment, previous: this.#previous });
   }
@@ -139,5 +144,18 @@ export class FragmentChangeEvent extends CustomEvent<FragmentChangeEventDetail> 
 
   get previous(): string | undefined {
     return this.detail.previous;
+  }
+
+  /** Attempt to deserialize RISON data. */
+  // biome-ignore lint/suspicious/noExplicitAny: RISON data can be anything.
+  get deserFrag(): any {
+    return FragmentTracker.deserialize(this.detail.fragment);
+  }
+
+  /** Attempt to deserialize RISON data. */
+  // biome-ignore lint/suspicious/noExplicitAny: RISON data can be anything.
+  get deserPrev(): any {
+    const { previous } = this.detail;
+    return previous ? FragmentTracker.deserialize(previous) : undefined;
   }
 }

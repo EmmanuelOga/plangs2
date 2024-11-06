@@ -7,6 +7,7 @@ import { BORDER, HOVER, tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsGraph } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/components/layout";
 
+import { useEffect } from "preact/hooks";
 import { type AnyFacetsMainState, useFacetState } from "./state";
 
 export type FacetsMainProps = {
@@ -19,6 +20,9 @@ export const FacetsMainContext = createContext<AnyFacetsMainState | undefined>(u
 export function FacetsMain({ tab, pg }: FacetsMainProps) {
   const state = useFacetState(tab, pg);
   const self = useRootState(state);
+
+  // Subscribe to user changes to reset the form when the user changes URL fragment.
+  useEffect(() => window.fragment.onUserChange(ev => state?.doResetAll(ev.deserFrag)));
 
   const body = () =>
     !state ? null : (
@@ -36,7 +40,7 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
                       <div class="-mt-[2px] scale-66">{FULLCIRCLE}</div>
                     </div>
                     <button
-                      {...onClickOnEnter(() => state.doSetCurrent(groupKey))}
+                      {...onClickOnEnter(() => state.doSetCurrentGroup(groupKey))}
                       class={tw(
                         "block",
                         "truncate text-left",
