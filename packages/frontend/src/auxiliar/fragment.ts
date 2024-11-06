@@ -1,4 +1,19 @@
-import { getFragment } from "./utils";
+import { RISON } from "rison2";
+import { isEmpty } from "./utils";
+
+// Bun loads this code so we need to define a valid window (even if it is not defined).
+const win = (typeof window === "undefined" ? undefined : window) as Window;
+
+/**
+ * Returns the fragment (possible empty): the string after the first '#' of a URL or HREF.
+ * Returns the input string if it has no '#' character.
+ */
+export function getFragment(fragmentOrURL: URL | Location | string | undefined = win.location): string {
+  if (!fragmentOrURL) return "";
+  if (fragmentOrURL instanceof URL || fragmentOrURL instanceof Location) return fragmentOrURL.hash.slice(1);
+  const hashIndex = fragmentOrURL.indexOf("#");
+  return hashIndex !== -1 ? fragmentOrURL.slice(hashIndex + 1) : fragmentOrURL;
+}
 
 /**
  * All fragment updates should go to a single instance of this class to ensure we can distinguish
@@ -8,21 +23,46 @@ import { getFragment } from "./utils";
  * * Use instance.update to change the fragment and trigger both a "user change" and a "change" event.
  */
 export class FragmentTracker extends EventTarget {
-  #fragment: string;
+  #fragment: string = win.location.hash.slice(1);
   #previous?: string;
 
   /** Keep a reference so we can remove it if needed (with {@link destroy}). */
-  #boundedHandler: (ev: HashChangeEvent) => void;
+  #boundedHandler?: (ev: HashChangeEvent) => void;
 
-  constructor() {
-    super();
-    this.#fragment = window.location.hash.slice(1);
-    this.#boundedHandler = this.#hashChangeHandler.bind(this);
-    window.addEventListener("hashchange", this.#boundedHandler);
+  // biome-ignore lint/suspicious/noExplicitAny: Return of RISON.parse is any.
+  static deserialize(fragment = win.location.hash): any {
+    try {
+      const data = fragment.slice(fragment.indexOf("#") + 1).trim();
+      if (data.length > 2 && data.startsWith("(") && data.endsWith(")")) return RISON.parse(data);
+    } catch (e) {
+      console.warn("Failed to parse RISON:", fragment, e);
+    }
   }
 
+  // biome-ignore lint/suspicious/noExplicitAny: RISON.stringify can serialize any data.
+  static serialize(data: any): string | undefined {
+    try {
+      if (isEmpty(data)) return undefined;
+      return RISON.stringify(data);
+    } catch (e) {
+      console.error("Failed to serialize data", e);
+    }
+  }
+
+  /** Call this to bind the tracker to the hashchange event of the window. */
+  bind(): this {
+    this.destroy();
+    this.#boundedHandler = this.#hashChangeHandler.bind(this);
+    win.addEventListener("hashchange", this.#boundedHandler);
+    return this;
+  }
+
+  /** Remove the hashchange event listener off the window. */
   destroy() {
-    window.removeEventListener("hashchange", this.#boundedHandler);
+    if (this.#boundedHandler) {
+      win.removeEventListener("hashchange", this.#boundedHandler);
+      this.#boundedHandler = undefined;
+    }
   }
 
   get fragment(): string {
@@ -51,7 +91,7 @@ export class FragmentTracker extends EventTarget {
    * This method will use history.pushState, so it won't trigger a {@link FRAGMENT_USER_CHANGE}.
    * https://developer.mozilla.org/en-US/docs/Web/API/History/pushState#description
    */
-  pushState(fragmentOrURL: string | URL) {
+  pushState(fragmentOrURL: string | URL | undefined) {
     const newFragment = getFragment(fragmentOrURL);
     if (newFragment !== this.#fragment) {
       this.#previous = this.#fragment;
@@ -67,7 +107,7 @@ export class FragmentTracker extends EventTarget {
    * Useful for programmatically simulating user navigation.
    */
   update(fragmentOrURL: string | URL): void {
-    window.location.hash = getFragment(fragmentOrURL);
+    win.location.hash = getFragment(fragmentOrURL);
   }
 
   #createEvent(type: FragmentEventType): FragmentChangeEvent {

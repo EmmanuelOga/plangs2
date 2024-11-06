@@ -9,12 +9,14 @@ import { ToggleFacetsMenu, ToggleHamburguer, ToggleLights } from "@plangs/fronte
 import { renderLastPlInfo, renderPlInfo } from "@plangs/frontend/components/pl-info";
 import { PlangsGraph } from "@plangs/plangs";
 
+import { FragmentTracker } from "../auxiliar/fragment";
 import { getPl } from "./pl";
 
 async function start() {
   const pg = new PlangsGraph();
   const loadData = fetch("/plangs.json").then(async r => pg.loadJSON(await r.json()));
 
+  window.fragment = new FragmentTracker().bind();
   window.restoreFilters = () => ToggleFacetsMenu.initial().runEffects();
   window.restoreHamburguer = () => ToggleHamburguer.initial().runEffects();
   window.restoreLightMode = () => ToggleLights.initial().runEffects();
@@ -51,6 +53,7 @@ start();
 // Declare some globals that are called as the page is being loaded to avoid flashing the wrong content.
 declare global {
   interface Window {
+    fragment: FragmentTracker;
     restoreFilters: () => void;
     restoreHamburguer: () => void;
     restoreLightMode: () => void;

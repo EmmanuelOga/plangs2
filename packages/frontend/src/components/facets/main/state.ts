@@ -1,17 +1,18 @@
 import type { FunctionComponent } from "preact";
 
-import type { Map2 } from "@plangs/auxiliar/map2";
-import type { AnyValue } from "@plangs/auxiliar/value";
+import { Map2 } from "@plangs/auxiliar/map2";
+import { type AnyValue, deserializeValue } from "@plangs/auxiliar/value";
 import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 import type { PlangFacetKey } from "@plangs/plangs/facets/plangs";
 import type { TAB } from "@plangs/server/components/layout";
 
-import { $, elem } from "@plangs/frontend/auxiliar/dom";
+import { $ } from "@plangs/frontend/auxiliar/dom";
+import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
+import { loadLocalStorage, updateLocalStorage } from "@plangs/frontend/auxiliar/storage";
 import type { ToggleClearFacets } from "../../icon-button/state";
 import { updateThumbns } from "./grid";
 import { DEFAULT_GROUP, GROUPS, GROUP_FOR_FACET_KEY, NAV, type PlangFacetGroupKey, PlangsFacetGroups } from "./plangs";
-import { loadFacets, updateFragment, updateLocalStorage } from "./storage";
 
 /** Generic state so components can work with any group and facet key. */
 export type AnyFacetsMainState = FacetsMainState<string, string>;
@@ -116,8 +117,8 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
     super.dispatch();
 
     const data = this.serialized;
-    updateFragment(data);
-    updateLocalStorage(this.tab, data);
+    window.fragment.pushState(FragmentTracker.serialize(data));
+    updateLocalStorage(this.tab, "inputs", data);
     updateThumbns(this.results);
 
     this.updateClearFacets();
@@ -162,4 +163,28 @@ export class PlangsFacetsState extends FacetsMainState<PlangFacetGroupKey, Plang
     if (!this.pg) return new Set();
     return this.pg.plangs(this.values.getMap2());
   }
+}
+
+/** Attempt to reconstruct the value structure from  fragment or local storage. */
+export function loadFacets<GK, FK>(tab: TAB, groupsByFacetKey: Map<FK, GK>): Map2<GK, FK, AnyValue> {
+  const result = new Map2<GK, FK, AnyValue>();
+
+  const values = FragmentTracker.deserialize() ?? loadLocalStorage(tab, "inputs");
+  if (!values) return result;
+
+  for (const [facetKey, rawValue] of Object.entries(values)) {
+    const groupKey = groupsByFacetKey.get(facetKey as FK);
+    if (!groupKey) {
+      console.error("missing group for facet", facetKey);
+      continue;
+    }
+    const value = deserializeValue(rawValue);
+    if (value?.isPresent) {
+      result.set(groupKey, facetKey as FK, value);
+    } else {
+      console.error("failed to deserialize value", facetKey, rawValue);
+    }
+  }
+
+  return result;
 }
