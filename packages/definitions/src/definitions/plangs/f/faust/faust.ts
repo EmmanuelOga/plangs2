@@ -24,4 +24,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+app", "tag+audio-dev", "tag+compiler", "tag+dsp", "tag+interpreter", "tag+ui", "tag+wavelet"])
     .addTypeSystems(["tsys+manifest", "tsys+strong"])
     .addWrittenIn(["pl+c++"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

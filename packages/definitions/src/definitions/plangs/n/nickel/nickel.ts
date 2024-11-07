@@ -23,4 +23,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+configuration", "tag+validation"])
     .addTypeSystems(["tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+rust"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

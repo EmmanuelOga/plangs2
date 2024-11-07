@@ -23,4 +23,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+cli", "tag+interpreter", "tag+shell", "tag+workflow"])
     .addWrittenIn(["pl+c"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

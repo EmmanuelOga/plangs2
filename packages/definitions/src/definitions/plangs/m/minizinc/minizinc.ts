@@ -23,4 +23,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+modeling", "tag+science"])
     .addTypeSystems(["tsys+static"])
     .addWrittenIn(["pl+c++"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

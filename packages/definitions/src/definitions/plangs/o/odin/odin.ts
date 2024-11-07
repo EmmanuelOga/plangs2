@@ -23,4 +23,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+compiler", "tag+systems"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+odin"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

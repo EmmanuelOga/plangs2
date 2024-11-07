@@ -22,4 +22,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+cross"])
     .addTags(["tag+framework", "tag+scripting"])
     .addWrittenIn(["pl+javascript", "pl+scala"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

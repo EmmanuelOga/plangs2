@@ -1,4 +1,4 @@
-import type { NApp, NBundle, NLibrary, NTool, PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
   g.nodes.pl
@@ -90,19 +90,19 @@ export function define(g: PlangsGraph) {
     websites: [{ href: "https://pixi.sh/", title: "Pixi", kind: "homepage" }],
   });
 
-  g.nodes.tool.set("tool+ruff", {
-    name: "Ruff",
-    keywords: ["linter", "formatter", "code quality"],
-    description: "An extremely fast Python linter and code formatter, written in Rust.",
-    websites: [{ href: "https://docs.astral.sh/ruff/", title: "Ruff", kind: "homepage" }],
-  });
-
   g.nodes.tool.set("tool+pyright", {
     name: "Pyright",
     keywords: ["type checker", "static analysis", "type inference"],
     description:
       "Pyright is a full-featured, standards-compliant static type checker for Python. It is designed for high performance and can be used with large Python source bases.",
     websites: [{ href: "https://microsoft.github.io/pyright/", kind: "homepage", title: "Pyright" }],
+  });
+
+  g.nodes.tool.set("tool+ruff", {
+    name: "Ruff",
+    keywords: ["linter", "formatter", "code quality"],
+    description: "An extremely fast Python linter and code formatter, written in Rust.",
+    websites: [{ href: "https://docs.astral.sh/ruff/", title: "Ruff", kind: "homepage" }],
   });
 
   g.nodes.tool.set("tool+vscode-python", {
@@ -126,13 +126,6 @@ export function define(g: PlangsGraph) {
 
   // LIBRARIES
 
-  g.nodes.lib.set("lib+msgspec", {
-    name: "Msgspec",
-    keywords: ["serialization", "validation", "json", "messagepack", "yaml", "toml"],
-    description: "msgspec is a fast serialization and validation library, with builtin support for JSON, MessagePack, YAML, and TOML.",
-    websites: [{ href: "https://jcristharif.com/msgspec/", title: "Msgspec", kind: "homepage" }],
-  });
-
   g.nodes.lib.set("lib+flask", {
     name: "Flask",
     keywords: ["web", "framework", "wsgi"],
@@ -140,13 +133,21 @@ export function define(g: PlangsGraph) {
     websites: [{ href: "https://flask.palletsprojects.com/", title: "Flask", kind: "homepage" }],
   });
 
+  g.nodes.lib.set("lib+msgspec", {
+    name: "Msgspec",
+    keywords: ["serialization", "validation", "json", "messagepack", "yaml", "toml"],
+    description: "msgspec is a fast serialization and validation library, with builtin support for JSON, MessagePack, YAML, and TOML.",
+    websites: [{ href: "https://jcristharif.com/msgspec/", title: "Msgspec", kind: "homepage" }],
+  });
+
   // APPS
 
-  g.nodes.app.set("app+harlequin", {
-    name: "Harlequin",
-    keywords: ["database", "client", "terminal"],
-    description: "An easy, fast, and beautiful database client for the terminal.",
-    websites: [{ href: "https://harlequin.sh/", title: "Harlequin", kind: "homepage" }],
+  g.nodes.app.set("app+aider", {
+    name: "Aider",
+    keywords: ["pair programming", "llm", "git"],
+    description:
+      "Aider lets you pair program with LLMs, to edit code in your local git repository. Start a new project or work with an existing git repo. Aider works best with GPT-4o & Claude 3.5 Sonnet and can connect to almost any LLM.",
+    websites: [{ href: "https://aider.chat/", title: "Aider", kind: "homepage" }],
   });
 
   g.nodes.app.set("app+glances", {
@@ -156,18 +157,17 @@ export function define(g: PlangsGraph) {
     websites: [{ href: "https://nicolargo.github.io/glances/", title: "Glances", kind: "homepage" }],
   });
 
+  g.nodes.app.set("app+harlequin", {
+    name: "Harlequin",
+    keywords: ["database", "client", "terminal"],
+    description: "An easy, fast, and beautiful database client for the terminal.",
+    websites: [{ href: "https://harlequin.sh/", title: "Harlequin", kind: "homepage" }],
+  });
+
   g.nodes.app.set("app+zulip", {
     name: "Zulip",
     keywords: ["chat", "group", "communication"],
     description: "Zulip is a powerful, open source group chat application.",
     websites: [{ href: "https://github.com/zulip/zulip", title: "Zulip", kind: "homepage" }],
-  });
-
-  g.nodes.app.set("app+aider", {
-    name: "Aider",
-    keywords: ["pair programming", "llm", "git"],
-    description:
-      "Aider lets you pair program with LLMs, to edit code in your local git repository. Start a new project or work with an existing git repo. Aider works best with GPT-4o & Claude 3.5 Sonnet and can connect to almost any LLM.",
-    websites: [{ href: "https://aider.chat/", title: "Aider", kind: "homepage" }],
   });
 }

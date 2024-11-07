@@ -45,4 +45,12 @@ export function define(g: PlangsGraph) {
       "tag+ui",
     ])
     .addTypeSystems(["tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong", "tsys+weak"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

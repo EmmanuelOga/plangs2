@@ -24,4 +24,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+audio-dev", "tag+editor", "tag+games", "tag+interpreter", "tag+multimedia", "tag+video", "tag+viz"])
     .addTypeSystems(["tsys+untyped"])
     .addWrittenIn(["pl+actionscript", "pl+javascript", "pl+squeak"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

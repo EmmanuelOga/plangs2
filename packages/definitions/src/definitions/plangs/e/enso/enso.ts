@@ -21,4 +21,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+analysis", "tag+viz", "tag+workflow"])
     .addTypeSystems(["tsys+dynamic", "tsys+gradual"])
     .addWrittenIn(["pl+rust", "pl+scala"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

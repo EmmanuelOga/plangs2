@@ -36,4 +36,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+duck", "tsys+dynamic"])
     .addWrittenIn(["pl+python"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

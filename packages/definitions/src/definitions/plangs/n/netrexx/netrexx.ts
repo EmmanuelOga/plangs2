@@ -24,4 +24,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+safe", "tsys+static", "tsys+string", "tsys+strong"])
     .addWrittenIn(["pl+java"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

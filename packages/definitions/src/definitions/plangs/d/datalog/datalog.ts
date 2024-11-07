@@ -18,4 +18,12 @@ export function define(g: PlangsGraph) {
     .addParadigms(["paradigm+declarative", "paradigm+logic", "paradigm+rule-based"])
     .addTags(["tag+analysis", "tag+app", "tag+dbms", "tag+industrial", "tag+interpreter", "tag+viz"])
     .addTypeSystems(["tsys+untyped"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

@@ -6,8 +6,6 @@
     "@plangs/plangs": "workspace:*"
   },
   "description": "Data definitions for Plangs",
-  "files": [
-    "src"
-  ],
+  "files": ["src"],
   "main": "src/definitions.ts"
 }

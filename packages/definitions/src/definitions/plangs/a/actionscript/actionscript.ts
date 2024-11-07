@@ -9,11 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["actionscript", "flash"],
       year: 1998,
       websites: [
-        {
-          title: "ActionScript",
-          href: "https://www.adobe.com/devnet/actionscript/articles/actionscript3_overview.html",
-          kind: "apidocs",
-        },
+        { title: "ActionScript", href: "https://www.adobe.com/devnet/actionscript/articles/actionscript3_overview.html", kind: "apidocs" },
         { title: "ActionScript", href: "https://en.wikipedia.org/wiki/ActionScript", kind: "wikipedia" },
       ],
       extensions: [".as", ".swf"],
@@ -29,7 +25,7 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+ecmascript", "pl+javascript"])
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+prototype", "paradigm+scripting"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+windows", "plat+web"])
+    .addPlatforms(["plat+apple", "plat+cross", "plat+web", "plat+windows"])
     .addTags([
       "tag+app",
       "tag+audio-dev",
@@ -43,4 +39,12 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
     ])
     .addTypeSystems(["tsys+static", "tsys+strong"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

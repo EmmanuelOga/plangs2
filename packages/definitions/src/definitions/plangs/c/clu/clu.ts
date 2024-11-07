@@ -21,4 +21,12 @@ export function define(g: PlangsGraph) {
     .addParadigms(["paradigm+multi", "paradigm+oop", "paradigm+procedural"])
     .addTags(["tag+interpreter"])
     .addTypeSystems(["tsys+strong"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

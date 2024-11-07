@@ -22,4 +22,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+concurrency", "tag+safety"])
     .addTypeSystems(["tsys+safe", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

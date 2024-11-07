@@ -22,4 +22,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+apple", "plat+cross", "plat+windows"])
     .addTags(["tag+4gl", "tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreter", "tag+viz"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

@@ -34,4 +34,12 @@ export function define(g: PlangsGraph) {
       "tag+viz",
     ])
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+weak"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

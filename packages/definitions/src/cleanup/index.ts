@@ -11,5 +11,7 @@ console.log(GH_LANGS.all.length, "languages in GHLangs");
 console.log(LG_LANGS.all.length, "languages in LGLangs");
 console.log(pg.nodes.pl.size, "languages in Plangs");
 
-// biome-ignore lint/style/noNonNullAssertion: pl+python is defined in the definitions.
-Bun.write("test.ts", plangCodeGen(pg.nodes.pl.get("pl+python")!));
+// Re-generate all the language files.
+for (const [key, pl] of pg.nodes.pl) {
+  Bun.write(pl.tspath, plangCodeGen(pl));
+}

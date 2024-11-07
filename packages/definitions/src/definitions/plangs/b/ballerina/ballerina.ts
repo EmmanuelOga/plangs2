@@ -26,4 +26,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+cross"])
     .addTags(["tag+automation", "tag+interpreter", "tag+workflow"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

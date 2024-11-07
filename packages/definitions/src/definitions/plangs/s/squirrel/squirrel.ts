@@ -23,4 +23,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+cross"])
     .addTags(["tag+app", "tag+games", "tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

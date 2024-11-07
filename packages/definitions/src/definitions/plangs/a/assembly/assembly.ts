@@ -17,4 +17,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+apple", "plat+arm", "plat+cross", "plat+embedded", "plat+linux", "plat+windows", "plat+x86-64"])
     .addTags(["tag+asm", "tag+compiler", "tag+embedded", "tag+industrial", "tag+interpreter"])
     .addTypeSystems(["tsys+untyped"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

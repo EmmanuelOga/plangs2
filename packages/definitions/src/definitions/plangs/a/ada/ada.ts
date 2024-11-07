@@ -35,4 +35,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+cross"])
     .addTags(["tag+app", "tag+compiler", "tag+dbms", "tag+embedded", "tag+industrial", "tag+interpreter", "tag+ray-tracer", "tag+testing", "tag+viz"])
     .addTypeSystems(["tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

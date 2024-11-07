@@ -42,4 +42,12 @@ export function define(g: PlangsGraph) {
       "tag+wavelet",
     ])
     .addWrittenIn(["pl+c", "pl+c++", "pl+c-sharp"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

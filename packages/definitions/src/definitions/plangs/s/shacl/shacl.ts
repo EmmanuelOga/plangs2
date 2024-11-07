@@ -21,4 +21,12 @@ export function define(g: PlangsGraph) {
     .addParadigms(["paradigm+declarative", "paradigm+dsl", "paradigm+validation"])
     .addTags(["tag+dbms", "tag+framework"])
     .addTypeSystems(["tsys+structural"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

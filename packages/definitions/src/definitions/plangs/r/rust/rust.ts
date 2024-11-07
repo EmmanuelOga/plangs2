@@ -39,4 +39,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+app", "tag+compiler", "tag+dataq", "tag+editor", "tag+industrial", "tag+interpreter", "tag+iot", "tag+viz"])
     .addTypeSystems(["tsys+affine", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+ocaml"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

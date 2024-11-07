@@ -47,4 +47,12 @@ export function define(g: PlangsGraph) {
       "tag+ui",
     ])
     .addTypeSystems(["tsys+dynamic", "tsys+static", "tsys+strong"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

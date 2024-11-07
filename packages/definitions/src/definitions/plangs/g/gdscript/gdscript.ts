@@ -28,4 +28,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+3dg", "tag+audio-dev", "tag+games", "tag+scripting", "tag+ui"])
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+c++"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

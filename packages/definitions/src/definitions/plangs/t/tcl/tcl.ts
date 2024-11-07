@@ -40,4 +40,12 @@ export function define(g: PlangsGraph) {
     ])
     .addTypeSystems(["tsys+dynamic", "tsys+string"])
     .addWrittenIn(["pl+c"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

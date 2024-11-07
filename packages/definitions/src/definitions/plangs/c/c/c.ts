@@ -43,4 +43,12 @@ export function define(g: PlangsGraph) {
       "tag+wavelet",
     ])
     .addTypeSystems(["tsys+manifest", "tsys+nominal", "tsys+static", "tsys+weak"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

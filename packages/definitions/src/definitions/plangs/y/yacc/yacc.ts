@@ -13,11 +13,19 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       isMainstream: true,
     })
+    .addCompilesTo(["pl+c"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+compiler", "paradigm+declarative"])
     .addPlatforms(["plat+cross"])
     .addTags(["tag+compiler", "tag+interpreter"])
     .addTypeSystems(["tsys+algebraic"])
-    .addWrittenIn(["pl+c"])
-    .addCompilesTo(["pl+c"]);
+    .addWrittenIn(["pl+c"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

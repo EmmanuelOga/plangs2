@@ -20,4 +20,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+android", "plat+apple"])
     .addTags(["tag+edu", "tag+interpreter", "tag+low-code"])
     .addTypeSystems(["tsys+untyped"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

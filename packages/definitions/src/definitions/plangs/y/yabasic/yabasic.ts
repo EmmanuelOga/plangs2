@@ -25,4 +25,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+educational", "tag+games", "tag+interpreter", "tag+scripting", "tag+ui"])
     .addTypeSystems(["tsys+dynamic", "tsys+weak"])
     .addWrittenIn(["pl+c"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

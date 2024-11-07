@@ -21,4 +21,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+3dg", "tag+asm", "tag+compiler", "tag+games", "tag+industrial", "tag+ray-tracer"])
     .addTypeSystems(["tsys+static", "tsys+strong"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

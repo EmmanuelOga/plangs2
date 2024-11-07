@@ -23,4 +23,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+cross", "plat+java"])
     .addTags(["tag+compiler", "tag+high-performance", "tag+interpreter", "tag+modeling", "tag+parallel-computing", "tag+wavelet"])
     .addTypeSystems(["tsys+generic", "tsys+static", "tsys+strong"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

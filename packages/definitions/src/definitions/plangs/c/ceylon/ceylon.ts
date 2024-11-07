@@ -24,4 +24,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+compiler"])
     .addTypeSystems(["tsys+generic", "tsys+polymorphic", "tsys+safe", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+java"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

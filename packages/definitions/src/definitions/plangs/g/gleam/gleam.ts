@@ -17,12 +17,20 @@ export function define(g: PlangsGraph) {
       isMainstream: false,
       releases: [{ version: "1.4.1", name: "Version 1.4.1", date: "2024-01-01" }],
     })
+    .addCompilesTo(["pl+erlang", "pl+javascript"])
     .addInfluencedBy(["pl+elixir", "pl+erlang", "pl+go", "pl+javascript", "pl+ocaml", "pl+rust"])
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+multi"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+compiler", "tag+framework", "tag+interpreter"])
     .addTypeSystems(["tsys+inferred", "tsys+safe", "tsys+static"])
-    .addWrittenIn(["pl+rust"])
-    .addCompilesTo(["pl+erlang", "pl+javascript"]);
+    .addWrittenIn(["pl+rust"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

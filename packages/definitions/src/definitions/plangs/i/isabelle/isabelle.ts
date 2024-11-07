@@ -33,4 +33,12 @@ export function define(g: PlangsGraph) {
     ])
     .addTypeSystems(["tsys+dependent", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+scala", "pl+standard-ml"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

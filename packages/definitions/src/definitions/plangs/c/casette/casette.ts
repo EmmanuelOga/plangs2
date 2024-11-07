@@ -18,4 +18,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+audio-dev", "tag+dsl", "tag+workflow"])
     .addTypeSystems(["tsys+dynamic"])
     .addWrittenIn(["pl+python"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

@@ -15,4 +15,12 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+apl"])
     .addParadigms(["paradigm+functional", "paradigm+point-free"])
     .addTags(["tag+interpreter"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

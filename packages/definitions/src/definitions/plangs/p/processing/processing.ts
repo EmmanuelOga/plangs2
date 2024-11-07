@@ -24,4 +24,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+app", "tag+edu", "tag+framework", "tag+games", "tag+industrial", "tag+interpreter", "tag+multimedia", "tag+ray-tracer", "tag+viz"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+java"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

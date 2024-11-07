@@ -23,4 +23,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+erlang"])
     .addTags(["tag+analysis", "tag+app", "tag+interpreter", "tag+shell"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

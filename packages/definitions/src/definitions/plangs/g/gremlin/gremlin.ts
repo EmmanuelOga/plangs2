@@ -21,4 +21,12 @@ export function define(g: PlangsGraph) {
     .addParadigms(["paradigm+dsl", "paradigm+query"])
     .addPlatforms(["plat+cross"])
     .addTags(["tag+compiler", "tag+dbms"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

@@ -27,4 +27,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+rapid-development", "tag+ui", "tag+webdev"])
     .addTypeSystems(["tsys+dynamic", "tsys+inferred", "tsys+static"])
     .addWrittenIn(["pl+javascript"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

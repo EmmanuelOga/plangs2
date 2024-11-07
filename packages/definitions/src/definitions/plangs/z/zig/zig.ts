@@ -23,4 +23,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+riscv", "plat+wasm", "plat+windows", "plat+x86-64"])
     .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreter", "tag+testing", "tag+viz"])
     .addTypeSystems(["tsys+generic", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

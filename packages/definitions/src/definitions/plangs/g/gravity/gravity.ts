@@ -22,4 +22,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+embedded", "tag+games", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+c"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

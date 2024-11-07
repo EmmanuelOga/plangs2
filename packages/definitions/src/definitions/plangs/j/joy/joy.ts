@@ -16,4 +16,12 @@ export function define(g: PlangsGraph) {
     .addParadigms(["paradigm+concatenative", "paradigm+functional", "paradigm+multi", "paradigm+stack-oriented"])
     .addTags(["tag+interpreter"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

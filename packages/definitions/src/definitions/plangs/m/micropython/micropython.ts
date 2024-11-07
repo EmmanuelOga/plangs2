@@ -25,4 +25,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+app", "tag+embedded", "tag+interpreter", "tag+iot", "tag+scripting", "tag+testing"])
     .addTypeSystems(["tsys+duck", "tsys+dynamic"])
     .addWrittenIn(["pl+c"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

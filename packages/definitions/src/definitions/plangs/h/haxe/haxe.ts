@@ -17,6 +17,7 @@ export function define(g: PlangsGraph) {
       isMainstream: false,
       releases: [{ version: "4.3.6", name: "Haxe 4.3.6", date: "2024-01-01" }],
     })
+    .addCompilesTo(["pl+c++", "pl+c-sharp", "pl+java", "pl+javascript", "pl+lua", "pl+php", "pl+python"])
     .addDialectOf(["pl+ecmascript"])
     .addInfluencedBy(["pl+actionscript", "pl+c++", "pl+c-sharp", "pl+ecmascript", "pl+javascript", "pl+lua", "pl+ocaml", "pl+python"])
     .addLicenses(["license+gnu-gpl", "license+mit"])
@@ -24,6 +25,13 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+android", "plat+apple", "plat+arm", "plat+linux", "plat+windows", "plat+x86-64"])
     .addTags(["tag+app", "tag+compiler", "tag+industrial", "tag+instrument_control", "tag+interpreter", "tag+viz"])
     .addTypeSystems(["tsys+dynamic", "tsys+nominal", "tsys+static"])
-    .addWrittenIn(["pl+ocaml"])
-    .addCompilesTo(["pl+c++", "pl+c-sharp", "pl+javascript", "pl+java", "pl+lua", "pl+php", "pl+python"]);
+    .addWrittenIn(["pl+ocaml"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

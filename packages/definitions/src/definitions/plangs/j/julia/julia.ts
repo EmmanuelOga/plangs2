@@ -70,4 +70,12 @@ export function define(g: PlangsGraph) {
     ])
     .addTypeSystems(["tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+optional", "tsys+strong"])
     .addWrittenIn(["pl+c", "pl+c++", "pl+llvm", "pl+scheme"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

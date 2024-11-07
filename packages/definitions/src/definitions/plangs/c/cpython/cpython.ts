@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".py", ".pyo", ".pyc", ".pyd", ".pyw", ".pyz"],
       year: 1991,
-      images: [],
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "3.12.0", name: "CPython 3.12.0", date: "2023-01-01" }],
@@ -37,4 +36,12 @@ export function define(g: PlangsGraph) {
     ])
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+optional", "tsys+strong"])
     .addWrittenIn(["pl+c", "pl+python"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

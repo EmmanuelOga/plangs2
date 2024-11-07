@@ -25,4 +25,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+compiler", "tag+framework", "tag+scripting", "tag+web"])
     .addTypeSystems(["tsys+duck", "tsys+gradual", "tsys+optional", "tsys+strong", "tsys+structural"])
     .addWrittenIn(["pl+javascript"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

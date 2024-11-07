@@ -42,4 +42,12 @@ export function define(g: PlangsGraph) {
     ])
     .addTypeSystems(["tsys+object", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c++"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

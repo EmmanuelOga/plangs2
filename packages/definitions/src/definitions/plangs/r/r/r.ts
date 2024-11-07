@@ -35,4 +35,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+analysis", "tag+cli", "tag+dataq", "tag+genomics", "tag+interpreter", "tag+multivar", "tag+scripting", "tag+stats", "tag+viz"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+c", "pl+fortran"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

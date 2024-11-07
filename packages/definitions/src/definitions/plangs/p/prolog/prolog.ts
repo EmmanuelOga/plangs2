@@ -38,4 +38,12 @@ export function define(g: PlangsGraph) {
       "tag+wavelet",
     ])
     .addTypeSystems(["tsys+untyped"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

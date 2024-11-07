@@ -13,4 +13,12 @@ export function define(g: PlangsGraph) {
     .addParadigms(["paradigm+declarative", "paradigm+visual", "paradigm+workflow"])
     .addPlatforms(["plat+web"])
     .addTags(["tag+automation", "tag+low-code", "tag+workflow"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

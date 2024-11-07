@@ -24,8 +24,16 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addInfluencedBy(["pl+ocaml"])
-    .addParadigms(["paradigm+declarative", "paradigm+dsl", "paradigm+bidirectional"])
+    .addParadigms(["paradigm+bidirectional", "paradigm+declarative", "paradigm+dsl"])
     .addPlatforms(["plat+cross", "plat+linux"])
     .addTags(["tag+interpreter", "tag+transformation"])
     .addTypeSystems(["tsys+strong"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

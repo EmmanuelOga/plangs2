@@ -24,4 +24,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+analysis", "tag+automation", "tag+cli", "tag+compiler", "tag+ray-tracer", "tag+shell", "tag+viz"])
     .addTypeSystems(["tsys+manifest", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c++"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

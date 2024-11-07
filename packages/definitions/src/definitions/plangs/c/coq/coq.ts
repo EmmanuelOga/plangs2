@@ -26,4 +26,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+interpreter", "tag+proofs"])
     .addTypeSystems(["tsys+dependent", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+ocaml"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

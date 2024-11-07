@@ -23,4 +23,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+cross"])
     .addTags(["tag+compiler", "tag+interpreter", "tag+sci"])
     .addTypeSystems(["tsys+flow", "tsys+safe", "tsys+strong", "tsys+structural"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

@@ -21,8 +21,16 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+common-lisp"])
     .addLicenses(["license+gnu-gpl"])
     .addParadigms(["paradigm+functional", "paradigm+metaprogramming", "paradigm+reflective", "paradigm+scripting"])
-    .addPlatforms(["plat+apple", "plat+linux", "plat+windows", "plat+cross"])
+    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+app", "tag+compiler", "tag+editor", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+shell"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+c"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

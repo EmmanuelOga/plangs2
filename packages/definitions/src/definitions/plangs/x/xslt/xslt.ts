@@ -26,4 +26,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+cross", "plat+java"])
     .addTags(["tag+analysis", "tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+viz"])
     .addTypeSystems(["tsys+untyped"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

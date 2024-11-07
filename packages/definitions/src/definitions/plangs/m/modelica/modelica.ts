@@ -21,4 +21,12 @@ export function define(g: PlangsGraph) {
     .addParadigms(["paradigm+declarative", "paradigm+multi", "paradigm+object-oriented"])
     .addPlatforms(["plat+cross"])
     .addTags(["tag+app", "tag+industrial", "tag+modeling", "tag+sci", "tag+viz"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

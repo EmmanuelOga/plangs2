@@ -21,12 +21,20 @@ export function define(g: PlangsGraph) {
         { version: "0.8.0", name: "Fennel 0.8.0", date: "2022-12-15" },
       ],
     })
+    .addCompilesTo(["pl+lua"])
     .addInfluencedBy(["pl+lua", "pl+scheme"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+functional", "paradigm+macro", "paradigm+metaprogramming", "paradigm+scripting"])
     .addPlatforms(["plat+cross"])
     .addTags(["tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic"])
-    .addWrittenIn(["pl+lua"])
-    .addCompilesTo(["pl+lua"]);
+    .addWrittenIn(["pl+lua"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

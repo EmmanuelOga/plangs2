@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+ada", "pl+simula"])
     .addLicenses(["license+epl"])
-    .addParadigms(["paradigm+compiled", "paradigm+concurrent", "paradigm+oop", "paradigm+contracts"])
+    .addParadigms(["paradigm+compiled", "paradigm+concurrent", "paradigm+contracts", "paradigm+oop"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .addTags([
       "tag+3dg",
@@ -34,4 +34,12 @@ export function define(g: PlangsGraph) {
       "tag+wavelet",
     ])
     .addTypeSystems(["tsys+static", "tsys+strong"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

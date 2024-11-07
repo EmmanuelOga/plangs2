@@ -21,12 +21,20 @@ export function define(g: PlangsGraph) {
         { version: "1.0.0", name: "Dart 1.0.0", date: "2013-11-14" },
       ],
     })
+    .addCompilesTo(["pl+javascript"])
     .addInfluencedBy(["pl+c", "pl+c++", "pl+c-sharp", "pl+erlang", "pl+javascript", "pl+ruby", "pl+typescript"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+reflective"])
     .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+app", "tag+cli", "tag+framework", "tag+interpreter", "tag+ui"])
     .addTypeSystems(["tsys+inferred", "tsys+optional", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+c++"])
-    .addCompilesTo(["pl+javascript"]);
+    .addWrittenIn(["pl+c++"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

@@ -38,4 +38,12 @@ export function define(g: PlangsGraph) {
     ])
     .addTypeSystems(["tsys+untyped"])
     .addWrittenIn(["pl+c"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

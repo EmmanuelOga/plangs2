@@ -23,4 +23,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+cross", "plat+java"])
     .addTags(["tag+dataflow", "tag+dbms"])
     .addWrittenIn(["pl+clojure"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

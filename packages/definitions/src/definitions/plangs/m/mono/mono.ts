@@ -38,4 +38,12 @@ export function define(g: PlangsGraph) {
     ])
     .addTypeSystems(["tsys+nominal", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c", "pl+c-sharp"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

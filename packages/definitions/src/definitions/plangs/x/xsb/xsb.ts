@@ -26,4 +26,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+dbms", "tag+interpreter", "tag+query"])
     .addTypeSystems(["tsys+untyped"])
     .addWrittenIn(["pl+c"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

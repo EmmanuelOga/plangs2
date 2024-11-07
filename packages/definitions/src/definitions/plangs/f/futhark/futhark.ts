@@ -28,4 +28,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+app", "tag+compiler", "tag+interpreter", "tag+numeric", "tag+ray-tracer", "tag+sci"])
     .addTypeSystems(["tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+uniqueness"])
     .addWrittenIn(["pl+standard-ml"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

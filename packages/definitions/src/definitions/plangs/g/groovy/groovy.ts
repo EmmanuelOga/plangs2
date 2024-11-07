@@ -26,4 +26,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+java"])
     .addTags(["tag+compiler", "tag+framework", "tag+interpreter", "tag+scripting", "tag+testing"])
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

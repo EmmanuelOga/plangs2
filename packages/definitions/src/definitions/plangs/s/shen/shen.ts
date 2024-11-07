@@ -22,4 +22,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+automation", "tag+cas", "tag+compiler", "tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+manifest", "tsys+polymorphic", "tsys+strong"])
     .addWrittenIn(["pl+scheme"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

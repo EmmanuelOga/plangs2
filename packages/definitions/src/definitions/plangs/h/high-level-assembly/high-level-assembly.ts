@@ -24,4 +24,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+4gl", "tag+app", "tag+asm", "tag+compiler", "tag+industrial", "tag+interpreter", "tag+shell", "tag+viz"])
     .addTypeSystems(["tsys+strong"])
     .addWrittenIn(["pl+assembly"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

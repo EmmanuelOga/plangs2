@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
         { title: "www.alice.org", href: "http://www.alice.org/", kind: "homepage" },
         { title: "Alice", href: "https://en.wikipedia.org/wiki/Alice_(software)", kind: "wikipedia" },
       ],
-      extensions: [],
       year: 2000,
       isTranspiler: false,
       isMainstream: false,
@@ -33,4 +32,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+cross", "plat+java"])
     .addTags(["tag+3dg", "tag+edu", "tag+flow", "tag+interpreter", "tag+testing"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

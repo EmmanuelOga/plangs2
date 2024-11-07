@@ -45,4 +45,12 @@ export function define(g: PlangsGraph) {
     ])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])
     .addWrittenIn(["pl+pascal"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

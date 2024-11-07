@@ -36,4 +36,12 @@ export function define(g: PlangsGraph) {
       "tag+testing",
     ])
     .addTypeSystems(["tsys+untyped"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

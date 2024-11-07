@@ -12,9 +12,10 @@ export function define(g: PlangsGraph) {
         { title: "MoonScript", href: "https://en.wikipedia.org/wiki/MoonScript", kind: "wikipedia" },
       ],
       year: 2011,
-      isTranspiler: false,
+      isTranspiler: true,
       isMainstream: true,
     })
+    .addCompilesTo(["pl+lua"])
     .addInfluencedBy(["pl+c++", "pl+clu", "pl+coffeescript", "pl+modula", "pl+scheme"])
     .addLicenses(["license+mit"])
     .addParadigms([
@@ -41,6 +42,13 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
       "tag+viz",
     ])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"])
-    .addCompilesTo(["pl+lua"]);
+    .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

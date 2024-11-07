@@ -33,4 +33,12 @@ export function define(g: PlangsGraph) {
       "tag+ui",
       "tag+wavelet",
     ]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

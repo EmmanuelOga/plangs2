@@ -23,4 +23,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+analysis", "tag+dsl", "tag+transformation"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+java"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

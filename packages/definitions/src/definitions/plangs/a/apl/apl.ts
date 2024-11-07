@@ -42,4 +42,12 @@ export function define(g: PlangsGraph) {
       "tag+wavelet",
     ])
     .addTypeSystems(["tsys+dynamic"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

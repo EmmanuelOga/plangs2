@@ -28,4 +28,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+compiler", "tag+industrial", "tag+ui"])
     .addTypeSystems(["tsys+object", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+pascal"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

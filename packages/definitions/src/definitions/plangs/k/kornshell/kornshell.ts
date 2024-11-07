@@ -23,4 +23,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+automation", "tag+cli", "tag+interpreter", "tag+scripting", "tag+shell"])
     .addTypeSystems(["tsys+dynamic", "tsys+untyped"])
     .addWrittenIn(["pl+c"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

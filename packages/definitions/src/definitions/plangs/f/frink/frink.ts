@@ -22,4 +22,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+interpreter", "tag+numeric", "tag+sci"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+java"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

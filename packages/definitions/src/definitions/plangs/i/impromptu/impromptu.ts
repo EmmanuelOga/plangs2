@@ -21,4 +21,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+apple"])
     .addTags(["tag+audio-dev", "tag+interpreter", "tag+multimedia", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

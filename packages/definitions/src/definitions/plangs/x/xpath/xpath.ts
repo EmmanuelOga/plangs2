@@ -17,4 +17,12 @@ export function define(g: PlangsGraph) {
     .addParadigms(["paradigm+query"])
     .addPlatforms(["plat+cross"])
     .addTags(["tag+automation", "tag+dataflow", "tag+workflow"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

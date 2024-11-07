@@ -27,4 +27,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+edu", "tag+interpreter"])
     .addTypeSystems(["tsys+dynamic"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

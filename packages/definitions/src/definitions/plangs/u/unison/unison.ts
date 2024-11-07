@@ -22,4 +22,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+cli", "tag+distributed"])
     .addTypeSystems(["tsys+algebraic", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+haskell"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

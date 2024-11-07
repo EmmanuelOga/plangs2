@@ -15,9 +15,17 @@ export function define(g: PlangsGraph) {
       year: 2015,
       isTranspiler: false,
     })
-    .addInfluencedBy(["pl+clojure"])
     .addDialectOf(["pl+clojure"])
+    .addInfluencedBy(["pl+clojure"])
     .addParadigms(["paradigm+functional"])
     .addPlatforms(["plat+cross"])
-    .addWrittenIn(["pl+llvm", "pl+c++"]);
+    .addWrittenIn(["pl+c++", "pl+llvm"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

@@ -16,4 +16,12 @@ export function define(g: PlangsGraph) {
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi"])
     .addTags(["tag+compiler", "tag+genomics", "tag+interpreter", "tag+modeling", "tag+proofs", "tag+wavelet"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

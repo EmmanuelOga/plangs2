@@ -25,4 +25,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+edu", "tag+interpreter", "tag+modeling", "tag+uml"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+java", "pl+scala"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

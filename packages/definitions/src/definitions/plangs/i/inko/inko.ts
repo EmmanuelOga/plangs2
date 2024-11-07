@@ -25,4 +25,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+automation"])
     .addTypeSystems(["tsys+nominal", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+rust"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

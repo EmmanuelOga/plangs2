@@ -24,4 +24,12 @@ export function define(g: PlangsGraph) {
     .addParadigms(["paradigm+declarative", "paradigm+dsl", "paradigm+pipeline"])
     .addPlatforms(["plat+cross"])
     .addTags(["tag+dataflow", "tag+workflow"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

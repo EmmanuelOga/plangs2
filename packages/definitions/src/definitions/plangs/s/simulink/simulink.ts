@@ -20,4 +20,12 @@ export function define(g: PlangsGraph) {
     .addParadigms(["paradigm+dataflow", "paradigm+simulation", "paradigm+visual"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
     .addTags(["tag+analysis", "tag+dsp", "tag+embedded", "tag+industrial", "tag+modeling", "tag+testing", "tag+wavelet"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

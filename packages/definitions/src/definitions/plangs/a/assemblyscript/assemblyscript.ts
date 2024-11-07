@@ -24,4 +24,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+nodejs", "plat+wasm", "plat+web"])
     .addTags(["tag+asm", "tag+compiler", "tag+scripting"])
     .addTypeSystems(["tsys+static"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

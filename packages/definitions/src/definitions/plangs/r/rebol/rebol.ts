@@ -37,4 +37,12 @@ export function define(g: PlangsGraph) {
       "tag+video",
     ])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

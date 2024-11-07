@@ -23,4 +23,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+audio-dev", "tag+compiler", "tag+dsp", "tag+multimedia", "tag+wavelet"])
     .addTypeSystems(["tsys+dynamic", "tsys+static"])
     .addWrittenIn(["pl+c"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

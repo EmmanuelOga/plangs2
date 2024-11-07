@@ -45,4 +45,12 @@ export function define(g: PlangsGraph) {
       "tag+testing",
     ])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

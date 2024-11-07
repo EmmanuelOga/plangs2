@@ -20,4 +20,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+windows"])
     .addTags(["tag+3dg", "tag+app", "tag+audio-dev", "tag+dataflow", "tag+flow", "tag+framework", "tag+multimedia", "tag+ray-tracer", "tag+ui"])
     .addTypeSystems(["tsys+strong"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

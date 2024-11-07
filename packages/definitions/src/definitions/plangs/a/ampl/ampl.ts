@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
       year: 1985,
       isTranspiler: false,
       isMainstream: false,
-      releases: [],
     })
     .addInfluencedBy(["pl+awk", "pl+c"])
     .addLicenses(["license+proprietary"])
@@ -23,4 +22,12 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+industrial", "tag+interpreter", "tag+modeling", "tag+stats"])
     .addTypeSystems(["tsys+untyped"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

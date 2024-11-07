@@ -19,4 +19,12 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+public-domain"])
     .addParadigms(["paradigm+procedural", "paradigm+stack-oriented"])
     .addTags(["tag+compiler", "tag+interpreter", "tag+scripting"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

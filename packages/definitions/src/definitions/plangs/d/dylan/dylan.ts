@@ -23,4 +23,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+compiler", "tag+industrial", "tag+interpreter", "tag+testing"])
     .addTypeSystems(["tsys+dynamic", "tsys+static"])
     .addWrittenIn(["pl+c"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

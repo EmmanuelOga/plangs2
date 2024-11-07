@@ -22,4 +22,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+edu", "tag+games"])
     .addTypeSystems(["tsys+inferred"])
     .addWrittenIn(["pl+coffeescript", "pl+javascript", "pl+ruby"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

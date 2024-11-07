@@ -19,9 +19,17 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+lisp", "pl+lua", "pl+self", "pl+smalltalk"])
     .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+concurrent", "paradigm+oop", "paradigm+prototype", "paradigm+prototype"])
+    .addParadigms(["paradigm+concurrent", "paradigm+oop", "paradigm+prototype"])
     .addPlatforms(["plat+.net", "plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+c", "pl+python"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

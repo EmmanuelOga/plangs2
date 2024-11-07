@@ -55,5 +55,13 @@ export function define(g: PlangsGraph) {
       "tag+shell",
     ])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
-    .addWrittenIn(["pl+java", "pl+clojure"]);
+    .addWrittenIn(["pl+clojure", "pl+java"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

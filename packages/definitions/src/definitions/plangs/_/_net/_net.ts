@@ -29,4 +29,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+app", "tag+cli", "tag+compiler", "tag+framework", "tag+interpreter", "tag+shell", "tag+ui"])
     .addTypeSystems(["tsys+polymorphic", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c++", "pl+c-sharp"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

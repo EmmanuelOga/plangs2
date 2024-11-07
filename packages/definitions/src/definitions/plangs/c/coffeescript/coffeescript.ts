@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".coffee", ".litcoffee"],
       year: 2009,
-      images: [],
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "2.7.0", name: "CoffeeScript 2.7.0", date: "2022-01-01" }],
@@ -25,4 +24,12 @@ export function define(g: PlangsGraph) {
     .addTags(["tag+compiler", "tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic"])
     .addWrittenIn(["pl+javascript"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }
