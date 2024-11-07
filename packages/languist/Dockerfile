@@ -16,6 +16,6 @@ RUN gem install github-linguist yajl-ruby
 
 WORKDIR /usr/src/app
 
-COPY lib/main.rb .
+COPY in/main.rb .
 
 CMD ["ruby", "main.rb"]

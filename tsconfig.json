@@ -1,29 +1,47 @@
 {
   "compilerOptions": {
-    /** Do not type check code in node_modules. */
-    "skipLibCheck": true,
-    "module": "ES2022",
-    "target": "ES2022",
-    "moduleResolution": "Bundler",
-    "strict": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "forceConsistentCasingInFileNames": true,
-    "sourceMap": true,
-    "types": ["bun-types"],
     "baseUrl": ".",
-    "rootDir": ".",
-    "paths": {
-      "@plangs/definitions/*": ["packages/definitions/src/*"],
-      "@plangs/frontend/*": ["packages/frontend/src/*"],
-      "@plangs/auxiliar/*": ["packages/auxiliar/src/*"],
-      "@plangs/plangs/*": ["packages/plangs/src/*"],
-      "@plangs/server/*": ["packages/server/src/*"],
-      "@plangs/wiki-scraper/*": ["archive/wiki-scraper/src/*"]
-    },
-    // Preact stuff.
+    "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "preact"
+    "jsxImportSource": "preact",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@plangs/auxiliar/*": [
+        "packages/auxiliar/src/*"
+      ],
+      "@plangs/definitions/*": [
+        "packages/definitions/src/*"
+      ],
+      "@plangs/frontend/*": [
+        "packages/frontend/src/*"
+      ],
+      "@plangs/languist/*": [
+        "packages/languist/src/*"
+      ],
+      "@plangs/plangs/*": [
+        "packages/plangs/src/*"
+      ],
+      "@plangs/server/*": [
+        "packages/server/src/*"
+      ],
+      "@plangs/wiki-scraper/*": [
+        "archive/wiki-scraper/src/*"
+      ]
+    },
+    "rootDir": ".",
+    "skipLibCheck": true, // Do not type check code in node_modules.
+    "sourceMap": true,
+    "strict": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "target": "ESNext",
+    "types": [
+      "bun-types"
+    ]
   },
-  "exclude": ["node_modules", "**/node_modules/*"]
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*"
+  ]
 }

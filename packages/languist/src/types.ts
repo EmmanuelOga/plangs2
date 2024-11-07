@@ -1,7 +1,7 @@
 /**
  * Type of the objects generated from github-linguist ruby gem.
  */
-interface Linguist {
+export type LinguistLang = {
   /** Language Name. */
   name: string;
 
@@ -75,4 +75,20 @@ interface Linguist {
   codemirrorMode: string;
   /** Scope used by [TextMate](https://macromates.com/). */
   textmateScope: string;
-}
+};
+
+export type LanguishLang = {
+  /** Example: "ATS". This matches the github-linguist `name` field. */
+  githubName: string;
+  /** Wikipedia ID for the language. Example: "ATS_(programming_language)". */
+  wikipedia?: string;
+  /** Reddit ID for discussions page. Example: "ATS". */
+  reddit?: string;
+  /** StackOverflow tags for questions. Example: [ "ats" ] */
+  stackoverflow?: string[];
+};
+
+/** Allows for getting the names of fields that of type `string` or `string | undefined`. */
+export type StringKeys<T> = keyof {
+  [K in keyof T as T[K] extends string ? K : never]: T[K];
+};

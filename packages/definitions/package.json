@@ -1,10 +1,13 @@
 {
   "name": "@plangs/definitions",
-  "description": "Data definitions for Plangs",
   "version": "0.1.0",
   "dependencies": {
+    "@plangs/languist": "workspace:*",
     "@plangs/plangs": "workspace:*"
   },
-  "main": "src/definitions.ts",
-  "files": ["src"]
+  "description": "Data definitions for Plangs",
+  "files": [
+    "src"
+  ],
+  "main": "src/definitions.ts"
 }
