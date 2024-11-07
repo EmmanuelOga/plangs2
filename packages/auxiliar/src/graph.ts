@@ -31,13 +31,13 @@ export abstract class Node<T_Graph, T_Key extends string, T_Data> {
 
   /** The key without the node kind prefix. */
   get plainKey(): string {
-    return this.key.replace(/^[a-z]+[+]/, "");
+    return this.key.replace(/^[a-z]+\+/, "");
   }
 
   /** The first letter of the key, or "_" if it starts with a non-letter. */
   get keyPrefix(): string {
     const pk = this.plainKey;
-    return /^[a-z]/.test(pk) ? pk[0] : "_";
+    return /^[a-z]/i.test(pk) ? pk[0].toLowerCase() : "_";
   }
 
   toString(): string {

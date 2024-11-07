@@ -1,3 +1,5 @@
+import { join } from "node:path";
+
 import { arrayMerge } from "@plangs/auxiliar/array";
 import { BaseGraph, Edge, EdgeMap, Node, NodeMap } from "@plangs/auxiliar/graph";
 import { IterTap } from "@plangs/auxiliar/iter_tap";
@@ -97,10 +99,18 @@ export abstract class NBase<Prefix extends N, Data extends CommonNodeData> exten
   }
 }
 
+export const DEFINTIONS_PATH = join(import.meta.dir, "../../definitions/src/definitions/plangs/");
+
 /** A programming language Node. */
 export class NPlang extends NBase<"pl", NPlangData> {
   static readonly kind: N = "pl";
   override kind = NPlang.kind;
+
+  /** Path to the TypeScript file that holds the programmatic definition of the data. */
+  get tspath(): string {
+    const base = this.plainKey.replace(/[^a-zA-Z0-9_-]/g, "_");
+    return join(DEFINTIONS_PATH, base[0], base, `${base}.ts`);
+  }
 
   get href(): string {
     return `/${this.plainKey}`;

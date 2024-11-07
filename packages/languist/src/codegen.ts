@@ -36,7 +36,7 @@ export function plangCodeGen(plang: NPlang): string {
   };
 
   // Retrieve the actual nodes (not just the keys) of a relation. `existing` is a IterTap method that removes undefined values.
-  const existing = (rel: MapTap<string, AnyEdge>) => rel.values.map(({ nodeTo }) => nodeTo).existing;
+  const existing = (rel: MapTap<string, AnyEdge>) => rel.values.map(({ nodeTo }) => nodeTo).existing.sort((a, b) => a.key.localeCompare(b.key));
 
   const apps = existing(plang.relApps).map(app => genSet("app", app.key, app.data));
   const libs = existing(plang.relLibs).map(lib => genSet("lib", lib.key, lib.data));

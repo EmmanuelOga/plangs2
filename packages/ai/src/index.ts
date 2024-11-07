@@ -2,7 +2,7 @@ import OpenAI from "openai";
 const openai = new OpenAI();
 
 import { mkdir } from "node:fs/promises";
-import { dirname, join } from "node:path";
+import { dirname } from "node:path";
 
 import { loadAllDefinitions } from "@plangs/definitions";
 import { plangCodeGen } from "@plangs/languist/codegen";
@@ -11,8 +11,6 @@ import type { NPlangAI } from "@plangs/plangs/schema";
 import schema from "@plangs/plangs/schemas/PlAiResult.json";
 
 import { example, existingData } from "./example";
-
-export const DEFINTIONS_PATH = join(import.meta.dir, "../../definitions/src/definitions/plangs/");
 
 const pg = new PlangsGraph();
 await loadAllDefinitions(pg);
@@ -62,13 +60,9 @@ export async function aiGenerate(pl: NPlang) {
 
   const code = plangCodeGen(newPl);
 
-  const name = pl.plainKey;
-  const escaped = name.startsWith(".") ? `_${name.slice(1)}` : name;
-  const path = join(DEFINTIONS_PATH, name[0], escaped, `${escaped}.ts`);
-  await mkdir(dirname(path), { recursive: true }).catch(() => {});
+  await mkdir(dirname(pl.tspath), { recursive: true }).catch(() => {});
 
-  console.log("Writing result to", path);
-  Bun.write(path, code);
+  // console.log("Writing result to", path); Bun.write(path, code);
 }
 
 const GENERATE_SAMPLE = [{ name: "Python", key: "pl+python", websites: ["https://python.org"] }] as const;
