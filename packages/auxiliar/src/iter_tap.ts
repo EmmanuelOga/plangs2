@@ -48,8 +48,9 @@ export class IterTap<T> implements Iterable<T> {
     return this.array ? this.array.length : 0;
   }
 
+  /** Return all non-null and non-undefined values. */
   get existing(): NonNullable<T>[] {
-    return this.filter(v => !!v) as NonNullable<T>[];
+    return this.filter(v => v !== undefined && v !== null) as NonNullable<T>[];
   }
 
   get reverse(): IterTap<T> {

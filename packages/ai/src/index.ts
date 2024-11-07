@@ -4,14 +4,13 @@ const openai = new OpenAI();
 import { mkdir } from "node:fs/promises";
 import { dirname, join } from "node:path";
 
+import { loadAllDefinitions } from "@plangs/definitions";
+import { plangCodeGen } from "@plangs/languist/codegen";
+import { NPlang, PlangsGraph } from "@plangs/plangs";
+import type { NPlangAI } from "@plangs/plangs/schema";
 import schema from "@plangs/plangs/schemas/PlAiResult.json";
 
-import { loadAllDefinitions } from "@plangs/definitions";
-import { type NPlang, PlangsGraph } from "@plangs/plangs";
-import type { PlAiResult } from "@plangs/plangs/schema";
-
 import { example, existingData } from "./example";
-import { generateCode } from "./generate";
 
 export const DEFINTIONS_PATH = join(import.meta.dir, "../../definitions/src/definitions/plangs/");
 
@@ -57,8 +56,11 @@ export async function aiGenerate(pl: NPlang) {
     },
   });
 
-  const result = JSON.parse(completion.choices[0].message.content ?? "{}") as PlAiResult;
-  const code = generateCode(pl.key, result);
+  const result = JSON.parse(completion.choices[0].message.content ?? "{}") as NPlangAI;
+
+  const newPl = new NPlang(pg, pl.key); // TODO: convert the result to a new NPlang.
+
+  const code = plangCodeGen(newPl);
 
   const name = pl.plainKey;
   const escaped = name.startsWith(".") ? `_${name.slice(1)}` : name;

@@ -5,9 +5,12 @@
   "dependencies": {
     "@plangs/definitions": "workspace:*",
     "@plangs/frontend": "workspace:*",
+    "@plangs/languist": "workspace:*",
     "@plangs/plangs": "workspace:*",
     "openai": "^4.67.2"
   },
   "main": "src/index.ts",
-  "files": ["src"]
+  "files": [
+    "src"
+  ]
 }

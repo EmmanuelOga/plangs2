@@ -1,5 +1,5 @@
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
-import type { N, NPlangData, PlAiResult } from "@plangs/plangs/schema";
+import type { N, NPlangAI, NPlangData } from "@plangs/plangs/schema";
 
 /** Generate a JSON object including keys to known nodes. */
 export function existingData(pg: PlangsGraph): Record<string, Record<string, string>> {
@@ -17,7 +17,7 @@ export function existingData(pg: PlangsGraph): Record<string, Record<string, str
 }
 
 /** Return an example using existing data to show OpenAI what a good result looks like. */
-export function example(pl: NPlang): PlAiResult {
+export function example(pl: NPlang): NPlangAI {
   return {
     data: pl.data as NPlangData,
     compilesTo: pl.relCompilesTo.keys.existing,
