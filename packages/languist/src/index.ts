@@ -4,24 +4,30 @@ import type { KeysOfType, LanguishLang, LinguistLang } from "./types";
 
 /** A Wrapper for all the data in Github Linguist ruby gem. */
 export class GHLangs {
-  // Map of all languages by every possible name (lower case) to some matching language.
-  #lookup = new Map<string, LinguistLang>();
+  constructor(public readonly all: LinguistLang[]) {}
 
-  constructor(public readonly all: LinguistLang[]) {
-    this.setupLookup();
-  }
+  /** Return a map with all the possible ways to id a plang. */
+  lookupMap() {
+    const map = new Map<string, LinguistLang>();
+    const add = (name: string | undefined, lang: LinguistLang) => {
+      if (!name) return;
+      const clean = name.trim().toLowerCase();
+      if (clean && !map.has(clean)) map.set(clean, lang);
+    };
 
-  setupLookup() {
-    for (const lang of this.all) {
-      for (const name of this.names(lang)) {
-        this.#lookup.set(name.trim().toLowerCase(), lang);
-      }
-    }
-  }
+    // We need to perform multiple passes to respect the priority of the keys types:
+    // Each new pass becomes more generic.
+    for (const lang of this.all) add(lang.name, lang);
+    for (const lang of this.all) add(lang.defaultAlias, lang);
+    for (const lang of this.all) for (const alias of lang.aliases ?? []) add(alias, lang);
+    for (const lang of this.all) for (const alias of lang.interpreters ?? []) add(alias, lang);
+    for (const lang of this.all) add(lang.groupName, lang);
+    for (const lang of this.all) add(lang.nameFS, lang);
 
-  /** Quickly lookup a GH language by any possible field in linguist that identifies it. */
-  lookup(name?: string): LinguistLang | undefined {
-    return this.#lookup.get((name ?? "").trim().toLowerCase());
+    // We could skip the langId, but we may as well use it as fallback.
+    for (const lang of this.all) add(lang.langId, lang);
+
+    return map;
   }
 
   *filterType(type: LinguistLang["type"]): Generator<LinguistLang> {
@@ -44,17 +50,6 @@ export class GHLangs {
     if (lang.langId) yield lang.langId;
     for (const alias of lang.aliases ?? []) if (alias) yield alias;
     for (const alias of lang.interpreters ?? []) if (alias) yield alias;
-  }
-
-  /** Returns true if the given name matches any of the possible names/ids of the language. */
-  nameMatches(lang: LinguistLang | undefined, name: string): boolean {
-    if (!lang) return false;
-    const key = name.trim().toLowerCase();
-    for (const name of this.names(lang)) {
-      const cleanName = name.trim().toLowerCase();
-      if (cleanName === key || cleanName.includes(key)) return true;
-    }
-    return false;
   }
 }
 

@@ -247,11 +247,11 @@ export class NPlang extends NBase<"pl", NPlangData> {
   }
 
   /**
-   * Builds (non-recursively) a set of all languages that this language is related to, including self.
+   * Builds (non-recursively) a set of all languages that this language is related to, not including self.
    * A language is related if it is compiled to, is a dialect of, or implements this language.
    */
   family(opt = { compilesTo: true, dialectOf: true, implements: true }): Set<NPlang> {
-    const set = new Set<NPlang>([this]);
+    const set = new Set<NPlang>([]);
     const addRel = (rel: MapTap<NPlang["key"], AnyEdge>) => {
       for (const pl of rel.values.map(e => e.nodeTo).existing) set.add(pl as NPlang);
     };
