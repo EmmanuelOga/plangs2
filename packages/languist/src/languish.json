@@ -87,7 +87,7 @@
     "stackoverflow": ["arduino"]
   },
   {
-    "githubName": "ASP",
+    "githubName": "Classic ASP",
     "wikipedia": "Active_Server_Pages",
     "stackoverflow": ["asp-classic"]
   },
@@ -2063,7 +2063,7 @@
     "stackoverflow": ["riot.js"]
   },
   {
-    "githubName": "Sass/SCSS",
+    "githubName": "Sass",
     "wikipedia": "Sass_(stylesheet_language)",
     "reddit": "Sass",
     "stackoverflow": ["sass"]

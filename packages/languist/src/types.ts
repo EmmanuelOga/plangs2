@@ -46,7 +46,7 @@ export type LinguistLang = {
    * Internal ID of the language in Github.
    * Looks like a numeric id ("1", "2", "3") wrap in a string.
    */
-  githubLangId?: string;
+  langId?: string;
 
   //--------------------------------------------------------------------------------
 
@@ -59,7 +59,7 @@ export type LinguistLang = {
   /** Name of binary executable file that can take a program of this type as input. Example: ['bash', 'dash', 'sh']. */
   interpreters: string[];
   /** Languages that Github considers "popular", for whatever reason. */
-  githubPopular?: boolean;
+  popular?: boolean;
   /** Language Type */
   type: "data" | "markup" | "programming" | "prose";
   /** Should lines be wrapped? According to Github, most language lines should not be wrapped. */
@@ -78,7 +78,11 @@ export type LinguistLang = {
 };
 
 export type LanguishLang = {
-  /** Example: "ATS". This matches the github-linguist `name` field. */
+  /**
+   * Originally called "key" in Languish's keys.csv.
+   * Matches the github-linguist `name` field.
+   * Example: "ATS".
+   */
   githubName: string;
   /** Wikipedia ID for the language. Example: "ATS_(programming_language)". */
   wikipedia?: string;
@@ -88,7 +92,7 @@ export type LanguishLang = {
   stackoverflow?: string[];
 };
 
-/** Allows for getting the names of fields that of type `string` or `string | undefined`. */
-export type StringKeys<T> = keyof {
-  [K in keyof T as T[K] extends string ? K : never]: T[K];
+/** Allows for getting the names of fields that of type VTYPE. */
+export type KeysOfType<T, VTYPE> = keyof {
+  [K in keyof T as T[K] extends VTYPE ? K : never]: T[K];
 };
