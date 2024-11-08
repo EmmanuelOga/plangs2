@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["c-sharp", "csharp"],
       websites: [
         { title: "learn.microsoft.com/en-us/dotnet/csharp/", href: "https://learn.microsoft.com/en-us/dotnet/csharp/", kind: "other" },
-        { title: "C#", href: "https://en.wikipedia.org/wiki/C%EF%BC%83_(programming_language)", kind: "wikipedia" },
+        { title: "C#", href: "https://en.wikipedia.org/wiki/C_Sharp_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".cs", ".csx"],
       year: 2000,

@@ -17,12 +17,12 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.0.7180", name: "Datomic 1.0", date: "2012-08-10" }],
     })
     .addDialectOf(["pl+datalog"])
-    .addInfluencedBy(["pl+clojure"])
+    .addImplements(["pl+datalog"])
     .addLicenses(["license+apache"])
-    .addParadigms(["paradigm+declarative", "paradigm+distributed", "paradigm+query"])
+    .addParadigms(["paradigm+declarative", "paradigm+distributed", "paradigm+query", "paradigm+logic"])
     .addPlatforms(["plat+cross", "plat+java"])
     .addTags(["tag+dataflow", "tag+dbms"])
-    .addWrittenIn(["pl+clojure"]);
+    .addWrittenIn(["pl+clojure", "pl+java"]);
 
   // TOOLS
 

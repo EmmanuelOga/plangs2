@@ -12,7 +12,7 @@ async function getPaths(glob: Glob, basePath: string): Promise<string[]> {
 }
 
 /** Imports all definitions and calls the `define` methods */
-export async function loadAllDefinitions(g: PlangsGraph, scanImages: "scanImages" | "noScan" = "scanImages") {
+export async function loadAllDefinitions(g: PlangsGraph, options: { scanImages: false }) {
   for (const path of await getPaths(new Glob("**/*.ts"), join(import.meta.dir, "definitions"))) {
     const module = await import(`./definitions/${path}`);
     if (typeof module.define === "function") module.define(g);
@@ -20,7 +20,7 @@ export async function loadAllDefinitions(g: PlangsGraph, scanImages: "scanImages
 
   // Add any images to the nodes.
 
-  if (scanImages === "scanImages") {
+  if (options.scanImages) {
     for (const path of await getPaths(new Glob("**/*.{png,jpg,svg}"), join(import.meta.dir, "definitions/plangs"))) {
       const [pk, k] = basename(path).split(".");
       const kind = k === "screenshot" || k === "logo" ? k : "other";

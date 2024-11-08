@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.nodes.pl
     .set("pl+awk", {
-      name: "AWK",
+      name: "Awk",
       description:
         "AWK (/ɔːk/) is a domain-specific language designed for text processing and typically used as a data extraction and reporting tool. Like sed and grep, it is a filter, and is a standard feature of most Unix-like operating systems.",
       keywords: ["awk"],

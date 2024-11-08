@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.nodes.pl
     .set("pl+coldfusion", {
-      name: "Adobe ColdFusion",
+      name: "ColdFusion",
       description:
         "Adobe ColdFusion is a commercial rapid web-application development computing platform created by J. J. Allaire in 1995. The programming language used with the platform is known as CFML (ColdFusion Markup Language). ColdFusion was initially designed to simplify connecting HTML pages to a database, and quickly evolved into a comprehensive platform featuring a full scripting language and an integrated development environment (IDE).",
       keywords: ["coldfusion", "cfml"],

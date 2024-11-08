@@ -24,7 +24,8 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+cross", "plat+nodejs"])
     .addTags(["tag+compiler", "tag+framework", "tag+scripting", "tag+web"])
     .addTypeSystems(["tsys+duck", "tsys+gradual", "tsys+optional", "tsys+strong", "tsys+structural"])
-    .addWrittenIn(["pl+javascript"]);
+    .addWrittenIn(["pl+typescript"])
+    .addCompilesTo(["pl+javascript"]);
 
   // TOOLS
 
