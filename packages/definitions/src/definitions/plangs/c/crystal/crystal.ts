@@ -10,6 +10,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "Crystal", href: "https://crystal-lang.org/", kind: "homepage" },
         { title: "Crystal", href: "https://en.wikipedia.org/wiki/Crystal_(programming_language)", kind: "wikipedia" },
+        { title: "Crystal on Reddit", kind: "reddit", href: "https://reddit.com/r/crystal_programming" },
       ],
       extensions: [".cr"],
       year: 2014,
@@ -19,6 +20,8 @@ export function define(g: PlangsGraph) {
         { version: "1.0.0", name: "Crystal 1.0.0", date: "2021-03-31" },
         { version: "1.13.2", name: "Crystal 1.13.2", date: "2024-01-01" },
       ],
+      github: { name: "Crystal", langId: "72", color: "#000100", popular: false, type: "programming" },
+      stackovTags: ["crystal-lang"],
     })
     .addInfluencedBy(["pl+c", "pl+c-sharp", "pl+go", "pl+python", "pl+ruby", "pl+rust"])
     .addLicenses(["license+apache"])

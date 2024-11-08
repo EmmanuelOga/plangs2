@@ -44,7 +44,8 @@ function ghBestMatch(pl: NPlang): LinguistLang | undefined {
   };
 
   // We want to find the best match, for the language itself first, or any of its family.
-  for (const cand of [pl, ...pl.family()]) {
+  // NOTE: using the family can lead to many false matches.
+  for (const cand of [pl /*, ...pl.family() */]) {
     const ghPl = find(cand.name);
     if (ghPl) return ghPl;
   }

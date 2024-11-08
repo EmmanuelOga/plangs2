@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "dlang.org", href: "http://dlang.org/", kind: "homepage" },
         { title: "D", href: "https://en.wikipedia.org/wiki/D_(programming_language)", kind: "wikipedia" },
+        { title: "D on Reddit", kind: "reddit", href: "https://reddit.com/r/d_language" },
       ],
       extensions: [".d"],
       year: 2001,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "2.109.1", name: "D 2.109.1", date: "2024-01-01" }],
+      github: { name: "D", langId: "80", color: "#ba595e", popular: false, type: "programming" },
+      stackovTags: ["d"],
     })
     .addInfluencedBy(["pl+ada", "pl+basic", "pl+c", "pl+c++", "pl+c-sharp", "pl+eiffel", "pl+python", "pl+ruby"])
     .addLicenses(["license+boost"])

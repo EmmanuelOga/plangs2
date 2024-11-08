@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "coffeescript.org", href: "https://coffeescript.org/", kind: "homepage" },
         { title: "CoffeeScript", href: "https://en.wikipedia.org/wiki/CoffeeScript", kind: "wikipedia" },
+        { title: "CoffeeScript on Reddit", kind: "reddit", href: "https://reddit.com/r/coffeescript" },
       ],
       extensions: [".coffee", ".litcoffee"],
       year: 2009,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "2.7.0", name: "CoffeeScript 2.7.0", date: "2022-01-01" }],
+      github: { name: "CoffeeScript", langId: "63", color: "#244776", popular: true, type: "programming" },
+      stackovTags: ["coffeescript"],
     })
     .addInfluencedBy(["pl+haskell", "pl+javascript", "pl+perl", "pl+python", "pl+ruby"])
     .addLicenses(["license+mit"])

@@ -9,7 +9,8 @@ export function define(g: PlangsGraph) {
       keywords: ["julia"],
       websites: [
         { title: "JuliaLang.org", href: "https://julialang.org/", kind: "homepage" },
-        { title: "Julia", href: "https://en.wikipedia.org/wiki/Julia_programming_language", kind: "wikipedia" },
+        { title: "Julia on Reddit", kind: "reddit", href: "https://reddit.com/r/Julia" },
+        { title: "Julia on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Julia_(programming_language)" },
       ],
       extensions: [".jl"],
       year: 2012,
@@ -19,6 +20,8 @@ export function define(g: PlangsGraph) {
         { version: "1.10.5", name: "Julia 1.10.5", date: "2024-01-01" },
         { version: "1.11.0", name: "Julia 1.11.0", date: "2024-01-01" },
       ],
+      github: { name: "Julia", langId: "184", color: "#a270ba", popular: false, type: "programming" },
+      stackovTags: ["julia"],
     })
     .addInfluencedBy([
       "pl+c",

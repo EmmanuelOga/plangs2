@@ -10,10 +10,13 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "Shen Language Website", href: "https://shenlanguage.org/", kind: "homepage" },
         { title: "Shen Wikipedia", href: "https://en.wikipedia.org/wiki/Shen_(programming_language)", kind: "wikipedia" },
+        { title: "Shen on Reddit", kind: "reddit", href: "https://reddit.com/r/Qi_Shen|shenlanguage" },
       ],
       extensions: [".shen"],
       year: 2011,
       releases: [{ version: "22.2", name: "Shen 22.2", date: "2023-08-01" }],
+      github: { name: "Shen", langId: "348", color: "#120F14", popular: false, type: "programming" },
+      stackovTags: ["shen"],
     })
     .addInfluencedBy(["pl+assembler", "pl+prolog", "pl+scheme"])
     .addLicenses(["license+bsd"])

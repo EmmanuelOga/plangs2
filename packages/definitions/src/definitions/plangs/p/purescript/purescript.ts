@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "www.purescript.org", href: "https://www.purescript.org/", kind: "homepage" },
         { title: "PureScript", href: "https://en.wikipedia.org/wiki/PureScript", kind: "wikipedia" },
+        { title: "PureScript on Reddit", kind: "reddit", href: "https://reddit.com/r/purescript" },
       ],
       extensions: [".purs"],
       year: 2013,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "0.15.15", name: "PureScript 0.15.15", date: "2024-01-01" }],
+      github: { name: "PureScript", langId: "302", color: "#1D222D", popular: false, type: "programming" },
+      stackovTags: ["purescript"],
     })
     .addInfluencedBy(["pl+haskell", "pl+javascript"])
     .addLicenses(["license+bsd"])

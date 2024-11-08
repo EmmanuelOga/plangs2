@@ -10,6 +10,8 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "isocpp.org", href: "https://isocpp.org/", kind: "homepage" },
         { title: "C++", href: "https://en.wikipedia.org/wiki/C%2B%2B", kind: "wikipedia" },
+        { title: "C++ on Reddit", kind: "reddit", href: "https://reddit.com/r/cpp" },
+        { title: "C++ on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/C++" },
       ],
       extensions: [".C", ".H", ".c++", ".cc", ".cpp", ".cppm", ".cxx", ".h", ".h++", ".hh", ".hpp", ".hxx", ".ixx"],
       year: 1985,
@@ -21,6 +23,8 @@ export function define(g: PlangsGraph) {
         { version: "17", name: "C++17", date: "2017-12-01" },
         { version: "20", name: "C++20", date: "2020-12-15" },
       ],
+      github: { name: "C++", langId: "43", color: "#f34b7d", popular: true, type: "programming" },
+      stackovTags: ["c++"],
     })
     .addDialectOf(["pl+c"])
     .addInfluencedBy(["pl+ada", "pl+apl", "pl+c", "pl+clu", "pl+f-sharp", "pl+ml", "pl+simula"])
@@ -39,4 +43,12 @@ export function define(g: PlangsGraph) {
     ])
     .addTypeSystems(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c"]);
+
+  // TOOLS
+
+  // TOOL BUNDLES
+
+  // LIBRARIES
+
+  // APPS
 }

@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
     .addDialectOf(["pl+datalog"])
     .addImplements(["pl+datalog"])
     .addLicenses(["license+apache"])
-    .addParadigms(["paradigm+declarative", "paradigm+distributed", "paradigm+query", "paradigm+logic"])
+    .addParadigms(["paradigm+declarative", "paradigm+distributed", "paradigm+logic", "paradigm+query"])
     .addPlatforms(["plat+cross", "plat+java"])
     .addTags(["tag+dataflow", "tag+dbms"])
     .addWrittenIn(["pl+clojure", "pl+java"]);

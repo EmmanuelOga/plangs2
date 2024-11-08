@@ -10,11 +10,14 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "forth-standard.org", href: "https://forth-standard.org/", kind: "homepage" },
         { title: "Forth", href: "https://en.wikipedia.org/wiki/Forth_(programming_language)", kind: "wikipedia" },
+        { title: "Forth on Reddit", kind: "reddit", href: "https://reddit.com/r/Forth" },
       ],
       extensions: [".4th", ".f", ".forth", ".fs", ".fth"],
       year: 1970,
       isTranspiler: false,
       isMainstream: false,
+      github: { name: "Forth", langId: "114", color: "#341708", popular: false, type: "programming" },
+      stackovTags: ["forth"],
     })
     .addInfluencedBy(["pl+lisp"])
     .addLicenses(["license+public-domain"])

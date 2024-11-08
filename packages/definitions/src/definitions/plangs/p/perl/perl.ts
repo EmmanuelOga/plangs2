@@ -10,6 +10,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "perl.org", href: "https://www.perl.org/", kind: "homepage" },
         { title: "Perl", href: "https://en.wikipedia.org/wiki/Perl", kind: "wikipedia" },
+        { title: "Perl on Reddit", kind: "reddit", href: "https://reddit.com/r/perl" },
       ],
       extensions: [".cgi", ".pl", ".pls", ".plx", ".pm", ".pod", ".psgi", ".t", ".xs"],
       year: 1987,
@@ -19,6 +20,8 @@ export function define(g: PlangsGraph) {
         { version: "5.40.0", name: "Perl 5.40.0", date: "2024-01-01" },
         { version: "5.41.3", name: "Perl 5.41.3", date: "2024-01-01" },
       ],
+      github: { name: "Perl", langId: "282", color: "#0298c3", popular: true, type: "programming" },
+      stackovTags: ["perl"],
     })
     .addInfluencedBy(["pl+awk", "pl+basic", "pl+c", "pl+c++", "pl+lisp", "pl+raku", "pl+sed"])
     .addLicenses(["license+artistic"])

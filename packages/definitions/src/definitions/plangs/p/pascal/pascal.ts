@@ -13,11 +13,15 @@ export function define(g: PlangsGraph) {
           href: "https://en.wikipedia.org/wiki/Pascal_(programming_language)#ISO/IEC_10206:1990_Extended_Pascal",
           kind: "wikipedia",
         },
+        { title: "Pascal on Reddit", kind: "reddit", href: "https://reddit.com/r/pascal" },
+        { title: "Pascal on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Pascal_(programming_language)" },
       ],
       extensions: [".pas", ".pp", ".p"],
       year: 1970,
       isTranspiler: false,
       isMainstream: true,
+      github: { name: "Pascal", langId: "281", color: "#E3F171", popular: false, type: "programming" },
+      stackovTags: ["pascal"],
     })
     .addInfluencedBy(["pl+algol", "pl+simula"])
     .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+structured"])

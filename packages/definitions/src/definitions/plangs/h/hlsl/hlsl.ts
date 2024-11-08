@@ -10,11 +10,14 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "developer.nvidia.com/cg-toolkit", href: "https://developer.nvidia.com/cg-toolkit", kind: "other" },
         { title: "Cg/HLSL", href: "https://en.wikipedia.org/wiki/Cg_(programming_language)", kind: "wikipedia" },
+        { title: "HLSL on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/High-Level_Shading_Language" },
       ],
       extensions: [".cg", ".hlsl"],
       year: 2002,
       isTranspiler: false,
       isMainstream: false,
+      github: { name: "HLSL", langId: "145", color: "#aace60", popular: false, type: "programming" },
+      stackovTags: ["hlsl"],
     })
     .addInfluencedBy(["pl+c"])
     .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+procedural"])

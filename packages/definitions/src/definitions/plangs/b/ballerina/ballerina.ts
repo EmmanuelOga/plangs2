@@ -10,6 +10,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "ballerina.io", href: "http://ballerina.io/", kind: "homepage" },
         { title: "Ballerina", href: "https://en.wikipedia.org/wiki/Ballerina_(programming_language)", kind: "wikipedia" },
+        { title: "Ballerina on Reddit", kind: "reddit", href: "https://reddit.com/r/ballerinalang" },
       ],
       extensions: [".bal"],
       year: 2017,
@@ -19,6 +20,8 @@ export function define(g: PlangsGraph) {
         { version: "2201.3.6", name: "Swan Lake Update", date: "2023-03-01" },
         { version: "2201.3.5", name: "Swan Lake Update", date: "2023-01-01" },
       ],
+      github: { name: "Ballerina", langId: "720859680", color: "#FF5000", popular: false, type: "programming" },
+      stackovTags: ["ballerina"],
     })
     .addInfluencedBy(["pl+c-sharp", "pl+go", "pl+javascript", "pl+rust"])
     .addLicenses(["license+apache"])

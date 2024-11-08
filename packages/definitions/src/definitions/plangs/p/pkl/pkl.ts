@@ -14,6 +14,7 @@ export function define(g: PlangsGraph) {
       extensions: [".pkl"],
       year: 2021,
       releases: [{ version: "1.0.0", name: "PKL 1.0.0", date: "2021-06-01" }],
+      github: { name: "Pkl", langId: "288822799", color: "#6b9543", popular: false, type: "programming" },
     })
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+data-driven", "paradigm+functional", "paradigm+multi"])

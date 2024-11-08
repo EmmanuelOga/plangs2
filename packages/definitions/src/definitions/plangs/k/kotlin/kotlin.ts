@@ -9,13 +9,16 @@ export function define(g: PlangsGraph) {
       keywords: ["kotlin"],
       websites: [
         { title: "kotlinlang.org", href: "https://kotlinlang.org/", kind: "homepage" },
-        { title: "Kotlin", href: "https://en.wikipedia.org/wiki/Kotlin_(programming_language)", kind: "wikipedia" },
+        { title: "Kotlin on Wikipedia", href: "https://en.wikipedia.org/wiki/Kotlin_(programming_language)", kind: "wikipedia" },
+        { title: "Kotlin on Reddit", kind: "reddit", href: "https://reddit.com/r/Kotlin" },
       ],
       extensions: [".kexe", ".klib", ".kt", ".kts"],
       year: 2011,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "2.0.0", name: "Kotlin 2.0.0", date: "2024-01-01" }],
+      github: { name: "Kotlin", langId: "189", color: "#A97BFF", popular: true, type: "programming" },
+      stackovTags: ["kotlin"],
     })
     .addInfluencedBy(["pl+c-sharp", "pl+eiffel", "pl+groovy", "pl+javascript", "pl+ml", "pl+python", "pl+scala"])
     .addLicenses(["license+apache"])

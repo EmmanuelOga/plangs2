@@ -10,12 +10,16 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "adobe.com/products/coldfusion-family.html", href: "https://adobe.com/products/coldfusion-family.html", kind: "homepage" },
         { title: "Adobe ColdFusion", href: "https://en.wikipedia.org/wiki/ColdFusion", kind: "wikipedia" },
+        { title: "ColdFusion on Reddit", kind: "reddit", href: "https://reddit.com/r/coldfusion" },
+        { title: "ColdFusion on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Adobe_ColdFusion" },
       ],
       extensions: [".cfm", ".cfml"],
       year: 1995,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "2023", name: "Adobe ColdFusion 2023", date: "2023-05-01" }],
+      github: { name: "ColdFusion", langId: "64", color: "#ed2cd6", popular: false, type: "programming" },
+      stackovTags: ["coldfusion"],
     })
     .addParadigms(["paradigm+event-driven", "paradigm+multi", "paradigm+procedural", "paradigm+scripting"])
     .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])

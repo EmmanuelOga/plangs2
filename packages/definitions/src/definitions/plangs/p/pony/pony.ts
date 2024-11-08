@@ -10,10 +10,13 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "Pony", href: "https://www.ponylang.io/", kind: "homepage" },
         { title: "Pony (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Pony_(programming_language)", kind: "wikipedia" },
+        { title: "Pony on Reddit", kind: "reddit", href: "https://reddit.com/r/ponylang" },
       ],
       extensions: [".pony"],
       year: 2015,
       releases: [{ version: "0.41.0", name: "Pony 0.41.0", date: "2023-09-01" }],
+      github: { name: "Pony", langId: "290", popular: false, type: "programming" },
+      stackovTags: ["ponylang"],
     })
     .addInfluencedBy(["pl+erlang", "pl+ml", "pl+scala"])
     .addLicenses(["license+bsd"])

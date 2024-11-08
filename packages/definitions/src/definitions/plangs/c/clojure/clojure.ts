@@ -9,13 +9,16 @@ export function define(g: PlangsGraph) {
       keywords: ["clojure"],
       websites: [
         { title: "clojure.org", href: "https://clojure.org/", kind: "homepage" },
-        { title: "Clojure", href: "https://en.wikipedia.org/wiki/Clojure_(programming_language)", kind: "wikipedia" },
+        { title: "Clojure on Reddit", kind: "reddit", href: "https://reddit.com/r/Clojure" },
+        { title: "Clojure on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Clojure" },
       ],
       extensions: [".clj", ".cljc", ".cljd", ".cljr", ".cljs", ".edn"],
       year: 2007,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "1.11.2", name: "Clojure 1.11.2", date: "2024-01-01" }],
+      github: { name: "Clojure", langId: "62", color: "#db5855", popular: false, type: "programming" },
+      stackovTags: ["clojure"],
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy([

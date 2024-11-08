@@ -15,6 +15,7 @@ export function define(g: PlangsGraph) {
       year: 1993,
       isTranspiler: false,
       isMainstream: false,
+      github: { name: "Befunge", langId: "30", popular: false, type: "programming" },
     })
     .addInfluencedBy(["pl+forth"])
     .addLicenses(["license+public-domain"])

@@ -10,6 +10,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "idris-lang.org", href: "http://idris-lang.org/", kind: "homepage" },
         { title: "Idris", href: "https://en.wikipedia.org/wiki/Idris_(programming_language)", kind: "wikipedia" },
+        { title: "Idris on Reddit", kind: "reddit", href: "https://reddit.com/r/Idris" },
       ],
       extensions: [".idr", ".lidr"],
       year: 2007,
@@ -19,6 +20,8 @@ export function define(g: PlangsGraph) {
         { version: "1.3.4", name: "Idris 1.3.4", date: "2021-01-01" },
         { version: "0.7.0", name: "Idris 0.7.0", date: "2023-01-01" },
       ],
+      github: { name: "Idris", langId: "165", color: "#b30000", popular: false, type: "programming" },
+      stackovTags: ["idris"],
     })
     .addInfluencedBy(["pl+agda", "pl+clean", "pl+coq", "pl+f-sharp", "pl+haskell", "pl+ml", "pl+rust"])
     .addLicenses(["license+bsd"])

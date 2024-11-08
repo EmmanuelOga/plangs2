@@ -12,6 +12,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "python.org", href: "https://www.python.org/", kind: "homepage" },
         { title: "Python", href: "https://en.wikipedia.org/wiki/Python_(programming_language)", kind: "wikipedia" },
+        { title: "Python on Reddit", kind: "reddit", href: "https://reddit.com/r/Python" },
       ],
       isTranspiler: false,
       isMainstream: true,
@@ -20,6 +21,8 @@ export function define(g: PlangsGraph) {
         { version: "3.10.0", name: "Python 3.10.0", date: "2021-10-04" },
         { version: "3.12.5", name: "Python 3.12.5", date: "2024-01-01" },
       ],
+      github: { name: "Python", langId: "303", color: "#3572A5", popular: true, type: "programming" },
+      stackovTags: ["python"],
     })
     .addInfluencedBy([
       "pl+abc",

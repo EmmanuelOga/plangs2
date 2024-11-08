@@ -10,11 +10,14 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "www.scheme.org", href: "https://www.scheme.org/", kind: "homepage" },
         { title: "Scheme", href: "https://en.wikipedia.org/wiki/Scheme_(programming_language)", kind: "wikipedia" },
+        { title: "Scheme on Reddit", kind: "reddit", href: "https://reddit.com/r/scheme" },
       ],
       extensions: [".scm", ".ss"],
       year: 1975,
       isTranspiler: false,
       isMainstream: false,
+      github: { name: "Scheme", langId: "343", color: "#1e4aec", popular: false, type: "programming" },
+      stackovTags: ["scheme"],
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+algol", "pl+lisp"])

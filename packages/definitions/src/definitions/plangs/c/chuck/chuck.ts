@@ -16,6 +16,8 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.5.2.4", name: "ChucK 1.5.2.4", date: "2024-01-01" }],
+      github: { name: "ChucK", langId: "57", color: "#3f8000", popular: false, type: "programming" },
+      stackovTags: ["chuck"],
     })
     .addInfluencedBy(["pl+supercollider"])
     .addLicenses(["license+gnu-gpl"])

@@ -11,6 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "ISO C Standard Documentation", href: "https://www.iso.org/standard/74528.html", kind: "other" },
         { title: "WG14 Committee (C Language)", href: "http://www.open-std.org/jtc1/sc22/wg14/", kind: "other" },
         { title: "C Language (Wikipedia)", href: "https://en.wikipedia.org/wiki/C_(programming_language)", kind: "wikipedia" },
+        { title: "C on Reddit", kind: "reddit", href: "https://reddit.com/r/C_Programming" },
       ],
       extensions: [".c", ".h"],
       year: 1972,
@@ -20,6 +21,8 @@ export function define(g: PlangsGraph) {
         { version: "C18", name: "Standard C18", date: "2018-06-01" },
         { version: "C11", name: "Standard C11", date: "2011-12-08" },
       ],
+      github: { name: "C", langId: "41", color: "#555555", popular: true, type: "programming" },
+      stackovTags: ["c"],
     })
     .addInfluencedBy(["pl+algol", "pl+fortran"])
     .addLicenses(["license+bsd"])

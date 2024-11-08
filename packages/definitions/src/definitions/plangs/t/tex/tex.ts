@@ -10,12 +10,16 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "tug.org", href: "http://tug.org/", kind: "other" },
         { title: "TeX", href: "https://en.wikipedia.org/wiki/TeX", kind: "wikipedia" },
+        { title: "TeX on Reddit", kind: "reddit", href: "https://reddit.com/r/LaTeX" },
+        { title: "TeX on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/LaTeX" },
       ],
       extensions: [".tex"],
       year: 1978,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "3.14159265", name: "TeX 3", date: "1989-11-01" }],
+      github: { name: "TeX", langId: "369", color: "#3D6117", popular: false, type: "markup" },
+      stackovTags: ["latex"],
     })
     .addLicenses(["license+public-domain"])
     .addParadigms(["paradigm+declarative", "paradigm+dsl", "paradigm+macro"])

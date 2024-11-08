@@ -11,6 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "Swift", href: "https://www.swift.org/", kind: "homepage" },
         { title: "Swift", href: "https://developer.apple.com/swift/", kind: "other" },
         { title: "Swift", href: "https://en.wikipedia.org/wiki/Swift_(programming_language)", kind: "wikipedia" },
+        { title: "Swift on Reddit", kind: "reddit", href: "https://reddit.com/r/swift" },
       ],
       extensions: [".swift"],
       year: 2014,
@@ -20,6 +21,8 @@ export function define(g: PlangsGraph) {
         { version: "5.10.1", name: "Swift 5.10.1", date: "2024-01-01" },
         { version: "6.0", name: "Swift 6.0", date: "2024-01-01" },
       ],
+      github: { name: "Swift", langId: "362", color: "#F05138", popular: true, type: "programming" },
+      stackovTags: ["swift"],
     })
     .addInfluencedBy(["pl+c", "pl+c-sharp", "pl+clu", "pl+d", "pl+haskell", "pl+lisp", "pl+python", "pl+ruby", "pl+rust"])
     .addLicenses(["license+apache"])

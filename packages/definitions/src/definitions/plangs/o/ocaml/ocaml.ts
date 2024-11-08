@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "OCaml", href: "https://ocaml.org/", kind: "homepage" },
         { title: "OCaml", href: "https://en.wikipedia.org/wiki/OCaml", kind: "wikipedia" },
+        { title: "OCaml on Reddit", kind: "reddit", href: "https://reddit.com/r/ocaml" },
       ],
       extensions: [".ml", ".mli"],
       year: 1996,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "5.2.0", name: "OCaml 5.2.0", date: "2024-01-01" }],
+      github: { name: "OCaml", langId: "255", color: "#ef7a08", popular: false, type: "programming" },
+      stackovTags: ["ocaml"],
     })
     .addDialectOf(["pl+ml"])
     .addInfluencedBy(["pl+c", "pl+ml", "pl+pascal", "pl+standard-ml"])

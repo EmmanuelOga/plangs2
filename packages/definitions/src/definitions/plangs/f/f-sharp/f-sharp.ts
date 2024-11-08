@@ -10,13 +10,16 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "fsharp.org", href: "https://fsharp.org/", kind: "homepage" },
         { title: "learn.microsoft.com/en-us/dotnet/fsharp", href: "https://learn.microsoft.com/en-us/dotnet/fsharp", kind: "plangs" },
-        { title: "F#", href: "https://en.wikipedia.org/wiki/F_Sharp_programming_language", kind: "wikipedia" },
+        { title: "F# on Wikipedia", href: "https://en.wikipedia.org/wiki/F_Sharp_programming_language", kind: "wikipedia" },
+        { title: "F# on Reddit", kind: "reddit", href: "https://reddit.com/r/fsharp" },
       ],
       extensions: [".fs", ".fsi", ".fsscript", ".fsx"],
       year: 2005,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "8.0.0", name: "F# 8.0", date: "2023-01-01" }],
+      github: { name: "F#", langId: "105", color: "#b845fc", popular: false, type: "programming" },
+      stackovTags: ["f#"],
     })
     .addDialectOf(["pl+ml", "pl+ocaml"])
     .addInfluencedBy(["pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ml", "pl+ocaml", "pl+python", "pl+scala", "pl+standard-ml"])

@@ -11,12 +11,15 @@ export function define(g: PlangsGraph) {
         { title: "Vala", href: "https://wiki.gnome.org/Projects/Vala", kind: "homepage" },
         { title: "Vala", href: "https://en.wikipedia.org/wiki/Vala_(programming_language)", kind: "wikipedia" },
         { title: "Vala", href: "https://wiki.gnome.org/Projects/Vala#Valac_the_Compiler", kind: "apidocs" },
+        { title: "Vala on Reddit", kind: "reddit", href: "https://reddit.com/r/vala" },
       ],
       extensions: [".vala"],
       year: 2006,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "0.56", name: "Vala 0.56", date: "2023-03-22" }],
+      github: { name: "Vala", langId: "386", color: "#a56de2", popular: false, type: "programming" },
+      stackovTags: ["vala"],
     })
     .addInfluencedBy(["pl+boo", "pl+c", "pl+c-sharp", "pl+d"])
     .addLicenses(["license+lgpl"])

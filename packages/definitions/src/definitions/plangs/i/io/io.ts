@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "iolanguage.org", href: "https://iolanguage.org/", kind: "homepage" },
         { title: "Io", href: "https://en.wikipedia.org/wiki/Io_(programming_language)", kind: "wikipedia" },
+        { title: "Io on Reddit", kind: "reddit", href: "https://reddit.com/r/iolanguage" },
       ],
       extensions: [".io"],
       year: 2002,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2019.05.22", name: "Io 2019.05.22", date: "2019-05-22" }],
+      github: { name: "Io", langId: "168", color: "#a9188d", popular: false, type: "programming" },
+      stackovTags: ["iolanguage"],
     })
     .addInfluencedBy(["pl+lisp", "pl+lua", "pl+self", "pl+smalltalk"])
     .addLicenses(["license+bsd"])

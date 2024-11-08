@@ -9,13 +9,16 @@ export function define(g: PlangsGraph) {
       keywords: ["ruby"],
       websites: [
         { title: "Ruby", href: "https://www.ruby-lang.org/en/", kind: "homepage" },
-        { title: "Ruby", href: "https://en.wikipedia.org/wiki/Ruby_programming_language", kind: "wikipedia" },
+        { title: "Ruby on Wikipedia", href: "https://en.wikipedia.org/wiki/Ruby_programming_language", kind: "wikipedia" },
+        { title: "Ruby on Reddit", kind: "reddit", href: "https://reddit.com/r/ruby" },
       ],
       extensions: [".rb", ".ru"],
       year: 1995,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "3.3.5", name: "Ruby 3.3.5", date: "2024-01-01" }],
+      github: { name: "Ruby", langId: "326", color: "#701516", popular: true, type: "programming" },
+      stackovTags: ["ruby"],
     })
     .addInfluencedBy([
       "pl+ada",

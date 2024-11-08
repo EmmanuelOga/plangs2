@@ -11,6 +11,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "ActionScript", href: "https://www.adobe.com/devnet/actionscript/articles/actionscript3_overview.html", kind: "apidocs" },
         { title: "ActionScript", href: "https://en.wikipedia.org/wiki/ActionScript", kind: "wikipedia" },
+        { title: "ActionScript on Reddit", kind: "reddit", href: "https://reddit.com/r/actionscript" },
       ],
       extensions: [".as", ".swf"],
       isTranspiler: false,
@@ -20,6 +21,8 @@ export function define(g: PlangsGraph) {
         { version: "2.0", name: "ActionScript 2.0", date: "2003-01-01" },
         { version: "3.0", name: "ActionScript 3.0", date: "2006-01-01" },
       ],
+      github: { name: "ActionScript", langId: "10", color: "#882B0F", popular: false, type: "programming" },
+      stackovTags: ["actionscript", "actionscript-2", "actionscript-3"],
     })
     .addImplements(["pl+ecmascript"])
     .addInfluencedBy(["pl+ecmascript", "pl+javascript"])

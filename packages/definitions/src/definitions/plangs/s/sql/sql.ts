@@ -10,10 +10,13 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "www.iso.org/standard/76583.html", href: "https://www.iso.org/standard/76583.html", kind: "other" },
         { title: "SQL", href: "https://en.wikipedia.org/wiki/SQL", kind: "wikipedia" },
+        { title: "SQL on Reddit", kind: "reddit", href: "https://reddit.com/r/SQL" },
       ],
       year: 1974,
       isTranspiler: false,
       isMainstream: true,
+      github: { name: "SQL", langId: "333", color: "#e38c00", popular: false, type: "data" },
+      stackovTags: ["sql"],
     })
     .addInfluencedBy(["pl+datalog"])
     .addParadigms(["paradigm+data-driven", "paradigm+declarative", "paradigm+dsl"])

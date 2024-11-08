@@ -10,6 +10,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "JRuby Official Website", href: "https://www.jruby.org/", kind: "homepage" },
         { title: "JRuby on Wikipedia", href: "https://en.wikipedia.org/wiki/JRuby", kind: "wikipedia" },
+        { title: "JRuby on Reddit", kind: "reddit", href: "https://reddit.com/r/jruby" },
       ],
       extensions: [".rb"],
       year: 2001,

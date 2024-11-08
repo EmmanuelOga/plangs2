@@ -10,11 +10,14 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "common-lisp.net", href: "http://common-lisp.net/", kind: "other" },
         { title: "Common Lisp", href: "https://en.wikipedia.org/wiki/Common_Lisp", kind: "wikipedia" },
+        { title: "Common Lisp on Reddit", kind: "reddit", href: "https://reddit.com/r/Common_Lisp" },
       ],
       extensions: [".cl", ".fasl", ".l", ".lisp", ".lsp"],
       year: 1984,
       isTranspiler: false,
       isMainstream: true,
+      github: { name: "Common Lisp", langId: "66", color: "#3fb68b", popular: false, type: "programming" },
+      stackovTags: ["common-lisp"],
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+lisp", "pl+r5rs", "pl+scheme"])

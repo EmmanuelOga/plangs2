@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "isabelle.in.tum.de", href: "https://isabelle.in.tum.de/", kind: "homepage" },
         { title: "Isabelle", href: "https://en.wikipedia.org/wiki/Isabelle_(proof_assistant)", kind: "wikipedia" },
+        { title: "Isabelle on Reddit", kind: "reddit", href: "https://reddit.com/r/isabelle" },
       ],
       extensions: [".thy"],
       year: 1986,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2023", name: "Isabelle 2023", date: "2023-06-15" }],
+      github: { name: "Isabelle", langId: "170", color: "#FEFE00", popular: false, type: "programming" },
+      stackovTags: ["isabelle"],
     })
     .addInfluencedBy(["pl+haskell"])
     .addLicenses(["license+bsd"])

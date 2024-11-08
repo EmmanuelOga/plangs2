@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "www.lua.org", href: "https://www.lua.org/", kind: "homepage" },
         { title: "Lua", href: "https://en.wikipedia.org/wiki/Lua_(programming_language)", kind: "wikipedia" },
+        { title: "Lua on Reddit", kind: "reddit", href: "https://reddit.com/r/lua" },
       ],
       extensions: [".lua"],
       year: 1993,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "5.4.7", name: "Lua 5.4.7", date: "2024-01-01" }],
+      github: { name: "Lua", langId: "213", color: "#000080", popular: false, type: "programming" },
+      stackovTags: ["lua"],
     })
     .addInfluencedBy(["pl+awk", "pl+c++", "pl+clu", "pl+lisp", "pl+modula", "pl+r5rs", "pl+scheme", "pl+self"])
     .addLicenses(["license+mit"])

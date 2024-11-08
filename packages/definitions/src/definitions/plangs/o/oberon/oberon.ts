@@ -16,6 +16,7 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.0", name: "Oberon 1.0", date: "1987-01-01" }],
+      github: { name: "Oberon", langId: "677210597", popular: false, type: "programming" },
     })
     .addInfluencedBy(["pl+pascal"])
     .addParadigms(["paradigm+imperative", "paradigm+modular", "paradigm+oop", "paradigm+structured"])

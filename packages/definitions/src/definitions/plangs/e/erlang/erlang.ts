@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "www.erlang.org", href: "https://www.erlang.org/", kind: "homepage" },
         { title: "Erlang", href: "https://en.wikipedia.org/wiki/Erlang_(programming_language)", kind: "wikipedia" },
+        { title: "Erlang on Reddit", kind: "reddit", href: "https://reddit.com/r/erlang" },
       ],
       extensions: [".erl", ".hrl"],
       year: 1986,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "27.0.1", name: "Erlang/OTP 27.0.1", date: "2024-01-01" }],
+      github: { name: "Erlang", langId: "104", color: "#B83998", popular: false, type: "programming" },
+      stackovTags: ["erlang"],
     })
     .addInfluencedBy(["pl+lisp", "pl+ml", "pl+prolog"])
     .addLicenses(["license+apache"])

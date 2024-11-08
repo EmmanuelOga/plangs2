@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "www.modelica.org", href: "https://www.modelica.org/", kind: "homepage" },
         { title: "Modelica", href: "https://en.wikipedia.org/wiki/Modelica", kind: "wikipedia" },
+        { title: "Modelica on Reddit", kind: "reddit", href: "https://reddit.com/r/Modelica" },
       ],
       extensions: [".mo"],
       year: 1997,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "3.6", name: "Modelica 3.6", date: "2023-01-01" }],
+      github: { name: "Modelica", langId: "233", color: "#de1d31", popular: false, type: "programming" },
+      stackovTags: ["modelica"],
     })
     .addLicenses(["license+cc-by"])
     .addParadigms(["paradigm+declarative", "paradigm+multi", "paradigm+object-oriented"])

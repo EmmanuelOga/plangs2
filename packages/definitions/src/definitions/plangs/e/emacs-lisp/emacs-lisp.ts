@@ -9,13 +9,16 @@ export function define(g: PlangsGraph) {
       keywords: ["emacs", "lisp", "elisp"],
       websites: [
         { title: "GNU Emacs", href: "http://www.gnu.org/software/emacs", kind: "homepage" },
-        { title: "Emacs Lisp - Wikipedia", href: "https://en.wikipedia.org/wiki/Emacs_Lisp", kind: "wikipedia" },
+        { title: "Emacs Lisp on Wikipedia", href: "https://en.wikipedia.org/wiki/Emacs_Lisp", kind: "wikipedia" },
+        { title: "Emacs Lisp on Reddit", kind: "reddit", href: "https://reddit.com/r/emacs" },
       ],
       extensions: [".el", ".elc", ".eln"],
       year: 1985,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "29.4", name: "Emacs Lisp 29.4", date: "2024-01-01" }],
+      github: { name: "Emacs Lisp", langId: "102", color: "#c065db", popular: false, type: "programming" },
+      stackovTags: ["elisp"],
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+common-lisp"])

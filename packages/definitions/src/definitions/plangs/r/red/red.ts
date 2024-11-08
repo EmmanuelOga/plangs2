@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "www.red-lang.org", href: "https://www.red-lang.org/", kind: "homepage" },
         { title: "Red", href: "https://en.wikipedia.org/wiki/Red_(programming_language)", kind: "wikipedia" },
+        { title: "Red on Reddit", kind: "reddit", href: "https://reddit.com/r/redlang" },
       ],
       extensions: [".red", ".reds"],
       year: 2011,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "0.6.5", name: "Red 0.6.5", date: "2024-01-01" }],
+      github: { name: "Red", langId: "320", color: "#f50000", popular: false, type: "programming" },
+      stackovTags: ["red"],
     })
     .addInfluencedBy(["pl+lisp", "pl+lua", "pl+rebol"])
     .addLicenses(["license+boost", "license+bsd"])

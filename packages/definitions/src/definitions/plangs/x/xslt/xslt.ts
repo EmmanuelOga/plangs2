@@ -10,6 +10,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "XSLT 3.0 Specification", href: "https://www.w3.org/TR/xslt-30/", kind: "other" },
         { title: "XSLT on Wikipedia", href: "https://en.wikipedia.org/wiki/XSLT", kind: "wikipedia" },
+        { title: "XSLT on Reddit", kind: "reddit", href: "https://reddit.com/r/xslt" },
       ],
       extensions: [".xslt"],
       year: 1998,
@@ -20,6 +21,8 @@ export function define(g: PlangsGraph) {
         { version: "2.0", name: "XSLT 2.0", date: "2007-01-23" },
         { version: "3.0", name: "XSLT 3.0", date: "2017-01-01" },
       ],
+      github: { name: "XSLT", langId: "404", color: "#EB8CEB", popular: false, type: "programming" },
+      stackovTags: ["xslt"],
     })
     .addInfluencedBy(["pl+boomerang"])
     .addParadigms(["paradigm+declarative", "paradigm+dsl"])

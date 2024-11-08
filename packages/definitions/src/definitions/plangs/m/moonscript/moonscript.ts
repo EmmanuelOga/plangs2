@@ -10,10 +10,13 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "MoonScript", href: "https://moonscript.org/", kind: "homepage" },
         { title: "MoonScript", href: "https://en.wikipedia.org/wiki/MoonScript", kind: "wikipedia" },
+        { title: "MoonScript on Reddit", kind: "reddit", href: "https://reddit.com/r/moonscript" },
       ],
       year: 2011,
       isTranspiler: true,
       isMainstream: true,
+      github: { name: "MoonScript", langId: "238", color: "#ff4585", popular: false, type: "programming" },
+      stackovTags: ["moonscript"],
     })
     .addCompilesTo(["pl+lua"])
     .addInfluencedBy(["pl+c++", "pl+clu", "pl+coffeescript", "pl+modula", "pl+scheme"])

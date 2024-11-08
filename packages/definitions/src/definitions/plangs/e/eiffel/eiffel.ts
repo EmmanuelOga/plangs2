@@ -15,6 +15,8 @@ export function define(g: PlangsGraph) {
       year: 1986,
       isTranspiler: false,
       isMainstream: false,
+      github: { name: "Eiffel", langId: "99", color: "#4d6977", popular: false, type: "programming" },
+      stackovTags: ["eiffel"],
     })
     .addInfluencedBy(["pl+ada", "pl+simula"])
     .addLicenses(["license+epl"])

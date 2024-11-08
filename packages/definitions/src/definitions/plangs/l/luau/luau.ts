@@ -12,6 +12,7 @@ export function define(g: PlangsGraph) {
       year: 2019,
       isMainstream: true,
       releases: [{ version: "1.0", name: "Luau 1.0", date: "2021-02-18" }],
+      github: { name: "Luau", langId: "365050359", color: "#00A2FF", popular: false, type: "programming" },
     })
     .addDialectOf(["pl+lua"])
     .addInfluencedBy(["pl+lua"])

@@ -10,12 +10,16 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "www.scala-lang.org", href: "http://www.scala-lang.org/", kind: "homepage" },
         { title: "Scala", href: "https://en.wikipedia.org/wiki/Scala_programming_language", kind: "wikipedia" },
+        { title: "Scala on Reddit", kind: "reddit", href: "https://reddit.com/r/scala" },
+        { title: "Scala on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Scala_(programming_language)" },
       ],
       extensions: [".sc", ".scala"],
       year: 2004,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "3.4.0", name: "Scala 3.4.0", date: "2024-01-01" }],
+      github: { name: "Scala", langId: "341", color: "#c22d40", popular: true, type: "programming" },
+      stackovTags: ["scala"],
     })
     .addInfluencedBy([
       "pl+common-lisp",

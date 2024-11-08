@@ -10,6 +10,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "raku.org", href: "http://raku.org/", kind: "homepage" },
         { title: "Raku", href: "https://en.wikipedia.org/wiki/Raku_(programming_language)", kind: "wikipedia" },
+        { title: "Raku on Reddit", kind: "reddit", href: "https://reddit.com/r/rakulang" },
       ],
       extensions: [".raku", ".rakudoc", ".rakumod", ".rakutest", ".t"],
       year: 2015,
@@ -20,6 +21,8 @@ export function define(g: PlangsGraph) {
         { version: "2022.06", name: "Raku 2022.06", date: "2022-06-01" },
         { version: "2023.08", name: "Raku 2023.08", date: "2023-08-01" },
       ],
+      github: { name: "Raku", langId: "283", color: "#0000fb", popular: false, type: "programming" },
+      stackovTags: ["raku"],
     })
     .addDialectOf(["pl+perl"])
     .addInfluencedBy(["pl+haskell", "pl+javascript", "pl+perl", "pl+ruby"])

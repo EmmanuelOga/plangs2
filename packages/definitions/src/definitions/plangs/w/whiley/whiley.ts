@@ -16,6 +16,7 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "0.6.1", date: "2022-01-01" }],
+      github: { name: "Whiley", langId: "888779559", color: "#d5c397", popular: false, type: "programming" },
     })
     .addInfluencedBy(["pl+c", "pl+python", "pl+rust"])
     .addLicenses(["license+bsd"])

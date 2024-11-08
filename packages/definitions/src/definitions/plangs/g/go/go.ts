@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "go.dev", href: "https://go.dev/", kind: "homepage" },
         { title: "Go", href: "https://en.wikipedia.org/wiki/Go_(programming_language)", kind: "wikipedia" },
+        { title: "Go on Reddit", kind: "reddit", href: "https://reddit.com/r/golang" },
       ],
       extensions: [".go"],
       year: 2009,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "1.23.0", name: "", date: "2024-01-01" }],
+      github: { name: "Go", langId: "132", color: "#00ADD8", popular: true, type: "programming" },
+      stackovTags: ["go"],
     })
     .addInfluencedBy(["pl+apl", "pl+c", "pl+d", "pl+erlang", "pl+modula", "pl+oberon", "pl+pascal", "pl+python"])
     .addLicenses(["license+bsd"])

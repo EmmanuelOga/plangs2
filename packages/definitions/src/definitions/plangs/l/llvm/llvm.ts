@@ -10,11 +10,14 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "www.llvm.org", href: "https://www.llvm.org/", kind: "homepage" },
         { title: "LLVM", href: "https://en.wikipedia.org/wiki/LLVM", kind: "wikipedia" },
+        { title: "LLVM on Reddit", kind: "reddit", href: "https://reddit.com/r/LLVM" },
       ],
       year: 2003,
       isTranspiler: true,
       isMainstream: true,
       releases: [{ version: "18.1.8", name: "LLVM 18.1.8", date: "2024-01-01" }],
+      github: { name: "LLVM", langId: "191", color: "#185619", popular: false, type: "programming" },
+      stackovTags: ["llvm", "llvm-ir"],
     })
     .addLicenses(["license+apache", "license+bsd"])
     .addParadigms(["paradigm+assembly", "paradigm+compiled", "paradigm+multi"])

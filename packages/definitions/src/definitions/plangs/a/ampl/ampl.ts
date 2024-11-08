@@ -15,6 +15,8 @@ export function define(g: PlangsGraph) {
       year: 1985,
       isTranspiler: false,
       isMainstream: false,
+      github: { name: "AMPL", langId: "3", color: "#E6EFBB", popular: false, type: "programming" },
+      stackovTags: ["ampl"],
     })
     .addInfluencedBy(["pl+awk", "pl+c"])
     .addLicenses(["license+proprietary"])

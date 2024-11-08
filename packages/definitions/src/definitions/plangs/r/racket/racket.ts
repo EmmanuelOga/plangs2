@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "racket-lang.org", href: "https://racket-lang.org/", kind: "homepage" },
         { title: "Racket", href: "https://en.wikipedia.org/wiki/Racket_(programming_language)", kind: "wikipedia" },
+        { title: "Racket on Reddit", kind: "reddit", href: "https://reddit.com/r/Racket" },
       ],
       extensions: [".rkt"],
       year: 1995,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "8.14", name: "Racket 8.14", date: "2024-01-01" }],
+      github: { name: "Racket", langId: "316", color: "#3c5caa", popular: false, type: "programming" },
+      stackovTags: ["racket"],
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+eiffel", "pl+r5rs", "pl+scheme"])

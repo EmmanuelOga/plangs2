@@ -10,12 +10,14 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "www.purebasic.com", href: "http://www.purebasic.com/", kind: "homepage" },
         { title: "PureBasic", href: "https://en.wikipedia.org/wiki/PureBasic", kind: "wikipedia" },
+        { title: "PureBasic on Reddit", kind: "reddit", href: "https://reddit.com/r/purebasic" },
       ],
       extensions: [".pb", ".pbf", ".pbi", ".pbp"],
       year: 1998,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "6.11", date: "2024-01-01" }],
+      github: { name: "PureBasic", langId: "301", color: "#5a6986", popular: false, type: "programming" },
     })
     .addDialectOf(["pl+basic"])
     .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+structured"])

@@ -11,6 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "www.tcl-lang.org", href: "https://www.tcl-lang.org/", kind: "homepage" },
         { title: "www.tcl.tk", href: "https://www.tcl.tk/", kind: "homepage" },
         { title: "Tcl", href: "https://en.wikipedia.org/wiki/Tcl", kind: "wikipedia" },
+        { title: "Tcl on Reddit", kind: "reddit", href: "https://reddit.com/r/Tcl" },
       ],
       extensions: [".tbc", ".tcl"],
       year: 1988,
@@ -20,6 +21,8 @@ export function define(g: PlangsGraph) {
         { version: "8.6.13", name: "Tcl 8.6.13", date: "2023-04-11" },
         { version: "8.6.14", name: "Tcl 8.6.14", date: "2024-01-01" },
       ],
+      github: { name: "Tcl", langId: "367", color: "#e4cc98", popular: false, type: "programming" },
+      stackovTags: ["tcl"],
     })
     .addInfluencedBy(["pl+awk", "pl+lisp"])
     .addLicenses(["license+bsd"])

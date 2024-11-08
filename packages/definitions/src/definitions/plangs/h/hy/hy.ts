@@ -10,6 +10,8 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "hylang.org", href: "http://hylang.org/", kind: "homepage" },
         { title: "Hy", href: "https://en.wikipedia.org/wiki/Hy_(programming_language)", kind: "wikipedia" },
+        { title: "Hy on Reddit", kind: "reddit", href: "https://reddit.com/r/hylang" },
+        { title: "Hy on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Hy" },
       ],
       extensions: [".hy"],
       year: 2013,
@@ -19,6 +21,8 @@ export function define(g: PlangsGraph) {
         { version: "1.0", name: "Hy 1.0", date: "2022-01-01" },
         { version: "0.29.0", name: "Hy 0.29.0", date: "2024-01-01" },
       ],
+      github: { name: "Hy", langId: "159", color: "#7790B2", popular: false, type: "programming" },
+      stackovTags: ["hy"],
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+clojure", "pl+common-lisp", "pl+python"])

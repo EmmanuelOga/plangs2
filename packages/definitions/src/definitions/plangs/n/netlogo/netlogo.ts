@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "ccl.northwestern.edu/netlogo", href: "http://ccl.northwestern.edu/netlogo", kind: "other" },
         { title: "NetLogo", href: "https://en.wikipedia.org/wiki/NetLogo", kind: "wikipedia" },
+        { title: "NetLogo on Reddit", kind: "reddit", href: "https://reddit.com/r/NetLogo" },
       ],
       extensions: [".nlogo", ".nlogo3d", ".nls"],
       year: 1999,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "6.4.0", name: "NetLogo 6.4.0", date: "2023-01-01" }],
+      github: { name: "NetLogo", langId: "246", color: "#ff6375", popular: false, type: "programming" },
+      stackovTags: ["netlogo"],
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+logo"])

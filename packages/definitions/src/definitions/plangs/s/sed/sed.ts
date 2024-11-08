@@ -13,6 +13,8 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "1.0", name: "Initial Version", date: "1974-01-01" }],
+      github: { name: "sed", langId: "847830017", color: "#64b970", popular: false, type: "programming" },
+      stackovTags: ["sed"],
     })
     .addInfluencedBy(["pl+ed"])
     .addLicenses(["license+public-domain"])

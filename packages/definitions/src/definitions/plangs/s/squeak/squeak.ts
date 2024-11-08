@@ -10,6 +10,8 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "Squeak", href: "http://www.squeak.org/", kind: "homepage" },
         { title: "Squeak", href: "https://en.wikipedia.org/wiki/Squeak", kind: "wikipedia" },
+        { title: "Squeak on Reddit", kind: "reddit", href: "https://reddit.com/r/smalltalk" },
+        { title: "Squeak on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Smalltalk" },
       ],
       extensions: [".changes", ".image", ".sources", ".st"],
       year: 1996,
@@ -19,6 +21,8 @@ export function define(g: PlangsGraph) {
         { version: "5.3", name: "Squeak 5.3", date: "2020-12-01" },
         { version: "6.0", name: "Squeak 6.0", date: "2022-05-01" },
       ],
+      github: { name: "Smalltalk", langId: "352", color: "#596706", popular: false, type: "programming" },
+      stackovTags: ["smalltalk"],
     })
     .addDialectOf(["pl+smalltalk"])
     .addInfluencedBy(["pl+lisp", "pl+self", "pl+smalltalk"])

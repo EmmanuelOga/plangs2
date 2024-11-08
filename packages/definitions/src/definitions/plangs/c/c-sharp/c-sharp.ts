@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "learn.microsoft.com/en-us/dotnet/csharp/", href: "https://learn.microsoft.com/en-us/dotnet/csharp/", kind: "other" },
         { title: "C#", href: "https://en.wikipedia.org/wiki/C_Sharp_(programming_language)", kind: "wikipedia" },
+        { title: "C# on Reddit", kind: "reddit", href: "https://reddit.com/r/csharp" },
       ],
       extensions: [".cs", ".csx"],
       year: 2000,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "12.0", name: "C# 12", date: "2023-01-01" }],
+      github: { name: "C#", langId: "42", color: "#178600", popular: true, type: "programming" },
+      stackovTags: ["c#"],
     })
     .addDialectOf(["pl+c"])
     .addInfluencedBy([

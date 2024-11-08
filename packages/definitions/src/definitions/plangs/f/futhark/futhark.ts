@@ -10,6 +10,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "futhark-lang.org", href: "http://futhark-lang.org/", kind: "homepage" },
         { title: "Futhark", href: "https://en.wikipedia.org/wiki/Futhark_(programming_language)", kind: "wikipedia" },
+        { title: "Futhark on Reddit", kind: "reddit", href: "https://reddit.com/r/futhark" },
       ],
       extensions: [".fut"],
       year: 2014,
@@ -19,6 +20,8 @@ export function define(g: PlangsGraph) {
         { version: "0.20.0", name: "Futhark 0.20.0", date: "2021-12-01" },
         { version: "0.21.0", name: "Futhark 0.21.0", date: "2022-06-01" },
       ],
+      github: { name: "Futhark", langId: "97358117", color: "#5f021f", popular: false, type: "programming" },
+      stackovTags: ["futhark"],
     })
     .addDialectOf(["pl+ml"])
     .addInfluencedBy(["pl+apl", "pl+haskell", "pl+standard-ml"])

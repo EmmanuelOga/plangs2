@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "elixir-lang.org", href: "https://elixir-lang.org/", kind: "homepage" },
         { title: "Wikipedia", href: "https://en.wikipedia.org/wiki/Elixir_(programming_language)", kind: "wikipedia" },
+        { title: "Elixir on Reddit", kind: "reddit", href: "https://reddit.com/r/elixir" },
       ],
       extensions: [".ex", ".exs"],
       year: 2012,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "1.17.2", name: "Elixir 1.17.2", date: "2024-01-01" }],
+      github: { name: "Elixir", langId: "100", color: "#6e4a7e", popular: true, type: "programming" },
+      stackovTags: ["elixir"],
     })
     .addInfluencedBy(["pl+clojure", "pl+erlang", "pl+lisp", "pl+ruby"])
     .addLicenses(["license+apache"])

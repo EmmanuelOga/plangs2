@@ -10,6 +10,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "W3C XML Query Language", href: "http://www.w3.org/XML/Query/", kind: "homepage" },
         { title: "XQuery on Wikipedia", href: "https://en.wikipedia.org/wiki/XQuery", kind: "wikipedia" },
+        { title: "XQuery on Reddit", kind: "reddit", href: "https://reddit.com/r/xquery" },
       ],
       extensions: [".xq", ".xql", ".xqm", ".xquery", ".xqy"],
       year: 2007,
@@ -20,6 +21,8 @@ export function define(g: PlangsGraph) {
         { version: "3.0", name: "XQuery 3.0", date: "2014-04-08" },
         { version: "3.1", name: "XQuery 3.1", date: "2017-03-21" },
       ],
+      github: { name: "XQuery", langId: "402", color: "#5232e7", popular: false, type: "programming" },
+      stackovTags: ["xquery"],
     })
     .addInfluencedBy(["pl+sql", "pl+xpath", "pl+xslt"])
     .addParadigms(["paradigm+data-exchange", "paradigm+declarative", "paradigm+dsl", "paradigm+functional", "paradigm+modular"])

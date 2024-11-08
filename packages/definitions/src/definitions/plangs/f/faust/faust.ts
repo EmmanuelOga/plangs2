@@ -10,12 +10,14 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "faust.grame.fr", href: "http://faust.grame.fr/", kind: "homepage" },
         { title: "FAUST", href: "https://en.wikipedia.org/wiki/FAUST_(programming_language)", kind: "wikipedia" },
+        { title: "FAUST on Reddit", kind: "reddit", href: "https://reddit.com/r/faustdsp" },
       ],
       extensions: [".dsp"],
       year: 2002,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "2.60.3", name: "FAUST 2.60.3", date: "2023-01-01" }],
+      github: { name: "Faust", langId: "622529198", color: "#c37240", popular: false, type: "programming" },
     })
     .addInfluencedBy(["pl+c"])
     .addLicenses(["license+gnu-gpl"])

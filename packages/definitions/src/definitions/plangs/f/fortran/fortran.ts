@@ -10,6 +10,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "fortran-lang.org", href: "https://fortran-lang.org/", kind: "homepage" },
         { title: "Fortran", href: "https://en.wikipedia.org/wiki/Fortran", kind: "wikipedia" },
+        { title: "Fortran on Reddit", kind: "reddit", href: "https://reddit.com/r/fortran" },
       ],
       extensions: [".f", ".f90", ".for"],
       year: 1957,
@@ -24,6 +25,8 @@ export function define(g: PlangsGraph) {
         { version: "2008", name: "Fortran 2008", date: "2010-01-01" },
         { version: "2018", name: "Fortran 2018", date: "2018-01-01" },
       ],
+      github: { name: "Fortran", langId: "107", color: "#4d41b1", popular: false, type: "programming" },
+      stackovTags: ["fortran"],
     })
     .addParadigms(["paradigm+array", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+structured"])
     .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])

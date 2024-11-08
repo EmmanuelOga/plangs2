@@ -10,6 +10,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "Rebol", href: "http://www.rebol.com/", kind: "homepage" },
         { title: "Rebol", href: "https://en.wikipedia.org/wiki/Rebol", kind: "wikipedia" },
+        { title: "Rebol on Reddit", kind: "reddit", href: "https://reddit.com/r/rebol" },
       ],
       extensions: [".r", ".reb"],
       year: 1997,
@@ -19,6 +20,8 @@ export function define(g: PlangsGraph) {
         { version: "2.7.8", date: "2011-01-01" },
         { version: "2.101.0", date: "2012-01-01" },
       ],
+      github: { name: "Rebol", langId: "319", color: "#358a5b", popular: false, type: "programming" },
+      stackovTags: ["rebol"],
     })
     .addInfluencedBy(["pl+forth", "pl+lisp", "pl+self"])
     .addLicenses(["license+apache"])

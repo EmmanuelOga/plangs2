@@ -9,13 +9,16 @@ export function define(g: PlangsGraph) {
       keywords: ["max msp", "maxmsp"],
       websites: [
         { title: "cycling74.com/products/max/", href: "https://cycling74.com/products/max/", kind: "other" },
-        { title: "Max", href: "https://en.wikipedia.org/wiki/Max/MSP", kind: "wikipedia" },
+        { title: "Max on Reddit", kind: "reddit", href: "https://reddit.com/r/MaxMSP" },
+        { title: "Max on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Max_(software)" },
       ],
       extensions: [".maxpat", ".mxb", ".mxt"],
       year: 1988,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "8.6.2", name: "Max 8.6.2", date: "2024-01-01" }],
+      github: { name: "Max", langId: "227", color: "#c4a79c", popular: false, type: "programming" },
+      stackovTags: ["max-msp-jitter"],
     })
     .addParadigms(["paradigm+dataflow", "paradigm+event-driven", "paradigm+visual"])
     .addPlatforms(["plat+apple", "plat+windows"])

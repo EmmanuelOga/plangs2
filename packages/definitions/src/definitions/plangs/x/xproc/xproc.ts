@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
         { version: "1.0", name: "XProc 1.0", date: "2010-05-11" },
         { version: "3.0", name: "XProc 3.0", date: "2020-08-18" },
       ],
+      github: { name: "XProc", langId: "401", popular: false, type: "programming" },
+      stackovTags: ["xproc"],
     })
     .addInfluencedBy(["pl+xml"])
     .addParadigms(["paradigm+declarative", "paradigm+dsl", "paradigm+pipeline"])

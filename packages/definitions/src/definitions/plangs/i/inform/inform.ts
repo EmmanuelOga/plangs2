@@ -10,16 +10,19 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "Inform's GitHub Website", href: "https://ganelson.github.io/inform-website/", kind: "homepage" },
         {
-          title: "Inform (programming language) - Wikipedia",
+          title: "Inform on Wikipedia",
           href: "https://en.wikipedia.org/wiki/Inform_(programming_language)",
           kind: "wikipedia",
         },
+        { title: "Inform on Reddit", kind: "reddit", href: "https://reddit.com/r/Inform7" },
       ],
       extensions: [".inform", ".ni", ".z5", ".z8"],
       year: 1993,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "10.1.1", name: "Inform 10.1.1", date: "2022-01-01" }],
+      github: { name: "Inform 7", langId: "166", popular: false, type: "programming" },
+      stackovTags: ["inform7"],
     })
     .addLicenses(["license+artistic"])
     .addParadigms(["paradigm+dsl", "paradigm+natural-language"])

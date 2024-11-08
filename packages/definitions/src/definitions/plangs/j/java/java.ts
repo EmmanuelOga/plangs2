@@ -11,6 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "Java", href: "https://www.java.com/en/", kind: "homepage" },
         { title: "Java (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Java_(programming_language)", kind: "wikipedia" },
         { title: "OpenJDK", href: "https://openjdk.java.net/", kind: "repository" },
+        { title: "Java on Reddit", kind: "reddit", href: "https://reddit.com/r/java" },
       ],
       extensions: [".java"],
       year: 1995,
@@ -20,6 +21,8 @@ export function define(g: PlangsGraph) {
         { version: "20", name: "Java SE 20", date: "2023-03-21" },
         { version: "21", name: "Java SE 21", date: "2023-09-19" },
       ],
+      github: { name: "Java", langId: "181", color: "#b07219", popular: true, type: "programming" },
+      stackovTags: ["java"],
     })
     .addInfluencedBy(["pl+c++"])
     .addLicenses(["license+gpl"])

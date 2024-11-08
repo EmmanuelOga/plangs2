@@ -11,11 +11,14 @@ export function define(g: PlangsGraph) {
         { title: "ISO Prolog - Part 1 and Part 2", href: "https://www.iso.org/standard/21413.html", kind: "other" },
         { title: "ISO Prolog - Information technology", href: "https://www.iso.org/standard/20775.html", kind: "other" },
         { title: "Prolog", href: "https://en.wikipedia.org/wiki/Prolog", kind: "wikipedia" },
+        { title: "Prolog on Reddit", kind: "reddit", href: "https://reddit.com/r/prolog" },
       ],
       extensions: [".P", ".pl", ".pro"],
       year: 1972,
       isTranspiler: false,
       isMainstream: true,
+      github: { name: "Prolog", langId: "295", color: "#74283c", popular: false, type: "programming" },
+      stackovTags: ["prolog"],
     })
     .addImplements(["pl+curry"])
     .addParadigms(["paradigm+logic"])

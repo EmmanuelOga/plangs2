@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "Rust", href: "https://www.rust-lang.org/", kind: "homepage" },
         { title: "Rust", href: "https://en.wikipedia.org/wiki/Rust_(programming_language)", kind: "wikipedia" },
+        { title: "Rust on Reddit", kind: "reddit", href: "https://reddit.com/r/rust" },
       ],
       extensions: [".rlib", ".rs"],
       year: 2015,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "1.80.1", name: "Rust 1.80.1", date: "2024-01-01" }],
+      github: { name: "Rust", langId: "327", color: "#dea584", popular: true, type: "programming" },
+      stackovTags: ["rust"],
     })
     .addInfluencedBy([
       "pl+c",

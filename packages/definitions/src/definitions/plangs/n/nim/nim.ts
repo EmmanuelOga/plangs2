@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "nim-lang.org", href: "http://nim-lang.org/", kind: "homepage" },
         { title: "Nim", href: "https://en.wikipedia.org/wiki/Nim_(programming_language)", kind: "wikipedia" },
+        { title: "Nim on Reddit", kind: "reddit", href: "https://reddit.com/r/nim" },
       ],
       extensions: [".nim", ".nimble", ".nims"],
       year: 2008,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "2.0.8", name: "Nim 2.0.8", date: "2024-01-01" }],
+      github: { name: "Nim", langId: "249", color: "#ffc200", popular: false, type: "programming" },
+      stackovTags: ["nim-lang"],
     })
     .addInfluencedBy(["pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+oberon", "pl+python", "pl+rust"])
     .addLicenses(["license+mit"])

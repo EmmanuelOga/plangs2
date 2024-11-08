@@ -10,11 +10,14 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "brainfuck.org", href: "https://brainfuck.org/", kind: "homepage" },
         { title: "Brainfuck", href: "https://en.wikipedia.org/wiki/Brainfuck", kind: "wikipedia" },
+        { title: "Brainfuck on Reddit", kind: "reddit", href: "https://reddit.com/r/brainfuck" },
       ],
       extensions: [".b", ".bf"],
       year: 1993,
       isTranspiler: false,
       isMainstream: false,
+      github: { name: "Brainfuck", langId: "38", color: "#2F2530", popular: false, type: "programming" },
+      stackovTags: ["brainfuck"],
     })
     .addLicenses(["license+public-domain"])
     .addParadigms(["paradigm+esoteric", "paradigm+imperative", "paradigm+structured"])

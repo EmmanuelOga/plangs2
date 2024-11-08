@@ -9,6 +9,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "R", href: "https://www.r-project.org/", kind: "homepage" },
         { title: "R", href: "https://en.wikipedia.org/wiki/R_(programming_language)", kind: "wikipedia" },
+        { title: "R on Reddit", kind: "reddit", href: "https://reddit.com/r/Rlanguage" },
       ],
       extensions: [".r", ".rdata", ".rhistory", ".rds", ".rda"],
       year: 1993,
@@ -19,6 +20,8 @@ export function define(g: PlangsGraph) {
         { version: "4.0.0", name: "R 4.0.0", date: "2020-04-24" },
         { version: "4.4.1", name: "R 4.4.1", date: "2024-01-01" },
       ],
+      github: { name: "R", langId: "307", color: "#198CE7", popular: false, type: "programming" },
+      stackovTags: ["r"],
     })
     .addInfluencedBy(["pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+s", "pl+scheme", "pl+xlispstat"])
     .addLicenses(["license+gnu-gpl"])

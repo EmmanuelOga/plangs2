@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "xojo.com", href: "http://xojo.com/", kind: "homepage" },
         { title: "Xojo", href: "https://en.wikipedia.org/wiki/Xojo", kind: "wikipedia" },
+        { title: "Xojo on Reddit", kind: "reddit", href: "https://reddit.com/r/xojo" },
       ],
       extensions: [".xojo_code", ".xojo_binary_project", ".xojo_xml_project"],
       year: 1996,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "3.1", name: "Xojo 3.1", date: "2023-01-01" }],
+      github: { name: "Xojo", langId: "405", color: "#81bd41", popular: false, type: "programming" },
+      stackovTags: ["xojo", "realbasic"],
     })
     .addInfluencedBy(["pl+basic", "pl+visual-basic"])
     .addLicenses(["license+proprietary"])

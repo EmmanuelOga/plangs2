@@ -10,12 +10,14 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "GNU Bash", href: "http://www.gnu.org/software/bash/", kind: "homepage" },
         { title: "Bash (Unix Shell) - Wikipedia", href: "https://en.wikipedia.org/wiki/Bash_(Unix_shell)", kind: "wikipedia" },
+        { title: "Bash on Reddit", kind: "reddit", href: "https://reddit.com/r/bash" },
       ],
       extensions: [".sh", ".bash"],
       year: 1989,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "5.2.32", name: "Bash 5.2.32", date: "2024-01-01" }],
+      stackovTags: ["bash"],
     })
     .addInfluencedBy(["pl+sh"])
     .addLicenses(["license+gnu-gpl"])

@@ -11,11 +11,14 @@ export function define(g: PlangsGraph) {
       keywords: ["ada", "pascal", "object-oriented", "concurrency"],
       websites: [
         { title: "www.adaic.org", href: "https://www.adaic.org/", kind: "homepage" },
-        { title: "Ada", href: "https://en.wikipedia.org/wiki/Ada_programming_language", kind: "wikipedia" },
+        { title: "Ada on Wikipedia", href: "https://en.wikipedia.org/wiki/Ada_programming_language", kind: "wikipedia" },
+        { title: "Ada on Reddit", kind: "reddit", href: "https://reddit.com/r/ada" },
       ],
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "ISO/IEC 8652:2023", name: "Ada 2022", date: "2023-05-01" }],
+      github: { name: "Ada", langId: "11", color: "#02f88c", popular: false, type: "programming" },
+      stackovTags: ["ada"],
     })
     .addDialectOf(["pl+pascal"])
     .addInfluencedBy(["pl+c++", "pl+clu", "pl+eiffel", "pl+pascal"])

@@ -15,6 +15,8 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "3.66.0", name: "", date: "2023-01-01" }],
+      github: { name: "Logtalk", langId: "210", color: "#295b9a", popular: false, type: "programming" },
+      stackovTags: ["logtalk"],
     })
     .addInfluencedBy(["pl+prolog"])
     .addLicenses(["license+apache", "license+artistic"])

@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "ziglang.org", href: "https://ziglang.org/", kind: "homepage" },
         { title: "Zig (Wikipedia)", href: "https://en.wikipedia.org/wiki/Zig_(programming_language)", kind: "wikipedia" },
+        { title: "Zig on Reddit", kind: "reddit", href: "https://reddit.com/r/Zig" },
       ],
       extensions: [".zig", ".zigr", ".zir", ".zon"],
       year: 2016,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "0.13.0", name: "Zig 0.13.0", date: "2024-01-01" }],
+      github: { name: "Zig", langId: "646424281", color: "#ec915c", popular: false, type: "programming" },
+      stackovTags: ["zig"],
     })
     .addInfluencedBy(["pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust"])
     .addLicenses(["license+mit"])

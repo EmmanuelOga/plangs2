@@ -16,6 +16,8 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.7.1", name: "jq 1.7.1", date: "2023-01-01" }],
+      github: { name: "jq", langId: "905371884", color: "#c7254e", popular: false, type: "programming" },
+      stackovTags: ["jq"],
     })
     .addInfluencedBy(["pl+haskell", "pl+icon"])
     .addLicenses(["license+mit", "license+public-domain"])

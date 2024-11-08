@@ -16,6 +16,8 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "3.2", name: "Squirrel 3.2", date: "2022-01-01" }],
+      github: { name: "Squirrel", langId: "355", color: "#800000", popular: false, type: "programming" },
+      stackovTags: ["squirrel"],
     })
     .addInfluencedBy(["pl+c++", "pl+javascript", "pl+lua", "pl+python"])
     .addLicenses(["license+mit"])

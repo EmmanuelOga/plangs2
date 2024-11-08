@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "haxe.org", href: "https://haxe.org/", kind: "homepage" },
         { title: "Haxe", href: "https://en.wikipedia.org/wiki/Haxe", kind: "wikipedia" },
+        { title: "Haxe on Reddit", kind: "reddit", href: "https://reddit.com/r/haxe" },
       ],
       extensions: [".hx", ".hxml"],
       year: 2005,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "4.3.6", name: "Haxe 4.3.6", date: "2024-01-01" }],
+      github: { name: "Haxe", langId: "158", color: "#df7900", popular: false, type: "programming" },
+      stackovTags: ["haxe"],
     })
     .addCompilesTo(["pl+c++", "pl+c-sharp", "pl+java", "pl+javascript", "pl+lua", "pl+php", "pl+python"])
     .addDialectOf(["pl+ecmascript"])

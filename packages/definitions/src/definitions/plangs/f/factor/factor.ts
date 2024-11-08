@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "factorcode.org", href: "http://factorcode.org/", kind: "homepage" },
         { title: "Factor", href: "https://en.wikipedia.org/wiki/Factor_(programming_language)", kind: "wikipedia" },
+        { title: "Factor on Reddit", kind: "reddit", href: "https://reddit.com/r/factor" },
       ],
       extensions: [".factor"],
       year: 2003,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "0.99", name: "Factor 0.99", date: "2023-01-01" }],
+      github: { name: "Factor", langId: "108", color: "#636746", popular: false, type: "programming" },
+      stackovTags: ["factor-lang"],
     })
     .addInfluencedBy(["pl+forth", "pl+joy", "pl+lisp", "pl+self"])
     .addLicenses(["license+bsd"])

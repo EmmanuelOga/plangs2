@@ -10,11 +10,14 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "smlfamily.github.io", href: "https://smlfamily.github.io/", kind: "homepage" },
         { title: "Standard ML", href: "https://en.wikipedia.org/wiki/Standard_ML", kind: "wikipedia" },
+        { title: "Standard ML on Reddit", kind: "reddit", href: "https://reddit.com/r/sml" },
       ],
       extensions: [".sml", ".sig"],
       year: 1983,
       isTranspiler: false,
       isMainstream: false,
+      github: { name: "Standard ML", langId: "357", color: "#dc566d", popular: false, type: "programming" },
+      stackovTags: ["sml"],
     })
     .addDialectOf(["pl+ml"])
     .addInfluencedBy(["pl+ml", "pl+pascal"])

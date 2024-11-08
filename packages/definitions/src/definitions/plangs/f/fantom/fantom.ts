@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "www.fantom.org", href: "http://www.fantom.org/", kind: "homepage" },
         { title: "Fantom", href: "https://en.wikipedia.org/wiki/Fantom_(programming_language)", kind: "wikipedia" },
+        { title: "Fantom on Reddit", kind: "reddit", href: "https://reddit.com/r/Fantom" },
       ],
       extensions: [".fan", ".fwt", ".pod"],
       year: 2005,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.0.79", name: "Fantom 1.0.79", date: "2023-01-01" }],
+      github: { name: "Fantom", langId: "110", color: "#14253c", popular: false, type: "programming" },
+      stackovTags: ["fantom"],
     })
     .addInfluencedBy(["pl+c-sharp", "pl+erlang", "pl+ruby", "pl+scala"])
     .addLicenses(["license+mit"])

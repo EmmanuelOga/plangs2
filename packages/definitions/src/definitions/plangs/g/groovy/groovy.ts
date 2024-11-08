@@ -10,6 +10,8 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "groovy-lang.org", href: "https://groovy-lang.org/", kind: "homepage" },
         { title: "Groovy", href: "https://en.wikipedia.org/wiki/Groovy_(programming_language)", kind: "wikipedia" },
+        { title: "Groovy on Reddit", kind: "reddit", href: "https://reddit.com/r/groovy" },
+        { title: "Groovy on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Apache_Groovy" },
       ],
       extensions: [".groovy", ".gsh", ".gvy", ".gy"],
       year: 2003,
@@ -19,6 +21,8 @@ export function define(g: PlangsGraph) {
         { version: "4.0.22", name: "Groovy 4.0.22", date: "2024-01-01" },
         { version: "4.0.0", name: "Groovy 4.0.0", date: "2021-01-01" },
       ],
+      github: { name: "Groovy", langId: "142", color: "#4298b8", popular: true, type: "programming" },
+      stackovTags: ["groovy"],
     })
     .addInfluencedBy(["pl+perl", "pl+python", "pl+ruby"])
     .addLicenses(["license+apache"])

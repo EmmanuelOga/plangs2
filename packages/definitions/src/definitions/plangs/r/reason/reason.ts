@@ -9,13 +9,16 @@ export function define(g: PlangsGraph) {
       keywords: ["reason", "reasonml"],
       websites: [
         { title: "Reason", href: "https://reasonml.github.io/", kind: "homepage" },
-        { title: "Reason", href: "https://en.wikipedia.org/wiki/Reason_(programming_language)", kind: "wikipedia" },
+        { title: "Reason on Wikipedia", href: "https://en.wikipedia.org/wiki/Reason_(programming_language)", kind: "wikipedia" },
+        { title: "Reason on Reddit", kind: "reddit", href: "https://reddit.com/r/reasonml" },
       ],
       extensions: [".re", ".rei"],
       year: 2016,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "3.12.0", name: "Reason 3.12.0", date: "2024-01-01" }],
+      github: { name: "Reason", langId: "869538413", color: "#ff5847", popular: false, type: "programming" },
+      stackovTags: ["reason"],
     })
     .addDialectOf(["pl+ocaml"])
     .addInfluencedBy(["pl+javascript", "pl+ocaml"])

@@ -10,6 +10,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "PHP", href: "https://www.php.net/", kind: "homepage" },
         { title: "PHP on Wikipedia", href: "https://en.wikipedia.org/wiki/PHP", kind: "wikipedia" },
+        { title: "PHP on Reddit", kind: "reddit", href: "https://reddit.com/r/PHP" },
       ],
       extensions: [".php", ".php3", ".php4", ".php5", ".phtml"],
       year: 1995,
@@ -20,6 +21,8 @@ export function define(g: PlangsGraph) {
         { version: "8.1.0", name: "PHP 8.1.0", date: "2021-11-25" },
         { version: "8.2.0", name: "PHP 8.2.0", date: "2022-12-08" },
       ],
+      github: { name: "PHP", langId: "272", color: "#4F5D95", popular: true, type: "programming" },
+      stackovTags: ["php"],
     })
     .addInfluencedBy(["pl+c", "pl+java"])
     .addLicenses(["license+php"])

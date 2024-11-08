@@ -10,11 +10,14 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "haskell.org", href: "http://haskell.org/", kind: "homepage" },
         { title: "Haskell", href: "https://en.wikipedia.org/wiki/Haskell_(programming_language)", kind: "wikipedia" },
+        { title: "Haskell on Reddit", kind: "reddit", href: "https://reddit.com/r/haskell" },
       ],
       extensions: [".hs", ".lhs"],
       year: 1990,
       isTranspiler: false,
       isMainstream: true,
+      github: { name: "Haskell", langId: "157", color: "#5e5086", popular: false, type: "programming" },
+      stackovTags: ["haskell"],
     })
     .addImplements(["pl+curry"])
     .addInfluencedBy(["pl+clean", "pl+fp", "pl+lisp", "pl+ml", "pl+r5rs", "pl+raku", "pl+scheme", "pl+standard-ml"])

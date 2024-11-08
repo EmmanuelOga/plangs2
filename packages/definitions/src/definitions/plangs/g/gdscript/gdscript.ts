@@ -10,6 +10,8 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "godotengine.org", href: "https://godotengine.org/", kind: "homepage" },
         { title: "Godot Engine - Wikipedia", href: "https://en.wikipedia.org/wiki/GDScript", kind: "wikipedia" },
+        { title: "GDScript on Reddit", kind: "reddit", href: "https://reddit.com/r/godot" },
+        { title: "GDScript on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Godot_(game_engine)" },
       ],
       extensions: [".gd"],
       year: 2014,
@@ -20,6 +22,8 @@ export function define(g: PlangsGraph) {
         { version: "3.2", name: "GDScript 3.2", date: "2020-01-29" },
         { version: "4.0", name: "GDScript 4.0", date: "2023-01-23" },
       ],
+      github: { name: "GDScript", langId: "123", color: "#355570", popular: false, type: "programming" },
+      stackovTags: ["godot"],
     })
     .addInfluencedBy(["pl+python"])
     .addLicenses(["license+mit"])

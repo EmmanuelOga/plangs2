@@ -10,6 +10,8 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "coq.inria.fr", href: "https://coq.inria.fr/", kind: "homepage" },
         { title: "Coq", href: "https://en.wikipedia.org/wiki/Coq_(software)", kind: "wikipedia" },
+        { title: "Coq on Reddit", kind: "reddit", href: "https://reddit.com/r/Coq" },
+        { title: "Coq on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Coq" },
       ],
       year: 1989,
       isTranspiler: false,
@@ -18,6 +20,8 @@ export function define(g: PlangsGraph) {
         { version: "4.10", date: "1989-01-01" },
         { version: "8.19.2", date: "2024-01-01" },
       ],
+      github: { name: "Coq", langId: "69", color: "#d0b68c", popular: false, type: "programming" },
+      stackovTags: ["coq"],
     })
     .addInfluencedBy(["pl+ml", "pl+ocaml"])
     .addLicenses(["license+lgpl"])

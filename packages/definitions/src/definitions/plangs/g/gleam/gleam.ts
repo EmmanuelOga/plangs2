@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "gleam.run", href: "https://gleam.run/", kind: "homepage" },
         { title: "Gleam", href: "https://en.wikipedia.org/wiki/Gleam_(programming_language)", kind: "wikipedia" },
+        { title: "Gleam on Reddit", kind: "reddit", href: "https://reddit.com/r/gleamlang" },
       ],
       extensions: [".gleam"],
       year: 2016,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "1.4.1", name: "Version 1.4.1", date: "2024-01-01" }],
+      github: { name: "Gleam", langId: "1054258749", color: "#ffaff3", popular: false, type: "programming" },
+      stackovTags: ["gleam"],
     })
     .addCompilesTo(["pl+erlang", "pl+javascript"])
     .addInfluencedBy(["pl+elixir", "pl+erlang", "pl+go", "pl+javascript", "pl+ocaml", "pl+rust"])

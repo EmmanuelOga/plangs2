@@ -10,12 +10,16 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "Visual Basic Documentation", href: "https://docs.microsoft.com/dotnet/visual-basic/", kind: "other" },
         { title: "Visual Basic", href: "https://en.wikipedia.org/wiki/Visual_Basic_(.NET)", kind: "wikipedia" },
+        { title: "Visual Basic on Reddit", kind: "reddit", href: "https://reddit.com/r/visualbasic" },
+        { title: "Visual Basic on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Visual_Basic_.NET" },
       ],
       extensions: [".vb"],
       year: 2001,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "17.9.2", name: "Visual Basic 17.9.2", date: "2024-01-01" }],
+      github: { name: "Visual Basic .NET", langId: "389", color: "#945db7", popular: false, type: "programming" },
+      stackovTags: ["vb.net"],
     })
     .addInfluencedBy(["pl+basic", "pl+haskell", "pl+visual-basic"])
     .addLicenses(["license+apache"])

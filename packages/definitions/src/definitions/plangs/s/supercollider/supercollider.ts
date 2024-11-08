@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "SuperCollider", href: "http://supercollider.github.io/", kind: "homepage" },
         { title: "SuperCollider", href: "https://en.wikipedia.org/wiki/SuperCollider", kind: "wikipedia" },
+        { title: "SuperCollider on Reddit", kind: "reddit", href: "https://reddit.com/r/supercollider" },
       ],
       extensions: [".scd"],
       year: 1996,
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "3.13.0", name: "SuperCollider 3.13.0", date: "2023-01-01" }],
+      github: { name: "SuperCollider", langId: "361", color: "#46390b", popular: false, type: "programming" },
+      stackovTags: ["supercollider"],
     })
     .addInfluencedBy(["pl+csound", "pl+lisp", "pl+smalltalk"])
     .addLicenses(["license+gnu-gpl"])

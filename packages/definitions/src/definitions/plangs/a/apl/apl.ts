@@ -10,6 +10,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "APL Wiki", href: "https://aplwiki.com/", kind: "homepage" },
         { title: "APL on Wikipedia", href: "https://en.wikipedia.org/wiki/APL_programming_language", kind: "wikipedia" },
+        { title: "APL on Reddit", kind: "reddit", href: "https://reddit.com/r/apljk" },
       ],
       extensions: [".apl"],
       year: 1966,
@@ -19,6 +20,8 @@ export function define(g: PlangsGraph) {
         { version: "1", name: "APL 1", date: "1966-01-01" },
         { version: "2", name: "APL 2", date: "1980-01-01" },
       ],
+      github: { name: "APL", langId: "6", color: "#5A8164", popular: false, type: "programming" },
+      stackovTags: ["apl"],
     })
     .addLicenses(["license+proprietary"])
     .addParadigms(["paradigm+array", "paradigm+functional", "paradigm+modular", "paradigm+structured"])

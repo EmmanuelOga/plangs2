@@ -12,6 +12,8 @@ export function define(g: PlangsGraph) {
       year: 1970,
       isTranspiler: true,
       isMainstream: true,
+      github: { name: "Yacc", langId: "409", color: "#4B6C4B", popular: false, type: "programming" },
+      stackovTags: ["yacc"],
     })
     .addCompilesTo(["pl+c"])
     .addLicenses(["license+mit"])

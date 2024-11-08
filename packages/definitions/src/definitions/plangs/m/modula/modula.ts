@@ -11,6 +11,8 @@ export function define(g: PlangsGraph) {
       year: 1975,
       isTranspiler: false,
       isMainstream: false,
+      github: { name: "Modula-2", langId: "234", color: "#10253f", popular: false, type: "programming" },
+      stackovTags: ["modula-2"],
     })
     .addInfluencedBy(["pl+pascal"])
     .addParadigms(["paradigm+imperative", "paradigm+modular", "paradigm+structured"])

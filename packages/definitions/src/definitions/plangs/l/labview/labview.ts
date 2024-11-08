@@ -10,12 +10,15 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "www.ni.com/labview", href: "https://www.ni.com/labview", kind: "homepage" },
         { title: "LabVIEW", href: "https://en.wikipedia.org/wiki/LabVIEW", kind: "wikipedia" },
+        { title: "LabVIEW on Reddit", kind: "reddit", href: "https://reddit.com/r/LabVIEW" },
       ],
       extensions: [".vi", ".lvproj"],
       year: 1986,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "5.1", name: "LabVIEW 5.1", date: "2023-01-01" }],
+      github: { name: "LabVIEW", langId: "194", color: "#fede06", popular: false, type: "programming" },
+      stackovTags: ["labview"],
     })
     .addParadigms(["paradigm+concurrent", "paradigm+dataflow", "paradigm+event-driven", "paradigm+low-code", "paradigm+multi", "paradigm+visual"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
