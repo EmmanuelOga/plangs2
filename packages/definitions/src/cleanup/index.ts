@@ -15,7 +15,7 @@ console.log(GH_LANGS.all.length, "languages in GHLangs");
 console.log(LG_LANGS.all.length, "languages in LGLangs");
 console.log(pg.nodes.pl.size, "languages in Plangs");
 
-export const DEFINTIONS_PATH = join(import.meta.dir, "../../definitions/src/definitions/");
+export const DEFINTIONS_PATH = join(import.meta.dir, "../definitions");
 
 function tspath(plainKey: string, kind = "plangs"): string {
   const base = plainKey.replace(/[^a-zA-Z0-9\_\+\-]/g, "_");
