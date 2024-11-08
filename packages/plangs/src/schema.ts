@@ -43,6 +43,8 @@ export type NPlangData = CommonNodeData & {
   isMainstream: boolean;
   /** A list of note worthy releases, not all of them. For instance, noteworthy release could be the latest for each major version. */
   releases: Release[];
+  /** A list of stackoverflow tags used when asking questions about this plang. */
+  stackovTags: string[];
   /**
    *  Pickup few fields from Linguist. Some other data is merged directly into NPlangData (like file extensions).
    */

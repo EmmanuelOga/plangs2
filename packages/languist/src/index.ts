@@ -2,6 +2,7 @@ import languishData from "./languish.json" with { type: "json" };
 import linguistData from "./linguist.json" with { type: "json" };
 import type { KeysOfType, LanguishLang, LinguistLang } from "./types";
 
+/** A Wrapper for all the data in Github Linguist ruby gem. */
 export class GHLangs {
   // Map of all languages by every possible name (lower case) to some matching language.
   #lookup = new Map<string, LinguistLang>();
@@ -21,7 +22,7 @@ export class GHLangs {
       add(lang.nameFS, lang);
       add(lang.groupName, lang);
       add(lang.defaultAlias, lang);
-      add(lang.githubLangId, lang);
+      add(lang.langId, lang);
       for (const alias of lang.aliases ?? []) add(alias, lang);
       for (const alias of lang.interpreters ?? []) add(alias, lang);
     }
@@ -44,13 +45,31 @@ export class GHLangs {
   }
 }
 
+/** A Wrapper for all the data in Languish's keys.csv. */
 export class LGLangs {
-  constructor(public readonly all: LanguishLang[]) {}
+  // Map of all languages by Github Name.
+  #lookup = new Map<string, LanguishLang>();
+
+  constructor(public readonly all: LanguishLang[]) {
+    this.setupLookup();
+  }
+
+  setupLookup() {
+    const m = this.#lookup;
+    const add = (key: string | undefined, lang: LanguishLang) => {
+      const cleanKey = (key ?? "").trim().toLowerCase();
+      if (cleanKey) m.set(cleanKey, lang);
+    };
+    for (const lang of this.all) add(lang.githubName, lang);
+  }
+
+  lookup(name?: string): LanguishLang | undefined {
+    return this.#lookup.get((name ?? "").trim().toLowerCase());
+  }
 
   *byField(field: KeysOfType<LanguishLang, string | undefined>): Generator<[string, LanguishLang]> {
     for (const lang of this.all) {
       const key = field && lang[field];
-      if (key) yield [key, lang];
       if (key !== null && key !== undefined) yield [key, lang];
     }
   }
