@@ -1,3 +1,5 @@
+import type { LinguistLang } from "@plangs/languist/types";
+
 ////////////////////////////////////////////////////////////////////////////////
 // Keys for all nodes and edges.
 ////////////////////////////////////////////////////////////////////////////////
@@ -27,8 +29,10 @@ export interface CommonNodeData {
 
 /** Programming language data. */
 export type NPlangData = CommonNodeData & {
-  /** File extensions supported by the language. */
+  /** File Extensions, including the dot. Example: [".pas", ".tpu"]. */
   extensions: string[];
+  /** File names are names that are associated with an specific language. Example: ['Makefile']. */
+  filenames: string[];
   /** Year the language first appeared. */
   year: number;
   /** Logos, screenshots or other images relevant to the language. */
@@ -39,6 +43,10 @@ export type NPlangData = CommonNodeData & {
   isMainstream: boolean;
   /** A list of note worthy releases, not all of them. For instance, noteworthy release could be the latest for each major version. */
   releases: Release[];
+  /**
+   *  Pickup few fields from Linguist. Some other data is merged directly into NPlangData (like file extensions).
+   */
+  github?: Pick<LinguistLang, "name" | "groupName" | "langId" | "color" | "popular" | "type">;
 };
 
 /** License data. */
