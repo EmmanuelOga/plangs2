@@ -15,7 +15,7 @@ import { resolvePage } from "./resolve_page";
 import { contentTypeFor, staticResponse, vdomToHTML } from "./utils/server";
 
 const pg = new PlangsGraph();
-await loadAllDefinitions(pg);
+await loadAllDefinitions(pg, { scanImages: true });
 await loadPosts(pg);
 
 const server = Bun.serve({
