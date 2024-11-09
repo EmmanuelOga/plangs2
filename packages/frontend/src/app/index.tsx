@@ -29,6 +29,7 @@ async function start() {
       activateFacetsMain(pg);
 
       const grid = elem("plGrid");
+      if (!grid) return;
 
       // On thumb click, update the pl-info plang.
       on(grid, "click", ({ target }: MouseEvent) => {
@@ -45,8 +46,9 @@ async function start() {
   });
 }
 
-// TODO: only during development.
-connectLivereload();
+// This is a global variable that is set by the build system.
+declare const DEVEL: boolean;
+if (DEVEL) connectLivereload();
 
 start();
 
