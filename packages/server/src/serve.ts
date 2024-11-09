@@ -4,7 +4,7 @@ import type { ServerWebSocket } from "bun";
 import { watch } from "fs";
 
 // @ts-ignore works ok with Bun
-import { extname, join } from "node:path";
+import { join } from "node:path";
 
 import { loadAllDefinitions } from "@plangs/definitions";
 import { PlangsGraph } from "@plangs/plangs";

@@ -7,7 +7,7 @@ import { PlangsGraph } from "@plangs/plangs";
 import { loadPosts } from "./content";
 
 const pg = new PlangsGraph();
-await loadAllDefinitions(pg);
+await loadAllDefinitions(pg, { scanImages: false });
 await loadPosts(pg);
 
 async function test() {

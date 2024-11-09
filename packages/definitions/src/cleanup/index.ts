@@ -1,7 +1,5 @@
-import { join } from "node:path";
-
 import { loadAllDefinitions } from "@plangs/definitions";
-import { plangCodeGen } from "@plangs/languist/codegen";
+import { plangCodeGen, tspath } from "@plangs/languist/codegen";
 import { type NPlang, PlangsGraph } from "@plangs/plangs";
 
 import { arrayMerge } from "@plangs/auxiliar/array";
@@ -14,13 +12,6 @@ await loadAllDefinitions(pg, { scanImages: false });
 console.log(GH_LANGS.all.length, "languages in GHLangs");
 console.log(LG_LANGS.all.length, "languages in LGLangs");
 console.log(pg.nodes.pl.size, "languages in Plangs");
-
-export const DEFINTIONS_PATH = join(import.meta.dir, "../definitions");
-
-function tspath(plainKey: string, kind = "plangs"): string {
-  const base = plainKey.replace(/[^a-zA-Z0-9\_\+\-]/g, "_");
-  return join(DEFINTIONS_PATH, kind, base[0], base, `${base}.ts`);
-}
 
 const GH_MAP = GH_LANGS.lookupMap();
 

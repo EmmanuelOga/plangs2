@@ -108,7 +108,7 @@ async function extract() {
   const wikiCache = new Cache("wikipedia");
 
   const g = new PlangsGraph();
-  await loadAllDefinitions(g);
+  await loadAllDefinitions(g, { scanImages: false });
 
   for (const key of (await wikiCache.list()).sort()) {
     const body = await wikiCache.read(key);
@@ -141,7 +141,7 @@ if (process.argv[2] === "scrape") {
 
 async function test() {
   const g = new PlangsGraph();
-  await loadAllDefinitions(g);
+  await loadAllDefinitions(g, { scanImages: false });
 
   const wikiCache = new Cache("wikipedia");
 

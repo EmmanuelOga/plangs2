@@ -1,6 +1,16 @@
+import { join } from "node:path";
+
 import type { MapTap } from "@plangs/auxiliar/map_tap";
 import type { AnyEdge, NBundle, NPlang } from "@plangs/plangs";
 import type { Image, N } from "@plangs/plangs/schema";
+
+export const DEFINTIONS_PATH = join(import.meta.dir, "../../definitions/src/definitions");
+
+/** Generate a path for a TS file for a Node defintion. */
+export function tspath(plainKey: string, kind = "plangs"): string {
+  const base = plainKey.replace(/[^a-zA-Z0-9\_\+\-]/g, "_");
+  return join(DEFINTIONS_PATH, kind, base[0], base, `${base}.ts`);
+}
 
 /** Generate code that can reconstruct the state of a NPlang node. */
 export function plangCodeGen(plang: NPlang): string {

@@ -5,7 +5,7 @@ import { mkdir } from "node:fs/promises";
 import { dirname } from "node:path";
 
 import { loadAllDefinitions } from "@plangs/definitions";
-import { plangCodeGen } from "@plangs/languist/codegen";
+import { plangCodeGen, tspath } from "@plangs/languist/codegen";
 import { NPlang, PlangsGraph } from "@plangs/plangs";
 import type { NPlangAI } from "@plangs/plangs/schema";
 import schema from "@plangs/plangs/schemas/PlAiResult.json";
@@ -13,7 +13,7 @@ import schema from "@plangs/plangs/schemas/PlAiResult.json";
 import { example, existingData } from "./example";
 
 const pg = new PlangsGraph();
-await loadAllDefinitions(pg);
+await loadAllDefinitions(pg, { scanImages: false });
 
 export async function aiGenerate(pl: NPlang) {
   // TODO: this is not gonna be as accurate as possible because the model won't crawl the page.
@@ -60,7 +60,7 @@ export async function aiGenerate(pl: NPlang) {
 
   const code = plangCodeGen(newPl);
 
-  await mkdir(dirname(pl.tspath), { recursive: true }).catch(() => {});
+  await mkdir(dirname(tspath(pl.plainKey)), { recursive: true }).catch(() => {});
 
   // console.log("Writing result to", path); Bun.write(path, code);
 }
