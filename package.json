@@ -1,7 +1,10 @@
 {
   "name": "@plangs/project",
   "private": true,
-  "workspaces": ["packages/*", "archived/*"],
+  "workspaces": [
+    "packages/*",
+    "archived/*"
+  ],
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@tailwindcss/cli": "^4.0.0-alpha.25",
@@ -15,8 +18,10 @@
     "typescript": "^5.6.2"
   },
   "scripts": {
-    "js": "esbuild --bundle packages/frontend/src/app --sourcemap --outdir=packages/server/static/bundle --watch",
+    "js": "esbuild --bundle --define:DEVEL=true packages/frontend/src/app --sourcemap --outdir=packages/server/static/bundle --watch",
     "css": "bun x @tailwindcss/cli@next -i ./styles.css -o packages/server/static/bundle/app.css --watch",
-    "serve": "bun run --watch --cwd $(pwd)/packages/server src/serve.ts"
+    "serve": "bun run --watch --cwd $(pwd)/packages/server src/serve.ts",
+    "outjs": "esbuild --bundle --define:DEVEL=false packages/frontend/src/app --sourcemap --outdir=$HOME/dev/plangs-out/bundle",
+    "outapp": "bun packages/server/src/generate.ts generate $HOME/dev/plangs-out"
   }
 }
