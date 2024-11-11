@@ -25,6 +25,7 @@ export function define(g: PlangsGraph) {
       github: { name: "Reason", langId: "869538413", color: "#ff5847", popular: false, type: "programming" },
       stackovTags: ["reason"],
     })
+    .addCompilesTo(["pl+javascript", "pl+ocaml"])
     .addDialectOf(["pl+ocaml"])
     .addInfluencedBy(["pl+javascript", "pl+ocaml"])
     .addLicenses(["license+mit"])
@@ -32,7 +33,6 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+cross", "plat+linux", "plat+mac", "plat+windows"])
     .addTags(["tag+app", "tag+compiler", "tag+framework", "tag+interpreter"])
     .addTypeSystems(["tsys+static", "tsys+strong"])
-    .addCompilesTo(["pl+javascript", "pl+ocaml"])
     .addWrittenIn(["pl+ocaml"]);
 
   // TOOLS

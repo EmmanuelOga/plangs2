@@ -50,7 +50,7 @@ function updatePlang(pl: NPlang, plGH: LinguistLang) {
   const plLG = LG_LANGS.lookup(plGH.name);
   if (plLG) {
     // Add partial LG data to the Plang node.
-    if (plLG.reddit) {
+    if (plLG.reddit && !pl.data.websites?.some(w => w.kind === "reddit")) {
       arrayMerge(
         (pl.data.websites ??= []),
         [

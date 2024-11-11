@@ -10,6 +10,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "Embarcadero Delphi", href: "https://www.embarcadero.com/products/delphi", kind: "homepage" },
         { title: "Delphi (software) - Wikipedia", href: "https://en.wikipedia.org/wiki/Delphi_(software)", kind: "wikipedia" },
+        { title: "Delphi on Reddit", kind: "reddit", href: "https://reddit.com/r/delphi" },
       ],
       extensions: [".pas", ".dpr"],
       year: 1995,
