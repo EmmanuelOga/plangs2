@@ -9,13 +9,16 @@ export function define(g: PlangsGraph) {
       keywords: ["pypy"],
       websites: [
         { title: "pypy.org", href: "https://pypy.org/", kind: "homepage" },
-        { title: "PyPy", href: "https://en.wikipedia.org/wiki/PyPy", kind: "wikipedia" },
+        { title: "PyPy on Reddit", kind: "reddit", href: "https://reddit.com/r/pypy" },
+        { title: "PyPy on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/PyPy" },
       ],
       extensions: [".py"],
       year: 2007,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "7.3.16", name: "PyPy 7.3.16", date: "2024-01-01" }],
+      github: { name: "Python", langId: "303", color: "#3572A5", popular: true, type: "programming" },
+      stackovTags: ["python"],
     })
     .addDialectOf(["pl+python"])
     .addImplements(["pl+python"])

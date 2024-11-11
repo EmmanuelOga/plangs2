@@ -63,7 +63,7 @@ function updatePlang(pl: NPlang, plGH: LinguistLang) {
         (l1, l2) => l1.href === l2.href,
       );
     }
-    if (plLG.wikipedia) {
+    if (plLG.wikipedia && !pl.data.websites?.some(w => w.kind === "wikipedia")) {
       arrayMerge(
         (pl.data.websites ??= []),
         [

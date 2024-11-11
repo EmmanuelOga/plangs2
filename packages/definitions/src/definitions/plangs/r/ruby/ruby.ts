@@ -11,6 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "Ruby", href: "https://www.ruby-lang.org/en/", kind: "homepage" },
         { title: "Ruby on Wikipedia", href: "https://en.wikipedia.org/wiki/Ruby_programming_language", kind: "wikipedia" },
         { title: "Ruby on Reddit", kind: "reddit", href: "https://reddit.com/r/ruby" },
+        { title: "Ruby on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Ruby_(programming_language)" },
       ],
       extensions: [".rb", ".ru"],
       year: 1995,

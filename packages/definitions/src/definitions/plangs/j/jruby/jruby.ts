@@ -9,8 +9,8 @@ export function define(g: PlangsGraph) {
       keywords: ["jruby"],
       websites: [
         { title: "JRuby Official Website", href: "https://www.jruby.org/", kind: "homepage" },
-        { title: "JRuby on Wikipedia", href: "https://en.wikipedia.org/wiki/JRuby", kind: "wikipedia" },
         { title: "JRuby on Reddit", kind: "reddit", href: "https://reddit.com/r/jruby" },
+        { title: "JRuby on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/JRuby_programming_language" },
       ],
       extensions: [".rb"],
       year: 2001,

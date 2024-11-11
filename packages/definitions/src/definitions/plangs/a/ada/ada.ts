@@ -11,8 +11,8 @@ export function define(g: PlangsGraph) {
       keywords: ["ada", "pascal", "object-oriented", "concurrency"],
       websites: [
         { title: "www.adaic.org", href: "https://www.adaic.org/", kind: "homepage" },
-        { title: "Ada on Wikipedia", href: "https://en.wikipedia.org/wiki/Ada_programming_language", kind: "wikipedia" },
         { title: "Ada on Reddit", kind: "reddit", href: "https://reddit.com/r/ada" },
+        { title: "Ada on Wikipedia", href: "https://en.wikipedia.org/wiki/Ada_programming_language", kind: "wikipedia" },
       ],
       isTranspiler: false,
       isMainstream: true,

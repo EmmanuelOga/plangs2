@@ -7,7 +7,10 @@ export function define(g: PlangsGraph) {
       description:
         'Lisp (historically LISP, an abbreviation of "list processing") is a family of programming languages with a long history and a distinctive, fully parenthesized prefix notation. Originally specified in the late 1950s, it is the second-oldest high-level programming language still in common use, after Fortran. Lisp has changed since its early days, and many dialects have existed over its history. Today, the best-known general-purpose Lisp dialects are Common Lisp, Scheme, Racket, and Clojure.',
       keywords: ["lisp"],
-      websites: [{ title: "Lisp", href: "https://en.wikipedia.org/wiki/Lisp_programming_language", kind: "wikipedia" }],
+      websites: [
+        { title: "Lisp on Wikipedia", href: "https://en.wikipedia.org/wiki/Lisp_programming_language", kind: "wikipedia" },
+        { title: "Lisp on Reddit", kind: "reddit", href: "https://reddit.com/r/Common_Lisp" },
+      ],
       extensions: [".lisp", ".lsp", ".cl", ".fasl"],
       year: 1960,
       isTranspiler: false,

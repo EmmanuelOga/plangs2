@@ -10,11 +10,14 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "clang.llvm.org", href: "https://clang.llvm.org/", kind: "homepage" },
         { title: "Clang", href: "https://en.wikipedia.org/wiki/Clang", kind: "wikipedia" },
+        { title: "Clang on Reddit", kind: "reddit", href: "https://reddit.com/r/clang" },
       ],
       year: 2007,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "18.1.8", name: "Clang 18.1.8", date: "2024-01-01" }],
+      github: { name: "SuperCollider", langId: "361", color: "#46390b", popular: false, type: "programming" },
+      stackovTags: ["supercollider"],
     })
     .addImplements(["pl+c", "pl+c++"])
     .addInfluencedBy(["pl+gcc", "pl+llvm"])

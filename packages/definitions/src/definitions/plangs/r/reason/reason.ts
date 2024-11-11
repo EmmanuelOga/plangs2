@@ -11,6 +11,11 @@ export function define(g: PlangsGraph) {
         { title: "Reason", href: "https://reasonml.github.io/", kind: "homepage" },
         { title: "Reason on Wikipedia", href: "https://en.wikipedia.org/wiki/Reason_(programming_language)", kind: "wikipedia" },
         { title: "Reason on Reddit", kind: "reddit", href: "https://reddit.com/r/reasonml" },
+        {
+          title: "Reason on Wikipedia",
+          kind: "wikipedia",
+          href: "https://en.wikipedia.org/wiki/Reason_(programming_language)|Reason_(syntax_extension_for_OCaml)",
+        },
       ],
       extensions: [".re", ".rei"],
       year: 2016,
@@ -27,6 +32,7 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+cross", "plat+linux", "plat+mac", "plat+windows"])
     .addTags(["tag+app", "tag+compiler", "tag+framework", "tag+interpreter"])
     .addTypeSystems(["tsys+static", "tsys+strong"])
+    .addCompilesTo(["pl+javascript", "pl+ocaml"])
     .addWrittenIn(["pl+ocaml"]);
 
   // TOOLS

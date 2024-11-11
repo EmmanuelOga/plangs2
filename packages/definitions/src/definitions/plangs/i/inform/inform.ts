@@ -9,11 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["inform", "interactive fiction"],
       websites: [
         { title: "Inform's GitHub Website", href: "https://ganelson.github.io/inform-website/", kind: "homepage" },
-        {
-          title: "Inform on Wikipedia",
-          href: "https://en.wikipedia.org/wiki/Inform_(programming_language)",
-          kind: "wikipedia",
-        },
+        { title: "Inform on Wikipedia", href: "https://en.wikipedia.org/wiki/Inform_programming_language", kind: "wikipedia" },
         { title: "Inform on Reddit", kind: "reddit", href: "https://reddit.com/r/Inform7" },
       ],
       extensions: [".inform", ".ni", ".z5", ".z8"],

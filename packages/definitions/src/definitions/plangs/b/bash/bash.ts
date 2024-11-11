@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["bash", "bourne-again", "shell", "command language", "gnu"],
       websites: [
         { title: "GNU Bash", href: "http://www.gnu.org/software/bash/", kind: "homepage" },
-        { title: "Bash (Unix Shell) - Wikipedia", href: "https://en.wikipedia.org/wiki/Bash_(Unix_shell)", kind: "wikipedia" },
+        { title: "Bash on Wikipedia", href: "https://en.wikipedia.org/wiki/Bash_(Unix_shell)", kind: "wikipedia" },
         { title: "Bash on Reddit", kind: "reddit", href: "https://reddit.com/r/bash" },
       ],
       extensions: [".sh", ".bash"],
@@ -18,6 +18,7 @@ export function define(g: PlangsGraph) {
       isMainstream: true,
       releases: [{ version: "5.2.32", name: "Bash 5.2.32", date: "2024-01-01" }],
       stackovTags: ["bash"],
+      github: { name: "Shell", langId: "346", color: "#89e051", popular: true, type: "programming" },
     })
     .addInfluencedBy(["pl+sh"])
     .addLicenses(["license+gnu-gpl"])

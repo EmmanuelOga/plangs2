@@ -15,6 +15,8 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2024.08", name: "Rakudo 2024.08", date: "2024-01-01" }],
+      github: { name: "Raku", langId: "283", color: "#0000fb", popular: false, type: "programming" },
+      stackovTags: ["raku"],
     })
     .addImplements(["pl+raku"])
     .addInfluencedBy(["pl+common-lisp", "pl+haskell", "pl+perl"])
