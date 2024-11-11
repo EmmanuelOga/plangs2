@@ -18,6 +18,7 @@ export function define(g: PlangsGraph) {
       isMainstream: false,
       releases: [{ version: "2.90.4", name: "Yabasic 2.90.4", date: "2023-01-01" }],
     })
+    .addImplements(["pl+basic"])
     .addInfluencedBy(["pl+basic"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+interpreted", "paradigm+procedural", "paradigm+scripting"])

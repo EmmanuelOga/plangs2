@@ -30,4 +30,18 @@ export async function loadAllDefinitions(g: PlangsGraph, options: { scanImages: 
       pl?.addImages([{ kind, title: pl.name, url: `/images/${path}` }]);
     }
   }
+
+  runInference(g);
+}
+
+/**
+ * We can derive / infer some data from the existing data.
+ * We may implement some sort of inference engine in the future,
+ * but for now we can just materialize some simple rules.
+ */
+function runInference(pg: PlangsGraph) {
+  for (const pl of pg.nodes.pl.values) {
+    // All languages implement themselves, so when we filter by "implements" we can include the language itself.
+    pl.addImplements([pl.key]);
+  }
 }

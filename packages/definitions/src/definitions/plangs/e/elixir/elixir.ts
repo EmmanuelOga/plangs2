@@ -23,7 +23,7 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+clojure", "pl+erlang", "pl+lisp", "pl+ruby"])
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+concurrent", "paradigm+distributed", "paradigm+functional", "paradigm+multi", "paradigm+process-oriented"])
-    .addPlatforms(["plat+erlang"])
+    .addPlatforms(["plat+beam"])
     .addTags(["tag+analysis", "tag+app", "tag+interpreter", "tag+shell"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 

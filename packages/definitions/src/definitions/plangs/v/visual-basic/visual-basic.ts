@@ -21,6 +21,7 @@ export function define(g: PlangsGraph) {
       github: { name: "Visual Basic .NET", langId: "389", color: "#945db7", popular: false, type: "programming" },
       stackovTags: ["vb.net"],
     })
+    .addImplements(["pl+basic"])
     .addInfluencedBy(["pl+basic", "pl+haskell", "pl+visual-basic"])
     .addLicenses(["license+apache"])
     .addParadigms([

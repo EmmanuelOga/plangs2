@@ -120,9 +120,9 @@ export function define(g: PlangsGraph) {
     websites: [wikipedia("https://en.wikipedia.org/wiki/Embedded_system", "Embedded Systems")],
   });
 
-  g.nodes.plat.set("plat+erlang", {
-    name: "Erlang",
-    keywords: ["erlang", "otp"],
+  g.nodes.plat.set("plat+beam", {
+    name: "Erlang BEAM",
+    keywords: ["erlang", "otp", "beam"],
     description:
       "Erlang Open Telecom Platform (OTP) is a collection of useful middleware, libraries, and tools written in the Erlang programming language.",
     websites: [
