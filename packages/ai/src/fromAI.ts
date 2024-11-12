@@ -1,27 +1,50 @@
-import { type NApp, NLibrary, NLicense, NParadigm, NPlang, NPlatform, NTag, NTool, NTsys, type PlangsGraph } from "@plangs/plangs";
+import {
+  type NApp,
+  type NLibrary,
+  type NLicense,
+  type NParadigm,
+  NPlang,
+  type NPlatform,
+  type NTag,
+  type NTool,
+  type NTsys,
+  type PlangsGraph,
+} from "@plangs/plangs";
 import type { NPlangAI } from "@plangs/plangs/schema";
 
 /** Given the results from OpenAI, construct a new NPlang node that can be used for code generation. */
-export function plangFromAI(pg: PlangsGraph, plKey: NPlang["key"], aiPL: NPlangAI): NPlang {
-  const pl = new NPlang(pg, plKey).merge(aiPL.data);
+export function plangFromAI(pg: PlangsGraph, pl: NPlang, aiPL: NPlangAI): NPlang {
+  // We need to merge these, since Node data merge is not deep.
+  const { extensions, filenames, images, releases, stackovTags } = pl.data;
 
-  pl.addApps(aiPL.apps.filter(k => k.startsWith("app+")) as NApp["key"][]);
+  // Merge the data from the original NPlang node, but overwrite with the data from OpenAI.
+  const newPl = new NPlang(pg, pl.key).merge({ ...pl.data, ...aiPL.data });
 
-  pl.addCompilesTo(aiPL.compilesTo.filter(k => k.startsWith(NPlang.kind)) as NPlang["key"][]);
-  pl.addCompilesTo(aiPL.dialectOf.filter(k => k.startsWith(NPlang.kind)) as NPlang["key"][]);
-  pl.addCompilesTo(aiPL.implements.filter(k => k.startsWith(NPlang.kind)) as NPlang["key"][]);
-  pl.addCompilesTo(aiPL.influencedBy.filter(k => k.startsWith(NPlang.kind)) as NPlang["key"][]);
-  pl.addCompilesTo(aiPL.influenced.filter(k => k.startsWith(NPlang.kind)) as NPlang["key"][]);
-  pl.addCompilesTo(aiPL.writtenIn.filter(k => k.startsWith(NPlang.kind)) as NPlang["key"][]);
+  // Re-add the original data that may have been lost in the merge.
+  // TODO: maybe override the merge method to avoid this.
+  newPl.addExtensions(extensions ?? []);
+  newPl.addFilenames(filenames ?? []);
+  newPl.addImages(images ?? []);
+  newPl.addReleases(releases ?? []);
+  newPl.addStackovTags(stackovTags ?? []);
 
-  pl.addLibs(aiPL.libraries.filter(k => k.startsWith(NLibrary.kind)) as NLibrary["key"][]);
-  pl.addLicenses(aiPL.licenses.filter(k => k.startsWith(NLicense.kind)) as NLicense["key"][]);
-  pl.addParadigms(aiPL.paradigms.filter(k => k.startsWith(NParadigm.kind)) as NParadigm["key"][]);
-  pl.addPlatforms(aiPL.platforms.filter(k => k.startsWith(NPlatform.kind)) as NPlatform["key"][]);
+  // Add the new data references from OpenAI.
+  const existingPl = (k: string) => pg.nodes.pl.has(k as NPlang["key"]);
+  newPl.addCompilesTo(aiPL.compilesTo.filter(existingPl) as NPlang["key"][]);
+  newPl.addCompilesTo(aiPL.dialectOf.filter(existingPl) as NPlang["key"][]);
+  newPl.addCompilesTo(aiPL.implements.filter(existingPl) as NPlang["key"][]);
+  newPl.addCompilesTo(aiPL.influenced.filter(existingPl) as NPlang["key"][]);
+  newPl.addCompilesTo(aiPL.influencedBy.filter(existingPl) as NPlang["key"][]);
+  newPl.addCompilesTo(aiPL.writtenIn.filter(existingPl) as NPlang["key"][]);
 
-  pl.addTags(aiPL.tags.filter(k => k.startsWith(NTag.kind)) as NTag["key"][]);
-  pl.addTools(aiPL.tools.filter(k => k.startsWith(NTool.kind)) as NTool["key"][]);
-  pl.addTypeSystems(aiPL.typeSystems.filter(k => k.startsWith(NTsys.kind)) as NTsys["key"][]);
+  newPl.addApps(aiPL.apps.filter(k => pg.nodes.app.has(k as NApp["key"])) as NApp["key"][]);
+  newPl.addLibs(aiPL.libraries.filter(k => pg.nodes.lib.has(k as NLibrary["key"])) as NLibrary["key"][]);
+  newPl.addLicenses(aiPL.licenses.filter(k => pg.nodes.license.has(k as NLicense["key"])) as NLicense["key"][]);
+  newPl.addParadigms(aiPL.paradigms.filter(k => pg.nodes.paradigm.has(k as NParadigm["key"])) as NParadigm["key"][]);
+  newPl.addPlatforms(aiPL.platforms.filter(k => pg.nodes.plat.has(k as NPlatform["key"])) as NPlatform["key"][]);
+  newPl.addTags(aiPL.tags.filter(k => pg.nodes.tag.has(k as NTag["key"])) as NTag["key"][]);
+  newPl.addTools(aiPL.tools.filter(k => pg.nodes.tool.has(k as NTool["key"])) as NTool["key"][]);
+  newPl.addTypeSystems(aiPL.typeSystems.filter(k => pg.nodes.tsys.has(k as NTsys["key"])) as NTsys["key"][]);
 
-  return pl;
+  return newPl;
 }

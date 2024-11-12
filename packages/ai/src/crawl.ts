@@ -53,7 +53,7 @@ export async function getDomContent(url: string): Promise<ReadabilityResult | un
 }
 
 /**
- * OpenAI doesn't scrape for use, so We'll scrape the websites and convert them to markdown.
+ * OpenAI doesn't scrape for use, so we'll scrape the websites and convert them to markdown.
  */
 export async function retrieveWebsites(links: IterTap<Link>): Promise<OpenAIMsg[]> {
   const result: OpenAIMsg[] = [];

@@ -71,7 +71,12 @@ export async function aiCompletion(pl: NPlang) {
   const openai = new OpenAI();
   const prompt = await plangPrompt(pl);
 
-  console.info("Requesting completion for", pl.name, "prompt size: ", prompt.map(m => m.content).join("").length);
+  const numTokens = prompt
+    .map(m => m.content)
+    .join("\n")
+    .split(/\s+/).length;
+
+  console.info("Requesting completion for", pl.name, "prompt size: ", numTokens, "tokens.");
 
   const completions = await openai.chat.completions.create({
     model: "gpt-4o",
@@ -93,17 +98,17 @@ export async function aiCompletion(pl: NPlang) {
   }
 
   const result = JSON.parse(completions.choices[0].message.content ?? "{}") as NPlangAI;
-  const newPl = plangFromAI(pg, pl.key, result);
+  const newPl = plangFromAI(pg, pl, result);
 
   const path = tspath(pl.plainKey);
   console.log("Writing result to", path);
-  const code = plangCodeGen(newPl);
-  Bun.write("result.ts", code);
+  Bun.write(path, plangCodeGen(newPl));
 }
 
 const pg = new PlangsGraph();
 await loadAllDefinitions(pg, { scanImages: false });
 
 const pl = pg.nodes.pl.get("pl+python") as NPlang;
-// console.log((await plangPrompt(pl)).map(m => m.content).join("\n".repeat(10)));
-console.log(await aiCompletion(pl));
+await aiCompletion(pl);
+
+console.warn("NOTE: remember that the generated code may need manual adjustments, sometimes MANY adjustments :-/.");

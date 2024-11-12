@@ -170,6 +170,11 @@ export class NPlang extends NBase<"pl", NPlangData> {
     return this;
   }
 
+  addFilenames(filenames: string[]): this {
+    arrayMerge((this.data.filenames ??= []), filenames);
+    return this;
+  }
+
   addImages(images: Image[]): this {
     arrayMerge((this.data.images ??= []), images, (i1, i2) => i1.url === i2.url);
     return this;
@@ -223,6 +228,11 @@ export class NPlang extends NBase<"pl", NPlangData> {
 
   addPosts(others: NPost["key"][]): this {
     for (const other of others) this.graph.edges.post.connect(this.key, other);
+    return this;
+  }
+
+  addStackovTags(stackovTags: string[]): this {
+    arrayMerge((this.data.stackovTags ??= []), stackovTags);
     return this;
   }
 
