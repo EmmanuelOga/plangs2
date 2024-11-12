@@ -38,7 +38,7 @@ export function FacetGroup<GroupKey extends string>({
           {...onClickOnEnter(() => {
             main.doResetGroup(groupKey);
           })}>
-          <div class="inline-flex flex-row">
+          <div class="inline-flex flex-row items-center">
             <span class={tw(hasValues && "group-hover:text-hiliteb")}>Reset</span>
             <span class={tw(hasValues && HOVER_SVG_GROUP, "scale-50")}>{DESELECT}</span>
           </div>
