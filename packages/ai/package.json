@@ -3,12 +3,21 @@
   "description": "Tools to import new data about programming languages",
   "version": "0.1.0",
   "dependencies": {
+    "@mozilla/readability": "^0.5.0",
     "@plangs/definitions": "workspace:*",
     "@plangs/frontend": "workspace:*",
     "@plangs/languist": "workspace:*",
     "@plangs/plangs": "workspace:*",
-    "openai": "^4.67.2"
+    "jsdom": "^25.0.1",
+    "openai": "^4.67.2",
+    "turndown": "^7.2.0"
   },
   "main": "src/index.ts",
-  "files": ["src"]
+  "files": [
+    "src"
+  ],
+  "devDependencies": {
+    "@types/jsdom": "^21.1.7",
+    "@types/turndown": "^5.0.5"
+  }
 }

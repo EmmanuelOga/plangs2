@@ -1,52 +1,85 @@
 import OpenAI from "openai";
-const openai = new OpenAI();
-
-import { mkdir } from "node:fs/promises";
-import { dirname } from "node:path";
+import type { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 
 import { loadAllDefinitions } from "@plangs/definitions";
 import { plangCodeGen, tspath } from "@plangs/languist/codegen";
-import { NPlang, PlangsGraph } from "@plangs/plangs";
-import type { NPlangAI } from "@plangs/plangs/schema";
+import { type NPlang, PlangsGraph } from "@plangs/plangs";
+import type { N, NPlangAI, NPlangData } from "@plangs/plangs/schema";
 import schema from "@plangs/plangs/schemas/PlAiResult.json";
+import { retrieveWebsites } from "./crawl";
+import { plangFromAI } from "./fromAI";
 
-import { example, existingData } from "./example";
+type OpenAIMsg = ChatCompletionMessageParam;
 
-const pg = new PlangsGraph();
-await loadAllDefinitions(pg, { scanImages: false });
+async function plangPrompt(pl: NPlang): Promise<OpenAIMsg[]> {
+  return [
+    { role: "system", content: "You are a programming languages expert." },
+    {
+      role: "user",
+      content: [
+        `Describe the "${pl.name}" programming language, which we give id key "${pl.key}".`,
+        "Use your own understanding of the language, if you know it, but prioritize the information provided by me.",
+        "I'll provide some data and an example of what a good result looks like.",
+      ].join("\n"),
+    },
+    {
+      role: "user",
+      content: `Example of a good result for language "${pl.name}", with key "${pl.key}", in JSON format:\n\n${JSON.stringify({
+        data: pl.data as NPlangData,
 
-export async function aiGenerate(pl: NPlang) {
-  // TODO: this is not gonna be as accurate as possible because the model won't crawl the page.
-  // So, we need to crawl the page/s here and then send the data to the model.
-  const prompt = [
-    `Describe the "${pl.name}" programming language, which we give key "${pl.key}" and has websites: ${pl.websites.map(({ href }) => href).join(", ")}.`,
-    "All possible fields must be filled, and any that cannot be should be left empty or explained.",
-    "Use the URLS provided and any other sources you may have to fill in the data.",
-    "",
-    "For fields that accept string keys, like licenses, paradigms, platforms, influences, etc., please use the keys from the following lists:",
-    JSON.stringify(existingData(pg), null, 2),
-    "For apps, tools and libraries, feel free to fill a URL instead of a key, if you can't find a matching key.",
-    "If you link images, ensure the width and height are at least 512px each, or skip it.",
-    "",
-    "Here's an example of proper output for a language like Python (key: pl+python):",
-    "",
-    JSON.stringify(example(pg.nodes.pl.get("pl+python") as NPlang), null, 2),
-    "",
-    "Here's the existing data for this language, that you will hopefully improve on. Please reuse the existing data unless it is wrong in some way:",
-    "",
-    JSON.stringify(example(pl), null, 2),
-  ].join("\n");
+        apps: pl.relApps.keys.existing,
+        compilesTo: pl.relCompilesTo.keys.existing,
+        dialectOf: pl.relDialectOf.keys.existing,
+        implements: pl.relImplements.keys.existing,
+        influenced: pl.relInfluenced.keys.existing,
+        influencedBy: pl.relInfluencedBy.keys.existing,
+        libraries: pl.relLibs.keys.existing,
+        licenses: pl.relLicenses.keys.existing,
+        paradigms: pl.relParadigms.keys.existing,
+        platforms: pl.relPlatforms.keys.existing,
+        tags: pl.relTags.keys.existing,
+        tools: pl.relTools.keys.existing,
+        typeSystems: pl.relTsys.keys.existing,
+        writtenIn: pl.relWrittenIn.keys.existing,
+      })}`,
+    },
+    {
+      role: "user",
+      content: (() => {
+        const describeField = (keys: (keyof NPlangAI)[], node: N) =>
+          `For fields: ${JSON.stringify(keys).slice(1, -1)}, use keys: ${pg.nodes[node].values.map(n => `${n.key} (for ${n.name})`).join(", ")}.`;
 
-  const completion = await openai.chat.completions.create({
+        return [
+          "The following is a list of keys you can use to fill each field.",
+          describeField(["apps"], "app"),
+          describeField(["compilesTo", "dialectOf", "implements", "influencedBy", "influenced", "writtenIn"], "pl"),
+          describeField(["libraries"], "lib"),
+          describeField(["licenses"], "license"),
+          describeField(["paradigms"], "paradigm"),
+          describeField(["platforms"], "plat"),
+          describeField(["tags"], "tag"),
+          describeField(["tools"], "tool"),
+          describeField(["typeSystems"], "tsys"),
+        ].join("\n");
+      })(),
+    },
+    ...(await retrieveWebsites(pl.websites)),
+  ];
+}
+
+export async function aiCompletion(pl: NPlang) {
+  const openai = new OpenAI();
+  const prompt = await plangPrompt(pl);
+
+  console.info("Requesting completion for", pl.name, "prompt size: ", prompt.map(m => m.content).join("").length);
+
+  const completions = await openai.chat.completions.create({
     model: "gpt-4o",
-    messages: [
-      { role: "system", content: "You are a programming languages expert." },
-      { role: "user", content: prompt },
-    ],
+    messages: prompt,
     response_format: {
       type: "json_schema",
       json_schema: {
-        name: "PlAiResult",
+        name: "NPlangAI",
         description: "https://plangs.page programming language data",
         schema: schema,
         strict: true,
@@ -54,44 +87,23 @@ export async function aiGenerate(pl: NPlang) {
     },
   });
 
-  const result = JSON.parse(completion.choices[0].message.content ?? "{}") as NPlangAI;
+  if (!Array.isArray(completions.choices) || completions.choices.length === 0) {
+    console.error("OpenAI didn't return any completions.");
+    return;
+  }
 
-  const newPl = new NPlang(pg, pl.key); // TODO: convert the result to a new NPlang.
+  const result = JSON.parse(completions.choices[0].message.content ?? "{}") as NPlangAI;
+  const newPl = plangFromAI(pg, pl.key, result);
 
+  const path = tspath(pl.plainKey);
+  console.log("Writing result to", path);
   const code = plangCodeGen(newPl);
-
-  await mkdir(dirname(tspath(pl.plainKey)), { recursive: true }).catch(() => {});
-
-  // console.log("Writing result to", path); Bun.write(path, code);
+  Bun.write("result.ts", code);
 }
 
-const GENERATE_SAMPLE = [{ name: "Python", key: "pl+python", websites: ["https://python.org"] }] as const;
+const pg = new PlangsGraph();
+await loadAllDefinitions(pg, { scanImages: false });
 
-if (process.argv[2] === "improve-all") {
-  console.log("Re-generating all definitions... this may take a while.");
-  let count = pg.nodes.pl.size;
-  for (const pl of pg.nodes.pl.values) {
-    console.log("Prompting node #", count--, pl.key, pl.name, pl.websites.existing);
-    await aiGenerate(pl);
-  }
-} else if (process.argv[2] === "generate") {
-  try {
-    const data = JSON.parse(await Bun.file(process.argv[3]).text()) as {
-      name: string;
-      key: NPlang["key"];
-      websites: string[];
-    }[];
-
-    for (const plData of data) {
-      const pl = pg.nodes.pl.set(plData.key, { name: plData.name, websites: plData.websites.map(href => ({ href, title: plData.name })) });
-      await aiGenerate(pl);
-    }
-  } catch (e) {
-    console.log(`Error parsing (${e}). Data should look lilke this:\n\n${JSON.stringify(GENERATE_SAMPLE)}`);
-  }
-} else {
-  console.log(
-    "Usage: cmd improve-all - WARNING: will call openai to regenerate all definitions! This can be done every now and then to attempt to find more data.",
-  );
-  console.log(`Usage: cmd generate input.json - Requires a JSON array of objects, example: ${JSON.stringify(GENERATE_SAMPLE)}`);
-}
+const pl = pg.nodes.pl.get("pl+python") as NPlang;
+// console.log((await plangPrompt(pl)).map(m => m.content).join("\n".repeat(10)));
+console.log(await aiCompletion(pl));

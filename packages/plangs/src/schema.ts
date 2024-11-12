@@ -109,7 +109,7 @@ export interface Link {
   /** Can be a complete URL including protocol (http/https) or a relative link if it links to https://plangs.page. */
   href: string;
   /** A link kind helps us quickly find the kind of link we are looking for. */
-  kind?: "homepage" | "repository" | "releases" | "apidocs" | "wikipedia" | "plangs" | "reddit" | "other";
+  kind?: "apidocs" | "faq" | "homepage" | "other" | "plangs" | "reddit" | "releases" | "repository" | "wikipedia";
 }
 
 /**

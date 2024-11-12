@@ -15,16 +15,17 @@ export function tspath(plainKey: string, kind = "plangs"): string {
 /** Generate code that can reconstruct the state of a NPlang node. */
 export function plangCodeGen(plang: NPlang): string {
   // biome-ignore lint/suspicious/noExplicitAny: We don't care about the type of the Edge.
-  function addRelKeys(out: string[], methodName: string, rel: MapTap<string, any>) {
+  function addRelKeys(out: string[], methodName: string, rel: MapTap<string, any>, accept: (key: string) => boolean = () => true) {
     if (rel.size === 0) return;
-    out.push(`\n    .${methodName}(${JSON.stringify(rel.keys.sort())})`);
+    const keys = rel.keys.filter(accept).sort();
+    if (keys.length > 0) out.push(`\n    .${methodName}(${JSON.stringify(keys)})`);
   }
 
   // The order of calls determines order in generated code.
   const plRels: string[] = [];
   addRelKeys(plRels, "addCompilesTo", plang.relCompilesTo);
   addRelKeys(plRels, "addDialectOf", plang.relDialectOf);
-  addRelKeys(plRels, "addImplements", plang.relImplements);
+  addRelKeys(plRels, "addImplements", plang.relImplements, (key: string) => key !== plang.key);
   addRelKeys(plRels, "addInfluencedBy", plang.relInfluencedBy);
   addRelKeys(plRels, "addLicenses", plang.relLicenses);
   addRelKeys(plRels, "addParadigms", plang.relParadigms);
