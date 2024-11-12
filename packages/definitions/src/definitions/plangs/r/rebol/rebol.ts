@@ -22,6 +22,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "Rebol", langId: "319", color: "#358a5b", popular: false, type: "programming" },
       stackovTags: ["rebol"],
+      githubName: "Rebol",
+      languishRanking: 295,
     })
     .addInfluencedBy(["pl+forth", "pl+lisp", "pl+self"])
     .addLicenses(["license+apache"])

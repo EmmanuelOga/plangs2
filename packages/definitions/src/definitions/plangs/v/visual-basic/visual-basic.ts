@@ -20,6 +20,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "17.9.2", name: "Visual Basic 17.9.2", date: "2024-01-01" }],
       github: { name: "Visual Basic .NET", langId: "389", color: "#945db7", popular: false, type: "programming" },
       stackovTags: ["vb.net"],
+      githubName: "Visual Basic .NET",
+      languishRanking: 69,
     })
     .addImplements(["pl+basic"])
     .addInfluencedBy(["pl+basic", "pl+haskell", "pl+visual-basic"])

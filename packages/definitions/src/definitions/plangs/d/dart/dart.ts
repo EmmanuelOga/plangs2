@@ -23,6 +23,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "Dart", langId: "87", color: "#00B4AB", popular: true, type: "programming" },
       stackovTags: ["dart"],
+      githubName: "Dart",
+      languishRanking: 16,
     })
     .addCompilesTo(["pl+javascript"])
     .addInfluencedBy(["pl+c", "pl+c++", "pl+c-sharp", "pl+erlang", "pl+javascript", "pl+ruby", "pl+typescript"])

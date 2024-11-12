@@ -18,6 +18,8 @@ export function define(g: PlangsGraph) {
       isMainstream: true,
       github: { name: "Common Lisp", langId: "66", color: "#3fb68b", popular: false, type: "programming" },
       stackovTags: ["common-lisp"],
+      githubName: "Common Lisp",
+      languishRanking: 51,
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+lisp", "pl+r5rs", "pl+scheme"])

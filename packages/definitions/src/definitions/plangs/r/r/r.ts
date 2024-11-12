@@ -22,6 +22,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "R", langId: "307", color: "#198CE7", popular: false, type: "programming" },
       stackovTags: ["r"],
+      githubName: "R",
+      languishRanking: 24,
     })
     .addInfluencedBy(["pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+s", "pl+scheme", "pl+xlispstat"])
     .addLicenses(["license+gnu-gpl"])

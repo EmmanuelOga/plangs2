@@ -18,6 +18,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.10.1", name: "", date: "2023-01-01" }],
       github: { name: "FreeBasic", langId: "472896659", color: "#141AC9", popular: false, type: "programming" },
       stackovTags: ["freebasic"],
+      githubName: "FreeBasic",
+      languishRanking: 231,
     })
     .addImplements(["pl+basic"])
     .addInfluencedBy(["pl+c", "pl+quickbasic"])

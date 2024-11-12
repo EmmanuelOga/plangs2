@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.23.0", name: "", date: "2024-01-01" }],
       github: { name: "Go", langId: "132", color: "#00ADD8", popular: true, type: "programming" },
       stackovTags: ["go"],
+      githubName: "Go",
+      languishRanking: 5,
     })
     .addInfluencedBy(["pl+apl", "pl+c", "pl+d", "pl+erlang", "pl+modula", "pl+oberon", "pl+pascal", "pl+python"])
     .addLicenses(["license+bsd"])

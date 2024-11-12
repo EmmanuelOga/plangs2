@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.1", name: "Xojo 3.1", date: "2023-01-01" }],
       github: { name: "Xojo", langId: "405", color: "#81bd41", popular: false, type: "programming" },
       stackovTags: ["xojo", "realbasic"],
+      githubName: "Xojo",
+      languishRanking: 367,
     })
     .addInfluencedBy(["pl+basic", "pl+visual-basic"])
     .addLicenses(["license+proprietary"])

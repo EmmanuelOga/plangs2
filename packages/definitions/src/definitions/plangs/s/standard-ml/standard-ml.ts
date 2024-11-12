@@ -18,6 +18,8 @@ export function define(g: PlangsGraph) {
       isMainstream: false,
       github: { name: "Standard ML", langId: "357", color: "#dc566d", popular: false, type: "programming" },
       stackovTags: ["sml"],
+      githubName: "Standard ML",
+      languishRanking: 146,
     })
     .addDialectOf(["pl+ml"])
     .addInfluencedBy(["pl+ml", "pl+pascal"])

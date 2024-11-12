@@ -23,6 +23,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "Tcl", langId: "367", color: "#e4cc98", popular: false, type: "programming" },
       stackovTags: ["tcl"],
+      githubName: "Tcl",
+      languishRanking: 111,
     })
     .addInfluencedBy(["pl+awk", "pl+lisp"])
     .addLicenses(["license+bsd"])

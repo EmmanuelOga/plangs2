@@ -20,6 +20,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.56", name: "Vala 0.56", date: "2023-03-22" }],
       github: { name: "Vala", langId: "386", color: "#a56de2", popular: false, type: "programming" },
       stackovTags: ["vala"],
+      githubName: "Vala",
+      languishRanking: 82,
     })
     .addInfluencedBy(["pl+boo", "pl+c", "pl+c-sharp", "pl+d"])
     .addLicenses(["license+lgpl"])

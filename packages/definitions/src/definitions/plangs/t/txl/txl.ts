@@ -16,6 +16,7 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       github: { name: "TXL", langId: "366", color: "#0178b8", popular: false, type: "programming" },
+      githubName: "TXL",
     })
     .addParadigms(["paradigm+dsl", "paradigm+language-oriented", "paradigm+pattern-matching", "paradigm+rewriting"])
     .addPlatforms(["plat+cross"])

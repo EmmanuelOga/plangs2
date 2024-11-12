@@ -23,6 +23,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "Swift", langId: "362", color: "#F05138", popular: true, type: "programming" },
       stackovTags: ["swift"],
+      githubName: "Swift",
+      languishRanking: 17,
     })
     .addInfluencedBy(["pl+c", "pl+c-sharp", "pl+clu", "pl+d", "pl+haskell", "pl+lisp", "pl+python", "pl+ruby", "pl+rust"])
     .addLicenses(["license+apache"])

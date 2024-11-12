@@ -17,6 +17,8 @@ export function define(g: PlangsGraph) {
       isMainstream: true,
       github: { name: "MoonScript", langId: "238", color: "#ff4585", popular: false, type: "programming" },
       stackovTags: ["moonscript"],
+      githubName: "MoonScript",
+      languishRanking: 290,
     })
     .addCompilesTo(["pl+lua"])
     .addInfluencedBy(["pl+c++", "pl+clu", "pl+coffeescript", "pl+modula", "pl+scheme"])

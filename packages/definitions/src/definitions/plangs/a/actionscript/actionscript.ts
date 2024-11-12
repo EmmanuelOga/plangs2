@@ -23,6 +23,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "ActionScript", langId: "10", color: "#882B0F", popular: false, type: "programming" },
       stackovTags: ["actionscript", "actionscript-2", "actionscript-3"],
+      githubName: "ActionScript",
+      languishRanking: 204,
     })
     .addImplements(["pl+ecmascript"])
     .addInfluencedBy(["pl+ecmascript", "pl+javascript"])

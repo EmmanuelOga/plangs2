@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.11.2", name: "Clojure 1.11.2", date: "2024-01-01" }],
       github: { name: "Clojure", langId: "62", color: "#db5855", popular: false, type: "programming" },
       stackovTags: ["clojure"],
+      githubName: "Clojure",
+      languishRanking: 34,
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy([

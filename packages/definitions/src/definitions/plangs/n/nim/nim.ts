@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2.0.8", name: "Nim 2.0.8", date: "2024-01-01" }],
       github: { name: "Nim", langId: "249", color: "#ffc200", popular: false, type: "programming" },
       stackovTags: ["nim-lang"],
+      githubName: "Nim",
+      languishRanking: 72,
     })
     .addInfluencedBy(["pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+oberon", "pl+python", "pl+rust"])
     .addLicenses(["license+mit"])

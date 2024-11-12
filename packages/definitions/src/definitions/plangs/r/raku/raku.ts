@@ -23,6 +23,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "Raku", langId: "283", color: "#0000fb", popular: false, type: "programming" },
       stackovTags: ["raku"],
+      githubName: "Raku",
+      languishRanking: 216,
     })
     .addDialectOf(["pl+perl"])
     .addInfluencedBy(["pl+haskell", "pl+javascript", "pl+perl", "pl+ruby"])

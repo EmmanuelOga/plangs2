@@ -23,6 +23,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "Java", langId: "181", color: "#b07219", popular: true, type: "programming" },
       stackovTags: ["java"],
+      githubName: "Java",
+      languishRanking: 4,
     })
     .addInfluencedBy(["pl+c++"])
     .addLicenses(["license+gpl"])

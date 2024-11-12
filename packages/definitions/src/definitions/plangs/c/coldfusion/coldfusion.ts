@@ -20,6 +20,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2023", name: "Adobe ColdFusion 2023", date: "2023-05-01" }],
       github: { name: "ColdFusion", langId: "64", color: "#ed2cd6", popular: false, type: "programming" },
       stackovTags: ["coldfusion"],
+      githubName: "ColdFusion",
+      languishRanking: 148,
     })
     .addParadigms(["paradigm+event-driven", "paradigm+multi", "paradigm+procedural", "paradigm+scripting"])
     .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])

@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "29.4", name: "Emacs Lisp 29.4", date: "2024-01-01" }],
       github: { name: "Emacs Lisp", langId: "102", color: "#c065db", popular: false, type: "programming" },
       stackovTags: ["elisp"],
+      githubName: "Emacs Lisp",
+      languishRanking: 48,
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+common-lisp"])

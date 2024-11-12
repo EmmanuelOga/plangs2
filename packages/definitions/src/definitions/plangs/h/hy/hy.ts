@@ -23,6 +23,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "Hy", langId: "159", color: "#7790B2", popular: false, type: "programming" },
       stackovTags: ["hy"],
+      githubName: "Hy",
+      languishRanking: 357,
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+clojure", "pl+common-lisp", "pl+python"])

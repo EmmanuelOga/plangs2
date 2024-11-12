@@ -15,6 +15,8 @@ export function define(g: PlangsGraph) {
       year: 2020,
       releases: [{ version: "1.17.0", name: "Janet 1.17.0", date: "2023-06-15" }],
       github: { name: "Janet", langId: "1028705371", color: "#0886a5", popular: false, type: "programming" },
+      githubName: "Janet",
+      languishRanking: 313,
     })
     .addInfluencedBy(["pl+lisps", "pl+scheme"])
     .addLicenses(["license+mit"])

@@ -18,6 +18,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.0", name: "Initial Release", date: "1977-01-01" }],
       github: { name: "Awk", langId: "28", color: "#c30e9b", popular: false, type: "programming" },
       stackovTags: ["awk"],
+      githubName: "Awk",
+      languishRanking: 135,
     })
     .addInfluencedBy(["pl+c", "pl+sed"])
     .addLicenses(["license+bsd"])

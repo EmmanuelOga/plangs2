@@ -20,6 +20,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "14.1.0", name: "Wolfram Language 14.1.0", date: "2024-01-01" }],
       github: { name: "Mathematica", langId: "224", color: "#dd1100", popular: false, type: "programming" },
       stackovTags: ["wolfram-mathematica"],
+      githubName: "Mathematica",
+      languishRanking: 118,
     })
     .addInfluencedBy(["pl+apl", "pl+c", "pl+c++", "pl+fortran", "pl+lisp", "pl+pascal", "pl+prolog", "pl+simula"])
     .addParadigms(["paradigm+array", "paradigm+functional", "paradigm+multi", "paradigm+procedural", "paradigm+rewriting"])

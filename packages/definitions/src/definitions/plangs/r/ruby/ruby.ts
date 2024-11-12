@@ -20,6 +20,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.3.5", name: "Ruby 3.3.5", date: "2024-01-01" }],
       github: { name: "Ruby", langId: "326", color: "#701516", popular: true, type: "programming" },
       stackovTags: ["ruby"],
+      githubName: "Ruby",
+      languishRanking: 21,
     })
     .addInfluencedBy([
       "pl+ada",

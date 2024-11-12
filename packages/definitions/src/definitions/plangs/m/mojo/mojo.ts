@@ -16,6 +16,8 @@ export function define(g: PlangsGraph) {
       year: 2023,
       github: { name: "Mojo", langId: "1045019587", color: "#ff4c1f", popular: false, type: "programming" },
       stackovTags: ["mojolang"],
+      githubName: "Mojo",
+      languishRanking: 160,
     })
     .addInfluencedBy(["pl+python"])
     .addLicenses(["license+apache"])

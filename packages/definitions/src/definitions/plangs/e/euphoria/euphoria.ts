@@ -17,6 +17,8 @@ export function define(g: PlangsGraph) {
       isMainstream: false,
       releases: [{ version: "4.1.0", name: "openEuphoria 4.1.0", date: "2021-01-01" }],
       github: { name: "Euphoria", langId: "880693982", color: "#FF790B", popular: false, type: "programming" },
+      githubName: "Euphoria",
+      languishRanking: 387,
     })
     .addInfluencedBy(["pl+basic"])
     .addLicenses(["license+bsd"])

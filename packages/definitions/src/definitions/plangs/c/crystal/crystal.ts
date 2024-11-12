@@ -22,6 +22,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "Crystal", langId: "72", color: "#000100", popular: false, type: "programming" },
       stackovTags: ["crystal-lang"],
+      githubName: "Crystal",
+      languishRanking: 94,
     })
     .addInfluencedBy(["pl+c", "pl+c-sharp", "pl+go", "pl+python", "pl+ruby", "pl+rust"])
     .addLicenses(["license+apache"])

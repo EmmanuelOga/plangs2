@@ -22,6 +22,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "Futhark", langId: "97358117", color: "#5f021f", popular: false, type: "programming" },
       stackovTags: ["futhark"],
+      githubName: "Futhark",
+      languishRanking: 345,
     })
     .addDialectOf(["pl+ml"])
     .addInfluencedBy(["pl+apl", "pl+haskell", "pl+standard-ml"])

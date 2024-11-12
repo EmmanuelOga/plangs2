@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "4.3", name: "Processing 4.3", date: "2023-01-01" }],
       github: { name: "Processing", langId: "294", color: "#0096D8", popular: false, type: "programming" },
       stackovTags: ["processing"],
+      githubName: "Processing",
+      languishRanking: 150,
     })
     .addInfluencedBy(["pl+c", "pl+java"])
     .addLicenses(["license+gnu-gpl", "license+lgpl"])

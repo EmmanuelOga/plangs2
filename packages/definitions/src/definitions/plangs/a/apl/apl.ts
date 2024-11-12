@@ -22,6 +22,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "APL", langId: "6", color: "#5A8164", popular: false, type: "programming" },
       stackovTags: ["apl"],
+      githubName: "APL",
+      languishRanking: 271,
     })
     .addLicenses(["license+proprietary"])
     .addParadigms(["paradigm+array", "paradigm+functional", "paradigm+modular", "paradigm+structured"])

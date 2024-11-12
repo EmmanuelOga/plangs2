@@ -17,6 +17,8 @@ export function define(g: PlangsGraph) {
       isMainstream: true,
       github: { name: "SQL", langId: "333", color: "#e38c00", popular: false, type: "data" },
       stackovTags: ["sql"],
+      githubName: "SQL",
+      languishRanking: 65,
     })
     .addInfluencedBy(["pl+datalog"])
     .addParadigms(["paradigm+data-driven", "paradigm+declarative", "paradigm+dsl"])

@@ -20,6 +20,7 @@ export function define(g: PlangsGraph) {
         { version: "v2.0.0", name: "Imba 2.0.0", date: "2022-10-12" },
       ],
       github: { name: "Imba", langId: "1057618448", color: "#16cec6", popular: false, type: "programming" },
+      githubName: "Imba",
     })
     .addInfluencedBy(["pl+coffeescript"])
     .addLicenses(["license+mit"])

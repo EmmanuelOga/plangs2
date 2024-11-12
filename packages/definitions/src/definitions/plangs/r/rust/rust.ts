@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.80.1", name: "Rust 1.80.1", date: "2024-01-01" }],
       github: { name: "Rust", langId: "327", color: "#dea584", popular: true, type: "programming" },
       stackovTags: ["rust"],
+      githubName: "Rust",
+      languishRanking: 7,
     })
     .addInfluencedBy([
       "pl+c",

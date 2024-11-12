@@ -21,6 +21,8 @@ export function define(g: PlangsGraph) {
         { version: "0.8.0", name: "Fennel 0.8.0", date: "2022-12-15" },
       ],
       github: { name: "Fennel", langId: "239946126", color: "#fff3d7", popular: false, type: "programming" },
+      githubName: "Fennel",
+      languishRanking: 159,
     })
     .addCompilesTo(["pl+lua"])
     .addInfluencedBy(["pl+lua", "pl+scheme"])

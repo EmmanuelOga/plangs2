@@ -1,19 +1,22 @@
+import { arrayMerge } from "@plangs/auxiliar/array";
 import { loadAllDefinitions } from "@plangs/definitions";
 import { plangCodeGen, tspath } from "@plangs/languist/codegen";
+import { LG_LANGS } from "@plangs/languist/languish";
+import { GH_LANGS } from "@plangs/languist/linguist";
+import type { LinguistLang } from "@plangs/languist/types";
 import { type NPlang, PlangsGraph } from "@plangs/plangs";
 
-import { arrayMerge } from "@plangs/auxiliar/array";
-import { GH_LANGS, LG_LANGS } from "@plangs/languist";
-import type { LinguistLang } from "@plangs/languist/types";
-
+// Load all Plangs! definitions.
 const pg = new PlangsGraph();
 await loadAllDefinitions(pg, { scanImages: false });
 
-console.log(GH_LANGS.all.length, "languages in GHLangs");
-console.log(LG_LANGS.all.length, "languages in LGLangs");
-console.log(pg.nodes.pl.size, "languages in Plangs");
-
+// Load all Languish data.
 const GH_MAP = GH_LANGS.lookupMap();
+
+// Use Languish data to get the rankings for the languages.
+// We use the 2024Q3 data, as it's the most recent one.
+// This should be updated every quarter.
+const RANKINGS: Map<string, number> = LG_LANGS.rankingsMap("2024Q3");
 
 /** Find the best match from all GH langs to the given NPlang. */
 function ghBestMatch(pl: NPlang): LinguistLang | undefined {
@@ -36,8 +39,8 @@ function ghBestMatch(pl: NPlang): LinguistLang | undefined {
 
   // We want to find the best match, for the language itself first, or any of its family.
   // NOTE: using the family can lead to many false matches.
-  for (const cand of [pl /*, ...pl.family() */]) {
-    const ghPl = find(cand.name);
+  for (const candidate of [pl /*, ...pl.family() */]) {
+    const ghPl = find(candidate.name);
     if (ghPl) return ghPl;
   }
 }
@@ -46,37 +49,30 @@ function ghBestMatch(pl: NPlang): LinguistLang | undefined {
 function updatePlang(pl: NPlang, plGH: LinguistLang) {
   // Add partial GH data to the Plang node.
   const { name, groupName, langId, color, popular, type } = plGH;
+
   pl.data.github = { name, groupName, langId, color, popular, type };
-  const plLG = LG_LANGS.lookup(plGH.name);
+  pl.data.githubName = name;
+  pl.data.languishRanking = RANKINGS.get(name);
+
+  const plLG = LG_LANGS.keysByName.get(name);
+
   if (plLG) {
     // Add partial LG data to the Plang node.
-    if (plLG.reddit && !pl.data.websites?.some(w => w.kind === "reddit")) {
+    if (plLG[2] && !pl.data.websites?.some(w => w.kind === "reddit")) {
       arrayMerge(
         (pl.data.websites ??= []),
-        [
-          {
-            title: `${pl.name} on Reddit`,
-            kind: "reddit",
-            href: `https://reddit.com/r/${plLG.reddit}`,
-          },
-        ],
+        [{ kind: "reddit", title: `${pl.name} on Reddit`, href: `https://reddit.com/r/${plLG[2]}` }],
         (l1, l2) => l1.href === l2.href,
       );
     }
-    if (plLG.wikipedia && !pl.data.websites?.some(w => w.kind === "wikipedia")) {
+    if (plLG[1] && !pl.data.websites?.some(w => w.kind === "wikipedia")) {
       arrayMerge(
         (pl.data.websites ??= []),
-        [
-          {
-            title: `${pl.name} on Wikipedia`,
-            kind: "wikipedia",
-            href: `https://en.wikipedia.org/wiki/${plLG.wikipedia}`,
-          },
-        ],
+        [{ kind: "wikipedia", title: `${pl.name} on Wikipedia`, href: `https://en.wikipedia.org/wiki/${plLG[1]}` }],
         (l1, l2) => l1.href === l2.href,
       );
     }
-    if (plLG.stackoverflow) arrayMerge((pl.data.stackovTags ??= []), plLG.stackoverflow);
+    if (plLG[3]) arrayMerge((pl.data.stackovTags ??= []), plLG[3].split("|"));
   }
 }
 

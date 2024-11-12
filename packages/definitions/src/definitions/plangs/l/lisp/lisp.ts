@@ -15,6 +15,10 @@ export function define(g: PlangsGraph) {
       year: 1960,
       isTranspiler: false,
       isMainstream: true,
+      github: { name: "Common Lisp", langId: "66", color: "#3fb68b", popular: false, type: "programming" },
+      githubName: "Common Lisp",
+      languishRanking: 51,
+      stackovTags: ["common-lisp"],
     })
     .addLicenses(["license+gnu-gpl", "license+lgpl", "license+mit"])
     .addParadigms(["paradigm+functional", "paradigm+metaprogramming", "paradigm+multi", "paradigm+procedural", "paradigm+reflective"])

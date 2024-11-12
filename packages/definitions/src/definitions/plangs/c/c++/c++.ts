@@ -25,6 +25,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "C++", langId: "43", color: "#f34b7d", popular: true, type: "programming" },
       stackovTags: ["c++"],
+      githubName: "C++",
+      languishRanking: 6,
     })
     .addDialectOf(["pl+c"])
     .addInfluencedBy(["pl+ada", "pl+apl", "pl+c", "pl+clu", "pl+f-sharp", "pl+ml", "pl+simula"])

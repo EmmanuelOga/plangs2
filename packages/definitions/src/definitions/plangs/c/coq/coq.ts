@@ -22,6 +22,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "Coq", langId: "69", color: "#d0b68c", popular: false, type: "programming" },
       stackovTags: ["coq"],
+      githubName: "Coq",
+      languishRanking: 132,
     })
     .addInfluencedBy(["pl+ml", "pl+ocaml"])
     .addLicenses(["license+lgpl"])

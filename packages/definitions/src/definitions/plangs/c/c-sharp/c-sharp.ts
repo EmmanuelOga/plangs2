@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "12.0", name: "C# 12", date: "2023-01-01" }],
       github: { name: "C#", langId: "42", color: "#178600", popular: true, type: "programming" },
       stackovTags: ["c#"],
+      githubName: "C#",
+      languishRanking: 9,
     })
     .addDialectOf(["pl+c"])
     .addInfluencedBy([

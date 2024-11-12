@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2019.05.22", name: "Io 2019.05.22", date: "2019-05-22" }],
       github: { name: "Io", langId: "168", color: "#a9188d", popular: false, type: "programming" },
       stackovTags: ["iolanguage"],
+      githubName: "Io",
+      languishRanking: 248,
     })
     .addInfluencedBy(["pl+lisp", "pl+lua", "pl+self", "pl+smalltalk"])
     .addLicenses(["license+bsd"])

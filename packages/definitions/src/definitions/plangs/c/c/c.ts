@@ -23,6 +23,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "C", langId: "41", color: "#555555", popular: true, type: "programming" },
       stackovTags: ["c"],
+      githubName: "C",
+      languishRanking: 8,
     })
     .addInfluencedBy(["pl+algol", "pl+fortran"])
     .addLicenses(["license+bsd"])

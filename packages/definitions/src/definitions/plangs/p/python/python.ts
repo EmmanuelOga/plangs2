@@ -23,6 +23,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "Python", langId: "303", color: "#3572A5", popular: true, type: "programming" },
       stackovTags: ["python"],
+      githubName: "Python",
+      languishRanking: 1,
     })
     .addInfluencedBy([
       "pl+abc",

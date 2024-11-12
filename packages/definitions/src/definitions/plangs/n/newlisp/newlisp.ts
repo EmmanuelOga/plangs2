@@ -21,6 +21,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "NewLisp", langId: "247", color: "#87AED7", popular: false, type: "programming" },
       stackovTags: ["newlisp"],
+      githubName: "NewLisp",
+      languishRanking: 309,
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+c", "pl+common-lisp", "pl+perl", "pl+scheme"])

@@ -17,6 +17,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2017.1", date: "2017-01-01" }],
       github: { name: "Self", langId: "345", color: "#0579aa", popular: false, type: "programming" },
       stackovTags: ["self"],
+      githubName: "Self",
+      languishRanking: 343,
     })
     .addInfluencedBy(["pl+apl"])
     .addLicenses(["license+bsd"])

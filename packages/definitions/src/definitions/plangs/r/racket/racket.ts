@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "8.14", name: "Racket 8.14", date: "2024-01-01" }],
       github: { name: "Racket", langId: "316", color: "#3c5caa", popular: false, type: "programming" },
       stackovTags: ["racket"],
+      githubName: "Racket",
+      languishRanking: 152,
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+eiffel", "pl+r5rs", "pl+scheme"])

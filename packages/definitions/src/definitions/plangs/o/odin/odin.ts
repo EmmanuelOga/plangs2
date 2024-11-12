@@ -17,6 +17,8 @@ export function define(g: PlangsGraph) {
       isMainstream: true,
       releases: [{ version: "0.13.0", name: "Odin 0.13.0", date: "2023-08-21" }],
       github: { name: "Odin", langId: "889244082", color: "#60AFFE", popular: false, type: "programming" },
+      githubName: "Odin",
+      languishRanking: 105,
     })
     .addInfluencedBy(["pl+c"])
     .addLicenses(["license+mit"])

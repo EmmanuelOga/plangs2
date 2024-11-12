@@ -17,6 +17,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2022.1", name: "", date: "2022-01-01" }],
       github: { name: "Dylan", langId: "91", color: "#6c616e", popular: false, type: "programming" },
       stackovTags: ["dylan"],
+      githubName: "Dylan",
     })
     .addInfluencedBy(["pl+algol", "pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme"])
     .addLicenses(["license+mit"])

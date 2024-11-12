@@ -10,6 +10,7 @@ export function define(g: PlangsGraph) {
       websites: [
         { title: "rakudo.org", href: "http://rakudo.org/", kind: "homepage" },
         { title: "Rakudo", href: "https://en.wikipedia.org/wiki/Rakudo", kind: "wikipedia" },
+        { kind: "reddit", title: "Rakudo on Reddit", href: "https://reddit.com/r/rakulang" },
       ],
       year: 2008,
       isTranspiler: false,
@@ -17,6 +18,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2024.08", name: "Rakudo 2024.08", date: "2024-01-01" }],
       github: { name: "Raku", langId: "283", color: "#0000fb", popular: false, type: "programming" },
       stackovTags: ["raku"],
+      githubName: "Raku",
+      languishRanking: 216,
     })
     .addImplements(["pl+raku"])
     .addInfluencedBy(["pl+common-lisp", "pl+haskell", "pl+perl"])

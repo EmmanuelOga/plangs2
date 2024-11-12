@@ -24,6 +24,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "GDScript", langId: "123", color: "#355570", popular: false, type: "programming" },
       stackovTags: ["godot"],
+      githubName: "GDScript",
+      languishRanking: 28,
     })
     .addInfluencedBy(["pl+python"])
     .addLicenses(["license+mit"])

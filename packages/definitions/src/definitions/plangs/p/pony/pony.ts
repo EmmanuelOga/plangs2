@@ -17,6 +17,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.41.0", name: "Pony 0.41.0", date: "2023-09-01" }],
       github: { name: "Pony", langId: "290", popular: false, type: "programming" },
       stackovTags: ["ponylang"],
+      githubName: "Pony",
+      languishRanking: 318,
     })
     .addInfluencedBy(["pl+erlang", "pl+ml", "pl+scala"])
     .addLicenses(["license+bsd"])

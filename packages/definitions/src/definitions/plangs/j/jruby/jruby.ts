@@ -17,6 +17,10 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "9.4.5.0", name: "JRuby 9.4.5.0", date: "2023-01-01" }],
+      github: { name: "Ruby", langId: "326", color: "#701516", popular: true, type: "programming" },
+      githubName: "Ruby",
+      languishRanking: 21,
+      stackovTags: ["ruby"],
     })
     .addImplements(["pl+ruby"])
     .addInfluencedBy(["pl+ruby"])

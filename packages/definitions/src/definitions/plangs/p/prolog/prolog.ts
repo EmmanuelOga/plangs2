@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       isMainstream: true,
       github: { name: "Prolog", langId: "295", color: "#74283c", popular: false, type: "programming" },
       stackovTags: ["prolog"],
+      githubName: "Prolog",
+      languishRanking: 183,
     })
     .addImplements(["pl+curry"])
     .addParadigms(["paradigm+logic"])

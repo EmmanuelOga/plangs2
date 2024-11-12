@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2.7.0", name: "CoffeeScript 2.7.0", date: "2022-01-01" }],
       github: { name: "CoffeeScript", langId: "63", color: "#244776", popular: true, type: "programming" },
       stackovTags: ["coffeescript"],
+      githubName: "CoffeeScript",
+      languishRanking: 84,
     })
     .addInfluencedBy(["pl+haskell", "pl+javascript", "pl+perl", "pl+python", "pl+ruby"])
     .addLicenses(["license+mit"])

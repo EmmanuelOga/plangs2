@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.0.79", name: "Fantom 1.0.79", date: "2023-01-01" }],
       github: { name: "Fantom", langId: "110", color: "#14253c", popular: false, type: "programming" },
       stackovTags: ["fantom"],
+      githubName: "Fantom",
+      languishRanking: 425,
     })
     .addInfluencedBy(["pl+c-sharp", "pl+erlang", "pl+ruby", "pl+scala"])
     .addLicenses(["license+mit"])

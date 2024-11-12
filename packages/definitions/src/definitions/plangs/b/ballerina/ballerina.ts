@@ -22,6 +22,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "Ballerina", langId: "720859680", color: "#FF5000", popular: false, type: "programming" },
       stackovTags: ["ballerina"],
+      githubName: "Ballerina",
+      languishRanking: 126,
     })
     .addInfluencedBy(["pl+c-sharp", "pl+go", "pl+javascript", "pl+rust"])
     .addLicenses(["license+apache"])

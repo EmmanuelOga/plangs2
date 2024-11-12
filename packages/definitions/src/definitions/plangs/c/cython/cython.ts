@@ -22,6 +22,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "Cython", langId: "79", color: "#fedf5b", popular: false, type: "programming" },
       stackovTags: ["cython"],
+      githubName: "Cython",
+      languishRanking: 100,
     })
     .addDialectOf(["pl+python"])
     .addInfluencedBy(["pl+c", "pl+python"])

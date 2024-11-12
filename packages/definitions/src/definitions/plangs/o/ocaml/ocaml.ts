@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "5.2.0", name: "OCaml 5.2.0", date: "2024-01-01" }],
       github: { name: "OCaml", langId: "255", color: "#ef7a08", popular: false, type: "programming" },
       stackovTags: ["ocaml"],
+      githubName: "OCaml",
+      languishRanking: 55,
     })
     .addDialectOf(["pl+ml"])
     .addInfluencedBy(["pl+c", "pl+ml", "pl+pascal", "pl+standard-ml"])

@@ -23,6 +23,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "Smalltalk", langId: "352", color: "#596706", popular: false, type: "programming" },
       stackovTags: ["smalltalk"],
+      githubName: "Smalltalk",
+      languishRanking: 108,
     })
     .addDialectOf(["pl+smalltalk"])
     .addInfluencedBy(["pl+lisp", "pl+self", "pl+smalltalk"])

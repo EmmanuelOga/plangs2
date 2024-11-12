@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2.4.5", name: "SBCL 2.4.5", date: "2024-01-01" }],
       github: { name: "Common Lisp", langId: "66", color: "#3fb68b", popular: false, type: "programming" },
       stackovTags: ["common-lisp"],
+      githubName: "Common Lisp",
+      languishRanking: 51,
     })
     .addDialectOf(["pl+common-lisp"])
     .addInfluencedBy(["pl+common-lisp"])

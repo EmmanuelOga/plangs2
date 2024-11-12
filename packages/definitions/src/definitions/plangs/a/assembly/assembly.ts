@@ -17,6 +17,8 @@ export function define(g: PlangsGraph) {
       isMainstream: true,
       github: { name: "Assembly", langId: "24", color: "#6E4C13", popular: false, type: "programming" },
       stackovTags: ["assembly"],
+      githubName: "Assembly",
+      languishRanking: 45,
     })
     .addParadigms(["paradigm+imperative", "paradigm+macro", "paradigm+metaprogramming", "paradigm+structured"])
     .addPlatforms(["plat+apple", "plat+arm", "plat+cross", "plat+embedded", "plat+linux", "plat+windows", "plat+x86-64"])

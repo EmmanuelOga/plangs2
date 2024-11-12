@@ -23,6 +23,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "Groovy", langId: "142", color: "#4298b8", popular: true, type: "programming" },
       stackovTags: ["groovy"],
+      githubName: "Groovy",
+      languishRanking: 63,
     })
     .addInfluencedBy(["pl+perl", "pl+python", "pl+ruby"])
     .addLicenses(["license+apache"])

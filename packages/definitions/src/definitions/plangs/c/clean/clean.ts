@@ -18,6 +18,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.1", name: "Clean 3.1", date: "2022-01-01" }],
       github: { name: "Clean", langId: "60", color: "#3F85AF", popular: false, type: "programming" },
       stackovTags: ["clean-language"],
+      githubName: "Clean",
+      languishRanking: 420,
     })
     .addInfluencedBy(["pl+haskell"])
     .addLicenses(["license+bsd"])

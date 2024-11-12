@@ -18,6 +18,7 @@ export function define(g: PlangsGraph) {
       isMainstream: false,
       releases: [{ version: "2.60.3", name: "FAUST 2.60.3", date: "2023-01-01" }],
       github: { name: "Faust", langId: "622529198", color: "#c37240", popular: false, type: "programming" },
+      githubName: "Faust",
     })
     .addInfluencedBy(["pl+c"])
     .addLicenses(["license+gnu-gpl"])

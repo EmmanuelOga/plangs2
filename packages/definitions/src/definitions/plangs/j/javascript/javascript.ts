@@ -18,6 +18,8 @@ export function define(g: PlangsGraph) {
       isMainstream: true,
       github: { name: "JavaScript", langId: "183", color: "#f1e05a", popular: true, type: "programming" },
       stackovTags: ["javascript"],
+      githubName: "JavaScript",
+      languishRanking: 3,
     })
     .addImplements(["pl+ecmascript"])
     .addInfluencedBy(["pl+awk", "pl+c", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme", "pl+self"])

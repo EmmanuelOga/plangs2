@@ -17,6 +17,8 @@ export function define(g: PlangsGraph) {
       isMainstream: false,
       github: { name: "AMPL", langId: "3", color: "#E6EFBB", popular: false, type: "programming" },
       stackovTags: ["ampl"],
+      githubName: "AMPL",
+      languishRanking: 236,
     })
     .addInfluencedBy(["pl+awk", "pl+c"])
     .addLicenses(["license+proprietary"])

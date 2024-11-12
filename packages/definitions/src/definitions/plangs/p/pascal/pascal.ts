@@ -22,6 +22,8 @@ export function define(g: PlangsGraph) {
       isMainstream: true,
       github: { name: "Pascal", langId: "281", color: "#E3F171", popular: false, type: "programming" },
       stackovTags: ["pascal"],
+      githubName: "Pascal",
+      languishRanking: 53,
     })
     .addInfluencedBy(["pl+algol", "pl+simula"])
     .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+structured"])

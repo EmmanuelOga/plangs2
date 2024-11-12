@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.13.0", name: "SuperCollider 3.13.0", date: "2023-01-01" }],
       github: { name: "SuperCollider", langId: "361", color: "#46390b", popular: false, type: "programming" },
       stackovTags: ["supercollider"],
+      githubName: "SuperCollider",
+      languishRanking: 199,
     })
     .addInfluencedBy(["pl+csound", "pl+lisp", "pl+smalltalk"])
     .addLicenses(["license+gnu-gpl"])

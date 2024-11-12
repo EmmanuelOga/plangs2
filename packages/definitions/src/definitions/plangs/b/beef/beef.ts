@@ -17,6 +17,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.42.8", name: "Beef 0.42.8", date: "2023-09-01" }],
       github: { name: "Beef", langId: "545626333", color: "#a52f4e", popular: false, type: "programming" },
       stackovTags: ["beef"],
+      githubName: "Beef",
+      languishRanking: 305,
     })
     .addInfluencedBy(["pl+c", "pl+c++", "pl+delphi", "pl+rust"])
     .addLicenses(["license+zlib"])

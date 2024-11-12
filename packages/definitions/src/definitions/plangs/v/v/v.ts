@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.4.6", name: "V 0.4.6", date: "2024-01-01" }],
       github: { name: "V", langId: "603371597", color: "#4f87c4", popular: false, type: "programming" },
       stackovTags: ["vlang"],
+      githubName: "V",
+      languishRanking: 116,
     })
     .addInfluencedBy(["pl+go", "pl+oberon", "pl+rust", "pl+swift"])
     .addLicenses(["license+mit"])

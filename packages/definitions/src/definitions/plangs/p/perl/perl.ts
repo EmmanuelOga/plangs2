@@ -22,6 +22,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "Perl", langId: "282", color: "#0298c3", popular: true, type: "programming" },
       stackovTags: ["perl"],
+      githubName: "Perl",
+      languishRanking: 46,
     })
     .addInfluencedBy(["pl+awk", "pl+basic", "pl+c", "pl+c++", "pl+lisp", "pl+raku", "pl+sed"])
     .addLicenses(["license+artistic"])

@@ -23,6 +23,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "XSLT", langId: "404", color: "#EB8CEB", popular: false, type: "programming" },
       stackovTags: ["xslt"],
+      githubName: "XSLT",
+      languishRanking: 85,
     })
     .addInfluencedBy(["pl+boomerang"])
     .addParadigms(["paradigm+declarative", "paradigm+dsl"])

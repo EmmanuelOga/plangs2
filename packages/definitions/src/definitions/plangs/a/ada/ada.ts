@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "ISO/IEC 8652:2023", name: "Ada 2022", date: "2023-05-01" }],
       github: { name: "Ada", langId: "11", color: "#02f88c", popular: false, type: "programming" },
       stackovTags: ["ada"],
+      githubName: "Ada",
+      languishRanking: 214,
     })
     .addDialectOf(["pl+pascal"])
     .addInfluencedBy(["pl+c++", "pl+clu", "pl+eiffel", "pl+pascal"])

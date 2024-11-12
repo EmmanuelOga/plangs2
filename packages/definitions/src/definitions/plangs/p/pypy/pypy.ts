@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "7.3.16", name: "PyPy 7.3.16", date: "2024-01-01" }],
       github: { name: "Python", langId: "303", color: "#3572A5", popular: true, type: "programming" },
       stackovTags: ["python"],
+      githubName: "Python",
+      languishRanking: 1,
     })
     .addDialectOf(["pl+python"])
     .addImplements(["pl+python"])

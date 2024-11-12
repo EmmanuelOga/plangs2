@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "11.4", name: "V8 11.4", date: "2023-01-01" }],
       github: { name: "JavaScript", langId: "183", color: "#f1e05a", popular: true, type: "programming" },
       stackovTags: ["javascript"],
+      githubName: "JavaScript",
+      languishRanking: 3,
     })
     .addImplements(["pl+javascript"])
     .addLicenses(["license+bsd"])

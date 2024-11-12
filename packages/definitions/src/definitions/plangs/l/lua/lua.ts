@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "5.4.7", name: "Lua 5.4.7", date: "2024-01-01" }],
       github: { name: "Lua", langId: "213", color: "#000080", popular: false, type: "programming" },
       stackovTags: ["lua"],
+      githubName: "Lua",
+      languishRanking: 20,
     })
     .addInfluencedBy(["pl+awk", "pl+c++", "pl+clu", "pl+lisp", "pl+modula", "pl+r5rs", "pl+scheme", "pl+self"])
     .addLicenses(["license+mit"])

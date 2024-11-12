@@ -20,6 +20,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "5.2", name: "TypeScript 5.2", date: "2023-08-01" }],
       github: { name: "TypeScript", langId: "378", color: "#3178c6", popular: true, type: "programming" },
       stackovTags: ["typescript"],
+      githubName: "TypeScript",
+      languishRanking: 2,
     })
     .addCompilesTo(["pl+javascript"])
     .addInfluencedBy(["pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+java", "pl+javascript"])

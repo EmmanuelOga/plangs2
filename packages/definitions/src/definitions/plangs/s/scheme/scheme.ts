@@ -18,6 +18,8 @@ export function define(g: PlangsGraph) {
       isMainstream: false,
       github: { name: "Scheme", langId: "343", color: "#1e4aec", popular: false, type: "programming" },
       stackovTags: ["scheme"],
+      githubName: "Scheme",
+      languishRanking: 96,
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+algol", "pl+lisp"])

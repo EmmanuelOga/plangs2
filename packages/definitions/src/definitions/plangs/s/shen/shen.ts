@@ -17,6 +17,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "22.2", name: "Shen 22.2", date: "2023-08-01" }],
       github: { name: "Shen", langId: "348", color: "#120F14", popular: false, type: "programming" },
       stackovTags: ["shen"],
+      githubName: "Shen",
     })
     .addInfluencedBy(["pl+assembler", "pl+prolog", "pl+scheme"])
     .addLicenses(["license+bsd"])

@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.99", name: "Factor 0.99", date: "2023-01-01" }],
       github: { name: "Factor", langId: "108", color: "#636746", popular: false, type: "programming" },
       stackovTags: ["factor-lang"],
+      githubName: "Factor",
+      languishRanking: 284,
     })
     .addInfluencedBy(["pl+forth", "pl+joy", "pl+lisp", "pl+self"])
     .addLicenses(["license+bsd"])

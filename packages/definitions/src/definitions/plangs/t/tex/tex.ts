@@ -20,6 +20,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.14159265", name: "TeX 3", date: "1989-11-01" }],
       github: { name: "TeX", langId: "369", color: "#3D6117", popular: false, type: "markup" },
       stackovTags: ["latex"],
+      githubName: "TeX",
+      languishRanking: 27,
     })
     .addLicenses(["license+public-domain"])
     .addParadigms(["paradigm+declarative", "paradigm+dsl", "paradigm+macro"])

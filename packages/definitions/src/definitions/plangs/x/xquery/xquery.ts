@@ -23,6 +23,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "XQuery", langId: "402", color: "#5232e7", popular: false, type: "programming" },
       stackovTags: ["xquery"],
+      githubName: "XQuery",
+      languishRanking: 198,
     })
     .addInfluencedBy(["pl+sql", "pl+xpath", "pl+xslt"])
     .addParadigms(["paradigm+data-exchange", "paradigm+declarative", "paradigm+dsl", "paradigm+functional", "paradigm+modular"])

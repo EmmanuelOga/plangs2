@@ -23,6 +23,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "PHP", langId: "272", color: "#4F5D95", popular: true, type: "programming" },
       stackovTags: ["php"],
+      githubName: "PHP",
+      languishRanking: 15,
     })
     .addInfluencedBy(["pl+c", "pl+java"])
     .addLicenses(["license+php"])

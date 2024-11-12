@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "6.18.1", name: "Csound 6.18.1", date: "2022-01-01" }],
       github: { name: "Csound", langId: "73", color: "#1a1a1a", popular: false, type: "programming" },
       stackovTags: ["csound"],
+      githubName: "Csound",
+      languishRanking: 407,
     })
     .addLicenses(["license+lgpl"])
     .addParadigms(["paradigm+compiled", "paradigm+dsl"])

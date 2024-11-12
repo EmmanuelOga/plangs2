@@ -22,6 +22,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "Idris", langId: "165", color: "#b30000", popular: false, type: "programming" },
       stackovTags: ["idris"],
+      githubName: "Idris",
+      languishRanking: 246,
     })
     .addInfluencedBy(["pl+agda", "pl+clean", "pl+coq", "pl+f-sharp", "pl+haskell", "pl+ml", "pl+rust"])
     .addLicenses(["license+bsd"])

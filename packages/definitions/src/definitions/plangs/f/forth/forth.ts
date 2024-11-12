@@ -18,6 +18,8 @@ export function define(g: PlangsGraph) {
       isMainstream: false,
       github: { name: "Forth", langId: "114", color: "#341708", popular: false, type: "programming" },
       stackovTags: ["forth"],
+      githubName: "Forth",
+      languishRanking: 180,
     })
     .addInfluencedBy(["pl+lisp"])
     .addLicenses(["license+public-domain"])

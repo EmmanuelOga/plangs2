@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "6.4.0", name: "NetLogo 6.4.0", date: "2023-01-01" }],
       github: { name: "NetLogo", langId: "246", color: "#ff6375", popular: false, type: "programming" },
       stackovTags: ["netlogo"],
+      githubName: "NetLogo",
+      languishRanking: 293,
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+logo"])

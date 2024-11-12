@@ -27,6 +27,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "Fortran", langId: "107", color: "#4d41b1", popular: false, type: "programming" },
       stackovTags: ["fortran"],
+      githubName: "Fortran",
+      languishRanking: 64,
     })
     .addParadigms(["paradigm+array", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+structured"])
     .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])

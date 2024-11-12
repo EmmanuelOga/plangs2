@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "4.172", name: "", date: "2022-01-01" }],
       github: { name: "Hack", langId: "153", color: "#878787", popular: false, type: "programming" },
       stackovTags: ["hacklang"],
+      githubName: "Hack",
+      languishRanking: 102,
     })
     .addDialectOf(["pl+php"])
     .addInfluencedBy(["pl+c-sharp", "pl+haskell", "pl+ocaml", "pl+php", "pl+scala"])

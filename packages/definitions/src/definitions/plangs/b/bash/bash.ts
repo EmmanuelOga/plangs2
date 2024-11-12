@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "5.2.32", name: "Bash 5.2.32", date: "2024-01-01" }],
       stackovTags: ["bash"],
       github: { name: "Shell", langId: "346", color: "#89e051", popular: true, type: "programming" },
+      githubName: "Shell",
+      languishRanking: 11,
     })
     .addInfluencedBy(["pl+sh"])
     .addLicenses(["license+gnu-gpl"])

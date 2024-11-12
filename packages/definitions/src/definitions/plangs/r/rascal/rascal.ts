@@ -18,6 +18,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.30.1", name: "Rascal 0.30.1", date: "2023-01-01" }],
       github: { name: "Rascal", langId: "173616037", color: "#fffaa0", popular: false, type: "programming" },
       stackovTags: ["rascal"],
+      githubName: "Rascal",
+      languishRanking: 230,
     })
     .addLicenses(["license+epl"])
     .addParadigms(["paradigm+declarative", "paradigm+functional", "paradigm+imperative", "paradigm+language-oriented", "paradigm+scripting"])

@@ -22,6 +22,8 @@ export function define(g: PlangsGraph) {
       ],
       github: { name: "Julia", langId: "184", color: "#a270ba", popular: false, type: "programming" },
       stackovTags: ["julia"],
+      githubName: "Julia",
+      languishRanking: 39,
     })
     .addInfluencedBy([
       "pl+c",

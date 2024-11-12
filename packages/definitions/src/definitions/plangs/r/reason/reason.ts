@@ -24,6 +24,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.12.0", name: "Reason 3.12.0", date: "2024-01-01" }],
       github: { name: "Reason", langId: "869538413", color: "#ff5847", popular: false, type: "programming" },
       stackovTags: ["reason"],
+      githubName: "Reason",
+      languishRanking: 174,
     })
     .addCompilesTo(["pl+javascript", "pl+ocaml"])
     .addDialectOf(["pl+ocaml"])

@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.4.1", name: "Version 1.4.1", date: "2024-01-01" }],
       github: { name: "Gleam", langId: "1054258749", color: "#ffaff3", popular: false, type: "programming" },
       stackovTags: ["gleam"],
+      githubName: "Gleam",
+      languishRanking: 92,
     })
     .addCompilesTo(["pl+erlang", "pl+javascript"])
     .addInfluencedBy(["pl+elixir", "pl+erlang", "pl+go", "pl+javascript", "pl+ocaml", "pl+rust"])

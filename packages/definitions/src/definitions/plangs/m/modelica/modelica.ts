@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.6", name: "Modelica 3.6", date: "2023-01-01" }],
       github: { name: "Modelica", langId: "233", color: "#de1d31", popular: false, type: "programming" },
       stackovTags: ["modelica"],
+      githubName: "Modelica",
+      languishRanking: 165,
     })
     .addLicenses(["license+cc-by"])
     .addParadigms(["paradigm+declarative", "paradigm+multi", "paradigm+object-oriented"])

@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "2023", name: "Isabelle 2023", date: "2023-06-15" }],
       github: { name: "Isabelle", langId: "170", color: "#FEFE00", popular: false, type: "programming" },
       stackovTags: ["isabelle"],
+      githubName: "Isabelle",
+      languishRanking: 348,
     })
     .addInfluencedBy(["pl+haskell"])
     .addLicenses(["license+bsd"])

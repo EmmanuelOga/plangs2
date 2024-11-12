@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.15.15", name: "PureScript 0.15.15", date: "2024-01-01" }],
       github: { name: "PureScript", langId: "302", color: "#1D222D", popular: false, type: "programming" },
       stackovTags: ["purescript"],
+      githubName: "PureScript",
+      languishRanking: 213,
     })
     .addInfluencedBy(["pl+haskell", "pl+javascript"])
     .addLicenses(["license+bsd"])

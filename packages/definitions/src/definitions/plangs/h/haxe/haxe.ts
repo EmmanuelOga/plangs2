@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "4.3.6", name: "Haxe 4.3.6", date: "2024-01-01" }],
       github: { name: "Haxe", langId: "158", color: "#df7900", popular: false, type: "programming" },
       stackovTags: ["haxe"],
+      githubName: "Haxe",
+      languishRanking: 74,
     })
     .addCompilesTo(["pl+c++", "pl+c-sharp", "pl+java", "pl+javascript", "pl+lua", "pl+php", "pl+python"])
     .addDialectOf(["pl+ecmascript"])

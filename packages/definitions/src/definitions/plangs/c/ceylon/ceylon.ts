@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.3.3", name: "Ceylon 1.3.3", date: "2017-01-01" }],
       github: { name: "Ceylon", langId: "54", color: "#dfa535", popular: false, type: "programming" },
       stackovTags: ["ceylon"],
+      githubName: "Ceylon",
+      languishRanking: 406,
     })
     .addInfluencedBy(["pl+lisp", "pl+ml", "pl+scala", "pl+whiley"])
     .addLicenses(["license+apache"])

@@ -18,6 +18,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.0", name: "Initial Release", date: "1964-01-01" }],
       github: { name: "BASIC", langId: "28923963", color: "#ff0000", popular: false, type: "programming" },
       stackovTags: ["basic"],
+      githubName: "BASIC",
+      languishRanking: 353,
     })
     .addInfluencedBy(["pl+fortran"])
     .addLicenses(["license+public-domain"])

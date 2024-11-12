@@ -20,6 +20,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "3.4.0", name: "Scala 3.4.0", date: "2024-01-01" }],
       github: { name: "Scala", langId: "341", color: "#c22d40", popular: true, type: "programming" },
       stackovTags: ["scala"],
+      githubName: "Scala",
+      languishRanking: 36,
     })
     .addInfluencedBy([
       "pl+common-lisp",
