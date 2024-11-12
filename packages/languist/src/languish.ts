@@ -1,5 +1,5 @@
 import languishData from "./languish-data.json" with { type: "json" };
-import type { LanguishData, LanguishItem, LanguishWeights, YearQuarter } from "./types";
+import type { LanguishData, LanguishWeights, YearQuarter } from "./types";
 
 export const DEFAULT_WEIGHTS: LanguishWeights = { ghIssues: 1.0, ghPRs: 0, ghStars: 1.0, soQuestions: 1.0 };
 
@@ -28,7 +28,3 @@ export class Languish {
 }
 
 export const LG_LANGS = new Languish(languishData as LanguishData);
-
-for (const lang of LG_LANGS.byRanking("2024Q3")) {
-  console.log(lang);
-}
