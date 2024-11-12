@@ -15,19 +15,33 @@ export class Languish {
   }
 
   /** Returns tuples [githubLangName, score], sorted by descending score (first item should be #1 in ranking). */
-  weights(targetDate: YearQuarter, weights: LanguishWeights = DEFAULT_WEIGHTS): [string, number][] {
+  scores(targetDate: YearQuarter, weights: LanguishWeights = DEFAULT_WEIGHTS): [string, number][] {
     type GHName = string;
     type Ranking = number;
-    const rankings: Map<GHName, Ranking> = new Map();
+    const scores: Map<GHName, Ranking> = new Map();
+
+    const totals = this.data.sums.rows.find(row => row[0] === targetDate);
+
+    if (!totals) throw new Error(`Missing sums for ${targetDate}`);
 
     for (const [name, date, issues, pulls, soQuestions, stars] of this.data.items.rows) {
       if (date !== targetDate) continue;
-      const ranking = issues * weights.ghIssues + pulls * weights.ghPRs + soQuestions * weights.soQuestions + stars * weights.ghStars;
-      rankings.set(name, ranking);
+
+      const score =
+        // GH Issues.
+        (issues * weights.ghIssues) / totals[1] +
+        // GH Pulls.
+        (pulls * weights.ghPRs) / totals[2] +
+        // GH Stars.
+        (stars * weights.ghStars) / totals[3] +
+        // SO Questions.
+        (soQuestions * weights.soQuestions) / totals[4];
+
+      scores.set(name, score);
     }
 
-    type RankingEntry = [GHName, Ranking];
-    return [...rankings.entries()].sort((a: RankingEntry, b: RankingEntry) => b[1] - a[1]);
+    type ScoreEntry = [GHName, Ranking];
+    return [...scores.entries()].sort((a: ScoreEntry, b: ScoreEntry) => b[1] - a[1]);
   }
 
   /**
@@ -36,7 +50,7 @@ export class Languish {
    * to allow for quick ranking lookup. The item with ranking #1 has the highest score, etc.
    */
   rankingsMap(targetDate: YearQuarter, weights: LanguishWeights = DEFAULT_WEIGHTS): Map<string, number> {
-    const rankings = this.weights(targetDate, weights);
+    const rankings = this.scores(targetDate, weights);
     const map = new Map<string, number>();
     let i = 1;
     for (const [name, _] of rankings) map.set(name, i++);
