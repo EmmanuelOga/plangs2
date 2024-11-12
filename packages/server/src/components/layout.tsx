@@ -57,7 +57,7 @@ export function Layout({ title, description, tab, pg, pl, mainClasses, children 
         </noscript>
 
         <header class={tw("relative", "pt-4", "flex flex-col", "bg-linear-to-b from-secondary to-background")}>
-          <div class={tw("absolute w-full", "px-2 sm:px-4", "flex flex-row", "gap-4", "items-center justify-between")}>
+          <div class={tw("absolute bottom-0 w-full", "px-2 sm:px-4", "flex flex-row", "gap-4", "items-center justify-between")}>
             {iconButton("hamburger")}
             {tab === "plangs" && iconButton("facets")}
             {tab === "plangs" && iconButton("clearFacets")}
