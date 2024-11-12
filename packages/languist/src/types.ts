@@ -77,22 +77,43 @@ export type LinguistLang = {
   textmateScope: string;
 };
 
-export type LanguishLang = {
+export type LanguishData = {
   /**
-   * Originally called "key" in Languish's keys.csv.
-   * Matches the github-linguist `name` field.
-   * Example: "ATS".
+   * This object contains rows for each different programming langauge.
+   * The "name" column has githubNames from the github-linguist data model.
    */
-  githubName: string;
-  /** Wikipedia ID for the language. Example: "ATS_(programming_language)". */
-  wikipedia?: string;
-  /** Reddit ID for discussions page. Example: "ATS". */
-  reddit?: string;
-  /** StackOverflow tags for questions. Example: [ "ats" ] */
-  stackoverflow?: string[];
+  items: {
+    keys: ["name", "date", "issues", "pulls", "soQuestions", "stars"];
+    rows: LanguishItem[];
+  };
+
+  /**
+   * This object holds the sum of all issues, pulls, stars, and stackoverflow questions per quarter, for all languages.
+   */
+  sums: {
+    keys: ["date", "issues", "pulls", "stars", "soQuestions"];
+    rows: LanguishSum[];
+  };
+
+  /**
+   * This object contains rows for each different programming langauge, matching the github-linguist language name
+   * to corresponding IDs for wikipedia, reddit, and stackoverflow tags.
+   */
+  translations: {
+    keys: ["key", "wikipedia", "reddit", "stackOverflow"];
+    rows: LanguishKeys[];
+  };
 };
 
-/** Allows for getting the names of fields that of type VTYPE. */
-export type KeysOfType<T, VTYPE> = keyof {
-  [K in keyof T as T[K] extends VTYPE ? K : never]: T[K];
+export type YearQuarter = `${number}Q${1 | 2 | 3 | 4}`;
+export type LanguishItem = [name: string, date: YearQuarter, issues: number, pulls: number, soQuestions: number, stars: number];
+export type LanguishSum = [date: string, issues: number, pulls: number, stars: number, soQuestions: number];
+export type LanguishKeys = [key: string, wikipedia: string, reddit: string, stackOverflow: string];
+
+/** These weights are used to calculate the programming language rankings. */
+export type LanguishWeights = {
+  ghIssues: number;
+  ghPRs: number;
+  ghStars: number;
+  soQuestions: number;
 };

@@ -1,9 +1,8 @@
-import languishData from "./languish.json" with { type: "json" };
-import linguistData from "./linguist.json" with { type: "json" };
-import type { KeysOfType, LanguishLang, LinguistLang } from "./types";
+import linguistData from "./linguist-data.json" with { type: "json" };
+import type { LinguistLang } from "./types";
 
 /** A Wrapper for all the data in Github Linguist ruby gem. */
-export class GHLangs {
+export class Linguist {
   constructor(public readonly all: LinguistLang[]) {}
 
   /** Return a map with all the possible ways to id a plang. */
@@ -53,35 +52,9 @@ export class GHLangs {
   }
 }
 
-/** A Wrapper for all the data in Languish's keys.csv. */
-export class LGLangs {
-  // Map of all languages by Github Name.
-  #lookup = new Map<string, LanguishLang>();
+export const GH_LANGS = new Linguist(linguistData as LinguistLang[]);
 
-  constructor(public readonly all: LanguishLang[]) {
-    this.setupLookup();
-  }
-
-  setupLookup() {
-    const m = this.#lookup;
-    const add = (key: string | undefined, lang: LanguishLang) => {
-      const cleanKey = (key ?? "").trim().toLowerCase();
-      if (cleanKey) m.set(cleanKey, lang);
-    };
-    for (const lang of this.all) add(lang.githubName, lang);
-  }
-
-  lookup(name?: string): LanguishLang | undefined {
-    return this.#lookup.get((name ?? "").trim().toLowerCase());
-  }
-
-  *byField(field: KeysOfType<LanguishLang, string | undefined>): Generator<[string, LanguishLang]> {
-    for (const lang of this.all) {
-      const key = field && lang[field];
-      if (key !== null && key !== undefined) yield [key, lang];
-    }
-  }
-}
-
-export const GH_LANGS = new GHLangs(linguistData as LinguistLang[]);
-export const LG_LANGS = new LGLangs(languishData as LanguishLang[]);
+/** Allows for getting the names of fields of type T, but only if they are of type VTYPE. */
+export type KeysOfType<T, VTYPE> = keyof {
+  [K in keyof T as T[K] extends VTYPE ? K : never]: T[K];
+};

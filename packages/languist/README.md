@@ -10,21 +10,13 @@ This package also contains code that can turn an NPlang instance into Plangs cod
 
 ## Generating data
 
-We generate two files:
+We use two files:
 
-* `./src/languish-keys.json`: translated from `keys.csv` from [languish](https://github.com/tjpalmer/languish).
+* `./src/languish.json`: obtained after locally building [languish](https://github.com/tjpalmer/languish).
 
 * `./src/github-linguist.json`: generated from a ruby script using [github-linguist](https://github.com/github-linguist/linguist).
 
-### Bun Script
-
-Because Plangs uses TypeScript and Bun, we also use Bun here to convert the `in/languish-keys.csv` file to JSON (to avoid adding a CSV parser dependency).
-
-```sh
-$ bun run in/languish.ts
-```
-
-... generates a JSON file in the `./src` folder.
+Languish data was obtained directly from its repo by building the project. The linguist data needs to be generated (see below).
 
 ### Ruby script
 
