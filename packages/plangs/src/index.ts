@@ -191,11 +191,6 @@ export class NPlang extends NBase<"pl", NPlangData> {
     return this;
   }
 
-  addLicenses(others: NLicense["key"][]): this {
-    for (const other of others) this.graph.edges.license.connect(this.key, other);
-    return this;
-  }
-
   addImplements(others: NPlang["key"][]): this {
     for (const other of others) this.graph.edges.impl.connect(this.key, other);
     return this;
@@ -208,6 +203,11 @@ export class NPlang extends NBase<"pl", NPlangData> {
 
   addLibs(others: NLibrary["key"][]): this {
     for (const other of others) this.graph.edges.lib.connect(this.key, other);
+    return this;
+  }
+
+  addLicenses(others: NLicense["key"][]): this {
+    for (const other of others) this.graph.edges.license.connect(this.key, other);
     return this;
   }
 
