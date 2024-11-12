@@ -16,6 +16,10 @@
     "ignoreUnknown": false
   },
   "formatter": {
+    "ignore": [
+      "packages/languist/src/languish-data.json",
+      "packages/languist/src/linguist-data.json"
+    ],
     "enabled": true,
     "formatWithErrors": false,
     "indentStyle": "space",
