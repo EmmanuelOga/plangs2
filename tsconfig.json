@@ -37,7 +37,8 @@
     "strictNullChecks": true,
     "target": "ESNext",
     "types": [
-      "bun-types"
+      "bun-types",
+      "node"
     ]
   },
   "exclude": [
