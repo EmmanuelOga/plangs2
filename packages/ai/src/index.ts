@@ -11,7 +11,7 @@ import { plangFromAI } from "./fromAI";
 
 type OpenAIMsg = ChatCompletionMessageParam;
 
-async function plangPrompt(pl: NPlang): Promise<OpenAIMsg[]> {
+async function plangPrompt(pg: PlangsGraph, pl: NPlang): Promise<OpenAIMsg[]> {
   return [
     { role: "system", content: "You are a programming languages expert." },
     {
@@ -67,48 +67,81 @@ async function plangPrompt(pl: NPlang): Promise<OpenAIMsg[]> {
   ];
 }
 
-export async function aiCompletion(pl: NPlang) {
-  const openai = new OpenAI();
-  const prompt = await plangPrompt(pl);
+export async function aiCompletion(pg: PlangsGraph, pl: NPlang) {
+  try {
+    const openai = new OpenAI();
+    const prompt = await plangPrompt(pg, pl);
 
-  const numTokens = prompt
-    .map(m => m.content)
-    .join("\n")
-    .split(/\s+/).length;
+    const numTokens = prompt
+      .map(m => m.content)
+      .join("\n")
+      .split(/\s+/).length;
 
-  console.info("Requesting completion for", pl.name, "prompt size: ", numTokens, "tokens.");
+    console.info("Requesting completion for", pl.name, "prompt size: ", numTokens, "tokens.");
 
-  const completions = await openai.chat.completions.create({
-    model: "gpt-4o",
-    messages: prompt,
-    response_format: {
-      type: "json_schema",
-      json_schema: {
-        name: "NPlangAI",
-        description: "https://plangs.page programming language data",
-        schema: schema,
-        strict: true,
+    const completions = await openai.chat.completions.create({
+      model: "gpt-4o",
+      messages: prompt,
+      response_format: {
+        type: "json_schema",
+        json_schema: {
+          name: "NPlangAI",
+          description: "https://plangs.page programming language data",
+          schema: schema,
+          strict: true,
+        },
       },
-    },
-  });
+    });
 
-  if (!Array.isArray(completions.choices) || completions.choices.length === 0) {
-    console.error("OpenAI didn't return any completions.");
-    return;
+    if (!Array.isArray(completions.choices) || completions.choices.length === 0) {
+      console.error("OpenAI didn't return any completions.");
+      return;
+    }
+
+    const result = JSON.parse(completions.choices[0].message.content ?? "{}") as NPlangAI;
+    const newPl = plangFromAI(pg, pl, result);
+
+    const path = tspath(pl.plainKey);
+    console.log("Writing result to", path);
+    Bun.write(path, plangCodeGen(newPl));
+  } catch (e) {
+    console.error("Error", e);
   }
-
-  const result = JSON.parse(completions.choices[0].message.content ?? "{}") as NPlangAI;
-  const newPl = plangFromAI(pg, pl, result);
-
-  const path = tspath(pl.plainKey);
-  console.log("Writing result to", path);
-  Bun.write(path, plangCodeGen(newPl));
 }
 
-const pg = new PlangsGraph();
-await loadAllDefinitions(pg, { scanImages: false });
+/** Attempt to enrich the data for the language with given key. */
+async function enrichOne(key: NPlang["key"]) {
+  const pg = new PlangsGraph();
+  await loadAllDefinitions(pg, { scanImages: false });
 
-const pl = pg.nodes.pl.get("pl+python") as NPlang;
-await aiCompletion(pl);
+  const pl = pg.nodes.pl.get(process.argv[2] as NPlang["key"]);
+  if (pl) {
+    await aiCompletion(pg, pl);
+  } else {
+    console.error("Programming language not found:", key);
+  }
+}
+
+/** Attempt to enrich the data for all existing programming languages. */
+async function enrichAll() {
+  const pg = new PlangsGraph();
+  await loadAllDefinitions(pg, { scanImages: false });
+
+  for (const pl of pg.nodes.pl.values) {
+    await aiCompletion(pg, pl);
+  }
+}
+
+const argv = process.argv[2] ?? "";
+if (argv.startsWith("pl+")) {
+  enrichOne(argv as NPlang["key"]);
+} else if (argv === "all") {
+  enrichAll();
+} else {
+  console.info('Usage: Provide the string "all" or a plang key (`pl+${key}`) as argument.\n');
+  console.info(`Example: bun ${__filename} pl+python`);
+  console.info(`Example: bun ${__filename} all`);
+  process.exit(1);
+}
 
 console.warn("NOTE: remember that the generated code may need manual adjustments, sometimes MANY adjustments :-/.");
