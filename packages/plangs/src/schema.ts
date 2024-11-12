@@ -45,10 +45,12 @@ export type NPlangData = CommonNodeData & {
   releases: Release[];
   /** A list of stackoverflow tags used when asking questions about this plang. */
   stackovTags: string[];
-  /**
-   *  Pickup few fields from Linguist. Some other data is merged directly into NPlangData (like file extensions).
-   */
-  github?: Pick<LinguistLang, "name" | "groupName" | "langId" | "color" | "popular" | "type">;
+  /** Ranking according to Languish. The ranking should correspond to metrios calculated a given quarter (for instance, Q3 2024). */
+  languishRanking: number;
+  /** Github Name, matching the data on github-linguist Ruby gem. */
+  githubName?: string;
+  /** More github data from Linguist. Some other data is merged directly into NPlangData (like file extensions). */
+  github?: Partial<Pick<LinguistLang, "name" | "groupName" | "langId" | "color" | "popular" | "type">>;
 };
 
 /** License data. */
