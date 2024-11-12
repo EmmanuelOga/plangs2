@@ -105,10 +105,39 @@ export type LanguishData = {
   };
 };
 
+/** A period, like "2024Q3" */
 export type YearQuarter = `${number}Q${1 | 2 | 3 | 4}`;
-export type LanguishItem = [name: string, date: YearQuarter, issues: number, pulls: number, soQuestions: number, stars: number];
-export type LanguishSum = [date: string, issues: number, pulls: number, stars: number, soQuestions: number];
-export type LanguishKeys = [key: string, wikipedia: string, reddit: string, stackOverflow: string];
+
+/** There will be one of these entries per language/quarter. */
+export type LanguishItem = [
+  /** github-linguist should have a language with this name. */
+  name: string,
+  /** The data is aggregated for this Year/Quarter. */
+  date: YearQuarter,
+  /** Number of Github issues. */
+  issues: number,
+  /** Number of Github pull requests. */
+  pulls: number,
+  /** Number of StackOverflow questions. */
+  soQuestions: number,
+  /** Number of Github stars. */
+  stars: number,
+];
+
+/** Represents a sum of every metric for all languages for the given date. */
+export type LanguishSum = [date: YearQuarter, issues: number, pulls: number, stars: number, soQuestions: number];
+
+/** This is a row od data that matches plang keys across services. */
+export type LanguishKeys = [
+  /** Should match a github-linguist programming language name. */
+  key: string,
+  /** ID of a wikipedia page (accessible on https://en.wikipedia.org/wiki/ID), if there's one. */
+  wikipedia: string,
+  /** The ID of a reddit channel (accessible on https://reddit.com/r/ID), if there's one. */
+  reddit: string,
+  /** StackOverflow tags, a string like "tag1|tag2|...", or just "tag" if there's only one (or "" for unknown/none). */
+  stackOverflow: string,
+];
 
 /** These weights are used to calculate the programming language rankings. */
 export type LanguishWeights = {
