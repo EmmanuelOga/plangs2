@@ -51,6 +51,10 @@ export async function getDomContent(url: string): Promise<ReadabilityResult | un
   return;
 }
 
+// OpenAI has a limit of 30,000 tokens for gpt-4o.
+// Here we limit the content to 85,000 characters, which is not a perfect cap but *some* line of defense.
+const PAGE_LENGTH_LIMIT = 85_000;
+
 /**
  * OpenAI doesn't scrape for use, so we'll scrape the websites and convert them to markdown.
  */
@@ -68,7 +72,12 @@ export async function retrieveWebsites(links: IterTap<Link>): Promise<OpenAIMsg[
       `Make use of the content from "${w.href}" (title: "${article.title}""), `,
       `seen in Markdown format below:\n\n${turndown.turndown(article.content)}`,
     ].join("");
-    result.push({ role: "user", content });
+
+    if (content.length > PAGE_LENGTH_LIMIT) {
+      console.warn(`Content too long ${w.href} ${content.length} chars, sliced to ${PAGE_LENGTH_LIMIT} chars.`);
+    }
+
+    result.push({ role: "user", content: content.slice(0, PAGE_LENGTH_LIMIT) });
   }
 
   return result;

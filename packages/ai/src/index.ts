@@ -1,3 +1,29 @@
+/**
+ * Use OpenAI to enrich the data for programming languages.
+ *
+ * The objective is to generate a "first pass" of the data for each or some language,
+ * which can then be manually adjusted.
+ *
+ * If the process fails, usually is because the number of tokens is too big,
+ * or because one or all of the websites for the language are not reachable.
+ * If this happens, the file chars limit can be tweaked, or URLs can be removed, etc.
+ *
+ * Once the generation finishes, extensive review is recommneded, to ensure the quality of the data
+ * (this is what pull requests are for! :-).
+ *
+ * Right now the script doesn't re-format the generated code, which can be done manually with a command like:
+ * `$ bun x biome format --write packages/ archived/`.
+ *
+ * TODO:
+ * - Handle better the token limit. Right now we just trim each input to a max of chars,
+ * which anecdotally works for the list of languages we have today (Nov 2024).
+ * - Retry HTTP errors with backoff.
+ * - Better error handling: we should produce a nice tidy list of errors per language,
+ * and perhaps print a command that could be copy-pastered to retry the failed languages,
+ * or something like that.
+ *   - Or we could perhaps cache the results so a re-run won't touch the languages that were processed recently.
+ */
+
 import OpenAI from "openai";
 import type { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 
@@ -78,7 +104,11 @@ async function plangPrompt(pg: PlangsGraph, pl: NPlang, examplePl: NPlang): Prom
   ];
 }
 
-export async function aiCompletion(pg: PlangsGraph, pl: NPlang, examplePl: NPlang) {
+export async function aiCompletion(
+  pg: PlangsGraph,
+  pl: NPlang,
+  examplePl: NPlang,
+): Promise<{ result: "success" } | { result: "error"; message: string }> {
   try {
     const openai = new OpenAI();
     const prompt = await plangPrompt(pg, pl, examplePl);
@@ -103,17 +133,17 @@ export async function aiCompletion(pg: PlangsGraph, pl: NPlang, examplePl: NPlan
       },
     });
 
-    if (completions.usage?.total_tokens) console.info("Total tokens used for", pl.name, ":", completions.usage.total_tokens);
+    if (completions.usage?.total_tokens) {
+      console.info("Total tokens used for", pl.name, ":", completions.usage.total_tokens);
+    }
 
     if (!Array.isArray(completions.choices) || completions.choices.length === 0) {
-      console.error("OpenAI didn't return any completions.");
-      return;
+      return { result: "error", message: "OpenAI didn't return any completions." };
     }
 
     // https://platform.openai.com/docs/guides/structured-outputs#refusals
     if (completions.choices[0].message.refusal) {
-      console.error("OpenAI refused to answer!", completions.choices[0].message);
-      return;
+      return { result: "error", message: `OpenAI refused to answer! ${completions.choices[0].message}` };
     }
 
     const result = JSON.parse(completions.choices[0].message.content ?? "{}") as NPlangAI;
@@ -122,9 +152,11 @@ export async function aiCompletion(pg: PlangsGraph, pl: NPlang, examplePl: NPlan
     const path = tspath(pl.plainKey);
     console.log("Writing result to", path);
     Bun.write(path, plangCodeGen(newPl));
-  } catch (e) {
-    console.error("Error", e);
+  } catch (err) {
+    return { result: "error", message: `${err}` };
   }
+
+  return { result: "success" };
 }
 
 /** return a pl for which we have pretty good data, to use as an example for the LLM. */
@@ -142,7 +174,10 @@ async function enrichOne(key: NPlang["key"]) {
 
   const pl = pg.nodes.pl.get(process.argv[2] as NPlang["key"]);
   if (pl) {
-    await aiCompletion(pg, pl, examplePl(pg));
+    const result = await aiCompletion(pg, pl, examplePl(pg));
+    if (result.result === "error") {
+      console.error(result.message);
+    }
   } else {
     console.error("Programming language not found:", key);
   }
