@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+coq", {
       name: "Coq",
       description:
-        "Coq is an interactive theorem prover first released in 1989. It allows for expressing mathematical assertions, mechanically checks proofs of these assertions, helps find formal proofs, and extracts a certified program from the constructive proof of its formal specification. Coq works within the theory of the calculus of inductive constructions, a derivative of the calculus of constructions. Coq is not an automated theorem prover but includes automatic theorem proving tactics (procedures) and various decision procedures.",
-      keywords: ["coq"],
+        "Coq is an interactive theorem prover first released in 1989. It allows for expressing mathematical assertions, mechanically checks proofs of these assertions, helps find formal proofs, and extracts a certified program from the constructive proof of its formal specification. Coq works within the theory of the calculus of inductive constructions, a derivative of the calculus of constructions. Coq is not an automated theorem prover but includes automatic theorem proving tactics (procedures) and various decision procedures, and is primarily used for formal proof and certification in programming languages and mathematics.",
+      keywords: ["coq", "formal proof", "proof assistant", "theorem prover", "verification"],
       websites: [
         { title: "coq.inria.fr", href: "https://coq.inria.fr/", kind: "homepage" },
         { title: "Coq", href: "https://en.wikipedia.org/wiki/Coq_(software)", kind: "wikipedia" },
@@ -14,10 +14,10 @@ export function define(g: PlangsGraph) {
         { title: "Coq on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Coq" },
       ],
       year: 1989,
-      isTranspiler: false,
       isMainstream: false,
       releases: [
-        { version: "4.10", date: "1989-01-01" },
+        { version: "4.10", name: "Initial Release", date: "1989-05-01" },
+        { version: "8.20.0", name: "Stable Release", date: "2024-09-03" },
         { version: "8.19.2", date: "2024-01-01" },
       ],
       stackovTags: ["coq"],

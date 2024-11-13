@@ -161,7 +161,7 @@ export type year = number;
 export type month = string; // 0 padded
 export type day = string; // 0 padded
 /** A 0-padded YYYY-MM-DD date. Example: 2024-01-01. */
-export type StrDate = `${year}-${month}-${day}`;
+export type StrDate = `${year}-${month}-${day}` | `${year}-${month}` | `${year}`;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Types used to interact with OpenAI.

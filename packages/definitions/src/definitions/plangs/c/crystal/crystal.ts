@@ -6,18 +6,21 @@ export function define(g: PlangsGraph) {
       name: "Crystal",
       description:
         "Crystal is a high-level general-purpose, object-oriented programming language, designed and developed by Ary Borenszweig, Juan Wajnerman, Brian Cardiff and more than 400 contributors. With syntax inspired by the language Ruby, it is a compiled language with static type-checking, but specifying the types of variables or method arguments is generally unneeded. Types are resolved by an advanced global type inference algorithm. Crystal is currently in active development. It is released as free and open-source software under the Apache License version 2.0.",
-      keywords: ["crystal"],
+      keywords: ["crystal", "multi-paradigm", "programming language", "ruby-like"],
       websites: [
-        { title: "Crystal", href: "https://crystal-lang.org/", kind: "homepage" },
-        { title: "Crystal", href: "https://en.wikipedia.org/wiki/Crystal_(programming_language)", kind: "wikipedia" },
-        { title: "Crystal on Reddit", kind: "reddit", href: "https://reddit.com/r/crystal_programming" },
+        { title: "The Crystal Programming Language", href: "https://crystal-lang.org/", kind: "homepage" },
+        {
+          title: "Crystal (programming language) - Wikipedia",
+          href: "https://en.wikipedia.org/wiki/Crystal_(programming_language)",
+          kind: "wikipedia",
+        },
       ],
       extensions: [".cr"],
       year: 2014,
-      isTranspiler: false,
       isMainstream: false,
       releases: [
         { version: "1.0.0", name: "Crystal 1.0.0", date: "2021-03-31" },
+        { version: "1.14.0", name: "Crystal 1.14.0", date: "2024-10-09" },
         { version: "1.13.2", name: "Crystal 1.13.2", date: "2024-01-01" },
       ],
       stackovTags: ["crystal-lang"],

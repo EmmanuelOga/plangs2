@@ -5,17 +5,19 @@ export function define(g: PlangsGraph) {
     .set("pl+cpython", {
       name: "CPython",
       description:
-        "CPython is the reference implementation of the Python programming language. Written in C and Python, CPython is the default and most widely used implementation of the Python language. It serves as both an interpreter and a compiler, compiling Python into bytecode that is interpreted by the Python Virtual Machine.",
-      keywords: ["cpython", "python"],
+        "CPython is the reference implementation of the Python programming language, combining interpreter and compiler functionalities. It is written in C and Python and uses a Global Interpreter Lock (GIL) to manage threads. It was initially released by Guido van Rossum and is maintained by Python core developers and the community, supported by the Python Software Foundation.",
+      keywords: ["cpython", "python", "python language implementation"],
       websites: [
-        { title: "python.org", href: "https://www.python.org/", kind: "homepage" },
-        { title: "CPython", href: "https://en.wikipedia.org/wiki/CPython", kind: "wikipedia" },
+        { title: "Welcome to Python.org", href: "https://www.python.org/", kind: "homepage" },
+        { title: "CPython - Wikipedia", href: "https://en.wikipedia.org/wiki/CPython", kind: "wikipedia" },
       ],
       extensions: [".py", ".pyc", ".pyd", ".pyo", ".pyw", ".pyz"],
-      year: 1991,
-      isTranspiler: false,
+      year: 1994,
       isMainstream: true,
-      releases: [{ version: "3.12.0", name: "CPython 3.12.0", date: "2023-01-01" }],
+      releases: [
+        { version: "3.13.0", name: "Stable release 3.13.0", date: "2024-10-07" },
+        { version: "3.12.0", name: "CPython 3.12.0", date: "2023-01-01" },
+      ],
     })
     .addImplements(["pl+python"])
     .addInfluencedBy(["pl+c", "pl+python"])

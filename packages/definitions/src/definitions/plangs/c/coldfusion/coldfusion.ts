@@ -6,18 +6,24 @@ export function define(g: PlangsGraph) {
       name: "ColdFusion",
       description:
         "Adobe ColdFusion is a commercial rapid web-application development computing platform created by J. J. Allaire in 1995. The programming language used with the platform is known as CFML (ColdFusion Markup Language). ColdFusion was initially designed to simplify connecting HTML pages to a database, and quickly evolved into a comprehensive platform featuring a full scripting language and an integrated development environment (IDE).",
-      keywords: ["cfml", "coldfusion"],
+      keywords: ["adobe", "cfml", "coldfusion", "rapid development"],
       websites: [
-        { title: "adobe.com/products/coldfusion-family.html", href: "https://adobe.com/products/coldfusion-family.html", kind: "homepage" },
-        { title: "Adobe ColdFusion", href: "https://en.wikipedia.org/wiki/ColdFusion", kind: "wikipedia" },
-        { title: "ColdFusion on Reddit", kind: "reddit", href: "https://reddit.com/r/coldfusion" },
+        { title: "Adobe ColdFusion family", href: "https://adobe.com/products/coldfusion-family.html", kind: "homepage" },
+        { title: "Adobe ColdFusion - Wikipedia", href: "https://en.wikipedia.org/wiki/Adobe_ColdFusion", kind: "wikipedia" },
+        { title: "ColdFusion on Reddit", href: "https://reddit.com/r/coldfusion", kind: "reddit" },
         { title: "ColdFusion on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Adobe_ColdFusion" },
       ],
       extensions: [".cfm", ".cfml"],
       year: 1995,
-      isTranspiler: false,
+      isTranspiler: true,
       isMainstream: true,
-      releases: [{ version: "2023", name: "Adobe ColdFusion 2023", date: "2023-05-01" }],
+      releases: [
+        { version: "2023", name: "Adobe ColdFusion 2023", date: "2023-05-01" },
+        { version: "2021", name: "ColdFusion 2021", date: "2020-11-11" },
+        { version: "2018", name: "ColdFusion 2018", date: "2018-07-12" },
+        { version: "2016", name: "ColdFusion 2016", date: "2016-02-16" },
+        { version: "2023 Update 6", name: "", date: "2023-11-14" },
+      ],
       stackovTags: ["coldfusion"],
       githubName: "ColdFusion",
       languishRanking: 125,
@@ -26,8 +32,9 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
     })
+    .addCompilesTo(["pl+coldfusion", "pl+java"])
     .addParadigms(["paradigm+event-driven", "paradigm+multi", "paradigm+procedural", "paradigm+scripting"])
-    .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
+    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+app", "tag+dataflow", "tag+dbms", "tag+scripting", "tag+server"])
     .addTypeSystems(["tsys+duck", "tsys+dynamic"]);
 

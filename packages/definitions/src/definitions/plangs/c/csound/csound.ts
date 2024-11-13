@@ -5,18 +5,17 @@ export function define(g: PlangsGraph) {
     .set("pl+csound", {
       name: "Csound",
       description:
-        'Csound is a domain-specific computer programming language for audio programming. It is called "Csound" because it is written in C, as opposed to some of its predecessors. Csound is known for its flexibility and high-quality audio synthesis capabilities, often used in computer music and audio processing.',
-      keywords: ["csound"],
+        "Csound is a domain-specific computer programming language designed for sound and music computing. It was originally written in C and is known for its flexibility and high-quality audio synthesis capabilities. Csound is widely used in computer music and audio processing, offering extensive support for audio synthesis through its modular architecture.",
+      keywords: ["audio programming", "csound", "music computing"],
       websites: [
-        { title: "csound.com", href: "http://csound.com/", kind: "homepage" },
-        { title: "Csound", href: "https://en.wikipedia.org/wiki/Csound", kind: "wikipedia" },
-        { title: "Csound on Reddit", kind: "reddit", href: "https://reddit.com/r/csound" },
+        { title: "Csound", href: "http://csound.com/", kind: "homepage" },
+        { title: "Csound - Wikipedia", href: "https://en.wikipedia.org/wiki/Csound", kind: "wikipedia" },
+        { title: "Csound on GitHub", href: "https://github.com/csound/csound", kind: "repository" },
       ],
-      extensions: [".orc", ".sco"],
+      extensions: [".csd", ".orc", ".sco"],
       year: 1986,
-      isTranspiler: false,
       isMainstream: false,
-      releases: [{ version: "6.18.1", name: "Csound 6.18.1", date: "2022-01-01" }],
+      releases: [{ version: "6.18.1", name: "Csound 6.18.1", date: "2022-11-24" }],
       stackovTags: ["csound"],
       githubName: "Csound",
       languishRanking: 363,
@@ -26,8 +25,8 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
     })
     .addLicenses(["license+lgpl"])
-    .addParadigms(["paradigm+compiled", "paradigm+dsl"])
-    .addPlatforms(["plat+cross"])
+    .addParadigms(["paradigm+compiled", "paradigm+dsl", "paradigm+extensible", "paradigm+real-time"])
+    .addPlatforms(["plat+android", "plat+cross", "plat+web"])
     .addTags(["tag+audio-dev", "tag+dsp", "tag+industrial", "tag+interpreter", "tag+midi", "tag+testing"])
     .addTypeSystems(["tsys+strong"])
     .addWrittenIn(["pl+c"]);
