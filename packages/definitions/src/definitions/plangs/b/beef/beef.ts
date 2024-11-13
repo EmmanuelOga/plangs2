@@ -5,16 +5,15 @@ export function define(g: PlangsGraph) {
     .set("pl+beef", {
       name: "Beef",
       description:
-        "Beef is a compiled, high-performance language that's natively stateful and designed for system programming with a focus on performance and ease of use.",
-      keywords: ["beef", "compiled", "performance", "system programming"],
+        "Beef is an open source performance-oriented compiled programming language designed for a fluid and pleasurable development experience, particularly suited for high-performance real-time applications such as video games, with manual memory management and custom allocators.",
+      keywords: ["beef", "high-performance", "memory management", "open source", "real-time"],
       websites: [
-        { title: "BeefLang Official Website", href: "https://www.beeflang.org/", kind: "homepage" },
-        { title: "BeefLang GitHub Repository", href: "https://github.com/beefytech/Beef", kind: "repository" },
-        { title: "Beef on Reddit", kind: "reddit", href: "https://reddit.com/r/beeflang" },
+        { title: "The Beef Programming Language", href: "https://www.beeflang.org/", kind: "homepage" },
+        { title: "Beef on Github", href: "https://github.com/beefytech/Beef", kind: "repository" },
       ],
       extensions: [".bf"],
       year: 2020,
-      releases: [{ version: "0.42.8", name: "Beef 0.42.8", date: "2023-09-01" }],
+      releases: [{ version: "0.43.4", name: "Beef 0.43.4", date: "2022-09-07" }],
       stackovTags: ["beef"],
       githubName: "Beef",
       languishRanking: 378,
@@ -25,10 +24,10 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+c", "pl+c++", "pl+delphi", "pl+rust"])
     .addLicenses(["license+zlib"])
-    .addParadigms(["paradigm+multi", "paradigm+oop", "paradigm+procedural"])
-    .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
+    .addParadigms(["paradigm+compiled", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
     .addTags(["tag+compiler", "tag+games"])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
+    .addTypeSystems(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c++"]);
 
   // TOOLS

@@ -5,18 +5,16 @@ export function define(g: PlangsGraph) {
     .set("pl+bash", {
       name: "Bash",
       description:
-        "Bash, short for Bourne-Again SHell, is a shell program and command language supported by the Free Software Foundation and first developed for the GNU Project by Brian Fox. Designed as a 100% free software alternative for the Bourne shell, it was initially released in 1989. Its moniker is a play on words, referencing both its predecessor, the Bourne shell, and the concept of rebirth.",
-      keywords: ["bash", "bourne-again", "command language", "gnu", "shell"],
+        "Bash, short for Bourne-Again SHell, is a shell and command language supported by the Free Software Foundation. It was first developed for the GNU Project by Brian Fox in 1989 as a free alternative to the Bourne Shell. Bash has become widely adopted as the default shell for many Linux distributions and is available on most modern operating systems. It incorporates features from the Korn shell (ksh) and the C shell (csh) and is POSIX-compliant, making it compatible with many Bourne shell scripts.",
+      keywords: ["bash", "bourne-again"],
       websites: [
-        { title: "GNU Bash", href: "http://www.gnu.org/software/bash/", kind: "homepage" },
+        { title: "Bash GNU Project", href: "http://www.gnu.org/software/bash/", kind: "homepage" },
         { title: "Bash on Wikipedia", href: "https://en.wikipedia.org/wiki/Bash_(Unix_shell)", kind: "wikipedia" },
-        { title: "Bash on Reddit", kind: "reddit", href: "https://reddit.com/r/bash" },
       ],
       extensions: [".bash", ".sh"],
       year: 1989,
-      isTranspiler: false,
       isMainstream: true,
-      releases: [{ version: "5.2.32", name: "Bash 5.2.32", date: "2024-01-01" }],
+      releases: [{ version: "5.2.37", name: "Bash 5.2.37", date: "2024-09-23" }],
       stackovTags: ["bash"],
       githubName: "Shell",
       languishRanking: 13,
@@ -24,13 +22,14 @@ export function define(g: PlangsGraph) {
       githubColor: "#89e051",
       githubPopular: true,
       githubType: "programming",
+      filenames: [".bash_profile", "bashrc"],
     })
     .addInfluencedBy(["pl+sh"])
     .addLicenses(["license+gnu-gpl"])
     .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+scripting"])
-    .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+embedded", "plat+linux", "plat+windows"])
     .addTags(["tag+app", "tag+automation", "tag+cli", "tag+editor", "tag+interpreter", "tag+scripting", "tag+shell"])
-    .addTypeSystems(["tsys+untyped"])
+    .addTypeSystems(["tsys+dynamic", "tsys+untyped"])
     .addWrittenIn(["pl+c"]);
 
   // TOOLS

@@ -1,20 +1,31 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl.set("pl+blade", {
-    name: "Blade",
-    languishRanking: 69,
-    websites: [
-      { kind: "reddit", title: "Blade on Reddit", href: "https://reddit.com/r/laravel" },
-      { kind: "wikipedia", title: "Blade on Wikipedia", href: "https://en.wikipedia.org/wiki/Laravel" },
-    ],
-    stackovTags: ["laravel-blade"],
-    githubName: "Blade",
-    githubLangId: "33",
-    githubColor: "#f7523f",
-    githubPopular: false,
-    githubType: "markup",
-  });
+  g.nodes.pl
+    .set("pl+blade", {
+      name: "Blade",
+      languishRanking: 69,
+      websites: [
+        { kind: "reddit", title: "Blade on Reddit", href: "https://reddit.com/r/laravel" },
+        { title: "Laravel on Wikipedia", href: "https://en.wikipedia.org/wiki/Laravel", kind: "wikipedia" },
+      ],
+      stackovTags: ["laravel-blade"],
+      githubName: "Blade",
+      githubLangId: "33",
+      githubColor: "#f7523f",
+      githubPopular: false,
+      githubType: "markup",
+      description:
+        "Blade is a first-party templating engine that allows the use of dynamic PHP directives in HTML-based views. It is part of the Laravel framework and provides features such as template inheritance, sections, and conditional statements.",
+      keywords: ["Blade", "Laravel", "PHP", "template inheritance", "templating engine"],
+      extensions: [".blade.php"],
+      year: 2011,
+      isTranspiler: true,
+      isMainstream: true,
+    })
+    .addCompilesTo(["pl+php"])
+    .addLicenses(["license+mit"])
+    .addPlatforms(["plat+cross"]);
 
   // TOOLS
 

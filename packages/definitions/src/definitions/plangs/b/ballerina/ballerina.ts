@@ -5,21 +5,16 @@ export function define(g: PlangsGraph) {
     .set("pl+ballerina", {
       name: "Ballerina",
       description:
-        "Ballerina is an open source general-purpose programming language designed by WSO2 for cloud-era application programmers. It is designed to be easy to use for both experienced and novice developers to build and deploy distributed applications.",
-      keywords: ["ballerina"],
+        "Ballerina is an open source general-purpose programming language designed by WSO2 for cloud-era application programmers. It is designed to simplify the creation of integration solutions with built-in features for concurrency, making it ideal for cloud-native development.",
+      keywords: ["ballerina", "cloud-native", "integration"],
       websites: [
-        { title: "ballerina.io", href: "http://ballerina.io/", kind: "homepage" },
-        { title: "Ballerina", href: "https://en.wikipedia.org/wiki/Ballerina_(programming_language)", kind: "wikipedia" },
+        { title: "Ballerina", href: "http://ballerina.io/", kind: "homepage" },
+        { title: "Ballerina on Wikipedia", href: "https://en.wikipedia.org/wiki/Ballerina_(programming_language)", kind: "wikipedia" },
         { title: "Ballerina on Reddit", kind: "reddit", href: "https://reddit.com/r/ballerinalang" },
       ],
       extensions: [".bal"],
       year: 2017,
-      isTranspiler: false,
-      isMainstream: false,
-      releases: [
-        { version: "2201.3.6", name: "Swan Lake Update", date: "2023-03-01" },
-        { version: "2201.3.5", name: "Swan Lake Update", date: "2023-01-01" },
-      ],
+      releases: [{ version: "2201.10.2", name: "Swan Lake Update 10", date: "2024-09-05" }],
       stackovTags: ["ballerina"],
       githubName: "Ballerina",
       languishRanking: 140,
@@ -30,7 +25,14 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+c-sharp", "pl+go", "pl+javascript", "pl+rust"])
     .addLicenses(["license+apache"])
-    .addParadigms(["paradigm+compiled", "paradigm+concurrent", "paradigm+event-driven", "paradigm+functional", "paradigm+multi"])
+    .addParadigms([
+      "paradigm+compiled",
+      "paradigm+concurrent",
+      "paradigm+event-driven",
+      "paradigm+functional",
+      "paradigm+general-purpose",
+      "paradigm+multi",
+    ])
     .addPlatforms(["plat+cross"])
     .addTags(["tag+automation", "tag+interpreter", "tag+workflow"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
