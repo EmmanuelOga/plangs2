@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".cl", ".fasl", ".lisp", ".lsp"],
       year: 1960,
-      isTranspiler: false,
       isMainstream: true,
       githubName: "Common Lisp",
       languishRanking: 60,

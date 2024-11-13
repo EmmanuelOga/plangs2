@@ -13,9 +13,12 @@ export function define(g: PlangsGraph) {
         { title: "LLVM on Reddit", kind: "reddit", href: "https://reddit.com/r/LLVM" },
       ],
       year: 2003,
-      isTranspiler: true,
       isMainstream: true,
-      releases: [{ version: "18.1.8", name: "LLVM 18.1.8", date: "2024-01-01" }],
+      releases: [
+        { version: "19.1.3", name: "LLVM 19.1.3", date: "2024-10-30" },
+        { version: "18.1.8", name: "LLVM 18.1.8", date: "2024-06-01" },
+        { version: "17.0.6", name: "LLVM 17.0.6", date: "2023-11-01" },
+      ],
       stackovTags: ["llvm", "llvm-ir"],
       githubName: "LLVM",
       languishRanking: 83,
@@ -23,6 +26,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#185619",
       githubPopular: false,
       githubType: "programming",
+      images: [
+        { kind: "logo", title: "LLVM Logo", url: "https://upload.wikimedia.org/wikipedia/commons/0/0c/LLVM-logo.svg", width: 1024, height: 768 },
+      ],
     })
     .addLicenses(["license+apache", "license+bsd"])
     .addParadigms(["paradigm+assembly", "paradigm+compiled", "paradigm+multi"])

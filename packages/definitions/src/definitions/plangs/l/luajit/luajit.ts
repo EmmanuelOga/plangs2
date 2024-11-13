@@ -5,24 +5,28 @@ export function define(g: PlangsGraph) {
     .set("pl+luajit", {
       name: "LuaJIT",
       description:
-        "LuaJIT is a tracing just-in-time compiler for the Lua programming language. It aims to optimize the execution speed and reduce memory usage while staying compatible with existing Lua code. Mike Pall, a primary maintainer of the project, resigned in 2015, resulting in occasional patching for future version 2.1.",
-      keywords: ["luajit"],
+        "LuaJIT is a tracing just-in-time compiler for the Lua programming language, renowned for its execution performance and compatibility with Lua 5.1. It was originally developed by Mike Pall and is known as the fastest Lua runtime, frequently used for numerical computation and dynamic programming language applications.",
+      keywords: ["just-in-time compiler", "lua", "luajit"],
       websites: [
         { title: "luajit.org", href: "https://luajit.org/", kind: "homepage" },
-        { title: "LuaJIT", href: "https://en.wikipedia.org/wiki/LuaJIT", kind: "wikipedia" },
+        { title: "LuaJIT - Wikipedia", href: "https://en.wikipedia.org/wiki/LuaJIT", kind: "wikipedia" },
+        { title: "LuaJIT GitHub Repository", href: "https://github.com/LuaJIT/LuaJIT", kind: "repository" },
       ],
       extensions: [".lua", ".luajit"],
       year: 2005,
-      isTranspiler: false,
       isMainstream: true,
-      releases: [{ version: "2.0.5", name: "LuaJIT 2.0.5", date: "2023-01-01" }],
+      releases: [
+        { version: "2.1.ROLLING", name: "LuaJIT 2.1 Rolling Release", date: "2023-08-21" },
+        { version: "2.0.5", name: "LuaJIT 2.0.5", date: "2023-01-01" },
+      ],
+      images: [{ kind: "logo", title: "LuaJIT Logo", url: "https://luajit.org/images/logo.png", width: 200, height: 200 }],
     })
     .addDialectOf(["pl+lua"])
     .addImplements(["pl+lua"])
     .addInfluencedBy(["pl+c", "pl+lua"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+scripting"])
-    .addPlatforms(["plat+android", "plat+apple", "plat+linux", "plat+windows", "plat+x86-64"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+arm", "plat+linux", "plat+windows", "plat+x86-64"])
     .addTags(["tag+compiler", "tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic"])
     .addWrittenIn(["pl+c"]);

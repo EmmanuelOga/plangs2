@@ -5,18 +5,24 @@ export function define(g: PlangsGraph) {
     .set("pl+kotlin", {
       name: "Kotlin",
       description:
-        "Kotlin (/ˈkɒtlɪn/) is a cross-platform, statically typed, general-purpose high-level programming language with type inference. Kotlin is designed to interoperate fully with Java, and the JVM version of Kotlin's standard library depends on the Java Class Library, but type inference allows its syntax to be more concise. Kotlin mainly targets the JVM, but also compiles to JavaScript (e.g., for frontend web applications using React) or native code via LLVM (e.g., for native iOS apps sharing business logic with Android apps). Language development costs are borne by JetBrains, while the Kotlin Foundation protects the Kotlin trademark.",
-      keywords: ["kotlin"],
+        "Kotlin is a cross-platform, statically typed, general-purpose programming language with type inference. It is designed to interoperate fully with Java, and its syntax is more concise thanks to type inference. Kotlin primarily targets the JVM, but it also compiles to JavaScript for front-end web applications and native code via LLVM for iOS apps. Language development is led by JetBrains, and the Kotlin Foundation oversees the Kotlin trademark.",
+      keywords: ["jetbrains", "kotlin", "programming language"],
       websites: [
-        { title: "kotlinlang.org", href: "https://kotlinlang.org/", kind: "homepage" },
-        { title: "Kotlin on Wikipedia", href: "https://en.wikipedia.org/wiki/Kotlin_(programming_language)", kind: "wikipedia" },
-        { title: "Kotlin on Reddit", kind: "reddit", href: "https://reddit.com/r/Kotlin" },
+        { title: "Kotlin Programming Language", href: "https://kotlinlang.org/", kind: "homepage" },
+        {
+          title: "Kotlin (programming language) - Wikipedia",
+          href: "https://en.wikipedia.org/wiki/Kotlin_(programming_language)",
+          kind: "wikipedia",
+        },
       ],
       extensions: [".kexe", ".klib", ".kt", ".kts"],
       year: 2011,
-      isTranspiler: false,
+      isTranspiler: true,
       isMainstream: true,
-      releases: [{ version: "2.0.0", name: "Kotlin 2.0.0", date: "2024-01-01" }],
+      releases: [
+        { version: "2.0.0", name: "Kotlin 2.0.0", date: "2024-05-21" },
+        { version: "2.0.20", name: "Kotlin 2.0.20", date: "2024-08-22" },
+      ],
       stackovTags: ["kotlin"],
       githubName: "Kotlin",
       languishRanking: 14,
@@ -24,7 +30,17 @@ export function define(g: PlangsGraph) {
       githubColor: "#A97BFF",
       githubPopular: true,
       githubType: "programming",
+      images: [
+        {
+          kind: "logo",
+          title: "Kotlin logo",
+          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/600px-Kotlin_Icon.png",
+          width: 600,
+          height: 600,
+        },
+      ],
     })
+    .addCompilesTo(["pl+javascript", "pl+llvm"])
     .addInfluencedBy(["pl+c-sharp", "pl+eiffel", "pl+groovy", "pl+javascript", "pl+ml", "pl+python", "pl+scala"])
     .addLicenses(["license+apache"])
     .addParadigms([
@@ -37,8 +53,8 @@ export function define(g: PlangsGraph) {
       "paradigm+reflective",
       "paradigm+structured",
     ])
-    .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+nodejs", "plat+wasm", "plat+windows"])
-    .addTags(["tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+shell"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+nodejs", "plat+wasm", "plat+web", "plat+windows"])
+    .addTags(["tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+shell", "tag+testing"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS

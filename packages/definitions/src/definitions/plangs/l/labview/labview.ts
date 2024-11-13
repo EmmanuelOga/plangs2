@@ -8,15 +8,18 @@ export function define(g: PlangsGraph) {
         "Laboratory Virtual Instrument Engineering Workbench (LabVIEW) is a graphical system design and development platform produced and distributed by National Instruments, based on a programming environment that uses a visual programming language. It is widely used for data acquisition, instrument control, and industrial automation. It provides tools for designing and deploying complex test and measurement systems.",
       keywords: ["labview"],
       websites: [
-        { title: "www.ni.com/labview", href: "https://www.ni.com/labview", kind: "homepage" },
-        { title: "LabVIEW", href: "https://en.wikipedia.org/wiki/LabVIEW", kind: "wikipedia" },
-        { title: "LabVIEW on Reddit", kind: "reddit", href: "https://reddit.com/r/LabVIEW" },
+        { title: "What is NI LabVIEW? Graphical Programming for Test & Measurement", href: "https://www.ni.com/labview", kind: "homepage" },
+        { title: "LabVIEW - Wikipedia", href: "https://en.wikipedia.org/wiki/LabVIEW", kind: "wikipedia" },
+        { title: "LabVIEW on Reddit", href: "https://reddit.com/r/LabVIEW", kind: "reddit" },
       ],
       extensions: [".lvproj", ".vi"],
       year: 1986,
-      isTranspiler: false,
       isMainstream: true,
-      releases: [{ version: "5.1", name: "LabVIEW 5.1", date: "2023-01-01" }],
+      releases: [
+        { version: "2024 Q3", name: "LabVIEW 2024 Q3", date: "2024-07-01" },
+        { version: "NXG 5.1", name: "LabVIEW NXG 5.1", date: "2021-01-01" },
+        { version: "5.1", name: "LabVIEW 5.1", date: "2023-01-01" },
+      ],
       stackovTags: ["labview"],
       githubName: "LabVIEW",
       languishRanking: 193,
@@ -24,6 +27,7 @@ export function define(g: PlangsGraph) {
       githubColor: "#fede06",
       githubPopular: false,
       githubType: "programming",
+      images: [{ kind: "logo", title: "LabVIEW Logo", url: "https://example.com/labview_logo.png", width: 200, height: 100 }],
     })
     .addParadigms(["paradigm+concurrent", "paradigm+dataflow", "paradigm+event-driven", "paradigm+low-code", "paradigm+multi", "paradigm+visual"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
