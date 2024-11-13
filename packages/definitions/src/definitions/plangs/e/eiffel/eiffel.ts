@@ -5,26 +5,28 @@ export function define(g: PlangsGraph) {
     .set("pl+eiffel", {
       name: "Eiffel",
       description:
-        "Eiffel is an object-oriented programming language designed by Bertrand Meyer, known for its emphasis on software reliability and design by contract method. Initially developed in 1985, Eiffel aimed to improve commercial software reliability, becoming available in 1986 and achieving ISO standardization in 2005.",
-      keywords: ["eiffel"],
+        "Eiffel is an object-oriented programming language designed by Bertrand Meyer. It emphasizes software reliability through design by contract, and first appeared in 1986. The language supports multiple inheritance, genericity, polymorphism, encapsulation, and other advanced software engineering concepts. Eiffel is particularly noted for its strong typing and explicit contract design, including preconditions, postconditions, and invariants.",
+      keywords: ["bertrand meyer", "design by contract", "eiffel", "object-oriented"],
       websites: [
-        { title: "eiffel.org", href: "http://eiffel.org/", kind: "homepage" },
-        { title: "Eiffel", href: "https://en.wikipedia.org/wiki/Eiffel_(programming_language)", kind: "wikipedia" },
+        { title: "Eiffel Community", href: "http://eiffel.org/", kind: "homepage" },
+        {
+          title: "Eiffel (programming language) - Wikipedia",
+          href: "https://en.wikipedia.org/wiki/Eiffel_(programming_language)",
+          kind: "wikipedia",
+        },
       ],
       extensions: [".e"],
       year: 1986,
-      isTranspiler: false,
-      isMainstream: false,
       stackovTags: ["eiffel"],
       githubName: "Eiffel",
       languishRanking: 402,
       githubLangId: "99",
       githubColor: "#4d6977",
-      githubPopular: false,
       githubType: "programming",
+      releases: [{ version: "24.05", name: "EiffelStudio", date: "2024-06-14" }],
     })
     .addInfluencedBy(["pl+ada", "pl+simula"])
-    .addLicenses(["license+epl"])
+    .addLicenses(["license+dual", "license+epl"])
     .addParadigms(["paradigm+compiled", "paradigm+concurrent", "paradigm+contracts", "paradigm+oop"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .addTags([

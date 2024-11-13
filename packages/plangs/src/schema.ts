@@ -182,13 +182,6 @@ export type NPlangAI = {
   basicPlangData: NPlangBaseData;
 
   /**
-   * A list of applications written in this programming language, if any.
-   * Each element is a key with prefix "app+", for instance: "app+word",
-   * where "word" is a unique identifier using only lowercase letters, numbers and dashes.
-   */
-  apps: string[];
-
-  /**
    * List of programming languages that this language compiles to, if any.
    * Each element is a key with prefix "pl+", for instance: "pl+python",
    * where "python" is a unique identifier using only lowercase letters, numbers and dashes.
@@ -224,13 +217,6 @@ export type NPlangAI = {
   influenced: string[];
 
   /**
-   * List of libraries for this programming language, if any.
-   * Each element is a key with prefix "lib+", for instance: "lib+ncurses",
-   * where "ncurses" is a unique identifier using only lowercase letters, numbers and dashes.
-   */
-  libraries: string[];
-
-  /**
    * List of licenses for this programming language, if any.
    * Each element is a key with prefix "license+", for instance: "license+mit",
    * where "mit" is a unique identifier using only lowercase letters, numbers and dashes.
@@ -257,13 +243,6 @@ export type NPlangAI = {
    * where "games" is a unique identifier using only lowercase letters, numbers and dashes.
    */
   tags: string[];
-
-  /**
-   * List of tools for this programming language, if any.
-   * Each element is a key with prefix "tool+", for instance: "tool+make",
-   * where "make" is a unique identifier using only lowercase letters, numbers and dashes.
-   */
-  tools: string[];
 
   /**
    * List of type systems for this programming language, if any.

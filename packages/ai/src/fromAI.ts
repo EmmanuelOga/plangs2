@@ -37,13 +37,10 @@ export function plangFromAI(pg: PlangsGraph, pl: NPlang, aiPL: NPlangAI): NPlang
   newPl.addCompilesTo(aiPL.influencedBy.filter(existingPl) as NPlang["key"][]);
   newPl.addCompilesTo(aiPL.writtenIn.filter(existingPl) as NPlang["key"][]);
 
-  newPl.addApps(aiPL.apps.filter(k => pg.nodes.app.has(k as NApp["key"])) as NApp["key"][]);
-  newPl.addLibs(aiPL.libraries.filter(k => pg.nodes.lib.has(k as NLibrary["key"])) as NLibrary["key"][]);
   newPl.addLicenses(aiPL.licenses.filter(k => pg.nodes.license.has(k as NLicense["key"])) as NLicense["key"][]);
   newPl.addParadigms(aiPL.paradigms.filter(k => pg.nodes.paradigm.has(k as NParadigm["key"])) as NParadigm["key"][]);
   newPl.addPlatforms(aiPL.platforms.filter(k => pg.nodes.plat.has(k as NPlatform["key"])) as NPlatform["key"][]);
   newPl.addTags(aiPL.tags.filter(k => pg.nodes.tag.has(k as NTag["key"])) as NTag["key"][]);
-  newPl.addTools(aiPL.tools.filter(k => pg.nodes.tool.has(k as NTool["key"])) as NTool["key"][]);
   newPl.addTypeSystems(aiPL.typeSystems.filter(k => pg.nodes.tsys.has(k as NTsys["key"])) as NTsys["key"][]);
 
   return newPl;

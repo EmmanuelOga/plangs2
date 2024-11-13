@@ -44,18 +44,15 @@ async function plangPrompt(pg: PlangsGraph, pl: NPlang, examplePl: NPlang): Prom
   const example: NPlangAI = {
     commonData: { name, description, websites, keywords } as CommonNodeData,
     basicPlangData: { extensions, filenames, year, images, isTranspiler, isMainstream, releases } as NPlangBaseData,
-    apps: pl.relApps.keys.existing,
     compilesTo: pl.relCompilesTo.keys.existing,
     dialectOf: pl.relDialectOf.keys.existing,
     implements: pl.relImplements.keys.existing,
     influenced: pl.relInfluenced.keys.existing,
     influencedBy: pl.relInfluencedBy.keys.existing,
-    libraries: pl.relLibs.keys.existing,
     licenses: pl.relLicenses.keys.existing,
     paradigms: pl.relParadigms.keys.existing,
     platforms: pl.relPlatforms.keys.existing,
     tags: pl.relTags.keys.existing,
-    tools: pl.relTools.keys.existing,
     typeSystems: pl.relTsys.keys.existing,
     writtenIn: pl.relWrittenIn.keys.existing,
   };
@@ -93,14 +90,11 @@ async function plangPrompt(pg: PlangsGraph, pl: NPlang, examplePl: NPlang): Prom
 
         return [
           "The following is a list of keys you can use to fill each field.",
-          describeField(["apps"], "app"),
           describeField(["compilesTo", "dialectOf", "implements", "influencedBy", "influenced", "writtenIn"], "pl"),
-          describeField(["libraries"], "lib"),
           describeField(["licenses"], "license"),
           describeField(["paradigms"], "paradigm"),
           describeField(["platforms"], "plat"),
           describeField(["tags"], "tag"),
-          describeField(["tools"], "tool"),
           describeField(["typeSystems"], "tsys"),
         ].join("\n");
       })(),
