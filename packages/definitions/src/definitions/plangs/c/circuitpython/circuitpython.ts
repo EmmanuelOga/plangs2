@@ -9,19 +9,32 @@ export function define(g: PlangsGraph) {
       keywords: ["circuit python", "circuitpython"],
       websites: [
         { title: "circuitpython.org", href: "https://circuitpython.org/", kind: "homepage" },
-        { title: "CircuitPython", href: "https://en.wikipedia.org/wiki/CircuitPython", kind: "wikipedia" },
+        { title: "CircuitPython - Wikipedia", href: "https://en.wikipedia.org/wiki/CircuitPython", kind: "wikipedia" },
+        { title: "CircuitPython on GitHub", href: "https://github.com/adafruit/circuitpython", kind: "repository" },
       ],
       extensions: [".py"],
       year: 2017,
-      isTranspiler: false,
+      isTranspiler: true,
       isMainstream: false,
-      releases: [{ version: "9.1.1", name: "CircuitPython 9.1.1", date: "2024-01-01" }],
+      releases: [
+        { version: "9.1.4", name: "CircuitPython 9.1.4", date: "2024-09-17" },
+        { version: "9.1.1", name: "CircuitPython 9.1.1", date: "2024-01-01" },
+      ],
+      images: [
+        {
+          kind: "logo",
+          title: "CircuitPython Blinka Logo",
+          url: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Blinka.svg",
+          width: 200,
+          height: 200,
+        },
+      ],
     })
     .addImplements(["pl+python"])
     .addInfluencedBy(["pl+micropython"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+embedded", "paradigm+interpreted", "paradigm+scripting"])
-    .addPlatforms(["plat+arm", "plat+embedded", "plat+esp32"])
+    .addPlatforms(["plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry"])
     .addTags(["tag+edu", "tag+embedded", "tag+interpreter", "tag+iot"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+c"]);

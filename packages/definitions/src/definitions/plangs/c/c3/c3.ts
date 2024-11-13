@@ -5,23 +5,27 @@ export function define(g: PlangsGraph) {
     .set("pl+c3", {
       name: "c3",
       description:
-        "C3 is a modern systems programming language that retains the characteristics that makes C an unmatched systems programming language, while removing the parts that make it a difficult and error-prone language. It aims to improve development while maintaining familiar syntax to C.",
-      keywords: ["c3"],
+        "C3 is an modern programming language that enhances the traditional C language with modern features while retaining compatibility with C. It offers full C ABI compatibility, intuitive module system, semantic macros, and improved error handling among other features. It's designed to be an evolution, not a revolution, making it easier for C developers to adapt it in existing projects. The language supports procedural programming paradigms and includes powerful reflection capabilities, enabling robust debugging and development experiences.",
+      keywords: ["c-language", "c3", "programming", "system"],
       websites: [
         { title: "C3", href: "https://c3-lang.org", kind: "homepage" },
         { title: "C3", href: "https://github.com/c3lang/c3c", kind: "repository" },
-        { title: "C3", href: "https://en.wikipedia.org/wiki/C3_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".c3"],
-      year: 2020,
+      year: 2019,
       images: [{ kind: "logo", title: "C3 logo", url: "https://c3-lang.org/logo.svg", width: 800, height: 600 }],
-      releases: [{ version: "0.1.0", name: "C3 Initial Release", date: "2020-05-01" }],
+      releases: [
+        { version: "0.6.4", name: "Current Stable Version", date: "2024-09-08" },
+        { version: "0.1.0", name: "C3 Initial Release", date: "2020-05-01" },
+      ],
+      isMainstream: false,
+      isTranspiler: true,
     })
     .addInfluencedBy(["pl+c"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+compiled", "paradigm+multi", "paradigm+procedural"])
-    .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+compiler"])
+    .addLicenses(["license+lgpl", "license+mit"])
+    .addParadigms(["paradigm+compiled", "paradigm+general-purpose", "paradigm+multi", "paradigm+procedural"])
+    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .addTags(["tag+compiler", "tag+scripting"])
     .addTypeSystems(["tsys+static", "tsys+strong"]);
 
   // TOOLS

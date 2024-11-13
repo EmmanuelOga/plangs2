@@ -5,21 +5,23 @@ export function define(g: PlangsGraph) {
     .set("pl+c", {
       name: "C",
       description:
-        "C (pronounced /ˈsiː/ – like the letter c) is a general-purpose programming language. It was created in the 1970s by Dennis Ritchie and remains very widely used and influential. By design, C's features cleanly reflect the capabilities of the targeted CPUs. It has found lasting use in operating systems code (especially in kernels), device drivers, and protocol stacks, but its use in application software has been decreasing. C is commonly used on computer architectures that range from the largest supercomputers to the smallest microcontrollers and embedded systems.",
-      keywords: ["c", "general-purpose", "systems programming"],
+        "C (pronounced like the letter C) is a general-purpose programming language developed in the early 1970s by Dennis Ritchie at Bell Labs. It has become one of the most influential programming languages, foundational in developing operating systems, system software, and various applications. C's design reflects the capabilities of targeted CPUs and is especially prevalent in systems programming, including operating system kernels, device drivers, and protocol stacks. It is portable and commonly used across computer architectures, from supercomputers to microcontrollers.",
+      keywords: ["c", "general-purpose", "imperative", "procedural", "structured", "systems programming"],
       websites: [
-        { title: "ISO C Standard Documentation", href: "https://www.iso.org/standard/74528.html", kind: "other" },
-        { title: "WG14 Committee (C Language)", href: "http://www.open-std.org/jtc1/sc22/wg14/", kind: "other" },
-        { title: "C Language (Wikipedia)", href: "https://en.wikipedia.org/wiki/C_(programming_language)", kind: "wikipedia" },
-        { title: "C on Reddit", kind: "reddit", href: "https://reddit.com/r/C_Programming" },
+        { title: "C ISO/IEC 9899:2018", href: "https://www.iso.org/standard/74528.html", kind: "other" },
+        { title: "ISO/IEC JTC1/SC22/WG14 - C", href: "http://www.open-std.org/jtc1/sc22/wg14/", kind: "other" },
+        { title: "C (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/C_(programming_language)", kind: "wikipedia" },
+        { title: "C on Reddit", href: "https://reddit.com/r/C_Programming", kind: "reddit" },
       ],
       extensions: [".c", ".h"],
       year: 1972,
-      isTranspiler: false,
       isMainstream: true,
       releases: [
         { version: "C18", name: "Standard C18", date: "2018-06-01" },
         { version: "C11", name: "Standard C11", date: "2011-12-08" },
+        { version: "C99", name: "Standard C99", date: "1999-12-01" },
+        { version: "C90", name: "Standard C90", date: "1990-03-01" },
+        { version: "C89", name: "ANSI C", date: "1989-12-01" },
       ],
       stackovTags: ["c"],
       githubName: "C",
@@ -32,7 +34,7 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+algol", "pl+fortran"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+compiled", "paradigm+imperative", "paradigm+multi", "paradigm+procedural", "paradigm+structured"])
-    .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+dos", "plat+linux", "plat+windows"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+dos", "plat+embedded", "plat+linux", "plat+windows"])
     .addTags([
       "tag+app",
       "tag+asm",

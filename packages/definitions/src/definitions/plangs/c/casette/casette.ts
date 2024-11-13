@@ -3,17 +3,29 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.nodes.pl
     .set("pl+casette", {
-      name: "Casette",
-      description:
-        "Cassette is a simple language for personal programming. It's designed for solo programmers working on non-enterprise projects. It's DIY, roll your own, batteries-not-included. It's for fun.",
-      keywords: ["casette"],
-      websites: [{ title: "Cassette Lang", href: "https://cassette-lang.com/", kind: "homepage" }],
+      name: "Cassette",
+      description: "Cassette is a simple language for personal programming. It's DIY, roll your own, batteries-not-included. It's for fun.",
+      keywords: ["cassette"],
+      websites: [{ title: "Cassette", href: "https://cassette-lang.com/", kind: "homepage" }],
       extensions: [".cassette"],
       year: 2021,
-      releases: [{ version: "1.0.0", name: "Initial Release", date: "2021-05-01" }],
+      releases: [
+        { version: "2.0.0", date: "2023-01-01" },
+        { version: "1.0.0", date: "2021-05-01" },
+      ],
+      isTranspiler: true,
+      isMainstream: false,
     })
+    .addCompilesTo(["pl+c"])
     .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+dataflow", "paradigm+declarative", "paradigm+dsl", "paradigm+event-driven"])
+    .addParadigms([
+      "paradigm+dataflow",
+      "paradigm+declarative",
+      "paradigm+dsl",
+      "paradigm+event-driven",
+      "paradigm+functional",
+      "paradigm+interpreted",
+    ])
     .addPlatforms(["plat+cross"])
     .addTags(["tag+audio-dev", "tag+dsl", "tag+workflow"])
     .addTypeSystems(["tsys+dynamic"])
