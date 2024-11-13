@@ -5,18 +5,25 @@ export function define(g: PlangsGraph) {
     .set("pl+erlang", {
       name: "Erlang",
       description:
-        "Erlang (/ˈɜːrlæŋ/ UR-lang) is a general-purpose, concurrent, functional high-level programming language, and a garbage-collected runtime system. The term Erlang is used interchangeably with Erlang/OTP, or Open Telecom Platform (OTP), which consists of the Erlang runtime system, several ready-to-use components (OTP) mainly written in Erlang, and a set of design principles for Erlang programs.",
-      keywords: ["erlang"],
+        "Erlang is a general-purpose, concurrent, functional high-level programming language, and a garbage-collected runtime system. It is used to build massively scalable soft real-time systems, particularly in telecoms, banking, e-commerce, computer telephony and instant messaging. Erlang/OTP includes the runtime system, several ready-to-use components, and design principles for Erlang programs, emphasizing concurrency, distribution, fault-tolerance, and high availability.",
+      keywords: ["concurrent", "erlang", "functional", "otp", "real-time", "telecom"],
       websites: [
-        { title: "www.erlang.org", href: "https://www.erlang.org/", kind: "homepage" },
-        { title: "Erlang", href: "https://en.wikipedia.org/wiki/Erlang_(programming_language)", kind: "wikipedia" },
-        { title: "Erlang on Reddit", kind: "reddit", href: "https://reddit.com/r/erlang" },
+        { title: "Index - Erlang/OTP", href: "https://www.erlang.org/", kind: "homepage" },
+        {
+          title: "Erlang (programming language) - Wikipedia",
+          href: "https://en.wikipedia.org/wiki/Erlang_(programming_language)",
+          kind: "wikipedia",
+        },
       ],
       extensions: [".erl", ".hrl"],
       year: 1986,
-      isTranspiler: false,
       isMainstream: true,
-      releases: [{ version: "27.0.1", name: "Erlang/OTP 27.0.1", date: "2024-01-01" }],
+      releases: [
+        { version: "27.1.2", name: "Erlang/OTP 27.1.2", date: "2024-10-17" },
+        { version: "27.0", name: "Erlang/OTP 27.0", date: "2024-05-15" },
+        { version: "27.1", name: "Erlang/OTP 27.1", date: "2024-09-18" },
+        { version: "27.0.1", name: "Erlang/OTP 27.0.1", date: "2024-01-01" },
+      ],
       stackovTags: ["erlang"],
       githubName: "Erlang",
       languishRanking: 107,
@@ -28,8 +35,8 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+lisp", "pl+ml", "pl+prolog"])
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+app", "tag+compiler", "tag+framework", "tag+interpreter"])
+    .addPlatforms(["plat+apple", "plat+beam", "plat+cross", "plat+linux", "plat+windows"])
+    .addTags(["tag+app", "tag+compiler", "tag+framework", "tag+interpreter", "tag+server"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+c"]);
 
@@ -38,6 +45,4 @@ export function define(g: PlangsGraph) {
   // TOOL BUNDLES
 
   // LIBRARIES
-
-  // APPS
 }

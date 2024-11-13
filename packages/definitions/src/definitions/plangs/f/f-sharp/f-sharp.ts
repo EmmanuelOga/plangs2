@@ -5,19 +5,24 @@ export function define(g: PlangsGraph) {
     .set("pl+f-sharp", {
       name: "F#",
       description:
-        "F# (pronounced F sharp) is a general-purpose, high-level, strongly typed, multi-paradigm programming language that encompasses functional, imperative, and object-oriented programming methods. It is most often used as a cross-platform Common Language Infrastructure (CLI) language on .NET, but can also generate JavaScript and graphics processing unit (GPU) code.",
+        "F# (pronounced F sharp) is a general-purpose, high-level, strongly typed, multi-paradigm programming language that encompasses functional, imperative, and object-oriented programming methods. It is most often used as a cross-platform Common Language Infrastructure (CLI) language on .NET, but can also generate JavaScript and graphics processing unit (GPU) code. F# gives you simplicity and succinctness like Python with correctness, robustness and performance beyond C# or Java.",
       keywords: ["f#", "fsharp"],
       websites: [
-        { title: "fsharp.org", href: "https://fsharp.org/", kind: "homepage" },
-        { title: "learn.microsoft.com/en-us/dotnet/fsharp", href: "https://learn.microsoft.com/en-us/dotnet/fsharp", kind: "plangs" },
-        { title: "F# on Wikipedia", href: "https://en.wikipedia.org/wiki/F_Sharp_programming_language", kind: "wikipedia" },
-        { title: "F# on Reddit", kind: "reddit", href: "https://reddit.com/r/fsharp" },
+        { title: "F# Software Foundation", href: "https://fsharp.org/", kind: "homepage" },
+        { title: "F# docs - get started, tutorials, reference.", href: "https://learn.microsoft.com/en-us/dotnet/fsharp", kind: "plangs" },
+        {
+          title: "F Sharp (programming language) - Wikipedia",
+          href: "https://en.wikipedia.org/wiki/F_Sharp_programming_language",
+          kind: "wikipedia",
+        },
       ],
       extensions: [".fs", ".fsi", ".fsscript", ".fsx"],
       year: 2005,
-      isTranspiler: false,
       isMainstream: true,
-      releases: [{ version: "8.0.0", name: "F# 8.0", date: "2023-01-01" }],
+      releases: [
+        { version: "8.0", name: "F# 8.0", date: "2023-11-01" },
+        { version: "8.0.0", name: "F# 8.0", date: "2023-01-01" },
+      ],
       stackovTags: ["f#"],
       githubName: "F#",
       languishRanking: 94,
@@ -48,8 +53,11 @@ export function define(g: PlangsGraph) {
       "tag+framework",
       "tag+industrial",
       "tag+interpreter",
+      "tag+iot",
       "tag+ray-tracer",
+      "tag+sci",
       "tag+scripting",
+      "tag+server",
       "tag+shell",
       "tag+viz",
     ])

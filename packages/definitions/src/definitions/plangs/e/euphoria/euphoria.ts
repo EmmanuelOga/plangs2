@@ -5,17 +5,20 @@ export function define(g: PlangsGraph) {
     .set("pl+euphoria", {
       name: "Euphoria",
       description:
-        "Euphoria is a programming language created by Robert Craig of Rapid Deployment Software in Toronto, Ontario, Canada. Initially developed (though not publicly released) on the Atari ST, the first commercial release was for MS-DOS as proprietary software. In 2006, with the release of version 3, Euphoria became open-source software. The openEuphoria Group continues to administer and develop the project.  In December 2010, the openEuphoria Group released version 4 of openEuphoria along with a new identity and mascot for the project. OpenEuphoria is currently available for Windows, Linux, macOS and three flavors of *BSD.",
-      keywords: ["euphoria"],
+        "Euphoria is a powerful yet easy-to-learn programming language that emphasizes simplicity and readability, making it suitable for a wide range of applications across Windows, Linux, macOS, and BSD. It was first released in 1993 as shareware and has evolved over time into an open-source community-driven project. Its design focuses on rapid development and performance, incorporating features like an interpreter, C translator, and simple syntax using English keywords.",
+      keywords: ["euphoria", "open source", "programming language"],
       websites: [
-        { title: "openeuphoria.org", href: "http://openeuphoria.org/", kind: "homepage" },
-        { title: "Euphoria", href: "https://en.wikipedia.org/wiki/Euphoria_(programming_language)", kind: "wikipedia" },
+        { title: "OpenEuphoria: News Index", href: "http://openeuphoria.org/", kind: "homepage" },
+        {
+          title: "Euphoria (programming language) - Wikipedia",
+          href: "https://en.wikipedia.org/wiki/Euphoria_(programming_language)",
+          kind: "wikipedia",
+        },
       ],
       extensions: [".e", ".edb", ".ex", ".exw"],
       year: 1993,
-      isTranspiler: false,
       isMainstream: false,
-      releases: [{ version: "4.1.0", name: "openEuphoria 4.1.0", date: "2021-01-01" }],
+      releases: [{ version: "4.1.0", name: "openEuphoria 4.1.0", date: "2021-03-01" }],
       githubName: "Euphoria",
       languishRanking: 387,
       githubLangId: "880693982",
@@ -38,7 +41,8 @@ export function define(g: PlangsGraph) {
       "tag+ray-tracer",
       "tag+ui",
       "tag+wavelet",
-    ]);
+    ])
+    .addTypeSystems(["tsys+dynamic", "tsys+static"]);
 
   // TOOLS
 

@@ -5,18 +5,23 @@ export function define(g: PlangsGraph) {
     .set("pl+factor", {
       name: "Factor",
       description:
-        "Factor is a stack-oriented programming language created by Slava Pestov. Factor is dynamically typed and has automatic memory management, as well as powerful metaprogramming features. The language has a single implementation featuring a self-hosted optimizing compiler and an interactive development environment. The Factor distribution includes a large standard library.",
-      keywords: ["factor"],
+        "Factor is a stack-oriented programming language created by Slava Pestov. It features dynamic types, extensible syntax, macros, and garbage collection. Factor supports a large standard library with cross-platform capabilities, providing a self-hosted optimizing compiler and an interactive development environment.",
+      keywords: ["dynamic types", "factor", "stack-oriented"],
       websites: [
-        { title: "factorcode.org", href: "http://factorcode.org/", kind: "homepage" },
-        { title: "Factor", href: "https://en.wikipedia.org/wiki/Factor_(programming_language)", kind: "wikipedia" },
-        { title: "Factor on Reddit", kind: "reddit", href: "https://reddit.com/r/factor" },
+        { title: "Factor programming language", href: "http://factorcode.org/", kind: "homepage" },
+        {
+          title: "Factor (programming language) - Wikipedia",
+          href: "https://en.wikipedia.org/wiki/Factor_(programming_language)",
+          kind: "wikipedia",
+        },
       ],
       extensions: [".factor"],
       year: 2003,
-      isTranspiler: false,
       isMainstream: false,
-      releases: [{ version: "0.99", name: "Factor 0.99", date: "2023-01-01" }],
+      releases: [
+        { version: "0.99", name: "Factor 0.99", date: "2023-08-24" },
+        { version: "0.100", name: "Factor 0.100", date: "2024-11-05" },
+      ],
       stackovTags: ["factor-lang"],
       githubName: "Factor",
       languishRanking: 315,
@@ -28,7 +33,7 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+forth", "pl+joy", "pl+lisp", "pl+self"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+concatenative", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
+    .addPlatforms(["plat+apple", "plat+linux", "plat+windows", "plat+x86-64"])
     .addTags(["tag+compiler", "tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 
