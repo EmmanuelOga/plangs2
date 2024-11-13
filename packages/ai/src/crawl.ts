@@ -9,7 +9,6 @@ import type { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import TurndownService from "turndown";
 
 import type { IterTap } from "@plangs/auxiliar/iter_tap";
-import type { NPlang } from "@plangs/plangs";
 import type { Link } from "@plangs/plangs/schema";
 
 type OpenAIMsg = ChatCompletionMessageParam;

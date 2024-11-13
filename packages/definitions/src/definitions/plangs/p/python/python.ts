@@ -5,19 +5,18 @@ export function define(g: PlangsGraph) {
     .set("pl+python", {
       name: "Python",
       description:
-        "Python is a high-level, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation.",
+        "Python is a high-level, interpreted language with a design philosophy that emphasizes code readability and simplicity. It supports multiple programming paradigms beyond object-oriented programming, such as procedural and functional programming.",
       year: 1991,
       extensions: [".py", ".pyw", ".pyz", ".pyi", ".pyc", ".pyd"],
-      keywords: ["python", "programming", "scripting", "language", "high-level", "general-purpose"],
+      keywords: ["python", "programming", "language", "interpreted", "high-level", "dynamic", "readability"],
       websites: [
-        { title: "General FAQ — Python Documentation", href: "https://docs.python.org/3/faq/general.html", kind: "faq" },
-        { title: "Python on Reddit", kind: "reddit", href: "https://reddit.com/r/Python" },
-        { title: "Python on Wikipedia", href: "https://en.wikipedia.org/wiki/Python_programming_language", kind: "wikipedia" },
+        { title: "General Python FAQ — Python 3.13.0 documentation", href: "https://docs.python.org/3/faq/general.html", kind: "faq" },
+        { title: "Python (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Python_programming_language", kind: "wikipedia" },
         { title: "Welcome to Python.org", href: "https://www.python.org/", kind: "homepage" },
       ],
       isMainstream: true,
       releases: [
-        { version: "2.7.18", name: "Final Release of Python 2", date: "2020-04-20" },
+        { version: "2.7.18", name: "Final Release of Python 2", date: "2020-04-19" },
         { version: "3.10.0", name: "Python 3.10.0", date: "2021-10-04" },
         { version: "3.13.0", name: "Python 3.13.0", date: "2024-10-07" },
       ],
@@ -25,7 +24,26 @@ export function define(g: PlangsGraph) {
       stackovTags: ["python"],
       githubName: "Python",
       languishRanking: 1,
+      isTranspiler: true,
     })
+    .addCompilesTo([
+      "pl+ada",
+      "pl+apl",
+      "pl+c",
+      "pl+c++",
+      "pl+cpython",
+      "pl+dylan",
+      "pl+go",
+      "pl+groovy",
+      "pl+haskell",
+      "pl+icon",
+      "pl+javascript",
+      "pl+julia",
+      "pl+lisp",
+      "pl+perl",
+      "pl+standard-ml",
+      "pl+swift",
+    ])
     .addInfluencedBy([
       "pl+abc",
       "pl+ada",

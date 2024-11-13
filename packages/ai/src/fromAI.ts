@@ -18,7 +18,7 @@ export function plangFromAI(pg: PlangsGraph, pl: NPlang, aiPL: NPlangAI): NPlang
   const { extensions, filenames, images, releases, stackovTags } = pl.data;
 
   // Merge the data from the original NPlang node, but overwrite with the data from OpenAI.
-  const newPl = new NPlang(pg, pl.key).merge({ ...pl.data, ...aiPL.data });
+  const newPl = new NPlang(pg, pl.key).merge({ ...pl.data, ...aiPL.commonData, ...aiPL.basicPlangData });
 
   // Re-add the original data that may have been lost in the merge.
   // TODO: maybe override the merge method to avoid this.

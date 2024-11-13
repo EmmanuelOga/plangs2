@@ -1,5 +1,7 @@
 /**
- * {@fileoverview} Would be nice to place this file in the ai package,
+ * This generates JSON schemas for the types in the schema.ts file that match {@link SYMBOLS}.
+ *
+ * Would be nice to place this file in the ai package,
  * but for some reason it is not able to pickup the types if I do.
  */
 
@@ -7,7 +9,8 @@ import { join } from "node:path";
 
 import * as TJS from "typescript-json-schema";
 
-const SYMBOLS = ["PlAiResult"];
+/*** TJS will parse the TS file and extract these symbols, in this case the name of the Types we want to extract. */
+const MAIN_TYPE = "NPlangAI";
 
 async function generateJsonSchemas() {
   const program = TJS.getProgramFromFiles(
@@ -16,90 +19,28 @@ async function generateJsonSchemas() {
     join(import.meta.dir, ".."),
   );
 
-  const generator = TJS.buildGenerator(program, { ignoreErrors: true, required: true, strictNullChecks: true });
+  // ignoreErrors: if we don't TJS will fail for any error, even in the std Bun types.
+  const generator = TJS.buildGenerator(program, { ignoreErrors: true, required: true, strictNullChecks: false });
   if (!generator) throw new Error("Failed to build generator.");
 
-  for (const sym of SYMBOLS) {
-    const result = massageForOpenAI(generator.getSchemaForSymbol(sym));
-    const path = join(import.meta.dir, `schemas/${sym}.json`);
-    console.info("Generating schema for", sym, "at", path);
-    Bun.write(path, JSON.stringify(result, null, 2));
-  }
+  const schema = generator.getSchemaForSymbol(MAIN_TYPE);
+  const path = join(import.meta.dir, `schemas/${MAIN_TYPE}.json`);
+  console.info("Generating schema for", MAIN_TYPE, "at", path, "\n");
+
+  Bun.write(path, JSON.stringify({ name: MAIN_TYPE, ...schema }, null, 2));
 }
 
-/**
- * Strict generates schemas that comply with OpenAI strict mode:
- * removes all patterns from schemas and makes everything required.
- * If not using strict mode, the generated schemas are more permissive
- * and closer to real life use.
- */
-const STRICT = true;
+await generateJsonSchemas();
 
 /**
  * Since the schemas are used mainly for OpenAI structured ouptut,
  * we need to "massage" the schemas to fit OpenAI's requirements.
- * https://platform.openai.com/docs/guides/structured-outputs/how-to-use
  */
-function massageForOpenAI(schema: TJS.Definition): TJS.Definition {
-  const properties = new Map(Object.entries(schema.properties ?? {}));
-  const definitions = schema.definitions ?? {};
-
-  // Clean up a property definition to comply with OpenAI.
-  const massageProp = (def: TJS.DefinitionOrBoolean): TJS.DefinitionOrBoolean => {
-    if (STRICT) {
-      // "pattern" is not supported by OpenAI.
-      if (typeof def === "object" && "pattern" in def) {
-        // biome-ignore lint/performance/noDelete: it is ok here.
-        delete def.pattern;
-      }
-    }
-    return def;
-  };
-
-  const mergeProps = (def: TJS.Definition) => {
-    if (typeof def === "object" && "properties" in def) {
-      for (const [prop, val] of Object.entries(def.properties ?? {})) {
-        properties.set(prop, massageProp(val));
-      }
-      return;
-    }
-
-    if (typeof def === "object" && "$ref" in def && def.$ref?.startsWith("#/definitions/")) {
-      const referred = definitions[def.$ref.replace("#/definitions/", "")];
-      if (typeof referred === "object") mergeProps(referred);
-    }
-  };
-
-  // Remove allOf and merge them into the main schema.
-  for (const def of schema.allOf ?? []) if (typeof def === "object") mergeProps(def);
-
-  // biome-ignore lint/performance/noDelete: it is ok here.
-  delete schema.allOf;
-  // biome-ignore lint/performance/noDelete: it is ok here.
-  delete schema.definitions?.CommonNodeData;
-  // biome-ignore lint/performance/noDelete: it is ok here.
-  delete schema.definitions?.CommonEdgeData;
-
-  schema.type = "object";
-  schema.properties = Object.fromEntries(properties);
-
-  // Technically we should not make everything required unless STRICT is true,
-  // but for now it is ok.
-  schema.required = [...properties.keys()].sort();
-
-  // Make all properties required, even inside definitions.
-  if (STRICT) {
-    schema.additionalProperties = false;
-    for (const val of Object.values(definitions)) {
-      if (typeof val === "object" && val.type === "object") {
-        val.additionalProperties = false;
-        val.required = Object.keys(val.properties ?? {}).sort();
-        for (const def of Object.values(val.properties ?? {})) massageProp(def);
-      }
-    }
-  }
-
-  return schema;
-}
-
-await generateJsonSchemas();
+// https://platform.openai.com/docs/guides/structured-outputs#additionalproperties-false-must-always-be-set-in-objects
+// TODO: we need to add additionalProperties everywhere there's a "required" field.
+// TODO: required should require EVERY property.
+// TODO: remove "description" from $refs.
+// For now I'm just manually touching the generated schema.
+console.log("Make sure to manually review the generated schemas, it may require further tunning.\n");
+console.log("* https://platform.openai.com/docs/guides/structured-outputs/how-to-use");
+console.log("* https://platform.openai.com/docs/guides/structured-outputs#supported-schemas");
