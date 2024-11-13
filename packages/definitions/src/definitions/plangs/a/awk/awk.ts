@@ -5,17 +5,15 @@ export function define(g: PlangsGraph) {
     .set("pl+awk", {
       name: "AWK",
       description:
-        "AWK (/ɔːk/) is a domain-specific language designed for text processing and typically used as a data extraction and reporting tool. Like sed and grep, it is a filter, and is a standard feature of most Unix-like operating systems.",
-      keywords: ["awk"],
+        "AWK is a domain-specific language designed for text processing and is typically used as a data extraction and reporting tool. It operates as a filter and is a standard feature of most Unix-like operating systems. AWK is recognized for its terseness and power in text processing, facilitating one-liner programs.",
+      keywords: ["awk", "text processing", "unix utilities"],
       websites: [
         { title: "AWK on Wikipedia", href: "https://en.wikipedia.org/wiki/AWK_programming_language", kind: "wikipedia" },
-        { title: "AWK on Reddit", kind: "reddit", href: "https://reddit.com/r/awk" },
+        { title: "AWK on Reddit", href: "https://reddit.com/r/awk", kind: "reddit" },
       ],
       extensions: [".awk", ".gawk", ".mawk", ".nawk"],
       year: 1977,
-      isTranspiler: false,
       isMainstream: true,
-      releases: [{ version: "1.0", name: "Initial Release", date: "1977-01-01" }],
       stackovTags: ["awk"],
       githubName: "Awk",
       languishRanking: 88,

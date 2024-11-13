@@ -1,20 +1,34 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl.set("pl+asp.net", {
-    name: "ASP.NET",
-    languishRanking: 23,
-    websites: [
-      { kind: "reddit", title: "ASP.NET on Reddit", href: "https://reddit.com/r/ASPNET" },
-      { kind: "wikipedia", title: "ASP.NET on Wikipedia", href: "https://en.wikipedia.org/wiki/ASP.NET" },
-    ],
-    stackovTags: ["asp.net", "asp.net-core"],
-    githubName: "ASP.NET",
-    githubLangId: "564186416",
-    githubColor: "#9400ff",
-    githubPopular: false,
-    githubType: "programming",
-  });
+  g.nodes.pl
+    .set("pl+asp.net", {
+      name: "ASP.NET",
+      languishRanking: 23,
+      websites: [
+        { title: "ASP.NET on Wikipedia", href: "https://en.wikipedia.org/wiki/ASP.NET", kind: "wikipedia" },
+        { title: "ASP.NET on Github", href: "https://github.com/dotnet/aspnetcore", kind: "repository" },
+      ],
+      stackovTags: ["asp.net", "asp.net-core"],
+      githubName: "ASP.NET",
+      githubLangId: "564186416",
+      githubColor: "#9400ff",
+      githubPopular: false,
+      githubType: "programming",
+      description:
+        "ASP.NET is a server-side web-application framework designed for web development to produce dynamic web pages. It was developed by Microsoft to allow programmers to build dynamic websites, applications, and services. It is built on the Common Language Runtime (CLR), allowing programmers to write ASP.NET code using .NET languages.",
+      keywords: ["ASP.NET", "Microsoft", "dynamic web pages", "server-side", "web framework"],
+      extensions: [".aspx", ".cshtml", ".vbhtml"],
+      year: 2002,
+      isTranspiler: true,
+      isMainstream: true,
+      releases: [{ version: "v9.0.0", date: "2024-09-13" }],
+    })
+    .addCompilesTo(["pl+.net"])
+    .addParadigms(["paradigm+multi", "paradigm+oop"])
+    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
+    .addTags(["tag+framework", "tag+server"])
+    .addTypeSystems(["tsys+nominal", "tsys+static"]);
 
   // TOOLS
 

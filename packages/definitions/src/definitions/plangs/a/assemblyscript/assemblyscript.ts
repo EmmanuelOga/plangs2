@@ -9,14 +9,15 @@ export function define(g: PlangsGraph) {
       keywords: ["assemblyscript"],
       websites: [
         { title: "www.assemblyscript.org", href: "https://www.assemblyscript.org/", kind: "homepage" },
-        { title: "AssemblyScript", href: "https://en.wikipedia.org/wiki/AssemblyScript", kind: "wikipedia" },
+        { title: "AssemblyScript on Wikipedia", href: "https://en.wikipedia.org/wiki/AssemblyScript", kind: "wikipedia" },
       ],
       extensions: [".ts"],
       year: 2017,
-      isTranspiler: false,
+      isTranspiler: true,
       isMainstream: false,
-      releases: [{ version: "0.27.29", name: "AssemblyScript 0.27.29", date: "2024-01-01" }],
+      releases: [{ version: "0.27.30", name: "AssemblyScript 0.27.30", date: "2024-09-27" }],
     })
+    .addCompilesTo(["pl+webassembly"])
     .addDialectOf(["pl+javascript", "pl+typescript"])
     .addInfluencedBy(["pl+javascript", "pl+typescript"])
     .addLicenses(["license+apache"])

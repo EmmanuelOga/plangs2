@@ -8,10 +8,10 @@ export function define(g: PlangsGraph) {
         "Assembly language, often simply referred to as assembly and abbreviated as ASM or asm, is a low-level programming language with a strong correspondence between its instructions and the machine code of the architecture it's designed for. Assembly language usually has a 1:1 mapping with machine instructions but also supports constants, comments, assembler directives, symbolic labels, and macros.",
       keywords: ["asm", "assembler", "assembly"],
       websites: [
-        { title: "Assembly language", href: "https://en.wikipedia.org/wiki/Assembly_language", kind: "wikipedia" },
-        { title: "Assembly on Reddit", kind: "reddit", href: "https://reddit.com/r/asm" },
+        { title: "Assembly on Wikipedia", href: "https://en.wikipedia.org/wiki/Assembly_language", kind: "wikipedia" },
+        { title: "Assembly on Reddit", href: "https://reddit.com/r/asm", kind: "reddit" },
       ],
-      extensions: [".a51", ".asm", ".inc", ".s", ".src"],
+      extensions: [".S", ".SRC", ".a51", ".asm", ".inc", ".s", ".src", ".wla"],
       year: 1947,
       isTranspiler: false,
       isMainstream: true,
