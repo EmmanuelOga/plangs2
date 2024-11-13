@@ -4,9 +4,8 @@ export function define(g: PlangsGraph) {
   g.nodes.pl
     .set("pl+pony", {
       name: "Pony",
-      description:
-        "Pony is an actor-model, capabilities-secure, high-performance programming language designed with reference capabilities and focusing on safe and concurrent programming.",
-      keywords: ["actor model", "capability-security", "concurrent", "pony"],
+      description: "Pony is an open-source, object-oriented, actor-model, capabilities-secure, high-performance programming language.",
+      keywords: ["actor-model", "capability-security", "pony"],
       websites: [
         { title: "Pony", href: "https://www.ponylang.io/", kind: "homepage" },
         { title: "Pony (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Pony_(programming_language)", kind: "wikipedia" },

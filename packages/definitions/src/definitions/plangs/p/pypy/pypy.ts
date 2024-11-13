@@ -5,18 +5,20 @@ export function define(g: PlangsGraph) {
     .set("pl+pypy", {
       name: "PyPy",
       description:
-        "PyPy (/ˈpaɪpaɪ/) is an implementation of the Python programming language. PyPy often runs faster than the standard implementation CPython because PyPy uses a just-in-time compiler. Most Python code runs well on PyPy except for code that depends on CPython extensions, which either does not work or incurs some overhead when run in PyPy.",
-      keywords: ["pypy"],
+        "PyPy is a fast, compliant alternative implementation of Python. Known for its Just-in-Time (JIT) compiler, PyPy often runs faster than CPython. It aims to provide flexibility and speed while supporting a high degree of compatibility with Python code. PyPy is written in RPython and supports Python versions 2.7 and 3.10.",
+      keywords: ["cpython", "interpreter", "jit", "pypy", "python", "python alternative"],
       websites: [
-        { title: "pypy.org", href: "https://pypy.org/", kind: "homepage" },
-        { title: "PyPy on Reddit", kind: "reddit", href: "https://reddit.com/r/pypy" },
-        { title: "PyPy on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/PyPy" },
+        { title: "PyPy", href: "https://pypy.org/", kind: "homepage" },
+        { title: "PyPy - Wikipedia", href: "https://en.wikipedia.org/wiki/PyPy", kind: "wikipedia" },
+        { title: "PyPy GitHub Repository", href: "https://github.com/pypy/pypy", kind: "repository" },
       ],
       extensions: [".py"],
       year: 2007,
-      isTranspiler: false,
       isMainstream: true,
-      releases: [{ version: "7.3.16", name: "PyPy 7.3.16", date: "2024-01-01" }],
+      releases: [
+        { version: "7.3.17", name: "PyPy 7.3.17", date: "2024-08-28" },
+        { version: "7.3.16", name: "PyPy 7.3.16", date: "2024-01-01" },
+      ],
       stackovTags: ["python"],
       githubName: "Python",
       languishRanking: 1,
