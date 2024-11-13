@@ -4,7 +4,8 @@
   "type": "object",
   "properties": {
     "commonData": {
-      "$ref": "#/definitions/CommonNodeData"
+      "$ref": "#/definitions/CommonNodeData",
+      "description": "Basic data shared across all Node types."
     },
     "basicPlangData": {
       "description": "Base programming language data.",
@@ -52,14 +53,15 @@
         }
       },
       "additionalProperties": false,
-      "required": ["extensions", "filenames", "images", "isMainstream", "isTranspiler", "releases", "year"]
-    },
-    "apps": {
-      "description": "A list of applications written in this programming language, if any.\nEach element is a key with prefix \"app+\", for instance: \"app+word\",\nwhere \"word\" is a unique identifier using only lowercase letters, numbers and dashes.",
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "required": [
+        "extensions",
+        "filenames",
+        "images",
+        "isMainstream",
+        "isTranspiler",
+        "releases",
+        "year"
+      ]
     },
     "compilesTo": {
       "description": "List of programming languages that this language compiles to, if any.\nEach element is a key with prefix \"pl+\", for instance: \"pl+python\",\nwhere \"python\" is a unique identifier using only lowercase letters, numbers and dashes.",
@@ -96,13 +98,6 @@
         "type": "string"
       }
     },
-    "libraries": {
-      "description": "List of libraries for this programming language, if any.\nEach element is a key with prefix \"lib+\", for instance: \"lib+ncurses\",\nwhere \"ncurses\" is a unique identifier using only lowercase letters, numbers and dashes.",
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
     "licenses": {
       "description": "List of licenses for this programming language, if any.\nEach element is a key with prefix \"license+\", for instance: \"license+mit\",\nwhere \"mit\" is a unique identifier using only lowercase letters, numbers and dashes.",
       "type": "array",
@@ -131,13 +126,6 @@
         "type": "string"
       }
     },
-    "tools": {
-      "description": "List of tools for this programming language, if any.\nEach element is a key with prefix \"tool+\", for instance: \"tool+make\",\nwhere \"make\" is a unique identifier using only lowercase letters, numbers and dashes.",
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
     "typeSystems": {
       "description": "List of type systems for this programming language, if any.\nEach element is a key with prefix \"tsys+\", for instance: \"tsys+strong\",\nwhere \"strong\" is a unique identifier using only lowercase letters, numbers and dashes.",
       "type": "array",
@@ -155,7 +143,6 @@
   },
   "additionalProperties": false,
   "required": [
-    "apps",
     "basicPlangData",
     "commonData",
     "compilesTo",
@@ -163,12 +150,10 @@
     "implements",
     "influenced",
     "influencedBy",
-    "libraries",
     "licenses",
     "paradigms",
     "platforms",
     "tags",
-    "tools",
     "typeSystems",
     "writtenIn"
   ],
@@ -198,7 +183,12 @@
         }
       },
       "additionalProperties": false,
-      "required": ["description", "keywords", "name", "websites"]
+      "required": [
+        "description",
+        "keywords",
+        "name",
+        "websites"
+      ]
     },
     "Link": {
       "description": "A reference to a web page.",
@@ -214,12 +204,25 @@
         },
         "kind": {
           "description": "A link kind helps us quickly find the kind of link we are looking for.",
-          "enum": ["apidocs", "faq", "homepage", "other", "plangs", "reddit", "releases", "repository", "wikipedia"],
+          "enum": [
+            "apidocs",
+            "faq",
+            "homepage",
+            "other",
+            "plangs",
+            "reddit",
+            "releases",
+            "repository",
+            "wikipedia"
+          ],
           "type": "string"
         }
       },
       "additionalProperties": false,
-      "required": ["kind", "href", "title"]
+      "required": [
+        "href",
+        "title"
+      ]
     },
     "Image": {
       "description": "An image, e.g., a logo.",
@@ -227,7 +230,11 @@
       "properties": {
         "kind": {
           "description": "The kind of image.",
-          "enum": ["logo", "other", "screenshot"],
+          "enum": [
+            "logo",
+            "other",
+            "screenshot"
+          ],
           "type": "string"
         },
         "title": {
@@ -248,7 +255,11 @@
         }
       },
       "additionalProperties": false,
-      "required": ["kind", "title", "url", "width", "height"]
+      "required": [
+        "kind",
+        "title",
+        "url"
+      ]
     },
     "Release": {
       "description": "A release of a programming language.",
@@ -263,12 +274,20 @@
           "type": "string"
         },
         "date": {
-          "description": "Date of the release, if it is known.",
-          "type": "string"
+          "$ref": "#/definitions/StrDate",
+          "description": "Date of the release, if it is known."
         }
       },
       "additionalProperties": false,
-      "required": ["name", "date", "version"]
+      "required": [
+        "version",
+        "name",
+        "date"
+      ]
+    },
+    "StrDate": {
+      "description": "A 0-padded YYYY-MM-DD date. Example: 2024-01-01.",
+      "type": "string"
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#"
