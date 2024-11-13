@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+nickel", {
       name: "Nickel",
       description:
-        "Nickel is a configuration language for programmers that brings strong types and flexible validation. It is aimed at reducing configuration errors by allowing users to declare the expected structure of their configurations and enforce validation rules.",
-      keywords: ["nickel"],
+        "Nickel is a lightweight configuration language aimed at automating the generation of configuration files. It combines JSON semantics with first-class functions, allowing for modular and reusable configurations. With features like optional static typing and design by contract, Nickel ensures that complex configurations are easy to manage and less prone to errors.",
+      keywords: ["configuration", "json", "nickel", "xml", "yaml"],
       websites: [
         { title: "Nickel", href: "https://nickel-lang.org/", kind: "homepage" },
         { title: "Nickel GitHub", href: "https://github.com/tweag/nickel", kind: "repository" },
@@ -14,14 +14,17 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".ncl"],
       year: 2021,
-      releases: [{ version: "1.0.0", name: "Nickel 1.0.0", date: "2023-09-01" }],
+      releases: [{ version: "1.0.0", name: "Nickel 1.0.0", date: "2023-05-01" }],
+      isTranspiler: true,
+      isMainstream: false,
     })
+    .addCompilesTo(["pl+json", "pl+nix", "pl+rust", "pl+xml", "pl+yaml"])
     .addInfluencedBy(["pl+rust"])
     .addLicenses(["license+mpl"])
     .addParadigms(["paradigm+data-exchange", "paradigm+declarative", "paradigm+validation"])
     .addPlatforms(["plat+linux", "plat+mac", "plat+windows"])
-    .addTags(["tag+configuration", "tag+validation"])
-    .addTypeSystems(["tsys+static", "tsys+strong"])
+    .addTags(["tag+automation", "tag+configuration", "tag+validation"])
+    .addTypeSystems(["tsys+dynamic", "tsys+gradual", "tsys+optional", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+rust"]);
 
   // TOOLS

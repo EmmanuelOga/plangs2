@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+nim", {
       name: "Nim",
       description:
-        'Nim is a general-purpose, multi-paradigm, statically typed, compiled high-level system programming language, designed and developed by a team around Andreas Rumpf. Nim is designed to be "efficient, expressive, and elegant", supporting metaprogramming, functional, message passing, procedural, and object-oriented programming styles by providing several features such as compile time code generation, algebraic data types, a foreign function interface (FFI) with C, C++, Objective-C, and JavaScript, and supporting compiling to those same languages as intermediate representations.',
+        'Nim is a general-purpose, multi-paradigm, statically typed, compiled high-level system programming language, designed and developed by a team around Andreas Rumpf. Nim is designed to be "efficient, expressive, and elegant", supporting metaprogramming, functional, message-passing, procedural, and object-oriented programming styles. It compiles to multiple languages, including C, C++, JavaScript, allowing it to be used for both backend and frontend applications. It features a modern type system with local type inference, generic programming, and several memory management options, suitable for embedded and real-time systems.',
       keywords: ["nim"],
       websites: [
         { title: "nim-lang.org", href: "http://nim-lang.org/", kind: "homepage" },
@@ -16,7 +16,10 @@ export function define(g: PlangsGraph) {
       year: 2008,
       isTranspiler: true,
       isMainstream: false,
-      releases: [{ version: "2.0.8", name: "Nim 2.0.8", date: "2024-01-01" }],
+      releases: [
+        { version: "2.2.0", date: "2024-10-02" },
+        { version: "2.0.12", date: "2024-11-01" },
+      ],
       stackovTags: ["nim-lang"],
       githubName: "Nim",
       languishRanking: 104,
@@ -25,6 +28,7 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
     })
+    .addCompilesTo(["pl+c++", "pl+javascript"])
     .addInfluencedBy(["pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+oberon", "pl+python", "pl+rust"])
     .addLicenses(["license+mit"])
     .addParadigms([
@@ -37,13 +41,15 @@ export function define(g: PlangsGraph) {
       "paradigm+oop",
       "paradigm+procedural",
     ])
-    .addPlatforms(["plat+arm", "plat+cross", "plat+linux", "plat+riscv", "plat+x86-64"])
+    .addPlatforms(["plat+apple", "plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
     .addTags([
       "tag+3dg",
       "tag+analysis",
       "tag+app",
       "tag+compiler",
       "tag+editor",
+      "tag+edu",
+      "tag+embedded",
       "tag+games",
       "tag+interpreter",
       "tag+iot",
@@ -52,7 +58,7 @@ export function define(g: PlangsGraph) {
       "tag+viz",
     ])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])
-    .addWrittenIn(["pl+pascal"]);
+    .addWrittenIn(["pl+c++"]);
 
   // TOOLS
 
