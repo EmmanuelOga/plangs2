@@ -5,18 +5,20 @@ export function define(g: PlangsGraph) {
     .set("pl+max-msp", {
       name: "Max",
       description:
-        "Max, also known as Max/MSP/Jitter, is a visual programming language for music and multimedia developed and maintained by San Francisco-based software company Cycling '74. It allows users to create interactive sound, graphics, and media applications through a modular and flexible visual interface.",
-      keywords: ["max msp", "maxmsp"],
+        "Max, also known as Max/MSP/Jitter, is a visual programming language primarily used for music and multimedia development. It allows users to create interactive sound, graphics, and media applications through a scalable visual interface.",
+      keywords: ["cycling74", "max for live", "max msp", "maxmsp"],
       websites: [
-        { title: "cycling74.com/products/max/", href: "https://cycling74.com/products/max/", kind: "other" },
-        { title: "Max on Reddit", kind: "reddit", href: "https://reddit.com/r/MaxMSP" },
-        { title: "Max on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Max_(software)" },
+        { title: "What is Max? | Cycling '74", href: "https://cycling74.com/products/max/", kind: "other" },
+        { title: "Max (software) - Wikipedia", href: "https://en.wikipedia.org/wiki/Max_(software)", kind: "wikipedia" },
+        { title: "Max on Reddit", href: "https://reddit.com/r/MaxMSP", kind: "reddit" },
       ],
       extensions: [".maxpat", ".mxb", ".mxt"],
       year: 1988,
-      isTranspiler: false,
-      isMainstream: false,
-      releases: [{ version: "8.6.2", name: "Max 8.6.2", date: "2024-01-01" }],
+      isMainstream: true,
+      releases: [
+        { version: "8.6.2", name: "Max 8.6.2", date: "2024-03-19" },
+        { version: "9", name: "Max 9", date: "2024-10-29" },
+      ],
       stackovTags: ["max-msp-jitter"],
       githubName: "Max",
       languishRanking: 196,

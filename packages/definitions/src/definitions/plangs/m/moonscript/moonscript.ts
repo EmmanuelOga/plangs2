@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+moonscript", {
       name: "MoonScript",
       description:
-        "MoonScript is a dynamic scripting language that compiles into Lua. It gives you the power of one of the fastest scripting languages combined with a rich set of features.",
-      keywords: ["moonscript"],
+        "MoonScript is a dynamic, whitespace-sensitive scripting language that compiles into Lua. It offers a clean syntax inspired by CoffeeScript and provides compatibility with Lua, including alternative implementations like LuaJIT.",
+      keywords: ["coffeeScript", "dynamic", "lua", "moonscript", "programming language", "scripting language"],
       websites: [
         { title: "MoonScript", href: "https://moonscript.org/", kind: "homepage" },
         { title: "MoonScript", href: "https://en.wikipedia.org/wiki/MoonScript", kind: "wikipedia" },
@@ -14,7 +14,6 @@ export function define(g: PlangsGraph) {
       ],
       year: 2011,
       isTranspiler: true,
-      isMainstream: true,
       stackovTags: ["moonscript"],
       githubName: "MoonScript",
       languishRanking: 360,
@@ -22,6 +21,7 @@ export function define(g: PlangsGraph) {
       githubColor: "#ff4585",
       githubPopular: false,
       githubType: "programming",
+      extensions: [".moon"],
     })
     .addCompilesTo(["pl+lua"])
     .addInfluencedBy(["pl+c++", "pl+clu", "pl+coffeescript", "pl+modula", "pl+scheme"])

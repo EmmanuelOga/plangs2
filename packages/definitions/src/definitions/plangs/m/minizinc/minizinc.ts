@@ -5,19 +5,21 @@ export function define(g: PlangsGraph) {
     .set("pl+minizinc", {
       name: "MiniZinc",
       description:
-        "MiniZinc is a constraint modelling language (or algebraic modeling language) to describe and solve high-complexity problems using a variety of well-known solving paradigms for combinatorial problems including constraint programming, integer programming, lazy clause generation, SAT, and SMT.",
-      keywords: ["minizinc"],
+        "MiniZinc is a constraint modelling language (or algebraic modeling language) to describe and solve high-complexity problems using a variety of well-known solving paradigms for combinatorial problems, including constraint programming, integer programming, lazy clause generation, SAT, and SMT.",
+      keywords: ["constraint programming", "logic programming", "minizinc"],
       websites: [
-        { title: "www.minizinc.org", href: "https://www.minizinc.org/", kind: "homepage" },
-        { title: "MiniZinc", href: "https://en.wikipedia.org/wiki/MiniZinc", kind: "wikipedia" },
+        { title: "MiniZinc", href: "https://www.minizinc.org/", kind: "homepage" },
+        { title: "MiniZinc - Wikipedia", href: "https://en.wikipedia.org/wiki/MiniZinc", kind: "wikipedia" },
       ],
       extensions: [".dzn", ".fzn", ".mzn"],
       year: 2009,
-      isTranspiler: false,
       isMainstream: false,
-      releases: [{ version: "2.8.5", name: "MiniZinc 2.8.5", date: "2024-01-01" }],
+      releases: [
+        { version: "2.8.5", name: "MiniZinc 2.8.5", date: "2024-06-03" },
+        { version: "2.8.7", name: "MiniZinc 2.8.7", date: "2024-10-02" },
+      ],
     })
-    .addLicenses(["license+mit"])
+    .addLicenses(["license+mit", "license+mpl"])
     .addParadigms(["paradigm+constraint", "paradigm+logic"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+modeling", "tag+science"])

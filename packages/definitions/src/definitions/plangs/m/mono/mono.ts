@@ -6,22 +6,21 @@ export function define(g: PlangsGraph) {
       name: "Mono",
       description:
         "Mono is a free and open-source .NET Framework-compatible software framework. Originally by Ximian which was acquired by Novell, it was later developed by Xamarin which was acquired by Microsoft. In August 2024, Microsoft transferred ownership of Mono to WineHQ. Mono can be run on many software systems.",
-      keywords: ["mono"],
+      keywords: [".net", "cross-platform", "mono"],
       websites: [
-        { title: "www.mono-project.com", href: "https://www.mono-project.com/", kind: "homepage" },
-        { title: "Mono", href: "https://en.wikipedia.org/wiki/Mono_(software)", kind: "wikipedia" },
+        { title: "Home | Mono", href: "https://www.mono-project.com/", kind: "homepage" },
+        { title: "Mono (software) - Wikipedia", href: "https://en.wikipedia.org/wiki/Mono_(software)", kind: "wikipedia" },
       ],
       extensions: [".cs", ".vb"],
       year: 2004,
-      isTranspiler: false,
       isMainstream: true,
-      releases: [{ version: "6.12.0.206", name: "Mono 6.12.0.206", date: "2024-01-01" }],
+      releases: [{ version: "6.12.0.206", name: "Mono 6.12.0.206", date: "2024-02-13" }],
     })
     .addImplements(["pl+c-sharp", "pl+visual-basic"])
     .addInfluencedBy(["pl+dotnet"])
     .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
+    .addParadigms(["paradigm+compiled", "paradigm+multi", "paradigm+oop"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
     .addTags([
       "tag+3dg",
       "tag+app",
