@@ -20,10 +20,13 @@ export function define(g: PlangsGraph) {
         { version: "1.10.5", name: "Julia 1.10.5", date: "2024-01-01" },
         { version: "1.11.0", name: "Julia 1.11.0", date: "2024-01-01" },
       ],
-      github: { name: "Julia", langId: "184", color: "#a270ba", popular: false, type: "programming" },
       stackovTags: ["julia"],
       githubName: "Julia",
-      languishRanking: 39,
+      languishRanking: 48,
+      githubLangId: "184",
+      githubColor: "#a270ba",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy([
       "pl+c",

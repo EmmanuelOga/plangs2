@@ -17,10 +17,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "2.0.0", name: "Kotlin 2.0.0", date: "2024-01-01" }],
-      github: { name: "Kotlin", langId: "189", color: "#A97BFF", popular: true, type: "programming" },
       stackovTags: ["kotlin"],
       githubName: "Kotlin",
       languishRanking: 14,
+      githubLangId: "189",
+      githubColor: "#A97BFF",
+      githubPopular: true,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+c-sharp", "pl+eiffel", "pl+groovy", "pl+javascript", "pl+ml", "pl+python", "pl+scala"])
     .addLicenses(["license+apache"])

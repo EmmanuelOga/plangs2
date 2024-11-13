@@ -15,10 +15,13 @@ export function define(g: PlangsGraph) {
       year: 1986,
       isTranspiler: false,
       isMainstream: false,
-      github: { name: "Eiffel", langId: "99", color: "#4d6977", popular: false, type: "programming" },
       stackovTags: ["eiffel"],
       githubName: "Eiffel",
-      languishRanking: 352,
+      languishRanking: 402,
+      githubLangId: "99",
+      githubColor: "#4d6977",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+ada", "pl+simula"])
     .addLicenses(["license+epl"])

@@ -17,10 +17,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "8.6.2", name: "Max 8.6.2", date: "2024-01-01" }],
-      github: { name: "Max", langId: "227", color: "#c4a79c", popular: false, type: "programming" },
       stackovTags: ["max-msp-jitter"],
       githubName: "Max",
-      languishRanking: 145,
+      languishRanking: 196,
+      githubLangId: "227",
+      githubColor: "#c4a79c",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addParadigms(["paradigm+dataflow", "paradigm+event-driven", "paradigm+visual"])
     .addPlatforms(["plat+apple", "plat+windows"])

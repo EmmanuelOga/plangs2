@@ -11,15 +11,18 @@ export function define(g: PlangsGraph) {
         { title: "BASIC on Wikipedia", href: "https://en.wikipedia.org/wiki/BASIC", kind: "wikipedia" },
         { title: "BASIC on Reddit", kind: "reddit", href: "https://reddit.com/r/Basic" },
       ],
-      extensions: [".bas", ".bi", ".bb", ".pb", ".fb"],
+      extensions: [".bas", ".bb", ".bi", ".fb", ".pb"],
       year: 1964,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "1.0", name: "Initial Release", date: "1964-01-01" }],
-      github: { name: "BASIC", langId: "28923963", color: "#ff0000", popular: false, type: "programming" },
       stackovTags: ["basic"],
       githubName: "BASIC",
-      languishRanking: 353,
+      languishRanking: 239,
+      githubLangId: "28923963",
+      githubColor: "#ff0000",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+fortran"])
     .addLicenses(["license+public-domain"])

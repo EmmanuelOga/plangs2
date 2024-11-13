@@ -16,14 +16,17 @@ export function define(g: PlangsGraph) {
         { title: "Pascal on Reddit", kind: "reddit", href: "https://reddit.com/r/pascal" },
         { title: "Pascal on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Pascal_(programming_language)" },
       ],
-      extensions: [".pas", ".pp", ".p"],
+      extensions: [".p", ".pas", ".pp"],
       year: 1970,
       isTranspiler: false,
       isMainstream: true,
-      github: { name: "Pascal", langId: "281", color: "#E3F171", popular: false, type: "programming" },
       stackovTags: ["pascal"],
       githubName: "Pascal",
-      languishRanking: 53,
+      languishRanking: 72,
+      githubLangId: "281",
+      githubColor: "#E3F171",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+algol", "pl+simula"])
     .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+structured"])

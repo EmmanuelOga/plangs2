@@ -46,16 +46,27 @@ function ghBestMatch(pl: NPlang): LinguistLang | undefined {
   }
 }
 
+/** Update the NPlang data with Github data. */
 function updateWithGH(pl: NPlang, plGH: LinguistLang) {
   // Add partial GH data to the Plang node.
   const { name, groupName, langId, color, popular, type } = plGH;
-  pl.data.github = { name, groupName, langId, color, popular, type };
-  pl.data.githubName = name;
-  pl.data.languishRanking = RANKINGS.get(name);
+
+  // We used to have nested data and switched to flat data.
+  // biome-ignore lint/performance/noDelete: it is ok here.
+  if ("github" in pl.data) delete pl.data.github;
+
+  pl.data.githubName = plGH.name;
+  pl.data.githubGroupName = plGH.groupName;
+  pl.data.githubLangId = plGH.langId;
+  pl.data.githubColor = plGH.color;
+  pl.data.githubPopular = plGH.popular;
+  pl.data.githubType = plGH.type;
 }
 
-/** Update the NPlang data with GH and Languish data. */
+/** Update the NPlang data with Languish data. */
 function updateWithLanguish(pl: NPlang, plLG: LanguishKeys) {
+  pl.data.languishRanking = RANKINGS.get(plLG[0]);
+
   // Add partial LG data to the Plang node.
   if (plLG[2] && !pl.data.websites?.some(w => w.kind === "reddit")) {
     arrayMerge(

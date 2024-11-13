@@ -20,10 +20,13 @@ export function define(g: PlangsGraph) {
         { version: "1.3.4", name: "Idris 1.3.4", date: "2021-01-01" },
         { version: "0.7.0", name: "Idris 0.7.0", date: "2023-01-01" },
       ],
-      github: { name: "Idris", langId: "165", color: "#b30000", popular: false, type: "programming" },
       stackovTags: ["idris"],
       githubName: "Idris",
-      languishRanking: 246,
+      languishRanking: 274,
+      githubLangId: "165",
+      githubColor: "#b30000",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+agda", "pl+clean", "pl+coq", "pl+f-sharp", "pl+haskell", "pl+ml", "pl+rust"])
     .addLicenses(["license+bsd"])

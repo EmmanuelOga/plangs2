@@ -11,14 +11,17 @@ export function define(g: PlangsGraph) {
         { title: "Lisp on Wikipedia", href: "https://en.wikipedia.org/wiki/Lisp_programming_language", kind: "wikipedia" },
         { title: "Lisp on Reddit", kind: "reddit", href: "https://reddit.com/r/Common_Lisp" },
       ],
-      extensions: [".lisp", ".lsp", ".cl", ".fasl"],
+      extensions: [".cl", ".fasl", ".lisp", ".lsp"],
       year: 1960,
       isTranspiler: false,
       isMainstream: true,
-      github: { name: "Common Lisp", langId: "66", color: "#3fb68b", popular: false, type: "programming" },
       githubName: "Common Lisp",
-      languishRanking: 51,
+      languishRanking: 60,
       stackovTags: ["common-lisp"],
+      githubLangId: "66",
+      githubColor: "#3fb68b",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addLicenses(["license+gnu-gpl", "license+lgpl", "license+mit"])
     .addParadigms(["paradigm+functional", "paradigm+metaprogramming", "paradigm+multi", "paradigm+procedural", "paradigm+reflective"])

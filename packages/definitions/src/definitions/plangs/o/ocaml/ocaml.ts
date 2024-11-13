@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "OCaml",
       description:
         "OCaml (/oʊˈkæməl/ oh-KAM-əl, formerly Objective Caml) is a general-purpose, high-level, multi-paradigm programming language which extends the Caml dialect of ML with object-oriented features. OCaml was created in 1996 by Xavier Leroy, Jérôme Vouillon, Damien Doligez, Didier Rémy, Ascánder Suárez, and others.",
-      keywords: ["ocaml", "caml"],
+      keywords: ["caml", "ocaml"],
       websites: [
         { title: "OCaml", href: "https://ocaml.org/", kind: "homepage" },
         { title: "OCaml", href: "https://en.wikipedia.org/wiki/OCaml", kind: "wikipedia" },
@@ -17,10 +17,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "5.2.0", name: "OCaml 5.2.0", date: "2024-01-01" }],
-      github: { name: "OCaml", langId: "255", color: "#ef7a08", popular: false, type: "programming" },
       stackovTags: ["ocaml"],
       githubName: "OCaml",
-      languishRanking: 55,
+      languishRanking: 71,
+      githubLangId: "255",
+      githubColor: "#ef7a08",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addDialectOf(["pl+ml"])
     .addInfluencedBy(["pl+c", "pl+ml", "pl+pascal", "pl+standard-ml"])

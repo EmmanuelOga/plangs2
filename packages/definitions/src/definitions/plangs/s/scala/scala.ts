@@ -18,10 +18,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "3.4.0", name: "Scala 3.4.0", date: "2024-01-01" }],
-      github: { name: "Scala", langId: "341", color: "#c22d40", popular: true, type: "programming" },
       stackovTags: ["scala"],
       githubName: "Scala",
-      languishRanking: 36,
+      languishRanking: 31,
+      githubLangId: "341",
+      githubColor: "#c22d40",
+      githubPopular: true,
+      githubType: "programming",
     })
     .addInfluencedBy([
       "pl+common-lisp",

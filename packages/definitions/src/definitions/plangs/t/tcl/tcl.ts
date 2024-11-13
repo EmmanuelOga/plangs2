@@ -21,10 +21,13 @@ export function define(g: PlangsGraph) {
         { version: "8.6.13", name: "Tcl 8.6.13", date: "2023-04-11" },
         { version: "8.6.14", name: "Tcl 8.6.14", date: "2024-01-01" },
       ],
-      github: { name: "Tcl", langId: "367", color: "#e4cc98", popular: false, type: "programming" },
       stackovTags: ["tcl"],
       githubName: "Tcl",
-      languishRanking: 111,
+      languishRanking: 120,
+      githubLangId: "367",
+      githubColor: "#e4cc98",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+awk", "pl+lisp"])
     .addLicenses(["license+bsd"])

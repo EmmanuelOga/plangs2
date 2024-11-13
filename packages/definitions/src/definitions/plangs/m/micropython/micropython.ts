@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "MicroPython",
       description:
         "MicroPython is a lean and efficient implementation of the Python 3 programming language, encompassing a small subset of the standard library optimized to run on microcontrollers and embedded systems.",
-      keywords: ["micropython", "micro python"],
+      keywords: ["micro python", "micropython"],
       websites: [
         { title: "MicroPython Official Site", href: "https://micropython.org/", kind: "homepage" },
         { title: "MicroPython - Wikipedia", href: "https://en.wikipedia.org/wiki/MicroPython", kind: "wikipedia" },

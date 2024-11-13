@@ -59,6 +59,16 @@ export function plangCodeGen(plang: NPlang): string {
     return `${genSet("bundle", bundle.key, bundle.data)}${bunRel.join("")}`;
   });
 
+  // Little cleanup of the data.
+  for (const [k, v] of Object.entries(plang.data) as [keyof typeof plang.data, any][]) {
+    if (Array.isArray(v)) {
+      if (v.length === 0) delete plang.data[k];
+      else v.sort();
+    } else if (v === null || v === undefined || v === "") {
+      delete plang.data[k];
+    }
+  }
+
   return `import type { PlangsGraph } from "@plangs/plangs";
 
   export function define(g: PlangsGraph) {
@@ -85,11 +95,11 @@ export function plangCodeGen(plang: NPlang): string {
 
 // Create a data object with relevant fields, and cleanup blank values.
 // biome-ignore lint/suspicious/noExplicitAny: we cleanup any data.
-function cleanUpData(dirty: any): any {
+function cleanUpData(rawData: any): any {
   const data = {
-    ...dirty,
+    ...rawData,
     // Remove images hosted by Plangs: the data is added back in the definitions package.
-    images: ((dirty.images ?? []) as Image[]).filter(({ url }: Image) => !url.startsWith("/")),
+    images: ((rawData.images ?? []) as Image[]).filter(({ url }: Image) => !url.startsWith("/")),
   };
   for (const [key, value] of Object.entries(data)) {
     if (value === null || value === undefined || (Array.isArray(value) && value.length === 0)) {

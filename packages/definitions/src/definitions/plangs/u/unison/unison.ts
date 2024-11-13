@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Unison",
       description:
         "Unison is a functional programming language that treats code as data, allowing for simple distributed computing and code-management workflows. It uses a content-addressed codebase model where functions and data structures are identified by hash, making it straightforward to build distributed applications, refactor code, and ensure repeatability.",
-      keywords: ["unison", "functional programming", "content-addressed", "distributed computing"],
+      keywords: ["content-addressed", "distributed computing", "functional programming", "unison"],
       websites: [
         { title: "Unison", href: "https://www.unison-lang.org/", kind: "homepage" },
         { title: "Unison on GitHub", href: "https://github.com/unisonweb/unison", kind: "repository" },

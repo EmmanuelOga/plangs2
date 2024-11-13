@@ -25,10 +25,13 @@ export function define(g: PlangsGraph) {
         { version: "2008", name: "Fortran 2008", date: "2010-01-01" },
         { version: "2018", name: "Fortran 2018", date: "2018-01-01" },
       ],
-      github: { name: "Fortran", langId: "107", color: "#4d41b1", popular: false, type: "programming" },
       stackovTags: ["fortran"],
       githubName: "Fortran",
-      languishRanking: 64,
+      languishRanking: 67,
+      githubLangId: "107",
+      githubColor: "#4d41b1",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addParadigms(["paradigm+array", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+structured"])
     .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])

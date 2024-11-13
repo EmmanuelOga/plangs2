@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Mojo",
       description:
         "Mojo is a new programming language designed for performance and ease of use, simplifying the development process for large scale systems by integrating advancements from compiler and language theory.",
-      keywords: ["mojo", "modular", "performance", "programming"],
+      keywords: ["modular", "mojo", "performance", "programming"],
       websites: [
         { title: "Mojo", href: "https://www.modular.com/mojo", kind: "homepage" },
         { title: "Mojo on Reddit", kind: "reddit", href: "https://reddit.com/r/MojoLang" },
@@ -14,10 +14,13 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".mojo"],
       year: 2023,
-      github: { name: "Mojo", langId: "1045019587", color: "#ff4c1f", popular: false, type: "programming" },
       stackovTags: ["mojolang"],
       githubName: "Mojo",
-      languishRanking: 160,
+      languishRanking: 208,
+      githubLangId: "1045019587",
+      githubColor: "#ff4c1f",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+python"])
     .addLicenses(["license+apache"])

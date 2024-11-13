@@ -16,9 +16,12 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "3.6.0", name: "Curry 3.6.0", date: "2023-01-01" }],
-      github: { name: "Curry", langId: "439829048", color: "#531242", popular: false, type: "programming" },
       githubName: "Curry",
       languishRanking: 379,
+      githubLangId: "439829048",
+      githubColor: "#531242",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+haskell", "pl+prolog"])
     .addLicenses(["license+bsd"])

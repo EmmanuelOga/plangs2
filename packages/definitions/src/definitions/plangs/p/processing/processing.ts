@@ -17,10 +17,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "4.3", name: "Processing 4.3", date: "2023-01-01" }],
-      github: { name: "Processing", langId: "294", color: "#0096D8", popular: false, type: "programming" },
       stackovTags: ["processing"],
       githubName: "Processing",
-      languishRanking: 150,
+      languishRanking: 156,
+      githubLangId: "294",
+      githubColor: "#0096D8",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+c", "pl+java"])
     .addLicenses(["license+gnu-gpl", "license+lgpl"])

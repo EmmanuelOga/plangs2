@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "ScratchJr",
       description:
         "ScratchJr is a visual programming language designed to introduce programming skills to children ages 5–7. The app is considered an introductory programming language. It is available as a free app for iOS, Android and Chromebook.",
-      keywords: ["scratchjr", "visual programming", "children's programming language"],
+      keywords: ["children's programming language", "scratchjr", "visual programming"],
       websites: [
         { title: "ScratchJr", href: "http://www.scratchjr.org/", kind: "homepage" },
         { title: "ScratchJr", href: "https://en.wikipedia.org/wiki/ScratchJr", kind: "wikipedia" },

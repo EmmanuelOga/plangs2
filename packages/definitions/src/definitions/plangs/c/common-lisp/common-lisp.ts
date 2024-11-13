@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Common Lisp",
       description:
         "Common Lisp (CL) is a dialect of the Lisp programming language, published in American National Standards Institute (ANSI) standard document ANSI INCITS 226-1994 (S2018) (formerly X3.226-1994 (R1999)). The Common Lisp HyperSpec, a hyperlinked HTML version, has been derived from the ANSI Common Lisp standard.",
-      keywords: ["common lisp", "cl"],
+      keywords: ["cl", "common lisp"],
       websites: [
         { title: "common-lisp.net", href: "http://common-lisp.net/", kind: "other" },
         { title: "Common Lisp", href: "https://en.wikipedia.org/wiki/Common_Lisp", kind: "wikipedia" },
@@ -16,10 +16,13 @@ export function define(g: PlangsGraph) {
       year: 1984,
       isTranspiler: false,
       isMainstream: true,
-      github: { name: "Common Lisp", langId: "66", color: "#3fb68b", popular: false, type: "programming" },
       stackovTags: ["common-lisp"],
       githubName: "Common Lisp",
-      languishRanking: 51,
+      languishRanking: 60,
+      githubLangId: "66",
+      githubColor: "#3fb68b",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+lisp", "pl+r5rs", "pl+scheme"])

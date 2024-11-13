@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Pony",
       description:
         "Pony is an actor-model, capabilities-secure, high-performance programming language designed with reference capabilities and focusing on safe and concurrent programming.",
-      keywords: ["pony", "concurrent", "actor model", "capability-security"],
+      keywords: ["actor model", "capability-security", "concurrent", "pony"],
       websites: [
         { title: "Pony", href: "https://www.ponylang.io/", kind: "homepage" },
         { title: "Pony (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Pony_(programming_language)", kind: "wikipedia" },
@@ -15,10 +15,12 @@ export function define(g: PlangsGraph) {
       extensions: [".pony"],
       year: 2015,
       releases: [{ version: "0.41.0", name: "Pony 0.41.0", date: "2023-09-01" }],
-      github: { name: "Pony", langId: "290", popular: false, type: "programming" },
       stackovTags: ["ponylang"],
       githubName: "Pony",
-      languishRanking: 318,
+      languishRanking: 357,
+      githubLangId: "290",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+erlang", "pl+ml", "pl+scala"])
     .addLicenses(["license+bsd"])

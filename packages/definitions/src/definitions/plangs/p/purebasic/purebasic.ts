@@ -17,9 +17,12 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "6.11", date: "2024-01-01" }],
-      github: { name: "PureBasic", langId: "301", color: "#5a6986", popular: false, type: "programming" },
       githubName: "PureBasic",
-      languishRanking: 202,
+      languishRanking: 262,
+      githubLangId: "301",
+      githubColor: "#5a6986",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addDialectOf(["pl+basic"])
     .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+structured"])

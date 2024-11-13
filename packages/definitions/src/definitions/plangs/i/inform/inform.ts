@@ -17,10 +17,12 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "10.1.1", name: "Inform 10.1.1", date: "2022-01-01" }],
-      github: { name: "Inform 7", langId: "166", popular: false, type: "programming" },
       stackovTags: ["inform7"],
       githubName: "Inform 7",
-      languishRanking: 259,
+      languishRanking: 318,
+      githubLangId: "166",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addLicenses(["license+artistic"])
     .addParadigms(["paradigm+dsl", "paradigm+natural-language"])

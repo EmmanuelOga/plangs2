@@ -21,10 +21,13 @@ export function define(g: PlangsGraph) {
         { version: "4.0.22", name: "Groovy 4.0.22", date: "2024-01-01" },
         { version: "4.0.0", name: "Groovy 4.0.0", date: "2021-01-01" },
       ],
-      github: { name: "Groovy", langId: "142", color: "#4298b8", popular: true, type: "programming" },
       stackovTags: ["groovy"],
       githubName: "Groovy",
-      languishRanking: 63,
+      languishRanking: 61,
+      githubLangId: "142",
+      githubColor: "#4298b8",
+      githubPopular: true,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+perl", "pl+python", "pl+ruby"])
     .addLicenses(["license+apache"])

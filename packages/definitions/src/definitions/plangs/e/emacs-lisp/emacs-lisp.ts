@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Emacs Lisp",
       description:
         "Emacs Lisp is a Lisp dialect made for Emacs. It is used for implementing most of the editing functionality built into Emacs, the remainder being written in C, as is the Lisp interpreter.",
-      keywords: ["emacs", "lisp", "elisp"],
+      keywords: ["elisp", "emacs", "lisp"],
       websites: [
         { title: "GNU Emacs", href: "http://www.gnu.org/software/emacs", kind: "homepage" },
         { title: "Emacs Lisp on Wikipedia", href: "https://en.wikipedia.org/wiki/Emacs_Lisp", kind: "wikipedia" },
@@ -17,10 +17,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "29.4", name: "Emacs Lisp 29.4", date: "2024-01-01" }],
-      github: { name: "Emacs Lisp", langId: "102", color: "#c065db", popular: false, type: "programming" },
       stackovTags: ["elisp"],
       githubName: "Emacs Lisp",
-      languishRanking: 48,
+      languishRanking: 70,
+      githubLangId: "102",
+      githubColor: "#c065db",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+common-lisp"])

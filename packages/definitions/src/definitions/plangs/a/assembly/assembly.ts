@@ -6,19 +6,22 @@ export function define(g: PlangsGraph) {
       name: "Assembly",
       description:
         "Assembly language, often simply referred to as assembly and abbreviated as ASM or asm, is a low-level programming language with a strong correspondence between its instructions and the machine code of the architecture it's designed for. Assembly language usually has a 1:1 mapping with machine instructions but also supports constants, comments, assembler directives, symbolic labels, and macros.",
-      keywords: ["assembly", "asm", "assembler"],
+      keywords: ["asm", "assembler", "assembly"],
       websites: [
         { title: "Assembly language", href: "https://en.wikipedia.org/wiki/Assembly_language", kind: "wikipedia" },
         { title: "Assembly on Reddit", kind: "reddit", href: "https://reddit.com/r/asm" },
       ],
-      extensions: [".asm", ".s", ".inc", ".src", ".a51"],
+      extensions: [".a51", ".asm", ".inc", ".s", ".src"],
       year: 1947,
       isTranspiler: false,
       isMainstream: true,
-      github: { name: "Assembly", langId: "24", color: "#6E4C13", popular: false, type: "programming" },
       stackovTags: ["assembly"],
       githubName: "Assembly",
-      languishRanking: 45,
+      languishRanking: 40,
+      githubLangId: "24",
+      githubColor: "#6E4C13",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addParadigms(["paradigm+imperative", "paradigm+macro", "paradigm+metaprogramming", "paradigm+structured"])
     .addPlatforms(["plat+apple", "plat+arm", "plat+cross", "plat+embedded", "plat+linux", "plat+windows", "plat+x86-64"])

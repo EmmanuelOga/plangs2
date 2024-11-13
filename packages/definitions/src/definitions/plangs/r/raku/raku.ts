@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Raku",
       description:
         "Raku is a member of the Perl family of programming languages. Formerly named Perl 6, it was renamed in October 2019. Raku introduces elements of many modern and historical languages. Compatibility with Perl was not a goal, though a compatibility mode is part of the specification. The design process for Raku began in 2000.",
-      keywords: ["raku", "perl6"],
+      keywords: ["perl6", "raku"],
       websites: [
         { title: "raku.org", href: "http://raku.org/", kind: "homepage" },
         { title: "Raku", href: "https://en.wikipedia.org/wiki/Raku_(programming_language)", kind: "wikipedia" },
@@ -21,10 +21,13 @@ export function define(g: PlangsGraph) {
         { version: "2022.06", name: "Raku 2022.06", date: "2022-06-01" },
         { version: "2023.08", name: "Raku 2023.08", date: "2023-08-01" },
       ],
-      github: { name: "Raku", langId: "283", color: "#0000fb", popular: false, type: "programming" },
       stackovTags: ["raku"],
       githubName: "Raku",
-      languishRanking: 216,
+      languishRanking: 205,
+      githubLangId: "283",
+      githubColor: "#0000fb",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addDialectOf(["pl+perl"])
     .addInfluencedBy(["pl+haskell", "pl+javascript", "pl+perl", "pl+ruby"])

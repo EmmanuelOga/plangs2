@@ -21,10 +21,13 @@ export function define(g: PlangsGraph) {
         { version: "20", name: "Java SE 20", date: "2023-03-21" },
         { version: "21", name: "Java SE 21", date: "2023-09-19" },
       ],
-      github: { name: "Java", langId: "181", color: "#b07219", popular: true, type: "programming" },
       stackovTags: ["java"],
       githubName: "Java",
       languishRanking: 4,
+      githubLangId: "181",
+      githubColor: "#b07219",
+      githubPopular: true,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+c++"])
     .addLicenses(["license+gpl"])

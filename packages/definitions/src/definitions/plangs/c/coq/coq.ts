@@ -20,10 +20,13 @@ export function define(g: PlangsGraph) {
         { version: "4.10", date: "1989-01-01" },
         { version: "8.19.2", date: "2024-01-01" },
       ],
-      github: { name: "Coq", langId: "69", color: "#d0b68c", popular: false, type: "programming" },
       stackovTags: ["coq"],
       githubName: "Coq",
-      languishRanking: 132,
+      languishRanking: 142,
+      githubLangId: "69",
+      githubColor: "#d0b68c",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+ml", "pl+ocaml"])
     .addLicenses(["license+lgpl"])

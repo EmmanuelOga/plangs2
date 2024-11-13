@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Enso",
       description:
         "Enso is a visual, data-centric programming language designed for data professionals to efficiently collaborate. It seamlessly combines visual programming with a high-performance engine, offering both scalability and intuitive design.",
-      keywords: ["enso", "visual programming", "data-centric"],
+      keywords: ["data-centric", "enso", "visual programming"],
       websites: [
         { title: "Enso Analytics", href: "https://ensoanalytics.com/", kind: "homepage" },
         { title: "Enso on GitHub", href: "https://github.com/enso-org/enso", kind: "repository" },

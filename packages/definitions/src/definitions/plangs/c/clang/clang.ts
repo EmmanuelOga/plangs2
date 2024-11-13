@@ -16,10 +16,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "18.1.8", name: "Clang 18.1.8", date: "2024-01-01" }],
-      github: { name: "SuperCollider", langId: "361", color: "#46390b", popular: false, type: "programming" },
       stackovTags: ["supercollider"],
       githubName: "SuperCollider",
-      languishRanking: 199,
+      languishRanking: 218,
+      githubLangId: "361",
+      githubColor: "#46390b",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addImplements(["pl+c", "pl+c++"])
     .addInfluencedBy(["pl+gcc", "pl+llvm"])

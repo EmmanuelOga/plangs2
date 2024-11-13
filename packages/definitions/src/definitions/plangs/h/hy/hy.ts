@@ -21,10 +21,13 @@ export function define(g: PlangsGraph) {
         { version: "1.0", name: "Hy 1.0", date: "2022-01-01" },
         { version: "0.29.0", name: "Hy 0.29.0", date: "2024-01-01" },
       ],
-      github: { name: "Hy", langId: "159", color: "#7790B2", popular: false, type: "programming" },
       stackovTags: ["hy"],
       githubName: "Hy",
-      languishRanking: 357,
+      languishRanking: 201,
+      githubLangId: "159",
+      githubColor: "#7790B2",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+clojure", "pl+common-lisp", "pl+python"])

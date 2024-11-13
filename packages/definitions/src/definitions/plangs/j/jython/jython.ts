@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Jython",
       description:
         "Jython is an implementation of the Python programming language designed to run on the Java platform. It was known as JPython until 1999.",
-      keywords: ["jython", "jpython"],
+      keywords: ["jpython", "jython"],
       websites: [
         { title: "www.jython.org", href: "https://www.jython.org/", kind: "homepage" },
         { title: "Jython", href: "https://en.wikipedia.org/wiki/Jython", kind: "wikipedia" },

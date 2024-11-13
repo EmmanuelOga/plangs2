@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "V8",
       description:
         "V8 is a high-performance JavaScript and WebAssembly engine developed by Google. It is primarily used in the Chrome browser and is a key component of the Chromium open-source project. V8 is also used in server-side environments like Node.js, providing fast and efficient execution of JavaScript code.",
-      keywords: ["v8", "node.js", "chromium"],
+      keywords: ["chromium", "node.js", "v8"],
       websites: [
         { title: "v8.dev", href: "https://v8.dev/", kind: "homepage" },
         { title: "V8", href: "https://en.wikipedia.org/wiki/V8_(JavaScript_engine)", kind: "wikipedia" },
@@ -17,10 +17,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "11.4", name: "V8 11.4", date: "2023-01-01" }],
-      github: { name: "JavaScript", langId: "183", color: "#f1e05a", popular: true, type: "programming" },
       stackovTags: ["javascript"],
       githubName: "JavaScript",
       languishRanking: 3,
+      githubLangId: "183",
+      githubColor: "#f1e05a",
+      githubPopular: true,
+      githubType: "programming",
     })
     .addImplements(["pl+javascript"])
     .addLicenses(["license+bsd"])

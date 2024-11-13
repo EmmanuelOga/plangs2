@@ -15,10 +15,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2017.1", date: "2017-01-01" }],
-      github: { name: "Self", langId: "345", color: "#0579aa", popular: false, type: "programming" },
       stackovTags: ["self"],
       githubName: "Self",
-      languishRanking: 343,
+      languishRanking: 296,
+      githubLangId: "345",
+      githubColor: "#0579aa",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+apl"])
     .addLicenses(["license+bsd"])

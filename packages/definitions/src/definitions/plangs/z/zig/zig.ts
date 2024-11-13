@@ -17,10 +17,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "0.13.0", name: "Zig 0.13.0", date: "2024-01-01" }],
-      github: { name: "Zig", langId: "646424281", color: "#ec915c", popular: false, type: "programming" },
       stackovTags: ["zig"],
       githubName: "Zig",
-      languishRanking: 35,
+      languishRanking: 52,
+      githubLangId: "646424281",
+      githubColor: "#ec915c",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust"])
     .addLicenses(["license+mit"])

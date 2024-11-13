@@ -22,10 +22,13 @@ export function define(g: PlangsGraph) {
         { version: "3.2", name: "GDScript 3.2", date: "2020-01-29" },
         { version: "4.0", name: "GDScript 4.0", date: "2023-01-23" },
       ],
-      github: { name: "GDScript", langId: "123", color: "#355570", popular: false, type: "programming" },
       stackovTags: ["godot"],
       githubName: "GDScript",
-      languishRanking: 28,
+      languishRanking: 41,
+      githubLangId: "123",
+      githubColor: "#355570",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+python"])
     .addLicenses(["license+mit"])

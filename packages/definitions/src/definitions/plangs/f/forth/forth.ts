@@ -16,10 +16,13 @@ export function define(g: PlangsGraph) {
       year: 1970,
       isTranspiler: false,
       isMainstream: false,
-      github: { name: "Forth", langId: "114", color: "#341708", popular: false, type: "programming" },
       stackovTags: ["forth"],
       githubName: "Forth",
-      languishRanking: 180,
+      languishRanking: 202,
+      githubLangId: "114",
+      githubColor: "#341708",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+lisp"])
     .addLicenses(["license+public-domain"])

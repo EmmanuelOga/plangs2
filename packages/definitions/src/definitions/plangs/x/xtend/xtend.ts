@@ -16,10 +16,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "2.25.0", name: "Xtend 2.25.0", date: "2021-01-01" }],
-      github: { name: "Xtend", langId: "406", color: "#24255d", popular: false, type: "programming" },
       stackovTags: ["xtend"],
       githubName: "Xtend",
-      languishRanking: 310,
+      languishRanking: 269,
+      githubLangId: "406",
+      githubColor: "#24255d",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+groovy", "pl+java", "pl+scala"])
     .addLicenses(["license+epl"])

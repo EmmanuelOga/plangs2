@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "python.org", href: "https://www.python.org/", kind: "homepage" },
         { title: "CPython", href: "https://en.wikipedia.org/wiki/CPython", kind: "wikipedia" },
       ],
-      extensions: [".py", ".pyo", ".pyc", ".pyd", ".pyw", ".pyz"],
+      extensions: [".py", ".pyc", ".pyd", ".pyo", ".pyw", ".pyz"],
       year: 1991,
       isTranspiler: false,
       isMainstream: true,

@@ -17,10 +17,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "6.18.1", name: "Csound 6.18.1", date: "2022-01-01" }],
-      github: { name: "Csound", langId: "73", color: "#1a1a1a", popular: false, type: "programming" },
       stackovTags: ["csound"],
       githubName: "Csound",
-      languishRanking: 407,
+      languishRanking: 363,
+      githubLangId: "73",
+      githubColor: "#1a1a1a",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addLicenses(["license+lgpl"])
     .addParadigms(["paradigm+compiled", "paradigm+dsl"])

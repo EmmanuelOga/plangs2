@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "GraalVM",
       description:
         "GraalVM is a versatile virtual machine originating from the Java ecosystem that not only supports Java but also a range of other programming languages such as JavaScript, Ruby, Python, and R. GraalVM is designed to execute applications written in these languages as well as LLVM-based languages, providing high performance and interoperability across language boundaries. It can be used as a JIT compiler and is capable of ahead-of-time compilation for faster startup and reduced memory footprint.",
-      keywords: ["graalvm", "virtual machine", "jdk", "interoperability"],
+      keywords: ["graalvm", "interoperability", "jdk", "virtual machine"],
       websites: [
         { title: "www.graalvm.org", href: "https://www.graalvm.org/", kind: "homepage" },
         { title: "GraalVM", href: "https://en.wikipedia.org/wiki/GraalVM#Language_and_Runtime_Support", kind: "wikipedia" },

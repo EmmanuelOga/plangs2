@@ -21,10 +21,13 @@ export function define(g: PlangsGraph) {
         { version: "C18", name: "Standard C18", date: "2018-06-01" },
         { version: "C11", name: "Standard C11", date: "2011-12-08" },
       ],
-      github: { name: "C", langId: "41", color: "#555555", popular: true, type: "programming" },
       stackovTags: ["c"],
       githubName: "C",
-      languishRanking: 8,
+      languishRanking: 11,
+      githubLangId: "41",
+      githubColor: "#555555",
+      githubPopular: true,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+algol", "pl+fortran"])
     .addLicenses(["license+bsd"])

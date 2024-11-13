@@ -21,10 +21,13 @@ export function define(g: PlangsGraph) {
         { version: "8.1.0", name: "PHP 8.1.0", date: "2021-11-25" },
         { version: "8.2.0", name: "PHP 8.2.0", date: "2022-12-08" },
       ],
-      github: { name: "PHP", langId: "272", color: "#4F5D95", popular: true, type: "programming" },
       stackovTags: ["php"],
       githubName: "PHP",
-      languishRanking: 15,
+      languishRanking: 9,
+      githubLangId: "272",
+      githubColor: "#4F5D95",
+      githubPopular: true,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+c", "pl+java"])
     .addLicenses(["license+php"])

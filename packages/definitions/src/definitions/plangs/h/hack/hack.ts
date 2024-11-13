@@ -12,15 +12,18 @@ export function define(g: PlangsGraph) {
         { title: "Hack", href: "https://en.wikipedia.org/wiki/Hack_(programming_language)", kind: "wikipedia" },
         { title: "Hack on Reddit", kind: "reddit", href: "https://reddit.com/r/hacklang" },
       ],
-      extensions: [".hh", ".hack"],
+      extensions: [".hack", ".hh"],
       year: 2014,
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "4.172", name: "", date: "2022-01-01" }],
-      github: { name: "Hack", langId: "153", color: "#878787", popular: false, type: "programming" },
       stackovTags: ["hacklang"],
       githubName: "Hack",
-      languishRanking: 102,
+      languishRanking: 165,
+      githubLangId: "153",
+      githubColor: "#878787",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addDialectOf(["pl+php"])
     .addInfluencedBy(["pl+c-sharp", "pl+haskell", "pl+ocaml", "pl+php", "pl+scala"])

@@ -16,10 +16,13 @@ export function define(g: PlangsGraph) {
       year: 1975,
       isTranspiler: false,
       isMainstream: false,
-      github: { name: "Scheme", langId: "343", color: "#1e4aec", popular: false, type: "programming" },
       stackovTags: ["scheme"],
       githubName: "Scheme",
-      languishRanking: 96,
+      languishRanking: 115,
+      githubLangId: "343",
+      githubColor: "#1e4aec",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+algol", "pl+lisp"])

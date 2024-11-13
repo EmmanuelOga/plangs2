@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
         { title: "Delphi (software) - Wikipedia", href: "https://en.wikipedia.org/wiki/Delphi_(software)", kind: "wikipedia" },
         { title: "Delphi on Reddit", kind: "reddit", href: "https://reddit.com/r/delphi" },
       ],
-      extensions: [".pas", ".dpr"],
+      extensions: [".dpr", ".pas"],
       year: 1995,
       isTranspiler: false,
       isMainstream: true,
@@ -20,10 +20,13 @@ export function define(g: PlangsGraph) {
         { version: "12.1", name: "Delphi 12.1", date: "2024-01-01" },
         { version: "11.3", name: "Delphi 11.3", date: "2023-06-01" },
       ],
-      github: { name: "Pascal", langId: "281", color: "#E3F171", popular: false, type: "programming" },
       githubName: "Pascal",
-      languishRanking: 53,
-      stackovTags: ["pascal"],
+      languishRanking: 58,
+      stackovTags: ["delphi", "pascal"],
+      githubLangId: "281",
+      githubColor: "#E3F171",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addDialectOf(["pl+pascal"])
     .addImplements(["pl+pascal"])

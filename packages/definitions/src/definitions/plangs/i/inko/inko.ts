@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Inko",
       description:
         "Inko is a programming language designed for writing concurrent and highly-parallel applications. It is a safe language that features actor-based concurrency, immutability by default, and a garbage-collected runtime, making it suitable for modern systems programming.",
-      keywords: ["inko", "concurrent", "actor"],
+      keywords: ["actor", "concurrent", "inko"],
       websites: [
         { title: "Inko", href: "https://inko-lang.org/", kind: "homepage" },
         { title: "Inko on GitHub", href: "https://github.com/inko-lang/inko", kind: "repository" },

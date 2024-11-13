@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Soufflé",
       description:
         'Soufflé is an open source parallel logic programming language, influenced by Datalog. Soufflé includes both an interpreter and a compiler that targets parallel C++. Soufflé has been used to build static analyzers, disassemblers, and tools for binary reverse engineering. Soufflé is considered by academic researchers to be high-performance and "state of the art," and is often used in benchmarks in academic papers.',
-      keywords: ["soufflé", "souffle"],
+      keywords: ["souffle", "soufflé"],
       websites: [
         { title: "Soufflé", href: "https://souffle-lang.github.io/", kind: "homepage" },
         { title: "Soufflé", href: "https://en.wikipedia.org/wiki/Souffl%C3%A9_(programming_language)", kind: "wikipedia" },

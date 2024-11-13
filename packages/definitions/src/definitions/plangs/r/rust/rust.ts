@@ -17,10 +17,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "1.80.1", name: "Rust 1.80.1", date: "2024-01-01" }],
-      github: { name: "Rust", langId: "327", color: "#dea584", popular: true, type: "programming" },
       stackovTags: ["rust"],
       githubName: "Rust",
-      languishRanking: 7,
+      languishRanking: 10,
+      githubLangId: "327",
+      githubColor: "#dea584",
+      githubPopular: true,
+      githubType: "programming",
     })
     .addInfluencedBy([
       "pl+c",

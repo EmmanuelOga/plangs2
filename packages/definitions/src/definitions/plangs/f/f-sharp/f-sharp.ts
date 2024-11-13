@@ -18,10 +18,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "8.0.0", name: "F# 8.0", date: "2023-01-01" }],
-      github: { name: "F#", langId: "105", color: "#b845fc", popular: false, type: "programming" },
       stackovTags: ["f#"],
       githubName: "F#",
-      languishRanking: 88,
+      languishRanking: 94,
+      githubLangId: "105",
+      githubColor: "#b845fc",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addDialectOf(["pl+ml", "pl+ocaml"])
     .addInfluencedBy(["pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ml", "pl+ocaml", "pl+python", "pl+scala", "pl+standard-ml"])

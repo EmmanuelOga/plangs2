@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "GNAT",
       description:
         "GNAT is a free-software compiler for the Ada programming language which forms part of the GNU Compiler Collection (GCC). It supports all versions of the language, i.e. Ada 2012, Ada 2005, Ada 95, and Ada 83. Originally its name was an acronym that stood for GNU NYU Ada Translator, but that name no longer applies. The front-end and run-time are written in Ada.",
-      keywords: ["gnat", "ada"],
+      keywords: ["ada", "gnat"],
       websites: [
         { title: "Get Ada Now", href: "http://www.getadanow.com/", kind: "homepage" },
         { title: "AdaCore GNAT Pro", href: "http://www.adacore.com/gnatpro/", kind: "other" },

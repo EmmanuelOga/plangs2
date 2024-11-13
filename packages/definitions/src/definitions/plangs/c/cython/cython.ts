@@ -20,10 +20,13 @@ export function define(g: PlangsGraph) {
         { version: "3.0.11", name: "Cython 3.0.11", date: "2024-01-01" },
         { version: "3.0.0", name: "Cython 3.0.0", date: "2023-01-01" },
       ],
-      github: { name: "Cython", langId: "79", color: "#fedf5b", popular: false, type: "programming" },
       stackovTags: ["cython"],
       githubName: "Cython",
-      languishRanking: 100,
+      languishRanking: 110,
+      githubLangId: "79",
+      githubColor: "#fedf5b",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addDialectOf(["pl+python"])
     .addInfluencedBy(["pl+c", "pl+python"])

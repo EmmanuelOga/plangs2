@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "PureData",
       description:
         "PureData (Pd) is a visual programming language developed by Miller Puckette in the 1990s for creating interactive computer music and multimedia works. While Puckette is the main author of the program, Pd is an open-source project with a large developer base working on new extensions. It is released under the BSD-3-Clause license. It runs on Linux, macOS, iOS, Android, and Windows with ports for FreeBSD and IRIX.",
-      keywords: ["puredata", "pure data"],
+      keywords: ["pure data", "puredata"],
       websites: [
         { title: "Pure Data", href: "http://puredata.info/", kind: "other" },
         { title: "Pure Data", href: "https://en.wikipedia.org/wiki/PureData", kind: "wikipedia" },

@@ -20,10 +20,13 @@ export function define(g: PlangsGraph) {
         { version: "2.7.8", date: "2011-01-01" },
         { version: "2.101.0", date: "2012-01-01" },
       ],
-      github: { name: "Rebol", langId: "319", color: "#358a5b", popular: false, type: "programming" },
       stackovTags: ["rebol"],
       githubName: "Rebol",
-      languishRanking: 295,
+      languishRanking: 328,
+      githubLangId: "319",
+      githubColor: "#358a5b",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+forth", "pl+lisp", "pl+self"])
     .addLicenses(["license+apache"])

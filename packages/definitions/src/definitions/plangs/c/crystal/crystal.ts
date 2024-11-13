@@ -20,10 +20,13 @@ export function define(g: PlangsGraph) {
         { version: "1.0.0", name: "Crystal 1.0.0", date: "2021-03-31" },
         { version: "1.13.2", name: "Crystal 1.13.2", date: "2024-01-01" },
       ],
-      github: { name: "Crystal", langId: "72", color: "#000100", popular: false, type: "programming" },
       stackovTags: ["crystal-lang"],
       githubName: "Crystal",
-      languishRanking: 94,
+      languishRanking: 144,
+      githubLangId: "72",
+      githubColor: "#000100",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+c", "pl+c-sharp", "pl+go", "pl+python", "pl+ruby", "pl+rust"])
     .addLicenses(["license+apache"])

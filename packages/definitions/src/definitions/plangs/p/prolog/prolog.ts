@@ -17,10 +17,13 @@ export function define(g: PlangsGraph) {
       year: 1972,
       isTranspiler: false,
       isMainstream: true,
-      github: { name: "Prolog", langId: "295", color: "#74283c", popular: false, type: "programming" },
       stackovTags: ["prolog"],
       githubName: "Prolog",
-      languishRanking: 183,
+      languishRanking: 160,
+      githubLangId: "295",
+      githubColor: "#74283c",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addImplements(["pl+curry"])
     .addParadigms(["paradigm+logic"])

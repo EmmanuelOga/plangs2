@@ -18,9 +18,12 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       isMainstream: true,
       releases: [{ version: "1.75.0", name: "Sass 1.75.0", date: "2024-01-01" }],
-      github: { name: "Sass", langId: "340", color: "#a53b70", popular: false, type: "markup" },
       stackovTags: ["sass"],
       githubName: "Sass",
+      githubLangId: "340",
+      githubColor: "#a53b70",
+      githubPopular: false,
+      githubType: "markup",
     })
     .addInfluencedBy(["pl+css"])
     .addLicenses(["license+mit"])

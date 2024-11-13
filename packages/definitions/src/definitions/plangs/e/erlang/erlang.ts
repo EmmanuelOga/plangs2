@@ -17,10 +17,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "27.0.1", name: "Erlang/OTP 27.0.1", date: "2024-01-01" }],
-      github: { name: "Erlang", langId: "104", color: "#B83998", popular: false, type: "programming" },
       stackovTags: ["erlang"],
       githubName: "Erlang",
-      languishRanking: 87,
+      languishRanking: 107,
+      githubLangId: "104",
+      githubColor: "#B83998",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+lisp", "pl+ml", "pl+prolog"])
     .addLicenses(["license+apache"])

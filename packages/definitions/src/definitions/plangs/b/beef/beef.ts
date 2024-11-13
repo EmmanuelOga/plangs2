@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Beef",
       description:
         "Beef is a compiled, high-performance language that's natively stateful and designed for system programming with a focus on performance and ease of use.",
-      keywords: ["beef", "system programming", "compiled", "performance"],
+      keywords: ["beef", "compiled", "performance", "system programming"],
       websites: [
         { title: "BeefLang Official Website", href: "https://www.beeflang.org/", kind: "homepage" },
         { title: "BeefLang GitHub Repository", href: "https://github.com/beefytech/Beef", kind: "repository" },
@@ -15,10 +15,13 @@ export function define(g: PlangsGraph) {
       extensions: [".bf"],
       year: 2020,
       releases: [{ version: "0.42.8", name: "Beef 0.42.8", date: "2023-09-01" }],
-      github: { name: "Beef", langId: "545626333", color: "#a52f4e", popular: false, type: "programming" },
       stackovTags: ["beef"],
       githubName: "Beef",
-      languishRanking: 305,
+      languishRanking: 378,
+      githubLangId: "545626333",
+      githubColor: "#a52f4e",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+c", "pl+c++", "pl+delphi", "pl+rust"])
     .addLicenses(["license+zlib"])

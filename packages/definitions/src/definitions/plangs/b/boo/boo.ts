@@ -16,10 +16,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "0.9.7", name: "Boo 0.9.7", date: "2013-01-01" }],
-      github: { name: "Boo", langId: "37", color: "#d4bec1", popular: false, type: "programming" },
       stackovTags: ["boo"],
       githubName: "Boo",
-      languishRanking: 289,
+      languishRanking: 312,
+      githubLangId: "37",
+      githubColor: "#d4bec1",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+c-sharp", "pl+python"])
     .addLicenses(["license+bsd"])

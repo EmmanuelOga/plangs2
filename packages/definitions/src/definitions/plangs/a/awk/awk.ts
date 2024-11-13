@@ -16,10 +16,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "1.0", name: "Initial Release", date: "1977-01-01" }],
-      github: { name: "Awk", langId: "28", color: "#c30e9b", popular: false, type: "programming" },
       stackovTags: ["awk"],
       githubName: "Awk",
-      languishRanking: 135,
+      languishRanking: 88,
+      githubLangId: "28",
+      githubColor: "#c30e9b",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+c", "pl+sed"])
     .addLicenses(["license+bsd"])

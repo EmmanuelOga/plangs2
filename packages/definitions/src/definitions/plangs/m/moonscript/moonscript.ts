@@ -15,10 +15,13 @@ export function define(g: PlangsGraph) {
       year: 2011,
       isTranspiler: true,
       isMainstream: true,
-      github: { name: "MoonScript", langId: "238", color: "#ff4585", popular: false, type: "programming" },
       stackovTags: ["moonscript"],
       githubName: "MoonScript",
-      languishRanking: 290,
+      languishRanking: 360,
+      githubLangId: "238",
+      githubColor: "#ff4585",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addCompilesTo(["pl+lua"])
     .addInfluencedBy(["pl+c++", "pl+clu", "pl+coffeescript", "pl+modula", "pl+scheme"])

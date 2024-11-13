@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Janet",
       description:
         "Janet is a functional and imperative programming language, useful for embedding in other programs, scripting, and other tasks. It allows meta-programming with its Lisp-like syntax and provides features to easily work with C libraries.",
-      keywords: ["janet", "lisp", "functional"],
+      keywords: ["functional", "janet", "lisp"],
       websites: [
         { title: "Janet", href: "https://janet-lang.org/", kind: "homepage" },
         { title: "Janet on GitHub", href: "https://github.com/janet-lang/janet", kind: "repository" },
@@ -14,9 +14,12 @@ export function define(g: PlangsGraph) {
       extensions: [".janet"],
       year: 2020,
       releases: [{ version: "1.17.0", name: "Janet 1.17.0", date: "2023-06-15" }],
-      github: { name: "Janet", langId: "1028705371", color: "#0886a5", popular: false, type: "programming" },
       githubName: "Janet",
       languishRanking: 313,
+      githubLangId: "1028705371",
+      githubColor: "#0886a5",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+lisps", "pl+scheme"])
     .addLicenses(["license+mit"])

@@ -20,10 +20,13 @@ export function define(g: PlangsGraph) {
         { version: "1", name: "APL 1", date: "1966-01-01" },
         { version: "2", name: "APL 2", date: "1980-01-01" },
       ],
-      github: { name: "APL", langId: "6", color: "#5A8164", popular: false, type: "programming" },
       stackovTags: ["apl"],
       githubName: "APL",
-      languishRanking: 271,
+      languishRanking: 259,
+      githubLangId: "6",
+      githubColor: "#5A8164",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addLicenses(["license+proprietary"])
     .addParadigms(["paradigm+array", "paradigm+functional", "paradigm+modular", "paradigm+structured"])

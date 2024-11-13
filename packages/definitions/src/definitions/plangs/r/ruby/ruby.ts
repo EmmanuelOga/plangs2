@@ -18,10 +18,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "3.3.5", name: "Ruby 3.3.5", date: "2024-01-01" }],
-      github: { name: "Ruby", langId: "326", color: "#701516", popular: true, type: "programming" },
       stackovTags: ["ruby"],
       githubName: "Ruby",
-      languishRanking: 21,
+      languishRanking: 24,
+      githubLangId: "326",
+      githubColor: "#701516",
+      githubPopular: true,
+      githubType: "programming",
     })
     .addInfluencedBy([
       "pl+ada",

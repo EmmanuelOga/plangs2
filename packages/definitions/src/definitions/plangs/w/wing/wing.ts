@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Wing",
       description:
         "Wing is a modern programming language designed to simplify the development of cloud applications. It emphasizes readability and maintainability while providing powerful abstractions for cloud resources.",
-      keywords: ["wing", "cloud", "programming"],
+      keywords: ["cloud", "programming", "wing"],
       websites: [
         { title: "Wing Programming Language", href: "https://www.winglang.io/", kind: "homepage" },
         { title: "Wing - Wikipedia", href: "https://en.wikipedia.org/wiki/Wing_(programming_language)", kind: "wikipedia" },

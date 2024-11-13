@@ -20,10 +20,13 @@ export function define(g: PlangsGraph) {
         { version: "2201.3.6", name: "Swan Lake Update", date: "2023-03-01" },
         { version: "2201.3.5", name: "Swan Lake Update", date: "2023-01-01" },
       ],
-      github: { name: "Ballerina", langId: "720859680", color: "#FF5000", popular: false, type: "programming" },
       stackovTags: ["ballerina"],
       githubName: "Ballerina",
-      languishRanking: 126,
+      languishRanking: 140,
+      githubLangId: "720859680",
+      githubColor: "#FF5000",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+c-sharp", "pl+go", "pl+javascript", "pl+rust"])
     .addLicenses(["license+apache"])

@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "ShEx",
       description:
         "Shape Expressions (ShEx) is a data modeling language used for validating and describing Resource Description Framework (RDF) data. It specifically targets semantic web technologies and offers a concise syntax for expressing constraints.",
-      keywords: ["shex", "shape expressions"],
+      keywords: ["shape expressions", "shex"],
       websites: [
         { title: "ShEx at w3.org", href: "https://www.w3.org/community/shex/", kind: "homepage" },
         { title: "ShEx - Shape Expressions Wikipedia", href: "https://en.wikipedia.org/wiki/ShEx", kind: "wikipedia" },

@@ -21,10 +21,13 @@ export function define(g: PlangsGraph) {
         { version: "2.12.0", name: "Dart 2.12.0", date: "2021-03-03" },
         { version: "1.0.0", name: "Dart 1.0.0", date: "2013-11-14" },
       ],
-      github: { name: "Dart", langId: "87", color: "#00B4AB", popular: true, type: "programming" },
       stackovTags: ["dart"],
       githubName: "Dart",
-      languishRanking: 16,
+      languishRanking: 19,
+      githubLangId: "87",
+      githubColor: "#00B4AB",
+      githubPopular: true,
+      githubType: "programming",
     })
     .addCompilesTo(["pl+javascript"])
     .addInfluencedBy(["pl+c", "pl+c++", "pl+c-sharp", "pl+erlang", "pl+javascript", "pl+ruby", "pl+typescript"])

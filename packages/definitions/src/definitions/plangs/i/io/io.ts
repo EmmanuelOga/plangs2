@@ -17,10 +17,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2019.05.22", name: "Io 2019.05.22", date: "2019-05-22" }],
-      github: { name: "Io", langId: "168", color: "#a9188d", popular: false, type: "programming" },
       stackovTags: ["iolanguage"],
       githubName: "Io",
-      languishRanking: 248,
+      languishRanking: 285,
+      githubLangId: "168",
+      githubColor: "#a9188d",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+lisp", "pl+lua", "pl+self", "pl+smalltalk"])
     .addLicenses(["license+bsd"])

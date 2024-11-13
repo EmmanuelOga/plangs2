@@ -17,10 +17,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "1.17.2", name: "Elixir 1.17.2", date: "2024-01-01" }],
-      github: { name: "Elixir", langId: "100", color: "#6e4a7e", popular: true, type: "programming" },
       stackovTags: ["elixir"],
       githubName: "Elixir",
-      languishRanking: 31,
+      languishRanking: 43,
+      githubLangId: "100",
+      githubColor: "#6e4a7e",
+      githubPopular: true,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+clojure", "pl+erlang", "pl+lisp", "pl+ruby"])
     .addLicenses(["license+apache"])

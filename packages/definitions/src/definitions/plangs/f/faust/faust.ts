@@ -17,8 +17,11 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "2.60.3", name: "FAUST 2.60.3", date: "2023-01-01" }],
-      github: { name: "Faust", langId: "622529198", color: "#c37240", popular: false, type: "programming" },
       githubName: "Faust",
+      githubLangId: "622529198",
+      githubColor: "#c37240",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+c"])
     .addLicenses(["license+gnu-gpl"])

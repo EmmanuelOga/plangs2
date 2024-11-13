@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
         { title: "www.ciao-lang.org", href: "http://www.ciao-lang.org/", kind: "homepage" },
         { title: "Ciao", href: "https://en.wikipedia.org/wiki/Ciao_(programming_language)", kind: "wikipedia" },
       ],
-      extensions: [".pl", ".ciao"],
+      extensions: [".ciao", ".pl"],
       year: 1999,
       isTranspiler: false,
       isMainstream: false,

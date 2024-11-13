@@ -21,10 +21,13 @@ export function define(g: PlangsGraph) {
         { version: "2.0", name: "XSLT 2.0", date: "2007-01-23" },
         { version: "3.0", name: "XSLT 3.0", date: "2017-01-01" },
       ],
-      github: { name: "XSLT", langId: "404", color: "#EB8CEB", popular: false, type: "programming" },
       stackovTags: ["xslt"],
       githubName: "XSLT",
-      languishRanking: 85,
+      languishRanking: 74,
+      githubLangId: "404",
+      githubColor: "#EB8CEB",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+boomerang"])
     .addParadigms(["paradigm+declarative", "paradigm+dsl"])

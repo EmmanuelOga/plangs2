@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "IronPython",
       description:
         "IronPython is an implementation of the Python programming language targeting the .NET and Mono frameworks. It is integrated with the .NET Framework and is well-suited for embedding into applications written in .NET languages. The project is maintained by a group of volunteers on GitHub and is open-source software.",
-      keywords: ["ironpython", "python", ".net", "mono"],
+      keywords: [".net", "ironpython", "mono", "python"],
       websites: [
         { title: "ironpython.net", href: "https://ironpython.net/", kind: "homepage" },
         { title: "IronPython", href: "https://en.wikipedia.org/wiki/IronPython", kind: "wikipedia" },

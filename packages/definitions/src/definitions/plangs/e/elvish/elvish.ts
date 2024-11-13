@@ -15,8 +15,11 @@ export function define(g: PlangsGraph) {
       extensions: [".elv"],
       year: 2016,
       releases: [{ version: "0.18.0", name: "Elvish 0.18.0", date: "2023-09-15" }],
-      github: { name: "Elvish", langId: "570996448", color: "#55BB55", popular: false, type: "programming" },
       githubName: "Elvish",
+      githubLangId: "570996448",
+      githubColor: "#55BB55",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+fish", "pl+zsh"])
     .addLicenses(["license+bsd"])

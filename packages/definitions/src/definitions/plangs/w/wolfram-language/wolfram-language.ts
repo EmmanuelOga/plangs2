@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Wolfram Language",
       description:
         "The Wolfram Language (/ˈwʊlfrəm/ WUUL-frəm) is a proprietary, general, very high-level multi-paradigm programming language developed by Wolfram Research. It emphasizes symbolic computation, functional programming, and rule-based programming and can employ arbitrary structures and data. It is the programming language of the mathematical symbolic computation program Mathematica.",
-      keywords: ["wolfram", "wolfram language", "mathematica"],
+      keywords: ["mathematica", "wolfram", "wolfram language"],
       websites: [
         { title: "Wolfram Language", href: "https://www.wolfram.com/language/", kind: "homepage" },
         { title: "Wolfram Language", href: "https://en.wikipedia.org/wiki/Wolfram_language", kind: "wikipedia" },
@@ -18,10 +18,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "14.1.0", name: "Wolfram Language 14.1.0", date: "2024-01-01" }],
-      github: { name: "Mathematica", langId: "224", color: "#dd1100", popular: false, type: "programming" },
       stackovTags: ["wolfram-mathematica"],
       githubName: "Mathematica",
-      languishRanking: 118,
+      languishRanking: 145,
+      githubLangId: "224",
+      githubColor: "#dd1100",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+apl", "pl+c", "pl+c++", "pl+fortran", "pl+lisp", "pl+pascal", "pl+prolog", "pl+simula"])
     .addParadigms(["paradigm+array", "paradigm+functional", "paradigm+multi", "paradigm+procedural", "paradigm+rewriting"])

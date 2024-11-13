@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "V",
       description:
         "V, also known as vlang, is a statically typed, compiled programming language created by Alexander Medvednikov in early 2019. It was inspired by the language Go, and other influences including Oberon, Swift, and Rust. It is free and open-source software released under the MIT License, and currently in beta.",
-      keywords: ["vlang", "v programming", "v language"],
+      keywords: ["v language", "v programming", "vlang"],
       websites: [
         { title: "vlang.io", href: "http://vlang.io/", kind: "homepage" },
         { title: "V", href: "https://en.wikipedia.org/wiki/V_(programming_language)", kind: "wikipedia" },
@@ -17,10 +17,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "0.4.6", name: "V 0.4.6", date: "2024-01-01" }],
-      github: { name: "V", langId: "603371597", color: "#4f87c4", popular: false, type: "programming" },
       stackovTags: ["vlang"],
       githubName: "V",
-      languishRanking: 116,
+      languishRanking: 159,
+      githubLangId: "603371597",
+      githubColor: "#4f87c4",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+go", "pl+oberon", "pl+rust", "pl+swift"])
     .addLicenses(["license+mit"])

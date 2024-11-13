@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Frink",
       description:
         "Frink is a computer programming language focused on performing physical calculations while tracking units of measure, ensuring that calculations have the right dimensions and that the answers are meaningful.",
-      keywords: ["frink", "units", "measurement", "calculation"],
+      keywords: ["calculation", "frink", "measurement", "units"],
       websites: [
         { title: "frinklang.org", href: "https://frinklang.org/", kind: "homepage" },
         { title: "Frink", href: "https://en.wikipedia.org/wiki/Frink_(programming_language)", kind: "wikipedia" },

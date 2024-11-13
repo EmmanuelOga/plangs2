@@ -19,10 +19,13 @@ export function define(g: PlangsGraph) {
         { version: "10.7.5", name: "newLISP 10.7.5", date: "2019-01-01" },
         { version: "10.7.4", name: "newLISP 10.7.4", date: "2018-01-01" },
       ],
-      github: { name: "NewLisp", langId: "247", color: "#87AED7", popular: false, type: "programming" },
       stackovTags: ["newlisp"],
       githubName: "NewLisp",
-      languishRanking: 309,
+      languishRanking: 380,
+      githubLangId: "247",
+      githubColor: "#87AED7",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+c", "pl+common-lisp", "pl+perl", "pl+scheme"])

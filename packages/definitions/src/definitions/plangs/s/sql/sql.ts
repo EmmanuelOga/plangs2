@@ -15,10 +15,13 @@ export function define(g: PlangsGraph) {
       year: 1974,
       isTranspiler: false,
       isMainstream: true,
-      github: { name: "SQL", langId: "333", color: "#e38c00", popular: false, type: "data" },
       stackovTags: ["sql"],
       githubName: "SQL",
-      languishRanking: 65,
+      languishRanking: 22,
+      githubLangId: "333",
+      githubColor: "#e38c00",
+      githubPopular: false,
+      githubType: "data",
     })
     .addInfluencedBy(["pl+datalog"])
     .addParadigms(["paradigm+data-driven", "paradigm+declarative", "paradigm+dsl"])

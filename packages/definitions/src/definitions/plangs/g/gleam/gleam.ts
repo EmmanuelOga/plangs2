@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Gleam",
       description:
         "Gleam is a general-purpose, concurrent, functional high-level programming language that compiles to Erlang or JavaScript source code.",
-      keywords: ["gleam", "functional", "erlang", "javascript", "concurrent"],
+      keywords: ["concurrent", "erlang", "functional", "gleam", "javascript"],
       websites: [
         { title: "gleam.run", href: "https://gleam.run/", kind: "homepage" },
         { title: "Gleam", href: "https://en.wikipedia.org/wiki/Gleam_(programming_language)", kind: "wikipedia" },
@@ -17,10 +17,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "1.4.1", name: "Version 1.4.1", date: "2024-01-01" }],
-      github: { name: "Gleam", langId: "1054258749", color: "#ffaff3", popular: false, type: "programming" },
       stackovTags: ["gleam"],
       githubName: "Gleam",
-      languishRanking: 92,
+      languishRanking: 150,
+      githubLangId: "1054258749",
+      githubColor: "#ffaff3",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addCompilesTo(["pl+erlang", "pl+javascript"])
     .addInfluencedBy(["pl+elixir", "pl+erlang", "pl+go", "pl+javascript", "pl+ocaml", "pl+rust"])

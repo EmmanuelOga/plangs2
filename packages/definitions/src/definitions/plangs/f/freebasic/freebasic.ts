@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "FreeBASIC",
       description:
         "FreeBASIC is a free and open-source, multi-platform compiler and programming language based on BASIC licensed under the GNU GPL for Microsoft Windows, protected-mode MS-DOS (DOS extender), Linux, and FreeBSD. It is designed to be syntax-compatible with QuickBASIC, but it also provides many features found in modern programming languages.",
-      keywords: ["freebasic", "basic", "compiler", "open source"],
+      keywords: ["basic", "compiler", "freebasic", "open source"],
       websites: [
         { title: "www.freebasic.net", href: "http://www.freebasic.net/", kind: "homepage" },
         { title: "FreeBASIC", href: "https://en.wikipedia.org/wiki/FreeBASIC", kind: "wikipedia" },
@@ -16,10 +16,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "1.10.1", name: "", date: "2023-01-01" }],
-      github: { name: "FreeBasic", langId: "472896659", color: "#141AC9", popular: false, type: "programming" },
       stackovTags: ["freebasic"],
       githubName: "FreeBasic",
-      languishRanking: 231,
+      languishRanking: 313,
+      githubLangId: "472896659",
+      githubColor: "#141AC9",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addImplements(["pl+basic"])
     .addInfluencedBy(["pl+c", "pl+quickbasic"])

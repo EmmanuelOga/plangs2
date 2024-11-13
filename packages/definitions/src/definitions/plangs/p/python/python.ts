@@ -7,12 +7,13 @@ export function define(g: PlangsGraph) {
       description:
         "Python is a high-level, interpreted language with a design philosophy that emphasizes code readability and simplicity. It supports multiple programming paradigms beyond object-oriented programming, such as procedural and functional programming.",
       year: 1991,
-      extensions: [".py", ".pyw", ".pyz", ".pyi", ".pyc", ".pyd"],
-      keywords: ["python", "programming", "language", "interpreted", "high-level", "dynamic", "readability"],
+      extensions: [".py", ".pyc", ".pyd", ".pyi", ".pyw", ".pyz"],
+      keywords: ["dynamic", "high-level", "interpreted", "language", "programming", "python", "readability"],
       websites: [
         { title: "General Python FAQ — Python 3.13.0 documentation", href: "https://docs.python.org/3/faq/general.html", kind: "faq" },
         { title: "Python (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Python_programming_language", kind: "wikipedia" },
         { title: "Welcome to Python.org", href: "https://www.python.org/", kind: "homepage" },
+        { kind: "reddit", title: "Python on Reddit", href: "https://reddit.com/r/Python" },
       ],
       isMainstream: true,
       releases: [
@@ -20,11 +21,14 @@ export function define(g: PlangsGraph) {
         { version: "3.10.0", name: "Python 3.10.0", date: "2021-10-04" },
         { version: "3.13.0", name: "Python 3.13.0", date: "2024-10-07" },
       ],
-      github: { name: "Python", langId: "303", color: "#3572A5", popular: true, type: "programming" },
       stackovTags: ["python"],
       githubName: "Python",
       languishRanking: 1,
       isTranspiler: true,
+      githubLangId: "303",
+      githubColor: "#3572A5",
+      githubPopular: true,
+      githubType: "programming",
     })
     .addCompilesTo([
       "pl+ada",

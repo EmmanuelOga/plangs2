@@ -21,10 +21,13 @@ export function define(g: PlangsGraph) {
         { version: "5.3", name: "Squeak 5.3", date: "2020-12-01" },
         { version: "6.0", name: "Squeak 6.0", date: "2022-05-01" },
       ],
-      github: { name: "Smalltalk", langId: "352", color: "#596706", popular: false, type: "programming" },
       stackovTags: ["smalltalk"],
       githubName: "Smalltalk",
-      languishRanking: 108,
+      languishRanking: 126,
+      githubLangId: "352",
+      githubColor: "#596706",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addDialectOf(["pl+smalltalk"])
     .addInfluencedBy(["pl+lisp", "pl+self", "pl+smalltalk"])

@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Scopes",
       description:
         "Scopes is an extensible programming language that focuses on providing a powerful macro system and supports multiple stages of evaluation, enabling complex metaprogramming tasks with ease.",
-      keywords: ["scopes", "metaprogramming", "extensible", "macro system"],
+      keywords: ["extensible", "macro system", "metaprogramming", "scopes"],
       websites: [{ title: "Scopes", href: "https://hg.sr.ht/~duangle/scopes", kind: "homepage" }],
       extensions: [".scopes"],
       year: 2015,

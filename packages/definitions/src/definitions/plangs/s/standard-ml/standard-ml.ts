@@ -6,20 +6,23 @@ export function define(g: PlangsGraph) {
       name: "Standard ML",
       description:
         "Standard ML (SML) is a general-purpose, high-level, modular, functional programming language with compile-time type checking and type inference. It is popular for writing compilers, for programming language research, and for developing theorem provers.",
-      keywords: ["Standard ML", "SML"],
+      keywords: ["SML", "Standard ML"],
       websites: [
         { title: "smlfamily.github.io", href: "https://smlfamily.github.io/", kind: "homepage" },
         { title: "Standard ML", href: "https://en.wikipedia.org/wiki/Standard_ML", kind: "wikipedia" },
         { title: "Standard ML on Reddit", kind: "reddit", href: "https://reddit.com/r/sml" },
       ],
-      extensions: [".sml", ".sig"],
+      extensions: [".sig", ".sml"],
       year: 1983,
       isTranspiler: false,
       isMainstream: false,
-      github: { name: "Standard ML", langId: "357", color: "#dc566d", popular: false, type: "programming" },
       stackovTags: ["sml"],
       githubName: "Standard ML",
-      languishRanking: 146,
+      languishRanking: 194,
+      githubLangId: "357",
+      githubColor: "#dc566d",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addDialectOf(["pl+ml"])
     .addInfluencedBy(["pl+ml", "pl+pascal"])

@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Shen",
       description:
         "Shen is a functional programming language that combines logic programming, lambda calculus, and pattern matching into a powerful language for AI and other complex application domains.",
-      keywords: ["shen", "functional", "logic programming", "lambda calculus"],
+      keywords: ["functional", "lambda calculus", "logic programming", "shen"],
       websites: [
         { title: "Shen Language Website", href: "https://shenlanguage.org/", kind: "homepage" },
         { title: "Shen Wikipedia", href: "https://en.wikipedia.org/wiki/Shen_(programming_language)", kind: "wikipedia" },
@@ -15,9 +15,12 @@ export function define(g: PlangsGraph) {
       extensions: [".shen"],
       year: 2011,
       releases: [{ version: "22.2", name: "Shen 22.2", date: "2023-08-01" }],
-      github: { name: "Shen", langId: "348", color: "#120F14", popular: false, type: "programming" },
       stackovTags: ["shen"],
       githubName: "Shen",
+      githubLangId: "348",
+      githubColor: "#120F14",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+assembler", "pl+prolog", "pl+scheme"])
     .addLicenses(["license+bsd"])

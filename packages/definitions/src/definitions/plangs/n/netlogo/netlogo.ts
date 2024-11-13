@@ -17,10 +17,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "6.4.0", name: "NetLogo 6.4.0", date: "2023-01-01" }],
-      github: { name: "NetLogo", langId: "246", color: "#ff6375", popular: false, type: "programming" },
       stackovTags: ["netlogo"],
       githubName: "NetLogo",
-      languishRanking: 293,
+      languishRanking: 161,
+      githubLangId: "246",
+      githubColor: "#ff6375",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+logo"])

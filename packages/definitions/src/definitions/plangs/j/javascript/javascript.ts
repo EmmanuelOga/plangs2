@@ -16,10 +16,13 @@ export function define(g: PlangsGraph) {
       year: 1995,
       isTranspiler: false,
       isMainstream: true,
-      github: { name: "JavaScript", langId: "183", color: "#f1e05a", popular: true, type: "programming" },
       stackovTags: ["javascript"],
       githubName: "JavaScript",
       languishRanking: 3,
+      githubLangId: "183",
+      githubColor: "#f1e05a",
+      githubPopular: true,
+      githubType: "programming",
     })
     .addImplements(["pl+ecmascript"])
     .addInfluencedBy(["pl+awk", "pl+c", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme", "pl+self"])

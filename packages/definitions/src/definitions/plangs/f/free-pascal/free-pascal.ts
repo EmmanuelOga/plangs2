@@ -6,12 +6,12 @@ export function define(g: PlangsGraph) {
       name: "Free Pascal",
       description:
         "Free Pascal Compiler (FPC) is a compiler for the closely related programming-language dialects Pascal and Object Pascal. It is free software released under the GNU General Public License, with exception clauses that allow static linking against its runtime libraries and packages for any purpose in combination with any other software license.",
-      keywords: ["freepascal", "pascal", "objectpascal"],
+      keywords: ["freepascal", "objectpascal", "pascal"],
       websites: [
         { title: "www.freepascal.org", href: "http://www.freepascal.org/", kind: "homepage" },
         { title: "Free Pascal", href: "https://en.wikipedia.org/wiki/Free_Pascal", kind: "wikipedia" },
       ],
-      extensions: [".pas", ".pp", ".p"],
+      extensions: [".p", ".pas", ".pp"],
       year: 1993,
       isTranspiler: false,
       isMainstream: false,

@@ -9,6 +9,11 @@ export function define(g: PlangsGraph) {
       { kind: "wikipedia", title: "ABAP on Wikipedia", href: "https://en.wikipedia.org/wiki/ABAP" },
     ],
     stackovTags: ["abap"],
+    githubName: "ABAP",
+    githubLangId: "1",
+    githubColor: "#E8274B",
+    githubPopular: false,
+    githubType: "programming",
   });
 
   // TOOLS
