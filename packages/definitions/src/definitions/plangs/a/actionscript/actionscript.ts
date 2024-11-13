@@ -21,10 +21,13 @@ export function define(g: PlangsGraph) {
         { version: "2.0", name: "ActionScript 2.0", date: "2003-01-01" },
         { version: "3.0", name: "ActionScript 3.0", date: "2006-01-01" },
       ],
-      github: { name: "ActionScript", langId: "10", color: "#882B0F", popular: false, type: "programming" },
       stackovTags: ["actionscript", "actionscript-2", "actionscript-3"],
       githubName: "ActionScript",
-      languishRanking: 204,
+      languishRanking: 134,
+      githubLangId: "10",
+      githubColor: "#882B0F",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addImplements(["pl+ecmascript"])
     .addInfluencedBy(["pl+ecmascript", "pl+javascript"])

@@ -8,7 +8,7 @@ export function define(g: PlangsGraph) {
         "Ada is a structured, statically typed, imperative, and object-oriented high-level programming language, inspired by Pascal and other languages. It has built-in language support for design by contract (DbC), extremely strong typing, explicit concurrency, tasks, synchronous message passing, protected objects, and non-determinism. Ada improves code safety and maintainability by using the compiler to find errors in favor of runtime errors. Ada is an international technical standard, jointly defined by the International Organization for Standardization (ISO), and the International Electrotechnical Commission (IEC). As of May 2023, the standard, called Ada 2022 informally, is ISO/IEC 8652:2023.",
       year: 1980,
       extensions: [".adb", ".ads"],
-      keywords: ["ada", "pascal", "object-oriented", "concurrency"],
+      keywords: ["ada", "concurrency", "object-oriented"],
       websites: [
         { title: "www.adaic.org", href: "https://www.adaic.org/", kind: "homepage" },
         { title: "Ada on Reddit", kind: "reddit", href: "https://reddit.com/r/ada" },
@@ -17,10 +17,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: true,
       releases: [{ version: "ISO/IEC 8652:2023", name: "Ada 2022", date: "2023-05-01" }],
-      github: { name: "Ada", langId: "11", color: "#02f88c", popular: false, type: "programming" },
       stackovTags: ["ada"],
       githubName: "Ada",
-      languishRanking: 214,
+      languishRanking: 153,
+      githubLangId: "11",
+      githubColor: "#02f88c",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addDialectOf(["pl+pascal"])
     .addInfluencedBy(["pl+c++", "pl+clu", "pl+eiffel", "pl+pascal"])

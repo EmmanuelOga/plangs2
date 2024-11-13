@@ -6,12 +6,12 @@ export function define(g: PlangsGraph) {
       name: ".NET",
       description:
         'The .NET platform (pronounced as "dot net") is a free and open-source, managed computer software framework for Windows, Linux, and macOS operating systems. The project is mainly developed by Microsoft employees by way of the .NET Foundation and is released under an MIT License.',
-      keywords: ["dotnet", ".net"],
+      keywords: [".net", "dotnet"],
       websites: [
         { title: ".NET", href: "http://dotnet.microsoft.com/", kind: "homepage" },
         { title: ".NET", href: "https://en.wikipedia.org/wiki/.NET", kind: "wikipedia" },
       ],
-      extensions: [".csproj", ".vbproj", ".fsproj", ".sln"],
+      extensions: [".csproj", ".fsproj", ".sln", ".vbproj"],
       year: 2002,
       isTranspiler: false,
       isMainstream: true,

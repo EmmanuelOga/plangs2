@@ -17,10 +17,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2.6.3", name: "Agda 2.6.3", date: "2023-01-01" }],
-      github: { name: "Agda", langId: "12", color: "#315665", popular: false, type: "programming" },
       stackovTags: ["agda"],
       githubName: "Agda",
-      languishRanking: 173,
+      languishRanking: 197,
+      githubLangId: "12",
+      githubColor: "#315665",
+      githubPopular: false,
+      githubType: "programming",
     })
     .addInfluencedBy(["pl+coq", "pl+haskell"])
     .addLicenses(["license+bsd"])
