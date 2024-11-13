@@ -5,12 +5,9 @@ export function define(g: PlangsGraph) {
     .set("pl+fennel", {
       name: "Fennel",
       description:
-        "Fennel is a programming language that brings together the Lisp syntax and the Lua runtime. It is designed to be both simple and fast, providing seamless interoperation with Lua.",
+        "Fennel is a programming language that combines the simplicity, speed, and reach of Lua with the flexibility of Lisp syntax and a macro system. It offers full Lua compatibility and can run wherever Lua runs, including game development, web servers, and microcontrollers.",
       keywords: ["fennel"],
-      websites: [
-        { title: "Fennel", href: "https://fennel-lang.org/", kind: "homepage" },
-        { title: "Fennel", href: "https://en.wikipedia.org/wiki/Fennel_(programming_language)", kind: "wikipedia" },
-      ],
+      websites: [{ title: "the Fennel programming language", href: "https://fennel-lang.org/", kind: "homepage" }],
       extensions: [".fnl"],
       year: 2020,
       images: [{ kind: "logo", title: "Fennel Logo", url: "https://fennel-lang.org/logo.svg", width: 512, height: 512 }],
@@ -26,6 +23,7 @@ export function define(g: PlangsGraph) {
       githubColor: "#fff3d7",
       githubPopular: false,
       githubType: "programming",
+      isMainstream: false,
     })
     .addCompilesTo(["pl+lua"])
     .addInfluencedBy(["pl+lua", "pl+scheme"])

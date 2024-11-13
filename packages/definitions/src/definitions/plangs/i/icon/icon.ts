@@ -5,17 +5,16 @@ export function define(g: PlangsGraph) {
     .set("pl+icon", {
       name: "Icon",
       description:
-        'Icon is a very high-level programming language based on the concept of "goal-directed execution" in which code returns a "success" along with valid values, or a "failure", indicating that there is no valid data to return. The success and failure of a given block of code is used to direct further processing, whereas conventional languages would typically use boolean logic written by the programmer to achieve the same ends. Because the logic for basic control structures is often implicit in Icon, common tasks can be completed with less explicit code.',
-      keywords: ["icon"],
+        'Icon is a very high-level programming language based on the concept of "goal-directed execution" in which code returns a "success" or "failure" to direct processing, minimizing the need for explicit boolean logic. It is influenced by SNOBOL and designed for tasks involving string manipulation and goal-directed execution.',
+      keywords: ["goal-directed execution", "icon", "string manipulation"],
       websites: [
-        { title: "www.cs.arizona.edu/icon", href: "http://www.cs.arizona.edu/icon", kind: "homepage" },
-        { title: "Icon", href: "https://en.wikipedia.org/wiki/Icon_programming_language", kind: "wikipedia" },
+        { title: "The Icon Programming Language", href: "http://www.cs.arizona.edu/icon", kind: "homepage" },
+        { title: "Icon (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Icon_programming_language", kind: "wikipedia" },
       ],
       extensions: [".icn"],
       year: 1977,
-      isTranspiler: false,
       isMainstream: false,
-      releases: [{ version: "9.5.24", name: "Icon 9.5.24", date: "2024-01-01" }],
+      releases: [{ version: "9.5.24", name: "", date: "2024-01-17" }],
     })
     .addInfluencedBy(["pl+algol"])
     .addParadigms(["paradigm+multi", "paradigm+structured"])

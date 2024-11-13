@@ -5,16 +5,18 @@ export function define(g: PlangsGraph) {
     .set("pl+futhark", {
       name: "Futhark",
       description:
-        "Futhark is a multi-paradigm, high-level, functional, data parallel, array programming language. It is a dialect of the language ML, originally developed at UCPH Department of Computer Science (DIKU) as part of the HIPERFIT project. It focuses on enabling data parallel programs written in a functional style to be executed with high performance on massively parallel hardware, especially graphics processing units (GPUs). Futhark is strongly inspired by NESL, and its implementation uses a variant of the flattening transformation, but imposes constraints on how parallelism can be expressed in order to enable more aggressive compiler optimisations. In particular, irregular nested data parallelism is not supported. It is free and open-source software released under an ISC license.",
+        "Futhark is a multi-paradigm, high-level, functional, data-parallel, array programming language. It is a dialect of the language ML, originally developed at the University of Copenhagen, specifically at the Department of Computer Science (DIKU) as part of the HIPERFIT project. Focusing on enabling data parallel programs written in a functional style to be executed with high performance on massively parallel hardware, especially GPUs, Futhark is influenced by languages such as APL, Haskell, and NESL. It features a strongly optimizing ahead-of-time compiler that can generate either GPU code via CUDA and OpenCL or multi-threaded CPU code. Designed with an indentation-insensitive syntax derived from OCaml, Standard ML, and Haskell, it employs a Hindley-Milner-type system with extensions such as uniqueness types and size-dependent types. The language supports automatic differentiation and regular nested data parallelism while ensuring purity through a uniqueness type system. Although Futhark is not meant to replace general-purpose languages, it excels in compute-intensive parts of an application and is able to integrate seamlessly with non-Futhark code.",
       keywords: ["futhark"],
       websites: [
         { title: "futhark-lang.org", href: "http://futhark-lang.org/", kind: "homepage" },
-        { title: "Futhark", href: "https://en.wikipedia.org/wiki/Futhark_(programming_language)", kind: "wikipedia" },
-        { title: "Futhark on Reddit", kind: "reddit", href: "https://reddit.com/r/futhark" },
+        {
+          title: "Futhark (programming language) - Wikipedia",
+          href: "https://en.wikipedia.org/wiki/Futhark_(programming_language)",
+          kind: "wikipedia",
+        },
       ],
       extensions: [".fut"],
       year: 2014,
-      isTranspiler: true,
       isMainstream: false,
       releases: [
         { version: "0.20.0", name: "Futhark 0.20.0", date: "2021-12-01" },
@@ -31,7 +33,7 @@ export function define(g: PlangsGraph) {
     .addDialectOf(["pl+ml"])
     .addInfluencedBy(["pl+apl", "pl+haskell", "pl+standard-ml"])
     .addLicenses(["license+isc"])
-    .addParadigms(["paradigm+array", "paradigm+compiled", "paradigm+functional", "paradigm+parallel"])
+    .addParadigms(["paradigm+array", "paradigm+compiled", "paradigm+functional", "paradigm+multi", "paradigm+parallel"])
     .addPlatforms(["plat+cross"])
     .addTags(["tag+app", "tag+compiler", "tag+interpreter", "tag+numeric", "tag+ray-tracer", "tag+sci"])
     .addTypeSystems(["tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+uniqueness"])

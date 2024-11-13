@@ -5,17 +5,16 @@ export function define(g: PlangsGraph) {
     .set("pl+freebasic", {
       name: "FreeBASIC",
       description:
-        "FreeBASIC is a free and open-source, multi-platform compiler and programming language based on BASIC licensed under the GNU GPL for Microsoft Windows, protected-mode MS-DOS (DOS extender), Linux, and FreeBSD. It is designed to be syntax-compatible with QuickBASIC, but it also provides many features found in modern programming languages.",
-      keywords: ["basic", "compiler", "freebasic", "open source"],
+        "FreeBASIC is a free/open source (GPL) BASIC compiler for Microsoft Windows, DOS, Linux, FreeBSD, and Xbox, though the Xbox version is no longer maintained. FreeBASIC aims to be syntax-compatible with Microsoft QuickBASIC, offering a command-line compiler to produce console and graphical applications. It supports procedural, object-oriented, and meta-programming paradigms, leveraging GNU Binutils for backend operations.",
+      keywords: ["basic", "compiler", "cross-platform", "freebasic", "linux", "open source", "windows"],
       websites: [
-        { title: "www.freebasic.net", href: "http://www.freebasic.net/", kind: "homepage" },
-        { title: "FreeBASIC", href: "https://en.wikipedia.org/wiki/FreeBASIC", kind: "wikipedia" },
+        { title: "FreeBASIC Language | Home", href: "http://www.freebasic.net/", kind: "homepage" },
+        { title: "FreeBASIC - Wikipedia", href: "https://en.wikipedia.org/wiki/FreeBASIC", kind: "wikipedia" },
       ],
       extensions: [".bas", ".bi"],
       year: 2004,
-      isTranspiler: false,
       isMainstream: false,
-      releases: [{ version: "1.10.1", name: "", date: "2023-01-01" }],
+      releases: [{ version: "1.10.1", name: "", date: "2023-12-25" }],
       stackovTags: ["freebasic"],
       githubName: "FreeBasic",
       languishRanking: 313,
@@ -26,7 +25,7 @@ export function define(g: PlangsGraph) {
     })
     .addImplements(["pl+basic"])
     .addInfluencedBy(["pl+c", "pl+quickbasic"])
-    .addLicenses(["license+gnu-gpl"])
+    .addLicenses(["license+gnu-gpl", "license+lgpl"])
     .addParadigms(["paradigm+compiled", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
     .addPlatforms(["plat+bsd", "plat+dos", "plat+linux", "plat+windows"])
     .addTags(["tag+app", "tag+compiler", "tag+interpreter", "tag+viz"])

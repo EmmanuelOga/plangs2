@@ -5,11 +5,15 @@ export function define(g: PlangsGraph) {
     .set("pl+inko", {
       name: "Inko",
       description:
-        "Inko is a programming language designed for writing concurrent and highly-parallel applications. It is a safe language that features actor-based concurrency, immutability by default, and a garbage-collected runtime, making it suitable for modern systems programming.",
-      keywords: ["actor", "concurrent", "inko"],
+        "Inko is a programming language designed for building concurrent software efficiently and safely. It features deterministic automatic memory management, move semantics, static typing, and type-safe concurrency. It is particularly known for avoiding runtime errors, race conditions, and unpredictable performance.",
+      keywords: ["concurrent", "inko", "safe", "type-safe"],
       websites: [
-        { title: "Inko", href: "https://inko-lang.org/", kind: "homepage" },
-        { title: "Inko on GitHub", href: "https://github.com/inko-lang/inko", kind: "repository" },
+        { title: "The Inko programming language", href: "https://inko-lang.org/", kind: "homepage" },
+        {
+          title: "inko-lang/inko: A language for building concurrent software with confidence",
+          href: "https://github.com/inko-lang/inko",
+          kind: "repository",
+        },
       ],
       extensions: [".inko"],
       year: 2016,
@@ -17,9 +21,10 @@ export function define(g: PlangsGraph) {
         { version: "0.9.0", name: "Inko 0.9.0", date: "2019-01-01" },
         { version: "1.0.0", name: "Inko 1.0.0", date: "2020-06-01" },
       ],
+      isMainstream: false,
     })
     .addInfluencedBy(["pl+erlang", "pl+golang"])
-    .addLicenses(["license+mit"])
+    .addLicenses(["license+mit", "license+mpl"])
     .addParadigms(["paradigm+concurrent", "paradigm+message-passing", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+cross", "plat+linux"])
     .addTags(["tag+automation"])

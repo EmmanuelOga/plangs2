@@ -5,19 +5,19 @@ export function define(g: PlangsGraph) {
     .set("pl+ironpython", {
       name: "IronPython",
       description:
-        "IronPython is an implementation of the Python programming language targeting the .NET and Mono frameworks. It is integrated with the .NET Framework and is well-suited for embedding into applications written in .NET languages. The project is maintained by a group of volunteers on GitHub and is open-source software.",
-      keywords: [".net", "ironpython", "mono", "python"],
+        "IronPython is an open-source implementation of the Python programming language, targeting the .NET and Mono frameworks. It is tightly integrated with .NET, enabling the use of .NET libraries in Python code and vice versa. IronPython is ideal for developers looking to leverage .NET's ecosystem while writing Python scripts. It is currently maintained by volunteers on GitHub and is open-source under the Apache License 2.0.",
+      keywords: [".net", "clr", "dlr", "ironpython", "mono", "python"],
       websites: [
-        { title: "ironpython.net", href: "https://ironpython.net/", kind: "homepage" },
-        { title: "IronPython", href: "https://en.wikipedia.org/wiki/IronPython", kind: "wikipedia" },
+        { title: "IronPython.net", href: "https://ironpython.net/", kind: "homepage" },
+        { title: "IronPython - Wikipedia", href: "https://en.wikipedia.org/wiki/IronPython", kind: "wikipedia" },
       ],
       extensions: [".py", ".pyi"],
       year: 2006,
-      isTranspiler: false,
       isMainstream: false,
       releases: [
-        { version: "3.4.1", name: "3.4.1", date: "2023-01-01" },
-        { version: "3.4.0", name: "3.4.0", date: "2022-01-01" },
+        { version: "3.4.1", name: "3.4.1", date: "2023-07-12" },
+        { version: "3.4.0", name: "3.4.0", date: "2022-12-12" },
+        { version: "2.7.12", name: "2.7.12", date: "2022-01-21" },
       ],
     })
     .addImplements(["pl+python"])

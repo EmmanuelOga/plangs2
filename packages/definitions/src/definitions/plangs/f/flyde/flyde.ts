@@ -5,13 +5,18 @@ export function define(g: PlangsGraph) {
     .set("pl+flyde", {
       name: "Flyde",
       description:
-        "Flyde is a visual programming language designed to build and manage complex workflows easily. It is aimed at enhancing the development process by utilizing a visual interface for coding, assisting users in strategy development, logic sequencing, and overall workflow optimization.",
-      keywords: ["flyde", "visual", "workflow"],
-      websites: [{ title: "Flyde", href: "https://www.flyde.dev/", kind: "homepage" }],
+        "Flyde is an open-source visual programming language that integrates seamlessly with TypeScript code and is designed for developers. It allows users to visualize data flows and understand complex logic intuitively, providing a functional-reactive foundation for workflows and programming tasks.",
+      keywords: ["flyde", "open-source", "typescript", "visual", "workflow"],
+      websites: [{ title: "Flyde | Visual Programming. For Developers.", href: "https://www.flyde.dev/", kind: "homepage" }],
       images: [{ kind: "logo", title: "Flyde Logo", url: "https://www.flyde.dev/img/flyde_icon.png", width: 512, height: 512 }],
+      extensions: [".flyde"],
+      filenames: ["beep.flyde", "debounce.flyde", "hello.flyde", "http.flyde"],
+      year: 2023,
+      isMainstream: false,
     })
-    .addParadigms(["paradigm+declarative", "paradigm+visual", "paradigm+workflow"])
-    .addPlatforms(["plat+web"])
+    .addLicenses(["license+mit"])
+    .addParadigms(["paradigm+declarative", "paradigm+frp", "paradigm+visual", "paradigm+workflow"])
+    .addPlatforms(["plat+nodejs", "plat+web"])
     .addTags(["tag+automation", "tag+low-code", "tag+workflow"]);
 
   // TOOLS

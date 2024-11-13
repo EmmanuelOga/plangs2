@@ -5,18 +5,20 @@ export function define(g: PlangsGraph) {
     .set("pl+io", {
       name: "Io",
       description:
-        "Io is a pure object-oriented programming language inspired by Smalltalk, Self, Lua, Lisp, Act1, and NewtonScript. Io has a prototype-based object model similar to those in Self and NewtonScript, eliminating the distinction between instance and class. Like Smalltalk, everything is an object and it uses dynamic typing. Like Lisp, programs are just data trees. Io uses actors for concurrency.",
+        "Io is a pure object-oriented programming language inspired by Smalltalk, Self, Lua, Lisp, Act1, and NewtonScript. Io has a prototype-based object model similar to those in Self and NewtonScript, eliminating the distinction between instance and class. Like Smalltalk, everything is an object and it uses dynamic typing. Like Lisp, programs are just data trees. Io uses actors for concurrency. It emphasizes simplicity and flexibility with features such as coroutines, actor-based concurrency, and incremental garbage collection.",
       keywords: ["io"],
       websites: [
-        { title: "iolanguage.org", href: "https://iolanguage.org/", kind: "homepage" },
-        { title: "Io", href: "https://en.wikipedia.org/wiki/Io_(programming_language)", kind: "wikipedia" },
-        { title: "Io on Reddit", kind: "reddit", href: "https://reddit.com/r/iolanguage" },
+        { title: "io language", href: "https://iolanguage.org/", kind: "homepage" },
+        { title: "Io (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Io_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".io"],
       year: 2002,
-      isTranspiler: false,
       isMainstream: false,
-      releases: [{ version: "2019.05.22", name: "Io 2019.05.22", date: "2019-05-22" }],
+      releases: [
+        { version: "20170906", name: "Stable release", date: "2017-09-06" },
+        { version: "2019.05.22-alpha", name: "Preview release", date: "2019-05-22" },
+        { version: "2019.05.22", name: "Io 2019.05.22", date: "2019-05-22" },
+      ],
       stackovTags: ["iolanguage"],
       githubName: "Io",
       languishRanking: 285,
@@ -27,8 +29,8 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+lisp", "pl+lua", "pl+self", "pl+smalltalk"])
     .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+concurrent", "paradigm+oop", "paradigm+prototype"])
-    .addPlatforms(["plat+.net", "plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .addParadigms(["paradigm+concurrent", "paradigm+oop", "paradigm+prototype", "paradigm+scripting"])
+    .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+c", "pl+python"]);

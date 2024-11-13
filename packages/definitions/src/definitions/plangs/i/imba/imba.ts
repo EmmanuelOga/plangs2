@@ -5,15 +5,11 @@ export function define(g: PlangsGraph) {
     .set("pl+imba", {
       name: "Imba",
       description:
-        "Imba is a programming language for building web applications. It is designed for rapid development and features reactive programming and a rich syntax that blends HTML, CSS, and JavaScript concepts.",
-      keywords: ["imba", "reactive", "web"],
-      websites: [
-        { title: "Imba", href: "https://imba.io", kind: "homepage" },
-        { title: "Imba", href: "https://en.wikipedia.org/wiki/Imba_(programming_language)", kind: "wikipedia" },
-        { title: "Imba", href: "https://github.com/imba/imba", kind: "repository" },
-      ],
+        "Imba is a friendly full-stack programming language for the web that compiles to performant JavaScript. It has language-level support for defining, extending, subclassing, instantiating and rendering DOM nodes.",
+      keywords: ["full-stack", "imba", "javascript", "web"],
+      websites: [{ title: "imba/imba: 🐤 The friendly full-stack language", href: "https://github.com/imba/imba", kind: "repository" }],
       extensions: [".imba"],
-      year: 2013,
+      year: 2015,
       isTranspiler: true,
       releases: [
         { version: "v1.5.0", name: "Imba 1.5.0", date: "2020-06-15" },
@@ -24,10 +20,12 @@ export function define(g: PlangsGraph) {
       githubColor: "#16cec6",
       githubPopular: false,
       githubType: "programming",
+      isMainstream: false,
     })
+    .addCompilesTo(["pl+javascript"])
     .addInfluencedBy(["pl+coffeescript"])
     .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+oop", "paradigm+reactive"])
+    .addParadigms(["paradigm+functional", "paradigm+general-purpose", "paradigm+imperative", "paradigm+oop", "paradigm+reactive"])
     .addPlatforms(["plat+nodejs", "plat+web"])
     .addTags(["tag+rapid-development", "tag+ui", "tag+webdev"])
     .addTypeSystems(["tsys+dynamic", "tsys+inferred", "tsys+static"])

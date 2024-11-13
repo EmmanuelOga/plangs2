@@ -8,19 +8,29 @@ export function define(g: PlangsGraph) {
         "GDScript is a high-level, dynamically typed programming language used to create content within the Godot Engine. It is influenced by Python and designed specifically for ease of use within game development. It is lightweight yet expressive, offering flexibility particularly for rapid prototyping and development within the Godot ecosystem.",
       keywords: ["gdscript", "godot engine"],
       websites: [
-        { title: "godotengine.org", href: "https://godotengine.org/", kind: "homepage" },
-        { title: "Godot Engine - Wikipedia", href: "https://en.wikipedia.org/wiki/GDScript", kind: "wikipedia" },
-        { title: "GDScript on Reddit", kind: "reddit", href: "https://reddit.com/r/godot" },
-        { title: "GDScript on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Godot_(game_engine)" },
+        { title: "Godot Engine - Free and open source 2D and 3D game engine", href: "https://godotengine.org/", kind: "homepage" },
+        { title: "Godot (game engine) - Wikipedia", href: "https://en.wikipedia.org/wiki/Godot_(game_engine)", kind: "wikipedia" },
+        { title: "GDScript on Reddit", href: "https://reddit.com/r/godot", kind: "reddit" },
       ],
       extensions: [".gd"],
       year: 2014,
-      images: [{ kind: "logo", title: "Godot Engine", url: "https://godotengine.org/assets/logo.svg", width: 512, height: 512 }],
-      isTranspiler: false,
+      images: [
+        {
+          kind: "screenshot",
+          title: "Godot Engine",
+          url: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Godot_3_editor_screenshot.png",
+          width: 1024,
+          height: 768,
+        },
+        { kind: "logo", title: "Godot Engine", url: "https://godotengine.org/assets/logo.svg", width: 512, height: 512 },
+      ],
       isMainstream: true,
       releases: [
-        { version: "3.2", name: "GDScript 3.2", date: "2020-01-29" },
-        { version: "4.0", name: "GDScript 4.0", date: "2023-01-23" },
+        { version: "3.6", name: "Godot 3.6", date: "2024-09-09" },
+        { version: "4.0", name: "Godot 4.0", date: "2023-03-01" },
+        { version: "4.1", name: "Godot 4.1", date: "2023-07-01" },
+        { version: "4.2", name: "Godot 4.2", date: "2023-11-30" },
+        { version: "4.3", name: "Godot 4.3", date: "2024-08-15" },
       ],
       stackovTags: ["godot"],
       githubName: "GDScript",
@@ -33,7 +43,7 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+python"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+imperative", "paradigm+oop", "paradigm+scripting"])
-    .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+web", "plat+windows"])
     .addTags(["tag+3dg", "tag+audio-dev", "tag+games", "tag+scripting", "tag+ui"])
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+c++"]);

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+hy", {
       name: "Hy",
       description:
-        "Hy is a dialect of the Lisp programming language designed to interact with Python by translating s-expressions into Python's abstract syntax tree (AST). Hy was introduced at Python Conference (PyCon) 2013 by Paul Tagliamonte. Lisp allows operating on code as data (metaprogramming), thus Hy can be used to write domain-specific languages.",
-      keywords: ["hy"],
+        "Hy is a Lisp dialect embedded in Python, offering a multi-paradigm programming environment. Designed by Paul Tagliamonte and introduced at PyCon 2013, Hy acts as a transparent Lisp front-end for Python, translating s-expressions to Python's AST and incorporating Python libraries. This language allows the integration of imperative, functional, and object-oriented programming styles.",
+      keywords: ["hy", "hylang", "lisp", "python"],
       websites: [
         { title: "hylang.org", href: "http://hylang.org/", kind: "homepage" },
         { title: "Hy", href: "https://en.wikipedia.org/wiki/Hy_(programming_language)", kind: "wikipedia" },
@@ -18,6 +18,7 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       isMainstream: false,
       releases: [
+        { version: "1.0.0", name: "Hy 1.0", date: "2024-09-22" },
         { version: "1.0", name: "Hy 1.0", date: "2022-01-01" },
         { version: "0.29.0", name: "Hy 0.29.0", date: "2024-01-01" },
       ],
@@ -29,6 +30,7 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
     })
+    .addCompilesTo(["pl+python"])
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+clojure", "pl+common-lisp", "pl+python"])
     .addLicenses(["license+mit"])

@@ -5,29 +5,28 @@ export function define(g: PlangsGraph) {
     .set("pl+faust", {
       name: "FAUST",
       description:
-        "FAUST (Functional AUdio STream) is a domain-specific, purely functional programming language used for real-time signal processing and audio applications. FAUST is designed to facilitate the creation of signal processing algorithms that are directly compiled into efficient C++ code, enabling high-performance standalone applications, audio plug-ins, or even embedded software.",
-      keywords: ["faust"],
+        "FAUST (Functional AUdio STream) is a domain-specific purely functional programming language designed for implementing signal processing algorithms, sound synthesis, and audio processing applications. Developed by GRAME-CNCM, it emphasizes high-performance real-time audio processing through a combination of functional programming and block diagram syntax. The language compiles into various backend formats, making it suitable for various platforms and standards.",
+      keywords: ["audio processing", "faust", "functional programming", "signal processing"],
       websites: [
-        { title: "faust.grame.fr", href: "http://faust.grame.fr/", kind: "homepage" },
-        { title: "FAUST", href: "https://en.wikipedia.org/wiki/FAUST_(programming_language)", kind: "wikipedia" },
-        { title: "FAUST on Reddit", kind: "reddit", href: "https://reddit.com/r/faustdsp" },
+        { title: "Faust Programming Language", href: "http://faust.grame.fr/", kind: "homepage" },
+        { title: "FAUST (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/FAUST_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".dsp"],
       year: 2002,
-      isTranspiler: true,
       isMainstream: false,
-      releases: [{ version: "2.60.3", name: "FAUST 2.60.3", date: "2023-01-01" }],
+      releases: [{ version: "2.60.3", name: "Stable Release", date: "2023-06-14" }],
       githubName: "Faust",
       githubLangId: "622529198",
       githubColor: "#c37240",
       githubPopular: false,
       githubType: "programming",
+      images: [{ kind: "logo", title: "FAUST Logo", url: "https://upload.wikimedia.org/wikipedia/en/d/df/FAUST_Logo.png", width: 256, height: 256 }],
     })
     .addInfluencedBy(["pl+c"])
     .addLicenses(["license+gnu-gpl"])
     .addParadigms(["paradigm+compiled", "paradigm+dataflow", "paradigm+declarative", "paradigm+dsl", "paradigm+functional"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+app", "tag+audio-dev", "tag+compiler", "tag+dsp", "tag+interpreter", "tag+ui", "tag+wavelet"])
+    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows"])
+    .addTags(["tag+app", "tag+audio-dev", "tag+compiler", "tag+dsp", "tag+interpreter", "tag+multimedia", "tag+ui", "tag+wavelet"])
     .addTypeSystems(["tsys+manifest", "tsys+strong"])
     .addWrittenIn(["pl+c++"]);
 

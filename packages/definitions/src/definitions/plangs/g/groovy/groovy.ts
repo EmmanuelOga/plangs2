@@ -5,21 +5,22 @@ export function define(g: PlangsGraph) {
     .set("pl+groovy", {
       name: "Groovy",
       description:
-        "Apache Groovy is a Java-syntax-compatible object-oriented programming language for the Java platform. It is both a static and dynamic language with features similar to those of Python, Ruby, and Smalltalk. It can be used as both a programming language and a scripting language for the Java Platform, is compiled to Java virtual machine (JVM) bytecode, and interoperates seamlessly with other Java code and libraries. Groovy uses a curly-bracket syntax similar to Java's, supports closures, multiline strings, and expressions embedded in strings. Much of Groovy's power lies in its AST transformations, triggered through annotations.",
-      keywords: ["groovy"],
+        "Apache Groovy is a powerful, optionally typed and dynamic language, with static-typing and static compilation capabilities, for the Java platform. Designed to improve developer productivity, it features a concise, familiar syntax, integrates smoothly with any Java program, and enhances your application with capabilities like scripting, Domain-Specific Language authoring, runtime and compile-time metaprogramming, and functional programming. It has a flat learning curve for Java developers, seamlessly interoperates with Java libraries, and boasts a vibrant ecosystem that includes web development, reactive applications, and build tools like Gradle.",
+      keywords: ["groovy", "java", "language", "programming", "scripting"],
       websites: [
-        { title: "groovy-lang.org", href: "https://groovy-lang.org/", kind: "homepage" },
-        { title: "Groovy", href: "https://en.wikipedia.org/wiki/Groovy_(programming_language)", kind: "wikipedia" },
-        { title: "Groovy on Reddit", kind: "reddit", href: "https://reddit.com/r/groovy" },
-        { title: "Groovy on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Apache_Groovy" },
+        { title: "The Apache Groovy Programming Language", href: "https://groovy-lang.org/", kind: "homepage" },
+        { title: "Apache Groovy - Wikipedia", href: "https://en.wikipedia.org/wiki/Apache_Groovy", kind: "wikipedia" },
       ],
       extensions: [".groovy", ".gsh", ".gvy", ".gy"],
       year: 2003,
-      isTranspiler: false,
       isMainstream: true,
       releases: [
+        { version: "4.0.23", name: "Groovy 4.0.23", date: "2024-09-09" },
+        { version: "4.0.0", name: "Groovy 4.0.0", date: "2022-01-25" },
+        { version: "3.0.0", name: "Groovy 3.0", date: "2020-02-07" },
+        { version: "2.0.0", name: "Groovy 2.0", date: "2012-07-02" },
+        { version: "1.0.0", name: "Groovy 1.0", date: "2007-01-02" },
         { version: "4.0.22", name: "Groovy 4.0.22", date: "2024-01-01" },
-        { version: "4.0.0", name: "Groovy 4.0.0", date: "2021-01-01" },
       ],
       stackovTags: ["groovy"],
       githubName: "Groovy",
@@ -34,7 +35,7 @@ export function define(g: PlangsGraph) {
     .addParadigms(["paradigm+aspect", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
     .addPlatforms(["plat+java"])
     .addTags(["tag+compiler", "tag+framework", "tag+interpreter", "tag+scripting", "tag+testing"])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"]);
+    .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

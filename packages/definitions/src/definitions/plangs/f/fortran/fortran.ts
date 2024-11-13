@@ -5,16 +5,15 @@ export function define(g: PlangsGraph) {
     .set("pl+fortran", {
       name: "Fortran",
       description:
-        "Fortran (/ˈfɔːrtræn/; formerly FORTRAN) is a third generation, compiled, imperative programming language that is especially suited to numeric computation and scientific computing. It was originally developed by IBM in the 1950s for scientific and engineering applications.",
-      keywords: ["fortran"],
+        "Fortran is a high-performance programming language optimized for numerical computation and scientific computing. Originally developed by IBM in the 1950s, Fortran excels in handling computationally intensive tasks and is widely used in areas like scientific research, engineering, and high-performance computing.",
+      keywords: ["fortran", "high-performance computing", "scientific computing"],
       websites: [
-        { title: "fortran-lang.org", href: "https://fortran-lang.org/", kind: "homepage" },
-        { title: "Fortran", href: "https://en.wikipedia.org/wiki/Fortran", kind: "wikipedia" },
-        { title: "Fortran on Reddit", kind: "reddit", href: "https://reddit.com/r/fortran" },
+        { title: "The Fortran Programming Language — Fortran Programming Language", href: "https://fortran-lang.org/", kind: "homepage" },
+        { title: "Fortran - Wikipedia", href: "https://en.wikipedia.org/wiki/Fortran", kind: "wikipedia" },
+        { title: "Fortran on Reddit", href: "https://reddit.com/r/fortran", kind: "reddit" },
       ],
       extensions: [".f", ".f90", ".for"],
       year: 1957,
-      isTranspiler: false,
       isMainstream: true,
       releases: [
         { version: "IV", name: "FORTRAN IV", date: "1962-01-01" },
@@ -24,6 +23,7 @@ export function define(g: PlangsGraph) {
         { version: "2003", name: "Fortran 2003", date: "2004-01-01" },
         { version: "2008", name: "Fortran 2008", date: "2010-01-01" },
         { version: "2018", name: "Fortran 2018", date: "2018-01-01" },
+        { version: "2023", name: "Fortran 2023", date: "2023-11-17" },
       ],
       stackovTags: ["fortran"],
       githubName: "Fortran",
@@ -33,7 +33,16 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
     })
-    .addParadigms(["paradigm+array", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+structured"])
+    .addParadigms([
+      "paradigm+array",
+      "paradigm+compiled",
+      "paradigm+functional",
+      "paradigm+imperative",
+      "paradigm+multi",
+      "paradigm+oop",
+      "paradigm+procedural",
+      "paradigm+structured",
+    ])
     .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
     .addTags([
       "tag+analysis",

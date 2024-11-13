@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+idris", {
       name: "Idris",
       description:
-        "Idris is a purely-functional programming language with dependent types, optional lazy evaluation, and features such as a totality checker. Idris may be used as a proof assistant, but is designed to be a general-purpose programming language similar to Haskell.",
-      keywords: ["idris"],
+        "Idris is a purely-functional programming language, designed for Type-Driven Development with dependent types, optional lazy evaluation, and features such as a totality checker. It serves as both a general-purpose language and a proof assistant.",
+      keywords: ["dependent types", "functional programming", "idris", "type-driven development"],
       websites: [
         { title: "idris-lang.org", href: "http://idris-lang.org/", kind: "homepage" },
         { title: "Idris", href: "https://en.wikipedia.org/wiki/Idris_(programming_language)", kind: "wikipedia" },
@@ -14,11 +14,10 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".idr", ".lidr"],
       year: 2007,
-      isTranspiler: false,
       isMainstream: false,
       releases: [
-        { version: "1.3.4", name: "Idris 1.3.4", date: "2021-01-01" },
-        { version: "0.7.0", name: "Idris 0.7.0", date: "2023-01-01" },
+        { version: "1.3.4", name: "Idris 1.3.4", date: "2021-10-22" },
+        { version: "0.7.0", name: "Idris 2 v0.7.0", date: "2023-12-22" },
       ],
       stackovTags: ["idris"],
       githubName: "Idris",

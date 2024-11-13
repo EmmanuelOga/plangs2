@@ -5,16 +5,14 @@ export function define(g: PlangsGraph) {
     .set("pl+forth", {
       name: "Forth",
       description:
-        'Forth is a stack-oriented programming language and interactive integrated development environment designed by Charles H. "Chuck" Moore and first used by other programmers in 1970. Although not an acronym, the language\'s name in its early years was often spelled in all capital letters as FORTH. The FORTH-79 and FORTH-83 implementations, which were not written by Moore, became de facto standards, and an official technical standard of the language was published in 1994 as ANS Forth. A wide range of Forth derivatives existed before and after ANS Forth. The free and open-source software Gforth implementation is actively maintained, as are several commercially supported systems.',
-      keywords: ["forth"],
+        'Forth is a stack-oriented programming language and interactive integrated development environment designed by Charles H. "Chuck" Moore and first introduced in 1970. The language\'s unique feature is its ability to extend itself at runtime, making it quite flexible and powerful. Commonly used in embedded systems, spaceflight applications, and boot loaders, it is known for its efficiency and small memory footprint. Forth combines a compiler with an interactive command shell and relies on Reverse Polish Notation.',
+      keywords: ["concatenative", "forth", "procedural", "reflective", "stack-oriented"],
       websites: [
-        { title: "forth-standard.org", href: "https://forth-standard.org/", kind: "homepage" },
-        { title: "Forth", href: "https://en.wikipedia.org/wiki/Forth_(programming_language)", kind: "wikipedia" },
-        { title: "Forth on Reddit", kind: "reddit", href: "https://reddit.com/r/Forth" },
+        { title: "Forth", href: "https://forth-standard.org/", kind: "homepage" },
+        { title: "Forth (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Forth_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".4th", ".f", ".forth", ".fs", ".fth"],
       year: 1970,
-      isTranspiler: false,
       isMainstream: false,
       stackovTags: ["forth"],
       githubName: "Forth",

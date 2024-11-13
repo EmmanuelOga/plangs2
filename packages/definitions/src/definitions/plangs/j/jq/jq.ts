@@ -8,14 +8,20 @@ export function define(g: PlangsGraph) {
         "jq is a very high-level lexically scoped functional programming language in which every JSON value is a constant. jq supports backtracking and managing indefinitely long streams of JSON data. It is related to the Icon and Haskell programming languages. The language supports a namespace-based module system and has some support for closures. In particular, functions and functional expressions can be used as parameters of other functions.",
       keywords: ["jq"],
       websites: [
-        { title: "jqlang.github.io/jq", href: "https://jqlang.github.io/jq", kind: "repository" },
-        { title: "jq", href: "https://en.wikipedia.org/wiki/Jq_(programming_language)", kind: "wikipedia" },
+        { title: "jq", href: "https://jqlang.github.io/jq", kind: "homepage" },
+        { title: "jq (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Jq_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".jq"],
       year: 2012,
-      isTranspiler: false,
       isMainstream: false,
-      releases: [{ version: "1.7.1", name: "jq 1.7.1", date: "2023-01-01" }],
+      releases: [
+        { version: "1.7.1", name: "jq 1.7.1", date: "2023-12-13" },
+        { version: "1.7", name: "jq 1.7", date: "2023-09-07" },
+        { version: "1.6", name: "jq 1.6", date: "2018-11-01" },
+        { version: "1.5", name: "jq 1.5", date: "2015-08-15" },
+        { version: "1.4", name: "jq 1.4", date: "2014-06-09" },
+        { version: "1.3", name: "jq 1.3", date: "2013-05-19" },
+      ],
       stackovTags: ["jq"],
       githubName: "jq",
       languishRanking: 102,
@@ -23,6 +29,15 @@ export function define(g: PlangsGraph) {
       githubColor: "#c7254e",
       githubPopular: false,
       githubType: "programming",
+      images: [
+        {
+          kind: "logo",
+          title: "jq logo",
+          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Jq_logo.svg/256px-Jq_logo.svg.png",
+          width: 256,
+          height: 256,
+        },
+      ],
     })
     .addInfluencedBy(["pl+haskell", "pl+icon"])
     .addLicenses(["license+mit", "license+public-domain"])

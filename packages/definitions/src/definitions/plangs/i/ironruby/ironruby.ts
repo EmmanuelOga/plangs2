@@ -5,18 +5,17 @@ export function define(g: PlangsGraph) {
     .set("pl+ironruby", {
       name: "IronRuby",
       description:
-        "IronRuby is an implementation of the Ruby programming language targeting Microsoft .NET Framework. It is implemented on top of the Dynamic Language Runtime (DLR), a library running on top of the Common Language Infrastructure that provides dynamic typing and dynamic method dispatch, among other things, for dynamic languages.",
+        "IronRuby is an open-source implementation of the Ruby programming language which is tightly integrated with the .NET Framework. IronRuby can use the .NET Framework and Ruby libraries, and other .NET languages can use Ruby code just as easily. It is built on the Dynamic Language Runtime (DLR), allowing dynamic typing and method dispatch for dynamic languages.",
       keywords: ["ironruby"],
       websites: [
-        { title: "www.ironruby.net", href: "http://www.ironruby.net/", kind: "homepage" },
-        { title: "IronRuby", href: "https://en.wikipedia.org/wiki/IronRuby", kind: "wikipedia" },
+        { title: "IronRuby.net", href: "http://www.ironruby.net/", kind: "homepage" },
+        { title: "IronRuby - Wikipedia", href: "https://en.wikipedia.org/wiki/IronRuby", kind: "wikipedia" },
       ],
-      year: 2010,
-      isTranspiler: false,
+      year: 2007,
       isMainstream: false,
       releases: [
-        { version: "1.0", name: "IronRuby 1.0", date: "2010-01-01" },
-        { version: "1.1.3", name: "IronRuby 1.1.3", date: "2011-01-01" },
+        { version: "1.0", name: "IronRuby 1.0", date: "2010-04-12" },
+        { version: "1.1.3", name: "IronRuby 1.1.3", date: "2011-03-13" },
       ],
     })
     .addDialectOf(["pl+ruby"])

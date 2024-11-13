@@ -5,20 +5,21 @@ export function define(g: PlangsGraph) {
     .set("pl+gravity", {
       name: "Gravity",
       description:
-        "Gravity is an open-source, multi-paradigm programming language designed for creating cross-platform apps. It is lightweight, fast, and suitable for various use cases, including mobile, desktop, and embedded platforms.",
-      keywords: ["gravity", "programming language"],
+        "Gravity is a powerful, dynamically typed, lightweight, embeddable programming language written in C without any external dependencies. It supports procedural, object-oriented, functional, and data-driven programming paradigms and is designed for the Creo project.",
+      keywords: ["Creo", "gravity", "programming language", "swift-like syntax"],
       websites: [
-        { title: "Gravity Language", href: "https://www.gravity-lang.org/", kind: "homepage" },
-        { title: "Gravity on GitHub", href: "https://github.com/marcobambini/gravity", kind: "repository" },
+        { title: "GitHub - marcobambini/gravity: Gravity Programming Language", href: "https://github.com/marcobambini/gravity", kind: "repository" },
       ],
       extensions: [".gravity"],
       year: 2015,
       releases: [{ version: "0.8", name: "Gravity 0.8", date: "2023-01-01" }],
+      isTranspiler: true,
+      isMainstream: false,
     })
     .addInfluencedBy(["pl+lua", "pl+swift"])
     .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+multi", "paradigm+oop", "paradigm+scripting"])
-    .addPlatforms(["plat+cross"])
+    .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+scripting"])
+    .addPlatforms(["plat+android", "plat+cross"])
     .addTags(["tag+embedded", "tag+games", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+c"]);

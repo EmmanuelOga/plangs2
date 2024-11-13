@@ -9,14 +9,13 @@ export function define(g: PlangsGraph) {
       keywords: ["flix"],
       websites: [
         { title: "flix.dev", href: "https://flix.dev/", kind: "homepage" },
-        { title: "Flix", href: "https://en.wikipedia.org/wiki/Flix_(programming_language)", kind: "wikipedia" },
+        { title: "Flix (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Flix_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".flix"],
       year: 2015,
       images: [
         { kind: "logo", title: "Flix logo", url: "https://raw.githubusercontent.com/flix/flix/master/docs/logo.png", width: 512, height: 512 },
       ],
-      isTranspiler: false,
       isMainstream: false,
       releases: [
         { version: "0.1", name: "Flix 0.1", date: "2014-01-01" },

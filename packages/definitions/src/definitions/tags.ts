@@ -286,6 +286,20 @@ export function define(g: PlangsGraph) {
     websites: [wikipedia("https://en.wikipedia.org/wiki/Proof_assistant", "Proof Assistant")],
   });
 
+  g.nodes.tag.set("tag+graph", {
+    name: "Graph Theory",
+    keywords: ["graph"],
+    description: "Software for working with graphs and graph theory algorithms, graph traversals, etc.",
+    websites: [wikipedia("https://en.wikipedia.org/wiki/Rapid_Application_Development", "Rapid Application Development")],
+  });
+
+  g.nodes.tag.set("tag+rdf", {
+    name: "Resource Description Framework (RDF)",
+    keywords: ["rdf"],
+    description: "A standard model for data interchange on the web, where everything is a tuple [subject, predicate, object].",
+    websites: [wikipedia("https://en.wikipedia.org/wiki/Rapid_Application_Development", "Rapid Application Development")],
+  });
+
   g.nodes.tag.set("tag+rad", {
     name: "Rapid Application Development",
     keywords: ["RAD", "rapid development", "software development methodology"],

@@ -5,18 +5,19 @@ export function define(g: PlangsGraph) {
     .set("pl+go", {
       name: "Go",
       description:
-        "Go is a statically typed, compiled high-level programming language designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson. It is syntactically similar to C, but also has memory safety, garbage collection, structural typing, and CSP-style concurrency. It is often referred to as Golang because of its former domain name, golang.org, but its proper name is Go.",
+        "Go is a statically typed, compiled high-level programming language designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson. It is syntactically similar to C, but offers memory safety, garbage collection, structural typing, and CSP-style concurrency. Sometimes referred to as Golang due to its former domain name golang.org, its proper name is Go. It is suitable for building scalable, simple, and secure systems.",
       keywords: ["go", "golang"],
       websites: [
-        { title: "go.dev", href: "https://go.dev/", kind: "homepage" },
-        { title: "Go", href: "https://en.wikipedia.org/wiki/Go_(programming_language)", kind: "wikipedia" },
-        { title: "Go on Reddit", kind: "reddit", href: "https://reddit.com/r/golang" },
+        { title: "The Go Programming Language", href: "https://go.dev/", kind: "homepage" },
+        { title: "Go (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Go_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".go"],
       year: 2009,
-      isTranspiler: false,
       isMainstream: true,
-      releases: [{ version: "1.23.0", name: "", date: "2024-01-01" }],
+      releases: [
+        { version: "1.23.3", name: "", date: "2024-11-06" },
+        { version: "1.23.0", name: "", date: "2024-01-01" },
+      ],
       stackovTags: ["go"],
       githubName: "Go",
       languishRanking: 8,
@@ -29,7 +30,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
-    .addTags(["tag+app", "tag+compiler", "tag+dbms", "tag+industrial", "tag+interpreter", "tag+testing", "tag+viz"])
+    .addTags(["tag+app", "tag+cli", "tag+compiler", "tag+dbms", "tag+industrial", "tag+interpreter", "tag+testing", "tag+viz"])
     .addTypeSystems(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong", "tsys+structural"])
     .addWrittenIn(["pl+assembly", "pl+c++"]);
 

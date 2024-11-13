@@ -5,14 +5,15 @@ export function define(g: PlangsGraph) {
     .set("pl+janet", {
       name: "Janet",
       description:
-        "Janet is a functional and imperative programming language, useful for embedding in other programs, scripting, and other tasks. It allows meta-programming with its Lisp-like syntax and provides features to easily work with C libraries.",
-      keywords: ["functional", "janet", "lisp"],
+        "Janet is a dynamic and functional programming language, ideal for system scripting and embedding in C/C++ programs. With built-in libraries for networking, threading, and more, Janet offers a powerful set of features with a minimalist setup, making it portable and easy to embed.",
+      keywords: ["dynamic", "embedded", "functional", "janet"],
       websites: [
-        { title: "Janet", href: "https://janet-lang.org/", kind: "homepage" },
-        { title: "Janet on GitHub", href: "https://github.com/janet-lang/janet", kind: "repository" },
+        { title: "Janet Programming Language", href: "https://janet-lang.org/", kind: "homepage" },
+        { title: "janet-lang/janet: A dynamic language and bytecode vm", href: "https://github.com/janet-lang/janet", kind: "repository" },
+        { href: "https://www.reddit.com/r/janetlang/", title: "Janet on Reddit", kind: "reddit" },
       ],
       extensions: [".janet"],
-      year: 2020,
+      year: 2017,
       releases: [{ version: "1.17.0", name: "Janet 1.17.0", date: "2023-06-15" }],
       githubName: "Janet",
       languishRanking: 313,
@@ -20,12 +21,13 @@ export function define(g: PlangsGraph) {
       githubColor: "#0886a5",
       githubPopular: false,
       githubType: "programming",
+      isMainstream: false,
     })
     .addInfluencedBy(["pl+lisps", "pl+scheme"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+extensible", "paradigm+functional", "paradigm+imperative", "paradigm+scripting"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+embedded", "tag+scripting"])
+    .addTags(["tag+cli", "tag+embedded", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic"])
     .addWrittenIn(["pl+c"]);
 

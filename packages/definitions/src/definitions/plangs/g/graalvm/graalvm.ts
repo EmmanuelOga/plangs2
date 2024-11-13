@@ -5,24 +5,24 @@ export function define(g: PlangsGraph) {
     .set("pl+graalvm", {
       name: "GraalVM",
       description:
-        "GraalVM is a versatile virtual machine originating from the Java ecosystem that not only supports Java but also a range of other programming languages such as JavaScript, Ruby, Python, and R. GraalVM is designed to execute applications written in these languages as well as LLVM-based languages, providing high performance and interoperability across language boundaries. It can be used as a JIT compiler and is capable of ahead-of-time compilation for faster startup and reduced memory footprint.",
-      keywords: ["graalvm", "interoperability", "jdk", "virtual machine"],
+        "GraalVM is a versatile virtual machine originating from the Java ecosystem that supports multiple programming languages including Java, JavaScript, Python, Ruby, R, and webassembly. It is designed to execute applications written in these languages alongside LLVM-based languages and provides high performance and interoperability across language boundaries. Known for its ahead-of-time compilation and polyglot capabilities, GraalVM enhances performance, security, and startup time of Java and other applications.",
+      keywords: ["graalvm", "interoperability", "java", "jdk", "native image", "polyglot"],
       websites: [
-        { title: "www.graalvm.org", href: "https://www.graalvm.org/", kind: "homepage" },
-        { title: "GraalVM", href: "https://en.wikipedia.org/wiki/GraalVM#Language_and_Runtime_Support", kind: "wikipedia" },
+        { title: "Build faster, smaller, leaner applications", href: "https://www.graalvm.org/", kind: "homepage" },
+        { title: "GraalVM - Wikipedia", href: "https://en.wikipedia.org/wiki/GraalVM#Language_and_Runtime_Support", kind: "wikipedia" },
       ],
       year: 2019,
-      isTranspiler: false,
       isMainstream: true,
       releases: [
+        { version: "19.0.0", name: "GraalVM 19.0", date: "2019-05-09" },
+        { version: "23.0", name: "GraalVM 23", date: "2024-09-17" },
         { version: "22.1", name: "GraalVM 22.1", date: "2022-05-12" },
         { version: "22.2", name: "GraalVM 22.2", date: "2022-08-23" },
-        { version: "23.0", name: "GraalVM 23.0", date: "2023-06-20" },
       ],
     })
     .addImplements(["pl+ruby"])
     .addInfluencedBy(["pl+java"])
-    .addLicenses(["license+apache", "license+gnu-gpl"])
+    .addLicenses(["license+apache", "license+dual", "license+gnu-gpl"])
     .addParadigms(["paradigm+compiled", "paradigm+interpreted", "paradigm+multi", "paradigm+multi-dispatch"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+windows"])
     .addTags(["tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreter", "tag+scripting"])

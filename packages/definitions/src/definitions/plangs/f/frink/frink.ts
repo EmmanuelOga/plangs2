@@ -9,17 +9,16 @@ export function define(g: PlangsGraph) {
       keywords: ["calculation", "frink", "measurement", "units"],
       websites: [
         { title: "frinklang.org", href: "https://frinklang.org/", kind: "homepage" },
-        { title: "Frink", href: "https://en.wikipedia.org/wiki/Frink_(programming_language)", kind: "wikipedia" },
+        { title: "Frink (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Frink_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".frink"],
       year: 2001,
-      isTranspiler: false,
       isMainstream: false,
     })
     .addLicenses(["license+artistic"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+oop"])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+interpreter", "tag+numeric", "tag+sci"])
+    .addPlatforms(["plat+android", "plat+cross", "plat+java"])
+    .addTags(["tag+interpreter", "tag+numeric", "tag+sci", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+java"]);
 
