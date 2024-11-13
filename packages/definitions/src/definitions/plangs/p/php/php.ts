@@ -6,20 +6,20 @@ export function define(g: PlangsGraph) {
       name: "PHP",
       description:
         "PHP is a popular general-purpose scripting language especially suited to web development. Fast, flexible and pragmatic, PHP powers everything from your blog to the most popular websites in the world.",
-      keywords: ["php"],
+      keywords: ["php", "php5", "php7", "php8"],
       websites: [
         { title: "PHP", href: "https://www.php.net/", kind: "homepage" },
         { title: "PHP on Wikipedia", href: "https://en.wikipedia.org/wiki/PHP", kind: "wikipedia" },
         { title: "PHP on Reddit", kind: "reddit", href: "https://reddit.com/r/PHP" },
       ],
-      extensions: [".php", ".php3", ".php4", ".php5", ".phtml"],
+      extensions: [".phar", ".php", ".php3", ".php4", ".php5", ".phps", ".pht", ".phtml"],
       year: 1995,
       images: [{ kind: "logo", title: "PHP Logo", url: "https://www.php.net/images/logos/new-php-logo.svg", width: 512, height: 512 }],
       isMainstream: true,
       releases: [
-        { version: "8.0.0", name: "PHP 8.0.0", date: "2020-11-26" },
-        { version: "8.1.0", name: "PHP 8.1.0", date: "2021-11-25" },
-        { version: "8.2.0", name: "PHP 8.2.0", date: "2022-12-08" },
+        { version: "8.3.13", name: "PHP 8.3.13", date: "2024-10-24" },
+        { version: "8.2.25", name: "PHP 8.2.25", date: "2024-10-24" },
+        { version: "8.1.30", name: "PHP 8.1.30", date: "2024-09-26" },
       ],
       stackovTags: ["php"],
       githubName: "PHP",
@@ -31,10 +31,18 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+c", "pl+java"])
     .addLicenses(["license+php"])
-    .addParadigms(["paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+scripting"])
-    .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
+    .addParadigms([
+      "paradigm+functional",
+      "paradigm+imperative",
+      "paradigm+multi",
+      "paradigm+oop",
+      "paradigm+procedural",
+      "paradigm+reflective",
+      "paradigm+scripting",
+    ])
+    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+scripting", "tag+server", "tag+web"])
-    .addTypeSystems(["tsys+dynamic", "tsys+weak"])
+    .addTypeSystems(["tsys+dynamic", "tsys+gradual", "tsys+weak"])
     .addWrittenIn(["pl+c"]);
 
   // TOOLS

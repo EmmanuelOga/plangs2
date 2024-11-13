@@ -33,8 +33,7 @@ export function define(g: PlangsGraph) {
     .addParadigms(["paradigm+concurrent", "paradigm+declarative", "paradigm+functional", "paradigm+lazy"])
     .addPlatforms(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreter"])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
-    .addApps(["app+aider", "app+zulip"]);
+    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

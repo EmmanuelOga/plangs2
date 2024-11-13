@@ -5,20 +5,20 @@ export function define(g: PlangsGraph) {
     .set("pl+orca", {
       name: "Orca",
       description:
-        "Orca is an esoteric programming language designed mainly for real-time algorithmic music creation and experimentation. It's an interactive environment that allows musicians and artists to compose and perform music through code.",
-      keywords: ["algorithmic", "esoteric", "music", "orca"],
+        "Orca is an esoteric programming language designed to create procedural sequencers, facilitating real-time algorithmic music composition and experimentation. It functions as a livecoding environment capable of interfacing with audio/visual applications via MIDI, OSC, and UDP.",
+      keywords: ["esoteric", "livecoding", "midi", "music", "orca", "osc", "udp"],
       websites: [
-        { title: "Orca", href: "https://100r.co/site/orca.html", kind: "homepage" },
-        { title: "Orca GitHub Repository", href: "https://github.com/hundredrabbits/Orca", kind: "repository" },
+        { title: "100R — orca", href: "https://100r.co/site/orca.html", kind: "homepage" },
+        { title: "GitHub - hundredrabbits/Orca: Esoteric Programming Language", href: "https://github.com/hundredrabbits/Orca", kind: "repository" },
       ],
       extensions: [".orca"],
       year: 2019,
-      releases: [{ version: "0.9.0", name: "Orca 0.9.0", date: "2019-05-01" }],
+      releases: [{ version: "0.9.0", name: "Initial Release", date: "2019-05-01" }],
     })
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+declarative", "paradigm+esoteric", "paradigm+visual"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+audio-dev", "tag+interpreter", "tag+midi"])
+    .addTags(["tag+audio-dev", "tag+interpreter", "tag+midi", "tag+modular", "tag+scripting"])
     .addTypeSystems(["tsys+untyped"]);
 
   // TOOLS

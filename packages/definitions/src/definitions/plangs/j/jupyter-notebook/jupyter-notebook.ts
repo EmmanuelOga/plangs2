@@ -24,9 +24,7 @@ export function define(g: PlangsGraph) {
     .addParadigms(["paradigm+scripting"])
     .addPlatforms(["plat+cross"])
     .addTags(["tag+collab", "tag+dataq", "tag+sci"])
-    .addTypeSystems(["tsys+dynamic"])
-    .addTools(["tool+vscode-python"])
-    .addLibs(["lib+flask"]);
+    .addTypeSystems(["tsys+dynamic"]);
 
   // TOOLS
 

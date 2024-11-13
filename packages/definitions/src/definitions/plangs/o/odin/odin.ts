@@ -5,13 +5,9 @@ export function define(g: PlangsGraph) {
     .set("pl+odin", {
       name: "Odin",
       description:
-        "Odin is a general-purpose programming language with a focus on simplicity and performance. It is designed to replace C as an alternative systems programming language, offering modern features and a straightforward syntax.",
-      keywords: ["odin"],
-      websites: [
-        { title: "Odin", href: "https://odin-lang.org/", kind: "homepage" },
-        { title: "Odin", href: "https://en.wikipedia.org/wiki/Odin_(programming_language)", kind: "wikipedia" },
-        { title: "Odin on Reddit", kind: "reddit", href: "https://reddit.com/r/Odinlang" },
-      ],
+        "Odin is a general-purpose programming language designed for high performance, simplicity, and data-oriented programming. As an alternative to C, it emphasizes modern systems programming and ease of use, making it suitable for a wide range of applications, including those in gaming and film industries.",
+      keywords: ["odin", "odin-lang", "programming"],
+      websites: [{ title: "Odin Programming Language", href: "https://odin-lang.org/", kind: "homepage" }],
       extensions: [".odin"],
       year: 2016,
       isMainstream: true,
@@ -25,8 +21,16 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+c"])
     .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+procedural", "paradigm+systems"])
-    .addPlatforms(["plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64"])
+    .addParadigms([
+      "paradigm+compiled",
+      "paradigm+concurrent",
+      "paradigm+functional",
+      "paradigm+general-purpose",
+      "paradigm+imperative",
+      "paradigm+procedural",
+      "paradigm+systems",
+    ])
+    .addPlatforms(["plat+arm", "plat+cross", "plat+linux", "plat+wasm", "plat+web", "plat+windows", "plat+x86-64"])
     .addTags(["tag+compiler", "tag+systems"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+odin"]);

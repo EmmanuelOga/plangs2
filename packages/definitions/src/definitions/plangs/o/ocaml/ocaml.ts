@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "OCaml",
       description:
         "OCaml (/oʊˈkæməl/ oh-KAM-əl, formerly Objective Caml) is a general-purpose, high-level, multi-paradigm programming language which extends the Caml dialect of ML with object-oriented features. OCaml was created in 1996 by Xavier Leroy, Jérôme Vouillon, Damien Doligez, Didier Rémy, Ascánder Suárez, and others.",
-      keywords: ["caml", "ocaml"],
+      keywords: ["functional", "imperative", "ml", "mult-paradigm", "ocaml"],
       websites: [
         { title: "OCaml", href: "https://ocaml.org/", kind: "homepage" },
         { title: "OCaml", href: "https://en.wikipedia.org/wiki/OCaml", kind: "wikipedia" },
@@ -14,9 +14,11 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".ml", ".mli"],
       year: 1996,
-      isTranspiler: false,
       isMainstream: true,
-      releases: [{ version: "5.2.0", name: "OCaml 5.2.0", date: "2024-01-01" }],
+      releases: [
+        { version: "5.2.0", name: "OCaml 5.2.0", date: "2024-05-13" },
+        { version: "4.14.2", name: "LTS 4.14.2" },
+      ],
       stackovTags: ["ocaml"],
       githubName: "OCaml",
       languishRanking: 71,
@@ -29,7 +31,7 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+c", "pl+ml", "pl+pascal", "pl+standard-ml"])
     .addLicenses(["license+lgpl"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
+    .addPlatforms(["plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
     .addTags([
       "tag+analysis",
       "tag+automation",

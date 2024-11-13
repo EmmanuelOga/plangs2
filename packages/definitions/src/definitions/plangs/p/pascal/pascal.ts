@@ -5,20 +5,22 @@ export function define(g: PlangsGraph) {
     .set("pl+pascal", {
       name: "Pascal",
       description:
-        "Pascal is an imperative and procedural programming language, designed by Niklaus Wirth as a small, efficient language intended to encourage good programming practices using structured programming and data structuring. It is named after French mathematician, philosopher and physicist Blaise Pascal.",
-      keywords: ["pascal"],
+        "Pascal is an imperative and procedural programming language, designed by Niklaus Wirth as a small, efficient language intended to encourage good programming practices using structured programming and data structuring. It is named after the French mathematician and philosopher Blaise Pascal.",
+      keywords: ["pascal", "programming language", "structured programming"],
       websites: [
         {
-          title: "Pascal",
-          href: "https://en.wikipedia.org/wiki/Pascal_(programming_language)#ISO/IEC_10206:1990_Extended_Pascal",
+          title: "Pascal (programming language) - Wikipedia",
+          href: "https://en.wikipedia.org/wiki/Pascal_(programming_language)",
           kind: "wikipedia",
         },
-        { title: "Pascal on Reddit", kind: "reddit", href: "https://reddit.com/r/pascal" },
-        { title: "Pascal on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Pascal_(programming_language)" },
+        {
+          title: "Pascal Programming at Wikibooks",
+          href: "https://en.wikipedia.org/wiki/Pascal_(programming_language)#Pascal_Programming_at_Wikibooks",
+          kind: "other",
+        },
       ],
       extensions: [".p", ".pas", ".pp"],
       year: 1970,
-      isTranspiler: false,
       isMainstream: true,
       stackovTags: ["pascal"],
       githubName: "Pascal",

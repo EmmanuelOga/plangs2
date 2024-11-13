@@ -35,8 +35,7 @@ export function define(g: PlangsGraph) {
     .addPlatforms(["plat+.net", "plat+cross", "plat+java", "plat+javascript"])
     .addTags(["tag+app", "tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+java"])
-    .addApps(["app+aider"]);
+    .addWrittenIn(["pl+java"]);
 
   // TOOLS
 

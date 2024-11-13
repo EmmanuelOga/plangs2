@@ -29,8 +29,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+declarative", "paradigm+dsl"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+scripting"])
-    .addLibs(["lib+flask"]);
+    .addTags(["tag+scripting"]);
 
   // TOOLS
 

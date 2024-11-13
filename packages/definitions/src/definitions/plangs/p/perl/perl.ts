@@ -14,11 +14,11 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".cgi", ".pl", ".pls", ".plx", ".pm", ".pod", ".psgi", ".t", ".xs"],
       year: 1987,
-      isTranspiler: false,
       isMainstream: true,
       releases: [
-        { version: "5.40.0", name: "Perl 5.40.0", date: "2024-01-01" },
-        { version: "5.41.3", name: "Perl 5.41.3", date: "2024-01-01" },
+        { version: "5.40.0", name: "Perl 5.40.0", date: "2024-06-09" },
+        { version: "5.38.2", name: "Perl 5.38.2", date: "2023-11-29" },
+        { version: "5.41.3", name: "Perl 5.41.3", date: "2024-08-29" },
       ],
       stackovTags: ["perl"],
       githubName: "Perl",
@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
     })
     .addInfluencedBy(["pl+awk", "pl+basic", "pl+c", "pl+c++", "pl+lisp", "pl+raku", "pl+sed"])
-    .addLicenses(["license+artistic"])
+    .addLicenses(["license+artistic", "license+gnu-gpl"])
     .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+scripting"])
     .addPlatforms(["plat+cross"])
     .addTags([

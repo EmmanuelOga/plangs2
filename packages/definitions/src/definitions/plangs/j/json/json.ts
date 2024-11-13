@@ -24,9 +24,7 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "1.0", name: "Initial JSON Specification", date: "2013" }],
     })
     .addParadigms(["paradigm+data-exchange"])
-    .addPlatforms(["plat+cross"])
-    .addLibs(["lib+flask", "lib+msgspec"]);
-
+    .addPlatforms(["plat+cross"]);
   // TOOLS
 
   // TOOL BUNDLES
