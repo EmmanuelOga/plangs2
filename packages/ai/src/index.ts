@@ -68,6 +68,8 @@ async function plangPrompt(pg: PlangsGraph, pl: NPlang, examplePl: NPlang): Prom
         "Please leave the images field empty, as we will handle that separately.",
         "Pay special attention to the compilesTo and isTranspiler fields: most languages are not transpilers.",
         "When in doubt, leave isTranspiler as false and compilesTo as an empty array.",
+        "When adding keywords, bear in mind that keywords should help identify the language in raw text,",
+        "and not be generic terms, so a term like 'programming language' is not useful since it could match any and all languages.",
       ].join(" "),
     },
     {
@@ -147,6 +149,8 @@ export async function aiCompletion(
 
     const result = JSON.parse(completions.choices[0].message.content ?? "{}") as NPlangAI;
     const newPl = plangFromAI(pg, pl, result);
+
+    // TODO: apply Linguist/Languish data here, which should take precedence over the AI data.
 
     const path = tspath(pl.plainKey);
     console.log("Writing result to", path);
