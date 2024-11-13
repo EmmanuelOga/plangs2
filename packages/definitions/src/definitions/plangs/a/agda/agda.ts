@@ -5,18 +5,21 @@ export function define(g: PlangsGraph) {
     .set("pl+agda", {
       name: "Agda",
       description:
-        "Agda is a dependently typed functional programming language originally developed by Ulf Norell at Chalmers University of Technology with implementation described in his PhD thesis. The original Agda system was developed at Chalmers by Catarina Coquand in 1999. The current version, originally known as Agda 2, is a full rewrite, which should be considered a new language that shares a name and tradition.",
+        "Agda is a dependently typed functional programming language and proof assistant, originally developed by Ulf Norell at Chalmers University of Technology. It is built on intuitionistic type theory and offers features such as inductive families, parametrized modules, and mixfix operators. Agda assists in writing and checking proofs with a focus on interactive programming. Unlike other proof assistants like Coq, Agda is distinguished by its lack of a separate tactics language, relying instead on a functional programming style for proofs.",
       year: 2007,
       extensions: [".agda", ".lagda", ".lagda.md", ".lagda.rst", ".lagda.tex"],
-      keywords: ["agda"],
+      keywords: ["agda", "dependently typed", "proof assistant"],
       websites: [
-        { title: "wiki.portal.chalmers.se/agda", href: "http://wiki.portal.chalmers.se/agda", kind: "other" },
-        { title: "Agda", href: "https://en.wikipedia.org/wiki/Agda_(programming_language)", kind: "wikipedia" },
-        { title: "Agda on Reddit", kind: "reddit", href: "https://reddit.com/r/agda" },
+        { title: "The Agda Wiki", href: "http://wiki.portal.chalmers.se/agda", kind: "other" },
+        { title: "Agda on Wikipedia", href: "https://en.wikipedia.org/wiki/Agda_(programming_language)", kind: "wikipedia" },
       ],
-      isTranspiler: false,
+      isTranspiler: true,
       isMainstream: false,
-      releases: [{ version: "2.6.3", name: "Agda 2.6.3", date: "2023-01-01" }],
+      releases: [
+        { version: "1.0", date: "1995-01-01" },
+        { version: "2.0", date: "2007-01-01" },
+        { version: "2.7", date: "2024-08-16" },
+      ],
       stackovTags: ["agda"],
       githubName: "Agda",
       languishRanking: 197,
