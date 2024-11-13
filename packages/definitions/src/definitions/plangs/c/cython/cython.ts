@@ -5,18 +5,18 @@ export function define(g: PlangsGraph) {
     .set("pl+cython", {
       name: "Cython",
       description:
-        "Cython (/ˈsaɪθɒn/) is a superset of the programming language Python, which allows developers to write Python code (with optional, C-inspired syntax extensions) that yields performance comparable to that of C. It is designed to give C-like performance with code that is written mostly in a Python-like syntax.",
-      keywords: ["cython"],
+        "Cython is an optimising static compiler for both the Python programming language and the extended Cython programming language, making it easy to write C extensions for Python. It allows developers to write Python code that calls and interacts with C or C++ code with efficiency close to that of C.",
+      keywords: ["c", "c++", "compiler", "cython", "extensions", "python"],
       websites: [
-        { title: "cython.org", href: "https://cython.org/", kind: "homepage" },
-        { title: "Cython", href: "https://en.wikipedia.org/wiki/Cython", kind: "wikipedia" },
-        { title: "Cython on Reddit", kind: "reddit", href: "https://reddit.com/r/Cython" },
+        { title: "Cython: C-Extensions for Python", href: "https://cython.org/", kind: "homepage" },
+        { title: "Cython - Wikipedia", href: "https://en.wikipedia.org/wiki/Cython", kind: "wikipedia" },
       ],
       extensions: [".pxd", ".pxi", ".pyx"],
       year: 2007,
-      isTranspiler: false,
       isMainstream: true,
       releases: [
+        { version: "3.0.11-1", name: "Cython 3.0.11-1", date: "2024-08-05" },
+        { version: "3.0.0 beta 2", name: "Cython 3.0.0 beta 2", date: "2023-03-27" },
         { version: "3.0.11", name: "Cython 3.0.11", date: "2024-01-01" },
         { version: "3.0.0", name: "Cython 3.0.0", date: "2023-01-01" },
       ],
@@ -31,10 +31,10 @@ export function define(g: PlangsGraph) {
     .addDialectOf(["pl+python"])
     .addInfluencedBy(["pl+c", "pl+python"])
     .addLicenses(["license+apache"])
-    .addParadigms(["paradigm+compiled", "paradigm+multi"])
+    .addParadigms(["paradigm+compiled", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+automation", "tag+compiler", "tag+interpreter", "tag+scripting"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"])
+    .addTypeSystems(["tsys+dynamic", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+python"]);
 
   // TOOLS

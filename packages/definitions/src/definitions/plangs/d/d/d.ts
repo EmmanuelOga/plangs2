@@ -8,15 +8,13 @@ export function define(g: PlangsGraph) {
         "D, also known as dlang, is a multi-paradigm system programming language created by Walter Bright at Digital Mars and released in 2001. Andrei Alexandrescu joined the design and development effort in 2007. Though it originated as a re-engineering of C++, D is now a very different language. As it has developed, it has drawn inspiration from other high-level programming languages. Notably, it has been influenced by Java, Python, Ruby, C#, and Eiffel.",
       keywords: ["d language", "d programming", "dlang"],
       websites: [
-        { title: "dlang.org", href: "http://dlang.org/", kind: "homepage" },
-        { title: "D", href: "https://en.wikipedia.org/wiki/D_(programming_language)", kind: "wikipedia" },
-        { title: "D on Reddit", kind: "reddit", href: "https://reddit.com/r/d_language" },
+        { title: "Home - D Programming Language", href: "http://dlang.org/", kind: "homepage" },
+        { title: "D (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/D_(programming_language)", kind: "wikipedia" },
+        { title: "D on Reddit", href: "https://reddit.com/r/d_language", kind: "reddit" },
       ],
       extensions: [".d"],
       year: 2001,
-      isTranspiler: false,
-      isMainstream: true,
-      releases: [{ version: "2.109.1", name: "D 2.109.1", date: "2024-01-01" }],
+      releases: [{ version: "2.109.1", name: "Stable Release", date: "2024-07-01" }],
       stackovTags: ["d"],
       githubName: "D",
       languishRanking: 147,
@@ -27,12 +25,13 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+ada", "pl+basic", "pl+c", "pl+c++", "pl+c-sharp", "pl+eiffel", "pl+python", "pl+ruby"])
     .addLicenses(["license+boost"])
-    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
+    .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+metaprogramming", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
     .addTags([
       "tag+analysis",
       "tag+app",
       "tag+asm",
+      "tag+cli",
       "tag+compiler",
       "tag+games",
       "tag+industrial",

@@ -5,29 +5,28 @@ export function define(g: PlangsGraph) {
     .set("pl+dylan", {
       name: "Dylan",
       description:
-        "Dylan is a multi-paradigm programming language that includes support for functional and object-oriented programming (OOP), and is dynamic and reflective while providing a programming model designed to support generating efficient machine code, including fine-grained control over dynamic and static behaviors. It was created in the early 1990s by a group led by Apple Computer.",
-      keywords: ["dylan"],
+        "Dylan is a multi-paradigm programming language that includes support for both functional and object-oriented programming. Originally designed by Apple, Dylan was created to provide dynamic and reflective capabilities, allowing for efficient machine code generation with fine-grained control over dynamic and static behaviors. It was intended for the Apple Newton and is influenced by languages like Scheme and Common Lisp, featuring an object system derived from CLOS without the Lisp syntax.",
+      keywords: ["CLOS", "dylan", "object-functional language", "scheme"],
       websites: [
-        { title: "opendylan.org", href: "https://opendylan.org/", kind: "homepage" },
-        { title: "Dylan", href: "https://en.wikipedia.org/wiki/Dylan_(programming_language)", kind: "wikipedia" },
+        { title: "Open Dylan", href: "https://opendylan.org/", kind: "homepage" },
+        { title: "Dylan (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Dylan_(programming_language)", kind: "wikipedia" },
       ],
       year: 1992,
-      isTranspiler: false,
-      isMainstream: false,
-      releases: [{ version: "2022.1", name: "", date: "2022-01-01" }],
+      releases: [{ version: "2022.1", date: "2022-11-28" }],
       stackovTags: ["dylan"],
       githubName: "Dylan",
       githubLangId: "91",
       githubColor: "#6c616e",
       githubPopular: false,
       githubType: "programming",
+      extensions: [".dylan", ".lid"],
     })
     .addInfluencedBy(["pl+algol", "pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme"])
     .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+oop"])
+    .addParadigms(["paradigm+compiled", "paradigm+functional", "paradigm+multi", "paradigm+oop", "paradigm+reflective"])
     .addPlatforms(["plat+cross", "plat+x86-64"])
     .addTags(["tag+compiler", "tag+industrial", "tag+interpreter", "tag+testing"])
-    .addTypeSystems(["tsys+dynamic", "tsys+static"])
+    .addTypeSystems(["tsys+dynamic", "tsys+gradual", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c"]);
 
   // TOOLS
@@ -37,4 +36,11 @@ export function define(g: PlangsGraph) {
   // LIBRARIES
 
   // APPS
+
+  g.nodes.app.set("app+harlequin", {
+    name: "Harlequin",
+    keywords: ["database", "client", "terminal"],
+    description: "An easy, fast, and beautiful database client for the terminal.",
+    websites: [{ href: "https://harlequin.sh/", title: "Harlequin", kind: "homepage" }],
+  });
 }

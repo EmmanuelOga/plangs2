@@ -64,12 +64,14 @@ async function plangPrompt(pg: PlangsGraph, pl: NPlang, examplePl: NPlang): Prom
     {
       role: "system",
       content: [
-        "You are an expert at programming languages and structured data extraction. ",
+        "You are an expert at programming languages and structured data extraction.",
         "You will be given unstructured text from websites about a programming language, and should convert it into the given structure.",
-        "If you don't find a good match for a field, you can leave it empty. ",
+        "If you don't find a good match for a field, you can leave it empty.",
         "For instance, you can live the field compileTo as an empty array if the language is not a transpiler.",
         "Please leave the images field empty, as we will handle that separately.",
-      ].join("."),
+        "Pay special attention to the compilesTo and isTranspiler fields: most languages are not transpilers.",
+        "When in doubt, leave isTranspiler as false and compilesTo as an empty array.",
+      ].join(" "),
     },
     {
       role: "user",

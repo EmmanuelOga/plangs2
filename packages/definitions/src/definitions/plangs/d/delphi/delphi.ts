@@ -8,17 +8,17 @@ export function define(g: PlangsGraph) {
         "Delphi is a general-purpose programming language and a software product that uses the Delphi dialect of the Object Pascal programming language and provides an integrated development environment (IDE) for rapid application development of desktop, mobile, web, and console software. It is currently developed and maintained by Embarcadero Technologies.",
       keywords: ["delphi", "object pascal"],
       websites: [
-        { title: "Embarcadero Delphi", href: "https://www.embarcadero.com/products/delphi", kind: "homepage" },
+        { title: "Delphi: IDE Software Overview - Embarcadero", href: "https://www.embarcadero.com/products/delphi", kind: "homepage" },
         { title: "Delphi (software) - Wikipedia", href: "https://en.wikipedia.org/wiki/Delphi_(software)", kind: "wikipedia" },
-        { title: "Delphi on Reddit", kind: "reddit", href: "https://reddit.com/r/delphi" },
+        { title: "Delphi on Reddit", href: "https://reddit.com/r/delphi", kind: "reddit" },
       ],
       extensions: [".dpr", ".pas"],
       year: 1995,
-      isTranspiler: false,
       isMainstream: true,
       releases: [
+        { version: "12.2", name: "RAD Studio 12.2 Athens", date: "2024-09-12" },
+        { version: "11.3", name: "Delphi 11.3", date: "2023-03-01" },
         { version: "12.1", name: "Delphi 12.1", date: "2024-01-01" },
-        { version: "11.3", name: "Delphi 11.3", date: "2023-06-01" },
       ],
       githubName: "Pascal",
       languishRanking: 58,
@@ -27,6 +27,15 @@ export function define(g: PlangsGraph) {
       githubColor: "#E3F171",
       githubPopular: false,
       githubType: "programming",
+      images: [
+        {
+          kind: "screenshot",
+          title: "Screenshot of Delphi 10.4, with the visual form editor being used to create an application",
+          url: "https://en.wikipedia.org/wiki/File:Delphi_10.4.png",
+          width: 800,
+          height: 600,
+        },
+      ],
     })
     .addDialectOf(["pl+pascal"])
     .addImplements(["pl+pascal"])
