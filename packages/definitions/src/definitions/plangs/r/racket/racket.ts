@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+racket", {
       name: "Racket",
       description:
-        "Racket is a general-purpose, multi-paradigm programming language. The Racket language is a modern dialect of Lisp and a descendant of Scheme. It is designed as a platform for programming language design and implementation. In addition to the core Racket language, Racket is also used to refer to the family of programming languages and set of tools supporting development on and with Racket. Racket is also used for scripting, computer science education, and research.",
+        "Racket is a general-purpose, multi-paradigm programming language that descends from Lisp and Scheme. It is renowned for its powerful macro system and support for domain-specific language development. Racket is used in computer science education, research, and scripting, and is equipped with extensive libraries and tools for various applications.",
       keywords: ["racket"],
       websites: [
         { title: "racket-lang.org", href: "https://racket-lang.org/", kind: "homepage" },
@@ -14,9 +14,11 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".rkt"],
       year: 1995,
-      isTranspiler: false,
       isMainstream: true,
-      releases: [{ version: "8.14", name: "Racket 8.14", date: "2024-01-01" }],
+      releases: [
+        { version: "8.15", name: "Racket 8.15", date: "2024-11-05" },
+        { version: "8.14", name: "Racket 8.14", date: "2024-01-01" },
+      ],
       stackovTags: ["racket"],
       githubName: "Racket",
       languishRanking: 151,
@@ -38,7 +40,7 @@ export function define(g: PlangsGraph) {
       "paradigm+oop",
       "paradigm+reflective",
     ])
-    .addPlatforms(["plat+cross"])
+    .addPlatforms(["plat+arm", "plat+cross", "plat+x86-64"])
     .addTags([
       "tag+analysis",
       "tag+app",

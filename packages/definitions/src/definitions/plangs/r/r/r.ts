@@ -7,17 +7,17 @@ export function define(g: PlangsGraph) {
       description:
         "R is a language and environment for statistical computing and graphics. It is widely used among statisticians and data miners for data analysis and developing statistical software.",
       websites: [
-        { title: "R", href: "https://www.r-project.org/", kind: "homepage" },
-        { title: "R", href: "https://en.wikipedia.org/wiki/R_(programming_language)", kind: "wikipedia" },
-        { title: "R on Reddit", kind: "reddit", href: "https://reddit.com/r/Rlanguage" },
+        { title: "The R Project for Statistical Computing", href: "https://www.r-project.org/", kind: "homepage" },
+        { title: "R (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/R_(programming_language)", kind: "wikipedia" },
       ],
       extensions: [".r", ".rda", ".rdata", ".rds", ".rhistory"],
       year: 1993,
       images: [{ kind: "logo", title: "R", url: "https://www.r-project.org/logo/Rlogo.png", width: 512, height: 512 }],
-      isTranspiler: false,
       isMainstream: true,
       releases: [
-        { version: "4.0.0", name: "R 4.0.0", date: "2020-04-24" },
+        { version: "4.4.2", name: "Pile of Leaves", date: "2024-10-31" },
+        { version: "4.3.3", name: "Angel Food Cake", date: "2024-02-29" },
+        { version: "4.0.0", name: "Arbor Day", date: "2020-04-24" },
         { version: "4.4.1", name: "R 4.4.1", date: "2024-01-01" },
       ],
       stackovTags: ["r"],
@@ -27,6 +27,7 @@ export function define(g: PlangsGraph) {
       githubColor: "#198CE7",
       githubPopular: false,
       githubType: "programming",
+      keywords: ["CRAN", "data analysis", "data visualization", "graphics", "open source", "statistical computing", "statisticians"],
     })
     .addInfluencedBy(["pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+s", "pl+scheme", "pl+xlispstat"])
     .addLicenses(["license+gnu-gpl"])

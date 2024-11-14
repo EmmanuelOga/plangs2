@@ -5,17 +5,19 @@ export function define(g: PlangsGraph) {
     .set("pl+rakudo", {
       name: "Rakudo",
       description:
-        "Rakudo is a Raku compiler targeting MoarVM, and the Java Virtual Machine, that implements the Raku specification. It is currently the only major Raku compiler in active development.",
-      keywords: ["raku", "rakudo"],
+        "Rakudo is a Raku compiler targeting MoarVM, and the Java Virtual Machine, that implements the Raku specification. It is currently the only major Raku compiler in active development. Originally developed within the Parrot project, the Rakudo source code repository was split from the project in February 2009 for independent development.",
+      keywords: ["compiler", "java virtual machine", "moarvm", "raku", "rakudo"],
       websites: [
         { title: "rakudo.org", href: "http://rakudo.org/", kind: "homepage" },
         { title: "Rakudo", href: "https://en.wikipedia.org/wiki/Rakudo", kind: "wikipedia" },
         { kind: "reddit", title: "Rakudo on Reddit", href: "https://reddit.com/r/rakulang" },
       ],
       year: 2008,
-      isTranspiler: false,
       isMainstream: false,
-      releases: [{ version: "2024.08", name: "Rakudo 2024.08", date: "2024-01-01" }],
+      releases: [
+        { version: "2024.10", name: "Rakudo 2024.10", date: "2024-10-24" },
+        { version: "2024.08", name: "Rakudo 2024.08", date: "2024-01-01" },
+      ],
       stackovTags: ["raku"],
       githubName: "Raku",
       languishRanking: 205,
@@ -23,6 +25,8 @@ export function define(g: PlangsGraph) {
       githubColor: "#0000fb",
       githubPopular: false,
       githubType: "programming",
+      extensions: [".raku", ".rakudoc", ".rakumod"],
+      filenames: ["Makefile"],
     })
     .addImplements(["pl+raku"])
     .addInfluencedBy(["pl+common-lisp", "pl+haskell", "pl+perl"])

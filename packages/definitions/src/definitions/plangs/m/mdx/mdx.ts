@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       isMainstream: false,
     })
-    .addCompilesTo(["pl+javascript", "pl+html"])
+    .addCompilesTo(["pl+javascript", "pl+html", "pl+markdown"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+dsl", "paradigm+interpreted", "paradigm+reactive"])
     .addPlatforms(["plat+web"])
