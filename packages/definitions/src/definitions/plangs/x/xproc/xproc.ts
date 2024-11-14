@@ -5,15 +5,14 @@ export function define(g: PlangsGraph) {
     .set("pl+xproc", {
       name: "XProc",
       description:
-        "XProc is a W3C Recommendation to define an XML transformation language for specifying XML document pipelines. These pipelines automate the sequence of operations applied to XML documents, including validation, transformation, and aggregation.",
-      keywords: ["xproc"],
+        "XProc is an XML transformation language for processing documents in pipelines: chaining conversions and other steps together to achieve the desired results. It can handle documents in XML, HTML, JSON, text and binary data seamlessly.",
+      keywords: ["pipeline", "transformation", "xml", "xproc", "xproc 3.0"],
       websites: [
-        { title: "XProc", href: "https://en.wikipedia.org/wiki/XProc", kind: "wikipedia" },
-        { title: "Official XProc Website", href: "https://xproc.org/", kind: "homepage" },
+        { title: "XProc - Wikipedia", href: "https://en.wikipedia.org/wiki/XProc", kind: "wikipedia" },
+        { title: "XProc - Home", href: "https://xproc.org/", kind: "homepage" },
       ],
       extensions: [".xpl"],
       year: 2010,
-      isTranspiler: false,
       isMainstream: false,
       releases: [
         { version: "1.0", name: "XProc 1.0", date: "2010-05-11" },
@@ -29,7 +28,8 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+xml"])
     .addParadigms(["paradigm+declarative", "paradigm+dsl", "paradigm+pipeline"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+dataflow", "tag+workflow"]);
+    .addTags(["tag+dataflow", "tag+workflow"])
+    .addTypeSystems(["tsys+dynamic"]);
 
   // TOOLS
 

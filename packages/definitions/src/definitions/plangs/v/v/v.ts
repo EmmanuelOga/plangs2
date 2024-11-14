@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+v", {
       name: "V",
       description:
-        "V, also known as vlang, is a statically typed, compiled programming language created by Alexander Medvednikov in early 2019. It was inspired by the language Go, and other influences including Oberon, Swift, and Rust. It is free and open-source software released under the MIT License, and currently in beta.",
+        "V, also known as vlang, is a statically typed, compiled programming language created by Alexander Medvednikov in early 2019. It was inspired by the language Go, along with other influences like Oberon, Swift, and Rust. V aims for simplicity, readability, maintainability, and performance. It is free and open-source, with a model that emphasizes speed, safety, and reliability, under the MIT License.",
       keywords: ["v language", "v programming", "vlang"],
       websites: [
         { title: "vlang.io", href: "http://vlang.io/", kind: "homepage" },
@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       year: 2019,
       isTranspiler: true,
       isMainstream: false,
-      releases: [{ version: "0.4.6", name: "V 0.4.6", date: "2024-01-01" }],
+      releases: [{ version: "0.4.8", name: "V 0.4.8", date: "2024-09-28" }],
       stackovTags: ["vlang"],
       githubName: "V",
       languishRanking: 159,
@@ -25,11 +25,12 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
     })
+    .addCompilesTo(["pl+c"])
     .addInfluencedBy(["pl+go", "pl+oberon", "pl+rust", "pl+swift"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+structured"])
-    .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
-    .addTags(["tag+compiler", "tag+interpreter"])
+    .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])
+    .addTags(["tag+compiler", "tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS

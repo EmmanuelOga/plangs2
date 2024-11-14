@@ -5,17 +5,16 @@ export function define(g: PlangsGraph) {
     .set("pl+xsb", {
       name: "XSB",
       description:
-        "XSB is the name of a dialect of the Prolog programming language and its implementation developed at Stony Brook University in collaboration with the Katholieke Universiteit Leuven, the New University of Lisbon, Uppsala University and software vendor XSB, Inc. It is renowned for featuring tabling, which ensures the termination of recursive queries and can significantly improve the performance of many knowledge base applications.",
-      keywords: ["xsb"],
+        "XSB is a Logic Programming and Deductive Database system developed at Stony Brook University and other institutions. It is an implementation of a Prolog dialect that features tabled resolution and HiLog, making it suitable for knowledge base applications and deductive database engines.",
+      keywords: ["deductive database", "logic programming", "prolog", "xsb"],
       websites: [
-        { title: "XSB", href: "https://xsb.sourceforge.net/", kind: "homepage" },
-        { title: "XSB", href: "https://en.wikipedia.org/wiki/XSB", kind: "wikipedia" },
+        { title: "Welcome to the home of XSB!", href: "https://xsb.sourceforge.net/", kind: "homepage" },
+        { title: "XSB - Wikipedia", href: "https://en.wikipedia.org/wiki/XSB", kind: "wikipedia" },
       ],
       extensions: [".P"],
       year: 1993,
-      isTranspiler: false,
       isMainstream: false,
-      releases: [{ version: "5.0", name: "XSB 5.0", date: "2022-01-01" }],
+      releases: [{ version: "5.0", name: "", date: "2022-05-12" }],
     })
     .addDialectOf(["pl+prolog"])
     .addImplements(["pl+prolog"])

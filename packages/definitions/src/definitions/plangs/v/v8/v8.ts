@@ -5,18 +5,16 @@ export function define(g: PlangsGraph) {
     .set("pl+v8", {
       name: "V8",
       description:
-        "V8 is a high-performance JavaScript and WebAssembly engine developed by Google. It is primarily used in the Chrome browser and is a key component of the Chromium open-source project. V8 is also used in server-side environments like Node.js, providing fast and efficient execution of JavaScript code.",
-      keywords: ["chromium", "node.js", "v8"],
+        "V8 is Google's open-source high-performance JavaScript and WebAssembly engine, primarily used in Chrome and Node.js, among others. It implements ECMAScript and WebAssembly and can be embedded in any C++ application. It runs on Windows, macOS, Linux, and various processors including x86-64 and ARM.",
+      keywords: ["chrome", "google", "javascript", "node.js", "webassembly"],
       websites: [
-        { title: "v8.dev", href: "https://v8.dev/", kind: "homepage" },
-        { title: "V8", href: "https://en.wikipedia.org/wiki/V8_(JavaScript_engine)", kind: "wikipedia" },
-        { title: "V8 on Reddit", kind: "reddit", href: "https://reddit.com/r/javascript" },
-        { title: "V8 on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/JavaScript" },
+        { title: "V8 JavaScript engine", href: "https://v8.dev/", kind: "homepage" },
+        { title: "V8 (JavaScript engine) - Wikipedia", href: "https://en.wikipedia.org/wiki/V8_(JavaScript_engine)", kind: "wikipedia" },
+        { title: "JavaScript - Wikipedia", href: "https://en.wikipedia.org/wiki/JavaScript", kind: "wikipedia" },
       ],
       year: 2008,
-      isTranspiler: false,
       isMainstream: true,
-      releases: [{ version: "11.4", name: "V8 11.4", date: "2023-01-01" }],
+      releases: [{ version: "11.4", name: "V8 11.4", date: "2023-05-24" }],
       stackovTags: ["javascript"],
       githubName: "JavaScript",
       languishRanking: 3,
@@ -24,13 +22,22 @@ export function define(g: PlangsGraph) {
       githubColor: "#f1e05a",
       githubPopular: true,
       githubType: "programming",
+      extensions: [".cjs", ".js", ".mjs"],
     })
     .addImplements(["pl+javascript"])
     .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+event-driven", "paradigm+interpreted"])
-    .addPlatforms(["plat+arm", "plat+cross", "plat+wasm", "plat+x86-64"])
+    .addParadigms([
+      "paradigm+event-driven",
+      "paradigm+functional",
+      "paradigm+imperative",
+      "paradigm+interpreted",
+      "paradigm+multi",
+      "paradigm+oop",
+      "paradigm+procedural",
+    ])
+    .addPlatforms(["plat+arm", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64"])
     .addTags(["tag+compiler", "tag+interpreter", "tag+scripting", "tag+server"])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic"])
+    .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+weak"])
     .addWrittenIn(["pl+c++"]);
 
   // TOOLS

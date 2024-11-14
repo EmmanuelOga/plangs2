@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+yabasic", {
       name: "Yabasic",
       description:
-        "Yabasic (Yet Another BASIC) is a free, open-source BASIC interpreter for Microsoft Windows and Unix platforms. Yabasic allows you to write code for simple computing tasks and has features like loops, arrays, subroutines, and file handling. Although it follows the BASIC language traditions, Yabasic adds extensions to make programs more concise and maintainable. Originally developed in the 1990s, it continues to be maintained and updated, providing a platform for learning and experimenting with BASIC programming.",
-      keywords: ["basic", "basic interpreter", "open-source", "yabasic"],
+        "Yabasic (Yet Another BASIC) is a free, open-source BASIC interpreter for Microsoft Windows and UNIX platforms. It is designed for simple programming tasks and offers features like basic control structures, subroutines, and the ability to create standalone executables. It supports line graphics, structured programming, and calls to libraries written in C.",
+      keywords: ["basic", "interpreter", "open-source", "unix", "windows", "yabasic"],
       websites: [
         { title: "www.yabasic.de", href: "http://www.yabasic.de/", kind: "homepage" },
         { title: "GitHub Repository", href: "https://github.com/marcIhm/yabasic", kind: "repository" },
@@ -14,9 +14,8 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".yab"],
       year: 1995,
-      isTranspiler: false,
       isMainstream: false,
-      releases: [{ version: "2.90.4", name: "Yabasic 2.90.4", date: "2023-01-01" }],
+      releases: [{ version: "2.90.4", name: "Yabasic 2.90.4", date: "2023-09-17" }],
     })
     .addImplements(["pl+basic"])
     .addInfluencedBy(["pl+basic"])

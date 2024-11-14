@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+xquery", {
       name: "XQuery",
       description:
-        "XQuery (XML Query) is a query and functional programming language that queries and transforms collections of structured and unstructured data, usually in the form of XML, text and with vendor-specific extensions for other data formats (JSON, binary, etc.). The language is developed by the XML Query working group of the W3C. The work is closely coordinated with the development of XSLT by the XSL Working Group; the two groups share responsibility for XPath, which is a subset of XQuery.",
-      keywords: ["query", "xml", "xpath", "xquery", "xslt"],
+        "XQuery (XML Query) is a query and functional programming language that queries and transforms collections of structured and unstructured data, usually in the form of XML, text and with vendor-specific extensions for other data formats like JSON. The language is developed by the XML Query working group of the W3C. The work is closely coordinated with the development of XSLT by the XSL Working Group; the two groups share responsibility for XPath, which is a subset of XQuery.",
+      keywords: ["functional", "query", "xml", "xpath", "xquery", "xslt"],
       websites: [
         { title: "W3C XML Query Language", href: "http://www.w3.org/XML/Query/", kind: "homepage" },
         { title: "XQuery on Wikipedia", href: "https://en.wikipedia.org/wiki/XQuery", kind: "wikipedia" },
@@ -14,7 +14,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".xq", ".xql", ".xqm", ".xquery", ".xqy"],
       year: 2007,
-      isTranspiler: false,
       isMainstream: true,
       releases: [
         { version: "1.0", name: "XQuery 1.0", date: "2007-01-23" },
@@ -30,10 +29,10 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
     })
     .addInfluencedBy(["pl+sql", "pl+xpath", "pl+xslt"])
-    .addParadigms(["paradigm+data-exchange", "paradigm+declarative", "paradigm+dsl", "paradigm+functional", "paradigm+modular"])
+    .addParadigms(["paradigm+data-exchange", "paradigm+declarative", "paradigm+dsl", "paradigm+functional", "paradigm+modular", "paradigm+query"])
     .addPlatforms(["plat+cross"])
     .addTags(["tag+analysis", "tag+app", "tag+dbms", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+viz"])
-    .addTypeSystems(["tsys+dynamic", "tsys+inferred", "tsys+strong"]);
+    .addTypeSystems(["tsys+dynamic", "tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

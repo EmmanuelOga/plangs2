@@ -1,20 +1,31 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl.set("pl+vim-script", {
-    name: "Vim script",
-    languishRanking: 63,
-    websites: [
-      { kind: "reddit", title: "Vim Script on Reddit", href: "https://reddit.com/r/vim" },
-      { kind: "wikipedia", title: "Vim Script on Wikipedia", href: "https://en.wikipedia.org/wiki/Vim_(text_editor)" },
-    ],
-    stackovTags: ["vim"],
-    githubName: "Vim Script",
-    githubLangId: "388",
-    githubColor: "#199f4b",
-    githubPopular: false,
-    githubType: "programming",
-  });
+  g.nodes.pl
+    .set("pl+vim-script", {
+      name: "Vim script",
+      languishRanking: 63,
+      websites: [{ title: "Vim (text editor) - Wikipedia", href: "https://en.wikipedia.org/wiki/Vim_(text_editor)", kind: "wikipedia" }],
+      stackovTags: ["vim"],
+      githubName: "Vim Script",
+      githubLangId: "388",
+      githubColor: "#199f4b",
+      githubPopular: false,
+      githubType: "programming",
+      description:
+        "Vim script is the scripting language built into the Vim text editor. It was designed for user customization and scripting, building upon the ex editor language of the original vi. Vim script supports imperative programming and offers features for functional and object-oriented programming.",
+      keywords: ["Vim", "Vim script", "free software", "scripting language", "text editor"],
+      extensions: [".vim"],
+      filenames: [".vimrc"],
+      year: 1991,
+      isMainstream: true,
+      releases: [{ version: "9.1", name: "Vim 9.1", date: "2024-01-02" }],
+    })
+    .addLicenses(["license+gnu-gpl"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+oop", "paradigm+scripting"])
+    .addPlatforms(["plat+android", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .addTags(["tag+editor", "tag+scripting"])
+    .addTypeSystems(["tsys+dynamic"]);
 
   // TOOLS
 

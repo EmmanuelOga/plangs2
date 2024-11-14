@@ -5,21 +5,18 @@ export function define(g: PlangsGraph) {
     .set("pl+wing", {
       name: "Wing",
       description:
-        "Wing is a modern programming language designed to simplify the development of cloud applications. It emphasizes readability and maintainability while providing powerful abstractions for cloud resources.",
-      keywords: ["cloud", "programming", "wing"],
-      websites: [
-        { title: "Wing Programming Language", href: "https://www.winglang.io/", kind: "homepage" },
-        { title: "Wing - Wikipedia", href: "https://en.wikipedia.org/wiki/Wing_(programming_language)", kind: "wikipedia" },
-      ],
+        "Wing is a high-level programming language designed for cloud infrastructure management, providing developers with simplified syntax and powerful features for building and managing cloud-native and serverless applications effectively. Designed to reduce complexity, Wing offers enhanced productivity in interacting with cloud services, especially AWS.",
+      keywords: ["cloud", "programming", "serverless"],
+      websites: [{ title: "Wing Programming Language for the cloud", href: "https://www.winglang.io/", kind: "homepage" }],
       extensions: [".w"],
       year: 2022,
-      isTranspiler: true,
       releases: [{ version: "1.0.0", name: "Wing Initial Release", date: "2022-09-01" }],
+      isMainstream: false,
     })
     .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+declarative", "paradigm+multi", "paradigm+reactive"])
+    .addParadigms(["paradigm+declarative", "paradigm+event-driven", "paradigm+multi", "paradigm+reactive", "paradigm+scripting"])
     .addPlatforms(["plat+cloud", "plat+cross"])
-    .addTags(["tag+cloud", "tag+scripting"])
+    .addTags(["tag+cloud", "tag+framework", "tag+scripting"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+typescript"]);
 

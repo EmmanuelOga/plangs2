@@ -7,11 +7,15 @@ export function define(g: PlangsGraph) {
       description:
         "XPath (XML Path Language) is an expression language designed to support the query or transformation of XML documents. It was defined by the World Wide Web Consortium (W3C) in 1999, and can be used to compute values (e.g., strings, numbers, or Boolean values) from the content of an XML document. Support for XPath exists in applications that support XML, such as web browsers, and many programming languages.",
       keywords: ["xpath"],
-      websites: [{ title: "XPath", href: "https://en.wikipedia.org/wiki/XPath", kind: "wikipedia" }],
+      websites: [{ title: "XPath - Wikipedia", href: "https://en.wikipedia.org/wiki/XPath", kind: "wikipedia" }],
       year: 1998,
-      isTranspiler: false,
       isMainstream: true,
-      releases: [{ version: "3.1", name: "XPath 3.1", date: "2017-01-01" }],
+      releases: [
+        { version: "1.0", name: "XPath 1.0", date: "1999-11-16" },
+        { version: "2.0", name: "XPath 2.0", date: "2007-01-23" },
+        { version: "3.0", name: "XPath 3.0", date: "2014-04-08" },
+        { version: "3.1", name: "XPath 3.1", date: "2017-03-21" },
+      ],
     })
     .addInfluencedBy(["pl+xslt"])
     .addParadigms(["paradigm+query"])

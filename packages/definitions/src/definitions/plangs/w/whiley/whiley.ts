@@ -13,9 +13,8 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".whiley"],
       year: 2010,
-      isTranspiler: false,
       isMainstream: false,
-      releases: [{ version: "0.6.1", date: "2022-01-01" }],
+      releases: [{ version: "0.6.1", name: "", date: "2022-06-27" }],
       githubName: "Whiley",
       githubLangId: "888779559",
       githubColor: "#d5c397",
@@ -25,7 +24,7 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+c", "pl+python", "pl+rust"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+functional", "paradigm+imperative"])
-    .addPlatforms(["plat+cross"])
+    .addPlatforms(["plat+cross", "plat+java"])
     .addTags(["tag+compiler", "tag+interpreter", "tag+sci"])
     .addTypeSystems(["tsys+flow", "tsys+safe", "tsys+strong", "tsys+structural"]);
 

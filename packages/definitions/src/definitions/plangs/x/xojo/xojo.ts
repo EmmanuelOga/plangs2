@@ -5,18 +5,19 @@ export function define(g: PlangsGraph) {
     .set("pl+xojo", {
       name: "Xojo",
       description:
-        "The Xojo programming environment and programming language is developed and commercially marketed by Xojo, Inc. of Austin, Texas for software development targeting macOS, Microsoft Windows, Linux, iOS, Android, the Web and Raspberry Pi. Xojo uses a proprietary object-oriented language.",
-      keywords: ["cross-platform", "object-oriented", "xojo"],
+        "Xojo is a cross-platform development tool that allows users to develop applications for macOS, Windows, Linux, web, iOS, Android, and Raspberry Pi using a proprietary object-oriented language. Developed by Xojo, Inc., it provides an easy-to-use drag-and-drop interface for building native applications across multiple platforms.",
+      keywords: ["app development", "cross-platform", "freemium", "object-oriented", "xojo"],
       websites: [
-        { title: "xojo.com", href: "http://xojo.com/", kind: "homepage" },
-        { title: "Xojo", href: "https://en.wikipedia.org/wiki/Xojo", kind: "wikipedia" },
-        { title: "Xojo on Reddit", kind: "reddit", href: "https://reddit.com/r/xojo" },
+        { title: "Xojo: Cross-platform App Development Tool", href: "http://xojo.com/", kind: "homepage" },
+        { title: "Xojo - Wikipedia", href: "https://en.wikipedia.org/wiki/Xojo", kind: "wikipedia" },
       ],
       extensions: [".xojo_binary_project", ".xojo_code", ".xojo_xml_project"],
       year: 1996,
-      isTranspiler: false,
       isMainstream: false,
-      releases: [{ version: "3.1", name: "Xojo 3.1", date: "2023-01-01" }],
+      releases: [
+        { version: "2023R3.1", name: "Xojo 2023 Release 3.1", date: "2023-10-25" },
+        { version: "3.1", name: "Xojo 3.1", date: "2023-01-01" },
+      ],
       stackovTags: ["realbasic", "xojo"],
       githubName: "Xojo",
       languishRanking: 386,
@@ -25,11 +26,13 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
     })
+    .addImplements(["pl+basic"])
+    .addDialectOf(["pl+realbasic"])
     .addInfluencedBy(["pl+basic", "pl+visual-basic"])
     .addLicenses(["license+proprietary"])
-    .addParadigms(["paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+raspberry", "plat+windows"])
-    .addTags(["tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreter", "tag+rad"])
+    .addParadigms(["paradigm+multi", "paradigm+oop", "paradigm+visual"])
+    .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+raspberry", "plat+web", "plat+windows"])
+    .addTags(["tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreter", "tag+rad", "tag+ui"])
     .addTypeSystems(["tsys+object", "tsys+static", "tsys+strong"]);
 
   // TOOLS
