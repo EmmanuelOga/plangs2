@@ -20,7 +20,6 @@ export function define(g: PlangsGraph) {
       keywords: ["framework", "lightweight", "static site generation", "web development"],
       extensions: [".astro"],
       year: 2021,
-      images: [{ kind: "logo", title: "Astro Logo", url: "https://astro.build/assets/logo.svg", width: 500, height: 500 }],
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "astro@4.16.11", date: "2024-09-13" }],

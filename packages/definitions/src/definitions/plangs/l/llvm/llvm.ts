@@ -26,9 +26,6 @@ export function define(g: PlangsGraph) {
       githubColor: "#185619",
       githubPopular: false,
       githubType: "programming",
-      images: [
-        { kind: "logo", title: "LLVM Logo", url: "https://upload.wikimedia.org/wikipedia/commons/0/0c/LLVM-logo.svg", width: 1024, height: 768 },
-      ],
     })
     .addLicenses(["license+apache", "license+bsd"])
     .addParadigms(["paradigm+assembly", "paradigm+compiled", "paradigm+multi"])

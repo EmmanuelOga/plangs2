@@ -27,15 +27,6 @@ export function define(g: PlangsGraph) {
       githubColor: "#E3F171",
       githubPopular: false,
       githubType: "programming",
-      images: [
-        {
-          kind: "screenshot",
-          title: "Screenshot of Delphi 10.4, with the visual form editor being used to create an application",
-          url: "https://en.wikipedia.org/wiki/File:Delphi_10.4.png",
-          width: 800,
-          height: 600,
-        },
-      ],
     })
     .addDialectOf(["pl+pascal"])
     .addImplements(["pl+pascal"])

@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".c3"],
       year: 2019,
-      images: [{ kind: "logo", title: "C3 logo", url: "https://c3-lang.org/logo.svg", width: 800, height: 600 }],
       releases: [
         { version: "0.6.4", name: "Current Stable Version", date: "2024-09-08" },
         { version: "0.1.0", name: "C3 Initial Release", date: "2020-05-01" },

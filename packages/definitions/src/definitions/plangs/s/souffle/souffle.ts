@@ -5,15 +5,18 @@ export function define(g: PlangsGraph) {
     .set("pl+souffle", {
       name: "Soufflé",
       description:
-        'Soufflé is an open source parallel logic programming language, influenced by Datalog. Soufflé includes both an interpreter and a compiler that targets parallel C++. Soufflé has been used to build static analyzers, disassemblers, and tools for binary reverse engineering. Soufflé is considered by academic researchers to be high-performance and "state of the art," and is often used in benchmarks in academic papers.',
+        "Soufflé is an open source parallel logic programming language, influenced by Datalog. It includes both an interpreter and a compiler that targets parallel C++. Soufflé is designed for large-scale static analysis and enables rapid-prototyping for analysis problems using logic. It is used for building static analyzers, disassemblers, and tools for binary reverse engineering, and is noted for its high-performance in academic circles.",
       keywords: ["souffle", "soufflé"],
       websites: [
-        { title: "Soufflé", href: "https://souffle-lang.github.io/", kind: "homepage" },
-        { title: "Soufflé", href: "https://en.wikipedia.org/wiki/Souffl%C3%A9_(programming_language)", kind: "wikipedia" },
+        { title: "Soufflé • A Datalog Synthesis Tool for Static Analysis", href: "https://souffle-lang.github.io/", kind: "homepage" },
+        {
+          title: "Soufflé (programming language) - Wikipedia",
+          href: "https://en.wikipedia.org/wiki/Souffl%C3%A9_(programming_language)",
+          kind: "wikipedia",
+        },
       ],
       extensions: [".dl"],
       year: 2016,
-      isTranspiler: false,
       isMainstream: false,
       releases: [{ version: "2.3", name: "Soufflé 2.3", date: "2023-05-01" }],
     })

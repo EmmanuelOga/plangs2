@@ -5,21 +5,20 @@ export function define(g: PlangsGraph) {
     .set("pl+squeak", {
       name: "Squeak",
       description:
-        "Squeak is an object-oriented, class-based, and reflective programming language known for its portability across multiple platforms. Derived from Smalltalk-80, it was initially created by a team of developers at Apple Computer, and has since been supported by Disney Imagineering, HP Labs, and SAP. Squeak is notable for its educational use in environments like Scratch, and serves as a powerful environment for research and development across domains.",
-      keywords: ["squeak"],
+        "Squeak is a modern, open-source Smalltalk programming system with fast execution environments across all major platforms including macOS, Windows, and Linux. It is known for its implementation of the Morphic graphical framework, fostering low-effort, interactive application development. Squeak's rich history includes its derivation from Smalltalk-80 and collaboration with entities like Disney, HP Labs, and Y Combinator. It is renowned for educational tools like Scratch and innovative user interface frameworks such as Morphic, Etoys, and Tweak.",
+      keywords: ["etoys", "morphic", "open source", "platforms", "smalltalk", "squeak", "tweak", "virtual machine"],
       websites: [
-        { title: "Squeak", href: "http://www.squeak.org/", kind: "homepage" },
-        { title: "Squeak", href: "https://en.wikipedia.org/wiki/Squeak", kind: "wikipedia" },
-        { title: "Squeak on Reddit", kind: "reddit", href: "https://reddit.com/r/smalltalk" },
-        { title: "Squeak on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Smalltalk" },
+        { title: "Squeak/Smalltalk", href: "http://www.squeak.org/", kind: "homepage" },
+        { title: "Squeak - Wikipedia", href: "https://en.wikipedia.org/wiki/Squeak", kind: "wikipedia" },
+        { title: "Squeak on Reddit", href: "https://reddit.com/r/smalltalk", kind: "reddit" },
+        { title: "Smalltalk - Wikipedia", href: "https://en.wikipedia.org/wiki/Smalltalk", kind: "wikipedia" },
       ],
       extensions: [".changes", ".image", ".sources", ".st"],
       year: 1996,
-      isTranspiler: false,
-      isMainstream: false,
       releases: [
-        { version: "5.3", name: "Squeak 5.3", date: "2020-12-01" },
+        { version: "202312181441", name: "Squeak Stable Release", date: "2023-12-20" },
         { version: "6.0", name: "Squeak 6.0", date: "2022-05-01" },
+        { version: "5.3", name: "Squeak 5.3", date: "2020-12-01" },
       ],
       stackovTags: ["smalltalk"],
       githubName: "Smalltalk",
@@ -34,7 +33,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+apache", "license+mit"])
     .addParadigms(["paradigm+educational", "paradigm+interpreted", "paradigm+oop", "paradigm+reflective"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+edu", "tag+interpreter"])
+    .addTags(["tag+edu", "tag+games", "tag+interpreter", "tag+multimedia"])
     .addTypeSystems(["tsys+dynamic"]);
 
   // TOOLS

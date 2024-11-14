@@ -19,7 +19,6 @@ export function define(g: PlangsGraph) {
         { version: "14.1", name: "FSF GNAT 14.1", date: "2024-05-07" },
         { version: "GNAT Pro 24", name: "GNAT Pro 24", date: "2024" },
       ],
-      images: [{ kind: "logo", title: "FSF Gnat Logo", url: "http://www.getadanow.com/ada-gfx/gnatlogo.png", width: 300, height: 150 }],
     })
     .addImplements(["pl+ada"])
     .addLicenses(["license+gnu-gpl"])

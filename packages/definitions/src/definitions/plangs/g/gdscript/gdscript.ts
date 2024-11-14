@@ -14,16 +14,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".gd"],
       year: 2014,
-      images: [
-        {
-          kind: "screenshot",
-          title: "Godot Engine",
-          url: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Godot_3_editor_screenshot.png",
-          width: 1024,
-          height: 768,
-        },
-        { kind: "logo", title: "Godot Engine", url: "https://godotengine.org/assets/logo.svg", width: 512, height: 512 },
-      ],
       isMainstream: true,
       releases: [
         { version: "3.6", name: "Godot 3.6", date: "2024-09-09" },

@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+scala", {
       name: "Scala",
       description:
-        "Scala (/ˈskɑːlɑː/ SKAH-lah) is a strong statically typed high-level general-purpose programming language that supports both object-oriented programming and functional programming. Designed to be concise, many of Scala's design decisions are intended to address criticisms of Java.",
+        "Scala (/ˈskɑːlɑː/ SKAH-lah) is a strong statically typed high-level general-purpose programming language that supports both object-oriented programming and functional programming. Designed to be concise, many of Scala's design decisions are intended to address criticisms of Java. It is well-suited to building fast, concurrent, and distributed systems with its JVM, JavaScript, and Native runtimes.",
       keywords: ["scala"],
       websites: [
         { title: "www.scala-lang.org", href: "http://www.scala-lang.org/", kind: "homepage" },
@@ -15,9 +15,11 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".sc", ".scala"],
       year: 2004,
-      isTranspiler: false,
       isMainstream: true,
-      releases: [{ version: "3.4.0", name: "Scala 3.4.0", date: "2024-01-01" }],
+      releases: [
+        { version: "3.5.0", name: "Scala 3.5.0", date: "2024-08-22" },
+        { version: "3.4.0", name: "Scala 3.4.0", date: "2024-01-01" },
+      ],
       stackovTags: ["scala"],
       githubName: "Scala",
       languishRanking: 31,
@@ -41,7 +43,7 @@ export function define(g: PlangsGraph) {
     ])
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+java", "plat+nodejs"])
+    .addPlatforms(["plat+java", "plat+nodejs", "plat+wasm"])
     .addTags([
       "tag+app",
       "tag+audio-dev",
@@ -50,6 +52,7 @@ export function define(g: PlangsGraph) {
       "tag+industrial",
       "tag+interpreter",
       "tag+scripting",
+      "tag+server",
       "tag+shell",
       "tag+testing",
     ])

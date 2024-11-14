@@ -29,15 +29,6 @@ export function define(g: PlangsGraph) {
       githubColor: "#c7254e",
       githubPopular: false,
       githubType: "programming",
-      images: [
-        {
-          kind: "logo",
-          title: "jq logo",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Jq_logo.svg/256px-Jq_logo.svg.png",
-          width: 256,
-          height: 256,
-        },
-      ],
     })
     .addInfluencedBy(["pl+haskell", "pl+icon"])
     .addLicenses(["license+mit", "license+public-domain"])

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+sbcl", {
       name: "SBCL",
       description:
-        "Steel Bank Common Lisp (SBCL) is a free Common Lisp implementation that features a high-performance native compiler, Unicode support, and threading. It is open source software, with a permissive license. In addition to the compiler and runtime system for ANSI Common Lisp, it provides an interactive environment including a debugger, a statistical profiler, a code coverage tool, and many other extensions.",
-      keywords: ["common lisp", "sbcl", "steel bank"],
+        "Steel Bank Common Lisp (SBCL) is a high-performance Common Lisp compiler. It is a free and open-source implementation with a permissive license. SBCL provides a compiler and a runtime system for ANSI Common Lisp and features an interactive environment with a debugger, statistical profiler, code coverage tool, and many extensions. Originally forked in December 1999 from CMUCL, it supports multiple operating systems including Linux, macOS, Solaris, and Windows.",
+      keywords: ["common lisp", "compiler", "sbcl", "steel bank"],
       websites: [
         { title: "www.sbcl.org", href: "http://www.sbcl.org/", kind: "homepage" },
         { title: "SBCL", href: "https://en.wikipedia.org/wiki/SBCL", kind: "wikipedia" },
@@ -14,9 +14,11 @@ export function define(g: PlangsGraph) {
         { title: "SBCL on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Common_Lisp" },
       ],
       year: 1999,
-      isTranspiler: false,
       isMainstream: true,
-      releases: [{ version: "2.4.5", name: "SBCL 2.4.5", date: "2024-01-01" }],
+      releases: [
+        { version: "2.4.5", name: "SBCL 2.4.5", date: "2024-05-30" },
+        { version: "2.4.10", name: "SBCL 2.4.10", date: "2024-10-30" },
+      ],
       stackovTags: ["common-lisp"],
       githubName: "Common Lisp",
       languishRanking: 60,
@@ -24,12 +26,13 @@ export function define(g: PlangsGraph) {
       githubColor: "#3fb68b",
       githubPopular: false,
       githubType: "programming",
+      extensions: [".cl", ".l", ".lisp", ".lsp"],
     })
     .addDialectOf(["pl+common-lisp"])
     .addInfluencedBy(["pl+common-lisp"])
     .addLicenses(["license+bsd", "license+mit", "license+public-domain"])
-    .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
-    .addPlatforms(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+reflective"])
+    .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+compiler", "tag+interpreter"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+c"]);

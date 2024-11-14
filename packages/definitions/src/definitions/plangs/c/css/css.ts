@@ -21,15 +21,6 @@ export function define(g: PlangsGraph) {
       keywords: ["Cascading Style Sheets", "layout", "style sheet", "web design"],
       extensions: [".css"],
       year: 1996,
-      images: [
-        {
-          kind: "logo",
-          title: "CSS 3 Logo",
-          url: "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg",
-          width: 200,
-          height: 246,
-        },
-      ],
       isMainstream: true,
       releases: [
         { version: "1", name: "CSS1", date: "1996-12-17" },

@@ -14,7 +14,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".phar", ".php", ".php3", ".php4", ".php5", ".phps", ".pht", ".phtml"],
       year: 1995,
-      images: [{ kind: "logo", title: "PHP Logo", url: "https://www.php.net/images/logos/new-php-logo.svg", width: 512, height: 512 }],
       isMainstream: true,
       releases: [
         { version: "8.3.13", name: "PHP 8.3.13", date: "2024-10-24" },

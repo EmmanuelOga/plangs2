@@ -20,7 +20,6 @@ export function define(g: PlangsGraph) {
       githubColor: "#c37240",
       githubPopular: false,
       githubType: "programming",
-      images: [{ kind: "logo", title: "FAUST Logo", url: "https://upload.wikimedia.org/wikipedia/en/d/df/FAUST_Logo.png", width: 256, height: 256 }],
     })
     .addInfluencedBy(["pl+c"])
     .addLicenses(["license+gnu-gpl"])

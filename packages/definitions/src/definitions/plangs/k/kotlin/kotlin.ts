@@ -30,15 +30,6 @@ export function define(g: PlangsGraph) {
       githubColor: "#A97BFF",
       githubPopular: true,
       githubType: "programming",
-      images: [
-        {
-          kind: "logo",
-          title: "Kotlin logo",
-          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/600px-Kotlin_Icon.png",
-          width: 600,
-          height: 600,
-        },
-      ],
     })
     .addCompilesTo(["pl+javascript", "pl+llvm"])
     .addInfluencedBy(["pl+c-sharp", "pl+eiffel", "pl+groovy", "pl+javascript", "pl+ml", "pl+python", "pl+scala"])

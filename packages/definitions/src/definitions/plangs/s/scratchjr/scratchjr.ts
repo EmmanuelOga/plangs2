@@ -9,10 +9,9 @@ export function define(g: PlangsGraph) {
       keywords: ["children's programming language", "scratchjr", "visual programming"],
       websites: [
         { title: "ScratchJr", href: "http://www.scratchjr.org/", kind: "homepage" },
-        { title: "ScratchJr", href: "https://en.wikipedia.org/wiki/ScratchJr", kind: "wikipedia" },
+        { title: "ScratchJr - Wikipedia", href: "https://en.wikipedia.org/wiki/ScratchJr", kind: "wikipedia" },
       ],
       year: 2014,
-      isTranspiler: false,
       isMainstream: false,
     })
     .addInfluencedBy(["pl+scratch"])

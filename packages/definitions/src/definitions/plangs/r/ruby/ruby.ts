@@ -31,7 +31,6 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
     })
     .addInfluencedBy([
-      "pl+ada",
       "pl+basic",
       "pl+c++",
       "pl+clu",

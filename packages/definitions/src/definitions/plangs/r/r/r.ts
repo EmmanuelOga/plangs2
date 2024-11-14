@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".r", ".rda", ".rdata", ".rds", ".rhistory"],
       year: 1993,
-      images: [{ kind: "logo", title: "R", url: "https://www.r-project.org/logo/Rlogo.png", width: 512, height: 512 }],
       isMainstream: true,
       releases: [
         { version: "4.4.2", name: "Pile of Leaves", date: "2024-10-31" },

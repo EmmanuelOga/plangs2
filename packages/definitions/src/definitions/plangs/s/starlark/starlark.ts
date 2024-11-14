@@ -1,20 +1,30 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl.set("pl+starlark", {
-    name: "Starlark",
-    languishRanking: 77,
-    websites: [
-      { kind: "reddit", title: "Starlark on Reddit", href: "https://reddit.com/r/bazel" },
-      { kind: "wikipedia", title: "Starlark on Wikipedia", href: "https://en.wikipedia.org/wiki/Bazel_(software)" },
-    ],
-    stackovTags: ["bazel"],
-    githubName: "Starlark",
-    githubLangId: "960266174",
-    githubColor: "#76d275",
-    githubPopular: false,
-    githubType: "programming",
-  });
+  g.nodes.pl
+    .set("pl+starlark", {
+      name: "Starlark",
+      languishRanking: 77,
+      websites: [{ title: "Bazel (software) - Wikipedia", href: "https://en.wikipedia.org/wiki/Bazel_(software)", kind: "wikipedia" }],
+      stackovTags: ["bazel"],
+      githubName: "Starlark",
+      githubLangId: "960266174",
+      githubColor: "#76d275",
+      githubPopular: false,
+      githubType: "programming",
+      description: "Starlark is a subset of Python, originally called Skylark, used for defining build rules and macros in Bazel.",
+      keywords: ["Bazel", "Python", "Skylark", "Starlark", "build tool"],
+      extensions: [".bzl", ".star"],
+      year: 2015,
+      isMainstream: true,
+      releases: [{ version: "1.0", name: "Version 1.0", date: "2019-10-01" }],
+    })
+    .addWrittenIn(["pl+java", "pl+go"])
+    .addLicenses(["license+apache"])
+    .addParadigms(["paradigm+dataflow", "paradigm+declarative", "paradigm+scripting"])
+    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .addTags(["tag+automation", "tag+compiler"])
+    .addTypeSystems(["tsys+strong"]);
 
   // TOOLS
 

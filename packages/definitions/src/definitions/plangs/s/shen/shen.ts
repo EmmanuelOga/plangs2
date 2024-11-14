@@ -24,10 +24,10 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+assembler", "pl+prolog", "pl+scheme"])
     .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+functional", "paradigm+logic", "paradigm+multi", "paradigm+symbolic"])
-    .addPlatforms(["plat+cross", "plat+java", "plat+linux", "plat+mac", "plat+web", "plat+windows"])
+    .addParadigms(["paradigm+functional", "paradigm+logic", "paradigm+multi", "paradigm+pattern-matching", "paradigm+symbolic"])
+    .addPlatforms(["plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+mac", "plat+web", "plat+windows"])
     .addTags(["tag+automation", "tag+cas", "tag+compiler", "tag+interpreter", "tag+scripting"])
-    .addTypeSystems(["tsys+manifest", "tsys+polymorphic", "tsys+strong"])
+    .addTypeSystems(["tsys+manifest", "tsys+polymorphic", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+scheme"]);
 
   // TOOLS

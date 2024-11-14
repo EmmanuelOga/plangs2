@@ -20,15 +20,6 @@ export function define(g: PlangsGraph) {
         { version: "9.1.4", name: "CircuitPython 9.1.4", date: "2024-09-17" },
         { version: "9.1.1", name: "CircuitPython 9.1.1", date: "2024-01-01" },
       ],
-      images: [
-        {
-          kind: "logo",
-          title: "CircuitPython Blinka Logo",
-          url: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Blinka.svg",
-          width: 200,
-          height: 200,
-        },
-      ],
     })
     .addImplements(["pl+python"])
     .addInfluencedBy(["pl+micropython"])

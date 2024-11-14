@@ -27,7 +27,6 @@ export function define(g: PlangsGraph) {
       githubColor: "#fede06",
       githubPopular: false,
       githubType: "programming",
-      images: [{ kind: "logo", title: "LabVIEW Logo", url: "https://example.com/labview_logo.png", width: 200, height: 100 }],
     })
     .addParadigms(["paradigm+concurrent", "paradigm+dataflow", "paradigm+event-driven", "paradigm+low-code", "paradigm+multi", "paradigm+visual"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])

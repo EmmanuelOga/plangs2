@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+swift", {
       name: "Swift",
       description:
-        "Swift is a high-level general-purpose, multi-paradigm, compiled programming language created by Chris Lattner in 2010 for Apple Inc. and maintained by the open-source community. Swift compiles to machine code and uses an LLVM-based compiler. Swift was first released in June 2014 and the Swift toolchain has shipped in Xcode since version 6, released in 2014.",
-      keywords: ["swift"],
+        "Swift is a general-purpose programming language that’s approachable for newcomers and powerful for experts. It is fast, modern, safe, and a joy to write. Swift was developed by Apple Inc. and open-source contributors as a replacement for Objective-C. Swift's syntax is simple yet powerful, incorporating concepts from various languages. It was first released on June 2, 2014, and has become the primary language for Apple platform development.",
+      keywords: ["Apple", "Xcode", "swift"],
       websites: [
         { title: "Swift", href: "https://www.swift.org/", kind: "homepage" },
         { title: "Swift", href: "https://developer.apple.com/swift/", kind: "other" },
@@ -15,10 +15,10 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".swift"],
       year: 2014,
-      isTranspiler: false,
       isMainstream: true,
       releases: [
-        { version: "5.10.1", name: "Swift 5.10.1", date: "2024-01-01" },
+        { version: "5.10.1", name: "Swift 5.10.1", date: "2024-06-05" },
+        { version: "6.0.1", name: "Swift 6.0.1", date: "2024-09-27" },
         { version: "6.0", name: "Swift 6.0", date: "2024-01-01" },
       ],
       stackovTags: ["swift"],
@@ -56,6 +56,7 @@ export function define(g: PlangsGraph) {
       "tag+industrial",
       "tag+interpreter",
       "tag+scripting",
+      "tag+server",
       "tag+ui",
     ])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);

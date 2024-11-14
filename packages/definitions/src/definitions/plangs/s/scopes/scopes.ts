@@ -5,17 +5,20 @@ export function define(g: PlangsGraph) {
     .set("pl+scopes", {
       name: "Scopes",
       description:
-        "Scopes is an extensible programming language that focuses on providing a powerful macro system and supports multiple stages of evaluation, enabling complex metaprogramming tasks with ease.",
-      keywords: ["extensible", "macro system", "metaprogramming", "scopes"],
-      websites: [{ title: "Scopes", href: "https://hg.sr.ht/~duangle/scopes", kind: "homepage" }],
+        "Scopes is a retargetable programming language that combines the expressiveness of languages like Scheme and Python with the performance of C, offering a scripting-like feel with the power of a systems language. It supports both live code execution and offline compilation, and is designed for 64-bit native platforms including Linux, Windows, and GPU shader target environments like SPIR-V and GLSL.",
+      keywords: ["borrow checking", "multi-stage programming", "retargetable", "systems programming"],
+      websites: [{ title: "~duangle/scopes", href: "https://hg.sr.ht/~duangle/scopes", kind: "repository" }],
       extensions: [".scopes"],
       year: 2015,
       releases: [{ version: "0.1", name: "Initial release", date: "2015-01-01" }],
+      filenames: ["scopes"],
+      isMainstream: true,
     })
+    .addLicenses(["license+mit"])
     .addParadigms(["paradigm+extensible", "paradigm+macro", "paradigm+metaprogramming"])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+interpreter", "tag+scripting"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"])
+    .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
+    .addTags(["tag+compiler", "tag+interpreter", "tag+scripting"])
+    .addTypeSystems(["tsys+dynamic", "tsys+inferred", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c++"]);
 
   // TOOLS

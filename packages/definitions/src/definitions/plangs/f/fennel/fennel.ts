@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       websites: [{ title: "the Fennel programming language", href: "https://fennel-lang.org/", kind: "homepage" }],
       extensions: [".fnl"],
       year: 2020,
-      images: [{ kind: "logo", title: "Fennel Logo", url: "https://fennel-lang.org/logo.svg", width: 512, height: 512 }],
       isTranspiler: true,
       releases: [
         { version: "0.6.0", name: "Fennel 0.6.0", date: "2021-07-22" },

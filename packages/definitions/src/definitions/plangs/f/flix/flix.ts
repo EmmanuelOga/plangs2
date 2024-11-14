@@ -13,9 +13,6 @@ export function define(g: PlangsGraph) {
       ],
       extensions: [".flix"],
       year: 2015,
-      images: [
-        { kind: "logo", title: "Flix logo", url: "https://raw.githubusercontent.com/flix/flix/master/docs/logo.png", width: 512, height: 512 },
-      ],
       isMainstream: false,
       releases: [
         { version: "0.1", name: "Flix 0.1", date: "2014-01-01" },

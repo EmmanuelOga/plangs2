@@ -17,7 +17,11 @@ export function define(g: PlangsGraph) {
       year: 2006,
       isTranspiler: true,
       isMainstream: true,
-      releases: [{ version: "1.75.0", name: "Sass 1.75.0", date: "2024-01-01" }],
+      releases: [
+        { version: "1.75.0", name: "Sass 1.75.0", date: "2024-04-11" },
+        { version: "1.80.7", name: "Dart Sass 1.80.7", date: "" },
+        { version: "3.6.6", name: "LibSass 3.6.6", date: "" },
+      ],
       stackovTags: ["sass"],
       githubName: "Sass",
       githubLangId: "340",
@@ -25,6 +29,7 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "markup",
     })
+    .addCompilesTo(["pl+css"])
     .addInfluencedBy(["pl+css"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+dsl"])

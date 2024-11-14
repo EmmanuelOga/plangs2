@@ -9,22 +9,20 @@ export function define(g: PlangsGraph) {
       keywords: ["constraint logic programming", "logic programming", "prolog", "semantic web", "swi-prolog"],
       websites: [
         { title: "SWI-Prolog", href: "http://swi-prolog.org/", kind: "homepage" },
-        { title: "SWI-Prolog", href: "https://en.wikipedia.org/wiki/SWI-Prolog", kind: "wikipedia" },
+        { title: "SWI-Prolog - Wikipedia", href: "https://en.wikipedia.org/wiki/SWI-Prolog", kind: "wikipedia" },
       ],
       extensions: [".pl", ".pro"],
       year: 1987,
-      isTranspiler: false,
-      isMainstream: true,
       releases: [
-        { version: "9.2.2", name: "SWI-Prolog 9.2.2", date: "2024-01-01" },
-        { version: "9.3.2", name: "SWI-Prolog 9.3.2", date: "2024-01-01" },
+        { version: "9.2.2", name: "SWI-Prolog 9.2.2", date: "2024-02-29" },
+        { version: "9.3.2", name: "SWI-Prolog 9.3.2", date: "2024-02-29" },
       ],
     })
     .addImplements(["pl+prolog"])
     .addInfluencedBy(["pl+prolog"])
     .addLicenses(["license+bsd", "license+lgpl"])
     .addParadigms(["paradigm+concurrent", "paradigm+constraint", "paradigm+declarative", "paradigm+logic"])
-    .addPlatforms(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreter", "tag+testing", "tag+ui", "tag+viz"])
     .addTypeSystems(["tsys+untyped"])
     .addWrittenIn(["pl+c"]);
