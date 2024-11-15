@@ -25,6 +25,8 @@ export interface CommonNodeData {
   websites: Link[];
   /** Keywords can be used to match against text content. */
   keywords: string[];
+  /** Homepage URL of the node, if any. */
+  extHomeURL?: string;
 }
 
 /**
@@ -87,9 +89,6 @@ export type NPlangRelData = {
 
   /** Repository Path: this should be the repository URL. Use {@link `extGithubPath`} if the repository is hosted in Github. */
   extRepositoryURL?: string;
-
-  /** Homepage Path: this should be the homepage URL. */
-  extHomeURL?: string;
 };
 
 /** License data. */
@@ -121,8 +120,6 @@ export type NPostData = CommonNodeData & {
 export interface CommonEdgeData {
   /** Keywords can be used to match against text content. */
   keywords: string[];
-  /** Reference links, can be used to give a citation to back a relationship. */
-  refs: Link[];
 }
 
 ////////////////////////////////////////////////////////////////////////////////

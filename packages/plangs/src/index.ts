@@ -22,7 +22,7 @@ export class PlangsGraph extends BaseGraph<N, E, G> {
   #edgeMap = <TE extends AnyEdge>(ctor: new (g: G, from: TE["from"], to: TE["to"]) => TE) =>
     new EdgeMap<G, TE>((from, to) => new ctor(this, from, to));
 
-  readonly nodes = {
+  override readonly nodes = {
     app: this.#nodeMap(NApp),
     post: this.#nodeMap(NPost),
     bundle: this.#nodeMap(NBundle),
@@ -36,7 +36,7 @@ export class PlangsGraph extends BaseGraph<N, E, G> {
     tsys: this.#nodeMap(NTsys),
   } as const;
 
-  readonly edges = {
+  override readonly edges = {
     app: this.#edgeMap(EApp),
     bundle: this.#edgeMap(EBundle),
     compilesTo: this.#edgeMap(ECompilesTo),
@@ -488,16 +488,7 @@ export abstract class EBase<T_From extends AnyNode, T_To extends AnyNode, T_Data
   T_From,
   T_To,
   T_Data
-> {
-  addRefs(links: Link[]): this {
-    arrayMerge((this.data.refs ??= []), links, (l1, l2) => l1.href === l2.href);
-    return this;
-  }
-
-  get refs() {
-    return new IterTap(this.data.refs);
-  }
-}
+> {}
 
 export class EApp extends EBase<NPlang, NApp, CommonEdgeData> {
   override kind: E = "app";

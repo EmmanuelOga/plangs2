@@ -21,7 +21,7 @@ export async function loadAllDefinitions(g: PlangsGraph, options: { scanImages: 
   // Add any images to the nodes.
 
   if (options.scanImages) {
-    for (const path of await getPaths(new Glob("**/*.{png,jpg,svg}"), join(import.meta.dir, "definitions/plangs"))) {
+    for (const path of await getPaths(new Glob("**/*.{png,jpg,svg}"), join(import.meta.dir, "definitions/pl"))) {
       const [pk, k] = basename(path).split(".");
       const kind = k === "screenshot" || k === "logo" ? k : "other";
       const plKey: NPlang["key"] = `pl+${pk.startsWith("_") ? `.${pk.slice(1)}` : pk}`;
@@ -39,7 +39,7 @@ export async function loadAllDefinitions(g: PlangsGraph, options: { scanImages: 
  * We may implement some sort of inference engine in the future,
  * but for now we can just materialize some simple rules.
  */
-function runInference(pg: PlangsGraph) {
+export function runInference(pg: PlangsGraph) {
   for (const pl of pg.nodes.pl.values) {
     // All languages implement themselves, so when we filter by "implements" we can include the language itself.
     pl.addImplements([pl.key]);

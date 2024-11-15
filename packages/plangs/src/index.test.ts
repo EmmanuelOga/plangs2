@@ -134,11 +134,6 @@ test("edge apis", () => {
   expect(edge).not.toBeUndefined();
 
   const link = { href: "https://emmanueloga.com", title: "Emmanuel Oga's Homepage" };
-  expect(edge?.refs.size).toBe(0);
-  edge?.addRefs([link]);
-  edge?.addRefs([link]); // Handles duplicates
-  expect(edge?.refs.size).toBe(1);
-  expect(edge?.refs.first).toBe(link);
 });
 
 test("edge types", () => {
@@ -163,7 +158,6 @@ test("edge types", () => {
     expect(edge.kind).toBe("app");
     expect(edge.from).toBe("pl+pascal");
     expect(edge.to).toBe("app+some-app");
-    expect(edge.refs.size).toBe(0);
     expect(edge.nodeFrom).toBe(plPascal);
     expect(edge.nodeTo).toBe(nodeApp);
   }
@@ -173,7 +167,6 @@ test("edge types", () => {
     expect(edge.kind).toBe("bundle");
     expect(edge.from).toBe("bundle+my-bundle");
     expect(edge.to).toBe("tool+my-tool");
-    expect(edge.refs.size).toBe(0);
     expect(edge.nodeFrom).toBe(nodeBundle);
     expect(edge.nodeTo).toBe(nodeTool);
   }
@@ -183,7 +176,6 @@ test("edge types", () => {
     expect(edge.kind).toBe("compilesTo");
     expect(edge.from).toBe("pl+pascal");
     expect(edge.to).toBe("pl+perl");
-    expect(edge.refs.size).toBe(0);
     expect(edge.nodeFrom).toBe(plPascal);
     expect(edge.nodeTo).toBe(plPerl);
   }
@@ -193,7 +185,6 @@ test("edge types", () => {
     expect(edge.kind).toBe("dialect");
     expect(edge.from).toBe("pl+pascal");
     expect(edge.to).toBe("pl+perl");
-    expect(edge.refs.size).toBe(0);
     expect(edge.nodeFrom).toBe(plPascal);
     expect(edge.nodeTo).toBe(plPerl);
   }
@@ -203,7 +194,6 @@ test("edge types", () => {
     expect(edge.kind).toBe("license");
     expect(edge.from).toBe("pl+pascal");
     expect(edge.to).toBe("license+gnu");
-    expect(edge.refs.size).toBe(0);
     expect(edge.nodeFrom).toBe(plPascal);
     expect(edge.nodeTo).toBe(nodeLic);
   }
@@ -213,7 +203,6 @@ test("edge types", () => {
     expect(edge.kind).toBe("impl");
     expect(edge.from).toBe("pl+pascal");
     expect(edge.to).toBe("pl+perl");
-    expect(edge.refs.size).toBe(0);
     expect(edge.nodeFrom).toBe(plPascal);
     expect(edge.nodeTo).toBe(plPerl);
   }
@@ -223,7 +212,6 @@ test("edge types", () => {
     expect(edge.kind).toBe("influence");
     expect(edge.from).toBe("pl+pascal");
     expect(edge.to).toBe("pl+perl");
-    expect(edge.refs.size).toBe(0);
     expect(edge.nodeFrom).toBe(plPascal);
     expect(edge.nodeTo).toBe(plPerl);
   }
@@ -233,7 +221,6 @@ test("edge types", () => {
     expect(edge.kind).toBe("paradigm");
     expect(edge.from).toBe("pl+pascal");
     expect(edge.to).toBe("paradigm+structured");
-    expect(edge.refs.size).toBe(0);
     expect(edge.nodeFrom).toBe(plPascal);
     expect(edge.nodeTo).toBe(nodePara);
   }
@@ -243,7 +230,6 @@ test("edge types", () => {
     expect(edge.kind).toBe("tsys");
     expect(edge.from).toBe("pl+pascal");
     expect(edge.to).toBe("tsys+strongly-typed");
-    expect(edge.refs.size).toBe(0);
     expect(edge.nodeFrom).toBe(plPascal);
     expect(edge.nodeTo).toBe(nodeTsys);
   }
@@ -253,7 +239,6 @@ test("edge types", () => {
     expect(edge.kind).toBe("plBundle");
     expect(edge.from).toBe("pl+pascal");
     expect(edge.to).toBe("bundle+my-bundle");
-    expect(edge.refs.size).toBe(0);
     expect(edge.nodeFrom).toBe(plPascal);
     expect(edge.nodeTo).toBe(nodeBundle);
   }
@@ -263,7 +248,6 @@ test("edge types", () => {
     expect(edge.kind).toBe("plat");
     expect(edge.from).toBe("pl+pascal");
     expect(edge.to).toBe("plat+os2");
-    expect(edge.refs.size).toBe(0);
     expect(edge.nodeFrom).toBe(plPascal);
     expect(edge.nodeTo).toBe(nodePlat);
   }
@@ -273,7 +257,6 @@ test("edge types", () => {
     expect(edge.kind).toBe("post");
     expect(edge.from).toBe("pl+pascal");
     expect(edge.to).toBe("post+my-post");
-    expect(edge.refs.size).toBe(0);
     expect(edge.nodeFrom).toBe(plPascal);
     expect(edge.nodeTo).toBe(nodePost);
   }
@@ -283,7 +266,6 @@ test("edge types", () => {
     expect(edge.kind).toBe("lib");
     expect(edge.from).toBe("pl+pascal");
     expect(edge.to).toBe("lib+my-lib");
-    expect(edge.refs.size).toBe(0);
     expect(edge.nodeFrom).toBe(plPascal);
     expect(edge.nodeTo).toBe(nodeLib);
   }
@@ -293,7 +275,6 @@ test("edge types", () => {
     expect(edge.kind).toBe("tag");
     expect(edge.from).toBe("pl+pascal");
     expect(edge.to).toBe("tag+my-tag");
-    expect(edge.refs.size).toBe(0);
     expect(edge.nodeFrom).toBe(plPascal);
     expect(edge.nodeTo).toBe(nodeTag);
   }
@@ -303,7 +284,6 @@ test("edge types", () => {
     expect(edge.kind).toBe("tool");
     expect(edge.from).toBe("pl+pascal");
     expect(edge.to).toBe("tool+my-tool");
-    expect(edge.refs.size).toBe(0);
     expect(edge.nodeFrom).toBe(plPascal);
     expect(edge.nodeTo).toBe(nodeTool);
   }
@@ -313,7 +293,6 @@ test("edge types", () => {
     expect(edge.kind).toBe("writtenIn");
     expect(edge.from).toBe("pl+pascal");
     expect(edge.to).toBe("pl+perl");
-    expect(edge.refs.size).toBe(0);
     expect(edge.nodeFrom).toBe(plPascal);
     expect(edge.nodeTo).toBe(plPerl);
   }

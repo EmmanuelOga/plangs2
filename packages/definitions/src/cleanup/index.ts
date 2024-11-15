@@ -11,7 +11,7 @@ import { plangCodeGen, tspath } from "@plangs/languist/codegen";
 import { LG_LANGS, type Rankings } from "@plangs/languist/languish";
 import { GH_LANGS } from "@plangs/languist/linguist";
 import type { LanguishKeys, LinguistLang } from "@plangs/languist/types";
-import { type NPlang, PlangsGraph } from "@plangs/plangs";
+import { type AnyNode, NBase, type NPlang, PlangsGraph } from "@plangs/plangs";
 import type { Link } from "@plangs/plangs/schema";
 
 /** Update the NPlang data with Github data. */
@@ -96,48 +96,38 @@ export async function cleanupData() {
 
   console.warn("Languages without updates:", { woGithub: [...woGH], woLanguish: [...woLG] });
 
-  // TEMP: remove this after the data is fixed.
-  function removeWebsites(pl: NPlang, matcher: (link: Link) => boolean) {
-    const before = pl.websites.existing;
-    const after = pl.websites.filter(matcher);
-    if (before.length !== after.length) pl.data.websites = after;
-  }
-
-  // Places the github path on the data for easy access.
-  for (const pl of pg.nodes.pl.values) {
-    removeWebsites(pl, ({ href }) => {
-      const url = new URL(href);
-      if (url.hostname === "github.com") {
-        if (!pl.data.extGithubPath) {
-          const match = url.pathname.match(/^\/([^/]+)\/([^/]+)$/);
-          if (match) pl.data.extGithubPath = `${match[1]}/${match[2]}`;
-        }
-        return false;
-      }
-      if (url.hostname === "en.wikipedia.org") {
-        if (!pl.data.extWikipediaPath) pl.data.extWikipediaPath = url.pathname.replace(/^\/wiki\//, "");
-        return false;
-      }
-      if (url.hostname.endsWith("reddit.com")) {
-        if (!pl.data.extRedditPath) pl.data.extRedditPath = url.pathname.replace(/^\/r\//, "");
-        return false;
-      }
-      return true; // Keep it.
-    });
-
-    if (pl.websites.size > 0) {
-      const [first, ...rest] = pl.websites;
-      pl.data.extHomeURL = first.href;
-      pl.data.websites = rest;
-    }
-
-    if (!pl.websites.isEmpty) console.log(pl.name, "remaining websites", pl.websites.map(w => w.href).existing);
-  }
-
   // await createMissingPlangs(pg, ghMap, rankings);
 
   for (const pl of pg.nodes.pl.values) Bun.write(tspath(pl.plainKey), plangCodeGen(pl));
 }
 
-await cleanupData();
+let i = 0;
+function cleanupWebsites(node: AnyNode) {
+  if (node.websites.size > 0) {
+    const [first, ...rest] = node.websites;
+    if (first.href.startsWith("/")) {
+      console.log("Dunno about this:", node.name, node.kind, node.websites.map(w => w.href).existing);
+    }
+    node.data.extHomeURL = first.href;
+    i++;
+
+    if (rest.length > 0) {
+      node.data.websites = rest;
+      console.log("More than one website:", node.name, node.kind, node.websites.map(w => w.href).existing);
+    } else {
+      // biome-ignore lint/performance/noDelete: <explanation>
+      delete node.data.websites;
+    }
+  }
+}
+
+const pg = new PlangsGraph();
+await loadAllDefinitions(pg, { scanImages: false });
+for (const map of Object.values(pg.nodes)) {
+  for (const node of map.values) cleanupWebsites(node);
+}
+console.log("Processed:", i);
+
+for (const pl of pg.nodes.pl.values) Bun.write(tspath(pl.plainKey), plangCodeGen(pl));
+
 console.warn("CAUTION: matching github data is not a perfect process. Results (git diff) should be manually reviewed.");
