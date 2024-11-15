@@ -24,7 +24,7 @@ export async function loadAllDefinitions(g: PlangsGraph, options: { scanImages: 
     for (const path of await getPaths(new Glob("**/*.{png,jpg,svg}"), join(import.meta.dir, "definitions/pl"))) {
       const [pk, k] = basename(path).split(".");
       const kind = k === "screenshot" || k === "logo" ? k : "other";
-      const plKey: NPlang["key"] = `pl+${pk.startsWith("_") ? `.${pk.slice(1)}` : pk}`;
+      const plKey: NPlang["key"] = `pl+${pk.replaceAll("_", ".")}`;
       const pl = g.nodes.pl.get(plKey);
       if (!pl) console.warn("Can't find plang", plKey, "for image", path);
       pl?.addImages([{ kind, title: pl.name, url: `/images/${path}` }]);
