@@ -4,7 +4,6 @@ export function define(g: PlangsGraph) {
   g.nodes.pl
     .set("pl+cuda", {
       name: "CUDA",
-      languishRanking: 56,
       stackovTags: ["cuda"],
       githubName: "Cuda",
       githubLangId: "77",

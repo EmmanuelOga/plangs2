@@ -83,6 +83,9 @@ export async function cleanupData() {
   const woGH = new Set<string>();
   const woLG = new Set<string>();
 
+  // Remove all previous Languish rankings.
+  for (const pl of pg.nodes.pl.values) pl.data.languishRanking = undefined;
+
   // Find the best match for each Plang node on the GH data.
   for (const pl of pg.nodes.pl.values) {
     if (updateWithGH(pl, ghMap)) {

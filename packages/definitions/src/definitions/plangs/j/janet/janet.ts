@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
       year: 2017,
       releases: [{ version: "1.17.0", name: "Janet 1.17.0", date: "2023-06-15" }],
       githubName: "Janet",
-      languishRanking: 313,
       githubLangId: "1028705371",
       githubColor: "#0886a5",
       githubPopular: false,

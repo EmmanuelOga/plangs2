@@ -4,7 +4,6 @@ export function define(g: PlangsGraph) {
   g.nodes.pl
     .set("pl+csv", {
       name: "Comma-separated values (CSV)",
-      languishRanking: 46,
       stackovTags: ["csv"],
       githubName: "CSV",
       githubLangId: "51",

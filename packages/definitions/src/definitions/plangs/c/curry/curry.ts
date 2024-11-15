@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
       isMainstream: false,
       releases: [{ version: "3.6.0", name: "Curry 3.6.0", date: "2023-11-10" }],
       githubName: "Curry",
-      languishRanking: 379,
       githubLangId: "439829048",
       githubColor: "#531242",
       githubPopular: false,

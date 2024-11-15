@@ -12,7 +12,6 @@ export function define(g: PlangsGraph) {
       isMainstream: false,
       releases: [{ version: "1.0", name: "Luau 1.0", date: "2021-02-18" }],
       githubName: "Luau",
-      languishRanking: 121,
       githubLangId: "365050359",
       githubColor: "#00A2FF",
       githubPopular: false,

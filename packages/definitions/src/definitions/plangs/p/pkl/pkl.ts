@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
       year: 2021,
       releases: [{ version: "1.0.0", name: "PKL 1.0.0", date: "2021-06-01" }],
       githubName: "Pkl",
-      languishRanking: 378,
       githubLangId: "288822799",
       githubColor: "#6b9543",
       githubPopular: false,
