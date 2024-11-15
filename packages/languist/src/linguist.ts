@@ -6,7 +6,7 @@ export class Linguist {
   constructor(public readonly all: LinguistLang[]) {}
 
   /** Return a map with all the possible ways to id a plang. */
-  lookupMap() {
+  lookupMap(): Map<string, LinguistLang> {
     const map = new Map<string, LinguistLang>();
     const add = (name: string | undefined, lang: LinguistLang) => {
       if (!name) return;
@@ -27,6 +27,23 @@ export class Linguist {
     for (const lang of this.all) add(lang.langId, lang);
 
     return map;
+  }
+
+  /** Find a name on a lookup map. The name can be a substring match for any key if it is long enough (5 chars or more). */
+  bestMatch(lookup: ReturnType<Linguist["lookupMap"]>, name: string | undefined): LinguistLang | undefined {
+    if (!name) return;
+
+    const clean = name.trim().toLowerCase();
+    if (lookup.has(clean)) return lookup.get(clean); // Easy win.
+
+    // This is a bit inefficient, but since the map is small, it's not a big deal.
+    // We'll find substring matches for languages with more than N characters.
+    if (clean.length <= 4) return;
+    const candidates = [...lookup.keys().filter(key => key.includes(clean))].sort(
+      (key1, key2) => Math.abs(clean.length - key1.length) - Math.abs(clean.length - key2.length),
+    );
+
+    if (candidates.length) return lookup.get(candidates[0]);
   }
 
   *filterType(type: LinguistLang["type"]): Generator<LinguistLang> {
