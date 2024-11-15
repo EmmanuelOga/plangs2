@@ -75,6 +75,21 @@ export type NPlangRelData = {
 
   /** Language Type, according to Github's linguist. */
   githubType?: string;
+
+  /** Github Path: this should be user/repo or org/repo, such that we can access it at `https://github.com/${path}` */
+  extGithubPath?: string;
+
+  /** Reddit Path: this should be reddit page path, such that we can access it at `https://reddit.com/r/${path}` */
+  extRedditPath?: string;
+
+  /** Wikipedia Path: this should be wikipedia page path, such that we can access it at `https://en.wikipedia.org/wiki/${path}` */
+  extWikipediaPath?: string;
+
+  /** Repository Path: this should be the repository URL. Use {@link `extGithubPath`} if the repository is hosted in Github. */
+  extRepositoryURL?: string;
+
+  /** Homepage Path: this should be the homepage URL. */
+  extHomeURL?: string;
 };
 
 /** License data. */

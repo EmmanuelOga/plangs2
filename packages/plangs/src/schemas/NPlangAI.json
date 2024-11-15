@@ -53,15 +53,7 @@
         }
       },
       "additionalProperties": false,
-      "required": [
-        "extensions",
-        "filenames",
-        "images",
-        "isMainstream",
-        "isTranspiler",
-        "releases",
-        "year"
-      ]
+      "required": ["extensions", "filenames", "images", "isMainstream", "isTranspiler", "releases", "year"]
     },
     "compilesTo": {
       "description": "List of programming languages that this language compiles to, if any.\nEach element is a key with prefix \"pl+\", for instance: \"pl+python\",\nwhere \"python\" is a unique identifier using only lowercase letters, numbers and dashes.",
@@ -183,12 +175,7 @@
         }
       },
       "additionalProperties": false,
-      "required": [
-        "description",
-        "keywords",
-        "name",
-        "websites"
-      ]
+      "required": ["description", "keywords", "name", "websites"]
     },
     "Link": {
       "description": "A reference to a web page.",
@@ -204,25 +191,12 @@
         },
         "kind": {
           "description": "A link kind helps us quickly find the kind of link we are looking for.",
-          "enum": [
-            "apidocs",
-            "faq",
-            "homepage",
-            "other",
-            "plangs",
-            "reddit",
-            "releases",
-            "repository",
-            "wikipedia"
-          ],
+          "enum": ["apidocs", "faq", "homepage", "other", "plangs", "reddit", "releases", "repository", "wikipedia"],
           "type": "string"
         }
       },
       "additionalProperties": false,
-      "required": [
-        "href",
-        "title"
-      ]
+      "required": ["href", "title"]
     },
     "Image": {
       "description": "An image, e.g., a logo.",
@@ -230,11 +204,7 @@
       "properties": {
         "kind": {
           "description": "The kind of image.",
-          "enum": [
-            "logo",
-            "other",
-            "screenshot"
-          ],
+          "enum": ["logo", "other", "screenshot"],
           "type": "string"
         },
         "title": {
@@ -255,11 +225,7 @@
         }
       },
       "additionalProperties": false,
-      "required": [
-        "kind",
-        "title",
-        "url"
-      ]
+      "required": ["kind", "title", "url"]
     },
     "Release": {
       "description": "A release of a programming language.",
@@ -279,11 +245,7 @@
         }
       },
       "additionalProperties": false,
-      "required": [
-        "version",
-        "name",
-        "date"
-      ]
+      "required": ["version", "name", "date"]
     },
     "StrDate": {
       "description": "A 0-padded YYYY-MM-DD date. Example: 2024-01-01.",
