@@ -18,14 +18,6 @@ test("base node apis", () => {
   expect(pl.name).toEqual("Pascal");
   expect(pl.description).toEqual("The Pascal Programming Language.");
 
-  expect(pl.websites.size).toBe(0);
-
-  const link: Link = { href: "https://emmanueloga.com", title: "Emmanuel Oga's Homepage", kind: "homepage" };
-  pl.addWebsites([link]);
-  pl.addWebsites([link]);
-  expect(pl.websites.size).toBe(1); // Handles duplicates
-  expect(pl.websites.first).toEqual(link);
-
   expect(pl.href).toEqual("/pascal");
 
   expect(pl.images.size).toBe(0);

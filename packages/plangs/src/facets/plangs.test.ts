@@ -108,9 +108,7 @@ test("hasLogo", () => {
 test("hasWikipedia", () => {
   const pg = new PlangsGraph();
   const java = pg.nodes.pl.set("pl+java");
-  const pascal = pg.nodes.pl
-    .set("pl+pascal")
-    .addWebsites([{ kind: "wikipedia", title: "Wikipedia", href: "https://en.wikipedia.org/wiki/Pascal_(programming_language)" }]);
+  const pascal = pg.nodes.pl.set("pl+pascal", { extWikipediaPath: "Pascal_(programming_language)" });
   const { hasWikipedia: check } = PLANG_FACET_PREDICATES;
 
   expect(check(java, new ValBool(false))).toBeTrue();

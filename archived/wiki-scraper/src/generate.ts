@@ -36,7 +36,6 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
     description: page.description,
     year: page.infobox.year,
     extensions: page.infobox.extensions.sort(),
-    websites: page.websites.sort(),
     releases: page.infobox.releases.sort(),
   };
 

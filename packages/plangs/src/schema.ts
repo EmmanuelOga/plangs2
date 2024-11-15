@@ -21,8 +21,6 @@ export interface CommonNodeData {
   name: string;
   /* Description of the node. */
   description: string;
-  /* Websites related to the node. */
-  websites: Link[];
   /** Keywords can be used to match against text content. */
   keywords: string[];
   /** Homepage URL of the node, if any. */

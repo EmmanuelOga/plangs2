@@ -14,7 +14,7 @@ export const PLANG_FACET_PREDICATES = {
   dialectOf: (({ relDialectOf }, flt) => flt.matches(key => relDialectOf.has(key))) as Pred<Filter<NPlang["key"]>>,
   extensions: (({ extensions }, flt) => flt.matches(key => extensions.includes(key))) as Pred<Filter<string>>,
   hasLogo: ((pl, val) => val.value === pl.images.some(img => img.kind === "logo")) as Pred<ValBool>,
-  hasWikipedia: ((pl, val) => val.value === pl.websites.some(site => site.kind === "wikipedia")) as Pred<ValBool>,
+  hasWikipedia: ((pl, val) => val.value === !!pl.data.extWikipediaPath) as Pred<ValBool>,
   implements: (({ relImplements }, flt) => flt.matches(key => relImplements.has(key))) as Pred<Filter<NPlang["key"]>>,
   influenced: (({ relInfluenced }, flt) => flt.matches(key => relInfluenced.has(key))) as Pred<Filter<NPlang["key"]>>,
   influencedBy: (({ relInfluencedBy }, flt) => flt.matches(key => relInfluencedBy.has(key))) as Pred<Filter<NPlang["key"]>>,

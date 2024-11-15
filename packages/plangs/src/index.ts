@@ -68,21 +68,12 @@ export class PlangsGraph extends BaseGraph<N, E, G> {
 
 /** Base type for data on all nodes. */
 export abstract class NBase<Prefix extends N, Data extends CommonNodeData> extends Node<PlangsGraph, `${Prefix}+${string}`, Data> {
-  addWebsites(links: Link[]): this {
-    arrayMerge((this.data.websites ??= []), links, (l1, l2) => l1.href === l2.href);
-    return this;
-  }
-
   get name(): string {
     return this.data.name ? this.data.name : this.plainKey;
   }
 
   get description(): string {
     return this.data.description || this.name;
-  }
-
-  get websites(): IterTap<Link> {
-    return new IterTap(this.data.websites);
   }
 
   get keywords(): IterTap<string> {
@@ -458,14 +449,6 @@ export class NPost extends NBase<"post", NPostData> {
 
   get title(): string | undefined {
     return this.name;
-  }
-
-  set link(link: Link) {
-    this.data.websites = [link];
-  }
-
-  get link(): Link | undefined {
-    return this.websites.first;
   }
 
   addPls(others: `pl+${string}`[]) {
