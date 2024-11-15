@@ -16,6 +16,10 @@ export class IterTap<T> implements Iterable<T> {
     return new IterTap(this.array ? this.array.map(callback) : []);
   }
 
+  reduce<R>(callback: (previousValue: R, currentValue: T, currentIndex: number, array: T[]) => R, init: R) {
+    return this.array ? this.array.reduce<R>(callback, init) : init;
+  }
+
   sort(cmp?: (a: T, b: T) => number): T[] {
     return this.array ? [...this.array].sort(cmp) : [];
   }
@@ -48,9 +52,9 @@ export class IterTap<T> implements Iterable<T> {
     return this.array ? this.array.length : 0;
   }
 
-  /** Return all non-null and non-undefined values. */
+  /** Return all non-null and non-undefined values (if strings, returns the ones with length > 0). */
   get existing(): NonNullable<T>[] {
-    return this.filter(v => v !== undefined && v !== null) as NonNullable<T>[];
+    return this.filter(v => v !== undefined && v !== null && (typeof v !== "string" || v.length > 0)) as NonNullable<T>[];
   }
 
   get reverse(): IterTap<T> {
