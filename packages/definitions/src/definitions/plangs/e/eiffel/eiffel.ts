@@ -7,14 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Eiffel is an object-oriented programming language designed by Bertrand Meyer. It emphasizes software reliability through design by contract, and first appeared in 1986. The language supports multiple inheritance, genericity, polymorphism, encapsulation, and other advanced software engineering concepts. Eiffel is particularly noted for its strong typing and explicit contract design, including preconditions, postconditions, and invariants.",
       keywords: ["bertrand meyer", "design by contract", "eiffel", "object-oriented"],
-      websites: [
-        { title: "Eiffel Community", href: "http://eiffel.org/", kind: "homepage" },
-        {
-          title: "Eiffel (programming language) - Wikipedia",
-          href: "https://en.wikipedia.org/wiki/Eiffel_(programming_language)",
-          kind: "wikipedia",
-        },
-      ],
       extensions: [".e"],
       year: 1986,
       stackovTags: ["eiffel"],
@@ -24,6 +16,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#4d6977",
       githubType: "programming",
       releases: [{ version: "24.05", name: "EiffelStudio", date: "2024-06-14" }],
+      githubPopular: false,
+      extWikipediaPath: "Eiffel_(programming_language)",
+      extHomeURL: "http://eiffel.org/",
     })
     .addInfluencedBy(["pl+ada", "pl+simula"])
     .addLicenses(["license+dual", "license+epl"])

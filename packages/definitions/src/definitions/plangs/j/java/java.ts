@@ -7,12 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         'Java is a high-level programming language developed by Sun Microsystems, now owned by Oracle. It is designed to have as few implementation dependencies as possible, making it a versatile and widely-used language. Java is known for its portability across platforms, "write once, run anywhere" capability, strong memory management, and vast ecosystem.',
       keywords: ["java"],
-      websites: [
-        { title: "Java", href: "https://www.java.com/en/", kind: "homepage" },
-        { title: "Java (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Java_(programming_language)", kind: "wikipedia" },
-        { title: "OpenJDK", href: "https://openjdk.java.net/", kind: "repository" },
-        { title: "Java on Reddit", href: "https://reddit.com/r/java", kind: "reddit" },
-      ],
       extensions: [".class", ".jar", ".java", ".jmod", ".war"],
       year: 1995,
       isMainstream: true,
@@ -33,6 +27,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#b07219",
       githubPopular: true,
       githubType: "programming",
+      extWikipediaPath: "Java_(programming_language)",
+      extRedditPath: "java",
+      extHomeURL: "https://openjdk.java.net/",
     })
     .addInfluencedBy(["pl+c++"])
     .addLicenses(["license+gnu-gpl", "license+gpl"])

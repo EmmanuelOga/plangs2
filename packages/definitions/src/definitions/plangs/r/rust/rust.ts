@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         'Rust is a general-purpose programming language emphasizing performance, type safety, and concurrency. It enforces memory safety, meaning that all references point to valid memory, without a garbage collector. To simultaneously enforce memory safety and prevent data races, its "borrow checker" tracks the object lifetime of all references in a program during compiling.',
       keywords: ["concurrency", "memory safety", "programming", "rust", "systems programming"],
-      websites: [
-        { title: "Rust Programming Language", href: "https://www.rust-lang.org/", kind: "homepage" },
-        { title: "Rust (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Rust_(programming_language)", kind: "wikipedia" },
-      ],
       extensions: [".rlib", ".rs"],
       year: 2015,
       isMainstream: true,
@@ -25,6 +21,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#dea584",
       githubPopular: true,
       githubType: "programming",
+      extWikipediaPath: "Rust_(programming_language)",
+      extRedditPath: "rust",
+      extHomeURL: "https://www.rust-lang.org/",
     })
     .addInfluencedBy([
       "pl+c",

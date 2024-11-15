@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Modelica is a non-proprietary, object-oriented, declarative, multi-domain modeling language for component-oriented modeling of complex systems. It is primarily developed for modeling physical systems and supports acausal modeling with the use of mathematical equations rather than assignment statements. Developed by the Modelica Association, it allows the connection of reusable components to model systems across multiple domains such as electrical, mechanical, and thermal.",
       keywords: ["cyber-physical", "declarative", "modelica", "multi-domain", "object-oriented"],
-      websites: [
-        { title: "www.modelica.org", href: "https://www.modelica.org/", kind: "homepage" },
-        { title: "Modelica", href: "https://en.wikipedia.org/wiki/Modelica", kind: "wikipedia" },
-        { title: "Modelica on Reddit", kind: "reddit", href: "https://reddit.com/r/Modelica" },
-      ],
       extensions: [".mo"],
       year: 1997,
       releases: [
@@ -25,6 +20,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#de1d31",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Modelica",
+      extRedditPath: "Modelica",
+      extHomeURL: "https://www.modelica.org/",
     })
     .addLicenses(["license+cc-by"])
     .addParadigms(["paradigm+declarative", "paradigm+multi", "paradigm+object-oriented", "paradigm+simulation"])

@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+systemverilog", {
       name: "SystemVerilog",
       languishRanking: 95,
-      websites: [{ title: "SystemVerilog - Wikipedia", href: "https://en.wikipedia.org/wiki/SystemVerilog", kind: "wikipedia" }],
       stackovTags: ["system-verilog"],
       githubName: "SystemVerilog",
       githubLangId: "363",
@@ -25,6 +24,8 @@ export function define(g: PlangsGraph) {
         { version: "1800-2009", name: "IEEE 1800-2009", date: "2009" },
         { version: "1800-2005", name: "IEEE 1800-2005", date: "2005" },
       ],
+      extWikipediaPath: "SystemVerilog",
+      extRedditPath: "systemverilog",
     })
     .addParadigms(["paradigm+oop", "paradigm+structured"])
     .addTags(["tag+testing"])

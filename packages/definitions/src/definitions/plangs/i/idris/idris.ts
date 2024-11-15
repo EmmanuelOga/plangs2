@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Idris is a purely-functional programming language, designed for Type-Driven Development with dependent types, optional lazy evaluation, and features such as a totality checker. It serves as both a general-purpose language and a proof assistant.",
       keywords: ["dependent types", "functional programming", "idris", "type-driven development"],
-      websites: [
-        { title: "idris-lang.org", href: "http://idris-lang.org/", kind: "homepage" },
-        { title: "Idris", href: "https://en.wikipedia.org/wiki/Idris_(programming_language)", kind: "wikipedia" },
-        { title: "Idris on Reddit", kind: "reddit", href: "https://reddit.com/r/Idris" },
-      ],
       extensions: [".idr", ".lidr"],
       year: 2007,
       isMainstream: false,
@@ -26,6 +21,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#b30000",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Idris_(programming_language)",
+      extRedditPath: "Idris",
+      extHomeURL: "http://idris-lang.org/",
     })
     .addInfluencedBy(["pl+agda", "pl+clean", "pl+coq", "pl+f-sharp", "pl+haskell", "pl+ml", "pl+rust"])
     .addLicenses(["license+bsd"])

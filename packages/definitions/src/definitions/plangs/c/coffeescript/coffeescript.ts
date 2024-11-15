@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "CoffeeScript is a little language that compiles into JavaScript. It adds syntactic sugar inspired by Haskell, Ruby, and Python to enhance JavaScript's brevity and readability. CoffeeScript was designed to expose the good parts of JavaScript in a simple way, compiling into equivalent JavaScript. Many unnecessary parentheses and braces can be omitted.",
       keywords: ["coffeescript", "compiler", "haskell", "javascript", "perl", "python", "ruby", "scripting"],
-      websites: [
-        { title: "CoffeeScript", href: "https://coffeescript.org/", kind: "homepage" },
-        { title: "CoffeeScript - Wikipedia", href: "https://en.wikipedia.org/wiki/CoffeeScript", kind: "wikipedia" },
-      ],
       extensions: [".coffee", ".litcoffee"],
       year: 2009,
       isTranspiler: true,
@@ -23,6 +19,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#244776",
       githubPopular: true,
       githubType: "programming",
+      extWikipediaPath: "CoffeeScript",
+      extRedditPath: "coffeescript",
+      extHomeURL: "https://coffeescript.org/",
     })
     .addCompilesTo(["pl+javascript"])
     .addInfluencedBy(["pl+haskell", "pl+javascript", "pl+perl", "pl+python", "pl+ruby"])

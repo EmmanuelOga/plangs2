@@ -5,10 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+json", {
       name: "JSON",
       languishRanking: 27,
-      websites: [
-        { title: "JSON on Wikipedia", href: "https://en.wikipedia.org/wiki/JSON", kind: "wikipedia" },
-        { title: "JSON Official Website", href: "https://json.org", kind: "homepage" },
-      ],
       stackovTags: ["json"],
       githubName: "JSON",
       githubLangId: "174",
@@ -22,9 +18,12 @@ export function define(g: PlangsGraph) {
       year: 2001,
       isMainstream: true,
       releases: [{ version: "1.0", name: "Initial JSON Specification", date: "2013" }],
+      extWikipediaPath: "JSON",
+      extHomeURL: "https://json.org",
     })
     .addParadigms(["paradigm+data-exchange"])
     .addPlatforms(["plat+cross"]);
+
   // TOOLS
 
   // TOOL BUNDLES

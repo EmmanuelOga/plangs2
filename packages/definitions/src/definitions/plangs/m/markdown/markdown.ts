@@ -5,10 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+markdown", {
       name: "Markdown",
       languishRanking: 12,
-      websites: [
-        { kind: "reddit", title: "Markdown on Reddit", href: "https://reddit.com/r/Markdown" },
-        { kind: "wikipedia", title: "Markdown on Wikipedia", href: "https://en.wikipedia.org/wiki/Markdown" },
-      ],
       stackovTags: ["markdown"],
       githubName: "Markdown",
       githubLangId: "222",
@@ -26,6 +22,8 @@ export function define(g: PlangsGraph) {
         { version: "1.0", name: "", date: "2004-03-09" },
         { version: "1.0.1", name: "", date: "2004-12-17" },
       ],
+      extWikipediaPath: "Markdown",
+      extRedditPath: "Markdown",
     })
     .addCompilesTo(["pl+html"])
     .addParadigms(["paradigm+dsl", "paradigm+scripting"])

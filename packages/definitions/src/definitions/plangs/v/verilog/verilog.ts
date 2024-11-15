@@ -5,10 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+verilog", {
       name: "Verilog",
       languishRanking: 76,
-      websites: [
-        { kind: "reddit", title: "Verilog on Reddit", href: "https://reddit.com/r/Verilog" },
-        { kind: "wikipedia", title: "Verilog on Wikipedia", href: "https://en.wikipedia.org/wiki/Verilog" },
-      ],
       stackovTags: ["verilog"],
       githubName: "Verilog",
       githubLangId: "387",
@@ -22,6 +18,8 @@ export function define(g: PlangsGraph) {
       year: 1984,
       isMainstream: true,
       releases: [{ version: "IEEE 1800-2023", name: "Verilog-2023", date: "2023-12-06" }],
+      extWikipediaPath: "Verilog",
+      extRedditPath: "Verilog",
     })
     .addParadigms(["paradigm+compiled", "paradigm+dataflow", "paradigm+structured"])
     .addPlatforms(["plat+cross"])

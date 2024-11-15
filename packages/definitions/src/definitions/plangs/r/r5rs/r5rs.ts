@@ -7,13 +7,11 @@ export function define(g: PlangsGraph) {
       description:
         "Scheme is a classic programming language in the Lisp family. It emphasizes functional programming and domain-specific languages but adapts to other styles. Known for its clean and minimalist design, Scheme is one of the longest-lived and best-studied dynamic languages, and has many fast and portable implementations. It was originally developed by Guy L. Steele and Gerald Jay Sussman in the 1970s. Scheme is lexically scoped, supports first-class continuations, and includes tail-call optimization.",
       keywords: ["scheme"],
-      websites: [
-        { title: "The Scheme Programming Language", href: "https://www.scheme.org/", kind: "homepage" },
-        { title: "Scheme (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/R5RS", kind: "wikipedia" },
-      ],
       extensions: [".scm", ".ss"],
       year: 1998,
       releases: [{ version: "R5RS", name: "Revised^5 Report on the Algorithmic Language Scheme", date: "1998-01-01" }],
+      extWikipediaPath: "R5RS",
+      extHomeURL: "https://www.scheme.org/",
     })
     .addDialectOf(["pl+lisp", "pl+scheme"])
     .addInfluencedBy(["pl+algol", "pl+lisp"])

@@ -7,14 +7,12 @@ export function define(g: PlangsGraph) {
       description:
         "Ciao is a modern Prolog implementation that builds up from a logic-based simple kernel designed to be portable, extensible, and modular. It supports logic, constraint, functional, higher-order, and object-oriented programming styles.",
       keywords: ["ciao", "constraint", "logic", "programming", "prolog"],
-      websites: [
-        { title: "The Ciao Prolog system", href: "http://www.ciao-lang.org/", kind: "homepage" },
-        { title: "Ciao (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Ciao_(programming_language)", kind: "wikipedia" },
-      ],
       extensions: [".ciao", ".pl"],
       year: 1984,
       isMainstream: false,
       releases: [{ version: "v1.20", name: "Ciao v1.20", date: "2022-06-01" }],
+      extWikipediaPath: "Ciao_(programming_language)",
+      extHomeURL: "http://www.ciao-lang.org/",
     })
     .addImplements(["pl+prolog"])
     .addInfluencedBy(["pl+prolog", "pl+scheme"])

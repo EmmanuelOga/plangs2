@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "C++ is a high-level, general-purpose programming language created by Bjarne Stroustrup. Designed initially as an extension of the C programming language in 1985, C++ incorporates object-oriented, generic, and functional features alongside facilities for low-level memory manipulation. The language is widely used in systems programming, and resource-constrained software, such as operating systems and embedded systems, due to its performance and flexibility. C++ is standardized by ISO, with its latest iteration, C++23 (ISO/IEC 14882:2024), continuing to expand its features and library.",
       keywords: ["c++", "cplusplus", "cpp"],
-      websites: [
-        { title: "C++ on Reddit", kind: "reddit", href: "https://reddit.com/r/cpp" },
-        { title: "C++ on Wikipedia", href: "https://en.wikipedia.org/wiki/C++", kind: "wikipedia" },
-        { title: "isocpp.org", href: "https://isocpp.org/", kind: "homepage" },
-      ],
       extensions: [".C", ".H", ".c++", ".cc", ".cpp", ".cppm", ".cxx", ".h", ".h++", ".hh", ".hpp", ".hxx", ".ixx"],
       year: 1985,
       isTranspiler: true,
@@ -36,6 +31,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#f34b7d",
       githubPopular: true,
       githubType: "programming",
+      extWikipediaPath: "C++",
+      extRedditPath: "cpp",
+      extHomeURL: "https://isocpp.org/",
     })
     .addDialectOf(["pl+c"])
     .addInfluencedBy(["pl+ada", "pl+apl", "pl+c", "pl+clu", "pl+f-sharp", "pl+ml", "pl+simula"])

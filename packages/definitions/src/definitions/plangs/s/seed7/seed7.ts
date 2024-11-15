@@ -7,14 +7,12 @@ export function define(g: PlangsGraph) {
       description:
         "Seed7 is a general-purpose programming language designed by Thomas Mertes. It stands out in the landscape of programming languages due to its extensibility, allowing users to define new syntax and semantics. Seed7 simplifies complex templates and generics, emphasizing object orientation where advantageous. It implements various concepts from languages like Pascal, Ada, C, C++, and Java, featuring a unique mix of compile-time execution and reflection, among other functionalities.",
       keywords: ["seed7"],
-      websites: [
-        { title: "Welcome to the Seed7 Homepage", href: "https://seed7.sourceforge.net/", kind: "homepage" },
-        { title: "Seed7 - Wikipedia", href: "https://en.wikipedia.org/wiki/Seed7", kind: "wikipedia" },
-      ],
       extensions: [".s7i", ".sd7"],
       year: 2005,
       isMainstream: false,
       releases: [{ version: "2024-08-12", name: "Stable release", date: "2024-08-12" }],
+      extWikipediaPath: "Seed7",
+      extHomeURL: "https://seed7.sourceforge.net/",
     })
     .addInfluencedBy(["pl+ada", "pl+c", "pl+c++", "pl+pascal"])
     .addLicenses(["license+gnu-gpl", "license+lgpl"])

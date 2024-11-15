@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Haskell is a general-purpose, statically-typed, purely functional programming language with type inference and lazy evaluation. Designed for teaching, research, and industrial applications, Haskell has pioneered several programming language features such as type classes and monadic input/output (IO). It is named after logician Haskell Curry. Haskell's main implementation is the Glasgow Haskell Compiler (GHC).",
       keywords: ["glascow haskell compiler", "haskell", "purely functional"],
-      websites: [
-        { title: "Haskell Language", href: "http://haskell.org/", kind: "homepage" },
-        { title: "Haskell - Wikipedia", href: "https://en.wikipedia.org/wiki/Haskell_(programming_language)", kind: "wikipedia" },
-      ],
       extensions: [".hs", ".lhs"],
       year: 1990,
       isMainstream: true,
@@ -26,6 +22,9 @@ export function define(g: PlangsGraph) {
         { version: "98", name: "Haskell 98", date: "1999-02" },
         { version: "2010", name: "Haskell 2010", date: "2010-07" },
       ],
+      extWikipediaPath: "Haskell_(programming_language)",
+      extRedditPath: "haskell",
+      extHomeURL: "http://haskell.org/",
     })
     .addImplements(["pl+curry"])
     .addInfluencedBy(["pl+clean", "pl+fp", "pl+lisp", "pl+ml", "pl+r5rs", "pl+raku", "pl+scheme", "pl+standard-ml"])

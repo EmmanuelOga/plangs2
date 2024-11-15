@@ -7,12 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Steel Bank Common Lisp (SBCL) is a high-performance Common Lisp compiler. It is a free and open-source implementation with a permissive license. SBCL provides a compiler and a runtime system for ANSI Common Lisp and features an interactive environment with a debugger, statistical profiler, code coverage tool, and many extensions. Originally forked in December 1999 from CMUCL, it supports multiple operating systems including Linux, macOS, Solaris, and Windows.",
       keywords: ["common lisp", "compiler", "sbcl", "steel bank"],
-      websites: [
-        { title: "www.sbcl.org", href: "http://www.sbcl.org/", kind: "homepage" },
-        { title: "SBCL", href: "https://en.wikipedia.org/wiki/SBCL", kind: "wikipedia" },
-        { title: "SBCL on Reddit", kind: "reddit", href: "https://reddit.com/r/Common_Lisp" },
-        { title: "SBCL on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Common_Lisp" },
-      ],
       year: 1999,
       isMainstream: true,
       releases: [
@@ -21,12 +15,14 @@ export function define(g: PlangsGraph) {
       ],
       stackovTags: ["common-lisp"],
       githubName: "Common Lisp",
-      languishRanking: 60,
       githubLangId: "66",
       githubColor: "#3fb68b",
       githubPopular: false,
       githubType: "programming",
       extensions: [".cl", ".l", ".lisp", ".lsp"],
+      extWikipediaPath: "Common_Lisp",
+      extRedditPath: "Common_Lisp",
+      extHomeURL: "http://www.sbcl.org/",
     })
     .addDialectOf(["pl+common-lisp"])
     .addInfluencedBy(["pl+common-lisp"])

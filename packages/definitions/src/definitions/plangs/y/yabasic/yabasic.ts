@@ -7,15 +7,13 @@ export function define(g: PlangsGraph) {
       description:
         "Yabasic (Yet Another BASIC) is a free, open-source BASIC interpreter for Microsoft Windows and UNIX platforms. It is designed for simple programming tasks and offers features like basic control structures, subroutines, and the ability to create standalone executables. It supports line graphics, structured programming, and calls to libraries written in C.",
       keywords: ["basic", "interpreter", "open-source", "unix", "windows", "yabasic"],
-      websites: [
-        { title: "www.yabasic.de", href: "http://www.yabasic.de/", kind: "homepage" },
-        { title: "GitHub Repository", href: "https://github.com/marcIhm/yabasic", kind: "repository" },
-        { title: "Yabasic", href: "https://en.wikipedia.org/wiki/Yabasic", kind: "wikipedia" },
-      ],
       extensions: [".yab"],
       year: 1995,
       isMainstream: false,
       releases: [{ version: "2.90.4", name: "Yabasic 2.90.4", date: "2023-09-17" }],
+      extGithubPath: "marcIhm/yabasic",
+      extWikipediaPath: "Yabasic",
+      extHomeURL: "http://www.yabasic.de/",
     })
     .addImplements(["pl+basic"])
     .addInfluencedBy(["pl+basic"])

@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "C# (/ˌsiː ˈʃɑːrp/ see SHARP) is a general-purpose high-level programming language supporting multiple paradigms. C# encompasses static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented (class-based), and component-oriented programming disciplines.",
       keywords: ["c#", "c-sharp", "csharp", "dotnet"],
-      websites: [
-        { title: "C# Guide", href: "https://learn.microsoft.com/en-us/dotnet/csharp/", kind: "other" },
-        { title: "C Sharp Wikipedia", href: "https://en.wikipedia.org/wiki/C_Sharp_(programming_language)", kind: "wikipedia" },
-      ],
       extensions: [".cs", ".csx"],
       year: 2000,
       isMainstream: true,
@@ -22,6 +18,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#178600",
       githubPopular: true,
       githubType: "programming",
+      extWikipediaPath: "C_Sharp_(programming_language)",
+      extRedditPath: "csharp",
+      extHomeURL: "https://learn.microsoft.com/en-us/dotnet/csharp/",
     })
     .addDialectOf(["pl+c"])
     .addInfluencedBy([

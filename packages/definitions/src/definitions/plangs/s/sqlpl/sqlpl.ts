@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+sqlpl", {
       name: "SQLPL",
       languishRanking: 98,
-      websites: [{ title: "SQL PL - Wikipedia", href: "https://en.wikipedia.org/wiki/SQL_PL", kind: "wikipedia" }],
       stackovTags: ["db2"],
       githubName: "SQLPL",
       githubLangId: "334",
@@ -17,6 +16,8 @@ export function define(g: PlangsGraph) {
       keywords: ["DB2", "IBM", "SQL PL", "Structured Query Language Procedural Language"],
       year: 2001,
       isMainstream: true,
+      extWikipediaPath: "SQL_PL",
+      extRedditPath: "DB2",
     })
     .addParadigms(["paradigm+query"])
     .addPlatforms(["plat+cross"])

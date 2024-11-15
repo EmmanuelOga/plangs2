@@ -5,11 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+nix", {
       name: "Nix",
       languishRanking: 45,
-      websites: [
-        { title: "Nix (package manager) - Wikipedia", href: "https://en.wikipedia.org/wiki/Nix_package_manager", kind: "wikipedia" },
-        { title: "Nixos.org", href: "https://nixos.org", kind: "homepage" },
-        { title: "Nix on GitHub", href: "https://github.com/NixOS/nix", kind: "repository" },
-      ],
       stackovTags: ["nix"],
       githubName: "Nix",
       githubLangId: "252",
@@ -23,6 +18,10 @@ export function define(g: PlangsGraph) {
       year: 2003,
       isMainstream: true,
       releases: [{ version: "2.22.1", name: "Nix Stable Release", date: "2024-05-10" }],
+      extWikipediaPath: "Nix_package_manager",
+      extRedditPath: "NixOS",
+      extGithubPath: "NixOS/nix",
+      extHomeURL: "https://nixos.org",
     })
     .addLicenses(["license+lgpl"])
     .addParadigms(["paradigm+declarative", "paradigm+functional"])

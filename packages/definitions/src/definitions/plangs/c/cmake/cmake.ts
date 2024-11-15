@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+cmake", {
       name: "CMake",
       languishRanking: 35,
-      websites: [{ title: "CMake on Wikipedia", href: "https://en.wikipedia.org/wiki/CMake", kind: "wikipedia" }],
       stackovTags: ["cmake"],
       githubName: "CMake",
       githubLangId: "47",
@@ -24,6 +23,8 @@ export function define(g: PlangsGraph) {
         { version: "3.30.5", name: "Stable release", date: "2024-10-09" },
         { version: "3.31.0-rc3", name: "Preview release", date: "2024-10-29" },
       ],
+      extWikipediaPath: "CMake",
+      extRedditPath: "cmake",
     })
     .addCompilesTo(["pl+makefile"])
     .addLicenses(["license+bsd"])

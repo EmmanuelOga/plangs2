@@ -7,14 +7,12 @@ export function define(g: PlangsGraph) {
       description:
         "Extempore is a live coding environment focused on real-time audiovisual software development. It is designed to accommodate the demands of cyber-physical computing. Extempore consists of two integrated languages, Scheme (with extensions) and Extempore Language. It uses the LLVM cross-language compiler to achieve performant digital signal processing and related low-level features, on-the-fly.",
       keywords: ["extempore"],
-      websites: [
-        { title: "Extempore (software) - Wikipedia", href: "https://en.wikipedia.org/wiki/Extempore_(software)", kind: "wikipedia" },
-        { title: "digego/extempore: A cyber-physical programming environment", href: "https://github.com/digego/extempore", kind: "repository" },
-      ],
       year: 2011,
       isMainstream: false,
       releases: [{ version: "0.8.9", name: "", date: "2021-05-06" }],
       extensions: [""],
+      extWikipediaPath: "Extempore_(software)",
+      extGithubPath: "digego/extempore",
     })
     .addInfluencedBy(["pl+lisp", "pl+scheme"])
     .addLicenses(["license+bsd"])

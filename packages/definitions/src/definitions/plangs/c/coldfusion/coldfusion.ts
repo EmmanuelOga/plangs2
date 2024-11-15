@@ -7,12 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Adobe ColdFusion is a commercial rapid web-application development computing platform created by J. J. Allaire in 1995. The programming language used with the platform is known as CFML (ColdFusion Markup Language). ColdFusion was initially designed to simplify connecting HTML pages to a database, and quickly evolved into a comprehensive platform featuring a full scripting language and an integrated development environment (IDE).",
       keywords: ["adobe", "cfml", "coldfusion", "rapid development"],
-      websites: [
-        { title: "Adobe ColdFusion family", href: "https://adobe.com/products/coldfusion-family.html", kind: "homepage" },
-        { title: "Adobe ColdFusion - Wikipedia", href: "https://en.wikipedia.org/wiki/Adobe_ColdFusion", kind: "wikipedia" },
-        { title: "ColdFusion on Reddit", href: "https://reddit.com/r/coldfusion", kind: "reddit" },
-        { title: "ColdFusion on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Adobe_ColdFusion" },
-      ],
       extensions: [".cfm", ".cfml"],
       year: 1995,
       isTranspiler: true,
@@ -31,6 +25,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#ed2cd6",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Adobe_ColdFusion",
+      extRedditPath: "coldfusion",
+      extHomeURL: "https://adobe.com/products/coldfusion-family.html",
     })
     .addCompilesTo(["pl+coldfusion", "pl+java"])
     .addParadigms(["paradigm+event-driven", "paradigm+multi", "paradigm+procedural", "paradigm+scripting"])

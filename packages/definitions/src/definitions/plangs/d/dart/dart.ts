@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Dart is a programming language designed by Lars Bak and Kasper Lund and developed by Google. It is used to develop web and mobile apps as well as server and desktop applications, supporting a broad range of platforms with efficient compilation techniques including JavaScript and WebAssembly.",
       keywords: ["dart", "google", "language", "programming"],
-      websites: [
-        { title: "Dart programming language | Dart", href: "https://dart.dev/", kind: "homepage" },
-        { title: "Dart (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Dart_(programming_language)", kind: "wikipedia" },
-      ],
       extensions: [".dart"],
       year: 2011,
       isTranspiler: true,
@@ -29,6 +25,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#00B4AB",
       githubPopular: true,
       githubType: "programming",
+      extWikipediaPath: "Dart_(programming_language)",
+      extRedditPath: "dartlang",
+      extHomeURL: "https://dart.dev/",
     })
     .addCompilesTo(["pl+javascript"])
     .addInfluencedBy(["pl+c", "pl+c++", "pl+c-sharp", "pl+erlang", "pl+javascript", "pl+ruby", "pl+typescript"])

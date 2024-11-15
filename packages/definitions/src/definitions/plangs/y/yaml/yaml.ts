@@ -5,10 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+yaml", {
       name: "YAML",
       languishRanking: 59,
-      websites: [
-        { kind: "reddit", title: "YAML on Reddit", href: "https://reddit.com/r/yaml" },
-        { kind: "wikipedia", title: "YAML on Wikipedia", href: "https://en.wikipedia.org/wiki/YAML" },
-      ],
       stackovTags: ["yaml"],
       githubName: "YAML",
       githubLangId: "407",
@@ -28,6 +24,8 @@ export function define(g: PlangsGraph) {
         { version: "1.2.1", name: "YAML 1.2.1", date: "2009-10-01" },
         { version: "1.2.2", name: "YAML 1.2.2", date: "2021-10-01" },
       ],
+      extWikipediaPath: "YAML",
+      extRedditPath: "yaml",
     })
     .addParadigms(["paradigm+data-exchange", "paradigm+declarative"])
     .addPlatforms(["plat+cross"])

@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+csv", {
       name: "Comma-separated values (CSV)",
       languishRanking: 46,
-      websites: [{ title: "Comma-separated values - Wikipedia", href: "https://en.wikipedia.org/wiki/Comma-separated_values", kind: "wikipedia" }],
       stackovTags: ["csv"],
       githubName: "CSV",
       githubLangId: "51",
@@ -22,6 +21,7 @@ export function define(g: PlangsGraph) {
         { version: "RFC 4180", name: "RFC 4180", date: "2005" },
         { version: "RFC 7111", name: "RFC 7111", date: "2014" },
       ],
+      extWikipediaPath: "Comma-separated_values",
     })
     .addParadigms(["paradigm+data-exchange"])
     .addPlatforms(["plat+cross"])

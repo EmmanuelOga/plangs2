@@ -7,14 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Free Pascal Compiler (FPC) is a versatile, open source Pascal compiler for Pascal and Object Pascal. It adapts a 'write once, compile anywhere' approach, supporting numerous architectures and operating systems, with capabilities for inline assembly and multiple dialect compatibilities. Also known for its transpiler pas2js for converting Pascal to JavaScript.",
       keywords: ["compiler", "cross-platform", "freepascal", "objectpascal", "pascal"],
-      websites: [
-        {
-          title: "Free Pascal - Advanced open source Pascal compiler for Pascal and Object Pascal",
-          href: "http://www.freepascal.org/",
-          kind: "homepage",
-        },
-        { title: "Free Pascal - Wikipedia", href: "https://en.wikipedia.org/wiki/Free_Pascal", kind: "wikipedia" },
-      ],
       extensions: [".p", ".pas", ".pp"],
       year: 1993,
       isMainstream: false,
@@ -22,6 +14,8 @@ export function define(g: PlangsGraph) {
         { version: "3.2.2", name: "Free Pascal 3.2.2", date: "2021-05-20" },
         { version: "3.3.1", name: "Free Pascal 3.3.1", date: "" },
       ],
+      extWikipediaPath: "Free_Pascal",
+      extHomeURL: "http://www.freepascal.org/",
     })
     .addImplements(["pl+pascal"])
     .addInfluencedBy(["pl+pascal"])

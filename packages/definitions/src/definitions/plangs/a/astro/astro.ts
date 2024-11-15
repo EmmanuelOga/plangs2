@@ -13,16 +13,14 @@ export function define(g: PlangsGraph) {
       githubType: "markup",
       description:
         "Astro is a modern, lightweight framework for building web applications with a focus on speed and simplicity. It is optimized for performance by delivering minimal client-side JavaScript, utilizing static site generation by default.",
-      websites: [
-        { title: "Astro Homepage", href: "https://astro.build", kind: "homepage" },
-        { title: "Astro GitHub Repository", href: "https://github.com/withastro/astro", kind: "repository" },
-      ],
       keywords: ["framework", "lightweight", "static site generation", "web development"],
       extensions: [".astro"],
       year: 2021,
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "astro@4.16.11", date: "2024-09-13" }],
+      extGithubPath: "withastro/astro",
+      extHomeURL: "https://astro.build",
     })
     .addCompilesTo(["pl+javascript", "pl+svelte", "pl+typescript", "pl+vue"])
     .addLicenses(["license+mit"])

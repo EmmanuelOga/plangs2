@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Isabelle is an automated theorem prover that allows mathematical formulas to be expressed in a formal language and provides tools for proving those formulas in a logical calculus. It is written in Standard ML and Scala, supporting both procedural and declarative proof styles. Isabelle is designed to be a flexible IDE for formal methods and supports a wide variety of formal proofs and methods, notably higher-order logic (HOL).",
       keywords: ["automated theorem prover", "formal methods", "isabelle"],
-      websites: [
-        { title: "isabelle.in.tum.de", href: "https://isabelle.in.tum.de/", kind: "homepage" },
-        { title: "Isabelle", href: "https://en.wikipedia.org/wiki/Isabelle_(proof_assistant)", kind: "wikipedia" },
-        { title: "Isabelle on Reddit", kind: "reddit", href: "https://reddit.com/r/isabelle" },
-      ],
       extensions: [".thy"],
       year: 1986,
       isMainstream: false,
@@ -26,6 +21,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#FEFE00",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Isabelle_(proof_assistant)",
+      extRedditPath: "isabelle",
+      extHomeURL: "https://isabelle.in.tum.de/",
     })
     .addInfluencedBy(["pl+haskell"])
     .addLicenses(["license+bsd"])

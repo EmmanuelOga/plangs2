@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
       name: "Cassette",
       description: "Cassette is a simple language for personal programming. It's DIY, roll your own, batteries-not-included. It's for fun.",
       keywords: ["cassette"],
-      websites: [{ title: "Cassette", href: "https://cassette-lang.com/", kind: "homepage" }],
       extensions: [".cassette"],
       year: 2021,
       releases: [
@@ -15,6 +14,7 @@ export function define(g: PlangsGraph) {
       ],
       isTranspiler: true,
       isMainstream: false,
+      extHomeURL: "https://cassette-lang.com/",
     })
     .addCompilesTo(["pl+c"])
     .addLicenses(["license+mit"])

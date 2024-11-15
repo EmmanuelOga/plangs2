@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Haxe is a high-level cross-platform programming language and compiler that can produce applications and source code for many different computing platforms from one code-base. It is free and open-source software, released under an MIT License. The compiler is written in OCaml and is released under the GNU General Public License (GPL) version 2.",
       keywords: ["haxe"],
-      websites: [
-        { title: "Haxe - The Cross-platform Toolkit", href: "https://haxe.org/", kind: "homepage" },
-        { title: "Haxe - Wikipedia", href: "https://en.wikipedia.org/wiki/Haxe", kind: "wikipedia" },
-      ],
       extensions: [".hx", ".hxml"],
       year: 2005,
       isTranspiler: true,
@@ -23,6 +19,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#df7900",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Haxe",
+      extRedditPath: "haxe",
+      extHomeURL: "https://haxe.org/",
     })
     .addCompilesTo([
       "pl+actionscript",

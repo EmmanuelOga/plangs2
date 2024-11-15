@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+hiveql", {
       name: "HiveQL",
       languishRanking: 91,
-      websites: [{ title: "Apache Hive - Wikipedia", href: "https://en.wikipedia.org/wiki/Apache_Hive", kind: "wikipedia" }],
       stackovTags: ["hive", "hiveql"],
       githubName: "HiveQL",
       githubLangId: "931814087",
@@ -22,6 +21,7 @@ export function define(g: PlangsGraph) {
         { version: "3.1.3", name: "Stable release", date: "2022-04-08" },
         { version: "4.0.0-beta-1", name: "Preview release", date: "2023-08-14" },
       ],
+      extWikipediaPath: "Apache_Hive",
     })
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+declarative", "paradigm+query"])

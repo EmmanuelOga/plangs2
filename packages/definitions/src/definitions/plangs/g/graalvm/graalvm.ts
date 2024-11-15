@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "GraalVM is a versatile virtual machine originating from the Java ecosystem that supports multiple programming languages including Java, JavaScript, Python, Ruby, R, and webassembly. It is designed to execute applications written in these languages alongside LLVM-based languages and provides high performance and interoperability across language boundaries. Known for its ahead-of-time compilation and polyglot capabilities, GraalVM enhances performance, security, and startup time of Java and other applications.",
       keywords: ["graalvm", "interoperability", "java", "jdk", "native image", "polyglot"],
-      websites: [
-        { title: "Build faster, smaller, leaner applications", href: "https://www.graalvm.org/", kind: "homepage" },
-        { title: "GraalVM - Wikipedia", href: "https://en.wikipedia.org/wiki/GraalVM#Language_and_Runtime_Support", kind: "wikipedia" },
-      ],
       year: 2019,
       isMainstream: true,
       releases: [
@@ -19,6 +15,8 @@ export function define(g: PlangsGraph) {
         { version: "22.1", name: "GraalVM 22.1", date: "2022-05-12" },
         { version: "22.2", name: "GraalVM 22.2", date: "2022-08-23" },
       ],
+      extWikipediaPath: "GraalVM",
+      extHomeURL: "https://www.graalvm.org/",
     })
     .addImplements(["pl+ruby"])
     .addInfluencedBy(["pl+java"])

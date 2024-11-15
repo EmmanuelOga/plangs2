@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         'TXL is a special-purpose programming language originally designed by Charles Halpern-Hamu and James Cordy at the University of Toronto in 1985. It is primarily used for creating, manipulating, and prototyping programming languages and language tools. The name "TXL" originally stood for "Turing eXtender Language" but has since evolved beyond that specific application.',
       keywords: ["pattern-matching", "source transformation", "term-rewriting", "txl"],
-      websites: [
-        { title: "Txl Home Page", href: "https://www.txl.ca/", kind: "homepage" },
-        { title: "TXL (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/TXL_(programming_language)", kind: "wikipedia" },
-      ],
       extensions: [".txl"],
       year: 1985,
       isTranspiler: false,
@@ -21,6 +17,8 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       releases: [{ version: "10.8b", name: "FreeTxl", date: "2022-07" }],
+      extWikipediaPath: "TXL_(programming_language)",
+      extHomeURL: "https://www.txl.ca/",
     })
     .addParadigms(["paradigm+dsl", "paradigm+language-oriented", "paradigm+pattern-matching", "paradigm+rewriting"])
     .addPlatforms(["plat+cross"])

@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+makefile", {
       name: "Makefile",
       languishRanking: 38,
-      websites: [{ title: "Make (software) - Wikipedia", href: "https://en.wikipedia.org/wiki/Make_(software)", kind: "wikipedia" }],
       stackovTags: ["makefile"],
       githubName: "Makefile",
       githubLangId: "220",
@@ -19,6 +18,7 @@ export function define(g: PlangsGraph) {
       filenames: ["Makefile", "makefile"],
       year: 1976,
       isMainstream: true,
+      extWikipediaPath: "Make_(software)",
     })
     .addParadigms(["paradigm+declarative", "paradigm+macro"])
     .addTags(["tag+automation", "tag+cli"]);

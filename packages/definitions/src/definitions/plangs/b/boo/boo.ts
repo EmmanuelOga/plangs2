@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Boo is an object-oriented, statically typed, general-purpose programming language that seeks to make use of the Common Language Infrastructure's support for Unicode, internationalization, and web applications, while using a Python-inspired syntax and a special focus on language and compiler extensibility. Some features of note include type inference, generators, multimethods, optional duck typing, macros, true closures, currying, and first-class functions.",
       keywords: ["boo"],
-      websites: [
-        { title: "The Boo Programming Language · GitHub", href: "https://github.com/boo-lang", kind: "repository" },
-        { title: "Boo on Wikipedia", href: "https://en.wikipedia.org/wiki/Boo_(programming_language)", kind: "wikipedia" },
-      ],
       extensions: [".boo"],
       year: 2003,
       isMainstream: false,
@@ -22,6 +18,7 @@ export function define(g: PlangsGraph) {
       githubColor: "#d4bec1",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Boo_(programming_language)",
     })
     .addInfluencedBy(["pl+c-sharp", "pl+python"])
     .addLicenses(["license+bsd"])

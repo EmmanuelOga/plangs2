@@ -10,10 +10,6 @@ export function define(g: PlangsGraph) {
       githubColor: "#E22837",
       githubPopular: false,
       githubType: "programming",
-      websites: [
-        { title: "Minecraft Wiki - Functions", href: "https://minecraft.fandom.com/wiki/Functions", kind: "wikipedia" },
-        { title: "mcfunction on Reddit", href: "https://reddit.com/r/MinecraftCommands", kind: "reddit" },
-      ],
       stackovTags: ["minecraft"],
       description:
         "mcfunction is the function file format used in Minecraft to run a set of commands in sequence, forming a data-driven approach to game logic and custom scripting within the game.",
@@ -22,6 +18,8 @@ export function define(g: PlangsGraph) {
       year: 2017,
       isTranspiler: false,
       isMainstream: true,
+      extRedditPath: "MinecraftCommands",
+      extHomeURL: "https://minecraft.fandom.com/wiki/Functions",
     })
     .addParadigms(["paradigm+data-driven", "paradigm+scripting"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])

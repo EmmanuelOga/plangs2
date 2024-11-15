@@ -5,11 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+autohotkey", {
       name: "AutoHotkey",
       languishRanking: 84,
-      websites: [
-        { title: "AutoHotkey on Wikipedia", href: "https://en.wikipedia.org/wiki/AutoHotkey", kind: "wikipedia" },
-        { title: "AutoHotkey Official Website", href: "https://www.autohotkey.com", kind: "homepage" },
-        { title: "GitHub Repository", href: "https://github.com/AutoHotkey/AutoHotkey", kind: "repository" },
-      ],
       stackovTags: ["autohotkey"],
       githubName: "AutoHotkey",
       githubLangId: "26",
@@ -24,6 +19,10 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       isMainstream: false,
       releases: [{ version: "2.0.18", date: "2024-06-06" }],
+      extWikipediaPath: "AutoHotkey",
+      extRedditPath: "AutoHotkey",
+      extGithubPath: "AutoHotkey/AutoHotkey",
+      extHomeURL: "https://www.autohotkey.com",
     })
     .addLicenses(["license+gnu-gpl"])
     .addParadigms(["paradigm+event-driven", "paradigm+imperative", "paradigm+scripting"])

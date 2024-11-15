@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Clang is a compiler front end for the C, C++, Objective-C, and Objective-C++ programming languages, as well as the OpenMP, OpenCL, RenderScript, CUDA, SYCL, and HIP frameworks. It acts as a drop-in replacement for the GNU Compiler Collection (GCC), supporting most of its compiling flags and unofficial language extensions. It includes a static analyzer, and several code analysis tools. It operates in tandem with the LLVM compiler back end and has been a subproject of LLVM.",
       keywords: ["clang", "compiler", "llvm"],
-      websites: [
-        { title: "Clang C Language Family Frontend for LLVM", href: "https://clang.llvm.org/", kind: "homepage" },
-        { title: "Clang - Wikipedia", href: "https://en.wikipedia.org/wiki/Clang", kind: "wikipedia" },
-        { title: "Clang on Reddit", href: "https://reddit.com/r/clang", kind: "reddit" },
-      ],
       year: 2007,
       isMainstream: true,
       releases: [
@@ -27,6 +22,9 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       extensions: [".c", ".cpp", ".cu", ".m", ".mm"],
+      extWikipediaPath: "SuperCollider",
+      extRedditPath: "supercollider",
+      extHomeURL: "https://clang.llvm.org/",
     })
     .addImplements(["pl+c", "pl+c++"])
     .addInfluencedBy(["pl+gcc", "pl+llvm"])

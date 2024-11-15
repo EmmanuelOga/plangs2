@@ -5,11 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+jinja", {
       name: "Jinja",
       languishRanking: 57,
-      websites: [
-        { title: "Jinja (template engine) - Wikipedia", href: "https://en.wikipedia.org/wiki/Jinja_(template_engine)", kind: "wikipedia" },
-        { title: "Jinja Official Website", href: "https://palletsprojects.com/p/jinja/", kind: "homepage" },
-        { title: "Jinja GitHub Repository", href: "https://github.com/pallets/jinja", kind: "repository" },
-      ],
       stackovTags: ["jinja2"],
       githubName: "Jinja",
       githubLangId: "147",
@@ -24,6 +19,9 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       isMainstream: true,
       releases: [{ version: "3.1.4", name: "Stable Release", date: "2024-05-05" }],
+      extWikipediaPath: "Jinja_(template_engine)",
+      extGithubPath: "pallets/jinja",
+      extHomeURL: "https://palletsprojects.com/p/jinja/",
     })
     .addCompilesTo(["pl+python"])
     .addLicenses(["license+bsd"])

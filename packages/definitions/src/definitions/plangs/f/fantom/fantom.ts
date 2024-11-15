@@ -7,14 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         'Fantom is a general-purpose object-oriented programming language, created by Brian Frank and Andy Frank. It runs on the Java Runtime Environment (JRE), JavaScript, and the .NET Common Language Runtime (CLR) (.NET support is considered "prototype" status). Its stated goal is to provide a standard library API. Fantom uses a curly brace syntax, supports functional programming through closures and concurrency through the Actor model, and blends aspects of both static and dynamic typing.',
       keywords: [".net", "andy frank", "brian frank", "fantom", "javascript", "jvm", "language", "programming"],
-      websites: [
-        { title: "Home – Fantom", href: "http://www.fantom.org/", kind: "homepage" },
-        {
-          title: "Fantom (programming language) - Wikipedia",
-          href: "https://en.wikipedia.org/wiki/Fantom_(programming_language)",
-          kind: "wikipedia",
-        },
-      ],
       extensions: [".fan", ".fwt", ".pod"],
       year: 2005,
       isTranspiler: true,
@@ -27,6 +19,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#14253c",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Fantom_(programming_language)",
+      extRedditPath: "Fantom",
+      extHomeURL: "http://www.fantom.org/",
     })
     .addCompilesTo(["pl+c-sharp", "pl+erlang", "pl+java", "pl+ruby", "pl+scala"])
     .addInfluencedBy(["pl+c-sharp", "pl+erlang", "pl+ruby", "pl+scala"])
@@ -44,12 +39,4 @@ export function define(g: PlangsGraph) {
   // LIBRARIES
 
   // APPS
-
-  g.nodes.app.set("app+aider", {
-    name: "Aider",
-    keywords: ["pair programming", "llm", "git"],
-    description:
-      "Aider lets you pair program with LLMs, to edit code in your local git repository. Start a new project or work with an existing git repo. Aider works best with GPT-4o & Claude 3.5 Sonnet and can connect to almost any LLM.",
-    websites: [{ href: "https://aider.chat/", title: "Aider", kind: "homepage" }],
-  });
 }

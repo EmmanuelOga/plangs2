@@ -7,12 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Swift is a general-purpose programming language that’s approachable for newcomers and powerful for experts. It is fast, modern, safe, and a joy to write. Swift was developed by Apple Inc. and open-source contributors as a replacement for Objective-C. Swift's syntax is simple yet powerful, incorporating concepts from various languages. It was first released on June 2, 2014, and has become the primary language for Apple platform development.",
       keywords: ["Apple", "Xcode", "swift"],
-      websites: [
-        { title: "Swift", href: "https://www.swift.org/", kind: "homepage" },
-        { title: "Swift", href: "https://developer.apple.com/swift/", kind: "other" },
-        { title: "Swift", href: "https://en.wikipedia.org/wiki/Swift_(programming_language)", kind: "wikipedia" },
-        { title: "Swift on Reddit", kind: "reddit", href: "https://reddit.com/r/swift" },
-      ],
       extensions: [".swift"],
       year: 2014,
       isMainstream: true,
@@ -28,6 +22,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#F05138",
       githubPopular: true,
       githubType: "programming",
+      extWikipediaPath: "Swift_(programming_language)",
+      extRedditPath: "swift",
+      extHomeURL: "https://www.swift.org/",
     })
     .addInfluencedBy(["pl+c", "pl+c-sharp", "pl+clu", "pl+d", "pl+haskell", "pl+lisp", "pl+python", "pl+ruby", "pl+rust"])
     .addLicenses(["license+apache"])

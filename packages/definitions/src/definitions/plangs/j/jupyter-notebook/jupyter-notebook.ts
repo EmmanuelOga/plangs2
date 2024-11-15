@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+jupyter-notebook", {
       name: "Jupyter Notebook",
       languishRanking: 16,
-      websites: [{ title: "Project Jupyter - Wikipedia", href: "https://en.wikipedia.org/wiki/Project_Jupyter", kind: "wikipedia" }],
       stackovTags: ["jupyter"],
       githubName: "Jupyter Notebook",
       githubLangId: "185",
@@ -18,6 +17,9 @@ export function define(g: PlangsGraph) {
       extensions: [".ipynb"],
       year: 2014,
       isMainstream: true,
+      isTranspiler: true,
+      extWikipediaPath: "Project_Jupyter",
+      extRedditPath: "IPython",
     })
     .addCompilesTo(["pl+julia", "pl+python", "pl+r"])
     .addLicenses(["license+bsd"])

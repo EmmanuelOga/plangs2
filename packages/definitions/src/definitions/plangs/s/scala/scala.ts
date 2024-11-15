@@ -7,12 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Scala (/ˈskɑːlɑː/ SKAH-lah) is a strong statically typed high-level general-purpose programming language that supports both object-oriented programming and functional programming. Designed to be concise, many of Scala's design decisions are intended to address criticisms of Java. It is well-suited to building fast, concurrent, and distributed systems with its JVM, JavaScript, and Native runtimes.",
       keywords: ["scala"],
-      websites: [
-        { title: "www.scala-lang.org", href: "http://www.scala-lang.org/", kind: "homepage" },
-        { title: "Scala", href: "https://en.wikipedia.org/wiki/Scala_programming_language", kind: "wikipedia" },
-        { title: "Scala on Reddit", kind: "reddit", href: "https://reddit.com/r/scala" },
-        { title: "Scala on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Scala_(programming_language)" },
-      ],
       extensions: [".sc", ".scala"],
       year: 2004,
       isMainstream: true,
@@ -27,6 +21,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#c22d40",
       githubPopular: true,
       githubType: "programming",
+      extWikipediaPath: "Scala_(programming_language)",
+      extRedditPath: "scala",
+      extHomeURL: "http://www.scala-lang.org/",
     })
     .addInfluencedBy([
       "pl+common-lisp",

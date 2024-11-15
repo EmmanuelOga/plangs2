@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "MicroPython is a lean and efficient implementation of the Python 3 programming language, optimized for microcontrollers. It offers a subset of the Python standard library with additional modules for hardware access and features such as REPL, inline assembler, and cross-compilation support.",
       keywords: ["embedded python", "micro python", "micropython"],
-      websites: [
-        { title: "MicroPython Official Site", href: "https://micropython.org/", kind: "homepage" },
-        { title: "MicroPython - Wikipedia", href: "https://en.wikipedia.org/wiki/MicroPython", kind: "wikipedia" },
-      ],
       extensions: [".py"],
       year: 2013,
       isMainstream: false,
@@ -18,6 +14,8 @@ export function define(g: PlangsGraph) {
         { version: "1.24.0", name: "MicroPython 1.24.0", date: "2024-10-26" },
         { version: "1.23.0", name: "MicroPython 1.23.0", date: "2024-01-01" },
       ],
+      extWikipediaPath: "MicroPython",
+      extHomeURL: "https://micropython.org/",
     })
     .addImplements(["pl+python"])
     .addInfluencedBy(["pl+python"])

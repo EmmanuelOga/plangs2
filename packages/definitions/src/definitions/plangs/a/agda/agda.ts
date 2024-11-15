@@ -9,10 +9,6 @@ export function define(g: PlangsGraph) {
       year: 2007,
       extensions: [".agda", ".lagda", ".lagda.md", ".lagda.rst", ".lagda.tex"],
       keywords: ["agda", "dependently typed", "proof assistant"],
-      websites: [
-        { title: "The Agda Wiki", href: "http://wiki.portal.chalmers.se/agda", kind: "other" },
-        { title: "Agda on Wikipedia", href: "https://en.wikipedia.org/wiki/Agda_(programming_language)", kind: "wikipedia" },
-      ],
       isTranspiler: true,
       isMainstream: false,
       releases: [
@@ -27,6 +23,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#315665",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Agda_(programming_language)",
+      extRedditPath: "agda",
+      extHomeURL: "http://wiki.portal.chalmers.se/agda",
     })
     .addInfluencedBy(["pl+coq", "pl+haskell"])
     .addLicenses(["license+bsd"])

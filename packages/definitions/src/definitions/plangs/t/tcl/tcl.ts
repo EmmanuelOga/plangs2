@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         'Tcl (pronounced "tickle" or as an initialism) is a high-level, general-purpose, interpreted, dynamic programming language. Designed for extensibility and embeddability, Tcl supports multiple programming paradigms including event-driven, functional, imperative, and object-oriented styles. It is often used together with the Tk toolkit for GUI development, and is widely used for web applications, testing, and script automation.',
       keywords: ["tcl", "tk"],
-      websites: [
-        { title: "Tcl Developer Site", href: "https://www.tcl-lang.org/", kind: "homepage" },
-        { title: "Tcl Developer Site", href: "https://www.tcl.tk/", kind: "homepage" },
-        { title: "Tcl - Wikipedia", href: "https://en.wikipedia.org/wiki/Tcl", kind: "wikipedia" },
-      ],
       extensions: [".tbc", ".tcl"],
       year: 1988,
       isMainstream: true,
@@ -28,6 +23,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#e4cc98",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Tcl",
+      extRedditPath: "Tcl",
+      extHomeURL: "https://www.tcl-lang.org/",
     })
     .addInfluencedBy(["pl+awk", "pl+lisp"])
     .addLicenses(["license+bsd"])

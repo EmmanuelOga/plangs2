@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+vim-script", {
       name: "Vim script",
       languishRanking: 63,
-      websites: [{ title: "Vim (text editor) - Wikipedia", href: "https://en.wikipedia.org/wiki/Vim_(text_editor)", kind: "wikipedia" }],
       stackovTags: ["vim"],
       githubName: "Vim Script",
       githubLangId: "388",
@@ -20,6 +19,8 @@ export function define(g: PlangsGraph) {
       year: 1991,
       isMainstream: true,
       releases: [{ version: "9.1", name: "Vim 9.1", date: "2024-01-02" }],
+      extWikipediaPath: "Vim_(text_editor)",
+      extRedditPath: "vim",
     })
     .addLicenses(["license+gnu-gpl"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+oop", "paradigm+scripting"])

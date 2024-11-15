@@ -7,14 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Elixir is a dynamic, functional language designed for building scalable and maintainable applications. It builds on the Erlang VM, known for creating low-latency, distributed, and fault-tolerant systems. Elixir provides metaprogramming capabilities, allowing developers to extend the language comprehensively, leveraging macros and protocols for polymorphism, enhancing its ability to handle large and complex systems.",
       keywords: ["concurrent", "distributed", "elixir", "erlang", "functional"],
-      websites: [
-        { title: "The Elixir programming language", href: "https://elixir-lang.org/", kind: "homepage" },
-        {
-          title: "Elixir (programming language) - Wikipedia",
-          href: "https://en.wikipedia.org/wiki/Elixir_(programming_language)",
-          kind: "wikipedia",
-        },
-      ],
       extensions: [".ex", ".exs"],
       year: 2012,
       isMainstream: true,
@@ -29,6 +21,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#6e4a7e",
       githubPopular: true,
       githubType: "programming",
+      extWikipediaPath: "Elixir_(programming_language)",
+      extRedditPath: "elixir",
+      extHomeURL: "https://elixir-lang.org/",
     })
     .addInfluencedBy(["pl+clojure", "pl+erlang", "pl+lisp", "pl+ruby"])
     .addLicenses(["license+apache"])

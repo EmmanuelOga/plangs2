@@ -7,11 +7,11 @@ export function define(g: PlangsGraph) {
       description:
         "Amber is a programming language compiled into Bash. It was designed with a modern syntax, safety features, type safety and practical functionalities that Bash could not offer, allowing enhanced runtime and type safety for writing scripts.",
       keywords: ["amber"],
-      websites: [{ title: "Amber", href: "https://amber-lang.com", kind: "homepage" }],
       extensions: [".amber"],
       year: 2015,
       isTranspiler: true,
       releases: [{ version: "0.3.5.alpha", date: "2024-09-04" }],
+      extHomeURL: "https://amber-lang.com",
     })
     .addCompilesTo(["pl+bash"])
     .addInfluencedBy(["pl+smalltalk"])

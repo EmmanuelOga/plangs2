@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "JavaScript, often abbreviated as JS, is a versatile scripting language and a core technology of the World Wide Web, alongside HTML and CSS. It is widely used for web page interactivity, animation, and asynchronous server requests.",
       keywords: ["javascript", "js"],
-      websites: [
-        { title: "ECMA-262", href: "https://ecma-international.org/publications-and-standards/standards/ecma-262/", kind: "homepage" },
-        { title: "JavaScript on Reddit", kind: "reddit", href: "https://reddit.com/r/javascript" },
-        { title: "JavaScript on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/JavaScript" },
-      ],
       extensions: [".cjs", ".js", ".mjs"],
       year: 1995,
       isMainstream: true,
@@ -26,6 +21,9 @@ export function define(g: PlangsGraph) {
         { version: "ECMAScript 2024", name: "ECMAScript 2024", date: "June 2024" },
         { version: "ECMAScript 2025", name: "ECMAScript 2025", date: "March 2024" },
       ],
+      extWikipediaPath: "JavaScript",
+      extRedditPath: "javascript",
+      extHomeURL: "https://ecma-international.org/publications-and-standards/standards/ecma-262/",
     })
     .addImplements(["pl+ecmascript"])
     .addInfluencedBy(["pl+awk", "pl+c", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme", "pl+self"])

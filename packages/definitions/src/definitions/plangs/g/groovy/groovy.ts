@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Apache Groovy is a powerful, optionally typed and dynamic language, with static-typing and static compilation capabilities, for the Java platform. Designed to improve developer productivity, it features a concise, familiar syntax, integrates smoothly with any Java program, and enhances your application with capabilities like scripting, Domain-Specific Language authoring, runtime and compile-time metaprogramming, and functional programming. It has a flat learning curve for Java developers, seamlessly interoperates with Java libraries, and boasts a vibrant ecosystem that includes web development, reactive applications, and build tools like Gradle.",
       keywords: ["groovy", "java", "language", "programming", "scripting"],
-      websites: [
-        { title: "The Apache Groovy Programming Language", href: "https://groovy-lang.org/", kind: "homepage" },
-        { title: "Apache Groovy - Wikipedia", href: "https://en.wikipedia.org/wiki/Apache_Groovy", kind: "wikipedia" },
-      ],
       extensions: [".groovy", ".gsh", ".gvy", ".gy"],
       year: 2003,
       isMainstream: true,
@@ -29,6 +25,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#4298b8",
       githubPopular: true,
       githubType: "programming",
+      extWikipediaPath: "Apache_Groovy",
+      extRedditPath: "groovy",
+      extHomeURL: "https://groovy-lang.org/",
     })
     .addInfluencedBy(["pl+perl", "pl+python", "pl+ruby"])
     .addLicenses(["license+apache"])

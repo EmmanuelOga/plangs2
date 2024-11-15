@@ -7,12 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Coq is an interactive theorem prover first released in 1989. It allows for expressing mathematical assertions, mechanically checks proofs of these assertions, helps find formal proofs, and extracts a certified program from the constructive proof of its formal specification. Coq works within the theory of the calculus of inductive constructions, a derivative of the calculus of constructions. Coq is not an automated theorem prover but includes automatic theorem proving tactics (procedures) and various decision procedures, and is primarily used for formal proof and certification in programming languages and mathematics.",
       keywords: ["coq", "formal proof", "proof assistant", "theorem prover", "verification"],
-      websites: [
-        { title: "coq.inria.fr", href: "https://coq.inria.fr/", kind: "homepage" },
-        { title: "Coq", href: "https://en.wikipedia.org/wiki/Coq_(software)", kind: "wikipedia" },
-        { title: "Coq on Reddit", kind: "reddit", href: "https://reddit.com/r/Coq" },
-        { title: "Coq on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Coq" },
-      ],
       year: 1989,
       isMainstream: false,
       releases: [
@@ -27,6 +21,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#d0b68c",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Coq",
+      extRedditPath: "Coq",
+      extHomeURL: "https://coq.inria.fr/",
     })
     .addInfluencedBy(["pl+ml", "pl+ocaml"])
     .addLicenses(["license+lgpl"])

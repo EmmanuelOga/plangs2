@@ -7,11 +7,11 @@ export function define(g: PlangsGraph) {
       description:
         "Flyde is an open-source visual programming language that integrates seamlessly with TypeScript code and is designed for developers. It allows users to visualize data flows and understand complex logic intuitively, providing a functional-reactive foundation for workflows and programming tasks.",
       keywords: ["flyde", "open-source", "typescript", "visual", "workflow"],
-      websites: [{ title: "Flyde | Visual Programming. For Developers.", href: "https://www.flyde.dev/", kind: "homepage" }],
       extensions: [".flyde"],
       filenames: ["beep.flyde", "debounce.flyde", "hello.flyde", "http.flyde"],
       year: 2023,
       isMainstream: false,
+      extHomeURL: "https://www.flyde.dev/",
     })
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+declarative", "paradigm+frp", "paradigm+visual", "paradigm+workflow"])

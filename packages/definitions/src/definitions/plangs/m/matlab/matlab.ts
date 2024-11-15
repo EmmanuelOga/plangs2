@@ -5,11 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+matlab", {
       name: "MATLAB",
       languishRanking: 47,
-      websites: [
-        { kind: "reddit", title: "MATLAB on Reddit", href: "https://reddit.com/r/matlab" },
-        { title: "MATLAB on Wikipedia", href: "https://en.wikipedia.org/wiki/MATLAB", kind: "wikipedia" },
-        { title: "Official MATLAB Website", href: "https://mathworks.com", kind: "homepage" },
-      ],
       stackovTags: ["matlab"],
       githubName: "MATLAB",
       githubLangId: "225",
@@ -26,6 +21,9 @@ export function define(g: PlangsGraph) {
         { version: "R2024b", name: "Stable Release", date: "2024-09-12" },
         { version: "1.0", name: "Initial commercial release", date: "1984-01-01" },
       ],
+      extWikipediaPath: "MATLAB",
+      extRedditPath: "matlab",
+      extHomeURL: "https://mathworks.com",
     })
     .addParadigms(["paradigm+array", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])

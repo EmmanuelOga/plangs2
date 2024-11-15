@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+starlark", {
       name: "Starlark",
       languishRanking: 77,
-      websites: [{ title: "Bazel (software) - Wikipedia", href: "https://en.wikipedia.org/wiki/Bazel_(software)", kind: "wikipedia" }],
       stackovTags: ["bazel"],
       githubName: "Starlark",
       githubLangId: "960266174",
@@ -18,13 +17,15 @@ export function define(g: PlangsGraph) {
       year: 2015,
       isMainstream: true,
       releases: [{ version: "1.0", name: "Version 1.0", date: "2019-10-01" }],
+      extWikipediaPath: "Bazel_(software)",
+      extRedditPath: "bazel",
     })
-    .addWrittenIn(["pl+java", "pl+go"])
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+dataflow", "paradigm+declarative", "paradigm+scripting"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+automation", "tag+compiler"])
-    .addTypeSystems(["tsys+strong"]);
+    .addTypeSystems(["tsys+strong"])
+    .addWrittenIn(["pl+go", "pl+java"]);
 
   // TOOLS
 

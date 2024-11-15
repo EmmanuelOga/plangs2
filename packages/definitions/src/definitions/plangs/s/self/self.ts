@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Self is a prototype-based dynamic object-oriented programming language, environment, and virtual machine focused on principles like simplicity and uniformity. It allows direct and physical interaction with objects and integrates a programming environment for modifying objects. Influenced by Smalltalk and APL, it influenced languages like JavaScript and NewtonScript.",
       keywords: ["dynamic language", "object-oriented", "prototype", "self"],
-      websites: [
-        { title: "Self | Welcome", href: "http://www.selflanguage.org/", kind: "homepage" },
-        { title: "Self (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Self_(programming_language)", kind: "wikipedia" },
-      ],
       year: 1987,
       isMainstream: false,
       releases: [
@@ -24,6 +20,8 @@ export function define(g: PlangsGraph) {
       githubColor: "#0579aa",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Self_(programming_language)",
+      extHomeURL: "http://www.selflanguage.org/",
     })
     .addInfluencedBy(["pl+apl"])
     .addLicenses(["license+bsd"])

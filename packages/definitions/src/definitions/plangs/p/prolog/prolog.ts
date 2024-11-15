@@ -7,12 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Prolog is a logic programming language that has its origins in artificial intelligence, automated theorem proving and computational linguistics. It is influenced by first-order logic and is primarily used for declarative programming.",
       keywords: ["prolog"],
-      websites: [
-        { title: "ISO Prolog - Part 1 and Part 2", href: "https://www.iso.org/standard/21413.html", kind: "other" },
-        { title: "ISO Prolog - Information technology", href: "https://www.iso.org/standard/20775.html", kind: "other" },
-        { title: "Prolog", href: "https://en.wikipedia.org/wiki/Prolog", kind: "wikipedia" },
-        { title: "Prolog on Reddit", href: "https://reddit.com/r/prolog", kind: "reddit" },
-      ],
       extensions: [".P", ".pl", ".pro"],
       year: 1972,
       isMainstream: true,
@@ -27,6 +21,9 @@ export function define(g: PlangsGraph) {
         { version: "ISO/IEC 13211-1", name: "General core - Edition 1", date: "1995-06" },
         { version: "ISO/IEC 13211-2", name: "Modules - Edition 1", date: "2000-06" },
       ],
+      extWikipediaPath: "Prolog",
+      extRedditPath: "prolog",
+      extHomeURL: "https://www.iso.org/standard/21413.html",
     })
     .addImplements(["pl+curry"])
     .addParadigms(["paradigm+declarative", "paradigm+logic"])

@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Clojure (/ˈkloʊʒər/, like closure) is a dynamic, general-purpose programming language, combining the approachability and interactive development of a scripting language with an efficient and robust infrastructure for multithreaded programming. It is known for its expressiveness, immutability, and concurrency.",
       keywords: ["clojure"],
-      websites: [
-        { title: "Clojure", href: "https://clojure.org/", kind: "homepage" },
-        { title: "Clojure - Wikipedia", href: "https://en.wikipedia.org/wiki/Clojure", kind: "wikipedia" },
-      ],
       extensions: [".clj", ".cljc", ".cljd", ".cljr", ".cljs", ".edn"],
       year: 2007,
       isMainstream: true,
@@ -22,6 +18,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#db5855",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Clojure",
+      extRedditPath: "Clojure",
+      extHomeURL: "https://clojure.org/",
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy([

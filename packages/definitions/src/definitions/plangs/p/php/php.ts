@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "PHP is a popular general-purpose scripting language especially suited to web development. Fast, flexible and pragmatic, PHP powers everything from your blog to the most popular websites in the world.",
       keywords: ["php", "php5", "php7", "php8"],
-      websites: [
-        { title: "PHP", href: "https://www.php.net/", kind: "homepage" },
-        { title: "PHP on Wikipedia", href: "https://en.wikipedia.org/wiki/PHP", kind: "wikipedia" },
-        { title: "PHP on Reddit", kind: "reddit", href: "https://reddit.com/r/PHP" },
-      ],
       extensions: [".phar", ".php", ".php3", ".php4", ".php5", ".phps", ".pht", ".phtml"],
       year: 1995,
       isMainstream: true,
@@ -27,6 +22,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#4F5D95",
       githubPopular: true,
       githubType: "programming",
+      extWikipediaPath: "PHP",
+      extRedditPath: "PHP",
+      extHomeURL: "https://www.php.net/",
     })
     .addInfluencedBy(["pl+c", "pl+java"])
     .addLicenses(["license+php"])

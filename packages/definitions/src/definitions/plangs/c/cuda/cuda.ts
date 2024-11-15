@@ -5,10 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+cuda", {
       name: "CUDA",
       languishRanking: 56,
-      websites: [
-        { title: "CUDA - Wikipedia", href: "https://en.wikipedia.org/wiki/CUDA", kind: "wikipedia" },
-        { title: "CUDA Zone - Nvidia Developer", href: "https://developer.nvidia.com/cuda-zone", kind: "homepage" },
-      ],
       stackovTags: ["cuda"],
       githubName: "Cuda",
       githubLangId: "77",
@@ -25,6 +21,9 @@ export function define(g: PlangsGraph) {
         { version: "12.6", name: "Stable release", date: "2024-08" },
         { version: "1.0", name: "Initial release", date: "2007-06-23" },
       ],
+      extWikipediaPath: "CUDA",
+      extRedditPath: "CUDA",
+      extHomeURL: "https://developer.nvidia.com/cuda-zone",
     })
     .addParadigms(["paradigm+compiled", "paradigm+parallel"])
     .addPlatforms(["plat+linux", "plat+windows"]);

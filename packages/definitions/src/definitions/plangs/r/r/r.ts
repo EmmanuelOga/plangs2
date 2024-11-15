@@ -6,10 +6,6 @@ export function define(g: PlangsGraph) {
       name: "R",
       description:
         "R is a language and environment for statistical computing and graphics. It is widely used among statisticians and data miners for data analysis and developing statistical software.",
-      websites: [
-        { title: "The R Project for Statistical Computing", href: "https://www.r-project.org/", kind: "homepage" },
-        { title: "R (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/R_(programming_language)", kind: "wikipedia" },
-      ],
       extensions: [".r", ".rda", ".rdata", ".rds", ".rhistory"],
       year: 1993,
       isMainstream: true,
@@ -27,6 +23,9 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       keywords: ["CRAN", "data analysis", "data visualization", "graphics", "open source", "statistical computing", "statisticians"],
+      extWikipediaPath: "R_(programming_language)",
+      extRedditPath: "Rlanguage",
+      extHomeURL: "https://www.r-project.org/",
     })
     .addInfluencedBy(["pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+s", "pl+scheme", "pl+xlispstat"])
     .addLicenses(["license+gnu-gpl"])

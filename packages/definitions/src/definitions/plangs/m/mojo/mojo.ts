@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Mojo is a programming language in the Python family, designed to deliver Python's expressiveness with the performance of C, and is particularly geared towards AI development, supporting high-performance computing on diverse hardware.",
       keywords: ["AI", "modular", "mojo", "performance", "programming"],
-      websites: [
-        { title: "Programming language for all of AI", href: "https://www.modular.com/mojo", kind: "homepage" },
-        { title: "Mojo (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Mojo_(programming_language)", kind: "wikipedia" },
-      ],
       extensions: [".mojo", ".🔥"],
       year: 2023,
       stackovTags: ["mojolang"],
@@ -22,6 +18,9 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isMainstream: false,
       releases: [{ version: "24.4", name: "Preview release", date: "2024-05-24" }],
+      extWikipediaPath: "Mojo_(programming_language)",
+      extRedditPath: "MojoLang",
+      extHomeURL: "https://www.modular.com/mojo",
     })
     .addInfluencedBy(["pl+python", "pl+swift"])
     .addLicenses(["license+apache"])

@@ -9,10 +9,6 @@ export function define(g: PlangsGraph) {
       year: 1980,
       extensions: [".adb", ".ads"],
       keywords: ["ada", "concurrency", "design by contract", "high-level", "object-oriented", "systems programming"],
-      websites: [
-        { title: "Ada Resource Association", href: "https://www.adaic.org/", kind: "homepage" },
-        { title: "Ada on Wikipedia", href: "https://en.wikipedia.org/wiki/Ada_programming_language", kind: "wikipedia" },
-      ],
       isMainstream: true,
       releases: [{ version: "ISO/IEC 8652:2023", name: "Ada 2022", date: "2023-05-01" }],
       stackovTags: ["ada"],
@@ -22,6 +18,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#02f88c",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Ada_(programming_language)",
+      extRedditPath: "ada",
+      extHomeURL: "https://www.adaic.org/",
     })
     .addDialectOf(["pl+pascal"])
     .addInfluencedBy(["pl+c++", "pl+clu", "pl+eiffel", "pl+pascal"])

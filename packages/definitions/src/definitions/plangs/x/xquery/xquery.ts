@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "XQuery (XML Query) is a query and functional programming language that queries and transforms collections of structured and unstructured data, usually in the form of XML, text and with vendor-specific extensions for other data formats like JSON. The language is developed by the XML Query working group of the W3C. The work is closely coordinated with the development of XSLT by the XSL Working Group; the two groups share responsibility for XPath, which is a subset of XQuery.",
       keywords: ["functional", "query", "xml", "xpath", "xquery", "xslt"],
-      websites: [
-        { title: "W3C XML Query Language", href: "http://www.w3.org/XML/Query/", kind: "homepage" },
-        { title: "XQuery on Wikipedia", href: "https://en.wikipedia.org/wiki/XQuery", kind: "wikipedia" },
-        { title: "XQuery on Reddit", kind: "reddit", href: "https://reddit.com/r/xquery" },
-      ],
       extensions: [".xq", ".xql", ".xqm", ".xquery", ".xqy"],
       year: 2007,
       isMainstream: true,
@@ -27,6 +22,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#5232e7",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "XQuery",
+      extRedditPath: "xquery",
+      extHomeURL: "http://www.w3.org/XML/Query/",
     })
     .addInfluencedBy(["pl+sql", "pl+xpath", "pl+xslt"])
     .addParadigms(["paradigm+data-exchange", "paradigm+declarative", "paradigm+dsl", "paradigm+functional", "paradigm+modular", "paradigm+query"])

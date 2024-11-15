@@ -9,11 +9,6 @@ export function define(g: PlangsGraph) {
       year: 1991,
       extensions: [".py", ".pyc", ".pyd", ".pyi", ".pyw", ".pyz"],
       keywords: ["python"],
-      websites: [
-        { title: "General Python FAQ — Python 3.13.0 documentation", href: "https://docs.python.org/3/faq/general.html", kind: "faq" },
-        { title: "Python (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Python_programming_language", kind: "wikipedia" },
-        { title: "Welcome to Python.org", href: "https://www.python.org/", kind: "homepage" },
-      ],
       isMainstream: true,
       releases: [
         { version: "2.0", name: "Python 2.0", date: "2000-10-16" },
@@ -29,6 +24,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#3572A5",
       githubPopular: true,
       githubType: "programming",
+      extWikipediaPath: "Python_(programming_language)",
+      extRedditPath: "Python",
+      extHomeURL: "https://www.python.org/",
     })
     .addInfluencedBy([
       "pl+abc",

@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Clean is a general-purpose purely functional programming language designed for real-world applications. It is known for its uniqueness typing, dynamic typing, generic functions, and lazy evaluation. Developed since 1987 by the Software Technology Research Group of Radboud University Nijmegen, Clean shares many properties with Haskell, offering an efficient compilation to machine code with its unique type system.",
       keywords: ["clean", "functional programming", "uniqueness typing"],
-      websites: [
-        { title: "Clean", href: "http://clean.cs.ru.nl/", kind: "homepage" },
-        { title: "Clean (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Clean_(programming_language)", kind: "wikipedia" },
-      ],
       extensions: [".abc", ".dcl", ".icl"],
       year: 1987,
       isMainstream: false,
@@ -22,6 +18,8 @@ export function define(g: PlangsGraph) {
       githubColor: "#3F85AF",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Clean_(programming_language)",
+      extHomeURL: "http://clean.cs.ru.nl/",
     })
     .addInfluencedBy(["pl+haskell"])
     .addLicenses(["license+bsd"])

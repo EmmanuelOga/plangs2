@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         'Forth is a stack-oriented programming language and interactive integrated development environment designed by Charles H. "Chuck" Moore and first introduced in 1970. The language\'s unique feature is its ability to extend itself at runtime, making it quite flexible and powerful. Commonly used in embedded systems, spaceflight applications, and boot loaders, it is known for its efficiency and small memory footprint. Forth combines a compiler with an interactive command shell and relies on Reverse Polish Notation.',
       keywords: ["concatenative", "forth", "procedural", "reflective", "stack-oriented"],
-      websites: [
-        { title: "Forth", href: "https://forth-standard.org/", kind: "homepage" },
-        { title: "Forth (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Forth_(programming_language)", kind: "wikipedia" },
-      ],
       extensions: [".4th", ".f", ".forth", ".fs", ".fth"],
       year: 1970,
       isMainstream: false,
@@ -21,6 +17,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#341708",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Forth_(programming_language)",
+      extRedditPath: "Forth",
+      extHomeURL: "https://forth-standard.org/",
     })
     .addInfluencedBy(["pl+lisp"])
     .addLicenses(["license+public-domain"])

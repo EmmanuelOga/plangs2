@@ -5,10 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+abap", {
       name: "ABAP",
       languishRanking: 81,
-      websites: [
-        { title: "ABAP on Wikipedia", href: "https://en.wikipedia.org/wiki/ABAP", kind: "wikipedia" },
-        { title: "SAP Community - ABAP", href: "https://community.sap.com/topics/abap", kind: "other" },
-      ],
       stackovTags: ["abap"],
       githubName: "ABAP",
       githubLangId: "1",
@@ -22,6 +18,9 @@ export function define(g: PlangsGraph) {
       year: 1983,
       isMainstream: true,
       releases: [{ version: "7.58", name: "Stable Release", date: "2023-10-26" }],
+      extWikipediaPath: "ABAP",
+      extRedditPath: "abap",
+      extHomeURL: "https://community.sap.com/topics/abap",
     })
     .addParadigms(["paradigm+imperative", "paradigm+oop", "paradigm+structured"])
     .addPlatforms(["plat+cross"])

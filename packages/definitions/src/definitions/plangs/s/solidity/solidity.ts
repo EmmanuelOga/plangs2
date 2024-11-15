@@ -5,11 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+solidity", {
       name: "Solidity",
       languishRanking: 55,
-      websites: [
-        { title: "Solidity - Wikipedia", href: "https://en.wikipedia.org/wiki/Solidity", kind: "wikipedia" },
-        { title: "Solidity Language Official Site", href: "https://soliditylang.org", kind: "homepage" },
-        { title: "Solidity on Reddit", href: "https://reddit.com/r/ethdev", kind: "reddit" },
-      ],
       stackovTags: ["solidity"],
       githubName: "Solidity",
       githubLangId: "237469032",
@@ -23,6 +18,9 @@ export function define(g: PlangsGraph) {
       year: 2014,
       isMainstream: true,
       releases: [{ version: "0.8.28", name: "Stable release", date: "2024-10-09" }],
+      extWikipediaPath: "Solidity",
+      extRedditPath: "ethdev",
+      extHomeURL: "https://soliditylang.org",
     })
     .addLicenses(["license+gnu-gpl"])
     .addParadigms(["paradigm+imperative"])

@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "XProc is an XML transformation language for processing documents in pipelines: chaining conversions and other steps together to achieve the desired results. It can handle documents in XML, HTML, JSON, text and binary data seamlessly.",
       keywords: ["pipeline", "transformation", "xml", "xproc", "xproc 3.0"],
-      websites: [
-        { title: "XProc - Wikipedia", href: "https://en.wikipedia.org/wiki/XProc", kind: "wikipedia" },
-        { title: "XProc - Home", href: "https://xproc.org/", kind: "homepage" },
-      ],
       extensions: [".xpl"],
       year: 2010,
       isMainstream: false,
@@ -24,6 +20,8 @@ export function define(g: PlangsGraph) {
       githubLangId: "401",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "XProc",
+      extHomeURL: "https://xproc.org/",
     })
     .addInfluencedBy(["pl+xml"])
     .addParadigms(["paradigm+declarative", "paradigm+dsl", "paradigm+pipeline"])

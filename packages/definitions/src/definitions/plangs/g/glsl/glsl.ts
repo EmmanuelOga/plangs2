@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+glsl", {
       name: "GLSL",
       languishRanking: 75,
-      websites: [{ title: "OpenGL Shading Language - Wikipedia", href: "https://en.wikipedia.org/wiki/OpenGL_Shading_Language", kind: "wikipedia" }],
       stackovTags: ["glsl"],
       githubName: "GLSL",
       githubLangId: "124",
@@ -23,6 +22,8 @@ export function define(g: PlangsGraph) {
         { version: "3.30.6", name: "Version 3.30.6", date: "2010-03-11" },
         { version: "4.60.5", name: "Version 4.60.5", date: "2018-06-14" },
       ],
+      extWikipediaPath: "OpenGL_Shading_Language",
+      extRedditPath: "glsl",
     })
     .addParadigms(["paradigm+compiled", "paradigm+multi", "paradigm+procedural"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])

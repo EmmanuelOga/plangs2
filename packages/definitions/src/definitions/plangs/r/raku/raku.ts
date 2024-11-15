@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Raku is a member of the Perl family of programming languages. Formerly named Perl 6, it was renamed in October 2019. Raku introduces elements of many modern and historical languages. Compatibility with Perl was not a goal, though a compatibility mode is part of the specification. The design process for Raku began in 2000. Designed by Larry Wall and developed by the Raku community, it is a multi-paradigm language with a dynamic and gradual typing system.",
       keywords: ["perl6", "raku"],
-      websites: [
-        { title: "raku.org", href: "http://raku.org/", kind: "homepage" },
-        { title: "Raku", href: "https://en.wikipedia.org/wiki/Raku_(programming_language)", kind: "wikipedia" },
-        { title: "Raku on Reddit", kind: "reddit", href: "https://reddit.com/r/rakulang" },
-      ],
       extensions: [".raku", ".rakudoc", ".rakumod", ".rakutest", ".t"],
       year: 2015,
       releases: [
@@ -27,6 +22,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#0000fb",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Raku_(programming_language)",
+      extRedditPath: "rakulang",
+      extHomeURL: "http://raku.org/",
     })
     .addDialectOf(["pl+perl"])
     .addInfluencedBy(["pl+haskell", "pl+javascript", "pl+perl", "pl+ruby"])

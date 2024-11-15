@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Gleam is a general-purpose, concurrent, functional high-level programming language that compiles to Erlang or JavaScript source code. It features a type-safe, static, inferred typing discipline and runs on the Erlang virtual machine BEAM, known for its reliability, scalability, and fault tolerance.",
       keywords: ["concurrent", "erlang", "functional", "gleam", "javascript", "type-safe"],
-      websites: [
-        { title: "Gleam Language", href: "https://gleam.run/", kind: "homepage" },
-        { title: "Gleam (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Gleam_(programming_language)", kind: "wikipedia" },
-      ],
       extensions: [".gleam"],
       year: 2016,
       isTranspiler: true,
@@ -27,6 +23,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#ffaff3",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Gleam_(programming_language)",
+      extRedditPath: "gleamlang",
+      extHomeURL: "https://gleam.run/",
     })
     .addCompilesTo(["pl+javascript"])
     .addInfluencedBy(["pl+elixir", "pl+erlang", "pl+go", "pl+javascript", "pl+ocaml", "pl+rust"])

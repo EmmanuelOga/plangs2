@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Go is a statically typed, compiled high-level programming language designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson. It is syntactically similar to C, but offers memory safety, garbage collection, structural typing, and CSP-style concurrency. Sometimes referred to as Golang due to its former domain name golang.org, its proper name is Go. It is suitable for building scalable, simple, and secure systems.",
       keywords: ["go", "golang"],
-      websites: [
-        { title: "The Go Programming Language", href: "https://go.dev/", kind: "homepage" },
-        { title: "Go (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Go_(programming_language)", kind: "wikipedia" },
-      ],
       extensions: [".go"],
       year: 2009,
       isMainstream: true,
@@ -25,6 +21,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#00ADD8",
       githubPopular: true,
       githubType: "programming",
+      extWikipediaPath: "Go_(programming_language)",
+      extRedditPath: "golang",
+      extHomeURL: "https://go.dev/",
     })
     .addInfluencedBy(["pl+apl", "pl+c", "pl+d", "pl+erlang", "pl+modula", "pl+oberon", "pl+pascal", "pl+python"])
     .addLicenses(["license+bsd"])

@@ -5,10 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+html", {
       name: "HTML",
       languishRanking: 7,
-      websites: [
-        { kind: "reddit", title: "HTML on Reddit", href: "https://reddit.com/r/HTML" },
-        { title: "HTML - Wikipedia", href: "https://en.wikipedia.org/wiki/HTML", kind: "wikipedia" },
-      ],
       stackovTags: ["html"],
       githubName: "HTML",
       githubLangId: "146",
@@ -25,6 +21,8 @@ export function define(g: PlangsGraph) {
         { version: "4.01", name: "HTML 4.01", date: "1999-12-24" },
         { version: "5", name: "HTML 5", date: "2014-10-28" },
       ],
+      extWikipediaPath: "HTML",
+      extRedditPath: "HTML",
     })
     .addParadigms(["paradigm+declarative"])
     .addPlatforms(["plat+web"])

@@ -5,10 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+plsql", {
       name: "PLSQL",
       languishRanking: 78,
-      websites: [
-        { title: "PLSQL on Reddit", href: "https://reddit.com/r/plsql", kind: "reddit" },
-        { title: "PL/SQL - Wikipedia", href: "https://en.wikipedia.org/wiki/PL/SQL", kind: "wikipedia" },
-      ],
       stackovTags: ["plsql"],
       githubName: "PLSQL",
       githubLangId: "273",
@@ -22,6 +18,8 @@ export function define(g: PlangsGraph) {
       year: 1995,
       isMainstream: true,
       releases: [{ version: "1.0", name: "Initial Release", date: "1995" }],
+      extWikipediaPath: "PL/SQL",
+      extRedditPath: "plsql",
     })
     .addParadigms(["paradigm+imperative", "paradigm+procedural"])
     .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])

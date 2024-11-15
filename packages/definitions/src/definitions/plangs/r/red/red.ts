@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Red is a programming language designed to overcome the limitations of the programming language Rebol. Red was introduced in 2011 by Nenad Rakočević, and is both an imperative and functional programming language. Its syntax and general usage overlap that of the interpreted Rebol language.",
       keywords: ["functional", "imperative", "language", "programming", "rebol", "symbolic"],
-      websites: [
-        { title: "www.red-lang.org", href: "https://www.red-lang.org/", kind: "homepage" },
-        { title: "Red", href: "https://en.wikipedia.org/wiki/Red_(programming_language)", kind: "wikipedia" },
-        { title: "Red on Reddit", kind: "reddit", href: "https://reddit.com/r/redlang" },
-      ],
       extensions: [".red", ".reds"],
       year: 2011,
       isMainstream: false,
@@ -23,6 +18,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#f50000",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Red_(programming_language)",
+      extRedditPath: "redlang",
+      extHomeURL: "https://www.red-lang.org/",
     })
     .addInfluencedBy(["pl+lisp", "pl+lua", "pl+rebol"])
     .addLicenses(["license+boost", "license+bsd"])

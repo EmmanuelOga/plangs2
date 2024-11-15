@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Cython is an optimising static compiler for both the Python programming language and the extended Cython programming language, making it easy to write C extensions for Python. It allows developers to write Python code that calls and interacts with C or C++ code with efficiency close to that of C.",
       keywords: ["c", "c++", "compiler", "cython", "extensions", "python"],
-      websites: [
-        { title: "Cython: C-Extensions for Python", href: "https://cython.org/", kind: "homepage" },
-        { title: "Cython - Wikipedia", href: "https://en.wikipedia.org/wiki/Cython", kind: "wikipedia" },
-      ],
       extensions: [".pxd", ".pxi", ".pyx"],
       year: 2007,
       isMainstream: true,
@@ -27,6 +23,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#fedf5b",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Cython",
+      extRedditPath: "Cython",
+      extHomeURL: "https://cython.org/",
     })
     .addDialectOf(["pl+python"])
     .addInfluencedBy(["pl+c", "pl+python"])

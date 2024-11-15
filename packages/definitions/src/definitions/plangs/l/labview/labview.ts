@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Laboratory Virtual Instrument Engineering Workbench (LabVIEW) is a graphical system design and development platform produced and distributed by National Instruments, based on a programming environment that uses a visual programming language. It is widely used for data acquisition, instrument control, and industrial automation. It provides tools for designing and deploying complex test and measurement systems.",
       keywords: ["labview"],
-      websites: [
-        { title: "What is NI LabVIEW? Graphical Programming for Test & Measurement", href: "https://www.ni.com/labview", kind: "homepage" },
-        { title: "LabVIEW - Wikipedia", href: "https://en.wikipedia.org/wiki/LabVIEW", kind: "wikipedia" },
-        { title: "LabVIEW on Reddit", href: "https://reddit.com/r/LabVIEW", kind: "reddit" },
-      ],
       extensions: [".lvproj", ".vi"],
       year: 1986,
       isMainstream: true,
@@ -27,6 +22,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#fede06",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "LabVIEW",
+      extRedditPath: "LabVIEW",
+      extHomeURL: "https://www.ni.com/labview",
     })
     .addParadigms(["paradigm+concurrent", "paradigm+dataflow", "paradigm+event-driven", "paradigm+low-code", "paradigm+multi", "paradigm+visual"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])

@@ -5,10 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+webassembly", {
       name: "WebAssembly",
       languishRanking: 93,
-      websites: [
-        { title: "WebAssembly - Wikipedia", href: "https://en.wikipedia.org/wiki/WebAssembly", kind: "wikipedia" },
-        { title: "WebAssembly Official Site", href: "https://webassembly.org", kind: "homepage" },
-      ],
       stackovTags: ["webassembly"],
       githubName: "WebAssembly",
       githubLangId: "956556503",
@@ -26,6 +22,9 @@ export function define(g: PlangsGraph) {
         { version: "Core Specification Release", name: "Publication", date: "2018-02" },
         { version: "2.0 Draft", name: "Draft Status", date: "2022-04" },
       ],
+      extWikipediaPath: "WebAssembly",
+      extRedditPath: "WebAssembly",
+      extHomeURL: "https://webassembly.org",
     })
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+stack-oriented", "paradigm+structured"])

@@ -5,10 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+blade", {
       name: "Blade",
       languishRanking: 69,
-      websites: [
-        { kind: "reddit", title: "Blade on Reddit", href: "https://reddit.com/r/laravel" },
-        { title: "Laravel on Wikipedia", href: "https://en.wikipedia.org/wiki/Laravel", kind: "wikipedia" },
-      ],
       stackovTags: ["laravel-blade"],
       githubName: "Blade",
       githubLangId: "33",
@@ -22,6 +18,8 @@ export function define(g: PlangsGraph) {
       year: 2011,
       isTranspiler: true,
       isMainstream: true,
+      extWikipediaPath: "Laravel",
+      extRedditPath: "laravel",
     })
     .addCompilesTo(["pl+php"])
     .addLicenses(["license+mit"])

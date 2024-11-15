@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         'Whiley is an experimental programming language that combines features from the functional and imperative paradigms, and supports formal specification through function preconditions, postconditions and loop invariants. The language uses flow-sensitive typing also known as "flow typing."',
       keywords: ["whiley"],
-      websites: [
-        { title: "whiley.org", href: "http://whiley.org/", kind: "homepage" },
-        { title: "Whiley", href: "https://en.wikipedia.org/wiki/Whiley_(programming_language)", kind: "wikipedia" },
-      ],
       extensions: [".whiley"],
       year: 2010,
       isMainstream: false,
@@ -20,6 +16,8 @@ export function define(g: PlangsGraph) {
       githubColor: "#d5c397",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Whiley_(programming_language)",
+      extHomeURL: "http://whiley.org/",
     })
     .addInfluencedBy(["pl+c", "pl+python", "pl+rust"])
     .addLicenses(["license+bsd"])

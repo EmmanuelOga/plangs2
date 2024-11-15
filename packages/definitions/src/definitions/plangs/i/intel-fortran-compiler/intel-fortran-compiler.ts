@@ -7,14 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Intel Fortran Compiler is a suite of Fortran compilers from Intel, designed for high-performance computing on Windows, macOS, and Linux platforms. It is part of the Intel OneAPI HPC toolkit, supporting features like optimized CPU and GPU code generation.",
       keywords: ["compiler", "fortran", "high-performance computing", "intel"],
-      websites: [
-        {
-          title: "Intel Fortran Compiler - Intel Software",
-          href: "http://software.intel.com/content/www/us/en/develop/tools/oneapi/components/fortran-compiler.html",
-          kind: "homepage",
-        },
-        { title: "Intel Fortran Compiler - Wikipedia", href: "https://en.wikipedia.org/wiki/Intel_Fortran_Compiler", kind: "wikipedia" },
-      ],
       extensions: [".f", ".f90", ".f95", ".for"],
       year: 2003,
       isMainstream: true,
@@ -22,6 +14,8 @@ export function define(g: PlangsGraph) {
         { version: "2023.2.1", name: "2023.2.1", date: "2023-07-28" },
         { version: "2024.0.0", name: "2024.0.0", date: "2023-11-20" },
       ],
+      extWikipediaPath: "Intel_Fortran_Compiler",
+      extHomeURL: "http://software.intel.com/content/www/us/en/develop/tools/oneapi/components/fortran-compiler.html",
     })
     .addImplements(["pl+fortran"])
     .addLicenses(["license+bsd"])

@@ -7,11 +7,11 @@ export function define(g: PlangsGraph) {
       description:
         "Wing is a high-level programming language designed for cloud infrastructure management, providing developers with simplified syntax and powerful features for building and managing cloud-native and serverless applications effectively. Designed to reduce complexity, Wing offers enhanced productivity in interacting with cloud services, especially AWS.",
       keywords: ["cloud", "programming", "serverless"],
-      websites: [{ title: "Wing Programming Language for the cloud", href: "https://www.winglang.io/", kind: "homepage" }],
       extensions: [".w"],
       year: 2022,
       releases: [{ version: "1.0.0", name: "Wing Initial Release", date: "2022-09-01" }],
       isMainstream: false,
+      extHomeURL: "https://www.winglang.io/",
     })
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+declarative", "paradigm+event-driven", "paradigm+multi", "paradigm+reactive", "paradigm+scripting"])

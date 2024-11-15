@@ -7,14 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Euphoria is a powerful yet easy-to-learn programming language that emphasizes simplicity and readability, making it suitable for a wide range of applications across Windows, Linux, macOS, and BSD. It was first released in 1993 as shareware and has evolved over time into an open-source community-driven project. Its design focuses on rapid development and performance, incorporating features like an interpreter, C translator, and simple syntax using English keywords.",
       keywords: ["euphoria", "open source", "programming language"],
-      websites: [
-        { title: "OpenEuphoria: News Index", href: "http://openeuphoria.org/", kind: "homepage" },
-        {
-          title: "Euphoria (programming language) - Wikipedia",
-          href: "https://en.wikipedia.org/wiki/Euphoria_(programming_language)",
-          kind: "wikipedia",
-        },
-      ],
       extensions: [".e", ".edb", ".ex", ".exw"],
       year: 1993,
       isMainstream: false,
@@ -25,6 +17,8 @@ export function define(g: PlangsGraph) {
       githubColor: "#FF790B",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Euphoria_(programming_language)",
+      extHomeURL: "http://openeuphoria.org/",
     })
     .addInfluencedBy(["pl+basic"])
     .addLicenses(["license+bsd"])

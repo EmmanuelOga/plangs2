@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Lua (/ˈluːə/ LOO-ə; from Portuguese: lua [ˈlu(w)ɐ] meaning moon) is a lightweight, high-level, multi-paradigm programming language designed mainly for embedded use in applications. Lua is cross-platform software, since the interpreter of compiled bytecode is written in ANSI C, and Lua has a relatively simple C application programming interface (API) to embed it into applications.",
       keywords: ["lua"],
-      websites: [
-        { title: "The Programming Language Lua", href: "https://www.lua.org/", kind: "homepage" },
-        { title: "Lua (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Lua_(programming_language)", kind: "wikipedia" },
-      ],
       extensions: [".lua"],
       year: 1993,
       isMainstream: true,
@@ -22,6 +18,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#000080",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Lua_(programming_language)",
+      extRedditPath: "lua",
+      extHomeURL: "https://www.lua.org/",
     })
     .addInfluencedBy(["pl+awk", "pl+c++", "pl+clu", "pl+lisp", "pl+modula", "pl+r5rs", "pl+scheme", "pl+self"])
     .addLicenses(["license+mit"])

@@ -5,11 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+bicep", {
       name: "Bicep",
       languishRanking: 80,
-      websites: [
-        { kind: "reddit", title: "Bicep on Reddit", href: "https://reddit.com/r/AzureBicep" },
-        { title: "Bicep on GitHub", href: "https://github.com/Azure/bicep", kind: "repository" },
-        { title: "Bicep Documentation", href: "https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/", kind: "apidocs" },
-      ],
       stackovTags: ["azure-bicep"],
       githubName: "Bicep",
       githubLangId: "321200902",
@@ -22,6 +17,10 @@ export function define(g: PlangsGraph) {
       extensions: [".bicep"],
       year: 2020,
       isMainstream: false,
+      isTranspiler: true,
+      extRedditPath: "AzureBicep",
+      extGithubPath: "Azure/bicep",
+      extHomeURL: "https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/",
     })
     .addCompilesTo(["pl+json", "pl+typescript"])
     .addLicenses(["license+mit"])

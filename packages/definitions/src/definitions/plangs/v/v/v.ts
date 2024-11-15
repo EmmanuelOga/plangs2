@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "V, also known as vlang, is a statically typed, compiled programming language created by Alexander Medvednikov in early 2019. It was inspired by the language Go, along with other influences like Oberon, Swift, and Rust. V aims for simplicity, readability, maintainability, and performance. It is free and open-source, with a model that emphasizes speed, safety, and reliability, under the MIT License.",
       keywords: ["v language", "v programming", "vlang"],
-      websites: [
-        { title: "vlang.io", href: "http://vlang.io/", kind: "homepage" },
-        { title: "V", href: "https://en.wikipedia.org/wiki/V_(programming_language)", kind: "wikipedia" },
-        { title: "V on Reddit", kind: "reddit", href: "https://reddit.com/r/vlang" },
-      ],
       extensions: [".v", ".vsh"],
       year: 2019,
       isTranspiler: true,
@@ -24,6 +19,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#4f87c4",
       githubPopular: false,
       githubType: "programming",
+      extRedditPath: "vlang",
+      extWikipediaPath: "V_(programming_language)",
+      extHomeURL: "http://vlang.io/",
     })
     .addCompilesTo(["pl+c"])
     .addInfluencedBy(["pl+go", "pl+oberon", "pl+rust", "pl+swift"])

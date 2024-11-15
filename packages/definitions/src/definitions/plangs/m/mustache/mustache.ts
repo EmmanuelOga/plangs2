@@ -5,11 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+mustache", {
       name: "Mustache",
       languishRanking: 87,
-      websites: [
-        { title: "Mustache (template system) - Wikipedia", href: "https://en.wikipedia.org/wiki/Mustache_(template_system)", kind: "wikipedia" },
-        { title: "Mustache Homepage", href: "http://mustache.github.io", kind: "homepage" },
-        { title: "Mustache GitHub Repository", href: "https://github.com/mustache/mustache", kind: "repository" },
-      ],
       stackovTags: ["mustache"],
       githubName: "Mustache",
       githubLangId: "638334590",
@@ -24,6 +19,9 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       isMainstream: true,
       releases: [{ version: "4.2.0", name: "Stable release", date: "2021-03-28" }],
+      extWikipediaPath: "Mustache_(template_system)",
+      extGithubPath: "mustache/mustache",
+      extHomeURL: "http://mustache.github.io",
     })
     .addCompilesTo(["pl+javascript"])
     .addLicenses(["license+mit"])

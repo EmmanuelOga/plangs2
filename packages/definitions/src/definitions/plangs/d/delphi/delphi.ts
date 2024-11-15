@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Delphi is a general-purpose programming language and a software product that uses the Delphi dialect of the Object Pascal programming language and provides an integrated development environment (IDE) for rapid application development of desktop, mobile, web, and console software. It is currently developed and maintained by Embarcadero Technologies.",
       keywords: ["delphi", "object pascal"],
-      websites: [
-        { title: "Delphi: IDE Software Overview - Embarcadero", href: "https://www.embarcadero.com/products/delphi", kind: "homepage" },
-        { title: "Delphi (software) - Wikipedia", href: "https://en.wikipedia.org/wiki/Delphi_(software)", kind: "wikipedia" },
-        { title: "Delphi on Reddit", href: "https://reddit.com/r/delphi", kind: "reddit" },
-      ],
       extensions: [".dpr", ".pas"],
       year: 1995,
       isMainstream: true,
@@ -27,6 +22,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#E3F171",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Pascal_(programming_language)",
+      extRedditPath: "pascal",
+      extHomeURL: "https://www.embarcadero.com/products/delphi",
     })
     .addDialectOf(["pl+pascal"])
     .addImplements(["pl+pascal"])

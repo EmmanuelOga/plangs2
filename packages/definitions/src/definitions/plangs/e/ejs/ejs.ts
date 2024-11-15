@@ -13,16 +13,13 @@ export function define(g: PlangsGraph) {
       githubType: "markup",
       description:
         "EJS (Embedded JavaScript) is a simple templating language that lets you generate HTML markup with plain JavaScript. It is often used in web applications to embed dynamic content in HTML pages.",
-      websites: [
-        { title: "EJS Official GitHub Repository", href: "https://github.com/mde/ejs", kind: "repository" },
-        { title: "EJS - Embedded JavaScript templates", href: "https://ejs.co/", kind: "homepage" },
-        { title: "EJS Documentation", href: "https://ejs.co/#docs", kind: "apidocs" },
-      ],
       keywords: ["HTML", "JavaScript", "dynamic", "templating", "web"],
       extensions: [".ejs"],
       year: 2010,
       isTranspiler: true,
       isMainstream: true,
+      extGithubPath: "mde/ejs",
+      extHomeURL: "https://ejs.co/",
     })
     .addCompilesTo(["pl+javascript"])
     .addLicenses(["license+mit"])

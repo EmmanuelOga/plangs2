@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "C3 is an modern programming language that enhances the traditional C language with modern features while retaining compatibility with C. It offers full C ABI compatibility, intuitive module system, semantic macros, and improved error handling among other features. It's designed to be an evolution, not a revolution, making it easier for C developers to adapt it in existing projects. The language supports procedural programming paradigms and includes powerful reflection capabilities, enabling robust debugging and development experiences.",
       keywords: ["c-language", "c3", "programming", "system"],
-      websites: [
-        { title: "C3", href: "https://c3-lang.org", kind: "homepage" },
-        { title: "C3", href: "https://github.com/c3lang/c3c", kind: "repository" },
-      ],
       extensions: [".c3"],
       year: 2019,
       releases: [
@@ -19,6 +15,8 @@ export function define(g: PlangsGraph) {
       ],
       isMainstream: false,
       isTranspiler: true,
+      extGithubPath: "c3lang/c3c",
+      extHomeURL: "https://c3-lang.org",
     })
     .addInfluencedBy(["pl+c"])
     .addLicenses(["license+lgpl", "license+mit"])

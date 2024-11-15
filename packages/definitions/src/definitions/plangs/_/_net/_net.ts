@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         'The .NET platform (pronounced as "dot net") is a free and open-source, managed computer software framework for Windows, Linux, and macOS operating systems. It is developed by Microsoft employees and the open-source community through the .NET Foundation and is released under the MIT License. .NET is known for its cross-platform capabilities and support for multiple programming paradigms, making it suitable for building a wide range of applications from web and mobile to cloud and microservices.',
       keywords: [".net", "dotnet"],
-      websites: [
-        { title: ".NET | Build. Test. Deploy.", href: "http://dotnet.microsoft.com/", kind: "homepage" },
-        { title: ".NET - Wikipedia", href: "https://en.wikipedia.org/wiki/.NET", kind: "wikipedia" },
-      ],
       extensions: [".csproj", ".fsproj", ".sln", ".vbproj"],
       year: 2016,
       isMainstream: true,
@@ -19,12 +15,14 @@ export function define(g: PlangsGraph) {
         { version: "8.0", name: ".NET 8", date: "2023-09-14" },
         { version: "9.0", name: ".NET 9", date: "2024-09-12" },
       ],
+      extWikipediaPath: ".NET",
+      extHomeURL: "http://dotnet.microsoft.com/",
     })
     .addImplements(["pl+c-sharp", "pl+f-sharp", "pl+visual-basic"])
     .addInfluencedBy(["pl+java", "pl+smalltalk"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+.net", "plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+windows", "plat+x86-64", "plat+wasm"])
+    .addPlatforms(["plat+.net", "plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64"])
     .addTags(["tag+app", "tag+cli", "tag+compiler", "tag+framework", "tag+interpreter", "tag+shell", "tag+ui"])
     .addTypeSystems(["tsys+nominal", "tsys+polymorphic", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c++", "pl+c-sharp"]);

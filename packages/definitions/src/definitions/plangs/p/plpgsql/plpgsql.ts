@@ -5,10 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+plpgsql", {
       name: "PLpgSQL",
       languishRanking: 28,
-      websites: [
-        { kind: "reddit", title: "PLpgSQL on Reddit", href: "https://reddit.com/r/PostgreSQL" },
-        { kind: "wikipedia", title: "PLpgSQL on Wikipedia", href: "https://en.wikipedia.org/wiki/pgSQL" },
-      ],
       stackovTags: ["postgresql"],
       githubName: "PLpgSQL",
       githubLangId: "274",
@@ -20,6 +16,8 @@ export function define(g: PlangsGraph) {
       keywords: ["PLpgSQL", "PostgreSQL", "procedural language", "stored procedure"],
       year: 1995,
       isMainstream: false,
+      extWikipediaPath: "pgSQL",
+      extRedditPath: "PostgreSQL",
     })
     .addParadigms(["paradigm+procedural"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])

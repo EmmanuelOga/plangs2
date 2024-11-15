@@ -5,11 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+css", {
       name: "CSS",
       languishRanking: 15,
-      websites: [
-        { title: "CSS - Official documentation", href: "https://www.w3.org/Style/CSS/", kind: "homepage" },
-        { title: "CSS on Wikipedia", href: "https://en.wikipedia.org/wiki/Cascading_Style_Sheets", kind: "wikipedia" },
-        { title: "CSS on Reddit", href: "https://reddit.com/r/CSS", kind: "reddit" },
-      ],
       stackovTags: ["css"],
       githubName: "CSS",
       githubLangId: "50",
@@ -27,6 +22,9 @@ export function define(g: PlangsGraph) {
         { version: "2.1", name: "CSS 2.1", date: "2004-02-25" },
         { version: "3", name: "CSS 3", date: "2023-12-07" },
       ],
+      extWikipediaPath: "Cascading_Style_Sheets",
+      extRedditPath: "CSS",
+      extHomeURL: "https://www.w3.org/Style/CSS/",
     })
     .addParadigms(["paradigm+declarative"])
     .addPlatforms(["plat+web"])

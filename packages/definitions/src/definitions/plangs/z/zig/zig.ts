@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Zig is an imperative, general-purpose, statically typed, compiled system programming language designed by Andrew Kelley. It is intended to serve as a successor to the C language, focusing on robustness, simplicity, and maintainability without hidden control flows or macros. Zig allows seamless integration with C/C++ and aims to provide better performance and safety features compared to traditional C, with manual memory management and optional types. The language is open-source and backed by the Zig Software Foundation.",
       keywords: ["zig"],
-      websites: [
-        { title: "Home ⚡ Zig Programming Language", href: "https://ziglang.org/", kind: "homepage" },
-        { title: "Zig (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Zig_(programming_language)", kind: "wikipedia" },
-      ],
       extensions: [".zig", ".zigr", ".zir", ".zon"],
       year: 2016,
       isMainstream: false,
@@ -22,6 +18,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#ec915c",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Zig_(programming_language)",
+      extRedditPath: "Zig",
+      extHomeURL: "https://ziglang.org/",
     })
     .addInfluencedBy(["pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust"])
     .addLicenses(["license+mit"])

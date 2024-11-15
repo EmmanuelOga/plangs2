@@ -5,10 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+hcl", {
       name: "HCL",
       languishRanking: 53,
-      websites: [
-        { title: "Terraform (software) - Wikipedia", href: "https://en.wikipedia.org/wiki/Terraform_(software)", kind: "wikipedia" },
-        { title: "HCL on Reddit", href: "https://reddit.com/r/Terraform", kind: "reddit" },
-      ],
       stackovTags: ["Terraform"],
       githubName: "HCL",
       githubLangId: "144",
@@ -25,6 +21,9 @@ export function define(g: PlangsGraph) {
         { version: "1.9.1", name: "Stable release", date: "2024-07-03" },
         { version: "1.0.0", name: "Initial release", date: "2014-07-28" },
       ],
+      isTranspiler: true,
+      extWikipediaPath: "Terraform_(software)",
+      extRedditPath: "Terraform",
     })
     .addCompilesTo(["pl+go"])
     .addLicenses(["license+mpl"])

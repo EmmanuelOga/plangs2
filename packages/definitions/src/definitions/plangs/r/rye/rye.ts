@@ -7,7 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Rye is a high-level, interpreted programming language focused on simplicity, expressiveness, and modern coding paradigms. It is designed to make programming more intuitive and accessible, with features that emphasize functional programming and ease of use.",
       keywords: ["programming language", "rye", "ryelang"],
-      websites: [{ title: "Rye Language", href: "https://ryelang.org/", kind: "homepage" }],
       extensions: [".ry"],
       year: 2022,
       releases: [
@@ -16,8 +15,9 @@ export function define(g: PlangsGraph) {
         { version: "1.1", name: "Rye 1.1", date: "2023-03-10" },
       ],
       isMainstream: false,
+      extHomeURL: "https://ryelang.org/",
     })
-    .addInfluencedBy(["pl+red", "pl+rebol", "pl+factor", "pl+shell"])
+    .addInfluencedBy(["pl+factor", "pl+rebol", "pl+red", "pl+shell"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+functional", "paradigm+interpreted", "paradigm+multi", "paradigm+scripting"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows"])

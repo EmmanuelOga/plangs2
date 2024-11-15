@@ -5,10 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+gdb", {
       name: "GDB",
       languishRanking: 90,
-      websites: [
-        { title: "GNU Debugger - Wikipedia", href: "https://en.wikipedia.org/wiki/GNU_Debugger", kind: "wikipedia" },
-        { title: "GDB Official Website", href: "https://www.gnu.org/software/gdb", kind: "homepage" },
-      ],
       stackovTags: ["gdb"],
       githubName: "GDB",
       githubLangId: "122",
@@ -20,6 +16,8 @@ export function define(g: PlangsGraph) {
       year: 1986,
       isMainstream: true,
       releases: [{ version: "15.1", name: "Stable Release", date: "2024-07-07" }],
+      extWikipediaPath: "GNU_Debugger",
+      extHomeURL: "https://www.gnu.org/software/gdb",
     })
     .addLicenses(["license+gnu-gpl"])
     .addPlatforms(["plat+windows"])

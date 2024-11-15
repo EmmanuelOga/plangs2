@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "jq is a very high-level lexically scoped functional programming language in which every JSON value is a constant. jq supports backtracking and managing indefinitely long streams of JSON data. It is related to the Icon and Haskell programming languages. The language supports a namespace-based module system and has some support for closures. In particular, functions and functional expressions can be used as parameters of other functions.",
       keywords: ["jq"],
-      websites: [
-        { title: "jq", href: "https://jqlang.github.io/jq", kind: "homepage" },
-        { title: "jq (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Jq_(programming_language)", kind: "wikipedia" },
-      ],
       extensions: [".jq"],
       year: 2012,
       isMainstream: false,
@@ -29,6 +25,8 @@ export function define(g: PlangsGraph) {
       githubColor: "#c7254e",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Jq_(programming_language)",
+      extHomeURL: "https://jqlang.github.io/jq",
     })
     .addInfluencedBy(["pl+haskell", "pl+icon"])
     .addLicenses(["license+mit", "license+public-domain"])

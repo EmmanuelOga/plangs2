@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Racket is a general-purpose, multi-paradigm programming language that descends from Lisp and Scheme. It is renowned for its powerful macro system and support for domain-specific language development. Racket is used in computer science education, research, and scripting, and is equipped with extensive libraries and tools for various applications.",
       keywords: ["racket"],
-      websites: [
-        { title: "racket-lang.org", href: "https://racket-lang.org/", kind: "homepage" },
-        { title: "Racket", href: "https://en.wikipedia.org/wiki/Racket_(programming_language)", kind: "wikipedia" },
-        { title: "Racket on Reddit", kind: "reddit", href: "https://reddit.com/r/Racket" },
-      ],
       extensions: [".rkt"],
       year: 1995,
       isMainstream: true,
@@ -26,6 +21,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#3c5caa",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Racket_(programming_language)",
+      extRedditPath: "Racket",
+      extHomeURL: "https://racket-lang.org/",
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+eiffel", "pl+r5rs", "pl+scheme"])

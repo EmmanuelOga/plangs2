@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "HipHop Virtual Machine (HHVM) is an open-source virtual machine based on just-in-time (JIT) compilation that serves as an execution engine for the Hack programming language. By using the principle of JIT compilation, Hack code is first transformed into intermediate HipHop bytecode (HHBC), which is then dynamically translated into x86-64 machine code, optimized, and natively executed. This contrasts with PHP's usual interpreted execution, in which the Zend Engine transforms PHP source code into opcodes that serve as a form of bytecode, and executes the opcodes directly on the Zend Engine's virtual CPU.",
       keywords: ["hack", "hhvm", "hiphop virtual machine", "jit compilation"],
-      websites: [
-        { title: "HHVM | HHVM", href: "https://hhvm.com/", kind: "homepage" },
-        { title: "HHVM - Wikipedia", href: "https://en.wikipedia.org/wiki/HHVM", kind: "wikipedia" },
-      ],
       year: 2011,
       isTranspiler: true,
       isMainstream: false,
@@ -20,6 +16,8 @@ export function define(g: PlangsGraph) {
         { version: "4.159.0", name: "HHVM 4.159.0", date: "2023-09-29" },
       ],
       extensions: [".hack"],
+      extWikipediaPath: "HHVM",
+      extHomeURL: "https://hhvm.com/",
     })
     .addCompilesTo(["pl+c++", "pl+hack", "pl+php", "pl+rust"])
     .addInfluencedBy(["pl+c", "pl+php"])

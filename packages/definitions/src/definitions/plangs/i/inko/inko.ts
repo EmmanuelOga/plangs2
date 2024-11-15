@@ -7,14 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Inko is a programming language designed for building concurrent software efficiently and safely. It features deterministic automatic memory management, move semantics, static typing, and type-safe concurrency. It is particularly known for avoiding runtime errors, race conditions, and unpredictable performance.",
       keywords: ["concurrent", "inko", "safe", "type-safe"],
-      websites: [
-        { title: "The Inko programming language", href: "https://inko-lang.org/", kind: "homepage" },
-        {
-          title: "inko-lang/inko: A language for building concurrent software with confidence",
-          href: "https://github.com/inko-lang/inko",
-          kind: "repository",
-        },
-      ],
       extensions: [".inko"],
       year: 2016,
       releases: [
@@ -22,6 +14,8 @@ export function define(g: PlangsGraph) {
         { version: "1.0.0", name: "Inko 1.0.0", date: "2020-06-01" },
       ],
       isMainstream: false,
+      extGithubPath: "inko-lang/inko",
+      extHomeURL: "https://inko-lang.org/",
     })
     .addInfluencedBy(["pl+erlang", "pl+golang"])
     .addLicenses(["license+mit", "license+mpl"])

@@ -7,12 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Squeak is a modern, open-source Smalltalk programming system with fast execution environments across all major platforms including macOS, Windows, and Linux. It is known for its implementation of the Morphic graphical framework, fostering low-effort, interactive application development. Squeak's rich history includes its derivation from Smalltalk-80 and collaboration with entities like Disney, HP Labs, and Y Combinator. It is renowned for educational tools like Scratch and innovative user interface frameworks such as Morphic, Etoys, and Tweak.",
       keywords: ["etoys", "morphic", "open source", "platforms", "smalltalk", "squeak", "tweak", "virtual machine"],
-      websites: [
-        { title: "Squeak/Smalltalk", href: "http://www.squeak.org/", kind: "homepage" },
-        { title: "Squeak - Wikipedia", href: "https://en.wikipedia.org/wiki/Squeak", kind: "wikipedia" },
-        { title: "Squeak on Reddit", href: "https://reddit.com/r/smalltalk", kind: "reddit" },
-        { title: "Smalltalk - Wikipedia", href: "https://en.wikipedia.org/wiki/Smalltalk", kind: "wikipedia" },
-      ],
       extensions: [".changes", ".image", ".sources", ".st"],
       year: 1996,
       releases: [
@@ -22,11 +16,13 @@ export function define(g: PlangsGraph) {
       ],
       stackovTags: ["smalltalk"],
       githubName: "Smalltalk",
-      languishRanking: 126,
       githubLangId: "352",
       githubColor: "#596706",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Smalltalk",
+      extRedditPath: "smalltalk",
+      extHomeURL: "http://www.squeak.org/",
     })
     .addDialectOf(["pl+smalltalk"])
     .addInfluencedBy(["pl+lisp", "pl+self", "pl+smalltalk"])

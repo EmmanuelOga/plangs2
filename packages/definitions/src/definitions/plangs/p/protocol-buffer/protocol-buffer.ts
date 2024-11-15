@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+protocol-buffer", {
       name: "Protocol Buffer",
       languishRanking: 85,
-      websites: [{ title: "Protocol Buffers - Wikipedia", href: "https://en.wikipedia.org/wiki/Protocol_Buffers", kind: "wikipedia" }],
       stackovTags: ["protocol-buffers"],
       githubName: "Protocol Buffer",
       githubLangId: "297",
@@ -19,6 +18,7 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       isMainstream: true,
       releases: [{ version: "28.3", name: "Stable Release", date: "2024-10-22" }],
+      extWikipediaPath: "Protocol_Buffers",
     })
     .addCompilesTo(["pl+c++", "pl+c-sharp", "pl+dart", "pl+go", "pl+java", "pl+javascript", "pl+php", "pl+python", "pl+ruby"])
     .addLicenses(["license+bsd"])

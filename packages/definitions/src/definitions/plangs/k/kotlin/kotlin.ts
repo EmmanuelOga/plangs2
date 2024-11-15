@@ -7,14 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Kotlin is a cross-platform, statically typed, general-purpose programming language with type inference. It is designed to interoperate fully with Java, and its syntax is more concise thanks to type inference. Kotlin primarily targets the JVM, but it also compiles to JavaScript for front-end web applications and native code via LLVM for iOS apps. Language development is led by JetBrains, and the Kotlin Foundation oversees the Kotlin trademark.",
       keywords: ["jetbrains", "kotlin", "programming language"],
-      websites: [
-        { title: "Kotlin Programming Language", href: "https://kotlinlang.org/", kind: "homepage" },
-        {
-          title: "Kotlin (programming language) - Wikipedia",
-          href: "https://en.wikipedia.org/wiki/Kotlin_(programming_language)",
-          kind: "wikipedia",
-        },
-      ],
       extensions: [".kexe", ".klib", ".kt", ".kts"],
       year: 2011,
       isTranspiler: true,
@@ -30,6 +22,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#A97BFF",
       githubPopular: true,
       githubType: "programming",
+      extWikipediaPath: "Kotlin_(programming_language)",
+      extRedditPath: "Kotlin",
+      extHomeURL: "https://kotlinlang.org/",
     })
     .addCompilesTo(["pl+javascript", "pl+llvm"])
     .addInfluencedBy(["pl+c-sharp", "pl+eiffel", "pl+groovy", "pl+javascript", "pl+ml", "pl+python", "pl+scala"])

@@ -5,11 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+svelte", {
       name: "Svelte",
       languishRanking: 30,
-      websites: [
-        { title: "Svelte on Wikipedia", href: "https://en.wikipedia.org/wiki/Svelte", kind: "wikipedia" },
-        { title: "Svelte Official Website", href: "https://svelte.dev/", kind: "homepage" },
-        { title: "Svelte Repository", href: "https://github.com/sveltejs/svelte", kind: "repository" },
-      ],
       stackovTags: ["svelte"],
       githubName: "Svelte",
       githubLangId: "928734530",
@@ -30,6 +25,10 @@ export function define(g: PlangsGraph) {
         { version: "4.0.0", name: "Release 4", date: "2023-06-22" },
         { version: "5.0.0", name: "Release 5", date: "2024-10-19" },
       ],
+      extWikipediaPath: "Svelte",
+      extRedditPath: "sveltejs",
+      extGithubPath: "sveltejs/svelte",
+      extHomeURL: "https://svelte.dev/",
     })
     .addCompilesTo(["pl+javascript"])
     .addLicenses(["license+mit"])

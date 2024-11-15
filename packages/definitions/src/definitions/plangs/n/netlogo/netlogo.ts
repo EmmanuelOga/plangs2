@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "NetLogo is a multi-agent programmable modeling environment, particularly suited for modeling complex systems developing over time. It was designed by Uri Wilensky and is used extensively in educational contexts and research.",
       keywords: ["netlogo"],
-      websites: [
-        { title: "NetLogo Home Page", href: "http://ccl.northwestern.edu/netlogo", kind: "other" },
-        { title: "NetLogo - Wikipedia", href: "https://en.wikipedia.org/wiki/NetLogo", kind: "wikipedia" },
-        { title: "NetLogo on Reddit", href: "https://reddit.com/r/NetLogo", kind: "reddit" },
-      ],
       extensions: [".nlogo", ".nlogo3d", ".nls"],
       year: 1999,
       isMainstream: true,
@@ -23,6 +18,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#ff6375",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "NetLogo",
+      extRedditPath: "NetLogo",
+      extHomeURL: "http://ccl.northwestern.edu/netlogo",
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy(["pl+logo"])

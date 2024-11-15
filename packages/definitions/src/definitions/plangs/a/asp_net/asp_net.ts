@@ -5,10 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+asp.net", {
       name: "ASP.NET",
       languishRanking: 23,
-      websites: [
-        { title: "ASP.NET on Wikipedia", href: "https://en.wikipedia.org/wiki/ASP.NET", kind: "wikipedia" },
-        { title: "ASP.NET on Github", href: "https://github.com/dotnet/aspnetcore", kind: "repository" },
-      ],
       stackovTags: ["asp.net", "asp.net-core"],
       githubName: "ASP.NET",
       githubLangId: "564186416",
@@ -23,6 +19,9 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       isMainstream: true,
       releases: [{ version: "v9.0.0", date: "2024-09-13" }],
+      extWikipediaPath: "ASP.NET",
+      extRedditPath: "ASPNET",
+      extGithubPath: "dotnet/aspnetcore",
     })
     .addCompilesTo(["pl+.net"])
     .addParadigms(["paradigm+multi", "paradigm+oop"])

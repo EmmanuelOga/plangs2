@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Fortran is a high-performance programming language optimized for numerical computation and scientific computing. Originally developed by IBM in the 1950s, Fortran excels in handling computationally intensive tasks and is widely used in areas like scientific research, engineering, and high-performance computing.",
       keywords: ["fortran", "high-performance computing", "scientific computing"],
-      websites: [
-        { title: "The Fortran Programming Language — Fortran Programming Language", href: "https://fortran-lang.org/", kind: "homepage" },
-        { title: "Fortran - Wikipedia", href: "https://en.wikipedia.org/wiki/Fortran", kind: "wikipedia" },
-        { title: "Fortran on Reddit", href: "https://reddit.com/r/fortran", kind: "reddit" },
-      ],
       extensions: [".f", ".f90", ".for"],
       year: 1957,
       isMainstream: true,
@@ -32,6 +27,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#4d41b1",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Fortran",
+      extRedditPath: "fortran",
+      extHomeURL: "https://fortran-lang.org/",
     })
     .addParadigms([
       "paradigm+array",

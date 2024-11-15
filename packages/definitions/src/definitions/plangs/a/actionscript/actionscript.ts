@@ -8,15 +8,6 @@ export function define(g: PlangsGraph) {
         "ActionScript is an object-oriented programming language originally developed by Macromedia Inc. (later acquired by Adobe). It is influenced by HyperTalk, the scripting language for HyperCard. It is now an implementation of ECMAScript (meaning it is a superset of the syntax and semantics of the language more widely known as JavaScript), though it originally arose as a sibling, both being influenced by HyperTalk. ActionScript code is usually converted to bytecode format by a compiler.",
       keywords: ["actionscript", "flash"],
       year: 1998,
-      websites: [
-        {
-          title: "Adobe Flash Runtimes | Documentation archives and downloads",
-          href: "https://www.adobe.com/devnet/actionscript/articles/actionscript3_overview.html",
-          kind: "apidocs",
-        },
-        { title: "ActionScript on Wikipedia", href: "https://en.wikipedia.org/wiki/ActionScript", kind: "wikipedia" },
-        { title: "ActionScript on Reddit", href: "https://reddit.com/r/actionscript", kind: "reddit" },
-      ],
       extensions: [".as", ".swf"],
       isMainstream: false,
       releases: [
@@ -31,8 +22,11 @@ export function define(g: PlangsGraph) {
       githubColor: "#882B0F",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "ActionScript",
+      extRedditPath: "actionscript",
+      extHomeURL: "https://www.adobe.com/devnet/actionscript/articles/actionscript3_overview.html",
     })
-    .addInfluencedBy(["pl+javascript", "pl+java"])
+    .addInfluencedBy(["pl+java", "pl+javascript"])
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+prototype", "paradigm+scripting"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+web", "plat+windows"])

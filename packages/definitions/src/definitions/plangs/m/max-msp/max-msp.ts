@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Max, also known as Max/MSP/Jitter, is a visual programming language primarily used for music and multimedia development. It allows users to create interactive sound, graphics, and media applications through a scalable visual interface.",
       keywords: ["cycling74", "max for live", "max msp", "maxmsp"],
-      websites: [
-        { title: "What is Max? | Cycling '74", href: "https://cycling74.com/products/max/", kind: "other" },
-        { title: "Max (software) - Wikipedia", href: "https://en.wikipedia.org/wiki/Max_(software)", kind: "wikipedia" },
-        { title: "Max on Reddit", href: "https://reddit.com/r/MaxMSP", kind: "reddit" },
-      ],
       extensions: [".maxpat", ".mxb", ".mxt"],
       year: 1988,
       isMainstream: true,
@@ -26,6 +21,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#c4a79c",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Max_(software)",
+      extRedditPath: "MaxMSP",
+      extHomeURL: "https://cycling74.com/products/max/",
     })
     .addParadigms(["paradigm+dataflow", "paradigm+event-driven", "paradigm+visual"])
     .addPlatforms(["plat+apple", "plat+windows"])

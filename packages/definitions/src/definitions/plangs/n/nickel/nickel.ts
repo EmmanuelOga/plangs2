@@ -7,16 +7,14 @@ export function define(g: PlangsGraph) {
       description:
         "Nickel is a lightweight configuration language aimed at automating the generation of configuration files. It combines JSON semantics with first-class functions, allowing for modular and reusable configurations. With features like optional static typing and design by contract, Nickel ensures that complex configurations are easy to manage and less prone to errors.",
       keywords: ["configuration", "json", "nickel", "xml", "yaml"],
-      websites: [
-        { title: "Nickel", href: "https://nickel-lang.org/", kind: "homepage" },
-        { title: "Nickel GitHub", href: "https://github.com/tweag/nickel", kind: "repository" },
-        { title: "Nickel Wikipedia", href: "https://en.wikipedia.org/wiki/Nickel_(programming_language)", kind: "wikipedia" },
-      ],
       extensions: [".ncl"],
       year: 2021,
       releases: [{ version: "1.0.0", name: "Nickel 1.0.0", date: "2023-05-01" }],
       isTranspiler: true,
       isMainstream: false,
+      extGithubPath: "tweag/nickel",
+      extWikipediaPath: "Nickel_(programming_language)",
+      extHomeURL: "https://nickel-lang.org/",
     })
     .addCompilesTo(["pl+json", "pl+nix", "pl+rust", "pl+xml", "pl+yaml"])
     .addInfluencedBy(["pl+rust"])

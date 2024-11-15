@@ -7,14 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "ECMAScript is a standardized specification for scripting languages, including JavaScript, JScript, and ActionScript. It ensures interoperability of web pages across different browsers and is maintained by Ecma International. ECMAScript, designed by Brendan Eich, has a dynamic and weak typing discipline and supports multi-paradigm features, covering prototype-based, functional, and imperative programming styles.",
       keywords: ["ecma-262", "ecmascript", "javascript"],
-      websites: [
-        {
-          title: "ECMAScript Standard - Ecma International",
-          href: "https://www.ecma-international.org/publications-and-standards/standards/ecma-262/",
-          kind: "homepage",
-        },
-        { title: "ECMAScript - Wikipedia", href: "https://en.wikipedia.org/wiki/ECMAScript", kind: "wikipedia" },
-      ],
       extensions: [".es", ".js", ".mjs"],
       year: 1997,
       isMainstream: true,
@@ -24,6 +16,8 @@ export function define(g: PlangsGraph) {
         { version: "2023", name: "ECMAScript 2023", date: "2023-06-01" },
       ],
       filenames: ["ECMA-262"],
+      extWikipediaPath: "ECMAScript",
+      extHomeURL: "https://www.ecma-international.org/publications-and-standards/standards/ecma-262/",
     })
     .addInfluencedBy(["pl+awk", "pl+c", "pl+perl", "pl+python", "pl+scheme", "pl+self"])
     .addLicenses(["license+dual"])

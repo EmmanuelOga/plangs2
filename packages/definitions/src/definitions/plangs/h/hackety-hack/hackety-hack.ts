@@ -7,17 +7,11 @@ export function define(g: PlangsGraph) {
       description:
         "Hackety Hack is an open-source application designed to teach individuals how to create software using Ruby. It combines an integrated development environment with an extensive lesson system, allowing users to learn programming in an engaging and interactive way. Although it does not have university affiliation like Scratch and Alice, it offers a nimble, fully open-source alternative that emphasizes simplicity and ease of use.",
       keywords: ["beginner programming", "hackety hack", "programming education", "ruby", "shoes toolkit", "software development learning"],
-      websites: [
-        {
-          title: "hacketyhack/hacketyhack: the coder’s starter kit: sound, animation, video, messaging in a low-key ruby environment.",
-          href: "https://github.com/hacketyhack/hacketyhack",
-          kind: "repository",
-        },
-        { title: "Hackety Hack - Wikipedia", href: "https://en.wikipedia.org/wiki/Hackety_Hack", kind: "wikipedia" },
-      ],
       year: 2009,
       isMainstream: false,
       releases: [{ version: "1.0", name: "Hackety Hack 1.0", date: "2010-12-25" }],
+      extGithubPath: "hacketyhack/hacketyhack",
+      extWikipediaPath: "Hackety_Hack",
     })
     .addInfluencedBy(["pl+ruby"])
     .addLicenses(["license+mit"])

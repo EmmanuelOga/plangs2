@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+xml", {
       name: "XML",
       languishRanking: 32,
-      websites: [{ title: "XML - Wikipedia", href: "https://en.wikipedia.org/wiki/XML", kind: "wikipedia" }],
       stackovTags: ["xml"],
       githubName: "XML",
       githubLangId: "399",
@@ -22,6 +21,8 @@ export function define(g: PlangsGraph) {
         { version: "1.0", name: "5th Edition", date: "2008-11-26" },
         { version: "1.1", name: "2nd Edition", date: "2006-08-16" },
       ],
+      extWikipediaPath: "XML",
+      extRedditPath: "xml",
     })
     .addParadigms(["paradigm+data-exchange"])
     .addPlatforms(["plat+cross"])

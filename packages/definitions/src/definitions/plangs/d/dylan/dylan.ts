@@ -7,10 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Dylan is a multi-paradigm programming language that includes support for both functional and object-oriented programming. Originally designed by Apple, Dylan was created to provide dynamic and reflective capabilities, allowing for efficient machine code generation with fine-grained control over dynamic and static behaviors. It was intended for the Apple Newton and is influenced by languages like Scheme and Common Lisp, featuring an object system derived from CLOS without the Lisp syntax.",
       keywords: ["CLOS", "dylan", "object-functional language", "scheme"],
-      websites: [
-        { title: "Open Dylan", href: "https://opendylan.org/", kind: "homepage" },
-        { title: "Dylan (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/Dylan_(programming_language)", kind: "wikipedia" },
-      ],
       year: 1992,
       releases: [{ version: "2022.1", date: "2022-11-28" }],
       stackovTags: ["dylan"],
@@ -20,6 +16,8 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       extensions: [".dylan", ".lid"],
+      extWikipediaPath: "Dylan_(programming_language)",
+      extHomeURL: "https://opendylan.org/",
     })
     .addInfluencedBy(["pl+algol", "pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme"])
     .addLicenses(["license+mit"])
@@ -36,11 +34,4 @@ export function define(g: PlangsGraph) {
   // LIBRARIES
 
   // APPS
-
-  g.nodes.app.set("app+harlequin", {
-    name: "Harlequin",
-    keywords: ["database", "client", "terminal"],
-    description: "An easy, fast, and beautiful database client for the terminal.",
-    websites: [{ href: "https://harlequin.sh/", title: "Harlequin", kind: "homepage" }],
-  });
 }

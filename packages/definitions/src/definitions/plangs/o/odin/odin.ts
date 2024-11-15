@@ -7,7 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Odin is a general-purpose programming language designed for high performance, simplicity, and data-oriented programming. As an alternative to C, it emphasizes modern systems programming and ease of use, making it suitable for a wide range of applications, including those in gaming and film industries.",
       keywords: ["odin", "odin-lang", "programming"],
-      websites: [{ title: "Odin Programming Language", href: "https://odin-lang.org/", kind: "homepage" }],
       extensions: [".odin"],
       year: 2016,
       isMainstream: true,
@@ -18,6 +17,8 @@ export function define(g: PlangsGraph) {
       githubColor: "#60AFFE",
       githubPopular: false,
       githubType: "programming",
+      extRedditPath: "Odinlang",
+      extHomeURL: "https://odin-lang.org/",
     })
     .addInfluencedBy(["pl+c"])
     .addLicenses(["license+mit"])

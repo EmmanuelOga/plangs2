@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         'Perl is a high-level, general-purpose, interpreted, dynamic programming language. Though Perl is not officially an acronym, there are various backronyms in use, including "Practical Extraction and Reporting Language".',
       keywords: ["perl"],
-      websites: [
-        { title: "perl.org", href: "https://www.perl.org/", kind: "homepage" },
-        { title: "Perl", href: "https://en.wikipedia.org/wiki/Perl", kind: "wikipedia" },
-        { title: "Perl on Reddit", kind: "reddit", href: "https://reddit.com/r/perl" },
-      ],
       extensions: [".cgi", ".pl", ".pls", ".plx", ".pm", ".pod", ".psgi", ".t", ".xs"],
       year: 1987,
       isMainstream: true,
@@ -27,6 +22,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#0298c3",
       githubPopular: true,
       githubType: "programming",
+      extWikipediaPath: "Perl",
+      extRedditPath: "perl",
+      extHomeURL: "https://www.perl.org/",
     })
     .addInfluencedBy(["pl+awk", "pl+basic", "pl+c", "pl+c++", "pl+lisp", "pl+raku", "pl+sed"])
     .addLicenses(["license+artistic", "license+gnu-gpl"])

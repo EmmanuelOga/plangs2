@@ -7,12 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale. Developed by Microsoft, TypeScript is a superset of JavaScript that compiles to clean JavaScript output and is geared towards the development of large applications.",
       keywords: ["javascript", "static", "superset", "ts", "typescript"],
-      websites: [
-        { title: "TypeScript Official Website", href: "https://www.typescriptlang.org/", kind: "homepage" },
-        { title: "TypeScript GitHub", href: "https://github.com/microsoft/TypeScript", kind: "repository" },
-        { title: "TypeScript Wikipedia", href: "https://en.wikipedia.org/wiki/TypeScript", kind: "wikipedia" },
-        { title: "TypeScript on Reddit", kind: "reddit", href: "https://reddit.com/r/typescript" },
-      ],
       extensions: [".cts", ".mts", ".ts", ".tsx"],
       year: 2012,
       isTranspiler: true,
@@ -29,6 +23,10 @@ export function define(g: PlangsGraph) {
       githubColor: "#3178c6",
       githubPopular: true,
       githubType: "programming",
+      extWikipediaPath: "TypeScript",
+      extRedditPath: "typescript",
+      extGithubPath: "microsoft/TypeScript",
+      extHomeURL: "https://www.typescriptlang.org/",
     })
     .addCompilesTo(["pl+javascript"])
     .addInfluencedBy(["pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+java", "pl+javascript"])

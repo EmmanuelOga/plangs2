@@ -5,11 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+powershell", {
       name: "PowerShell",
       languishRanking: 25,
-      websites: [
-        { title: "Microsoft PowerShell", href: "https://microsoft.com/powershell", kind: "homepage" },
-        { title: "PowerShell on Wikipedia", href: "https://en.wikipedia.org/wiki/PowerShell", kind: "wikipedia" },
-        { kind: "reddit", title: "PowerShell on Reddit", href: "https://reddit.com/r/PowerShell" },
-      ],
       stackovTags: ["powershell"],
       githubName: "PowerShell",
       githubLangId: "293",
@@ -26,6 +21,9 @@ export function define(g: PlangsGraph) {
         { version: "7.0", name: "PowerShell 7", date: "2020-03-04" },
         { version: "7.4.6", name: "PowerShell 7.4.6", date: "2024-10-22" },
       ],
+      extWikipediaPath: "PowerShell",
+      extRedditPath: "PowerShell",
+      extHomeURL: "https://microsoft.com/powershell",
     })
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+oop", "paradigm+pipeline", "paradigm+reflective"])

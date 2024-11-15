@@ -7,12 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "C (pronounced like the letter C) is a general-purpose programming language developed in the early 1970s by Dennis Ritchie at Bell Labs. It has become one of the most influential programming languages, foundational in developing operating systems, system software, and various applications. C's design reflects the capabilities of targeted CPUs and is especially prevalent in systems programming, including operating system kernels, device drivers, and protocol stacks. It is portable and commonly used across computer architectures, from supercomputers to microcontrollers.",
       keywords: ["c", "general-purpose", "imperative", "procedural", "structured", "systems programming"],
-      websites: [
-        { title: "C ISO/IEC 9899:2018", href: "https://www.iso.org/standard/74528.html", kind: "other" },
-        { title: "ISO/IEC JTC1/SC22/WG14 - C", href: "http://www.open-std.org/jtc1/sc22/wg14/", kind: "other" },
-        { title: "C (programming language) - Wikipedia", href: "https://en.wikipedia.org/wiki/C_(programming_language)", kind: "wikipedia" },
-        { title: "C on Reddit", href: "https://reddit.com/r/C_Programming", kind: "reddit" },
-      ],
       extensions: [".c", ".h"],
       year: 1972,
       isMainstream: true,
@@ -30,6 +24,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#555555",
       githubPopular: true,
       githubType: "programming",
+      extWikipediaPath: "C_(programming_language)",
+      extRedditPath: "C_Programming",
+      extHomeURL: "https://www.open-std.org/jtc1/sc22/wg14/",
     })
     .addInfluencedBy(["pl+algol", "pl+fortran"])
     .addLicenses(["license+bsd"])

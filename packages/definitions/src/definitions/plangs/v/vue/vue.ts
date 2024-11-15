@@ -5,10 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+vue", {
       name: "Vue",
       languishRanking: 20,
-      websites: [
-        { title: "Vue.js - Wikipedia", href: "https://en.wikipedia.org/wiki/Vue.js", kind: "wikipedia" },
-        { title: "Vue Official Website", href: "https://vuejs.org", kind: "homepage" },
-      ],
       stackovTags: ["vue.js"],
       githubName: "Vue",
       githubLangId: "391",
@@ -23,6 +19,9 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       isMainstream: true,
       releases: [{ version: "3.5.12", name: "Tengen Toppa Gurren Lagann", date: "2024-10-11" }],
+      extWikipediaPath: "Vue.js",
+      extRedditPath: "vuejs",
+      extHomeURL: "https://vuejs.org",
     })
     .addCompilesTo(["pl+javascript"])
     .addLicenses(["license+mit"])

@@ -5,7 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+batchfile", {
       name: "Batchfile",
       languishRanking: 37,
-      websites: [{ title: "Batchfile on Wikipedia", href: "https://en.wikipedia.org/wiki/Batch_file", kind: "wikipedia" }],
       stackovTags: ["batch-file"],
       githubName: "Batchfile",
       githubLangId: "29",
@@ -19,6 +18,8 @@ export function define(g: PlangsGraph) {
       year: 1985,
       isTranspiler: false,
       isMainstream: true,
+      extWikipediaPath: "Batch_file",
+      extRedditPath: "Batch",
     })
     .addParadigms(["paradigm+procedural", "paradigm+scripting"])
     .addPlatforms(["plat+dos", "plat+windows"])

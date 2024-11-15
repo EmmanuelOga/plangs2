@@ -5,11 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+roff", {
       name: "Roff",
       languishRanking: 92,
-      websites: [
-        { title: "Roff on Wikipedia", href: "https://en.wikipedia.org/wiki/groff_(software)", kind: "wikipedia" },
-        { title: "GNU Groff Website", href: "https://www.gnu.org/software/groff/", kind: "homepage" },
-        { title: "Roff Reddit Community", href: "https://reddit.com/r/groff", kind: "reddit" },
-      ],
       stackovTags: ["groff"],
       githubName: "Roff",
       githubLangId: "141",
@@ -27,6 +22,9 @@ export function define(g: PlangsGraph) {
         { version: "1.23.0", name: "Stable Release", date: "2023-07-07" },
         { version: "1.04", name: "First Stable Version", date: "1991-11-01" },
       ],
+      extWikipediaPath: "groff_(software)",
+      extRedditPath: "groff",
+      extHomeURL: "https://www.gnu.org/software/groff/",
     })
     .addLicenses(["license+gnu-gpl"])
     .addParadigms(["paradigm+macro"])

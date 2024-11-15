@@ -7,12 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Hy is a Lisp dialect embedded in Python, offering a multi-paradigm programming environment. Designed by Paul Tagliamonte and introduced at PyCon 2013, Hy acts as a transparent Lisp front-end for Python, translating s-expressions to Python's AST and incorporating Python libraries. This language allows the integration of imperative, functional, and object-oriented programming styles.",
       keywords: ["hy", "hylang", "lisp", "python"],
-      websites: [
-        { title: "hylang.org", href: "http://hylang.org/", kind: "homepage" },
-        { title: "Hy", href: "https://en.wikipedia.org/wiki/Hy_(programming_language)", kind: "wikipedia" },
-        { title: "Hy on Reddit", kind: "reddit", href: "https://reddit.com/r/hylang" },
-        { title: "Hy on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Hy" },
-      ],
       extensions: [".hy"],
       year: 2013,
       isTranspiler: true,
@@ -29,6 +23,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#7790B2",
       githubPopular: false,
       githubType: "programming",
+      extWikipediaPath: "Hy",
+      extRedditPath: "hylang",
+      extHomeURL: "http://hylang.org/",
     })
     .addCompilesTo(["pl+python"])
     .addDialectOf(["pl+lisp"])

@@ -7,12 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Sass (short for syntactically awesome style sheets) is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS). SassScript is the scripting language itself.",
       keywords: ["sass"],
-      websites: [
-        { title: "Sass", href: "https://sass-lang.com/", kind: "homepage" },
-        { title: "Sass", href: "https://en.wikipedia.org/wiki/Sass_(style_sheet_language)", kind: "wikipedia" },
-        { title: "Sass on Reddit", kind: "reddit", href: "https://reddit.com/r/Sass" },
-        { title: "Sass on Wikipedia", kind: "wikipedia", href: "https://en.wikipedia.org/wiki/Sass_(stylesheet_language)" },
-      ],
       extensions: [".sass", ".scss"],
       year: 2006,
       isTranspiler: true,
@@ -28,6 +22,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#a53b70",
       githubPopular: false,
       githubType: "markup",
+      extWikipediaPath: "Sass_(style_sheet_language)",
+      extRedditPath: "Sass",
+      extHomeURL: "https://sass-lang.com/",
     })
     .addCompilesTo(["pl+css"])
     .addInfluencedBy(["pl+css"])

@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "PyPy is a fast, compliant alternative implementation of Python. Known for its Just-in-Time (JIT) compiler, PyPy often runs faster than CPython. It aims to provide flexibility and speed while supporting a high degree of compatibility with Python code. PyPy is written in RPython and supports Python versions 2.7 and 3.10.",
       keywords: ["cpython", "interpreter", "jit", "pypy", "python", "python alternative"],
-      websites: [
-        { title: "PyPy", href: "https://pypy.org/", kind: "homepage" },
-        { title: "PyPy - Wikipedia", href: "https://en.wikipedia.org/wiki/PyPy", kind: "wikipedia" },
-        { title: "PyPy GitHub Repository", href: "https://github.com/pypy/pypy", kind: "repository" },
-      ],
       extensions: [".py"],
       year: 2007,
       isMainstream: true,
@@ -21,11 +16,14 @@ export function define(g: PlangsGraph) {
       ],
       stackovTags: ["python"],
       githubName: "Python",
-      languishRanking: 1,
       githubLangId: "303",
       githubColor: "#3572A5",
       githubPopular: true,
       githubType: "programming",
+      extWikipediaPath: "Python_(programming_language)",
+      extRedditPath: "Python",
+      extGithubPath: "pypy/pypy",
+      extHomeURL: "https://pypy.org/",
     })
     .addDialectOf(["pl+python"])
     .addImplements(["pl+python"])

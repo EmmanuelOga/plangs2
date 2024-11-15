@@ -7,11 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         'Ruby is an interpreted, high-level, general-purpose programming language. It was designed with an emphasis on programming productivity and simplicity. In Ruby, everything is an object, including primitive data types. It was developed in the mid-1990s by Yukihiro "Matz" Matsumoto in Japan.',
       keywords: ["ruby"],
-      websites: [
-        { title: "Ruby Programming Language", href: "https://www.ruby-lang.org/en/", kind: "homepage" },
-        { title: "Ruby on Wikipedia", href: "https://en.wikipedia.org/wiki/Ruby_programming_language", kind: "wikipedia" },
-        { title: "Ruby on Reddit", kind: "reddit", href: "https://reddit.com/r/ruby" },
-      ],
       extensions: [".rb", ".ru"],
       year: 1995,
       isMainstream: true,
@@ -29,6 +24,9 @@ export function define(g: PlangsGraph) {
       githubColor: "#701516",
       githubPopular: true,
       githubType: "programming",
+      extWikipediaPath: "Ruby_(programming_language)",
+      extRedditPath: "ruby",
+      extHomeURL: "https://www.ruby-lang.org/en/",
     })
     .addInfluencedBy([
       "pl+basic",

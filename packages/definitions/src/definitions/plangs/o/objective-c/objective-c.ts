@@ -5,10 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+objective-c", {
       name: "Objective-C",
       languishRanking: 33,
-      websites: [
-        { title: "Objective-C on Reddit", href: "https://reddit.com/r/ObjectiveC", kind: "reddit" },
-        { title: "Objective-C on Wikipedia", href: "https://en.wikipedia.org/wiki/Objective-C", kind: "wikipedia" },
-      ],
       stackovTags: ["objective-c"],
       githubName: "Objective-C",
       githubLangId: "257",
@@ -22,6 +18,8 @@ export function define(g: PlangsGraph) {
       year: 1984,
       isMainstream: true,
       releases: [{ version: "2.0", name: "Objective-C 2.0", date: "2007" }],
+      extWikipediaPath: "Objective-C",
+      extRedditPath: "ObjectiveC",
     })
     .addParadigms(["paradigm+oop", "paradigm+reflective"])
     .addPlatforms(["plat+cross"])

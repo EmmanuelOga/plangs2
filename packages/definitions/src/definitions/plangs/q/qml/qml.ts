@@ -5,11 +5,6 @@ export function define(g: PlangsGraph) {
     .set("pl+qml", {
       name: "QML",
       languishRanking: 62,
-      websites: [
-        { title: "QML on Wikipedia", href: "https://en.wikipedia.org/wiki/QML", kind: "wikipedia" },
-        { title: "QML Reference Documentation", href: "https://doc.qt.io/qt-5/qmlapplications.html", kind: "apidocs" },
-        { kind: "reddit", title: "QML on Reddit", href: "https://reddit.com/r/QtFramework" },
-      ],
       stackovTags: ["qml"],
       githubName: "QML",
       githubLangId: "305",
@@ -24,6 +19,9 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       isMainstream: true,
       releases: [{ version: "6.4", name: "Stable release", date: "2022-09-29" }],
+      extWikipediaPath: "QML",
+      extRedditPath: "QtFramework",
+      extHomeURL: "https://doc.qt.io/qt-5/qmlapplications.html",
     })
     .addCompilesTo(["pl+c++"])
     .addParadigms(["paradigm+declarative", "paradigm+reactive", "paradigm+scripting"])
