@@ -1,15 +1,38 @@
 import { join } from "node:path";
 
 import type { MapTap } from "@plangs/auxiliar/map_tap";
-import type { AnyEdge, NBundle, NPlang } from "@plangs/plangs";
+import type { AnyEdge, NBundle, NPlang, PlangsGraph } from "@plangs/plangs";
 import type { Image, N } from "@plangs/plangs/schema";
 
 export const DEFINTIONS_PATH = join(import.meta.dir, "../../definitions/src/definitions");
 
-/** Generate a path for a TS file for a Node defintion. */
-export function tspath(plainKey: string, kind: N): string {
-  const base = plainKey.replace(/[^a-zA-Z0-9\_\+\-]/g, "_");
-  return join(DEFINTIONS_PATH, kind, base[0], base, `${base}.ts`);
+/**
+ * Generate a path for a TS file for a Node defintion.
+ * NPlang nodes are stored in a folder structure based on the first letter of the key.
+ * The other nodes are stored in a flat structure.
+ */
+export function tsNodePath(kind: N, plainKey?: string): string {
+  if (kind === "pl") {
+    if (!plainKey) throw new Error("plainKey is required for pl nodes.");
+    const base = plainKey.replace(/[^a-zA-Z0-9\_\+\-]/g, "_");
+    return join(DEFINTIONS_PATH, kind, base[0], base, `${base}.ts`);
+  }
+  if (plainKey) throw new Error("plainKey is required ONLY for pl nodes.");
+  return join(DEFINTIONS_PATH, `${kind}.ts`);
+}
+
+/** Generate code for nodes of the given kind. */
+export function genericCodeGen(pg: PlangsGraph, kind: "license" | "paradigm" | "plat" | "tag" | "tsys") {
+  const definitions: string[] = pg.nodes[kind].values.existing
+    .sort((a, b) => a.key.localeCompare(b.key))
+    .map(node => genSet(kind, node.key, node.data));
+
+  return `import type { PlangsGraph } from "@plangs/plangs";
+
+  export function define(g: PlangsGraph) {
+    ${definitions.join("\n\n")}
+  }
+  `;
 }
 
 /** Generate code that can reconstruct the state of a NPlang node. */
@@ -39,12 +62,6 @@ export function plangCodeGen(plang: NPlang): string {
   addRelKeys(plRels, "addBundles", plang.relPlBundles);
   addRelKeys(plRels, "addLibs", plang.relLibs);
   addRelKeys(plRels, "addApps", plang.relApps);
-
-  // Generate a setter for the node data.
-  // biome-ignore lint/suspicious/noExplicitAny: Any data is fine here.
-  const genSet = (nodeName: N, key: string, data: any) => {
-    return `g.nodes.${nodeName}.set(${JSON.stringify(key)}, ${JSON.stringify(cleanUpData(data))})`;
-  };
 
   // Retrieve the actual nodes (not just the keys) of a relation. `existing` is a IterTap method that removes undefined values.
   const existing = (rel: MapTap<string, AnyEdge>) => rel.values.map(({ nodeTo }) => nodeTo).existing.sort((a, b) => a.key.localeCompare(b.key));
@@ -92,6 +109,12 @@ export function plangCodeGen(plang: NPlang): string {
   }
   `;
 }
+
+// Generate a setter for the node data.
+// biome-ignore lint/suspicious/noExplicitAny: Any data is fine here.
+const genSet = (nodeName: N, key: string, data: any) => {
+  return `g.nodes.${nodeName}.set(${JSON.stringify(key)}, ${JSON.stringify(cleanUpData(data))})`;
+};
 
 // Create a data object with relevant fields, and cleanup blank values.
 // biome-ignore lint/suspicious/noExplicitAny: we cleanup any data.

@@ -7,12 +7,11 @@
 
 import { arrayMerge } from "@plangs/auxiliar/array";
 import { loadAllDefinitions } from "@plangs/definitions";
-import { plangCodeGen, tspath } from "@plangs/languist/codegen";
+import { genericCodeGen, plangCodeGen, tsNodePath } from "@plangs/languist/codegen";
 import { LG_LANGS, type Rankings } from "@plangs/languist/languish";
 import { GH_LANGS } from "@plangs/languist/linguist";
 import type { LanguishKeys, LinguistLang } from "@plangs/languist/types";
-import { type AnyNode, NBase, type NPlang, PlangsGraph } from "@plangs/plangs";
-import type { Link } from "@plangs/plangs/schema";
+import { type AnyNode, type N, type NPlang, PlangsGraph } from "@plangs/plangs";
 
 /** Update the NPlang data with Github data. */
 function updateWithGH(pl: NPlang, ghMap: Map<string, LinguistLang>): boolean {
@@ -98,10 +97,9 @@ export async function cleanupData() {
 
   // await createMissingPlangs(pg, ghMap, rankings);
 
-  for (const pl of pg.nodes.pl.values) Bun.write(tspath(pl.plainKey), plangCodeGen(pl));
+  for (const pl of pg.nodes.pl.values) Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
 }
 
-let i = 0;
 function cleanupWebsites(node: AnyNode) {
   if (node.websites.size > 0) {
     const [first, ...rest] = node.websites;
@@ -109,8 +107,6 @@ function cleanupWebsites(node: AnyNode) {
       console.log("Dunno about this:", node.name, node.kind, node.websites.map(w => w.href).existing);
     }
     node.data.extHomeURL = first.href;
-    i++;
-
     if (rest.length > 0) {
       node.data.websites = rest;
       console.log("More than one website:", node.name, node.kind, node.websites.map(w => w.href).existing);
@@ -126,8 +122,10 @@ await loadAllDefinitions(pg, { scanImages: false });
 for (const map of Object.values(pg.nodes)) {
   for (const node of map.values) cleanupWebsites(node);
 }
-console.log("Processed:", i);
 
-for (const pl of pg.nodes.pl.values) Bun.write(tspath(pl.plainKey), plangCodeGen(pl));
+for (const pl of pg.nodes.pl.values) Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
+for (const kind of ["license", "paradigm", "plat", "tag", "tsys"] as const) {
+  Bun.write(tsNodePath(kind), genericCodeGen(pg, kind));
+}
 
 console.warn("CAUTION: matching github data is not a perfect process. Results (git diff) should be manually reviewed.");
