@@ -74,8 +74,6 @@ export async function loadPosts(pg: PlangsGraph) {
 
     const post = pg.nodes.post.set(`post+${basename}`, { path, name: title, author, date });
 
-    post.link = { href: `/blog/${post.plainKey}`, title, kind: "plangs" };
-
     for (const plKey of pls) {
       if (!pg.nodes.pl.has(plKey)) throw new Error(`Post ${path} references unknown PL ${plKey}`);
       post.addPls([plKey]);

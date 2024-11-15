@@ -13,8 +13,8 @@ export function define(g: PlangsGraph) {
       isMainstream: true,
       releases: [
         { version: "1.75.0", name: "Sass 1.75.0", date: "2024-04-11" },
-        { version: "1.80.7", name: "Dart Sass 1.80.7", date: "" },
-        { version: "3.6.6", name: "LibSass 3.6.6", date: "" },
+        { version: "1.80.7", name: "Dart Sass 1.80.7" },
+        { version: "3.6.6", name: "LibSass 3.6.6" },
       ],
       stackovTags: ["sass"],
       githubName: "Sass",

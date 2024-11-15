@@ -3,7 +3,7 @@ import type { Element } from "domhandler";
 
 import { arrayMerge } from "@plangs/auxiliar/array";
 import type { NPlang } from "@plangs/plangs";
-import type { Link, StrDate } from "@plangs/plangs/schema";
+import type { StrDate } from "@plangs/plangs/schema";
 
 import { PL_WHITELIST } from "./whitelist";
 
@@ -14,6 +14,12 @@ export const START_URLS = ["/wiki/List_of_programming_languages", "/wiki/Categor
 );
 
 const PLR = /programming languages/i;
+
+export type Link = {
+  href: string;
+  title: string;
+  kind?: string;
+};
 
 export function keyFromWikiURL(url: URL): NPlang["key"] | undefined {
   if (url.hostname !== BASE_URL.hostname || !url.pathname.startsWith("/wiki/")) return;

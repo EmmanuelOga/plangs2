@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
       isMainstream: false,
       releases: [
         { version: "3.2.2", name: "Free Pascal 3.2.2", date: "2021-05-20" },
-        { version: "3.3.1", name: "Free Pascal 3.3.1", date: "" },
+        { version: "3.3.1", name: "Free Pascal 3.3.1" },
       ],
       extWikipediaPath: "Free_Pascal",
       extHomeURL: "http://www.freepascal.org/",

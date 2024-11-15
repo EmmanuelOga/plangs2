@@ -1,5 +1,4 @@
 import { BORDER, PROSE, tw } from "@plangs/frontend/auxiliar/styles";
-import { Anchor } from "@plangs/frontend/components/misc/anchor";
 import { Pill } from "@plangs/frontend/components/misc/pill";
 import { PlInfo } from "@plangs/frontend/components/pl-info/pl-info";
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
@@ -38,15 +37,12 @@ function PlNews({ pl: { relPosts } }: { pl: NPlang }) {
       {posts.isEmpty ? (
         <p>No news just yet!</p>
       ) : (
-        posts.map(
-          post =>
-            post?.link && (
-              <p key={post.key}>
-                {post.date}
-                <Anchor link={post.link} />
-              </p>
-            ),
-        ).existing
+        posts.existing.map(post => (
+          <p key={post.key}>
+            {post.date}
+            <a href={post.href} title={post.name} children={post.name} />
+          </p>
+        ))
       )}
     </>
   );
@@ -64,7 +60,9 @@ function PlApps({ pl }: { pl: NPlang }) {
         <Table headers={["App", "Keywords", "Description"]}>
           {apps.existing.map(app => (
             <tr key={app.key}>
-              <td>{app.websites.map(link => <Anchor key={link.href} link={link} />).existing}</td>
+              <td>
+                <a href={app.urlHome} title={app.name} children={app.name} />
+              </td>
               <td>{app.keywords.join(", ")}</td>
               <td>{app.description}</td>
             </tr>
@@ -87,7 +85,9 @@ function PlLibs({ pl }: { pl: NPlang }) {
         <Table headers={["Lib", "Keywords", "Description"]}>
           {libs.existing.map(lib => (
             <tr key={lib.key}>
-              <td>{lib.websites.map(link => <Anchor key={link.href} link={link} />).existing}</td>
+              <td>
+                <a href={lib.urlHome} title={lib.name} children={lib.name} />
+              </td>
               <td>{lib.keywords.join(", ")}</td>
               <td>{lib.description}</td>
             </tr>
@@ -111,7 +111,9 @@ function PlTools({ pl }: { pl: NPlang }) {
           <Table headers={["Tool", "Keywords", "Description"]}>
             {tools.existing.map(tool => (
               <tr key={tool.key}>
-                <td>{tool.websites.map(link => <Anchor key={link.href} link={link} />).existing}</td>
+                <td>
+                  <a href={tool.urlHome} title={tool.name} children={tool.name} />
+                </td>
                 <td>{tool.keywords.join(", ")}</td>
                 <td>{tool.description}</td>
               </tr>

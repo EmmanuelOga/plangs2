@@ -106,7 +106,7 @@ export type NPostData = CommonNodeData & {
   /** Author of the blog post. */
   author: string;
   /** Website of the author of the blog post. */
-  authorLink?: Link;
+  authorHref?: string;
   /** Published date of the blog post.  */
   date: StrDate;
 };
@@ -134,18 +134,6 @@ export interface Release {
   name?: string;
   /** Date of the release, if it is known. */
   date?: StrDate;
-}
-
-/**
- * A reference to a web page.
- */
-export interface Link {
-  /** Title of the link, generally used for anchors (<a>). */
-  title: string;
-  /** Can be a complete URL including protocol (http/https) or a relative link if it links to https://plangs.page. */
-  href: string;
-  /** A link kind helps us quickly find the kind of link we are looking for. */
-  kind?: "apidocs" | "faq" | "homepage" | "other" | "plangs" | "reddit" | "releases" | "repository" | "wikipedia";
 }
 
 /**

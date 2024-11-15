@@ -5,9 +5,8 @@ import { extname, join } from "node:path";
 
 import type { IterTap } from "@plangs/auxiliar/iter_tap";
 import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, PlangsGraph } from "@plangs/plangs";
-import type { Link } from "@plangs/plangs/schema";
 
-import { type WikiPage, keyFromWikiURL } from "./wikipedia";
+import { type Link, type WikiPage, keyFromWikiURL } from "./wikipedia";
 
 export const DEFINTIONS_PATH = join(import.meta.dir, "../../../packages/definitions/src/definitions/plangs/");
 

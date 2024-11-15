@@ -1,12 +1,13 @@
 import { BORDER, PROSE, tw } from "@plangs/frontend/auxiliar/styles";
-import { Anchor } from "@plangs/frontend/components/misc/anchor";
 import type { PlangsGraph } from "@plangs/plangs";
 import { Layout } from "@plangs/server/components/layout";
 
 export function Licenses({ pg }: { pg: PlangsGraph }) {
   const entries = pg.nodes.license.values.map(node => (
     <div key={node.key} class={tw("mb-8", tw(BORDER, "border-b-1"))}>
-      <div class="float-right">{node.websites.map(link => <Anchor key={link.href} link={link} />).existing}</div>
+      <div class="float-right">
+        <a href={node.urlHome} title={node.name} children={node.name} />
+      </div>
       <header class="font-extrabold text-3xl">{node.name}</header>
       <p>{node.description}</p>
     </div>

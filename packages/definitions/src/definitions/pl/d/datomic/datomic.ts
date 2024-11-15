@@ -9,10 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["ACID", "Datalog", "NoSQL", "datomic", "distributed database"],
       year: 2012,
       isMainstream: false,
-      releases: [
-        { version: "1.0.7180", name: "Stable release", date: "2024-07-11" },
-        { version: "884-9095", name: "Datomic Cloud", date: "" },
-      ],
+      releases: [{ version: "1.0.7180", name: "Stable release", date: "2024-07-11" }],
       extWikipediaPath: "Datomic",
       extHomeURL: "http://datomic.com/",
     })

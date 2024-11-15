@@ -1,21 +1,19 @@
 import { PROSE, tw } from "@plangs/frontend/auxiliar/styles";
-import { Anchor } from "@plangs/frontend/components/misc/anchor";
 import type { PlangsGraph } from "@plangs/plangs";
 import { Layout } from "@plangs/server/components/layout";
 
 export function Blog({ pg }: { pg: PlangsGraph }) {
-  const postLinks = pg.nodes.post.values.reverse.map(
-    post =>
-      post.link && (
-        <div class="mb-8">
-          <div>{post.date}</div>
-          {/* This looks like some sort of prose issue: setting margin to 0 thorugh m-0 or mt-0 doesn't work. */}
-          <h2 style="margin: 0">
-            <Anchor link={post.link} />
-          </h2>
-        </div>
-      ),
-  );
+  const postLinks = pg.nodes.post.values.reverse.map(post => (
+    <div key={`${post.path}`} class="mb-8">
+      <div>{post.date}</div>
+      {/* This looks like some sort of prose issue: setting margin to 0 thorugh m-0 or mt-0 doesn't work. */}
+      <h2 style="margin: 0">
+        <a href={post.href} title={post.title}>
+          {post.title}
+        </a>
+      </h2>
+    </div>
+  ));
 
   return (
     <Layout

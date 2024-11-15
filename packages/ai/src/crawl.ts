@@ -9,7 +9,6 @@ import type { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import TurndownService from "turndown";
 
 import type { IterTap } from "@plangs/auxiliar/iter_tap";
-import type { Link } from "@plangs/plangs/schema";
 
 type OpenAIMsg = ChatCompletionMessageParam;
 type ReadabilityResult = ReturnType<Readability["parse"]>;
@@ -58,23 +57,23 @@ const PAGE_LENGTH_LIMIT = 85_000;
 /**
  * OpenAI doesn't scrape for use, so we'll scrape the websites and convert them to markdown.
  */
-export async function retrieveWebsites(links: IterTap<Link>): Promise<OpenAIMsg[]> {
+export async function retrieveWebsites(links: Iterable<string>): Promise<OpenAIMsg[]> {
   const result: OpenAIMsg[] = [];
   const turndown = new TurndownService();
 
-  for (const w of links.filter(w => w.kind !== "reddit")) {
-    const article = await getDomContent(w.href);
+  for (const href of [...links].filter(href => new URL(href).hostname.endsWith("reddit.com"))) {
+    const article = await getDomContent(href);
     if (!article) {
-      console.warn("Couldn't retrieve readable version of", w.href);
+      console.warn("Couldn't retrieve readable version of", href);
       continue;
     }
     const content = [
-      `Make use of the content from "${w.href}" (title: "${article.title}""), `,
+      `Make use of the content from "${href}" (title: "${article.title}""), `,
       `seen in Markdown format below:\n\n${turndown.turndown(article.content)}`,
     ].join("");
 
     if (content.length > PAGE_LENGTH_LIMIT) {
-      console.warn(`Content too long ${w.href} ${content.length} chars, sliced to ${PAGE_LENGTH_LIMIT} chars.`);
+      console.warn(`Content too long ${href} ${content.length} chars, sliced to ${PAGE_LENGTH_LIMIT} chars.`);
     }
 
     result.push({ role: "user", content: content.slice(0, PAGE_LENGTH_LIMIT) });

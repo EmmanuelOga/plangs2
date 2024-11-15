@@ -1,5 +1,4 @@
 import { BORDER, tw } from "@plangs/frontend/auxiliar/styles";
-import { Anchor } from "@plangs/frontend/components/misc/anchor";
 import { Pill } from "@plangs/frontend/components/misc/pill";
 import type { NPlang } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/components/layout";
@@ -42,21 +41,6 @@ export function PlInfo({ pl, open, tab }: PlInfoProps) {
           <p class={tw(forGrid && "inline sm:block")}>{pl.description || "..."}</p>
           <details class={tw(forGrid && "hidden sm:block", "pb-4")} open={open}>
             <summary class="cursor-pointer text-xl">Details</summary>
-
-            {!pl.websites.isEmpty && (
-              <div>
-                <h2 class="mt-4">Websites</h2>
-                {
-                  pl.websites.map(link => (
-                    <div key={link.href} class={tw("overflow-hidden text-ellipsis whitespace-nowrap")}>
-                      <Pill name={link.kind ?? "link"} nodeKey="NA" kind={link.kind ?? "link"} />
-                      <Anchor link={link} />
-                    </div>
-                  )).existing
-                }
-              </div>
-            )}
-
             {relations(pl).map(([title, iterTap]) => (
               <div key={title}>
                 <h2 class="mt-4 text-xl">{title}</h2>

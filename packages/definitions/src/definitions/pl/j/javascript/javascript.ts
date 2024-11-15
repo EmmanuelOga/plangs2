@@ -17,10 +17,7 @@ export function define(g: PlangsGraph) {
       githubColor: "#f1e05a",
       githubPopular: true,
       githubType: "programming",
-      releases: [
-        { version: "ECMAScript 2024", name: "ECMAScript 2024", date: "June 2024" },
-        { version: "ECMAScript 2025", name: "ECMAScript 2025", date: "March 2024" },
-      ],
+      releases: [],
       extWikipediaPath: "JavaScript",
       extRedditPath: "javascript",
       extHomeURL: "https://ecma-international.org/publications-and-standards/standards/ecma-262/",

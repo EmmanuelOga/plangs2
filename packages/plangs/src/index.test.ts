@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test";
-import { type AnyEdge, PlangsGraph } from ".";
-import type { Image, Link } from "./schema";
+import { PlangsGraph } from ".";
+import type { Image } from "./schema";
 
 test("base node apis", () => {
   const g = new PlangsGraph();
@@ -352,11 +352,6 @@ test("post nodes", () => {
   expect(post.path).toEqual("/some/path.md");
   expect(post.title).toEqual("Hello World!");
   expect(post.name).toEqual("Hello World!");
-
-  expect(post.link).toBeUndefined();
-  const link = { href: "https://emmanueloga.com", title: "Emmanuel Oga's Homepage" };
-  post.link = link;
-  expect(post.link).toEqual(link);
 
   expect(post.relPls.size).toBe(0);
   post.addPls(["pl+pascal"]);

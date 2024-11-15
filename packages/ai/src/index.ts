@@ -28,7 +28,7 @@ import OpenAI from "openai";
 import type { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 
 import { loadAllDefinitions } from "@plangs/definitions";
-import { plangCodeGen, tspath } from "@plangs/languist/codegen";
+import { plangCodeGen, tsNodePath } from "@plangs/languist/codegen";
 import { type NPlang, PlangsGraph } from "@plangs/plangs";
 import type { CommonNodeData, N, NPlangAI, NPlangBaseData } from "@plangs/plangs/schema";
 import NPlangAISchema from "@plangs/plangs/schemas/NPlangAI.json";
@@ -38,11 +38,11 @@ import { plangFromAI } from "./fromAI";
 type OpenAIMsg = ChatCompletionMessageParam;
 
 async function plangPrompt(pg: PlangsGraph, pl: NPlang, examplePl: NPlang): Promise<OpenAIMsg[]> {
-  const { name, description, websites, keywords }: Partial<CommonNodeData> = pl.data;
+  const { name, description, keywords }: Partial<CommonNodeData> = pl.data;
   const { extensions, filenames, year, images, isTranspiler, isMainstream, releases }: Partial<NPlangBaseData> = pl.data;
 
   const example: NPlangAI = {
-    commonData: { name, description, websites, keywords } as CommonNodeData,
+    commonData: { name, description, keywords } as CommonNodeData,
     basicPlangData: { extensions, filenames, year, images, isTranspiler, isMainstream, releases } as NPlangBaseData,
     compilesTo: pl.relCompilesTo.keys.existing,
     dialectOf: pl.relDialectOf.keys.existing,
@@ -56,6 +56,13 @@ async function plangPrompt(pg: PlangsGraph, pl: NPlang, examplePl: NPlang): Prom
     typeSystems: pl.relTsys.keys.existing,
     writtenIn: pl.relWrittenIn.keys.existing,
   };
+
+  const externalLinks: string[] = [];
+
+  if (pl.urlHome) externalLinks.push(pl.urlHome);
+  if (pl.urlGithub) externalLinks.push(pl.urlGithub);
+  if (pl.urlRepository) externalLinks.push(pl.urlRepository);
+  if (pl.urlWikipedia) externalLinks.push(pl.urlWikipedia);
 
   return [
     {
@@ -101,7 +108,7 @@ async function plangPrompt(pg: PlangsGraph, pl: NPlang, examplePl: NPlang): Prom
         ].join("\n");
       })(),
     },
-    ...(await retrieveWebsites(pl.websites)),
+    ...(await retrieveWebsites(externalLinks)),
   ];
 }
 
@@ -152,7 +159,7 @@ export async function aiCompletion(
 
     // TODO: apply Linguist/Languish data here, which should take precedence over the AI data.
 
-    const path = tspath(pl.plainKey);
+    const path = tsNodePath("pl", pl.plainKey);
     console.log("Writing result to", path);
     Bun.write(path, plangCodeGen(newPl));
   } catch (err) {

@@ -6,7 +6,7 @@ import type { AnyValue } from "@plangs/auxiliar/value";
 
 import { type PlangFacetKey, plangMatches } from "./facets/plangs";
 
-import type { CommonEdgeData, CommonNodeData, E, Image, Link, N, NLicenseData, NPlangData, NPostData, Release, StrDate } from "./schema";
+import type { CommonEdgeData, CommonNodeData, E, Image, N, NLicenseData, NPlangData, NPostData, Release, StrDate } from "./schema";
 import { getStrDateYear } from "./util";
 export type { E, N } from "./schema";
 
@@ -76,6 +76,10 @@ export abstract class NBase<Prefix extends N, Data extends CommonNodeData> exten
     return this.data.description || this.name;
   }
 
+  get urlHome(): string | undefined {
+    return this.data.extHomeURL;
+  }
+
   get keywords(): IterTap<string> {
     return new IterTap(this.data.keywords);
   }
@@ -133,6 +137,30 @@ export class NPlang extends NBase<"pl", NPlangData> {
 
   get year(): number | undefined {
     return this.data.year;
+  }
+
+  get urlRepository(): string | undefined {
+    return this.data.extRepositoryURL;
+  }
+
+  get urlGithub(): string | undefined {
+    return this.data.extGithubPath ? `https://github.com/${this.data.extGithubPath}` : undefined;
+  }
+
+  get urlWikipedia(): string | undefined {
+    return this.data.extWikipediaPath ? `https://github.com/${this.data.extGithubPath}` : undefined;
+  }
+
+  get urlReddit(): string | undefined {
+    return this.data.extRedditPath ? `https://reddit.com/${this.data.extRedditPath}` : undefined;
+  }
+
+  get urlStackov(): string | undefined {
+    return this.stackovTags ? `https://stackoverflow.com/questions/tagged/${this.stackovTags.join("+")}` : undefined;
+  }
+
+  get stackovTags(): IterTap<string> {
+    return new IterTap(this.data.stackovTags);
   }
 
   releasedRecently(minYear: number): boolean {
@@ -435,6 +463,10 @@ export class NPost extends NBase<"post", NPostData> {
   static readonly kind: N = "post";
   override kind = NPost.kind;
 
+  set path(path: string) {
+    this.data.path = path;
+  }
+
   get author(): string | undefined {
     return this.data.author;
   }
@@ -449,6 +481,10 @@ export class NPost extends NBase<"post", NPostData> {
 
   get title(): string | undefined {
     return this.name;
+  }
+
+  get href(): string {
+    return `/blog/${this.plainKey}`;
   }
 
   addPls(others: `pl+${string}`[]) {
