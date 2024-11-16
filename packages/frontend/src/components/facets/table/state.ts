@@ -8,7 +8,9 @@ import type { FacetTableProps } from "./facet-table";
 type StateData<GroupKey extends string, FacetKey extends string> = Pick<FacetTableProps<GroupKey, FacetKey>, "config" | "facetKey" | "groupKey"> & {
   main: AnyFacetsMainState;
   entries: Entry[];
+  filteredEntries?: Entry[];
   order: Order;
+  search: string | undefined;
 };
 
 export class FacetTableState<GroupKey extends string, FacetKey extends string> extends Dispatchable<StateData<GroupKey, FacetKey>> {
@@ -45,6 +47,20 @@ export class FacetTableState<GroupKey extends string, FacetKey extends string> e
     this.doSetValue(this.value);
   }
 
+  doSetSearch(newSearch: string | undefined) {
+    this.data.search = newSearch;
+
+    const search = this.data.search?.trim();
+
+    if (!search || !search.trim()) {
+      this.data.filteredEntries = this.data.entries;
+    } else {
+      this.data.filteredEntries = this.data.entries.filter(entry => entry.label.toLowerCase().includes(search.toLowerCase()));
+    }
+
+    this.dispatch();
+  }
+
   /** Queries */
 
   get main() {
@@ -64,5 +80,9 @@ export class FacetTableState<GroupKey extends string, FacetKey extends string> e
 
   get order() {
     return this.data.order;
+  }
+
+  get filteredEntries() {
+    return this.data.filteredEntries || this.data.entries;
   }
 }

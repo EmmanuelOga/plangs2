@@ -61,9 +61,17 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
           <Header class={"text-center"} action={() => state.doToggleOrder("count")} col="count" config={config} order={state.order} />
           <Header class={"text-right"} action={() => state.doToggleOrder("sel")} col="sel" config={config} order={state.order} />
         </div>
+
+        <div class={tw(ROW, "col-span-3", "bg-primary text-background/80")}>
+          <input
+            type="text"
+            onInput={ev => state.doSetSearch(ev.currentTarget.value)}
+            className="w-full p-2 text-left bg-transparent outline-none border-none focus:outline-none"
+          />
+        </div>
       </div>
 
-      {state.entries.map(entry =>
+      {state.filteredEntries?.map(entry =>
         tap(
           onClickOnEnter(() => state.doToggle(entry.value)),
           clickOrEnter => (
