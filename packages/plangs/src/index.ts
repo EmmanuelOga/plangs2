@@ -97,6 +97,10 @@ export class NPlang extends NBase<"pl", NPlangData> {
   static readonly kind: N = "pl";
   override kind = NPlang.kind;
 
+  get ranking(): number | undefined {
+    return this.data.languishRanking;
+  }
+
   get href(): string {
     return `/${this.plainKey}`;
   }

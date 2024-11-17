@@ -11,7 +11,9 @@ export function PlThumb({ pl, class: klass }: { class?: string; pl: NPlang }): J
   return (
     <div
       data-node-key={pl.key}
-      class={tw(cssClass("plThumb"), "group", "cursor-pointer", "max-w-[7rem] sm:max-w-[15rem]", "max-h-[7rem] sm:max-h-[15rem]", klass)}>
+      // Use a high ranking for those that don't have one, so they appear at the end when sorted.
+      data-node-ranking={`${pl.ranking ?? 999_999}`}
+      class={tw(cssClass("plThumb"), "group relative", "cursor-pointer", "max-w-[7rem] sm:max-w-[15rem]", "max-h-[7rem] sm:max-h-[15rem]", klass)}>
       <div class={tw("truncate text-center", "text-foreground group-hover:text-primary")}>{pl.name}</div>
       <div
         class={tw(
@@ -24,6 +26,13 @@ export function PlThumb({ pl, class: klass }: { class?: string; pl: NPlang }): J
         )}>
         <img alt={`${pl.name}'s logo`} class="max-h-full max-w-full object-contain" src={thumbUrl ?? PLACEHOLDER} />
       </div>
+      {pl.ranking && (
+        <div
+          title={`Languish Ranking: ${pl.ranking}`}
+          class={tw("absolute right-1 bottom-1", "rounded bg-background bg-opacity-50", "p-1 text-primary text-xs")}>
+          <a href={`https://tjpalmer.github.io/languish/#names=${encodeURIComponent(pl.name.toLowerCase())}`}>#{pl.ranking}</a>
+        </div>
+      )}
     </div>
   );
 }

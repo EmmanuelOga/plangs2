@@ -1,6 +1,6 @@
 import "preact/debug";
 
-import { elem } from "@plangs/frontend/auxiliar/dom";
+import { elem, elems } from "@plangs/frontend/auxiliar/dom";
 import { on } from "@plangs/frontend/auxiliar/events";
 import { connectLivereload } from "@plangs/frontend/auxiliar/livereload";
 import { activateFacetsMain } from "@plangs/frontend/components/facets/main";
@@ -30,6 +30,17 @@ async function start() {
 
       const grid = elem("plGrid");
       if (!grid) return;
+
+      const thumbns = [...elems("plThumb")];
+      thumbns.sort((a, b) => {
+        console.log(a);
+        const rankA = Number.parseInt(a.dataset.nodeRanking ?? "0", 10);
+        const rankB = Number.parseInt(b.dataset.nodeRanking ?? "0", 10);
+        console.log("Comparing", rankA, rankB);
+        return rankA - rankB;
+      });
+      // Appending just reorders the elements, if they are already in the parent element.
+      for (const thumb of thumbns) grid.appendChild(thumb);
 
       // On thumb click, update the pl-info plang.
       on(grid, "click", ({ target }: MouseEvent) => {
