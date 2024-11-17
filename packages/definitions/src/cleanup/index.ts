@@ -11,7 +11,7 @@ import { genericCodeGen, plangCodeGen, tsNodePath } from "@plangs/languist/codeg
 import { LG_LANGS, type Rankings } from "@plangs/languist/languish";
 import { GH_LANGS } from "@plangs/languist/linguist";
 import type { LanguishKeys, LinguistLang } from "@plangs/languist/types";
-import { type AnyNode, type N, type NPlang, PlangsGraph } from "@plangs/plangs";
+import { type NPlang, PlangsGraph } from "@plangs/plangs";
 
 /** Update the NPlang data with Github data. */
 function updateWithGH(pl: NPlang, ghMap: Map<string, LinguistLang>): boolean {
@@ -95,7 +95,7 @@ export async function cleanupData() {
 
   console.warn("Languages without updates:", { woGithub: [...woGH], woLanguish: [...woLG] });
 
-  // await createMissingPlangs(pg, ghMap, rankings);
+  await createMissingPlangs(pg, ghMap, rankings);
 
   for (const pl of pg.nodes.pl.values) Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
 }

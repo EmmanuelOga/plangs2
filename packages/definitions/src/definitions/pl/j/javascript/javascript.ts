@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       githubColor: "#f1e05a",
       githubPopular: true,
       githubType: "programming",
-      releases: [],
       extWikipediaPath: "JavaScript",
       extRedditPath: "javascript",
       extHomeURL: "https://ecma-international.org/publications-and-standards/standards/ecma-262/",
