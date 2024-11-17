@@ -1,27 +1,41 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
-  export function define(g: PlangsGraph) {
-    g.nodes.pl.set("pl+powershell", {"name":"PowerShell","languishRanking":25,"stackovTags":["powershell"],"githubName":"PowerShell","githubLangId":"293","githubColor":"#012456","githubPopular":true,"githubType":"programming","description":"PowerShell is a task automation and configuration management program from Microsoft, consisting of a command-line shell and the associated scripting language. It is notable for its support for task automation across local and remote systems.","keywords":["Microsoft","PowerShell","command-line shell","configuration management","cross-platform","open-source","task automation"],"extensions":[".cdxml",".ps1",".ps1xml",".psc1",".psd1",".psm1",".psrc",".pssc"],"year":2006,"isMainstream":true,"releases":[{"version":"7.0","name":"PowerShell 7","date":"2020-03-04"},{"version":"7.4.6","name":"PowerShell 7.4.6","date":"2024-10-22"}],"extWikipediaPath":"PowerShell","extRedditPath":"PowerShell","extHomeURL":"https://microsoft.com/powershell"})
+export function define(g: PlangsGraph) {
+  g.nodes.pl
+    .set("pl+powershell", {
+      name: "PowerShell",
+      languishRanking: 25,
+      stackovTags: ["powershell"],
+      githubName: "PowerShell",
+      githubLangId: "293",
+      githubColor: "#012456",
+      githubPopular: true,
+      githubType: "programming",
+      description:
+        "PowerShell is a task automation and configuration management program from Microsoft, consisting of a command-line shell and the associated scripting language. It is notable for its support for task automation across local and remote systems.",
+      keywords: ["Microsoft", "PowerShell", "command-line shell", "configuration management", "cross-platform", "open-source", "task automation"],
+      extensions: [".cdxml", ".ps1", ".ps1xml", ".psc1", ".psd1", ".psm1", ".psrc", ".pssc"],
+      year: 2006,
+      isMainstream: true,
+      releases: [
+        { version: "7.0", name: "PowerShell 7", date: "2020-03-04" },
+        { version: "7.4.6", name: "PowerShell 7.4.6", date: "2024-10-22" },
+      ],
+      extWikipediaPath: "PowerShell",
+      extRedditPath: "PowerShell",
+      extHomeURL: "https://microsoft.com/powershell",
+    })
     .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+functional","paradigm+imperative","paradigm+oop","paradigm+pipeline","paradigm+reflective"])
-    .addPlatforms(["plat+linux","plat+windows"])
-    .addTags(["tag+automation","tag+cli","tag+scripting"])
-    .addTypeSystems(["tsys+dynamic","tsys+safe","tsys+strong"])
+    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+oop", "paradigm+pipeline", "paradigm+reflective"])
+    .addPlatforms(["plat+linux", "plat+windows"])
+    .addTags(["tag+automation", "tag+cli", "tag+scripting"])
+    .addTypeSystems(["tsys+dynamic", "tsys+safe", "tsys+strong"]);
 
-    // TOOLS
+  // TOOLS
 
-    
+  // TOOL BUNDLES
 
-    // TOOL BUNDLES
+  // LIBRARIES
 
-    
-
-    // LIBRARIES
-
-    
-
-    // APPS
-
-    
-  }
-  
+  // APPS
+}

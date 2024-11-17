@@ -1,29 +1,32 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
-  export function define(g: PlangsGraph) {
-    g.nodes.pl.set("pl+extempore", {"name":"Extempore","description":"Extempore is a live coding environment focused on real-time audiovisual software development. It is designed to accommodate the demands of cyber-physical computing. Extempore consists of two integrated languages, Scheme (with extensions) and Extempore Language. It uses the LLVM cross-language compiler to achieve performant digital signal processing and related low-level features, on-the-fly.","keywords":["extempore"],"year":2011,"isMainstream":false,"releases":[{"version":"0.8.9","name":"","date":"2021-05-06"}],"extensions":[""],"extWikipediaPath":"Extempore_(software)","extGithubPath":"digego/extempore"})
-    .addInfluencedBy(["pl+lisp","pl+scheme"])
+export function define(g: PlangsGraph) {
+  g.nodes.pl
+    .set("pl+extempore", {
+      name: "Extempore",
+      description:
+        "Extempore is a live coding environment focused on real-time audiovisual software development. It is designed to accommodate the demands of cyber-physical computing. Extempore consists of two integrated languages, Scheme (with extensions) and Extempore Language. It uses the LLVM cross-language compiler to achieve performant digital signal processing and related low-level features, on-the-fly.",
+      keywords: ["extempore"],
+      year: 2011,
+      isMainstream: false,
+      releases: [{ version: "0.8.9", name: "", date: "2021-05-06" }],
+      extensions: [""],
+      extWikipediaPath: "Extempore_(software)",
+      extGithubPath: "digego/extempore",
+    })
+    .addInfluencedBy(["pl+lisp", "pl+scheme"])
     .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+functional","paradigm+multi","paradigm+real-time"])
-    .addPlatforms(["plat+apple","plat+cross","plat+linux","plat+windows"])
-    .addTags(["tag+audio-dev","tag+compiler","tag+dsp","tag+multimedia","tag+wavelet"])
-    .addTypeSystems(["tsys+dynamic","tsys+static"])
-    .addWrittenIn(["pl+c"])
+    .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+real-time"])
+    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .addTags(["tag+audio-dev", "tag+compiler", "tag+dsp", "tag+multimedia", "tag+wavelet"])
+    .addTypeSystems(["tsys+dynamic", "tsys+static"])
+    .addWrittenIn(["pl+c"]);
 
-    // TOOLS
+  // TOOLS
 
-    
+  // TOOL BUNDLES
 
-    // TOOL BUNDLES
+  // LIBRARIES
 
-    
-
-    // LIBRARIES
-
-    
-
-    // APPS
-
-    
-  }
-  
+  // APPS
+}

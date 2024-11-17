@@ -1,27 +1,27 @@
 import type { PlangsGraph } from "@plangs/plangs";
 
-  export function define(g: PlangsGraph) {
-    g.nodes.pl.set("pl+alda", {"name":"Alda","description":"Alda is a text-based programming language designed for music composition. It allows users to write and play music using a simple syntax in a text editor and execute it through the command line. Its intuitive syntax is accessible for both musicians with no programming background and programmers with limited music knowledge, making it a versatile tool for creative musical expression.","keywords":["alda","music composition","music programming"],"extensions":[".alda"],"year":2015,"extHomeURL":"https://alda.io/"})
+export function define(g: PlangsGraph) {
+  g.nodes.pl
+    .set("pl+alda", {
+      name: "Alda",
+      description:
+        "Alda is a text-based programming language designed for music composition. It allows users to write and play music using a simple syntax in a text editor and execute it through the command line. Its intuitive syntax is accessible for both musicians with no programming background and programmers with limited music knowledge, making it a versatile tool for creative musical expression.",
+      keywords: ["alda", "music composition", "music programming"],
+      extensions: [".alda"],
+      year: 2015,
+      extHomeURL: "https://alda.io/",
+    })
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+dsl"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+audio-dev","tag+midi"])
-    .addTypeSystems(["tsys+untyped"])
+    .addTags(["tag+audio-dev", "tag+midi"])
+    .addTypeSystems(["tsys+untyped"]);
 
-    // TOOLS
+  // TOOLS
 
-    
+  // TOOL BUNDLES
 
-    // TOOL BUNDLES
+  // LIBRARIES
 
-    
-
-    // LIBRARIES
-
-    
-
-    // APPS
-
-    
-  }
-  
+  // APPS
+}
