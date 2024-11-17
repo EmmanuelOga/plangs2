@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "supercollider",
       extHomeURL: "http://supercollider.github.io/",
     })
-    .addInfluencedBy(["pl+csound", "pl+lisp", "pl+smalltalk"])
+    .addInfluencedBy(["pl+csound", "pl+lisp"])
     .addLicenses(["license+gnu-gpl"])
     .addParadigms(["paradigm+concurrent", "paradigm+event-driven", "paradigm+functional", "paradigm+oop"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])

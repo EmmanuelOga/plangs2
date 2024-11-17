@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Idris",
       extHomeURL: "http://idris-lang.org/",
     })
-    .addInfluencedBy(["pl+agda", "pl+clean", "pl+coq", "pl+f-sharp", "pl+haskell", "pl+ml", "pl+rust"])
+    .addInfluencedBy(["pl+agda", "pl+clean", "pl+coq", "pl+f-sharp", "pl+haskell", "pl+rust"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+functional"])
     .addPlatforms(["plat+cross"])

@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.mono-project.com/",
     })
     .addImplements(["pl+c-sharp", "pl+visual-basic"])
-    .addInfluencedBy(["pl+dotnet"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+compiled", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+android", "plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])

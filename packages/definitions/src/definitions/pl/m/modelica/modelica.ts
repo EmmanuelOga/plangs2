@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.modelica.org/",
     })
     .addLicenses(["license+cc-by"])
-    .addParadigms(["paradigm+declarative", "paradigm+multi", "paradigm+object-oriented", "paradigm+simulation"])
+    .addParadigms(["paradigm+declarative", "paradigm+multi", "paradigm+simulation"])
     .addPlatforms(["plat+cross"])
     .addTags(["tag+app", "tag+industrial", "tag+modeling", "tag+sci", "tag+viz"]);
 

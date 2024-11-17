@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "erlang",
       extHomeURL: "https://www.erlang.org/",
     })
-    .addInfluencedBy(["pl+lisp", "pl+ml", "pl+prolog"])
+    .addInfluencedBy(["pl+lisp", "pl+prolog"])
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+apple", "plat+beam", "plat+cross", "plat+linux", "plat+windows"])

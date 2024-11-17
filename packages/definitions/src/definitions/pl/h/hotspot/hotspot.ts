@@ -16,8 +16,8 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "HotSpot_(virtual_machine)",
       extHomeURL: "https://openjdk.org/groups/hotspot/",
     })
-    .addInfluencedBy(["pl+self", "pl+smalltalk"])
-    .addLicenses(["license+gnu-gpl", "license+gpl"])
+    .addInfluencedBy(["pl+self"])
+    .addLicenses(["license+gnu-gpl"])
     .addParadigms(["paradigm+compiled", "paradigm+concurrent", "paradigm+interpreted"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+java", "plat+linux", "plat+windows"])
     .addTags(["tag+asm", "tag+compiler", "tag+interpreter", "tag+server"])

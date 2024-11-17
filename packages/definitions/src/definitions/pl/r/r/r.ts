@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Rlanguage",
       extHomeURL: "https://www.r-project.org/",
     })
-    .addInfluencedBy(["pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+s", "pl+scheme", "pl+xlispstat"])
+    .addInfluencedBy(["pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme"])
     .addLicenses(["license+gnu-gpl"])
     .addParadigms([
       "paradigm+array",

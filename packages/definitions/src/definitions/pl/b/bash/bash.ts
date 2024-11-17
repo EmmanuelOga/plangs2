@@ -22,7 +22,6 @@ export function define(g: PlangsGraph) {
       extRedditPath: "bash",
       extHomeURL: "http://www.gnu.org/software/bash/",
     })
-    .addInfluencedBy(["pl+sh"])
     .addLicenses(["license+gnu-gpl"])
     .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+scripting"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+embedded", "plat+linux", "plat+windows"])

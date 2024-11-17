@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Dylan_(programming_language)",
       extHomeURL: "https://opendylan.org/",
     })
-    .addInfluencedBy(["pl+algol", "pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme"])
+    .addInfluencedBy(["pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+compiled", "paradigm+functional", "paradigm+multi", "paradigm+oop", "paradigm+reflective"])
     .addPlatforms(["plat+cross", "plat+x86-64"])

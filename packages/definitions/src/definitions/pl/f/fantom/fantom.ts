@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+c-sharp", "pl+erlang", "pl+ruby", "pl+scala"])
     .addLicenses(["license+afl", "license+mit"])
     .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+.net", "plat+cross", "plat+java", "plat+javascript"])
+    .addPlatforms(["plat+.net", "plat+cross", "plat+java"])
     .addTags(["tag+app", "tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+java"]);

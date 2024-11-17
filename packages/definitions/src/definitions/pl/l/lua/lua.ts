@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "lua",
       extHomeURL: "https://www.lua.org/",
     })
-    .addInfluencedBy(["pl+awk", "pl+c++", "pl+clu", "pl+lisp", "pl+modula", "pl+r5rs", "pl+scheme", "pl+self"])
+    .addInfluencedBy(["pl+awk", "pl+c++", "pl+lisp", "pl+r5rs", "pl+scheme", "pl+self"])
     .addLicenses(["license+mit"])
     .addParadigms([
       "paradigm+functional",

@@ -19,7 +19,6 @@ export function define(g: PlangsGraph) {
       extGithubPath: "elves/elvish",
       extHomeURL: "https://elv.sh/",
     })
-    .addInfluencedBy(["pl+fish", "pl+zsh"])
     .addLicenses(["license+bsd", "license+cc-by", "license+epl"])
     .addParadigms(["paradigm+functional", "paradigm+scripting"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+raspberry", "plat+windows"])

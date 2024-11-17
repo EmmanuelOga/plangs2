@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+ruby"])
     .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+educational", "paradigm+oo", "paradigm+oop", "paradigm+scripting"])
+    .addParadigms(["paradigm+educational", "paradigm+oop", "paradigm+scripting"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
     .addTags(["tag+edu", "tag+interpreter", "tag+scripting", "tag+ui"])
     .addTypeSystems(["tsys+dynamic"])

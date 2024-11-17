@@ -152,6 +152,17 @@ export class EdgeMap<T_Graph, T_Edge extends Edge<T_Graph, Any, Any, Any>> {
     return this.connect(from, to).merge(data);
   }
 
+  delete(from: T_Edge["from"], to: T_Edge["to"]): boolean {
+    const f = this.adjFrom.delete(from, to);
+    const t = this.adjTo.delete(to, from);
+    return f || t;
+  }
+
+  /** Get all edges. Uses the adjFrom map, but both maps should have the same values. */
+  get values() {
+    return this.adjFrom.values();
+  }
+
   get size(): number {
     return this.adjFrom.size;
   }

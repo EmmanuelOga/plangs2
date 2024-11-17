@@ -15,8 +15,8 @@ export function define(g: PlangsGraph) {
     })
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+declarative", "paradigm+event-driven", "paradigm+multi", "paradigm+reactive", "paradigm+scripting"])
-    .addPlatforms(["plat+cloud", "plat+cross"])
-    .addTags(["tag+cloud", "tag+framework", "tag+scripting"])
+    .addPlatforms(["plat+cross"])
+    .addTags(["tag+framework", "tag+scripting"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+typescript"]);
 

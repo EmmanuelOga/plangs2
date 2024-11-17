@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://nim-lang.org/",
     })
     .addCompilesTo(["pl+c++", "pl+javascript"])
-    .addInfluencedBy(["pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+oberon", "pl+python", "pl+rust"])
+    .addInfluencedBy(["pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+python", "pl+rust"])
     .addLicenses(["license+mit"])
     .addParadigms([
       "paradigm+compiled",

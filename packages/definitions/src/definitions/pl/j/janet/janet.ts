@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "janetlang",
       extHomeURL: "https://janet-lang.org/",
     })
-    .addInfluencedBy(["pl+lisps", "pl+scheme"])
+    .addInfluencedBy(["pl+scheme"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+extensible", "paradigm+functional", "paradigm+imperative", "paradigm+scripting"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])

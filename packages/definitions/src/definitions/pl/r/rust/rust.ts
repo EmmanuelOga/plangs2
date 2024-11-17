@@ -32,7 +32,6 @@ export function define(g: PlangsGraph) {
       "pl+cilk",
       "pl+erlang",
       "pl+haskell",
-      "pl+ml",
       "pl+ocaml",
       "pl+r5rs",
       "pl+racket",

@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Pure_(programming_language)",
       extHomeURL: "http://agraef.github.io/pure-lang",
     })
-    .addInfluencedBy(["pl+alice", "pl+haskell", "pl+lisp"])
+    .addInfluencedBy(["pl+haskell", "pl+lisp"])
     .addLicenses(["license+lgpl"])
     .addParadigms(["paradigm+declarative", "paradigm+functional", "paradigm+rewriting"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])

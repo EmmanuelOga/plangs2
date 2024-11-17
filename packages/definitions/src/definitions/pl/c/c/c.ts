@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "C_Programming",
       extHomeURL: "https://www.open-std.org/jtc1/sc22/wg14/",
     })
-    .addInfluencedBy(["pl+algol", "pl+fortran"])
+    .addInfluencedBy(["pl+fortran"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+compiled", "paradigm+imperative", "paradigm+multi", "paradigm+procedural", "paradigm+structured"])
     .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+dos", "plat+embedded", "plat+linux", "plat+windows"])

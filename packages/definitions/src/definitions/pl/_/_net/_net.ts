@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://dotnet.microsoft.com/",
     })
     .addImplements(["pl+c-sharp", "pl+f-sharp", "pl+visual-basic"])
-    .addInfluencedBy(["pl+java", "pl+smalltalk"])
+    .addInfluencedBy(["pl+java"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+.net", "plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64"])

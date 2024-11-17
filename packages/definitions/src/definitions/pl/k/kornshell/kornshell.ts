@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "KornShell",
       extHomeURL: "http://kornshell.com/",
     })
-    .addInfluencedBy(["pl+bourne-shell", "pl+c-shell"])
     .addLicenses(["license+epl", "license+isc", "license+lgpl", "license+public-domain"])
     .addParadigms(["paradigm+interpreted", "paradigm+oop", "paradigm+procedural", "paradigm+scripting", "paradigm+structured"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])

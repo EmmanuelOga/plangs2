@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://kotlinlang.org/",
     })
     .addCompilesTo(["pl+javascript", "pl+llvm"])
-    .addInfluencedBy(["pl+c-sharp", "pl+eiffel", "pl+groovy", "pl+javascript", "pl+ml", "pl+python", "pl+scala"])
+    .addInfluencedBy(["pl+c-sharp", "pl+eiffel", "pl+groovy", "pl+javascript", "pl+python", "pl+scala"])
     .addLicenses(["license+apache"])
     .addParadigms([
       "paradigm+concurrent",

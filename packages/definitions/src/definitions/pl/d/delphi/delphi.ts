@@ -28,7 +28,6 @@ export function define(g: PlangsGraph) {
     })
     .addDialectOf(["pl+pascal"])
     .addImplements(["pl+pascal"])
-    .addLicenses(["license+proprietary"])
     .addParadigms(["paradigm+compiled", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
     .addPlatforms(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
     .addTags([

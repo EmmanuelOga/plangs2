@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "MLton",
       extHomeURL: "http://mlton.org/",
     })
-    .addDialectOf(["pl+ml", "pl+standard-ml"])
+    .addDialectOf(["pl+standard-ml"])
     .addImplements(["pl+standard-ml"])
     .addInfluencedBy(["pl+standard-ml"])
     .addLicenses(["license+dual"])

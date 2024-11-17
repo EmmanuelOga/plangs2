@@ -19,11 +19,10 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Pony_(programming_language)",
       extHomeURL: "https://www.ponylang.io/",
     })
-    .addInfluencedBy(["pl+erlang", "pl+ml", "pl+scala"])
+    .addInfluencedBy(["pl+erlang", "pl+scala"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+message-passing", "paradigm+oop"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
-    .addTags(["tag+concurrency", "tag+safety"])
     .addTypeSystems(["tsys+safe", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c"]);
 

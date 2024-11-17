@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Mathematica",
       extHomeURL: "https://www.wolfram.com/language/",
     })
-    .addInfluencedBy(["pl+apl", "pl+c", "pl+c++", "pl+fortran", "pl+lisp", "pl+pascal", "pl+prolog", "pl+simula"])
+    .addInfluencedBy(["pl+apl", "pl+c", "pl+c++", "pl+fortran", "pl+lisp", "pl+pascal", "pl+prolog"])
     .addParadigms(["paradigm+array", "paradigm+functional", "paradigm+multi", "paradigm+procedural", "paradigm+rewriting"])
     .addPlatforms(["plat+cross"])
     .addTags(["tag+audio-dev", "tag+cas", "tag+cli", "tag+games", "tag+interpreter", "tag+numeric", "tag+shell"])

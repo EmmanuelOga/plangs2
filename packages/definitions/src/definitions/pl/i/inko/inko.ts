@@ -17,7 +17,7 @@ export function define(g: PlangsGraph) {
       extGithubPath: "inko-lang/inko",
       extHomeURL: "https://inko-lang.org/",
     })
-    .addInfluencedBy(["pl+erlang", "pl+golang"])
+    .addInfluencedBy(["pl+erlang", "pl+go"])
     .addLicenses(["license+mit", "license+mpl"])
     .addParadigms(["paradigm+concurrent", "paradigm+message-passing", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+cross", "plat+linux"])

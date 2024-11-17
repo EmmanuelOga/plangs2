@@ -23,7 +23,6 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://ccl.northwestern.edu/netlogo",
     })
     .addDialectOf(["pl+lisp"])
-    .addInfluencedBy(["pl+logo"])
     .addLicenses(["license+gnu-gpl"])
     .addParadigms(["paradigm+agents", "paradigm+educational", "paradigm+multi", "paradigm+procedural", "paradigm+simulation"])
     .addPlatforms(["plat+cross", "plat+java"])

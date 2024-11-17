@@ -25,7 +25,6 @@ export function define(g: PlangsGraph) {
       extRedditPath: "apljk",
       extHomeURL: "https://aplwiki.com/",
     })
-    .addLicenses(["license+proprietary"])
     .addParadigms(["paradigm+array", "paradigm+functional", "paradigm+modular", "paradigm+structured"])
     .addPlatforms(["plat+cross"])
     .addTags([

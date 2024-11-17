@@ -23,19 +23,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://learn.microsoft.com/en-us/dotnet/csharp/",
     })
     .addDialectOf(["pl+c"])
-    .addInfluencedBy([
-      "pl+c",
-      "pl+c++",
-      "pl+d",
-      "pl+eiffel",
-      "pl+f-sharp",
-      "pl+haskell",
-      "pl+icon",
-      "pl+ml",
-      "pl+pascal",
-      "pl+scala",
-      "pl+visual-basic",
-    ])
+    .addInfluencedBy(["pl+c", "pl+c++", "pl+d", "pl+eiffel", "pl+f-sharp", "pl+haskell", "pl+icon", "pl+pascal", "pl+scala", "pl+visual-basic"])
     .addLicenses(["license+gnu-gpl", "license+lgpl", "license+mit"])
     .addParadigms([
       "paradigm+async",

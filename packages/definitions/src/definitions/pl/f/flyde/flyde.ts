@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.flyde.dev/",
     })
     .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+declarative", "paradigm+frp", "paradigm+visual", "paradigm+workflow"])
+    .addParadigms(["paradigm+declarative", "paradigm+frp", "paradigm+visual"])
     .addPlatforms(["plat+nodejs", "plat+web"])
     .addTags(["tag+automation", "tag+low-code", "tag+workflow"]);
 

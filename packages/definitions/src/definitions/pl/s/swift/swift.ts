@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "swift",
       extHomeURL: "https://www.swift.org/",
     })
-    .addInfluencedBy(["pl+c", "pl+c-sharp", "pl+clu", "pl+d", "pl+haskell", "pl+lisp", "pl+python", "pl+ruby", "pl+rust"])
+    .addInfluencedBy(["pl+c", "pl+c-sharp", "pl+d", "pl+haskell", "pl+lisp", "pl+python", "pl+ruby", "pl+rust"])
     .addLicenses(["license+apache"])
     .addParadigms([
       "paradigm+concurrent",

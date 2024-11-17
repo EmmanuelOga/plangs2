@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.scheme.org/",
     })
     .addDialectOf(["pl+lisp", "pl+scheme"])
-    .addInfluencedBy(["pl+algol", "pl+lisp"])
+    .addInfluencedBy(["pl+lisp"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+metaprogramming", "paradigm+multi"])
     .addPlatforms(["plat+cross"])
     .addTags(["tag+analysis", "tag+compiler", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+testing"])

@@ -25,7 +25,6 @@ export function define(g: PlangsGraph) {
       extRedditPath: "futhark",
       extHomeURL: "http://futhark-lang.org/",
     })
-    .addDialectOf(["pl+ml"])
     .addInfluencedBy(["pl+apl", "pl+haskell", "pl+standard-ml"])
     .addLicenses(["license+isc"])
     .addParadigms(["paradigm+array", "paradigm+compiled", "paradigm+functional", "paradigm+multi", "paradigm+parallel"])

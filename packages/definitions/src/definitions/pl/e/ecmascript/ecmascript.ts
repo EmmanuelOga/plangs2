@@ -22,8 +22,8 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+awk", "pl+c", "pl+perl", "pl+python", "pl+scheme", "pl+self"])
     .addLicenses(["license+dual"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+procedural", "paradigm+prototype"])
-    .addPlatforms(["plat+cross", "plat+linux", "plat+macos", "plat+nodejs", "plat+web", "plat+windows"])
-    .addTags(["tag+analysis", "tag+app", "tag+framework", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+testing", "tag+web"])
+    .addPlatforms(["plat+cross", "plat+linux", "plat+nodejs", "plat+web", "plat+windows"])
+    .addTags(["tag+analysis", "tag+app", "tag+framework", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+testing"])
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+weak"]);
 
   // TOOLS

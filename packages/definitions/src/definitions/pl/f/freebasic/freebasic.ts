@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.freebasic.net/",
     })
     .addImplements(["pl+basic"])
-    .addInfluencedBy(["pl+c", "pl+quickbasic"])
+    .addInfluencedBy(["pl+c"])
     .addLicenses(["license+gnu-gpl", "license+lgpl"])
     .addParadigms(["paradigm+compiled", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
     .addPlatforms(["plat+bsd", "plat+dos", "plat+linux", "plat+windows"])

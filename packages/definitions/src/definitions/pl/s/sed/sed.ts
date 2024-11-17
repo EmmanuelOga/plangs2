@@ -20,7 +20,6 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "Sed",
     })
-    .addInfluencedBy(["pl+ed"])
     .addLicenses(["license+public-domain"])
     .addParadigms(["paradigm+procedural", "paradigm+scripting"])
     .addPlatforms(["plat+bsd", "plat+cross", "plat+linux"])

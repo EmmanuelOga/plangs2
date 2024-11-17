@@ -32,7 +32,6 @@ export function define(g: PlangsGraph) {
       "pl+f-sharp",
       "pl+haskell",
       "pl+lisp",
-      "pl+ml",
       "pl+ocaml",
       "pl+r5rs",
       "pl+scheme",

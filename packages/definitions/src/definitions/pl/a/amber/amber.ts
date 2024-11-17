@@ -14,9 +14,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://amber-lang.com",
     })
     .addCompilesTo(["pl+bash"])
-    .addInfluencedBy(["pl+smalltalk"])
     .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+compiled", "paradigm+interpreter", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
+    .addParadigms(["paradigm+compiled", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+web"])
     .addTags(["tag+cli", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic", "tsys+safe", "tsys+static"])

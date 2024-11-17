@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "factor",
       extHomeURL: "http://factorcode.org/",
     })
-    .addInfluencedBy(["pl+forth", "pl+joy", "pl+lisp", "pl+self"])
+    .addInfluencedBy(["pl+forth", "pl+lisp", "pl+self"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+concatenative", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+windows", "plat+x86-64"])

@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Coq",
       extHomeURL: "https://coq.inria.fr/",
     })
-    .addInfluencedBy(["pl+ml", "pl+ocaml"])
+    .addInfluencedBy(["pl+ocaml"])
     .addLicenses(["license+lgpl"])
     .addParadigms(["paradigm+declarative", "paradigm+functional", "paradigm+logic"])
     .addPlatforms(["plat+cross"])

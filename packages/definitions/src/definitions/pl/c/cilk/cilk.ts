@@ -23,7 +23,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+concurrent", "paradigm+imperative", "paradigm+parallel", "paradigm+procedural", "paradigm+structured"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+x86-64"])
-    .addTags(["tag+compiler", "tag+parallel-computing"])
+    .addTags(["tag+compiler"])
     .addTypeSystems(["tsys+manifest", "tsys+static", "tsys+weak"]);
 
   // TOOLS

@@ -31,7 +31,7 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+javascript", "pl+ocaml"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+functional", "paradigm+modular", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+cross", "plat+linux", "plat+mac", "plat+windows"])
+    .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+app", "tag+compiler", "tag+framework", "tag+interpreter"])
     .addTypeSystems(["tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+ocaml"]);

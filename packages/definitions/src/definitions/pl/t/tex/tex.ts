@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+public-domain"])
     .addParadigms(["paradigm+declarative", "paradigm+dsl", "paradigm+macro"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+document", "tag+editor", "tag+graphics", "tag+print", "tag+sci", "tag+typesetting"])
+    .addTags(["tag+editor", "tag+sci"])
     .addWrittenIn(["pl+pascal"]);
 
   // TOOLS

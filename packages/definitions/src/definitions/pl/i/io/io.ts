@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "iolanguage",
       extHomeURL: "https://iolanguage.org/",
     })
-    .addInfluencedBy(["pl+lisp", "pl+lua", "pl+self", "pl+smalltalk"])
+    .addInfluencedBy(["pl+lisp", "pl+lua", "pl+self"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+concurrent", "paradigm+oop", "paradigm+prototype", "paradigm+scripting"])
     .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])

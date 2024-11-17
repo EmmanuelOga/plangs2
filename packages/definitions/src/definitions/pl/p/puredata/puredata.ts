@@ -24,7 +24,6 @@ export function define(g: PlangsGraph) {
       stackovTags: ["puredata"],
       extHomeURL: "http://puredata.info/",
     })
-    .addInfluencedBy(["pl+max"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+concurrent", "paradigm+dataflow", "paradigm+event-driven", "paradigm+visual"])
     .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+windows"])

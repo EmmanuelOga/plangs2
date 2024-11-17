@@ -21,7 +21,6 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "AMPL",
       extHomeURL: "http://www.ampl.com/",
     })
-    .addLicenses(["license+proprietary"])
     .addParadigms(["paradigm+declarative", "paradigm+dsl", "paradigm+imperative", "paradigm+multi"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .addTags(["tag+industrial", "tag+interpreter", "tag+modeling", "tag+sci", "tag+stats"])

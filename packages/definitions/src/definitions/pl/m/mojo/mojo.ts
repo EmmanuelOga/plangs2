@@ -24,16 +24,9 @@ export function define(g: PlangsGraph) {
     })
     .addInfluencedBy(["pl+python", "pl+swift"])
     .addLicenses(["license+apache"])
-    .addParadigms([
-      "paradigm+compiled",
-      "paradigm+functional",
-      "paradigm+general-purpose",
-      "paradigm+imperative",
-      "paradigm+multi",
-      "paradigm+object-oriented",
-    ])
+    .addParadigms(["paradigm+compiled", "paradigm+functional", "paradigm+general-purpose", "paradigm+imperative", "paradigm+multi"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux"])
-    .addTags(["tag+automation", "tag+performance", "tag+scripting"])
+    .addTags(["tag+automation", "tag+scripting"])
     .addTypeSystems(["tsys+affine", "tsys+duck", "tsys+dynamic", "tsys+generic", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"]);
 
   // TOOLS

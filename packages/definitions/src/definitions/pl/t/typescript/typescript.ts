@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+cross", "plat+nodejs"])
-    .addTags(["tag+compiler", "tag+framework", "tag+scripting", "tag+web"])
+    .addTags(["tag+compiler", "tag+framework", "tag+scripting"])
     .addTypeSystems(["tsys+duck", "tsys+gradual", "tsys+optional", "tsys+strong", "tsys+structural"])
     .addWrittenIn(["pl+typescript"]);
 

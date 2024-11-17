@@ -36,7 +36,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://isocpp.org/",
     })
     .addDialectOf(["pl+c"])
-    .addInfluencedBy(["pl+ada", "pl+apl", "pl+c", "pl+clu", "pl+f-sharp", "pl+ml", "pl+simula"])
+    .addInfluencedBy(["pl+ada", "pl+apl", "pl+c", "pl+f-sharp"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
     .addTags([

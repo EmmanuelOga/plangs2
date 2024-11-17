@@ -17,7 +17,7 @@ export function define(g: PlangsGraph) {
       isMainstream: false,
       extHomeURL: "https://ryelang.org/",
     })
-    .addInfluencedBy(["pl+factor", "pl+rebol", "pl+red", "pl+shell"])
+    .addInfluencedBy(["pl+factor", "pl+rebol", "pl+red"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+functional", "paradigm+interpreted", "paradigm+multi", "paradigm+scripting"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows"])

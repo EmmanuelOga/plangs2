@@ -13,11 +13,10 @@ export function define(g: PlangsGraph) {
       extGithubPath: "unisonweb/unison",
       extHomeURL: "https://www.unison-lang.org/",
     })
-    .addInfluencedBy(["pl+elm", "pl+haskeL"])
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+declarative", "paradigm+distributed", "paradigm+functional"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+cli", "tag+distributed"])
+    .addTags(["tag+cli"])
     .addTypeSystems(["tsys+algebraic", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+haskell"]);
 

@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://openjdk.java.net/",
     })
     .addInfluencedBy(["pl+c++"])
-    .addLicenses(["license+gnu-gpl", "license+gpl"])
+    .addLicenses(["license+gnu-gpl"])
     .addParadigms([
       "paradigm+compiled",
       "paradigm+concurrent",

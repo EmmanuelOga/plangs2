@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+bsd", "license+epl"])
     .addParadigms(["paradigm+declarative", "paradigm+functional", "paradigm+imperative", "paradigm+language-oriented", "paradigm+scripting"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+analysis", "tag+dsl", "tag+transformation"])
+    .addTags(["tag+analysis"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+java"]);
 

@@ -30,7 +30,7 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+awk", "pl+lisp"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+event-driven", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
-    .addPlatforms(["plat+cross", "plat+linux", "plat+mac", "plat+windows"])
+    .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
     .addTags([
       "tag+app",
       "tag+automation",

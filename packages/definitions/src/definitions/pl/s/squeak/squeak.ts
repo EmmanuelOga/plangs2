@@ -24,8 +24,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "smalltalk",
       extHomeURL: "http://www.squeak.org/",
     })
-    .addDialectOf(["pl+smalltalk"])
-    .addInfluencedBy(["pl+lisp", "pl+self", "pl+smalltalk"])
+    .addInfluencedBy(["pl+lisp", "pl+self"])
     .addLicenses(["license+apache", "license+mit"])
     .addParadigms(["paradigm+educational", "paradigm+interpreted", "paradigm+oop", "paradigm+reflective"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])

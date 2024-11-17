@@ -20,10 +20,10 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Shen_(programming_language)",
       extHomeURL: "https://shenlanguage.org/",
     })
-    .addInfluencedBy(["pl+assembler", "pl+prolog", "pl+scheme"])
+    .addInfluencedBy(["pl+prolog", "pl+scheme"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+functional", "paradigm+logic", "paradigm+multi", "paradigm+pattern-matching", "paradigm+symbolic"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+mac", "plat+web", "plat+windows"])
+    .addPlatforms(["plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+web", "plat+windows"])
     .addTags(["tag+automation", "tag+cas", "tag+compiler", "tag+interpreter", "tag+scripting"])
     .addTypeSystems(["tsys+manifest", "tsys+polymorphic", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+scheme"]);

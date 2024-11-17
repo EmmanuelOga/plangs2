@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+lgpl"])
     .addParadigms(["paradigm+declarative", "paradigm+expert-system", "paradigm+logic"])
     .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+dbms", "tag+interpreter", "tag+query"])
+    .addTags(["tag+dbms", "tag+interpreter"])
     .addTypeSystems(["tsys+untyped"])
     .addWrittenIn(["pl+c"]);
 

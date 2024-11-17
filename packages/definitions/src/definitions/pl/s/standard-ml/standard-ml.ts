@@ -22,8 +22,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "sml",
       extHomeURL: "https://smlfamily.github.io/",
     })
-    .addDialectOf(["pl+ml"])
-    .addInfluencedBy(["pl+ml", "pl+pascal"])
+    .addInfluencedBy(["pl+pascal"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi"])
     .addPlatforms(["plat+bsd", "plat+cross", "plat+linux"])

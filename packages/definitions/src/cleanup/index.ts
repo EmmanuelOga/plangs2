@@ -49,7 +49,10 @@ function updateWithLanguish(pl: NPlang, rankings: Rankings): boolean {
   return true;
 }
 
-/** Languish has a rank for the top 100 languages of linguist. Create skeleton files for those, if missing. */
+/**
+ * Languish has a rank for the top 100 languages of linguist. Create skeleton files for those, if missing.
+ * We used this early on, but the missing languages now are things like CSV, "AdBlock List", etc that we don't really want to add.
+ */
 export async function createMissingPlangs(pg: PlangsGraph, ghMap: Map<string, LinguistLang>, rankings: Rankings) {
   // Collect the existing GH names for the next step.
   const existingGHNames = new Set<string>(pg.nodes.pl.values.map(pl => pl.data.githubName).existing);
@@ -71,7 +74,7 @@ export async function createMissingPlangs(pg: PlangsGraph, ghMap: Map<string, Li
   }
 }
 
-export async function cleanupData() {
+export async function processGithubAndLanguish() {
   const pg = new PlangsGraph();
   await loadAllDefinitions(pg, { scanImages: false });
 
@@ -95,17 +98,34 @@ export async function cleanupData() {
 
   console.warn("Languages without updates:", { woGithub: [...woGH], woLanguish: [...woLG] });
 
-  await createMissingPlangs(pg, ghMap, rankings);
+  for (const pl of pg.nodes.pl.values) Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
+
+  console.warn("CAUTION: matching github data is not a perfect process. Results (git diff) should be manually reviewed.");
+}
+
+/** This regenerates some nodes that are not NPlangs. Useful to reorder the definitions. */
+export function regenNonPlangs() {
+  for (const pl of pg.nodes.pl.values) Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
+  for (const kind of ["license", "paradigm", "plat", "tag", "tsys"] as const) {
+    Bun.write(tsNodePath(kind), genericCodeGen(pg, kind));
+  }
+}
+
+/** Cleanup relationships in data. All edges should point to an existing node. */
+export async function cleanupData(pg: PlangsGraph) {
+  for (const [e, edgeMap] of Object.entries(pg.edges)) {
+    for (const edge of edgeMap.values) {
+      if (!edge.nodeFrom || !edge.nodeTo) {
+        console.log("Deleting edge with missing node:", e, edge.from, edge.to);
+        // biome-ignore lint/suspicious/noExplicitAny: Necessary because of the way we are using Object.entries.
+        edgeMap.delete(edge.from as any, edge.to as any);
+      }
+    }
+  }
 
   for (const pl of pg.nodes.pl.values) Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
 }
 
 const pg = new PlangsGraph();
 await loadAllDefinitions(pg, { scanImages: false });
-
-for (const pl of pg.nodes.pl.values) Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
-for (const kind of ["license", "paradigm", "plat", "tag", "tsys"] as const) {
-  Bun.write(tsNodePath(kind), genericCodeGen(pg, kind));
-}
-
-console.warn("CAUTION: matching github data is not a perfect process. Results (git diff) should be manually reviewed.");
+await cleanupData(pg);

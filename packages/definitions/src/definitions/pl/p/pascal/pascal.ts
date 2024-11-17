@@ -20,7 +20,6 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Pascal_(programming_language)",
       extRedditPath: "pascal",
     })
-    .addInfluencedBy(["pl+algol", "pl+simula"])
     .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+structured"])
     .addPlatforms(["plat+bsd", "plat+cross", "plat+dos", "plat+linux", "plat+windows"])
     .addTags(["tag+compiler", "tag+edu", "tag+framework", "tag+games", "tag+interpreter"])

@@ -27,7 +27,6 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.php.net/",
     })
     .addInfluencedBy(["pl+c", "pl+java"])
-    .addLicenses(["license+php"])
     .addParadigms([
       "paradigm+functional",
       "paradigm+imperative",
@@ -38,7 +37,7 @@ export function define(g: PlangsGraph) {
       "paradigm+scripting",
     ])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+scripting", "tag+server", "tag+web"])
+    .addTags(["tag+scripting", "tag+server"])
     .addTypeSystems(["tsys+dynamic", "tsys+gradual", "tsys+weak"])
     .addWrittenIn(["pl+c"]);
 

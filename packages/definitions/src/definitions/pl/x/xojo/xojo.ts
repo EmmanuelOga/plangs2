@@ -25,10 +25,8 @@ export function define(g: PlangsGraph) {
       extRedditPath: "xojo",
       extHomeURL: "http://xojo.com/",
     })
-    .addDialectOf(["pl+realbasic"])
     .addImplements(["pl+basic"])
     .addInfluencedBy(["pl+basic", "pl+visual-basic"])
-    .addLicenses(["license+proprietary"])
     .addParadigms(["paradigm+multi", "paradigm+oop", "paradigm+visual"])
     .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+raspberry", "plat+web", "plat+windows"])
     .addTags(["tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreter", "tag+rad", "tag+ui"])

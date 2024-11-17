@@ -25,8 +25,8 @@ export function define(g: PlangsGraph) {
       extRedditPath: "fsharp",
       extHomeURL: "https://fsharp.org/",
     })
-    .addDialectOf(["pl+ml", "pl+ocaml"])
-    .addInfluencedBy(["pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ml", "pl+ocaml", "pl+python", "pl+scala", "pl+standard-ml"])
+    .addDialectOf(["pl+ocaml"])
+    .addInfluencedBy(["pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ocaml", "pl+python", "pl+scala", "pl+standard-ml"])
     .addLicenses(["license+mit"])
     .addParadigms([
       "paradigm+agents",

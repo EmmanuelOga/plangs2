@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
       "paradigm+interpreted",
     ])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+audio-dev", "tag+dsl", "tag+workflow"])
+    .addTags(["tag+audio-dev", "tag+workflow"])
     .addTypeSystems(["tsys+dynamic"])
     .addWrittenIn(["pl+python"]);
 

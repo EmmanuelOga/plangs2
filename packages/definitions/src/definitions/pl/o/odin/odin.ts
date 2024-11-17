@@ -29,10 +29,9 @@ export function define(g: PlangsGraph) {
       "paradigm+general-purpose",
       "paradigm+imperative",
       "paradigm+procedural",
-      "paradigm+systems",
     ])
     .addPlatforms(["plat+arm", "plat+cross", "plat+linux", "plat+wasm", "plat+web", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+compiler", "tag+systems"])
+    .addTags(["tag+compiler"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+odin"]);
 

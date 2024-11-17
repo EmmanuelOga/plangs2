@@ -14,7 +14,6 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Icon_programming_language",
       extHomeURL: "http://www.cs.arizona.edu/icon",
     })
-    .addInfluencedBy(["pl+algol"])
     .addParadigms(["paradigm+multi", "paradigm+structured"])
     .addPlatforms(["plat+cross"])
     .addTags(["tag+app", "tag+asm", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+testing"])

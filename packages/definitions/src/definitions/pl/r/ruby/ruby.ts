@@ -31,7 +31,6 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy([
       "pl+basic",
       "pl+c++",
-      "pl+clu",
       "pl+dylan",
       "pl+eiffel",
       "pl+lisp",

@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "CodeMonkey_(software)",
       extHomeURL: "https://www.codemonkey.com/",
     })
-    .addLicenses(["license+georgialicense"])
     .addParadigms(["paradigm+dsl", "paradigm+educational", "paradigm+visual"])
     .addPlatforms(["plat+cross"])
     .addTags(["tag+edu", "tag+games"])

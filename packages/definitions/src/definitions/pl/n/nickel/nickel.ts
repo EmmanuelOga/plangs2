@@ -20,8 +20,8 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+rust"])
     .addLicenses(["license+mpl"])
     .addParadigms(["paradigm+data-exchange", "paradigm+declarative", "paradigm+validation"])
-    .addPlatforms(["plat+linux", "plat+mac", "plat+windows"])
-    .addTags(["tag+automation", "tag+configuration", "tag+validation"])
+    .addPlatforms(["plat+linux", "plat+windows"])
+    .addTags(["tag+automation"])
     .addTypeSystems(["tsys+dynamic", "tsys+gradual", "tsys+optional", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+rust"]);
 

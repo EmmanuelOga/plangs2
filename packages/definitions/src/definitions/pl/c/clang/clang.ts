@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://clang.llvm.org/",
     })
     .addImplements(["pl+c", "pl+c++"])
-    .addInfluencedBy(["pl+gcc", "pl+llvm"])
+    .addInfluencedBy(["pl+llvm"])
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+compiled", "paradigm+multi"])
     .addPlatforms(["plat+apple", "plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+windows", "plat+x86-64"])

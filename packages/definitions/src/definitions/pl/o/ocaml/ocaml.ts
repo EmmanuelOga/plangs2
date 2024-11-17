@@ -25,8 +25,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "ocaml",
       extHomeURL: "https://ocaml.org/",
     })
-    .addDialectOf(["pl+ml"])
-    .addInfluencedBy(["pl+c", "pl+ml", "pl+pascal", "pl+standard-ml"])
+    .addInfluencedBy(["pl+c", "pl+pascal", "pl+standard-ml"])
     .addLicenses(["license+lgpl"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])

@@ -14,11 +14,11 @@ export function define(g: PlangsGraph) {
       extGithubPath: "aardappel/lobster",
       extHomeURL: "https://strlen.com/lobster/",
     })
-    .addInfluencedBy(["pl+cpp", "pl+python"])
+    .addInfluencedBy(["pl+python"])
     .addLicenses(["license+apache", "license+zlib"])
     .addParadigms(["paradigm+compiled", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+cross", "plat+linux", "plat+web", "plat+windows"])
-    .addTags(["tag+games", "tag+real-time", "tag+scripting"])
+    .addTags(["tag+games", "tag+scripting"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c++"]);
 

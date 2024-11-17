@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Eiffel_(programming_language)",
       extHomeURL: "http://eiffel.org/",
     })
-    .addInfluencedBy(["pl+ada", "pl+simula"])
+    .addInfluencedBy(["pl+ada"])
     .addLicenses(["license+dual", "license+epl"])
     .addParadigms(["paradigm+compiled", "paradigm+concurrent", "paradigm+contracts", "paradigm+oop"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])

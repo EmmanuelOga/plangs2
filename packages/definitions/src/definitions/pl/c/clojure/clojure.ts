@@ -29,7 +29,6 @@ export function define(g: PlangsGraph) {
       "pl+common-lisp",
       "pl+erlang",
       "pl+haskell",
-      "pl+ml",
       "pl+prolog",
       "pl+r5rs",
       "pl+racket",

@@ -23,7 +23,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.adaic.org/",
     })
     .addDialectOf(["pl+pascal"])
-    .addInfluencedBy(["pl+c++", "pl+clu", "pl+eiffel", "pl+pascal"])
+    .addInfluencedBy(["pl+c++", "pl+eiffel", "pl+pascal"])
     .addParadigms([
       "paradigm+array",
       "paradigm+aspect",

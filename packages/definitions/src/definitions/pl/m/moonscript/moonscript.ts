@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://moonscript.org/",
     })
     .addCompilesTo(["pl+lua"])
-    .addInfluencedBy(["pl+c++", "pl+clu", "pl+coffeescript", "pl+modula", "pl+scheme"])
+    .addInfluencedBy(["pl+c++", "pl+coffeescript", "pl+scheme"])
     .addLicenses(["license+mit"])
     .addParadigms([
       "paradigm+functional",

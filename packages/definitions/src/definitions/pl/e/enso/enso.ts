@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ensoanalytics.com/",
     })
     .addLicenses(["license+agpl", "license+apache"])
-    .addParadigms(["paradigm+data-centric", "paradigm+functional", "paradigm+multi", "paradigm+visual"])
+    .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+visual"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
     .addTags(["tag+analysis", "tag+viz", "tag+workflow"])
     .addTypeSystems(["tsys+dynamic", "tsys+gradual"])

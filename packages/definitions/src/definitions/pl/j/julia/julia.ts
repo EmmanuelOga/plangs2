@@ -31,7 +31,6 @@ export function define(g: PlangsGraph) {
       "pl+c",
       "pl+common-lisp",
       "pl+dylan",
-      "pl+fortress",
       "pl+lisp",
       "pl+lua",
       "pl+moonscript",

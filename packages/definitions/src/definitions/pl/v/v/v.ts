@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://vlang.io/",
     })
     .addCompilesTo(["pl+c"])
-    .addInfluencedBy(["pl+go", "pl+oberon", "pl+rust", "pl+swift"])
+    .addInfluencedBy(["pl+go", "pl+rust", "pl+swift"])
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+structured"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])

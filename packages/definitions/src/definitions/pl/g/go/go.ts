@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "golang",
       extHomeURL: "https://go.dev/",
     })
-    .addInfluencedBy(["pl+apl", "pl+c", "pl+d", "pl+erlang", "pl+modula", "pl+oberon", "pl+pascal", "pl+python"])
+    .addInfluencedBy(["pl+apl", "pl+c", "pl+d", "pl+erlang", "pl+pascal", "pl+python"])
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
