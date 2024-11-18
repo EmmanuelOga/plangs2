@@ -19,7 +19,6 @@ export function define(g: PlangsGraph) {
       githubColor: "#16cec6",
       githubPopular: false,
       githubType: "programming",
-      isMainstream: false,
       extGithubPath: "imba/imba",
     })
     .addCompilesTo(["pl+javascript"])

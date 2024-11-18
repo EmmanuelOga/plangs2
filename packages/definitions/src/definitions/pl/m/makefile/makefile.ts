@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       extensions: [".mk"],
       filenames: ["Makefile", "makefile"],
       year: 1976,
-      isMainstream: true,
       extWikipediaPath: "Make_(software)",
     })
     .addParadigms(["paradigm+declarative", "paradigm+macro"])

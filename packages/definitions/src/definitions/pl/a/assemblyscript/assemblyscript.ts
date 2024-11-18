@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".ts"],
       year: 2017,
       isTranspiler: true,
-      isMainstream: false,
       releases: [{ version: "0.27.30", name: "AssemblyScript 0.27.30", date: "2024-09-27" }],
       extWikipediaPath: "AssemblyScript",
       extHomeURL: "https://www.assemblyscript.org/",

@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       keywords: ["Arduino", "IoT", "embedded systems", "microcontroller", "open-source"],
       extensions: [".ino", ".pde"],
       year: 2005,
-      isMainstream: true,
       releases: [{ version: "2.3.3", name: "Arduino IDE 2.3.3", date: "2024-09-25" }],
       extWikipediaPath: "Arduino",
       extHomeURL: "https://www.arduino.cc",

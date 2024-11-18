@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["c", "general-purpose", "imperative", "procedural", "structured", "systems programming"],
       extensions: [".c", ".h"],
       year: 1972,
-      isMainstream: true,
       releases: [
         { version: "C18", name: "Standard C18", date: "2018-06-01" },
         { version: "C11", name: "Standard C11", date: "2011-12-08" },

@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".hx", ".hxml"],
       year: 2005,
       isTranspiler: true,
-      isMainstream: false,
       releases: [{ version: "4.3.6", name: "Haxe 4.3.6", date: "2024-08-07" }],
       stackovTags: ["haxe"],
       githubName: "Haxe",

@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       extensions: [".mustache"],
       year: 2009,
       isTranspiler: true,
-      isMainstream: true,
       releases: [{ version: "4.2.0", name: "Stable release", date: "2021-03-28" }],
       extWikipediaPath: "Mustache_(template_system)",
       extGithubPath: "mustache/mustache",

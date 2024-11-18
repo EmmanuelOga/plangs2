@@ -177,18 +177,6 @@ test("influencedBy", () => {
   expect(check(pl, new Filter<NPlang["key"]>("any").add("pl+two").add("pl+three"))).toBeTrue();
 });
 
-test("isMainstream", () => {
-  const pg = new PlangsGraph();
-  const java = pg.nodes.pl.set("pl+java", { isMainstream: true });
-  const rascal = pg.nodes.pl.set("pl+rascal");
-  const { isMainstream: check } = PLANG_FACET_PREDICATES;
-
-  expect(check(java, new ValBool(false))).toBeFalse();
-  expect(check(java, new ValBool(true))).toBeTrue();
-  expect(check(rascal, new ValBool(false))).toBeTrue();
-  expect(check(rascal, new ValBool(true))).toBeFalse();
-});
-
 test("isTranspiler", () => {
   const pg = new PlangsGraph();
   const typescript = pg.nodes.pl.set("pl+typescript", { isTranspiler: true });

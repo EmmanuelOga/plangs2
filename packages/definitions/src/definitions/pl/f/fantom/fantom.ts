@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".fan", ".fwt", ".pod"],
       year: 2005,
       isTranspiler: true,
-      isMainstream: false,
       releases: [{ version: "1.0.79", name: "Fantom 1.0.79", date: "2023-07-17" }],
       stackovTags: ["fantom"],
       githubName: "Fantom",

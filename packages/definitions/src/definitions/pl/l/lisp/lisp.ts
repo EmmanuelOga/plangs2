@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["lisp"],
       extensions: [".cl", ".fasl", ".lisp", ".lsp"],
       year: 1960,
-      isMainstream: true,
       githubName: "Common Lisp",
       stackovTags: ["common-lisp"],
       githubLangId: "66",

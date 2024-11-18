@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["apl", "array programming"],
       extensions: [".apl"],
       year: 1966,
-      isMainstream: false,
       releases: [
         { version: "1", name: "APL 1", date: "1966-01-01" },
         { version: "2", name: "APL 2", date: "1980-01-01" },

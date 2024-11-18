@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["clean", "functional programming", "uniqueness typing"],
       extensions: [".abc", ".dcl", ".icl"],
       year: 1987,
-      isMainstream: false,
       releases: [{ version: "3.1", name: "Clean 3.1", date: "2022-01-05" }],
       stackovTags: ["clean-language"],
       githubName: "Clean",

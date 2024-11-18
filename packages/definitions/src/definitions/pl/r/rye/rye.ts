@@ -14,7 +14,6 @@ export function define(g: PlangsGraph) {
         { version: "1.0", name: "Rye 1.0", date: "2022-01-01" },
         { version: "1.1", name: "Rye 1.1", date: "2023-03-10" },
       ],
-      isMainstream: false,
       extHomeURL: "https://ryelang.org/",
     })
     .addInfluencedBy(["pl+factor", "pl+rebol", "pl+red"])

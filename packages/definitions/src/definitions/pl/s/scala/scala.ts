@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["scala"],
       extensions: [".sc", ".scala"],
       year: 2004,
-      isMainstream: true,
       releases: [
         { version: "3.5.0", name: "Scala 3.5.0", date: "2024-08-22" },
         { version: "3.4.0", name: "Scala 3.4.0", date: "2024-01-01" },

@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["pd", "pure data", "puredata"],
       extensions: [".pd"],
       year: 1996,
-      isMainstream: true,
       releases: [
         { version: "0.53-2", name: "Stable release", date: "2023-03-15" },
         { version: "0.53", name: "Pd 0.53", date: "2023-01-01" },

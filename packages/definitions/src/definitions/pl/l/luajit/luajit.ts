@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["just-in-time compiler", "lua", "luajit"],
       extensions: [".lua", ".luajit"],
       year: 2005,
-      isMainstream: true,
       releases: [
         { version: "2.1.ROLLING", name: "LuaJIT 2.1 Rolling Release", date: "2023-08-21" },
         { version: "2.0.5", name: "LuaJIT 2.0.5", date: "2023-01-01" },

@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["ciao", "constraint", "logic", "programming", "prolog"],
       extensions: [".ciao", ".pl"],
       year: 1984,
-      isMainstream: false,
       releases: [{ version: "v1.20", name: "Ciao v1.20", date: "2022-06-01" }],
       extWikipediaPath: "Ciao_(programming_language)",
       extHomeURL: "http://www.ciao-lang.org/",

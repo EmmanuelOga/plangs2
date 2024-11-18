@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".coffee", ".litcoffee"],
       year: 2009,
       isTranspiler: true,
-      isMainstream: false,
       releases: [{ version: "2.7.0", name: "CoffeeScript 2.7.0", date: "2022-04-24" }],
       stackovTags: ["coffeescript"],
       githubName: "CoffeeScript",

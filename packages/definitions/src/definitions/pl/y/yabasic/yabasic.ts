@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["basic", "interpreter", "open-source", "unix", "windows", "yabasic"],
       extensions: [".yab"],
       year: 1995,
-      isMainstream: false,
       releases: [{ version: "2.90.4", name: "Yabasic 2.90.4", date: "2023-09-17" }],
       extGithubPath: "marcIhm/yabasic",
       extWikipediaPath: "Yabasic",

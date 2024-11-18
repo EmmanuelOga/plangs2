@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
       keywords: ["CUDA", "GPGPU", "GPU", "Nvidia", "graphics processing unit", "parallel computing", "parallel programming"],
       extensions: [".cu"],
       year: 2006,
-      isMainstream: true,
       releases: [
         { version: "12.6", name: "Stable release", date: "2024-08" },
         { version: "1.0", name: "Initial release", date: "2007-06-23" },

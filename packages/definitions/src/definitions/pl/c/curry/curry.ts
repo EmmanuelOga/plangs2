@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["curry", "declarative", "functional", "logic", "programming"],
       extensions: [".curry"],
       year: 1995,
-      isMainstream: false,
       releases: [{ version: "3.6.0", name: "Curry 3.6.0", date: "2023-11-10" }],
       githubName: "Curry",
       githubLangId: "439829048",

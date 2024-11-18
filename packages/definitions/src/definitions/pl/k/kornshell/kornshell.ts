@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["kornshell", "ksh"],
       extensions: [".ksh", ".sh"],
       year: 1983,
-      isMainstream: true,
       extWikipediaPath: "KornShell",
       extHomeURL: "http://kornshell.com/",
     })

@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["MLton", "Standard ML", "compiler", "optimizing", "whole-program"],
       extensions: [".sml"],
       year: 1997,
-      isMainstream: false,
       releases: [{ version: "20210117", name: "Stable Release", date: "2021-01-17" }],
       extWikipediaPath: "MLton",
       extHomeURL: "http://mlton.org/",

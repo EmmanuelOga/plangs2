@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["cilk", "cilk plus", "opencilk"],
       extensions: [".cilk"],
       year: 1994,
-      isMainstream: false,
       releases: [
         { version: "2.0.1", name: "OpenCilk", date: "2022-09-03" },
         { version: "5.4.6", name: "Cilk" },

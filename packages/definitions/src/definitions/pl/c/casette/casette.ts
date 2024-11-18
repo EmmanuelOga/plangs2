@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { version: "1.0.0", date: "2021-05-01" },
       ],
       isTranspiler: true,
-      isMainstream: false,
       extHomeURL: "https://cassette-lang.com/",
     })
     .addCompilesTo(["pl+c"])

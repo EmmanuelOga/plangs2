@@ -40,10 +40,6 @@
           "description": "Can this particular implementation compile source-code to source-code?",
           "type": "boolean"
         },
-        "isMainstream": {
-          "description": "Languages like C, C++, Java, Python, JavaScript, etc. are mainstream and production ready.",
-          "type": "boolean"
-        },
         "releases": {
           "description": "A list of note worthy releases, not all of them. For instance, noteworthy release could be the latest for each major version.",
           "type": "array",
@@ -53,7 +49,7 @@
         }
       },
       "additionalProperties": false,
-      "required": ["extensions", "filenames", "images", "isMainstream", "isTranspiler", "releases", "year"]
+      "required": ["extensions", "filenames", "images", "isTranspiler", "releases", "year"]
     },
     "compilesTo": {
       "description": "List of programming languages that this language compiles to, if any.\nEach element is a key with prefix \"pl+\", for instance: \"pl+python\",\nwhere \"python\" is a unique identifier using only lowercase letters, numbers and dashes.",

@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       extensions: [".proto"],
       year: 2001,
       isTranspiler: true,
-      isMainstream: true,
       releases: [{ version: "28.3", name: "Stable Release", date: "2024-10-22" }],
       extWikipediaPath: "Protocol_Buffers",
     })

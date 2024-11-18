@@ -18,7 +18,6 @@ export function define(g: PlangsGraph) {
       filenames: ["CMakeLists.txt"],
       year: 2000,
       isTranspiler: true,
-      isMainstream: true,
       releases: [
         { version: "3.30.5", name: "Stable release", date: "2024-10-09" },
         { version: "3.31.0-rc3", name: "Preview release", date: "2024-10-29" },

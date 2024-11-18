@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: [".net", "clr", "dlr", "ironpython", "mono", "python"],
       extensions: [".py", ".pyi"],
       year: 2006,
-      isMainstream: false,
       releases: [
         { version: "3.4.1", name: "3.4.1", date: "2023-07-12" },
         { version: "3.4.0", name: "3.4.0", date: "2022-12-12" },

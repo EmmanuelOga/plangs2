@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["app development", "cross-platform", "freemium", "object-oriented", "xojo"],
       extensions: [".xojo_binary_project", ".xojo_code", ".xojo_xml_project"],
       year: 1996,
-      isMainstream: false,
       releases: [
         { version: "2023R3.1", name: "Xojo 2023 Release 3.1", date: "2023-10-25" },
         { version: "3.1", name: "Xojo 3.1", date: "2023-01-01" },

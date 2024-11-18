@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["ada", "compiler", "gcc", "gnat"],
       extensions: [".adb", ".ads"],
       year: 1995,
-      isMainstream: true,
       releases: [
         { version: "14.1", name: "FSF GNAT 14.1", date: "2024-05-07" },
         { version: "GNAT Pro 24", name: "GNAT Pro 24", date: "2024" },

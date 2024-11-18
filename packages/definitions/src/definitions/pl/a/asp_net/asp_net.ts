@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       extensions: [".aspx", ".cshtml", ".vbhtml"],
       year: 2002,
       isTranspiler: true,
-      isMainstream: true,
       releases: [{ version: "v9.0.0", date: "2024-09-13" }],
       extWikipediaPath: "ASP.NET",
       extRedditPath: "ASPNET",

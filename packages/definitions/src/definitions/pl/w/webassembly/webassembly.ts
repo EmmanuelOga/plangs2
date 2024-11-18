@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       keywords: ["Wasm", "WebAssembly", "binary code", "high-performance applications", "portable", "stack machine", "virtual machine", "web"],
       extensions: [".wasm", ".wat"],
       year: 2017,
-      isMainstream: true,
       releases: [
         { version: "1.0", name: "Initial Release", date: "2017-03" },
         { version: "Core Specification Release", name: "Publication", date: "2018-02" },

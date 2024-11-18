@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "JavaScriptCore, also known as SquirrelFish, is a JavaScript engine developed as part of the WebKit project. It is widely known for being used in the Safari web browser and provides a robust implementation of the ECMAScript standards.",
       keywords: ["javascriptcore", "js engine", "webkit"],
       year: 2008,
-      isMainstream: false,
       extWikipediaPath: "JavaScriptCore",
       extHomeURL: "http://webkit.org/",
     })

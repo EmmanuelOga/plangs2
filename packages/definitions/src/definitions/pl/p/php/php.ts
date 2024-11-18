@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["php", "php5", "php7", "php8"],
       extensions: [".phar", ".php", ".php3", ".php4", ".php5", ".phps", ".pht", ".phtml"],
       year: 1995,
-      isMainstream: true,
       releases: [
         { version: "8.3.13", name: "PHP 8.3.13", date: "2024-10-24" },
         { version: "8.2.25", name: "PHP 8.2.25", date: "2024-10-24" },

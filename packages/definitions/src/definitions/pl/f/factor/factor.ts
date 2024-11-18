@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["dynamic types", "factor", "stack-oriented"],
       extensions: [".factor"],
       year: 2003,
-      isMainstream: false,
       releases: [
         { version: "0.99", name: "Factor 0.99", date: "2023-08-24" },
         { version: "0.100", name: "Factor 0.100", date: "2024-11-05" },

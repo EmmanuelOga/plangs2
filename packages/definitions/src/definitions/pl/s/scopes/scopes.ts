@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
       year: 2015,
       releases: [{ version: "0.1", name: "Initial release", date: "2015-01-01" }],
       filenames: ["scopes"],
-      isMainstream: true,
       extHomeURL: "https://hg.sr.ht/~duangle/scopes",
     })
     .addLicenses(["license+mit"])

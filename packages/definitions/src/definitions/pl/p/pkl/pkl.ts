@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       isTranspiler: true,
-      isMainstream: false,
       extWikipediaPath: "PKL_(programming_language)",
       extHomeURL: "https://pkl-lang.org/",
     })

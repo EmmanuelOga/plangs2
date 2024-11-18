@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       keywords: ["computational", "data science", "interactive", "kernel", "multilanguage", "notebook", "scientific computing"],
       extensions: [".ipynb"],
       year: 2014,
-      isMainstream: true,
       isTranspiler: true,
       extWikipediaPath: "Project_Jupyter",
       extRedditPath: "IPython",

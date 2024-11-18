@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".dart"],
       year: 2011,
       isTranspiler: true,
-      isMainstream: true,
       releases: [
         { version: "3.5.4", name: "Dart 3.5.4", date: "2024-10-17" },
         { version: "3.0.0", name: "Dart 3.0", date: "2023-05-01" },

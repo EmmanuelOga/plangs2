@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["prolog"],
       extensions: [".P", ".pl", ".pro"],
       year: 1972,
-      isMainstream: true,
       stackovTags: ["prolog"],
       githubName: "Prolog",
       languishRanking: 160,

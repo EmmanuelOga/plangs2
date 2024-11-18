@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["flix"],
       extensions: [".flix"],
       year: 2015,
-      isMainstream: false,
       releases: [
         { version: "0.1", name: "Flix 0.1", date: "2014-01-01" },
         { version: "0.6.0", name: "Flix 0.6.0", date: "2021-06-03" },

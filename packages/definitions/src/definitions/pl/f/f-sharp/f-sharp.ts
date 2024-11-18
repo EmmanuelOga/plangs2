@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["f#", "fsharp"],
       extensions: [".fs", ".fsi", ".fsscript", ".fsx"],
       year: 2005,
-      isMainstream: true,
       releases: [
         { version: "8.0", name: "F# 8.0", date: "2023-11-01" },
         { version: "8.0.0", name: "F# 8.0", date: "2023-01-01" },

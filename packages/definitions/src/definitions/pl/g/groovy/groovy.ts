@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["groovy", "java", "language", "programming", "scripting"],
       extensions: [".groovy", ".gsh", ".gvy", ".gy"],
       year: 2003,
-      isMainstream: true,
       releases: [
         { version: "4.0.23", name: "Groovy 4.0.23", date: "2024-09-09" },
         { version: "4.0.0", name: "Groovy 4.0.0", date: "2022-01-25" },

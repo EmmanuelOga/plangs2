@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       keywords: ["HCL", "HashiCorp", "Terraform", "declarative configuration language", "infrastructure as code"],
       extensions: [".hcl"],
       year: 2014,
-      isMainstream: true,
       releases: [
         { version: "1.9.1", name: "Stable release", date: "2024-07-03" },
         { version: "1.0.0", name: "Initial release", date: "2014-07-28" },

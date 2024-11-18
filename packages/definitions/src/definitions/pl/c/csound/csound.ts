@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["audio programming", "csound", "music computing"],
       extensions: [".csd", ".orc", ".sco"],
       year: 1986,
-      isMainstream: false,
       releases: [{ version: "6.18.1", name: "Csound 6.18.1", date: "2022-11-24" }],
       stackovTags: ["csound"],
       githubName: "Csound",

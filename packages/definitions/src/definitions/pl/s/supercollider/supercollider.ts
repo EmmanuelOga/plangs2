@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["algorithmic", "audio", "music", "supercollider", "synthesis"],
       extensions: [".scd"],
       year: 1996,
-      isMainstream: false,
       releases: [{ version: "3.13.0", name: "SuperCollider 3.13.0", date: "2023-02-19" }],
       stackovTags: ["supercollider"],
       githubName: "SuperCollider",

@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       extensions: [".vim"],
       filenames: [".vimrc"],
       year: 1991,
-      isMainstream: true,
       releases: [{ version: "9.1", name: "Vim 9.1", date: "2024-01-02" }],
       extWikipediaPath: "Vim_(text_editor)",
       extRedditPath: "vim",

@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["pascal", "programming language", "structured programming"],
       extensions: [".p", ".pas", ".pp"],
       year: 1970,
-      isMainstream: true,
       stackovTags: ["pascal"],
       githubName: "Pascal",
       languishRanking: 72,

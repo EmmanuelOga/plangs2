@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".hy"],
       year: 2013,
       isTranspiler: true,
-      isMainstream: false,
       releases: [
         { version: "1.0.0", name: "Hy 1.0", date: "2024-09-22" },
         { version: "1.0", name: "Hy 1.0", date: "2022-01-01" },

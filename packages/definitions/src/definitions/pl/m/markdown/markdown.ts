@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       extensions: [".markdown", ".md"],
       year: 2004,
       isTranspiler: true,
-      isMainstream: true,
       releases: [
         { version: "1.0", name: "", date: "2004-03-09" },
         { version: "1.0.1", name: "", date: "2004-12-17" },

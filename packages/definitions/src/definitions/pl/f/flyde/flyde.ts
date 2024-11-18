@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".flyde"],
       filenames: ["beep.flyde", "debounce.flyde", "hello.flyde", "http.flyde"],
       year: 2023,
-      isMainstream: false,
       extHomeURL: "https://www.flyde.dev/",
     })
     .addLicenses(["license+mit"])

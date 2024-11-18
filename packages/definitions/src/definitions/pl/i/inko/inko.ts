@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { version: "0.9.0", name: "Inko 0.9.0", date: "2019-01-01" },
         { version: "1.0.0", name: "Inko 1.0.0", date: "2020-06-01" },
       ],
-      isMainstream: false,
       extGithubPath: "inko-lang/inko",
       extHomeURL: "https://inko-lang.org/",
     })

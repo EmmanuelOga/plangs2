@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
       githubColor: "#0886a5",
       githubPopular: false,
       githubType: "programming",
-      isMainstream: false,
       extGithubPath: "janet-lang/janet",
       extRedditPath: "janetlang",
       extHomeURL: "https://janet-lang.org/",

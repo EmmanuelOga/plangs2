@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       keywords: ["YAML", "configuration files", "data serialization"],
       extensions: [".yaml", ".yml"],
       year: 2001,
-      isMainstream: true,
       releases: [
         { version: "1.0", name: "YAML 1.0", date: "2004-01-29" },
         { version: "1.1", name: "YAML 1.1", date: "2005-01-18" },

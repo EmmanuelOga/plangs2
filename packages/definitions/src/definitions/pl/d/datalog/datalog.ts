@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["datalog", "declarative", "deductive databases", "logic programming", "query language"],
       extensions: [".dl"],
       year: 1977,
-      isMainstream: false,
       extWikipediaPath: "Datalog",
       extHomeURL: "http://datalog-specs.info",
     })

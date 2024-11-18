@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       keywords: ["algorithms", "computing", "data analysis", "mathworks", "matrices", "matrix", "numerical", "programming", "visualization"],
       extensions: [".fig", ".m", ".mat", ".mex", ".mlapp", ".mlappinstall", ".mlpkginstall", ".mltbx", ".mlx", ".p"],
       year: 1979,
-      isMainstream: true,
       releases: [
         { version: "R2024b", name: "Stable Release", date: "2024-09-12" },
         { version: "1.0", name: "Initial commercial release", date: "1984-01-01" },

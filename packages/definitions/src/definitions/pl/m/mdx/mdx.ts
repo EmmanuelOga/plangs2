@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
       extensions: [".mdx"],
       year: 2018,
       isTranspiler: true,
-      isMainstream: false,
       extHomeURL: "https://mdxjs.com/",
     })
     .addCompilesTo(["pl+html", "pl+javascript", "pl+markdown"])

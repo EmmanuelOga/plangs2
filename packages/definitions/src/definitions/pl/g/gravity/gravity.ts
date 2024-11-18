@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
       year: 2015,
       releases: [{ version: "0.8", name: "Gravity 0.8", date: "2023-01-01" }],
       isTranspiler: true,
-      isMainstream: false,
       extGithubPath: "marcobambini/gravity",
     })
     .addInfluencedBy(["pl+lua", "pl+swift"])

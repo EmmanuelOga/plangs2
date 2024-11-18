@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       keywords: ["Azure", "Bicep", "Declarations", "Deployment", "Infrastructure as Code"],
       extensions: [".bicep"],
       year: 2020,
-      isMainstream: false,
       isTranspiler: true,
       extRedditPath: "AzureBicep",
       extGithubPath: "Azure/bicep",

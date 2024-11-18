@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["euphoria", "open source", "programming language"],
       extensions: [".e", ".edb", ".ex", ".exw"],
       year: 1993,
-      isMainstream: false,
       releases: [{ version: "4.1.0", name: "openEuphoria 4.1.0", date: "2021-03-01" }],
       githubName: "Euphoria",
       githubLangId: "880693982",

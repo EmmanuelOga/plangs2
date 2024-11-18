@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".v", ".vsh"],
       year: 2019,
       isTranspiler: true,
-      isMainstream: false,
       releases: [{ version: "0.4.8", name: "V 0.4.8", date: "2024-09-28" }],
       stackovTags: ["vlang"],
       githubName: "V",

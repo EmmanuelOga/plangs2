@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".gleam"],
       year: 2016,
       isTranspiler: true,
-      isMainstream: false,
       releases: [
         { version: "1.0.0", name: "Version 1.0.0", date: "2024-03-04" },
         { version: "1.5.1", name: "Version 1.5.1", date: "2024-09-26" },

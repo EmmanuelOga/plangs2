@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["clojure"],
       extensions: [".clj", ".cljc", ".cljd", ".cljr", ".cljs", ".edn"],
       year: 2007,
-      isMainstream: true,
       releases: [{ version: "1.11.2", name: "Clojure 1.11.2", date: "2024-03-08" }],
       stackovTags: ["clojure"],
       githubName: "Clojure",

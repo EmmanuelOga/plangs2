@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["delphi", "object pascal"],
       extensions: [".dpr", ".pas"],
       year: 1995,
-      isMainstream: true,
       releases: [
         { version: "12.2", name: "RAD Studio 12.2 Athens", date: "2024-09-12" },
         { version: "11.3", name: "Delphi 11.3", date: "2023-03-01" },

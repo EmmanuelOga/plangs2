@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".S", ".SRC", ".a51", ".asm", ".inc", ".s", ".src", ".wla"],
       year: 1947,
       isTranspiler: false,
-      isMainstream: true,
       stackovTags: ["assembly"],
       githubName: "Assembly",
       languishRanking: 40,

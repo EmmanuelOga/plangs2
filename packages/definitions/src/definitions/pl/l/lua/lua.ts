@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["lua"],
       extensions: [".lua"],
       year: 1993,
-      isMainstream: true,
       releases: [{ version: "5.4.7", name: "Lua 5.4.7", date: "2024-06-25" }],
       stackovTags: ["lua"],
       githubName: "Lua",

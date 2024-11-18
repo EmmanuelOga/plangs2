@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["bash", "bourne-again"],
       extensions: [".bash", ".sh"],
       year: 1989,
-      isMainstream: true,
       releases: [{ version: "5.2.37", name: "Bash 5.2.37", date: "2024-09-23" }],
       stackovTags: ["bash"],
       githubName: "Shell",

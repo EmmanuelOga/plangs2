@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       keywords: ["HTML", "hypertext", "markup language", "web browser", "web content", "web structure"],
       extensions: [".htm", ".html"],
       year: 1993,
-      isMainstream: true,
       releases: [
         { version: "4.01", name: "HTML 4.01", date: "1999-12-24" },
         { version: "5", name: "HTML 5", date: "2014-10-28" },

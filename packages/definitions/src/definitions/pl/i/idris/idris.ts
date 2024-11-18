@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["dependent types", "functional programming", "idris", "type-driven development"],
       extensions: [".idr", ".lidr"],
       year: 2007,
-      isMainstream: false,
       releases: [
         { version: "1.3.4", name: "Idris 1.3.4", date: "2021-10-22" },
         { version: "0.7.0", name: "Idris 2 v0.7.0", date: "2023-12-22" },

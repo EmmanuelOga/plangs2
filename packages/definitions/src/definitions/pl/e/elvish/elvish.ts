@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
       githubColor: "#55BB55",
       githubPopular: false,
       githubType: "programming",
-      isMainstream: false,
       extGithubPath: "elves/elvish",
       extHomeURL: "https://elv.sh/",
     })

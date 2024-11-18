@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       year: 1980,
       extensions: [".adb", ".ads"],
       keywords: ["ada", "concurrency", "design by contract", "high-level", "object-oriented", "systems programming"],
-      isMainstream: true,
       releases: [{ version: "ISO/IEC 8652:2023", name: "Ada 2022", date: "2023-05-01" }],
       stackovTags: ["ada"],
       githubName: "Ada",

@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".scm"],
       year: 1988,
       isTranspiler: true,
-      isMainstream: false,
       releases: [{ version: "4.9.5", name: "Gambit 4.9.5", date: "2023-07-01" }],
       extWikipediaPath: "Gambit_(scheme_implementation)",
       extHomeURL: "http://gambitscheme.org/",

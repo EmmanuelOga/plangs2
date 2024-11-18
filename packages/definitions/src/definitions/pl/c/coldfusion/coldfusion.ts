@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".cfm", ".cfml"],
       year: 1995,
       isTranspiler: true,
-      isMainstream: true,
       releases: [
         { version: "2023", name: "Adobe ColdFusion 2023", date: "2023-05-01" },
         { version: "2021", name: "ColdFusion 2021", date: "2020-11-11" },

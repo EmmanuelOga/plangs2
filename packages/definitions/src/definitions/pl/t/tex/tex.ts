@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["latex", "tex", "typesetting", "typography"],
       extensions: [".tex"],
       year: 1978,
-      isMainstream: true,
       releases: [{ version: "3.14159265", name: "TeX 3", date: "2021-01-01" }],
       stackovTags: ["latex"],
       githubName: "TeX",

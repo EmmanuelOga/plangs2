@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "GraalVM is a versatile virtual machine originating from the Java ecosystem that supports multiple programming languages including Java, JavaScript, Python, Ruby, R, and webassembly. It is designed to execute applications written in these languages alongside LLVM-based languages and provides high performance and interoperability across language boundaries. Known for its ahead-of-time compilation and polyglot capabilities, GraalVM enhances performance, security, and startup time of Java and other applications.",
       keywords: ["graalvm", "interoperability", "java", "jdk", "native image", "polyglot"],
       year: 2019,
-      isMainstream: true,
       releases: [
         { version: "19.0.0", name: "GraalVM 19.0", date: "2019-05-09" },
         { version: "23.0", name: "GraalVM 23", date: "2024-09-17" },

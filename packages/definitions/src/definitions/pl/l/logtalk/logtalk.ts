@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["logic programming", "logtalk", "prolog"],
       year: 1998,
       isTranspiler: true,
-      isMainstream: false,
       releases: [
         { version: "3.85.0", name: "", date: "2024-11-12" },
         { version: "3.66.0", name: "", date: "2023-05-30" },

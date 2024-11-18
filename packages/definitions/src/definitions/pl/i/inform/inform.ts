@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["inform", "inform 7", "interactive fiction"],
       extensions: [".inform", ".ni", ".z5", ".z8"],
       year: 1993,
-      isMainstream: false,
       releases: [
         { version: "10.1.2", name: "Inform 10.1.2", date: "2022-08-31" },
         { version: "10.1.1", name: "Inform 10.1.1", date: "2022-01-01" },

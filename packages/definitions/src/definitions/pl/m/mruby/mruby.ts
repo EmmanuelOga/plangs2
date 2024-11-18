@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["mruby"],
       extensions: [".rb"],
       year: 2012,
-      isMainstream: false,
       extWikipediaPath: "Mruby",
       extHomeURL: "https://mruby.org/",
     })

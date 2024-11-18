@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: [".net", "dotnet"],
       extensions: [".csproj", ".fsproj", ".sln", ".vbproj"],
       year: 2016,
-      isMainstream: true,
       releases: [
         { version: "7.0", name: ".NET 7", date: "2022-09-08" },
         { version: "8.0", name: ".NET 8", date: "2023-09-14" },

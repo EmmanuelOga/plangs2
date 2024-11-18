@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["data science", "julia", "machine learning", "numerical computing"],
       extensions: [".jl"],
       year: 2012,
-      isMainstream: true,
       releases: [
         { version: "1.11.1", name: "Julia 1.11.1", date: "2024-10-16" },
         { version: "1.10.6", name: "Julia 1.10.6", date: "2024-10-28" },

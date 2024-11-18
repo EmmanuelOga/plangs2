@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       keywords: ["Nix", "cross-platform", "declarative", "functional", "open-source", "package manager"],
       extensions: [".nix"],
       year: 2003,
-      isMainstream: true,
       releases: [{ version: "2.22.1", name: "Nix Stable Release", date: "2024-05-10" }],
       extWikipediaPath: "Nix_package_manager",
       extRedditPath: "NixOS",

@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["automated theorem prover", "formal methods", "isabelle"],
       extensions: [".thy"],
       year: 1986,
-      isMainstream: false,
       releases: [
         { version: "2024", name: "Isabelle2024", date: "2024-05" },
         { version: "2023", name: "Isabelle 2023", date: "2023-06-15" },

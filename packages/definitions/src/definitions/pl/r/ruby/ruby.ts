@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["ruby"],
       extensions: [".rb", ".ru"],
       year: 1995,
-      isMainstream: true,
       releases: [
         { version: "3.3.6", name: "Ruby 3.3.6", date: "2024-11-05" },
         { version: "3.2.6", name: "Ruby 3.2.6", date: "2024-10-30" },

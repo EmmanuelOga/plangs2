@@ -113,16 +113,18 @@ export class NPlang extends NBase<"pl", NPlangData> {
     return new IterTap(this.data.images);
   }
 
+  /** Whether the language is considered popular by Github, or its Languish ranking is <= 25. */
+  get isPopular(): boolean {
+    const { githubPopular, languishRanking } = this.data;
+    return !!githubPopular || (typeof languishRanking === "number" && languishRanking <= 25);
+  }
+
   get thumbUrl(): string | undefined {
     return (this.images.find(({ kind }) => kind === "logo") ?? this.images.first)?.url;
   }
 
   get isTranspiler(): boolean {
     return this.data.isTranspiler === true;
-  }
-
-  get isMainstream(): boolean {
-    return this.data.isMainstream === true;
   }
 
   get releases(): IterTap<Release> {

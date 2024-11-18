@@ -15,7 +15,7 @@ export const FACETS: Map<FK, FacetConfig<FK>> = defineFacets<FK>(
   bool("createdRecently", "Created Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 5) : new ValNil())),
   bool("hasLogo", "Has Logo"),
   bool("hasWikipedia", "Has Wikipedia"),
-  bool("isMainstream", "Is Mainstream"),
+  bool("isPopular", "Is Popular"),
   bool("isTranspiler", "Is Transpiler"),
   bool("releasedRecently", "Released Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 1) : new ValNil())),
   multi("extensions", "Extensions"),
@@ -25,12 +25,12 @@ export const FACETS: Map<FK, FacetConfig<FK>> = defineFacets<FK>(
   table("implements", "Implements", { kind: "noderel", edge: "impl", node: NPlang.kind, dir: "direct" }),
   table("influenced", "Influenced", { kind: "noderel", edge: "influence", node: NPlang.kind, dir: "inverse" }),
   table("influencedBy", "Influenced By", { kind: "noderel", edge: "influence", node: NPlang.kind, dir: "direct" }),
+  table("licenses", "Licenses", { kind: "noderel", edge: "license", node: NLicense.kind, dir: "direct" }),
   table("paradigms", "Paradigms", { kind: "noderel", edge: "paradigm", node: NParadigm.kind, dir: "direct" }),
   table("platforms", "Platforms", { kind: "noderel", edge: "plat", node: NPlatform.kind, dir: "direct" }),
   table("tags", "Tags", { kind: "noderel", edge: "tag", node: NTag.kind, dir: "direct" }),
   table("typeSystems", "Type Systems", { kind: "noderel", edge: "tsys", node: NTsys.kind, dir: "direct" }),
   table("writtenIn", "Written In", { kind: "noderel", edge: "writtenIn", node: NPlang.kind, dir: "direct" }),
-  table("licenses", "Licenses", { kind: "noderel", edge: "license", node: NLicense.kind, dir: "direct" }),
   text("plangName", "Plang Name"),
 );
 
@@ -42,7 +42,7 @@ type GK = PlangFacetGroupKey;
 export const [GROUPS, GROUP_FOR_FACET_KEY] = defineGroups<GK, FK>(
   group("creationYear", "Creation Year", ["creationYear"]),
   group("dialectOf", "Dialect Of", ["dialectOf"]),
-  group("general", "General", ["plangName", "createdRecently", "releasedRecently", "hasLogo", "hasWikipedia", "isMainstream", "extensions"]),
+  group("general", "General", ["plangName", "createdRecently", "releasedRecently", "isPopular", "hasLogo", "hasWikipedia", "extensions"]),
   group("implements", "Implements", ["implements"]),
   group("influenced", "Influenced", ["influenced"]),
   group("influencedBy", "Influenced By", ["influencedBy"]),

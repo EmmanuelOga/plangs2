@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".py"],
       year: 2017,
       isTranspiler: true,
-      isMainstream: false,
       releases: [
         { version: "9.1.4", name: "CircuitPython 9.1.4", date: "2024-09-17" },
         { version: "9.1.1", name: "CircuitPython 9.1.1", date: "2024-01-01" },

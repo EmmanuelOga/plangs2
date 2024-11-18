@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["deductive database", "logic programming", "prolog", "xsb"],
       extensions: [".P"],
       year: 1993,
-      isMainstream: false,
       releases: [{ version: "5.0", name: "", date: "2022-05-12" }],
       extWikipediaPath: "XSB",
       extHomeURL: "https://xsb.sourceforge.net/",

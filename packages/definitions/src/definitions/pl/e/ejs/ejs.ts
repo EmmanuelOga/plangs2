@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       extensions: [".ejs"],
       year: 2010,
       isTranspiler: true,
-      isMainstream: true,
       extGithubPath: "mde/ejs",
       extHomeURL: "https://ejs.co/",
     })

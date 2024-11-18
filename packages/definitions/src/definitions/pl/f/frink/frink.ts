@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["calculation", "frink", "measurement", "units"],
       extensions: [".frink"],
       year: 2001,
-      isMainstream: false,
       extWikipediaPath: "Frink_(programming_language)",
       extHomeURL: "https://frinklang.org/",
     })

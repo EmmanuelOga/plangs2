@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["fortran", "high-performance computing", "scientific computing"],
       extensions: [".f", ".f90", ".for"],
       year: 1957,
-      isMainstream: true,
       releases: [
         { version: "IV", name: "FORTRAN IV", date: "1962-01-01" },
         { version: "77", name: "FORTRAN 77", date: "1978-01-01" },

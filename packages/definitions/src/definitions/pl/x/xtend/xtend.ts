@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".xtend"],
       year: 2011,
       isTranspiler: true,
-      isMainstream: false,
       releases: [{ version: "2.25.0", name: "Xtend 2.25.0", date: "2021-03-02" }],
       stackovTags: ["xtend"],
       githubName: "Xtend",

@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["actionscript", "flash"],
       year: 1998,
       extensions: [".as", ".swf"],
-      isMainstream: false,
       releases: [
         { version: "1.0", name: "ActionScript 1.0", date: "2000-01-01" },
         { version: "2.0", name: "ActionScript 2.0", date: "2003-01-01" },

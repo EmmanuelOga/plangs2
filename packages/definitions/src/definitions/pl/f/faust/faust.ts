@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["audio processing", "faust", "functional programming", "signal processing"],
       extensions: [".dsp"],
       year: 2002,
-      isMainstream: false,
       releases: [{ version: "2.60.3", name: "Stable Release", date: "2023-06-14" }],
       githubName: "Faust",
       githubLangId: "622529198",

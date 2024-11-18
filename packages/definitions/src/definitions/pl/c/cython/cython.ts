@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["c", "c++", "compiler", "cython", "extensions", "python"],
       extensions: [".pxd", ".pxi", ".pyx"],
       year: 2007,
-      isMainstream: true,
       releases: [
         { version: "3.0.11-1", name: "Cython 3.0.11-1", date: "2024-08-05" },
         { version: "3.0.0 beta 2", name: "Cython 3.0.0 beta 2", date: "2023-03-27" },

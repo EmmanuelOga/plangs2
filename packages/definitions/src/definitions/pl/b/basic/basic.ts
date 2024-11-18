@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["BASIC", "beginners' all-purpose symbolic instruction code", "historical", "language", "programming"],
       extensions: [".bas", ".bb", ".bi", ".fb", ".pb"],
       year: 1964,
-      isMainstream: true,
       releases: [{ version: "1.0", name: "Initial Release", date: "1964-05-01" }],
       stackovTags: ["basic"],
       githubName: "BASIC",

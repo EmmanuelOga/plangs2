@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["SML", "Standard ML"],
       extensions: [".sig", ".sml"],
       year: 1983,
-      isMainstream: false,
       stackovTags: ["sml"],
       githubName: "Standard ML",
       languishRanking: 194,

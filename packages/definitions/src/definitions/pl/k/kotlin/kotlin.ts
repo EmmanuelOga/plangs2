@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".kexe", ".klib", ".kt", ".kts"],
       year: 2011,
       isTranspiler: true,
-      isMainstream: true,
       releases: [
         { version: "2.0.0", name: "Kotlin 2.0.0", date: "2024-05-21" },
         { version: "2.0.20", name: "Kotlin 2.0.20", date: "2024-08-22" },

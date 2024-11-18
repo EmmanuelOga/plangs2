@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       extensions: [".vue"],
       year: 2014,
       isTranspiler: true,
-      isMainstream: true,
       releases: [{ version: "3.5.12", name: "Tengen Toppa Gurren Lagann", date: "2024-10-11" }],
       extWikipediaPath: "Vue.js",
       extRedditPath: "vuejs",

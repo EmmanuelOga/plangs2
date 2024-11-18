@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".agda", ".lagda", ".lagda.md", ".lagda.rst", ".lagda.tex"],
       keywords: ["agda", "dependently typed", "proof assistant"],
       isTranspiler: true,
-      isMainstream: false,
       releases: [
         { version: "1.0", date: "1995-01-01" },
         { version: "2.0", date: "2007-01-01" },

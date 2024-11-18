@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["cpython", "interpreter", "jit", "pypy", "python", "python alternative"],
       extensions: [".py"],
       year: 2007,
-      isMainstream: true,
       releases: [
         { version: "7.3.17", name: "PyPy 7.3.17", date: "2024-08-28" },
         { version: "7.3.16", name: "PyPy 7.3.16", date: "2024-01-01" },

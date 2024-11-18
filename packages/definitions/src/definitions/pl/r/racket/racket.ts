@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["racket"],
       extensions: [".rkt"],
       year: 1995,
-      isMainstream: true,
       releases: [
         { version: "8.15", name: "Racket 8.15", date: "2024-11-05" },
         { version: "8.14", name: "Racket 8.14", date: "2024-01-01" },

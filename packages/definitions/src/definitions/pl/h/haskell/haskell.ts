@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["glascow haskell compiler", "haskell", "purely functional"],
       extensions: [".hs", ".lhs"],
       year: 1990,
-      isMainstream: true,
       stackovTags: ["haskell"],
       githubName: "Haskell",
       languishRanking: 44,

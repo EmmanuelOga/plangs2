@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["concatenative", "forth", "procedural", "reflective", "stack-oriented"],
       extensions: [".4th", ".f", ".forth", ".fs", ".fth"],
       year: 1970,
-      isMainstream: false,
       stackovTags: ["forth"],
       githubName: "Forth",
       languishRanking: 202,

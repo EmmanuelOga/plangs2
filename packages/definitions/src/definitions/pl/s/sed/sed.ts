@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["sed", "stream editor"],
       extensions: [".sed"],
       year: 1974,
-      isMainstream: true,
       releases: [{ version: "1.0", name: "Initial Version", date: "1974-01-01" }],
       stackovTags: ["sed"],
       githubName: "sed",

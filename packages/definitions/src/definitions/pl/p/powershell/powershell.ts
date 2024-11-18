@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       keywords: ["Microsoft", "PowerShell", "command-line shell", "configuration management", "cross-platform", "open-source", "task automation"],
       extensions: [".cdxml", ".ps1", ".ps1xml", ".psc1", ".psd1", ".psm1", ".psrc", ".pssc"],
       year: 2006,
-      isMainstream: true,
       releases: [
         { version: "7.0", name: "PowerShell 7", date: "2020-03-04" },
         { version: "7.4.6", name: "PowerShell 7.4.6", date: "2024-10-22" },

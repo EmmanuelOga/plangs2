@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".vala", ".vapi"],
       year: 2006,
       isTranspiler: true,
-      isMainstream: false,
       releases: [
         { version: "0.56.17", name: "Vala 0.56.17", date: "2024-04-19" },
         { version: "0.57.0", name: "Vala 0.57", date: "2023-04-11" },

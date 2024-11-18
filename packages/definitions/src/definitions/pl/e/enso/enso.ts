@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".enso"],
       year: 2021,
       releases: [{ version: "2.0.0", name: "Enso 2.0", date: "2022-09-15" }],
-      isMainstream: true,
       extGithubPath: "enso-org/enso",
       extHomeURL: "https://ensoanalytics.com/",
     })

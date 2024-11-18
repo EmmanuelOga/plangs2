@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       githubColor: "#ff4c1f",
       githubPopular: false,
       githubType: "programming",
-      isMainstream: false,
       releases: [{ version: "24.4", name: "Preview release", date: "2024-05-24" }],
       extWikipediaPath: "Mojo_(programming_language)",
       extRedditPath: "MojoLang",

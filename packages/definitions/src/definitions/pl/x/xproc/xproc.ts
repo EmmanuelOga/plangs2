@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["pipeline", "transformation", "xml", "xproc", "xproc 3.0"],
       extensions: [".xpl"],
       year: 2010,
-      isMainstream: false,
       releases: [
         { version: "1.0", name: "XProc 1.0", date: "2010-05-11" },
         { version: "3.0", name: "XProc 3.0", date: "2020-08-18" },

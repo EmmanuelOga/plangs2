@@ -44,8 +44,6 @@ export type NPlangBaseData = {
   images: Image[];
   /** Can this particular implementation compile source-code to source-code? */
   isTranspiler: boolean;
-  /** Languages like C, C++, Java, Python, JavaScript, etc. are mainstream and production ready. */
-  isMainstream: boolean;
   /** A list of note worthy releases, not all of them. For instance, noteworthy release could be the latest for each major version. */
   releases: Release[];
 };

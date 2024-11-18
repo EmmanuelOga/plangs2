@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
       keywords: ["Bazel", "Python", "Skylark", "Starlark", "build tool"],
       extensions: [".bzl", ".star"],
       year: 2015,
-      isMainstream: true,
       releases: [{ version: "1.0", name: "Version 1.0", date: "2019-10-01" }],
       extWikipediaPath: "Bazel_(software)",
       extRedditPath: "bazel",

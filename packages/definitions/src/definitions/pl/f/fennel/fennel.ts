@@ -21,7 +21,6 @@ export function define(g: PlangsGraph) {
       githubColor: "#fff3d7",
       githubPopular: false,
       githubType: "programming",
-      isMainstream: false,
       extHomeURL: "https://fennel-lang.org/",
     })
     .addCompilesTo(["pl+lua"])

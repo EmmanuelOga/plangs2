@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".purs"],
       year: 2013,
       isTranspiler: true,
-      isMainstream: false,
       releases: [{ version: "0.15.15", name: "", date: "2024-02-07" }],
       stackovTags: ["purescript"],
       githubName: "PureScript",

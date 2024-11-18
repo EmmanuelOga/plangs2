@@ -39,11 +39,11 @@ type OpenAIMsg = ChatCompletionMessageParam;
 
 async function plangPrompt(pg: PlangsGraph, pl: NPlang, examplePl: NPlang): Promise<OpenAIMsg[]> {
   const { name, description, keywords }: Partial<CommonNodeData> = pl.data;
-  const { extensions, filenames, year, images, isTranspiler, isMainstream, releases }: Partial<NPlangBaseData> = pl.data;
+  const { extensions, filenames, year, images, isTranspiler, releases }: Partial<NPlangBaseData> = pl.data;
 
   const example: NPlangAI = {
     commonData: { name, description, keywords } as CommonNodeData,
-    basicPlangData: { extensions, filenames, year, images, isTranspiler, isMainstream, releases } as NPlangBaseData,
+    basicPlangData: { extensions, filenames, year, images, isTranspiler, releases } as NPlangBaseData,
     compilesTo: pl.relCompilesTo.keys.existing,
     dialectOf: pl.relDialectOf.keys.existing,
     implements: pl.relImplements.keys.existing,

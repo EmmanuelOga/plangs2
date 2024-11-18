@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["constraint programming", "logic programming", "minizinc"],
       extensions: [".dzn", ".fzn", ".mzn"],
       year: 2009,
-      isMainstream: false,
       releases: [
         { version: "2.8.5", name: "MiniZinc 2.8.5", date: "2024-06-03" },
         { version: "2.8.7", name: "MiniZinc 2.8.7", date: "2024-10-02" },

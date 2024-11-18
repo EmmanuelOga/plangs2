@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["souffle", "soufflé"],
       extensions: [".dl"],
       year: 2016,
-      isMainstream: false,
       releases: [{ version: "2.3", name: "Soufflé 2.3", date: "2023-05-01" }],
       extWikipediaPath: "Souffl%C3%A9_(programming_language)",
       extHomeURL: "https://souffle-lang.github.io/",

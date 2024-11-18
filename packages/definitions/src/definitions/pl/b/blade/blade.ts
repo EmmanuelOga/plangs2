@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       extensions: [".blade.php"],
       year: 2011,
       isTranspiler: true,
-      isMainstream: true,
       extWikipediaPath: "Laravel",
       extRedditPath: "laravel",
     })

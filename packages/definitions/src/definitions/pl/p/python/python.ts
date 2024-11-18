@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       year: 1991,
       extensions: [".py", ".pyc", ".pyd", ".pyi", ".pyw", ".pyz"],
       keywords: ["python"],
-      isMainstream: true,
       releases: [
         { version: "2.0", name: "Python 2.0", date: "2000-10-16" },
         { version: "3.0", name: "Python 3.0", date: "2008-12-03" },

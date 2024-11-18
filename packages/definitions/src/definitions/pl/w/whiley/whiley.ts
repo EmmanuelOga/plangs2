@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["whiley"],
       extensions: [".whiley"],
       year: 2010,
-      isMainstream: false,
       releases: [{ version: "0.6.1", name: "", date: "2022-06-27" }],
       githubName: "Whiley",
       githubLangId: "888779559",

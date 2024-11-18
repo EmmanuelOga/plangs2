@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       extensions: [".Rmd"],
       year: 2014,
       isTranspiler: true,
-      isMainstream: true,
       releases: [{ version: "1.0", name: "Initial Release", date: "2014-01-21" }],
       extHomeURL: "https://rmarkdown.rstudio.com/",
     })

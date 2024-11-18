@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "R is a language and environment for statistical computing and graphics. It is widely used among statisticians and data miners for data analysis and developing statistical software.",
       extensions: [".r", ".rda", ".rdata", ".rds", ".rhistory"],
       year: 1993,
-      isMainstream: true,
       releases: [
         { version: "4.4.2", name: "Pile of Leaves", date: "2024-10-31" },
         { version: "4.3.3", name: "Angel Food Cake", date: "2024-02-29" },

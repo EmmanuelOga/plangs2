@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["crystal", "multi-paradigm", "programming language", "ruby-like"],
       extensions: [".cr"],
       year: 2014,
-      isMainstream: false,
       releases: [
         { version: "1.0.0", name: "Crystal 1.0.0", date: "2021-03-31" },
         { version: "1.14.0", name: "Crystal 1.14.0", date: "2024-10-09" },

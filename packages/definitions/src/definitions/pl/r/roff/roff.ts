@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       extensions: [".nroff", ".roff", ".troff"],
       year: 1990,
       isTranspiler: true,
-      isMainstream: true,
       releases: [
         { version: "1.23.0", name: "Stable Release", date: "2023-07-07" },
         { version: "1.04", name: "First Stable Version", date: "1991-11-01" },

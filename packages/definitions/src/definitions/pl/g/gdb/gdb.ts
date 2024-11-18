@@ -14,7 +14,6 @@ export function define(g: PlangsGraph) {
         "The GNU Debugger (GDB) is a portable debugger that runs on many Unix-like systems and works for various programming languages. It provides facilities for tracing and altering program execution.",
       keywords: ["Debugger", "Free Software", "GDB", "GNU Debugger", "GPL"],
       year: 1986,
-      isMainstream: true,
       releases: [{ version: "15.1", name: "Stable Release", date: "2024-07-07" }],
       extWikipediaPath: "GNU_Debugger",
       extHomeURL: "https://www.gnu.org/software/gdb",

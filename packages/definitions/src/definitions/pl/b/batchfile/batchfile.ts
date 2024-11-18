@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       extensions: [".bat", ".btm", ".cmd"],
       year: 1985,
       isTranspiler: false,
-      isMainstream: true,
       extWikipediaPath: "Batch_file",
       extRedditPath: "Batch",
     })

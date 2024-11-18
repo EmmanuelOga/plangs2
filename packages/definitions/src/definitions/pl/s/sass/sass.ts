@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".sass", ".scss"],
       year: 2006,
       isTranspiler: true,
-      isMainstream: true,
       releases: [
         { version: "1.75.0", name: "Sass 1.75.0", date: "2024-04-11" },
         { version: "1.80.7", name: "Dart Sass 1.80.7" },

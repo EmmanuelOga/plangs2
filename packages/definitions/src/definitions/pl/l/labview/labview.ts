@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["labview"],
       extensions: [".lvproj", ".vi"],
       year: 1986,
-      isMainstream: true,
       releases: [
         { version: "2024 Q3", name: "LabVIEW 2024 Q3", date: "2024-07-01" },
         { version: "NXG 5.1", name: "LabVIEW NXG 5.1", date: "2021-01-01" },

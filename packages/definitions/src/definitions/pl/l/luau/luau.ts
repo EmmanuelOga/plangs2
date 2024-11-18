@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["gradual typing", "lua", "luau", "roblox", "scripting"],
       extensions: [".luau"],
       year: 2006,
-      isMainstream: false,
       releases: [{ version: "1.0", name: "Luau 1.0", date: "2021-02-18" }],
       githubName: "Luau",
       githubLangId: "365050359",

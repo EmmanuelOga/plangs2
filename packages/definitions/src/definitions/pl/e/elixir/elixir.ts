@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["concurrent", "distributed", "elixir", "erlang", "functional"],
       extensions: [".ex", ".exs"],
       year: 2012,
-      isMainstream: true,
       releases: [
         { version: "1.17.3", name: "Elixir 1.17.3", date: "2024-09-18" },
         { version: "1.17.2", name: "Elixir 1.17.2", date: "2024-01-01" },

@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".w"],
       year: 2022,
       releases: [{ version: "1.0.0", name: "Wing Initial Release", date: "2022-09-01" }],
-      isMainstream: false,
       extHomeURL: "https://www.winglang.io/",
     })
     .addLicenses(["license+mit"])

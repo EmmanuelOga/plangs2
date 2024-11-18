@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       keywords: ["W3C", "data interchange", "data structure", "document format", "markup language", "serialization"],
       extensions: [".xml"],
       year: 1996,
-      isMainstream: true,
       releases: [
         { version: "1.0", name: "5th Edition", date: "2008-11-26" },
         { version: "1.1", name: "2nd Edition", date: "2006-08-16" },

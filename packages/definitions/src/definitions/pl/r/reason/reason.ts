@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".re", ".rei"],
       year: 2016,
       isTranspiler: true,
-      isMainstream: false,
       releases: [
         { version: "3.13.0", name: "", date: "2024-10-21" },
         { version: "3.12.0", name: "Reason 3.12.0", date: "2024-01-01" },

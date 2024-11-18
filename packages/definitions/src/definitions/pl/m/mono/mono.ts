@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: [".net", "cross-platform", "mono"],
       extensions: [".cs", ".vb"],
       year: 2004,
-      isMainstream: true,
       releases: [{ version: "6.12.0.206", name: "Mono 6.12.0.206", date: "2024-02-13" }],
       extWikipediaPath: "Mono_(software)",
       extHomeURL: "https://www.mono-project.com/",

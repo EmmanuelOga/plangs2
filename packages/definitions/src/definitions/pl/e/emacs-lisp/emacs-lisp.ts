@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["elisp", "emacs", "lisp"],
       extensions: [".el", ".elc", ".eln"],
       year: 1985,
-      isMainstream: true,
       releases: [
         { version: "29.4", name: "Emacs Lisp 29.4", date: "2024-06-22" },
         { version: "29.3", name: "Emacs Lisp 29.3", date: "2024-03-24" },

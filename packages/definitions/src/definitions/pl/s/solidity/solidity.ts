@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       keywords: ["EVM", "Ethereum", "Solidity", "blockchain", "smart contracts"],
       extensions: [".sol"],
       year: 2014,
-      isMainstream: true,
       releases: [{ version: "0.8.28", name: "Stable release", date: "2024-10-09" }],
       extWikipediaPath: "Solidity",
       extRedditPath: "ethdev",

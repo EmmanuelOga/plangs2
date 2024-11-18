@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["shacl"],
       extensions: [".shacl"],
       year: 2015,
-      isMainstream: false,
       releases: [{ version: "1.0", name: "SHACL 1.0", date: "2017-07-20" }],
       extWikipediaPath: "SHACL",
       extHomeURL: "https://www.w3.org/TR/shacl/",

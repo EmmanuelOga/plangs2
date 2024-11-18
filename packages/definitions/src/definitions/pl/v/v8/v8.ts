@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "V8 is Google's open-source high-performance JavaScript and WebAssembly engine, primarily used in Chrome and Node.js, among others. It implements ECMAScript and WebAssembly and can be embedded in any C++ application. It runs on Windows, macOS, Linux, and various processors including x86-64 and ARM.",
       keywords: ["chrome", "google", "javascript", "node.js", "webassembly"],
       year: 2008,
-      isMainstream: true,
       releases: [{ version: "11.4", name: "V8 11.4", date: "2023-05-24" }],
       stackovTags: ["javascript"],
       githubName: "JavaScript",

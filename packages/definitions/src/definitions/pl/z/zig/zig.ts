@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["zig"],
       extensions: [".zig", ".zigr", ".zir", ".zon"],
       year: 2016,
-      isMainstream: false,
       releases: [{ version: "0.13.0", name: "Zig 0.13.0", date: "2024-06-06" }],
       stackovTags: ["zig"],
       githubName: "Zig",

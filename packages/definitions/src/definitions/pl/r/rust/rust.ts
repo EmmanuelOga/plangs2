@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["concurrency", "memory safety", "programming", "rust", "systems programming"],
       extensions: [".rlib", ".rs"],
       year: 2015,
-      isMainstream: true,
       releases: [
         { version: "1.82.0", name: "Rust 1.82.0", date: "2024-10-17" },
         { version: "1.80.1", name: "Rust 1.80.1", date: "2024-01-01" },

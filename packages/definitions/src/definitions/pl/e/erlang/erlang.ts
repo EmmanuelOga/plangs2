@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["concurrent", "erlang", "functional", "otp", "real-time", "telecom"],
       extensions: [".erl", ".hrl"],
       year: 1986,
-      isMainstream: true,
       releases: [
         { version: "27.1.2", name: "Erlang/OTP 27.1.2", date: "2024-10-17" },
         { version: "27.0", name: "Erlang/OTP 27.0", date: "2024-05-15" },

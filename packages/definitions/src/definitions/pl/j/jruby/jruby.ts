@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["interpreter", "java", "jruby", "jvm", "ruby"],
       extensions: [".rb"],
       year: 2001,
-      isMainstream: true,
       releases: [
         { version: "9.4.5.0", name: "JRuby 9.4.5.0", date: "2023-11-02" },
         { version: "9.4.9.0", name: "JRuby 9.4.9.0", date: "2023-01-01" },

@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".lobster"],
       year: 2016,
       releases: [{ version: "1.0", name: "Initial Release", date: "2016-01-01" }],
-      isMainstream: false,
       extGithubPath: "aardappel/lobster",
       extHomeURL: "https://strlen.com/lobster/",
     })

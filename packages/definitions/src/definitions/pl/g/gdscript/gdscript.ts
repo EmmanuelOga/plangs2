@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["gdscript", "godot engine"],
       extensions: [".gd"],
       year: 2014,
-      isMainstream: true,
       releases: [
         { version: "3.6", name: "Godot 3.6", date: "2024-09-09" },
         { version: "4.0", name: "Godot 4.0", date: "2023-03-01" },

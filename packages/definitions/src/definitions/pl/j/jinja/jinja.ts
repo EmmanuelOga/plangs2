@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       extensions: [".jinja"],
       year: 2008,
       isTranspiler: true,
-      isMainstream: true,
       releases: [{ version: "3.1.4", name: "Stable Release", date: "2024-05-05" }],
       extWikipediaPath: "Jinja_(template_engine)",
       extGithubPath: "pallets/jinja",

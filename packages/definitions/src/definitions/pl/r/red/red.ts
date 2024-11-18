@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["functional", "imperative", "language", "programming", "rebol", "symbolic"],
       extensions: [".red", ".reds"],
       year: 2011,
-      isMainstream: false,
       releases: [{ version: "0.6.5", name: "Red 0.6.5", date: "2024-02-19" }],
       stackovTags: ["red"],
       githubName: "Red",

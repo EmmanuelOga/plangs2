@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["perl"],
       extensions: [".cgi", ".pl", ".pls", ".plx", ".pm", ".pod", ".psgi", ".t", ".xs"],
       year: 1987,
-      isMainstream: true,
       releases: [
         { version: "5.40.0", name: "Perl 5.40.0", date: "2024-06-09" },
         { version: "5.38.2", name: "Perl 5.38.2", date: "2023-11-29" },

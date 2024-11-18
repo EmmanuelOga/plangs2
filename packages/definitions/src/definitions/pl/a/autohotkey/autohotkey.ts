@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       extensions: [".ahk"],
       year: 2003,
       isTranspiler: true,
-      isMainstream: false,
       releases: [{ version: "2.0.18", date: "2024-06-06" }],
       extWikipediaPath: "AutoHotkey",
       extRedditPath: "AutoHotkey",

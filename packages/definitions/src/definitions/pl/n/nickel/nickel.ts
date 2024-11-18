@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
       year: 2021,
       releases: [{ version: "1.0.0", name: "Nickel 1.0.0", date: "2023-05-01" }],
       isTranspiler: true,
-      isMainstream: false,
       extGithubPath: "tweag/nickel",
       extWikipediaPath: "Nickel_(programming_language)",
       extHomeURL: "https://nickel-lang.org/",

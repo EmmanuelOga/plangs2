@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["flutter"],
       year: 2017,
       isTranspiler: true,
-      isMainstream: true,
       releases: [
         { version: "0.0.6", name: "Alpha", date: "2017-05-12" },
         { version: "3.24.4", name: "Stable", date: "2024-10-24" },

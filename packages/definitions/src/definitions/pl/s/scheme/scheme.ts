@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["scheme"],
       extensions: [".scm", ".ss"],
       year: 1975,
-      isMainstream: false,
       stackovTags: ["scheme"],
       githubName: "Scheme",
       languishRanking: 115,

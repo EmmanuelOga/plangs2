@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["io"],
       extensions: [".io"],
       year: 2002,
-      isMainstream: false,
       releases: [
         { version: "20170906", name: "Stable release", date: "2017-09-06" },
         { version: "2019.05.22-alpha", name: "Preview release", date: "2019-05-22" },

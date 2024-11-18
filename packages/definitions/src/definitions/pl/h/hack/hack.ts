@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["facebook", "hack", "hhvm", "meta"],
       extensions: [".hack", ".hh"],
       year: 2014,
-      isMainstream: true,
       releases: [{ version: "4.172", name: "", date: "2022-11-02" }],
       stackovTags: ["hacklang"],
       githubName: "Hack",

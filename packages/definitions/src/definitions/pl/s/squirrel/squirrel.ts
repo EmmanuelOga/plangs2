@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["squirrel"],
       extensions: [".nut"],
       year: 2003,
-      isMainstream: false,
       releases: [{ version: "3.2", name: "Squirrel 3.2", date: "2022-02-10" }],
       stackovTags: ["squirrel"],
       githubName: "Squirrel",

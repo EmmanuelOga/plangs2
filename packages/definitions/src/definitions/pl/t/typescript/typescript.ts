@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".cts", ".mts", ".ts", ".tsx"],
       year: 2012,
       isTranspiler: true,
-      isMainstream: true,
       releases: [
         { version: "5.0", name: "TypeScript 5.0", date: "2023-03-16" },
         { version: "5.2", name: "TypeScript 5.2", date: "2023-08-01" },

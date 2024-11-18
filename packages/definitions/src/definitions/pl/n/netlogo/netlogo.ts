@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["netlogo"],
       extensions: [".nlogo", ".nlogo3d", ".nls"],
       year: 1999,
-      isMainstream: true,
       releases: [{ version: "6.4.0", name: "NetLogo 6.4.0", date: "2023-11-17" }],
       stackovTags: ["netlogo"],
       githubName: "NetLogo",

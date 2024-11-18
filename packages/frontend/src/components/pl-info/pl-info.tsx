@@ -36,7 +36,7 @@ export function PlInfo({ pl, open, tab }: PlInfoProps) {
               <Pill name={`Last Rel ${pl.lastRelease.date ?? pl.lastRelease.version}`} nodeKey="NA" kind="firstAppeared" tab={tab} />
             )}
             {pl.isTranspiler && <Pill name="Transpiler" nodeKey="NA" kind="transpiler" tab={tab} />}
-            {pl.isMainstream && <Pill name="Mainstream" nodeKey="NA" kind="mainstream" tab={tab} />}
+            {pl.isPopular && <Pill name="Popular" nodeKey="NA" kind="popular" tab={tab} />}
           </div>
           <p class={tw(forGrid && "inline sm:block")}>{pl.description || "..."}</p>
           <details class={tw(forGrid && "hidden sm:block", "pb-4")} open={open}>

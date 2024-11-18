@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["cycling74", "max for live", "max msp", "maxmsp"],
       extensions: [".maxpat", ".mxb", ".mxt"],
       year: 1988,
-      isMainstream: true,
       releases: [
         { version: "8.6.2", name: "Max 8.6.2", date: "2024-03-19" },
         { version: "9", name: "Max 9", date: "2024-10-29" },

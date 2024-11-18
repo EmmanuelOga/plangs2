@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["odin", "odin-lang", "programming"],
       extensions: [".odin"],
       year: 2016,
-      isMainstream: true,
       releases: [{ version: "0.13.0", name: "Odin 0.13.0", date: "2023-08-21" }],
       githubName: "Odin",
       languishRanking: 162,

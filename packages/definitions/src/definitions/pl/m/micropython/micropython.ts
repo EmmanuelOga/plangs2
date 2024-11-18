@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["embedded python", "micro python", "micropython"],
       extensions: [".py"],
       year: 2013,
-      isMainstream: false,
       releases: [
         { version: "1.24.0", name: "MicroPython 1.24.0", date: "2024-10-26" },
         { version: "1.23.0", name: "MicroPython 1.23.0", date: "2024-01-01" },

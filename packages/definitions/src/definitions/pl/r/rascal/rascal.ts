@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["dsl", "metaprogramming", "rascal"],
       extensions: [".rsc"],
       year: 2009,
-      isMainstream: false,
       releases: [{ version: "0.30.1", name: "Rascal 0.30.1", date: "2023-07-05" }],
       stackovTags: ["rascal"],
       githubName: "Rascal",

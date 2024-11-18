@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["audio programming", "chuck", "concurrent programming", "real-time synthesis"],
       extensions: [".ck"],
       year: 2003,
-      isMainstream: false,
       releases: [
         { version: "1.5.4.1", name: "Chai", date: "2024-04-01" },
         { version: "1.5.2.4", name: "ChucK 1.5.2.4", date: "2024-01-01" },

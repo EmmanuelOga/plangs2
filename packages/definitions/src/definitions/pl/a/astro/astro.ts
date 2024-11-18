@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       extensions: [".astro"],
       year: 2021,
       isTranspiler: true,
-      isMainstream: false,
       releases: [{ version: "astro@4.16.11", date: "2024-09-13" }],
       extGithubPath: "withastro/astro",
       extHomeURL: "https://astro.build",

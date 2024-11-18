@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["ccl", "clozure", "common lisp"],
       extensions: [".cl", ".lisp"],
       year: 2000,
-      isMainstream: false,
       releases: [{ version: "1.12.2", name: "Clozure CL 1.12.2", date: "2023-08-08" }],
       extWikipediaPath: "Clozure_CL",
       extHomeURL: "http://ccl.clozure.com/",

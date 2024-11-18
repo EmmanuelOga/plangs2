@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["scratch"],
       extensions: [".sb", ".sb2", ".sb3", ".sprite", ".sprite2", ".sprite3"],
       year: 2003,
-      isMainstream: true,
       releases: [
         { version: "3.0", name: "Scratch 3.0", date: "2019-01-02" },
         { version: "1.0", name: "Scratch 1.0", date: "2007-05-15" },

@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["ampl", "large-scale computing", "mathematical programming language", "modeling", "optimization", "scheduling", "solvers"],
       extensions: [".dat", ".mod", ".run"],
       year: 1985,
-      isMainstream: false,
       stackovTags: ["ampl"],
       githubName: "AMPL",
       languishRanking: 236,

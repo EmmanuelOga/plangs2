@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".C", ".H", ".c++", ".cc", ".cpp", ".cppm", ".cxx", ".h", ".h++", ".hh", ".hpp", ".hxx", ".ixx"],
       year: 1985,
       isTranspiler: true,
-      isMainstream: true,
       releases: [
         { version: "C++98", name: "ISO/IEC 14882:1998", date: "1998" },
         { version: "C++03", name: "ISO/IEC 14882:2003", date: "2003" },

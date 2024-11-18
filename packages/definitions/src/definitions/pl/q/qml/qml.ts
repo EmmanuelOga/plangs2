@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       extensions: [".qml"],
       year: 2009,
       isTranspiler: true,
-      isMainstream: true,
       releases: [{ version: "6.4", name: "Stable release", date: "2022-09-29" }],
       extWikipediaPath: "QML",
       extRedditPath: "QtFramework",

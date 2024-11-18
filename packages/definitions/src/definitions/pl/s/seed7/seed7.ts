@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["seed7"],
       extensions: [".s7i", ".sd7"],
       year: 2005,
-      isMainstream: false,
       releases: [{ version: "2024-08-12", name: "Stable release", date: "2024-08-12" }],
       extWikipediaPath: "Seed7",
       extHomeURL: "https://seed7.sourceforge.net/",

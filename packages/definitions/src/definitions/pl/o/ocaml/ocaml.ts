@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["functional", "imperative", "ml", "mult-paradigm", "ocaml"],
       extensions: [".ml", ".mli"],
       year: 1996,
-      isMainstream: true,
       releases: [
         { version: "5.2.0", name: "OCaml 5.2.0", date: "2024-05-13" },
         { version: "4.14.2", name: "LTS 4.14.2" },

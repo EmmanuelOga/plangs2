@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["data validation", "rdf", "semantic web", "shex"],
       extensions: [".shex", ".sx"],
       year: 2014,
-      isMainstream: false,
       releases: [
         { version: "2.0", name: "Shape Expressions Language 2.0", date: "2017-03-30" },
         { version: "2.1", name: "ShEx 2.1", date: "2018-11-21" },

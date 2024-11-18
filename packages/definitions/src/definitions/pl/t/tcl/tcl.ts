@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["tcl", "tk"],
       extensions: [".tbc", ".tcl"],
       year: 1988,
-      isMainstream: true,
       releases: [
         { version: "9.0.0", name: "Tcl/Tk 9.0.0", date: "2024-09-26" },
         { version: "8.6.15", name: "Tcl/Tk 8.6.15", date: "2024-09-26" },

@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       keywords: ["Apple", "Objective-C", "iOS", "language", "macOS", "programming"],
       extensions: [".M", ".h", ".m", ".mm"],
       year: 1984,
-      isMainstream: true,
       releases: [{ version: "2.0", name: "Objective-C 2.0", date: "2007" }],
       extWikipediaPath: "Objective-C",
       extRedditPath: "ObjectiveC",

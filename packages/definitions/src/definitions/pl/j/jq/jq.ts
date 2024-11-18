@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["jq"],
       extensions: [".jq"],
       year: 2012,
-      isMainstream: false,
       releases: [
         { version: "1.7.1", name: "jq 1.7.1", date: "2023-12-13" },
         { version: "1.7", name: "jq 1.7", date: "2023-09-07" },

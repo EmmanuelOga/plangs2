@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["ansi common lisp", "cl", "common lisp", "lisp"],
       extensions: [".cl", ".fasl", ".l", ".lisp", ".lsp"],
       year: 1984,
-      isMainstream: true,
       stackovTags: ["common-lisp"],
       githubName: "Common Lisp",
       languishRanking: 60,

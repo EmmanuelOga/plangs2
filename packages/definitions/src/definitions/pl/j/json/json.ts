@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       keywords: ["JSON", "JavaScript Object Notation", "data interchange", "web applications"],
       extensions: [".json"],
       year: 2001,
-      isMainstream: true,
       releases: [{ version: "1.0", name: "Initial JSON Specification", date: "2013" }],
       extWikipediaPath: "JSON",
       extHomeURL: "https://json.org",

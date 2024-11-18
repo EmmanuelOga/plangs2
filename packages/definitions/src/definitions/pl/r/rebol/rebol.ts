@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["rebol"],
       extensions: [".r", ".reb"],
       year: 1997,
-      isMainstream: false,
       releases: [
         { version: "2.7.8", name: "Stable release", date: "2011-01-01" },
         { version: "2.101.0", name: "Preview release", date: "2012-12-01" },

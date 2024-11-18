@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["basic", "compiler", "cross-platform", "freebasic", "linux", "open source", "windows"],
       extensions: [".bas", ".bi"],
       year: 2004,
-      isMainstream: false,
       releases: [{ version: "1.10.1", name: "", date: "2023-12-25" }],
       stackovTags: ["freebasic"],
       githubName: "FreeBasic",

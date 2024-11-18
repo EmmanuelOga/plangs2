@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["compiler", "fortran", "high-performance computing", "intel"],
       extensions: [".f", ".f90", ".f95", ".for"],
       year: 2003,
-      isMainstream: true,
       releases: [
         { version: "2023.2.1", name: "2023.2.1", date: "2023-07-28" },
         { version: "2024.0.0", name: "2024.0.0", date: "2023-11-20" },

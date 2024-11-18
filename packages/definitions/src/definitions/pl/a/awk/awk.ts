@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["awk", "text processing", "unix utilities"],
       extensions: [".awk", ".gawk", ".mawk", ".nawk"],
       year: 1977,
-      isMainstream: true,
       stackovTags: ["awk"],
       githubName: "Awk",
       githubLangId: "28",

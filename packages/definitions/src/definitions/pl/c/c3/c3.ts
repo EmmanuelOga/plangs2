@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
         { version: "0.6.4", name: "Current Stable Version", date: "2024-09-08" },
         { version: "0.1.0", name: "C3 Initial Release", date: "2020-05-01" },
       ],
-      isMainstream: false,
       isTranspiler: true,
       extGithubPath: "c3lang/c3c",
       extHomeURL: "https://c3-lang.org",

@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["jpython", "jython"],
       extensions: [".py"],
       year: 2001,
-      isMainstream: false,
       releases: [{ version: "2.7.4", name: "Jython 2.7.4", date: "2024-08-18" }],
       extWikipediaPath: "Jython",
       extHomeURL: "https://www.jython.org/",

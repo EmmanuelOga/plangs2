@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["C++", "LLVM", "clojure", "jank"],
       extensions: [".jank"],
       year: 2015,
-      isMainstream: false,
       extGithubPath: "jank-lang/jank",
       extHomeURL: "https://jank-lang.org/",
     })

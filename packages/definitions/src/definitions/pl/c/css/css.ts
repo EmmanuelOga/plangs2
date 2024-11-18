@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       keywords: ["Cascading Style Sheets", "layout", "style sheet", "web design"],
       extensions: [".css"],
       year: 1996,
-      isMainstream: true,
       releases: [
         { version: "1", name: "CSS1", date: "1996-12-17" },
         { version: "2.1", name: "CSS 2.1", date: "2004-02-25" },

@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["Apple", "Xcode", "swift"],
       extensions: [".swift"],
       year: 2014,
-      isMainstream: true,
       releases: [
         { version: "5.10.1", name: "Swift 5.10.1", date: "2024-06-05" },
         { version: "6.0.1", name: "Swift 6.0.1", date: "2024-09-27" },

@@ -18,7 +18,6 @@ export function define(g: PlangsGraph) {
       filenames: ["index.tpl"],
       year: 2001,
       isTranspiler: true,
-      isMainstream: false,
       releases: [{ version: "5.4.1", name: "Stable release", date: "2024-08-29" }],
       extWikipediaPath: "Smarty_(template_engine)",
       extGithubPath: "smarty-php/smarty",

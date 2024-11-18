@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".nim", ".nimble", ".nims"],
       year: 2008,
       isTranspiler: true,
-      isMainstream: false,
       releases: [
         { version: "2.2.0", date: "2024-10-02" },
         { version: "2.0.12", date: "2024-11-01" },

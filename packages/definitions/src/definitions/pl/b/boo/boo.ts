@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["boo"],
       extensions: [".boo"],
       year: 2003,
-      isMainstream: false,
       releases: [{ version: "0.9.7", name: "Boo 0.9.7", date: "2013-03-25" }],
       stackovTags: ["boo"],
       githubName: "Boo",

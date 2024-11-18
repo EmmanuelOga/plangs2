@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       keywords: ["Apache Hive", "Data Warehousing", "Hadoop", "Hive", "HiveQL", "MapReduce", "SQL"],
       extensions: [".hql"],
       year: 2010,
-      isMainstream: true,
       releases: [
         { version: "3.1.3", name: "Stable release", date: "2022-04-08" },
         { version: "4.0.0-beta-1", name: "Preview release", date: "2023-08-14" },

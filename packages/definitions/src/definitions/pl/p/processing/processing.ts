@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["IDE", "art", "graphics library", "processing", "programming language", "visual design"],
       extensions: [".pde"],
       year: 2001,
-      isMainstream: true,
       releases: [{ version: "4.3", name: "Processing 4.3", date: "2023-07-26" }],
       stackovTags: ["processing"],
       githubName: "Processing",

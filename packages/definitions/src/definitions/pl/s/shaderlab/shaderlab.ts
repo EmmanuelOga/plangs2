@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
       keywords: ["graphics", "shader", "shader programming", "unity"],
       extensions: [".shader"],
       year: 2005,
-      isMainstream: true,
       extHomeURL: "https://docs.unity3d.com/Manual/SL-Shader.html",
     })
     .addParadigms(["paradigm+dsl", "paradigm+visual"])

@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       extensions: [".svelte"],
       year: 2016,
       isTranspiler: true,
-      isMainstream: true,
       releases: [
         { version: "1.0.0", name: "Initial Release", date: "2016-11-29" },
         { version: "2.0.0", name: "Release 2", date: "2018-04-19" },

@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["functional", "query", "xml", "xpath", "xquery", "xslt"],
       extensions: [".xq", ".xql", ".xqm", ".xquery", ".xqy"],
       year: 2007,
-      isMainstream: true,
       releases: [
         { version: "1.0", name: "XQuery 1.0", date: "2007-01-23" },
         { version: "3.0", name: "XQuery 3.0", date: "2014-04-08" },

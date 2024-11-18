@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["vb", "vb.net", "visual basic", "visualbasic"],
       extensions: [".vb"],
       year: 2001,
-      isMainstream: true,
       releases: [{ version: "17.9.2", name: "Visual Basic 17.9.2", date: "2024-02-27" }],
       stackovTags: ["vb.net"],
       githubName: "Visual Basic .NET",

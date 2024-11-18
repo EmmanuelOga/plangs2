@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["java"],
       extensions: [".class", ".jar", ".java", ".jmod", ".war"],
       year: 1995,
-      isMainstream: true,
       releases: [
         { version: "JDK 1.0", name: "Java SE 1.0", date: "1996-01-23" },
         { version: "Java SE 8", name: "Java SE 8", date: "2014-03-18" },

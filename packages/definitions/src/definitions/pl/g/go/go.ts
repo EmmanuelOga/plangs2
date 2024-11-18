@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["go", "golang"],
       extensions: [".go"],
       year: 2009,
-      isMainstream: true,
       releases: [
         { version: "1.23.3", name: "", date: "2024-11-06" },
         { version: "1.23.0", name: "", date: "2024-01-01" },

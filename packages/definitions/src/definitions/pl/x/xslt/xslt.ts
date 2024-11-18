@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["xslt"],
       extensions: [".xslt"],
       year: 1998,
-      isMainstream: true,
       releases: [
         { version: "1.0", name: "XSLT 1.0", date: "1999-11-16" },
         { version: "2.0", name: "XSLT 2.0", date: "2007-01-23" },

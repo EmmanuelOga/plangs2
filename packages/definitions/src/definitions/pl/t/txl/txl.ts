@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       extensions: [".txl"],
       year: 1985,
       isTranspiler: false,
-      isMainstream: false,
       githubName: "TXL",
       githubLangId: "366",
       githubColor: "#0178b8",

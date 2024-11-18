@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["purebasic"],
       extensions: [".pb", ".pbf", ".pbi", ".pbp"],
       year: 1998,
-      isMainstream: false,
       releases: [
         { version: "6.11 LTS", name: "", date: "2024-06-05" },
         { version: "6.11", date: "2024-01-01" },

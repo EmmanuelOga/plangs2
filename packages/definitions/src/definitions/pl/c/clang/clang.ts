@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Clang is a compiler front end for the C, C++, Objective-C, and Objective-C++ programming languages, as well as the OpenMP, OpenCL, RenderScript, CUDA, SYCL, and HIP frameworks. It acts as a drop-in replacement for the GNU Compiler Collection (GCC), supporting most of its compiling flags and unofficial language extensions. It includes a static analyzer, and several code analysis tools. It operates in tandem with the LLVM compiler back end and has been a subproject of LLVM.",
       keywords: ["clang", "compiler", "llvm"],
       year: 2007,
-      isMainstream: true,
       releases: [
         { version: "13.0.1", name: "Clang 13.0.1", date: "2024-10-30" },
         { version: "19.1.3", name: "Clang 19.1.3", date: "2024-10-30" },

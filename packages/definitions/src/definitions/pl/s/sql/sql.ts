@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Structured Query Language (SQL) is a domain-specific language designed for managing data in relational database systems. It is particularly useful for querying and managing structured data, which includes relationships between entities and variables. Although named as an acronym for Structured Query Language, 'SQL' is commonly pronounced as 'sequel'.",
       keywords: ["sql", "structured query language"],
       year: 1974,
-      isMainstream: true,
       stackovTags: ["sql"],
       githubName: "SQL",
       languishRanking: 22,

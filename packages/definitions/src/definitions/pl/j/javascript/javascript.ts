@@ -9,7 +9,6 @@ export function define(g: PlangsGraph) {
       keywords: ["javascript", "js"],
       extensions: [".cjs", ".js", ".mjs"],
       year: 1995,
-      isMainstream: true,
       stackovTags: ["javascript"],
       githubName: "JavaScript",
       languishRanking: 3,
