@@ -31,8 +31,7 @@ async function start() {
       const grid = elem("nodeGrid");
       if (!grid) return;
 
-      // On thumb click, update the pl-info plang.
-      on(grid, "click", ({ target }: MouseEvent) => {
+      on(grid, "pointerdown", ({ target }: MouseEvent) => {
         const pl = getPl(pg, target);
         if (pl) renderPlInfo({ pl, tab: "plangs" });
       });
@@ -48,7 +47,13 @@ async function start() {
 
 // This is a global variable that is set by the build system.
 declare const DEVEL: boolean;
-if (DEVEL) connectLivereload();
+if (DEVEL) {
+  try {
+    connectLivereload();
+  } catch (err) {
+    console.error(err);
+  }
+}
 
 start();
 

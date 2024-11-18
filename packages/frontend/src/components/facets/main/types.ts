@@ -70,10 +70,7 @@ export function mapGroups<GK, FK>(
   currentFacetGroup: string,
   mapper: (props: { groupKey: GK; label: string; facetKeys: FK[]; active: boolean }) => ComponentChild,
 ): ComponentChild[] {
-  return groups
-    .values()
-    .map(({ groupKey, label, facetKeys }) =>
-      mapper({ groupKey: groupKey as GK, label, facetKeys: facetKeys as FK[], active: currentFacetGroup === groupKey }),
-    )
-    .toArray();
+  return [...groups.values()].map(({ groupKey, label, facetKeys }) =>
+    mapper({ groupKey: groupKey as GK, label, facetKeys: facetKeys as FK[], active: currentFacetGroup === groupKey }),
+  );
 }

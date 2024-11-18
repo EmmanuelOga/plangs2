@@ -124,12 +124,10 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
   }
 
   groupHasValues(groupKey: GroupKey): boolean {
-    return (
-      this.values
-        .getMap(groupKey)
-        ?.values()
-        .some(v => v.isPresent) ?? false
-    );
+    for (const v of this.values.getMap(groupKey)?.values() ?? []) {
+      if (v.isPresent) return true;
+    }
+    return false;
   }
 
   /** Helpers */

@@ -78,8 +78,8 @@ export class Map2<K1, K2, V> {
     return this.#map.keys().filter(k1 => (this.#map.get(k1)?.size ?? 0) > 0);
   }
 
-  entries(): IterableIterator<[K1, Map<K2, V>]> {
-    return this.#map.entries().filter(([_k1, map2]) => map2.size > 0);
+  entries(): [K1, Map<K2, V>][] {
+    return [...this.#map.entries()].filter(([_k1, map2]) => map2.size > 0);
   }
 
   *flatEntries(): IterableIterator<[K1, K2, V]> {

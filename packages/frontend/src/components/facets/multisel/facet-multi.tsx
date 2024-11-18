@@ -69,7 +69,7 @@ export function FacetMulti<GroupKey extends string, FacetKey extends string>({
 
   // Helper to enumerate the entries, map them, then return an array (instead of an iterator).
   function mapEntries<T>(mapper: (entry: [number, string | number | boolean]) => T): T[] {
-    return [...state.value.values].entries().map(mapper).toArray();
+    return Array.from([...state.value.values].entries()).map(mapper);
   }
 
   const body = () => (
