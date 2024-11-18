@@ -9,7 +9,7 @@ import { useRootState } from "@plangs/frontend/auxiliar/dispatchable";
 import { useIconButtonState } from "./state";
 
 export type IconButtonProps = {
-  action: "facets" | "clearFacets" | "hamburger" | "lights" | "allAny";
+  action: "facets" | "clearFacets" | "hamburger" | "lights" | "allAny" | "gridOrder";
   class?: string;
   disabled?: boolean;
   initial?: string;

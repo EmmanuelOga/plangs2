@@ -31,17 +31,6 @@ async function start() {
       const grid = elem("plGrid");
       if (!grid) return;
 
-      const thumbns = [...elems("plThumb")];
-      thumbns.sort((a, b) => {
-        console.log(a);
-        const rankA = Number.parseInt(a.dataset.nodeRanking ?? "0", 10);
-        const rankB = Number.parseInt(b.dataset.nodeRanking ?? "0", 10);
-        console.log("Comparing", rankA, rankB);
-        return rankA - rankB;
-      });
-      // Appending just reorders the elements, if they are already in the parent element.
-      for (const thumb of thumbns) grid.appendChild(thumb);
-
       // On thumb click, update the pl-info plang.
       on(grid, "click", ({ target }: MouseEvent) => {
         const pl = getPl(pg, target);

@@ -3,7 +3,7 @@
 const css = "fill-current size-[1.5rem] sm:size-[1.75rem] lg:size-[2rem] xl:size-[2.25rem] 2xl:size-[2.5rem]";
 
 export const ABC = (
-  <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 18 18" width="18">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" class={css}>
     <title>Alphabetic</title>
     <path
       class="fill"

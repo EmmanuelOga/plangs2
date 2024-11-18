@@ -29,7 +29,13 @@ export function PlThumb({ pl, class: klass }: { class?: string; pl: NPlang }): J
       {pl.ranking && (
         <div
           title={`Languish Ranking: ${pl.ranking}`}
-          class={tw("absolute right-1 bottom-1", "rounded bg-background bg-opacity-50", "p-1 text-primary text-xs")}>
+          class={tw(
+            // ALlow hiding the ranking using a data attribute on the wrapper.
+            "group-[[data-hide-ranking='1']]:hidden",
+            "absolute right-1 bottom-1",
+            "rounded bg-background bg-opacity-50",
+            "p-1 text-primary text-xs",
+          )}>
           <a href={`https://tjpalmer.github.io/languish/#names=${encodeURIComponent(pl.name.toLowerCase())}`}>#{pl.ranking}</a>
         </div>
       )}

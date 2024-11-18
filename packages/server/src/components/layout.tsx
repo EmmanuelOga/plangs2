@@ -61,6 +61,7 @@ export function Layout({ title, description, tab, pg, pl, mainClasses, children 
             {iconButton("hamburger")}
             {tab === "plangs" && iconButton("facets")}
             {tab === "plangs" && iconButton("clearFacets")}
+            {tab === "plangs" && iconButton("gridOrder")}
             <div class="flex-1" />
             {iconButton("lights")}
           </div>

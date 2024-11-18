@@ -2,13 +2,13 @@ import type { ComponentChild } from "preact";
 
 import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { elem, elems } from "@plangs/frontend/auxiliar/dom";
-import { BOOLEAN, CLOSE, DESELECT, FILTER_CLOSE, FILTER_EDIT, FULLCIRCLE, MENU, MOON, SUN } from "@plangs/frontend/auxiliar/icons";
+import { ABC, BOOLEAN, CLOSE, DESELECT, FILTER_EDIT, MENU, MOON, RANKING, SUN } from "@plangs/frontend/auxiliar/icons";
 import { tw } from "@plangs/frontend/auxiliar/styles";
 
 import type { FacetsMainElement } from "../facets/main";
 import type { IconButtonProps } from "./icon-button";
 
-export type IconButtonState = ToggleLights | ToggleHamburguer | ToggleFacetsMenu | ToggleAllAny | ToggleClearFacets | undefined;
+export type IconButtonState = ToggleLights | ToggleHamburguer | ToggleFacetsMenu | ToggleAllAny | ToggleClearFacets | ToggleGridOrder | undefined;
 
 export function useIconButtonState({ action, disabled, initial }: IconButtonProps): IconButtonState {
   if (action === "lights") return useDispatchable(() => ToggleLights.initial(disabled));
@@ -16,6 +16,7 @@ export function useIconButtonState({ action, disabled, initial }: IconButtonProp
   if (action === "facets") return useDispatchable(() => ToggleFacetsMenu.initial(disabled));
   if (action === "allAny") return useDispatchable(() => ToggleAllAny.initial(initial, disabled));
   if (action === "clearFacets") return useDispatchable(() => ToggleClearFacets.initial(disabled));
+  if (action === "gridOrder") return useDispatchable(() => ToggleGridOrder.initial(disabled));
   console.error(`Unknown action: ${action}`);
 }
 
@@ -182,3 +183,47 @@ export class ToggleClearFacets extends IconButtonBaseState<{ mode: "clearFacets"
     for (const el of elems<FacetsMainElement>("facetsMain")) el.state?.doResetAll();
   }
 }
+
+/** State for toggling order of thumbnails between ranking and alphabetical. */
+export class ToggleGridOrder extends IconButtonBaseState<{ mode: "alpha" | "ranking" }> {
+  static initial(disabled = false) {
+    return new ToggleGridOrder({ disabled, mode: "alpha" });
+  }
+
+  get mode(): "alpha" | "ranking" {
+    return this.data.mode;
+  }
+
+  override get icon() {
+    return this.mode === "alpha" ? ABC : RANKING;
+  }
+
+  override doAction() {
+    this.data.mode = this.mode === "alpha" ? "ranking" : "alpha";
+  }
+
+  /** Reorder the grid on dispatch. */
+  override runEffects() {
+    const grid = elem("plGrid");
+    if (!grid) return;
+    const thumbns = [...elems("plThumb")].sort(CMP[this.mode]);
+    // If they are already in the parent element, re-appending just reorders the element.
+    for (const thumb of thumbns) {
+      // Don't hide for now.
+      // thumb.dataset.hideRanking = this.mode === "ranking" ? "0" : "1";
+      grid.appendChild(thumb);
+    }
+  }
+}
+
+// Ensure languages without a ranking are placed last.
+const RANKED_LAST = Number.MAX_SAFE_INTEGER;
+
+const getRank = (el: HTMLElement) => (el.dataset.nodeRanking ? Number.parseInt(el.dataset.nodeRanking, 10) : RANKED_LAST);
+const getKey = (el: HTMLElement) => el.dataset.nodeKey ?? "";
+
+// Ordering criteria for the sort function.
+const CMP = {
+  ranking: (elA: HTMLElement, elB: HTMLElement) => getRank(elA) - getRank(elB),
+  alpha: (elA: HTMLElement, elB: HTMLElement) => getKey(elA).localeCompare(getKey(elB)),
+} as const;
