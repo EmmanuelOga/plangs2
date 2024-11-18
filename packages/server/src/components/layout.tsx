@@ -56,8 +56,9 @@ export function Layout({ title, description, tab, pg, pl, mainClasses, children 
           <p>In particular, the search feature will not work without JavaScript.</p>
         </noscript>
 
-        <header class={tw("relative", "pt-4", "flex flex-col", "bg-linear-to-b from-secondary to-background")}>
-          <div class={tw("absolute bottom-0 w-full", "px-2 sm:px-4", "flex flex-row", "gap-4", "items-center justify-between")}>
+        <header class={tw("pt-4 pb-2", "flex flex-col", "bg-linear-to-b from-secondary to-background")}>
+          <PlangsLogo class={tw("sm:mt-4", "mb-2 sm:mb-3 lg:mb-4 xl:mb-5 2xl:mb-6", "h-12 sm:h-16 lg:h-20 xl:h-24 2xl:h-28")} />
+          <div class={tw("px-2 sm:px-4", "flex flex-row", "gap-4", "items-center justify-between")}>
             {iconButton("hamburger")}
             {tab === "plangs" && iconButton("facets")}
             {tab === "plangs" && iconButton("clearFacets")}
@@ -65,7 +66,6 @@ export function Layout({ title, description, tab, pg, pl, mainClasses, children 
             <div class="flex-1" />
             {iconButton("lights")}
           </div>
-          <PlangsLogo class={tw("mb-2 sm:mb-3 lg:mb-4 xl:mb-5 2xl:mb-6", "h-12 sm:h-16 lg:h-20 xl:h-24 2xl:h-28")} />
         </header>
 
         <div class={tw("flex-1", "flex flex-row", "overflow-y-auto")}>
