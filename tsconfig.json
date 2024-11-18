@@ -35,11 +35,11 @@
     "strict": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,
-    "target": "ESNext",
+    "target": "ES2020",
     "types": [
       "bun-types",
       "node"
-    ]
+    ],
   },
   "exclude": [
     "node_modules",
