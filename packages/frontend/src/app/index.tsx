@@ -1,7 +1,8 @@
 import "preact/debug";
 
-import { elem, elems } from "@plangs/frontend/auxiliar/dom";
+import { elem } from "@plangs/frontend/auxiliar/dom";
 import { on } from "@plangs/frontend/auxiliar/events";
+import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { connectLivereload } from "@plangs/frontend/auxiliar/livereload";
 import { activateFacetsMain } from "@plangs/frontend/components/facets/main";
 import { activateIconButtons } from "@plangs/frontend/components/icon-button";
@@ -9,7 +10,6 @@ import { ToggleFacetsMenu, ToggleHamburguer, ToggleLights } from "@plangs/fronte
 import { renderLastPlInfo, renderPlInfo } from "@plangs/frontend/components/pl-info";
 import { PlangsGraph } from "@plangs/plangs";
 
-import { FragmentTracker } from "../auxiliar/fragment";
 import { getPl } from "./pl";
 
 async function start() {

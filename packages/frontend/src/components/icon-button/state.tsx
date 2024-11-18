@@ -4,8 +4,8 @@ import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatc
 import { elem, elems } from "@plangs/frontend/auxiliar/dom";
 import { ABC, BOOLEAN, CLOSE, DESELECT, FILTER_EDIT, MENU, MOON, RANKING, SUN } from "@plangs/frontend/auxiliar/icons";
 import { tw } from "@plangs/frontend/auxiliar/styles";
+import type { FacetsMainElement } from "@plangs/frontend/components/facets/main";
 
-import type { FacetsMainElement } from "../facets/main";
 import type { IconButtonProps } from "./icon-button";
 
 export type IconButtonState = ToggleLights | ToggleHamburguer | ToggleFacetsMenu | ToggleAllAny | ToggleClearFacets | ToggleGridOrder | undefined;
@@ -45,7 +45,7 @@ abstract class IconButtonBaseState<T> extends Dispatchable<T & { disabled: boole
 /** State for a dark/ligh mode button */
 export class ToggleLights extends IconButtonBaseState<{ mode: "dark" | "light" }> {
   static initial(disabled = false) {
-    return new ToggleLights({ mode: localStorage.getItem("lightMode") === "dark" ? "dark" : "light", disabled });
+    return new ToggleLights({ mode: localStorage.getItem("lightMode") === "light" ? "light" : "dark", disabled });
   }
 
   get isDark(): boolean {

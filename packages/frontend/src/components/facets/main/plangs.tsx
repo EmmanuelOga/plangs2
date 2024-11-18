@@ -1,12 +1,14 @@
+import type { FunctionComponent } from "preact";
+
 import { ValNil, ValNumber } from "@plangs/auxiliar/value";
+import { FacetBool } from "@plangs/frontend/components/facets/misc/facet-bool";
+import { FacetGroup } from "@plangs/frontend/components/facets/misc/facet-group";
+import { FacetText } from "@plangs/frontend/components/facets/misc/facet-text";
+import { FacetMulti } from "@plangs/frontend/components/facets/multisel/facet-multi";
+import { FacetTable } from "@plangs/frontend/components/facets/table/facet-table";
 import { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs";
 import type { PlangFacetKey } from "@plangs/plangs/facets/plangs";
-import type { FunctionComponent } from "preact";
-import { FacetBool } from "../misc/facet-bool";
-import { FacetGroup } from "../misc/facet-group";
-import { FacetText } from "../misc/facet-text";
-import { FacetMulti } from "../multisel/facet-multi";
-import { FacetTable } from "../table/facet-table";
+
 import { type FacetConfig, bool, defineFacets, defineGroups, group, mapGroups, multi, table, text } from "./types";
 
 type FK = PlangFacetKey;

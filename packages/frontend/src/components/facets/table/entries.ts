@@ -1,7 +1,7 @@
 import type { JSX } from "preact/jsx-runtime";
 
 import { SORT_DOWN, SORT_UP } from "@plangs/frontend/auxiliar/icons";
-import type { E, N, PlangsGraph } from "@plangs/plangs/index";
+import type { E, N, PlangsGraph } from "@plangs/plangs";
 
 export type Val = string | number | boolean;
 export type Entry = { value: Val; label: string; count: number };
