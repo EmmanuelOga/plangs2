@@ -80,6 +80,10 @@ export abstract class NBase<Prefix extends N, Data extends CommonNodeData> exten
     return this.data.extHomeURL;
   }
 
+  get images() {
+    return new IterTap(this.data.images);
+  }
+
   get keywords(): IterTap<string> {
     return new IterTap(this.data.keywords);
   }
@@ -89,6 +93,15 @@ export abstract class NBase<Prefix extends N, Data extends CommonNodeData> exten
     if (!keywords) return undefined;
     const lenient = keywords.map(k => k.replaceAll(/[- ]/g, "\\s*.?\\s*"));
     return new RegExp(`\\b(${lenient.join("|")})\\b`, "i");
+  }
+
+  get thumbUrl(): string | undefined {
+    return (this.images.find(({ kind }) => kind === "logo") ?? this.images.first)?.url;
+  }
+
+  addImages(images: Image[]): this {
+    arrayMerge((this.data.images ??= []), images, (i1, i2) => i1.url === i2.url);
+    return this;
   }
 }
 
@@ -109,18 +122,10 @@ export class NPlang extends NBase<"pl", NPlangData> {
     return new IterTap(this.data.extensions);
   }
 
-  get images() {
-    return new IterTap(this.data.images);
-  }
-
   /** Whether the language is considered popular by Github, or its Languish ranking is <= 25. */
   get isPopular(): boolean {
     const { githubPopular, languishRanking } = this.data;
     return !!githubPopular || (typeof languishRanking === "number" && languishRanking <= 25);
-  }
-
-  get thumbUrl(): string | undefined {
-    return (this.images.find(({ kind }) => kind === "logo") ?? this.images.first)?.url;
   }
 
   get isTranspiler(): boolean {
@@ -197,11 +202,6 @@ export class NPlang extends NBase<"pl", NPlangData> {
 
   addFilenames(filenames: string[]): this {
     arrayMerge((this.data.filenames ??= []), filenames);
-    return this;
-  }
-
-  addImages(images: Image[]): this {
-    arrayMerge((this.data.images ??= []), images, (i1, i2) => i1.url === i2.url);
     return this;
   }
 

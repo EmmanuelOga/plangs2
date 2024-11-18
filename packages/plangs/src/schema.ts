@@ -25,6 +25,8 @@ export interface CommonNodeData {
   keywords: string[];
   /** Homepage URL of the node, if any. */
   extHomeURL?: string;
+  /** Logos, screenshots or other images relevant to the language. */
+  images: Image[];
 }
 
 /**
@@ -40,8 +42,6 @@ export type NPlangBaseData = {
   filenames: string[];
   /** Year the language first appeared. */
   year: number;
-  /** Logos, screenshots or other images relevant to the language. */
-  images: Image[];
   /** Can this particular implementation compile source-code to source-code? */
   isTranspiler: boolean;
   /** A list of note worthy releases, not all of them. For instance, noteworthy release could be the latest for each major version. */
