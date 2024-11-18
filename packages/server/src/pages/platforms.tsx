@@ -1,17 +1,10 @@
-import { BORDER, PROSE, tw } from "@plangs/frontend/auxiliar/styles";
+import { PROSE, tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsGraph } from "@plangs/plangs";
 import { Layout } from "@plangs/server/components/layout";
+import { NodeDesc } from "@plangs/server/components/node-desc";
 
 export function Platforms({ pg }: { pg: PlangsGraph }) {
-  const entries = pg.nodes.plat.values.map(node => (
-    <div key={node.key} class={tw("mb-8", tw(BORDER, "border-b-1"))}>
-      <div class="float-right">
-        <a href={node.urlHome} title={node.name} children={node.name} />
-      </div>
-      <header class="font-extrabold text-3xl">{node.name}</header>
-      <p>{node.description}</p>
-    </div>
-  ));
+  const entries = pg.nodes.plat.values.map(node => <NodeDesc key={node.key} node={node} path="/platforms" />);
   return (
     <Layout pg={pg} tab="platforms" title="Platforms your favorite programming languages support!" mainClasses="overflow-y-auto">
       <article class={tw(PROSE, "p-4")}>
