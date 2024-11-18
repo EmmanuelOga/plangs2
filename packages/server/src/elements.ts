@@ -6,7 +6,7 @@ export const ID_KEYS = [
   "todo",
 
   "mainNav", // Main navigation bar, toggled by the hamburger icon.
-  "plGrid",
+  "nodeGrid",
   "plInfo",
 ] as const;
 

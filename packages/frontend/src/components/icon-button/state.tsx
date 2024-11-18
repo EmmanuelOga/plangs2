@@ -204,7 +204,7 @@ export class ToggleGridOrder extends IconButtonBaseState<{ mode: "alpha" | "rank
 
   /** Reorder the grid on dispatch. */
   override runEffects() {
-    const grid = elem("plGrid");
+    const grid = elem("nodeGrid");
     if (!grid) return;
     const thumbns = [...elems("plThumb")].sort(CMP[this.mode]);
     // If they are already in the parent element, re-appending just reorders the element.

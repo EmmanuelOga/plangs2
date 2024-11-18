@@ -7,7 +7,7 @@ export function NodeGrid({ pg, class: cssClass }: { pg: PlangsGraph; class?: str
   return (
     <div class={tw(cssClass)}>
       <div
-        id={cssID("plGrid")}
+        id={cssID("nodeGrid")}
         class={tw("grid gap-4 2xl:mx-4", "grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]", "2xl:grid-cols-[repeat(auto-fit,minmax(8rem,1fr))]")}>
         {pg.nodes.pl.batch().map(([key, pl]) => (
           <PlThumb key={key} pl={pl} />

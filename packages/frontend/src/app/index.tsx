@@ -28,7 +28,7 @@ async function start() {
     loadData.then(() => {
       activateFacetsMain(pg);
 
-      const grid = elem("plGrid");
+      const grid = elem("nodeGrid");
       if (!grid) return;
 
       // On thumb click, update the pl-info plang.
