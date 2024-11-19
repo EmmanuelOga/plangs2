@@ -1,5 +1,4 @@
 import { BORDER, PROSE, tw } from "@plangs/frontend/auxiliar/styles";
-import { Pill } from "@plangs/frontend/components/misc/pill";
 import { NodeInfo } from "@plangs/frontend/components/node-info/node-info";
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 import { Layout } from "@plangs/server/components/layout";
@@ -130,12 +129,15 @@ function PlBundles({ pl }: { pl: NPlang }) {
   const bundles = pl.relPlBundles.values.map(({ nodeTo }) => nodeTo).existing;
   return bundles.length === 0 ? null : (
     <>
-      <h1>Tool Bundles</h1>
-      <p>A "bundle" is a set of tools that work well together.</p>
       {bundles.map(bundle => (
-        <div key={bundle.key} class={tw("bg-linear-to-b to-secondary/50", "shadow-lg shadow-primary/20", tw(BORDER, "border-b-1"), "-mx-4 my-8 p-4")}>
-          <h1>{bundle.name}</h1>
-          <p>{bundle.relTools.values.map(({ nodeTo }) => nodeTo && <Pill name={nodeTo.name} nodeKey={nodeTo.key} kind={nodeTo.kind} />).existing}</p>
+        <div key={bundle.key} class={tw("bg-linear-to-b to-secondary/50", "shadow-lg shadow-primary/20", tw(BORDER, "border-b-1"), "-mx-4 mb-4 p-4")}>
+          <h3>
+            Bundle:{" "}
+            {bundle.relTools.values
+              .map(({ nodeTo }) => nodeTo)
+              .existing.map(n => n.name)
+              .join(", ")}
+          </h3>
           <p>{bundle.description}</p>
         </div>
       ))}

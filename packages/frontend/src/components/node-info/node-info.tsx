@@ -1,7 +1,7 @@
 import { BORDER, tw } from "@plangs/frontend/auxiliar/styles";
-import { Pill } from "@plangs/frontend/components/misc/pill";
 import type { NPlang } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/components/layout";
+import type { ComponentChildren } from "preact";
 
 export type NodeInfoProps = {
   node?: NPlang;
@@ -23,30 +23,28 @@ export function NodeInfo({ node: pl, open, tab }: NodeInfoProps) {
         forGrid && "bg-linear-to-b to-secondary/50",
         tw(BORDER, forGrid && "border-b-1"),
       )}>
-      <h1 class={tw(forGrid && "inline sm:block")}>
+      <h2 class={tw(forGrid && "inline sm:block")}>
         <a class="text-foreground decoration-1 decoration-dotted" href={`/${pl?.plainKey}`}>
           {pl?.name ?? "Plang"}
         </a>
-      </h1>
+      </h2>
       {pl && (
         <>
-          <span class={tw(forGrid ? "dash sm:hidden" : "hidden")}>&#8212;</span>
+          <span class={tw(forGrid ? "dash sm:hidden" : "hidden", "mx-2 inline-block")}>&#8212;</span>
           <div class={tw(forGrid && "hidden sm:block")}>
-            {pl.year && <Pill name={`Appeared ${pl.year}`} nodeKey="NA" kind="firstAppeared" tab={tab} />}
-            {pl.lastRelease && (
-              <Pill name={`Last Rel ${pl.lastRelease.date ?? pl.lastRelease.version}`} nodeKey="NA" kind="firstAppeared" tab={tab} />
-            )}
-            {pl.isTranspiler && <Pill name="Transpiler" nodeKey="NA" kind="transpiler" tab={tab} />}
-            {pl.isPopular && <Pill name="Popular" nodeKey="NA" kind="popular" tab={tab} />}
+            {pl.year && <Pill children={`Appeared ${pl.year}`} />}
+            {pl.lastRelease && <Pill children={`Last Rel ${pl.lastRelease.date ?? pl.lastRelease.version}`} />}
+            {pl.isTranspiler && <Pill children="Transpiler" />}
+            {pl.isPopular && <Pill children="Popular" />}
           </div>
           <p class={tw(forGrid && "inline sm:block")}>{pl.description || "..."}</p>
           <details class={tw(forGrid && "hidden sm:block", "pb-4")} open={open}>
             <summary class="cursor-pointer text-xl">Details</summary>
             {relations(pl).map(([title, iterTap]) => (
               <div key={title}>
-                <h2 class="mt-4 text-xl">{title}</h2>
+                <h3 class="mt-4 text-xl">{title}</h3>
                 {iterTap.existing.map(({ name, key, kind }) => (
-                  <Pill key={key} name={name} nodeKey={key} kind={kind} tab={tab} />
+                  <Pill key={key} children={name} />
                 ))}
               </div>
             ))}
@@ -55,6 +53,10 @@ export function NodeInfo({ node: pl, open, tab }: NodeInfoProps) {
       )}
     </div>
   );
+}
+
+function Pill({ children }: { children: ComponentChildren }) {
+  return <span class={tw("inline-block", "mr-2 mb-2 px-1", "border-2 border-secondary", "bg-secondary/50")}>{children}</span>;
 }
 
 function relations(pl: NPlang) {

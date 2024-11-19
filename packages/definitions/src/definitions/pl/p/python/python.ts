@@ -96,7 +96,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.nodes.tool.set("tool+vscode-python", {
-    name: "Python for Visual Studio Code",
+    name: "Python for VSCode",
     keywords: ["intellisense", "debugging", "linting", "formatting", "refactoring"],
     description:
       "Python language support with extension access points for IntelliSense (Pylance), Debugging (Python Debugger), linting, formatting, refactoring, unit tests, and more.",

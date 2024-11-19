@@ -61,3 +61,8 @@ $ bun outapp && bun outjs
 - [ ] Kuzu export.
 - [ ] Revise data: tags: better-c, educational.
 - [ ] Add relationship to data-cleanup entities (Community, Learning).
+
+- [ ] Better UI for tool bundles: just filter the table of tools.
+- [ ] Platform Icons.
+- [ ] Considering adding also a "short description", since desc. of many plangs is too long.
+- [ ] Investigate removing the need to load the full JSON data before continuing.

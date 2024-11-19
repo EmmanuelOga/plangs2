@@ -11,8 +11,6 @@ import type { NPlang, NPost, PlangsGraph } from "@plangs/plangs";
 import type { StrDate } from "@plangs/plangs/schema";
 import { parseDate } from "@plangs/plangs/util";
 
-import { Pill } from "@plangs/frontend/components/misc/pill";
-
 import { ZERO_WIDTH } from "./utils/server";
 
 /** Markdown Content and metadata generated from the .md files on packages/server/content/ */
@@ -46,19 +44,20 @@ export async function loadContent(path: string, pg: PlangsGraph): Promise<Conten
 
   if (!title || !author) throw new Error(`Post ${path} is missing a title or author in the YAML header.`);
 
-  const pills = [render(<Pill key={date} nodeKey={date} kind={"--date--"} name={date} />, { pretty: true })];
+  const metadata = [render(<div class="text-primary opacity-75">{date}</div>)];
+
   if (pls !== undefined) {
     if (!Array.isArray(pls)) throw new Error(`Post ${path} has an invalid pls field in the YAML header.`);
     if (pls.length > 0) {
       for (const plKey of pls) {
         const pl = pg.nodes.pl.get(plKey);
         if (!pl) throw new Error(`Post ${path} references unknown PL ${plKey}`);
-        pills.push(render(<Pill key={pl.key} nodeKey={pl.key} kind={pl.kind} name={pl.name} />, { pretty: true }));
+        metadata.push(render(<a href={`/${pl.plainKey}`}>{pl.name}</a>));
       }
     }
   }
 
-  const pillsHtml = `<div style="float: right;" class="${hideDate ? "hidden" : ""}">${pills.join("")}</div>`;
+  const pillsHtml = `<div style="float: right;" class="${hideDate ? "hidden" : ""}">${metadata.join("")}</div>`;
   const md = `${pillsHtml}\n\n# ${title}\n\n${mdBody.replace(ZERO_WIDTH, "")}`;
   const html = await marked.use(customHeadingId()).parse(md);
 
