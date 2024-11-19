@@ -96,7 +96,7 @@ test("matching keywords", () => {
 
   const text = " a .. strongly typed .. dynamic .. language with .. sum-types IF ";
 
-  for (const [id, node] of g.nodes.tsys) {
+  for (const [id, node] of g.nodes.tsys.entries()) {
     if (node.keywordsRegexp?.test(text)) matches.push(id);
   }
 
@@ -105,7 +105,7 @@ test("matching keywords", () => {
   matches.length = 0;
   const text2 = " sum if types ";
 
-  for (const [id, node] of g.nodes.tsys) {
+  for (const [id, node] of g.nodes.tsys.entries()) {
     if (node.keywordsRegexp?.test(text2)) matches.push(id);
   }
 

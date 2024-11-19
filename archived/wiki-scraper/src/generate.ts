@@ -67,7 +67,7 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
 
   // Check the content text for tags.
   const contentText = page.contentText;
-  for (const [_, tag] of g.nodes.tag) {
+  for (const [_, tag] of g.nodes.tag.entries()) {
     if (tag.keywordsRegexp?.test(contentText)) keys_tags.push(tag.key);
   }
 
@@ -130,7 +130,7 @@ export function generateCode(plang: NPlang): string {
 }
 
 export async function genAllPlangs(g: PlangsGraph) {
-  for (const [key, plang] of [...g.nodes.pl].sort()) {
+  for (const [key, plang] of [...g.nodes.pl.entries()].sort()) {
     const code = generateCode(plang);
 
     await mkdir(join(DEFINTIONS_PATH, plang.keyPrefix), { recursive: true }).catch(_ => {});

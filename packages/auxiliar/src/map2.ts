@@ -74,34 +74,24 @@ export class Map2<K1, K2, V> {
   }
 
   /** Returns an iterator of the keys in the first dimension. */
-  keys(): IterableIterator<K1> {
-    return this.#map.keys().filter(k1 => (this.#map.get(k1)?.size ?? 0) > 0);
+  keys(): K1[] {
+    return [...this.#map.keys()].filter(k1 => (this.#map.get(k1)?.size ?? 0) > 0);
   }
 
   entries(): [K1, Map<K2, V>][] {
     return [...this.#map.entries()].filter(([_k1, map2]) => map2.size > 0);
   }
 
-  *flatEntries(): IterableIterator<[K1, K2, V]> {
+  flatEntries(): [K1, K2, V][] {
+    const results: [K1, K2, V][] = [];
     for (const [k1, map2] of this.#map) {
-      for (const [k2, v] of map2) yield [k1, k2, v];
+      for (const [k2, v] of map2) results.push([k1, k2, v]);
     }
+    return results;
   }
 
   values(): V[] {
     return [...this.#map.values()].flatMap(map => [...map.values()]);
-  }
-
-  /**
-   * NOTE: This will work best if the keys are strings, symbols or numbers.
-   * Otherwise JavaScript will convert them to strings, which may not be what you want.
-   */
-  toObject<T>(mapper: (val: V) => T): ToObject<T> {
-    const object: ToObject<T> = {};
-    for (const [k1, k2, v] of this.flatEntries() as IterableIterator<[AnyKey, AnyKey, V]>) {
-      (object[k1] = object[k1] ?? {})[k2] = mapper(v);
-    }
-    return object;
   }
 
   toString(): string {
@@ -112,4 +102,3 @@ export class Map2<K1, K2, V> {
 
 // biome-ignore lint/suspicious/noExplicitAny: Any object key is valid.
 type AnyKey = keyof any;
-type ToObject<Map2V> = Record<AnyKey, Record<AnyKey, Map2V>>;

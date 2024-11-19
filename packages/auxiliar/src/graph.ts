@@ -77,10 +77,14 @@ export abstract class Edge<T_Graph, T_From extends Node<T_Graph, Any, Any>, T_To
 }
 
 /** Graph Node Map. */
-export class NodeMap<T_Graph, T_Node extends Node<T_Graph, Any, Any>> implements Iterable<[T_Node["key"], T_Node]> {
+export class NodeMap<T_Graph, T_Node extends Node<T_Graph, Any, Any>> {
   readonly #map = new Map<T_Node["key"], T_Node>();
 
   constructor(private readonly factory: (key: T_Node["key"]) => T_Node) {}
+
+  entries(): MapIterator<[T_Node["key"], T_Node]> {
+    return this.#map.entries();
+  }
 
   get(key: T_Node["key"] | undefined): T_Node | undefined {
     return key ? this.#map.get(key) : undefined;
@@ -90,8 +94,8 @@ export class NodeMap<T_Graph, T_Node extends Node<T_Graph, Any, Any>> implements
     return this.#map.size;
   }
 
-  keys(): IterableIterator<T_Node["key"]> {
-    return this.#map.keys();
+  keys(): T_Node["key"][] {
+    return [...this.#map.keys()];
   }
 
   set(key: T_Node["key"], data: T_Node["data"] = {}): T_Node {
@@ -111,12 +115,8 @@ export class NodeMap<T_Graph, T_Node extends Node<T_Graph, Any, Any>> implements
     return new IterTap(this.#map.values());
   }
 
-  *findAll(predicate: (node: T_Node) => boolean): Generator<T_Node> {
-    for (const node of this.#map.values()) if (predicate(node)) yield node;
-  }
-
-  [Symbol.iterator](n?: number): IterableIterator<[T_Node["key"], T_Node]> {
-    return this.#map[Symbol.iterator]();
+  findAll(predicate: (node: T_Node) => boolean): T_Node[] {
+    return [...this.#map.values()].filter(predicate);
   }
 
   batch(maxEntries?: number, start = 0): [T_Node["key"], T_Node][] {
@@ -212,7 +212,7 @@ export abstract class BaseGraph<N extends string, E extends string, G> {
 
     for (const [name, nodeMap] of this.nodeEntries) {
       const m = {} as Record<NK, Any>;
-      for (const [key, { data }] of nodeMap) m[key as NK] = data;
+      for (const [key, { data }] of nodeMap.entries()) m[key as NK] = data;
       data.nodes[name] = m;
     }
 
