@@ -76,7 +76,7 @@ export async function loadPosts(pg: PlangsGraph) {
 
     for (const plKey of pls) {
       if (!pg.nodes.pl.has(plKey)) throw new Error(`Post ${path} references unknown PL ${plKey}`);
-      post.addPls([plKey]);
+      post.addPlangs([plKey]);
     }
   }
 }

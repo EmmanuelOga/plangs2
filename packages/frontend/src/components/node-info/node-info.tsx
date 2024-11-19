@@ -3,14 +3,14 @@ import { Pill } from "@plangs/frontend/components/misc/pill";
 import type { NPlang } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/components/layout";
 
-export type PlInfoProps = {
-  pl?: NPlang;
+export type NodeInfoProps = {
+  node?: NPlang;
   open?: boolean;
   tab?: TAB;
 };
 
-/** Display a PL information, if the key is known. */
-export function PlInfo({ pl, open, tab }: PlInfoProps) {
+/** Display Node. */
+export function NodeInfo({ node: pl, open, tab }: NodeInfoProps) {
   const forGrid = tab === "plangs";
   return (
     <div
@@ -18,11 +18,12 @@ export function PlInfo({ pl, open, tab }: PlInfoProps) {
         "w-full overflow-y-scroll",
         "px-2 pt-2 sm:p-4",
         !forGrid && "-mx-4", // Compensate for padding so it aligns with the rest of the content.
-        "prose prose-green dark:prose-invert sm:prose-sm lg:prose-lg xl:prose-xl max-w-[unset]",
+        "prose prose-green dark:prose-invert",
+        "max-w-[unset]",
         forGrid && "bg-linear-to-b to-secondary/50",
         tw(BORDER, forGrid && "border-b-1"),
       )}>
-      <h1 class={tw(!forGrid && "text-4xl", forGrid && "inline text-lg sm:block sm:text-4xl")}>
+      <h1 class={tw(forGrid && "inline sm:block")}>
         <a class="text-foreground decoration-1 decoration-dotted" href={`/${pl?.plainKey}`}>
           {pl?.name ?? "Plang"}
         </a>

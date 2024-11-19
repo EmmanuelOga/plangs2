@@ -6,7 +6,20 @@ import type { AnyValue } from "@plangs/auxiliar/value";
 
 import { type PlangFacetKey, plangMatches } from "./facets/plangs";
 
-import type { CommonEdgeData, CommonNodeData, E, Image, N, NLicenseData, NPlangData, NPostData, Release, StrDate } from "./schema";
+import type {
+  CommonEdgeData,
+  CommonNodeData,
+  E,
+  Image,
+  Link,
+  N,
+  NLearningData,
+  NLicenseData,
+  NPlangData,
+  NPostData,
+  Release,
+  StrDate,
+} from "./schema";
 import { getStrDateYear } from "./util";
 export type { E, N } from "./schema";
 
@@ -41,10 +54,15 @@ export class PlangsGraph extends BaseGraph<N, E, G> {
   override readonly edges = {
     app: this.#edgeMap(EApp),
     bundle: this.#edgeMap(EBundle),
+    commPl: this.#edgeMap(ECommPl),
+    commTag: this.#edgeMap(ECommTag),
     compilesTo: this.#edgeMap(ECompilesTo),
     dialect: this.#edgeMap(EDialect),
     impl: this.#edgeMap(EImpl),
     influence: this.#edgeMap(EInfluence),
+    learningPl: this.#edgeMap(ELearningPl),
+    learningTag: this.#edgeMap(ELearningTag),
+    learningComm: this.#edgeMap(ELearningComm),
     lib: this.#edgeMap(ELib),
     license: this.#edgeMap(ELicense),
     paradigm: this.#edgeMap(EParadigm),
@@ -82,6 +100,10 @@ export abstract class NBase<Prefix extends N, Data extends CommonNodeData> exten
     return this.data.extHomeURL;
   }
 
+  get links(): IterTap<Link> {
+    return new IterTap(this.data.links);
+  }
+
   get images() {
     return new IterTap(this.data.images);
   }
@@ -103,6 +125,11 @@ export abstract class NBase<Prefix extends N, Data extends CommonNodeData> exten
 
   addImages(images: Image[]): this {
     arrayMerge((this.data.images ??= []), images, (i1, i2) => i1.url === i2.url);
+    return this;
+  }
+
+  addLinks(links: Link[]): this {
+    arrayMerge((this.data.links ??= []), links, (l1, l2) => l1.url === l2.url);
     return this;
   }
 }
@@ -367,12 +394,37 @@ export class NPlang extends NBase<"pl", NPlangData> {
 export class NCommunity extends NBase<"community", CommonNodeData> {
   static readonly kind: N = "community";
   override kind = NCommunity.kind;
+
+  addPlangs(others: NPlang["key"][]): this {
+    for (const other of others) this.graph.edges.commPl.connect(other, this.key);
+    return this;
+  }
+
+  addTags(others: NTag["key"][]): this {
+    for (const other of others) this.graph.edges.commTag.connect(this.key, other);
+    return this;
+  }
 }
 
 /** Short for Learning Resource, things like books, courses, video playlists, etc. */
-export class NLearning extends NBase<"learning", CommonNodeData> {
+export class NLearning extends NBase<"learning", NLearningData> {
   static readonly kind: N = "learning";
   override kind = NLearning.kind;
+
+  addPlangs(others: NPlang["key"][]): this {
+    for (const other of others) this.graph.edges.learningPl.connect(other, this.key);
+    return this;
+  }
+
+  addTags(others: NTag["key"][]): this {
+    for (const other of others) this.graph.edges.learningTag.connect(this.key, other);
+    return this;
+  }
+
+  addCommunities(others: NCommunity["key"][]): this {
+    for (const other of others) this.graph.edges.learningComm.connect(this.key, other);
+    return this;
+  }
 }
 
 /** A library Node, for software libraries or frameworks, like jQuery, Rails, etc. */
@@ -380,7 +432,7 @@ export class NLibrary extends NBase<"lib", CommonNodeData> {
   static readonly kind: N = "lib";
   override kind = NLibrary.kind;
 
-  addPls(others: NPlang["key"][]): this {
+  addPlangs(others: NPlang["key"][]): this {
     for (const other of others) this.graph.edges.lib.connect(other, this.key);
     return this;
   }
@@ -427,7 +479,7 @@ export class NTool extends NBase<"tool", CommonNodeData> {
   static readonly kind: N = "tool";
   override kind = NTool.kind;
 
-  addPls(others: NPlang["key"][]): this {
+  addPlangs(others: NPlang["key"][]): this {
     for (const other of others) this.graph.edges.tool.connect(other, this.key);
     return this;
   }
@@ -444,7 +496,7 @@ export class NApp extends NBase<"app", CommonNodeData> {
   static readonly kind: N = "app";
   override kind = NApp.kind;
 
-  addPls(others: NPlang["key"][]): this {
+  addPlangs(others: NPlang["key"][]): this {
     for (const other of others) this.graph.edges.app.connect(other, this.key);
     return this;
   }
@@ -460,7 +512,7 @@ export class NBundle extends NBase<"bundle", CommonNodeData> {
     return this;
   }
 
-  addPls(others: NPlang["key"][]): this {
+  addPlangs(others: NPlang["key"][]): this {
     for (const other of others) this.graph.edges.plBundle.connect(other, this.key);
     return this;
   }
@@ -507,7 +559,7 @@ export class NPost extends NBase<"post", NPostData> {
     return `/blog/${this.plainKey}`;
   }
 
-  addPls(others: `pl+${string}`[]) {
+  addPlangs(others: `pl+${string}`[]) {
     for (const other of others) this.graph.edges.post.connect(other, this.key);
     return this;
   }
@@ -529,196 +581,151 @@ export abstract class EBase<T_From extends AnyNode, T_To extends AnyNode, T_Data
   T_Data
 > {}
 
+// biome-ignore format: keep it concise.
 export class EApp extends EBase<NPlang, NApp, CommonEdgeData> {
   override kind: E = "app";
-
-  get nodeFrom(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.from);
-  }
-
-  get nodeTo(): NApp | undefined {
-    return this.graph.nodes.app.get(this.to);
-  }
+  get nodeFrom(): NPlang | undefined { return this.graph.nodes.pl.get(this.from); }
+  get nodeTo(): NApp | undefined { return this.graph.nodes.app.get(this.to); }
 }
 
 /** Edge from a tool to a bundle. */
+// biome-ignore format: keep it concise.
 export class EBundle extends EBase<NBundle, NTool, CommonEdgeData> {
   override kind: E = "bundle";
-
-  get nodeFrom(): NBundle | undefined {
-    return this.graph.nodes.bundle.get(this.from);
-  }
-
-  get nodeTo(): NTool | undefined {
-    return this.graph.nodes.tool.get(this.to);
-  }
+  get nodeFrom(): NBundle | undefined { return this.graph.nodes.bundle.get(this.from); }
+  get nodeTo(): NTool | undefined { return this.graph.nodes.tool.get(this.to); }
 }
 
+// biome-ignore format: keep it concise.
 export class ECompilesTo extends EBase<NPlang, NPlang, CommonEdgeData> {
   override kind: E = "compilesTo";
-
-  get nodeFrom(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.from);
-  }
-
-  get nodeTo(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.to);
-  }
+  get nodeFrom(): NPlang | undefined { return this.graph.nodes.pl.get(this.from); }
+  get nodeTo(): NPlang | undefined { return this.graph.nodes.pl.get(this.to); }
 }
 
+// biome-ignore format: keep it concise.
 export class EDialect extends EBase<NPlang, NPlang, CommonEdgeData> {
   override kind: E = "dialect";
-
-  get nodeFrom(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.from);
-  }
-
-  get nodeTo(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.to);
-  }
+  get nodeFrom(): NPlang | undefined { return this.graph.nodes.pl.get(this.from); }
+  get nodeTo(): NPlang | undefined { return this.graph.nodes.pl.get(this.to); }
 }
 
+// biome-ignore format: keep it concise.
 export class ELicense extends EBase<NPlang, NLicense, CommonEdgeData> {
   override kind: E = "license";
-
-  get nodeFrom(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.from);
-  }
-
-  get nodeTo(): NLicense | undefined {
-    return this.graph.nodes.license.get(this.to);
-  }
+  get nodeFrom(): NPlang | undefined { return this.graph.nodes.pl.get(this.from); }
+  get nodeTo(): NLicense | undefined { return this.graph.nodes.license.get(this.to); }
 }
 
+// biome-ignore format: keep it concise.
 export class EImpl extends EBase<NPlang, NPlang, CommonEdgeData> {
   override kind: E = "impl";
-
-  get nodeFrom(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.from);
-  }
-
-  get nodeTo(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.to);
-  }
+  get nodeFrom(): NPlang | undefined { return this.graph.nodes.pl.get(this.from); }
+  get nodeTo(): NPlang | undefined { return this.graph.nodes.pl.get(this.to); }
 }
 
+// biome-ignore format: keep it concise.
 export class EInfluence extends EBase<NPlang, NPlang, CommonEdgeData> {
   override kind: E = "influence";
-
-  get nodeFrom(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.from);
-  }
-
-  get nodeTo(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.to);
-  }
+  get nodeFrom(): NPlang | undefined { return this.graph.nodes.pl.get(this.from); }
+  get nodeTo(): NPlang | undefined { return this.graph.nodes.pl.get(this.to); }
 }
 
+// biome-ignore format: keep it concise.
 export class EParadigm extends EBase<NPlang, NParadigm, CommonEdgeData> {
   override kind: E = "paradigm";
-
-  get nodeFrom(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.from);
-  }
-
-  get nodeTo(): NParadigm | undefined {
-    return this.graph.nodes.paradigm.get(this.to);
-  }
+  get nodeFrom(): NPlang | undefined { return this.graph.nodes.pl.get(this.from); }
+  get nodeTo(): NParadigm | undefined { return this.graph.nodes.paradigm.get(this.to); }
 }
 
+// biome-ignore format: keep it concise.
 export class ETsys extends EBase<NPlang, NTsys, CommonEdgeData> {
   override kind: E = "tsys";
-
-  get nodeFrom(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.from);
-  }
-
-  get nodeTo(): NTsys | undefined {
-    return this.graph.nodes.tsys.get(this.to);
-  }
+  get nodeFrom(): NPlang | undefined { return this.graph.nodes.pl.get(this.from); }
+  get nodeTo(): NTsys | undefined { return this.graph.nodes.tsys.get(this.to); }
 }
 
 /** Edge from a PLang to a Bundle. */
+// biome-ignore format: keep it concise.
 export class EPlBundle extends EBase<NPlang, NBundle, CommonEdgeData> {
   override kind: E = "plBundle";
-
-  get nodeFrom(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.from);
-  }
-
-  get nodeTo(): NBundle | undefined {
-    return this.graph.nodes.bundle.get(this.to);
-  }
+  get nodeFrom(): NPlang | undefined { return this.graph.nodes.pl.get(this.from); }
+  get nodeTo(): NBundle | undefined { return this.graph.nodes.bundle.get(this.to); }
 }
 
+// biome-ignore format: keep it concise.
 export class EPlat extends EBase<NPlang, NPlatform, CommonEdgeData> {
   override kind: E = "plat";
-
-  get nodeFrom(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.from);
-  }
-
-  get nodeTo(): NPlatform | undefined {
-    return this.graph.nodes.plat.get(this.to);
-  }
+  get nodeFrom(): NPlang | undefined { return this.graph.nodes.pl.get(this.from); }
+  get nodeTo(): NPlatform | undefined { return this.graph.nodes.plat.get(this.to); }
 }
 
+// biome-ignore format: keep it concise.
 export class EPost extends EBase<NPlang, NPost, CommonEdgeData> {
   override kind: E = "post";
-
-  get nodeFrom(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.from);
-  }
-
-  get nodeTo(): NPost | undefined {
-    return this.graph.nodes.post.get(this.to);
-  }
+  get nodeFrom(): NPlang | undefined { return this.graph.nodes.pl.get(this.from); }
+  get nodeTo(): NPost | undefined { return this.graph.nodes.post.get(this.to); }
 }
 
+// biome-ignore format: keep it concise.
 export class ELib extends EBase<NPlang, NLibrary, CommonEdgeData> {
   override kind: E = "lib";
-
-  get nodeFrom(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.from);
-  }
-
-  get nodeTo(): NLibrary | undefined {
-    return this.graph.nodes.lib.get(this.to);
-  }
+  get nodeFrom(): NPlang | undefined { return this.graph.nodes.pl.get(this.from); }
+  get nodeTo(): NLibrary | undefined { return this.graph.nodes.lib.get(this.to); }
 }
 
+// biome-ignore format: keep it concise.
 export class ETag extends EBase<NPlang, NTag, CommonEdgeData> {
   override kind: E = "tag";
-
-  get nodeFrom(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.from);
-  }
-
-  get nodeTo(): NTag | undefined {
-    return this.graph.nodes.tag.get(this.to);
-  }
+  get nodeFrom(): NPlang | undefined { return this.graph.nodes.pl.get(this.from); }
+  get nodeTo(): NTag | undefined { return this.graph.nodes.tag.get(this.to); }
 }
 
+// biome-ignore format: keep it concise.
 export class ETool extends EBase<NPlang, NTool, CommonEdgeData> {
   override kind: E = "tool";
-
-  get nodeFrom(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.from);
-  }
-
-  get nodeTo(): NTool | undefined {
-    return this.graph.nodes.tool.get(this.to);
-  }
+  get nodeFrom(): NPlang | undefined { return this.graph.nodes.pl.get(this.from); }
+  get nodeTo(): NTool | undefined { return this.graph.nodes.tool.get(this.to); }
 }
 
+// biome-ignore format: keep it concise.
 export class EWrittenIn extends EBase<NPlang, NPlang, CommonEdgeData> {
   override kind: E = "writtenIn";
+  get nodeFrom(): NPlang | undefined { return this.graph.nodes.pl.get(this.from); }
+  get nodeTo(): NPlang | undefined { return this.graph.nodes.pl.get(this.to); }
+}
 
-  get nodeFrom(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.from);
-  }
+// biome-ignore format: keep it concise.
+export class ECommPl extends EBase<NPlang, NCommunity, CommonEdgeData> {
+  override kind: E = "commPl";
+  get nodeFrom(): NPlang | undefined { return this.graph.nodes.pl.get(this.from); }
+  get nodeTo(): NCommunity | undefined { return this.graph.nodes.community.get(this.to); }
+}
 
-  get nodeTo(): NPlang | undefined {
-    return this.graph.nodes.pl.get(this.to);
-  }
+// biome-ignore format: keep it concise.
+export class ECommTag extends EBase<NCommunity, NTag, CommonEdgeData> {
+  override kind: E = "commTag";
+  get nodeFrom(): NCommunity | undefined { return this.graph.nodes.community.get(this.from); }
+  get nodeTo(): NTag | undefined { return this.graph.nodes.tag.get(this.to); }
+}
+
+// biome-ignore format: keep it concise.
+export class ELearningPl extends EBase<NPlang, NLearning, CommonEdgeData> {
+  override kind: E = "learningPl";
+  get nodeFrom(): NPlang | undefined { return this.graph.nodes.pl.get(this.from); }
+  get nodeTo(): NLearning | undefined { return this.graph.nodes.learning.get(this.to); }
+}
+
+// biome-ignore format: keep it concise.
+export class ELearningTag extends EBase<NLearning, NTag, CommonEdgeData> {
+  override kind: E = "learningTag";
+  get nodeFrom(): NLearning | undefined { return this.graph.nodes.learning.get(this.from); }
+  get nodeTo(): NTag | undefined { return this.graph.nodes.tag.get(this.to); }
+}
+
+// biome-ignore format: keep it concise.
+export class ELearningComm extends EBase<NLearning, NCommunity, CommonEdgeData> {
+  override kind: E = "learningTag";
+  get nodeFrom(): NLearning | undefined { return this.graph.nodes.learning.get(this.from); }
+  get nodeTo(): NCommunity | undefined { return this.graph.nodes.community.get(this.to); }
 }

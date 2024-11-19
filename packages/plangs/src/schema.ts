@@ -8,8 +8,28 @@ import type { LinguistLang } from "@plangs/languist/types";
 export type N = "app" | "bundle" | "community" | "learning" | "lib" | "license" | "paradigm" | "pl" | "plat" | "post" | "tag" | "tool" | "tsys";
 
 /** Name of all edges. */
-// biome-ignore format: Keep it in one line.
-export type E = "app" | "bundle" | "compilesTo" | "dialect" | "impl" | "influence" | "lib" | "license" | "paradigm" | "plBundle" | "plat" | "post" | "tag" | "tool" | "tsys" | "writtenIn";
+export type E =
+  | "app"
+  | "bundle"
+  | "commPl"
+  | "commTag"
+  | "compilesTo"
+  | "dialect"
+  | "impl"
+  | "influence"
+  | "learningComm"
+  | "learningPl"
+  | "learningTag"
+  | "lib"
+  | "license"
+  | "paradigm"
+  | "plBundle"
+  | "plat"
+  | "post"
+  | "tag"
+  | "tool"
+  | "tsys"
+  | "writtenIn";
 
 ////////////////////////////////////////////////////////////////////////////////
 // Nodes can use CommonNodeData directly or extend it with more data.
@@ -27,6 +47,8 @@ export interface CommonNodeData {
   extHomeURL?: string;
   /** Logos, screenshots or other images relevant to the language. */
   images: Image[];
+  /** Links to external resources. */
+  links: Link[];
 }
 
 /**
@@ -109,6 +131,12 @@ export type NPostData = CommonNodeData & {
   date: StrDate;
 };
 
+/** Learning resource data. */
+export type NLearningData = CommonNodeData & {
+  /** Kinds of the learning resource. */
+  kinds: LearningKind[];
+};
+
 ////////////////////////////////////////////////////////////////////////////////
 // Nodes can use CommonEdgeData directly or extend it with more data.
 ////////////////////////////////////////////////////////////////////////////////
@@ -122,9 +150,10 @@ export interface CommonEdgeData {
 // Auxiliary Types
 ////////////////////////////////////////////////////////////////////////////////
 
-/**
- * A release of a programming language.
- */
+/** Kind for a learning resource. A single resource can include more than one kind. */
+export type LearningKind = "book" | "course" | "tutorial" | "video" | "other";
+
+/** A release of a programming language. */
 export interface Release {
   /** Arbitrary version string used by the artifact. */
   version: string;
@@ -132,6 +161,14 @@ export interface Release {
   name?: string;
   /** Date of the release, if it is known. */
   date?: StrDate;
+}
+
+/** A Link to an external resource. */
+export interface Link {
+  /** URL of the link. */
+  url: string;
+  /** Title of the link. */
+  title?: string;
 }
 
 /**

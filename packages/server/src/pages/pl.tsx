@@ -1,10 +1,10 @@
 import { BORDER, PROSE, tw } from "@plangs/frontend/auxiliar/styles";
 import { Pill } from "@plangs/frontend/components/misc/pill";
-import { PlInfo } from "@plangs/frontend/components/pl-info/pl-info";
+import { NodeInfo } from "@plangs/frontend/components/node-info/node-info";
 import type { NPlang, PlangsGraph } from "@plangs/plangs";
 import { Layout } from "@plangs/server/components/layout";
 import { Table } from "@plangs/server/components/table";
-import { cssID } from "@plangs/server/elements";
+import { cssClass } from "@plangs/server/elements";
 
 export function Pl({ pl, pg }: { pl: NPlang; pg: PlangsGraph }) {
   return (
@@ -16,8 +16,8 @@ export function Pl({ pl, pg }: { pl: NPlang; pg: PlangsGraph }) {
       description={`${pl.name} at https://plangs.page: A language is much more than just a syntax. It's an ecosystem of tools, libraries, and applications.`}
       mainClasses={tw("overflow-y-scroll")}>
       <article class={tw(PROSE, "p-4")}>
-        <div id={cssID("plInfo")} class="mb-8">
-          <PlInfo pl={pl} open={false} tab="pl" />
+        <div class={tw(cssClass("nodeInfo"), "mb-8")}>
+          <NodeInfo node={pl} open={false} tab="pl" />
         </div>
 
         <PlNews pl={pl} />

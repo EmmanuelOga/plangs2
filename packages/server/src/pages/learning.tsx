@@ -1,7 +1,7 @@
 import { tw } from "@plangs/frontend/auxiliar/styles";
 import { script } from "@plangs/frontend/auxiliar/utils";
 import { facetsMain } from "@plangs/frontend/components/facets/main";
-import { plInfo } from "@plangs/frontend/components/pl-info";
+import { nodeInfo } from "@plangs/frontend/components/node-info";
 import type { PlangsGraph } from "@plangs/plangs";
 import { Layout } from "@plangs/server/components/layout";
 import { NodeGrid } from "../components/node-grid";
@@ -22,8 +22,8 @@ export function Learning({ pg }: { pg: PlangsGraph }) {
       <NodeGrid pg={pg} node={"learning"} class={tw("flex-1", "overflow-y-scroll", "m-1")} />
 
       <div class={tw("overflow-hidden overflow-y-scroll", "max-h-[15dvh] 2xl:max-h-[unset] 2xl:w-[25rem]")}>
-        {plInfo({ tab: "plangs", open: true })}
-        {script("window.restorePlInfo()")}
+        {nodeInfo({ tab: "plangs", open: true })}
+        {script("window.restoreNodeInfo()")}
       </div>
     </Layout>
   );

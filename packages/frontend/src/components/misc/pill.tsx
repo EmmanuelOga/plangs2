@@ -8,7 +8,6 @@ export function Pill({ name, nodeKey, kind, tab }: { name: string; nodeKey: stri
     <div
       data-node-key={nodeKey ?? "NONE"}
       class={tw(
-        cssClass("pill"),
         "inline-block text-center",
 
         // NOTE: this approximately solves a mistmatch between rendering as a web component and as a Preact component,

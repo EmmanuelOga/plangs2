@@ -78,6 +78,13 @@ export function define(g: PlangsGraph) {
     extHomeURL: "https://en.wikipedia.org/wiki/Compiler",
   });
 
+  g.nodes.tag.set("tag+control", {
+    name: "Instrument Control",
+    keywords: ["instrument control", "automation", "measurement"],
+    description: "Software used to control scientific and industrial instruments.",
+    extHomeURL: "https://en.wikipedia.org/wiki/Instrument_control",
+  });
+
   g.nodes.tag.set("tag+dataflow", {
     name: "Dataflow Programming",
     keywords: ["dataflow", "data-driven", "dataflow architecture"],
@@ -184,14 +191,7 @@ export function define(g: PlangsGraph) {
     extHomeURL: "https://en.wikipedia.org/wiki/Industrial_control_system",
   });
 
-  g.nodes.tag.set("tag+instrument_control", {
-    name: "Instrument Control",
-    keywords: ["instrument control", "automation", "measurement"],
-    description: "Software used to control scientific and industrial instruments.",
-    extHomeURL: "https://en.wikipedia.org/wiki/Instrument_control",
-  });
-
-  g.nodes.tag.set("tag+interpreter", {
+  g.nodes.tag.set("tag+interpreters", {
     name: "Interpreter",
     keywords: ["interpreter", "programming language", "runtime execution"],
     description:
@@ -204,6 +204,13 @@ export function define(g: PlangsGraph) {
     keywords: ["IoT", "connected devices", "smart devices"],
     description: "Software and platforms designed to connect and manage IoT devices and networks.",
     extHomeURL: "https://en.wikipedia.org/wiki/Internet_of_things",
+  });
+
+  g.nodes.tag.set("tag+languages", {
+    name: "Language Engineering",
+    keywords: ["compilers", "interpreters", "programming languages", "parsers", "lexers", "static analysis", "semantics", "syntax"],
+    description: "Tools and techniques for designing, implementing, and analyzing programming languages.",
+    extHomeURL: "https://en.wikipedia.org/wiki/Programming_language",
   });
 
   g.nodes.tag.set("tag+low-code", {
@@ -253,6 +260,13 @@ export function define(g: PlangsGraph) {
     keywords: ["numeric computation", "numerical analysis", "scientific computing"],
     description: "Software for performing numeric computations and algorithms.",
     extHomeURL: "https://en.wikipedia.org/wiki/Numeric_computation",
+  });
+
+  g.nodes.tag.set("tag+packaging", {
+    name: "Packaging",
+    keywords: ["package manager", "software distribution", "dependency management"],
+    description: "Software tools for managing and distributing software packages and dependencies.",
+    extHomeURL: "https://en.wikipedia.org/wiki/Package_manager",
   });
 
   g.nodes.tag.set("tag+proofs", {
@@ -358,6 +372,13 @@ export function define(g: PlangsGraph) {
     keywords: ["wavelet analysis", "signal processing", "mathematics"],
     description: "A mathematical technique used for analyzing waveforms and signals, often in signal processing.",
     extHomeURL: "https://en.wikipedia.org/wiki/Wavelet",
+  });
+
+  g.nodes.tag.set("tag+webdev", {
+    name: "Web Development",
+    keywords: ["webdev", "http", "web design", "web programming"],
+    description: "Design and development of websites and web applications.",
+    extHomeURL: "https://en.wikipedia.org/wiki/Web_development",
   });
 
   g.nodes.tag.set("tag+workflow", {

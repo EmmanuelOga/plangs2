@@ -2,22 +2,22 @@
  * @file utilities to type check DOM "id" and "class" attributes.
  */
 
+// Elements for which we have 0 or 1 instance.
 export const ID_KEYS = [
   "todo",
 
   "mainNav", // Main navigation bar, toggled by the hamburger icon.
-  "nodeGrid",
-  "plInfo",
+  "nodeGrid", // Main grid for nodes.
 ] as const;
 
+// Elements for which we may have multiple instances.
 export const CL_KEYS = [
   "todo",
 
   "facetsMain", // A Div wrapper for FacetsMain component.
   "iconButton", // A Div wrapper for IconButton component.
-  "navLink",
-  "pill",
-  "plThumb",
+  "nodeThumbn", // Thumbnail for a node.
+  "nodeInfo", // Information about a node.
 ] as const;
 
 export type IDKey = (typeof ID_KEYS)[number];

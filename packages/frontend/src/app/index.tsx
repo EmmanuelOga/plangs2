@@ -7,7 +7,7 @@ import { connectLivereload } from "@plangs/frontend/auxiliar/livereload";
 import { activateFacetsMain } from "@plangs/frontend/components/facets/main";
 import { activateIconButtons } from "@plangs/frontend/components/icon-button";
 import { ToggleFacetsMenu, ToggleHamburguer, ToggleLights } from "@plangs/frontend/components/icon-button/state";
-import { renderLastPlInfo, renderPlInfo } from "@plangs/frontend/components/pl-info";
+import { renderLastNodeInfo, renderNodeInfo } from "@plangs/frontend/components/node-info";
 import { PlangsGraph } from "@plangs/plangs";
 
 import { getPl } from "./pl";
@@ -20,7 +20,7 @@ async function start() {
   window.restoreFilters = () => ToggleFacetsMenu.initial().runEffects();
   window.restoreHamburguer = () => ToggleHamburguer.initial().runEffects();
   window.restoreLightMode = () => ToggleLights.initial().runEffects();
-  window.restorePlInfo = () => renderLastPlInfo(pg); // NOTE: this doesn't need the fully loaded data.
+  window.restoreNodeInfo = () => renderLastNodeInfo(pg); // NOTE: this doesn't need the fully loaded data.
 
   document.addEventListener("DOMContentLoaded", () => {
     activateIconButtons();
@@ -33,7 +33,7 @@ async function start() {
 
       on(grid, "pointerdown", ({ target }: MouseEvent) => {
         const pl = getPl(pg, target);
-        if (pl) renderPlInfo({ pl, tab: "plangs" });
+        if (pl) renderNodeInfo({ node: pl, tab: "plangs" });
       });
 
       // On double-click, open the language page.
@@ -64,6 +64,6 @@ declare global {
     restoreFilters: () => void;
     restoreHamburguer: () => void;
     restoreLightMode: () => void;
-    restorePlInfo: () => void;
+    restoreNodeInfo: () => void;
   }
 }

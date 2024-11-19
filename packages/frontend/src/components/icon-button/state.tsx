@@ -206,7 +206,7 @@ export class ToggleGridOrder extends IconButtonBaseState<{ mode: "alpha" | "rank
   override runEffects() {
     const grid = elem("nodeGrid");
     if (!grid) return;
-    const thumbns = [...elems("plThumb")].sort(CMP[this.mode]);
+    const thumbns = [...elems("nodeThumbn")].sort(CMP[this.mode]);
     // If they are already in the parent element, re-appending just reorders the element.
     for (const thumb of thumbns) {
       // Don't hide for now.

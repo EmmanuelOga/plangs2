@@ -296,7 +296,7 @@ test("app nodes", () => {
   const apps = g.edges.app;
 
   expect(apps.size).toBe(0);
-  app.addPls(["pl+pascal"]);
+  app.addPlangs(["pl+pascal"]);
   expect(apps.size).toBe(1);
 });
 
@@ -314,7 +314,7 @@ test("bundle nodes", () => {
   expect(bundle.relTools.values.first?.to).toEqual("tool+my-tool");
 
   expect(bundle.relPls.size).toBe(0);
-  bundle.addPls(["pl+pascal"]);
+  bundle.addPlangs(["pl+pascal"]);
   expect(bundle.relPls.size).toBe(1);
   expect(bundle.relPls.values.first?.from).toEqual("pl+pascal");
 });
@@ -325,7 +325,7 @@ test("library nodes", () => {
   const libs = g.edges.lib;
 
   expect(libs.size).toBe(0);
-  lib.addPls(["pl+pascal"]);
+  lib.addPlangs(["pl+pascal"]);
   expect(libs.size).toBe(1);
 });
 
@@ -354,7 +354,7 @@ test("post nodes", () => {
   expect(post.name).toEqual("Hello World!");
 
   expect(post.relPls.size).toBe(0);
-  post.addPls(["pl+pascal"]);
+  post.addPlangs(["pl+pascal"]);
   expect(post.relPls.size).toBe(1);
   expect(post.relPls.values.first?.from).toEqual("pl+pascal");
 });
@@ -365,7 +365,7 @@ test("tool nodes", () => {
   const tools = g.edges.tool;
 
   expect(tools.size).toBe(0);
-  tool.addPls(["pl+pascal"]);
+  tool.addPlangs(["pl+pascal"]);
   expect(tools.size).toBe(1);
 });
 
@@ -375,6 +375,6 @@ test("plBundle nodes", () => {
   const plBundles = g.edges.plBundle;
 
   expect(plBundles.size).toBe(0);
-  bundle.addPls(["pl+pascal"]);
+  bundle.addPlangs(["pl+pascal"]);
   expect(plBundles.size).toBe(1);
 });

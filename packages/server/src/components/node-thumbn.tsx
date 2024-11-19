@@ -12,9 +12,9 @@ export function NodeThumbn({ node, class: klass }: { class?: string; node: AnyNo
     <div
       data-node-key={node.key}
       {...(node instanceof NPlang && {
-        dataNodeRanking: `${node.ranking ?? ""}`,
+        "data-node-ranking": `${node.ranking ?? ""}`,
       })}
-      class={tw(cssClass("plThumb"), "group relative", "cursor-pointer", "max-w-[7rem] sm:max-w-[15rem]", "max-h-[7rem] sm:max-h-[15rem]", klass)}>
+      class={tw(cssClass("nodeThumbn"), "group relative", "cursor-pointer", "max-w-[7rem] sm:max-w-[15rem]", "max-h-[7rem] sm:max-h-[15rem]", klass)}>
       <div class={tw("truncate text-center", "text-foreground group-hover:text-primary")}>{node.name}</div>
       {node instanceof NPlang && node.ranking && (
         <div
