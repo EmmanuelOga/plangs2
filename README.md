@@ -2,7 +2,11 @@
 
 Plangs ambition is to become a community oriented programming languages page where people can find trends, tools and blog posts related to programming languages and the ecosystem of tools, documentation and other resources around them.
 
-# Development
+## Draft
+
+We publish a draft/WIP at [eoga.dev](https://eoga.dev)
+
+## Development
 
 Requirements:
 
@@ -25,20 +29,34 @@ Starting the dev server is as simple as:
 $ overmind start
 ```
 
-# Building
+## Building
 
 ```sh
 $ bun outapp && bun outjs
 ```
 
-## Screenshots
-
-![Plangs! Desktop Dark Mode](doc/Dark.png)
-![Plangs! Desktop Light Mode](doc/Light.png)
-![Plangs! Mobile Dark Mode](doc/Mobile.png)
+This simplistic build process just outputs the statically generated contents of the site at `~/dev/plangs-out` (will probably change soon).
 
 ## TODO
 
+### Tools, Apps, Libs Facets
+
+* General (name, GH stars, created & released recently)
+* Platforms
+* Written In (plang)
+* Written For (plang) (only for tool)
+* Tags
+* Creation Year
+* Licenses
+
+### Learning and Communities
+
+* General (name, created recently)
+* Platform, Paradigms, Type Systems, Plang, Tags, Creation Year
+
+### Pending
+
+- [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
 - [ ] Fix facet reset button, and serialization of facets when going to empty (right now doesn't clear the fragment).
 - [ ] Fix grid display when there's less than 1 full row of thumbnails. Adjust sizing, etc.
 - [ ] Add support for drag/drop resize of elements (node-info and facets-main).
@@ -66,3 +84,5 @@ $ bun outapp && bun outjs
 - [ ] Platform Icons.
 - [ ] Considering adding also a "short description", since desc. of many plangs is too long.
 - [ ] Investigate removing the need to load the full JSON data before continuing.
+
+- [ ] Full text search.
