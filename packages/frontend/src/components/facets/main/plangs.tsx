@@ -3,21 +3,17 @@ import type { FunctionComponent } from "preact";
 import { ValNil, ValNumber } from "@plangs/auxiliar/value";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { loadLocalStorage } from "@plangs/frontend/auxiliar/storage";
-import { FacetBool } from "@plangs/frontend/components/facets/misc/facet-bool";
-import { FacetGroup } from "@plangs/frontend/components/facets/misc/facet-group";
-import { FacetText } from "@plangs/frontend/components/facets/misc/facet-text";
-import { FacetMulti } from "@plangs/frontend/components/facets/multisel/facet-multi";
-import { FacetTable } from "@plangs/frontend/components/facets/table/facet-table";
 import { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, type PlangsGraph } from "@plangs/plangs";
 import type { PlangFacetKey } from "@plangs/plangs/facets/plangs";
 import type { TAB } from "@plangs/server/components/layout";
 
+import { createFacetGroups } from "./groups-util";
 import { FacetsMainState } from "./state";
-import { type FacetConfig, bool, defineFacets, defineGroups, group, mapGroups, multi, table, text } from "./types";
+import { type FacetsMap, type GroupsMap, bool, defineFacets, defineGroups, group, multi, table, text } from "./types";
 
 type FK = PlangFacetKey;
 
-export const FACETS: Map<FK, FacetConfig<FK>> = defineFacets<FK>(
+export const FACETS: FacetsMap<FK> = defineFacets<FK>(
   bool("createdRecently", "Created Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 5) : new ValNil())),
   bool("hasLogo", "Has Logo"),
   bool("hasWikipedia", "Has Wikipedia"),
@@ -45,7 +41,7 @@ export type PlangFacetGroupKey = "creationYear" | "dialectOf" | "general" | "imp
 
 type GK = PlangFacetGroupKey;
 
-export const [GROUPS, GROUP_FOR_FACET_KEY] = defineGroups<GK, FK>(
+export const [GROUPS, GROUP_FOR_FACET_KEY]: readonly [GroupsMap<GK, FK>, Map<FK, GK>] = defineGroups<GK, FK>(
   group("creationYear", "Creation Year", ["creationYear"]),
   group("dialectOf", "Dialect Of", ["dialectOf"]),
   group("general", "General", ["plangName", "createdRecently", "releasedRecently", "isPopular", "hasLogo", "hasWikipedia", "extensions"]),
@@ -69,32 +65,8 @@ export const NAV: GK[][] = [
   ["tags", "creationYear", "licenses"],
 ] as const;
 
+export const PlangsFacetGroups = createFacetGroups(GROUPS, FACETS);
 export const DEFAULT_GROUP = "general";
-
-export const PlangsFacetGroups: FunctionComponent<{ currentFacetGroup: GK }> = ({ currentFacetGroup }) => (
-  <>
-    {mapGroups<GK, FK>(GROUPS, currentFacetGroup, ({ groupKey, active, label, facetKeys }) => (
-      <FacetGroup<GK> key={groupKey} groupKey={groupKey} label={label} active={active}>
-        {facetKeys.map(facetKey => {
-          const facet = FACETS.get(facetKey);
-          const props = (f: FacetConfig<FK>) => ({ groupKey, facetKey, label: f.label, active });
-          switch (facet?.kind) {
-            case "bool":
-              return <FacetBool {...props(facet)} valueMapper={facet.valueMapper} />;
-            case "multi":
-              return <FacetMulti {...props(facet)} />;
-            case "table":
-              return <FacetTable {...props(facet)} config={facet.config} />;
-            case "text":
-              return <FacetText {...props(facet)} />;
-            default:
-              console.error("Facet not found", facetKey);
-          }
-        })}
-      </FacetGroup>
-    ))}
-  </>
-);
 
 /** Implementation of the state for Faceted search of Programming Languages. */
 export class PlangsFacetsState extends FacetsMainState<PlangFacetGroupKey, PlangFacetKey> {
