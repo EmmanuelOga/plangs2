@@ -1,14 +1,18 @@
 import type { FunctionComponent } from "preact";
 
 import { ValNil, ValNumber } from "@plangs/auxiliar/value";
+import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
+import { loadLocalStorage } from "@plangs/frontend/auxiliar/storage";
 import { FacetBool } from "@plangs/frontend/components/facets/misc/facet-bool";
 import { FacetGroup } from "@plangs/frontend/components/facets/misc/facet-group";
 import { FacetText } from "@plangs/frontend/components/facets/misc/facet-text";
 import { FacetMulti } from "@plangs/frontend/components/facets/multisel/facet-multi";
 import { FacetTable } from "@plangs/frontend/components/facets/table/facet-table";
-import { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys } from "@plangs/plangs";
+import { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, type PlangsGraph } from "@plangs/plangs";
 import type { PlangFacetKey } from "@plangs/plangs/facets/plangs";
+import type { TAB } from "@plangs/server/components/layout";
 
+import { FacetsMainState } from "./state";
 import { type FacetConfig, bool, defineFacets, defineGroups, group, mapGroups, multi, table, text } from "./types";
 
 type FK = PlangFacetKey;
@@ -91,3 +95,34 @@ export const PlangsFacetGroups: FunctionComponent<{ currentFacetGroup: GK }> = (
     ))}
   </>
 );
+
+/** Implementation of the state for Faceted search of Programming Languages. */
+export class PlangsFacetsState extends FacetsMainState<PlangFacetGroupKey, PlangFacetKey> {
+  static initial(pg: PlangsGraph): PlangsFacetsState {
+    const tab: TAB = "plangs";
+    return new PlangsFacetsState({
+      pg,
+      tab,
+      defaultGroup: DEFAULT_GROUP,
+      currentGroupKey: loadLocalStorage(tab, "lastGroup") ?? DEFAULT_GROUP,
+      values: FacetsMainState.dataToValue(GROUP_FOR_FACET_KEY, FragmentTracker.deserialize() ?? loadLocalStorage(tab, "inputs")),
+    }).updateClearFacets();
+  }
+
+  override get nav() {
+    return NAV;
+  }
+
+  override groupTitle(key: PlangFacetGroupKey) {
+    return GROUPS.get(key)?.label ?? key;
+  }
+
+  override get facetGroupsComponent() {
+    return PlangsFacetGroups as FunctionComponent<{ currentFacetGroup: string }>;
+  }
+
+  override get results(): Set<NPlang["key"]> {
+    if (!this.pg) return new Set();
+    return this.pg.plangs(this.values.getMap2());
+  }
+}

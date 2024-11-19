@@ -70,10 +70,6 @@ This simplistic build process just outputs the statically generated contents of 
 
 <hr/>
 
-- [ ] Add support for drag/drop resize of elements (node-info and facets-main).
-
-<hr/>
-
 - [ ] Revise data schema for entities other than Plangs.
 - [ ] Link to blog post author link.
 
@@ -86,6 +82,7 @@ This simplistic build process just outputs the statically generated contents of 
 <hr/>
 
 - [ ] Rethink layout landscape/portrait switch instead of just by size.
+- [ ] Add support for drag/drop resize of elements (node-info and facets-main).
 - [ ] Fix grid display when there's less than 1 full row of thumbnails. Adjust sizing, etc.
 
 <hr/>

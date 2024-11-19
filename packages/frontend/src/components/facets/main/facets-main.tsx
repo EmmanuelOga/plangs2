@@ -1,21 +1,31 @@
 import { Fragment, type Ref, createContext } from "preact";
+import { useEffect } from "preact/hooks";
 
-import { useRootState } from "@plangs/frontend/auxiliar/dispatchable";
+import { useDispatchable, useRootState } from "@plangs/frontend/auxiliar/dispatchable";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { FULLCIRCLE } from "@plangs/frontend/auxiliar/icons";
 import { BORDER, HOVER, tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsGraph } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/components/layout";
 
-import { useEffect } from "preact/hooks";
-import { type AnyFacetsMainState, useFacetState } from "./state";
+import { PlangsFacetsState } from "./plangs";
+import type { FacetsMainState } from "./state";
 
 export type FacetsMainProps = {
   tab: TAB;
   pg: PlangsGraph;
 };
 
+/** Share the main component state across all other children components that may need it. */
 export const FacetsMainContext = createContext<AnyFacetsMainState | undefined>(undefined);
+
+/** Generic state so components can work with any group and facet key. */
+export type AnyFacetsMainState = FacetsMainState<string, string>;
+
+export function useFacetState(tab: TAB, pg: PlangsGraph): AnyFacetsMainState | undefined {
+  if (tab === "plangs") return useDispatchable(() => PlangsFacetsState.initial(pg) as AnyFacetsMainState);
+  console.error("Unknown tab", tab);
+}
 
 export function FacetsMain({ tab, pg }: FacetsMainProps) {
   const state = useFacetState(tab, pg);

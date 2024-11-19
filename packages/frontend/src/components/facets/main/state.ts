@@ -2,27 +2,18 @@ import type { FunctionComponent } from "preact";
 
 import { Map2 } from "@plangs/auxiliar/map2";
 import { type AnyValue, deserializeValue } from "@plangs/auxiliar/value";
-import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
+import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { $ } from "@plangs/frontend/auxiliar/dom";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
-import { loadLocalStorage, updateLocalStorage } from "@plangs/frontend/auxiliar/storage";
+import { updateLocalStorage } from "@plangs/frontend/auxiliar/storage";
 import type { ToggleClearFacets } from "@plangs/frontend/components/icon-button/state";
-import type { NPlang, PlangsGraph } from "@plangs/plangs";
-import type { PlangFacetKey } from "@plangs/plangs/facets/plangs";
+import type { PlangsGraph } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/components/layout";
 
 import { updateThumbns } from "./grid";
-import { DEFAULT_GROUP, GROUPS, GROUP_FOR_FACET_KEY, NAV, type PlangFacetGroupKey, PlangsFacetGroups } from "./plangs";
-
-/** Generic state so components can work with any group and facet key. */
-export type AnyFacetsMainState = FacetsMainState<string, string>;
+import { GROUP_FOR_FACET_KEY } from "./plangs";
 
 export type SerializedFacets<FacetKey extends string> = Partial<Record<FacetKey, ReturnType<AnyValue["serializable"]>>>;
-
-export function useFacetState(tab: TAB, pg: PlangsGraph): AnyFacetsMainState | undefined {
-  if (tab === "plangs") return useDispatchable(() => PlangsFacetsState.initial(pg) as AnyFacetsMainState);
-  console.error("Unknown tab", tab);
-}
 
 export abstract class FacetsMainState<GroupKey extends string, FacetKey extends string> extends Dispatchable<{
   tab: TAB;
@@ -165,35 +156,4 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
 
   /** A set of node keys that are the result of applying the filters. */
   abstract get results(): Set<string>;
-}
-
-/** Implementation of the state for Faceted search of Programming Languages. */
-export class PlangsFacetsState extends FacetsMainState<PlangFacetGroupKey, PlangFacetKey> {
-  static initial(pg: PlangsGraph): PlangsFacetsState {
-    const tab: TAB = "plangs";
-    return new PlangsFacetsState({
-      pg,
-      tab,
-      defaultGroup: DEFAULT_GROUP,
-      currentGroupKey: loadLocalStorage(tab, "lastGroup") ?? DEFAULT_GROUP,
-      values: FacetsMainState.dataToValue(GROUP_FOR_FACET_KEY, FragmentTracker.deserialize() ?? loadLocalStorage(tab, "inputs")),
-    }).updateClearFacets();
-  }
-
-  override get nav() {
-    return NAV;
-  }
-
-  override groupTitle(key: PlangFacetGroupKey) {
-    return GROUPS.get(key)?.label ?? key;
-  }
-
-  override get facetGroupsComponent() {
-    return PlangsFacetGroups as FunctionComponent<{ currentFacetGroup: string }>;
-  }
-
-  override get results(): Set<NPlang["key"]> {
-    if (!this.pg) return new Set();
-    return this.pg.plangs(this.values.getMap2());
-  }
 }
