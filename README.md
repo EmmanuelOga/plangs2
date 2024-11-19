@@ -66,34 +66,56 @@ This simplistic build process just outputs the statically generated contents of 
 - [ ] Fix "pill" links .. what happens when we click them?
 - [ ] Make the node-info work for all node types.
 
+<hr/>
+
 - [ ] Add support for drag/drop resize of elements (node-info and facets-main).
+
+<hr/>
 
 - [ ] Revise data schema for entities other than Plangs.
 - [ ] Link to blog post author link.
+
+<hr/>
 
 - [ ] Add a simple admin interface to locally tweak the data.
 - [ ] Revise data: tags: better-c, educational.
 - [ ] Add relationship to data-cleanup entities (Community, Learning).
 
+<hr/>
+
 - [ ] Rethink layout landscape/portrait switch instead of just by size.
 - [ ] Fix grid display when there's less than 1 full row of thumbnails. Adjust sizing, etc.
 
+<hr/>
+
 - [ ] Add tests for frontend code.
+
+<hr/>
 
 - [ ] Add schema.org metadata.
 - [ ] Add fb opengraph metadata.
 - [ ] Add missing aria attributes.
 
+<hr/>
+
 - [ ] Publish to linode.
 - [ ] Add bunny CDN.
+
+<hr/>
 
 - [ ] Better UI for tool bundles: just filter the table of tools.
 - [ ] Considering adding also a "short description", since desc. of many plangs is too long.
 - [ ] Platform Icons.
 
+<hr/>
+
 - [ ] Kuzu export.
 
-- [ ] Full text search.
+<hr/>
+
+- [ ] Client side full text search.
 - [ ] Investigate removing the need to load the full JSON data before continuing.
+
+<hr/>
 
 - [ ] Create better guidelines, code of conduct, enable discussions, etc.
