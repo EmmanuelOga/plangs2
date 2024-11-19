@@ -62,7 +62,6 @@ function Pill({ children }: { children: ComponentChildren }) {
 function relations(pl: NPlang) {
   const all = [
     ["Type Systems", pl.relTsys.values.map(({ nodeTo }) => nodeTo)],
-    ["Tags", pl.relTags.values.map(({ nodeTo }) => nodeTo)],
     ["Platforms", pl.relPlatforms.values.map(({ nodeTo }) => nodeTo)],
 
     ["Influenced By", pl.relInfluencedBy.values.map(({ nodeTo }) => nodeTo)],
@@ -72,6 +71,8 @@ function relations(pl: NPlang) {
     ["Compiles To", pl.relCompilesTo.values.map(({ nodeTo }) => nodeTo)],
 
     ["Licenses", pl.relLicenses.values.map(({ nodeTo }) => nodeTo)],
+
+    ["Tags", pl.relTags.values.map(({ nodeTo }) => nodeTo)],
     ["Extensions", pl.extensions.map(name => ({ key: name, name, kind: "ext" }))],
   ] as const;
 

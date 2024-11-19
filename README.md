@@ -39,7 +39,7 @@ This simplistic build process just outputs the statically generated contents of 
 
 ## TODO
 
-### Tools, Apps, Libs Facets
+### Facets for Tools, Apps, Libs Facets
 
 * General (name, GH stars, created & released recently)
 * Platforms
@@ -49,40 +49,51 @@ This simplistic build process just outputs the statically generated contents of 
 * Creation Year
 * Licenses
 
-### Learning and Communities
+### Facets for Learning and Communities
 
 * General (name, created recently)
-* Platform, Paradigms, Type Systems, Plang, Tags, Creation Year
+* Platform
+* Paradigms
+* Type Systems
+* Plang
+* Tags
+* Creation Year
 
-### Pending
+### More Pending Tasks
 
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
 - [ ] Fix facet reset button, and serialization of facets when going to empty (right now doesn't clear the fragment).
-- [ ] Fix grid display when there's less than 1 full row of thumbnails. Adjust sizing, etc.
+- [ ] Fix "pill" links .. what happens when we click them?
+- [ ] Make the node-info work for all node types.
+
 - [ ] Add support for drag/drop resize of elements (node-info and facets-main).
-- [ ] Fix layout landscape/portrait switch instead of just by size.
-- [ ] Polish info display and facet search.
-    - [ ] Support for displayng tools.
-    - [ ] Support for displayng apps.
-    - [ ] Support for displayng libraries.
-    - [ ] Support for displayng learning resources.
-    - [ ] Support for displayng communities.
-- [ ] Add a simple admin interface to locally tweak the data.
-- [ ] Add tests for frontend code.
-- [ ] Add schema.org metadata.
-- [ ] Add fb opengraph metadata.
-- [ ] Add missing aria attributes.
-- [ ] Fix "pill" links (do we even want those pills?)
+
 - [ ] Revise data schema for entities other than Plangs.
-- [ ] Publish to linode.
-- [ ] Add bunny CDN.
-- [ ] Kuzu export.
+- [ ] Link to blog post author link.
+
+- [ ] Add a simple admin interface to locally tweak the data.
 - [ ] Revise data: tags: better-c, educational.
 - [ ] Add relationship to data-cleanup entities (Community, Learning).
 
+- [ ] Rethink layout landscape/portrait switch instead of just by size.
+- [ ] Fix grid display when there's less than 1 full row of thumbnails. Adjust sizing, etc.
+
+- [ ] Add tests for frontend code.
+
+- [ ] Add schema.org metadata.
+- [ ] Add fb opengraph metadata.
+- [ ] Add missing aria attributes.
+
+- [ ] Publish to linode.
+- [ ] Add bunny CDN.
+
 - [ ] Better UI for tool bundles: just filter the table of tools.
-- [ ] Platform Icons.
 - [ ] Considering adding also a "short description", since desc. of many plangs is too long.
-- [ ] Investigate removing the need to load the full JSON data before continuing.
+- [ ] Platform Icons.
+
+- [ ] Kuzu export.
 
 - [ ] Full text search.
+- [ ] Investigate removing the need to load the full JSON data before continuing.
+
+- [ ] Create better guidelines, code of conduct, enable discussions, etc.
