@@ -38,8 +38,8 @@ function PlNews({ pl: { relPosts } }: { pl: NPlang }) {
       ) : (
         posts.existing.map(post => (
           <p key={post.key}>
-            {post.date}
             <a href={post.href} title={post.name} children={post.name} />
+            <span class="pl-2">{post.date}</span>
           </p>
         ))
       )}

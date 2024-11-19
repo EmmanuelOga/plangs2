@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
 
   g.nodes.learning
     .set("learning+nystrom-interpreters", {
-      name: "Interpreters",
+      name: "Crafting Interpreters",
       description: "Ever wanted to make your own programming language or wondered how they are designed and built?  If so, this book is for you.",
       extHomeURL: "https://craftinginterpreters.com/",
       kinds: ["book"],

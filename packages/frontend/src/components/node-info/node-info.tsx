@@ -30,7 +30,7 @@ export function NodeInfo({ node: pl, open, tab }: NodeInfoProps) {
       </h2>
       {pl && (
         <>
-          <span class={tw(forGrid ? "dash sm:hidden" : "hidden", "mx-2 inline-block")}>&#8212;</span>
+          <span class={tw(forGrid ? "dash mx-2 inline-block sm:hidden" : "hidden")}>&#8212;</span>
           <div class={tw(forGrid && "hidden sm:block")}>
             {pl.year && <Pill children={`Appeared ${pl.year}`} />}
             {pl.lastRelease && <Pill children={`Last Rel ${pl.lastRelease.date ?? pl.lastRelease.version}`} />}
