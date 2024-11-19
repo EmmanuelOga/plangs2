@@ -102,6 +102,7 @@ This simplistic build process just outputs the statically generated contents of 
 
 - [ ] Publish to linode.
 - [ ] Add bunny CDN.
+- [ ] Simple analytics.
 
 <hr/>
 
