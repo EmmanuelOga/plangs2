@@ -18,6 +18,8 @@ export function MainNav({ tab, class: cssClass }: { tab: TAB; class?: string }) 
           { title: "Tools", href: "/tools", forTab: "tools" },
           { title: "Apps", href: "/apps", forTab: "apps" },
           { title: "Libraries", href: "/libs", forTab: "libs" },
+          { title: "Learning", href: "/learning", forTab: "learning" },
+          { title: "Communities", href: "/communities", forTab: "communities" },
         ]}
       />
 

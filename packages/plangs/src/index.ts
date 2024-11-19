@@ -24,13 +24,15 @@ export class PlangsGraph extends BaseGraph<N, E, G> {
 
   override readonly nodes = {
     app: this.#nodeMap(NApp),
-    post: this.#nodeMap(NPost),
     bundle: this.#nodeMap(NBundle),
+    community: this.#nodeMap(NCommunity),
+    learning: this.#nodeMap(NLearning),
     lib: this.#nodeMap(NLibrary),
     license: this.#nodeMap(NLicense),
     paradigm: this.#nodeMap(NParadigm),
     pl: this.#nodeMap(NPlang),
     plat: this.#nodeMap(NPlatform),
+    post: this.#nodeMap(NPost),
     tag: this.#nodeMap(NTag),
     tool: this.#nodeMap(NTool),
     tsys: this.#nodeMap(NTsys),
@@ -359,6 +361,18 @@ export class NPlang extends NBase<"pl", NPlangData> {
   get relPosts(): MapTap<NPost["key"], EPost> {
     return new MapTap(this.graph.edges.post.adjFrom.getMap(this.key));
   }
+}
+
+/** A community node, for linking to websites, forums, discord channels, conferences, etc. */
+export class NCommunity extends NBase<"community", CommonNodeData> {
+  static readonly kind: N = "community";
+  override kind = NCommunity.kind;
+}
+
+/** Short for Learning Resource, things like books, courses, video playlists, etc. */
+export class NLearning extends NBase<"learning", CommonNodeData> {
+  static readonly kind: N = "learning";
+  override kind = NLearning.kind;
 }
 
 /** A library Node, for software libraries or frameworks, like jQuery, Rails, etc. */

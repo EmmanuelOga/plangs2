@@ -22,7 +22,7 @@ export function tsNodePath(kind: N, plainKey?: string): string {
 }
 
 /** Generate code for nodes of the given kind. */
-export function genericCodeGen(pg: PlangsGraph, kind: "license" | "paradigm" | "plat" | "tag" | "tsys") {
+export function genericCodeGen(pg: PlangsGraph, kind: "license" | "paradigm" | "plat" | "tag" | "tsys" | "learning" | "community"): string {
   const definitions: string[] = pg.nodes[kind].values.existing
     .sort((a, b) => a.key.localeCompare(b.key))
     .map(node => genSet(kind, node.key, node.data));

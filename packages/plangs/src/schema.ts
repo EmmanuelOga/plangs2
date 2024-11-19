@@ -5,7 +5,7 @@ import type { LinguistLang } from "@plangs/languist/types";
 ////////////////////////////////////////////////////////////////////////////////
 
 /** Name of all nodes. */
-export type N = "app" | "bundle" | "lib" | "license" | "paradigm" | "pl" | "plat" | "post" | "tag" | "tool" | "tsys";
+export type N = "app" | "bundle" | "community" | "learning" | "lib" | "license" | "paradigm" | "pl" | "plat" | "post" | "tag" | "tool" | "tsys";
 
 /** Name of all edges. */
 // biome-ignore format: Keep it in one line.

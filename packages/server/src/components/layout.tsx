@@ -8,7 +8,22 @@ import type { NPlang, PlangsGraph } from "@plangs/plangs";
 import { MainNav } from "./main-nav";
 import { PlangsLogo } from "./plangs-logo";
 
-export type TAB = "about" | "apps" | "blog" | "libs" | "licenses" | "paradigms" | "pl" | "plangs" | "platforms" | "tags" | "tools" | "tsys" | "NA";
+export type TAB =
+  | "about"
+  | "apps"
+  | "blog"
+  | "libs"
+  | "licenses"
+  | "paradigms"
+  | "pl"
+  | "plangs"
+  | "platforms"
+  | "tags"
+  | "tools"
+  | "tsys"
+  | "learning"
+  | "communities"
+  | "NA";
 
 type LayoutProps = {
   children: ComponentChildren;

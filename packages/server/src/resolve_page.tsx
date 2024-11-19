@@ -5,6 +5,8 @@ import { About } from "./pages/about";
 import { Apps } from "./pages/apps";
 import { Blog } from "./pages/blog";
 import { BlogPost } from "./pages/blog-post";
+import { Communities } from "./pages/communities";
+import { Learning } from "./pages/learning";
 import { Libs } from "./pages/libs";
 import { Licenses } from "./pages/licenses";
 import { Paradigms } from "./pages/paradigms";
@@ -19,6 +21,8 @@ export async function resolvePage(path: string, pg: PlangsGraph) {
   if (path === "/") return <Plangs pg={pg} />;
   if (path === "/apps") return <Apps pg={pg} />;
   if (path === "/blog") return <Blog pg={pg} />;
+  if (path === "/communities") return <Communities pg={pg} />;
+  if (path === "/learning") return <Learning pg={pg} />;
   if (path === "/libs") return <Libs pg={pg} />;
   if (path === "/licenses") return <Licenses pg={pg} />;
   if (path === "/paradigms") return <Paradigms pg={pg} />;

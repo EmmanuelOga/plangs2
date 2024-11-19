@@ -106,7 +106,7 @@ export async function processGithubAndLanguish() {
 /** This regenerates some nodes that are not NPlangs. Useful to reorder the definitions. */
 export function regenNonPlangs() {
   for (const pl of pg.nodes.pl.values) Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
-  for (const kind of ["license", "paradigm", "plat", "tag", "tsys"] as const) {
+  for (const kind of ["license", "paradigm", "plat", "tag", "tsys", "learning", "community"] as const) {
     Bun.write(tsNodePath(kind), genericCodeGen(pg, kind));
   }
 }
