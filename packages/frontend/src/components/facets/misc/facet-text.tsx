@@ -3,8 +3,8 @@ import { useContext } from "preact/hooks";
 import { ValRegExp } from "@plangs/auxiliar/value";
 import { handler } from "@plangs/frontend/auxiliar/events";
 import { INPUT, tw } from "@plangs/frontend/auxiliar/styles";
+import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/facets-main";
 import { FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
-import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/state";
 
 export function FacetText<GroupKey extends string, FacetKey extends string>({
   groupKey,

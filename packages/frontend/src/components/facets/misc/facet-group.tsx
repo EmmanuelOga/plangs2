@@ -4,8 +4,7 @@ import { useContext } from "preact/hooks";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { DESELECT } from "@plangs/frontend/auxiliar/icons";
 import { BAR, BORDER, HOVER_SVG_GROUP, tw } from "@plangs/frontend/auxiliar/styles";
-import { FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
-import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/state";
+import { type AnyFacetsMainState, FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
 
 export function FacetGroup<GroupKey extends string>({
   label,

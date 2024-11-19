@@ -5,8 +5,7 @@ import { type AnyValue, ValBool } from "@plangs/auxiliar/value";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { handler } from "@plangs/frontend/auxiliar/events";
 import { tw } from "@plangs/frontend/auxiliar/styles";
-import { FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
-import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/state";
+import { type AnyFacetsMainState, FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
 
 export type FacetBoolMapper = (checked: boolean) => AnyValue;
 

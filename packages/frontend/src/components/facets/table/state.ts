@@ -1,8 +1,8 @@
 import { Filter } from "@plangs/auxiliar/filters";
 import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
-import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/state";
+import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/facets-main";
 
-import { CMP, type Column, type Entry, type Order, type Val, opposite, sortEntries } from "./entries";
+import { type Column, type Entry, type Order, type Val, opposite, sortEntries } from "./entries";
 import type { FacetTableProps } from "./facet-table";
 
 type StateData<GroupKey extends string, FacetKey extends string> = Pick<FacetTableProps<GroupKey, FacetKey>, "config" | "facetKey" | "groupKey"> & {

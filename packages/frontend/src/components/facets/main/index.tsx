@@ -6,8 +6,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/components/layout";
 import { cssClass } from "@plangs/server/elements";
 
-import { FacetsMain, type FacetsMainProps } from "./facets-main";
-import type { AnyFacetsMainState } from "./state";
+import { type AnyFacetsMainState, FacetsMain, type FacetsMainProps } from "./facets-main";
 
 const CL = "facetsMain";
 
