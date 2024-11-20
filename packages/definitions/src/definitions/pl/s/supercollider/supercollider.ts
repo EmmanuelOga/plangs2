@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "SuperCollider is an environment and programming language originally released in 1996 by James McCartney for real-time audio synthesis and algorithmic composition. It is used by musicians, artists, and researchers working with sound.",
       keywords: ["algorithmic", "audio", "music", "supercollider", "synthesis"],
       extensions: [".scd"],
-      year: 1996,
       releases: [{ version: "3.13.0", name: "SuperCollider 3.13.0", date: "2023-02-19" }],
       stackovTags: ["supercollider"],
       githubName: "SuperCollider",
@@ -20,6 +19,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "SuperCollider",
       extRedditPath: "supercollider",
       extHomeURL: "http://supercollider.github.io/",
+      created: "1996",
     })
     .addInfluencedBy(["pl+csound", "pl+lisp"])
     .addLicenses(["license+gnu-gpl"])

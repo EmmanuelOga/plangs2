@@ -15,13 +15,13 @@ export function define(g: PlangsGraph) {
         "Extensible Markup Language (XML) is a markup language and file format for storing, transmitting, and reconstructing arbitrary data in a way that is both human-readable and machine-readable. It is widely used for data interchange over the Internet.",
       keywords: ["W3C", "data interchange", "data structure", "document format", "markup language", "serialization"],
       extensions: [".xml"],
-      year: 1996,
       releases: [
         { version: "1.0", name: "5th Edition", date: "2008-11-26" },
         { version: "1.1", name: "2nd Edition", date: "2006-08-16" },
       ],
       extWikipediaPath: "XML",
       extRedditPath: "xml",
+      created: "1996",
     })
     .addParadigms(["paradigm+data-exchange"])
     .addPlatforms(["plat+cross"])

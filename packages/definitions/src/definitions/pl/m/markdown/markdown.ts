@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
         "Markdown is a lightweight markup language for creating formatted text using a plain-text editor. It is widely used for blogging, instant messaging, online forums, and more. Created by John Gruber in 2004, its design emphasizes readability without looking like it has been marked up with tags or formatting.",
       keywords: ["easy-to-read", "markup", "plain-text", "text"],
       extensions: [".markdown", ".md"],
-      year: 2004,
       isTranspiler: true,
       releases: [
         { version: "1.0", name: "", date: "2004-03-09" },
@@ -23,6 +22,7 @@ export function define(g: PlangsGraph) {
       ],
       extWikipediaPath: "Markdown",
       extRedditPath: "Markdown",
+      created: "2004",
     })
     .addCompilesTo(["pl+html"])
     .addParadigms(["paradigm+dsl", "paradigm+scripting"])

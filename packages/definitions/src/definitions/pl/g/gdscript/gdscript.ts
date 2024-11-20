@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "GDScript is a high-level, dynamically typed programming language used to create content within the Godot Engine. It is influenced by Python and designed specifically for ease of use within game development. It is lightweight yet expressive, offering flexibility particularly for rapid prototyping and development within the Godot ecosystem.",
       keywords: ["gdscript", "godot engine"],
       extensions: [".gd"],
-      year: 2014,
       releases: [
         { version: "3.6", name: "Godot 3.6", date: "2024-09-09" },
         { version: "4.0", name: "Godot 4.0", date: "2023-03-01" },
@@ -26,6 +25,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Godot_(game_engine)",
       extRedditPath: "godot",
       extHomeURL: "https://godotengine.org/",
+      created: "2014",
     })
     .addInfluencedBy(["pl+python"])
     .addLicenses(["license+mit"])

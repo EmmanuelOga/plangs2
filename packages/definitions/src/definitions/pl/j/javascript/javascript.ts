@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "JavaScript, often abbreviated as JS, is a versatile scripting language and a core technology of the World Wide Web, alongside HTML and CSS. It is widely used for web page interactivity, animation, and asynchronous server requests.",
       keywords: ["javascript", "js"],
       extensions: [".cjs", ".js", ".mjs"],
-      year: 1995,
       stackovTags: ["javascript"],
       githubName: "JavaScript",
       languishRanking: 3,
@@ -19,6 +18,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "JavaScript",
       extRedditPath: "javascript",
       extHomeURL: "https://ecma-international.org/publications-and-standards/standards/ecma-262/",
+      created: "1995",
     })
     .addInfluencedBy(["pl+awk", "pl+c", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme", "pl+self"])
     .addLicenses(["license+public-domain"])

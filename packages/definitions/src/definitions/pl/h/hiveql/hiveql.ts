@@ -15,12 +15,12 @@ export function define(g: PlangsGraph) {
         "HiveQL is a SQL-like query language for Hadoop, developed as part of the Apache Hive project. It is designed for querying and managing large datasets residing in distributed storage.",
       keywords: ["Apache Hive", "Data Warehousing", "Hadoop", "Hive", "HiveQL", "MapReduce", "SQL"],
       extensions: [".hql"],
-      year: 2010,
       releases: [
         { version: "3.1.3", name: "Stable release", date: "2022-04-08" },
         { version: "4.0.0-beta-1", name: "Preview release", date: "2023-08-14" },
       ],
       extWikipediaPath: "Apache_Hive",
+      created: "2010",
     })
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+declarative", "paradigm+query"])

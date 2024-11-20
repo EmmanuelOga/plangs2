@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
         "PowerShell is a task automation and configuration management program from Microsoft, consisting of a command-line shell and the associated scripting language. It is notable for its support for task automation across local and remote systems.",
       keywords: ["Microsoft", "PowerShell", "command-line shell", "configuration management", "cross-platform", "open-source", "task automation"],
       extensions: [".cdxml", ".ps1", ".ps1xml", ".psc1", ".psd1", ".psm1", ".psrc", ".pssc"],
-      year: 2006,
       releases: [
         { version: "7.0", name: "PowerShell 7", date: "2020-03-04" },
         { version: "7.4.6", name: "PowerShell 7.4.6", date: "2024-10-22" },
@@ -23,6 +22,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "PowerShell",
       extRedditPath: "PowerShell",
       extHomeURL: "https://microsoft.com/powershell",
+      created: "2006",
     })
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+oop", "paradigm+pipeline", "paradigm+reflective"])

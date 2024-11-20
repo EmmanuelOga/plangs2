@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "AWK is a domain-specific language designed for text processing and is typically used as a data extraction and reporting tool. It operates as a filter and is a standard feature of most Unix-like operating systems. AWK is recognized for its terseness and power in text processing, facilitating one-liner programs.",
       keywords: ["awk", "text processing", "unix utilities"],
       extensions: [".awk", ".gawk", ".mawk", ".nawk"],
-      year: 1977,
       stackovTags: ["awk"],
       githubName: "Awk",
       githubLangId: "28",
@@ -17,6 +16,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "AWK",
       extRedditPath: "awk",
+      created: "1977",
     })
     .addInfluencedBy(["pl+c", "pl+sed"])
     .addLicenses(["license+bsd"])

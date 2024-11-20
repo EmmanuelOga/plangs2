@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "F# (pronounced F sharp) is a general-purpose, high-level, strongly typed, multi-paradigm programming language that encompasses functional, imperative, and object-oriented programming methods. It is most often used as a cross-platform Common Language Infrastructure (CLI) language on .NET, but can also generate JavaScript and graphics processing unit (GPU) code. F# gives you simplicity and succinctness like Python with correctness, robustness and performance beyond C# or Java.",
       keywords: ["f#", "fsharp"],
       extensions: [".fs", ".fsi", ".fsscript", ".fsx"],
-      year: 2005,
       releases: [
         { version: "8.0", name: "F# 8.0", date: "2023-11-01" },
         { version: "8.0.0", name: "F# 8.0", date: "2023-01-01" },
@@ -23,6 +22,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "F_Sharp_(programming_language)",
       extRedditPath: "fsharp",
       extHomeURL: "https://fsharp.org/",
+      created: "2005",
     })
     .addDialectOf(["pl+ocaml"])
     .addInfluencedBy(["pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ocaml", "pl+python", "pl+scala", "pl+standard-ml"])

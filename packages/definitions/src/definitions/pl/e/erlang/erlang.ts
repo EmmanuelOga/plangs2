@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Erlang is a general-purpose, concurrent, functional high-level programming language, and a garbage-collected runtime system. It is used to build massively scalable soft real-time systems, particularly in telecoms, banking, e-commerce, computer telephony and instant messaging. Erlang/OTP includes the runtime system, several ready-to-use components, and design principles for Erlang programs, emphasizing concurrency, distribution, fault-tolerance, and high availability.",
       keywords: ["concurrent", "erlang", "functional", "otp", "real-time", "telecom"],
       extensions: [".erl", ".hrl"],
-      year: 1986,
       releases: [
         { version: "27.1.2", name: "Erlang/OTP 27.1.2", date: "2024-10-17" },
         { version: "27.0", name: "Erlang/OTP 27.0", date: "2024-05-15" },
@@ -25,6 +24,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Erlang_(programming_language)",
       extRedditPath: "erlang",
       extHomeURL: "https://www.erlang.org/",
+      created: "1986",
     })
     .addInfluencedBy(["pl+lisp", "pl+prolog"])
     .addLicenses(["license+apache"])

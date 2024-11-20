@@ -15,10 +15,10 @@ export function define(g: PlangsGraph) {
         "A scripting language used for executing series of commands in DOS, OS/2, and Microsoft Windows environments. Batch files automate routine tasks through script execution in command-line interpreters like COMMAND.COM or cmd.exe.",
       keywords: ["DOS script", "automation", "batch script", "batchfile", "command-line script"],
       extensions: [".bat", ".btm", ".cmd"],
-      year: 1985,
       isTranspiler: false,
       extWikipediaPath: "Batch_file",
       extRedditPath: "Batch",
+      created: "1985",
     })
     .addParadigms(["paradigm+procedural", "paradigm+scripting"])
     .addPlatforms(["plat+dos", "plat+windows"])

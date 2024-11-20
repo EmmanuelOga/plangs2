@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Imba is a friendly full-stack programming language for the web that compiles to performant JavaScript. It has language-level support for defining, extending, subclassing, instantiating and rendering DOM nodes.",
       keywords: ["full-stack", "imba", "javascript", "web"],
       extensions: [".imba"],
-      year: 2015,
       isTranspiler: true,
       releases: [
         { version: "v1.5.0", name: "Imba 1.5.0", date: "2020-06-15" },
@@ -20,6 +19,7 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       extGithubPath: "imba/imba",
+      created: "2015",
     })
     .addCompilesTo(["pl+javascript"])
     .addInfluencedBy(["pl+coffeescript"])

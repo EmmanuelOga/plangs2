@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         'Nim is a general-purpose, multi-paradigm, statically typed, compiled high-level system programming language, designed and developed by a team around Andreas Rumpf. Nim is designed to be "efficient, expressive, and elegant", supporting metaprogramming, functional, message-passing, procedural, and object-oriented programming styles. It compiles to multiple languages, including C, C++, JavaScript, allowing it to be used for both backend and frontend applications. It features a modern type system with local type inference, generic programming, and several memory management options, suitable for embedded and real-time systems.',
       keywords: ["nim"],
       extensions: [".nim", ".nimble", ".nims"],
-      year: 2008,
       isTranspiler: true,
       releases: [
         { version: "2.2.0", date: "2024-10-02" },
@@ -24,6 +23,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Nim_(programming_language)",
       extRedditPath: "nim",
       extHomeURL: "http://nim-lang.org/",
+      created: "2008",
     })
     .addCompilesTo(["pl+c++", "pl+javascript"])
     .addInfluencedBy(["pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+python", "pl+rust"])

@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "TeX (/tɛx/, see below), stylized within the system as TeX, is a typesetting program which was designed and written by computer scientist and Stanford University professor Donald Knuth and first released in 1978. The term now refers to the system of extensions - which includes software programs called TeX engines, sets of TeX macros, and packages which provide extra typesetting functionality - built around the original TeX language. TeX is a popular means of typesetting complex mathematical formulae; it has been noted as one of the most sophisticated digital typographical systems.",
       keywords: ["latex", "tex", "typesetting", "typography"],
       extensions: [".tex"],
-      year: 1978,
       releases: [{ version: "3.14159265", name: "TeX 3", date: "2021-01-01" }],
       stackovTags: ["latex"],
       githubName: "TeX",
@@ -20,6 +19,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "LaTeX",
       extRedditPath: "LaTeX",
       extHomeURL: "http://tug.org/",
+      created: "1978",
     })
     .addLicenses(["license+public-domain"])
     .addParadigms(["paradigm+declarative", "paradigm+dsl", "paradigm+macro"])

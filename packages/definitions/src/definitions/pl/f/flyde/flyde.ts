@@ -9,8 +9,8 @@ export function define(g: PlangsGraph) {
       keywords: ["flyde", "open-source", "typescript", "visual", "workflow"],
       extensions: [".flyde"],
       filenames: ["beep.flyde", "debounce.flyde", "hello.flyde", "http.flyde"],
-      year: 2023,
       extHomeURL: "https://www.flyde.dev/",
+      created: "2023",
     })
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+declarative", "paradigm+frp", "paradigm+visual"])

@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "BASIC (Beginners' All-purpose Symbolic Instruction Code) is a family of general-purpose, high-level programming languages designed for ease of use. The original version was created by John G. Kemeny and Thomas E. Kurtz at Dartmouth College in 1964. They aimed to enable students in non-scientific fields to use computers, making programming more accessible.",
       keywords: ["BASIC", "beginners' all-purpose symbolic instruction code", "historical", "language", "programming"],
       extensions: [".bas", ".bb", ".bi", ".fb", ".pb"],
-      year: 1964,
       releases: [{ version: "1.0", name: "Initial Release", date: "1964-05-01" }],
       stackovTags: ["basic"],
       githubName: "BASIC",
@@ -19,6 +18,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "BASIC",
       extRedditPath: "Basic",
+      created: "1964",
     })
     .addInfluencedBy(["pl+fortran"])
     .addLicenses(["license+public-domain"])

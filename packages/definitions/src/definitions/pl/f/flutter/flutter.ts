@@ -7,7 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Flutter is an open-source UI software development kit created by Google. It can be used to develop cross platform applications from a single codebase for the web, Fuchsia, Android, iOS, Linux, macOS, and Windows. First described in 2015, Flutter was released in May 2017. Flutter is used internally by Google in apps such as Google Pay and Google Earth as well as other software developers including ByteDance and Alibaba.",
       keywords: ["flutter"],
-      year: 2017,
       isTranspiler: true,
       releases: [
         { version: "0.0.6", name: "Alpha", date: "2017-05-12" },
@@ -17,6 +16,7 @@ export function define(g: PlangsGraph) {
       extensions: [".dart"],
       extWikipediaPath: "Flutter_(software)",
       extHomeURL: "https://flutter.dev/",
+      created: "2017",
     })
     .addCompilesTo(["pl+javascript"])
     .addImplements(["pl+dart"])

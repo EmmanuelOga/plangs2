@@ -8,10 +8,10 @@ export function define(g: PlangsGraph) {
         "XSB is a Logic Programming and Deductive Database system developed at Stony Brook University and other institutions. It is an implementation of a Prolog dialect that features tabled resolution and HiLog, making it suitable for knowledge base applications and deductive database engines.",
       keywords: ["deductive database", "logic programming", "prolog", "xsb"],
       extensions: [".P"],
-      year: 1993,
       releases: [{ version: "5.0", name: "", date: "2022-05-12" }],
       extWikipediaPath: "XSB",
       extHomeURL: "https://xsb.sourceforge.net/",
+      created: "1993",
     })
     .addDialectOf(["pl+prolog"])
     .addImplements(["pl+prolog"])

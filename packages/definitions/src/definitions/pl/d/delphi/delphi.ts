@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Delphi is a general-purpose programming language and a software product that uses the Delphi dialect of the Object Pascal programming language and provides an integrated development environment (IDE) for rapid application development of desktop, mobile, web, and console software. It is currently developed and maintained by Embarcadero Technologies.",
       keywords: ["delphi", "object pascal"],
       extensions: [".dpr", ".pas"],
-      year: 1995,
       releases: [
         { version: "12.2", name: "RAD Studio 12.2 Athens", date: "2024-09-12" },
         { version: "11.3", name: "Delphi 11.3", date: "2023-03-01" },
@@ -24,6 +23,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Pascal_(programming_language)",
       extRedditPath: "pascal",
       extHomeURL: "https://www.embarcadero.com/products/delphi",
+      created: "1995",
     })
     .addDialectOf(["pl+pascal"])
     .addImplements(["pl+pascal"])
@@ -33,11 +33,11 @@ export function define(g: PlangsGraph) {
       "tag+asm",
       "tag+automation",
       "tag+compiler",
+      "tag+control",
       "tag+dbms",
       "tag+editor",
       "tag+framework",
       "tag+industrial",
-      "tag+control",
       "tag+interpreters",
       "tag+rad",
       "tag+ui",

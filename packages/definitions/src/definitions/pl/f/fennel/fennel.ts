@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Fennel is a programming language that combines the simplicity, speed, and reach of Lua with the flexibility of Lisp syntax and a macro system. It offers full Lua compatibility and can run wherever Lua runs, including game development, web servers, and microcontrollers.",
       keywords: ["fennel"],
       extensions: [".fnl"],
-      year: 2020,
       isTranspiler: true,
       releases: [
         { version: "0.6.0", name: "Fennel 0.6.0", date: "2021-07-22" },
@@ -22,6 +21,7 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       extHomeURL: "https://fennel-lang.org/",
+      created: "2020",
     })
     .addCompilesTo(["pl+lua"])
     .addInfluencedBy(["pl+lua", "pl+scheme"])

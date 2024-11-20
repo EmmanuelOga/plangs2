@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
         "Svelte is a free and open-source component-based front-end software framework, created by Rich Harris and maintained by the Svelte core team members. It compiles HTML templates to specialized code that manipulates the DOM directly, reducing the size of transferred files and improving client performance.",
       keywords: ["Frontend framework", "JavaScript", "Rich Harris", "Svelte", "TypeScript", "Web platform"],
       extensions: [".svelte"],
-      year: 2016,
       isTranspiler: true,
       releases: [
         { version: "1.0.0", name: "Initial Release", date: "2016-11-29" },
@@ -28,6 +27,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "sveltejs",
       extGithubPath: "sveltejs/svelte",
       extHomeURL: "https://svelte.dev/",
+      created: "2016",
     })
     .addCompilesTo(["pl+javascript"])
     .addLicenses(["license+mit"])

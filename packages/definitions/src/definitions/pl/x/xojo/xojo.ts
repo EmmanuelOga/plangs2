@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Xojo is a cross-platform development tool that allows users to develop applications for macOS, Windows, Linux, web, iOS, Android, and Raspberry Pi using a proprietary object-oriented language. Developed by Xojo, Inc., it provides an easy-to-use drag-and-drop interface for building native applications across multiple platforms.",
       keywords: ["app development", "cross-platform", "freemium", "object-oriented", "xojo"],
       extensions: [".xojo_binary_project", ".xojo_code", ".xojo_xml_project"],
-      year: 1996,
       releases: [
         { version: "2023R3.1", name: "Xojo 2023 Release 3.1", date: "2023-10-25" },
         { version: "3.1", name: "Xojo 3.1", date: "2023-01-01" },
@@ -23,6 +22,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Xojo",
       extRedditPath: "xojo",
       extHomeURL: "http://xojo.com/",
+      created: "1996",
     })
     .addImplements(["pl+basic"])
     .addInfluencedBy(["pl+basic", "pl+visual-basic"])

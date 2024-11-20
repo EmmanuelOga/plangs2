@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Io is a pure object-oriented programming language inspired by Smalltalk, Self, Lua, Lisp, Act1, and NewtonScript. Io has a prototype-based object model similar to those in Self and NewtonScript, eliminating the distinction between instance and class. Like Smalltalk, everything is an object and it uses dynamic typing. Like Lisp, programs are just data trees. Io uses actors for concurrency. It emphasizes simplicity and flexibility with features such as coroutines, actor-based concurrency, and incremental garbage collection.",
       keywords: ["io"],
       extensions: [".io"],
-      year: 2002,
       releases: [
         { version: "20170906", name: "Stable release", date: "2017-09-06" },
         { version: "2019.05.22-alpha", name: "Preview release", date: "2019-05-22" },
@@ -24,6 +23,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Io_(programming_language)",
       extRedditPath: "iolanguage",
       extHomeURL: "https://iolanguage.org/",
+      created: "2002",
     })
     .addInfluencedBy(["pl+lisp", "pl+lua", "pl+self"])
     .addLicenses(["license+bsd"])

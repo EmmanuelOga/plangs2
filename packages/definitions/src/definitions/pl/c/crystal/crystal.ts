@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Crystal is a high-level general-purpose, object-oriented programming language, designed and developed by Ary Borenszweig, Juan Wajnerman, Brian Cardiff and more than 400 contributors. With syntax inspired by the language Ruby, it is a compiled language with static type-checking, but specifying the types of variables or method arguments is generally unneeded. Types are resolved by an advanced global type inference algorithm. Crystal is currently in active development. It is released as free and open-source software under the Apache License version 2.0.",
       keywords: ["crystal", "multi-paradigm", "programming language", "ruby-like"],
       extensions: [".cr"],
-      year: 2014,
       releases: [
         { version: "1.0.0", name: "Crystal 1.0.0", date: "2021-03-31" },
         { version: "1.14.0", name: "Crystal 1.14.0", date: "2024-10-09" },
@@ -24,6 +23,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Crystal_(programming_language)",
       extRedditPath: "crystal_programming",
       extHomeURL: "https://crystal-lang.org/",
+      created: "2014",
     })
     .addInfluencedBy(["pl+c", "pl+c-sharp", "pl+go", "pl+python", "pl+ruby", "pl+rust"])
     .addLicenses(["license+apache"])

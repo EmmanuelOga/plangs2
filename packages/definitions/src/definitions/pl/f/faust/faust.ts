@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "FAUST (Functional AUdio STream) is a domain-specific purely functional programming language designed for implementing signal processing algorithms, sound synthesis, and audio processing applications. Developed by GRAME-CNCM, it emphasizes high-performance real-time audio processing through a combination of functional programming and block diagram syntax. The language compiles into various backend formats, making it suitable for various platforms and standards.",
       keywords: ["audio processing", "faust", "functional programming", "signal processing"],
       extensions: [".dsp"],
-      year: 2002,
       releases: [{ version: "2.60.3", name: "Stable Release", date: "2023-06-14" }],
       githubName: "Faust",
       githubLangId: "622529198",
@@ -18,6 +17,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "FAUST_(programming_language)",
       extRedditPath: "faustdsp",
       extHomeURL: "http://faust.grame.fr/",
+      created: "2002",
     })
     .addInfluencedBy(["pl+c"])
     .addLicenses(["license+gnu-gpl"])

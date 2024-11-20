@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Reason, also known as ReasonML, is a general-purpose, high-level, multi-parigm, functional and object-oriented programming language and syntax extension and toolchain for OCaml created by Jordan Walke, who also created the React framework, at Facebook. Reason leverages both the OCaml and JavaScript ecosystems, allowing it to compile to native code through OCaml's compiler toolchain and to JavaScript using the ReScript compiler.",
       keywords: ["ocaml", "reasonml"],
       extensions: [".re", ".rei"],
-      year: 2016,
       isTranspiler: true,
       releases: [
         { version: "3.13.0", name: "", date: "2024-10-21" },
@@ -24,6 +23,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Reason_(programming_language)|Reason_(syntax_extension_for_OCaml)",
       extRedditPath: "reasonml",
       extHomeURL: "https://reasonml.github.io/",
+      created: "2016",
     })
     .addCompilesTo(["pl+javascript", "pl+ocaml"])
     .addDialectOf(["pl+ocaml"])

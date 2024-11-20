@@ -14,8 +14,8 @@ export function define(g: PlangsGraph) {
       description: "ShaderLab is Unity's language for defining shaders. It is used for controlling the graphics pipeline in games and simulations.",
       keywords: ["graphics", "shader", "shader programming", "unity"],
       extensions: [".shader"],
-      year: 2005,
       extHomeURL: "https://docs.unity3d.com/Manual/SL-Shader.html",
+      created: "2005",
     })
     .addParadigms(["paradigm+dsl", "paradigm+visual"])
     .addPlatforms(["plat+cross"])

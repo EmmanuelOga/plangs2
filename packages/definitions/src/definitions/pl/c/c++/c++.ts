@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "C++ is a high-level, general-purpose programming language created by Bjarne Stroustrup. Designed initially as an extension of the C programming language in 1985, C++ incorporates object-oriented, generic, and functional features alongside facilities for low-level memory manipulation. The language is widely used in systems programming, and resource-constrained software, such as operating systems and embedded systems, due to its performance and flexibility. C++ is standardized by ISO, with its latest iteration, C++23 (ISO/IEC 14882:2024), continuing to expand its features and library.",
       keywords: ["c++", "cplusplus", "cpp"],
       extensions: [".C", ".H", ".c++", ".cc", ".cpp", ".cppm", ".cxx", ".h", ".h++", ".hh", ".hpp", ".hxx", ".ixx"],
-      year: 1985,
       isTranspiler: true,
       releases: [
         { version: "C++98", name: "ISO/IEC 14882:1998", date: "1998" },
@@ -33,12 +32,13 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "C++",
       extRedditPath: "cpp",
       extHomeURL: "https://isocpp.org/",
+      created: "1985",
     })
     .addDialectOf(["pl+c"])
     .addInfluencedBy(["pl+ada", "pl+apl", "pl+c", "pl+f-sharp"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
-    .addTags(["tag+app", "tag+compiler", "tag+dataq", "tag+embedded", "tag+games", "tag+industrial", "tag+control", "tag+interpreters", "tag+viz"])
+    .addTags(["tag+app", "tag+compiler", "tag+control", "tag+dataq", "tag+embedded", "tag+games", "tag+industrial", "tag+interpreters", "tag+viz"])
     .addTypeSystems(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c"]);
 

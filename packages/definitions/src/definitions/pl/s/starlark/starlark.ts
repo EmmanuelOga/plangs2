@@ -14,10 +14,10 @@ export function define(g: PlangsGraph) {
       description: "Starlark is a subset of Python, originally called Skylark, used for defining build rules and macros in Bazel.",
       keywords: ["Bazel", "Python", "Skylark", "Starlark", "build tool"],
       extensions: [".bzl", ".star"],
-      year: 2015,
       releases: [{ version: "1.0", name: "Version 1.0", date: "2019-10-01" }],
       extWikipediaPath: "Bazel_(software)",
       extRedditPath: "bazel",
+      created: "2015",
     })
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+dataflow", "paradigm+declarative", "paradigm+scripting"])

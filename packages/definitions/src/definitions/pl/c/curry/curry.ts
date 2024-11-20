@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Curry is a declarative programming language that uniquely integrates features of functional and logic programming paradigms. It supports non-deterministic computations, constraint programming, and combines features such as lazy evaluation and strong typing. Curry is based on Haskell but extends it with logic programming features.",
       keywords: ["curry", "declarative", "functional", "logic", "programming"],
       extensions: [".curry"],
-      year: 1995,
       releases: [{ version: "3.6.0", name: "Curry 3.6.0", date: "2023-11-10" }],
       githubName: "Curry",
       githubLangId: "439829048",
@@ -17,6 +16,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "Curry_(programming_language)",
       extHomeURL: "http://curry.pages.ps.informatik.uni-kiel.de/curry-lang.org",
+      created: "1995",
     })
     .addInfluencedBy(["pl+haskell", "pl+prolog"])
     .addLicenses(["license+bsd"])

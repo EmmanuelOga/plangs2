@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "PureScript is a strongly-typed, purely-functional programming language that compiles to JavaScript and other languages. It is used for developing web applications, server-side apps, and desktop applications. PureScript's syntax is similar to Haskell and includes features like row polymorphism, extensible records, and strict evaluation. It was initially designed by Phil Freeman in 2013. The community plays a key role in its development and offers a variety of tools and learning resources.",
       keywords: ["functional", "haskell", "javascript", "purescript"],
       extensions: [".purs"],
-      year: 2013,
       isTranspiler: true,
       releases: [{ version: "0.15.15", name: "", date: "2024-02-07" }],
       stackovTags: ["purescript"],
@@ -21,6 +20,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "PureScript",
       extRedditPath: "purescript",
       extHomeURL: "https://www.purescript.org/",
+      created: "2013",
     })
     .addCompilesTo(["pl+javascript"])
     .addInfluencedBy(["pl+haskell", "pl+javascript"])

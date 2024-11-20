@@ -62,8 +62,8 @@ export type NPlangBaseData = {
   extensions: string[];
   /** File names are names that are associated with an specific language. Example: ['Makefile']. */
   filenames: string[];
-  /** Year the language first appeared. */
-  year: number;
+  /** Date the language first appeared. */
+  created: StrDate;
   /** Can this particular implementation compile source-code to source-code? */
   isTranspiler: boolean;
   /** A list of note worthy releases, not all of them. For instance, noteworthy release could be the latest for each major version. */

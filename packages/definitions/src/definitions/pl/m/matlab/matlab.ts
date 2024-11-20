@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
         "MATLAB is a proprietary multi-paradigm programming language and numerical computing environment developed by MathWorks, designed primarily for numerical computing. It supports matrix manipulations, data plotting, algorithm implementation, and the creation of user interfaces, among other features.",
       keywords: ["algorithms", "computing", "data analysis", "mathworks", "matrices", "matrix", "numerical", "programming", "visualization"],
       extensions: [".fig", ".m", ".mat", ".mex", ".mlapp", ".mlappinstall", ".mlpkginstall", ".mltbx", ".mlx", ".p"],
-      year: 1979,
       releases: [
         { version: "R2024b", name: "Stable Release", date: "2024-09-12" },
         { version: "1.0", name: "Initial commercial release", date: "1984-01-01" },
@@ -23,6 +22,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "MATLAB",
       extRedditPath: "matlab",
       extHomeURL: "https://mathworks.com",
+      created: "1979",
     })
     .addParadigms(["paradigm+array", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])

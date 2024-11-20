@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
       name: "Python",
       description:
         "Python is a multi-paradigm programming language known for its readability, dynamic typing, and a vast standard library. Developed by Guido van Rossum and released in 1991, it supports object-oriented, procedural, and functional programming paradigms. The language is widely used for web development, data analysis, artificial intelligence, and more.",
-      year: 1991,
       extensions: [".py", ".pyc", ".pyd", ".pyi", ".pyw", ".pyz"],
       keywords: ["python"],
       releases: [
@@ -26,6 +25,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Python_(programming_language)",
       extRedditPath: "Python",
       extHomeURL: "https://www.python.org/",
+      created: "1991",
     })
     .addInfluencedBy(["pl+ada", "pl+apl", "pl+c", "pl+c++", "pl+haskell", "pl+lisp", "pl+perl", "pl+r5rs", "pl+scheme", "pl+standard-ml"])
     .addLicenses(["license+python"])

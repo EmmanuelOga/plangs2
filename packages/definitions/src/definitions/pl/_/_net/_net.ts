@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         'The .NET platform (pronounced as "dot net") is a free and open-source, managed computer software framework for Windows, Linux, and macOS operating systems. It is developed by Microsoft employees and the open-source community through the .NET Foundation and is released under the MIT License. .NET is known for its cross-platform capabilities and support for multiple programming paradigms, making it suitable for building a wide range of applications from web and mobile to cloud and microservices.',
       keywords: [".net", "dotnet"],
       extensions: [".csproj", ".fsproj", ".sln", ".vbproj"],
-      year: 2016,
       releases: [
         { version: "7.0", name: ".NET 7", date: "2022-09-08" },
         { version: "8.0", name: ".NET 8", date: "2023-09-14" },
@@ -16,6 +15,7 @@ export function define(g: PlangsGraph) {
       ],
       extWikipediaPath: ".NET",
       extHomeURL: "http://dotnet.microsoft.com/",
+      created: "2016",
     })
     .addImplements(["pl+c-sharp", "pl+f-sharp", "pl+visual-basic"])
     .addInfluencedBy(["pl+java"])

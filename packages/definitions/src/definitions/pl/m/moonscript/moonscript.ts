@@ -7,7 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "MoonScript is a dynamic, whitespace-sensitive scripting language that compiles into Lua. It offers a clean syntax inspired by CoffeeScript and provides compatibility with Lua, including alternative implementations like LuaJIT.",
       keywords: ["coffeeScript", "dynamic", "lua", "moonscript", "programming language", "scripting language"],
-      year: 2011,
       isTranspiler: true,
       stackovTags: ["moonscript"],
       githubName: "MoonScript",
@@ -20,6 +19,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "moonscript",
       extWikipediaPath: "MoonScript",
       extHomeURL: "https://moonscript.org/",
+      created: "2011",
     })
     .addCompilesTo(["pl+lua"])
     .addInfluencedBy(["pl+c++", "pl+coffeescript", "pl+scheme"])

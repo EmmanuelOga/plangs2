@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Scala (/ˈskɑːlɑː/ SKAH-lah) is a strong statically typed high-level general-purpose programming language that supports both object-oriented programming and functional programming. Designed to be concise, many of Scala's design decisions are intended to address criticisms of Java. It is well-suited to building fast, concurrent, and distributed systems with its JVM, JavaScript, and Native runtimes.",
       keywords: ["scala"],
       extensions: [".sc", ".scala"],
-      year: 2004,
       releases: [
         { version: "3.5.0", name: "Scala 3.5.0", date: "2024-08-22" },
         { version: "3.4.0", name: "Scala 3.4.0", date: "2024-01-01" },
@@ -23,6 +22,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Scala_(programming_language)",
       extRedditPath: "scala",
       extHomeURL: "http://www.scala-lang.org/",
+      created: "2004",
     })
     .addInfluencedBy([
       "pl+common-lisp",

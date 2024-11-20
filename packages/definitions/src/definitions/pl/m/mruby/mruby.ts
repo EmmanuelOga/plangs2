@@ -8,9 +8,9 @@ export function define(g: PlangsGraph) {
         "mruby is an interpreter for the Ruby programming language with the intention of being lightweight and easily embeddable. The project is headed by Yukihiro Matsumoto, with over 100 contributors currently working on the project.",
       keywords: ["mruby"],
       extensions: [".rb"],
-      year: 2012,
       extWikipediaPath: "Mruby",
       extHomeURL: "https://mruby.org/",
+      created: "2012",
     })
     .addImplements(["pl+ruby"])
     .addInfluencedBy(["pl+ruby"])

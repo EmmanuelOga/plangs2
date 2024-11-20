@@ -15,10 +15,10 @@ export function define(g: PlangsGraph) {
         "Jupyter Notebook (formerly IPython Notebook) is a web-based interactive computational environment for creating notebook documents. It supports execution environments (kernels) for dozens of languages, including Python, Julia, and R. Jupyter is extensively used for data science, scientific computing, and educational purposes.",
       keywords: ["computational", "data science", "interactive", "kernel", "multilanguage", "notebook", "scientific computing"],
       extensions: [".ipynb"],
-      year: 2014,
       isTranspiler: true,
       extWikipediaPath: "Project_Jupyter",
       extRedditPath: "IPython",
+      created: "2014",
     })
     .addCompilesTo(["pl+julia", "pl+python", "pl+r"])
     .addLicenses(["license+bsd"])

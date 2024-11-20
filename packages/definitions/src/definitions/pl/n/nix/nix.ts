@@ -15,12 +15,12 @@ export function define(g: PlangsGraph) {
         "Nix is a cross-platform, purely functional package manager and language, known for its ability to manage packages with immutable directories and unique content-addressed dependency models.",
       keywords: ["Nix", "cross-platform", "declarative", "functional", "open-source", "package manager"],
       extensions: [".nix"],
-      year: 2003,
       releases: [{ version: "2.22.1", name: "Nix Stable Release", date: "2024-05-10" }],
       extWikipediaPath: "Nix_package_manager",
       extRedditPath: "NixOS",
       extGithubPath: "NixOS/nix",
       extHomeURL: "https://nixos.org",
+      created: "2003",
     })
     .addLicenses(["license+lgpl"])
     .addParadigms(["paradigm+declarative", "paradigm+functional"])

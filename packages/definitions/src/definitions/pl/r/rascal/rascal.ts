@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Rascal is a domain-specific language for metaprogramming and language-oriented programming, which includes tasks like static code analysis, program transformation, program generation, and the implementation of domain-specific languages. It serves as a general meta language without bias towards any specific software language. Rascal incorporates elements from both relational calculus and term rewriting, while its syntax and semantics are a blend of procedural (imperative) and functional programming.",
       keywords: ["dsl", "metaprogramming", "rascal"],
       extensions: [".rsc"],
-      year: 2009,
       releases: [{ version: "0.30.1", name: "Rascal 0.30.1", date: "2023-07-05" }],
       stackovTags: ["rascal"],
       githubName: "Rascal",
@@ -19,6 +18,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "RascalMPL",
       extHomeURL: "http://www.rascal-mpl.org/",
+      created: "2009",
     })
     .addLicenses(["license+bsd", "license+epl"])
     .addParadigms(["paradigm+declarative", "paradigm+functional", "paradigm+imperative", "paradigm+language-oriented", "paradigm+scripting"])

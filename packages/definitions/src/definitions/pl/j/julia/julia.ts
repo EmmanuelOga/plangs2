@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Julia is a high-level, general-purpose dynamic programming language designed for numerical and scientific computing, as well as a variety of other applications such as data science, artificial intelligence, machine learning, modeling, and simulation. Julia's distinctive design features include a type system with parametric polymorphism, multiple dispatch as a core programming paradigm, a just-in-time compiler with support for ahead-of-time compilation, and efficient garbage collection. The language also provides strong support for parallel and distributed computing, and has a built-in package manager and extensive interoperability with other programming languages.",
       keywords: ["data science", "julia", "machine learning", "numerical computing"],
       extensions: [".jl"],
-      year: 2012,
       releases: [
         { version: "1.11.1", name: "Julia 1.11.1", date: "2024-10-16" },
         { version: "1.10.6", name: "Julia 1.10.6", date: "2024-10-28" },
@@ -25,6 +24,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Julia_(programming_language)",
       extRedditPath: "Julia",
       extHomeURL: "https://julialang.org/",
+      created: "2012",
     })
     .addInfluencedBy([
       "pl+c",
@@ -59,11 +59,11 @@ export function define(g: PlangsGraph) {
       "tag+app",
       "tag+audio-dev",
       "tag+compiler",
+      "tag+control",
       "tag+dataq",
       "tag+dbms",
       "tag+embedded",
       "tag+industrial",
-      "tag+control",
       "tag+interpreters",
       "tag+modeling",
       "tag+numeric",

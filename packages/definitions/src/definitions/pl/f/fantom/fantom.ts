@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         'Fantom is a general-purpose object-oriented programming language, created by Brian Frank and Andy Frank. It runs on the Java Runtime Environment (JRE), JavaScript, and the .NET Common Language Runtime (CLR) (.NET support is considered "prototype" status). Its stated goal is to provide a standard library API. Fantom uses a curly brace syntax, supports functional programming through closures and concurrency through the Actor model, and blends aspects of both static and dynamic typing.',
       keywords: [".net", "andy frank", "brian frank", "fantom", "javascript", "jvm", "language", "programming"],
       extensions: [".fan", ".fwt", ".pod"],
-      year: 2005,
       isTranspiler: true,
       releases: [{ version: "1.0.79", name: "Fantom 1.0.79", date: "2023-07-17" }],
       stackovTags: ["fantom"],
@@ -21,6 +20,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Fantom_(programming_language)",
       extRedditPath: "Fantom",
       extHomeURL: "http://www.fantom.org/",
+      created: "2005",
     })
     .addCompilesTo(["pl+c-sharp", "pl+erlang", "pl+java", "pl+ruby", "pl+scala"])
     .addInfluencedBy(["pl+c-sharp", "pl+erlang", "pl+ruby", "pl+scala"])

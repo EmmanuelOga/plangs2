@@ -7,7 +7,6 @@ export function define(g: PlangsGraph) {
       description:
         "Steel Bank Common Lisp (SBCL) is a high-performance Common Lisp compiler. It is a free and open-source implementation with a permissive license. SBCL provides a compiler and a runtime system for ANSI Common Lisp and features an interactive environment with a debugger, statistical profiler, code coverage tool, and many extensions. Originally forked in December 1999 from CMUCL, it supports multiple operating systems including Linux, macOS, Solaris, and Windows.",
       keywords: ["common lisp", "compiler", "sbcl", "steel bank"],
-      year: 1999,
       releases: [
         { version: "2.4.5", name: "SBCL 2.4.5", date: "2024-05-30" },
         { version: "2.4.10", name: "SBCL 2.4.10", date: "2024-10-30" },
@@ -22,6 +21,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Common_Lisp",
       extRedditPath: "Common_Lisp",
       extHomeURL: "http://www.sbcl.org/",
+      created: "1999",
     })
     .addDialectOf(["pl+common-lisp"])
     .addInfluencedBy(["pl+common-lisp"])

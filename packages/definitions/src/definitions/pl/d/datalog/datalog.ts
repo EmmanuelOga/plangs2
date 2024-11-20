@@ -8,9 +8,9 @@ export function define(g: PlangsGraph) {
         "Datalog is a declarative logic programming language that serves as a syntactic subset of Prolog, using a bottom-up evaluation model to deduce facts. It is extensively used as a query language for deductive databases, aiding in data integration, networking, program analysis, and more.",
       keywords: ["datalog", "declarative", "deductive databases", "logic programming", "query language"],
       extensions: [".dl"],
-      year: 1977,
       extWikipediaPath: "Datalog",
       extHomeURL: "http://datalog-specs.info",
+      created: "1977",
     })
     .addDialectOf(["pl+prolog"])
     .addInfluencedBy(["pl+prolog"])

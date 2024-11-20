@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "ChucK is a concurrent, strongly timed audio programming language for real-time synthesis, composition, and performance. It runs on Linux, Mac OS X, Microsoft Windows, and iOS. ChucK is designed to prioritize readability and flexibility, supporting deterministic concurrency and varying control rates. It enables real-time, live coding, allowing code modification while the program is running. ChucK is suitable for building complex audio synthesis programs and real-time interactive controls, offering a powerful tool for composers, researchers, and performers.",
       keywords: ["audio programming", "chuck", "concurrent programming", "real-time synthesis"],
       extensions: [".ck"],
-      year: 2003,
       releases: [
         { version: "1.5.4.1", name: "Chai", date: "2024-04-01" },
         { version: "1.5.2.4", name: "ChucK 1.5.2.4", date: "2024-01-01" },
@@ -21,6 +20,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "ChucK",
       extHomeURL: "http://chuck.cs.princeton.edu/",
+      created: "2003",
     })
     .addInfluencedBy(["pl+supercollider"])
     .addLicenses(["license+gnu-gpl"])

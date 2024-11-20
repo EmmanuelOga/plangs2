@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "The Wolfram Language is a proprietary, general-purpose, high-level multi-paradigm programming language developed by Wolfram Research. It is known for its symbolic computation capabilities, and emphasizes functional programming and rule-based programming. It serves as the programming language of Mathematica.",
       keywords: ["mathematica", "programming language", "symbolic computation", "wolfram", "wolfram language"],
       extensions: [".m", ".nb", ".wl"],
-      year: 1988,
       releases: [{ version: "14.1.0", name: "Wolfram Language 14.1.0", date: "2024-07-31" }],
       stackovTags: ["wolfram-mathematica"],
       githubName: "Mathematica",
@@ -19,6 +18,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Wolfram_Mathematica",
       extRedditPath: "Mathematica",
       extHomeURL: "https://www.wolfram.com/language/",
+      created: "1988",
     })
     .addInfluencedBy(["pl+apl", "pl+c", "pl+c++", "pl+fortran", "pl+lisp", "pl+pascal", "pl+prolog"])
     .addParadigms(["paradigm+array", "paradigm+functional", "paradigm+multi", "paradigm+procedural", "paradigm+rewriting"])

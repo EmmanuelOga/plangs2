@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "D, also known as dlang, is a multi-paradigm system programming language created by Walter Bright at Digital Mars and released in 2001. Andrei Alexandrescu joined the design and development effort in 2007. Though it originated as a re-engineering of C++, D is now a very different language. As it has developed, it has drawn inspiration from other high-level programming languages. Notably, it has been influenced by Java, Python, Ruby, C#, and Eiffel.",
       keywords: ["d language", "d programming", "dlang"],
       extensions: [".d"],
-      year: 2001,
       releases: [{ version: "2.109.1", name: "Stable Release", date: "2024-07-01" }],
       stackovTags: ["d"],
       githubName: "D",
@@ -20,6 +19,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "D_(programming_language)",
       extRedditPath: "d_language",
       extHomeURL: "http://dlang.org/",
+      created: "2001",
     })
     .addInfluencedBy(["pl+ada", "pl+basic", "pl+c", "pl+c++", "pl+c-sharp", "pl+eiffel", "pl+python", "pl+ruby"])
     .addLicenses(["license+boost"])

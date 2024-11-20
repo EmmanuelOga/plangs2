@@ -50,6 +50,9 @@
         }
       },
       "recommended": true,
+      "performance": {
+        "noDelete": "info"
+      },
       "suspicious": {
         "noAssignInExpressions": "off",
         "noExplicitAny": "info"

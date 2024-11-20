@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Prolog is a logic programming language that has its origins in artificial intelligence, automated theorem proving and computational linguistics. It is influenced by first-order logic and is primarily used for declarative programming.",
       keywords: ["prolog"],
       extensions: [".P", ".pl", ".pro"],
-      year: 1972,
       stackovTags: ["prolog"],
       githubName: "Prolog",
       languishRanking: 160,
@@ -23,6 +22,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Prolog",
       extRedditPath: "prolog",
       extHomeURL: "https://www.iso.org/standard/21413.html",
+      created: "1972",
     })
     .addImplements(["pl+curry"])
     .addParadigms(["paradigm+declarative", "paradigm+logic"])

@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
         "Cascading Style Sheets (CSS) is a style sheet language used for specifying the presentation and styling of a document written in a markup language such as HTML or XML (including XML dialects such as SVG, MathML, or XHTML).",
       keywords: ["Cascading Style Sheets", "layout", "style sheet", "web design"],
       extensions: [".css"],
-      year: 1996,
       releases: [
         { version: "1", name: "CSS1", date: "1996-12-17" },
         { version: "2.1", name: "CSS 2.1", date: "2004-02-25" },
@@ -24,6 +23,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Cascading_Style_Sheets",
       extRedditPath: "CSS",
       extHomeURL: "https://www.w3.org/Style/CSS/",
+      created: "1996",
     })
     .addParadigms(["paradigm+declarative"])
     .addPlatforms(["plat+web"])

@@ -16,10 +16,10 @@ export function define(g: PlangsGraph) {
       keywords: ["Vim", "Vim script", "free software", "scripting language", "text editor"],
       extensions: [".vim"],
       filenames: [".vimrc"],
-      year: 1991,
       releases: [{ version: "9.1", name: "Vim 9.1", date: "2024-01-02" }],
       extWikipediaPath: "Vim_(text_editor)",
       extRedditPath: "vim",
+      created: "1991",
     })
     .addLicenses(["license+gnu-gpl"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+oop", "paradigm+scripting"])

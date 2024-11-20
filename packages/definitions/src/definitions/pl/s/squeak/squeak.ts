@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Squeak is a modern, open-source Smalltalk programming system with fast execution environments across all major platforms including macOS, Windows, and Linux. It is known for its implementation of the Morphic graphical framework, fostering low-effort, interactive application development. Squeak's rich history includes its derivation from Smalltalk-80 and collaboration with entities like Disney, HP Labs, and Y Combinator. It is renowned for educational tools like Scratch and innovative user interface frameworks such as Morphic, Etoys, and Tweak.",
       keywords: ["etoys", "morphic", "open source", "platforms", "smalltalk", "squeak", "tweak", "virtual machine"],
       extensions: [".changes", ".image", ".sources", ".st"],
-      year: 1996,
       releases: [
         { version: "202312181441", name: "Squeak Stable Release", date: "2023-12-20" },
         { version: "6.0", name: "Squeak 6.0", date: "2022-05-01" },
@@ -23,6 +22,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Smalltalk",
       extRedditPath: "smalltalk",
       extHomeURL: "http://www.squeak.org/",
+      created: "1996",
     })
     .addInfluencedBy(["pl+lisp", "pl+self"])
     .addLicenses(["license+apache", "license+mit"])

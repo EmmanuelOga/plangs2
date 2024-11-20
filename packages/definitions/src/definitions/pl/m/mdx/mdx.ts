@@ -13,9 +13,9 @@ export function define(g: PlangsGraph) {
         "MDX is a syntax that allows you to write JSX content with Markdown, and it is commonly used with React-based frameworks. It allows developers to seamlessly integrate JavaScript components with Markdown content, making it easier to create rich and interactive documentation or blog content.",
       keywords: ["JSX", "JavaScript", "MDX", "Markdown", "React"],
       extensions: [".mdx"],
-      year: 2018,
       isTranspiler: true,
       extHomeURL: "https://mdxjs.com/",
+      created: "2018",
     })
     .addCompilesTo(["pl+html", "pl+javascript", "pl+markdown"])
     .addLicenses(["license+mit"])

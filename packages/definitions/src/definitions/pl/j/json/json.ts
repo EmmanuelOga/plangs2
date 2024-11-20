@@ -15,10 +15,10 @@ export function define(g: PlangsGraph) {
         "JSON (JavaScript Object Notation) is an open standard file format and data interchange format that uses human-readable text to store and transmit data objects consisting of name–value pairs and arrays. It is commonly used in web applications.",
       keywords: ["JSON", "JavaScript Object Notation", "data interchange", "web applications"],
       extensions: [".json"],
-      year: 2001,
       releases: [{ version: "1.0", name: "Initial JSON Specification", date: "2013" }],
       extWikipediaPath: "JSON",
       extHomeURL: "https://json.org",
+      created: "2001",
     })
     .addParadigms(["paradigm+data-exchange"])
     .addPlatforms(["plat+cross"]);

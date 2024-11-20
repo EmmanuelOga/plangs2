@@ -7,10 +7,10 @@ export function define(g: PlangsGraph) {
       description:
         "Gremlin is a graph traversal language and virtual machine developed by Apache TinkerPop of the Apache Software Foundation. It works for both OLTP-based graph databases and OLAP-based graph processors. Gremlin's automata and functional language foundation enable it to support both imperative and declarative querying. It is designed to be host language agnostic and allows for user-defined domain specific languages.",
       keywords: ["apache", "graph traversal", "gremlin", "tinkerpop"],
-      year: 2009,
       releases: [{ version: "3.7.0", name: "Gremlin 3.7.0", date: "2023-07-31" }],
       extWikipediaPath: "Gremlin_(programming_language)",
       extHomeURL: "https://tinkerpop.apache.org/",
+      created: "2009",
     })
     .addInfluencedBy(["pl+sql", "pl+xpath"])
     .addLicenses(["license+apache"])

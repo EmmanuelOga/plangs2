@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         'Java is a high-level programming language developed by Sun Microsystems, now owned by Oracle. It is designed to have as few implementation dependencies as possible, making it a versatile and widely-used language. Java is known for its portability across platforms, "write once, run anywhere" capability, strong memory management, and vast ecosystem.',
       keywords: ["java"],
       extensions: [".class", ".jar", ".java", ".jmod", ".war"],
-      year: 1995,
       releases: [
         { version: "JDK 1.0", name: "Java SE 1.0", date: "1996-01-23" },
         { version: "Java SE 8", name: "Java SE 8", date: "2014-03-18" },
@@ -29,6 +28,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Java_(programming_language)",
       extRedditPath: "java",
       extHomeURL: "https://openjdk.java.net/",
+      created: "1995",
     })
     .addInfluencedBy(["pl+c++"])
     .addLicenses(["license+gnu-gpl"])

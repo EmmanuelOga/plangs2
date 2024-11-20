@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Pascal is an imperative and procedural programming language, designed by Niklaus Wirth as a small, efficient language intended to encourage good programming practices using structured programming and data structuring. It is named after the French mathematician and philosopher Blaise Pascal.",
       keywords: ["pascal", "programming language", "structured programming"],
       extensions: [".p", ".pas", ".pp"],
-      year: 1970,
       stackovTags: ["pascal"],
       githubName: "Pascal",
       languishRanking: 72,
@@ -18,6 +17,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "Pascal_(programming_language)",
       extRedditPath: "pascal",
+      created: "1970",
     })
     .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+structured"])
     .addPlatforms(["plat+bsd", "plat+cross", "plat+dos", "plat+linux", "plat+windows"])

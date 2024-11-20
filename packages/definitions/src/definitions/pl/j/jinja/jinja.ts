@@ -15,12 +15,12 @@ export function define(g: PlangsGraph) {
         "Jinja is a web template engine for the Python programming language. It was created by Armin Ronacher and is licensed under a BSD License. Jinja provides Python-like expressions while ensuring that templates are evaluated in a sandbox, making it useful for generating markup and source code.",
       keywords: ["Jinja", "Python", "template engine", "web development"],
       extensions: [".jinja"],
-      year: 2008,
       isTranspiler: true,
       releases: [{ version: "3.1.4", name: "Stable Release", date: "2024-05-05" }],
       extWikipediaPath: "Jinja_(template_engine)",
       extGithubPath: "pallets/jinja",
       extHomeURL: "https://palletsprojects.com/p/jinja/",
+      created: "2008",
     })
     .addCompilesTo(["pl+python"])
     .addLicenses(["license+bsd"])

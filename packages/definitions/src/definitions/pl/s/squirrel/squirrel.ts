@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Squirrel is a high-level imperative, object-oriented programming language, designed to be a lightweight scripting language that fits in the size, memory bandwidth, and real-time requirements of applications like video games.",
       keywords: ["squirrel"],
       extensions: [".nut"],
-      year: 2003,
       releases: [{ version: "3.2", name: "Squirrel 3.2", date: "2022-02-10" }],
       stackovTags: ["squirrel"],
       githubName: "Squirrel",
@@ -19,6 +18,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "Squirrel_(programming_language)",
       extHomeURL: "http://squirrel-lang.org/",
+      created: "2003",
     })
     .addInfluencedBy(["pl+c++", "pl+javascript", "pl+lua", "pl+python"])
     .addLicenses(["license+mit"])

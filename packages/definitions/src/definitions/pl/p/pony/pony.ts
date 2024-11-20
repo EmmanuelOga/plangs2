@@ -7,7 +7,6 @@ export function define(g: PlangsGraph) {
       description: "Pony is an open-source, object-oriented, actor-model, capabilities-secure, high-performance programming language.",
       keywords: ["actor-model", "capability-security", "pony"],
       extensions: [".pony"],
-      year: 2015,
       releases: [{ version: "0.41.0", name: "Pony 0.41.0", date: "2023-09-01" }],
       stackovTags: ["ponylang"],
       githubName: "Pony",
@@ -18,6 +17,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "ponylang",
       extWikipediaPath: "Pony_(programming_language)",
       extHomeURL: "https://www.ponylang.io/",
+      created: "2015",
     })
     .addInfluencedBy(["pl+erlang", "pl+scala"])
     .addLicenses(["license+bsd"])

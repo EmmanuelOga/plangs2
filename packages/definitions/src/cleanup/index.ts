@@ -104,15 +104,26 @@ export async function processGithubAndLanguish() {
 }
 
 /** This regenerates some nodes that are not NPlangs. Useful to reorder the definitions. */
-export function regenNonPlangs() {
+export function regenNonPlangs(pg: PlangsGraph) {
   for (const pl of pg.nodes.pl.values) Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
   for (const kind of ["license", "paradigm", "plat", "tag", "tsys", "learning", "community"] as const) {
     Bun.write(tsNodePath(kind), genericCodeGen(pg, kind));
   }
 }
 
-/** Cleanup relationships in data. All edges should point to an existing node. */
-export async function cleanupData(pg: PlangsGraph, update: boolean) {
+/** Regenerate all Plang nodes. */
+export function regenPlangs(pg: PlangsGraph) {
+  for (const pl of pg.nodes.pl.values) {
+    // This is good place for "migrations", like renaming keys.
+    Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
+  }
+}
+
+/**
+ * Cleanup relationships in data. All edges should point to an existing node.
+ * @param update if false only prints missing data, doesn't delete it.
+ */
+export function cleanupData(pg: PlangsGraph, update: boolean) {
   for (const [e, edgeMap] of Object.entries(pg.edges)) {
     const missingKeys = new Set<string>();
 
@@ -129,10 +140,19 @@ export async function cleanupData(pg: PlangsGraph, update: boolean) {
 
     if (missingKeys.size > 0) console.log("Edge type", e, "had missing keys:", [...missingKeys]);
   }
-
-  if (update) for (const pl of pg.nodes.pl.values) Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
 }
 
-const pg = new PlangsGraph();
-await loadAllDefinitions(pg, { scanImages: false });
-await cleanupData(pg, false);
+async function cleanup() {
+  const pg = new PlangsGraph();
+  await loadAllDefinitions(pg, { scanImages: false });
+
+  const dry = false; // Set to true to only print missing data, false to regenerate after cleanup.
+  cleanupData(pg, !dry);
+
+  if (!dry) {
+    regenNonPlangs(pg);
+    regenPlangs(pg);
+  }
+}
+
+await cleanup();

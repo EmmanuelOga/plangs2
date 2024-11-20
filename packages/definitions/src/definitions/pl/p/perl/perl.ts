@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         'Perl is a high-level, general-purpose, interpreted, dynamic programming language. Though Perl is not officially an acronym, there are various backronyms in use, including "Practical Extraction and Reporting Language".',
       keywords: ["perl"],
       extensions: [".cgi", ".pl", ".pls", ".plx", ".pm", ".pod", ".psgi", ".t", ".xs"],
-      year: 1987,
       releases: [
         { version: "5.40.0", name: "Perl 5.40.0", date: "2024-06-09" },
         { version: "5.38.2", name: "Perl 5.38.2", date: "2023-11-29" },
@@ -24,6 +23,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Perl",
       extRedditPath: "perl",
       extHomeURL: "https://www.perl.org/",
+      created: "1987",
     })
     .addInfluencedBy(["pl+awk", "pl+basic", "pl+c", "pl+c++", "pl+lisp", "pl+raku", "pl+sed"])
     .addLicenses(["license+artistic", "license+gnu-gpl"])

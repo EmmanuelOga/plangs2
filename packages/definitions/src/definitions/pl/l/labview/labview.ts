@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Laboratory Virtual Instrument Engineering Workbench (LabVIEW) is a graphical system design and development platform produced and distributed by National Instruments, based on a programming environment that uses a visual programming language. It is widely used for data acquisition, instrument control, and industrial automation. It provides tools for designing and deploying complex test and measurement systems.",
       keywords: ["labview"],
       extensions: [".lvproj", ".vi"],
-      year: 1986,
       releases: [
         { version: "2024 Q3", name: "LabVIEW 2024 Q3", date: "2024-07-01" },
         { version: "NXG 5.1", name: "LabVIEW NXG 5.1", date: "2021-01-01" },
@@ -24,6 +23,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "LabVIEW",
       extRedditPath: "LabVIEW",
       extHomeURL: "https://www.ni.com/labview",
+      created: "1986",
     })
     .addParadigms(["paradigm+concurrent", "paradigm+dataflow", "paradigm+event-driven", "paradigm+low-code", "paradigm+multi", "paradigm+visual"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
@@ -32,6 +32,7 @@ export function define(g: PlangsGraph) {
       "tag+app",
       "tag+automation",
       "tag+compiler",
+      "tag+control",
       "tag+dataflow",
       "tag+dataq",
       "tag+dsp",
@@ -39,7 +40,6 @@ export function define(g: PlangsGraph) {
       "tag+flow",
       "tag+framework",
       "tag+industrial",
-      "tag+control",
       "tag+interpreters",
       "tag+low-code",
       "tag+modeling",

@@ -16,12 +16,12 @@ export function define(g: PlangsGraph) {
       keywords: ["PHP", "Smarty", "template engine", "web template"],
       extensions: [".tpl"],
       filenames: ["index.tpl"],
-      year: 2001,
       isTranspiler: true,
       releases: [{ version: "5.4.1", name: "Stable release", date: "2024-08-29" }],
       extWikipediaPath: "Smarty_(template_engine)",
       extGithubPath: "smarty-php/smarty",
       extHomeURL: "http://www.smarty.net",
+      created: "2001",
     })
     .addCompilesTo(["pl+php"])
     .addLicenses(["license+lgpl"])

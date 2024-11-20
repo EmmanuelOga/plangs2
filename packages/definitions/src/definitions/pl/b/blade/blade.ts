@@ -15,10 +15,10 @@ export function define(g: PlangsGraph) {
         "Blade is a first-party templating engine that allows the use of dynamic PHP directives in HTML-based views. It is part of the Laravel framework and provides features such as template inheritance, sections, and conditional statements.",
       keywords: ["Blade", "Laravel", "PHP", "template inheritance", "templating engine"],
       extensions: [".blade.php"],
-      year: 2011,
       isTranspiler: true,
       extWikipediaPath: "Laravel",
       extRedditPath: "laravel",
+      created: "2011",
     })
     .addCompilesTo(["pl+php"])
     .addLicenses(["license+mit"])

@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "CircuitPython is an open-source derivative of the MicroPython programming language targeted toward students and beginners. Development of CircuitPython is supported by Adafruit Industries. It is a software implementation of the Python 3 programming language, written in C. It has been ported to run on several modern microcontrollers.",
       keywords: ["circuit python", "circuitpython"],
       extensions: [".py"],
-      year: 2017,
       isTranspiler: true,
       releases: [
         { version: "9.1.4", name: "CircuitPython 9.1.4", date: "2024-09-17" },
@@ -17,6 +16,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "CircuitPython",
       extGithubPath: "adafruit/circuitpython",
       extHomeURL: "https://circuitpython.org/",
+      created: "2017",
     })
     .addImplements(["pl+python"])
     .addInfluencedBy(["pl+micropython"])

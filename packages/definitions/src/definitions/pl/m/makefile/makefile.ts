@@ -16,8 +16,8 @@ export function define(g: PlangsGraph) {
       keywords: ["build automation", "dependency management", "makefile", "unix"],
       extensions: [".mk"],
       filenames: ["Makefile", "makefile"],
-      year: 1976,
       extWikipediaPath: "Make_(software)",
+      created: "1976",
     })
     .addParadigms(["paradigm+declarative", "paradigm+macro"])
     .addTags(["tag+automation", "tag+cli"]);

@@ -7,13 +7,13 @@ export function define(g: PlangsGraph) {
       description:
         "HotSpot, released as Java HotSpot Performance Engine, is a Java virtual machine for desktop and server computers. Developed initially by Sun Microsystems and later by Oracle Corporation, HotSpot is known for its just-in-time compilation and adaptive optimization techniques, serving as the reference implementation of the Java programming language.",
       keywords: ["adaptive optimization", "hotspot", "java vm", "just-in-time compilation", "jvm"],
-      year: 1999,
       releases: [
         { version: "23.25-b01", name: "JDK 9", date: "2016-01-01" },
         { version: "23.25", name: "JDK 9", date: "2016-01-01" },
       ],
       extWikipediaPath: "HotSpot_(virtual_machine)",
       extHomeURL: "https://openjdk.org/groups/hotspot/",
+      created: "1999",
     })
     .addInfluencedBy(["pl+self"])
     .addLicenses(["license+gnu-gpl"])

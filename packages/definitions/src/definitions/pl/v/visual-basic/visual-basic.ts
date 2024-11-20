@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Visual Basic (VB), originally called Visual Basic .NET (VB.NET), is a multi-paradigm, object-oriented programming language, implemented on .NET, Mono, and the .NET Framework. Microsoft launched VB.NET in 2002 as the successor to its original Visual Basic language, the last version of which was Visual Basic 6.0. Along with C# and F#, it is one of the three main languages targeting the .NET ecosystem. Microsoft's integrated development environment for Visual Basic is Visual Studio, and it is often used in conjunction with the Windows Forms GUI library to create desktop applications for Windows.",
       keywords: ["vb", "vb.net", "visual basic", "visualbasic"],
       extensions: [".vb"],
-      year: 2001,
       releases: [{ version: "17.9.2", name: "Visual Basic 17.9.2", date: "2024-02-27" }],
       stackovTags: ["vb.net"],
       githubName: "Visual Basic .NET",
@@ -20,6 +19,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Visual_Basic_.NET",
       extRedditPath: "visualbasic",
       extHomeURL: "https://docs.microsoft.com/dotnet/visual-basic/",
+      created: "2001",
     })
     .addImplements(["pl+basic"])
     .addInfluencedBy(["pl+basic", "pl+haskell", "pl+visual-basic"])

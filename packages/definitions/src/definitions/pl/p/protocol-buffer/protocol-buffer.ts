@@ -14,10 +14,10 @@ export function define(g: PlangsGraph) {
         "Protocol Buffers (Protobuf) is an open-source, cross-platform data format developed by Google. It is used to serialize structured data and is employed for network communication and data storage. Protobuf emphasizes simplicity and performance, aiming to be smaller and faster than XML.",
       keywords: ["Google", "RPC", "cross-platform", "serialization", "structured data"],
       extensions: [".proto"],
-      year: 2001,
       isTranspiler: true,
       releases: [{ version: "28.3", name: "Stable Release", date: "2024-10-22" }],
       extWikipediaPath: "Protocol_Buffers",
+      created: "2001",
     })
     .addCompilesTo(["pl+c++", "pl+c-sharp", "pl+dart", "pl+go", "pl+java", "pl+javascript", "pl+php", "pl+python", "pl+ruby"])
     .addLicenses(["license+bsd"])

@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Processing is a free graphics library and integrated development environment (IDE) built for the electronic arts, new media art, and visual design communities with the purpose of teaching non-programmers the fundamentals of computer programming in a visual context.",
       keywords: ["IDE", "art", "graphics library", "processing", "programming language", "visual design"],
       extensions: [".pde"],
-      year: 2001,
       releases: [{ version: "4.3", name: "Processing 4.3", date: "2023-07-26" }],
       stackovTags: ["processing"],
       githubName: "Processing",
@@ -20,6 +19,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Processing_(programming_language)",
       extRedditPath: "processing",
       extHomeURL: "http://processing.org/",
+      created: "2001",
     })
     .addInfluencedBy(["pl+c", "pl+java"])
     .addLicenses(["license+gnu-gpl", "license+lgpl"])

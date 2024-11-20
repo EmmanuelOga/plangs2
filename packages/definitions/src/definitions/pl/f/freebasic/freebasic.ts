@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "FreeBASIC is a free/open source (GPL) BASIC compiler for Microsoft Windows, DOS, Linux, FreeBSD, and Xbox, though the Xbox version is no longer maintained. FreeBASIC aims to be syntax-compatible with Microsoft QuickBASIC, offering a command-line compiler to produce console and graphical applications. It supports procedural, object-oriented, and meta-programming paradigms, leveraging GNU Binutils for backend operations.",
       keywords: ["basic", "compiler", "cross-platform", "freebasic", "linux", "open source", "windows"],
       extensions: [".bas", ".bi"],
-      year: 2004,
       releases: [{ version: "1.10.1", name: "", date: "2023-12-25" }],
       stackovTags: ["freebasic"],
       githubName: "FreeBasic",
@@ -18,6 +17,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "FreeBASIC",
       extHomeURL: "http://www.freebasic.net/",
+      created: "2004",
     })
     .addImplements(["pl+basic"])
     .addInfluencedBy(["pl+c"])

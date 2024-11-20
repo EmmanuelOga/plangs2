@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         'Ruby is an interpreted, high-level, general-purpose programming language. It was designed with an emphasis on programming productivity and simplicity. In Ruby, everything is an object, including primitive data types. It was developed in the mid-1990s by Yukihiro "Matz" Matsumoto in Japan.',
       keywords: ["ruby"],
       extensions: [".rb", ".ru"],
-      year: 1995,
       releases: [
         { version: "3.3.6", name: "Ruby 3.3.6", date: "2024-11-05" },
         { version: "3.2.6", name: "Ruby 3.2.6", date: "2024-10-30" },
@@ -26,6 +25,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Ruby_(programming_language)",
       extRedditPath: "ruby",
       extHomeURL: "https://www.ruby-lang.org/en/",
+      created: "1995",
     })
     .addInfluencedBy(["pl+basic", "pl+c++", "pl+eiffel", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme"])
     .addLicenses(["license+bsd", "license+mit"])
@@ -35,9 +35,9 @@ export function define(g: PlangsGraph) {
       "tag+analysis",
       "tag+app",
       "tag+compiler",
+      "tag+control",
       "tag+framework",
       "tag+industrial",
-      "tag+control",
       "tag+interpreters",
       "tag+scripting",
       "tag+ui",

@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Csound is a domain-specific computer programming language designed for sound and music computing. It was originally written in C and is known for its flexibility and high-quality audio synthesis capabilities. Csound is widely used in computer music and audio processing, offering extensive support for audio synthesis through its modular architecture.",
       keywords: ["audio programming", "csound", "music computing"],
       extensions: [".csd", ".orc", ".sco"],
-      year: 1986,
       releases: [{ version: "6.18.1", name: "Csound 6.18.1", date: "2022-11-24" }],
       stackovTags: ["csound"],
       githubName: "Csound",
@@ -21,6 +20,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "csound",
       extGithubPath: "csound/csound",
       extHomeURL: "http://csound.com/",
+      created: "1986",
     })
     .addLicenses(["license+lgpl"])
     .addParadigms(["paradigm+compiled", "paradigm+dsl", "paradigm+extensible", "paradigm+real-time"])

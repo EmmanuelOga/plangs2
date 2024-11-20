@@ -7,13 +7,13 @@ export function define(g: PlangsGraph) {
       description: "Cassette is a simple language for personal programming. It's DIY, roll your own, batteries-not-included. It's for fun.",
       keywords: ["cassette"],
       extensions: [".cassette"],
-      year: 2021,
       releases: [
         { version: "2.0.0", date: "2023-01-01" },
         { version: "1.0.0", date: "2021-05-01" },
       ],
       isTranspiler: true,
       extHomeURL: "https://cassette-lang.com/",
+      created: "2021",
     })
     .addCompilesTo(["pl+c"])
     .addLicenses(["license+mit"])

@@ -15,12 +15,12 @@ export function define(g: PlangsGraph) {
         "Vue.js is an open-source model–view–viewmodel front end JavaScript framework for building user interfaces and single-page applications.",
       keywords: ["Evan You", "JavaScript framework", "SPA", "UI", "Vue.js", "front end", "open-source", "single-page application", "user interface"],
       extensions: [".vue"],
-      year: 2014,
       isTranspiler: true,
       releases: [{ version: "3.5.12", name: "Tengen Toppa Gurren Lagann", date: "2024-10-11" }],
       extWikipediaPath: "Vue.js",
       extRedditPath: "vuejs",
       extHomeURL: "https://vuejs.org",
+      created: "2014",
     })
     .addCompilesTo(["pl+javascript"])
     .addLicenses(["license+mit"])

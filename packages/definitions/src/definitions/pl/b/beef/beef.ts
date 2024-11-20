@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Beef is an open source performance-oriented compiled programming language designed for a fluid and pleasurable development experience, particularly suited for high-performance real-time applications such as video games, with manual memory management and custom allocators.",
       keywords: ["beef", "high-performance", "memory management", "open source", "real-time"],
       extensions: [".bf"],
-      year: 2020,
       releases: [{ version: "0.43.4", name: "Beef 0.43.4", date: "2022-09-07" }],
       stackovTags: ["beef"],
       githubName: "Beef",
@@ -20,6 +19,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "beeflang",
       extGithubPath: "beefytech/Beef",
       extHomeURL: "https://www.beeflang.org/",
+      created: "2020",
     })
     .addInfluencedBy(["pl+c", "pl+c++", "pl+delphi", "pl+rust"])
     .addLicenses(["license+zlib"])

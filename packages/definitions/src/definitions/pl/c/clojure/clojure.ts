@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Clojure (/ˈkloʊʒər/, like closure) is a dynamic, general-purpose programming language, combining the approachability and interactive development of a scripting language with an efficient and robust infrastructure for multithreaded programming. It is known for its expressiveness, immutability, and concurrency.",
       keywords: ["clojure"],
       extensions: [".clj", ".cljc", ".cljd", ".cljr", ".cljs", ".edn"],
-      year: 2007,
       releases: [{ version: "1.11.2", name: "Clojure 1.11.2", date: "2024-03-08" }],
       stackovTags: ["clojure"],
       githubName: "Clojure",
@@ -20,6 +19,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Clojure",
       extRedditPath: "Clojure",
       extHomeURL: "https://clojure.org/",
+      created: "2007",
     })
     .addDialectOf(["pl+lisp"])
     .addInfluencedBy([
@@ -46,7 +46,7 @@ export function define(g: PlangsGraph) {
       "paradigm+pipeline",
     ])
     .addPlatforms(["plat+cross", "plat+java", "plat+nodejs"])
-    .addTags(["tag+app", "tag+automation", "tag+cli", "tag+games", "tag+industrial", "tag+control", "tag+interpreters", "tag+scripting", "tag+shell"])
+    .addTags(["tag+app", "tag+automation", "tag+cli", "tag+control", "tag+games", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+shell"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+clojure", "pl+java"]);
 

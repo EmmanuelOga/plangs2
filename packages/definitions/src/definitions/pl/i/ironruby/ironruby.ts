@@ -7,13 +7,13 @@ export function define(g: PlangsGraph) {
       description:
         "IronRuby is an open-source implementation of the Ruby programming language which is tightly integrated with the .NET Framework. IronRuby can use the .NET Framework and Ruby libraries, and other .NET languages can use Ruby code just as easily. It is built on the Dynamic Language Runtime (DLR), allowing dynamic typing and method dispatch for dynamic languages.",
       keywords: ["ironruby"],
-      year: 2007,
       releases: [
         { version: "1.0", name: "IronRuby 1.0", date: "2010-04-12" },
         { version: "1.1.3", name: "IronRuby 1.1.3", date: "2011-03-13" },
       ],
       extWikipediaPath: "IronRuby",
       extHomeURL: "http://www.ironruby.net/",
+      created: "2007",
     })
     .addDialectOf(["pl+ruby"])
     .addInfluencedBy(["pl+ruby"])

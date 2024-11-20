@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       keywords: ["CMake", "build automation", "build system", "compiler-independent", "cross-platform", "open-source", "software development"],
       extensions: [".cmake"],
       filenames: ["CMakeLists.txt"],
-      year: 2000,
       isTranspiler: true,
       releases: [
         { version: "3.30.5", name: "Stable release", date: "2024-10-09" },
@@ -24,6 +23,7 @@ export function define(g: PlangsGraph) {
       ],
       extWikipediaPath: "CMake",
       extRedditPath: "cmake",
+      created: "2000",
     })
     .addCompilesTo(["pl+makefile"])
     .addLicenses(["license+bsd"])

@@ -6,7 +6,6 @@ export function define(g: PlangsGraph) {
       name: "Ada",
       description:
         "Ada is a structured, statically typed, imperative, and object-oriented high-level programming language, inspired by Pascal. It features built-in support for design by contract, strong typing, concurrency, synchronous message passing, protected objects, and non-determinism. Ada is primarily used in systems where safety and reliability are crucial, such as in avionics and other mission-critical systems. It is standardized internationally by ISO/IEC.",
-      year: 1980,
       extensions: [".adb", ".ads"],
       keywords: ["ada", "concurrency", "design by contract", "high-level", "object-oriented", "systems programming"],
       releases: [{ version: "ISO/IEC 8652:2023", name: "Ada 2022", date: "2023-05-01" }],
@@ -20,6 +19,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Ada_(programming_language)",
       extRedditPath: "ada",
       extHomeURL: "https://www.adaic.org/",
+      created: "1980",
     })
     .addDialectOf(["pl+pascal"])
     .addInfluencedBy(["pl+c++", "pl+eiffel", "pl+pascal"])

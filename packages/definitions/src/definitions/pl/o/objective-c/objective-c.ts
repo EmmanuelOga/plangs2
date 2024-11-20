@@ -15,10 +15,10 @@ export function define(g: PlangsGraph) {
         "Objective-C is a high-level general-purpose, object-oriented programming language that adds Smalltalk-style message passing to the C programming language. It was primarily designed by Brad Cox and Tom Love and was later selected by NeXT for its NeXTSTEP operating system. Due to its integration with Apple's macOS and iOS, Objective-C became Apple's standard language for developing macOS and iOS applications up until the introduction of Swift in 2014.",
       keywords: ["Apple", "Objective-C", "iOS", "language", "macOS", "programming"],
       extensions: [".M", ".h", ".m", ".mm"],
-      year: 1984,
       releases: [{ version: "2.0", name: "Objective-C 2.0", date: "2007" }],
       extWikipediaPath: "Objective-C",
       extRedditPath: "ObjectiveC",
+      created: "1984",
     })
     .addParadigms(["paradigm+oop", "paradigm+reflective"])
     .addPlatforms(["plat+cross"])

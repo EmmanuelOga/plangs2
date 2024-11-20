@@ -15,12 +15,12 @@ export function define(g: PlangsGraph) {
         "ASP.NET is a server-side web-application framework designed for web development to produce dynamic web pages. It was developed by Microsoft to allow programmers to build dynamic websites, applications, and services. It is built on the Common Language Runtime (CLR), allowing programmers to write ASP.NET code using .NET languages.",
       keywords: ["ASP.NET", "Microsoft", "dynamic web pages", "server-side", "web framework"],
       extensions: [".aspx", ".cshtml", ".vbhtml"],
-      year: 2002,
       isTranspiler: true,
       releases: [{ version: "v9.0.0", date: "2024-09-13" }],
       extWikipediaPath: "ASP.NET",
       extRedditPath: "ASPNET",
       extGithubPath: "dotnet/aspnetcore",
+      created: "2002",
     })
     .addCompilesTo(["pl+.net"])
     .addParadigms(["paradigm+multi", "paradigm+oop"])

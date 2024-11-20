@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "PHP is a popular general-purpose scripting language especially suited to web development. Fast, flexible and pragmatic, PHP powers everything from your blog to the most popular websites in the world.",
       keywords: ["php", "php5", "php7", "php8"],
       extensions: [".phar", ".php", ".php3", ".php4", ".php5", ".phps", ".pht", ".phtml"],
-      year: 1995,
       releases: [
         { version: "8.3.13", name: "PHP 8.3.13", date: "2024-10-24" },
         { version: "8.2.25", name: "PHP 8.2.25", date: "2024-10-24" },
@@ -24,6 +23,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "PHP",
       extRedditPath: "PHP",
       extHomeURL: "https://www.php.net/",
+      created: "1995",
     })
     .addInfluencedBy(["pl+c", "pl+java"])
     .addParadigms([

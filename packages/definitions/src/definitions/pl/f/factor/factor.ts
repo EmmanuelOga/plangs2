@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Factor is a stack-oriented programming language created by Slava Pestov. It features dynamic types, extensible syntax, macros, and garbage collection. Factor supports a large standard library with cross-platform capabilities, providing a self-hosted optimizing compiler and an interactive development environment.",
       keywords: ["dynamic types", "factor", "stack-oriented"],
       extensions: [".factor"],
-      year: 2003,
       releases: [
         { version: "0.99", name: "Factor 0.99", date: "2023-08-24" },
         { version: "0.100", name: "Factor 0.100", date: "2024-11-05" },
@@ -23,6 +22,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Factor_(programming_language)",
       extRedditPath: "factor",
       extHomeURL: "http://factorcode.org/",
+      created: "2003",
     })
     .addInfluencedBy(["pl+forth", "pl+lisp", "pl+self"])
     .addLicenses(["license+bsd"])

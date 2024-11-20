@@ -8,7 +8,6 @@ export function define(g: PlangsGraph) {
         "Standard ML (SML) is a general-purpose, high-level, modular, functional programming language with compile-time type checking and type inference. It is popular for writing compilers, for programming language research, and for developing theorem provers.",
       keywords: ["SML", "Standard ML"],
       extensions: [".sig", ".sml"],
-      year: 1983,
       stackovTags: ["sml"],
       githubName: "Standard ML",
       languishRanking: 194,
@@ -20,6 +19,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Standard_ML",
       extRedditPath: "sml",
       extHomeURL: "https://smlfamily.github.io/",
+      created: "1983",
     })
     .addInfluencedBy(["pl+pascal"])
     .addLicenses(["license+bsd"])
