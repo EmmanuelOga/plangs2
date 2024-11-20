@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
     })
     .addLicenses(["license+gnu-gpl"])
     .addPlatforms(["plat+windows"])
-    .addTags(["tag+cli", "tag+interpreter"]);
+    .addTags(["tag+cli", "tag+interpreters"]);
 
   // TOOLS
 

@@ -46,17 +46,7 @@ export function define(g: PlangsGraph) {
       "paradigm+pipeline",
     ])
     .addPlatforms(["plat+cross", "plat+java", "plat+nodejs"])
-    .addTags([
-      "tag+app",
-      "tag+automation",
-      "tag+cli",
-      "tag+games",
-      "tag+industrial",
-      "tag+instrument_control",
-      "tag+interpreter",
-      "tag+scripting",
-      "tag+shell",
-    ])
+    .addTags(["tag+app", "tag+automation", "tag+cli", "tag+games", "tag+industrial", "tag+control", "tag+interpreters", "tag+scripting", "tag+shell"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+clojure", "pl+java"]);
 

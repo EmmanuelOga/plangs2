@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       "tag+audio-dev",
       "tag+cas",
       "tag+industrial",
-      "tag+interpreter",
+      "tag+interpreters",
       "tag+multimedia",
       "tag+numeric",
       "tag+sci",

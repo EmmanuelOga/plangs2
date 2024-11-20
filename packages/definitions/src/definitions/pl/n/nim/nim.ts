@@ -48,7 +48,7 @@ export function define(g: PlangsGraph) {
       "tag+edu",
       "tag+embedded",
       "tag+games",
-      "tag+interpreter",
+      "tag+interpreters",
       "tag+iot",
       "tag+ray-tracer",
       "tag+stats",

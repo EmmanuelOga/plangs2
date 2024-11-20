@@ -31,7 +31,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+multi"])
     .addPlatforms(["plat+apple", "plat+beam", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+compiler", "tag+framework", "tag+interpreter"])
+    .addTags(["tag+compiler", "tag+framework", "tag+interpreters"])
     .addTypeSystems(["tsys+inferred", "tsys+safe", "tsys+static"])
     .addWrittenIn(["pl+rust"]);
 

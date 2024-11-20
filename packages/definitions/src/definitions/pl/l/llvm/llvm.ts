@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+apache", "license+bsd"])
     .addParadigms(["paradigm+assembly", "paradigm+compiled", "paradigm+multi"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+analysis", "tag+asm", "tag+compiler", "tag+framework", "tag+interpreter", "tag+ray-tracer", "tag+shell", "tag+viz"])
+    .addTags(["tag+analysis", "tag+asm", "tag+compiler", "tag+framework", "tag+interpreters", "tag+ray-tracer", "tag+shell", "tag+viz"])
     .addWrittenIn(["pl+c++"]);
 
   // TOOLS

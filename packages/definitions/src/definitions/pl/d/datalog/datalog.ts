@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
     .addDialectOf(["pl+prolog"])
     .addInfluencedBy(["pl+prolog"])
     .addParadigms(["paradigm+declarative", "paradigm+logic"])
-    .addTags(["tag+analysis", "tag+app", "tag+dbms", "tag+industrial", "tag+interpreter", "tag+viz"])
+    .addTags(["tag+analysis", "tag+app", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+viz"])
     .addTypeSystems(["tsys+untyped", "tsys+weak"]);
 
   // TOOLS

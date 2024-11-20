@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       "tag+app",
       "tag+compiler",
       "tag+dbms",
-      "tag+interpreter",
+      "tag+interpreters",
       "tag+low-code",
       "tag+modeling",
       "tag+rad",

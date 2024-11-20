@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+datalog"])
     .addParadigms(["paradigm+data-driven", "paradigm+declarative", "paradigm+dsl", "paradigm+query"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+4gl", "tag+dbms", "tag+industrial", "tag+interpreter", "tag+multimedia", "tag+testing", "tag+video", "tag+viz", "tag+workflow"])
+    .addTags(["tag+4gl", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+multimedia", "tag+testing", "tag+video", "tag+viz", "tag+workflow"])
     .addTypeSystems(["tsys+static", "tsys+strong"]);
 
   // TOOLS

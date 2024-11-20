@@ -30,7 +30,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+functional"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+automation", "tag+compiler", "tag+industrial", "tag+instrument_control", "tag+interpreter", "tag+proofs"])
+    .addTags(["tag+automation", "tag+compiler", "tag+industrial", "tag+control", "tag+interpreters", "tag+proofs"])
     .addTypeSystems(["tsys+dependent", "tsys+inferred", "tsys+manifest", "tsys+nominal", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+haskell"]);
 

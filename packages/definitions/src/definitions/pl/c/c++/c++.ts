@@ -38,17 +38,7 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+ada", "pl+apl", "pl+c", "pl+f-sharp"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
-    .addTags([
-      "tag+app",
-      "tag+compiler",
-      "tag+dataq",
-      "tag+embedded",
-      "tag+games",
-      "tag+industrial",
-      "tag+instrument_control",
-      "tag+interpreter",
-      "tag+viz",
-    ])
+    .addTags(["tag+app", "tag+compiler", "tag+dataq", "tag+embedded", "tag+games", "tag+industrial", "tag+control", "tag+interpreters", "tag+viz"])
     .addTypeSystems(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c"]);
 

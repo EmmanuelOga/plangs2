@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+apache", "license+mit"])
     .addParadigms(["paradigm+educational", "paradigm+interpreted", "paradigm+oop", "paradigm+reflective"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+edu", "tag+games", "tag+interpreter", "tag+multimedia"])
+    .addTags(["tag+edu", "tag+games", "tag+interpreters", "tag+multimedia"])
     .addTypeSystems(["tsys+dynamic"]);
 
   // TOOLS

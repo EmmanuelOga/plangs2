@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+data-driven", "paradigm+procedural", "paradigm+scripting"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+dataflow", "tag+editor", "tag+interpreter", "tag+scripting", "tag+shell"])
+    .addTags(["tag+dataflow", "tag+editor", "tag+interpreters", "tag+scripting", "tag+shell"])
     .addTypeSystems(["tsys+dynamic", "tsys+untyped"]);
 
   // TOOLS

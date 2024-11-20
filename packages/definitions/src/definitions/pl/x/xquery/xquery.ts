@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+sql", "pl+xpath", "pl+xslt"])
     .addParadigms(["paradigm+data-exchange", "paradigm+declarative", "paradigm+dsl", "paradigm+functional", "paradigm+modular", "paradigm+query"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+analysis", "tag+app", "tag+dbms", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+viz"])
+    .addTags(["tag+analysis", "tag+app", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+viz"])
     .addTypeSystems(["tsys+dynamic", "tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS

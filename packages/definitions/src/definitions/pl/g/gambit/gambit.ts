@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+apache", "license+lgpl"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+metaprogramming", "paradigm+multi"])
     .addPlatforms(["plat+cross", "plat+x86-64"])
-    .addTags(["tag+compiler", "tag+interpreter"])
+    .addTags(["tag+compiler", "tag+interpreters"])
     .addTypeSystems(["tsys+dynamic", "tsys+latent", "tsys+strong"]);
 
   // TOOLS

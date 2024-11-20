@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+artistic"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+oop"])
     .addPlatforms(["plat+android", "plat+cross", "plat+java"])
-    .addTags(["tag+interpreter", "tag+numeric", "tag+sci", "tag+scripting"])
+    .addTags(["tag+interpreters", "tag+numeric", "tag+sci", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+java"]);
 

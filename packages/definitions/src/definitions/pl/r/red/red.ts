@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+boost", "license+bsd"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+symbolic"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
-    .addTags(["tag+app", "tag+asm", "tag+dataflow", "tag+flow", "tag+interpreter", "tag+ui"])
+    .addTags(["tag+app", "tag+asm", "tag+dataflow", "tag+flow", "tag+interpreters", "tag+ui"])
     .addTypeSystems(["tsys+dynamic", "tsys+weak"])
     .addWrittenIn(["pl+c", "pl+rebol"]);
 

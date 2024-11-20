@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+scratch"])
     .addParadigms(["paradigm+educational", "paradigm+event-driven", "paradigm+visual"])
     .addPlatforms(["plat+android", "plat+apple"])
-    .addTags(["tag+edu", "tag+interpreter", "tag+low-code"])
+    .addTags(["tag+edu", "tag+interpreters", "tag+low-code"])
     .addTypeSystems(["tsys+untyped"]);
 
   // TOOLS

@@ -23,7 +23,7 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+apl", "pl+c", "pl+c++", "pl+fortran", "pl+lisp", "pl+pascal", "pl+prolog"])
     .addParadigms(["paradigm+array", "paradigm+functional", "paradigm+multi", "paradigm+procedural", "paradigm+rewriting"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+audio-dev", "tag+cas", "tag+cli", "tag+games", "tag+interpreter", "tag+numeric", "tag+shell"])
+    .addTags(["tag+audio-dev", "tag+cas", "tag+cli", "tag+games", "tag+interpreters", "tag+numeric", "tag+shell"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS

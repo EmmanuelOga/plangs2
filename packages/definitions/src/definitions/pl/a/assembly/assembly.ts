@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
     })
     .addParadigms(["paradigm+imperative", "paradigm+macro", "paradigm+metaprogramming", "paradigm+structured"])
     .addPlatforms(["plat+apple", "plat+arm", "plat+cross", "plat+embedded", "plat+linux", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+asm", "tag+compiler", "tag+embedded", "tag+industrial", "tag+interpreter"])
+    .addTags(["tag+asm", "tag+compiler", "tag+embedded", "tag+industrial", "tag+interpreters"])
     .addTypeSystems(["tsys+untyped"]);
 
   // TOOLS

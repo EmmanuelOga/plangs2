@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+embedded", "paradigm+interpreted", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
     .addPlatforms(["plat+arduino", "plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry", "plat+riscv", "plat+windows"])
-    .addTags(["tag+app", "tag+embedded", "tag+interpreter", "tag+iot", "tag+scripting", "tag+testing"])
+    .addTags(["tag+app", "tag+embedded", "tag+interpreters", "tag+iot", "tag+scripting", "tag+testing"])
     .addTypeSystems(["tsys+duck", "tsys+dynamic"])
     .addWrittenIn(["pl+c"]);
 

@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+epl", "license+gnu-gpl", "license+lgpl"])
     .addParadigms(["paradigm+concurrent", "paradigm+oop", "paradigm+reflective", "paradigm+scripting"])
     .addPlatforms(["plat+cross", "plat+java"])
-    .addTags(["tag+compiler", "tag+framework", "tag+interpreter", "tag+scripting", "tag+shell"])
+    .addTags(["tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting", "tag+shell"])
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+java"]);
 

@@ -31,7 +31,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+artistic", "license+gnu-gpl"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+compiler", "tag+interpreter", "tag+scripting", "tag+testing"])
+    .addTags(["tag+compiler", "tag+interpreters", "tag+scripting", "tag+testing"])
     .addTypeSystems(["tsys+dynamic", "tsys+gradual"]);
 
   // TOOLS

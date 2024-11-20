@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
       "tag+dsp",
       "tag+flow",
       "tag+industrial",
-      "tag+interpreter",
+      "tag+interpreters",
       "tag+midi",
       "tag+modular",
       "tag+multimedia",

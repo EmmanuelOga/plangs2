@@ -49,7 +49,7 @@ export function define(g: PlangsGraph) {
       "tag+dsp",
       "tag+framework",
       "tag+industrial",
-      "tag+interpreter",
+      "tag+interpreters",
       "tag+modeling",
       "tag+multivar",
       "tag+numeric",

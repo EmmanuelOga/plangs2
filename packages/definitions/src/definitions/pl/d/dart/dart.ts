@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+reflective"])
     .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+riscv", "plat+web", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+app", "tag+cli", "tag+embedded", "tag+framework", "tag+interpreter", "tag+scripting", "tag+ui"])
+    .addTags(["tag+app", "tag+cli", "tag+embedded", "tag+framework", "tag+interpreters", "tag+scripting", "tag+ui"])
     .addTypeSystems(["tsys+dynamic", "tsys+inferred", "tsys+optional", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c++"]);
 

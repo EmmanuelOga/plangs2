@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
       "tag+flow",
       "tag+framework",
       "tag+industrial",
-      "tag+interpreter",
+      "tag+interpreters",
       "tag+scripting",
       "tag+server",
       "tag+ui",

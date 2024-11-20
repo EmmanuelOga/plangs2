@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
       "paradigm+multi",
     ])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+automation", "tag+interpreter", "tag+workflow"])
+    .addTags(["tag+automation", "tag+interpreters", "tag+workflow"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
 
   // TOOLS

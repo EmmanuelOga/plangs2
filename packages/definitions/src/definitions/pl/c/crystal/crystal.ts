@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+compiled", "paradigm+concurrent", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+apple", "plat+arm", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+compiler", "tag+interpreter", "tag+scripting"])
+    .addTags(["tag+compiler", "tag+interpreters", "tag+scripting"])
     .addTypeSystems(["tsys+duck", "tsys+inferred", "tsys+nominal", "tsys+static"])
     .addWrittenIn(["pl+c"]);
 

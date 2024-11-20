@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
       "tag+editor",
       "tag+embedded",
       "tag+industrial",
-      "tag+interpreter",
+      "tag+interpreters",
       "tag+iot",
       "tag+viz",
     ])

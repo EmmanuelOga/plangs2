@@ -31,7 +31,7 @@ export function define(g: PlangsGraph) {
       "paradigm+validation",
     ])
     .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+automation", "tag+interpreter", "tag+scripting"])
+    .addTags(["tag+automation", "tag+interpreters", "tag+scripting"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+python"]);
 

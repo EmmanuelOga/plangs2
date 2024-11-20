@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+lgpl"])
     .addParadigms(["paradigm+compiled", "paradigm+dsl", "paradigm+extensible", "paradigm+real-time"])
     .addPlatforms(["plat+android", "plat+cross", "plat+web"])
-    .addTags(["tag+audio-dev", "tag+dsp", "tag+industrial", "tag+interpreter", "tag+midi", "tag+testing"])
+    .addTags(["tag+audio-dev", "tag+dsp", "tag+industrial", "tag+interpreters", "tag+midi", "tag+testing"])
     .addTypeSystems(["tsys+strong"])
     .addWrittenIn(["pl+c"]);
 

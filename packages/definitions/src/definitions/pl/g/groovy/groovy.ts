@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+aspect", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
     .addPlatforms(["plat+java"])
-    .addTags(["tag+compiler", "tag+framework", "tag+interpreter", "tag+scripting", "tag+testing"])
+    .addTags(["tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting", "tag+testing"])
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+static", "tsys+strong"]);
 
   // TOOLS

@@ -25,7 +25,17 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+gnu-gpl", "license+lgpl"])
     .addParadigms(["paradigm+dsl", "paradigm+educational", "paradigm+multi", "paradigm+oop", "paradigm+visual"])
     .addPlatforms(["plat+cross", "plat+java"])
-    .addTags(["tag+app", "tag+edu", "tag+framework", "tag+games", "tag+industrial", "tag+interpreter", "tag+multimedia", "tag+ray-tracer", "tag+viz"])
+    .addTags([
+      "tag+app",
+      "tag+edu",
+      "tag+framework",
+      "tag+games",
+      "tag+industrial",
+      "tag+interpreters",
+      "tag+multimedia",
+      "tag+ray-tracer",
+      "tag+viz",
+    ])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+java"]);
 

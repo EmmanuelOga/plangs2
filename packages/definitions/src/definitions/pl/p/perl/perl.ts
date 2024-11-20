@@ -36,7 +36,7 @@ export function define(g: PlangsGraph) {
       "tag+framework",
       "tag+genomics",
       "tag+industrial",
-      "tag+interpreter",
+      "tag+interpreters",
       "tag+scripting",
       "tag+shell",
       "tag+viz",

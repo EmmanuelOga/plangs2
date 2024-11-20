@@ -112,20 +112,27 @@ export function regenNonPlangs() {
 }
 
 /** Cleanup relationships in data. All edges should point to an existing node. */
-export async function cleanupData(pg: PlangsGraph) {
+export async function cleanupData(pg: PlangsGraph, update: boolean) {
   for (const [e, edgeMap] of Object.entries(pg.edges)) {
+    const missingKeys = new Set<string>();
+
     for (const edge of edgeMap.values) {
-      if (!edge.nodeFrom || !edge.nodeTo) {
+      if (!edge.nodeFrom) missingKeys.add(edge.from);
+      if (!edge.nodeTo) missingKeys.add(edge.to);
+
+      if (update && (!edge.nodeFrom || !edge.nodeTo)) {
         console.log("Deleting edge with missing node:", e, edge.from, edge.to);
         // biome-ignore lint/suspicious/noExplicitAny: Necessary because of the way we are using Object.entries.
         edgeMap.delete(edge.from as any, edge.to as any);
       }
     }
+
+    if (missingKeys.size > 0) console.log("Edge type", e, "had missing keys:", [...missingKeys]);
   }
 
-  for (const pl of pg.nodes.pl.values) Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
+  if (update) for (const pl of pg.nodes.pl.values) Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
 }
 
 const pg = new PlangsGraph();
 await loadAllDefinitions(pg, { scanImages: false });
-await cleanupData(pg);
+await cleanupData(pg, false);

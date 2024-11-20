@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+apache", "license+artistic"])
     .addParadigms(["paradigm+logic", "paradigm+oop", "paradigm+prototype"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+analysis", "tag+compiler", "tag+framework", "tag+interpreter", "tag+viz"]);
+    .addTags(["tag+analysis", "tag+compiler", "tag+framework", "tag+interpreters", "tag+viz"]);
 
   // TOOLS
 

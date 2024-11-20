@@ -23,7 +23,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+multi", "paradigm+oop", "paradigm+scripting"])
     .addPlatforms(["plat+.net", "plat+cross"])
-    .addTags(["tag+app", "tag+compiler", "tag+games", "tag+interpreter", "tag+scripting"])
+    .addTags(["tag+app", "tag+compiler", "tag+games", "tag+interpreters", "tag+scripting"])
     .addTypeSystems(["tsys+duck", "tsys+inferred", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c-sharp"]);
 

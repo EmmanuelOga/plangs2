@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
     })
     .addParadigms(["paradigm+declarative", "paradigm+dsl", "paradigm+imperative", "paradigm+multi"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+industrial", "tag+interpreter", "tag+modeling", "tag+sci", "tag+stats"])
+    .addTags(["tag+industrial", "tag+interpreters", "tag+modeling", "tag+sci", "tag+stats"])
     .addTypeSystems(["tsys+untyped"]);
 
   // TOOLS

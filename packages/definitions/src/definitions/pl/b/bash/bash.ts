@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+gnu-gpl"])
     .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+scripting"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+embedded", "plat+linux", "plat+windows"])
-    .addTags(["tag+app", "tag+automation", "tag+cli", "tag+editor", "tag+interpreter", "tag+scripting", "tag+shell"])
+    .addTags(["tag+app", "tag+automation", "tag+cli", "tag+editor", "tag+interpreters", "tag+scripting", "tag+shell"])
     .addTypeSystems(["tsys+dynamic", "tsys+untyped"])
     .addWrittenIn(["pl+c"]);
 

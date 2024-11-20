@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
       "tag+flow",
       "tag+games",
       "tag+industrial",
-      "tag+interpreter",
+      "tag+interpreters",
       "tag+midi",
       "tag+multimedia",
       "tag+ray-tracer",

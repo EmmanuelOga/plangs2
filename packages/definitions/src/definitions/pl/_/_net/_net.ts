@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
     .addPlatforms(["plat+.net", "plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+app", "tag+cli", "tag+compiler", "tag+framework", "tag+interpreter", "tag+shell", "tag+ui"])
+    .addTags(["tag+app", "tag+cli", "tag+compiler", "tag+framework", "tag+interpreters", "tag+shell", "tag+ui"])
     .addTypeSystems(["tsys+nominal", "tsys+polymorphic", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c++", "pl+c-sharp"]);
 

@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
     })
     .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+structured"])
     .addPlatforms(["plat+bsd", "plat+cross", "plat+dos", "plat+linux", "plat+windows"])
-    .addTags(["tag+compiler", "tag+edu", "tag+framework", "tag+games", "tag+interpreter"])
+    .addTags(["tag+compiler", "tag+edu", "tag+framework", "tag+games", "tag+interpreters"])
     .addTypeSystems(["tsys+safe", "tsys+static", "tsys+strong"]);
 
   // TOOLS

@@ -30,7 +30,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+interpreted", "paradigm+scripting"])
     .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+analysis", "tag+compiler", "tag+framework", "tag+interpreter", "tag+testing"])
+    .addTags(["tag+analysis", "tag+compiler", "tag+framework", "tag+interpreters", "tag+testing"])
     .addTypeSystems(["tsys+duck", "tsys+dynamic"])
     .addWrittenIn(["pl+c", "pl+python"]);
 

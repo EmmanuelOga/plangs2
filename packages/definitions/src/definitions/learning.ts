@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       kinds: ["book", "course"],
       extHomeURL: "https://www.nand2tetris.org/",
     })
-    .addTags(["tag+hardware", "tag+electronics", "tag+embedded", "tag+languages"]);
+    .addTags(["tag+embedded", "tag+languages"]);
 
   g.nodes.learning
     .set("learning+nystrom-interpreters", {

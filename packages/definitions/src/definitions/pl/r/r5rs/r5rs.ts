@@ -17,7 +17,7 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+lisp"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+metaprogramming", "paradigm+multi"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+analysis", "tag+compiler", "tag+industrial", "tag+interpreter", "tag+scripting", "tag+testing"])
+    .addTags(["tag+analysis", "tag+compiler", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+testing"])
     .addTypeSystems(["tsys+dynamic", "tsys+latent", "tsys+strong"])
     .addWrittenIn(["pl+c"]);
 

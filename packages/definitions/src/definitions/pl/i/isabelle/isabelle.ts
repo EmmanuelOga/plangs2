@@ -28,16 +28,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+declarative", "paradigm+dsl", "paradigm+logic"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
-    .addTags([
-      "tag+automation",
-      "tag+framework",
-      "tag+industrial",
-      "tag+instrument_control",
-      "tag+interpreter",
-      "tag+modeling",
-      "tag+proofs",
-      "tag+wavelet",
-    ])
+    .addTags(["tag+automation", "tag+framework", "tag+industrial", "tag+control", "tag+interpreters", "tag+modeling", "tag+proofs", "tag+wavelet"])
     .addTypeSystems(["tsys+dependent", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+scala", "pl+standard-ml"]);
 

@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
     })
     .addParadigms(["paradigm+dsl", "paradigm+language-oriented", "paradigm+pattern-matching", "paradigm+rewriting"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+analysis", "tag+interpreter", "tag+workflow"])
+    .addTags(["tag+analysis", "tag+interpreters", "tag+workflow"])
     .addTypeSystems(["tsys+untyped"]);
 
   // TOOLS

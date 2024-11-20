@@ -31,7 +31,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+mit", "license+public-domain"])
     .addParadigms(["paradigm+functional", "paradigm+point-free", "paradigm+query", "paradigm+scripting"])
     .addPlatforms(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+cli", "tag+interpreter", "tag+shell", "tag+workflow"])
+    .addTags(["tag+cli", "tag+interpreters", "tag+shell", "tag+workflow"])
     .addWrittenIn(["pl+c"]);
 
   // TOOLS

@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+mit"])
     .addParadigms(["paradigm+declarative", "paradigm+esoteric", "paradigm+visual"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+audio-dev", "tag+interpreter", "tag+midi", "tag+modular", "tag+scripting"])
+    .addTags(["tag+audio-dev", "tag+interpreters", "tag+midi", "tag+modular", "tag+scripting"])
     .addTypeSystems(["tsys+untyped"]);
 
   // TOOLS

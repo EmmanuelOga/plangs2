@@ -30,7 +30,7 @@ export function define(g: PlangsGraph) {
       "paradigm+modular",
     ])
     .addPlatforms(["plat+cross", "plat+linux", "plat+x86-64"])
-    .addTags(["tag+audio-dev", "tag+compiler", "tag+interpreter", "tag+scripting", "tag+testing"])
+    .addTags(["tag+audio-dev", "tag+compiler", "tag+interpreters", "tag+scripting", "tag+testing"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS

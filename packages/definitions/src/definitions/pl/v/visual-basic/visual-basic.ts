@@ -42,7 +42,7 @@ export function define(g: PlangsGraph) {
       "tag+editor",
       "tag+framework",
       "tag+industrial",
-      "tag+interpreter",
+      "tag+interpreters",
       "tag+low-code",
       "tag+rad",
       "tag+shell",

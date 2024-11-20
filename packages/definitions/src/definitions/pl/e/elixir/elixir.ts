@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+apache"])
     .addParadigms(["paradigm+concurrent", "paradigm+distributed", "paradigm+functional", "paradigm+multi", "paradigm+process-oriented"])
     .addPlatforms(["plat+beam"])
-    .addTags(["tag+analysis", "tag+app", "tag+embedded", "tag+interpreter", "tag+multimedia", "tag+shell"])
+    .addTags(["tag+analysis", "tag+app", "tag+embedded", "tag+interpreters", "tag+multimedia", "tag+shell"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS

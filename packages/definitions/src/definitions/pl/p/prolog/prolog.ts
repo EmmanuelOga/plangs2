@@ -35,7 +35,7 @@ export function define(g: PlangsGraph) {
       "tag+dbms",
       "tag+framework",
       "tag+industrial",
-      "tag+interpreter",
+      "tag+interpreters",
       "tag+low-code",
       "tag+modeling",
       "tag+proofs",

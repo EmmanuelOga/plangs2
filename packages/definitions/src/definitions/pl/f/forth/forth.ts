@@ -34,7 +34,7 @@ export function define(g: PlangsGraph) {
       "tag+embedded",
       "tag+games",
       "tag+industrial",
-      "tag+interpreter",
+      "tag+interpreters",
       "tag+ray-tracer",
       "tag+shell",
       "tag+testing",

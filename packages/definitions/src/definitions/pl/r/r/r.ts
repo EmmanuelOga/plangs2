@@ -38,7 +38,7 @@ export function define(g: PlangsGraph) {
       "paradigm+reflective",
     ])
     .addPlatforms(["plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+analysis", "tag+cli", "tag+dataq", "tag+genomics", "tag+interpreter", "tag+multivar", "tag+scripting", "tag+stats", "tag+viz"])
+    .addTags(["tag+analysis", "tag+cli", "tag+dataq", "tag+genomics", "tag+interpreters", "tag+multivar", "tag+scripting", "tag+stats", "tag+viz"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"])
     .addWrittenIn(["pl+c", "pl+fortran"]);
 

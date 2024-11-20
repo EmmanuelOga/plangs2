@@ -34,7 +34,7 @@ export function define(g: PlangsGraph) {
       "tag+audio-dev",
       "tag+dbms",
       "tag+industrial",
-      "tag+interpreter",
+      "tag+interpreters",
       "tag+multimedia",
       "tag+ray-tracer",
       "tag+ui",

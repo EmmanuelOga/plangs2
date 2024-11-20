@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
     .addImplements(["pl+basic"])
     .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+structured"])
     .addPlatforms(["plat+apple", "plat+linux", "plat+raspberry", "plat+windows"])
-    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+editor", "tag+games", "tag+interpreter", "tag+ui"]);
+    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+editor", "tag+games", "tag+interpreters", "tag+ui"]);
 
   // TOOLS
 

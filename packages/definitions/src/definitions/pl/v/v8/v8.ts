@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
       "paradigm+procedural",
     ])
     .addPlatforms(["plat+arm", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+compiler", "tag+interpreter", "tag+scripting", "tag+server"])
+    .addTags(["tag+compiler", "tag+interpreters", "tag+scripting", "tag+server"])
     .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+weak"])
     .addWrittenIn(["pl+c++"]);
 

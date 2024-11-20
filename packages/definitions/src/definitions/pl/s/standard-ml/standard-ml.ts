@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi"])
     .addPlatforms(["plat+bsd", "plat+cross", "plat+linux"])
-    .addTags(["tag+app", "tag+compiler", "tag+edu", "tag+industrial", "tag+interpreter", "tag+proofs", "tag+ray-tracer"])
+    .addTags(["tag+app", "tag+compiler", "tag+edu", "tag+industrial", "tag+interpreters", "tag+proofs", "tag+ray-tracer"])
     .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+c"]);
 

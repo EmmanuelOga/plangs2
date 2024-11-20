@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
       "tag+compiler",
       "tag+dbms",
       "tag+industrial",
-      "tag+interpreter",
+      "tag+interpreters",
       "tag+proofs",
       "tag+scripting",
       "tag+server",

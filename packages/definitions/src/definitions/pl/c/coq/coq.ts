@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+lgpl"])
     .addParadigms(["paradigm+declarative", "paradigm+functional", "paradigm+logic"])
     .addPlatforms(["plat+cross"])
-    .addTags(["tag+interpreter", "tag+proofs"])
+    .addTags(["tag+interpreters", "tag+proofs"])
     .addTypeSystems(["tsys+dependent", "tsys+static", "tsys+strong"])
     .addWrittenIn(["pl+ocaml"]);
 

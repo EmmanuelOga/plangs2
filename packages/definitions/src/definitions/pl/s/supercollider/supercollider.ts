@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+gnu-gpl"])
     .addParadigms(["paradigm+concurrent", "paradigm+event-driven", "paradigm+functional", "paradigm+oop"])
     .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+app", "tag+audio-dev", "tag+dsp", "tag+framework", "tag+interpreter"])
+    .addTags(["tag+app", "tag+audio-dev", "tag+dsp", "tag+framework", "tag+interpreters"])
     .addTypeSystems(["tsys+dynamic"])
     .addWrittenIn(["pl+c++"]);
 

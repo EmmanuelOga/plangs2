@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
       "tag+compiler",
       "tag+games",
       "tag+industrial",
-      "tag+interpreter",
+      "tag+interpreters",
       "tag+numeric",
       "tag+sci",
       "tag+ui",

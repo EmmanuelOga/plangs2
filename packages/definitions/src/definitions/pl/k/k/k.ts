@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
     .addInfluencedBy(["pl+apl", "pl+scheme"])
     .addParadigms(["paradigm+array", "paradigm+functional"])
     .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+analysis", "tag+app", "tag+dbms", "tag+interpreter"])
+    .addTags(["tag+analysis", "tag+app", "tag+dbms", "tag+interpreters"])
     .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS

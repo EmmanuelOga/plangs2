@@ -40,7 +40,7 @@ export function define(g: PlangsGraph) {
       "paradigm+scripting",
     ])
     .addPlatforms(["plat+cross", "plat+x86-64"])
-    .addTags(["tag+interpreter", "tag+scripting"])
+    .addTags(["tag+interpreters", "tag+scripting"])
     .addTypeSystems(["tsys+duck", "tsys+dynamic"])
     .addWrittenIn(["pl+python"]);
 

@@ -9,8 +9,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://bembem.page/",
       links: [{ title: "Discord", url: "https://discord.gg/MRrkpywtKR" }],
     })
-    .addPlangs(["pl+c", "pl+python", "pl+javascript", "pl+csharp", "pl+typescript", "pl+go"])
-    .addTags(["tag+games", "tag+webdev", "tag+devtools", "tag+multimedia"]);
+    .addPlangs(["pl+c", "pl+python", "pl+javascript", "pl+c-sharp", "pl+typescript", "pl+go"])
+    .addTags(["tag+games", "tag+webdev", "tag+multimedia"]);
 
   g.nodes.community
     .set("community+threejsjourney", {
@@ -37,7 +37,7 @@ export function define(g: PlangsGraph) {
       ],
     })
     .addPlangs(["pl+rust", "pl+c3"])
-    .addTags(["tag+compiler", "tag+interpreter", "tag+languages"]);
+    .addTags(["tag+compiler", "tag+interpreters", "tag+languages"]);
 
   g.nodes.community
     .set("community+prefix.dev", {

@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
     .addLicenses(["license+bsd"])
     .addParadigms(["paradigm+functional", "paradigm+imperative"])
     .addPlatforms(["plat+cross", "plat+java"])
-    .addTags(["tag+compiler", "tag+interpreter", "tag+sci"])
+    .addTags(["tag+compiler", "tag+interpreters", "tag+sci"])
     .addTypeSystems(["tsys+flow", "tsys+safe", "tsys+strong", "tsys+structural"]);
 
   // TOOLS
