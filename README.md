@@ -41,7 +41,7 @@ This simplistic build process just outputs the statically generated contents of 
 
 ## TODO
 
-### Facets for Tools, Apps, Libs Facets
+### Facets for Tools, Apps and Libs
 
 * General (name, GH stars, created & released recently)
 * Platforms

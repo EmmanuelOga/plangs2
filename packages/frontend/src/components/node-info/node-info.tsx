@@ -1,3 +1,4 @@
+import { ret } from "@plangs/auxiliar/misc";
 import { BORDER, tw } from "@plangs/frontend/auxiliar/styles";
 import type { NPlang } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/components/layout";
@@ -32,8 +33,8 @@ export function NodeInfo({ node: pl, open, tab }: NodeInfoProps) {
         <>
           <span class={tw(forGrid ? "dash mx-2 inline-block sm:hidden" : "hidden")}>&#8212;</span>
           <div class={tw(forGrid && "hidden sm:block")}>
-            {pl.year && <Pill children={`Appeared ${pl.year}`} />}
-            {pl.lastRelease && <Pill children={`Last Rel ${pl.lastRelease.date ?? pl.lastRelease.version}`} />}
+            {pl.created.value && <Pill children={`Appeared ${pl.created.year}`} />}
+            {ret(pl.releases.last, rel => rel && <Pill children={`Last Rel ${rel.date ?? rel.version}`} />)}
             {pl.isTranspiler && <Pill children="Transpiler" />}
             {pl.isPopular && <Pill children="Popular" />}
           </div>

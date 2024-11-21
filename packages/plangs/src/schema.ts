@@ -41,6 +41,8 @@ export interface CommonNodeData {
   name: string;
   /* Description of the node. */
   description: string;
+  /** Date this first appeared. */
+  created: StrDate;
   /** Keywords can be used to match against text content. */
   keywords: string[];
   /** Homepage URL of the node, if any. */
@@ -51,22 +53,32 @@ export interface CommonNodeData {
   links: Link[];
 }
 
+/** For anything that can be backed by a Github repository, we want at minimum the "path" and maybe star count. */
+export type GithubRepo = {
+  /** Github Stars, if any. */
+  githubStars?: number;
+  /** Github Path: this should be user/repo or org/repo, such that we can access it at `https://github.com/${path}` */
+  extGithubPath?: string;
+  /** Date of creation. */
+  ghRepoCreated?: StrDate;
+  /** Some important releases. For instance: the latest for each major version. */
+  releases: Release[];
+};
+
 /**
  * Programming language data. Composing various other types helps when converting
- * the types to JSONSchemas of only parts of the schemas.
+ * the types to JSONSchemas: we can pick and choose groups of fields we want to include.
  */
-export type NPlangData = CommonNodeData & NPlangBaseData & NPlangRelData;
+export type NPlangData = CommonNodeData & NPlangBaseData & NPlangRelData & GithubRepo;
 
 export type NPlangBaseData = {
   /** File Extensions, including the dot. Example: [".pas", ".tpu"]. */
   extensions: string[];
   /** File names are names that are associated with an specific language. Example: ['Makefile']. */
   filenames: string[];
-  /** Date the language first appeared. */
-  created: StrDate;
   /** Can this particular implementation compile source-code to source-code? */
   isTranspiler: boolean;
-  /** A list of note worthy releases, not all of them. For instance, noteworthy release could be the latest for each major version. */
+  /** Some important releases. For instance: the latest for each major version. */
   releases: Release[];
 };
 
@@ -95,9 +107,6 @@ export type NPlangRelData = {
 
   /** Language Type, according to Github's linguist. */
   githubType?: string;
-
-  /** Github Path: this should be user/repo or org/repo, such that we can access it at `https://github.com/${path}` */
-  extGithubPath?: string;
 
   /** Reddit Path: this should be reddit page path, such that we can access it at `https://reddit.com/r/${path}` */
   extRedditPath?: string;
@@ -136,6 +145,15 @@ export type NLearningData = CommonNodeData & {
   /** Kinds of the learning resource. */
   kinds: LearningKind[];
 };
+
+/** Software Application data. */
+export type NAppData = CommonNodeData & GithubRepo;
+
+/** Library data, same as NAppData for now. */
+export type NLibraryData = NAppData;
+
+/** Tool data, same as NAppData for now. */
+export type NToolData = NAppData;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Nodes can use CommonEdgeData directly or extend it with more data.
@@ -187,13 +205,11 @@ export interface Image {
   height?: number;
 }
 
-/**
- * A serializable date string.
- */
 export type year = number;
 export type month = string; // 0 padded
 export type day = string; // 0 padded
-/** A 0-padded YYYY-MM-DD date. Example: 2024-01-01. */
+
+/** A 0-padded YYYY-MM-DD date. Example: 2024-12-31. */
 export type StrDate = `${year}-${month}-${day}` | `${year}-${month}` | `${year}`;
 
 ////////////////////////////////////////////////////////////////////////////////

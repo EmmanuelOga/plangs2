@@ -6,21 +6,25 @@ import type { AnyValue } from "@plangs/auxiliar/value";
 
 import { type PlangFacetKey, plangMatches } from "./facets/plangs";
 
+import { FieldGithub, FieldReleases, FieldStrDate } from "./auxiliar/data";
 import type {
   CommonEdgeData,
   CommonNodeData,
   E,
+  GithubRepo,
   Image,
   Link,
   N,
+  NAppData,
   NLearningData,
+  NLibraryData,
   NLicenseData,
   NPlangData,
   NPostData,
+  NToolData,
   Release,
   StrDate,
 } from "./schema";
-import { getStrDateYear } from "./util";
 export type { E, N } from "./schema";
 
 /** Alias for better readability. */
@@ -134,6 +138,25 @@ export abstract class NBase<Prefix extends N, Data extends CommonNodeData> exten
   }
 }
 
+/** An app Node, for any sort of application. */
+export class NApp extends NBase<"app", NAppData> {
+  static readonly kind: N = "app";
+  override kind = NApp.kind;
+
+  get created(): FieldStrDate<"created"> {
+    return new FieldStrDate("created", this);
+  }
+
+  get github(): FieldGithub {
+    return new FieldGithub(this);
+  }
+
+  addPlangs(others: NPlang["key"][]): this {
+    for (const other of others) this.graph.edges.app.connect(other, this.key);
+    return this;
+  }
+}
+
 /** A programming language Node. */
 export class NPlang extends NBase<"pl", NPlangData> {
   static readonly kind: N = "pl";
@@ -161,30 +184,20 @@ export class NPlang extends NBase<"pl", NPlangData> {
     return this.data.isTranspiler === true;
   }
 
-  get releases(): IterTap<Release> {
-    return new IterTap(this.data.releases);
-  }
-
-  get lastRelease(): Release | undefined {
-    const rel = this.releases.sort((r1, r2) => r2.date?.localeCompare(r1.date ?? "") ?? 0);
-    if (rel.length === 0) return undefined;
-    return rel[0];
-  }
-
-  get lastReleaseYear(): number | undefined {
-    return getStrDateYear(this.lastRelease?.date);
-  }
-
-  get year(): number | undefined {
-    return this.data.year;
+  get releases(): FieldReleases {
+    return new FieldReleases(this);
   }
 
   get urlRepository(): string | undefined {
     return this.data.extRepositoryURL;
   }
 
-  get urlGithub(): string | undefined {
-    return this.data.extGithubPath ? `https://github.com/${this.data.extGithubPath}` : undefined;
+  get created(): FieldStrDate<"created"> {
+    return new FieldStrDate("created", this);
+  }
+
+  get github(): FieldGithub {
+    return new FieldGithub(this);
   }
 
   get urlWikipedia(): string | undefined {
@@ -201,17 +214,6 @@ export class NPlang extends NBase<"pl", NPlangData> {
 
   get stackovTags(): IterTap<string> {
     return new IterTap(this.data.stackovTags);
-  }
-
-  releasedRecently(minYear: number): boolean {
-    const relYear = this.lastReleaseYear;
-    if (!relYear) return false;
-    return relYear >= minYear;
-  }
-
-  createdRecently(minYear: number): boolean {
-    if (!this.year) return false;
-    return this.year >= minYear;
   }
 
   addApps(others: NApp["key"][]): this {
@@ -428,9 +430,17 @@ export class NLearning extends NBase<"learning", NLearningData> {
 }
 
 /** A library Node, for software libraries or frameworks, like jQuery, Rails, etc. */
-export class NLibrary extends NBase<"lib", CommonNodeData> {
+export class NLibrary extends NBase<"lib", CommonNodeData & GithubRepo> {
   static readonly kind: N = "lib";
   override kind = NLibrary.kind;
+
+  get created(): FieldStrDate<"created"> {
+    return new FieldStrDate("created", this);
+  }
+
+  get github(): FieldGithub {
+    return new FieldGithub(this);
+  }
 
   addPlangs(others: NPlang["key"][]): this {
     for (const other of others) this.graph.edges.lib.connect(other, this.key);
@@ -475,9 +485,17 @@ export class NTag extends NBase<"tag", CommonNodeData> {
 }
 
 /** A tool Node, e.g., Version Manager, Linter, Formatter,  etc. */
-export class NTool extends NBase<"tool", CommonNodeData> {
+export class NTool extends NBase<"tool", CommonNodeData & GithubRepo> {
   static readonly kind: N = "tool";
   override kind = NTool.kind;
+
+  get created(): FieldStrDate<"created"> {
+    return new FieldStrDate("created", this);
+  }
+
+  get github(): FieldGithub {
+    return new FieldGithub(this);
+  }
 
   addPlangs(others: NPlang["key"][]): this {
     for (const other of others) this.graph.edges.tool.connect(other, this.key);
@@ -489,17 +507,6 @@ export class NTool extends NBase<"tool", CommonNodeData> {
 export class NTsys extends NBase<"tsys", CommonNodeData> {
   static readonly kind: N = "tsys";
   override kind = NTsys.kind;
-}
-
-/** An app Node, for any sort of application. */
-export class NApp extends NBase<"app", CommonNodeData> {
-  static readonly kind: N = "app";
-  override kind = NApp.kind;
-
-  addPlangs(others: NPlang["key"][]): this {
-    for (const other of others) this.graph.edges.app.connect(other, this.key);
-    return this;
-  }
 }
 
 /** Bundle of tools. */
@@ -668,7 +675,7 @@ export class EPost extends EBase<NPlang, NPost, CommonEdgeData> {
 }
 
 // biome-ignore format: keep it concise.
-export class ELib extends EBase<NPlang, NLibrary, CommonEdgeData> {
+export class ELib extends EBase<NPlang, NLibrary, NLibraryData> {
   override kind: E = "lib";
   get nodeFrom(): NPlang | undefined { return this.graph.nodes.pl.get(this.from); }
   get nodeTo(): NLibrary | undefined { return this.graph.nodes.lib.get(this.to); }
@@ -682,7 +689,7 @@ export class ETag extends EBase<NPlang, NTag, CommonEdgeData> {
 }
 
 // biome-ignore format: keep it concise.
-export class ETool extends EBase<NPlang, NTool, CommonEdgeData> {
+export class ETool extends EBase<NPlang, NTool, NToolData> {
   override kind: E = "tool";
   get nodeFrom(): NPlang | undefined { return this.graph.nodes.pl.get(this.from); }
   get nodeTo(): NTool | undefined { return this.graph.nodes.tool.get(this.to); }

@@ -1,11 +1,11 @@
 import type { Ref } from "preact";
 import { useContext, useEffect, useRef } from "preact/hooks";
 
+import { ret } from "@plangs/auxiliar/misc";
 import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { on } from "@plangs/frontend/auxiliar/events";
 import { BORDER, HOVER, tw } from "@plangs/frontend/auxiliar/styles";
-import { tap } from "@plangs/frontend/auxiliar/utils";
 import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/facets-main";
 import { FacetsMainContext } from "@plangs/frontend/components/facets/main/facets-main";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
@@ -64,7 +64,7 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
       </div>
 
       {state.entries.map(entry =>
-        tap(
+        ret(
           onClickOnEnter(() => state.doToggle(entry.value)),
           clickOrEnter => (
             <div key={entry.value} class={tw(ROW, HOVER, state.value.has(entry.value) && "bg-primary/20")} {...clickOrEnter}>

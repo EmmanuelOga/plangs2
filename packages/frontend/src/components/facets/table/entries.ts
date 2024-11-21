@@ -2,6 +2,7 @@ import type { JSX } from "preact/jsx-runtime";
 
 import { SORT_DOWN, SORT_UP } from "@plangs/frontend/auxiliar/icons";
 import type { E, N, PlangsGraph } from "@plangs/plangs";
+import type { StrDate } from "@plangs/plangs/schema";
 
 export type Val = string | number | boolean;
 export type Entry = { value: Val; label: string; count: number };
@@ -27,10 +28,10 @@ export function generateEntries(pg: PlangsGraph, config: FacetTableConfig): Entr
   }
 
   if (config.kind === "year") {
-    const years: Map<number, number> = new Map(); // year -> count
-    for (const { year } of pg.nodes.pl.values) {
-      if (!year) continue;
-      years.set(year, (years.get(year) ?? 0) + 1);
+    const years: Map<StrDate, number> = new Map(); // year -> count
+    for (const { created } of pg.nodes.pl.values) {
+      if (!created.value) continue;
+      years.set(created.value, (years.get(created.value) ?? 0) + 1);
     }
     return [...years.entries()].map(([year, count]) => {
       const strYear = `${year}`;

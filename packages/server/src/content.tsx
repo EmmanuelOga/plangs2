@@ -8,8 +8,8 @@ import render from "preact-render-to-string/jsx";
 import YAML from "yaml";
 
 import type { NPlang, NPost, PlangsGraph } from "@plangs/plangs";
+import { parseDate } from "@plangs/plangs/auxiliar/str_date";
 import type { StrDate } from "@plangs/plangs/schema";
-import { parseDate } from "@plangs/plangs/util";
 
 import { ZERO_WIDTH } from "./utils/server";
 
@@ -27,7 +27,7 @@ const YAML_KEYS = new Set(["title", "author", "pls", "hideDate"]);
 
 /** {@param path} relative to the content/ folder (ex: "about.md"). */
 export async function loadContent(path: string, pg: PlangsGraph): Promise<Content> {
-  const date = parseDate(basename(path));
+  const date = parseDate(basename(path.slice(0, 10)));
   if (!date) throw new Error(`Post ${path} is missing a date in the filename.`);
 
   const src = await Bun.file(join(import.meta.dir, "../content", path)).text();

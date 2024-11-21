@@ -1,7 +1,7 @@
 import { expect, test } from "bun:test";
 
 import { Filter } from "@plangs/auxiliar/filters";
-import { type AnyValue, ValBool, ValNumber, ValRegExp } from "@plangs/auxiliar/value";
+import { type AnyValue, ValBool, ValNumber, ValRegExp, ValString } from "@plangs/auxiliar/value";
 import { type NLicense, type NParadigm, type NPlang, type NPlatform, type NTag, type NTsys, PlangsGraph } from "@plangs/plangs";
 
 import { PLANG_FACET_PREDICATES, type PlangFacetKey, plangMatches } from "./plangs";
@@ -26,37 +26,37 @@ test("compilesTo", () => {
 
 test("createdRecently", () => {
   const pg = new PlangsGraph();
-  const pl = pg.nodes.pl.set("pl+myplang", { year: 2020 });
+  const pl = pg.nodes.pl.set("pl+myplang", { created: "2020" });
   const { createdRecently: check } = PLANG_FACET_PREDICATES;
 
-  expect(check(pl, new ValNumber(2019))).toBeTrue();
-  expect(check(pl, new ValNumber(2020))).toBeTrue();
-  expect(check(pl, new ValNumber(2021))).toBeFalse();
-  expect(check(pl, new ValNumber(2022))).toBeFalse();
+  expect(check(pl, new ValString("2019"))).toBeTrue();
+  expect(check(pl, new ValString("2020"))).toBeTrue();
+  expect(check(pl, new ValString("2021"))).toBeFalse();
+  expect(check(pl, new ValString("2022"))).toBeFalse();
 });
 
 test("creationYear", () => {
   const pg = new PlangsGraph();
-  const pl = pg.nodes.pl.set("pl+myplang", { year: 2020 });
+  const pl = pg.nodes.pl.set("pl+myplang", { created: "2020" });
   const { creationYear: check } = PLANG_FACET_PREDICATES;
 
-  expect(check(pl, new Filter<number>("all").add(2019))).toBeFalse();
-  expect(check(pl, new Filter<number>("all").add(2020))).toBeTrue();
-  expect(check(pl, new Filter<number>("all").add(2021))).toBeFalse();
-  expect(check(pl, new Filter<number>("all").add(2022))).toBeFalse();
-  expect(check(pl, new Filter<number>("any").add(2019))).toBeFalse();
-  expect(check(pl, new Filter<number>("any").add(2020))).toBeTrue();
-  expect(check(pl, new Filter<number>("any").add(2021))).toBeFalse();
-  expect(check(pl, new Filter<number>("any").add(2022))).toBeFalse();
+  expect(check(pl, new Filter<string>("all").add("2019"))).toBeFalse();
+  expect(check(pl, new Filter<string>("all").add("2020"))).toBeTrue();
+  expect(check(pl, new Filter<string>("all").add("2021"))).toBeFalse();
+  expect(check(pl, new Filter<string>("all").add("2022"))).toBeFalse();
+  expect(check(pl, new Filter<string>("any").add("2019"))).toBeFalse();
+  expect(check(pl, new Filter<string>("any").add("2020"))).toBeTrue();
+  expect(check(pl, new Filter<string>("any").add("2021"))).toBeFalse();
+  expect(check(pl, new Filter<string>("any").add("2022"))).toBeFalse();
 
-  expect(check(pl, new Filter<number>("all").add(2019).add(2020))).toBeFalse();
-  expect(check(pl, new Filter<number>("all").add(2020).add(2021))).toBeFalse();
-  expect(check(pl, new Filter<number>("all").add(2021).add(2022))).toBeFalse();
-  expect(check(pl, new Filter<number>("all").add(2022).add(2023))).toBeFalse();
-  expect(check(pl, new Filter<number>("any").add(2019).add(2020))).toBeTrue();
-  expect(check(pl, new Filter<number>("any").add(2020).add(2021))).toBeTrue();
-  expect(check(pl, new Filter<number>("any").add(2021).add(2022))).toBeFalse();
-  expect(check(pl, new Filter<number>("any").add(2022).add(2023))).toBeFalse();
+  expect(check(pl, new Filter<string>("all").add("2019").add("2020"))).toBeFalse();
+  expect(check(pl, new Filter<string>("all").add("2020").add("2021"))).toBeFalse();
+  expect(check(pl, new Filter<string>("all").add("2021").add("2022"))).toBeFalse();
+  expect(check(pl, new Filter<string>("all").add("2022").add("2023"))).toBeFalse();
+  expect(check(pl, new Filter<string>("any").add("2019").add("2020"))).toBeTrue();
+  expect(check(pl, new Filter<string>("any").add("2020").add("2021"))).toBeTrue();
+  expect(check(pl, new Filter<string>("any").add("2021").add("2022"))).toBeFalse();
+  expect(check(pl, new Filter<string>("any").add("2022").add("2023"))).toBeFalse();
 });
 
 test("dialectOf", () => {
@@ -267,10 +267,10 @@ test("releasedRecently", () => {
   const pl = pg.nodes.pl.set("pl+myplang").addReleases([{ date: "2020-01-01", version: "1.0" }]);
   const { releasedRecently: check } = PLANG_FACET_PREDICATES;
 
-  expect(check(pl, new ValNumber(2019))).toBeTrue();
-  expect(check(pl, new ValNumber(2020))).toBeTrue();
-  expect(check(pl, new ValNumber(2021))).toBeFalse();
-  expect(check(pl, new ValNumber(2022))).toBeFalse();
+  expect(check(pl, new ValString("2019"))).toBeTrue();
+  expect(check(pl, new ValString("2020"))).toBeTrue();
+  expect(check(pl, new ValString("2021"))).toBeFalse();
+  expect(check(pl, new ValString("2022"))).toBeFalse();
 });
 
 test("tags", () => {

@@ -4,8 +4,8 @@ import type { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import { loadAllDefinitions } from "@plangs/definitions";
 import { plangCodeGen, tsNodePath } from "@plangs/languist/codegen";
 import { type NPlang, PlangsGraph } from "@plangs/plangs";
-import type { CommonNodeData, N, NPlangAI, NPlangBaseData } from "@plangs/plangs/schema";
-import NPlangAISchema from "@plangs/plangs/schemas/NPlangAI.json";
+import NPlangAISchema from "@plangs/plangs/json/NPlangAI.json";
+import type { CommonNodeData, N, NPlangAI, NPlangData } from "@plangs/plangs/schema";
 import { retrieveWebsites } from "./crawl";
 import { plangFromAI } from "./fromAI";
 
@@ -13,11 +13,11 @@ type OpenAIMsg = ChatCompletionMessageParam;
 
 async function plangPrompt(pg: PlangsGraph, pl: NPlang, examplePl: NPlang): Promise<OpenAIMsg[]> {
   const { name, description, keywords }: Partial<CommonNodeData> = pl.data;
-  const { extensions, filenames, year, isTranspiler, releases }: Partial<NPlangBaseData> = pl.data;
+  const { extensions, filenames, created, isTranspiler, releases }: Partial<NPlangData> = pl.data;
 
   const example: NPlangAI = {
     commonData: { name, description, keywords } as CommonNodeData,
-    basicPlangData: { extensions, filenames, year, isTranspiler, releases } as NPlangBaseData,
+    basicPlangData: { extensions, filenames, created, isTranspiler, releases } as NPlangData,
     compilesTo: pl.relCompilesTo.keys.existing,
     dialectOf: pl.relDialectOf.keys.existing,
     implements: pl.relImplements.keys.existing,
@@ -34,7 +34,7 @@ async function plangPrompt(pg: PlangsGraph, pl: NPlang, examplePl: NPlang): Prom
   const externalLinks: string[] = [];
 
   if (pl.urlHome) externalLinks.push(pl.urlHome);
-  if (pl.urlGithub) externalLinks.push(pl.urlGithub);
+  if (pl.github.url) externalLinks.push(pl.github.url);
   if (pl.urlRepository) externalLinks.push(pl.urlRepository);
   if (pl.urlWikipedia) externalLinks.push(pl.urlWikipedia);
 
