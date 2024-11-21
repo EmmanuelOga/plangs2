@@ -33,7 +33,7 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
   const data: NPlang["data"] = {
     name: page.title,
     description: page.description,
-    year: page.infobox.year,
+    created: page.infobox.year ? `${page.infobox.year}` : undefined,
     extensions: page.infobox.extensions.sort(),
     releases: page.infobox.releases.sort(),
   };
