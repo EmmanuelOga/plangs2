@@ -68,10 +68,20 @@ async function generatePages(dstRoot: string) {
   }
 }
 
+async function generateJSON(dstRoot: string) {
+  const pg = new PlangsGraph();
+  await loadAllDefinitions(pg, { scanImages: false });
+  Bun.write(join(dstRoot, "plangs.json"), JSON.stringify(pg));
+}
+
 if (process.argv[2] === "generate") {
   const dstRoot = process.argv[3];
   console.log("Generating to", dstRoot);
   await generatePages(dstRoot);
+} else if (process.argv[2] === "json") {
+  const dstRoot = process.argv[3];
+  console.log("Generating to", dstRoot);
+  await generateJSON(dstRoot);
 } else {
   console.log("Usage: cmd generate dst-root-path");
 }
