@@ -15,8 +15,8 @@ const MAIN_TYPE = "NPlangAI";
 async function generateJsonSchemas() {
   const program = TJS.getProgramFromFiles(
     [join(import.meta.dir, "schema.ts")],
-    JSON.parse(await Bun.file(join(import.meta.dir, "../tsconfig.json")).text()),
-    join(import.meta.dir, ".."),
+    JSON.parse(await Bun.file(join(import.meta.dir, "../../tsconfig.json")).text()),
+    join(import.meta.dir, "../.."),
   );
 
   // ignoreErrors: if we don't TJS will fail for any error, even in the std Bun types.

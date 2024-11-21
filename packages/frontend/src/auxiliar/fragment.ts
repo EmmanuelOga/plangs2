@@ -1,6 +1,8 @@
 import { RISON } from "rison2";
+
+import { isEmpty } from "@plangs/auxiliar/misc";
+
 import { on } from "./events";
-import { isEmpty } from "./utils";
 
 // Bun loads this code so we need to define a valid window (even if it is not defined).
 const win = (typeof window === "undefined" ? undefined : window) as Window;

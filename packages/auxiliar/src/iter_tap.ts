@@ -44,12 +44,20 @@ export class IterTap<T> implements Iterable<T> {
     if (this.array && this.array.length > 0) return callback(this.array);
   }
 
+  get(index: number): T | undefined {
+    return this.array ? this.array[index] : undefined;
+  }
+
   get isEmpty(): boolean {
     return this.array ? this.array.length === 0 : true;
   }
 
   get size(): number {
     return this.array ? this.array.length : 0;
+  }
+
+  get length(): number {
+    return this.size;
   }
 
   /** Return all non-null and non-undefined values (if strings, returns the ones with length > 0). */

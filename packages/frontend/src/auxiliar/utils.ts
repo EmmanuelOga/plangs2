@@ -1,6 +1,6 @@
 import { h } from "preact";
 
-import { caller } from "@plangs/plangs/util";
+import { caller } from "@plangs/auxiliar/caller";
 
 export const script = (src: string) => rawTag("script", src);
 export const style = (src: string) => rawTag("style", src);
@@ -17,9 +17,6 @@ export function debounce<T extends AnyFunc>(callback: T, millies: number): (...a
   };
 }
 
-/** Tap aka "Thrush combinator" aka "T combinator". */
-export const tap = <T, R>(item: T, action: (item: T) => R): R => action(item);
-
 /** Return callers of a function for debbuging. */
 export function callers(): string {
   const lines = caller({
@@ -29,13 +26,4 @@ export function callers(): string {
 
   // JSON is more readable for this use case.
   return JSON.stringify(lines, null, 2);
-}
-
-// https://stackoverflow.com/a/32108184
-// biome-ignore lint/suspicious/noExplicitAny: checks if _any_ object is empty.
-export function isEmpty(obj: any) {
-  for (const prop in obj) {
-    if (Object.hasOwn(obj, prop)) return false;
-  }
-  return true;
 }
