@@ -151,6 +151,10 @@ export class NApp extends NBase<"app", NAppData> {
     return new FieldGithub(this);
   }
 
+  get releases(): FieldReleases {
+    return new FieldReleases(this);
+  }
+
   addPlangs(others: NPlang["key"][]): this {
     for (const other of others) this.graph.edges.app.connect(other, this.key);
     return this;
@@ -442,6 +446,10 @@ export class NLibrary extends NBase<"lib", CommonNodeData & GithubRepo> {
     return new FieldGithub(this);
   }
 
+  get releases(): FieldReleases {
+    return new FieldReleases(this);
+  }
+
   addPlangs(others: NPlang["key"][]): this {
     for (const other of others) this.graph.edges.lib.connect(other, this.key);
     return this;
@@ -495,6 +503,10 @@ export class NTool extends NBase<"tool", CommonNodeData & GithubRepo> {
 
   get github(): FieldGithub {
     return new FieldGithub(this);
+  }
+
+  get releases(): FieldReleases {
+    return new FieldReleases(this);
   }
 
   addPlangs(others: NPlang["key"][]): this {

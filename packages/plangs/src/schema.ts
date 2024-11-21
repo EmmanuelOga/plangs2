@@ -9,7 +9,11 @@ export type N = "app" | "bundle" | "community" | "learning" | "lib" | "license" 
 
 /** Name of all edges. */
 export type E =
-  | "app"
+  | "app" // pl to app
+  // | "appLic"
+  // | "appPlat"
+  // | "appTag"
+  // | "appWrittenIn"
   | "bundle"
   | "commPl"
   | "commTag"
@@ -20,14 +24,22 @@ export type E =
   | "learningComm"
   | "learningPl"
   | "learningTag"
-  | "lib"
+  | "lib" // pl to lib
+  // | "libLic"
+  // | "libPlat"
+  // | "libTag"
+  // | "libWrittenIn"
   | "license"
   | "paradigm"
   | "plBundle"
   | "plat"
   | "post"
   | "tag"
-  | "tool"
+  | "tool" // pl to tool
+  // | "toolLic"
+  // | "toolPlat"
+  // | "toolTag"
+  // | "toolWrittenIn"
   | "tsys"
   | "writtenIn";
 

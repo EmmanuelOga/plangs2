@@ -11,7 +11,7 @@ type Pred<T extends Value<AnyValue>> = (pl: NPlang, value: T) => boolean;
  */
 export const PLANG_FACET_PREDICATES = {
   compilesTo: (({ relCompilesTo }, flt) => flt.matches(key => relCompilesTo.has(key))) as Pred<Filter<NPlang["key"]>>,
-  createdRecently: ((pl, year) => pl.created.isRecent(year.value as StrDate)) as Pred<ValString>,
+  createdRecently: ((pl, date) => pl.created.isRecent(date.value as StrDate)) as Pred<ValString>,
   creationYear: ((pl, flt) => ret(pl.created.strYear, plYear => flt.matches(year => plYear === year))) as Pred<Filter<string>>,
   dialectOf: (({ relDialectOf }, flt) => flt.matches(key => relDialectOf.has(key))) as Pred<Filter<NPlang["key"]>>,
   extensions: (({ extensions }, flt) => flt.matches(key => extensions.includes(key))) as Pred<Filter<string>>,
