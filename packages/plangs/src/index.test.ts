@@ -43,45 +43,45 @@ test("base node apis", () => {
   expect(pl.extensions.first).toEqual(".pas");
   expect(pl.extensions.last).toEqual(".tpu");
 
-  expect(pl.relApps.size).toBe(0);
-  pl.addApps(["app+something"]);
-  expect(pl.relApps.size).toBe(1);
-  expect(pl.relApps.values.first?.to).toEqual("app+something");
+  expect(pl.relApps.size()).toBe(0);
+  pl.relApps.add(["app+something"]);
+  expect(pl.relApps.size()).toBe(1);
+  expect(pl.relApps.keys()[0]).toEqual("app+something");
 
-  expect(pl.relLibs.size).toBe(0);
-  pl.addLibs(["lib+something"]);
-  expect(pl.relLibs.size).toBe(1);
-  expect(pl.relLibs.values.first?.to).toEqual("lib+something");
+  expect(pl.relLibs.size()).toBe(0);
+  pl.relLibs.add(["lib+something"]);
+  expect(pl.relLibs.size()).toBe(1);
+  expect(pl.relLibs.keys()[0]).toEqual("lib+something");
 
-  expect(pl.relTools.size).toBe(0);
-  pl.addTools(["tool+something"]);
-  expect(pl.relTools.size).toBe(1);
-  expect(pl.relTools.values.first?.to).toEqual("tool+something");
+  expect(pl.relTools.size()).toBe(0);
+  pl.relTools.add(["tool+something"]);
+  expect(pl.relTools.size()).toBe(1);
+  expect(pl.relTools.keys()[0]).toEqual("tool+something");
 
-  expect(pl.relWrittenIn.size).toBe(0);
-  pl.addWrittenIn(["pl+assembler"]);
-  expect(pl.relWrittenIn.size).toBe(1);
-  expect(pl.relWrittenIn.values.first?.to).toEqual("pl+assembler");
+  expect(pl.relWrittenIn.size()).toBe(0);
+  pl.relWrittenIn.add(["pl+assembler"]);
+  expect(pl.relWrittenIn.size()).toBe(1);
+  expect(pl.relWrittenIn.keys()[0]).toEqual("pl+assembler");
 
-  expect(pl.relParadigms.size).toBe(0);
-  pl.addParadigms(["paradigm+procedural"]);
-  expect(pl.relParadigms.size).toBe(1);
-  expect(pl.relParadigms.values.first?.to).toEqual("paradigm+procedural");
+  expect(pl.relParadigms.size()).toBe(0);
+  pl.relParadigms.add(["paradigm+procedural"]);
+  expect(pl.relParadigms.size()).toBe(1);
+  expect(pl.relParadigms.keys()[0]).toEqual("paradigm+procedural");
 
-  expect(pl.relPlBundles.size).toBe(0);
-  pl.addBundles(["bundle+my-bundle"]);
-  expect(pl.relPlBundles.size).toBe(1);
-  expect(pl.relPlBundles.values.first?.to).toEqual("bundle+my-bundle");
+  expect(pl.relPlBundles.size()).toBe(0);
+  pl.relPlBundles.add(["bundle+my-bundle"]);
+  expect(pl.relPlBundles.size()).toBe(1);
+  expect(pl.relPlBundles.keys()[0]).toEqual("bundle+my-bundle");
 
-  expect(pl.relPosts.size).toBe(0);
-  pl.addPosts(["post+my-post"]);
-  expect(pl.relPosts.size).toBe(1);
-  expect(pl.relPosts.values.first?.to).toEqual("post+my-post");
+  expect(pl.relPosts.size()).toBe(0);
+  pl.relPosts.add(["post+my-post"]);
+  expect(pl.relPosts.size()).toBe(1);
+  expect(pl.relPosts.keys()[0]).toEqual("post+my-post");
 
-  expect(pl.relTags.size).toBe(0);
-  pl.addTags(["tag+cool"]);
-  expect(pl.relTags.size).toBe(1);
-  expect(pl.relTags.values.first?.to).toEqual("tag+cool");
+  expect(pl.relTags.size()).toBe(0);
+  pl.relTags.add(["tag+cool"]);
+  expect(pl.relTags.size()).toBe(1);
+  expect(pl.relTags.keys()[0]).toEqual("tag+cool");
 });
 
 test("matching keywords", () => {
@@ -121,7 +121,7 @@ test("edge apis", () => {
 
   let edge = edges.get("pl+pascal", "tsys+strongly-typed");
   expect(edge).toBeUndefined();
-  pl.addTypeSystems([st.key]);
+  pl.relTsys.add([st.key]);
   edge = edges.get("pl+pascal", "tsys+strongly-typed");
   expect(edge).not.toBeUndefined();
 
@@ -306,17 +306,17 @@ test("bundle nodes", () => {
   const bundles = g.edges.bundle;
   const tools = g.edges.tool;
 
-  expect(bundle.relTools.size).toBe(0);
+  expect(bundle.relTools.size()).toBe(0);
   expect(bundles.size).toBe(0);
-  bundle.addTools(["tool+my-tool"]);
+  bundle.relTools.add(["tool+my-tool"]);
   expect(bundles.size).toBe(1);
-  expect(bundle.relTools.size).toBe(1);
-  expect(bundle.relTools.values.first?.to).toEqual("tool+my-tool");
+  expect(bundle.relTools.size()).toBe(1);
+  expect(bundle.relTools.keys()[0]).toEqual("tool+my-tool");
 
-  expect(bundle.relPls.size).toBe(0);
-  bundle.addPlangs(["pl+pascal"]);
-  expect(bundle.relPls.size).toBe(1);
-  expect(bundle.relPls.values.first?.from).toEqual("pl+pascal");
+  expect(bundle.relPlangs.size()).toBe(0);
+  bundle.relPlangs.add(["pl+pascal"]);
+  expect(bundle.relPlangs.size()).toBe(1);
+  expect(bundle.relPlangs.keys()[0]).toEqual("pl+pascal");
 });
 
 test("library nodes", () => {
@@ -325,7 +325,7 @@ test("library nodes", () => {
   const libs = g.edges.lib;
 
   expect(libs.size).toBe(0);
-  lib.addPlangs(["pl+pascal"]);
+  lib.relPlangs.add(["pl+pascal"]);
   expect(libs.size).toBe(1);
 });
 
@@ -353,10 +353,10 @@ test("post nodes", () => {
   expect(post.title).toEqual("Hello World!");
   expect(post.name).toEqual("Hello World!");
 
-  expect(post.relPls.size).toBe(0);
-  post.addPlangs(["pl+pascal"]);
-  expect(post.relPls.size).toBe(1);
-  expect(post.relPls.values.first?.from).toEqual("pl+pascal");
+  expect(post.relPlangs.size()).toBe(0);
+  post.relPlangs.add(["pl+pascal"]);
+  expect(post.relPlangs.size()).toBe(1);
+  expect(post.relPlangs.keys()[0]).toEqual("pl+pascal");
 });
 
 test("tool nodes", () => {
@@ -375,6 +375,6 @@ test("plBundle nodes", () => {
   const plBundles = g.edges.plBundle;
 
   expect(plBundles.size).toBe(0);
-  bundle.addPlangs(["pl+pascal"]);
+  bundle.relPlangs.add(["pl+pascal"]);
   expect(plBundles.size).toBe(1);
 });

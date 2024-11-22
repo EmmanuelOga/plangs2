@@ -1,7 +1,6 @@
 import { arrayMerge } from "@plangs/auxiliar/array";
 import { BaseGraph, Edge, EdgeMap, Node, NodeMap } from "@plangs/auxiliar/graph";
 import { IterTap } from "@plangs/auxiliar/iter_tap";
-import { MapTap } from "@plangs/auxiliar/map_tap";
 import type { AnyValue } from "@plangs/auxiliar/value";
 
 import { type PlangFacetKey, plangMatches } from "./facets/plangs";
@@ -166,69 +165,22 @@ export class NPlang extends NBase<"pl", NPlangData> {
   static readonly kind: N = "pl";
   override kind = NPlang.kind;
 
-  get ranking(): number | undefined {
-    return this.data.languishRanking;
-  }
-
-  get href(): string {
-    return `/${this.plainKey}`;
-  }
-
-  get extensions(): IterTap<string> {
-    return new IterTap(this.data.extensions);
-  }
-
-  /** Whether the language is considered popular by Github, or its Languish ranking is <= 25. */
-  get isPopular(): boolean {
-    const { githubPopular, languishRanking } = this.data;
-    return !!githubPopular || (typeof languishRanking === "number" && languishRanking <= 25);
-  }
-
-  get isTranspiler(): boolean {
-    return this.data.isTranspiler === true;
-  }
-
-  get releases(): FieldReleases {
-    return new FieldReleases(this);
-  }
-
-  get urlRepository(): string | undefined {
-    return this.data.extRepositoryURL;
-  }
-
-  get created(): FieldStrDate<"created"> {
-    return new FieldStrDate("created", this);
-  }
-
-  get github(): FieldGithub {
-    return new FieldGithub(this);
-  }
-
-  get urlWikipedia(): string | undefined {
-    return this.data.extWikipediaPath ? `https://github.com/${this.data.extGithubPath}` : undefined;
-  }
-
-  get urlReddit(): string | undefined {
-    return this.data.extRedditPath ? `https://reddit.com/${this.data.extRedditPath}` : undefined;
-  }
-
-  get urlStackov(): string | undefined {
-    return this.stackovTags ? `https://stackoverflow.com/questions/tagged/${this.stackovTags.join("+")}` : undefined;
-  }
-
-  get stackovTags(): IterTap<string> {
-    return new IterTap(this.data.stackovTags);
-  }
-
-  addApps(others: NApp["key"][]): this {
-    for (const other of others) this.graph.edges.app.connect(this.key, other);
-    return this;
-  }
-
-  addBundles(others: NBundle["key"][]): this {
-    for (const other of others) this.graph.edges.plBundle.connect(this.key, other);
-    return this;
-  }
+  readonly relApps = this.graph.edges.app.relFrom(this);
+  readonly relCompilesTo = this.graph.edges.compilesTo.relFrom(this);
+  readonly relDialectOf = this.graph.edges.dialect.relFrom(this);
+  readonly relImplements = this.graph.edges.impl.relFrom(this);
+  readonly relInfluenced = this.graph.edges.influence.relTo(this);
+  readonly relInfluencedBy = this.graph.edges.influence.relFrom(this);
+  readonly relLibs = this.graph.edges.lib.relFrom(this);
+  readonly relLicenses = this.graph.edges.license.relFrom(this);
+  readonly relParadigms = this.graph.edges.paradigm.relFrom(this);
+  readonly relPlBundles = this.graph.edges.plBundle.relFrom(this);
+  readonly relPlatforms = this.graph.edges.plat.relFrom(this);
+  readonly relPosts = this.graph.edges.post.relFrom(this);
+  readonly relTags = this.graph.edges.tag.relFrom(this);
+  readonly relTools = this.graph.edges.tool.relFrom(this);
+  readonly relTsys = this.graph.edges.tsys.relFrom(this);
+  readonly relWrittenIn = this.graph.edges.writtenIn.relFrom(this);
 
   addExtensions(exts: string[]): this {
     arrayMerge((this.data.extensions ??= []), exts);
@@ -245,75 +197,62 @@ export class NPlang extends NBase<"pl", NPlangData> {
     return this;
   }
 
-  addCompilesTo(others: NPlang["key"][]): this {
-    if (others.length > 0) this.data.isTranspiler = true;
-    for (const other of others) this.graph.edges.compilesTo.connect(this.key, other);
-    return this;
-  }
-
-  addDialectOf(others: NPlang["key"][]): this {
-    for (const other of others) this.graph.edges.dialect.connect(this.key, other);
-    return this;
-  }
-
-  addImplements(others: NPlang["key"][]): this {
-    for (const other of others) this.graph.edges.impl.connect(this.key, other);
-    return this;
-  }
-
-  addInfluencedBy(others: NPlang["key"][]): this {
-    for (const other of others) this.graph.edges.influence.connect(this.key, other);
-    return this;
-  }
-
-  addLibs(others: NLibrary["key"][]): this {
-    for (const other of others) this.graph.edges.lib.connect(this.key, other);
-    return this;
-  }
-
-  addLicenses(others: NLicense["key"][]): this {
-    for (const other of others) this.graph.edges.license.connect(this.key, other);
-    return this;
-  }
-
-  addParadigms(others: NParadigm["key"][]): this {
-    for (const otherkey of others) this.graph.edges.paradigm.connect(this.key, otherkey);
-    return this;
-  }
-
-  addPlatforms(others: NPlatform["key"][]): this {
-    for (const other of others) this.graph.edges.plat.connect(this.key, other);
-    return this;
-  }
-
-  addPosts(others: NPost["key"][]): this {
-    for (const other of others) this.graph.edges.post.connect(this.key, other);
-    return this;
-  }
-
   addStackovTags(stackovTags: string[]): this {
     arrayMerge((this.data.stackovTags ??= []), stackovTags);
     return this;
   }
 
-  addTags(others: NTag["key"][]): this {
-    for (const other of others) this.graph.edges.tag.connect(this.key, other);
-    return this;
+  get created(): FieldStrDate<"created"> {
+    return new FieldStrDate("created", this);
   }
 
-  addTools(others: NTool["key"][]): this {
-    for (const other of others) this.graph.edges.tool.connect(this.key, other);
-    return this;
+  get extensions(): IterTap<string> {
+    return new IterTap(this.data.extensions);
   }
 
-  addTypeSystems(others: NTsys["key"][]): this {
-    for (const other of others) this.graph.edges.tsys.connect(this.key, other);
-    return this;
+  get github(): FieldGithub {
+    return new FieldGithub(this);
   }
 
-  addWrittenIn(others: NPlang["key"][]): this {
-    for (const other of others) this.graph.edges.writtenIn.connect(this.key, other);
-    return this;
+  get href(): string {
+    return `/${this.plainKey}`;
+  }
+
+  get isPopular(): boolean {
+    const { githubPopular, languishRanking } = this.data;
+    return !!githubPopular || (typeof languishRanking === "number" && languishRanking <= 25);
+  }
+
+  get isTranspiler(): boolean {
+    return this.data.isTranspiler === true;
+  }
+
+  get ranking(): number | undefined {
+    return this.data.languishRanking;
+  }
+
+  get releases(): FieldReleases {
+    return new FieldReleases(this);
+  }
+
+  get stackovTags(): IterTap<string> {
+    return new IterTap(this.data.stackovTags);
+  }
+
+  get urlReddit(): string | undefined {
+    return this.data.extRedditPath ? `https://reddit.com/${this.data.extRedditPath}` : undefined;
+  }
+
+  get urlRepository(): string | undefined {
+    return this.data.extRepositoryURL;
+  }
+
+  get urlStackov(): string | undefined {
+    return this.stackovTags ? `https://stackoverflow.com/questions/tagged/${this.stackovTags.join("+")}` : undefined;
+  }
+
+  get urlWikipedia(): string | undefined {
+    return this.data.extWikipediaPath ? `https://github.com/${this.data.extGithubPath}` : undefined;
   }
 
   /**
@@ -322,77 +261,10 @@ export class NPlang extends NBase<"pl", NPlangData> {
    */
   family(opt = { compilesTo: true, dialectOf: true, implements: true }): Set<NPlang> {
     const set = new Set<NPlang>([]);
-    const addRel = (rel: MapTap<NPlang["key"], AnyEdge>) => {
-      for (const pl of rel.values.map(e => e.nodeTo).existing) set.add(pl as NPlang);
-    };
-    if (opt.compilesTo) addRel(this.relCompilesTo);
-    if (opt.dialectOf) addRel(this.relDialectOf);
-    if (opt.implements) addRel(this.relImplements);
+    if (opt.compilesTo) for (const pl of this.relCompilesTo.nodes()) set.add(pl);
+    if (opt.dialectOf) for (const pl of this.relDialectOf.nodes()) set.add(pl);
+    if (opt.implements) for (const pl of this.relImplements.nodes()) set.add(pl);
     return set;
-  }
-
-  get relApps(): MapTap<NApp["key"], EApp> {
-    return new MapTap(this.graph.edges.app.adjFrom.getMap(this.key));
-  }
-
-  get relCompilesTo(): MapTap<NPlang["key"], EDialect> {
-    return new MapTap(this.graph.edges.compilesTo.adjFrom.getMap(this.key));
-  }
-
-  get relDialectOf(): MapTap<NPlang["key"], EDialect> {
-    return new MapTap(this.graph.edges.dialect.adjFrom.getMap(this.key));
-  }
-
-  get relImplements(): MapTap<NPlang["key"], EImpl> {
-    return new MapTap(this.graph.edges.impl.adjFrom.getMap(this.key));
-  }
-
-  get relInfluenced(): MapTap<NPlang["key"], EImpl> {
-    return new MapTap(this.graph.edges.influence.adjTo.getMap(this.key));
-  }
-
-  get relInfluencedBy(): MapTap<NPlang["key"], EImpl> {
-    return new MapTap(this.graph.edges.influence.adjFrom.getMap(this.key));
-  }
-
-  get relLibs(): MapTap<NLibrary["key"], ELib> {
-    return new MapTap(this.graph.edges.lib.adjFrom.getMap(this.key));
-  }
-
-  get relLicenses(): MapTap<NLicense["key"], ELicense> {
-    return new MapTap(this.graph.edges.license.adjFrom.getMap(this.key));
-  }
-
-  get relParadigms(): MapTap<NParadigm["key"], EParadigm> {
-    return new MapTap(this.graph.edges.paradigm.adjFrom.getMap(this.key));
-  }
-
-  get relPlBundles(): MapTap<NBundle["key"], EPlBundle> {
-    return new MapTap(this.graph.edges.plBundle.adjFrom.getMap(this.key));
-  }
-
-  get relPlatforms(): MapTap<NPlatform["key"], EPlat> {
-    return new MapTap(this.graph.edges.plat.adjFrom.getMap(this.key));
-  }
-
-  get relTags(): MapTap<NTag["key"], ETag> {
-    return new MapTap(this.graph.edges.tag.adjFrom.getMap(this.key));
-  }
-
-  get relTools(): MapTap<NTool["key"], ETool> {
-    return new MapTap(this.graph.edges.tool.adjFrom.getMap(this.key));
-  }
-
-  get relTsys(): MapTap<NTsys["key"], ETsys> {
-    return new MapTap(this.graph.edges.tsys.adjFrom.getMap(this.key));
-  }
-
-  get relWrittenIn(): MapTap<NPlang["key"], EWrittenIn> {
-    return new MapTap(this.graph.edges.writtenIn.adjFrom.getMap(this.key));
-  }
-
-  get relPosts(): MapTap<NPost["key"], EPost> {
-    return new MapTap(this.graph.edges.post.adjFrom.getMap(this.key));
   }
 }
 
@@ -401,15 +273,8 @@ export class NCommunity extends NBase<"community", CommonNodeData> {
   static readonly kind: N = "community";
   override kind = NCommunity.kind;
 
-  addPlangs(others: NPlang["key"][]): this {
-    for (const other of others) this.graph.edges.commPl.connect(other, this.key);
-    return this;
-  }
-
-  addTags(others: NTag["key"][]): this {
-    for (const other of others) this.graph.edges.commTag.connect(this.key, other);
-    return this;
-  }
+  readonly relPlangs = this.graph.edges.commPl.relTo(this);
+  readonly relTags = this.graph.edges.commTag.relFrom(this);
 }
 
 /** Short for Learning Resource, things like books, courses, video playlists, etc. */
@@ -417,20 +282,9 @@ export class NLearning extends NBase<"learning", NLearningData> {
   static readonly kind: N = "learning";
   override kind = NLearning.kind;
 
-  addPlangs(others: NPlang["key"][]): this {
-    for (const other of others) this.graph.edges.learningPl.connect(other, this.key);
-    return this;
-  }
-
-  addTags(others: NTag["key"][]): this {
-    for (const other of others) this.graph.edges.learningTag.connect(this.key, other);
-    return this;
-  }
-
-  addCommunities(others: NCommunity["key"][]): this {
-    for (const other of others) this.graph.edges.learningComm.connect(this.key, other);
-    return this;
-  }
+  readonly relCommunities = this.graph.edges.learningComm.relFrom(this);
+  readonly relPlangs = this.graph.edges.learningPl.relTo(this);
+  readonly relTags = this.graph.edges.learningTag.relFrom(this);
 }
 
 /** A library Node, for software libraries or frameworks, like jQuery, Rails, etc. */
@@ -450,10 +304,7 @@ export class NLibrary extends NBase<"lib", CommonNodeData & GithubRepo> {
     return new FieldReleases(this);
   }
 
-  addPlangs(others: NPlang["key"][]): this {
-    for (const other of others) this.graph.edges.lib.connect(other, this.key);
-    return this;
-  }
+  readonly relPlangs = this.graph.edges.lib.relTo(this);
 }
 
 /** A License Node, e.g., MIT, GPL, etc. */
@@ -472,6 +323,8 @@ export class NLicense extends NBase<"license", NLicenseData> {
   get isOSIApproved(): boolean {
     return this.data.isOSIApproved === true;
   }
+
+  readonly relPlangs = this.graph.edges.license.relTo(this);
 }
 
 /** A Paradigm Node, e.g., Functional, Imperative, etc. */
@@ -526,23 +379,8 @@ export class NBundle extends NBase<"bundle", CommonNodeData> {
   static readonly kind: N = "bundle";
   override kind = NBundle.kind;
 
-  addTools(others: `tool+${string}`[]): this {
-    for (const other of others) this.graph.edges.bundle.connect(this.key, other);
-    return this;
-  }
-
-  addPlangs(others: NPlang["key"][]): this {
-    for (const other of others) this.graph.edges.plBundle.connect(other, this.key);
-    return this;
-  }
-
-  get relTools(): MapTap<NTool["key"], EBundle> {
-    return new MapTap(this.graph.edges.bundle.adjFrom.getMap(this.key));
-  }
-
-  get relPls(): MapTap<NPlang["key"], EPlBundle> {
-    return new MapTap(this.graph.edges.plBundle.adjTo.getMap(this.key));
-  }
+  readonly relTools = this.graph.edges.bundle.relFrom(this);
+  readonly relPlangs = this.graph.edges.plBundle.relTo(this);
 }
 
 /**
@@ -578,14 +416,7 @@ export class NPost extends NBase<"post", NPostData> {
     return `/blog/${this.plainKey}`;
   }
 
-  addPlangs(others: `pl+${string}`[]) {
-    for (const other of others) this.graph.edges.post.connect(other, this.key);
-    return this;
-  }
-
-  get relPls(): MapTap<NPlang["key"], EPost> {
-    return new MapTap(this.graph.edges.post.adjTo.getMap(this.key));
-  }
+  readonly relPlangs = this.graph.edges.post.relTo(this);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

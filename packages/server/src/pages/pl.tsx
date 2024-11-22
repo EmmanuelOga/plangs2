@@ -29,14 +29,14 @@ export function Pl({ pl, pg }: { pl: NPlang; pg: PlangsGraph }) {
 }
 
 function PlNews({ pl: { relPosts } }: { pl: NPlang }) {
-  const posts = relPosts.values.map(({ nodeTo }) => nodeTo);
+  const posts = relPosts.nodes();
   return (
     <>
       <h1>News</h1>
-      {posts.isEmpty ? (
+      {posts.length === 0 ? (
         <p>No news just yet!</p>
       ) : (
-        posts.existing.map(post => (
+        posts.map(post => (
           <p key={post.key}>
             <a href={post.href} title={post.name} children={post.name} />
             <span class="pl-2">{post.date}</span>
@@ -48,16 +48,16 @@ function PlNews({ pl: { relPosts } }: { pl: NPlang }) {
 }
 
 function PlApps({ pl }: { pl: NPlang }) {
-  const apps = pl.relApps.values.map(({ nodeTo }) => nodeTo);
+  const apps = pl.relApps.nodes();
   return (
     <>
       <h1>Applications</h1>
       <p>Example open source applications created with {pl.name}.</p>
-      {apps.isEmpty ? (
+      {apps.length === 0 ? (
         <p>No applications just yet!</p>
       ) : (
         <Table headers={["App", "Keywords", "Description"]}>
-          {apps.existing.map(app => (
+          {apps.map(app => (
             <tr key={app.key}>
               <td>
                 <a href={app.urlHome} title={app.name} children={app.name} />
@@ -73,16 +73,16 @@ function PlApps({ pl }: { pl: NPlang }) {
 }
 
 function PlLibs({ pl }: { pl: NPlang }) {
-  const libs = pl.relLibs.values.map(({ nodeTo }) => nodeTo);
+  const libs = pl.relLibs.nodes();
   return (
     <>
       <h1>Libraries</h1>
       <p>Example open source libraries that can be used with {pl.name}.</p>
-      {libs.isEmpty ? (
+      {libs.length === 0 ? (
         <p>No libraries just yet!</p>
       ) : (
         <Table headers={["Lib", "Keywords", "Description"]}>
-          {libs.existing.map(lib => (
+          {libs.map(lib => (
             <tr key={lib.key}>
               <td>
                 <a href={lib.urlHome} title={lib.name} children={lib.name} />
@@ -98,17 +98,17 @@ function PlLibs({ pl }: { pl: NPlang }) {
 }
 
 function PlTools({ pl }: { pl: NPlang }) {
-  const tools = pl.relTools.values.map(({ nodeTo }) => nodeTo);
+  const tools = pl.relTools.nodes();
   return (
     <>
       <h1>Tooling</h1>
       <p>Additional tooling available for {pl.name}.</p>
-      {tools.isEmpty ? (
+      {tools.length === 0 ? (
         <p>No tools just yet!</p>
       ) : (
         <>
           <Table headers={["Tool", "Keywords", "Description"]}>
-            {tools.existing.map(tool => (
+            {tools.map(tool => (
               <tr key={tool.key}>
                 <td>
                   <a href={tool.urlHome} title={tool.name} children={tool.name} />
@@ -126,16 +126,16 @@ function PlTools({ pl }: { pl: NPlang }) {
 }
 
 function PlBundles({ pl }: { pl: NPlang }) {
-  const bundles = pl.relPlBundles.values.map(({ nodeTo }) => nodeTo).existing;
+  const bundles = pl.relPlBundles.nodes();
   return bundles.length === 0 ? null : (
     <>
       {bundles.map(bundle => (
         <div key={bundle.key} class={tw("bg-linear-to-b to-secondary/50", "shadow-lg shadow-primary/20", tw(BORDER, "border-b-1"), "-mx-4 mb-4 p-4")}>
           <h3>
             Bundle:{" "}
-            {bundle.relTools.values
-              .map(({ nodeTo }) => nodeTo)
-              .existing.map(n => n.name)
+            {bundle.relTools
+              .nodes()
+              .map(n => n.name)
               .join(", ")}
           </h3>
           <p>{bundle.description}</p>

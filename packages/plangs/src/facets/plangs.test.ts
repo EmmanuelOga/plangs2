@@ -8,7 +8,7 @@ import { PLANG_FACET_PREDICATES, type PlangFacetKey, plangMatches } from "./plan
 
 test("compilesTo", () => {
   const pg = new PlangsGraph();
-  const pl = pg.nodes.pl.set("pl+myplang").addCompilesTo(["pl+one", "pl+two"]);
+  const pl = pg.nodes.pl.set("pl+myplang").relCompilesTo.add(["pl+one", "pl+two"]);
   const { compilesTo: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new Filter<NPlang["key"]>("all").add("pl+one"))).toBeTrue();
@@ -61,7 +61,7 @@ test("creationYear", () => {
 
 test("dialectOf", () => {
   const pg = new PlangsGraph();
-  const pl = pg.nodes.pl.set("pl+myplang").addDialectOf(["pl+one", "pl+two"]);
+  const pl = pg.nodes.pl.set("pl+myplang").relDialectOf.add(["pl+one", "pl+two"]);
   const { dialectOf: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new Filter<NPlang["key"]>("all").add("pl+one"))).toBeTrue();
@@ -119,7 +119,7 @@ test("hasWikipedia", () => {
 
 test("implements", () => {
   const pg = new PlangsGraph();
-  const pl = pg.nodes.pl.set("pl+myplang").addImplements(["pl+one", "pl+two"]);
+  const pl = pg.nodes.pl.set("pl+myplang").relImplements.add(["pl+one", "pl+two"]);
   const { implements: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new Filter<NPlang["key"]>("all").add("pl+one"))).toBeTrue();
@@ -137,8 +137,8 @@ test("implements", () => {
 
 test("influenced", () => {
   const pg = new PlangsGraph();
-  const pl = pg.nodes.pl.set("pl+myplang").addInfluencedBy(["pl+one", "pl+two"]);
-  const other = pg.nodes.pl.set("pl+other").addInfluencedBy(["pl+one", "pl+two"]);
+  const pl = pg.nodes.pl.set("pl+myplang").relInfluencedBy.add(["pl+one", "pl+two"]);
+  const other = pg.nodes.pl.set("pl+other").relInfluencedBy.add(["pl+one", "pl+two"]);
   const one = pg.nodes.pl.set("pl+one");
   const { influenced: check } = PLANG_FACET_PREDICATES;
 
@@ -161,7 +161,7 @@ test("influenced", () => {
 
 test("influencedBy", () => {
   const pg = new PlangsGraph();
-  const pl = pg.nodes.pl.set("pl+myplang").addInfluencedBy(["pl+one", "pl+two"]);
+  const pl = pg.nodes.pl.set("pl+myplang").relInfluencedBy.add(["pl+one", "pl+two"]);
   const { influencedBy: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new Filter<NPlang["key"]>("all").add("pl+one"))).toBeTrue();
@@ -191,7 +191,7 @@ test("isTranspiler", () => {
 
 test("licenses", () => {
   const pg = new PlangsGraph();
-  const pl = pg.nodes.pl.set("pl+myplang").addLicenses(["license+one", "license+two"]);
+  const pl = pg.nodes.pl.set("pl+myplang").relLicenses.add(["license+one", "license+two"]);
   const { licenses: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new Filter<NLicense["key"]>("all").add("license+one"))).toBeTrue();
@@ -209,7 +209,7 @@ test("licenses", () => {
 
 test("paradigms", () => {
   const pg = new PlangsGraph();
-  const pl = pg.nodes.pl.set("pl+myplang").addParadigms(["paradigm+one", "paradigm+two"]);
+  const pl = pg.nodes.pl.set("pl+myplang").relParadigms.add(["paradigm+one", "paradigm+two"]);
   const { paradigms: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new Filter<NParadigm["key"]>("all").add("paradigm+one"))).toBeTrue();
@@ -246,7 +246,7 @@ test("plangName", () => {
 
 test("platforms", () => {
   const pg = new PlangsGraph();
-  const pl = pg.nodes.pl.set("pl+myplang").addPlatforms(["plat+one", "plat+two"]);
+  const pl = pg.nodes.pl.set("pl+myplang").relPlatforms.add(["plat+one", "plat+two"]);
   const { platforms: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new Filter<NPlatform["key"]>("all").add("plat+one"))).toBeTrue();
@@ -275,7 +275,7 @@ test("releasedRecently", () => {
 
 test("tags", () => {
   const pg = new PlangsGraph();
-  const pl = pg.nodes.pl.set("pl+myplang").addTags(["tag+one", "tag+two"]);
+  const pl = pg.nodes.pl.set("pl+myplang").relTags.add(["tag+one", "tag+two"]);
   const { tags: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new Filter<NTag["key"]>("all").add("tag+one"))).toBeTrue();
@@ -293,7 +293,7 @@ test("tags", () => {
 
 test("typeSystems", () => {
   const pg = new PlangsGraph();
-  const pl = pg.nodes.pl.set("pl+myplang").addTypeSystems(["tsys+one", "tsys+two"]);
+  const pl = pg.nodes.pl.set("pl+myplang").relTsys.add(["tsys+one", "tsys+two"]);
   const { typeSystems: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new Filter<NTsys["key"]>("all").add("tsys+one"))).toBeTrue();
@@ -311,7 +311,7 @@ test("typeSystems", () => {
 
 test("writtenIn", () => {
   const pg = new PlangsGraph();
-  const pl = pg.nodes.pl.set("pl+myplang").addWrittenIn(["pl+one", "pl+two"]);
+  const pl = pg.nodes.pl.set("pl+myplang").relWrittenIn.add(["pl+one", "pl+two"]);
   const { writtenIn: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new Filter<NPlang["key"]>("all").add("pl+one"))).toBeTrue();
@@ -329,8 +329,8 @@ test("writtenIn", () => {
 
 test("plangMatches", () => {
   const pg = new PlangsGraph();
-  const plang = pg.nodes.pl.set("pl+plang", { name: "MyPlang" }).addWrittenIn(["pl+one", "pl+two"]);
-  const other = pg.nodes.pl.set("pl+other", { name: "MyOtherPlang" }).addWrittenIn(["pl+two"]);
+  const plang = pg.nodes.pl.set("pl+plang", { name: "MyPlang" }).relWrittenIn.add(["pl+one", "pl+two"]);
+  const other = pg.nodes.pl.set("pl+other", { name: "MyOtherPlang" }).relWrittenIn.add(["pl+two"]);
 
   const writtenIn = new Filter<NPlang["key"]>("any").add("pl+one").add("pl+two");
 
@@ -355,8 +355,8 @@ test("plangMatches", () => {
 
 test("Plangs.plangs", () => {
   const pg = new PlangsGraph();
-  const plang = pg.nodes.pl.set("pl+plang", { name: "MyPlang" }).addWrittenIn(["pl+one", "pl+two"]);
-  const other = pg.nodes.pl.set("pl+other", { name: "MyOtherPlang" }).addWrittenIn(["pl+two"]);
+  const plang = pg.nodes.pl.set("pl+plang", { name: "MyPlang" }).relWrittenIn.add(["pl+one", "pl+two"]);
+  const other = pg.nodes.pl.set("pl+other", { name: "MyOtherPlang" }).relWrittenIn.add(["pl+two"]);
 
   const writtenIn = new Filter<NPlang["key"]>("any").add("pl+one").add("pl+two");
   const filters = new Map(Object.entries({ writtenIn }) as [PlangFacetKey, AnyValue][]);

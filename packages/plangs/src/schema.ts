@@ -171,10 +171,8 @@ export type NToolData = NAppData;
 // Nodes can use CommonEdgeData directly or extend it with more data.
 ////////////////////////////////////////////////////////////////////////////////
 
-export interface CommonEdgeData {
-  /** Keywords can be used to match against text content. */
-  keywords: string[];
-}
+// biome-ignore lint/suspicious/noEmptyInterface: TODO: we don't use edge data so remove it.
+export interface CommonEdgeData {}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Auxiliary Types
