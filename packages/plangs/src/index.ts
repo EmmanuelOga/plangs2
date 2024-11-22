@@ -5,7 +5,7 @@ import type { AnyValue } from "@plangs/auxiliar/value";
 
 import { type PlangFacetKey, plangMatches } from "./facets/plangs";
 
-import { FieldGithub, FieldReleases, FieldStrDate } from "./auxiliar/data";
+import { FieldGithub, FieldReleases, FieldStrDate } from "./data";
 import type {
   CommonEdgeData,
   CommonNodeData,

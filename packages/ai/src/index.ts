@@ -4,10 +4,12 @@ import type { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import { loadAllDefinitions } from "@plangs/definitions";
 import { plangCodeGen, tsNodePath } from "@plangs/languist/codegen";
 import { type NPlang, PlangsGraph } from "@plangs/plangs";
-import NPlangAISchema from "@plangs/plangs/json/NPlangAI.json";
-import type { CommonNodeData, N, NPlangAI, NPlangData } from "@plangs/plangs/schema";
+import type { CommonNodeData, N, NPlangData } from "@plangs/plangs/schema";
+
 import { retrieveWebsites } from "./crawl";
 import { plangFromAI } from "./fromAI";
+import NPlangAISchema from "./json/NPlangAI.json";
+import type { NPlangAI } from "./types";
 
 type OpenAIMsg = ChatCompletionMessageParam;
 

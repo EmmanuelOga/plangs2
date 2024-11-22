@@ -1,5 +1,6 @@
 import { type NLicense, type NParadigm, NPlang, type NPlatform, type NTag, type NTsys, type PlangsGraph } from "@plangs/plangs";
-import type { NPlangAI } from "@plangs/plangs/schema";
+
+import type { NPlangAI } from "./types";
 
 /** Given the results from OpenAI, construct a new NPlang node that can be used for code generation. */
 export function plangFromAI(pg: PlangsGraph, pl: NPlang, aiPL: NPlangAI): NPlang {

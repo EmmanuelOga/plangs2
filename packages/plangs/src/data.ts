@@ -6,8 +6,8 @@
  */
 
 import { IterTap } from "@plangs/auxiliar/iter_tap";
-import type { GithubRepo, Release, StrDate } from "../schema";
-import { isRecent, parseMonth, parseYear, strDateCompare } from "./str_date";
+import { isRecent, parseMonth, parseYear, strDateCompare } from "./auxiliar/str_date";
+import type { GithubRepo, Release, StrDate } from "./schema";
 
 /** Wraps a single release. */
 export class ReleaseWrapper {
