@@ -29,6 +29,11 @@
  */
 export const ret = <T, R>(item: T, action: (item: T) => R): R => action(item);
 
+export const tap = <T>(item: T, action: (item: T) => void): T => {
+  action(item);
+  return item;
+};
+
 // https://stackoverflow.com/a/32108184
 // biome-ignore lint/suspicious/noExplicitAny: checks if _any_ object is empty.
 export function isEmpty(obj: any) {

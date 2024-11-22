@@ -73,9 +73,17 @@ export class Map2<K1, K2, V> {
     return this.#map.get(k1)?.size ?? 0;
   }
 
-  /** Returns an iterator of the keys in the first dimension. */
+  /** Returns the keys in the first dimension. */
   keys(): K1[] {
     return [...this.#map.keys()].filter(k1 => (this.#map.get(k1)?.size ?? 0) > 0);
+  }
+
+  /** Return all the keys from a first dimension. */
+  keys2(k1: K1): K2[] {
+    const res: K2[] = [];
+    const m = this.#map.get(k1);
+    if (m) for (const k2 of m.keys()) res.push(k2);
+    return res;
   }
 
   entries(): [K1, Map<K2, V>][] {
@@ -92,6 +100,18 @@ export class Map2<K1, K2, V> {
 
   values(): V[] {
     return [...this.#map.values()].flatMap(map => [...map.values()]);
+  }
+
+  values2(k1: K1): V[] {
+    const m = this.#map.get(k1);
+    return m ? [...m.values()] : [];
+  }
+
+  /** Get all values going from first dimension, them map them and return the non-falsey values. */
+  values2Mapped<T>(k1: K1, mapper: (val: V) => T): T[] {
+    return this.values2(k1)
+      .map(mapper)
+      .filter(v => v);
   }
 
   toString(): string {

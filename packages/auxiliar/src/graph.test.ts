@@ -1,6 +1,9 @@
 import { expect, test } from "bun:test";
 
-import { BaseGraph, Edge, EdgeMap as Edges, type NO_DATA, Node, NodeMap as Nodes } from "./graph";
+import { BaseGraph, Edge, EdgeMap, Node, NodeMap } from "./graph";
+
+/** A type to express empty object. */
+type NO_DATA = Record<string, never>;
 
 type N = "person" | "post" | "tag";
 type E = "personPost" | "postTag";
@@ -11,13 +14,19 @@ type NK<T extends N> = `${T}+${string}`;
 /* Example vertex data interfaces: model a blog. */
 class NPerson extends Node<G, NK<"person">, { name: string }> {
   override kind: N = "person";
+  readonly relPost = this.graph.edges.personPost.relFrom(this);
 }
+
 class NPost extends Node<G, NK<"post">, { title: string; content: string }> {
   override kind: N = "post";
+  readonly relTag = this.graph.edges.postTag.relFrom(this);
 }
+
 class NTag extends Node<G, NK<"tag">, NO_DATA> {
   override kind: N = "tag";
+  readonly relPost = this.graph.edges.postTag.relTo(this);
 }
+
 class EPersonPost extends Edge<G, NPerson, NPost, { role: "author" | "editor" }> {
   override kind: E = "personPost";
 
@@ -28,6 +37,7 @@ class EPersonPost extends Edge<G, NPerson, NPost, { role: "author" | "editor" }>
     return this.graph.nodes.post.get(this.to);
   }
 }
+
 class EPostTag extends Edge<G, NPost, NTag, NO_DATA> {
   override kind: E = "postTag";
   get nodeFrom(): NPost | undefined {
@@ -40,28 +50,24 @@ class EPostTag extends Edge<G, NPost, NTag, NO_DATA> {
 
 class TestGraph extends BaseGraph<N, E, G> {
   nodes = {
-    person: new Nodes<G, NPerson>(key => new NPerson(this, key)),
-    post: new Nodes<G, NPost>(key => new NPost(this, key)),
-    tag: new Nodes<G, NTag>(key => new NTag(this, key)),
+    person: new NodeMap<G, NPerson>(key => new NPerson(this, key)),
+    post: new NodeMap<G, NPost>(key => new NPost(this, key)),
+    tag: new NodeMap<G, NTag>(key => new NTag(this, key)),
   };
 
   edges = {
-    personPost: new Edges<G, EPersonPost>((from, to) => new EPersonPost(this, from, to)),
-    postTag: new Edges<G, EPostTag>((from, to) => new EPostTag(this, from, to)),
+    personPost: new EdgeMap<G, EPersonPost>((from, to) => new EPersonPost(this, from, to)),
+    postTag: new EdgeMap<G, EPostTag>((from, to) => new EPostTag(this, from, to)),
   };
 }
 
 test("accessing relationships forward and backward", () => {
   const g = new TestGraph();
 
-  g.nodes.person.set("person+1").merge({ name: "Alice" });
-  g.nodes.post.set("post+1").merge({ title: "Hello", content: "World" });
+  g.nodes.person.set("person+1").merge({ name: "Alice" }).relPost.add(["post+1"]).relPost.add(["post+2"]);
+  g.nodes.post.set("post+1").merge({ title: "Hello", content: "World" }).relTag.add(["tag+1"]);
   g.nodes.post.set("post+2").merge({ title: "Hello", content: "World" });
   g.nodes.tag.set("tag+1");
-
-  g.edges.personPost.connect("person+1", "post+1").merge({ role: "author" });
-  g.edges.personPost.connect("person+1", "post+2").merge({ role: "editor" });
-  g.edges.postTag.connect("post+1", "tag+1");
 
   // Forward
   expect(g.edges.personPost.adjFrom.has("person+1", "post+1")).toBeTrue();

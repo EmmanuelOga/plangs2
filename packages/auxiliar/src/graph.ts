@@ -4,12 +4,10 @@
 
 import { IterTap } from "./iter_tap";
 import { Map2 } from "./map2";
+import { MapTap } from "./map_tap";
 
 // biome-ignore lint/suspicious/noExplicitAny: we use any for the generic types... sory biome.
 type Any = any;
-
-/** A type to express empty object. */
-export type NO_DATA = Record<string, never>;
 
 /** Graph Node. */
 export abstract class Node<T_Graph, T_Key extends string, T_Data> {
@@ -156,6 +154,50 @@ export class EdgeMap<T_Graph, T_Edge extends Edge<T_Graph, Any, Any, Any>> {
     const f = this.adjFrom.delete(from, to);
     const t = this.adjTo.delete(to, from);
     return f || t;
+  }
+
+  /** Return shortcuts to retrieve all edges *from* a node and to add more connections *from* that node. */
+  relFrom(node: NonNullable<T_Edge["nodeFrom"]>) {
+    const self = this;
+    return {
+      /** Connect this node to all the others, using the provided node keys. */
+      add(other: T_Edge["to"][]) {
+        for (const to of other) self.connect(node.key, to);
+        return node;
+      },
+      /** Get all the edges connected *to* this node, by the key of the *to*-nodes. */
+      edges: () => new MapTap(self.adjFrom.getMap(node.key)),
+      /** Is there a connection to this *from* key? */
+      has: (key: T_Edge["to"]) => self.adjFrom.has(node.key, key),
+      /** Get all the keys of the *to*-nodes. */
+      keys: () => self.adjFrom.keys2(node.key),
+      /** Get all the *to* nodes. */
+      nodes: () => self.adjFrom.values2Mapped(node.key, ({ nodeTo }) => nodeTo) as NonNullable<T_Edge["nodeTo"]>[],
+      /** Number of nodes connected *from* this node. */
+      size: () => self.adjFrom.size2(node.key),
+    } as const;
+  }
+
+  /** Return shortcuts to retrieve all edges *to* a node and to add more connections *to* that node. */
+  relTo(node: NonNullable<T_Edge["nodeTo"]>) {
+    const self = this;
+    return {
+      /** Connect this node to all the others, using the provided node keys. */
+      add(other: T_Edge["from"][]) {
+        for (const from of other) self.connect(from, node.key);
+        return node;
+      },
+      /** Get all the edges connected *from* this node, by the key of the *from*-nodes. */
+      edges: () => new MapTap(self.adjTo.getMap(node.key)),
+      /** Is there a connection to this *to* key? */
+      has: (key: T_Edge["from"]) => self.adjTo.has(node.key, key),
+      /** Get all the keys of the *from*-nodes. */
+      keys: () => self.adjTo.keys2(node.key),
+      /** Get all the *to* nodes. */
+      nodes: () => self.adjTo.values2Mapped(node.key, ({ nodeFrom }) => nodeFrom) as NonNullable<T_Edge["nodeFrom"]>[],
+      /** Number of nodes connected *to* this node. */
+      size: () => self.adjTo.size2(node.key),
+    } as const;
   }
 
   /** Get all edges. Uses the adjFrom map, but both maps should have the same values. */
