@@ -11,7 +11,7 @@ export type NodeInfoProps = {
 };
 
 /** Display Node. */
-export function NodeInfo({ node: pl, open, tab }: NodeInfoProps) {
+export function NodeInfo({ node, open, tab }: NodeInfoProps) {
   const forGrid = tab === "plangs";
   return (
     <div
@@ -25,26 +25,26 @@ export function NodeInfo({ node: pl, open, tab }: NodeInfoProps) {
         tw(BORDER, forGrid && "border-b-1"),
       )}>
       <h2 class={tw(forGrid && "inline sm:block")}>
-        <a class="text-foreground decoration-1 decoration-dotted" href={`/${pl?.plainKey}`}>
-          {pl?.name ?? "Plang"}
+        <a class="text-foreground decoration-1 decoration-dotted" href={`/${node?.plainKey}`}>
+          {node?.name ?? ""}
         </a>
       </h2>
-      {pl && (
+      {node && (
         <>
           <span class={tw(forGrid ? "dash mx-2 inline-block sm:hidden" : "hidden")}>&#8212;</span>
           <div class={tw(forGrid && "hidden sm:block")}>
-            {pl.created.value && <Pill children={`Appeared ${pl.created.year}`} />}
-            {ret(pl.releases.last, rel => rel && <Pill children={`Last Rel ${rel.date ?? rel.version}`} />)}
-            {pl.isTranspiler && <Pill children="Transpiler" />}
-            {pl.isPopular && <Pill children="Popular" />}
+            {node.created.value && <Pill children={`Appeared ${node.created.year}`} />}
+            {ret(node.releases.last, rel => rel && <Pill children={`Last Rel ${rel.date ?? rel.version}`} />)}
+            {node.isTranspiler && <Pill children="Transpiler" />}
+            {node.isPopular && <Pill children="Popular" />}
           </div>
-          <p class={tw(forGrid && "inline sm:block")}>{pl.description || "..."}</p>
+          <p class={tw(forGrid && "inline sm:block")}>{node.description || "..."}</p>
           <details class={tw(forGrid && "hidden sm:block", "pb-4")} open={open}>
             <summary class="cursor-pointer text-xl">Details</summary>
-            {relations(pl).map(([title, iterTap]) => (
+            {relations(node).map(([title, nodes]) => (
               <div key={title}>
                 <h3 class="mt-4 text-xl">{title}</h3>
-                {iterTap.existing.map(({ name, key, kind }) => (
+                {nodes.map(({ name, key }) => (
                   <Pill key={key} children={name} />
                 ))}
               </div>
@@ -62,22 +62,22 @@ function Pill({ children }: { children: ComponentChildren }) {
 
 function relations(pl: NPlang) {
   const all = [
-    ["Type Systems", pl.relTsys.values.map(({ nodeTo }) => nodeTo)],
-    ["Platforms", pl.relPlatforms.values.map(({ nodeTo }) => nodeTo)],
+    ["Type Systems", pl.relTsys.nodes()],
+    ["Platforms", pl.relPlatforms.nodes()],
 
-    ["Influenced By", pl.relInfluencedBy.values.map(({ nodeTo }) => nodeTo)],
-    ["Influenced", pl.relInfluenced.values.map(({ nodeFrom }) => nodeFrom)],
-    ["Dialect Of", pl.relDialectOf.values.map(({ nodeTo }) => nodeTo)],
-    ["Implements", pl.relImplements.values.map(({ nodeTo }) => nodeTo)],
-    ["Compiles To", pl.relCompilesTo.values.map(({ nodeTo }) => nodeTo)],
+    ["Influenced By", pl.relInfluencedBy.nodes()],
+    ["Influenced", pl.relInfluenced.nodes()],
+    ["Dialect Of", pl.relDialectOf.nodes()],
+    ["Implements", pl.relImplements.nodes()],
+    ["Compiles To", pl.relCompilesTo.nodes()],
 
-    ["Licenses", pl.relLicenses.values.map(({ nodeTo }) => nodeTo)],
+    ["Licenses", pl.relLicenses.nodes()],
 
-    ["Tags", pl.relTags.values.map(({ nodeTo }) => nodeTo)],
-    ["Extensions", pl.extensions.map(name => ({ key: name, name, kind: "ext" }))],
+    ["Tags", pl.relTags.nodes()],
+    ["Extensions", pl.extensions.map(name => ({ key: name, name, kind: "ext" })).existing],
   ] as const;
 
-  return all.filter(([_, iterTap]) => iterTap.isEmpty === false);
+  return all.filter(([_, nodes]) => nodes.length > 0);
 }
 
 export const EVENTS = {} as const;
