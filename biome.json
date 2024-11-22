@@ -51,7 +51,7 @@
       },
       "recommended": true,
       "performance": {
-        "noDelete": "info"
+        "noDelete": "off"
       },
       "suspicious": {
         "noAssignInExpressions": "off",
