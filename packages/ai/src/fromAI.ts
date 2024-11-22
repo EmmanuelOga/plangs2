@@ -19,18 +19,18 @@ export function plangFromAI(pg: PlangsGraph, pl: NPlang, aiPL: NPlangAI): NPlang
 
   // Add the new data references from OpenAI.
   const existingPl = (k: string) => pg.nodes.pl.has(k as NPlang["key"]);
-  newPl.addCompilesTo(aiPL.compilesTo.filter(existingPl) as NPlang["key"][]);
-  newPl.addCompilesTo(aiPL.dialectOf.filter(existingPl) as NPlang["key"][]);
-  newPl.addCompilesTo(aiPL.implements.filter(existingPl) as NPlang["key"][]);
-  newPl.addCompilesTo(aiPL.influenced.filter(existingPl) as NPlang["key"][]);
-  newPl.addCompilesTo(aiPL.influencedBy.filter(existingPl) as NPlang["key"][]);
-  newPl.addCompilesTo(aiPL.writtenIn.filter(existingPl) as NPlang["key"][]);
+  newPl.relCompilesTo.add(aiPL.compilesTo.filter(existingPl) as NPlang["key"][]);
+  newPl.relDialectOf.add(aiPL.dialectOf.filter(existingPl) as NPlang["key"][]);
+  newPl.relImplements.add(aiPL.implements.filter(existingPl) as NPlang["key"][]);
+  newPl.relInfluenced.add(aiPL.influenced.filter(existingPl) as NPlang["key"][]);
+  newPl.relInfluencedBy.add(aiPL.influencedBy.filter(existingPl) as NPlang["key"][]);
+  newPl.relWrittenIn.add(aiPL.writtenIn.filter(existingPl) as NPlang["key"][]);
 
-  newPl.addLicenses(aiPL.licenses.filter(k => pg.nodes.license.has(k as NLicense["key"])) as NLicense["key"][]);
-  newPl.addParadigms(aiPL.paradigms.filter(k => pg.nodes.paradigm.has(k as NParadigm["key"])) as NParadigm["key"][]);
-  newPl.addPlatforms(aiPL.platforms.filter(k => pg.nodes.plat.has(k as NPlatform["key"])) as NPlatform["key"][]);
-  newPl.addTags(aiPL.tags.filter(k => pg.nodes.tag.has(k as NTag["key"])) as NTag["key"][]);
-  newPl.addTypeSystems(aiPL.typeSystems.filter(k => pg.nodes.tsys.has(k as NTsys["key"])) as NTsys["key"][]);
+  newPl.relLicenses.add(aiPL.licenses.filter(k => pg.nodes.license.has(k as NLicense["key"])) as NLicense["key"][]);
+  newPl.relParadigms.add(aiPL.paradigms.filter(k => pg.nodes.paradigm.has(k as NParadigm["key"])) as NParadigm["key"][]);
+  newPl.relPlatforms.add(aiPL.platforms.filter(k => pg.nodes.plat.has(k as NPlatform["key"])) as NPlatform["key"][]);
+  newPl.relTags.add(aiPL.tags.filter(k => pg.nodes.tag.has(k as NTag["key"])) as NTag["key"][]);
+  newPl.relTsys.add(aiPL.typeSystems.filter(k => pg.nodes.tsys.has(k as NTsys["key"])) as NTsys["key"][]);
 
   return newPl;
 }

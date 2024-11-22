@@ -18,17 +18,17 @@ async function plangPrompt(pg: PlangsGraph, pl: NPlang, examplePl: NPlang): Prom
   const example: NPlangAI = {
     commonData: { name, description, keywords } as CommonNodeData,
     basicPlangData: { extensions, filenames, created, isTranspiler, releases } as NPlangData,
-    compilesTo: pl.relCompilesTo.keys.existing,
-    dialectOf: pl.relDialectOf.keys.existing,
-    implements: pl.relImplements.keys.existing,
-    influenced: pl.relInfluenced.keys.existing,
-    influencedBy: pl.relInfluencedBy.keys.existing,
-    licenses: pl.relLicenses.keys.existing,
-    paradigms: pl.relParadigms.keys.existing,
-    platforms: pl.relPlatforms.keys.existing,
-    tags: pl.relTags.keys.existing,
-    typeSystems: pl.relTsys.keys.existing,
-    writtenIn: pl.relWrittenIn.keys.existing,
+    compilesTo: pl.relCompilesTo.keys(),
+    dialectOf: pl.relDialectOf.keys(),
+    implements: pl.relImplements.keys(),
+    influenced: pl.relInfluenced.keys(),
+    influencedBy: pl.relInfluencedBy.keys(),
+    licenses: pl.relLicenses.keys(),
+    paradigms: pl.relParadigms.keys(),
+    platforms: pl.relPlatforms.keys(),
+    tags: pl.relTags.keys(),
+    typeSystems: pl.relTsys.keys(),
+    writtenIn: pl.relWrittenIn.keys(),
   };
 
   const externalLinks: string[] = [];
