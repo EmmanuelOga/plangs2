@@ -24,10 +24,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://mathworks.com",
       created: "1979",
     })
-    .addParadigms(["paradigm+array", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
-    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
-    .addTags(["tag+modeling", "tag+numeric", "tag+sci", "tag+scripting", "tag+viz"])
-    .addTypeSystems(["tsys+dynamic", "tsys+weak"]);
+    .relParadigms.add(["paradigm+array", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
+    .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+modeling", "tag+numeric", "tag+sci", "tag+scripting", "tag+viz"])
+    .relTsys.add(["tsys+dynamic", "tsys+weak"]);
 
   // TOOLS
 

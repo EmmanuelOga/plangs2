@@ -20,11 +20,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://eiffel.org/",
       created: "1986",
     })
-    .addInfluencedBy(["pl+ada"])
-    .addLicenses(["license+dual", "license+epl"])
-    .addParadigms(["paradigm+compiled", "paradigm+concurrent", "paradigm+contracts", "paradigm+oop"])
-    .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags([
+    .relInfluencedBy.add(["pl+ada"])
+    .relLicenses.add(["license+dual", "license+epl"])
+    .relParadigms.add(["paradigm+compiled", "paradigm+concurrent", "paradigm+contracts", "paradigm+oop"])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+3dg",
       "tag+analysis",
       "tag+app",
@@ -37,7 +37,7 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
-    .addTypeSystems(["tsys+static", "tsys+strong"]);
+    .relTsys.add(["tsys+static", "tsys+strong"]);
 
   // TOOLS
 

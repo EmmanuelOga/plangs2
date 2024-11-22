@@ -18,11 +18,11 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Common_Lisp",
       created: "1960",
     })
-    .addLicenses(["license+gnu-gpl", "license+lgpl", "license+mit"])
-    .addParadigms(["paradigm+functional", "paradigm+metaprogramming", "paradigm+multi", "paradigm+procedural", "paradigm+reflective"])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+editor", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+viz"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
+    .relLicenses.add(["license+gnu-gpl", "license+lgpl", "license+mit"])
+    .relParadigms.add(["paradigm+functional", "paradigm+metaprogramming", "paradigm+multi", "paradigm+procedural", "paradigm+reflective"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+app", "tag+asm", "tag+compiler", "tag+editor", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+viz"])
+    .relTsys.add(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

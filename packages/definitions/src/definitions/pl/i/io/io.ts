@@ -25,13 +25,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://iolanguage.org/",
       created: "2002",
     })
-    .addInfluencedBy(["pl+lisp", "pl+lua", "pl+self"])
-    .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+concurrent", "paradigm+oop", "paradigm+prototype", "paradigm+scripting"])
-    .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+interpreters", "tag+scripting"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"])
-    .addWrittenIn(["pl+c", "pl+python"]);
+    .relInfluencedBy.add(["pl+lisp", "pl+lua", "pl+self"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add(["paradigm+concurrent", "paradigm+oop", "paradigm+prototype", "paradigm+scripting"])
+    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+interpreters", "tag+scripting"])
+    .relTsys.add(["tsys+dynamic", "tsys+strong"])
+    .relWrittenIn.add(["pl+c", "pl+python"]);
 
   // TOOLS
 

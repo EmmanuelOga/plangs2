@@ -25,11 +25,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.adobe.com/devnet/actionscript/articles/actionscript3_overview.html",
       created: "1998",
     })
-    .addInfluencedBy(["pl+java", "pl+javascript"])
-    .addLicenses(["license+apache"])
-    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+prototype", "paradigm+scripting"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+web", "plat+windows"])
-    .addTags([
+    .relInfluencedBy.add(["pl+java", "pl+javascript"])
+    .relLicenses.add(["license+apache"])
+    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+prototype", "paradigm+scripting"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+web", "plat+windows"])
+    .relTags.add([
       "tag+app",
       "tag+audio-dev",
       "tag+compiler",
@@ -42,7 +42,7 @@ export function define(g: PlangsGraph) {
       "tag+multimedia",
       "tag+scripting",
     ])
-    .addTypeSystems(["tsys+static", "tsys+strong"]);
+    .relTsys.add(["tsys+static", "tsys+strong"]);
 
   // TOOLS
 

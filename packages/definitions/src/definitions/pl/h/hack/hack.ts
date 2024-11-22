@@ -21,14 +21,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://hacklang.org",
       created: "2014",
     })
-    .addDialectOf(["pl+php"])
-    .addInfluencedBy(["pl+c-sharp", "pl+haskell", "pl+ocaml", "pl+php", "pl+scala"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+reflective"])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+interpreters", "tag+scripting"])
-    .addTypeSystems(["tsys+dynamic", "tsys+gradual", "tsys+manifest", "tsys+safe", "tsys+static", "tsys+strong", "tsys+weak"])
-    .addWrittenIn(["pl+ocaml"]);
+    .relDialectOf.add(["pl+php"])
+    .relInfluencedBy.add(["pl+c-sharp", "pl+haskell", "pl+ocaml", "pl+php", "pl+scala"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+reflective"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+interpreters", "tag+scripting"])
+    .relTsys.add(["tsys+dynamic", "tsys+gradual", "tsys+manifest", "tsys+safe", "tsys+static", "tsys+strong", "tsys+weak"])
+    .relWrittenIn.add(["pl+ocaml"]);
 
   // TOOLS
 

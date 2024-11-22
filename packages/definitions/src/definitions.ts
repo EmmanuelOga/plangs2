@@ -26,8 +26,11 @@ export async function loadAllDefinitions(g: PlangsGraph, options: { scanImages: 
       const kind = k === "screenshot" || k === "logo" ? k : "other";
       const plKey: NPlang["key"] = `pl+${pk.replaceAll("_", ".")}`;
       const pl = g.nodes.pl.get(plKey);
-      if (!pl) console.warn("Can't find plang", plKey, "for image", path);
-      pl?.addImages([{ kind, title: pl.name, url: `/images/${path}` }]);
+      if (pl) {
+        pl.addImages([{ kind, title: pl.name, url: `/images/${path}` }]);
+      } else {
+        console.warn("Can't find plang", plKey, "for image", path);
+      }
     }
   }
 
@@ -42,6 +45,6 @@ export async function loadAllDefinitions(g: PlangsGraph, options: { scanImages: 
 export function runInference(pg: PlangsGraph) {
   for (const pl of pg.nodes.pl.values) {
     // All languages implement themselves, so when we filter by "implements" we can include the language itself.
-    pl.addImplements([pl.key]);
+    pl.relImplements.add([pl.key]);
   }
 }

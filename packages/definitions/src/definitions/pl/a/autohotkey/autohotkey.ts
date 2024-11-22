@@ -23,11 +23,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.autohotkey.com",
       created: "2003",
     })
-    .addLicenses(["license+gnu-gpl"])
-    .addParadigms(["paradigm+event-driven", "paradigm+imperative", "paradigm+scripting"])
-    .addPlatforms(["plat+windows"])
-    .addTags(["tag+automation", "tag+scripting"])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic"]);
+    .relLicenses.add(["license+gnu-gpl"])
+    .relParadigms.add(["paradigm+event-driven", "paradigm+imperative", "paradigm+scripting"])
+    .relPlatforms.add(["plat+windows"])
+    .relTags.add(["tag+automation", "tag+scripting"])
+    .relTsys.add(["tsys+duck", "tsys+dynamic"]);
 
   // TOOLS
 

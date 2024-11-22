@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.rust-lang.org/",
       created: "2015",
     })
-    .addInfluencedBy([
+    .relInfluencedBy.add([
       "pl+c",
       "pl+c++",
       "pl+c-sharp",
@@ -39,10 +39,17 @@ export function define(g: PlangsGraph) {
       "pl+standard-ml",
       "pl+swift",
     ])
-    .addLicenses(["license+apache", "license+mit"])
-    .addParadigms(["paradigm+compiled", "paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+structured"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
-    .addTags([
+    .relLicenses.add(["license+apache", "license+mit"])
+    .relParadigms.add([
+      "paradigm+compiled",
+      "paradigm+concurrent",
+      "paradigm+functional",
+      "paradigm+imperative",
+      "paradigm+multi",
+      "paradigm+structured",
+    ])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
+    .relTags.add([
       "tag+app",
       "tag+cli",
       "tag+compiler",
@@ -54,8 +61,8 @@ export function define(g: PlangsGraph) {
       "tag+iot",
       "tag+viz",
     ])
-    .addTypeSystems(["tsys+affine", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+ocaml"]);
+    .relTsys.add(["tsys+affine", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+ocaml"]);
 
   // TOOLS
 

@@ -26,14 +26,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://gleam.run/",
       created: "2016",
     })
-    .addCompilesTo(["pl+javascript"])
-    .addInfluencedBy(["pl+elixir", "pl+erlang", "pl+go", "pl+javascript", "pl+ocaml", "pl+rust"])
-    .addLicenses(["license+apache"])
-    .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+multi"])
-    .addPlatforms(["plat+apple", "plat+beam", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+compiler", "tag+framework", "tag+interpreters"])
-    .addTypeSystems(["tsys+inferred", "tsys+safe", "tsys+static"])
-    .addWrittenIn(["pl+rust"]);
+    .relCompilesTo.add(["pl+javascript"])
+    .relInfluencedBy.add(["pl+elixir", "pl+erlang", "pl+go", "pl+javascript", "pl+ocaml", "pl+rust"])
+    .relLicenses.add(["license+apache"])
+    .relParadigms.add(["paradigm+concurrent", "paradigm+functional", "paradigm+multi"])
+    .relPlatforms.add(["plat+apple", "plat+beam", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+compiler", "tag+framework", "tag+interpreters"])
+    .relTsys.add(["tsys+inferred", "tsys+safe", "tsys+static"])
+    .relWrittenIn.add(["pl+rust"]);
 
   // TOOLS
 

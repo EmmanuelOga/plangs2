@@ -20,11 +20,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://forth-standard.org/",
       created: "1970",
     })
-    .addInfluencedBy(["pl+lisp"])
-    .addLicenses(["license+public-domain"])
-    .addParadigms(["paradigm+concatenative", "paradigm+procedural", "paradigm+reflective", "paradigm+stack-oriented"])
-    .addPlatforms(["plat+cross", "plat+embedded"])
-    .addTags([
+    .relInfluencedBy.add(["pl+lisp"])
+    .relLicenses.add(["license+public-domain"])
+    .relParadigms.add(["paradigm+concatenative", "paradigm+procedural", "paradigm+reflective", "paradigm+stack-oriented"])
+    .relPlatforms.add(["plat+cross", "plat+embedded"])
+    .relTags.add([
       "tag+app",
       "tag+asm",
       "tag+compiler",
@@ -39,7 +39,7 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+testing",
     ])
-    .addTypeSystems(["tsys+untyped"]);
+    .relTsys.add(["tsys+untyped"]);
 
   // TOOLS
 

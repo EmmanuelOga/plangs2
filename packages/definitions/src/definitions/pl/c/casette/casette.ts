@@ -15,9 +15,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://cassette-lang.com/",
       created: "2021",
     })
-    .addCompilesTo(["pl+c"])
-    .addLicenses(["license+mit"])
-    .addParadigms([
+    .relCompilesTo.add(["pl+c"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add([
       "paradigm+dataflow",
       "paradigm+declarative",
       "paradigm+dsl",
@@ -25,10 +25,10 @@ export function define(g: PlangsGraph) {
       "paradigm+functional",
       "paradigm+interpreted",
     ])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+audio-dev", "tag+workflow"])
-    .addTypeSystems(["tsys+dynamic"])
-    .addWrittenIn(["pl+python"]);
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+audio-dev", "tag+workflow"])
+    .relTsys.add(["tsys+dynamic"])
+    .relWrittenIn.add(["pl+python"]);
 
   // TOOLS
 

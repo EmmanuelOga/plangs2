@@ -20,12 +20,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://squirrel-lang.org/",
       created: "2003",
     })
-    .addInfluencedBy(["pl+c++", "pl+javascript", "pl+lua", "pl+python"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+app", "tag+games", "tag+interpreters", "tag+scripting"])
-    .addTypeSystems(["tsys+dynamic"]);
+    .relInfluencedBy.add(["pl+c++", "pl+javascript", "pl+lua", "pl+python"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+app", "tag+games", "tag+interpreters", "tag+scripting"])
+    .relTsys.add(["tsys+dynamic"]);
 
   // TOOLS
 

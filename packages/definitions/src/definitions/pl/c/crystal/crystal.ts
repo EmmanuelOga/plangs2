@@ -25,13 +25,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://crystal-lang.org/",
       created: "2014",
     })
-    .addInfluencedBy(["pl+c", "pl+c-sharp", "pl+go", "pl+python", "pl+ruby", "pl+rust"])
-    .addLicenses(["license+apache"])
-    .addParadigms(["paradigm+compiled", "paradigm+concurrent", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+apple", "plat+arm", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+compiler", "tag+interpreters", "tag+scripting"])
-    .addTypeSystems(["tsys+duck", "tsys+inferred", "tsys+nominal", "tsys+static"])
-    .addWrittenIn(["pl+c"]);
+    .relInfluencedBy.add(["pl+c", "pl+c-sharp", "pl+go", "pl+python", "pl+ruby", "pl+rust"])
+    .relLicenses.add(["license+apache"])
+    .relParadigms.add(["paradigm+compiled", "paradigm+concurrent", "paradigm+multi", "paradigm+oop"])
+    .relPlatforms.add(["plat+apple", "plat+arm", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])
+    .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting"])
+    .relTsys.add(["tsys+duck", "tsys+inferred", "tsys+nominal", "tsys+static"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

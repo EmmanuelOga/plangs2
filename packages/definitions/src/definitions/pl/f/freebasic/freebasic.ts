@@ -19,14 +19,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.freebasic.net/",
       created: "2004",
     })
-    .addImplements(["pl+basic"])
-    .addInfluencedBy(["pl+c"])
-    .addLicenses(["license+gnu-gpl", "license+lgpl"])
-    .addParadigms(["paradigm+compiled", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
-    .addPlatforms(["plat+bsd", "plat+dos", "plat+linux", "plat+windows"])
-    .addTags(["tag+app", "tag+compiler", "tag+interpreters", "tag+viz"])
-    .addTypeSystems(["tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+c"]);
+    .relImplements.add(["pl+basic"])
+    .relInfluencedBy.add(["pl+c"])
+    .relLicenses.add(["license+gnu-gpl", "license+lgpl"])
+    .relParadigms.add(["paradigm+compiled", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
+    .relPlatforms.add(["plat+bsd", "plat+dos", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+app", "tag+compiler", "tag+interpreters", "tag+viz"])
+    .relTsys.add(["tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

@@ -22,10 +22,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://nixos.org",
       created: "2003",
     })
-    .addLicenses(["license+lgpl"])
-    .addParadigms(["paradigm+declarative", "paradigm+functional"])
-    .addPlatforms(["plat+apple", "plat+bsd", "plat+linux"])
-    .addTypeSystems(["tsys+dynamic"]);
+    .relLicenses.add(["license+lgpl"])
+    .relParadigms.add(["paradigm+declarative", "paradigm+functional"])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux"])
+    .relTsys.add(["tsys+dynamic"]);
 
   // TOOLS
 

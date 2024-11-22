@@ -11,11 +11,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://kx.com/",
       created: "1993",
     })
-    .addInfluencedBy(["pl+apl", "pl+scheme"])
-    .addParadigms(["paradigm+array", "paradigm+functional"])
-    .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+analysis", "tag+app", "tag+dbms", "tag+interpreters"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
+    .relInfluencedBy.add(["pl+apl", "pl+scheme"])
+    .relParadigms.add(["paradigm+array", "paradigm+functional"])
+    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+analysis", "tag+app", "tag+dbms", "tag+interpreters"])
+    .relTsys.add(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

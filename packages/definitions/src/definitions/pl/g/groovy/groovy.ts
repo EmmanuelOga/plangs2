@@ -28,12 +28,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://groovy-lang.org/",
       created: "2003",
     })
-    .addInfluencedBy(["pl+perl", "pl+python", "pl+ruby"])
-    .addLicenses(["license+apache"])
-    .addParadigms(["paradigm+aspect", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
-    .addPlatforms(["plat+java"])
-    .addTags(["tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting", "tag+testing"])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+static", "tsys+strong"]);
+    .relInfluencedBy.add(["pl+perl", "pl+python", "pl+ruby"])
+    .relLicenses.add(["license+apache"])
+    .relParadigms.add(["paradigm+aspect", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
+    .relPlatforms.add(["plat+java"])
+    .relTags.add(["tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting", "tag+testing"])
+    .relTsys.add(["tsys+duck", "tsys+dynamic", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

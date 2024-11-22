@@ -16,14 +16,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.freepascal.org/",
       created: "1993",
     })
-    .addImplements(["pl+pascal"])
-    .addInfluencedBy(["pl+pascal"])
-    .addLicenses(["license+gnu-gpl"])
-    .addParadigms(["paradigm+compiled", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+structured"])
-    .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+dos", "plat+embedded", "plat+linux", "plat+windows"])
-    .addTags(["tag+compiler", "tag+industrial", "tag+ui"])
-    .addTypeSystems(["tsys+object", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+pascal"]);
+    .relImplements.add(["pl+pascal"])
+    .relInfluencedBy.add(["pl+pascal"])
+    .relLicenses.add(["license+gnu-gpl"])
+    .relParadigms.add(["paradigm+compiled", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+structured"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+dos", "plat+embedded", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+compiler", "tag+industrial", "tag+ui"])
+    .relTsys.add(["tsys+object", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+pascal"]);
 
   // TOOLS
 

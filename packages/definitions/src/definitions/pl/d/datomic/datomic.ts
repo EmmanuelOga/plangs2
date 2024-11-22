@@ -12,13 +12,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://datomic.com/",
       created: "2012",
     })
-    .addDialectOf(["pl+datalog"])
-    .addImplements(["pl+datalog"])
-    .addLicenses(["license+apache"])
-    .addParadigms(["paradigm+declarative", "paradigm+distributed", "paradigm+logic", "paradigm+query"])
-    .addPlatforms(["plat+cross", "plat+java"])
-    .addTags(["tag+dataflow", "tag+dbms"])
-    .addWrittenIn(["pl+clojure", "pl+java"]);
+    .relDialectOf.add(["pl+datalog"])
+    .relImplements.add(["pl+datalog"])
+    .relLicenses.add(["license+apache"])
+    .relParadigms.add(["paradigm+declarative", "paradigm+distributed", "paradigm+logic", "paradigm+query"])
+    .relPlatforms.add(["plat+cross", "plat+java"])
+    .relTags.add(["tag+dataflow", "tag+dbms"])
+    .relWrittenIn.add(["pl+clojure", "pl+java"]);
 
   // TOOLS
 

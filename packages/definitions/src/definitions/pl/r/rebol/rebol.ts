@@ -24,11 +24,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.rebol.com/",
       created: "1997",
     })
-    .addInfluencedBy(["pl+forth", "pl+lisp", "pl+self"])
-    .addLicenses(["license+apache"])
-    .addParadigms(["paradigm+data-exchange", "paradigm+functional", "paradigm+imperative", "paradigm+language-oriented", "paradigm+prototype"])
-    .addPlatforms(["plat+cross"])
-    .addTags([
+    .relInfluencedBy.add(["pl+forth", "pl+lisp", "pl+self"])
+    .relLicenses.add(["license+apache"])
+    .relParadigms.add(["paradigm+data-exchange", "paradigm+functional", "paradigm+imperative", "paradigm+language-oriented", "paradigm+prototype"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add([
       "tag+3dg",
       "tag+app",
       "tag+audio-dev",
@@ -40,7 +40,7 @@ export function define(g: PlangsGraph) {
       "tag+ui",
       "tag+video",
     ])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
+    .relTsys.add(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

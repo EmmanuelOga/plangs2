@@ -13,13 +13,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://amber-lang.com",
       created: "2015",
     })
-    .addCompilesTo(["pl+bash"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+compiled", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
-    .addPlatforms(["plat+apple", "plat+linux", "plat+web"])
-    .addTags(["tag+cli", "tag+scripting"])
-    .addTypeSystems(["tsys+dynamic", "tsys+safe", "tsys+static"])
-    .addWrittenIn(["pl+rust"]);
+    .relCompilesTo.add(["pl+bash"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+compiled", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
+    .relPlatforms.add(["plat+apple", "plat+linux", "plat+web"])
+    .relTags.add(["tag+cli", "tag+scripting"])
+    .relTsys.add(["tsys+dynamic", "tsys+safe", "tsys+static"])
+    .relWrittenIn.add(["pl+rust"]);
 
   // TOOLS
 

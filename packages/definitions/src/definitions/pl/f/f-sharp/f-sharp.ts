@@ -24,10 +24,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://fsharp.org/",
       created: "2005",
     })
-    .addDialectOf(["pl+ocaml"])
-    .addInfluencedBy(["pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ocaml", "pl+python", "pl+scala", "pl+standard-ml"])
-    .addLicenses(["license+mit"])
-    .addParadigms([
+    .relDialectOf.add(["pl+ocaml"])
+    .relInfluencedBy.add(["pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ocaml", "pl+python", "pl+scala", "pl+standard-ml"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add([
       "paradigm+agents",
       "paradigm+concurrent",
       "paradigm+functional",
@@ -37,8 +37,8 @@ export function define(g: PlangsGraph) {
       "paradigm+oop",
       "paradigm+reflective",
     ])
-    .addPlatforms(["plat+.net", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags([
+    .relPlatforms.add(["plat+.net", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+app",
       "tag+automation",
       "tag+cli",
@@ -54,8 +54,8 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+viz",
     ])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+c-sharp"]);
+    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+c-sharp"]);
 
   // TOOLS
 

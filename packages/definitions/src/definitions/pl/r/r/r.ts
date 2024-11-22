@@ -26,9 +26,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.r-project.org/",
       created: "1993",
     })
-    .addInfluencedBy(["pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme"])
-    .addLicenses(["license+gnu-gpl"])
-    .addParadigms([
+    .relInfluencedBy.add(["pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme"])
+    .relLicenses.add(["license+gnu-gpl"])
+    .relParadigms.add([
       "paradigm+array",
       "paradigm+functional",
       "paradigm+imperative",
@@ -37,10 +37,20 @@ export function define(g: PlangsGraph) {
       "paradigm+procedural",
       "paradigm+reflective",
     ])
-    .addPlatforms(["plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+analysis", "tag+cli", "tag+dataq", "tag+genomics", "tag+interpreters", "tag+multivar", "tag+scripting", "tag+stats", "tag+viz"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"])
-    .addWrittenIn(["pl+c", "pl+fortran"]);
+    .relPlatforms.add(["plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+windows", "plat+x86-64"])
+    .relTags.add([
+      "tag+analysis",
+      "tag+cli",
+      "tag+dataq",
+      "tag+genomics",
+      "tag+interpreters",
+      "tag+multivar",
+      "tag+scripting",
+      "tag+stats",
+      "tag+viz",
+    ])
+    .relTsys.add(["tsys+dynamic", "tsys+strong"])
+    .relWrittenIn.add(["pl+c", "pl+fortran"]);
 
   // TOOLS
 

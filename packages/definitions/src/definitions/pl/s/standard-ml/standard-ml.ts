@@ -21,13 +21,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://smlfamily.github.io/",
       created: "1983",
     })
-    .addInfluencedBy(["pl+pascal"])
-    .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi"])
-    .addPlatforms(["plat+bsd", "plat+cross", "plat+linux"])
-    .addTags(["tag+app", "tag+compiler", "tag+edu", "tag+industrial", "tag+interpreters", "tag+proofs", "tag+ray-tracer"])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+c"]);
+    .relInfluencedBy.add(["pl+pascal"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi"])
+    .relPlatforms.add(["plat+bsd", "plat+cross", "plat+linux"])
+    .relTags.add(["tag+app", "tag+compiler", "tag+edu", "tag+industrial", "tag+interpreters", "tag+proofs", "tag+ray-tracer"])
+    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

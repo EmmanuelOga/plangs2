@@ -23,11 +23,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.purebasic.com/",
       created: "1998",
     })
-    .addDialectOf(["pl+basic"])
-    .addImplements(["pl+basic"])
-    .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+structured"])
-    .addPlatforms(["plat+apple", "plat+linux", "plat+raspberry", "plat+windows"])
-    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+editor", "tag+games", "tag+interpreters", "tag+ui"]);
+    .relDialectOf.add(["pl+basic"])
+    .relImplements.add(["pl+basic"])
+    .relParadigms.add(["paradigm+imperative", "paradigm+procedural", "paradigm+structured"])
+    .relPlatforms.add(["plat+apple", "plat+linux", "plat+raspberry", "plat+windows"])
+    .relTags.add(["tag+app", "tag+asm", "tag+compiler", "tag+editor", "tag+games", "tag+interpreters", "tag+ui"]);
 
   // TOOLS
 

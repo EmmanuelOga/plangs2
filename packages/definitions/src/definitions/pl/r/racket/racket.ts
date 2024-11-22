@@ -24,10 +24,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://racket-lang.org/",
       created: "1995",
     })
-    .addDialectOf(["pl+lisp"])
-    .addInfluencedBy(["pl+eiffel", "pl+r5rs", "pl+scheme"])
-    .addLicenses(["license+apache", "license+mit"])
-    .addParadigms([
+    .relDialectOf.add(["pl+lisp"])
+    .relInfluencedBy.add(["pl+eiffel", "pl+r5rs", "pl+scheme"])
+    .relLicenses.add(["license+apache", "license+mit"])
+    .relParadigms.add([
       "paradigm+functional",
       "paradigm+imperative",
       "paradigm+logic",
@@ -37,8 +37,8 @@ export function define(g: PlangsGraph) {
       "paradigm+oop",
       "paradigm+reflective",
     ])
-    .addPlatforms(["plat+arm", "plat+cross", "plat+x86-64"])
-    .addTags([
+    .relPlatforms.add(["plat+arm", "plat+cross", "plat+x86-64"])
+    .relTags.add([
       "tag+analysis",
       "tag+app",
       "tag+compiler",
@@ -53,7 +53,7 @@ export function define(g: PlangsGraph) {
       "tag+testing",
       "tag+ui",
     ])
-    .addTypeSystems(["tsys+dynamic", "tsys+static", "tsys+strong"]);
+    .relTsys.add(["tsys+dynamic", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

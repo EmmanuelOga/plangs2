@@ -11,11 +11,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.scratchjr.org/",
       created: "2014",
     })
-    .addInfluencedBy(["pl+scratch"])
-    .addParadigms(["paradigm+educational", "paradigm+event-driven", "paradigm+visual"])
-    .addPlatforms(["plat+android", "plat+apple"])
-    .addTags(["tag+edu", "tag+interpreters", "tag+low-code"])
-    .addTypeSystems(["tsys+untyped"]);
+    .relInfluencedBy.add(["pl+scratch"])
+    .relParadigms.add(["paradigm+educational", "paradigm+event-driven", "paradigm+visual"])
+    .relPlatforms.add(["plat+android", "plat+apple"])
+    .relTags.add(["tag+edu", "tag+interpreters", "tag+low-code"])
+    .relTsys.add(["tsys+untyped"]);
 
   // TOOLS
 

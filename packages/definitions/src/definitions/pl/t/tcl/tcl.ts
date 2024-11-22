@@ -26,11 +26,18 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.tcl-lang.org/",
       created: "1988",
     })
-    .addInfluencedBy(["pl+awk", "pl+lisp"])
-    .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+event-driven", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
-    .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
-    .addTags([
+    .relInfluencedBy.add(["pl+awk", "pl+lisp"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add([
+      "paradigm+event-driven",
+      "paradigm+functional",
+      "paradigm+imperative",
+      "paradigm+multi",
+      "paradigm+oop",
+      "paradigm+procedural",
+    ])
+    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+app",
       "tag+automation",
       "tag+control",
@@ -43,8 +50,8 @@ export function define(g: PlangsGraph) {
       "tag+testing",
       "tag+ui",
     ])
-    .addTypeSystems(["tsys+dynamic", "tsys+string"])
-    .addWrittenIn(["pl+c"]);
+    .relTsys.add(["tsys+dynamic", "tsys+string"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

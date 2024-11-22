@@ -21,11 +21,11 @@ export function define(g: PlangsGraph) {
       extRedditPath: "vim",
       created: "1991",
     })
-    .addLicenses(["license+gnu-gpl"])
-    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+oop", "paradigm+scripting"])
-    .addPlatforms(["plat+android", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+editor", "tag+scripting"])
-    .addTypeSystems(["tsys+dynamic"]);
+    .relLicenses.add(["license+gnu-gpl"])
+    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+oop", "paradigm+scripting"])
+    .relPlatforms.add(["plat+android", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+editor", "tag+scripting"])
+    .relTsys.add(["tsys+dynamic"]);
 
   // TOOLS
 

@@ -25,13 +25,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://haskell.org/",
       created: "1990",
     })
-    .addImplements(["pl+curry"])
-    .addInfluencedBy(["pl+clean", "pl+lisp", "pl+r5rs", "pl+raku", "pl+scheme", "pl+standard-ml"])
-    .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+concurrent", "paradigm+declarative", "paradigm+functional", "paradigm+lazy"])
-    .addPlatforms(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters"])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    .relImplements.add(["pl+curry"])
+    .relInfluencedBy.add(["pl+clean", "pl+lisp", "pl+r5rs", "pl+raku", "pl+scheme", "pl+standard-ml"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add(["paradigm+concurrent", "paradigm+declarative", "paradigm+functional", "paradigm+lazy"])
+    .relPlatforms.add(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters"])
+    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

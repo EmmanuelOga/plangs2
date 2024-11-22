@@ -13,12 +13,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ensoanalytics.com/",
       created: "2021",
     })
-    .addLicenses(["license+agpl", "license+apache"])
-    .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+visual"])
-    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
-    .addTags(["tag+analysis", "tag+viz", "tag+workflow"])
-    .addTypeSystems(["tsys+dynamic", "tsys+gradual"])
-    .addWrittenIn(["pl+rust", "pl+scala"]);
+    .relLicenses.add(["license+agpl", "license+apache"])
+    .relParadigms.add(["paradigm+functional", "paradigm+multi", "paradigm+visual"])
+    .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+analysis", "tag+viz", "tag+workflow"])
+    .relTsys.add(["tsys+dynamic", "tsys+gradual"])
+    .relWrittenIn.add(["pl+rust", "pl+scala"]);
 
   // TOOLS
 

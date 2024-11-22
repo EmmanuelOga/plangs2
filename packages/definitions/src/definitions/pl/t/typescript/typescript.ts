@@ -27,14 +27,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.typescriptlang.org/",
       created: "2012",
     })
-    .addCompilesTo(["pl+javascript"])
-    .addInfluencedBy(["pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+java", "pl+javascript"])
-    .addLicenses(["license+apache"])
-    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+cross", "plat+nodejs"])
-    .addTags(["tag+compiler", "tag+framework", "tag+scripting"])
-    .addTypeSystems(["tsys+duck", "tsys+gradual", "tsys+optional", "tsys+strong", "tsys+structural"])
-    .addWrittenIn(["pl+typescript"]);
+    .relCompilesTo.add(["pl+javascript"])
+    .relInfluencedBy.add(["pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+java", "pl+javascript"])
+    .relLicenses.add(["license+apache"])
+    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
+    .relPlatforms.add(["plat+cross", "plat+nodejs"])
+    .relTags.add(["tag+compiler", "tag+framework", "tag+scripting"])
+    .relTsys.add(["tsys+duck", "tsys+gradual", "tsys+optional", "tsys+strong", "tsys+structural"])
+    .relWrittenIn.add(["pl+typescript"]);
 
   // TOOLS
 

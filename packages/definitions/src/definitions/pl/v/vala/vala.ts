@@ -25,14 +25,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://wiki.gnome.org/Projects/Vala",
       created: "2006",
     })
-    .addCompilesTo(["pl+c"])
-    .addInfluencedBy(["pl+boo", "pl+c", "pl+c-sharp", "pl+d"])
-    .addLicenses(["license+lgpl"])
-    .addParadigms(["paradigm+imperative", "paradigm+oop", "paradigm+procedural", "paradigm+scripting", "paradigm+structured"])
-    .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+compiler", "tag+framework", "tag+ui"])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])
-    .addWrittenIn(["pl+c"]);
+    .relCompilesTo.add(["pl+c"])
+    .relInfluencedBy.add(["pl+boo", "pl+c", "pl+c-sharp", "pl+d"])
+    .relLicenses.add(["license+lgpl"])
+    .relParadigms.add(["paradigm+imperative", "paradigm+oop", "paradigm+procedural", "paradigm+scripting", "paradigm+structured"])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+compiler", "tag+framework", "tag+ui"])
+    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

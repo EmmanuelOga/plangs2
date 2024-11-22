@@ -16,13 +16,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://gnu.org/s/gforth/",
       created: "1992",
     })
-    .addImplements(["pl+forth"])
-    .addLicenses(["license+gnu-gpl"])
-    .addParadigms(["paradigm+procedural", "paradigm+stack-oriented"])
-    .addPlatforms(["plat+cross", "plat+dos", "plat+linux", "plat+windows"])
-    .addTags(["tag+interpreters"])
-    .addTypeSystems(["tsys+untyped"])
-    .addWrittenIn(["pl+c"]);
+    .relImplements.add(["pl+forth"])
+    .relLicenses.add(["license+gnu-gpl"])
+    .relParadigms.add(["paradigm+procedural", "paradigm+stack-oriented"])
+    .relPlatforms.add(["plat+cross", "plat+dos", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+interpreters"])
+    .relTsys.add(["tsys+untyped"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

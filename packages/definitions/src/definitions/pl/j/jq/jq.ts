@@ -27,12 +27,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://jqlang.github.io/jq",
       created: "2012",
     })
-    .addInfluencedBy(["pl+haskell"])
-    .addLicenses(["license+mit", "license+public-domain"])
-    .addParadigms(["paradigm+functional", "paradigm+point-free", "paradigm+query", "paradigm+scripting"])
-    .addPlatforms(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+cli", "tag+interpreters", "tag+shell", "tag+workflow"])
-    .addWrittenIn(["pl+c"]);
+    .relInfluencedBy.add(["pl+haskell"])
+    .relLicenses.add(["license+mit", "license+public-domain"])
+    .relParadigms.add(["paradigm+functional", "paradigm+point-free", "paradigm+query", "paradigm+scripting"])
+    .relPlatforms.add(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+cli", "tag+interpreters", "tag+shell", "tag+workflow"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

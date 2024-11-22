@@ -24,13 +24,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://go.dev/",
       created: "2009",
     })
-    .addInfluencedBy(["pl+apl", "pl+c", "pl+d", "pl+erlang", "pl+pascal", "pl+python"])
-    .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
-    .addTags(["tag+app", "tag+cli", "tag+compiler", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+testing", "tag+viz"])
-    .addTypeSystems(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong", "tsys+structural"])
-    .addWrittenIn(["pl+assembly", "pl+c++"]);
+    .relInfluencedBy.add(["pl+apl", "pl+c", "pl+d", "pl+erlang", "pl+pascal", "pl+python"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+app", "tag+cli", "tag+compiler", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+testing", "tag+viz"])
+    .relTsys.add(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong", "tsys+structural"])
+    .relWrittenIn.add(["pl+assembly", "pl+c++"]);
 
   // TOOLS
 

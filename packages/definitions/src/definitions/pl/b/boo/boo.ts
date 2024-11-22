@@ -19,13 +19,13 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Boo_(programming_language)",
       created: "2003",
     })
-    .addInfluencedBy(["pl+c-sharp", "pl+python"])
-    .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+multi", "paradigm+oop", "paradigm+scripting"])
-    .addPlatforms(["plat+.net", "plat+cross"])
-    .addTags(["tag+app", "tag+compiler", "tag+games", "tag+interpreters", "tag+scripting"])
-    .addTypeSystems(["tsys+duck", "tsys+inferred", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+c-sharp"]);
+    .relInfluencedBy.add(["pl+c-sharp", "pl+python"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add(["paradigm+multi", "paradigm+oop", "paradigm+scripting"])
+    .relPlatforms.add(["plat+.net", "plat+cross"])
+    .relTags.add(["tag+app", "tag+compiler", "tag+games", "tag+interpreters", "tag+scripting"])
+    .relTsys.add(["tsys+duck", "tsys+inferred", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+c-sharp"]);
 
   // TOOLS
 

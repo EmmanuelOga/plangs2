@@ -26,14 +26,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.gnu.org/software/emacs",
       created: "1985",
     })
-    .addDialectOf(["pl+lisp"])
-    .addInfluencedBy(["pl+common-lisp"])
-    .addLicenses(["license+gnu-gpl"])
-    .addParadigms(["paradigm+functional", "paradigm+metaprogramming", "paradigm+reflective", "paradigm+scripting"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+app", "tag+compiler", "tag+editor", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+shell"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"])
-    .addWrittenIn(["pl+c"]);
+    .relDialectOf.add(["pl+lisp"])
+    .relInfluencedBy.add(["pl+common-lisp"])
+    .relLicenses.add(["license+gnu-gpl"])
+    .relParadigms.add(["paradigm+functional", "paradigm+metaprogramming", "paradigm+reflective", "paradigm+scripting"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+app", "tag+compiler", "tag+editor", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+shell"])
+    .relTsys.add(["tsys+dynamic", "tsys+strong"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

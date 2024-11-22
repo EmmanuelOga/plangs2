@@ -14,14 +14,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://gambitscheme.org/",
       created: "1988",
     })
-    .addCompilesTo(["pl+c"])
-    .addDialectOf(["pl+lisp"])
-    .addInfluencedBy(["pl+lisp", "pl+scheme"])
-    .addLicenses(["license+apache", "license+lgpl"])
-    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+metaprogramming", "paradigm+multi"])
-    .addPlatforms(["plat+cross", "plat+x86-64"])
-    .addTags(["tag+compiler", "tag+interpreters"])
-    .addTypeSystems(["tsys+dynamic", "tsys+latent", "tsys+strong"]);
+    .relCompilesTo.add(["pl+c"])
+    .relDialectOf.add(["pl+lisp"])
+    .relInfluencedBy.add(["pl+lisp", "pl+scheme"])
+    .relLicenses.add(["license+apache", "license+lgpl"])
+    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+metaprogramming", "paradigm+multi"])
+    .relPlatforms.add(["plat+cross", "plat+x86-64"])
+    .relTags.add(["tag+compiler", "tag+interpreters"])
+    .relTsys.add(["tsys+dynamic", "tsys+latent", "tsys+strong"]);
 
   // TOOLS
 

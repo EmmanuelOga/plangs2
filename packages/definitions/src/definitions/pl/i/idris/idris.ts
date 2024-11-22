@@ -24,12 +24,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://idris-lang.org/",
       created: "2007",
     })
-    .addInfluencedBy(["pl+agda", "pl+clean", "pl+coq", "pl+f-sharp", "pl+haskell", "pl+rust"])
-    .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+functional"])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+interpreters", "tag+proofs"])
-    .addTypeSystems(["tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong"]);
+    .relInfluencedBy.add(["pl+agda", "pl+clean", "pl+coq", "pl+f-sharp", "pl+haskell", "pl+rust"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add(["paradigm+functional"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+interpreters", "tag+proofs"])
+    .relTsys.add(["tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

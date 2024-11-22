@@ -11,14 +11,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://webkit.org/",
       created: "2008",
     })
-    .addImplements(["pl+javascript"])
-    .addInfluencedBy(["pl+javascript"])
-    .addLicenses(["license+bsd", "license+lgpl"])
-    .addParadigms(["paradigm+event-driven", "paradigm+interpreted", "paradigm+oop", "paradigm+scripting"])
-    .addPlatforms(["plat+apple", "plat+arm", "plat+linux", "plat+windows"])
-    .addTags(["tag+interpreters", "tag+low-code", "tag+scripting", "tag+ui"])
-    .addTypeSystems(["tsys+dynamic", "tsys+weak"])
-    .addWrittenIn(["pl+c++"]);
+    .relImplements.add(["pl+javascript"])
+    .relInfluencedBy.add(["pl+javascript"])
+    .relLicenses.add(["license+bsd", "license+lgpl"])
+    .relParadigms.add(["paradigm+event-driven", "paradigm+interpreted", "paradigm+oop", "paradigm+scripting"])
+    .relPlatforms.add(["plat+apple", "plat+arm", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+interpreters", "tag+low-code", "tag+scripting", "tag+ui"])
+    .relTsys.add(["tsys+dynamic", "tsys+weak"])
+    .relWrittenIn.add(["pl+c++"]);
 
   // TOOLS
 

@@ -12,13 +12,13 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Hackety_Hack",
       created: "2009",
     })
-    .addInfluencedBy(["pl+ruby"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+educational", "paradigm+oop", "paradigm+scripting"])
-    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
-    .addTags(["tag+edu", "tag+interpreters", "tag+scripting", "tag+ui"])
-    .addTypeSystems(["tsys+dynamic"])
-    .addWrittenIn(["pl+ruby"]);
+    .relInfluencedBy.add(["pl+ruby"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+educational", "paradigm+oop", "paradigm+scripting"])
+    .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+edu", "tag+interpreters", "tag+scripting", "tag+ui"])
+    .relTsys.add(["tsys+dynamic"])
+    .relWrittenIn.add(["pl+ruby"]);
 
   // TOOLS
 

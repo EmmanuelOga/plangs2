@@ -24,14 +24,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://rakudo.org/",
       created: "2008",
     })
-    .addImplements(["pl+raku"])
-    .addInfluencedBy(["pl+common-lisp", "pl+haskell", "pl+perl"])
-    .addLicenses(["license+artistic"])
-    .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+procedural"])
-    .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
-    .addTags(["tag+compiler", "tag+scripting"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"])
-    .addWrittenIn(["pl+c++"]);
+    .relImplements.add(["pl+raku"])
+    .relInfluencedBy.add(["pl+common-lisp", "pl+haskell", "pl+perl"])
+    .relLicenses.add(["license+artistic"])
+    .relParadigms.add(["paradigm+functional", "paradigm+multi", "paradigm+procedural"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+compiler", "tag+scripting"])
+    .relTsys.add(["tsys+dynamic", "tsys+strong"])
+    .relWrittenIn.add(["pl+c++"]);
 
   // TOOLS
 

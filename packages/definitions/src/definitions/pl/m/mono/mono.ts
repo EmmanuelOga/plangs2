@@ -13,11 +13,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.mono-project.com/",
       created: "2004",
     })
-    .addImplements(["pl+c-sharp", "pl+visual-basic"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+compiled", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+android", "plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
-    .addTags([
+    .relImplements.add(["pl+c-sharp", "pl+visual-basic"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+compiled", "paradigm+multi", "paradigm+oop"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
+    .relTags.add([
       "tag+3dg",
       "tag+app",
       "tag+automation",
@@ -31,8 +31,8 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+ui",
     ])
-    .addTypeSystems(["tsys+nominal", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+c", "pl+c-sharp"]);
+    .relTsys.add(["tsys+nominal", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+c", "pl+c-sharp"]);
 
   // TOOLS
 

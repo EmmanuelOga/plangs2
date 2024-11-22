@@ -19,8 +19,8 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Make_(software)",
       created: "1976",
     })
-    .addParadigms(["paradigm+declarative", "paradigm+macro"])
-    .addTags(["tag+automation", "tag+cli"]);
+    .relParadigms.add(["paradigm+declarative", "paradigm+macro"])
+    .relTags.add(["tag+automation", "tag+cli"]);
 
   // TOOLS
 

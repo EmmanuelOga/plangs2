@@ -16,13 +16,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://flix.dev/",
       created: "2015",
     })
-    .addInfluencedBy(["pl+f-sharp", "pl+go", "pl+haskell", "pl+ocaml", "pl+scala"])
-    .addLicenses(["license+apache"])
-    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+logic", "paradigm+multi"])
-    .addPlatforms(["plat+cross", "plat+java"])
-    .addTags(["tag+compiler", "tag+interpreters"])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])
-    .addWrittenIn(["pl+java"]);
+    .relInfluencedBy.add(["pl+f-sharp", "pl+go", "pl+haskell", "pl+ocaml", "pl+scala"])
+    .relLicenses.add(["license+apache"])
+    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+logic", "paradigm+multi"])
+    .relPlatforms.add(["plat+cross", "plat+java"])
+    .relTags.add(["tag+compiler", "tag+interpreters"])
+    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])
+    .relWrittenIn.add(["pl+java"]);
 
   // TOOLS
 

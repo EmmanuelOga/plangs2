@@ -13,13 +13,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://ccl.clozure.com/",
       created: "2000",
     })
-    .addImplements(["pl+common-lisp"])
-    .addLicenses(["license+apache", "license+lgpl"])
-    .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+compiler", "tag+editor"])
-    .addTypeSystems(["tsys+dynamic"])
-    .addWrittenIn(["pl+c"]);
+    .relImplements.add(["pl+common-lisp"])
+    .relLicenses.add(["license+apache", "license+lgpl"])
+    .relParadigms.add(["paradigm+functional", "paradigm+multi", "paradigm+oop"])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+compiler", "tag+editor"])
+    .relTsys.add(["tsys+dynamic"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

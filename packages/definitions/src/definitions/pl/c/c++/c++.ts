@@ -34,13 +34,23 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://isocpp.org/",
       created: "1985",
     })
-    .addDialectOf(["pl+c"])
-    .addInfluencedBy(["pl+ada", "pl+apl", "pl+c", "pl+f-sharp"])
-    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
-    .addTags(["tag+app", "tag+compiler", "tag+control", "tag+dataq", "tag+embedded", "tag+games", "tag+industrial", "tag+interpreters", "tag+viz"])
-    .addTypeSystems(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+c"]);
+    .relDialectOf.add(["pl+c"])
+    .relInfluencedBy.add(["pl+ada", "pl+apl", "pl+c", "pl+f-sharp"])
+    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
+    .relTags.add([
+      "tag+app",
+      "tag+compiler",
+      "tag+control",
+      "tag+dataq",
+      "tag+embedded",
+      "tag+games",
+      "tag+industrial",
+      "tag+interpreters",
+      "tag+viz",
+    ])
+    .relTsys.add(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

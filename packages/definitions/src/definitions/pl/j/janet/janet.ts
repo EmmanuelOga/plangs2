@@ -19,13 +19,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://janet-lang.org/",
       created: "2017",
     })
-    .addInfluencedBy(["pl+scheme"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+extensible", "paradigm+functional", "paradigm+imperative", "paradigm+scripting"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+cli", "tag+embedded", "tag+scripting"])
-    .addTypeSystems(["tsys+dynamic"])
-    .addWrittenIn(["pl+c"]);
+    .relInfluencedBy.add(["pl+scheme"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+extensible", "paradigm+functional", "paradigm+imperative", "paradigm+scripting"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+cli", "tag+embedded", "tag+scripting"])
+    .relTsys.add(["tsys+dynamic"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

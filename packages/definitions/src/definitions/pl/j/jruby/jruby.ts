@@ -23,14 +23,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.jruby.org/",
       created: "2001",
     })
-    .addImplements(["pl+ruby"])
-    .addInfluencedBy(["pl+ruby"])
-    .addLicenses(["license+epl", "license+gnu-gpl", "license+lgpl"])
-    .addParadigms(["paradigm+concurrent", "paradigm+oop", "paradigm+reflective", "paradigm+scripting"])
-    .addPlatforms(["plat+cross", "plat+java"])
-    .addTags(["tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting", "tag+shell"])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"])
-    .addWrittenIn(["pl+java"]);
+    .relImplements.add(["pl+ruby"])
+    .relInfluencedBy.add(["pl+ruby"])
+    .relLicenses.add(["license+epl", "license+gnu-gpl", "license+lgpl"])
+    .relParadigms.add(["paradigm+concurrent", "paradigm+oop", "paradigm+reflective", "paradigm+scripting"])
+    .relPlatforms.add(["plat+cross", "plat+java"])
+    .relTags.add(["tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting", "tag+shell"])
+    .relTsys.add(["tsys+duck", "tsys+dynamic", "tsys+strong"])
+    .relWrittenIn.add(["pl+java"]);
 
   // TOOLS
 

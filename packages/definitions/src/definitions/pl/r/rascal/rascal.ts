@@ -20,12 +20,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.rascal-mpl.org/",
       created: "2009",
     })
-    .addLicenses(["license+bsd", "license+epl"])
-    .addParadigms(["paradigm+declarative", "paradigm+functional", "paradigm+imperative", "paradigm+language-oriented", "paradigm+scripting"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+analysis"])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+java"]);
+    .relLicenses.add(["license+bsd", "license+epl"])
+    .relParadigms.add(["paradigm+declarative", "paradigm+functional", "paradigm+imperative", "paradigm+language-oriented", "paradigm+scripting"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+analysis"])
+    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+java"]);
 
   // TOOLS
 

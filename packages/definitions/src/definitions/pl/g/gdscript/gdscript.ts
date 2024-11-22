@@ -27,13 +27,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://godotengine.org/",
       created: "2014",
     })
-    .addInfluencedBy(["pl+python"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+imperative", "paradigm+oop", "paradigm+scripting"])
-    .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+web", "plat+windows"])
-    .addTags(["tag+3dg", "tag+audio-dev", "tag+games", "tag+scripting", "tag+ui"])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"])
-    .addWrittenIn(["pl+c++"]);
+    .relInfluencedBy.add(["pl+python"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+imperative", "paradigm+oop", "paradigm+scripting"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+web", "plat+windows"])
+    .relTags.add(["tag+3dg", "tag+audio-dev", "tag+games", "tag+scripting", "tag+ui"])
+    .relTsys.add(["tsys+duck", "tsys+dynamic", "tsys+strong"])
+    .relWrittenIn.add(["pl+c++"]);
 
   // TOOLS
 

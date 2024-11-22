@@ -23,8 +23,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://developer.nvidia.com/cuda-zone",
       created: "2006",
     })
-    .addParadigms(["paradigm+compiled", "paradigm+parallel"])
-    .addPlatforms(["plat+linux", "plat+windows"]);
+    .relParadigms.add(["paradigm+compiled", "paradigm+parallel"])
+    .relPlatforms.add(["plat+linux", "plat+windows"]);
 
   // TOOLS
 

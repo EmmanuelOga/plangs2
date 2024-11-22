@@ -22,12 +22,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://vuejs.org",
       created: "2014",
     })
-    .addCompilesTo(["pl+javascript"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+declarative", "paradigm+event-driven", "paradigm+oop"])
-    .addPlatforms(["plat+web"])
-    .addTags(["tag+framework", "tag+ui"])
-    .addTypeSystems(["tsys+dynamic"]);
+    .relCompilesTo.add(["pl+javascript"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+declarative", "paradigm+event-driven", "paradigm+oop"])
+    .relPlatforms.add(["plat+web"])
+    .relTags.add(["tag+framework", "tag+ui"])
+    .relTsys.add(["tsys+dynamic"]);
 
   // TOOLS
 

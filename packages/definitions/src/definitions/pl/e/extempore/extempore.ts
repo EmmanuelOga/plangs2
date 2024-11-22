@@ -13,13 +13,13 @@ export function define(g: PlangsGraph) {
       extGithubPath: "digego/extempore",
       created: "2011",
     })
-    .addInfluencedBy(["pl+lisp", "pl+scheme"])
-    .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+real-time"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+audio-dev", "tag+compiler", "tag+dsp", "tag+multimedia", "tag+wavelet"])
-    .addTypeSystems(["tsys+dynamic", "tsys+static"])
-    .addWrittenIn(["pl+c"]);
+    .relInfluencedBy.add(["pl+lisp", "pl+scheme"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add(["paradigm+functional", "paradigm+multi", "paradigm+real-time"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+audio-dev", "tag+compiler", "tag+dsp", "tag+multimedia", "tag+wavelet"])
+    .relTsys.add(["tsys+dynamic", "tsys+static"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

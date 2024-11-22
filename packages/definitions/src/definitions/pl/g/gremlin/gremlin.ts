@@ -12,11 +12,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://tinkerpop.apache.org/",
       created: "2009",
     })
-    .addInfluencedBy(["pl+sql", "pl+xpath"])
-    .addLicenses(["license+apache"])
-    .addParadigms(["paradigm+declarative", "paradigm+dsl", "paradigm+imperative", "paradigm+query"])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+compiler", "tag+dbms", "tag+graph"]);
+    .relInfluencedBy.add(["pl+sql", "pl+xpath"])
+    .relLicenses.add(["license+apache"])
+    .relParadigms.add(["paradigm+declarative", "paradigm+dsl", "paradigm+imperative", "paradigm+query"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+compiler", "tag+dbms", "tag+graph"]);
 
   // TOOLS
 

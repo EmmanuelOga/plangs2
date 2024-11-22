@@ -21,14 +21,14 @@ export function define(g: PlangsGraph) {
       extGithubPath: "imba/imba",
       created: "2015",
     })
-    .addCompilesTo(["pl+javascript"])
-    .addInfluencedBy(["pl+coffeescript"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+functional", "paradigm+general-purpose", "paradigm+imperative", "paradigm+oop", "paradigm+reactive"])
-    .addPlatforms(["plat+nodejs", "plat+web"])
-    .addTags(["tag+ui"])
-    .addTypeSystems(["tsys+dynamic", "tsys+inferred", "tsys+static"])
-    .addWrittenIn(["pl+javascript"]);
+    .relCompilesTo.add(["pl+javascript"])
+    .relInfluencedBy.add(["pl+coffeescript"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+functional", "paradigm+general-purpose", "paradigm+imperative", "paradigm+oop", "paradigm+reactive"])
+    .relPlatforms.add(["plat+nodejs", "plat+web"])
+    .relTags.add(["tag+ui"])
+    .relTsys.add(["tsys+dynamic", "tsys+inferred", "tsys+static"])
+    .relWrittenIn.add(["pl+javascript"]);
 
   // TOOLS
 

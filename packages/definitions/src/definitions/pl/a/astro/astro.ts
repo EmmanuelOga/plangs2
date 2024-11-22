@@ -21,11 +21,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://astro.build",
       created: "2021",
     })
-    .addCompilesTo(["pl+javascript", "pl+svelte", "pl+typescript", "pl+vue"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+declarative", "paradigm+reactive"])
-    .addPlatforms(["plat+web"])
-    .addTags(["tag+framework"]);
+    .relCompilesTo.add(["pl+javascript", "pl+svelte", "pl+typescript", "pl+vue"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+declarative", "paradigm+reactive"])
+    .relPlatforms.add(["plat+web"])
+    .relTags.add(["tag+framework"]);
 
   // TOOLS
 

@@ -24,13 +24,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://futhark-lang.org/",
       created: "2014",
     })
-    .addInfluencedBy(["pl+apl", "pl+haskell", "pl+standard-ml"])
-    .addLicenses(["license+isc"])
-    .addParadigms(["paradigm+array", "paradigm+compiled", "paradigm+functional", "paradigm+multi", "paradigm+parallel"])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+app", "tag+compiler", "tag+interpreters", "tag+numeric", "tag+ray-tracer", "tag+sci"])
-    .addTypeSystems(["tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+uniqueness"])
-    .addWrittenIn(["pl+standard-ml"]);
+    .relInfluencedBy.add(["pl+apl", "pl+haskell", "pl+standard-ml"])
+    .relLicenses.add(["license+isc"])
+    .relParadigms.add(["paradigm+array", "paradigm+compiled", "paradigm+functional", "paradigm+multi", "paradigm+parallel"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+app", "tag+compiler", "tag+interpreters", "tag+numeric", "tag+ray-tracer", "tag+sci"])
+    .relTsys.add(["tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+uniqueness"])
+    .relWrittenIn.add(["pl+standard-ml"]);
 
   // TOOLS
 

@@ -22,11 +22,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://palletsprojects.com/p/jinja/",
       created: "2008",
     })
-    .addCompilesTo(["pl+python"])
-    .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+declarative", "paradigm+dsl"])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+scripting"]);
+    .relCompilesTo.add(["pl+python"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add(["paradigm+declarative", "paradigm+dsl"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+scripting"]);
 
   // TOOLS
 

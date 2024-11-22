@@ -20,12 +20,12 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Basic",
       created: "1964",
     })
-    .addInfluencedBy(["pl+fortran"])
-    .addLicenses(["license+public-domain"])
-    .addParadigms(["paradigm+imperative", "paradigm+oop", "paradigm+procedural", "paradigm+structured"])
-    .addPlatforms(["plat+cross", "plat+dos", "plat+linux", "plat+windows"])
-    .addTags(["tag+app", "tag+embedded", "tag+games", "tag+industrial", "tag+interpreters"])
-    .addTypeSystems(["tsys+dynamic", "tsys+static", "tsys+weak"]);
+    .relInfluencedBy.add(["pl+fortran"])
+    .relLicenses.add(["license+public-domain"])
+    .relParadigms.add(["paradigm+imperative", "paradigm+oop", "paradigm+procedural", "paradigm+structured"])
+    .relPlatforms.add(["plat+cross", "plat+dos", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+app", "tag+embedded", "tag+games", "tag+industrial", "tag+interpreters"])
+    .relTsys.add(["tsys+dynamic", "tsys+static", "tsys+weak"]);
 
   // TOOLS
 

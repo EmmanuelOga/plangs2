@@ -13,14 +13,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://souffle-lang.github.io/",
       created: "2016",
     })
-    .addDialectOf(["pl+datalog"])
-    .addInfluencedBy(["pl+datalog"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+compiled", "paradigm+declarative", "paradigm+logic"])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+analysis", "tag+compiler", "tag+interpreters"])
-    .addTypeSystems(["tsys+static"])
-    .addWrittenIn(["pl+c++"]);
+    .relDialectOf.add(["pl+datalog"])
+    .relInfluencedBy.add(["pl+datalog"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+compiled", "paradigm+declarative", "paradigm+logic"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+analysis", "tag+compiler", "tag+interpreters"])
+    .relTsys.add(["tsys+static"])
+    .relWrittenIn.add(["pl+c++"]);
 
   // TOOLS
 

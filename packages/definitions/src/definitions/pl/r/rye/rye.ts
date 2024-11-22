@@ -16,13 +16,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ryelang.org/",
       created: "2022",
     })
-    .addInfluencedBy(["pl+factor", "pl+rebol", "pl+red"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+functional", "paradigm+interpreted", "paradigm+multi", "paradigm+scripting"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows"])
-    .addTags(["tag+app", "tag+cli", "tag+scripting"])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic"])
-    .addWrittenIn(["pl+go"]);
+    .relInfluencedBy.add(["pl+factor", "pl+rebol", "pl+red"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+functional", "paradigm+interpreted", "paradigm+multi", "paradigm+scripting"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows"])
+    .relTags.add(["tag+app", "tag+cli", "tag+scripting"])
+    .relTsys.add(["tsys+duck", "tsys+dynamic"])
+    .relWrittenIn.add(["pl+go"]);
 
   // TOOLS
 

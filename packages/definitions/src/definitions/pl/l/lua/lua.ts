@@ -21,9 +21,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.lua.org/",
       created: "1993",
     })
-    .addInfluencedBy(["pl+awk", "pl+c++", "pl+lisp", "pl+r5rs", "pl+scheme", "pl+self"])
-    .addLicenses(["license+mit"])
-    .addParadigms([
+    .relInfluencedBy.add(["pl+awk", "pl+c++", "pl+lisp", "pl+r5rs", "pl+scheme", "pl+self"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add([
       "paradigm+functional",
       "paradigm+imperative",
       "paradigm+metaprogramming",
@@ -34,8 +34,8 @@ export function define(g: PlangsGraph) {
       "paradigm+reflective",
       "paradigm+scripting",
     ])
-    .addPlatforms(["plat+cross"])
-    .addTags([
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add([
       "tag+app",
       "tag+compiler",
       "tag+dbms",
@@ -47,8 +47,8 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
       "tag+viz",
     ])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"])
-    .addWrittenIn(["pl+c"]);
+    .relTsys.add(["tsys+duck", "tsys+dynamic", "tsys+strong"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

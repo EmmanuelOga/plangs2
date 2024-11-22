@@ -26,13 +26,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://raku.org/",
       created: "2015",
     })
-    .addDialectOf(["pl+perl"])
-    .addInfluencedBy(["pl+haskell", "pl+javascript", "pl+perl", "pl+ruby"])
-    .addLicenses(["license+artistic", "license+gnu-gpl"])
-    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+compiler", "tag+interpreters", "tag+scripting", "tag+testing"])
-    .addTypeSystems(["tsys+dynamic", "tsys+gradual"]);
+    .relDialectOf.add(["pl+perl"])
+    .relInfluencedBy.add(["pl+haskell", "pl+javascript", "pl+perl", "pl+ruby"])
+    .relLicenses.add(["license+artistic", "license+gnu-gpl"])
+    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting", "tag+testing"])
+    .relTsys.add(["tsys+dynamic", "tsys+gradual"]);
 
   // TOOLS
 

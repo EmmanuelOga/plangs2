@@ -25,14 +25,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://sass-lang.com/",
       created: "2006",
     })
-    .addCompilesTo(["pl+css"])
-    .addInfluencedBy(["pl+css"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+dsl"])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+automation", "tag+scripting"])
-    .addTypeSystems(["tsys+dynamic"])
-    .addWrittenIn(["pl+ruby"]);
+    .relCompilesTo.add(["pl+css"])
+    .relInfluencedBy.add(["pl+css"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+dsl"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+automation", "tag+scripting"])
+    .relTsys.add(["tsys+dynamic"])
+    .relWrittenIn.add(["pl+ruby"]);
 
   // TOOLS
 

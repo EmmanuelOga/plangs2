@@ -22,14 +22,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://clang.llvm.org/",
       created: "2007",
     })
-    .addImplements(["pl+c", "pl+c++"])
-    .addInfluencedBy(["pl+llvm"])
-    .addLicenses(["license+apache"])
-    .addParadigms(["paradigm+compiled", "paradigm+multi"])
-    .addPlatforms(["plat+apple", "plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+analysis", "tag+automation", "tag+cli", "tag+compiler", "tag+ray-tracer", "tag+shell", "tag+viz"])
-    .addTypeSystems(["tsys+manifest", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+c++"]);
+    .relImplements.add(["pl+c", "pl+c++"])
+    .relInfluencedBy.add(["pl+llvm"])
+    .relLicenses.add(["license+apache"])
+    .relParadigms.add(["paradigm+compiled", "paradigm+multi"])
+    .relPlatforms.add(["plat+apple", "plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+windows", "plat+x86-64"])
+    .relTags.add(["tag+analysis", "tag+automation", "tag+cli", "tag+compiler", "tag+ray-tracer", "tag+shell", "tag+viz"])
+    .relTsys.add(["tsys+manifest", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+c++"]);
 
   // TOOLS
 

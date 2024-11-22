@@ -23,14 +23,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.sbcl.org/",
       created: "1999",
     })
-    .addDialectOf(["pl+common-lisp"])
-    .addInfluencedBy(["pl+common-lisp"])
-    .addLicenses(["license+bsd", "license+mit", "license+public-domain"])
-    .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+reflective"])
-    .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+compiler", "tag+interpreters"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"])
-    .addWrittenIn(["pl+c"]);
+    .relDialectOf.add(["pl+common-lisp"])
+    .relInfluencedBy.add(["pl+common-lisp"])
+    .relLicenses.add(["license+bsd", "license+mit", "license+public-domain"])
+    .relParadigms.add(["paradigm+functional", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+reflective"])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+compiler", "tag+interpreters"])
+    .relTsys.add(["tsys+dynamic", "tsys+strong"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

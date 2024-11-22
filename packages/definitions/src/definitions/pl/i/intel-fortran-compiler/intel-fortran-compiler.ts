@@ -16,13 +16,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://software.intel.com/content/www/us/en/develop/tools/oneapi/components/fortran-compiler.html",
       created: "2003",
     })
-    .addImplements(["pl+fortran"])
-    .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+compiled", "paradigm+procedural", "paradigm+scientific"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+3dg", "tag+analysis", "tag+app", "tag+cli", "tag+compiler", "tag+sci", "tag+shell", "tag+viz"])
-    .addTypeSystems(["tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+c"]);
+    .relImplements.add(["pl+fortran"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add(["paradigm+compiled", "paradigm+procedural", "paradigm+scientific"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+3dg", "tag+analysis", "tag+app", "tag+cli", "tag+compiler", "tag+sci", "tag+shell", "tag+viz"])
+    .relTsys.add(["tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

@@ -10,7 +10,7 @@ export function define(g: PlangsGraph) {
 
   g.nodes.tsys.set("tsys+algebraic", {
     name: "Algebraic Data Types",
-    keywords: ["algebraic", "adt", "product types", "sum types", "variant", "unions"],
+    keywords: ["adt", "algebraic", "product types", "sum types", "unions", "variant"],
     description:
       "In computer programming, especially functional programming and type theory, an algebraic data type (ADT) is a kind of composite type, i.e., a type formed by combining other types.",
     extHomeURL: "https://en.wikipedia.org/wiki/Algebraic_data_type",
@@ -60,7 +60,7 @@ export function define(g: PlangsGraph) {
 
   g.nodes.tsys.set("tsys+inferred", {
     name: "Inferred Type System",
-    keywords: ["implicit", "hindley", "milner", "inferred"],
+    keywords: ["hindley", "implicit", "inferred", "milner"],
     description: "A type inference system where types are automatically deduced without requiring explicit type annotations.",
     extHomeURL: "https://en.wikipedia.org/wiki/Type_inference",
   });

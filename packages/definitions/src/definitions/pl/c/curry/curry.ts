@@ -18,9 +18,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://curry.pages.ps.informatik.uni-kiel.de/curry-lang.org",
       created: "1995",
     })
-    .addInfluencedBy(["pl+haskell", "pl+prolog"])
-    .addLicenses(["license+bsd"])
-    .addParadigms([
+    .relInfluencedBy.add(["pl+haskell", "pl+prolog"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add([
       "paradigm+concurrent",
       "paradigm+constraint",
       "paradigm+declarative",
@@ -29,9 +29,9 @@ export function define(g: PlangsGraph) {
       "paradigm+logic",
       "paradigm+modular",
     ])
-    .addPlatforms(["plat+cross", "plat+linux", "plat+x86-64"])
-    .addTags(["tag+audio-dev", "tag+compiler", "tag+interpreters", "tag+scripting", "tag+testing"])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    .relPlatforms.add(["plat+cross", "plat+linux", "plat+x86-64"])
+    .relTags.add(["tag+audio-dev", "tag+compiler", "tag+interpreters", "tag+scripting", "tag+testing"])
+    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

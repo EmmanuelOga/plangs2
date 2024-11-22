@@ -21,10 +21,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://moonscript.org/",
       created: "2011",
     })
-    .addCompilesTo(["pl+lua"])
-    .addInfluencedBy(["pl+c++", "pl+coffeescript", "pl+scheme"])
-    .addLicenses(["license+mit"])
-    .addParadigms([
+    .relCompilesTo.add(["pl+lua"])
+    .relInfluencedBy.add(["pl+c++", "pl+coffeescript", "pl+scheme"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add([
       "paradigm+functional",
       "paradigm+imperative",
       "paradigm+metaprogramming",
@@ -35,8 +35,8 @@ export function define(g: PlangsGraph) {
       "paradigm+reflective",
       "paradigm+scripting",
     ])
-    .addPlatforms(["plat+cross"])
-    .addTags([
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add([
       "tag+app",
       "tag+compiler",
       "tag+dbms",
@@ -48,7 +48,7 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
       "tag+viz",
     ])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"]);
+    .relTsys.add(["tsys+duck", "tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

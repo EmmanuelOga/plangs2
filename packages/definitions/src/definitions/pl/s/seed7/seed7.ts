@@ -13,12 +13,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://seed7.sourceforge.net/",
       created: "2005",
     })
-    .addInfluencedBy(["pl+ada", "pl+c", "pl+c++", "pl+pascal"])
-    .addLicenses(["license+gnu-gpl", "license+lgpl"])
-    .addParadigms(["paradigm+extensible", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+reflective", "paradigm+structured"])
-    .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+analysis", "tag+compiler", "tag+dbms", "tag+interpreters", "tag+ray-tracer"])
-    .addTypeSystems(["tsys+manifest", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong"]);
+    .relInfluencedBy.add(["pl+ada", "pl+c", "pl+c++", "pl+pascal"])
+    .relLicenses.add(["license+gnu-gpl", "license+lgpl"])
+    .relParadigms.add(["paradigm+extensible", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+reflective", "paradigm+structured"])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+analysis", "tag+compiler", "tag+dbms", "tag+interpreters", "tag+ray-tracer"])
+    .relTsys.add(["tsys+manifest", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

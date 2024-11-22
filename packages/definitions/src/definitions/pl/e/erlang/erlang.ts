@@ -26,13 +26,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.erlang.org/",
       created: "1986",
     })
-    .addInfluencedBy(["pl+lisp", "pl+prolog"])
-    .addLicenses(["license+apache"])
-    .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+apple", "plat+beam", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+app", "tag+compiler", "tag+framework", "tag+interpreters", "tag+server"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"])
-    .addWrittenIn(["pl+c"]);
+    .relInfluencedBy.add(["pl+lisp", "pl+prolog"])
+    .relLicenses.add(["license+apache"])
+    .relParadigms.add(["paradigm+concurrent", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
+    .relPlatforms.add(["plat+apple", "plat+beam", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+app", "tag+compiler", "tag+framework", "tag+interpreters", "tag+server"])
+    .relTsys.add(["tsys+dynamic", "tsys+strong"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

@@ -24,10 +24,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.iso.org/standard/21413.html",
       created: "1972",
     })
-    .addImplements(["pl+curry"])
-    .addParadigms(["paradigm+declarative", "paradigm+logic"])
-    .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
-    .addTags([
+    .relImplements.add(["pl+curry"])
+    .relParadigms.add(["paradigm+declarative", "paradigm+logic"])
+    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+analysis",
       "tag+app",
       "tag+audio-dev",
@@ -44,7 +44,7 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
-    .addTypeSystems(["tsys+untyped"]);
+    .relTsys.add(["tsys+untyped"]);
 
   // TOOLS
 

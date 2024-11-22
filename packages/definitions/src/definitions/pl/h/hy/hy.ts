@@ -26,11 +26,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://hylang.org/",
       created: "2013",
     })
-    .addCompilesTo(["pl+python"])
-    .addDialectOf(["pl+lisp"])
-    .addInfluencedBy(["pl+clojure", "pl+common-lisp", "pl+python"])
-    .addLicenses(["license+mit"])
-    .addParadigms([
+    .relCompilesTo.add(["pl+python"])
+    .relDialectOf.add(["pl+lisp"])
+    .relInfluencedBy.add(["pl+clojure", "pl+common-lisp", "pl+python"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add([
       "paradigm+functional",
       "paradigm+metaprogramming",
       "paradigm+multi",
@@ -39,10 +39,10 @@ export function define(g: PlangsGraph) {
       "paradigm+reflective",
       "paradigm+scripting",
     ])
-    .addPlatforms(["plat+cross", "plat+x86-64"])
-    .addTags(["tag+interpreters", "tag+scripting"])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic"])
-    .addWrittenIn(["pl+python"]);
+    .relPlatforms.add(["plat+cross", "plat+x86-64"])
+    .relTags.add(["tag+interpreters", "tag+scripting"])
+    .relTsys.add(["tsys+duck", "tsys+dynamic"])
+    .relWrittenIn.add(["pl+python"]);
 
   // TOOLS
 

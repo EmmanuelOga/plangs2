@@ -16,14 +16,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://micropython.org/",
       created: "2013",
     })
-    .addImplements(["pl+python"])
-    .addInfluencedBy(["pl+python"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+embedded", "paradigm+interpreted", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
-    .addPlatforms(["plat+arduino", "plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry", "plat+riscv", "plat+windows"])
-    .addTags(["tag+app", "tag+embedded", "tag+interpreters", "tag+iot", "tag+scripting", "tag+testing"])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic"])
-    .addWrittenIn(["pl+c"]);
+    .relImplements.add(["pl+python"])
+    .relInfluencedBy.add(["pl+python"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+embedded", "paradigm+interpreted", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
+    .relPlatforms.add(["plat+arduino", "plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry", "plat+riscv", "plat+windows"])
+    .relTags.add(["tag+app", "tag+embedded", "tag+interpreters", "tag+iot", "tag+scripting", "tag+testing"])
+    .relTsys.add(["tsys+duck", "tsys+dynamic"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

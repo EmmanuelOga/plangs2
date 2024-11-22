@@ -21,12 +21,22 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ziglang.org/",
       created: "2016",
     })
-    .addInfluencedBy(["pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+procedural"])
-    .addPlatforms(["plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+riscv", "plat+wasm", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+app", "tag+asm", "tag+compiler", "tag+embedded", "tag+framework", "tag+industrial", "tag+interpreters", "tag+testing", "tag+viz"])
-    .addTypeSystems(["tsys+generic", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
+    .relInfluencedBy.add(["pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+procedural"])
+    .relPlatforms.add(["plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+riscv", "plat+wasm", "plat+windows", "plat+x86-64"])
+    .relTags.add([
+      "tag+app",
+      "tag+asm",
+      "tag+compiler",
+      "tag+embedded",
+      "tag+framework",
+      "tag+industrial",
+      "tag+interpreters",
+      "tag+testing",
+      "tag+viz",
+    ])
+    .relTsys.add(["tsys+generic", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
 
   // TOOLS
 

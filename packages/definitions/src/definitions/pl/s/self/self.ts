@@ -22,12 +22,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.selflanguage.org/",
       created: "1987",
     })
-    .addInfluencedBy(["pl+apl"])
-    .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+oop", "paradigm+prototype"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+windows"])
-    .addTags(["tag+4gl", "tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters", "tag+viz"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
+    .relInfluencedBy.add(["pl+apl"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add(["paradigm+oop", "paradigm+prototype"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+windows"])
+    .relTags.add(["tag+4gl", "tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters", "tag+viz"])
+    .relTsys.add(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

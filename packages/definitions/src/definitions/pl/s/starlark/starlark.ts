@@ -19,12 +19,12 @@ export function define(g: PlangsGraph) {
       extRedditPath: "bazel",
       created: "2015",
     })
-    .addLicenses(["license+apache"])
-    .addParadigms(["paradigm+dataflow", "paradigm+declarative", "paradigm+scripting"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+automation", "tag+compiler"])
-    .addTypeSystems(["tsys+strong"])
-    .addWrittenIn(["pl+go", "pl+java"]);
+    .relLicenses.add(["license+apache"])
+    .relParadigms.add(["paradigm+dataflow", "paradigm+declarative", "paradigm+scripting"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+automation", "tag+compiler"])
+    .relTsys.add(["tsys+strong"])
+    .relWrittenIn.add(["pl+go", "pl+java"]);
 
   // TOOLS
 

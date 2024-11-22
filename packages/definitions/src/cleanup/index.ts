@@ -18,10 +18,6 @@ function updateWithGH(pl: NPlang, ghMap: Map<string, LinguistLang>): boolean {
   const plGH = GH_LANGS.bestMatch(ghMap, pl.data.githubName) ?? GH_LANGS.bestMatch(ghMap, pl.name);
   if (!plGH) return false;
 
-  // We used to have nested data and switched to flat data.
-  // biome-ignore lint/performance/noDelete: it is ok here.
-  if ("github" in pl.data) delete pl.data.github;
-
   pl.data.githubName = plGH.name;
   pl.data.githubGroupName = plGH.groupName;
   pl.data.githubLangId = plGH.langId;
@@ -144,7 +140,10 @@ export function cleanupData(pg: PlangsGraph, update: boolean) {
 
 async function cleanup() {
   const pg = new PlangsGraph();
-  await loadAllDefinitions(pg, { scanImages: false });
+
+  // Switch between: load definitions or load the data.
+  // await loadAllDefinitions(pg, { scanImages: false });
+  pg.loadJSON(JSON.parse(await Bun.file("plangs.json").text()));
 
   const dry = false; // Set to true to only print missing data, false to regenerate after cleanup.
   cleanupData(pg, !dry);

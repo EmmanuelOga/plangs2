@@ -22,14 +22,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.purescript.org/",
       created: "2013",
     })
-    .addCompilesTo(["pl+javascript"])
-    .addInfluencedBy(["pl+haskell", "pl+javascript"])
-    .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+declarative", "paradigm+functional"])
-    .addPlatforms(["plat+cross", "plat+nodejs"])
-    .addTags(["tag+app", "tag+compiler", "tag+editor", "tag+interpreters"])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+haskell", "pl+javascript"]);
+    .relCompilesTo.add(["pl+javascript"])
+    .relInfluencedBy.add(["pl+haskell", "pl+javascript"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add(["paradigm+declarative", "paradigm+functional"])
+    .relPlatforms.add(["plat+cross", "plat+nodejs"])
+    .relTags.add(["tag+app", "tag+compiler", "tag+editor", "tag+interpreters"])
+    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+haskell", "pl+javascript"]);
 
   // TOOLS
 

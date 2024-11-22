@@ -21,12 +21,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.modular.com/mojo",
       created: "2023",
     })
-    .addInfluencedBy(["pl+python", "pl+swift"])
-    .addLicenses(["license+apache"])
-    .addParadigms(["paradigm+compiled", "paradigm+functional", "paradigm+general-purpose", "paradigm+imperative", "paradigm+multi"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+linux"])
-    .addTags(["tag+automation", "tag+scripting"])
-    .addTypeSystems(["tsys+affine", "tsys+duck", "tsys+dynamic", "tsys+generic", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"]);
+    .relInfluencedBy.add(["pl+python", "pl+swift"])
+    .relLicenses.add(["license+apache"])
+    .relParadigms.add(["paradigm+compiled", "paradigm+functional", "paradigm+general-purpose", "paradigm+imperative", "paradigm+multi"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux"])
+    .relTags.add(["tag+automation", "tag+scripting"])
+    .relTsys.add(["tsys+affine", "tsys+duck", "tsys+dynamic", "tsys+generic", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

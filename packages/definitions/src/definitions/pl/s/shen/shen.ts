@@ -20,13 +20,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://shenlanguage.org/",
       created: "2011",
     })
-    .addInfluencedBy(["pl+prolog", "pl+scheme"])
-    .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+functional", "paradigm+logic", "paradigm+multi", "paradigm+pattern-matching", "paradigm+symbolic"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+web", "plat+windows"])
-    .addTags(["tag+automation", "tag+cas", "tag+compiler", "tag+interpreters", "tag+scripting"])
-    .addTypeSystems(["tsys+manifest", "tsys+polymorphic", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+scheme"]);
+    .relInfluencedBy.add(["pl+prolog", "pl+scheme"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add(["paradigm+functional", "paradigm+logic", "paradigm+multi", "paradigm+pattern-matching", "paradigm+symbolic"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+web", "plat+windows"])
+    .relTags.add(["tag+automation", "tag+cas", "tag+compiler", "tag+interpreters", "tag+scripting"])
+    .relTsys.add(["tsys+manifest", "tsys+polymorphic", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+scheme"]);
 
   // TOOLS
 

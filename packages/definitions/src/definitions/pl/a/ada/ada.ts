@@ -21,9 +21,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.adaic.org/",
       created: "1980",
     })
-    .addDialectOf(["pl+pascal"])
-    .addInfluencedBy(["pl+c++", "pl+eiffel", "pl+pascal"])
-    .addParadigms([
+    .relDialectOf.add(["pl+pascal"])
+    .relInfluencedBy.add(["pl+c++", "pl+eiffel", "pl+pascal"])
+    .relParadigms.add([
       "paradigm+array",
       "paradigm+aspect",
       "paradigm+concurrent",
@@ -35,8 +35,8 @@ export function define(g: PlangsGraph) {
       "paradigm+procedural",
       "paradigm+structured",
     ])
-    .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
-    .addTags([
+    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+app",
       "tag+compiler",
       "tag+dbms",
@@ -47,7 +47,7 @@ export function define(g: PlangsGraph) {
       "tag+testing",
       "tag+viz",
     ])
-    .addTypeSystems(["tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong"]);
+    .relTsys.add(["tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

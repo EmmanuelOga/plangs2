@@ -21,9 +21,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://ballerina.io/",
       created: "2017",
     })
-    .addInfluencedBy(["pl+c-sharp", "pl+go", "pl+javascript", "pl+rust"])
-    .addLicenses(["license+apache"])
-    .addParadigms([
+    .relInfluencedBy.add(["pl+c-sharp", "pl+go", "pl+javascript", "pl+rust"])
+    .relLicenses.add(["license+apache"])
+    .relParadigms.add([
       "paradigm+compiled",
       "paradigm+concurrent",
       "paradigm+event-driven",
@@ -31,9 +31,9 @@ export function define(g: PlangsGraph) {
       "paradigm+general-purpose",
       "paradigm+multi",
     ])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+automation", "tag+interpreters", "tag+workflow"])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+automation", "tag+interpreters", "tag+workflow"])
+    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
 
   // TOOLS
 

@@ -24,9 +24,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://aplwiki.com/",
       created: "1966",
     })
-    .addParadigms(["paradigm+array", "paradigm+functional", "paradigm+modular", "paradigm+structured"])
-    .addPlatforms(["plat+cross"])
-    .addTags([
+    .relParadigms.add(["paradigm+array", "paradigm+functional", "paradigm+modular", "paradigm+structured"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add([
       "tag+3dg",
       "tag+analysis",
       "tag+app",
@@ -44,7 +44,7 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
-    .addTypeSystems(["tsys+dynamic"]);
+    .relTsys.add(["tsys+dynamic"]);
 
   // TOOLS
 

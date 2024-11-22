@@ -25,9 +25,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.swift.org/",
       created: "2014",
     })
-    .addInfluencedBy(["pl+c", "pl+c-sharp", "pl+d", "pl+haskell", "pl+lisp", "pl+python", "pl+ruby", "pl+rust"])
-    .addLicenses(["license+apache"])
-    .addParadigms([
+    .relInfluencedBy.add(["pl+c", "pl+c-sharp", "pl+d", "pl+haskell", "pl+lisp", "pl+python", "pl+ruby", "pl+rust"])
+    .relLicenses.add(["license+apache"])
+    .relParadigms.add([
       "paradigm+concurrent",
       "paradigm+dataflow",
       "paradigm+declarative",
@@ -41,8 +41,8 @@ export function define(g: PlangsGraph) {
       "paradigm+scripting",
       "paradigm+structured",
     ])
-    .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+windows"])
-    .addTags([
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+app",
       "tag+compiler",
       "tag+dataflow",
@@ -55,7 +55,7 @@ export function define(g: PlangsGraph) {
       "tag+server",
       "tag+ui",
     ])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

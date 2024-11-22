@@ -18,12 +18,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://elv.sh/",
       created: "2016",
     })
-    .addLicenses(["license+bsd", "license+cc-by", "license+epl"])
-    .addParadigms(["paradigm+functional", "paradigm+scripting"])
-    .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+raspberry", "plat+windows"])
-    .addTags(["tag+cli", "tag+scripting", "tag+shell"])
-    .addTypeSystems(["tsys+dynamic"])
-    .addWrittenIn(["pl+go"]);
+    .relLicenses.add(["license+bsd", "license+cc-by", "license+epl"])
+    .relParadigms.add(["paradigm+functional", "paradigm+scripting"])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+raspberry", "plat+windows"])
+    .relTags.add(["tag+cli", "tag+scripting", "tag+shell"])
+    .relTsys.add(["tsys+dynamic"])
+    .relWrittenIn.add(["pl+go"]);
 
   // TOOLS
 

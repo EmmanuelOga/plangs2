@@ -20,8 +20,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://json.org",
       created: "2001",
     })
-    .addParadigms(["paradigm+data-exchange"])
-    .addPlatforms(["plat+cross"]);
+    .relParadigms.add(["paradigm+data-exchange"])
+    .relPlatforms.add(["plat+cross"]);
 
   // TOOLS
 

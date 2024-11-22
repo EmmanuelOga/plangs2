@@ -27,11 +27,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.open-std.org/jtc1/sc22/wg14/",
       created: "1972",
     })
-    .addInfluencedBy(["pl+fortran"])
-    .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+compiled", "paradigm+imperative", "paradigm+multi", "paradigm+procedural", "paradigm+structured"])
-    .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+dos", "plat+embedded", "plat+linux", "plat+windows"])
-    .addTags([
+    .relInfluencedBy.add(["pl+fortran"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add(["paradigm+compiled", "paradigm+imperative", "paradigm+multi", "paradigm+procedural", "paradigm+structured"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+dos", "plat+embedded", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+app",
       "tag+asm",
       "tag+compiler",
@@ -48,7 +48,7 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
-    .addTypeSystems(["tsys+manifest", "tsys+nominal", "tsys+static", "tsys+weak"]);
+    .relTsys.add(["tsys+manifest", "tsys+nominal", "tsys+static", "tsys+weak"]);
 
   // TOOLS
 

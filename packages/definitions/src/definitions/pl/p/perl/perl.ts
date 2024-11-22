@@ -25,11 +25,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.perl.org/",
       created: "1987",
     })
-    .addInfluencedBy(["pl+awk", "pl+basic", "pl+c", "pl+c++", "pl+lisp", "pl+raku", "pl+sed"])
-    .addLicenses(["license+artistic", "license+gnu-gpl"])
-    .addParadigms(["paradigm+functional", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+scripting"])
-    .addPlatforms(["plat+cross"])
-    .addTags([
+    .relInfluencedBy.add(["pl+awk", "pl+basic", "pl+c", "pl+c++", "pl+lisp", "pl+raku", "pl+sed"])
+    .relLicenses.add(["license+artistic", "license+gnu-gpl"])
+    .relParadigms.add(["paradigm+functional", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+scripting"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add([
       "tag+app",
       "tag+compiler",
       "tag+dbms",
@@ -41,8 +41,8 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+viz",
     ])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic"])
-    .addWrittenIn(["pl+c"]);
+    .relTsys.add(["tsys+duck", "tsys+dynamic"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

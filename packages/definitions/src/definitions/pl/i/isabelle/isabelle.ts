@@ -24,13 +24,22 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://isabelle.in.tum.de/",
       created: "1986",
     })
-    .addInfluencedBy(["pl+haskell"])
-    .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+declarative", "paradigm+dsl", "paradigm+logic"])
-    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
-    .addTags(["tag+automation", "tag+control", "tag+framework", "tag+industrial", "tag+interpreters", "tag+modeling", "tag+proofs", "tag+wavelet"])
-    .addTypeSystems(["tsys+dependent", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+scala", "pl+standard-ml"]);
+    .relInfluencedBy.add(["pl+haskell"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add(["paradigm+declarative", "paradigm+dsl", "paradigm+logic"])
+    .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
+    .relTags.add([
+      "tag+automation",
+      "tag+control",
+      "tag+framework",
+      "tag+industrial",
+      "tag+interpreters",
+      "tag+modeling",
+      "tag+proofs",
+      "tag+wavelet",
+    ])
+    .relTsys.add(["tsys+dependent", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+scala", "pl+standard-ml"]);
 
   // TOOLS
 

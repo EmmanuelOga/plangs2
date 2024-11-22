@@ -21,13 +21,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://ccl.northwestern.edu/netlogo",
       created: "1999",
     })
-    .addDialectOf(["pl+lisp"])
-    .addLicenses(["license+gnu-gpl"])
-    .addParadigms(["paradigm+agents", "paradigm+educational", "paradigm+multi", "paradigm+procedural", "paradigm+simulation"])
-    .addPlatforms(["plat+cross", "plat+java"])
-    .addTags(["tag+edu", "tag+interpreters", "tag+modeling", "tag+sci", "tag+uml"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"])
-    .addWrittenIn(["pl+java", "pl+scala"]);
+    .relDialectOf.add(["pl+lisp"])
+    .relLicenses.add(["license+gnu-gpl"])
+    .relParadigms.add(["paradigm+agents", "paradigm+educational", "paradigm+multi", "paradigm+procedural", "paradigm+simulation"])
+    .relPlatforms.add(["plat+cross", "plat+java"])
+    .relTags.add(["tag+edu", "tag+interpreters", "tag+modeling", "tag+sci", "tag+uml"])
+    .relTsys.add(["tsys+dynamic", "tsys+strong"])
+    .relWrittenIn.add(["pl+java", "pl+scala"]);
 
   // TOOLS
 

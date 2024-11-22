@@ -20,11 +20,18 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ecma-international.org/publications-and-standards/standards/ecma-262/",
       created: "1995",
     })
-    .addInfluencedBy(["pl+awk", "pl+c", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme", "pl+self"])
-    .addLicenses(["license+public-domain"])
-    .addParadigms(["paradigm+event-driven", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
-    .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+nodejs", "plat+wasm", "plat+web", "plat+windows"])
-    .addTags([
+    .relInfluencedBy.add(["pl+awk", "pl+c", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme", "pl+self"])
+    .relLicenses.add(["license+public-domain"])
+    .relParadigms.add([
+      "paradigm+event-driven",
+      "paradigm+functional",
+      "paradigm+imperative",
+      "paradigm+multi",
+      "paradigm+oop",
+      "paradigm+procedural",
+    ])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+nodejs", "plat+wasm", "plat+web", "plat+windows"])
+    .relTags.add([
       "tag+app",
       "tag+asm",
       "tag+dbms",
@@ -36,7 +43,7 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+viz",
     ])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+weak"]);
+    .relTsys.add(["tsys+duck", "tsys+dynamic", "tsys+weak"]);
 
   // TOOLS
 

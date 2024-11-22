@@ -16,14 +16,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://swi-prolog.org/",
       created: "1987",
     })
-    .addImplements(["pl+prolog"])
-    .addInfluencedBy(["pl+prolog"])
-    .addLicenses(["license+bsd", "license+lgpl"])
-    .addParadigms(["paradigm+concurrent", "paradigm+constraint", "paradigm+declarative", "paradigm+logic"])
-    .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreters", "tag+testing", "tag+ui", "tag+viz"])
-    .addTypeSystems(["tsys+untyped"])
-    .addWrittenIn(["pl+c"]);
+    .relImplements.add(["pl+prolog"])
+    .relInfluencedBy.add(["pl+prolog"])
+    .relLicenses.add(["license+bsd", "license+lgpl"])
+    .relParadigms.add(["paradigm+concurrent", "paradigm+constraint", "paradigm+declarative", "paradigm+logic"])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreters", "tag+testing", "tag+ui", "tag+viz"])
+    .relTsys.add(["tsys+untyped"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

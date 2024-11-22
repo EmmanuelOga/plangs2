@@ -12,12 +12,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.winglang.io/",
       created: "2022",
     })
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+declarative", "paradigm+event-driven", "paradigm+multi", "paradigm+reactive", "paradigm+scripting"])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+framework", "tag+scripting"])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+typescript"]);
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+declarative", "paradigm+event-driven", "paradigm+multi", "paradigm+reactive", "paradigm+scripting"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+framework", "tag+scripting"])
+    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+typescript"]);
 
   // TOOLS
 

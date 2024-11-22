@@ -21,13 +21,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.red-lang.org/",
       created: "2011",
     })
-    .addInfluencedBy(["pl+lisp", "pl+lua", "pl+rebol"])
-    .addLicenses(["license+boost", "license+bsd"])
-    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+symbolic"])
-    .addPlatforms(["plat+apple", "plat+linux", "plat+windows"])
-    .addTags(["tag+app", "tag+asm", "tag+dataflow", "tag+flow", "tag+interpreters", "tag+ui"])
-    .addTypeSystems(["tsys+dynamic", "tsys+weak"])
-    .addWrittenIn(["pl+c", "pl+rebol"]);
+    .relInfluencedBy.add(["pl+lisp", "pl+lua", "pl+rebol"])
+    .relLicenses.add(["license+boost", "license+bsd"])
+    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+symbolic"])
+    .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+app", "tag+asm", "tag+dataflow", "tag+flow", "tag+interpreters", "tag+ui"])
+    .relTsys.add(["tsys+dynamic", "tsys+weak"])
+    .relWrittenIn.add(["pl+c", "pl+rebol"]);
 
   // TOOLS
 

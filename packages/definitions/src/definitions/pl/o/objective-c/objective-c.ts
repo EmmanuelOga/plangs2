@@ -20,9 +20,9 @@ export function define(g: PlangsGraph) {
       extRedditPath: "ObjectiveC",
       created: "1984",
     })
-    .addParadigms(["paradigm+oop", "paradigm+reflective"])
-    .addPlatforms(["plat+cross"])
-    .addTypeSystems(["tsys+dynamic", "tsys+static", "tsys+weak"]);
+    .relParadigms.add(["paradigm+oop", "paradigm+reflective"])
+    .relPlatforms.add(["plat+cross"])
+    .relTsys.add(["tsys+dynamic", "tsys+static", "tsys+weak"]);
 
   // TOOLS
 

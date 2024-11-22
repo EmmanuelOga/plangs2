@@ -17,14 +17,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ironpython.net/",
       created: "2006",
     })
-    .addImplements(["pl+python"])
-    .addInfluencedBy(["pl+.net", "pl+c-sharp"])
-    .addLicenses(["license+apache"])
-    .addParadigms(["paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
-    .addPlatforms(["plat+.net", "plat+apple", "plat+linux", "plat+windows"])
-    .addTags(["tag+app", "tag+cli", "tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting", "tag+shell"])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+strong"])
-    .addWrittenIn(["pl+c-sharp"]);
+    .relImplements.add(["pl+python"])
+    .relInfluencedBy.add(["pl+.net", "pl+c-sharp"])
+    .relLicenses.add(["license+apache"])
+    .relParadigms.add(["paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
+    .relPlatforms.add(["plat+.net", "plat+apple", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+app", "tag+cli", "tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting", "tag+shell"])
+    .relTsys.add(["tsys+duck", "tsys+dynamic", "tsys+strong"])
+    .relWrittenIn.add(["pl+c-sharp"]);
 
   // TOOLS
 

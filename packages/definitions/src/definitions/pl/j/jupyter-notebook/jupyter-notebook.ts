@@ -20,12 +20,12 @@ export function define(g: PlangsGraph) {
       extRedditPath: "IPython",
       created: "2014",
     })
-    .addCompilesTo(["pl+julia", "pl+python", "pl+r"])
-    .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+scripting"])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+collab", "tag+dataq", "tag+sci"])
-    .addTypeSystems(["tsys+dynamic"]);
+    .relCompilesTo.add(["pl+julia", "pl+python", "pl+r"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add(["paradigm+scripting"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+collab", "tag+dataq", "tag+sci"])
+    .relTsys.add(["tsys+dynamic"]);
 
   // TOOLS
 

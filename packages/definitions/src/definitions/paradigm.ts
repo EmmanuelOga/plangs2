@@ -34,7 +34,7 @@ export function define(g: PlangsGraph) {
 
   g.nodes.paradigm.set("paradigm+async", {
     name: "Task-Driven Asynchronous Programming",
-    keywords: ["task-driven", "async"],
+    keywords: ["async", "task-driven"],
     description:
       "Task-driven asynchronous programming allows tasks to be executed independently, enabling concurrency and efficient resource utilization.",
     extHomeURL: "https://en.wikipedia.org/wiki/Asynchronous_method_invocation",
@@ -50,7 +50,7 @@ export function define(g: PlangsGraph) {
 
   g.nodes.paradigm.set("paradigm+compiled", {
     name: "Compiled Language",
-    keywords: ["compiled", "compilation", "compiler"],
+    keywords: ["compilation", "compiled", "compiler"],
     description:
       "A compiled language is a programming language for which source code is typically compiled; not interpreted. The term is vague since, in principle, any language can be compiled or interpreted and in practice some languages are both (in different environments). In some environments, source code is first compiled (to an intermediate form; often bytecode) and then interpreted.",
     extHomeURL: "https://en.wikipedia.org/wiki/Compiled_language",
@@ -81,7 +81,7 @@ export function define(g: PlangsGraph) {
 
   g.nodes.paradigm.set("paradigm+contracts", {
     name: "Design by Contract",
-    keywords: ["dbc", "design by contract", "contracts"],
+    keywords: ["contracts", "dbc", "design by contract"],
     description:
       "Design by Contract is a software design approach that uses contracts to define the obligations and guarantees of software components.",
     extHomeURL: "https://en.wikipedia.org/wiki/Design_by_contract",
@@ -189,7 +189,7 @@ export function define(g: PlangsGraph) {
 
   g.nodes.paradigm.set("paradigm+frp", {
     name: "Functional Reactive Programming",
-    keywords: ["functional reactive", "frp"],
+    keywords: ["frp", "functional reactive"],
     description: "Functional reactive programming is a programming paradigm for reactive systems using functional programming.",
     extHomeURL: "https://en.wikipedia.org/wiki/Functional_reactive_programming",
   });
@@ -268,7 +268,7 @@ export function define(g: PlangsGraph) {
 
   g.nodes.paradigm.set("paradigm+metaprogramming", {
     name: "Metaprogramming",
-    keywords: ["metaprogramming", "meta"],
+    keywords: ["meta", "metaprogramming"],
     description: "Metaprogramming refers to writing programs that generate or manipulate other programs.",
     extHomeURL: "https://en.wikipedia.org/wiki/Metaprogramming",
   });
@@ -304,7 +304,7 @@ export function define(g: PlangsGraph) {
 
   g.nodes.paradigm.set("paradigm+oop", {
     name: "Object-oriented",
-    keywords: ["object", "oop", "class-based"],
+    keywords: ["class-based", "object", "oop"],
     description:
       "Programming paradigm based on the concept of objects, which can contain data and code: data in the form of fields (often known as attributes or properties), and code in the form of procedures (often known as methods). In OOP, computer programs are designed by making them out of objects that interact with one another.",
     extHomeURL: "https://en.wikipedia.org/wiki/Object-orientation",
@@ -355,7 +355,7 @@ export function define(g: PlangsGraph) {
 
   g.nodes.paradigm.set("paradigm+protocol", {
     name: "Protocol-Oriented Programming",
-    keywords: ["protocol", "interface"],
+    keywords: ["interface", "protocol"],
     description: "Protocol-oriented programming focuses on the design and use of interfaces or protocols to define program behavior.",
     extHomeURL: "https://en.wikipedia.org/wiki/Interface_(object-oriented_programming)",
   });
@@ -481,7 +481,7 @@ export function define(g: PlangsGraph) {
 
   g.nodes.paradigm.set("paradigm+visual", {
     name: "Visual Programming",
-    keywords: ["visual", "block-based", "block-coding", "diagrammatic", "graphical"],
+    keywords: ["block-based", "block-coding", "diagrammatic", "graphical", "visual"],
     description:
       "A programming language that lets users create programs by manipulating program elements graphically rather than by specifying them textually.",
     extHomeURL: "https://en.wikipedia.org/wiki/Visual_programming_language",

@@ -20,10 +20,10 @@ export function define(g: PlangsGraph) {
       extRedditPath: "asm",
       created: "1947",
     })
-    .addParadigms(["paradigm+imperative", "paradigm+macro", "paradigm+metaprogramming", "paradigm+structured"])
-    .addPlatforms(["plat+apple", "plat+arm", "plat+cross", "plat+embedded", "plat+linux", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+asm", "tag+compiler", "tag+embedded", "tag+industrial", "tag+interpreters"])
-    .addTypeSystems(["tsys+untyped"]);
+    .relParadigms.add(["paradigm+imperative", "paradigm+macro", "paradigm+metaprogramming", "paradigm+structured"])
+    .relPlatforms.add(["plat+apple", "plat+arm", "plat+cross", "plat+embedded", "plat+linux", "plat+windows", "plat+x86-64"])
+    .relTags.add(["tag+asm", "tag+compiler", "tag+embedded", "tag+industrial", "tag+interpreters"])
+    .relTsys.add(["tsys+untyped"]);
 
   // TOOLS
 

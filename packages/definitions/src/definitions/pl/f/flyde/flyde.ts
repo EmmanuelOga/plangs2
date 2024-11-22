@@ -12,10 +12,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.flyde.dev/",
       created: "2023",
     })
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+declarative", "paradigm+frp", "paradigm+visual"])
-    .addPlatforms(["plat+nodejs", "plat+web"])
-    .addTags(["tag+automation", "tag+low-code", "tag+workflow"]);
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+declarative", "paradigm+frp", "paradigm+visual"])
+    .relPlatforms.add(["plat+nodejs", "plat+web"])
+    .relTags.add(["tag+automation", "tag+low-code", "tag+workflow"]);
 
   // TOOLS
 

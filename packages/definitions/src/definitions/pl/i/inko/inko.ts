@@ -16,13 +16,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://inko-lang.org/",
       created: "2016",
     })
-    .addInfluencedBy(["pl+erlang", "pl+go"])
-    .addLicenses(["license+mit", "license+mpl"])
-    .addParadigms(["paradigm+concurrent", "paradigm+message-passing", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+cross", "plat+linux"])
-    .addTags(["tag+automation"])
-    .addTypeSystems(["tsys+nominal", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+rust"]);
+    .relInfluencedBy.add(["pl+erlang", "pl+go"])
+    .relLicenses.add(["license+mit", "license+mpl"])
+    .relParadigms.add(["paradigm+concurrent", "paradigm+message-passing", "paradigm+multi", "paradigm+oop"])
+    .relPlatforms.add(["plat+cross", "plat+linux"])
+    .relTags.add(["tag+automation"])
+    .relTsys.add(["tsys+nominal", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+rust"]);
 
   // TOOLS
 

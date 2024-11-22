@@ -25,10 +25,10 @@ export function define(g: PlangsGraph) {
       extRedditPath: "cmake",
       created: "2000",
     })
-    .addCompilesTo(["pl+makefile"])
-    .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+scripting"])
-    .addPlatforms(["plat+cross"]);
+    .relCompilesTo.add(["pl+makefile"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add(["paradigm+scripting"])
+    .relPlatforms.add(["plat+cross"]);
 
   // TOOLS
 

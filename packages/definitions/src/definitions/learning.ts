@@ -2,17 +2,6 @@ import type { PlangsGraph } from "@plangs/plangs";
 
 export function define(g: PlangsGraph) {
   g.nodes.learning
-    .set("learning+threejs-journey", {
-      name: "ThreeJS Journey",
-      description: "Everything you need in one place: 93 hours of video to go from absolute beginner to advanced Three.js developer.",
-      extHomeURL: "https://threejs-journey.com/",
-      kinds: ["course"],
-    })
-    .addPlangs(["pl+javascript"])
-    .addTags(["tag+games", "tag+3dg", "tag+webdev"])
-    .addCommunities(["community+threejsjourney"]);
-
-  g.nodes.learning
     .set("learning+nand-to-tetris", {
       name: "From Nand to Tetris",
       description:
@@ -20,7 +9,7 @@ export function define(g: PlangsGraph) {
       kinds: ["book", "course"],
       extHomeURL: "https://www.nand2tetris.org/",
     })
-    .addTags(["tag+embedded", "tag+languages"]);
+    .relTags.add(["tag+embedded", "tag+languages"]);
 
   g.nodes.learning
     .set("learning+nystrom-interpreters", {
@@ -29,6 +18,17 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://craftinginterpreters.com/",
       kinds: ["book"],
     })
-    .addPlangs(["pl+java", "pl+c"])
-    .addTags(["tag+languages", "tag+interpreters"]);
+    .relPlangs.add(["pl+c", "pl+java"])
+    .relTags.add(["tag+interpreters", "tag+languages"]);
+
+  g.nodes.learning
+    .set("learning+threejs-journey", {
+      name: "ThreeJS Journey",
+      description: "Everything you need in one place: 93 hours of video to go from absolute beginner to advanced Three.js developer.",
+      extHomeURL: "https://threejs-journey.com/",
+      kinds: ["course"],
+    })
+    .relPlangs.add(["pl+javascript"])
+    .relTags.add(["tag+3dg", "tag+games", "tag+webdev"])
+    .relCommunities.add(["community+threejsjourney"]);
 }

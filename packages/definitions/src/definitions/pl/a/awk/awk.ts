@@ -18,12 +18,12 @@ export function define(g: PlangsGraph) {
       extRedditPath: "awk",
       created: "1977",
     })
-    .addInfluencedBy(["pl+c", "pl+sed"])
-    .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+data-driven", "paradigm+procedural", "paradigm+scripting"])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+dataflow", "tag+editor", "tag+interpreters", "tag+scripting", "tag+shell"])
-    .addTypeSystems(["tsys+dynamic", "tsys+untyped"]);
+    .relInfluencedBy.add(["pl+c", "pl+sed"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add(["paradigm+data-driven", "paradigm+procedural", "paradigm+scripting"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+dataflow", "tag+editor", "tag+interpreters", "tag+scripting", "tag+shell"])
+    .relTsys.add(["tsys+dynamic", "tsys+untyped"]);
 
   // TOOLS
 

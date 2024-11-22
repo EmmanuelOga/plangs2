@@ -13,13 +13,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://strlen.com/lobster/",
       created: "2016",
     })
-    .addInfluencedBy(["pl+python"])
-    .addLicenses(["license+apache", "license+zlib"])
-    .addParadigms(["paradigm+compiled", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+cross", "plat+linux", "plat+web", "plat+windows"])
-    .addTags(["tag+games", "tag+scripting"])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+c++"]);
+    .relInfluencedBy.add(["pl+python"])
+    .relLicenses.add(["license+apache", "license+zlib"])
+    .relParadigms.add(["paradigm+compiled", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
+    .relPlatforms.add(["plat+cross", "plat+linux", "plat+web", "plat+windows"])
+    .relTags.add(["tag+games", "tag+scripting"])
+    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+c++"]);
 
   // TOOLS
 

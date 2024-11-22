@@ -26,9 +26,9 @@ export function define(g: PlangsGraph) {
       extRedditPath: "yaml",
       created: "2001",
     })
-    .addParadigms(["paradigm+data-exchange", "paradigm+declarative"])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+scripting"]);
+    .relParadigms.add(["paradigm+data-exchange", "paradigm+declarative"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+scripting"]);
 
   // TOOLS
 

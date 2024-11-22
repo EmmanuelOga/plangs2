@@ -21,11 +21,18 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://dlang.org/",
       created: "2001",
     })
-    .addInfluencedBy(["pl+ada", "pl+basic", "pl+c", "pl+c++", "pl+c-sharp", "pl+eiffel", "pl+python", "pl+ruby"])
-    .addLicenses(["license+boost"])
-    .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+metaprogramming", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
-    .addTags([
+    .relInfluencedBy.add(["pl+ada", "pl+basic", "pl+c", "pl+c++", "pl+c-sharp", "pl+eiffel", "pl+python", "pl+ruby"])
+    .relLicenses.add(["license+boost"])
+    .relParadigms.add([
+      "paradigm+concurrent",
+      "paradigm+functional",
+      "paradigm+imperative",
+      "paradigm+metaprogramming",
+      "paradigm+multi",
+      "paradigm+oop",
+    ])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+analysis",
       "tag+app",
       "tag+asm",
@@ -39,7 +46,7 @@ export function define(g: PlangsGraph) {
       "tag+ui",
       "tag+viz",
     ])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

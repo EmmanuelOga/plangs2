@@ -21,10 +21,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://docs.microsoft.com/dotnet/visual-basic/",
       created: "2001",
     })
-    .addImplements(["pl+basic"])
-    .addInfluencedBy(["pl+basic", "pl+haskell", "pl+visual-basic"])
-    .addLicenses(["license+apache"])
-    .addParadigms([
+    .relImplements.add(["pl+basic"])
+    .relInfluencedBy.add(["pl+basic", "pl+haskell", "pl+visual-basic"])
+    .relLicenses.add(["license+apache"])
+    .relParadigms.add([
       "paradigm+declarative",
       "paradigm+event-driven",
       "paradigm+imperative",
@@ -33,8 +33,8 @@ export function define(g: PlangsGraph) {
       "paradigm+reflective",
       "paradigm+structured",
     ])
-    .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+dos", "plat+linux", "plat+windows"])
-    .addTags([
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+bsd", "plat+dos", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+app",
       "tag+cli",
       "tag+compiler",
@@ -49,7 +49,7 @@ export function define(g: PlangsGraph) {
       "tag+testing",
       "tag+ui",
     ])
-    .addTypeSystems(["tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong", "tsys+weak"]);
+    .relTsys.add(["tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong", "tsys+weak"]);
 
   // TOOLS
 

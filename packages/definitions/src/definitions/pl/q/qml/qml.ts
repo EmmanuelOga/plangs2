@@ -22,11 +22,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://doc.qt.io/qt-5/qmlapplications.html",
       created: "2009",
     })
-    .addCompilesTo(["pl+c++"])
-    .addParadigms(["paradigm+declarative", "paradigm+reactive", "paradigm+scripting"])
-    .addPlatforms(["plat+cross"])
-    .addTags(["tag+ui"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"]);
+    .relCompilesTo.add(["pl+c++"])
+    .relParadigms.add(["paradigm+declarative", "paradigm+reactive", "paradigm+scripting"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+ui"])
+    .relTsys.add(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

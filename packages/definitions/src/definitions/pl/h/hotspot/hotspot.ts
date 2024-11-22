@@ -15,13 +15,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://openjdk.org/groups/hotspot/",
       created: "1999",
     })
-    .addInfluencedBy(["pl+self"])
-    .addLicenses(["license+gnu-gpl"])
-    .addParadigms(["paradigm+compiled", "paradigm+concurrent", "paradigm+interpreted"])
-    .addPlatforms(["plat+apple", "plat+bsd", "plat+cross", "plat+java", "plat+linux", "plat+windows"])
-    .addTags(["tag+asm", "tag+compiler", "tag+interpreters", "tag+server"])
-    .addTypeSystems(["tsys+nominal", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+assembly", "pl+c++"]);
+    .relInfluencedBy.add(["pl+self"])
+    .relLicenses.add(["license+gnu-gpl"])
+    .relParadigms.add(["paradigm+compiled", "paradigm+concurrent", "paradigm+interpreted"])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+java", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+asm", "tag+compiler", "tag+interpreters", "tag+server"])
+    .relTsys.add(["tsys+nominal", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+assembly", "pl+c++"]);
 
   // TOOLS
 

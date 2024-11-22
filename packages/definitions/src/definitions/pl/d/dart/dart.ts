@@ -28,14 +28,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://dart.dev/",
       created: "2011",
     })
-    .addCompilesTo(["pl+javascript"])
-    .addInfluencedBy(["pl+c", "pl+c++", "pl+c-sharp", "pl+erlang", "pl+javascript", "pl+ruby", "pl+typescript"])
-    .addLicenses(["license+bsd"])
-    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+reflective"])
-    .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+riscv", "plat+web", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+app", "tag+cli", "tag+embedded", "tag+framework", "tag+interpreters", "tag+scripting", "tag+ui"])
-    .addTypeSystems(["tsys+dynamic", "tsys+inferred", "tsys+optional", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+c++"]);
+    .relCompilesTo.add(["pl+javascript"])
+    .relInfluencedBy.add(["pl+c", "pl+c++", "pl+c-sharp", "pl+erlang", "pl+javascript", "pl+ruby", "pl+typescript"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+reflective"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+riscv", "plat+web", "plat+windows", "plat+x86-64"])
+    .relTags.add(["tag+app", "tag+cli", "tag+embedded", "tag+framework", "tag+interpreters", "tag+scripting", "tag+ui"])
+    .relTsys.add(["tsys+dynamic", "tsys+inferred", "tsys+optional", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+c++"]);
 
   // TOOLS
 

@@ -18,15 +18,15 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://luau.org/",
       created: "2006",
     })
-    .addCompilesTo(["pl+lua"])
-    .addDialectOf(["pl+lua"])
-    .addInfluencedBy(["pl+lua"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+scripting"])
-    .addPlatforms(["plat+arm", "plat+cross", "plat+embedded", "plat+linux", "plat+windows"])
-    .addTags(["tag+games", "tag+scripting"])
-    .addTypeSystems(["tsys+dynamic", "tsys+gradual"])
-    .addWrittenIn(["pl+c", "pl+c++"]);
+    .relCompilesTo.add(["pl+lua"])
+    .relDialectOf.add(["pl+lua"])
+    .relInfluencedBy.add(["pl+lua"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+scripting"])
+    .relPlatforms.add(["plat+arm", "plat+cross", "plat+embedded", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+games", "tag+scripting"])
+    .relTsys.add(["tsys+dynamic", "tsys+gradual"])
+    .relWrittenIn.add(["pl+c", "pl+c++"]);
 
   // TOOLS
 

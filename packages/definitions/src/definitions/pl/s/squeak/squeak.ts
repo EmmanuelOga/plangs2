@@ -24,12 +24,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.squeak.org/",
       created: "1996",
     })
-    .addInfluencedBy(["pl+lisp", "pl+self"])
-    .addLicenses(["license+apache", "license+mit"])
-    .addParadigms(["paradigm+educational", "paradigm+interpreted", "paradigm+oop", "paradigm+reflective"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+edu", "tag+games", "tag+interpreters", "tag+multimedia"])
-    .addTypeSystems(["tsys+dynamic"]);
+    .relInfluencedBy.add(["pl+lisp", "pl+self"])
+    .relLicenses.add(["license+apache", "license+mit"])
+    .relParadigms.add(["paradigm+educational", "paradigm+interpreted", "paradigm+oop", "paradigm+reflective"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+edu", "tag+games", "tag+interpreters", "tag+multimedia"])
+    .relTsys.add(["tsys+dynamic"]);
 
   // TOOLS
 

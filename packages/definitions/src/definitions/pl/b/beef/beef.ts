@@ -21,13 +21,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.beeflang.org/",
       created: "2020",
     })
-    .addInfluencedBy(["pl+c", "pl+c++", "pl+delphi", "pl+rust"])
-    .addLicenses(["license+zlib"])
-    .addParadigms(["paradigm+compiled", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
-    .addPlatforms(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
-    .addTags(["tag+compiler", "tag+games"])
-    .addTypeSystems(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+c++"]);
+    .relInfluencedBy.add(["pl+c", "pl+c++", "pl+delphi", "pl+rust"])
+    .relLicenses.add(["license+zlib"])
+    .relParadigms.add(["paradigm+compiled", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
+    .relTags.add(["tag+compiler", "tag+games"])
+    .relTsys.add(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+c++"]);
 
   // TOOLS
 

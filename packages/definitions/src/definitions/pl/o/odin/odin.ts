@@ -19,9 +19,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://odin-lang.org/",
       created: "2016",
     })
-    .addInfluencedBy(["pl+c"])
-    .addLicenses(["license+mit"])
-    .addParadigms([
+    .relInfluencedBy.add(["pl+c"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add([
       "paradigm+compiled",
       "paradigm+concurrent",
       "paradigm+functional",
@@ -29,10 +29,10 @@ export function define(g: PlangsGraph) {
       "paradigm+imperative",
       "paradigm+procedural",
     ])
-    .addPlatforms(["plat+arm", "plat+cross", "plat+linux", "plat+wasm", "plat+web", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+compiler"])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+odin"]);
+    .relPlatforms.add(["plat+arm", "plat+cross", "plat+linux", "plat+wasm", "plat+web", "plat+windows", "plat+x86-64"])
+    .relTags.add(["tag+compiler"])
+    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+odin"]);
 
   // TOOLS
 

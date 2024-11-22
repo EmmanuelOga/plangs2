@@ -25,8 +25,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.php.net/",
       created: "1995",
     })
-    .addInfluencedBy(["pl+c", "pl+java"])
-    .addParadigms([
+    .relInfluencedBy.add(["pl+c", "pl+java"])
+    .relParadigms.add([
       "paradigm+functional",
       "paradigm+imperative",
       "paradigm+multi",
@@ -35,10 +35,10 @@ export function define(g: PlangsGraph) {
       "paradigm+reflective",
       "paradigm+scripting",
     ])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+scripting", "tag+server"])
-    .addTypeSystems(["tsys+dynamic", "tsys+gradual", "tsys+weak"])
-    .addWrittenIn(["pl+c"]);
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+scripting", "tag+server"])
+    .relTsys.add(["tsys+dynamic", "tsys+gradual", "tsys+weak"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

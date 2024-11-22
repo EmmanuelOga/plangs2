@@ -14,10 +14,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.arduino.cc",
       created: "2005",
     })
-    .addLicenses(["license+cc-by", "license+gnu-gpl", "license+lgpl"])
-    .addParadigms(["paradigm+embedded", "paradigm+event-driven", "paradigm+procedural"])
-    .addPlatforms(["plat+arduino", "plat+embedded", "plat+linux", "plat+windows"])
-    .addTags(["tag+edu", "tag+embedded", "tag+iot", "tag+sci"]);
+    .relLicenses.add(["license+cc-by", "license+gnu-gpl", "license+lgpl"])
+    .relParadigms.add(["paradigm+embedded", "paradigm+event-driven", "paradigm+procedural"])
+    .relPlatforms.add(["plat+arduino", "plat+embedded", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+edu", "tag+embedded", "tag+iot", "tag+sci"]);
 
   // TOOLS
 

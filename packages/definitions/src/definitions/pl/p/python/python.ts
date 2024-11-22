@@ -27,9 +27,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.python.org/",
       created: "1991",
     })
-    .addInfluencedBy(["pl+ada", "pl+apl", "pl+c", "pl+c++", "pl+haskell", "pl+lisp", "pl+perl", "pl+r5rs", "pl+scheme", "pl+standard-ml"])
-    .addLicenses(["license+python"])
-    .addParadigms([
+    .relInfluencedBy.add(["pl+ada", "pl+apl", "pl+c", "pl+c++", "pl+haskell", "pl+lisp", "pl+perl", "pl+r5rs", "pl+scheme", "pl+standard-ml"])
+    .relLicenses.add(["license+python"])
+    .relParadigms.add([
       "paradigm+functional",
       "paradigm+imperative",
       "paradigm+multi",
@@ -39,8 +39,9 @@ export function define(g: PlangsGraph) {
       "paradigm+scripting",
       "paradigm+structured",
     ])
-    .addPlatforms(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+raspberry", "plat+wasm", "plat+windows"])
-    .addTags([
+    .relPlBundles.add(["bundle+py-one"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+raspberry", "plat+wasm", "plat+windows"])
+    .relTags.add([
       "tag+analysis",
       "tag+app",
       "tag+automation",
@@ -63,18 +64,17 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+optional", "tsys+strong"])
-    .addWrittenIn(["pl+c", "pl+python"])
-    .addTools(["tool+pixi", "tool+pyright", "tool+ruff", "tool+vscode-python"])
-    .addBundles(["bundle+py-one"])
-    .addLibs(["lib+flask", "lib+msgspec"])
-    .addApps(["app+aider", "app+glances", "app+harlequin", "app+zulip"]);
+    .relTsys.add(["tsys+duck", "tsys+dynamic", "tsys+optional", "tsys+strong"])
+    .relWrittenIn.add(["pl+c", "pl+python"])
+    .relApps.add(["app+aider", "app+glances", "app+harlequin", "app+zulip"])
+    .relLibs.add(["lib+flask", "lib+msgspec"])
+    .relTools.add(["tool+pixi", "tool+pyright", "tool+ruff", "tool+vscode-python"]);
 
   // TOOLS
 
   g.nodes.tool.set("tool+pixi", {
     name: "Pixi",
-    keywords: ["package manager", "dependency manager", "package management"],
+    keywords: ["dependency manager", "package management", "package manager"],
     description:
       "Pixi is a package management tool for developers. It allows the developer to install libraries and applications in a reproducible way. Use pixi cross-platform, on Windows, Mac and Linux.",
     extHomeURL: "https://pixi.sh/",
@@ -82,7 +82,7 @@ export function define(g: PlangsGraph) {
 
   g.nodes.tool.set("tool+pyright", {
     name: "Pyright",
-    keywords: ["type checker", "static analysis", "type inference"],
+    keywords: ["static analysis", "type checker", "type inference"],
     description:
       "Pyright is a full-featured, standards-compliant static type checker for Python. It is designed for high performance and can be used with large Python source bases.",
     extHomeURL: "https://microsoft.github.io/pyright/",
@@ -90,14 +90,14 @@ export function define(g: PlangsGraph) {
 
   g.nodes.tool.set("tool+ruff", {
     name: "Ruff",
-    keywords: ["linter", "formatter", "code quality"],
+    keywords: ["code quality", "formatter", "linter"],
     description: "An extremely fast Python linter and code formatter, written in Rust.",
     extHomeURL: "https://docs.astral.sh/ruff/",
   });
 
   g.nodes.tool.set("tool+vscode-python", {
     name: "Python for VSCode",
-    keywords: ["intellisense", "debugging", "linting", "formatting", "refactoring"],
+    keywords: ["debugging", "formatting", "intellisense", "linting", "refactoring"],
     description:
       "Python language support with extension access points for IntelliSense (Pylance), Debugging (Python Debugger), linting, formatting, refactoring, unit tests, and more.",
     extHomeURL: "https://marketplace.visualstudio.com/items?itemName=ms-python.python",
@@ -110,20 +110,20 @@ export function define(g: PlangsGraph) {
       description:
         "Python is well known for having a confusing package management story, but with Pixi you can manage your dependencies with ease, including non-Python dependencies like C libraries. Ruff is a super fast linter and code formatter. Type checking in Python is optional but highly recommended, specially as code grows larger. Pyright is a full-featured, standards-compliant static type checker. This bundle also includes the Python extension for Visual Studio Code.",
     })
-    .addTools(["tool+pixi", "tool+pyright", "tool+ruff", "tool+vscode-python"]);
+    .relTools.add(["tool+pixi", "tool+pyright", "tool+ruff", "tool+vscode-python"]);
 
   // LIBRARIES
 
   g.nodes.lib.set("lib+flask", {
     name: "Flask",
-    keywords: ["web", "framework", "wsgi"],
+    keywords: ["framework", "web", "wsgi"],
     description: "Flask is a lightweight WSGI web application framework.",
     extHomeURL: "https://flask.palletsprojects.com/",
   });
 
   g.nodes.lib.set("lib+msgspec", {
     name: "Msgspec",
-    keywords: ["serialization", "validation", "json", "messagepack", "yaml", "toml"],
+    keywords: ["json", "messagepack", "serialization", "toml", "validation", "yaml"],
     description: "msgspec is a fast serialization and validation library, with builtin support for JSON, MessagePack, YAML, and TOML.",
     extHomeURL: "https://jcristharif.com/msgspec/",
   });
@@ -132,7 +132,7 @@ export function define(g: PlangsGraph) {
 
   g.nodes.app.set("app+aider", {
     name: "Aider",
-    keywords: ["pair programming", "llm", "git"],
+    keywords: ["git", "llm", "pair programming"],
     description:
       "Aider lets you pair program with LLMs, to edit code in your local git repository. Start a new project or work with an existing git repo. Aider works best with GPT-4o & Claude 3.5 Sonnet and can connect to almost any LLM.",
     extHomeURL: "https://aider.chat/",
@@ -147,14 +147,14 @@ export function define(g: PlangsGraph) {
 
   g.nodes.app.set("app+harlequin", {
     name: "Harlequin",
-    keywords: ["database", "client", "terminal"],
+    keywords: ["client", "database", "terminal"],
     description: "An easy, fast, and beautiful database client for the terminal.",
     extHomeURL: "https://harlequin.sh/",
   });
 
   g.nodes.app.set("app+zulip", {
     name: "Zulip",
-    keywords: ["chat", "group", "communication"],
+    keywords: ["chat", "communication", "group"],
     description: "Zulip is a powerful, open source group chat application.",
     extHomeURL: "https://github.com/zulip/zulip",
   });

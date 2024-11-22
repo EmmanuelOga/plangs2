@@ -20,9 +20,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://v8.dev/",
       created: "2008",
     })
-    .addImplements(["pl+javascript"])
-    .addLicenses(["license+bsd"])
-    .addParadigms([
+    .relImplements.add(["pl+javascript"])
+    .relLicenses.add(["license+bsd"])
+    .relParadigms.add([
       "paradigm+event-driven",
       "paradigm+functional",
       "paradigm+imperative",
@@ -31,10 +31,10 @@ export function define(g: PlangsGraph) {
       "paradigm+oop",
       "paradigm+procedural",
     ])
-    .addPlatforms(["plat+arm", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+compiler", "tag+interpreters", "tag+scripting", "tag+server"])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic", "tsys+weak"])
-    .addWrittenIn(["pl+c++"]);
+    .relPlatforms.add(["plat+arm", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64"])
+    .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting", "tag+server"])
+    .relTsys.add(["tsys+duck", "tsys+dynamic", "tsys+weak"])
+    .relWrittenIn.add(["pl+c++"]);
 
   // TOOLS
 

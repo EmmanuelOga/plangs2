@@ -24,15 +24,15 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://pypy.org/",
       created: "2007",
     })
-    .addDialectOf(["pl+python"])
-    .addImplements(["pl+python"])
-    .addInfluencedBy(["pl+python"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+interpreted", "paradigm+scripting"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+analysis", "tag+compiler", "tag+framework", "tag+interpreters", "tag+testing"])
-    .addTypeSystems(["tsys+duck", "tsys+dynamic"])
-    .addWrittenIn(["pl+c", "pl+python"]);
+    .relDialectOf.add(["pl+python"])
+    .relImplements.add(["pl+python"])
+    .relInfluencedBy.add(["pl+python"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+interpreted", "paradigm+scripting"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+analysis", "tag+compiler", "tag+framework", "tag+interpreters", "tag+testing"])
+    .relTsys.add(["tsys+duck", "tsys+dynamic"])
+    .relWrittenIn.add(["pl+c", "pl+python"]);
 
   // TOOLS
 

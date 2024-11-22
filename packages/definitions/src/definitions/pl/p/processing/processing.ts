@@ -21,11 +21,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://processing.org/",
       created: "2001",
     })
-    .addInfluencedBy(["pl+c", "pl+java"])
-    .addLicenses(["license+gnu-gpl", "license+lgpl"])
-    .addParadigms(["paradigm+dsl", "paradigm+educational", "paradigm+multi", "paradigm+oop", "paradigm+visual"])
-    .addPlatforms(["plat+cross", "plat+java"])
-    .addTags([
+    .relInfluencedBy.add(["pl+c", "pl+java"])
+    .relLicenses.add(["license+gnu-gpl", "license+lgpl"])
+    .relParadigms.add(["paradigm+dsl", "paradigm+educational", "paradigm+multi", "paradigm+oop", "paradigm+visual"])
+    .relPlatforms.add(["plat+cross", "plat+java"])
+    .relTags.add([
       "tag+app",
       "tag+edu",
       "tag+framework",
@@ -36,8 +36,8 @@ export function define(g: PlangsGraph) {
       "tag+ray-tracer",
       "tag+viz",
     ])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"])
-    .addWrittenIn(["pl+java"]);
+    .relTsys.add(["tsys+dynamic", "tsys+strong"])
+    .relWrittenIn.add(["pl+java"]);
 
   // TOOLS
 

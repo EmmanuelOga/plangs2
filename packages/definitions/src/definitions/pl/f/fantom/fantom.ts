@@ -22,14 +22,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.fantom.org/",
       created: "2005",
     })
-    .addCompilesTo(["pl+c-sharp", "pl+erlang", "pl+java", "pl+ruby", "pl+scala"])
-    .addInfluencedBy(["pl+c-sharp", "pl+erlang", "pl+ruby", "pl+scala"])
-    .addLicenses(["license+afl", "license+mit"])
-    .addParadigms(["paradigm+concurrent", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+.net", "plat+cross", "plat+java"])
-    .addTags(["tag+app", "tag+interpreters", "tag+scripting"])
-    .addTypeSystems(["tsys+dynamic", "tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+java"]);
+    .relCompilesTo.add(["pl+c-sharp", "pl+erlang", "pl+java", "pl+ruby", "pl+scala"])
+    .relInfluencedBy.add(["pl+c-sharp", "pl+erlang", "pl+ruby", "pl+scala"])
+    .relLicenses.add(["license+afl", "license+mit"])
+    .relParadigms.add(["paradigm+concurrent", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
+    .relPlatforms.add(["plat+.net", "plat+cross", "plat+java"])
+    .relTags.add(["tag+app", "tag+interpreters", "tag+scripting"])
+    .relTsys.add(["tsys+dynamic", "tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+java"]);
 
   // TOOLS
 

@@ -24,10 +24,10 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Markdown",
       created: "2004",
     })
-    .addCompilesTo(["pl+html"])
-    .addParadigms(["paradigm+dsl", "paradigm+scripting"])
-    .addTags(["tag+editor", "tag+scripting"])
-    .addTypeSystems(["tsys+untyped"]);
+    .relCompilesTo.add(["pl+html"])
+    .relParadigms.add(["paradigm+dsl", "paradigm+scripting"])
+    .relTags.add(["tag+editor", "tag+scripting"])
+    .relTsys.add(["tsys+untyped"]);
 
   // TOOLS
 

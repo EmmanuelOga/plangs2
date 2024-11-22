@@ -17,13 +17,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://scratch.mit.edu/",
       created: "2003",
     })
-    .addInfluencedBy(["pl+squeak"])
-    .addLicenses(["license+bsd", "license+dual", "license+gnu-gpl"])
-    .addParadigms(["paradigm+educational", "paradigm+event-driven", "paradigm+visual"])
-    .addPlatforms(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
-    .addTags(["tag+audio-dev", "tag+editor", "tag+games", "tag+interpreters", "tag+multimedia", "tag+video", "tag+viz"])
-    .addTypeSystems(["tsys+untyped"])
-    .addWrittenIn(["pl+actionscript", "pl+javascript", "pl+squeak"]);
+    .relInfluencedBy.add(["pl+squeak"])
+    .relLicenses.add(["license+bsd", "license+dual", "license+gnu-gpl"])
+    .relParadigms.add(["paradigm+educational", "paradigm+event-driven", "paradigm+visual"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+audio-dev", "tag+editor", "tag+games", "tag+interpreters", "tag+multimedia", "tag+video", "tag+viz"])
+    .relTsys.add(["tsys+untyped"])
+    .relWrittenIn.add(["pl+actionscript", "pl+javascript", "pl+squeak"]);
 
   // TOOLS
 

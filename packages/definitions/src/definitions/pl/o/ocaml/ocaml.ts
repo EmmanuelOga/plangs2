@@ -24,13 +24,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ocaml.org/",
       created: "1996",
     })
-    .addInfluencedBy(["pl+c", "pl+pascal", "pl+standard-ml"])
-    .addLicenses(["license+lgpl"])
-    .addParadigms(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+analysis", "tag+automation", "tag+compiler", "tag+control", "tag+industrial", "tag+interpreters", "tag+proofs", "tag+viz"])
-    .addTypeSystems(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])
-    .addWrittenIn(["pl+c"]);
+    .relInfluencedBy.add(["pl+c", "pl+pascal", "pl+standard-ml"])
+    .relLicenses.add(["license+lgpl"])
+    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+modular", "paradigm+multi", "paradigm+oop"])
+    .relPlatforms.add(["plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
+    .relTags.add(["tag+analysis", "tag+automation", "tag+compiler", "tag+control", "tag+industrial", "tag+interpreters", "tag+proofs", "tag+viz"])
+    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

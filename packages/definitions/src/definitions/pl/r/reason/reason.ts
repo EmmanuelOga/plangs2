@@ -25,15 +25,15 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://reasonml.github.io/",
       created: "2016",
     })
-    .addCompilesTo(["pl+javascript", "pl+ocaml"])
-    .addDialectOf(["pl+ocaml"])
-    .addInfluencedBy(["pl+javascript", "pl+ocaml"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+functional", "paradigm+modular", "paradigm+multi", "paradigm+oop"])
-    .addPlatforms(["plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+app", "tag+compiler", "tag+framework", "tag+interpreters"])
-    .addTypeSystems(["tsys+static", "tsys+strong"])
-    .addWrittenIn(["pl+ocaml"]);
+    .relCompilesTo.add(["pl+javascript", "pl+ocaml"])
+    .relDialectOf.add(["pl+ocaml"])
+    .relInfluencedBy.add(["pl+javascript", "pl+ocaml"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+functional", "paradigm+modular", "paradigm+multi", "paradigm+oop"])
+    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+app", "tag+compiler", "tag+framework", "tag+interpreters"])
+    .relTsys.add(["tsys+static", "tsys+strong"])
+    .relWrittenIn.add(["pl+ocaml"]);
 
   // TOOLS
 

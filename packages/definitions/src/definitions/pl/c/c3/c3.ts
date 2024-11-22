@@ -17,12 +17,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://c3-lang.org",
       created: "2019",
     })
-    .addInfluencedBy(["pl+c"])
-    .addLicenses(["license+lgpl", "license+mit"])
-    .addParadigms(["paradigm+compiled", "paradigm+general-purpose", "paradigm+multi", "paradigm+procedural"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .addTags(["tag+compiler", "tag+scripting"])
-    .addTypeSystems(["tsys+static", "tsys+strong"]);
+    .relInfluencedBy.add(["pl+c"])
+    .relLicenses.add(["license+lgpl", "license+mit"])
+    .relParadigms.add(["paradigm+compiled", "paradigm+general-purpose", "paradigm+multi", "paradigm+procedural"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+compiler", "tag+scripting"])
+    .relTsys.add(["tsys+static", "tsys+strong"]);
 
   // TOOLS
 

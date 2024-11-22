@@ -19,13 +19,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://faust.grame.fr/",
       created: "2002",
     })
-    .addInfluencedBy(["pl+c"])
-    .addLicenses(["license+gnu-gpl"])
-    .addParadigms(["paradigm+compiled", "paradigm+dataflow", "paradigm+declarative", "paradigm+dsl", "paradigm+functional"])
-    .addPlatforms(["plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows"])
-    .addTags(["tag+app", "tag+audio-dev", "tag+compiler", "tag+dsp", "tag+interpreters", "tag+multimedia", "tag+ui", "tag+wavelet"])
-    .addTypeSystems(["tsys+manifest", "tsys+strong"])
-    .addWrittenIn(["pl+c++"]);
+    .relInfluencedBy.add(["pl+c"])
+    .relLicenses.add(["license+gnu-gpl"])
+    .relParadigms.add(["paradigm+compiled", "paradigm+dataflow", "paradigm+declarative", "paradigm+dsl", "paradigm+functional"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows"])
+    .relTags.add(["tag+app", "tag+audio-dev", "tag+compiler", "tag+dsp", "tag+interpreters", "tag+multimedia", "tag+ui", "tag+wavelet"])
+    .relTsys.add(["tsys+manifest", "tsys+strong"])
+    .relWrittenIn.add(["pl+c++"]);
 
   // TOOLS
 

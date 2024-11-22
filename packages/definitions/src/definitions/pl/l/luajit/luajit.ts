@@ -17,15 +17,15 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://luajit.org/",
       created: "2005",
     })
-    .addDialectOf(["pl+lua"])
-    .addImplements(["pl+lua"])
-    .addInfluencedBy(["pl+c", "pl+lua"])
-    .addLicenses(["license+mit"])
-    .addParadigms(["paradigm+imperative", "paradigm+procedural", "paradigm+scripting"])
-    .addPlatforms(["plat+android", "plat+apple", "plat+arm", "plat+linux", "plat+windows", "plat+x86-64"])
-    .addTags(["tag+compiler", "tag+interpreters", "tag+scripting"])
-    .addTypeSystems(["tsys+dynamic"])
-    .addWrittenIn(["pl+c"]);
+    .relDialectOf.add(["pl+lua"])
+    .relImplements.add(["pl+lua"])
+    .relInfluencedBy.add(["pl+c", "pl+lua"])
+    .relLicenses.add(["license+mit"])
+    .relParadigms.add(["paradigm+imperative", "paradigm+procedural", "paradigm+scripting"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+arm", "plat+linux", "plat+windows", "plat+x86-64"])
+    .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting"])
+    .relTsys.add(["tsys+dynamic"])
+    .relWrittenIn.add(["pl+c"]);
 
   // TOOLS
 

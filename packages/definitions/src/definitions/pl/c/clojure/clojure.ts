@@ -21,8 +21,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://clojure.org/",
       created: "2007",
     })
-    .addDialectOf(["pl+lisp"])
-    .addInfluencedBy([
+    .relDialectOf.add(["pl+lisp"])
+    .relInfluencedBy.add([
       "pl+c++",
       "pl+c-sharp",
       "pl+common-lisp",
@@ -35,8 +35,8 @@ export function define(g: PlangsGraph) {
       "pl+scheme",
       "pl+wolfram-language",
     ])
-    .addLicenses(["license+epl"])
-    .addParadigms([
+    .relLicenses.add(["license+epl"])
+    .relParadigms.add([
       "paradigm+agents",
       "paradigm+concurrent",
       "paradigm+functional",
@@ -45,10 +45,20 @@ export function define(g: PlangsGraph) {
       "paradigm+multi",
       "paradigm+pipeline",
     ])
-    .addPlatforms(["plat+cross", "plat+java", "plat+nodejs"])
-    .addTags(["tag+app", "tag+automation", "tag+cli", "tag+control", "tag+games", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+shell"])
-    .addTypeSystems(["tsys+dynamic", "tsys+strong"])
-    .addWrittenIn(["pl+clojure", "pl+java"]);
+    .relPlatforms.add(["plat+cross", "plat+java", "plat+nodejs"])
+    .relTags.add([
+      "tag+app",
+      "tag+automation",
+      "tag+cli",
+      "tag+control",
+      "tag+games",
+      "tag+industrial",
+      "tag+interpreters",
+      "tag+scripting",
+      "tag+shell",
+    ])
+    .relTsys.add(["tsys+dynamic", "tsys+strong"])
+    .relWrittenIn.add(["pl+clojure", "pl+java"]);
 
   // TOOLS
 

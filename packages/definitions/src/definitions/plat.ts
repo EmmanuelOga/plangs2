@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs";
 export function define(g: PlangsGraph) {
   g.nodes.plat.set("plat+.net", {
     name: ".NET",
-    keywords: ["dotnet", ".net", "C#", "CLR", "Common Language Runtime", "CLI"],
+    keywords: [".net", "C#", "CLI", "CLR", "Common Language Runtime", "dotnet"],
     description: ".NET is a free and open-source software framework developed by Microsoft for building cross-platform applications.",
     extHomeURL: "https://en.wikipedia.org/wiki/.NET",
   });
@@ -17,7 +17,7 @@ export function define(g: PlangsGraph) {
 
   g.nodes.plat.set("plat+apple", {
     name: "Apple (macOS, iOS, etc.)",
-    keywords: ["macos", "ios", "tvos", "watchos", "visionos", "m1", "m2", "apple silicon"],
+    keywords: ["apple silicon", "ios", "m1", "m2", "macos", "tvos", "visionos", "watchos"],
     description:
       "Apple's family of operating systems includes macOS for desktops, iOS for mobile, tvOS for Apple TV, watchOS for Apple Watch, and visionOS for mixed reality.",
     extHomeURL: "https://en.wikipedia.org/wiki/Apple_silicon",
@@ -32,14 +32,14 @@ export function define(g: PlangsGraph) {
 
   g.nodes.plat.set("plat+arm", {
     name: "ARM",
-    keywords: ["arm32", "arm64", "aarch64", "armel", "armhf", "armv7"],
+    keywords: ["aarch64", "arm32", "arm64", "armel", "armhf", "armv7"],
     description: "ARM architecture is widely used in mobile devices and embedded systems, supporting 32-bit and 64-bit instruction sets.",
     extHomeURL: "https://en.wikipedia.org/wiki/ARM_architecture",
   });
 
   g.nodes.plat.set("plat+beam", {
     name: "Erlang BEAM / OTP",
-    keywords: ["erlang", "otp", "beam"],
+    keywords: ["beam", "erlang", "otp"],
     description:
       "Erlang Open Telecom Platform (OTP) is a collection of useful middleware, libraries, and tools written in the Erlang programming language.",
     extHomeURL: "https://en.wikipedia.org/wiki/Open_Telecom_Platform",
@@ -47,7 +47,7 @@ export function define(g: PlangsGraph) {
 
   g.nodes.plat.set("plat+bsd", {
     name: "BSD",
-    keywords: ["bsd", "freebsd", "openbsd", "netbsd", "dragonflybsd"],
+    keywords: ["bsd", "dragonflybsd", "freebsd", "netbsd", "openbsd"],
     description:
       "BSD is a family of Unix-like operating systems derived from the Berkeley Software Distribution, including FreeBSD, OpenBSD, and NetBSD.",
     extHomeURL: "https://en.wikipedia.org/wiki/BSD",
@@ -77,21 +77,21 @@ export function define(g: PlangsGraph) {
 
   g.nodes.plat.set("plat+esp32", {
     name: "ESP32",
-    keywords: ["esp32", "esp8266", "microcontroller", "wifi", "bluetooth"],
+    keywords: ["bluetooth", "esp32", "esp8266", "microcontroller", "wifi"],
     description: "ESP32 is a series of low-cost, low-power system-on-chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth.",
     extHomeURL: "https://en.wikipedia.org/wiki/ESP32",
   });
 
   g.nodes.plat.set("plat+java", {
     name: "Java",
-    keywords: ["java", "jdk", "java-se", "jre", "java development kit"],
+    keywords: ["java", "java development kit", "java-se", "jdk", "jre"],
     description: "Java is a high-level, class-based, object-oriented programming language and computing platform.",
     extHomeURL: "https://en.wikipedia.org/wiki/Java_(software_platform)",
   });
 
   g.nodes.plat.set("plat+linux", {
     name: "Linux",
-    keywords: ["linux", "gnu/linux", "ubuntu", "debian", "centos", "redhat", "openSUSE"],
+    keywords: ["centos", "debian", "gnu/linux", "linux", "openSUSE", "redhat", "ubuntu"],
     description:
       "Linux is a family of open-source Unix-like operating systems, with various distributions such as Ubuntu, Debian, CentOS, and Red Hat Enterprise Linux.",
     extHomeURL: "https://en.wikipedia.org/wiki/Linux",
@@ -99,14 +99,14 @@ export function define(g: PlangsGraph) {
 
   g.nodes.plat.set("plat+nodejs", {
     name: "Node.js",
-    keywords: ["nodejs", "javascript", "js", "server-side javascript"],
+    keywords: ["javascript", "js", "nodejs", "server-side javascript"],
     description: "Node.js is an open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside a web browser.",
     extHomeURL: "https://en.wikipedia.org/wiki/Node.js",
   });
 
   g.nodes.plat.set("plat+raspberry", {
     name: "Raspberry Pi",
-    keywords: ["raspberry pi", "pi", "single-board computer"],
+    keywords: ["pi", "raspberry pi", "single-board computer"],
     description:
       "Raspberry Pi is a low-cost, single-board computer designed to promote teaching of computer science in schools and developing countries.",
     extHomeURL: "https://en.wikipedia.org/wiki/Raspberry_Pi",
@@ -114,7 +114,7 @@ export function define(g: PlangsGraph) {
 
   g.nodes.plat.set("plat+riscv", {
     name: "RISC-V",
-    keywords: ["riscv", "risc-v", "open isa"],
+    keywords: ["open isa", "risc-v", "riscv"],
     description: "RISC-V is an open standard instruction set architecture (ISA) based on the reduced instruction set computer (RISC) principles.",
     extHomeURL: "https://en.wikipedia.org/wiki/RISC-V",
   });
@@ -137,14 +137,14 @@ export function define(g: PlangsGraph) {
 
   g.nodes.plat.set("plat+windows", {
     name: "Microsoft Windows",
-    keywords: ["windows", "win32", "win64", "windows 10", "windows 11"],
+    keywords: ["win32", "win64", "windows", "windows 10", "windows 11"],
     description: "Microsoft Windows is a series of operating systems developed by Microsoft, with versions for both personal computers and servers.",
     extHomeURL: "https://en.wikipedia.org/wiki/Microsoft_Windows",
   });
 
   g.nodes.plat.set("plat+x86-64", {
     name: "x86-64",
-    keywords: ["amd64", "x86-64", "x64"],
+    keywords: ["amd64", "x64", "x86-64"],
     description: "x86-64 is the 64-bit architecture for x86 processors, developed by AMD and used in modern processors from both Intel and AMD.",
     extHomeURL: "https://en.wikipedia.org/wiki/x86-64",
   });
