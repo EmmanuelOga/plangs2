@@ -71,7 +71,12 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
     if (tag.keywordsRegexp?.test(contentText)) keys_tags.push(tag.key);
   }
 
-  plang.addLicenses(keys_license).addParadigms(keys_paradigm).addPlatforms(keys_platform).addTags(keys_tags).addTypeSystems(keys_tsystem);
+  plang.relLicenses
+    .add(keys_license)
+    .relParadigms.add(keys_paradigm)
+    .relPlatforms.add(keys_platform)
+    .relTags.add(keys_tags)
+    .relTsys.add(keys_tsystem);
 
   ////////////////////////////////////////////////////////////////////////////////
 
@@ -102,20 +107,20 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
 export function generateCode(plang: NPlang): string {
   const relations: string[] = [];
 
-  function addRel(methodName: string, keys: IterTap<string>) {
-    if (keys.size === 0) return;
+  function addRel(methodName: string, keys: string[]) {
+    if (keys.length === 0) return;
     relations.push(`\n    .${methodName}(${JSON.stringify(keys.sort())})`);
   }
 
-  addRel("addDialectOf", plang.relDialectOf.keys);
-  addRel("addImplements", plang.relImplements.keys);
-  addRel("addInfluencedBy", plang.relInfluencedBy.keys);
-  addRel("addLicenses", plang.relLicenses.keys);
-  addRel("addParadigms", plang.relParadigms.keys);
-  addRel("addPlatforms", plang.relPlatforms.keys);
-  addRel("addTags", plang.relTags.keys);
-  addRel("addTypeSystems", plang.relTsys.keys);
-  addRel("addWrittenIn", plang.relWrittenIn.keys);
+  addRel("addDialectOf", plang.relDialectOf.keys());
+  addRel("addImplements", plang.relImplements.keys());
+  addRel("addInfluencedBy", plang.relInfluencedBy.keys());
+  addRel("addLicenses", plang.relLicenses.keys());
+  addRel("addParadigms", plang.relParadigms.keys());
+  addRel("addPlatforms", plang.relPlatforms.keys());
+  addRel("addTags", plang.relTags.keys());
+  addRel("addTypeSystems", plang.relTsys.keys());
+  addRel("addWrittenIn", plang.relWrittenIn.keys());
 
   const code = `import type { PlangsGraph } from "@plangs/plangs";
 

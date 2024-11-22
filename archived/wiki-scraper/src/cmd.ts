@@ -163,7 +163,7 @@ async function test() {
     if (!plang) {
       console.log("Failed to extract:", url.href);
     } else {
-      console.log(plang.key, plang.relTags.values.existing);
+      console.log(plang.key, plang.relTags.nodes);
     }
   }
 }
