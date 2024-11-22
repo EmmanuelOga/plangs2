@@ -1,7 +1,7 @@
 import { join } from "node:path";
 
 import type { MapTap } from "@plangs/auxiliar/map_tap";
-import type { AnyEdge, NBundle, NPlang, PlangsGraph } from "@plangs/plangs";
+import { type AnyEdge, type NBundle, NCommunity, NLearning, type NPlang, type PlangsGraph } from "@plangs/plangs";
 import type { Image, N } from "@plangs/plangs/schema";
 
 export const DEFINTIONS_PATH = join(import.meta.dir, "../../definitions/src/definitions");
@@ -25,7 +25,22 @@ export function tsNodePath(kind: N, plainKey?: string): string {
 export function genericCodeGen(pg: PlangsGraph, kind: "license" | "paradigm" | "plat" | "tag" | "tsys" | "learning" | "community"): string {
   const definitions: string[] = pg.nodes[kind].values.existing
     .sort((a, b) => a.key.localeCompare(b.key))
-    .map(node => genSet(kind, node.key, node.data));
+    .map(node => {
+      const relations: string[] = [];
+
+      if (node instanceof NCommunity) {
+        addRelKeys(relations, "relPlangs", node.relPlangs.keys());
+        addRelKeys(relations, "relTags", node.relTags.keys());
+      }
+
+      if (node instanceof NLearning) {
+        addRelKeys(relations, "relPlangs", node.relPlangs.keys());
+        addRelKeys(relations, "relTags", node.relTags.keys());
+        addRelKeys(relations, "relCommunities", node.relCommunities.keys());
+      }
+
+      return `${genSet(kind, node.key, node.data)}${relations.join("")}`;
+    });
 
   return `import type { PlangsGraph } from "@plangs/plangs";
 
@@ -37,59 +52,37 @@ export function genericCodeGen(pg: PlangsGraph, kind: "license" | "paradigm" | "
 
 /** Generate code that can reconstruct the state of a NPlang node. */
 export function plangCodeGen(plang: NPlang): string {
-  // biome-ignore lint/suspicious/noExplicitAny: We don't care about the type of the Edge.
-  function addRelKeys(out: string[], methodName: string, rel: MapTap<string, any>, accept: (key: string) => boolean = () => true) {
-    if (rel.size === 0) return;
-    const keys = rel.keys.filter(accept).sort();
-    if (keys.length > 0) out.push(`\n    .${methodName}(${JSON.stringify(keys)})`);
-  }
-
   // The order of calls determines order in generated code.
-  const plRels: string[] = [];
-  addRelKeys(plRels, "addCompilesTo", plang.relCompilesTo);
-  addRelKeys(plRels, "addDialectOf", plang.relDialectOf);
-  addRelKeys(plRels, "addImplements", plang.relImplements, (key: string) => key !== plang.key);
-  addRelKeys(plRels, "addInfluencedBy", plang.relInfluencedBy);
-  addRelKeys(plRels, "addLicenses", plang.relLicenses);
-  addRelKeys(plRels, "addParadigms", plang.relParadigms);
-  addRelKeys(plRels, "addPlatforms", plang.relPlatforms);
-  addRelKeys(plRels, "addPosts", plang.relPosts);
-  addRelKeys(plRels, "addTags", plang.relTags);
-  addRelKeys(plRels, "addTypeSystems", plang.relTsys);
-  addRelKeys(plRels, "addWrittenIn", plang.relWrittenIn);
+  const relations: string[] = [];
+  addRelKeys(relations, "relCompilesTo", plang.relCompilesTo.keys());
+  addRelKeys(relations, "relDialectOf", plang.relDialectOf.keys());
+  addRelKeys(relations, "relImplements", plang.relImplements.keys(), (key: string) => key !== plang.key);
+  addRelKeys(relations, "relInfluencedBy", plang.relInfluencedBy.keys());
+  addRelKeys(relations, "relLicenses", plang.relLicenses.keys());
+  addRelKeys(relations, "relParadigms", plang.relParadigms.keys());
+  addRelKeys(relations, "relPlBundles", plang.relPlBundles.keys());
+  addRelKeys(relations, "relPlatforms", plang.relPlatforms.keys());
+  addRelKeys(relations, "relPosts", plang.relPosts.keys());
+  addRelKeys(relations, "relTags", plang.relTags.keys());
+  addRelKeys(relations, "relTsys", plang.relTsys.keys());
+  addRelKeys(relations, "relWrittenIn", plang.relWrittenIn.keys());
+  addRelKeys(relations, "relApps", plang.relApps.keys());
+  addRelKeys(relations, "relLibs", plang.relLibs.keys());
+  addRelKeys(relations, "relTools", plang.relTools.keys());
 
-  addRelKeys(plRels, "addTools", plang.relTools);
-  addRelKeys(plRels, "addBundles", plang.relPlBundles);
-  addRelKeys(plRels, "addLibs", plang.relLibs);
-  addRelKeys(plRels, "addApps", plang.relApps);
-
-  // Retrieve the actual nodes (not just the keys) of a relation. `existing` is a IterTap method that removes undefined values.
-  const existing = (rel: MapTap<string, AnyEdge>) => rel.values.map(({ nodeTo }) => nodeTo).existing.sort((a, b) => a.key.localeCompare(b.key));
-
-  const apps = existing(plang.relApps).map(app => genSet("app", app.key, app.data));
-  const libs = existing(plang.relLibs).map(lib => genSet("lib", lib.key, lib.data));
-  const tools = existing(plang.relTools).map(tool => genSet("tool", tool.key, tool.data));
-
-  const bundles = existing(plang.relPlBundles).map(bundle => {
+  const apps = plang.relApps.nodes().map(app => genSet("app", app.key, app.data));
+  const libs = plang.relLibs.nodes().map(lib => genSet("lib", lib.key, lib.data));
+  const tools = plang.relTools.nodes().map(tool => genSet("tool", tool.key, tool.data));
+  const bundles = plang.relPlBundles.nodes().map(bundle => {
     const bunRel: string[] = [];
-    addRelKeys(bunRel, "addTools", (bundle as NBundle).relTools);
+    addRelKeys(bunRel, "relTools", bundle.relTools.keys());
     return `${genSet("bundle", bundle.key, bundle.data)}${bunRel.join("")}`;
   });
-
-  // Little cleanup of the data.
-  for (const [k, v] of Object.entries(plang.data) as [keyof typeof plang.data, any][]) {
-    if (Array.isArray(v)) {
-      if (v.length === 0) delete plang.data[k];
-      else v.sort();
-    } else if (v === null || v === undefined || v === "") {
-      delete plang.data[k];
-    }
-  }
 
   return `import type { PlangsGraph } from "@plangs/plangs";
 
   export function define(g: PlangsGraph) {
-    ${genSet("pl", plang.key, plang.data)}${plRels.join("")}
+    ${genSet("pl", plang.key, plang.data)}${relations.join("")}
 
     // TOOLS
 
@@ -113,21 +106,27 @@ export function plangCodeGen(plang: NPlang): string {
 // Generate a setter for the node data.
 // biome-ignore lint/suspicious/noExplicitAny: Any data is fine here.
 const genSet = (nodeName: N, key: string, data: any) => {
-  return `g.nodes.${nodeName}.set(${JSON.stringify(key)}, ${JSON.stringify(cleanUpData(data))})`;
-};
-
-// Create a data object with relevant fields, and cleanup blank values.
-// biome-ignore lint/suspicious/noExplicitAny: we cleanup any data.
-function cleanUpData(rawData: any): any {
-  const data = {
-    ...rawData,
-    // Remove images hosted by Plangs: the data is added back in the definitions package.
-    images: ((rawData.images ?? []) as Image[]).filter(({ url }: Image) => !url.startsWith("/")),
-  };
-  for (const [key, value] of Object.entries(data)) {
-    if (value === null || value === undefined || (Array.isArray(value) && value.length === 0)) {
-      delete data[key as keyof typeof data];
+  /** Cleanup data in place: sort keys, remove blank values. */
+  for (const [k, v] of Object.entries(data)) {
+    if (Array.isArray(v)) {
+      if (v.length === 0) delete data[k];
+      else v.sort();
+    } else if (v === null || v === undefined || v === "") {
+      delete data[k];
     }
   }
-  return data;
+
+  // Remove links to local images, which are generated by the server on data load.
+  if ("images" in data && Array.isArray(data.images)) {
+    const images = data.images.filter(({ url }: Image) => !url.startsWith("/"));
+    if (images.length > 0) data.images = images;
+    else delete data.images;
+  }
+
+  return `g.nodes.${nodeName}.set(${JSON.stringify(key)}, ${JSON.stringify(data)})`;
+};
+
+function addRelKeys(out: string[], relName: string, keys: string[], accept: (key: string) => boolean = () => true) {
+  const filtered = keys.filter(accept);
+  if (filtered.length > 0) out.push(`\n    .${relName}.add(${JSON.stringify(filtered.sort())})`);
 }
