@@ -15,7 +15,7 @@ export const PROSE = "prose prose-green dark:prose-invert sm:prose-sm lg:prose-l
 export function stripes(size = "10px", col1 = "var(--color-stripes)", col2 = "var(--color-background)") {
   const grad = "radial-gradient(transparent 0, var(--color-background) 75%) top left / 100% 100%";
   const rlg = `repeating-linear-gradient(45deg, ${col1} 0, ${col1} 1px, ${col2} 0, ${col2} 50%) top left / ${size} ${size}`;
-  return `background: ${grad}, ${rlg};`;
+  return `background: ${grad}, ${rlg}; backdrop-filter: blur(1.25px);`;
 }
 
 /** Collect tailwind classes. Adding a semicolon at the end or start of a class string filters that string out. */
