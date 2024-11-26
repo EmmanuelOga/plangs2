@@ -1,8 +1,8 @@
 import type { Filter } from "@plangs/auxiliar/filters";
 import { ret } from "@plangs/auxiliar/misc";
 import type { AnyValue, ValRegExp, ValString, Value } from "@plangs/auxiliar/value";
-import type { NLicense, NPlang, NPlatform, NTag, NTool } from "@plangs/plangs";
-import type { StrDate } from "../schema";
+import type { NTool, VLicense, VPlang, VPlatform, VTag } from "@plangs/plangs";
+import type { StrDate } from "../graph/vertex_data_schemas";
 
 type Pred<T extends Value<AnyValue>> = (tool: NTool, value: T) => boolean;
 
@@ -16,11 +16,11 @@ export const TOOL_FACET_PREDICATES = {
   name: ((tool, regexp) => regexp.value.test(tool.name)) as Pred<ValRegExp>,
   releasedRecently: ((tool, date) => ret(tool.releases.last, lastRel => lastRel?.isRecent(date.value as StrDate))) as Pred<ValString>,
 
-  // licenses: (({ relLicenses }, flt) => flt.matches(key => relLicenses.has(key))) as Pred<Filter<NLicense["key"]>>,
-  // platforms: (({ relPlatforms }, flt) => flt.matches(key => relPlatforms.has(key))) as Pred<Filter<NPlatform["key"]>>,
-  // tags: (({ relTags }, flt) => flt.matches(key => relTags.has(key))) as Pred<Filter<NTag["key"]>>,
-  // writtenIn: (({ relWrittenIn }, flt) => flt.matches(key => relWrittenIn.has(key))) as Pred<Filter<NPlang["key"]>>,
-  // writtenFor: (({ relPlang }, flt) => flt.matches(key => relPlang.has(key))) as Pred<Filter<NPlang["key"]>>,
+  // licenses: (({ relLicenses }, flt) => flt.matches(key => relLicenses.has(key))) as Pred<Filter<VLicense["key"]>>,
+  // platforms: (({ relPlatforms }, flt) => flt.matches(key => relPlatforms.has(key))) as Pred<Filter<VPlatform["key"]>>,
+  // tags: (({ relTags }, flt) => flt.matches(key => relTags.has(key))) as Pred<Filter<VTag["key"]>>,
+  // writtenIn: (({ relWrittenIn }, flt) => flt.matches(key => relWrittenIn.has(key))) as Pred<Filter<VPlang["key"]>>,
+  // writtenFor: (({ relPlang }, flt) => flt.matches(key => relPlang.has(key))) as Pred<Filter<VPlang["key"]>>,
 } as const;
 
 export type ToolFacetKey = keyof typeof TOOL_FACET_PREDICATES;

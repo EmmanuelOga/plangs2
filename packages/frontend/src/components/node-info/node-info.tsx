@@ -1,11 +1,11 @@
 import { ret } from "@plangs/auxiliar/misc";
 import { BORDER, tw } from "@plangs/frontend/auxiliar/styles";
-import type { NPlang } from "@plangs/plangs";
+import type { VPlang } from "@plangs/plangs";
 import type { TAB } from "@plangs/server/components/layout";
 import type { ComponentChildren } from "preact";
 
 export type NodeInfoProps = {
-  node?: NPlang;
+  node?: VPlang;
   open?: boolean;
   tab?: TAB;
 };
@@ -60,7 +60,7 @@ function Pill({ children }: { children: ComponentChildren }) {
   return <span class={tw("inline-block", "mr-2 mb-2 px-1", "border-2 border-secondary", "bg-secondary/50")}>{children}</span>;
 }
 
-function relations(pl: NPlang) {
+function relations(pl: VPlang) {
   const all = [
     ["Type Systems", pl.relTsys.nodes()],
     ["Platforms", pl.relPlatforms.nodes()],

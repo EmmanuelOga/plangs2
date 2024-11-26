@@ -1,11 +1,11 @@
 import { elems, minWidthBP } from "@plangs/frontend/auxiliar/dom";
 import { debounce } from "@plangs/frontend/auxiliar/utils";
-import type { NPlang } from "@plangs/plangs";
+import type { VPlang } from "@plangs/plangs";
 
 /** A static thumbnail grid will be render server side, we just need to show or hide each element.  */
 export function doUpdateThumbns(nodeKeys: Set<string>) {
   for (const div of elems("nodeThumbn")) {
-    const plKey = div.dataset.nodeKey as NPlang["key"];
+    const plKey = div.dataset.nodeKey as VPlang["key"];
     const visible = nodeKeys.has(plKey);
     div.classList.toggle("hidden", !visible);
   }

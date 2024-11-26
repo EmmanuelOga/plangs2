@@ -1,5 +1,5 @@
 import { PROSE, tw } from "@plangs/frontend/auxiliar/styles";
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 import { Layout } from "@plangs/server/components/layout";
 
 export function Blog({ pg }: { pg: PlangsGraph }) {

@@ -4,10 +4,13 @@
   "version": "0.1.0",
   "dependencies": {
     "@plangs/auxiliar": "workspace:*",
+    "@plangs/graphgen": "workspace:*",
     "typescript-json-schema": "^0.65.1"
   },
   "main": "src/index.ts",
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "scripts": {
     "coverage": "bun test --coverage --coverage-reporter lcov && pixi run genhtml coverage/lcov.info --output-directory coverage/html"
   }

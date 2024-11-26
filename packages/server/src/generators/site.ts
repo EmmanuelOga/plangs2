@@ -5,10 +5,9 @@ import { Glob } from "bun";
 
 import { loadAllDefinitions } from "@plangs/definitions";
 import { PlangsGraph } from "@plangs/plangs";
-
-import { loadPosts } from "./content";
-import { resolvePage } from "./resolve_page";
-import { vdomToHTML } from "./utils/server";
+import { loadPosts } from "@plangs/server/content";
+import { resolvePage } from "@plangs/server/resolve_page";
+import { vdomToHTML } from "@plangs/server/utils/server";
 
 const FIXED_PATHS = ["/", "/about", "/apps", "/blog", "/libs", "/licenses", "/paradigms", "/platforms", "/tags", "/tools", "/tsys"];
 
@@ -50,7 +49,7 @@ async function generatePages(dstRoot: string) {
   Bun.write(join(dstRoot, "plangs.json"), JSON.stringify(pg));
 
   // Generate every plang page.
-  const plPaths = pg.nodes.pl.values.map(pl => `/${pl.plainKey}`);
+  const plPaths = pg.plang.values.map(pl => `/${pl.plainKey}`);
 
   // Generate every blog post.
   const blogPaths = pg.nodes.post.values.map(pl => `/blog/${pl.plainKey}`);
@@ -68,20 +67,7 @@ async function generatePages(dstRoot: string) {
   }
 }
 
-async function generateJSON(dstRoot: string) {
-  const pg = new PlangsGraph();
-  await loadAllDefinitions(pg, { scanImages: false });
-  Bun.write(join(dstRoot, "plangs.json"), JSON.stringify(pg));
-}
-
-if (process.argv[2] === "generate") {
-  const dstRoot = process.argv[3];
-  console.log("Generating to", dstRoot);
-  await generatePages(dstRoot);
-} else if (process.argv[2] === "json") {
-  const dstRoot = process.argv[3];
-  console.log("Generating to", dstRoot);
-  await generateJSON(dstRoot);
-} else {
-  console.log("Usage: cmd generate dst-root-path");
-}
+const dstRoot = process.argv[2];
+if (!dstRoot) throw new Error("Missing destination root path.");
+console.log("Generating to", dstRoot);
+await generatePages(dstRoot);

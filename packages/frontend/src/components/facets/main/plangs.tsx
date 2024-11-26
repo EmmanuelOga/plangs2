@@ -3,7 +3,7 @@ import type { FunctionComponent } from "preact";
 import { ValNil, ValNumber } from "@plangs/auxiliar/value";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { loadLocalStorage } from "@plangs/frontend/auxiliar/storage";
-import { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, type PlangsGraph } from "@plangs/plangs";
+import { type PlangsGraph, VLicense, VParadigm, VPlang, VPlatform, VTag, VTypeSystem } from "@plangs/plangs";
 import type { PlangFacetKey } from "@plangs/plangs/facets/plangs";
 import type { TAB } from "@plangs/server/components/layout";
 
@@ -21,18 +21,18 @@ export const FACETS: FacetsMap<FK> = defineFacets<FK>(
   bool("isTranspiler", "Is Transpiler"),
   bool("releasedRecently", "Released Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 1) : new ValNil())),
   multi("extensions", "Extensions"),
-  table("compilesTo", "Compiles To", { kind: "noderel", edge: "compilesTo", node: NPlang.kind, dir: "direct" }),
-  table("creationYear", "Creation Year", { kind: "year", node: NPlang.kind }),
-  table("dialectOf", "Dialect Of", { kind: "noderel", edge: "dialect", node: NPlang.kind, dir: "direct" }),
-  table("implements", "Implements", { kind: "noderel", edge: "impl", node: NPlang.kind, dir: "direct" }),
-  table("influenced", "Influenced", { kind: "noderel", edge: "influence", node: NPlang.kind, dir: "inverse" }),
-  table("influencedBy", "Influenced By", { kind: "noderel", edge: "influence", node: NPlang.kind, dir: "direct" }),
-  table("licenses", "Licenses", { kind: "noderel", edge: "license", node: NLicense.kind, dir: "direct" }),
-  table("paradigms", "Paradigms", { kind: "noderel", edge: "paradigm", node: NParadigm.kind, dir: "direct" }),
-  table("platforms", "Platforms", { kind: "noderel", edge: "plat", node: NPlatform.kind, dir: "direct" }),
-  table("tags", "Tags", { kind: "noderel", edge: "tag", node: NTag.kind, dir: "direct" }),
-  table("typeSystems", "Type Systems", { kind: "noderel", edge: "tsys", node: NTsys.kind, dir: "direct" }),
-  table("writtenIn", "Written In", { kind: "noderel", edge: "writtenIn", node: NPlang.kind, dir: "direct" }),
+  table("compilesTo", "Compiles To", { kind: "noderel", edge: "compilesTo", node: VPlang.kind, dir: "direct" }),
+  table("creationYear", "Creation Year", { kind: "year", node: VPlang.kind }),
+  table("dialectOf", "Dialect Of", { kind: "noderel", edge: "dialect", node: VPlang.kind, dir: "direct" }),
+  table("implements", "Implements", { kind: "noderel", edge: "impl", node: VPlang.kind, dir: "direct" }),
+  table("influenced", "Influenced", { kind: "noderel", edge: "influence", node: VPlang.kind, dir: "inverse" }),
+  table("influencedBy", "Influenced By", { kind: "noderel", edge: "influence", node: VPlang.kind, dir: "direct" }),
+  table("licenses", "Licenses", { kind: "noderel", edge: "license", node: VLicense.kind, dir: "direct" }),
+  table("paradigms", "Paradigms", { kind: "noderel", edge: "para+", node: VParadigm.kind, dir: "direct" }),
+  table("platforms", "Platforms", { kind: "noderel", edge: "plat", node: VPlatform.kind, dir: "direct" }),
+  table("tags", "Tags", { kind: "noderel", edge: "tag", node: VTag.kind, dir: "direct" }),
+  table("typeSystems", "Type Systems", { kind: "noderel", edge: "tsys", node: VTypeSystem.kind, dir: "direct" }),
+  table("writtenIn", "Written In", { kind: "noderel", edge: "writtenIn", node: VPlang.kind, dir: "direct" }),
   text("plangName", "Plang Name"),
 );
 
@@ -93,7 +93,7 @@ export class PlangsFacetsState extends FacetsMainState<PlangFacetGroupKey, Plang
     return PlangsFacetGroups as FunctionComponent<{ currentFacetGroup: string }>;
   }
 
-  override get results(): Set<NPlang["key"]> {
+  override get results(): Set<VPlang["key"]> {
     if (!this.pg) return new Set();
     return this.pg.plangs(this.values.getMap2());
   }

@@ -1,10 +1,10 @@
 import { expect, test } from "bun:test";
-import { PlangsGraph } from ".";
-import type { Image } from "./schema";
+import { PlangsGraph } from "./graph";
+import type { Image } from "./graph/vertex_data_schemas";
 
 test("base node apis", () => {
   const g = new PlangsGraph();
-  const pl = g.nodes.pl.set("pl+pascal");
+  const pl = g.plang.set("pl+pascal");
 
   expect(pl.name).toEqual("pascal");
   expect(pl.description).toEqual("pascal");
@@ -64,9 +64,9 @@ test("base node apis", () => {
   expect(pl.relWrittenIn.keys()[0]).toEqual("pl+assembler");
 
   expect(pl.relParadigms.size()).toBe(0);
-  pl.relParadigms.add(["paradigm+procedural"]);
+  pl.relParadigm.add(["para+procedural"]);
   expect(pl.relParadigms.size()).toBe(1);
-  expect(pl.relParadigms.keys()[0]).toEqual("paradigm+procedural");
+  expect(pl.relParadigms.keys()[0]).toEqual("para+procedural");
 
   expect(pl.relPlBundles.size()).toBe(0);
   pl.relPlBundles.add(["bundle+my-bundle"]);
@@ -115,7 +115,7 @@ test("matching keywords", () => {
 test("edge apis", () => {
   const g = new PlangsGraph();
 
-  const pl = g.nodes.pl.set("pl+pascal", { name: "Pascal", description: "The Pascal Programming Language." });
+  const pl = g.plang.set("pl+pascal", { name: "Pascal", description: "The Pascal Programming Language." });
   const st = g.nodes.tsys.set("tsys+strongly-typed", { name: "Strongly Typed" });
   const edges = g.edges.tsys;
 
@@ -131,14 +131,14 @@ test("edge apis", () => {
 test("edge types", () => {
   const g = new PlangsGraph();
 
-  const plPascal = g.nodes.pl.set("pl+pascal", { name: "Pascal", description: "The Pascal Programming Language." });
-  const plPerl = g.nodes.pl.set("pl+perl", { name: "Perl" });
+  const plPascal = g.plang.set("pl+pascal", { name: "Pascal", description: "The Pascal Programming Language." });
+  const plPerl = g.plang.set("pl+perl", { name: "Perl" });
 
   const nodeApp = g.nodes.app.set("app+some-app", { name: "My App" });
   const nodeBundle = g.nodes.bundle.set("bundle+my-bundle", { name: "My Bundle" });
   const nodeLib = g.nodes.lib.set("lib+my-lib", { name: "My libC" });
   const nodeLic = g.nodes.license.set("license+gnu", { name: "GNU" });
-  const nodePara = g.nodes.paradigm.set("paradigm+structured", { name: "Structured" });
+  const nodePara = g.nodes.paradigm.set("para+structured", { name: "Structured" });
   const nodePlat = g.nodes.plat.set("plat+os2", { name: "OS/2" });
   const nodePost = g.nodes.post.set("post+my-post", { name: "Hello World!" });
   const nodeTag = g.nodes.tag.set("tag+my-tag", { name: "MYTAG" });
@@ -209,10 +209,10 @@ test("edge types", () => {
   }
 
   {
-    const edge = g.edges.paradigm.connect("pl+pascal", "paradigm+structured");
-    expect(edge.kind).toBe("paradigm");
+    const edge = g.edges.paradigm.connect("pl+pascal", "para+structured");
+    expect(edge.kind).toBe("para+");
     expect(edge.from).toBe("pl+pascal");
-    expect(edge.to).toBe("paradigm+structured");
+    expect(edge.to).toBe("para+structured");
     expect(edge.nodeFrom).toBe(plPascal);
     expect(edge.nodeTo).toBe(nodePara);
   }

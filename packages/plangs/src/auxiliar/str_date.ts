@@ -1,4 +1,4 @@
-import type { StrDate } from "../schema";
+import type { StrDate } from "../graph/vertex_data_schemas";
 
 // Arbitrary "valid" year range.
 export const validYear = (year: number): boolean => year >= 1940 && year <= 2100;

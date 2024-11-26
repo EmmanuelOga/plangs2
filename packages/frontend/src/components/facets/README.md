@@ -6,7 +6,3 @@
         * FacetText: simple text search input.
         * FacetMulti: simple text search input, but more than one input is allowed.
         * FacetTable: handles rows of entries with a count of matches. 1 or more selections, all or any can be matched.
-
-## WebComponents
-
-Only FacetMain is a web component. A tag like `<facet-main tab="plangs" />` is used to start up the facets.

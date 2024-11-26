@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 import { loadBlogPost, loadContent } from "./content";
 import { About } from "./pages/about";
@@ -41,7 +41,7 @@ export async function resolvePage(path: string, pg: PlangsGraph) {
   }
 
   if (path.startsWith("/") && path.length > 1 && path.length < 32) {
-    const pl = pg.nodes.pl.get(`pl+${path.slice(1)}`);
+    const pl = pg.plang.get(`pl+${path.slice(1)}`);
     if (pl) return <Pl pg={pg} pl={pl} />;
     return;
   }

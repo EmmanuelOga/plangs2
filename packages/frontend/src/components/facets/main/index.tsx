@@ -2,7 +2,7 @@ import { render } from "preact";
 
 import { elems } from "@plangs/frontend/auxiliar/dom";
 import { tw } from "@plangs/frontend/auxiliar/styles";
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TAB } from "@plangs/server/components/layout";
 import { cssClass } from "@plangs/server/elements";
 

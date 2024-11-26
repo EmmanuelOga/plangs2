@@ -1,13 +1,14 @@
 /**
- * Methods to work with Node data fields.
+ * Methods to work with vertex data fields.
  *
  * - Having these wrappers helps avoid duplication of methods that do the same thing accross different nodes.
  * - Wrappers are passed the node object instead of the data directly since eventually we will have setters that should modify the data in the node.
  */
 
 import { IterTap } from "@plangs/auxiliar/iter_tap";
-import { isRecent, parseMonth, parseYear, strDateCompare } from "./auxiliar/str_date";
-import type { GithubRepo, Release, StrDate } from "./schema";
+import { isRecent, parseMonth, parseYear, strDateCompare } from "@plangs/plangs/auxiliar/str_date";
+
+import type { GithubRepo, Release, StrDate } from "./vertex_data_schemas";
 
 /** Wraps a single release. */
 export class ReleaseWrapper {

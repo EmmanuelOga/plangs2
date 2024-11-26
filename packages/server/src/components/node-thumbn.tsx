@@ -1,7 +1,7 @@
 import type { JSX } from "preact/jsx-runtime";
 
 import { tw } from "@plangs/frontend/auxiliar/styles";
-import { type AnyNode, NPlang } from "@plangs/plangs";
+import { type AnyNode, VPlang } from "@plangs/plangs";
 import { cssClass } from "@plangs/server/elements";
 
 const PLACEHOLDER = "/images/placeholder.png";
@@ -11,12 +11,12 @@ export function NodeThumbn({ node, class: klass }: { class?: string; node: AnyNo
   return (
     <div
       data-node-key={node.key}
-      {...(node instanceof NPlang && {
+      {...(node instanceof VPlang && {
         "data-node-ranking": `${node.ranking ?? ""}`,
       })}
       class={tw(cssClass("nodeThumbn"), "group relative", "cursor-pointer", "max-w-[7rem] sm:max-w-[15rem]", "max-h-[7rem] sm:max-h-[15rem]", klass)}>
       <div class={tw("truncate text-center", "text-foreground group-hover:text-primary")}>{node.name}</div>
-      {node instanceof NPlang && node.ranking && (
+      {node instanceof VPlang && node.ranking && (
         <div
           title={`Languish Ranking: ${node.ranking}`}
           class={tw(

@@ -1,11 +1,11 @@
 import { BORDER, PROSE, tw } from "@plangs/frontend/auxiliar/styles";
 import { NodeInfo } from "@plangs/frontend/components/node-info/node-info";
-import type { NPlang, PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph, VPlang } from "@plangs/plangs";
 import { Layout } from "@plangs/server/components/layout";
 import { Table } from "@plangs/server/components/table";
 import { cssClass } from "@plangs/server/elements";
 
-export function Pl({ pl, pg }: { pl: NPlang; pg: PlangsGraph }) {
+export function Pl({ pl, pg }: { pl: VPlang; pg: PlangsGraph }) {
   return (
     <Layout
       pg={pg}
@@ -28,7 +28,7 @@ export function Pl({ pl, pg }: { pl: NPlang; pg: PlangsGraph }) {
   );
 }
 
-function PlNews({ pl: { relPosts } }: { pl: NPlang }) {
+function PlNews({ pl: { relPosts } }: { pl: VPlang }) {
   const posts = relPosts.nodes();
   return (
     <>
@@ -47,7 +47,7 @@ function PlNews({ pl: { relPosts } }: { pl: NPlang }) {
   );
 }
 
-function PlApps({ pl }: { pl: NPlang }) {
+function PlApps({ pl }: { pl: VPlang }) {
   const apps = pl.relApps.nodes();
   return (
     <>
@@ -72,7 +72,7 @@ function PlApps({ pl }: { pl: NPlang }) {
   );
 }
 
-function PlLibs({ pl }: { pl: NPlang }) {
+function PlLibs({ pl }: { pl: VPlang }) {
   const libs = pl.relLibs.nodes();
   return (
     <>
@@ -97,7 +97,7 @@ function PlLibs({ pl }: { pl: NPlang }) {
   );
 }
 
-function PlTools({ pl }: { pl: NPlang }) {
+function PlTools({ pl }: { pl: VPlang }) {
   const tools = pl.relTools.nodes();
   return (
     <>
@@ -125,7 +125,7 @@ function PlTools({ pl }: { pl: NPlang }) {
   );
 }
 
-function PlBundles({ pl }: { pl: NPlang }) {
+function PlBundles({ pl }: { pl: VPlang }) {
   const bundles = pl.relPlBundles.nodes();
   return bundles.length === 0 ? null : (
     <>

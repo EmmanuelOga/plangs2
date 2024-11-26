@@ -29,7 +29,7 @@ export function generateEntries(pg: PlangsGraph, config: FacetTableConfig): Entr
 
   if (config.kind === "year") {
     const years: Map<StrDate, number> = new Map(); // year -> count
-    for (const { created } of pg.nodes.pl.values) {
+    for (const { created } of pg.plang.values) {
       if (!created.value) continue;
       years.set(created.value, (years.get(created.value) ?? 0) + 1);
     }

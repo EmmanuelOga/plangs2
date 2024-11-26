@@ -2,7 +2,7 @@
 
 This package has tools to match Plangs data against both [languish](https://github.com/tjpalmer/languish) and [github-linguist](https://github.com/github-linguist/linguist) hence: `Languist` :-).
 
-This package also contains code that can turn an NPlang instance into Plangs code that can create that instance. This is useful in the following kind of workflow:
+This package also contains code that can turn an VPlang instance into Plangs code that can create that instance. This is useful in the following kind of workflow:
 
 * Load all definitions.
 * Massage the data.

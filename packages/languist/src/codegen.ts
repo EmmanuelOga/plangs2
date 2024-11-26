@@ -1,14 +1,14 @@
 import { join } from "node:path";
 
 import type { MapTap } from "@plangs/auxiliar/map_tap";
-import { type AnyEdge, type NBundle, NCommunity, NLearning, type NPlang, type PlangsGraph } from "@plangs/plangs";
+import { type AnyEdge, type NBundle, NCommunity, NLearning, type PlangsGraph, type VPlang } from "@plangs/plangs";
 import type { Image, N } from "@plangs/plangs/schema";
 
 export const DEFINTIONS_PATH = join(import.meta.dir, "../../definitions/src/definitions");
 
 /**
  * Generate a path for a TS file for a Node defintion.
- * NPlang nodes are stored in a folder structure based on the first letter of the key.
+ * VPlang nodes are stored in a folder structure based on the first letter of the key.
  * The other nodes are stored in a flat structure.
  */
 export function tsNodePath(kind: N, plainKey?: string): string {
@@ -22,7 +22,7 @@ export function tsNodePath(kind: N, plainKey?: string): string {
 }
 
 /** Generate code for nodes of the given kind. */
-export function genericCodeGen(pg: PlangsGraph, kind: "license" | "paradigm" | "plat" | "tag" | "tsys" | "learning" | "community"): string {
+export function genericCodeGen(pg: PlangsGraph, kind: "license" | "para+" | "plat" | "tag" | "tsys" | "learning" | "community"): string {
   const definitions: string[] = pg.nodes[kind].values.existing
     .sort((a, b) => a.key.localeCompare(b.key))
     .map(node => {
@@ -42,7 +42,7 @@ export function genericCodeGen(pg: PlangsGraph, kind: "license" | "paradigm" | "
       return `${genSet(kind, node.key, node.data)}${relations.join("")}`;
     });
 
-  return `import type { PlangsGraph } from "@plangs/plangs";
+  return `import type { PlangsGraph } from "@plangs/plangs/graph";
 
   export function define(g: PlangsGraph) {
     ${definitions.join("\n\n")}
@@ -50,8 +50,8 @@ export function genericCodeGen(pg: PlangsGraph, kind: "license" | "paradigm" | "
   `;
 }
 
-/** Generate code that can reconstruct the state of a NPlang node. */
-export function plangCodeGen(plang: NPlang): string {
+/** Generate code that can reconstruct the state of a VPlang node. */
+export function plangCodeGen(plang: VPlang): string {
   // The order of calls determines order in generated code.
   const relations: string[] = [];
   addRelKeys(relations, "relCompilesTo", plang.relCompilesTo.keys());
@@ -79,7 +79,7 @@ export function plangCodeGen(plang: NPlang): string {
     return `${genSet("bundle", bundle.key, bundle.data)}${bunRel.join("")}`;
   });
 
-  return `import type { PlangsGraph } from "@plangs/plangs";
+  return `import type { PlangsGraph } from "@plangs/plangs/graph";
 
   export function define(g: PlangsGraph) {
     ${genSet("pl", plang.key, plang.data)}${relations.join("")}

@@ -1,54 +1,5 @@
-import type { LinguistLang } from "@plangs/languist/types";
-
-////////////////////////////////////////////////////////////////////////////////
-// Keys for all nodes and edges.
-////////////////////////////////////////////////////////////////////////////////
-
-/** Name of all nodes. */
-export type N = "app" | "bundle" | "community" | "learning" | "lib" | "license" | "paradigm" | "pl" | "plat" | "post" | "tag" | "tool" | "tsys";
-
-/** Name of all edges. */
-export type E =
-  | "app" // pl to app
-  // | "appLic"
-  // | "appPlat"
-  // | "appTag"
-  // | "appWrittenIn"
-  | "bundle"
-  | "commPl"
-  | "commTag"
-  | "compilesTo"
-  | "dialect"
-  | "impl"
-  | "influence"
-  | "learningComm"
-  | "learningPl"
-  | "learningTag"
-  | "lib" // pl to lib
-  // | "libLic"
-  // | "libPlat"
-  // | "libTag"
-  // | "libWrittenIn"
-  | "license"
-  | "paradigm"
-  | "plBundle"
-  | "plat"
-  | "post"
-  | "tag"
-  | "tool" // pl to tool
-  // | "toolLic"
-  // | "toolPlat"
-  // | "toolTag"
-  // | "toolWrittenIn"
-  | "tsys"
-  | "writtenIn";
-
-////////////////////////////////////////////////////////////////////////////////
-// Nodes can use CommonNodeData directly or extend it with more data.
-////////////////////////////////////////////////////////////////////////////////
-
 /** Node data shared across all Node types. */
-export interface CommonNodeData {
+export interface VertexBaseData {
   /* Name of the node. */
   name: string;
   /* Description of the node. */
@@ -65,25 +16,14 @@ export interface CommonNodeData {
   links: Link[];
 }
 
-/** For anything that can be backed by a Github repository, we want at minimum the "path" and maybe star count. */
-export type GithubRepo = {
-  /** Github Stars, if any. */
-  githubStars?: number;
-  /** Github Path: this should be user/repo or org/repo, such that we can access it at `https://github.com/${path}` */
-  extGithubPath?: string;
-  /** Date of creation. */
-  ghRepoCreated?: StrDate;
-  /** Some important releases. For instance: the latest for each major version. */
-  releases: Release[];
-};
-
 /**
- * Programming language data. Composing various other types helps when converting
- * the types to JSONSchemas: we can pick and choose groups of fields we want to include.
+ * Programming language data. Extending various other types helps when converting
+ * the types to JSONSchemas for OpenAI's structured output:
+ * we can pick and choose groups of fields we want to include.
  */
-export type NPlangData = CommonNodeData & NPlangBaseData & NPlangRelData & GithubRepo;
+export interface VPlangData extends VertexBaseData, VPlangBaseData, VPlangRelData, GithubRepo {}
 
-export type NPlangBaseData = {
+export interface VPlangBaseData {
   /** File Extensions, including the dot. Example: [".pas", ".tpu"]. */
   extensions: string[];
   /** File names are names that are associated with an specific language. Example: ['Makefile']. */
@@ -92,10 +32,10 @@ export type NPlangBaseData = {
   isTranspiler: boolean;
   /** Some important releases. For instance: the latest for each major version. */
   releases: Release[];
-};
+}
 
 /** Data relations to other sources, like those coming from Languish and Github. */
-export type NPlangRelData = {
+export interface VPlangRelData {
   /** A list of stackoverflow tags used when asking questions about this plang. */
   stackovTags: string[];
 
@@ -128,20 +68,19 @@ export type NPlangRelData = {
 
   /** Repository Path: this should be the repository URL. Use {@link `extGithubPath`} if the repository is hosted in Github. */
   extRepositoryURL?: string;
-};
+}
 
-/** License data. */
-export type NLicenseData = CommonNodeData & {
+export interface VLicenseData extends VertexBaseData {
   /** spdx: The SPDX identifier from https://spdx.org/licenses/. */
   spdx?: string;
   /** Wether the license is recognized as Free/Libre by the Free Software Foundation (FSF). */
   isFSFLibre?: boolean;
   /** Wether the license is approved by the Open Source Initiative (OSI).*/
   isOSIApproved?: boolean;
-};
+}
 
 /* Blog post data. */
-export type NPostData = CommonNodeData & {
+export interface VPostData extends VertexBaseData {
   /** Path of the blog post at https://plangs.page */
   path: string;
   /** Author of the blog post. */
@@ -150,29 +89,23 @@ export type NPostData = CommonNodeData & {
   authorHref?: string;
   /** Published date of the blog post.  */
   date: StrDate;
-};
+}
 
 /** Learning resource data. */
-export type NLearningData = CommonNodeData & {
+export interface VLearningData extends VertexBaseData {
   /** Kinds of the learning resource. */
   kinds: LearningKind[];
-};
+}
 
-/** Software Application data. */
-export type NAppData = CommonNodeData & GithubRepo;
-
-/** Library data, same as NAppData for now. */
-export type NLibraryData = NAppData;
-
-/** Tool data, same as NAppData for now. */
-export type NToolData = NAppData;
-
-////////////////////////////////////////////////////////////////////////////////
-// Nodes can use CommonEdgeData directly or extend it with more data.
-////////////////////////////////////////////////////////////////////////////////
-
-// biome-ignore lint/suspicious/noEmptyInterface: TODO: we don't use edge data so remove it.
-export interface CommonEdgeData {}
+export interface VAppData extends VertexBaseData, GithubRepo {}
+export interface VBundleData extends VertexBaseData {}
+export interface VCommunityData extends VertexBaseData {}
+export interface VLibraryData extends VertexBaseData, GithubRepo {}
+export interface VParadigmData extends VertexBaseData {}
+export interface VPlatformData extends VertexBaseData {}
+export interface VTagData extends VertexBaseData {}
+export interface VToolData extends VertexBaseData, GithubRepo {}
+export interface VTypeSystemData extends VertexBaseData {}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Auxiliary Types
@@ -221,3 +154,15 @@ export type day = string; // 0 padded
 
 /** A 0-padded YYYY-MM-DD date. Example: 2024-12-31. */
 export type StrDate = `${year}-${month}-${day}` | `${year}-${month}` | `${year}`;
+
+/** For anything that can be backed by a Github repository, we want at minimum the "path" and maybe star count. */
+export type GithubRepo = {
+  /** Github Stars, if any. */
+  githubStars?: number;
+  /** Github Path: this should be user/repo or org/repo, such that we can access it at `https://github.com/${path}` */
+  extGithubPath?: string;
+  /** Date of creation. */
+  ghRepoCreated?: StrDate;
+  /** Some important releases. For instance: the latest for each major version. */
+  releases: Release[];
+};

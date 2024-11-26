@@ -7,7 +7,7 @@ import { $ } from "@plangs/frontend/auxiliar/dom";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { updateLocalStorage } from "@plangs/frontend/auxiliar/storage";
 import type { ToggleClearFacets } from "@plangs/frontend/components/icon-button/state";
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TAB } from "@plangs/server/components/layout";
 
 import { updateThumbns } from "./grid";

@@ -3,7 +3,7 @@ import type { ComponentChildren } from "preact";
 import { stripes, tw } from "@plangs/frontend/auxiliar/styles";
 import { script } from "@plangs/frontend/auxiliar/utils";
 import { iconButton } from "@plangs/frontend/components/icon-button";
-import type { NPlang, PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph, VPlang } from "@plangs/plangs";
 
 import { MainNav } from "./main-nav";
 import { PlangsLogo } from "./plangs-logo";
@@ -30,13 +30,13 @@ type LayoutProps = {
   description?: string;
   mainClasses?: string;
   pg: PlangsGraph;
-  pl?: NPlang;
+  pl?: VPlang;
   tab: TAB;
   title: string;
 };
 
-const localStore = (pl: NPlang) => `localStorage.setItem("last-plang", ${JSON.stringify(JSON.stringify({ key: pl.key, data: pl.data }))})`;
-const maybeLocalStore = (pl: NPlang) => `if (!localStorage.getItem("last-plang")) { ${localStore(pl)} }`;
+const localStore = (pl: VPlang) => `localStorage.setItem("last-plang", ${JSON.stringify(JSON.stringify({ key: pl.key, data: pl.data }))})`;
+const maybeLocalStore = (pl: VPlang) => `if (!localStorage.getItem("last-plang")) { ${localStore(pl)} }`;
 
 export function Layout({ title, description, tab, pg, pl, mainClasses, children }: LayoutProps) {
   return (
@@ -47,7 +47,7 @@ export function Layout({ title, description, tab, pg, pl, mainClasses, children 
         <meta name="description" content={description ?? title} />
 
         {/* biome-ignore lint/style/noNonNullAssertion: pl+python exists in the data. */}
-        {script(pl ? localStore(pl) : maybeLocalStore(pg.nodes.pl.get("pl+python")!))}
+        {script(pl ? localStore(pl) : maybeLocalStore(pg.plang.get("pl+python")!))}
 
         <script src="/bundle/app.js" />
 

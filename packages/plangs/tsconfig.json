@@ -3,6 +3,5 @@
   "compilerOptions": {},
   "include": [
     "src",
-    "../ai/src/jsonSchema.ts"
   ]
 }

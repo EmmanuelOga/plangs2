@@ -7,7 +7,7 @@ import { marked } from "marked";
 import render from "preact-render-to-string/jsx";
 import YAML from "yaml";
 
-import type { NPlang, NPost, PlangsGraph } from "@plangs/plangs";
+import type { NPost, PlangsGraph, VPlang } from "@plangs/plangs";
 import { parseDate } from "@plangs/plangs/auxiliar/str_date";
 import type { StrDate } from "@plangs/plangs/schema";
 
@@ -19,7 +19,7 @@ export type Content = {
   basename: string;
   date: StrDate;
   html: string;
-  pls: NPlang["key"][];
+  pls: VPlang["key"][];
   title: string;
 };
 
@@ -50,7 +50,7 @@ export async function loadContent(path: string, pg: PlangsGraph): Promise<Conten
     if (!Array.isArray(pls)) throw new Error(`Post ${path} has an invalid pls field in the YAML header.`);
     if (pls.length > 0) {
       for (const plKey of pls) {
-        const pl = pg.nodes.pl.get(plKey);
+        const pl = pg.plang.get(plKey);
         if (!pl) throw new Error(`Post ${path} references unknown PL ${plKey}`);
         metadata.push(render(<a href={`/${pl.plainKey}`}>{pl.name}</a>));
       }
@@ -74,7 +74,7 @@ export async function loadPosts(pg: PlangsGraph) {
     const post = pg.nodes.post.set(`post+${basename}`, { path, name: title, author, date });
 
     for (const plKey of pls) {
-      if (!pg.nodes.pl.has(plKey)) throw new Error(`Post ${path} references unknown PL ${plKey}`);
+      if (!pg.plang.has(plKey)) throw new Error(`Post ${path} references unknown PL ${plKey}`);
       post.relPlangs.add([plKey]);
     }
   }

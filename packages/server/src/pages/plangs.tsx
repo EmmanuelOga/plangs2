@@ -2,7 +2,7 @@ import { tw } from "@plangs/frontend/auxiliar/styles";
 import { script } from "@plangs/frontend/auxiliar/utils";
 import { facetsMain } from "@plangs/frontend/components/facets/main";
 import { nodeInfo } from "@plangs/frontend/components/node-info";
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 import { Layout } from "@plangs/server/components/layout";
 import { NodeGrid } from "@plangs/server/components/node-grid";
 
