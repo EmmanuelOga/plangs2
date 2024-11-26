@@ -22,15 +22,15 @@ async function plangPrompt(pg: PlangsGraph, pl: NPlang, examplePl: NPlang): Prom
     basicPlangData: { extensions, filenames, created, isTranspiler, releases } as NPlangData,
     compilesTo: pl.relCompilesTo.keys(),
     dialectOf: pl.relDialectOf.keys(),
-    implements: pl.relImplements.keys(),
+    implements: pl.relImplement.keys(),
     influenced: pl.relInfluenced.keys(),
-    influencedBy: pl.relInfluencedBy.keys(),
+    influencedBy: pl.relInfluence.keys(),
     licenses: pl.relLicenses.keys(),
     paradigms: pl.relParadigms.keys(),
-    platforms: pl.relPlatforms.keys(),
-    tags: pl.relTags.keys(),
-    typeSystems: pl.relTsys.keys(),
-    writtenIn: pl.relWrittenIn.keys(),
+    platforms: pl.relPlatform.keys(),
+    tags: pl.relTag.keys(),
+    typeSystems: pl.relTypeSystem.keys(),
+    writtenIn: pl.relWrittenInPlang.keys(),
   };
 
   const externalLinks: string[] = [];

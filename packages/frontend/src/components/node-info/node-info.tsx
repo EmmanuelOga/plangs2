@@ -62,18 +62,18 @@ function Pill({ children }: { children: ComponentChildren }) {
 
 function relations(pl: VPlang) {
   const all = [
-    ["Type Systems", pl.relTsys.nodes()],
-    ["Platforms", pl.relPlatforms.nodes()],
+    ["Type Systems", pl.relTypeSystem.nodes()],
+    ["Platforms", pl.relPlatform.nodes()],
 
-    ["Influenced By", pl.relInfluencedBy.nodes()],
+    ["Influenced By", pl.relInfluence.nodes()],
     ["Influenced", pl.relInfluenced.nodes()],
     ["Dialect Of", pl.relDialectOf.nodes()],
-    ["Implements", pl.relImplements.nodes()],
+    ["Implements", pl.relImplement.nodes()],
     ["Compiles To", pl.relCompilesTo.nodes()],
 
     ["Licenses", pl.relLicenses.nodes()],
 
-    ["Tags", pl.relTags.nodes()],
+    ["Tags", pl.relTag.nodes()],
     ["Extensions", pl.extensions.map(name => ({ key: name, name, kind: "ext" })).existing],
   ] as const;
 

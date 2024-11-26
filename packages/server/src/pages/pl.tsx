@@ -48,7 +48,7 @@ function PlNews({ pl: { relPosts } }: { pl: VPlang }) {
 }
 
 function PlApps({ pl }: { pl: VPlang }) {
-  const apps = pl.relApps.nodes();
+  const apps = pl.relApp.nodes();
   return (
     <>
       <h1>Applications</h1>
@@ -73,7 +73,7 @@ function PlApps({ pl }: { pl: VPlang }) {
 }
 
 function PlLibs({ pl }: { pl: VPlang }) {
-  const libs = pl.relLibs.nodes();
+  const libs = pl.relLibrary.nodes();
   return (
     <>
       <h1>Libraries</h1>

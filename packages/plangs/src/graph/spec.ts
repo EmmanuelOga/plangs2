@@ -61,7 +61,7 @@ export const PLANGS_GRAPH_SPEC: GenGraphSpec<PlangVertexNames> = {
     { from: "learning", to: "community", desc: "Communities helpful when using the Learning resource." },
     { from: "learning", to: "plang", desc: "Plangs covered by the Learning resource." },
     { from: "learning", to: "tag", desc: "Tags for this Learning resource." },
-    { from: "library", to: "plang", name: "usedOn", desc: "Plangs that can use this Library." },
+    { from: "library", to: "plang", desc: "Plangs that can use this Library." },
     { from: "library", to: "plang", name: "libWrittenIn", desc: "Plangs used in the Library implementation." },
     { from: "library", to: "platform", desc: "Platforms supported by this Library." },
     { from: "library", to: "tag", desc: "Tags for this Library." },

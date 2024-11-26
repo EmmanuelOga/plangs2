@@ -130,7 +130,7 @@ export class VPlang extends VPlangBase {
     const set = new Set<VPlang>([]);
     if (opt.compilesTo) for (const pl of this.relCompilesTo.nodes()) set.add(pl);
     if (opt.dialectOf) for (const pl of this.relDialectOf.nodes()) set.add(pl);
-    if (opt.implements) for (const pl of this.relImplements.nodes()) set.add(pl);
+    if (opt.implements) for (const pl of this.relImplement.nodes()) set.add(pl);
     return set;
   }
 }

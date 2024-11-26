@@ -55,7 +55,7 @@ export type NPlangAI = {
 
   /**
    * List of licenses for this programming language, if any.
-   * Each element is a key with prefix "license+", for instance: "license+mit",
+   * Each element is a key with prefix "license+", for instance: "lic+mit",
    * where "mit" is a unique identifier using only lowercase letters, numbers and dashes.
    */
   licenses: string[];

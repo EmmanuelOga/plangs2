@@ -119,7 +119,7 @@ test("hasWikipedia", () => {
 
 test("implements", () => {
   const pg = new PlangsGraph();
-  const pl = pg.plang.set("pl+myplang").relImplements.add(["pl+one", "pl+two"]);
+  const pl = pg.plang.set("pl+myplang").relImplement.add(["pl+one", "pl+two"]);
   const { implements: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+one"))).toBeTrue();
@@ -137,8 +137,8 @@ test("implements", () => {
 
 test("influenced", () => {
   const pg = new PlangsGraph();
-  const pl = pg.plang.set("pl+myplang").relInfluencedBy.add(["pl+one", "pl+two"]);
-  const other = pg.plang.set("pl+other").relInfluencedBy.add(["pl+one", "pl+two"]);
+  const pl = pg.plang.set("pl+myplang").relInfluence.add(["pl+one", "pl+two"]);
+  const other = pg.plang.set("pl+other").relInfluence.add(["pl+one", "pl+two"]);
   const one = pg.plang.set("pl+one");
   const { influenced: check } = PLANG_FACET_PREDICATES;
 
@@ -161,7 +161,7 @@ test("influenced", () => {
 
 test("influencedBy", () => {
   const pg = new PlangsGraph();
-  const pl = pg.plang.set("pl+myplang").relInfluencedBy.add(["pl+one", "pl+two"]);
+  const pl = pg.plang.set("pl+myplang").relInfluence.add(["pl+one", "pl+two"]);
   const { influencedBy: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+one"))).toBeTrue();
@@ -191,20 +191,20 @@ test("isTranspiler", () => {
 
 test("licenses", () => {
   const pg = new PlangsGraph();
-  const pl = pg.plang.set("pl+myplang").relLicense.add(["license+one", "license+two"]);
+  const pl = pg.plang.set("pl+myplang").relLicense.add(["lic+one", "lic+two"]);
   const { licenses: check } = PLANG_FACET_PREDICATES;
 
-  expect(check(pl, new Filter<VLicense["key"]>("all").add("license+one"))).toBeTrue();
-  expect(check(pl, new Filter<VLicense["key"]>("all").add("license+one").add("license+two"))).toBeTrue();
-  expect(check(pl, new Filter<VLicense["key"]>("all").add("license+three"))).toBeFalse();
-  expect(check(pl, new Filter<VLicense["key"]>("all").add("license+two"))).toBeTrue();
-  expect(check(pl, new Filter<VLicense["key"]>("all").add("license+two").add("license+three"))).toBeFalse();
+  expect(check(pl, new Filter<VLicense["key"]>("all").add("lic+one"))).toBeTrue();
+  expect(check(pl, new Filter<VLicense["key"]>("all").add("lic+one").add("lic+two"))).toBeTrue();
+  expect(check(pl, new Filter<VLicense["key"]>("all").add("lic+three"))).toBeFalse();
+  expect(check(pl, new Filter<VLicense["key"]>("all").add("lic+two"))).toBeTrue();
+  expect(check(pl, new Filter<VLicense["key"]>("all").add("lic+two").add("lic+three"))).toBeFalse();
 
-  expect(check(pl, new Filter<VLicense["key"]>("any").add("license+one"))).toBeTrue();
-  expect(check(pl, new Filter<VLicense["key"]>("any").add("license+one").add("license+two"))).toBeTrue();
-  expect(check(pl, new Filter<VLicense["key"]>("any").add("license+three"))).toBeFalse();
-  expect(check(pl, new Filter<VLicense["key"]>("any").add("license+two"))).toBeTrue();
-  expect(check(pl, new Filter<VLicense["key"]>("any").add("license+two").add("license+three"))).toBeTrue();
+  expect(check(pl, new Filter<VLicense["key"]>("any").add("lic+one"))).toBeTrue();
+  expect(check(pl, new Filter<VLicense["key"]>("any").add("lic+one").add("lic+two"))).toBeTrue();
+  expect(check(pl, new Filter<VLicense["key"]>("any").add("lic+three"))).toBeFalse();
+  expect(check(pl, new Filter<VLicense["key"]>("any").add("lic+two"))).toBeTrue();
+  expect(check(pl, new Filter<VLicense["key"]>("any").add("lic+two").add("lic+three"))).toBeTrue();
 });
 
 test("paradigms", () => {
@@ -246,7 +246,7 @@ test("plangName", () => {
 
 test("platforms", () => {
   const pg = new PlangsGraph();
-  const pl = pg.plang.set("pl+myplang").relPlatforms.add(["plat+one", "plat+two"]);
+  const pl = pg.plang.set("pl+myplang").relPlatform.add(["plat+one", "plat+two"]);
   const { platforms: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new Filter<VPlatform["key"]>("all").add("plat+one"))).toBeTrue();
@@ -275,7 +275,7 @@ test("releasedRecently", () => {
 
 test("tags", () => {
   const pg = new PlangsGraph();
-  const pl = pg.plang.set("pl+myplang").relTags.add(["tag+one", "tag+two"]);
+  const pl = pg.plang.set("pl+myplang").relTag.add(["tag+one", "tag+two"]);
   const { tags: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new Filter<VTag["key"]>("all").add("tag+one"))).toBeTrue();
@@ -293,7 +293,7 @@ test("tags", () => {
 
 test("typeSystems", () => {
   const pg = new PlangsGraph();
-  const pl = pg.plang.set("pl+myplang").relTsys.add(["tsys+one", "tsys+two"]);
+  const pl = pg.plang.set("pl+myplang").relTypeSystem.add(["tsys+one", "tsys+two"]);
   const { typeSystems: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new Filter<VTypeSystem["key"]>("all").add("tsys+one"))).toBeTrue();
@@ -311,7 +311,7 @@ test("typeSystems", () => {
 
 test("writtenIn", () => {
   const pg = new PlangsGraph();
-  const pl = pg.plang.set("pl+myplang").relWrittenIn.add(["pl+one", "pl+two"]);
+  const pl = pg.plang.set("pl+myplang").relWrittenInPlang.add(["pl+one", "pl+two"]);
   const { writtenIn: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+one"))).toBeTrue();
@@ -329,8 +329,8 @@ test("writtenIn", () => {
 
 test("plangMatches", () => {
   const pg = new PlangsGraph();
-  const plang = pg.plang.set("pl+plang", { name: "MyPlang" }).relWrittenIn.add(["pl+one", "pl+two"]);
-  const other = pg.plang.set("pl+other", { name: "MyOtherPlang" }).relWrittenIn.add(["pl+two"]);
+  const plang = pg.plang.set("pl+plang", { name: "MyPlang" }).relWrittenInPlang.add(["pl+one", "pl+two"]);
+  const other = pg.plang.set("pl+other", { name: "MyOtherPlang" }).relWrittenInPlang.add(["pl+two"]);
 
   const writtenIn = new Filter<VPlang["key"]>("any").add("pl+one").add("pl+two");
 
@@ -355,8 +355,8 @@ test("plangMatches", () => {
 
 test("Plangs.plangs", () => {
   const pg = new PlangsGraph();
-  const plang = pg.plang.set("pl+plang", { name: "MyPlang" }).relWrittenIn.add(["pl+one", "pl+two"]);
-  const other = pg.plang.set("pl+other", { name: "MyOtherPlang" }).relWrittenIn.add(["pl+two"]);
+  const plang = pg.plang.set("pl+plang", { name: "MyPlang" }).relWrittenInPlang.add(["pl+one", "pl+two"]);
+  const other = pg.plang.set("pl+other", { name: "MyOtherPlang" }).relWrittenInPlang.add(["pl+two"]);
 
   const writtenIn = new Filter<VPlang["key"]>("any").add("pl+one").add("pl+two");
   const filters = new Map(Object.entries({ writtenIn }) as [PlangFacetKey, AnyValue][]);

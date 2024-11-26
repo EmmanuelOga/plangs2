@@ -43,25 +43,25 @@ test("base node apis", () => {
   expect(pl.extensions.first).toEqual(".pas");
   expect(pl.extensions.last).toEqual(".tpu");
 
-  expect(pl.relApps.size()).toBe(0);
-  pl.relApps.add(["app+something"]);
-  expect(pl.relApps.size()).toBe(1);
-  expect(pl.relApps.keys()[0]).toEqual("app+something");
+  expect(pl.relApp.size()).toBe(0);
+  pl.relApp.add(["app+something"]);
+  expect(pl.relApp.size()).toBe(1);
+  expect(pl.relApp.keys()[0]).toEqual("app+something");
 
-  expect(pl.relLibs.size()).toBe(0);
-  pl.relLibs.add(["lib+something"]);
-  expect(pl.relLibs.size()).toBe(1);
-  expect(pl.relLibs.keys()[0]).toEqual("lib+something");
+  expect(pl.relLibrary.size()).toBe(0);
+  pl.relLibrary.add(["lib+something"]);
+  expect(pl.relLibrary.size()).toBe(1);
+  expect(pl.relLibrary.keys()[0]).toEqual("lib+something");
 
   expect(pl.relTools.size()).toBe(0);
   pl.relTools.add(["tool+something"]);
   expect(pl.relTools.size()).toBe(1);
   expect(pl.relTools.keys()[0]).toEqual("tool+something");
 
-  expect(pl.relWrittenIn.size()).toBe(0);
-  pl.relWrittenIn.add(["pl+assembler"]);
-  expect(pl.relWrittenIn.size()).toBe(1);
-  expect(pl.relWrittenIn.keys()[0]).toEqual("pl+assembler");
+  expect(pl.relWrittenInPlang.size()).toBe(0);
+  pl.relWrittenInPlang.add(["pl+assembler"]);
+  expect(pl.relWrittenInPlang.size()).toBe(1);
+  expect(pl.relWrittenInPlang.keys()[0]).toEqual("pl+assembler");
 
   expect(pl.relParadigms.size()).toBe(0);
   pl.relParadigm.add(["para+procedural"]);
@@ -78,10 +78,10 @@ test("base node apis", () => {
   expect(pl.relPosts.size()).toBe(1);
   expect(pl.relPosts.keys()[0]).toEqual("post+my-post");
 
-  expect(pl.relTags.size()).toBe(0);
-  pl.relTags.add(["tag+cool"]);
-  expect(pl.relTags.size()).toBe(1);
-  expect(pl.relTags.keys()[0]).toEqual("tag+cool");
+  expect(pl.relTag.size()).toBe(0);
+  pl.relTag.add(["tag+cool"]);
+  expect(pl.relTag.size()).toBe(1);
+  expect(pl.relTag.keys()[0]).toEqual("tag+cool");
 });
 
 test("matching keywords", () => {
@@ -121,7 +121,7 @@ test("edge apis", () => {
 
   let edge = edges.get("pl+pascal", "tsys+strongly-typed");
   expect(edge).toBeUndefined();
-  pl.relTsys.add([st.key]);
+  pl.relTypeSystem.add([st.key]);
   edge = edges.get("pl+pascal", "tsys+strongly-typed");
   expect(edge).not.toBeUndefined();
 
@@ -137,7 +137,7 @@ test("edge types", () => {
   const nodeApp = g.nodes.app.set("app+some-app", { name: "My App" });
   const nodeBundle = g.nodes.bundle.set("bundle+my-bundle", { name: "My Bundle" });
   const nodeLib = g.nodes.lib.set("lib+my-lib", { name: "My libC" });
-  const nodeLic = g.nodes.license.set("license+gnu", { name: "GNU" });
+  const nodeLic = g.nodes.license.set("lic+gnu", { name: "GNU" });
   const nodePara = g.nodes.paradigm.set("para+structured", { name: "Structured" });
   const nodePlat = g.nodes.plat.set("plat+os2", { name: "OS/2" });
   const nodePost = g.nodes.post.set("post+my-post", { name: "Hello World!" });
@@ -182,10 +182,10 @@ test("edge types", () => {
   }
 
   {
-    const edge = g.edges.license.connect("pl+pascal", "license+gnu");
+    const edge = g.edges.license.connect("pl+pascal", "lic+gnu");
     expect(edge.kind).toBe("license");
     expect(edge.from).toBe("pl+pascal");
-    expect(edge.to).toBe("license+gnu");
+    expect(edge.to).toBe("lic+gnu");
     expect(edge.nodeFrom).toBe(plPascal);
     expect(edge.nodeTo).toBe(nodeLic);
   }
@@ -331,8 +331,8 @@ test("library nodes", () => {
 
 test("license nodes", () => {
   const g = new PlangsGraph();
-  const mit = g.nodes.license.set("license+mit", { name: "MIT", spdx: "MIT", isFSFLibre: true, isOSIApproved: true });
-  const yolo = g.nodes.license.set("license+yolo", { name: "YOLO" });
+  const mit = g.nodes.license.set("lic+mit", { name: "MIT", spdx: "MIT", isFSFLibre: true, isOSIApproved: true });
+  const yolo = g.nodes.license.set("lic+yolo", { name: "YOLO" });
 
   expect(mit.spdx).toEqual("MIT");
   expect(mit.isFSFLibre).toBeTrue();
