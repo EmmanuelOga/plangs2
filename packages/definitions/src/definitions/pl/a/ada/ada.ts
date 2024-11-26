@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+ada", {
+  g.plang
+    .set("pl+ada", {
       name: "Ada",
       description:
         "Ada is a structured, statically typed, imperative, and object-oriented high-level programming language, inspired by Pascal. It features built-in support for design by contract, strong typing, concurrency, synchronous message passing, protected objects, and non-determinism. Ada is primarily used in systems where safety and reliability are crucial, such as in avionics and other mission-critical systems. It is standardized internationally by ISO/IEC.",
@@ -21,7 +22,7 @@ export function define(g: PlangsGraph) {
       created: "1980",
     })
     .relDialectOf.add(["pl+pascal"])
-    .relInfluencedBy.add(["pl+c++", "pl+eiffel", "pl+pascal"])
+    .relInfluence.add(["pl+c++", "pl+eiffel", "pl+pascal"])
     .relParadigm.add([
       "para+array",
       "para+aspect",
@@ -34,8 +35,8 @@ export function define(g: PlangsGraph) {
       "para+procedural",
       "para+structured",
     ])
-    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add([
+    .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add([
       "tag+app",
       "tag+compiler",
       "tag+dbms",
@@ -46,7 +47,7 @@ export function define(g: PlangsGraph) {
       "tag+testing",
       "tag+viz",
     ])
-    .relTsys.add(["tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong"]);
+    .relTypeSystem.add(["tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

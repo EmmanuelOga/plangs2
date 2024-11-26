@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+txl", {
+  g.plang
+    .set("pl+txl", {
       name: "TXL",
       description:
         'TXL is a special-purpose programming language originally designed by Charles Halpern-Hamu and James Cordy at the University of Toronto in 1985. It is primarily used for creating, manipulating, and prototyping programming languages and language tools. The name "TXL" originally stood for "Turing eXtender Language" but has since evolved beyond that specific application.',
@@ -19,9 +20,9 @@ export function define(g: PlangsGraph) {
       created: "1985",
     })
     .relParadigm.add(["para+dsl", "para+language-oriented", "para+pattern-matching", "para+rewriting"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+analysis", "tag+interpreters", "tag+workflow"])
-    .relTsys.add(["tsys+untyped"]);
+    .relPlatform.add(["plat+cross"])
+    .relTag.add(["tag+analysis", "tag+interpreters", "tag+workflow"])
+    .relTypeSystem.add(["tsys+untyped"]);
 
   // TOOLS
 

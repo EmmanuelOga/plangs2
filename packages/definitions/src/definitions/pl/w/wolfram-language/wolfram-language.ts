@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+wolfram-language", {
+  g.plang
+    .set("pl+wolfram-language", {
       name: "Wolfram Language",
       description:
         "The Wolfram Language is a proprietary, general-purpose, high-level multi-paradigm programming language developed by Wolfram Research. It is known for its symbolic computation capabilities, and emphasizes functional programming and rule-based programming. It serves as the programming language of Mathematica.",
@@ -19,11 +20,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.wolfram.com/language/",
       created: "1988",
     })
-    .relInfluencedBy.add(["pl+apl", "pl+c", "pl+c++", "pl+fortran", "pl+lisp", "pl+pascal", "pl+prolog"])
+    .relInfluence.add(["pl+apl", "pl+c", "pl+c++", "pl+fortran", "pl+lisp", "pl+pascal", "pl+prolog"])
     .relParadigm.add(["para+array", "para+functional", "para+multi", "para+procedural", "para+rewriting"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+audio-dev", "tag+cas", "tag+cli", "tag+games", "tag+interpreters", "tag+numeric", "tag+shell"])
-    .relTsys.add(["tsys+dynamic", "tsys+strong"]);
+    .relPlatform.add(["plat+cross"])
+    .relTag.add(["tag+audio-dev", "tag+cas", "tag+cli", "tag+games", "tag+interpreters", "tag+numeric", "tag+shell"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

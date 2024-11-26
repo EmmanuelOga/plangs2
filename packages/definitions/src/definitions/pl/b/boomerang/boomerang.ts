@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+boomerang", {
+  g.plang
+    .set("pl+boomerang", {
       name: "Boomerang",
       description:
         "Boomerang is a programming language for writing lenses—well-behaved bidirectional transformations—that operate on ad-hoc, textual data formats.",
@@ -14,12 +15,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.seas.upenn.edu/~harmony/",
       created: "2008",
     })
-    .relInfluencedBy.add(["pl+ocaml"])
-    .relLicense.add(["license+lgpl"])
+    .relInfluence.add(["pl+ocaml"])
+    .relLicense.add(["lic+lgpl"])
     .relParadigm.add(["para+bidirectional", "para+declarative", "para+dsl"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux"])
-    .relTags.add(["tag+interpreters"])
-    .relTsys.add(["tsys+strong"]);
+    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux"])
+    .relTag.add(["tag+interpreters"])
+    .relTypeSystem.add(["tsys+strong"]);
 
   // TOOLS
 

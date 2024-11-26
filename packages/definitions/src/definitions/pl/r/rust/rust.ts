@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+rust", {
+  g.plang
+    .set("pl+rust", {
       name: "Rust",
       description:
         'Rust is a general-purpose programming language emphasizing performance, type safety, and concurrency. It enforces memory safety, meaning that all references point to valid memory, without a garbage collector. To simultaneously enforce memory safety and prevent data races, its "borrow checker" tracks the object lifetime of all references in a program during compiling.',
@@ -23,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.rust-lang.org/",
       created: "2015",
     })
-    .relInfluencedBy.add([
+    .relInfluence.add([
       "pl+c",
       "pl+c++",
       "pl+c-sharp",
@@ -38,17 +39,10 @@ export function define(g: PlangsGraph) {
       "pl+standard-ml",
       "pl+swift",
     ])
-    .relLicense.add(["license+apache", "license+mit"])
-    .relParadigm.add([
-      "para+compiled",
-      "para+concurrent",
-      "para+functional",
-      "para+imperative",
-      "para+multi",
-      "para+structured",
-    ])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
-    .relTags.add([
+    .relLicense.add(["lic+apache", "lic+mit"])
+    .relParadigm.add(["para+compiled", "para+concurrent", "para+functional", "para+imperative", "para+multi", "para+structured"])
+    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
+    .relTag.add([
       "tag+app",
       "tag+cli",
       "tag+compiler",
@@ -60,8 +54,8 @@ export function define(g: PlangsGraph) {
       "tag+iot",
       "tag+viz",
     ])
-    .relTsys.add(["tsys+affine", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+ocaml"]);
+    .relTypeSystem.add(["tsys+affine", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+ocaml"]);
 
   // TOOLS
 

@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+rmarkdown", {
+  g.plang
+    .set("pl+rmarkdown", {
       name: "RMarkdown",
       languishRanking: 79,
       stackovTags: ["r-markdown"],
@@ -20,10 +21,10 @@ export function define(g: PlangsGraph) {
       created: "2014",
     })
     .relCompilesTo.add(["pl+html", "pl+markdown"])
-    .relLicense.add(["license+mit"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+data-driven", "para+declarative", "para+multi"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+dataq", "tag+sci", "tag+stats", "tag+workflow"]);
+    .relPlatform.add(["plat+cross"])
+    .relTag.add(["tag+dataq", "tag+sci", "tag+stats", "tag+workflow"]);
 
   // TOOLS
 

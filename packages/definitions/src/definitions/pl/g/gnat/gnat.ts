@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+gnat", {
+  g.plang
+    .set("pl+gnat", {
       name: "GNAT",
       description:
         "GNAT is a free-software compiler for the Ada programming language that forms part of the GNU Compiler Collection (GCC). It supports all versions of Ada. Originally named as an acronym for GNU NYU Ada Translator, GNAT is developed by NYU, AdaCore, and the GNU Project. It includes a rich set of tools and libraries to support evolving project needs.",
@@ -15,12 +16,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.getadanow.com/",
       created: "1995",
     })
-    .relImplements.add(["pl+ada"])
-    .relLicense.add(["license+gnu-gpl"])
+    .relImplement.add(["pl+ada"])
+    .relLicense.add(["lic+gnu-gpl"])
     .relParadigm.add(["para+compiled", "para+concurrent", "para+procedural", "para+structured"])
-    .relPlatforms.add(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+compiler", "tag+framework", "tag+interpreters"])
-    .relTsys.add(["tsys+nominal", "tsys+static", "tsys+strong"]);
+    .relPlatform.add(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+compiler", "tag+framework", "tag+interpreters"])
+    .relTypeSystem.add(["tsys+nominal", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

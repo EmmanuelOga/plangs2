@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+perl", {
+  g.plang
+    .set("pl+perl", {
       name: "Perl",
       description:
         'Perl is a high-level, general-purpose, interpreted, dynamic programming language. Though Perl is not officially an acronym, there are various backronyms in use, including "Practical Extraction and Reporting Language".',
@@ -24,11 +25,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.perl.org/",
       created: "1987",
     })
-    .relInfluencedBy.add(["pl+awk", "pl+basic", "pl+c", "pl+c++", "pl+lisp", "pl+raku", "pl+sed"])
-    .relLicense.add(["license+artistic", "license+gnu-gpl"])
+    .relInfluence.add(["pl+awk", "pl+basic", "pl+c", "pl+c++", "pl+lisp", "pl+raku", "pl+sed"])
+    .relLicense.add(["lic+artistic", "lic+gnu-gpl"])
     .relParadigm.add(["para+functional", "para+multi", "para+oop", "para+procedural", "para+scripting"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add([
+    .relPlatform.add(["plat+cross"])
+    .relTag.add([
       "tag+app",
       "tag+compiler",
       "tag+dbms",
@@ -40,8 +41,8 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+viz",
     ])
-    .relTsys.add(["tsys+duck", "tsys+dynamic"])
-    .relWrittenIn.add(["pl+c"]);
+    .relTypeSystem.add(["tsys+duck", "tsys+dynamic"])
+    .relWrittenInPlang.add(["pl+c"]);
 
   // TOOLS
 

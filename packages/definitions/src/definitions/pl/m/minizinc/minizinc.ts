@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+minizinc", {
+  g.plang
+    .set("pl+minizinc", {
       name: "MiniZinc",
       description:
         "MiniZinc is a constraint modelling language (or algebraic modeling language) to describe and solve high-complexity problems using a variety of well-known solving paradigms for combinatorial problems, including constraint programming, integer programming, lazy clause generation, SAT, and SMT.",
@@ -15,12 +16,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.minizinc.org/",
       created: "2009",
     })
-    .relLicense.add(["license+mit", "license+mpl"])
+    .relLicense.add(["lic+mit", "lic+mpl"])
     .relParadigm.add(["para+constraint", "para+logic"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+modeling"])
-    .relTsys.add(["tsys+static"])
-    .relWrittenIn.add(["pl+c++"]);
+    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+modeling"])
+    .relTypeSystem.add(["tsys+static"])
+    .relWrittenInPlang.add(["pl+c++"]);
 
   // TOOLS
 

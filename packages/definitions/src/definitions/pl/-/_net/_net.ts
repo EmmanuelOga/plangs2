@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+.net", {
+  g.plang
+    .set("pl+.net", {
       name: ".NET",
       description:
         'The .NET platform (pronounced as "dot net") is a free and open-source, managed computer software framework for Windows, Linux, and macOS operating systems. It is developed by Microsoft employees and the open-source community through the .NET Foundation and is released under the MIT License. .NET is known for its cross-platform capabilities and support for multiple programming paradigms, making it suitable for building a wide range of applications from web and mobile to cloud and microservices.',
@@ -16,14 +17,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://dotnet.microsoft.com/",
       created: "2016",
     })
-    .relImplements.add(["pl+c-sharp", "pl+f-sharp", "pl+visual-basic"])
-    .relInfluencedBy.add(["pl+java"])
-    .relLicense.add(["license+mit"])
+    .relImplement.add(["pl+c-sharp", "pl+f-sharp", "pl+visual-basic"])
+    .relInfluence.add(["pl+java"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+concurrent", "para+functional", "para+multi", "para+oop"])
-    .relPlatforms.add(["plat+.net", "plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64"])
-    .relTags.add(["tag+app", "tag+cli", "tag+compiler", "tag+framework", "tag+interpreters", "tag+shell", "tag+ui"])
-    .relTsys.add(["tsys+nominal", "tsys+polymorphic", "tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+c++", "pl+c-sharp"]);
+    .relPlatform.add(["plat+.net", "plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64"])
+    .relTag.add(["tag+app", "tag+cli", "tag+compiler", "tag+framework", "tag+interpreters", "tag+shell", "tag+ui"])
+    .relTypeSystem.add(["tsys+nominal", "tsys+polymorphic", "tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+c++", "pl+c-sharp"]);
 
   // TOOLS
 

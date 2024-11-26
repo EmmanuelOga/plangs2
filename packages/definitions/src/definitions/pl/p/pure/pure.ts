@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+pure", {
+  g.plang
+    .set("pl+pure", {
       name: "Pure",
       description:
         "Pure, successor to the equational language Q, is a dynamically typed, functional programming language based on term rewriting. It integrates symbolic computation, pattern matching, and an easy-to-use C interface with the ability to JIT compile to native code via LLVM.",
@@ -12,11 +13,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://agraef.github.io/pure-lang",
       created: "2008",
     })
-    .relInfluencedBy.add(["pl+haskell", "pl+lisp"])
-    .relLicense.add(["license+lgpl"])
+    .relInfluence.add(["pl+haskell", "pl+lisp"])
+    .relLicense.add(["lic+lgpl"])
     .relParadigm.add(["para+declarative", "para+functional", "para+rewriting"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add([
+    .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add([
       "tag+app",
       "tag+audio-dev",
       "tag+cas",
@@ -28,7 +29,7 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
       "tag+video",
     ])
-    .relTsys.add(["tsys+dynamic", "tsys+strong"]);
+    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

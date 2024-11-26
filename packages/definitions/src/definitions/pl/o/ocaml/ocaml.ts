@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+ocaml", {
+  g.plang
+    .set("pl+ocaml", {
       name: "OCaml",
       description:
         "OCaml (/oʊˈkæməl/ oh-KAM-əl, formerly Objective Caml) is a general-purpose, high-level, multi-paradigm programming language which extends the Caml dialect of ML with object-oriented features. OCaml was created in 1996 by Xavier Leroy, Jérôme Vouillon, Damien Doligez, Didier Rémy, Ascánder Suárez, and others.",
@@ -23,13 +24,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ocaml.org/",
       created: "1996",
     })
-    .relInfluencedBy.add(["pl+c", "pl+pascal", "pl+standard-ml"])
-    .relLicense.add(["license+lgpl"])
+    .relInfluence.add(["pl+c", "pl+pascal", "pl+standard-ml"])
+    .relLicense.add(["lic+lgpl"])
     .relParadigm.add(["para+functional", "para+imperative", "para+modular", "para+multi", "para+oop"])
-    .relPlatforms.add(["plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
-    .relTags.add(["tag+analysis", "tag+automation", "tag+compiler", "tag+control", "tag+industrial", "tag+interpreters", "tag+proofs", "tag+viz"])
-    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])
-    .relWrittenIn.add(["pl+c"]);
+    .relPlatform.add(["plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
+    .relTag.add(["tag+analysis", "tag+automation", "tag+compiler", "tag+control", "tag+industrial", "tag+interpreters", "tag+proofs", "tag+viz"])
+    .relTypeSystem.add(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])
+    .relWrittenInPlang.add(["pl+c"]);
 
   // TOOLS
 

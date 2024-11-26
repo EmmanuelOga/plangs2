@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+jinja", {
+  g.plang
+    .set("pl+jinja", {
       name: "Jinja",
       languishRanking: 57,
       stackovTags: ["jinja2"],
@@ -22,10 +23,10 @@ export function define(g: PlangsGraph) {
       created: "2008",
     })
     .relCompilesTo.add(["pl+python"])
-    .relLicense.add(["license+bsd"])
+    .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+declarative", "para+dsl"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+scripting"]);
+    .relPlatform.add(["plat+cross"])
+    .relTag.add(["tag+scripting"]);
 
   // TOOLS
 

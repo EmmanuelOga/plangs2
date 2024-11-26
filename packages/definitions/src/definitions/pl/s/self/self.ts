@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+self", {
+  g.plang
+    .set("pl+self", {
       name: "Self",
       description:
         "Self is a prototype-based dynamic object-oriented programming language, environment, and virtual machine focused on principles like simplicity and uniformity. It allows direct and physical interaction with objects and integrates a programming environment for modifying objects. Influenced by Smalltalk and APL, it influenced languages like JavaScript and NewtonScript.",
@@ -21,12 +22,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.selflanguage.org/",
       created: "1987",
     })
-    .relInfluencedBy.add(["pl+apl"])
-    .relLicense.add(["license+bsd"])
+    .relInfluence.add(["pl+apl"])
+    .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+oop", "para+prototype"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+windows"])
-    .relTags.add(["tag+4gl", "tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters", "tag+viz"])
-    .relTsys.add(["tsys+dynamic", "tsys+strong"]);
+    .relPlatform.add(["plat+apple", "plat+cross", "plat+windows"])
+    .relTag.add(["tag+4gl", "tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters", "tag+viz"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

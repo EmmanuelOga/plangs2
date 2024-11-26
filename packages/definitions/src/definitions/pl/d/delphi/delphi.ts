@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+delphi", {
+  g.plang
+    .set("pl+delphi", {
       name: "Delphi",
       description:
         "Delphi is a general-purpose programming language and a software product that uses the Delphi dialect of the Object Pascal programming language and provides an integrated development environment (IDE) for rapid application development of desktop, mobile, web, and console software. It is currently developed and maintained by Embarcadero Technologies.",
@@ -25,10 +26,10 @@ export function define(g: PlangsGraph) {
       created: "1995",
     })
     .relDialectOf.add(["pl+pascal"])
-    .relImplements.add(["pl+pascal"])
+    .relImplement.add(["pl+pascal"])
     .relParadigm.add(["para+compiled", "para+multi", "para+oop", "para+procedural"])
-    .relPlatforms.add(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
-    .relTags.add([
+    .relPlatform.add(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
+    .relTag.add([
       "tag+asm",
       "tag+automation",
       "tag+compiler",
@@ -43,8 +44,8 @@ export function define(g: PlangsGraph) {
       "tag+uml",
       "tag+viz",
     ])
-    .relTsys.add(["tsys+object", "tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+c++"]);
+    .relTypeSystem.add(["tsys+object", "tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+c++"]);
 
   // TOOLS
 

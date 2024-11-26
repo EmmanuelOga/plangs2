@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+fortran", {
+  g.plang
+    .set("pl+fortran", {
       name: "Fortran",
       description:
         "Fortran is a high-performance programming language optimized for numerical computation and scientific computing. Originally developed by IBM in the 1950s, Fortran excels in handling computationally intensive tasks and is widely used in areas like scientific research, engineering, and high-performance computing.",
@@ -39,8 +40,8 @@ export function define(g: PlangsGraph) {
       "para+procedural",
       "para+structured",
     ])
-    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add([
+    .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add([
       "tag+analysis",
       "tag+app",
       "tag+asm",
@@ -59,7 +60,7 @@ export function define(g: PlangsGraph) {
       "tag+testing",
       "tag+viz",
     ])
-    .relTsys.add(["tsys+manifest", "tsys+static", "tsys+strong"]);
+    .relTypeSystem.add(["tsys+manifest", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

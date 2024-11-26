@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+lua", {
+  g.plang
+    .set("pl+lua", {
       name: "Lua",
       description:
         "Lua (/ˈluːə/ LOO-ə; from Portuguese: lua [ˈlu(w)ɐ] meaning moon) is a lightweight, high-level, multi-paradigm programming language designed mainly for embedded use in applications. Lua is cross-platform software, since the interpreter of compiled bytecode is written in ANSI C, and Lua has a relatively simple C application programming interface (API) to embed it into applications.",
@@ -20,8 +21,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.lua.org/",
       created: "1993",
     })
-    .relInfluencedBy.add(["pl+awk", "pl+c++", "pl+lisp", "pl+r5rs", "pl+scheme", "pl+self"])
-    .relLicense.add(["license+mit"])
+    .relInfluence.add(["pl+awk", "pl+c++", "pl+lisp", "pl+r5rs", "pl+scheme", "pl+self"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add([
       "para+functional",
       "para+imperative",
@@ -33,8 +34,8 @@ export function define(g: PlangsGraph) {
       "para+reflective",
       "para+scripting",
     ])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add([
+    .relPlatform.add(["plat+cross"])
+    .relTag.add([
       "tag+app",
       "tag+compiler",
       "tag+dbms",
@@ -46,8 +47,8 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
       "tag+viz",
     ])
-    .relTsys.add(["tsys+duck", "tsys+dynamic", "tsys+strong"])
-    .relWrittenIn.add(["pl+c"]);
+    .relTypeSystem.add(["tsys+duck", "tsys+dynamic", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+c"]);
 
   // TOOLS
 

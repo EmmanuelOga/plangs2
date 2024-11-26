@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+qml", {
+  g.plang
+    .set("pl+qml", {
       name: "QML",
       languishRanking: 62,
       stackovTags: ["qml"],
@@ -23,9 +24,9 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+c++"])
     .relParadigm.add(["para+declarative", "para+reactive", "para+scripting"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+ui"])
-    .relTsys.add(["tsys+dynamic", "tsys+strong"]);
+    .relPlatform.add(["plat+cross"])
+    .relTag.add(["tag+ui"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

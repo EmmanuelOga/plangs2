@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+rye", {
+  g.plang
+    .set("pl+rye", {
       name: "Rye",
       description:
         "Rye is a high-level, interpreted programming language focused on simplicity, expressiveness, and modern coding paradigms. It is designed to make programming more intuitive and accessible, with features that emphasize functional programming and ease of use.",
@@ -15,13 +16,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ryelang.org/",
       created: "2022",
     })
-    .relInfluencedBy.add(["pl+factor", "pl+rebol", "pl+red"])
-    .relLicense.add(["license+mit"])
+    .relInfluence.add(["pl+factor", "pl+rebol", "pl+red"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+functional", "para+interpreted", "para+multi", "para+scripting"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows"])
-    .relTags.add(["tag+app", "tag+cli", "tag+scripting"])
-    .relTsys.add(["tsys+duck", "tsys+dynamic"])
-    .relWrittenIn.add(["pl+go"]);
+    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows"])
+    .relTag.add(["tag+app", "tag+cli", "tag+scripting"])
+    .relTypeSystem.add(["tsys+duck", "tsys+dynamic"])
+    .relWrittenInPlang.add(["pl+go"]);
 
   // TOOLS
 

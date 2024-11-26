@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+svelte", {
+  g.plang
+    .set("pl+svelte", {
       name: "Svelte",
       languishRanking: 30,
       stackovTags: ["svelte"],
@@ -29,11 +30,11 @@ export function define(g: PlangsGraph) {
       created: "2016",
     })
     .relCompilesTo.add(["pl+javascript"])
-    .relLicense.add(["license+mit"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+compiled", "para+functional", "para+reactive"])
-    .relPlatforms.add(["plat+nodejs", "plat+web"])
-    .relTags.add(["tag+framework", "tag+ui"])
-    .relTsys.add(["tsys+dynamic", "tsys+static"]);
+    .relPlatform.add(["plat+nodejs", "plat+web"])
+    .relTag.add(["tag+framework", "tag+ui"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+static"]);
 
   // TOOLS
 

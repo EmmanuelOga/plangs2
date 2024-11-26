@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+forth", {
+  g.plang
+    .set("pl+forth", {
       name: "Forth",
       description:
         'Forth is a stack-oriented programming language and interactive integrated development environment designed by Charles H. "Chuck" Moore and first introduced in 1970. The language\'s unique feature is its ability to extend itself at runtime, making it quite flexible and powerful. Commonly used in embedded systems, spaceflight applications, and boot loaders, it is known for its efficiency and small memory footprint. Forth combines a compiler with an interactive command shell and relies on Reverse Polish Notation.',
@@ -19,11 +20,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://forth-standard.org/",
       created: "1970",
     })
-    .relInfluencedBy.add(["pl+lisp"])
-    .relLicense.add(["license+public-domain"])
+    .relInfluence.add(["pl+lisp"])
+    .relLicense.add(["lic+public-domain"])
     .relParadigm.add(["para+concatenative", "para+procedural", "para+reflective", "para+stack-oriented"])
-    .relPlatforms.add(["plat+cross", "plat+embedded"])
-    .relTags.add([
+    .relPlatform.add(["plat+cross", "plat+embedded"])
+    .relTag.add([
       "tag+app",
       "tag+asm",
       "tag+compiler",
@@ -38,7 +39,7 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+testing",
     ])
-    .relTsys.add(["tsys+untyped"]);
+    .relTypeSystem.add(["tsys+untyped"]);
 
   // TOOLS
 

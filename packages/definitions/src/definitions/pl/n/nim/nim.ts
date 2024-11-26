@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+nim", {
+  g.plang
+    .set("pl+nim", {
       name: "Nim",
       description:
         'Nim is a general-purpose, multi-paradigm, statically typed, compiled high-level system programming language, designed and developed by a team around Andreas Rumpf. Nim is designed to be "efficient, expressive, and elegant", supporting metaprogramming, functional, message-passing, procedural, and object-oriented programming styles. It compiles to multiple languages, including C, C++, JavaScript, allowing it to be used for both backend and frontend applications. It features a modern type system with local type inference, generic programming, and several memory management options, suitable for embedded and real-time systems.',
@@ -25,8 +26,8 @@ export function define(g: PlangsGraph) {
       created: "2008",
     })
     .relCompilesTo.add(["pl+c++", "pl+javascript"])
-    .relInfluencedBy.add(["pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+python", "pl+rust"])
-    .relLicense.add(["license+mit"])
+    .relInfluence.add(["pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+python", "pl+rust"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add([
       "para+compiled",
       "para+concurrent",
@@ -37,8 +38,8 @@ export function define(g: PlangsGraph) {
       "para+oop",
       "para+procedural",
     ])
-    .relPlatforms.add(["plat+apple", "plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
-    .relTags.add([
+    .relPlatform.add(["plat+apple", "plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
+    .relTag.add([
       "tag+3dg",
       "tag+analysis",
       "tag+app",
@@ -53,8 +54,8 @@ export function define(g: PlangsGraph) {
       "tag+stats",
       "tag+viz",
     ])
-    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])
-    .relWrittenIn.add(["pl+c++"]);
+    .relTypeSystem.add(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])
+    .relWrittenInPlang.add(["pl+c++"]);
 
   // TOOLS
 

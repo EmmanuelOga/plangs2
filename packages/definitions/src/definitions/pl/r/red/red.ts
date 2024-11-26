@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+red", {
+  g.plang
+    .set("pl+red", {
       name: "Red",
       description:
         "Red is a programming language designed to overcome the limitations of the programming language Rebol. Red was introduced in 2011 by Nenad Rakočević, and is both an imperative and functional programming language. Its syntax and general usage overlap that of the interpreted Rebol language.",
@@ -20,13 +21,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.red-lang.org/",
       created: "2011",
     })
-    .relInfluencedBy.add(["pl+lisp", "pl+lua", "pl+rebol"])
-    .relLicense.add(["license+boost", "license+bsd"])
+    .relInfluence.add(["pl+lisp", "pl+lua", "pl+rebol"])
+    .relLicense.add(["lic+boost", "lic+bsd"])
     .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+symbolic"])
-    .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+app", "tag+asm", "tag+dataflow", "tag+flow", "tag+interpreters", "tag+ui"])
-    .relTsys.add(["tsys+dynamic", "tsys+weak"])
-    .relWrittenIn.add(["pl+c", "pl+rebol"]);
+    .relPlatform.add(["plat+apple", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+app", "tag+asm", "tag+dataflow", "tag+flow", "tag+interpreters", "tag+ui"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+weak"])
+    .relWrittenInPlang.add(["pl+c", "pl+rebol"]);
 
   // TOOLS
 

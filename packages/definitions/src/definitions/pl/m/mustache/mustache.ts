@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+mustache", {
+  g.plang
+    .set("pl+mustache", {
       name: "Mustache",
       languishRanking: 87,
       stackovTags: ["mustache"],
@@ -22,9 +23,9 @@ export function define(g: PlangsGraph) {
       created: "2009",
     })
     .relCompilesTo.add(["pl+javascript"])
-    .relLicense.add(["license+mit"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+data-driven", "para+declarative"])
-    .relPlatforms.add(["plat+web"]);
+    .relPlatform.add(["plat+web"]);
 
   // TOOLS
 

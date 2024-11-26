@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+vue", {
+  g.plang
+    .set("pl+vue", {
       name: "Vue",
       languishRanking: 20,
       stackovTags: ["vue.js"],
@@ -22,11 +23,11 @@ export function define(g: PlangsGraph) {
       created: "2014",
     })
     .relCompilesTo.add(["pl+javascript"])
-    .relLicense.add(["license+mit"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+declarative", "para+event-driven", "para+oop"])
-    .relPlatforms.add(["plat+web"])
-    .relTags.add(["tag+framework", "tag+ui"])
-    .relTsys.add(["tsys+dynamic"]);
+    .relPlatform.add(["plat+web"])
+    .relTag.add(["tag+framework", "tag+ui"])
+    .relTypeSystem.add(["tsys+dynamic"]);
 
   // TOOLS
 

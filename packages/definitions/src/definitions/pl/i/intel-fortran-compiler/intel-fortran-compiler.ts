@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+intel-fortran-compiler", {
+  g.plang
+    .set("pl+intel-fortran-compiler", {
       name: "Intel Fortran Compiler",
       description:
         "Intel Fortran Compiler is a suite of Fortran compilers from Intel, designed for high-performance computing on Windows, macOS, and Linux platforms. It is part of the Intel OneAPI HPC toolkit, supporting features like optimized CPU and GPU code generation.",
@@ -15,13 +16,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://software.intel.com/content/www/us/en/develop/tools/oneapi/components/fortran-compiler.html",
       created: "2003",
     })
-    .relImplements.add(["pl+fortran"])
-    .relLicense.add(["license+bsd"])
+    .relImplement.add(["pl+fortran"])
+    .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+compiled", "para+procedural", "para+scientific"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+3dg", "tag+analysis", "tag+app", "tag+cli", "tag+compiler", "tag+sci", "tag+shell", "tag+viz"])
-    .relTsys.add(["tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+c"]);
+    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+3dg", "tag+analysis", "tag+app", "tag+cli", "tag+compiler", "tag+sci", "tag+shell", "tag+viz"])
+    .relTypeSystem.add(["tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+c"]);
 
   // TOOLS
 

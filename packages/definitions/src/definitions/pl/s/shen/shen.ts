@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+shen", {
+  g.plang
+    .set("pl+shen", {
       name: "Shen",
       description:
         "Shen is a functional programming language that combines logic programming, lambda calculus, and pattern matching into a powerful language for AI and other complex application domains.",
@@ -19,13 +20,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://shenlanguage.org/",
       created: "2011",
     })
-    .relInfluencedBy.add(["pl+prolog", "pl+scheme"])
-    .relLicense.add(["license+bsd"])
+    .relInfluence.add(["pl+prolog", "pl+scheme"])
+    .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+functional", "para+logic", "para+multi", "para+pattern-matching", "para+symbolic"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+web", "plat+windows"])
-    .relTags.add(["tag+automation", "tag+cas", "tag+compiler", "tag+interpreters", "tag+scripting"])
-    .relTsys.add(["tsys+manifest", "tsys+polymorphic", "tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+scheme"]);
+    .relPlatform.add(["plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+web", "plat+windows"])
+    .relTag.add(["tag+automation", "tag+cas", "tag+compiler", "tag+interpreters", "tag+scripting"])
+    .relTypeSystem.add(["tsys+manifest", "tsys+polymorphic", "tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+scheme"]);
 
   // TOOLS
 

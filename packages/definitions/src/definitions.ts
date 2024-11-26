@@ -45,6 +45,6 @@ export async function loadAllDefinitions(g: PlangsGraph, options: { scanImages: 
 export function runInference(pg: PlangsGraph) {
   for (const pl of pg.plang.values) {
     // All languages implement themselves, so when we filter by "implements" we can include the language itself.
-    pl.relImplements.add([pl.key]);
+    pl.relImplement.add([pl.key]);
   }
 }

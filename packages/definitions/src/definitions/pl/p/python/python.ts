@@ -39,9 +39,8 @@ export function define(g: PlangsGraph) {
       "para+scripting",
       "para+structured",
     ])
-    .relPlBundles.add(["bundle+py-one"])
-    .relPlatforms.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+raspberry", "plat+wasm", "plat+windows"])
-    .relTags.add([
+    .relPlatform.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+raspberry", "plat+wasm", "plat+windows"])
+    .relTag.add([
       "tag+analysis",
       "tag+app",
       "tag+automation",
@@ -64,98 +63,119 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
-    .relTsys.add(["tsys+duck", "tsys+dynamic", "tsys+optional", "tsys+strong"])
-    .relWrittenIn.add(["pl+c", "pl+python"])
-    .relApps.add(["app+aider", "app+glances", "app+harlequin", "app+zulip"])
-    .relLibs.add(["lib+flask", "lib+msgspec"])
-    .relTools.add(["tool+pixi", "tool+pyright", "tool+ruff", "tool+vscode-python"]);
+    .relTypeSystem.add(["tsys+duck", "tsys+dynamic", "tsys+optional", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+c", "pl+python"]);
 
   // TOOLS
 
-  g.nodes.tool.set("tool+pixi", {
-    name: "Pixi",
-    keywords: ["dependency manager", "package management", "package manager"],
-    description:
-      "Pixi is a package management tool for developers. It allows the developer to install libraries and applications in a reproducible way. Use pixi cross-platform, on Windows, Mac and Linux.",
-    extHomeURL: "https://pixi.sh/",
-  });
+  g.tool
+    .set("tool+pixi", {
+      name: "Pixi",
+      keywords: ["dependency manager", "package management", "package manager"],
+      description:
+        "Pixi is a package management tool for developers. It allows the developer to install libraries and applications in a reproducible way. Use pixi cross-platform, on Windows, Mac and Linux.",
+      extHomeURL: "https://pixi.sh/",
+    })
+    .relPlang.add("pl+python")
+    .relToolWrittenIn.add("pl+rust");
 
-  g.nodes.tool.set("tool+pyright", {
-    name: "Pyright",
-    keywords: ["static analysis", "type checker", "type inference"],
-    description:
-      "Pyright is a full-featured, standards-compliant static type checker for Python. It is designed for high performance and can be used with large Python source bases.",
-    extHomeURL: "https://microsoft.github.io/pyright/",
-  });
+  g.tool
+    .set("tool+pyright", {
+      name: "Pyright",
+      keywords: ["static analysis", "type checker", "type inference"],
+      description:
+        "Pyright is a full-featured, standards-compliant static type checker for Python. It is designed for high performance and can be used with large Python source bases.",
+      extHomeURL: "https://microsoft.github.io/pyright/",
+    })
+    .relPlang.add("pl+python");
 
-  g.nodes.tool.set("tool+ruff", {
-    name: "Ruff",
-    keywords: ["code quality", "formatter", "linter"],
-    description: "An extremely fast Python linter and code formatter, written in Rust.",
-    extHomeURL: "https://docs.astral.sh/ruff/",
-  });
+  g.tool
+    .set("tool+ruff", {
+      name: "Ruff",
+      keywords: ["code quality", "formatter", "linter"],
+      description: "An extremely fast Python linter and code formatter, written in Rust.",
+      extHomeURL: "https://docs.astral.sh/ruff/",
+    })
+    .relPlang.add("pl+python")
+    .relToolWrittenIn.add("pl+rust");
 
-  g.nodes.tool.set("tool+vscode-python", {
-    name: "Python for VSCode",
-    keywords: ["debugging", "formatting", "intellisense", "linting", "refactoring"],
-    description:
-      "Python language support with extension access points for IntelliSense (Pylance), Debugging (Python Debugger), linting, formatting, refactoring, unit tests, and more.",
-    extHomeURL: "https://marketplace.visualstudio.com/items?itemName=ms-python.python",
-  });
+  g.tool
+    .set("tool+vscode-python", {
+      name: "Python for VSCode",
+      keywords: ["debugging", "formatting", "intellisense", "linting", "refactoring"],
+      description:
+        "Python language support with extension access points for IntelliSense (Pylance), Debugging (Python Debugger), linting, formatting, refactoring, unit tests, and more.",
+      extHomeURL: "https://marketplace.visualstudio.com/items?itemName=ms-python.python",
+    })
+    .relPlang.add("pl+python")
+    .relToolWrittenIn.add("pl+typescript");
 
   // TOOL BUNDLES
 
-  g.nodes.bundle
-    .set("bundle+py-one", {
+  g.bundle
+    .set("bun+py-one", {
       description:
-        "Python is well known for having a confusing package management story, but with Pixi you can manage your dependencies with ease, including non-Python dependencies like C libraries. Ruff is a super fast linter and code formatter. Type checking in Python is optional but highly recommended, specially as code grows larger. Pyright is a full-featured, standards-compliant static type checker. This bundle also includes the Python extension for Visual Studio Code.",
+        "Manage Python dependencies with Pixi, lint and format code with Ruff, and use Pyright for type checking. Includes the Python extension for VSCode.",
     })
-    .relTools.add(["tool+pixi", "tool+pyright", "tool+ruff", "tool+vscode-python"]);
+    .relTool.add(["tool+pixi", "tool+pyright", "tool+ruff", "tool+vscode-python"]);
 
   // LIBRARIES
 
-  g.nodes.lib.set("lib+flask", {
-    name: "Flask",
-    keywords: ["framework", "web", "wsgi"],
-    description: "Flask is a lightweight WSGI web application framework.",
-    extHomeURL: "https://flask.palletsprojects.com/",
-  });
+  g.library
+    .set("lib+flask", {
+      name: "Flask",
+      keywords: ["framework", "web", "wsgi"],
+      description: "Flask is a lightweight WSGI web application framework.",
+      extHomeURL: "https://flask.palletsprojects.com/",
+    })
+    .relPlang.add("pl+python");
 
-  g.nodes.lib.set("lib+msgspec", {
-    name: "Msgspec",
-    keywords: ["json", "messagepack", "serialization", "toml", "validation", "yaml"],
-    description: "msgspec is a fast serialization and validation library, with builtin support for JSON, MessagePack, YAML, and TOML.",
-    extHomeURL: "https://jcristharif.com/msgspec/",
-  });
+  g.library
+    .set("lib+msgspec", {
+      name: "Msgspec",
+      keywords: ["json", "messagepack", "serialization", "toml", "validation", "yaml"],
+      description: "msgspec is a fast serialization and validation library, with builtin support for JSON, MessagePack, YAML, and TOML.",
+      extHomeURL: "https://jcristharif.com/msgspec/",
+    })
+    .relPlang.add("pl+python")
+    .relLibWrittenIn.add(["pl+python", "pl+rust"]);
 
   // APPS
 
-  g.nodes.app.set("app+aider", {
-    name: "Aider",
-    keywords: ["git", "llm", "pair programming"],
-    description:
-      "Aider lets you pair program with LLMs, to edit code in your local git repository. Start a new project or work with an existing git repo. Aider works best with GPT-4o & Claude 3.5 Sonnet and can connect to almost any LLM.",
-    extHomeURL: "https://aider.chat/",
-  });
+  g.app
+    .set("app+aider", {
+      name: "Aider",
+      keywords: ["git", "llm", "pair programming"],
+      description:
+        "Aider lets you pair program with LLMs, to edit code in your local git repository. Start a new project or work with an existing git repo. Aider works best with GPT-4o & Claude 3.5 Sonnet and can connect to almost any LLM.",
+      extHomeURL: "https://aider.chat/",
+    })
+    .relPlang.add("pl+python");
 
-  g.nodes.app.set("app+glances", {
-    name: "Glances",
-    keywords: ["monitoring", "system", "terminal"],
-    description: "Glances is a cross-platform system monitoring tool written in Python.",
-    extHomeURL: "https://nicolargo.github.io/glances/",
-  });
+  g.nodes.app
+    .set("app+glances", {
+      name: "Glances",
+      keywords: ["monitoring", "system", "terminal"],
+      description: "Glances is a cross-platform system monitoring tool written in Python.",
+      extHomeURL: "https://nicolargo.github.io/glances/",
+    })
+    .relPlang.add("pl+python");
 
-  g.nodes.app.set("app+harlequin", {
-    name: "Harlequin",
-    keywords: ["client", "database", "terminal"],
-    description: "An easy, fast, and beautiful database client for the terminal.",
-    extHomeURL: "https://harlequin.sh/",
-  });
+  g.nodes.app
+    .set("app+harlequin", {
+      name: "Harlequin",
+      keywords: ["client", "database", "terminal"],
+      description: "An easy, fast, and beautiful database client for the terminal.",
+      extHomeURL: "https://harlequin.sh/",
+    })
+    .relPlang.add("pl+python");
 
-  g.nodes.app.set("app+zulip", {
-    name: "Zulip",
-    keywords: ["chat", "communication", "group"],
-    description: "Zulip is a powerful, open source group chat application.",
-    extHomeURL: "https://github.com/zulip/zulip",
-  });
+  g.nodes.app
+    .set("app+zulip", {
+      name: "Zulip",
+      keywords: ["chat", "communication", "group"],
+      description: "Zulip is a powerful, open source group chat application.",
+      extHomeURL: "https://github.com/zulip/zulip",
+    })
+    .relPlang.add("pl+python");
 }

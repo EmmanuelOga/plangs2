@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+gdb", {
+  g.plang
+    .set("pl+gdb", {
       name: "GDB",
       languishRanking: 90,
       stackovTags: ["gdb"],
@@ -17,9 +18,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.gnu.org/software/gdb",
       created: "1986",
     })
-    .relLicense.add(["license+gnu-gpl"])
-    .relPlatforms.add(["plat+windows"])
-    .relTags.add(["tag+cli", "tag+interpreters"]);
+    .relLicense.add(["lic+gnu-gpl"])
+    .relPlatform.add(["plat+windows"])
+    .relTag.add(["tag+cli", "tag+interpreters"]);
 
   // TOOLS
 

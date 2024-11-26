@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+matlab", {
+  g.plang
+    .set("pl+matlab", {
       name: "MATLAB",
       languishRanking: 47,
       stackovTags: ["matlab"],
@@ -24,9 +25,9 @@ export function define(g: PlangsGraph) {
       created: "1979",
     })
     .relParadigm.add(["para+array", "para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural"])
-    .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+modeling", "tag+numeric", "tag+sci", "tag+scripting", "tag+viz"])
-    .relTsys.add(["tsys+dynamic", "tsys+weak"]);
+    .relPlatform.add(["plat+apple", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+modeling", "tag+numeric", "tag+sci", "tag+scripting", "tag+viz"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+weak"]);
 
   // TOOLS
 

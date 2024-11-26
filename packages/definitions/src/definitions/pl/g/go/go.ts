@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+go", {
+  g.plang
+    .set("pl+go", {
       name: "Go",
       description:
         "Go is a statically typed, compiled high-level programming language designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson. It is syntactically similar to C, but offers memory safety, garbage collection, structural typing, and CSP-style concurrency. Sometimes referred to as Golang due to its former domain name golang.org, its proper name is Go. It is suitable for building scalable, simple, and secure systems.",
@@ -23,13 +24,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://go.dev/",
       created: "2009",
     })
-    .relInfluencedBy.add(["pl+apl", "pl+c", "pl+d", "pl+erlang", "pl+pascal", "pl+python"])
-    .relLicense.add(["license+bsd"])
+    .relInfluence.add(["pl+apl", "pl+c", "pl+d", "pl+erlang", "pl+pascal", "pl+python"])
+    .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+oop"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+app", "tag+cli", "tag+compiler", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+testing", "tag+viz"])
-    .relTsys.add(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong", "tsys+structural"])
-    .relWrittenIn.add(["pl+assembly", "pl+c++"]);
+    .relPlatform.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+app", "tag+cli", "tag+compiler", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+testing", "tag+viz"])
+    .relTypeSystem.add(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong", "tsys+structural"])
+    .relWrittenInPlang.add(["pl+assembly", "pl+c++"]);
 
   // TOOLS
 

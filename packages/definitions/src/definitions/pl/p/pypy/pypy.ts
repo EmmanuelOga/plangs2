@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+pypy", {
+  g.plang
+    .set("pl+pypy", {
       name: "PyPy",
       description:
         "PyPy is a fast, compliant alternative implementation of Python. Known for its Just-in-Time (JIT) compiler, PyPy often runs faster than CPython. It aims to provide flexibility and speed while supporting a high degree of compatibility with Python code. PyPy is written in RPython and supports Python versions 2.7 and 3.10.",
@@ -24,14 +25,14 @@ export function define(g: PlangsGraph) {
       created: "2007",
     })
     .relDialectOf.add(["pl+python"])
-    .relImplements.add(["pl+python"])
-    .relInfluencedBy.add(["pl+python"])
-    .relLicense.add(["license+mit"])
+    .relImplement.add(["pl+python"])
+    .relInfluence.add(["pl+python"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+interpreted", "para+scripting"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+analysis", "tag+compiler", "tag+framework", "tag+interpreters", "tag+testing"])
-    .relTsys.add(["tsys+duck", "tsys+dynamic"])
-    .relWrittenIn.add(["pl+c", "pl+python"]);
+    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+analysis", "tag+compiler", "tag+framework", "tag+interpreters", "tag+testing"])
+    .relTypeSystem.add(["tsys+duck", "tsys+dynamic"])
+    .relWrittenInPlang.add(["pl+c", "pl+python"]);
 
   // TOOLS
 

@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+xojo", {
+  g.plang
+    .set("pl+xojo", {
       name: "Xojo",
       description:
         "Xojo is a cross-platform development tool that allows users to develop applications for macOS, Windows, Linux, web, iOS, Android, and Raspberry Pi using a proprietary object-oriented language. Developed by Xojo, Inc., it provides an easy-to-use drag-and-drop interface for building native applications across multiple platforms.",
@@ -23,12 +24,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://xojo.com/",
       created: "1996",
     })
-    .relImplements.add(["pl+basic"])
-    .relInfluencedBy.add(["pl+basic", "pl+visual-basic"])
+    .relImplement.add(["pl+basic"])
+    .relInfluence.add(["pl+basic", "pl+visual-basic"])
     .relParadigm.add(["para+multi", "para+oop", "para+visual"])
-    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+raspberry", "plat+web", "plat+windows"])
-    .relTags.add(["tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreters", "tag+rad", "tag+ui"])
-    .relTsys.add(["tsys+object", "tsys+static", "tsys+strong"]);
+    .relPlatform.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+raspberry", "plat+web", "plat+windows"])
+    .relTag.add(["tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreters", "tag+rad", "tag+ui"])
+    .relTypeSystem.add(["tsys+object", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

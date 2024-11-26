@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+isabelle", {
+  g.plang
+    .set("pl+isabelle", {
       name: "Isabelle",
       description:
         "Isabelle is an automated theorem prover that allows mathematical formulas to be expressed in a formal language and provides tools for proving those formulas in a logical calculus. It is written in Standard ML and Scala, supporting both procedural and declarative proof styles. Isabelle is designed to be a flexible IDE for formal methods and supports a wide variety of formal proofs and methods, notably higher-order logic (HOL).",
@@ -23,22 +24,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://isabelle.in.tum.de/",
       created: "1986",
     })
-    .relInfluencedBy.add(["pl+haskell"])
-    .relLicense.add(["license+bsd"])
+    .relInfluence.add(["pl+haskell"])
+    .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+declarative", "para+dsl", "para+logic"])
-    .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
-    .relTags.add([
-      "tag+automation",
-      "tag+control",
-      "tag+framework",
-      "tag+industrial",
-      "tag+interpreters",
-      "tag+modeling",
-      "tag+proofs",
-      "tag+wavelet",
-    ])
-    .relTsys.add(["tsys+dependent", "tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+scala", "pl+standard-ml"]);
+    .relPlatform.add(["plat+apple", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+automation", "tag+control", "tag+framework", "tag+industrial", "tag+interpreters", "tag+modeling", "tag+proofs", "tag+wavelet"])
+    .relTypeSystem.add(["tsys+dependent", "tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+scala", "pl+standard-ml"]);
 
   // TOOLS
 

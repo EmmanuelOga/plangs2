@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+racket", {
+  g.plang
+    .set("pl+racket", {
       name: "Racket",
       description:
         "Racket is a general-purpose, multi-paradigm programming language that descends from Lisp and Scheme. It is renowned for its powerful macro system and support for domain-specific language development. Racket is used in computer science education, research, and scripting, and is equipped with extensive libraries and tools for various applications.",
@@ -24,8 +25,8 @@ export function define(g: PlangsGraph) {
       created: "1995",
     })
     .relDialectOf.add(["pl+lisp"])
-    .relInfluencedBy.add(["pl+eiffel", "pl+r5rs", "pl+scheme"])
-    .relLicense.add(["license+apache", "license+mit"])
+    .relInfluence.add(["pl+eiffel", "pl+r5rs", "pl+scheme"])
+    .relLicense.add(["lic+apache", "lic+mit"])
     .relParadigm.add([
       "para+functional",
       "para+imperative",
@@ -36,8 +37,8 @@ export function define(g: PlangsGraph) {
       "para+oop",
       "para+reflective",
     ])
-    .relPlatforms.add(["plat+arm", "plat+cross", "plat+x86-64"])
-    .relTags.add([
+    .relPlatform.add(["plat+arm", "plat+cross", "plat+x86-64"])
+    .relTag.add([
       "tag+analysis",
       "tag+app",
       "tag+compiler",
@@ -52,7 +53,7 @@ export function define(g: PlangsGraph) {
       "tag+testing",
       "tag+ui",
     ])
-    .relTsys.add(["tsys+dynamic", "tsys+static", "tsys+strong"]);
+    .relTypeSystem.add(["tsys+dynamic", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

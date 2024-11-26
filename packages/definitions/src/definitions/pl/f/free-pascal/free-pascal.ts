@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+free-pascal", {
+  g.plang
+    .set("pl+free-pascal", {
       name: "Free Pascal",
       description:
         "Free Pascal Compiler (FPC) is a versatile, open source Pascal compiler for Pascal and Object Pascal. It adapts a 'write once, compile anywhere' approach, supporting numerous architectures and operating systems, with capabilities for inline assembly and multiple dialect compatibilities. Also known for its transpiler pas2js for converting Pascal to JavaScript.",
@@ -15,14 +16,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.freepascal.org/",
       created: "1993",
     })
-    .relImplements.add(["pl+pascal"])
-    .relInfluencedBy.add(["pl+pascal"])
-    .relLicense.add(["license+gnu-gpl"])
+    .relImplement.add(["pl+pascal"])
+    .relInfluence.add(["pl+pascal"])
+    .relLicense.add(["lic+gnu-gpl"])
     .relParadigm.add(["para+compiled", "para+multi", "para+oop", "para+procedural", "para+structured"])
-    .relPlatforms.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+dos", "plat+embedded", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+compiler", "tag+industrial", "tag+ui"])
-    .relTsys.add(["tsys+object", "tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+pascal"]);
+    .relPlatform.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+dos", "plat+embedded", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+compiler", "tag+industrial", "tag+ui"])
+    .relTypeSystem.add(["tsys+object", "tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+pascal"]);
 
   // TOOLS
 

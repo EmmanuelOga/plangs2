@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+c-sharp", {
+  g.plang
+    .set("pl+c-sharp", {
       name: "C#",
       description:
         "C# (/ˌsiː ˈʃɑːrp/ see SHARP) is a general-purpose high-level programming language supporting multiple paradigms. C# encompasses static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented (class-based), and component-oriented programming disciplines.",
@@ -21,8 +22,8 @@ export function define(g: PlangsGraph) {
       created: "2000",
     })
     .relDialectOf.add(["pl+c"])
-    .relInfluencedBy.add(["pl+c", "pl+c++", "pl+d", "pl+eiffel", "pl+f-sharp", "pl+haskell", "pl+pascal", "pl+scala", "pl+visual-basic"])
-    .relLicense.add(["license+gnu-gpl", "license+lgpl", "license+mit"])
+    .relInfluence.add(["pl+c", "pl+c++", "pl+d", "pl+eiffel", "pl+f-sharp", "pl+haskell", "pl+pascal", "pl+scala", "pl+visual-basic"])
+    .relLicense.add(["lic+gnu-gpl", "lic+lgpl", "lic+mit"])
     .relParadigm.add([
       "para+async",
       "para+concurrent",
@@ -34,8 +35,8 @@ export function define(g: PlangsGraph) {
       "para+reflective",
       "para+structured",
     ])
-    .relPlatforms.add(["plat+.net", "plat+cross"])
-    .relTags.add([
+    .relPlatform.add(["plat+.net", "plat+cross"])
+    .relTag.add([
       "tag+app",
       "tag+cli",
       "tag+compiler",
@@ -50,7 +51,7 @@ export function define(g: PlangsGraph) {
       "tag+ui",
       "tag+viz",
     ])
-    .relTsys.add(["tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong"]);
+    .relTypeSystem.add(["tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

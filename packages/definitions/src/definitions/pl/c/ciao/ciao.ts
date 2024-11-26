@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+ciao", {
+  g.plang
+    .set("pl+ciao", {
       name: "Ciao",
       description:
         "Ciao is a modern Prolog implementation that builds up from a logic-based simple kernel designed to be portable, extensible, and modular. It supports logic, constraint, functional, higher-order, and object-oriented programming styles.",
@@ -12,9 +13,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.ciao-lang.org/",
       created: "1984",
     })
-    .relImplements.add(["pl+prolog"])
-    .relInfluencedBy.add(["pl+prolog", "pl+scheme"])
-    .relLicense.add(["license+gnu-gpl", "license+lgpl"])
+    .relImplement.add(["pl+prolog"])
+    .relInfluence.add(["pl+prolog", "pl+scheme"])
+    .relLicense.add(["lic+gnu-gpl", "lic+lgpl"])
     .relParadigm.add([
       "para+concurrent",
       "para+constraint",
@@ -25,8 +26,8 @@ export function define(g: PlangsGraph) {
       "para+multi",
       "para+oop",
     ])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add([
+    .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add([
       "tag+3dg",
       "tag+cli",
       "tag+compiler",
@@ -39,7 +40,7 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+viz",
     ])
-    .relTsys.add(["tsys+dynamic", "tsys+inferred", "tsys+static"]);
+    .relTypeSystem.add(["tsys+dynamic", "tsys+inferred", "tsys+static"]);
 
   // TOOLS
 

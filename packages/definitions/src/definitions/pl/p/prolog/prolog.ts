@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+prolog", {
+  g.plang
+    .set("pl+prolog", {
       name: "Prolog",
       description:
         "Prolog is a logic programming language that has its origins in artificial intelligence, automated theorem proving and computational linguistics. It is influenced by first-order logic and is primarily used for declarative programming.",
@@ -23,10 +24,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.iso.org/standard/21413.html",
       created: "1972",
     })
-    .relImplements.add(["pl+curry"])
     .relParadigm.add(["para+declarative", "para+logic"])
-    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add([
+    .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add([
       "tag+analysis",
       "tag+app",
       "tag+audio-dev",
@@ -43,7 +43,7 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
-    .relTsys.add(["tsys+untyped"]);
+    .relTypeSystem.add(["tsys+untyped"]);
 
   // TOOLS
 

@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+kotlin", {
+  g.plang
+    .set("pl+kotlin", {
       name: "Kotlin",
       description:
         "Kotlin is a cross-platform, statically typed, general-purpose programming language with type inference. It is designed to interoperate fully with Java, and its syntax is more concise thanks to type inference. Kotlin primarily targets the JVM, but it also compiles to JavaScript for front-end web applications and native code via LLVM for iOS apps. Language development is led by JetBrains, and the Kotlin Foundation oversees the Kotlin trademark.",
@@ -25,8 +26,8 @@ export function define(g: PlangsGraph) {
       created: "2011",
     })
     .relCompilesTo.add(["pl+javascript", "pl+llvm"])
-    .relInfluencedBy.add(["pl+c-sharp", "pl+eiffel", "pl+groovy", "pl+javascript", "pl+python", "pl+scala"])
-    .relLicense.add(["license+apache"])
+    .relInfluence.add(["pl+c-sharp", "pl+eiffel", "pl+groovy", "pl+javascript", "pl+python", "pl+scala"])
+    .relLicense.add(["lic+apache"])
     .relParadigm.add([
       "para+concurrent",
       "para+declarative",
@@ -37,9 +38,9 @@ export function define(g: PlangsGraph) {
       "para+reflective",
       "para+structured",
     ])
-    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+nodejs", "plat+wasm", "plat+web", "plat+windows"])
-    .relTags.add(["tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+shell", "tag+testing"])
-    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    .relPlatform.add(["plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+nodejs", "plat+wasm", "plat+web", "plat+windows"])
+    .relTag.add(["tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+shell", "tag+testing"])
+    .relTypeSystem.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

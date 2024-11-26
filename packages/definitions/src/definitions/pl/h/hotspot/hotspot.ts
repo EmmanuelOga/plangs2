@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+hotspot", {
+  g.plang
+    .set("pl+hotspot", {
       name: "HotSpot VM",
       description:
         "HotSpot, released as Java HotSpot Performance Engine, is a Java virtual machine for desktop and server computers. Developed initially by Sun Microsystems and later by Oracle Corporation, HotSpot is known for its just-in-time compilation and adaptive optimization techniques, serving as the reference implementation of the Java programming language.",
@@ -14,13 +15,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://openjdk.org/groups/hotspot/",
       created: "1999",
     })
-    .relInfluencedBy.add(["pl+self"])
-    .relLicense.add(["license+gnu-gpl"])
+    .relInfluence.add(["pl+self"])
+    .relLicense.add(["lic+gnu-gpl"])
     .relParadigm.add(["para+compiled", "para+concurrent", "para+interpreted"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+java", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+asm", "tag+compiler", "tag+interpreters", "tag+server"])
-    .relTsys.add(["tsys+nominal", "tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+assembly", "pl+c++"]);
+    .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+java", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+asm", "tag+compiler", "tag+interpreters", "tag+server"])
+    .relTypeSystem.add(["tsys+nominal", "tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+assembly", "pl+c++"]);
 
   // TOOLS
 

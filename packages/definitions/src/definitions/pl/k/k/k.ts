@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+k", {
+  g.plang
+    .set("pl+k", {
       name: "K",
       description:
         "K is a proprietary array processing programming language developed by Arthur Whitney and commercialized by Kx Systems. K is the foundation for kdb+, an in-memory, column-based database, and other financial products. Introduced in 1993, K is influenced by APL and Scheme, and is noted for its speed, powerful array handling capabilities, and concise syntax.",
@@ -10,11 +11,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://kx.com/",
       created: "1993",
     })
-    .relInfluencedBy.add(["pl+apl", "pl+scheme"])
+    .relInfluence.add(["pl+apl", "pl+scheme"])
     .relParadigm.add(["para+array", "para+functional"])
-    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+analysis", "tag+app", "tag+dbms", "tag+interpreters"])
-    .relTsys.add(["tsys+dynamic", "tsys+strong"]);
+    .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+analysis", "tag+app", "tag+dbms", "tag+interpreters"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

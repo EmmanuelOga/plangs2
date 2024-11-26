@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+labview", {
+  g.plang
+    .set("pl+labview", {
       name: "LabVIEW",
       description:
         "Laboratory Virtual Instrument Engineering Workbench (LabVIEW) is a graphical system design and development platform produced and distributed by National Instruments, based on a programming environment that uses a visual programming language. It is widely used for data acquisition, instrument control, and industrial automation. It provides tools for designing and deploying complex test and measurement systems.",
@@ -25,8 +26,8 @@ export function define(g: PlangsGraph) {
       created: "1986",
     })
     .relParadigm.add(["para+concurrent", "para+dataflow", "para+event-driven", "para+low-code", "para+multi", "para+visual"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add([
+    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add([
       "tag+analysis",
       "tag+app",
       "tag+automation",
@@ -48,7 +49,7 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
-    .relWrittenIn.add(["pl+c", "pl+c++", "pl+c-sharp"]);
+    .relWrittenInPlang.add(["pl+c", "pl+c++", "pl+c-sharp"]);
 
   // TOOLS
 

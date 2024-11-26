@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+hiveql", {
+  g.plang
+    .set("pl+hiveql", {
       name: "HiveQL",
       languishRanking: 91,
       stackovTags: ["hive", "hiveql"],
@@ -21,10 +22,10 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Apache_Hive",
       created: "2010",
     })
-    .relLicense.add(["license+apache"])
+    .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+declarative", "para+query"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+dbms"]);
+    .relPlatform.add(["plat+cross"])
+    .relTag.add(["tag+dbms"]);
 
   // TOOLS
 

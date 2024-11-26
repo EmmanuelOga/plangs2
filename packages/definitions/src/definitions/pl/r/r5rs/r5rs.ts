@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+r5rs", {
+  g.plang
+    .set("pl+r5rs", {
       name: "R5RS",
       description:
         "Scheme is a classic programming language in the Lisp family. It emphasizes functional programming and domain-specific languages but adapts to other styles. Known for its clean and minimalist design, Scheme is one of the longest-lived and best-studied dynamic languages, and has many fast and portable implementations. It was originally developed by Guy L. Steele and Gerald Jay Sussman in the 1970s. Scheme is lexically scoped, supports first-class continuations, and includes tail-call optimization.",
@@ -13,12 +14,12 @@ export function define(g: PlangsGraph) {
       created: "1998",
     })
     .relDialectOf.add(["pl+lisp", "pl+scheme"])
-    .relInfluencedBy.add(["pl+lisp"])
+    .relInfluence.add(["pl+lisp"])
     .relParadigm.add(["para+functional", "para+imperative", "para+metaprogramming", "para+multi"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+analysis", "tag+compiler", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+testing"])
-    .relTsys.add(["tsys+dynamic", "tsys+latent", "tsys+strong"])
-    .relWrittenIn.add(["pl+c"]);
+    .relPlatform.add(["plat+cross"])
+    .relTag.add(["tag+analysis", "tag+compiler", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+testing"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+latent", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+c"]);
 
   // TOOLS
 

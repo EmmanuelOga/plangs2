@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+mojo", {
+  g.plang
+    .set("pl+mojo", {
       name: "Mojo",
       description:
         "Mojo is a programming language in the Python family, designed to deliver Python's expressiveness with the performance of C, and is particularly geared towards AI development, supporting high-performance computing on diverse hardware.",
@@ -20,12 +21,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.modular.com/mojo",
       created: "2023",
     })
-    .relInfluencedBy.add(["pl+python", "pl+swift"])
-    .relLicense.add(["license+apache"])
+    .relInfluence.add(["pl+python", "pl+swift"])
+    .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+compiled", "para+functional", "para+general-purpose", "para+imperative", "para+multi"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux"])
-    .relTags.add(["tag+automation", "tag+scripting"])
-    .relTsys.add(["tsys+affine", "tsys+duck", "tsys+dynamic", "tsys+generic", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"]);
+    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux"])
+    .relTag.add(["tag+automation", "tag+scripting"])
+    .relTypeSystem.add(["tsys+affine", "tsys+duck", "tsys+dynamic", "tsys+generic", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

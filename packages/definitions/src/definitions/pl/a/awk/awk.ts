@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+awk", {
+  g.plang
+    .set("pl+awk", {
       name: "AWK",
       description:
         "AWK is a domain-specific language designed for text processing and is typically used as a data extraction and reporting tool. It operates as a filter and is a standard feature of most Unix-like operating systems. AWK is recognized for its terseness and power in text processing, facilitating one-liner programs.",
@@ -17,12 +18,12 @@ export function define(g: PlangsGraph) {
       extRedditPath: "awk",
       created: "1977",
     })
-    .relInfluencedBy.add(["pl+c", "pl+sed"])
-    .relLicense.add(["license+bsd"])
+    .relInfluence.add(["pl+c", "pl+sed"])
+    .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+data-driven", "para+procedural", "para+scripting"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+dataflow", "tag+editor", "tag+interpreters", "tag+scripting", "tag+shell"])
-    .relTsys.add(["tsys+dynamic", "tsys+untyped"]);
+    .relPlatform.add(["plat+cross"])
+    .relTag.add(["tag+dataflow", "tag+editor", "tag+interpreters", "tag+scripting", "tag+shell"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+untyped"]);
 
   // TOOLS
 

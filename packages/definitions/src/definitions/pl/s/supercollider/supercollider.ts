@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+supercollider", {
+  g.plang
+    .set("pl+supercollider", {
       name: "SuperCollider",
       description:
         "SuperCollider is an environment and programming language originally released in 1996 by James McCartney for real-time audio synthesis and algorithmic composition. It is used by musicians, artists, and researchers working with sound.",
@@ -20,13 +21,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://supercollider.github.io/",
       created: "1996",
     })
-    .relInfluencedBy.add(["pl+csound", "pl+lisp"])
-    .relLicense.add(["license+gnu-gpl"])
+    .relInfluence.add(["pl+csound", "pl+lisp"])
+    .relLicense.add(["lic+gnu-gpl"])
     .relParadigm.add(["para+concurrent", "para+event-driven", "para+functional", "para+oop"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+app", "tag+audio-dev", "tag+dsp", "tag+framework", "tag+interpreters"])
-    .relTsys.add(["tsys+dynamic"])
-    .relWrittenIn.add(["pl+c++"]);
+    .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+app", "tag+audio-dev", "tag+dsp", "tag+framework", "tag+interpreters"])
+    .relTypeSystem.add(["tsys+dynamic"])
+    .relWrittenInPlang.add(["pl+c++"]);
 
   // TOOLS
 

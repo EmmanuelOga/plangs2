@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+json", {
+  g.plang
+    .set("pl+json", {
       name: "JSON",
       languishRanking: 27,
       stackovTags: ["json"],
@@ -20,7 +21,7 @@ export function define(g: PlangsGraph) {
       created: "2001",
     })
     .relParadigm.add(["para+data-exchange"])
-    .relPlatforms.add(["plat+cross"]);
+    .relPlatform.add(["plat+cross"]);
 
   // TOOLS
 

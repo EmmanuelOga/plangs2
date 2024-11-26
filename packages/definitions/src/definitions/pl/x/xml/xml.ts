@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+xml", {
+  g.plang
+    .set("pl+xml", {
       name: "XML",
       languishRanking: 32,
       stackovTags: ["xml"],
@@ -23,9 +24,9 @@ export function define(g: PlangsGraph) {
       created: "1996",
     })
     .relParadigm.add(["para+data-exchange"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+dataq", "tag+workflow"])
-    .relTsys.add(["tsys+untyped"]);
+    .relPlatform.add(["plat+cross"])
+    .relTag.add(["tag+dataq", "tag+workflow"])
+    .relTypeSystem.add(["tsys+untyped"]);
 
   // TOOLS
 

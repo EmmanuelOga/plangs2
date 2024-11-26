@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+csound", {
+  g.plang
+    .set("pl+csound", {
       name: "Csound",
       description:
         "Csound is a domain-specific computer programming language designed for sound and music computing. It was originally written in C and is known for its flexibility and high-quality audio synthesis capabilities. Csound is widely used in computer music and audio processing, offering extensive support for audio synthesis through its modular architecture.",
@@ -21,12 +22,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://csound.com/",
       created: "1986",
     })
-    .relLicense.add(["license+lgpl"])
+    .relLicense.add(["lic+lgpl"])
     .relParadigm.add(["para+compiled", "para+dsl", "para+extensible", "para+real-time"])
-    .relPlatforms.add(["plat+android", "plat+cross", "plat+web"])
-    .relTags.add(["tag+audio-dev", "tag+dsp", "tag+industrial", "tag+interpreters", "tag+midi", "tag+testing"])
-    .relTsys.add(["tsys+strong"])
-    .relWrittenIn.add(["pl+c"]);
+    .relPlatform.add(["plat+android", "plat+cross", "plat+web"])
+    .relTag.add(["tag+audio-dev", "tag+dsp", "tag+industrial", "tag+interpreters", "tag+midi", "tag+testing"])
+    .relTypeSystem.add(["tsys+strong"])
+    .relWrittenInPlang.add(["pl+c"]);
 
   // TOOLS
 

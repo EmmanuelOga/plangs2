@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+beef", {
+  g.plang
+    .set("pl+beef", {
       name: "Beef",
       description:
         "Beef is an open source performance-oriented compiled programming language designed for a fluid and pleasurable development experience, particularly suited for high-performance real-time applications such as video games, with manual memory management and custom allocators.",
@@ -20,13 +21,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.beeflang.org/",
       created: "2020",
     })
-    .relInfluencedBy.add(["pl+c", "pl+c++", "pl+delphi", "pl+rust"])
-    .relLicense.add(["license+zlib"])
+    .relInfluence.add(["pl+c", "pl+c++", "pl+delphi", "pl+rust"])
+    .relLicense.add(["lic+zlib"])
     .relParadigm.add(["para+compiled", "para+multi", "para+oop", "para+procedural"])
-    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
-    .relTags.add(["tag+compiler", "tag+games"])
-    .relTsys.add(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+c++"]);
+    .relPlatform.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
+    .relTag.add(["tag+compiler", "tag+games"])
+    .relTypeSystem.add(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+c++"]);
 
   // TOOLS
 

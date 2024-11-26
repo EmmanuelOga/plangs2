@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+autohotkey", {
+  g.plang
+    .set("pl+autohotkey", {
       name: "AutoHotkey",
       languishRanking: 84,
       stackovTags: ["autohotkey"],
@@ -22,11 +23,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.autohotkey.com",
       created: "2003",
     })
-    .relLicense.add(["license+gnu-gpl"])
+    .relLicense.add(["lic+gnu-gpl"])
     .relParadigm.add(["para+event-driven", "para+imperative", "para+scripting"])
-    .relPlatforms.add(["plat+windows"])
-    .relTags.add(["tag+automation", "tag+scripting"])
-    .relTsys.add(["tsys+duck", "tsys+dynamic"]);
+    .relPlatform.add(["plat+windows"])
+    .relTag.add(["tag+automation", "tag+scripting"])
+    .relTypeSystem.add(["tsys+duck", "tsys+dynamic"]);
 
   // TOOLS
 

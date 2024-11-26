@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+asp.net", {
+  g.plang
+    .set("pl+asp.net", {
       name: "ASP.NET",
       languishRanking: 23,
       stackovTags: ["asp.net", "asp.net-core"],
@@ -23,9 +24,9 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+.net"])
     .relParadigm.add(["para+multi", "para+oop"])
-    .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+framework", "tag+server"])
-    .relTsys.add(["tsys+nominal", "tsys+static"]);
+    .relPlatform.add(["plat+apple", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+framework", "tag+server"])
+    .relTypeSystem.add(["tsys+nominal", "tsys+static"]);
 
   // TOOLS
 

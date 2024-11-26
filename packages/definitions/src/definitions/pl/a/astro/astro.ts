@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+astro", {
+  g.plang
+    .set("pl+astro", {
       name: "Astro",
       languishRanking: 68,
       stackovTags: ["astro"],
@@ -21,10 +22,10 @@ export function define(g: PlangsGraph) {
       created: "2021",
     })
     .relCompilesTo.add(["pl+javascript", "pl+svelte", "pl+typescript", "pl+vue"])
-    .relLicense.add(["license+mit"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+declarative", "para+reactive"])
-    .relPlatforms.add(["plat+web"])
-    .relTags.add(["tag+framework"]);
+    .relPlatform.add(["plat+web"])
+    .relTag.add(["tag+framework"]);
 
   // TOOLS
 

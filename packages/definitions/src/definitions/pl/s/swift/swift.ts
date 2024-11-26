@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+swift", {
+  g.plang
+    .set("pl+swift", {
       name: "Swift",
       description:
         "Swift is a general-purpose programming language that’s approachable for newcomers and powerful for experts. It is fast, modern, safe, and a joy to write. Swift was developed by Apple Inc. and open-source contributors as a replacement for Objective-C. Swift's syntax is simple yet powerful, incorporating concepts from various languages. It was first released on June 2, 2014, and has become the primary language for Apple platform development.",
@@ -24,8 +25,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.swift.org/",
       created: "2014",
     })
-    .relInfluencedBy.add(["pl+c", "pl+c-sharp", "pl+d", "pl+haskell", "pl+lisp", "pl+python", "pl+ruby", "pl+rust"])
-    .relLicense.add(["license+apache"])
+    .relInfluence.add(["pl+c", "pl+c-sharp", "pl+d", "pl+haskell", "pl+lisp", "pl+python", "pl+ruby", "pl+rust"])
+    .relLicense.add(["lic+apache"])
     .relParadigm.add([
       "para+concurrent",
       "para+dataflow",
@@ -40,8 +41,8 @@ export function define(g: PlangsGraph) {
       "para+scripting",
       "para+structured",
     ])
-    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+windows"])
-    .relTags.add([
+    .relPlatform.add(["plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+windows"])
+    .relTag.add([
       "tag+app",
       "tag+compiler",
       "tag+dataflow",
@@ -54,7 +55,7 @@ export function define(g: PlangsGraph) {
       "tag+server",
       "tag+ui",
     ])
-    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    .relTypeSystem.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

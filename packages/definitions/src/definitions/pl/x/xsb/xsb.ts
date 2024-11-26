@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+xsb", {
+  g.plang
+    .set("pl+xsb", {
       name: "XSB",
       description:
         "XSB is a Logic Programming and Deductive Database system developed at Stony Brook University and other institutions. It is an implementation of a Prolog dialect that features tabled resolution and HiLog, making it suitable for knowledge base applications and deductive database engines.",
@@ -13,14 +14,14 @@ export function define(g: PlangsGraph) {
       created: "1993",
     })
     .relDialectOf.add(["pl+prolog"])
-    .relImplements.add(["pl+prolog"])
-    .relInfluencedBy.add(["pl+prolog"])
-    .relLicense.add(["license+lgpl"])
+    .relImplement.add(["pl+prolog"])
+    .relInfluence.add(["pl+prolog"])
+    .relLicense.add(["lic+lgpl"])
     .relParadigm.add(["para+declarative", "para+expert-system", "para+logic"])
-    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+dbms", "tag+interpreters"])
-    .relTsys.add(["tsys+untyped"])
-    .relWrittenIn.add(["pl+c"]);
+    .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+dbms", "tag+interpreters"])
+    .relTypeSystem.add(["tsys+untyped"])
+    .relWrittenInPlang.add(["pl+c"]);
 
   // TOOLS
 

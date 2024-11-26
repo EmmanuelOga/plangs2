@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+max-msp", {
+  g.plang
+    .set("pl+max-msp", {
       name: "Max",
       description:
         "Max, also known as Max/MSP/Jitter, is a visual programming language primarily used for music and multimedia development. It allows users to create interactive sound, graphics, and media applications through a scalable visual interface.",
@@ -24,8 +25,8 @@ export function define(g: PlangsGraph) {
       created: "1988",
     })
     .relParadigm.add(["para+dataflow", "para+event-driven", "para+visual"])
-    .relPlatforms.add(["plat+apple", "plat+windows"])
-    .relTags.add([
+    .relPlatform.add(["plat+apple", "plat+windows"])
+    .relTag.add([
       "tag+3dg",
       "tag+app",
       "tag+audio-dev",
@@ -42,8 +43,8 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
-    .relTsys.add(["tsys+dynamic"])
-    .relWrittenIn.add(["pl+c", "pl+c++"]);
+    .relTypeSystem.add(["tsys+dynamic"])
+    .relWrittenInPlang.add(["pl+c", "pl+c++"]);
 
   // TOOLS
 

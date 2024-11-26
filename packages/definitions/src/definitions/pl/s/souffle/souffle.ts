@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+souffle", {
+  g.plang
+    .set("pl+souffle", {
       name: "Soufflé",
       description:
         "Soufflé is an open source parallel logic programming language, influenced by Datalog. It includes both an interpreter and a compiler that targets parallel C++. Soufflé is designed for large-scale static analysis and enables rapid-prototyping for analysis problems using logic. It is used for building static analyzers, disassemblers, and tools for binary reverse engineering, and is noted for its high-performance in academic circles.",
@@ -13,13 +14,13 @@ export function define(g: PlangsGraph) {
       created: "2016",
     })
     .relDialectOf.add(["pl+datalog"])
-    .relInfluencedBy.add(["pl+datalog"])
-    .relLicense.add(["license+mit"])
+    .relInfluence.add(["pl+datalog"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+compiled", "para+declarative", "para+logic"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+analysis", "tag+compiler", "tag+interpreters"])
-    .relTsys.add(["tsys+static"])
-    .relWrittenIn.add(["pl+c++"]);
+    .relPlatform.add(["plat+cross"])
+    .relTag.add(["tag+analysis", "tag+compiler", "tag+interpreters"])
+    .relTypeSystem.add(["tsys+static"])
+    .relWrittenInPlang.add(["pl+c++"]);
 
   // TOOLS
 

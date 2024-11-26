@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+cython", {
+  g.plang
+    .set("pl+cython", {
       name: "Cython",
       description:
         "Cython is an optimising static compiler for both the Python programming language and the extended Cython programming language, making it easy to write C extensions for Python. It allows developers to write Python code that calls and interacts with C or C++ code with efficiency close to that of C.",
@@ -26,13 +27,13 @@ export function define(g: PlangsGraph) {
       created: "2007",
     })
     .relDialectOf.add(["pl+python"])
-    .relInfluencedBy.add(["pl+c", "pl+python"])
-    .relLicense.add(["license+apache"])
+    .relInfluence.add(["pl+c", "pl+python"])
+    .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+compiled", "para+multi", "para+oop", "para+scripting"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+automation", "tag+compiler", "tag+interpreters", "tag+scripting"])
-    .relTsys.add(["tsys+dynamic", "tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+python"]);
+    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+automation", "tag+compiler", "tag+interpreters", "tag+scripting"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+python"]);
 
   // TOOLS
 

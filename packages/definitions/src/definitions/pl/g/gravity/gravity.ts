@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+gravity", {
+  g.plang
+    .set("pl+gravity", {
       name: "Gravity",
       description:
         "Gravity is a powerful, dynamically typed, lightweight, embeddable programming language written in C without any external dependencies. It supports procedural, object-oriented, functional, and data-driven programming paradigms and is designed for the Creo project.",
@@ -12,13 +13,13 @@ export function define(g: PlangsGraph) {
       extGithubPath: "marcobambini/gravity",
       created: "2015",
     })
-    .relInfluencedBy.add(["pl+lua", "pl+swift"])
-    .relLicense.add(["license+mit"])
+    .relInfluence.add(["pl+lua", "pl+swift"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+functional", "para+multi", "para+oop", "para+procedural", "para+scripting"])
-    .relPlatforms.add(["plat+android", "plat+cross"])
-    .relTags.add(["tag+embedded", "tag+games", "tag+scripting"])
-    .relTsys.add(["tsys+dynamic", "tsys+strong"])
-    .relWrittenIn.add(["pl+c"]);
+    .relPlatform.add(["plat+android", "plat+cross"])
+    .relTag.add(["tag+embedded", "tag+games", "tag+scripting"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+c"]);
 
   // TOOLS
 

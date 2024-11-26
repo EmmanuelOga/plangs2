@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+ruby", {
+  g.plang
+    .set("pl+ruby", {
       name: "Ruby",
       description:
         'Ruby is an interpreted, high-level, general-purpose programming language. It was designed with an emphasis on programming productivity and simplicity. In Ruby, everything is an object, including primitive data types. It was developed in the mid-1990s by Yukihiro "Matz" Matsumoto in Japan.',
@@ -26,11 +27,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.ruby-lang.org/en/",
       created: "1995",
     })
-    .relInfluencedBy.add(["pl+basic", "pl+c++", "pl+eiffel", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme"])
-    .relLicense.add(["license+bsd", "license+mit"])
+    .relInfluence.add(["pl+basic", "pl+c++", "pl+eiffel", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme"])
+    .relLicense.add(["lic+bsd", "lic+mit"])
     .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+reflective", "para+scripting"])
-    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add([
+    .relPlatform.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add([
       "tag+analysis",
       "tag+app",
       "tag+compiler",
@@ -42,8 +43,8 @@ export function define(g: PlangsGraph) {
       "tag+ui",
       "tag+viz",
     ])
-    .relTsys.add(["tsys+duck", "tsys+dynamic", "tsys+strong"])
-    .relWrittenIn.add(["pl+c"]);
+    .relTypeSystem.add(["tsys+duck", "tsys+dynamic", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+c"]);
 
   // TOOLS
 

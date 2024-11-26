@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+unison", {
+  g.plang
+    .set("pl+unison", {
       name: "Unison",
       description:
         "Unison is a modern, statically-typed, purely functional programming language that simplifies distributed programming by treating code as data. It eliminates encoders and decoders at network boundaries, refactoring complexities, and dependency conflicts by using a content-addressed approach where code is identified by its hash. Unison allows storing code directly in a database, making distributed systems and refactoring workflows more efficient and reliable.",
@@ -12,12 +13,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.unison-lang.org/",
       created: "2023",
     })
-    .relLicense.add(["license+apache"])
+    .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+declarative", "para+distributed", "para+functional"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+cli"])
-    .relTsys.add(["tsys+algebraic", "tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+haskell"]);
+    .relPlatform.add(["plat+cross"])
+    .relTag.add(["tag+cli"])
+    .relTypeSystem.add(["tsys+algebraic", "tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+haskell"]);
 
   // TOOLS
 

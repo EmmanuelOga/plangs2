@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+luau", {
+  g.plang
+    .set("pl+luau", {
       name: "Luau",
       description:
         "Luau is a fast, small, safe, gradually typed embeddable scripting language derived from Lua. Developed by Roblox, it is optimized for game development on their platform and includes features like type inference, static analysis, and sandboxing for secure script execution.",
@@ -19,13 +20,13 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+lua"])
     .relDialectOf.add(["pl+lua"])
-    .relInfluencedBy.add(["pl+lua"])
-    .relLicense.add(["license+mit"])
+    .relInfluence.add(["pl+lua"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+imperative", "para+multi", "para+oop", "para+procedural", "para+scripting"])
-    .relPlatforms.add(["plat+arm", "plat+cross", "plat+embedded", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+games", "tag+scripting"])
-    .relTsys.add(["tsys+dynamic", "tsys+gradual"])
-    .relWrittenIn.add(["pl+c", "pl+c++"]);
+    .relPlatform.add(["plat+arm", "plat+cross", "plat+embedded", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+games", "tag+scripting"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+gradual"])
+    .relWrittenInPlang.add(["pl+c", "pl+c++"]);
 
   // TOOLS
 

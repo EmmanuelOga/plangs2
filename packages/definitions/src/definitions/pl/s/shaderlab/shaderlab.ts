@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+shaderlab", {
+  g.plang
+    .set("pl+shaderlab", {
       name: "ShaderLab",
       languishRanking: 99,
       stackovTags: ["shaderlab"],
@@ -17,8 +18,8 @@ export function define(g: PlangsGraph) {
       created: "2005",
     })
     .relParadigm.add(["para+dsl", "para+visual"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+3dg", "tag+games", "tag+workflow"]);
+    .relPlatform.add(["plat+cross"])
+    .relTag.add(["tag+3dg", "tag+games", "tag+workflow"]);
 
   // TOOLS
 

@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+io", {
+  g.plang
+    .set("pl+io", {
       name: "Io",
       description:
         "Io is a pure object-oriented programming language inspired by Smalltalk, Self, Lua, Lisp, Act1, and NewtonScript. Io has a prototype-based object model similar to those in Self and NewtonScript, eliminating the distinction between instance and class. Like Smalltalk, everything is an object and it uses dynamic typing. Like Lisp, programs are just data trees. Io uses actors for concurrency. It emphasizes simplicity and flexibility with features such as coroutines, actor-based concurrency, and incremental garbage collection.",
@@ -24,13 +25,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://iolanguage.org/",
       created: "2002",
     })
-    .relInfluencedBy.add(["pl+lisp", "pl+lua", "pl+self"])
-    .relLicense.add(["license+bsd"])
+    .relInfluence.add(["pl+lisp", "pl+lua", "pl+self"])
+    .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+concurrent", "para+oop", "para+prototype", "para+scripting"])
-    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+interpreters", "tag+scripting"])
-    .relTsys.add(["tsys+dynamic", "tsys+strong"])
-    .relWrittenIn.add(["pl+c", "pl+python"]);
+    .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+interpreters", "tag+scripting"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+c", "pl+python"]);
 
   // TOOLS
 

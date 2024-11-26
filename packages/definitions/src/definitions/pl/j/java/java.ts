@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+java", {
+  g.plang
+    .set("pl+java", {
       name: "Java",
       description:
         'Java is a high-level programming language developed by Sun Microsystems, now owned by Oracle. It is designed to have as few implementation dependencies as possible, making it a versatile and widely-used language. Java is known for its portability across platforms, "write once, run anywhere" capability, strong memory management, and vast ecosystem.',
@@ -29,21 +30,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://openjdk.java.net/",
       created: "1995",
     })
-    .relInfluencedBy.add(["pl+c++"])
-    .relLicense.add(["license+gnu-gpl"])
-    .relParadigm.add([
-      "para+compiled",
-      "para+concurrent",
-      "para+functional",
-      "para+imperative",
-      "para+multi",
-      "para+oop",
-      "para+reflective",
-    ])
-    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+app", "tag+compiler", "tag+server"])
-    .relTsys.add(["tsys+manifest", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+c"]);
+    .relInfluence.add(["pl+c++"])
+    .relLicense.add(["lic+gnu-gpl"])
+    .relParadigm.add(["para+compiled", "para+concurrent", "para+functional", "para+imperative", "para+multi", "para+oop", "para+reflective"])
+    .relPlatform.add(["plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+app", "tag+compiler", "tag+server"])
+    .relTypeSystem.add(["tsys+manifest", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+c"]);
 
   // TOOLS
 

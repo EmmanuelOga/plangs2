@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+julia", {
+  g.plang
+    .set("pl+julia", {
       name: "Julia",
       description:
         "Julia is a high-level, general-purpose dynamic programming language designed for numerical and scientific computing, as well as a variety of other applications such as data science, artificial intelligence, machine learning, modeling, and simulation. Julia's distinctive design features include a type system with parametric polymorphism, multiple dispatch as a core programming paradigm, a just-in-time compiler with support for ahead-of-time compilation, and efficient garbage collection. The language also provides strong support for parallel and distributed computing, and has a built-in package manager and extensive interoperability with other programming languages.",
@@ -25,7 +26,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://julialang.org/",
       created: "2012",
     })
-    .relInfluencedBy.add([
+    .relInfluence.add([
       "pl+c",
       "pl+common-lisp",
       "pl+lisp",
@@ -39,7 +40,7 @@ export function define(g: PlangsGraph) {
       "pl+scheme",
       "pl+wolfram-language",
     ])
-    .relLicense.add(["license+mit"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add([
       "para+array",
       "para+functional",
@@ -51,8 +52,8 @@ export function define(g: PlangsGraph) {
       "para+reflective",
       "para+structured",
     ])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])
-    .relTags.add([
+    .relPlatform.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])
+    .relTag.add([
       "tag+3dg",
       "tag+analysis",
       "tag+app",
@@ -72,8 +73,8 @@ export function define(g: PlangsGraph) {
       "tag+ui",
       "tag+wavelet",
     ])
-    .relTsys.add(["tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+optional", "tsys+strong"])
-    .relWrittenIn.add(["pl+c", "pl+c++", "pl+llvm", "pl+scheme"]);
+    .relTypeSystem.add(["tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+optional", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+c", "pl+c++", "pl+llvm", "pl+scheme"]);
 
   // TOOLS
 

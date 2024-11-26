@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+c++", {
+  g.plang
+    .set("pl+c++", {
       name: "C++",
       description:
         "C++ is a high-level, general-purpose programming language created by Bjarne Stroustrup. Designed initially as an extension of the C programming language in 1985, C++ incorporates object-oriented, generic, and functional features alongside facilities for low-level memory manipulation. The language is widely used in systems programming, and resource-constrained software, such as operating systems and embedded systems, due to its performance and flexibility. C++ is standardized by ISO, with its latest iteration, C++23 (ISO/IEC 14882:2024), continuing to expand its features and library.",
@@ -34,22 +35,12 @@ export function define(g: PlangsGraph) {
       created: "1985",
     })
     .relDialectOf.add(["pl+c"])
-    .relInfluencedBy.add(["pl+ada", "pl+apl", "pl+c", "pl+f-sharp"])
+    .relInfluence.add(["pl+ada", "pl+apl", "pl+c", "pl+f-sharp"])
     .relParadigm.add(["para+functional", "para+imperative", "para+modular", "para+multi", "para+oop", "para+procedural"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
-    .relTags.add([
-      "tag+app",
-      "tag+compiler",
-      "tag+control",
-      "tag+dataq",
-      "tag+embedded",
-      "tag+games",
-      "tag+industrial",
-      "tag+interpreters",
-      "tag+viz",
-    ])
-    .relTsys.add(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+c"]);
+    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
+    .relTag.add(["tag+app", "tag+compiler", "tag+control", "tag+dataq", "tag+embedded", "tag+games", "tag+industrial", "tag+interpreters", "tag+viz"])
+    .relTypeSystem.add(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+c"]);
 
   // TOOLS
 

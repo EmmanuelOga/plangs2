@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       kinds: ["book", "course"],
       extHomeURL: "https://www.nand2tetris.org/",
     })
-    .relTags.add(["tag+embedded", "tag+languages"]);
+    .relTag.add(["tag+embedded", "tag+languages"]);
 
   g.nodes.learning
     .set("learning+nystrom-interpreters", {
@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       kinds: ["book"],
     })
     .relPlangs.add(["pl+c", "pl+java"])
-    .relTags.add(["tag+interpreters", "tag+languages"]);
+    .relTag.add(["tag+interpreters", "tag+languages"]);
 
   g.nodes.learning
     .set("learning+threejs-journey", {
@@ -30,5 +30,5 @@ export function define(g: PlangsGraph) {
     })
     .relCommunities.add(["community+threejsjourney"])
     .relPlangs.add(["pl+javascript"])
-    .relTags.add(["tag+3dg", "tag+games", "tag+webdev"]);
+    .relTag.add(["tag+3dg", "tag+games", "tag+webdev"]);
 }

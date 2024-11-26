@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+batchfile", {
+  g.plang
+    .set("pl+batchfile", {
       name: "Batchfile",
       languishRanking: 37,
       stackovTags: ["batch-file"],
@@ -20,8 +21,8 @@ export function define(g: PlangsGraph) {
       created: "1985",
     })
     .relParadigm.add(["para+procedural", "para+scripting"])
-    .relPlatforms.add(["plat+dos", "plat+windows"])
-    .relTags.add(["tag+automation", "tag+scripting", "tag+shell"]);
+    .relPlatform.add(["plat+dos", "plat+windows"])
+    .relTag.add(["tag+automation", "tag+scripting", "tag+shell"]);
 
   // TOOLS
 

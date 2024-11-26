@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+purescript", {
+  g.plang
+    .set("pl+purescript", {
       name: "PureScript",
       description:
         "PureScript is a strongly-typed, purely-functional programming language that compiles to JavaScript and other languages. It is used for developing web applications, server-side apps, and desktop applications. PureScript's syntax is similar to Haskell and includes features like row polymorphism, extensible records, and strict evaluation. It was initially designed by Phil Freeman in 2013. The community plays a key role in its development and offers a variety of tools and learning resources.",
@@ -22,13 +23,13 @@ export function define(g: PlangsGraph) {
       created: "2013",
     })
     .relCompilesTo.add(["pl+javascript"])
-    .relInfluencedBy.add(["pl+haskell", "pl+javascript"])
-    .relLicense.add(["license+bsd"])
+    .relInfluence.add(["pl+haskell", "pl+javascript"])
+    .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+declarative", "para+functional"])
-    .relPlatforms.add(["plat+cross", "plat+nodejs"])
-    .relTags.add(["tag+app", "tag+compiler", "tag+editor", "tag+interpreters"])
-    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+haskell", "pl+javascript"]);
+    .relPlatform.add(["plat+cross", "plat+nodejs"])
+    .relTag.add(["tag+app", "tag+compiler", "tag+editor", "tag+interpreters"])
+    .relTypeSystem.add(["tsys+inferred", "tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+haskell", "pl+javascript"]);
 
   // TOOLS
 

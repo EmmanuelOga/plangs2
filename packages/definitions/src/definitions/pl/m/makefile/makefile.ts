@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+makefile", {
+  g.plang
+    .set("pl+makefile", {
       name: "Makefile",
       languishRanking: 38,
       stackovTags: ["makefile"],
@@ -19,7 +20,7 @@ export function define(g: PlangsGraph) {
       created: "1976",
     })
     .relParadigm.add(["para+declarative", "para+macro"])
-    .relTags.add(["tag+automation", "tag+cli"]);
+    .relTag.add(["tag+automation", "tag+cli"]);
 
   // TOOLS
 

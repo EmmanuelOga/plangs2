@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+agda", {
+  g.plang
+    .set("pl+agda", {
       name: "Agda",
       description:
         "Agda is a dependently typed functional programming language and proof assistant, originally developed by Ulf Norell at Chalmers University of Technology. It is built on intuitionistic type theory and offers features such as inductive families, parametrized modules, and mixfix operators. Agda assists in writing and checking proofs with a focus on interactive programming. Unlike other proof assistants like Coq, Agda is distinguished by its lack of a separate tactics language, relying instead on a functional programming style for proofs.",
@@ -25,13 +26,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://wiki.portal.chalmers.se/agda",
       created: "2007",
     })
-    .relInfluencedBy.add(["pl+coq", "pl+haskell"])
-    .relLicense.add(["license+bsd"])
+    .relInfluence.add(["pl+coq", "pl+haskell"])
+    .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+functional"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+automation", "tag+compiler", "tag+control", "tag+industrial", "tag+interpreters", "tag+proofs"])
-    .relTsys.add(["tsys+dependent", "tsys+inferred", "tsys+manifest", "tsys+nominal", "tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+haskell"]);
+    .relPlatform.add(["plat+cross"])
+    .relTag.add(["tag+automation", "tag+compiler", "tag+control", "tag+industrial", "tag+interpreters", "tag+proofs"])
+    .relTypeSystem.add(["tsys+dependent", "tsys+inferred", "tsys+manifest", "tsys+nominal", "tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+haskell"]);
 
   // TOOLS
 

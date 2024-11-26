@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+php", {
+  g.plang
+    .set("pl+php", {
       name: "PHP",
       description:
         "PHP is a popular general-purpose scripting language especially suited to web development. Fast, flexible and pragmatic, PHP powers everything from your blog to the most popular websites in the world.",
@@ -24,20 +25,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.php.net/",
       created: "1995",
     })
-    .relInfluencedBy.add(["pl+c", "pl+java"])
-    .relParadigm.add([
-      "para+functional",
-      "para+imperative",
-      "para+multi",
-      "para+oop",
-      "para+procedural",
-      "para+reflective",
-      "para+scripting",
-    ])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+scripting", "tag+server"])
-    .relTsys.add(["tsys+dynamic", "tsys+gradual", "tsys+weak"])
-    .relWrittenIn.add(["pl+c"]);
+    .relInfluence.add(["pl+c", "pl+java"])
+    .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective", "para+scripting"])
+    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+scripting", "tag+server"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+gradual", "tsys+weak"])
+    .relWrittenInPlang.add(["pl+c"]);
 
   // TOOLS
 

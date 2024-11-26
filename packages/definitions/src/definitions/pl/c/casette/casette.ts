@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+casette", {
+  g.plang
+    .set("pl+casette", {
       name: "Cassette",
       description: "Cassette is a simple language for personal programming. It's DIY, roll your own, batteries-not-included. It's for fun.",
       keywords: ["cassette"],
@@ -15,19 +16,12 @@ export function define(g: PlangsGraph) {
       created: "2021",
     })
     .relCompilesTo.add(["pl+c"])
-    .relLicense.add(["license+mit"])
-    .relParadigm.add([
-      "para+dataflow",
-      "para+declarative",
-      "para+dsl",
-      "para+event-driven",
-      "para+functional",
-      "para+interpreted",
-    ])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+audio-dev", "tag+workflow"])
-    .relTsys.add(["tsys+dynamic"])
-    .relWrittenIn.add(["pl+python"]);
+    .relLicense.add(["lic+mit"])
+    .relParadigm.add(["para+dataflow", "para+declarative", "para+dsl", "para+event-driven", "para+functional", "para+interpreted"])
+    .relPlatform.add(["plat+cross"])
+    .relTag.add(["tag+audio-dev", "tag+workflow"])
+    .relTypeSystem.add(["tsys+dynamic"])
+    .relWrittenInPlang.add(["pl+python"]);
 
   // TOOLS
 

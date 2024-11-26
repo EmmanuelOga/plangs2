@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+scopes", {
+  g.plang
+    .set("pl+scopes", {
       name: "Scopes",
       description:
         "Scopes is a retargetable programming language that combines the expressiveness of languages like Scheme and Python with the performance of C, offering a scripting-like feel with the power of a systems language. It supports both live code execution and offline compilation, and is designed for 64-bit native platforms including Linux, Windows, and GPU shader target environments like SPIR-V and GLSL.",
@@ -12,12 +13,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://hg.sr.ht/~duangle/scopes",
       created: "2015",
     })
-    .relLicense.add(["license+mit"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+extensible", "para+macro", "para+metaprogramming"])
-    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting"])
-    .relTsys.add(["tsys+dynamic", "tsys+inferred", "tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+c++"]);
+    .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+compiler", "tag+interpreters", "tag+scripting"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+inferred", "tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+c++"]);
 
   // TOOLS
 

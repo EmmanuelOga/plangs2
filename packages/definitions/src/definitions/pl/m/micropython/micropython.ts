@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+micropython", {
+  g.plang
+    .set("pl+micropython", {
       name: "MicroPython",
       description:
         "MicroPython is a lean and efficient implementation of the Python 3 programming language, optimized for microcontrollers. It offers a subset of the Python standard library with additional modules for hardware access and features such as REPL, inline assembler, and cross-compilation support.",
@@ -15,14 +16,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://micropython.org/",
       created: "2013",
     })
-    .relImplements.add(["pl+python"])
-    .relInfluencedBy.add(["pl+python"])
-    .relLicense.add(["license+mit"])
+    .relImplement.add(["pl+python"])
+    .relInfluence.add(["pl+python"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+embedded", "para+interpreted", "para+multi", "para+oop", "para+scripting"])
-    .relPlatforms.add(["plat+arduino", "plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry", "plat+riscv", "plat+windows"])
-    .relTags.add(["tag+app", "tag+embedded", "tag+interpreters", "tag+iot", "tag+scripting", "tag+testing"])
-    .relTsys.add(["tsys+duck", "tsys+dynamic"])
-    .relWrittenIn.add(["pl+c"]);
+    .relPlatform.add(["plat+arduino", "plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry", "plat+riscv", "plat+windows"])
+    .relTag.add(["tag+app", "tag+embedded", "tag+interpreters", "tag+iot", "tag+scripting", "tag+testing"])
+    .relTypeSystem.add(["tsys+duck", "tsys+dynamic"])
+    .relWrittenInPlang.add(["pl+c"]);
 
   // TOOLS
 

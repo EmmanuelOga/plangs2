@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+yaml", {
+  g.plang
+    .set("pl+yaml", {
       name: "YAML",
       languishRanking: 59,
       stackovTags: ["yaml"],
@@ -26,8 +27,8 @@ export function define(g: PlangsGraph) {
       created: "2001",
     })
     .relParadigm.add(["para+data-exchange", "para+declarative"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+scripting"]);
+    .relPlatform.add(["plat+cross"])
+    .relTag.add(["tag+scripting"]);
 
   // TOOLS
 

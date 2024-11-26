@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+gambit", {
+  g.plang
+    .set("pl+gambit", {
       name: "Gambit",
       description:
         "Gambit, also known as Gambit-C, is a long-standing Scheme implementation that is part of the Lisp family. It provides both a Scheme interpreter and a compiler that translates Scheme into C, enhancing its portability across various platforms. The language adheres to R4RS, R5RS, and IEEE standards, alongside numerous Scheme Requests for Implementations (SRFIs). Released first in 1988, Gambit is open-source under the LGPL 2.1 and Apache 2.0 licenses. Its design emphasizes simplicity while achieving performance, making it suitable for research in compilers and concurrency. Variants like Gerbil Scheme and Termite Scheme were influenced by Gambit.",
@@ -15,12 +16,12 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+c"])
     .relDialectOf.add(["pl+lisp"])
-    .relInfluencedBy.add(["pl+lisp", "pl+scheme"])
-    .relLicense.add(["license+apache", "license+lgpl"])
+    .relInfluence.add(["pl+lisp", "pl+scheme"])
+    .relLicense.add(["lic+apache", "lic+lgpl"])
     .relParadigm.add(["para+functional", "para+imperative", "para+metaprogramming", "para+multi"])
-    .relPlatforms.add(["plat+cross", "plat+x86-64"])
-    .relTags.add(["tag+compiler", "tag+interpreters"])
-    .relTsys.add(["tsys+dynamic", "tsys+latent", "tsys+strong"]);
+    .relPlatform.add(["plat+cross", "plat+x86-64"])
+    .relTag.add(["tag+compiler", "tag+interpreters"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+latent", "tsys+strong"]);
 
   // TOOLS
 

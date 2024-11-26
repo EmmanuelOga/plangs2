@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+hack", {
+  g.plang
+    .set("pl+hack", {
       name: "Hack",
       description:
         "Hack is a multi-paradigm programming language developed by Meta (formerly Facebook) for the HipHop Virtual Machine (HHVM). It is a dialect of PHP designed to reconcile the fast development cycle of a dynamically-typed language with the discipline provided by static typing. Hack offers features like gradual typing, asynchronous operations, generics, and XHP for secure UI representations. It allows for fast development with features for type checking and is open-source under the MIT License.",
@@ -21,13 +22,13 @@ export function define(g: PlangsGraph) {
       created: "2014",
     })
     .relDialectOf.add(["pl+php"])
-    .relInfluencedBy.add(["pl+c-sharp", "pl+haskell", "pl+ocaml", "pl+php", "pl+scala"])
-    .relLicense.add(["license+mit"])
+    .relInfluence.add(["pl+c-sharp", "pl+haskell", "pl+ocaml", "pl+php", "pl+scala"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+interpreters", "tag+scripting"])
-    .relTsys.add(["tsys+dynamic", "tsys+gradual", "tsys+manifest", "tsys+safe", "tsys+static", "tsys+strong", "tsys+weak"])
-    .relWrittenIn.add(["pl+ocaml"]);
+    .relPlatform.add(["plat+cross"])
+    .relTag.add(["tag+interpreters", "tag+scripting"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+gradual", "tsys+manifest", "tsys+safe", "tsys+static", "tsys+strong", "tsys+weak"])
+    .relWrittenInPlang.add(["pl+ocaml"]);
 
   // TOOLS
 

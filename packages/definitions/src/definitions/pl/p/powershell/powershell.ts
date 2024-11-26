@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+powershell", {
+  g.plang
+    .set("pl+powershell", {
       name: "PowerShell",
       languishRanking: 25,
       stackovTags: ["powershell"],
@@ -23,11 +24,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://microsoft.com/powershell",
       created: "2006",
     })
-    .relLicense.add(["license+mit"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+functional", "para+imperative", "para+oop", "para+pipeline", "para+reflective"])
-    .relPlatforms.add(["plat+linux", "plat+windows"])
-    .relTags.add(["tag+automation", "tag+cli", "tag+scripting"])
-    .relTsys.add(["tsys+dynamic", "tsys+safe", "tsys+strong"]);
+    .relPlatform.add(["plat+linux", "plat+windows"])
+    .relTag.add(["tag+automation", "tag+cli", "tag+scripting"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+safe", "tsys+strong"]);
 
   // TOOLS
 

@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+pascal", {
+  g.plang
+    .set("pl+pascal", {
       name: "Pascal",
       description:
         "Pascal is an imperative and procedural programming language, designed by Niklaus Wirth as a small, efficient language intended to encourage good programming practices using structured programming and data structuring. It is named after the French mathematician and philosopher Blaise Pascal.",
@@ -19,9 +20,9 @@ export function define(g: PlangsGraph) {
       created: "1970",
     })
     .relParadigm.add(["para+imperative", "para+procedural", "para+structured"])
-    .relPlatforms.add(["plat+bsd", "plat+cross", "plat+dos", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+compiler", "tag+edu", "tag+framework", "tag+games", "tag+interpreters"])
-    .relTsys.add(["tsys+safe", "tsys+static", "tsys+strong"]);
+    .relPlatform.add(["plat+bsd", "plat+cross", "plat+dos", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+compiler", "tag+edu", "tag+framework", "tag+games", "tag+interpreters"])
+    .relTypeSystem.add(["tsys+safe", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+raku", {
+  g.plang
+    .set("pl+raku", {
       name: "Raku",
       description:
         "Raku is a member of the Perl family of programming languages. Formerly named Perl 6, it was renamed in October 2019. Raku introduces elements of many modern and historical languages. Compatibility with Perl was not a goal, though a compatibility mode is part of the specification. The design process for Raku began in 2000. Designed by Larry Wall and developed by the Raku community, it is a multi-paradigm language with a dynamic and gradual typing system.",
@@ -26,12 +27,12 @@ export function define(g: PlangsGraph) {
       created: "2015",
     })
     .relDialectOf.add(["pl+perl"])
-    .relInfluencedBy.add(["pl+haskell", "pl+javascript", "pl+perl", "pl+ruby"])
-    .relLicense.add(["license+artistic", "license+gnu-gpl"])
+    .relInfluence.add(["pl+haskell", "pl+javascript", "pl+perl", "pl+ruby"])
+    .relLicense.add(["lic+artistic", "lic+gnu-gpl"])
     .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting", "tag+testing"])
-    .relTsys.add(["tsys+dynamic", "tsys+gradual"]);
+    .relPlatform.add(["plat+cross"])
+    .relTag.add(["tag+compiler", "tag+interpreters", "tag+scripting", "tag+testing"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+gradual"]);
 
   // TOOLS
 

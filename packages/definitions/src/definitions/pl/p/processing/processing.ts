@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+processing", {
+  g.plang
+    .set("pl+processing", {
       name: "Processing",
       description:
         "Processing is a free graphics library and integrated development environment (IDE) built for the electronic arts, new media art, and visual design communities with the purpose of teaching non-programmers the fundamentals of computer programming in a visual context.",
@@ -20,11 +21,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://processing.org/",
       created: "2001",
     })
-    .relInfluencedBy.add(["pl+c", "pl+java"])
-    .relLicense.add(["license+gnu-gpl", "license+lgpl"])
+    .relInfluence.add(["pl+c", "pl+java"])
+    .relLicense.add(["lic+gnu-gpl", "lic+lgpl"])
     .relParadigm.add(["para+dsl", "para+educational", "para+multi", "para+oop", "para+visual"])
-    .relPlatforms.add(["plat+cross", "plat+java"])
-    .relTags.add([
+    .relPlatform.add(["plat+cross", "plat+java"])
+    .relTag.add([
       "tag+app",
       "tag+edu",
       "tag+framework",
@@ -35,8 +36,8 @@ export function define(g: PlangsGraph) {
       "tag+ray-tracer",
       "tag+viz",
     ])
-    .relTsys.add(["tsys+dynamic", "tsys+strong"])
-    .relWrittenIn.add(["pl+java"]);
+    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+java"]);
 
   // TOOLS
 

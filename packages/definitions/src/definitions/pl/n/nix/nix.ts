@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+nix", {
+  g.plang
+    .set("pl+nix", {
       name: "Nix",
       languishRanking: 45,
       stackovTags: ["nix"],
@@ -21,10 +22,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://nixos.org",
       created: "2003",
     })
-    .relLicense.add(["license+lgpl"])
+    .relLicense.add(["lic+lgpl"])
     .relParadigm.add(["para+declarative", "para+functional"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux"])
-    .relTsys.add(["tsys+dynamic"]);
+    .relPlatform.add(["plat+apple", "plat+bsd", "plat+linux"])
+    .relTypeSystem.add(["tsys+dynamic"]);
 
   // TOOLS
 

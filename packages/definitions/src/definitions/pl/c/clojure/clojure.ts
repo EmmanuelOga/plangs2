@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+clojure", {
+  g.plang
+    .set("pl+clojure", {
       name: "Clojure",
       description:
         "Clojure (/ˈkloʊʒər/, like closure) is a dynamic, general-purpose programming language, combining the approachability and interactive development of a scripting language with an efficient and robust infrastructure for multithreaded programming. It is known for its expressiveness, immutability, and concurrency.",
@@ -21,7 +22,7 @@ export function define(g: PlangsGraph) {
       created: "2007",
     })
     .relDialectOf.add(["pl+lisp"])
-    .relInfluencedBy.add([
+    .relInfluence.add([
       "pl+c++",
       "pl+c-sharp",
       "pl+common-lisp",
@@ -34,18 +35,10 @@ export function define(g: PlangsGraph) {
       "pl+scheme",
       "pl+wolfram-language",
     ])
-    .relLicense.add(["license+epl"])
-    .relParadigm.add([
-      "para+agents",
-      "para+concurrent",
-      "para+functional",
-      "para+logic",
-      "para+macro",
-      "para+multi",
-      "para+pipeline",
-    ])
-    .relPlatforms.add(["plat+cross", "plat+java", "plat+nodejs"])
-    .relTags.add([
+    .relLicense.add(["lic+epl"])
+    .relParadigm.add(["para+agents", "para+concurrent", "para+functional", "para+logic", "para+macro", "para+multi", "para+pipeline"])
+    .relPlatform.add(["plat+cross", "plat+java", "plat+nodejs"])
+    .relTag.add([
       "tag+app",
       "tag+automation",
       "tag+cli",
@@ -56,8 +49,8 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
       "tag+shell",
     ])
-    .relTsys.add(["tsys+dynamic", "tsys+strong"])
-    .relWrittenIn.add(["pl+clojure", "pl+java"]);
+    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+clojure", "pl+java"]);
 
   // TOOLS
 

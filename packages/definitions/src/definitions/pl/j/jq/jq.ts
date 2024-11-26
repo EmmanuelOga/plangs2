@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+jq", {
+  g.plang
+    .set("pl+jq", {
       name: "jq",
       description:
         "jq is a very high-level lexically scoped functional programming language in which every JSON value is a constant. jq supports backtracking and managing indefinitely long streams of JSON data. It is related to the Icon and Haskell programming languages. The language supports a namespace-based module system and has some support for closures. In particular, functions and functional expressions can be used as parameters of other functions.",
@@ -26,12 +27,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://jqlang.github.io/jq",
       created: "2012",
     })
-    .relInfluencedBy.add(["pl+haskell"])
-    .relLicense.add(["license+mit", "license+public-domain"])
+    .relInfluence.add(["pl+haskell"])
+    .relLicense.add(["lic+mit", "lic+public-domain"])
     .relParadigm.add(["para+functional", "para+point-free", "para+query", "para+scripting"])
-    .relPlatforms.add(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+cli", "tag+interpreters", "tag+shell", "tag+workflow"])
-    .relWrittenIn.add(["pl+c"]);
+    .relPlatform.add(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+cli", "tag+interpreters", "tag+shell", "tag+workflow"])
+    .relWrittenInPlang.add(["pl+c"]);
 
   // TOOLS
 

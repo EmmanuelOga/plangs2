@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+eiffel", {
+  g.plang
+    .set("pl+eiffel", {
       name: "Eiffel",
       description:
         "Eiffel is an object-oriented programming language designed by Bertrand Meyer. It emphasizes software reliability through design by contract, and first appeared in 1986. The language supports multiple inheritance, genericity, polymorphism, encapsulation, and other advanced software engineering concepts. Eiffel is particularly noted for its strong typing and explicit contract design, including preconditions, postconditions, and invariants.",
@@ -19,11 +20,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://eiffel.org/",
       created: "1986",
     })
-    .relInfluencedBy.add(["pl+ada"])
-    .relLicense.add(["license+dual", "license+epl"])
+    .relInfluence.add(["pl+ada"])
+    .relLicense.add(["lic+dual", "lic+epl"])
     .relParadigm.add(["para+compiled", "para+concurrent", "para+contracts", "para+oop"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add([
+    .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add([
       "tag+3dg",
       "tag+analysis",
       "tag+app",
@@ -36,7 +37,7 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
-    .relTsys.add(["tsys+static", "tsys+strong"]);
+    .relTypeSystem.add(["tsys+static", "tsys+strong"]);
 
   // TOOLS
 

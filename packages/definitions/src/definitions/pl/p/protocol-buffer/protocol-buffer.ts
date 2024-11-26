@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+protocol-buffer", {
+  g.plang
+    .set("pl+protocol-buffer", {
       name: "Protocol Buffer",
       languishRanking: 85,
       stackovTags: ["protocol-buffers"],
@@ -19,9 +20,9 @@ export function define(g: PlangsGraph) {
       created: "2001",
     })
     .relCompilesTo.add(["pl+c++", "pl+c-sharp", "pl+dart", "pl+go", "pl+java", "pl+javascript", "pl+php", "pl+python", "pl+ruby"])
-    .relLicense.add(["license+bsd"])
+    .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+data-exchange"])
-    .relPlatforms.add(["plat+cross"]);
+    .relPlatform.add(["plat+cross"]);
 
   // TOOLS
 

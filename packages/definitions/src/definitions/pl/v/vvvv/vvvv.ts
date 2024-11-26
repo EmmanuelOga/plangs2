@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+vvvv", {
+  g.plang
+    .set("pl+vvvv", {
       name: "vvvv",
       description:
         'vvvv (German pronunciation: [faʊfiːɐ̯] = "Vau Vier" or "v4") is a digital general-purpose toolkit with a special focus on real-time video synthesis and programming large media environments with physical interfaces, real-time motion graphics, audio, and video. vvvv uses a dataflow approach and a visual programming interface for rapid prototyping and development. Applications written in vvvv are commonly called patches. Patches consist of a network of nodes and can be created, edited, and tested while they are running. Patches are stored on disk in standard XML format. vvvv is written in Borland Delphi, and plugins can be developed in the .NET Framework in C#.',
@@ -10,10 +11,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.vvvv.org/",
       created: "1998",
     })
-    .relInfluencedBy.add(["pl+apl", "pl+max-msp"])
+    .relInfluence.add(["pl+apl", "pl+max-msp"])
     .relParadigm.add(["para+dataflow", "para+multi", "para+visual"])
-    .relPlatforms.add(["plat+windows"])
-    .relTags.add([
+    .relPlatform.add(["plat+windows"])
+    .relTag.add([
       "tag+3dg",
       "tag+app",
       "tag+audio-dev",
@@ -25,7 +26,7 @@ export function define(g: PlangsGraph) {
       "tag+ui",
       "tag+video",
     ])
-    .relTsys.add(["tsys+strong"]);
+    .relTypeSystem.add(["tsys+strong"]);
 
   // TOOLS
 

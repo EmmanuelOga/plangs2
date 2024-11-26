@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+markdown", {
+  g.plang
+    .set("pl+markdown", {
       name: "Markdown",
       languishRanking: 12,
       stackovTags: ["markdown"],
@@ -25,8 +26,8 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+html"])
     .relParadigm.add(["para+dsl", "para+scripting"])
-    .relTags.add(["tag+editor", "tag+scripting"])
-    .relTsys.add(["tsys+untyped"]);
+    .relTag.add(["tag+editor", "tag+scripting"])
+    .relTypeSystem.add(["tsys+untyped"]);
 
   // TOOLS
 

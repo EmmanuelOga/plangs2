@@ -10,7 +10,7 @@ export function define(g: PlangsGraph) {
       links: [{ title: "Discord", url: "https://discord.gg/MRrkpywtKR" }],
     })
     .relPlangs.add(["pl+c", "pl+c-sharp", "pl+go", "pl+javascript", "pl+python", "pl+typescript"])
-    .relTags.add(["tag+games", "tag+multimedia", "tag+webdev"]);
+    .relTag.add(["tag+games", "tag+multimedia", "tag+webdev"]);
 
   g.nodes.community
     .set("community+contextfree", {
@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
       ],
     })
     .relPlangs.add(["pl+c3", "pl+rust"])
-    .relTags.add(["tag+compiler", "tag+interpreters", "tag+languages"]);
+    .relTag.add(["tag+compiler", "tag+interpreters", "tag+languages"]);
 
   g.nodes.community
     .set("community+prefix.dev", {
@@ -39,7 +39,7 @@ export function define(g: PlangsGraph) {
       links: [{ title: "Discord", url: "https://discord.gg/kKV8ZxyzY4" }],
     })
     .relPlangs.add(["pl+python"])
-    .relTags.add(["tag+packaging", "tag+sci"]);
+    .relTag.add(["tag+packaging", "tag+sci"]);
 
   g.nodes.community
     .set("community+threejsjourney", {
@@ -48,5 +48,5 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://threejs-journey.com/discord",
     })
     .relPlangs.add(["pl+javascript"])
-    .relTags.add(["tag+3dg", "tag+games", "tag+webdev"]);
+    .relTag.add(["tag+3dg", "tag+games", "tag+webdev"]);
 }

@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+scala", {
+  g.plang
+    .set("pl+scala", {
       name: "Scala",
       description:
         "Scala (/ˈskɑːlɑː/ SKAH-lah) is a strong statically typed high-level general-purpose programming language that supports both object-oriented programming and functional programming. Designed to be concise, many of Scala's design decisions are intended to address criticisms of Java. It is well-suited to building fast, concurrent, and distributed systems with its JVM, JavaScript, and Native runtimes.",
@@ -23,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.scala-lang.org/",
       created: "2004",
     })
-    .relInfluencedBy.add([
+    .relInfluence.add([
       "pl+common-lisp",
       "pl+eiffel",
       "pl+erlang",
@@ -35,10 +36,10 @@ export function define(g: PlangsGraph) {
       "pl+scheme",
       "pl+standard-ml",
     ])
-    .relLicense.add(["license+apache"])
+    .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+oop"])
-    .relPlatforms.add(["plat+java", "plat+nodejs", "plat+wasm"])
-    .relTags.add([
+    .relPlatform.add(["plat+java", "plat+nodejs", "plat+wasm"])
+    .relTag.add([
       "tag+app",
       "tag+audio-dev",
       "tag+compiler",
@@ -50,7 +51,7 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+testing",
     ])
-    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
+    .relTypeSystem.add(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
 
   // TOOLS
 

@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+mdx", {
+  g.plang
+    .set("pl+mdx", {
       name: "MDX",
       githubName: "MDX",
       githubLangId: "512838272",
@@ -17,11 +18,11 @@ export function define(g: PlangsGraph) {
       created: "2018",
     })
     .relCompilesTo.add(["pl+html", "pl+javascript", "pl+markdown"])
-    .relLicense.add(["license+mit"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+dsl", "para+interpreted", "para+reactive"])
-    .relPlatforms.add(["plat+web"])
-    .relTags.add(["tag+modular", "tag+scripting", "tag+ui"])
-    .relTsys.add(["tsys+dynamic"]);
+    .relPlatform.add(["plat+web"])
+    .relTag.add(["tag+modular", "tag+scripting", "tag+ui"])
+    .relTypeSystem.add(["tsys+dynamic"]);
 
   // TOOLS
 

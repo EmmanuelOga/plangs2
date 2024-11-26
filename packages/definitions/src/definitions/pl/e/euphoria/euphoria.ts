@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+euphoria", {
+  g.plang
+    .set("pl+euphoria", {
       name: "Euphoria",
       description:
         "Euphoria is a powerful yet easy-to-learn programming language that emphasizes simplicity and readability, making it suitable for a wide range of applications across Windows, Linux, macOS, and BSD. It was first released in 1993 as shareware and has evolved over time into an open-source community-driven project. Its design focuses on rapid development and performance, incorporating features like an interpreter, C translator, and simple syntax using English keywords.",
@@ -17,11 +18,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://openeuphoria.org/",
       created: "1993",
     })
-    .relInfluencedBy.add(["pl+basic"])
-    .relLicense.add(["license+bsd"])
+    .relInfluence.add(["pl+basic"])
+    .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+imperative", "para+procedural"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add([
+    .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add([
       "tag+app",
       "tag+compiler",
       "tag+dbms",
@@ -33,7 +34,7 @@ export function define(g: PlangsGraph) {
       "tag+ui",
       "tag+wavelet",
     ])
-    .relTsys.add(["tsys+dynamic", "tsys+static"]);
+    .relTypeSystem.add(["tsys+dynamic", "tsys+static"]);
 
   // TOOLS
 

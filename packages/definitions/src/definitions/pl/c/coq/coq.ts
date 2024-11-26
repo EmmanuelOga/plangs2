@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+coq", {
+  g.plang
+    .set("pl+coq", {
       name: "Coq",
       description:
         "Coq is an interactive theorem prover first released in 1989. It allows for expressing mathematical assertions, mechanically checks proofs of these assertions, helps find formal proofs, and extracts a certified program from the constructive proof of its formal specification. Coq works within the theory of the calculus of inductive constructions, a derivative of the calculus of constructions. Coq is not an automated theorem prover but includes automatic theorem proving tactics (procedures) and various decision procedures, and is primarily used for formal proof and certification in programming languages and mathematics.",
@@ -23,13 +24,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://coq.inria.fr/",
       created: "1989",
     })
-    .relInfluencedBy.add(["pl+ocaml"])
-    .relLicense.add(["license+lgpl"])
+    .relInfluence.add(["pl+ocaml"])
+    .relLicense.add(["lic+lgpl"])
     .relParadigm.add(["para+declarative", "para+functional", "para+logic"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+interpreters", "tag+proofs"])
-    .relTsys.add(["tsys+dependent", "tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+ocaml"]);
+    .relPlatform.add(["plat+cross"])
+    .relTag.add(["tag+interpreters", "tag+proofs"])
+    .relTypeSystem.add(["tsys+dependent", "tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+ocaml"]);
 
   // TOOLS
 

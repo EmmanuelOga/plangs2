@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+purebasic", {
+  g.plang
+    .set("pl+purebasic", {
       name: "PureBasic",
       description:
         "PureBasic is a modern BASIC programming language designed for both beginners and experts. It compiles to native code for Windows, Linux, macOS, and Raspberry Pi OS, producing optimized 32-bit and 64-bit executables without external dependencies. Developed by Fantaisie Software, PureBasic offers a simple syntax with advanced features like pointers, structures, and inline assembly.",
@@ -23,10 +24,10 @@ export function define(g: PlangsGraph) {
       created: "1998",
     })
     .relDialectOf.add(["pl+basic"])
-    .relImplements.add(["pl+basic"])
+    .relImplement.add(["pl+basic"])
     .relParadigm.add(["para+imperative", "para+procedural", "para+structured"])
-    .relPlatforms.add(["plat+apple", "plat+linux", "plat+raspberry", "plat+windows"])
-    .relTags.add(["tag+app", "tag+asm", "tag+compiler", "tag+editor", "tag+games", "tag+interpreters", "tag+ui"]);
+    .relPlatform.add(["plat+apple", "plat+linux", "plat+raspberry", "plat+windows"])
+    .relTag.add(["tag+app", "tag+asm", "tag+compiler", "tag+editor", "tag+games", "tag+interpreters", "tag+ui"]);
 
   // TOOLS
 

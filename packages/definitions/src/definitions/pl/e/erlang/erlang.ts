@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+erlang", {
+  g.plang
+    .set("pl+erlang", {
       name: "Erlang",
       description:
         "Erlang is a general-purpose, concurrent, functional high-level programming language, and a garbage-collected runtime system. It is used to build massively scalable soft real-time systems, particularly in telecoms, banking, e-commerce, computer telephony and instant messaging. Erlang/OTP includes the runtime system, several ready-to-use components, and design principles for Erlang programs, emphasizing concurrency, distribution, fault-tolerance, and high availability.",
@@ -25,13 +26,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.erlang.org/",
       created: "1986",
     })
-    .relInfluencedBy.add(["pl+lisp", "pl+prolog"])
-    .relLicense.add(["license+apache"])
+    .relInfluence.add(["pl+lisp", "pl+prolog"])
+    .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+concurrent", "para+functional", "para+multi", "para+oop"])
-    .relPlatforms.add(["plat+apple", "plat+beam", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+app", "tag+compiler", "tag+framework", "tag+interpreters", "tag+server"])
-    .relTsys.add(["tsys+dynamic", "tsys+strong"])
-    .relWrittenIn.add(["pl+c"]);
+    .relPlatform.add(["plat+apple", "plat+beam", "plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+app", "tag+compiler", "tag+framework", "tag+interpreters", "tag+server"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+c"]);
 
   // TOOLS
 

@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+zig", {
+  g.plang
+    .set("pl+zig", {
       name: "Zig",
       description:
         "Zig is an imperative, general-purpose, statically typed, compiled system programming language designed by Andrew Kelley. It is intended to serve as a successor to the C language, focusing on robustness, simplicity, and maintainability without hidden control flows or macros. Zig allows seamless integration with C/C++ and aims to provide better performance and safety features compared to traditional C, with manual memory management and optional types. The language is open-source and backed by the Zig Software Foundation.",
@@ -20,11 +21,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ziglang.org/",
       created: "2016",
     })
-    .relInfluencedBy.add(["pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust"])
-    .relLicense.add(["license+mit"])
+    .relInfluence.add(["pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+procedural"])
-    .relPlatforms.add(["plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+riscv", "plat+wasm", "plat+windows", "plat+x86-64"])
-    .relTags.add([
+    .relPlatform.add(["plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+riscv", "plat+wasm", "plat+windows", "plat+x86-64"])
+    .relTag.add([
       "tag+app",
       "tag+asm",
       "tag+compiler",
@@ -35,7 +36,7 @@ export function define(g: PlangsGraph) {
       "tag+testing",
       "tag+viz",
     ])
-    .relTsys.add(["tsys+generic", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
+    .relTypeSystem.add(["tsys+generic", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
 
   // TOOLS
 

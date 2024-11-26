@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+tcl", {
+  g.plang
+    .set("pl+tcl", {
       name: "Tcl",
       description:
         'Tcl (pronounced "tickle" or as an initialism) is a high-level, general-purpose, interpreted, dynamic programming language. Designed for extensibility and embeddability, Tcl supports multiple programming paradigms including event-driven, functional, imperative, and object-oriented styles. It is often used together with the Tk toolkit for GUI development, and is widely used for web applications, testing, and script automation.',
@@ -25,18 +26,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.tcl-lang.org/",
       created: "1988",
     })
-    .relInfluencedBy.add(["pl+awk", "pl+lisp"])
-    .relLicense.add(["license+bsd"])
-    .relParadigm.add([
-      "para+event-driven",
-      "para+functional",
-      "para+imperative",
-      "para+multi",
-      "para+oop",
-      "para+procedural",
-    ])
-    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add([
+    .relInfluence.add(["pl+awk", "pl+lisp"])
+    .relLicense.add(["lic+bsd"])
+    .relParadigm.add(["para+event-driven", "para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural"])
+    .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add([
       "tag+app",
       "tag+automation",
       "tag+control",
@@ -49,8 +43,8 @@ export function define(g: PlangsGraph) {
       "tag+testing",
       "tag+ui",
     ])
-    .relTsys.add(["tsys+dynamic", "tsys+string"])
-    .relWrittenIn.add(["pl+c"]);
+    .relTypeSystem.add(["tsys+dynamic", "tsys+string"])
+    .relWrittenInPlang.add(["pl+c"]);
 
   // TOOLS
 

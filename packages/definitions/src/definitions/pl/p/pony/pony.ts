@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+pony", {
+  g.plang
+    .set("pl+pony", {
       name: "Pony",
       description: "Pony is an open-source, object-oriented, actor-model, capabilities-secure, high-performance programming language.",
       keywords: ["actor-model", "capability-security", "pony"],
@@ -18,12 +19,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.ponylang.io/",
       created: "2015",
     })
-    .relInfluencedBy.add(["pl+erlang", "pl+scala"])
-    .relLicense.add(["license+bsd"])
+    .relInfluence.add(["pl+erlang", "pl+scala"])
+    .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+concurrent", "para+functional", "para+message-passing", "para+oop"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
-    .relTsys.add(["tsys+safe", "tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+c"]);
+    .relPlatform.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
+    .relTypeSystem.add(["tsys+safe", "tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+c"]);
 
   // TOOLS
 

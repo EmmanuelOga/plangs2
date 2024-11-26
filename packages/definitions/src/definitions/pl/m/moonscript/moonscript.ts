@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+moonscript", {
+  g.plang
+    .set("pl+moonscript", {
       name: "MoonScript",
       description:
         "MoonScript is a dynamic, whitespace-sensitive scripting language that compiles into Lua. It offers a clean syntax inspired by CoffeeScript and provides compatibility with Lua, including alternative implementations like LuaJIT.",
@@ -21,8 +22,8 @@ export function define(g: PlangsGraph) {
       created: "2011",
     })
     .relCompilesTo.add(["pl+lua"])
-    .relInfluencedBy.add(["pl+c++", "pl+coffeescript", "pl+scheme"])
-    .relLicense.add(["license+mit"])
+    .relInfluence.add(["pl+c++", "pl+coffeescript", "pl+scheme"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add([
       "para+functional",
       "para+imperative",
@@ -34,8 +35,8 @@ export function define(g: PlangsGraph) {
       "para+reflective",
       "para+scripting",
     ])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add([
+    .relPlatform.add(["plat+cross"])
+    .relTag.add([
       "tag+app",
       "tag+compiler",
       "tag+dbms",
@@ -47,7 +48,7 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
       "tag+viz",
     ])
-    .relTsys.add(["tsys+duck", "tsys+dynamic", "tsys+strong"]);
+    .relTypeSystem.add(["tsys+duck", "tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

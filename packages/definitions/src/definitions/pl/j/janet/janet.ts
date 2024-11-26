@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+janet", {
+  g.plang
+    .set("pl+janet", {
       name: "Janet",
       description:
         "Janet is a dynamic and functional programming language, ideal for system scripting and embedding in C/C++ programs. With built-in libraries for networking, threading, and more, Janet offers a powerful set of features with a minimalist setup, making it portable and easy to embed.",
@@ -18,13 +19,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://janet-lang.org/",
       created: "2017",
     })
-    .relInfluencedBy.add(["pl+scheme"])
-    .relLicense.add(["license+mit"])
+    .relInfluence.add(["pl+scheme"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+extensible", "para+functional", "para+imperative", "para+scripting"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+cli", "tag+embedded", "tag+scripting"])
-    .relTsys.add(["tsys+dynamic"])
-    .relWrittenIn.add(["pl+c"]);
+    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+cli", "tag+embedded", "tag+scripting"])
+    .relTypeSystem.add(["tsys+dynamic"])
+    .relWrittenInPlang.add(["pl+c"]);
 
   // TOOLS
 

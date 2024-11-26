@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+yabasic", {
+  g.plang
+    .set("pl+yabasic", {
       name: "Yabasic",
       description:
         "Yabasic (Yet Another BASIC) is a free, open-source BASIC interpreter for Microsoft Windows and UNIX platforms. It is designed for simple programming tasks and offers features like basic control structures, subroutines, and the ability to create standalone executables. It supports line graphics, structured programming, and calls to libraries written in C.",
@@ -13,14 +14,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.yabasic.de/",
       created: "1995",
     })
-    .relImplements.add(["pl+basic"])
-    .relInfluencedBy.add(["pl+basic"])
-    .relLicense.add(["license+mit"])
+    .relImplement.add(["pl+basic"])
+    .relInfluence.add(["pl+basic"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+interpreted", "para+procedural", "para+scripting"])
-    .relPlatforms.add(["plat+linux", "plat+windows"])
-    .relTags.add(["tag+games", "tag+interpreters", "tag+scripting", "tag+ui"])
-    .relTsys.add(["tsys+dynamic", "tsys+weak"])
-    .relWrittenIn.add(["pl+c"]);
+    .relPlatform.add(["plat+linux", "plat+windows"])
+    .relTag.add(["tag+games", "tag+interpreters", "tag+scripting", "tag+ui"])
+    .relTypeSystem.add(["tsys+dynamic", "tsys+weak"])
+    .relWrittenInPlang.add(["pl+c"]);
 
   // TOOLS
 

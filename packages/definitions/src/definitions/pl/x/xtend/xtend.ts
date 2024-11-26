@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+xtend", {
+  g.plang
+    .set("pl+xtend", {
       name: "Xtend",
       description:
         "Xtend is a general-purpose high-level programming language designed for the Java Virtual Machine (JVM), focusing on a more concise syntax compared to Java. It offers additional functionality such as type inference, extension methods, and operator overloading. Xtend integrates seamlessly with existing Java libraries and supports features known from functional programming like lambda expressions. Developed by typefox and first released in 2011, Xtend compiles to Java code and ensures compatibility with Java's type system, making it accessible for Java developers. It is open source under the Eclipse Public License.",
@@ -21,13 +22,13 @@ export function define(g: PlangsGraph) {
       created: "2011",
     })
     .relCompilesTo.add(["pl+java"])
-    .relInfluencedBy.add(["pl+groovy", "pl+java", "pl+scala"])
-    .relLicense.add(["license+epl"])
+    .relInfluence.add(["pl+groovy", "pl+java", "pl+scala"])
+    .relLicense.add(["lic+epl"])
     .relParadigm.add(["para+functional", "para+imperative", "para+oop"])
-    .relPlatforms.add(["plat+cross", "plat+java"])
-    .relTags.add(["tag+compiler", "tag+editor", "tag+interpreters"])
-    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+java"]);
+    .relPlatform.add(["plat+cross", "plat+java"])
+    .relTag.add(["tag+compiler", "tag+editor", "tag+interpreters"])
+    .relTypeSystem.add(["tsys+inferred", "tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+java"]);
 
   // TOOLS
 

@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+fennel", {
+  g.plang
+    .set("pl+fennel", {
       name: "Fennel",
       description:
         "Fennel is a programming language that combines the simplicity, speed, and reach of Lua with the flexibility of Lisp syntax and a macro system. It offers full Lua compatibility and can run wherever Lua runs, including game development, web servers, and microcontrollers.",
@@ -23,13 +24,13 @@ export function define(g: PlangsGraph) {
       created: "2020",
     })
     .relCompilesTo.add(["pl+lua"])
-    .relInfluencedBy.add(["pl+lua", "pl+scheme"])
-    .relLicense.add(["license+mit"])
+    .relInfluence.add(["pl+lua", "pl+scheme"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+functional", "para+macro", "para+metaprogramming", "para+scripting"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+interpreters", "tag+scripting"])
-    .relTsys.add(["tsys+dynamic"])
-    .relWrittenIn.add(["pl+lua"]);
+    .relPlatform.add(["plat+cross"])
+    .relTag.add(["tag+interpreters", "tag+scripting"])
+    .relTypeSystem.add(["tsys+dynamic"])
+    .relWrittenInPlang.add(["pl+lua"]);
 
   // TOOLS
 

@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+f-sharp", {
+  g.plang
+    .set("pl+f-sharp", {
       name: "F#",
       description:
         "F# (pronounced F sharp) is a general-purpose, high-level, strongly typed, multi-paradigm programming language that encompasses functional, imperative, and object-oriented programming methods. It is most often used as a cross-platform Common Language Infrastructure (CLI) language on .NET, but can also generate JavaScript and graphics processing unit (GPU) code. F# gives you simplicity and succinctness like Python with correctness, robustness and performance beyond C# or Java.",
@@ -24,8 +25,8 @@ export function define(g: PlangsGraph) {
       created: "2005",
     })
     .relDialectOf.add(["pl+ocaml"])
-    .relInfluencedBy.add(["pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ocaml", "pl+python", "pl+scala", "pl+standard-ml"])
-    .relLicense.add(["license+mit"])
+    .relInfluence.add(["pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ocaml", "pl+python", "pl+scala", "pl+standard-ml"])
+    .relLicense.add(["lic+mit"])
     .relParadigm.add([
       "para+agents",
       "para+concurrent",
@@ -36,8 +37,8 @@ export function define(g: PlangsGraph) {
       "para+oop",
       "para+reflective",
     ])
-    .relPlatforms.add(["plat+.net", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add([
+    .relPlatform.add(["plat+.net", "plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add([
       "tag+app",
       "tag+automation",
       "tag+cli",
@@ -53,8 +54,8 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+viz",
     ])
-    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"])
-    .relWrittenIn.add(["pl+c-sharp"]);
+    .relTypeSystem.add(["tsys+inferred", "tsys+static", "tsys+strong"])
+    .relWrittenInPlang.add(["pl+c-sharp"]);
 
   // TOOLS
 

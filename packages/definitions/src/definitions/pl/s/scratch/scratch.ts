@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+scratch", {
+  g.plang
+    .set("pl+scratch", {
       name: "Scratch",
       description:
         "Scratch is a high-level, block-based visual programming language and website aimed primarily at children as an educational tool, with a target audience of ages 8 to 16. Users on the site can create projects on the website using a block-like interface. Scratch is conceived and designed through collaborative National Science Foundation grants awarded to Mitchel Resnick and Yasmin Kafai. Scratch is developed by the MIT Media Lab and has been translated into over 70 languages, being used globally. It's widely taught and used in after-school centers, schools, and colleges. As of February 2023, over 123 million projects were shared by over 103 million users, with over 800 million total projects ever created and over 95 million visitors monthly to the website.",
@@ -16,13 +17,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://scratch.mit.edu/",
       created: "2003",
     })
-    .relInfluencedBy.add(["pl+squeak"])
-    .relLicense.add(["license+bsd", "license+dual", "license+gnu-gpl"])
+    .relInfluence.add(["pl+squeak"])
+    .relLicense.add(["lic+bsd", "lic+dual", "lic+gnu-gpl"])
     .relParadigm.add(["para+educational", "para+event-driven", "para+visual"])
-    .relPlatforms.add(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+audio-dev", "tag+editor", "tag+games", "tag+interpreters", "tag+multimedia", "tag+video", "tag+viz"])
-    .relTsys.add(["tsys+untyped"])
-    .relWrittenIn.add(["pl+actionscript", "pl+javascript", "pl+squeak"]);
+    .relPlatform.add(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+audio-dev", "tag+editor", "tag+games", "tag+interpreters", "tag+multimedia", "tag+video", "tag+viz"])
+    .relTypeSystem.add(["tsys+untyped"])
+    .relWrittenInPlang.add(["pl+actionscript", "pl+javascript", "pl+squeak"]);
 
   // TOOLS
 

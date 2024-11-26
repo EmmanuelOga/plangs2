@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+elvish", {
+  g.plang
+    .set("pl+elvish", {
       name: "Elvish",
       description:
         "Elvish is a powerful scripting language and versatile interactive shell, offering a rich programming environment with structured data and functional features. It supports cross-platform compatibility with a statically linked binary for Linux, BSDs, macOS, and Windows.",
@@ -17,12 +18,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://elv.sh/",
       created: "2016",
     })
-    .relLicense.add(["license+bsd", "license+cc-by", "license+epl"])
+    .relLicense.add(["lic+bsd", "lic+cc-by", "lic+epl"])
     .relParadigm.add(["para+functional", "para+scripting"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+raspberry", "plat+windows"])
-    .relTags.add(["tag+cli", "tag+scripting", "tag+shell"])
-    .relTsys.add(["tsys+dynamic"])
-    .relWrittenIn.add(["pl+go"]);
+    .relPlatform.add(["plat+apple", "plat+bsd", "plat+linux", "plat+raspberry", "plat+windows"])
+    .relTag.add(["tag+cli", "tag+scripting", "tag+shell"])
+    .relTypeSystem.add(["tsys+dynamic"])
+    .relWrittenInPlang.add(["pl+go"]);
 
   // TOOLS
 

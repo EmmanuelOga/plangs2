@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+html", {
+  g.plang
+    .set("pl+html", {
       name: "HTML",
       languishRanking: 7,
       stackovTags: ["html"],
@@ -23,8 +24,8 @@ export function define(g: PlangsGraph) {
       created: "1993",
     })
     .relParadigm.add(["para+declarative"])
-    .relPlatforms.add(["plat+web"])
-    .relTags.add(["tag+scripting"]);
+    .relPlatform.add(["plat+web"])
+    .relTag.add(["tag+scripting"]);
 
   // TOOLS
 

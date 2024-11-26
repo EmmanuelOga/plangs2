@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+d", {
+  g.plang
+    .set("pl+d", {
       name: "D",
       description:
         "D, also known as dlang, is a multi-paradigm system programming language created by Walter Bright at Digital Mars and released in 2001. Andrei Alexandrescu joined the design and development effort in 2007. Though it originated as a re-engineering of C++, D is now a very different language. As it has developed, it has drawn inspiration from other high-level programming languages. Notably, it has been influenced by Java, Python, Ruby, C#, and Eiffel.",
@@ -20,18 +21,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://dlang.org/",
       created: "2001",
     })
-    .relInfluencedBy.add(["pl+ada", "pl+basic", "pl+c", "pl+c++", "pl+c-sharp", "pl+eiffel", "pl+python", "pl+ruby"])
-    .relLicense.add(["license+boost"])
-    .relParadigm.add([
-      "para+concurrent",
-      "para+functional",
-      "para+imperative",
-      "para+metaprogramming",
-      "para+multi",
-      "para+oop",
-    ])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
-    .relTags.add([
+    .relInfluence.add(["pl+ada", "pl+basic", "pl+c", "pl+c++", "pl+c-sharp", "pl+eiffel", "pl+python", "pl+ruby"])
+    .relLicense.add(["lic+boost"])
+    .relParadigm.add(["para+concurrent", "para+functional", "para+imperative", "para+metaprogramming", "para+multi", "para+oop"])
+    .relPlatform.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
+    .relTag.add([
       "tag+analysis",
       "tag+app",
       "tag+asm",
@@ -45,7 +39,7 @@ export function define(g: PlangsGraph) {
       "tag+ui",
       "tag+viz",
     ])
-    .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    .relTypeSystem.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

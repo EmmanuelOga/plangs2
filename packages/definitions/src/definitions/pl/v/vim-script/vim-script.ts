@@ -1,7 +1,8 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.plang.    .set("pl+vim-script", {
+  g.plang
+    .set("pl+vim-script", {
       name: "Vim script",
       languishRanking: 63,
       stackovTags: ["vim"],
@@ -20,11 +21,11 @@ export function define(g: PlangsGraph) {
       extRedditPath: "vim",
       created: "1991",
     })
-    .relLicense.add(["license+gnu-gpl"])
+    .relLicense.add(["lic+gnu-gpl"])
     .relParadigm.add(["para+functional", "para+imperative", "para+oop", "para+scripting"])
-    .relPlatforms.add(["plat+android", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+editor", "tag+scripting"])
-    .relTsys.add(["tsys+dynamic"]);
+    .relPlatform.add(["plat+android", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTag.add(["tag+editor", "tag+scripting"])
+    .relTypeSystem.add(["tsys+dynamic"]);
 
   // TOOLS
 
