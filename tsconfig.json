@@ -16,6 +16,9 @@
       "@plangs/frontend/*": [
         "packages/frontend/src/*"
       ],
+      "@plangs/graphgen/*": [
+        "packages/graphgen/src/*"
+      ],
       "@plangs/languist/*": [
         "packages/languist/src/*"
       ],

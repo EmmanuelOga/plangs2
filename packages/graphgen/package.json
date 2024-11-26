@@ -1,0 +1,15 @@
+{
+  "name": "@plangs/graphgen",
+  "version": "0.1.0",
+  "description": "Pure JS graph generator, generates base clases from a specification.",
+  "main": "src/index.ts",
+  "files": [
+    "src"
+  ],
+  "dependencies": {
+    "@biomejs/js-api": "^0.7.1"
+  },
+  "peerDependencies": {
+    "@biomejs/wasm-nodejs": "^1.9.4"
+  }
+}
