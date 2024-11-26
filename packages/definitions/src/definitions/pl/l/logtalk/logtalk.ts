@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+logtalk", {
+  g.plang.    .set("pl+logtalk", {
       name: "Logtalk",
       description:
         "Logtalk is a declarative object-oriented logic programming language that extends and leverages the Prolog language with modern code encapsulation and code reuse mechanisms. It is implemented as a trans-compiler in highly portable, extensively tested, and well-documented code, utilizing most modern and standards-compliant Prolog implementations as a backend compiler. Logtalk supports modules, prototypes, classes, protocols, categories, event-driven programming, and high-level multi-threading programming. It is distributed under a commercial-friendly license and includes extensive documentation and portable libraries.",
@@ -25,8 +24,8 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+prolog"])
     .relInfluencedBy.add(["pl+prolog"])
-    .relLicenses.add(["license+apache", "license+artistic"])
-    .relParadigms.add(["paradigm+logic", "paradigm+oop", "paradigm+prototype"])
+    .relLicense.add(["license+apache", "license+artistic"])
+    .relParadigm.add(["para+logic", "para+oop", "para+prototype"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+analysis", "tag+compiler", "tag+framework", "tag+interpreters", "tag+viz"]);
 

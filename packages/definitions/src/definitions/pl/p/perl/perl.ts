@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+perl", {
+  g.plang.    .set("pl+perl", {
       name: "Perl",
       description:
         'Perl is a high-level, general-purpose, interpreted, dynamic programming language. Though Perl is not officially an acronym, there are various backronyms in use, including "Practical Extraction and Reporting Language".',
@@ -26,8 +25,8 @@ export function define(g: PlangsGraph) {
       created: "1987",
     })
     .relInfluencedBy.add(["pl+awk", "pl+basic", "pl+c", "pl+c++", "pl+lisp", "pl+raku", "pl+sed"])
-    .relLicenses.add(["license+artistic", "license+gnu-gpl"])
-    .relParadigms.add(["paradigm+functional", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+scripting"])
+    .relLicense.add(["license+artistic", "license+gnu-gpl"])
+    .relParadigm.add(["para+functional", "para+multi", "para+oop", "para+procedural", "para+scripting"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add([
       "tag+app",

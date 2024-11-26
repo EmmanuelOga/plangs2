@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+frink", {
+  g.plang.    .set("pl+frink", {
       name: "Frink",
       description:
         "Frink is a computer programming language focused on performing physical calculations while tracking units of measure, ensuring that calculations have the right dimensions and that the answers are meaningful.",
@@ -12,8 +11,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://frinklang.org/",
       created: "2001",
     })
-    .relLicenses.add(["license+artistic"])
-    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+oop"])
+    .relLicense.add(["license+artistic"])
+    .relParadigm.add(["para+functional", "para+imperative", "para+oop"])
     .relPlatforms.add(["plat+android", "plat+cross", "plat+java"])
     .relTags.add(["tag+interpreters", "tag+numeric", "tag+sci", "tag+scripting"])
     .relTsys.add(["tsys+dynamic", "tsys+strong"])

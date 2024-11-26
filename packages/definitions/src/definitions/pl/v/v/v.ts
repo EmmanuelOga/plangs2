@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+v", {
+  g.plang.    .set("pl+v", {
       name: "V",
       description:
         "V, also known as vlang, is a statically typed, compiled programming language created by Alexander Medvednikov in early 2019. It was inspired by the language Go, along with other influences like Oberon, Swift, and Rust. V aims for simplicity, readability, maintainability, and performance. It is free and open-source, with a model that emphasizes speed, safety, and reliability, under the MIT License.",
@@ -24,8 +23,8 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+c"])
     .relInfluencedBy.add(["pl+go", "pl+rust", "pl+swift"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+structured"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+concurrent", "para+functional", "para+imperative", "para+structured"])
     .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])
     .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting"])
     .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"]);

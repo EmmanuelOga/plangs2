@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+reason", {
+  g.plang.    .set("pl+reason", {
       name: "Reason",
       description:
         "Reason, also known as ReasonML, is a general-purpose, high-level, multi-parigm, functional and object-oriented programming language and syntax extension and toolchain for OCaml created by Jordan Walke, who also created the React framework, at Facebook. Reason leverages both the OCaml and JavaScript ecosystems, allowing it to compile to native code through OCaml's compiler toolchain and to JavaScript using the ReScript compiler.",
@@ -28,8 +27,8 @@ export function define(g: PlangsGraph) {
     .relCompilesTo.add(["pl+javascript", "pl+ocaml"])
     .relDialectOf.add(["pl+ocaml"])
     .relInfluencedBy.add(["pl+javascript", "pl+ocaml"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+functional", "paradigm+modular", "paradigm+multi", "paradigm+oop"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+functional", "para+modular", "para+multi", "para+oop"])
     .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
     .relTags.add(["tag+app", "tag+compiler", "tag+framework", "tag+interpreters"])
     .relTsys.add(["tsys+static", "tsys+strong"])

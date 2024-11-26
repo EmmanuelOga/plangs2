@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+batchfile", {
+  g.plang.    .set("pl+batchfile", {
       name: "Batchfile",
       languishRanking: 37,
       stackovTags: ["batch-file"],
@@ -20,7 +19,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Batch",
       created: "1985",
     })
-    .relParadigms.add(["paradigm+procedural", "paradigm+scripting"])
+    .relParadigm.add(["para+procedural", "para+scripting"])
     .relPlatforms.add(["plat+dos", "plat+windows"])
     .relTags.add(["tag+automation", "tag+scripting", "tag+shell"]);
 

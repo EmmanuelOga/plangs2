@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+simulink", {
+  g.plang.    .set("pl+simulink", {
       name: "Simulink",
       description:
         "Simulink is a MATLAB-based graphical programming environment for modeling, simulating, and analyzing multidomain dynamical systems. Its primary interface is a graphical block diagramming tool and a customizable set of block libraries, offering tight integration with the MATLAB environment. Simulink is widely used for automatic control, digital signal processing, embedded system design, and model-based design.",
@@ -13,7 +12,7 @@ export function define(g: PlangsGraph) {
       created: "1984",
     })
     .relInfluencedBy.add(["pl+matlab"])
-    .relParadigms.add(["paradigm+dataflow", "paradigm+simulation", "paradigm+visual"])
+    .relParadigm.add(["para+dataflow", "para+simulation", "para+visual"])
     .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
     .relTags.add(["tag+analysis", "tag+dsp", "tag+embedded", "tag+industrial", "tag+modeling", "tag+testing", "tag+wavelet"]);
 

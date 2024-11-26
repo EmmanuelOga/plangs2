@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+solidity", {
+  g.plang.    .set("pl+solidity", {
       name: "Solidity",
       languishRanking: 55,
       stackovTags: ["solidity"],
@@ -21,8 +20,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://soliditylang.org",
       created: "2014",
     })
-    .relLicenses.add(["license+gnu-gpl"])
-    .relParadigms.add(["paradigm+imperative"])
+    .relLicense.add(["license+gnu-gpl"])
+    .relParadigm.add(["para+imperative"])
     .relTsys.add(["tsys+static"]);
 
   // TOOLS

@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+processing", {
+  g.plang.    .set("pl+processing", {
       name: "Processing",
       description:
         "Processing is a free graphics library and integrated development environment (IDE) built for the electronic arts, new media art, and visual design communities with the purpose of teaching non-programmers the fundamentals of computer programming in a visual context.",
@@ -22,8 +21,8 @@ export function define(g: PlangsGraph) {
       created: "2001",
     })
     .relInfluencedBy.add(["pl+c", "pl+java"])
-    .relLicenses.add(["license+gnu-gpl", "license+lgpl"])
-    .relParadigms.add(["paradigm+dsl", "paradigm+educational", "paradigm+multi", "paradigm+oop", "paradigm+visual"])
+    .relLicense.add(["license+gnu-gpl", "license+lgpl"])
+    .relParadigm.add(["para+dsl", "para+educational", "para+multi", "para+oop", "para+visual"])
     .relPlatforms.add(["plat+cross", "plat+java"])
     .relTags.add([
       "tag+app",

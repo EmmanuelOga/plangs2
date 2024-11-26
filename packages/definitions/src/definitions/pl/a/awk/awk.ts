@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+awk", {
+  g.plang.    .set("pl+awk", {
       name: "AWK",
       description:
         "AWK is a domain-specific language designed for text processing and is typically used as a data extraction and reporting tool. It operates as a filter and is a standard feature of most Unix-like operating systems. AWK is recognized for its terseness and power in text processing, facilitating one-liner programs.",
@@ -19,8 +18,8 @@ export function define(g: PlangsGraph) {
       created: "1977",
     })
     .relInfluencedBy.add(["pl+c", "pl+sed"])
-    .relLicenses.add(["license+bsd"])
-    .relParadigms.add(["paradigm+data-driven", "paradigm+procedural", "paradigm+scripting"])
+    .relLicense.add(["license+bsd"])
+    .relParadigm.add(["para+data-driven", "para+procedural", "para+scripting"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+dataflow", "tag+editor", "tag+interpreters", "tag+scripting", "tag+shell"])
     .relTsys.add(["tsys+dynamic", "tsys+untyped"]);

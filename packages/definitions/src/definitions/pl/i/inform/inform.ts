@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+inform", {
+  g.plang.    .set("pl+inform", {
       name: "Inform",
       description:
         "Inform is a programming language and design system for interactive fiction originally created in 1993 by Graham Nelson. It allows authors to create stories that operate through natural language sentences and can compile to platforms that support the Z-code or Glulx virtual machines. Inform's significant redesigns include Inform 6 and Inform 7, which supports natural language-based story writing.",
@@ -22,8 +21,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ganelson.github.io/inform-website/",
       created: "1993",
     })
-    .relLicenses.add(["license+artistic"])
-    .relParadigms.add(["paradigm+declarative", "paradigm+dsl", "paradigm+natural-language", "paradigm+oop", "paradigm+procedural"])
+    .relLicense.add(["license+artistic"])
+    .relParadigm.add(["para+declarative", "para+dsl", "para+natural-language", "para+oop", "para+procedural"])
     .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
     .relTags.add(["tag+compiler", "tag+editor", "tag+games", "tag+if", "tag+interpreters", "tag+testing"])
     .relTsys.add(["tsys+dynamic", "tsys+untyped"]);

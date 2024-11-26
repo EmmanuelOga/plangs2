@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+hiveql", {
+  g.plang.    .set("pl+hiveql", {
       name: "HiveQL",
       languishRanking: 91,
       stackovTags: ["hive", "hiveql"],
@@ -22,8 +21,8 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Apache_Hive",
       created: "2010",
     })
-    .relLicenses.add(["license+apache"])
-    .relParadigms.add(["paradigm+declarative", "paradigm+query"])
+    .relLicense.add(["license+apache"])
+    .relParadigm.add(["para+declarative", "para+query"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+dbms"]);
 

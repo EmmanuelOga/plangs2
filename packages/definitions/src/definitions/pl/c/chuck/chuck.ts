@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+chuck", {
+  g.plang.    .set("pl+chuck", {
       name: "ChucK",
       description:
         "ChucK is a concurrent, strongly timed audio programming language for real-time synthesis, composition, and performance. It runs on Linux, Mac OS X, Microsoft Windows, and iOS. ChucK is designed to prioritize readability and flexibility, supporting deterministic concurrency and varying control rates. It enables real-time, live coding, allowing code modification while the program is running. ChucK is suitable for building complex audio synthesis programs and real-time interactive controls, offering a powerful tool for composers, researchers, and performers.",
@@ -23,8 +22,8 @@ export function define(g: PlangsGraph) {
       created: "2003",
     })
     .relInfluencedBy.add(["pl+supercollider"])
-    .relLicenses.add(["license+gnu-gpl"])
-    .relParadigms.add(["paradigm+concurrent", "paradigm+interpreted", "paradigm+multi", "paradigm+real-time", "paradigm+synchronous"])
+    .relLicense.add(["license+gnu-gpl"])
+    .relParadigm.add(["para+concurrent", "para+interpreted", "para+multi", "para+real-time", "para+synchronous"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+app", "tag+audio-dev", "tag+interpreters"])
     .relTsys.add(["tsys+strong"])

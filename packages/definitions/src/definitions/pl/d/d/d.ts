@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+d", {
+  g.plang.    .set("pl+d", {
       name: "D",
       description:
         "D, also known as dlang, is a multi-paradigm system programming language created by Walter Bright at Digital Mars and released in 2001. Andrei Alexandrescu joined the design and development effort in 2007. Though it originated as a re-engineering of C++, D is now a very different language. As it has developed, it has drawn inspiration from other high-level programming languages. Notably, it has been influenced by Java, Python, Ruby, C#, and Eiffel.",
@@ -22,14 +21,14 @@ export function define(g: PlangsGraph) {
       created: "2001",
     })
     .relInfluencedBy.add(["pl+ada", "pl+basic", "pl+c", "pl+c++", "pl+c-sharp", "pl+eiffel", "pl+python", "pl+ruby"])
-    .relLicenses.add(["license+boost"])
-    .relParadigms.add([
-      "paradigm+concurrent",
-      "paradigm+functional",
-      "paradigm+imperative",
-      "paradigm+metaprogramming",
-      "paradigm+multi",
-      "paradigm+oop",
+    .relLicense.add(["license+boost"])
+    .relParadigm.add([
+      "para+concurrent",
+      "para+functional",
+      "para+imperative",
+      "para+metaprogramming",
+      "para+multi",
+      "para+oop",
     ])
     .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
     .relTags.add([

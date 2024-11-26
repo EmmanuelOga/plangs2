@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+sass", {
+  g.plang.    .set("pl+sass", {
       name: "Sass",
       description:
         "Sass (short for syntactically awesome style sheets) is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS). SassScript is the scripting language itself.",
@@ -27,8 +26,8 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+css"])
     .relInfluencedBy.add(["pl+css"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+dsl"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+dsl"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+automation", "tag+scripting"])
     .relTsys.add(["tsys+dynamic"])

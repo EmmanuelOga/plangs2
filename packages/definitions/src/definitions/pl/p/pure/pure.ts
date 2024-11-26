@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+pure", {
+  g.plang.    .set("pl+pure", {
       name: "Pure",
       description:
         "Pure, successor to the equational language Q, is a dynamically typed, functional programming language based on term rewriting. It integrates symbolic computation, pattern matching, and an easy-to-use C interface with the ability to JIT compile to native code via LLVM.",
@@ -14,8 +13,8 @@ export function define(g: PlangsGraph) {
       created: "2008",
     })
     .relInfluencedBy.add(["pl+haskell", "pl+lisp"])
-    .relLicenses.add(["license+lgpl"])
-    .relParadigms.add(["paradigm+declarative", "paradigm+functional", "paradigm+rewriting"])
+    .relLicense.add(["license+lgpl"])
+    .relParadigm.add(["para+declarative", "para+functional", "para+rewriting"])
     .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .relTags.add([
       "tag+app",

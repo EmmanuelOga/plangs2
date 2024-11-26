@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+rakudo", {
+  g.plang.    .set("pl+rakudo", {
       name: "Rakudo",
       description:
         "Rakudo is a Raku compiler targeting MoarVM, and the Java Virtual Machine, that implements the Raku specification. It is currently the only major Raku compiler in active development. Originally developed within the Parrot project, the Rakudo source code repository was split from the project in February 2009 for independent development.",
@@ -26,8 +25,8 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+raku"])
     .relInfluencedBy.add(["pl+common-lisp", "pl+haskell", "pl+perl"])
-    .relLicenses.add(["license+artistic"])
-    .relParadigms.add(["paradigm+functional", "paradigm+multi", "paradigm+procedural"])
+    .relLicense.add(["license+artistic"])
+    .relParadigm.add(["para+functional", "para+multi", "para+procedural"])
     .relPlatforms.add(["plat+android", "plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
     .relTags.add(["tag+compiler", "tag+scripting"])
     .relTsys.add(["tsys+dynamic", "tsys+strong"])

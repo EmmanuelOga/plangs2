@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+f-sharp", {
+  g.plang.    .set("pl+f-sharp", {
       name: "F#",
       description:
         "F# (pronounced F sharp) is a general-purpose, high-level, strongly typed, multi-paradigm programming language that encompasses functional, imperative, and object-oriented programming methods. It is most often used as a cross-platform Common Language Infrastructure (CLI) language on .NET, but can also generate JavaScript and graphics processing unit (GPU) code. F# gives you simplicity and succinctness like Python with correctness, robustness and performance beyond C# or Java.",
@@ -26,16 +25,16 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+ocaml"])
     .relInfluencedBy.add(["pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ocaml", "pl+python", "pl+scala", "pl+standard-ml"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add([
-      "paradigm+agents",
-      "paradigm+concurrent",
-      "paradigm+functional",
-      "paradigm+imperative",
-      "paradigm+metaprogramming",
-      "paradigm+multi",
-      "paradigm+oop",
-      "paradigm+reflective",
+    .relLicense.add(["license+mit"])
+    .relParadigm.add([
+      "para+agents",
+      "para+concurrent",
+      "para+functional",
+      "para+imperative",
+      "para+metaprogramming",
+      "para+multi",
+      "para+oop",
+      "para+reflective",
     ])
     .relPlatforms.add(["plat+.net", "plat+cross", "plat+linux", "plat+windows"])
     .relTags.add([

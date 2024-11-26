@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+gforth", {
+  g.plang.    .set("pl+gforth", {
       name: "Gforth",
       description:
         "Gforth is a free and portable implementation of the Forth programming language for Unix-like systems, Microsoft Windows, and other operating systems. A primary goal of Gforth is to adhere to the ANS Forth standard. Gforth is free software as part of the GNU Project.",
@@ -17,8 +16,8 @@ export function define(g: PlangsGraph) {
       created: "1992",
     })
     .relImplements.add(["pl+forth"])
-    .relLicenses.add(["license+gnu-gpl"])
-    .relParadigms.add(["paradigm+procedural", "paradigm+stack-oriented"])
+    .relLicense.add(["license+gnu-gpl"])
+    .relParadigm.add(["para+procedural", "para+stack-oriented"])
     .relPlatforms.add(["plat+cross", "plat+dos", "plat+linux", "plat+windows"])
     .relTags.add(["tag+interpreters"])
     .relTsys.add(["tsys+untyped"])

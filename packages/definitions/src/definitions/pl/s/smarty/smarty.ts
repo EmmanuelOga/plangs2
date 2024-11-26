@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+smarty", {
+  g.plang.    .set("pl+smarty", {
       name: "Smarty",
       languishRanking: 89,
       stackovTags: ["smarty"],
@@ -24,8 +23,8 @@ export function define(g: PlangsGraph) {
       created: "2001",
     })
     .relCompilesTo.add(["pl+php"])
-    .relLicenses.add(["license+lgpl"])
-    .relParadigms.add(["paradigm+dsl"])
+    .relLicense.add(["license+lgpl"])
+    .relParadigm.add(["para+dsl"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+scripting"]);
 

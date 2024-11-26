@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+c3", {
+  g.plang.    .set("pl+c3", {
       name: "c3",
       description:
         "C3 is an modern programming language that enhances the traditional C language with modern features while retaining compatibility with C. It offers full C ABI compatibility, intuitive module system, semantic macros, and improved error handling among other features. It's designed to be an evolution, not a revolution, making it easier for C developers to adapt it in existing projects. The language supports procedural programming paradigms and includes powerful reflection capabilities, enabling robust debugging and development experiences.",
@@ -18,8 +17,8 @@ export function define(g: PlangsGraph) {
       created: "2019",
     })
     .relInfluencedBy.add(["pl+c"])
-    .relLicenses.add(["license+lgpl", "license+mit"])
-    .relParadigms.add(["paradigm+compiled", "paradigm+general-purpose", "paradigm+multi", "paradigm+procedural"])
+    .relLicense.add(["license+lgpl", "license+mit"])
+    .relParadigm.add(["para+compiled", "para+general-purpose", "para+multi", "para+procedural"])
     .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .relTags.add(["tag+compiler", "tag+scripting"])
     .relTsys.add(["tsys+static", "tsys+strong"]);

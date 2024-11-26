@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+shacl", {
+  g.plang.    .set("pl+shacl", {
       name: "SHACL",
       description:
         "Shapes Constraint Language (SHACL) is a World Wide Web Consortium (W3C) standard language for describing Resource Description Framework (RDF) graphs. SHACL has been designed to enhance the semantic and technical interoperability layers of ontologies expressed as RDF graphs.",
@@ -14,7 +13,7 @@ export function define(g: PlangsGraph) {
       created: "2015",
     })
     .relInfluencedBy.add(["pl+shex"])
-    .relParadigms.add(["paradigm+declarative", "paradigm+dsl", "paradigm+validation"])
+    .relParadigm.add(["para+declarative", "para+dsl", "para+validation"])
     .relTags.add(["tag+dbms", "tag+framework"])
     .relTsys.add(["tsys+structural"]);
 

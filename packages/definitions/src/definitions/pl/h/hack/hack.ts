@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+hack", {
+  g.plang.    .set("pl+hack", {
       name: "Hack",
       description:
         "Hack is a multi-paradigm programming language developed by Meta (formerly Facebook) for the HipHop Virtual Machine (HHVM). It is a dialect of PHP designed to reconcile the fast development cycle of a dynamically-typed language with the discipline provided by static typing. Hack offers features like gradual typing, asynchronous operations, generics, and XHP for secure UI representations. It allows for fast development with features for type checking and is open-source under the MIT License.",
@@ -23,8 +22,8 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+php"])
     .relInfluencedBy.add(["pl+c-sharp", "pl+haskell", "pl+ocaml", "pl+php", "pl+scala"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+reflective"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+interpreters", "tag+scripting"])
     .relTsys.add(["tsys+dynamic", "tsys+gradual", "tsys+manifest", "tsys+safe", "tsys+static", "tsys+strong", "tsys+weak"])

@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+actionscript", {
+  g.plang.    .set("pl+actionscript", {
       name: "ActionScript",
       description:
         "ActionScript is an object-oriented programming language originally developed by Macromedia Inc. (later acquired by Adobe). It is influenced by HyperTalk, the scripting language for HyperCard. It is now an implementation of ECMAScript (meaning it is a superset of the syntax and semantics of the language more widely known as JavaScript), though it originally arose as a sibling, both being influenced by HyperTalk. ActionScript code is usually converted to bytecode format by a compiler.",
@@ -26,8 +25,8 @@ export function define(g: PlangsGraph) {
       created: "1998",
     })
     .relInfluencedBy.add(["pl+java", "pl+javascript"])
-    .relLicenses.add(["license+apache"])
-    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+prototype", "paradigm+scripting"])
+    .relLicense.add(["license+apache"])
+    .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+prototype", "para+scripting"])
     .relPlatforms.add(["plat+apple", "plat+cross", "plat+web", "plat+windows"])
     .relTags.add([
       "tag+app",

@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+cilk", {
+  g.plang.    .set("pl+cilk", {
       name: "Cilk",
       description:
         "Cilk, Cilk++, Cilk Plus, and OpenCilk are general-purpose programming languages designed for multithreaded parallel computing. They are based on the C and C++ languages and extend them with constructs for parallel loops and the fork-join idiom.",
@@ -19,8 +18,8 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+c"])
     .relInfluencedBy.add(["pl+c", "pl+c++"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+concurrent", "paradigm+imperative", "paradigm+parallel", "paradigm+procedural", "paradigm+structured"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+concurrent", "para+imperative", "para+parallel", "para+procedural", "para+structured"])
     .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+x86-64"])
     .relTags.add(["tag+compiler"])
     .relTsys.add(["tsys+manifest", "tsys+static", "tsys+weak"]);

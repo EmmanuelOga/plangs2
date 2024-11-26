@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+tcl", {
+  g.plang.    .set("pl+tcl", {
       name: "Tcl",
       description:
         'Tcl (pronounced "tickle" or as an initialism) is a high-level, general-purpose, interpreted, dynamic programming language. Designed for extensibility and embeddability, Tcl supports multiple programming paradigms including event-driven, functional, imperative, and object-oriented styles. It is often used together with the Tk toolkit for GUI development, and is widely used for web applications, testing, and script automation.',
@@ -27,14 +26,14 @@ export function define(g: PlangsGraph) {
       created: "1988",
     })
     .relInfluencedBy.add(["pl+awk", "pl+lisp"])
-    .relLicenses.add(["license+bsd"])
-    .relParadigms.add([
-      "paradigm+event-driven",
-      "paradigm+functional",
-      "paradigm+imperative",
-      "paradigm+multi",
-      "paradigm+oop",
-      "paradigm+procedural",
+    .relLicense.add(["license+bsd"])
+    .relParadigm.add([
+      "para+event-driven",
+      "para+functional",
+      "para+imperative",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
     ])
     .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
     .relTags.add([

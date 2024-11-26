@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+xproc", {
+  g.plang.    .set("pl+xproc", {
       name: "XProc",
       description:
         "XProc is an XML transformation language for processing documents in pipelines: chaining conversions and other steps together to achieve the desired results. It can handle documents in XML, HTML, JSON, text and binary data seamlessly.",
@@ -23,7 +22,7 @@ export function define(g: PlangsGraph) {
       created: "2010",
     })
     .relInfluencedBy.add(["pl+xml"])
-    .relParadigms.add(["paradigm+declarative", "paradigm+dsl", "paradigm+pipeline"])
+    .relParadigm.add(["para+declarative", "para+dsl", "para+pipeline"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+dataflow", "tag+workflow"])
     .relTsys.add(["tsys+dynamic"]);

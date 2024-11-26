@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+php", {
+  g.plang.    .set("pl+php", {
       name: "PHP",
       description:
         "PHP is a popular general-purpose scripting language especially suited to web development. Fast, flexible and pragmatic, PHP powers everything from your blog to the most popular websites in the world.",
@@ -26,14 +25,14 @@ export function define(g: PlangsGraph) {
       created: "1995",
     })
     .relInfluencedBy.add(["pl+c", "pl+java"])
-    .relParadigms.add([
-      "paradigm+functional",
-      "paradigm+imperative",
-      "paradigm+multi",
-      "paradigm+oop",
-      "paradigm+procedural",
-      "paradigm+reflective",
-      "paradigm+scripting",
+    .relParadigm.add([
+      "para+functional",
+      "para+imperative",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
+      "para+reflective",
+      "para+scripting",
     ])
     .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .relTags.add(["tag+scripting", "tag+server"])

@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+shex", {
+  g.plang.    .set("pl+shex", {
       name: "ShEx",
       description:
         "Shape Expressions (ShEx) is a data modeling language specifically designed for the validation and description of RDF (Resource Description Framework) data. It is primarily used within semantic web technologies to define and enforce data structures and constraints for RDF graphs.",
@@ -16,8 +15,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.w3.org/community/shex/",
       created: "2014",
     })
-    .relLicenses.add(["license+cc-by"])
-    .relParadigms.add(["paradigm+declarative", "paradigm+dsl", "paradigm+validation"])
+    .relLicense.add(["license+cc-by"])
+    .relParadigm.add(["para+declarative", "para+dsl", "para+validation"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+dataq", "tag+framework", "tag+scripting", "tag+workflow"])
     .relWrittenIn.add(["pl+javascript", "pl+scala"]);

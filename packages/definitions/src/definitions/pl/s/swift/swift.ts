@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+swift", {
+  g.plang.    .set("pl+swift", {
       name: "Swift",
       description:
         "Swift is a general-purpose programming language that’s approachable for newcomers and powerful for experts. It is fast, modern, safe, and a joy to write. Swift was developed by Apple Inc. and open-source contributors as a replacement for Objective-C. Swift's syntax is simple yet powerful, incorporating concepts from various languages. It was first released on June 2, 2014, and has become the primary language for Apple platform development.",
@@ -26,20 +25,20 @@ export function define(g: PlangsGraph) {
       created: "2014",
     })
     .relInfluencedBy.add(["pl+c", "pl+c-sharp", "pl+d", "pl+haskell", "pl+lisp", "pl+python", "pl+ruby", "pl+rust"])
-    .relLicenses.add(["license+apache"])
-    .relParadigms.add([
-      "paradigm+concurrent",
-      "paradigm+dataflow",
-      "paradigm+declarative",
-      "paradigm+distributed",
-      "paradigm+functional",
-      "paradigm+imperative",
-      "paradigm+multi",
-      "paradigm+oop",
-      "paradigm+protocol",
-      "paradigm+scientific",
-      "paradigm+scripting",
-      "paradigm+structured",
+    .relLicense.add(["license+apache"])
+    .relParadigm.add([
+      "para+concurrent",
+      "para+dataflow",
+      "para+declarative",
+      "para+distributed",
+      "para+functional",
+      "para+imperative",
+      "para+multi",
+      "para+oop",
+      "para+protocol",
+      "para+scientific",
+      "para+scripting",
+      "para+structured",
     ])
     .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+windows"])
     .relTags.add([

@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+hotspot", {
+  g.plang.    .set("pl+hotspot", {
       name: "HotSpot VM",
       description:
         "HotSpot, released as Java HotSpot Performance Engine, is a Java virtual machine for desktop and server computers. Developed initially by Sun Microsystems and later by Oracle Corporation, HotSpot is known for its just-in-time compilation and adaptive optimization techniques, serving as the reference implementation of the Java programming language.",
@@ -16,8 +15,8 @@ export function define(g: PlangsGraph) {
       created: "1999",
     })
     .relInfluencedBy.add(["pl+self"])
-    .relLicenses.add(["license+gnu-gpl"])
-    .relParadigms.add(["paradigm+compiled", "paradigm+concurrent", "paradigm+interpreted"])
+    .relLicense.add(["license+gnu-gpl"])
+    .relParadigm.add(["para+compiled", "para+concurrent", "para+interpreted"])
     .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+java", "plat+linux", "plat+windows"])
     .relTags.add(["tag+asm", "tag+compiler", "tag+interpreters", "tag+server"])
     .relTsys.add(["tsys+nominal", "tsys+static", "tsys+strong"])

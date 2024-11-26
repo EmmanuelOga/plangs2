@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+imba", {
+  g.plang.    .set("pl+imba", {
       name: "Imba",
       description:
         "Imba is a friendly full-stack programming language for the web that compiles to performant JavaScript. It has language-level support for defining, extending, subclassing, instantiating and rendering DOM nodes.",
@@ -23,8 +22,8 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+javascript"])
     .relInfluencedBy.add(["pl+coffeescript"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+functional", "paradigm+general-purpose", "paradigm+imperative", "paradigm+oop", "paradigm+reactive"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+functional", "para+general-purpose", "para+imperative", "para+oop", "para+reactive"])
     .relPlatforms.add(["plat+nodejs", "plat+web"])
     .relTags.add(["tag+ui"])
     .relTsys.add(["tsys+dynamic", "tsys+inferred", "tsys+static"])

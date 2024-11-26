@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
   g.nodes.plat.set("plat+.net", {

@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+odin", {
+  g.plang.    .set("pl+odin", {
       name: "Odin",
       description:
         "Odin is a general-purpose programming language designed for high performance, simplicity, and data-oriented programming. As an alternative to C, it emphasizes modern systems programming and ease of use, making it suitable for a wide range of applications, including those in gaming and film industries.",
@@ -20,14 +19,14 @@ export function define(g: PlangsGraph) {
       created: "2016",
     })
     .relInfluencedBy.add(["pl+c"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add([
-      "paradigm+compiled",
-      "paradigm+concurrent",
-      "paradigm+functional",
-      "paradigm+general-purpose",
-      "paradigm+imperative",
-      "paradigm+procedural",
+    .relLicense.add(["license+mit"])
+    .relParadigm.add([
+      "para+compiled",
+      "para+concurrent",
+      "para+functional",
+      "para+general-purpose",
+      "para+imperative",
+      "para+procedural",
     ])
     .relPlatforms.add(["plat+arm", "plat+cross", "plat+linux", "plat+wasm", "plat+web", "plat+windows", "plat+x86-64"])
     .relTags.add(["tag+compiler"])

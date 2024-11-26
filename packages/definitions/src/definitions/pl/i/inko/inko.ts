@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+inko", {
+  g.plang.    .set("pl+inko", {
       name: "Inko",
       description:
         "Inko is a programming language designed for building concurrent software efficiently and safely. It features deterministic automatic memory management, move semantics, static typing, and type-safe concurrency. It is particularly known for avoiding runtime errors, race conditions, and unpredictable performance.",
@@ -17,8 +16,8 @@ export function define(g: PlangsGraph) {
       created: "2016",
     })
     .relInfluencedBy.add(["pl+erlang", "pl+go"])
-    .relLicenses.add(["license+mit", "license+mpl"])
-    .relParadigms.add(["paradigm+concurrent", "paradigm+message-passing", "paradigm+multi", "paradigm+oop"])
+    .relLicense.add(["license+mit", "license+mpl"])
+    .relParadigm.add(["para+concurrent", "para+message-passing", "para+multi", "para+oop"])
     .relPlatforms.add(["plat+cross", "plat+linux"])
     .relTags.add(["tag+automation"])
     .relTsys.add(["tsys+nominal", "tsys+static", "tsys+strong"])

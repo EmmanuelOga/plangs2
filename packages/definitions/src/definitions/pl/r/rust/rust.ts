@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+rust", {
+  g.plang.    .set("pl+rust", {
       name: "Rust",
       description:
         'Rust is a general-purpose programming language emphasizing performance, type safety, and concurrency. It enforces memory safety, meaning that all references point to valid memory, without a garbage collector. To simultaneously enforce memory safety and prevent data races, its "borrow checker" tracks the object lifetime of all references in a program during compiling.',
@@ -39,14 +38,14 @@ export function define(g: PlangsGraph) {
       "pl+standard-ml",
       "pl+swift",
     ])
-    .relLicenses.add(["license+apache", "license+mit"])
-    .relParadigms.add([
-      "paradigm+compiled",
-      "paradigm+concurrent",
-      "paradigm+functional",
-      "paradigm+imperative",
-      "paradigm+multi",
-      "paradigm+structured",
+    .relLicense.add(["license+apache", "license+mit"])
+    .relParadigm.add([
+      "para+compiled",
+      "para+concurrent",
+      "para+functional",
+      "para+imperative",
+      "para+multi",
+      "para+structured",
     ])
     .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
     .relTags.add([

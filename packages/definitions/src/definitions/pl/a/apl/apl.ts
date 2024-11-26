@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+apl", {
+  g.plang.    .set("pl+apl", {
       name: "APL",
       description:
         "APL (named after the book A Programming Language) is a programming language developed in the 1960s by Kenneth E. Iverson. Its central datatype is the multidimensional array. It uses a large range of special graphic symbols to represent most functions and operators, leading to very concise code. It has been an important influence on the development of concept modeling, spreadsheets, functional programming, and computer math packages. It has also inspired several other programming languages.",
@@ -24,7 +23,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://aplwiki.com/",
       created: "1966",
     })
-    .relParadigms.add(["paradigm+array", "paradigm+functional", "paradigm+modular", "paradigm+structured"])
+    .relParadigm.add(["para+array", "para+functional", "para+modular", "para+structured"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add([
       "tag+3dg",

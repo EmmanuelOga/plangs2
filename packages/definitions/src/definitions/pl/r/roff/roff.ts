@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+roff", {
+  g.plang.    .set("pl+roff", {
       name: "Roff",
       languishRanking: 92,
       stackovTags: ["groff"],
@@ -25,8 +24,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.gnu.org/software/groff/",
       created: "1990",
     })
-    .relLicenses.add(["license+gnu-gpl"])
-    .relParadigms.add(["paradigm+macro"])
+    .relLicense.add(["license+gnu-gpl"])
+    .relParadigm.add(["para+macro"])
     .relPlatforms.add(["plat+bsd", "plat+linux"]);
 
   // TOOLS

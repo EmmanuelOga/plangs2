@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+curry", {
+  g.plang.    .set("pl+curry", {
       name: "Curry",
       description:
         "Curry is a declarative programming language that uniquely integrates features of functional and logic programming paradigms. It supports non-deterministic computations, constraint programming, and combines features such as lazy evaluation and strong typing. Curry is based on Haskell but extends it with logic programming features.",
@@ -19,15 +18,15 @@ export function define(g: PlangsGraph) {
       created: "1995",
     })
     .relInfluencedBy.add(["pl+haskell", "pl+prolog"])
-    .relLicenses.add(["license+bsd"])
-    .relParadigms.add([
-      "paradigm+concurrent",
-      "paradigm+constraint",
-      "paradigm+declarative",
-      "paradigm+functional",
-      "paradigm+lazy",
-      "paradigm+logic",
-      "paradigm+modular",
+    .relLicense.add(["license+bsd"])
+    .relParadigm.add([
+      "para+concurrent",
+      "para+constraint",
+      "para+declarative",
+      "para+functional",
+      "para+lazy",
+      "para+logic",
+      "para+modular",
     ])
     .relPlatforms.add(["plat+cross", "plat+linux", "plat+x86-64"])
     .relTags.add(["tag+audio-dev", "tag+compiler", "tag+interpreters", "tag+scripting", "tag+testing"])

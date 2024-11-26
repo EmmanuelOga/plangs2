@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+flutter", {
+  g.plang.    .set("pl+flutter", {
       name: "Flutter",
       description:
         "Flutter is an open-source UI software development kit created by Google. It can be used to develop cross platform applications from a single codebase for the web, Fuchsia, Android, iOS, Linux, macOS, and Windows. First described in 2015, Flutter was released in May 2017. Flutter is used internally by Google in apps such as Google Pay and Google Earth as well as other software developers including ByteDance and Alibaba.",
@@ -20,8 +19,8 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+javascript"])
     .relImplements.add(["pl+dart"])
-    .relLicenses.add(["license+bsd"])
-    .relParadigms.add(["paradigm+declarative", "paradigm+functional", "paradigm+oop"])
+    .relLicense.add(["license+bsd"])
+    .relParadigm.add(["para+declarative", "para+functional", "para+oop"])
     .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows"])
     .relTags.add(["tag+3dg", "tag+app", "tag+framework", "tag+industrial", "tag+ray-tracer", "tag+ui"])
     .relTsys.add(["tsys+static", "tsys+strong"])

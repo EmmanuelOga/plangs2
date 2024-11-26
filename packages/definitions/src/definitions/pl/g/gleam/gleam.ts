@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+gleam", {
+  g.plang.    .set("pl+gleam", {
       name: "Gleam",
       description:
         "Gleam is a general-purpose, concurrent, functional high-level programming language that compiles to Erlang or JavaScript source code. It features a type-safe, static, inferred typing discipline and runs on the Erlang virtual machine BEAM, known for its reliability, scalability, and fault tolerance.",
@@ -28,8 +27,8 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+javascript"])
     .relInfluencedBy.add(["pl+elixir", "pl+erlang", "pl+go", "pl+javascript", "pl+ocaml", "pl+rust"])
-    .relLicenses.add(["license+apache"])
-    .relParadigms.add(["paradigm+concurrent", "paradigm+functional", "paradigm+multi"])
+    .relLicense.add(["license+apache"])
+    .relParadigm.add(["para+concurrent", "para+functional", "para+multi"])
     .relPlatforms.add(["plat+apple", "plat+beam", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .relTags.add(["tag+compiler", "tag+framework", "tag+interpreters"])
     .relTsys.add(["tsys+inferred", "tsys+safe", "tsys+static"])

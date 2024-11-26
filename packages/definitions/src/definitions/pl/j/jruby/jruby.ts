@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+jruby", {
+  g.plang.    .set("pl+jruby", {
       name: "JRuby",
       description:
         "JRuby is an implementation of the Ruby programming language atop the Java Virtual Machine, written largely in Java. It is free software released under a three-way EPL/GPL/LGPL license. JRuby is tightly integrated with Java to allow the embedding of the interpreter into any Java application with full two-way access between Java and Ruby code, similar to Jython for Python.",
@@ -25,8 +24,8 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+ruby"])
     .relInfluencedBy.add(["pl+ruby"])
-    .relLicenses.add(["license+epl", "license+gnu-gpl", "license+lgpl"])
-    .relParadigms.add(["paradigm+concurrent", "paradigm+oop", "paradigm+reflective", "paradigm+scripting"])
+    .relLicense.add(["license+epl", "license+gnu-gpl", "license+lgpl"])
+    .relParadigm.add(["para+concurrent", "para+oop", "para+reflective", "para+scripting"])
     .relPlatforms.add(["plat+cross", "plat+java"])
     .relTags.add(["tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting", "tag+shell"])
     .relTsys.add(["tsys+duck", "tsys+dynamic", "tsys+strong"])

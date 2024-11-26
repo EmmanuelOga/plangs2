@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+yaml", {
+  g.plang.    .set("pl+yaml", {
       name: "YAML",
       languishRanking: 59,
       stackovTags: ["yaml"],
@@ -26,7 +25,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "yaml",
       created: "2001",
     })
-    .relParadigms.add(["paradigm+data-exchange", "paradigm+declarative"])
+    .relParadigm.add(["para+data-exchange", "para+declarative"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+scripting"]);
 

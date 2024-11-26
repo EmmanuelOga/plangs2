@@ -1,7 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
+  g.plang
     .set("pl+python", {
       name: "Python",
       description:
@@ -27,17 +27,17 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.python.org/",
       created: "1991",
     })
-    .relInfluencedBy.add(["pl+ada", "pl+apl", "pl+c", "pl+c++", "pl+haskell", "pl+lisp", "pl+perl", "pl+r5rs", "pl+scheme", "pl+standard-ml"])
-    .relLicenses.add(["license+python"])
-    .relParadigms.add([
-      "paradigm+functional",
-      "paradigm+imperative",
-      "paradigm+multi",
-      "paradigm+oop",
-      "paradigm+procedural",
-      "paradigm+reflective",
-      "paradigm+scripting",
-      "paradigm+structured",
+    .relInfluence.add(["pl+ada", "pl+apl", "pl+c", "pl+c++", "pl+haskell", "pl+lisp", "pl+perl", "pl+r5rs", "pl+scheme", "pl+standard-ml"])
+    .relLicense.add(["lic+python"])
+    .relParadigm.add([
+      "para+functional",
+      "para+imperative",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
+      "para+reflective",
+      "para+scripting",
+      "para+structured",
     ])
     .relPlBundles.add(["bundle+py-one"])
     .relPlatforms.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+raspberry", "plat+wasm", "plat+windows"])

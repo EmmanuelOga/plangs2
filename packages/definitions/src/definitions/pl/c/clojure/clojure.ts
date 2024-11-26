@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+clojure", {
+  g.plang.    .set("pl+clojure", {
       name: "Clojure",
       description:
         "Clojure (/ˈkloʊʒər/, like closure) is a dynamic, general-purpose programming language, combining the approachability and interactive development of a scripting language with an efficient and robust infrastructure for multithreaded programming. It is known for its expressiveness, immutability, and concurrency.",
@@ -35,15 +34,15 @@ export function define(g: PlangsGraph) {
       "pl+scheme",
       "pl+wolfram-language",
     ])
-    .relLicenses.add(["license+epl"])
-    .relParadigms.add([
-      "paradigm+agents",
-      "paradigm+concurrent",
-      "paradigm+functional",
-      "paradigm+logic",
-      "paradigm+macro",
-      "paradigm+multi",
-      "paradigm+pipeline",
+    .relLicense.add(["license+epl"])
+    .relParadigm.add([
+      "para+agents",
+      "para+concurrent",
+      "para+functional",
+      "para+logic",
+      "para+macro",
+      "para+multi",
+      "para+pipeline",
     ])
     .relPlatforms.add(["plat+cross", "plat+java", "plat+nodejs"])
     .relTags.add([

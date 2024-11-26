@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+clozure", {
+  g.plang.    .set("pl+clozure", {
       name: "Clozure CL",
       description:
         "Clozure CL (often called CCL for short) is a free Common Lisp implementation with a long history. It implements the full ANSI Common Lisp standard with several extensions including CLOS MOP, threads, CLOS conditions, and streams. It features a command line development environment and an experimental integrated development environment (IDE) for macOS using the Hemlock editor. CCL offers fast compilation speed, native threads, and a precise, generational, compacting garbage collector. It is open-source, hosted by Clozure Associates, and widely used in software applications such as ITA Software's Airline Reservation System.",
@@ -14,8 +13,8 @@ export function define(g: PlangsGraph) {
       created: "2000",
     })
     .relImplements.add(["pl+common-lisp"])
-    .relLicenses.add(["license+apache", "license+lgpl"])
-    .relParadigms.add(["paradigm+functional", "paradigm+multi", "paradigm+oop"])
+    .relLicense.add(["license+apache", "license+lgpl"])
+    .relParadigm.add(["para+functional", "para+multi", "para+oop"])
     .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .relTags.add(["tag+compiler", "tag+editor"])
     .relTsys.add(["tsys+dynamic"])

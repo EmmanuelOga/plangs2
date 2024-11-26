@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+mustache", {
+  g.plang.    .set("pl+mustache", {
       name: "Mustache",
       languishRanking: 87,
       stackovTags: ["mustache"],
@@ -23,8 +22,8 @@ export function define(g: PlangsGraph) {
       created: "2009",
     })
     .relCompilesTo.add(["pl+javascript"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+data-driven", "paradigm+declarative"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+data-driven", "para+declarative"])
     .relPlatforms.add(["plat+web"]);
 
   // TOOLS

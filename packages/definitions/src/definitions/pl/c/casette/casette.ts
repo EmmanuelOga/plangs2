@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+casette", {
+  g.plang.    .set("pl+casette", {
       name: "Cassette",
       description: "Cassette is a simple language for personal programming. It's DIY, roll your own, batteries-not-included. It's for fun.",
       keywords: ["cassette"],
@@ -16,14 +15,14 @@ export function define(g: PlangsGraph) {
       created: "2021",
     })
     .relCompilesTo.add(["pl+c"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add([
-      "paradigm+dataflow",
-      "paradigm+declarative",
-      "paradigm+dsl",
-      "paradigm+event-driven",
-      "paradigm+functional",
-      "paradigm+interpreted",
+    .relLicense.add(["license+mit"])
+    .relParadigm.add([
+      "para+dataflow",
+      "para+declarative",
+      "para+dsl",
+      "para+event-driven",
+      "para+functional",
+      "para+interpreted",
     ])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+audio-dev", "tag+workflow"])

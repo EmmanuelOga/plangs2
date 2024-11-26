@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+idris", {
+  g.plang.    .set("pl+idris", {
       name: "Idris",
       description:
         "Idris is a purely-functional programming language, designed for Type-Driven Development with dependent types, optional lazy evaluation, and features such as a totality checker. It serves as both a general-purpose language and a proof assistant.",
@@ -25,8 +24,8 @@ export function define(g: PlangsGraph) {
       created: "2007",
     })
     .relInfluencedBy.add(["pl+agda", "pl+clean", "pl+coq", "pl+f-sharp", "pl+haskell", "pl+rust"])
-    .relLicenses.add(["license+bsd"])
-    .relParadigms.add(["paradigm+functional"])
+    .relLicense.add(["license+bsd"])
+    .relParadigm.add(["para+functional"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+interpreters", "tag+proofs"])
     .relTsys.add(["tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong"]);

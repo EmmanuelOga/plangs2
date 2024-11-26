@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+css", {
+  g.plang.    .set("pl+css", {
       name: "CSS",
       languishRanking: 15,
       stackovTags: ["css"],
@@ -25,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.w3.org/Style/CSS/",
       created: "1996",
     })
-    .relParadigms.add(["paradigm+declarative"])
+    .relParadigm.add(["para+declarative"])
     .relPlatforms.add(["plat+web"])
     .relTags.add(["tag+ui"]);
 

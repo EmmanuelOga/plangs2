@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+sbcl", {
+  g.plang.    .set("pl+sbcl", {
       name: "SBCL",
       description:
         "Steel Bank Common Lisp (SBCL) is a high-performance Common Lisp compiler. It is a free and open-source implementation with a permissive license. SBCL provides a compiler and a runtime system for ANSI Common Lisp and features an interactive environment with a debugger, statistical profiler, code coverage tool, and many extensions. Originally forked in December 1999 from CMUCL, it supports multiple operating systems including Linux, macOS, Solaris, and Windows.",
@@ -25,8 +24,8 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+common-lisp"])
     .relInfluencedBy.add(["pl+common-lisp"])
-    .relLicenses.add(["license+bsd", "license+mit", "license+public-domain"])
-    .relParadigms.add(["paradigm+functional", "paradigm+multi", "paradigm+oop", "paradigm+procedural", "paradigm+reflective"])
+    .relLicense.add(["license+bsd", "license+mit", "license+public-domain"])
+    .relParadigm.add(["para+functional", "para+multi", "para+oop", "para+procedural", "para+reflective"])
     .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .relTags.add(["tag+compiler", "tag+interpreters"])
     .relTsys.add(["tsys+dynamic", "tsys+strong"])

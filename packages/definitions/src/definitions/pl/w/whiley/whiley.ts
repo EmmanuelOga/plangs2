@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+whiley", {
+  g.plang.    .set("pl+whiley", {
       name: "Whiley",
       description:
         'Whiley is an experimental programming language that combines features from the functional and imperative paradigms, and supports formal specification through function preconditions, postconditions and loop invariants. The language uses flow-sensitive typing also known as "flow typing."',
@@ -19,8 +18,8 @@ export function define(g: PlangsGraph) {
       created: "2010",
     })
     .relInfluencedBy.add(["pl+c", "pl+python", "pl+rust"])
-    .relLicenses.add(["license+bsd"])
-    .relParadigms.add(["paradigm+functional", "paradigm+imperative"])
+    .relLicense.add(["license+bsd"])
+    .relParadigm.add(["para+functional", "para+imperative"])
     .relPlatforms.add(["plat+cross", "plat+java"])
     .relTags.add(["tag+compiler", "tag+interpreters", "tag+sci"])
     .relTsys.add(["tsys+flow", "tsys+safe", "tsys+strong", "tsys+structural"]);

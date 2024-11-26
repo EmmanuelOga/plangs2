@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+groovy", {
+  g.plang.    .set("pl+groovy", {
       name: "Groovy",
       description:
         "Apache Groovy is a powerful, optionally typed and dynamic language, with static-typing and static compilation capabilities, for the Java platform. Designed to improve developer productivity, it features a concise, familiar syntax, integrates smoothly with any Java program, and enhances your application with capabilities like scripting, Domain-Specific Language authoring, runtime and compile-time metaprogramming, and functional programming. It has a flat learning curve for Java developers, seamlessly interoperates with Java libraries, and boasts a vibrant ecosystem that includes web development, reactive applications, and build tools like Gradle.",
@@ -29,8 +28,8 @@ export function define(g: PlangsGraph) {
       created: "2003",
     })
     .relInfluencedBy.add(["pl+perl", "pl+python", "pl+ruby"])
-    .relLicenses.add(["license+apache"])
-    .relParadigms.add(["paradigm+aspect", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
+    .relLicense.add(["license+apache"])
+    .relParadigm.add(["para+aspect", "para+functional", "para+imperative", "para+multi", "para+oop", "para+scripting"])
     .relPlatforms.add(["plat+java"])
     .relTags.add(["tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting", "tag+testing"])
     .relTsys.add(["tsys+duck", "tsys+dynamic", "tsys+static", "tsys+strong"]);

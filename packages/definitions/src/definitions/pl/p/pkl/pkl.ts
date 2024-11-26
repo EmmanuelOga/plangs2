@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+pkl", {
+  g.plang.    .set("pl+pkl", {
       name: "PKL",
       description:
         "PKL is a language designed to handle configurable data definitions with ease, offering a robust configuration format that can generate output in multiple formats like JSON, YAML, and more. It supports embedded configurations in applications like Java, Kotlin, Swift, and Go, and provides IDE integrations to facilitate ease of use for developers.",
@@ -20,15 +19,15 @@ export function define(g: PlangsGraph) {
       created: "2021",
     })
     .relCompilesTo.add(["pl+json", "pl+yaml"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add([
-      "paradigm+data-driven",
-      "paradigm+data-exchange",
-      "paradigm+declarative",
-      "paradigm+functional",
-      "paradigm+multi",
-      "paradigm+scripting",
-      "paradigm+validation",
+    .relLicense.add(["license+mit"])
+    .relParadigm.add([
+      "para+data-driven",
+      "para+data-exchange",
+      "para+declarative",
+      "para+functional",
+      "para+multi",
+      "para+scripting",
+      "para+validation",
     ])
     .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
     .relTags.add(["tag+automation", "tag+interpreters", "tag+scripting"])

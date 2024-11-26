@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+coldfusion", {
+  g.plang.    .set("pl+coldfusion", {
       name: "ColdFusion",
       description:
         "Adobe ColdFusion is a commercial rapid web-application development computing platform created by J. J. Allaire in 1995. The programming language used with the platform is known as CFML (ColdFusion Markup Language). ColdFusion was initially designed to simplify connecting HTML pages to a database, and quickly evolved into a comprehensive platform featuring a full scripting language and an integrated development environment (IDE).",
@@ -29,7 +28,7 @@ export function define(g: PlangsGraph) {
       created: "1995",
     })
     .relCompilesTo.add(["pl+coldfusion", "pl+java"])
-    .relParadigms.add(["paradigm+event-driven", "paradigm+multi", "paradigm+procedural", "paradigm+scripting"])
+    .relParadigm.add(["para+event-driven", "para+multi", "para+procedural", "para+scripting"])
     .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .relTags.add(["tag+app", "tag+dataflow", "tag+dbms", "tag+scripting", "tag+server"])
     .relTsys.add(["tsys+duck", "tsys+dynamic"]);

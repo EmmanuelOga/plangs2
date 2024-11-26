@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+haxe", {
+  g.plang.    .set("pl+haxe", {
       name: "Haxe",
       description:
         "Haxe is a high-level cross-platform programming language and compiler that can produce applications and source code for many different computing platforms from one code-base. It is free and open-source software, released under an MIT License. The compiler is written in OCaml and is released under the GNU General Public License (GPL) version 2.",
@@ -24,8 +23,8 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+actionscript", "pl+c++", "pl+c-sharp", "pl+java", "pl+javascript", "pl+lua", "pl+ocaml", "pl+php", "pl+python"])
     .relInfluencedBy.add(["pl+actionscript", "pl+c++", "pl+c-sharp", "pl+javascript", "pl+lua", "pl+ocaml", "pl+python"])
-    .relLicenses.add(["license+gnu-gpl", "license+mit"])
-    .relParadigms.add(["paradigm+functional", "paradigm+multi", "paradigm+oop"])
+    .relLicense.add(["license+gnu-gpl", "license+mit"])
+    .relParadigm.add(["para+functional", "para+multi", "para+oop"])
     .relPlatforms.add(["plat+android", "plat+apple", "plat+arm", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
     .relTags.add(["tag+app", "tag+compiler", "tag+control", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+viz"])
     .relTsys.add(["tsys+dynamic", "tsys+nominal", "tsys+static", "tsys+strong"])

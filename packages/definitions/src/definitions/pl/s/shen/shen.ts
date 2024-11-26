@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+shen", {
+  g.plang.    .set("pl+shen", {
       name: "Shen",
       description:
         "Shen is a functional programming language that combines logic programming, lambda calculus, and pattern matching into a powerful language for AI and other complex application domains.",
@@ -21,8 +20,8 @@ export function define(g: PlangsGraph) {
       created: "2011",
     })
     .relInfluencedBy.add(["pl+prolog", "pl+scheme"])
-    .relLicenses.add(["license+bsd"])
-    .relParadigms.add(["paradigm+functional", "paradigm+logic", "paradigm+multi", "paradigm+pattern-matching", "paradigm+symbolic"])
+    .relLicense.add(["license+bsd"])
+    .relParadigm.add(["para+functional", "para+logic", "para+multi", "para+pattern-matching", "para+symbolic"])
     .relPlatforms.add(["plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+web", "plat+windows"])
     .relTags.add(["tag+automation", "tag+cas", "tag+compiler", "tag+interpreters", "tag+scripting"])
     .relTsys.add(["tsys+manifest", "tsys+polymorphic", "tsys+static", "tsys+strong"])

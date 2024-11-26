@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+mono", {
+  g.plang.    .set("pl+mono", {
       name: "Mono",
       description:
         "Mono is a free and open-source .NET Framework-compatible software framework. Originally by Ximian which was acquired by Novell, it was later developed by Xamarin which was acquired by Microsoft. In August 2024, Microsoft transferred ownership of Mono to WineHQ. Mono can be run on many software systems.",
@@ -14,8 +13,8 @@ export function define(g: PlangsGraph) {
       created: "2004",
     })
     .relImplements.add(["pl+c-sharp", "pl+visual-basic"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+compiled", "paradigm+multi", "paradigm+oop"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+compiled", "para+multi", "para+oop"])
     .relPlatforms.add(["plat+android", "plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
     .relTags.add([
       "tag+3dg",

@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+emacs-lisp", {
+  g.plang.    .set("pl+emacs-lisp", {
       name: "Emacs Lisp",
       description:
         "Emacs Lisp is a Lisp dialect made for Emacs. It is used for implementing most of the editing functionality built into Emacs, the remainder being written in C, as is the Lisp interpreter.",
@@ -28,8 +27,8 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+lisp"])
     .relInfluencedBy.add(["pl+common-lisp"])
-    .relLicenses.add(["license+gnu-gpl"])
-    .relParadigms.add(["paradigm+functional", "paradigm+metaprogramming", "paradigm+reflective", "paradigm+scripting"])
+    .relLicense.add(["license+gnu-gpl"])
+    .relParadigm.add(["para+functional", "para+metaprogramming", "para+reflective", "para+scripting"])
     .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .relTags.add(["tag+app", "tag+compiler", "tag+editor", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+shell"])
     .relTsys.add(["tsys+dynamic", "tsys+strong"])

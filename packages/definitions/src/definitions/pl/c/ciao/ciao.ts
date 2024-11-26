@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+ciao", {
+  g.plang.    .set("pl+ciao", {
       name: "Ciao",
       description:
         "Ciao is a modern Prolog implementation that builds up from a logic-based simple kernel designed to be portable, extensible, and modular. It supports logic, constraint, functional, higher-order, and object-oriented programming styles.",
@@ -15,16 +14,16 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+prolog"])
     .relInfluencedBy.add(["pl+prolog", "pl+scheme"])
-    .relLicenses.add(["license+gnu-gpl", "license+lgpl"])
-    .relParadigms.add([
-      "paradigm+concurrent",
-      "paradigm+constraint",
-      "paradigm+distributed",
-      "paradigm+functional",
-      "paradigm+logic",
-      "paradigm+modular",
-      "paradigm+multi",
-      "paradigm+oop",
+    .relLicense.add(["license+gnu-gpl", "license+lgpl"])
+    .relParadigm.add([
+      "para+concurrent",
+      "para+constraint",
+      "para+distributed",
+      "para+functional",
+      "para+logic",
+      "para+modular",
+      "para+multi",
+      "para+oop",
     ])
     .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .relTags.add([

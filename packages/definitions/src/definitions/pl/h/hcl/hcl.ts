@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+hcl", {
+  g.plang.    .set("pl+hcl", {
       name: "HCL",
       languishRanking: 53,
       stackovTags: ["Terraform"],
@@ -25,8 +24,8 @@ export function define(g: PlangsGraph) {
       created: "2014",
     })
     .relCompilesTo.add(["pl+go"])
-    .relLicenses.add(["license+mpl"])
-    .relParadigms.add(["paradigm+declarative", "paradigm+dsl"])
+    .relLicense.add(["license+mpl"])
+    .relParadigm.add(["para+declarative", "para+dsl"])
     .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"]);
 
   // TOOLS

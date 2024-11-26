@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+puredata", {
+  g.plang.    .set("pl+puredata", {
       name: "Pure Data",
       description:
         "Pure Data (Pd) is a visual programming language developed by Miller Puckette in the 1990s for creating interactive computer music and multimedia works. While Puckette is the main author of the program, Pd is an open-source project with a large developer base working on new extensions. It is released under the BSD-3-Clause license. It runs on Linux, macOS, iOS, Android, and Windows with ports for FreeBSD and IRIX.",
@@ -23,8 +22,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://puredata.info/",
       created: "1996",
     })
-    .relLicenses.add(["license+bsd"])
-    .relParadigms.add(["paradigm+concurrent", "paradigm+dataflow", "paradigm+event-driven", "paradigm+visual"])
+    .relLicense.add(["license+bsd"])
+    .relParadigm.add(["para+concurrent", "para+dataflow", "para+event-driven", "para+visual"])
     .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .relTags.add([
       "tag+audio-dev",

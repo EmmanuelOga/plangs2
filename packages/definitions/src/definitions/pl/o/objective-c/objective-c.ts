@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+objective-c", {
+  g.plang.    .set("pl+objective-c", {
       name: "Objective-C",
       languishRanking: 33,
       stackovTags: ["objective-c"],
@@ -20,7 +19,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "ObjectiveC",
       created: "1984",
     })
-    .relParadigms.add(["paradigm+oop", "paradigm+reflective"])
+    .relParadigm.add(["para+oop", "para+reflective"])
     .relPlatforms.add(["plat+cross"])
     .relTsys.add(["tsys+dynamic", "tsys+static", "tsys+weak"]);
 

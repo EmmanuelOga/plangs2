@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+typescript", {
+  g.plang.    .set("pl+typescript", {
       name: "TypeScript",
       description:
         "TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale. Developed by Microsoft, TypeScript is a superset of JavaScript that compiles to clean JavaScript output and is geared towards the development of large applications.",
@@ -29,8 +28,8 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+javascript"])
     .relInfluencedBy.add(["pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+java", "pl+javascript"])
-    .relLicenses.add(["license+apache"])
-    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
+    .relLicense.add(["license+apache"])
+    .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop"])
     .relPlatforms.add(["plat+cross", "plat+nodejs"])
     .relTags.add(["tag+compiler", "tag+framework", "tag+scripting"])
     .relTsys.add(["tsys+duck", "tsys+gradual", "tsys+optional", "tsys+strong", "tsys+structural"])

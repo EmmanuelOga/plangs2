@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+coffeescript", {
+  g.plang.    .set("pl+coffeescript", {
       name: "CoffeeScript",
       description:
         "CoffeeScript is a little language that compiles into JavaScript. It adds syntactic sugar inspired by Haskell, Ruby, and Python to enhance JavaScript's brevity and readability. CoffeeScript was designed to expose the good parts of JavaScript in a simple way, compiling into equivalent JavaScript. Many unnecessary parentheses and braces can be omitted.",
@@ -24,8 +23,8 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+javascript"])
     .relInfluencedBy.add(["pl+haskell", "pl+javascript", "pl+perl", "pl+python", "pl+ruby"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+prototype", "paradigm+scripting"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+prototype", "para+scripting"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting"])
     .relTsys.add(["tsys+dynamic"])

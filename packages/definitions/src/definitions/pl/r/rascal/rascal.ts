@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+rascal", {
+  g.plang.    .set("pl+rascal", {
       name: "Rascal",
       description:
         "Rascal is a domain-specific language for metaprogramming and language-oriented programming, which includes tasks like static code analysis, program transformation, program generation, and the implementation of domain-specific languages. It serves as a general meta language without bias towards any specific software language. Rascal incorporates elements from both relational calculus and term rewriting, while its syntax and semantics are a blend of procedural (imperative) and functional programming.",
@@ -20,8 +19,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.rascal-mpl.org/",
       created: "2009",
     })
-    .relLicenses.add(["license+bsd", "license+epl"])
-    .relParadigms.add(["paradigm+declarative", "paradigm+functional", "paradigm+imperative", "paradigm+language-oriented", "paradigm+scripting"])
+    .relLicense.add(["license+bsd", "license+epl"])
+    .relParadigm.add(["para+declarative", "para+functional", "para+imperative", "para+language-oriented", "para+scripting"])
     .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .relTags.add(["tag+analysis"])
     .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"])

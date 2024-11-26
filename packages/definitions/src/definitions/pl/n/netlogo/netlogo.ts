@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+netlogo", {
+  g.plang.    .set("pl+netlogo", {
       name: "NetLogo",
       description:
         "NetLogo is a multi-agent programmable modeling environment, particularly suited for modeling complex systems developing over time. It was designed by Uri Wilensky and is used extensively in educational contexts and research.",
@@ -22,8 +21,8 @@ export function define(g: PlangsGraph) {
       created: "1999",
     })
     .relDialectOf.add(["pl+lisp"])
-    .relLicenses.add(["license+gnu-gpl"])
-    .relParadigms.add(["paradigm+agents", "paradigm+educational", "paradigm+multi", "paradigm+procedural", "paradigm+simulation"])
+    .relLicense.add(["license+gnu-gpl"])
+    .relParadigm.add(["para+agents", "para+educational", "para+multi", "para+procedural", "para+simulation"])
     .relPlatforms.add(["plat+cross", "plat+java"])
     .relTags.add(["tag+edu", "tag+interpreters", "tag+modeling", "tag+sci", "tag+uml"])
     .relTsys.add(["tsys+dynamic", "tsys+strong"])

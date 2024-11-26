@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+enso", {
+  g.plang.    .set("pl+enso", {
       name: "Enso",
       description:
         "Enso is a visual, data-centric programming language designed for data professionals to efficiently collaborate. It seamlessly combines visual programming with a high-performance engine, offering both scalability and intuitive design.",
@@ -13,8 +12,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ensoanalytics.com/",
       created: "2021",
     })
-    .relLicenses.add(["license+agpl", "license+apache"])
-    .relParadigms.add(["paradigm+functional", "paradigm+multi", "paradigm+visual"])
+    .relLicense.add(["license+agpl", "license+apache"])
+    .relParadigm.add(["para+functional", "para+multi", "para+visual"])
     .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
     .relTags.add(["tag+analysis", "tag+viz", "tag+workflow"])
     .relTsys.add(["tsys+dynamic", "tsys+gradual"])

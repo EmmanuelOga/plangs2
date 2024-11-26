@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+tex", {
+  g.plang.    .set("pl+tex", {
       name: "TeX",
       description:
         "TeX (/tɛx/, see below), stylized within the system as TeX, is a typesetting program which was designed and written by computer scientist and Stanford University professor Donald Knuth and first released in 1978. The term now refers to the system of extensions - which includes software programs called TeX engines, sets of TeX macros, and packages which provide extra typesetting functionality - built around the original TeX language. TeX is a popular means of typesetting complex mathematical formulae; it has been noted as one of the most sophisticated digital typographical systems.",
@@ -21,8 +20,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://tug.org/",
       created: "1978",
     })
-    .relLicenses.add(["license+public-domain"])
-    .relParadigms.add(["paradigm+declarative", "paradigm+dsl", "paradigm+macro"])
+    .relLicense.add(["license+public-domain"])
+    .relParadigm.add(["para+declarative", "para+dsl", "para+macro"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+editor", "tag+sci"])
     .relWrittenIn.add(["pl+pascal"]);

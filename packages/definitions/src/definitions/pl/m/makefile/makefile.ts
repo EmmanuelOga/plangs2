@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+makefile", {
+  g.plang.    .set("pl+makefile", {
       name: "Makefile",
       languishRanking: 38,
       stackovTags: ["makefile"],
@@ -19,7 +18,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Make_(software)",
       created: "1976",
     })
-    .relParadigms.add(["paradigm+declarative", "paradigm+macro"])
+    .relParadigm.add(["para+declarative", "para+macro"])
     .relTags.add(["tag+automation", "tag+cli"]);
 
   // TOOLS

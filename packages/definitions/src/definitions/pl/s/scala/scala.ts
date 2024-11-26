@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+scala", {
+  g.plang.    .set("pl+scala", {
       name: "Scala",
       description:
         "Scala (/ˈskɑːlɑː/ SKAH-lah) is a strong statically typed high-level general-purpose programming language that supports both object-oriented programming and functional programming. Designed to be concise, many of Scala's design decisions are intended to address criticisms of Java. It is well-suited to building fast, concurrent, and distributed systems with its JVM, JavaScript, and Native runtimes.",
@@ -36,8 +35,8 @@ export function define(g: PlangsGraph) {
       "pl+scheme",
       "pl+standard-ml",
     ])
-    .relLicenses.add(["license+apache"])
-    .relParadigms.add(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop"])
+    .relLicense.add(["license+apache"])
+    .relParadigm.add(["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+oop"])
     .relPlatforms.add(["plat+java", "plat+nodejs", "plat+wasm"])
     .relTags.add([
       "tag+app",

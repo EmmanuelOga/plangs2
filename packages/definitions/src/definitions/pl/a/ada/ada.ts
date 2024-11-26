@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+ada", {
+  g.plang.    .set("pl+ada", {
       name: "Ada",
       description:
         "Ada is a structured, statically typed, imperative, and object-oriented high-level programming language, inspired by Pascal. It features built-in support for design by contract, strong typing, concurrency, synchronous message passing, protected objects, and non-determinism. Ada is primarily used in systems where safety and reliability are crucial, such as in avionics and other mission-critical systems. It is standardized internationally by ISO/IEC.",
@@ -23,17 +22,17 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+pascal"])
     .relInfluencedBy.add(["pl+c++", "pl+eiffel", "pl+pascal"])
-    .relParadigms.add([
-      "paradigm+array",
-      "paradigm+aspect",
-      "paradigm+concurrent",
-      "paradigm+distributed",
-      "paradigm+imperative",
-      "paradigm+metaprogramming",
-      "paradigm+multi",
-      "paradigm+oop",
-      "paradigm+procedural",
-      "paradigm+structured",
+    .relParadigm.add([
+      "para+array",
+      "para+aspect",
+      "para+concurrent",
+      "para+distributed",
+      "para+imperative",
+      "para+metaprogramming",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
+      "para+structured",
     ])
     .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
     .relTags.add([

@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+yabasic", {
+  g.plang.    .set("pl+yabasic", {
       name: "Yabasic",
       description:
         "Yabasic (Yet Another BASIC) is a free, open-source BASIC interpreter for Microsoft Windows and UNIX platforms. It is designed for simple programming tasks and offers features like basic control structures, subroutines, and the ability to create standalone executables. It supports line graphics, structured programming, and calls to libraries written in C.",
@@ -16,8 +15,8 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+basic"])
     .relInfluencedBy.add(["pl+basic"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+interpreted", "paradigm+procedural", "paradigm+scripting"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+interpreted", "para+procedural", "para+scripting"])
     .relPlatforms.add(["plat+linux", "plat+windows"])
     .relTags.add(["tag+games", "tag+interpreters", "tag+scripting", "tag+ui"])
     .relTsys.add(["tsys+dynamic", "tsys+weak"])

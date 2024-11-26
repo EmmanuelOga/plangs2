@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+assembly", {
+  g.plang.    .set("pl+assembly", {
       name: "Assembly",
       description:
         "Assembly language, often simply referred to as assembly and abbreviated as ASM or asm, is a low-level programming language with a strong correspondence between its instructions and the machine code of the architecture it's designed for. Assembly language usually has a 1:1 mapping with machine instructions but also supports constants, comments, assembler directives, symbolic labels, and macros.",
@@ -20,7 +19,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "asm",
       created: "1947",
     })
-    .relParadigms.add(["paradigm+imperative", "paradigm+macro", "paradigm+metaprogramming", "paradigm+structured"])
+    .relParadigm.add(["para+imperative", "para+macro", "para+metaprogramming", "para+structured"])
     .relPlatforms.add(["plat+apple", "plat+arm", "plat+cross", "plat+embedded", "plat+linux", "plat+windows", "plat+x86-64"])
     .relTags.add(["tag+asm", "tag+compiler", "tag+embedded", "tag+industrial", "tag+interpreters"])
     .relTsys.add(["tsys+untyped"]);

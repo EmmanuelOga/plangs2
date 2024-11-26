@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+javascriptcore", {
+  g.plang.    .set("pl+javascriptcore", {
       name: "JavaScriptCore",
       description:
         "JavaScriptCore, also known as SquirrelFish, is a JavaScript engine developed as part of the WebKit project. It is widely known for being used in the Safari web browser and provides a robust implementation of the ECMAScript standards.",
@@ -13,8 +12,8 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+javascript"])
     .relInfluencedBy.add(["pl+javascript"])
-    .relLicenses.add(["license+bsd", "license+lgpl"])
-    .relParadigms.add(["paradigm+event-driven", "paradigm+interpreted", "paradigm+oop", "paradigm+scripting"])
+    .relLicense.add(["license+bsd", "license+lgpl"])
+    .relParadigm.add(["para+event-driven", "para+interpreted", "para+oop", "para+scripting"])
     .relPlatforms.add(["plat+apple", "plat+arm", "plat+linux", "plat+windows"])
     .relTags.add(["tag+interpreters", "tag+low-code", "tag+scripting", "tag+ui"])
     .relTsys.add(["tsys+dynamic", "tsys+weak"])

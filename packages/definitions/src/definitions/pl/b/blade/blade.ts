@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+blade", {
+  g.plang.    .set("pl+blade", {
       name: "Blade",
       languishRanking: 69,
       stackovTags: ["laravel-blade"],
@@ -21,7 +20,7 @@ export function define(g: PlangsGraph) {
       created: "2011",
     })
     .relCompilesTo.add(["pl+php"])
-    .relLicenses.add(["license+mit"])
+    .relLicense.add(["license+mit"])
     .relPlatforms.add(["plat+cross"]);
 
   // TOOLS

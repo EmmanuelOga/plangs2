@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+ironruby", {
+  g.plang.    .set("pl+ironruby", {
       name: "IronRuby",
       description:
         "IronRuby is an open-source implementation of the Ruby programming language which is tightly integrated with the .NET Framework. IronRuby can use the .NET Framework and Ruby libraries, and other .NET languages can use Ruby code just as easily. It is built on the Dynamic Language Runtime (DLR), allowing dynamic typing and method dispatch for dynamic languages.",
@@ -17,8 +16,8 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+ruby"])
     .relInfluencedBy.add(["pl+ruby"])
-    .relLicenses.add(["license+apache"])
-    .relParadigms.add(["paradigm+interpreted", "paradigm+oop", "paradigm+scripting"])
+    .relLicense.add(["license+apache"])
+    .relParadigm.add(["para+interpreted", "para+oop", "para+scripting"])
     .relPlatforms.add(["plat+.net", "plat+apple", "plat+linux", "plat+windows"])
     .relTags.add(["tag+app", "tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting"])
     .relTsys.add(["tsys+duck", "tsys+dynamic"])

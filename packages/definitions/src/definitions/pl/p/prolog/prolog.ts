@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+prolog", {
+  g.plang.    .set("pl+prolog", {
       name: "Prolog",
       description:
         "Prolog is a logic programming language that has its origins in artificial intelligence, automated theorem proving and computational linguistics. It is influenced by first-order logic and is primarily used for declarative programming.",
@@ -25,7 +24,7 @@ export function define(g: PlangsGraph) {
       created: "1972",
     })
     .relImplements.add(["pl+curry"])
-    .relParadigms.add(["paradigm+declarative", "paradigm+logic"])
+    .relParadigm.add(["para+declarative", "para+logic"])
     .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
     .relTags.add([
       "tag+analysis",

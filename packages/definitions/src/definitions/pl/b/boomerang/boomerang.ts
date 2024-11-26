@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+boomerang", {
+  g.plang.    .set("pl+boomerang", {
       name: "Boomerang",
       description:
         "Boomerang is a programming language for writing lenses—well-behaved bidirectional transformations—that operate on ad-hoc, textual data formats.",
@@ -16,8 +15,8 @@ export function define(g: PlangsGraph) {
       created: "2008",
     })
     .relInfluencedBy.add(["pl+ocaml"])
-    .relLicenses.add(["license+lgpl"])
-    .relParadigms.add(["paradigm+bidirectional", "paradigm+declarative", "paradigm+dsl"])
+    .relLicense.add(["license+lgpl"])
+    .relParadigm.add(["para+bidirectional", "para+declarative", "para+dsl"])
     .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux"])
     .relTags.add(["tag+interpreters"])
     .relTsys.add(["tsys+strong"]);

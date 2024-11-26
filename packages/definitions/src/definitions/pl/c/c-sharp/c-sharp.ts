@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+c-sharp", {
+  g.plang.    .set("pl+c-sharp", {
       name: "C#",
       description:
         "C# (/ˌsiː ˈʃɑːrp/ see SHARP) is a general-purpose high-level programming language supporting multiple paradigms. C# encompasses static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented (class-based), and component-oriented programming disciplines.",
@@ -23,17 +22,17 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+c"])
     .relInfluencedBy.add(["pl+c", "pl+c++", "pl+d", "pl+eiffel", "pl+f-sharp", "pl+haskell", "pl+pascal", "pl+scala", "pl+visual-basic"])
-    .relLicenses.add(["license+gnu-gpl", "license+lgpl", "license+mit"])
-    .relParadigms.add([
-      "paradigm+async",
-      "paradigm+concurrent",
-      "paradigm+event-driven",
-      "paradigm+functional",
-      "paradigm+imperative",
-      "paradigm+multi",
-      "paradigm+oop",
-      "paradigm+reflective",
-      "paradigm+structured",
+    .relLicense.add(["license+gnu-gpl", "license+lgpl", "license+mit"])
+    .relParadigm.add([
+      "para+async",
+      "para+concurrent",
+      "para+event-driven",
+      "para+functional",
+      "para+imperative",
+      "para+multi",
+      "para+oop",
+      "para+reflective",
+      "para+structured",
     ])
     .relPlatforms.add(["plat+.net", "plat+cross"])
     .relTags.add([

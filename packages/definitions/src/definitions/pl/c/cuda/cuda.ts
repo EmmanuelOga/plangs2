@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+cuda", {
+  g.plang.    .set("pl+cuda", {
       name: "CUDA",
       stackovTags: ["cuda"],
       githubName: "Cuda",
@@ -23,7 +22,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://developer.nvidia.com/cuda-zone",
       created: "2006",
     })
-    .relParadigms.add(["paradigm+compiled", "paradigm+parallel"])
+    .relParadigm.add(["para+compiled", "para+parallel"])
     .relPlatforms.add(["plat+linux", "plat+windows"]);
 
   // TOOLS

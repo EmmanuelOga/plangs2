@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+jupyter-notebook", {
+  g.plang.    .set("pl+jupyter-notebook", {
       name: "Jupyter Notebook",
       languishRanking: 16,
       stackovTags: ["jupyter"],
@@ -21,8 +20,8 @@ export function define(g: PlangsGraph) {
       created: "2014",
     })
     .relCompilesTo.add(["pl+julia", "pl+python", "pl+r"])
-    .relLicenses.add(["license+bsd"])
-    .relParadigms.add(["paradigm+scripting"])
+    .relLicense.add(["license+bsd"])
+    .relParadigm.add(["para+scripting"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+collab", "tag+dataq", "tag+sci"])
     .relTsys.add(["tsys+dynamic"]);

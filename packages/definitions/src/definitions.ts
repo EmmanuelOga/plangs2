@@ -3,7 +3,7 @@ import { basename, join } from "node:path";
 
 import { Glob } from "bun";
 
-import type { NPlang, PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph, VPlang } from "@plangs/plangs";
 
 async function getPaths(glob: Glob, basePath: string): Promise<string[]> {
   const paths = [] as string[];
@@ -24,8 +24,8 @@ export async function loadAllDefinitions(g: PlangsGraph, options: { scanImages: 
     for (const path of await getPaths(new Glob("**/*.{png,jpg,svg}"), join(import.meta.dir, "definitions/pl"))) {
       const [pk, k] = basename(path).split(".");
       const kind = k === "screenshot" || k === "logo" ? k : "other";
-      const plKey: NPlang["key"] = `pl+${pk.replaceAll("_", ".")}`;
-      const pl = g.nodes.pl.get(plKey);
+      const plKey: VPlang["key"] = `pl+${pk.replaceAll("_", ".")}`;
+      const pl = g.plang.get(plKey);
       if (pl) {
         pl.addImages([{ kind, title: pl.name, url: `/images/${path}` }]);
       } else {
@@ -43,7 +43,7 @@ export async function loadAllDefinitions(g: PlangsGraph, options: { scanImages: 
  * but for now we can just materialize some simple rules.
  */
 export function runInference(pg: PlangsGraph) {
-  for (const pl of pg.nodes.pl.values) {
+  for (const pl of pg.plang.values) {
     // All languages implement themselves, so when we filter by "implements" we can include the language itself.
     pl.relImplements.add([pl.key]);
   }

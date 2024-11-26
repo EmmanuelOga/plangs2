@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+arduino", {
+  g.plang.    .set("pl+arduino", {
       name: "Arduino",
       stackovTags: ["arduino"],
       description:
@@ -14,8 +13,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.arduino.cc",
       created: "2005",
     })
-    .relLicenses.add(["license+cc-by", "license+gnu-gpl", "license+lgpl"])
-    .relParadigms.add(["paradigm+embedded", "paradigm+event-driven", "paradigm+procedural"])
+    .relLicense.add(["license+cc-by", "license+gnu-gpl", "license+lgpl"])
+    .relParadigm.add(["para+embedded", "para+event-driven", "para+procedural"])
     .relPlatforms.add(["plat+arduino", "plat+embedded", "plat+linux", "plat+windows"])
     .relTags.add(["tag+edu", "tag+embedded", "tag+iot", "tag+sci"]);
 

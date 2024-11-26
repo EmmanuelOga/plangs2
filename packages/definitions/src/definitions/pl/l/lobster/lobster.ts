@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+lobster", {
+  g.plang.    .set("pl+lobster", {
       name: "Lobster",
       description:
         "Lobster is a statically typed programming language with a Python-esque syntax that combines the advantages of an expressive type system and compile-time memory management with a very lightweight, friendly and terse syntax, by doing most of the heavy lifting for you. It is especially oriented towards game development, offering features tailored for graphical applications.",
@@ -14,8 +13,8 @@ export function define(g: PlangsGraph) {
       created: "2016",
     })
     .relInfluencedBy.add(["pl+python"])
-    .relLicenses.add(["license+apache", "license+zlib"])
-    .relParadigms.add(["paradigm+compiled", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
+    .relLicense.add(["license+apache", "license+zlib"])
+    .relParadigm.add(["para+compiled", "para+functional", "para+multi", "para+oop"])
     .relPlatforms.add(["plat+cross", "plat+linux", "plat+web", "plat+windows"])
     .relTags.add(["tag+games", "tag+scripting"])
     .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"])

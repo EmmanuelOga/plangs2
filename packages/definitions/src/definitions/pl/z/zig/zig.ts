@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+zig", {
+  g.plang.    .set("pl+zig", {
       name: "Zig",
       description:
         "Zig is an imperative, general-purpose, statically typed, compiled system programming language designed by Andrew Kelley. It is intended to serve as a successor to the C language, focusing on robustness, simplicity, and maintainability without hidden control flows or macros. Zig allows seamless integration with C/C++ and aims to provide better performance and safety features compared to traditional C, with manual memory management and optional types. The language is open-source and backed by the Zig Software Foundation.",
@@ -22,8 +21,8 @@ export function define(g: PlangsGraph) {
       created: "2016",
     })
     .relInfluencedBy.add(["pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+concurrent", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+procedural"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+procedural"])
     .relPlatforms.add(["plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+riscv", "plat+wasm", "plat+windows", "plat+x86-64"])
     .relTags.add([
       "tag+app",

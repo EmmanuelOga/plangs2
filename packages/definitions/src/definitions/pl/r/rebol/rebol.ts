@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+rebol", {
+  g.plang.    .set("pl+rebol", {
       name: "Rebol",
       description:
         "Rebol (/ˈrɛbəl/ REB-əl) is a cross-platform data exchange language and a multi-paradigm dynamic programming language designed by Carl Sassenrath for network communications and distributed computing. The language is notable for introducing the concept of dialects: small, optimized domain-specific languages for code and data. It is designed to be small and lightweight, supporting an easy-to-write and easy-to-read format with numerous data-types for expressing information.",
@@ -25,8 +24,8 @@ export function define(g: PlangsGraph) {
       created: "1997",
     })
     .relInfluencedBy.add(["pl+forth", "pl+lisp", "pl+self"])
-    .relLicenses.add(["license+apache"])
-    .relParadigms.add(["paradigm+data-exchange", "paradigm+functional", "paradigm+imperative", "paradigm+language-oriented", "paradigm+prototype"])
+    .relLicense.add(["license+apache"])
+    .relParadigm.add(["para+data-exchange", "para+functional", "para+imperative", "para+language-oriented", "para+prototype"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add([
       "tag+3dg",

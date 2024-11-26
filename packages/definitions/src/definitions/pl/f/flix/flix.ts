@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+flix", {
+  g.plang.    .set("pl+flix", {
       name: "Flix",
       description:
         "Flix is a functional, imperative, and logic programming language developed at Aarhus University, with funding from the Independent Research Fund Denmark, and by a community of open source contributors. The Flix language supports algebraic data types, pattern matching, parametric polymorphism, currying, higher-order functions, extensible records, channel and process-based concurrency, and tail call elimination. Two notable features of Flix are its type and effect system and its support for first-class Datalog constraints.",
@@ -17,8 +16,8 @@ export function define(g: PlangsGraph) {
       created: "2015",
     })
     .relInfluencedBy.add(["pl+f-sharp", "pl+go", "pl+haskell", "pl+ocaml", "pl+scala"])
-    .relLicenses.add(["license+apache"])
-    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+logic", "paradigm+multi"])
+    .relLicense.add(["license+apache"])
+    .relParadigm.add(["para+functional", "para+imperative", "para+logic", "para+multi"])
     .relPlatforms.add(["plat+cross", "plat+java"])
     .relTags.add(["tag+compiler", "tag+interpreters"])
     .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])

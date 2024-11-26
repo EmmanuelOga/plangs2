@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+intel-fortran-compiler", {
+  g.plang.    .set("pl+intel-fortran-compiler", {
       name: "Intel Fortran Compiler",
       description:
         "Intel Fortran Compiler is a suite of Fortran compilers from Intel, designed for high-performance computing on Windows, macOS, and Linux platforms. It is part of the Intel OneAPI HPC toolkit, supporting features like optimized CPU and GPU code generation.",
@@ -17,8 +16,8 @@ export function define(g: PlangsGraph) {
       created: "2003",
     })
     .relImplements.add(["pl+fortran"])
-    .relLicenses.add(["license+bsd"])
-    .relParadigms.add(["paradigm+compiled", "paradigm+procedural", "paradigm+scientific"])
+    .relLicense.add(["license+bsd"])
+    .relParadigm.add(["para+compiled", "para+procedural", "para+scientific"])
     .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .relTags.add(["tag+3dg", "tag+analysis", "tag+app", "tag+cli", "tag+compiler", "tag+sci", "tag+shell", "tag+viz"])
     .relTsys.add(["tsys+static", "tsys+strong"])

@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+hy", {
+  g.plang.    .set("pl+hy", {
       name: "Hy",
       description:
         "Hy is a Lisp dialect embedded in Python, offering a multi-paradigm programming environment. Designed by Paul Tagliamonte and introduced at PyCon 2013, Hy acts as a transparent Lisp front-end for Python, translating s-expressions to Python's AST and incorporating Python libraries. This language allows the integration of imperative, functional, and object-oriented programming styles.",
@@ -29,15 +28,15 @@ export function define(g: PlangsGraph) {
     .relCompilesTo.add(["pl+python"])
     .relDialectOf.add(["pl+lisp"])
     .relInfluencedBy.add(["pl+clojure", "pl+common-lisp", "pl+python"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add([
-      "paradigm+functional",
-      "paradigm+metaprogramming",
-      "paradigm+multi",
-      "paradigm+oop",
-      "paradigm+procedural",
-      "paradigm+reflective",
-      "paradigm+scripting",
+    .relLicense.add(["license+mit"])
+    .relParadigm.add([
+      "para+functional",
+      "para+metaprogramming",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
+      "para+reflective",
+      "para+scripting",
     ])
     .relPlatforms.add(["plat+cross", "plat+x86-64"])
     .relTags.add(["tag+interpreters", "tag+scripting"])

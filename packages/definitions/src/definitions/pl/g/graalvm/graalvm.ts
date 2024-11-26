@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+graalvm", {
+  g.plang.    .set("pl+graalvm", {
       name: "GraalVM",
       description:
         "GraalVM is a versatile virtual machine originating from the Java ecosystem that supports multiple programming languages including Java, JavaScript, Python, Ruby, R, and webassembly. It is designed to execute applications written in these languages alongside LLVM-based languages and provides high performance and interoperability across language boundaries. Known for its ahead-of-time compilation and polyglot capabilities, GraalVM enhances performance, security, and startup time of Java and other applications.",
@@ -19,8 +18,8 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+ruby"])
     .relInfluencedBy.add(["pl+java"])
-    .relLicenses.add(["license+apache", "license+dual", "license+gnu-gpl"])
-    .relParadigms.add(["paradigm+compiled", "paradigm+interpreted", "paradigm+multi", "paradigm+multi-dispatch"])
+    .relLicense.add(["license+apache", "license+dual", "license+gnu-gpl"])
+    .relParadigm.add(["para+compiled", "para+interpreted", "para+multi", "para+multi-dispatch"])
     .relPlatforms.add(["plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+windows"])
     .relTags.add(["tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters", "tag+scripting"])
     .relTsys.add(["tsys+dynamic", "tsys+polymorphic", "tsys+static"])

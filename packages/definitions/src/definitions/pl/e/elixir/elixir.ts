@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+elixir", {
+  g.plang.    .set("pl+elixir", {
       name: "Elixir",
       description:
         "Elixir is a dynamic, functional language designed for building scalable and maintainable applications. It builds on the Erlang VM, known for creating low-latency, distributed, and fault-tolerant systems. Elixir provides metaprogramming capabilities, allowing developers to extend the language comprehensively, leveraging macros and protocols for polymorphism, enhancing its ability to handle large and complex systems.",
@@ -25,8 +24,8 @@ export function define(g: PlangsGraph) {
       created: "2012",
     })
     .relInfluencedBy.add(["pl+clojure", "pl+erlang", "pl+lisp", "pl+ruby"])
-    .relLicenses.add(["license+apache"])
-    .relParadigms.add(["paradigm+concurrent", "paradigm+distributed", "paradigm+functional", "paradigm+multi", "paradigm+process-oriented"])
+    .relLicense.add(["license+apache"])
+    .relParadigm.add(["para+concurrent", "para+distributed", "para+functional", "para+multi", "para+process-oriented"])
     .relPlatforms.add(["plat+beam"])
     .relTags.add(["tag+analysis", "tag+app", "tag+embedded", "tag+interpreters", "tag+multimedia", "tag+shell"])
     .relTsys.add(["tsys+dynamic", "tsys+strong"]);

@@ -11,10 +11,10 @@ import { genericCodeGen, plangCodeGen, tsNodePath } from "@plangs/languist/codeg
 import { LG_LANGS, type Rankings } from "@plangs/languist/languish";
 import { GH_LANGS } from "@plangs/languist/linguist";
 import type { LanguishKeys, LinguistLang } from "@plangs/languist/types";
-import { type NPlang, PlangsGraph } from "@plangs/plangs";
+import { PlangsGraph, type VPlang } from "@plangs/plangs";
 
-/** Update the NPlang data with Github data. */
-function updateWithGH(pl: NPlang, ghMap: Map<string, LinguistLang>): boolean {
+/** Update the VPlang data with Github data. */
+function updateWithGH(pl: VPlang, ghMap: Map<string, LinguistLang>): boolean {
   const plGH = GH_LANGS.bestMatch(ghMap, pl.data.githubName) ?? GH_LANGS.bestMatch(ghMap, pl.name);
   if (!plGH) return false;
 
@@ -28,8 +28,8 @@ function updateWithGH(pl: NPlang, ghMap: Map<string, LinguistLang>): boolean {
   return true;
 }
 
-/** Update the NPlang data with Languish data. */
-function updateWithLanguish(pl: NPlang, rankings: Rankings): boolean {
+/** Update the VPlang data with Languish data. */
+function updateWithLanguish(pl: VPlang, rankings: Rankings): boolean {
   if (!pl.data.githubName) return false;
 
   const plLG = LG_LANGS.keysByName.get(pl.data.githubName) as LanguishKeys;
@@ -51,7 +51,7 @@ function updateWithLanguish(pl: NPlang, rankings: Rankings): boolean {
  */
 export async function createMissingPlangs(pg: PlangsGraph, ghMap: Map<string, LinguistLang>, rankings: Rankings) {
   // Collect the existing GH names for the next step.
-  const existingGHNames = new Set<string>(pg.nodes.pl.values.map(pl => pl.data.githubName).existing);
+  const existingGHNames = new Set<string>(pg.plang.values.map(pl => pl.data.githubName).existing);
 
   // Find languages to create new Plang nodes for (for languages with GH ranking from 1 to 100).
   // After this we need to manually review the results: some languages may not be worth keeping (like "AdBlock lists" format).
@@ -63,7 +63,7 @@ export async function createMissingPlangs(pg: PlangsGraph, ghMap: Map<string, Li
     if (existingGHNames.has(ghName)) continue;
 
     // If the key is not in the map, we need to add a new Plang node.
-    const pl = pg.nodes.pl.set(`pl+${ghName.toLowerCase().replaceAll(/\s+/g, "-")}`, { name: ghName, languishRanking: rank });
+    const pl = pg.plang.set(`pl+${ghName.toLowerCase().replaceAll(/\s+/g, "-")}`, { name: ghName, languishRanking: rank });
 
     updateWithGH(pl, ghMap);
     updateWithLanguish(pl, rankings);
@@ -82,10 +82,10 @@ export async function processGithubAndLanguish() {
   const woLG = new Set<string>();
 
   // Remove all previous Languish rankings.
-  for (const pl of pg.nodes.pl.values) pl.data.languishRanking = undefined;
+  for (const pl of pg.plang.values) pl.data.languishRanking = undefined;
 
   // Find the best match for each Plang node on the GH data.
-  for (const pl of pg.nodes.pl.values) {
+  for (const pl of pg.plang.values) {
     if (updateWithGH(pl, ghMap)) {
       // Languish works with github name, so it can only work if the GH data is there.
       if (!updateWithLanguish(pl, rankings)) woLG.add(pl.name);
@@ -94,22 +94,22 @@ export async function processGithubAndLanguish() {
 
   console.warn("Languages without updates:", { woGithub: [...woGH], woLanguish: [...woLG] });
 
-  for (const pl of pg.nodes.pl.values) Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
+  for (const pl of pg.plang.values) Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
 
   console.warn("CAUTION: matching github data is not a perfect process. Results (git diff) should be manually reviewed.");
 }
 
-/** This regenerates some nodes that are not NPlangs. Useful to reorder the definitions. */
+/** This regenerates some nodes that are not VPlangs. Useful to reorder the definitions. */
 export function regenNonPlangs(pg: PlangsGraph) {
-  for (const pl of pg.nodes.pl.values) Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
-  for (const kind of ["license", "paradigm", "plat", "tag", "tsys", "learning", "community"] as const) {
+  for (const pl of pg.plang.values) Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
+  for (const kind of ["license", "para+", "plat", "tag", "tsys", "learning", "community"] as const) {
     Bun.write(tsNodePath(kind), genericCodeGen(pg, kind));
   }
 }
 
 /** Regenerate all Plang nodes. */
 export function regenPlangs(pg: PlangsGraph) {
-  for (const pl of pg.nodes.pl.values) {
+  for (const pl of pg.plang.values) {
     // This is good place for "migrations", like renaming keys.
     Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
   }

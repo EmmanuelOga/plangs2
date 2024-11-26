@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+freebasic", {
+  g.plang.    .set("pl+freebasic", {
       name: "FreeBASIC",
       description:
         "FreeBASIC is a free/open source (GPL) BASIC compiler for Microsoft Windows, DOS, Linux, FreeBSD, and Xbox, though the Xbox version is no longer maintained. FreeBASIC aims to be syntax-compatible with Microsoft QuickBASIC, offering a command-line compiler to produce console and graphical applications. It supports procedural, object-oriented, and meta-programming paradigms, leveraging GNU Binutils for backend operations.",
@@ -21,8 +20,8 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+basic"])
     .relInfluencedBy.add(["pl+c"])
-    .relLicenses.add(["license+gnu-gpl", "license+lgpl"])
-    .relParadigms.add(["paradigm+compiled", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
+    .relLicense.add(["license+gnu-gpl", "license+lgpl"])
+    .relParadigm.add(["para+compiled", "para+multi", "para+oop", "para+procedural"])
     .relPlatforms.add(["plat+bsd", "plat+dos", "plat+linux", "plat+windows"])
     .relTags.add(["tag+app", "tag+compiler", "tag+interpreters", "tag+viz"])
     .relTsys.add(["tsys+static", "tsys+strong"])

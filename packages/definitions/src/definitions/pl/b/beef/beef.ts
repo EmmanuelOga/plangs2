@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+beef", {
+  g.plang.    .set("pl+beef", {
       name: "Beef",
       description:
         "Beef is an open source performance-oriented compiled programming language designed for a fluid and pleasurable development experience, particularly suited for high-performance real-time applications such as video games, with manual memory management and custom allocators.",
@@ -22,8 +21,8 @@ export function define(g: PlangsGraph) {
       created: "2020",
     })
     .relInfluencedBy.add(["pl+c", "pl+c++", "pl+delphi", "pl+rust"])
-    .relLicenses.add(["license+zlib"])
-    .relParadigms.add(["paradigm+compiled", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
+    .relLicense.add(["license+zlib"])
+    .relParadigm.add(["para+compiled", "para+multi", "para+oop", "para+procedural"])
     .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
     .relTags.add(["tag+compiler", "tag+games"])
     .relTsys.add(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])

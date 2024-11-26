@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+matlab", {
+  g.plang.    .set("pl+matlab", {
       name: "MATLAB",
       languishRanking: 47,
       stackovTags: ["matlab"],
@@ -24,7 +23,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://mathworks.com",
       created: "1979",
     })
-    .relParadigms.add(["paradigm+array", "paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+procedural"])
+    .relParadigm.add(["para+array", "para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural"])
     .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
     .relTags.add(["tag+modeling", "tag+numeric", "tag+sci", "tag+scripting", "tag+viz"])
     .relTsys.add(["tsys+dynamic", "tsys+weak"]);

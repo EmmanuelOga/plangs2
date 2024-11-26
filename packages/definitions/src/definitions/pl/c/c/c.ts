@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+c", {
+  g.plang.    .set("pl+c", {
       name: "C",
       description:
         "C (pronounced like the letter C) is a general-purpose programming language developed in the early 1970s by Dennis Ritchie at Bell Labs. It has become one of the most influential programming languages, foundational in developing operating systems, system software, and various applications. C's design reflects the capabilities of targeted CPUs and is especially prevalent in systems programming, including operating system kernels, device drivers, and protocol stacks. It is portable and commonly used across computer architectures, from supercomputers to microcontrollers.",
@@ -28,8 +27,8 @@ export function define(g: PlangsGraph) {
       created: "1972",
     })
     .relInfluencedBy.add(["pl+fortran"])
-    .relLicenses.add(["license+bsd"])
-    .relParadigms.add(["paradigm+compiled", "paradigm+imperative", "paradigm+multi", "paradigm+procedural", "paradigm+structured"])
+    .relLicense.add(["license+bsd"])
+    .relParadigm.add(["para+compiled", "para+imperative", "para+multi", "para+procedural", "para+structured"])
     .relPlatforms.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+dos", "plat+embedded", "plat+linux", "plat+windows"])
     .relTags.add([
       "tag+app",

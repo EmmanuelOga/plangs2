@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+clang", {
+  g.plang.    .set("pl+clang", {
       name: "Clang",
       description:
         "Clang is a compiler front end for the C, C++, Objective-C, and Objective-C++ programming languages, as well as the OpenMP, OpenCL, RenderScript, CUDA, SYCL, and HIP frameworks. It acts as a drop-in replacement for the GNU Compiler Collection (GCC), supporting most of its compiling flags and unofficial language extensions. It includes a static analyzer, and several code analysis tools. It operates in tandem with the LLVM compiler back end and has been a subproject of LLVM.",
@@ -24,8 +23,8 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+c", "pl+c++"])
     .relInfluencedBy.add(["pl+llvm"])
-    .relLicenses.add(["license+apache"])
-    .relParadigms.add(["paradigm+compiled", "paradigm+multi"])
+    .relLicense.add(["license+apache"])
+    .relParadigm.add(["para+compiled", "para+multi"])
     .relPlatforms.add(["plat+apple", "plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+windows", "plat+x86-64"])
     .relTags.add(["tag+analysis", "tag+automation", "tag+cli", "tag+compiler", "tag+ray-tracer", "tag+shell", "tag+viz"])
     .relTsys.add(["tsys+manifest", "tsys+static", "tsys+strong"])

@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+nickel", {
+  g.plang.    .set("pl+nickel", {
       name: "Nickel",
       description:
         "Nickel is a lightweight configuration language aimed at automating the generation of configuration files. It combines JSON semantics with first-class functions, allowing for modular and reusable configurations. With features like optional static typing and design by contract, Nickel ensures that complex configurations are easy to manage and less prone to errors.",
@@ -17,8 +16,8 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+json", "pl+nix", "pl+rust", "pl+xml", "pl+yaml"])
     .relInfluencedBy.add(["pl+rust"])
-    .relLicenses.add(["license+mpl"])
-    .relParadigms.add(["paradigm+data-exchange", "paradigm+declarative", "paradigm+validation"])
+    .relLicense.add(["license+mpl"])
+    .relParadigm.add(["para+data-exchange", "para+declarative", "para+validation"])
     .relPlatforms.add(["plat+linux", "plat+windows"])
     .relTags.add(["tag+automation"])
     .relTsys.add(["tsys+dynamic", "tsys+gradual", "tsys+optional", "tsys+static", "tsys+strong"])

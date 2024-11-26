@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+micropython", {
+  g.plang.    .set("pl+micropython", {
       name: "MicroPython",
       description:
         "MicroPython is a lean and efficient implementation of the Python 3 programming language, optimized for microcontrollers. It offers a subset of the Python standard library with additional modules for hardware access and features such as REPL, inline assembler, and cross-compilation support.",
@@ -18,8 +17,8 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+python"])
     .relInfluencedBy.add(["pl+python"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+embedded", "paradigm+interpreted", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+embedded", "para+interpreted", "para+multi", "para+oop", "para+scripting"])
     .relPlatforms.add(["plat+arduino", "plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry", "plat+riscv", "plat+windows"])
     .relTags.add(["tag+app", "tag+embedded", "tag+interpreters", "tag+iot", "tag+scripting", "tag+testing"])
     .relTsys.add(["tsys+duck", "tsys+dynamic"])

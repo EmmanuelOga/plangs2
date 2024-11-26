@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+vala", {
+  g.plang.    .set("pl+vala", {
       name: "Vala",
       description:
         "Vala is an object-oriented programming language with a self-hosting compiler that generates C code and uses the GObject system. It incorporates modern programming language features with minimal runtime requirements, using the same ABI as C libraries and applications, making it ideal for GNOME development.",
@@ -27,8 +26,8 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+c"])
     .relInfluencedBy.add(["pl+boo", "pl+c", "pl+c-sharp", "pl+d"])
-    .relLicenses.add(["license+lgpl"])
-    .relParadigms.add(["paradigm+imperative", "paradigm+oop", "paradigm+procedural", "paradigm+scripting", "paradigm+structured"])
+    .relLicense.add(["license+lgpl"])
+    .relParadigm.add(["para+imperative", "para+oop", "para+procedural", "para+scripting", "para+structured"])
     .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .relTags.add(["tag+compiler", "tag+framework", "tag+ui"])
     .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])

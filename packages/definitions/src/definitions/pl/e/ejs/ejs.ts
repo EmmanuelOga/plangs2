@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+ejs", {
+  g.plang.    .set("pl+ejs", {
       name: "EJS",
       languishRanking: 86,
       stackovTags: ["ejs"],
@@ -21,8 +20,8 @@ export function define(g: PlangsGraph) {
       created: "2010",
     })
     .relCompilesTo.add(["pl+javascript"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+declarative", "paradigm+scripting"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+declarative", "para+scripting"])
     .relPlatforms.add(["plat+nodejs", "plat+web"])
     .relTags.add(["tag+scripting"])
     .relTsys.add(["tsys+duck", "tsys+dynamic"]);

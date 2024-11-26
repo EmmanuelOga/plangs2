@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+webassembly", {
+  g.plang.    .set("pl+webassembly", {
       name: "WebAssembly",
       languishRanking: 93,
       stackovTags: ["webassembly"],
@@ -25,8 +24,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://webassembly.org",
       created: "2017",
     })
-    .relLicenses.add(["license+apache"])
-    .relParadigms.add(["paradigm+stack-oriented", "paradigm+structured"])
+    .relLicense.add(["license+apache"])
+    .relParadigm.add(["para+stack-oriented", "para+structured"])
     .relPlatforms.add(["plat+cross", "plat+web"])
     .relTags.add(["tag+compiler"]);
 

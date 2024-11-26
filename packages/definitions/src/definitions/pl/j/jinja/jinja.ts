@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+jinja", {
+  g.plang.    .set("pl+jinja", {
       name: "Jinja",
       languishRanking: 57,
       stackovTags: ["jinja2"],
@@ -23,8 +22,8 @@ export function define(g: PlangsGraph) {
       created: "2008",
     })
     .relCompilesTo.add(["pl+python"])
-    .relLicenses.add(["license+bsd"])
-    .relParadigms.add(["paradigm+declarative", "paradigm+dsl"])
+    .relLicense.add(["license+bsd"])
+    .relParadigm.add(["para+declarative", "para+dsl"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+scripting"]);
 

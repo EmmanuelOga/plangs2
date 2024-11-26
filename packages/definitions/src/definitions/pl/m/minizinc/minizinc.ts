@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+minizinc", {
+  g.plang.    .set("pl+minizinc", {
       name: "MiniZinc",
       description:
         "MiniZinc is a constraint modelling language (or algebraic modeling language) to describe and solve high-complexity problems using a variety of well-known solving paradigms for combinatorial problems, including constraint programming, integer programming, lazy clause generation, SAT, and SMT.",
@@ -16,8 +15,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.minizinc.org/",
       created: "2009",
     })
-    .relLicenses.add(["license+mit", "license+mpl"])
-    .relParadigms.add(["paradigm+constraint", "paradigm+logic"])
+    .relLicense.add(["license+mit", "license+mpl"])
+    .relParadigm.add(["para+constraint", "para+logic"])
     .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .relTags.add(["tag+modeling"])
     .relTsys.add(["tsys+static"])

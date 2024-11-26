@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+factor", {
+  g.plang.    .set("pl+factor", {
       name: "Factor",
       description:
         "Factor is a stack-oriented programming language created by Slava Pestov. It features dynamic types, extensible syntax, macros, and garbage collection. Factor supports a large standard library with cross-platform capabilities, providing a self-hosted optimizing compiler and an interactive development environment.",
@@ -25,8 +24,8 @@ export function define(g: PlangsGraph) {
       created: "2003",
     })
     .relInfluencedBy.add(["pl+forth", "pl+lisp", "pl+self"])
-    .relLicenses.add(["license+bsd"])
-    .relParadigms.add(["paradigm+concatenative", "paradigm+functional", "paradigm+multi", "paradigm+oop"])
+    .relLicense.add(["license+bsd"])
+    .relParadigm.add(["para+concatenative", "para+functional", "para+multi", "para+oop"])
     .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows", "plat+x86-64"])
     .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting"])
     .relTsys.add(["tsys+dynamic", "tsys+strong"]);

@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+astro", {
+  g.plang.    .set("pl+astro", {
       name: "Astro",
       languishRanking: 68,
       stackovTags: ["astro"],
@@ -22,8 +21,8 @@ export function define(g: PlangsGraph) {
       created: "2021",
     })
     .relCompilesTo.add(["pl+javascript", "pl+svelte", "pl+typescript", "pl+vue"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+declarative", "paradigm+reactive"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+declarative", "para+reactive"])
     .relPlatforms.add(["plat+web"])
     .relTags.add(["tag+framework"]);
 

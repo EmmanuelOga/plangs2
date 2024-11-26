@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+gdscript", {
+  g.plang.    .set("pl+gdscript", {
       name: "GDScript",
       description:
         "GDScript is a high-level, dynamically typed programming language used to create content within the Godot Engine. It is influenced by Python and designed specifically for ease of use within game development. It is lightweight yet expressive, offering flexibility particularly for rapid prototyping and development within the Godot ecosystem.",
@@ -28,8 +27,8 @@ export function define(g: PlangsGraph) {
       created: "2014",
     })
     .relInfluencedBy.add(["pl+python"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+imperative", "paradigm+oop", "paradigm+scripting"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+imperative", "para+oop", "para+scripting"])
     .relPlatforms.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+web", "plat+windows"])
     .relTags.add(["tag+3dg", "tag+audio-dev", "tag+games", "tag+scripting", "tag+ui"])
     .relTsys.add(["tsys+duck", "tsys+dynamic", "tsys+strong"])

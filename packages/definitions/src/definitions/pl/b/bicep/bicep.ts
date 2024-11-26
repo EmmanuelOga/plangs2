@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+bicep", {
+  g.plang.    .set("pl+bicep", {
       name: "Bicep",
       languishRanking: 80,
       stackovTags: ["azure-bicep"],
@@ -22,8 +21,8 @@ export function define(g: PlangsGraph) {
       created: "2020",
     })
     .relCompilesTo.add(["pl+json", "pl+typescript"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+declarative", "paradigm+dsl"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+declarative", "para+dsl"])
     .relPlatforms.add(["plat+cross"]);
 
   // TOOLS

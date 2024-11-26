@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+isabelle", {
+  g.plang.    .set("pl+isabelle", {
       name: "Isabelle",
       description:
         "Isabelle is an automated theorem prover that allows mathematical formulas to be expressed in a formal language and provides tools for proving those formulas in a logical calculus. It is written in Standard ML and Scala, supporting both procedural and declarative proof styles. Isabelle is designed to be a flexible IDE for formal methods and supports a wide variety of formal proofs and methods, notably higher-order logic (HOL).",
@@ -25,8 +24,8 @@ export function define(g: PlangsGraph) {
       created: "1986",
     })
     .relInfluencedBy.add(["pl+haskell"])
-    .relLicenses.add(["license+bsd"])
-    .relParadigms.add(["paradigm+declarative", "paradigm+dsl", "paradigm+logic"])
+    .relLicense.add(["license+bsd"])
+    .relParadigm.add(["para+declarative", "para+dsl", "para+logic"])
     .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
     .relTags.add([
       "tag+automation",

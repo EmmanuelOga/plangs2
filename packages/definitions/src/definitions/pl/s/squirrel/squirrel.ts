@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+squirrel", {
+  g.plang.    .set("pl+squirrel", {
       name: "Squirrel",
       description:
         "Squirrel is a high-level imperative, object-oriented programming language, designed to be a lightweight scripting language that fits in the size, memory bandwidth, and real-time requirements of applications like video games.",
@@ -21,8 +20,8 @@ export function define(g: PlangsGraph) {
       created: "2003",
     })
     .relInfluencedBy.add(["pl+c++", "pl+javascript", "pl+lua", "pl+python"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+scripting"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+app", "tag+games", "tag+interpreters", "tag+scripting"])
     .relTsys.add(["tsys+dynamic"]);

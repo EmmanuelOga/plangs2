@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+nim", {
+  g.plang.    .set("pl+nim", {
       name: "Nim",
       description:
         'Nim is a general-purpose, multi-paradigm, statically typed, compiled high-level system programming language, designed and developed by a team around Andreas Rumpf. Nim is designed to be "efficient, expressive, and elegant", supporting metaprogramming, functional, message-passing, procedural, and object-oriented programming styles. It compiles to multiple languages, including C, C++, JavaScript, allowing it to be used for both backend and frontend applications. It features a modern type system with local type inference, generic programming, and several memory management options, suitable for embedded and real-time systems.',
@@ -27,16 +26,16 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+c++", "pl+javascript"])
     .relInfluencedBy.add(["pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+python", "pl+rust"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add([
-      "paradigm+compiled",
-      "paradigm+concurrent",
-      "paradigm+functional",
-      "paradigm+imperative",
-      "paradigm+metaprogramming",
-      "paradigm+multi",
-      "paradigm+oop",
-      "paradigm+procedural",
+    .relLicense.add(["license+mit"])
+    .relParadigm.add([
+      "para+compiled",
+      "para+concurrent",
+      "para+functional",
+      "para+imperative",
+      "para+metaprogramming",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
     ])
     .relPlatforms.add(["plat+apple", "plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
     .relTags.add([

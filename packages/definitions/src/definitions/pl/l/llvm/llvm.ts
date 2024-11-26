@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+llvm", {
+  g.plang.    .set("pl+llvm", {
       name: "LLVM",
       description:
         "LLVM is a set of compiler and toolchain technologies that can be used to develop a frontend for any programming language and a backend for any instruction set architecture. LLVM is designed around a language-independent intermediate representation (IR) that serves as a portable, high-level assembly language that can be optimized with a variety of transformations over multiple passes. The name LLVM originally stood for Low Level Virtual Machine, though the project has expanded and the name is no longer officially an initialism.",
@@ -24,8 +23,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.llvm.org/",
       created: "2003",
     })
-    .relLicenses.add(["license+apache", "license+bsd"])
-    .relParadigms.add(["paradigm+assembly", "paradigm+compiled", "paradigm+multi"])
+    .relLicense.add(["license+apache", "license+bsd"])
+    .relParadigm.add(["para+assembly", "para+compiled", "para+multi"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+analysis", "tag+asm", "tag+compiler", "tag+framework", "tag+interpreters", "tag+ray-tracer", "tag+shell", "tag+viz"])
     .relWrittenIn.add(["pl+c++"]);

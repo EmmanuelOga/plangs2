@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+modelica", {
+  g.plang.    .set("pl+modelica", {
       name: "Modelica",
       description:
         "Modelica is a non-proprietary, object-oriented, declarative, multi-domain modeling language for component-oriented modeling of complex systems. It is primarily developed for modeling physical systems and supports acausal modeling with the use of mathematical equations rather than assignment statements. Developed by the Modelica Association, it allows the connection of reusable components to model systems across multiple domains such as electrical, mechanical, and thermal.",
@@ -24,8 +23,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.modelica.org/",
       created: "1997",
     })
-    .relLicenses.add(["license+cc-by"])
-    .relParadigms.add(["paradigm+declarative", "paradigm+multi", "paradigm+simulation"])
+    .relLicense.add(["license+cc-by"])
+    .relParadigm.add(["para+declarative", "para+multi", "para+simulation"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+app", "tag+industrial", "tag+modeling", "tag+sci", "tag+viz"]);
 

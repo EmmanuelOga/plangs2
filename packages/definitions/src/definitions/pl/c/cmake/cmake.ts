@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+cmake", {
+  g.plang.    .set("pl+cmake", {
       name: "CMake",
       languishRanking: 35,
       stackovTags: ["cmake"],
@@ -26,8 +25,8 @@ export function define(g: PlangsGraph) {
       created: "2000",
     })
     .relCompilesTo.add(["pl+makefile"])
-    .relLicenses.add(["license+bsd"])
-    .relParadigms.add(["paradigm+scripting"])
+    .relLicense.add(["license+bsd"])
+    .relParadigm.add(["para+scripting"])
     .relPlatforms.add(["plat+cross"]);
 
   // TOOLS

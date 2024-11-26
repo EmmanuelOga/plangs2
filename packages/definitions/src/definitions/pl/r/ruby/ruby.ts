@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+ruby", {
+  g.plang.    .set("pl+ruby", {
       name: "Ruby",
       description:
         'Ruby is an interpreted, high-level, general-purpose programming language. It was designed with an emphasis on programming productivity and simplicity. In Ruby, everything is an object, including primitive data types. It was developed in the mid-1990s by Yukihiro "Matz" Matsumoto in Japan.',
@@ -28,8 +27,8 @@ export function define(g: PlangsGraph) {
       created: "1995",
     })
     .relInfluencedBy.add(["pl+basic", "pl+c++", "pl+eiffel", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme"])
-    .relLicenses.add(["license+bsd", "license+mit"])
-    .relParadigms.add(["paradigm+functional", "paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+reflective", "paradigm+scripting"])
+    .relLicense.add(["license+bsd", "license+mit"])
+    .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+reflective", "para+scripting"])
     .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .relTags.add([
       "tag+analysis",

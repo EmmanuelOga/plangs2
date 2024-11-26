@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+luajit", {
+  g.plang.    .set("pl+luajit", {
       name: "LuaJIT",
       description:
         "LuaJIT is a tracing just-in-time compiler for the Lua programming language, renowned for its execution performance and compatibility with Lua 5.1. It was originally developed by Mike Pall and is known as the fastest Lua runtime, frequently used for numerical computation and dynamic programming language applications.",
@@ -20,8 +19,8 @@ export function define(g: PlangsGraph) {
     .relDialectOf.add(["pl+lua"])
     .relImplements.add(["pl+lua"])
     .relInfluencedBy.add(["pl+c", "pl+lua"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+imperative", "paradigm+procedural", "paradigm+scripting"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+imperative", "para+procedural", "para+scripting"])
     .relPlatforms.add(["plat+android", "plat+apple", "plat+arm", "plat+linux", "plat+windows", "plat+x86-64"])
     .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting"])
     .relTsys.add(["tsys+dynamic"])

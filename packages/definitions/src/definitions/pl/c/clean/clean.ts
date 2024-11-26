@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+clean", {
+  g.plang.    .set("pl+clean", {
       name: "Clean",
       description:
         "Clean is a general-purpose purely functional programming language designed for real-world applications. It is known for its uniqueness typing, dynamic typing, generic functions, and lazy evaluation. Developed since 1987 by the Software Technology Research Group of Radboud University Nijmegen, Clean shares many properties with Haskell, offering an efficient compilation to machine code with its unique type system.",
@@ -21,8 +20,8 @@ export function define(g: PlangsGraph) {
       created: "1987",
     })
     .relInfluencedBy.add(["pl+haskell"])
-    .relLicenses.add(["license+bsd"])
-    .relParadigms.add(["paradigm+functional"])
+    .relLicense.add(["license+bsd"])
+    .relParadigm.add(["para+functional"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+app", "tag+compiler", "tag+interpreters"])
     .relTsys.add(["tsys+dynamic", "tsys+static", "tsys+strong", "tsys+uniqueness"])

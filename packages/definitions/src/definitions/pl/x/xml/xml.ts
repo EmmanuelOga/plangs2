@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+xml", {
+  g.plang.    .set("pl+xml", {
       name: "XML",
       languishRanking: 32,
       stackovTags: ["xml"],
@@ -23,7 +22,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "xml",
       created: "1996",
     })
-    .relParadigms.add(["paradigm+data-exchange"])
+    .relParadigm.add(["para+data-exchange"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+dataq", "tag+workflow"])
     .relTsys.add(["tsys+untyped"]);

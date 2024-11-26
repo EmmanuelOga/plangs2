@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+json", {
+  g.plang.    .set("pl+json", {
       name: "JSON",
       languishRanking: 27,
       stackovTags: ["json"],
@@ -20,7 +19,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://json.org",
       created: "2001",
     })
-    .relParadigms.add(["paradigm+data-exchange"])
+    .relParadigm.add(["para+data-exchange"])
     .relPlatforms.add(["plat+cross"]);
 
   // TOOLS

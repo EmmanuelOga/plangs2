@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+scratchjr", {
+  g.plang.    .set("pl+scratchjr", {
       name: "ScratchJr",
       description:
         "ScratchJr is a visual programming language designed to introduce programming skills to children ages 5–7. The app is considered an introductory programming language. It is available as a free app for iOS, Android and Chromebook.",
@@ -12,7 +11,7 @@ export function define(g: PlangsGraph) {
       created: "2014",
     })
     .relInfluencedBy.add(["pl+scratch"])
-    .relParadigms.add(["paradigm+educational", "paradigm+event-driven", "paradigm+visual"])
+    .relParadigm.add(["para+educational", "para+event-driven", "para+visual"])
     .relPlatforms.add(["plat+android", "plat+apple"])
     .relTags.add(["tag+edu", "tag+interpreters", "tag+low-code"])
     .relTsys.add(["tsys+untyped"]);

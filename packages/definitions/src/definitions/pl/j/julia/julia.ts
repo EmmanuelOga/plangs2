@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+julia", {
+  g.plang.    .set("pl+julia", {
       name: "Julia",
       description:
         "Julia is a high-level, general-purpose dynamic programming language designed for numerical and scientific computing, as well as a variety of other applications such as data science, artificial intelligence, machine learning, modeling, and simulation. Julia's distinctive design features include a type system with parametric polymorphism, multiple dispatch as a core programming paradigm, a just-in-time compiler with support for ahead-of-time compilation, and efficient garbage collection. The language also provides strong support for parallel and distributed computing, and has a built-in package manager and extensive interoperability with other programming languages.",
@@ -40,17 +39,17 @@ export function define(g: PlangsGraph) {
       "pl+scheme",
       "pl+wolfram-language",
     ])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add([
-      "paradigm+array",
-      "paradigm+functional",
-      "paradigm+imperative",
-      "paradigm+metaprogramming",
-      "paradigm+multi",
-      "paradigm+oop",
-      "paradigm+procedural",
-      "paradigm+reflective",
-      "paradigm+structured",
+    .relLicense.add(["license+mit"])
+    .relParadigm.add([
+      "para+array",
+      "para+functional",
+      "para+imperative",
+      "para+metaprogramming",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
+      "para+reflective",
+      "para+structured",
     ])
     .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])
     .relTags.add([

@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+wing", {
+  g.plang.    .set("pl+wing", {
       name: "Wing",
       description:
         "Wing is a high-level programming language designed for cloud infrastructure management, providing developers with simplified syntax and powerful features for building and managing cloud-native and serverless applications effectively. Designed to reduce complexity, Wing offers enhanced productivity in interacting with cloud services, especially AWS.",
@@ -12,8 +11,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.winglang.io/",
       created: "2022",
     })
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+declarative", "paradigm+event-driven", "paradigm+multi", "paradigm+reactive", "paradigm+scripting"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+declarative", "para+event-driven", "para+multi", "para+reactive", "para+scripting"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+framework", "tag+scripting"])
     .relTsys.add(["tsys+inferred", "tsys+static", "tsys+strong"])

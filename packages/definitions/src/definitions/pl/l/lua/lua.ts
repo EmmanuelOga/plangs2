@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+lua", {
+  g.plang.    .set("pl+lua", {
       name: "Lua",
       description:
         "Lua (/ˈluːə/ LOO-ə; from Portuguese: lua [ˈlu(w)ɐ] meaning moon) is a lightweight, high-level, multi-paradigm programming language designed mainly for embedded use in applications. Lua is cross-platform software, since the interpreter of compiled bytecode is written in ANSI C, and Lua has a relatively simple C application programming interface (API) to embed it into applications.",
@@ -22,17 +21,17 @@ export function define(g: PlangsGraph) {
       created: "1993",
     })
     .relInfluencedBy.add(["pl+awk", "pl+c++", "pl+lisp", "pl+r5rs", "pl+scheme", "pl+self"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add([
-      "paradigm+functional",
-      "paradigm+imperative",
-      "paradigm+metaprogramming",
-      "paradigm+multi",
-      "paradigm+oop",
-      "paradigm+procedural",
-      "paradigm+prototype",
-      "paradigm+reflective",
-      "paradigm+scripting",
+    .relLicense.add(["license+mit"])
+    .relParadigm.add([
+      "para+functional",
+      "para+imperative",
+      "para+metaprogramming",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
+      "para+prototype",
+      "para+reflective",
+      "para+scripting",
     ])
     .relPlatforms.add(["plat+cross"])
     .relTags.add([

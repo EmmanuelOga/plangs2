@@ -1,4 +1,4 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
   g.nodes.learning
@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://threejs-journey.com/",
       kinds: ["course"],
     })
+    .relCommunities.add(["community+threejsjourney"])
     .relPlangs.add(["pl+javascript"])
-    .relTags.add(["tag+3dg", "tag+games", "tag+webdev"])
-    .relCommunities.add(["community+threejsjourney"]);
+    .relTags.add(["tag+3dg", "tag+games", "tag+webdev"]);
 }

@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+sql", {
+  g.plang.    .set("pl+sql", {
       name: "SQL",
       description:
         "Structured Query Language (SQL) is a domain-specific language designed for managing data in relational database systems. It is particularly useful for querying and managing structured data, which includes relationships between entities and variables. Although named as an acronym for Structured Query Language, 'SQL' is commonly pronounced as 'sequel'.",
@@ -22,7 +21,7 @@ export function define(g: PlangsGraph) {
       created: "1974",
     })
     .relInfluencedBy.add(["pl+datalog"])
-    .relParadigms.add(["paradigm+data-driven", "paradigm+declarative", "paradigm+dsl", "paradigm+query"])
+    .relParadigm.add(["para+data-driven", "para+declarative", "para+dsl", "para+query"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add([
       "tag+4gl",

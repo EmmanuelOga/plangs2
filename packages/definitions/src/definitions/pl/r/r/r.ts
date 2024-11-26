@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+r", {
+  g.plang.    .set("pl+r", {
       name: "R",
       description:
         "R is a language and environment for statistical computing and graphics. It is widely used among statisticians and data miners for data analysis and developing statistical software.",
@@ -27,15 +26,15 @@ export function define(g: PlangsGraph) {
       created: "1993",
     })
     .relInfluencedBy.add(["pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme"])
-    .relLicenses.add(["license+gnu-gpl"])
-    .relParadigms.add([
-      "paradigm+array",
-      "paradigm+functional",
-      "paradigm+imperative",
-      "paradigm+multi",
-      "paradigm+oop",
-      "paradigm+procedural",
-      "paradigm+reflective",
+    .relLicense.add(["license+gnu-gpl"])
+    .relParadigm.add([
+      "para+array",
+      "para+functional",
+      "para+imperative",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
+      "para+reflective",
     ])
     .relPlatforms.add(["plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+windows", "plat+x86-64"])
     .relTags.add([

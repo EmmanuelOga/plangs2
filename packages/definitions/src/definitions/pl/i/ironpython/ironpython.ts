@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+ironpython", {
+  g.plang.    .set("pl+ironpython", {
       name: "IronPython",
       description:
         "IronPython is an open-source implementation of the Python programming language, targeting the .NET and Mono frameworks. It is tightly integrated with .NET, enabling the use of .NET libraries in Python code and vice versa. IronPython is ideal for developers looking to leverage .NET's ecosystem while writing Python scripts. It is currently maintained by volunteers on GitHub and is open-source under the Apache License 2.0.",
@@ -19,8 +18,8 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+python"])
     .relInfluencedBy.add(["pl+.net", "pl+c-sharp"])
-    .relLicenses.add(["license+apache"])
-    .relParadigms.add(["paradigm+imperative", "paradigm+multi", "paradigm+oop", "paradigm+scripting"])
+    .relLicense.add(["license+apache"])
+    .relParadigm.add(["para+imperative", "para+multi", "para+oop", "para+scripting"])
     .relPlatforms.add(["plat+.net", "plat+apple", "plat+linux", "plat+windows"])
     .relTags.add(["tag+app", "tag+cli", "tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting", "tag+shell"])
     .relTsys.add(["tsys+duck", "tsys+dynamic", "tsys+strong"])

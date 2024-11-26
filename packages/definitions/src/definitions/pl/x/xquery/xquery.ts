@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+xquery", {
+  g.plang.    .set("pl+xquery", {
       name: "XQuery",
       description:
         "XQuery (XML Query) is a query and functional programming language that queries and transforms collections of structured and unstructured data, usually in the form of XML, text and with vendor-specific extensions for other data formats like JSON. The language is developed by the XML Query working group of the W3C. The work is closely coordinated with the development of XSLT by the XSL Working Group; the two groups share responsibility for XPath, which is a subset of XQuery.",
@@ -26,7 +25,7 @@ export function define(g: PlangsGraph) {
       created: "2007",
     })
     .relInfluencedBy.add(["pl+sql", "pl+xpath", "pl+xslt"])
-    .relParadigms.add(["paradigm+data-exchange", "paradigm+declarative", "paradigm+dsl", "paradigm+functional", "paradigm+modular", "paradigm+query"])
+    .relParadigm.add(["para+data-exchange", "para+declarative", "para+dsl", "para+functional", "para+modular", "para+query"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+analysis", "tag+app", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+viz"])
     .relTsys.add(["tsys+dynamic", "tsys+inferred", "tsys+static", "tsys+strong"]);

@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+ampl", {
+  g.plang.    .set("pl+ampl", {
       name: "AMPL",
       description:
         "AMPL (A Mathematical Programming Language) is an algebraic modeling language designed to describe and solve complex optimization problems for large-scale mathematical computing. Developed by Robert Fourer, David Gay, and Brian Kernighan at Bell Laboratories, it is widely used in industrial, academic, and governmental settings. AMPL features a mix of declarative and imperative paradigms, making it effective for formulating optimization models and constructing hybrid algorithms. With open-source and commercial solver support, AMPL allows seamless integration into existing systems across multiple platforms.",
@@ -20,7 +19,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.ampl.com/",
       created: "1985",
     })
-    .relParadigms.add(["paradigm+declarative", "paradigm+dsl", "paradigm+imperative", "paradigm+multi"])
+    .relParadigm.add(["para+declarative", "para+dsl", "para+imperative", "para+multi"])
     .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .relTags.add(["tag+industrial", "tag+interpreters", "tag+modeling", "tag+sci", "tag+stats"])
     .relTsys.add(["tsys+untyped"]);

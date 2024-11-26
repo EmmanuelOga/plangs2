@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+rmarkdown", {
+  g.plang.    .set("pl+rmarkdown", {
       name: "RMarkdown",
       languishRanking: 79,
       stackovTags: ["r-markdown"],
@@ -21,8 +20,8 @@ export function define(g: PlangsGraph) {
       created: "2014",
     })
     .relCompilesTo.add(["pl+html", "pl+markdown"])
-    .relLicenses.add(["license+mit"])
-    .relParadigms.add(["paradigm+data-driven", "paradigm+declarative", "paradigm+multi"])
+    .relLicense.add(["license+mit"])
+    .relParadigm.add(["para+data-driven", "para+declarative", "para+multi"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+dataq", "tag+sci", "tag+stats", "tag+workflow"]);
 

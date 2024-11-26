@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+lisp", {
+  g.plang.    .set("pl+lisp", {
       name: "Lisp",
       description:
         'Lisp (historically LISP, an abbreviation of "list processing") is a family of programming languages with a long history and a distinctive, fully parenthesized prefix notation. Originally specified in the late 1950s, it is the second-oldest high-level programming language still in common use, after Fortran. Lisp has changed since its early days, and many dialects have existed over its history. Today, the best-known general-purpose Lisp dialects are Common Lisp, Scheme, Racket, and Clojure.',
@@ -18,8 +17,8 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Common_Lisp",
       created: "1960",
     })
-    .relLicenses.add(["license+gnu-gpl", "license+lgpl", "license+mit"])
-    .relParadigms.add(["paradigm+functional", "paradigm+metaprogramming", "paradigm+multi", "paradigm+procedural", "paradigm+reflective"])
+    .relLicense.add(["license+gnu-gpl", "license+lgpl", "license+mit"])
+    .relParadigm.add(["para+functional", "para+metaprogramming", "para+multi", "para+procedural", "para+reflective"])
     .relPlatforms.add(["plat+cross"])
     .relTags.add(["tag+app", "tag+asm", "tag+compiler", "tag+editor", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+viz"])
     .relTsys.add(["tsys+dynamic", "tsys+strong"]);

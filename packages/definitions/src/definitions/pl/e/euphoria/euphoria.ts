@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+euphoria", {
+  g.plang.    .set("pl+euphoria", {
       name: "Euphoria",
       description:
         "Euphoria is a powerful yet easy-to-learn programming language that emphasizes simplicity and readability, making it suitable for a wide range of applications across Windows, Linux, macOS, and BSD. It was first released in 1993 as shareware and has evolved over time into an open-source community-driven project. Its design focuses on rapid development and performance, incorporating features like an interpreter, C translator, and simple syntax using English keywords.",
@@ -19,8 +18,8 @@ export function define(g: PlangsGraph) {
       created: "1993",
     })
     .relInfluencedBy.add(["pl+basic"])
-    .relLicenses.add(["license+bsd"])
-    .relParadigms.add(["paradigm+imperative", "paradigm+procedural"])
+    .relLicense.add(["license+bsd"])
+    .relParadigm.add(["para+imperative", "para+procedural"])
     .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
     .relTags.add([
       "tag+app",

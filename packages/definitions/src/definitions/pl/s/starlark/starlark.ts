@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+starlark", {
+  g.plang.    .set("pl+starlark", {
       name: "Starlark",
       languishRanking: 77,
       stackovTags: ["bazel"],
@@ -19,8 +18,8 @@ export function define(g: PlangsGraph) {
       extRedditPath: "bazel",
       created: "2015",
     })
-    .relLicenses.add(["license+apache"])
-    .relParadigms.add(["paradigm+dataflow", "paradigm+declarative", "paradigm+scripting"])
+    .relLicense.add(["license+apache"])
+    .relParadigm.add(["para+dataflow", "para+declarative", "para+scripting"])
     .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .relTags.add(["tag+automation", "tag+compiler"])
     .relTsys.add(["tsys+strong"])

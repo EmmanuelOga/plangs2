@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+html", {
+  g.plang.    .set("pl+html", {
       name: "HTML",
       languishRanking: 7,
       stackovTags: ["html"],
@@ -23,7 +22,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "HTML",
       created: "1993",
     })
-    .relParadigms.add(["paradigm+declarative"])
+    .relParadigm.add(["para+declarative"])
     .relPlatforms.add(["plat+web"])
     .relTags.add(["tag+scripting"]);
 

@@ -1,8 +1,7 @@
-import type { PlangsGraph } from "@plangs/plangs";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.pl
-    .set("pl+xojo", {
+  g.plang.    .set("pl+xojo", {
       name: "Xojo",
       description:
         "Xojo is a cross-platform development tool that allows users to develop applications for macOS, Windows, Linux, web, iOS, Android, and Raspberry Pi using a proprietary object-oriented language. Developed by Xojo, Inc., it provides an easy-to-use drag-and-drop interface for building native applications across multiple platforms.",
@@ -26,7 +25,7 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+basic"])
     .relInfluencedBy.add(["pl+basic", "pl+visual-basic"])
-    .relParadigms.add(["paradigm+multi", "paradigm+oop", "paradigm+visual"])
+    .relParadigm.add(["para+multi", "para+oop", "para+visual"])
     .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+raspberry", "plat+web", "plat+windows"])
     .relTags.add(["tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreters", "tag+rad", "tag+ui"])
     .relTsys.add(["tsys+object", "tsys+static", "tsys+strong"]);
