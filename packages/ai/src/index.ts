@@ -134,7 +134,7 @@ export async function aiCompletion(
 
     // TODO: apply Linguist/Languish data here, which should take precedence over the AI data.
 
-    const path = tsNodePath("pl", pl.plainKey);
+    const path = tsNodePath("plang", pl.plainKey);
     console.log("Writing result to", path);
     Bun.write(path, plangCodeGen(newPl));
   } catch (err) {

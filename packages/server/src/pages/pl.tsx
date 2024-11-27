@@ -133,9 +133,8 @@ function PlBundles({ pl }: { pl: VPlang }) {
         <div key={bundle.key} class={tw("bg-linear-to-b to-secondary/50", "shadow-lg shadow-primary/20", tw(BORDER, "border-b-1"), "-mx-4 mb-4 p-4")}>
           <h3>
             Bundle:{" "}
-            {bundle.relTools
-              .nodes()
-              .map(n => n.name)
+            {bundle.relTools.vertices
+              // .map(n => n.name)
               .join(", ")}
           </h3>
           <p>{bundle.description}</p>

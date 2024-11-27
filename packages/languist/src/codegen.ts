@@ -1,6 +1,7 @@
 import { join } from "node:path";
 
 import { type PlangsGraph, VCommunity, VLearning, type VPlang } from "@plangs/plangs/graph";
+import type { PlangsNodeNames } from "@plangs/plangs/graph/generated";
 import type { Image } from "@plangs/plangs/graph/vertex_data_schemas";
 
 export const DEFINTIONS_PATH = join(import.meta.dir, "../../definitions/src/definitions");
@@ -10,8 +11,8 @@ export const DEFINTIONS_PATH = join(import.meta.dir, "../../definitions/src/defi
  * VPlang nodes are stored in a folder structure based on the first letter of the key.
  * The other nodes are stored in a flat structure.
  */
-export function tsNodePath(kind: N, plainKey?: string): string {
-  if (kind === "pl") {
+export function tsNodePath(kind: PlangsNodeNames, plainKey?: string): string {
+  if (kind === "plang") {
     if (!plainKey) throw new Error("plainKey is required for pl nodes.");
     const base = plainKey.replace(/[^a-zA-Z0-9\_\+\-]/g, "_");
     return join(DEFINTIONS_PATH, kind, base[0], base, `${base}.ts`);
@@ -33,9 +34,9 @@ export function genericCodeGen(pg: PlangsGraph, kind: "license" | "paradigm" | "
       }
 
       if (node instanceof VLearning) {
-        addRelKeys(relations, "relPlangs", node.relPlangs.keys());
-        addRelKeys(relations, "relTags", node.relTag.keys());
-        addRelKeys(relations, "relCommunities", node.relCommunities.keys());
+        addRelKeys(relations, "relPlangs", node.relPlang.keys);
+        addRelKeys(relations, "relTags", node.relTag.keys);
+        addRelKeys(relations, "relCommunities", node.relCommunity.keys);
       }
 
       return `${genSet(kind, node.key, node.data)}${relations.join("")}`;
@@ -68,7 +69,7 @@ export function plangCodeGen(plang: VPlang): string {
   addRelKeys(relations, "relTools", plang.relTool.keys);
 
   const apps = plang.relApp.vertices.map(app => genSet("app", app.key, app.data));
-  const libs = plang.relLibrary.vertices.map(lib => genSet("lib", lib.key, lib.data));
+  const libs = plang.relLibrary.vertices.map(lib => genSet("library", lib.key, lib.data));
   const tools = plang.relTool.vertices.map(tool => genSet("tool", tool.key, tool.data));
 
   const bundles: string[] = []; /* TODO. plang.nodes().map(bundle => {
@@ -80,7 +81,7 @@ export function plangCodeGen(plang: VPlang): string {
   return `import type { PlangsGraph } from "@plangs/plangs/graph";
 
   export function define(g: PlangsGraph) {
-    ${genSet("pl", plang.key, plang.data)}${relations.join("")}
+    ${genSet("plang", plang.key, plang.data)}${relations.join("")}
 
     // TOOLS
 
@@ -103,7 +104,7 @@ export function plangCodeGen(plang: VPlang): string {
 
 // Generate a setter for the node data.
 // biome-ignore lint/suspicious/noExplicitAny: Any data is fine here.
-const genSet = (nodeName: N, key: string, data: any) => {
+const genSet = (nodeName: PlangsNodeNames, key: string, data: any) => {
   /** Cleanup data in place: sort keys, remove blank values. */
   for (const [k, v] of Object.entries(data)) {
     if (Array.isArray(v)) {

@@ -1,12 +1,13 @@
 import type { JSX } from "preact/jsx-runtime";
 
 import { tw } from "@plangs/frontend/auxiliar/styles";
-import { type AnyNode, VPlang } from "@plangs/plangs";
+import { VPlang } from "@plangs/plangs/graph";
+import type { PlangsVertex } from "@plangs/plangs/graph/vertex_base";
 import { cssClass } from "@plangs/server/elements";
 
 const PLACEHOLDER = "/images/placeholder.png";
 
-export function NodeThumbn({ node, class: klass }: { class?: string; node: AnyNode }): JSX.Element {
+export function NodeThumbn({ node, class: klass }: { class?: string; node: PlangsVertex<any, any> }): JSX.Element {
   const thumbUrl = node.thumbUrl;
   return (
     <div

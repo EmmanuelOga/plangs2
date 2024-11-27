@@ -4,7 +4,7 @@ import { ValNil, ValNumber } from "@plangs/auxiliar/value";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { loadLocalStorage } from "@plangs/frontend/auxiliar/storage";
 import type { PlangFacetKey } from "@plangs/plangs/facets/plangs";
-import { type PlangsGraph, VLicense, VParadigm, VPlang, VPlatform, VTag, VTypeSystem } from "@plangs/plangs/graph";
+import { type PlangsGraph, VLicense, VParadigm, type VPlang, VPlatform, VTag, VTypeSystem } from "@plangs/plangs/graph";
 import type { TAB } from "@plangs/server/components/layout";
 
 import { createFacetGroups } from "./groups-util";
@@ -21,18 +21,18 @@ export const FACETS: FacetsMap<FK> = defineFacets<FK>(
   bool("isTranspiler", "Is Transpiler"),
   bool("releasedRecently", "Released Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 1) : new ValNil())),
   multi("extensions", "Extensions"),
-  table("compilesTo", "Compiles To", { kind: "noderel", edge: "compilesTo", node: VPlang.kind, dir: "direct" }),
-  table("creationYear", "Creation Year", { kind: "year", node: VPlang.kind }),
-  table("dialectOf", "Dialect Of", { kind: "noderel", edge: "dialect", node: VPlang.kind, dir: "direct" }),
-  table("implements", "Implements", { kind: "noderel", edge: "impl", node: VPlang.kind, dir: "direct" }),
-  table("influenced", "Influenced", { kind: "noderel", edge: "influence", node: VPlang.kind, dir: "inverse" }),
-  table("influencedBy", "Influenced By", { kind: "noderel", edge: "influence", node: VPlang.kind, dir: "direct" }),
-  table("licenses", "Licenses", { kind: "noderel", edge: "license", node: VLicense.kind, dir: "direct" }),
-  table("paradigms", "Paradigms", { kind: "noderel", edge: "para+", node: VParadigm.kind, dir: "direct" }),
-  table("platforms", "Platforms", { kind: "noderel", edge: "plat", node: VPlatform.kind, dir: "direct" }),
-  table("tags", "Tags", { kind: "noderel", edge: "tag", node: VTag.kind, dir: "direct" }),
-  table("typeSystems", "Type Systems", { kind: "noderel", edge: "tsys", node: VTypeSystem.kind, dir: "direct" }),
-  table("writtenIn", "Written In", { kind: "noderel", edge: "writtenIn", node: VPlang.kind, dir: "direct" }),
+  table("compilesTo", "Compiles To", { kind: "noderel", edge: "plangCompilesToPlang", dir: "direct" }),
+  table("creationYear", "Creation Year", { kind: "year", node: "plang" }),
+  table("dialectOf", "Dialect Of", { kind: "noderel", edge: "plangDialectOfPlang", dir: "direct" }),
+  table("implements", "Implements", { kind: "noderel", edge: "plangImplementsPlang", dir: "direct" }),
+  table("influenced", "Influenced", { kind: "noderel", edge: "plangInfluencedByPlang", dir: "inverse" }),
+  table("influencedBy", "Influenced By", { kind: "noderel", edge: "plangInfluencedByPlang", dir: "direct" }),
+  table("licenses", "Licenses", { kind: "noderel", edge: "licensePlang", dir: "direct" }),
+  table("paradigms", "Paradigms", { kind: "noderel", edge: "plangParadigm", dir: "direct" }),
+  table("platforms", "Platforms", { kind: "noderel", edge: "plangPlatform", dir: "direct" }),
+  table("tags", "Tags", { kind: "noderel", edge: "plangTag", dir: "direct" }),
+  table("typeSystems", "Type Systems", { kind: "noderel", edge: "plangTypeSystem", dir: "direct" }),
+  table("writtenIn", "Written In", { kind: "noderel", edge: "plangWrittenInPlangPlang", dir: "direct" }),
   text("plangName", "Plang Name"),
 );
 

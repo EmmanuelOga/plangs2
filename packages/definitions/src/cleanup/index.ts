@@ -94,15 +94,15 @@ export async function processGithubAndLanguish() {
 
   console.warn("Languages without updates:", { woGithub: [...woGH], woLanguish: [...woLG] });
 
-  for (const pl of pg.plang.values) Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
+  for (const pl of pg.plang.values) Bun.write(tsNodePath("plang", pl.plainKey), plangCodeGen(pl));
 
   console.warn("CAUTION: matching github data is not a perfect process. Results (git diff) should be manually reviewed.");
 }
 
 /** This regenerates some nodes that are not VPlangs. Useful to reorder the definitions. */
 export function regenNonPlangs(pg: PlangsGraph) {
-  for (const pl of pg.plang.values) Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
-  for (const kind of ["license", "para+", "plat", "tag", "tsys", "learning", "community"] as const) {
+  for (const pl of pg.plang.values) Bun.write(tsNodePath("plang", pl.plainKey), plangCodeGen(pl));
+  for (const kind of ["license", "paradigm", "platform", "tag", "typeSystem", "learning", "community"] as const) {
     Bun.write(tsNodePath(kind), genericCodeGen(pg, kind));
   }
 }
@@ -111,7 +111,7 @@ export function regenNonPlangs(pg: PlangsGraph) {
 export function regenPlangs(pg: PlangsGraph) {
   for (const pl of pg.plang.values) {
     // This is good place for "migrations", like renaming keys.
-    Bun.write(tsNodePath("pl", pl.plainKey), plangCodeGen(pl));
+    Bun.write(tsNodePath("plang", pl.plainKey), plangCodeGen(pl));
   }
 }
 

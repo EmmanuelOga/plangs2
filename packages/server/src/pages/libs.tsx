@@ -19,7 +19,7 @@ export function Libs({ pg }: { pg: PlangsGraph }) {
       {facetsMain({ tab: "tools", class: tw("max-h-[45dvh] 2xl:max-h-[unset]", "max-w-full 2xl:w-[35rem]", "overflow-hidden") })}
       {script("window.restoreFilters()")}
 
-      <NodeGrid pg={pg} node={"lib"} class={tw("flex-1", "overflow-y-scroll", "m-1")} />
+      <NodeGrid pg={pg} node={"library"} class={tw("flex-1", "overflow-y-scroll", "m-1")} />
 
       <div class={tw("overflow-hidden overflow-y-scroll", "max-h-[15dvh] 2xl:max-h-[unset] 2xl:w-[25rem]")}>
         {nodeInfo({ tab: "plangs", open: true })}

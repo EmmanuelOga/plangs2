@@ -2,29 +2,25 @@ import type { JSX } from "preact/jsx-runtime";
 
 import { SORT_DOWN, SORT_UP } from "@plangs/frontend/auxiliar/icons";
 import type { PlangsGraph } from "@plangs/plangs/graph";
+import type { PlangsEdgeNames, PlangsNodeNames } from "@plangs/plangs/graph/generated";
 import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 
 export type Val = string | number | boolean;
 export type Entry = { value: Val; label: string; count: number };
-export type FacetTableConfig = { kind: "noderel"; node: N; edge: E; dir: "direct" | "inverse" } | { kind: "year"; node: N };
+export type FacetTableConfig = { kind: "noderel"; edge: PlangsEdgeNames; dir: "direct" | "inverse" } | { kind: "year"; node: PlangsNodeNames };
 
 export function generateEntries(pg: PlangsGraph, config: FacetTableConfig): Entry[] {
   if (config.kind === "noderel") {
-    const { node, edge, dir } = config;
-    // TODO: check the node.
-    const emap = dir === "direct" ? pg.edges[edge].adjTo : pg.edges[edge].adjFrom;
-    if (!emap) {
+    const { edge, dir } = config;
+    const edges = pg.edges[edge];
+    if (!edges) {
       console.error("No edges found for:", edge, dir);
       return [];
     }
-    return [...emap.entries()]
-      .filter(([, edges]) => edges.size > 0)
-      .map(([key, edges]) => {
-        // biome-ignore lint/style/noNonNullAssertion: the filter above ensures there is at least one edge.
-        const anyEdge = edges.values().next().value!;
-        const name = (dir === "direct" ? anyEdge.nodeTo : anyEdge.nodeFrom)?.name ?? anyEdge.key;
-        return { value: key, label: name, count: edges.size };
-      });
+    // TODO: fix.
+    return [...(dir === "direct" ? edges.fromSource.entries : edges.toSource.entries)].map(([key, vertex]) => {
+      return { value: key, label: vertex.name, count: edges.size };
+    });
   }
 
   if (config.kind === "year") {
@@ -47,7 +43,7 @@ export type Column = "facet" | "count" | "sel";
 export type Order = "facet-asc" | "facet-desc" | "count-asc" | "count-desc" | "sel-asc" | "sel-desc";
 
 export function label(col: Column, config: FacetTableConfig): string {
-  if (col === "facet" && config.kind === "noderel") return config.node;
+  if (col === "facet" && config.kind === "noderel") return config.edge;
   if (col === "facet" && config.kind === "year") return `${config.node} year`;
   return col;
 }

@@ -33,6 +33,10 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
   const code: string[] = [];
   const edgeComment = (from: string, to: string, desc: string) => `/** **${from} -> ${to}**: ${desc} */`;
 
+  // Some type aliases.
+  code.push(`export type ${spec.name}NodeNames = keyof PlangsGraphBase["nodes"];`);
+  code.push(`export type ${spec.name}EdgeNames = keyof PlangsGraphBase["edges"];\n`);
+
   // Generate the graph class.
   code.push(`
     /** Base class for the ${spec.name} graph, generated from its specification. */
