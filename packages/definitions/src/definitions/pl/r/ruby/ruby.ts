@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.ruby-lang.org/en/",
       created: "1995",
     })
-    .relInfluence.add(["pl+basic", "pl+c++", "pl+eiffel", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme"])
+    .relInfluencedBy.add(["pl+basic", "pl+c++", "pl+eiffel", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme"])
     .relLicense.add(["lic+bsd", "lic+mit"])
     .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+reflective", "para+scripting"])
     .relPlatform.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+windows"])

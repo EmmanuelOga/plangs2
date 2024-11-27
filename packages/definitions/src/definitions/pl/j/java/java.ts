@@ -30,7 +30,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://openjdk.java.net/",
       created: "1995",
     })
-    .relInfluence.add(["pl+c++"])
+    .relInfluencedBy.add(["pl+c++"])
     .relLicense.add(["lic+gnu-gpl"])
     .relParadigm.add(["para+compiled", "para+concurrent", "para+functional", "para+imperative", "para+multi", "para+oop", "para+reflective"])
     .relPlatform.add(["plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+windows"])

@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ocaml.org/",
       created: "1996",
     })
-    .relInfluence.add(["pl+c", "pl+pascal", "pl+standard-ml"])
+    .relInfluencedBy.add(["pl+c", "pl+pascal", "pl+standard-ml"])
     .relLicense.add(["lic+lgpl"])
     .relParadigm.add(["para+functional", "para+imperative", "para+modular", "para+multi", "para+oop"])
     .relPlatform.add(["plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])

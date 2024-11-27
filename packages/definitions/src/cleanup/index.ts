@@ -11,7 +11,7 @@ import { genericCodeGen, plangCodeGen, tsNodePath } from "@plangs/languist/codeg
 import { LG_LANGS, type Rankings } from "@plangs/languist/languish";
 import { GH_LANGS } from "@plangs/languist/linguist";
 import type { LanguishKeys, LinguistLang } from "@plangs/languist/types";
-import { PlangsGraph, type VPlang } from "@plangs/plangs";
+import { PlangsGraph, type VPlang } from "@plangs/plangs/graph";
 
 /** Update the VPlang data with Github data. */
 function updateWithGH(pl: VPlang, ghMap: Map<string, LinguistLang>): boolean {
@@ -51,7 +51,7 @@ function updateWithLanguish(pl: VPlang, rankings: Rankings): boolean {
  */
 export async function createMissingPlangs(pg: PlangsGraph, ghMap: Map<string, LinguistLang>, rankings: Rankings) {
   // Collect the existing GH names for the next step.
-  const existingGHNames = new Set<string>(pg.plang.values.map(pl => pl.data.githubName).existing);
+  const existingGHNames = new Set<string>([...pg.plang.values].map(pl => pl.data.githubName).filter(v => !!v) as string[]);
 
   // Find languages to create new Plang nodes for (for languages with GH ranking from 1 to 100).
   // After this we need to manually review the results: some languages may not be worth keeping (like "AdBlock lists" format).
@@ -120,17 +120,16 @@ export function regenPlangs(pg: PlangsGraph) {
  * @param update if false only prints missing data, doesn't delete it.
  */
 export function cleanupData(pg: PlangsGraph, update: boolean) {
-  for (const [e, edgeMap] of Object.entries(pg.edges)) {
+  for (const [e, edges] of Object.entries(pg.edges)) {
     const missingKeys = new Set<string>();
 
-    for (const edge of edgeMap.values) {
-      if (!edge.nodeFrom) missingKeys.add(edge.from);
-      if (!edge.nodeTo) missingKeys.add(edge.to);
+    for (const [keyFrom, vertexFrom, keyTo, vertexTo] of edges.vertices) {
+      if (!vertexFrom) missingKeys.add(keyFrom);
+      if (!vertexTo) missingKeys.add(keyTo);
 
-      if (update && (!edge.nodeFrom || !edge.nodeTo)) {
-        console.log("Deleting edge with missing node:", e, edge.from, edge.to);
-        // biome-ignore lint/suspicious/noExplicitAny: Necessary because of the way we are using Object.entries.
-        edgeMap.delete(edge.from as any, edge.to as any);
+      if (update && (!vertexFrom || !vertexTo)) {
+        console.log("Deleting edge with missing node:", vertexFrom, vertexTo);
+        edges.delete(keyFrom as any, keyTo as any);
       }
     }
 

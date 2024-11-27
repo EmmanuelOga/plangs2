@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.modular.com/mojo",
       created: "2023",
     })
-    .relInfluence.add(["pl+python", "pl+swift"])
+    .relInfluencedBy.add(["pl+python", "pl+swift"])
     .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+compiled", "para+functional", "para+general-purpose", "para+imperative", "para+multi"])
     .relPlatform.add(["plat+apple", "plat+cross", "plat+linux"])

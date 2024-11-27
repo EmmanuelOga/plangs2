@@ -14,8 +14,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.yabasic.de/",
       created: "1995",
     })
-    .relImplement.add(["pl+basic"])
-    .relInfluence.add(["pl+basic"])
+    .relImplements.add(["pl+basic"])
+    .relInfluencedBy.add(["pl+basic"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+interpreted", "para+procedural", "para+scripting"])
     .relPlatform.add(["plat+linux", "plat+windows"])

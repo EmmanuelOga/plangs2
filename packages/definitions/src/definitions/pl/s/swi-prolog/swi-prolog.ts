@@ -16,8 +16,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://swi-prolog.org/",
       created: "1987",
     })
-    .relImplement.add(["pl+prolog"])
-    .relInfluence.add(["pl+prolog"])
+    .relImplements.add(["pl+prolog"])
+    .relInfluencedBy.add(["pl+prolog"])
     .relLicense.add(["lic+bsd", "lic+lgpl"])
     .relParadigm.add(["para+concurrent", "para+constraint", "para+declarative", "para+logic"])
     .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])

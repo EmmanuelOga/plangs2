@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       created: "1980",
     })
     .relDialectOf.add(["pl+pascal"])
-    .relInfluence.add(["pl+c++", "pl+eiffel", "pl+pascal"])
+    .relInfluencedBy.add(["pl+c++", "pl+eiffel", "pl+pascal"])
     .relParadigm.add([
       "para+array",
       "para+aspect",

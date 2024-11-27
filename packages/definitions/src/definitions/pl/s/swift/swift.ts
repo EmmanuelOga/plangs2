@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.swift.org/",
       created: "2014",
     })
-    .relInfluence.add(["pl+c", "pl+c-sharp", "pl+d", "pl+haskell", "pl+lisp", "pl+python", "pl+ruby", "pl+rust"])
+    .relInfluencedBy.add(["pl+c", "pl+c-sharp", "pl+d", "pl+haskell", "pl+lisp", "pl+python", "pl+ruby", "pl+rust"])
     .relLicense.add(["lic+apache"])
     .relParadigm.add([
       "para+concurrent",

@@ -11,8 +11,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://webkit.org/",
       created: "2008",
     })
-    .relImplement.add(["pl+javascript"])
-    .relInfluence.add(["pl+javascript"])
+    .relImplements.add(["pl+javascript"])
+    .relInfluencedBy.add(["pl+javascript"])
     .relLicense.add(["lic+bsd", "lic+lgpl"])
     .relParadigm.add(["para+event-driven", "para+interpreted", "para+oop", "para+scripting"])
     .relPlatform.add(["plat+apple", "plat+arm", "plat+linux", "plat+windows"])

@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.red-lang.org/",
       created: "2011",
     })
-    .relInfluence.add(["pl+lisp", "pl+lua", "pl+rebol"])
+    .relInfluencedBy.add(["pl+lisp", "pl+lua", "pl+rebol"])
     .relLicense.add(["lic+boost", "lic+bsd"])
     .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+symbolic"])
     .relPlatform.add(["plat+apple", "plat+linux", "plat+windows"])

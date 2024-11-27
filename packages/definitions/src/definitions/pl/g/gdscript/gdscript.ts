@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://godotengine.org/",
       created: "2014",
     })
-    .relInfluence.add(["pl+python"])
+    .relInfluencedBy.add(["pl+python"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+imperative", "para+oop", "para+scripting"])
     .relPlatform.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+web", "plat+windows"])

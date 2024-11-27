@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+lua"])
     .relDialectOf.add(["pl+lua"])
-    .relInfluence.add(["pl+lua"])
+    .relInfluencedBy.add(["pl+lua"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+imperative", "para+multi", "para+oop", "para+procedural", "para+scripting"])
     .relPlatform.add(["plat+arm", "plat+cross", "plat+embedded", "plat+linux", "plat+windows"])

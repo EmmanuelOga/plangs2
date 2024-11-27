@@ -1,4 +1,4 @@
-import { type PlangsGraph, VPlang } from "@plangs/plangs";
+import { type PlangsGraph, VPlang } from "@plangs/plangs/graph";
 
 /** Attempt to load a plang using the nearest data-key attribute. */
 export function getPl(pg: PlangsGraph, target: EventTarget | null): VPlang | undefined {

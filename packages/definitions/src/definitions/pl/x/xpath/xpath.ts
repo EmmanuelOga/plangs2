@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "XPath",
       created: "1998",
     })
-    .relInfluence.add(["pl+xslt"])
+    .relInfluencedBy.add(["pl+xslt"])
     .relParadigm.add(["para+query"])
     .relPlatform.add(["plat+cross"])
     .relTag.add(["tag+automation", "tag+dataflow", "tag+workflow"]);

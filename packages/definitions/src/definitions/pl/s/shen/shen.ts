@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://shenlanguage.org/",
       created: "2011",
     })
-    .relInfluence.add(["pl+prolog", "pl+scheme"])
+    .relInfluencedBy.add(["pl+prolog", "pl+scheme"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+functional", "para+logic", "para+multi", "para+pattern-matching", "para+symbolic"])
     .relPlatform.add(["plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+web", "plat+windows"])

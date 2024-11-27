@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.rebol.com/",
       created: "1997",
     })
-    .relInfluence.add(["pl+forth", "pl+lisp", "pl+self"])
+    .relInfluencedBy.add(["pl+forth", "pl+lisp", "pl+self"])
     .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+data-exchange", "para+functional", "para+imperative", "para+language-oriented", "para+prototype"])
     .relPlatform.add(["plat+cross"])

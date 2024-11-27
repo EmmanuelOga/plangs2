@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://openeuphoria.org/",
       created: "1993",
     })
-    .relInfluence.add(["pl+basic"])
+    .relInfluencedBy.add(["pl+basic"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+imperative", "para+procedural"])
     .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])

@@ -18,8 +18,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://circuitpython.org/",
       created: "2017",
     })
-    .relImplement.add(["pl+python"])
-    .relInfluence.add(["pl+micropython"])
+    .relImplements.add(["pl+python"])
+    .relInfluencedBy.add(["pl+micropython"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+embedded", "para+interpreted", "para+scripting"])
     .relPlatform.add(["plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry"])

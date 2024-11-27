@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       created: "2012",
     })
     .relDialectOf.add(["pl+datalog"])
-    .relImplement.add(["pl+datalog"])
+    .relImplements.add(["pl+datalog"])
     .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+declarative", "para+distributed", "para+logic", "para+query"])
     .relPlatform.add(["plat+cross", "plat+java"])

@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.lua.org/",
       created: "1993",
     })
-    .relInfluence.add(["pl+awk", "pl+c++", "pl+lisp", "pl+r5rs", "pl+scheme", "pl+self"])
+    .relInfluencedBy.add(["pl+awk", "pl+c++", "pl+lisp", "pl+r5rs", "pl+scheme", "pl+self"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add([
       "para+functional",

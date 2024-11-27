@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+webassembly"])
     .relDialectOf.add(["pl+javascript", "pl+typescript"])
-    .relInfluence.add(["pl+javascript", "pl+typescript"])
+    .relInfluencedBy.add(["pl+javascript", "pl+typescript"])
     .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop"])
     .relPlatform.add(["plat+nodejs", "plat+wasm", "plat+web"])

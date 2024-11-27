@@ -12,8 +12,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://mruby.org/",
       created: "2012",
     })
-    .relImplement.add(["pl+ruby"])
-    .relInfluence.add(["pl+ruby"])
+    .relImplements.add(["pl+ruby"])
+    .relInfluencedBy.add(["pl+ruby"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+embedded", "para+oop", "para+scripting"])
     .relPlatform.add(["plat+cross", "plat+embedded"])

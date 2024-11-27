@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://smlfamily.github.io/",
       created: "1983",
     })
-    .relInfluence.add(["pl+pascal"])
+    .relInfluencedBy.add(["pl+pascal"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+functional", "para+imperative", "para+modular", "para+multi"])
     .relPlatform.add(["plat+bsd", "plat+cross", "plat+linux"])

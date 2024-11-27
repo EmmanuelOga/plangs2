@@ -17,8 +17,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ironpython.net/",
       created: "2006",
     })
-    .relImplement.add(["pl+python"])
-    .relInfluence.add(["pl+.net", "pl+c-sharp"])
+    .relImplements.add(["pl+python"])
+    .relInfluencedBy.add(["pl+.net", "pl+c-sharp"])
     .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+imperative", "para+multi", "para+oop", "para+scripting"])
     .relPlatform.add(["plat+.net", "plat+apple", "plat+linux", "plat+windows"])

@@ -1,10 +1,10 @@
 import type { Filter } from "@plangs/auxiliar/filters";
 import { ret } from "@plangs/auxiliar/misc";
 import type { AnyValue, ValRegExp, ValString, Value } from "@plangs/auxiliar/value";
-import type { NTool, VLicense, VPlang, VPlatform, VTag } from "@plangs/plangs";
+import type { VLicense, VPlang, VPlatform, VTag, VTool } from "@plangs/plangs/graph";
 import type { StrDate } from "../graph/vertex_data_schemas";
 
-type Pred<T extends Value<AnyValue>> = (tool: NTool, value: T) => boolean;
+type Pred<T extends Value<AnyValue>> = (tool: VTool, value: T) => boolean;
 
 /**
  * Predicates to use to filter programming languages.
@@ -25,7 +25,7 @@ export const TOOL_FACET_PREDICATES = {
 
 export type ToolFacetKey = keyof typeof TOOL_FACET_PREDICATES;
 
-export function toolMatches(tool: NTool, values: Map<ToolFacetKey, AnyValue>): boolean {
+export function toolMatches(tool: VTool, values: Map<ToolFacetKey, AnyValue>): boolean {
   for (const [key, value] of values) {
     const pred = TOOL_FACET_PREDICATES[key] as Pred<AnyValue>;
     if (!pred) console.error(`No predicate found for key: ${key}`);

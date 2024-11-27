@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       created: "2017",
     })
     .relCompilesTo.add(["pl+javascript"])
-    .relImplement.add(["pl+dart"])
+    .relImplements.add(["pl+dart"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+declarative", "para+functional", "para+oop"])
     .relPlatform.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows"])

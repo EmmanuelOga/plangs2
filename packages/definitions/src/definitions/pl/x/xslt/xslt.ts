@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.w3.org/TR/xslt-30/",
       created: "1998",
     })
-    .relInfluence.add(["pl+boomerang"])
+    .relInfluencedBy.add(["pl+boomerang"])
     .relParadigm.add(["para+declarative", "para+dsl"])
     .relPlatform.add(["plat+cross", "plat+java"])
     .relTag.add(["tag+analysis", "tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+viz"])

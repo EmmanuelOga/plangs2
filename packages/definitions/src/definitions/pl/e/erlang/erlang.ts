@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.erlang.org/",
       created: "1986",
     })
-    .relInfluence.add(["pl+lisp", "pl+prolog"])
+    .relInfluencedBy.add(["pl+lisp", "pl+prolog"])
     .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+concurrent", "para+functional", "para+multi", "para+oop"])
     .relPlatform.add(["plat+apple", "plat+beam", "plat+cross", "plat+linux", "plat+windows"])

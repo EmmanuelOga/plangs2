@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       created: "2021",
     })
     .relCompilesTo.add(["pl+json", "pl+nix", "pl+rust", "pl+xml", "pl+yaml"])
-    .relInfluence.add(["pl+rust"])
+    .relInfluencedBy.add(["pl+rust"])
     .relLicense.add(["lic+mpl"])
     .relParadigm.add(["para+data-exchange", "para+declarative", "para+validation"])
     .relPlatform.add(["plat+linux", "plat+windows"])

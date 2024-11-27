@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       created: "2011",
     })
     .relCompilesTo.add(["pl+javascript", "pl+llvm"])
-    .relInfluence.add(["pl+c-sharp", "pl+eiffel", "pl+groovy", "pl+javascript", "pl+python", "pl+scala"])
+    .relInfluencedBy.add(["pl+c-sharp", "pl+eiffel", "pl+groovy", "pl+javascript", "pl+python", "pl+scala"])
     .relLicense.add(["lic+apache"])
     .relParadigm.add([
       "para+concurrent",

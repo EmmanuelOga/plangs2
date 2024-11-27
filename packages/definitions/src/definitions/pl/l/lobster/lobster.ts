@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://strlen.com/lobster/",
       created: "2016",
     })
-    .relInfluence.add(["pl+python"])
+    .relInfluencedBy.add(["pl+python"])
     .relLicense.add(["lic+apache", "lic+zlib"])
     .relParadigm.add(["para+compiled", "para+functional", "para+multi", "para+oop"])
     .relPlatform.add(["plat+cross", "plat+linux", "plat+web", "plat+windows"])

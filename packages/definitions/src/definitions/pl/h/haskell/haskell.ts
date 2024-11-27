@@ -25,8 +25,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://haskell.org/",
       created: "1990",
     })
-    .relImplement.add(["pl+curry"])
-    .relInfluence.add(["pl+clean", "pl+lisp", "pl+r5rs", "pl+raku", "pl+scheme", "pl+standard-ml"])
+    .relImplements.add(["pl+curry"])
+    .relInfluencedBy.add(["pl+clean", "pl+lisp", "pl+r5rs", "pl+raku", "pl+scheme", "pl+standard-ml"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+concurrent", "para+declarative", "para+functional", "para+lazy"])
     .relPlatform.add(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])

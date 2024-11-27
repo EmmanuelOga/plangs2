@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.getadanow.com/",
       created: "1995",
     })
-    .relImplement.add(["pl+ada"])
+    .relImplements.add(["pl+ada"])
     .relLicense.add(["lic+gnu-gpl"])
     .relParadigm.add(["para+compiled", "para+concurrent", "para+procedural", "para+structured"])
     .relPlatform.add(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])

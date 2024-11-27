@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.iso.org/standard/76583.html",
       created: "1974",
     })
-    .relInfluence.add(["pl+datalog"])
+    .relInfluencedBy.add(["pl+datalog"])
     .relParadigm.add(["para+data-driven", "para+declarative", "para+dsl", "para+query"])
     .relPlatform.add(["plat+cross"])
     .relTag.add([

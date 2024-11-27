@@ -1,6 +1,6 @@
 import { join } from "node:path";
 import { loadAllDefinitions } from "@plangs/definitions";
-import { PlangsGraph } from "@plangs/plangs";
+import { PlangsGraph } from "@plangs/plangs/graph";
 
 async function generateJSON(dstRoot: string) {
   const pg = new PlangsGraph();

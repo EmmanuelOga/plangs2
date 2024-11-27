@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       created: "1998",
     })
     .relDialectOf.add(["pl+basic"])
-    .relImplement.add(["pl+basic"])
+    .relImplements.add(["pl+basic"])
     .relParadigm.add(["para+imperative", "para+procedural", "para+structured"])
     .relPlatform.add(["plat+apple", "plat+linux", "plat+raspberry", "plat+windows"])
     .relTag.add(["tag+app", "tag+asm", "tag+compiler", "tag+editor", "tag+games", "tag+interpreters", "tag+ui"]);

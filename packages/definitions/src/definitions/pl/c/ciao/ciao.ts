@@ -13,8 +13,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.ciao-lang.org/",
       created: "1984",
     })
-    .relImplement.add(["pl+prolog"])
-    .relInfluence.add(["pl+prolog", "pl+scheme"])
+    .relImplements.add(["pl+prolog"])
+    .relInfluencedBy.add(["pl+prolog", "pl+scheme"])
     .relLicense.add(["lic+gnu-gpl", "lic+lgpl"])
     .relParadigm.add([
       "para+concurrent",

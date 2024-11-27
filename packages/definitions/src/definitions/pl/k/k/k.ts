@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://kx.com/",
       created: "1993",
     })
-    .relInfluence.add(["pl+apl", "pl+scheme"])
+    .relInfluencedBy.add(["pl+apl", "pl+scheme"])
     .relParadigm.add(["para+array", "para+functional"])
     .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])
     .relTag.add(["tag+analysis", "tag+app", "tag+dbms", "tag+interpreters"])

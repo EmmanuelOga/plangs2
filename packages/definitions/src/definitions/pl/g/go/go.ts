@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://go.dev/",
       created: "2009",
     })
-    .relInfluence.add(["pl+apl", "pl+c", "pl+d", "pl+erlang", "pl+pascal", "pl+python"])
+    .relInfluencedBy.add(["pl+apl", "pl+c", "pl+d", "pl+erlang", "pl+pascal", "pl+python"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+oop"])
     .relPlatform.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])

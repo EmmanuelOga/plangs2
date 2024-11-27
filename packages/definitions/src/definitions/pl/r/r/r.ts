@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.r-project.org/",
       created: "1993",
     })
-    .relInfluence.add(["pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme"])
+    .relInfluencedBy.add(["pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme"])
     .relLicense.add(["lic+gnu-gpl"])
     .relParadigm.add(["para+array", "para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective"])
     .relPlatform.add(["plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+windows", "plat+x86-64"])

@@ -24,8 +24,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://xojo.com/",
       created: "1996",
     })
-    .relImplement.add(["pl+basic"])
-    .relInfluence.add(["pl+basic", "pl+visual-basic"])
+    .relImplements.add(["pl+basic"])
+    .relInfluencedBy.add(["pl+basic", "pl+visual-basic"])
     .relParadigm.add(["para+multi", "para+oop", "para+visual"])
     .relPlatform.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+raspberry", "plat+web", "plat+windows"])
     .relTag.add(["tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreters", "tag+rad", "tag+ui"])

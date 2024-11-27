@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       created: "2000",
     })
     .relDialectOf.add(["pl+c"])
-    .relInfluence.add(["pl+c", "pl+c++", "pl+d", "pl+eiffel", "pl+f-sharp", "pl+haskell", "pl+pascal", "pl+scala", "pl+visual-basic"])
+    .relInfluencedBy.add(["pl+c", "pl+c++", "pl+d", "pl+eiffel", "pl+f-sharp", "pl+haskell", "pl+pascal", "pl+scala", "pl+visual-basic"])
     .relLicense.add(["lic+gnu-gpl", "lic+lgpl", "lic+mit"])
     .relParadigm.add([
       "para+async",

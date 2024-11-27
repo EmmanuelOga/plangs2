@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Basic",
       created: "1964",
     })
-    .relInfluence.add(["pl+fortran"])
+    .relInfluencedBy.add(["pl+fortran"])
     .relLicense.add(["lic+public-domain"])
     .relParadigm.add(["para+imperative", "para+oop", "para+procedural", "para+structured"])
     .relPlatform.add(["plat+cross", "plat+dos", "plat+linux", "plat+windows"])

@@ -17,7 +17,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://scratch.mit.edu/",
       created: "2003",
     })
-    .relInfluence.add(["pl+squeak"])
+    .relInfluencedBy.add(["pl+squeak"])
     .relLicense.add(["lic+bsd", "lic+dual", "lic+gnu-gpl"])
     .relParadigm.add(["para+educational", "para+event-driven", "para+visual"])
     .relPlatform.add(["plat+android", "plat+apple", "plat+linux", "plat+windows"])

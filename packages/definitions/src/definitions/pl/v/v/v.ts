@@ -23,7 +23,7 @@ export function define(g: PlangsGraph) {
       created: "2019",
     })
     .relCompilesTo.add(["pl+c"])
-    .relInfluence.add(["pl+go", "pl+rust", "pl+swift"])
+    .relInfluencedBy.add(["pl+go", "pl+rust", "pl+swift"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+concurrent", "para+functional", "para+imperative", "para+structured"])
     .relPlatform.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])

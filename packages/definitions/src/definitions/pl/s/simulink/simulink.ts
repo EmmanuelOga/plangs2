@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.mathworks.com/products/simulink.html",
       created: "1984",
     })
-    .relInfluence.add(["pl+matlab"])
+    .relInfluencedBy.add(["pl+matlab"])
     .relParadigm.add(["para+dataflow", "para+simulation", "para+visual"])
     .relPlatform.add(["plat+apple", "plat+linux", "plat+windows"])
     .relTag.add(["tag+analysis", "tag+dsp", "tag+embedded", "tag+industrial", "tag+modeling", "tag+testing", "tag+wavelet"]);

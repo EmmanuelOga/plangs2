@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
       created: "2005",
     })
     .relDialectOf.add(["pl+ocaml"])
-    .relInfluence.add(["pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ocaml", "pl+python", "pl+scala", "pl+standard-ml"])
+    .relInfluencedBy.add(["pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ocaml", "pl+python", "pl+scala", "pl+standard-ml"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add([
       "para+agents",

@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       created: "1977",
     })
     .relDialectOf.add(["pl+prolog"])
-    .relInfluence.add(["pl+prolog"])
+    .relInfluencedBy.add(["pl+prolog"])
     .relParadigm.add(["para+declarative", "para+logic"])
     .relTag.add(["tag+analysis", "tag+app", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+viz"])
     .relTypeSystem.add(["tsys+untyped", "tsys+weak"]);

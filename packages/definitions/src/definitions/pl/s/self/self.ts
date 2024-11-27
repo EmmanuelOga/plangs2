@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.selflanguage.org/",
       created: "1987",
     })
-    .relInfluence.add(["pl+apl"])
+    .relInfluencedBy.add(["pl+apl"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+oop", "para+prototype"])
     .relPlatform.add(["plat+apple", "plat+cross", "plat+windows"])

@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://ballerina.io/",
       created: "2017",
     })
-    .relInfluence.add(["pl+c-sharp", "pl+go", "pl+javascript", "pl+rust"])
+    .relInfluencedBy.add(["pl+c-sharp", "pl+go", "pl+javascript", "pl+rust"])
     .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+compiled", "para+concurrent", "para+event-driven", "para+functional", "para+general-purpose", "para+multi"])
     .relPlatform.add(["plat+cross"])

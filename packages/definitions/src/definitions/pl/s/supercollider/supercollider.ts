@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://supercollider.github.io/",
       created: "1996",
     })
-    .relInfluence.add(["pl+csound", "pl+lisp"])
+    .relInfluencedBy.add(["pl+csound", "pl+lisp"])
     .relLicense.add(["lic+gnu-gpl"])
     .relParadigm.add(["para+concurrent", "para+event-driven", "para+functional", "para+oop"])
     .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])

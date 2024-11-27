@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.ponylang.io/",
       created: "2015",
     })
-    .relInfluence.add(["pl+erlang", "pl+scala"])
+    .relInfluencedBy.add(["pl+erlang", "pl+scala"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+concurrent", "para+functional", "para+message-passing", "para+oop"])
     .relPlatform.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])

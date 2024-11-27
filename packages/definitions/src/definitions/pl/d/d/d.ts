@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://dlang.org/",
       created: "2001",
     })
-    .relInfluence.add(["pl+ada", "pl+basic", "pl+c", "pl+c++", "pl+c-sharp", "pl+eiffel", "pl+python", "pl+ruby"])
+    .relInfluencedBy.add(["pl+ada", "pl+basic", "pl+c", "pl+c++", "pl+c-sharp", "pl+eiffel", "pl+python", "pl+ruby"])
     .relLicense.add(["lic+boost"])
     .relParadigm.add(["para+concurrent", "para+functional", "para+imperative", "para+metaprogramming", "para+multi", "para+oop"])
     .relPlatform.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])

@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://ccl.clozure.com/",
       created: "2000",
     })
-    .relImplement.add(["pl+common-lisp"])
+    .relImplements.add(["pl+common-lisp"])
     .relLicense.add(["lic+apache", "lic+lgpl"])
     .relParadigm.add(["para+functional", "para+multi", "para+oop"])
     .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])

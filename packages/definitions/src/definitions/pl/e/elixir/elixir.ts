@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://elixir-lang.org/",
       created: "2012",
     })
-    .relInfluence.add(["pl+clojure", "pl+erlang", "pl+lisp", "pl+ruby"])
+    .relInfluencedBy.add(["pl+clojure", "pl+erlang", "pl+lisp", "pl+ruby"])
     .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+concurrent", "para+distributed", "para+functional", "para+multi", "para+process-oriented"])
     .relPlatform.add(["plat+beam"])

@@ -16,8 +16,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://micropython.org/",
       created: "2013",
     })
-    .relImplement.add(["pl+python"])
-    .relInfluence.add(["pl+python"])
+    .relImplements.add(["pl+python"])
+    .relInfluencedBy.add(["pl+python"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+embedded", "para+interpreted", "para+multi", "para+oop", "para+scripting"])
     .relPlatform.add(["plat+arduino", "plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry", "plat+riscv", "plat+windows"])

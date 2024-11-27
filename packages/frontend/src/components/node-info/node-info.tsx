@@ -1,6 +1,6 @@
 import { ret } from "@plangs/auxiliar/misc";
 import { BORDER, tw } from "@plangs/frontend/auxiliar/styles";
-import type { VPlang } from "@plangs/plangs";
+import type { VPlang } from "@plangs/plangs/graph";
 import type { TAB } from "@plangs/server/components/layout";
 import type { ComponentChildren } from "preact";
 
@@ -65,10 +65,10 @@ function relations(pl: VPlang) {
     ["Type Systems", pl.relTypeSystem.nodes()],
     ["Platforms", pl.relPlatform.nodes()],
 
-    ["Influenced By", pl.relInfluence.nodes()],
+    ["Influenced By", pl.relInfluencedBy.nodes()],
     ["Influenced", pl.relInfluenced.nodes()],
     ["Dialect Of", pl.relDialectOf.nodes()],
-    ["Implements", pl.relImplement.nodes()],
+    ["Implements", pl.relImplements.nodes()],
     ["Compiles To", pl.relCompilesTo.nodes()],
 
     ["Licenses", pl.relLicenses.nodes()],

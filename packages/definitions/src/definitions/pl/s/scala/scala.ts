@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.scala-lang.org/",
       created: "2004",
     })
-    .relInfluence.add([
+    .relInfluencedBy.add([
       "pl+common-lisp",
       "pl+eiffel",
       "pl+erlang",

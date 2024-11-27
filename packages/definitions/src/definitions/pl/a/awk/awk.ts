@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "awk",
       created: "1977",
     })
-    .relInfluence.add(["pl+c", "pl+sed"])
+    .relInfluencedBy.add(["pl+c", "pl+sed"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+data-driven", "para+procedural", "para+scripting"])
     .relPlatform.add(["plat+cross"])

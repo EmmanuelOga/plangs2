@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       created: "2006",
     })
     .relCompilesTo.add(["pl+css"])
-    .relInfluence.add(["pl+css"])
+    .relInfluencedBy.add(["pl+css"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+dsl"])
     .relPlatform.add(["plat+cross"])

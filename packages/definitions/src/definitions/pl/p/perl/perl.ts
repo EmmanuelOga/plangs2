@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.perl.org/",
       created: "1987",
     })
-    .relInfluence.add(["pl+awk", "pl+basic", "pl+c", "pl+c++", "pl+lisp", "pl+raku", "pl+sed"])
+    .relInfluencedBy.add(["pl+awk", "pl+basic", "pl+c", "pl+c++", "pl+lisp", "pl+raku", "pl+sed"])
     .relLicense.add(["lic+artistic", "lic+gnu-gpl"])
     .relParadigm.add(["para+functional", "para+multi", "para+oop", "para+procedural", "para+scripting"])
     .relPlatform.add(["plat+cross"])

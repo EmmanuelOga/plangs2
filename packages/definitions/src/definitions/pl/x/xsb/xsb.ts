@@ -14,8 +14,8 @@ export function define(g: PlangsGraph) {
       created: "1993",
     })
     .relDialectOf.add(["pl+prolog"])
-    .relImplement.add(["pl+prolog"])
-    .relInfluence.add(["pl+prolog"])
+    .relImplements.add(["pl+prolog"])
+    .relInfluencedBy.add(["pl+prolog"])
     .relLicense.add(["lic+lgpl"])
     .relParadigm.add(["para+declarative", "para+expert-system", "para+logic"])
     .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])

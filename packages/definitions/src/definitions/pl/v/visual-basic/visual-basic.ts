@@ -21,8 +21,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://docs.microsoft.com/dotnet/visual-basic/",
       created: "2001",
     })
-    .relImplement.add(["pl+basic"])
-    .relInfluence.add(["pl+basic", "pl+haskell", "pl+visual-basic"])
+    .relImplements.add(["pl+basic"])
+    .relInfluencedBy.add(["pl+basic", "pl+haskell", "pl+visual-basic"])
     .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+declarative", "para+event-driven", "para+imperative", "para+multi", "para+oop", "para+reflective", "para+structured"])
     .relPlatform.add(["plat+android", "plat+apple", "plat+bsd", "plat+dos", "plat+linux", "plat+windows"])

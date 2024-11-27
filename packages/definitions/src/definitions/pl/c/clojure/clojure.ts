@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       created: "2007",
     })
     .relDialectOf.add(["pl+lisp"])
-    .relInfluence.add([
+    .relInfluencedBy.add([
       "pl+c++",
       "pl+c-sharp",
       "pl+common-lisp",

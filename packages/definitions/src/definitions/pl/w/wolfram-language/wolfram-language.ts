@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.wolfram.com/language/",
       created: "1988",
     })
-    .relInfluence.add(["pl+apl", "pl+c", "pl+c++", "pl+fortran", "pl+lisp", "pl+pascal", "pl+prolog"])
+    .relInfluencedBy.add(["pl+apl", "pl+c", "pl+c++", "pl+fortran", "pl+lisp", "pl+pascal", "pl+prolog"])
     .relParadigm.add(["para+array", "para+functional", "para+multi", "para+procedural", "para+rewriting"])
     .relPlatform.add(["plat+cross"])
     .relTag.add(["tag+audio-dev", "tag+cas", "tag+cli", "tag+games", "tag+interpreters", "tag+numeric", "tag+shell"])

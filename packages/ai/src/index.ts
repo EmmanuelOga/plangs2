@@ -2,9 +2,10 @@ import OpenAI from "openai";
 import type { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 
 import { loadAllDefinitions } from "@plangs/definitions";
+import type { Vertices } from "@plangs/graphgen/library";
 import { plangCodeGen, tsNodePath } from "@plangs/languist/codegen";
-import { type NPlang, PlangsGraph } from "@plangs/plangs";
-import type { CommonNodeData, N, NPlangData } from "@plangs/plangs/schema";
+import { PlangsGraph, type VPlang } from "@plangs/plangs/graph";
+import { PlangsVertex } from "@plangs/plangs/graph/vertex_base";
 
 import { retrieveWebsites } from "./crawl";
 import { plangFromAI } from "./fromAI";
@@ -13,24 +14,22 @@ import type { NPlangAI } from "./types";
 
 type OpenAIMsg = ChatCompletionMessageParam;
 
-async function plangPrompt(pg: PlangsGraph, pl: NPlang, examplePl: NPlang): Promise<OpenAIMsg[]> {
-  const { name, description, keywords }: Partial<CommonNodeData> = pl.data;
-  const { extensions, filenames, created, isTranspiler, releases }: Partial<NPlangData> = pl.data;
+async function plangPrompt(pg: PlangsGraph, pl: VPlang, examplePl: VPlang): Promise<OpenAIMsg[]> {
+  const { name, description, keywords, extensions, filenames, created, isTranspiler, releases } = pl.data;
 
   const example: NPlangAI = {
-    commonData: { name, description, keywords } as CommonNodeData,
-    basicPlangData: { extensions, filenames, created, isTranspiler, releases } as NPlangData,
-    compilesTo: pl.relCompilesTo.keys(),
-    dialectOf: pl.relDialectOf.keys(),
-    implements: pl.relImplement.keys(),
-    influenced: pl.relInfluenced.keys(),
-    influencedBy: pl.relInfluence.keys(),
-    licenses: pl.relLicenses.keys(),
-    paradigms: pl.relParadigms.keys(),
-    platforms: pl.relPlatform.keys(),
-    tags: pl.relTag.keys(),
-    typeSystems: pl.relTypeSystem.keys(),
-    writtenIn: pl.relWrittenInPlang.keys(),
+    basicPlangData: { name, description, keywords, extensions, filenames, created, isTranspiler, releases },
+    compilesTo: [...pl.relCompilesTo.keys],
+    dialectOf: [...pl.relDialectOf.keys],
+    implements: [...pl.relImplements.keys],
+    influenced: [...pl.relInfluencedByRev.keys],
+    influencedBy: [...pl.relInfluencedBy.keys],
+    licenses: [...pl.relLicense.keys],
+    paradigms: [...pl.relParadigm.keys],
+    platforms: [...pl.relPlatform.keys],
+    tags: [...pl.relTag.keys],
+    typeSystems: [...pl.relTypeSystem.keys],
+    writtenIn: [...pl.relWrittenInPlang.keys],
   };
 
   const externalLinks: string[] = [];
@@ -70,17 +69,17 @@ async function plangPrompt(pg: PlangsGraph, pl: NPlang, examplePl: NPlang): Prom
     {
       role: "user",
       content: (() => {
-        const describeField = (keys: (keyof NPlangAI)[], node: N) =>
-          `For fields: ${JSON.stringify(keys).slice(1, -1)}, use keys: ${pg.nodes[node].values.map(n => `${n.key} (for ${n.name})`).join(", ")}.`;
+        const describeField = (keys: (keyof NPlangAI)[], vertices: Vertices<any>) =>
+          `For fields: ${JSON.stringify(keys).slice(1, -1)}, use keys: ${[...vertices.values.map(vertex => `${vertex.key} (for ${vertex.name})`)].join(", ")}.`;
 
         return [
           "The following is a list of keys you can use to fill each field.",
-          describeField(["compilesTo", "dialectOf", "implements", "influencedBy", "influenced", "writtenIn"], "pl"),
-          describeField(["licenses"], "license"),
-          describeField(["paradigms"], "paradigm"),
-          describeField(["platforms"], "plat"),
-          describeField(["tags"], "tag"),
-          describeField(["typeSystems"], "tsys"),
+          describeField(["compilesTo", "dialectOf", "implements", "influencedBy", "influenced", "writtenIn"], pg.plang),
+          describeField(["licenses"], pg.license),
+          describeField(["paradigms"], pg.paradigm),
+          describeField(["platforms"], pg.platform),
+          describeField(["tags"], pg.tag),
+          describeField(["typeSystems"], pg.typeSystem),
         ].join("\n");
       })(),
     },
@@ -90,8 +89,8 @@ async function plangPrompt(pg: PlangsGraph, pl: NPlang, examplePl: NPlang): Prom
 
 export async function aiCompletion(
   pg: PlangsGraph,
-  pl: NPlang,
-  examplePl: NPlang,
+  pl: VPlang,
+  examplePl: VPlang,
 ): Promise<{ result: "success" } | { result: "error"; message: string }> {
   try {
     const openai = new OpenAI();
@@ -146,19 +145,19 @@ export async function aiCompletion(
 }
 
 /** return a pl for which we have pretty good data, to use as an example for the LLM. */
-function examplePl(pg: PlangsGraph): NPlang {
+function examplePl(pg: PlangsGraph): VPlang {
   const exKey = "pl+python";
-  const examplePl = pg.nodes.pl.get(exKey);
+  const examplePl = pg.plang.get(exKey);
   if (!examplePl) throw new Error(`Example language not found: ${exKey}`);
   return examplePl;
 }
 
 /** Attempt to enrich the data for the language with given key. */
-async function enrichOne(key: NPlang["key"]) {
+async function enrichOne(key: VPlang["key"]) {
   const pg = new PlangsGraph();
   await loadAllDefinitions(pg, { scanImages: false });
 
-  const pl = pg.nodes.pl.get(process.argv[2] as NPlang["key"]);
+  const pl = pg.plang.get(process.argv[2] as VPlang["key"]);
   if (pl) {
     const result = await aiCompletion(pg, pl, examplePl(pg));
     if (result.result === "error") {
@@ -174,14 +173,14 @@ async function enrichAll() {
   const pg = new PlangsGraph();
   await loadAllDefinitions(pg, { scanImages: false });
 
-  for (const pl of pg.nodes.pl.values) {
+  for (const pl of pg.plang.values) {
     await aiCompletion(pg, pl, examplePl(pg));
   }
 }
 
 const argv = process.argv[2] ?? "";
 if (argv.startsWith("pl+")) {
-  enrichOne(argv as NPlang["key"]);
+  enrichOne(argv as VPlang["key"]);
 } else if (argv === "all") {
   enrichAll();
 } else {

@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://futhark-lang.org/",
       created: "2014",
     })
-    .relInfluence.add(["pl+apl", "pl+haskell", "pl+standard-ml"])
+    .relInfluencedBy.add(["pl+apl", "pl+haskell", "pl+standard-ml"])
     .relLicense.add(["lic+isc"])
     .relParadigm.add(["para+array", "para+compiled", "para+functional", "para+multi", "para+parallel"])
     .relPlatform.add(["plat+cross"])

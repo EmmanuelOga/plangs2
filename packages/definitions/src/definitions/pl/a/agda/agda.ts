@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://wiki.portal.chalmers.se/agda",
       created: "2007",
     })
-    .relInfluence.add(["pl+coq", "pl+haskell"])
+    .relInfluencedBy.add(["pl+coq", "pl+haskell"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+functional"])
     .relPlatform.add(["plat+cross"])

@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       created: "2008",
     })
     .relCompilesTo.add(["pl+c++", "pl+javascript"])
-    .relInfluence.add(["pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+python", "pl+rust"])
+    .relInfluencedBy.add(["pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+python", "pl+rust"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add([
       "para+compiled",

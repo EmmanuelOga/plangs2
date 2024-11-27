@@ -1,5 +1,5 @@
 import { loadAllDefinitions } from "@plangs/definitions";
-import { PlangsGraph } from "@plangs/plangs";
+import { PlangsGraph } from "@plangs/plangs/graph";
 
 import { Cache, Key } from "./cache";
 import { Fetcher } from "./fetcher";
@@ -118,8 +118,6 @@ async function extract() {
     if (page.key && PL_WHITELIST.has(page.key)) toPlang(g, page, PL_WHITELIST);
   }
 
-  console.log("Edges: ", g.edgeCount, "Nodes: ", g.nodeCount);
-
   await genAllPlangs(g);
 }
 
@@ -163,7 +161,7 @@ async function test() {
     if (!plang) {
       console.log("Failed to extract:", url.href);
     } else {
-      console.log(plang.key, plang.relTags.nodes);
+      console.log(plang.key, plang.relTag.vertices);
     }
   }
 }

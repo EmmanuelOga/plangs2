@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ryelang.org/",
       created: "2022",
     })
-    .relInfluence.add(["pl+factor", "pl+rebol", "pl+red"])
+    .relInfluencedBy.add(["pl+factor", "pl+rebol", "pl+red"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+functional", "para+interpreted", "para+multi", "para+scripting"])
     .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows"])

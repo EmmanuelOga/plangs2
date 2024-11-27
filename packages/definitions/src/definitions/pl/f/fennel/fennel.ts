@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       created: "2020",
     })
     .relCompilesTo.add(["pl+lua"])
-    .relInfluence.add(["pl+lua", "pl+scheme"])
+    .relInfluencedBy.add(["pl+lua", "pl+scheme"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+functional", "para+macro", "para+metaprogramming", "para+scripting"])
     .relPlatform.add(["plat+cross"])

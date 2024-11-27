@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Boo_(programming_language)",
       created: "2003",
     })
-    .relInfluence.add(["pl+c-sharp", "pl+python"])
+    .relInfluencedBy.add(["pl+c-sharp", "pl+python"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+multi", "para+oop", "para+scripting"])
     .relPlatform.add(["plat+.net", "plat+cross"])

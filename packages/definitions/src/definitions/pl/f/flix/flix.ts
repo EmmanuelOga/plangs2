@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://flix.dev/",
       created: "2015",
     })
-    .relInfluence.add(["pl+f-sharp", "pl+go", "pl+haskell", "pl+ocaml", "pl+scala"])
+    .relInfluencedBy.add(["pl+f-sharp", "pl+go", "pl+haskell", "pl+ocaml", "pl+scala"])
     .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+functional", "para+imperative", "para+logic", "para+multi"])
     .relPlatform.add(["plat+cross", "plat+java"])

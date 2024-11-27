@@ -24,8 +24,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://rakudo.org/",
       created: "2008",
     })
-    .relImplement.add(["pl+raku"])
-    .relInfluence.add(["pl+common-lisp", "pl+haskell", "pl+perl"])
+    .relImplements.add(["pl+raku"])
+    .relInfluencedBy.add(["pl+common-lisp", "pl+haskell", "pl+perl"])
     .relLicense.add(["lic+artistic"])
     .relParadigm.add(["para+functional", "para+multi", "para+procedural"])
     .relPlatform.add(["plat+android", "plat+apple", "plat+bsd", "plat+linux", "plat+windows"])

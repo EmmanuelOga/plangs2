@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://jqlang.github.io/jq",
       created: "2012",
     })
-    .relInfluence.add(["pl+haskell"])
+    .relInfluencedBy.add(["pl+haskell"])
     .relLicense.add(["lic+mit", "lic+public-domain"])
     .relParadigm.add(["para+functional", "para+point-free", "para+query", "para+scripting"])
     .relPlatform.add(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])

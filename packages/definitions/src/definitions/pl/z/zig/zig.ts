@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ziglang.org/",
       created: "2016",
     })
-    .relInfluence.add(["pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust"])
+    .relInfluencedBy.add(["pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+procedural"])
     .relPlatform.add(["plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+riscv", "plat+wasm", "plat+windows", "plat+x86-64"])

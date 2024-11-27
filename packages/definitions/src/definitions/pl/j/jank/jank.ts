@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       created: "2015",
     })
     .relDialectOf.add(["pl+clojure"])
-    .relInfluence.add(["pl+clojure"])
+    .relInfluencedBy.add(["pl+clojure"])
     .relParadigm.add(["para+functional", "para+general-purpose"])
     .relPlatform.add(["plat+cross"])
     .relTypeSystem.add(["tsys+strong"])

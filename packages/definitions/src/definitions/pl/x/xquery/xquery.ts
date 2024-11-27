@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.w3.org/XML/Query/",
       created: "2007",
     })
-    .relInfluence.add(["pl+sql", "pl+xpath", "pl+xslt"])
+    .relInfluencedBy.add(["pl+sql", "pl+xpath", "pl+xslt"])
     .relParadigm.add(["para+data-exchange", "para+declarative", "para+dsl", "para+functional", "para+modular", "para+query"])
     .relPlatform.add(["plat+cross"])
     .relTag.add(["tag+analysis", "tag+app", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+viz"])

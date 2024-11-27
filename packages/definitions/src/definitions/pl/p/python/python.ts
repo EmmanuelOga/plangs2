@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.python.org/",
       created: "1991",
     })
-    .relInfluence.add(["pl+ada", "pl+apl", "pl+c", "pl+c++", "pl+haskell", "pl+lisp", "pl+perl", "pl+r5rs", "pl+scheme", "pl+standard-ml"])
+    .relInfluencedBy.add(["pl+ada", "pl+apl", "pl+c", "pl+c++", "pl+haskell", "pl+lisp", "pl+perl", "pl+r5rs", "pl+scheme", "pl+standard-ml"])
     .relLicense.add(["lic+python"])
     .relParadigm.add([
       "para+functional",

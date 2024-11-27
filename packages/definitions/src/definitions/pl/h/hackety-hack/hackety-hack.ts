@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Hackety_Hack",
       created: "2009",
     })
-    .relInfluence.add(["pl+ruby"])
+    .relInfluencedBy.add(["pl+ruby"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+educational", "para+oop", "para+scripting"])
     .relPlatform.add(["plat+apple", "plat+linux", "plat+windows"])

@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://inko-lang.org/",
       created: "2016",
     })
-    .relInfluence.add(["pl+erlang", "pl+go"])
+    .relInfluencedBy.add(["pl+erlang", "pl+go"])
     .relLicense.add(["lic+mit", "lic+mpl"])
     .relParadigm.add(["para+concurrent", "para+message-passing", "para+multi", "para+oop"])
     .relPlatform.add(["plat+cross", "plat+linux"])

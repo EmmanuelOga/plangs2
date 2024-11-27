@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://coq.inria.fr/",
       created: "1989",
     })
-    .relInfluence.add(["pl+ocaml"])
+    .relInfluencedBy.add(["pl+ocaml"])
     .relLicense.add(["lic+lgpl"])
     .relParadigm.add(["para+declarative", "para+functional", "para+logic"])
     .relPlatform.add(["plat+cross"])

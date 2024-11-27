@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://v8.dev/",
       created: "2008",
     })
-    .relImplement.add(["pl+javascript"])
+    .relImplements.add(["pl+javascript"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+event-driven", "para+functional", "para+imperative", "para+interpreted", "para+multi", "para+oop", "para+procedural"])
     .relPlatform.add(["plat+arm", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64"])

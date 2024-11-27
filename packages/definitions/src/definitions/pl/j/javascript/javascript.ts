@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ecma-international.org/publications-and-standards/standards/ecma-262/",
       created: "1995",
     })
-    .relInfluence.add(["pl+awk", "pl+c", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme", "pl+self"])
+    .relInfluencedBy.add(["pl+awk", "pl+c", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme", "pl+self"])
     .relLicense.add(["lic+public-domain"])
     .relParadigm.add(["para+event-driven", "para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural"])
     .relPlatform.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+nodejs", "plat+wasm", "plat+web", "plat+windows"])

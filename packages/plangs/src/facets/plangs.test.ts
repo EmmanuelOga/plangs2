@@ -1,8 +1,8 @@
 import { expect, test } from "bun:test";
 
 import { Filter } from "@plangs/auxiliar/filters";
-import { type AnyValue, ValBool, ValNumber, ValRegExp, ValString } from "@plangs/auxiliar/value";
-import { PlangsGraph, type VLicense, type VParadigm, type VPlang, type VPlatform, type VTag, type VTypeSystem } from "@plangs/plangs";
+import { type AnyValue, ValBool, ValRegExp, ValString } from "@plangs/auxiliar/value";
+import { PlangsGraph, type VLicense, type VParadigm, type VPlang, type VPlatform, type VTag, type VTypeSystem } from "@plangs/plangs/graph";
 
 import { PLANG_FACET_PREDICATES, type PlangFacetKey, plangMatches } from "./plangs";
 
@@ -119,7 +119,7 @@ test("hasWikipedia", () => {
 
 test("implements", () => {
   const pg = new PlangsGraph();
-  const pl = pg.plang.set("pl+myplang").relImplement.add(["pl+one", "pl+two"]);
+  const pl = pg.plang.set("pl+myplang").relImplements.add(["pl+one", "pl+two"]);
   const { implements: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+one"))).toBeTrue();
@@ -137,8 +137,8 @@ test("implements", () => {
 
 test("influenced", () => {
   const pg = new PlangsGraph();
-  const pl = pg.plang.set("pl+myplang").relInfluence.add(["pl+one", "pl+two"]);
-  const other = pg.plang.set("pl+other").relInfluence.add(["pl+one", "pl+two"]);
+  const pl = pg.plang.set("pl+myplang").relInfluencedBy.add(["pl+one", "pl+two"]);
+  const other = pg.plang.set("pl+other").relInfluencedBy.add(["pl+one", "pl+two"]);
   const one = pg.plang.set("pl+one");
   const { influenced: check } = PLANG_FACET_PREDICATES;
 
@@ -161,7 +161,7 @@ test("influenced", () => {
 
 test("influencedBy", () => {
   const pg = new PlangsGraph();
-  const pl = pg.plang.set("pl+myplang").relInfluence.add(["pl+one", "pl+two"]);
+  const pl = pg.plang.set("pl+myplang").relInfluencedBy.add(["pl+one", "pl+two"]);
   const { influencedBy: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+one"))).toBeTrue();
@@ -361,7 +361,7 @@ test("Plangs.plangs", () => {
   const writtenIn = new Filter<VPlang["key"]>("any").add("pl+one").add("pl+two");
   const filters = new Map(Object.entries({ writtenIn }) as [PlangFacetKey, AnyValue][]);
 
-  expect(pg.plangs(filters)).toEqual(new Set([plang.key, other.key]));
-  expect(pg.plangs(filters, 1)).toEqual(new Set([plang.key]));
-  expect(pg.plangs(filters, 1000)).toEqual(new Set([plang.key, other.key]));
+  expect(pg.filterPlangs(filters)).toEqual(new Set([plang.key, other.key]));
+  expect(pg.filterPlangs(filters, 1)).toEqual(new Set([plang.key]));
+  expect(pg.filterPlangs(filters, 1000)).toEqual(new Set([plang.key, other.key]));
 });

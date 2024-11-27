@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://processing.org/",
       created: "2001",
     })
-    .relInfluence.add(["pl+c", "pl+java"])
+    .relInfluencedBy.add(["pl+c", "pl+java"])
     .relLicense.add(["lic+gnu-gpl", "lic+lgpl"])
     .relParadigm.add(["para+dsl", "para+educational", "para+multi", "para+oop", "para+visual"])
     .relPlatform.add(["plat+cross", "plat+java"])

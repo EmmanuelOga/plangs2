@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://factorcode.org/",
       created: "2003",
     })
-    .relInfluence.add(["pl+forth", "pl+lisp", "pl+self"])
+    .relInfluencedBy.add(["pl+forth", "pl+lisp", "pl+self"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+concatenative", "para+functional", "para+multi", "para+oop"])
     .relPlatform.add(["plat+apple", "plat+linux", "plat+windows", "plat+x86-64"])

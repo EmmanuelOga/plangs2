@@ -18,8 +18,8 @@ export function define(g: PlangsGraph) {
       created: "2005",
     })
     .relDialectOf.add(["pl+lua"])
-    .relImplement.add(["pl+lua"])
-    .relInfluence.add(["pl+c", "pl+lua"])
+    .relImplements.add(["pl+lua"])
+    .relInfluencedBy.add(["pl+c", "pl+lua"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+imperative", "para+procedural", "para+scripting"])
     .relPlatform.add(["plat+android", "plat+apple", "plat+arm", "plat+linux", "plat+windows", "plat+x86-64"])

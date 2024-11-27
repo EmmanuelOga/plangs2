@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { Glob } from "bun";
 
 import { loadAllDefinitions } from "@plangs/definitions";
-import { PlangsGraph } from "@plangs/plangs";
+import { PlangsGraph } from "@plangs/plangs/graph";
 import { loadPosts } from "@plangs/server/content";
 import { resolvePage } from "@plangs/server/resolve_page";
 import { vdomToHTML } from "@plangs/server/utils/server";

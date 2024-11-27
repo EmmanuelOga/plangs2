@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       extGithubPath: "marcobambini/gravity",
       created: "2015",
     })
-    .relInfluence.add(["pl+lua", "pl+swift"])
+    .relInfluencedBy.add(["pl+lua", "pl+swift"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+functional", "para+multi", "para+oop", "para+procedural", "para+scripting"])
     .relPlatform.add(["plat+android", "plat+cross"])

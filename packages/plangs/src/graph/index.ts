@@ -26,7 +26,7 @@ import type { Release, StrDate } from "./vertex_data_schemas";
 export class PlangsGraph extends PlangsGraphBase {
   filterPlangs(values: Map<PlangFacetKey, AnyValue>, limit = -1): Set<VPlang["key"]> {
     const keys = new Set<VPlang["key"]>();
-    for (const pl of this.nodes.pl.values) {
+    for (const pl of this.plang.values) {
       if (limit >= 0 && keys.size >= limit) break;
       if (plangMatches(pl, values)) keys.add(pl.key);
     }
@@ -128,9 +128,9 @@ export class VPlang extends VPlangBase {
    */
   family(opt = { compilesTo: true, dialectOf: true, implements: true }): Set<VPlang> {
     const set = new Set<VPlang>([]);
-    if (opt.compilesTo) for (const pl of this.relCompilesTo.nodes()) set.add(pl);
-    if (opt.dialectOf) for (const pl of this.relDialectOf.nodes()) set.add(pl);
-    if (opt.implements) for (const pl of this.relImplement.nodes()) set.add(pl);
+    if (opt.compilesTo) for (const pl of this.relCompilesTo.vertices) set.add(pl);
+    if (opt.dialectOf) for (const pl of this.relDialectOf.vertices) set.add(pl);
+    if (opt.implements) for (const pl of this.relImplements.vertices) set.add(pl);
     return set;
   }
 }

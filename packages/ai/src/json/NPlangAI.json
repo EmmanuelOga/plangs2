@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "commonData": {
-      "$ref": "#/definitions/CommonNodeData",
+      "$ref": "#/definitions/VertexBaseData",
       "description": "Basic data shared across all Node types."
     },
     "basicPlangData": {
@@ -153,7 +153,7 @@
     "writtenIn"
   ],
   "definitions": {
-    "CommonNodeData": {
+    "VertexBaseData": {
       "description": "Node data shared across all Node types.",
       "type": "object",
       "properties": {

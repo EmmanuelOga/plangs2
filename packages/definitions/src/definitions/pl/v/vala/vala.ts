@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       created: "2006",
     })
     .relCompilesTo.add(["pl+c"])
-    .relInfluence.add(["pl+boo", "pl+c", "pl+c-sharp", "pl+d"])
+    .relInfluencedBy.add(["pl+boo", "pl+c", "pl+c-sharp", "pl+d"])
     .relLicense.add(["lic+lgpl"])
     .relParadigm.add(["para+imperative", "para+oop", "para+procedural", "para+scripting", "para+structured"])
     .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])

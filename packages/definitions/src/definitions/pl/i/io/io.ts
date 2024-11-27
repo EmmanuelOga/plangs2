@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://iolanguage.org/",
       created: "2002",
     })
-    .relInfluence.add(["pl+lisp", "pl+lua", "pl+self"])
+    .relInfluencedBy.add(["pl+lisp", "pl+lua", "pl+self"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+concurrent", "para+oop", "para+prototype", "para+scripting"])
     .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])

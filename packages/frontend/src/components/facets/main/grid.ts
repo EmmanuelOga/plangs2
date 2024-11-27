@@ -1,6 +1,6 @@
 import { elems, minWidthBP } from "@plangs/frontend/auxiliar/dom";
 import { debounce } from "@plangs/frontend/auxiliar/utils";
-import type { VPlang } from "@plangs/plangs";
+import type { VPlang } from "@plangs/plangs/graph";
 
 /** A static thumbnail grid will be render server side, we just need to show or hide each element.  */
 export function doUpdateThumbns(nodeKeys: Set<string>) {

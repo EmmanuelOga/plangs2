@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://crystal-lang.org/",
       created: "2014",
     })
-    .relInfluence.add(["pl+c", "pl+c-sharp", "pl+go", "pl+python", "pl+ruby", "pl+rust"])
+    .relInfluencedBy.add(["pl+c", "pl+c-sharp", "pl+go", "pl+python", "pl+ruby", "pl+rust"])
     .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+compiled", "para+concurrent", "para+multi", "para+oop"])
     .relPlatform.add(["plat+apple", "plat+arm", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])

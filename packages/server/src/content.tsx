@@ -7,9 +7,9 @@ import { marked } from "marked";
 import render from "preact-render-to-string/jsx";
 import YAML from "yaml";
 
-import type { NPost, PlangsGraph, VPlang } from "@plangs/plangs";
 import { parseDate } from "@plangs/plangs/auxiliar/str_date";
-import type { StrDate } from "@plangs/plangs/schema";
+import type { PlangsGraph, VPlang, VPost } from "@plangs/plangs/graph";
+import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 
 import { ZERO_WIDTH } from "./utils/server";
 
@@ -65,7 +65,7 @@ export async function loadContent(path: string, pg: PlangsGraph): Promise<Conten
 }
 
 /**
- * Scan the content folder and create matching NPost entries.
+ * Scan the content folder and create matching VPost entries.
  */
 export async function loadPosts(pg: PlangsGraph) {
   for await (const path of new Glob("*.md").scan(join(import.meta.dir, "../content/posts"))) {
@@ -75,12 +75,12 @@ export async function loadPosts(pg: PlangsGraph) {
 
     for (const plKey of pls) {
       if (!pg.plang.has(plKey)) throw new Error(`Post ${path} references unknown PL ${plKey}`);
-      post.relPlangs.add([plKey]);
+      post.relPlang.add([plKey]);
     }
   }
 }
 
-export async function loadBlogPost(pg: PlangsGraph, key: NPost["key"]): Promise<Content | undefined> {
+export async function loadBlogPost(pg: PlangsGraph, key: VPost["key"]): Promise<Content | undefined> {
   const post = pg.nodes.post.get(key);
   if (post?.path) return loadContent(`posts/${post.path}`, pg);
 }

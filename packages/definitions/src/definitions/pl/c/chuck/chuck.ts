@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://chuck.cs.princeton.edu/",
       created: "2003",
     })
-    .relInfluence.add(["pl+supercollider"])
+    .relInfluencedBy.add(["pl+supercollider"])
     .relLicense.add(["lic+gnu-gpl"])
     .relParadigm.add(["para+concurrent", "para+interpreted", "para+multi", "para+real-time", "para+synchronous"])
     .relPlatform.add(["plat+cross"])

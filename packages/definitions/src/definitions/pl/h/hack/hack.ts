@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       created: "2014",
     })
     .relDialectOf.add(["pl+php"])
-    .relInfluence.add(["pl+c-sharp", "pl+haskell", "pl+ocaml", "pl+php", "pl+scala"])
+    .relInfluencedBy.add(["pl+c-sharp", "pl+haskell", "pl+ocaml", "pl+php", "pl+scala"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective"])
     .relPlatform.add(["plat+cross"])

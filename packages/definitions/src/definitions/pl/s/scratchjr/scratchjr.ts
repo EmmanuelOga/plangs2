@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.scratchjr.org/",
       created: "2014",
     })
-    .relInfluence.add(["pl+scratch"])
+    .relInfluencedBy.add(["pl+scratch"])
     .relParadigm.add(["para+educational", "para+event-driven", "para+visual"])
     .relPlatform.add(["plat+android", "plat+apple"])
     .relTag.add(["tag+edu", "tag+interpreters", "tag+low-code"])

@@ -3,7 +3,7 @@ import { basename, join } from "node:path";
 
 import { Glob } from "bun";
 
-import type { PlangsGraph, VPlang } from "@plangs/plangs";
+import type { PlangsGraph, VPlang } from "@plangs/plangs/graph";
 
 async function getPaths(glob: Glob, basePath: string): Promise<string[]> {
   const paths = [] as string[];
@@ -45,6 +45,6 @@ export async function loadAllDefinitions(g: PlangsGraph, options: { scanImages: 
 export function runInference(pg: PlangsGraph) {
   for (const pl of pg.plang.values) {
     // All languages implement themselves, so when we filter by "implements" we can include the language itself.
-    pl.relImplement.add([pl.key]);
+    pl.relImplements.add([pl.key]);
   }
 }

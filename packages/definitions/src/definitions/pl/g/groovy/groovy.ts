@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://groovy-lang.org/",
       created: "2003",
     })
-    .relInfluence.add(["pl+perl", "pl+python", "pl+ruby"])
+    .relInfluencedBy.add(["pl+perl", "pl+python", "pl+ruby"])
     .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+aspect", "para+functional", "para+imperative", "para+multi", "para+oop", "para+scripting"])
     .relPlatform.add(["plat+java"])

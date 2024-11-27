@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://seed7.sourceforge.net/",
       created: "2005",
     })
-    .relInfluence.add(["pl+ada", "pl+c", "pl+c++", "pl+pascal"])
+    .relInfluencedBy.add(["pl+ada", "pl+c", "pl+c++", "pl+pascal"])
     .relLicense.add(["lic+gnu-gpl", "lic+lgpl"])
     .relParadigm.add(["para+extensible", "para+imperative", "para+multi", "para+oop", "para+reflective", "para+structured"])
     .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])

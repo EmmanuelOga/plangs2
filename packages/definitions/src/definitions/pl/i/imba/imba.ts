@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       created: "2015",
     })
     .relCompilesTo.add(["pl+javascript"])
-    .relInfluence.add(["pl+coffeescript"])
+    .relInfluencedBy.add(["pl+coffeescript"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+functional", "para+general-purpose", "para+imperative", "para+oop", "para+reactive"])
     .relPlatform.add(["plat+nodejs", "plat+web"])

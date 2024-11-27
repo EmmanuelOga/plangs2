@@ -1,7 +1,7 @@
-import type { NPlang } from "@plangs/plangs";
+import type { VPlang } from "@plangs/plangs/graph";
 
 // Arbitrary whitelist.
-export const PL_WHITELIST = new Set<NPlang["key"]>([
+export const PL_WHITELIST = new Set<VPlang["key"]>([
   "pl+.net",
   "pl+actionscript",
   "pl+ada",

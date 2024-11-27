@@ -16,8 +16,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.freepascal.org/",
       created: "1993",
     })
-    .relImplement.add(["pl+pascal"])
-    .relInfluence.add(["pl+pascal"])
+    .relImplements.add(["pl+pascal"])
+    .relInfluencedBy.add(["pl+pascal"])
     .relLicense.add(["lic+gnu-gpl"])
     .relParadigm.add(["para+compiled", "para+multi", "para+oop", "para+procedural", "para+structured"])
     .relPlatform.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+dos", "plat+embedded", "plat+linux", "plat+windows"])

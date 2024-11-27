@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       extGithubPath: "digego/extempore",
       created: "2011",
     })
-    .relInfluence.add(["pl+lisp", "pl+scheme"])
+    .relInfluencedBy.add(["pl+lisp", "pl+scheme"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+functional", "para+multi", "para+real-time"])
     .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])

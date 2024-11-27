@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://eiffel.org/",
       created: "1986",
     })
-    .relInfluence.add(["pl+ada"])
+    .relInfluencedBy.add(["pl+ada"])
     .relLicense.add(["lic+dual", "lic+epl"])
     .relParadigm.add(["para+compiled", "para+concurrent", "para+contracts", "para+oop"])
     .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])

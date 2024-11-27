@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.adobe.com/devnet/actionscript/articles/actionscript3_overview.html",
       created: "1998",
     })
-    .relInfluence.add(["pl+java", "pl+javascript"])
+    .relInfluencedBy.add(["pl+java", "pl+javascript"])
     .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+prototype", "para+scripting"])
     .relPlatform.add(["plat+apple", "plat+cross", "plat+web", "plat+windows"])

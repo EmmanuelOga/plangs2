@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.vvvv.org/",
       created: "1998",
     })
-    .relInfluence.add(["pl+apl", "pl+max-msp"])
+    .relInfluencedBy.add(["pl+apl", "pl+max-msp"])
     .relParadigm.add(["para+dataflow", "para+multi", "para+visual"])
     .relPlatform.add(["plat+windows"])
     .relTag.add([

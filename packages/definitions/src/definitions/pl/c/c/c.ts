@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.open-std.org/jtc1/sc22/wg14/",
       created: "1972",
     })
-    .relInfluence.add(["pl+fortran"])
+    .relInfluencedBy.add(["pl+fortran"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+compiled", "para+imperative", "para+multi", "para+procedural", "para+structured"])
     .relPlatform.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+dos", "plat+embedded", "plat+linux", "plat+windows"])

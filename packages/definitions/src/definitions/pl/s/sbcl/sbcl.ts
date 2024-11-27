@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       created: "1999",
     })
     .relDialectOf.add(["pl+common-lisp"])
-    .relInfluence.add(["pl+common-lisp"])
+    .relInfluencedBy.add(["pl+common-lisp"])
     .relLicense.add(["lic+bsd", "lic+mit", "lic+public-domain"])
     .relParadigm.add(["para+functional", "para+multi", "para+oop", "para+procedural", "para+reflective"])
     .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])

@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       created: "2007",
     })
     .relDialectOf.add(["pl+ruby"])
-    .relInfluence.add(["pl+ruby"])
+    .relInfluencedBy.add(["pl+ruby"])
     .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+interpreted", "para+oop", "para+scripting"])
     .relPlatform.add(["plat+.net", "plat+apple", "plat+linux", "plat+windows"])

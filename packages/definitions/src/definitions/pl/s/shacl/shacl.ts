@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.w3.org/TR/shacl/",
       created: "2015",
     })
-    .relInfluence.add(["pl+shex"])
+    .relInfluencedBy.add(["pl+shex"])
     .relParadigm.add(["para+declarative", "para+dsl", "para+validation"])
     .relTag.add(["tag+dbms", "tag+framework"])
     .relTypeSystem.add(["tsys+structural"]);

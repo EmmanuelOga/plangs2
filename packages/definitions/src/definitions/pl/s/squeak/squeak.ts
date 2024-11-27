@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.squeak.org/",
       created: "1996",
     })
-    .relInfluence.add(["pl+lisp", "pl+self"])
+    .relInfluencedBy.add(["pl+lisp", "pl+self"])
     .relLicense.add(["lic+apache", "lic+mit"])
     .relParadigm.add(["para+educational", "para+interpreted", "para+oop", "para+reflective"])
     .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])

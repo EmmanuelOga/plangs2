@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://janet-lang.org/",
       created: "2017",
     })
-    .relInfluence.add(["pl+scheme"])
+    .relInfluencedBy.add(["pl+scheme"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+extensible", "para+functional", "para+imperative", "para+scripting"])
     .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])

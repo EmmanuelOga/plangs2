@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+javascript", "pl+ocaml"])
     .relDialectOf.add(["pl+ocaml"])
-    .relInfluence.add(["pl+javascript", "pl+ocaml"])
+    .relInfluencedBy.add(["pl+javascript", "pl+ocaml"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+functional", "para+modular", "para+multi", "para+oop"])
     .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])

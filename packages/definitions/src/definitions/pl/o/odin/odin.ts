@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://odin-lang.org/",
       created: "2016",
     })
-    .relInfluence.add(["pl+c"])
+    .relInfluencedBy.add(["pl+c"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+compiled", "para+concurrent", "para+functional", "para+general-purpose", "para+imperative", "para+procedural"])
     .relPlatform.add(["plat+arm", "plat+cross", "plat+linux", "plat+wasm", "plat+web", "plat+windows", "plat+x86-64"])

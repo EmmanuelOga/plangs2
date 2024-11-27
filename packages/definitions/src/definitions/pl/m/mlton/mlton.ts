@@ -14,8 +14,8 @@ export function define(g: PlangsGraph) {
       created: "1997",
     })
     .relDialectOf.add(["pl+standard-ml"])
-    .relImplement.add(["pl+standard-ml"])
-    .relInfluence.add(["pl+standard-ml"])
+    .relImplements.add(["pl+standard-ml"])
+    .relInfluencedBy.add(["pl+standard-ml"])
     .relLicense.add(["lic+dual"])
     .relParadigm.add(["para+compiled", "para+functional", "para+imperative", "para+multi"])
     .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])

@@ -49,10 +49,7 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
     /** All edge collections. */
     readonly edges = {
       ${spec.edges
-        .map(
-          ({ from, to, desc, name }) =>
-            `${`${from}${capitalize(name ?? "")}${capitalize(to)}`}: new Edges<\`${vertexKeys[from]}\`, \`${vertexKeys[to]}\`>(),`,
-        )
+        .map(({ from, to, name }) => `${`${from}${capitalize(name ?? "")}${capitalize(to)}`}: new Edges(this.${from}, this.${to}),`)
         .join("\n")}
     } as const;
   }\n`);
@@ -64,6 +61,7 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
     const rels: string[] = [];
 
     for (const { from, to, desc, name } of spec.edges) {
+      const vname = vertexClassName(vertexName);
       // Name of the container of edges.
       const edgesKey = `${from}${capitalize(name ?? "")}${capitalize(to)}`;
 
@@ -71,7 +69,7 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
         const edgeName = capitalize(name ?? to);
         const relName = `rel${capitalize(edgeName)}`;
         rels.push(
-          `${edgeComment("this", to, desc)}\nget ${relName}() { return new RelFrom(this, this.graph.edges.${edgesKey}, this.graph.${to}) };\n`,
+          `${edgeComment("this", to, desc)}\nget ${relName}() { return new RelFrom(this as unknown as ${vname}, this.graph.edges.${edgesKey}) };\n`,
         );
       }
       if (to === vertexName) {
@@ -79,7 +77,7 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
         const postfix = from === to ? "Rev" : "";
         const relName = `rel${capitalize(edgeName)}${postfix}`;
         rels.push(
-          `${edgeComment(from, "this", desc)}\nget ${relName}() { return new RelTo(this, this.graph.edges.${edgesKey}, this.graph.${from}); }\n`,
+          `${edgeComment(from, "this", desc)}\nget ${relName}() { return new RelTo(this as unknown as ${vname}, this.graph.edges.${edgesKey}); }\n`,
         );
       }
     }
@@ -89,7 +87,7 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
 
   for (const [vertexName, { key, desc }] of Object.entries(spec.vertices) as [T, GenVertexSpec][]) {
     const vertexBaseComplete = `${spec.name}${vertexBase}<"${key}", ${vertexDataName(vertexName)}>`;
-    code.push(`/** ${desc} */\nexport class ${vertexClassName(vertexName)}${vertexSuffix} extends ${vertexBaseComplete} {
+    code.push(`/** ${desc} */\nexport abstract class ${vertexClassName(vertexName)}${vertexSuffix} extends ${vertexBaseComplete} {
       static readonly kind = "${key}" as const;
       static readonly desc = "${desc}";
       override kind = ${vertexClassName(vertexName)}${vertexSuffix}.kind;

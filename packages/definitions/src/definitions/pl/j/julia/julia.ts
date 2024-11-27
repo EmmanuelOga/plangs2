@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://julialang.org/",
       created: "2012",
     })
-    .relInfluence.add([
+    .relInfluencedBy.add([
       "pl+c",
       "pl+common-lisp",
       "pl+lisp",

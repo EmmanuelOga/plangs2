@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://gnu.org/s/gforth/",
       created: "1992",
     })
-    .relImplement.add(["pl+forth"])
+    .relImplements.add(["pl+forth"])
     .relLicense.add(["lic+gnu-gpl"])
     .relParadigm.add(["para+procedural", "para+stack-oriented"])
     .relPlatform.add(["plat+cross", "plat+dos", "plat+linux", "plat+windows"])

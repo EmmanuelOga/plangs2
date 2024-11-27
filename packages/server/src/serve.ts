@@ -7,7 +7,7 @@ import { watch } from "fs";
 import { join } from "node:path";
 
 import { loadAllDefinitions } from "@plangs/definitions";
-import { PlangsGraph } from "@plangs/plangs";
+import { PlangsGraph } from "@plangs/plangs/graph";
 
 import { loadPosts } from "./content";
 import { notifyWebsockets, trackWebsocket, untrackWebsocket } from "./livereload";
@@ -63,4 +63,4 @@ const server = Bun.serve({
 
 const watchPath = join(import.meta.dir, "..");
 watch(watchPath, { recursive: true }, (event, filename) => notifyWebsockets("RELOAD"));
-console.log(server.url.href, "watching", watchPath, pg.nodeCount, "plang nodes,", pg.edgeCount, "edges.");
+console.log(server.url.href, "watching", watchPath);

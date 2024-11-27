@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.seas.upenn.edu/~harmony/",
       created: "2008",
     })
-    .relInfluence.add(["pl+ocaml"])
+    .relInfluencedBy.add(["pl+ocaml"])
     .relLicense.add(["lic+lgpl"])
     .relParadigm.add(["para+bidirectional", "para+declarative", "para+dsl"])
     .relPlatform.add(["plat+apple", "plat+cross", "plat+linux"])

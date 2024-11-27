@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://xproc.org/",
       created: "2010",
     })
-    .relInfluence.add(["pl+xml"])
+    .relInfluencedBy.add(["pl+xml"])
     .relParadigm.add(["para+declarative", "para+dsl", "para+pipeline"])
     .relPlatform.add(["plat+cross"])
     .relTag.add(["tag+dataflow", "tag+workflow"])

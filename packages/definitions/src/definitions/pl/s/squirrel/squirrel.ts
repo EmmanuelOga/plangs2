@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://squirrel-lang.org/",
       created: "2003",
     })
-    .relInfluence.add(["pl+c++", "pl+javascript", "pl+lua", "pl+python"])
+    .relInfluencedBy.add(["pl+c++", "pl+javascript", "pl+lua", "pl+python"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+scripting"])
     .relPlatform.add(["plat+cross"])

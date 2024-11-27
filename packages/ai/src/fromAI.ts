@@ -1,14 +1,14 @@
-import { type NLicense, type NParadigm, NPlang, type NPlatform, type NTag, type NTsys, type PlangsGraph } from "@plangs/plangs";
+import { type PlangsGraph, type VLicense, type VParadigm, VPlang, type VPlatform, type VTag, type VTypeSystem } from "@plangs/plangs/graph";
 
 import type { NPlangAI } from "./types";
 
 /** Given the results from OpenAI, construct a new NPlang node that can be used for code generation. */
-export function plangFromAI(pg: PlangsGraph, pl: NPlang, aiPL: NPlangAI): NPlang {
+export function plangFromAI(pg: PlangsGraph, pl: VPlang, aiPL: NPlangAI): VPlang {
   // We need to merge these, since Node data merge is not deep.
   const { extensions, filenames, images, releases, stackovTags } = pl.data;
 
   // Merge the data from the original NPlang node, but overwrite with the data from OpenAI.
-  const newPl = new NPlang(pg, pl.key).merge({ ...pl.data, ...aiPL.commonData, ...aiPL.basicPlangData });
+  const newPl = new VPlang(pg, pl.key).merge({ ...pl.data, ...aiPL.basicPlangData });
 
   // Re-add the original data that may have been lost in the merge.
   // TODO: maybe override the merge method to avoid this.
@@ -19,19 +19,19 @@ export function plangFromAI(pg: PlangsGraph, pl: NPlang, aiPL: NPlangAI): NPlang
   newPl.addStackovTags(stackovTags ?? []);
 
   // Add the new data references from OpenAI.
-  const existingPl = (k: string) => pg.nodes.pl.has(k as NPlang["key"]);
-  newPl.relCompilesTo.add(aiPL.compilesTo.filter(existingPl) as NPlang["key"][]);
-  newPl.relDialectOf.add(aiPL.dialectOf.filter(existingPl) as NPlang["key"][]);
-  newPl.relImplement.add(aiPL.implements.filter(existingPl) as NPlang["key"][]);
-  newPl.relInfluenced.add(aiPL.influenced.filter(existingPl) as NPlang["key"][]);
-  newPl.relInfluence.add(aiPL.influencedBy.filter(existingPl) as NPlang["key"][]);
-  newPl.relWrittenInPlang.add(aiPL.writtenIn.filter(existingPl) as NPlang["key"][]);
+  const existingPl = (k: string) => pg.plang.has(k as VPlang["key"]);
+  newPl.relCompilesTo.add(aiPL.compilesTo.filter(existingPl) as VPlang["key"][]);
+  newPl.relDialectOf.add(aiPL.dialectOf.filter(existingPl) as VPlang["key"][]);
+  newPl.relImplements.add(aiPL.implements.filter(existingPl) as VPlang["key"][]);
+  newPl.relInfluencedByRev.add(aiPL.influenced.filter(existingPl) as VPlang["key"][]);
+  newPl.relInfluencedBy.add(aiPL.influencedBy.filter(existingPl) as VPlang["key"][]);
+  newPl.relWrittenInPlang.add(aiPL.writtenIn.filter(existingPl) as VPlang["key"][]);
 
-  newPl.relLicenses.add(aiPL.licenses.filter(k => pg.nodes.license.has(k as NLicense["key"])) as NLicense["key"][]);
-  newPl.relParadigms.add(aiPL.paradigms.filter(k => pg.nodes.paradigm.has(k as NParadigm["key"])) as NParadigm["key"][]);
-  newPl.relPlatform.add(aiPL.platforms.filter(k => pg.nodes.plat.has(k as NPlatform["key"])) as NPlatform["key"][]);
-  newPl.relTag.add(aiPL.tags.filter(k => pg.nodes.tag.has(k as NTag["key"])) as NTag["key"][]);
-  newPl.relTypeSystem.add(aiPL.typeSystems.filter(k => pg.nodes.tsys.has(k as NTsys["key"])) as NTsys["key"][]);
+  newPl.relLicense.add(aiPL.licenses.filter(k => pg.nodes.license.has(k as VLicense["key"])) as VLicense["key"][]);
+  newPl.relParadigm.add(aiPL.paradigms.filter(k => pg.nodes.paradigm.has(k as VParadigm["key"])) as VParadigm["key"][]);
+  newPl.relPlatform.add(aiPL.platforms.filter(k => pg.platform.has(k as VPlatform["key"])) as VPlatform["key"][]);
+  newPl.relTag.add(aiPL.tags.filter(k => pg.nodes.tag.has(k as VTag["key"])) as VTag["key"][]);
+  newPl.relTypeSystem.add(aiPL.typeSystems.filter(k => pg.typeSystem.has(k as VTypeSystem["key"])) as VTypeSystem["key"][]);
 
   return newPl;
 }

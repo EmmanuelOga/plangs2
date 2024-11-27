@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.mono-project.com/",
       created: "2004",
     })
-    .relImplement.add(["pl+c-sharp", "pl+visual-basic"])
+    .relImplements.add(["pl+c-sharp", "pl+visual-basic"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+compiled", "para+multi", "para+oop"])
     .relPlatform.add(["plat+android", "plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])

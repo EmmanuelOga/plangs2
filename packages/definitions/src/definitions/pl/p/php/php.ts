@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.php.net/",
       created: "1995",
     })
-    .relInfluence.add(["pl+c", "pl+java"])
+    .relInfluencedBy.add(["pl+c", "pl+java"])
     .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective", "para+scripting"])
     .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
     .relTag.add(["tag+scripting", "tag+server"])

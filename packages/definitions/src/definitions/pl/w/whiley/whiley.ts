@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://whiley.org/",
       created: "2010",
     })
-    .relInfluence.add(["pl+c", "pl+python", "pl+rust"])
+    .relInfluencedBy.add(["pl+c", "pl+python", "pl+rust"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+functional", "para+imperative"])
     .relPlatform.add(["plat+cross", "plat+java"])

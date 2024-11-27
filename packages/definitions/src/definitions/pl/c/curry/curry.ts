@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "curry-lang.org",
       created: "1995",
     })
-    .relInfluence.add(["pl+haskell", "pl+prolog"])
+    .relInfluencedBy.add(["pl+haskell", "pl+prolog"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+concurrent", "para+constraint", "para+declarative", "para+functional", "para+lazy", "para+logic", "para+modular"])
     .relPlatform.add(["plat+cross", "plat+linux", "plat+x86-64"])

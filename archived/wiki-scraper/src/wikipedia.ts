@@ -2,8 +2,8 @@ import * as cheerio from "cheerio";
 import type { Element } from "domhandler";
 
 import { arrayMerge } from "@plangs/auxiliar/array";
-import type { NPlang } from "@plangs/plangs";
-import type { StrDate } from "@plangs/plangs/schema";
+import type { VPlang } from "@plangs/plangs/graph";
+import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 
 import { PL_WHITELIST } from "./whitelist";
 
@@ -21,7 +21,7 @@ export type Link = {
   kind?: string;
 };
 
-export function keyFromWikiURL(url: URL): NPlang["key"] | undefined {
+export function keyFromWikiURL(url: URL): VPlang["key"] | undefined {
   if (url.hostname !== BASE_URL.hostname || !url.pathname.startsWith("/wiki/")) return;
   const key = decodeURIComponent(url.pathname.slice(6))
     .replaceAll(/\([^\)]+\)/g, "")
@@ -57,7 +57,7 @@ export class WikiPage {
     if (ibel) this.infobox = parseInfobox(this.$, ibel);
   }
 
-  get key(): NPlang["key"] | undefined {
+  get key(): VPlang["key"] | undefined {
     return keyFromWikiURL(this.url);
   }
 

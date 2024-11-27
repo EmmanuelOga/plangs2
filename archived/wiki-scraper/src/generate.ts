@@ -3,18 +3,17 @@ import { mkdir } from "node:fs/promises";
 // @ts-ignore types for node:fs/promises?
 import { extname, join } from "node:path";
 
-import type { IterTap } from "@plangs/auxiliar/iter_tap";
-import type { NLicense, NParadigm, NPlang, NPlatform, NTag, NTsys, PlangsGraph } from "@plangs/plangs";
-
+import type { Vertices } from "@plangs/graphgen/library";
+import type { PlangsGraph, VLicense, VParadigm, VPlang, VPlatform, VTag, VTypeSystem } from "@plangs/plangs/graph";
 import { type Link, type WikiPage, keyFromWikiURL } from "./wikipedia";
 
 export const DEFINTIONS_PATH = join(import.meta.dir, "../../../packages/definitions/src/definitions/plangs/");
 
 /** Add a plang instance to the graph using the given wiki page. Attempts to fetch teh plang image if any. */
-export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang["key"]>): Promise<NPlang | undefined> {
+export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<VPlang["key"]>): Promise<VPlang | undefined> {
   if (!page.infobox || !page.key) return;
 
-  const plang = g.nodes.pl.set(page.key);
+  const plang = g.plang.get(page.key) ?? g.plang.set(page.key, {});
 
   console.log("Processing", plang.key);
 
@@ -26,11 +25,11 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
 
     const name = plang.plainKey;
     const escapedName = name.startsWith(".") ? `_${name.slice(1)}` : name;
-    const path = join(DEFINTIONS_PATH, plang.keyPrefix, escapedName, `${escapedName}.${kind}${extname(imgHref).toLowerCase()}`);
+    const path = join(DEFINTIONS_PATH, plang.classifier, escapedName, `${escapedName}.${kind}${extname(imgHref).toLowerCase()}`);
     Bun.write(path, imgBlob);
   }
 
-  const data: NPlang["data"] = {
+  const data: VPlang["data"] = {
     name: page.title,
     description: page.description,
     created: page.infobox.year ? `${page.infobox.year}` : undefined,
@@ -45,88 +44,86 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<NPlang
     if (Array.isArray(value) && value.length === 0) delete generic[key];
   }
 
-  g.nodes.pl.set(page.key, data);
+  g.plang.set(page.key, data);
 
   ////////////////////////////////////////////////////////////////////////////////
 
-  type PGNodeMap = (typeof g.nodes)[keyof typeof g.nodes];
-
-  function* findMatching<T>(links: Link[], nodeMap: PGNodeMap): Generator<T> {
+  function* findMatching<T>(links: Link[], vertices: Vertices<any>): Generator<T> {
     for (const link of links) {
-      for (const node of nodeMap.findAll(node => !!node.keywordsRegexp?.test(link.title))) {
+      for (const node of [...vertices.values].filter(node => !!node.keywordsRegexp?.test(link.title))) {
         yield node.key as T;
       }
     }
   }
 
-  const keys_license = [...findMatching<NLicense["key"]>(page.infobox.licenses, g.nodes.license)].sort();
-  const keys_paradigm = [...findMatching<NParadigm["key"]>(page.infobox.paradigms, g.nodes.paradigm)].sort();
-  const keys_platform = [...findMatching<NPlatform["key"]>(page.infobox.platforms, g.nodes.plat)].sort();
-  const keys_tags = [...findMatching<NTag["key"]>(page.infobox.tags, g.nodes.tag)].sort();
-  const keys_tsystem = [...findMatching<NTsys["key"]>(page.infobox.typeSystem, g.nodes.tsys)].sort();
+  const keys_license = [...findMatching<VLicense["key"]>(page.infobox.licenses, g.license)].sort();
+  const keys_paradigm = [...findMatching<VParadigm["key"]>(page.infobox.paradigms, g.paradigm)].sort();
+  const keys_platform = [...findMatching<VPlatform["key"]>(page.infobox.platforms, g.platform)].sort();
+  const keys_tags = [...findMatching<VTag["key"]>(page.infobox.tags, g.tag)].sort();
+  const keys_tsystem = [...findMatching<VTypeSystem["key"]>(page.infobox.typeSystem, g.typeSystem)].sort();
 
   // Check the content text for tags.
   const contentText = page.contentText;
-  for (const [_, tag] of g.nodes.tag.entries()) {
+  for (const tag of g.tag.values) {
     if (tag.keywordsRegexp?.test(contentText)) keys_tags.push(tag.key);
   }
 
-  plang.relLicenses
+  plang.relLicense
     .add(keys_license)
-    .relParadigms.add(keys_paradigm)
-    .relPlatforms.add(keys_platform)
-    .relTags.add(keys_tags)
-    .relTsys.add(keys_tsystem);
+    .relParadigm.add(keys_paradigm)
+    .relPlatform.add(keys_platform)
+    .relTag.add(keys_tags)
+    .relTypeSystem.add(keys_tsystem);
 
   ////////////////////////////////////////////////////////////////////////////////
 
-  function mapToPlKeys(links: Link[]): NPlang["key"][] {
+  function mapToPlKeys(links: Link[]): VPlang["key"][] {
     return links
       .map(link => keyFromWikiURL(new URL(link.href)))
       .filter(key => {
         if (!key) return false;
         if (plKeys.size === 0) return true;
         return plKeys.has(key);
-      }) as NPlang["key"][];
+      }) as VPlang["key"][];
   }
 
-  for (const other of mapToPlKeys(page.infobox.dialects)) g.edges.dialect.connect(other, plang.key);
-  for (const other of mapToPlKeys(page.infobox.family)) g.edges.dialect.connect(plang.key, other);
+  for (const other of mapToPlKeys(page.infobox.dialects)) g.edges.plangDialectOfPlang.add(other, plang.key);
+  for (const other of mapToPlKeys(page.infobox.family)) g.edges.plangDialectOfPlang.add(plang.key, other);
 
-  for (const other of mapToPlKeys(page.infobox.implementations)) g.edges.impl.connect(other, plang.key);
+  for (const other of mapToPlKeys(page.infobox.implementations)) g.edges.plangImplementsPlang.add(other, plang.key);
 
-  for (const other of mapToPlKeys(page.infobox.influenced)) g.edges.influence.connect(other, plang.key);
-  for (const other of mapToPlKeys(page.infobox.influencedBy)) g.edges.influence.connect(plang.key, other);
+  for (const other of mapToPlKeys(page.infobox.influenced)) g.edges.plangInfluencedByPlang.add(other, plang.key);
+  for (const other of mapToPlKeys(page.infobox.influencedBy)) g.edges.plangInfluencedByPlang.add(plang.key, other);
 
-  for (const other of mapToPlKeys(page.infobox.writtenIn)) g.edges.writtenIn.connect(plang.key, other);
+  for (const other of mapToPlKeys(page.infobox.writtenIn)) g.edges.plangWrittenInPlangPlang.add(other, plang.key);
 
   return plang;
 }
 
 /** Convert a plang instance to the code that can generate it. */
-export function generateCode(plang: NPlang): string {
+export function generateCode(plang: VPlang): string {
   const relations: string[] = [];
 
-  function addRel(methodName: string, keys: string[]) {
-    if (keys.length === 0) return;
-    relations.push(`\n    .${methodName}(${JSON.stringify(keys.sort())})`);
+  function addRel(methodName: string, keys: Set<string>) {
+    if (keys.size === 0) return;
+    relations.push(`\n    .${methodName}(${JSON.stringify(Array.from(keys).sort())})`);
   }
 
-  addRel("addDialectOf", plang.relDialectOf.keys());
-  addRel("addImplements", plang.relImplements.keys());
-  addRel("addInfluencedBy", plang.relInfluencedBy.keys());
-  addRel("addLicenses", plang.relLicenses.keys());
-  addRel("addParadigms", plang.relParadigms.keys());
-  addRel("addPlatforms", plang.relPlatforms.keys());
-  addRel("addTags", plang.relTags.keys());
-  addRel("addTypeSystems", plang.relTsys.keys());
-  addRel("addWrittenIn", plang.relWrittenIn.keys());
+  addRel("addDialectOf", plang.relDialectOf.keys);
+  addRel("addImplements", plang.relImplements.keys);
+  addRel("addInfluencedBy", plang.relInfluencedBy.keys);
+  addRel("addLicenses", plang.relLicense.keys);
+  addRel("addParadigms", plang.relParadigm.keys);
+  addRel("addPlatforms", plang.relPlatform.keys);
+  addRel("addTags", plang.relTag.keys);
+  addRel("addTypeSystems", plang.relTypeSystem.keys);
+  addRel("addWrittenIn", plang.relWrittenInPlang.keys);
 
   const code = `import type { PlangsGraph } from "@plangs/plangs";
 
   export function define(g: PlangsGraph) {
 
-    g.nodes.pl.set(${JSON.stringify(plang.key)}, ${JSON.stringify(plang.data)})${relations.join("")}
+    g.vertices.pl.set(${JSON.stringify(plang.key)}, ${JSON.stringify(plang.data)})${relations.join("")}
 
   }
   `;
@@ -135,14 +132,14 @@ export function generateCode(plang: NPlang): string {
 }
 
 export async function genAllPlangs(g: PlangsGraph) {
-  for (const [key, plang] of [...g.nodes.pl.entries()].sort()) {
+  for (const [key, plang] of [...g.plang.entries].sort()) {
     const code = generateCode(plang);
 
-    await mkdir(join(DEFINTIONS_PATH, plang.keyPrefix), { recursive: true }).catch(_ => {});
+    await mkdir(join(DEFINTIONS_PATH, plang.classifier), { recursive: true }).catch(_ => {});
 
     const name = plang.plainKey;
     const escaped = name.startsWith(".") ? `_${name.slice(1)}` : name;
-    const path = join(DEFINTIONS_PATH, plang.keyPrefix, escaped, `${escaped}.ts`);
+    const path = join(DEFINTIONS_PATH, plang.classifier, escaped, `${escaped}.ts`);
 
     console.log("Generating", key, "->", path);
 

@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       created: "1998",
     })
     .relDialectOf.add(["pl+lisp", "pl+scheme"])
-    .relInfluence.add(["pl+lisp"])
+    .relInfluencedBy.add(["pl+lisp"])
     .relParadigm.add(["para+functional", "para+imperative", "para+metaprogramming", "para+multi"])
     .relPlatform.add(["plat+cross"])
     .relTag.add(["tag+analysis", "tag+compiler", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+testing"])

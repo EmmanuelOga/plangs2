@@ -25,8 +25,8 @@ export function define(g: PlangsGraph) {
       created: "2007",
     })
     .relDialectOf.add(["pl+python"])
-    .relImplement.add(["pl+python"])
-    .relInfluence.add(["pl+python"])
+    .relImplements.add(["pl+python"])
+    .relInfluencedBy.add(["pl+python"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+interpreted", "para+scripting"])
     .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])

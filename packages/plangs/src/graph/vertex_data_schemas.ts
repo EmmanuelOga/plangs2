@@ -21,9 +21,9 @@ export interface VertexBaseData {
  * the types to JSONSchemas for OpenAI's structured output:
  * we can pick and choose groups of fields we want to include.
  */
-export interface VPlangData extends VertexBaseData, VPlangBaseData, VPlangRelData, GithubRepo {}
+export interface VPlangData extends VPlangBaseData, VPlangRelData {}
 
-export interface VPlangBaseData {
+export interface VPlangBaseData extends VertexBaseData, GithubRepo {
   /** File Extensions, including the dot. Example: [".pas", ".tpu"]. */
   extensions: string[];
   /** File names are names that are associated with an specific language. Example: ['Makefile']. */

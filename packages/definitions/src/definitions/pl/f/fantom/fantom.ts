@@ -23,7 +23,7 @@ export function define(g: PlangsGraph) {
       created: "2005",
     })
     .relCompilesTo.add(["pl+c-sharp", "pl+erlang", "pl+java", "pl+ruby", "pl+scala"])
-    .relInfluence.add(["pl+c-sharp", "pl+erlang", "pl+ruby", "pl+scala"])
+    .relInfluencedBy.add(["pl+c-sharp", "pl+erlang", "pl+ruby", "pl+scala"])
     .relLicense.add(["lic+afl", "lic+mit"])
     .relParadigm.add(["para+concurrent", "para+functional", "para+multi", "para+oop"])
     .relPlatform.add(["plat+.net", "plat+cross", "plat+java"])

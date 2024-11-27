@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://isabelle.in.tum.de/",
       created: "1986",
     })
-    .relInfluence.add(["pl+haskell"])
+    .relInfluencedBy.add(["pl+haskell"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+declarative", "para+dsl", "para+logic"])
     .relPlatform.add(["plat+apple", "plat+linux", "plat+windows"])

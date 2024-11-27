@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://tinkerpop.apache.org/",
       created: "2009",
     })
-    .relInfluence.add(["pl+sql", "pl+xpath"])
+    .relInfluencedBy.add(["pl+sql", "pl+xpath"])
     .relLicense.add(["lic+apache"])
     .relParadigm.add(["para+declarative", "para+dsl", "para+imperative", "para+query"])
     .relPlatform.add(["plat+cross"])

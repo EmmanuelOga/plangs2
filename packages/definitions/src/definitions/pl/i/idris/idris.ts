@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://idris-lang.org/",
       created: "2007",
     })
-    .relInfluence.add(["pl+agda", "pl+clean", "pl+coq", "pl+f-sharp", "pl+haskell", "pl+rust"])
+    .relInfluencedBy.add(["pl+agda", "pl+clean", "pl+coq", "pl+f-sharp", "pl+haskell", "pl+rust"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+functional"])
     .relPlatform.add(["plat+cross"])

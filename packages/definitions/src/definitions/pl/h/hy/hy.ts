@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+python"])
     .relDialectOf.add(["pl+lisp"])
-    .relInfluence.add(["pl+clojure", "pl+common-lisp", "pl+python"])
+    .relInfluencedBy.add(["pl+clojure", "pl+common-lisp", "pl+python"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+functional", "para+metaprogramming", "para+multi", "para+oop", "para+procedural", "para+reflective", "para+scripting"])
     .relPlatform.add(["plat+cross", "plat+x86-64"])

@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.tcl-lang.org/",
       created: "1988",
     })
-    .relInfluence.add(["pl+awk", "pl+lisp"])
+    .relInfluencedBy.add(["pl+awk", "pl+lisp"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+event-driven", "para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural"])
     .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])

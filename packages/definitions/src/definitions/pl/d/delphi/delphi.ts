@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       created: "1995",
     })
     .relDialectOf.add(["pl+pascal"])
-    .relImplement.add(["pl+pascal"])
+    .relImplements.add(["pl+pascal"])
     .relParadigm.add(["para+compiled", "para+multi", "para+oop", "para+procedural"])
     .relPlatform.add(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
     .relTag.add([

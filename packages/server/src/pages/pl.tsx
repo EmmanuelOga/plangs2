@@ -1,6 +1,6 @@
 import { BORDER, PROSE, tw } from "@plangs/frontend/auxiliar/styles";
 import { NodeInfo } from "@plangs/frontend/components/node-info/node-info";
-import type { PlangsGraph, VPlang } from "@plangs/plangs";
+import type { PlangsGraph, VPlang } from "@plangs/plangs/graph";
 import { Layout } from "@plangs/server/components/layout";
 import { Table } from "@plangs/server/components/table";
 import { cssClass } from "@plangs/server/elements";
@@ -28,8 +28,8 @@ export function Pl({ pl, pg }: { pl: VPlang; pg: PlangsGraph }) {
   );
 }
 
-function PlNews({ pl: { relPosts } }: { pl: VPlang }) {
-  const posts = relPosts.nodes();
+function PlNews({ pl: { relPost } }: { pl: VPlang }) {
+  const posts = relPost.vertices;
   return (
     <>
       <h1>News</h1>
@@ -48,7 +48,7 @@ function PlNews({ pl: { relPosts } }: { pl: VPlang }) {
 }
 
 function PlApps({ pl }: { pl: VPlang }) {
-  const apps = pl.relApp.nodes();
+  const apps = pl.relApp.vertices;
   return (
     <>
       <h1>Applications</h1>
@@ -73,7 +73,7 @@ function PlApps({ pl }: { pl: VPlang }) {
 }
 
 function PlLibs({ pl }: { pl: VPlang }) {
-  const libs = pl.relLibrary.nodes();
+  const libs = pl.relLibrary.vertices;
   return (
     <>
       <h1>Libraries</h1>
@@ -98,7 +98,7 @@ function PlLibs({ pl }: { pl: VPlang }) {
 }
 
 function PlTools({ pl }: { pl: VPlang }) {
-  const tools = pl.relTools.nodes();
+  const tools = pl.relTool.vertices;
   return (
     <>
       <h1>Tooling</h1>
@@ -126,7 +126,7 @@ function PlTools({ pl }: { pl: VPlang }) {
 }
 
 function PlBundles({ pl }: { pl: VPlang }) {
-  const bundles = pl.relPlBundles.nodes();
+  const bundles: any[] = []; // TODO: fix  pl.relPlBundles.nodes();
   return bundles.length === 0 ? null : (
     <>
       {bundles.map(bundle => (

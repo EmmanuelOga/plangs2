@@ -23,8 +23,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.jruby.org/",
       created: "2001",
     })
-    .relImplement.add(["pl+ruby"])
-    .relInfluence.add(["pl+ruby"])
+    .relImplements.add(["pl+ruby"])
+    .relInfluencedBy.add(["pl+ruby"])
     .relLicense.add(["lic+epl", "lic+gnu-gpl", "lic+lgpl"])
     .relParadigm.add(["para+concurrent", "para+oop", "para+reflective", "para+scripting"])
     .relPlatform.add(["plat+cross", "plat+java"])

@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.jython.org/",
       created: "2001",
     })
-    .relImplement.add(["pl+python"])
+    .relImplements.add(["pl+python"])
     .relLicense.add(["lic+apache", "lic+python"])
     .relParadigm.add(["para+interpreted", "para+oop", "para+scripting"])
     .relPlatform.add(["plat+cross", "plat+java"])

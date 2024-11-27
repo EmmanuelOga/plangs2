@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://faust.grame.fr/",
       created: "2002",
     })
-    .relInfluence.add(["pl+c"])
+    .relInfluencedBy.add(["pl+c"])
     .relLicense.add(["lic+gnu-gpl"])
     .relParadigm.add(["para+compiled", "para+dataflow", "para+declarative", "para+dsl", "para+functional"])
     .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows"])

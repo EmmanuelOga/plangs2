@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://clean.cs.ru.nl/",
       created: "1987",
     })
-    .relInfluence.add(["pl+haskell"])
+    .relInfluencedBy.add(["pl+haskell"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+functional"])
     .relPlatform.add(["plat+cross"])

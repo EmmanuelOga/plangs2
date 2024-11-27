@@ -8,7 +8,7 @@ import { activateFacetsMain } from "@plangs/frontend/components/facets/main";
 import { activateIconButtons } from "@plangs/frontend/components/icon-button";
 import { ToggleFacetsMenu, ToggleHamburguer, ToggleLights } from "@plangs/frontend/components/icon-button/state";
 import { renderLastNodeInfo, renderNodeInfo } from "@plangs/frontend/components/node-info";
-import { PlangsGraph } from "@plangs/plangs";
+import { PlangsGraph } from "@plangs/plangs/graph";
 
 import { getPl } from "./pl";
 

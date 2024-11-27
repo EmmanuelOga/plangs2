@@ -35,7 +35,7 @@ export function define(g: PlangsGraph) {
       created: "1985",
     })
     .relDialectOf.add(["pl+c"])
-    .relInfluence.add(["pl+ada", "pl+apl", "pl+c", "pl+f-sharp"])
+    .relInfluencedBy.add(["pl+ada", "pl+apl", "pl+c", "pl+f-sharp"])
     .relParadigm.add(["para+functional", "para+imperative", "para+modular", "para+multi", "para+oop", "para+procedural"])
     .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
     .relTag.add(["tag+app", "tag+compiler", "tag+control", "tag+dataq", "tag+embedded", "tag+games", "tag+industrial", "tag+interpreters", "tag+viz"])

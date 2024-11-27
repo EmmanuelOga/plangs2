@@ -17,7 +17,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://c3-lang.org",
       created: "2019",
     })
-    .relInfluence.add(["pl+c"])
+    .relInfluencedBy.add(["pl+c"])
     .relLicense.add(["lic+lgpl", "lic+mit"])
     .relParadigm.add(["para+compiled", "para+general-purpose", "para+multi", "para+procedural"])
     .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])

@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://forth-standard.org/",
       created: "1970",
     })
-    .relInfluence.add(["pl+lisp"])
+    .relInfluencedBy.add(["pl+lisp"])
     .relLicense.add(["lic+public-domain"])
     .relParadigm.add(["para+concatenative", "para+procedural", "para+reflective", "para+stack-oriented"])
     .relPlatform.add(["plat+cross", "plat+embedded"])

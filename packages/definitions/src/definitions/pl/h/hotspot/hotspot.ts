@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://openjdk.org/groups/hotspot/",
       created: "1999",
     })
-    .relInfluence.add(["pl+self"])
+    .relInfluencedBy.add(["pl+self"])
     .relLicense.add(["lic+gnu-gpl"])
     .relParadigm.add(["para+compiled", "para+concurrent", "para+interpreted"])
     .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+java", "plat+linux", "plat+windows"])

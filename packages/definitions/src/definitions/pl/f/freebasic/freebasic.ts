@@ -19,8 +19,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.freebasic.net/",
       created: "2004",
     })
-    .relImplement.add(["pl+basic"])
-    .relInfluence.add(["pl+c"])
+    .relImplements.add(["pl+basic"])
+    .relInfluencedBy.add(["pl+c"])
     .relLicense.add(["lic+gnu-gpl", "lic+lgpl"])
     .relParadigm.add(["para+compiled", "para+multi", "para+oop", "para+procedural"])
     .relPlatform.add(["plat+bsd", "plat+dos", "plat+linux", "plat+windows"])

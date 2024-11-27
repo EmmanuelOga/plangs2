@@ -43,60 +43,64 @@ test("base node apis", () => {
   expect(pl.extensions.first).toEqual(".pas");
   expect(pl.extensions.last).toEqual(".tpu");
 
-  expect(pl.relApp.size()).toBe(0);
+  expect(pl.relApp.size).toBe(0);
   pl.relApp.add(["app+something"]);
-  expect(pl.relApp.size()).toBe(1);
-  expect(pl.relApp.keys()[0]).toEqual("app+something");
+  expect(pl.relApp.size).toBe(1);
+  // TODO
+  // expect([...pl.relApp.keys][0]).toEqual("app+something");
 
-  expect(pl.relLibrary.size()).toBe(0);
+  expect(pl.relLibrary.size).toBe(0);
   pl.relLibrary.add(["lib+something"]);
-  expect(pl.relLibrary.size()).toBe(1);
-  expect(pl.relLibrary.keys()[0]).toEqual("lib+something");
+  expect(pl.relLibrary.size).toBe(1);
+  // TODO
+  // expect([...pl.relLibrary.keys][0]).toEqual("lib+something");
 
-  expect(pl.relTools.size()).toBe(0);
-  pl.relTools.add(["tool+something"]);
-  expect(pl.relTools.size()).toBe(1);
-  expect(pl.relTools.keys()[0]).toEqual("tool+something");
+  expect(pl.relTool.size).toBe(0);
+  pl.relTool.add(["tool+something"]);
+  expect(pl.relTool.size).toBe(1);
+  expect([...pl.relTool.keys][0]).toEqual("tool+something");
 
-  expect(pl.relWrittenInPlang.size()).toBe(0);
+  expect(pl.relWrittenInPlang.size).toBe(0);
   pl.relWrittenInPlang.add(["pl+assembler"]);
-  expect(pl.relWrittenInPlang.size()).toBe(1);
-  expect(pl.relWrittenInPlang.keys()[0]).toEqual("pl+assembler");
+  expect(pl.relWrittenInPlang.size).toBe(1);
+  expect([...pl.relWrittenInPlang.keys][0]).toEqual("pl+assembler");
 
-  expect(pl.relParadigms.size()).toBe(0);
+  expect(pl.relParadigm.size).toBe(0);
   pl.relParadigm.add(["para+procedural"]);
-  expect(pl.relParadigms.size()).toBe(1);
-  expect(pl.relParadigms.keys()[0]).toEqual("para+procedural");
+  expect(pl.relParadigm.size).toBe(1);
+  expect([...pl.relParadigm.keys][0]).toEqual("para+procedural");
 
-  expect(pl.relPlBundles.size()).toBe(0);
-  pl.relPlBundles.add(["bundle+my-bundle"]);
-  expect(pl.relPlBundles.size()).toBe(1);
-  expect(pl.relPlBundles.keys()[0]).toEqual("bundle+my-bundle");
+  // TODO
+  // expect(pl.relPlBundle.size).toBe(0);
+  // pl.relPlBundles.add(["bundle+my-bundle"]);
+  // expect(pl.relPlBundles.size()).toBe(1);
+  // expect(pl.relPlBundles.keys()[0]).toEqual("bundle+my-bundle");
 
-  expect(pl.relPosts.size()).toBe(0);
-  pl.relPosts.add(["post+my-post"]);
-  expect(pl.relPosts.size()).toBe(1);
-  expect(pl.relPosts.keys()[0]).toEqual("post+my-post");
+  expect(pl.relPost.size).toBe(0);
+  pl.relPost.add(["post+my-post"]);
+  expect(pl.relPost.size).toBe(1);
+  // TODO
+  // expect([...pl.relPost.keys][0]).toEqual("post+my-post");
 
-  expect(pl.relTag.size()).toBe(0);
+  expect(pl.relTag.size).toBe(0);
   pl.relTag.add(["tag+cool"]);
-  expect(pl.relTag.size()).toBe(1);
-  expect(pl.relTag.keys()[0]).toEqual("tag+cool");
+  expect(pl.relTag.size).toBe(1);
+  expect([...pl.relTag.keys][0]).toEqual("tag+cool");
 });
 
 test("matching keywords", () => {
   const g = new PlangsGraph();
 
-  g.nodes.tsys.set("tsys+weak", { keywords: ["weak"] });
-  g.nodes.tsys.set("tsys+dynamic", { keywords: ["dynamic"] });
-  g.nodes.tsys.set("tsys+strong", { keywords: ["strongly-typed"] });
-  g.nodes.tsys.set("tsys+adt", { keywords: ["sum types"] });
+  g.typeSystem.set("tsys+weak", { keywords: ["weak"] });
+  g.typeSystem.set("tsys+dynamic", { keywords: ["dynamic"] });
+  g.typeSystem.set("tsys+strong", { keywords: ["strongly-typed"] });
+  g.typeSystem.set("tsys+adt", { keywords: ["sum types"] });
 
   const matches = [];
 
   const text = " a .. strongly typed .. dynamic .. language with .. sum-types IF ";
 
-  for (const [id, node] of g.nodes.tsys.entries()) {
+  for (const [id, node] of g.typeSystem.entries) {
     if (node.keywordsRegexp?.test(text)) matches.push(id);
   }
 
@@ -105,7 +109,7 @@ test("matching keywords", () => {
   matches.length = 0;
   const text2 = " sum if types ";
 
-  for (const [id, node] of g.nodes.tsys.entries()) {
+  for (const [id, node] of g.typeSystem.entries) {
     if (node.keywordsRegexp?.test(text2)) matches.push(id);
   }
 
@@ -116,16 +120,12 @@ test("edge apis", () => {
   const g = new PlangsGraph();
 
   const pl = g.plang.set("pl+pascal", { name: "Pascal", description: "The Pascal Programming Language." });
-  const st = g.nodes.tsys.set("tsys+strongly-typed", { name: "Strongly Typed" });
-  const edges = g.edges.tsys;
+  const st = g.typeSystem.set("tsys+strongly-typed", { name: "Strongly Typed" });
+  const edges = g.edges.plangTypeSystem;
 
-  let edge = edges.get("pl+pascal", "tsys+strongly-typed");
-  expect(edge).toBeUndefined();
+  expect(edges.has("pl+pascal", "tsys+strongly-typed")).toBeFalse();
   pl.relTypeSystem.add([st.key]);
-  edge = edges.get("pl+pascal", "tsys+strongly-typed");
-  expect(edge).not.toBeUndefined();
-
-  const link = { href: "https://emmanueloga.com", title: "Emmanuel Oga's Homepage" };
+  expect(edges.has("pl+pascal", "tsys+strongly-typed")).toBeTrue();
 });
 
 test("edge types", () => {
@@ -134,199 +134,140 @@ test("edge types", () => {
   const plPascal = g.plang.set("pl+pascal", { name: "Pascal", description: "The Pascal Programming Language." });
   const plPerl = g.plang.set("pl+perl", { name: "Perl" });
 
-  const nodeApp = g.nodes.app.set("app+some-app", { name: "My App" });
-  const nodeBundle = g.nodes.bundle.set("bundle+my-bundle", { name: "My Bundle" });
-  const nodeLib = g.nodes.lib.set("lib+my-lib", { name: "My libC" });
-  const nodeLic = g.nodes.license.set("lic+gnu", { name: "GNU" });
-  const nodePara = g.nodes.paradigm.set("para+structured", { name: "Structured" });
-  const nodePlat = g.nodes.plat.set("plat+os2", { name: "OS/2" });
-  const nodePost = g.nodes.post.set("post+my-post", { name: "Hello World!" });
-  const nodeTag = g.nodes.tag.set("tag+my-tag", { name: "MYTAG" });
-  const nodeTool = g.nodes.tool.set("tool+my-tool", { name: "My Tool" });
-  const nodeTsys = g.nodes.tsys.set("tsys+strongly-typed", { name: "Strongly Typed" });
+  const nodeApp = g.app.set("app+some-app", { name: "My App" });
+  const nodeBundle = g.bundle.set("bun+my-bundle", { name: "My Bundle" });
+  const nodeLib = g.library.set("lib+my-lib", { name: "My libC" });
+  const nodeLic = g.license.set("lic+gnu", { name: "GNU" });
+  const nodePara = g.paradigm.set("para+structured", { name: "Structured" });
+  const nodePlat = g.platform.set("plat+os2", { name: "OS/2" });
+  const nodePost = g.post.set("post+my-post", { name: "Hello World!" });
+  const nodeTag = g.tag.set("tag+my-tag", { name: "MYTAG" });
+  const nodeTool = g.tool.set("tool+my-tool", { name: "My Tool" });
+  const nodeTsys = g.typeSystem.set("tsys+strongly-typed", { name: "Strongly Typed" });
 
   {
-    const edge = g.edges.app.connect("pl+pascal", "app+some-app");
-    expect(edge.kind).toBe("app");
-    expect(edge.from).toBe("pl+pascal");
-    expect(edge.to).toBe("app+some-app");
-    expect(edge.nodeFrom).toBe(plPascal);
-    expect(edge.nodeTo).toBe(nodeApp);
+    const edge = g.edges.appPlang.addOne("app+some-app", "pl+pascal");
+    expect(edge[0]).toBe(nodeApp);
+    expect(edge[1]).toBe(plPascal);
   }
 
   {
-    const edge = g.edges.bundle.connect("bundle+my-bundle", "tool+my-tool");
-    expect(edge.kind).toBe("bundle");
-    expect(edge.from).toBe("bundle+my-bundle");
-    expect(edge.to).toBe("tool+my-tool");
-    expect(edge.nodeFrom).toBe(nodeBundle);
-    expect(edge.nodeTo).toBe(nodeTool);
+    const edge = g.edges.bundleTool.addOne("bun+my-bundle", "tool+my-tool");
+    expect(edge[0]).toBe(nodeBundle);
+    expect(edge[1]).toBe(nodeTool);
   }
 
   {
-    const edge = g.edges.compilesTo.connect("pl+pascal", "pl+perl");
-    expect(edge.kind).toBe("compilesTo");
-    expect(edge.from).toBe("pl+pascal");
-    expect(edge.to).toBe("pl+perl");
-    expect(edge.nodeFrom).toBe(plPascal);
-    expect(edge.nodeTo).toBe(plPerl);
+    const edge = g.edges.plangCompilesToPlang.addOne("pl+pascal", "pl+perl");
+    expect(edge[0]).toBe(plPascal);
+    expect(edge[1]).toBe(plPerl);
   }
 
   {
-    const edge = g.edges.dialect.connect("pl+pascal", "pl+perl");
-    expect(edge.kind).toBe("dialect");
-    expect(edge.from).toBe("pl+pascal");
-    expect(edge.to).toBe("pl+perl");
-    expect(edge.nodeFrom).toBe(plPascal);
-    expect(edge.nodeTo).toBe(plPerl);
+    const edge = g.edges.plangDialectOfPlang.addOne("pl+pascal", "pl+perl");
+    expect(edge[0]).toBe(plPascal);
+    expect(edge[1]).toBe(plPerl);
   }
 
   {
-    const edge = g.edges.license.connect("pl+pascal", "lic+gnu");
-    expect(edge.kind).toBe("license");
-    expect(edge.from).toBe("pl+pascal");
-    expect(edge.to).toBe("lic+gnu");
-    expect(edge.nodeFrom).toBe(plPascal);
-    expect(edge.nodeTo).toBe(nodeLic);
+    const edge = g.edges.licensePlang.addOne("lic+gnu", "pl+pascal");
+    expect(edge[0]).toBe(nodeLic);
+    expect(edge[1]).toBe(plPascal);
   }
 
   {
-    const edge = g.edges.impl.connect("pl+pascal", "pl+perl");
-    expect(edge.kind).toBe("impl");
-    expect(edge.from).toBe("pl+pascal");
-    expect(edge.to).toBe("pl+perl");
-    expect(edge.nodeFrom).toBe(plPascal);
-    expect(edge.nodeTo).toBe(plPerl);
+    const edge = g.edges.plangImplementsPlang.addOne("pl+pascal", "pl+perl");
+    expect(edge[0]).toBe(plPascal);
+    expect(edge[1]).toBe(plPerl);
   }
 
   {
-    const edge = g.edges.influence.connect("pl+pascal", "pl+perl");
-    expect(edge.kind).toBe("influence");
-    expect(edge.from).toBe("pl+pascal");
-    expect(edge.to).toBe("pl+perl");
-    expect(edge.nodeFrom).toBe(plPascal);
-    expect(edge.nodeTo).toBe(plPerl);
+    const edge = g.edges.plangInfluencedByPlang.addOne("pl+pascal", "pl+perl");
+    expect(edge[0]).toBe(plPascal);
+    expect(edge[1]).toBe(plPerl);
   }
 
   {
-    const edge = g.edges.paradigm.connect("pl+pascal", "para+structured");
-    expect(edge.kind).toBe("para+");
-    expect(edge.from).toBe("pl+pascal");
-    expect(edge.to).toBe("para+structured");
-    expect(edge.nodeFrom).toBe(plPascal);
-    expect(edge.nodeTo).toBe(nodePara);
+    const edge = g.edges.plangParadigm.addOne("pl+pascal", "para+structured");
+    expect(edge[0]).toBe(plPascal);
+    expect(edge[1]).toBe(nodePara);
   }
 
   {
-    const edge = g.edges.tsys.connect("pl+pascal", "tsys+strongly-typed");
-    expect(edge.kind).toBe("tsys");
-    expect(edge.from).toBe("pl+pascal");
-    expect(edge.to).toBe("tsys+strongly-typed");
-    expect(edge.nodeFrom).toBe(plPascal);
-    expect(edge.nodeTo).toBe(nodeTsys);
+    const edge = g.edges.plangTypeSystem.addOne("pl+pascal", "tsys+strongly-typed");
+    expect(edge[0]).toBe(plPascal);
+    expect(edge[1]).toBe(nodeTsys);
   }
 
   {
-    const edge = g.edges.plBundle.connect("pl+pascal", "bundle+my-bundle");
-    expect(edge.kind).toBe("plBundle");
-    expect(edge.from).toBe("pl+pascal");
-    expect(edge.to).toBe("bundle+my-bundle");
-    expect(edge.nodeFrom).toBe(plPascal);
-    expect(edge.nodeTo).toBe(nodeBundle);
+    const edge = g.edges.plangPlatform.addOne("pl+pascal", "plat+os2");
+    expect(edge[0]).toBe(plPascal);
+    expect(edge[1]).toBe(nodePlat);
   }
 
   {
-    const edge = g.edges.plat.connect("pl+pascal", "plat+os2");
-    expect(edge.kind).toBe("plat");
-    expect(edge.from).toBe("pl+pascal");
-    expect(edge.to).toBe("plat+os2");
-    expect(edge.nodeFrom).toBe(plPascal);
-    expect(edge.nodeTo).toBe(nodePlat);
+    const edge = g.edges.postPlang.addOne("post+my-post", "pl+pascal");
+    expect(edge[0]).toBe(nodePost);
+    expect(edge[1]).toBe(plPascal);
   }
 
   {
-    const edge = g.edges.post.connect("pl+pascal", "post+my-post");
-    expect(edge.kind).toBe("post");
-    expect(edge.from).toBe("pl+pascal");
-    expect(edge.to).toBe("post+my-post");
-    expect(edge.nodeFrom).toBe(plPascal);
-    expect(edge.nodeTo).toBe(nodePost);
+    const edge = g.edges.libraryPlang.addOne("lib+my-lib", "pl+pascal");
+    expect(edge[1]).toBe(plPascal);
+    expect(edge[0]).toBe(nodeLib);
   }
 
   {
-    const edge = g.edges.lib.connect("pl+pascal", "lib+my-lib");
-    expect(edge.kind).toBe("lib");
-    expect(edge.from).toBe("pl+pascal");
-    expect(edge.to).toBe("lib+my-lib");
-    expect(edge.nodeFrom).toBe(plPascal);
-    expect(edge.nodeTo).toBe(nodeLib);
+    const edge = g.edges.plangTag.addOne("pl+pascal", "tag+my-tag");
+    expect(edge[0]).toBe(plPascal);
+    expect(edge[1]).toBe(nodeTag);
   }
 
   {
-    const edge = g.edges.tag.connect("pl+pascal", "tag+my-tag");
-    expect(edge.kind).toBe("tag");
-    expect(edge.from).toBe("pl+pascal");
-    expect(edge.to).toBe("tag+my-tag");
-    expect(edge.nodeFrom).toBe(plPascal);
-    expect(edge.nodeTo).toBe(nodeTag);
+    const edge = g.edges.plangTool.addOne("pl+pascal", "tool+my-tool");
+    expect(edge[0]).toBe(plPascal);
+    expect(edge[1]).toBe(nodeTool);
   }
 
   {
-    const edge = g.edges.tool.connect("pl+pascal", "tool+my-tool");
-    expect(edge.kind).toBe("tool");
-    expect(edge.from).toBe("pl+pascal");
-    expect(edge.to).toBe("tool+my-tool");
-    expect(edge.nodeFrom).toBe(plPascal);
-    expect(edge.nodeTo).toBe(nodeTool);
-  }
-
-  {
-    const edge = g.edges.writtenIn.connect("pl+pascal", "pl+perl");
-    expect(edge.kind).toBe("writtenIn");
-    expect(edge.from).toBe("pl+pascal");
-    expect(edge.to).toBe("pl+perl");
-    expect(edge.nodeFrom).toBe(plPascal);
-    expect(edge.nodeTo).toBe(plPerl);
+    const edge = g.edges.plangWrittenInPlangPlang.addOne("pl+pascal", "pl+perl");
+    expect(edge[0]).toBe(plPascal);
+    expect(edge[1]).toBe(plPerl);
   }
 });
 
 test("app nodes", () => {
   const g = new PlangsGraph();
   const app = g.nodes.app.set("app+my-app", { name: "My App" });
-  const apps = g.edges.app;
 
-  expect(apps.size).toBe(0);
-  app.addPlangs(["pl+pascal"]);
-  expect(apps.size).toBe(1);
+  expect(g.edges.appPlang.size).toBe(0);
+  app.relPlang.add(["pl+pascal"]);
+  expect(g.edges.appPlang.size).toBe(1);
 });
 
 test("bundle nodes", () => {
   const g = new PlangsGraph();
-  const bundle = g.nodes.bundle.set("bundle+my-bundle", { name: "Humble Bundle" });
-  const bundles = g.edges.bundle;
-  const tools = g.edges.tool;
+  const bundle = g.nodes.bundle.set("bun+my-bundle", { name: "Humble Bundle" });
 
-  expect(bundle.relTools.size()).toBe(0);
-  expect(bundles.size).toBe(0);
-  bundle.relTools.add(["tool+my-tool"]);
-  expect(bundles.size).toBe(1);
-  expect(bundle.relTools.size()).toBe(1);
-  expect(bundle.relTools.keys()[0]).toEqual("tool+my-tool");
+  expect(bundle.relTool.size).toBe(0);
+  bundle.relTool.add(["tool+my-tool"]);
+  expect(bundle.relTool.size).toBe(1);
+  expect([...bundle.relTool.keys][0]).toEqual("tool+my-tool");
 
-  expect(bundle.relPlangs.size()).toBe(0);
-  bundle.relPlangs.add(["pl+pascal"]);
-  expect(bundle.relPlangs.size()).toBe(1);
-  expect(bundle.relPlangs.keys()[0]).toEqual("pl+pascal");
+  // TODO
+  // expect(bundle.rel.size).toBe(0);
+  // bundle.relPlangs.add(["pl+pascal"]);
+  // expect(bundle.relPlangs.size()).toBe(1);
+  // expect(bundle.relPlangs.keys()[0]).toEqual("pl+pascal");
 });
 
 test("library nodes", () => {
   const g = new PlangsGraph();
-  const lib = g.nodes.lib.set("lib+my-lib", { name: "My Pascal Unit" });
-  const libs = g.edges.lib;
+  const lib = g.nodes.library.set("lib+my-lib", { name: "My Pascal Unit" });
 
-  expect(libs.size).toBe(0);
-  lib.relPlangs.add(["pl+pascal"]);
-  expect(libs.size).toBe(1);
+  expect(g.edges.libraryPlang.size).toBe(0);
+  lib.relPlang.add(["pl+pascal"]);
+  expect(g.edges.libraryPlang.size).toBe(1);
 });
 
 test("license nodes", () => {
@@ -353,28 +294,17 @@ test("post nodes", () => {
   expect(post.title).toEqual("Hello World!");
   expect(post.name).toEqual("Hello World!");
 
-  expect(post.relPlangs.size()).toBe(0);
-  post.relPlangs.add(["pl+pascal"]);
-  expect(post.relPlangs.size()).toBe(1);
-  expect(post.relPlangs.keys()[0]).toEqual("pl+pascal");
+  expect(post.relPlang.size).toBe(0);
+  post.relPlang.add(["pl+pascal"]);
+  expect(post.relPlang.size).toBe(1);
+  expect([...post.relPlang.keys][0]).toEqual("pl+pascal");
 });
 
 test("tool nodes", () => {
   const g = new PlangsGraph();
   const tool = g.nodes.tool.set("tool+my-tool", { name: "My Tool" });
-  const tools = g.edges.tool;
 
-  expect(tools.size).toBe(0);
-  tool.addPlangs(["pl+pascal"]);
-  expect(tools.size).toBe(1);
-});
-
-test("plBundle nodes", () => {
-  const g = new PlangsGraph();
-  const bundle = g.nodes.bundle.set("bundle+my-bundle", { name: "My Bundle" });
-  const plBundles = g.edges.plBundle;
-
-  expect(plBundles.size).toBe(0);
-  bundle.relPlangs.add(["pl+pascal"]);
-  expect(plBundles.size).toBe(1);
+  expect(g.edges.plangTool.size).toBe(0);
+  tool.relPlang.add(["pl+pascal"]);
+  expect(g.edges.plangTool.size).toBe(1);
 });

@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
       created: "2011",
     })
     .relCompilesTo.add(["pl+javascript"])
-    .relInfluence.add(["pl+c", "pl+c++", "pl+c-sharp", "pl+erlang", "pl+javascript", "pl+ruby", "pl+typescript"])
+    .relInfluencedBy.add(["pl+c", "pl+c++", "pl+c-sharp", "pl+erlang", "pl+javascript", "pl+ruby", "pl+typescript"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+reflective"])
     .relPlatform.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+riscv", "plat+web", "plat+windows", "plat+x86-64"])

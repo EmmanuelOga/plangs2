@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.rust-lang.org/",
       created: "2015",
     })
-    .relInfluence.add([
+    .relInfluencedBy.add([
       "pl+c",
       "pl+c++",
       "pl+c-sharp",

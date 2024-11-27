@@ -14,7 +14,7 @@ export function define(g: PlangsGraph) {
       created: "2016",
     })
     .relDialectOf.add(["pl+datalog"])
-    .relInfluence.add(["pl+datalog"])
+    .relInfluencedBy.add(["pl+datalog"])
     .relLicense.add(["lic+mit"])
     .relParadigm.add(["para+compiled", "para+declarative", "para+logic"])
     .relPlatform.add(["plat+cross"])

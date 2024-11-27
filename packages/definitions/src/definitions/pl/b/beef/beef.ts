@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.beeflang.org/",
       created: "2020",
     })
-    .relInfluence.add(["pl+c", "pl+c++", "pl+delphi", "pl+rust"])
+    .relInfluencedBy.add(["pl+c", "pl+c++", "pl+delphi", "pl+rust"])
     .relLicense.add(["lic+zlib"])
     .relParadigm.add(["para+compiled", "para+multi", "para+oop", "para+procedural"])
     .relPlatform.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])

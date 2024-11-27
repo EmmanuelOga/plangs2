@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://software.intel.com/content/www/us/en/develop/tools/oneapi/components/fortran-compiler.html",
       created: "2003",
     })
-    .relImplement.add(["pl+fortran"])
+    .relImplements.add(["pl+fortran"])
     .relLicense.add(["lic+bsd"])
     .relParadigm.add(["para+compiled", "para+procedural", "para+scientific"])
     .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
