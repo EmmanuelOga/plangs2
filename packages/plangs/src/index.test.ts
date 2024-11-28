@@ -240,9 +240,9 @@ test("app nodes", () => {
   const g = new PlangsGraph();
   const app = g.app.set("app+my-app", { name: "My App" });
 
-  expect(g.edges.plangRelWrittenWith.size).toBe(0);
+  expect(g.edges.appRelWrittenWith.size).toBe(0);
   app.relWrittenWith.add(["pl+pascal"]);
-  expect(g.edges.plangRelWrittenWith.size).toBe(1);
+  expect(g.edges.appRelWrittenWith.size).toBe(1);
 });
 
 test("bundle nodes", () => {

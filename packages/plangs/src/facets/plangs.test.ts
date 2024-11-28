@@ -138,28 +138,30 @@ test("implements", () => {
 
 test("influenced", () => {
   const pg = new PlangsGraph();
-  const a = pg.plang.set("pl+myplang").relInfluencedBy.add(["pl+b", "pl+c"]);
-  const b = pg.plang.set("pl+other").relInfluencedBy.add(["pl+c"]);
-  const c = pg.plang.set("pl+one");
+
+  const a = pg.plang.set("pl+a").relInfluenced.add(["pl+b", "pl+c"]);
+  const b = pg.plang.set("pl+b").relInfluenced.add(["pl+c"]);
+  const c = pg.plang.set("pl+c");
+
   const { influenced: check } = PLANG_FACET_PREDICATES;
 
-  const filter = (mode: "all" | "any", ...keys: VPlangKey[]) => new Filter<VPlangKey>("all").add(...keys);
+  const filter = (mode: "all" | "any", ...keys: VPlangKey[]) => new Filter<VPlangKey>(mode).add(...keys);
 
   expect(check(a, filter("all"))).toBeTrue();
-  expect(check(a, filter("all", "pl+two", "pl+three"))).toBeFalse();
-  expect(check(a, filter("any"))).toBeFalse();
-  expect(check(a, filter("any", "pl+two", "pl+three"))).toBeFalse();
-
   expect(check(b, filter("all"))).toBeTrue();
-  expect(check(b, filter("all", "pl+one", "pl+two"))).toBeFalse();
-  expect(check(b, filter("any"))).toBeFalse();
-  expect(check(b, filter("any", "pl+one", "pl+two"))).toBeFalse();
-
   expect(check(c, filter("all"))).toBeTrue();
-  expect(check(c, filter("all", "pl+b", "pl+c"))).toBeTrue();
+
+  expect(check(a, filter("any"))).toBeFalse();
+  expect(check(b, filter("any"))).toBeFalse();
   expect(check(c, filter("any"))).toBeFalse();
-  expect(check(c, filter("any", "pl+myplang", "pl+other"))).toBeTrue();
-  expect(check(c, filter("any", "pl+two", "pl+three"))).toBeFalse();
+
+  expect(check(a, filter("all", "pl+b", "pl+c"))).toBeTrue();
+  expect(check(b, filter("all", "pl+b", "pl+c"))).toBeFalse();
+  expect(check(c, filter("all", "pl+b", "pl+c"))).toBeFalse();
+
+  expect(check(a, filter("any", "pl+a", "pl+c"))).toBeTrue();
+  expect(check(b, filter("any", "pl+b", "pl+c"))).toBeTrue();
+  expect(check(c, filter("any", "pl+c", "pl+c"))).toBeFalse();
 });
 
 test("influencedBy", () => {
