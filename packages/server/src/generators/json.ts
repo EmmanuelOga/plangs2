@@ -1,10 +1,10 @@
 import { join } from "node:path";
-import { loadAllDefinitions } from "@plangs/definitions";
+import { loadDefinitions } from "@plangs/definitions";
 import { PlangsGraph } from "@plangs/plangs/graph";
 
 async function generateJSON(dstRoot: string) {
   const pg = new PlangsGraph();
-  await loadAllDefinitions(pg, { scanImages: false });
+  await loadDefinitions(pg, { scanImages: false });
   Bun.write(join(dstRoot, "plangs.json"), JSON.stringify(pg));
 }
 

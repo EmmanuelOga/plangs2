@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs/graph";
 import { Layout } from "@plangs/server/components/layout";
 
 export function Blog({ pg }: { pg: PlangsGraph }) {
-  const postLinks = [...pg.nodes.post.values].reverse().map(post => (
+  const postLinks = [...pg.post.values].reverse().map(post => (
     <div key={`${post.path}`} class="mb-8">
       <div>{post.date}</div>
       {/* This looks like some sort of prose issue: setting margin to 0 thorugh m-0 or mt-0 doesn't work. */}

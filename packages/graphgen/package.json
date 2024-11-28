@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "description": "Pure JS graph generator, generates base clases from a specification.",
   "main": "src/index.ts",
-  "files": [
-    "src"
-  ],
+  "files": ["src"],
   "dependencies": {
     "@biomejs/js-api": "^0.7.1"
   },

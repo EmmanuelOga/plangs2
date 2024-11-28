@@ -12,7 +12,7 @@ async function getPaths(glob: Glob, basePath: string): Promise<string[]> {
 }
 
 /** Imports all definitions and calls the `define` methods */
-export async function loadAllDefinitions(g: PlangsGraph, options: { scanImages: boolean }) {
+export async function loadDefinitions(g: PlangsGraph, options: { scanImages: boolean }) {
   for (const path of await getPaths(new Glob("**/*.ts"), join(import.meta.dir, "definitions"))) {
     const module = await import(`./definitions/${path}`);
     if (typeof module.define === "function") module.define(g);

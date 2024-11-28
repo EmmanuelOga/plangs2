@@ -3,7 +3,7 @@ import { mkdir } from "node:fs/promises";
 import { join } from "node:path";
 import { Glob } from "bun";
 
-import { loadAllDefinitions } from "@plangs/definitions";
+import { loadDefinitions } from "@plangs/definitions";
 import { PlangsGraph } from "@plangs/plangs/graph";
 import { loadPosts } from "@plangs/server/content";
 import { resolvePage } from "@plangs/server/resolve_page";
@@ -21,7 +21,7 @@ const DEFINTIONS_BASE = join(import.meta.dir, "../../definitions/src/definitions
  */
 async function generatePages(dstRoot: string) {
   const pg = new PlangsGraph();
-  await loadAllDefinitions(pg, { scanImages: true });
+  await loadDefinitions(pg, { scanImages: true });
   await loadPosts(pg);
 
   const ensureDir = async (path: string) => {
@@ -52,7 +52,7 @@ async function generatePages(dstRoot: string) {
   const plPaths = pg.plang.values.map(pl => `/${pl.plainKey}`);
 
   // Generate every blog post.
-  const blogPaths = pg.nodes.post.values.map(pl => `/blog/${pl.plainKey}`);
+  const blogPaths = pg.post.values.map(pl => `/blog/${pl.plainKey}`);
 
   // Generate all pages.
   for (const path of [...plPaths, ...blogPaths, ...FIXED_PATHS]) {

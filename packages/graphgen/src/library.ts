@@ -1,5 +1,13 @@
 export type VKey<Prefix extends string> = `${Prefix}+${string}`;
 
+/**
+ * Vertex object:
+ *
+ * The string keys use a prefix go help differentiate vertices:
+ * "key+1", "another+2", etc.
+ *
+ * Serializes to the plain data object without the key.
+ */
 export abstract class Vertex<KeyPrefix extends string, Data> {
   abstract readonly kind: KeyPrefix;
 
@@ -28,13 +36,18 @@ export abstract class Vertex<KeyPrefix extends string, Data> {
     return /^[a-z]/i.test(pk) ? pk[0].toLowerCase() : NON_AZ;
   }
 
+  /** {@link merge} can be used to load serialized data into an instance. */
   toJSON() {
     return this.data;
   }
 }
 
+/** Type of a Vertex with any key and data, useful for generic containers. */
+// biome-ignore lint/suspicious/noExplicitAny: we want to keep track of vertices with any key and data.
+export type AnyVertex = Vertex<any, any>;
+
 /* Used to classify vertices whose plain key don't start with a letter. */
-export const NON_AZ = "other";
+export const NON_AZ = "-";
 
 /**
  * A container for vertices and identity map:
@@ -42,43 +55,43 @@ export const NON_AZ = "other";
  * - Maintains a map of Vertices by Vertex key.
  * - Creates Vertices as needed using the factory function.
  */
-export class Vertices<V extends Vertex<any, any>> {
-  readonly vertices = new Map<V["key"], V>();
+export class Vertices<V extends AnyVertex> {
+  readonly map = new Map<V["key"], V>();
 
   constructor(private factory: (key: V["key"]) => V) {}
 
   set(key: V["key"], data: V["data"] = {}): V {
     const vertex = this.factory(key).merge(data);
-    this.vertices.set(key, vertex);
+    this.map.set(key, vertex);
     return vertex;
   }
 
   get(key: V["key"]): V | undefined {
-    return this.vertices.get(key);
+    return this.map.get(key);
   }
 
   has(key: V["key"]): boolean {
-    return this.vertices.has(key);
+    return this.map.has(key);
   }
 
   delete(key: V["key"]): boolean {
-    return this.vertices.delete(key);
+    return this.map.delete(key);
   }
 
   clear(): void {
-    this.vertices.clear();
+    this.map.clear();
   }
 
   get keys(): MapIterator<V["key"]> {
-    return this.vertices.keys();
-  }
-
-  get entries(): MapIterator<[V["key"], V]> {
-    return this.vertices.entries();
+    return this.map.keys();
   }
 
   get values(): MapIterator<V> {
-    return this.vertices.values();
+    return this.map.values();
+  }
+
+  get entries(): MapIterator<[V["key"], V]> {
+    return this.map.entries();
   }
 
   setMany(collection: [V["key"], V["data"]][]): this {
@@ -86,91 +99,94 @@ export class Vertices<V extends Vertex<any, any>> {
     return this;
   }
 
+  /** {@link setMany} can be used to load back the result of the serialization. */
   toJSON(): [V["key"], V["data"]][] {
-    return [...this.vertices].map(([key, vertex]) => [key, vertex.toJSON()]);
-  }
-
-  static fromJSON<V extends Vertex<any, any>>(factory: (key: V["key"]) => V, data: [V["key"], V["data"]][]): Vertices<V> {
-    return new Vertices<V>(factory).setMany(data);
+    return [...this.map].map(([key, vertex]) => [key, vertex.toJSON()]);
   }
 }
-
-/** Extract the Vertex type from a Vertices container. */
-export type VsVal<V> = V extends Vertices<infer T> ? T : never;
-
-/** Extract the key type from a Vertices container. */
-export type VsKey<V> = V extends Vertices<infer T> ? T["key"] : never;
 
 /**
  * Keep track of forward and backward edges between vertices.
  *
  * - Only allows a single edge between vertices.
- * - There's no edge data.
- * - Tracks vertices keys only (the actual vertices lives in the graph's {@link Vertices}).
+ * - Tracks vertices keys only. The actual vertices live in the {@link Vertices} containers.
+ * - Doesn't keep track of any edge data for now.
  */
-export class Edges<From extends Vertices<any>, To extends Vertices<any>> {
-  readonly #forward = new Map<VsKey<From>, Set<VsKey<To>>>();
-  readonly #backward = new Map<VsKey<To>, Set<VsKey<From>>>();
+export class Edges<From extends AnyVertex, To extends AnyVertex> {
+  readonly #forward = new Map<From["key"], Set<To["key"]>>();
+  readonly #backward = new Map<To["key"], Set<From["key"]>>();
 
   /**
    * We keep track of the from and to sources {@link Vertices} containers,
    * so we can easily retrieve the actual vertex from its key when needed.
    */
   constructor(
-    readonly fromSource: From,
-    readonly toSource: To,
+    readonly fromSource: Vertices<From>,
+    readonly toSource: Vertices<To>,
   ) {}
 
-  add(fromKey: VsKey<From>, toIds: VsKey<To> | VsKey<To>[]): this {
+  /**
+   * Track a relationship between two vertices.
+   * **Note**: the user is responsible of ensuring the vertices exist.
+   */
+  add(fromKey: From["key"], toKeys: To["key"] | To["key"][]): this {
     let forward = this.#forward.get(fromKey);
     if (!forward) this.#forward.set(fromKey, (forward = new Set()));
 
-    for (const toId of Array.isArray(toIds) ? toIds : [toIds]) {
-      forward.add(toId);
+    for (const toKey of Array.isArray(toKeys) ? toKeys : [toKeys]) {
+      forward.add(toKey);
 
-      let backward = this.#backward.get(toId);
-      if (!backward) this.#backward.set(toId, (backward = new Set()));
+      let backward = this.#backward.get(toKey);
+      if (!backward) this.#backward.set(toKey, (backward = new Set()));
+
       backward.add(fromKey);
     }
 
     return this;
   }
 
-  /** Add a relationship and return the target nodes. */
-  addOne(fromKey: VsKey<From>, toKey: VsKey<To>): [VsVal<From>, VsVal<To>] {
-    return this.add(fromKey, toKey).get(fromKey, toKey);
-  }
-
-  get(fromKey: VsKey<From>, toKey: VsKey<To>): [VsVal<From>, VsVal<To>] {
+  /** Get the vertices from the keys. */
+  get(fromKey: From["key"], toKey: To["key"]): [From | undefined, To | undefined] {
     return [this.fromSource.get(fromKey), this.toSource.get(toKey)];
   }
 
-  delete(fromKey: VsKey<From>, toKey: VsKey<To>): boolean {
+  /** Shortcut: add a relationship and return the target vertices. */
+  addGet(fromKey: From["key"], toKey: To["key"]): [From | undefined, To | undefined] {
+    return this.add(fromKey, toKey).get(fromKey, toKey);
+  }
+
+  /** Shortcut: Connect many vertices at once. */
+  addMany(relations: [From["key"], To["key"][]][]): this {
+    for (const [fromKey, toKeys] of relations) this.add(fromKey, toKeys);
+    return this;
+  }
+
+  delete(fromKey: From["key"], toKey: To["key"]): boolean {
     const f = this.#forward.get(fromKey)?.delete(toKey) ?? false;
     const b = this.#backward.get(toKey)?.delete(fromKey) ?? false;
     return f || b;
   }
 
-  forward(fromKey: VsKey<From>): Set<VsKey<To>> {
+  forward(fromKey: From["key"]): Set<To["key"]> {
     return this.#forward.get(fromKey) ?? new Set();
   }
 
-  backward(toKey: VsKey<To>): Set<VsKey<From>> {
+  backward(toKey: To["key"]): Set<From["key"]> {
     return this.#backward.get(toKey) ?? new Set();
   }
 
-  has(fromKey: VsKey<From>, toKey: VsKey<To>): boolean {
+  has(fromKey: From["key"], toKey: To["key"]): boolean {
     return this.#forward.get(fromKey)?.has(toKey) ?? false;
   }
 
   /** Return all keys `[fromKey, toKey[]]`. */
-  get entries(): [VsKey<From>, VsKey<To>[]][] {
+  get entries(): [From["key"], To["key"][]][] {
     return [...this.#forward].map(([key, set]) => [key, [...set]]);
   }
 
   /** Map all Vertex keys to their respective Vertices, if it exists. */
-  get vertices(): [VsKey<From>, From | undefined, VsKey<To>, To | undefined][] {
-    const result: [VsKey<From>, From | undefined, VsKey<To>, To | undefined][] = [];
+  get vertices(): [From["key"], From | undefined, To["key"], To | undefined][] {
+    const result: [From["key"], From | undefined, To["key"], To | undefined][] = [];
     for (const [fromKey, toKeys] of this.entries) {
       const from = this.fromSource.get(fromKey);
       for (const toKey of toKeys) result.push([fromKey, from, toKey, this.toSource.get(toKey)]);
@@ -184,21 +200,22 @@ export class Edges<From extends Vertices<any>, To extends Vertices<any>> {
     return this.#forward.values().reduce((acc, set) => acc + set.size, 0);
   }
 
-  json() {
+  /* {@link addMany} can be used to load back the result of the serialization. */
+  toJSON() {
     return this.entries;
-  }
-
-  loadJSON(data: [VsKey<From>, VsKey<To>[]][]): this {
-    for (const [fromKey, toKeys] of data) this.add(fromKey, toKeys);
-    return this;
   }
 }
 
+export type SerializedGraph<VertexName extends string = string, EdgeName extends string = string, VertexKey extends string = string> = {
+  vertices: Record<VertexName, [VertexKey, AnyVertex["data"]][]>;
+  edges: Record<EdgeName, [VertexKey, VertexKey[]][]>;
+};
+
 /** This class provides shrotcuts to work with relationship between vertices directly **from** the vertex. */
-export class RelFrom<FromVertex extends Vertex<any, any>, ToVertex extends Vertex<any, any>> {
+export class RelFrom<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
   constructor(
     readonly from: FromVertex,
-    readonly edges: Edges<Vertices<FromVertex>, Vertices<ToVertex>>,
+    readonly edges: Edges<FromVertex, ToVertex>,
   ) {}
 
   add(toKeys: ToVertex["key"] | ToVertex["key"][]): FromVertex {
@@ -211,6 +228,10 @@ export class RelFrom<FromVertex extends Vertex<any, any>, ToVertex extends Verte
     return this.from;
   }
 
+  has(toKey: ToVertex["key"]): boolean {
+    return this.edges.has(this.from.key, toKey);
+  }
+
   get keys(): Set<ToVertex["key"]> {
     return this.edges.forward(this.from.key);
   }
@@ -219,20 +240,16 @@ export class RelFrom<FromVertex extends Vertex<any, any>, ToVertex extends Verte
     return [...this.keys].map(k => this.edges.toSource.get(k)).filter(v => v) as ToVertex[];
   }
 
-  has(toKey: ToVertex["key"]): boolean {
-    return this.edges.has(this.from.key, toKey);
-  }
-
   get size() {
     return this.keys.size;
   }
 }
 
 /** This class provides shrotcuts to work with relationship between vertices directly **to** the vertex. */
-export class RelTo<FromVertex extends Vertex<any, any>, ToVertex extends Vertex<any, any>> {
+export class RelTo<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
   constructor(
     readonly to: ToVertex,
-    readonly edges: Edges<Vertices<FromVertex>, Vertices<ToVertex>>,
+    readonly edges: Edges<FromVertex, ToVertex>,
   ) {}
 
   add(fromKeys: FromVertex["key"] | FromVertex["key"][]): ToVertex {
@@ -245,16 +262,16 @@ export class RelTo<FromVertex extends Vertex<any, any>, ToVertex extends Vertex<
     return this.to;
   }
 
+  has(fromKey: FromVertex["key"]): boolean {
+    return this.edges.has(fromKey, this.to.key);
+  }
+
   get keys(): Set<ToVertex["key"]> {
     return this.edges.backward(this.to.key);
   }
 
   get vertices(): FromVertex[] {
     return [...this.keys].map(k => this.edges.fromSource.get(k)).filter(v => v) as FromVertex[];
-  }
-
-  has(fromKey: FromVertex["key"]): boolean {
-    return this.edges.has(fromKey, this.to.key);
   }
 
   get size() {

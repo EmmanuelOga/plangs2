@@ -6,7 +6,7 @@ import { watch } from "fs";
 // @ts-ignore works ok with Bun
 import { join } from "node:path";
 
-import { loadAllDefinitions } from "@plangs/definitions";
+import { loadDefinitions } from "@plangs/definitions";
 import { PlangsGraph } from "@plangs/plangs/graph";
 
 import { loadPosts } from "./content";
@@ -15,7 +15,7 @@ import { resolvePage } from "./resolve_page";
 import { contentTypeFor, staticResponse, vdomToHTML } from "./utils/server";
 
 const pg = new PlangsGraph();
-await loadAllDefinitions(pg, { scanImages: true });
+await loadDefinitions(pg, { scanImages: true });
 await loadPosts(pg);
 
 const server = Bun.serve({

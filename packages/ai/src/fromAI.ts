@@ -27,10 +27,10 @@ export function plangFromAI(pg: PlangsGraph, pl: VPlang, aiPL: NPlangAI): VPlang
   newPl.relInfluencedBy.add(aiPL.influencedBy.filter(existingPl) as VPlang["key"][]);
   newPl.relWrittenInPlang.add(aiPL.writtenIn.filter(existingPl) as VPlang["key"][]);
 
-  newPl.relLicense.add(aiPL.licenses.filter(k => pg.nodes.license.has(k as VLicense["key"])) as VLicense["key"][]);
-  newPl.relParadigm.add(aiPL.paradigms.filter(k => pg.nodes.paradigm.has(k as VParadigm["key"])) as VParadigm["key"][]);
+  newPl.relLicense.add(aiPL.licenses.filter(k => pg.license.has(k as VLicense["key"])) as VLicense["key"][]);
+  newPl.relParadigm.add(aiPL.paradigms.filter(k => pg.paradigm.has(k as VParadigm["key"])) as VParadigm["key"][]);
   newPl.relPlatform.add(aiPL.platforms.filter(k => pg.platform.has(k as VPlatform["key"])) as VPlatform["key"][]);
-  newPl.relTag.add(aiPL.tags.filter(k => pg.nodes.tag.has(k as VTag["key"])) as VTag["key"][]);
+  newPl.relTag.add(aiPL.tags.filter(k => pg.tag.has(k as VTag["key"])) as VTag["key"][]);
   newPl.relTypeSystem.add(aiPL.typeSystems.filter(k => pg.typeSystem.has(k as VTypeSystem["key"])) as VTypeSystem["key"][]);
 
   return newPl;

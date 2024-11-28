@@ -1,7 +1,7 @@
 import { join } from "node:path";
 
 import { type PlangsGraph, VCommunity, VLearning, type VPlang } from "@plangs/plangs/graph";
-import type { PlangsNodeNames } from "@plangs/plangs/graph/generated";
+import type { PlangsVertexName } from "@plangs/plangs/graph/generated";
 import type { Image } from "@plangs/plangs/graph/vertex_data_schemas";
 
 export const DEFINTIONS_PATH = join(import.meta.dir, "../../definitions/src/definitions");
@@ -11,7 +11,7 @@ export const DEFINTIONS_PATH = join(import.meta.dir, "../../definitions/src/defi
  * VPlang nodes are stored in a folder structure based on the first letter of the key.
  * The other nodes are stored in a flat structure.
  */
-export function tsNodePath(kind: PlangsNodeNames, plainKey?: string): string {
+export function tsNodePath(kind: PlangsVertexName, plainKey?: string): string {
   if (kind === "plang") {
     if (!plainKey) throw new Error("plainKey is required for pl nodes.");
     const base = plainKey.replace(/[^a-zA-Z0-9\_\+\-]/g, "_");
@@ -23,7 +23,7 @@ export function tsNodePath(kind: PlangsNodeNames, plainKey?: string): string {
 
 /** Generate code for nodes of the given kind. */
 export function genericCodeGen(pg: PlangsGraph, kind: "license" | "paradigm" | "platform" | "tag" | "typeSystem" | "learning" | "community"): string {
-  const definitions: string[] = [...pg.nodes[kind].values]
+  const definitions: string[] = [...pg.vertices[kind].values]
     .sort((a, b) => a.key.localeCompare(b.key))
     .map(node => {
       const relations: string[] = [];
@@ -104,7 +104,7 @@ export function plangCodeGen(plang: VPlang): string {
 
 // Generate a setter for the node data.
 // biome-ignore lint/suspicious/noExplicitAny: Any data is fine here.
-const genSet = (nodeName: PlangsNodeNames, key: string, data: any) => {
+const genSet = (kind: PlangsVertexName, key: string, data: any) => {
   /** Cleanup data in place: sort keys, remove blank values. */
   for (const [k, v] of Object.entries(data)) {
     if (Array.isArray(v)) {
@@ -122,7 +122,7 @@ const genSet = (nodeName: PlangsNodeNames, key: string, data: any) => {
     else delete data.images;
   }
 
-  return `g.nodes.${nodeName}.set(${JSON.stringify(key)}, ${JSON.stringify(data)})`;
+  return `g.vertices.${kind}.set(${JSON.stringify(key)}, ${JSON.stringify(data)})`;
 };
 
 function addRelKeys(out: string[], relName: string, keys: Set<string>, accept: (key: string) => boolean = () => true) {

@@ -2,12 +2,12 @@ import type { JSX } from "preact/jsx-runtime";
 
 import { SORT_DOWN, SORT_UP } from "@plangs/frontend/auxiliar/icons";
 import type { PlangsGraph } from "@plangs/plangs/graph";
-import type { PlangsEdgeNames, PlangsNodeNames } from "@plangs/plangs/graph/generated";
+import type { PlangsEdgeName, PlangsVertexName } from "@plangs/plangs/graph/generated";
 import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 
 export type Val = string | number | boolean;
 export type Entry = { value: Val; label: string; count: number };
-export type FacetTableConfig = { kind: "noderel"; edge: PlangsEdgeNames; dir: "direct" | "inverse" } | { kind: "year"; node: PlangsNodeNames };
+export type FacetTableConfig = { kind: "noderel"; edge: PlangsEdgeName; dir: "direct" | "inverse" } | { kind: "year"; node: PlangsVertexName };
 
 export function generateEntries(pg: PlangsGraph, config: FacetTableConfig): Entry[] {
   if (config.kind === "noderel") {

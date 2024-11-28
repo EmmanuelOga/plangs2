@@ -152,7 +152,7 @@ export function define(g: PlangsGraph) {
     })
     .relPlang.add("pl+python");
 
-  g.nodes.app
+  g.app
     .set("app+glances", {
       name: "Glances",
       keywords: ["monitoring", "system", "terminal"],
@@ -161,7 +161,7 @@ export function define(g: PlangsGraph) {
     })
     .relPlang.add("pl+python");
 
-  g.nodes.app
+  g.app
     .set("app+harlequin", {
       name: "Harlequin",
       keywords: ["client", "database", "terminal"],
@@ -170,7 +170,7 @@ export function define(g: PlangsGraph) {
     })
     .relPlang.add("pl+python");
 
-  g.nodes.app
+  g.app
     .set("app+zulip", {
       name: "Zulip",
       keywords: ["chat", "communication", "group"],

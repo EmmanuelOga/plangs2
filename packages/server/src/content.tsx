@@ -71,7 +71,7 @@ export async function loadPosts(pg: PlangsGraph) {
   for await (const path of new Glob("*.md").scan(join(import.meta.dir, "../content/posts"))) {
     const { title, author, pls, date, basename } = await loadContent(`posts/${path}`, pg);
 
-    const post = pg.nodes.post.set(`post+${basename}`, { path, name: title, author, date });
+    const post = pg.post.set(`post+${basename}`, { path, name: title, author, date });
 
     for (const plKey of pls) {
       if (!pg.plang.has(plKey)) throw new Error(`Post ${path} references unknown PL ${plKey}`);
@@ -81,7 +81,7 @@ export async function loadPosts(pg: PlangsGraph) {
 }
 
 export async function loadBlogPost(pg: PlangsGraph, key: VPost["key"]): Promise<Content | undefined> {
-  const post = pg.nodes.post.get(key);
+  const post = pg.post.get(key);
   if (post?.path) return loadContent(`posts/${post.path}`, pg);
 }
 

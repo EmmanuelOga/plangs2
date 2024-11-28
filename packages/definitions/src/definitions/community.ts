@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.community
+  g.community
     .set("comm+bembem", {
       name: "BEMBEM",
       description:
@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
     .relPlang.add(["pl+c", "pl+c-sharp", "pl+go", "pl+javascript", "pl+python", "pl+typescript"])
     .relTag.add(["tag+games", "tag+multimedia", "tag+webdev"]);
 
-  g.nodes.community
+  g.community
     .set("comm+contextfree", {
       name: "Context Free",
       description: "Context Free is about programming languages, including design, usage, implementation, and history.",
@@ -30,7 +30,7 @@ export function define(g: PlangsGraph) {
     .relPlang.add(["pl+c3", "pl+rust"])
     .relTag.add(["tag+compiler", "tag+interpreters", "tag+languages"]);
 
-  g.nodes.community
+  g.community
     .set("comm+prefix.dev", {
       name: "Prefix.dev",
       description:
@@ -41,7 +41,7 @@ export function define(g: PlangsGraph) {
     .relPlang.add(["pl+python"])
     .relTag.add(["tag+packaging", "tag+sci"]);
 
-  g.nodes.community
+  g.community
     .set("comm+threejs-journey", {
       name: "ThreeJS Journey Community",
       description: "Public and Private communities for ThreeJS Journey students.",

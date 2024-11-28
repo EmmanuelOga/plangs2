@@ -15,7 +15,7 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
   const vertexDataName = (vertexName: string) => `${vertexPrefix}${capitalize(vertexName)}Data`;
 
   const imports = [
-    'import { Edges, Vertices, RelFrom, RelTo } from "@plangs/graphgen/library";\n\n',
+    'import { Edges, RelFrom, RelTo, type SerializedGraph, Vertices } from "@plangs/graphgen/library";\n\n',
     "/** Import user defined classes and types. */",
     `import { ${Object.keys(spec.vertices).map(vertexClassName).join(", ")} } from ".";`,
     `import { ${spec.name}${vertexBase} } from "./vertex_base";`,
@@ -34,8 +34,8 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
   const edgeComment = (from: string, to: string, desc: string) => `/** **${from} -> ${to}**: ${desc} */`;
 
   // Some type aliases.
-  code.push(`export type ${spec.name}NodeNames = keyof PlangsGraphBase["nodes"];`);
-  code.push(`export type ${spec.name}EdgeNames = keyof PlangsGraphBase["edges"];\n`);
+  code.push(`export type ${spec.name}VertexName = keyof PlangsGraphBase["vertices"];`);
+  code.push(`export type ${spec.name}EdgeName = keyof PlangsGraphBase["edges"];\n`);
 
   // Generate the graph class.
   code.push(`
@@ -44,7 +44,7 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
     ${vertexFields.join("\n")}
 
     /** All vertex collections. */
-    readonly nodes = {
+    readonly vertices = {
       ${Object.keys(spec.vertices)
         .map(name => `${name}: this.${name}`)
         .join(", ")}
@@ -56,6 +56,22 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
         .map(({ from, to, name }) => `${`${from}${capitalize(name ?? "")}${capitalize(to)}`}: new Edges(this.${from}, this.${to}),`)
         .join("\n")}
     } as const;
+
+    toJSON(): SerializedGraph {
+      return {
+        vertices: Object.fromEntries(Object.entries(this.vertices).map(([k, v]) => [k, v.toJSON()])),
+        edges: Object.fromEntries(Object.entries(this.edges).map(([k, e]) => [k, e.toJSON()])),
+      };
+    }
+
+    loadJSON(data: SerializedGraph) {
+      for (const [vertexName, vertices] of Object.entries(data.vertices)) {
+        this.vertices[vertexName as PlangsVertexName].setMany(vertices as [any, any]);
+      }
+      for (const [edgeName, edges] of Object.entries(data.edges)) {
+        this.edges[edgeName as PlangsEdgeName].addMany(edges as [any, any]);
+      }
+    }
   }\n`);
 
   // Generate the vertex classes.

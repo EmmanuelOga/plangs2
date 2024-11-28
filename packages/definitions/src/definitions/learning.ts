@@ -1,7 +1,7 @@
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
-  g.nodes.learning
+  g.learning
     .set("learn+nand-to-tetris", {
       name: "From Nand to Tetris",
       description:
@@ -11,7 +11,7 @@ export function define(g: PlangsGraph) {
     })
     .relTag.add(["tag+embedded", "tag+languages"]);
 
-  g.nodes.learning
+  g.learning
     .set("learn+nystrom-interpreters", {
       name: "Crafting Interpreters",
       description: "Ever wanted to make your own programming language or wondered how they are designed and built?  If so, this book is for you.",
@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
     .relPlang.add(["pl+c", "pl+java"])
     .relTag.add(["tag+interpreters", "tag+languages"]);
 
-  g.nodes.learning
+  g.learning
     .set("learn+threejs-journey", {
       name: "ThreeJS Journey",
       description: "Everything you need in one place: 93 hours of video to go from absolute beginner to advanced Three.js developer.",

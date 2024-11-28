@@ -6,7 +6,7 @@
  */
 
 import { arrayMerge } from "@plangs/auxiliar/array";
-import { loadAllDefinitions } from "@plangs/definitions";
+import { loadDefinitions } from "@plangs/definitions";
 import { genericCodeGen, plangCodeGen, tsNodePath } from "@plangs/languist/codegen";
 import { LG_LANGS, type Rankings } from "@plangs/languist/languish";
 import { GH_LANGS } from "@plangs/languist/linguist";
@@ -72,7 +72,7 @@ export async function createMissingPlangs(pg: PlangsGraph, ghMap: Map<string, Li
 
 export async function processGithubAndLanguish() {
   const pg = new PlangsGraph();
-  await loadAllDefinitions(pg, { scanImages: false });
+  await loadDefinitions(pg, { scanImages: false });
 
   // These are expensive so create them once before starting.
   const ghMap = GH_LANGS.lookupMap();
