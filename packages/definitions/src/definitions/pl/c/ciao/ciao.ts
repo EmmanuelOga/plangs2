@@ -13,10 +13,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.ciao-lang.org/",
       created: "1984",
     })
-    .relImplements.add(["pl+prolog"])
-    .relInfluencedBy.add(["pl+prolog", "pl+scheme"])
-    .relLicenses.add(["lic+gnu-gpl", "lic+lgpl"])
-    .relParadigms.add([
+    .relImplements.add("pl+prolog")
+    .relInfluencedBy.add("pl+prolog", "pl+scheme")
+    .relLicenses.add("lic+gnu-gpl", "lic+lgpl")
+    .relParadigms.add(
       "para+concurrent",
       "para+constraint",
       "para+distributed",
@@ -25,9 +25,9 @@ export function define(g: PlangsGraph) {
       "para+modular",
       "para+multi",
       "para+oop",
-    ])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add([
+    )
+    .relPlatforms.add("plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows")
+    .relTags.add(
       "tag+3dg",
       "tag+cli",
       "tag+compiler",
@@ -39,8 +39,8 @@ export function define(g: PlangsGraph) {
       "tag+server",
       "tag+shell",
       "tag+viz",
-    ])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+inferred", "tsys+static"]);
+    )
+    .relTypeSystems.add("tsys+dynamic", "tsys+inferred", "tsys+static");
 
   // TOOLS
 

@@ -21,14 +21,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://eclipse.dev/Xtext/xtend/",
       created: "2011",
     })
-    .relCompilesTo.add(["pl+java"])
-    .relInfluencedBy.add(["pl+groovy", "pl+java", "pl+scala"])
-    .relLicenses.add(["lic+epl"])
-    .relParadigms.add(["para+functional", "para+imperative", "para+oop"])
-    .relPlatforms.add(["plat+cross", "plat+java"])
-    .relTags.add(["tag+compiler", "tag+editor", "tag+interpreters"])
-    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong"])
-    .relWrittenWith.add(["pl+java"]);
+    .relCompilesTo.add("pl+java")
+    .relInfluencedBy.add("pl+groovy", "pl+java", "pl+scala")
+    .relLicenses.add("lic+epl")
+    .relParadigms.add("para+functional", "para+imperative", "para+oop")
+    .relPlatforms.add("plat+cross", "plat+java")
+    .relTags.add("tag+compiler", "tag+editor", "tag+interpreters")
+    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong")
+    .relWrittenWith.add("pl+java");
 
   // TOOLS
 

@@ -17,14 +17,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.graalvm.org/",
       created: "2019",
     })
-    .relImplements.add(["pl+ruby"])
-    .relInfluencedBy.add(["pl+java"])
-    .relLicenses.add(["lic+apache", "lic+dual", "lic+gnu-gpl"])
-    .relParadigms.add(["para+compiled", "para+interpreted", "para+multi", "para+multi-dispatch"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters", "tag+scripting"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+polymorphic", "tsys+static"])
-    .relWrittenWith.add(["pl+c++", "pl+java"]);
+    .relImplements.add("pl+ruby")
+    .relInfluencedBy.add("pl+java")
+    .relLicenses.add("lic+apache", "lic+dual", "lic+gnu-gpl")
+    .relParadigms.add("para+compiled", "para+interpreted", "para+multi", "para+multi-dispatch")
+    .relPlatforms.add("plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+windows")
+    .relTags.add("tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters", "tag+scripting")
+    .relTypeSystems.add("tsys+dynamic", "tsys+polymorphic", "tsys+static")
+    .relWrittenWith.add("pl+c++", "pl+java");
 
   // TOOLS
 

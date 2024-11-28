@@ -22,13 +22,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://chuck.cs.princeton.edu/",
       created: "2003",
     })
-    .relInfluencedBy.add(["pl+supercollider"])
-    .relLicenses.add(["lic+gnu-gpl"])
-    .relParadigms.add(["para+concurrent", "para+interpreted", "para+multi", "para+real-time", "para+synchronous"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+app", "tag+audio-dev", "tag+interpreters"])
-    .relTypeSystems.add(["tsys+strong"])
-    .relWrittenWith.add(["pl+c++"]);
+    .relInfluencedBy.add("pl+supercollider")
+    .relLicenses.add("lic+gnu-gpl")
+    .relParadigms.add("para+concurrent", "para+interpreted", "para+multi", "para+real-time", "para+synchronous")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+app", "tag+audio-dev", "tag+interpreters")
+    .relTypeSystems.add("tsys+strong")
+    .relWrittenWith.add("pl+c++");
 
   // TOOLS
 

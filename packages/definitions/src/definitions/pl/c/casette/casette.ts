@@ -15,13 +15,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://cassette-lang.com/",
       created: "2021",
     })
-    .relCompilesTo.add(["pl+c"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+dataflow", "para+declarative", "para+dsl", "para+event-driven", "para+functional", "para+interpreted"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+audio-dev", "tag+workflow"])
-    .relTypeSystems.add(["tsys+dynamic"])
-    .relWrittenWith.add(["pl+python"]);
+    .relCompilesTo.add("pl+c")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+dataflow", "para+declarative", "para+dsl", "para+event-driven", "para+functional", "para+interpreted")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+audio-dev", "tag+workflow")
+    .relTypeSystems.add("tsys+dynamic")
+    .relWrittenWith.add("pl+python");
 
   // TOOLS
 

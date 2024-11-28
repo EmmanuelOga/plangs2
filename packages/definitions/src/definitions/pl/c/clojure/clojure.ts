@@ -21,8 +21,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://clojure.org/",
       created: "2007",
     })
-    .relDialectOf.add(["pl+lisp"])
-    .relInfluencedBy.add([
+    .relDialectOf.add("pl+lisp")
+    .relInfluencedBy.add(
       "pl+c++",
       "pl+c-sharp",
       "pl+common-lisp",
@@ -34,11 +34,11 @@ export function define(g: PlangsGraph) {
       "pl+ruby",
       "pl+scheme",
       "pl+wolfram-language",
-    ])
-    .relLicenses.add(["lic+epl"])
-    .relParadigms.add(["para+agents", "para+concurrent", "para+functional", "para+logic", "para+macro", "para+multi", "para+pipeline"])
-    .relPlatforms.add(["plat+cross", "plat+java", "plat+nodejs"])
-    .relTags.add([
+    )
+    .relLicenses.add("lic+epl")
+    .relParadigms.add("para+agents", "para+concurrent", "para+functional", "para+logic", "para+macro", "para+multi", "para+pipeline")
+    .relPlatforms.add("plat+cross", "plat+java", "plat+nodejs")
+    .relTags.add(
       "tag+app",
       "tag+automation",
       "tag+cli",
@@ -48,9 +48,9 @@ export function define(g: PlangsGraph) {
       "tag+interpreters",
       "tag+scripting",
       "tag+shell",
-    ])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"])
-    .relWrittenWith.add(["pl+clojure", "pl+java"]);
+    )
+    .relTypeSystems.add("tsys+dynamic", "tsys+strong")
+    .relWrittenWith.add("pl+clojure", "pl+java");
 
   // TOOLS
 

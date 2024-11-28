@@ -25,14 +25,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://wiki.gnome.org/Projects/Vala",
       created: "2006",
     })
-    .relCompilesTo.add(["pl+c"])
-    .relInfluencedBy.add(["pl+boo", "pl+c", "pl+c-sharp", "pl+d"])
-    .relLicenses.add(["lic+lgpl"])
-    .relParadigms.add(["para+imperative", "para+oop", "para+procedural", "para+scripting", "para+structured"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+compiler", "tag+framework", "tag+ui"])
-    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])
-    .relWrittenWith.add(["pl+c"]);
+    .relCompilesTo.add("pl+c")
+    .relInfluencedBy.add("pl+boo", "pl+c", "pl+c-sharp", "pl+d")
+    .relLicenses.add("lic+lgpl")
+    .relParadigms.add("para+imperative", "para+oop", "para+procedural", "para+scripting", "para+structured")
+    .relPlatforms.add("plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows")
+    .relTags.add("tag+compiler", "tag+framework", "tag+ui")
+    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

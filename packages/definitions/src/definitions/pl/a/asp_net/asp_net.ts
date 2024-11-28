@@ -22,11 +22,11 @@ export function define(g: PlangsGraph) {
       extGithubPath: "dotnet/aspnetcore",
       created: "2002",
     })
-    .relCompilesTo.add(["pl+.net"])
-    .relParadigms.add(["para+multi", "para+oop"])
-    .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+framework", "tag+server"])
-    .relTypeSystems.add(["tsys+nominal", "tsys+static"]);
+    .relCompilesTo.add("pl+.net")
+    .relParadigms.add("para+multi", "para+oop")
+    .relPlatforms.add("plat+apple", "plat+linux", "plat+windows")
+    .relTags.add("tag+framework", "tag+server")
+    .relTypeSystems.add("tsys+nominal", "tsys+static");
 
   // TOOLS
 

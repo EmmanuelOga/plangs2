@@ -27,14 +27,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.typescriptlang.org/",
       created: "2012",
     })
-    .relCompilesTo.add(["pl+javascript"])
-    .relInfluencedBy.add(["pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+java", "pl+javascript"])
-    .relLicenses.add(["lic+apache"])
-    .relParadigms.add(["para+functional", "para+imperative", "para+multi", "para+oop"])
-    .relPlatforms.add(["plat+cross", "plat+nodejs"])
-    .relTags.add(["tag+compiler", "tag+framework", "tag+scripting"])
-    .relTypeSystems.add(["tsys+duck", "tsys+gradual", "tsys+optional", "tsys+strong", "tsys+structural"])
-    .relWrittenWith.add(["pl+typescript"]);
+    .relCompilesTo.add("pl+javascript")
+    .relInfluencedBy.add("pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+java", "pl+javascript")
+    .relLicenses.add("lic+apache")
+    .relParadigms.add("para+functional", "para+imperative", "para+multi", "para+oop")
+    .relPlatforms.add("plat+cross", "plat+nodejs")
+    .relTags.add("tag+compiler", "tag+framework", "tag+scripting")
+    .relTypeSystems.add("tsys+duck", "tsys+gradual", "tsys+optional", "tsys+strong", "tsys+structural")
+    .relWrittenWith.add("pl+typescript");
 
   // TOOLS
 

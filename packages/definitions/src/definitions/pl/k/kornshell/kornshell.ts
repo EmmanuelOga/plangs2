@@ -12,12 +12,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://kornshell.com/",
       created: "1983",
     })
-    .relLicenses.add(["lic+epl", "lic+isc", "lic+lgpl", "lic+public-domain"])
-    .relParadigms.add(["para+interpreted", "para+oop", "para+procedural", "para+scripting", "para+structured"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+automation", "tag+cli", "tag+interpreters", "tag+scripting", "tag+shell"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+untyped"])
-    .relWrittenWith.add(["pl+c"]);
+    .relLicenses.add("lic+epl", "lic+isc", "lic+lgpl", "lic+public-domain")
+    .relParadigms.add("para+interpreted", "para+oop", "para+procedural", "para+scripting", "para+structured")
+    .relPlatforms.add("plat+apple", "plat+bsd", "plat+linux", "plat+windows")
+    .relTags.add("tag+automation", "tag+cli", "tag+interpreters", "tag+scripting", "tag+shell")
+    .relTypeSystems.add("tsys+dynamic", "tsys+untyped")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

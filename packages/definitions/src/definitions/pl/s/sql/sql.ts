@@ -21,21 +21,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.iso.org/standard/76583.html",
       created: "1974",
     })
-    .relInfluencedBy.add(["pl+datalog"])
-    .relParadigms.add(["para+data-driven", "para+declarative", "para+dsl", "para+query"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add([
-      "tag+4gl",
-      "tag+dbms",
-      "tag+industrial",
-      "tag+interpreters",
-      "tag+multimedia",
-      "tag+testing",
-      "tag+video",
-      "tag+viz",
-      "tag+workflow",
-    ])
-    .relTypeSystems.add(["tsys+static", "tsys+strong"]);
+    .relInfluencedBy.add("pl+datalog")
+    .relParadigms.add("para+data-driven", "para+declarative", "para+dsl", "para+query")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+4gl", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+multimedia", "tag+testing", "tag+video", "tag+viz", "tag+workflow")
+    .relTypeSystems.add("tsys+static", "tsys+strong");
 
   // TOOLS
 

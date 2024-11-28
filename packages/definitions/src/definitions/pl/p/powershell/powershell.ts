@@ -24,11 +24,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://microsoft.com/powershell",
       created: "2006",
     })
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+functional", "para+imperative", "para+oop", "para+pipeline", "para+reflective"])
-    .relPlatforms.add(["plat+linux", "plat+windows"])
-    .relTags.add(["tag+automation", "tag+cli", "tag+scripting"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+safe", "tsys+strong"]);
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+functional", "para+imperative", "para+oop", "para+pipeline", "para+reflective")
+    .relPlatforms.add("plat+linux", "plat+windows")
+    .relTags.add("tag+automation", "tag+cli", "tag+scripting")
+    .relTypeSystems.add("tsys+dynamic", "tsys+safe", "tsys+strong");
 
   // TOOLS
 

@@ -21,11 +21,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ziglang.org/",
       created: "2016",
     })
-    .relInfluencedBy.add(["pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+procedural"])
-    .relPlatforms.add(["plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+riscv", "plat+wasm", "plat+windows", "plat+x86-64"])
-    .relTags.add([
+    .relInfluencedBy.add("pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+concurrent", "para+functional", "para+imperative", "para+multi", "para+procedural")
+    .relPlatforms.add("plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+riscv", "plat+wasm", "plat+windows", "plat+x86-64")
+    .relTags.add(
       "tag+app",
       "tag+asm",
       "tag+compiler",
@@ -35,8 +35,8 @@ export function define(g: PlangsGraph) {
       "tag+interpreters",
       "tag+testing",
       "tag+viz",
-    ])
-    .relTypeSystems.add(["tsys+generic", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
+    )
+    .relTypeSystems.add("tsys+generic", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural");
 
   // TOOLS
 

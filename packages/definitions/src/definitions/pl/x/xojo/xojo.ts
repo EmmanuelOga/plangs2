@@ -24,12 +24,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://xojo.com/",
       created: "1996",
     })
-    .relImplements.add(["pl+basic"])
-    .relInfluencedBy.add(["pl+basic", "pl+visual-basic"])
-    .relParadigms.add(["para+multi", "para+oop", "para+visual"])
-    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+raspberry", "plat+web", "plat+windows"])
-    .relTags.add(["tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreters", "tag+rad", "tag+ui"])
-    .relTypeSystems.add(["tsys+object", "tsys+static", "tsys+strong"]);
+    .relImplements.add("pl+basic")
+    .relInfluencedBy.add("pl+basic", "pl+visual-basic")
+    .relParadigms.add("para+multi", "para+oop", "para+visual")
+    .relPlatforms.add("plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+raspberry", "plat+web", "plat+windows")
+    .relTags.add("tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreters", "tag+rad", "tag+ui")
+    .relTypeSystems.add("tsys+object", "tsys+static", "tsys+strong");
 
   // TOOLS
 

@@ -13,12 +13,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://seed7.sourceforge.net/",
       created: "2005",
     })
-    .relInfluencedBy.add(["pl+ada", "pl+c", "pl+c++", "pl+pascal"])
-    .relLicenses.add(["lic+gnu-gpl", "lic+lgpl"])
-    .relParadigms.add(["para+extensible", "para+imperative", "para+multi", "para+oop", "para+reflective", "para+structured"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+analysis", "tag+compiler", "tag+dbms", "tag+interpreters", "tag+ray-tracer"])
-    .relTypeSystems.add(["tsys+manifest", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong"]);
+    .relInfluencedBy.add("pl+ada", "pl+c", "pl+c++", "pl+pascal")
+    .relLicenses.add("lic+gnu-gpl", "lic+lgpl")
+    .relParadigms.add("para+extensible", "para+imperative", "para+multi", "para+oop", "para+reflective", "para+structured")
+    .relPlatforms.add("plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows")
+    .relTags.add("tag+analysis", "tag+compiler", "tag+dbms", "tag+interpreters", "tag+ray-tracer")
+    .relTypeSystems.add("tsys+manifest", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong");
 
   // TOOLS
 

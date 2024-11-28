@@ -23,14 +23,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.sbcl.org/",
       created: "1999",
     })
-    .relDialectOf.add(["pl+common-lisp"])
-    .relInfluencedBy.add(["pl+common-lisp"])
-    .relLicenses.add(["lic+bsd", "lic+mit", "lic+public-domain"])
-    .relParadigms.add(["para+functional", "para+multi", "para+oop", "para+procedural", "para+reflective"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+compiler", "tag+interpreters"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"])
-    .relWrittenWith.add(["pl+c"]);
+    .relDialectOf.add("pl+common-lisp")
+    .relInfluencedBy.add("pl+common-lisp")
+    .relLicenses.add("lic+bsd", "lic+mit", "lic+public-domain")
+    .relParadigms.add("para+functional", "para+multi", "para+oop", "para+procedural", "para+reflective")
+    .relPlatforms.add("plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows")
+    .relTags.add("tag+compiler", "tag+interpreters")
+    .relTypeSystems.add("tsys+dynamic", "tsys+strong")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

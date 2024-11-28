@@ -21,9 +21,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://soliditylang.org",
       created: "2014",
     })
-    .relLicenses.add(["lic+gnu-gpl"])
-    .relParadigms.add(["para+imperative"])
-    .relTypeSystems.add(["tsys+static"]);
+    .relLicenses.add("lic+gnu-gpl")
+    .relParadigms.add("para+imperative")
+    .relTypeSystems.add("tsys+static");
 
   // TOOLS
 

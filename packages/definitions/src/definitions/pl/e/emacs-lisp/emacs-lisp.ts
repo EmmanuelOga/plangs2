@@ -26,14 +26,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.gnu.org/software/emacs",
       created: "1985",
     })
-    .relDialectOf.add(["pl+lisp"])
-    .relInfluencedBy.add(["pl+common-lisp"])
-    .relLicenses.add(["lic+gnu-gpl"])
-    .relParadigms.add(["para+functional", "para+metaprogramming", "para+reflective", "para+scripting"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+app", "tag+compiler", "tag+editor", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+shell"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"])
-    .relWrittenWith.add(["pl+c"]);
+    .relDialectOf.add("pl+lisp")
+    .relInfluencedBy.add("pl+common-lisp")
+    .relLicenses.add("lic+gnu-gpl")
+    .relParadigms.add("para+functional", "para+metaprogramming", "para+reflective", "para+scripting")
+    .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")
+    .relTags.add("tag+app", "tag+compiler", "tag+editor", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+shell")
+    .relTypeSystems.add("tsys+dynamic", "tsys+strong")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

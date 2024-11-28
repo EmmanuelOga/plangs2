@@ -24,13 +24,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://futhark-lang.org/",
       created: "2014",
     })
-    .relInfluencedBy.add(["pl+apl", "pl+haskell", "pl+standard-ml"])
-    .relLicenses.add(["lic+isc"])
-    .relParadigms.add(["para+array", "para+compiled", "para+functional", "para+multi", "para+parallel"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+app", "tag+compiler", "tag+interpreters", "tag+numeric", "tag+ray-tracer", "tag+sci"])
-    .relTypeSystems.add(["tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+uniqueness"])
-    .relWrittenWith.add(["pl+standard-ml"]);
+    .relInfluencedBy.add("pl+apl", "pl+haskell", "pl+standard-ml")
+    .relLicenses.add("lic+isc")
+    .relParadigms.add("para+array", "para+compiled", "para+functional", "para+multi", "para+parallel")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+app", "tag+compiler", "tag+interpreters", "tag+numeric", "tag+ray-tracer", "tag+sci")
+    .relTypeSystems.add("tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+uniqueness")
+    .relWrittenWith.add("pl+standard-ml");
 
   // TOOLS
 

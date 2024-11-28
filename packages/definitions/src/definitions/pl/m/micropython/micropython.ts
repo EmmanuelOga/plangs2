@@ -16,14 +16,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://micropython.org/",
       created: "2013",
     })
-    .relImplements.add(["pl+python"])
-    .relInfluencedBy.add(["pl+python"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+embedded", "para+interpreted", "para+multi", "para+oop", "para+scripting"])
-    .relPlatforms.add(["plat+arduino", "plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry", "plat+riscv", "plat+windows"])
-    .relTags.add(["tag+app", "tag+embedded", "tag+interpreters", "tag+iot", "tag+scripting", "tag+testing"])
-    .relTypeSystems.add(["tsys+duck", "tsys+dynamic"])
-    .relWrittenWith.add(["pl+c"]);
+    .relImplements.add("pl+python")
+    .relInfluencedBy.add("pl+python")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+embedded", "para+interpreted", "para+multi", "para+oop", "para+scripting")
+    .relPlatforms.add("plat+arduino", "plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry", "plat+riscv", "plat+windows")
+    .relTags.add("tag+app", "tag+embedded", "tag+interpreters", "tag+iot", "tag+scripting", "tag+testing")
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

@@ -15,14 +15,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://nickel-lang.org/",
       created: "2021",
     })
-    .relCompilesTo.add(["pl+json", "pl+nix", "pl+rust", "pl+xml", "pl+yaml"])
-    .relInfluencedBy.add(["pl+rust"])
-    .relLicenses.add(["lic+mpl"])
-    .relParadigms.add(["para+data-exchange", "para+declarative", "para+validation"])
-    .relPlatforms.add(["plat+linux", "plat+windows"])
-    .relTags.add(["tag+automation"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+gradual", "tsys+optional", "tsys+static", "tsys+strong"])
-    .relWrittenWith.add(["pl+rust"]);
+    .relCompilesTo.add("pl+json", "pl+nix", "pl+rust", "pl+xml", "pl+yaml")
+    .relInfluencedBy.add("pl+rust")
+    .relLicenses.add("lic+mpl")
+    .relParadigms.add("para+data-exchange", "para+declarative", "para+validation")
+    .relPlatforms.add("plat+linux", "plat+windows")
+    .relTags.add("tag+automation")
+    .relTypeSystems.add("tsys+dynamic", "tsys+gradual", "tsys+optional", "tsys+static", "tsys+strong")
+    .relWrittenWith.add("pl+rust");
 
   // TOOLS
 

@@ -18,12 +18,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://whiley.org/",
       created: "2010",
     })
-    .relInfluencedBy.add(["pl+c", "pl+python", "pl+rust"])
-    .relLicenses.add(["lic+bsd"])
-    .relParadigms.add(["para+functional", "para+imperative"])
-    .relPlatforms.add(["plat+cross", "plat+java"])
-    .relTags.add(["tag+compiler", "tag+interpreters", "tag+sci"])
-    .relTypeSystems.add(["tsys+flow", "tsys+safe", "tsys+strong", "tsys+structural"]);
+    .relInfluencedBy.add("pl+c", "pl+python", "pl+rust")
+    .relLicenses.add("lic+bsd")
+    .relParadigms.add("para+functional", "para+imperative")
+    .relPlatforms.add("plat+cross", "plat+java")
+    .relTags.add("tag+compiler", "tag+interpreters", "tag+sci")
+    .relTypeSystems.add("tsys+flow", "tsys+safe", "tsys+strong", "tsys+structural");
 
   // TOOLS
 

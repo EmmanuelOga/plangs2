@@ -23,12 +23,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://logtalk.org/",
       created: "1998",
     })
-    .relCompilesTo.add(["pl+prolog"])
-    .relInfluencedBy.add(["pl+prolog"])
-    .relLicenses.add(["lic+apache", "lic+artistic"])
-    .relParadigms.add(["para+logic", "para+oop", "para+prototype"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+analysis", "tag+compiler", "tag+framework", "tag+interpreters", "tag+viz"]);
+    .relCompilesTo.add("pl+prolog")
+    .relInfluencedBy.add("pl+prolog")
+    .relLicenses.add("lic+apache", "lic+artistic")
+    .relParadigms.add("para+logic", "para+oop", "para+prototype")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+analysis", "tag+compiler", "tag+framework", "tag+interpreters", "tag+viz");
 
   // TOOLS
 

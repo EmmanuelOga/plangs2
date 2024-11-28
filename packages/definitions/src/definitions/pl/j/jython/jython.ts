@@ -13,13 +13,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.jython.org/",
       created: "2001",
     })
-    .relImplements.add(["pl+python"])
-    .relLicenses.add(["lic+apache", "lic+python"])
-    .relParadigms.add(["para+interpreted", "para+oop", "para+scripting"])
-    .relPlatforms.add(["plat+cross", "plat+java"])
-    .relTags.add(["tag+interpreters"])
-    .relTypeSystems.add(["tsys+duck", "tsys+dynamic"])
-    .relWrittenWith.add(["pl+java"]);
+    .relImplements.add("pl+python")
+    .relLicenses.add("lic+apache", "lic+python")
+    .relParadigms.add("para+interpreted", "para+oop", "para+scripting")
+    .relPlatforms.add("plat+cross", "plat+java")
+    .relTags.add("tag+interpreters")
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic")
+    .relWrittenWith.add("pl+java");
 
   // TOOLS
 

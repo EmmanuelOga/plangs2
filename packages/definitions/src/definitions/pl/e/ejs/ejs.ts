@@ -20,12 +20,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ejs.co/",
       created: "2010",
     })
-    .relCompilesTo.add(["pl+javascript"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+declarative", "para+scripting"])
-    .relPlatforms.add(["plat+nodejs", "plat+web"])
-    .relTags.add(["tag+scripting"])
-    .relTypeSystems.add(["tsys+duck", "tsys+dynamic"]);
+    .relCompilesTo.add("pl+javascript")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+declarative", "para+scripting")
+    .relPlatforms.add("plat+nodejs", "plat+web")
+    .relTags.add("tag+scripting")
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic");
 
   // TOOLS
 

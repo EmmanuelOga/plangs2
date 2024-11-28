@@ -16,14 +16,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.freepascal.org/",
       created: "1993",
     })
-    .relImplements.add(["pl+pascal"])
-    .relInfluencedBy.add(["pl+pascal"])
-    .relLicenses.add(["lic+gnu-gpl"])
-    .relParadigms.add(["para+compiled", "para+multi", "para+oop", "para+procedural", "para+structured"])
-    .relPlatforms.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+dos", "plat+embedded", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+compiler", "tag+industrial", "tag+ui"])
-    .relTypeSystems.add(["tsys+object", "tsys+static", "tsys+strong"])
-    .relWrittenWith.add(["pl+pascal"]);
+    .relImplements.add("pl+pascal")
+    .relInfluencedBy.add("pl+pascal")
+    .relLicenses.add("lic+gnu-gpl")
+    .relParadigms.add("para+compiled", "para+multi", "para+oop", "para+procedural", "para+structured")
+    .relPlatforms.add("plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+dos", "plat+embedded", "plat+linux", "plat+windows")
+    .relTags.add("tag+compiler", "tag+industrial", "tag+ui")
+    .relTypeSystems.add("tsys+object", "tsys+static", "tsys+strong")
+    .relWrittenWith.add("pl+pascal");
 
   // TOOLS
 

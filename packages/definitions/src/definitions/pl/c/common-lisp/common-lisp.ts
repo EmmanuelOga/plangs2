@@ -20,11 +20,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://common-lisp.net/",
       created: "1984",
     })
-    .relDialectOf.add(["pl+lisp"])
-    .relInfluencedBy.add(["pl+lisp", "pl+r5rs", "pl+scheme"])
-    .relParadigms.add(["para+functional", "para+metaprogramming", "para+multi", "para+oop", "para+procedural", "para+reflective"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add([
+    .relDialectOf.add("pl+lisp")
+    .relInfluencedBy.add("pl+lisp", "pl+r5rs", "pl+scheme")
+    .relParadigms.add("para+functional", "para+metaprogramming", "para+multi", "para+oop", "para+procedural", "para+reflective")
+    .relPlatforms.add("plat+cross")
+    .relTags.add(
       "tag+app",
       "tag+compiler",
       "tag+industrial",
@@ -36,8 +36,8 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+viz",
       "tag+wavelet",
-    ])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"]);
+    )
+    .relTypeSystems.add("tsys+dynamic", "tsys+strong");
 
   // TOOLS
 

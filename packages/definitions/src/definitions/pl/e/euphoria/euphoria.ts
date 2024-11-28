@@ -18,11 +18,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://openeuphoria.org/",
       created: "1993",
     })
-    .relInfluencedBy.add(["pl+basic"])
-    .relLicenses.add(["lic+bsd"])
-    .relParadigms.add(["para+imperative", "para+procedural"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add([
+    .relInfluencedBy.add("pl+basic")
+    .relLicenses.add("lic+bsd")
+    .relParadigms.add("para+imperative", "para+procedural")
+    .relPlatforms.add("plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows")
+    .relTags.add(
       "tag+app",
       "tag+compiler",
       "tag+dbms",
@@ -33,8 +33,8 @@ export function define(g: PlangsGraph) {
       "tag+ray-tracer",
       "tag+ui",
       "tag+wavelet",
-    ])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+static"]);
+    )
+    .relTypeSystems.add("tsys+dynamic", "tsys+static");
 
   // TOOLS
 

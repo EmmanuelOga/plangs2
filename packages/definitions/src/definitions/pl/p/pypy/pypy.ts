@@ -24,15 +24,15 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://pypy.org/",
       created: "2007",
     })
-    .relDialectOf.add(["pl+python"])
-    .relImplements.add(["pl+python"])
-    .relInfluencedBy.add(["pl+python"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+interpreted", "para+scripting"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+analysis", "tag+compiler", "tag+framework", "tag+interpreters", "tag+testing"])
-    .relTypeSystems.add(["tsys+duck", "tsys+dynamic"])
-    .relWrittenWith.add(["pl+c", "pl+python"]);
+    .relDialectOf.add("pl+python")
+    .relImplements.add("pl+python")
+    .relInfluencedBy.add("pl+python")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+interpreted", "para+scripting")
+    .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")
+    .relTags.add("tag+analysis", "tag+compiler", "tag+framework", "tag+interpreters", "tag+testing")
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic")
+    .relWrittenWith.add("pl+c", "pl+python");
 
   // TOOLS
 

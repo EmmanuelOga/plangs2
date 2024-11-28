@@ -20,13 +20,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://shenlanguage.org/",
       created: "2011",
     })
-    .relInfluencedBy.add(["pl+prolog", "pl+scheme"])
-    .relLicenses.add(["lic+bsd"])
-    .relParadigms.add(["para+functional", "para+logic", "para+multi", "para+pattern-matching", "para+symbolic"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+web", "plat+windows"])
-    .relTags.add(["tag+automation", "tag+cas", "tag+compiler", "tag+interpreters", "tag+scripting"])
-    .relTypeSystems.add(["tsys+manifest", "tsys+polymorphic", "tsys+static", "tsys+strong"])
-    .relWrittenWith.add(["pl+scheme"]);
+    .relInfluencedBy.add("pl+prolog", "pl+scheme")
+    .relLicenses.add("lic+bsd")
+    .relParadigms.add("para+functional", "para+logic", "para+multi", "para+pattern-matching", "para+symbolic")
+    .relPlatforms.add("plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+web", "plat+windows")
+    .relTags.add("tag+automation", "tag+cas", "tag+compiler", "tag+interpreters", "tag+scripting")
+    .relTypeSystems.add("tsys+manifest", "tsys+polymorphic", "tsys+static", "tsys+strong")
+    .relWrittenWith.add("pl+scheme");
 
   // TOOLS
 

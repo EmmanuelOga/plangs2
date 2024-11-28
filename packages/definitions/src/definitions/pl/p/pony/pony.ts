@@ -19,12 +19,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.ponylang.io/",
       created: "2015",
     })
-    .relInfluencedBy.add(["pl+erlang", "pl+scala"])
-    .relLicenses.add(["lic+bsd"])
-    .relParadigms.add(["para+concurrent", "para+functional", "para+message-passing", "para+oop"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
-    .relTypeSystems.add(["tsys+safe", "tsys+static", "tsys+strong"])
-    .relWrittenWith.add(["pl+c"]);
+    .relInfluencedBy.add("pl+erlang", "pl+scala")
+    .relLicenses.add("lic+bsd")
+    .relParadigms.add("para+concurrent", "para+functional", "para+message-passing", "para+oop")
+    .relPlatforms.add("plat+apple", "plat+bsd", "plat+linux", "plat+windows")
+    .relTypeSystems.add("tsys+safe", "tsys+static", "tsys+strong")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

@@ -20,11 +20,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://rmarkdown.rstudio.com/",
       created: "2014",
     })
-    .relCompilesTo.add(["pl+html", "pl+markdown"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+data-driven", "para+declarative", "para+multi"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+dataq", "tag+sci", "tag+stats", "tag+workflow"]);
+    .relCompilesTo.add("pl+html", "pl+markdown")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+data-driven", "para+declarative", "para+multi")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+dataq", "tag+sci", "tag+stats", "tag+workflow");
 
   // TOOLS
 

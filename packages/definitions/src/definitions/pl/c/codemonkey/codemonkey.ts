@@ -12,11 +12,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.codemonkey.com/",
       created: "2014",
     })
-    .relParadigms.add(["para+dsl", "para+educational", "para+visual"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+edu", "tag+games"])
-    .relTypeSystems.add(["tsys+inferred"])
-    .relWrittenWith.add(["pl+coffeescript", "pl+javascript", "pl+ruby"]);
+    .relParadigms.add("para+dsl", "para+educational", "para+visual")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+edu", "tag+games")
+    .relTypeSystems.add("tsys+inferred")
+    .relWrittenWith.add("pl+coffeescript", "pl+javascript", "pl+ruby");
 
   // TOOLS
 

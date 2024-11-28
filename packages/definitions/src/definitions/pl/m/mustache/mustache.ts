@@ -22,10 +22,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://mustache.github.io",
       created: "2009",
     })
-    .relCompilesTo.add(["pl+javascript"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+data-driven", "para+declarative"])
-    .relPlatforms.add(["plat+web"]);
+    .relCompilesTo.add("pl+javascript")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+data-driven", "para+declarative")
+    .relPlatforms.add("plat+web");
 
   // TOOLS
 

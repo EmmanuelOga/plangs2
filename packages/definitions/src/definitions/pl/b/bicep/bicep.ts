@@ -21,10 +21,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/",
       created: "2020",
     })
-    .relCompilesTo.add(["pl+json", "pl+typescript"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+declarative", "para+dsl"])
-    .relPlatforms.add(["plat+cross"]);
+    .relCompilesTo.add("pl+json", "pl+typescript")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+declarative", "para+dsl")
+    .relPlatforms.add("plat+cross");
 
   // TOOLS
 

@@ -21,10 +21,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://learn.microsoft.com/en-us/dotnet/csharp/",
       created: "2000",
     })
-    .relDialectOf.add(["pl+c"])
-    .relInfluencedBy.add(["pl+c", "pl+c++", "pl+d", "pl+eiffel", "pl+f-sharp", "pl+haskell", "pl+pascal", "pl+scala", "pl+visual-basic"])
-    .relLicenses.add(["lic+gnu-gpl", "lic+lgpl", "lic+mit"])
-    .relParadigms.add([
+    .relDialectOf.add("pl+c")
+    .relInfluencedBy.add("pl+c", "pl+c++", "pl+d", "pl+eiffel", "pl+f-sharp", "pl+haskell", "pl+pascal", "pl+scala", "pl+visual-basic")
+    .relLicenses.add("lic+gnu-gpl", "lic+lgpl", "lic+mit")
+    .relParadigms.add(
       "para+async",
       "para+concurrent",
       "para+event-driven",
@@ -34,9 +34,9 @@ export function define(g: PlangsGraph) {
       "para+oop",
       "para+reflective",
       "para+structured",
-    ])
-    .relPlatforms.add(["plat+.net", "plat+cross"])
-    .relTags.add([
+    )
+    .relPlatforms.add("plat+.net", "plat+cross")
+    .relTags.add(
       "tag+app",
       "tag+cli",
       "tag+compiler",
@@ -50,8 +50,8 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+ui",
       "tag+viz",
-    ])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong"]);
+    )
+    .relTypeSystems.add("tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong");
 
   // TOOLS
 

@@ -13,11 +13,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://100r.co/site/orca.html",
       created: "2019",
     })
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+declarative", "para+esoteric", "para+visual"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+audio-dev", "tag+interpreters", "tag+midi", "tag+modular", "tag+scripting"])
-    .relTypeSystems.add(["tsys+untyped"]);
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+declarative", "para+esoteric", "para+visual")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+audio-dev", "tag+interpreters", "tag+midi", "tag+modular", "tag+scripting")
+    .relTypeSystems.add("tsys+untyped");
 
   // TOOLS
 

@@ -15,12 +15,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.seas.upenn.edu/~harmony/",
       created: "2008",
     })
-    .relInfluencedBy.add(["pl+ocaml"])
-    .relLicenses.add(["lic+lgpl"])
-    .relParadigms.add(["para+bidirectional", "para+declarative", "para+dsl"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux"])
-    .relTags.add(["tag+interpreters"])
-    .relTypeSystems.add(["tsys+strong"]);
+    .relInfluencedBy.add("pl+ocaml")
+    .relLicenses.add("lic+lgpl")
+    .relParadigms.add("para+bidirectional", "para+declarative", "para+dsl")
+    .relPlatforms.add("plat+apple", "plat+cross", "plat+linux")
+    .relTags.add("tag+interpreters")
+    .relTypeSystems.add("tsys+strong");
 
   // TOOLS
 

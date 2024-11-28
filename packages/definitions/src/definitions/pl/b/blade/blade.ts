@@ -20,9 +20,9 @@ export function define(g: PlangsGraph) {
       extRedditPath: "laravel",
       created: "2011",
     })
-    .relCompilesTo.add(["pl+php"])
-    .relLicenses.add(["lic+mit"])
-    .relPlatforms.add(["plat+cross"]);
+    .relCompilesTo.add("pl+php")
+    .relLicenses.add("lic+mit")
+    .relPlatforms.add("plat+cross");
 
   // TOOLS
 

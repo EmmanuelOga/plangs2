@@ -13,14 +13,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://mlton.org/",
       created: "1997",
     })
-    .relDialectOf.add(["pl+standard-ml"])
-    .relImplements.add(["pl+standard-ml"])
-    .relInfluencedBy.add(["pl+standard-ml"])
-    .relLicenses.add(["lic+dual"])
-    .relParadigms.add(["para+compiled", "para+functional", "para+imperative", "para+multi"])
-    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+compiler"])
-    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    .relDialectOf.add("pl+standard-ml")
+    .relImplements.add("pl+standard-ml")
+    .relInfluencedBy.add("pl+standard-ml")
+    .relLicenses.add("lic+dual")
+    .relParadigms.add("para+compiled", "para+functional", "para+imperative", "para+multi")
+    .relPlatforms.add("plat+cross", "plat+linux", "plat+windows")
+    .relTags.add("tag+compiler")
+    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong");
 
   // TOOLS
 

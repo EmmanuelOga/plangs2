@@ -19,9 +19,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://pkl-lang.org/",
       created: "2021",
     })
-    .relCompilesTo.add(["pl+json", "pl+yaml"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add([
+    .relCompilesTo.add("pl+json", "pl+yaml")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add(
       "para+data-driven",
       "para+data-exchange",
       "para+declarative",
@@ -29,11 +29,11 @@ export function define(g: PlangsGraph) {
       "para+multi",
       "para+scripting",
       "para+validation",
-    ])
-    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+automation", "tag+interpreters", "tag+scripting"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"])
-    .relWrittenWith.add(["pl+python"]);
+    )
+    .relPlatforms.add("plat+cross", "plat+linux", "plat+windows")
+    .relTags.add("tag+automation", "tag+interpreters", "tag+scripting")
+    .relTypeSystems.add("tsys+dynamic", "tsys+strong")
+    .relWrittenWith.add("pl+python");
 
   // TOOLS
 

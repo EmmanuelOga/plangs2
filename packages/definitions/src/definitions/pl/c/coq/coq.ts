@@ -24,13 +24,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://coq.inria.fr/",
       created: "1989",
     })
-    .relInfluencedBy.add(["pl+ocaml"])
-    .relLicenses.add(["lic+lgpl"])
-    .relParadigms.add(["para+declarative", "para+functional", "para+logic"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+interpreters", "tag+proofs"])
-    .relTypeSystems.add(["tsys+dependent", "tsys+static", "tsys+strong"])
-    .relWrittenWith.add(["pl+ocaml"]);
+    .relInfluencedBy.add("pl+ocaml")
+    .relLicenses.add("lic+lgpl")
+    .relParadigms.add("para+declarative", "para+functional", "para+logic")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+interpreters", "tag+proofs")
+    .relTypeSystems.add("tsys+dependent", "tsys+static", "tsys+strong")
+    .relWrittenWith.add("pl+ocaml");
 
   // TOOLS
 

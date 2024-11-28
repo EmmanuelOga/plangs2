@@ -14,14 +14,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.yabasic.de/",
       created: "1995",
     })
-    .relImplements.add(["pl+basic"])
-    .relInfluencedBy.add(["pl+basic"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+interpreted", "para+procedural", "para+scripting"])
-    .relPlatforms.add(["plat+linux", "plat+windows"])
-    .relTags.add(["tag+games", "tag+interpreters", "tag+scripting", "tag+ui"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+weak"])
-    .relWrittenWith.add(["pl+c"]);
+    .relImplements.add("pl+basic")
+    .relInfluencedBy.add("pl+basic")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+interpreted", "para+procedural", "para+scripting")
+    .relPlatforms.add("plat+linux", "plat+windows")
+    .relTags.add("tag+games", "tag+interpreters", "tag+scripting", "tag+ui")
+    .relTypeSystems.add("tsys+dynamic", "tsys+weak")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

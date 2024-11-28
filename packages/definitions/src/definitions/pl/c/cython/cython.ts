@@ -26,14 +26,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://cython.org/",
       created: "2007",
     })
-    .relDialectOf.add(["pl+python"])
-    .relInfluencedBy.add(["pl+c", "pl+python"])
-    .relLicenses.add(["lic+apache"])
-    .relParadigms.add(["para+compiled", "para+multi", "para+oop", "para+scripting"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+automation", "tag+compiler", "tag+interpreters", "tag+scripting"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+static", "tsys+strong"])
-    .relWrittenWith.add(["pl+python"]);
+    .relDialectOf.add("pl+python")
+    .relInfluencedBy.add("pl+c", "pl+python")
+    .relLicenses.add("lic+apache")
+    .relParadigms.add("para+compiled", "para+multi", "para+oop", "para+scripting")
+    .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")
+    .relTags.add("tag+automation", "tag+compiler", "tag+interpreters", "tag+scripting")
+    .relTypeSystems.add("tsys+dynamic", "tsys+static", "tsys+strong")
+    .relWrittenWith.add("pl+python");
 
   // TOOLS
 

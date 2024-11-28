@@ -15,14 +15,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.ironruby.net/",
       created: "2007",
     })
-    .relDialectOf.add(["pl+ruby"])
-    .relInfluencedBy.add(["pl+ruby"])
-    .relLicenses.add(["lic+apache"])
-    .relParadigms.add(["para+interpreted", "para+oop", "para+scripting"])
-    .relPlatforms.add(["plat+.net", "plat+apple", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+app", "tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting"])
-    .relTypeSystems.add(["tsys+duck", "tsys+dynamic"])
-    .relWrittenWith.add(["pl+c-sharp"]);
+    .relDialectOf.add("pl+ruby")
+    .relInfluencedBy.add("pl+ruby")
+    .relLicenses.add("lic+apache")
+    .relParadigms.add("para+interpreted", "para+oop", "para+scripting")
+    .relPlatforms.add("plat+.net", "plat+apple", "plat+linux", "plat+windows")
+    .relTags.add("tag+app", "tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting")
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic")
+    .relWrittenWith.add("pl+c-sharp");
 
   // TOOLS
 

@@ -26,15 +26,15 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://hylang.org/",
       created: "2013",
     })
-    .relCompilesTo.add(["pl+python"])
-    .relDialectOf.add(["pl+lisp"])
-    .relInfluencedBy.add(["pl+clojure", "pl+common-lisp", "pl+python"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+functional", "para+metaprogramming", "para+multi", "para+oop", "para+procedural", "para+reflective", "para+scripting"])
-    .relPlatforms.add(["plat+cross", "plat+x86-64"])
-    .relTags.add(["tag+interpreters", "tag+scripting"])
-    .relTypeSystems.add(["tsys+duck", "tsys+dynamic"])
-    .relWrittenWith.add(["pl+python"]);
+    .relCompilesTo.add("pl+python")
+    .relDialectOf.add("pl+lisp")
+    .relInfluencedBy.add("pl+clojure", "pl+common-lisp", "pl+python")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+functional", "para+metaprogramming", "para+multi", "para+oop", "para+procedural", "para+reflective", "para+scripting")
+    .relPlatforms.add("plat+cross", "plat+x86-64")
+    .relTags.add("tag+interpreters", "tag+scripting")
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic")
+    .relWrittenWith.add("pl+python");
 
   // TOOLS
 

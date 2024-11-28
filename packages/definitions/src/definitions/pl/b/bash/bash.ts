@@ -21,12 +21,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.gnu.org/software/bash/",
       created: "1989",
     })
-    .relLicenses.add(["lic+gnu-gpl"])
-    .relParadigms.add(["para+imperative", "para+procedural", "para+scripting"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+embedded", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+app", "tag+automation", "tag+cli", "tag+editor", "tag+interpreters", "tag+scripting", "tag+shell"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+untyped"])
-    .relWrittenWith.add(["pl+c"]);
+    .relLicenses.add("lic+gnu-gpl")
+    .relParadigms.add("para+imperative", "para+procedural", "para+scripting")
+    .relPlatforms.add("plat+apple", "plat+bsd", "plat+cross", "plat+embedded", "plat+linux", "plat+windows")
+    .relTags.add("tag+app", "tag+automation", "tag+cli", "tag+editor", "tag+interpreters", "tag+scripting", "tag+shell")
+    .relTypeSystems.add("tsys+dynamic", "tsys+untyped")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

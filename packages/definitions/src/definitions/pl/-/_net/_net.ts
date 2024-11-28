@@ -17,14 +17,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://dotnet.microsoft.com/",
       created: "2016",
     })
-    .relImplements.add(["pl+c-sharp", "pl+f-sharp", "pl+visual-basic"])
-    .relInfluencedBy.add(["pl+java"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+concurrent", "para+functional", "para+multi", "para+oop"])
-    .relPlatforms.add(["plat+.net", "plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64"])
-    .relTags.add(["tag+app", "tag+cli", "tag+compiler", "tag+framework", "tag+interpreters", "tag+shell", "tag+ui"])
-    .relTypeSystems.add(["tsys+nominal", "tsys+polymorphic", "tsys+static", "tsys+strong"])
-    .relWrittenWith.add(["pl+c++", "pl+c-sharp"]);
+    .relImplements.add("pl+c-sharp", "pl+f-sharp", "pl+visual-basic")
+    .relInfluencedBy.add("pl+java")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+concurrent", "para+functional", "para+multi", "para+oop")
+    .relPlatforms.add("plat+.net", "plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64")
+    .relTags.add("tag+app", "tag+cli", "tag+compiler", "tag+framework", "tag+interpreters", "tag+shell", "tag+ui")
+    .relTypeSystems.add("tsys+nominal", "tsys+polymorphic", "tsys+static", "tsys+strong")
+    .relWrittenWith.add("pl+c++", "pl+c-sharp");
 
   // TOOLS
 

@@ -17,13 +17,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.opencilk.org/",
       created: "1994",
     })
-    .relDialectOf.add(["pl+c"])
-    .relInfluencedBy.add(["pl+c", "pl+c++"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+concurrent", "para+imperative", "para+parallel", "para+procedural", "para+structured"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+x86-64"])
-    .relTags.add(["tag+compiler"])
-    .relTypeSystems.add(["tsys+manifest", "tsys+static", "tsys+weak"]);
+    .relDialectOf.add("pl+c")
+    .relInfluencedBy.add("pl+c", "pl+c++")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+concurrent", "para+imperative", "para+parallel", "para+procedural", "para+structured")
+    .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+x86-64")
+    .relTags.add("tag+compiler")
+    .relTypeSystems.add("tsys+manifest", "tsys+static", "tsys+weak");
 
   // TOOLS
 

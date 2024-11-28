@@ -24,10 +24,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.modelica.org/",
       created: "1997",
     })
-    .relLicenses.add(["lic+cc-by"])
-    .relParadigms.add(["para+declarative", "para+multi", "para+simulation"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+app", "tag+industrial", "tag+modeling", "tag+sci", "tag+viz"]);
+    .relLicenses.add("lic+cc-by")
+    .relParadigms.add("para+declarative", "para+multi", "para+simulation")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+app", "tag+industrial", "tag+modeling", "tag+sci", "tag+viz");
 
   // TOOLS
 

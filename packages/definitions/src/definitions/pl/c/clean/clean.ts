@@ -20,13 +20,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://clean.cs.ru.nl/",
       created: "1987",
     })
-    .relInfluencedBy.add(["pl+haskell"])
-    .relLicenses.add(["lic+bsd"])
-    .relParadigms.add(["para+functional"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+app", "tag+compiler", "tag+interpreters"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+static", "tsys+strong", "tsys+uniqueness"])
-    .relWrittenWith.add(["pl+c"]);
+    .relInfluencedBy.add("pl+haskell")
+    .relLicenses.add("lic+bsd")
+    .relParadigms.add("para+functional")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+app", "tag+compiler", "tag+interpreters")
+    .relTypeSystems.add("tsys+dynamic", "tsys+static", "tsys+strong", "tsys+uniqueness")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

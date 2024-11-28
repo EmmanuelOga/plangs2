@@ -19,10 +19,10 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Protocol_Buffers",
       created: "2001",
     })
-    .relCompilesTo.add(["pl+c++", "pl+c-sharp", "pl+dart", "pl+go", "pl+java", "pl+javascript", "pl+php", "pl+python", "pl+ruby"])
-    .relLicenses.add(["lic+bsd"])
-    .relParadigms.add(["para+data-exchange"])
-    .relPlatforms.add(["plat+cross"]);
+    .relCompilesTo.add("pl+c++", "pl+c-sharp", "pl+dart", "pl+go", "pl+java", "pl+javascript", "pl+php", "pl+python", "pl+ruby")
+    .relLicenses.add("lic+bsd")
+    .relParadigms.add("para+data-exchange")
+    .relPlatforms.add("plat+cross");
 
   // TOOLS
 

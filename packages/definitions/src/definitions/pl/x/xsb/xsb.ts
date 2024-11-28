@@ -13,15 +13,15 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://xsb.sourceforge.net/",
       created: "1993",
     })
-    .relDialectOf.add(["pl+prolog"])
-    .relImplements.add(["pl+prolog"])
-    .relInfluencedBy.add(["pl+prolog"])
-    .relLicenses.add(["lic+lgpl"])
-    .relParadigms.add(["para+declarative", "para+expert-system", "para+logic"])
-    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+dbms", "tag+interpreters"])
-    .relTypeSystems.add(["tsys+untyped"])
-    .relWrittenWith.add(["pl+c"]);
+    .relDialectOf.add("pl+prolog")
+    .relImplements.add("pl+prolog")
+    .relInfluencedBy.add("pl+prolog")
+    .relLicenses.add("lic+lgpl")
+    .relParadigms.add("para+declarative", "para+expert-system", "para+logic")
+    .relPlatforms.add("plat+cross", "plat+linux", "plat+windows")
+    .relTags.add("tag+dbms", "tag+interpreters")
+    .relTypeSystems.add("tsys+untyped")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

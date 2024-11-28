@@ -12,12 +12,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://frinklang.org/",
       created: "2001",
     })
-    .relLicenses.add(["lic+artistic"])
-    .relParadigms.add(["para+functional", "para+imperative", "para+oop"])
-    .relPlatforms.add(["plat+android", "plat+cross", "plat+java"])
-    .relTags.add(["tag+interpreters", "tag+numeric", "tag+sci", "tag+scripting"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"])
-    .relWrittenWith.add(["pl+java"]);
+    .relLicenses.add("lic+artistic")
+    .relParadigms.add("para+functional", "para+imperative", "para+oop")
+    .relPlatforms.add("plat+android", "plat+cross", "plat+java")
+    .relTags.add("tag+interpreters", "tag+numeric", "tag+sci", "tag+scripting")
+    .relTypeSystems.add("tsys+dynamic", "tsys+strong")
+    .relWrittenWith.add("pl+java");
 
   // TOOLS
 

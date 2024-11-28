@@ -19,10 +19,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.txl.ca/",
       created: "1985",
     })
-    .relParadigms.add(["para+dsl", "para+language-oriented", "para+pattern-matching", "para+rewriting"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+analysis", "tag+interpreters", "tag+workflow"])
-    .relTypeSystems.add(["tsys+untyped"]);
+    .relParadigms.add("para+dsl", "para+language-oriented", "para+pattern-matching", "para+rewriting")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+analysis", "tag+interpreters", "tag+workflow")
+    .relTypeSystems.add("tsys+untyped");
 
   // TOOLS
 

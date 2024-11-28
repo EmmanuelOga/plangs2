@@ -28,11 +28,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://adobe.com/products/coldfusion-family.html",
       created: "1995",
     })
-    .relCompilesTo.add(["pl+coldfusion", "pl+java"])
-    .relParadigms.add(["para+event-driven", "para+multi", "para+procedural", "para+scripting"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+app", "tag+dataflow", "tag+dbms", "tag+scripting", "tag+server"])
-    .relTypeSystems.add(["tsys+duck", "tsys+dynamic"]);
+    .relCompilesTo.add("pl+coldfusion", "pl+java")
+    .relParadigms.add("para+event-driven", "para+multi", "para+procedural", "para+scripting")
+    .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")
+    .relTags.add("tag+app", "tag+dataflow", "tag+dbms", "tag+scripting", "tag+server")
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic");
 
   // TOOLS
 

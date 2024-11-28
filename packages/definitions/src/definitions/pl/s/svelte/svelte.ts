@@ -29,12 +29,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://svelte.dev/",
       created: "2016",
     })
-    .relCompilesTo.add(["pl+javascript"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+compiled", "para+functional", "para+reactive"])
-    .relPlatforms.add(["plat+nodejs", "plat+web"])
-    .relTags.add(["tag+framework", "tag+ui"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+static"]);
+    .relCompilesTo.add("pl+javascript")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+compiled", "para+functional", "para+reactive")
+    .relPlatforms.add("plat+nodejs", "plat+web")
+    .relTags.add("tag+framework", "tag+ui")
+    .relTypeSystems.add("tsys+dynamic", "tsys+static");
 
   // TOOLS
 

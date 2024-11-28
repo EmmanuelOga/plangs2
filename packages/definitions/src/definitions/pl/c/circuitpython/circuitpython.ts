@@ -18,14 +18,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://circuitpython.org/",
       created: "2017",
     })
-    .relImplements.add(["pl+python"])
-    .relInfluencedBy.add(["pl+micropython"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+embedded", "para+interpreted", "para+scripting"])
-    .relPlatforms.add(["plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry"])
-    .relTags.add(["tag+edu", "tag+embedded", "tag+interpreters", "tag+iot"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"])
-    .relWrittenWith.add(["pl+c"]);
+    .relImplements.add("pl+python")
+    .relInfluencedBy.add("pl+micropython")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+embedded", "para+interpreted", "para+scripting")
+    .relPlatforms.add("plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry")
+    .relTags.add("tag+edu", "tag+embedded", "tag+interpreters", "tag+iot")
+    .relTypeSystems.add("tsys+dynamic", "tsys+strong")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

@@ -134,11 +134,11 @@ export class Edges<From extends AnyVertex, To extends AnyVertex> {
    * Track a relationship between two vertices.
    * **Note**: the user is responsible of ensuring the vertices exist.
    */
-  add(fromKey: From["key"], toKeys: To["key"] | To["key"][]): this {
+  add(fromKey: From["key"], ...toKeys: To["key"][]): this {
     let forward = this.#forward.get(fromKey);
     if (!forward) this.#forward.set(fromKey, (forward = new Set()));
 
-    for (const toKey of Array.isArray(toKeys) ? toKeys : [toKeys]) {
+    for (const toKey of toKeys) {
       forward.add(toKey);
 
       let backward = this.#backward.get(toKey);
@@ -162,7 +162,7 @@ export class Edges<From extends AnyVertex, To extends AnyVertex> {
 
   /** Shortcut: Connect many vertices at once. */
   addMany(relations: [From["key"], To["key"][]][]): this {
-    for (const [fromKey, toKeys] of relations) this.add(fromKey, toKeys);
+    for (const [fromKey, toKeys] of relations) this.add(fromKey, ...toKeys);
     return this;
   }
 
@@ -223,13 +223,13 @@ export class RelFrom<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
     readonly edges: Edges<FromVertex, ToVertex>,
   ) {}
 
-  add(toKeys: ToVertex["key"] | ToVertex["key"][]): FromVertex {
-    this.edges.add(this.from.key, toKeys);
+  add(...toKeys: ToVertex["key"][]): FromVertex {
+    this.edges.add(this.from.key, ...toKeys);
     return this.from;
   }
 
-  remove(toKeys: ToVertex["key"] | ToVertex["key"][]): FromVertex {
-    for (const toKey of Array.isArray(toKeys) ? toKeys : [toKeys]) this.edges.delete(this.from.key, toKey);
+  remove(...toKeys: ToVertex["key"][]): FromVertex {
+    for (const toKey of toKeys) this.edges.delete(this.from.key, toKey);
     return this.from;
   }
 
@@ -257,13 +257,13 @@ export class RelTo<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
     readonly edges: Edges<FromVertex, ToVertex>,
   ) {}
 
-  add(fromKeys: FromVertex["key"] | FromVertex["key"][]): ToVertex {
-    for (const fromKey of Array.isArray(fromKeys) ? fromKeys : [fromKeys]) this.edges.add(fromKey, this.to.key);
+  add(...fromKeys: FromVertex["key"][]): ToVertex {
+    for (const fromKey of fromKeys) this.edges.add(fromKey, this.to.key);
     return this.to;
   }
 
-  remove(fromKeys: FromVertex["key"] | FromVertex["key"][]): ToVertex {
-    for (const fromKey of Array.isArray(fromKeys) ? fromKeys : [fromKeys]) this.edges.delete(fromKey, this.to.key);
+  remove(...fromKeys: FromVertex["key"][]): ToVertex {
+    for (const fromKey of fromKeys) this.edges.delete(fromKey, this.to.key);
     return this.to;
   }
 

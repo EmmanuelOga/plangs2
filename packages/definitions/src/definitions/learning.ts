@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       kinds: ["book", "course"],
       extHomeURL: "https://www.nand2tetris.org/",
     })
-    .relTags.add(["tag+embedded", "tag+languages"]);
+    .relTags.add("tag+embedded", "tag+languages");
 
   g.learning
     .set("learn+nystrom-interpreters", {
@@ -18,8 +18,8 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://craftinginterpreters.com/",
       kinds: ["book"],
     })
-    .relPlangs.add(["pl+c", "pl+java"])
-    .relTags.add(["tag+interpreters", "tag+languages"]);
+    .relPlangs.add("pl+c", "pl+java")
+    .relTags.add("tag+interpreters", "tag+languages");
 
   g.learning
     .set("learn+threejs-journey", {
@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://threejs-journey.com/",
       kinds: ["course"],
     })
-    .relCommunities.add(["comm+threejs-journey"])
-    .relPlangs.add(["pl+javascript"])
-    .relTags.add(["tag+3dg", "tag+games", "tag+webdev"]);
+    .relCommunities.add("comm+threejs-journey")
+    .relPlangs.add("pl+javascript")
+    .relTags.add("tag+3dg", "tag+games", "tag+webdev");
 }

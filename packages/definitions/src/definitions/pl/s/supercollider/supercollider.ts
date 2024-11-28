@@ -21,13 +21,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://supercollider.github.io/",
       created: "1996",
     })
-    .relInfluencedBy.add(["pl+csound", "pl+lisp"])
-    .relLicenses.add(["lic+gnu-gpl"])
-    .relParadigms.add(["para+concurrent", "para+event-driven", "para+functional", "para+oop"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+app", "tag+audio-dev", "tag+dsp", "tag+framework", "tag+interpreters"])
-    .relTypeSystems.add(["tsys+dynamic"])
-    .relWrittenWith.add(["pl+c++"]);
+    .relInfluencedBy.add("pl+csound", "pl+lisp")
+    .relLicenses.add("lic+gnu-gpl")
+    .relParadigms.add("para+concurrent", "para+event-driven", "para+functional", "para+oop")
+    .relPlatforms.add("plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows")
+    .relTags.add("tag+app", "tag+audio-dev", "tag+dsp", "tag+framework", "tag+interpreters")
+    .relTypeSystems.add("tsys+dynamic")
+    .relWrittenWith.add("pl+c++");
 
   // TOOLS
 

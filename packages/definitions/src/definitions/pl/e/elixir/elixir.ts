@@ -24,12 +24,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://elixir-lang.org/",
       created: "2012",
     })
-    .relInfluencedBy.add(["pl+clojure", "pl+erlang", "pl+lisp", "pl+ruby"])
-    .relLicenses.add(["lic+apache"])
-    .relParadigms.add(["para+concurrent", "para+distributed", "para+functional", "para+multi", "para+process-oriented"])
-    .relPlatforms.add(["plat+beam"])
-    .relTags.add(["tag+analysis", "tag+app", "tag+embedded", "tag+interpreters", "tag+multimedia", "tag+shell"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"]);
+    .relInfluencedBy.add("pl+clojure", "pl+erlang", "pl+lisp", "pl+ruby")
+    .relLicenses.add("lic+apache")
+    .relParadigms.add("para+concurrent", "para+distributed", "para+functional", "para+multi", "para+process-oriented")
+    .relPlatforms.add("plat+beam")
+    .relTags.add("tag+analysis", "tag+app", "tag+embedded", "tag+interpreters", "tag+multimedia", "tag+shell")
+    .relTypeSystems.add("tsys+dynamic", "tsys+strong");
 
   // TOOLS
 

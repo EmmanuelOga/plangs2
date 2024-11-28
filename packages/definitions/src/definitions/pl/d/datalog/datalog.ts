@@ -12,11 +12,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://datalog-specs.info",
       created: "1977",
     })
-    .relDialectOf.add(["pl+prolog"])
-    .relInfluencedBy.add(["pl+prolog"])
-    .relParadigms.add(["para+declarative", "para+logic"])
-    .relTags.add(["tag+analysis", "tag+app", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+viz"])
-    .relTypeSystems.add(["tsys+untyped", "tsys+weak"]);
+    .relDialectOf.add("pl+prolog")
+    .relInfluencedBy.add("pl+prolog")
+    .relParadigms.add("para+declarative", "para+logic")
+    .relTags.add("tag+analysis", "tag+app", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+viz")
+    .relTypeSystems.add("tsys+untyped", "tsys+weak");
 
   // TOOLS
 

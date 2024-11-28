@@ -25,13 +25,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://crystal-lang.org/",
       created: "2014",
     })
-    .relInfluencedBy.add(["pl+c", "pl+c-sharp", "pl+go", "pl+python", "pl+ruby", "pl+rust"])
-    .relLicenses.add(["lic+apache"])
-    .relParadigms.add(["para+compiled", "para+concurrent", "para+multi", "para+oop"])
-    .relPlatforms.add(["plat+apple", "plat+arm", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])
-    .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting"])
-    .relTypeSystems.add(["tsys+duck", "tsys+inferred", "tsys+nominal", "tsys+static"])
-    .relWrittenWith.add(["pl+c"]);
+    .relInfluencedBy.add("pl+c", "pl+c-sharp", "pl+go", "pl+python", "pl+ruby", "pl+rust")
+    .relLicenses.add("lic+apache")
+    .relParadigms.add("para+compiled", "para+concurrent", "para+multi", "para+oop")
+    .relPlatforms.add("plat+apple", "plat+arm", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64")
+    .relTags.add("tag+compiler", "tag+interpreters", "tag+scripting")
+    .relTypeSystems.add("tsys+duck", "tsys+inferred", "tsys+nominal", "tsys+static")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

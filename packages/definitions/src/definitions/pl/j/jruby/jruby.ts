@@ -23,14 +23,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.jruby.org/",
       created: "2001",
     })
-    .relImplements.add(["pl+ruby"])
-    .relInfluencedBy.add(["pl+ruby"])
-    .relLicenses.add(["lic+epl", "lic+gnu-gpl", "lic+lgpl"])
-    .relParadigms.add(["para+concurrent", "para+oop", "para+reflective", "para+scripting"])
-    .relPlatforms.add(["plat+cross", "plat+java"])
-    .relTags.add(["tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting", "tag+shell"])
-    .relTypeSystems.add(["tsys+duck", "tsys+dynamic", "tsys+strong"])
-    .relWrittenWith.add(["pl+java"]);
+    .relImplements.add("pl+ruby")
+    .relInfluencedBy.add("pl+ruby")
+    .relLicenses.add("lic+epl", "lic+gnu-gpl", "lic+lgpl")
+    .relParadigms.add("para+concurrent", "para+oop", "para+reflective", "para+scripting")
+    .relPlatforms.add("plat+cross", "plat+java")
+    .relTags.add("tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting", "tag+shell")
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+strong")
+    .relWrittenWith.add("pl+java");
 
   // TOOLS
 

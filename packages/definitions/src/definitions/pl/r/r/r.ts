@@ -26,23 +26,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.r-project.org/",
       created: "1993",
     })
-    .relInfluencedBy.add(["pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme"])
-    .relLicenses.add(["lic+gnu-gpl"])
-    .relParadigms.add(["para+array", "para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective"])
-    .relPlatforms.add(["plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+windows", "plat+x86-64"])
-    .relTags.add([
-      "tag+analysis",
-      "tag+cli",
-      "tag+dataq",
-      "tag+genomics",
-      "tag+interpreters",
-      "tag+multivar",
-      "tag+scripting",
-      "tag+stats",
-      "tag+viz",
-    ])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"])
-    .relWrittenWith.add(["pl+c", "pl+fortran"]);
+    .relInfluencedBy.add("pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme")
+    .relLicenses.add("lic+gnu-gpl")
+    .relParadigms.add("para+array", "para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective")
+    .relPlatforms.add("plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+windows", "plat+x86-64")
+    .relTags.add("tag+analysis", "tag+cli", "tag+dataq", "tag+genomics", "tag+interpreters", "tag+multivar", "tag+scripting", "tag+stats", "tag+viz")
+    .relTypeSystems.add("tsys+dynamic", "tsys+strong")
+    .relWrittenWith.add("pl+c", "pl+fortran");
 
   // TOOLS
 

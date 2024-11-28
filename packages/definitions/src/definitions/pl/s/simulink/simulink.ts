@@ -12,10 +12,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.mathworks.com/products/simulink.html",
       created: "1984",
     })
-    .relInfluencedBy.add(["pl+matlab"])
-    .relParadigms.add(["para+dataflow", "para+simulation", "para+visual"])
-    .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+analysis", "tag+dsp", "tag+embedded", "tag+industrial", "tag+modeling", "tag+testing", "tag+wavelet"]);
+    .relInfluencedBy.add("pl+matlab")
+    .relParadigms.add("para+dataflow", "para+simulation", "para+visual")
+    .relPlatforms.add("plat+apple", "plat+linux", "plat+windows")
+    .relTags.add("tag+analysis", "tag+dsp", "tag+embedded", "tag+industrial", "tag+modeling", "tag+testing", "tag+wavelet");
 
   // TOOLS
 

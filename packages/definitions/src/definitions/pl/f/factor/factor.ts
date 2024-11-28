@@ -24,12 +24,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://factorcode.org/",
       created: "2003",
     })
-    .relInfluencedBy.add(["pl+forth", "pl+lisp", "pl+self"])
-    .relLicenses.add(["lic+bsd"])
-    .relParadigms.add(["para+concatenative", "para+functional", "para+multi", "para+oop"])
-    .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows", "plat+x86-64"])
-    .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"]);
+    .relInfluencedBy.add("pl+forth", "pl+lisp", "pl+self")
+    .relLicenses.add("lic+bsd")
+    .relParadigms.add("para+concatenative", "para+functional", "para+multi", "para+oop")
+    .relPlatforms.add("plat+apple", "plat+linux", "plat+windows", "plat+x86-64")
+    .relTags.add("tag+compiler", "tag+interpreters", "tag+scripting")
+    .relTypeSystems.add("tsys+dynamic", "tsys+strong");
 
   // TOOLS
 

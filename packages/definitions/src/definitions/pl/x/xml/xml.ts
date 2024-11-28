@@ -23,10 +23,10 @@ export function define(g: PlangsGraph) {
       extRedditPath: "xml",
       created: "1996",
     })
-    .relParadigms.add(["para+data-exchange"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+dataq", "tag+workflow"])
-    .relTypeSystems.add(["tsys+untyped"]);
+    .relParadigms.add("para+data-exchange")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+dataq", "tag+workflow")
+    .relTypeSystems.add("tsys+untyped");
 
   // TOOLS
 

@@ -20,12 +20,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.rascal-mpl.org/",
       created: "2009",
     })
-    .relLicenses.add(["lic+bsd", "lic+epl"])
-    .relParadigms.add(["para+declarative", "para+functional", "para+imperative", "para+language-oriented", "para+scripting"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+analysis"])
-    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong"])
-    .relWrittenWith.add(["pl+java"]);
+    .relLicenses.add("lic+bsd", "lic+epl")
+    .relParadigms.add("para+declarative", "para+functional", "para+imperative", "para+language-oriented", "para+scripting")
+    .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")
+    .relTags.add("tag+analysis")
+    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong")
+    .relWrittenWith.add("pl+java");
 
   // TOOLS
 

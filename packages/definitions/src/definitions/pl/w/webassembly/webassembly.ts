@@ -25,10 +25,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://webassembly.org",
       created: "2017",
     })
-    .relLicenses.add(["lic+apache"])
-    .relParadigms.add(["para+stack-oriented", "para+structured"])
-    .relPlatforms.add(["plat+cross", "plat+web"])
-    .relTags.add(["tag+compiler"]);
+    .relLicenses.add("lic+apache")
+    .relParadigms.add("para+stack-oriented", "para+structured")
+    .relPlatforms.add("plat+cross", "plat+web")
+    .relTags.add("tag+compiler");
 
   // TOOLS
 

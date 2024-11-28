@@ -13,10 +13,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.w3.org/TR/shacl/",
       created: "2015",
     })
-    .relInfluencedBy.add(["pl+shex"])
-    .relParadigms.add(["para+declarative", "para+dsl", "para+validation"])
-    .relTags.add(["tag+dbms", "tag+framework"])
-    .relTypeSystems.add(["tsys+structural"]);
+    .relInfluencedBy.add("pl+shex")
+    .relParadigms.add("para+declarative", "para+dsl", "para+validation")
+    .relTags.add("tag+dbms", "tag+framework")
+    .relTypeSystems.add("tsys+structural");
 
   // TOOLS
 

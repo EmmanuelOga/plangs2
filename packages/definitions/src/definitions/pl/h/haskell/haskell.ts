@@ -25,13 +25,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://haskell.org/",
       created: "1990",
     })
-    .relImplements.add(["pl+curry"])
-    .relInfluencedBy.add(["pl+clean", "pl+lisp", "pl+r5rs", "pl+raku", "pl+scheme", "pl+standard-ml"])
-    .relLicenses.add(["lic+bsd"])
-    .relParadigms.add(["para+concurrent", "para+declarative", "para+functional", "para+lazy"])
-    .relPlatforms.add(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters"])
-    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    .relImplements.add("pl+curry")
+    .relInfluencedBy.add("pl+clean", "pl+lisp", "pl+r5rs", "pl+raku", "pl+scheme", "pl+standard-ml")
+    .relLicenses.add("lic+bsd")
+    .relParadigms.add("para+concurrent", "para+declarative", "para+functional", "para+lazy")
+    .relPlatforms.add("plat+bsd", "plat+cross", "plat+linux", "plat+windows")
+    .relTags.add("tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters")
+    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong");
 
   // TOOLS
 

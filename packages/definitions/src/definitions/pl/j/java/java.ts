@@ -30,13 +30,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://openjdk.java.net/",
       created: "1995",
     })
-    .relInfluencedBy.add(["pl+c++"])
-    .relLicenses.add(["lic+gnu-gpl"])
-    .relParadigms.add(["para+compiled", "para+concurrent", "para+functional", "para+imperative", "para+multi", "para+oop", "para+reflective"])
-    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+app", "tag+compiler", "tag+server"])
-    .relTypeSystems.add(["tsys+manifest", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong"])
-    .relWrittenWith.add(["pl+c"]);
+    .relInfluencedBy.add("pl+c++")
+    .relLicenses.add("lic+gnu-gpl")
+    .relParadigms.add("para+compiled", "para+concurrent", "para+functional", "para+imperative", "para+multi", "para+oop", "para+reflective")
+    .relPlatforms.add("plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+windows")
+    .relTags.add("tag+app", "tag+compiler", "tag+server")
+    .relTypeSystems.add("tsys+manifest", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

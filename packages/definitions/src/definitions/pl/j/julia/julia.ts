@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://julialang.org/",
       created: "2012",
     })
-    .relInfluencedBy.add([
+    .relInfluencedBy.add(
       "pl+c",
       "pl+common-lisp",
       "pl+lisp",
@@ -39,9 +39,9 @@ export function define(g: PlangsGraph) {
       "pl+ruby",
       "pl+scheme",
       "pl+wolfram-language",
-    ])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add([
+    )
+    .relLicenses.add("lic+mit")
+    .relParadigms.add(
       "para+array",
       "para+functional",
       "para+imperative",
@@ -51,9 +51,9 @@ export function define(g: PlangsGraph) {
       "para+procedural",
       "para+reflective",
       "para+structured",
-    ])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])
-    .relTags.add([
+    )
+    .relPlatforms.add("plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64")
+    .relTags.add(
       "tag+3dg",
       "tag+analysis",
       "tag+app",
@@ -72,9 +72,9 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+ui",
       "tag+wavelet",
-    ])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+optional", "tsys+strong"])
-    .relWrittenWith.add(["pl+c", "pl+c++", "pl+llvm", "pl+scheme"]);
+    )
+    .relTypeSystems.add("tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+optional", "tsys+strong")
+    .relWrittenWith.add("pl+c", "pl+c++", "pl+llvm", "pl+scheme");
 
   // TOOLS
 

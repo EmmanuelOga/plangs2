@@ -23,11 +23,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.smarty.net",
       created: "2001",
     })
-    .relCompilesTo.add(["pl+php"])
-    .relLicenses.add(["lic+lgpl"])
-    .relParadigms.add(["para+dsl"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+scripting"]);
+    .relCompilesTo.add("pl+php")
+    .relLicenses.add("lic+lgpl")
+    .relParadigms.add("para+dsl")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+scripting");
 
   // TOOLS
 

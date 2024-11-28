@@ -25,10 +25,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://kotlinlang.org/",
       created: "2011",
     })
-    .relCompilesTo.add(["pl+javascript", "pl+llvm"])
-    .relInfluencedBy.add(["pl+c-sharp", "pl+eiffel", "pl+groovy", "pl+javascript", "pl+python", "pl+scala"])
-    .relLicenses.add(["lic+apache"])
-    .relParadigms.add([
+    .relCompilesTo.add("pl+javascript", "pl+llvm")
+    .relInfluencedBy.add("pl+c-sharp", "pl+eiffel", "pl+groovy", "pl+javascript", "pl+python", "pl+scala")
+    .relLicenses.add("lic+apache")
+    .relParadigms.add(
       "para+concurrent",
       "para+declarative",
       "para+functional",
@@ -37,10 +37,10 @@ export function define(g: PlangsGraph) {
       "para+oop",
       "para+reflective",
       "para+structured",
-    ])
-    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+nodejs", "plat+wasm", "plat+web", "plat+windows"])
-    .relTags.add(["tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+shell", "tag+testing"])
-    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    )
+    .relPlatforms.add("plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+nodejs", "plat+wasm", "plat+web", "plat+windows")
+    .relTags.add("tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+shell", "tag+testing")
+    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong");
 
   // TOOLS
 

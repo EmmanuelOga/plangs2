@@ -16,10 +16,10 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "XPath",
       created: "1998",
     })
-    .relInfluencedBy.add(["pl+xslt"])
-    .relParadigms.add(["para+query"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+automation", "tag+dataflow", "tag+workflow"]);
+    .relInfluencedBy.add("pl+xslt")
+    .relParadigms.add("para+query")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+automation", "tag+dataflow", "tag+workflow");
 
   // TOOLS
 

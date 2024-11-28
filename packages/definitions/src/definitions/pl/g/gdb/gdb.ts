@@ -18,9 +18,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.gnu.org/software/gdb",
       created: "1986",
     })
-    .relLicenses.add(["lic+gnu-gpl"])
-    .relPlatforms.add(["plat+windows"])
-    .relTags.add(["tag+cli", "tag+interpreters"]);
+    .relLicenses.add("lic+gnu-gpl")
+    .relPlatforms.add("plat+windows")
+    .relTags.add("tag+cli", "tag+interpreters");
 
   // TOOLS
 

@@ -22,14 +22,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://coffeescript.org/",
       created: "2009",
     })
-    .relCompilesTo.add(["pl+javascript"])
-    .relInfluencedBy.add(["pl+haskell", "pl+javascript", "pl+perl", "pl+python", "pl+ruby"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+functional", "para+imperative", "para+multi", "para+prototype", "para+scripting"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting"])
-    .relTypeSystems.add(["tsys+dynamic"])
-    .relWrittenWith.add(["pl+javascript"]);
+    .relCompilesTo.add("pl+javascript")
+    .relInfluencedBy.add("pl+haskell", "pl+javascript", "pl+perl", "pl+python", "pl+ruby")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+functional", "para+imperative", "para+multi", "para+prototype", "para+scripting")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+compiler", "tag+interpreters", "tag+scripting")
+    .relTypeSystems.add("tsys+dynamic")
+    .relWrittenWith.add("pl+javascript");
 
   // TOOLS
 

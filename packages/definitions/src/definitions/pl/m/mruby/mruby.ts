@@ -12,14 +12,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://mruby.org/",
       created: "2012",
     })
-    .relImplements.add(["pl+ruby"])
-    .relInfluencedBy.add(["pl+ruby"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+embedded", "para+oop", "para+scripting"])
-    .relPlatforms.add(["plat+cross", "plat+embedded"])
-    .relTags.add(["tag+compiler", "tag+embedded", "tag+interpreters"])
-    .relTypeSystems.add(["tsys+duck", "tsys+dynamic"])
-    .relWrittenWith.add(["pl+c"]);
+    .relImplements.add("pl+ruby")
+    .relInfluencedBy.add("pl+ruby")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+embedded", "para+oop", "para+scripting")
+    .relPlatforms.add("plat+cross", "plat+embedded")
+    .relTags.add("tag+compiler", "tag+embedded", "tag+interpreters")
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

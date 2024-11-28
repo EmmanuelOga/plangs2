@@ -20,10 +20,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.ampl.com/",
       created: "1985",
     })
-    .relParadigms.add(["para+declarative", "para+dsl", "para+imperative", "para+multi"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+industrial", "tag+interpreters", "tag+modeling", "tag+sci", "tag+stats"])
-    .relTypeSystems.add(["tsys+untyped"]);
+    .relParadigms.add("para+declarative", "para+dsl", "para+imperative", "para+multi")
+    .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")
+    .relTags.add("tag+industrial", "tag+interpreters", "tag+modeling", "tag+sci", "tag+stats")
+    .relTypeSystems.add("tsys+untyped");
 
   // TOOLS
 

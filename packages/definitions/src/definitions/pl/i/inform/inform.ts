@@ -22,11 +22,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://ganelson.github.io/inform-website/",
       created: "1993",
     })
-    .relLicenses.add(["lic+artistic"])
-    .relParadigms.add(["para+declarative", "para+dsl", "para+natural-language", "para+oop", "para+procedural"])
-    .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+compiler", "tag+editor", "tag+games", "tag+if", "tag+interpreters", "tag+testing"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+untyped"]);
+    .relLicenses.add("lic+artistic")
+    .relParadigms.add("para+declarative", "para+dsl", "para+natural-language", "para+oop", "para+procedural")
+    .relPlatforms.add("plat+apple", "plat+linux", "plat+windows")
+    .relTags.add("tag+compiler", "tag+editor", "tag+games", "tag+if", "tag+interpreters", "tag+testing")
+    .relTypeSystems.add("tsys+dynamic", "tsys+untyped");
 
   // TOOLS
 

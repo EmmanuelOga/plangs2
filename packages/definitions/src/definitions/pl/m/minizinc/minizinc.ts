@@ -16,12 +16,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.minizinc.org/",
       created: "2009",
     })
-    .relLicenses.add(["lic+mit", "lic+mpl"])
-    .relParadigms.add(["para+constraint", "para+logic"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+modeling"])
-    .relTypeSystems.add(["tsys+static"])
-    .relWrittenWith.add(["pl+c++"]);
+    .relLicenses.add("lic+mit", "lic+mpl")
+    .relParadigms.add("para+constraint", "para+logic")
+    .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")
+    .relTags.add("tag+modeling")
+    .relTypeSystems.add("tsys+static")
+    .relWrittenWith.add("pl+c++");
 
   // TOOLS
 

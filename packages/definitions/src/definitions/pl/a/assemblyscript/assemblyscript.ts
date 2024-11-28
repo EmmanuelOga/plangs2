@@ -14,14 +14,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.assemblyscript.org/",
       created: "2017",
     })
-    .relCompilesTo.add(["pl+webassembly"])
-    .relDialectOf.add(["pl+javascript", "pl+typescript"])
-    .relInfluencedBy.add(["pl+javascript", "pl+typescript"])
-    .relLicenses.add(["lic+apache"])
-    .relParadigms.add(["para+functional", "para+imperative", "para+multi", "para+oop"])
-    .relPlatforms.add(["plat+nodejs", "plat+wasm", "plat+web"])
-    .relTags.add(["tag+asm", "tag+compiler", "tag+scripting"])
-    .relTypeSystems.add(["tsys+static"]);
+    .relCompilesTo.add("pl+webassembly")
+    .relDialectOf.add("pl+javascript", "pl+typescript")
+    .relInfluencedBy.add("pl+javascript", "pl+typescript")
+    .relLicenses.add("lic+apache")
+    .relParadigms.add("para+functional", "para+imperative", "para+multi", "para+oop")
+    .relPlatforms.add("plat+nodejs", "plat+wasm", "plat+web")
+    .relTags.add("tag+asm", "tag+compiler", "tag+scripting")
+    .relTypeSystems.add("tsys+static");
 
   // TOOLS
 

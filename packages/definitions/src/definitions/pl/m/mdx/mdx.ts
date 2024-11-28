@@ -17,12 +17,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://mdxjs.com/",
       created: "2018",
     })
-    .relCompilesTo.add(["pl+html", "pl+javascript", "pl+markdown"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+dsl", "para+interpreted", "para+reactive"])
-    .relPlatforms.add(["plat+web"])
-    .relTags.add(["tag+modular", "tag+scripting", "tag+ui"])
-    .relTypeSystems.add(["tsys+dynamic"]);
+    .relCompilesTo.add("pl+html", "pl+javascript", "pl+markdown")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+dsl", "para+interpreted", "para+reactive")
+    .relPlatforms.add("plat+web")
+    .relTags.add("tag+modular", "tag+scripting", "tag+ui")
+    .relTypeSystems.add("tsys+dynamic");
 
   // TOOLS
 

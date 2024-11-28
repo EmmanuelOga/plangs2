@@ -26,13 +26,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://wiki.portal.chalmers.se/agda",
       created: "2007",
     })
-    .relInfluencedBy.add(["pl+coq", "pl+haskell"])
-    .relLicenses.add(["lic+bsd"])
-    .relParadigms.add(["para+functional"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+automation", "tag+compiler", "tag+control", "tag+industrial", "tag+interpreters", "tag+proofs"])
-    .relTypeSystems.add(["tsys+dependent", "tsys+inferred", "tsys+manifest", "tsys+nominal", "tsys+static", "tsys+strong"])
-    .relWrittenWith.add(["pl+haskell"]);
+    .relInfluencedBy.add("pl+coq", "pl+haskell")
+    .relLicenses.add("lic+bsd")
+    .relParadigms.add("para+functional")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+automation", "tag+compiler", "tag+control", "tag+industrial", "tag+interpreters", "tag+proofs")
+    .relTypeSystems.add("tsys+dependent", "tsys+inferred", "tsys+manifest", "tsys+nominal", "tsys+static", "tsys+strong")
+    .relWrittenWith.add("pl+haskell");
 
   // TOOLS
 

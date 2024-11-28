@@ -18,14 +18,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://flutter.dev/",
       created: "2017",
     })
-    .relCompilesTo.add(["pl+javascript"])
-    .relImplements.add(["pl+dart"])
-    .relLicenses.add(["lic+bsd"])
-    .relParadigms.add(["para+declarative", "para+functional", "para+oop"])
-    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows"])
-    .relTags.add(["tag+3dg", "tag+app", "tag+framework", "tag+industrial", "tag+ray-tracer", "tag+ui"])
-    .relTypeSystems.add(["tsys+static", "tsys+strong"])
-    .relWrittenWith.add(["pl+c", "pl+c++", "pl+dart"]);
+    .relCompilesTo.add("pl+javascript")
+    .relImplements.add("pl+dart")
+    .relLicenses.add("lic+bsd")
+    .relParadigms.add("para+declarative", "para+functional", "para+oop")
+    .relPlatforms.add("plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows")
+    .relTags.add("tag+3dg", "tag+app", "tag+framework", "tag+industrial", "tag+ray-tracer", "tag+ui")
+    .relTypeSystems.add("tsys+static", "tsys+strong")
+    .relWrittenWith.add("pl+c", "pl+c++", "pl+dart");
 
   // TOOLS
 

@@ -25,10 +25,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://nim-lang.org/",
       created: "2008",
     })
-    .relCompilesTo.add(["pl+c++", "pl+javascript"])
-    .relInfluencedBy.add(["pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+python", "pl+rust"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add([
+    .relCompilesTo.add("pl+c++", "pl+javascript")
+    .relInfluencedBy.add("pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+python", "pl+rust")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add(
       "para+compiled",
       "para+concurrent",
       "para+functional",
@@ -37,9 +37,9 @@ export function define(g: PlangsGraph) {
       "para+multi",
       "para+oop",
       "para+procedural",
-    ])
-    .relPlatforms.add(["plat+apple", "plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
-    .relTags.add([
+    )
+    .relPlatforms.add("plat+apple", "plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64")
+    .relTags.add(
       "tag+3dg",
       "tag+analysis",
       "tag+app",
@@ -53,9 +53,9 @@ export function define(g: PlangsGraph) {
       "tag+ray-tracer",
       "tag+stats",
       "tag+viz",
-    ])
-    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])
-    .relWrittenWith.add(["pl+c++"]);
+    )
+    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural")
+    .relWrittenWith.add("pl+c++");
 
   // TOOLS
 

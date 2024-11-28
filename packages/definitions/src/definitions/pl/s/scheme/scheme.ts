@@ -20,13 +20,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.scheme.org/",
       created: "1975",
     })
-    .relDialectOf.add(["pl+lisp"])
-    .relInfluencedBy.add(["pl+lisp"])
-    .relLicenses.add(["lic+bsd"])
-    .relParadigms.add(["para+functional", "para+imperative", "para+metaprogramming", "para+multi"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting", "tag+testing"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+latent", "tsys+strong"]);
+    .relDialectOf.add("pl+lisp")
+    .relInfluencedBy.add("pl+lisp")
+    .relLicenses.add("lic+bsd")
+    .relParadigms.add("para+functional", "para+imperative", "para+metaprogramming", "para+multi")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+compiler", "tag+interpreters", "tag+scripting", "tag+testing")
+    .relTypeSystems.add("tsys+dynamic", "tsys+latent", "tsys+strong");
 
   // TOOLS
 

@@ -22,13 +22,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://vlang.io/",
       created: "2019",
     })
-    .relCompilesTo.add(["pl+c"])
-    .relInfluencedBy.add(["pl+go", "pl+rust", "pl+swift"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+concurrent", "para+functional", "para+imperative", "para+structured"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])
-    .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting"])
-    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    .relCompilesTo.add("pl+c")
+    .relInfluencedBy.add("pl+go", "pl+rust", "pl+swift")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+concurrent", "para+functional", "para+imperative", "para+structured")
+    .relPlatforms.add("plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64")
+    .relTags.add("tag+compiler", "tag+interpreters", "tag+scripting")
+    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong");
 
   // TOOLS
 

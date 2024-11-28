@@ -25,12 +25,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.php.net/",
       created: "1995",
     })
-    .relInfluencedBy.add(["pl+c", "pl+java"])
-    .relParadigms.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective", "para+scripting"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+scripting", "tag+server"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+gradual", "tsys+weak"])
-    .relWrittenWith.add(["pl+c"]);
+    .relInfluencedBy.add("pl+c", "pl+java")
+    .relParadigms.add("para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective", "para+scripting")
+    .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")
+    .relTags.add("tag+scripting", "tag+server")
+    .relTypeSystems.add("tsys+dynamic", "tsys+gradual", "tsys+weak")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

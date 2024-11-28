@@ -18,12 +18,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "curry-lang.org",
       created: "1995",
     })
-    .relInfluencedBy.add(["pl+haskell", "pl+prolog"])
-    .relLicenses.add(["lic+bsd"])
-    .relParadigms.add(["para+concurrent", "para+constraint", "para+declarative", "para+functional", "para+lazy", "para+logic", "para+modular"])
-    .relPlatforms.add(["plat+cross", "plat+linux", "plat+x86-64"])
-    .relTags.add(["tag+audio-dev", "tag+compiler", "tag+interpreters", "tag+scripting", "tag+testing"])
-    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    .relInfluencedBy.add("pl+haskell", "pl+prolog")
+    .relLicenses.add("lic+bsd")
+    .relParadigms.add("para+concurrent", "para+constraint", "para+declarative", "para+functional", "para+lazy", "para+logic", "para+modular")
+    .relPlatforms.add("plat+cross", "plat+linux", "plat+x86-64")
+    .relTags.add("tag+audio-dev", "tag+compiler", "tag+interpreters", "tag+scripting", "tag+testing")
+    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong");
 
   // TOOLS
 

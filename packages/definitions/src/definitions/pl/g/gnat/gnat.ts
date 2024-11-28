@@ -16,12 +16,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.getadanow.com/",
       created: "1995",
     })
-    .relImplements.add(["pl+ada"])
-    .relLicenses.add(["lic+gnu-gpl"])
-    .relParadigms.add(["para+compiled", "para+concurrent", "para+procedural", "para+structured"])
-    .relPlatforms.add(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add(["tag+compiler", "tag+framework", "tag+interpreters"])
-    .relTypeSystems.add(["tsys+nominal", "tsys+static", "tsys+strong"]);
+    .relImplements.add("pl+ada")
+    .relLicenses.add("lic+gnu-gpl")
+    .relParadigms.add("para+compiled", "para+concurrent", "para+procedural", "para+structured")
+    .relPlatforms.add("plat+bsd", "plat+cross", "plat+linux", "plat+windows")
+    .relTags.add("tag+compiler", "tag+framework", "tag+interpreters")
+    .relTypeSystems.add("tsys+nominal", "tsys+static", "tsys+strong");
 
   // TOOLS
 

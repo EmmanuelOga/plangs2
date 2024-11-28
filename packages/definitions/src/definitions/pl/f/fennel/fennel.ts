@@ -23,14 +23,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://fennel-lang.org/",
       created: "2020",
     })
-    .relCompilesTo.add(["pl+lua"])
-    .relInfluencedBy.add(["pl+lua", "pl+scheme"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+functional", "para+macro", "para+metaprogramming", "para+scripting"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+interpreters", "tag+scripting"])
-    .relTypeSystems.add(["tsys+dynamic"])
-    .relWrittenWith.add(["pl+lua"]);
+    .relCompilesTo.add("pl+lua")
+    .relInfluencedBy.add("pl+lua", "pl+scheme")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+functional", "para+macro", "para+metaprogramming", "para+scripting")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+interpreters", "tag+scripting")
+    .relTypeSystems.add("tsys+dynamic")
+    .relWrittenWith.add("pl+lua");
 
   // TOOLS
 

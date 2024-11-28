@@ -25,11 +25,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.embarcadero.com/products/delphi",
       created: "1995",
     })
-    .relDialectOf.add(["pl+pascal"])
-    .relImplements.add(["pl+pascal"])
-    .relParadigms.add(["para+compiled", "para+multi", "para+oop", "para+procedural"])
-    .relPlatforms.add(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
-    .relTags.add([
+    .relDialectOf.add("pl+pascal")
+    .relImplements.add("pl+pascal")
+    .relParadigms.add("para+compiled", "para+multi", "para+oop", "para+procedural")
+    .relPlatforms.add("plat+android", "plat+apple", "plat+linux", "plat+windows")
+    .relTags.add(
       "tag+asm",
       "tag+automation",
       "tag+compiler",
@@ -43,9 +43,9 @@ export function define(g: PlangsGraph) {
       "tag+ui",
       "tag+uml",
       "tag+viz",
-    ])
-    .relTypeSystems.add(["tsys+object", "tsys+static", "tsys+strong"])
-    .relWrittenWith.add(["pl+c++"]);
+    )
+    .relTypeSystems.add("tsys+object", "tsys+static", "tsys+strong")
+    .relWrittenWith.add("pl+c++");
 
   // TOOLS
 

@@ -17,15 +17,15 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://luajit.org/",
       created: "2005",
     })
-    .relDialectOf.add(["pl+lua"])
-    .relImplements.add(["pl+lua"])
-    .relInfluencedBy.add(["pl+c", "pl+lua"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+imperative", "para+procedural", "para+scripting"])
-    .relPlatforms.add(["plat+android", "plat+apple", "plat+arm", "plat+linux", "plat+windows", "plat+x86-64"])
-    .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting"])
-    .relTypeSystems.add(["tsys+dynamic"])
-    .relWrittenWith.add(["pl+c"]);
+    .relDialectOf.add("pl+lua")
+    .relImplements.add("pl+lua")
+    .relInfluencedBy.add("pl+c", "pl+lua")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+imperative", "para+procedural", "para+scripting")
+    .relPlatforms.add("plat+android", "plat+apple", "plat+arm", "plat+linux", "plat+windows", "plat+x86-64")
+    .relTags.add("tag+compiler", "tag+interpreters", "tag+scripting")
+    .relTypeSystems.add("tsys+dynamic")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

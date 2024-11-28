@@ -30,7 +30,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://fortran-lang.org/",
       created: "1957",
     })
-    .relParadigms.add([
+    .relParadigms.add(
       "para+array",
       "para+compiled",
       "para+functional",
@@ -39,9 +39,9 @@ export function define(g: PlangsGraph) {
       "para+oop",
       "para+procedural",
       "para+structured",
-    ])
-    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add([
+    )
+    .relPlatforms.add("plat+cross", "plat+linux", "plat+windows")
+    .relTags.add(
       "tag+analysis",
       "tag+app",
       "tag+asm",
@@ -59,8 +59,8 @@ export function define(g: PlangsGraph) {
       "tag+stats",
       "tag+testing",
       "tag+viz",
-    ])
-    .relTypeSystems.add(["tsys+manifest", "tsys+static", "tsys+strong"]);
+    )
+    .relTypeSystems.add("tsys+manifest", "tsys+static", "tsys+strong");
 
   // TOOLS
 

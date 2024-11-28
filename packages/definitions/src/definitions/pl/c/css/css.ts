@@ -25,9 +25,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.w3.org/Style/CSS/",
       created: "1996",
     })
-    .relParadigms.add(["para+declarative"])
-    .relPlatforms.add(["plat+web"])
-    .relTags.add(["tag+ui"]);
+    .relParadigms.add("para+declarative")
+    .relPlatforms.add("plat+web")
+    .relTags.add("tag+ui");
 
   // TOOLS
 

@@ -21,14 +21,14 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://hacklang.org",
       created: "2014",
     })
-    .relDialectOf.add(["pl+php"])
-    .relInfluencedBy.add(["pl+c-sharp", "pl+haskell", "pl+ocaml", "pl+php", "pl+scala"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+interpreters", "tag+scripting"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+gradual", "tsys+manifest", "tsys+safe", "tsys+static", "tsys+strong", "tsys+weak"])
-    .relWrittenWith.add(["pl+ocaml"]);
+    .relDialectOf.add("pl+php")
+    .relInfluencedBy.add("pl+c-sharp", "pl+haskell", "pl+ocaml", "pl+php", "pl+scala")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+interpreters", "tag+scripting")
+    .relTypeSystems.add("tsys+dynamic", "tsys+gradual", "tsys+manifest", "tsys+safe", "tsys+static", "tsys+strong", "tsys+weak")
+    .relWrittenWith.add("pl+ocaml");
 
   // TOOLS
 

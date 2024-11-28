@@ -12,12 +12,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://jank-lang.org/",
       created: "2015",
     })
-    .relDialectOf.add(["pl+clojure"])
-    .relInfluencedBy.add(["pl+clojure"])
-    .relParadigms.add(["para+functional", "para+general-purpose"])
-    .relPlatforms.add(["plat+cross"])
-    .relTypeSystems.add(["tsys+strong"])
-    .relWrittenWith.add(["pl+c++", "pl+llvm"]);
+    .relDialectOf.add("pl+clojure")
+    .relInfluencedBy.add("pl+clojure")
+    .relParadigms.add("para+functional", "para+general-purpose")
+    .relPlatforms.add("plat+cross")
+    .relTypeSystems.add("tsys+strong")
+    .relWrittenWith.add("pl+c++", "pl+llvm");
 
   // TOOLS
 

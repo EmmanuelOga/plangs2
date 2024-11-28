@@ -69,11 +69,11 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<VPlang
   }
 
   plang.relLicenses
-    .add(keys_license)
-    .relParadigms.add(keys_paradigm)
-    .relPlatforms.add(keys_platform)
-    .relTags.add(keys_tags)
-    .relTypeSystems.add(keys_tsystem);
+    .add(...keys_license)
+    .relParadigms.add(...keys_paradigm)
+    .relPlatforms.add(...keys_platform)
+    .relTags.add(...keys_tags)
+    .relTypeSystems.add(...keys_tsystem);
 
   ////////////////////////////////////////////////////////////////////////////////
 

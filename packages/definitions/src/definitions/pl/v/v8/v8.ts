@@ -20,13 +20,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://v8.dev/",
       created: "2008",
     })
-    .relImplements.add(["pl+javascript"])
-    .relLicenses.add(["lic+bsd"])
-    .relParadigms.add(["para+event-driven", "para+functional", "para+imperative", "para+interpreted", "para+multi", "para+oop", "para+procedural"])
-    .relPlatforms.add(["plat+arm", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64"])
-    .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting", "tag+server"])
-    .relTypeSystems.add(["tsys+duck", "tsys+dynamic", "tsys+weak"])
-    .relWrittenWith.add(["pl+c++"]);
+    .relImplements.add("pl+javascript")
+    .relLicenses.add("lic+bsd")
+    .relParadigms.add("para+event-driven", "para+functional", "para+imperative", "para+interpreted", "para+multi", "para+oop", "para+procedural")
+    .relPlatforms.add("plat+arm", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64")
+    .relTags.add("tag+compiler", "tag+interpreters", "tag+scripting", "tag+server")
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+weak")
+    .relWrittenWith.add("pl+c++");
 
   // TOOLS
 

@@ -25,11 +25,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.w3.org/XML/Query/",
       created: "2007",
     })
-    .relInfluencedBy.add(["pl+sql", "pl+xpath", "pl+xslt"])
-    .relParadigms.add(["para+data-exchange", "para+declarative", "para+dsl", "para+functional", "para+modular", "para+query"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+analysis", "tag+app", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+viz"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+inferred", "tsys+static", "tsys+strong"]);
+    .relInfluencedBy.add("pl+sql", "pl+xpath", "pl+xslt")
+    .relParadigms.add("para+data-exchange", "para+declarative", "para+dsl", "para+functional", "para+modular", "para+query")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+analysis", "tag+app", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+viz")
+    .relTypeSystems.add("tsys+dynamic", "tsys+inferred", "tsys+static", "tsys+strong");
 
   // TOOLS
 

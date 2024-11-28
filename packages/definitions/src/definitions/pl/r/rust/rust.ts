@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.rust-lang.org/",
       created: "2015",
     })
-    .relInfluencedBy.add([
+    .relInfluencedBy.add(
       "pl+c",
       "pl+c++",
       "pl+c-sharp",
@@ -38,11 +38,11 @@ export function define(g: PlangsGraph) {
       "pl+scheme",
       "pl+standard-ml",
       "pl+swift",
-    ])
-    .relLicenses.add(["lic+apache", "lic+mit"])
-    .relParadigms.add(["para+compiled", "para+concurrent", "para+functional", "para+imperative", "para+multi", "para+structured"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
-    .relTags.add([
+    )
+    .relLicenses.add("lic+apache", "lic+mit")
+    .relParadigms.add("para+compiled", "para+concurrent", "para+functional", "para+imperative", "para+multi", "para+structured")
+    .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows")
+    .relTags.add(
       "tag+app",
       "tag+cli",
       "tag+compiler",
@@ -53,9 +53,9 @@ export function define(g: PlangsGraph) {
       "tag+interpreters",
       "tag+iot",
       "tag+viz",
-    ])
-    .relTypeSystems.add(["tsys+affine", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
-    .relWrittenWith.add(["pl+ocaml"]);
+    )
+    .relTypeSystems.add("tsys+affine", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong")
+    .relWrittenWith.add("pl+ocaml");
 
   // TOOLS
 

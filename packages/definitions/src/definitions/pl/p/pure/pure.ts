@@ -13,11 +13,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://agraef.github.io/pure-lang",
       created: "2008",
     })
-    .relInfluencedBy.add(["pl+haskell", "pl+lisp"])
-    .relLicenses.add(["lic+lgpl"])
-    .relParadigms.add(["para+declarative", "para+functional", "para+rewriting"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add([
+    .relInfluencedBy.add("pl+haskell", "pl+lisp")
+    .relLicenses.add("lic+lgpl")
+    .relParadigms.add("para+declarative", "para+functional", "para+rewriting")
+    .relPlatforms.add("plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows")
+    .relTags.add(
       "tag+app",
       "tag+audio-dev",
       "tag+cas",
@@ -28,8 +28,8 @@ export function define(g: PlangsGraph) {
       "tag+sci",
       "tag+scripting",
       "tag+video",
-    ])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"]);
+    )
+    .relTypeSystems.add("tsys+dynamic", "tsys+strong");
 
   // TOOLS
 

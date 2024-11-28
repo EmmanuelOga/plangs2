@@ -27,9 +27,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.python.org/",
       created: "1991",
     })
-    .relInfluencedBy.add(["pl+ada", "pl+apl", "pl+c", "pl+c++", "pl+haskell", "pl+lisp", "pl+perl", "pl+r5rs", "pl+scheme", "pl+standard-ml"])
-    .relLicenses.add(["lic+python"])
-    .relParadigms.add([
+    .relInfluencedBy.add("pl+ada", "pl+apl", "pl+c", "pl+c++", "pl+haskell", "pl+lisp", "pl+perl", "pl+r5rs", "pl+scheme", "pl+standard-ml")
+    .relLicenses.add("lic+python")
+    .relParadigms.add(
       "para+functional",
       "para+imperative",
       "para+multi",
@@ -38,9 +38,9 @@ export function define(g: PlangsGraph) {
       "para+reflective",
       "para+scripting",
       "para+structured",
-    ])
-    .relPlatforms.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+raspberry", "plat+wasm", "plat+windows"])
-    .relTags.add([
+    )
+    .relPlatforms.add("plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+raspberry", "plat+wasm", "plat+windows")
+    .relTags.add(
       "tag+analysis",
       "tag+app",
       "tag+automation",
@@ -62,9 +62,9 @@ export function define(g: PlangsGraph) {
       "tag+ui",
       "tag+viz",
       "tag+wavelet",
-    ])
-    .relTypeSystems.add(["tsys+duck", "tsys+dynamic", "tsys+optional", "tsys+strong"])
-    .relWrittenWith.add(["pl+c", "pl+python"]);
+    )
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+optional", "tsys+strong")
+    .relWrittenWith.add("pl+c", "pl+python");
 
   // TOOLS
 
@@ -117,7 +117,7 @@ export function define(g: PlangsGraph) {
       description:
         "Manage Python dependencies with Pixi, lint and format code with Ruff, and use Pyright for type checking. Includes the Python extension for VSCode.",
     })
-    .relTools.add(["tool+pixi", "tool+pyright", "tool+ruff", "tool+vscode-python"]);
+    .relTools.add("tool+pixi", "tool+pyright", "tool+ruff", "tool+vscode-python");
 
   // LIBRARIES
 
@@ -138,7 +138,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://jcristharif.com/msgspec/",
     })
     .relPlangs.add("pl+python")
-    .relWrittenWith.add(["pl+python", "pl+rust"]);
+    .relWrittenWith.add("pl+python", "pl+rust");
 
   // APPS
 

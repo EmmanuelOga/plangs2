@@ -22,11 +22,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://xproc.org/",
       created: "2010",
     })
-    .relInfluencedBy.add(["pl+xml"])
-    .relParadigms.add(["para+declarative", "para+dsl", "para+pipeline"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+dataflow", "tag+workflow"])
-    .relTypeSystems.add(["tsys+dynamic"]);
+    .relInfluencedBy.add("pl+xml")
+    .relParadigms.add("para+declarative", "para+dsl", "para+pipeline")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+dataflow", "tag+workflow")
+    .relTypeSystems.add("tsys+dynamic");
 
   // TOOLS
 

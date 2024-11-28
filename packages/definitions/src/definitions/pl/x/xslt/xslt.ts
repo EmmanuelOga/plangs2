@@ -25,11 +25,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.w3.org/TR/xslt-30/",
       created: "1998",
     })
-    .relInfluencedBy.add(["pl+boomerang"])
-    .relParadigms.add(["para+declarative", "para+dsl"])
-    .relPlatforms.add(["plat+cross", "plat+java"])
-    .relTags.add(["tag+analysis", "tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+viz"])
-    .relTypeSystems.add(["tsys+untyped"]);
+    .relInfluencedBy.add("pl+boomerang")
+    .relParadigms.add("para+declarative", "para+dsl")
+    .relPlatforms.add("plat+cross", "plat+java")
+    .relTags.add("tag+analysis", "tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+viz")
+    .relTypeSystems.add("tsys+untyped");
 
   // TOOLS
 

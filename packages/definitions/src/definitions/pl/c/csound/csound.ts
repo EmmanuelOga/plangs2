@@ -22,12 +22,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://csound.com/",
       created: "1986",
     })
-    .relLicenses.add(["lic+lgpl"])
-    .relParadigms.add(["para+compiled", "para+dsl", "para+extensible", "para+real-time"])
-    .relPlatforms.add(["plat+android", "plat+cross", "plat+web"])
-    .relTags.add(["tag+audio-dev", "tag+dsp", "tag+industrial", "tag+interpreters", "tag+midi", "tag+testing"])
-    .relTypeSystems.add(["tsys+strong"])
-    .relWrittenWith.add(["pl+c"]);
+    .relLicenses.add("lic+lgpl")
+    .relParadigms.add("para+compiled", "para+dsl", "para+extensible", "para+real-time")
+    .relPlatforms.add("plat+android", "plat+cross", "plat+web")
+    .relTags.add("tag+audio-dev", "tag+dsp", "tag+industrial", "tag+interpreters", "tag+midi", "tag+testing")
+    .relTypeSystems.add("tsys+strong")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

@@ -19,13 +19,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://faust.grame.fr/",
       created: "2002",
     })
-    .relInfluencedBy.add(["pl+c"])
-    .relLicenses.add(["lic+gnu-gpl"])
-    .relParadigms.add(["para+compiled", "para+dataflow", "para+declarative", "para+dsl", "para+functional"])
-    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows"])
-    .relTags.add(["tag+app", "tag+audio-dev", "tag+compiler", "tag+dsp", "tag+interpreters", "tag+multimedia", "tag+ui", "tag+wavelet"])
-    .relTypeSystems.add(["tsys+manifest", "tsys+strong"])
-    .relWrittenWith.add(["pl+c++"]);
+    .relInfluencedBy.add("pl+c")
+    .relLicenses.add("lic+gnu-gpl")
+    .relParadigms.add("para+compiled", "para+dataflow", "para+declarative", "para+dsl", "para+functional")
+    .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows")
+    .relTags.add("tag+app", "tag+audio-dev", "tag+compiler", "tag+dsp", "tag+interpreters", "tag+multimedia", "tag+ui", "tag+wavelet")
+    .relTypeSystems.add("tsys+manifest", "tsys+strong")
+    .relWrittenWith.add("pl+c++");
 
   // TOOLS
 

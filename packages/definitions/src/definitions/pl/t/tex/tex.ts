@@ -21,11 +21,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://tug.org/",
       created: "1978",
     })
-    .relLicenses.add(["lic+public-domain"])
-    .relParadigms.add(["para+declarative", "para+dsl", "para+macro"])
-    .relPlatforms.add(["plat+cross"])
-    .relTags.add(["tag+editor", "tag+sci"])
-    .relWrittenWith.add(["pl+pascal"]);
+    .relLicenses.add("lic+public-domain")
+    .relParadigms.add("para+declarative", "para+dsl", "para+macro")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+editor", "tag+sci")
+    .relWrittenWith.add("pl+pascal");
 
   // TOOLS
 

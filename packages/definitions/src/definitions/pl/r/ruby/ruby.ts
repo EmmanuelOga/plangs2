@@ -27,11 +27,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.ruby-lang.org/en/",
       created: "1995",
     })
-    .relInfluencedBy.add(["pl+basic", "pl+c++", "pl+eiffel", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme"])
-    .relLicenses.add(["lic+bsd", "lic+mit"])
-    .relParadigms.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+reflective", "para+scripting"])
-    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTags.add([
+    .relInfluencedBy.add("pl+basic", "pl+c++", "pl+eiffel", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme")
+    .relLicenses.add("lic+bsd", "lic+mit")
+    .relParadigms.add("para+functional", "para+imperative", "para+multi", "para+oop", "para+reflective", "para+scripting")
+    .relPlatforms.add("plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+windows")
+    .relTags.add(
       "tag+analysis",
       "tag+app",
       "tag+compiler",
@@ -42,9 +42,9 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
       "tag+ui",
       "tag+viz",
-    ])
-    .relTypeSystems.add(["tsys+duck", "tsys+dynamic", "tsys+strong"])
-    .relWrittenWith.add(["pl+c"]);
+    )
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+strong")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

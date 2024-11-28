@@ -13,13 +13,13 @@ export function define(g: PlangsGraph) {
       extGithubPath: "marcobambini/gravity",
       created: "2015",
     })
-    .relInfluencedBy.add(["pl+lua", "pl+swift"])
-    .relLicenses.add(["lic+mit"])
-    .relParadigms.add(["para+functional", "para+multi", "para+oop", "para+procedural", "para+scripting"])
-    .relPlatforms.add(["plat+android", "plat+cross"])
-    .relTags.add(["tag+embedded", "tag+games", "tag+scripting"])
-    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"])
-    .relWrittenWith.add(["pl+c"]);
+    .relInfluencedBy.add("pl+lua", "pl+swift")
+    .relLicenses.add("lic+mit")
+    .relParadigms.add("para+functional", "para+multi", "para+oop", "para+procedural", "para+scripting")
+    .relPlatforms.add("plat+android", "plat+cross")
+    .relTags.add("tag+embedded", "tag+games", "tag+scripting")
+    .relTypeSystems.add("tsys+dynamic", "tsys+strong")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

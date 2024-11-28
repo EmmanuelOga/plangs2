@@ -44,46 +44,46 @@ test("base node apis", () => {
   expect(pl.extensions.last).toEqual(".tpu");
 
   expect(pl.relApps.size).toBe(0);
-  pl.relApps.add(["app+something"]);
+  pl.relApps.add("app+something");
   expect(pl.relApps.size).toBe(1);
   // TODO
   // expect([...pl.relApps.keys][0]).toEqual("app+something");
 
   expect(pl.relLibraries.size).toBe(0);
-  pl.relLibraries.add(["lib+something"]);
+  pl.relLibraries.add("lib+something");
   expect(pl.relLibraries.size).toBe(1);
   // TODO
   // expect([...pl.relLibrary.keys][0]).toEqual("lib+something");
 
   expect(pl.relTools.size).toBe(0);
-  pl.relTools.add(["tool+something"]);
+  pl.relTools.add("tool+something");
   expect(pl.relTools.size).toBe(1);
   expect([...pl.relTools.keys][0]).toEqual("tool+something");
 
   expect(pl.relWrittenWith.size).toBe(0);
-  pl.relWrittenWith.add(["pl+assembler"]);
+  pl.relWrittenWith.add("pl+assembler");
   expect(pl.relWrittenWith.size).toBe(1);
   expect([...pl.relWrittenWith.keys][0]).toEqual("pl+assembler");
 
   expect(pl.relParadigms.size).toBe(0);
-  pl.relParadigms.add(["para+procedural"]);
+  pl.relParadigms.add("para+procedural");
   expect(pl.relParadigms.size).toBe(1);
   expect([...pl.relParadigms.keys][0]).toEqual("para+procedural");
 
   // TODO
   // expect(pl.relPlBundle.size).toBe(0);
-  // pl.relPlBundles.add(["bundle+my-bundle"]);
+  // pl.relPlBundles.add("bundle+my-bundle");
   // expect(pl.relPlBundles.size()).toBe(1);
   // expect(pl.relPlBundles.keys()[0]).toEqual("bundle+my-bundle");
 
   expect(pl.relPosts.size).toBe(0);
-  pl.relPosts.add(["post+my-post"]);
+  pl.relPosts.add("post+my-post");
   expect(pl.relPosts.size).toBe(1);
   // TODO
   // expect([...pl.relPost.keys][0]).toEqual("post+my-post");
 
   expect(pl.relTags.size).toBe(0);
-  pl.relTags.add(["tag+cool"]);
+  pl.relTags.add("tag+cool");
   expect(pl.relTags.size).toBe(1);
   expect([...pl.relTags.keys][0]).toEqual("tag+cool");
 });
@@ -124,7 +124,7 @@ test("edge apis", () => {
   const edges = g.edges.plangRelTypeSystems;
 
   expect(edges.has("pl+pascal", "tsys+strongly-typed")).toBeFalse();
-  pl.relTypeSystems.add([st.key]);
+  pl.relTypeSystems.add(st.key);
   expect(edges.has("pl+pascal", "tsys+strongly-typed")).toBeTrue();
 });
 
@@ -241,7 +241,7 @@ test("app nodes", () => {
   const app = g.app.set("app+my-app", { name: "My App" });
 
   expect(g.edges.appRelWrittenWith.size).toBe(0);
-  app.relWrittenWith.add(["pl+pascal"]);
+  app.relWrittenWith.add("pl+pascal");
   expect(g.edges.appRelWrittenWith.size).toBe(1);
 });
 
@@ -250,13 +250,13 @@ test("bundle nodes", () => {
   const bundle = g.bundle.set("bun+my-bundle", { name: "Humble Bundle" });
 
   expect(bundle.relTools.size).toBe(0);
-  bundle.relTools.add(["tool+my-tool"]);
+  bundle.relTools.add("tool+my-tool");
   expect(bundle.relTools.size).toBe(1);
   expect([...bundle.relTools.keys][0]).toEqual("tool+my-tool");
 
   // TODO
   // expect(bundle.rel.size).toBe(0);
-  // bundle.relPlangs.add(["pl+pascal"]);
+  // bundle.relPlangs.add("pl+pascal");
   // expect(bundle.relPlangs.size()).toBe(1);
   // expect(bundle.relPlangs.keys()[0]).toEqual("pl+pascal");
 });
@@ -266,7 +266,7 @@ test("library nodes", () => {
   const lib = g.library.set("lib+my-lib", { name: "My Pascal Unit" });
 
   expect(g.edges.libraryRelPlangs.size).toBe(0);
-  lib.relPlangs.add(["pl+pascal"]);
+  lib.relPlangs.add("pl+pascal");
   expect(g.edges.libraryRelPlangs.size).toBe(1);
 });
 
@@ -295,7 +295,7 @@ test("post nodes", () => {
   expect(post.name).toEqual("Hello World!");
 
   expect(post.relPlangs.size).toBe(0);
-  post.relPlangs.add(["pl+pascal"]);
+  post.relPlangs.add("pl+pascal");
   expect(post.relPlangs.size).toBe(1);
   expect([...post.relPlangs.keys][0]).toEqual("pl+pascal");
 });
@@ -305,6 +305,6 @@ test("tool nodes", () => {
   const tool = g.tool.set("tool+my-tool", { name: "My Tool" });
 
   expect(g.edges.plangRelTools.size).toBe(0);
-  tool.relPlangs.add(["pl+pascal"]);
+  tool.relPlangs.add("pl+pascal");
   expect(g.edges.plangRelTools.size).toBe(1);
 });

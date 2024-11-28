@@ -11,10 +11,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.vvvv.org/",
       created: "1998",
     })
-    .relInfluencedBy.add(["pl+apl", "pl+max-msp"])
-    .relParadigms.add(["para+dataflow", "para+multi", "para+visual"])
-    .relPlatforms.add(["plat+windows"])
-    .relTags.add([
+    .relInfluencedBy.add("pl+apl", "pl+max-msp")
+    .relParadigms.add("para+dataflow", "para+multi", "para+visual")
+    .relPlatforms.add("plat+windows")
+    .relTags.add(
       "tag+3dg",
       "tag+app",
       "tag+audio-dev",
@@ -25,8 +25,8 @@ export function define(g: PlangsGraph) {
       "tag+ray-tracer",
       "tag+ui",
       "tag+video",
-    ])
-    .relTypeSystems.add(["tsys+strong"]);
+    )
+    .relTypeSystems.add("tsys+strong");
 
   // TOOLS
 

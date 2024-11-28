@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://www.scala-lang.org/",
       created: "2004",
     })
-    .relInfluencedBy.add([
+    .relInfluencedBy.add(
       "pl+common-lisp",
       "pl+eiffel",
       "pl+erlang",
@@ -35,11 +35,11 @@ export function define(g: PlangsGraph) {
       "pl+r5rs",
       "pl+scheme",
       "pl+standard-ml",
-    ])
-    .relLicenses.add(["lic+apache"])
-    .relParadigms.add(["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+oop"])
-    .relPlatforms.add(["plat+java", "plat+nodejs", "plat+wasm"])
-    .relTags.add([
+    )
+    .relLicenses.add("lic+apache")
+    .relParadigms.add("para+concurrent", "para+functional", "para+imperative", "para+multi", "para+oop")
+    .relPlatforms.add("plat+java", "plat+nodejs", "plat+wasm")
+    .relTags.add(
       "tag+app",
       "tag+audio-dev",
       "tag+compiler",
@@ -50,8 +50,8 @@ export function define(g: PlangsGraph) {
       "tag+server",
       "tag+shell",
       "tag+testing",
-    ])
-    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
+    )
+    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural");
 
   // TOOLS
 

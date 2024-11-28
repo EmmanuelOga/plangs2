@@ -24,10 +24,10 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Terraform",
       created: "2014",
     })
-    .relCompilesTo.add(["pl+go"])
-    .relLicenses.add(["lic+mpl"])
-    .relParadigms.add(["para+declarative", "para+dsl"])
-    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"]);
+    .relCompilesTo.add("pl+go")
+    .relLicenses.add("lic+mpl")
+    .relParadigms.add("para+declarative", "para+dsl")
+    .relPlatforms.add("plat+apple", "plat+bsd", "plat+linux", "plat+windows");
 
   // TOOLS
 
