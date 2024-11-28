@@ -32,6 +32,23 @@ export class PlangsGraph extends PlangsGraphBase {
     }
     return keys;
   }
+
+  /**
+   * We can derive / infer some data from the existing data.
+   * We may implement some sort of inference engine in the future,
+   * but for now we can just materialize some simple rules.
+   */
+  materialize() {
+    // All languages implement themselves.
+    for (const pl of this.plang.values) pl.relImplements.add(pl.key);
+
+    // For each bundle, a bundle supports a language if any of its tools support that language.
+    for (const bundle of this.bundle.values) {
+      for (const tool of bundle.relTools.values) {
+        bundle.relPlangs.add(...tool.relPlangs.keys);
+      }
+    }
+  }
 }
 
 export class VApp extends VAppBase {

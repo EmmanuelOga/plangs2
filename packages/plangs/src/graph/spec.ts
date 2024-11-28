@@ -84,6 +84,7 @@ export const PLANGS_GRAPH_SPEC: GenGraphSpec<PlangVertexNames> = {
     { src: ["app", "relPlatforms", "Platforms supported."], dst: ["platform", "relApps", "Apps supporting this."] },
     { src: ["app", "relWrittenWith", "Plangs used to implement this."], dst: ["plang", "relApps", "Apps implemented with this."] },
     { src: ["bundle", "relTools", "Tools in this."], dst: ["tool", "relBundles", "Bundles including this."] },
+    { src: ["bundle", "relPlangs", "Plangs this Bundle is for."], dst: ["plang", "relBundles", "Bundles of Tools for this."] },
     { src: ["community", "relPlangs", "Plangs supported."], dst: ["plang", "relCommunities", "Communities suporting this."] },
     { src: ["learning", "relCommunities", "Communities supporting this."], dst: ["community", "relLearning", "Learning resources."] },
     { src: ["learning", "relPlangs", "Plangs covered."], dst: ["plang", "relLearning", "Learning resources."] },

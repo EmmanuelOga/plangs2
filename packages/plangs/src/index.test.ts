@@ -46,14 +46,12 @@ test("base node apis", () => {
   expect(pl.relApps.size).toBe(0);
   pl.relApps.add("app+something");
   expect(pl.relApps.size).toBe(1);
-  // TODO
-  // expect([...pl.relApps.keys][0]).toEqual("app+something");
+  expect([...pl.relApps.keys][0]).toEqual("app+something");
 
   expect(pl.relLibraries.size).toBe(0);
   pl.relLibraries.add("lib+something");
   expect(pl.relLibraries.size).toBe(1);
-  // TODO
-  // expect([...pl.relLibrary.keys][0]).toEqual("lib+something");
+  expect([...pl.relLibraries.keys][0]).toEqual("lib+something");
 
   expect(pl.relTools.size).toBe(0);
   pl.relTools.add("tool+something");
@@ -70,17 +68,15 @@ test("base node apis", () => {
   expect(pl.relParadigms.size).toBe(1);
   expect([...pl.relParadigms.keys][0]).toEqual("para+procedural");
 
-  // TODO
-  // expect(pl.relPlBundle.size).toBe(0);
-  // pl.relPlBundles.add("bundle+my-bundle");
-  // expect(pl.relPlBundles.size()).toBe(1);
-  // expect(pl.relPlBundles.keys()[0]).toEqual("bundle+my-bundle");
+  expect(pl.relBundles.size).toBe(0);
+  pl.relBundles.add("bun+my-bundle");
+  expect(pl.relBundles.size).toBe(1);
+  expect([...pl.relBundles.keys][0]).toEqual("bun+my-bundle");
 
   expect(pl.relPosts.size).toBe(0);
   pl.relPosts.add("post+my-post");
   expect(pl.relPosts.size).toBe(1);
-  // TODO
-  // expect([...pl.relPost.keys][0]).toEqual("post+my-post");
+  expect([...pl.relPosts.keys][0]).toEqual("post+my-post");
 
   expect(pl.relTags.size).toBe(0);
   pl.relTags.add("tag+cool");
@@ -254,11 +250,10 @@ test("bundle nodes", () => {
   expect(bundle.relTools.size).toBe(1);
   expect([...bundle.relTools.keys][0]).toEqual("tool+my-tool");
 
-  // TODO
-  // expect(bundle.rel.size).toBe(0);
-  // bundle.relPlangs.add("pl+pascal");
-  // expect(bundle.relPlangs.size()).toBe(1);
-  // expect(bundle.relPlangs.keys()[0]).toEqual("pl+pascal");
+  expect(bundle.relPlangs.size).toBe(0);
+  bundle.relPlangs.add("pl+pascal");
+  expect(bundle.relPlangs.size).toBe(1);
+  expect([...bundle.relPlangs.keys][0]).toEqual("pl+pascal");
 });
 
 test("library nodes", () => {

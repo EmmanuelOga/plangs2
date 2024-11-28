@@ -33,18 +33,4 @@ export async function loadDefinitions(g: PlangsGraph, options: { scanImages: boo
       }
     }
   }
-
-  runInference(g);
-}
-
-/**
- * We can derive / infer some data from the existing data.
- * We may implement some sort of inference engine in the future,
- * but for now we can just materialize some simple rules.
- */
-export function runInference(pg: PlangsGraph) {
-  for (const pl of pg.plang.values) {
-    // All languages implement themselves, so when we filter by "implements" we can include the language itself.
-    pl.relImplements.add(pl.key);
-  }
 }
