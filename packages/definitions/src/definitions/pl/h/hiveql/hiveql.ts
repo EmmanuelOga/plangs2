@@ -22,10 +22,10 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Apache_Hive",
       created: "2010",
     })
-    .relLicense.add(["lic+apache"])
-    .relParadigm.add(["para+declarative", "para+query"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+dbms"]);
+    .relLicenses.add(["lic+apache"])
+    .relParadigms.add(["para+declarative", "para+query"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+dbms"]);
 
   // TOOLS
 

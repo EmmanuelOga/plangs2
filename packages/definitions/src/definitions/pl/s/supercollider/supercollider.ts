@@ -22,12 +22,12 @@ export function define(g: PlangsGraph) {
       created: "1996",
     })
     .relInfluencedBy.add(["pl+csound", "pl+lisp"])
-    .relLicense.add(["lic+gnu-gpl"])
-    .relParadigm.add(["para+concurrent", "para+event-driven", "para+functional", "para+oop"])
-    .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+app", "tag+audio-dev", "tag+dsp", "tag+framework", "tag+interpreters"])
-    .relTypeSystem.add(["tsys+dynamic"])
-    .relWrittenInPlang.add(["pl+c++"]);
+    .relLicenses.add(["lic+gnu-gpl"])
+    .relParadigms.add(["para+concurrent", "para+event-driven", "para+functional", "para+oop"])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+app", "tag+audio-dev", "tag+dsp", "tag+framework", "tag+interpreters"])
+    .relTypeSystems.add(["tsys+dynamic"])
+    .relWrittenWith.add(["pl+c++"]);
 
   // TOOLS
 

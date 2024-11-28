@@ -21,8 +21,8 @@ export function define(g: PlangsGraph) {
       created: "2011",
     })
     .relCompilesTo.add(["pl+php"])
-    .relLicense.add(["lic+mit"])
-    .relPlatform.add(["plat+cross"]);
+    .relLicenses.add(["lic+mit"])
+    .relPlatforms.add(["plat+cross"]);
 
   // TOOLS
 

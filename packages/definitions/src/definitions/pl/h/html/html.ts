@@ -23,9 +23,9 @@ export function define(g: PlangsGraph) {
       extRedditPath: "HTML",
       created: "1993",
     })
-    .relParadigm.add(["para+declarative"])
-    .relPlatform.add(["plat+web"])
-    .relTag.add(["tag+scripting"]);
+    .relParadigms.add(["para+declarative"])
+    .relPlatforms.add(["plat+web"])
+    .relTags.add(["tag+scripting"]);
 
   // TOOLS
 

@@ -16,11 +16,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.w3.org/community/shex/",
       created: "2014",
     })
-    .relLicense.add(["lic+cc-by"])
-    .relParadigm.add(["para+declarative", "para+dsl", "para+validation"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+dataq", "tag+framework", "tag+scripting", "tag+workflow"])
-    .relWrittenInPlang.add(["pl+javascript", "pl+scala"]);
+    .relLicenses.add(["lic+cc-by"])
+    .relParadigms.add(["para+declarative", "para+dsl", "para+validation"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+dataq", "tag+framework", "tag+scripting", "tag+workflow"])
+    .relWrittenWith.add(["pl+javascript", "pl+scala"]);
 
   // TOOLS
 

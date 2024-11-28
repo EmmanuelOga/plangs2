@@ -23,9 +23,9 @@ export function define(g: PlangsGraph) {
       created: "2009",
     })
     .relCompilesTo.add(["pl+javascript"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+data-driven", "para+declarative"])
-    .relPlatform.add(["plat+web"]);
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+data-driven", "para+declarative"])
+    .relPlatforms.add(["plat+web"]);
 
   // TOOLS
 

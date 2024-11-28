@@ -25,10 +25,10 @@ export function define(g: PlangsGraph) {
       created: "1997",
     })
     .relInfluencedBy.add(["pl+forth", "pl+lisp", "pl+self"])
-    .relLicense.add(["lic+apache"])
-    .relParadigm.add(["para+data-exchange", "para+functional", "para+imperative", "para+language-oriented", "para+prototype"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add([
+    .relLicenses.add(["lic+apache"])
+    .relParadigms.add(["para+data-exchange", "para+functional", "para+imperative", "para+language-oriented", "para+prototype"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add([
       "tag+3dg",
       "tag+app",
       "tag+audio-dev",
@@ -40,7 +40,7 @@ export function define(g: PlangsGraph) {
       "tag+ui",
       "tag+video",
     ])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"]);
+    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

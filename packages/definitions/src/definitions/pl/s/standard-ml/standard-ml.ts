@@ -22,12 +22,12 @@ export function define(g: PlangsGraph) {
       created: "1983",
     })
     .relInfluencedBy.add(["pl+pascal"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+functional", "para+imperative", "para+modular", "para+multi"])
-    .relPlatform.add(["plat+bsd", "plat+cross", "plat+linux"])
-    .relTag.add(["tag+app", "tag+compiler", "tag+edu", "tag+industrial", "tag+interpreters", "tag+proofs", "tag+ray-tracer"])
-    .relTypeSystem.add(["tsys+inferred", "tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+functional", "para+imperative", "para+modular", "para+multi"])
+    .relPlatforms.add(["plat+bsd", "plat+cross", "plat+linux"])
+    .relTags.add(["tag+app", "tag+compiler", "tag+edu", "tag+industrial", "tag+interpreters", "tag+proofs", "tag+ray-tracer"])
+    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

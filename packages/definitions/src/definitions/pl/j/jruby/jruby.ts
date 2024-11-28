@@ -25,12 +25,12 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+ruby"])
     .relInfluencedBy.add(["pl+ruby"])
-    .relLicense.add(["lic+epl", "lic+gnu-gpl", "lic+lgpl"])
-    .relParadigm.add(["para+concurrent", "para+oop", "para+reflective", "para+scripting"])
-    .relPlatform.add(["plat+cross", "plat+java"])
-    .relTag.add(["tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting", "tag+shell"])
-    .relTypeSystem.add(["tsys+duck", "tsys+dynamic", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+java"]);
+    .relLicenses.add(["lic+epl", "lic+gnu-gpl", "lic+lgpl"])
+    .relParadigms.add(["para+concurrent", "para+oop", "para+reflective", "para+scripting"])
+    .relPlatforms.add(["plat+cross", "plat+java"])
+    .relTags.add(["tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting", "tag+shell"])
+    .relTypeSystems.add(["tsys+duck", "tsys+dynamic", "tsys+strong"])
+    .relWrittenWith.add(["pl+java"]);
 
   // TOOLS
 

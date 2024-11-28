@@ -21,12 +21,12 @@ export function define(g: PlangsGraph) {
       created: "1987",
     })
     .relInfluencedBy.add(["pl+haskell"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+functional"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+app", "tag+compiler", "tag+interpreters"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+static", "tsys+strong", "tsys+uniqueness"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+functional"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+app", "tag+compiler", "tag+interpreters"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+static", "tsys+strong", "tsys+uniqueness"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

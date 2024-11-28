@@ -21,12 +21,12 @@ export function define(g: PlangsGraph) {
       created: "2011",
     })
     .relInfluencedBy.add(["pl+prolog", "pl+scheme"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+functional", "para+logic", "para+multi", "para+pattern-matching", "para+symbolic"])
-    .relPlatform.add(["plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+web", "plat+windows"])
-    .relTag.add(["tag+automation", "tag+cas", "tag+compiler", "tag+interpreters", "tag+scripting"])
-    .relTypeSystem.add(["tsys+manifest", "tsys+polymorphic", "tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+scheme"]);
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+functional", "para+logic", "para+multi", "para+pattern-matching", "para+symbolic"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+web", "plat+windows"])
+    .relTags.add(["tag+automation", "tag+cas", "tag+compiler", "tag+interpreters", "tag+scripting"])
+    .relTypeSystems.add(["tsys+manifest", "tsys+polymorphic", "tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+scheme"]);
 
   // TOOLS
 

@@ -27,11 +27,11 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+curry"])
     .relInfluencedBy.add(["pl+clean", "pl+lisp", "pl+r5rs", "pl+raku", "pl+scheme", "pl+standard-ml"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+concurrent", "para+declarative", "para+functional", "para+lazy"])
-    .relPlatform.add(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters"])
-    .relTypeSystem.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+concurrent", "para+declarative", "para+functional", "para+lazy"])
+    .relPlatforms.add(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters"])
+    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

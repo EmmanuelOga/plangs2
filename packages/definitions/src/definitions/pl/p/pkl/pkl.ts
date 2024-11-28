@@ -20,8 +20,8 @@ export function define(g: PlangsGraph) {
       created: "2021",
     })
     .relCompilesTo.add(["pl+json", "pl+yaml"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add([
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add([
       "para+data-driven",
       "para+data-exchange",
       "para+declarative",
@@ -30,10 +30,10 @@ export function define(g: PlangsGraph) {
       "para+scripting",
       "para+validation",
     ])
-    .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+automation", "tag+interpreters", "tag+scripting"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+python"]);
+    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+automation", "tag+interpreters", "tag+scripting"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"])
+    .relWrittenWith.add(["pl+python"]);
 
   // TOOLS
 

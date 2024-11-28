@@ -1,4 +1,4 @@
-import { loadAllDefinitions } from "@plangs/definitions";
+import { loadDefinitions } from "@plangs/definitions";
 import { PlangsGraph } from "@plangs/plangs/graph";
 
 import { Cache, Key } from "./cache";
@@ -108,7 +108,7 @@ async function extract() {
   const wikiCache = new Cache("wikipedia");
 
   const g = new PlangsGraph();
-  await loadAllDefinitions(g, { scanImages: false });
+  await loadDefinitions(g, { scanImages: false });
 
   for (const key of (await wikiCache.list()).sort()) {
     const body = await wikiCache.read(key);
@@ -139,7 +139,7 @@ if (process.argv[2] === "scrape") {
 
 async function test() {
   const g = new PlangsGraph();
-  await loadAllDefinitions(g, { scanImages: false });
+  await loadDefinitions(g, { scanImages: false });
 
   const wikiCache = new Cache("wikipedia");
 
@@ -161,7 +161,7 @@ async function test() {
     if (!plang) {
       console.log("Failed to extract:", url.href);
     } else {
-      console.log(plang.key, plang.relTag.vertices);
+      console.log(plang.key, plang.relTags.values);
     }
   }
 }

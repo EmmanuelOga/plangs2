@@ -1,11 +1,10 @@
 import OpenAI from "openai";
 import type { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 
-import { loadAllDefinitions } from "@plangs/definitions";
+import { loadDefinitions } from "@plangs/definitions";
 import type { Vertices } from "@plangs/graphgen/library";
 import { plangCodeGen, tsNodePath } from "@plangs/languist/codegen";
 import { PlangsGraph, type VPlang } from "@plangs/plangs/graph";
-import { PlangsVertex } from "@plangs/plangs/graph/vertex_base";
 
 import { retrieveWebsites } from "./crawl";
 import { plangFromAI } from "./fromAI";
@@ -22,14 +21,14 @@ async function plangPrompt(pg: PlangsGraph, pl: VPlang, examplePl: VPlang): Prom
     compilesTo: [...pl.relCompilesTo.keys],
     dialectOf: [...pl.relDialectOf.keys],
     implements: [...pl.relImplements.keys],
-    influenced: [...pl.relInfluencedByRev.keys],
+    influenced: [...pl.relInfluenced.keys],
     influencedBy: [...pl.relInfluencedBy.keys],
-    licenses: [...pl.relLicense.keys],
-    paradigms: [...pl.relParadigm.keys],
-    platforms: [...pl.relPlatform.keys],
-    tags: [...pl.relTag.keys],
-    typeSystems: [...pl.relTypeSystem.keys],
-    writtenIn: [...pl.relWrittenInPlang.keys],
+    licenses: [...pl.relLicenses.keys],
+    paradigms: [...pl.relParadigms.keys],
+    platforms: [...pl.relPlatforms.keys],
+    tags: [...pl.relTags.keys],
+    typeSystems: [...pl.relTypeSystems.keys],
+    writtenIn: [...pl.relWrittenWith.keys],
   };
 
   const externalLinks: string[] = [];
@@ -155,7 +154,7 @@ function examplePl(pg: PlangsGraph): VPlang {
 /** Attempt to enrich the data for the language with given key. */
 async function enrichOne(key: VPlang["key"]) {
   const pg = new PlangsGraph();
-  await loadAllDefinitions(pg, { scanImages: false });
+  await loadDefinitions(pg, { scanImages: false });
 
   const pl = pg.plang.get(process.argv[2] as VPlang["key"]);
   if (pl) {
@@ -171,7 +170,7 @@ async function enrichOne(key: VPlang["key"]) {
 /** Attempt to enrich the data for all existing programming languages. */
 async function enrichAll() {
   const pg = new PlangsGraph();
-  await loadAllDefinitions(pg, { scanImages: false });
+  await loadDefinitions(pg, { scanImages: false });
 
   for (const pl of pg.plang.values) {
     await aiCompletion(pg, pl, examplePl(pg));

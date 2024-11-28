@@ -27,8 +27,8 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+javascript", "pl+llvm"])
     .relInfluencedBy.add(["pl+c-sharp", "pl+eiffel", "pl+groovy", "pl+javascript", "pl+python", "pl+scala"])
-    .relLicense.add(["lic+apache"])
-    .relParadigm.add([
+    .relLicenses.add(["lic+apache"])
+    .relParadigms.add([
       "para+concurrent",
       "para+declarative",
       "para+functional",
@@ -38,9 +38,9 @@ export function define(g: PlangsGraph) {
       "para+reflective",
       "para+structured",
     ])
-    .relPlatform.add(["plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+nodejs", "plat+wasm", "plat+web", "plat+windows"])
-    .relTag.add(["tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+shell", "tag+testing"])
-    .relTypeSystem.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+nodejs", "plat+wasm", "plat+web", "plat+windows"])
+    .relTags.add(["tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+shell", "tag+testing"])
+    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

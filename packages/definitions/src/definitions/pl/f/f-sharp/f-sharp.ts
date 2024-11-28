@@ -26,8 +26,8 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+ocaml"])
     .relInfluencedBy.add(["pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ocaml", "pl+python", "pl+scala", "pl+standard-ml"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add([
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add([
       "para+agents",
       "para+concurrent",
       "para+functional",
@@ -37,8 +37,8 @@ export function define(g: PlangsGraph) {
       "para+oop",
       "para+reflective",
     ])
-    .relPlatform.add(["plat+.net", "plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add([
+    .relPlatforms.add(["plat+.net", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+app",
       "tag+automation",
       "tag+cli",
@@ -54,8 +54,8 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+viz",
     ])
-    .relTypeSystem.add(["tsys+inferred", "tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+c-sharp"]);
+    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+c-sharp"]);
 
   // TOOLS
 

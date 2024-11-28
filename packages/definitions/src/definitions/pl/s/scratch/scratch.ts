@@ -18,12 +18,12 @@ export function define(g: PlangsGraph) {
       created: "2003",
     })
     .relInfluencedBy.add(["pl+squeak"])
-    .relLicense.add(["lic+bsd", "lic+dual", "lic+gnu-gpl"])
-    .relParadigm.add(["para+educational", "para+event-driven", "para+visual"])
-    .relPlatform.add(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+audio-dev", "tag+editor", "tag+games", "tag+interpreters", "tag+multimedia", "tag+video", "tag+viz"])
-    .relTypeSystem.add(["tsys+untyped"])
-    .relWrittenInPlang.add(["pl+actionscript", "pl+javascript", "pl+squeak"]);
+    .relLicenses.add(["lic+bsd", "lic+dual", "lic+gnu-gpl"])
+    .relParadigms.add(["para+educational", "para+event-driven", "para+visual"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+audio-dev", "tag+editor", "tag+games", "tag+interpreters", "tag+multimedia", "tag+video", "tag+viz"])
+    .relTypeSystems.add(["tsys+untyped"])
+    .relWrittenWith.add(["pl+actionscript", "pl+javascript", "pl+squeak"]);
 
   // TOOLS
 

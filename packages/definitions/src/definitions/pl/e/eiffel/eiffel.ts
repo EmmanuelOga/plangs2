@@ -21,10 +21,10 @@ export function define(g: PlangsGraph) {
       created: "1986",
     })
     .relInfluencedBy.add(["pl+ada"])
-    .relLicense.add(["lic+dual", "lic+epl"])
-    .relParadigm.add(["para+compiled", "para+concurrent", "para+contracts", "para+oop"])
-    .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add([
+    .relLicenses.add(["lic+dual", "lic+epl"])
+    .relParadigms.add(["para+compiled", "para+concurrent", "para+contracts", "para+oop"])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+3dg",
       "tag+analysis",
       "tag+app",
@@ -37,7 +37,7 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
-    .relTypeSystem.add(["tsys+static", "tsys+strong"]);
+    .relTypeSystems.add(["tsys+static", "tsys+strong"]);
 
   // TOOLS
 

@@ -10,6 +10,7 @@ export type VKey<Prefix extends string> = `${Prefix}+${string}`;
  */
 export abstract class Vertex<KeyPrefix extends string, Data> {
   abstract readonly kind: KeyPrefix;
+  abstract readonly desc: string;
 
   /** Serializable data. */
   data: Partial<Data> = {};
@@ -39,6 +40,10 @@ export abstract class Vertex<KeyPrefix extends string, Data> {
   /** {@link merge} can be used to load serialized data into an instance. */
   toJSON() {
     return this.data;
+  }
+
+  toString() {
+    return `(${this.desc} ${this.key})`;
   }
 }
 
@@ -236,7 +241,7 @@ export class RelFrom<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
     return this.edges.forward(this.from.key);
   }
 
-  get vertices(): ToVertex[] {
+  get values(): ToVertex[] {
     return [...this.keys].map(k => this.edges.toSource.get(k)).filter(v => v) as ToVertex[];
   }
 
@@ -266,11 +271,11 @@ export class RelTo<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
     return this.edges.has(fromKey, this.to.key);
   }
 
-  get keys(): Set<ToVertex["key"]> {
+  get keys(): Set<FromVertex["key"]> {
     return this.edges.backward(this.to.key);
   }
 
-  get vertices(): FromVertex[] {
+  get values(): FromVertex[] {
     return [...this.keys].map(k => this.edges.fromSource.get(k)).filter(v => v) as FromVertex[];
   }
 

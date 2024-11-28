@@ -14,12 +14,12 @@ export function define(g: PlangsGraph) {
       created: "2011",
     })
     .relInfluencedBy.add(["pl+lisp", "pl+scheme"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+functional", "para+multi", "para+real-time"])
-    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+audio-dev", "tag+compiler", "tag+dsp", "tag+multimedia", "tag+wavelet"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+static"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+functional", "para+multi", "para+real-time"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+audio-dev", "tag+compiler", "tag+dsp", "tag+multimedia", "tag+wavelet"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+static"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

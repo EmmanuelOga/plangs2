@@ -23,10 +23,10 @@ export function define(g: PlangsGraph) {
       created: "2009",
     })
     .relCompilesTo.add(["pl+c++"])
-    .relParadigm.add(["para+declarative", "para+reactive", "para+scripting"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+ui"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"]);
+    .relParadigms.add(["para+declarative", "para+reactive", "para+scripting"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+ui"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

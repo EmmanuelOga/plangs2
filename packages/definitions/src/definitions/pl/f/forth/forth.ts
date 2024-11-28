@@ -21,10 +21,10 @@ export function define(g: PlangsGraph) {
       created: "1970",
     })
     .relInfluencedBy.add(["pl+lisp"])
-    .relLicense.add(["lic+public-domain"])
-    .relParadigm.add(["para+concatenative", "para+procedural", "para+reflective", "para+stack-oriented"])
-    .relPlatform.add(["plat+cross", "plat+embedded"])
-    .relTag.add([
+    .relLicenses.add(["lic+public-domain"])
+    .relParadigms.add(["para+concatenative", "para+procedural", "para+reflective", "para+stack-oriented"])
+    .relPlatforms.add(["plat+cross", "plat+embedded"])
+    .relTags.add([
       "tag+app",
       "tag+asm",
       "tag+compiler",
@@ -39,7 +39,7 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+testing",
     ])
-    .relTypeSystem.add(["tsys+untyped"]);
+    .relTypeSystems.add(["tsys+untyped"]);
 
   // TOOLS
 

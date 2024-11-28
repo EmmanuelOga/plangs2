@@ -25,9 +25,9 @@ export function define(g: PlangsGraph) {
       created: "2004",
     })
     .relCompilesTo.add(["pl+html"])
-    .relParadigm.add(["para+dsl", "para+scripting"])
-    .relTag.add(["tag+editor", "tag+scripting"])
-    .relTypeSystem.add(["tsys+untyped"]);
+    .relParadigms.add(["para+dsl", "para+scripting"])
+    .relTags.add(["tag+editor", "tag+scripting"])
+    .relTypeSystems.add(["tsys+untyped"]);
 
   // TOOLS
 

@@ -25,11 +25,11 @@ export function define(g: PlangsGraph) {
       created: "2003",
     })
     .relInfluencedBy.add(["pl+forth", "pl+lisp", "pl+self"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+concatenative", "para+functional", "para+multi", "para+oop"])
-    .relPlatform.add(["plat+apple", "plat+linux", "plat+windows", "plat+x86-64"])
-    .relTag.add(["tag+compiler", "tag+interpreters", "tag+scripting"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"]);
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+concatenative", "para+functional", "para+multi", "para+oop"])
+    .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows", "plat+x86-64"])
+    .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

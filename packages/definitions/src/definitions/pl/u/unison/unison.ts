@@ -13,12 +13,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.unison-lang.org/",
       created: "2023",
     })
-    .relLicense.add(["lic+apache"])
-    .relParadigm.add(["para+declarative", "para+distributed", "para+functional"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+cli"])
-    .relTypeSystem.add(["tsys+algebraic", "tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+haskell"]);
+    .relLicenses.add(["lic+apache"])
+    .relParadigms.add(["para+declarative", "para+distributed", "para+functional"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+cli"])
+    .relTypeSystems.add(["tsys+algebraic", "tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+haskell"]);
 
   // TOOLS
 

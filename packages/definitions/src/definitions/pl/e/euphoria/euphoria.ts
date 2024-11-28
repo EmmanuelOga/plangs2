@@ -19,10 +19,10 @@ export function define(g: PlangsGraph) {
       created: "1993",
     })
     .relInfluencedBy.add(["pl+basic"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+imperative", "para+procedural"])
-    .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add([
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+imperative", "para+procedural"])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+app",
       "tag+compiler",
       "tag+dbms",
@@ -34,7 +34,7 @@ export function define(g: PlangsGraph) {
       "tag+ui",
       "tag+wavelet",
     ])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+static"]);
+    .relTypeSystems.add(["tsys+dynamic", "tsys+static"]);
 
   // TOOLS
 

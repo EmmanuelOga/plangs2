@@ -22,11 +22,11 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+lisp"])
     .relInfluencedBy.add(["pl+lisp"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+functional", "para+imperative", "para+metaprogramming", "para+multi"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+compiler", "tag+interpreters", "tag+scripting", "tag+testing"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+latent", "tsys+strong"]);
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+functional", "para+imperative", "para+metaprogramming", "para+multi"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting", "tag+testing"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+latent", "tsys+strong"]);
 
   // TOOLS
 

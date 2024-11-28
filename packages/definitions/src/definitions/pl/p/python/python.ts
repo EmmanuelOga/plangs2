@@ -28,8 +28,8 @@ export function define(g: PlangsGraph) {
       created: "1991",
     })
     .relInfluencedBy.add(["pl+ada", "pl+apl", "pl+c", "pl+c++", "pl+haskell", "pl+lisp", "pl+perl", "pl+r5rs", "pl+scheme", "pl+standard-ml"])
-    .relLicense.add(["lic+python"])
-    .relParadigm.add([
+    .relLicenses.add(["lic+python"])
+    .relParadigms.add([
       "para+functional",
       "para+imperative",
       "para+multi",
@@ -39,8 +39,8 @@ export function define(g: PlangsGraph) {
       "para+scripting",
       "para+structured",
     ])
-    .relPlatform.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+raspberry", "plat+wasm", "plat+windows"])
-    .relTag.add([
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+raspberry", "plat+wasm", "plat+windows"])
+    .relTags.add([
       "tag+analysis",
       "tag+app",
       "tag+automation",
@@ -63,8 +63,8 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
-    .relTypeSystem.add(["tsys+duck", "tsys+dynamic", "tsys+optional", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+c", "pl+python"]);
+    .relTypeSystems.add(["tsys+duck", "tsys+dynamic", "tsys+optional", "tsys+strong"])
+    .relWrittenWith.add(["pl+c", "pl+python"]);
 
   // TOOLS
 
@@ -76,8 +76,8 @@ export function define(g: PlangsGraph) {
         "Pixi is a package management tool for developers. It allows the developer to install libraries and applications in a reproducible way. Use pixi cross-platform, on Windows, Mac and Linux.",
       extHomeURL: "https://pixi.sh/",
     })
-    .relPlang.add("pl+python")
-    .relToolWrittenIn.add("pl+rust");
+    .relPlangs.add("pl+python")
+    .relWrittenWith.add("pl+rust");
 
   g.tool
     .set("tool+pyright", {
@@ -87,7 +87,7 @@ export function define(g: PlangsGraph) {
         "Pyright is a full-featured, standards-compliant static type checker for Python. It is designed for high performance and can be used with large Python source bases.",
       extHomeURL: "https://microsoft.github.io/pyright/",
     })
-    .relPlang.add("pl+python");
+    .relPlangs.add("pl+python");
 
   g.tool
     .set("tool+ruff", {
@@ -96,8 +96,8 @@ export function define(g: PlangsGraph) {
       description: "An extremely fast Python linter and code formatter, written in Rust.",
       extHomeURL: "https://docs.astral.sh/ruff/",
     })
-    .relPlang.add("pl+python")
-    .relToolWrittenIn.add("pl+rust");
+    .relPlangs.add("pl+python")
+    .relWrittenWith.add("pl+rust");
 
   g.tool
     .set("tool+vscode-python", {
@@ -107,8 +107,8 @@ export function define(g: PlangsGraph) {
         "Python language support with extension access points for IntelliSense (Pylance), Debugging (Python Debugger), linting, formatting, refactoring, unit tests, and more.",
       extHomeURL: "https://marketplace.visualstudio.com/items?itemName=ms-python.python",
     })
-    .relPlang.add("pl+python")
-    .relToolWrittenIn.add("pl+typescript");
+    .relPlangs.add("pl+python")
+    .relWrittenWith.add("pl+typescript");
 
   // TOOL BUNDLES
 
@@ -117,7 +117,7 @@ export function define(g: PlangsGraph) {
       description:
         "Manage Python dependencies with Pixi, lint and format code with Ruff, and use Pyright for type checking. Includes the Python extension for VSCode.",
     })
-    .relTool.add(["tool+pixi", "tool+pyright", "tool+ruff", "tool+vscode-python"]);
+    .relTools.add(["tool+pixi", "tool+pyright", "tool+ruff", "tool+vscode-python"]);
 
   // LIBRARIES
 
@@ -128,7 +128,7 @@ export function define(g: PlangsGraph) {
       description: "Flask is a lightweight WSGI web application framework.",
       extHomeURL: "https://flask.palletsprojects.com/",
     })
-    .relPlang.add("pl+python");
+    .relPlangs.add("pl+python");
 
   g.library
     .set("lib+msgspec", {
@@ -137,8 +137,8 @@ export function define(g: PlangsGraph) {
       description: "msgspec is a fast serialization and validation library, with builtin support for JSON, MessagePack, YAML, and TOML.",
       extHomeURL: "https://jcristharif.com/msgspec/",
     })
-    .relPlang.add("pl+python")
-    .relLibWrittenIn.add(["pl+python", "pl+rust"]);
+    .relPlangs.add("pl+python")
+    .relWrittenWith.add(["pl+python", "pl+rust"]);
 
   // APPS
 
@@ -150,7 +150,7 @@ export function define(g: PlangsGraph) {
         "Aider lets you pair program with LLMs, to edit code in your local git repository. Start a new project or work with an existing git repo. Aider works best with GPT-4o & Claude 3.5 Sonnet and can connect to almost any LLM.",
       extHomeURL: "https://aider.chat/",
     })
-    .relPlang.add("pl+python");
+    .relWrittenWith.add("pl+python");
 
   g.app
     .set("app+glances", {
@@ -159,7 +159,7 @@ export function define(g: PlangsGraph) {
       description: "Glances is a cross-platform system monitoring tool written in Python.",
       extHomeURL: "https://nicolargo.github.io/glances/",
     })
-    .relPlang.add("pl+python");
+    .relWrittenWith.add("pl+python");
 
   g.app
     .set("app+harlequin", {
@@ -168,7 +168,7 @@ export function define(g: PlangsGraph) {
       description: "An easy, fast, and beautiful database client for the terminal.",
       extHomeURL: "https://harlequin.sh/",
     })
-    .relPlang.add("pl+python");
+    .relWrittenWith.add("pl+python");
 
   g.app
     .set("app+zulip", {
@@ -177,5 +177,5 @@ export function define(g: PlangsGraph) {
       description: "Zulip is a powerful, open source group chat application.",
       extHomeURL: "https://github.com/zulip/zulip",
     })
-    .relPlang.add("pl+python");
+    .relWrittenWith.add("pl+python");
 }

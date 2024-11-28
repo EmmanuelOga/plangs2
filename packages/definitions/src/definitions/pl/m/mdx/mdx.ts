@@ -18,11 +18,11 @@ export function define(g: PlangsGraph) {
       created: "2018",
     })
     .relCompilesTo.add(["pl+html", "pl+javascript", "pl+markdown"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+dsl", "para+interpreted", "para+reactive"])
-    .relPlatform.add(["plat+web"])
-    .relTag.add(["tag+modular", "tag+scripting", "tag+ui"])
-    .relTypeSystem.add(["tsys+dynamic"]);
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+dsl", "para+interpreted", "para+reactive"])
+    .relPlatforms.add(["plat+web"])
+    .relTags.add(["tag+modular", "tag+scripting", "tag+ui"])
+    .relTypeSystems.add(["tsys+dynamic"]);
 
   // TOOLS
 

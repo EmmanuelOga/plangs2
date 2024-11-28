@@ -14,11 +14,11 @@ export function define(g: PlangsGraph) {
       created: "2005",
     })
     .relInfluencedBy.add(["pl+ada", "pl+c", "pl+c++", "pl+pascal"])
-    .relLicense.add(["lic+gnu-gpl", "lic+lgpl"])
-    .relParadigm.add(["para+extensible", "para+imperative", "para+multi", "para+oop", "para+reflective", "para+structured"])
-    .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+analysis", "tag+compiler", "tag+dbms", "tag+interpreters", "tag+ray-tracer"])
-    .relTypeSystem.add(["tsys+manifest", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong"]);
+    .relLicenses.add(["lic+gnu-gpl", "lic+lgpl"])
+    .relParadigms.add(["para+extensible", "para+imperative", "para+multi", "para+oop", "para+reflective", "para+structured"])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+analysis", "tag+compiler", "tag+dbms", "tag+interpreters", "tag+ray-tracer"])
+    .relTypeSystems.add(["tsys+manifest", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

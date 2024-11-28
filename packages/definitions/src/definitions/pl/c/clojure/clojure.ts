@@ -35,10 +35,10 @@ export function define(g: PlangsGraph) {
       "pl+scheme",
       "pl+wolfram-language",
     ])
-    .relLicense.add(["lic+epl"])
-    .relParadigm.add(["para+agents", "para+concurrent", "para+functional", "para+logic", "para+macro", "para+multi", "para+pipeline"])
-    .relPlatform.add(["plat+cross", "plat+java", "plat+nodejs"])
-    .relTag.add([
+    .relLicenses.add(["lic+epl"])
+    .relParadigms.add(["para+agents", "para+concurrent", "para+functional", "para+logic", "para+macro", "para+multi", "para+pipeline"])
+    .relPlatforms.add(["plat+cross", "plat+java", "plat+nodejs"])
+    .relTags.add([
       "tag+app",
       "tag+automation",
       "tag+cli",
@@ -49,8 +49,8 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
       "tag+shell",
     ])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+clojure", "pl+java"]);
+    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"])
+    .relWrittenWith.add(["pl+clojure", "pl+java"]);
 
   // TOOLS
 

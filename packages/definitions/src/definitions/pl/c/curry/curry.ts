@@ -19,11 +19,11 @@ export function define(g: PlangsGraph) {
       created: "1995",
     })
     .relInfluencedBy.add(["pl+haskell", "pl+prolog"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+concurrent", "para+constraint", "para+declarative", "para+functional", "para+lazy", "para+logic", "para+modular"])
-    .relPlatform.add(["plat+cross", "plat+linux", "plat+x86-64"])
-    .relTag.add(["tag+audio-dev", "tag+compiler", "tag+interpreters", "tag+scripting", "tag+testing"])
-    .relTypeSystem.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+concurrent", "para+constraint", "para+declarative", "para+functional", "para+lazy", "para+logic", "para+modular"])
+    .relPlatforms.add(["plat+cross", "plat+linux", "plat+x86-64"])
+    .relTags.add(["tag+audio-dev", "tag+compiler", "tag+interpreters", "tag+scripting", "tag+testing"])
+    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

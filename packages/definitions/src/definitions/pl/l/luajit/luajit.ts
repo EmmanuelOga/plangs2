@@ -20,12 +20,12 @@ export function define(g: PlangsGraph) {
     .relDialectOf.add(["pl+lua"])
     .relImplements.add(["pl+lua"])
     .relInfluencedBy.add(["pl+c", "pl+lua"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+imperative", "para+procedural", "para+scripting"])
-    .relPlatform.add(["plat+android", "plat+apple", "plat+arm", "plat+linux", "plat+windows", "plat+x86-64"])
-    .relTag.add(["tag+compiler", "tag+interpreters", "tag+scripting"])
-    .relTypeSystem.add(["tsys+dynamic"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+imperative", "para+procedural", "para+scripting"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+arm", "plat+linux", "plat+windows", "plat+x86-64"])
+    .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting"])
+    .relTypeSystems.add(["tsys+dynamic"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

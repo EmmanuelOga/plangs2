@@ -17,11 +17,11 @@ export function define(g: PlangsGraph) {
       created: "1995",
     })
     .relImplements.add(["pl+ada"])
-    .relLicense.add(["lic+gnu-gpl"])
-    .relParadigm.add(["para+compiled", "para+concurrent", "para+procedural", "para+structured"])
-    .relPlatform.add(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+compiler", "tag+framework", "tag+interpreters"])
-    .relTypeSystem.add(["tsys+nominal", "tsys+static", "tsys+strong"]);
+    .relLicenses.add(["lic+gnu-gpl"])
+    .relParadigms.add(["para+compiled", "para+concurrent", "para+procedural", "para+structured"])
+    .relPlatforms.add(["plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+compiler", "tag+framework", "tag+interpreters"])
+    .relTypeSystems.add(["tsys+nominal", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

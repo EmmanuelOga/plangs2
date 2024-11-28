@@ -25,10 +25,10 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+prolog"])
     .relInfluencedBy.add(["pl+prolog"])
-    .relLicense.add(["lic+apache", "lic+artistic"])
-    .relParadigm.add(["para+logic", "para+oop", "para+prototype"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+analysis", "tag+compiler", "tag+framework", "tag+interpreters", "tag+viz"]);
+    .relLicenses.add(["lic+apache", "lic+artistic"])
+    .relParadigms.add(["para+logic", "para+oop", "para+prototype"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+analysis", "tag+compiler", "tag+framework", "tag+interpreters", "tag+viz"]);
 
   // TOOLS
 

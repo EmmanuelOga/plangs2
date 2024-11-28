@@ -12,10 +12,10 @@ export function define(g: PlangsGraph) {
       created: "1993",
     })
     .relInfluencedBy.add(["pl+apl", "pl+scheme"])
-    .relParadigm.add(["para+array", "para+functional"])
-    .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+analysis", "tag+app", "tag+dbms", "tag+interpreters"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"]);
+    .relParadigms.add(["para+array", "para+functional"])
+    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+analysis", "tag+app", "tag+dbms", "tag+interpreters"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

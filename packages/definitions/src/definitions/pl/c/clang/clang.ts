@@ -24,12 +24,12 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+c", "pl+c++"])
     .relInfluencedBy.add(["pl+llvm"])
-    .relLicense.add(["lic+apache"])
-    .relParadigm.add(["para+compiled", "para+multi"])
-    .relPlatform.add(["plat+apple", "plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+windows", "plat+x86-64"])
-    .relTag.add(["tag+analysis", "tag+automation", "tag+cli", "tag+compiler", "tag+ray-tracer", "tag+shell", "tag+viz"])
-    .relTypeSystem.add(["tsys+manifest", "tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+c++"]);
+    .relLicenses.add(["lic+apache"])
+    .relParadigms.add(["para+compiled", "para+multi"])
+    .relPlatforms.add(["plat+apple", "plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+windows", "plat+x86-64"])
+    .relTags.add(["tag+analysis", "tag+automation", "tag+cli", "tag+compiler", "tag+ray-tracer", "tag+shell", "tag+viz"])
+    .relTypeSystems.add(["tsys+manifest", "tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+c++"]);
 
   // TOOLS
 

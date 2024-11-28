@@ -22,9 +22,9 @@ export function define(g: PlangsGraph) {
       created: "1974",
     })
     .relInfluencedBy.add(["pl+datalog"])
-    .relParadigm.add(["para+data-driven", "para+declarative", "para+dsl", "para+query"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add([
+    .relParadigms.add(["para+data-driven", "para+declarative", "para+dsl", "para+query"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add([
       "tag+4gl",
       "tag+dbms",
       "tag+industrial",
@@ -35,7 +35,7 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+workflow",
     ])
-    .relTypeSystem.add(["tsys+static", "tsys+strong"]);
+    .relTypeSystems.add(["tsys+static", "tsys+strong"]);
 
   // TOOLS
 

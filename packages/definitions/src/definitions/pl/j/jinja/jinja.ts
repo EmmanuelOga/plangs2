@@ -23,10 +23,10 @@ export function define(g: PlangsGraph) {
       created: "2008",
     })
     .relCompilesTo.add(["pl+python"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+declarative", "para+dsl"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+scripting"]);
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+declarative", "para+dsl"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+scripting"]);
 
   // TOOLS
 

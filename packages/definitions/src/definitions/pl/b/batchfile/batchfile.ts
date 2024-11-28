@@ -20,9 +20,9 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Batch",
       created: "1985",
     })
-    .relParadigm.add(["para+procedural", "para+scripting"])
-    .relPlatform.add(["plat+dos", "plat+windows"])
-    .relTag.add(["tag+automation", "tag+scripting", "tag+shell"]);
+    .relParadigms.add(["para+procedural", "para+scripting"])
+    .relPlatforms.add(["plat+dos", "plat+windows"])
+    .relTags.add(["tag+automation", "tag+scripting", "tag+shell"]);
 
   // TOOLS
 

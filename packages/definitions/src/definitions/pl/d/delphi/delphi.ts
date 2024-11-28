@@ -27,9 +27,9 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+pascal"])
     .relImplements.add(["pl+pascal"])
-    .relParadigm.add(["para+compiled", "para+multi", "para+oop", "para+procedural"])
-    .relPlatform.add(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
-    .relTag.add([
+    .relParadigms.add(["para+compiled", "para+multi", "para+oop", "para+procedural"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+asm",
       "tag+automation",
       "tag+compiler",
@@ -44,8 +44,8 @@ export function define(g: PlangsGraph) {
       "tag+uml",
       "tag+viz",
     ])
-    .relTypeSystem.add(["tsys+object", "tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+c++"]);
+    .relTypeSystems.add(["tsys+object", "tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+c++"]);
 
   // TOOLS
 

@@ -23,10 +23,10 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://puredata.info/",
       created: "1996",
     })
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+concurrent", "para+dataflow", "para+event-driven", "para+visual"])
-    .relPlatform.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add([
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+concurrent", "para+dataflow", "para+event-driven", "para+visual"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+audio-dev",
       "tag+dataflow",
       "tag+dsp",
@@ -41,8 +41,8 @@ export function define(g: PlangsGraph) {
       "tag+video",
       "tag+wavelet",
     ])
-    .relTypeSystem.add(["tsys+untyped"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relTypeSystems.add(["tsys+untyped"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

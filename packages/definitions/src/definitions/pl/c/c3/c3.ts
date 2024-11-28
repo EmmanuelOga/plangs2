@@ -18,11 +18,11 @@ export function define(g: PlangsGraph) {
       created: "2019",
     })
     .relInfluencedBy.add(["pl+c"])
-    .relLicense.add(["lic+lgpl", "lic+mit"])
-    .relParadigm.add(["para+compiled", "para+general-purpose", "para+multi", "para+procedural"])
-    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+compiler", "tag+scripting"])
-    .relTypeSystem.add(["tsys+static", "tsys+strong"]);
+    .relLicenses.add(["lic+lgpl", "lic+mit"])
+    .relParadigms.add(["para+compiled", "para+general-purpose", "para+multi", "para+procedural"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+compiler", "tag+scripting"])
+    .relTypeSystems.add(["tsys+static", "tsys+strong"]);
 
   // TOOLS
 

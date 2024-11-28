@@ -23,12 +23,12 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+php"])
     .relInfluencedBy.add(["pl+c-sharp", "pl+haskell", "pl+ocaml", "pl+php", "pl+scala"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+interpreters", "tag+scripting"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+gradual", "tsys+manifest", "tsys+safe", "tsys+static", "tsys+strong", "tsys+weak"])
-    .relWrittenInPlang.add(["pl+ocaml"]);
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+interpreters", "tag+scripting"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+gradual", "tsys+manifest", "tsys+safe", "tsys+static", "tsys+strong", "tsys+weak"])
+    .relWrittenWith.add(["pl+ocaml"]);
 
   // TOOLS
 

@@ -11,11 +11,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://alda.io/",
       created: "2015",
     })
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+dsl"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+audio-dev", "tag+midi"])
-    .relTypeSystem.add(["tsys+untyped"]);
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+dsl"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+audio-dev", "tag+midi"])
+    .relTypeSystems.add(["tsys+untyped"]);
 
   // TOOLS
 

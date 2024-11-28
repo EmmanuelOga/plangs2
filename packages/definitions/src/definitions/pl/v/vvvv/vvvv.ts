@@ -12,9 +12,9 @@ export function define(g: PlangsGraph) {
       created: "1998",
     })
     .relInfluencedBy.add(["pl+apl", "pl+max-msp"])
-    .relParadigm.add(["para+dataflow", "para+multi", "para+visual"])
-    .relPlatform.add(["plat+windows"])
-    .relTag.add([
+    .relParadigms.add(["para+dataflow", "para+multi", "para+visual"])
+    .relPlatforms.add(["plat+windows"])
+    .relTags.add([
       "tag+3dg",
       "tag+app",
       "tag+audio-dev",
@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       "tag+ui",
       "tag+video",
     ])
-    .relTypeSystem.add(["tsys+strong"]);
+    .relTypeSystems.add(["tsys+strong"]);
 
   // TOOLS
 

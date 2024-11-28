@@ -25,12 +25,12 @@ export function define(g: PlangsGraph) {
       created: "1996",
     })
     .relInfluencedBy.add(["pl+c", "pl+pascal", "pl+standard-ml"])
-    .relLicense.add(["lic+lgpl"])
-    .relParadigm.add(["para+functional", "para+imperative", "para+modular", "para+multi", "para+oop"])
-    .relPlatform.add(["plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
-    .relTag.add(["tag+analysis", "tag+automation", "tag+compiler", "tag+control", "tag+industrial", "tag+interpreters", "tag+proofs", "tag+viz"])
-    .relTypeSystem.add(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relLicenses.add(["lic+lgpl"])
+    .relParadigms.add(["para+functional", "para+imperative", "para+modular", "para+multi", "para+oop"])
+    .relPlatforms.add(["plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
+    .relTags.add(["tag+analysis", "tag+automation", "tag+compiler", "tag+control", "tag+industrial", "tag+interpreters", "tag+proofs", "tag+viz"])
+    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

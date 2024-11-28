@@ -15,11 +15,11 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+lisp", "pl+scheme"])
     .relInfluencedBy.add(["pl+lisp"])
-    .relParadigm.add(["para+functional", "para+imperative", "para+metaprogramming", "para+multi"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+analysis", "tag+compiler", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+testing"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+latent", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relParadigms.add(["para+functional", "para+imperative", "para+metaprogramming", "para+multi"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+analysis", "tag+compiler", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+testing"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+latent", "tsys+strong"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

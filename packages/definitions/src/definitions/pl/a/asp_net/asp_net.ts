@@ -23,10 +23,10 @@ export function define(g: PlangsGraph) {
       created: "2002",
     })
     .relCompilesTo.add(["pl+.net"])
-    .relParadigm.add(["para+multi", "para+oop"])
-    .relPlatform.add(["plat+apple", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+framework", "tag+server"])
-    .relTypeSystem.add(["tsys+nominal", "tsys+static"]);
+    .relParadigms.add(["para+multi", "para+oop"])
+    .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+framework", "tag+server"])
+    .relTypeSystems.add(["tsys+nominal", "tsys+static"]);
 
   // TOOLS
 

@@ -24,12 +24,12 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+actionscript", "pl+c++", "pl+c-sharp", "pl+java", "pl+javascript", "pl+lua", "pl+ocaml", "pl+php", "pl+python"])
     .relInfluencedBy.add(["pl+actionscript", "pl+c++", "pl+c-sharp", "pl+javascript", "pl+lua", "pl+ocaml", "pl+python"])
-    .relLicense.add(["lic+gnu-gpl", "lic+mit"])
-    .relParadigm.add(["para+functional", "para+multi", "para+oop"])
-    .relPlatform.add(["plat+android", "plat+apple", "plat+arm", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
-    .relTag.add(["tag+app", "tag+compiler", "tag+control", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+viz"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+nominal", "tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+ocaml"]);
+    .relLicenses.add(["lic+gnu-gpl", "lic+mit"])
+    .relParadigms.add(["para+functional", "para+multi", "para+oop"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+arm", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64"])
+    .relTags.add(["tag+app", "tag+compiler", "tag+control", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+viz"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+nominal", "tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+ocaml"]);
 
   // TOOLS
 

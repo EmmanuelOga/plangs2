@@ -17,12 +17,12 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+json", "pl+nix", "pl+rust", "pl+xml", "pl+yaml"])
     .relInfluencedBy.add(["pl+rust"])
-    .relLicense.add(["lic+mpl"])
-    .relParadigm.add(["para+data-exchange", "para+declarative", "para+validation"])
-    .relPlatform.add(["plat+linux", "plat+windows"])
-    .relTag.add(["tag+automation"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+gradual", "tsys+optional", "tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+rust"]);
+    .relLicenses.add(["lic+mpl"])
+    .relParadigms.add(["para+data-exchange", "para+declarative", "para+validation"])
+    .relPlatforms.add(["plat+linux", "plat+windows"])
+    .relTags.add(["tag+automation"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+gradual", "tsys+optional", "tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+rust"]);
 
   // TOOLS
 

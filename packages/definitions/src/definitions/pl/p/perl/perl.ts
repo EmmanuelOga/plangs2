@@ -26,10 +26,10 @@ export function define(g: PlangsGraph) {
       created: "1987",
     })
     .relInfluencedBy.add(["pl+awk", "pl+basic", "pl+c", "pl+c++", "pl+lisp", "pl+raku", "pl+sed"])
-    .relLicense.add(["lic+artistic", "lic+gnu-gpl"])
-    .relParadigm.add(["para+functional", "para+multi", "para+oop", "para+procedural", "para+scripting"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add([
+    .relLicenses.add(["lic+artistic", "lic+gnu-gpl"])
+    .relParadigms.add(["para+functional", "para+multi", "para+oop", "para+procedural", "para+scripting"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add([
       "tag+app",
       "tag+compiler",
       "tag+dbms",
@@ -41,8 +41,8 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+viz",
     ])
-    .relTypeSystem.add(["tsys+duck", "tsys+dynamic"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relTypeSystems.add(["tsys+duck", "tsys+dynamic"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

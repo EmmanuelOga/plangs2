@@ -13,10 +13,10 @@ export function define(g: PlangsGraph) {
       created: "2009",
     })
     .relInfluencedBy.add(["pl+sql", "pl+xpath"])
-    .relLicense.add(["lic+apache"])
-    .relParadigm.add(["para+declarative", "para+dsl", "para+imperative", "para+query"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+compiler", "tag+dbms", "tag+graph"]);
+    .relLicenses.add(["lic+apache"])
+    .relParadigms.add(["para+declarative", "para+dsl", "para+imperative", "para+query"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+compiler", "tag+dbms", "tag+graph"]);
 
   // TOOLS
 

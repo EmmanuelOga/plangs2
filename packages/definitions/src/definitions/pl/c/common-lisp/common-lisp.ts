@@ -22,9 +22,9 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+lisp"])
     .relInfluencedBy.add(["pl+lisp", "pl+r5rs", "pl+scheme"])
-    .relParadigm.add(["para+functional", "para+metaprogramming", "para+multi", "para+oop", "para+procedural", "para+reflective"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add([
+    .relParadigms.add(["para+functional", "para+metaprogramming", "para+multi", "para+oop", "para+procedural", "para+reflective"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add([
       "tag+app",
       "tag+compiler",
       "tag+industrial",
@@ -37,7 +37,7 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"]);
+    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

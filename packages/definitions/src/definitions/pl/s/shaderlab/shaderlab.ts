@@ -17,9 +17,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://docs.unity3d.com/Manual/SL-Shader.html",
       created: "2005",
     })
-    .relParadigm.add(["para+dsl", "para+visual"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+3dg", "tag+games", "tag+workflow"]);
+    .relParadigms.add(["para+dsl", "para+visual"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+3dg", "tag+games", "tag+workflow"]);
 
   // TOOLS
 

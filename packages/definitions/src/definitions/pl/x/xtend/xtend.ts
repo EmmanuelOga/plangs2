@@ -23,12 +23,12 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+java"])
     .relInfluencedBy.add(["pl+groovy", "pl+java", "pl+scala"])
-    .relLicense.add(["lic+epl"])
-    .relParadigm.add(["para+functional", "para+imperative", "para+oop"])
-    .relPlatform.add(["plat+cross", "plat+java"])
-    .relTag.add(["tag+compiler", "tag+editor", "tag+interpreters"])
-    .relTypeSystem.add(["tsys+inferred", "tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+java"]);
+    .relLicenses.add(["lic+epl"])
+    .relParadigms.add(["para+functional", "para+imperative", "para+oop"])
+    .relPlatforms.add(["plat+cross", "plat+java"])
+    .relTags.add(["tag+compiler", "tag+editor", "tag+interpreters"])
+    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+java"]);
 
   // TOOLS
 

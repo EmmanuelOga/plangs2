@@ -13,9 +13,9 @@ export function define(g: PlangsGraph) {
       created: "1984",
     })
     .relInfluencedBy.add(["pl+matlab"])
-    .relParadigm.add(["para+dataflow", "para+simulation", "para+visual"])
-    .relPlatform.add(["plat+apple", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+analysis", "tag+dsp", "tag+embedded", "tag+industrial", "tag+modeling", "tag+testing", "tag+wavelet"]);
+    .relParadigms.add(["para+dataflow", "para+simulation", "para+visual"])
+    .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+analysis", "tag+dsp", "tag+embedded", "tag+industrial", "tag+modeling", "tag+testing", "tag+wavelet"]);
 
   // TOOLS
 

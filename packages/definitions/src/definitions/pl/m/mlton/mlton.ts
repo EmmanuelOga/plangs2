@@ -16,11 +16,11 @@ export function define(g: PlangsGraph) {
     .relDialectOf.add(["pl+standard-ml"])
     .relImplements.add(["pl+standard-ml"])
     .relInfluencedBy.add(["pl+standard-ml"])
-    .relLicense.add(["lic+dual"])
-    .relParadigm.add(["para+compiled", "para+functional", "para+imperative", "para+multi"])
-    .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+compiler"])
-    .relTypeSystem.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    .relLicenses.add(["lic+dual"])
+    .relParadigms.add(["para+compiled", "para+functional", "para+imperative", "para+multi"])
+    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+compiler"])
+    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

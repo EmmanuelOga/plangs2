@@ -20,11 +20,11 @@ export function define(g: PlangsGraph) {
       created: "2015",
     })
     .relInfluencedBy.add(["pl+erlang", "pl+scala"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+concurrent", "para+functional", "para+message-passing", "para+oop"])
-    .relPlatform.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
-    .relTypeSystem.add(["tsys+safe", "tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+concurrent", "para+functional", "para+message-passing", "para+oop"])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
+    .relTypeSystems.add(["tsys+safe", "tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

@@ -75,7 +75,7 @@ export async function loadPosts(pg: PlangsGraph) {
 
     for (const plKey of pls) {
       if (!pg.plang.has(plKey)) throw new Error(`Post ${path} references unknown PL ${plKey}`);
-      post.relPlang.add([plKey]);
+      post.relPlangs.add([plKey]);
     }
   }
 }

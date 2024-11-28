@@ -24,11 +24,11 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.llvm.org/",
       created: "2003",
     })
-    .relLicense.add(["lic+apache", "lic+bsd"])
-    .relParadigm.add(["para+assembly", "para+compiled", "para+multi"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+analysis", "tag+asm", "tag+compiler", "tag+framework", "tag+interpreters", "tag+ray-tracer", "tag+shell", "tag+viz"])
-    .relWrittenInPlang.add(["pl+c++"]);
+    .relLicenses.add(["lic+apache", "lic+bsd"])
+    .relParadigms.add(["para+assembly", "para+compiled", "para+multi"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+analysis", "tag+asm", "tag+compiler", "tag+framework", "tag+interpreters", "tag+ray-tracer", "tag+shell", "tag+viz"])
+    .relWrittenWith.add(["pl+c++"]);
 
   // TOOLS
 

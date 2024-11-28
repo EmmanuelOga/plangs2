@@ -23,10 +23,10 @@ export function define(g: PlangsGraph) {
       created: "2010",
     })
     .relInfluencedBy.add(["pl+xml"])
-    .relParadigm.add(["para+declarative", "para+dsl", "para+pipeline"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+dataflow", "tag+workflow"])
-    .relTypeSystem.add(["tsys+dynamic"]);
+    .relParadigms.add(["para+declarative", "para+dsl", "para+pipeline"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+dataflow", "tag+workflow"])
+    .relTypeSystems.add(["tsys+dynamic"]);
 
   // TOOLS
 

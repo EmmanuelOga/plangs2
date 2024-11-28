@@ -68,12 +68,12 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<VPlang
     if (tag.keywordsRegexp?.test(contentText)) keys_tags.push(tag.key);
   }
 
-  plang.relLicense
+  plang.relLicenses
     .add(keys_license)
-    .relParadigm.add(keys_paradigm)
-    .relPlatform.add(keys_platform)
-    .relTag.add(keys_tags)
-    .relTypeSystem.add(keys_tsystem);
+    .relParadigms.add(keys_paradigm)
+    .relPlatforms.add(keys_platform)
+    .relTags.add(keys_tags)
+    .relTypeSystems.add(keys_tsystem);
 
   ////////////////////////////////////////////////////////////////////////////////
 
@@ -87,15 +87,15 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<VPlang
       }) as VPlang["key"][];
   }
 
-  for (const other of mapToPlKeys(page.infobox.dialects)) g.edges.plangDialectOfPlang.add(other, plang.key);
-  for (const other of mapToPlKeys(page.infobox.family)) g.edges.plangDialectOfPlang.add(plang.key, other);
+  for (const other of mapToPlKeys(page.infobox.dialects)) g.edges.plangRelDialectOf.add(other, plang.key);
+  for (const other of mapToPlKeys(page.infobox.family)) g.edges.plangRelDialectOf.add(plang.key, other);
 
-  for (const other of mapToPlKeys(page.infobox.implementations)) g.edges.plangImplementsPlang.add(other, plang.key);
+  for (const other of mapToPlKeys(page.infobox.implementations)) g.edges.plangRelImplements.add(other, plang.key);
 
-  for (const other of mapToPlKeys(page.infobox.influenced)) g.edges.plangInfluencedByPlang.add(other, plang.key);
-  for (const other of mapToPlKeys(page.infobox.influencedBy)) g.edges.plangInfluencedByPlang.add(plang.key, other);
+  for (const other of mapToPlKeys(page.infobox.influenced)) g.edges.plangRelInfluencedBy.add(other, plang.key);
+  for (const other of mapToPlKeys(page.infobox.influencedBy)) g.edges.plangRelInfluencedBy.add(plang.key, other);
 
-  for (const other of mapToPlKeys(page.infobox.writtenIn)) g.edges.plangWrittenInPlangPlang.add(other, plang.key);
+  for (const other of mapToPlKeys(page.infobox.writtenIn)) g.edges.plangRelWrittenWith.add(other, plang.key);
 
   return plang;
 }
@@ -112,12 +112,12 @@ export function generateCode(plang: VPlang): string {
   addRel("addDialectOf", plang.relDialectOf.keys);
   addRel("addImplements", plang.relImplements.keys);
   addRel("addInfluencedBy", plang.relInfluencedBy.keys);
-  addRel("addLicenses", plang.relLicense.keys);
-  addRel("addParadigms", plang.relParadigm.keys);
-  addRel("addPlatforms", plang.relPlatform.keys);
-  addRel("addTags", plang.relTag.keys);
-  addRel("addTypeSystems", plang.relTypeSystem.keys);
-  addRel("addWrittenIn", plang.relWrittenInPlang.keys);
+  addRel("addLicenses", plang.relLicenses.keys);
+  addRel("addParadigms", plang.relParadigms.keys);
+  addRel("addPlatforms", plang.relPlatforms.keys);
+  addRel("addTags", plang.relTags.keys);
+  addRel("addTypeSystems", plang.relTypeSystems.keys);
+  addRel("addWrittenIn", plang.relWrittenWith.keys);
 
   const code = `import type { PlangsGraph } from "@plangs/plangs";
 

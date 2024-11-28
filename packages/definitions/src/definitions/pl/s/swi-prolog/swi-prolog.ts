@@ -18,12 +18,12 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+prolog"])
     .relInfluencedBy.add(["pl+prolog"])
-    .relLicense.add(["lic+bsd", "lic+lgpl"])
-    .relParadigm.add(["para+concurrent", "para+constraint", "para+declarative", "para+logic"])
-    .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreters", "tag+testing", "tag+ui", "tag+viz"])
-    .relTypeSystem.add(["tsys+untyped"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relLicenses.add(["lic+bsd", "lic+lgpl"])
+    .relParadigms.add(["para+concurrent", "para+constraint", "para+declarative", "para+logic"])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreters", "tag+testing", "tag+ui", "tag+viz"])
+    .relTypeSystems.add(["tsys+untyped"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

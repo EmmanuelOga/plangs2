@@ -17,12 +17,12 @@ export function define(g: PlangsGraph) {
       created: "1992",
     })
     .relImplements.add(["pl+forth"])
-    .relLicense.add(["lic+gnu-gpl"])
-    .relParadigm.add(["para+procedural", "para+stack-oriented"])
-    .relPlatform.add(["plat+cross", "plat+dos", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+interpreters"])
-    .relTypeSystem.add(["tsys+untyped"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relLicenses.add(["lic+gnu-gpl"])
+    .relParadigms.add(["para+procedural", "para+stack-oriented"])
+    .relPlatforms.add(["plat+cross", "plat+dos", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+interpreters"])
+    .relTypeSystems.add(["tsys+untyped"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

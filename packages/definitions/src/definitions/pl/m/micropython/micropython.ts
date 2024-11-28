@@ -18,12 +18,12 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+python"])
     .relInfluencedBy.add(["pl+python"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+embedded", "para+interpreted", "para+multi", "para+oop", "para+scripting"])
-    .relPlatform.add(["plat+arduino", "plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry", "plat+riscv", "plat+windows"])
-    .relTag.add(["tag+app", "tag+embedded", "tag+interpreters", "tag+iot", "tag+scripting", "tag+testing"])
-    .relTypeSystem.add(["tsys+duck", "tsys+dynamic"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+embedded", "para+interpreted", "para+multi", "para+oop", "para+scripting"])
+    .relPlatforms.add(["plat+arduino", "plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry", "plat+riscv", "plat+windows"])
+    .relTags.add(["tag+app", "tag+embedded", "tag+interpreters", "tag+iot", "tag+scripting", "tag+testing"])
+    .relTypeSystems.add(["tsys+duck", "tsys+dynamic"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

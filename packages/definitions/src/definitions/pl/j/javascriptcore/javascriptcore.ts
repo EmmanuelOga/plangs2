@@ -13,12 +13,12 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+javascript"])
     .relInfluencedBy.add(["pl+javascript"])
-    .relLicense.add(["lic+bsd", "lic+lgpl"])
-    .relParadigm.add(["para+event-driven", "para+interpreted", "para+oop", "para+scripting"])
-    .relPlatform.add(["plat+apple", "plat+arm", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+interpreters", "tag+low-code", "tag+scripting", "tag+ui"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+weak"])
-    .relWrittenInPlang.add(["pl+c++"]);
+    .relLicenses.add(["lic+bsd", "lic+lgpl"])
+    .relParadigms.add(["para+event-driven", "para+interpreted", "para+oop", "para+scripting"])
+    .relPlatforms.add(["plat+apple", "plat+arm", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+interpreters", "tag+low-code", "tag+scripting", "tag+ui"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+weak"])
+    .relWrittenWith.add(["pl+c++"]);
 
   // TOOLS
 

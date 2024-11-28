@@ -17,12 +17,12 @@ export function define(g: PlangsGraph) {
       created: "2003",
     })
     .relImplements.add(["pl+fortran"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+compiled", "para+procedural", "para+scientific"])
-    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+3dg", "tag+analysis", "tag+app", "tag+cli", "tag+compiler", "tag+sci", "tag+shell", "tag+viz"])
-    .relTypeSystem.add(["tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+compiled", "para+procedural", "para+scientific"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+3dg", "tag+analysis", "tag+app", "tag+cli", "tag+compiler", "tag+sci", "tag+shell", "tag+viz"])
+    .relTypeSystems.add(["tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

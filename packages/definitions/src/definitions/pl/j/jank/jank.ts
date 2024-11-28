@@ -14,10 +14,10 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+clojure"])
     .relInfluencedBy.add(["pl+clojure"])
-    .relParadigm.add(["para+functional", "para+general-purpose"])
-    .relPlatform.add(["plat+cross"])
-    .relTypeSystem.add(["tsys+strong"])
-    .relWrittenInPlang.add(["pl+c++", "pl+llvm"]);
+    .relParadigms.add(["para+functional", "para+general-purpose"])
+    .relPlatforms.add(["plat+cross"])
+    .relTypeSystems.add(["tsys+strong"])
+    .relWrittenWith.add(["pl+c++", "pl+llvm"]);
 
   // TOOLS
 

@@ -23,12 +23,12 @@ export function define(g: PlangsGraph) {
       created: "2003",
     })
     .relInfluencedBy.add(["pl+supercollider"])
-    .relLicense.add(["lic+gnu-gpl"])
-    .relParadigm.add(["para+concurrent", "para+interpreted", "para+multi", "para+real-time", "para+synchronous"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+app", "tag+audio-dev", "tag+interpreters"])
-    .relTypeSystem.add(["tsys+strong"])
-    .relWrittenInPlang.add(["pl+c++"]);
+    .relLicenses.add(["lic+gnu-gpl"])
+    .relParadigms.add(["para+concurrent", "para+interpreted", "para+multi", "para+real-time", "para+synchronous"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+app", "tag+audio-dev", "tag+interpreters"])
+    .relTypeSystems.add(["tsys+strong"])
+    .relWrittenWith.add(["pl+c++"]);
 
   // TOOLS
 

@@ -13,12 +13,12 @@ export function define(g: PlangsGraph) {
       created: "2009",
     })
     .relInfluencedBy.add(["pl+ruby"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+educational", "para+oop", "para+scripting"])
-    .relPlatform.add(["plat+apple", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+edu", "tag+interpreters", "tag+scripting", "tag+ui"])
-    .relTypeSystem.add(["tsys+dynamic"])
-    .relWrittenInPlang.add(["pl+ruby"]);
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+educational", "para+oop", "para+scripting"])
+    .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+edu", "tag+interpreters", "tag+scripting", "tag+ui"])
+    .relTypeSystems.add(["tsys+dynamic"])
+    .relWrittenWith.add(["pl+ruby"]);
 
   // TOOLS
 

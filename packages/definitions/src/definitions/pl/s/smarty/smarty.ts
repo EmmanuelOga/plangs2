@@ -24,10 +24,10 @@ export function define(g: PlangsGraph) {
       created: "2001",
     })
     .relCompilesTo.add(["pl+php"])
-    .relLicense.add(["lic+lgpl"])
-    .relParadigm.add(["para+dsl"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+scripting"]);
+    .relLicenses.add(["lic+lgpl"])
+    .relParadigms.add(["para+dsl"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+scripting"]);
 
   // TOOLS
 

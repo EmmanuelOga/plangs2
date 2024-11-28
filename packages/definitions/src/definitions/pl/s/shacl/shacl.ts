@@ -14,9 +14,9 @@ export function define(g: PlangsGraph) {
       created: "2015",
     })
     .relInfluencedBy.add(["pl+shex"])
-    .relParadigm.add(["para+declarative", "para+dsl", "para+validation"])
-    .relTag.add(["tag+dbms", "tag+framework"])
-    .relTypeSystem.add(["tsys+structural"]);
+    .relParadigms.add(["para+declarative", "para+dsl", "para+validation"])
+    .relTags.add(["tag+dbms", "tag+framework"])
+    .relTypeSystems.add(["tsys+structural"]);
 
   // TOOLS
 

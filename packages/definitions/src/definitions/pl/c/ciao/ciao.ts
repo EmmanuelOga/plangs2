@@ -15,8 +15,8 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+prolog"])
     .relInfluencedBy.add(["pl+prolog", "pl+scheme"])
-    .relLicense.add(["lic+gnu-gpl", "lic+lgpl"])
-    .relParadigm.add([
+    .relLicenses.add(["lic+gnu-gpl", "lic+lgpl"])
+    .relParadigms.add([
       "para+concurrent",
       "para+constraint",
       "para+distributed",
@@ -26,8 +26,8 @@ export function define(g: PlangsGraph) {
       "para+multi",
       "para+oop",
     ])
-    .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add([
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+3dg",
       "tag+cli",
       "tag+compiler",
@@ -40,7 +40,7 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+viz",
     ])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+inferred", "tsys+static"]);
+    .relTypeSystems.add(["tsys+dynamic", "tsys+inferred", "tsys+static"]);
 
   // TOOLS
 

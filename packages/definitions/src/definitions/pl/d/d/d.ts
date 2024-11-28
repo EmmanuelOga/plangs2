@@ -22,10 +22,10 @@ export function define(g: PlangsGraph) {
       created: "2001",
     })
     .relInfluencedBy.add(["pl+ada", "pl+basic", "pl+c", "pl+c++", "pl+c-sharp", "pl+eiffel", "pl+python", "pl+ruby"])
-    .relLicense.add(["lic+boost"])
-    .relParadigm.add(["para+concurrent", "para+functional", "para+imperative", "para+metaprogramming", "para+multi", "para+oop"])
-    .relPlatform.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
-    .relTag.add([
+    .relLicenses.add(["lic+boost"])
+    .relParadigms.add(["para+concurrent", "para+functional", "para+imperative", "para+metaprogramming", "para+multi", "para+oop"])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+analysis",
       "tag+app",
       "tag+asm",
@@ -39,7 +39,7 @@ export function define(g: PlangsGraph) {
       "tag+ui",
       "tag+viz",
     ])
-    .relTypeSystem.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
+    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

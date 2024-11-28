@@ -25,9 +25,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.ni.com/labview",
       created: "1986",
     })
-    .relParadigm.add(["para+concurrent", "para+dataflow", "para+event-driven", "para+low-code", "para+multi", "para+visual"])
-    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add([
+    .relParadigms.add(["para+concurrent", "para+dataflow", "para+event-driven", "para+low-code", "para+multi", "para+visual"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+analysis",
       "tag+app",
       "tag+automation",
@@ -49,7 +49,7 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
-    .relWrittenInPlang.add(["pl+c", "pl+c++", "pl+c-sharp"]);
+    .relWrittenWith.add(["pl+c", "pl+c++", "pl+c-sharp"]);
 
   // TOOLS
 

@@ -22,9 +22,9 @@ export function define(g: PlangsGraph) {
       created: "2020",
     })
     .relCompilesTo.add(["pl+json", "pl+typescript"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+declarative", "para+dsl"])
-    .relPlatform.add(["plat+cross"]);
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+declarative", "para+dsl"])
+    .relPlatforms.add(["plat+cross"]);
 
   // TOOLS
 

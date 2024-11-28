@@ -17,8 +17,8 @@ export class Filter<T> implements Value<Filter<T>> {
     return this.values.size === 0;
   }
 
-  add(value: T): this {
-    this.values.add(value);
+  add(...values: T[]): this {
+    for (const val of values) this.values.add(val);
     return this;
   }
 

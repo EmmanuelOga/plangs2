@@ -25,12 +25,12 @@ export function define(g: PlangsGraph) {
       created: "1989",
     })
     .relInfluencedBy.add(["pl+ocaml"])
-    .relLicense.add(["lic+lgpl"])
-    .relParadigm.add(["para+declarative", "para+functional", "para+logic"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+interpreters", "tag+proofs"])
-    .relTypeSystem.add(["tsys+dependent", "tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+ocaml"]);
+    .relLicenses.add(["lic+lgpl"])
+    .relParadigms.add(["para+declarative", "para+functional", "para+logic"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+interpreters", "tag+proofs"])
+    .relTypeSystems.add(["tsys+dependent", "tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+ocaml"]);
 
   // TOOLS
 

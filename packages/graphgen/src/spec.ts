@@ -32,10 +32,7 @@ export interface GenVertexSpec {
   desc: string;
 }
 
-export interface GenEdgeSpec<VertexNames extends string> {
-  from: VertexNames;
-  to: VertexNames;
-  desc: string;
-  /** If missing, the relationship name is derived from the names from/to. */
-  name?: string;
+export interface GenEdgeSpec<VertexName extends string> {
+  src: [vertexName: VertexName, relName: string, desc: string];
+  dst: [vertexName: VertexName, relName: string, desc: string];
 }

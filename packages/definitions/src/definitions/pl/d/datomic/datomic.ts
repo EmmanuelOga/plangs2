@@ -14,11 +14,11 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+datalog"])
     .relImplements.add(["pl+datalog"])
-    .relLicense.add(["lic+apache"])
-    .relParadigm.add(["para+declarative", "para+distributed", "para+logic", "para+query"])
-    .relPlatform.add(["plat+cross", "plat+java"])
-    .relTag.add(["tag+dataflow", "tag+dbms"])
-    .relWrittenInPlang.add(["pl+clojure", "pl+java"]);
+    .relLicenses.add(["lic+apache"])
+    .relParadigms.add(["para+declarative", "para+distributed", "para+logic", "para+query"])
+    .relPlatforms.add(["plat+cross", "plat+java"])
+    .relTags.add(["tag+dataflow", "tag+dbms"])
+    .relWrittenWith.add(["pl+clojure", "pl+java"]);
 
   // TOOLS
 

@@ -26,9 +26,9 @@ export function define(g: PlangsGraph) {
       created: "2000",
     })
     .relCompilesTo.add(["pl+makefile"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+scripting"])
-    .relPlatform.add(["plat+cross"]);
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+scripting"])
+    .relPlatforms.add(["plat+cross"]);
 
   // TOOLS
 

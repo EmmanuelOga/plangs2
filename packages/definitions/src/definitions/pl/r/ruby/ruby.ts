@@ -28,10 +28,10 @@ export function define(g: PlangsGraph) {
       created: "1995",
     })
     .relInfluencedBy.add(["pl+basic", "pl+c++", "pl+eiffel", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme"])
-    .relLicense.add(["lic+bsd", "lic+mit"])
-    .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+reflective", "para+scripting"])
-    .relPlatform.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add([
+    .relLicenses.add(["lic+bsd", "lic+mit"])
+    .relParadigms.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+reflective", "para+scripting"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+analysis",
       "tag+app",
       "tag+compiler",
@@ -43,8 +43,8 @@ export function define(g: PlangsGraph) {
       "tag+ui",
       "tag+viz",
     ])
-    .relTypeSystem.add(["tsys+duck", "tsys+dynamic", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relTypeSystems.add(["tsys+duck", "tsys+dynamic", "tsys+strong"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

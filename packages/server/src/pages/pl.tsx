@@ -28,8 +28,8 @@ export function Pl({ pl, pg }: { pl: VPlang; pg: PlangsGraph }) {
   );
 }
 
-function PlNews({ pl: { relPost } }: { pl: VPlang }) {
-  const posts = relPost.vertices;
+function PlNews({ pl: { relPosts } }: { pl: VPlang }) {
+  const posts = relPosts.values;
   return (
     <>
       <h1>News</h1>
@@ -48,7 +48,7 @@ function PlNews({ pl: { relPost } }: { pl: VPlang }) {
 }
 
 function PlApps({ pl }: { pl: VPlang }) {
-  const apps = pl.relApp.vertices;
+  const apps = pl.relApps.values;
   return (
     <>
       <h1>Applications</h1>
@@ -73,7 +73,7 @@ function PlApps({ pl }: { pl: VPlang }) {
 }
 
 function PlLibs({ pl }: { pl: VPlang }) {
-  const libs = pl.relLibrary.vertices;
+  const libs = pl.relLibraries.values;
   return (
     <>
       <h1>Libraries</h1>
@@ -98,7 +98,7 @@ function PlLibs({ pl }: { pl: VPlang }) {
 }
 
 function PlTools({ pl }: { pl: VPlang }) {
-  const tools = pl.relTool.vertices;
+  const tools = pl.relTools.values;
   return (
     <>
       <h1>Tooling</h1>

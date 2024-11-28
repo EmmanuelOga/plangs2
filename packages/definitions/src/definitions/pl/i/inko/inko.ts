@@ -17,12 +17,12 @@ export function define(g: PlangsGraph) {
       created: "2016",
     })
     .relInfluencedBy.add(["pl+erlang", "pl+go"])
-    .relLicense.add(["lic+mit", "lic+mpl"])
-    .relParadigm.add(["para+concurrent", "para+message-passing", "para+multi", "para+oop"])
-    .relPlatform.add(["plat+cross", "plat+linux"])
-    .relTag.add(["tag+automation"])
-    .relTypeSystem.add(["tsys+nominal", "tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+rust"]);
+    .relLicenses.add(["lic+mit", "lic+mpl"])
+    .relParadigms.add(["para+concurrent", "para+message-passing", "para+multi", "para+oop"])
+    .relPlatforms.add(["plat+cross", "plat+linux"])
+    .relTags.add(["tag+automation"])
+    .relTypeSystems.add(["tsys+nominal", "tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+rust"]);
 
   // TOOLS
 

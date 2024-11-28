@@ -25,12 +25,12 @@ export function define(g: PlangsGraph) {
       created: "2014",
     })
     .relInfluencedBy.add(["pl+apl", "pl+haskell", "pl+standard-ml"])
-    .relLicense.add(["lic+isc"])
-    .relParadigm.add(["para+array", "para+compiled", "para+functional", "para+multi", "para+parallel"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+app", "tag+compiler", "tag+interpreters", "tag+numeric", "tag+ray-tracer", "tag+sci"])
-    .relTypeSystem.add(["tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+uniqueness"])
-    .relWrittenInPlang.add(["pl+standard-ml"]);
+    .relLicenses.add(["lic+isc"])
+    .relParadigms.add(["para+array", "para+compiled", "para+functional", "para+multi", "para+parallel"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+app", "tag+compiler", "tag+interpreters", "tag+numeric", "tag+ray-tracer", "tag+sci"])
+    .relTypeSystems.add(["tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+uniqueness"])
+    .relWrittenWith.add(["pl+standard-ml"]);
 
   // TOOLS
 

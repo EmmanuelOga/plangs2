@@ -13,12 +13,12 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://hg.sr.ht/~duangle/scopes",
       created: "2015",
     })
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+extensible", "para+macro", "para+metaprogramming"])
-    .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+compiler", "tag+interpreters", "tag+scripting"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+inferred", "tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+c++"]);
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+extensible", "para+macro", "para+metaprogramming"])
+    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+inferred", "tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+c++"]);
 
   // TOOLS
 

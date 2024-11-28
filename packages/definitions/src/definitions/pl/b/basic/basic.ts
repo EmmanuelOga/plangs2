@@ -21,11 +21,11 @@ export function define(g: PlangsGraph) {
       created: "1964",
     })
     .relInfluencedBy.add(["pl+fortran"])
-    .relLicense.add(["lic+public-domain"])
-    .relParadigm.add(["para+imperative", "para+oop", "para+procedural", "para+structured"])
-    .relPlatform.add(["plat+cross", "plat+dos", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+app", "tag+embedded", "tag+games", "tag+industrial", "tag+interpreters"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+static", "tsys+weak"]);
+    .relLicenses.add(["lic+public-domain"])
+    .relParadigms.add(["para+imperative", "para+oop", "para+procedural", "para+structured"])
+    .relPlatforms.add(["plat+cross", "plat+dos", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+app", "tag+embedded", "tag+games", "tag+industrial", "tag+interpreters"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+static", "tsys+weak"]);
 
   // TOOLS
 

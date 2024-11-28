@@ -21,10 +21,10 @@ export function define(g: PlangsGraph) {
       created: "1995",
     })
     .relInfluencedBy.add(["pl+awk", "pl+c", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme", "pl+self"])
-    .relLicense.add(["lic+public-domain"])
-    .relParadigm.add(["para+event-driven", "para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural"])
-    .relPlatform.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+nodejs", "plat+wasm", "plat+web", "plat+windows"])
-    .relTag.add([
+    .relLicenses.add(["lic+public-domain"])
+    .relParadigms.add(["para+event-driven", "para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+nodejs", "plat+wasm", "plat+web", "plat+windows"])
+    .relTags.add([
       "tag+app",
       "tag+asm",
       "tag+dbms",
@@ -36,7 +36,7 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+viz",
     ])
-    .relTypeSystem.add(["tsys+duck", "tsys+dynamic", "tsys+weak"]);
+    .relTypeSystems.add(["tsys+duck", "tsys+dynamic", "tsys+weak"]);
 
   // TOOLS
 

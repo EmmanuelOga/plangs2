@@ -36,11 +36,21 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+c"])
     .relInfluencedBy.add(["pl+ada", "pl+apl", "pl+c", "pl+f-sharp"])
-    .relParadigm.add(["para+functional", "para+imperative", "para+modular", "para+multi", "para+oop", "para+procedural"])
-    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
-    .relTag.add(["tag+app", "tag+compiler", "tag+control", "tag+dataq", "tag+embedded", "tag+games", "tag+industrial", "tag+interpreters", "tag+viz"])
-    .relTypeSystem.add(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relParadigms.add(["para+functional", "para+imperative", "para+modular", "para+multi", "para+oop", "para+procedural"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
+    .relTags.add([
+      "tag+app",
+      "tag+compiler",
+      "tag+control",
+      "tag+dataq",
+      "tag+embedded",
+      "tag+games",
+      "tag+industrial",
+      "tag+interpreters",
+      "tag+viz",
+    ])
+    .relTypeSystems.add(["tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

@@ -25,9 +25,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.gnu.org/software/groff/",
       created: "1990",
     })
-    .relLicense.add(["lic+gnu-gpl"])
-    .relParadigm.add(["para+macro"])
-    .relPlatform.add(["plat+bsd", "plat+linux"]);
+    .relLicenses.add(["lic+gnu-gpl"])
+    .relParadigms.add(["para+macro"])
+    .relPlatforms.add(["plat+bsd", "plat+linux"]);
 
   // TOOLS
 

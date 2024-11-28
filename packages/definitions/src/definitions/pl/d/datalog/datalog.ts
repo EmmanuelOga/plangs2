@@ -14,9 +14,9 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+prolog"])
     .relInfluencedBy.add(["pl+prolog"])
-    .relParadigm.add(["para+declarative", "para+logic"])
-    .relTag.add(["tag+analysis", "tag+app", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+viz"])
-    .relTypeSystem.add(["tsys+untyped", "tsys+weak"]);
+    .relParadigms.add(["para+declarative", "para+logic"])
+    .relTags.add(["tag+analysis", "tag+app", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+viz"])
+    .relTypeSystems.add(["tsys+untyped", "tsys+weak"]);
 
   // TOOLS
 

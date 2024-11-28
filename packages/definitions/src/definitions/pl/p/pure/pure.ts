@@ -14,10 +14,10 @@ export function define(g: PlangsGraph) {
       created: "2008",
     })
     .relInfluencedBy.add(["pl+haskell", "pl+lisp"])
-    .relLicense.add(["lic+lgpl"])
-    .relParadigm.add(["para+declarative", "para+functional", "para+rewriting"])
-    .relPlatform.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add([
+    .relLicenses.add(["lic+lgpl"])
+    .relParadigms.add(["para+declarative", "para+functional", "para+rewriting"])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+app",
       "tag+audio-dev",
       "tag+cas",
@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
       "tag+video",
     ])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"]);
+    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

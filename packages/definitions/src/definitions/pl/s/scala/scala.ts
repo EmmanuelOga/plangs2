@@ -36,10 +36,10 @@ export function define(g: PlangsGraph) {
       "pl+scheme",
       "pl+standard-ml",
     ])
-    .relLicense.add(["lic+apache"])
-    .relParadigm.add(["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+oop"])
-    .relPlatform.add(["plat+java", "plat+nodejs", "plat+wasm"])
-    .relTag.add([
+    .relLicenses.add(["lic+apache"])
+    .relParadigms.add(["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+oop"])
+    .relPlatforms.add(["plat+java", "plat+nodejs", "plat+wasm"])
+    .relTags.add([
       "tag+app",
       "tag+audio-dev",
       "tag+compiler",
@@ -51,7 +51,7 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+testing",
     ])
-    .relTypeSystem.add(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
+    .relTypeSystems.add(["tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
 
   // TOOLS
 

@@ -20,12 +20,12 @@ export function define(g: PlangsGraph) {
       created: "2002",
     })
     .relInfluencedBy.add(["pl+c"])
-    .relLicense.add(["lic+gnu-gpl"])
-    .relParadigm.add(["para+compiled", "para+dataflow", "para+declarative", "para+dsl", "para+functional"])
-    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows"])
-    .relTag.add(["tag+app", "tag+audio-dev", "tag+compiler", "tag+dsp", "tag+interpreters", "tag+multimedia", "tag+ui", "tag+wavelet"])
-    .relTypeSystem.add(["tsys+manifest", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+c++"]);
+    .relLicenses.add(["lic+gnu-gpl"])
+    .relParadigms.add(["para+compiled", "para+dataflow", "para+declarative", "para+dsl", "para+functional"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows"])
+    .relTags.add(["tag+app", "tag+audio-dev", "tag+compiler", "tag+dsp", "tag+interpreters", "tag+multimedia", "tag+ui", "tag+wavelet"])
+    .relTypeSystems.add(["tsys+manifest", "tsys+strong"])
+    .relWrittenWith.add(["pl+c++"]);
 
   // TOOLS
 

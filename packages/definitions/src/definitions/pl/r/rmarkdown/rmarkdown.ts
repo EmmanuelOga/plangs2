@@ -21,10 +21,10 @@ export function define(g: PlangsGraph) {
       created: "2014",
     })
     .relCompilesTo.add(["pl+html", "pl+markdown"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+data-driven", "para+declarative", "para+multi"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+dataq", "tag+sci", "tag+stats", "tag+workflow"]);
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+data-driven", "para+declarative", "para+multi"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+dataq", "tag+sci", "tag+stats", "tag+workflow"]);
 
   // TOOLS
 

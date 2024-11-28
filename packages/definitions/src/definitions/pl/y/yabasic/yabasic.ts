@@ -16,12 +16,12 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+basic"])
     .relInfluencedBy.add(["pl+basic"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+interpreted", "para+procedural", "para+scripting"])
-    .relPlatform.add(["plat+linux", "plat+windows"])
-    .relTag.add(["tag+games", "tag+interpreters", "tag+scripting", "tag+ui"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+weak"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+interpreted", "para+procedural", "para+scripting"])
+    .relPlatforms.add(["plat+linux", "plat+windows"])
+    .relTags.add(["tag+games", "tag+interpreters", "tag+scripting", "tag+ui"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+weak"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

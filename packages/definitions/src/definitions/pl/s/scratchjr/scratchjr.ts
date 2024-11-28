@@ -12,10 +12,10 @@ export function define(g: PlangsGraph) {
       created: "2014",
     })
     .relInfluencedBy.add(["pl+scratch"])
-    .relParadigm.add(["para+educational", "para+event-driven", "para+visual"])
-    .relPlatform.add(["plat+android", "plat+apple"])
-    .relTag.add(["tag+edu", "tag+interpreters", "tag+low-code"])
-    .relTypeSystem.add(["tsys+untyped"]);
+    .relParadigms.add(["para+educational", "para+event-driven", "para+visual"])
+    .relPlatforms.add(["plat+android", "plat+apple"])
+    .relTags.add(["tag+edu", "tag+interpreters", "tag+low-code"])
+    .relTypeSystems.add(["tsys+untyped"]);
 
   // TOOLS
 

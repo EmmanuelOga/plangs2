@@ -17,11 +17,11 @@ export function define(g: PlangsGraph) {
     .relCompilesTo.add(["pl+webassembly"])
     .relDialectOf.add(["pl+javascript", "pl+typescript"])
     .relInfluencedBy.add(["pl+javascript", "pl+typescript"])
-    .relLicense.add(["lic+apache"])
-    .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop"])
-    .relPlatform.add(["plat+nodejs", "plat+wasm", "plat+web"])
-    .relTag.add(["tag+asm", "tag+compiler", "tag+scripting"])
-    .relTypeSystem.add(["tsys+static"]);
+    .relLicenses.add(["lic+apache"])
+    .relParadigms.add(["para+functional", "para+imperative", "para+multi", "para+oop"])
+    .relPlatforms.add(["plat+nodejs", "plat+wasm", "plat+web"])
+    .relTags.add(["tag+asm", "tag+compiler", "tag+scripting"])
+    .relTypeSystems.add(["tsys+static"]);
 
   // TOOLS
 

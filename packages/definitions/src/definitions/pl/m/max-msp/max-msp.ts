@@ -24,9 +24,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://cycling74.com/products/max/",
       created: "1988",
     })
-    .relParadigm.add(["para+dataflow", "para+event-driven", "para+visual"])
-    .relPlatform.add(["plat+apple", "plat+windows"])
-    .relTag.add([
+    .relParadigms.add(["para+dataflow", "para+event-driven", "para+visual"])
+    .relPlatforms.add(["plat+apple", "plat+windows"])
+    .relTags.add([
       "tag+3dg",
       "tag+app",
       "tag+audio-dev",
@@ -43,8 +43,8 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
-    .relTypeSystem.add(["tsys+dynamic"])
-    .relWrittenInPlang.add(["pl+c", "pl+c++"]);
+    .relTypeSystems.add(["tsys+dynamic"])
+    .relWrittenWith.add(["pl+c", "pl+c++"]);
 
   // TOOLS
 

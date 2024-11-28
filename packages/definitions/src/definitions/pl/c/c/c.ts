@@ -28,10 +28,10 @@ export function define(g: PlangsGraph) {
       created: "1972",
     })
     .relInfluencedBy.add(["pl+fortran"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+compiled", "para+imperative", "para+multi", "para+procedural", "para+structured"])
-    .relPlatform.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+dos", "plat+embedded", "plat+linux", "plat+windows"])
-    .relTag.add([
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+compiled", "para+imperative", "para+multi", "para+procedural", "para+structured"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+dos", "plat+embedded", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+app",
       "tag+asm",
       "tag+compiler",
@@ -48,7 +48,7 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
-    .relTypeSystem.add(["tsys+manifest", "tsys+nominal", "tsys+static", "tsys+weak"]);
+    .relTypeSystems.add(["tsys+manifest", "tsys+nominal", "tsys+static", "tsys+weak"]);
 
   // TOOLS
 

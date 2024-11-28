@@ -27,12 +27,12 @@ export function define(g: PlangsGraph) {
       created: "2007",
     })
     .relInfluencedBy.add(["pl+coq", "pl+haskell"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+functional"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+automation", "tag+compiler", "tag+control", "tag+industrial", "tag+interpreters", "tag+proofs"])
-    .relTypeSystem.add(["tsys+dependent", "tsys+inferred", "tsys+manifest", "tsys+nominal", "tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+haskell"]);
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+functional"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+automation", "tag+compiler", "tag+control", "tag+industrial", "tag+interpreters", "tag+proofs"])
+    .relTypeSystems.add(["tsys+dependent", "tsys+inferred", "tsys+manifest", "tsys+nominal", "tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+haskell"]);
 
   // TOOLS
 

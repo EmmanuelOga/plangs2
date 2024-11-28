@@ -20,12 +20,12 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+javascript"])
     .relImplements.add(["pl+dart"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+declarative", "para+functional", "para+oop"])
-    .relPlatform.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows"])
-    .relTag.add(["tag+3dg", "tag+app", "tag+framework", "tag+industrial", "tag+ray-tracer", "tag+ui"])
-    .relTypeSystem.add(["tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+c", "pl+c++", "pl+dart"]);
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+declarative", "para+functional", "para+oop"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows"])
+    .relTags.add(["tag+3dg", "tag+app", "tag+framework", "tag+industrial", "tag+ray-tracer", "tag+ui"])
+    .relTypeSystems.add(["tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+c", "pl+c++", "pl+dart"]);
 
   // TOOLS
 

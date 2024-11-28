@@ -26,11 +26,11 @@ export function define(g: PlangsGraph) {
       created: "1995",
     })
     .relInfluencedBy.add(["pl+c", "pl+java"])
-    .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective", "para+scripting"])
-    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+scripting", "tag+server"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+gradual", "tsys+weak"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relParadigms.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective", "para+scripting"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+scripting", "tag+server"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+gradual", "tsys+weak"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

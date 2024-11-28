@@ -19,11 +19,11 @@ export function define(g: PlangsGraph) {
       created: "2010",
     })
     .relInfluencedBy.add(["pl+c", "pl+python", "pl+rust"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+functional", "para+imperative"])
-    .relPlatform.add(["plat+cross", "plat+java"])
-    .relTag.add(["tag+compiler", "tag+interpreters", "tag+sci"])
-    .relTypeSystem.add(["tsys+flow", "tsys+safe", "tsys+strong", "tsys+structural"]);
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+functional", "para+imperative"])
+    .relPlatforms.add(["plat+cross", "plat+java"])
+    .relTags.add(["tag+compiler", "tag+interpreters", "tag+sci"])
+    .relTypeSystems.add(["tsys+flow", "tsys+safe", "tsys+strong", "tsys+structural"]);
 
   // TOOLS
 

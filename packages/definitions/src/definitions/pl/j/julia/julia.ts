@@ -40,8 +40,8 @@ export function define(g: PlangsGraph) {
       "pl+scheme",
       "pl+wolfram-language",
     ])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add([
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add([
       "para+array",
       "para+functional",
       "para+imperative",
@@ -52,8 +52,8 @@ export function define(g: PlangsGraph) {
       "para+reflective",
       "para+structured",
     ])
-    .relPlatform.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])
-    .relTag.add([
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64"])
+    .relTags.add([
       "tag+3dg",
       "tag+analysis",
       "tag+app",
@@ -73,8 +73,8 @@ export function define(g: PlangsGraph) {
       "tag+ui",
       "tag+wavelet",
     ])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+optional", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+c", "pl+c++", "pl+llvm", "pl+scheme"]);
+    .relTypeSystems.add(["tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+optional", "tsys+strong"])
+    .relWrittenWith.add(["pl+c", "pl+c++", "pl+llvm", "pl+scheme"]);
 
   // TOOLS
 

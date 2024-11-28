@@ -17,12 +17,12 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+ruby"])
     .relInfluencedBy.add(["pl+ruby"])
-    .relLicense.add(["lic+apache"])
-    .relParadigm.add(["para+interpreted", "para+oop", "para+scripting"])
-    .relPlatform.add(["plat+.net", "plat+apple", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+app", "tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting"])
-    .relTypeSystem.add(["tsys+duck", "tsys+dynamic"])
-    .relWrittenInPlang.add(["pl+c-sharp"]);
+    .relLicenses.add(["lic+apache"])
+    .relParadigms.add(["para+interpreted", "para+oop", "para+scripting"])
+    .relPlatforms.add(["plat+.net", "plat+apple", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+app", "tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting"])
+    .relTypeSystems.add(["tsys+duck", "tsys+dynamic"])
+    .relWrittenWith.add(["pl+c-sharp"]);
 
   // TOOLS
 

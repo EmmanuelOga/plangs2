@@ -29,12 +29,12 @@ export function define(g: PlangsGraph) {
     .relCompilesTo.add(["pl+python"])
     .relDialectOf.add(["pl+lisp"])
     .relInfluencedBy.add(["pl+clojure", "pl+common-lisp", "pl+python"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+functional", "para+metaprogramming", "para+multi", "para+oop", "para+procedural", "para+reflective", "para+scripting"])
-    .relPlatform.add(["plat+cross", "plat+x86-64"])
-    .relTag.add(["tag+interpreters", "tag+scripting"])
-    .relTypeSystem.add(["tsys+duck", "tsys+dynamic"])
-    .relWrittenInPlang.add(["pl+python"]);
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+functional", "para+metaprogramming", "para+multi", "para+oop", "para+procedural", "para+reflective", "para+scripting"])
+    .relPlatforms.add(["plat+cross", "plat+x86-64"])
+    .relTags.add(["tag+interpreters", "tag+scripting"])
+    .relTypeSystems.add(["tsys+duck", "tsys+dynamic"])
+    .relWrittenWith.add(["pl+python"]);
 
   // TOOLS
 

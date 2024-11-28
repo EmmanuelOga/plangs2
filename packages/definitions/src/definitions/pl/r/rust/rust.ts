@@ -39,10 +39,10 @@ export function define(g: PlangsGraph) {
       "pl+standard-ml",
       "pl+swift",
     ])
-    .relLicense.add(["lic+apache", "lic+mit"])
-    .relParadigm.add(["para+compiled", "para+concurrent", "para+functional", "para+imperative", "para+multi", "para+structured"])
-    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
-    .relTag.add([
+    .relLicenses.add(["lic+apache", "lic+mit"])
+    .relParadigms.add(["para+compiled", "para+concurrent", "para+functional", "para+imperative", "para+multi", "para+structured"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows"])
+    .relTags.add([
       "tag+app",
       "tag+cli",
       "tag+compiler",
@@ -54,8 +54,8 @@ export function define(g: PlangsGraph) {
       "tag+iot",
       "tag+viz",
     ])
-    .relTypeSystem.add(["tsys+affine", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+ocaml"]);
+    .relTypeSystems.add(["tsys+affine", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+ocaml"]);
 
   // TOOLS
 

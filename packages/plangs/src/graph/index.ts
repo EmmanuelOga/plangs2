@@ -128,9 +128,9 @@ export class VPlang extends VPlangBase {
    */
   family(opt = { compilesTo: true, dialectOf: true, implements: true }): Set<VPlang> {
     const set = new Set<VPlang>([]);
-    if (opt.compilesTo) for (const pl of this.relCompilesTo.vertices) set.add(pl);
-    if (opt.dialectOf) for (const pl of this.relDialectOf.vertices) set.add(pl);
-    if (opt.implements) for (const pl of this.relImplements.vertices) set.add(pl);
+    if (opt.compilesTo) for (const pl of this.relCompilesTo.values) set.add(pl);
+    if (opt.dialectOf) for (const pl of this.relDialectOf.values) set.add(pl);
+    if (opt.implements) for (const pl of this.relImplements.values) set.add(pl);
     return set;
   }
 }

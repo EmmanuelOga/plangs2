@@ -26,10 +26,10 @@ export function define(g: PlangsGraph) {
       created: "1998",
     })
     .relInfluencedBy.add(["pl+java", "pl+javascript"])
-    .relLicense.add(["lic+apache"])
-    .relParadigm.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+prototype", "para+scripting"])
-    .relPlatform.add(["plat+apple", "plat+cross", "plat+web", "plat+windows"])
-    .relTag.add([
+    .relLicenses.add(["lic+apache"])
+    .relParadigms.add(["para+functional", "para+imperative", "para+multi", "para+oop", "para+prototype", "para+scripting"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+web", "plat+windows"])
+    .relTags.add([
       "tag+app",
       "tag+audio-dev",
       "tag+compiler",
@@ -42,7 +42,7 @@ export function define(g: PlangsGraph) {
       "tag+multimedia",
       "tag+scripting",
     ])
-    .relTypeSystem.add(["tsys+static", "tsys+strong"]);
+    .relTypeSystems.add(["tsys+static", "tsys+strong"]);
 
   // TOOLS
 

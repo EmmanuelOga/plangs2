@@ -15,12 +15,12 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add(["pl+datalog"])
     .relInfluencedBy.add(["pl+datalog"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+compiled", "para+declarative", "para+logic"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+analysis", "tag+compiler", "tag+interpreters"])
-    .relTypeSystem.add(["tsys+static"])
-    .relWrittenInPlang.add(["pl+c++"]);
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+compiled", "para+declarative", "para+logic"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+analysis", "tag+compiler", "tag+interpreters"])
+    .relTypeSystems.add(["tsys+static"])
+    .relWrittenWith.add(["pl+c++"]);
 
   // TOOLS
 

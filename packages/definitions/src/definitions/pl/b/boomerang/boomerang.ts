@@ -16,11 +16,11 @@ export function define(g: PlangsGraph) {
       created: "2008",
     })
     .relInfluencedBy.add(["pl+ocaml"])
-    .relLicense.add(["lic+lgpl"])
-    .relParadigm.add(["para+bidirectional", "para+declarative", "para+dsl"])
-    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux"])
-    .relTag.add(["tag+interpreters"])
-    .relTypeSystem.add(["tsys+strong"]);
+    .relLicenses.add(["lic+lgpl"])
+    .relParadigms.add(["para+bidirectional", "para+declarative", "para+dsl"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux"])
+    .relTags.add(["tag+interpreters"])
+    .relTypeSystems.add(["tsys+strong"]);
 
   // TOOLS
 

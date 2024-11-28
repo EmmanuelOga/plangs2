@@ -29,10 +29,10 @@ export function define(g: PlangsGraph) {
       created: "1995",
     })
     .relCompilesTo.add(["pl+coldfusion", "pl+java"])
-    .relParadigm.add(["para+event-driven", "para+multi", "para+procedural", "para+scripting"])
-    .relPlatform.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+app", "tag+dataflow", "tag+dbms", "tag+scripting", "tag+server"])
-    .relTypeSystem.add(["tsys+duck", "tsys+dynamic"]);
+    .relParadigms.add(["para+event-driven", "para+multi", "para+procedural", "para+scripting"])
+    .relPlatforms.add(["plat+apple", "plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+app", "tag+dataflow", "tag+dbms", "tag+scripting", "tag+server"])
+    .relTypeSystems.add(["tsys+duck", "tsys+dynamic"]);
 
   // TOOLS
 

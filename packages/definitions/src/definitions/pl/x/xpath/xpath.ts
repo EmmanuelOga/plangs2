@@ -17,9 +17,9 @@ export function define(g: PlangsGraph) {
       created: "1998",
     })
     .relInfluencedBy.add(["pl+xslt"])
-    .relParadigm.add(["para+query"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+automation", "tag+dataflow", "tag+workflow"]);
+    .relParadigms.add(["para+query"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+automation", "tag+dataflow", "tag+workflow"]);
 
   // TOOLS
 

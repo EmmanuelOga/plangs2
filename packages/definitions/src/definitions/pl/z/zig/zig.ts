@@ -22,10 +22,10 @@ export function define(g: PlangsGraph) {
       created: "2016",
     })
     .relInfluencedBy.add(["pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+procedural"])
-    .relPlatform.add(["plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+riscv", "plat+wasm", "plat+windows", "plat+x86-64"])
-    .relTag.add([
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+concurrent", "para+functional", "para+imperative", "para+multi", "para+procedural"])
+    .relPlatforms.add(["plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+riscv", "plat+wasm", "plat+windows", "plat+x86-64"])
+    .relTags.add([
       "tag+app",
       "tag+asm",
       "tag+compiler",
@@ -36,7 +36,7 @@ export function define(g: PlangsGraph) {
       "tag+testing",
       "tag+viz",
     ])
-    .relTypeSystem.add(["tsys+generic", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
+    .relTypeSystems.add(["tsys+generic", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural"]);
 
   // TOOLS
 

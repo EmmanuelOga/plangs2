@@ -30,11 +30,11 @@ export function define(g: PlangsGraph) {
       created: "2016",
     })
     .relCompilesTo.add(["pl+javascript"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+compiled", "para+functional", "para+reactive"])
-    .relPlatform.add(["plat+nodejs", "plat+web"])
-    .relTag.add(["tag+framework", "tag+ui"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+static"]);
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+compiled", "para+functional", "para+reactive"])
+    .relPlatforms.add(["plat+nodejs", "plat+web"])
+    .relTags.add(["tag+framework", "tag+ui"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+static"]);
 
   // TOOLS
 

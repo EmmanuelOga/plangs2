@@ -19,12 +19,12 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+c-sharp", "pl+f-sharp", "pl+visual-basic"])
     .relInfluencedBy.add(["pl+java"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+concurrent", "para+functional", "para+multi", "para+oop"])
-    .relPlatform.add(["plat+.net", "plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64"])
-    .relTag.add(["tag+app", "tag+cli", "tag+compiler", "tag+framework", "tag+interpreters", "tag+shell", "tag+ui"])
-    .relTypeSystem.add(["tsys+nominal", "tsys+polymorphic", "tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+c++", "pl+c-sharp"]);
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+concurrent", "para+functional", "para+multi", "para+oop"])
+    .relPlatforms.add(["plat+.net", "plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64"])
+    .relTags.add(["tag+app", "tag+cli", "tag+compiler", "tag+framework", "tag+interpreters", "tag+shell", "tag+ui"])
+    .relTypeSystems.add(["tsys+nominal", "tsys+polymorphic", "tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+c++", "pl+c-sharp"]);
 
   // TOOLS
 

@@ -14,12 +14,12 @@ export function define(g: PlangsGraph) {
       created: "2015",
     })
     .relCompilesTo.add(["pl+bash"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+compiled", "para+multi", "para+oop", "para+scripting"])
-    .relPlatform.add(["plat+apple", "plat+linux", "plat+web"])
-    .relTag.add(["tag+cli", "tag+scripting"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+safe", "tsys+static"])
-    .relWrittenInPlang.add(["pl+rust"]);
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+compiled", "para+multi", "para+oop", "para+scripting"])
+    .relPlatforms.add(["plat+apple", "plat+linux", "plat+web"])
+    .relTags.add(["tag+cli", "tag+scripting"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+safe", "tsys+static"])
+    .relWrittenWith.add(["pl+rust"]);
 
   // TOOLS
 

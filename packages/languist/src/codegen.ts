@@ -29,14 +29,14 @@ export function genericCodeGen(pg: PlangsGraph, kind: "license" | "paradigm" | "
       const relations: string[] = [];
 
       if (node instanceof VCommunity) {
-        addRelKeys(relations, "relPlangs", node.relPlang.keys);
-        addRelKeys(relations, "relTags", node.relTag.keys);
+        addRelKeys(relations, "relPlangs", node.relPlangs.keys);
+        addRelKeys(relations, "relTags", node.relTags.keys);
       }
 
       if (node instanceof VLearning) {
-        addRelKeys(relations, "relPlangs", node.relPlang.keys);
-        addRelKeys(relations, "relTags", node.relTag.keys);
-        addRelKeys(relations, "relCommunities", node.relCommunity.keys);
+        addRelKeys(relations, "relPlangs", node.relPlangs.keys);
+        addRelKeys(relations, "relTags", node.relTags.keys);
+        addRelKeys(relations, "relCommunities", node.relCommunities.keys);
       }
 
       return `${genSet(kind, node.key, node.data)}${relations.join("")}`;
@@ -58,19 +58,19 @@ export function plangCodeGen(plang: VPlang): string {
   addRelKeys(relations, "relDialectOf", plang.relDialectOf.keys);
   addRelKeys(relations, "relImplements", plang.relImplements.keys, (key: string) => key !== plang.key);
   addRelKeys(relations, "relInfluencedBy", plang.relInfluencedBy.keys);
-  addRelKeys(relations, "relLicenses", plang.relLicense.keys);
-  addRelKeys(relations, "relParadigms", plang.relParadigm.keys);
-  addRelKeys(relations, "relPlatforms", plang.relPlatform.keys);
-  addRelKeys(relations, "relTags", plang.relTag.keys);
-  addRelKeys(relations, "relTsys", plang.relTypeSystem.keys);
-  addRelKeys(relations, "relWrittenIn", plang.relWrittenInPlang.keys);
-  addRelKeys(relations, "relApps", plang.relApp.keys);
-  addRelKeys(relations, "relLibs", plang.relLibrary.keys);
-  addRelKeys(relations, "relTools", plang.relTool.keys);
+  addRelKeys(relations, "relLicenses", plang.relLicenses.keys);
+  addRelKeys(relations, "relParadigms", plang.relParadigms.keys);
+  addRelKeys(relations, "relPlatforms", plang.relPlatforms.keys);
+  addRelKeys(relations, "relTags", plang.relTags.keys);
+  addRelKeys(relations, "relTsys", plang.relTypeSystems.keys);
+  addRelKeys(relations, "relWrittenIn", plang.relWrittenWith.keys);
+  addRelKeys(relations, "relApps", plang.relApps.keys);
+  addRelKeys(relations, "relLibs", plang.relLibraries.keys);
+  addRelKeys(relations, "relTools", plang.relTools.keys);
 
-  const apps = plang.relApp.vertices.map(app => genSet("app", app.key, app.data));
-  const libs = plang.relLibrary.vertices.map(lib => genSet("library", lib.key, lib.data));
-  const tools = plang.relTool.vertices.map(tool => genSet("tool", tool.key, tool.data));
+  const apps = plang.relApps.values.map(app => genSet("app", app.key, app.data));
+  const libs = plang.relLibraries.values.map(lib => genSet("library", lib.key, lib.data));
+  const tools = plang.relTools.values.map(tool => genSet("tool", tool.key, tool.data));
 
   const bundles: string[] = []; /* TODO. plang.nodes().map(bundle => {
     const bunRel: string[] = [];

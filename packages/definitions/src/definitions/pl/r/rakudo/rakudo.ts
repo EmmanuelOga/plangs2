@@ -26,12 +26,12 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+raku"])
     .relInfluencedBy.add(["pl+common-lisp", "pl+haskell", "pl+perl"])
-    .relLicense.add(["lic+artistic"])
-    .relParadigm.add(["para+functional", "para+multi", "para+procedural"])
-    .relPlatform.add(["plat+android", "plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+compiler", "tag+scripting"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+c++"]);
+    .relLicenses.add(["lic+artistic"])
+    .relParadigms.add(["para+functional", "para+multi", "para+procedural"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+bsd", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+compiler", "tag+scripting"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"])
+    .relWrittenWith.add(["pl+c++"]);
 
   // TOOLS
 

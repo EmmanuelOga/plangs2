@@ -25,12 +25,21 @@ export function define(g: PlangsGraph) {
       created: "1986",
     })
     .relInfluencedBy.add(["pl+haskell"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+declarative", "para+dsl", "para+logic"])
-    .relPlatform.add(["plat+apple", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+automation", "tag+control", "tag+framework", "tag+industrial", "tag+interpreters", "tag+modeling", "tag+proofs", "tag+wavelet"])
-    .relTypeSystem.add(["tsys+dependent", "tsys+static", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+scala", "pl+standard-ml"]);
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+declarative", "para+dsl", "para+logic"])
+    .relPlatforms.add(["plat+apple", "plat+linux", "plat+windows"])
+    .relTags.add([
+      "tag+automation",
+      "tag+control",
+      "tag+framework",
+      "tag+industrial",
+      "tag+interpreters",
+      "tag+modeling",
+      "tag+proofs",
+      "tag+wavelet",
+    ])
+    .relTypeSystems.add(["tsys+dependent", "tsys+static", "tsys+strong"])
+    .relWrittenWith.add(["pl+scala", "pl+standard-ml"]);
 
   // TOOLS
 

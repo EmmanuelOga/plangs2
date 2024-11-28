@@ -26,10 +26,10 @@ export function define(g: PlangsGraph) {
       created: "2007",
     })
     .relInfluencedBy.add(["pl+sql", "pl+xpath", "pl+xslt"])
-    .relParadigm.add(["para+data-exchange", "para+declarative", "para+dsl", "para+functional", "para+modular", "para+query"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+analysis", "tag+app", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+viz"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+inferred", "tsys+static", "tsys+strong"]);
+    .relParadigms.add(["para+data-exchange", "para+declarative", "para+dsl", "para+functional", "para+modular", "para+query"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+analysis", "tag+app", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+viz"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+inferred", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

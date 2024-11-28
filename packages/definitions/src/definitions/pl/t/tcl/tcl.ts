@@ -27,10 +27,10 @@ export function define(g: PlangsGraph) {
       created: "1988",
     })
     .relInfluencedBy.add(["pl+awk", "pl+lisp"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+event-driven", "para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural"])
-    .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add([
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+event-driven", "para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural"])
+    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+app",
       "tag+automation",
       "tag+control",
@@ -43,8 +43,8 @@ export function define(g: PlangsGraph) {
       "tag+testing",
       "tag+ui",
     ])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+string"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relTypeSystems.add(["tsys+dynamic", "tsys+string"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

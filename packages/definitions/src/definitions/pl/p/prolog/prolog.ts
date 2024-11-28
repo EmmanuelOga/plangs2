@@ -24,9 +24,9 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.iso.org/standard/21413.html",
       created: "1972",
     })
-    .relParadigm.add(["para+declarative", "para+logic"])
-    .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add([
+    .relParadigms.add(["para+declarative", "para+logic"])
+    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add([
       "tag+analysis",
       "tag+app",
       "tag+audio-dev",
@@ -43,7 +43,7 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     ])
-    .relTypeSystem.add(["tsys+untyped"]);
+    .relTypeSystems.add(["tsys+untyped"]);
 
   // TOOLS
 

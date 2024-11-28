@@ -19,10 +19,10 @@ export function define(g: PlangsGraph) {
       extRedditPath: "pascal",
       created: "1970",
     })
-    .relParadigm.add(["para+imperative", "para+procedural", "para+structured"])
-    .relPlatform.add(["plat+bsd", "plat+cross", "plat+dos", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+compiler", "tag+edu", "tag+framework", "tag+games", "tag+interpreters"])
-    .relTypeSystem.add(["tsys+safe", "tsys+static", "tsys+strong"]);
+    .relParadigms.add(["para+imperative", "para+procedural", "para+structured"])
+    .relPlatforms.add(["plat+bsd", "plat+cross", "plat+dos", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+compiler", "tag+edu", "tag+framework", "tag+games", "tag+interpreters"])
+    .relTypeSystems.add(["tsys+safe", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

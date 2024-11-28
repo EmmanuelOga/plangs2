@@ -16,12 +16,12 @@ export function define(g: PlangsGraph) {
     .relDialectOf.add(["pl+prolog"])
     .relImplements.add(["pl+prolog"])
     .relInfluencedBy.add(["pl+prolog"])
-    .relLicense.add(["lic+lgpl"])
-    .relParadigm.add(["para+declarative", "para+expert-system", "para+logic"])
-    .relPlatform.add(["plat+cross", "plat+linux", "plat+windows"])
-    .relTag.add(["tag+dbms", "tag+interpreters"])
-    .relTypeSystem.add(["tsys+untyped"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relLicenses.add(["lic+lgpl"])
+    .relParadigms.add(["para+declarative", "para+expert-system", "para+logic"])
+    .relPlatforms.add(["plat+cross", "plat+linux", "plat+windows"])
+    .relTags.add(["tag+dbms", "tag+interpreters"])
+    .relTypeSystems.add(["tsys+untyped"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

@@ -26,10 +26,10 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+basic"])
     .relInfluencedBy.add(["pl+basic", "pl+visual-basic"])
-    .relParadigm.add(["para+multi", "para+oop", "para+visual"])
-    .relPlatform.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+raspberry", "plat+web", "plat+windows"])
-    .relTag.add(["tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreters", "tag+rad", "tag+ui"])
-    .relTypeSystem.add(["tsys+object", "tsys+static", "tsys+strong"]);
+    .relParadigms.add(["para+multi", "para+oop", "para+visual"])
+    .relPlatforms.add(["plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+raspberry", "plat+web", "plat+windows"])
+    .relTags.add(["tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreters", "tag+rad", "tag+ui"])
+    .relTypeSystems.add(["tsys+object", "tsys+static", "tsys+strong"]);
 
   // TOOLS
 

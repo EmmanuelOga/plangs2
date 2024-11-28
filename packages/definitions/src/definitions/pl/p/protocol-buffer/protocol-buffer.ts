@@ -20,9 +20,9 @@ export function define(g: PlangsGraph) {
       created: "2001",
     })
     .relCompilesTo.add(["pl+c++", "pl+c-sharp", "pl+dart", "pl+go", "pl+java", "pl+javascript", "pl+php", "pl+python", "pl+ruby"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+data-exchange"])
-    .relPlatform.add(["plat+cross"]);
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+data-exchange"])
+    .relPlatforms.add(["plat+cross"]);
 
   // TOOLS
 

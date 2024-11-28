@@ -20,12 +20,12 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add(["pl+python"])
     .relInfluencedBy.add(["pl+micropython"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+embedded", "para+interpreted", "para+scripting"])
-    .relPlatform.add(["plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry"])
-    .relTag.add(["tag+edu", "tag+embedded", "tag+interpreters", "tag+iot"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+embedded", "para+interpreted", "para+scripting"])
+    .relPlatforms.add(["plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry"])
+    .relTags.add(["tag+edu", "tag+embedded", "tag+interpreters", "tag+iot"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

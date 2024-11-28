@@ -19,12 +19,12 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Sed",
       created: "1974",
     })
-    .relLicense.add(["lic+public-domain"])
-    .relParadigm.add(["para+procedural", "para+scripting"])
-    .relPlatform.add(["plat+bsd", "plat+cross", "plat+linux"])
-    .relTag.add(["tag+cli", "tag+editor", "tag+scripting", "tag+shell"])
-    .relTypeSystem.add(["tsys+untyped"])
-    .relWrittenInPlang.add(["pl+c"]);
+    .relLicenses.add(["lic+public-domain"])
+    .relParadigms.add(["para+procedural", "para+scripting"])
+    .relPlatforms.add(["plat+bsd", "plat+cross", "plat+linux"])
+    .relTags.add(["tag+cli", "tag+editor", "tag+scripting", "tag+shell"])
+    .relTypeSystems.add(["tsys+untyped"])
+    .relWrittenWith.add(["pl+c"]);
 
   // TOOLS
 

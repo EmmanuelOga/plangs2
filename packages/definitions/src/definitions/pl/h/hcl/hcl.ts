@@ -25,9 +25,9 @@ export function define(g: PlangsGraph) {
       created: "2014",
     })
     .relCompilesTo.add(["pl+go"])
-    .relLicense.add(["lic+mpl"])
-    .relParadigm.add(["para+declarative", "para+dsl"])
-    .relPlatform.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"]);
+    .relLicenses.add(["lic+mpl"])
+    .relParadigms.add(["para+declarative", "para+dsl"])
+    .relPlatforms.add(["plat+apple", "plat+bsd", "plat+linux", "plat+windows"]);
 
   // TOOLS
 

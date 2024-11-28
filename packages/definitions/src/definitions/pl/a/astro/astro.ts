@@ -22,10 +22,10 @@ export function define(g: PlangsGraph) {
       created: "2021",
     })
     .relCompilesTo.add(["pl+javascript", "pl+svelte", "pl+typescript", "pl+vue"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+declarative", "para+reactive"])
-    .relPlatform.add(["plat+web"])
-    .relTag.add(["tag+framework"]);
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+declarative", "para+reactive"])
+    .relPlatforms.add(["plat+web"])
+    .relTags.add(["tag+framework"]);
 
   // TOOLS
 

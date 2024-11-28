@@ -21,10 +21,10 @@ export function define(g: PlangsGraph) {
       created: "1988",
     })
     .relInfluencedBy.add(["pl+apl", "pl+c", "pl+c++", "pl+fortran", "pl+lisp", "pl+pascal", "pl+prolog"])
-    .relParadigm.add(["para+array", "para+functional", "para+multi", "para+procedural", "para+rewriting"])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add(["tag+audio-dev", "tag+cas", "tag+cli", "tag+games", "tag+interpreters", "tag+numeric", "tag+shell"])
-    .relTypeSystem.add(["tsys+dynamic", "tsys+strong"]);
+    .relParadigms.add(["para+array", "para+functional", "para+multi", "para+procedural", "para+rewriting"])
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add(["tag+audio-dev", "tag+cas", "tag+cli", "tag+games", "tag+interpreters", "tag+numeric", "tag+shell"])
+    .relTypeSystems.add(["tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

@@ -23,8 +23,8 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add(["pl+lua"])
     .relInfluencedBy.add(["pl+c++", "pl+coffeescript", "pl+scheme"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add([
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add([
       "para+functional",
       "para+imperative",
       "para+metaprogramming",
@@ -35,8 +35,8 @@ export function define(g: PlangsGraph) {
       "para+reflective",
       "para+scripting",
     ])
-    .relPlatform.add(["plat+cross"])
-    .relTag.add([
+    .relPlatforms.add(["plat+cross"])
+    .relTags.add([
       "tag+app",
       "tag+compiler",
       "tag+dbms",
@@ -48,7 +48,7 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
       "tag+viz",
     ])
-    .relTypeSystem.add(["tsys+duck", "tsys+dynamic", "tsys+strong"]);
+    .relTypeSystems.add(["tsys+duck", "tsys+dynamic", "tsys+strong"]);
 
   // TOOLS
 

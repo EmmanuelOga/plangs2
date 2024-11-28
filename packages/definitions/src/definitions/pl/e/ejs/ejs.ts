@@ -21,11 +21,11 @@ export function define(g: PlangsGraph) {
       created: "2010",
     })
     .relCompilesTo.add(["pl+javascript"])
-    .relLicense.add(["lic+mit"])
-    .relParadigm.add(["para+declarative", "para+scripting"])
-    .relPlatform.add(["plat+nodejs", "plat+web"])
-    .relTag.add(["tag+scripting"])
-    .relTypeSystem.add(["tsys+duck", "tsys+dynamic"]);
+    .relLicenses.add(["lic+mit"])
+    .relParadigms.add(["para+declarative", "para+scripting"])
+    .relPlatforms.add(["plat+nodejs", "plat+web"])
+    .relTags.add(["tag+scripting"])
+    .relTypeSystems.add(["tsys+duck", "tsys+dynamic"]);
 
   // TOOLS
 

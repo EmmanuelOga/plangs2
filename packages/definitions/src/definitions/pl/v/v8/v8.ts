@@ -21,12 +21,12 @@ export function define(g: PlangsGraph) {
       created: "2008",
     })
     .relImplements.add(["pl+javascript"])
-    .relLicense.add(["lic+bsd"])
-    .relParadigm.add(["para+event-driven", "para+functional", "para+imperative", "para+interpreted", "para+multi", "para+oop", "para+procedural"])
-    .relPlatform.add(["plat+arm", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64"])
-    .relTag.add(["tag+compiler", "tag+interpreters", "tag+scripting", "tag+server"])
-    .relTypeSystem.add(["tsys+duck", "tsys+dynamic", "tsys+weak"])
-    .relWrittenInPlang.add(["pl+c++"]);
+    .relLicenses.add(["lic+bsd"])
+    .relParadigms.add(["para+event-driven", "para+functional", "para+imperative", "para+interpreted", "para+multi", "para+oop", "para+procedural"])
+    .relPlatforms.add(["plat+arm", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64"])
+    .relTags.add(["tag+compiler", "tag+interpreters", "tag+scripting", "tag+server"])
+    .relTypeSystems.add(["tsys+duck", "tsys+dynamic", "tsys+weak"])
+    .relWrittenWith.add(["pl+c++"]);
 
   // TOOLS
 
