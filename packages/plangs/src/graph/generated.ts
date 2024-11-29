@@ -117,13 +117,14 @@ export class PlangsGraphBase {
     };
   }
 
-  loadJSON(data: SerializedGraph) {
+  loadJSON(data: SerializedGraph): this {
     for (const [vertexName, vertices] of Object.entries(data.vertices)) {
       this.vertices[vertexName as PlangsVertexName].setMany(vertices as [any, any]);
     }
     for (const [edgeName, edges] of Object.entries(data.edges)) {
       this.edges[edgeName as PlangsEdgeName].addMany(edges as [any, any]);
     }
+    return this;
   }
 }
 

@@ -14,7 +14,9 @@ import { getPl } from "./pl";
 
 async function start() {
   const pg = new PlangsGraph();
-  const loadData = fetch("/plangs.json").then(async r => pg.loadJSON(await r.json()));
+  const loadData = fetch("/plangs.json")
+    .then(async r => pg.loadJSON(await r.json()))
+    .then(g => g.materialize());
 
   window.fragment = new FragmentTracker().bind();
   window.restoreFilters = () => ToggleFacetsMenu.initial().runEffects();

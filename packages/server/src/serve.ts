@@ -14,7 +14,7 @@ import { notifyWebsockets, trackWebsocket, untrackWebsocket } from "./livereload
 import { resolvePage } from "./resolve_page";
 import { contentTypeFor, staticResponse, vdomToHTML } from "./utils/server";
 
-const pg = new PlangsGraph();
+const pg = new PlangsGraph().materialize();
 await loadDefinitions(pg, { scanImages: true });
 await loadPosts(pg);
 

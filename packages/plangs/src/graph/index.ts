@@ -38,7 +38,7 @@ export class PlangsGraph extends PlangsGraphBase {
    * We may implement some sort of inference engine in the future,
    * but for now we can just materialize some simple rules.
    */
-  materialize() {
+  materialize(): this {
     // All languages implement themselves.
     for (const pl of this.plang.values) pl.relImplements.add(pl.key);
 
@@ -48,6 +48,8 @@ export class PlangsGraph extends PlangsGraphBase {
         bundle.relPlangs.add(...tool.relPlangs.keys);
       }
     }
+
+    return this;
   }
 }
 

@@ -39,7 +39,7 @@ export function genericCodeGen(pg: PlangsGraph, kind: "license" | "paradigm" | "
         addRelKeys(relations, "relCommunities", vertex.relCommunities.keys);
       }
 
-      return `${genSet(kind, vertex.key, vertex.data)}${relations.join("")}`;
+      return `${generateSettter(kind, vertex.key, vertex.data)}${relations.join("")}`;
     });
 
   return `import type { PlangsGraph } from "@plangs/plangs/graph";
@@ -68,20 +68,21 @@ export function plangCodeGen(plang: VPlang): string {
   addRelKeys(relations, "relLibs", plang.relLibraries.keys);
   addRelKeys(relations, "relTools", plang.relTools.keys);
 
-  const apps = plang.relApps.values.map(app => genSet("app", app.key, app.data));
-  const libs = plang.relLibraries.values.map(lib => genSet("library", lib.key, lib.data));
-  const tools = plang.relTools.values.map(tool => genSet("tool", tool.key, tool.data));
+  const apps = plang.relApps.values.map(app => generateSettter("app", app.key, app.data));
+  const libs = plang.relLibraries.values.map(lib => generateSettter("library", lib.key, lib.data));
+  const tools = plang.relTools.values.map(tool => generateSettter("tool", tool.key, tool.data));
 
-  const bundles: string[] = []; /* TODO. plang.vertices().map(bundle => {
+  const bundles: string[] = [];
+  plang.relBundles.values.map(bundle => {
     const bunRel: string[] = [];
-    addRelKeys(bunRel, "relTools", bundle.relTools.keys());
-    return `${genSet("bundle", bundle.key, bundle.data)}${bunRel.join("")}`;
-  });*/
+    addRelKeys(bunRel, "relTools", bundle.relTools.keys);
+    return `${generateSettter("bundle", bundle.key, bundle.data)}${bunRel.join("")}`;
+  });
 
   return `import type { PlangsGraph } from "@plangs/plangs/graph";
 
   export function define(g: PlangsGraph) {
-    ${genSet("plang", plang.key, plang.data)}${relations.join("")}
+    ${generateSettter("plang", plang.key, plang.data)}${relations.join("")}
 
     // TOOLS
 
@@ -104,7 +105,7 @@ export function plangCodeGen(plang: VPlang): string {
 
 // Generate a setter for the vertex data.
 // biome-ignore lint/suspicious/noExplicitAny: Any data is fine here.
-const genSet = (kind: PlangsVertexName, key: string, data: any) => {
+const generateSettter = (kind: PlangsVertexName, key: string, data: any) => {
   /** Cleanup data in place: sort keys, remove blank values. */
   for (const [k, v] of Object.entries(data)) {
     if (Array.isArray(v)) {

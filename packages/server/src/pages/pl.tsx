@@ -126,16 +126,14 @@ function PlTools({ pl }: { pl: VPlang }) {
 }
 
 function PlBundles({ pl }: { pl: VPlang }) {
-  const bundles: any[] = []; // TODO: fix  pl.relPlBundles.vertices();
+  const bundles = pl.relBundles.values;
   return bundles.length === 0 ? null : (
     <>
       {bundles.map(bundle => (
         <div key={bundle.key} class={tw("bg-linear-to-b to-secondary/50", "shadow-lg shadow-primary/20", tw(BORDER, "border-b-1"), "-mx-4 mb-4 p-4")}>
           <h3>
-            Bundle:{" "}
-            {bundle.relTools.vertices
-              // .map(n => n.name)
-              .join(", ")}
+            Bundle:
+            {bundle.relTools.values.map(n => n.name).join(", ")}
           </h3>
           <p>{bundle.description}</p>
         </div>
