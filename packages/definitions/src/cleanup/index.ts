@@ -7,7 +7,7 @@
 
 import { arrayMerge } from "@plangs/auxiliar/array";
 import { loadDefinitions } from "@plangs/definitions";
-import { genericCodeGen, plangCodeGen, tsNodePath } from "@plangs/languist/codegen";
+import { genericCodeGen, plangCodeGen, tsVertexPath } from "@plangs/languist/codegen";
 import { LG_LANGS, type Rankings } from "@plangs/languist/languish";
 import { GH_LANGS } from "@plangs/languist/linguist";
 import type { LanguishKeys, LinguistLang } from "@plangs/languist/types";
@@ -53,7 +53,7 @@ export async function createMissingPlangs(pg: PlangsGraph, ghMap: Map<string, Li
   // Collect the existing GH names for the next step.
   const existingGHNames = new Set<string>([...pg.plang.values].map(pl => pl.data.githubName).filter(v => !!v) as string[]);
 
-  // Find languages to create new Plang nodes for (for languages with GH ranking from 1 to 100).
+  // Find languages to create new Plang vertices for (for languages with GH ranking from 1 to 100).
   // After this we need to manually review the results: some languages may not be worth keeping (like "AdBlock lists" format).
   for (let rank = 1; rank <= 100; rank++) {
     const ghName = rankings.ghNameByRank.get(rank);
@@ -62,7 +62,7 @@ export async function createMissingPlangs(pg: PlangsGraph, ghMap: Map<string, Li
     // If the key is already in the map, we are done.
     if (existingGHNames.has(ghName)) continue;
 
-    // If the key is not in the map, we need to add a new Plang node.
+    // If the key is not in the map, we need to add a new Plang vertex.
     const pl = pg.plang.set(`pl+${ghName.toLowerCase().replaceAll(/\s+/g, "-")}`, { name: ghName, languishRanking: rank });
 
     updateWithGH(pl, ghMap);
@@ -84,7 +84,7 @@ export async function processGithubAndLanguish() {
   // Remove all previous Languish rankings.
   for (const pl of pg.plang.values) pl.data.languishRanking = undefined;
 
-  // Find the best match for each Plang node on the GH data.
+  // Find the best match for each Plang vertex on the GH data.
   for (const pl of pg.plang.values) {
     if (updateWithGH(pl, ghMap)) {
       // Languish works with github name, so it can only work if the GH data is there.
@@ -94,29 +94,29 @@ export async function processGithubAndLanguish() {
 
   console.warn("Languages without updates:", { woGithub: [...woGH], woLanguish: [...woLG] });
 
-  for (const pl of pg.plang.values) Bun.write(tsNodePath("plang", pl.plainKey), plangCodeGen(pl));
+  for (const pl of pg.plang.values) Bun.write(tsVertexPath("plang", pl.plainKey), plangCodeGen(pl));
 
   console.warn("CAUTION: matching github data is not a perfect process. Results (git diff) should be manually reviewed.");
 }
 
-/** This regenerates some nodes that are not VPlangs. Useful to reorder the definitions. */
+/** This regenerates some vertices that are not VPlangs. Useful to reorder the definitions. */
 export function regenNonPlangs(pg: PlangsGraph) {
-  for (const pl of pg.plang.values) Bun.write(tsNodePath("plang", pl.plainKey), plangCodeGen(pl));
+  for (const pl of pg.plang.values) Bun.write(tsVertexPath("plang", pl.plainKey), plangCodeGen(pl));
   for (const kind of ["license", "paradigm", "platform", "tag", "typeSystem", "learning", "community"] as const) {
-    Bun.write(tsNodePath(kind), genericCodeGen(pg, kind));
+    Bun.write(tsVertexPath(kind), genericCodeGen(pg, kind));
   }
 }
 
-/** Regenerate all Plang nodes. */
+/** Regenerate all Plang vertices. */
 export function regenPlangs(pg: PlangsGraph) {
   for (const pl of pg.plang.values) {
     // This is good place for "migrations", like renaming keys.
-    Bun.write(tsNodePath("plang", pl.plainKey), plangCodeGen(pl));
+    Bun.write(tsVertexPath("plang", pl.plainKey), plangCodeGen(pl));
   }
 }
 
 /**
- * Cleanup relationships in data. All edges should point to an existing node.
+ * Cleanup relationships in data. All edges should point to an existing vertex.
  * @param update if false only prints missing data, doesn't delete it.
  */
 export function cleanupData(pg: PlangsGraph, update: boolean) {
@@ -128,7 +128,7 @@ export function cleanupData(pg: PlangsGraph, update: boolean) {
       if (!vertexTo) missingKeys.add(keyTo);
 
       if (update && (!vertexFrom || !vertexTo)) {
-        console.log("Deleting edge with missing node:", vertexFrom, vertexTo);
+        console.log("Deleting edge with missing vertex:", vertexFrom, vertexTo);
         edges.delete(keyFrom as any, keyTo as any);
       }
     }

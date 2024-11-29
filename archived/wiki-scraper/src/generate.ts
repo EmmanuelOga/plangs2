@@ -50,8 +50,8 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<VPlang
 
   function* findMatching<T>(links: Link[], vertices: Vertices<any>): Generator<T> {
     for (const link of links) {
-      for (const node of [...vertices.values].filter(node => !!node.keywordsRegexp?.test(link.title))) {
-        yield node.key as T;
+      for (const vertex of [...vertices.values].filter(vertex => !!vertex.keywordsRegexp?.test(link.title))) {
+        yield vertex.key as T;
       }
     }
   }

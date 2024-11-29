@@ -1,5 +1,5 @@
 import { BORDER, PROSE, tw } from "@plangs/frontend/auxiliar/styles";
-import { NodeInfo } from "@plangs/frontend/components/node-info/node-info";
+import { VertexInfo } from "@plangs/frontend/components/vertex-info/vertex-info";
 import type { PlangsGraph, VPlang } from "@plangs/plangs/graph";
 import { Layout } from "@plangs/server/components/layout";
 import { Table } from "@plangs/server/components/table";
@@ -15,8 +15,8 @@ export function Pl({ pl, pg }: { pl: VPlang; pg: PlangsGraph }) {
       description={`${pl.name} at https://plangs.page: A language is much more than just a syntax. It's an ecosystem of tools, libraries, and applications.`}
       mainClasses={tw("overflow-y-scroll")}>
       <article class={tw(PROSE, "p-4")}>
-        <div class={tw(cssClass("nodeInfo"), "mb-8")}>
-          <NodeInfo node={pl} open={false} tab="pl" />
+        <div class={tw(cssClass("vertexInfo"), "mb-8")}>
+          <VertexInfo vertex={pl} open={false} tab="pl" />
         </div>
 
         <PlNews pl={pl} />
@@ -126,7 +126,7 @@ function PlTools({ pl }: { pl: VPlang }) {
 }
 
 function PlBundles({ pl }: { pl: VPlang }) {
-  const bundles: any[] = []; // TODO: fix  pl.relPlBundles.nodes();
+  const bundles: any[] = []; // TODO: fix  pl.relPlBundles.vertices();
   return bundles.length === 0 ? null : (
     <>
       {bundles.map(bundle => (

@@ -7,10 +7,10 @@ import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 
 export type Val = string | number | boolean;
 export type Entry = { value: Val; label: string; count: number };
-export type FacetTableConfig = { kind: "noderel"; edge: PlangsEdgeName; dir: "direct" | "inverse" } | { kind: "year"; node: PlangsVertexName };
+export type FacetTableConfig = { kind: "vertexrel"; edge: PlangsEdgeName; dir: "direct" | "inverse" } | { kind: "year"; vertex: PlangsVertexName };
 
 export function generateEntries(pg: PlangsGraph, config: FacetTableConfig): Entry[] {
-  if (config.kind === "noderel") {
+  if (config.kind === "vertexrel") {
     const { edge, dir } = config;
     const edges = pg.edges[edge];
     if (!edges) {
@@ -43,8 +43,8 @@ export type Column = "facet" | "count" | "sel";
 export type Order = "facet-asc" | "facet-desc" | "count-asc" | "count-desc" | "sel-asc" | "sel-desc";
 
 export function label(col: Column, config: FacetTableConfig): string {
-  if (col === "facet" && config.kind === "noderel") return config.edge;
-  if (col === "facet" && config.kind === "year") return `${config.node} year`;
+  if (col === "facet" && config.kind === "vertexrel") return config.edge;
+  if (col === "facet" && config.kind === "year") return `${config.vertex} year`;
   return col;
 }
 

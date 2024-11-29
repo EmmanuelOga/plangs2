@@ -154,6 +154,6 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
   /** The component that defines the content of a facet group. */
   abstract get facetGroupsComponent(): FunctionComponent<{ currentFacetGroup: string }>;
 
-  /** A set of node keys that are the result of applying the filters. */
+  /** A set of vertex keys that are the result of applying the filters. */
   abstract get results(): Set<string>;
 }

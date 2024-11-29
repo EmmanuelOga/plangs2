@@ -1,10 +1,10 @@
 import { tw } from "@plangs/frontend/auxiliar/styles";
 import { script } from "@plangs/frontend/auxiliar/utils";
 import { facetsMain } from "@plangs/frontend/components/facets/main";
-import { nodeInfo } from "@plangs/frontend/components/node-info";
+import { vertexInfo } from "@plangs/frontend/components/vertex-info";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import { Layout } from "@plangs/server/components/layout";
-import { NodeGrid } from "../components/node-grid";
+import { VertexGrid } from "../components/vertex-grid";
 
 export function Learning({ pg }: { pg: PlangsGraph }) {
   return (
@@ -19,11 +19,11 @@ export function Learning({ pg }: { pg: PlangsGraph }) {
       {facetsMain({ tab: "communities", class: tw("max-h-[45dvh] 2xl:max-h-[unset]", "max-w-full 2xl:w-[35rem]", "overflow-hidden") })}
       {script("window.restoreFilters()")}
 
-      <NodeGrid pg={pg} vertex={"learning"} class={tw("flex-1", "overflow-y-scroll", "m-1")} />
+      <VertexGrid pg={pg} vertex={"learning"} class={tw("flex-1", "overflow-y-scroll", "m-1")} />
 
       <div class={tw("overflow-hidden overflow-y-scroll", "max-h-[15dvh] 2xl:max-h-[unset] 2xl:w-[25rem]")}>
-        {nodeInfo({ tab: "plangs", open: true })}
-        {script("window.restoreNodeInfo()")}
+        {vertexInfo({ tab: "plangs", open: true })}
+        {script("window.restoreVertexInfo()")}
       </div>
     </Layout>
   );

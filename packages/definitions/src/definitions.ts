@@ -18,7 +18,7 @@ export async function loadDefinitions(g: PlangsGraph, options: { scanImages: boo
     if (typeof module.define === "function") module.define(g);
   }
 
-  // Add any images to the nodes.
+  // Add any images to the vertices.
 
   if (options.scanImages) {
     for (const path of await getPaths(new Glob("**/*.{png,jpg,svg}"), join(import.meta.dir, "definitions/pl"))) {

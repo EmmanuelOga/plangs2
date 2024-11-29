@@ -1,8 +1,8 @@
 /**
  * Methods to work with vertex data fields.
  *
- * - Having these wrappers helps avoid duplication of methods that do the same thing accross different nodes.
- * - Wrappers are passed the node object instead of the data directly since eventually we will have setters that should modify the data in the node.
+ * - Having these wrappers helps avoid duplication of methods that do the same thing accross different vertices.
+ * - Wrappers are passed the vertex object instead of the data directly since eventually we will have setters that should modify the data in the vertex.
  */
 
 import { IterTap } from "@plangs/auxiliar/iter_tap";
@@ -41,10 +41,10 @@ export class ReleaseWrapper {
 
 /** Wraps a list of releases. */
 export class FieldReleases {
-  constructor(private readonly node: { data: { releases?: Release[] } }) {}
+  constructor(private readonly vertex: { data: { releases?: Release[] } }) {}
 
   get all(): IterTap<ReleaseWrapper> {
-    return new IterTap(this.node.data.releases).map(rel => new ReleaseWrapper(rel));
+    return new IterTap(this.vertex.data.releases).map(rel => new ReleaseWrapper(rel));
   }
 
   get last(): ReleaseWrapper | undefined {
@@ -59,11 +59,11 @@ export class FieldReleases {
 export class FieldStrDate<Key extends string> {
   constructor(
     private readonly key: Key,
-    private readonly node: { data: Partial<Record<Key, StrDate | undefined>> },
+    private readonly vertex: { data: Partial<Record<Key, StrDate | undefined>> },
   ) {}
 
   get value(): StrDate | undefined {
-    return this.node.data[this.key];
+    return this.vertex.data[this.key];
   }
 
   get year(): number | undefined {
@@ -88,14 +88,14 @@ export class FieldStrDate<Key extends string> {
  * The releases field is present in Github but wrapped by FieldReleases.
  */
 export class FieldGithub {
-  constructor(private readonly node: { data: Partial<GithubRepo> }) {}
+  constructor(private readonly vertex: { data: Partial<GithubRepo> }) {}
 
   get stars(): number | undefined {
-    return this.node.data.githubStars;
+    return this.vertex.data.githubStars;
   }
 
   get path(): string | undefined {
-    return this.node.data.extGithubPath;
+    return this.vertex.data.extGithubPath;
   }
 
   get url(): string | undefined {

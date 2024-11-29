@@ -3,7 +3,7 @@ import type { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 
 import { loadDefinitions } from "@plangs/definitions";
 import type { Vertices } from "@plangs/graphgen/library";
-import { plangCodeGen, tsNodePath } from "@plangs/languist/codegen";
+import { plangCodeGen, tsVertexPath } from "@plangs/languist/codegen";
 import { PlangsGraph, type VPlang } from "@plangs/plangs/graph";
 
 import { retrieveWebsites } from "./crawl";
@@ -133,7 +133,7 @@ export async function aiCompletion(
 
     // TODO: apply Linguist/Languish data here, which should take precedence over the AI data.
 
-    const path = tsNodePath("plang", pl.plainKey);
+    const path = tsVertexPath("plang", pl.plainKey);
     console.log("Writing result to", path);
     Bun.write(path, plangCodeGen(newPl));
   } catch (err) {

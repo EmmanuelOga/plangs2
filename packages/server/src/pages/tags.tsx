@@ -1,10 +1,10 @@
 import { PROSE, tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import { Layout } from "@plangs/server/components/layout";
-import { NodeDesc } from "../components/node-desc";
+import { VertexHeader } from "@plangs/server/components/vertex-header";
 
 export function Tags({ pg }: { pg: PlangsGraph }) {
-  const entries = [...pg.tag.values].map(node => <NodeDesc key={node.key} node={node} path="/tags" />);
+  const entries = [...pg.tag.values].map(vertex => <VertexHeader key={vertex.key} vertex={vertex} path="/tags" />);
   return (
     <Layout pg={pg} tab="tags" title="Tags used across Plangs! for categorization." mainClasses="overflow-y-auto">
       <article class={tw(PROSE, "p-4")}>

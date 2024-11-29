@@ -15,7 +15,7 @@ A simple directed graph implementation, the foundation of the data model used in
 ## IterTap and MapTap
 
 Classes to wrap maps and arrays that are potentially indefined, so we can still map and get their size, etc.
-Used to handle Graph relationships and to wrap array data elements of nodes.
+Used to handle Graph relationships and to wrap array data elements of vertices.
 
 ## Map2
 

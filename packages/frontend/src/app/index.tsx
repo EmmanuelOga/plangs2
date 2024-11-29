@@ -7,7 +7,7 @@ import { connectLivereload } from "@plangs/frontend/auxiliar/livereload";
 import { activateFacetsMain } from "@plangs/frontend/components/facets/main";
 import { activateIconButtons } from "@plangs/frontend/components/icon-button";
 import { ToggleFacetsMenu, ToggleHamburguer, ToggleLights } from "@plangs/frontend/components/icon-button/state";
-import { renderLastNodeInfo, renderNodeInfo } from "@plangs/frontend/components/node-info";
+import { renderLastVertexInfo, renderVertexInfo } from "@plangs/frontend/components/vertex-info";
 import { PlangsGraph } from "@plangs/plangs/graph";
 
 import { getPl } from "./pl";
@@ -20,7 +20,7 @@ async function start() {
   window.restoreFilters = () => ToggleFacetsMenu.initial().runEffects();
   window.restoreHamburguer = () => ToggleHamburguer.initial().runEffects();
   window.restoreLightMode = () => ToggleLights.initial().runEffects();
-  window.restoreNodeInfo = () => renderLastNodeInfo(pg); // NOTE: this doesn't need the fully loaded data.
+  window.restoreVertexInfo = () => renderLastVertexInfo(pg); // NOTE: this doesn't need the fully loaded data.
 
   document.addEventListener("DOMContentLoaded", () => {
     activateIconButtons();
@@ -28,12 +28,12 @@ async function start() {
     loadData.then(() => {
       activateFacetsMain(pg);
 
-      const grid = elem("nodeGrid");
+      const grid = elem("vertexGrid");
       if (!grid) return;
 
       on(grid, "pointerdown", ({ target }: MouseEvent) => {
         const pl = getPl(pg, target);
-        if (pl) renderNodeInfo({ node: pl, tab: "plangs" });
+        if (pl) renderVertexInfo({ vertex: pl, tab: "plangs" });
       });
 
       // On double-click, open the language page.
@@ -64,6 +64,6 @@ declare global {
     restoreFilters: () => void;
     restoreHamburguer: () => void;
     restoreLightMode: () => void;
-    restoreNodeInfo: () => void;
+    restoreVertexInfo: () => void;
   }
 }

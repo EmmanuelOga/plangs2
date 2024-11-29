@@ -1,14 +1,14 @@
-/** Node data shared across all Node types. */
+/** Vertex data shared across all Vertex types. */
 export interface VertexBaseData {
-  /* Name of the node. */
+  /* Name of the vertex. */
   name: string;
-  /* Description of the node. */
+  /* Description of the vertex. */
   description: string;
   /** Date this first appeared. */
   created: StrDate;
   /** Keywords can be used to match against text content. */
   keywords: string[];
-  /** Homepage URL of the node, if any. */
+  /** Homepage URL of the vertex, if any. */
   extHomeURL?: string;
   /** Logos, screenshots or other images relevant to the language. */
   images: Image[];

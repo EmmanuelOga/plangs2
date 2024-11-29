@@ -7,7 +7,7 @@ export const ID_KEYS = [
   "todo",
 
   "mainNav", // Main navigation bar, toggled by the hamburger icon.
-  "nodeGrid", // Main grid for nodes.
+  "vertexGrid", // Main grid for vertices.
 ] as const;
 
 // Elements for which we may have multiple instances.
@@ -16,8 +16,8 @@ export const CL_KEYS = [
 
   "facetsMain", // A Div wrapper for FacetsMain component.
   "iconButton", // A Div wrapper for IconButton component.
-  "nodeThumbn", // Thumbnail for a node.
-  "nodeInfo", // Information about a node.
+  "vertexThumbn", // Thumbnail for a vertex.
+  "vertexInfo", // Information about a vertex.
 ] as const;
 
 export type IDKey = (typeof ID_KEYS)[number];

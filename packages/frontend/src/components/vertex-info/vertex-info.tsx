@@ -4,14 +4,14 @@ import type { VPlang } from "@plangs/plangs/graph";
 import type { TAB } from "@plangs/server/components/layout";
 import type { ComponentChildren } from "preact";
 
-export type NodeInfoProps = {
-  node?: VPlang;
+export type VertexInfoProps = {
+  vertex?: VPlang;
   open?: boolean;
   tab?: TAB;
 };
 
-/** Display Node. */
-export function NodeInfo({ node, open, tab }: NodeInfoProps) {
+/** Display Vertex. */
+export function VertexInfo({ vertex, open, tab }: VertexInfoProps) {
   const forGrid = tab === "plangs";
   return (
     <div
@@ -25,26 +25,26 @@ export function NodeInfo({ node, open, tab }: NodeInfoProps) {
         tw(BORDER, forGrid && "border-b-1"),
       )}>
       <h2 class={tw(forGrid && "inline sm:block")}>
-        <a class="text-foreground decoration-1 decoration-dotted" href={`/${node?.plainKey}`}>
-          {node?.name ?? ""}
+        <a class="text-foreground decoration-1 decoration-dotted" href={`/${vertex?.plainKey}`}>
+          {vertex?.name ?? ""}
         </a>
       </h2>
-      {node && (
+      {vertex && (
         <>
           <span class={tw(forGrid ? "dash mx-2 inline-block sm:hidden" : "hidden")}>&#8212;</span>
           <div class={tw(forGrid && "hidden sm:block")}>
-            {node.created.value && <Pill children={`Appeared ${node.created.year}`} />}
-            {ret(node.releases.last, rel => rel && <Pill children={`Last Rel ${rel.date ?? rel.version}`} />)}
-            {node.isTranspiler && <Pill children="Transpiler" />}
-            {node.isPopular && <Pill children="Popular" />}
+            {vertex.created.value && <Pill children={`Appeared ${vertex.created.year}`} />}
+            {ret(vertex.releases.last, rel => rel && <Pill children={`Last Rel ${rel.date ?? rel.version}`} />)}
+            {vertex.isTranspiler && <Pill children="Transpiler" />}
+            {vertex.isPopular && <Pill children="Popular" />}
           </div>
-          <p class={tw(forGrid && "inline sm:block")}>{node.description || "..."}</p>
+          <p class={tw(forGrid && "inline sm:block")}>{vertex.description || "..."}</p>
           <details class={tw(forGrid && "hidden sm:block", "pb-4")} open={open}>
             <summary class="cursor-pointer text-xl">Details</summary>
-            {relations(node).map(([title, nodes]) => (
+            {relations(vertex).map(([title, vertices]) => (
               <div key={title}>
                 <h3 class="mt-4 text-xl">{title}</h3>
-                {nodes.map(({ name, key }) => (
+                {vertices.map(({ name, key }) => (
                   <Pill key={key} children={name} />
                 ))}
               </div>
@@ -77,7 +77,7 @@ function relations(pl: VPlang) {
     ["Extensions", pl.extensions.map(name => ({ key: name, name, kind: "ext" })).existing],
   ] as const;
 
-  return all.filter(([_, nodes]) => nodes.length > 0);
+  return all.filter(([_, vertices]) => vertices.length > 0);
 }
 
 export const EVENTS = {} as const;

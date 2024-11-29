@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+imba", {
       name: "Imba",
       description:
-        "Imba is a friendly full-stack programming language for the web that compiles to performant JavaScript. It has language-level support for defining, extending, subclassing, instantiating and rendering DOM nodes.",
+        "Imba is a friendly full-stack programming language for the web that compiles to performant JavaScript. It has language-level support for defining, extending, subclassing, instantiating and rendering DOM vertices.",
       keywords: ["full-stack", "imba", "javascript", "web"],
       extensions: [".imba"],
       isTranspiler: true,

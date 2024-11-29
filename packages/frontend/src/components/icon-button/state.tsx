@@ -204,9 +204,9 @@ export class ToggleGridOrder extends IconButtonBaseState<{ mode: "alpha" | "rank
 
   /** Reorder the grid on dispatch. */
   override runEffects() {
-    const grid = elem("nodeGrid");
+    const grid = elem("vertexGrid");
     if (!grid) return;
-    const thumbns = [...elems("nodeThumbn")].sort(CMP[this.mode]);
+    const thumbns = [...elems("vertexThumbn")].sort(CMP[this.mode]);
     // If they are already in the parent element, re-appending just reorders the element.
     for (const thumb of thumbns) {
       // Don't hide for now.
@@ -219,8 +219,8 @@ export class ToggleGridOrder extends IconButtonBaseState<{ mode: "alpha" | "rank
 // Ensure languages without a ranking are placed last.
 const RANKED_LAST = Number.MAX_SAFE_INTEGER;
 
-const getRank = (el: HTMLElement) => (el.dataset.nodeRanking ? Number.parseInt(el.dataset.nodeRanking, 10) : RANKED_LAST);
-const getKey = (el: HTMLElement) => el.dataset.nodeKey ?? "";
+const getRank = (el: HTMLElement) => (el.dataset.vertexRanking ? Number.parseInt(el.dataset.vertexRanking, 10) : RANKED_LAST);
+const getKey = (el: HTMLElement) => el.dataset.vertexKey ?? "";
 
 // Ordering criteria for the sort function.
 const CMP = {

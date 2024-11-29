@@ -2,12 +2,12 @@ import { type PlangsGraph, type VLicense, type VParadigm, VPlang, type VPlatform
 
 import type { NPlangAI } from "./types";
 
-/** Given the results from OpenAI, construct a new NPlang node that can be used for code generation. */
+/** Given the results from OpenAI, construct a new NPlang vertex that can be used for code generation. */
 export function plangFromAI(pg: PlangsGraph, pl: VPlang, aiPL: NPlangAI): VPlang {
-  // We need to merge these, since Node data merge is not deep.
+  // We need to merge these, since Vertex data merge is not deep.
   const { extensions, filenames, images, releases, stackovTags } = pl.data;
 
-  // Merge the data from the original NPlang node, but overwrite with the data from OpenAI.
+  // Merge the data from the original NPlang vertex, but overwrite with the data from OpenAI.
   const newPl = new VPlang(pg, pl.key).merge({ ...pl.data, ...aiPL.basicPlangData });
 
   // Re-add the original data that may have been lost in the merge.

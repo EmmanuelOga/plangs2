@@ -7,39 +7,39 @@ import type { Image } from "@plangs/plangs/graph/vertex_data_schemas";
 export const DEFINTIONS_PATH = join(import.meta.dir, "../../definitions/src/definitions");
 
 /**
- * Generate a path for a TS file for a Node defintion.
- * VPlang nodes are stored in a folder structure based on the first letter of the key.
- * The other nodes are stored in a flat structure.
+ * Generate a path for a TS file for a Vertex defintion.
+ * VPlang vertices are stored in a folder structure based on the first letter of the key.
+ * The other vertices are stored in a flat structure.
  */
-export function tsNodePath(kind: PlangsVertexName, plainKey?: string): string {
+export function tsVertexPath(kind: PlangsVertexName, plainKey?: string): string {
   if (kind === "plang") {
-    if (!plainKey) throw new Error("plainKey is required for pl nodes.");
+    if (!plainKey) throw new Error("plainKey is required for pl vertices.");
     const base = plainKey.replace(/[^a-zA-Z0-9\_\+\-]/g, "_");
     return join(DEFINTIONS_PATH, kind, base[0], base, `${base}.ts`);
   }
-  if (plainKey) throw new Error("plainKey is required ONLY for pl nodes.");
+  if (plainKey) throw new Error("plainKey is required ONLY for pl vertices.");
   return join(DEFINTIONS_PATH, `${kind}.ts`);
 }
 
-/** Generate code for nodes of the given kind. */
+/** Generate code for vertices of the given kind. */
 export function genericCodeGen(pg: PlangsGraph, kind: "license" | "paradigm" | "platform" | "tag" | "typeSystem" | "learning" | "community"): string {
   const definitions: string[] = [...pg.vertices[kind].values]
     .sort((a, b) => a.key.localeCompare(b.key))
-    .map(node => {
+    .map(vertex => {
       const relations: string[] = [];
 
-      if (node instanceof VCommunity) {
-        addRelKeys(relations, "relPlangs", node.relPlangs.keys);
-        addRelKeys(relations, "relTags", node.relTags.keys);
+      if (vertex instanceof VCommunity) {
+        addRelKeys(relations, "relPlangs", vertex.relPlangs.keys);
+        addRelKeys(relations, "relTags", vertex.relTags.keys);
       }
 
-      if (node instanceof VLearning) {
-        addRelKeys(relations, "relPlangs", node.relPlangs.keys);
-        addRelKeys(relations, "relTags", node.relTags.keys);
-        addRelKeys(relations, "relCommunities", node.relCommunities.keys);
+      if (vertex instanceof VLearning) {
+        addRelKeys(relations, "relPlangs", vertex.relPlangs.keys);
+        addRelKeys(relations, "relTags", vertex.relTags.keys);
+        addRelKeys(relations, "relCommunities", vertex.relCommunities.keys);
       }
 
-      return `${genSet(kind, node.key, node.data)}${relations.join("")}`;
+      return `${genSet(kind, vertex.key, vertex.data)}${relations.join("")}`;
     });
 
   return `import type { PlangsGraph } from "@plangs/plangs/graph";
@@ -50,7 +50,7 @@ export function genericCodeGen(pg: PlangsGraph, kind: "license" | "paradigm" | "
   `;
 }
 
-/** Generate code that can reconstruct the state of a VPlang node. */
+/** Generate code that can reconstruct the state of a VPlang vertex. */
 export function plangCodeGen(plang: VPlang): string {
   // The order of calls determines order in generated code.
   const relations: string[] = [];
@@ -72,7 +72,7 @@ export function plangCodeGen(plang: VPlang): string {
   const libs = plang.relLibraries.values.map(lib => genSet("library", lib.key, lib.data));
   const tools = plang.relTools.values.map(tool => genSet("tool", tool.key, tool.data));
 
-  const bundles: string[] = []; /* TODO. plang.nodes().map(bundle => {
+  const bundles: string[] = []; /* TODO. plang.vertices().map(bundle => {
     const bunRel: string[] = [];
     addRelKeys(bunRel, "relTools", bundle.relTools.keys());
     return `${genSet("bundle", bundle.key, bundle.data)}${bunRel.join("")}`;
@@ -102,7 +102,7 @@ export function plangCodeGen(plang: VPlang): string {
   `;
 }
 
-// Generate a setter for the node data.
+// Generate a setter for the vertex data.
 // biome-ignore lint/suspicious/noExplicitAny: Any data is fine here.
 const genSet = (kind: PlangsVertexName, key: string, data: any) => {
   /** Cleanup data in place: sort keys, remove blank values. */

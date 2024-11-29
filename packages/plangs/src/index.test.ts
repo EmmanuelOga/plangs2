@@ -2,7 +2,7 @@ import { expect, test } from "bun:test";
 import { PlangsGraph } from "./graph";
 import type { Image } from "./graph/vertex_data_schemas";
 
-test("base node apis", () => {
+test("base vertex apis", () => {
   const g = new PlangsGraph();
   const pl = g.plang.set("pl+pascal");
 
@@ -96,8 +96,8 @@ test("matching keywords", () => {
 
   const text = " a .. strongly typed .. dynamic .. language with .. sum-types IF ";
 
-  for (const [id, node] of g.typeSystem.entries) {
-    if (node.keywordsRegexp?.test(text)) matches.push(id);
+  for (const [id, vertex] of g.typeSystem.entries) {
+    if (vertex.keywordsRegexp?.test(text)) matches.push(id);
   }
 
   expect(matches.sort()).toEqual(["tsys+adt", "tsys+dynamic", "tsys+strong"]);
@@ -105,8 +105,8 @@ test("matching keywords", () => {
   matches.length = 0;
   const text2 = " sum if types ";
 
-  for (const [id, node] of g.typeSystem.entries) {
-    if (node.keywordsRegexp?.test(text2)) matches.push(id);
+  for (const [id, vertex] of g.typeSystem.entries) {
+    if (vertex.keywordsRegexp?.test(text2)) matches.push(id);
   }
 
   expect(matches.sort()).toEqual([]);
@@ -130,27 +130,27 @@ test("edge types", () => {
   const plPascal = g.plang.set("pl+pascal", { name: "Pascal", description: "The Pascal Programming Language." });
   const plPerl = g.plang.set("pl+perl", { name: "Perl" });
 
-  const nodeApp = g.app.set("app+some-app", { name: "My App" });
-  const nodeBundle = g.bundle.set("bun+my-bundle", { name: "My Bundle" });
-  const nodeLib = g.library.set("lib+my-lib", { name: "My libC" });
-  const nodeLic = g.license.set("lic+gnu", { name: "GNU" });
-  const nodePara = g.paradigm.set("para+structured", { name: "Structured" });
-  const nodePlat = g.platform.set("plat+os2", { name: "OS/2" });
-  const nodePost = g.post.set("post+my-post", { name: "Hello World!" });
-  const nodeTag = g.tag.set("tag+my-tag", { name: "MYTAG" });
-  const nodeTool = g.tool.set("tool+my-tool", { name: "My Tool" });
-  const nodeTsys = g.typeSystem.set("tsys+strongly-typed", { name: "Strongly Typed" });
+  const vertexApp = g.app.set("app+some-app", { name: "My App" });
+  const vertexBundle = g.bundle.set("bun+my-bundle", { name: "My Bundle" });
+  const vertexLib = g.library.set("lib+my-lib", { name: "My libC" });
+  const vertexLic = g.license.set("lic+gnu", { name: "GNU" });
+  const vertexPara = g.paradigm.set("para+structured", { name: "Structured" });
+  const vertexPlat = g.platform.set("plat+os2", { name: "OS/2" });
+  const vertexPost = g.post.set("post+my-post", { name: "Hello World!" });
+  const vertexTag = g.tag.set("tag+my-tag", { name: "MYTAG" });
+  const vertexTool = g.tool.set("tool+my-tool", { name: "My Tool" });
+  const vertexTsys = g.typeSystem.set("tsys+strongly-typed", { name: "Strongly Typed" });
 
   {
     const edge = g.edges.appRelWrittenWith.addGet("app+some-app", "pl+pascal");
-    expect(edge[0]).toBe(nodeApp);
+    expect(edge[0]).toBe(vertexApp);
     expect(edge[1]).toBe(plPascal);
   }
 
   {
     const edge = g.edges.bundleRelTools.addGet("bun+my-bundle", "tool+my-tool");
-    expect(edge[0]).toBe(nodeBundle);
-    expect(edge[1]).toBe(nodeTool);
+    expect(edge[0]).toBe(vertexBundle);
+    expect(edge[1]).toBe(vertexTool);
   }
 
   {
@@ -167,7 +167,7 @@ test("edge types", () => {
 
   {
     const edge = g.edges.licenseRelPlangs.addGet("lic+gnu", "pl+pascal");
-    expect(edge[0]).toBe(nodeLic);
+    expect(edge[0]).toBe(vertexLic);
     expect(edge[1]).toBe(plPascal);
   }
 
@@ -186,43 +186,43 @@ test("edge types", () => {
   {
     const edge = g.edges.plangRelParadigms.addGet("pl+pascal", "para+structured");
     expect(edge[0]).toBe(plPascal);
-    expect(edge[1]).toBe(nodePara);
+    expect(edge[1]).toBe(vertexPara);
   }
 
   {
     const edge = g.edges.plangRelTypeSystems.addGet("pl+pascal", "tsys+strongly-typed");
     expect(edge[0]).toBe(plPascal);
-    expect(edge[1]).toBe(nodeTsys);
+    expect(edge[1]).toBe(vertexTsys);
   }
 
   {
     const edge = g.edges.plangRelPlatforms.addGet("pl+pascal", "plat+os2");
     expect(edge[0]).toBe(plPascal);
-    expect(edge[1]).toBe(nodePlat);
+    expect(edge[1]).toBe(vertexPlat);
   }
 
   {
     const edge = g.edges.postRelPlangs.addGet("post+my-post", "pl+pascal");
-    expect(edge[0]).toBe(nodePost);
+    expect(edge[0]).toBe(vertexPost);
     expect(edge[1]).toBe(plPascal);
   }
 
   {
     const edge = g.edges.libraryRelPlangs.addGet("lib+my-lib", "pl+pascal");
     expect(edge[1]).toBe(plPascal);
-    expect(edge[0]).toBe(nodeLib);
+    expect(edge[0]).toBe(vertexLib);
   }
 
   {
     const edge = g.edges.tagRelPlangs.addGet("tag+my-tag", "pl+pascal");
-    expect(edge[0]).toBe(nodeTag);
+    expect(edge[0]).toBe(vertexTag);
     expect(edge[1]).toBe(plPascal);
   }
 
   {
     const edge = g.edges.plangRelTools.addGet("pl+pascal", "tool+my-tool");
     expect(edge[0]).toBe(plPascal);
-    expect(edge[1]).toBe(nodeTool);
+    expect(edge[1]).toBe(vertexTool);
   }
 
   {
@@ -232,7 +232,7 @@ test("edge types", () => {
   }
 });
 
-test("app nodes", () => {
+test("app vertices", () => {
   const g = new PlangsGraph();
   const app = g.app.set("app+my-app", { name: "My App" });
 
@@ -241,7 +241,7 @@ test("app nodes", () => {
   expect(g.edges.appRelWrittenWith.size).toBe(1);
 });
 
-test("bundle nodes", () => {
+test("bundle vertices", () => {
   const g = new PlangsGraph();
   const bundle = g.bundle.set("bun+my-bundle", { name: "Humble Bundle" });
 
@@ -256,7 +256,7 @@ test("bundle nodes", () => {
   expect([...bundle.relPlangs.keys][0]).toEqual("pl+pascal");
 });
 
-test("library nodes", () => {
+test("library vertices", () => {
   const g = new PlangsGraph();
   const lib = g.library.set("lib+my-lib", { name: "My Pascal Unit" });
 
@@ -265,7 +265,7 @@ test("library nodes", () => {
   expect(g.edges.libraryRelPlangs.size).toBe(1);
 });
 
-test("license nodes", () => {
+test("license vertices", () => {
   const g = new PlangsGraph();
   const mit = g.license.set("lic+mit", { name: "MIT", spdx: "MIT", isFSFLibre: true, isOSIApproved: true });
   const yolo = g.license.set("lic+yolo", { name: "YOLO" });
@@ -279,7 +279,7 @@ test("license nodes", () => {
   expect(yolo.isOSIApproved).toBeFalse();
 });
 
-test("post nodes", () => {
+test("post vertices", () => {
   const g = new PlangsGraph();
   const post = g.post.set("post+hello", { name: "Hello World!", author: "Tony Mottola", path: "/some/path.md", date: "2021-01-01" });
 
@@ -295,7 +295,7 @@ test("post nodes", () => {
   expect([...post.relPlangs.keys][0]).toEqual("pl+pascal");
 });
 
-test("tool nodes", () => {
+test("tool vertices", () => {
   const g = new PlangsGraph();
   const tool = g.tool.set("tool+my-tool", { name: "My Tool" });
 
