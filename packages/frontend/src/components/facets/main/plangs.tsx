@@ -4,7 +4,7 @@ import { ValNil, ValNumber } from "@plangs/auxiliar/value";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { loadLocalStorage } from "@plangs/frontend/auxiliar/storage";
 import type { PlangFacetKey } from "@plangs/plangs/facets/plangs";
-import { type PlangsGraph, VLicense, VParadigm, type VPlang, VPlatform, VTag, VTypeSystem } from "@plangs/plangs/graph";
+import type { PlangsGraph, VPlang } from "@plangs/plangs/graph";
 import type { TAB } from "@plangs/server/components/layout";
 
 import { createFacetGroups } from "./groups-util";
@@ -21,18 +21,18 @@ export const FACETS: FacetsMap<FK> = defineFacets<FK>(
   bool("isTranspiler", "Is Transpiler"),
   bool("releasedRecently", "Released Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 1) : new ValNil())),
   multi("extensions", "Extensions"),
-  table("compilesTo", "Compiles To", { kind: "vertexrel", edge: "plangRelCompilesTo", dir: "direct" }),
+  table("compilesTo", "Compiles To", { kind: "vertexrel", edge: "plangRelCompilesTo", dir: "forward" }),
   table("creationYear", "Creation Year", { kind: "year", vertex: "plang" }),
-  table("dialectOf", "Dialect Of", { kind: "vertexrel", edge: "plangRelDialectOf", dir: "direct" }),
-  table("implements", "Implements", { kind: "vertexrel", edge: "plangRelImplements", dir: "direct" }),
-  table("influenced", "Influenced", { kind: "vertexrel", edge: "plangRelInfluencedBy", dir: "inverse" }),
-  table("influencedBy", "Influenced By", { kind: "vertexrel", edge: "plangRelInfluencedBy", dir: "direct" }),
-  table("licenses", "Licenses", { kind: "vertexrel", edge: "licenseRelPlangs", dir: "direct" }),
-  table("paradigms", "Paradigms", { kind: "vertexrel", edge: "plangRelParadigms", dir: "direct" }),
-  table("platforms", "Platforms", { kind: "vertexrel", edge: "plangRelPlatforms", dir: "direct" }),
-  table("tags", "Tags", { kind: "vertexrel", edge: "tagRelPlangs", dir: "inverse" }),
-  table("typeSystems", "Type Systems", { kind: "vertexrel", edge: "plangRelTypeSystems", dir: "direct" }),
-  table("writtenIn", "Written In", { kind: "vertexrel", edge: "plangRelWrittenWith", dir: "direct" }),
+  table("dialectOf", "Dialect Of", { kind: "vertexrel", edge: "plangRelDialectOf", dir: "forward" }),
+  table("implements", "Implements", { kind: "vertexrel", edge: "plangRelImplements", dir: "forward" }),
+  table("influenced", "Influenced", { kind: "vertexrel", edge: "plangRelInfluencedBy", dir: "backward" }),
+  table("influencedBy", "Influenced By", { kind: "vertexrel", edge: "plangRelInfluencedBy", dir: "forward" }),
+  table("licenses", "Licenses", { kind: "vertexrel", edge: "licenseRelPlangs", dir: "forward" }),
+  table("paradigms", "Paradigms", { kind: "vertexrel", edge: "plangRelParadigms", dir: "forward" }),
+  table("platforms", "Platforms", { kind: "vertexrel", edge: "plangRelPlatforms", dir: "forward" }),
+  table("tags", "Tags", { kind: "vertexrel", edge: "tagRelPlangs", dir: "backward" }),
+  table("typeSystems", "Type Systems", { kind: "vertexrel", edge: "plangRelTypeSystems", dir: "forward" }),
+  table("writtenIn", "Written In", { kind: "vertexrel", edge: "plangRelWrittenWith", dir: "forward" }),
   text("plangName", "Plang Name"),
 );
 

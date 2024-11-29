@@ -184,15 +184,20 @@ export class Edges<From extends AnyVertex, To extends AnyVertex> {
     return this.#forward.get(fromKey)?.has(toKey) ?? false;
   }
 
-  /** Return all keys `[fromKey, toKey[]]`. */
-  get entries(): [From["key"], To["key"][]][] {
-    return [...this.#forward].map(([key, set]) => [key, [...set]]);
+  /** Return all keys `[fromKey, Set<toKey>]`. */
+  get entriesForward(): [From["key"], Set<To["key"]>][] {
+    return [...this.#forward].map(([key, set]) => [key, set]);
   }
 
-  /** Map all Vertex keys to their respective Vertices, if it exists. */
+  /** Return all keys `[toKey, Set<fromKey>]`. */
+  get entriesBackward(): [From["key"], Set<To["key"]>][] {
+    return [...this.#backward].map(([key, set]) => [key, set]);
+  }
+
+  /** Map all Vertex keys to their respective Vertices or undefined if missing. */
   get vertices(): [From["key"], From | undefined, To["key"], To | undefined][] {
     const result: [From["key"], From | undefined, To["key"], To | undefined][] = [];
-    for (const [fromKey, toKeys] of this.entries) {
+    for (const [fromKey, toKeys] of this.entriesForward) {
       const from = this.fromSource.get(fromKey);
       for (const toKey of toKeys) result.push([fromKey, from, toKey, this.toSource.get(toKey)]);
     }
@@ -206,8 +211,8 @@ export class Edges<From extends AnyVertex, To extends AnyVertex> {
   }
 
   /* {@link addMany} can be used to load back the result of the serialization. */
-  toJSON() {
-    return this.entries;
+  toJSON(): (From["key"] | To["key"][])[][] {
+    return this.entriesForward.map(([fromKey, setToKeys]) => [fromKey, [...setToKeys]]);
   }
 }
 

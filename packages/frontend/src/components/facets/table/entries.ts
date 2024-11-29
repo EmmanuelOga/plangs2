@@ -7,22 +7,28 @@ import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 
 export type Val = string | number | boolean;
 export type Entry = { value: Val; label: string; count: number };
-export type FacetTableConfig = { kind: "vertexrel"; edge: PlangsEdgeName; dir: "direct" | "inverse" } | { kind: "year"; vertex: PlangsVertexName };
+export type FacetTableConfig = { kind: "vertexrel"; edge: PlangsEdgeName; dir: "forward" | "backward" } | { kind: "year"; vertex: PlangsVertexName };
 
 export function generateEntries(pg: PlangsGraph, config: FacetTableConfig): Entry[] {
   if (config.kind === "vertexrel") {
     const { edge, dir } = config;
+
     const edges = pg.edges[edge];
     if (!edges) {
       console.error("No edges found for:", edge, dir);
       return [];
     }
-    // TODO: fix.
-    return [...(dir === "direct" ? edges.fromSource.entries : edges.toSource.entries)].map(([key, vertex]) => {
-      return { value: key, label: vertex.name, count: edges.size };
+
+    const relations = dir === "forward" ? edges.entriesBackward : edges.entriesForward;
+    const source = dir === "forward" ? edges.toSource : edges.fromSource;
+
+    return [...relations].map(([key, toKeys]) => {
+      const name = source.get(key as any)?.name ?? key;
+      return { value: key, label: name, count: toKeys.size };
     });
   }
 
+  // TODO: kind === 'year' matches only plang but could be generalized.
   if (config.kind === "year") {
     const years: Map<StrDate, number> = new Map(); // year -> count
     for (const { created } of pg.plang.values) {
