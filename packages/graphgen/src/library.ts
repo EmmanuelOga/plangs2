@@ -9,9 +9,6 @@ export type VKey<Prefix extends string> = `${Prefix}+${string}`;
  * Serializes to the plain data object without the key.
  */
 export abstract class Vertex<KeyPrefix extends string, Data> {
-  abstract readonly kind: KeyPrefix;
-  abstract readonly desc: string;
-
   /** Serializable data. */
   data: Partial<Data> = {};
 
@@ -43,7 +40,7 @@ export abstract class Vertex<KeyPrefix extends string, Data> {
   }
 
   toString() {
-    return `(${this.desc} ${this.key})`;
+    return this.key;
   }
 }
 
@@ -99,14 +96,8 @@ export class Vertices<V extends AnyVertex> {
     return this.map.entries();
   }
 
-  setMany(collection: [V["key"], V["data"]][]): this {
-    for (const [key, data] of collection) this.set(key, data);
-    return this;
-  }
-
-  /** {@link setMany} can be used to load back the result of the serialization. */
-  toJSON(): [V["key"], V["data"]][] {
-    return [...this.map].map(([key, vertex]) => [key, vertex.toJSON()]);
+  toJSON(): Record<V["key"], V["data"]> {
+    return Object.fromEntries([...this.map].map(([key, vertex]) => [key, vertex.toJSON()])) as Record<V["key"], V["data"]>;
   }
 }
 
@@ -128,6 +119,10 @@ export class Edges<From extends AnyVertex, To extends AnyVertex> {
   constructor(
     readonly fromSource: Vertices<From>,
     readonly toSource: Vertices<To>,
+    /** Description of the direct relationship from -> to. */
+    readonly descDirect: string,
+    /** Description of the inverse relationship to -> from. */
+    readonly descInverse: string,
   ) {}
 
   /**
@@ -158,12 +153,6 @@ export class Edges<From extends AnyVertex, To extends AnyVertex> {
   /** Shortcut: add a relationship and return the target vertices. */
   addGet(fromKey: From["key"], toKey: To["key"]): [From | undefined, To | undefined] {
     return this.add(fromKey, toKey).get(fromKey, toKey);
-  }
-
-  /** Shortcut: Connect many vertices at once. */
-  addMany(relations: [From["key"], To["key"][]][]): this {
-    for (const [fromKey, toKeys] of relations) this.add(fromKey, ...toKeys);
-    return this;
   }
 
   delete(fromKey: From["key"], toKey: To["key"]): boolean {
@@ -211,14 +200,14 @@ export class Edges<From extends AnyVertex, To extends AnyVertex> {
   }
 
   /* {@link addMany} can be used to load back the result of the serialization. */
-  toJSON(): [From["key"], To["key"][]][] {
-    return this.entriesForward.map(([fromKey, setToKeys]) => [fromKey, [...setToKeys]]);
+  toJSON(): Record<From["key"], To["key"][]> {
+    return Object.fromEntries(this.entriesForward.map(([fromKey, setToKeys]) => [fromKey, [...setToKeys]])) as Record<From["key"], To["key"][]>;
   }
 }
 
 export type SerializedGraph = {
-  vertices: Record<string, [string, AnyVertex["data"]][]>;
-  edges: Record<string, [string, string[]][]>;
+  vertices: Record<string, Record<string, AnyVertex["data"]>>;
+  edges: Record<string, Record<string, string[]>>;
 };
 
 /** This class provides shrotcuts to work with relationship between vertices directly **from** the vertex. */
@@ -288,3 +277,8 @@ export class RelTo<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
     return this.keys.size;
   }
 }
+
+/** Type of properties of a class that are of the given type. */
+export type ReadableProps<TClass, Valid = string | number | boolean> = NonNullable<
+  { [K in keyof TClass]: TClass[K] extends Valid ? K : never }[keyof TClass]
+>;

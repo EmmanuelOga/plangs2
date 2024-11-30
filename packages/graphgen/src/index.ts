@@ -5,6 +5,18 @@ import type { GenEdgeSpec, GenGraphSpec, GenVertexSpec } from "./spec";
 
 const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
+// export type TPlangsConfigRelKey<T extends TPlangsVertexName> = keyof typeof PLANGS_GRAPH_CONFIG[T]["relations"];
+// function getRelConfig<T extends TPlangsVertexName, K extends TPlangsConfigRelKey<T>>(rootKey: T, subKey: K): { from: T; to: T; edgeName: TPlangsEdgeName; direction: "direct" | "inverse"; desc: string; } {
+//   // @ts-ignore for some reason TypeScript doesn't understand that the key is valid
+//   return PLANGS_GRAPH_CONFIG[rootKey].relations[subKey]
+// }
+// type VertexClassMap = { "plang": VPlang; "platform": VPlatform; "app": VApp; "bundle": VBundle; "community": VCommunity; "learning": VLearning; "library": VLibrary; "license": VLicense; "paradigm": VParadigm; "post": VPost; "tag": VTag; "tool": VTool; "typeSystem": VTypeSystem; }
+// function getPropType<V extends TPlangsVertexName, P extends keyof VertexClassMap[V]>(vertexName: V, propName: P): { vertexName: V; propName: P; } {
+//   return { vertexName, propName }
+// }
+// getRelConfig("plang", "relTags")
+// getPropType("plang", "name")
+
 /** Generate the graph code. */
 export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, filePath: string) {
   const biome = await Biome.create({ distribution: Distribution.NODE });
@@ -12,8 +24,8 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
 
   const { graphBase, vertexPrefix = "V", vertexSuffix = "Base", vertexBase } = spec.classes.generated;
 
-  const vertexClassName = (vertexName: string) => `${vertexPrefix}${capitalize(vertexName)}`;
-  const vertexDataName = (vertexName: string) => `${vertexPrefix}${capitalize(vertexName)}Data`;
+  const vertexClassName = (vertexName: T) => `${vertexPrefix}${capitalize(vertexName)}`;
+  const vertexDataName = (vertexName: T) => `${vertexPrefix}${capitalize(vertexName)}Data`;
   const edgesKey = ({ src }: GenEdgeSpec<T>) => `${src[0]}${capitalize(src[1])}`;
 
   const edgeComment = (kind: "src" | "dst", s: GenEdgeSpec<T>) => {
@@ -32,22 +44,10 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
 
   type TRelname = string;
   type TCode = string;
-  type TRelations = Record<
-    string,
-    {
-      edgeName: string;
-      direction: "direct" | "inverse";
-      from: string;
-      to: string;
-      desc: string;
-    }
-  >;
+  type TRelations = Record<string, { edgeName: string; direction: "direct" | "inverse" }>;
 
   // Walk through the spec.edges config to generate relationships code.
-  function processRels(vertexName: string): {
-    code: [TRelname, TCode][];
-    relations: TRelations;
-  } {
+  function processRels(vertexName: T): { code: [TRelname, TCode][]; relations: TRelations } {
     const code: [TRelname, TCode][] = []; // We'll sort the getters by name before returning the code.
     const relations: TRelations = {};
 
@@ -55,19 +55,18 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
       const vname = vertexClassName(vertexName);
 
       const [srcVertex, srcRelName] = s.src;
-      const fromTo = { from: s.src[0], to: s.dst[0] };
 
       if (srcVertex === vertexName) {
         const instance = `new RelFrom(this as unknown as ${vname}, this.graph.edges.${edgesKey(s)})`;
         code.push([srcRelName, `${edgeComment("src", s)}\nget ${srcRelName}() { return ${instance}; };\n`]);
-        relations[srcRelName] = { ...fromTo, edgeName: edgesKey(s), direction: "direct", desc: s.src[2] };
+        relations[srcRelName] = { edgeName: edgesKey(s), direction: "direct" };
       }
 
       const [dstVertex, dstRelName] = s.dst;
       if (dstVertex === vertexName) {
         const instance = `new RelTo(this as unknown as ${vname}, this.graph.edges.${edgesKey(s)})`;
         code.push([dstRelName, `${edgeComment("dst", s)}\nget ${dstRelName}() { return ${instance}; }\n`]);
-        relations[dstRelName] = { ...fromTo, edgeName: edgesKey(s), direction: "inverse", desc: s.dst[2] };
+        relations[dstRelName] = { edgeName: edgesKey(s), direction: "inverse" };
       }
     }
 
@@ -77,26 +76,20 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
   }
 
   const imports = [
-    'import { Edges, RelFrom, RelTo, type SerializedGraph, Vertices } from "@plangs/graphgen/library";\n\n',
+    'import { Edges, type ReadableProps, RelFrom, RelTo, type SerializedGraph, Vertices } from "@plangs/graphgen/library";\n',
     "/** Import user defined classes and types. */",
-    `import { ${Object.keys(spec.vertices).map(vertexClassName).join(", ")} } from ".";`,
+    `import { ${(Object.keys(spec.vertices) as T[]).map(vertexClassName).join(", ")} } from ".";`,
     `import { ${spec.name}${vertexBase} } from "./vertex_base";`,
-    `import type { ${Object.keys(spec.vertices).map(vertexDataName).join(", ")} } from "./vertex_data_schemas";\n`,
+    `import type { ${(Object.keys(spec.vertices) as T[]).map(vertexDataName).join(", ")} } from "./vertex_data_schemas";\n`,
   ];
 
-  const graphConfig: Record<string, { key: string; relations: TRelations }> = {};
   const vertexFields: string[] = [];
-  for (const [vertexName, { key }] of Object.entries(spec.vertices) as [T, GenVertexSpec][]) {
-    graphConfig[vertexName] = { key, relations: processRels(vertexName).relations };
+  for (const vertexName of Object.keys(spec.vertices) as T[]) {
     const vname = vertexClassName(vertexName);
     vertexFields.push(`readonly ${vertexName} = new Vertices<${vname}>((key) => new ${vname}(this, key));`);
   }
 
   const code: string[] = [];
-
-  // Some static information.
-  const configConst = `${spec.name.toUpperCase()}_GRAPH_CONFIG`;
-  code.push(`export const ${configConst} = ${JSON.stringify(graphConfig)} as const;\n`);
 
   // Some type definitions.
   const typeEdgeName = `T${spec.name}EdgeName`;
@@ -112,14 +105,23 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
     .sort()
     .join("|");
 
-  code.push(`export type ${typeVertexName} = ${vertexNames};`);
-  code.push(`export type ${typeVertexKind} = ${vertexKinds}`);
-  code.push(`export type ${typeEdgeName} = ${edgeNames};`);
+  code.push(`export type ${typeVertexName} = ${vertexNames};\n`);
+  code.push(`export type ${typeVertexKind} = ${vertexKinds};\n`);
+  code.push(`export type ${typeEdgeName} = ${edgeNames};\n`);
 
   // Generate the graph class.
   code.push(`
-    /** Base class for the ${spec.name} graph, generated from its specification. */
-    export class ${spec.name}${graphBase}  {
+  /** Base class for the ${spec.name} graph, generated from its specification. */
+  export class ${spec.name}${graphBase}  {
+    /** All Vertex classes. */
+    readonly vertexClasses = {
+      ${Object.keys(spec.vertices)
+        .map(name => `${name}: ${vertexClassName(name as T)}`)
+        .join(", ")}
+    } as const;
+
+    // Create a Vertices instances for each vertex.
+
     ${vertexFields.join("\n")}
 
     /** All vertex collections. */
@@ -132,7 +134,7 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
     /** All edge collections. */
     readonly edges = {
       ${spec.edges
-        .map(s => `${edgesKey(s)}: new Edges(this.${s.src[0]}, this.${s.dst[0]}),`)
+        .map(s => `${edgesKey(s)}: new Edges(this.${s.src[0]}, this.${s.dst[0]}, ${JSON.stringify(s.src[2])}, ${JSON.stringify(s.dst[2])}),`)
         .sort()
         .join("\n")}
     } as const;
@@ -146,10 +148,16 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
 
     loadJSON(data: SerializedGraph) {
       for (const [vertexName, vertices] of Object.entries(data.vertices)) {
-        this.vertices[vertexName as ${typeVertexName}].setMany(vertices as [any, any]);
+        const map = this.vertices[vertexName as TPlangsVertexName];
+        for (const [vertexKey, vertexData] of Object.entries(vertices)) {
+          map.set(vertexKey as any, vertexData as any);
+        }
       }
       for (const [edgeName, edges] of Object.entries(data.edges)) {
-        this.edges[edgeName as ${typeEdgeName}].addMany(edges as [any, any]);
+        const map = this.edges[edgeName as TPlangsEdgeName];
+        for (const [fromKey, toKeys] of Object.entries(edges)) {
+          map.add(fromKey as any, ...(toKeys as any[]));
+        }
       }
     }
   }\n`);
@@ -157,7 +165,7 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
   // Sort vertices by name, to avoid changing the generated code when the entries are in a different order.
   const vertexEntries = Object.entries(spec.vertices).sort(([nameA], [nameB]) => nameA.localeCompare(nameB));
   for (const [vertexName, { key, desc }] of vertexEntries as [T, GenVertexSpec][]) {
-    const relations = processRels(vertexName).code;
+    const { code: relCode, relations } = processRels(vertexName);
     const vertexBaseComplete = `${spec.name}${vertexBase}<"${key}", ${vertexDataName(vertexName)}>`;
     const plainName = vertexClassName(vertexName);
     const className = `${plainName}${vertexSuffix}`;
@@ -166,27 +174,22 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
     code.push(`export type ${plainName}Key = \`${key}+\${string}\`;\n`);
 
     code.push(`/** Relationship available on an instance of {@link ${plainName}}. */`);
-    code.push(`export type ${plainName}Rel = ${relations.map(([name]) => `"${name}"`).join("|")};\n`);
+    code.push(`export type ${plainName}Rel = ${relCode.map(([name]) => `"${name}"`).join("|")};\n`);
+
+    code.push(`/** Type of the readable props of {@link ${plainName}}. */`);
+    code.push(`export type ${plainName}Prop = ReadableProps<${plainName}>;\n`);
 
     code.push(`/** ${desc} */\nexport abstract class ${className} extends ${vertexBaseComplete} {
-      static readonly kind = "${key}";
+      static readonly keyPrefix = "${key}";
       static readonly vertexName = "${vertexName}";
-      static readonly desc = "${desc}";
+      static readonly vertexDesc = "${desc}";
 
-      override readonly kind = ${className}.kind; 
-      override readonly desc = ${className}.desc;
+      /** Describes the edges and direction used for every relationship in this Vertex. */
+      static readonly relations = ${JSON.stringify(relations)} as const;
 
-      /** Return a configuration object for a property of this vertex. */
-      static propConf(propName: keyof ${plainName}) : { vertexName: ${typeVertexName}, propName: keyof ${plainName} } {
-        return { vertexName: ${plainName}.vertexName, propName };
-      }
+      readonly vertexDesc = ${className}.vertexDesc;
 
-      /** Return a configuration object for a relation of this vertex. */
-      static relConf(relName: ${plainName}Rel)  {
-        return ${configConst}.${vertexName}.relations[relName];
-      }
-
-      ${relations.map(([_, code]) => `${code}`).join("\n")}
+      ${relCode.map(([_, code]) => `${code}`).join("\n")}
     }\n`);
   }
 
