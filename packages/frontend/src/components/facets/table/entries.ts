@@ -7,10 +7,14 @@ import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 
 export type Val = string | number | boolean;
 export type Entry = { value: Val; label: string; count: number };
-export type FacetTableConfig = { kind: "vertexrel"; edge: PlangsEdgeName; dir: "forward" | "backward" } | { kind: "year"; vertex: PlangsVertexName };
+export type FacetTableConfig =
+  /** Configure the table to select a related Vertex. */
+  | { kind: "relation"; edge: PlangsEdgeName; dir: "forward" | "backward" }
+  /** Configure the table to select the value of a property of a Vertex. */
+  | { kind: "property"; vertex: PlangsVertexName; property: string };
 
 export function generateEntries(pg: PlangsGraph, config: FacetTableConfig): Entry[] {
-  if (config.kind === "vertexrel") {
+  if (config.kind === "relation") {
     const { edge, dir } = config;
 
     const edges = pg.edges[edge];
@@ -29,7 +33,10 @@ export function generateEntries(pg: PlangsGraph, config: FacetTableConfig): Entr
   }
 
   // TODO: kind === 'year' matches only plang but could be generalized.
-  if (config.kind === "year") {
+  if (config.kind === "property") {
+    // TODO: actually use the property. The code below assumes the property is 'created'.
+    const property = config.property;
+
     const years: Map<StrDate, number> = new Map(); // year -> count
     for (const { created } of pg.plang.values) {
       if (!created.value) continue;
