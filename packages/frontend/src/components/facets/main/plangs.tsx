@@ -27,7 +27,7 @@ export const FACETS: FacetsMap<FK> = defineFacets<FK>(
   table("implements", "Implements", { kind: "vertexrel", edge: "plangRelImplements", dir: "forward" }),
   table("influenced", "Influenced", { kind: "vertexrel", edge: "plangRelInfluencedBy", dir: "backward" }),
   table("influencedBy", "Influenced By", { kind: "vertexrel", edge: "plangRelInfluencedBy", dir: "forward" }),
-  table("licenses", "Licenses", { kind: "vertexrel", edge: "licenseRelPlangs", dir: "forward" }),
+  table("licenses", "Licenses", { kind: "vertexrel", edge: "licenseRelPlangs", dir: "backward" }),
   table("paradigms", "Paradigms", { kind: "vertexrel", edge: "plangRelParadigms", dir: "forward" }),
   table("platforms", "Platforms", { kind: "vertexrel", edge: "plangRelPlatforms", dir: "forward" }),
   table("tags", "Tags", { kind: "vertexrel", edge: "tagRelPlangs", dir: "backward" }),

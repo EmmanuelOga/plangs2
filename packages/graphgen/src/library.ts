@@ -211,14 +211,14 @@ export class Edges<From extends AnyVertex, To extends AnyVertex> {
   }
 
   /* {@link addMany} can be used to load back the result of the serialization. */
-  toJSON(): (From["key"] | To["key"][])[][] {
+  toJSON(): [From["key"], To["key"][]][] {
     return this.entriesForward.map(([fromKey, setToKeys]) => [fromKey, [...setToKeys]]);
   }
 }
 
-export type SerializedGraph<VertexName extends string = string, EdgeName extends string = string, VertexKey extends string = string> = {
-  vertices: Record<VertexName, [VertexKey, AnyVertex["data"]][]>;
-  edges: Record<EdgeName, [VertexKey, VertexKey[]][]>;
+export type SerializedGraph = {
+  vertices: Record<string, [string, AnyVertex["data"]][]>;
+  edges: Record<string, [string, string[]][]>;
 };
 
 /** This class provides shrotcuts to work with relationship between vertices directly **from** the vertex. */

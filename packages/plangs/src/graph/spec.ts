@@ -55,21 +55,34 @@ export const PLANGS_GRAPH_SPEC: GenGraphSpec<PlangVertexNames> = {
   },
 
   edges: [
-    // Plangs
+    // Plang to others
     { src: ["plang", "relParadigms", "Paradigms implemented."], dst: ["paradigm", "relPlangs", "Plangs implementing this."] },
+    { src: ["plang", "relPlatforms", "Platforms supported."], dst: ["platform", "relPlangs", "Plangs supporting this."] },
+    { src: ["plang", "relTools", "Tools for this."], dst: ["tool", "relPlangs", "Plangs supported."] },
+    { src: ["plang", "relTypeSystems", "Type Systems implemented."], dst: ["typeSystem", "relPlangs", "Plangs implementing this."] },
+
+    // Plang to Plang
     { src: ["plang", "relCompilesTo", "Transpiling targets."], dst: ["plang", "relTargetOf", "Plangs compiling to this."] },
     { src: ["plang", "relDialectOf", "Plangs this is a Dialect of."], dst: ["plang", "relDialects", "Dialects."] },
     { src: ["plang", "relImplements", "Plangs this Implements."], dst: ["plang", "relImplementedBy", "Plangs implementing this."] },
     { src: ["plang", "relInfluencedBy", "Plangs that influenced this."], dst: ["plang", "relInfluenced", "Plangs this influenced."] },
     { src: ["plang", "relWrittenWith", "Plangs used to implement this."], dst: ["plang", "relUsedToWrite", "Plangs implemented with this."] },
-    { src: ["plang", "relPlatforms", "Platforms supported."], dst: ["platform", "relPlangs", "Plangs supporting this."] },
-    { src: ["plang", "relTools", "Tools for this."], dst: ["tool", "relPlangs", "Plangs supported."] },
-    { src: ["plang", "relTypeSystems", "Type Systems implemented."], dst: ["typeSystem", "relPlangs", "Plangs implementing this."] },
+
+    // Plang to other
+    { src: ["app", "relWrittenWith", "Plangs used to implement this."], dst: ["plang", "relApps", "Apps implemented with this."] },
+    { src: ["bundle", "relPlangs", "Plangs this Bundle is for."], dst: ["plang", "relBundles", "Bundles of Tools for this."] },
+    { src: ["community", "relPlangs", "Plangs supported."], dst: ["plang", "relCommunities", "Communities suporting this."] },
+    { src: ["learning", "relPlangs", "Plangs covered."], dst: ["plang", "relLearning", "Learning resources."] },
+    { src: ["library", "relPlangs", "Plangs supported."], dst: ["plang", "relLibraries", "Software Libraries."] },
+    { src: ["library", "relWrittenWith", "Plangs used."], dst: ["plang", "relUsedInLibrary", "Libraries made with this."] },
+    { src: ["license", "relPlangs", "Plangs using this."], dst: ["plang", "relLicenses", "Licenses."] },
+    { src: ["post", "relPlangs", "Plangs covered."], dst: ["plang", "relPosts", "Posts talking about this."] },
+    { src: ["tag", "relPlangs", "Plangs tagged."], dst: ["plang", "relTags", "Tags."] },
+    { src: ["tool", "relWrittenWith", "Plangs used to implement this."], dst: ["plang", "relToolsUsing", "Tools implemented with this."] },
 
     // Licenses
     { src: ["license", "relApps", "Apps using this."], dst: ["app", "relLicenses", "Licenses."] },
     { src: ["license", "relLibraries", "Libraries using this."], dst: ["library", "relLicenses", "Licenses."] },
-    { src: ["license", "relPlangs", "Plangs using this."], dst: ["plang", "relLicenses", "Licenses."] },
     { src: ["license", "relTools", "Tools using this."], dst: ["tool", "relLicenses", "Licenses."] },
 
     // Tags
@@ -77,22 +90,13 @@ export const PLANGS_GRAPH_SPEC: GenGraphSpec<PlangVertexNames> = {
     { src: ["tag", "relCommunities", "Communities tagged."], dst: ["community", "relTags", "Tags."] },
     { src: ["tag", "relLearning", "Learning resources tagged."], dst: ["learning", "relTags", "Tags."] },
     { src: ["tag", "relLibraries", "Libraries tagged."], dst: ["library", "relTags", "Tags."] },
-    { src: ["tag", "relPlangs", "Plangs tagged."], dst: ["plang", "relTags", "Tags."] },
     { src: ["tag", "relTools", "Tools tagged."], dst: ["tool", "relTags", "Tags."] },
 
     // Rest
     { src: ["app", "relPlatforms", "Platforms supported."], dst: ["platform", "relApps", "Apps supporting this."] },
-    { src: ["app", "relWrittenWith", "Plangs used to implement this."], dst: ["plang", "relApps", "Apps implemented with this."] },
     { src: ["bundle", "relTools", "Tools in this."], dst: ["tool", "relBundles", "Bundles including this."] },
-    { src: ["bundle", "relPlangs", "Plangs this Bundle is for."], dst: ["plang", "relBundles", "Bundles of Tools for this."] },
-    { src: ["community", "relPlangs", "Plangs supported."], dst: ["plang", "relCommunities", "Communities suporting this."] },
     { src: ["learning", "relCommunities", "Communities supporting this."], dst: ["community", "relLearning", "Learning resources."] },
-    { src: ["learning", "relPlangs", "Plangs covered."], dst: ["plang", "relLearning", "Learning resources."] },
     { src: ["library", "relPlatforms", "Platforms supported."], dst: ["platform", "relLibraries", "Libraries supporting this."] },
-    { src: ["library", "relPlangs", "Plangs supported."], dst: ["plang", "relLibraries", "Software Libraries."] },
-    { src: ["library", "relWrittenWith", "Plangs used."], dst: ["plang", "relUsedInLibrary", "Libraries made with this."] },
-    { src: ["post", "relPlangs", "Plangs covered."], dst: ["plang", "relPosts", "Posts talking about this."] },
     { src: ["tool", "relPlatforms", "Platforms supported."], dst: ["platform", "relTools", "Tools supporting this."] },
-    { src: ["tool", "relWrittenWith", "Plangs used to implement this."], dst: ["plang", "relToolsUsing", "Tools implemented with this."] },
   ],
 };
