@@ -30,7 +30,7 @@ export const PLANG_FACET_PREDICATES = {
   releasedRecently: ((pl, date) => ret(pl.releases.last, lastRel => lastRel?.isRecent(date.value as StrDate))) as Pred<ValString>,
   tags: (({ relTags }, flt) => flt.matches(key => relTags.has(key))) as Pred<Filter<VTagKey>>,
   typeSystems: (({ relTypeSystems }, flt) => flt.matches(key => relTypeSystems.has(key))) as Pred<Filter<VTypeSystemKey>>,
-  writtenIn: (({ relWrittenWith }, flt) => flt.matches(key => relWrittenWith.has(key))) as Pred<Filter<VPlangKey>>,
+  writtenWith: (({ relWrittenWith }, flt) => flt.matches(key => relWrittenWith.has(key))) as Pred<Filter<VPlangKey>>,
 } as const;
 
 export type PlangFacetKey = keyof typeof PLANG_FACET_PREDICATES;

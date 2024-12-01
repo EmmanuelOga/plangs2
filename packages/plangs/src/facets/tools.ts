@@ -19,7 +19,7 @@ export const TOOL_FACET_PREDICATES = {
   // licenses: (({ relLicenses }, flt) => flt.matches(key => relLicenses.has(key))) as Pred<Filter<VLicense["key"]>>,
   // platforms: (({ relPlatforms }, flt) => flt.matches(key => relPlatforms.has(key))) as Pred<Filter<VPlatform["key"]>>,
   // tags: (({ relTags }, flt) => flt.matches(key => relTags.has(key))) as Pred<Filter<VTag["key"]>>,
-  // writtenIn: (({ relWrittenIn }, flt) => flt.matches(key => relWrittenIn.has(key))) as Pred<Filter<VPlang["key"]>>,
+  // writtenWith: (({ relWrittenIn }, flt) => flt.matches(key => relWrittenIn.has(key))) as Pred<Filter<VPlang["key"]>>,
   // writtenFor: (({ relPlang }, flt) => flt.matches(key => relPlang.has(key))) as Pred<Filter<VPlang["key"]>>,
 } as const;
 

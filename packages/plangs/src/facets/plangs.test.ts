@@ -314,10 +314,10 @@ test("typeSystems", () => {
   expect(check(pl, new Filter<VTypeSystem["key"]>("any").add("tsys+two").add("tsys+three"))).toBeTrue();
 });
 
-test("writtenIn", () => {
+test("writtenWith", () => {
   const pg = new PlangsGraph();
   const pl = pg.plang.set("pl+myplang").relWrittenWith.add("pl+one", "pl+two");
-  const { writtenIn: check } = PLANG_FACET_PREDICATES;
+  const { writtenWith: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+one"))).toBeTrue();
   expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+one").add("pl+two"))).toBeTrue();
@@ -337,21 +337,21 @@ test("plangMatches", () => {
   const plang = pg.plang.set("pl+plang", { name: "MyPlang" }).relWrittenWith.add("pl+one", "pl+two");
   const other = pg.plang.set("pl+other", { name: "MyOtherPlang" }).relWrittenWith.add("pl+two");
 
-  const writtenIn = new Filter<VPlang["key"]>("any").add("pl+one").add("pl+two");
+  const writtenWith = new Filter<VPlang["key"]>("any").add("pl+one").add("pl+two");
 
-  const filters = new Map(Object.entries({ writtenIn }) as [PlangFacetKey, AnyValue][]);
+  const filters = new Map(Object.entries({ writtenWith }) as [PlangFacetKey, AnyValue][]);
 
   expect(plangMatches(plang, filters)).toBeTrue();
   expect(plangMatches(other, filters)).toBeTrue();
 
-  writtenIn.mode = "all";
+  writtenWith.mode = "all";
 
   expect(plangMatches(plang, filters)).toBeTrue();
   expect(plangMatches(other, filters)).toBeFalse();
 
   const plangName = new ValRegExp(/myplang/i);
 
-  writtenIn.mode = "any";
+  writtenWith.mode = "any";
   filters.set("plangName", plangName);
 
   expect(plangMatches(plang, filters)).toBeTrue();
@@ -363,8 +363,8 @@ test("Plangs.plangs", () => {
   const plang = pg.plang.set("pl+plang", { name: "MyPlang" }).relWrittenWith.add("pl+one", "pl+two");
   const other = pg.plang.set("pl+other", { name: "MyOtherPlang" }).relWrittenWith.add("pl+two");
 
-  const writtenIn = new Filter<VPlang["key"]>("any").add("pl+one").add("pl+two");
-  const filters = new Map(Object.entries({ writtenIn }) as [PlangFacetKey, AnyValue][]);
+  const writtenWith = new Filter<VPlang["key"]>("any").add("pl+one").add("pl+two");
+  const filters = new Map(Object.entries({ writtenWith }) as [PlangFacetKey, AnyValue][]);
 
   expect(pg.filterPlangs(filters)).toEqual(new Set([plang.key, other.key]));
   expect(pg.filterPlangs(filters, 1)).toEqual(new Set([plang.key]));

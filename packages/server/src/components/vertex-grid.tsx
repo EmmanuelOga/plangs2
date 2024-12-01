@@ -1,10 +1,10 @@
 import { tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsGraph } from "@plangs/plangs/graph";
-import type { PlangsVertexName } from "@plangs/plangs/graph/generated";
+import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
 import { cssID } from "@plangs/server/elements";
 import { VertexThumbn } from "./vertex-thumbn";
 
-export function VertexGrid({ pg, vertex, class: cssClass }: { pg: PlangsGraph; vertex: PlangsVertexName; class?: string }) {
+export function VertexGrid({ pg, vertex, class: cssClass }: { pg: PlangsGraph; vertex: TPlangsVertexName; class?: string }) {
   return (
     <div class={tw(cssClass)}>
       <div

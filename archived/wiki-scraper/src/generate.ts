@@ -95,7 +95,7 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<VPlang
   for (const other of mapToPlKeys(page.infobox.influenced)) g.edges.plangRelInfluencedBy.add(other, plang.key);
   for (const other of mapToPlKeys(page.infobox.influencedBy)) g.edges.plangRelInfluencedBy.add(plang.key, other);
 
-  for (const other of mapToPlKeys(page.infobox.writtenIn)) g.edges.plangRelWrittenWith.add(other, plang.key);
+  for (const other of mapToPlKeys(page.infobox.writtenWith)) g.edges.plangRelWrittenWith.add(other, plang.key);
 
   return plang;
 }

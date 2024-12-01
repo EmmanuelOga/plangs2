@@ -201,7 +201,7 @@ class InfoBox {
   readonly implementations: Link[] = []; // KEYS_IMPLEMENTATIONS
   readonly influenced: Link[] = []; // KEYS_INFLUENCED
   readonly influencedBy: Link[] = []; // KEYS_INFLUENCED_BY
-  readonly writtenIn: Link[] = []; // KEY_WRITTEN_IN
+  readonly writtenWith: Link[] = []; // KEY_WRITTEN_IN
 
   plangCandidates(): Link[] {
     const res: Link[] = [];
@@ -210,7 +210,7 @@ class InfoBox {
     mergeLinks(res, this.implementations);
     mergeLinks(res, this.influenced);
     mergeLinks(res, this.influencedBy);
-    mergeLinks(res, this.writtenIn);
+    mergeLinks(res, this.writtenWith);
     return res.filter(link => new URL(link.href).hostname === BASE_URL.hostname);
   }
 
@@ -331,7 +331,7 @@ function processEntry($: cheerio.CheerioAPI, key: string, val: cheerio.Cheerio<E
   } else if (KEYS_TYPE_SYSTEM.has(key)) {
     mergeLinks(box.typeSystem, links);
   } else if (KEYS_WRITTEN_IN.has(key)) {
-    mergeLinks(box.writtenIn, links);
+    mergeLinks(box.writtenWith, links);
   } else if (KEYS_WEBSITES.has(key)) {
     mergeLinks(box.websites, links);
   } else {

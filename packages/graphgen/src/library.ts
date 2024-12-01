@@ -277,8 +277,3 @@ export class RelTo<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
     return this.keys.size;
   }
 }
-
-/** Type of properties of a class that are of the given type. */
-export type ReadableProps<TClass, Valid = string | number | boolean> = NonNullable<
-  { [K in keyof TClass]: TClass[K] extends Valid ? K : never }[keyof TClass]
->;

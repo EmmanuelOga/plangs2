@@ -31,7 +31,7 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
   const main = useContext(FacetsMainContext) as AnyFacetsMainState; // It exists, since it spawned this component.
 
   const state = useDispatchable(() => {
-    const order = config.kind === "year" ? "facet-desc" : "facet-asc";
+    const order = config.kind === "prop" ? "facet-desc" : "facet-asc";
     const entries = sortEntries(generateEntries(main.pg, config), order);
     return new FacetTableState({ config, entries, facetKey, groupKey, main, order });
   });
@@ -52,7 +52,7 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
       <div class={tw(ROW, "sticky top-0 cursor-pointer", tw(BORDER, "border-b-1"))}>
         <div class={tw("col-span-3", "py-1", "flex shrink-0 flex-row", "bg-background", CENTER_ROW, tw(BORDER, "border-t-1"))}>
           <span class={tw("pl-2", CENTER_ROW, state.value.size < 2 ? "text-foreground/50" : "text-foreground")}>
-            <IconButton action="allAny" disabled={state.value.size < 2} initial={state.value.mode} class={tw(config.kind === "year" && "hidden")} />
+            <IconButton action="allAny" disabled={state.value.size < 2} initial={state.value.mode} class={tw(config.kind === "prop" && "hidden")} />
           </span>
         </div>
 

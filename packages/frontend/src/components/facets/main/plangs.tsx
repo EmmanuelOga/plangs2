@@ -4,7 +4,7 @@ import { ValNil, ValNumber } from "@plangs/auxiliar/value";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { loadLocalStorage } from "@plangs/frontend/auxiliar/storage";
 import type { PlangFacetKey } from "@plangs/plangs/facets/plangs";
-import type { PlangsGraph, VPlang } from "@plangs/plangs/graph";
+import { PlangsGraph, type VPlang } from "@plangs/plangs/graph";
 import type { TAB } from "@plangs/server/components/layout";
 
 import { createFacetGroups } from "./groups-util";
@@ -21,23 +21,29 @@ export const FACETS: FacetsMap<FK> = defineFacets<FK>(
   bool("isTranspiler", "Is Transpiler"),
   bool("releasedRecently", "Released Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 1) : new ValNil())),
   multi("extensions", "Extensions"),
-  table("compilesTo", "Compiles To", { kind: "vertexrel", edge: "plangRelCompilesTo", dir: "forward" }),
-  table("creationYear", "Creation Year", { kind: "year", vertex: "plang" }),
-  table("dialectOf", "Dialect Of", { kind: "vertexrel", edge: "plangRelDialectOf", dir: "forward" }),
-  table("implements", "Implements", { kind: "vertexrel", edge: "plangRelImplements", dir: "forward" }),
-  table("influenced", "Influenced", { kind: "vertexrel", edge: "plangRelInfluencedBy", dir: "backward" }),
-  table("influencedBy", "Influenced By", { kind: "vertexrel", edge: "plangRelInfluencedBy", dir: "forward" }),
-  table("licenses", "Licenses", { kind: "vertexrel", edge: "licenseRelPlangs", dir: "backward" }),
-  table("paradigms", "Paradigms", { kind: "vertexrel", edge: "plangRelParadigms", dir: "forward" }),
-  table("platforms", "Platforms", { kind: "vertexrel", edge: "plangRelPlatforms", dir: "forward" }),
-  table("tags", "Tags", { kind: "vertexrel", edge: "tagRelPlangs", dir: "backward" }),
-  table("typeSystems", "Type Systems", { kind: "vertexrel", edge: "plangRelTypeSystems", dir: "forward" }),
-  table("writtenIn", "Written In", { kind: "vertexrel", edge: "plangRelWrittenWith", dir: "forward" }),
+
+  table("compilesTo", "Compiles To", PlangsGraph.relConfig("plang", "relCompilesTo")),
+  // table("targetOf", "Target of", PlangsGraph.relConfig("plang", "relTargetOf")),
+  table("dialectOf", "Dialect Of", PlangsGraph.relConfig("plang", "relDialectOf")),
+  // table("dialects", "Dialects", PlangsGraph.relConfig("plang", "relDialects")),
+  table("implements", "Implements", PlangsGraph.relConfig("plang", "relImplements")),
+  // table("implementedBy", "Implemented By", PlangsGraph.relConfig("plang", "relImplementedBy")),
+  table("influenced", "Influenced", PlangsGraph.relConfig("plang", "relInfluenced")),
+  table("influencedBy", "Influenced By", PlangsGraph.relConfig("plang", "relInfluencedBy")),
+  table("licenses", "Licenses", PlangsGraph.relConfig("plang", "relLicenses")),
+  table("paradigms", "Paradigms", PlangsGraph.relConfig("plang", "relParadigms")),
+  table("platforms", "Platforms", PlangsGraph.relConfig("plang", "relPlatforms")),
+  table("tags", "Tags", PlangsGraph.relConfig("plang", "relTags")),
+  table("typeSystems", "Type Systems", PlangsGraph.relConfig("plang", "relTypeSystems")),
+  table("writtenWith", "Written With", PlangsGraph.relConfig("plang", "relWrittenWith")),
+  // table("usedToWrite", "Used to Write", PlangsGraph.relConfig("plang", "relUsedToWrite")),
+  table("creationYear", "Creation Year", PlangsGraph.propConfig("plang", "created")),
+
   text("plangName", "Plang Name"),
 );
 
 // biome-ignore format: Keep it in one line.
-export type PlangFacetGroupKey = "creationYear" | "dialectOf" | "general" | "implements" | "influenced" | "influencedBy" | "licenses" | "paradigms" | "platforms" | "tags" | "transpiler" | "typeSystems" | "writtenIn";
+export type PlangFacetGroupKey = "creationYear" | "dialectOf" | "general" | "implements" | "influenced" | "influencedBy" | "licenses" | "paradigms" | "platforms" | "tags" | "transpiler" | "typeSystems" | "writtenWith";
 
 type GK = PlangFacetGroupKey;
 
@@ -54,14 +60,14 @@ export const [GROUPS, GROUP_FOR_FACET_KEY]: readonly [GroupsMap<GK, FK>, Map<FK,
   group("tags", "Tags", ["tags"]),
   group("transpiler", "Transpiler", ["isTranspiler", "compilesTo"]),
   group("typeSystems", "Type Systems", ["typeSystems"]),
-  group("writtenIn", "Written In", ["writtenIn"]),
+  group("writtenWith", "Written With", ["writtenWith"]),
 );
 
 /** Group keys for the navigation menu.  */
 export const NAV: GK[][] = [
   ["general"],
   ["platforms", "paradigms", "typeSystems"],
-  ["writtenIn", "transpiler", "dialectOf", "implements", "influencedBy", "influenced"],
+  ["writtenWith", "transpiler", "dialectOf", "implements", "influencedBy", "influenced"],
   ["tags", "creationYear", "licenses"],
 ] as const;
 

@@ -2,29 +2,27 @@ import type { JSX } from "preact/jsx-runtime";
 
 import { SORT_DOWN, SORT_UP } from "@plangs/frontend/auxiliar/icons";
 import type { PlangsGraph } from "@plangs/plangs/graph";
-import type { PlangsEdgeName, PlangsVertexName } from "@plangs/plangs/graph/generated";
+import type { TPlangsEdgeName, TPlangsVertexName } from "@plangs/plangs/graph/generated";
 import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 
 export type Val = string | number | boolean;
 export type Entry = { value: Val; label: string; count: number };
 export type FacetTableConfig =
-  /** Configure the table to select a related Vertex. */
-  | { kind: "relation"; edge: PlangsEdgeName; dir: "forward" | "backward" }
-  /** Configure the table to select the value of a property of a Vertex. */
-  | { kind: "property"; vertex: PlangsVertexName; property: string };
+  | { kind: "rel"; edgeName: TPlangsEdgeName; direction: "direct" | "inverse" }
+  | { kind: "prop"; vertexName: TPlangsVertexName; vertexProp: string };
 
 export function generateEntries(pg: PlangsGraph, config: FacetTableConfig): Entry[] {
-  if (config.kind === "relation") {
-    const { edge, dir } = config;
+  if (config.kind === "rel") {
+    const { edgeName, direction } = config;
 
-    const edges = pg.edges[edge];
+    const edges = pg.edges[edgeName as TPlangsEdgeName];
     if (!edges) {
-      console.error("No edges found for:", edge, dir);
+      console.error("No edges found for:", edgeName, direction);
       return [];
     }
 
-    const relations = dir === "forward" ? edges.entriesBackward : edges.entriesForward;
-    const source = dir === "forward" ? edges.toSource : edges.fromSource;
+    const relations = direction === "direct" ? edges.entriesBackward : edges.entriesForward;
+    const source = direction === "direct" ? edges.toSource : edges.fromSource;
 
     return [...relations].map(([key, toKeys]) => {
       const name = source.get(key as any)?.name ?? key;
@@ -33,9 +31,8 @@ export function generateEntries(pg: PlangsGraph, config: FacetTableConfig): Entr
   }
 
   // TODO: kind === 'year' matches only plang but could be generalized.
-  if (config.kind === "property") {
+  if (config.kind === "prop") {
     // TODO: actually use the property. The code below assumes the property is 'created'.
-    const property = config.property;
 
     const years: Map<StrDate, number> = new Map(); // year -> count
     for (const { created } of pg.plang.values) {
@@ -56,8 +53,8 @@ export type Column = "facet" | "count" | "sel";
 export type Order = "facet-asc" | "facet-desc" | "count-asc" | "count-desc" | "sel-asc" | "sel-desc";
 
 export function label(col: Column, config: FacetTableConfig): string {
-  if (col === "facet" && config.kind === "vertexrel") return config.edge;
-  if (col === "facet" && config.kind === "year") return `${config.vertex} year`;
+  if (col === "facet" && config.kind === "rel") return config.edgeName;
+  if (col === "facet" && config.kind === "prop") return `${config.vertexName} year`;
   return col;
 }
 

@@ -1,7 +1,7 @@
 import { join } from "node:path";
 
 import { type PlangsGraph, VCommunity, VLearning, type VPlang } from "@plangs/plangs/graph";
-import type { PlangsVertexName } from "@plangs/plangs/graph/generated";
+import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
 import type { Image } from "@plangs/plangs/graph/vertex_data_schemas";
 
 export const DEFINTIONS_PATH = join(import.meta.dir, "../../definitions/src/definitions");
@@ -11,7 +11,7 @@ export const DEFINTIONS_PATH = join(import.meta.dir, "../../definitions/src/defi
  * VPlang vertices are stored in a folder structure based on the first letter of the key.
  * The other vertices are stored in a flat structure.
  */
-export function tsVertexPath(kind: PlangsVertexName, plainKey?: string): string {
+export function tsVertexPath(kind: TPlangsVertexName, plainKey?: string): string {
   if (kind === "plang") {
     if (!plainKey) throw new Error("plainKey is required for pl vertices.");
     const base = plainKey.replace(/[^a-zA-Z0-9\_\+\-]/g, "_");
@@ -105,7 +105,7 @@ export function plangCodeGen(plang: VPlang): string {
 
 // Generate a setter for the vertex data.
 // biome-ignore lint/suspicious/noExplicitAny: Any data is fine here.
-const generateSettter = (kind: PlangsVertexName, key: string, data: any) => {
+const generateSettter = (kind: TPlangsVertexName, key: string, data: any) => {
   /** Cleanup data in place: sort keys, remove blank values. */
   for (const [k, v] of Object.entries(data)) {
     if (Array.isArray(v)) {
