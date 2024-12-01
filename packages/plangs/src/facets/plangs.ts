@@ -1,6 +1,6 @@
 import type { Filter } from "@plangs/auxiliar/filters";
 import { ret } from "@plangs/auxiliar/misc";
-import type { AnyValue, ValBool, ValRegExp, ValString, Value } from "@plangs/auxiliar/value";
+import type { AnyValue, ValBool, ValString, Value } from "@plangs/auxiliar/value";
 import type { VPlang } from "@plangs/plangs/graph";
 import type { VLicenseKey, VParadigmKey, VPlangKey, VPlatformKey, VTagKey, VTypeSystemKey } from "@plangs/plangs/graph/generated";
 import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";

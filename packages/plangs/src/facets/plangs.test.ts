@@ -1,7 +1,7 @@
 import { expect, test } from "bun:test";
 
 import { Filter } from "@plangs/auxiliar/filters";
-import { type AnyValue, ValBool, ValRegExp, ValString } from "@plangs/auxiliar/value";
+import { type AnyValue, ValBool, ValString } from "@plangs/auxiliar/value";
 import { PlangsGraph, type VLicense, type VParadigm, type VPlang, type VPlatform, type VTag, type VTypeSystem } from "@plangs/plangs/graph";
 
 import type { VPlangKey } from "../graph/generated";
@@ -236,17 +236,17 @@ test("plangName", () => {
   const rascal = pg.plang.set("pl+rascal", { name: "Rascal" });
   const { plangName: check } = PLANG_FACET_PREDICATES;
 
-  expect(check(rascal, new ValRegExp(/Rascal/))).toBeTrue();
-  expect(check(rascal, new ValRegExp(/TypeScript/))).toBeFalse();
-  expect(check(rascal, new ValRegExp(/rascal/i))).toBeTrue();
-  expect(check(rascal, new ValRegExp(/typescript/i))).toBeFalse();
-  expect(check(rascal, new ValRegExp(/xyz/i))).toBeFalse();
+  expect(check(rascal, new ValString("rascal"))).toBeTrue();
+  expect(check(rascal, new ValString("typescript"))).toBeFalse();
+  expect(check(rascal, new ValString("rascal"))).toBeTrue();
+  expect(check(rascal, new ValString("typescript"))).toBeFalse();
+  expect(check(rascal, new ValString("xyz"))).toBeFalse();
 
-  expect(check(typescript, new ValRegExp(/Rascal/))).toBeFalse();
-  expect(check(typescript, new ValRegExp(/TypeScript/))).toBeTrue();
-  expect(check(typescript, new ValRegExp(/rascal/i))).toBeFalse();
-  expect(check(typescript, new ValRegExp(/typescript/i))).toBeTrue();
-  expect(check(typescript, new ValRegExp(/xyz/i))).toBeFalse();
+  expect(check(typescript, new ValString("rascal"))).toBeFalse();
+  expect(check(typescript, new ValString("typescript"))).toBeTrue();
+  expect(check(typescript, new ValString("rascal"))).toBeFalse();
+  expect(check(typescript, new ValString("typescript"))).toBeTrue();
+  expect(check(typescript, new ValString("xyz"))).toBeFalse();
 });
 
 test("platforms", () => {
@@ -337,7 +337,7 @@ test("plangMatches", () => {
   const plang = pg.plang.set("pl+plang", { name: "MyPlang" }).relWrittenWith.add("pl+one", "pl+two");
   const other = pg.plang.set("pl+other", { name: "MyOtherPlang" }).relWrittenWith.add("pl+two");
 
-  const writtenWith = new Filter<VPlang["key"]>("any").add("pl+one").add("pl+two");
+  const writtenWith = new Filter<VPlang["key"]>("any").add("pl+one", "pl+two");
 
   const filters = new Map(Object.entries({ writtenWith }) as [PlangFacetKey, AnyValue][]);
 
@@ -349,10 +349,8 @@ test("plangMatches", () => {
   expect(plangMatches(plang, filters)).toBeTrue();
   expect(plangMatches(other, filters)).toBeFalse();
 
-  const plangName = new ValRegExp(/myplang/i);
-
   writtenWith.mode = "any";
-  filters.set("plangName", plangName);
+  filters.set("plangName", new ValString("myplang"));
 
   expect(plangMatches(plang, filters)).toBeTrue();
   expect(plangMatches(other, filters)).toBeFalse();
