@@ -26,7 +26,7 @@ export const FACETS: FacetsMap<FK> = defineFacets<FK>(
   // table("targetOf", "Target of", PlangsGraph.relConfig("plang", "relTargetOf")),
   table("dialectOf", "Dialect Of", PlangsGraph.relConfig("plang", "relDialectOf")),
   // table("dialects", "Dialects", PlangsGraph.relConfig("plang", "relDialects")),
-  table("implements", "Implements", PlangsGraph.relConfig("plang", "relImplements")),
+  table("implements", "Implements", { ...PlangsGraph.relConfig("plang", "relImplements"), minEntries: 2 }), // All plangs implement themselves.
   // table("implementedBy", "Implemented By", PlangsGraph.relConfig("plang", "relImplementedBy")),
   table("influenced", "Influenced", PlangsGraph.relConfig("plang", "relInfluenced")),
   table("influencedBy", "Influenced By", PlangsGraph.relConfig("plang", "relInfluencedBy")),

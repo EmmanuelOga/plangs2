@@ -8,12 +8,12 @@ import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 export type Val = string | number | boolean;
 export type Entry = { value: Val; label: string; count: number };
 export type FacetTableConfig =
-  | { kind: "rel"; edgeName: TPlangsEdgeName; direction: "direct" | "inverse" }
+  | { kind: "rel"; edgeName: TPlangsEdgeName; direction: "direct" | "inverse"; minEntries?: number }
   | { kind: "prop"; vertexName: TPlangsVertexName; vertexProp: string };
 
 export function generateEntries(pg: PlangsGraph, config: FacetTableConfig): Entry[] {
   if (config.kind === "rel") {
-    const { edgeName, direction } = config;
+    const { edgeName, direction, minEntries } = config;
 
     const edges = pg.edges[edgeName as TPlangsEdgeName];
     if (!edges) {
@@ -24,10 +24,12 @@ export function generateEntries(pg: PlangsGraph, config: FacetTableConfig): Entr
     const relations = direction === "direct" ? edges.entriesBackward : edges.entriesForward;
     const source = direction === "direct" ? edges.toSource : edges.fromSource;
 
-    return [...relations].map(([key, toKeys]) => {
+    const entries = [...relations].map(([key, toKeys]) => {
       const name = source.get(key as any)?.name ?? key;
       return { value: key, label: name, count: toKeys.size };
     });
+
+    if (typeof minEntries === "number") return entries.filter(entry => entry.count >= minEntries);
   }
 
   // TODO: kind === 'year' matches only plang but could be generalized.
