@@ -1,5 +1,5 @@
 /**
- * This generates JSON schemas for the types in the schema.ts file that match {@link SYMBOLS}.
+ * This generates JSON schemas for some types in the schema.ts file.
  *
  * Would be nice to place this file in the ai package,
  * but for some reason it is not able to pickup the types if I do.

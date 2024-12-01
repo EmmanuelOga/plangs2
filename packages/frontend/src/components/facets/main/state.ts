@@ -22,9 +22,9 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
   currentGroupKey: GroupKey;
   values: Map2<GroupKey, FacetKey, AnyValue>;
 }> {
-  /** Attempt to reconstruct a structured "form value" from generic data. */
+  /** Attempt to reconstruct the state from a serialized value (ex: a value coming from the URL fragment). */
   // biome-ignore lint/suspicious/noExplicitAny: this data is the result of a de/serialization process and is not typed.
-  static dataToValue<GK, FK>(groupsByFacetKey: Map<FK, GK>, genericData: any): Map2<GK, FK, AnyValue> {
+  static deserialize<GK, FK>(groupsByFacetKey: Map<FK, GK>, genericData: any): Map2<GK, FK, AnyValue> {
     const result = new Map2<GK, FK, AnyValue>();
     if (!genericData) return result;
     for (const [facetKey, rawValue] of Object.entries(genericData)) {
@@ -59,7 +59,7 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
   // biome-ignore lint/suspicious/noExplicitAny: coming from deserialize we'll have to deal with it.
   doResetAll(values?: any): void {
     if (values) {
-      this.data.values = FacetsMainState.dataToValue<GroupKey, FacetKey>(GROUP_FOR_FACET_KEY as Map<FacetKey, GroupKey>, values);
+      this.data.values = FacetsMainState.deserialize<GroupKey, FacetKey>(GROUP_FOR_FACET_KEY as Map<FacetKey, GroupKey>, values);
     } else {
       this.values.clear();
     }
@@ -132,15 +132,18 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
   }
 
   override dispatch(): this {
-    super.dispatch();
+    try {
+      super.dispatch();
 
-    const data = this.serialized;
-    window.fragment.pushState(FragmentTracker.serialize(data));
-    updateLocalStorage(this.tab, "inputs", data);
-    updateThumbns(this.results);
+      const data = this.serialized;
+      window.fragment.pushState(FragmentTracker.serialize(data));
+      updateLocalStorage(this.tab, "inputs", data);
+      updateThumbns(this.results);
 
-    this.updateClearFacets();
-
+      this.updateClearFacets();
+    } catch (err) {
+      console.error(err);
+    }
     return this;
   }
 

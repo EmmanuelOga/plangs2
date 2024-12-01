@@ -25,7 +25,7 @@ export const PLANG_FACET_PREDICATES = {
   isTranspiler: ((pl, val) => val.value === pl.isTranspiler) as Pred<ValBool>,
   licenses: (({ relLicenses }, flt) => flt.matches(key => relLicenses.has(key))) as Pred<Filter<VLicenseKey>>,
   paradigms: (({ relParadigms }, flt) => flt.matches(key => relParadigms.has(key))) as Pred<Filter<VParadigmKey>>,
-  plangName: ((pl, regexp) => regexp.value.test(pl.name)) as Pred<ValRegExp>,
+  plangName: ((pl, str) => pl.lcName.includes(str.value)) as Pred<ValString>,
   platforms: (({ relPlatforms }, flt) => flt.matches(key => relPlatforms.has(key))) as Pred<Filter<VPlatformKey>>,
   releasedRecently: ((pl, date) => ret(pl.releases.last, lastRel => lastRel?.isRecent(date.value as StrDate))) as Pred<ValString>,
   tags: (({ relTags }, flt) => flt.matches(key => relTags.has(key))) as Pred<Filter<VTagKey>>,

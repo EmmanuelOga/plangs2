@@ -11,7 +11,7 @@ export function VertexThumbn({ vertex, class: klass }: { class?: string; vertex:
   const thumbUrl = vertex.thumbUrl;
   return (
     <div
-      data-vkey={vertex.key}
+      data-vertex-key={vertex.key}
       {...(vertex instanceof VPlang && {
         "data-vertex-ranking": `${vertex.ranking ?? ""}`,
       })}

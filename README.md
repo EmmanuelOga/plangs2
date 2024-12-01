@@ -66,12 +66,14 @@ This simplistic build process just outputs the statically generated contents of 
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
 - [ ] Fix facet reset button, and serialization of facets when going to empty (right now doesn't clear the fragment).
 - [ ] Fix "pill" links .. what happens when we click them?
-- [ ] Make the node-info work for all node types.
+- [ ] Make the vertex-info work for all node types.
+
+- [ ] Add a table display mode in addition to Grid (some things don't display good on a Grid, like Libraries).
 
 <hr/>
 
-- [ ] Revise data schema for entities other than Plangs.
-- [ ] Link to blog post author link.
+- [.] Revise data schema for entities other than Plangs.
+- [ ] Add an "authors" Vertex to link to Blog post authors.
 
 <hr/>
 

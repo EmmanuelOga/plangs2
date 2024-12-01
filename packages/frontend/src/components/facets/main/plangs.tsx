@@ -83,7 +83,7 @@ export class PlangsFacetsState extends FacetsMainState<PlangFacetGroupKey, Plang
       tab,
       defaultGroup: DEFAULT_GROUP,
       currentGroupKey: loadLocalStorage(tab, "lastGroup") ?? DEFAULT_GROUP,
-      values: FacetsMainState.dataToValue(GROUP_FOR_FACET_KEY, FragmentTracker.deserialize() ?? loadLocalStorage(tab, "inputs")),
+      values: FacetsMainState.deserialize(GROUP_FOR_FACET_KEY, FragmentTracker.deserialize() ?? loadLocalStorage(tab, "inputs")),
     }).updateClearFacets();
   }
 

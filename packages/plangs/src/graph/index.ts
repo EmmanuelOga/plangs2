@@ -88,6 +88,14 @@ export class VPlang extends VPlangBase {
     return this;
   }
 
+  #lcName: string | undefined;
+
+  /** Lower case Name, used to compare agasint user search string. */
+  get lcName(): string {
+    if (!this.#lcName) this.#lcName = this.name.toLowerCase();
+    return this.#lcName;
+  }
+
   get created(): FieldStrDate<"created"> {
     return new FieldStrDate("created", this);
   }

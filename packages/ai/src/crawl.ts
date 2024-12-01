@@ -8,8 +8,6 @@ import { JSDOM } from "jsdom";
 import type { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import TurndownService from "turndown";
 
-import type { IterTap } from "@plangs/auxiliar/iter_tap";
-
 type OpenAIMsg = ChatCompletionMessageParam;
 type ReadabilityResult = ReturnType<Readability["parse"]>;
 
