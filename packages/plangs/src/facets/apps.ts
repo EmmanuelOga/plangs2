@@ -1,7 +1,8 @@
 import type { Filter } from "@plangs/auxiliar/filters";
 import { ret } from "@plangs/auxiliar/misc";
 import type { AnyValue, ValNumber, ValString, Value } from "@plangs/auxiliar/value";
-import type { VApp, VLicense, VPlang, VPlatform, VTag } from "@plangs/plangs/graph";
+import type { VApp } from "@plangs/plangs/graph";
+import type { VLicenseKey, VPlangKey, VPlatformKey, VTagKey } from "@plangs/plangs/graph/generated";
 import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 
 type Pred<T extends Value<AnyValue>> = (app: VApp, value: T) => boolean;
@@ -16,10 +17,10 @@ export const APP_FACET_PREDICATES = {
   ghStars: ((app, num) => app.github.stars > num.value) as Pred<ValNumber>,
   name: ((app, str) => app.lcName.includes(str.value)) as Pred<ValString>,
   releasedRecently: ((app, date) => ret(app.releases.last, lastRel => lastRel?.isRecent(date.value as StrDate))) as Pred<ValString>,
-  licenses: ((app, flt) => flt.matches(key => app.relLicenses.has(key))) as Pred<Filter<VLicense["key"]>>,
-  platforms: ((app, flt) => flt.matches(key => app.relPlatforms.has(key))) as Pred<Filter<VPlatform["key"]>>,
-  tags: ((app, flt) => flt.matches(key => app.relTags.has(key))) as Pred<Filter<VTag["key"]>>,
-  writtenWith: ((app, flt) => flt.matches(key => app.relWrittenWith.has(key))) as Pred<Filter<VPlang["key"]>>,
+  licenses: ((app, flt) => flt.matches(key => app.relLicenses.has(key))) as Pred<Filter<VLicenseKey>>,
+  platforms: ((app, flt) => flt.matches(key => app.relPlatforms.has(key))) as Pred<Filter<VPlatformKey>>,
+  tags: ((app, flt) => flt.matches(key => app.relTags.has(key))) as Pred<Filter<VTagKey>>,
+  writtenWith: ((app, flt) => flt.matches(key => app.relWrittenWith.has(key))) as Pred<Filter<VPlangKey>>,
 } as const;
 
 export type AppFacetKey = keyof typeof APP_FACET_PREDICATES;

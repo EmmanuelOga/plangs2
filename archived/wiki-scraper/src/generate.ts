@@ -1,16 +1,16 @@
-// @ts-ignore types for node:fs/promises?
 import { mkdir } from "node:fs/promises";
-// @ts-ignore types for node:fs/promises?
 import { extname, join } from "node:path";
 
 import type { Vertices } from "@plangs/graphgen/library";
-import type { PlangsGraph, VLicense, VParadigm, VPlang, VPlatform, VTag, VTypeSystem } from "@plangs/plangs/graph";
+import type { PlangsGraph, VPlang } from "@plangs/plangs/graph";
+import type { VLicenseKey, VParadigmKey, VPlangKey, VPlatformKey, VTagKey, VTypeSystemKey } from "@plangs/plangs/graph/generated";
+
 import { type Link, type WikiPage, keyFromWikiURL } from "./wikipedia";
 
 export const DEFINTIONS_PATH = join(import.meta.dir, "../../../packages/definitions/src/definitions/plangs/");
 
 /** Add a plang instance to the graph using the given wiki page. Attempts to fetch teh plang image if any. */
-export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<VPlang["key"]>): Promise<VPlang | undefined> {
+export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<VPlangKey>): Promise<VPlang | undefined> {
   if (!page.infobox || !page.key) return;
 
   const plang = g.plang.get(page.key) ?? g.plang.set(page.key, {});
@@ -56,11 +56,11 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<VPlang
     }
   }
 
-  const keys_license = [...findMatching<VLicense["key"]>(page.infobox.licenses, g.license)].sort();
-  const keys_paradigm = [...findMatching<VParadigm["key"]>(page.infobox.paradigms, g.paradigm)].sort();
-  const keys_platform = [...findMatching<VPlatform["key"]>(page.infobox.platforms, g.platform)].sort();
-  const keys_tags = [...findMatching<VTag["key"]>(page.infobox.tags, g.tag)].sort();
-  const keys_tsystem = [...findMatching<VTypeSystem["key"]>(page.infobox.typeSystem, g.typeSystem)].sort();
+  const keys_license = [...findMatching<VLicenseKey>(page.infobox.licenses, g.license)].sort();
+  const keys_paradigm = [...findMatching<VParadigmKey>(page.infobox.paradigms, g.paradigm)].sort();
+  const keys_platform = [...findMatching<VPlatformKey>(page.infobox.platforms, g.platform)].sort();
+  const keys_tags = [...findMatching<VTagKey>(page.infobox.tags, g.tag)].sort();
+  const keys_tsystem = [...findMatching<VTypeSystemKey>(page.infobox.typeSystem, g.typeSystem)].sort();
 
   // Check the content text for tags.
   const contentText = page.contentText;
@@ -77,14 +77,14 @@ export async function toPlang(g: PlangsGraph, page: WikiPage, plKeys: Set<VPlang
 
   ////////////////////////////////////////////////////////////////////////////////
 
-  function mapToPlKeys(links: Link[]): VPlang["key"][] {
+  function mapToPlKeys(links: Link[]): VPlangKey[] {
     return links
       .map(link => keyFromWikiURL(new URL(link.href)))
       .filter(key => {
         if (!key) return false;
         if (plKeys.size === 0) return true;
         return plKeys.has(key);
-      }) as VPlang["key"][];
+      }) as VPlangKey[];
   }
 
   for (const other of mapToPlKeys(page.infobox.dialects)) g.edges.plangRelDialectOf.add(other, plang.key);

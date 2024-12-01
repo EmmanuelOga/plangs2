@@ -8,7 +8,8 @@ import render from "preact-render-to-string/jsx";
 import YAML from "yaml";
 
 import { parseDate } from "@plangs/plangs/auxiliar/str_date";
-import type { PlangsGraph, VPlang, VPost } from "@plangs/plangs/graph";
+import type { PlangsGraph } from "@plangs/plangs/graph";
+import type { VPlangKey, VPostKey } from "@plangs/plangs/graph/generated";
 import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 
 import { ZERO_WIDTH } from "./utils/server";
@@ -19,7 +20,7 @@ export type Content = {
   basename: string;
   date: StrDate;
   html: string;
-  pls: VPlang["key"][];
+  pls: VPlangKey[];
   title: string;
 };
 
@@ -80,7 +81,7 @@ export async function loadPosts(pg: PlangsGraph) {
   }
 }
 
-export async function loadBlogPost(pg: PlangsGraph, key: VPost["key"]): Promise<Content | undefined> {
+export async function loadBlogPost(pg: PlangsGraph, key: VPostKey): Promise<Content | undefined> {
   const post = pg.post.get(key);
   if (post?.path) return loadContent(`posts/${post.path}`, pg);
 }

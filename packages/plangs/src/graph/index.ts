@@ -28,7 +28,7 @@ import type { Release, StrDate } from "./vertex_data_schemas";
 
 export class PlangsGraph extends PlangsGraphBase {
   filterPlangs(values: Map<PlangFacetKey, AnyValue>, limit = -1): Set<VPlangKey> {
-    const keys = new Set<VPlang["key"]>();
+    const keys = new Set<VPlangKey>();
     for (const pl of this.plang.values) {
       if (limit >= 0 && keys.size >= limit) break;
       if (plangMatches(pl, values)) keys.add(pl.key);

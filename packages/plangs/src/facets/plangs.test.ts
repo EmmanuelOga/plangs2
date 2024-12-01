@@ -2,9 +2,9 @@ import { expect, test } from "bun:test";
 
 import { Filter } from "@plangs/auxiliar/filters";
 import { type AnyValue, ValBool, ValString } from "@plangs/auxiliar/value";
-import { PlangsGraph, type VLicense, type VParadigm, type VPlang, type VPlatform, type VTag, type VTypeSystem } from "@plangs/plangs/graph";
+import { PlangsGraph } from "@plangs/plangs/graph";
+import type { VLicenseKey, VParadigmKey, VPlangKey, VPlatformKey, VTagKey, VTypeSystemKey } from "@plangs/plangs/graph/generated";
 
-import type { VPlangKey } from "../graph/generated";
 import { PLANG_FACET_PREDICATES, type PlangFacetKey, plangMatches } from "./plangs";
 
 test("compilesTo", () => {
@@ -12,17 +12,17 @@ test("compilesTo", () => {
   const pl = pg.plang.set("pl+myplang").relCompilesTo.add("pl+one", "pl+two");
   const { compilesTo: check } = PLANG_FACET_PREDICATES;
 
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+one"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+one").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+three"))).toBeFalse();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+two").add("pl+three"))).toBeFalse();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+one"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+one").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+three"))).toBeFalse();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+two").add("pl+three"))).toBeFalse();
 
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+one"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+one").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+three"))).toBeFalse();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+two").add("pl+three"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+one"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+one").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+three"))).toBeFalse();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+two").add("pl+three"))).toBeTrue();
 });
 
 test("createdRecently", () => {
@@ -65,17 +65,17 @@ test("dialectOf", () => {
   const pl = pg.plang.set("pl+myplang").relDialectOf.add("pl+one", "pl+two");
   const { dialectOf: check } = PLANG_FACET_PREDICATES;
 
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+one"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+one").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+three"))).toBeFalse();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+two").add("pl+three"))).toBeFalse();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+one"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+one").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+three"))).toBeFalse();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+two").add("pl+three"))).toBeFalse();
 
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+one"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+one").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+three"))).toBeFalse();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+two").add("pl+three"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+one"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+one").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+three"))).toBeFalse();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+two").add("pl+three"))).toBeTrue();
 });
 
 test("extensions", () => {
@@ -123,17 +123,17 @@ test("implements", () => {
   const pl = pg.plang.set("pl+myplang").relImplements.add("pl+one", "pl+two");
   const { implements: check } = PLANG_FACET_PREDICATES;
 
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+one"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+one").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+three"))).toBeFalse();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+two").add("pl+three"))).toBeFalse();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+one"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+one").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+three"))).toBeFalse();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+two").add("pl+three"))).toBeFalse();
 
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+one"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+one").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+three"))).toBeFalse();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+two").add("pl+three"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+one"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+one").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+three"))).toBeFalse();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+two").add("pl+three"))).toBeTrue();
 });
 
 test("influenced", () => {
@@ -169,17 +169,17 @@ test("influencedBy", () => {
   const pl = pg.plang.set("pl+myplang").relInfluencedBy.add("pl+one", "pl+two");
   const { influencedBy: check } = PLANG_FACET_PREDICATES;
 
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+one"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+one").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+three"))).toBeFalse();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+two").add("pl+three"))).toBeFalse();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+one"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+one").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+three"))).toBeFalse();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+two").add("pl+three"))).toBeFalse();
 
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+one"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+one").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+three"))).toBeFalse();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+two").add("pl+three"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+one"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+one").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+three"))).toBeFalse();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+two").add("pl+three"))).toBeTrue();
 });
 
 test("isTranspiler", () => {
@@ -199,17 +199,17 @@ test("licenses", () => {
   const pl = pg.plang.set("pl+myplang").relLicenses.add("lic+one", "lic+two");
   const { licenses: check } = PLANG_FACET_PREDICATES;
 
-  expect(check(pl, new Filter<VLicense["key"]>("all").add("lic+one"))).toBeTrue();
-  expect(check(pl, new Filter<VLicense["key"]>("all").add("lic+one").add("lic+two"))).toBeTrue();
-  expect(check(pl, new Filter<VLicense["key"]>("all").add("lic+three"))).toBeFalse();
-  expect(check(pl, new Filter<VLicense["key"]>("all").add("lic+two"))).toBeTrue();
-  expect(check(pl, new Filter<VLicense["key"]>("all").add("lic+two").add("lic+three"))).toBeFalse();
+  expect(check(pl, new Filter<VLicenseKey>("all").add("lic+one"))).toBeTrue();
+  expect(check(pl, new Filter<VLicenseKey>("all").add("lic+one").add("lic+two"))).toBeTrue();
+  expect(check(pl, new Filter<VLicenseKey>("all").add("lic+three"))).toBeFalse();
+  expect(check(pl, new Filter<VLicenseKey>("all").add("lic+two"))).toBeTrue();
+  expect(check(pl, new Filter<VLicenseKey>("all").add("lic+two").add("lic+three"))).toBeFalse();
 
-  expect(check(pl, new Filter<VLicense["key"]>("any").add("lic+one"))).toBeTrue();
-  expect(check(pl, new Filter<VLicense["key"]>("any").add("lic+one").add("lic+two"))).toBeTrue();
-  expect(check(pl, new Filter<VLicense["key"]>("any").add("lic+three"))).toBeFalse();
-  expect(check(pl, new Filter<VLicense["key"]>("any").add("lic+two"))).toBeTrue();
-  expect(check(pl, new Filter<VLicense["key"]>("any").add("lic+two").add("lic+three"))).toBeTrue();
+  expect(check(pl, new Filter<VLicenseKey>("any").add("lic+one"))).toBeTrue();
+  expect(check(pl, new Filter<VLicenseKey>("any").add("lic+one").add("lic+two"))).toBeTrue();
+  expect(check(pl, new Filter<VLicenseKey>("any").add("lic+three"))).toBeFalse();
+  expect(check(pl, new Filter<VLicenseKey>("any").add("lic+two"))).toBeTrue();
+  expect(check(pl, new Filter<VLicenseKey>("any").add("lic+two").add("lic+three"))).toBeTrue();
 });
 
 test("paradigms", () => {
@@ -217,17 +217,17 @@ test("paradigms", () => {
   const pl = pg.plang.set("pl+myplang").relParadigms.add("para+one", "para+two");
   const { paradigms: check } = PLANG_FACET_PREDICATES;
 
-  expect(check(pl, new Filter<VParadigm["key"]>("all").add("para+one"))).toBeTrue();
-  expect(check(pl, new Filter<VParadigm["key"]>("all").add("para+one").add("para+two"))).toBeTrue();
-  expect(check(pl, new Filter<VParadigm["key"]>("all").add("para+three"))).toBeFalse();
-  expect(check(pl, new Filter<VParadigm["key"]>("all").add("para+two"))).toBeTrue();
-  expect(check(pl, new Filter<VParadigm["key"]>("all").add("para+two").add("para+three"))).toBeFalse();
+  expect(check(pl, new Filter<VParadigmKey>("all").add("para+one"))).toBeTrue();
+  expect(check(pl, new Filter<VParadigmKey>("all").add("para+one").add("para+two"))).toBeTrue();
+  expect(check(pl, new Filter<VParadigmKey>("all").add("para+three"))).toBeFalse();
+  expect(check(pl, new Filter<VParadigmKey>("all").add("para+two"))).toBeTrue();
+  expect(check(pl, new Filter<VParadigmKey>("all").add("para+two").add("para+three"))).toBeFalse();
 
-  expect(check(pl, new Filter<VParadigm["key"]>("any").add("para+one"))).toBeTrue();
-  expect(check(pl, new Filter<VParadigm["key"]>("any").add("para+one").add("para+two"))).toBeTrue();
-  expect(check(pl, new Filter<VParadigm["key"]>("any").add("para+three"))).toBeFalse();
-  expect(check(pl, new Filter<VParadigm["key"]>("any").add("para+two"))).toBeTrue();
-  expect(check(pl, new Filter<VParadigm["key"]>("any").add("para+two").add("para+three"))).toBeTrue();
+  expect(check(pl, new Filter<VParadigmKey>("any").add("para+one"))).toBeTrue();
+  expect(check(pl, new Filter<VParadigmKey>("any").add("para+one").add("para+two"))).toBeTrue();
+  expect(check(pl, new Filter<VParadigmKey>("any").add("para+three"))).toBeFalse();
+  expect(check(pl, new Filter<VParadigmKey>("any").add("para+two"))).toBeTrue();
+  expect(check(pl, new Filter<VParadigmKey>("any").add("para+two").add("para+three"))).toBeTrue();
 });
 
 test("plangName", () => {
@@ -254,17 +254,17 @@ test("platforms", () => {
   const pl = pg.plang.set("pl+myplang").relPlatforms.add("plat+one", "plat+two");
   const { platforms: check } = PLANG_FACET_PREDICATES;
 
-  expect(check(pl, new Filter<VPlatform["key"]>("all").add("plat+one"))).toBeTrue();
-  expect(check(pl, new Filter<VPlatform["key"]>("all").add("plat+one").add("plat+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlatform["key"]>("all").add("plat+three"))).toBeFalse();
-  expect(check(pl, new Filter<VPlatform["key"]>("all").add("plat+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlatform["key"]>("all").add("plat+two").add("plat+three"))).toBeFalse();
+  expect(check(pl, new Filter<VPlatformKey>("all").add("plat+one"))).toBeTrue();
+  expect(check(pl, new Filter<VPlatformKey>("all").add("plat+one").add("plat+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlatformKey>("all").add("plat+three"))).toBeFalse();
+  expect(check(pl, new Filter<VPlatformKey>("all").add("plat+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlatformKey>("all").add("plat+two").add("plat+three"))).toBeFalse();
 
-  expect(check(pl, new Filter<VPlatform["key"]>("any").add("plat+one"))).toBeTrue();
-  expect(check(pl, new Filter<VPlatform["key"]>("any").add("plat+one").add("plat+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlatform["key"]>("any").add("plat+three"))).toBeFalse();
-  expect(check(pl, new Filter<VPlatform["key"]>("any").add("plat+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlatform["key"]>("any").add("plat+two").add("plat+three"))).toBeTrue();
+  expect(check(pl, new Filter<VPlatformKey>("any").add("plat+one"))).toBeTrue();
+  expect(check(pl, new Filter<VPlatformKey>("any").add("plat+one").add("plat+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlatformKey>("any").add("plat+three"))).toBeFalse();
+  expect(check(pl, new Filter<VPlatformKey>("any").add("plat+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlatformKey>("any").add("plat+two").add("plat+three"))).toBeTrue();
 });
 
 test("releasedRecently", () => {
@@ -283,17 +283,17 @@ test("tags", () => {
   const pl = pg.plang.set("pl+myplang").relTags.add("tag+one", "tag+two");
   const { tags: check } = PLANG_FACET_PREDICATES;
 
-  expect(check(pl, new Filter<VTag["key"]>("all").add("tag+one"))).toBeTrue();
-  expect(check(pl, new Filter<VTag["key"]>("all").add("tag+one").add("tag+two"))).toBeTrue();
-  expect(check(pl, new Filter<VTag["key"]>("all").add("tag+three"))).toBeFalse();
-  expect(check(pl, new Filter<VTag["key"]>("all").add("tag+two"))).toBeTrue();
-  expect(check(pl, new Filter<VTag["key"]>("all").add("tag+two").add("tag+three"))).toBeFalse();
+  expect(check(pl, new Filter<VTagKey>("all").add("tag+one"))).toBeTrue();
+  expect(check(pl, new Filter<VTagKey>("all").add("tag+one").add("tag+two"))).toBeTrue();
+  expect(check(pl, new Filter<VTagKey>("all").add("tag+three"))).toBeFalse();
+  expect(check(pl, new Filter<VTagKey>("all").add("tag+two"))).toBeTrue();
+  expect(check(pl, new Filter<VTagKey>("all").add("tag+two").add("tag+three"))).toBeFalse();
 
-  expect(check(pl, new Filter<VTag["key"]>("any").add("tag+one"))).toBeTrue();
-  expect(check(pl, new Filter<VTag["key"]>("any").add("tag+one").add("tag+two"))).toBeTrue();
-  expect(check(pl, new Filter<VTag["key"]>("any").add("tag+three"))).toBeFalse();
-  expect(check(pl, new Filter<VTag["key"]>("any").add("tag+two"))).toBeTrue();
-  expect(check(pl, new Filter<VTag["key"]>("any").add("tag+two").add("tag+three"))).toBeTrue();
+  expect(check(pl, new Filter<VTagKey>("any").add("tag+one"))).toBeTrue();
+  expect(check(pl, new Filter<VTagKey>("any").add("tag+one").add("tag+two"))).toBeTrue();
+  expect(check(pl, new Filter<VTagKey>("any").add("tag+three"))).toBeFalse();
+  expect(check(pl, new Filter<VTagKey>("any").add("tag+two"))).toBeTrue();
+  expect(check(pl, new Filter<VTagKey>("any").add("tag+two").add("tag+three"))).toBeTrue();
 });
 
 test("typeSystems", () => {
@@ -301,17 +301,17 @@ test("typeSystems", () => {
   const pl = pg.plang.set("pl+myplang").relTypeSystems.add("tsys+one", "tsys+two");
   const { typeSystems: check } = PLANG_FACET_PREDICATES;
 
-  expect(check(pl, new Filter<VTypeSystem["key"]>("all").add("tsys+one"))).toBeTrue();
-  expect(check(pl, new Filter<VTypeSystem["key"]>("all").add("tsys+one").add("tsys+two"))).toBeTrue();
-  expect(check(pl, new Filter<VTypeSystem["key"]>("all").add("tsys+three"))).toBeFalse();
-  expect(check(pl, new Filter<VTypeSystem["key"]>("all").add("tsys+two"))).toBeTrue();
-  expect(check(pl, new Filter<VTypeSystem["key"]>("all").add("tsys+two").add("tsys+three"))).toBeFalse();
+  expect(check(pl, new Filter<VTypeSystemKey>("all").add("tsys+one"))).toBeTrue();
+  expect(check(pl, new Filter<VTypeSystemKey>("all").add("tsys+one").add("tsys+two"))).toBeTrue();
+  expect(check(pl, new Filter<VTypeSystemKey>("all").add("tsys+three"))).toBeFalse();
+  expect(check(pl, new Filter<VTypeSystemKey>("all").add("tsys+two"))).toBeTrue();
+  expect(check(pl, new Filter<VTypeSystemKey>("all").add("tsys+two").add("tsys+three"))).toBeFalse();
 
-  expect(check(pl, new Filter<VTypeSystem["key"]>("any").add("tsys+one"))).toBeTrue();
-  expect(check(pl, new Filter<VTypeSystem["key"]>("any").add("tsys+one").add("tsys+two"))).toBeTrue();
-  expect(check(pl, new Filter<VTypeSystem["key"]>("any").add("tsys+three"))).toBeFalse();
-  expect(check(pl, new Filter<VTypeSystem["key"]>("any").add("tsys+two"))).toBeTrue();
-  expect(check(pl, new Filter<VTypeSystem["key"]>("any").add("tsys+two").add("tsys+three"))).toBeTrue();
+  expect(check(pl, new Filter<VTypeSystemKey>("any").add("tsys+one"))).toBeTrue();
+  expect(check(pl, new Filter<VTypeSystemKey>("any").add("tsys+one").add("tsys+two"))).toBeTrue();
+  expect(check(pl, new Filter<VTypeSystemKey>("any").add("tsys+three"))).toBeFalse();
+  expect(check(pl, new Filter<VTypeSystemKey>("any").add("tsys+two"))).toBeTrue();
+  expect(check(pl, new Filter<VTypeSystemKey>("any").add("tsys+two").add("tsys+three"))).toBeTrue();
 });
 
 test("writtenWith", () => {
@@ -319,17 +319,17 @@ test("writtenWith", () => {
   const pl = pg.plang.set("pl+myplang").relWrittenWith.add("pl+one", "pl+two");
   const { writtenWith: check } = PLANG_FACET_PREDICATES;
 
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+one"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+one").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+three"))).toBeFalse();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("all").add("pl+two").add("pl+three"))).toBeFalse();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+one"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+one").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+three"))).toBeFalse();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("all").add("pl+two").add("pl+three"))).toBeFalse();
 
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+one"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+one").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+three"))).toBeFalse();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+two"))).toBeTrue();
-  expect(check(pl, new Filter<VPlang["key"]>("any").add("pl+two").add("pl+three"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+one"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+one").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+three"))).toBeFalse();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+two"))).toBeTrue();
+  expect(check(pl, new Filter<VPlangKey>("any").add("pl+two").add("pl+three"))).toBeTrue();
 });
 
 test("plangMatches", () => {
@@ -337,7 +337,7 @@ test("plangMatches", () => {
   const plang = pg.plang.set("pl+plang", { name: "MyPlang" }).relWrittenWith.add("pl+one", "pl+two");
   const other = pg.plang.set("pl+other", { name: "MyOtherPlang" }).relWrittenWith.add("pl+two");
 
-  const writtenWith = new Filter<VPlang["key"]>("any").add("pl+one", "pl+two");
+  const writtenWith = new Filter<VPlangKey>("any").add("pl+one", "pl+two");
 
   const filters = new Map(Object.entries({ writtenWith }) as [PlangFacetKey, AnyValue][]);
 
@@ -361,7 +361,7 @@ test("Plangs.plangs", () => {
   const plang = pg.plang.set("pl+plang", { name: "MyPlang" }).relWrittenWith.add("pl+one", "pl+two");
   const other = pg.plang.set("pl+other", { name: "MyOtherPlang" }).relWrittenWith.add("pl+two");
 
-  const writtenWith = new Filter<VPlang["key"]>("any").add("pl+one").add("pl+two");
+  const writtenWith = new Filter<VPlangKey>("any").add("pl+one").add("pl+two");
   const filters = new Map(Object.entries({ writtenWith }) as [PlangFacetKey, AnyValue][]);
 
   expect(pg.filterPlangs(filters)).toEqual(new Set([plang.key, other.key]));

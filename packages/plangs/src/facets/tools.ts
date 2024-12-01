@@ -1,7 +1,8 @@
 import type { Filter } from "@plangs/auxiliar/filters";
 import { ret } from "@plangs/auxiliar/misc";
-import type { AnyValue, ValNumber, ValRegExp, ValString, Value } from "@plangs/auxiliar/value";
-import type { VLicense, VPlang, VPlatform, VTag, VTool } from "@plangs/plangs/graph";
+import type { AnyValue, ValNumber, ValString, Value } from "@plangs/auxiliar/value";
+import type { VTool } from "@plangs/plangs/graph";
+import type { VLicenseKey, VPlangKey, VPlatformKey, VTagKey } from "@plangs/plangs/graph/generated";
 import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 
 type Pred<T extends Value<AnyValue>> = (tool: VTool, value: T) => boolean;
@@ -17,11 +18,11 @@ export const TOOL_FACET_PREDICATES = {
   name: ((tool, str) => tool.lcName.includes(str.value)) as Pred<ValString>,
   releasedRecently: ((tool, date) => ret(tool.releases.last, lastRel => lastRel?.isRecent(date.value as StrDate))) as Pred<ValString>,
 
-  licenses: ((tool, flt) => flt.matches(key => tool.relLicenses.has(key))) as Pred<Filter<VLicense["key"]>>,
-  platforms: ((tool, flt) => flt.matches(key => tool.relPlatforms.has(key))) as Pred<Filter<VPlatform["key"]>>,
-  tags: ((tool, flt) => flt.matches(key => tool.relTags.has(key))) as Pred<Filter<VTag["key"]>>,
-  writtenWith: ((tool, flt) => flt.matches(key => tool.relWrittenWith.has(key))) as Pred<Filter<VPlang["key"]>>,
-  writtenFor: ((tool, flt) => flt.matches(key => tool.relPlangs.has(key))) as Pred<Filter<VPlang["key"]>>,
+  licenses: ((tool, flt) => flt.matches(key => tool.relLicenses.has(key))) as Pred<Filter<VLicenseKey>>,
+  platforms: ((tool, flt) => flt.matches(key => tool.relPlatforms.has(key))) as Pred<Filter<VPlatformKey>>,
+  tags: ((tool, flt) => flt.matches(key => tool.relTags.has(key))) as Pred<Filter<VTagKey>>,
+  writtenWith: ((tool, flt) => flt.matches(key => tool.relWrittenWith.has(key))) as Pred<Filter<VPlangKey>>,
+  writtenFor: ((tool, flt) => flt.matches(key => tool.relPlangs.has(key))) as Pred<Filter<VPlangKey>>,
 } as const;
 
 export type ToolFacetKey = keyof typeof TOOL_FACET_PREDICATES;

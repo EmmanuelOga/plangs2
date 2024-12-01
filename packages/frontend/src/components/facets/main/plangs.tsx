@@ -4,7 +4,8 @@ import { ValNil, ValNumber } from "@plangs/auxiliar/value";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { loadLocalStorage } from "@plangs/frontend/auxiliar/storage";
 import type { PlangFacetKey } from "@plangs/plangs/facets/plangs";
-import { PlangsGraph, type VPlang } from "@plangs/plangs/graph";
+import { PlangsGraph } from "@plangs/plangs/graph";
+import type { VPlangKey } from "@plangs/plangs/graph/generated";
 import type { TAB } from "@plangs/server/components/layout";
 
 import { createFacetGroups } from "./groups-util";
@@ -102,7 +103,7 @@ export class PlangsFacetsState extends FacetsMainState<PlangFacetGroupKey, Plang
     return PlangsFacetGroups as FunctionComponent<{ currentFacetGroup: string }>;
   }
 
-  override get results(): Set<VPlang["key"]> {
+  override get results(): Set<VPlangKey> {
     if (!this.pg) return new Set();
     return this.pg.filterPlangs(this.values.getMap2());
   }

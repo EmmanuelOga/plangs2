@@ -1,7 +1,7 @@
-import type { VPlang } from "@plangs/plangs/graph";
+import type { VPlangKey } from "@plangs/plangs/graph/generated";
 
 // Arbitrary whitelist.
-export const PL_WHITELIST = new Set<VPlang["key"]>([
+export const PL_WHITELIST = new Set<VPlangKey>([
   "pl+.net",
   "pl+actionscript",
   "pl+ada",

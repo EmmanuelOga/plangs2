@@ -1,11 +1,11 @@
 import { elems, minWidthBP } from "@plangs/frontend/auxiliar/dom";
 import { debounce } from "@plangs/frontend/auxiliar/utils";
-import type { VPlang } from "@plangs/plangs/graph";
+import type { VPlangKey } from "@plangs/plangs/graph/generated";
 
 /** A static thumbnail grid will be render server side, we just need to show or hide each element.  */
 export function doUpdateThumbns(vertexKeys: Set<string>) {
   for (const div of elems("vertexThumbn")) {
-    const plKey = div.dataset.vertexKey as VPlang["key"];
+    const plKey = div.dataset.vertexKey as VPlangKey;
     const visible = vertexKeys.has(plKey);
     div.classList.toggle("hidden", !visible);
   }

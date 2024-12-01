@@ -5,6 +5,7 @@ import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { loadLocalStorage } from "@plangs/frontend/auxiliar/storage";
 import type { ToolFacetKey } from "@plangs/plangs/facets/tools";
 import { PlangsGraph, type VTool } from "@plangs/plangs/graph";
+import type { VToolKey } from "@plangs/plangs/graph/generated";
 import type { TAB } from "@plangs/server/components/layout";
 
 import { createFacetGroups } from "./groups-util";
@@ -79,7 +80,7 @@ export class ToolsFacetsState extends FacetsMainState<PlangFacetGroupKey, ToolFa
     return ToolsFacetGroups as FunctionComponent<{ currentFacetGroup: string }>;
   }
 
-  override get results(): Set<VTool["key"]> {
+  override get results(): Set<VToolKey> {
     if (!this.pg) return new Set();
     return this.pg.filterTools(this.values.getMap2());
   }

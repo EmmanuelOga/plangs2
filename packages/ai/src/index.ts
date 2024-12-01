@@ -5,6 +5,7 @@ import { loadDefinitions } from "@plangs/definitions";
 import type { Vertices } from "@plangs/graphgen/library";
 import { plangCodeGen, tsVertexPath } from "@plangs/languist/codegen";
 import { PlangsGraph, type VPlang } from "@plangs/plangs/graph";
+import type { VPlangKey } from "@plangs/plangs/graph/generated";
 
 import { retrieveWebsites } from "./crawl";
 import { plangFromAI } from "./fromAI";
@@ -152,11 +153,11 @@ function examplePl(pg: PlangsGraph): VPlang {
 }
 
 /** Attempt to enrich the data for the language with given key. */
-async function enrichOne(key: VPlang["key"]) {
+async function enrichOne(key: VPlangKey) {
   const pg = new PlangsGraph();
   await loadDefinitions(pg, { scanImages: false });
 
-  const pl = pg.plang.get(process.argv[2] as VPlang["key"]);
+  const pl = pg.plang.get(process.argv[2] as VPlangKey);
   if (pl) {
     const result = await aiCompletion(pg, pl, examplePl(pg));
     if (result.result === "error") {
@@ -179,7 +180,7 @@ async function enrichAll() {
 
 const argv = process.argv[2] ?? "";
 if (argv.startsWith("pl+")) {
-  enrichOne(argv as VPlang["key"]);
+  enrichOne(argv as VPlangKey);
 } else if (argv === "all") {
   enrichAll();
 } else {

@@ -1,9 +1,9 @@
-// @ts-ignore it works on bun...
 import { basename, join } from "node:path";
 
 import { Glob } from "bun";
 
-import type { PlangsGraph, VPlang } from "@plangs/plangs/graph";
+import type { PlangsGraph } from "@plangs/plangs/graph";
+import type { VPlangKey } from "@plangs/plangs/graph/generated";
 
 async function getPaths(glob: Glob, basePath: string): Promise<string[]> {
   const paths = [] as string[];
@@ -24,7 +24,7 @@ export async function loadDefinitions(g: PlangsGraph, options: { scanImages: boo
     for (const path of await getPaths(new Glob("**/*.{png,jpg,svg}"), join(import.meta.dir, "definitions/pl"))) {
       const [pk, k] = basename(path).split(".");
       const kind = k === "screenshot" || k === "logo" ? k : "other";
-      const plKey: VPlang["key"] = `pl+${pk.replaceAll("_", ".")}`;
+      const plKey: VPlangKey = `pl+${pk.replaceAll("_", ".")}`;
       const pl = g.plang.get(plKey);
       if (pl) {
         pl.addImages([{ kind, title: pl.name, url: `/images/${path}` }]);
