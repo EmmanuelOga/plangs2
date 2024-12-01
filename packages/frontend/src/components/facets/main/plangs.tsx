@@ -13,6 +13,9 @@ import { type FacetsMap, type GroupsMap, bool, defineFacets, defineGroups, group
 
 type FK = PlangFacetKey;
 
+const rel = PlangsGraph.relConfig;
+const prop = PlangsGraph.propConfig;
+
 export const FACETS: FacetsMap<FK> = defineFacets<FK>(
   bool("createdRecently", "Created Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 5) : new ValNil())),
   bool("hasLogo", "Has Logo"),
@@ -22,22 +25,22 @@ export const FACETS: FacetsMap<FK> = defineFacets<FK>(
   bool("releasedRecently", "Released Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 1) : new ValNil())),
   multi("extensions", "Extensions"),
 
-  table("compilesTo", "Compiles To", PlangsGraph.relConfig("plang", "relCompilesTo")),
-  // table("targetOf", "Target of", PlangsGraph.relConfig("plang", "relTargetOf")),
-  table("dialectOf", "Dialect Of", PlangsGraph.relConfig("plang", "relDialectOf")),
-  // table("dialects", "Dialects", PlangsGraph.relConfig("plang", "relDialects")),
-  table("implements", "Implements", { ...PlangsGraph.relConfig("plang", "relImplements"), minEntries: 2 }), // All plangs implement themselves.
-  // table("implementedBy", "Implemented By", PlangsGraph.relConfig("plang", "relImplementedBy")),
-  table("influenced", "Influenced", PlangsGraph.relConfig("plang", "relInfluenced")),
-  table("influencedBy", "Influenced By", PlangsGraph.relConfig("plang", "relInfluencedBy")),
-  table("licenses", "Licenses", PlangsGraph.relConfig("plang", "relLicenses")),
-  table("paradigms", "Paradigms", PlangsGraph.relConfig("plang", "relParadigms")),
-  table("platforms", "Platforms", PlangsGraph.relConfig("plang", "relPlatforms")),
-  table("tags", "Tags", PlangsGraph.relConfig("plang", "relTags")),
-  table("typeSystems", "Type Systems", PlangsGraph.relConfig("plang", "relTypeSystems")),
-  table("writtenWith", "Written With", PlangsGraph.relConfig("plang", "relWrittenWith")),
-  // table("usedToWrite", "Used to Write", PlangsGraph.relConfig("plang", "relUsedToWrite")),
-  table("creationYear", "Creation Year", PlangsGraph.propConfig("plang", "created")),
+  table("compilesTo", "Compiles To", rel("plang", "relCompilesTo")),
+  // table("targetOf", "Target of", rel("plang", "relTargetOf")),
+  table("dialectOf", "Dialect Of", rel("plang", "relDialectOf")),
+  // table("dialects", "Dialects", rel("plang", "relDialects")),
+  table("implements", "Implements", { ...rel("plang", "relImplements"), minEntries: 2 }), // All plangs implement themselves.
+  // table("implementedBy", "Implemented By", rel("plang", "relImplementedBy")),
+  table("influenced", "Influenced", rel("plang", "relInfluenced")),
+  table("influencedBy", "Influenced By", rel("plang", "relInfluencedBy")),
+  table("licenses", "Licenses", rel("plang", "relLicenses")),
+  table("paradigms", "Paradigms", rel("plang", "relParadigms")),
+  table("platforms", "Platforms", rel("plang", "relPlatforms")),
+  table("tags", "Tags", rel("plang", "relTags")),
+  table("typeSystems", "Type Systems", rel("plang", "relTypeSystems")),
+  table("writtenWith", "Written With", rel("plang", "relWrittenWith")),
+  // table("usedToWrite", "Used to Write", rel("plang", "relUsedToWrite")),
+  table("creationYear", "Creation Year", prop("plang", "created")),
 
   text("plangName", "Plang Name"),
 );

@@ -10,6 +10,7 @@ import type { TAB } from "@plangs/server/components/layout";
 
 import { PlangsFacetsState } from "./plangs";
 import type { FacetsMainState } from "./state";
+import { ToolsFacetsState } from "./tools";
 
 export type FacetsMainProps = {
   tab: TAB;
@@ -24,6 +25,7 @@ export type AnyFacetsMainState = FacetsMainState<string, string>;
 
 export function useFacetState(tab: TAB, pg: PlangsGraph): AnyFacetsMainState | undefined {
   if (tab === "plangs") return useDispatchable(() => PlangsFacetsState.initial(pg) as AnyFacetsMainState);
+  if (tab === "tools") return useDispatchable(() => ToolsFacetsState.initial(pg) as AnyFacetsMainState);
   console.error("Unknown tab", tab);
 }
 

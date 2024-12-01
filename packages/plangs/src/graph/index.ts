@@ -13,22 +13,34 @@ import {
   VLicenseBase,
   VParadigmBase,
   VPlangBase,
+  type VPlangKey,
   VPlatformBase,
   VPostBase,
   VTagBase,
   VToolBase,
+  type VToolKey,
   VTypeSystemBase,
 } from "./generated";
 
-import { FieldGithub, FieldReleases, FieldStrDate } from "./vertex_data_fields";
+import { type ToolFacetKey, toolMatches } from "@plangs/plangs/facets/tools";
+import { FieldGithub, FieldReleases } from "./vertex_data_fields";
 import type { Release, StrDate } from "./vertex_data_schemas";
 
 export class PlangsGraph extends PlangsGraphBase {
-  filterPlangs(values: Map<PlangFacetKey, AnyValue>, limit = -1): Set<VPlang["key"]> {
+  filterPlangs(values: Map<PlangFacetKey, AnyValue>, limit = -1): Set<VPlangKey> {
     const keys = new Set<VPlang["key"]>();
     for (const pl of this.plang.values) {
       if (limit >= 0 && keys.size >= limit) break;
       if (plangMatches(pl, values)) keys.add(pl.key);
+    }
+    return keys;
+  }
+
+  filterTools(values: Map<ToolFacetKey, AnyValue>, limit = -1): Set<VToolKey> {
+    const keys = new Set<VToolKey>();
+    for (const pl of this.tool.values) {
+      if (limit >= 0 && keys.size >= limit) break;
+      if (toolMatches(pl, values)) keys.add(pl.key);
     }
     return keys;
   }
