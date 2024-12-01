@@ -30,9 +30,10 @@ export function generateEntries(pg: PlangsGraph, config: FacetTableConfig): Entr
     });
 
     if (typeof minEntries === "number") return entries.filter(entry => entry.count >= minEntries);
+
+    return entries;
   }
 
-  // TODO: kind === 'year' matches only plang but could be generalized.
   if (config.kind === "prop") {
     // TODO: actually use the property. The code below assumes the property is 'created'.
 

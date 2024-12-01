@@ -3,6 +3,7 @@ import { IterTap } from "@plangs/auxiliar/iter_tap";
 import { Vertex } from "@plangs/graphgen/library";
 
 import type { PlangsGraphBase } from "./generated";
+import { FieldStrDate } from "./vertex_data_fields";
 import type { Image, Link, VertexBaseData } from "./vertex_data_schemas";
 
 export abstract class PlangsVertex<KeyPrefix extends string, Data extends VertexBaseData> extends Vertex<KeyPrefix, Data> {
@@ -15,6 +16,18 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
 
   get name(): string {
     return this.data.name ? this.data.name : this.plainKey;
+  }
+
+  #lcName: string | undefined;
+
+  /** Lower case Name, used to compare agasint user search string. */
+  get lcName(): string {
+    if (!this.#lcName) this.#lcName = this.name.toLowerCase();
+    return this.#lcName;
+  }
+
+  get created(): FieldStrDate<"created"> {
+    return new FieldStrDate("created", this);
   }
 
   get description(): string {

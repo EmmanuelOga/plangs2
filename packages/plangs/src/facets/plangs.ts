@@ -8,7 +8,7 @@ import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 type Pred<T extends Value<AnyValue>> = (pl: VPlang, value: T) => boolean;
 
 /**
- * Predicates to use to filter programming languages.
+ * Predicates to filter Plangs.
  */
 export const PLANG_FACET_PREDICATES = {
   compilesTo: ((pl, flt) => flt.matches(key => pl.relCompilesTo.has(key))) as Pred<Filter<VPlangKey>>,

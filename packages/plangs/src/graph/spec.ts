@@ -71,19 +71,12 @@ export const PLANGS_GRAPH_SPEC: GenGraphSpec<PlangVertexNames> = {
     // Plang to other
     { src: ["app", "relWrittenWith", "Plangs used to implement this"], dst: ["plang", "relApps", "Apps implemented with this"] },
     { src: ["bundle", "relPlangs", "Plangs this Bundle is for"], dst: ["plang", "relBundles", "Bundles of Tools for this"] },
-    { src: ["community", "relPlangs", "Plangs supported"], dst: ["plang", "relCommunities", "Communities suporting this"] },
-    { src: ["learning", "relPlangs", "Plangs covered"], dst: ["plang", "relLearning", "Learning resources"] },
     { src: ["library", "relPlangs", "Plangs supported"], dst: ["plang", "relLibraries", "Software Libraries"] },
     { src: ["library", "relWrittenWith", "Plangs used"], dst: ["plang", "relUsedInLibrary", "Libraries made with this"] },
     { src: ["license", "relPlangs", "Plangs using this"], dst: ["plang", "relLicenses", "Licenses"] },
     { src: ["post", "relPlangs", "Plangs covered"], dst: ["plang", "relPosts", "Posts talking about this"] },
     { src: ["tag", "relPlangs", "Plangs tagged"], dst: ["plang", "relTags", "Tags"] },
     { src: ["tool", "relWrittenWith", "Plangs used to implement this"], dst: ["plang", "relToolsUsing", "Tools implemented with this"] },
-
-    // Licenses
-    { src: ["license", "relApps", "Apps using this"], dst: ["app", "relLicenses", "Licenses"] },
-    { src: ["license", "relLibraries", "Libraries using this"], dst: ["library", "relLicenses", "Licenses"] },
-    { src: ["license", "relTools", "Tools using this"], dst: ["tool", "relLicenses", "Licenses"] },
 
     // Tags
     { src: ["tag", "relApps", "Apps tagged"], dst: ["app", "relTags", "Tags"] },
@@ -92,10 +85,27 @@ export const PLANGS_GRAPH_SPEC: GenGraphSpec<PlangVertexNames> = {
     { src: ["tag", "relLibraries", "Libraries tagged"], dst: ["library", "relTags", "Tags"] },
     { src: ["tag", "relTools", "Tools tagged"], dst: ["tool", "relTags", "Tags"] },
 
+    // Community
+    { src: ["community", "relPlangs", "Plangs supported"], dst: ["plang", "relCommunities", "Communities suporting this"] },
+    { src: ["community", "relLibraries", "Libraries supported"], dst: ["library", "relCommunities", "Communities suporting this"] },
+    { src: ["community", "relApps", "Apps supported"], dst: ["app", "relCommunities", "Communities suporting this"] },
+    { src: ["community", "relTools", "Tools supported"], dst: ["tool", "relCommunities", "Communities suporting this"] },
+
+    // Learning
+    { src: ["learning", "relCommunities", "Communities supporting this"], dst: ["community", "relLearning", "Learning resources"] },
+    { src: ["learning", "relPlangs", "Plangs covered"], dst: ["plang", "relLearning", "Learning resources"] },
+    { src: ["learning", "relLibraries", "Libraries supported"], dst: ["library", "relLearning", "Learning resources"] },
+    { src: ["learning", "relApps", "Apps supported"], dst: ["app", "relLearning", "Learning resources"] },
+    { src: ["learning", "relTools", "Tools supported"], dst: ["tool", "relLearning", "Learning resources"] },
+
+    // Licenses
+    { src: ["license", "relApps", "Apps using this"], dst: ["app", "relLicenses", "Licenses"] },
+    { src: ["license", "relLibraries", "Libraries using this"], dst: ["library", "relLicenses", "Licenses"] },
+    { src: ["license", "relTools", "Tools using this"], dst: ["tool", "relLicenses", "Licenses"] },
+
     // Rest
     { src: ["app", "relPlatforms", "Platforms supported"], dst: ["platform", "relApps", "Apps supporting this"] },
     { src: ["bundle", "relTools", "Tools in this"], dst: ["tool", "relBundles", "Bundles including this"] },
-    { src: ["learning", "relCommunities", "Communities supporting this"], dst: ["community", "relLearning", "Learning resources"] },
     { src: ["library", "relPlatforms", "Platforms supported"], dst: ["platform", "relLibraries", "Libraries supporting this"] },
     { src: ["tool", "relPlatforms", "Platforms supported"], dst: ["platform", "relTools", "Tools supporting this"] },
   ],

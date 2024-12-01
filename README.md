@@ -41,27 +41,9 @@ This simplistic build process just outputs the statically generated contents of 
 
 ## TODO
 
-### Facets for Tools, Apps and Libs
-
-* General (name, GH stars, created & released recently)
-* Platforms
-* Written In (plang)
-* Written For (plang) (only for tool)
-* Tags
-* Creation Year
-* Licenses
-
-### Facets for Learning and Communities
-
-* General (name, created recently)
-* Platform
-* Paradigms
-* Type Systems
-* Plang
-* Tags
-* Creation Year
-
 ### More Pending Tasks
+
+- [ ] Intersection observer to delay loading of images. 
 
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
 - [ ] Fix facet reset button, and serialization of facets when going to empty (right now doesn't clear the fragment).

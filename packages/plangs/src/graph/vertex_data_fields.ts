@@ -90,8 +90,9 @@ export class FieldStrDate<Key extends string> {
 export class FieldGithub {
   constructor(private readonly vertex: { data: Partial<GithubRepo> }) {}
 
-  get stars(): number | undefined {
-    return this.vertex.data.githubStars;
+  /** Returns -1 if the number of stars is unknown. */
+  get stars(): number {
+    return this.vertex.data.githubStars ?? -1;
   }
 
   get path(): string | undefined {

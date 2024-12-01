@@ -54,10 +54,6 @@ export class PlangsGraph extends PlangsGraphBase {
 }
 
 export class VApp extends VAppBase {
-  get created(): FieldStrDate<"created"> {
-    return new FieldStrDate("created", this);
-  }
-
   get github(): FieldGithub {
     return new FieldGithub(this);
   }
@@ -86,18 +82,6 @@ export class VPlang extends VPlangBase {
   addStackovTags(stackovTags: string[]): this {
     arrayMerge((this.data.stackovTags ??= []), stackovTags);
     return this;
-  }
-
-  #lcName: string | undefined;
-
-  /** Lower case Name, used to compare agasint user search string. */
-  get lcName(): string {
-    if (!this.#lcName) this.#lcName = this.name.toLowerCase();
-    return this.#lcName;
-  }
-
-  get created(): FieldStrDate<"created"> {
-    return new FieldStrDate("created", this);
   }
 
   get extensions(): IterTap<string> {
@@ -167,10 +151,6 @@ export class VCommunity extends VCommunityBase {}
 export class VLearning extends VLearningBase {}
 
 export class VLibrary extends VLibraryBase {
-  get created(): FieldStrDate<"created"> {
-    return new FieldStrDate("created", this);
-  }
-
   get github(): FieldGithub {
     return new FieldGithub(this);
   }
@@ -201,10 +181,6 @@ export class VPlatform extends VPlatformBase {}
 export class VTag extends VTagBase {}
 
 export class VTool extends VToolBase {
-  get created(): FieldStrDate<"created"> {
-    return new FieldStrDate("created", this);
-  }
-
   get github(): FieldGithub {
     return new FieldGithub(this);
   }
