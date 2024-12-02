@@ -6,9 +6,9 @@ import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { on } from "@plangs/frontend/auxiliar/events";
 import { BORDER, HOVER, tw } from "@plangs/frontend/auxiliar/styles";
-import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/main";
-import { FacetsMainContext } from "@plangs/frontend/components/facets/main/main";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
+import type { AnyFacetsMainState } from "@plangs/frontend/facets/main/main";
+import { FacetsMainContext } from "@plangs/frontend/facets/main/main";
 
 import { type FacetTableConfig, generateEntries, sortEntries } from "./entries";
 import { Header } from "./header";

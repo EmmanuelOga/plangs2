@@ -7,9 +7,9 @@ import { handler, on } from "@plangs/frontend/auxiliar/events";
 import { CLOSE } from "@plangs/frontend/auxiliar/icons";
 import { HOVER, INPUT, tw } from "@plangs/frontend/auxiliar/styles";
 import { debounce } from "@plangs/frontend/auxiliar/utils";
-import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/main";
-import { FacetsMainContext } from "@plangs/frontend/components/facets/main/main";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
+import type { AnyFacetsMainState } from "@plangs/frontend/facets/main/main";
+import { FacetsMainContext } from "@plangs/frontend/facets/main/main";
 
 import { FacetMultiState } from "./state";
 

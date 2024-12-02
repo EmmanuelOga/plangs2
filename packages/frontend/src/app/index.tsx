@@ -4,10 +4,10 @@ import { elem } from "@plangs/frontend/auxiliar/dom";
 import { on } from "@plangs/frontend/auxiliar/events";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { connectLivereload } from "@plangs/frontend/auxiliar/livereload";
-import { activateFacetsMain } from "@plangs/frontend/components/facets/main";
 import { activateIconButtons } from "@plangs/frontend/components/icon-button";
 import { ToggleFacetsMenu, ToggleHamburguer, ToggleLights } from "@plangs/frontend/components/icon-button/state";
 import { renderLastVertexInfo, renderVertexInfo } from "@plangs/frontend/components/vertex-info";
+import { activateFacetsMain } from "@plangs/frontend/facets/main";
 import { PlangsGraph } from "@plangs/plangs/graph";
 
 import { getPl } from "./pl";

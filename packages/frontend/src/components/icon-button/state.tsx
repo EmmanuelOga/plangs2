@@ -4,7 +4,7 @@ import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatc
 import { elem, elems } from "@plangs/frontend/auxiliar/dom";
 import { ABC, BOOLEAN, CLOSE, DESELECT, FILTER_EDIT, MENU, MOON, RANKING, SUN } from "@plangs/frontend/auxiliar/icons";
 import { tw } from "@plangs/frontend/auxiliar/styles";
-import type { FacetsMainElement } from "@plangs/frontend/components/facets/main";
+import type { FacetsMainElement } from "@plangs/frontend/facets/main";
 
 import type { IconButtonProps } from "./icon-button";
 

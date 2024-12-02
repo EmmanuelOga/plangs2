@@ -4,13 +4,13 @@ import { useContext } from "preact/hooks";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { DESELECT } from "@plangs/frontend/auxiliar/icons";
 import { BAR, BORDER, HOVER_SVG_GROUP, tw } from "@plangs/frontend/auxiliar/styles";
-import { type AnyFacetsMainState, FacetsMainContext } from "@plangs/frontend/components/facets/main/main";
-import { FacetBool } from "@plangs/frontend/components/facets/misc/facet-bool";
-import { FacetText } from "@plangs/frontend/components/facets/misc/facet-text";
-import { FacetMulti } from "@plangs/frontend/components/facets/multisel/facet-multi";
-import { FacetTable } from "@plangs/frontend/components/facets/table/facet-table";
+import { type AnyFacetsMainState, FacetsMainContext } from "@plangs/frontend/facets/main/main";
+import { FacetBool } from "@plangs/frontend/facets/misc/facet-bool";
+import { FacetText } from "@plangs/frontend/facets/misc/facet-text";
+import { FacetMulti } from "@plangs/frontend/facets/multisel/facet-multi";
+import { FacetTable } from "@plangs/frontend/facets/table/facet-table";
 
-import type { FacetConfig, FacetsMap, GroupsMap } from "@plangs/frontend/components/facets/main/types";
+import type { FacetConfig, FacetsMap, GroupsMap } from "@plangs/frontend/facets/main/types";
 
 /** Higher order component: Return a component wrapping several FacetGroup components. */
 export function createFacetGroups<GK extends string, FK extends string>(

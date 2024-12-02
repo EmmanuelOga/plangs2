@@ -1,7 +1,7 @@
 import { tw } from "@plangs/frontend/auxiliar/styles";
 import { script } from "@plangs/frontend/auxiliar/utils";
-import { facetsMain } from "@plangs/frontend/components/facets/main";
 import { vertexInfo } from "@plangs/frontend/components/vertex-info";
+import { facetsMain } from "@plangs/frontend/facets/main";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import { Layout } from "@plangs/server/components/layout";
 import { VertexGrid } from "@plangs/server/components/vertex-grid";

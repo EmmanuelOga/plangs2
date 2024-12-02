@@ -5,8 +5,8 @@ import { useDispatchable, useRootState } from "@plangs/frontend/auxiliar/dispatc
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { FULLCIRCLE } from "@plangs/frontend/auxiliar/icons";
 import { BORDER, HOVER, tw } from "@plangs/frontend/auxiliar/styles";
-import { PlangsFacetsState } from "@plangs/frontend/components/facets/kind/plangs";
-import { ToolsFacetsState } from "@plangs/frontend/components/facets/kind/tools";
+import { PlangsFacetsState } from "@plangs/frontend/facets/kind/plangs";
+import { ToolsFacetsState } from "@plangs/frontend/facets/kind/tools";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TAB } from "@plangs/server/components/layout";
 
