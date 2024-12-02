@@ -31,6 +31,12 @@ export const PLANG_FACET_PREDICATES = {
   tags: ((pl, flt) => flt.matches(key => pl.relTags.has(key))) as Pred<Filter<VTagKey>>,
   typeSystems: ((pl, flt) => flt.matches(key => pl.relTypeSystems.has(key))) as Pred<Filter<VTypeSystemKey>>,
   writtenWith: ((pl, flt) => flt.matches(key => pl.relWrittenWith.has(key))) as Pred<Filter<VPlangKey>>,
+
+  // These relationships are probably less useful for filtering.
+  // targetOf: // "Target of", rel("plang", "relTargetOf")). Ex. Pick "Haxe" and see what languages it targets.
+  // dialects: // "Dialects", rel("plang", "relDialects")). Ex. Pick "VisualBasic" and see "Basic".
+  // implementedBy: // "Implemented By", rel("plang", "relImplementedBy")). Ex. Pick "CPython" and see "Python".
+  // usedToWrite: //  "Used to Write", rel("plang", "relUsedToWrite")). Ex Pick "C++" and see "C".
 } as const;
 
 export type PlangFacetKey = keyof typeof PLANG_FACET_PREDICATES;
