@@ -12,6 +12,9 @@ import { type PlangsGraph, prop, rel } from "@plangs/plangs/graph";
 import type { VPlangKey } from "@plangs/plangs/graph/generated";
 import type { TAB } from "@plangs/server/components/layout";
 
+// biome-ignore format: Keep it in one line.
+export type PlangFacetGroupKey = "creationYear" | "dialectOf" | "general" | "implements" | "influenced" | "influencedBy" | "licenses" | "paradigms" | "platforms" | "tags" | "transpiler" | "typeSystems" | "writtenWith";
+
 type GK = PlangFacetGroupKey;
 type FK = PlangFacetKey;
 
@@ -37,9 +40,6 @@ export const FACETS: FacetsMap<FK> = defineFacets<FK>(
   table("writtenWith", "Written With", rel("plang", "relWrittenWith")),
   text("plangName", "Plang Name"),
 );
-
-// biome-ignore format: Keep it in one line.
-export type PlangFacetGroupKey = "creationYear" | "dialectOf" | "general" | "implements" | "influenced" | "influencedBy" | "licenses" | "paradigms" | "platforms" | "tags" | "transpiler" | "typeSystems" | "writtenWith";
 
 const [GROUPS, GROUP_BY_FACET_KEY]: readonly [GroupsMap<GK, FK>, Map<FK, GK>] = defineGroups<GK, FK>(
   group("creationYear", "Creation Year", ["creationYear"]),

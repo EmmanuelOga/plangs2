@@ -5,6 +5,8 @@ import { useDispatchable, useRootState } from "@plangs/frontend/auxiliar/dispatc
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { FULLCIRCLE } from "@plangs/frontend/auxiliar/icons";
 import { BORDER, HOVER, tw } from "@plangs/frontend/auxiliar/styles";
+import { AppsFacetsState } from "@plangs/frontend/facets/kind/apps";
+import { LibrariesFacetsState } from "@plangs/frontend/facets/kind/libraries";
 import { PlangsFacetsState } from "@plangs/frontend/facets/kind/plangs";
 import { ToolsFacetsState } from "@plangs/frontend/facets/kind/tools";
 import type { PlangsGraph } from "@plangs/plangs/graph";
@@ -26,6 +28,8 @@ export type AnyFacetsMainState = FacetsMainState<string, string>;
 export function useFacetState(tab: TAB, pg: PlangsGraph): AnyFacetsMainState | undefined {
   if (tab === "plangs") return useDispatchable(() => PlangsFacetsState.initial(pg) as AnyFacetsMainState);
   if (tab === "tools") return useDispatchable(() => ToolsFacetsState.initial(pg) as AnyFacetsMainState);
+  if (tab === "apps") return useDispatchable(() => AppsFacetsState.initial(pg) as AnyFacetsMainState);
+  if (tab === "libs") return useDispatchable(() => LibrariesFacetsState.initial(pg) as AnyFacetsMainState);
   console.error("Unknown tab", tab);
 }
 

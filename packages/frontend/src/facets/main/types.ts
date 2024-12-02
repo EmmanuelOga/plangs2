@@ -1,5 +1,3 @@
-import type { ComponentChild } from "preact";
-
 import type { AnyValue } from "@plangs/auxiliar/value";
 import type { FacetBoolMapper } from "@plangs/frontend/facets/misc/facet-bool";
 import type { FacetTableConfig } from "@plangs/frontend/facets/table/entries";

@@ -7,28 +7,28 @@ import { FacetsMainState } from "@plangs/frontend/facets/main/state";
 import { type FacetsMap, type GroupsMap, bool, defineFacets, defineGroups, group, table, text } from "@plangs/frontend/facets/main/types";
 import { createFacetGroups } from "@plangs/frontend/facets/misc/facet-group";
 import { matchVertices } from "@plangs/plangs/facets";
-import type { ToolFacetKey } from "@plangs/plangs/facets/tools";
+import type { LibraryFacetKey } from "@plangs/plangs/facets/libraries";
 import { type PlangsGraph, prop, rel } from "@plangs/plangs/graph";
-import type { VToolKey } from "@plangs/plangs/graph/generated";
+import type { VLibraryKey } from "@plangs/plangs/graph/generated";
 import type { TAB } from "@plangs/server/components/layout";
 
 // biome-ignore format: Keep it in one line.
-export type ToolFacetGroupKey = "creationYear" | "general" | "licenses" | "platforms" | "tags" | "writtenFor" | "writtenWith";
+export type LibraryFacetGroupKey = "creationYear" | "general" | "licenses" | "platforms" | "tags" | "writtenWith" | "writtenFor";
 
-type GK = ToolFacetGroupKey;
-type FK = ToolFacetKey;
+type GK = LibraryFacetGroupKey;
+type FK = LibraryFacetKey;
 
 export const FACETS: FacetsMap<FK> = defineFacets<FK>(
   bool("createdRecently", "Created Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 5) : new ValNil())),
   bool("releasedRecently", "Released Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 1) : new ValNil())),
-  table("creationYear", "Creation Year", prop("tool", "created")),
-  table("licenses", "Licenses", rel("tool", "relLicenses")),
-  table("platforms", "Platforms", rel("tool", "relPlatforms")),
-  table("tags", "Tags", rel("tool", "relTags")),
+  table("creationYear", "Creation Year", prop("library", "created")),
+  table("licenses", "Licenses", rel("library", "relLicenses")),
+  table("platforms", "Platforms", rel("library", "relPlatforms")),
+  table("tags", "Tags", rel("library", "relTags")),
+  table("writtenWith", "Written With", rel("library", "relWrittenWith")),
   table("writtenFor", "Written For", rel("tool", "relPlangs")),
-  table("writtenWith", "Written With", rel("tool", "relWrittenWith")),
   text("ghStars", "GitHub Stars"),
-  text("name", "Tool Name"),
+  text("name", "Library Name"),
 );
 
 const [GROUPS, GROUP_BY_FACET_KEY]: readonly [GroupsMap<GK, FK>, Map<FK, GK>] = defineGroups<GK, FK>(
@@ -37,8 +37,8 @@ const [GROUPS, GROUP_BY_FACET_KEY]: readonly [GroupsMap<GK, FK>, Map<FK, GK>] = 
   group("licenses", "Licenses", ["licenses"]),
   group("platforms", "Platforms", ["platforms"]),
   group("tags", "Tags", ["tags"]),
-  group("writtenFor", "Written For", ["writtenFor"]),
   group("writtenWith", "Written With", ["writtenWith"]),
+  group("writtenFor", "Written For", ["writtenFor"]),
 );
 
 /** Group keys for the navigation menu.  */
@@ -50,10 +50,10 @@ const GROUPS_COMPONENT = createFacetGroups(GROUPS, FACETS) as FunctionComponent<
 export const DEFAULT_GROUP = "general";
 
 /** Implementation of the state for Faceted search of Programming Languages. */
-export class ToolsFacetsState extends FacetsMainState<ToolFacetGroupKey, ToolFacetKey> {
-  static initial(pg: PlangsGraph): ToolsFacetsState {
-    const tab: TAB = "tools";
-    return new ToolsFacetsState({
+export class LibrariesFacetsState extends FacetsMainState<LibraryFacetGroupKey, LibraryFacetKey> {
+  static initial(pg: PlangsGraph): LibrariesFacetsState {
+    const tab: TAB = "libs";
+    return new LibrariesFacetsState({
       pg,
       tab,
       defaultGroup: DEFAULT_GROUP,
@@ -63,10 +63,11 @@ export class ToolsFacetsState extends FacetsMainState<ToolFacetGroupKey, ToolFac
   }
 
   override get nav() {
+    console.log("RETURNING", NAV);
     return NAV;
   }
 
-  override groupTitle(key: ToolFacetGroupKey) {
+  override groupTitle(key: LibraryFacetGroupKey) {
     return GROUPS.get(key)?.label ?? key;
   }
 
@@ -74,9 +75,9 @@ export class ToolsFacetsState extends FacetsMainState<ToolFacetGroupKey, ToolFac
     return GROUPS_COMPONENT;
   }
 
-  override get results(): Set<VToolKey> {
+  override get results(): Set<VLibraryKey> {
     if (!this.pg) return new Set();
-    return matchVertices(this.pg.tool, this.values.getMap2());
+    return matchVertices(this.pg.library, this.values.getMap2());
   }
 
   override get groupsByFacetKey() {
