@@ -1,6 +1,7 @@
 import type { AnyValue } from "@plangs/auxiliar/value";
 import type { Vertices } from "@plangs/graphgen/library";
 import type { TPlangsVertexClass, TPlangsVertexName } from "@plangs/plangs/graph/generated";
+
 import { APP_FACET_PREDICATES } from "./apps";
 import { COMMUNITY_FACET_PREDICATES } from "./communities";
 import { LEARNING_FACET_PREDICATES } from "./learning";
