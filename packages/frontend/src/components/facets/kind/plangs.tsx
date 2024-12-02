@@ -3,7 +3,6 @@ import type { FunctionComponent } from "preact";
 import { ValNil, ValNumber } from "@plangs/auxiliar/value";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { loadLocalStorage } from "@plangs/frontend/auxiliar/storage";
-import { createFacetGroups } from "@plangs/frontend/components/facets/main/groups-util";
 import { FacetsMainState } from "@plangs/frontend/components/facets/main/state";
 import {
   type FacetsMap,
@@ -16,6 +15,7 @@ import {
   table,
   text,
 } from "@plangs/frontend/components/facets/main/types";
+import { createFacetGroups } from "@plangs/frontend/components/facets/misc/facet-group";
 import { matchVertices } from "@plangs/plangs/facets";
 import type { PlangFacetKey } from "@plangs/plangs/facets/plangs";
 import { PlangsGraph } from "@plangs/plangs/graph";

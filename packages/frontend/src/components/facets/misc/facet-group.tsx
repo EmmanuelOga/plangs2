@@ -1,10 +1,47 @@
-import type { ComponentChildren } from "preact";
+import type { ComponentChildren, FunctionComponent } from "preact";
 import { useContext } from "preact/hooks";
 
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { DESELECT } from "@plangs/frontend/auxiliar/icons";
 import { BAR, BORDER, HOVER_SVG_GROUP, tw } from "@plangs/frontend/auxiliar/styles";
 import { type AnyFacetsMainState, FacetsMainContext } from "@plangs/frontend/components/facets/main/main";
+import { FacetBool } from "@plangs/frontend/components/facets/misc/facet-bool";
+import { FacetText } from "@plangs/frontend/components/facets/misc/facet-text";
+import { FacetMulti } from "@plangs/frontend/components/facets/multisel/facet-multi";
+import { FacetTable } from "@plangs/frontend/components/facets/table/facet-table";
+
+import type { FacetConfig, FacetsMap, GroupsMap } from "@plangs/frontend/components/facets/main/types";
+
+/** Higher order component: Return a component wrapping several FacetGroup components. */
+export function createFacetGroups<GK extends string, FK extends string>(
+  groups: GroupsMap<GK, FK>,
+  facets: FacetsMap<FK>,
+): FunctionComponent<{ currentFacetGroup: GK }> {
+  return ({ currentFacetGroup }) => (
+    <>
+      {[...groups.values()].map(({ groupKey, label, facetKeys }) => (
+        <FacetGroup<GK> key={groupKey} groupKey={groupKey} label={label} active={currentFacetGroup === groupKey}>
+          {facetKeys.map(facetKey => {
+            const facet = facets.get(facetKey) as FacetConfig<FK>;
+            const props = { groupKey, facetKey, label: facet.label, active: currentFacetGroup === groupKey };
+            switch (facet?.kind) {
+              case "bool":
+                return <FacetBool {...props} valueMapper={facet.valueMapper} />;
+              case "multi":
+                return <FacetMulti {...props} />;
+              case "table":
+                return <FacetTable {...props} config={facet.config} />;
+              case "text":
+                return <FacetText {...props} />;
+              default:
+                console.error("Facet not found", facetKey);
+            }
+          })}
+        </FacetGroup>
+      ))}
+    </>
+  );
+}
 
 export function FacetGroup<GroupKey extends string>({
   label,

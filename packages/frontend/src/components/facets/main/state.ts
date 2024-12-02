@@ -10,7 +10,7 @@ import type { ToggleClearFacets } from "@plangs/frontend/components/icon-button/
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TAB } from "@plangs/server/components/layout";
 
-import { updateThumbns } from "./grid";
+import { updateThumbns } from "./grid_util";
 
 export type SerializedFacets<FacetKey extends string> = Partial<Record<FacetKey, ReturnType<AnyValue["serializable"]>>>;
 
