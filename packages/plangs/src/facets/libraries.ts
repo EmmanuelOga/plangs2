@@ -25,13 +25,4 @@ export const LIBRARY_FACET_PREDICATES = {
   writtenFor: ((lib, flt) => flt.matches(key => lib.relPlangs.has(key))) as Pred<Filter<VPlangKey>>,
 } as const;
 
-export type libraryFacetKey = keyof typeof LIBRARY_FACET_PREDICATES;
-
-export function libraryMatches(library: VLibrary, values: Map<libraryFacetKey, AnyValue>): boolean {
-  for (const [key, value] of values) {
-    const pred = LIBRARY_FACET_PREDICATES[key] as Pred<AnyValue>;
-    if (!pred) console.error(`No predicate found for key: ${key}`);
-    if (pred && value.isPresent && !pred(library, value)) return false;
-  }
-  return true;
-}
+export type LibraryFacetKey = keyof typeof LIBRARY_FACET_PREDICATES;

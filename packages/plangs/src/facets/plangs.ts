@@ -34,12 +34,3 @@ export const PLANG_FACET_PREDICATES = {
 } as const;
 
 export type PlangFacetKey = keyof typeof PLANG_FACET_PREDICATES;
-
-export function plangMatches(pl: VPlang, values: Map<PlangFacetKey, AnyValue>): boolean {
-  for (const [key, value] of values) {
-    const pred = PLANG_FACET_PREDICATES[key] as Pred<AnyValue>;
-    if (!pred) console.error(`No predicate found for key: ${key}`);
-    if (pred && value.isPresent && !pred(pl, value)) return false;
-  }
-  return true;
-}

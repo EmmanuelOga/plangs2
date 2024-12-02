@@ -11,7 +11,6 @@ type Pred<T extends Value<AnyValue>> = (tool: VTool, value: T) => boolean;
  * Predicates to filter Tools.
  */
 export const TOOL_FACET_PREDICATES = {
-  // General
   createdRecently: ((tool, date) => tool.created.isRecent(date.value as StrDate)) as Pred<ValString>,
   creationYear: ((tool, flt) => ret(tool.created.strYear, toolYear => flt.matches(year => toolYear === year))) as Pred<Filter<string>>,
   ghStars: ((tool, num) => tool.github.stars > num.value) as Pred<ValNumber>,
@@ -26,12 +25,3 @@ export const TOOL_FACET_PREDICATES = {
 } as const;
 
 export type ToolFacetKey = keyof typeof TOOL_FACET_PREDICATES;
-
-export function toolMatches(tool: VTool, values: Map<ToolFacetKey, AnyValue>): boolean {
-  for (const [key, value] of values) {
-    const pred = TOOL_FACET_PREDICATES[key] as Pred<AnyValue>;
-    if (!pred) console.error(`No predicate found for key: ${key}`);
-    if (pred && value.isPresent && !pred(tool, value)) return false;
-  }
-  return true;
-}

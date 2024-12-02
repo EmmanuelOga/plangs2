@@ -8,6 +8,7 @@ import { PlangsGraph, type VTool } from "@plangs/plangs/graph";
 import type { VToolKey } from "@plangs/plangs/graph/generated";
 import type { TAB } from "@plangs/server/components/layout";
 
+import { matchVertices } from "@plangs/plangs/facets";
 import { createFacetGroups } from "./groups-util";
 import { FacetsMainState } from "./state";
 import { type FacetsMap, type GroupsMap, bool, defineFacets, defineGroups, group, table, text } from "./types";
@@ -82,6 +83,6 @@ export class ToolsFacetsState extends FacetsMainState<PlangFacetGroupKey, ToolFa
 
   override get results(): Set<VToolKey> {
     if (!this.pg) return new Set();
-    return this.pg.filterTools(this.values.getMap2());
+    return matchVertices(this.pg.tool, this.values.getMap2());
   }
 }

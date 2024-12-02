@@ -23,13 +23,4 @@ export const COMMUNITY_FACET_PREDICATES = {
   tools: ((comm, flt) => flt.matches(key => comm.relTools.has(key))) as Pred<Filter<VToolKey>>,
 } as const;
 
-export type communityFacetKey = keyof typeof COMMUNITY_FACET_PREDICATES;
-
-export function communityMatches(community: VCommunity, values: Map<communityFacetKey, AnyValue>): boolean {
-  for (const [key, value] of values) {
-    const pred = COMMUNITY_FACET_PREDICATES[key] as Pred<AnyValue>;
-    if (!pred) console.error(`No predicate found for key: ${key}`);
-    if (pred && value.isPresent && !pred(community, value)) return false;
-  }
-  return true;
-}
+export type CommunityFacetKey = keyof typeof COMMUNITY_FACET_PREDICATES;

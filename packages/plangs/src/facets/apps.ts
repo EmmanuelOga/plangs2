@@ -7,9 +7,7 @@ import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 
 type Pred<T extends Value<AnyValue>> = (app: VApp, value: T) => boolean;
 
-/**
- * Predicates to filter Apps.
- */
+/** Predicates to filter Apps. */
 export const APP_FACET_PREDICATES = {
   // General
   createdRecently: ((app, date) => app.created.isRecent(date.value as StrDate)) as Pred<ValString>,
@@ -24,12 +22,3 @@ export const APP_FACET_PREDICATES = {
 } as const;
 
 export type AppFacetKey = keyof typeof APP_FACET_PREDICATES;
-
-export function appMatches(app: VApp, values: Map<AppFacetKey, AnyValue>): boolean {
-  for (const [key, value] of values) {
-    const pred = APP_FACET_PREDICATES[key] as Pred<AnyValue>;
-    if (!pred) console.error(`No predicate found for key: ${key}`);
-    if (pred && value.isPresent && !pred(app, value)) return false;
-  }
-  return true;
-}

@@ -73,9 +73,9 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
   ];
 
   const vertexFields: string[] = [];
-  for (const vertexName of Object.keys(spec.vertices) as T[]) {
+  for (const [vertexName, { key }] of Object.entries(spec.vertices) as [T, GenVertexSpec][]) {
     const vname = vertexClassName(vertexName);
-    vertexFields.push(`readonly ${vertexName} = new Vertices<${vname}>((key) => new ${vname}(this, key));`);
+    vertexFields.push(`readonly ${vertexName} = new Vertices<${vname}>("${vertexName}", "${key}", (key) => new ${vname}(this, key));`);
   }
 
   const code: string[] = [];
@@ -90,9 +90,13 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
     ${mapJoin(Object.keys(spec.vertices), name => `${name}: ${quoteJoin(Object.keys(processRels(name as T).relations), " | ")}`, ";\n")}
   };\n`);
 
-  const typeVClasses = `T${spec.name}VClasses`;
-  code.push("/** Vertex classes for each Vertex name. */");
-  code.push(`export type ${typeVClasses}  = {
+  const typeVClass = `T${spec.name}VertexClass`;
+  code.push("/** Every Generated Vertex Class. */");
+  code.push(`export type ${typeVClass}  = ${mapJoin(Object.keys(spec.vertices) as T[], vertexClassName, " | ")};\n`);
+
+  const typeVClassByName = `T${spec.name}VClassByName`;
+  code.push("/** Used for better autocomplete. */");
+  code.push(`export type ${typeVClassByName}  = {
     ${mapJoin(Object.keys(spec.vertices), name => `${name}: ${vertexClassName(name as T)}`, ";\n")}
   };\n`);
 
@@ -113,7 +117,7 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
     }
 
     /** Return a type checked object identifying a property of the class that is "readable" (a prop returning a String, Boolean or Nunber). */
-    static propConfig<T extends ${typeVertexName}>(vertexName: T, vertexProp: keyof ${typeVClasses}[T]) {
+    static propConfig<T extends ${typeVertexName}>(vertexName: T, vertexProp: keyof ${typeVClassByName}[T]) {
       return { kind: 'prop', vertexName: vertexName as ${typeVertexName}, vertexProp: vertexProp as string } as const;
     }
 

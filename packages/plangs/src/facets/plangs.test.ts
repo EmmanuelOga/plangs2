@@ -5,7 +5,8 @@ import { type AnyValue, ValBool, ValString } from "@plangs/auxiliar/value";
 import { PlangsGraph } from "@plangs/plangs/graph";
 import type { VLicenseKey, VParadigmKey, VPlangKey, VPlatformKey, VTagKey, VTypeSystemKey } from "@plangs/plangs/graph/generated";
 
-import { PLANG_FACET_PREDICATES, type PlangFacetKey, plangMatches } from "./plangs";
+import { type Predicates, matchVertex, matchVertices } from ".";
+import { PLANG_FACET_PREDICATES, type PlangFacetKey } from "./plangs";
 
 test("compilesTo", () => {
   const pg = new PlangsGraph();
@@ -332,8 +333,10 @@ test("writtenWith", () => {
   expect(check(pl, new Filter<VPlangKey>("any").add("pl+two").add("pl+three"))).toBeTrue();
 });
 
-test("plangMatches", () => {
+test("matchVertex", () => {
   const pg = new PlangsGraph();
+  const preds = PLANG_FACET_PREDICATES as Predicates<PlangFacetKey>;
+
   const plang = pg.plang.set("pl+plang", { name: "MyPlang" }).relWrittenWith.add("pl+one", "pl+two");
   const other = pg.plang.set("pl+other", { name: "MyOtherPlang" }).relWrittenWith.add("pl+two");
 
@@ -341,22 +344,22 @@ test("plangMatches", () => {
 
   const filters = new Map(Object.entries({ writtenWith }) as [PlangFacetKey, AnyValue][]);
 
-  expect(plangMatches(plang, filters)).toBeTrue();
-  expect(plangMatches(other, filters)).toBeTrue();
+  expect(matchVertex(plang, preds, filters)).toBeTrue();
+  expect(matchVertex(other, preds, filters)).toBeTrue();
 
   writtenWith.mode = "all";
 
-  expect(plangMatches(plang, filters)).toBeTrue();
-  expect(plangMatches(other, filters)).toBeFalse();
+  expect(matchVertex(plang, preds, filters)).toBeTrue();
+  expect(matchVertex(other, preds, filters)).toBeFalse();
 
   writtenWith.mode = "any";
   filters.set("plangName", new ValString("myplang"));
 
-  expect(plangMatches(plang, filters)).toBeTrue();
-  expect(plangMatches(other, filters)).toBeFalse();
+  expect(matchVertex(plang, preds, filters)).toBeTrue();
+  expect(matchVertex(other, preds, filters)).toBeFalse();
 });
 
-test("Plangs.plangs", () => {
+test("matchVertices", () => {
   const pg = new PlangsGraph();
   const plang = pg.plang.set("pl+plang", { name: "MyPlang" }).relWrittenWith.add("pl+one", "pl+two");
   const other = pg.plang.set("pl+other", { name: "MyOtherPlang" }).relWrittenWith.add("pl+two");
@@ -364,7 +367,7 @@ test("Plangs.plangs", () => {
   const writtenWith = new Filter<VPlangKey>("any").add("pl+one").add("pl+two");
   const filters = new Map(Object.entries({ writtenWith }) as [PlangFacetKey, AnyValue][]);
 
-  expect(pg.filterPlangs(filters)).toEqual(new Set([plang.key, other.key]));
-  expect(pg.filterPlangs(filters, 1)).toEqual(new Set([plang.key]));
-  expect(pg.filterPlangs(filters, 1000)).toEqual(new Set([plang.key, other.key]));
+  expect(matchVertices(pg.plang, filters)).toEqual(new Set([plang.key, other.key]));
+  expect(matchVertices(pg.plang, filters, 1)).toEqual(new Set([plang.key]));
+  expect(matchVertices(pg.plang, filters, 1000)).toEqual(new Set([plang.key, other.key]));
 });

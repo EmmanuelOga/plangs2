@@ -60,7 +60,13 @@ export const NON_AZ = "-";
 export class Vertices<V extends AnyVertex> {
   readonly map = new Map<V["key"], V>();
 
-  constructor(private factory: (key: V["key"]) => V) {}
+  constructor(
+    /** Name of the kind of Vertices. */
+    readonly name: string,
+    /** Kind of Vertices, used as prefix of the Key. */
+    readonly kind: string,
+    private factory: (key: V["key"]) => V,
+  ) {}
 
   set(key: V["key"], data: V["data"] = {}): V {
     const vertex = this.factory(key).merge(data);

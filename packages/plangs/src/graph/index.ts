@@ -1,7 +1,5 @@
 import { arrayMerge } from "@plangs/auxiliar/array";
 import { IterTap } from "@plangs/auxiliar/iter_tap";
-import type { AnyValue } from "@plangs/auxiliar/value";
-import { type PlangFacetKey, plangMatches } from "@plangs/plangs/facets/plangs";
 
 import {
   PlangsGraphBase,
@@ -13,38 +11,17 @@ import {
   VLicenseBase,
   VParadigmBase,
   VPlangBase,
-  type VPlangKey,
   VPlatformBase,
   VPostBase,
   VTagBase,
   VToolBase,
-  type VToolKey,
   VTypeSystemBase,
 } from "./generated";
 
-import { type ToolFacetKey, toolMatches } from "@plangs/plangs/facets/tools";
 import { FieldGithub, FieldReleases } from "./vertex_data_fields";
 import type { Release, StrDate } from "./vertex_data_schemas";
 
 export class PlangsGraph extends PlangsGraphBase {
-  filterPlangs(values: Map<PlangFacetKey, AnyValue>, limit = -1): Set<VPlangKey> {
-    const keys = new Set<VPlangKey>();
-    for (const pl of this.plang.values) {
-      if (limit >= 0 && keys.size >= limit) break;
-      if (plangMatches(pl, values)) keys.add(pl.key);
-    }
-    return keys;
-  }
-
-  filterTools(values: Map<ToolFacetKey, AnyValue>, limit = -1): Set<VToolKey> {
-    const keys = new Set<VToolKey>();
-    for (const pl of this.tool.values) {
-      if (limit >= 0 && keys.size >= limit) break;
-      if (toolMatches(pl, values)) keys.add(pl.key);
-    }
-    return keys;
-  }
-
   /**
    * We can derive / infer some data from the existing data.
    * We may implement some sort of inference engine in the future,

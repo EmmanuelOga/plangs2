@@ -22,13 +22,4 @@ export const LEARNING_FACET_PREDICATES = {
   tools: ((learn, flt) => flt.matches(key => learn.relTools.has(key))) as Pred<Filter<VToolKey>>,
 } as const;
 
-export type learningFacetKey = keyof typeof LEARNING_FACET_PREDICATES;
-
-export function learningMatches(learning: VLearning, values: Map<learningFacetKey, AnyValue>): boolean {
-  for (const [key, value] of values) {
-    const pred = LEARNING_FACET_PREDICATES[key] as Pred<AnyValue>;
-    if (!pred) console.error(`No predicate found for key: ${key}`);
-    if (pred && value.isPresent && !pred(learning, value)) return false;
-  }
-  return true;
-}
+export type LearningFacetKey = keyof typeof LEARNING_FACET_PREDICATES;
