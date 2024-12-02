@@ -3,15 +3,14 @@ import type { FunctionComponent } from "preact";
 import { ValNil, ValNumber } from "@plangs/auxiliar/value";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { loadLocalStorage } from "@plangs/frontend/auxiliar/storage";
+import { createFacetGroups } from "@plangs/frontend/components/facets/main/groups-util";
+import { FacetsMainState } from "@plangs/frontend/components/facets/main/state";
+import { type FacetsMap, type GroupsMap, bool, defineFacets, defineGroups, group, table, text } from "@plangs/frontend/components/facets/main/types";
+import { matchVertices } from "@plangs/plangs/facets";
 import type { ToolFacetKey } from "@plangs/plangs/facets/tools";
-import { PlangsGraph, type VTool } from "@plangs/plangs/graph";
+import { PlangsGraph } from "@plangs/plangs/graph";
 import type { VToolKey } from "@plangs/plangs/graph/generated";
 import type { TAB } from "@plangs/server/components/layout";
-
-import { matchVertices } from "@plangs/plangs/facets";
-import { createFacetGroups } from "./groups-util";
-import { FacetsMainState } from "./state";
-import { type FacetsMap, type GroupsMap, bool, defineFacets, defineGroups, group, table, text } from "./types";
 
 type FK = ToolFacetKey;
 
@@ -84,5 +83,9 @@ export class ToolsFacetsState extends FacetsMainState<PlangFacetGroupKey, ToolFa
   override get results(): Set<VToolKey> {
     if (!this.pg) return new Set();
     return matchVertices(this.pg.tool, this.values.getMap2());
+  }
+
+  override get groupsByFacetKey() {
+    return GROUP_FOR_FACET_KEY;
   }
 }

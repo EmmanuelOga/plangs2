@@ -11,7 +11,6 @@ import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TAB } from "@plangs/server/components/layout";
 
 import { updateThumbns } from "./grid";
-import { GROUP_FOR_FACET_KEY } from "./plangs";
 
 export type SerializedFacets<FacetKey extends string> = Partial<Record<FacetKey, ReturnType<AnyValue["serializable"]>>>;
 
@@ -59,7 +58,7 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
   // biome-ignore lint/suspicious/noExplicitAny: coming from deserialize we'll have to deal with it.
   doResetAll(values?: any): void {
     if (values) {
-      this.data.values = FacetsMainState.deserialize<GroupKey, FacetKey>(GROUP_FOR_FACET_KEY as Map<FacetKey, GroupKey>, values);
+      this.data.values = FacetsMainState.deserialize<GroupKey, FacetKey>(this.groupsByFacetKey, values);
     } else {
       this.values.clear();
     }
@@ -159,4 +158,7 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
 
   /** A set of vertex keys that are the result of applying the filters. */
   abstract get results(): Set<string>;
+
+  /** Specifies which group a facet key belongs to. */
+  abstract get groupsByFacetKey(): Map<FacetKey, GroupKey>;
 }

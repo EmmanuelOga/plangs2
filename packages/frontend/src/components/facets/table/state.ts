@@ -1,6 +1,6 @@
 import { Filter } from "@plangs/auxiliar/filters";
 import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
-import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/facets-main";
+import type { AnyFacetsMainState } from "@plangs/frontend/components/facets/main/main";
 
 import { type Column, type Entry, type Order, type Val, opposite, sortEntries } from "./entries";
 import type { FacetTableProps } from "./facet-table";

@@ -3,15 +3,24 @@ import type { FunctionComponent } from "preact";
 import { ValNil, ValNumber } from "@plangs/auxiliar/value";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { loadLocalStorage } from "@plangs/frontend/auxiliar/storage";
+import { createFacetGroups } from "@plangs/frontend/components/facets/main/groups-util";
+import { FacetsMainState } from "@plangs/frontend/components/facets/main/state";
+import {
+  type FacetsMap,
+  type GroupsMap,
+  bool,
+  defineFacets,
+  defineGroups,
+  group,
+  multi,
+  table,
+  text,
+} from "@plangs/frontend/components/facets/main/types";
 import { matchVertices } from "@plangs/plangs/facets";
-import { PLANG_FACET_PREDICATES, type PlangFacetKey } from "@plangs/plangs/facets/plangs";
+import type { PlangFacetKey } from "@plangs/plangs/facets/plangs";
 import { PlangsGraph } from "@plangs/plangs/graph";
 import type { VPlangKey } from "@plangs/plangs/graph/generated";
 import type { TAB } from "@plangs/server/components/layout";
-
-import { createFacetGroups } from "./groups-util";
-import { FacetsMainState } from "./state";
-import { type FacetsMap, type GroupsMap, bool, defineFacets, defineGroups, group, multi, table, text } from "./types";
 
 type FK = PlangFacetKey;
 
@@ -26,13 +35,10 @@ export const FACETS: FacetsMap<FK> = defineFacets<FK>(
   bool("isTranspiler", "Is Transpiler"),
   bool("releasedRecently", "Released Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 1) : new ValNil())),
   multi("extensions", "Extensions"),
-
   table("compilesTo", "Compiles To", rel("plang", "relCompilesTo")),
-  // table("targetOf", "Target of", rel("plang", "relTargetOf")),
+  table("creationYear", "Creation Year", prop("plang", "created")),
   table("dialectOf", "Dialect Of", rel("plang", "relDialectOf")),
-  // table("dialects", "Dialects", rel("plang", "relDialects")),
   table("implements", "Implements", { ...rel("plang", "relImplements"), minEntries: 2 }), // All plangs implement themselves.
-  // table("implementedBy", "Implemented By", rel("plang", "relImplementedBy")),
   table("influenced", "Influenced", rel("plang", "relInfluenced")),
   table("influencedBy", "Influenced By", rel("plang", "relInfluencedBy")),
   table("licenses", "Licenses", rel("plang", "relLicenses")),
@@ -41,9 +47,6 @@ export const FACETS: FacetsMap<FK> = defineFacets<FK>(
   table("tags", "Tags", rel("plang", "relTags")),
   table("typeSystems", "Type Systems", rel("plang", "relTypeSystems")),
   table("writtenWith", "Written With", rel("plang", "relWrittenWith")),
-  // table("usedToWrite", "Used to Write", rel("plang", "relUsedToWrite")),
-  table("creationYear", "Creation Year", prop("plang", "created")),
-
   text("plangName", "Plang Name"),
 );
 
@@ -107,5 +110,9 @@ export class PlangsFacetsState extends FacetsMainState<PlangFacetGroupKey, Plang
   override get results(): Set<VPlangKey> {
     if (!this.pg) return new Set();
     return matchVertices(this.pg.plang, this.values.getMap2());
+  }
+
+  override get groupsByFacetKey() {
+    return GROUP_FOR_FACET_KEY;
   }
 }
