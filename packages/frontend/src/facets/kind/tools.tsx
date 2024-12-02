@@ -8,51 +8,45 @@ import { type FacetsMap, type GroupsMap, bool, defineFacets, defineGroups, group
 import { createFacetGroups } from "@plangs/frontend/facets/misc/facet-group";
 import { matchVertices } from "@plangs/plangs/facets";
 import type { ToolFacetKey } from "@plangs/plangs/facets/tools";
-import { PlangsGraph } from "@plangs/plangs/graph";
+import { type PlangsGraph, prop, rel } from "@plangs/plangs/graph";
 import type { VToolKey } from "@plangs/plangs/graph/generated";
 import type { TAB } from "@plangs/server/components/layout";
 
+type GK = PlangFacetGroupKey;
 type FK = ToolFacetKey;
 
-const rel = PlangsGraph.relConfig;
-const prop = PlangsGraph.propConfig;
-
 export const FACETS: FacetsMap<FK> = defineFacets<FK>(
-  text("name", "Tool Name"),
-  text("ghStars", "GitHub Stars"),
   bool("createdRecently", "Created Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 5) : new ValNil())),
   bool("releasedRecently", "Released Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 1) : new ValNil())),
   table("creationYear", "Creation Year", prop("tool", "created")),
-
   table("licenses", "Licenses", rel("tool", "relLicenses")),
   table("platforms", "Platforms", rel("tool", "relPlatforms")),
   table("tags", "Tags", rel("tool", "relTags")),
-  table("writtenWith", "Written With", rel("tool", "relWrittenWith")),
   table("writtenFor", "Written For", rel("tool", "relPlangs")),
+  table("writtenWith", "Written With", rel("tool", "relWrittenWith")),
+  text("ghStars", "GitHub Stars"),
+  text("name", "Tool Name"),
 );
 
 // biome-ignore format: Keep it in one line.
 export type PlangFacetGroupKey = "creationYear" | "general" | "licenses" | "platforms" | "tags" | "writtenFor" | "writtenWith";
 
-type GK = PlangFacetGroupKey;
-
-export const [GROUPS, GROUP_FOR_FACET_KEY]: readonly [GroupsMap<GK, FK>, Map<FK, GK>] = defineGroups<GK, FK>(
-  group("general", "General", ["name", "createdRecently", "releasedRecently", "ghStars"]),
-
-  group("writtenWith", "Written With", ["writtenWith"]),
-  group("writtenFor", "Written For", ["writtenFor"]),
-
-  group("tags", "Tags", ["tags"]),
+const [GROUPS, GROUP_BY_FACET_KEY]: readonly [GroupsMap<GK, FK>, Map<FK, GK>] = defineGroups<GK, FK>(
   group("creationYear", "Creation Year", ["creationYear"]),
+  group("general", "General", ["name", "createdRecently", "releasedRecently", "ghStars"]),
   group("licenses", "Licenses", ["licenses"]),
-
   group("platforms", "Platforms", ["platforms"]),
+  group("tags", "Tags", ["tags"]),
+  group("writtenFor", "Written For", ["writtenFor"]),
+  group("writtenWith", "Written With", ["writtenWith"]),
 );
 
 /** Group keys for the navigation menu.  */
-export const NAV: GK[][] = [["general"], ["writtenWith", "writtenFor"], ["tags", "creationYear", "licenses"], ["platforms"]] as const;
+const NAV: GK[][] = [["general"], ["writtenWith", "writtenFor"], ["tags", "creationYear", "licenses"], ["platforms"]] as const;
 
-export const ToolsFacetGroups = createFacetGroups(GROUPS, FACETS);
+/** Create a Higher order component that wraps several groups. */
+const GROUPS_COMPONENT = createFacetGroups(GROUPS, FACETS) as FunctionComponent<{ currentFacetGroup: string }>;
+
 export const DEFAULT_GROUP = "general";
 
 /** Implementation of the state for Faceted search of Programming Languages. */
@@ -64,7 +58,7 @@ export class ToolsFacetsState extends FacetsMainState<PlangFacetGroupKey, ToolFa
       tab,
       defaultGroup: DEFAULT_GROUP,
       currentGroupKey: loadLocalStorage(tab, "lastGroup") ?? DEFAULT_GROUP,
-      values: FacetsMainState.deserialize(GROUP_FOR_FACET_KEY, FragmentTracker.deserialize() ?? loadLocalStorage(tab, "inputs")),
+      values: FacetsMainState.deserialize(GROUP_BY_FACET_KEY, FragmentTracker.deserialize() ?? loadLocalStorage(tab, "inputs")),
     }).updateClearFacets();
   }
 
@@ -77,7 +71,7 @@ export class ToolsFacetsState extends FacetsMainState<PlangFacetGroupKey, ToolFa
   }
 
   override get facetGroupsComponent() {
-    return ToolsFacetGroups as FunctionComponent<{ currentFacetGroup: string }>;
+    return GROUPS_COMPONENT;
   }
 
   override get results(): Set<VToolKey> {
@@ -86,6 +80,6 @@ export class ToolsFacetsState extends FacetsMainState<PlangFacetGroupKey, ToolFa
   }
 
   override get groupsByFacetKey() {
-    return GROUP_FOR_FACET_KEY;
+    return GROUP_BY_FACET_KEY;
   }
 }

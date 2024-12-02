@@ -21,6 +21,10 @@ import {
 import { FieldGithub, FieldReleases } from "./vertex_data_fields";
 import type { Release, StrDate } from "./vertex_data_schemas";
 
+// Shortcuts to the configuration objects.
+export const rel = PlangsGraphBase.relConfig;
+export const prop = PlangsGraphBase.propConfig;
+
 export class PlangsGraph extends PlangsGraphBase {
   /**
    * We can derive / infer some data from the existing data.
