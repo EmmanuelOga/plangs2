@@ -58,7 +58,7 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
   // biome-ignore lint/suspicious/noExplicitAny: coming from deserialize we'll have to deal with it.
   doResetAll(values?: any): void {
     if (values) {
-      this.data.values = FacetsMainState.deserialize<GroupKey, FacetKey>(this.groupsByFacetKey, values);
+      this.data.values = FacetsMainState.deserialize<GroupKey, FacetKey>(this.gkByFk, values);
     } else {
       this.values.clear();
     }
@@ -149,16 +149,16 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
   /** Abstract Methods. */
 
   /** Links to FacetGroups appear in groups. */
-  abstract get nav(): GroupKey[][];
+  abstract readonly navGroupKeys: GroupKey[][];
+
+  /** The component that defines the content of a facet group. */
+  abstract readonly groupsComponent: FunctionComponent<{ currentFacetGroup: string }>;
+
+  /** Which group a facet key belongs to. */
+  abstract readonly gkByFk: Map<FacetKey, GroupKey>;
 
   abstract groupTitle(groupKey: GroupKey): string;
 
-  /** The component that defines the content of a facet group. */
-  abstract get facetGroupsComponent(): FunctionComponent<{ currentFacetGroup: string }>;
-
   /** A set of vertex keys that are the result of applying the filters. */
   abstract get results(): Set<string>;
-
-  /** Specifies which group a facet key belongs to. */
-  abstract get groupsByFacetKey(): Map<FacetKey, GroupKey>;
 }

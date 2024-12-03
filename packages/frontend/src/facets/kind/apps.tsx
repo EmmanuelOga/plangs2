@@ -48,17 +48,9 @@ export class AppsFacetsState extends FacetsMainState<GK, AppFacetKey> {
     }).updateClearFacets();
   }
 
-  override get nav() {
-    return NAV.groupKeys;
-  }
-
-  override get facetGroupsComponent() {
-    return COMPONENT;
-  }
-
-  override get groupsByFacetKey() {
-    return GK_BY_FK;
-  }
+  override readonly navGroupKeys = NAV.groupKeys;
+  override readonly groupsComponent = COMPONENT;
+  override readonly gkByFk = GK_BY_FK;
 
   override groupTitle(key: GK) {
     return GROUPS.get(key)?.title ?? key;

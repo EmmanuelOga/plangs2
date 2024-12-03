@@ -46,7 +46,7 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
         {/* Wrapper to avoid streteching the links to the bottom of the screen. */}
         <div class={tw(tw(BORDER, "border-r-1"), "overflow-y-scroll", "shrink-0 grow-0")}>
           <div class={tw("grid grid-cols-[auto_auto]", "gap-2", "pt-1")}>
-            {state.nav.flatMap(keys => (
+            {state.navGroupKeys.flatMap(keys => (
               // Subgrid respects the alignment of indicators while allowing to group the links and add a border.
               <div key={keys.join("-")} class={tw("col-span-2", "grid grid-cols-subgrid", "items-center", "pb-2", tw(BORDER, "border-b-1"))}>
                 {/* biome-ignore lint/suspicious/noExplicitAny: we set as any here since the groupKey is actually a string that can belong to _any_ facet group. */}
@@ -75,7 +75,7 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
           </div>
         </div>
         <div class={tw("flex w-full flex-col", "overflow-hidden", "bg-linear-to-b to-secondary/50")}>
-          <state.facetGroupsComponent currentFacetGroup={state.currentGroupKey} />
+          <state.groupsComponent currentFacetGroup={state.currentGroupKey} />
         </div>
       </FacetsMainContext.Provider>
     );

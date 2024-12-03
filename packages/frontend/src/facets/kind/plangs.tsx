@@ -71,24 +71,16 @@ export class PlangsFacetsState extends FacetsMainState<GK, PlangFacetKey> {
     }).updateClearFacets();
   }
 
-  override get nav() {
-    return NAV.groupKeys;
-  }
+  override readonly navGroupKeys = NAV.groupKeys;
+  override readonly groupsComponent = COMPONENT;
+  override readonly gkByFk = GK_BY_FK;
 
   override groupTitle(key: GK) {
     return GROUPS.get(key)?.title ?? key;
   }
 
-  override get facetGroupsComponent() {
-    return COMPONENT;
-  }
-
   override get results(): Set<VPlangKey> {
     if (!this.pg) return new Set();
     return matchVertices(this.pg.plang, this.values.getMap2());
-  }
-
-  override get groupsByFacetKey() {
-    return GK_BY_FK;
   }
 }

@@ -49,7 +49,7 @@ export class ToolsFacetsState extends FacetsMainState<GK, ToolFacetKey> {
     }).updateClearFacets();
   }
 
-  override get nav() {
+  override get navGroupKeys() {
     return NAV.groupKeys;
   }
 
@@ -57,7 +57,7 @@ export class ToolsFacetsState extends FacetsMainState<GK, ToolFacetKey> {
     return GROUPS.get(key)?.title ?? key;
   }
 
-  override get facetGroupsComponent() {
+  override get groupsComponent() {
     return COMPONENT;
   }
 
@@ -66,7 +66,7 @@ export class ToolsFacetsState extends FacetsMainState<GK, ToolFacetKey> {
     return matchVertices(this.pg.tool, this.values.getMap2());
   }
 
-  override get groupsByFacetKey() {
+  override get gkByFk() {
     return GK_BY_FK;
   }
 }
