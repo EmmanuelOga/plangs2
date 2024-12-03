@@ -11,7 +11,7 @@ const win = (typeof window === "undefined" ? undefined : window) as Window;
  * Returns the fragment (possible empty): the string after the first '#' of a URL or HREF.
  * Returns the input string if it has no '#' character.
  */
-export function getFragment(fragmentOrURL: URL | Location | string | undefined = win.location): string {
+export function getFragment(fragmentOrURL: URL | Location | string | undefined): string {
   if (!fragmentOrURL) return "";
   if (fragmentOrURL instanceof URL || fragmentOrURL instanceof Location) return fragmentOrURL.hash.slice(1);
   const hashIndex = fragmentOrURL.indexOf("#");

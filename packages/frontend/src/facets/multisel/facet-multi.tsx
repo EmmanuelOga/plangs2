@@ -1,12 +1,12 @@
 import type { Ref } from "preact";
 import { useContext, useEffect, useRef } from "preact/hooks";
 
+import { debounce } from "@plangs/auxiliar/debounce";
 import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { handler, on } from "@plangs/frontend/auxiliar/events";
 import { CLOSE } from "@plangs/frontend/auxiliar/icons";
 import { HOVER, INPUT, tw } from "@plangs/frontend/auxiliar/styles";
-import { debounce } from "@plangs/frontend/auxiliar/utils";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
 import { type AnyFacetsMainState, FacetsMainContext } from "@plangs/frontend/facets/main/use_state";
 

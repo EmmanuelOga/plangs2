@@ -32,5 +32,6 @@ export function useFacetState(tab: TAB, pg: PlangsGraph): AnyFacetsMainState | u
     return;
   }
 
-  return state.updateClearFacets();
+  // Ensures the initial side effects are enforced: for instance filtering thumbs according to state fragment/localStorage.
+  return state.runEffects();
 }

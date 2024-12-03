@@ -10,6 +10,7 @@ import type { ToggleClearFacets } from "@plangs/frontend/components/icon-button/
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TAB } from "@plangs/server/components/layout";
 
+import { debounce } from "@plangs/auxiliar/debounce";
 import { updateThumbns } from "./grid_util";
 
 export type SerializedFacets<FacetKey extends string> = Partial<Record<FacetKey, ReturnType<AnyValue["serializable"]>>>;
@@ -117,24 +118,42 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
 
   /** Helpers */
 
+  /**
+   * Run any side effects without dispatching.
+   * Useful for instance on start, for instance: where we don't want to dispatch
+   * (hence render twice) but we do want to setup a clean state.
+   */
+  runEffects(persist: "persist" | "" = ""): this {
+    if (persist === "persist") {
+      const data = this.serialized;
+      this.pushState(data);
+      updateLocalStorage(this.tab, "inputs", data);
+    }
+    updateThumbns(this.results);
+    this.updateClearFacets();
+    return this;
+  }
+
   /** Update the clear facets button on the toolbar. */
-  updateClearFacets(): this {
+  private updateClearFacets(): this {
     const clearAll = $<HTMLElement & { state?: ToggleClearFacets }>("#icon-button-clearFacets");
     if (!clearAll?.state) return this;
     clearAll.state.doToggleMode(this.values.isEmpty ? "" : "clearFacets");
     return this;
   }
 
+  /** Push state to the history, but debounced. */
+  private pushState = debounce(
+    ((data: typeof this.serialized) => {
+      window.fragment.pushState(FragmentTracker.serialize(data));
+    }).bind(this),
+    50,
+  );
+
   override dispatch(): this {
     try {
       super.dispatch();
-
-      const data = this.serialized;
-      window.fragment.pushState(FragmentTracker.serialize(data));
-      updateLocalStorage(this.tab, "inputs", data);
-      updateThumbns(this.results);
-
-      this.updateClearFacets();
+      this.runEffects("persist");
     } catch (err) {
       console.error(err);
     }

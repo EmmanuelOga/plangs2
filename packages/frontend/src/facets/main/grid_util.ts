@@ -1,5 +1,5 @@
+import { debounce } from "@plangs/auxiliar/debounce";
 import { elems, minWidthBP } from "@plangs/frontend/auxiliar/dom";
-import { debounce } from "@plangs/frontend/auxiliar/utils";
 import type { VPlangKey } from "@plangs/plangs/graph/generated";
 
 /** A static thumbnail grid will be render server side, we just need to show or hide each element.  */

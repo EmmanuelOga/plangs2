@@ -39,16 +39,17 @@ $ bun outapp && bun outjs
 
 This simplistic build process just outputs the statically generated contents of the site at `~/dev/plangs-out` (will probably change soon).
 
+## WIP
+
+- [ ] Fix "pill" links .. what happens when we click them?
+- [ ] Make the vertex-info work for all node types.
+
 ## TODO
 
 ### More Pending Tasks
 
 - [ ] Intersection observer to delay loading of images. 
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
-- [ ] Fix facet reset button, and serialization of facets when going to empty (right now doesn't clear the fragment).
-- [ ] Fix "pill" links .. what happens when we click them?
-- [ ] Make the vertex-info work for all node types.
-
 - [ ] Add a table display mode in addition to Grid (some things don't display good on a Grid, like Libraries).
 
 <hr/>

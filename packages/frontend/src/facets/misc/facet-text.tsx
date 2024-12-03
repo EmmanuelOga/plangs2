@@ -1,5 +1,6 @@
 import { useContext } from "preact/hooks";
 
+import { debounce } from "@plangs/auxiliar/debounce";
 import { ValString } from "@plangs/auxiliar/value";
 import { handler } from "@plangs/frontend/auxiliar/events";
 import { INPUT, tw } from "@plangs/frontend/auxiliar/styles";
@@ -11,9 +12,12 @@ export function FacetText<GroupKey extends string, FacetKey extends string>({
   label,
 }: { groupKey: GroupKey; facetKey: FacetKey; label: string }) {
   const main = useContext(FacetsMainContext) as AnyFacetsMainState; // It exists, since it spawned this component.
-  const onInput = handler((input: HTMLInputElement) => {
-    main.doSetValue(groupKey, facetKey, new ValString(input.value.toLowerCase()));
-  });
+  const onInput = debounce(
+    handler((input: HTMLInputElement) => {
+      main.doSetValue(groupKey, facetKey, new ValString(input.value.toLowerCase()));
+    }),
+    50,
+  );
   const current = main.values.get(groupKey, facetKey)?.value ?? "";
   return <input type="search" onInput={onInput} placeholder={label} class={tw("w-full", INPUT)} value={current} />;
 }
