@@ -13,9 +13,7 @@ import type { VToolKey } from "@plangs/plangs/graph/generated";
 import type { TAB } from "@plangs/server/components/layout";
 
 // biome-ignore format: Keep it in one line.
-export type ToolFacetGroupKey = "creationYear" | "general" | "licenses" | "platforms" | "tags" | "writtenFor" | "writtenWith";
-
-type GK = ToolFacetGroupKey;
+type GK = "creationYear" | "general" | "licenses" | "platforms" | "tags" | "writtenFor" | "writtenWith";
 type FK = ToolFacetKey;
 
 export const FACETS: FacetsMap<FK> = defineFacets<FK>(
@@ -50,7 +48,7 @@ const GROUPS_COMPONENT = createFacetGroups(GROUPS, FACETS) as FunctionComponent<
 export const DEFAULT_GROUP = "general";
 
 /** Implementation of the state for Faceted search of Programming Languages. */
-export class ToolsFacetsState extends FacetsMainState<ToolFacetGroupKey, ToolFacetKey> {
+export class ToolsFacetsState extends FacetsMainState<GK, ToolFacetKey> {
   static initial(pg: PlangsGraph): ToolsFacetsState {
     const tab: TAB = "tools";
     return new ToolsFacetsState({
@@ -66,7 +64,7 @@ export class ToolsFacetsState extends FacetsMainState<ToolFacetGroupKey, ToolFac
     return NAV;
   }
 
-  override groupTitle(key: ToolFacetGroupKey) {
+  override groupTitle(key: GK) {
     return GROUPS.get(key)?.label ?? key;
   }
 

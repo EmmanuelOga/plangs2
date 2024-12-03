@@ -13,9 +13,7 @@ import type { VAppKey } from "@plangs/plangs/graph/generated";
 import type { TAB } from "@plangs/server/components/layout";
 
 // biome-ignore format: Keep it in one line.
-export type AppFacetGroupKey = "creationYear" | "general" | "licenses" | "platforms" | "tags" | "writtenWith";
-
-type GK = AppFacetGroupKey;
+type GK = "creationYear" | "general" | "licenses" | "platforms" | "tags" | "writtenWith";
 type FK = AppFacetKey;
 
 export const FACETS: FacetsMap<FK> = defineFacets<FK>(
@@ -48,7 +46,7 @@ const GROUPS_COMPONENT = createFacetGroups(GROUPS, FACETS) as FunctionComponent<
 export const DEFAULT_GROUP = "general";
 
 /** Implementation of the state for Faceted search of Programming Languages. */
-export class AppsFacetsState extends FacetsMainState<AppFacetGroupKey, AppFacetKey> {
+export class AppsFacetsState extends FacetsMainState<GK, AppFacetKey> {
   static initial(pg: PlangsGraph): AppsFacetsState {
     const tab: TAB = "apps";
     return new AppsFacetsState({
@@ -65,7 +63,7 @@ export class AppsFacetsState extends FacetsMainState<AppFacetGroupKey, AppFacetK
     return NAV;
   }
 
-  override groupTitle(key: AppFacetGroupKey) {
+  override groupTitle(key: GK) {
     return GROUPS.get(key)?.label ?? key;
   }
 

@@ -13,9 +13,7 @@ import type { VLibraryKey } from "@plangs/plangs/graph/generated";
 import type { TAB } from "@plangs/server/components/layout";
 
 // biome-ignore format: Keep it in one line.
-export type LibraryFacetGroupKey = "creationYear" | "general" | "licenses" | "platforms" | "tags" | "writtenWith" | "writtenFor";
-
-type GK = LibraryFacetGroupKey;
+type GK = "creationYear" | "general" | "licenses" | "platforms" | "tags" | "writtenWith" | "writtenFor";
 type FK = LibraryFacetKey;
 
 export const FACETS: FacetsMap<FK> = defineFacets<FK>(
@@ -50,7 +48,7 @@ const GROUPS_COMPONENT = createFacetGroups(GROUPS, FACETS) as FunctionComponent<
 export const DEFAULT_GROUP = "general";
 
 /** Implementation of the state for Faceted search of Programming Languages. */
-export class LibrariesFacetsState extends FacetsMainState<LibraryFacetGroupKey, LibraryFacetKey> {
+export class LibrariesFacetsState extends FacetsMainState<GK, LibraryFacetKey> {
   static initial(pg: PlangsGraph): LibrariesFacetsState {
     const tab: TAB = "libs";
     return new LibrariesFacetsState({
@@ -67,7 +65,7 @@ export class LibrariesFacetsState extends FacetsMainState<LibraryFacetGroupKey, 
     return NAV;
   }
 
-  override groupTitle(key: LibraryFacetGroupKey) {
+  override groupTitle(key: GK) {
     return GROUPS.get(key)?.label ?? key;
   }
 

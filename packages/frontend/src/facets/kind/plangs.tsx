@@ -13,9 +13,7 @@ import type { VPlangKey } from "@plangs/plangs/graph/generated";
 import type { TAB } from "@plangs/server/components/layout";
 
 // biome-ignore format: Keep it in one line.
-export type PlangFacetGroupKey = "creationYear" | "dialectOf" | "general" | "implements" | "influenced" | "influencedBy" | "licenses" | "paradigms" | "platforms" | "tags" | "transpiler" | "typeSystems" | "writtenWith";
-
-type GK = PlangFacetGroupKey;
+type GK = "creationYear" | "dialectOf" | "general" | "implements" | "influenced" | "influencedBy" | "licenses" | "paradigms" | "platforms" | "tags" | "transpiler" | "typeSystems" | "writtenWith";
 type FK = PlangFacetKey;
 
 export const FACETS: FacetsMap<FK> = defineFacets<FK>(
@@ -71,7 +69,7 @@ const GROUPS_COMPONENT = createFacetGroups(GROUPS, FACETS) as FunctionComponent<
 const DEFAULT_GROUP = "general";
 
 /** Implementation of the state for Faceted search of Programming Languages. */
-export class PlangsFacetsState extends FacetsMainState<PlangFacetGroupKey, PlangFacetKey> {
+export class PlangsFacetsState extends FacetsMainState<GK, PlangFacetKey> {
   static initial(pg: PlangsGraph): PlangsFacetsState {
     const tab: TAB = "plangs";
     return new PlangsFacetsState({
@@ -87,7 +85,7 @@ export class PlangsFacetsState extends FacetsMainState<PlangFacetGroupKey, Plang
     return NAV;
   }
 
-  override groupTitle(key: PlangFacetGroupKey) {
+  override groupTitle(key: GK) {
     return GROUPS.get(key)?.label ?? key;
   }
 
