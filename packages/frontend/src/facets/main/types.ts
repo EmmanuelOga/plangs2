@@ -1,5 +1,8 @@
+import type { FunctionComponent } from "preact";
+
 import type { AnyValue } from "@plangs/auxiliar/value";
 import type { FacetBoolMapper } from "@plangs/frontend/facets/misc/facet-bool";
+import { createFacetGroupsComponent } from "@plangs/frontend/facets/misc/facet-group";
 import type { FacetTableConfig } from "@plangs/frontend/facets/table/entries";
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -35,39 +38,17 @@ export function text<FK>(facetKey: FK, label: string): FacetConfigText<FK> {
   return { kind: "text", facetKey, label };
 }
 
-/** Define a map of facets keyed by facetKey. */
-export function defineFacets<FK extends string>(...facets: readonly FacetConfig<FK>[]): FacetsMap<FK> {
-  return facets.reduce(
-    (map, facet) => {
-      map.set(facet.facetKey, facet);
-      return map;
-    },
-    new Map() as FacetsMap<FK>,
-  );
-}
-
-////////////////////////////////////////////////////////////////////////////////
-/// Facet Group Configuration
-////////////////////////////////////////////////////////////////////////////////
-
-/** Type of a group of facets. */
-export type FacetGroupConfig<GK, FK> = { groupKey: GK; label: string; facetKeys: readonly FK[] };
-
-/** Map from group key to its group of facets. */
-export type GroupsMap<GK, FK> = Map<GK, FacetGroupConfig<GK, FK>>;
-
-/** Define a gorup of facet inputs. */
-export function group<GK, FK>(groupKey: GK, label: string, facetKeys: FK[]): FacetGroupConfig<GK, FK> {
-  return { groupKey, label, facetKeys };
-}
-
-/** Define a map of groups keyed by group key, and derive a map of groupKey by facetKey (so we can tell which group holds which facet). */
-export function defineGroups<GK, FK>(...groups: FacetGroupConfig<GK, FK>[]): readonly [GroupsMap<GK, FK>, Map<FK, GK>] {
-  const groupMap = new Map<GK, FacetGroupConfig<GK, FK>>();
-  const groupForFacetKey = new Map<FK, GK>();
-  for (const group of groups) {
-    groupMap.set(group.groupKey, group);
-    for (const facetKey of group.facetKeys) groupForFacetKey.set(facetKey, group.groupKey);
+/** Returns a map of group config, a map of group key by facet key, and a preact componetn to render the group. */
+export function defineFacetGroups<GK extends string, FK extends string>(
+  groups: Record<GK, { title: string; facets: FacetConfig<FK>[] }>,
+): [Map<GK, { title: string; facets: FacetConfig<FK>[] }>, Map<FK, GK>, FunctionComponent<{ currentFacetGroup: string }>] {
+  const groupsMap = new Map(Object.entries(groups) as [GK, { title: string; facets: FacetConfig<FK>[] }][]);
+  const gkByFk = new Map<FK, GK>();
+  type GEntry = { title: string; facets: FacetConfig<FK>[] };
+  for (const [groupKey, { facets }] of Object.entries(groups) as [GK, GEntry][]) {
+    for (const facet of facets) gkByFk.set(facet.facetKey, groupKey);
   }
-  return [groupMap, groupForFacetKey] as const;
+  const component = createFacetGroupsComponent(groupsMap);
+
+  return [groupsMap, gkByFk, component as FunctionComponent<{ currentFacetGroup: string }>];
 }

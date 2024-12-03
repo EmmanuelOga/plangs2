@@ -23,7 +23,7 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
 }> {
   /** Attempt to reconstruct the state from a serialized value (ex: a value coming from the URL fragment). */
   // biome-ignore lint/suspicious/noExplicitAny: this data is the result of a de/serialization process and is not typed.
-  static deserialize<GK, FK>(groupsByFacetKey: Map<FK, GK>, genericData: any): Map2<GK, FK, AnyValue> {
+  static deserialize<GK extends string, FK extends string>(groupsByFacetKey: Map<FK, GK>, genericData: any): Map2<GK, FK, AnyValue> {
     const result = new Map2<GK, FK, AnyValue>();
     if (!genericData) return result;
     for (const [facetKey, rawValue] of Object.entries(genericData)) {

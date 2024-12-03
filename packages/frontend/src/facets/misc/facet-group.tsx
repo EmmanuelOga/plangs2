@@ -5,26 +5,24 @@ import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { DESELECT } from "@plangs/frontend/auxiliar/icons";
 import { BAR, BORDER, HOVER_SVG_GROUP, tw } from "@plangs/frontend/auxiliar/styles";
 import { type AnyFacetsMainState, FacetsMainContext } from "@plangs/frontend/facets/main/main";
+import type { FacetConfig } from "@plangs/frontend/facets/main/types";
 import { FacetBool } from "@plangs/frontend/facets/misc/facet-bool";
 import { FacetText } from "@plangs/frontend/facets/misc/facet-text";
 import { FacetMulti } from "@plangs/frontend/facets/multisel/facet-multi";
 import { FacetTable } from "@plangs/frontend/facets/table/facet-table";
 
-import type { FacetConfig, FacetsMap, GroupsMap } from "@plangs/frontend/facets/main/types";
-
 /** Higher order component: Return a component wrapping several FacetGroup components. */
-export function createFacetGroups<GK extends string, FK extends string>(
-  groups: GroupsMap<GK, FK>,
-  facets: FacetsMap<FK>,
+export function createFacetGroupsComponent<GK extends string, FK extends string>(
+  groups: Map<GK, { title: string; facets: FacetConfig<FK>[] }>,
 ): FunctionComponent<{ currentFacetGroup: GK }> {
   return ({ currentFacetGroup }) => (
     <>
-      {[...groups.values()].map(({ groupKey, label, facetKeys }) => (
-        <FacetGroup<GK> key={groupKey} groupKey={groupKey} label={label} active={currentFacetGroup === groupKey}>
-          {facetKeys.map(facetKey => {
-            const facet = facets.get(facetKey) as FacetConfig<FK>;
-            const props = { groupKey, facetKey, label: facet.label, active: currentFacetGroup === groupKey };
-            switch (facet?.kind) {
+      {[...groups.entries()].map(([groupKey, { title, facets }]) => (
+        <FacetGroup<GK> key={groupKey} groupKey={groupKey} label={title} active={currentFacetGroup === groupKey}>
+          {facets.map(facet => {
+            const { kind, label, facetKey } = facet;
+            const props = { groupKey, facetKey, label, active: currentFacetGroup === groupKey };
+            switch (kind) {
               case "bool":
                 return <FacetBool {...props} valueMapper={facet.valueMapper} />;
               case "multi":

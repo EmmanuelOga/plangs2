@@ -1,11 +1,8 @@
-import type { FunctionComponent } from "preact";
-
 import { ValNil, ValNumber } from "@plangs/auxiliar/value";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { loadLocalStorage } from "@plangs/frontend/auxiliar/storage";
 import { FacetsMainState } from "@plangs/frontend/facets/main/state";
-import { type FacetsMap, type GroupsMap, bool, defineFacets, defineGroups, group, table, text } from "@plangs/frontend/facets/main/types";
-import { createFacetGroups } from "@plangs/frontend/facets/misc/facet-group";
+import { bool, defineFacetGroups, table, text } from "@plangs/frontend/facets/main/types";
 import { matchVertices } from "@plangs/plangs/facets";
 import type { ToolFacetKey } from "@plangs/plangs/facets/tools";
 import { type PlangsGraph, prop, rel } from "@plangs/plangs/graph";
@@ -16,34 +13,26 @@ import type { TAB } from "@plangs/server/components/layout";
 type GK = "creationYear" | "general" | "licenses" | "platforms" | "tags" | "writtenFor" | "writtenWith";
 type FK = ToolFacetKey;
 
-export const FACETS: FacetsMap<FK> = defineFacets<FK>(
-  bool("createdRecently", "Created Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 5) : new ValNil())),
-  bool("releasedRecently", "Released Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 1) : new ValNil())),
-  table("creationYear", "Creation Year", prop("tool", "created")),
-  table("licenses", "Licenses", rel("tool", "relLicenses")),
-  table("platforms", "Platforms", rel("tool", "relPlatforms")),
-  table("tags", "Tags", rel("tool", "relTags")),
-  table("writtenFor", "Written For", rel("tool", "relPlangs")),
-  table("writtenWith", "Written With", rel("tool", "relWrittenWith")),
-  text("ghStars", "GitHub Stars"),
-  text("name", "Tool Name"),
-);
-
-const [GROUPS, GROUP_BY_FACET_KEY]: readonly [GroupsMap<GK, FK>, Map<FK, GK>] = defineGroups<GK, FK>(
-  group("creationYear", "Creation Year", ["creationYear"]),
-  group("general", "General", ["name", "createdRecently", "releasedRecently", "ghStars"]),
-  group("licenses", "Licenses", ["licenses"]),
-  group("platforms", "Platforms", ["platforms"]),
-  group("tags", "Tags", ["tags"]),
-  group("writtenFor", "Written For", ["writtenFor"]),
-  group("writtenWith", "Written With", ["writtenWith"]),
-);
+const [GROUPS, GK_BY_FK, COMPONENT] = defineFacetGroups<GK, FK>({
+  creationYear: { title: "Creation Year", facets: [table("creationYear", "Creation Year", prop("tool", "created"))] },
+  general: {
+    title: "General",
+    facets: [
+      text("name", "Tool Name"),
+      bool("createdRecently", "Created Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 5) : new ValNil())),
+      bool("releasedRecently", "Released Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 1) : new ValNil())),
+      text("ghStars", "GitHub Stars"),
+    ],
+  },
+  licenses: { title: "Licenses", facets: [table("licenses", "Licenses", rel("tool", "relLicenses"))] },
+  platforms: { title: "Platforms", facets: [table("platforms", "Platforms", rel("tool", "relPlatforms"))] },
+  tags: { title: "Tags", facets: [table("tags", "Tags", rel("tool", "relTags"))] },
+  writtenFor: { title: "Written For", facets: [table("writtenFor", "Written For", rel("tool", "relPlangs"))] },
+  writtenWith: { title: "Written With", facets: [table("writtenWith", "Written With", rel("tool", "relWrittenWith"))] },
+});
 
 /** Group keys for the navigation menu.  */
 const NAV: GK[][] = [["general"], ["writtenWith", "writtenFor"], ["tags", "creationYear", "licenses"], ["platforms"]] as const;
-
-/** Create a Higher order component that wraps several groups. */
-const GROUPS_COMPONENT = createFacetGroups(GROUPS, FACETS) as FunctionComponent<{ currentFacetGroup: string }>;
 
 export const DEFAULT_GROUP = "general";
 
@@ -56,7 +45,7 @@ export class ToolsFacetsState extends FacetsMainState<GK, ToolFacetKey> {
       tab,
       defaultGroup: DEFAULT_GROUP,
       currentGroupKey: loadLocalStorage(tab, "lastGroup") ?? DEFAULT_GROUP,
-      values: FacetsMainState.deserialize(GROUP_BY_FACET_KEY, FragmentTracker.deserialize() ?? loadLocalStorage(tab, "inputs")),
+      values: FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? loadLocalStorage(tab, "inputs")),
     }).updateClearFacets();
   }
 
@@ -65,11 +54,11 @@ export class ToolsFacetsState extends FacetsMainState<GK, ToolFacetKey> {
   }
 
   override groupTitle(key: GK) {
-    return GROUPS.get(key)?.label ?? key;
+    return GROUPS.get(key)?.title ?? key;
   }
 
   override get facetGroupsComponent() {
-    return GROUPS_COMPONENT;
+    return COMPONENT;
   }
 
   override get results(): Set<VToolKey> {
@@ -78,6 +67,6 @@ export class ToolsFacetsState extends FacetsMainState<GK, ToolFacetKey> {
   }
 
   override get groupsByFacetKey() {
-    return GROUP_BY_FACET_KEY;
+    return GK_BY_FK;
   }
 }
