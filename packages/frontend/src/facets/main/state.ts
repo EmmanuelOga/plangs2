@@ -2,15 +2,11 @@ import type { FunctionComponent } from "preact";
 
 import { Map2 } from "@plangs/auxiliar/map2";
 import { type AnyValue, deserializeValue } from "@plangs/auxiliar/value";
-import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
+import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { $ } from "@plangs/frontend/auxiliar/dom";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { updateLocalStorage } from "@plangs/frontend/auxiliar/storage";
 import type { ToggleClearFacets } from "@plangs/frontend/components/icon-button/state";
-import { AppsFacetsState } from "@plangs/frontend/facets/kind/apps";
-import { LibrariesFacetsState } from "@plangs/frontend/facets/kind/libraries";
-import { PlangsFacetsState } from "@plangs/frontend/facets/kind/plangs";
-import { ToolsFacetsState } from "@plangs/frontend/facets/kind/tools";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TAB } from "@plangs/server/components/layout";
 
@@ -18,25 +14,7 @@ import { updateThumbns } from "./grid_util";
 
 export type SerializedFacets<FacetKey extends string> = Partial<Record<FacetKey, ReturnType<AnyValue["serializable"]>>>;
 
-/** Generic state so components can work with any group and facet key. */
-export type AnyFacetsMainState = FacetsMainState<string, string>;
-
-export function useFacetState(tab: TAB, pg: PlangsGraph): AnyFacetsMainState | undefined {
-  let state: AnyFacetsMainState | undefined;
-
-  if (tab === "plangs") state = useDispatchable(() => PlangsFacetsState.initial(pg) as AnyFacetsMainState);
-  if (tab === "tools") state = useDispatchable(() => ToolsFacetsState.initial(pg) as AnyFacetsMainState);
-  if (tab === "apps") state = useDispatchable(() => AppsFacetsState.initial(pg) as AnyFacetsMainState);
-  if (tab === "libs") state = useDispatchable(() => LibrariesFacetsState.initial(pg) as AnyFacetsMainState);
-
-  if (!state) {
-    console.error("Unknown tab", tab);
-    return;
-  }
-
-  return state.updateClearFacets();
-}
-
+/** State for the facets browser, extended by each specific Facet Browser for each Vertex. */
 export abstract class FacetsMainState<GroupKey extends string, FacetKey extends string> extends Dispatchable<{
   pg: PlangsGraph;
   currentGroupKey: GroupKey;

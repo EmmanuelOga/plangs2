@@ -7,7 +7,7 @@ import type { TAB } from "@plangs/server/components/layout";
 import { cssClass } from "@plangs/server/elements";
 
 import { FacetsMain } from "./main";
-import type { AnyFacetsMainState } from "./state";
+import type { AnyFacetsMainState } from "./use_state";
 
 const CL = "facetsMain";
 

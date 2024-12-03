@@ -1,4 +1,4 @@
-import { Fragment, type Ref, createContext } from "preact";
+import { Fragment, type Ref } from "preact";
 import { useEffect } from "preact/hooks";
 
 import { useRootState } from "@plangs/frontend/auxiliar/dispatchable";
@@ -8,10 +8,7 @@ import { BORDER, HOVER, tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TAB } from "@plangs/server/components/layout";
 
-import { type AnyFacetsMainState, useFacetState } from "./state";
-
-/** Share the main component state across all other children components that may need it. */
-export const FacetsMainContext = createContext<AnyFacetsMainState | undefined>(undefined);
+import { FacetsMainContext, useFacetState } from "./use_state";
 
 export function FacetsMain({ tab, pg }: { tab: TAB; pg: PlangsGraph }) {
   const state = useFacetState(tab, pg);

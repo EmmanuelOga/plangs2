@@ -37,7 +37,6 @@ const NAV: { groupKeys: GK[][]; default: GK } = {
   default: "general",
 };
 
-/** Implementation of the state for Faceted search of Programming Languages. */
 export class ToolsFacetsState extends FacetsMainState<GK, ToolFacetKey> {
   override readonly nav = NAV;
   override readonly tab = TOOLS_TAB;

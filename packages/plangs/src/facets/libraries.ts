@@ -7,22 +7,18 @@ import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 
 type Pred<T extends Value<AnyValue>> = (library: VLibrary, value: T) => boolean;
 
-/**
- * Predicates to filter Libraries.
- */
+/** Predicates to filter Libraries. */
 export const LIBRARY_FACET_PREDICATES = {
-  // General
   createdRecently: ((lib, date) => lib.created.isRecent(date.value as StrDate)) as Pred<ValString>,
   creationYear: ((lib, flt) => ret(lib.created.strYear, libraryYear => flt.matches(year => libraryYear === year))) as Pred<Filter<string>>,
   ghStars: ((lib, num) => lib.github.stars > num.value) as Pred<ValNumber>,
-  name: ((lib, str) => lib.lcName.includes(str.value)) as Pred<ValString>,
-  releasedRecently: ((lib, date) => ret(lib.releases.last, lastRel => lastRel?.isRecent(date.value as StrDate))) as Pred<ValString>,
-
   licenses: ((lib, flt) => flt.matches(key => lib.relLicenses.has(key))) as Pred<Filter<VLicenseKey>>,
+  name: ((lib, str) => lib.lcName.includes(str.value)) as Pred<ValString>,
   platforms: ((lib, flt) => flt.matches(key => lib.relPlatforms.has(key))) as Pred<Filter<VPlatformKey>>,
+  releasedRecently: ((lib, date) => ret(lib.releases.last, lastRel => lastRel?.isRecent(date.value as StrDate))) as Pred<ValString>,
   tags: ((lib, flt) => flt.matches(key => lib.relTags.has(key))) as Pred<Filter<VTagKey>>,
-  writtenWith: ((lib, flt) => flt.matches(key => lib.relWrittenWith.has(key))) as Pred<Filter<VPlangKey>>,
   writtenFor: ((lib, flt) => flt.matches(key => lib.relPlangs.has(key))) as Pred<Filter<VPlangKey>>,
+  writtenWith: ((lib, flt) => flt.matches(key => lib.relWrittenWith.has(key))) as Pred<Filter<VPlangKey>>,
 } as const;
 
 export type LibraryFacetKey = keyof typeof LIBRARY_FACET_PREDICATES;

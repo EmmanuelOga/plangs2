@@ -7,9 +7,7 @@ import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 
 type Pred<T extends Value<AnyValue>> = (pl: VPlang, value: T) => boolean;
 
-/**
- * Predicates to filter Plangs.
- */
+/** Predicates to filter Plangs. */
 export const PLANG_FACET_PREDICATES = {
   compilesTo: ((pl, flt) => flt.matches(key => pl.relCompilesTo.has(key))) as Pred<Filter<VPlangKey>>,
   createdRecently: ((pl, date) => pl.created.isRecent(date.value as StrDate)) as Pred<ValString>,
@@ -33,9 +31,9 @@ export const PLANG_FACET_PREDICATES = {
   writtenWith: ((pl, flt) => flt.matches(key => pl.relWrittenWith.has(key))) as Pred<Filter<VPlangKey>>,
 
   // These relationships are probably less useful for filtering.
-  // targetOf: // "Target of", rel("plang", "relTargetOf")). Ex. Pick "Haxe" and see what languages it targets.
   // dialects: // "Dialects", rel("plang", "relDialects")). Ex. Pick "VisualBasic" and see "Basic".
   // implementedBy: // "Implemented By", rel("plang", "relImplementedBy")). Ex. Pick "CPython" and see "Python".
+  // targetOf: // "Target of", rel("plang", "relTargetOf")). Ex. Pick "Haxe" and see what languages it targets.
   // usedToWrite: //  "Used to Write", rel("plang", "relUsedToWrite")). Ex Pick "C++" and see "C".
 } as const;
 

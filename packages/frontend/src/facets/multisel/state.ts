@@ -1,6 +1,6 @@
 import { Filter } from "@plangs/auxiliar/filters";
 import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
-import type { AnyFacetsMainState } from "@plangs/frontend/facets/main/main";
+import type { AnyFacetsMainState } from "@plangs/frontend/facets/main/use_state";
 
 type Val = string | number | boolean;
 

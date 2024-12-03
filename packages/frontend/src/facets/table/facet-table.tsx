@@ -7,8 +7,7 @@ import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { on } from "@plangs/frontend/auxiliar/events";
 import { BORDER, HOVER, tw } from "@plangs/frontend/auxiliar/styles";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
-import type { AnyFacetsMainState } from "@plangs/frontend/facets/main/main";
-import { FacetsMainContext } from "@plangs/frontend/facets/main/main";
+import { type AnyFacetsMainState, FacetsMainContext } from "@plangs/frontend/facets/main/use_state";
 
 import { type FacetTableConfig, generateEntries, sortEntries } from "./entries";
 import { Header } from "./header";

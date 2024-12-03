@@ -38,6 +38,10 @@ export function text<FK>(facetKey: FK, label: string): FacetConfigText<FK> {
   return { kind: "text", facetKey, label };
 }
 
+////////////////////////////////////////////////////////////////////////////////
+/// Facet Groups Configuration helper.
+////////////////////////////////////////////////////////////////////////////////
+
 /** Returns a map of group config, a map of group key by facet key, and a preact componetn to render the group. */
 export function defineFacetGroups<GK extends string, FK extends string>(
   groups: Record<GK, { title: string; facets: FacetConfig<FK>[] }>,

@@ -7,21 +7,18 @@ import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 
 type Pred<T extends Value<AnyValue>> = (tool: VTool, value: T) => boolean;
 
-/**
- * Predicates to filter Tools.
- */
+/** Predicates to filter Tools.*/
 export const TOOL_FACET_PREDICATES = {
   createdRecently: ((tool, date) => tool.created.isRecent(date.value as StrDate)) as Pred<ValString>,
   creationYear: ((tool, flt) => ret(tool.created.strYear, toolYear => flt.matches(year => toolYear === year))) as Pred<Filter<string>>,
   ghStars: ((tool, num) => tool.github.stars > num.value) as Pred<ValNumber>,
-  name: ((tool, str) => tool.lcName.includes(str.value)) as Pred<ValString>,
-  releasedRecently: ((tool, date) => ret(tool.releases.last, lastRel => lastRel?.isRecent(date.value as StrDate))) as Pred<ValString>,
-
   licenses: ((tool, flt) => flt.matches(key => tool.relLicenses.has(key))) as Pred<Filter<VLicenseKey>>,
+  name: ((tool, str) => tool.lcName.includes(str.value)) as Pred<ValString>,
   platforms: ((tool, flt) => flt.matches(key => tool.relPlatforms.has(key))) as Pred<Filter<VPlatformKey>>,
+  releasedRecently: ((tool, date) => ret(tool.releases.last, lastRel => lastRel?.isRecent(date.value as StrDate))) as Pred<ValString>,
   tags: ((tool, flt) => flt.matches(key => tool.relTags.has(key))) as Pred<Filter<VTagKey>>,
-  writtenWith: ((tool, flt) => flt.matches(key => tool.relWrittenWith.has(key))) as Pred<Filter<VPlangKey>>,
   writtenFor: ((tool, flt) => flt.matches(key => tool.relPlangs.has(key))) as Pred<Filter<VPlangKey>>,
+  writtenWith: ((tool, flt) => flt.matches(key => tool.relWrittenWith.has(key))) as Pred<Filter<VPlangKey>>,
 } as const;
 
 export type ToolFacetKey = keyof typeof TOOL_FACET_PREDICATES;

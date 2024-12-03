@@ -1,6 +1,6 @@
+import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { HOVER, tw } from "@plangs/frontend/auxiliar/styles";
 
-import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { type Column, type FacetTableConfig, type Order, icon, label } from "./entries";
 
 export function Header({
