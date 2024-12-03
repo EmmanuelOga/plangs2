@@ -2,11 +2,15 @@ import type { FunctionComponent } from "preact";
 
 import { Map2 } from "@plangs/auxiliar/map2";
 import { type AnyValue, deserializeValue } from "@plangs/auxiliar/value";
-import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
+import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { $ } from "@plangs/frontend/auxiliar/dom";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { updateLocalStorage } from "@plangs/frontend/auxiliar/storage";
 import type { ToggleClearFacets } from "@plangs/frontend/components/icon-button/state";
+import { AppsFacetsState } from "@plangs/frontend/facets/kind/apps";
+import { LibrariesFacetsState } from "@plangs/frontend/facets/kind/libraries";
+import { PlangsFacetsState } from "@plangs/frontend/facets/kind/plangs";
+import { ToolsFacetsState } from "@plangs/frontend/facets/kind/tools";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TAB } from "@plangs/server/components/layout";
 
@@ -14,10 +18,27 @@ import { updateThumbns } from "./grid_util";
 
 export type SerializedFacets<FacetKey extends string> = Partial<Record<FacetKey, ReturnType<AnyValue["serializable"]>>>;
 
+/** Generic state so components can work with any group and facet key. */
+export type AnyFacetsMainState = FacetsMainState<string, string>;
+
+export function useFacetState(tab: TAB, pg: PlangsGraph): AnyFacetsMainState | undefined {
+  let state: AnyFacetsMainState | undefined;
+
+  if (tab === "plangs") state = useDispatchable(() => PlangsFacetsState.initial(pg) as AnyFacetsMainState);
+  if (tab === "tools") state = useDispatchable(() => ToolsFacetsState.initial(pg) as AnyFacetsMainState);
+  if (tab === "apps") state = useDispatchable(() => AppsFacetsState.initial(pg) as AnyFacetsMainState);
+  if (tab === "libs") state = useDispatchable(() => LibrariesFacetsState.initial(pg) as AnyFacetsMainState);
+
+  if (!state) {
+    console.error("Unknown tab", tab);
+    return;
+  }
+
+  return state.updateClearFacets();
+}
+
 export abstract class FacetsMainState<GroupKey extends string, FacetKey extends string> extends Dispatchable<{
-  tab: TAB;
   pg: PlangsGraph;
-  defaultGroup: GroupKey;
   currentGroupKey: GroupKey;
   values: Map2<GroupKey, FacetKey, AnyValue>;
 }> {
@@ -62,7 +83,7 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
     } else {
       this.values.clear();
     }
-    this.doSetCurrentGroup(this.defaultGroup);
+    this.doSetCurrentGroup(this.nav.default);
   }
 
   /** This dispatches since we want to change the indicator of active state. */
@@ -84,14 +105,6 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
   }
 
   /** Queries */
-
-  get tab(): TAB {
-    return this.data.tab;
-  }
-
-  get defaultGroup() {
-    return this.data.defaultGroup;
-  }
 
   get pg(): PlangsGraph {
     return this.data.pg;
@@ -118,6 +131,10 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
       if (v.isPresent) return true;
     }
     return false;
+  }
+
+  groupTitle(key: GroupKey) {
+    return this.groupsConfig.get(key)?.title ?? key;
   }
 
   /** Helpers */
@@ -148,16 +165,20 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
 
   /** Abstract Methods. */
 
-  /** Links to FacetGroups appear in groups. */
-  abstract readonly navGroupKeys: GroupKey[][];
+  /** Tab displaying the filters. */
+  abstract readonly tab: TAB;
 
-  /** The component that defines the content of a facet group. */
-  abstract readonly groupsComponent: FunctionComponent<{ currentFacetGroup: string }>;
+  /** Navigation configuration. */
+  abstract readonly nav: { groupKeys: GroupKey[][]; default: GroupKey };
 
   /** Which group a facet key belongs to. */
   abstract readonly gkByFk: Map<FacetKey, GroupKey>;
 
-  abstract groupTitle(groupKey: GroupKey): string;
+  /** Configuration of the groups. */
+  abstract readonly groupsConfig: Map<GroupKey, { title: string }>;
+
+  /** The component that defines the content of a facet group. */
+  abstract readonly groupsComponent: FunctionComponent<{ currentFacetGroup: string }>;
 
   /** A set of vertex keys that are the result of applying the filters. */
   abstract get results(): Set<string>;

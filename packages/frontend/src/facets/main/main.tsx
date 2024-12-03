@@ -1,39 +1,19 @@
 import { Fragment, type Ref, createContext } from "preact";
 import { useEffect } from "preact/hooks";
 
-import { useDispatchable, useRootState } from "@plangs/frontend/auxiliar/dispatchable";
+import { useRootState } from "@plangs/frontend/auxiliar/dispatchable";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { FULLCIRCLE } from "@plangs/frontend/auxiliar/icons";
 import { BORDER, HOVER, tw } from "@plangs/frontend/auxiliar/styles";
-import { AppsFacetsState } from "@plangs/frontend/facets/kind/apps";
-import { LibrariesFacetsState } from "@plangs/frontend/facets/kind/libraries";
-import { PlangsFacetsState } from "@plangs/frontend/facets/kind/plangs";
-import { ToolsFacetsState } from "@plangs/frontend/facets/kind/tools";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TAB } from "@plangs/server/components/layout";
 
-import type { FacetsMainState } from "./state";
-
-export type FacetsMainProps = {
-  tab: TAB;
-  pg: PlangsGraph;
-};
+import { type AnyFacetsMainState, useFacetState } from "./state";
 
 /** Share the main component state across all other children components that may need it. */
 export const FacetsMainContext = createContext<AnyFacetsMainState | undefined>(undefined);
 
-/** Generic state so components can work with any group and facet key. */
-export type AnyFacetsMainState = FacetsMainState<string, string>;
-
-export function useFacetState(tab: TAB, pg: PlangsGraph): AnyFacetsMainState | undefined {
-  if (tab === "plangs") return useDispatchable(() => PlangsFacetsState.initial(pg) as AnyFacetsMainState);
-  if (tab === "tools") return useDispatchable(() => ToolsFacetsState.initial(pg) as AnyFacetsMainState);
-  if (tab === "apps") return useDispatchable(() => AppsFacetsState.initial(pg) as AnyFacetsMainState);
-  if (tab === "libs") return useDispatchable(() => LibrariesFacetsState.initial(pg) as AnyFacetsMainState);
-  console.error("Unknown tab", tab);
-}
-
-export function FacetsMain({ tab, pg }: FacetsMainProps) {
+export function FacetsMain({ tab, pg }: { tab: TAB; pg: PlangsGraph }) {
   const state = useFacetState(tab, pg);
   const self = useRootState(state);
 
@@ -46,7 +26,7 @@ export function FacetsMain({ tab, pg }: FacetsMainProps) {
         {/* Wrapper to avoid streteching the links to the bottom of the screen. */}
         <div class={tw(tw(BORDER, "border-r-1"), "overflow-y-scroll", "shrink-0 grow-0")}>
           <div class={tw("grid grid-cols-[auto_auto]", "gap-2", "pt-1")}>
-            {state.navGroupKeys.flatMap(keys => (
+            {state.nav.groupKeys.flatMap(keys => (
               // Subgrid respects the alignment of indicators while allowing to group the links and add a border.
               <div key={keys.join("-")} class={tw("col-span-2", "grid grid-cols-subgrid", "items-center", "pb-2", tw(BORDER, "border-b-1"))}>
                 {/* biome-ignore lint/suspicious/noExplicitAny: we set as any here since the groupKey is actually a string that can belong to _any_ facet group. */}

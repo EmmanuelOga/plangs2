@@ -31,6 +31,7 @@ const [GROUPS, GK_BY_FK, COMPONENT] = defineFacetGroups<GK, FK>({
   writtenWith: { title: "Written With", facets: [table("writtenWith", "Written With", rel("tool", "relWrittenWith"))] },
 });
 
+const TOOLS_TAB: TAB = "tools";
 const NAV: { groupKeys: GK[][]; default: GK } = {
   groupKeys: [["general"], ["writtenWith", "writtenFor"], ["tags", "creationYear", "licenses"], ["platforms"]],
   default: "general",
@@ -38,35 +39,20 @@ const NAV: { groupKeys: GK[][]; default: GK } = {
 
 /** Implementation of the state for Faceted search of Programming Languages. */
 export class ToolsFacetsState extends FacetsMainState<GK, ToolFacetKey> {
+  override readonly nav = NAV;
+  override readonly tab = TOOLS_TAB;
+  override readonly gkByFk = GK_BY_FK;
+  override readonly groupsConfig = GROUPS;
+  override readonly groupsComponent = COMPONENT;
+
   static initial(pg: PlangsGraph): ToolsFacetsState {
-    const tab: TAB = "tools";
-    return new ToolsFacetsState({
-      pg,
-      tab,
-      defaultGroup: NAV.default,
-      currentGroupKey: loadLocalStorage(tab, "lastGroup") ?? NAV.default,
-      values: FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? loadLocalStorage(tab, "inputs")),
-    }).updateClearFacets();
-  }
-
-  override get navGroupKeys() {
-    return NAV.groupKeys;
-  }
-
-  override groupTitle(key: GK) {
-    return GROUPS.get(key)?.title ?? key;
-  }
-
-  override get groupsComponent() {
-    return COMPONENT;
+    const currentGroupKey = loadLocalStorage(TOOLS_TAB, "lastGroup") ?? NAV.default;
+    const values = FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? loadLocalStorage(TOOLS_TAB, "inputs"));
+    return new ToolsFacetsState({ pg, currentGroupKey, values });
   }
 
   override get results(): Set<VToolKey> {
     if (!this.pg) return new Set();
     return matchVertices(this.pg.tool, this.values.getMap2());
-  }
-
-  override get gkByFk() {
-    return GK_BY_FK;
   }
 }

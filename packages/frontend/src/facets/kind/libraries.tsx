@@ -40,6 +40,7 @@ const [GROUPS, GK_BY_FK, COMPONENT] = defineFacetGroups<GK, FK>({
   writtenFor: { title: "Written For", facets: [table("writtenFor", "Written For", rel("tool", "relPlangs"))] },
 });
 
+const LIBS_TAB: TAB = "libs";
 const NAV: { groupKeys: GK[][]; default: GK } = {
   groupKeys: [["general"], ["writtenWith", "writtenFor"], ["tags", "creationYear", "licenses"], ["platforms"]],
   default: "general",
@@ -47,23 +48,16 @@ const NAV: { groupKeys: GK[][]; default: GK } = {
 
 /** Implementation of the state for Faceted search of Programming Languages. */
 export class LibrariesFacetsState extends FacetsMainState<GK, LibraryFacetKey> {
-  static initial(pg: PlangsGraph): LibrariesFacetsState {
-    const tab: TAB = "libs";
-    return new LibrariesFacetsState({
-      pg,
-      tab,
-      defaultGroup: NAV.default,
-      currentGroupKey: loadLocalStorage(tab, "lastGroup") ?? NAV.default,
-      values: FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? loadLocalStorage(tab, "inputs")),
-    }).updateClearFacets();
-  }
-
-  override readonly navGroupKeys = NAV.groupKeys;
-  override readonly groupsComponent = COMPONENT;
+  override readonly nav = NAV;
+  override readonly tab = LIBS_TAB;
   override readonly gkByFk = GK_BY_FK;
+  override readonly groupsConfig = GROUPS;
+  override readonly groupsComponent = COMPONENT;
 
-  override groupTitle(key: GK) {
-    return GROUPS.get(key)?.title ?? key;
+  static initial(pg: PlangsGraph): LibrariesFacetsState {
+    const currentGroupKey = loadLocalStorage(LIBS_TAB, "lastGroup") ?? NAV.default;
+    const values = FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? loadLocalStorage(LIBS_TAB, "inputs"));
+    return new LibrariesFacetsState({ pg, currentGroupKey, values });
   }
 
   override get results(): Set<VLibraryKey> {
