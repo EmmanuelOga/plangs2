@@ -2,6 +2,7 @@ import { basename, join } from "node:path";
 
 import { Glob } from "bun";
 
+import { NON_AZ } from "@plangs/graphgen/library";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { VPlangKey } from "@plangs/plangs/graph/generated";
 
@@ -24,8 +25,14 @@ export async function loadDefinitions(g: PlangsGraph, options: { scanImages: boo
     for (const path of await getPaths(new Glob("**/*.{png,jpg,svg}"), join(import.meta.dir, "definitions/pl"))) {
       const [pk, k] = basename(path).split(".");
       const kind = k === "screenshot" || k === "logo" ? k : "other";
-      const plKey: VPlangKey = `pl+${pk.replaceAll("_", ".")}`;
+
+      // This makes a lot of assumptions about the names of the plang, which work for the current plangs.
+      // We may need to revisit if it breaks (for instance, having stronger conventions for the plang and image names).
+      const plainKey = (pk.startsWith(NON_AZ) ? `.${pk.slice(1)}` : pk).replaceAll("_", ".");
+
+      const plKey: VPlangKey = `pl+${plainKey}`;
       const pl = g.plang.get(plKey);
+
       if (pl) {
         pl.addImages([{ kind, title: pl.name, url: `/images/${path}` }]);
       } else {
