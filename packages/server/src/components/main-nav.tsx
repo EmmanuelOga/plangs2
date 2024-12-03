@@ -1,6 +1,6 @@
 import { BORDER, tw } from "@plangs/frontend/auxiliar/styles";
-import { script } from "@plangs/frontend/auxiliar/utils";
 import { cssID } from "@plangs/server/elements";
+import { script } from "@plangs/server/utils/html";
 
 import type { TAB } from "./layout";
 

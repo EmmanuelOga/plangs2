@@ -1,9 +1,9 @@
 import type { ComponentChildren } from "preact";
 
 import { stripes, tw } from "@plangs/frontend/auxiliar/styles";
-import { script } from "@plangs/frontend/auxiliar/utils";
 import { iconButton } from "@plangs/frontend/components/icon-button";
 import type { PlangsGraph, VPlang } from "@plangs/plangs/graph";
+import { script } from "@plangs/server/utils/html";
 
 import { MainNav } from "./main-nav";
 import { PlangsLogo } from "./plangs-logo";

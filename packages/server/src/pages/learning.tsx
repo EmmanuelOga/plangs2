@@ -1,10 +1,10 @@
 import { tw } from "@plangs/frontend/auxiliar/styles";
-import { script } from "@plangs/frontend/auxiliar/utils";
 import { vertexInfo } from "@plangs/frontend/components/vertex-info";
 import { facetsMain } from "@plangs/frontend/facets/main";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import { Layout, type TAB } from "@plangs/server/components/layout";
-import { VertexGrid } from "../components/vertex-grid";
+import { VertexGrid } from "@plangs/server/components/vertex-grid";
+import { script } from "@plangs/server/utils/html";
 
 export function Learning({ pg }: { pg: PlangsGraph }) {
   const tab: TAB = "learning";

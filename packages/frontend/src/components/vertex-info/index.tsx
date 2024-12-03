@@ -1,8 +1,6 @@
 import { render } from "preact";
 
-import { lastPlang } from "@plangs/frontend/app/pl";
 import { elems } from "@plangs/frontend/auxiliar/dom";
-import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TAB } from "@plangs/server/components/layout";
 import { cssClass } from "@plangs/server/elements";
 
@@ -20,9 +18,4 @@ export function renderVertexInfo({ vertex, tab, open }: VertexInfoProps) {
   for (const elem of elems<HTMLDivElement>("vertexInfo")) {
     render(<VertexInfo vertex={vertex} tab={tab} open={open} />, elem);
   }
-}
-
-export function renderLastVertexInfo(pg: PlangsGraph) {
-  const vertex = lastPlang(pg);
-  if (vertex) renderVertexInfo({ vertex, tab: "plangs" });
 }

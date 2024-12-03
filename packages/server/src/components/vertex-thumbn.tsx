@@ -4,6 +4,7 @@ import { tw } from "@plangs/frontend/auxiliar/styles";
 import { VPlang } from "@plangs/plangs/graph";
 import type { PlangsVertex } from "@plangs/plangs/graph/vertex_base";
 import { cssClass } from "@plangs/server/elements";
+import { dataset } from "@plangs/server/utils/html";
 
 const PLACEHOLDER = "/images/placeholder.png";
 
@@ -11,10 +12,7 @@ export function VertexThumbn({ vertex, class: klass }: { class?: string; vertex:
   const thumbUrl = vertex.thumbUrl;
   return (
     <div
-      data-vertex-key={vertex.key}
-      {...(vertex instanceof VPlang && {
-        "data-vertex-ranking": `${vertex.ranking ?? ""}`,
-      })}
+      {...dataset({ "vertex-key": vertex.key, "vertex-ranking": vertex instanceof VPlang && vertex.ranking })}
       class={tw(
         cssClass("vertexThumbn"),
         "group relative",

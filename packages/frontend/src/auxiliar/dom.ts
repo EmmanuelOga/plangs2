@@ -1,4 +1,4 @@
-import { type CLKey, type IDKey, cssClass, cssID } from "@plangs/server/elements";
+import { type CLKey, type DataKey, type IDKey, cssClass, cssID, dataKey } from "@plangs/server/elements";
 
 /**
  * Bun will attempt to load this code from the server even if it is not imported explicitly.
@@ -11,6 +11,7 @@ export const $$ = doc?.querySelectorAll.bind(doc);
 
 export const elem = <T extends HTMLElement>(key: IDKey) => $<T>(`#${cssID(key)}`) ?? undefined;
 export const elems = <T extends HTMLElement>(key: CLKey) => $$<T>(`.${cssClass(key)}`);
+export const data = (el: HTMLElement | null, key: DataKey) => el?.getAttribute(dataKey(key)) ?? undefined;
 
 /** Return computed width and height of the element. */
 export function size(el: HTMLElement): { width: number; height: number } {

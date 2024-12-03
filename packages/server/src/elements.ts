@@ -20,8 +20,14 @@ export const CL_KEYS = [
   "vertexInfo", // Information about a vertex.
 ] as const;
 
+export const DATA_KEYS = [
+  "vertex-key", // The key of a vertex.
+  "vertex-ranking", // The ranking of a vertex.
+] as const;
+
 export type IDKey = (typeof ID_KEYS)[number];
 export type CLKey = (typeof CL_KEYS)[number];
+export type DataKey = (typeof DATA_KEYS)[number];
 
 export function cssID(key: IDKey): `id-${IDKey}` {
   return `id-${key}`;
@@ -29,4 +35,8 @@ export function cssID(key: IDKey): `id-${IDKey}` {
 
 export function cssClass(key: CLKey): `cl-${CLKey}` {
   return `cl-${key}`;
+}
+
+export function dataKey(key: DataKey): `data-${DataKey}` {
+  return `data-${key}`;
 }

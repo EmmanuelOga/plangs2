@@ -1,11 +1,12 @@
 import type { ComponentChild } from "preact";
 
 import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
-import { elem, elems } from "@plangs/frontend/auxiliar/dom";
+import { data, elem, elems } from "@plangs/frontend/auxiliar/dom";
 import { ABC, BOOLEAN, CLOSE, DESELECT, FILTER_EDIT, MENU, MOON, RANKING, SUN } from "@plangs/frontend/auxiliar/icons";
 import { tw } from "@plangs/frontend/auxiliar/styles";
 import type { FacetsMainElement } from "@plangs/frontend/facets/main";
 
+import { dataKey } from "@plangs/server/elements";
 import type { IconButtonProps } from "./icon-button";
 
 export type IconButtonState = ToggleLights | ToggleHamburguer | ToggleFacetsMenu | ToggleAllAny | ToggleClearFacets | ToggleGridOrder | undefined;
@@ -219,7 +220,12 @@ export class ToggleGridOrder extends IconButtonBaseState<{ mode: "alpha" | "rank
 // Ensure languages without a ranking are placed last.
 const RANKED_LAST = Number.MAX_SAFE_INTEGER;
 
-const getRank = (el: HTMLElement) => (el.dataset.vertexRanking ? Number.parseInt(el.dataset.vertexRanking, 10) : RANKED_LAST);
+const getRank = (el: HTMLElement) => {
+  const ranking = data(el, "vertex-ranking");
+  console.log(ranking);
+  return ranking ? Number.parseInt(ranking) : RANKED_LAST;
+};
+
 const getKey = (el: HTMLElement) => el.dataset.vertexKey ?? "";
 
 // Ordering criteria for the sort function.
