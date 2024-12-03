@@ -9,7 +9,21 @@ import { loadPosts } from "@plangs/server/content";
 import { resolvePage } from "@plangs/server/resolve_page";
 import { vdomToHTML } from "@plangs/server/utils/server";
 
-const FIXED_PATHS = ["/", "/about", "/apps", "/blog", "/libs", "/licenses", "/paradigms", "/platforms", "/tags", "/tools", "/tsys"];
+const FIXED_PATHS = [
+  "/",
+  "/about",
+  "/apps",
+  "/blog",
+  "/libs",
+  "/licenses",
+  "/paradigms",
+  "/platforms",
+  "/tags",
+  "/tools",
+  "/tsys",
+  "communities",
+  "learning",
+];
 
 const STATIC_BASE = join(import.meta.dir, "../../static/");
 const DEFINTIONS_BASE = join(import.meta.dir, "../../../definitions/src/definitions");
