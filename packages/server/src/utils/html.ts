@@ -16,6 +16,5 @@ export function dataset(data: Record<DataKey, string | number | boolean | undefi
       return false;
     })
     .map(([key, value]) => [dataKey(key as DataKey), `${value}`]);
-  console.log(Object.fromEntries(entries));
   return Object.fromEntries(entries);
 }
