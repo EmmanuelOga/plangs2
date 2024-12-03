@@ -14,6 +14,8 @@ const FIXED_PATHS = [
   "/about",
   "/apps",
   "/blog",
+  "/communities",
+  "/learning",
   "/libs",
   "/licenses",
   "/paradigms",
@@ -21,8 +23,6 @@ const FIXED_PATHS = [
   "/tags",
   "/tools",
   "/tsys",
-  "communities",
-  "learning",
 ];
 
 const STATIC_BASE = join(import.meta.dir, "../../static/");
