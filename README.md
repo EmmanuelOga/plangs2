@@ -44,7 +44,6 @@ This simplistic build process just outputs the statically generated contents of 
 ### More Pending Tasks
 
 - [ ] Intersection observer to delay loading of images. 
-
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
 - [ ] Fix facet reset button, and serialization of facets when going to empty (right now doesn't clear the fragment).
 - [ ] Fix "pill" links .. what happens when we click them?
@@ -54,20 +53,14 @@ This simplistic build process just outputs the statically generated contents of 
 
 <hr/>
 
-- [.] Revise data schema for entities other than Plangs.
+- [ ] Revise data schema for entities other than Plangs.
 - [ ] Add an "authors" Vertex to link to Blog post authors.
 
 <hr/>
 
-- [ ] Add a simple admin interface to locally tweak the data.
+- [ ] Add a simple admin interface to locally tweak the data: **maybe out of scope?**
 - [ ] Revise data: tags: better-c, educational.
 - [ ] Add relationship to data-cleanup entities (Community, Learning).
-
-<hr/>
-
-- [ ] Rethink layout landscape/portrait switch instead of just by size.
-- [ ] Add support for drag/drop resize of elements (node-info and facets-main).
-- [ ] Fix grid display when there's less than 1 full row of thumbnails. Adjust sizing, etc.
 
 <hr/>
 
@@ -87,12 +80,6 @@ This simplistic build process just outputs the statically generated contents of 
 
 <hr/>
 
-- [ ] Better UI for tool bundles: just filter the table of tools.
-- [ ] Considering adding also a "short description", since desc. of many plangs is too long.
-- [ ] Platform Icons.
-
-<hr/>
-
 - [ ] Kuzu export.
 
 <hr/>
@@ -103,3 +90,17 @@ This simplistic build process just outputs the statically generated contents of 
 <hr/>
 
 - [ ] Create better guidelines, code of conduct, enable discussions, etc.
+
+<hr/>
+
+**Design ideas**
+
+- [ ] Redesign the facets browser: make it look like the sidebar?
+- [ ] Change the sidebar to a top bar in landscape mode.
+- [ ] Add a footer.
+- [ ] Rethink layout landscape/portrait switch instead of just by size.
+- [ ] Add support for drag/drop resize of elements (node-info and facets-main).
+- [ ] Fix grid display when there's less than 1 full row of thumbnails. Adjust sizing, etc.
+- [ ] Better UI for tool bundles: just filter the table of tools.
+- [ ] Considering adding also a "short description", since desc. of many plangs is too long.
+- [ ] Platform Icons.
