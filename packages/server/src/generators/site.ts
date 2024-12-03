@@ -11,8 +11,8 @@ import { vdomToHTML } from "@plangs/server/utils/server";
 
 const FIXED_PATHS = ["/", "/about", "/apps", "/blog", "/libs", "/licenses", "/paradigms", "/platforms", "/tags", "/tools", "/tsys"];
 
-const STATIC_BASE = join(import.meta.dir, "../static/");
-const DEFINTIONS_BASE = join(import.meta.dir, "../../definitions/src/definitions");
+const STATIC_BASE = join(import.meta.dir, "../../static/");
+const DEFINTIONS_BASE = join(import.meta.dir, "../../../definitions/src/definitions");
 
 /**
  * The "dual" of resolvePage. We call resolvePage for each possible URL,
