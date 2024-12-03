@@ -48,15 +48,15 @@ const [GROUPS, GK_BY_FK, COMPONENT] = defineFacetGroups<GK, FK>({
   writtenWith: { title: "Written With", facets: [table("writtenWith", "Written With", rel("plang", "relWrittenWith"))] },
 });
 
-/** Group keys for the navigation menu.  */
-const NAV: GK[][] = [
-  ["general"],
-  ["platforms", "paradigms", "typeSystems"],
-  ["writtenWith", "transpiler", "dialectOf", "implements", "influencedBy", "influenced"],
-  ["tags", "creationYear", "licenses"],
-] as const;
-
-const DEFAULT_GROUP = "general";
+const NAV: { groupKeys: GK[][]; default: GK } = {
+  groupKeys: [
+    ["general"],
+    ["platforms", "paradigms", "typeSystems"],
+    ["writtenWith", "transpiler", "dialectOf", "implements", "influencedBy", "influenced"],
+    ["tags", "creationYear", "licenses"],
+  ],
+  default: "general",
+};
 
 /** Implementation of the state for Faceted search of Programming Languages. */
 export class PlangsFacetsState extends FacetsMainState<GK, PlangFacetKey> {
@@ -65,14 +65,14 @@ export class PlangsFacetsState extends FacetsMainState<GK, PlangFacetKey> {
     return new PlangsFacetsState({
       pg,
       tab,
-      defaultGroup: DEFAULT_GROUP,
-      currentGroupKey: loadLocalStorage(tab, "lastGroup") ?? DEFAULT_GROUP,
+      defaultGroup: NAV.default,
+      currentGroupKey: loadLocalStorage(tab, "lastGroup") ?? NAV.default,
       values: FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? loadLocalStorage(tab, "inputs")),
     }).updateClearFacets();
   }
 
   override get nav() {
-    return NAV;
+    return NAV.groupKeys;
   }
 
   override groupTitle(key: GK) {

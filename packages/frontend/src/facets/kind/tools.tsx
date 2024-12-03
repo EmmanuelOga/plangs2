@@ -31,10 +31,10 @@ const [GROUPS, GK_BY_FK, COMPONENT] = defineFacetGroups<GK, FK>({
   writtenWith: { title: "Written With", facets: [table("writtenWith", "Written With", rel("tool", "relWrittenWith"))] },
 });
 
-/** Group keys for the navigation menu.  */
-const NAV: GK[][] = [["general"], ["writtenWith", "writtenFor"], ["tags", "creationYear", "licenses"], ["platforms"]] as const;
-
-export const DEFAULT_GROUP = "general";
+const NAV: { groupKeys: GK[][]; default: GK } = {
+  groupKeys: [["general"], ["writtenWith", "writtenFor"], ["tags", "creationYear", "licenses"], ["platforms"]],
+  default: "general",
+};
 
 /** Implementation of the state for Faceted search of Programming Languages. */
 export class ToolsFacetsState extends FacetsMainState<GK, ToolFacetKey> {
@@ -43,14 +43,14 @@ export class ToolsFacetsState extends FacetsMainState<GK, ToolFacetKey> {
     return new ToolsFacetsState({
       pg,
       tab,
-      defaultGroup: DEFAULT_GROUP,
-      currentGroupKey: loadLocalStorage(tab, "lastGroup") ?? DEFAULT_GROUP,
+      defaultGroup: NAV.default,
+      currentGroupKey: loadLocalStorage(tab, "lastGroup") ?? NAV.default,
       values: FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? loadLocalStorage(tab, "inputs")),
     }).updateClearFacets();
   }
 
   override get nav() {
-    return NAV;
+    return NAV.groupKeys;
   }
 
   override groupTitle(key: GK) {
