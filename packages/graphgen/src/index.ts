@@ -180,14 +180,17 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
     code.push(`export type ${plainName}Key = \`${key}+\${string}\`;\n`);
 
     code.push(`/** ${desc} */\nexport abstract class ${className} extends ${vertexBaseComplete} {
-      static readonly keyPrefix = "${key}";
+      static readonly vertexKind = "${key}";
       static readonly vertexName = "${vertexName}";
       static readonly vertexDesc = "${desc}";
+
+      override readonly vertexKind = ${className}.vertexKind;
+      override readonly vertexDesc = ${className}.vertexDesc;
+      override readonly vertexName = ${className}.vertexName;
 
       /** Describes the edges and direction used for every relationship in this Vertex. */
       static readonly relations = ${JSON.stringify(relations)} as const;
 
-      readonly vertexDesc = ${className}.vertexDesc;
 
       ${relCode.map(([_, code]) => `${code}`).join("\n")}
     }\n`);

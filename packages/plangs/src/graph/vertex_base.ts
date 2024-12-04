@@ -14,6 +14,20 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
     super(key);
   }
 
+  /** Matches the key prefix of vertices, ex: name: "pl", for "plang" nodes ("pl+java").  */
+  abstract readonly vertexKind: string;
+
+  /** Matches the Vertex collection accessor on the Graph instance. */
+  abstract readonly vertexDesc: string;
+
+  /** General description of Vertices of this kind. */
+  abstract readonly vertexName: string;
+
+  /** Node ranking, if the nodes are ranked. For instance, Plangs use Linguist data for ranking popularity. */
+  get ranking(): number | undefined {
+    return undefined;
+  }
+
   get name(): string {
     return this.data.name ? this.data.name : this.plainKey;
   }

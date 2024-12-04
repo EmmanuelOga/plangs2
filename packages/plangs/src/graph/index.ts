@@ -98,7 +98,7 @@ export class VPlang extends VPlangBase {
     return this.data.isTranspiler === true;
   }
 
-  get ranking(): number | undefined {
+  override get ranking(): number | undefined {
     return this.data.languishRanking;
   }
 
