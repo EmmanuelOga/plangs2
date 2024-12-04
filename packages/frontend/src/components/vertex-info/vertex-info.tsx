@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "preact/hooks";
+
 import { ret } from "@plangs/auxiliar/misc";
 import { BORDER, tw } from "@plangs/frontend/auxiliar/styles";
 import { VPlang } from "@plangs/plangs/graph";
@@ -13,6 +15,8 @@ export type VertexInfoProps = {
 
 /** Display Vertex. */
 export function VertexInfo({ vertex, open, tab }: VertexInfoProps) {
+  const h1Ref = useRef<HTMLHeadingElement>(null);
+  useEffect(() => h1Ref.current?.scrollIntoView({ behavior: "smooth", block: "end" }));
   const forGrid = GRID_TABS.has(tab);
   return (
     <div
@@ -32,7 +36,7 @@ export function VertexInfo({ vertex, open, tab }: VertexInfoProps) {
         </>
       )}
       {vertex && (
-        <h1 class={tw(forGrid && "inline sm:block")}>
+        <h1 ref={h1Ref} class={tw(forGrid && "inline sm:block")}>
           <a class="text-primary" href={vertex ? `/${vertex.plainKey}` : "#"}>
             {vertex ? vertex.name : "Info"}
           </a>
@@ -68,7 +72,7 @@ export function VertexInfo({ vertex, open, tab }: VertexInfoProps) {
 }
 
 function Pill({ children }: { children: ComponentChildren }) {
-  return <span class={tw("inline-block", "mr-2 mb-2 px-1", "border-2 border-secondary", "bg-secondary/50")}>{children}</span>;
+  return <span class={tw("inline-block", "mr-2 mb-3 px-1", "border-2 border-primary", "bg-primary text-secondary")}>{children}</span>;
 }
 
 function relations(pl: VPlang) {

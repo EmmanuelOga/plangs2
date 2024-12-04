@@ -43,6 +43,7 @@ This simplistic build process just outputs the statically generated contents of 
 
 - [ ] Make the vertex-info work for all node types.
 - [ ] Fix "pill" links .. what happens when we click them?
+- [ ] Additional Vertex pages: {tool,app,lib,learning,community}/key (do we need these? Maybe the sidebar info is good enough for now? Link directly to the resource?)
 
 ## TODO
 
