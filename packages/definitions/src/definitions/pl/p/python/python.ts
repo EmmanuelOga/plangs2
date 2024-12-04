@@ -132,7 +132,7 @@ export function define(g: PlangsGraph) {
 
   g.library
     .set("lib+msgspec", {
-      name: "Msgspec",
+      name: "msgspec",
       keywords: ["json", "messagepack", "serialization", "toml", "validation", "yaml"],
       description: "msgspec is a fast serialization and validation library, with builtin support for JSON, MessagePack, YAML, and TOML.",
       extHomeURL: "https://jcristharif.com/msgspec/",
