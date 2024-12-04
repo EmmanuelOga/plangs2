@@ -1,8 +1,8 @@
 import { arrayMerge } from "@plangs/auxiliar/array";
 import { IterTap } from "@plangs/auxiliar/iter_tap";
-import { Vertex } from "@plangs/graphgen/library";
+import { type Relation, Vertex } from "@plangs/graphgen/library";
 
-import type { PlangsGraphBase } from "./generated";
+import type { PlangsGraphBase, TPlangsRelName } from "./generated";
 import { FieldStrDate } from "./vertex_data_fields";
 import type { Image, Link, VertexBaseData } from "./vertex_data_schemas";
 
@@ -22,6 +22,9 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
 
   /** General description of Vertices of this kind. */
   abstract readonly vertexName: string;
+
+  /** Edge Relationships */
+  abstract readonly relations: Map<string, Relation<TPlangsRelName>>;
 
   /** Node ranking, if the nodes are ranked. For instance, Plangs use Linguist data for ranking popularity. */
   get ranking(): number | undefined {

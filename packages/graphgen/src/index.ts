@@ -1,5 +1,6 @@
 import { Biome, Distribution } from "@biomejs/js-api";
 
+import type { Relation } from "./library";
 import type { GenEdgeSpec, GenGraphSpec, GenVertexSpec } from "./spec";
 
 const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
@@ -33,7 +34,7 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
 
   type TRelname = string;
   type TCode = string;
-  type TRelations = Record<string, { edgeName: string; direction: "direct" | "inverse" }>;
+  type TRelations = Record<string, Relation<string>>;
 
   // Walk through the spec.edges config to generate relationships code.
   function processRels(vertexName: T): { code: [TRelname, TCode][]; relations: TRelations } {
@@ -65,7 +66,7 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
   }
 
   const imports = [
-    'import { Edges, RelFrom, RelTo, type SerializedGraph, Vertices } from "@plangs/graphgen/library";\n',
+    'import { Edges, RelFrom, RelTo, type Relation, type SerializedGraph, Vertices } from "@plangs/graphgen/library";\n',
     "/** Import user defined classes and types. */",
     `import { ${mapJoin(Object.keys(spec.vertices) as T[], vertexClassName, ", ")} } from ".";`,
     `import { ${spec.name}${vertexBase} } from "./vertex_base";`,
@@ -90,6 +91,10 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
     ${mapJoin(Object.keys(spec.vertices), name => `${name}: ${quoteJoin(Object.keys(processRels(name as T).relations), " | ")}`, ";\n")}
   };\n`);
 
+  const typeRelName = `T${spec.name}RelName`;
+  code.push("/** Supported relations of the graph. */");
+  code.push(`export type ${typeRelName} = keyof PlangsGraphBase["edges"];\n`);
+
   const typeVClass = `T${spec.name}VertexClass`;
   code.push("/** Every Generated Vertex Class. */");
   code.push(`export type ${typeVClass}  = ${mapJoin(Object.keys(spec.vertices) as T[], vertexClassName, " | ")};\n`);
@@ -112,7 +117,7 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
     static relConfig<T extends ${typeVertexName}>(vertexName: T, vertexRel: ${typeRelations}[T]) {
       const klass = ${spec.name}${graphBase}.vertexClass(vertexName);
       // @ts-ignore correct by construction.
-      const rel = klass.relations[vertexRel];
+      const rel = klass.relations.get(vertexRel);
       return { kind: 'rel', edgeName: rel.edgeName as ${typeEdgeName}, direction: rel.direction as "direct" | "inverse" } as const;
     }
 
@@ -189,13 +194,13 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
       static readonly vertexName = "${vertexName}";
       static readonly vertexDesc = "${desc}";
 
+      /** Describes the edges and direction used for every relationship in this Vertex. */
+      static readonly relations : Map<string, Relation<${typeRelName}>> = new Map(${JSON.stringify(Object.entries(relations))});
+
       override readonly vertexKind = ${className}.vertexKind;
       override readonly vertexDesc = ${className}.vertexDesc;
       override readonly vertexName = ${className}.vertexName;
-
-      /** Describes the edges and direction used for every relationship in this Vertex. */
-      static readonly relations = ${JSON.stringify(relations)} as const;
-
+      override readonly relations = ${className}.relations;
 
       ${relCode.map(([_, code]) => `${code}`).join("\n")}
     }\n`);

@@ -74,7 +74,6 @@ export const PLANGS_GRAPH_SPEC: GenGraphSpec<PlangVertexNames> = {
     { src: ["library", "relPlangs", "Plangs supported"], dst: ["plang", "relLibraries", "Software Libraries"] },
     { src: ["library", "relWrittenWith", "Plangs used"], dst: ["plang", "relUsedInLibrary", "Libraries made with this"] },
     { src: ["license", "relPlangs", "Plangs using this"], dst: ["plang", "relLicenses", "Licenses"] },
-    { src: ["post", "relPlangs", "Plangs covered"], dst: ["plang", "relPosts", "Posts talking about this"] },
     { src: ["tag", "relPlangs", "Plangs tagged"], dst: ["plang", "relTags", "Tags"] },
     { src: ["tool", "relWrittenWith", "Plangs used to implement this"], dst: ["plang", "relToolsUsing", "Tools implemented with this"] },
 
@@ -84,6 +83,14 @@ export const PLANGS_GRAPH_SPEC: GenGraphSpec<PlangVertexNames> = {
     { src: ["tag", "relLearning", "Learning resources tagged"], dst: ["learning", "relTags", "Tags"] },
     { src: ["tag", "relLibraries", "Libraries tagged"], dst: ["library", "relTags", "Tags"] },
     { src: ["tag", "relTools", "Tools tagged"], dst: ["tool", "relTags", "Tags"] },
+
+    // News: Link to a blog post that references a vertex.
+    { src: ["post", "relApps", "Apps covered in a Post"], dst: ["app", "relPosts", "Posts talking about this"] },
+    { src: ["post", "relCommunities", "Communities covered in a Post"], dst: ["community", "relPosts", "Posts talking about this"] },
+    { src: ["post", "relLearning", "Learning Resources covered in a Post"], dst: ["learning", "relPosts", "Posts talking about this"] },
+    { src: ["post", "relLibraries", "Libraries covered in a Post"], dst: ["library", "relPosts", "Posts talking about this"] },
+    { src: ["post", "relPlangs", "Plangs covered in a Post"], dst: ["plang", "relPosts", "Posts talking about this"] },
+    { src: ["post", "relTools", "Tools covered in a Post"], dst: ["tool", "relPosts", "Posts talking about this"] },
 
     // Community
     { src: ["community", "relPlangs", "Plangs supported"], dst: ["plang", "relCommunities", "Communities suporting this"] },
