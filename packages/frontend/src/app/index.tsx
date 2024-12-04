@@ -53,8 +53,8 @@ async function start() {
 }
 
 // This is a global variable that is set by the build system.
-declare const DEVEL: boolean;
-if (DEVEL) {
+declare const ENV: "dev" | "prod";
+if (ENV === "dev") {
   try {
     connectLivereload();
   } catch (err) {

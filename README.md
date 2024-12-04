@@ -48,7 +48,6 @@ This simplistic build process just outputs the statically generated contents of 
 
 ### More Pending Tasks
 
-- [ ] Intersection observer to delay loading of images. 
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
 - [ ] Add a table display mode in addition to Grid (some things don't display good on a Grid, like Libraries).
 
