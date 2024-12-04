@@ -127,6 +127,11 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
       ${mapJoin(Object.keys(spec.vertices), name => `if (vertexName === "${name}") return ${vertexClassName(name as T)};`, "\n")}
     }
 
+    /** Vertex kinds per Vertex Name. The kind is the prefix of a Vertex Key. */
+    static readonly vertexKind = new Map<TPlangsVertexName, string>([
+      ${mapJoin(Object.entries(spec.vertices) as [string, GenVertexSpec][], ([name, s]) => `["${name}", "${s.key}"]`, ",\n")}
+    ]);
+
     // Create a Vertices instances for each vertex.
 
     ${vertexFields.join("\n")}
