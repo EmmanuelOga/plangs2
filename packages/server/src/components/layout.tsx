@@ -9,10 +9,12 @@ import { MainNav } from "./main-nav";
 import { PlangsLogo } from "./plangs-logo";
 
 export type TAB =
+  | "any_tab"
   | "about"
   | "apps"
   | "blog"
   | "libs"
+  | "learning"
   | "licenses"
   | "paradigms"
   | "pl"
@@ -25,6 +27,8 @@ export type TAB =
   | "communities"
   | "NA";
 
+export const GRID_TABS: Set<TAB> = new Set(["plangs", "tools", "apps", "libs", "learning", "communities"]);
+
 type LayoutProps = {
   children: ComponentChildren;
   description?: string;
@@ -35,9 +39,6 @@ type LayoutProps = {
   title: string;
 };
 
-const localStore = (pl: VPlang) => `localStorage.setItem("last-plang", ${JSON.stringify(JSON.stringify({ key: pl.key, data: pl.data }))})`;
-const maybeLocalStore = (pl: VPlang) => `if (!localStorage.getItem("last-plang")) { ${localStore(pl)} }`;
-
 export function Layout({ title, description, tab, pg, pl, mainClasses, children }: LayoutProps) {
   return (
     <html lang="en">
@@ -45,10 +46,6 @@ export function Layout({ title, description, tab, pg, pl, mainClasses, children 
         <meta charset="utf-8" />
         <title>Plangs! - {title}</title>
         <meta name="description" content={description ?? title} />
-
-        {/* biome-ignore lint/style/noNonNullAssertion: pl+python exists in the data. */}
-        {script(pl ? localStore(pl) : maybeLocalStore(pg.plang.get("pl+python")!))}
-
         <script src="/bundle/app.js" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />

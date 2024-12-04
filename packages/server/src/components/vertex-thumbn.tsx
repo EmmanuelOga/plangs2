@@ -12,7 +12,7 @@ export function VertexThumbn({ vertex, class: klass }: { class?: string; vertex:
   const thumbUrl = vertex.thumbUrl;
   return (
     <div
-      {...dataset({ "vertex-key": vertex.key, "vertex-ranking": vertex instanceof VPlang && vertex.ranking })}
+      {...dataset({ "vertex-key": vertex.key, "vertex-name": vertex.vertexName, "vertex-ranking": vertex.ranking })}
       class={tw(
         cssClass("vertexThumbn"),
         "group relative",

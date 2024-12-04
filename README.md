@@ -37,12 +37,12 @@ $ overmind start
 $ bun outapp && bun outjs
 ```
 
-This simplistic build process just outputs the statically generated contents of the site at `~/dev/plangs-out` (will probably change soon).
+This simplistic build process just outputs the statically generated contents of the site at `~/dev/plangs-out` (will probably change at some point).
 
 ## WIP
 
-- [ ] Fix "pill" links .. what happens when we click them?
 - [ ] Make the vertex-info work for all node types.
+- [ ] Fix "pill" links .. what happens when we click them?
 
 ## TODO
 

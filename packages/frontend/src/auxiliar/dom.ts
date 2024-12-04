@@ -11,7 +11,7 @@ export const $$ = doc?.querySelectorAll.bind(doc);
 
 export const elem = <T extends HTMLElement>(key: IDKey) => $<T>(`#${cssID(key)}`) ?? undefined;
 export const elems = <T extends HTMLElement>(key: CLKey) => $$<T>(`.${cssClass(key)}`);
-export const data = (el: HTMLElement | null, key: DataKey) => el?.getAttribute(dataKey(key)) ?? undefined;
+export const data = (el: Element | null, key: DataKey) => el?.getAttribute(dataKey(key)) ?? undefined;
 
 /** Return computed width and height of the element. */
 export function size(el: HTMLElement): { width: number; height: number } {

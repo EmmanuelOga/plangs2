@@ -22,10 +22,7 @@ export function Libs({ pg }: { pg: PlangsGraph }) {
 
       <VertexGrid pg={pg} vertex={"library"} class={tw("flex-1", "overflow-y-scroll", "m-1")} />
 
-      <div class={tw("overflow-hidden overflow-y-scroll", "max-h-[15dvh] 2xl:max-h-[unset] 2xl:w-[25rem]")}>
-        {vertexInfo({ tab, open: true })}
-        {script("window.restoreVertexInfo()")}
-      </div>
+      <div class={tw("overflow-hidden overflow-y-scroll", "max-h-[15dvh] 2xl:max-h-[unset] 2xl:w-[25rem]")}>{vertexInfo({ tab, open: true })}</div>
     </Layout>
   );
 }

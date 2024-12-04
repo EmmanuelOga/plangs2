@@ -6,7 +6,7 @@ import { ABC, BOOLEAN, CLOSE, DESELECT, FILTER_EDIT, MENU, MOON, RANKING, SUN } 
 import { tw } from "@plangs/frontend/auxiliar/styles";
 import type { FacetsMainElement } from "@plangs/frontend/facets/main";
 
-import { dataKey } from "@plangs/server/elements";
+import { loadLocalStorage, storageKey, updateLocalStorage } from "@plangs/frontend/auxiliar/storage";
 import type { IconButtonProps } from "./icon-button";
 
 export type IconButtonState = ToggleLights | ToggleHamburguer | ToggleFacetsMenu | ToggleAllAny | ToggleClearFacets | ToggleGridOrder | undefined;
@@ -46,7 +46,8 @@ abstract class IconButtonBaseState<T> extends Dispatchable<T & { disabled: boole
 /** State for a dark/ligh mode button */
 export class ToggleLights extends IconButtonBaseState<{ mode: "dark" | "light" }> {
   static initial(disabled = false) {
-    return new ToggleLights({ mode: localStorage.getItem("lightMode") === "light" ? "light" : "dark", disabled });
+    const theme = loadLocalStorage(storageKey("any_tab", "theme"));
+    return new ToggleLights({ mode: theme === "light" ? "light" : "dark", disabled });
   }
 
   get isDark(): boolean {
@@ -63,14 +64,15 @@ export class ToggleLights extends IconButtonBaseState<{ mode: "dark" | "light" }
 
   override runEffects() {
     document.body.classList.toggle("dark", this.isDark);
-    localStorage.setItem("lightMode", this.data.mode);
+    updateLocalStorage(storageKey("any_tab", "theme"), this.data.mode);
   }
 }
 
 /** State for a "hamburguer" menu. */
 export class ToggleHamburguer extends IconButtonBaseState<{ mode: "show" | "hide" }> {
   static initial(disabled = false) {
-    return new ToggleHamburguer({ mode: localStorage.getItem("hamburguer") === "show" ? "show" : "hide", disabled });
+    const mode = loadLocalStorage(storageKey("any_tab", "hamburger-menu"));
+    return new ToggleHamburguer({ mode: mode === "show" ? "show" : "hide", disabled });
   }
 
   get hide(): boolean {
@@ -87,14 +89,15 @@ export class ToggleHamburguer extends IconButtonBaseState<{ mode: "show" | "hide
 
   override runEffects() {
     elem("mainNav")?.classList.toggle("hidden", this.hide);
-    localStorage.setItem("hamburguer", this.data.mode);
+    updateLocalStorage(storageKey("any_tab", "hamburger-menu"), this.data.mode);
   }
 }
 
 /** State for the facets menu. */
 export class ToggleFacetsMenu extends IconButtonBaseState<{ mode: "show" | "hide" }> {
   static initial(disabled = false) {
-    return new ToggleFacetsMenu({ mode: localStorage.getItem("facets") === "show" ? "show" : "hide", disabled });
+    const mode = loadLocalStorage(storageKey("any_tab", "facets-browser"));
+    return new ToggleFacetsMenu({ mode: mode === "show" ? "show" : "hide", disabled });
   }
 
   get show(): boolean {
@@ -123,7 +126,7 @@ export class ToggleFacetsMenu extends IconButtonBaseState<{ mode: "show" | "hide
   override runEffects() {
     const fm = elems("facetsMain");
     if (fm.length > 0) fm[0].classList.toggle("hidden", !this.show);
-    localStorage.setItem("facets", this.data.mode);
+    updateLocalStorage(storageKey("any_tab", "facets-browser"), this.data.mode);
   }
 }
 

@@ -21,8 +21,9 @@ export const CL_KEYS = [
 ] as const;
 
 export const DATA_KEYS = [
-  "vertex-key", // The key of a vertex.
-  "vertex-ranking", // The ranking of a vertex.
+  "vertex-key", // The key of a vertex, ex: "pl+1",
+  "vertex-name", // The name of a vertex. ex: "plang", matches the graph accessor, ex: `pg.plang`.
+  "vertex-ranking", // The ranking of a vertex, ex: "1" (or nothing if not ranked).
 ] as const;
 
 export type IDKey = (typeof ID_KEYS)[number];
