@@ -10,26 +10,26 @@ export type KeyType =
   /** Last facets value, saved between page switching. */
   | "facet-value"
   /** Name of the last open group on the facets browser. */
-  | "facets-group"
+  | "facets-last-group"
   /** Last Vertex displayed on a {@link vertexInfo} component. */
   | "vertex-info";
 
 export type Postfix = string;
-export type StorageKey = `site-${TAB}-${KeyType}` | `site-${TAB}-${KeyType}-${Postfix}`;
+export type StoreKey = `site-${TAB}-${KeyType}` | `site-${TAB}-${KeyType}-${Postfix}`;
 
 /** Type checks keys for use with localStorage. */
-export function storageKey(tab: TAB, key: KeyType, postfix?: Postfix): StorageKey {
+export function storeKey(tab: TAB, key: KeyType, postfix?: Postfix): StoreKey {
   if (postfix) return `site-${tab}-${key}-${postfix}`;
   return `site-${tab}-${key}`;
 }
 
 // biome-ignore lint/suspicious/noExplicitAny: JSON can serialize any data.
-export function updateLocalStorage(key: StorageKey, data: any): void {
+export function storeUpdate(key: StoreKey, data: any): void {
   localStorage.setItem(key, JSON.stringify(data));
 }
 
 // biome-ignore lint/suspicious/noExplicitAny: JSON can deserialize any data.
-export function loadLocalStorage(key: StorageKey): any {
+export function storeLoad(key: StoreKey): any {
   const jsonString = localStorage.getItem(key);
   if (!jsonString) return undefined;
   try {

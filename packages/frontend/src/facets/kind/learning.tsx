@@ -1,6 +1,6 @@
 import { ValNil, ValNumber } from "@plangs/auxiliar/value";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
-import { loadLocalStorage } from "@plangs/frontend/auxiliar/storage";
+import { storeKey, storeLoad } from "@plangs/frontend/auxiliar/storage";
 import { FacetsMainState } from "@plangs/frontend/facets/main/state";
 import { bool, defineFacetGroups, table, text } from "@plangs/frontend/facets/main/types";
 import { matchVertices } from "@plangs/plangs/facets";
@@ -29,7 +29,7 @@ const [GROUPS, GK_BY_FK, COMPONENT] = defineFacetGroups<GK, FK>({
   tools: { title: "Tools", facets: [table("tools", "Tools", rel("learning", "relTools"))] },
 });
 
-const COMMUNITY_TAB: TAB = "communities";
+const LEARNING_TAB: TAB = "learning";
 const NAV: { groupKeys: GK[][]; default: GK } = {
   groupKeys: [["general"], ["plangs", "libraries"], ["apps", "tools"], ["tags"]],
   default: "general",
@@ -37,14 +37,14 @@ const NAV: { groupKeys: GK[][]; default: GK } = {
 
 export class LearningFacetsState extends FacetsMainState<GK, LearningFacetKey> {
   override readonly nav = NAV;
-  override readonly tab = COMMUNITY_TAB;
+  override readonly tab = LEARNING_TAB;
   override readonly gkByFk = GK_BY_FK;
   override readonly groupsConfig = GROUPS;
   override readonly groupsComponent = COMPONENT;
 
   static initial(pg: PlangsGraph): LearningFacetsState {
-    const currentGroupKey = loadLocalStorage(COMMUNITY_TAB, "lastGroup") ?? NAV.default;
-    const values = FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? loadLocalStorage(COMMUNITY_TAB, "inputs"));
+    const currentGroupKey = storeLoad(storeKey(LEARNING_TAB, "facets-last-group")) ?? NAV.default;
+    const values = FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? storeLoad(storeKey(LEARNING_TAB, "facet-value")));
     return new LearningFacetsState({ pg, currentGroupKey, values });
   }
 

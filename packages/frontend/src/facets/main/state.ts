@@ -5,7 +5,7 @@ import { type AnyValue, deserializeValue } from "@plangs/auxiliar/value";
 import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { $ } from "@plangs/frontend/auxiliar/dom";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
-import { updateLocalStorage } from "@plangs/frontend/auxiliar/storage";
+import { storeKey, storeUpdate } from "@plangs/frontend/auxiliar/storage";
 import type { ToggleClearFacets } from "@plangs/frontend/components/icon-button/state";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TAB } from "@plangs/server/components/layout";
@@ -44,7 +44,7 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
 
   doSetCurrentGroup(groupKey: GroupKey): void {
     this.data.currentGroupKey = groupKey;
-    updateLocalStorage(this.tab, "lastGroup", groupKey);
+    storeUpdate(storeKey(this.tab, "facets-last-group"), groupKey);
     this.dispatch();
   }
 
@@ -127,7 +127,7 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
     if (persist === "persist") {
       const data = this.serialized;
       this.pushState(data);
-      updateLocalStorage(this.tab, "inputs", data);
+      storeUpdate(storeKey(this.tab, "facet-value"), data);
     }
     updateThumbns(this.results);
     this.updateClearFacets();
