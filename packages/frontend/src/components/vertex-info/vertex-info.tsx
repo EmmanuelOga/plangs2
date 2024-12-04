@@ -30,10 +30,9 @@ export function VertexInfo({ vertex, open, tab }: VertexInfoProps) {
         tw(BORDER, forGrid && "border-b-1"),
       )}>
       {!vertex && (
-        <>
-          <p>Click a thumbnail for more info.</p>
-          <p>Double-click a thumbnail to go directly to the item's page.</p>
-        </>
+        <p>
+          <strong>Click</strong> a thumbnail for more info. <strong>Double-click</strong> a thumbnail to go directly to the item's page.
+        </p>
       )}
       {vertex && (
         <h1 ref={h1Ref} class={tw(forGrid && "inline sm:block")}>
