@@ -17,6 +17,7 @@ export const CL_KEYS = [
   "facetsMain", // A Div wrapper for FacetsMain component.
   "iconButton", // A Div wrapper for IconButton component.
   "vertexThumbn", // Thumbnail for a vertex.
+  "vertexThumbnImg", // We'll use the placeholder images until after DOM ready.
   "vertexInfo", // Information about a vertex.
 ] as const;
 

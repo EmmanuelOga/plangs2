@@ -9,7 +9,6 @@ import { dataset } from "@plangs/server/utils/html";
 const PLACEHOLDER = "/images/placeholder.png";
 
 export function VertexThumbn({ vertex, class: klass }: { class?: string; vertex: PlangsVertex<any, any> }): JSX.Element {
-  const thumbUrl = vertex.thumbUrl;
   return (
     <div
       {...dataset({ "vertex-key": vertex.key, "vertex-name": vertex.vertexName, "vertex-ranking": vertex.ranking })}
@@ -44,7 +43,13 @@ export function VertexThumbn({ vertex, class: klass }: { class?: string; vertex:
           "border-1 border-primary",
           "shadow-background shadow-lg group-hover:shadow-md group-hover:shadow-primary",
         )}>
-        <img alt={`${vertex.name}'s logo`} class="max-h-full max-w-full object-contain" src={thumbUrl ?? PLACEHOLDER} />
+        <img
+          loading="lazy"
+          src={PLACEHOLDER}
+          alt={vertex.name}
+          data-src={vertex.thumbUrl ?? ""}
+          class={tw(cssClass("vertexThumbnImg"), "max-h-full max-w-full object-contain")}
+        />
       </div>
     </div>
   );

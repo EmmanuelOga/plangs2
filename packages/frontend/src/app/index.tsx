@@ -1,6 +1,6 @@
 import "preact/debug";
 
-import { elem } from "@plangs/frontend/auxiliar/dom";
+import { elem, elems } from "@plangs/frontend/auxiliar/dom";
 import { on } from "@plangs/frontend/auxiliar/events";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { connectLivereload } from "@plangs/frontend/auxiliar/livereload";
@@ -42,6 +42,12 @@ async function start() {
         const pl = getClosestVertex(pg, target);
         if (pl) window.location.href = `/${pl.plainKey}`;
       });
+
+      // Replace placeholders with the actual images, if any.
+      for (const img of elems("vertexThumbnImg")) {
+        const src = img.dataset.src;
+        if (src) img.setAttribute("src", src);
+      }
     });
   });
 }
