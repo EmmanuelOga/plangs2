@@ -93,6 +93,11 @@ This simplistic build process just outputs the statically generated contents of 
 
 <hr/>
 
+** Images **
+ 
+- [ ] Replace Thumbn SVGs embedding data with PNGs.
+- [ ] Resize all Thumbn to 128x128.
+
 **Design ideas**
 
 - [ ] Redesign the facets browser: make it look like the sidebar?
