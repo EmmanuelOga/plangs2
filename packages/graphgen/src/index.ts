@@ -117,8 +117,8 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
     static relConfig<T extends ${typeVertexName}>(vertexName: T, vertexRel: ${typeRelations}[T]) {
       const klass = ${spec.name}${graphBase}.vertexClass(vertexName);
       // @ts-ignore correct by construction.
-      const rel = klass.relations.get(vertexRel);
-      return { kind: 'rel', edgeName: rel.edgeName as ${typeEdgeName}, direction: rel.direction as "direct" | "inverse" } as const;
+      const rel = klass.relations.get(vertexRel) as Relation<${typeEdgeName}>;
+      return { kind: 'rel', edgeName: rel.edgeName, direction: rel.direction } as const;
     }
 
     /** Return a type checked object identifying a property of the class that is "readable" (a prop returning a String, Boolean or Nunber). */
@@ -190,8 +190,8 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
     code.push(`export type ${plainName}Key = \`${key}+\${string}\`;\n`);
 
     code.push(`/** ${desc} */\nexport abstract class ${className} extends ${vertexBaseComplete} {
-      static readonly vertexKind = "${key}";
-      static readonly vertexName = "${vertexName}";
+      static readonly vertexKind = "${key}" as const;
+      static readonly vertexName = "${vertexName}" as const;
       static readonly vertexDesc = "${desc}";
 
       /** Describes the edges and direction used for every relationship in this Vertex. */
