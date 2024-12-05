@@ -40,7 +40,7 @@ export function define(g: PlangsGraph) {
       "tag+industrial",
       "tag+interpreters",
       "tag+scripting",
-      "tag+ui",
+      "tag+gui",
       "tag+viz",
     )
     .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+strong")

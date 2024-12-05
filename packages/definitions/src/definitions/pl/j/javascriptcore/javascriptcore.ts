@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+bsd", "lic+lgpl")
     .relParadigms.add("para+event-driven", "para+interpreted", "para+oop", "para+scripting")
     .relPlatforms.add("plat+apple", "plat+arm", "plat+linux", "plat+windows")
-    .relTags.add("tag+interpreters", "tag+low-code", "tag+scripting", "tag+ui")
+    .relTags.add("tag+interpreters", "tag+low-code", "tag+scripting", "tag+gui")
     .relTypeSystems.add("tsys+dynamic", "tsys+weak")
     .relWrittenWith.add("pl+c++");
 

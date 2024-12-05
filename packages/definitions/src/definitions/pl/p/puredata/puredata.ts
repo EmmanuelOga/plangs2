@@ -37,7 +37,7 @@ export function define(g: PlangsGraph) {
       "tag+midi",
       "tag+multimedia",
       "tag+ray-tracer",
-      "tag+ui",
+      "tag+gui",
       "tag+video",
       "tag+wavelet",
     )

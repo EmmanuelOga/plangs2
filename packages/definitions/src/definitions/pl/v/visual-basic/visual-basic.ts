@@ -39,7 +39,7 @@ export function define(g: PlangsGraph) {
       "tag+rad",
       "tag+shell",
       "tag+testing",
-      "tag+ui",
+      "tag+gui",
     )
     .relTypeSystems.add("tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong", "tsys+weak");
 

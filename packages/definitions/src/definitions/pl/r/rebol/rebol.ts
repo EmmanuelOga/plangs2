@@ -37,7 +37,7 @@ export function define(g: PlangsGraph) {
       "tag+interpreters",
       "tag+multimedia",
       "tag+ray-tracer",
-      "tag+ui",
+      "tag+gui",
       "tag+video",
     )
     .relTypeSystems.add("tsys+dynamic", "tsys+strong");

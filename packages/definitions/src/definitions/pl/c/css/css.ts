@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
     })
     .relParadigms.add("para+declarative")
     .relPlatforms.add("plat+web")
-    .relTags.add("tag+ui");
+    .relTags.add("tag+gui");
 
   // TOOLS
 

@@ -2,7 +2,7 @@ import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
   g.tag.set("tag+3dg", {
-    name: "3D Computer Graphics",
+    name: "3D Graphics",
     keywords: ["3D graphics", "rendering", "visualization"],
     description: "Software and tools for creating and manipulating 3D models and rendering graphics.",
     extHomeURL: "https://en.wikipedia.org/wiki/3D_computer_graphics",
@@ -23,7 +23,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.tag.set("tag+app", {
-    name: "Application Software",
+    name: "Application",
     keywords: ["applications"],
     description: "Software designed to perform specific tasks for users.",
     extHomeURL: "https://en.wikipedia.org/wiki/Application_software",
@@ -37,7 +37,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.tag.set("tag+audio-dev", {
-    name: "Audio Programming",
+    name: "Audio",
     keywords: ["audio", "audio processing", "sound", "synthesis"],
     description: "Languages and environments designed for programming and synthesizing sound.",
     extHomeURL: "https://en.wikipedia.org/wiki/Audio_programming_language",
@@ -51,23 +51,23 @@ export function define(g: PlangsGraph) {
   });
 
   g.tag.set("tag+cas", {
-    name: "Computer Algebra System",
+    name: "CAS",
     keywords: ["algebra system", "computer algebra", "symbolic computation"],
-    description: "Software systems that facilitate symbolic mathematical computations.",
+    description: "Computer Algebra System: Software systems that facilitate symbolic mathematical computations.",
     extHomeURL: "https://en.wikipedia.org/wiki/Computer_algebra_system",
   });
 
   g.tag.set("tag+cli", {
-    name: "Command Line Interface",
+    name: "CLI",
     keywords: ["CLI", "command-line interface"],
-    description: "Text-based input given to a computer to perform specific tasks.",
+    description: "Command Line Interface: Text-based input given to a computer to perform specific tasks.",
     extHomeURL: "https://en.wikipedia.org/wiki/Command_(computing)",
   });
 
   g.tag.set("tag+collab", {
-    name: "Collaborative Software",
+    name: "Collaborative",
     keywords: ["collab", "collaboration tools", "collaborative software", "groupware"],
-    description: "Software designed to help multiple users work together on tasks and projects.",
+    description: "Collaborative Software is designed to help multiple users work together on tasks and projects.",
     extHomeURL: "https://en.wikipedia.org/wiki/Collaborative_software",
   });
 
@@ -79,58 +79,58 @@ export function define(g: PlangsGraph) {
   });
 
   g.tag.set("tag+control", {
-    name: "Instrument Control",
+    name: "Control",
     keywords: ["automation", "instrument control", "measurement"],
-    description: "Software used to control scientific and industrial instruments.",
+    description: "Instrument Control Software is used to control scientific and industrial instruments and processes.",
     extHomeURL: "https://en.wikipedia.org/wiki/Instrument_control",
   });
 
   g.tag.set("tag+dataflow", {
-    name: "Dataflow Programming",
+    name: "Dataflow",
     keywords: ["data-driven", "dataflow", "dataflow architecture"],
     description: "A programming paradigm where the flow of data determines the execution of operations.",
     extHomeURL: "https://en.wikipedia.org/wiki/Dataflow_programming",
   });
 
   g.tag.set("tag+dataq", {
-    name: "Data Acquisition",
+    name: "Acquisition",
     keywords: ["DAQ", "acquisition", "data collection"],
-    description: "Tools and systems designed to gather and analyze data from various sources.",
+    description: "Data Acquisition tools and systems, designed to gather and analyze data from various sources.",
     extHomeURL: "https://en.wikipedia.org/wiki/Data_acquisition",
   });
 
   g.tag.set("tag+dbms", {
-    name: "Database Management System (DBMS)",
+    name: "DBMS",
     keywords: ["data storage", "database", "dbms", "gdbms", "rdbmds", "relational database"],
-    description: "Software for managing and interacting with databases.",
+    description: "Database management system.",
     extHomeURL: "https://en.wikipedia.org/wiki/Database_management_system",
   });
 
   g.tag.set("tag+decision", {
-    name: "Decision-making Software",
+    name: "Decision-making",
     keywords: ["DSS", "decision support", "decision-making"],
     description: "Tools designed to assist in making business and technical decisions.",
     extHomeURL: "https://en.wikipedia.org/wiki/Decision-making_software",
   });
 
   g.tag.set("tag+dsp", {
-    name: "Digital Signal Processing",
+    name: "DSP",
     keywords: ["DSP", "data analysis", "signal processing"],
-    description: "Software for analyzing and manipulating signals, often used in audio and telecommunications.",
+    description: "Digital Signal Processing software for analyzing and manipulating signals, often used in audio and telecommunications.",
     extHomeURL: "https://en.wikipedia.org/wiki/Signal_processing",
   });
 
   g.tag.set("tag+editor", {
-    name: "Text Editor",
+    name: "Editor",
     keywords: ["code editor", "editor", "plain text", "text editor"],
-    description: "Software used to create and edit text, often optimized for coding or document editing.",
+    description: "Software used to create and edit text and other resources, often optimized for coding or document editing.",
     extHomeURL: "https://en.wikipedia.org/wiki/Text_editor",
   });
 
   g.tag.set("tag+edu", {
-    name: "Educational Software",
+    name: "Educational",
     keywords: ["e-learning", "education technology", "educational software"],
-    description: "Software designed to facilitate learning and instruction.",
+    description: "Educational software designed to facilitate learning and instruction.",
     extHomeURL: "https://en.wikipedia.org/wiki/Educational_software",
   });
 
@@ -142,7 +142,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.tag.set("tag+flow", {
-    name: "Flow-Based Programming",
+    name: "Flow-Based",
     keywords: ["FBP", "data flow", "flow-based programming"],
     description:
       "A programming paradigm where applications are defined as networks of black-box processes that exchange data across predefined connections.",
@@ -200,9 +200,9 @@ export function define(g: PlangsGraph) {
   });
 
   g.tag.set("tag+iot", {
-    name: "Internet of Things",
+    name: "IoT",
     keywords: ["IoT", "connected devices", "smart devices"],
-    description: "Software and platforms designed to connect and manage IoT devices and networks.",
+    description: "Internet of Things: Software and platforms designed to connect and manage IoT devices and networks.",
     extHomeURL: "https://en.wikipedia.org/wiki/Internet_of_things",
   });
 
@@ -277,9 +277,9 @@ export function define(g: PlangsGraph) {
   });
 
   g.tag.set("tag+rad", {
-    name: "Rapid Application Development",
+    name: "RAD",
     keywords: ["RAD", "rapid development", "software development methodology"],
-    description: "A software development methodology focused on rapid prototyping and iterative development.",
+    description: "Rapid Application Development, a methodology focused on rapid prototyping and iterative development.",
     extHomeURL: "https://en.wikipedia.org/wiki/Rapid_Application_Development",
   });
 
@@ -291,9 +291,10 @@ export function define(g: PlangsGraph) {
   });
 
   g.tag.set("tag+rdf", {
-    name: "Resource Description Framework (RDF)",
+    name: "RDF",
     keywords: ["rdf"],
-    description: "A standard model for data interchange on the web, where everything is a tuple [subject, predicate, object].",
+    description:
+      "Resource Description Framework: A standard model for data interchange on the web, where everything is a tuple [subject, predicate, object].",
     extHomeURL: "https://en.wikipedia.org/wiki/Rapid_Application_Development",
   });
 
@@ -312,9 +313,9 @@ export function define(g: PlangsGraph) {
   });
 
   g.tag.set("tag+server", {
-    name: "Application Server",
+    name: "Server",
     keywords: ["application server", "backend server", "middleware"],
-    description: "A server that hosts and runs applications, providing essential services for enterprise-level systems.",
+    description: 'A Server hosts and runs applications, often described as "running in the background".',
     extHomeURL: "https://en.wikipedia.org/wiki/Application_server",
   });
 
@@ -333,16 +334,16 @@ export function define(g: PlangsGraph) {
   });
 
   g.tag.set("tag+testing", {
-    name: "Test Automation",
+    name: "Testing",
     keywords: ["quality assurance", "software testing", "test automation", "testing"],
     description: "Tools that automatically execute tests on software to ensure quality and performance.",
     extHomeURL: "https://en.wikipedia.org/wiki/Test_automation",
   });
 
-  g.tag.set("tag+ui", {
-    name: "User Interface",
-    keywords: ["GUI", "UI", "interface design"],
-    description: "Software tools for designing and building user interfaces.",
+  g.tag.set("tag+gui", {
+    name: "GUI",
+    keywords: ["GUI", "UI"],
+    description: "Software tools for designing and building graphical user interfaces.",
     extHomeURL: "https://en.wikipedia.org/wiki/Graphical_user_interface",
   });
 
@@ -354,35 +355,35 @@ export function define(g: PlangsGraph) {
   });
 
   g.tag.set("tag+video", {
-    name: "Video Editor",
+    name: "Video",
     keywords: ["multimedia", "video editor", "video production"],
     description: "Software used to edit video footage and produce multimedia projects.",
     extHomeURL: "https://en.wikipedia.org/wiki/Video_editing_software",
   });
 
   g.tag.set("tag+viz", {
-    name: "Information Visualization",
+    name: "Visualization",
     keywords: ["data analysis", "data visualization", "information", "visualization", "viz"],
     description: "Software for visually representing complex data to assist in understanding patterns and trends.",
     extHomeURL: "https://en.wikipedia.org/wiki/Information_visualization",
   });
 
   g.tag.set("tag+wavelet", {
-    name: "Wavelet Analysis",
+    name: "Wavelet",
     keywords: ["mathematics", "signal processing", "wavelet analysis"],
     description: "A mathematical technique used for analyzing waveforms and signals, often in signal processing.",
     extHomeURL: "https://en.wikipedia.org/wiki/Wavelet",
   });
 
   g.tag.set("tag+webdev", {
-    name: "Web Development",
+    name: "WebDev",
     keywords: ["http", "web design", "web programming", "webdev"],
     description: "Design and development of websites and web applications.",
     extHomeURL: "https://en.wikipedia.org/wiki/Web_development",
   });
 
   g.tag.set("tag+workflow", {
-    name: "Workflow Automation",
+    name: "Workflow",
     keywords: ["business automation", "process automation", "workflow automation"],
     description: "Tools that automate business workflows to improve efficiency and reduce manual tasks.",
     extHomeURL: "https://en.wikipedia.org/wiki/Workflow_automation",

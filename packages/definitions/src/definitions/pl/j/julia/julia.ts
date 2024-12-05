@@ -70,7 +70,7 @@ export function define(g: PlangsGraph) {
       "tag+sci",
       "tag+scripting",
       "tag+shell",
-      "tag+ui",
+      "tag+gui",
       "tag+wavelet",
     )
     .relTypeSystems.add("tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+optional", "tsys+strong")

@@ -23,7 +23,7 @@ export function define(g: PlangsGraph) {
       "tag+framework",
       "tag+multimedia",
       "tag+ray-tracer",
-      "tag+ui",
+      "tag+gui",
       "tag+video",
     )
     .relTypeSystems.add("tsys+strong");

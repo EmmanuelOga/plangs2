@@ -36,7 +36,7 @@ export function define(g: PlangsGraph) {
       "tag+interpreters",
       "tag+numeric",
       "tag+sci",
-      "tag+ui",
+      "tag+gui",
       "tag+viz",
     )
     .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong");

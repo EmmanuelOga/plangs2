@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+mit")
     .relParadigms.add("para+interpreted", "para+procedural", "para+scripting")
     .relPlatforms.add("plat+linux", "plat+windows")
-    .relTags.add("tag+games", "tag+interpreters", "tag+scripting", "tag+ui")
+    .relTags.add("tag+games", "tag+interpreters", "tag+scripting", "tag+gui")
     .relTypeSystems.add("tsys+dynamic", "tsys+weak")
     .relWrittenWith.add("pl+c");
 

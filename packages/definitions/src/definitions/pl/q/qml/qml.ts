@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
     .relCompilesTo.add("pl+c++")
     .relParadigms.add("para+declarative", "para+reactive", "para+scripting")
     .relPlatforms.add("plat+cross")
-    .relTags.add("tag+ui")
+    .relTags.add("tag+gui")
     .relTypeSystems.add("tsys+dynamic", "tsys+strong");
 
   // TOOLS

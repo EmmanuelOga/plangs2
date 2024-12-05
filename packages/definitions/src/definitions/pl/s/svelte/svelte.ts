@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+mit")
     .relParadigms.add("para+compiled", "para+functional", "para+reactive")
     .relPlatforms.add("plat+nodejs", "plat+web")
-    .relTags.add("tag+framework", "tag+ui")
+    .relTags.add("tag+framework", "tag+gui")
     .relTypeSystems.add("tsys+dynamic", "tsys+static");
 
   // TOOLS

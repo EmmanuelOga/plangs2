@@ -48,7 +48,7 @@ export function define(g: PlangsGraph) {
       "tag+iot",
       "tag+scripting",
       "tag+shell",
-      "tag+ui",
+      "tag+gui",
       "tag+viz",
     )
     .relTypeSystems.add("tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong");

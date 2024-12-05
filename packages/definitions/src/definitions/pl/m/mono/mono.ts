@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
       "tag+games",
       "tag+scripting",
       "tag+shell",
-      "tag+ui",
+      "tag+gui",
     )
     .relTypeSystems.add("tsys+nominal", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+c", "pl+c-sharp");

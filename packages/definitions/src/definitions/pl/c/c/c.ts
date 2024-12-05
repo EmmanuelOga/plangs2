@@ -44,7 +44,7 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
       "tag+shell",
       "tag+testing",
-      "tag+ui",
+      "tag+gui",
       "tag+viz",
       "tag+wavelet",
     )

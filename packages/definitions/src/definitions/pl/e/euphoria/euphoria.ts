@@ -31,7 +31,7 @@ export function define(g: PlangsGraph) {
       "tag+modeling",
       "tag+rad",
       "tag+ray-tracer",
-      "tag+ui",
+      "tag+gui",
       "tag+wavelet",
     )
     .relTypeSystems.add("tsys+dynamic", "tsys+static");
