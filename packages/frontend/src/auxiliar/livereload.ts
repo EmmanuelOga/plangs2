@@ -1,6 +1,8 @@
 let pingTimer: Timer | undefined;
 
-const INITIAL_TIMEOUT_MS = 500; // If this is too short, in Firefox it stops opening external links :-).
+// If this is too short, in Firefox it stops opening external links :-).
+// I think it's, if a remote link takes too long to load, the browser will instead handle the reload request first.
+const INITIAL_TIMEOUT_MS = 1000;
 const PING_FREQ_MS = 10;
 const RELOAD_LATENCY_MS = 10;
 
