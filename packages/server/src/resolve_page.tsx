@@ -20,6 +20,7 @@ import { Vertex } from "./pages/vertex";
 
 export async function resolvePage(path: string, pg: PlangsGraph) {
   if (path === "/") return <Plangs pg={pg} />;
+
   if (path === "/apps") return <Apps pg={pg} />;
   if (path === "/blog") return <Blog pg={pg} />;
   if (path === "/communities") return <Communities pg={pg} />;

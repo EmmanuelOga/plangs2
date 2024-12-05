@@ -38,7 +38,7 @@ export function VertexInfo({ vertex, open, tab }: VertexInfoProps) {
       {vertex && (
         <>
           <h2 ref={h1Ref} class={tw("mt-0!", forGrid && "inline sm:block")}>
-            <a class="text-primary" href={vertex ? `/${vertex.plainKey}` : "#"}>
+            <a class="text-primary" href={vertex.href}>
               {vertex.name}
             </a>
           </h2>
@@ -46,7 +46,7 @@ export function VertexInfo({ vertex, open, tab }: VertexInfoProps) {
           <div class={tw(forGrid && "hidden sm:block")}>
             {vertex.urlHome && (
               <Pill>
-                <VertexLink vertex={vertex} includeLocal={false} title="Homepage" />
+                <VertexLink vertex={vertex} includeLocal={false} title="Homepage" nocolor={true} />
               </Pill>
             )}
             {vertex.created.value && <Pill children={`Appeared ${vertex.created.year}`} />}
