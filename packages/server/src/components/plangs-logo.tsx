@@ -6,7 +6,7 @@ export function PlangsLogo({ class: cssClass }: { class?: string }) {
       <a
         href="/"
         class={tw(
-          "inline-block h-full w-full",
+          "inline-block h-full",
           "text-[clamp(2.5rem,5vw,7rem)]",
           "text-transparent",
           "bg-center bg-contain bg-no-repeat",

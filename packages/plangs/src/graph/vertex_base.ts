@@ -2,7 +2,7 @@ import { arrayMerge } from "@plangs/auxiliar/array";
 import { IterTap } from "@plangs/auxiliar/iter_tap";
 import { type Relation, Vertex } from "@plangs/graphgen/library";
 
-import type { PlangsGraphBase, TPlangsRelName } from "./generated";
+import type { PlangsGraphBase, TPlangsRelName, TPlangsVertexName } from "./generated";
 import { FieldStrDate } from "./vertex_data_fields";
 import type { Image, Link, VertexBaseData } from "./vertex_data_schemas";
 
@@ -21,10 +21,23 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
   abstract readonly vertexDesc: string;
 
   /** General description of Vertices of this kind. */
-  abstract readonly vertexName: string;
+  abstract readonly vertexName: TPlangsVertexName;
 
   /** Edge Relationships */
   abstract readonly relations: Map<string, Relation<TPlangsRelName>>;
+
+  /** Internal path name for rendering the vertex in the web UI.  */
+  get href(): string {
+    const vn = this.vertexName;
+    if (vn === "license") return `/licenses#${this.plainKey}`;
+    if (vn === "paradigm") return `/paradigms#${this.plainKey}`;
+    if (vn === "plang") return `/${this.plainKey}`;
+    if (vn === "platform") return `/platforms#${this.plainKey}`;
+    if (vn === "post") return `/blog/${this.plainKey}`;
+    if (vn === "tag") return `/tags#${this.plainKey}`;
+    if (vn === "typeSystem") return `/tsys#${this.plainKey}`;
+    return `/${this.vertexName.toLowerCase()}/${this.plainKey}`;
+  }
 
   /** Node ranking, if the nodes are ranked. For instance, Plangs use Linguist data for ranking popularity. */
   get ranking(): number | undefined {

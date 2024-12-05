@@ -5,6 +5,7 @@ import { BORDER, PROSE_BASIC, tw } from "@plangs/frontend/auxiliar/styles";
 import { VPlang } from "@plangs/plangs/graph";
 import type { TPlangsVertexClass } from "@plangs/plangs/graph/generated";
 import { GRID_TABS, type TAB } from "@plangs/server/components/layout";
+import { VertexLink } from "@plangs/server/components/vertex-link";
 import type { ComponentChildren } from "preact";
 
 export type VertexInfoProps = {
@@ -43,6 +44,11 @@ export function VertexInfo({ vertex, open, tab }: VertexInfoProps) {
           </h2>
           <span class={tw(forGrid ? "dash mx-2 inline-block sm:hidden" : "hidden")}>&#8212;</span>
           <div class={tw(forGrid && "hidden sm:block")}>
+            {vertex.urlHome && (
+              <Pill>
+                <VertexLink vertex={vertex} includeLocal={false} title="Homepage" />
+              </Pill>
+            )}
             {vertex.created.value && <Pill children={`Appeared ${vertex.created.year}`} />}
             {"releases" in vertex && ret(vertex.releases.last, rel => rel && <Pill children={`Last Rel ${rel.date ?? rel.version}`} />)}
             {"isTranspiler" in vertex && vertex.isTranspiler && <Pill children="Transpiler" />}

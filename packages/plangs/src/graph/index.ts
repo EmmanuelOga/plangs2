@@ -85,10 +85,6 @@ export class VPlang extends VPlangBase {
     return new FieldGithub(this);
   }
 
-  get href(): string {
-    return `/${this.plainKey}`;
-  }
-
   get isPopular(): boolean {
     const { githubPopular, languishRanking } = this.data;
     return !!githubPopular || (typeof languishRanking === "number" && languishRanking <= 25);
@@ -206,9 +202,5 @@ export class VPost extends VPostBase {
 
   get title(): string | undefined {
     return this.name;
-  }
-
-  get href(): string {
-    return `/blog/${this.plainKey}`;
   }
 }

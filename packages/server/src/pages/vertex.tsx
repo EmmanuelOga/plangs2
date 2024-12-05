@@ -5,6 +5,7 @@ import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertexClass } from "@plangs/plangs/graph/generated";
 import { Layout } from "@plangs/server/components/layout";
 import { Table } from "@plangs/server/components/table";
+import { VertexLink } from "../components/vertex-link";
 
 /** Relations we want to create a section for, in the order we want them to render. */
 const RELATIONS = [
@@ -57,7 +58,7 @@ function VertexRelation({ vertex, rel, title }: { vertex: TPlangsVertexClass; re
           {relVertices.map(vertex => (
             <tr key={vertex.key}>
               <td>
-                <a href={vertex.urlHome} title={vertex.name} children={vertex.name} />
+                <a href={vertex.href} title={vertex.name} children={vertex.name} />
               </td>
               <td>{vertex.keywords.join(", ")}</td>
               <td>{vertex.description}</td>

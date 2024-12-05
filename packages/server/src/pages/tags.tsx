@@ -4,7 +4,7 @@ import { Layout } from "@plangs/server/components/layout";
 import { VertexHeader } from "@plangs/server/components/vertex-header";
 
 export function Tags({ pg }: { pg: PlangsGraph }) {
-  const entries = [...pg.tag.values].map(vertex => <VertexHeader key={vertex.key} vertex={vertex} path="/tags" />);
+  const entries = [...pg.tag.values].map(vertex => <VertexHeader key={vertex.key} vertex={vertex} />);
   return (
     <Layout tab="tags" title="Tags used across Plangs! for categorization." mainClasses="overflow-y-auto">
       <article class={tw(PROSE, "p-4")}>
