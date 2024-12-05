@@ -56,8 +56,8 @@ export type Column = "facet" | "count" | "sel";
 export type Order = "facet-asc" | "facet-desc" | "count-asc" | "count-desc" | "sel-asc" | "sel-desc";
 
 export function label(col: Column, config: FacetTableConfig): string {
-  if (col === "facet" && config.kind === "rel") return config.edgeName;
-  if (col === "facet" && config.kind === "prop") return `${config.vertexName} year`;
+  if (col === "facet" && config.kind === "rel") return "Name";
+  if (col === "facet" && config.kind === "prop") return "Value";
   return col;
 }
 

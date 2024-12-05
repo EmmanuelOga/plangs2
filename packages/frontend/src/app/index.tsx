@@ -39,8 +39,13 @@ async function start() {
 
       // On double-click, open the language page.
       on(grid, "dblclick", ({ target }: MouseEvent) => {
-        const pl = getClosestVertex(pg, target);
-        if (pl) window.location.href = `/${pl.plainKey}`;
+        const vertex = getClosestVertex(pg, target);
+        if (!vertex) return;
+        if (vertex.vertexName === "plang") {
+          window.location.href = `/${vertex.plainKey}`;
+        } else {
+          window.location.href = `/${vertex.vertexName}/${vertex.plainKey}`;
+        }
       });
 
       // Replace placeholders with the actual images, if any.

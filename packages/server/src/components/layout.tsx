@@ -33,13 +33,11 @@ type LayoutProps = {
   children: ComponentChildren;
   description?: string;
   mainClasses?: string;
-  pg: PlangsGraph;
-  pl?: VPlang;
   tab: TAB;
   title: string;
 };
 
-export function Layout({ title, description, tab, pg, pl, mainClasses, children }: LayoutProps) {
+export function Layout({ title, description, tab, mainClasses, children }: LayoutProps) {
   return (
     <html lang="en">
       <head>

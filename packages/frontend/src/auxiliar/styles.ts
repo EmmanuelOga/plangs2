@@ -9,7 +9,9 @@ export const HOVER_LIST = ["bg-hiliteb", "text-hilitef"]; // for classList add/r
 export const HOVER_SVG = "hover:stroke-1 hover:stroke-hiliteb";
 export const HOVER_SVG_GROUP = "group-hover:stroke-1 group-hover:stroke-hiliteb";
 export const INPUT = "bg-background text-foreground placeholder:text-foreground/50";
-export const PROSE = "prose prose-green dark:prose-invert sm:prose-sm lg:prose-lg xl:prose-xl 2xl:prose-2xl max-w-[80ch] mx-auto";
+
+export const PROSE_BASIC = "prose prose-green dark:prose-invert sm:prose-sm lg:prose-lg xl:prose-xl 2xl:prose-2xl";
+export const PROSE = `${PROSE_BASIC} max-w-[80ch] mx-auto`;
 
 /** Generate a stripped background image style. */
 export function stripes(size = "10px", col1 = "var(--color-stripes)", col2 = "var(--color-background)") {

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "preact/hooks";
 
 import { ret } from "@plangs/auxiliar/misc";
-import { BORDER, tw } from "@plangs/frontend/auxiliar/styles";
+import { BORDER, PROSE_BASIC, tw } from "@plangs/frontend/auxiliar/styles";
 import { VPlang } from "@plangs/plangs/graph";
 import type { TPlangsVertexClass } from "@plangs/plangs/graph/generated";
 import { GRID_TABS, type TAB } from "@plangs/server/components/layout";
@@ -22,9 +22,9 @@ export function VertexInfo({ vertex, open, tab }: VertexInfoProps) {
     <div
       class={tw(
         "w-full overflow-y-scroll",
-        "px-2 pt-2 sm:p-4",
+        "px-2 pt-2 sm:px-4",
         !forGrid && "-mx-4", // Compensate for padding so it aligns with the rest of the content.
-        "prose prose-green dark:prose-invert",
+        PROSE_BASIC,
         "max-w-[unset]",
         forGrid && "bg-linear-to-b to-secondary/50",
         tw(BORDER, forGrid && "border-b-1"),
@@ -35,35 +35,35 @@ export function VertexInfo({ vertex, open, tab }: VertexInfoProps) {
         </p>
       )}
       {vertex && (
-        <h1 ref={h1Ref} class={tw(forGrid && "inline sm:block")}>
-          <a class="text-primary" href={vertex ? `/${vertex.plainKey}` : "#"}>
-            {vertex ? vertex.name : "Info"}
-          </a>
-        </h1>
-      )}
-      {vertex && (
         <>
+          <h2 ref={h1Ref} class={tw("mt-0!", forGrid && "inline sm:block")}>
+            <a class="text-primary" href={vertex ? `/${vertex.plainKey}` : "#"}>
+              {vertex.name}
+            </a>
+          </h2>
           <span class={tw(forGrid ? "dash mx-2 inline-block sm:hidden" : "hidden")}>&#8212;</span>
           <div class={tw(forGrid && "hidden sm:block")}>
             {vertex.created.value && <Pill children={`Appeared ${vertex.created.year}`} />}
             {"releases" in vertex && ret(vertex.releases.last, rel => rel && <Pill children={`Last Rel ${rel.date ?? rel.version}`} />)}
-            {vertex instanceof VPlang && vertex.isTranspiler && <Pill children="Transpiler" />}
+            {"isTranspiler" in vertex && vertex.isTranspiler && <Pill children="Transpiler" />}
             {"isPopular" in vertex && vertex.isPopular && <Pill children="Popular" />}
           </div>
-          <p class={tw(forGrid && "inline sm:block")}>{vertex.description || "..."}</p>
+          <p class={tw(forGrid && "inline sm:block")}>{vertex.description}</p>
         </>
       )}
       {vertex instanceof VPlang && (
         <details class={tw(forGrid && "hidden sm:block", "pb-4")} open={open}>
-          <summary class="cursor-pointer text-xl">Details</summary>
-          {relations(vertex).map(([title, vertices]) => (
-            <div key={title}>
-              <h3 class="mt-4 text-xl">{title}</h3>
-              {vertices.map(({ name, key }) => (
-                <Pill key={key} children={name} />
-              ))}
-            </div>
-          ))}
+          <summary class="cursor-pointer text-primary">Details</summary>
+          <div class={tw(!forGrid && "bg-linear-to-b to-secondary/25 pb-4")}>
+            {relations(vertex).map(([title, vertices]) => (
+              <div key={title}>
+                <h3 class="mt-4 text-xl">{title}</h3>
+                {vertices.map(({ name, key }) => (
+                  <Pill key={key} children={name} />
+                ))}
+              </div>
+            ))}
+          </div>
         </details>
       )}
     </div>
@@ -71,7 +71,11 @@ export function VertexInfo({ vertex, open, tab }: VertexInfoProps) {
 }
 
 function Pill({ children }: { children: ComponentChildren }) {
-  return <span class={tw("inline-block", "mr-2 mb-3 px-1", "border-2 border-primary", "bg-primary text-secondary")}>{children}</span>;
+  return (
+    <span style="font-size: 1.25rem;" class={tw("inline-block", "mr-2 mb-3 px-1", "border-2 border-secondary", "bg-secondary/50 text-foreground")}>
+      {children}
+    </span>
+  );
 }
 
 function relations(pl: VPlang) {

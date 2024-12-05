@@ -10,7 +10,6 @@ export function Learning({ pg }: { pg: PlangsGraph }) {
   const tab: TAB = "learning";
   return (
     <Layout
-      pg={pg}
       tab={tab}
       title="Browse learning resources to become the best software developer!"
       description="Discover https://plangs.page faceted search engine to find your next programming language learning resources."

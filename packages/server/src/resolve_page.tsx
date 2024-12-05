@@ -1,4 +1,5 @@
-import type { PlangsGraph } from "@plangs/plangs/graph";
+import { PlangsGraph } from "@plangs/plangs/graph";
+import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
 
 import { loadBlogPost, loadContent } from "./content";
 import { About } from "./pages/about";
@@ -10,12 +11,12 @@ import { Learning } from "./pages/learning";
 import { Libs } from "./pages/libs";
 import { Licenses } from "./pages/licenses";
 import { Paradigms } from "./pages/paradigms";
-import { Pl } from "./pages/pl";
 import { Plangs } from "./pages/plangs";
 import { Platforms } from "./pages/platforms";
 import { Tags } from "./pages/tags";
 import { Tools } from "./pages/tools";
 import { TSys } from "./pages/tsys";
+import { Vertex } from "./pages/vertex";
 
 export async function resolvePage(path: string, pg: PlangsGraph) {
   if (path === "/") return <Plangs pg={pg} />;
@@ -40,9 +41,24 @@ export async function resolvePage(path: string, pg: PlangsGraph) {
     return;
   }
 
-  if (path.startsWith("/") && path.length > 1 && path.length < 32) {
-    const pl = pg.plang.get(`pl+${path.slice(1)}`);
-    if (pl) return <Pl pg={pg} pl={pl} />;
-    return;
+  /** Routes that are rendered with the {@link <Vertex/>} component. */
+  if (path.length < 32 && path.startsWith("/") && path.length > 1) {
+    const postSlash = path.slice(1);
+
+    // All routes are expected to be /${vertexName}/${vertexPlainKey} (the key without the kind),
+    // ... except for plangs that are the main vertices and can be accessed without the vertexName.
+    if (!postSlash.includes("/")) {
+      const pl = pg.plang.get(`pl+${postSlash}`);
+      if (pl) return <Vertex pg={pg} vertex={pl} />;
+    }
+
+    const [vname, vertexKey] = postSlash.split("/");
+    if (!vertexKey || vertexKey.length === 0) return;
+    const vertexName = vname.toLowerCase() as TPlangsVertexName;
+    if (!PlangsGraph.vertexKind.has(vertexName)) return;
+
+    const kind = PlangsGraph.vertexKind.get(vertexName);
+    const vertex = pg[vertexName].get(`${kind}+${vertexKey}` as any);
+    if (vertex) return <Vertex pg={pg} vertex={vertex} />;
   }
 }

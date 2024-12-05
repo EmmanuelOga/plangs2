@@ -10,7 +10,6 @@ export function Communities({ pg }: { pg: PlangsGraph }) {
   const tab: TAB = "communities";
   return (
     <Layout
-      pg={pg}
       tab={tab}
       title="Browse communities to engage in programming conversations!"
       description="Discover https://plangs.page faceted search engine to find your next favorite programming language communities."

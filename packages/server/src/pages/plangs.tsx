@@ -10,7 +10,6 @@ export function Plangs({ pg }: { pg: PlangsGraph }) {
   const tab: TAB = "plangs";
   return (
     <Layout
-      pg={pg}
       tab={tab}
       title="Find your next favorite programming language!"
       description="Discover https://plangs.page faceted search engine to find your next favorite programming language."

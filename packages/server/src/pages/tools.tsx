@@ -10,7 +10,6 @@ export function Tools({ pg }: { pg: PlangsGraph }) {
   const tab: TAB = "tools";
   return (
     <Layout
-      pg={pg}
       tab={tab}
       title="Browse tools that make your favorite programming languages even better!"
       description="Discover https://plangs.page faceted search engine to find your next favorite programming language resources."

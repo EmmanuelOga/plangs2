@@ -42,11 +42,13 @@ This simplistic build process just outputs the statically generated contents of 
 ## WIP
 
 - [ ] Make the vertex-info work for all node types.
-- [ ] Fix "pill" links .. what happens when we click them?
 - [ ] Additional Vertex pages: {tool,app,lib,learning,community}/key (do we need these? Maybe the sidebar info is good enough for now? Link directly to the resource?)
-- [ ] Replace facet indicator dot with Reset button.
+- [ ] Fix "pill" links .. what happens when we click them?
 
 ## TODO
+
+- [ ] Replace facet indicator dot with Reset button.
+- [ ] Prefetch some URLS on hover.
 
 ### More Pending Tasks
 

@@ -6,7 +6,7 @@ import { VertexHeader } from "@plangs/server/components/vertex-header";
 export function TSys({ pg }: { pg: PlangsGraph }) {
   const entries = [...pg.typeSystem.values].map(vertex => <VertexHeader key={vertex.key} vertex={vertex} path="/tsys" />);
   return (
-    <Layout pg={pg} tab="tsys" title="Type systems implemented by your favorite programming languages!" mainClasses="overflow-y-auto">
+    <Layout tab="tsys" title="Type systems implemented by your favorite programming languages!" mainClasses="overflow-y-auto">
       <article class={tw(PROSE, "p-4")}>
         <h1>Type Systems</h1>
         {entries.length === 0 ? <p>No type systems just yet!</p> : entries}
