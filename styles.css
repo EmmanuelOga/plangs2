@@ -26,7 +26,14 @@
   --color-hilitef: #222;
 }
 
+#id-mainContent a, h2, h3 {
+  color: var(--color-primary);
+}
+
+header, h2, h3 { font-style: italic; }
+
 @theme {
+  /* https://modernfontstacks.com/ */
   --font-family-sans: ui-rounded, "Hiragino Maru Gothic ProN", Quicksand, Comfortaa, Manjari, "Arial Rounded MT", "Arial Rounded MT Bold", Calibri,
     source-sans-pro, sans-serif;
 }

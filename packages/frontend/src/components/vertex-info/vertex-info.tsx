@@ -50,7 +50,7 @@ export function VertexInfo({ vertex, open, tab }: VertexInfoProps) {
               </Pill>
             )}
             {vertex.created.value && <Pill children={`Appeared ${vertex.created.year}`} />}
-            {"releases" in vertex && ret(vertex.releases.last, rel => rel && <Pill children={`Last Rel ${rel.date ?? rel.version}`} />)}
+            {"releases" in vertex && ret(vertex.releases.last, rel => rel && <Pill children={`Released ${rel.date ?? rel.version}`} />)}
             {"isTranspiler" in vertex && vertex.isTranspiler && <Pill children="Transpiler" />}
             {"isPopular" in vertex && vertex.isPopular && <Pill children="Popular" />}
           </div>
@@ -64,8 +64,10 @@ export function VertexInfo({ vertex, open, tab }: VertexInfoProps) {
             {relations(vertex).map(([title, vertices]) => (
               <div key={title}>
                 <h3 class="mt-4 text-xl">{title}</h3>
-                {vertices.map(({ name, key }) => (
-                  <Pill key={key} children={name} />
+                {vertices.map(vertex => (
+                  <Pill key={vertex.key}>
+                    <a href={vertex.href}>{vertex.name}</a>
+                  </Pill>
                 ))}
               </div>
             ))}
@@ -98,7 +100,7 @@ function relations(pl: VPlang) {
     ["Licenses", pl.relLicenses.values],
 
     ["Tags", pl.relTags.values],
-    ["Extensions", pl.extensions.map(name => ({ key: name, name, kind: "ext" })).existing],
+    // ["Extensions", pl.extensions.map(name => ({ key: name, name, kind: "ext" })).existing],
   ] as const;
 
   return all.filter(([_, vertices]) => vertices.length > 0);

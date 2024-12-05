@@ -5,6 +5,7 @@ import { iconButton } from "@plangs/frontend/components/icon-button";
 import type { PlangsGraph, VPlang } from "@plangs/plangs/graph";
 import { script } from "@plangs/server/utils/html";
 
+import { cssID } from "../elements";
 import { MainNav } from "./main-nav";
 import { PlangsLogo } from "./plangs-logo";
 
@@ -80,7 +81,9 @@ export function Layout({ title, description, tab, mainClasses, children }: Layou
 
         <div class={tw("flex-1", "flex flex-row", "overflow-y-auto")}>
           <MainNav tab={tab} class={tw("hidden sm:static", "z-20", "w-[12rem]", "overflow-hidden overflow-y-auto")} />
-          <main class={tw("flex-1", mainClasses)}>{children}</main>
+          <main id={cssID("mainContent")} class={tw("flex-1", mainClasses)}>
+            {children}
+          </main>
         </div>
       </body>
     </html>

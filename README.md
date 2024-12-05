@@ -42,13 +42,15 @@ This simplistic build process just outputs the statically generated contents of 
 ## WIP
 
 - [ ] Make the vertex-info work for all node types.
-- [ ] Additional Vertex pages: {tool,app,lib,learning,community}/key (do we need these? Maybe the sidebar info is good enough for now? Link directly to the resource?)
 - [ ] Fix "pill" links .. what happens when we click them?
 
 ## TODO
 
 - [ ] Replace facet indicator dot with Reset button.
 - [ ] Prefetch some URLS on hover.
+
+- [ ] Allow AI enriching all data, not just plangs.
+- [ ] Manually add more data and AI enrich. 
 
 ### More Pending Tasks
 

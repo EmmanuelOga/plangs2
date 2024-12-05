@@ -10,7 +10,7 @@ export const HOVER_SVG = "hover:stroke-1 hover:stroke-hiliteb";
 export const HOVER_SVG_GROUP = "group-hover:stroke-1 group-hover:stroke-hiliteb";
 export const INPUT = "bg-background text-foreground placeholder:text-foreground/50";
 
-export const PROSE_BASIC = "prose prose-green dark:prose-invert sm:prose-sm lg:prose-lg xl:prose-xl 2xl:prose-2xl";
+export const PROSE_BASIC = "prose dark:prose-invert sm:prose-sm lg:prose-lg xl:prose-xl"; // 2xl:prose-2xl; // prose-green
 export const PROSE = `${PROSE_BASIC} max-w-[80ch] mx-auto`;
 
 /** Generate a stripped background image style. */

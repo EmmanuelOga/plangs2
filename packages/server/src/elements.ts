@@ -6,6 +6,7 @@
 export const ID_KEYS = [
   "todo",
 
+  "mainContent", // Main content area in the layout.
   "mainNav", // Main navigation bar, toggled by the hamburger icon.
   "vertexGrid", // Main grid for vertices.
 ] as const;
