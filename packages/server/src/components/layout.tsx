@@ -62,7 +62,7 @@ export function Layout({ page, title, desc, mainClasses, children }: LayoutProps
 
         <noscript>
           <em>Note!</em>
-          <p>This site is fully static and requires JavaScript for the best experience.</p>
+          <p>This site is fully static but requires JavaScript for the best experience.</p>
           <p>In particular, the search feature will not work without JavaScript.</p>
         </noscript>
 
