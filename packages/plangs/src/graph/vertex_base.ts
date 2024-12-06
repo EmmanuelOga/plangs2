@@ -28,14 +28,7 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
 
   /** Internal path name for rendering the vertex in the web UI.  */
   get href(): string {
-    const vn = this.vertexName;
-    if (vn === "license") return `/licenses#${this.plainKey}`;
-    if (vn === "paradigm") return `/paradigms#${this.plainKey}`;
-    if (vn === "plang") return `/${this.plainKey}`;
-    if (vn === "platform") return `/platforms#${this.plainKey}`;
-    if (vn === "post") return `/blog/${this.plainKey}`;
-    if (vn === "tag") return `/tags#${this.plainKey}`;
-    if (vn === "typeSystem") return `/tsys#${this.plainKey}`;
+    if (this.vertexName === "plang") return `/${this.plainKey}`;
     return `/${this.vertexName.toLowerCase()}/${this.plainKey}`;
   }
 
