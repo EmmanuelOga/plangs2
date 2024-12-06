@@ -80,7 +80,9 @@ export function VertexInfo({ vertex, open, tab }: VertexInfoProps) {
 
 function Pill({ children }: { children: ComponentChildren }) {
   return (
-    <span style="font-size: 1.25rem;" class={tw("inline-block", "mr-2 mb-3 px-1", "border-2 border-secondary", "bg-secondary/50 text-foreground")}>
+    <span
+      style="font-size: 1rem;"
+      class={tw("inline-block", "rounded-tl-2xl rounded-br-2xl", "mr-2 mb-3 px-2", "border-2 border-secondary", "bg-secondary/50 text-foreground")}>
       {children}
     </span>
   );
