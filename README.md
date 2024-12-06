@@ -43,9 +43,14 @@ This simplistic build process just outputs the statically generated contents of 
 
 - [ ] Make the vertex-info work for all node types.
 - [ ] Fix "pill" links .. what happens when we click them?
+- [ ] Allow tagging more than plangs on blog posts.
+- [ ] Revise behavior of every vertex kind vertex page.
+- [ ] Revise landscape mobile layout.
 
 ## TODO
 
+- [ ] Create a ToolBar component: we need some buttons to interact with eachother.
+- [ ] Remove duplication: use a single grid.tsx and reference.tsx page for all grid/ref pages.
 - [ ] Replace facet indicator dot with Reset button.
 - [ ] Prefetch some URLS on hover.
 

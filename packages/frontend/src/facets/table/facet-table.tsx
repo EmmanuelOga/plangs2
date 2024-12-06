@@ -49,7 +49,7 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
   const body = () => (
     <div class={tw("grid grid-cols-[1fr_auto_auto]", "overflow-y-auto", "relative")}>
       <div class={tw(ROW, "sticky top-0 cursor-pointer", tw(BORDER, "border-b-1"))}>
-        <div class={tw("col-span-3", "py-1", "flex shrink-0 flex-row", "bg-background", CENTER_ROW, tw(BORDER, "border-t-1"))}>
+        <div class={tw("col-span-3", "py-1", "flex shrink-0 flex-row", "bg-background", CENTER_ROW)}>
           <span class={tw("pl-2", CENTER_ROW, state.value.size < 2 ? "text-foreground/50" : "text-foreground")}>
             <IconButton action="allAny" disabled={state.value.size < 2} initial={state.value.mode} class={tw(config.kind === "prop" && "hidden")} />
           </span>
