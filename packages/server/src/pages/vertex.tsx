@@ -50,9 +50,7 @@ function VertexRelation({ vertex, rel, title }: { vertex: TPlangsVertexClass; re
   return (
     <div class="mt-4 mb-16">
       <h2 class="mt-0!">{title}</h2>
-      {relVertices.length === 0 ? (
-        <p>No applications just yet!</p>
-      ) : (
+      {
         <Table headers={["Name", "Keywords", "Description"]}>
           {relVertices.map(vertex => (
             <tr key={vertex.key}>
@@ -64,7 +62,7 @@ function VertexRelation({ vertex, rel, title }: { vertex: TPlangsVertexClass; re
             </tr>
           ))}
         </Table>
-      )}
+      }
     </div>
   );
 }
