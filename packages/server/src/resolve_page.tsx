@@ -31,7 +31,7 @@ export async function resolvePage(path: string, pg: PlangsGraph) {
   if (path === "/platforms") return <Platforms pg={pg} />;
   if (path === "/tags") return <Tags pg={pg} />;
   if (path === "/tools") return <Tools pg={pg} />;
-  if (path === "/tsys") return <TSys pg={pg} />;
+  if (path === "/typesystems" || path === "/typeSystems") return <TSys pg={pg} />;
 
   if (path === "/about") return <About pg={pg} content={await loadContent("2024_09_20_about.md", pg)} />;
 
@@ -55,7 +55,7 @@ export async function resolvePage(path: string, pg: PlangsGraph) {
 
     const [vname, vertexKey] = postSlash.split("/");
     if (!vertexKey || vertexKey.length === 0) return;
-    const vertexName = vname.toLowerCase() as TPlangsVertexName;
+    const vertexName = (vname === "typesystem" ? "typeSystem" : vname) as TPlangsVertexName;
     if (!PlangsGraph.vertexKind.has(vertexName)) return;
 
     const kind = PlangsGraph.vertexKind.get(vertexName);
