@@ -38,7 +38,7 @@ export function MainNav({ tab, class: cssClass }: { tab: TAB; class?: string }) 
         tab={tab}
         title="Reference"
         links={[
-          { title: "Type Systems", href: "/tsys", forTab: "tsys" },
+          { title: "Type Systems", href: "/typeSystems", forTab: "tsys" },
           { title: "Paradigms", href: "/paradigms", forTab: "paradigms" },
           { title: "Platforms", href: "/platforms", forTab: "platforms" },
           { title: "Tags", href: "/tags", forTab: "tags" },
@@ -57,14 +57,7 @@ function NavSection({ title, links, tab, border }: { tab: TAB; title: string; li
       <header class={tw("ml-4 sm:mb-4", "uppercase", "text-primary")}>{title}</header>
       <ul>
         {links.map(({ title, href, nested, forTab }) => (
-          <li
-            key={href}
-            class={tw(
-              "px-4 py-2 sm:mb-1",
-
-              tab === forTab && "bg-primary/85 text-background",
-              tab !== forTab && "hover:bg-primary/25",
-            )}>
+          <li key={href} class={tw("px-4 py-2 sm:mb-1", tab === forTab ? "bg-primary/85 text-background" : "hover:bg-primary/25")}>
             <a
               data-tab={forTab}
               data-current={tab === forTab ? "1" : undefined}
