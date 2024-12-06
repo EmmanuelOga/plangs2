@@ -6,7 +6,7 @@ import { VertexHeader } from "@plangs/server/components/vertex-header";
 export function Licenses({ pg }: { pg: PlangsGraph }) {
   const entries = [...pg.license.values].map(vertex => <VertexHeader key={vertex.key} vertex={vertex} />);
   return (
-    <Layout tab="licenses" title="Licenses commonly used by open source projects." mainClasses="overflow-y-auto">
+    <Layout page="licenses" title="Licenses commonly used by Software resources." mainClasses="overflow-y-auto">
       <article class={tw(PROSE, "p-4")}>
         <h1>Licenses</h1>
         {entries.length === 0 ? <p>No licenses just yet!</p> : entries}

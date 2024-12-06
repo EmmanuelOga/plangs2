@@ -3,17 +3,17 @@ import { useEffect } from "preact/hooks";
 
 import { useRootState } from "@plangs/frontend/auxiliar/dispatchable";
 import { DESELECT } from "@plangs/frontend/auxiliar/icons";
-import { BORDER, HOVER, HOVER_SVG, tw } from "@plangs/frontend/auxiliar/styles";
+import { BORDER, HOVER_SVG, tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsGraph } from "@plangs/plangs/graph";
-import type { TAB } from "@plangs/server/components/layout";
+import type { PlangsPage } from "@plangs/server/components/layout";
 
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { type AnyFacetsMainState, FacetsMainContext, useFacetState } from "./use_state";
 
 const SUBGRID = tw("col-span-2", "grid grid-cols-subgrid", "items-center", "grow-0");
 
-export function FacetsMain({ tab, pg }: { tab: TAB; pg: PlangsGraph }) {
-  const state = useFacetState(tab, pg);
+export function FacetsMain({ page, pg }: { page: PlangsPage; pg: PlangsGraph }) {
+  const state = useFacetState(page, pg);
   const self = useRootState(state);
 
   // Subscribe to user changes to reset the form when the user changes URL fragment.

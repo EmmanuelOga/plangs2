@@ -1,4 +1,4 @@
-import type { TAB } from "@plangs/server/components/layout";
+import type { PlangsPage } from "@plangs/server/components/layout";
 
 export type KeyType =
   /** Light/Dark mode. */
@@ -15,12 +15,12 @@ export type KeyType =
   | "vertex-info";
 
 export type Postfix = string;
-export type StoreKey = `site-${TAB}-${KeyType}` | `site-${TAB}-${KeyType}-${Postfix}`;
+export type StoreKey = `site-${PlangsPage}-${KeyType}` | `site-${PlangsPage}-${KeyType}-${Postfix}`;
 
 /** Type checks keys for use with localStorage. */
-export function storeKey(tab: TAB, key: KeyType, postfix?: Postfix): StoreKey {
-  if (postfix) return `site-${tab}-${key}-${postfix}`;
-  return `site-${tab}-${key}`;
+export function storeKey(page: PlangsPage, key: KeyType, postfix?: Postfix): StoreKey {
+  if (postfix) return `site-${page}-${key}-${postfix}`;
+  return `site-${page}-${key}`;
 }
 
 // biome-ignore lint/suspicious/noExplicitAny: JSON can serialize any data.

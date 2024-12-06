@@ -17,9 +17,9 @@ export function Blog({ pg }: { pg: PlangsGraph }) {
 
   return (
     <Layout
-      tab="blog"
-      title="Read https://plangs.page latest news"
-      description="Read the latest news from https://plangs.page, a website about programming languages and the ecosystems around them."
+      page="blog"
+      title="News"
+      desc="Read the latest tips and resources on Plangs!, a site about Programming Languages and the Ecosystems around them."
       mainClasses="overflow-y-auto">
       <article class={tw(PROSE, "p-4")}>
         <h1>News</h1>

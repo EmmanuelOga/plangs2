@@ -22,12 +22,12 @@ const RELATIONS = [
 export function Vertex({ pg, vertex }: { pg: PlangsGraph; vertex: TPlangsVertexClass }) {
   return (
     <Layout
-      tab="pl"
-      title={`${vertex.name} at https://plangs.page`}
-      description={`${vertex.name} at https://plangs.page: A language is much more than just a syntax and semantics. It's an ecosystem of tools, libraries, applications, learning resources, and more!.`}
+      page="pl"
+      title={`${vertex.name} at Plangs!`}
+      desc={`${vertex.name} at Plangs!: A Programming Language is much more than just a syntax and semantics. It's an Ecosystem of Tools, Libraries, Applications, Learning Resources, and more!`}
       mainClasses={tw("overflow-y-scroll")}>
       <article class={tw("p-4", PROSE)}>
-        {vertexInfo({ vertex, tab: "pl", open: false })}
+        {vertexInfo({ vertex, page: "pl", open: false })}
 
         {RELATIONS.map(([rel, title]) => (
           <VertexRelation key={rel} vertex={vertex} rel={rel} title={title} />

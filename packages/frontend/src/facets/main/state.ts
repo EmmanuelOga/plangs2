@@ -8,7 +8,7 @@ import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { storeKey, storeUpdate } from "@plangs/frontend/auxiliar/storage";
 import type { ToggleClearFacets } from "@plangs/frontend/components/icon-button/state";
 import type { PlangsGraph } from "@plangs/plangs/graph";
-import type { TAB } from "@plangs/server/components/layout";
+import type { PlangsPage } from "@plangs/server/components/layout";
 
 import { debounce } from "@plangs/auxiliar/debounce";
 import { updateThumbns } from "./grid_util";
@@ -44,7 +44,7 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
 
   doSetCurrentGroup(groupKey: GroupKey): void {
     this.data.currentGroupKey = groupKey;
-    storeUpdate(storeKey(this.tab, "facets-last-group"), groupKey);
+    storeUpdate(storeKey(this.page, "facets-last-group"), groupKey);
     this.dispatch();
   }
 
@@ -131,7 +131,7 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
     if (persist === "persist") {
       const data = this.serialized;
       this.pushState(data);
-      storeUpdate(storeKey(this.tab, "facet-value"), data);
+      storeUpdate(storeKey(this.page, "facet-value"), data);
     }
     updateThumbns(this.results);
     this.updateClearFacets();
@@ -166,8 +166,8 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
 
   /** Abstract Methods. */
 
-  /** Tab displaying the filters. */
-  abstract readonly tab: TAB;
+  /** Page displaying the filters. */
+  abstract readonly page: PlangsPage;
 
   /** Navigation configuration. */
   abstract readonly nav: { groupKeys: GroupKey[][]; default: GroupKey };

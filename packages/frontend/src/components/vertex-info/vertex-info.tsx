@@ -4,21 +4,21 @@ import { ret } from "@plangs/auxiliar/misc";
 import { BORDER, PROSE_BASIC, tw } from "@plangs/frontend/auxiliar/styles";
 import { VPlang } from "@plangs/plangs/graph";
 import type { TPlangsVertexClass } from "@plangs/plangs/graph/generated";
-import { GRID_TABS, type TAB } from "@plangs/server/components/layout";
+import { GRID_PAGES, type PlangsPage } from "@plangs/server/components/layout";
 import { VertexLink } from "@plangs/server/components/vertex-link";
 import type { ComponentChildren } from "preact";
 
 export type VertexInfoProps = {
-  tab: TAB;
+  page: PlangsPage;
   open?: boolean;
   vertex?: TPlangsVertexClass;
 };
 
 /** Display Vertex. */
-export function VertexInfo({ vertex, open, tab }: VertexInfoProps) {
+export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
   const h1Ref = useRef<HTMLHeadingElement>(null);
   useEffect(() => h1Ref.current?.scrollIntoView({ behavior: "smooth", block: "end" }));
-  const forGrid = GRID_TABS.has(tab);
+  const forGrid = GRID_PAGES.has(page);
   return (
     <div
       class={tw(

@@ -2,15 +2,14 @@ import type { ComponentChildren } from "preact";
 
 import { stripes, tw } from "@plangs/frontend/auxiliar/styles";
 import { iconButton } from "@plangs/frontend/components/icon-button";
-import type { PlangsGraph, VPlang } from "@plangs/plangs/graph";
 import { script } from "@plangs/server/utils/html";
 
 import { cssID } from "../elements";
 import { MainNav } from "./main-nav";
 import { PlangsLogo } from "./plangs-logo";
 
-export type TAB =
-  | "any_tab"
+export type PlangsPage =
+  | "_any_page_"
   | "about"
   | "apps"
   | "blog"
@@ -28,23 +27,23 @@ export type TAB =
   | "communities"
   | "NA";
 
-export const GRID_TABS: Set<TAB> = new Set(["plangs", "tools", "apps", "libs", "learning", "communities"]);
+export const GRID_PAGES: Set<PlangsPage> = new Set(["plangs", "tools", "apps", "libs", "learning", "communities"]);
 
 type LayoutProps = {
-  children: ComponentChildren;
-  description?: string;
+  page: PlangsPage;
+  title?: string;
+  desc?: string;
   mainClasses?: string;
-  tab: TAB;
-  title: string;
+  children: ComponentChildren;
 };
 
-export function Layout({ title, description, tab, mainClasses, children }: LayoutProps) {
+export function Layout({ page, title, desc, mainClasses, children }: LayoutProps) {
   return (
     <html lang="en">
       <head>
         <meta charset="utf-8" />
-        <title>Plangs! - {title}</title>
-        <meta name="description" content={description ?? title} />
+        <title>{title ? `Plangs! - ${title}` : "Plangs!"}</title>
+        <meta name="description" content={desc ?? title} />
         <script src="/bundle/app.js" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -56,7 +55,7 @@ export function Layout({ title, description, tab, mainClasses, children }: Layou
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body
-        data-tab={tab}
+        data-page={page}
         style={stripes()}
         class={tw("h-dvh w-full", "flex flex-col flex-nowrap", "bg-background text-foreground", "overflow-hidden")}>
         {script("window.restoreLightMode()")}
@@ -71,16 +70,16 @@ export function Layout({ title, description, tab, mainClasses, children }: Layou
           <PlangsLogo class={tw("sm:mt-4", "h-12 sm:h-16 lg:h-20 xl:h-24")} />
           <div class={tw("px-2 sm:px-4", "flex flex-row", "gap-4", "items-center justify-between")}>
             {iconButton("hamburger")}
-            {tab === "plangs" && iconButton("facets")}
-            {tab === "plangs" && iconButton("clearFacets")}
-            {tab === "plangs" && iconButton("gridOrder")}
+            {page === "plangs" && iconButton("facets")}
+            {page === "plangs" && iconButton("clearFacets")}
+            {page === "plangs" && iconButton("gridOrder")}
             <div class="flex-1" />
             {iconButton("lights")}
           </div>
         </header>
 
         <div class={tw("flex-1", "flex flex-row", "overflow-y-auto")}>
-          <MainNav tab={tab} class={tw("hidden sm:static", "z-20", "w-[12rem]", "overflow-hidden overflow-y-auto")} />
+          <MainNav page={page} class={tw("hidden sm:static", "z-20", "w-[12rem]", "overflow-hidden overflow-y-auto")} />
           <main id={cssID("mainContent")} class={tw("flex-1", mainClasses)}>
             {children}
           </main>

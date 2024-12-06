@@ -46,7 +46,7 @@ abstract class IconButtonBaseState<T> extends Dispatchable<T & { disabled: boole
 /** State for a dark/ligh mode button */
 export class ToggleLights extends IconButtonBaseState<{ mode: "dark" | "light" }> {
   static initial(disabled = false) {
-    const theme = storeLoad(storeKey("any_tab", "theme"));
+    const theme = storeLoad(storeKey("_any_page_", "theme"));
     return new ToggleLights({ mode: theme === "light" ? "light" : "dark", disabled });
   }
 
@@ -64,14 +64,14 @@ export class ToggleLights extends IconButtonBaseState<{ mode: "dark" | "light" }
 
   override runEffects() {
     document.body.classList.toggle("dark", this.isDark);
-    storeUpdate(storeKey("any_tab", "theme"), this.data.mode);
+    storeUpdate(storeKey("_any_page_", "theme"), this.data.mode);
   }
 }
 
 /** State for a "hamburguer" menu. */
 export class ToggleHamburguer extends IconButtonBaseState<{ mode: "show" | "hide" }> {
   static initial(disabled = false) {
-    const mode = storeLoad(storeKey("any_tab", "hamburger-menu"));
+    const mode = storeLoad(storeKey("_any_page_", "hamburger-menu"));
     return new ToggleHamburguer({ mode: mode === "show" ? "show" : "hide", disabled });
   }
 
@@ -89,14 +89,14 @@ export class ToggleHamburguer extends IconButtonBaseState<{ mode: "show" | "hide
 
   override runEffects() {
     elem("mainNav")?.classList.toggle("hidden", this.hide);
-    storeUpdate(storeKey("any_tab", "hamburger-menu"), this.data.mode);
+    storeUpdate(storeKey("_any_page_", "hamburger-menu"), this.data.mode);
   }
 }
 
 /** State for the facets menu. */
 export class ToggleFacetsMenu extends IconButtonBaseState<{ mode: "show" | "hide" }> {
   static initial(disabled = false) {
-    const mode = storeLoad(storeKey("any_tab", "facets-browser"));
+    const mode = storeLoad(storeKey("_any_page_", "facets-browser"));
     return new ToggleFacetsMenu({ mode: mode === "show" ? "show" : "hide", disabled });
   }
 
@@ -126,7 +126,7 @@ export class ToggleFacetsMenu extends IconButtonBaseState<{ mode: "show" | "hide
   override runEffects() {
     const fm = elems("facetsMain");
     if (fm.length > 0) fm[0].classList.toggle("hidden", !this.show);
-    storeUpdate(storeKey("any_tab", "facets-browser"), this.data.mode);
+    storeUpdate(storeKey("_any_page_", "facets-browser"), this.data.mode);
   }
 }
 

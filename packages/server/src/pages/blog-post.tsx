@@ -5,7 +5,7 @@ import type { Content } from "@plangs/server/content";
 
 export function BlogPost({ post, pg }: { post: Content; pg: PlangsGraph }) {
   return (
-    <Layout tab="blog" title={post.title} description={`Read about "${post.title}" on https://plangs.page!`} mainClasses="overflow-y-auto">
+    <Layout page="blog" title={post.title} desc={`Read about "${post.title}" on Plangs!`} mainClasses="overflow-y-auto">
       <article
         class={tw(PROSE, "p-4")}
         // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>

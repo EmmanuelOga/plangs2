@@ -6,7 +6,7 @@ import { matchVertices } from "@plangs/plangs/facets";
 import type { LibraryFacetKey } from "@plangs/plangs/facets/libraries";
 import { type PlangsGraph, prop, rel } from "@plangs/plangs/graph";
 import type { VLibraryKey } from "@plangs/plangs/graph/generated";
-import type { TAB } from "@plangs/server/components/layout";
+import type { PlangsPage } from "@plangs/server/components/layout";
 import { bool, defineFacetGroups, table, text } from "../main/types";
 
 // biome-ignore format: Keep it in one line.
@@ -40,7 +40,7 @@ const [GROUPS, GK_BY_FK, COMPONENT] = defineFacetGroups<GK, FK>({
   writtenFor: { title: "Written For", facets: [table("writtenFor", "Written For", rel("tool", "relPlangs"))] },
 });
 
-const LIBS_TAB: TAB = "libs";
+const PAGE: PlangsPage = "libs";
 const NAV: { groupKeys: GK[][]; default: GK } = {
   groupKeys: [["general"], ["writtenWith", "writtenFor"], ["tags", "creationYear", "licenses"], ["platforms"]],
   default: "general",
@@ -48,14 +48,14 @@ const NAV: { groupKeys: GK[][]; default: GK } = {
 
 export class LibrariesFacetsState extends FacetsMainState<GK, LibraryFacetKey> {
   override readonly nav = NAV;
-  override readonly tab = LIBS_TAB;
+  override readonly page = PAGE;
   override readonly gkByFk = GK_BY_FK;
   override readonly groupsConfig = GROUPS;
   override readonly groupsComponent = COMPONENT;
 
   static initial(pg: PlangsGraph): LibrariesFacetsState {
-    const currentGroupKey = storeLoad(storeKey(LIBS_TAB, "facets-last-group")) ?? NAV.default;
-    const values = FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? storeLoad(storeKey(LIBS_TAB, "facet-value")));
+    const currentGroupKey = storeLoad(storeKey(PAGE, "facets-last-group")) ?? NAV.default;
+    const values = FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? storeLoad(storeKey(PAGE, "facet-value")));
     return new LibrariesFacetsState({ pg, currentGroupKey, values });
   }
 
