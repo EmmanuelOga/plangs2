@@ -21,8 +21,8 @@ export function facetsMain({ page, class: klass }: { page: PlangsPage; class: st
 /** Find {@link FacetsMain} component/s in the DOM and render them. */
 export function activateFacetsMain(pg: PlangsGraph) {
   for (const elem of elems(CL)) {
-    if (pg && elem.dataset.tab) {
-      render(<FacetsMain pg={pg} page={elem.dataset.tab as PlangsPage} />, elem);
+    if (pg && elem.dataset.page) {
+      render(<FacetsMain pg={pg} page={elem.dataset.page as PlangsPage} />, elem);
     } else {
       console.error("Missing prop for FacetsMain component.");
     }

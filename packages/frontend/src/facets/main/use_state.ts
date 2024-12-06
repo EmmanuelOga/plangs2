@@ -1,14 +1,15 @@
 import { createContext } from "preact";
 
 import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
+import { AppsFacetsState } from "@plangs/frontend/facets/kind/apps";
+import { CommunitiesFacetsState } from "@plangs/frontend/facets/kind/communities";
+import { LearningFacetsState } from "@plangs/frontend/facets/kind/learning";
+import { LibrariesFacetsState } from "@plangs/frontend/facets/kind/libraries";
+import { PlangsFacetsState } from "@plangs/frontend/facets/kind/plangs";
+import { ToolsFacetsState } from "@plangs/frontend/facets/kind/tools";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { PlangsPage } from "@plangs/server/components/layout";
-import { AppsFacetsState } from "../kind/apps";
-import { CommunitiesFacetsState } from "../kind/communities";
-import { LearningFacetsState } from "../kind/learning";
-import { LibrariesFacetsState } from "../kind/libraries";
-import { PlangsFacetsState } from "../kind/plangs";
-import { ToolsFacetsState } from "../kind/tools";
+
 import type { FacetsMainState } from "./state";
 
 /** Share the main component state across all other children components that may need it. */

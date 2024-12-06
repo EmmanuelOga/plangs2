@@ -2,12 +2,13 @@ import type { ComponentChildren } from "preact";
 
 import { stripes, tw } from "@plangs/frontend/auxiliar/styles";
 import { iconButton } from "@plangs/frontend/components/icon-button";
+import { cssID } from "@plangs/server/elements";
 import { script } from "@plangs/server/utils/html";
 
-import { cssID } from "../elements";
 import { MainNav } from "./main-nav";
 import { PlangsLogo } from "./plangs-logo";
 
+export type PageType = "grid" | "other";
 export type PlangsPage =
   | "_any_page_"
   | "about"
@@ -31,13 +32,14 @@ export const GRID_PAGES: Set<PlangsPage> = new Set(["plangs", "tools", "apps", "
 
 type LayoutProps = {
   page: PlangsPage;
+  pageType?: "grid" | "other";
   title?: string;
   desc?: string;
   mainClasses?: string;
   children: ComponentChildren;
 };
 
-export function Layout({ page, title, desc, mainClasses, children }: LayoutProps) {
+export function Layout({ page, pageType, title, desc, mainClasses, children }: LayoutProps) {
   return (
     <html lang="en">
       <head>
@@ -70,8 +72,8 @@ export function Layout({ page, title, desc, mainClasses, children }: LayoutProps
           <PlangsLogo class={tw("sm:mt-4", "h-12 sm:h-16 lg:h-20 xl:h-24")} />
           <div class={tw("px-2 sm:px-4", "flex flex-row", "gap-4", "items-center justify-between")}>
             {iconButton("hamburger")}
-            {page === "plangs" && iconButton("facets")}
-            {page === "plangs" && iconButton("clearFacets")}
+            {pageType === "grid" && iconButton("facets")}
+            {pageType === "grid" && iconButton("clearFacets")}
             {page === "plangs" && iconButton("gridOrder")}
             <div class="flex-1" />
             {iconButton("lights")}

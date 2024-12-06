@@ -5,7 +5,6 @@ import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertexClass } from "@plangs/plangs/graph/generated";
 import { Layout } from "@plangs/server/components/layout";
 import { Table } from "@plangs/server/components/table";
-import { VertexLink } from "../components/vertex-link";
 
 /** Relations we want to create a section for, in the order we want them to render. */
 const RELATIONS = [

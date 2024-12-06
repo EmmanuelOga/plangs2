@@ -7,13 +7,9 @@ import type { PlangsPage } from "./components/layout";
 import { About } from "./pages/about";
 import { Blog } from "./pages/blog";
 import { BlogPost } from "./pages/blog-post";
-import { Licenses } from "./pages/licenses";
-import { Paradigms } from "./pages/paradigms";
-import { Platforms } from "./pages/platforms";
-import { Tags } from "./pages/tags";
-import { TSys } from "./pages/tsys";
 import { Vertex } from "./pages/vertex";
 import { VertexGrid } from "./pages/vertex-grid";
+import { VertexReference } from "./pages/vertex-reference";
 
 const GRID_PATHS = new Map<string, { vertexName: TPlangsVertexName; page: PlangsPage }>([
   ["/", { vertexName: "plang", page: "plangs" }],
@@ -25,29 +21,33 @@ const GRID_PATHS = new Map<string, { vertexName: TPlangsVertexName; page: Plangs
   ["/communities", { vertexName: "community", page: "communities" }],
 ]);
 
+const REFERENCE_PATHS = new Map<string, { vertexName: TPlangsVertexName; page: PlangsPage; heading: string }>([
+  ["/licenses", { vertexName: "license", page: "licenses", heading: "Licenses" }],
+  ["/paradigms", { vertexName: "paradigm", page: "paradigms", heading: "Paradigms" }],
+  ["/platforms", { vertexName: "platform", page: "platforms", heading: "Platforms" }],
+  ["/tags", { vertexName: "tag", page: "tags", heading: "Tags" }],
+  ["/typesystems", { vertexName: "typeSystem", page: "tsys", heading: "Type Systems" }],
+  ["/typeSystems", { vertexName: "typeSystem", page: "tsys", heading: "Type Systems" }],
+]);
+
 export async function resolvePage(path: string, pg: PlangsGraph) {
   if (path.length > 128) return;
 
-  const gp = GRID_PATHS.get(path);
-  if (gp) return <VertexGrid pg={pg} page={gp.page} vertexName={gp.vertexName} />;
-
-  if (path === "/blog") return <Blog pg={pg} />;
-
-  // TODO: remove duplication from this "reference" pages.
-  if (path === "/licenses") return <Licenses pg={pg} />;
-  if (path === "/paradigms") return <Paradigms pg={pg} />;
-  if (path === "/platforms") return <Platforms pg={pg} />;
-  if (path === "/tags") return <Tags pg={pg} />;
-  if (path === "/typesystems" || path === "/typeSystems") return <TSys pg={pg} />;
-
   if (path === "/about") return <About pg={pg} content={await loadContent("2024_09_20_about.md", pg)} />;
 
+  if (path === "/blog") return <Blog pg={pg} />;
   if (path.startsWith("/blog/") && path.length < 128) {
     const post = await loadBlogPost(pg, `post+${path.slice(6)}`);
     if (post) return <BlogPost pg={pg} post={post} />;
     console.warn(`Blog post not found: ${path}`);
     return;
   }
+
+  const gp = GRID_PATHS.get(path);
+  if (gp) return <VertexGrid pg={pg} page={gp.page} vertexName={gp.vertexName} />;
+
+  const rp = REFERENCE_PATHS.get(path);
+  if (rp) return <VertexReference pg={pg} page={rp.page} heading={rp.heading} vertexName={rp.vertexName} />;
 
   /** Routes that are rendered with the {@link <Vertex/>} component. */
   if (path.length < 32 && path.startsWith("/") && path.length > 1) {

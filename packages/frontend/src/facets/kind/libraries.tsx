@@ -2,12 +2,12 @@ import { ValNil, ValNumber } from "@plangs/auxiliar/value";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { storeKey, storeLoad } from "@plangs/frontend/auxiliar/storage";
 import { FacetsMainState } from "@plangs/frontend/facets/main/state";
+import { bool, defineFacetGroups, table, text } from "@plangs/frontend/facets/main/types";
 import { matchVertices } from "@plangs/plangs/facets";
 import type { LibraryFacetKey } from "@plangs/plangs/facets/libraries";
 import { type PlangsGraph, prop, rel } from "@plangs/plangs/graph";
 import type { VLibraryKey } from "@plangs/plangs/graph/generated";
 import type { PlangsPage } from "@plangs/server/components/layout";
-import { bool, defineFacetGroups, table, text } from "../main/types";
 
 // biome-ignore format: Keep it in one line.
 type GK = "creationYear" | "general" | "licenses" | "platforms" | "tags" | "writtenWith" | "writtenFor";

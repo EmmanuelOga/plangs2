@@ -4,16 +4,17 @@ import { facetsMain } from "@plangs/frontend/facets/main";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
 import { Layout, type PlangsPage } from "@plangs/server/components/layout";
+import { VertexThumbn } from "@plangs/server/components/vertex-thumbn";
+import { cssID } from "@plangs/server/elements";
 import { script } from "@plangs/server/utils/html";
-import { VertexThumbn } from "../components/vertex-thumbn";
-import { cssID } from "../elements";
 
 export function VertexGrid({ pg, page, vertexName }: { pg: PlangsGraph; page: PlangsPage; vertexName: TPlangsVertexName }) {
   return (
     <Layout
       page={page}
-      title={META.get(vertexName)?.title ?? ""}
-      desc={META.get(vertexName)?.desc ?? ""}
+      pageType="grid"
+      title={META[vertexName]?.title}
+      desc={META[vertexName]?.desc}
       mainClasses={tw("overflow-hidden", "flex flex-col 2xl:flex-row", "gap-2")}>
       {/* fmt. */}
 
@@ -35,38 +36,26 @@ export function VertexGrid({ pg, page, vertexName }: { pg: PlangsGraph; page: Pl
   );
 }
 
-const META = new Map<TPlangsVertexName, { title: string; desc: string }>([
-  [
-    "app",
-    {
-      title: "Applications made with your favorite Programming Languages!",
-      desc: "Find your next favorite applications, and the programming language used to make them, on Plangs!",
-    },
-  ],
-  [
-    "community",
-    {
-      title: "Communities to mingle and get help on programming the next great thing!",
-      desc: "Mingle with the people that love your favorite Programming Languages, tools, and more, on Plangs!",
-    },
-  ],
-  [
-    "learning",
-    { title: "Learning Resources to become an amazing Developer!", desc: "Find the best Learning Resources to become and amazing Developer!" },
-  ],
-  [
-    "library",
-    {
-      title: "Libraries made for your favorite Programming Languages!",
-      desc: "Find your next favorite Library for your programming languages on Plangs!",
-    },
-  ],
-  ["plang", { title: "Programming Languages!", desc: "Find your next favorite programming language, and the resources to learn it, on Plangs!" }],
-  [
-    "tool",
-    {
-      title: "Tools that make your favorite Programming Languages even better!",
-      desc: "Find your next favorite programming language resources on Plangs!",
-    },
-  ],
-]);
+const META: Partial<Record<TPlangsVertexName, { title: string; desc: string }>> = {
+  app: {
+    title: "Applications made with your favorite Programming Languages!",
+    desc: "Find your next favorite applications, and the programming language used to make them, on Plangs!",
+  },
+  community: {
+    title: "Communities to mingle and get help on programming the next great thing!",
+    desc: "Mingle with the people that love your favorite Programming Languages, tools, and more, on Plangs!",
+  },
+  learning: {
+    title: "Learning Resources to become an amazing Developer!",
+    desc: "Find the best Learning Resources to become and amazing Developer!",
+  },
+  library: {
+    title: "Libraries made for your favorite Programming Languages!",
+    desc: "Find your next favorite Library for your programming languages on Plangs!",
+  },
+  plang: { title: "Programming Languages!", desc: "Find your next favorite programming language, and the resources to learn it, on Plangs!" },
+  tool: {
+    title: "Tools that make your favorite Programming Languages even better!",
+    desc: "Find your next favorite programming language resources on Plangs!",
+  },
+};
