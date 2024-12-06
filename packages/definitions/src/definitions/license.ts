@@ -183,7 +183,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.license.set("lic+python", {
-    name: "Python Software Foundation License",
+    name: "Python SFL",
     keywords: ["python-software-foundation"],
     description: "The Python Software Foundation License is a free software license used for Python and related projects.",
     spdx: "Python-2.0",
