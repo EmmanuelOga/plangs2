@@ -112,6 +112,10 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
     return false;
   }
 
+  get anyValues(): boolean {
+    return this.values.values().some(v => v.isPresent);
+  }
+
   groupTitle(key: GroupKey) {
     return this.groupsConfig.get(key)?.title ?? key;
   }
@@ -138,7 +142,7 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
   private updateClearFacets(): this {
     const clearAll = $<HTMLElement & { state?: ToggleClearFacets }>("#icon-button-clearFacets");
     if (!clearAll?.state) return this;
-    clearAll.state.doToggleMode(this.values.isEmpty ? "" : "clearFacets");
+    clearAll.state.doToggleMode(this.anyValues ? "clearFacets" : "");
     return this;
   }
 

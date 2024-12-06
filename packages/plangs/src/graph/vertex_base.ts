@@ -29,6 +29,7 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
   /** Internal path name for rendering the vertex in the web UI.  */
   get href(): string {
     if (this.vertexName === "plang") return `/${this.plainKey}`;
+    if (this.vertexName === "post") return `/blog/${this.plainKey}`;
     return `/${this.vertexName.toLowerCase()}/${this.plainKey}`;
   }
 

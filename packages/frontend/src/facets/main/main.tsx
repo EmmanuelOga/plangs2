@@ -3,7 +3,7 @@ import { useEffect } from "preact/hooks";
 
 import { useRootState } from "@plangs/frontend/auxiliar/dispatchable";
 import { DESELECT } from "@plangs/frontend/auxiliar/icons";
-import { BORDER, tw } from "@plangs/frontend/auxiliar/styles";
+import { BORDER, HOVER, HOVER_SVG, tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TAB } from "@plangs/server/components/layout";
 
@@ -22,7 +22,7 @@ export function FacetsMain({ tab, pg }: { tab: TAB; pg: PlangsGraph }) {
   const mapGroups = (state: AnyFacetsMainState, group: string[], callback: (key: string, isCurrent: boolean, hasValues: boolean) => JSX.Element) =>
     group.map(groupKey => callback(groupKey, state.currentGroupKey === groupKey, state.groupHasValues(groupKey)));
 
-  const iconStyle = tw("scale-75", "mr-1");
+  const iconStyle = tw("scale-66", "mr-1");
 
   const body = (state: AnyFacetsMainState) => (
     <FacetsMainContext.Provider value={state}>
@@ -41,7 +41,9 @@ export function FacetsMain({ tab, pg }: { tab: TAB; pg: PlangsGraph }) {
         <div class={tw("grid grid-cols-[auto_auto]")}>
           <div class={tw(SUBGRID, "mb-2", "ml-4")}>
             <header class={tw("uppercase", "text-primary")}>Filters</header>
-            <div class={iconStyle}>{DESELECT}</div>
+            <div {...onClickOnEnter(() => state.doResetAll())} class={tw(iconStyle, !state.anyValues && "invisible", HOVER_SVG)}>
+              {DESELECT}
+            </div>
           </div>
 
           {Array.from(state.nav.groupKeys.entries()).map(([idx, group]) => (
@@ -50,7 +52,6 @@ export function FacetsMain({ tab, pg }: { tab: TAB; pg: PlangsGraph }) {
                 <div key={groupKey} class={tw(SUBGRID, isCurrent ? "bg-primary/85 text-background" : "hover:bg-primary/25")}>
                   <button
                     {...onClickOnEnter(() => state.doSetCurrentGroup(groupKey))}
-                    {...(hasValues ? { style: "font-weight: bold" } : {})}
                     class={tw(
                       "block w-full",
                       "truncate text-left",
@@ -62,7 +63,11 @@ export function FacetsMain({ tab, pg }: { tab: TAB; pg: PlangsGraph }) {
                     )}>
                     {state.groupTitle(groupKey)}
                   </button>
-                  <div class={iconStyle}>{DESELECT}</div>
+                  <div
+                    {...onClickOnEnter(() => state.doResetGroup(groupKey))}
+                    class={tw(iconStyle, !state.groupHasValues(groupKey) && "hidden", HOVER_SVG)}>
+                    {DESELECT}
+                  </div>
                 </div>
               ))}
             </nav>
