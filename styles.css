@@ -2,55 +2,118 @@
 
 @config "./tailwind.config.js";
 
-/* Base Theme (Light Mode by Default) */
-:root {
-  --color-primary: #609;
-  --color-secondary: chartreuse;
-  --color-background: mintcream;
-  --color-foreground: #001;
-  --color-thumbnails: rgba(255, 255, 255, .85);
-  --color-stripes: rgba(127, 255, 0, 0.85);
-  --color-hiliteb: yellow;
-  --color-hilitef: #222;
-}
-
-/* Dark Mode */
-.dark {
-  --color-primary: chartreuse;
-  --color-secondary: #609;
-  --color-background: #001;
-  --color-foreground: mintcream;
-  --color-thumbnails: rgba(102, 0, 153, .85);
-  --color-stripes: rgba(102, 0, 153, .85);
-  --color-hiliteb: yellow;
-  --color-hilitef: #222;
-}
-
-#id-mainContent a, h2, h3 {
-  color: var(--color-primary);
-}
-
-header, h2, h3 { font-style: italic; }
 
 @theme {
+  --spacing: 0.25rem;
   /* https://modernfontstacks.com/ */
   --font-family-sans: ui-rounded, "Hiragino Maru Gothic ProN", Quicksand, Comfortaa, Manjari, "Arial Rounded MT", "Arial Rounded MT Bold", Calibri,
     source-sans-pro, sans-serif;
 }
 
-::-webkit-scrollbar { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background-color: var(--color-primary); }
-::-webkit-scrollbar-thumb:hover { background-color: var(--color-primary); }
+@layer base {
+  /* Base Theme (Light Mode by Default) */
+  :root {
+    --color-primary: #609;
+    --color-secondary: chartreuse;
+    --color-background: mintcream;
+    --color-foreground: #001;
+    --color-thumbnails: rgba(255, 255, 255, .85);
+    --color-stripes: rgba(127, 255, 0, 0.85);
+    --color-hiliteb: yellow;
+    --color-hilitef: #222;
+  }
 
-* { scrollbar-color: var(--color-primary) transparent; }
+  /* Dark Mode */
+  .dark {
+    --color-primary: chartreuse;
+    --color-secondary: #609;
+    --color-background: #001;
+    --color-foreground: mintcream;
+    --color-thumbnails: rgba(102, 0, 153, .85);
+    --color-stripes: rgba(102, 0, 153, .85);
+    --color-hiliteb: yellow;
+    --color-hilitef: #222;
+  }
 
-/** Debugging Helpers */
+  #id-mainContent a, h2, h3 {
+    color: var(--color-primary);
+  }
 
-.db-r { box-shadow: inset 0 0 0 4px rgba(255 0 0 / .85); background: repeating-linear-gradient(  0deg, rgba(255 0 0 / .5) 0, rgba(255 0 0 / .5) 1px, transparent 0, transparent 50%) top left / 10px 10px; }
-.db-g { box-shadow: inset 0 0 0 4px rgba(0 255 0 / .85); background: repeating-linear-gradient( 45deg, rgba(0 255 0 / .5) 0, rgba(0 255 0 / .5) 1px, transparent 0, transparent 50%) top left / 10px 10px; }
-.db-b { box-shadow: inset 0 0 0 4px rgba(0 0 255 / .85); background: repeating-linear-gradient(-45deg, rgba(0 0 255 / .5) 0, rgba(0 0 255 / .5) 1px, transparent 0, transparent 50%) top left / 10px 10px; }
+  header, h2, h3 { font-style: italic; }
 
-.quick-pulse {
-  animation: pulse .2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background-color: var(--color-primary); }
+  ::-webkit-scrollbar-thumb:hover { background-color: var(--color-primary); }
+
+  * { scrollbar-color: var(--color-primary) transparent; }
+}
+
+@layer utilities {
+  /** Debugging Helpers */
+  .db-r { box-shadow: inset 0 0 0 4px rgba(255 0 0 / .85); background: repeating-linear-gradient(  0deg, rgba(255 0 0 / .5) 0, rgba(255 0 0 / .5) 1px, transparent 0, transparent 50%) top left / 10px 10px; }
+  .db-g { box-shadow: inset 0 0 0 4px rgba(0 255 0 / .85); background: repeating-linear-gradient( 45deg, rgba(0 255 0 / .5) 0, rgba(0 255 0 / .5) 1px, transparent 0, transparent 50%) top left / 10px 10px; }
+  .db-b { box-shadow: inset 0 0 0 4px rgba(0 0 255 / .85); background: repeating-linear-gradient(-45deg, rgba(0 0 255 / .5) 0, rgba(0 0 255 / .5) 1px, transparent 0, transparent 50%) top left / 10px 10px; }
+
+  .quick-pulse { animation: pulse .2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+}
+
+@layer components {
+  /* 3x3 grid. */
+  .grid-wrapper {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    overflow: hidden;
+  }
+  .grid-facets { grid-area: F; overflow: hidden; overflow-y: auto; }
+  .grid-main { grid-area: G; overflow: hidden; overflow-y: auto; }
+  .grid-info { grid-area: I; overflow: hidden; overflow-y: auto; }
+
+  /* portrait-narrow */
+  @media (orientation: portrait) and (max-width: 720px) {
+    .grid-wrapper {
+      grid-template-areas: 'F F F'
+                           'G G G'
+                           'I I I';
+      grid-template-rows: auto 1fr auto;
+    }
+    .grid-facets { max-height: 40dvh; }
+    .grid-info { max-height: 12dvh; }
+  }
+
+  /* portrait-wide */
+  @media (orientation: portrait) and (min-width: 720px)  {
+    .grid-wrapper {
+      grid-template-areas: 'F F I'
+                           'G G G'
+                           'G G G';
+      grid-template-columns: auto auto 1fr; /* Grow middle column. */
+      .grid-facets { max-width: 36rem; }
+    }
+  }
+
+  /* landscape */
+  @media (orientation: landscape) and (min-height: 640px) {
+    .grid-wrapper {
+      grid-template-areas: 'F G I'
+                           'F G I'
+                           'F G I';
+      grid-template-columns: auto 1fr auto; /* Grow middle column. */
+      .grid-facets { max-width: 36rem; }
+      .grid-info { max-width: 30dvh; }
+    }
+  }
+
+  /* landscape-short */
+  @media (orientation: landscape) and (max-height: 640px) {
+    .grid-wrapper {
+      grid-template-areas: 'F G G'
+                           'F G G'
+                           'F I I';
+      grid-template-rows: auto 1fr auto; /* Grow middle row. */
+      .grid-facets { max-width: 36rem; }
+      .grid-info { max-height: 25dvh; }
+    }
+  }
 }

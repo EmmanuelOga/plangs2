@@ -3,7 +3,7 @@ import { useEffect } from "preact/hooks";
 
 import { useRootState } from "@plangs/frontend/auxiliar/dispatchable";
 import { DESELECT } from "@plangs/frontend/auxiliar/icons";
-import { BORDER, HOVER_SVG, tw } from "@plangs/frontend/auxiliar/styles";
+import { BORDER, HOVER_SVG, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { PlangsPage } from "@plangs/server/components/layout";
 
@@ -28,28 +28,22 @@ export function FacetsMain({ page, pg }: { page: PlangsPage; pg: PlangsGraph }) 
     <FacetsMainContext.Provider value={state}>
       <aside
         class={tw(
-          "h-full",
-          "bg-linear-to-t from-secondary to-background",
-          "overflow-hidden overflow-y-auto",
-
+          tw("h-full", VSCROLL),
+          "min-w-[10rem] sm:min-w-[12rem]",
+          // ---
           tw(BORDER, "border-r-1"),
-
-          // Sizing.
-          "min-w-[10rem]",
-          "sm:min-w-[12rem]",
+          "bg-linear-to-t from-secondary to-background",
         )}>
         <div class={tw("grid grid-cols-[auto_auto]")}>
-          <div class={tw(SUBGRID, "mb-2", "ml-4")}>
-            <header class={tw("uppercase", "text-primary")}>Filters</header>
-            <div {...onClickOnEnter(() => state.doResetAll())} class={tw(iconStyle, !state.anyValues && "invisible", HOVER_SVG)}>
-              {DESELECT}
-            </div>
-          </div>
+          <header class={tw("uppercase", "text-primary", "mb-2", "ml-4")}>Filters</header>
 
-          {Array.from(state.nav.groupKeys.entries()).map(([idx, group]) => (
+          {state.nav.groupKeys.map(group => (
             <nav key={group.join("-")} class={tw("mb-0", "min-w-[12rem] max-w-[15rem]", SUBGRID)}>
               {mapGroups(state, group, (groupKey, isCurrent, hasValues) => (
-                <div key={groupKey} class={tw(SUBGRID, isCurrent ? "bg-primary/85 text-background" : "hover:bg-primary/25")}>
+                <div
+                  key={groupKey}
+                  class={tw(SUBGRID, isCurrent ? "bg-primary/85 text-background" : "hover:bg-primary/25")}
+                  style={`${hasValues ? "font-weight: bold" : ""}`}>
                   <button
                     {...onClickOnEnter(() => state.doSetCurrentGroup(groupKey))}
                     class={tw(

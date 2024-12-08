@@ -2,6 +2,8 @@
  * Some CSS styles we reuse across the app.
  */
 
+export const VSCROLL = "overflow-hidden overflow-y-auto";
+
 export const BAR = "bg-linear-to-b from-secondary to-background";
 export const BORDER = "border-primary/85 border-dotted";
 export const HOVER = "hover:bg-hiliteb hover:text-hilitef cursor-pointer";

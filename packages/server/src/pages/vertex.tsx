@@ -1,10 +1,11 @@
 import { PROSE, tw } from "@plangs/frontend/auxiliar/styles";
-import { vertexInfo } from "@plangs/frontend/components/vertex-info";
+import { VertexInfo } from "@plangs/frontend/components/vertex-info/vertex-info";
 import type { RelFrom, RelTo } from "@plangs/graphgen/library";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertexClass } from "@plangs/plangs/graph/generated";
-import { Layout } from "@plangs/server/components/layout";
+import { Layout, type PlangsPage } from "@plangs/server/components/layout";
 import { Table } from "@plangs/server/components/table";
+import { cssClass } from "../elements";
 
 /** Relations we want to create a section for, in the order we want them to render. */
 const RELATIONS = [
@@ -18,15 +19,17 @@ const RELATIONS = [
   ["relCommunities", "Communities"],
 ] as const;
 
-export function Vertex({ pg, vertex }: { pg: PlangsGraph; vertex: TPlangsVertexClass }) {
+export function Vertex({ page, vertex }: { pg: PlangsGraph; page: PlangsPage; vertex: TPlangsVertexClass }) {
   return (
     <Layout
-      page="pl"
+      page={page}
       title={`${vertex.name} at Plangs!`}
       desc={`${vertex.name} at Plangs!: A Programming Language is much more than just a syntax and semantics. It's an Ecosystem of Tools, Libraries, Applications, Learning Resources, and more!`}
       mainClasses={tw("overflow-y-scroll")}>
       <article class={tw("p-4", PROSE)}>
-        {vertexInfo({ vertex, page: "pl", open: false })}
+        <div class={tw(cssClass("vertexInfo"))} data-page={page} data-open={false}>
+          <VertexInfo vertex={vertex} page={page} open={false} />
+        </div>
 
         {RELATIONS.map(([rel, title]) => (
           <VertexRelation key={rel} vertex={vertex} rel={rel} title={title} />
@@ -37,11 +40,9 @@ export function Vertex({ pg, vertex }: { pg: PlangsGraph; vertex: TPlangsVertexC
 }
 
 function VertexRelation({ vertex, rel, title }: { vertex: TPlangsVertexClass; rel: string; title: string }) {
-  type Rels = keyof TPlangsVertexClass["relations"];
-
-  const relation = vertex[rel as keyof typeof vertex] as
-    | RelTo<TPlangsVertexClass, TPlangsVertexClass>
-    | RelFrom<TPlangsVertexClass, TPlangsVertexClass>;
+  type Direct = RelTo<TPlangsVertexClass, TPlangsVertexClass>;
+  type Indirect = RelFrom<TPlangsVertexClass, TPlangsVertexClass>;
+  const relation = vertex[rel as keyof typeof vertex] as Direct | Indirect;
 
   if (!relation) return null;
   const relVertices = relation.values;

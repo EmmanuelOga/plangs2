@@ -4,6 +4,14 @@ module.exports = {
   content: ["packages/**/*.{ts,tsx}"],
   theme: {
     extend: {
+      screens: {
+        // Hide the logo if the screen is not tall enough.
+        short: { raw: "(max-height: 640px)" },
+        "portrait-narrow": { raw: "(orientation: portrait) and (max-aspect-ratio: 2/3)" },
+        "portrait-wide": { raw: "(orientation: portrait) and (min-aspect-ratio: 2/3)" },
+        landscape: { raw: "(orientation: landscape)" },
+        "landscape-short": { raw: "(orientation: landscape) and (max-height: 400px)" },
+      },
       colors: {
         primary: "var(--color-primary)",
         secondary: "var(--color-secondary)",

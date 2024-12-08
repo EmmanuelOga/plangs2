@@ -53,7 +53,7 @@ type NavLink = { title: string; href: string; nested?: boolean; forPage: PlangsP
 
 function NavSection({ title, links, page, border }: { page: PlangsPage; title: string; links: NavLink[]; border?: boolean }) {
   return (
-    <nav class={tw("mb-1 pt-5 sm:mb-8", (border === undefined || border) && tw(BORDER, "border-t-1"))}>
+    <nav class={tw("mb-1 sm:mb-8", (border === undefined || border) && tw(BORDER, "border-t-1"))}>
       <header class={tw("ml-4 sm:mb-4", "uppercase", "text-primary")}>{title}</header>
       <ul>
         {links.map(({ title, href, nested, forPage }) => (

@@ -211,11 +211,8 @@ export class ToggleGridOrder extends IconButtonBaseState<{ mode: "alpha" | "rank
     const grid = elem("vertexGrid");
     if (!grid) return;
     const thumbns = [...elems("vertexThumbn")].sort(CMP[this.mode]);
-    // If they are already in the parent element, re-appending just reorders the element.
     for (const thumb of thumbns) {
-      // Don't hide for now.
-      // thumb.dataset.hideRanking = this.mode === "ranking" ? "0" : "1";
-      grid.appendChild(thumb);
+      grid.appendChild(thumb); // Re-appending without removing just reorders the element.
     }
   }
 }
@@ -225,7 +222,6 @@ const RANKED_LAST = Number.MAX_SAFE_INTEGER;
 
 const getRank = (el: HTMLElement) => {
   const ranking = data(el, "vertex-ranking");
-  console.log(ranking);
   return ranking ? Number.parseInt(ranking) : RANKED_LAST;
 };
 

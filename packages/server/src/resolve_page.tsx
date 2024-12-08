@@ -57,7 +57,7 @@ export async function resolvePage(path: string, pg: PlangsGraph) {
     // ... except for plangs that are the main vertices and can be accessed without the vertexName.
     if (!postSlash.includes("/")) {
       const pl = pg.plang.get(`pl+${postSlash}`);
-      if (pl) return <Vertex pg={pg} vertex={pl} />;
+      if (pl) return <Vertex pg={pg} page={"pl"} vertex={pl} />;
     }
 
     const [vname, vertexKey] = postSlash.split("/");
@@ -67,6 +67,6 @@ export async function resolvePage(path: string, pg: PlangsGraph) {
 
     const kind = PlangsGraph.vertexKind.get(vertexName);
     const vertex = pg[vertexName].get(`${kind}+${vertexKey}` as any);
-    if (vertex) return <Vertex pg={pg} vertex={vertex} />;
+    if (vertex) return <Vertex pg={pg} page={"_any_page_"} vertex={vertex} />;
   }
 }

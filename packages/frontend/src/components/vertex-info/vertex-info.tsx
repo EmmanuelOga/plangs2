@@ -27,8 +27,6 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
         !forGrid && "-mx-4", // Compensate for padding so it aligns with the rest of the content.
         PROSE_BASIC,
         "max-w-[unset]",
-        forGrid && "bg-linear-to-b to-secondary/50",
-        tw(BORDER, forGrid && "border-b-1"),
       )}>
       {!vertex && (
         <p>
@@ -80,6 +78,7 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
 
 function Pill({ children }: { children: ComponentChildren }) {
   return (
+    // shadow-md inset-shadow-sm inset-shadow-white/20 ring ring-blue-600 inset-ring inset-ring-white/15
     <span
       style="font-size: 1rem;"
       class={tw("inline-block", "rounded-tl-2xl rounded-br-2xl", "mr-2 mb-3 px-2", "border-2 border-secondary", "bg-secondary/50 text-foreground")}>

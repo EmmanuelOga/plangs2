@@ -1,37 +1,39 @@
-import { tw } from "@plangs/frontend/auxiliar/styles";
-import { vertexInfo } from "@plangs/frontend/components/vertex-info";
-import { facetsMain } from "@plangs/frontend/facets/main";
+import { VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
+import { VertexInfo } from "@plangs/frontend/components/vertex-info/vertex-info";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
 import { Layout, type PlangsPage } from "@plangs/server/components/layout";
 import { VertexThumbn } from "@plangs/server/components/vertex-thumbn";
-import { cssID } from "@plangs/server/elements";
+import { cssClass, cssID } from "@plangs/server/elements";
 import { script } from "@plangs/server/utils/html";
 
 export function VertexGrid({ pg, page, vertexName }: { pg: PlangsGraph; page: PlangsPage; vertexName: TPlangsVertexName }) {
-  return (
-    <Layout
-      page={page}
-      pageType="grid"
-      title={META[vertexName]?.title}
-      desc={META[vertexName]?.desc}
-      mainClasses={tw("overflow-hidden", "flex flex-col 2xl:flex-row", "gap-2")}>
-      {/* fmt. */}
-
-      {facetsMain({ page, class: tw("max-h-[45dvh] 2xl:max-h-[unset]", "max-w-full 2xl:w-[35rem]", "overflow-hidden") })}
+  const facets = (
+    <>
+      <div class={tw("grid-facets", cssClass("facetsMain"))} data-page={page} />
       {script("window.restoreFilters()")}
+    </>
+  );
 
-      <div class={tw("flex-1", "overflow-y-scroll", "m-1")}>
-        <div
-          id={cssID("vertexGrid")}
-          class={tw("grid gap-4 2xl:mx-4", "grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]", "2xl:grid-cols-[repeat(auto-fit,minmax(8rem,1fr))]")}>
-          {[...pg.vertices[vertexName].values].map(vertex => (
-            <VertexThumbn key={vertex.key} vertex={vertex} />
-          ))}
-        </div>
-      </div>
+  const grid = (
+    <div class={tw("grid-main", "grid gap-4 p-4", "grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]")} id={cssID("vertexGrid")}>
+      {[...pg.vertices[vertexName].values].map(vertex => (
+        <VertexThumbn key={vertex.key} vertex={vertex} />
+      ))}
+    </div>
+  );
 
-      <div class={tw("overflow-hidden overflow-y-scroll", "max-h-[15dvh] 2xl:max-h-[unset] 2xl:w-[25rem]")}>{vertexInfo({ page, open: true })}</div>
+  const info = (
+    <div class={tw("grid-info", cssClass("vertexInfo"), "bg-linear-to-b to-secondary/50")} data-page={page} data-open={false}>
+      <VertexInfo page={page} open={false} />
+    </div>
+  );
+
+  return (
+    <Layout page={page} pageType="grid" title={META[vertexName]?.title} desc={META[vertexName]?.desc} mainClasses={tw("grid-wrapper")}>
+      {facets}
+      {grid}
+      {info}
     </Layout>
   );
 }

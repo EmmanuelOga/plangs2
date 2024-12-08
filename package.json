@@ -7,16 +7,16 @@
   ],
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@tailwindcss/cli": "^4.0.0-alpha.25",
+    "@tailwindcss/cli": "^4.0.0-beta.6",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
     "@types/bun": "latest",
     "@types/node": "^22.9.0",
     "esbuild": "^0.23.1",
-    "tailwindcss": "next"
+    "tailwindcss": "^4.0.0-beta.6"
   },
   "peerDependencies": {
-    "typescript": "^5.6.2"
+    "typescript": "5"
   },
   "scripts": {
     "js": "esbuild --bundle --define:ENV=\\\"dev\\\" packages/frontend/src/app --sourcemap --outdir=packages/server/static/bundle --watch",

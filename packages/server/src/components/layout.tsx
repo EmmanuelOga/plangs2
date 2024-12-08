@@ -1,6 +1,6 @@
 import type { ComponentChildren } from "preact";
 
-import { stripes, tw } from "@plangs/frontend/auxiliar/styles";
+import { VSCROLL, stripes, tw } from "@plangs/frontend/auxiliar/styles";
 import { iconButton } from "@plangs/frontend/components/icon-button";
 import { cssID } from "@plangs/server/elements";
 import { script } from "@plangs/server/utils/html";
@@ -69,19 +69,20 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
         </noscript>
 
         <header class={tw("pt-4 pb-2", "flex flex-col", "bg-linear-to-b from-secondary to-background")} style={stripes(false)}>
-          <PlangsLogo class={tw("sm:mt-4", "h-12 sm:h-16 lg:h-20 xl:h-24")} />
+          <PlangsLogo class={tw("sm:mt-4", "h-12 sm:h-16 lg:h-20 xl:h-24", "short:hidden")} />
           <div class={tw("px-2 sm:px-4", "flex flex-row", "gap-4", "items-center justify-between")}>
             {iconButton("hamburger")}
             {pageType === "grid" && iconButton("facets")}
-            {pageType === "grid" && iconButton("clearFacets")}
             {page === "plangs" && iconButton("gridOrder")}
-            <div class="flex-1" />
+            {pageType === "grid" && iconButton("clearFacets")}
+            <div class="short:hidden flex-1" />
+            <PlangsLogo class={tw("short:block hidden", "h-10 flex-1")} />
             {iconButton("lights")}
           </div>
         </header>
 
         <div class={tw("flex-1", "flex flex-row", "overflow-y-auto")}>
-          <MainNav page={page} class={tw("hidden sm:static", "z-20", "w-[12rem]", "overflow-hidden overflow-y-auto")} />
+          <MainNav page={page} class={tw("hidden sm:static", "z-20", "w-[12rem]", VSCROLL)} />
           <main id={cssID("mainContent")} class={tw("flex-1", mainClasses)}>
             {children}
           </main>
