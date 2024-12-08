@@ -74,7 +74,7 @@
   .grid-info { grid-area: I; overflow: hidden; overflow-y: auto; }
 
   /* portrait-narrow */
-  @media (orientation: portrait) and (max-width: 720px) {
+  @media (orientation: portrait) and (max-width: 960px) {
     .grid-wrapper {
       grid-template-areas: 'F F F'
                            'G G G'
@@ -86,13 +86,13 @@
   }
 
   /* portrait-wide */
-  @media (orientation: portrait) and (min-width: 720px)  {
+  @media (orientation: portrait) and (min-width: 960px)  {
     .grid-wrapper {
       grid-template-areas: 'F F I'
                            'G G G'
                            'G G G';
       grid-template-columns: auto auto 1fr; /* Grow middle column. */
-      .grid-facets { max-width: 36rem; }
+      .grid-facets { max-width: 38rem; }
     }
   }
 
@@ -103,7 +103,7 @@
                            'F G I'
                            'F G I';
       grid-template-columns: auto 1fr auto; /* Grow middle column. */
-      .grid-facets { max-width: 36rem; }
+      .grid-facets { width: 38rem; }
       .grid-info { max-width: 30dvh; }
     }
   }
@@ -115,7 +115,7 @@
                            'F G G'
                            'F I I';
       grid-template-rows: auto 1fr auto; /* Grow middle row. */
-      .grid-facets { max-width: 36rem; }
+      .grid-facets { max-width: 38rem; }
       .grid-info { max-height: 25dvh; }
     }
   }

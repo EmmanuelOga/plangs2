@@ -58,18 +58,22 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
       {vertex instanceof VPlang && (
         <details class={tw(forGrid && "hidden sm:block", "pb-4")} open={open}>
           <summary class="cursor-pointer text-primary">Details</summary>
-          <div class={tw(!forGrid && "bg-linear-to-b to-secondary/25 pb-4")}>
-            {relations(vertex).map(([title, vertices]) => (
-              <div key={title}>
-                <h3 class="mt-4 text-xl">{title}</h3>
-                {vertices.map(vertex => (
-                  <Pill key={vertex.key}>
-                    <a href={vertex.href}>{vertex.name}</a>
-                  </Pill>
-                ))}
-              </div>
-            ))}
-          </div>
+          <table>
+            <tbody>
+              {relations(vertex).map(([title, vertices]) => (
+                <tr key={title}>
+                  <th class="align-baseline">{title}</th>
+                  <td>
+                    {vertices.map(vertex => (
+                      <Pill key={vertex.key}>
+                        <a href={vertex.href}>{vertex.name}</a>
+                      </Pill>
+                    ))}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </details>
       )}
     </div>
