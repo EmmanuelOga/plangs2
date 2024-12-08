@@ -41,20 +41,20 @@ This simplistic build process just outputs the statically generated contents of 
 
 ## WIP
 
+- [ ] Allow AI enriching all data, not just plangs.
+- [ ] Manually add more data and AI enrich. 
+- [ ] Add a "short description", since desc. of many plangs is too long.
+- [ ] Revise data: tags: better-c, educational.
+
 - [ ] Make the vertex-info work for all node types.
 - [ ] Fix "pill" links .. what happens when we click them?
 - [ ] Revise behavior of every vertex kind vertex page.
-- [ ] Revise landscape mobile layout.
 
 ## TODO
 
 - [ ] Tweak backdrop-filter in Safari.
 - [ ] Create a ToolBar component: we need some buttons to interact with eachother.
-- [ ] Replace facet indicator dot with Reset button.
 - [ ] Prefetch some URLS on hover.
-
-- [ ] Allow AI enriching all data, not just plangs.
-- [ ] Manually add more data and AI enrich. 
 
 ### More Pending Tasks
 
@@ -69,7 +69,6 @@ This simplistic build process just outputs the statically generated contents of 
 <hr/>
 
 - [ ] Add a simple admin interface to locally tweak the data: **maybe out of scope?**
-- [ ] Revise data: tags: better-c, educational.
 - [ ] Add relationship to data-cleanup entities (Community, Learning).
 
 <hr/>
@@ -84,8 +83,7 @@ This simplistic build process just outputs the statically generated contents of 
 
 <hr/>
 
-- [ ] Publish to linode.
-- [ ] Add bunny CDN.
+- [ ] Publish to **somewhere** and add some CDN.
 - [ ] Simple analytics.
 
 <hr/>
@@ -110,12 +108,9 @@ This simplistic build process just outputs the statically generated contents of 
 
 **Design ideas**
 
-- [ ] Redesign the facets browser: make it look like the sidebar?
-- [ ] Change the sidebar to a top bar in landscape mode.
-- [ ] Add a footer.
-- [ ] Rethink layout landscape/portrait switch instead of just by size.
-- [ ] Add support for drag/drop resize of elements (node-info and facets-main).
 - [ ] Fix grid display when there's less than 1 full row of thumbnails. Adjust sizing, etc.
+
 - [ ] Better UI for tool bundles: just filter the table of tools.
-- [ ] Considering adding also a "short description", since desc. of many plangs is too long.
+- [ ] Add a footer.
+- [ ] Add support for drag/drop resize of elements (node-info and facets-main).
 - [ ] Platform Icons.

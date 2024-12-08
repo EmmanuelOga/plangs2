@@ -38,7 +38,7 @@ export function FacetsMain({ page, pg }: { page: PlangsPage; pg: PlangsGraph }) 
           <header class={tw("uppercase", "text-primary", "mb-2", "ml-4")}>Filters</header>
 
           {state.nav.groupKeys.map(group => (
-            <nav key={group.join("-")} class={tw("mb-0", "min-w-[12rem] max-w-[15rem]", SUBGRID)}>
+            <nav key={group.join("-")} class={tw("sm:mb-6", "min-w-[12rem] max-w-[15rem]", SUBGRID)}>
               {mapGroups(state, group, (groupKey, isCurrent, hasValues) => (
                 <div
                   key={groupKey}

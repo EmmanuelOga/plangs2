@@ -92,7 +92,7 @@
                            'G G G'
                            'G G G';
       grid-template-columns: auto auto 1fr; /* Grow middle column. */
-      .grid-facets { max-width: 38rem; }
+      .grid-facets { width: 38rem; }
     }
   }
 
