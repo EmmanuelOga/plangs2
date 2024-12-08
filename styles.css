@@ -21,6 +21,7 @@
     --color-stripes: rgba(127, 255, 0, 0.85);
     --color-hiliteb: yellow;
     --color-hilitef: #222;
+    --tw-prose-links: #609;
   }
 
   /* Dark Mode */
@@ -33,10 +34,12 @@
     --color-stripes: rgba(102, 0, 153, .85);
     --color-hiliteb: yellow;
     --color-hilitef: #222;
+    --tw-prose-links: chartreuse;
   }
 
   #id-mainContent a, h2, h3 {
     color: var(--color-primary);
+    --tw-prose-links: var(--color-primary);
   }
 
   header, h2, h3 { font-style: italic; }

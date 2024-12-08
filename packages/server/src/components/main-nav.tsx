@@ -2,6 +2,7 @@ import { BORDER, tw } from "@plangs/frontend/auxiliar/styles";
 import { cssID } from "@plangs/server/elements";
 import { script } from "@plangs/server/utils/html";
 
+import { ret } from "@plangs/auxiliar/misc";
 import type { PlangsPage } from "./layout";
 
 export function MainNav({ page, class: cssClass }: { page: PlangsPage; class?: string }) {
@@ -14,23 +15,23 @@ export function MainNav({ page, class: cssClass }: { page: PlangsPage; class?: s
         title="Explore"
         border={false}
         links={[
-          { title: "Plangs!", href: "/", forPage: "plangs" },
-          { title: "Tools", href: "/tools", forPage: "tools" },
-          { title: "Apps", href: "/apps", forPage: "apps" },
-          { title: "Libraries", href: "/libs", forPage: "libs" },
-          { title: "Learning", href: "/learning", forPage: "learning" },
-          { title: "Communities", href: "/communities", forPage: "communities" },
+          { title: "Plangs!", href: "/", forPages: ["plangs", "pl"] },
+          { title: "Tools", href: "/tools", forPages: ["tools", "tool"] },
+          { title: "Apps", href: "/apps", forPages: ["apps", "app"] },
+          { title: "Libraries", href: "/libs", forPages: ["libs", "library"] },
+          { title: "Learning", href: "/learning", forPages: ["learning"] },
+          { title: "Communities", href: "/communities", forPages: ["communities", "community"] },
         ]}
       />
 
-      <NavSection page={page} title="Blog" links={[{ title: "Blog Posts", href: "/blog", forPage: "blog" }]} />
+      <NavSection page={page} title="Blog" links={[{ title: "Blog Posts", href: "/blog", forPages: ["blog"] }]} />
 
       <NavSection
         page={page}
         title="Website"
         links={[
-          { title: "About", href: "/about", forPage: "about" },
-          { title: "Source Code", href: "https://github.com/EmmanuelOga/plangs2", forPage: "NA" },
+          { title: "About", href: "/about", forPages: ["about"] },
+          { title: "Source Code", href: "https://github.com/EmmanuelOga/plangs2", forPages: ["NA"] },
         ]}
       />
 
@@ -38,35 +39,33 @@ export function MainNav({ page, class: cssClass }: { page: PlangsPage; class?: s
         page={page}
         title="Reference"
         links={[
-          { title: "Type Systems", href: "/typeSystems", forPage: "tsys" },
-          { title: "Paradigms", href: "/paradigms", forPage: "paradigms" },
-          { title: "Platforms", href: "/platforms", forPage: "platforms" },
-          { title: "Tags", href: "/tags", forPage: "tags" },
-          { title: "Licenses", href: "/licenses", forPage: "licenses" },
+          { title: "Type Systems", href: "/typeSystems", forPages: ["tsys", "typeSystem"] },
+          { title: "Paradigms", href: "/paradigms", forPages: ["paradigms", "paradigm"] },
+          { title: "Platforms", href: "/platforms", forPages: ["platforms", "platform"] },
+          { title: "Tags", href: "/tags", forPages: ["tags", "tag"] },
+          { title: "Licenses", href: "/licenses", forPages: ["licenses", "license"] },
         ]}
       />
     </aside>
   );
 }
 
-type NavLink = { title: string; href: string; nested?: boolean; forPage: PlangsPage };
+type NavLink = { title: string; href: string; nested?: boolean; forPages: PlangsPage[] };
 
-function NavSection({ title, links, page, border }: { page: PlangsPage; title: string; links: NavLink[]; border?: boolean }) {
+function NavSection({ title, links, page, border }: { title: string; links: NavLink[]; page: PlangsPage; border?: boolean }) {
   return (
     <nav class={tw("mb-1 sm:mb-8", (border === undefined || border) && tw(BORDER, "border-t-1"))}>
       <header class={tw("ml-4 sm:mb-4", "uppercase", "text-primary")}>{title}</header>
       <ul>
-        {links.map(({ title, href, nested, forPage }) => (
-          <li key={href} class={tw("px-4 py-2 sm:mb-1", page === forPage ? "bg-primary/85 text-background" : "hover:bg-primary/25")}>
-            <a
-              data-page={forPage}
-              data-current={page === forPage ? "1" : undefined}
-              class={tw("block cursor-pointer", "truncate", nested ? "pl-10" : "pl-4")}
-              href={href}>
-              {title}
-            </a>
-          </li>
-        ))}
+        {links.map(({ title, href, nested, forPages }) =>
+          ret(forPages.includes(page), isCurrent => (
+            <li key={href} class={tw("px-4 py-2 sm:mb-1", isCurrent ? "bg-primary/85 text-background" : "hover:bg-primary/25")}>
+              <a href={href} class={tw("block cursor-pointer", "truncate", nested ? "pl-10" : "pl-4")}>
+                {title}
+              </a>
+            </li>
+          )),
+        )}
       </ul>
     </nav>
   );

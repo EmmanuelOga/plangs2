@@ -5,12 +5,13 @@ import { iconButton } from "@plangs/frontend/components/icon-button";
 import { cssID } from "@plangs/server/elements";
 import { script } from "@plangs/server/utils/html";
 
+import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
 import { MainNav } from "./main-nav";
 import { PlangsLogo } from "./plangs-logo";
 
 export type PageType = "grid" | "other";
 export type PlangsPage =
-  | "_any_page_"
+  | TPlangsVertexName
   | "about"
   | "apps"
   | "blog"

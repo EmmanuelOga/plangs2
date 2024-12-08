@@ -67,6 +67,6 @@ export async function resolvePage(path: string, pg: PlangsGraph) {
 
     const kind = PlangsGraph.vertexKind.get(vertexName);
     const vertex = pg[vertexName].get(`${kind}+${vertexKey}` as any);
-    if (vertex) return <Vertex pg={pg} page={"_any_page_"} vertex={vertex} />;
+    if (vertex) return <Vertex pg={pg} page={vertexName} vertex={vertex} />;
   }
 }
