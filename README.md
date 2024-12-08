@@ -41,11 +41,8 @@ This simplistic build process just outputs the statically generated contents of 
 
 ## WIP
 
-- [ ] Remove duplication: use a single grid.tsx and reference.tsx page for all grid/ref pages.
-
 - [ ] Make the vertex-info work for all node types.
 - [ ] Fix "pill" links .. what happens when we click them?
-- [ ] Allow tagging more than plangs on blog posts.
 - [ ] Revise behavior of every vertex kind vertex page.
 - [ ] Revise landscape mobile layout.
 

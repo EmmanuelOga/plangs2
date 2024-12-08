@@ -20,15 +20,15 @@ export type Content = {
   basename: string;
   date: StrDate;
   html: string;
-  pls: VPlangKey[];
+  rels: string[];
   title: string;
 };
 
-const YAML_KEYS = new Set(["title", "author", "pls", "hideDate"]);
+const YAML_KEYS = new Set(["title", "author", "rels", "hideDate"]);
 
 /** {@param path} relative to the content/ folder (ex: "about.md"). */
 export async function loadContent(path: string, pg: PlangsGraph): Promise<Content> {
-  const date = parseDate(basename(path.slice(0, 10)));
+  const date = parseDate(basename(path).slice(0, 10));
   if (!date) throw new Error(`Post ${path} is missing a date in the filename.`);
 
   const src = await Bun.file(join(import.meta.dir, "../content", path)).text();
@@ -38,7 +38,7 @@ export async function loadContent(path: string, pg: PlangsGraph): Promise<Conten
   const [_, yaml, mdBody] = match;
 
   const data = YAML.parse(yaml);
-  const { title, author, pls, hideDate } = data;
+  const { title, author, rels, hideDate } = data;
 
   const unknown = new Set(Object.keys(data)).difference(YAML_KEYS);
   if (unknown.size) throw new Error(`Post ${path} has unknown fields in the YAML header: ${[...unknown].join(", ")}`);
@@ -47,22 +47,28 @@ export async function loadContent(path: string, pg: PlangsGraph): Promise<Conten
 
   const metadata = [render(<div class="text-primary opacity-75">{date}</div>)];
 
-  if (pls !== undefined) {
-    if (!Array.isArray(pls)) throw new Error(`Post ${path} has an invalid pls field in the YAML header.`);
-    if (pls.length > 0) {
-      for (const plKey of pls) {
-        const pl = pg.plang.get(plKey);
-        if (!pl) throw new Error(`Post ${path} references unknown PL ${plKey}`);
-        metadata.push(render(<a href={`/${pl.plainKey}`}>{pl.name}</a>));
+  if (rels !== undefined) {
+    if (!Array.isArray(rels)) throw new Error(`Post ${path} has an invalid rels field in the YAML header.`);
+    if (rels.length > 0) {
+      for (const vertexKey of rels) {
+        const v = pg.getVertex(vertexKey);
+        if (!v) throw new Error(`Post ${path} references unknown vertex ${vertexKey}`);
+        metadata.push(
+          render(
+            <a class="mr-1" href={v.href}>
+              {v.name}
+            </a>,
+          ),
+        );
       }
     }
   }
 
-  const pillsHtml = `<div style="float: right;" class="${hideDate ? "hidden" : ""}">${metadata.join("")}</div>`;
-  const md = `${pillsHtml}\n\n# ${title}\n\n${mdBody.replace(ZERO_WIDTH, "")}`;
+  const dateAndLinks = `<div class="${hideDate ? "hidden" : ""}">${metadata.join("")}</div>`;
+  const md = `${dateAndLinks}\n\n# ${title}\n\n${mdBody.replace(ZERO_WIDTH, "")}`;
   const html = await marked.use(customHeadingId()).parse(md);
 
-  return { title, author, pls: pls ?? [], date, html, basename: basename(path).replace(/\.md$/, "") };
+  return { title, author, rels: rels ?? [], date, html, basename: basename(path).replace(/\.md$/, "") };
 }
 
 /**
@@ -70,13 +76,14 @@ export async function loadContent(path: string, pg: PlangsGraph): Promise<Conten
  */
 export async function loadPosts(pg: PlangsGraph) {
   for await (const path of new Glob("*.md").scan(join(import.meta.dir, "../content/posts"))) {
-    const { title, author, pls, date, basename } = await loadContent(`posts/${path}`, pg);
-
+    const { title, author, rels, date, basename } = await loadContent(`posts/${path}`, pg);
     const post = pg.post.set(`post+${basename}`, { path, name: title, author, date });
-
-    for (const plKey of pls) {
-      if (!pg.plang.has(plKey)) throw new Error(`Post ${path} references unknown PL ${plKey}`);
-      post.relPlangs.add(plKey);
+    // Add the post to the related vertices for "news" sections of vertices that support it.
+    for (const vkey of rels) {
+      const vertex = pg.getVertex(vkey);
+      if (!vertex) throw new Error(`Post ${path} references unknown vertex ${vkey}`);
+      if ("relPosts" in vertex) vertex.relPosts.add(post.key);
+      else console.warn(`Vertex ${vkey} does not have a relPosts field.`);
     }
   }
 }
