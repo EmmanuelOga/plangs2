@@ -14,6 +14,7 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
 
   const { graphBase, vertexPrefix = "V", vertexSuffix = "Base", vertexBase } = spec.classes.generated;
 
+  const graphClassName = `${spec.name}${graphBase}`;
   const vertexClassName = (vertexName: T) => `${vertexPrefix}${capitalize(vertexName)}`;
   const vertexDataName = (vertexName: T) => `${vertexPrefix}${capitalize(vertexName)}Data`;
   const edgesKey = ({ src }: GenEdgeSpec<T>) => `${src[0]}${capitalize(src[1])}`;
@@ -107,15 +108,15 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
 
   const typeEdgeName = `T${spec.name}EdgeName`;
   code.push("/** Supported edges of the graph. */");
-  code.push(`export type ${typeEdgeName} = keyof ${spec.name}GraphBase["edges"];\n`);
+  code.push(`export type ${typeEdgeName} = keyof ${graphClassName}["edges"];\n`);
 
   // Generate the graph class.
   code.push(`
   /** Base class for the ${spec.name} graph, generated from its specification. */
-  export class ${spec.name}${graphBase}  {
+  export class ${graphClassName}  {
     /** Return a type checked object identifying a relationship of a specific kind of Vertex. */
     static relConfig<T extends ${typeVertexName}>(vertexName: T, vertexRel: ${typeRelations}[T]) {
-      const klass = ${spec.name}${graphBase}.vertexClass(vertexName);
+      const klass = ${graphClassName}.vertexClass(vertexName);
       // @ts-ignore correct by construction.
       const rel = klass.relations.get(vertexRel) as Relation<${typeEdgeName}>;
       return { kind: 'rel', edgeName: rel.edgeName, direction: rel.direction } as const;
@@ -133,9 +134,20 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
     }
 
     /** Vertex kinds per Vertex Name. The kind is the prefix of a Vertex Key. */
-    static readonly vertexKind = new Map<TPlangsVertexName, string>([
+    static readonly vertexKind = new Map<${typeVertexName}, string>([
       ${mapJoin(Object.entries(spec.vertices) as [string, GenVertexSpec][], ([name, s]) => `["${name}", "${s.key}"]`, ",\n")}
     ]);
+
+    /** Reverse map of vertexKind. */
+    static readonly vertexNameByKind = new Map<string, ${typeVertexName}>(Array.from(${graphClassName}.vertexKind.entries()).map(([k, v]) => [v, k]));
+
+    /** Get a vertex by key, if the kind of vertex is known. */
+    getVertex(vertexKey: string): TPlangsVertexClass | undefined {
+      const kind = vertexKey.split("+", 2)[0] as TPlangsVertexName;
+      const vertexName = ${graphClassName}.vertexNameByKind.get(kind);
+      if (!vertexName) return;
+      return this.vertices[vertexName]?.get(vertexKey as any);
+    }
 
     // Create a Vertices instances for each vertex.
 

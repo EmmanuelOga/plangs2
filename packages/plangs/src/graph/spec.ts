@@ -74,7 +74,6 @@ export const PLANGS_GRAPH_SPEC: GenGraphSpec<PlangVertexNames> = {
     { src: ["library", "relPlangs", "Plangs supported"], dst: ["plang", "relLibraries", "Software Libraries"] },
     { src: ["library", "relWrittenWith", "Plangs used"], dst: ["plang", "relUsedInLibrary", "Libraries made with this"] },
     { src: ["license", "relPlangs", "Plangs using this"], dst: ["plang", "relLicenses", "Licenses"] },
-    { src: ["tag", "relPlangs", "Plangs tagged"], dst: ["plang", "relTags", "Tags"] },
     { src: ["tool", "relWrittenWith", "Plangs used to implement this"], dst: ["plang", "relToolsUsing", "Tools implemented with this"] },
 
     // Tags
@@ -82,6 +81,7 @@ export const PLANGS_GRAPH_SPEC: GenGraphSpec<PlangVertexNames> = {
     { src: ["tag", "relCommunities", "Communities tagged"], dst: ["community", "relTags", "Tags"] },
     { src: ["tag", "relLearning", "Learning resources tagged"], dst: ["learning", "relTags", "Tags"] },
     { src: ["tag", "relLibraries", "Libraries tagged"], dst: ["library", "relTags", "Tags"] },
+    { src: ["tag", "relPlangs", "Plangs tagged"], dst: ["plang", "relTags", "Tags"] },
     { src: ["tag", "relTools", "Tools tagged"], dst: ["tool", "relTags", "Tags"] },
 
     // News: Link to a blog post that references a vertex.
