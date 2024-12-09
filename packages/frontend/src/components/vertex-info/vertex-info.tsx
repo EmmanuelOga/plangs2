@@ -20,14 +20,7 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
   useEffect(() => h1Ref.current?.scrollIntoView({ behavior: "smooth", block: "end" }));
   const forGrid = GRID_PAGES.has(page);
   return (
-    <div
-      class={tw(
-        "w-full overflow-y-scroll",
-        "px-2 pt-2 sm:px-4",
-        !forGrid && "-mx-4", // Compensate for padding so it aligns with the rest of the content.
-        PROSE_BASIC,
-        "max-w-[unset]",
-      )}>
+    <div class={tw("w-full overflow-y-scroll", forGrid && "p-4", PROSE_BASIC, "max-w-[unset]")}>
       {!vertex && (
         <>
           <h2 class={tw("mt-0!")}>Information</h2>

@@ -82,7 +82,7 @@
       grid-template-rows: auto 1fr auto;
     }
     .grid-facets { max-height: 40dvh; }
-    .grid-info { max-height: 12dvh; }
+    .grid-info { max-height: 15dvh; }
   }
 
   /* portrait-wide */
@@ -91,8 +91,9 @@
       grid-template-areas: 'F F I'
                            'G G G'
                            'G G G';
+      grid-template-rows: auto 1fr auto; /* Grow middle row. */
       grid-template-columns: auto auto 1fr; /* Grow middle column. */
-      .grid-facets { width: 38rem; }
+      .grid-facets { width: 38rem; max-height: 40dvh; }
     }
   }
 
