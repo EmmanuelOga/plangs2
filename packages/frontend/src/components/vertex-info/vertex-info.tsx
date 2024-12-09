@@ -111,7 +111,8 @@ function relations(vertex?: TPlangsVertexClass): [string, TPlangsVertexClass[]][
     type Direct = RelTo<TPlangsVertexClass, TPlangsVertexClass>;
     type Indirect = RelFrom<TPlangsVertexClass, TPlangsVertexClass>;
     const relation = vertex[relName as keyof typeof vertex] as Direct | Indirect;
-    if (relation.size > 0) result.push([relation.desc, relation.values]);
+    const relValues = relation.values.filter(related => related.key !== vertex.key);
+    if (relValues.length > 0) result.push([relation.desc, relValues]);
   }
   return result;
 }

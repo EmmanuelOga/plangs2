@@ -45,7 +45,7 @@ function VertexRelation({ vertex, rel, title }: { vertex: TPlangsVertexClass; re
   const relation = vertex[rel as keyof typeof vertex] as Direct | Indirect;
 
   if (!relation) return null;
-  const relVertices = relation.values;
+  const relVertices = relation.values.filter(related => related.key !== vertex.key);
   if (relVertices.length === 0) return null;
 
   const isNews = rel === "relPosts";
