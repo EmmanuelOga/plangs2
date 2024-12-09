@@ -56,64 +56,64 @@ export const PLANGS_GRAPH_SPEC: GenGraphSpec<PlangVertexNames> = {
 
   edges: [
     // Plang to others
-    { src: ["plang", "relParadigms", "Paradigms implemented"], dst: ["paradigm", "relPlangs", "Plangs implementing this"] },
-    { src: ["plang", "relPlatforms", "Platforms supported"], dst: ["platform", "relPlangs", "Plangs supporting this"] },
-    { src: ["plang", "relTools", "Tools for this"], dst: ["tool", "relPlangs", "Plangs supported"] },
-    { src: ["plang", "relTypeSystems", "Type Systems implemented"], dst: ["typeSystem", "relPlangs", "Plangs implementing this"] },
+    { src: ["plang", "relParadigms", "Paradigms"], dst: ["paradigm", "relPlangs", "Plangs"] },
+    { src: ["plang", "relPlatforms", "Platforms"], dst: ["platform", "relPlangs", "Plangs"] },
+    { src: ["plang", "relTools", "Tools"], dst: ["tool", "relPlangs", "Plangs"] },
+    { src: ["plang", "relTypeSystems", "Type Systems"], dst: ["typeSystem", "relPlangs", "Plangs"] },
 
     // Plang to Plang
-    { src: ["plang", "relCompilesTo", "Transpiling targets"], dst: ["plang", "relTargetOf", "Plangs compiling to this"] },
-    { src: ["plang", "relDialectOf", "Plangs this is a Dialect of"], dst: ["plang", "relDialects", "Dialects"] },
-    { src: ["plang", "relImplements", "Plangs this Implements"], dst: ["plang", "relImplementedBy", "Plangs implementing this"] },
-    { src: ["plang", "relInfluencedBy", "Plangs that influenced this"], dst: ["plang", "relInfluenced", "Plangs this influenced"] },
-    { src: ["plang", "relWrittenWith", "Plangs used to implement this"], dst: ["plang", "relUsedToWrite", "Plangs implemented with this"] },
+    { src: ["plang", "relCompilesTo", "Transpiling Targets"], dst: ["plang", "relTargetOf", "Source Plangs"] },
+    { src: ["plang", "relDialectOf", "Dialect of"], dst: ["plang", "relDialects", "Dialects"] },
+    { src: ["plang", "relImplements", "Implements"], dst: ["plang", "relImplementedBy", "Implemented By"] },
+    { src: ["plang", "relInfluencedBy", "Influenced By"], dst: ["plang", "relInfluenced", "Influenced"] },
+    { src: ["plang", "relWrittenWith", "Written With"], dst: ["plang", "relUsedToWrite", "Used to Write"] },
 
     // Plang to other
-    { src: ["app", "relWrittenWith", "Plangs used to implement this"], dst: ["plang", "relApps", "Apps implemented with this"] },
-    { src: ["bundle", "relPlangs", "Plangs this Bundle is for"], dst: ["plang", "relBundles", "Bundles of Tools for this"] },
-    { src: ["library", "relPlangs", "Plangs supported"], dst: ["plang", "relLibraries", "Software Libraries"] },
-    { src: ["library", "relWrittenWith", "Plangs used"], dst: ["plang", "relUsedInLibrary", "Libraries made with this"] },
-    { src: ["license", "relPlangs", "Plangs using this"], dst: ["plang", "relLicenses", "Licenses"] },
-    { src: ["tool", "relWrittenWith", "Plangs used to implement this"], dst: ["plang", "relToolsUsing", "Tools implemented with this"] },
+    { src: ["app", "relWrittenWith", "Plangs"], dst: ["plang", "relApps", "Apps"] },
+    { src: ["bundle", "relPlangs", "Plangs"], dst: ["plang", "relBundles", "Bundles"] },
+    { src: ["library", "relPlangs", "Plangs"], dst: ["plang", "relLibraries", "Libraries"] },
+    { src: ["library", "relWrittenWith", "Written With"], dst: ["plang", "relUsedInLibrary", "Used for Libraries"] },
+    { src: ["license", "relPlangs", "Plangs"], dst: ["plang", "relLicenses", "Licenses"] },
+    { src: ["tool", "relWrittenWith", "Implemented With"], dst: ["plang", "relToolsUsing", "Tool Plang"] },
 
     // Tags
     { src: ["tag", "relApps", "Apps tagged"], dst: ["app", "relTags", "Tags"] },
-    { src: ["tag", "relCommunities", "Communities tagged"], dst: ["community", "relTags", "Tags"] },
-    { src: ["tag", "relLearning", "Learning resources tagged"], dst: ["learning", "relTags", "Tags"] },
-    { src: ["tag", "relLibraries", "Libraries tagged"], dst: ["library", "relTags", "Tags"] },
-    { src: ["tag", "relPlangs", "Plangs tagged"], dst: ["plang", "relTags", "Tags"] },
-    { src: ["tag", "relTools", "Tools tagged"], dst: ["tool", "relTags", "Tags"] },
+    { src: ["tag", "relCommunities", "Communities"], dst: ["community", "relTags", "Tags"] },
+    { src: ["tag", "relLearning", "Learning Resources"], dst: ["learning", "relTags", "Tags"] },
+    { src: ["tag", "relLibraries", "Libraries"], dst: ["library", "relTags", "Tags"] },
+    { src: ["tag", "relPlangs", "Plangs"], dst: ["plang", "relTags", "Tags"] },
+    { src: ["tag", "relTools", "Tools"], dst: ["tool", "relTags", "Tags"] },
 
     // News: Link to a blog post that references a vertex.
-    { src: ["post", "relApps", "Apps covered in a Post"], dst: ["app", "relPosts", "Posts talking about this"] },
-    { src: ["post", "relCommunities", "Communities covered in a Post"], dst: ["community", "relPosts", "Posts talking about this"] },
-    { src: ["post", "relLearning", "Learning Resources covered in a Post"], dst: ["learning", "relPosts", "Posts talking about this"] },
-    { src: ["post", "relLibraries", "Libraries covered in a Post"], dst: ["library", "relPosts", "Posts talking about this"] },
-    { src: ["post", "relPlangs", "Plangs covered in a Post"], dst: ["plang", "relPosts", "Posts talking about this"] },
-    { src: ["post", "relTools", "Tools covered in a Post"], dst: ["tool", "relPosts", "Posts talking about this"] },
+    { src: ["post", "relApps", "Apps"], dst: ["app", "relPosts", "Posts"] },
+    { src: ["post", "relCommunities", "Communities"], dst: ["community", "relPosts", "Posts"] },
+    { src: ["post", "relLearning", "Learning Resources"], dst: ["learning", "relPosts", "Posts"] },
+    { src: ["post", "relLibraries", "Libraries"], dst: ["library", "relPosts", "Posts"] },
+    { src: ["post", "relPlangs", "Plangs"], dst: ["plang", "relPosts", "Posts"] },
+    { src: ["post", "relTools", "Tools"], dst: ["tool", "relPosts", "Posts"] },
 
     // Community
-    { src: ["community", "relPlangs", "Plangs supported"], dst: ["plang", "relCommunities", "Communities suporting this"] },
-    { src: ["community", "relLibraries", "Libraries supported"], dst: ["library", "relCommunities", "Communities suporting this"] },
-    { src: ["community", "relApps", "Apps supported"], dst: ["app", "relCommunities", "Communities suporting this"] },
-    { src: ["community", "relTools", "Tools supported"], dst: ["tool", "relCommunities", "Communities suporting this"] },
+    { src: ["community", "relPlangs", "Plangs"], dst: ["plang", "relCommunities", "Communities"] },
+    { src: ["community", "relLibraries", "Libraries"], dst: ["library", "relCommunities", "Communities"] },
+    { src: ["community", "relApps", "Apps"], dst: ["app", "relCommunities", "Communities"] },
+    { src: ["community", "relTools", "Tools"], dst: ["tool", "relCommunities", "Communities"] },
 
     // Learning
-    { src: ["learning", "relCommunities", "Communities supporting this"], dst: ["community", "relLearning", "Learning resources"] },
-    { src: ["learning", "relPlangs", "Plangs covered"], dst: ["plang", "relLearning", "Learning resources"] },
-    { src: ["learning", "relLibraries", "Libraries supported"], dst: ["library", "relLearning", "Learning resources"] },
-    { src: ["learning", "relApps", "Apps supported"], dst: ["app", "relLearning", "Learning resources"] },
-    { src: ["learning", "relTools", "Tools supported"], dst: ["tool", "relLearning", "Learning resources"] },
+    { src: ["learning", "relCommunities", "Communities"], dst: ["community", "relLearning", "Learning Resources"] },
+    { src: ["learning", "relPlangs", "Plangs"], dst: ["plang", "relLearning", "Learning Resources"] },
+    { src: ["learning", "relLibraries", "Libraries"], dst: ["library", "relLearning", "Learning Resources"] },
+    { src: ["learning", "relApps", "Apps"], dst: ["app", "relLearning", "Learning Resources"] },
+    { src: ["learning", "relTools", "Tools"], dst: ["tool", "relLearning", "Learning Resources"] },
 
     // Licenses
-    { src: ["license", "relApps", "Apps using this"], dst: ["app", "relLicenses", "Licenses"] },
-    { src: ["license", "relLibraries", "Libraries using this"], dst: ["library", "relLicenses", "Licenses"] },
-    { src: ["license", "relTools", "Tools using this"], dst: ["tool", "relLicenses", "Licenses"] },
+    { src: ["license", "relApps", "Apps"], dst: ["app", "relLicenses", "Licenses"] },
+    { src: ["license", "relLibraries", "Libraries"], dst: ["library", "relLicenses", "Licenses"] },
+    { src: ["license", "relTools", "Tools"], dst: ["tool", "relLicenses", "Licenses"] },
 
     // Rest
-    { src: ["app", "relPlatforms", "Platforms supported"], dst: ["platform", "relApps", "Apps supporting this"] },
-    { src: ["bundle", "relTools", "Tools in this"], dst: ["tool", "relBundles", "Bundles including this"] },
-    { src: ["library", "relPlatforms", "Platforms supported"], dst: ["platform", "relLibraries", "Libraries supporting this"] },
-    { src: ["tool", "relPlatforms", "Platforms supported"], dst: ["platform", "relTools", "Tools supporting this"] },
+    { src: ["app", "relPlatforms", "Platforms"], dst: ["platform", "relApps", "Apps"] },
+    { src: ["bundle", "relTools", "Tools"], dst: ["tool", "relBundles", "Bundles"] },
+    { src: ["library", "relPlatforms", "Platforms"], dst: ["platform", "relLibraries", "Libraries"] },
+    { src: ["tool", "relPlatforms", "Platforms"], dst: ["platform", "relTools", "Tools"] },
   ],
 };
