@@ -38,7 +38,7 @@ export function MainNav({ page, class: cssClass }: { page: PlangsPage; class?: s
         page={page}
         title="Reference"
         links={[
-          { title: "Type Systems", href: "/typeSystems", forPages: ["tsys", "typeSystem"] },
+          { title: "Type Systems", href: "/typesystems", forPages: ["tsys", "typeSystem"] },
           { title: "Paradigms", href: "/paradigms", forPages: ["paradigms", "paradigm"] },
           { title: "Platforms", href: "/platforms", forPages: ["platforms", "platform"] },
           { title: "Tags", href: "/tags", forPages: ["tags", "tag"] },

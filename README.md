@@ -46,8 +46,6 @@ This simplistic build process just outputs the statically generated contents of 
 - [ ] Add a "short description", since desc. of many plangs is too long.
 - [ ] Revise data: tags: better-c, educational.
 
-- [ ] Update site generator to cover new URLs.
-
 ## TODO
 
 - [ ] Tweak backdrop-filter in Safari.

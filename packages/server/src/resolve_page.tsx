@@ -11,7 +11,7 @@ import { Vertex } from "./pages/vertex";
 import { VertexGrid } from "./pages/vertex-grid";
 import { VertexReference } from "./pages/vertex-reference";
 
-const GRID_PATHS = new Map<string, { vertexName: TPlangsVertexName; page: PlangsPage }>([
+export const GRID_PATHS = new Map<string, { vertexName: TPlangsVertexName; page: PlangsPage }>([
   ["/", { vertexName: "plang", page: "plangs" }],
   ["/plangs", { vertexName: "plang", page: "plangs" }],
   ["/tools", { vertexName: "tool", page: "tools" }],
@@ -21,7 +21,7 @@ const GRID_PATHS = new Map<string, { vertexName: TPlangsVertexName; page: Plangs
   ["/communities", { vertexName: "community", page: "communities" }],
 ]);
 
-const REFERENCE_PATHS = new Map<string, { vertexName: TPlangsVertexName; page: PlangsPage; heading: string }>([
+export const REFERENCE_PATHS = new Map<string, { vertexName: TPlangsVertexName; page: PlangsPage; heading: string }>([
   ["/licenses", { vertexName: "license", page: "licenses", heading: "Licenses" }],
   ["/paradigms", { vertexName: "paradigm", page: "paradigms", heading: "Paradigms" }],
   ["/platforms", { vertexName: "platform", page: "platforms", heading: "Platforms" }],

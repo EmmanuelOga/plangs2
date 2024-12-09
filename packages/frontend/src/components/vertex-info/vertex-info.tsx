@@ -29,9 +29,12 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
         "max-w-[unset]",
       )}>
       {!vertex && (
-        <p>
-          <strong>Click</strong> a thumbnail for more info. <strong>Double-click</strong> a thumbnail to go directly to the item's page.
-        </p>
+        <>
+          <h2 class={tw("mt-0!")}>Information</h2>
+          <p>
+            <strong>Click</strong> a thumbnail for more info. <strong>Double-click</strong> a thumbnail to go directly to the item's page.
+          </p>
+        </>
       )}
       {vertex && (
         <>

@@ -42,7 +42,7 @@
     --tw-prose-links: var(--color-primary);
   }
 
-  header, h2, h3 { font-style: italic; }
+  * header, h2, h3 { font-style: italic; color: var(--color-primary); }
 
   ::-webkit-scrollbar { width: 4px; height: 4px; }
   ::-webkit-scrollbar-track { background: transparent; }

@@ -6,24 +6,8 @@ import { Glob } from "bun";
 import { loadDefinitions } from "@plangs/definitions";
 import { PlangsGraph } from "@plangs/plangs/graph";
 import { loadPosts } from "@plangs/server/content";
-import { resolvePage } from "@plangs/server/resolve_page";
+import { GRID_PATHS, REFERENCE_PATHS, resolvePage } from "@plangs/server/resolve_page";
 import { vdomToHTML } from "@plangs/server/utils/server";
-
-const FIXED_PATHS = [
-  "/",
-  "/about",
-  "/apps",
-  "/blog",
-  "/communities",
-  "/learning",
-  "/libs",
-  "/licenses",
-  "/paradigms",
-  "/platforms",
-  "/tags",
-  "/tools",
-  "/tsys",
-];
 
 const STATIC_BASE = join(import.meta.dir, "../../static/");
 const DEFINTIONS_BASE = join(import.meta.dir, "../../../definitions/src/definitions");
@@ -62,14 +46,14 @@ async function generatePages(dstRoot: string) {
   // Generate plangs.json
   Bun.write(join(dstRoot, "plangs.json"), JSON.stringify(pg));
 
-  // Generate every plang page.
-  const plPaths = pg.plang.values.map(pl => `/${pl.plainKey}`);
+  const allPaths = [...GRID_PATHS.keys(), ...REFERENCE_PATHS.keys(), "/about", "/blog"];
 
-  // Generate every blog post.
-  const blogPaths = pg.post.values.map(pl => `/blog/${pl.plainKey}`);
+  for (const vertices of Object.values(pg.vertices)) {
+    for (const vertex of vertices.values) allPaths.push(vertex.href);
+  }
 
   // Generate all pages.
-  for (const path of [...plPaths, ...blogPaths, ...FIXED_PATHS]) {
+  for (const path of allPaths) {
     const page = await resolvePage(path, pg);
     if (page) {
       const dstPath = join(dstRoot, `${path === "/" ? "index" : path}.html`);
