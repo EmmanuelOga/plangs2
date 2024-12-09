@@ -64,7 +64,7 @@ function VertexRelation({ vertex, rel, title }: { vertex: TPlangsVertexClass; re
               {!isNews && (
                 <>
                   <td>{vertex.keywords.join(", ")}</td>
-                  <td>{vertex.description}</td>
+                  <td>{vertex.shortDesc}</td>
                 </>
               )}
             </tr>

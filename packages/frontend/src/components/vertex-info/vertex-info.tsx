@@ -48,7 +48,7 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
             {"isTranspiler" in vertex && vertex.isTranspiler && <Pill children="Transpiler" />}
             {"isPopular" in vertex && vertex.isPopular && <Pill children="Popular" />}
           </div>
-          <p class={tw(forGrid && "inline sm:block")}>{vertex.description}</p>
+          <p class={tw(forGrid && "inline sm:block")}>{forGrid ? vertex.shortDesc : vertex.description}</p>
         </>
       )}
       {ret(

@@ -6,6 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Python",
       description:
         "Python is a multi-paradigm programming language known for its readability, dynamic typing, and a vast standard library. Developed by Guido van Rossum and released in 1991, it supports object-oriented, procedural, and functional programming paradigms. The language is widely used for web development, data analysis, artificial intelligence, and more.",
+      shortDesc:
+        "Python, created in 1991 by Guido van Rossum, is a readable, multi-paradigm language widely used in web development, AI, and data analysis.",
       extensions: [".py", ".pyc", ".pyd", ".pyi", ".pyw", ".pyz"],
       keywords: ["python"],
       releases: [

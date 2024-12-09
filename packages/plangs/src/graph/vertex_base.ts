@@ -58,6 +58,12 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
     return this.data.description || this.name;
   }
 
+  get shortDesc(): string {
+    if (this.data.shortDesc) return this.data.shortDesc;
+    const desc = this.description;
+    return desc.length > 100 ? `${desc.slice(0, 80)} ...` : desc;
+  }
+
   get urlHome(): string | undefined {
     return this.data.extHomeURL;
   }

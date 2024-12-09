@@ -4,6 +4,8 @@ export interface VertexBaseData {
   name: string;
   /* Description of the vertex. */
   description: string;
+  /* Shorter description of the vertex. */
+  shortDesc: string;
   /** Date this first appeared. */
   created: StrDate;
   /** Keywords can be used to match against text content. */
