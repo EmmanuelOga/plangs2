@@ -223,6 +223,10 @@ export class RelFrom<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
     readonly edges: Edges<FromVertex, ToVertex>,
   ) {}
 
+  get desc(): string {
+    return this.edges.descDirect;
+  }
+
   add(...toKeys: ToVertex["key"][]): FromVertex {
     this.edges.add(this.from.key, ...toKeys);
     return this.from;
@@ -256,6 +260,10 @@ export class RelTo<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
     readonly to: ToVertex,
     readonly edges: Edges<FromVertex, ToVertex>,
   ) {}
+
+  get desc(): string {
+    return this.edges.descInverse;
+  }
 
   add(...fromKeys: FromVertex["key"][]): ToVertex {
     for (const fromKey of fromKeys) this.edges.add(fromKey, this.to.key);

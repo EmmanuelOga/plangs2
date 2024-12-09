@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "preact/hooks";
 
 import { ret } from "@plangs/auxiliar/misc";
-import { BORDER, PROSE_BASIC, tw } from "@plangs/frontend/auxiliar/styles";
-import { VPlang } from "@plangs/plangs/graph";
+import { PROSE_BASIC, tw } from "@plangs/frontend/auxiliar/styles";
+import type { RelFrom, RelTo } from "@plangs/graphgen/library";
 import type { TPlangsVertexClass } from "@plangs/plangs/graph/generated";
 import { GRID_PAGES, type PlangsPage } from "@plangs/server/components/layout";
 import { VertexLink } from "@plangs/server/components/vertex-link";
@@ -55,26 +55,30 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
           <p class={tw(forGrid && "inline sm:block")}>{vertex.description}</p>
         </>
       )}
-      {vertex instanceof VPlang && (
-        <details class={tw(forGrid && "hidden sm:block", "pb-4")} open={open}>
-          <summary class="cursor-pointer text-primary">Details</summary>
-          <table>
-            <tbody>
-              {relations(vertex).map(([title, vertices]) => (
-                <tr key={title}>
-                  <th class="align-baseline">{title}</th>
-                  <td>
-                    {vertices.map(vertex => (
-                      <Pill key={vertex.key}>
-                        <a href={vertex.href}>{vertex.name}</a>
-                      </Pill>
-                    ))}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </details>
+      {ret(
+        relations(vertex),
+        rels =>
+          rels.length > 0 && (
+            <details class={tw(forGrid && "hidden sm:block", "pb-4")} open={open}>
+              <summary class="cursor-pointer text-primary">Details</summary>
+              <table>
+                <tbody>
+                  {relations(vertex).map(([title, vertices]) => (
+                    <tr key={title}>
+                      <th class="align-baseline">{title}</th>
+                      <td>
+                        {vertices.map(vertex => (
+                          <Pill key={vertex.key}>
+                            <a href={vertex.href}>{vertex.name}</a>
+                          </Pill>
+                        ))}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </details>
+          ),
       )}
     </div>
   );
@@ -84,7 +88,7 @@ function Pill({ children }: { children: ComponentChildren }) {
   return (
     // shadow-md inset-shadow-sm inset-shadow-white/20 ring ring-blue-600 inset-ring inset-ring-white/15
     <span
-      style="font-size: 1rem; height: 2rem;"
+      style="font-size: 1.125rem; height: 2rem;"
       class={tw(
         "inline-flex items-center",
         "rounded-tl-2xl rounded-br-2xl",
@@ -97,24 +101,16 @@ function Pill({ children }: { children: ComponentChildren }) {
   );
 }
 
-function relations(pl: VPlang) {
-  const all = [
-    ["Type Systems", pl.relTypeSystems.values],
-    ["Platforms", pl.relPlatforms.values],
-
-    ["Influenced By", pl.relInfluencedBy.values],
-    ["Influenced", pl.relInfluenced.values],
-    ["Dialect Of", pl.relDialectOf.values],
-    ["Implements", pl.relImplements.values],
-    ["Compiles To", pl.relCompilesTo.values],
-
-    ["Licenses", pl.relLicenses.values],
-
-    ["Tags", pl.relTags.values],
-    // ["Extensions", pl.extensions.map(name => ({ key: name, name, kind: "ext" })).existing],
-  ] as const;
-
-  return all.filter(([_, vertices]) => vertices.length > 0);
+function relations(vertex?: TPlangsVertexClass): [string, TPlangsVertexClass[]][] {
+  const result: [string, TPlangsVertexClass[]][] = [];
+  if (!vertex) return result;
+  for (const relName of vertex.relations.keys()) {
+    type Direct = RelTo<TPlangsVertexClass, TPlangsVertexClass>;
+    type Indirect = RelFrom<TPlangsVertexClass, TPlangsVertexClass>;
+    const relation = vertex[relName as keyof typeof vertex] as Direct | Indirect;
+    if (relation.size > 0) result.push([relation.desc, relation.values]);
+  }
+  return result;
 }
 
 export const EVENTS = {} as const;

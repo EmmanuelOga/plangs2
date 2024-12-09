@@ -46,9 +46,7 @@ This simplistic build process just outputs the statically generated contents of 
 - [ ] Add a "short description", since desc. of many plangs is too long.
 - [ ] Revise data: tags: better-c, educational.
 
-- [ ] Make the vertex-info work for all node types.
-- [ ] Fix "pill" links .. what happens when we click them?
-- [ ] Revise behavior of every vertex kind vertex page.
+- [ ] Update site generator to cover new URLs.
 
 ## TODO
 

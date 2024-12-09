@@ -1,7 +1,7 @@
 import { PROSE, tw } from "@plangs/frontend/auxiliar/styles";
 import { VertexInfo } from "@plangs/frontend/components/vertex-info/vertex-info";
 import type { RelFrom, RelTo } from "@plangs/graphgen/library";
-import type { PlangsGraph } from "@plangs/plangs/graph";
+import type { PlangsGraph, VPost } from "@plangs/plangs/graph";
 import type { TPlangsVertexClass } from "@plangs/plangs/graph/generated";
 import { Layout, type PlangsPage } from "@plangs/server/components/layout";
 import { Table } from "@plangs/server/components/table";
@@ -28,7 +28,7 @@ export function Vertex({ page, vertex }: { pg: PlangsGraph; page: PlangsPage; ve
       mainClasses={tw("overflow-y-scroll")}>
       <article class={tw("p-4", PROSE)}>
         <div class={tw(cssClass("vertexInfo"))} data-page={page} data-open={false}>
-          <VertexInfo vertex={vertex} page={page} open={false} />
+          <VertexInfo vertex={vertex} page={page} open={true} />
         </div>
 
         {RELATIONS.map(([rel, title]) => (
@@ -48,18 +48,25 @@ function VertexRelation({ vertex, rel, title }: { vertex: TPlangsVertexClass; re
   const relVertices = relation.values;
   if (relVertices.length === 0) return null;
 
+  const isNews = rel === "relPosts";
+
   return (
     <div class="mt-4 mb-16">
       <h2 class="mt-0!">{title}</h2>
       {
-        <Table headers={["Name", "Keywords", "Description"]}>
+        <Table headers={isNews ? ["Date", "Post"] : ["Name", "Keywords", "Description"]}>
           {relVertices.map(vertex => (
             <tr key={vertex.key}>
+              {isNews && <td>{(vertex as VPost).date}</td>}
               <td>
                 <a href={vertex.href} title={vertex.name} children={vertex.name} />
               </td>
-              <td>{vertex.keywords.join(", ")}</td>
-              <td>{vertex.description}</td>
+              {!isNews && (
+                <>
+                  <td>{vertex.keywords.join(", ")}</td>
+                  <td>{vertex.description}</td>
+                </>
+              )}
             </tr>
           ))}
         </Table>
