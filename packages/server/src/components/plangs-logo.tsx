@@ -10,7 +10,7 @@ export function PlangsLogo({ class: cssClass }: { class?: string }) {
           "inline-block h-full",
           "text-[clamp(2.5rem,5vw,7rem)]",
           "bg-center bg-contain bg-no-repeat",
-          "bg-[url('/images/plangs-light.svg')] dark:bg-[url('/images/plangs.svg')]",
+          "bg-[url('/images/plangs-light.svg')] dark:bg-[url('/images/plangs-dark.svg')]",
         )}>
         Plangs!
       </a>
