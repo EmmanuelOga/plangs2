@@ -46,8 +46,11 @@ This simplistic build process just outputs the statically generated contents of 
 - [ ] Add a "short description", since desc. of many plangs is too long.
 - [ ] Revise data: tags: better-c, educational.
 
+- [ ] Fix grid display when there's less than 1 full row of thumbnails. Adjust sizing, etc.
+
 ## TODO
 
+- [ ] Add an "authors" Vertex to link to Blog post authors.
 - [ ] Tweak backdrop-filter in Safari.
 - [ ] Create a ToolBar component: we need some buttons to interact with eachother.
 - [ ] Prefetch some URLS on hover.
@@ -56,11 +59,6 @@ This simplistic build process just outputs the statically generated contents of 
 
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
 - [ ] Add a table display mode in addition to Grid (some things don't display good on a Grid, like Libraries).
-
-<hr/>
-
-- [ ] Revise data schema for entities other than Plangs.
-- [ ] Add an "authors" Vertex to link to Blog post authors.
 
 <hr/>
 
@@ -91,11 +89,7 @@ This simplistic build process just outputs the statically generated contents of 
 - [ ] Client side full text search.
 - [ ] Investigate removing the need to load the full JSON data before continuing.
 
-<hr/>
-
 - [ ] Create better guidelines, code of conduct, enable discussions, etc.
-
-<hr/>
 
 ** Images **
  
@@ -103,8 +97,6 @@ This simplistic build process just outputs the statically generated contents of 
 - [ ] Resize all Thumbn to 128x128.
 
 **Design ideas**
-
-- [ ] Fix grid display when there's less than 1 full row of thumbnails. Adjust sizing, etc.
 
 - [ ] Better UI for tool bundles: just filter the table of tools.
 - [ ] Add a footer.
