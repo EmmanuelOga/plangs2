@@ -1,0 +1,236 @@
+{
+  "name": "AIVPlang",
+  "description": "Programming Language Data.",
+  "type": "object",
+  "properties": {
+    "data": {
+      "$ref": "#/definitions/PlangData"
+    },
+    "compilesTo": {
+      "description": "List of programming languages that this language compiles to, if any.\nEach element is a key with prefix \"pl+\", for instance: \"pl+python\",\nwhere \"python\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dialectOf": {
+      "description": "List of programming languages that this language is a dialect of, if any.\nEach element is a key with prefix \"pl+\", for instance: \"pl+python\",\nwhere \"python\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "implements": {
+      "description": "List of programming languages that this language is implements, if any.\nEach element is a key with prefix \"pl+\", for instance: \"pl+python\",\nwhere \"python\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "influencedBy": {
+      "description": "List of programming languages that this language was influenced by, if any.\nEach element is a key with prefix \"pl+\", for instance: \"pl+python\",\nwhere \"python\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "influenced": {
+      "description": "List of programming languages that this language influenced, if any.\nEach element is a key with prefix \"pl+\", for instance: \"pl+python\",\nwhere \"python\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "licenses": {
+      "description": "List of licenses for this programming language, if any.\nEach element is a key with prefix \"license+\", for instance: \"lic+mit\",\nwhere \"mit\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "paradigms": {
+      "description": "List of paradigms for this programming language, if any.\nEach element is a key with prefix \"paradigm+\", for instance: \"paradigm+oop\",\nwhere \"oop\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "platforms": {
+      "description": "List of platforms for this programming language, if any.\nEach element is a key with prefix \"plat+\", for instance: \"plat+windows\",\nwhere \"windows\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tags": {
+      "description": "List of tags for this programming language, if any.\nEach element is a key with prefix \"tag+\", for instance: \"tag+games\",\nwhere \"games\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "typeSystems": {
+      "description": "List of type systems for this programming language, if any.\nEach element is a key with prefix \"tsys+\", for instance: \"tsys+strong\",\nwhere \"strong\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "writtenWith": {
+      "description": "List of programming languages uses to implement this programming language, if any.\nEach element is a key with prefix \"lib+\", for instance: \"pl+python\",\nwhere \"python\" is a unique identifier using only lowercase letters, numbers and dashes.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "data",
+    "compilesTo",
+    "dialectOf",
+    "implements",
+    "influencedBy",
+    "influenced",
+    "licenses",
+    "paradigms",
+    "platforms",
+    "tags",
+    "typeSystems",
+    "writtenWith"
+  ],
+  "definitions": {
+    "Release": {
+      "description": "A release of a programming language.",
+      "type": "object",
+      "properties": {
+        "version": {
+          "description": "Arbitrary version string used by the artifact.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the release, if there's any.",
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "version",
+        "name",
+        "date"
+      ],
+      "additionalProperties": false
+    },
+    "Link": {
+      "description": "A Link to an external resource.",
+      "type": "object",
+      "properties": {
+        "url": {
+          "description": "URL of the link.",
+          "type": "string"
+        },
+        "title": {
+          "description": "Title of the link.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "title"
+      ],
+      "additionalProperties": false
+    },
+    "PlangData": {
+      "description": "A Data type to interact with OpenAI's structured outputs.\nhttps://platform.openai.com/docs/guides/structured-outputs#supported-schemas",
+      "type": "object",
+      "properties": {
+        "extensions": {
+          "description": "File Extensions, including the dot. Example: [\".pas\", \".tpu\"].",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "filenames": {
+          "description": "File names are names that are associated with an specific language. Example: ['Makefile'].",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "isTranspiler": {
+          "description": "Can this particular implementation compile source-code to source-code?",
+          "type": "boolean"
+        },
+        "releases": {
+          "description": "Some important releases. For instance: the latest for each major version.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Release"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "shortDesc": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        },
+        "keywords": {
+          "description": "Keywords can be used to match against text content.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "extHomeURL": {
+          "description": "Homepage URL of the vertex, if any.",
+          "type": "string"
+        },
+        "links": {
+          "description": "Links to external resources.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "githubStars": {
+          "description": "Github Stars, if any.",
+          "type": "number"
+        },
+        "extGithubPath": {
+          "description": "Github Path: this should be user/repo or org/repo, such that we can access it at `https://github.com/${path}`",
+          "type": "string"
+        },
+        "ghRepoCreated": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "extensions",
+        "filenames",
+        "isTranspiler",
+        "releases",
+        "name",
+        "description",
+        "shortDesc",
+        "created",
+        "keywords",
+        "extHomeURL",
+        "links",
+        "githubStars",
+        "extGithubPath",
+        "ghRepoCreated"
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false
+}

@@ -128,5 +128,5 @@ const generateSettter = (kind: TPlangsVertexName, key: string, data: any) => {
 
 function addRelKeys(out: string[], relName: string, keys: Set<string>, accept: (key: string) => boolean = () => true) {
   const filtered = [...keys].filter(accept);
-  if (filtered.length > 0) out.push(`\n    .${relName}.add(${JSON.stringify(filtered.sort())})`);
+  if (filtered.length > 0) out.push(`\n    .${relName}.add(${JSON.stringify(filtered.sort()).slice(1, -1)})`);
 }

@@ -1,15 +1,14 @@
 import { type PlangsGraph, VPlang } from "@plangs/plangs/graph";
 import type { VLicenseKey, VParadigmKey, VPlangKey, VPlatformKey, VTagKey, VTypeSystemKey } from "@plangs/plangs/graph/generated";
-
-import type { NPlangAI } from "./types";
+import type { AIVPlang } from "@plangs/plangs/graph/vertex_data_schemas";
 
 /** Given the results from OpenAI, construct a new NPlang vertex that can be used for code generation. */
-export function plangFromAI(pg: PlangsGraph, pl: VPlang, aiPL: NPlangAI): VPlang {
+export function plangFromAI(pg: PlangsGraph, pl: VPlang, aiPL: AIVPlang): VPlang {
   // We need to merge these, since Vertex data merge is not deep.
   const { extensions, filenames, images, releases, stackovTags } = pl.data;
 
   // Merge the data from the original NPlang vertex, but overwrite with the data from OpenAI.
-  const newPl = new VPlang(pg, pl.key).merge({ ...pl.data, ...aiPL.basicPlangData });
+  const newPl = new VPlang(pg, pl.key).merge({ ...pl.data, ...aiPL.data });
 
   // Re-add the original data that may have been lost in the merge.
   // TODO: maybe override the merge method to avoid this.
@@ -26,7 +25,7 @@ export function plangFromAI(pg: PlangsGraph, pl: VPlang, aiPL: NPlangAI): VPlang
   newPl.relImplements.add(...(aiPL.implements.filter(existingPl) as VPlangKey[]));
   newPl.relInfluenced.add(...(aiPL.influenced.filter(existingPl) as VPlangKey[]));
   newPl.relInfluencedBy.add(...(aiPL.influencedBy.filter(existingPl) as VPlangKey[]));
-  newPl.relWrittenWith.add(...(aiPL.writtenIn.filter(existingPl) as VPlangKey[]));
+  newPl.relWrittenWith.add(...(aiPL.writtenWith.filter(existingPl) as VPlangKey[]));
 
   newPl.relLicenses.add(...(aiPL.licenses.filter(k => pg.license.has(k as VLicenseKey)) as VLicenseKey[]));
   newPl.relParadigms.add(...(aiPL.paradigms.filter(k => pg.paradigm.has(k as VParadigmKey)) as VParadigmKey[]));

@@ -1,12 +1,12 @@
-/** Vertex data shared across all Vertex types. */
-export interface VertexBaseData {
+/** Common data shared across all Entities. */
+export type VertexBaseData = {
   /* Name of the vertex. */
   name: string;
   /* Description of the vertex. */
   description: string;
   /* Shorter description of the vertex. */
   shortDesc: string;
-  /** Date this first appeared. */
+  /** Date this first appeared, in the format: YYYY-MM-DD or YYYY-MMM or YYYY. */
   created: StrDate;
   /** Keywords can be used to match against text content. */
   keywords: string[];
@@ -16,16 +16,17 @@ export interface VertexBaseData {
   images: Image[];
   /** Links to external resources. */
   links: Link[];
-}
+};
 
 /**
  * Programming language data. Extending various other types helps when converting
  * the types to JSONSchemas for OpenAI's structured output:
  * we can pick and choose groups of fields we want to include.
  */
-export interface VPlangData extends VPlangBaseData, VPlangRelData {}
+export type VPlangData = VPlangBaseData & VPlangRelData & VertexBaseData & GithubRepo;
 
-export interface VPlangBaseData extends VertexBaseData, GithubRepo {
+/** Programming language information. */
+export type VPlangBaseData = {
   /** File Extensions, including the dot. Example: [".pas", ".tpu"]. */
   extensions: string[];
   /** File names are names that are associated with an specific language. Example: ['Makefile']. */
@@ -34,10 +35,10 @@ export interface VPlangBaseData extends VertexBaseData, GithubRepo {
   isTranspiler: boolean;
   /** Some important releases. For instance: the latest for each major version. */
   releases: Release[];
-}
+};
 
 /** Data relations to other sources, like those coming from Languish and Github. */
-export interface VPlangRelData {
+export type VPlangRelData = {
   /** A list of stackoverflow tags used when asking questions about this plang. */
   stackovTags: string[];
 
@@ -70,44 +71,51 @@ export interface VPlangRelData {
 
   /** Repository Path: this should be the repository URL. Use {@link `extGithubPath`} if the repository is hosted in Github. */
   extRepositoryURL?: string;
-}
+};
 
-export interface VLicenseData extends VertexBaseData {
+export type VLicenseData = VLicenseBaseData & VertexBaseData;
+
+export type VLicenseBaseData = {
   /** spdx: The SPDX identifier from https://spdx.org/licenses/. */
   spdx?: string;
   /** Wether the license is recognized as Free/Libre by the Free Software Foundation (FSF). */
   isFSFLibre?: boolean;
   /** Wether the license is approved by the Open Source Initiative (OSI).*/
   isOSIApproved?: boolean;
-}
+};
 
 /* Blog post data. */
-export interface VPostData extends VertexBaseData {
+export type VPostData = VPostBaseData & VertexBaseData;
+
+export type VPostBaseData = {
   /** Path of the blog post at https://plangs.page */
   path: string;
   /** Author of the blog post. */
   author: string;
   /** Website of the author of the blog post. */
   authorHref?: string;
-  /** Published date of the blog post.  */
+  /** Published date of the blog post, in the format: YYYY-MM-DD or YYYY-MMM or YYYY. */
   date: StrDate;
-}
+};
 
 /** Learning resource data. */
-export interface VLearningData extends VertexBaseData {
+export type VLearningData = VLearningBaseData & VertexBaseData;
+
+export type VLearningBaseData = {
   /** Kinds of the learning resource. */
   kinds: LearningKind[];
-}
+};
 
-export interface VAppData extends VertexBaseData, GithubRepo {}
-export interface VBundleData extends VertexBaseData {}
-export interface VCommunityData extends VertexBaseData {}
-export interface VLibraryData extends VertexBaseData, GithubRepo {}
-export interface VParadigmData extends VertexBaseData {}
-export interface VPlatformData extends VertexBaseData {}
-export interface VTagData extends VertexBaseData {}
-export interface VToolData extends VertexBaseData, GithubRepo {}
-export interface VTypeSystemData extends VertexBaseData {}
+export type VAppData = VertexBaseData & GithubRepo;
+export type VLibraryData = VertexBaseData & GithubRepo;
+export type VToolData = VertexBaseData & GithubRepo;
+
+export type VBundleData = VertexBaseData;
+export type VCommunityData = VertexBaseData;
+export type VParadigmData = VertexBaseData;
+export type VPlatformData = VertexBaseData;
+export type VTagData = VertexBaseData;
+export type VTypeSystemData = VertexBaseData;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Auxiliary Types
@@ -122,7 +130,7 @@ export interface Release {
   version: string;
   /** Name of the release, if there's any. */
   name?: string;
-  /** Date of the release, if it is known. */
+  /** Date of the release, if it is known, in the format: YYYY-MM-DD or YYYY-MMM or YYYY. */
   date?: StrDate;
 }
 
@@ -163,8 +171,101 @@ export type GithubRepo = {
   githubStars?: number;
   /** Github Path: this should be user/repo or org/repo, such that we can access it at `https://github.com/${path}` */
   extGithubPath?: string;
-  /** Date of creation. */
+  /** Date of creation, in the format: YYYY-MM-DD or YYYY-MMM or YYYY. */
   ghRepoCreated?: StrDate;
   /** Some important releases. For instance: the latest for each major version. */
   releases: Release[];
+};
+
+////////////////////////////////////////////////////////////////////////////////
+// Types used to interact with OpenAI.
+////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * A Data type to interact with OpenAI's structured outputs.
+ * https://platform.openai.com/docs/guides/structured-outputs#supported-schemas
+ */
+type AIVPlangData = Partial<VPlangBaseData & VertexBaseData & GithubRepo>;
+
+/** Programming Language Data. */
+export type AIVPlang = {
+  /** Programming Language Data. */
+  data: AIVPlangData;
+
+  /**
+   * List of programming languages that this language compiles to, if any.
+   * Each element is a key with prefix "pl+", for instance: "pl+python",
+   * where "python" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  compilesTo: string[];
+
+  /**
+   * List of programming languages that this language is a dialect of, if any.
+   * Each element is a key with prefix "pl+", for instance: "pl+python",
+   * where "python" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  dialectOf: string[];
+
+  /**
+   * List of programming languages that this language is implements, if any.
+   * Each element is a key with prefix "pl+", for instance: "pl+python",
+   * where "python" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  implements: string[];
+
+  /**
+   * List of programming languages that this language was influenced by, if any.
+   * Each element is a key with prefix "pl+", for instance: "pl+python",
+   * where "python" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  influencedBy: string[];
+
+  /**
+   * List of programming languages that this language influenced, if any.
+   * Each element is a key with prefix "pl+", for instance: "pl+python",
+   * where "python" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  influenced: string[];
+
+  /**
+   * List of licenses for this programming language, if any.
+   * Each element is a key with prefix "license+", for instance: "lic+mit",
+   * where "mit" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  licenses: string[];
+
+  /**
+   * List of paradigms for this programming language, if any.
+   * Each element is a key with prefix "paradigm+", for instance: "paradigm+oop",
+   * where "oop" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  paradigms: string[];
+
+  /**
+   * List of platforms for this programming language, if any.
+   * Each element is a key with prefix "plat+", for instance: "plat+windows",
+   * where "windows" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  platforms: string[];
+
+  /**
+   * List of tags for this programming language, if any.
+   * Each element is a key with prefix "tag+", for instance: "tag+games",
+   * where "games" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  tags: string[];
+
+  /**
+   * List of type systems for this programming language, if any.
+   * Each element is a key with prefix "tsys+", for instance: "tsys+strong",
+   * where "strong" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  typeSystems: string[];
+
+  /**
+   * List of programming languages uses to implement this programming language, if any.
+   * Each element is a key with prefix "lib+", for instance: "pl+python",
+   * where "python" is a unique identifier using only lowercase letters, numbers and dashes.
+   */
+  writtenWith: string[];
 };
