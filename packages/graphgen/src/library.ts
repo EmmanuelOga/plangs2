@@ -291,5 +291,3 @@ export class RelTo<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
     return this.keys.size;
   }
 }
-
-export type Relation<T extends string> = { edgeName: T; direction: "direct" | "inverse" };

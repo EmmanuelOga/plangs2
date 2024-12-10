@@ -1,6 +1,5 @@
 import { Biome, Distribution } from "@biomejs/js-api";
 
-import type { Relation } from "./library";
 import type { GenEdgeSpec, GenGraphSpec, GenVertexSpec } from "./spec";
 
 const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
@@ -35,7 +34,7 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
 
   type TRelname = string;
   type TCode = string;
-  type TRelations = Record<string, Relation<string>>;
+  type TRelations = Record<string, { relName: string; direction: "inverse" | "direct" }>;
 
   // Walk through the spec.edges config to generate relationships code.
   function processRels(vertexName: T): { code: [TRelname, TCode][]; relations: TRelations } {
@@ -50,14 +49,14 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
       if (srcVertex === vertexName) {
         const instance = `new RelFrom(this as unknown as ${vname}, this.graph.edges.${edgesKey(s)})`;
         code.push([srcRelName, `${edgeComment("src", s)}\nget ${srcRelName}() { return ${instance}; };\n`]);
-        relations[srcRelName] = { edgeName: edgesKey(s), direction: "direct" };
+        relations[srcRelName] = { relName: edgesKey(s), direction: "direct" };
       }
 
       const [dstVertex, dstRelName] = s.dst;
       if (dstVertex === vertexName) {
         const instance = `new RelTo(this as unknown as ${vname}, this.graph.edges.${edgesKey(s)})`;
         code.push([dstRelName, `${edgeComment("dst", s)}\nget ${dstRelName}() { return ${instance}; }\n`]);
-        relations[dstRelName] = { edgeName: edgesKey(s), direction: "inverse" };
+        relations[dstRelName] = { relName: edgesKey(s), direction: "inverse" };
       }
     }
 
@@ -89,12 +88,8 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
   const typeRelations = `T${spec.name}Relations`;
   code.push("/** Supported relations of each class. */");
   code.push(`export type ${typeRelations} = {
-    ${mapJoin(Object.keys(spec.vertices), name => `${name}: ${quoteJoin(Object.keys(processRels(name as T).relations), " | ")}`, ";\n")}
+    ${mapJoin(Object.keys(spec.vertices), name => `${name}: ${vertexClassName(name as T)}RelName`, ",\n")}
   };\n`);
-
-  const typeRelName = `T${spec.name}RelName`;
-  code.push("/** Supported relations of the graph. */");
-  code.push(`export type ${typeRelName} = keyof PlangsGraphBase["edges"];\n`);
 
   const typeVClass = `T${spec.name}VertexClass`;
   code.push("/** Every Generated Vertex Class. */");
@@ -201,18 +196,28 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
     code.push(`/** Type of the key of an instance of {@link ${plainName}}. */`);
     code.push(`export type ${plainName}Key = \`${key}+\${string}\`;\n`);
 
+    code.push("/** The Vertex responds to the following relationship getters. */");
+    code.push(`export const ${plainName}Rels = ${JSON.stringify(Object.keys(relations))} as const;\n`);
+    code.push(`export type ${plainName}RelName = (typeof ${plainName}Rels)[number];\n`);
+
     code.push(`/** ${desc} */\nexport abstract class ${className} extends ${vertexBaseComplete} {
       static readonly vertexKind = "${key}" as const;
       static readonly vertexName = "${vertexName}" as const;
       static readonly vertexDesc = "${desc}";
 
-      /** Describes the edges and direction used for every relationship in this Vertex. */
-      static readonly relations : Map<string, Relation<${typeRelName}>> = new Map(${JSON.stringify(Object.entries(relations))});
-
       override readonly vertexKind = ${className}.vertexKind;
       override readonly vertexDesc = ${className}.vertexDesc;
       override readonly vertexName = ${className}.vertexName;
-      override readonly relations = ${className}.relations;
+
+      /** Get one relationship by name. */
+      relation(name: ${plainName}RelName) {
+        return this[name];
+      }
+
+      /* Get all relationships as an Array. */
+      relations() {
+        return  ${plainName}Rels.map(name => this[name]);
+      }
 
       ${relCode.map(([_, code]) => `${code}`).join("\n")}
     }\n`);

@@ -1,8 +1,8 @@
 import { arrayMerge } from "@plangs/auxiliar/array";
 import { IterTap } from "@plangs/auxiliar/iter_tap";
-import { type Relation, Vertex } from "@plangs/graphgen/library";
+import { Vertex } from "@plangs/graphgen/library";
 
-import type { PlangsGraphBase, TPlangsRelName, TPlangsVertexName } from "./generated";
+import type { PlangsGraphBase, TPlangsVertexName } from "./generated";
 import { FieldStrDate } from "./vertex_data_fields";
 import type { Image, Link, VertexBaseData } from "./vertex_data_schemas";
 
@@ -22,9 +22,6 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
 
   /** General description of Vertices of this kind. */
   abstract readonly vertexName: TPlangsVertexName;
-
-  /** Edge Relationships */
-  abstract readonly relations: Map<string, Relation<TPlangsRelName>>;
 
   /** Internal path name for rendering the vertex in the web UI.  */
   get href(): string {
