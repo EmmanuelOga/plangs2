@@ -45,7 +45,6 @@ This simplistic build process just outputs the statically generated contents of 
 - [ ] Manually add more data and AI enrich. 
 - [ ] Add a "short description", since desc. of many plangs is too long.
 - [ ] Revise data: tags: better-c, educational.
-
 - [ ] Fix grid display when there's less than 1 full row of thumbnails. Adjust sizing, etc.
 
 ## TODO
@@ -55,50 +54,32 @@ This simplistic build process just outputs the statically generated contents of 
 - [ ] Create a ToolBar component: we need some buttons to interact with eachother.
 - [ ] Prefetch some URLS on hover.
 
-### More Pending Tasks
+### Backlog
 
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
 - [ ] Add a table display mode in addition to Grid (some things don't display good on a Grid, like Libraries).
 
-<hr/>
-
 - [ ] Add a simple admin interface to locally tweak the data: **maybe out of scope?**
 - [ ] Add relationship to data-cleanup entities (Community, Learning).
 
-<hr/>
-
 - [ ] Add tests for frontend code.
-
-<hr/>
 
 - [ ] Add schema.org metadata.
 - [ ] Add fb opengraph metadata.
 - [ ] Add missing aria attributes.
 
-<hr/>
-
 - [ ] Publish to **somewhere** and add some CDN.
 - [ ] Simple analytics.
 
-<hr/>
-
 - [ ] Kuzu export.
-
-<hr/>
 
 - [ ] Client side full text search.
 - [ ] Investigate removing the need to load the full JSON data before continuing.
 
 - [ ] Create better guidelines, code of conduct, enable discussions, etc.
 
-** Images **
- 
+- [ ] Add a footer.
 - [ ] Replace Thumbn SVGs embedding data with PNGs.
 - [ ] Resize all Thumbn to 128x128.
-
-**Design ideas**
-
-- [ ] Better UI for tool bundles: just filter the table of tools.
-- [ ] Add a footer.
-- [ ] Add support for drag/drop resize of elements (node-info and facets-main).
 - [ ] Platform Icons.
+- [ ] Add support for drag/drop resize of elements (node-info and facets-main).

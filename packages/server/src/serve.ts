@@ -14,9 +14,10 @@ import { notifyWebsockets, trackWebsocket, untrackWebsocket } from "./livereload
 import { resolvePage } from "./resolve_page";
 import { contentTypeFor, staticResponse, vdomToHTML } from "./utils/server";
 
-const pg = new PlangsGraph().materialize();
+const pg = new PlangsGraph();
 await loadDefinitions(pg, { scanImages: true });
 await loadPosts(pg);
+pg.materialize();
 
 const server = Bun.serve({
   async fetch(req: Request): Promise<Response> {
