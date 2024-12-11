@@ -19,6 +19,7 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
   const h1Ref = useRef<HTMLHeadingElement>(null);
   useEffect(() => h1Ref.current?.scrollIntoView({ behavior: "smooth", block: "end" }));
   const forGrid = GRID_PAGES.has(page);
+  const rels = relations(vertex);
   return (
     <div class={tw(VSCROLL, forGrid && "p-4", PROSE_BASIC, "max-w-[unset]")}>
       {!vertex && (
@@ -51,30 +52,26 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
           <p class={tw(forGrid && "inline sm:block")}>{forGrid ? vertex.shortDesc : vertex.description}</p>
         </>
       )}
-      {ret(
-        relations(vertex),
-        rels =>
-          rels.length > 0 && (
-            <details class={tw(forGrid && "hidden sm:block", "pb-4")} open={open}>
-              <summary class="cursor-pointer text-primary">Details</summary>
-              <table>
-                <tbody>
-                  {relations(vertex).map(([title, vertices]) => (
-                    <tr key={title}>
-                      <th class="align-baseline">{title}</th>
-                      <td>
-                        {vertices.map(vertex => (
-                          <Pill key={vertex.key}>
-                            <a href={vertex.href}>{vertex.name}</a>
-                          </Pill>
-                        ))}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </details>
-          ),
+      {rels.length > 0 && (
+        <details class={tw(forGrid && "hidden sm:block", "pb-4")} open={open}>
+          <summary class="cursor-pointer text-primary">Details</summary>
+          <table>
+            <tbody>
+              {relations(vertex).map(([title, vertices]) => (
+                <tr key={title}>
+                  <th class="align-baseline">{title}</th>
+                  <td>
+                    {vertices.map(vertex => (
+                      <Pill key={vertex.key}>
+                        <a href={vertex.href}>{vertex.name}</a>
+                      </Pill>
+                    ))}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </details>
       )}
     </div>
   );
@@ -86,12 +83,12 @@ function Pill({ children }: { children: ComponentChildren }) {
     <span
       style="font-size: 1.125rem; height: 2rem;"
       class={tw(
-        "overflow-ellipsis whitespace-nowrap",
         "inline-flex items-center",
-        "rounded-tl-2xl rounded-br-2xl",
         "mr-2 mb-3 px-2",
         "border-2 border-secondary",
+        "rounded-tl-2xl rounded-br-2xl",
         "bg-secondary/50 text-foreground",
+        "overflow-ellipsis whitespace-nowrap",
       )}>
       {children}
     </span>
