@@ -1,6 +1,6 @@
 import type { ComponentChildren } from "preact";
 
-import { VSCROLL, stripes, tw } from "@plangs/frontend/auxiliar/styles";
+import { PROSE, VSCROLL, stripes, tw } from "@plangs/frontend/auxiliar/styles";
 import { iconButton } from "@plangs/frontend/components/icon-button";
 import { cssID } from "@plangs/server/elements";
 import { script } from "@plangs/server/utils/html";
@@ -61,13 +61,13 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
       <body
         data-page={page}
         style={stripes()}
-        class={tw("h-dvh w-full", "flex flex-col flex-nowrap", "bg-background text-foreground", "overflow-hidden")}>
+        class={tw("dark", "h-dvh w-full", "flex flex-col flex-nowrap", "bg-background text-foreground", "overflow-hidden")}>
         {script("window.restoreLightMode()")}
 
-        <noscript>
-          <em>Note!</em>
-          <p>This site is fully static but requires JavaScript for the best experience.</p>
-          <p>In particular, the search feature will not work without JavaScript.</p>
+        <noscript class={tw("border-primary border-b-1", "bg-background", "p-2 text-center")}>
+          <strong>Note!</strong>
+          This site is fully static but requires JavaScript for the best experience. In particular, the search feature will not work without
+          JavaScript.
         </noscript>
 
         <header class={tw("pt-4 pb-2", "flex flex-col", "bg-linear-to-b from-secondary to-background")} style={stripes(false)}>
@@ -84,7 +84,7 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
         </header>
 
         <div class={tw("flex-1", "flex flex-row", "overflow-y-auto")}>
-          <MainNav page={page} class={tw("hidden sm:static", "z-20", "w-[12rem]", VSCROLL)} />
+          <MainNav page={page} class={tw("sm:static", "z-20", "w-[12rem]", VSCROLL)} />
           <main id={cssID("mainContent")} class={tw("flex-1", mainClasses)}>
             {children}
           </main>

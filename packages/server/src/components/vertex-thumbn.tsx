@@ -13,7 +13,11 @@ export function VertexThumbn({ vertex, class: klass }: { class?: string; vertex:
     <div
       {...dataset({ "vertex-key": vertex.key, "vertex-name": vertex.vertexName, "vertex-ranking": vertex.ranking })}
       class={tw(cssClass("vertexThumbn"), "group", "cursor-pointer", "max-w-[7rem] sm:max-w-[15rem]", "max-h-[7rem] sm:max-h-[15rem]", klass)}>
-      <div class={tw("truncate text-center", "text-foreground group-hover:text-primary")}>{vertex.name}</div>
+      <div class="truncate text-center">
+        <a class="text-foreground group-hover:text-primary" href={vertex.href}>
+          {vertex.name}
+        </a>
+      </div>
       <div
         class={tw(
           "relative",

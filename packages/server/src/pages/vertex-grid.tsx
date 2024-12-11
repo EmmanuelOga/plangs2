@@ -10,7 +10,7 @@ import { script } from "@plangs/server/utils/html";
 export function VertexGrid({ pg, page, vertexName }: { pg: PlangsGraph; page: PlangsPage; vertexName: TPlangsVertexName }) {
   const facets = (
     <>
-      <div class={tw("grid-facets", cssClass("facetsMain"))} data-page={page} />
+      <div class={tw("grid-facets hidden", cssClass("facetsMain"))} data-page={page} />
       {script("window.restoreFilters()")}
     </>
   );
