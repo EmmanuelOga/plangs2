@@ -6,12 +6,10 @@
     "@plangs/definitions": "workspace:*",
     "@plangs/frontend": "workspace:*",
     "@plangs/languist": "workspace:*",
-    "@plangs/plangs": "workspace:*",
+    "@plangs/plangs": "workspace:*"
   },
   "main": "src/index.ts",
-  "files": [
-    "src"
-  ],
+  "files": ["src"],
   "devDependencies": {
     "@mozilla/readability": "^0.5.0",
     "@types/jsdom": "^21.1.7",
