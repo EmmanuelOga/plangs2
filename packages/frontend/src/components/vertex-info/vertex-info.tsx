@@ -100,12 +100,9 @@ function Pill({ children }: { children: ComponentChildren }) {
 function relations(vertex?: TPlangsVertexClass): [string, TPlangsVertexClass[]][] {
   const result: [string, TPlangsVertexClass[]][] = [];
   if (!vertex) return result;
-  for (const relName of vertex.relations.keys()) {
-    type Direct = RelTo<TPlangsVertexClass, TPlangsVertexClass>;
-    type Indirect = RelFrom<TPlangsVertexClass, TPlangsVertexClass>;
-    const relation = vertex[relName as keyof typeof vertex] as Direct | Indirect;
-    const relValues = relation.values.filter(related => related.key !== vertex.key);
-    if (relValues.length > 0) result.push([relation.desc, relValues]);
+  for (const rel of vertex.relations.values()) {
+    const relValues = rel.values.filter(related => related.key !== vertex.key);
+    if (relValues.length > 0) result.push([rel.desc, relValues]);
   }
   return result;
 }

@@ -11,16 +11,16 @@ import { activateFacetsMain } from "@plangs/frontend/facets/main";
 import { PlangsGraph } from "@plangs/plangs/graph";
 import { getClosestVertex } from "./vertices";
 
+window.fragment = new FragmentTracker().bind();
+window.restoreFilters = () => ToggleFacetsMenu.initial().runEffects();
+window.restoreHamburguer = () => ToggleHamburguer.initial().runEffects();
+window.restoreLightMode = () => ToggleLights.initial().runEffects();
+
 async function start() {
   const pg = new PlangsGraph();
   const loadData = fetch("/plangs.json")
     .then(async r => pg.loadJSON(await r.json()))
     .then(g => g.materialize());
-
-  window.fragment = new FragmentTracker().bind();
-  window.restoreFilters = () => ToggleFacetsMenu.initial().runEffects();
-  window.restoreHamburguer = () => ToggleHamburguer.initial().runEffects();
-  window.restoreLightMode = () => ToggleLights.initial().runEffects();
 
   document.addEventListener("DOMContentLoaded", () => {
     activateIconButtons();
@@ -67,7 +67,11 @@ if (ENV === "dev") {
   }
 }
 
-start();
+try {
+  start();
+} catch (err) {
+  console.error(err);
+}
 
 // Declare some globals that are called as the page is being loaded to avoid flashing the wrong content.
 declare global {

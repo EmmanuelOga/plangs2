@@ -7,7 +7,7 @@
 
 import { arrayMerge } from "@plangs/auxiliar/array";
 import { loadDefinitions } from "@plangs/definitions";
-import { genericCodeGen, plangCodeGen, tsVertexPath } from "@plangs/languist/codegen";
+import { genericCodeGen, plangCodeGen, tsPath, tsVPlangPath } from "@plangs/languist/codegen";
 import { LG_LANGS, type Rankings } from "@plangs/languist/languish";
 import { GH_LANGS } from "@plangs/languist/linguist";
 import type { LanguishKeys, LinguistLang } from "@plangs/languist/types";
@@ -94,16 +94,16 @@ export async function processGithubAndLanguish() {
 
   console.warn("Languages without updates:", { woGithub: [...woGH], woLanguish: [...woLG] });
 
-  for (const pl of pg.plang.values) Bun.write(tsVertexPath("plang", pl.plainKey), plangCodeGen(pl));
+  for (const pl of pg.plang.values) Bun.write(tsVPlangPath(pl), plangCodeGen(pl));
 
   console.warn("CAUTION: matching github data is not a perfect process. Results (git diff) should be manually reviewed.");
 }
 
 /** This regenerates some vertices that are not VPlangs. Useful to reorder the definitions. */
 export function regenNonPlangs(pg: PlangsGraph) {
-  for (const pl of pg.plang.values) Bun.write(tsVertexPath("plang", pl.plainKey), plangCodeGen(pl));
+  for (const pl of pg.plang.values) Bun.write(tsVPlangPath(pl), plangCodeGen(pl));
   for (const kind of ["license", "paradigm", "platform", "tag", "typeSystem", "learning", "community"] as const) {
-    Bun.write(tsVertexPath(kind), genericCodeGen(pg, kind));
+    Bun.write(tsPath(kind), genericCodeGen(pg, kind));
   }
 }
 
@@ -111,7 +111,7 @@ export function regenNonPlangs(pg: PlangsGraph) {
 export function regenPlangs(pg: PlangsGraph) {
   for (const pl of pg.plang.values) {
     // This is good place for "migrations", like renaming keys.
-    Bun.write(tsVertexPath("plang", pl.plainKey), plangCodeGen(pl));
+    Bun.write(tsVPlangPath(pl), plangCodeGen(pl));
   }
 }
 
@@ -141,8 +141,8 @@ async function cleanup() {
   const pg = new PlangsGraph();
 
   // Switch between: load definitions or load the data.
-  // await loadAllDefinitions(pg, { scanImages: false });
-  pg.loadJSON(JSON.parse(await Bun.file("plangs.json").text()));
+  await loadDefinitions(pg, { scanImages: false });
+  // pg.loadJSON(JSON.parse(await Bun.file("plangs.json").text()));
 
   const dry = false; // Set to true to only print missing data, false to regenerate after cleanup.
   cleanupData(pg, !dry);

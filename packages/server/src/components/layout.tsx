@@ -12,6 +12,7 @@ import { PlangsLogo } from "./plangs-logo";
 export type PageType = "grid" | "other";
 export type PlangsPage =
   | TPlangsVertexName
+  | "_any_page_"
   | "about"
   | "apps"
   | "blog"

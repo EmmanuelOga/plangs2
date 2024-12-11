@@ -62,7 +62,8 @@ export class Languish {
 
   rankings(targetDate = LATEST_QUARTER, weights: LanguishWeights = DEFAULT_WEIGHTS): Rankings {
     const byKey = LG_LANGS.rankingsMap("2024Q3");
-    const byRanking: Map<number, string> = new Map(byKey.entries().map(([k, v]) => [v, k]));
+    const byRanking: Map<number, string> = new Map();
+    for (const [k, v] of byKey.entries()) byRanking.set(v, k);
     return { rankByGHName: byKey, ghNameByRank: byRanking };
   }
 }

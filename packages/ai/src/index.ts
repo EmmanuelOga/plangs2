@@ -3,9 +3,9 @@ import type { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 
 import { loadDefinitions } from "@plangs/definitions";
 import type { Vertices } from "@plangs/graphgen/library";
-import { plangCodeGen, tsVertexPath } from "@plangs/languist/codegen";
+import { plangCodeGen, tsVPlangPath } from "@plangs/languist/codegen";
 import { PlangsGraph, type VPlang } from "@plangs/plangs/graph";
-import type { VPlangKey } from "@plangs/plangs/graph/generated";
+import type { TPlangsVertexClass, VPlangKey } from "@plangs/plangs/graph/generated";
 import type { AIVPlang } from "@plangs/plangs/graph/vertex_data_schemas";
 import AIVPlangSchema from "@plangs/plangs/schema/AIVPlang.json";
 
@@ -65,7 +65,7 @@ async function plangPrompt(pg: PlangsGraph, pl: VPlang, examplePl: VPlang): Prom
       role: "user",
       content: (() => {
         const describeField = (keys: (keyof AIVPlang)[], vertices: Vertices<any>) =>
-          `For fields: ${JSON.stringify(keys).slice(1, -1)}, use keys: ${[...vertices.values.map(vertex => `${vertex.key} (for ${vertex.name})`)].join(", ")}.`;
+          `For fields: ${JSON.stringify(keys).slice(1, -1)}, use keys: ${[...vertices.values].map((vertex: TPlangsVertexClass) => `${vertex.key} (for ${vertex.name})`).join(", ")}.`;
 
         return [
           "The following is a list of keys you can use to fill each field.",
@@ -123,7 +123,7 @@ export async function aiCompletion(
 
     // TODO: apply Linguist/Languish data here, which should take precedence over the AI data.
 
-    const path = tsVertexPath("plang", pl.plainKey);
+    const path = tsVPlangPath(pl);
     console.log("Writing result to", path);
     Bun.write(path, plangCodeGen(newPl));
   } catch (err) {

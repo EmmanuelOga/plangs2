@@ -13,7 +13,11 @@ export type FacetsMainElement = HTMLDivElement & { state?: AnyFacetsMainState };
 export function activateFacetsMain(pg: PlangsGraph) {
   for (const elem of elems("facetsMain")) {
     if (pg && elem.dataset.page) {
-      render(<FacetsMain pg={pg} page={elem.dataset.page as PlangsPage} />, elem);
+      try {
+        render(<FacetsMain pg={pg} page={elem.dataset.page as PlangsPage} />, elem);
+      } catch (e) {
+        console.error("Error rendering FacetsMain component:", e);
+      }
     } else {
       console.error("Missing prop for FacetsMain component.");
     }

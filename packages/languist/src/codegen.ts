@@ -1,25 +1,17 @@
 import { join } from "node:path";
 
 import { type PlangsGraph, VCommunity, VLearning, type VPlang } from "@plangs/plangs/graph";
-import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
+import type { TPlangsVertexName, VPlangRelName } from "@plangs/plangs/graph/generated";
 import type { Image } from "@plangs/plangs/graph/vertex_data_schemas";
 
 export const DEFINTIONS_PATH = join(import.meta.dir, "../../definitions/src/definitions");
 
-/**
- * Generate a path for a TS file for a Vertex defintion.
- * VPlang vertices are stored in a folder structure based on the first letter of the key.
- * The other vertices are stored in a flat structure.
- */
-export function tsVertexPath(kind: TPlangsVertexName, plainKey?: string): string {
-  if (kind === "plang") {
-    if (!plainKey) throw new Error("plainKey is required for pl vertices.");
-    const base = plainKey.replace(/[^a-zA-Z0-9\_\+\-]/g, "_");
-    return join(DEFINTIONS_PATH, kind, base[0], base, `${base}.ts`);
-  }
-  if (plainKey) throw new Error("plainKey is required ONLY for pl vertices.");
-  return join(DEFINTIONS_PATH, `${kind}.ts`);
+export function tsVPlangPath(vertex: VPlang): string {
+  const base = vertex.plainKey.replace(/[^a-zA-Z0-9\_\+\-]/g, "_");
+  return join(DEFINTIONS_PATH, "plang", vertex.classifier, base, `${base}.ts`);
 }
+
+export const tsPath = (name: TPlangsVertexName) => join(DEFINTIONS_PATH, `${name}.ts`);
 
 /** Generate code for vertices of the given kind. */
 export function genericCodeGen(pg: PlangsGraph, kind: "license" | "paradigm" | "platform" | "tag" | "typeSystem" | "learning" | "community"): string {
@@ -52,21 +44,28 @@ export function genericCodeGen(pg: PlangsGraph, kind: "license" | "paradigm" | "
 
 /** Generate code that can reconstruct the state of a VPlang vertex. */
 export function plangCodeGen(plang: VPlang): string {
-  // The order of calls determines order in generated code.
+  const RELATIONS = [
+    "relCompilesTo", // "relTargetOf",
+    "relDialectOf", // "relDialects",
+    "relImplements", // "relImplementedBy",
+    "relInfluencedBy", // "relInfluenced",
+    "relLicenses",
+    "relParadigms",
+    "relPlatforms",
+    // "relPosts", Generated on th fly on the server.
+    "relTags",
+    // "relToolsUsing", // Should be added to the Tool definition.
+    "relTypeSystems",
+    // "relUsedInLibrary", // Should be added on the Library definition.
+    // "relUsedToWrite", // Should be added on the App definition.
+    "relWrittenWith",
+  ] as VPlangRelName[];
+
   const relations: string[] = [];
-  addRelKeys(relations, "relCompilesTo", plang.relCompilesTo.keys);
-  addRelKeys(relations, "relDialectOf", plang.relDialectOf.keys);
-  addRelKeys(relations, "relImplements", plang.relImplements.keys, (key: string) => key !== plang.key);
-  addRelKeys(relations, "relInfluencedBy", plang.relInfluencedBy.keys);
-  addRelKeys(relations, "relLicenses", plang.relLicenses.keys);
-  addRelKeys(relations, "relParadigms", plang.relParadigms.keys);
-  addRelKeys(relations, "relPlatforms", plang.relPlatforms.keys);
-  addRelKeys(relations, "relTags", plang.relTags.keys);
-  addRelKeys(relations, "relTsys", plang.relTypeSystems.keys);
-  addRelKeys(relations, "relWrittenIn", plang.relWrittenWith.keys);
-  addRelKeys(relations, "relApps", plang.relApps.keys);
-  addRelKeys(relations, "relLibs", plang.relLibraries.keys);
-  addRelKeys(relations, "relTools", plang.relTools.keys);
+  for (const rel of RELATIONS) {
+    const plRel = plang[rel];
+    addRelKeys(relations, rel, plRel.keys);
+  }
 
   const apps = plang.relApps.values.map(app => generateSettter("app", app.key, app.data));
   const libs = plang.relLibraries.values.map(lib => generateSettter("library", lib.key, lib.data));
@@ -123,7 +122,7 @@ const generateSettter = (kind: TPlangsVertexName, key: string, data: any) => {
     else delete data.images;
   }
 
-  return `g.vertices.${kind}.set(${JSON.stringify(key)}, ${JSON.stringify(data)})`;
+  return `g.${kind}.set(${JSON.stringify(key)}, ${JSON.stringify(data)})`;
 };
 
 function addRelKeys(out: string[], relName: string, keys: Set<string>, accept: (key: string) => boolean = () => true) {

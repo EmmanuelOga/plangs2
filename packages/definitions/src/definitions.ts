@@ -22,7 +22,7 @@ export async function loadDefinitions(g: PlangsGraph, options: { scanImages: boo
   // Add any images to the vertices.
 
   if (options.scanImages) {
-    for (const path of await getPaths(new Glob("**/*.{png,jpg,svg}"), join(import.meta.dir, "definitions/pl"))) {
+    for (const path of await getPaths(new Glob("**/*.{png,jpg,svg}"), join(import.meta.dir, "definitions/plang"))) {
       const [pk, k] = basename(path).split(".");
       const kind = k === "screenshot" || k === "logo" ? k : "other";
 

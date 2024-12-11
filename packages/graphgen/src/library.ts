@@ -90,15 +90,15 @@ export class Vertices<V extends AnyVertex> {
     this.map.clear();
   }
 
-  get keys(): MapIterator<V["key"]> {
+  get keys() {
     return this.map.keys();
   }
 
-  get values(): MapIterator<V> {
+  get values() {
     return this.map.values();
   }
 
-  get entries(): MapIterator<[V["key"], V]> {
+  get entries() {
     return this.map.entries();
   }
 
@@ -201,8 +201,9 @@ export class Edges<From extends AnyVertex, To extends AnyVertex> {
 
   /* Number of relationships. */
   get size() {
-    // Both #forward and #backward should have the same size.
-    return this.#forward.values().reduce((acc, set) => acc + set.size, 0);
+    let size = 0; // Both #forward and #backward should have the same size.
+    for (const set of this.#forward.values()) size += set.size;
+    return size;
   }
 
   /* {@link addMany} can be used to load back the result of the serialization. */
