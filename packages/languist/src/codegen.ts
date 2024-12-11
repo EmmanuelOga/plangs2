@@ -8,7 +8,7 @@ import type { Image } from "@plangs/plangs/graph/vertex_data_schemas";
 export const DEFINITIONS_PATH = join(import.meta.dir, "../../definitions/src/definitions");
 
 export function tsLongPath(vertex: TPlangsVertex): string {
-  const name = vertex.plainKey.replace(/[^a-zA-Z0-9\_\+\-]/g, "_");
+  const name = vertex.plainKey.replace(/[^a-zA-Z0-9\_\+\-]/g, "-");
   return join(DEFINITIONS_PATH, vertex.vertexName, vertex.classifier, name, `${name}.ts`);
 }
 
@@ -22,15 +22,19 @@ export function vertexCodeGen(vertex: TPlangsVertex): string {
     other = `
     // TOOLS\n
     ${vertex.relTools.values.map(val => genSetter(val)).join("\n\n")}
-    // BUNDLES\n
+
+    // TOOL BUNDLES\n
     ${vertex.relBundles.values.map(val => genSetter(val)).join("\n\n")}
+
     // LIBRARIES\n
     ${vertex.relLibraries.values.map(val => genSetter(val)).join("\n\n")}
+
     // APPS\n
     ${vertex.relApps.values.map(val => genSetter(val)).join("\n\n")}
   `;
   }
   return `import type { PlangsGraph } from "@plangs/plangs/graph";
+
   export function define(g: PlangsGraph) {
     ${genSetter(vertex)}
     ${other}
@@ -41,6 +45,7 @@ export function vertexCodeGen(vertex: TPlangsVertex): string {
 export function verticesCodeGen(pg: PlangsGraph, name: TPlangsVertexName): string {
   const vertices = [...pg[name].values];
   return `import type { PlangsGraph } from "@plangs/plangs/graph";
+
   export function define(g: PlangsGraph) {
     ${vertices.map(v => genSetter(v)).join("\n\n")}
   }`;
@@ -68,11 +73,14 @@ function genSetter(vertex: TPlangsVertex, genRelations = true) {
 
     for (const [relName, relation] of vertex.relations) {
       if (!toGenerate.has(relName)) continue;
-      // We filter self relationships as those are materialized at some point.
-      const keys = [...relation.keys].filter(key => key !== vertex.key).sort();
-      relations.push(`\n    .${relName}.add(${JSON.stringify(keys).slice(1, -1)})`);
+      let keys = [...relation.keys].sort();
+
+      // "Implements self" we infer/materialize, so we can skip it here.
+      if (vertex instanceof VPlang && relName === "relImplements") keys = keys.filter(k => k !== vertex.key);
+
+      if (keys.length > 0) relations.push(`\n    .${relName}.add(${JSON.stringify(keys).slice(1, -1)})`);
     }
   }
 
-  return `g.${vertex.vertexName}.set(${JSON.stringify(vertex.key)}, ${JSON.stringify(data)})${relations.join("\n")}`;
+  return `g.${vertex.vertexName}.set(${JSON.stringify(vertex.key)}, ${JSON.stringify(data)})${relations.join("")}`;
 }

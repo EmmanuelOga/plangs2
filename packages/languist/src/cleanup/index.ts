@@ -145,6 +145,7 @@ async function cleanup() {
 
   // Switch between: load definitions or load the data.
   await loadDefinitions(pg, { scanImages: false });
+  pg.materialize();
   // pg.loadJSON(JSON.parse(await Bun.file("plangs.json").text()));
 
   const dry = false; // Set to true to only print missing data, false to regenerate after cleanup.
