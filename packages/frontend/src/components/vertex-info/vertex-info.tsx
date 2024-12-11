@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "preact/hooks";
 
 import { ret } from "@plangs/auxiliar/misc";
-import { PROSE_BASIC, tw } from "@plangs/frontend/auxiliar/styles";
+import { PROSE_BASIC, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import type { RelFrom, RelTo } from "@plangs/graphgen/library";
 import type { TPlangsVertexClass } from "@plangs/plangs/graph/generated";
 import { GRID_PAGES, type PlangsPage } from "@plangs/server/components/layout";
@@ -20,7 +20,7 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
   useEffect(() => h1Ref.current?.scrollIntoView({ behavior: "smooth", block: "end" }));
   const forGrid = GRID_PAGES.has(page);
   return (
-    <div class={tw("w-full overflow-y-scroll", forGrid && "p-4", PROSE_BASIC, "max-w-[unset]")}>
+    <div class={tw(VSCROLL, forGrid && "p-4", PROSE_BASIC, "max-w-[unset]")}>
       {!vertex && (
         <>
           <h2 class={tw("mt-0!")}>Information</h2>
@@ -86,6 +86,7 @@ function Pill({ children }: { children: ComponentChildren }) {
     <span
       style="font-size: 1.125rem; height: 2rem;"
       class={tw(
+        "overflow-ellipsis whitespace-nowrap",
         "inline-flex items-center",
         "rounded-tl-2xl rounded-br-2xl",
         "mr-2 mb-3 px-2",

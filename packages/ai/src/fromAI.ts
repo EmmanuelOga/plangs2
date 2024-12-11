@@ -1,11 +1,10 @@
 import { type PlangsGraph, VPlang } from "@plangs/plangs/graph";
-import type { VLicenseKey, VParadigmKey, VPlangKey, VPlatformKey, VTagKey, VTypeSystemKey } from "@plangs/plangs/graph/generated";
 import type { AIVPlang } from "@plangs/plangs/graph/vertex_data_schemas";
 
 /** Given the results from OpenAI, construct a new NPlang vertex that can be used for code generation. */
 export function plangFromAI(pg: PlangsGraph, pl: VPlang, aiPL: AIVPlang): VPlang {
   // We need to merge these, since Vertex data merge is not deep.
-  const { extensions, filenames, images, releases, stackovTags } = pl.data;
+  const { extensions, filenames, images, releases, stackovTags, links } = pl.data;
 
   // Merge the data from the original NPlang vertex, but overwrite with the data from OpenAI.
   const newPl = new VPlang(pg, pl.key).merge({ ...pl.data, ...aiPL.data });
@@ -17,21 +16,19 @@ export function plangFromAI(pg: PlangsGraph, pl: VPlang, aiPL: AIVPlang): VPlang
   newPl.addImages(images ?? []);
   newPl.addReleases(releases ?? []);
   newPl.addStackovTags(stackovTags ?? []);
+  newPl.addLinks(links ?? []);
 
-  // Add the new data references from OpenAI.
-  const existingPl = (k: string) => pg.plang.has(k as VPlangKey);
-  newPl.relCompilesTo.add(...(aiPL.compilesTo.filter(existingPl) as VPlangKey[]));
-  newPl.relDialectOf.add(...(aiPL.dialectOf.filter(existingPl) as VPlangKey[]));
-  newPl.relImplements.add(...(aiPL.implements.filter(existingPl) as VPlangKey[]));
-  newPl.relInfluenced.add(...(aiPL.influenced.filter(existingPl) as VPlangKey[]));
-  newPl.relInfluencedBy.add(...(aiPL.influencedBy.filter(existingPl) as VPlangKey[]));
-  newPl.relWrittenWith.add(...(aiPL.writtenWith.filter(existingPl) as VPlangKey[]));
-
-  newPl.relLicenses.add(...(aiPL.licenses.filter(k => pg.license.has(k as VLicenseKey)) as VLicenseKey[]));
-  newPl.relParadigms.add(...(aiPL.paradigms.filter(k => pg.paradigm.has(k as VParadigmKey)) as VParadigmKey[]));
-  newPl.relPlatforms.add(...(aiPL.platforms.filter(k => pg.platform.has(k as VPlatformKey)) as VPlatformKey[]));
-  newPl.relTags.add(...(aiPL.tags.filter(k => pg.tag.has(k as VTagKey)) as VTagKey[]));
-  newPl.relTypeSystems.add(...(aiPL.typeSystems.filter(k => pg.typeSystem.has(k as VTypeSystemKey)) as VTypeSystemKey[]));
+  newPl.relCompilesTo.maybeAdd(aiPL.compilesTo);
+  newPl.relDialectOf.maybeAdd(aiPL.dialectOf);
+  newPl.relImplements.maybeAdd(aiPL.implements);
+  newPl.relInfluenced.maybeAdd(aiPL.influenced);
+  newPl.relInfluencedBy.maybeAdd(aiPL.influencedBy);
+  newPl.relLicenses.maybeAdd(aiPL.licenses);
+  newPl.relParadigms.maybeAdd(aiPL.paradigms);
+  newPl.relPlatforms.maybeAdd(aiPL.platforms);
+  newPl.relTags.maybeAdd(aiPL.tags);
+  newPl.relTypeSystems.maybeAdd(aiPL.typeSystems);
+  newPl.relWrittenWith.maybeAdd(aiPL.writtenWith);
 
   return newPl;
 }

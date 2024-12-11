@@ -233,6 +233,12 @@ export class RelFrom<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
     return this.from;
   }
 
+  /** Add keys if they match existing vertices only. */
+  maybeAdd(toKeys: string[]): FromVertex {
+    const existing = (toKeys as ToVertex["key"][]).filter(k => this.edges.toSource.has(k));
+    return this.add(...existing);
+  }
+
   remove(...toKeys: ToVertex["key"][]): FromVertex {
     for (const toKey of toKeys) this.edges.delete(this.from.key, toKey);
     return this.from;
@@ -269,6 +275,12 @@ export class RelTo<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
   add(...fromKeys: FromVertex["key"][]): ToVertex {
     for (const fromKey of fromKeys) this.edges.add(fromKey, this.to.key);
     return this.to;
+  }
+
+  /** Add keys if they match existing vertices only. */
+  maybeAdd(fromKeys: string[]): ToVertex {
+    const existing = (fromKeys as FromVertex["key"][]).filter(k => this.edges.fromSource.has(k));
+    return this.add(...existing);
   }
 
   remove(...fromKeys: FromVertex["key"][]): ToVertex {
