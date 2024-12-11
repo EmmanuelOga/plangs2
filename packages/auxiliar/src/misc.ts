@@ -42,3 +42,16 @@ export function isEmpty(obj: any) {
   }
   return true;
 }
+
+/** Cleanup data **in place**: sort keys, remove blank values. */
+export function cleanup(data: Record<string, any>) {
+  for (const [k, v] of Object.entries(data)) {
+    if (Array.isArray(v)) {
+      if (v.length === 0) delete data[k];
+      else v.sort();
+    } else if (v === null || v === undefined || v === "") {
+      delete data[k];
+    }
+  }
+  return data;
+}

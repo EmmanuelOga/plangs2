@@ -7,11 +7,11 @@
 
 import { arrayMerge } from "@plangs/auxiliar/array";
 import { loadDefinitions } from "@plangs/definitions";
-import { genericCodeGen, plangCodeGen, tsPath, tsVPlangPath } from "@plangs/languist/codegen";
 import { LG_LANGS, type Rankings } from "@plangs/languist/languish";
 import { GH_LANGS } from "@plangs/languist/linguist";
 import type { LanguishKeys, LinguistLang } from "@plangs/languist/types";
 import { PlangsGraph, type VPlang } from "@plangs/plangs/graph";
+import { tsLongPath, tsShortPath, vertexCodeGen, verticesCodeGen } from "../codegen";
 
 /** Update the VPlang data with Github data. */
 function updateWithGH(pl: VPlang, ghMap: Map<string, LinguistLang>): boolean {
@@ -94,16 +94,17 @@ export async function processGithubAndLanguish() {
 
   console.warn("Languages without updates:", { woGithub: [...woGH], woLanguish: [...woLG] });
 
-  for (const pl of pg.plang.values) Bun.write(tsVPlangPath(pl), plangCodeGen(pl));
+  for (const pl of pg.plang.values) Bun.write(tsLongPath(pl), vertexCodeGen(pl));
 
   console.warn("CAUTION: matching github data is not a perfect process. Results (git diff) should be manually reviewed.");
 }
 
+const VERTICES_TO_GEN = ["community", "learning", "license", "paradigm", "platform", "tag", "typeSystem"] as const;
+
 /** This regenerates some vertices that are not VPlangs. Useful to reorder the definitions. */
 export function regenNonPlangs(pg: PlangsGraph) {
-  for (const pl of pg.plang.values) Bun.write(tsVPlangPath(pl), plangCodeGen(pl));
-  for (const kind of ["license", "paradigm", "platform", "tag", "typeSystem", "learning", "community"] as const) {
-    Bun.write(tsPath(kind), genericCodeGen(pg, kind));
+  for (const vertexName of VERTICES_TO_GEN) {
+    Bun.write(tsShortPath(vertexName), verticesCodeGen(pg, vertexName));
   }
 }
 
@@ -111,7 +112,7 @@ export function regenNonPlangs(pg: PlangsGraph) {
 export function regenPlangs(pg: PlangsGraph) {
   for (const pl of pg.plang.values) {
     // This is good place for "migrations", like renaming keys.
-    Bun.write(tsVPlangPath(pl), plangCodeGen(pl));
+    Bun.write(tsLongPath(pl), vertexCodeGen(pl));
   }
 }
 
@@ -123,12 +124,14 @@ export function cleanupData(pg: PlangsGraph, update: boolean) {
   for (const [e, edges] of Object.entries(pg.edges)) {
     const missingKeys = new Set<string>();
 
-    for (const [keyFrom, vertexFrom, keyTo, vertexTo] of edges.vertices) {
+    for (const tuple of edges.vertices) {
+      const [keyFrom, vertexFrom, keyTo, vertexTo] = tuple;
+
       if (!vertexFrom) missingKeys.add(keyFrom);
       if (!vertexTo) missingKeys.add(keyTo);
 
       if (update && (!vertexFrom || !vertexTo)) {
-        console.log("Deleting edge with missing vertex:", vertexFrom, vertexTo);
+        console.log("Deleting edge with missing vertex:", tuple);
         edges.delete(keyFrom as any, keyTo as any);
       }
     }
