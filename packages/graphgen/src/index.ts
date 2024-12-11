@@ -23,11 +23,11 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
     const [srcClass, dstClass] = [vertexClassName(srcVertex), vertexClassName(dstVertex)];
 
     if (kind === "src") {
-      const arrow = `\`(this:${srcClass})-[${srcRelName}]->${dstClass}\``;
+      const arrow = `\`(this:${srcClass})-[${edgesKey(s)}]->${dstClass}\``;
       return `/** ${srcDesc} ${arrow}. Inverse: {@link ${dstClass}.${dstRelName}}. */`;
     }
 
-    const arrow = `\`${srcClass}-[${srcRelName}]->(this:${dstClass})\``;
+    const arrow = `\`${srcClass}-[${edgesKey(s)}]->(this:${dstClass})\``;
     return `/** ${dstDesc} ${arrow}. Inverse: {@link ${srcClass}.${srcRelName}}. */`;
   };
 

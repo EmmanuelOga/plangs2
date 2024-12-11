@@ -71,7 +71,7 @@ export const PLANGS_GRAPH_SPEC: GenGraphSpec<PlangVertexNames> = {
     // Other to Plang
     { src: ["app", "relWrittenWith", "Plangs"], dst: ["plang", "relApps", "Apps"], pref: "src" },
     { src: ["bundle", "relPlangs", "Plangs"], dst: ["plang", "relBundles", "Bundles"], pref: "none" },
-    { src: ["library", "relPlangs", "Plangs"], dst: ["plang", "relLibraries", "Libraries"], pref: "dst" },
+    { src: ["library", "relPlangs", "Plangs"], dst: ["plang", "relLibraries", "Libraries"], pref: "src" },
     { src: ["library", "relWrittenWith", "Written With"], dst: ["plang", "relUsedInLibrary", "Used for Libraries"], pref: "src" },
     { src: ["license", "relPlangs", "Plangs"], dst: ["plang", "relLicenses", "Licenses"], pref: "dst" },
     { src: ["tool", "relWrittenWith", "Implemented With"], dst: ["plang", "relToolsUsing", "Tool Plang"], pref: "src" },
