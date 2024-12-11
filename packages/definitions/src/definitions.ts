@@ -28,7 +28,8 @@ export async function loadDefinitions(g: PlangsGraph, options: { scanImages: boo
 
       // This makes a lot of assumptions about the names of the plang, which work for the current plangs.
       // We may need to revisit if it breaks (for instance, having stronger conventions for the plang and image names).
-      const plainKey = (pk.startsWith(NON_AZ) ? `.${pk.slice(1)}` : pk).replaceAll("_", ".");
+      let plainKey = (pk.startsWith(NON_AZ) ? `.${pk.slice(1)}` : pk).replaceAll("_", ".");
+      if (plainKey === "asp-net") plainKey = "asp.net";
 
       const plKey: VPlangKey = `pl+${plainKey}`;
       const pl = g.plang.get(plKey);

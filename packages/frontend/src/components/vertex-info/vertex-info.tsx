@@ -2,8 +2,7 @@ import { useEffect, useRef } from "preact/hooks";
 
 import { ret } from "@plangs/auxiliar/misc";
 import { PROSE_BASIC, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
-import type { RelFrom, RelTo } from "@plangs/graphgen/library";
-import type { TPlangsVertexClass } from "@plangs/plangs/graph/generated";
+import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
 import { GRID_PAGES, type PlangsPage } from "@plangs/server/components/layout";
 import { VertexLink } from "@plangs/server/components/vertex-link";
 import type { ComponentChildren } from "preact";
@@ -11,7 +10,7 @@ import type { ComponentChildren } from "preact";
 export type VertexInfoProps = {
   page: PlangsPage;
   open?: boolean;
-  vertex?: TPlangsVertexClass;
+  vertex?: TPlangsVertex;
 };
 
 /** Display Vertex. */
@@ -59,7 +58,7 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
             <tbody>
               {relations(vertex).map(([title, vertices]) => (
                 <tr key={title}>
-                  <th class="align-baseline">{title}</th>
+                  <th class="pb-4 align-baseline">{title}</th>
                   <td>
                     {vertices.map(vertex => (
                       <Pill key={vertex.key}>
@@ -95,8 +94,8 @@ function Pill({ children }: { children: ComponentChildren }) {
   );
 }
 
-function relations(vertex?: TPlangsVertexClass): [string, TPlangsVertexClass[]][] {
-  const result: [string, TPlangsVertexClass[]][] = [];
+function relations(vertex?: TPlangsVertex): [string, TPlangsVertex[]][] {
+  const result: [string, TPlangsVertex[]][] = [];
   if (!vertex) return result;
   for (const rel of vertex.relations.values()) {
     const relValues = rel.values.filter(related => related.key !== vertex.key);

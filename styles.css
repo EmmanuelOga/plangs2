@@ -94,6 +94,7 @@
       grid-template-rows: auto 1fr auto; /* Grow middle row. */
       grid-template-columns: auto auto 1fr; /* Grow middle column. */
       .grid-facets { width: 38rem; max-height: 40dvh; }
+      .grid-info { max-height: 40dvh; }
     }
   }
 
@@ -104,8 +105,8 @@
                            'F G I'
                            'F G I';
       grid-template-columns: auto 1fr auto; /* Grow middle column. */
-      .grid-facets { width: 38rem; }
-      .grid-info { max-width: 30dvh; }
+      .grid-facets { max-width: 38rem; }
+      .grid-info { max-width: 25dvh; }
     }
   }
 

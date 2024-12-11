@@ -2,7 +2,7 @@ import { PROSE, tw } from "@plangs/frontend/auxiliar/styles";
 import { VertexInfo } from "@plangs/frontend/components/vertex-info/vertex-info";
 import type { RelFrom, RelTo } from "@plangs/graphgen/library";
 import type { PlangsGraph, VPost } from "@plangs/plangs/graph";
-import type { TPlangsVertexClass } from "@plangs/plangs/graph/generated";
+import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
 import { Layout, type PlangsPage } from "@plangs/server/components/layout";
 import { Table } from "@plangs/server/components/table";
 import { cssClass } from "../elements";
@@ -10,16 +10,17 @@ import { cssClass } from "../elements";
 /** Relations we want to create a section for, in the order we want them to render. */
 const RELATIONS = [
   ["relPosts", "News"],
-  ["relPlangs", "Plangs"],
-  ["relWrittenWith", "Written With"],
   ["relTools", "Tools"],
+  ["relBundles", "Bundles"],
   ["relApps", "Applications"],
   ["relLibraries", "Libraries"],
+  ["relPlangs", "Plangs"],
+  ["relWrittenWith", "Written With"],
   ["relLearning", "Learning Resources"],
   ["relCommunities", "Communities"],
 ] as const;
 
-export function Vertex({ page, vertex }: { pg: PlangsGraph; page: PlangsPage; vertex: TPlangsVertexClass }) {
+export function Vertex({ page, vertex }: { pg: PlangsGraph; page: PlangsPage; vertex: TPlangsVertex }) {
   return (
     <Layout
       page={page}
@@ -28,7 +29,7 @@ export function Vertex({ page, vertex }: { pg: PlangsGraph; page: PlangsPage; ve
       mainClasses={tw("overflow-y-scroll")}>
       <article class={tw("p-4", PROSE)}>
         <div class={tw(cssClass("vertexInfo"))} data-page={page} data-open={false}>
-          <VertexInfo vertex={vertex} page={page} open={true} />
+          <VertexInfo vertex={vertex} page={page} open={false} />
         </div>
 
         {RELATIONS.map(([rel, title]) => (
@@ -39,9 +40,9 @@ export function Vertex({ page, vertex }: { pg: PlangsGraph; page: PlangsPage; ve
   );
 }
 
-function VertexRelation({ vertex, rel, title }: { vertex: TPlangsVertexClass; rel: string; title: string }) {
-  type Direct = RelTo<TPlangsVertexClass, TPlangsVertexClass>;
-  type Indirect = RelFrom<TPlangsVertexClass, TPlangsVertexClass>;
+function VertexRelation({ vertex, rel, title }: { vertex: TPlangsVertex; rel: string; title: string }) {
+  type Direct = RelTo<TPlangsVertex, TPlangsVertex>;
+  type Indirect = RelFrom<TPlangsVertex, TPlangsVertex>;
   const relation = vertex[rel as keyof typeof vertex] as Direct | Indirect;
 
   if (!relation) return null;

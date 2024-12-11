@@ -1,6 +1,6 @@
 import type { AnyValue } from "@plangs/auxiliar/value";
 import type { Vertices } from "@plangs/graphgen/library";
-import type { TPlangsVertexClass, TPlangsVertexName } from "@plangs/plangs/graph/generated";
+import type { TPlangsVertex, TPlangsVertexName } from "@plangs/plangs/graph/generated";
 
 import { APP_FACET_PREDICATES } from "./apps";
 import { COMMUNITY_FACET_PREDICATES } from "./communities";
@@ -10,11 +10,11 @@ import { PLANG_FACET_PREDICATES } from "./plangs";
 import { TOOL_FACET_PREDICATES } from "./tools";
 
 /** A Map of predicates from an arbitrary name to a predicate function. */
-export type Predicates<PredKey extends string> = Record<PredKey, (vertex: TPlangsVertexClass, value: AnyValue) => boolean>;
+export type Predicates<PredKey extends string> = Record<PredKey, (vertex: TPlangsVertex, value: AnyValue) => boolean>;
 
 /** Match a single Vertex against several predicates. */
 export function matchVertex<PredKey extends string>(
-  vertex: TPlangsVertexClass,
+  vertex: TPlangsVertex,
   predicates: Predicates<PredKey>,
   facetValues: Map<PredKey, AnyValue>,
 ): boolean {
@@ -27,7 +27,7 @@ export function matchVertex<PredKey extends string>(
 }
 
 /** Match all vertices of a container against several predicates. */
-export function matchVertices<T extends TPlangsVertexClass, PredKey extends string>(
+export function matchVertices<T extends TPlangsVertex, PredKey extends string>(
   vertices: Vertices<T>,
   facetValues: Map<PredKey, AnyValue>,
   limit = -1,
