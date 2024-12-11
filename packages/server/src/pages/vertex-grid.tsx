@@ -16,7 +16,7 @@ export function VertexGrid({ pg, page, vertexName }: { pg: PlangsGraph; page: Pl
   );
 
   const grid = (
-    <div class={tw("grid-main", "grid gap-4 p-4", "grid-cols-[repeat(auto-fit,minmax(5rem,1fr))]")} id={cssID("vertexGrid")}>
+    <div class={tw("grid-main", "grid gap-4 p-4", "auto-rows-max", "grid-cols-[repeat(auto-fit,minmax(7rem,1fr))]")} id={cssID("vertexGrid")}>
       {[...pg.vertices[vertexName].values].map(vertex => (
         <VertexThumbn key={vertex.key} vertex={vertex} />
       ))}

@@ -41,7 +41,6 @@ This simplistic build process just outputs the statically generated contents of 
 
 ## WIP
 
-- [ ] Fix grid display when there's less than 1 full row of thumbnails. Adjust sizing, etc.
 - [ ] Create a ToolBar component: we need some buttons to interact with eachother.
 
 - [ ] Allow AI enriching all data, not just plangs.
@@ -53,7 +52,7 @@ This simplistic build process just outputs the statically generated contents of 
 ## TODO
 
 - [ ] Add an "authors" Vertex to link to Blog post authors.
-- [ ] Tweak backdrop-filter in Safari.
+- [ ] Tweak backdrop-filter in Safari/Firefox.
 - [ ] Prefetch some URLS on hover.
 
 ### Backlog

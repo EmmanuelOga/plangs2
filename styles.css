@@ -116,8 +116,9 @@
       grid-template-areas: 'F G G'
                            'F G G'
                            'F I I';
+      grid-template-columns: auto 1fr auto; /* Grow middle column. */
       grid-template-rows: auto 1fr auto; /* Grow middle row. */
-      .grid-facets { max-width: 38rem; }
+      .grid-facets { min-width: 25rem; max-width: 30rem; }
       .grid-info { max-height: 25dvh; }
     }
   }
