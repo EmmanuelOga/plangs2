@@ -41,17 +41,19 @@ This simplistic build process just outputs the statically generated contents of 
 
 ## WIP
 
-- [ ] Allow AI enriching all data, not just plangs.
-- [ ] Manually add more data and AI enrich. 
-- [ ] Add a "short description", since desc. of many plangs is too long.
-- [ ] Revise data: tags: better-c, educational.
 - [ ] Fix grid display when there's less than 1 full row of thumbnails. Adjust sizing, etc.
+- [ ] Create a ToolBar component: we need some buttons to interact with eachother.
+
+- [ ] Allow AI enriching all data, not just plangs.
+- [ ] Add a "short description", since desc. of many plangs is too long.
+
+- [ ] Manually add more data and AI enrich. 
+- [ ] Revise data: tags: better-c, educational.
 
 ## TODO
 
 - [ ] Add an "authors" Vertex to link to Blog post authors.
 - [ ] Tweak backdrop-filter in Safari.
-- [ ] Create a ToolBar component: we need some buttons to interact with eachother.
 - [ ] Prefetch some URLS on hover.
 
 ### Backlog
@@ -60,8 +62,6 @@ This simplistic build process just outputs the statically generated contents of 
 - [ ] Add a table display mode in addition to Grid (some things don't display good on a Grid, like Libraries).
 
 - [ ] Add a simple admin interface to locally tweak the data: **maybe out of scope?**
-- [ ] Add relationship to data-cleanup entities (Community, Learning).
-
 - [ ] Add tests for frontend code.
 
 - [ ] Add schema.org metadata.
@@ -74,12 +74,11 @@ This simplistic build process just outputs the statically generated contents of 
 - [ ] Kuzu export.
 
 - [ ] Client side full text search.
-- [ ] Investigate removing the need to load the full JSON data before continuing.
-
 - [ ] Create better guidelines, code of conduct, enable discussions, etc.
 
-- [ ] Add a footer.
 - [ ] Replace Thumbn SVGs embedding data with PNGs.
 - [ ] Resize all Thumbn to 128x128.
 - [ ] Platform Icons.
 - [ ] Add support for drag/drop resize of elements (node-info and facets-main).
+
+- [ ] Add a footer.

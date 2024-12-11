@@ -105,7 +105,7 @@
                            'F G I'
                            'F G I';
       grid-template-columns: auto 1fr auto; /* Grow middle column. */
-      .grid-facets { max-width: 38rem; }
+      .grid-facets { min-width: 32rem; max-width: 38rem; }
       .grid-info { max-width: 25dvh; }
     }
   }

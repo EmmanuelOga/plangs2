@@ -10,7 +10,12 @@ const CL: CLKey = "iconButton";
 
 /** Server side container for the Component. */
 export function iconButton(action: IconButtonProps["action"]) {
-  return <div id={`icon-button-${action}`} data-action={action} class={tw(cssClass(CL), "text-primary")} />;
+  return (
+    <div id={`icon-button-${action}`} data-action={action} class={tw(cssClass(CL), "text-primary")}>
+      {/* Render the icon server-side to reduce flickering when enabling the icons. */}
+      <IconButton action={action} />
+    </div>
+  );
 }
 
 /** Find all component containers and render them. */

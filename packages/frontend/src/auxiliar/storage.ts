@@ -23,19 +23,22 @@ export function storeKey(page: PlangsPage, key: KeyType, postfix?: Postfix): Sto
   return `site-${page}-${key}`;
 }
 
+// Alias to avoid errors if server side rendering is used.
+const stapi = (typeof localStorage === "undefined" ? undefined : localStorage) as Storage | undefined;
+
 // biome-ignore lint/suspicious/noExplicitAny: JSON can serialize any data.
 export function storeUpdate(key: StoreKey, data: any): void {
-  localStorage.setItem(key, JSON.stringify(data));
+  stapi?.setItem(key, JSON.stringify(data));
 }
 
 // biome-ignore lint/suspicious/noExplicitAny: JSON can deserialize any data.
 export function storeLoad(key: StoreKey): any {
-  const jsonString = localStorage.getItem(key);
+  const jsonString = stapi?.getItem(key);
   if (!jsonString) return undefined;
   try {
     return JSON.parse(jsonString);
   } catch (e) {
     console.error("Failed to load data from localStorage", { key, jsonString, e });
-    localStorage.removeItem(key);
+    stapi?.removeItem(key);
   }
 }
