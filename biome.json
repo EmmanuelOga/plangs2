@@ -12,7 +12,9 @@
     }
   },
   "files": {
-    "ignore": [],
+    "ignore": [
+      "packages/server/static"
+    ],
     "ignoreUnknown": false
   },
   "formatter": {
