@@ -33,13 +33,13 @@ export function define(g: PlangsGraph) {
       "tag+dbms",
       "tag+editor",
       "tag+framework",
+      "tag+gui",
       "tag+industrial",
       "tag+interpreters",
       "tag+low-code",
       "tag+rad",
       "tag+shell",
       "tag+testing",
-      "tag+gui",
     )
     .relTypeSystems.add("tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong", "tsys+weak");
 

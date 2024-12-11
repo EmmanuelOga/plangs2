@@ -63,6 +63,7 @@ export function define(g: PlangsGraph) {
       "tag+dataq",
       "tag+dbms",
       "tag+embedded",
+      "tag+gui",
       "tag+industrial",
       "tag+interpreters",
       "tag+modeling",
@@ -70,7 +71,6 @@ export function define(g: PlangsGraph) {
       "tag+sci",
       "tag+scripting",
       "tag+shell",
-      "tag+gui",
       "tag+wavelet",
     )
     .relTypeSystems.add("tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+optional", "tsys+strong")

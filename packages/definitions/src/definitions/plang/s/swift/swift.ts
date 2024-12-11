@@ -49,11 +49,11 @@ export function define(g: PlangsGraph) {
       "tag+dbms",
       "tag+flow",
       "tag+framework",
+      "tag+gui",
       "tag+industrial",
       "tag+interpreters",
       "tag+scripting",
       "tag+server",
-      "tag+gui",
     )
     .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong");
 

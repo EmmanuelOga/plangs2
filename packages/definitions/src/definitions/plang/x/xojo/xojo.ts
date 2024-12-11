@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
     .relInfluencedBy.add("pl+basic", "pl+visual-basic")
     .relParadigms.add("para+multi", "para+oop", "para+visual")
     .relPlatforms.add("plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+raspberry", "plat+web", "plat+windows")
-    .relTags.add("tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreters", "tag+rad", "tag+gui")
+    .relTags.add("tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+gui", "tag+industrial", "tag+interpreters", "tag+rad")
     .relTypeSystems.add("tsys+object", "tsys+static", "tsys+strong");
 
   // TOOLS

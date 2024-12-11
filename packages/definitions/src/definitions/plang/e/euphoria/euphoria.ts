@@ -26,12 +26,12 @@ export function define(g: PlangsGraph) {
       "tag+app",
       "tag+compiler",
       "tag+dbms",
+      "tag+gui",
       "tag+interpreters",
       "tag+low-code",
       "tag+modeling",
       "tag+rad",
       "tag+ray-tracer",
-      "tag+gui",
       "tag+wavelet",
     )
     .relTypeSystems.add("tsys+dynamic", "tsys+static");

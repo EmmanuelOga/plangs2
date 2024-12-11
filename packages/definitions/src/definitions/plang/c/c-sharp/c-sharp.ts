@@ -44,11 +44,11 @@ export function define(g: PlangsGraph) {
       "tag+editor",
       "tag+framework",
       "tag+games",
+      "tag+gui",
       "tag+interpreters",
       "tag+iot",
       "tag+scripting",
       "tag+shell",
-      "tag+gui",
       "tag+viz",
     )
     .relTypeSystems.add("tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong");

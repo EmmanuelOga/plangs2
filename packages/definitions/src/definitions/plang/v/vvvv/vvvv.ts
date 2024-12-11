@@ -21,9 +21,9 @@ export function define(g: PlangsGraph) {
       "tag+dataflow",
       "tag+flow",
       "tag+framework",
+      "tag+gui",
       "tag+multimedia",
       "tag+ray-tracer",
-      "tag+gui",
       "tag+video",
     )
     .relTypeSystems.add("tsys+strong");

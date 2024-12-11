@@ -32,12 +32,12 @@ export function define(g: PlangsGraph) {
       "tag+dsp",
       "tag+flow",
       "tag+games",
+      "tag+gui",
       "tag+industrial",
       "tag+interpreters",
       "tag+midi",
       "tag+multimedia",
       "tag+ray-tracer",
-      "tag+gui",
       "tag+video",
       "tag+wavelet",
     )

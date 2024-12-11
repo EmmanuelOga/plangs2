@@ -23,7 +23,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+gnu-gpl")
     .relParadigms.add("para+compiled", "para+dataflow", "para+declarative", "para+dsl", "para+functional")
     .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows")
-    .relTags.add("tag+app", "tag+audio-dev", "tag+compiler", "tag+dsp", "tag+interpreters", "tag+multimedia", "tag+gui", "tag+wavelet")
+    .relTags.add("tag+app", "tag+audio-dev", "tag+compiler", "tag+dsp", "tag+gui", "tag+interpreters", "tag+multimedia", "tag+wavelet")
     .relTypeSystems.add("tsys+manifest", "tsys+strong")
     .relWrittenWith.add("pl+c++");
 

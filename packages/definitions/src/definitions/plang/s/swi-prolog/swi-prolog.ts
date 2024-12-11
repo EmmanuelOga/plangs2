@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+bsd", "lic+lgpl")
     .relParadigms.add("para+concurrent", "para+constraint", "para+declarative", "para+logic")
     .relPlatforms.add("plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows")
-    .relTags.add("tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+interpreters", "tag+testing", "tag+gui", "tag+viz")
+    .relTags.add("tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+gui", "tag+industrial", "tag+interpreters", "tag+testing", "tag+viz")
     .relTypeSystems.add("tsys+untyped")
     .relWrittenWith.add("pl+c");
 

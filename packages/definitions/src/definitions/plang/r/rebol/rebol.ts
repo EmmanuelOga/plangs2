@@ -33,11 +33,11 @@ export function define(g: PlangsGraph) {
       "tag+app",
       "tag+audio-dev",
       "tag+dbms",
+      "tag+gui",
       "tag+industrial",
       "tag+interpreters",
       "tag+multimedia",
       "tag+ray-tracer",
-      "tag+gui",
       "tag+video",
     )
     .relTypeSystems.add("tsys+dynamic", "tsys+strong");

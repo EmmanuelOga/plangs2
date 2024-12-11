@@ -23,7 +23,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+bsd")
     .relParadigms.add("para+declarative", "para+functional", "para+oop")
     .relPlatforms.add("plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows")
-    .relTags.add("tag+3dg", "tag+app", "tag+framework", "tag+industrial", "tag+ray-tracer", "tag+gui")
+    .relTags.add("tag+3dg", "tag+app", "tag+framework", "tag+gui", "tag+industrial", "tag+ray-tracer")
     .relTypeSystems.add("tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+c", "pl+c++", "pl+dart");
 

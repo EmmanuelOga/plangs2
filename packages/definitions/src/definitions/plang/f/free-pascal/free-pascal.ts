@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+gnu-gpl")
     .relParadigms.add("para+compiled", "para+multi", "para+oop", "para+procedural", "para+structured")
     .relPlatforms.add("plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+dos", "plat+embedded", "plat+linux", "plat+windows")
-    .relTags.add("tag+compiler", "tag+industrial", "tag+gui")
+    .relTags.add("tag+compiler", "tag+gui", "tag+industrial")
     .relTypeSystems.add("tsys+object", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+pascal");
 

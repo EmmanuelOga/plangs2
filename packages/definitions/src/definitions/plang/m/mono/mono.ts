@@ -27,9 +27,9 @@ export function define(g: PlangsGraph) {
       "tag+dbms",
       "tag+framework",
       "tag+games",
+      "tag+gui",
       "tag+scripting",
       "tag+shell",
-      "tag+gui",
     )
     .relTypeSystems.add("tsys+nominal", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+c", "pl+c-sharp");

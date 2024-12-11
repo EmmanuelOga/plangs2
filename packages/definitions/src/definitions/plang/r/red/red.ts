@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+boost", "lic+bsd")
     .relParadigms.add("para+functional", "para+imperative", "para+multi", "para+symbolic")
     .relPlatforms.add("plat+apple", "plat+linux", "plat+windows")
-    .relTags.add("tag+app", "tag+asm", "tag+dataflow", "tag+flow", "tag+interpreters", "tag+gui")
+    .relTags.add("tag+app", "tag+asm", "tag+dataflow", "tag+flow", "tag+gui", "tag+interpreters")
     .relTypeSystems.add("tsys+dynamic", "tsys+weak")
     .relWrittenWith.add("pl+c", "pl+rebol");
 

@@ -37,10 +37,10 @@ export function define(g: PlangsGraph) {
       "tag+compiler",
       "tag+control",
       "tag+framework",
+      "tag+gui",
       "tag+industrial",
       "tag+interpreters",
       "tag+scripting",
-      "tag+gui",
       "tag+viz",
     )
     .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+strong")

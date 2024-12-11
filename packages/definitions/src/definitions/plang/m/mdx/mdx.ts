@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+mit")
     .relParadigms.add("para+dsl", "para+interpreted", "para+reactive")
     .relPlatforms.add("plat+web")
-    .relTags.add("tag+modular", "tag+scripting", "tag+gui")
+    .relTags.add("tag+gui", "tag+modular", "tag+scripting")
     .relTypeSystems.add("tsys+dynamic");
 
   // TOOLS

@@ -36,12 +36,12 @@ export function define(g: PlangsGraph) {
       "tag+control",
       "tag+dbms",
       "tag+framework",
+      "tag+gui",
       "tag+industrial",
       "tag+interpreters",
       "tag+ray-tracer",
       "tag+scripting",
       "tag+testing",
-      "tag+gui",
     )
     .relTypeSystems.add("tsys+dynamic", "tsys+string")
     .relWrittenWith.add("pl+c");

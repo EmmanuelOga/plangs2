@@ -53,6 +53,7 @@ export function define(g: PlangsGraph) {
       "tag+dbms",
       "tag+framework",
       "tag+games",
+      "tag+gui",
       "tag+industrial",
       "tag+interpreters",
       "tag+low-code",
@@ -61,7 +62,6 @@ export function define(g: PlangsGraph) {
       "tag+sci",
       "tag+scripting",
       "tag+testing",
-      "tag+gui",
       "tag+viz",
       "tag+wavelet",
     )
