@@ -35,4 +35,6 @@ export interface GenVertexSpec {
 export interface GenEdgeSpec<VertexName extends string> {
   src: [vertexName: VertexName, relName: string, desc: string];
   dst: [vertexName: VertexName, relName: string, desc: string];
+  /** Preferred end of the relationship, for instance, when generating code. */
+  pref: "src" | "dst" | "none";
 }
