@@ -115,11 +115,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "version",
-        "name",
-        "date"
-      ],
+      "required": ["version", "name", "date"],
       "additionalProperties": false
     },
     "Link": {
@@ -135,10 +131,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "url",
-        "title"
-      ],
+      "required": ["url", "title"],
       "additionalProperties": false
     },
     "PlangData": {
