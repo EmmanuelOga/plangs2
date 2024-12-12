@@ -1,31 +1,16 @@
 import { arrayMerge } from "@plangs/auxiliar/array";
 import { IterTap } from "@plangs/auxiliar/iter_tap";
 
-import {
-  PlangsGraphBase,
-  VAppBase,
-  VBundleBase,
-  VCommunityBase,
-  VLearningBase,
-  VLibraryBase,
-  VLicenseBase,
-  VParadigmBase,
-  VPlangBase,
-  VPlatformBase,
-  VPostBase,
-  VTagBase,
-  VToolBase,
-  VTypeSystemBase,
-} from "./generated";
+import * as Gen from "./generated";
 
 import { FieldGithub, FieldReleases } from "./vertex_data_fields";
 import type { Release, StrDate } from "./vertex_data_schemas";
 
 // Shortcuts to the configuration objects.
-export const rel = PlangsGraphBase.relConfig;
-export const prop = PlangsGraphBase.propConfig;
+export const rel = Gen.PlangsGraphBase.relConfig;
+export const prop = Gen.PlangsGraphBase.propConfig;
 
-export class PlangsGraph extends PlangsGraphBase {
+export class PlangsGraph extends Gen.PlangsGraphBase {
   /**
    * We can derive / infer some data from the existing data.
    * We may implement some sort of inference engine in the future,
@@ -46,7 +31,7 @@ export class PlangsGraph extends PlangsGraphBase {
   }
 }
 
-export class VApp extends VAppBase {
+export class VApp extends Gen.VAppBase {
   get github(): FieldGithub {
     return new FieldGithub(this);
   }
@@ -56,7 +41,39 @@ export class VApp extends VAppBase {
   }
 }
 
-export class VPlang extends VPlangBase {
+export class VBundle extends Gen.VBundleBase {}
+
+export class VCommunity extends Gen.VCommunityBase {}
+
+export class VLearning extends Gen.VLearningBase {}
+
+export class VLibrary extends Gen.VLibraryBase {
+  get github(): FieldGithub {
+    return new FieldGithub(this);
+  }
+
+  get releases(): FieldReleases {
+    return new FieldReleases(this);
+  }
+}
+
+export class VLicense extends Gen.VLicenseBase {
+  get spdx(): string | undefined {
+    return this.data.spdx;
+  }
+
+  get isFSFLibre(): boolean {
+    return this.data.isFSFLibre === true;
+  }
+
+  get isOSIApproved(): boolean {
+    return this.data.isOSIApproved === true;
+  }
+}
+
+export class VParadigm extends Gen.VParadigmBase {}
+
+export class VPlang extends Gen.VPlangBase {
   addExtensions(exts: string[]): this {
     arrayMerge((this.data.extensions ??= []), exts);
     return this;
@@ -135,11 +152,11 @@ export class VPlang extends VPlangBase {
   }
 }
 
-export class VCommunity extends VCommunityBase {}
+export class VPlatform extends Gen.VPlatformBase {}
 
-export class VLearning extends VLearningBase {}
+export class VTag extends Gen.VTagBase {}
 
-export class VLibrary extends VLibraryBase {
+export class VTool extends Gen.VToolBase {
   get github(): FieldGithub {
     return new FieldGithub(this);
   }
@@ -149,27 +166,9 @@ export class VLibrary extends VLibraryBase {
   }
 }
 
-export class VLicense extends VLicenseBase {
-  get spdx(): string | undefined {
-    return this.data.spdx;
-  }
+export class VTypeSystem extends Gen.VTypeSystemBase {}
 
-  get isFSFLibre(): boolean {
-    return this.data.isFSFLibre === true;
-  }
-
-  get isOSIApproved(): boolean {
-    return this.data.isOSIApproved === true;
-  }
-}
-
-export class VParadigm extends VParadigmBase {}
-
-export class VPlatform extends VPlatformBase {}
-
-export class VTag extends VTagBase {}
-
-export class VTool extends VToolBase {
+export class VSubsystem extends Gen.VSubsystemBase {
   get github(): FieldGithub {
     return new FieldGithub(this);
   }
@@ -179,11 +178,7 @@ export class VTool extends VToolBase {
   }
 }
 
-export class VTypeSystem extends VTypeSystemBase {}
-
-export class VBundle extends VBundleBase {}
-
-export class VPost extends VPostBase {
+export class VPost extends Gen.VPostBase {
   set path(path: string) {
     this.data.path = path;
   }

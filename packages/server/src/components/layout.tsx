@@ -1,6 +1,6 @@
 import type { ComponentChildren } from "preact";
 
-import { PROSE, VSCROLL, stripes, tw } from "@plangs/frontend/auxiliar/styles";
+import { VSCROLL, stripes, tw } from "@plangs/frontend/auxiliar/styles";
 import { iconButton } from "@plangs/frontend/components/icon-button";
 import { cssID } from "@plangs/server/elements";
 import { script } from "@plangs/server/utils/html";
@@ -16,21 +16,20 @@ export type PlangsPage =
   | "about"
   | "apps"
   | "blog"
-  | "libs"
-  | "learning"
+  | "communities"
+  | "libraries"
   | "licenses"
   | "paradigms"
-  | "pl"
   | "plangs"
   | "platforms"
+  | "subsystem"
+  | "subsystems"
   | "tags"
   | "tools"
-  | "tsys"
-  | "learning"
-  | "communities"
+  | "typesystems"
   | "NA";
 
-export const GRID_PAGES: Set<PlangsPage> = new Set(["plangs", "tools", "apps", "libs", "learning", "communities"]);
+export const GRID_PAGES: Set<PlangsPage> = new Set(["plangs", "tools", "apps", "libraries", "subsystems", "communities", "learning"]);
 
 type LayoutProps = {
   page: PlangsPage;

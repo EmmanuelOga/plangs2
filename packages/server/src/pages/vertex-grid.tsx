@@ -60,4 +60,8 @@ const META: Partial<Record<TPlangsVertexName, { title: string; desc: string }>> 
     title: "Tools that make your favorite Programming Languages even better!",
     desc: "Find your next favorite programming language resources on Plangs!",
   },
+  subsystem: {
+    title: "Subsystems that provide services to your Programs!",
+    desc: "Find your next favorite database, queue, or any other subsystem for your programs, on Plangs!",
+  },
 };

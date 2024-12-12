@@ -7,6 +7,7 @@ import { COMMUNITY_FACET_PREDICATES } from "./communities";
 import { LEARNING_FACET_PREDICATES } from "./learning";
 import { LIBRARY_FACET_PREDICATES } from "./libraries";
 import { PLANG_FACET_PREDICATES } from "./plangs";
+import { SUBSYSTEM_FACET_PREDICATES } from "./subsystems";
 import { TOOL_FACET_PREDICATES } from "./tools";
 
 /** A Map of predicates from an arbitrary name to a predicate function. */
@@ -32,12 +33,12 @@ export function matchVertices<T extends TPlangsVertex, PredKey extends string>(
   facetValues: Map<PredKey, AnyValue>,
   limit = -1,
 ): Set<T["key"]> {
-  const predicates = vertexPredicates(vertices.name as TPlangsVertexName) as Predicates<string> | undefined;
+  let predicates = vertexPredicates(vertices.name as TPlangsVertexName) as Predicates<string> | undefined;
   const result = new Set<T["key"]>();
 
   if (!predicates) {
     console.warn(`No predicates found for vertex name: ${vertices.name}`);
-    return result;
+    predicates = {};
   }
 
   for (const vertex of vertices.values) {
@@ -62,5 +63,7 @@ export function vertexPredicates(name: TPlangsVertexName) {
       return PLANG_FACET_PREDICATES;
     case "tool":
       return TOOL_FACET_PREDICATES;
+    case "subsystem":
+      return SUBSYSTEM_FACET_PREDICATES;
   }
 }

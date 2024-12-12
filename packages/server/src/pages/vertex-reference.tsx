@@ -35,7 +35,7 @@ const META: Partial<Record<PlangsPage, { title: string; desc: string }>> = {
     title: "Tags used across Plangs! for categorization.",
     desc: "Tags used to categorize resource on Plangs!",
   },
-  tsys: {
+  typesystems: {
     title: "Type Systems implemented by your favorite Programming Languages!",
     desc: "Type Systems implemented by Programming Languages covered on Plangs!",
   },

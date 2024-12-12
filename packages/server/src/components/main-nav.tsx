@@ -14,10 +14,11 @@ export function MainNav({ page, class: cssClass }: { page: PlangsPage; class?: s
         page={page}
         title="Explore"
         links={[
-          { title: "Plangs!", href: "/", forPages: ["plangs", "pl"] },
+          { title: "Plangs!", href: "/", forPages: ["plangs", "plang"] },
           { title: "Tools", href: "/tools", forPages: ["tools", "tool"] },
           { title: "Apps", href: "/apps", forPages: ["apps", "app"] },
-          { title: "Libraries", href: "/libs", forPages: ["libs", "library"] },
+          { title: "Libraries", href: "/libraries", forPages: ["library", "libraries"] },
+          { title: "Subsystems", href: "/subsystems", forPages: ["subsystem", "subsystems"] },
           { title: "Learning", href: "/learning", forPages: ["learning"] },
           { title: "Communities", href: "/communities", forPages: ["communities", "community"] },
         ]}
@@ -38,7 +39,7 @@ export function MainNav({ page, class: cssClass }: { page: PlangsPage; class?: s
         page={page}
         title="Reference"
         links={[
-          { title: "Type Systems", href: "/typesystems", forPages: ["tsys", "typeSystem"] },
+          { title: "Type Systems", href: "/typesystems", forPages: ["typesystems", "typeSystem"] },
           { title: "Paradigms", href: "/paradigms", forPages: ["paradigms", "paradigm"] },
           { title: "Platforms", href: "/platforms", forPages: ["platforms", "platform"] },
           { title: "Tags", href: "/tags", forPages: ["tags", "tag"] },

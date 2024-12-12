@@ -109,6 +109,7 @@ export type VLearningBaseData = {
 export type VAppData = VertexBaseData & GithubRepo;
 export type VLibraryData = VertexBaseData & GithubRepo;
 export type VToolData = VertexBaseData & GithubRepo;
+export type VSubsystemData = VertexBaseData & GithubRepo;
 
 export type VBundleData = VertexBaseData;
 export type VCommunityData = VertexBaseData;

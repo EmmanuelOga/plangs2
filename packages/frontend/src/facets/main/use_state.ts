@@ -1,14 +1,16 @@
 import { createContext } from "preact";
 
 import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
+import type { PlangsGraph } from "@plangs/plangs/graph";
+import type { PlangsPage } from "@plangs/server/components/layout";
+
 import { AppsFacetsState } from "@plangs/frontend/facets/kind/apps";
 import { CommunitiesFacetsState } from "@plangs/frontend/facets/kind/communities";
 import { LearningFacetsState } from "@plangs/frontend/facets/kind/learning";
 import { LibrariesFacetsState } from "@plangs/frontend/facets/kind/libraries";
 import { PlangsFacetsState } from "@plangs/frontend/facets/kind/plangs";
+import { SubsystemsFacetsState } from "@plangs/frontend/facets/kind/subsystem";
 import { ToolsFacetsState } from "@plangs/frontend/facets/kind/tools";
-import type { PlangsGraph } from "@plangs/plangs/graph";
-import type { PlangsPage } from "@plangs/server/components/layout";
 
 import type { FacetsMainState } from "./state";
 
@@ -24,8 +26,9 @@ export function useFacetState(page: PlangsPage, pg: PlangsGraph): AnyFacetsMainS
   if (page === "apps") state = useDispatchable(() => AppsFacetsState.initial(pg) as AnyFacetsMainState);
   if (page === "communities") state = useDispatchable(() => CommunitiesFacetsState.initial(pg) as AnyFacetsMainState);
   if (page === "learning") state = useDispatchable(() => LearningFacetsState.initial(pg) as AnyFacetsMainState);
-  if (page === "libs") state = useDispatchable(() => LibrariesFacetsState.initial(pg) as AnyFacetsMainState);
+  if (page === "libraries") state = useDispatchable(() => LibrariesFacetsState.initial(pg) as AnyFacetsMainState);
   if (page === "plangs") state = useDispatchable(() => PlangsFacetsState.initial(pg) as AnyFacetsMainState);
+  if (page === "subsystems") state = useDispatchable(() => SubsystemsFacetsState.initial(pg) as AnyFacetsMainState);
   if (page === "tools") state = useDispatchable(() => ToolsFacetsState.initial(pg) as AnyFacetsMainState);
 
   if (!state) {

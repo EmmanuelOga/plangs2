@@ -13,21 +13,22 @@ import { VertexReference } from "./pages/vertex-reference";
 
 export const GRID_PATHS = new Map<string, { vertexName: TPlangsVertexName; page: PlangsPage }>([
   ["/", { vertexName: "plang", page: "plangs" }],
-  ["/plangs", { vertexName: "plang", page: "plangs" }],
-  ["/tools", { vertexName: "tool", page: "tools" }],
   ["/apps", { vertexName: "app", page: "apps" }],
-  ["/libs", { vertexName: "library", page: "libs" }],
-  ["/learning", { vertexName: "learning", page: "learning" }],
   ["/communities", { vertexName: "community", page: "communities" }],
+  ["/learning", { vertexName: "learning", page: "learning" }],
+  ["/libraries", { vertexName: "library", page: "libraries" }],
+  ["/plangs", { vertexName: "plang", page: "plangs" }],
+  ["/subsystems", { vertexName: "subsystem", page: "subsystems" }],
+  ["/tools", { vertexName: "tool", page: "tools" }],
 ]);
 
 export const REFERENCE_PATHS = new Map<string, { vertexName: TPlangsVertexName; page: PlangsPage; heading: string }>([
-  ["/licenses", { vertexName: "license", page: "licenses", heading: "Licenses" }],
-  ["/paradigms", { vertexName: "paradigm", page: "paradigms", heading: "Paradigms" }],
-  ["/platforms", { vertexName: "platform", page: "platforms", heading: "Platforms" }],
-  ["/tags", { vertexName: "tag", page: "tags", heading: "Tags" }],
-  ["/typesystems", { vertexName: "typeSystem", page: "tsys", heading: "Type Systems" }],
-  ["/typeSystems", { vertexName: "typeSystem", page: "tsys", heading: "Type Systems" }],
+  ["/licenses", { vertexName: "license", page: "license", heading: "Licenses" }],
+  ["/paradigms", { vertexName: "paradigm", page: "paradigm", heading: "Paradigms" }],
+  ["/platforms", { vertexName: "platform", page: "platform", heading: "Platforms" }],
+  ["/tags", { vertexName: "tag", page: "tag", heading: "Tags" }],
+  ["/typeSystems", { vertexName: "typeSystem", page: "typesystems", heading: "Type Systems" }],
+  ["/typesystems", { vertexName: "typeSystem", page: "typesystems", heading: "Type Systems" }],
 ]);
 
 export async function resolvePage(path: string, pg: PlangsGraph) {
@@ -57,7 +58,7 @@ export async function resolvePage(path: string, pg: PlangsGraph) {
     // ... except for plangs that are the main vertices and can be accessed without the vertexName.
     if (!postSlash.includes("/")) {
       const pl = pg.plang.get(`pl+${postSlash}`);
-      if (pl) return <Vertex pg={pg} page={"pl"} vertex={pl} />;
+      if (pl) return <Vertex pg={pg} page={"plang"} vertex={pl} />;
     }
 
     const [vname, vertexKey] = postSlash.split("/");
