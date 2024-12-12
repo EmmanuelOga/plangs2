@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+lua", {
       name: "Lua",
       description:
-        "Lua (/ˈluːə/ LOO-ə; from Portuguese: lua [ˈlu(w)ɐ] meaning moon) is a lightweight, high-level, multi-paradigm programming language designed mainly for embedded use in applications. Lua is cross-platform software, since the interpreter of compiled bytecode is written in ANSI C, and Lua has a relatively simple C application programming interface (API) to embed it into applications.",
+        "Lua is a lightweight, high-level, multi-paradigm programming language designed mainly for embedded use in applications. It is cross-platform as it's implemented in ANSI C, enabling integration with various systems through its simple API.",
       keywords: ["lua"],
       extensions: [".lua"],
       releases: [{ version: "5.4.7", name: "Lua 5.4.7", date: "2024-06-25" }],
@@ -20,8 +20,13 @@ export function define(g: PlangsGraph) {
       extRedditPath: "lua",
       extHomeURL: "https://www.lua.org/",
       created: "1993",
+      isTranspiler: false,
+      shortDesc: "Lua is a lightweight, high-level language designed for embedding in applications.",
+      githubStars: 8600,
+      extGithubPath: "lua/lua",
+      ghRepoCreated: "2020-07-21",
     })
-    .relInfluencedBy.add("pl+awk", "pl+c++", "pl+lisp", "pl+r5rs", "pl+scheme", "pl+self")
+    .relInfluencedBy.add("pl+awk", "pl+c", "pl+c++", "pl+lisp", "pl+r5rs", "pl+scheme", "pl+self")
     .relLicenses.add("lic+mit")
     .relParadigms.add(
       "para+functional",

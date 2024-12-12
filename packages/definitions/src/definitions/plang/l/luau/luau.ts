@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+luau", {
       name: "Luau",
       description:
-        "Luau is a fast, small, safe, gradually typed embeddable scripting language derived from Lua. Developed by Roblox, it is optimized for game development on their platform and includes features like type inference, static analysis, and sandboxing for secure script execution.",
-      keywords: ["gradual typing", "lua", "luau", "roblox", "scripting"],
+        "Luau is a high-performance scripting language developed by Roblox as a subset of Lua, optimized for game development on the Roblox platform, featuring gradual typing and safety features.",
+      keywords: ["game development", "lua", "luau", "roblox", "scripting"],
       extensions: [".luau"],
       releases: [{ version: "1.0", name: "Luau 1.0", date: "2021-02-18" }],
       githubName: "Luau",
@@ -16,7 +16,11 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       extHomeURL: "https://luau.org/",
-      created: "2006",
+      created: "2019",
+      shortDesc: "Luau is a Lua subset developed by Roblox for game scripting with gradual typing.",
+      githubStars: 4100,
+      extGithubPath: "Roblox/luau",
+      ghRepoCreated: "2019-10-23",
     })
     .relCompilesTo.add("pl+lua")
     .relDialectOf.add("pl+lua")

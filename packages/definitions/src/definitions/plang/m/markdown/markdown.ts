@@ -12,8 +12,8 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "prose",
       description:
-        "Markdown is a lightweight markup language for creating formatted text using a plain-text editor. It is widely used for blogging, instant messaging, online forums, and more. Created by John Gruber in 2004, its design emphasizes readability without looking like it has been marked up with tags or formatting.",
-      keywords: ["easy-to-read", "markup", "plain-text", "text"],
+        "Markdown is a lightweight markup language created by John Gruber in 2004 for formatting text using a simple, plain-text syntax. It is popular for use in digital publishing and web development, offering easy conversion to HTML.",
+      keywords: ["lightweight", "markup", "plain-text", "text-formatting"],
       extensions: [".markdown", ".md"],
       isTranspiler: true,
       releases: [
@@ -23,10 +23,14 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Markdown",
       extRedditPath: "Markdown",
       created: "2004",
+      shortDesc: "Markdown is a lightweight markup language for formatting text using simple syntax.",
+      extHomeURL: "https://daringfireball.net/projects/markdown/",
     })
     .relCompilesTo.add("pl+html")
+    .relLicenses.add("lic+public-domain")
     .relParadigms.add("para+dsl", "para+scripting")
-    .relTags.add("tag+editor", "tag+scripting")
+    .relPlatforms.add("plat+web")
+    .relTags.add("tag+editor", "tag+scripting", "tag+webdev")
     .relTypeSystems.add("tsys+untyped");
 
   // TOOLS

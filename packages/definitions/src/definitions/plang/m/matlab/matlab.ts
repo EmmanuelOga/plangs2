@@ -21,8 +21,9 @@ export function define(g: PlangsGraph) {
       ],
       extWikipediaPath: "MATLAB",
       extRedditPath: "matlab",
-      extHomeURL: "https://mathworks.com",
       created: "1979",
+      isTranspiler: false,
+      shortDesc: "MATLAB is a proprietary multi-paradigm programming language and numerical computing environment.",
     })
     .relParadigms.add("para+array", "para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural")
     .relPlatforms.add("plat+apple", "plat+linux", "plat+windows")

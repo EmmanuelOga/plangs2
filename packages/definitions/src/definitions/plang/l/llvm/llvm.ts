@@ -21,8 +21,12 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "LLVM",
       extRedditPath: "LLVM",
-      extHomeURL: "https://www.llvm.org/",
+      extHomeURL: "https://llvm.org/",
       created: "2003",
+      isTranspiler: false,
+      shortDesc: "LLVM is a set of compiler technologies for developing language frontends and architecture backends.",
+      githubStars: 29600,
+      extGithubPath: "llvm/llvm-project",
     })
     .relLicenses.add("lic+apache", "lic+bsd")
     .relParadigms.add("para+assembly", "para+compiled", "para+multi")

@@ -18,8 +18,11 @@ export function define(g: PlangsGraph) {
       filenames: ["Makefile", "makefile"],
       extWikipediaPath: "Make_(software)",
       created: "1976",
+      isTranspiler: true,
+      shortDesc: "Make is a tool used for build automation, defining build tasks in makefiles based on file timestamps.",
     })
     .relParadigms.add("para+declarative", "para+macro")
+    .relPlatforms.add("plat+cross")
     .relTags.add("tag+automation", "tag+cli");
 
   // TOOLS

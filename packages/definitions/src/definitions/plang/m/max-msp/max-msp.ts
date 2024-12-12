@@ -21,9 +21,12 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "Max_(software)",
       extRedditPath: "MaxMSP",
-      extHomeURL: "https://cycling74.com/products/max/",
+      extHomeURL: "https://cycling74.com/products/max",
       created: "1988",
+      isTranspiler: false,
+      shortDesc: "Max is a visual language used for multimedia and music creation.",
     })
+    .relLicenses.add("lic+proprietary")
     .relParadigms.add("para+dataflow", "para+event-driven", "para+visual")
     .relPlatforms.add("plat+apple", "plat+windows")
     .relTags.add(

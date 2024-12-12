@@ -5,13 +5,20 @@ export function define(g: PlangsGraph) {
     .set("pl+kornshell", {
       name: "KornShell",
       description:
-        "KornShell (ksh) is a Unix shell developed by David Korn at Bell Labs in the early 1980s and first announced at USENIX in 1983. It was originally based on the Bourne shell and includes features from the C shell, following requests from Bell Labs users. KornShell is compatible with the Bourne shell and supports POSIX standard compliance. Key features include command line editing, job control, command history, associative arrays, arithmetic operations, and object-oriented programming structures. The shell has undergone numerous adaptations and licensing changes over time, and it remains widely used today across Unix-like systems.",
-      keywords: ["kornshell", "ksh"],
+        "KornShell (ksh) is a Unix-based shell developed by David Korn that combines features from the C shell and Bourne shell. It introduced command line editing, associative arrays, and floating-point arithmetic operations, and conforms to established POSIX standards.",
+      keywords: ["kornshell", "ksh", "unix-shell"],
       extensions: [".ksh", ".sh"],
       extWikipediaPath: "KornShell",
       extHomeURL: "http://kornshell.com/",
       created: "1983",
+      filenames: ["ksh"],
+      isTranspiler: false,
+      shortDesc: "KornShell is a Unix-based shell that combines features from C and Bourne shells, supporting POSIX standards.",
+      extGithubPath: "att/ast",
+      githubStars: 561,
     })
+    .relDialectOf.add("pl+bash")
+    .relInfluencedBy.add("pl+awk", "pl+bash")
     .relLicenses.add("lic+epl", "lic+isc", "lic+lgpl", "lic+public-domain")
     .relParadigms.add("para+interpreted", "para+oop", "para+procedural", "para+scripting", "para+structured")
     .relPlatforms.add("plat+apple", "plat+bsd", "plat+linux", "plat+windows")

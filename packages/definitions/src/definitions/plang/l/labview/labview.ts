@@ -5,14 +5,9 @@ export function define(g: PlangsGraph) {
     .set("pl+labview", {
       name: "LabVIEW",
       description:
-        "Laboratory Virtual Instrument Engineering Workbench (LabVIEW) is a graphical system design and development platform produced and distributed by National Instruments, based on a programming environment that uses a visual programming language. It is widely used for data acquisition, instrument control, and industrial automation. It provides tools for designing and deploying complex test and measurement systems.",
-      keywords: ["labview"],
+        "LabVIEW is a graphical programming environment developed by National Instruments primarily used for data acquisition, instrument control, and industrial automation. It supports a visual programming language for rapid development of complex systems.",
       extensions: [".lvproj", ".vi"],
-      releases: [
-        { version: "2024 Q3", name: "LabVIEW 2024 Q3", date: "2024-07-01" },
-        { version: "NXG 5.1", name: "LabVIEW NXG 5.1", date: "2021-01-01" },
-        { version: "5.1", name: "LabVIEW 5.1", date: "2023-01-01" },
-      ],
+      releases: [{ version: "2024 Q3", date: "2024-07-16" }],
       stackovTags: ["labview"],
       githubName: "LabVIEW",
       languishRanking: 193,
@@ -24,7 +19,10 @@ export function define(g: PlangsGraph) {
       extRedditPath: "LabVIEW",
       extHomeURL: "https://www.ni.com/labview",
       created: "1986",
+      isTranspiler: false,
+      shortDesc: "LabVIEW is a graphical environment for data acquisition and industrial automation.",
     })
+    .relLicenses.add("lic+proprietary")
     .relParadigms.add("para+concurrent", "para+dataflow", "para+event-driven", "para+low-code", "para+multi", "para+visual")
     .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")
     .relTags.add(

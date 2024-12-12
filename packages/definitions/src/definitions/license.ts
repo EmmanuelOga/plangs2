@@ -192,6 +192,15 @@ export function define(g: PlangsGraph) {
     extHomeURL: "https://en.wikipedia.org/wiki/Python_Software_Foundation_License",
   });
 
+  g.license.set("lic+proprietary", {
+    name: "Proprietary",
+    keywords: ["proprietary"],
+    description: "Proprietary software is software that is not free or open-source and is subject to restrictions on use and distribution.",
+    isFSFLibre: false,
+    isOSIApproved: false,
+    extHomeURL: "https://en.wikipedia.org/wiki/Proprietary_software",
+  });
+
   g.license.set("lic+zlib", {
     name: "zlib License",
     keywords: ["zlib"],

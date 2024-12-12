@@ -5,14 +5,11 @@ export function define(g: PlangsGraph) {
     .set("pl+kotlin", {
       name: "Kotlin",
       description:
-        "Kotlin is a cross-platform, statically typed, general-purpose programming language with type inference. It is designed to interoperate fully with Java, and its syntax is more concise thanks to type inference. Kotlin primarily targets the JVM, but it also compiles to JavaScript for front-end web applications and native code via LLVM for iOS apps. Language development is led by JetBrains, and the Kotlin Foundation oversees the Kotlin trademark.",
+        "Kotlin is a cross-platform, statically typed language designed to interoperate with Java, featuring concise syntax due to its type inference. It targets the JVM and compiles to JavaScript and native code via LLVM for various platforms, under the guidance of JetBrains and the Kotlin Foundation.",
       keywords: ["jetbrains", "kotlin", "programming language"],
       extensions: [".kexe", ".klib", ".kt", ".kts"],
       isTranspiler: true,
-      releases: [
-        { version: "2.0.0", name: "Kotlin 2.0.0", date: "2024-05-21" },
-        { version: "2.0.20", name: "Kotlin 2.0.20", date: "2024-08-22" },
-      ],
+      releases: [{ version: "2.1.0", date: "2024-09-27" }],
       stackovTags: ["kotlin"],
       githubName: "Kotlin",
       languishRanking: 14,
@@ -24,6 +21,9 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Kotlin",
       extHomeURL: "https://kotlinlang.org/",
       created: "2011",
+      shortDesc: "Kotlin is a concise, statically typed language interoperative with Java, targeting JVM and other platforms.",
+      githubStars: 49600,
+      extGithubPath: "JetBrains/kotlin",
     })
     .relCompilesTo.add("pl+javascript", "pl+llvm")
     .relInfluencedBy.add("pl+c-sharp", "pl+eiffel", "pl+groovy", "pl+javascript", "pl+python", "pl+scala")
