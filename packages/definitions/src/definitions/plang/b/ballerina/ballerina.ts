@@ -18,14 +18,18 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "Ballerina_(programming_language)",
       extRedditPath: "ballerinalang",
-      extHomeURL: "http://ballerina.io/",
+      extHomeURL: "https://ballerina.io",
       created: "2017",
+      isTranspiler: false,
+      shortDesc: "Ballerina is an open source general-purpose programming language designed for cloud-native and concurrent applications.",
+      githubStars: 3700,
+      extGithubPath: "ballerina-platform/ballerina-lang",
     })
     .relInfluencedBy.add("pl+c-sharp", "pl+go", "pl+javascript", "pl+rust")
     .relLicenses.add("lic+apache")
     .relParadigms.add("para+compiled", "para+concurrent", "para+event-driven", "para+functional", "para+general-purpose", "para+multi")
     .relPlatforms.add("plat+cross")
-    .relTags.add("tag+automation", "tag+interpreters", "tag+workflow")
+    .relTags.add("tag+automation", "tag+interpreters", "tag+iot", "tag+workflow")
     .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural");
 
   // TOOLS

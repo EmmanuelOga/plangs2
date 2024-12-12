@@ -15,11 +15,14 @@ export function define(g: PlangsGraph) {
       githubColor: "#89e051",
       githubPopular: true,
       githubType: "programming",
-      filenames: [".bash_profile", "bashrc"],
+      filenames: [".bash_profile", ".bashrc", "bashrc"],
       extWikipediaPath: "Bash_(Unix_shell)",
       extRedditPath: "bash",
-      extHomeURL: "http://www.gnu.org/software/bash/",
+      extHomeURL: "https://www.gnu.org/software/bash/",
       created: "1989",
+      isTranspiler: false,
+      shortDesc: "Bash, short for Bourne-Again SHell, is a shell and command language supported by the Free Software Foundation.",
+      links: [{ url: "https://www.gnu.org/software/bash/manual/", title: "GNU Bash Manual" }],
     })
     .relLicenses.add("lic+gnu-gpl")
     .relParadigms.add("para+imperative", "para+procedural", "para+scripting")

@@ -19,10 +19,12 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Batch_file",
       extRedditPath: "Batch",
       created: "1985",
+      shortDesc: "A scripting language for automating tasks in DOS and Windows environments.",
     })
     .relParadigms.add("para+procedural", "para+scripting")
     .relPlatforms.add("plat+dos", "plat+windows")
-    .relTags.add("tag+automation", "tag+scripting", "tag+shell");
+    .relTags.add("tag+automation", "tag+scripting", "tag+shell")
+    .relTypeSystems.add("tsys+untyped");
 
   // TOOLS
 

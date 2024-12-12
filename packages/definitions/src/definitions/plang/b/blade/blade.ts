@@ -12,17 +12,23 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "markup",
       description:
-        "Blade is a first-party templating engine that allows the use of dynamic PHP directives in HTML-based views. It is part of the Laravel framework and provides features such as template inheritance, sections, and conditional statements.",
-      keywords: ["Blade", "Laravel", "PHP", "template inheritance", "templating engine"],
+        "Blade is a simple yet powerful templating engine provided with Laravel, a PHP framework, which allows developers to seamlessly blend PHP logic with HTML. It offers template inheritance, conditional statements, and looping constructs, enhancing code readability and maintainability.",
+      keywords: ["blade", "laravel", "php", "template inheritance", "templating"],
       extensions: [".blade.php"],
-      isTranspiler: true,
+      isTranspiler: false,
       extWikipediaPath: "Laravel",
       extRedditPath: "laravel",
       created: "2011",
+      shortDesc: "Blade is a templating engine integrated with Laravel, enabling PHP logic in HTML.",
+      extHomeURL: "https://laravel.com/docs/5.8/blade",
+      githubStars: 79000,
+      extGithubPath: "laravel/laravel",
     })
     .relCompilesTo.add("pl+php")
     .relLicenses.add("lic+mit")
-    .relPlatforms.add("plat+cross");
+    .relParadigms.add("para+scripting")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+webdev");
 
   // TOOLS
 

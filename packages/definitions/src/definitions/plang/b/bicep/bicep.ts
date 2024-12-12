@@ -12,16 +12,21 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       description:
-        "Bicep is a domain-specific language (DSL) for deploying Azure resources. It's designed to simplify the authoring and management of Azure infrastructure code by providing a more readable syntax and enabling modular resource deployment.",
-      keywords: ["Azure", "Bicep", "Declarations", "Deployment", "Infrastructure as Code"],
+        "Bicep is a domain-specific language designed for deploying Azure resources, offering a more readable syntax and modular structure for managing infrastructure code.",
+      keywords: ["azure", "bicep", "deployment", "infrastructure"],
       extensions: [".bicep"],
       isTranspiler: true,
       extRedditPath: "AzureBicep",
       extGithubPath: "Azure/bicep",
-      extHomeURL: "https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/",
+      extHomeURL: "https://github.com/Azure/bicep",
       created: "2020",
+      shortDesc: "Bicep is a DSL for deploying Azure resources with a simplified syntax.",
+      links: [{ url: "https://learn.microsoft.com/azure/azure-resource-manager/bicep/", title: "Microsoft Learn - Bicep Language" }],
+      githubStars: 3300,
+      ghRepoCreated: "2020-06-29",
     })
     .relCompilesTo.add("pl+json", "pl+typescript")
+    .relImplements.add("pl+json")
     .relLicenses.add("lic+mit")
     .relParadigms.add("para+declarative", "para+dsl")
     .relPlatforms.add("plat+cross");

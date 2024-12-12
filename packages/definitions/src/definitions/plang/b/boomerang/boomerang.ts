@@ -14,6 +14,9 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Boomerang_(programming_language)",
       extHomeURL: "http://www.seas.upenn.edu/~harmony/",
       created: "2008",
+      isTranspiler: false,
+      shortDesc: "Boomerang is a language for bidirectional transformations on textual data formats.",
+      githubStars: 0,
     })
     .relInfluencedBy.add("pl+ocaml")
     .relLicenses.add("lic+lgpl")

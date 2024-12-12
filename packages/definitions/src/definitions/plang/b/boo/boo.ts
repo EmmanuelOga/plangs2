@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+boo", {
       name: "Boo",
       description:
-        "Boo is an object-oriented, statically typed, general-purpose programming language that seeks to make use of the Common Language Infrastructure's support for Unicode, internationalization, and web applications, while using a Python-inspired syntax and a special focus on language and compiler extensibility. Some features of note include type inference, generators, multimethods, optional duck typing, macros, true closures, currying, and first-class functions.",
+        "Boo is a statically typed, general-purpose programming language that integrates .NET features such as Unicode and web application support, while using a Python-inspired syntax with language and compiler extensibility.",
       keywords: ["boo"],
       extensions: [".boo"],
       releases: [{ version: "0.9.7", name: "Boo 0.9.7", date: "2013-03-25" }],
@@ -18,6 +18,10 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "Boo_(programming_language)",
       created: "2003",
+      isTranspiler: false,
+      shortDesc: "Boo is a statically typed language with Python-like syntax and support for .NET framework features.",
+      githubStars: 875,
+      extGithubPath: "boo-lang/boo",
     })
     .relInfluencedBy.add("pl+c-sharp", "pl+python")
     .relLicenses.add("lic+bsd")

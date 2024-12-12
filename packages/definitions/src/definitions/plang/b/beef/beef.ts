@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+beef", {
       name: "Beef",
       description:
-        "Beef is an open source performance-oriented compiled programming language designed for a fluid and pleasurable development experience, particularly suited for high-performance real-time applications such as video games, with manual memory management and custom allocators.",
-      keywords: ["beef", "high-performance", "memory management", "open source", "real-time"],
+        "Beef is an open source, performance-oriented programming language designed for efficient real-time applications, such as games, providing manual memory management and custom allocators.",
+      keywords: ["beef", "manual memory management", "performance-oriented"],
       extensions: [".bf"],
       releases: [{ version: "0.43.4", name: "Beef 0.43.4", date: "2022-09-07" }],
       stackovTags: ["beef"],
@@ -18,8 +18,12 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extRedditPath: "beeflang",
       extGithubPath: "beefytech/Beef",
-      extHomeURL: "https://www.beeflang.org/",
+      extHomeURL: "https://www.beeflang.org",
       created: "2020",
+      isTranspiler: false,
+      shortDesc: "Beef is a high-performance language for real-time applications with manual memory management.",
+      githubStars: 2500,
+      ghRepoCreated: "2019-09-27",
     })
     .relInfluencedBy.add("pl+c", "pl+c++", "pl+delphi", "pl+rust")
     .relLicenses.add("lic+zlib")
