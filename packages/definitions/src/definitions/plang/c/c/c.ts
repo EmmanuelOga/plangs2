@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+c", {
       name: "C",
       description:
-        "C (pronounced like the letter C) is a general-purpose programming language developed in the early 1970s by Dennis Ritchie at Bell Labs. It has become one of the most influential programming languages, foundational in developing operating systems, system software, and various applications. C's design reflects the capabilities of targeted CPUs and is especially prevalent in systems programming, including operating system kernels, device drivers, and protocol stacks. It is portable and commonly used across computer architectures, from supercomputers to microcontrollers.",
-      keywords: ["c", "general-purpose", "imperative", "procedural", "structured", "systems programming"],
+        "C is a general-purpose programming language developed at Bell Labs in the early 1970s, known for its low-level capabilities and is foundational in developing operating systems, system software, and various applications.",
+      keywords: ["bell-labs", "c", "general-purpose", "imperative", "procedural", "structured", "systems-programming"],
       extensions: [".c", ".h"],
       releases: [
         { version: "C18", name: "Standard C18", date: "2018-06-01" },
@@ -24,8 +24,9 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "C_(programming_language)",
       extRedditPath: "C_Programming",
-      extHomeURL: "https://www.open-std.org/jtc1/sc22/wg14/",
       created: "1972",
+      isTranspiler: false,
+      shortDesc: "C is a general-purpose language foundational in systems and application programming.",
     })
     .relInfluencedBy.add("pl+fortran")
     .relLicenses.add("lic+bsd")

@@ -19,6 +19,9 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Common_Lisp",
       extHomeURL: "http://common-lisp.net/",
       created: "1984",
+      isTranspiler: false,
+      shortDesc:
+        "Common Lisp (CL) is a high-performance, ANSI-standardized Lisp dialect recognized for its flexibility and macro system, supporting multiple programming paradigms.",
     })
     .relDialectOf.add("pl+lisp")
     .relInfluencedBy.add("pl+lisp", "pl+r5rs", "pl+scheme")

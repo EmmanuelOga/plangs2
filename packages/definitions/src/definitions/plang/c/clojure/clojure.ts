@@ -5,10 +5,10 @@ export function define(g: PlangsGraph) {
     .set("pl+clojure", {
       name: "Clojure",
       description:
-        "Clojure (/ˈkloʊʒər/, like closure) is a dynamic, general-purpose programming language, combining the approachability and interactive development of a scripting language with an efficient and robust infrastructure for multithreaded programming. It is known for its expressiveness, immutability, and concurrency.",
+        "Clojure is a dynamic, general-purpose programming language that combines the features of a scripting language with an efficient infrastructure for multithreaded programming, known for its expressiveness, immutability, and support for concurrency.",
       keywords: ["clojure"],
       extensions: [".clj", ".cljc", ".cljd", ".cljr", ".cljs", ".edn"],
-      releases: [{ version: "1.11.2", name: "Clojure 1.11.2", date: "2024-03-08" }],
+      releases: [{ version: "1.12.0", date: "2024-09-05" }],
       stackovTags: ["clojure"],
       githubName: "Clojure",
       languishRanking: 51,
@@ -20,6 +20,10 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Clojure",
       extHomeURL: "https://clojure.org/",
       created: "2007",
+      isTranspiler: false,
+      shortDesc: "Clojure is a dynamic language known for its expressiveness and concurrent processing capabilities.",
+      githubStars: 10500,
+      extGithubPath: "clojure/clojure",
     })
     .relDialectOf.add("pl+lisp")
     .relInfluencedBy.add(

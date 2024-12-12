@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+coq", {
       name: "Coq",
       description:
-        "Coq is an interactive theorem prover first released in 1989. It allows for expressing mathematical assertions, mechanically checks proofs of these assertions, helps find formal proofs, and extracts a certified program from the constructive proof of its formal specification. Coq works within the theory of the calculus of inductive constructions, a derivative of the calculus of constructions. Coq is not an automated theorem prover but includes automatic theorem proving tactics (procedures) and various decision procedures, and is primarily used for formal proof and certification in programming languages and mathematics.",
+        "Coq is an interactive theorem prover that allows users to write formal mathematical definitions, executable algorithms, and theorems, mechanically check proofs of those properties, and extract a certified program from proofs. It leverages the calculus of inductive constructions for these purposes. Coq is widely utilized in formal verification projects and mathematical proof checking.",
       keywords: ["coq", "formal proof", "proof assistant", "theorem prover", "verification"],
       releases: [
         { version: "4.10", name: "Initial Release", date: "1989-05-01" },
@@ -23,12 +23,17 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Coq",
       extHomeURL: "https://coq.inria.fr/",
       created: "1989",
+      isTranspiler: false,
+      shortDesc: "Coq is an interactive theorem prover focused on formal verification and proof checking.",
+      githubStars: 4900,
+      extGithubPath: "coq/coq",
+      ghRepoCreated: "2014-03-31",
     })
     .relInfluencedBy.add("pl+ocaml")
     .relLicenses.add("lic+lgpl")
     .relParadigms.add("para+declarative", "para+functional", "para+logic")
     .relPlatforms.add("plat+cross")
-    .relTags.add("tag+interpreters", "tag+proofs")
+    .relTags.add("tag+edu", "tag+interpreters", "tag+proofs")
     .relTypeSystems.add("tsys+dependent", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+ocaml");
 

@@ -4,7 +4,8 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+casette", {
       name: "Cassette",
-      description: "Cassette is a simple language for personal programming. It's DIY, roll your own, batteries-not-included. It's for fun.",
+      description:
+        "Cassette is a simple, DIY language for personal programming, focusing on fun rather than built-in features, and characterized by a lack of batteries included.",
       keywords: ["cassette"],
       extensions: [".cassette"],
       releases: [
@@ -13,15 +14,15 @@ export function define(g: PlangsGraph) {
       ],
       isTranspiler: true,
       extHomeURL: "https://cassette-lang.com/",
+      extGithubPath: "protestContest/Cassette",
+      githubStars: 6,
       created: "2021",
+      shortDesc: "Cassette is a simple, DIY personal programming language focusing on fun.",
     })
-    .relCompilesTo.add("pl+c")
     .relLicenses.add("lic+mit")
     .relParadigms.add("para+dataflow", "para+declarative", "para+dsl", "para+event-driven", "para+functional", "para+interpreted")
     .relPlatforms.add("plat+cross")
-    .relTags.add("tag+audio-dev", "tag+workflow")
-    .relTypeSystems.add("tsys+dynamic")
-    .relWrittenWith.add("pl+python");
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

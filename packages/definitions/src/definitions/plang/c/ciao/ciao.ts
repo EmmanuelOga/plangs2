@@ -12,6 +12,9 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Ciao_(programming_language)",
       extHomeURL: "http://www.ciao-lang.org/",
       created: "1984",
+      isTranspiler: false,
+      shortDesc: "Ciao is a modern Prolog implementation focused on portability, extensibility, and modularity.",
+      githubStars: 278,
     })
     .relImplements.add("pl+prolog")
     .relInfluencedBy.add("pl+prolog", "pl+scheme")

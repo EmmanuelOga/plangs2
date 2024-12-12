@@ -19,10 +19,13 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Clean_(programming_language)",
       extHomeURL: "http://clean.cs.ru.nl/",
       created: "1987",
+      isTranspiler: false,
+      shortDesc: "Clean is a functional programming language known for uniqueness typing and lazy evaluation.",
+      ghRepoCreated: "2017-05-07",
     })
     .relInfluencedBy.add("pl+haskell")
     .relLicenses.add("lic+bsd")
-    .relParadigms.add("para+functional")
+    .relParadigms.add("para+compiled", "para+functional", "para+lazy")
     .relPlatforms.add("plat+cross")
     .relTags.add("tag+app", "tag+compiler", "tag+interpreters")
     .relTypeSystems.add("tsys+dynamic", "tsys+static", "tsys+strong", "tsys+uniqueness")

@@ -5,17 +5,11 @@ export function define(g: PlangsGraph) {
     .set("pl+coldfusion", {
       name: "ColdFusion",
       description:
-        "Adobe ColdFusion is a commercial rapid web-application development computing platform created by J. J. Allaire in 1995. The programming language used with the platform is known as CFML (ColdFusion Markup Language). ColdFusion was initially designed to simplify connecting HTML pages to a database, and quickly evolved into a comprehensive platform featuring a full scripting language and an integrated development environment (IDE).",
+        "Adobe ColdFusion is a commercial rapid web-application development computing platform primarily using the ColdFusion Markup Language (CFML). It facilitates quick development of internet-based applications by simplifying database connectivity, and offers a comprehensive suite of tools including an integrated development environment.",
       keywords: ["adobe", "cfml", "coldfusion", "rapid development"],
       extensions: [".cfm", ".cfml"],
-      isTranspiler: true,
-      releases: [
-        { version: "2023", name: "Adobe ColdFusion 2023", date: "2023-05-01" },
-        { version: "2021", name: "ColdFusion 2021", date: "2020-11-11" },
-        { version: "2018", name: "ColdFusion 2018", date: "2018-07-12" },
-        { version: "2016", name: "ColdFusion 2016", date: "2016-02-16" },
-        { version: "2023 Update 6", name: "", date: "2023-11-14" },
-      ],
+      isTranspiler: false,
+      releases: [{ version: "2023 Update 6", date: "2023" }],
       stackovTags: ["coldfusion"],
       githubName: "ColdFusion",
       languishRanking: 125,
@@ -25,13 +19,14 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "Adobe_ColdFusion",
       extRedditPath: "coldfusion",
-      extHomeURL: "https://adobe.com/products/coldfusion-family.html",
+      extHomeURL: "https://www.adobe.com/products/coldfusion-family.html",
       created: "1995",
+      shortDesc: "Adobe ColdFusion is a commercial rapid web-development platform using CFML for quick internet application development.",
     })
     .relCompilesTo.add("pl+coldfusion", "pl+java")
-    .relParadigms.add("para+event-driven", "para+multi", "para+procedural", "para+scripting")
+    .relParadigms.add("para+event-driven", "para+imperative", "para+multi", "para+procedural", "para+scripting")
     .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")
-    .relTags.add("tag+app", "tag+dataflow", "tag+dbms", "tag+scripting", "tag+server")
+    .relTags.add("tag+app", "tag+dataflow", "tag+dbms", "tag+rad", "tag+scripting", "tag+server", "tag+webdev")
     .relTypeSystems.add("tsys+duck", "tsys+dynamic");
 
   // TOOLS

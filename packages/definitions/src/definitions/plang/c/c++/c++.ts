@@ -5,10 +5,9 @@ export function define(g: PlangsGraph) {
     .set("pl+c++", {
       name: "C++",
       description:
-        "C++ is a high-level, general-purpose programming language created by Bjarne Stroustrup. Designed initially as an extension of the C programming language in 1985, C++ incorporates object-oriented, generic, and functional features alongside facilities for low-level memory manipulation. The language is widely used in systems programming, and resource-constrained software, such as operating systems and embedded systems, due to its performance and flexibility. C++ is standardized by ISO, with its latest iteration, C++23 (ISO/IEC 14882:2024), continuing to expand its features and library.",
+        "C++ is a high-level, general-purpose language created by Bjarne Stroustrup as an extension of C. It supports object-oriented, generic, and functional programming with low-level memory manipulation capabilities. Used broadly for its performance, C++ is implemented in systems programming and resource-constrained applications like operating systems and game development.",
       keywords: ["c++", "cplusplus", "cpp"],
       extensions: [".C", ".H", ".c++", ".cc", ".cpp", ".cppm", ".cxx", ".h", ".h++", ".hh", ".hpp", ".hxx", ".ixx"],
-      isTranspiler: true,
       releases: [
         { version: "C++98", name: "ISO/IEC 14882:1998", date: "1998" },
         { version: "C++03", name: "ISO/IEC 14882:2003", date: "2003" },
@@ -33,6 +32,8 @@ export function define(g: PlangsGraph) {
       extRedditPath: "cpp",
       extHomeURL: "https://isocpp.org/",
       created: "1985",
+      shortDesc: "C++ is a high-level, general-purpose language designed by Bjarne Stroustrup, supporting multiple programming paradigms.",
+      links: [{ url: "https://en.cppreference.com/w/", title: "cppreference" }],
     })
     .relDialectOf.add("pl+c")
     .relInfluencedBy.add("pl+ada", "pl+apl", "pl+c", "pl+f-sharp")

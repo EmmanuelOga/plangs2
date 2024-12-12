@@ -19,8 +19,12 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Csound",
       extRedditPath: "csound",
       extGithubPath: "csound/csound",
-      extHomeURL: "http://csound.com/",
+      extHomeURL: "https://csound.com",
       created: "1986",
+      isTranspiler: false,
+      shortDesc: "Csound is a flexible, high-quality, domain-specific programming language for sound and music computing.",
+      githubStars: 1200,
+      ghRepoCreated: "2012-02-16",
     })
     .relLicenses.add("lic+lgpl")
     .relParadigms.add("para+compiled", "para+dsl", "para+extensible", "para+real-time")

@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+c-sharp", {
       name: "C#",
       description:
-        "C# (/ˌsiː ˈʃɑːrp/ see SHARP) is a general-purpose high-level programming language supporting multiple paradigms. C# encompasses static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented (class-based), and component-oriented programming disciplines.",
+        "C# is a high-level, general-purpose programming language with multi-paradigm features, supporting static and strong typing, object-oriented, functional, and component-based programming.",
       keywords: ["c#", "c-sharp", "csharp", "dotnet"],
       extensions: [".cs", ".csx"],
       releases: [{ version: "12.0", name: "C# 12", date: "2023-11-14" }],
@@ -20,15 +20,20 @@ export function define(g: PlangsGraph) {
       extRedditPath: "csharp",
       extHomeURL: "https://learn.microsoft.com/en-us/dotnet/csharp/",
       created: "2000",
+      isTranspiler: false,
+      shortDesc: "C# is a versatile high-level language supporting multiple programming paradigms.",
+      extGithubPath: "dotnet/csharplang",
+      githubStars: 11600,
     })
     .relDialectOf.add("pl+c")
-    .relInfluencedBy.add("pl+c", "pl+c++", "pl+d", "pl+eiffel", "pl+f-sharp", "pl+haskell", "pl+pascal", "pl+scala", "pl+visual-basic")
+    .relInfluencedBy.add("pl+c", "pl+c++", "pl+d", "pl+eiffel", "pl+f-sharp", "pl+haskell", "pl+java", "pl+pascal", "pl+scala", "pl+visual-basic")
     .relLicenses.add("lic+gnu-gpl", "lic+lgpl", "lic+mit")
     .relParadigms.add(
       "para+async",
       "para+concurrent",
       "para+event-driven",
       "para+functional",
+      "para+general-purpose",
       "para+imperative",
       "para+multi",
       "para+oop",

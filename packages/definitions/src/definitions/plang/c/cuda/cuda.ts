@@ -15,16 +15,22 @@ export function define(g: PlangsGraph) {
       keywords: ["CUDA", "GPGPU", "GPU", "Nvidia", "graphics processing unit", "parallel computing", "parallel programming"],
       extensions: [".cu"],
       releases: [
-        { version: "12.6", name: "Stable release", date: "2024-08" },
         { version: "1.0", name: "Initial release", date: "2007-06-23" },
+        { version: "12.6", name: "Stable release", date: "2024-08" },
       ],
       extWikipediaPath: "CUDA",
       extRedditPath: "CUDA",
       extHomeURL: "https://developer.nvidia.com/cuda-zone",
       created: "2006",
+      isTranspiler: false,
+      shortDesc: "CUDA is a parallel computing platform and API model by Nvidia for GPU acceleration.",
+      githubStars: 6600,
+      extGithubPath: "NVIDIA/cuda-samples",
+      ghRepoCreated: "2014-09-22",
     })
     .relParadigms.add("para+compiled", "para+parallel")
-    .relPlatforms.add("plat+linux", "plat+windows");
+    .relPlatforms.add("plat+linux", "plat+windows")
+    .relWrittenWith.add("pl+c++");
 
   // TOOLS
 

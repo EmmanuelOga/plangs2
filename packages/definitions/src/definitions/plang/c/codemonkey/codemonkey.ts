@@ -11,12 +11,15 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "CodeMonkey_(software)",
       extHomeURL: "https://www.codemonkey.com/",
       created: "2014",
+      isTranspiler: false,
+      shortDesc: "CodeMonkey is an educational coding platform for beginners, teaching programming concepts through game-based learning.",
     })
     .relParadigms.add("para+dsl", "para+educational", "para+visual")
     .relPlatforms.add("plat+cross")
     .relTags.add("tag+edu", "tag+games")
     .relTypeSystems.add("tsys+inferred")
-    .relWrittenWith.add("pl+coffeescript", "pl+javascript", "pl+ruby");
+    .relWrittenWith.add("pl+coffeescript", "pl+javascript", "pl+ruby")
+    .relLicenses.add("lic+proprietary");
 
   // TOOLS
 

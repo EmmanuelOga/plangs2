@@ -5,18 +5,18 @@ export function define(g: PlangsGraph) {
     .set("pl+circuitpython", {
       name: "CircuitPython",
       description:
-        "CircuitPython is an open-source derivative of the MicroPython programming language targeted toward students and beginners. Development of CircuitPython is supported by Adafruit Industries. It is a software implementation of the Python 3 programming language, written in C. It has been ported to run on several modern microcontrollers.",
-      keywords: ["circuit python", "circuitpython"],
+        "CircuitPython is an open-source derivative of the MicroPython programming language targeted towards microcontroller applications and educational purposes, primarily maintained by Adafruit Industries. It simplifies Python for use on microcontrollers, enabling easier experimentation for beginners and hobbyists, and it is implemented in C.",
+      keywords: ["", "adafruit", "circuitpython", "python-microcontrollers"],
       extensions: [".py"],
-      isTranspiler: true,
-      releases: [
-        { version: "9.1.4", name: "CircuitPython 9.1.4", date: "2024-09-17" },
-        { version: "9.1.1", name: "CircuitPython 9.1.1", date: "2024-01-01" },
-      ],
+      isTranspiler: false,
+      releases: [{ version: "9.1.4", name: "CircuitPython 9.1.4", date: "2024-09-17" }],
       extWikipediaPath: "CircuitPython",
       extGithubPath: "adafruit/circuitpython",
       extHomeURL: "https://circuitpython.org/",
       created: "2017",
+      shortDesc: "CircuitPython, maintained by Adafruit, simplifies Python for microcontroller applications and is implemented in C.",
+      githubStars: 4100,
+      ghRepoCreated: "2017-09-20",
     })
     .relImplements.add("pl+python")
     .relInfluencedBy.add("pl+micropython")

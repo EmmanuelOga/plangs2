@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+clang", {
       name: "Clang",
       description:
-        "Clang is a compiler front end for the C, C++, Objective-C, and Objective-C++ programming languages, as well as the OpenMP, OpenCL, RenderScript, CUDA, SYCL, and HIP frameworks. It acts as a drop-in replacement for the GNU Compiler Collection (GCC), supporting most of its compiling flags and unofficial language extensions. It includes a static analyzer, and several code analysis tools. It operates in tandem with the LLVM compiler back end and has been a subproject of LLVM.",
+        "Clang is a compiler front end for C, C++, Objective-C, and Objective-C++, integrating with LLVM to provide a modular, reusable compiler framework.",
       keywords: ["clang", "compiler", "llvm"],
       releases: [
         { version: "13.0.1", name: "Clang 13.0.1", date: "2024-10-30" },
@@ -19,10 +19,15 @@ export function define(g: PlangsGraph) {
       extensions: [".c", ".cpp", ".cu", ".m", ".mm"],
       extWikipediaPath: "SuperCollider",
       extRedditPath: "supercollider",
-      extHomeURL: "https://clang.llvm.org/",
+      extHomeURL: "https://clang.llvm.org",
       created: "2007",
+      isTranspiler: false,
+      shortDesc: "Clang is a compiler front end for C, C++, Objective-C, and Objective-C++, integrating with LLVM.",
+      githubStars: 29600,
+      extGithubPath: "llvm/llvm-project",
+      ghRepoCreated: "2007-05-21",
     })
-    .relImplements.add("pl+c", "pl+c++")
+    .relImplements.add("pl+c", "pl+c++", "pl+objective-c")
     .relInfluencedBy.add("pl+llvm")
     .relLicenses.add("lic+apache")
     .relParadigms.add("para+compiled", "para+multi")

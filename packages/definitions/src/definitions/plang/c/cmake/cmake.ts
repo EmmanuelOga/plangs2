@@ -12,8 +12,8 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       description:
-        "CMake is a cross-platform, open-source tool that employs a compiler-independent method to build, test, and package software. It was developed as a response to the need for a cross-platform build environment for the Insight Segmentation and Registration Toolkit (ITK) and is distributed under the BSD-3-Clause License.",
-      keywords: ["CMake", "build automation", "build system", "compiler-independent", "cross-platform", "open-source", "software development"],
+        "CMake is a cross-platform build system that automates the configuration and generation of build files for software projects, abstracting platform-specific details by using a compiler-independent approach. Initially developed for the ITK toolkit, CMake has become the standard build tool for many open-source projects.",
+      keywords: ["CMake", "build system", "compiler-independent"],
       extensions: [".cmake"],
       filenames: ["CMakeLists.txt"],
       isTranspiler: true,
@@ -24,11 +24,17 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "CMake",
       extRedditPath: "cmake",
       created: "2000",
+      shortDesc: "CMake is a cross-platform build system that generates build files for software projects.",
+      extHomeURL: "https://cmake.org/",
+      githubStars: 6900,
+      extGithubPath: "Kitware/CMake",
+      ghRepoCreated: "2000-05-06",
     })
     .relCompilesTo.add("pl+makefile")
     .relLicenses.add("lic+bsd")
-    .relParadigms.add("para+scripting")
-    .relPlatforms.add("plat+cross");
+    .relParadigms.add("para+procedural", "para+scripting")
+    .relPlatforms.add("plat+cross")
+    .relTags.add("tag+automation");
 
   // TOOLS
 
