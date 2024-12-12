@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+scratch", {
       name: "Scratch",
       description:
-        "Scratch is a high-level, block-based visual programming language and website aimed primarily at children as an educational tool, with a target audience of ages 8 to 16. Users on the site can create projects on the website using a block-like interface. Scratch is conceived and designed through collaborative National Science Foundation grants awarded to Mitchel Resnick and Yasmin Kafai. Scratch is developed by the MIT Media Lab and has been translated into over 70 languages, being used globally. It's widely taught and used in after-school centers, schools, and colleges. As of February 2023, over 123 million projects were shared by over 103 million users, with over 800 million total projects ever created and over 95 million visitors monthly to the website.",
+        "Scratch is a block-based visual programming language developed by MIT Media Lab for children, providing an educational tool to learn coding through interactive projects. Users create animations, games, and stories using a simple drag-and-drop interface. The language encourages creativity and logical thinking, with global reach and availability in multiple languages.",
       keywords: ["scratch"],
       extensions: [".sb", ".sb2", ".sb3", ".sprite", ".sprite2", ".sprite3"],
       releases: [
@@ -14,8 +14,12 @@ export function define(g: PlangsGraph) {
         { version: "2.0", name: "Scratch 2.0", date: "2013-05-09" },
       ],
       extWikipediaPath: "Scratch_(programming_language)",
-      extHomeURL: "https://scratch.mit.edu/",
+      extHomeURL: "https://scratch.mit.edu",
       created: "2003",
+      isTranspiler: false,
+      shortDesc: "Scratch is a block-based visual language for children to learn coding through interactive projects.",
+      githubStars: 1200,
+      extGithubPath: "scratchfoundation/scratch-vm",
     })
     .relInfluencedBy.add("pl+squeak")
     .relLicenses.add("lic+bsd", "lic+dual", "lic+gnu-gpl")

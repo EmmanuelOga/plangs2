@@ -45,6 +45,7 @@ BUG: the bundles are not being generated, check python codegen.
 
 ## WIP
 
+- [ ] Use the github API to procure more precise information of github repos.
 - [ ] Add icons to external services (reddit, wiki, github) and display other links.
 - [ ] Create a ToolBar component: we need some buttons to interact with eachother.
 

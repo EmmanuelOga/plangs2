@@ -24,6 +24,7 @@ export function define(g: PlangsGraph) {
       extRedditPath: "groff",
       extHomeURL: "https://www.gnu.org/software/groff/",
       created: "1990",
+      shortDesc: "Roff is a typesetting language originating from UNIX, known for derivatives like 'troff' and 'nroff'.",
     })
     .relLicenses.add("lic+gnu-gpl")
     .relParadigms.add("para+macro")

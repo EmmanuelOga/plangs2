@@ -5,8 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+scheme", {
       name: "Scheme",
       description:
-        "Scheme is a classical dialect of the Lisp family of programming languages. It emphasizes functional programming, domain-specific languages, and flexibility in adapting to other programming styles. Scheme is known for its clean design and minimalist approach, making it one of the longest-surviving and extensively studied dynamic languages. Scheme was created at MIT CSAIL by Guy L. Steele and Gerald Jay Sussman in the 1970s, and its development was documented in the Lambda Papers. It notably introduced lexical scoping, required tail-call optimization, and supported first-class continuations, influencing many subsequent languages including Common Lisp.",
-      keywords: ["scheme"],
+        "Scheme is a minimalistic and flexible dialect of the Lisp programming language, prioritizing functional programming and metaprogramming. Developed in the 1970s by Guy L. Steele and Gerald Jay Sussman at MIT, it pioneered concepts like lexical scoping and first-class continuations.",
       extensions: [".scm", ".ss"],
       stackovTags: ["scheme"],
       githubName: "Scheme",
@@ -19,6 +18,8 @@ export function define(g: PlangsGraph) {
       extRedditPath: "scheme",
       extHomeURL: "https://www.scheme.org/",
       created: "1975",
+      isTranspiler: false,
+      shortDesc: "Scheme is a minimalistic Lisp dialect known for its functional programming capabilities.",
     })
     .relDialectOf.add("pl+lisp")
     .relInfluencedBy.add("pl+lisp")

@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+sed", {
       name: "sed",
       description:
-        'sed ("stream editor") is a Unix utility that parses and transforms text, using a simple, compact programming language. It was developed in the early 1970s by Lee E. McMahon of Bell Labs, and is available today for most operating systems. sed was based on the scripting features of the interactive editor ed ("editor", 1971) and the earlier qed ("quick editor", 1965–66). It was one of the earliest tools to support regular expressions, and remains widely used for text processing, most notably with the substitution command. Popular alternative tools for plaintext string manipulation and "stream editing" include AWK and Perl.',
+        'sed ("stream editor") is a Unix utility that parses and transforms text, using a simple, compact programming language, developed in the early 1970s by Lee E. McMahon of Bell Labs. It was influenced by and based on the scripting features of the interactive editor ed and the earlier qed. Notable for its early support of regular expressions, sed remains widely used for text processing, particularly with its substitution command.',
       keywords: ["sed", "stream editor"],
       extensions: [".sed"],
       releases: [{ version: "1.0", name: "Initial Version", date: "1974-01-01" }],
@@ -18,6 +18,8 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "Sed",
       created: "1974",
+      isTranspiler: false,
+      shortDesc: "sed is a Unix utility that parses and transforms text, using a compact programming language developed by Lee E. McMahon.",
     })
     .relLicenses.add("lic+public-domain")
     .relParadigms.add("para+procedural", "para+scripting")

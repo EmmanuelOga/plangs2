@@ -24,6 +24,9 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Sass",
       extHomeURL: "https://sass-lang.com/",
       created: "2006",
+      shortDesc: "Sass is a preprocessor language that compiles to CSS.",
+      githubStars: 15200,
+      extGithubPath: "sass/sass",
     })
     .relCompilesTo.add("pl+css")
     .relInfluencedBy.add("pl+css")

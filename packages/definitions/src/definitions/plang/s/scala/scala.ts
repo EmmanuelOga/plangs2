@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+scala", {
       name: "Scala",
       description:
-        "Scala (/ˈskɑːlɑː/ SKAH-lah) is a strong statically typed high-level general-purpose programming language that supports both object-oriented programming and functional programming. Designed to be concise, many of Scala's design decisions are intended to address criticisms of Java. It is well-suited to building fast, concurrent, and distributed systems with its JVM, JavaScript, and Native runtimes.",
+        "Scala is a strong statically typed high-level general-purpose programming language that supports both object-oriented programming and functional programming. Designed to be concise, many of Scala's design decisions are intended to address criticisms of Java. It is well-suited to building fast, concurrent, and distributed systems with its JVM, JavaScript, and Native runtimes.",
       keywords: ["scala"],
       extensions: [".sc", ".scala"],
       releases: [
@@ -23,6 +23,11 @@ export function define(g: PlangsGraph) {
       extRedditPath: "scala",
       extHomeURL: "http://www.scala-lang.org/",
       created: "2004",
+      isTranspiler: false,
+      shortDesc:
+        "Scala is a statically typed language supporting both object-oriented and functional programming, known for addressing Java's criticisms and supporting concurrent, distributed systems.",
+      githubStars: 5900,
+      extGithubPath: "scala/scala3",
     })
     .relInfluencedBy.add(
       "pl+common-lisp",

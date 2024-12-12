@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+rebol", {
       name: "Rebol",
       description:
-        "Rebol (/ˈrɛbəl/ REB-əl) is a cross-platform data exchange language and a multi-paradigm dynamic programming language designed by Carl Sassenrath for network communications and distributed computing. The language is notable for introducing the concept of dialects: small, optimized domain-specific languages for code and data. It is designed to be small and lightweight, supporting an easy-to-write and easy-to-read format with numerous data-types for expressing information.",
+        "Rebol is a cross-platform data exchange language and a multi-paradigm dynamic programming language designed for network communications and distributed computing. It introduced the concept of dialects, which are small, optimized domain-specific languages for code and data. Rebol emphasizes simplicity and readability, featuring numerous data types for expressing information in a concise format.",
       keywords: ["rebol"],
       extensions: [".r", ".reb"],
       releases: [
@@ -21,8 +21,13 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "Rebol",
       extRedditPath: "rebol",
-      extHomeURL: "http://www.rebol.com/",
+      extHomeURL: "https://www.rebol.com",
       created: "1997",
+      isTranspiler: false,
+      shortDesc: "Rebol is a cross-platform multi-paradigm language known for its dialects and simplicity.",
+      githubStars: 868,
+      extGithubPath: "rebol/rebol",
+      ghRepoCreated: "2011-06-01",
     })
     .relInfluencedBy.add("pl+forth", "pl+lisp", "pl+self")
     .relLicenses.add("lic+apache")

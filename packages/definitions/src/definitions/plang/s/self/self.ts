@@ -7,10 +7,7 @@ export function define(g: PlangsGraph) {
       description:
         "Self is a prototype-based dynamic object-oriented programming language, environment, and virtual machine focused on principles like simplicity and uniformity. It allows direct and physical interaction with objects and integrates a programming environment for modifying objects. Influenced by Smalltalk and APL, it influenced languages like JavaScript and NewtonScript.",
       keywords: ["dynamic language", "object-oriented", "prototype", "self"],
-      releases: [
-        { version: "2024.1", name: "", date: "2024-08-28" },
-        { version: "2017.1", name: "", date: "2017-05-01" },
-      ],
+      releases: [{ version: "2024.1", name: "", date: "2024-08-28" }],
       stackovTags: ["self"],
       githubName: "Self",
       languishRanking: 296,
@@ -19,8 +16,13 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       extWikipediaPath: "Self_(programming_language)",
-      extHomeURL: "http://www.selflanguage.org/",
+      extHomeURL: "http://selflanguage.org/",
       created: "1987",
+      extensions: [".self"],
+      isTranspiler: false,
+      shortDesc: "Self is a prototype-based dynamic OOP language, influenced by Smalltalk and APL, impacting JavaScript.",
+      extGithubPath: "russellallen/self",
+      githubStars: 718,
     })
     .relInfluencedBy.add("pl+apl")
     .relLicenses.add("lic+bsd")

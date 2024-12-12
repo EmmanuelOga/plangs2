@@ -5,9 +5,10 @@ export function define(g: PlangsGraph) {
     .set("pl+sbcl", {
       name: "SBCL",
       description:
-        "Steel Bank Common Lisp (SBCL) is a high-performance Common Lisp compiler. It is a free and open-source implementation with a permissive license. SBCL provides a compiler and a runtime system for ANSI Common Lisp and features an interactive environment with a debugger, statistical profiler, code coverage tool, and many extensions. Originally forked in December 1999 from CMUCL, it supports multiple operating systems including Linux, macOS, Solaris, and Windows.",
-      keywords: ["common lisp", "compiler", "sbcl", "steel bank"],
+        "SBCL (Steel Bank Common Lisp) is an open-source implementation of ANSI Common Lisp that focuses on providing a high-performance compiler and a runtime environment for multi-paradigm programming. It is derived from CMUCL and extends its functionality with improved performance and type safety features.",
+      keywords: ["common lisp", "high performance lisp", "sbcl", "steel bank"],
       releases: [
+        { version: "1.0.0", name: "Initial Release", date: "2005-11-01" },
         { version: "2.4.5", name: "SBCL 2.4.5", date: "2024-05-30" },
         { version: "2.4.10", name: "SBCL 2.4.10", date: "2024-10-30" },
       ],
@@ -17,11 +18,16 @@ export function define(g: PlangsGraph) {
       githubColor: "#3fb68b",
       githubPopular: false,
       githubType: "programming",
-      extensions: [".cl", ".l", ".lisp", ".lsp"],
+      extensions: [".cl", ".l", ".lisp", ".lsp", ".ny"],
       extWikipediaPath: "Common_Lisp",
       extRedditPath: "Common_Lisp",
       extHomeURL: "http://www.sbcl.org/",
       created: "1999",
+      isTranspiler: false,
+      shortDesc: "SBCL is an open-source, high-performance Common Lisp implementation derived from CMUCL.",
+      githubStars: 1900,
+      extGithubPath: "sbcl/sbcl",
+      ghRepoCreated: "2011-01-21",
     })
     .relDialectOf.add("pl+common-lisp")
     .relInfluencedBy.add("pl+common-lisp")
