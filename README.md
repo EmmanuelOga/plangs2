@@ -45,6 +45,9 @@ BUG: the bundles are not being generated, check python codegen.
 
 ## WIP
 
+- [ ] better location of the logo and url on Vertex.
+- [ ] Materialize more relationships: isTranspiler, influence, etc.
+- [ ] Dematerialize? Remove redundancy before re-generating the code.
 - [ ] Use the github API to procure more precise information of github repos.
 - [ ] Add icons to external services (reddit, wiki, github) and display other links.
 - [ ] Create a ToolBar component: we need some buttons to interact with eachother.

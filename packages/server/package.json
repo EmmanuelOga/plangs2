@@ -7,12 +7,12 @@
     "@plangs/frontend": "workspace:*",
     "@plangs/plangs": "workspace:*",
     "marked": "^13.0.3",
-    "preact": "^10.22.1",
+    "preact": "^10.25.2",
+    "preact-render-to-string": "^6.5.12",
     "yaml": "^2.5.0"
   },
-  "devDependencies": {
-    "preact-render-to-string": "^6.5.6"
-  },
   "main": "src/serve.ts",
-  "files": ["src"]
+  "files": [
+    "src"
+  ]
 }
