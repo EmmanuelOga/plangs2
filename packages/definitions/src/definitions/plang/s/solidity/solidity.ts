@@ -13,14 +13,19 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       description:
         "Solidity is a statically typed programming language designed for developing smart contracts that run on the Ethereum Virtual Machine (EVM) or compatible virtual machines, influenced by languages such as JavaScript, C++, and Python.",
-      keywords: ["EVM", "Ethereum", "Solidity", "blockchain", "smart contracts"],
+      keywords: ["blockchain", "ethereum", "evm", "smart contracts", "solidity"],
       extensions: [".sol"],
       releases: [{ version: "0.8.28", name: "Stable release", date: "2024-10-09" }],
       extWikipediaPath: "Solidity",
       extRedditPath: "ethdev",
-      extHomeURL: "https://soliditylang.org",
       created: "2014",
+      isTranspiler: false,
+      shortDesc: "Solidity is a statically typed language for smart contracts on the EVM.",
+      githubStars: 23500,
+      extGithubPath: "ethereum/solidity",
+      ghRepoCreated: "2014-03-09",
     })
+    .relInfluencedBy.add("pl+c++", "pl+javascript", "pl+python")
     .relLicenses.add("lic+gnu-gpl")
     .relParadigms.add("para+imperative")
     .relTypeSystems.add("tsys+static");

@@ -19,6 +19,10 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Squirrel_(programming_language)",
       extHomeURL: "http://squirrel-lang.org/",
       created: "2003",
+      isTranspiler: false,
+      shortDesc: "Squirrel is an object-oriented scripting language designed for applications like video games.",
+      githubStars: 932,
+      extGithubPath: "albertodemichelis/squirrel",
     })
     .relInfluencedBy.add("pl+c++", "pl+javascript", "pl+lua", "pl+python")
     .relLicenses.add("lic+mit")

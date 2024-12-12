@@ -12,6 +12,8 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "SHACL",
       extHomeURL: "https://www.w3.org/TR/shacl/",
       created: "2015",
+      isTranspiler: false,
+      shortDesc: "W3C standard language for RDF graph constraints and validation.",
     })
     .relInfluencedBy.add("pl+shex")
     .relParadigms.add("para+declarative", "para+dsl", "para+validation")

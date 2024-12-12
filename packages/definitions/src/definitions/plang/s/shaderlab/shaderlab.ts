@@ -11,11 +11,15 @@ export function define(g: PlangsGraph) {
       githubColor: "#222c37",
       githubPopular: false,
       githubType: "programming",
-      description: "ShaderLab is Unity's language for defining shaders. It is used for controlling the graphics pipeline in games and simulations.",
-      keywords: ["graphics", "shader", "shader programming", "unity"],
+      description:
+        "ShaderLab is Unity's language for defining shaders, allowing developers to write code that describes how to render graphics in the Unity engine.",
+      keywords: ["graphics", "rendering", "shader", "unity"],
       extensions: [".shader"],
-      extHomeURL: "https://docs.unity3d.com/Manual/SL-Shader.html",
+      extHomeURL: "https://docs.unity3d.com/Manual/SL-ShaderPrograms.html",
       created: "2005",
+      isTranspiler: false,
+      shortDesc: "ShaderLab allows developers to define shaders within the Unity engine for custom graphics rendering.",
+      links: [{ url: "https://learn.unity.com", title: "Unity Learn" }],
     })
     .relParadigms.add("para+dsl", "para+visual")
     .relPlatforms.add("plat+cross")

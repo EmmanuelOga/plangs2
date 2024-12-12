@@ -18,8 +18,9 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "SML '97", name: "Standard ML '97", date: "1997" }],
       extWikipediaPath: "Standard_ML",
       extRedditPath: "sml",
-      extHomeURL: "https://smlfamily.github.io/",
       created: "1983",
+      isTranspiler: false,
+      shortDesc: "Standard ML is a functional programming language known for its type inference and usage in compiler writing.",
     })
     .relInfluencedBy.add("pl+pascal")
     .relLicenses.add("lic+bsd")

@@ -12,18 +12,21 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       description:
-        "Smarty is a web template system written in PHP. It is designed for separation of concerns, allowing for the front-end of a web page to be changed separately from its back-end.",
-      keywords: ["PHP", "Smarty", "template engine", "web template"],
+        "Smarty is a PHP-based web template engine designed to separate the presentation layer from the application logic, facilitating easier management of web page layout and design.",
+      keywords: ["php", "smarty", "template system", "web"],
       extensions: [".tpl"],
       filenames: ["index.tpl"],
-      isTranspiler: true,
+      isTranspiler: false,
       releases: [{ version: "5.4.1", name: "Stable release", date: "2024-08-29" }],
       extWikipediaPath: "Smarty_(template_engine)",
+      shortDesc: "Smarty is a PHP template engine for separating presentation and application logic.",
+      githubStars: 2300,
       extGithubPath: "smarty-php/smarty",
       extHomeURL: "http://www.smarty.net",
       created: "2001",
     })
     .relCompilesTo.add("pl+php")
+    .relInfluencedBy.add("pl+php")
     .relLicenses.add("lic+lgpl")
     .relParadigms.add("para+dsl")
     .relPlatforms.add("plat+cross")
