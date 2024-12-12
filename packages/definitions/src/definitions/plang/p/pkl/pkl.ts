@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+pkl", {
       name: "PKL",
       description:
-        "PKL is a language designed to handle configurable data definitions with ease, offering a robust configuration format that can generate output in multiple formats like JSON, YAML, and more. It supports embedded configurations in applications like Java, Kotlin, Swift, and Go, and provides IDE integrations to facilitate ease of use for developers.",
+        "PKL is a configuration language designed to define data structures and generate multiple output formats such as JSON and YAML. It supports embedded configurations in applications across various languages like Java, Kotlin, Swift, and Go, and provides integrations to enhance usability.",
       keywords: ["pkl"],
       extensions: [".pkl"],
       releases: [{ version: "1.0.0", name: "PKL 1.0.0", date: "2021-06-01" }],
@@ -16,8 +16,10 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       extWikipediaPath: "PKL_(programming_language)",
-      extHomeURL: "https://pkl-lang.org/",
       created: "2021",
+      shortDesc: "PKL is a configuration language for defining data structures and generating JSON or YAML outputs.",
+      githubStars: 10400,
+      extGithubPath: "apple/pkl",
     })
     .relCompilesTo.add("pl+json", "pl+yaml")
     .relLicenses.add("lic+mit")

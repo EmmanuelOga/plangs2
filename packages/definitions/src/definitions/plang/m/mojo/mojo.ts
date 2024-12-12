@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+mojo", {
       name: "Mojo",
       description:
-        "Mojo is a programming language in the Python family, designed to deliver Python's expressiveness with the performance of C, and is particularly geared towards AI development, supporting high-performance computing on diverse hardware.",
-      keywords: ["AI", "modular", "mojo", "performance", "programming"],
+        "Mojo is a modular programming language designed for high-performance and AI-specific applications. It builds on Python's ease of use, aiming to provide the expressiveness of Python with the efficiency of C, targeting diverse hardware environments.",
+      keywords: ["AI", "high-performance", "modular", "mojo", "python-based"],
       extensions: [".mojo", ".🔥"],
       stackovTags: ["mojolang"],
       githubName: "Mojo",
@@ -20,10 +20,14 @@ export function define(g: PlangsGraph) {
       extRedditPath: "MojoLang",
       extHomeURL: "https://www.modular.com/mojo",
       created: "2023",
+      isTranspiler: false,
+      shortDesc: "Mojo is a modular language blending Python's syntax with C-like performance.",
+      githubStars: 23400,
+      extGithubPath: "modularml/mojo",
     })
     .relInfluencedBy.add("pl+python", "pl+swift")
-    .relLicenses.add("lic+apache")
-    .relParadigms.add("para+compiled", "para+functional", "para+general-purpose", "para+imperative", "para+multi")
+    .relLicenses.add("lic+apache", "lic+mit")
+    .relParadigms.add("para+compiled", "para+functional", "para+general-purpose", "para+imperative", "para+multi", "para+scripting")
     .relPlatforms.add("plat+apple", "plat+cross", "plat+linux")
     .relTags.add("tag+automation", "tag+scripting")
     .relTypeSystems.add("tsys+affine", "tsys+duck", "tsys+dynamic", "tsys+generic", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong");

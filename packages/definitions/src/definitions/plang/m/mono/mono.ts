@@ -12,6 +12,10 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Mono_(software)",
       extHomeURL: "https://www.mono-project.com/",
       created: "2004",
+      isTranspiler: false,
+      shortDesc: "Mono is a free and open-source .NET compatible software framework.",
+      githubStars: 11200,
+      extGithubPath: "mono/mono",
     })
     .relImplements.add("pl+c-sharp", "pl+visual-basic")
     .relLicenses.add("lic+mit")

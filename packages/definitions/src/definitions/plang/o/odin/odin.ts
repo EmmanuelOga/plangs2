@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+odin", {
       name: "Odin",
       description:
-        "Odin is a general-purpose programming language designed for high performance, simplicity, and data-oriented programming. As an alternative to C, it emphasizes modern systems programming and ease of use, making it suitable for a wide range of applications, including those in gaming and film industries.",
+        "Odin is a high-performance, systems programming language designed for simplicity and data-oriented development, serving as a modern alternative to C with a focus on clarity and ease of use, particularly in gaming and multimedia applications.",
       keywords: ["odin", "odin-lang", "programming"],
       extensions: [".odin"],
       releases: [{ version: "0.13.0", name: "Odin 0.13.0", date: "2023-08-21" }],
@@ -16,8 +16,13 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       extRedditPath: "Odinlang",
-      extHomeURL: "https://odin-lang.org/",
+      extRepositoryURL: "odin-lang/Odin",
+      extHomeURL: "https://odin-lang.org",
       created: "2016",
+      isTranspiler: false,
+      shortDesc:
+        "Odin, a high-performance language, offers an alternative to C for systems programming with a focus on simplicity and data-oriented development.",
+      githubStars: 7100,
     })
     .relInfluencedBy.add("pl+c")
     .relLicenses.add("lic+mit")

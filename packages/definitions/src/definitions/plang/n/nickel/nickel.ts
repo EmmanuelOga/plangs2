@@ -12,15 +12,18 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       extGithubPath: "tweag/nickel",
       extWikipediaPath: "Nickel_(programming_language)",
-      extHomeURL: "https://nickel-lang.org/",
+      extHomeURL: "https://nickel-lang.org",
       created: "2021",
+      shortDesc: "Nickel is a lightweight configuration language designed for generating modular and reusable configuration files.",
+      githubStars: 2400,
+      ghRepoCreated: "2020-03-15",
     })
     .relCompilesTo.add("pl+json", "pl+nix", "pl+rust", "pl+xml", "pl+yaml")
     .relInfluencedBy.add("pl+rust")
     .relLicenses.add("lic+mpl")
     .relParadigms.add("para+data-exchange", "para+declarative", "para+validation")
     .relPlatforms.add("plat+linux", "plat+windows")
-    .relTags.add("tag+automation")
+    .relTags.add("tag+automation", "tag+scripting")
     .relTypeSystems.add("tsys+dynamic", "tsys+gradual", "tsys+optional", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+rust");
 

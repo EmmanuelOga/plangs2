@@ -23,6 +23,10 @@ export function define(g: PlangsGraph) {
       extRedditPath: "ocaml",
       extHomeURL: "https://ocaml.org/",
       created: "1996",
+      isTranspiler: false,
+      shortDesc: "OCaml is a general-purpose, multi-paradigm language extending Caml with OO features.",
+      githubStars: 5500,
+      extGithubPath: "ocaml/ocaml",
     })
     .relInfluencedBy.add("pl+c", "pl+pascal", "pl+standard-ml")
     .relLicenses.add("lic+lgpl")

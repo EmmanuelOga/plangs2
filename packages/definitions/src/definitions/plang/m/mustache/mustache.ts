@@ -12,20 +12,24 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "markup",
       description:
-        "Mustache is a logic-less web template system that heavily uses braces `{{}}` for templating, resembling a sideways moustache. Known for strong separation of logic and presentation, Mustache doesn't include explicit flow control like `if` or `for`, relying on data-driven rendering instead.",
-      keywords: ["JSON templating", "logic-less", "mustache", "presentation separation", "template system", "web templates"],
+        "Mustache is a logic-less web template system that heavily uses braces `{{}}` for templating, resembling a sideways moustache. Known for strong separation of logic and presentation, Mustache relies on data-driven rendering without explicit flow control.",
+      keywords: ["logic-less", "mustache", "templating", "web templates"],
       extensions: [".mustache"],
-      isTranspiler: true,
+      isTranspiler: false,
       releases: [{ version: "4.2.0", name: "Stable release", date: "2021-03-28" }],
       extWikipediaPath: "Mustache_(template_system)",
       extGithubPath: "mustache/mustache",
-      extHomeURL: "http://mustache.github.io",
+      extHomeURL: "https://mustache.github.io/",
       created: "2009",
+      shortDesc: "Mustache is a logic-less web template system using braces `{{}}` for templating.",
+      githubStars: 3000,
+      ghRepoCreated: "2011-08-15",
     })
     .relCompilesTo.add("pl+javascript")
     .relLicenses.add("lic+mit")
     .relParadigms.add("para+data-driven", "para+declarative")
-    .relPlatforms.add("plat+web");
+    .relPlatforms.add("plat+web")
+    .relTags.add("tag+webdev");
 
   // TOOLS
 

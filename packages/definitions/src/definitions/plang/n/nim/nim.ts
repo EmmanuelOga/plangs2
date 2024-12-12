@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+nim", {
       name: "Nim",
       description:
-        'Nim is a general-purpose, multi-paradigm, statically typed, compiled high-level system programming language, designed and developed by a team around Andreas Rumpf. Nim is designed to be "efficient, expressive, and elegant", supporting metaprogramming, functional, message-passing, procedural, and object-oriented programming styles. It compiles to multiple languages, including C, C++, JavaScript, allowing it to be used for both backend and frontend applications. It features a modern type system with local type inference, generic programming, and several memory management options, suitable for embedded and real-time systems.',
+        "Nim is a general-purpose, statically typed, compiled programming language designed for performance and elegant syntax. It supports multiple paradigms including imperative, functional, and metaprogramming. Nim can compile to C, C++, and JavaScript, making it suitable for system programming, web, and embedded applications.",
       keywords: ["nim"],
       extensions: [".nim", ".nimble", ".nims"],
       isTranspiler: true,
@@ -22,8 +22,12 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "Nim_(programming_language)",
       extRedditPath: "nim",
-      extHomeURL: "http://nim-lang.org/",
+      extHomeURL: "https://nim-lang.org/",
       created: "2008",
+      shortDesc: "Nim is a statically typed, compiled language focusing on performance and elegant syntax, compilable to C, C++, and JavaScript.",
+      githubStars: 16700,
+      extGithubPath: "nim-lang/Nim",
+      ghRepoCreated: "2013-04-14",
     })
     .relCompilesTo.add("pl+c++", "pl+javascript")
     .relInfluencedBy.add("pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+python", "pl+rust")
@@ -32,6 +36,7 @@ export function define(g: PlangsGraph) {
       "para+compiled",
       "para+concurrent",
       "para+functional",
+      "para+general-purpose",
       "para+imperative",
       "para+metaprogramming",
       "para+multi",
@@ -51,6 +56,7 @@ export function define(g: PlangsGraph) {
       "tag+interpreters",
       "tag+iot",
       "tag+ray-tracer",
+      "tag+scripting",
       "tag+stats",
       "tag+viz",
     )
