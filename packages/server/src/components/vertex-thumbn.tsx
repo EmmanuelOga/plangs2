@@ -7,16 +7,25 @@ import { dataset } from "@plangs/server/utils/html";
 
 const PLACEHOLDER = "/images/placeholder.png";
 
-export function VertexThumbn({ vertex, class: klass }: { class?: string; vertex: PlangsVertex<any, any> }): JSX.Element {
+export function VertexThumbn({ vertex, onlyImg, class: klass }: { class?: string; onlyImg?: boolean; vertex: PlangsVertex<any, any> }): JSX.Element {
   return (
     <div
       {...dataset({ "vertex-key": vertex.key, "vertex-name": vertex.vertexName, "vertex-ranking": vertex.ranking })}
-      class={tw(cssClass("vertexThumbn"), "group", "cursor-pointer", "max-w-[7rem] sm:max-w-[15rem]", "max-h-[7rem] sm:max-h-[15rem]", klass)}>
-      <div class="truncate text-center">
-        <a class="text-foreground group-hover:text-primary" href={vertex.href}>
-          {vertex.name}
-        </a>
-      </div>
+      class={tw(
+        cssClass("vertexThumbn"),
+        "group",
+        !onlyImg && "cursor-pointer",
+        "max-w-[7rem] sm:max-w-[15rem]",
+        "max-h-[7rem] sm:max-h-[15rem]",
+        klass,
+      )}>
+      {!onlyImg && (
+        <div class="truncate text-center">
+          <a class="text-foreground group-hover:text-primary" href={vertex.href}>
+            {vertex.name}
+          </a>
+        </div>
+      )}
       <div
         class={tw(
           "relative",
@@ -29,7 +38,7 @@ export function VertexThumbn({ vertex, class: klass }: { class?: string; vertex:
         )}>
         <img
           loading="lazy"
-          src={PLACEHOLDER}
+          src={onlyImg ? vertex.thumbUrl : PLACEHOLDER}
           alt={vertex.name}
           data-src={vertex.thumbUrl ?? ""}
           class={tw(cssClass("vertexThumbnImg"), "max-h-full max-w-full object-contain")}

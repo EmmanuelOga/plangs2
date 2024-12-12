@@ -5,6 +5,7 @@ import { PROSE_BASIC, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
 import { GRID_PAGES, type PlangsPage } from "@plangs/server/components/layout";
 import { VertexLink } from "@plangs/server/components/vertex-link";
+import { VertexThumbn } from "@plangs/server/components/vertex-thumbn";
 import type { ComponentChildren } from "preact";
 
 export type VertexInfoProps = {
@@ -37,25 +38,31 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
             </a>
           </h2>
           <span class={tw(forGrid ? "dash mx-2 inline-block sm:hidden" : "hidden")}>&#8212;</span>
-          <div class={tw(forGrid && "hidden sm:block")}>
-            {vertex.urlHome && (
-              <Pill>
-                <VertexLink vertex={vertex} includeLocal={false} title="Homepage" nocolor={true} />
-              </Pill>
+          <p class={tw(forGrid && "inline sm:block", "hyphens-auto")}>
+            {!forGrid && (
+              <div class={tw("float-right mt-2 ml-4 text-center")}>
+                <VertexThumbn vertex={vertex} onlyImg={true} class="h-[7rem] w-[7rem]" />
+                {vertex.urlHome && <VertexLink vertex={vertex} includeLocal={false} title="Home" />}
+              </div>
             )}
-            {vertex.created.value && <Pill children={`Appeared ${vertex.created.year}`} />}
-            {"releases" in vertex && ret(vertex.releases.last, rel => rel && <Pill children={`Released ${rel.date ?? rel.version}`} />)}
-            {"isTranspiler" in vertex && vertex.isTranspiler && <Pill children="Transpiler" />}
-            {"isPopular" in vertex && vertex.isPopular && <Pill children="Popular" />}
-          </div>
-          <p class={tw(forGrid && "inline sm:block")}>{forGrid ? vertex.shortDesc : vertex.description}</p>
+            {forGrid ? vertex.shortDesc : vertex.description}
+          </p>
         </>
       )}
-      {rels.length > 0 && (
+      {vertex && rels.length > 0 && (
         <details class={tw(forGrid && "hidden sm:block", "pb-4")} open={open}>
           <summary class="cursor-pointer text-primary">Details</summary>
           <table>
             <tbody>
+              <tr>
+                <th class="pb-4 align-baseline">General</th>
+                <td>
+                  {vertex.created.value && <Pill children={`Appeared ${vertex.created.year}`} />}
+                  {"releases" in vertex && ret(vertex.releases.last, rel => rel && <Pill children={`Released ${rel.date ?? rel.version}`} />)}
+                  {"isTranspiler" in vertex && vertex.isTranspiler && <Pill children="Transpiler" />}
+                  {"isPopular" in vertex && vertex.isPopular && <Pill children="Popular" />}
+                </td>
+              </tr>
               {relations(vertex).map(([title, vertices]) => (
                 <tr key={title}>
                   <th class="pb-4 align-baseline">{title}</th>
