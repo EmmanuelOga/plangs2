@@ -16,13 +16,13 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       extRedditPath: "Odinlang",
-      extRepositoryURL: "odin-lang/Odin",
       extHomeURL: "https://odin-lang.org",
       created: "2016",
       isTranspiler: false,
       shortDesc:
         "Odin, a high-performance language, offers an alternative to C for systems programming with a focus on simplicity and data-oriented development.",
       githubStars: 7100,
+      extGithubPath: "odin-lang/Odin",
     })
     .relInfluencedBy.add("pl+c")
     .relLicenses.add("lic+mit")
