@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       githubType: "markup",
       description:
         "Svelte is a free and open-source component-based front-end software framework, created by Rich Harris and maintained by the Svelte core team members. It compiles HTML templates to specialized code that manipulates the DOM directly, reducing the size of transferred files and improving client performance.",
-      keywords: ["Frontend framework", "JavaScript", "Rich Harris", "Svelte", "TypeScript", "Web platform"],
+      keywords: ["component-based", "frontend-framework", "rich-harris", "svelte"],
       extensions: [".svelte"],
       isTranspiler: true,
       releases: [
@@ -28,12 +28,14 @@ export function define(g: PlangsGraph) {
       extGithubPath: "sveltejs/svelte",
       extHomeURL: "https://svelte.dev/",
       created: "2016",
+      shortDesc: "Svelte is an open-source front-end framework that compiles HTML templates to optimized JavaScript.",
+      githubStars: 80400,
     })
     .relCompilesTo.add("pl+javascript")
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+compiled", "para+functional", "para+reactive")
+    .relParadigms.add("para+compiled", "para+event-driven", "para+functional", "para+reactive")
     .relPlatforms.add("plat+nodejs", "plat+web")
-    .relTags.add("tag+framework", "tag+gui")
+    .relTags.add("tag+framework", "tag+gui", "tag+webdev")
     .relTypeSystems.add("tsys+dynamic", "tsys+static");
 
   // TOOLS

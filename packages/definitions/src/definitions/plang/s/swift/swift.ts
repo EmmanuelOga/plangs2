@@ -5,14 +5,10 @@ export function define(g: PlangsGraph) {
     .set("pl+swift", {
       name: "Swift",
       description:
-        "Swift is a general-purpose programming language that’s approachable for newcomers and powerful for experts. It is fast, modern, safe, and a joy to write. Swift was developed by Apple Inc. and open-source contributors as a replacement for Objective-C. Swift's syntax is simple yet powerful, incorporating concepts from various languages. It was first released on June 2, 2014, and has become the primary language for Apple platform development.",
-      keywords: ["Apple", "Xcode", "swift"],
+        "Swift is a powerful and intuitive programming language developed by Apple Inc. for iOS, macOS, watchOS, and tvOS app development. It was introduced in 2014 as an alternative to Objective-C, designed for safety, performance, and modern software design patterns.",
+      keywords: ["apple", "ios", "macos", "swift", "xcode"],
       extensions: [".swift"],
-      releases: [
-        { version: "5.10.1", name: "Swift 5.10.1", date: "2024-06-05" },
-        { version: "6.0.1", name: "Swift 6.0.1", date: "2024-09-27" },
-        { version: "6.0", name: "Swift 6.0", date: "2024-01-01" },
-      ],
+      releases: [{ version: "6.0.1", date: "2024-09-27" }],
       stackovTags: ["swift"],
       githubName: "Swift",
       languishRanking: 17,
@@ -24,8 +20,12 @@ export function define(g: PlangsGraph) {
       extRedditPath: "swift",
       extHomeURL: "https://www.swift.org/",
       created: "2014",
+      isTranspiler: false,
+      shortDesc: "Swift is a programming language developed by Apple Inc. for its platforms with a focus on safety and performance.",
+      githubStars: 67700,
+      extGithubPath: "swiftlang/swift",
     })
-    .relInfluencedBy.add("pl+c", "pl+c-sharp", "pl+d", "pl+haskell", "pl+lisp", "pl+python", "pl+ruby", "pl+rust")
+    .relInfluencedBy.add("pl+c", "pl+c-sharp", "pl+d", "pl+haskell", "pl+lisp", "pl+objective-c", "pl+python", "pl+ruby", "pl+rust", "pl+scala")
     .relLicenses.add("lic+apache")
     .relParadigms.add(
       "para+concurrent",
@@ -55,7 +55,8 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
       "tag+server",
     )
-    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong");
+    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong")
+    .relWrittenWith.add("pl+c++");
 
   // TOOLS
 

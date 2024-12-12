@@ -19,16 +19,21 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extRedditPath: "vlang",
       extWikipediaPath: "V_(programming_language)",
-      extHomeURL: "http://vlang.io/",
+      extHomeURL: "https://vlang.io",
       created: "2019",
+      shortDesc: "V is a statically typed, compiled language emphasizing simplicity and performance.",
+      githubStars: 35900,
+      extGithubPath: "vlang/v",
+      ghRepoCreated: "2019-06-22",
     })
     .relCompilesTo.add("pl+c")
-    .relInfluencedBy.add("pl+go", "pl+rust", "pl+swift")
+    .relInfluencedBy.add("pl+go", "pl+nim", "pl+rust", "pl+swift")
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+concurrent", "para+functional", "para+imperative", "para+structured")
+    .relParadigms.add("para+compiled", "para+concurrent", "para+functional", "para+imperative", "para+structured")
     .relPlatforms.add("plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64")
     .relTags.add("tag+compiler", "tag+interpreters", "tag+scripting")
-    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong");
+    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong")
+    .relWrittenWith.add("pl+c");
 
   // TOOLS
 

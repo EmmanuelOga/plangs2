@@ -4,15 +4,11 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+vala", {
       name: "Vala",
-      description:
-        "Vala is an object-oriented programming language with a self-hosting compiler that generates C code and uses the GObject system. It incorporates modern programming language features with minimal runtime requirements, using the same ABI as C libraries and applications, making it ideal for GNOME development.",
-      keywords: ["cross-platform", "gnome", "gobject", "object-oriented", "vala"],
+      description: "Vala is an object-oriented programming language with a self-hosting compiler that generates C code and uses the GObject system.",
+      keywords: ["cross-platform", "gobject", "object-oriented", "vala"],
       extensions: [".vala", ".vapi"],
-      isTranspiler: true,
-      releases: [
-        { version: "0.56.17", name: "Vala 0.56.17", date: "2024-04-19" },
-        { version: "0.57.0", name: "Vala 0.57", date: "2023-04-11" },
-      ],
+      isTranspiler: false,
+      releases: [{ version: "0.56.17", name: "Vala 0.56.17", date: "2024-04-19" }],
       stackovTags: ["vala"],
       githubName: "Vala",
       languishRanking: 121,
@@ -24,6 +20,10 @@ export function define(g: PlangsGraph) {
       extRedditPath: "vala",
       extHomeURL: "https://wiki.gnome.org/Projects/Vala",
       created: "2006",
+      shortDesc: "Vala is an object-oriented language that generates C code using the GObject system.",
+      githubStars: 824,
+      extGithubPath: "GNOME/vala",
+      ghRepoCreated: "2007-12-10",
     })
     .relCompilesTo.add("pl+c")
     .relInfluencedBy.add("pl+boo", "pl+c", "pl+c-sharp", "pl+d")

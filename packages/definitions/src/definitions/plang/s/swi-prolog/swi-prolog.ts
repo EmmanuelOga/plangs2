@@ -13,8 +13,14 @@ export function define(g: PlangsGraph) {
         { version: "9.3.2", name: "SWI-Prolog 9.3.2", date: "2024-02-29" },
       ],
       extWikipediaPath: "SWI-Prolog",
-      extHomeURL: "http://swi-prolog.org/",
+      extHomeURL: "https://swi-prolog.org/",
       created: "1987",
+      isTranspiler: false,
+      shortDesc:
+        "SWI-Prolog is an open-source implementation of Prolog, focused on versatility and rich libraries for applications like the semantic web.",
+      githubStars: 991,
+      extGithubPath: "SWI-Prolog/swipl-devel",
+      ghRepoCreated: "2012-11-05",
     })
     .relImplements.add("pl+prolog")
     .relInfluencedBy.add("pl+prolog")

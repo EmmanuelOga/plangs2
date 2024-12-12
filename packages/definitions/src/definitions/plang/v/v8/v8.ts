@@ -17,8 +17,13 @@ export function define(g: PlangsGraph) {
       extensions: [".cjs", ".js", ".mjs"],
       extWikipediaPath: "JavaScript",
       extRedditPath: "javascript",
-      extHomeURL: "https://v8.dev/",
+      extHomeURL: "https://v8.dev",
       created: "2008",
+      isTranspiler: false,
+      shortDesc: "V8 is Google's open-source high-performance JavaScript engine used in Chrome and Node.js.",
+      extGithubPath: "v8/v8",
+      ghRepoCreated: "2015-12-11",
+      githubStars: 23600,
     })
     .relImplements.add("pl+javascript")
     .relLicenses.add("lic+bsd")

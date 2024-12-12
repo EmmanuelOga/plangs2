@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+txl", {
       name: "TXL",
       description:
-        'TXL is a special-purpose programming language originally designed by Charles Halpern-Hamu and James Cordy at the University of Toronto in 1985. It is primarily used for creating, manipulating, and prototyping programming languages and language tools. The name "TXL" originally stood for "Turing eXtender Language" but has since evolved beyond that specific application.',
-      keywords: ["pattern-matching", "source transformation", "term-rewriting", "txl"],
+        "TXL is a domain-specific language designed for creating, manipulating, and prototyping programming languages. Developed in 1985 by Charles Halpern-Hamu and James Cordy, it utilizes term-rewriting and pattern-matching techniques.",
+      keywords: ["language prototyping", "pattern-matching", "term-rewriting", "txl"],
       extensions: [".txl"],
       isTranspiler: false,
       githubName: "TXL",
@@ -18,10 +18,11 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "TXL_(programming_language)",
       extHomeURL: "https://www.txl.ca/",
       created: "1985",
+      shortDesc: "TXL is a language for creating and manipulating programming languages with pattern-matching.",
     })
     .relParadigms.add("para+dsl", "para+language-oriented", "para+pattern-matching", "para+rewriting")
     .relPlatforms.add("plat+cross")
-    .relTags.add("tag+analysis", "tag+interpreters", "tag+workflow")
+    .relTags.add("tag+analysis", "tag+interpreters", "tag+languages", "tag+workflow")
     .relTypeSystems.add("tsys+untyped");
 
   // TOOLS
