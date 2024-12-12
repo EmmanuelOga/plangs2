@@ -12,8 +12,8 @@ export function define(g: PlangsGraph) {
       githubPopular: true,
       githubType: "programming",
       description:
-        "PowerShell is a task automation and configuration management program from Microsoft, consisting of a command-line shell and the associated scripting language. It is notable for its support for task automation across local and remote systems.",
-      keywords: ["Microsoft", "PowerShell", "command-line shell", "configuration management", "cross-platform", "open-source", "task automation"],
+        "PowerShell is a task automation and configuration management framework from Microsoft, providing a command-line shell and scripting language for automating administrative tasks.",
+      keywords: ["automation", "command-line", "microsoft", "powershell", "scripting"],
       extensions: [".cdxml", ".ps1", ".ps1xml", ".psc1", ".psd1", ".psm1", ".psrc", ".pssc"],
       releases: [
         { version: "7.0", name: "PowerShell 7", date: "2020-03-04" },
@@ -21,12 +21,18 @@ export function define(g: PlangsGraph) {
       ],
       extWikipediaPath: "PowerShell",
       extRedditPath: "PowerShell",
-      extHomeURL: "https://microsoft.com/powershell",
+      extHomeURL: "https://microsoft.com/PowerShell",
       created: "2006",
+      isTranspiler: false,
+      shortDesc: "PowerShell is a shell and scripting language from Microsoft.",
+      githubStars: 45800,
+      extGithubPath: "PowerShell/PowerShell",
+      ghRepoCreated: "2016-08-18",
     })
+    .relInfluencedBy.add("pl+batchfile")
     .relLicenses.add("lic+mit")
     .relParadigms.add("para+functional", "para+imperative", "para+oop", "para+pipeline", "para+reflective")
-    .relPlatforms.add("plat+linux", "plat+windows")
+    .relPlatforms.add("plat+cross", "plat+linux", "plat+windows")
     .relTags.add("tag+automation", "tag+cli", "tag+scripting")
     .relTypeSystems.add("tsys+dynamic", "tsys+safe", "tsys+strong");
 

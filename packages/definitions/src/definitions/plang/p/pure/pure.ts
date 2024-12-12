@@ -12,6 +12,11 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Pure_(programming_language)",
       extHomeURL: "http://agraef.github.io/pure-lang",
       created: "2008",
+      isTranspiler: false,
+      shortDesc:
+        "Pure is a dynamically typed, functional programming language based on term rewriting, integrating symbolic computation and JIT compilation via LLVM.",
+      githubStars: 317,
+      extGithubPath: "agraef/pure-lang",
     })
     .relInfluencedBy.add("pl+haskell", "pl+lisp")
     .relLicenses.add("lic+lgpl")

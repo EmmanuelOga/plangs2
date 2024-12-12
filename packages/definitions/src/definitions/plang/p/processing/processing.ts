@@ -18,8 +18,12 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "Processing_(programming_language)",
       extRedditPath: "processing",
-      extHomeURL: "http://processing.org/",
+      extHomeURL: "https://processing.org/",
       created: "2001",
+      isTranspiler: false,
+      shortDesc: "Processing is a language for visual and multimedia programming.",
+      githubStars: 6500,
+      extGithubPath: "processing/processing",
     })
     .relInfluencedBy.add("pl+c", "pl+java")
     .relLicenses.add("lic+gnu-gpl", "lic+lgpl")

@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+prolog", {
       name: "Prolog",
       description:
-        "Prolog is a logic programming language that has its origins in artificial intelligence, automated theorem proving and computational linguistics. It is influenced by first-order logic and is primarily used for declarative programming.",
+        "Prolog is a logic programming language that has its roots in artificial intelligence, automated theorem proving, and computational linguistics, influenced by first-order logic for declarative programming.",
       keywords: ["prolog"],
       extensions: [".P", ".pl", ".pro"],
       stackovTags: ["prolog"],
@@ -16,13 +16,14 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       releases: [
-        { version: "ISO/IEC 13211-1", name: "General core - Edition 1", date: "1995-06" },
+        { version: "ISO/IEC 13211-1", name: "General - Edition 1", date: "1995-06" },
         { version: "ISO/IEC 13211-2", name: "Modules - Edition 1", date: "2000-06" },
       ],
       extWikipediaPath: "Prolog",
       extRedditPath: "prolog",
-      extHomeURL: "https://www.iso.org/standard/21413.html",
       created: "1972",
+      isTranspiler: false,
+      shortDesc: "Prolog is a logic programming language used in AI and theorem proving, influenced by first-order logic for declarative tasks.",
     })
     .relParadigms.add("para+declarative", "para+logic")
     .relPlatforms.add("plat+cross", "plat+linux", "plat+windows")
