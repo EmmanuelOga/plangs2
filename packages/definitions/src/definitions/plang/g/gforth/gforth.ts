@@ -15,6 +15,8 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Gforth",
       extHomeURL: "http://gnu.org/s/gforth/",
       created: "1992",
+      isTranspiler: false,
+      shortDesc: "Gforth is a free and portable implementation of the Forth language adhering to the ANS Forth standard.",
     })
     .relImplements.add("pl+forth")
     .relLicenses.add("lic+gnu-gpl")

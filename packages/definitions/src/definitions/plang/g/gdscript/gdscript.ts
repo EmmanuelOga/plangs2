@@ -5,15 +5,12 @@ export function define(g: PlangsGraph) {
     .set("pl+gdscript", {
       name: "GDScript",
       description:
-        "GDScript is a high-level, dynamically typed programming language used to create content within the Godot Engine. It is influenced by Python and designed specifically for ease of use within game development. It is lightweight yet expressive, offering flexibility particularly for rapid prototyping and development within the Godot ecosystem.",
-      keywords: ["gdscript", "godot engine"],
+        "GDScript is a high-level, dynamically typed programming language tailored for the Godot Engine, influenced by Python, facilitating gameplay scripting and rapid prototyping.",
+      keywords: ["gdscript", "godot"],
       extensions: [".gd"],
       releases: [
-        { version: "3.6", name: "Godot 3.6", date: "2024-09-09" },
-        { version: "4.0", name: "Godot 4.0", date: "2023-03-01" },
-        { version: "4.1", name: "Godot 4.1", date: "2023-07-01" },
-        { version: "4.2", name: "Godot 4.2", date: "2023-11-30" },
-        { version: "4.3", name: "Godot 4.3", date: "2024-08-15" },
+        { version: "3.6", date: "2024-09-09" },
+        { version: "4.3", date: "2024-08-15" },
       ],
       stackovTags: ["godot"],
       githubName: "GDScript",
@@ -26,6 +23,10 @@ export function define(g: PlangsGraph) {
       extRedditPath: "godot",
       extHomeURL: "https://godotengine.org/",
       created: "2014",
+      isTranspiler: false,
+      shortDesc: "GDScript is a high-level, dynamically typed language for the Godot Engine.",
+      githubStars: 91800,
+      extGithubPath: "godotengine/godot",
     })
     .relInfluencedBy.add("pl+python")
     .relLicenses.add("lic+mit")

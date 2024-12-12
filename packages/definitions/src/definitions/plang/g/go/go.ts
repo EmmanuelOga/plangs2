@@ -23,6 +23,10 @@ export function define(g: PlangsGraph) {
       extRedditPath: "golang",
       extHomeURL: "https://go.dev/",
       created: "2009",
+      isTranspiler: false,
+      shortDesc: "Go is a statically typed, compiled language with memory safety and CSP-style concurrency, designed at Google.",
+      extGithubPath: "golang/go",
+      githubStars: 124500,
     })
     .relInfluencedBy.add("pl+apl", "pl+c", "pl+d", "pl+erlang", "pl+pascal", "pl+python")
     .relLicenses.add("lic+bsd")

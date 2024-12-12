@@ -15,6 +15,8 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "GNAT",
       extHomeURL: "http://www.getadanow.com/",
       created: "1995",
+      isTranspiler: false,
+      shortDesc: "GNAT is a free Ada compiler in the GCC suite, supporting all Ada versions.",
     })
     .relImplements.add("pl+ada")
     .relLicenses.add("lic+gnu-gpl")

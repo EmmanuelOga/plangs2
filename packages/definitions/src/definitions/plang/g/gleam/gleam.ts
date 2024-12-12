@@ -5,15 +5,11 @@ export function define(g: PlangsGraph) {
     .set("pl+gleam", {
       name: "Gleam",
       description:
-        "Gleam is a general-purpose, concurrent, functional high-level programming language that compiles to Erlang or JavaScript source code. It features a type-safe, static, inferred typing discipline and runs on the Erlang virtual machine BEAM, known for its reliability, scalability, and fault tolerance.",
+        "Gleam is a general-purpose, functional programming language designed for reliability and scale, running on the Erlang VM BEAM, and compiles to both Erlang and JavaScript. It employs a type-safe, static, and inferred typing system which enhances its concurrent programming capabilities.",
       keywords: ["concurrent", "erlang", "functional", "gleam", "javascript", "type-safe"],
       extensions: [".gleam"],
       isTranspiler: true,
-      releases: [
-        { version: "1.0.0", name: "Version 1.0.0", date: "2024-03-04" },
-        { version: "1.5.1", name: "Version 1.5.1", date: "2024-09-26" },
-        { version: "1.4.1", name: "Version 1.4.1", date: "2024-01-01" },
-      ],
+      releases: [{ version: "1.6.3", date: "2024-12-03" }],
       stackovTags: ["gleam"],
       githubName: "Gleam",
       languishRanking: 150,
@@ -23,16 +19,21 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "Gleam_(programming_language)",
       extRedditPath: "gleamlang",
-      extHomeURL: "https://gleam.run/",
+      extHomeURL: "https://gleam.run",
       created: "2016",
+      shortDesc:
+        "Gleam is a general-purpose, functional language that compiles to Erlang and JavaScript, featuring static, inferred typing for concurrent programming.",
+      githubStars: 18200,
+      extGithubPath: "gleam-lang/gleam",
+      ghRepoCreated: "2016-12-17",
     })
-    .relCompilesTo.add("pl+javascript")
+    .relCompilesTo.add("pl+erlang", "pl+javascript")
     .relInfluencedBy.add("pl+elixir", "pl+erlang", "pl+go", "pl+javascript", "pl+ocaml", "pl+rust")
     .relLicenses.add("lic+apache")
     .relParadigms.add("para+concurrent", "para+functional", "para+multi")
-    .relPlatforms.add("plat+apple", "plat+beam", "plat+bsd", "plat+cross", "plat+linux", "plat+windows")
+    .relPlatforms.add("plat+apple", "plat+beam", "plat+bsd", "plat+cross", "plat+linux", "plat+web", "plat+windows")
     .relTags.add("tag+compiler", "tag+framework", "tag+interpreters")
-    .relTypeSystems.add("tsys+inferred", "tsys+safe", "tsys+static")
+    .relTypeSystems.add("tsys+inferred", "tsys+safe", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+rust");
 
   // TOOLS
