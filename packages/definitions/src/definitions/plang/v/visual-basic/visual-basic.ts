@@ -5,10 +5,10 @@ export function define(g: PlangsGraph) {
     .set("pl+visual-basic", {
       name: "Visual Basic",
       description:
-        "Visual Basic (VB), originally called Visual Basic .NET (VB.NET), is a multi-paradigm, object-oriented programming language, implemented on .NET, Mono, and the .NET Framework. Microsoft launched VB.NET in 2002 as the successor to its original Visual Basic language, the last version of which was Visual Basic 6.0. Along with C# and F#, it is one of the three main languages targeting the .NET ecosystem. Microsoft's integrated development environment for Visual Basic is Visual Studio, and it is often used in conjunction with the Windows Forms GUI library to create desktop applications for Windows.",
-      keywords: ["vb", "vb.net", "visual basic", "visualbasic"],
+        "Visual Basic is a multi-paradigm, object-oriented programming language developed by Microsoft, implemented on the .NET Framework and Mono. It was launched as the successor to the original Visual Basic language for developing Windows applications with a graphical user interface.",
+      keywords: ["vb", "vb.net", "visual-basic"],
       extensions: [".vb"],
-      releases: [{ version: "17.9.2", name: "Visual Basic 17.9.2", date: "2024-02-27" }],
+      releases: [{ version: "16.9", date: "2024-03-02" }],
       stackovTags: ["vb.net"],
       githubName: "Visual Basic .NET",
       languishRanking: 260,
@@ -19,7 +19,11 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Visual_Basic_.NET",
       extRedditPath: "visualbasic",
       extHomeURL: "https://docs.microsoft.com/dotnet/visual-basic/",
-      created: "2001",
+      created: "2002",
+      isTranspiler: false,
+      shortDesc: "Visual Basic is a multi-paradigm language developed by Microsoft for Windows applications.",
+      githubStars: 19100,
+      extGithubPath: "dotnet/roslyn",
     })
     .relImplements.add("pl+basic")
     .relInfluencedBy.add("pl+basic", "pl+haskell", "pl+visual-basic")

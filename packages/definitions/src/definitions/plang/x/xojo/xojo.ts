@@ -21,11 +21,14 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "Xojo",
       extRedditPath: "xojo",
-      extHomeURL: "http://xojo.com/",
+      extHomeURL: "https://www.xojo.com",
       created: "1996",
+      isTranspiler: false,
+      shortDesc: "Xojo is a cross-platform development tool and proprietary object-oriented programming language for building native applications.",
     })
     .relImplements.add("pl+basic")
     .relInfluencedBy.add("pl+basic", "pl+visual-basic")
+    .relLicenses.add("lic+proprietary")
     .relParadigms.add("para+multi", "para+oop", "para+visual")
     .relPlatforms.add("plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+raspberry", "plat+web", "plat+windows")
     .relTags.add("tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+gui", "tag+industrial", "tag+interpreters", "tag+rad")

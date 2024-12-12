@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+whiley", {
       name: "Whiley",
       description:
-        'Whiley is an experimental programming language that combines features from the functional and imperative paradigms, and supports formal specification through function preconditions, postconditions and loop invariants. The language uses flow-sensitive typing also known as "flow typing."',
+        "Whiley is an experimental programming language that combines features from the functional and imperative paradigms, and supports formal specification through function preconditions, postconditions, and loop invariants.",
       keywords: ["whiley"],
       extensions: [".whiley"],
       releases: [{ version: "0.6.1", name: "", date: "2022-06-27" }],
@@ -15,8 +15,12 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       extWikipediaPath: "Whiley_(programming_language)",
-      extHomeURL: "http://whiley.org/",
+      extHomeURL: "http://whiley.org",
       created: "2010",
+      isTranspiler: false,
+      shortDesc: "Whiley supports functional and imperative paradigms and facilitates formal specification through contracts.",
+      githubStars: 220,
+      extGithubPath: "Whiley/WhileyCompiler",
     })
     .relInfluencedBy.add("pl+c", "pl+python", "pl+rust")
     .relLicenses.add("lic+bsd")

@@ -5,11 +5,17 @@ export function define(g: PlangsGraph) {
     .set("pl+vvvv", {
       name: "vvvv",
       description:
-        'vvvv (German pronunciation: [faʊfiːɐ̯] = "Vau Vier" or "v4") is a digital general-purpose toolkit with a special focus on real-time video synthesis and programming large media environments with physical interfaces, real-time motion graphics, audio, and video. vvvv uses a dataflow approach and a visual programming interface for rapid prototyping and development. Applications written in vvvv are commonly called patches. Patches consist of a network of vertices and can be created, edited, and tested while they are running. Patches are stored on disk in standard XML format. vvvv is written in Borland Delphi, and plugins can be developed in the .NET Framework in C#.',
-      keywords: ["dataflow", "media environments", "real-time video synthesis", "visual programming", "vvvv"],
+        "vvvv is a visual programming environment designed for creating and implementing complex media installations, allowing developers to create applications using video, audio, and interaction design in real-time. It features a node-based dataflow approach for rapid prototyping, suitable for designers and developers working with physical computing and multimedia applications.",
+      keywords: ["dataflow", "media applications", "real-time interaction", "visual programming", "vvvv"],
       extWikipediaPath: "Vvvv",
-      extHomeURL: "http://www.vvvv.org/",
+      extHomeURL: "https://vvvv.org/",
       created: "1998",
+      isTranspiler: false,
+      releases: [{ version: "beta40", name: "beta40", date: "2020-12-01" }],
+      shortDesc: "vvvv is a visual programming platform for multimedia applications with a focus on real-time interaction.",
+      githubStars: 234,
+      extGithubPath: "vvvv/vvvv-sdk",
+      ghRepoCreated: "2011-05-01",
     })
     .relInfluencedBy.add("pl+apl", "pl+max-msp")
     .relParadigms.add("para+dataflow", "para+multi", "para+visual")
@@ -26,7 +32,8 @@ export function define(g: PlangsGraph) {
       "tag+ray-tracer",
       "tag+video",
     )
-    .relTypeSystems.add("tsys+strong");
+    .relTypeSystems.add("tsys+dynamic", "tsys+strong")
+    .relWrittenWith.add("pl+c-sharp");
 
   // TOOLS
 

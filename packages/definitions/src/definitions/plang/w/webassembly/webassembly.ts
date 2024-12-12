@@ -13,7 +13,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       description:
         "WebAssembly (Wasm) is a binary instruction format for a stack-based virtual machine. It is designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications.",
-      keywords: ["Wasm", "WebAssembly", "binary code", "high-performance applications", "portable", "stack machine", "virtual machine", "web"],
+      keywords: ["binary code", "portable", "stack machine", "virtual machine", "wasm", "web", "webassembly"],
       extensions: [".wasm", ".wat"],
       releases: [
         { version: "1.0", name: "Initial Release", date: "2017-03" },
@@ -24,7 +24,13 @@ export function define(g: PlangsGraph) {
       extRedditPath: "WebAssembly",
       extHomeURL: "https://webassembly.org",
       created: "2017",
+      isTranspiler: false,
+      shortDesc: "WebAssembly (Wasm) is a binary instruction format for a stack-based virtual machine.",
+      links: [{ url: "https://github.com/WebAssembly", title: "GitHub Org" }],
+      extGithubPath: "WebAssembly",
     })
+    .relImplements.add("pl+assembly", "pl+javascript")
+    .relInfluencedBy.add("pl+javascript", "pl+llvm")
     .relLicenses.add("lic+apache")
     .relParadigms.add("para+stack-oriented", "para+structured")
     .relPlatforms.add("plat+cross", "plat+web")
