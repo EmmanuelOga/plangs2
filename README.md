@@ -79,6 +79,4 @@ This simplistic build process just outputs the statically generated contents of 
 - [ ] Resize all Thumbn to 128x128.
 - [ ] Platform Icons.
 - [ ] Add support for drag/drop resize of elements (node-info and facets-main).
-
-- [ ] Add a footer.
 - [ ] Gray out facets that won't add to the selection.

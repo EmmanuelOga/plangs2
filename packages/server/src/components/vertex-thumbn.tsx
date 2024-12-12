@@ -1,7 +1,6 @@
 import type { JSX } from "preact/jsx-runtime";
 
 import { tw } from "@plangs/frontend/auxiliar/styles";
-import { VPlang } from "@plangs/plangs/graph";
 import type { PlangsVertex } from "@plangs/plangs/graph/vertex_base";
 import { cssClass } from "@plangs/server/elements";
 import { dataset } from "@plangs/server/utils/html";
