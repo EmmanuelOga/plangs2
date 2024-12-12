@@ -50,10 +50,14 @@ async function plangPrompt(pg: PlangsGraph, pl: VPlang, examplePl: VPlang): Prom
         `Describe the "${pl.name}" programming language, which we give id key "${pl.key}".`,
         "You will be given unstructured text from websites about a programming language, and should convert it into the given structure.",
         "If you don't find a good match for a field, you can leave it empty.",
-        "For instance, you can live the field compileTo as an empty array if the language is not a transpiler.",
+        "For instance, you can leave the field compileTo as an empty array if the language is not a transpiler.",
+        "If you don't have 99% certainty about releases and other fields, don't fill anything.",
         "When adding keywords, bear in mind that keywords should help identify the language in raw text,",
         "and not be generic terms, so a term like 'programming language' is not useful since it could match any and all languages.",
         "Use your own understanding of the language, if you know it, but prioritize the information provided by me.",
+        "The 'description' SHOULD be information dense, but not long, perhaps 1 to 3 sentences.",
+        "The 'description' SHOULD NOT include superfluous adjectives or generalization like 'used in many applications', which don't really provide valuable information.",
+        "The 'shortDesc' should be an abbreviated, short, one-sentence version of the 'description' field.",
         "I'll provide some data and an example of what a good result looks like.",
       ].join("\n"),
     },
@@ -145,6 +149,7 @@ function examplePl(pg: PlangsGraph): VPlang {
 async function enrichOne(key: VPlangKey) {
   const pg = new PlangsGraph();
   await loadDefinitions(pg, { scanImages: false });
+  pg.materialize();
 
   const pl = pg.plang.get(process.argv[2] as VPlangKey);
   if (pl) {
@@ -161,6 +166,7 @@ async function enrichOne(key: VPlangKey) {
 async function enrichAll() {
   const pg = new PlangsGraph();
   await loadDefinitions(pg, { scanImages: false });
+  pg.materialize();
 
   for (const pl of pg.plang.values) {
     await aiCompletion(pg, pl, examplePl(pg));
