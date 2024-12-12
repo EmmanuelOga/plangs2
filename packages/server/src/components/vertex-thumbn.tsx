@@ -38,7 +38,7 @@ export function VertexThumbn({ vertex, onlyImg, class: klass }: { class?: string
         )}>
         <img
           loading="lazy"
-          src={onlyImg ? vertex.thumbUrl : PLACEHOLDER}
+          src={onlyImg ? (vertex.thumbUrl ?? PLACEHOLDER) : PLACEHOLDER}
           alt={vertex.name}
           data-src={vertex.thumbUrl ?? ""}
           class={tw(cssClass("vertexThumbnImg"), "max-h-full max-w-full object-contain")}
