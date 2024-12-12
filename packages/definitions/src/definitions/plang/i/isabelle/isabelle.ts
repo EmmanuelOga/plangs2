@@ -23,6 +23,8 @@ export function define(g: PlangsGraph) {
       extRedditPath: "isabelle",
       extHomeURL: "https://isabelle.in.tum.de/",
       created: "1986",
+      isTranspiler: false,
+      shortDesc: "Isabelle is an automated theorem prover for formalizing mathematical proofs in higher-order logic.",
     })
     .relInfluencedBy.add("pl+haskell")
     .relLicenses.add("lic+bsd")

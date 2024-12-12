@@ -19,8 +19,12 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "Inform",
       extRedditPath: "Inform7",
-      extHomeURL: "https://ganelson.github.io/inform-website/",
+      extHomeURL: "https://inform7.com/",
       created: "1993",
+      isTranspiler: false,
+      shortDesc: "Inform is a programming language for interactive fiction, supporting natural language sentence story writing.",
+      githubStars: 1300,
+      extGithubPath: "ganelson/inform",
     })
     .relLicenses.add("lic+artistic")
     .relParadigms.add("para+declarative", "para+dsl", "para+natural-language", "para+oop", "para+procedural")

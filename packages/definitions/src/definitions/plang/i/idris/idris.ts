@@ -8,10 +8,7 @@ export function define(g: PlangsGraph) {
         "Idris is a purely-functional programming language, designed for Type-Driven Development with dependent types, optional lazy evaluation, and features such as a totality checker. It serves as both a general-purpose language and a proof assistant.",
       keywords: ["dependent types", "functional programming", "idris", "type-driven development"],
       extensions: [".idr", ".lidr"],
-      releases: [
-        { version: "1.3.4", name: "Idris 1.3.4", date: "2021-10-22" },
-        { version: "0.7.0", name: "Idris 2 v0.7.0", date: "2023-12-22" },
-      ],
+      releases: [{ version: "0.7.0", name: "Idris 2 v0.7.0", date: "2023-12-22" }],
       stackovTags: ["idris"],
       githubName: "Idris",
       languishRanking: 274,
@@ -23,6 +20,10 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Idris",
       extHomeURL: "http://idris-lang.org/",
       created: "2007",
+      isTranspiler: false,
+      shortDesc: "Idris is a purely-functional language for Type-Driven Development with dependent types and optional lazy evaluation.",
+      githubStars: 2500,
+      extGithubPath: "idris-lang/Idris2",
     })
     .relInfluencedBy.add("pl+agda", "pl+clean", "pl+coq", "pl+f-sharp", "pl+haskell", "pl+rust")
     .relLicenses.add("lic+bsd")

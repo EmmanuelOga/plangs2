@@ -5,17 +5,18 @@ export function define(g: PlangsGraph) {
     .set("pl+ironpython", {
       name: "IronPython",
       description:
-        "IronPython is an open-source implementation of the Python programming language, targeting the .NET and Mono frameworks. It is tightly integrated with .NET, enabling the use of .NET libraries in Python code and vice versa. IronPython is ideal for developers looking to leverage .NET's ecosystem while writing Python scripts. It is currently maintained by volunteers on GitHub and is open-source under the Apache License 2.0.",
-      keywords: [".net", "clr", "dlr", "ironpython", "mono", "python"],
+        "IronPython is an open-source implementation of Python, designed to work seamlessly with the .NET and Mono frameworks, allowing for the integration of .NET libraries within Python code. It provides a bridge between Python scripting and the .NET runtime, enabling developers to leverage .NET's extensive libraries.",
+      keywords: ["ironpython", "python"],
       extensions: [".py", ".pyi"],
-      releases: [
-        { version: "3.4.1", name: "3.4.1", date: "2023-07-12" },
-        { version: "3.4.0", name: "3.4.0", date: "2022-12-12" },
-        { version: "2.7.12", name: "2.7.12", date: "2022-01-21" },
-      ],
+      releases: [{ version: "3.4.1", name: "3.4.1", date: "2023-07-12" }],
       extWikipediaPath: "IronPython",
       extHomeURL: "https://ironpython.net/",
       created: "2006",
+      isTranspiler: false,
+      shortDesc: "IronPython is an open-source implementation of Python for the .NET framework.",
+      githubStars: 2500,
+      extGithubPath: "IronLanguages/ironpython3",
+      ghRepoCreated: "2014-02-13",
     })
     .relImplements.add("pl+python")
     .relInfluencedBy.add("pl+.net", "pl+c-sharp")

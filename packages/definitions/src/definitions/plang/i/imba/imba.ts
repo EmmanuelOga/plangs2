@@ -9,10 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["full-stack", "imba", "javascript", "web"],
       extensions: [".imba"],
       isTranspiler: true,
-      releases: [
-        { version: "v1.5.0", name: "Imba 1.5.0", date: "2020-06-15" },
-        { version: "v2.0.0", name: "Imba 2.0.0", date: "2022-10-12" },
-      ],
+      releases: [{ version: "2.0.0-alpha.238", date: "2022-11-26" }],
       githubName: "Imba",
       githubLangId: "1057618448",
       githubColor: "#16cec6",
@@ -20,6 +17,10 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extGithubPath: "imba/imba",
       created: "2015",
+      shortDesc: "Imba is a full-stack web language compiling to JavaScript.",
+      extHomeURL: "https://imba.io/",
+      githubStars: 6300,
+      ghRepoCreated: "2014-12-21",
     })
     .relCompilesTo.add("pl+javascript")
     .relInfluencedBy.add("pl+coffeescript")
