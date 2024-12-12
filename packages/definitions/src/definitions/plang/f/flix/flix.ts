@@ -5,16 +5,18 @@ export function define(g: PlangsGraph) {
     .set("pl+flix", {
       name: "Flix",
       description:
-        "Flix is a functional, imperative, and logic programming language developed at Aarhus University, with funding from the Independent Research Fund Denmark, and by a community of open source contributors. The Flix language supports algebraic data types, pattern matching, parametric polymorphism, currying, higher-order functions, extensible records, channel and process-based concurrency, and tail call elimination. Two notable features of Flix are its type and effect system and its support for first-class Datalog constraints.",
+        "Flix is a versatile programming language blending functional, imperative, and logic paradigms, developed at Aarhus University with community contributions. It stands out for its type and effect system alongside support for first-class Datalog constraints.",
       keywords: ["flix"],
       extensions: [".flix"],
-      releases: [
-        { version: "0.1", name: "Flix 0.1", date: "2014-01-01" },
-        { version: "0.6.0", name: "Flix 0.6.0", date: "2021-06-03" },
-      ],
+      releases: [{ version: "0.54.0", date: "2024-09-30" }],
       extWikipediaPath: "Flix_(programming_language)",
       extHomeURL: "https://flix.dev/",
       created: "2015",
+      isTranspiler: false,
+      shortDesc: "Flix is a functional, imperative, and logic language focusing on type and effect systems.",
+      githubStars: 2200,
+      extGithubPath: "flix/flix",
+      ghRepoCreated: "2016-04-03",
     })
     .relInfluencedBy.add("pl+f-sharp", "pl+go", "pl+haskell", "pl+ocaml", "pl+scala")
     .relLicenses.add("lic+apache")

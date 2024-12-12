@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Forth",
       extHomeURL: "https://forth-standard.org/",
       created: "1970",
+      isTranspiler: false,
+      shortDesc: "Forth is a stack-oriented programming language known for its flexibility, efficiency, and use in embedded systems.",
     })
     .relInfluencedBy.add("pl+lisp")
     .relLicenses.add("lic+public-domain")

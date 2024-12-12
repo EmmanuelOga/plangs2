@@ -20,8 +20,12 @@ export function define(g: PlangsGraph) {
       githubColor: "#fff3d7",
       githubPopular: false,
       githubType: "programming",
-      extHomeURL: "https://fennel-lang.org/",
+      extHomeURL: "https://fennel-lang.org",
       created: "2020",
+      shortDesc: "Fennel is a Lua-compatible language with Lisp syntax and macro system.",
+      githubStars: 2500,
+      extGithubPath: "bakpakin/Fennel",
+      ghRepoCreated: "2016-10-14",
     })
     .relCompilesTo.add("pl+lua")
     .relInfluencedBy.add("pl+lua", "pl+scheme")

@@ -5,17 +5,18 @@ export function define(g: PlangsGraph) {
     .set("pl+free-pascal", {
       name: "Free Pascal",
       description:
-        "Free Pascal Compiler (FPC) is a versatile, open source Pascal compiler for Pascal and Object Pascal. It adapts a 'write once, compile anywhere' approach, supporting numerous architectures and operating systems, with capabilities for inline assembly and multiple dialect compatibilities. Also known for its transpiler pas2js for converting Pascal to JavaScript.",
-      keywords: ["compiler", "cross-platform", "freepascal", "objectpascal", "pascal"],
+        'Free Pascal is an open-source Pascal and Object Pascal compiler designed to support a wide range of processor architectures and operating systems with its feature-rich environment. It adheres to the "write once, compile anywhere" philosophy and includes functionality for inline assembly and compatibility with multiple Pascal dialects.',
+      keywords: ["cross-platform", "fpc", "freepascal", "object pascal", "pascal"],
       extensions: [".p", ".pas", ".pp"],
-      releases: [
-        { version: "3.2.2", name: "Free Pascal 3.2.2", date: "2021-05-20" },
-        { version: "3.3.1", name: "Free Pascal 3.3.1" },
-      ],
+      releases: [{ version: "3.2.2", date: "2021-05-20" }],
       extWikipediaPath: "Free_Pascal",
-      extHomeURL: "http://www.freepascal.org/",
+      extHomeURL: "https://www.freepascal.org/",
       created: "1993",
+      filenames: ["Makefile"],
+      isTranspiler: false,
+      shortDesc: "Free Pascal is an open-source Pascal compiler supporting multiple architectures and dialects.",
     })
+    .relDialectOf.add("pl+pascal")
     .relImplements.add("pl+pascal")
     .relInfluencedBy.add("pl+pascal")
     .relLicenses.add("lic+gnu-gpl")

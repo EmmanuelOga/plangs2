@@ -5,13 +5,10 @@ export function define(g: PlangsGraph) {
     .set("pl+f-sharp", {
       name: "F#",
       description:
-        "F# (pronounced F sharp) is a general-purpose, high-level, strongly typed, multi-paradigm programming language that encompasses functional, imperative, and object-oriented programming methods. It is most often used as a cross-platform Common Language Infrastructure (CLI) language on .NET, but can also generate JavaScript and graphics processing unit (GPU) code. F# gives you simplicity and succinctness like Python with correctness, robustness and performance beyond C# or Java.",
-      keywords: ["f#", "fsharp"],
+        "F# is a strongly typed, functional-first language that supports both functional and object-oriented programming paradigms, and is commonly used as a cross-platform language on the .NET platform. It offers efficient solutions for statistical and analytical programming challenges.",
+      keywords: ["f-sharp", "fsharp"],
       extensions: [".fs", ".fsi", ".fsscript", ".fsx"],
-      releases: [
-        { version: "8.0", name: "F# 8.0", date: "2023-11-01" },
-        { version: "8.0.0", name: "F# 8.0", date: "2023-01-01" },
-      ],
+      releases: [{ version: "8.0", date: "2023-11" }],
       stackovTags: ["f#"],
       githubName: "F#",
       languishRanking: 94,
@@ -23,10 +20,16 @@ export function define(g: PlangsGraph) {
       extRedditPath: "fsharp",
       extHomeURL: "https://fsharp.org/",
       created: "2005",
+      isTranspiler: false,
+      shortDesc: "F# is a functional-first language on the .NET platform, known for its strong typing and multi-paradigm capabilities.",
+      links: [{ url: "https://docs.microsoft.com/en-us/dotnet/fsharp/", title: "F# Documentation" }],
+      githubStars: 3900,
+      extGithubPath: "dotnet/fsharp",
+      ghRepoCreated: "2012-08-17",
     })
     .relDialectOf.add("pl+ocaml")
     .relInfluencedBy.add("pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ocaml", "pl+python", "pl+scala", "pl+standard-ml")
-    .relLicenses.add("lic+mit")
+    .relLicenses.add("lic+apache", "lic+mit")
     .relParadigms.add(
       "para+agents",
       "para+concurrent",

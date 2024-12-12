@@ -11,6 +11,8 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Frink_(programming_language)",
       extHomeURL: "https://frinklang.org/",
       created: "2001",
+      isTranspiler: false,
+      shortDesc: "Frink performs physical calculations while tracking units of measure.",
     })
     .relLicenses.add("lic+artistic")
     .relParadigms.add("para+functional", "para+imperative", "para+oop")
