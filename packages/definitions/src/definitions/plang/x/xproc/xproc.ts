@@ -21,6 +21,8 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "XProc",
       extHomeURL: "https://xproc.org/",
       created: "2010",
+      isTranspiler: false,
+      shortDesc: "XProc is an XML transformation language for processing documents in pipelines.",
     })
     .relInfluencedBy.add("pl+xml")
     .relParadigms.add("para+declarative", "para+dsl", "para+pipeline")

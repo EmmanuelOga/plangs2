@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+xtend", {
       name: "Xtend",
       description:
-        "Xtend is a general-purpose high-level programming language designed for the Java Virtual Machine (JVM), focusing on a more concise syntax compared to Java. It offers additional functionality such as type inference, extension methods, and operator overloading. Xtend integrates seamlessly with existing Java libraries and supports features known from functional programming like lambda expressions. Developed by typefox and first released in 2011, Xtend compiles to Java code and ensures compatibility with Java's type system, making it accessible for Java developers. It is open source under the Eclipse Public License.",
-      keywords: ["eclipse", "java", "jvm", "programming language", "xtend"],
+        "Xtend is a high-level language for the JVM, offering concise syntax, type inference, and integration with Java libraries. It supports functional programming features and compiles to Java code, ensuring Java compatibility.",
+      keywords: ["eclipse", "java", "jvm", "xtend"],
       extensions: [".xtend"],
       isTranspiler: true,
       releases: [{ version: "2.25.0", name: "Xtend 2.25.0", date: "2021-03-02" }],
@@ -20,6 +20,10 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Xtend",
       extHomeURL: "https://eclipse.dev/Xtext/xtend/",
       created: "2011",
+      shortDesc: "Xtend is a high-level, JVM language that compiles to Java and supports functional programming features.",
+      githubStars: 771,
+      extGithubPath: "eclipse-xtext/xtext",
+      ghRepoCreated: "2011-09-07",
     })
     .relCompilesTo.add("pl+java")
     .relInfluencedBy.add("pl+groovy", "pl+java", "pl+scala")

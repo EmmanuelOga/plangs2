@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+zig", {
       name: "Zig",
       description:
-        "Zig is an imperative, general-purpose, statically typed, compiled system programming language designed by Andrew Kelley. It is intended to serve as a successor to the C language, focusing on robustness, simplicity, and maintainability without hidden control flows or macros. Zig allows seamless integration with C/C++ and aims to provide better performance and safety features compared to traditional C, with manual memory management and optional types. The language is open-source and backed by the Zig Software Foundation.",
+        "Zig is an imperative, general-purpose, statically typed system programming language designed to improve upon C/C++'s features, focusing on robust error handling and performance without hidden control flows or a preprocessor.",
       keywords: ["zig"],
       extensions: [".zig", ".zigr", ".zir", ".zon"],
       releases: [{ version: "0.13.0", name: "Zig 0.13.0", date: "2024-06-06" }],
@@ -18,8 +18,14 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "Zig_(programming_language)",
       extRedditPath: "Zig",
-      extHomeURL: "https://ziglang.org/",
-      created: "2016",
+      extHomeURL: "https://ziglang.org",
+      created: "2015",
+      isTranspiler: false,
+      shortDesc:
+        "Zig is a robust system programming language designed as an improvement over C/C++ with native error handling and performance enhancements.",
+      githubStars: 35400,
+      extGithubPath: "ziglang/zig",
+      ghRepoCreated: "2015-04-28",
     })
     .relInfluencedBy.add("pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust")
     .relLicenses.add("lic+mit")
@@ -36,7 +42,8 @@ export function define(g: PlangsGraph) {
       "tag+testing",
       "tag+viz",
     )
-    .relTypeSystems.add("tsys+generic", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural");
+    .relTypeSystems.add("tsys+generic", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural")
+    .relWrittenWith.add("pl+zig", "pl+c++");
 
   // TOOLS
 

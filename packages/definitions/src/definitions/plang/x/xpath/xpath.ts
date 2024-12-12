@@ -15,6 +15,8 @@ export function define(g: PlangsGraph) {
       ],
       extWikipediaPath: "XPath",
       created: "1998",
+      isTranspiler: false,
+      shortDesc: "XPath is an expression language for querying and transforming XML documents.",
     })
     .relInfluencedBy.add("pl+xslt")
     .relParadigms.add("para+query")

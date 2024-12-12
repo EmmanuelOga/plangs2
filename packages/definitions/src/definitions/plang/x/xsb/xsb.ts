@@ -12,6 +12,8 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "XSB",
       extHomeURL: "https://xsb.sourceforge.net/",
       created: "1993",
+      isTranspiler: false,
+      shortDesc: "XSB is a Prolog dialect with tabled resolution for logic programming and deductive databases.",
     })
     .relDialectOf.add("pl+prolog")
     .relImplements.add("pl+prolog")
