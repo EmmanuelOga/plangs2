@@ -17,6 +17,10 @@ export function define(g: PlangsGraph) {
       extGithubPath: "elves/elvish",
       extHomeURL: "https://elv.sh/",
       created: "2016",
+      isTranspiler: false,
+      shortDesc: "Elvish is a versatile scripting language and interactive shell with cross-platform binary support.",
+      githubStars: 5800,
+      ghRepoCreated: "2016-11-19",
     })
     .relLicenses.add("lic+bsd", "lic+cc-by", "lic+epl")
     .relParadigms.add("para+functional", "para+scripting")

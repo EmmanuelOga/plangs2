@@ -5,17 +5,24 @@ export function define(g: PlangsGraph) {
     .set("pl+extempore", {
       name: "Extempore",
       description:
-        "Extempore is a live coding environment focused on real-time audiovisual software development. It is designed to accommodate the demands of cyber-physical computing. Extempore consists of two integrated languages, Scheme (with extensions) and Extempore Language. It uses the LLVM cross-language compiler to achieve performant digital signal processing and related low-level features, on-the-fly.",
-      keywords: ["extempore"],
+        "Extempore is a programming language aimed at providing a high-performance environment for real-time audiovisual computing. It supports live coding and integrates Scheme with unique extensions, intended to help developers construct cyber-physical systems.",
+      keywords: ["audiovisual", "extempore", "live-coding", "real-time"],
       releases: [{ version: "0.8.9", name: "", date: "2021-05-06" }],
-      extensions: [""],
+      extensions: [".xtm"],
       extWikipediaPath: "Extempore_(software)",
       extGithubPath: "digego/extempore",
       created: "2011",
+      filenames: ["Makefile"],
+      isTranspiler: false,
+      shortDesc: "Extempore is a high-performance language for real-time audiovisual computing and live coding.",
+      extHomeURL: "https://extemporelang.github.io/",
+      githubStars: 1400,
+      ghRepoCreated: "2012-01-15",
     })
+    .relImplements.add("pl+scheme")
     .relInfluencedBy.add("pl+lisp", "pl+scheme")
     .relLicenses.add("lic+bsd")
-    .relParadigms.add("para+functional", "para+multi", "para+real-time")
+    .relParadigms.add("para+functional", "para+interpreted", "para+multi", "para+real-time")
     .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")
     .relTags.add("tag+audio-dev", "tag+compiler", "tag+dsp", "tag+multimedia", "tag+wavelet")
     .relTypeSystems.add("tsys+dynamic", "tsys+static")

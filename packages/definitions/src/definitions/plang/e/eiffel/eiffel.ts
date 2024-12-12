@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+eiffel", {
       name: "Eiffel",
       description:
-        "Eiffel is an object-oriented programming language designed by Bertrand Meyer. It emphasizes software reliability through design by contract, and first appeared in 1986. The language supports multiple inheritance, genericity, polymorphism, encapsulation, and other advanced software engineering concepts. Eiffel is particularly noted for its strong typing and explicit contract design, including preconditions, postconditions, and invariants.",
+        "Eiffel is an object-oriented programming language designed by Bertrand Meyer, which emphasizes software reliability through design by contract. It supports multiple inheritance, genericity, polymorphism, and other advanced software engineering concepts.",
       keywords: ["bertrand meyer", "design by contract", "eiffel", "object-oriented"],
       extensions: [".e"],
       stackovTags: ["eiffel"],
@@ -19,6 +19,8 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Eiffel_(programming_language)",
       extHomeURL: "http://eiffel.org/",
       created: "1986",
+      isTranspiler: false,
+      shortDesc: "Eiffel is an object-oriented programming language emphasizing design by contract.",
     })
     .relInfluencedBy.add("pl+ada")
     .relLicenses.add("lic+dual", "lic+epl")

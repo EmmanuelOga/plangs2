@@ -5,15 +5,10 @@ export function define(g: PlangsGraph) {
     .set("pl+emacs-lisp", {
       name: "Emacs Lisp",
       description:
-        "Emacs Lisp is a Lisp dialect made for Emacs. It is used for implementing most of the editing functionality built into Emacs, the remainder being written in C, as is the Lisp interpreter.",
-      keywords: ["elisp", "emacs", "lisp"],
+        "Emacs Lisp is a dialect of Lisp used for extending the Emacs editor, providing a powerful scripting environment and enabling extensive customization.",
+      keywords: ["elisp", "emacs", "emacs-lisp"],
       extensions: [".el", ".elc", ".eln"],
-      releases: [
-        { version: "29.4", name: "Emacs Lisp 29.4", date: "2024-06-22" },
-        { version: "29.3", name: "Emacs Lisp 29.3", date: "2024-03-24" },
-        { version: "29.2", name: "Emacs Lisp 29.2", date: "2024-01-18" },
-        { version: "29.1", name: "Emacs Lisp 29.1", date: "2023-07-30" },
-      ],
+      releases: [{ version: "29.4", name: "Emacs Lisp 29.4", date: "2024-06-22" }],
       stackovTags: ["elisp"],
       githubName: "Emacs Lisp",
       languishRanking: 70,
@@ -25,11 +20,17 @@ export function define(g: PlangsGraph) {
       extRedditPath: "emacs",
       extHomeURL: "http://www.gnu.org/software/emacs",
       created: "1985",
+      filenames: ["init.el"],
+      isTranspiler: false,
+      shortDesc: "Emacs Lisp is a Lisp dialect for extending the Emacs editor.",
+      links: [{ url: "https://www.emacswiki.org/", title: "EmacsWiki" }],
+      githubStars: 4500,
+      extGithubPath: "emacs-mirror/emacs",
     })
     .relDialectOf.add("pl+lisp")
     .relInfluencedBy.add("pl+common-lisp")
     .relLicenses.add("lic+gnu-gpl")
-    .relParadigms.add("para+functional", "para+metaprogramming", "para+reflective", "para+scripting")
+    .relParadigms.add("para+extensible", "para+functional", "para+metaprogramming", "para+reflective", "para+scripting")
     .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")
     .relTags.add("tag+app", "tag+compiler", "tag+editor", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+shell")
     .relTypeSystems.add("tsys+dynamic", "tsys+strong")

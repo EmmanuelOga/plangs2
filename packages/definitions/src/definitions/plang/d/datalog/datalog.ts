@@ -11,6 +11,8 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Datalog",
       extHomeURL: "http://datalog-specs.info",
       created: "1977",
+      isTranspiler: false,
+      shortDesc: "Datalog is a declarative logic programming language and subset of Prolog, used for deductive databases.",
     })
     .relDialectOf.add("pl+prolog")
     .relInfluencedBy.add("pl+prolog")

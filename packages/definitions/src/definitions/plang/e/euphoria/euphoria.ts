@@ -17,6 +17,11 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Euphoria_(programming_language)",
       extHomeURL: "http://openeuphoria.org/",
       created: "1993",
+      isTranspiler: false,
+      shortDesc:
+        "Euphoria is a user-friendly language focusing on simplicity and readability, popular for various applications on multiple OS platforms.",
+      githubStars: 96,
+      extGithubPath: "OpenEuphoria/euphoria",
     })
     .relInfluencedBy.add("pl+basic")
     .relLicenses.add("lic+bsd")

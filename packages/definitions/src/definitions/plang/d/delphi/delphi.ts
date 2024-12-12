@@ -24,6 +24,9 @@ export function define(g: PlangsGraph) {
       extRedditPath: "pascal",
       extHomeURL: "https://www.embarcadero.com/products/delphi",
       created: "1995",
+      isTranspiler: false,
+      shortDesc:
+        "Delphi is a general-purpose programming language with an IDE for rapid application development, using the Delphi dialect of Object Pascal.",
     })
     .relDialectOf.add("pl+pascal")
     .relImplements.add("pl+pascal")

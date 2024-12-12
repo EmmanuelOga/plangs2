@@ -23,10 +23,14 @@ export function define(g: PlangsGraph) {
       extRedditPath: "elixir",
       extHomeURL: "https://elixir-lang.org/",
       created: "2012",
+      isTranspiler: false,
+      shortDesc: "Elixir is a dynamic, functional language for scalable applications built on Erlang VM.",
+      extGithubPath: "elixir-lang/elixir",
+      githubStars: 24700,
     })
     .relInfluencedBy.add("pl+clojure", "pl+erlang", "pl+lisp", "pl+ruby")
     .relLicenses.add("lic+apache")
-    .relParadigms.add("para+concurrent", "para+distributed", "para+functional", "para+multi", "para+process-oriented")
+    .relParadigms.add("para+concurrent", "para+distributed", "para+functional", "para+metaprogramming", "para+multi", "para+process-oriented")
     .relPlatforms.add("plat+beam")
     .relTags.add("tag+analysis", "tag+app", "tag+embedded", "tag+interpreters", "tag+multimedia", "tag+shell")
     .relTypeSystems.add("tsys+dynamic", "tsys+strong");
