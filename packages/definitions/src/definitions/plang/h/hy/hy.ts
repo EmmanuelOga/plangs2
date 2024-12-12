@@ -9,11 +9,7 @@ export function define(g: PlangsGraph) {
       keywords: ["hy", "hylang", "lisp", "python"],
       extensions: [".hy"],
       isTranspiler: true,
-      releases: [
-        { version: "1.0.0", name: "Hy 1.0", date: "2024-09-22" },
-        { version: "1.0", name: "Hy 1.0", date: "2022-01-01" },
-        { version: "0.29.0", name: "Hy 0.29.0", date: "2024-01-01" },
-      ],
+      releases: [{ version: "1.0.0", name: "Afternoon Review", date: "2024-09-22" }],
       stackovTags: ["hy"],
       githubName: "Hy",
       languishRanking: 201,
@@ -25,6 +21,10 @@ export function define(g: PlangsGraph) {
       extRedditPath: "hylang",
       extHomeURL: "http://hylang.org/",
       created: "2013",
+      shortDesc: "Hy is a Lisp dialect embedded in Python, facilitating seamless integration with Python libraries and syntax.",
+      githubStars: 5100,
+      extGithubPath: "hylang/hy",
+      ghRepoCreated: "2013-02-18",
     })
     .relCompilesTo.add("pl+python")
     .relDialectOf.add("pl+lisp")

@@ -22,6 +22,8 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "HTML",
       extRedditPath: "HTML",
       created: "1993",
+      isTranspiler: false,
+      shortDesc: "HTML is the standard markup language for web pages.",
     })
     .relParadigms.add("para+declarative")
     .relPlatforms.add("plat+web")

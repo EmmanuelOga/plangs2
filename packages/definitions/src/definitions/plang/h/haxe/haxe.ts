@@ -21,6 +21,9 @@ export function define(g: PlangsGraph) {
       extRedditPath: "haxe",
       extHomeURL: "https://haxe.org/",
       created: "2005",
+      shortDesc: "Haxe is a high-level cross-platform language and compiler for multiple platforms.",
+      githubStars: 6200,
+      extGithubPath: "HaxeFoundation/haxe",
     })
     .relCompilesTo.add("pl+actionscript", "pl+c++", "pl+c-sharp", "pl+java", "pl+javascript", "pl+lua", "pl+ocaml", "pl+php", "pl+python")
     .relInfluencedBy.add("pl+actionscript", "pl+c++", "pl+c-sharp", "pl+javascript", "pl+lua", "pl+ocaml", "pl+python")

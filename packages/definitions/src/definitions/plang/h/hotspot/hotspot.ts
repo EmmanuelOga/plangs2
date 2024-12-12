@@ -12,9 +12,11 @@ export function define(g: PlangsGraph) {
         { version: "23.25", name: "JDK 9", date: "2016-01-01" },
       ],
       extWikipediaPath: "HotSpot_(virtual_machine)",
-      extHomeURL: "https://openjdk.org/groups/hotspot/",
       created: "1999",
+      isTranspiler: false,
+      shortDesc: "HotSpot is a Java virtual machine known for its just-in-time compilation and adaptive optimization techniques.",
     })
+    .relImplements.add("pl+java")
     .relInfluencedBy.add("pl+self")
     .relLicenses.add("lic+gnu-gpl")
     .relParadigms.add("para+compiled", "para+concurrent", "para+interpreted")

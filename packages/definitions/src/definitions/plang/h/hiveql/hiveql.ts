@@ -12,8 +12,8 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       description:
-        "HiveQL is a SQL-like query language for Hadoop, developed as part of the Apache Hive project. It is designed for querying and managing large datasets residing in distributed storage.",
-      keywords: ["Apache Hive", "Data Warehousing", "Hadoop", "Hive", "HiveQL", "MapReduce", "SQL"],
+        "HiveQL is a SQL-like query language designed for Hadoop, developed as part of the Apache Hive project, to facilitate querying and managing large datasets residing in distributed storage.",
+      keywords: ["apache-hive", "hadoop", "hiveql", "mapreduce", "sql"],
       extensions: [".hql"],
       releases: [
         { version: "3.1.3", name: "Stable release", date: "2022-04-08" },
@@ -21,7 +21,13 @@ export function define(g: PlangsGraph) {
       ],
       extWikipediaPath: "Apache_Hive",
       created: "2010",
+      isTranspiler: false,
+      shortDesc: "HiveQL is a SQL-like query language for Hadoop developed by Apache Hive.",
+      extHomeURL: "https://hive.apache.org",
+      githubStars: 5600,
+      extGithubPath: "apache/hive",
     })
+    .relInfluencedBy.add("pl+sql")
     .relLicenses.add("lic+apache")
     .relParadigms.add("para+declarative", "para+query")
     .relPlatforms.add("plat+cross")

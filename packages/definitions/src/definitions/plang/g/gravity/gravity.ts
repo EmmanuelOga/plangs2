@@ -5,13 +5,17 @@ export function define(g: PlangsGraph) {
     .set("pl+gravity", {
       name: "Gravity",
       description:
-        "Gravity is a powerful, dynamically typed, lightweight, embeddable programming language written in C without any external dependencies. It supports procedural, object-oriented, functional, and data-driven programming paradigms and is designed for the Creo project.",
-      keywords: ["Creo", "gravity", "programming language", "swift-like syntax"],
+        "Gravity is a lightweight, dynamically typed, embeddable programming language designed for the Creo project. It supports multiple paradigms such as procedural, object-oriented, and functional programming, and takes influence from languages like Lua and Swift.",
+      keywords: ["creo", "gravity", "lua-inspired", "swift-like"],
       extensions: [".gravity"],
       releases: [{ version: "0.8", name: "Gravity 0.8", date: "2023-01-01" }],
-      isTranspiler: true,
+      isTranspiler: false,
       extGithubPath: "marcobambini/gravity",
       created: "2015",
+      shortDesc: "Gravity is a lightweight, embeddable programming language supporting multiple paradigms.",
+      extHomeURL: "https://marcobambini.github.io/gravity/",
+      githubStars: 4300,
+      ghRepoCreated: "2015-07-21",
     })
     .relInfluencedBy.add("pl+lua", "pl+swift")
     .relLicenses.add("lic+mit")

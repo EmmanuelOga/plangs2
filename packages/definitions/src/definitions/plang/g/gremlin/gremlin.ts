@@ -9,8 +9,12 @@ export function define(g: PlangsGraph) {
       keywords: ["apache", "graph traversal", "gremlin", "tinkerpop"],
       releases: [{ version: "3.7.0", name: "Gremlin 3.7.0", date: "2023-07-31" }],
       extWikipediaPath: "Gremlin_(programming_language)",
-      extHomeURL: "https://tinkerpop.apache.org/",
+      extHomeURL: "https://tinkerpop.apache.org/gremlin.html",
       created: "2009",
+      isTranspiler: false,
+      githubStars: 2000,
+      extGithubPath: "apache/tinkerpop",
+      shortDesc: "Gremlin is a graph traversal language and virtual machine developed by Apache TinkerPop.",
     })
     .relInfluencedBy.add("pl+sql", "pl+xpath")
     .relLicenses.add("lic+apache")

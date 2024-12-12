@@ -5,20 +5,20 @@ export function define(g: PlangsGraph) {
     .set("pl+graalvm", {
       name: "GraalVM",
       description:
-        "GraalVM is a versatile virtual machine originating from the Java ecosystem that supports multiple programming languages including Java, JavaScript, Python, Ruby, R, and webassembly. It is designed to execute applications written in these languages alongside LLVM-based languages and provides high performance and interoperability across language boundaries. Known for its ahead-of-time compilation and polyglot capabilities, GraalVM enhances performance, security, and startup time of Java and other applications.",
-      keywords: ["graalvm", "interoperability", "java", "jdk", "native image", "polyglot"],
-      releases: [
-        { version: "19.0.0", name: "GraalVM 19.0", date: "2019-05-09" },
-        { version: "23.0", name: "GraalVM 23", date: "2024-09-17" },
-        { version: "22.1", name: "GraalVM 22.1", date: "2022-05-12" },
-        { version: "22.2", name: "GraalVM 22.2", date: "2022-08-23" },
-      ],
+        "GraalVM is a high-performance runtime that provides significant performance enhancements for Java and other applications, enabling multiple languages to run together in a single virtual machine. With its polyglot capabilities, it supports Java, JavaScript, Python, Ruby, and LLVM-based projects, as well as web-based applications in WebAssembly.",
+      keywords: ["graalvm", "high-performance", "interoperability", "java", "native-image", "oracle", "polyglot", "runtime", "vee"],
+      releases: [{ version: "JDK23", date: "2024-09-17" }],
       extWikipediaPath: "GraalVM",
       extHomeURL: "https://www.graalvm.org/",
       created: "2019",
+      isTranspiler: false,
+      shortDesc: "GraalVM is a high-performance runtime for multiple languages including Java, Python, and WebAssembly, with polyglot capabilities.",
+      githubStars: 20500,
+      extGithubPath: "oracle/graal",
+      ghRepoCreated: "2018",
     })
     .relImplements.add("pl+ruby")
-    .relInfluencedBy.add("pl+java")
+    .relInfluencedBy.add("pl+java", "pl+javascript")
     .relLicenses.add("lic+apache", "lic+dual", "lic+gnu-gpl")
     .relParadigms.add("para+compiled", "para+interpreted", "para+multi", "para+multi-dispatch")
     .relPlatforms.add("plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+windows")

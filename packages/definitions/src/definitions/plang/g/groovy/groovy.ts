@@ -5,17 +5,10 @@ export function define(g: PlangsGraph) {
     .set("pl+groovy", {
       name: "Groovy",
       description:
-        "Apache Groovy is a powerful, optionally typed and dynamic language, with static-typing and static compilation capabilities, for the Java platform. Designed to improve developer productivity, it features a concise, familiar syntax, integrates smoothly with any Java program, and enhances your application with capabilities like scripting, Domain-Specific Language authoring, runtime and compile-time metaprogramming, and functional programming. It has a flat learning curve for Java developers, seamlessly interoperates with Java libraries, and boasts a vibrant ecosystem that includes web development, reactive applications, and build tools like Gradle.",
+        "Apache Groovy is a optionally typed and dynamic language for the Java platform, offering seamless integration with Java, concise syntax, and meta-programming features.",
       keywords: ["groovy", "java", "language", "programming", "scripting"],
       extensions: [".groovy", ".gsh", ".gvy", ".gy"],
-      releases: [
-        { version: "4.0.23", name: "Groovy 4.0.23", date: "2024-09-09" },
-        { version: "4.0.0", name: "Groovy 4.0.0", date: "2022-01-25" },
-        { version: "3.0.0", name: "Groovy 3.0", date: "2020-02-07" },
-        { version: "2.0.0", name: "Groovy 2.0", date: "2012-07-02" },
-        { version: "1.0.0", name: "Groovy 1.0", date: "2007-01-02" },
-        { version: "4.0.22", name: "Groovy 4.0.22", date: "2024-01-01" },
-      ],
+      releases: [{ version: "4.0.24", date: "2024-09-09" }],
       stackovTags: ["groovy"],
       githubName: "Groovy",
       languishRanking: 61,
@@ -25,8 +18,13 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "Apache_Groovy",
       extRedditPath: "groovy",
-      extHomeURL: "https://groovy-lang.org/",
+      extHomeURL: "http://groovy-lang.org/",
       created: "2003",
+      isTranspiler: false,
+      shortDesc: "Groovy is a flexible and dynamic language for the Java platform with strong integration capabilities.",
+      githubStars: 5200,
+      extGithubPath: "apache/groovy",
+      ghRepoCreated: "2014-11-08",
     })
     .relInfluencedBy.add("pl+perl", "pl+python", "pl+ruby")
     .relLicenses.add("lic+apache")

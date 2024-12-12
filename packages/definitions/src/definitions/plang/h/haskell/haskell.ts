@@ -24,6 +24,10 @@ export function define(g: PlangsGraph) {
       extRedditPath: "haskell",
       extHomeURL: "http://haskell.org/",
       created: "1990",
+      isTranspiler: false,
+      shortDesc: "Haskell is a statically-typed, purely functional language known for type inference and lazy evaluation.",
+      githubStars: 3100,
+      extGithubPath: "ghc/ghc",
     })
     .relImplements.add("pl+curry")
     .relInfluencedBy.add("pl+clean", "pl+lisp", "pl+r5rs", "pl+raku", "pl+scheme", "pl+standard-ml")
