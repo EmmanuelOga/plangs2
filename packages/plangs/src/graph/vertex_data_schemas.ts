@@ -68,9 +68,6 @@ export type VPlangRelData = {
 
   /** Wikipedia Path: this should be wikipedia page path, such that we can access it at `https://en.wikipedia.org/wiki/${path}` */
   extWikipediaPath?: string;
-
-  /** Repository Path: this should be the repository URL. Use {@link `extGithubPath`} if the repository is hosted in Github. */
-  extRepositoryURL?: string;
 };
 
 export type VLicenseData = VLicenseBaseData & VertexBaseData;

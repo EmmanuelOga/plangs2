@@ -4,11 +4,11 @@ import type { BunFile } from "bun";
 import { extname } from "node:path";
 
 import type { JSX } from "preact";
-import render from "preact-render-to-string/jsx";
+import render from "preact-render-to-string";
 
 /** Render a JSX tree as HTML, include the doctype. */
 export function vdomToHTML(component: JSX.Element, pretty = true): string {
-  const html = render(component, {}, { pretty });
+  const html = render(component, {});
   return `<!DOCTYPE html>\n${html}`;
 }
 

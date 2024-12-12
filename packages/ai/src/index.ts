@@ -32,12 +32,11 @@ async function plangPrompt(pg: PlangsGraph, pl: VPlang, examplePl: VPlang): Prom
     writtenWith: [...pl.relWrittenWith.keys],
   };
 
-  const externalLinks: string[] = [];
+  const externalLinks = new Set<string>();
 
-  if (pl.urlHome) externalLinks.push(pl.urlHome);
-  if (pl.github.url) externalLinks.push(pl.github.url);
-  if (pl.urlRepository) externalLinks.push(pl.urlRepository);
-  if (pl.urlWikipedia) externalLinks.push(pl.urlWikipedia);
+  if (pl.urlHome) externalLinks.add(pl.urlHome);
+  if (pl.github.url) externalLinks.add(pl.github.url);
+  if (pl.urlWikipedia) externalLinks.add(pl.urlWikipedia);
 
   return [
     {
