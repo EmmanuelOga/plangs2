@@ -19,8 +19,11 @@ export function define(g: PlangsGraph) {
       extRedditPath: "javascript",
       extHomeURL: "https://ecma-international.org/publications-and-standards/standards/ecma-262/",
       created: "1995",
+      isTranspiler: false,
+      shortDesc: "JavaScript is a scripting language essential for web interactivity and development.",
+      links: [{ url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", title: "Mozilla Developer Network - JavaScript" }],
     })
-    .relInfluencedBy.add("pl+awk", "pl+c", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme", "pl+self")
+    .relInfluencedBy.add("pl+awk", "pl+c", "pl+java", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme", "pl+self")
     .relLicenses.add("lic+public-domain")
     .relParadigms.add("para+event-driven", "para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural")
     .relPlatforms.add("plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+nodejs", "plat+wasm", "plat+web", "plat+windows")
@@ -31,12 +34,15 @@ export function define(g: PlangsGraph) {
       "tag+framework",
       "tag+industrial",
       "tag+interpreters",
+      "tag+multimedia",
       "tag+ray-tracer",
       "tag+scripting",
       "tag+shell",
       "tag+viz",
+      "tag+webdev",
     )
-    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+weak");
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+weak")
+    .relWrittenWith.add("pl+c", "pl+c++");
 
   // TOOLS
 

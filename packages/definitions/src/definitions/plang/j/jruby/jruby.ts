@@ -7,11 +7,8 @@ export function define(g: PlangsGraph) {
       description:
         "JRuby is an implementation of the Ruby programming language atop the Java Virtual Machine, written largely in Java. It is free software released under a three-way EPL/GPL/LGPL license. JRuby is tightly integrated with Java to allow the embedding of the interpreter into any Java application with full two-way access between Java and Ruby code, similar to Jython for Python.",
       keywords: ["interpreter", "java", "jruby", "jvm", "ruby"],
-      extensions: [".rb"],
-      releases: [
-        { version: "9.4.5.0", name: "JRuby 9.4.5.0", date: "2023-11-02" },
-        { version: "9.4.9.0", name: "JRuby 9.4.9.0", date: "2023-01-01" },
-      ],
+      extensions: [".jruby", ".rb"],
+      releases: [{ version: "9.4.9.0", date: "2024-09-04" }],
       githubName: "Ruby",
       stackovTags: ["ruby"],
       githubLangId: "326",
@@ -22,6 +19,11 @@ export function define(g: PlangsGraph) {
       extRedditPath: "ruby",
       extHomeURL: "https://www.jruby.org/",
       created: "2001",
+      isTranspiler: false,
+      shortDesc: "JRuby is a Java-based implementation of Ruby, integrating closely with Java for two-way access.",
+      githubStars: 3800,
+      extGithubPath: "jruby/jruby",
+      ghRepoCreated: "2007-05-17",
     })
     .relImplements.add("pl+ruby")
     .relInfluencedBy.add("pl+ruby")

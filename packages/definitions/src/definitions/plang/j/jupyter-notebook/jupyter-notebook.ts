@@ -12,13 +12,17 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "markup",
       description:
-        "Jupyter Notebook (formerly IPython Notebook) is a web-based interactive computational environment for creating notebook documents. It supports execution environments (kernels) for dozens of languages, including Python, Julia, and R. Jupyter is extensively used for data science, scientific computing, and educational purposes.",
+        "Jupyter Notebook is a web-based interactive computational environment for creating notebook documents, supporting execution environments (kernels) for languages like Python, Julia, and R. It is extensively used for data science, scientific computing, and educational purposes.",
       keywords: ["computational", "data science", "interactive", "kernel", "multilanguage", "notebook", "scientific computing"],
       extensions: [".ipynb"],
       isTranspiler: true,
       extWikipediaPath: "Project_Jupyter",
       extRedditPath: "IPython",
       created: "2014",
+      shortDesc: "Jupyter Notebook is a web-based interactive computational environment for creating notebook documents.",
+      extHomeURL: "https://jupyter.org/",
+      githubStars: 15000,
+      extGithubPath: "jupyter/jupyter",
     })
     .relCompilesTo.add("pl+julia", "pl+python", "pl+r")
     .relLicenses.add("lic+bsd")

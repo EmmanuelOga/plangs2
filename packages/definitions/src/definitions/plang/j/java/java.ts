@@ -5,15 +5,10 @@ export function define(g: PlangsGraph) {
     .set("pl+java", {
       name: "Java",
       description:
-        'Java is a high-level programming language developed by Sun Microsystems, now owned by Oracle. It is designed to have as few implementation dependencies as possible, making it a versatile and widely-used language. Java is known for its portability across platforms, "write once, run anywhere" capability, strong memory management, and vast ecosystem.',
+        "Java is a high-level programming language originally developed by Sun Microsystems and now owned by Oracle, known for its portability, strong memory management, and extensive ecosystem.",
       keywords: ["java"],
       extensions: [".class", ".jar", ".java", ".jmod", ".war"],
       releases: [
-        { version: "JDK 1.0", name: "Java SE 1.0", date: "1996-01-23" },
-        { version: "Java SE 8", name: "Java SE 8", date: "2014-03-18" },
-        { version: "Java SE 11", name: "Java SE 11", date: "2018-09-25" },
-        { version: "Java SE 17", name: "Java SE 17", date: "2021-09-14" },
-        { version: "Java SE 21", name: "Java SE 21", date: "2023-09-19" },
         { version: "17", name: "Java SE 17", date: "2021-09-14" },
         { version: "20", name: "Java SE 20", date: "2023-03-21" },
         { version: "21", name: "Java SE 21", date: "2023-09-19" },
@@ -29,6 +24,8 @@ export function define(g: PlangsGraph) {
       extRedditPath: "java",
       extHomeURL: "https://openjdk.java.net/",
       created: "1995",
+      isTranspiler: false,
+      shortDesc: "Java is a high-level language known for its portability and extensive ecosystem.",
     })
     .relInfluencedBy.add("pl+c++")
     .relLicenses.add("lic+gnu-gpl")

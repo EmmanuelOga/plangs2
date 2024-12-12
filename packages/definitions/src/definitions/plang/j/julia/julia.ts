@@ -23,8 +23,13 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "Julia_(programming_language)",
       extRedditPath: "Julia",
-      extHomeURL: "https://julialang.org/",
+      extHomeURL: "https://julialang.org",
       created: "2012",
+      isTranspiler: false,
+      shortDesc:
+        "Julia is a dynamic language designed for numerical and scientific computing with strong support for parallel computing and multiple dispatch.",
+      githubStars: 46000,
+      extGithubPath: "JuliaLang/julia",
     })
     .relInfluencedBy.add(
       "pl+c",

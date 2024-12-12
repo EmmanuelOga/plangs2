@@ -10,6 +10,10 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "JavaScriptCore",
       extHomeURL: "http://webkit.org/",
       created: "2008",
+      isTranspiler: false,
+      shortDesc: "JavaScriptCore is a JavaScript engine utilized in Safari and part of the WebKit project.",
+      extGithubPath: "WebKit/WebKit",
+      githubStars: 8100,
     })
     .relImplements.add("pl+javascript")
     .relInfluencedBy.add("pl+javascript")

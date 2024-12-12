@@ -5,10 +5,10 @@ export function define(g: PlangsGraph) {
     .set("pl+janet", {
       name: "Janet",
       description:
-        "Janet is a dynamic and functional programming language, ideal for system scripting and embedding in C/C++ programs. With built-in libraries for networking, threading, and more, Janet offers a powerful set of features with a minimalist setup, making it portable and easy to embed.",
-      keywords: ["dynamic", "embedded", "functional", "janet"],
+        "Janet is a versatile and lightweight programming language, designed to be embedded or used as a standalone script with a focus on functional and imperative programming paradigms. Ideal for scripting and embedding in C/C++ programs, Janet provides a rich ecosystem for networked applications and real-time data processing with minimal overhead.",
+      keywords: ["dynamic", "embedded", "functional", "janet", "scripting"],
       extensions: [".janet"],
-      releases: [{ version: "1.17.0", name: "Janet 1.17.0", date: "2023-06-15" }],
+      releases: [{ version: "1.37.1", date: "2024-12-05" }],
       githubName: "Janet",
       githubLangId: "1028705371",
       githubColor: "#0886a5",
@@ -18,6 +18,11 @@ export function define(g: PlangsGraph) {
       extRedditPath: "janetlang",
       extHomeURL: "https://janet-lang.org/",
       created: "2017",
+      isTranspiler: false,
+      shortDesc:
+        "Janet is a versatile, lightweight programming language, ideal for embedded scripting in C/C++ with functional and imperative paradigms.",
+      githubStars: 3600,
+      ghRepoCreated: "2012-12-12",
     })
     .relInfluencedBy.add("pl+scheme")
     .relLicenses.add("lic+mit")

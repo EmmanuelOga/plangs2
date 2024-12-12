@@ -12,21 +12,25 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "markup",
       description:
-        "Jinja is a web template engine for the Python programming language. It was created by Armin Ronacher and is licensed under a BSD License. Jinja provides Python-like expressions while ensuring that templates are evaluated in a sandbox, making it useful for generating markup and source code.",
-      keywords: ["Jinja", "Python", "template engine", "web development"],
-      extensions: [".jinja"],
-      isTranspiler: true,
+        "Jinja is a web template engine widely used in Python applications for rendering templates. It was developed by Armin Ronacher and offers a familiar syntax borrowed from Python, enabling flexible and sandboxed template design.",
+      keywords: ["jinja", "python"],
+      extensions: [".jinja", ".jinja2"],
+      isTranspiler: false,
       releases: [{ version: "3.1.4", name: "Stable Release", date: "2024-05-05" }],
       extWikipediaPath: "Jinja_(template_engine)",
       extGithubPath: "pallets/jinja",
-      extHomeURL: "https://palletsprojects.com/p/jinja/",
+      extHomeURL: "http://jinja.pocoo.org/",
       created: "2008",
+      shortDesc: "Jinja is a web template engine for Python, known for its flexible syntax and functionality.",
+      githubStars: 10400,
+      ghRepoCreated: "2010-03-12",
     })
     .relCompilesTo.add("pl+python")
+    .relInfluencedBy.add("pl+python")
     .relLicenses.add("lic+bsd")
     .relParadigms.add("para+declarative", "para+dsl")
     .relPlatforms.add("plat+cross")
-    .relTags.add("tag+scripting");
+    .relTags.add("tag+scripting", "tag+webdev");
 
   // TOOLS
 
