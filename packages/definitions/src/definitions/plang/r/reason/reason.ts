@@ -5,14 +5,11 @@ export function define(g: PlangsGraph) {
     .set("pl+reason", {
       name: "Reason",
       description:
-        "Reason, also known as ReasonML, is a general-purpose, high-level, multi-parigm, functional and object-oriented programming language and syntax extension and toolchain for OCaml created by Jordan Walke, who also created the React framework, at Facebook. Reason leverages both the OCaml and JavaScript ecosystems, allowing it to compile to native code through OCaml's compiler toolchain and to JavaScript using the ReScript compiler.",
+        "Reason, also known as ReasonML, is a general-purpose, high-level, multi-paradigm programming language and syntax extension for OCaml, created by Jordan Walke at Facebook. It focuses on functional and object-oriented programming features and compiles to native code via OCaml's compiler, as well as to JavaScript using a ReScript compiler.",
       keywords: ["ocaml", "reasonml"],
       extensions: [".re", ".rei"],
       isTranspiler: true,
-      releases: [
-        { version: "3.13.0", name: "", date: "2024-10-21" },
-        { version: "3.12.0", name: "Reason 3.12.0", date: "2024-01-01" },
-      ],
+      releases: [{ version: "3.14.0", date: "2024-09-28" }],
       stackovTags: ["reason"],
       githubName: "Reason",
       languishRanking: 245,
@@ -20,18 +17,21 @@ export function define(g: PlangsGraph) {
       githubColor: "#ff5847",
       githubPopular: false,
       githubType: "programming",
-      extWikipediaPath: "Reason_(programming_language)|Reason_(syntax_extension_for_OCaml)",
+      extWikipediaPath: "Reason_(programming_language)",
       extRedditPath: "reasonml",
-      extHomeURL: "https://reasonml.github.io/",
+      extHomeURL: "https://reasonml.github.io",
       created: "2016",
+      shortDesc: "ReasonML is a multi-paradigm language focusing on functional programming, compiling to OCaml and JavaScript.",
+      githubStars: 10200,
+      extGithubPath: "reasonml/reason",
     })
     .relCompilesTo.add("pl+javascript", "pl+ocaml")
     .relDialectOf.add("pl+ocaml")
     .relInfluencedBy.add("pl+javascript", "pl+ocaml")
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+functional", "para+modular", "para+multi", "para+oop")
+    .relParadigms.add("para+functional", "para+general-purpose", "para+modular", "para+multi", "para+oop")
     .relPlatforms.add("plat+cross", "plat+linux", "plat+windows")
-    .relTags.add("tag+app", "tag+compiler", "tag+framework", "tag+interpreters")
+    .relTags.add("tag+app", "tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting")
     .relTypeSystems.add("tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+ocaml");
 

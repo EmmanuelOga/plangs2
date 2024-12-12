@@ -20,11 +20,15 @@ export function define(g: PlangsGraph) {
       githubColor: "#198CE7",
       githubPopular: false,
       githubType: "programming",
-      keywords: ["CRAN", "data analysis", "data visualization", "graphics", "open source", "statistical computing", "statisticians"],
+      keywords: ["cran", "data analysis", "data visualization", "graphics", "statistical computing", "statisticians"],
       extWikipediaPath: "R_(programming_language)",
       extRedditPath: "Rlanguage",
       extHomeURL: "https://www.r-project.org/",
       created: "1993",
+      isTranspiler: false,
+      shortDesc: "R is a language and environment for statistical computing and graphics.",
+      githubStars: 1200,
+      extGithubPath: "wch/r-source",
     })
     .relInfluencedBy.add("pl+common-lisp", "pl+lisp", "pl+r5rs", "pl+scheme")
     .relLicenses.add("lic+gnu-gpl")

@@ -5,17 +5,12 @@ export function define(g: PlangsGraph) {
     .set("pl+python", {
       name: "Python",
       description:
-        "Python is a multi-paradigm programming language known for its readability, dynamic typing, and a vast standard library. Developed by Guido van Rossum and released in 1991, it supports object-oriented, procedural, and functional programming paradigms. The language is widely used for web development, data analysis, artificial intelligence, and more.",
-      shortDesc:
-        "Python, created in 1991 by Guido van Rossum, is a readable, multi-paradigm language widely used in web development, AI, and data analysis.",
-      extensions: [".py", ".pyc", ".pyd", ".pyi", ".pyw", ".pyz"],
-      keywords: ["python"],
+        "Python is a dynamic, high-level programming language known for its easy-to-read syntax and flexibility. It is a multi-paradigm language supporting procedural, object-oriented, and functional programming models, widely used in web development, data analysis, artificial intelligence, and more.",
+      shortDesc: "Python is a dynamic, high-level programming language known for its easy-to-read syntax.",
+      extensions: [".py", ".pyc", ".pyd", ".pyi", ".pyo", ".pyw", ".pyz"],
       releases: [
-        { version: "2.0", name: "Python 2.0", date: "2000-10-16" },
-        { version: "3.0", name: "Python 3.0", date: "2008-12-03" },
         { version: "2.7.18", name: "Final Release of Python 2", date: "2020-04-19" },
         { version: "3.13.0", name: "Python 3.13.0", date: "2024-10-07" },
-        { version: "3.10.0", name: "Python 3.10.0", date: "2021-10-04" },
       ],
       stackovTags: ["python"],
       githubName: "Python",
@@ -28,12 +23,17 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Python",
       extHomeURL: "https://www.python.org/",
       created: "1991",
+      isTranspiler: false,
+      githubStars: 64100,
+      extGithubPath: "python/cpython",
+      ghRepoCreated: "2005-05-17",
     })
     .relInfluencedBy.add("pl+ada", "pl+apl", "pl+c", "pl+c++", "pl+haskell", "pl+lisp", "pl+perl", "pl+r5rs", "pl+scheme", "pl+standard-ml")
     .relLicenses.add("lic+python")
     .relParadigms.add(
       "para+functional",
       "para+imperative",
+      "para+interpreted",
       "para+multi",
       "para+oop",
       "para+procedural",
@@ -64,8 +64,9 @@ export function define(g: PlangsGraph) {
       "tag+testing",
       "tag+viz",
       "tag+wavelet",
+      "tag+webdev",
     )
-    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+optional", "tsys+strong")
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+inferred", "tsys+optional", "tsys+strong")
     .relWrittenWith.add("pl+c", "pl+python");
 
   // TOOLS

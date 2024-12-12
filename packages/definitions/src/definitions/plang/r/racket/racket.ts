@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+racket", {
       name: "Racket",
       description:
-        "Racket is a general-purpose, multi-paradigm programming language that descends from Lisp and Scheme. It is renowned for its powerful macro system and support for domain-specific language development. Racket is used in computer science education, research, and scripting, and is equipped with extensive libraries and tools for various applications.",
-      keywords: ["racket"],
+        "Racket is a general-purpose, multi-paradigm programming language derived from Lisp and Scheme, renowned for its robust macro system and extensive libraries for domain-specific language development and scripting.",
+      keywords: ["lisp", "racket", "scheme"],
       extensions: [".rkt"],
       releases: [
         { version: "8.15", name: "Racket 8.15", date: "2024-11-05" },
@@ -23,9 +23,15 @@ export function define(g: PlangsGraph) {
       extRedditPath: "Racket",
       extHomeURL: "https://racket-lang.org/",
       created: "1995",
+      filenames: ["Racket"],
+      isTranspiler: false,
+      shortDesc: "Racket is a multi-paradigm language derived from Lisp and Scheme, known for powerful macros and libraries.",
+      githubStars: 4800,
+      extGithubPath: "racket/racket",
+      ghRepoCreated: "2004-06-05",
     })
-    .relDialectOf.add("pl+lisp")
-    .relInfluencedBy.add("pl+eiffel", "pl+r5rs", "pl+scheme")
+    .relDialectOf.add("pl+lisp", "pl+scheme")
+    .relInfluencedBy.add("pl+eiffel", "pl+lisp", "pl+r5rs", "pl+scheme")
     .relLicenses.add("lic+apache", "lic+mit")
     .relParadigms.add(
       "para+functional",

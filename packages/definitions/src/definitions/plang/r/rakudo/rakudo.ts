@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+rakudo", {
       name: "Rakudo",
       description:
-        "Rakudo is a Raku compiler targeting MoarVM, and the Java Virtual Machine, that implements the Raku specification. It is currently the only major Raku compiler in active development. Originally developed within the Parrot project, the Rakudo source code repository was split from the project in February 2009 for independent development.",
-      keywords: ["compiler", "java virtual machine", "moarvm", "raku", "rakudo"],
+        "Rakudo is a compiler for the Raku programming language, targeting MoarVM and JVM, and aligning with the Raku specification as its standard bearer.",
+      keywords: ["compiler", "jvm", "moarvm", "raku", "rakudo"],
       releases: [
         { version: "2024.10", name: "Rakudo 2024.10", date: "2024-10-24" },
         { version: "2024.08", name: "Rakudo 2024.08", date: "2024-01-01" },
@@ -18,16 +18,20 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       extensions: [".raku", ".rakudoc", ".rakumod"],
-      filenames: ["Makefile"],
       extWikipediaPath: "Raku_(programming_language)",
       extRedditPath: "rakulang",
-      extHomeURL: "http://rakudo.org/",
+      extHomeURL: "https://rakudo.org/",
       created: "2008",
+      isTranspiler: true,
+      shortDesc: "Rakudo is the main compiler for the Raku language, targeting MoarVM and JVM.",
+      githubStars: 1700,
+      extGithubPath: "rakudo/rakudo",
+      ghRepoCreated: "2009-02-15",
     })
     .relImplements.add("pl+raku")
     .relInfluencedBy.add("pl+common-lisp", "pl+haskell", "pl+perl")
-    .relLicenses.add("lic+artistic")
-    .relParadigms.add("para+functional", "para+multi", "para+procedural")
+    .relLicenses.add("lic+apache", "lic+artistic")
+    .relParadigms.add("para+declarative", "para+functional", "para+imperative", "para+multi", "para+procedural")
     .relPlatforms.add("plat+android", "plat+apple", "plat+bsd", "plat+linux", "plat+windows")
     .relTags.add("tag+compiler", "tag+scripting")
     .relTypeSystems.add("tsys+dynamic", "tsys+strong")

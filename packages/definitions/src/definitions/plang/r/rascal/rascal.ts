@@ -17,8 +17,13 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       extWikipediaPath: "RascalMPL",
-      extHomeURL: "http://www.rascal-mpl.org/",
+      extHomeURL: "https://www.rascal-mpl.org/",
       created: "2009",
+      isTranspiler: false,
+      shortDesc: "Rascal is a domain-specific language for metaprogramming and implementing domain-specific languages.",
+      githubStars: 411,
+      extGithubPath: "usethesource/rascal",
+      ghRepoCreated: "2009-04-20",
     })
     .relLicenses.add("lic+bsd", "lic+epl")
     .relParadigms.add("para+declarative", "para+functional", "para+imperative", "para+language-oriented", "para+scripting")

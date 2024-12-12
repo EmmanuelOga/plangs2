@@ -39,8 +39,13 @@ $ bun outapp && bun outjs
 
 This simplistic build process just outputs the statically generated contents of the site at `~/dev/plangs-out` (will probably change at some point).
 
+##
+
+BUG: the bundles are not being generated, check python codegen.
+
 ## WIP
 
+- [ ] Add icons to external services (reddit, wiki, github) and display other links.
 - [ ] Create a ToolBar component: we need some buttons to interact with eachother.
 
 - [ ] Allow AI enriching all data, not just plangs.

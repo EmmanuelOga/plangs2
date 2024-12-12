@@ -5,13 +5,15 @@ export function define(g: PlangsGraph) {
     .set("pl+r5rs", {
       name: "R5RS",
       description:
-        "Scheme is a classic programming language in the Lisp family. It emphasizes functional programming and domain-specific languages but adapts to other styles. Known for its clean and minimalist design, Scheme is one of the longest-lived and best-studied dynamic languages, and has many fast and portable implementations. It was originally developed by Guy L. Steele and Gerald Jay Sussman in the 1970s. Scheme is lexically scoped, supports first-class continuations, and includes tail-call optimization.",
+        "R5RS is the fifth revision of the Scheme programming language, part of the Lisp family, known for its minimalist and clean design focusing on functional programming and domain-specific languages. This version, ratified in January 1998, introduced various standard features to make Scheme widely implementable and usable for educational, research, and multi-paradigm development.",
       keywords: ["scheme"],
       extensions: [".scm", ".ss"],
       releases: [{ version: "R5RS", name: "Revised^5 Report on the Algorithmic Language Scheme", date: "1998-01-01" }],
       extWikipediaPath: "R5RS",
       extHomeURL: "https://www.scheme.org/",
       created: "1998",
+      isTranspiler: false,
+      shortDesc: "R5RS is the fifth version of Scheme, emphasizing minimalist and functional programming.",
     })
     .relDialectOf.add("pl+lisp", "pl+scheme")
     .relInfluencedBy.add("pl+lisp")
