@@ -10,6 +10,10 @@ export function define(g: PlangsGraph) {
       extensions: [".alda"],
       extHomeURL: "https://alda.io/",
       created: "2015",
+      isTranspiler: false,
+      shortDesc: "Alda is a text-based programming language for music composition with simple syntax for musicians and programmers.",
+      githubStars: 5600,
+      extGithubPath: "alda-lang/alda",
     })
     .relLicenses.add("lic+mit")
     .relParadigms.add("para+dsl")

@@ -16,6 +16,11 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: ".NET",
       extHomeURL: "http://dotnet.microsoft.com/",
       created: "2016",
+      isTranspiler: false,
+      shortDesc: "The .NET platform is a cross-platform, open-source framework known for supporting multiple programming paradigms.",
+      githubStars: 14500,
+      extGithubPath: "microsoft/dotnet",
+      githubPopular: true,
     })
     .relImplements.add("pl+c-sharp", "pl+f-sharp", "pl+visual-basic")
     .relInfluencedBy.add("pl+java")

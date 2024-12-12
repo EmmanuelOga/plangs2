@@ -19,6 +19,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Assembly_language",
       extRedditPath: "asm",
       created: "1947",
+      shortDesc: "Assembly is a low-level programming language closely aligned with machine code instructions.",
     })
     .relParadigms.add("para+imperative", "para+macro", "para+metaprogramming", "para+structured")
     .relPlatforms.add("plat+apple", "plat+arm", "plat+cross", "plat+embedded", "plat+linux", "plat+windows", "plat+x86-64")

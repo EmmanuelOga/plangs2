@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+actionscript", {
       name: "ActionScript",
       description:
-        "ActionScript is an object-oriented programming language originally developed by Macromedia Inc. (later acquired by Adobe). It is influenced by HyperTalk, the scripting language for HyperCard. It is now an implementation of ECMAScript (meaning it is a superset of the syntax and semantics of the language more widely known as JavaScript), though it originally arose as a sibling, both being influenced by HyperTalk. ActionScript code is usually converted to bytecode format by a compiler.",
+        "ActionScript is an object-oriented language mainly used for Adobe Flash applications and games. It traces its origins to Macromedia Flash, evolving alongside Adobe's suite of tools, and heavily influenced by ECMAScript, making it similar to JavaScript in syntax and semantics.",
       keywords: ["actionscript", "flash"],
       extensions: [".as", ".swf"],
       releases: [
@@ -22,8 +22,14 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "ActionScript",
       extRedditPath: "actionscript",
-      extHomeURL: "https://www.adobe.com/devnet/actionscript/articles/actionscript3_overview.html",
+      extHomeURL: "https://www.adobe.com/devnet/actionscript.html",
       created: "1998",
+      isTranspiler: false,
+      shortDesc: "ActionScript is an object-oriented language used for Flash, influenced by ECMAScript and similar to JavaScript.",
+      links: [
+        { url: "https://www.adobe.com/devnet/actionscript.html", title: "Adobe ActionScript Home" },
+        { url: "https://en.wikipedia.org/wiki/ActionScript", title: "ActionScript on Wikipedia" },
+      ],
     })
     .relInfluencedBy.add("pl+java", "pl+javascript")
     .relLicenses.add("lic+apache")

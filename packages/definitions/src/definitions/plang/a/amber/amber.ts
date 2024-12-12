@@ -12,6 +12,10 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "0.3.5.alpha", date: "2024-09-04" }],
       extHomeURL: "https://amber-lang.com",
       created: "2015",
+      shortDesc: "Amber is a language compiling into Bash with modern syntax and safety features.",
+      githubStars: 540,
+      extGithubPath: "amber-lang/amber",
+      ghRepoCreated: "2015-06-10",
     })
     .relCompilesTo.add("pl+bash")
     .relLicenses.add("lic+mit")

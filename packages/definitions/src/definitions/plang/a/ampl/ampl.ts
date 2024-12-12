@@ -17,8 +17,12 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       releases: [{ version: "20230430", name: "Stable Release", date: "2023-04-30" }],
       extWikipediaPath: "AMPL",
-      extHomeURL: "http://www.ampl.com/",
+      extHomeURL: "https://ampl.com",
+      extGithubPath: "ampl/amplpy",
       created: "1985",
+      isTranspiler: false,
+      shortDesc: "AMPL is an algebraic modeling language for complex optimization problems in large-scale computing.",
+      githubStars: 70,
     })
     .relParadigms.add("para+declarative", "para+dsl", "para+imperative", "para+multi")
     .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")

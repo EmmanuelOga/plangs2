@@ -20,6 +20,10 @@ export function define(g: PlangsGraph) {
       extRedditPath: "ada",
       extHomeURL: "https://www.adaic.org/",
       created: "1980",
+      isTranspiler: false,
+      shortDesc:
+        "Ada is a high-level, structured, and object-oriented language with strong typing, used for reliability in mission-critical systems.",
+      githubStars: 0,
     })
     .relDialectOf.add("pl+pascal")
     .relInfluencedBy.add("pl+c++", "pl+eiffel", "pl+pascal")

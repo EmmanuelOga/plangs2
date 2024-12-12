@@ -5,10 +5,10 @@ export function define(g: PlangsGraph) {
     .set("pl+agda", {
       name: "Agda",
       description:
-        "Agda is a dependently typed functional programming language and proof assistant, originally developed by Ulf Norell at Chalmers University of Technology. It is built on intuitionistic type theory and offers features such as inductive families, parametrized modules, and mixfix operators. Agda assists in writing and checking proofs with a focus on interactive programming. Unlike other proof assistants like Coq, Agda is distinguished by its lack of a separate tactics language, relying instead on a functional programming style for proofs.",
+        "Agda is a dependently typed functional programming language and proof assistant, originally developed at Chalmers University of Technology. It is used for writing and verifying proofs using a functional style, and it uniquely integrates programming and proving without a separate tactic language. Agda employs rich type systems such as dependent types, supporting inductive families and parameterized modules.",
       extensions: [".agda", ".lagda", ".lagda.md", ".lagda.rst", ".lagda.tex"],
-      keywords: ["agda", "dependently typed", "proof assistant"],
-      isTranspiler: true,
+      keywords: ["agda", "dependently typed", "linear logic", "proof assistant"],
+      isTranspiler: false,
       releases: [
         { version: "1.0", date: "1995-01-01" },
         { version: "2.0", date: "2007-01-01" },
@@ -23,8 +23,12 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       extWikipediaPath: "Agda_(programming_language)",
       extRedditPath: "agda",
-      extHomeURL: "http://wiki.portal.chalmers.se/agda",
+      extHomeURL: "https://agda.readthedocs.io/en/latest/",
       created: "2007",
+      shortDesc: "Agda is a dependently typed functional programming language and proof assistant used for writing and verifying proofs.",
+      githubStars: 2500,
+      extGithubPath: "agda/agda",
+      ghRepoCreated: "2011-01-01",
     })
     .relInfluencedBy.add("pl+coq", "pl+haskell")
     .relLicenses.add("lic+bsd")

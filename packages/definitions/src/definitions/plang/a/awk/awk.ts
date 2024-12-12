@@ -17,6 +17,10 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "AWK",
       extRedditPath: "awk",
       created: "1977",
+      isTranspiler: false,
+      shortDesc: "AWK is a language for text processing and data extraction, common on Unix-like systems.",
+      extHomeURL: "https://www.gnu.org/software/gawk/",
+      links: [{ url: "https://www.gnu.org/software/gawk/manual/gawk.html", title: "Gawk: Effective AWK Programming" }],
     })
     .relInfluencedBy.add("pl+c", "pl+sed")
     .relLicenses.add("lic+bsd")
