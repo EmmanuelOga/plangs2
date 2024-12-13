@@ -127,10 +127,6 @@ export class VPlang extends Gen.VPlangBase {
     return this.data.extRedditPath ? `https://reddit.com/${this.data.extRedditPath}` : undefined;
   }
 
-  get urlRepository(): string | undefined {
-    return this.data.extRepositoryURL;
-  }
-
   get urlStackov(): string | undefined {
     return this.stackovTags ? `https://stackoverflow.com/questions/tagged/${this.stackovTags.join("+")}` : undefined;
   }
