@@ -37,12 +37,15 @@
     --tw-prose-links: chartreuse;
   }
 
-  #id-mainContent a, h2, h3 {
-    color: var(--color-primary);
-    --tw-prose-links: var(--color-primary);
+  #id-mainContent {
+    a, h2, h3 {
+      color: var(--color-primary);
+      --tw-prose-links: var(--color-primary);
+    }
+    h2, h3 {
+      font-style: italic;
+    }
   }
-
-  * header, h2, h3 { font-style: italic; color: var(--color-primary); }
 
   ::-webkit-scrollbar { width: 4px; height: 4px; }
   ::-webkit-scrollbar-track { background: transparent; }
@@ -80,7 +83,7 @@
                            'G G G'
                            'I I I';
       grid-template-rows: auto 1fr auto;
-      .grid-facets { max-height: 40dvh; }
+      .grid-facets { max-height: 35dvh; }
       .grid-info { max-height: 15dvh; }
     }
   }
@@ -106,7 +109,7 @@
                            'F G I';
       grid-template-columns: auto 1fr auto; /* Grow middle column. */
       .grid-facets { min-width: 32rem; max-width: 38rem; }
-      .grid-info { max-width: 25dvh; }
+      .grid-info { width: 25dvh; }
     }
   }
 
@@ -119,7 +122,7 @@
       grid-template-columns: auto 1fr auto; /* Grow middle column. */
       grid-template-rows: auto 1fr auto; /* Grow middle row. */
       .grid-facets { min-width: 25rem; max-width: 30rem; }
-      .grid-info { max-height: 25dvh; }
+      .grid-info { max-height: 30dvh; }
     }
   }
 }

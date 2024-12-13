@@ -9,7 +9,7 @@ import YAML from "yaml";
 
 import { parseDate } from "@plangs/plangs/auxiliar/str_date";
 import type { PlangsGraph } from "@plangs/plangs/graph";
-import type { VPlangKey, VPostKey } from "@plangs/plangs/graph/generated";
+import type { VPostKey } from "@plangs/plangs/graph/generated";
 import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 
 import { ZERO_WIDTH } from "./utils/server";
@@ -93,22 +93,15 @@ export async function loadBlogPost(pg: PlangsGraph, key: VPostKey): Promise<Cont
   if (post?.path) return loadContent(`posts/${post.path}`, pg);
 }
 
-/**
- * Add a css ID to headings.
- * Lifted from https://github.com/markedjs/marked-custom-heading-id
- */
+/** Add a link to headings other than h1. */
 export function customHeadingId() {
   return {
     useNewRenderer: true,
     renderer: {
       heading({ text, depth }: { text: string; depth: number }) {
-        const headingIdRegex = /(?: +|^)\{#([a-z][\w-]*)\}(?: +|$)/i;
-        const hasId = text.match(headingIdRegex);
-        if (!hasId) {
-          // fallback to original heading renderer
-          return false;
-        }
-        return `<h${depth} id="${hasId[1]}">${text.replace(headingIdRegex, "")}</h${depth}>\n`;
+        const cssId = text.toLowerCase().replace(/[^\w]+/g, "-");
+        const link = `<a class="px-2 text-foreground opacity-30 group-hover:opacity-90 decoration-0" href="#${cssId}">#</a>`;
+        return `<h${depth} class="group" id="${cssId}">${text}${depth > 1 ? link : ""}</h${depth}>\n`;
       },
     },
   };

@@ -5,11 +5,9 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        // Hide the logo if the screen is not tall enough.
-        short: { raw: "(max-height: 640px)" },
+        short: { raw: "(max-height: 640px)" }, // Hide the logo if the screen is not tall enough.
         "portrait-narrow": { raw: "(orientation: portrait) and (max-aspect-ratio: 2/3)" },
         "portrait-wide": { raw: "(orientation: portrait) and (min-aspect-ratio: 2/3)" },
-        landscape: { raw: "(orientation: landscape)" },
         "landscape-short": { raw: "(orientation: landscape) and (max-height: 400px)" },
       },
       colors: {
