@@ -52,10 +52,10 @@ BUG: the bundles are not being generated, check python codegen.
 - [ ] Create a ToolBar component: we need some buttons to interact with eachother.
 
 - [ ] Allow AI enriching all data, not just plangs.
-- [ ] Add a "short description", since desc. of many plangs is too long.
-
 - [ ] Manually add more data and AI enrich. 
+
 - [ ] Revise data: tags: better-c, educational.
+- [ ] Link asking for help.
 
 ## TODO
 
@@ -66,7 +66,6 @@ BUG: the bundles are not being generated, check python codegen.
 ### Backlog
 
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
-
 - [ ] Add a simple admin interface to locally tweak the data: **maybe out of scope?**
 - [ ] Add tests for frontend code.
 
