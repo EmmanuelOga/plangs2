@@ -3,7 +3,7 @@ import { IterTap } from "@plangs/auxiliar/iter_tap";
 import { Vertex } from "@plangs/graphgen/library";
 
 import type { PlangsGraphBase, TPlangsVertexName } from "./generated";
-import { FieldStrDate } from "./vertex_data_fields";
+import { type FieldGithub, FieldStrDate } from "./vertex_data_fields";
 import type { Image, Link, VertexBaseData } from "./vertex_data_schemas";
 
 export abstract class PlangsVertex<KeyPrefix extends string, Data extends VertexBaseData> extends Vertex<KeyPrefix, Data> {
@@ -63,6 +63,22 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
 
   get urlHome(): string | undefined {
     return this.data.extHomeURL;
+  }
+
+  get urlGithub(): string | undefined {
+    return "github" in this ? (this.github as FieldGithub).url : undefined;
+  }
+
+  get urlStackov(): string | undefined {
+    return this.data.stackovTags ? `https://stackoverflow.com/questions/tagged/${this.data.stackovTags.join("+")}` : undefined;
+  }
+
+  get urlReddit(): string | undefined {
+    return this.data.extRedditPath ? `https://reddit.com/r/${this.data.extRedditPath}` : undefined;
+  }
+
+  get urlWikipedia(): string | undefined {
+    return this.data.extWikipediaPath ? `https://en.wikipedia.org/wiki/${this.data.extWikipediaPath}` : undefined;
   }
 
   get links(): IterTap<Link> {

@@ -115,7 +115,11 @@
           "type": "string"
         }
       },
-      "required": ["version", "name", "date"],
+      "required": [
+        "version",
+        "name",
+        "date"
+      ],
       "additionalProperties": false
     },
     "Link": {
@@ -131,7 +135,10 @@
           "type": "string"
         }
       },
-      "required": ["url", "title"],
+      "required": [
+        "url",
+        "title"
+      ],
       "additionalProperties": false
     },
     "PlangData": {
@@ -200,9 +207,6 @@
         "extGithubPath": {
           "description": "Github Path: this should be user/repo or org/repo, such that we can access it at `https://github.com/${path}`",
           "type": "string"
-        },
-        "ghRepoCreated": {
-          "type": "string"
         }
       },
       "additionalProperties": false,
@@ -219,8 +223,7 @@
         "extHomeURL",
         "links",
         "githubStars",
-        "extGithubPath",
-        "ghRepoCreated"
+        "extGithubPath"
       ]
     }
   },

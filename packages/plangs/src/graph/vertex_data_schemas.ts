@@ -16,6 +16,14 @@ export type VertexBaseData = {
   images: Image[];
   /** Links to external resources. */
   links: Link[];
+  /** Reddit Path: this should be reddit page path, such that we can access it at `https://reddit.com/r/${path}` */
+  extRedditPath?: string;
+  /** Wikipedia Path: this should be wikipedia page path, such that we can access it at `https://en.wikipedia.org/wiki/${path}` */
+  extWikipediaPath?: string;
+  /** A list of stackoverflow tags used when asking questions about this plang. */
+  stackovTags: string[];
+  /** Some important releases. For instance: the latest for each major version. */
+  releases: Release[];
 };
 
 /**
@@ -37,37 +45,25 @@ export type VPlangBaseData = {
   releases: Release[];
 };
 
-/** Data relations to other sources, like those coming from Languish and Github. */
+/**
+ * Data relations to other sources, like those coming from Languish and Github.
+ * Note that the Github fields only apply to languages, not general repos. They come from the GH Linguist ruby gem.
+ */
 export type VPlangRelData = {
-  /** A list of stackoverflow tags used when asking questions about this plang. */
-  stackovTags: string[];
-
   /** Ranking according to Languish. The ranking should correspond to metrios calculated a given quarter (for instance, Q3 2024). */
   languishRanking: number;
-
   /** Github Name, matching the data on github-linguist Ruby gem. */
   githubName?: string;
-
   /** Github Group name */
   githubGroupName?: string;
-
   /** Internal ID of the language in Github. Looks like a numeric id ("1", "2", "3") wrapped in a string. */
   githubLangId?: string;
-
   /** An HTML color name that Github assigns to some languages. Example: "#2A6277". */
   githubColor?: string;
-
   /** Languages that Github considers "popular", for whatever reason. */
   githubPopular?: boolean;
-
   /** Language Type, according to Github's linguist. */
   githubType?: string;
-
-  /** Reddit Path: this should be reddit page path, such that we can access it at `https://reddit.com/r/${path}` */
-  extRedditPath?: string;
-
-  /** Wikipedia Path: this should be wikipedia page path, such that we can access it at `https://en.wikipedia.org/wiki/${path}` */
-  extWikipediaPath?: string;
 };
 
 export type VLicenseData = VLicenseBaseData & VertexBaseData;
@@ -165,14 +161,10 @@ export type StrDate = `${year}-${month}-${day}` | `${year}-${month}` | `${year}`
 
 /** For anything that can be backed by a Github repository, we want at minimum the "path" and maybe star count. */
 export type GithubRepo = {
-  /** Github Stars, if any. */
-  githubStars?: number;
   /** Github Path: this should be user/repo or org/repo, such that we can access it at `https://github.com/${path}` */
   extGithubPath?: string;
-  /** Date of creation, in the format: YYYY-MM-DD or YYYY-MMM or YYYY. */
-  ghRepoCreated?: StrDate;
-  /** Some important releases. For instance: the latest for each major version. */
-  releases: Release[];
+  /** Github Stars, if any. */
+  githubStars?: number;
 };
 
 ////////////////////////////////////////////////////////////////////////////////

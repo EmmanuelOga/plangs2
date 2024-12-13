@@ -45,11 +45,10 @@ BUG: the bundles are not being generated, check python codegen.
 
 ## WIP
 
-- [ ] better location of the logo and url on Vertex.
 - [ ] Materialize more relationships: isTranspiler, influence, etc.
 - [ ] Dematerialize? Remove redundancy before re-generating the code.
+
 - [ ] Use the github API to procure more precise information of github repos.
-- [ ] Add icons to external services (reddit, wiki, github) and display other links.
 - [ ] Create a ToolBar component: we need some buttons to interact with eachother.
 
 - [ ] Allow AI enriching all data, not just plangs.
@@ -67,7 +66,6 @@ BUG: the bundles are not being generated, check python codegen.
 ### Backlog
 
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
-- [ ] Add a table display mode in addition to Grid (some things don't display good on a Grid, like Libraries).
 
 - [ ] Add a simple admin interface to locally tweak the data: **maybe out of scope?**
 - [ ] Add tests for frontend code.
@@ -89,3 +87,4 @@ BUG: the bundles are not being generated, check python codegen.
 - [ ] Platform Icons.
 - [ ] Add support for drag/drop resize of elements (node-info and facets-main).
 - [ ] Gray out facets that won't add to the selection.
+- [ ] Add a table display mode in addition to Grid (some things don't display good on a Grid, like Libraries).

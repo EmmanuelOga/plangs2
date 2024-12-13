@@ -123,18 +123,6 @@ export class VPlang extends Gen.VPlangBase {
     return new IterTap(this.data.stackovTags);
   }
 
-  get urlReddit(): string | undefined {
-    return this.data.extRedditPath ? `https://reddit.com/${this.data.extRedditPath}` : undefined;
-  }
-
-  get urlStackov(): string | undefined {
-    return this.stackovTags ? `https://stackoverflow.com/questions/tagged/${this.stackovTags.join("+")}` : undefined;
-  }
-
-  get urlWikipedia(): string | undefined {
-    return this.data.extWikipediaPath ? `https://github.com/${this.data.extGithubPath}` : undefined;
-  }
-
   /**
    * Builds (non-recursively) a set of all languages that this language is related to, not including self.
    * A language is related if it is compiled to, is a dialect of, or implements this language.

@@ -1,12 +1,12 @@
 import { useEffect, useRef } from "preact/hooks";
 
 import { ret } from "@plangs/auxiliar/misc";
-import { PROSE_BASIC, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
+import { GITHUB, HOME, REDDIT, STACKOV, WIKIPEDIA } from "@plangs/frontend/auxiliar/icons";
+import { BORDER, PROSE_BASIC, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
 import { GRID_PAGES, type PlangsPage } from "@plangs/server/components/layout";
-import { VertexLink } from "@plangs/server/components/vertex-link";
 import { VertexThumbn } from "@plangs/server/components/vertex-thumbn";
-import type { ComponentChildren } from "preact";
+import type { ComponentChildren, JSX } from "preact";
 
 export type VertexInfoProps = {
   page: PlangsPage;
@@ -33,21 +33,29 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
       )}
       {vertex && (
         <div>
-          {vertex && !forGrid && (
-            <div class="float-right pl-4 text-center">
-              <VertexThumbn vertex={vertex} onlyImg={true} class="h-[6.5rem] w-[6.5rem]" />
-              {vertex.urlHome && <VertexLink vertex={vertex} external={true} title="Home" />}
+          <div class="float-right flex flex-col items-center pl-4">
+            <div class="flex flex-row gap-4">
+              {ret(vertex.urlHome, url => url && <ExternalLink href={url} icon={HOME} />)}
+              {ret(vertex.urlGithub, url => url && <ExternalLink href={url} icon={GITHUB} />)}
+              {ret(vertex.urlStackov, url => url && <ExternalLink href={url} icon={STACKOV} />)}
+              {ret(vertex.urlReddit, url => url && <ExternalLink href={url} icon={REDDIT} />)}
+              {ret(vertex.urlWikipedia, url => url && <ExternalLink href={url} icon={WIKIPEDIA} />)}
             </div>
-          )}
-
+          </div>
           <h2 ref={h1Ref} class={tw("mt-0!", forGrid && "inline sm:block")}>
             <a class="text-primary" href={vertex.href}>
               {vertex.name}
             </a>
-            {forGrid && vertex.urlHome && <VertexLink vertex={vertex} external={true} title="" />}
           </h2>
           <span class={tw(forGrid ? "dash mx-2 inline-block sm:hidden" : "hidden")}>&#8212;</span>
-          <p class={tw(forGrid && "inline sm:block", "hyphens-auto")}>{forGrid ? vertex.shortDesc : vertex.description}</p>
+          <p class={tw("clear-both", forGrid && "inline sm:block", "hyphens-auto")}>
+            {!forGrid && (
+              <div class={tw("float-right ml-2 p-4", tw(BORDER, "border-1"))}>
+                <VertexThumbn vertex={vertex} onlyImg={true} class="h-[6.5rem] w-[6.5rem]" />
+              </div>
+            )}
+            {forGrid ? vertex.shortDesc : vertex.description}
+          </p>
         </div>
       )}
       {vertex && rels.length > 0 && (
@@ -75,6 +83,14 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
         </details>
       )}
     </div>
+  );
+}
+
+function ExternalLink({ href, icon }: { href: string; icon: JSX.Element }) {
+  return (
+    <a href={href} class={tw("text-primary hover:text-hiliteb")}>
+      {icon}
+    </a>
   );
 }
 

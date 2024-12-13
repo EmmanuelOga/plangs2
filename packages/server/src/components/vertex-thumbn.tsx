@@ -1,6 +1,6 @@
 import type { JSX } from "preact/jsx-runtime";
 
-import { tw } from "@plangs/frontend/auxiliar/styles";
+import { HOVER, tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsVertex } from "@plangs/plangs/graph/vertex_base";
 import { cssClass } from "@plangs/server/elements";
 import { dataset } from "@plangs/server/utils/html";
@@ -44,17 +44,21 @@ export function VertexThumbn({ vertex, onlyImg, class: klass }: { class?: string
           class={tw(cssClass("vertexThumbnImg"), "max-h-full max-w-full object-contain")}
         />
         {"ranking" in vertex && vertex.ranking && (
-          <div
+          <a
+            href={`https://tjpalmer.github.io/languish/#names=${encodeURIComponent(vertex.name.toLowerCase())}`}
             title={`Languish Ranking: ${vertex.ranking}`}
             class={tw(
+              "block",
               // ALlow hiding the ranking using a data attribute on the wrapper.
               "group-[[data-hide-ranking='1']]:hidden",
               "absolute right-0 bottom-0",
-              "px-1 text-primary text-xs",
-              "opacity-50",
+              "m-0.5 px-2 py-1 text-primary text-xs",
+              "rounded opacity-50",
+              HOVER,
+              "hover:border-1 hover:border-primary hover:opacity-100",
             )}>
-            <a href={`https://tjpalmer.github.io/languish/#names=${encodeURIComponent(vertex.name.toLowerCase())}`}>{vertex.ranking}</a>
-          </div>
+            {vertex.ranking}
+          </a>
         )}
       </div>
     </div>
