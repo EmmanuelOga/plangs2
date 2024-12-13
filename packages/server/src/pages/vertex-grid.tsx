@@ -24,8 +24,8 @@ export function VertexGrid({ pg, page, vertexName }: { pg: PlangsGraph; page: Pl
   );
 
   const info = (
-    <div class={tw("grid-info", VSCROLL, cssClass("vertexInfo"), "bg-linear-to-b to-secondary/50")} data-page={page} data-open={false}>
-      <VertexInfo page={page} open={false} />
+    <div class={tw("grid-info", VSCROLL, cssClass("vertexInfo"), "bg-linear-to-b to-secondary/50")} data-page={page} data-open={true}>
+      <VertexInfo page={page} open={true} />
     </div>
   );
 

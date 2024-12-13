@@ -7,7 +7,7 @@ export function VertexHeader({ vertex }: { vertex: TPlangsVertex }) {
   return (
     <div key={vertex.key} class={tw("mb-8", tw(BORDER, "border-b-1"))}>
       <header>
-        <VertexLink vertex={vertex} includeLocal={true} />
+        <VertexLink vertex={vertex} external={true} />
       </header>
       <p>{vertex.description}</p>
     </div>
