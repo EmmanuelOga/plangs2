@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+array", {
-    name: "Array Programming",
+    name: "Array Based",
     keywords: ["array", "vector"],
     description:
       "In computer science, array programming refers to solutions that allow the application of operations to an entire set of values at once. Such solutions are commonly used in scientific and engineering settings.",
@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
     name: "Aspect-oriented",
     keywords: ["aspect"],
     description:
-      "Programming paradigm that aims to increase modularity by allowing the separation of cross-cutting concerns. This allows behaviors that are not central to the business logic (such as logging) to be added to a program without cluttering the code of core functions.",
+      "Aims to increase modularity by allowing the separation of cross-cutting concerns. This allows behaviors that are not central to the business logic (such as logging) to be added to a program without cluttering the code of core functions.",
     extHomeURL: "https://en.wikipedia.org/wiki/Aspect-oriented_programming",
   });
 
@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+async", {
-    name: "Task-Driven Asynchronous Programming",
+    name: "Task-Driven Async",
     keywords: ["async", "task-driven"],
     description:
       "Task-driven asynchronous programming allows tasks to be executed independently, enabling concurrency and efficient resource utilization.",
@@ -41,7 +41,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+bidirectional", {
-    name: "Bidirectional Programming",
+    name: "Bidirectional",
     keywords: ["bi-directional", "bidirectional"],
     description:
       "Programs in which a single piece of code can be run in several ways, such that the same data are sometimes considered as input, and sometimes as output.",
@@ -57,7 +57,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+concatenative", {
-    name: "Concatenative Programming",
+    name: "Concatenative",
     keywords: ["concatenative"],
     description:
       "A concatenative programming language is a point-free computer programming language in which all expressions denote functions, and the juxtaposition of expressions denotes function composition.",
@@ -73,7 +73,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+constraint", {
-    name: "Constraint Programming",
+    name: "Constraint",
     keywords: ["constraint"],
     description: "In constraint programming, users declaratively state the constraints on the feasible solutions for a set of decision variables.",
     extHomeURL: "https://en.wikipedia.org/wiki/Constraint_programming",
@@ -88,7 +88,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+data-driven", {
-    name: "Data-centric Programming",
+    name: "Data-centric",
     keywords: ["data-driven"],
     description: "Programs describe the data to be matched and the processing required rather than defining a sequence of steps to be taken.",
     extHomeURL: "https://en.wikipedia.org/wiki/Data-driven_programming",
@@ -109,7 +109,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+dataflow", {
-    name: "Dataflow Programming",
+    name: "Dataflow",
     keywords: ["dataflow"],
     description:
       "Models a program as a directed graph of the data flowing between operations, thus implementing dataflow principles and architecture.",
@@ -117,7 +117,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+declarative", {
-    name: "Declarative Programming",
+    name: "Declarative",
     keywords: ["declarative"],
     description:
       "A style of building the structure and elements of computer programs—that expresses the logic of a computation without describing its control flow.",
@@ -125,7 +125,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+distributed", {
-    name: "Distributed Programming",
+    name: "Distributed",
     keywords: ["distributed"],
     description: "Distributed programming involves multiple computers working together on a single task.",
     extHomeURL: "https://en.wikipedia.org/wiki/Distributed_programming",
@@ -139,7 +139,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+educational", {
-    name: "Educational Programming",
+    name: "Educational",
     keywords: ["educational"],
     description: "Educational programming languages are designed mainly to teach programming concepts.",
     extHomeURL: "https://en.wikipedia.org/wiki/Educational_programming_language",
@@ -153,21 +153,21 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+esoteric", {
-    name: "Esoteric Programming",
+    name: "Esoteric",
     keywords: ["esoteric"],
     description: "Esoteric programming languages are created as experiments, jokes, or for artistic purposes.",
     extHomeURL: "https://en.wikipedia.org/wiki/Esoteric_programming_language",
   });
 
   g.paradigm.set("para+event-driven", {
-    name: "Event-Driven Programming",
+    name: "Event-Driven",
     keywords: ["event-driven"],
     description: "Event-driven programming centers around responding to user actions or other events.",
     extHomeURL: "https://en.wikipedia.org/wiki/Event-driven_programming",
   });
 
   g.paradigm.set("para+exp-oriented", {
-    name: "Expression-Oriented Programming",
+    name: "Expression-Oriented",
     keywords: ["exp-oriented", "expression-oriented"],
     description: "Expression-oriented programming emphasizes the use of expressions over statements.",
     extHomeURL: "https://en.wikipedia.org/wiki/Expression-oriented_programming_language",
@@ -181,21 +181,21 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+extensible", {
-    name: "Extensible Programming",
+    name: "Extensible",
     keywords: ["extensible"],
     description: "Extensible programming languages are designed to be extended with new features.",
     extHomeURL: "https://en.wikipedia.org/wiki/Extensible_programming",
   });
 
   g.paradigm.set("para+frp", {
-    name: "Functional Reactive Programming",
+    name: "Functional Reactive",
     keywords: ["frp", "functional reactive"],
     description: "Functional reactive programming is a programming paradigm for reactive systems using functional programming.",
     extHomeURL: "https://en.wikipedia.org/wiki/Functional_reactive_programming",
   });
 
   g.paradigm.set("para+functional", {
-    name: "Functional Programming",
+    name: "Functional",
     keywords: ["functional", "lambda", "pure"],
     description:
       "A programming paradigm where programs are constructed by applying and composing functions. It is a declarative programming paradigm in which function definitions are trees of expressions that map values to other values.",
@@ -203,28 +203,28 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+general-purpose", {
-    name: "General-Purpose Programming",
+    name: "General-Purpose",
     keywords: ["general-purpose"],
     description: "General-purpose programming languages are designed to solve a wide range of problems.",
     extHomeURL: "https://en.wikipedia.org/wiki/General-purpose_programming_language",
   });
 
   g.paradigm.set("para+imperative", {
-    name: "Imperative Programming",
+    name: "Imperative",
     keywords: ["imperative"],
     description: "Imperative programming uses statements to change a program's state.",
     extHomeURL: "https://en.wikipedia.org/wiki/Imperative_programming",
   });
 
   g.paradigm.set("para+interpreted", {
-    name: "Interpreted Programming",
+    name: "Interpreted",
     keywords: ["interpreted"],
     description: "Interpreted languages are executed directly, without prior compilation.",
     extHomeURL: "https://en.wikipedia.org/wiki/Interpreted_language",
   });
 
   g.paradigm.set("para+language-oriented", {
-    name: "Language-Oriented Programming",
+    name: "Language-Oriented",
     keywords: ["language-oriented"],
     description: "Language-oriented programming involves the creation of domain-specific languages to solve specific problems.",
     extHomeURL: "https://en.wikipedia.org/wiki/Language_oriented_programming",
@@ -238,7 +238,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+logic", {
-    name: "Logic Programming",
+    name: "Logic",
     keywords: ["logic"],
     description: "Logic programming is based on formal logic, using facts and rules to derive conclusions.",
     extHomeURL: "https://en.wikipedia.org/wiki/Logic_Programming",
@@ -274,7 +274,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+modular", {
-    name: "Modular Programming",
+    name: "Modular",
     keywords: ["modular"],
     description: "Modular programming involves dividing a program into separate, independent modules.",
     extHomeURL: "https://en.wikipedia.org/wiki/Modular_programming",
@@ -296,7 +296,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+natural-language", {
-    name: "Natural Language Programming",
+    name: "Natural Language",
     keywords: ["natural language programming"],
     description: "Natural language programming enables the development of software using human language commands.",
     extHomeURL: "https://en.wikipedia.org/wiki/Natural_language_programming",
@@ -306,12 +306,12 @@ export function define(g: PlangsGraph) {
     name: "Object-oriented",
     keywords: ["class-based", "object", "oop"],
     description:
-      "Programming paradigm based on the concept of objects, which can contain data and code: data in the form of fields (often known as attributes or properties), and code in the form of procedures (often known as methods). In OOP, computer programs are designed by making them out of objects that interact with one another.",
+      "Based on the concept of objects, which can contain data and code: data in the form of fields (often known as attributes or properties), and code in the form of procedures (often known as methods). In OOP, computer programs are designed by making them out of objects that interact with one another.",
     extHomeURL: "https://en.wikipedia.org/wiki/Object-orientation",
   });
 
   g.paradigm.set("para+parallel", {
-    name: "Parallel Programming",
+    name: "Parallel",
     keywords: ["parallel programming"],
     description: "Parallel programming executes multiple tasks simultaneously to improve performance.",
     extHomeURL: "https://en.wikipedia.org/wiki/Parallel_programming_model",
@@ -325,14 +325,14 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+pipeline", {
-    name: "Pipeline Programming",
+    name: "Pipeline",
     keywords: ["pipeline"],
     description: "Pipeline programming passes data through a series of processing stages, each stage producing input for the next.",
     extHomeURL: "https://en.wikipedia.org/wiki/Pipeline_(software)",
   });
 
   g.paradigm.set("para+point-free", {
-    name: "Point-free Programming",
+    name: "Point-free",
     keywords: ["point-free", "tacit"],
     description:
       "Point-free (aka tacit) programming avoids specifying arguments in function definitions, focusing on composition rather than application.",
@@ -340,35 +340,35 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+procedural", {
-    name: "Procedural Programming",
+    name: "Procedural",
     keywords: ["procedural"],
     description: "Procedural programming focuses on the use of procedures or functions to perform tasks.",
     extHomeURL: "https://en.wikipedia.org/wiki/Procedural_programming",
   });
 
   g.paradigm.set("para+process-oriented", {
-    name: "Process-Oriented Programming",
+    name: "Process-Oriented",
     keywords: ["process-oriented"],
     description: "Process-oriented programming is based on the concept of processes as the primary abstraction.",
     extHomeURL: "https://en.wikipedia.org/wiki/Process-oriented_programming",
   });
 
   g.paradigm.set("para+protocol", {
-    name: "Protocol-Oriented Programming",
+    name: "Protocol-Oriented",
     keywords: ["interface", "protocol"],
     description: "Protocol-oriented programming focuses on the design and use of interfaces or protocols to define program behavior.",
     extHomeURL: "https://en.wikipedia.org/wiki/Interface_(object-oriented_programming)",
   });
 
   g.paradigm.set("para+prototype", {
-    name: "Prototype-Based Programming",
+    name: "Prototype-Based",
     keywords: ["prototype"],
     description: "Prototype-based programming is a style of object-oriented programming where objects are created by cloning existing ones.",
     extHomeURL: "https://en.wikipedia.org/wiki/Prototype-based_programming",
   });
 
   g.paradigm.set("para+quantum", {
-    name: "Quantum Programming",
+    name: "Quantum",
     keywords: ["quantum"],
     description: "Quantum programming deals with the development of algorithms for quantum computers.",
     extHomeURL: "https://en.wikipedia.org/wiki/Quantum_programming",
@@ -382,7 +382,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+reactive", {
-    name: "Reactive Programming",
+    name: "Reactive",
     keywords: ["reactive"],
     description: "Reactive programming focuses on asynchronous data streams and the propagation of change.",
     extHomeURL: "https://en.wikipedia.org/wiki/Reactive_programming",
@@ -396,7 +396,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+reflective", {
-    name: "Reflective Programming",
+    name: "Reflective",
     keywords: ["reflective"],
     description: "Reflective programming allows a program to inspect and modify its own structure and behavior at runtime.",
     extHomeURL: "https://en.wikipedia.org/wiki/Reflective_programming",
@@ -445,28 +445,28 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+stack-oriented", {
-    name: "Stack-Oriented Programming",
+    name: "Stack-Oriented",
     keywords: ["stack-oriented"],
     description: "Stack-oriented programming uses a stack-based data structure for passing parameters.",
     extHomeURL: "https://en.wikipedia.org/wiki/Stack-oriented_programming_language",
   });
 
   g.paradigm.set("para+structured", {
-    name: "Structured Programming",
+    name: "Structured",
     keywords: ["structured"],
     description: "Structured programming emphasizes control structures like loops and conditionals, avoiding the use of 'goto' statements.",
     extHomeURL: "https://en.wikipedia.org/wiki/Structured_programming",
   });
 
   g.paradigm.set("para+symbolic", {
-    name: "Symbolic Programming",
+    name: "Symbolic",
     keywords: ["symbolic"],
     description: "Symbolic programming involves manipulating symbols rather than numeric data.",
     extHomeURL: "https://en.wikipedia.org/wiki/Symbolic_programming",
   });
 
   g.paradigm.set("para+synchronous", {
-    name: "Synchronous Programming",
+    name: "Synchronous",
     keywords: ["synchronous"],
     description: "Synchronous programming operates in a time-driven manner where operations occur sequentially and in sync with a clock.",
     extHomeURL: "https://en.wikipedia.org/wiki/Synchronous_programming_language",
@@ -480,7 +480,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+visual", {
-    name: "Visual Programming",
+    name: "Visual",
     keywords: ["block-based", "block-coding", "diagrammatic", "graphical", "visual"],
     description:
       "A programming language that lets users create programs by manipulating program elements graphically rather than by specifying them textually.",
