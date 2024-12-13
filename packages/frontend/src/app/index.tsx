@@ -37,17 +37,6 @@ async function start() {
         if (vertex) renderVertexInfo({ vertex });
       });
 
-      // On double-click, open the language page.
-      on(grid, "dblclick", ({ target }: MouseEvent) => {
-        const vertex = getClosestVertex(pg, target);
-        if (!vertex) return;
-        if (vertex.vertexName === "plang") {
-          window.location.href = `/${vertex.plainKey}`;
-        } else {
-          window.location.href = `/${vertex.vertexName}/${vertex.plainKey}`;
-        }
-      });
-
       // Replace placeholders with the actual images, if any.
       for (const img of elems("vertexThumbnImg")) {
         const src = img.dataset.src;
