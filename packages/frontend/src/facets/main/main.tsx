@@ -35,23 +35,24 @@ export function FacetsMain({ page, pg }: { page: PlangsPage; pg: PlangsGraph }) 
           "bg-linear-to-t from-secondary to-background",
         )}>
         <div class={tw("grid grid-cols-[auto_auto]")}>
-          <header class={tw("uppercase", "text-primary", "mb-2", "ml-4")}>Filters</header>
+          <header class={tw("uppercase", "text-primary", "mb-4", "ml-4")}>Filters</header>
 
           {state.nav.groupKeys.map(group => (
             <nav key={group.join("-")} class={tw("sm:mb-6", "min-w-[12rem] max-w-[15rem]", SUBGRID)}>
               {mapGroups(state, group, (groupKey, isCurrent, hasValues) => (
                 <div
                   key={groupKey}
-                  class={tw(SUBGRID, isCurrent ? "bg-primary/85 text-background" : "hover:bg-primary/25")}
+                  class={tw(
+                    SUBGRID,
+                    isCurrent ? tw(tw("border-secondary border-dotted", "border-l-1"), "bg-primary/85 text-background") : "hover:bg-primary/25",
+                  )}
                   style={`${hasValues ? "font-weight: bold" : ""}`}>
                   <button
                     {...onClickOnEnter(() => state.doSetCurrentGroup(groupKey))}
                     class={tw(
                       "block w-full",
                       "truncate text-left",
-                      "sm:ml-4",
-                      "mr-2 px-1 py-1",
-                      "px-4 py-2 sm:mb-1",
+                      "mr-2 px-4 py-1.5 sm:mb-1 sm:ml-4",
                       "cursor-pointer",
                       isCurrent ? "text-background/85" : hasValues ? "text-primary" : "text-foreground",
                     )}>
