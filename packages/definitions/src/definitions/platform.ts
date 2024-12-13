@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.platform.set("plat+apple", {
-    name: "Apple (macOS, iOS, etc.)",
+    name: "Apple",
     keywords: ["apple silicon", "ios", "m1", "m2", "macos", "tvos", "visionos", "watchos"],
     description:
       "Apple's family of operating systems includes macOS for desktops, iOS for mobile, tvOS for Apple TV, watchOS for Apple Watch, and visionOS for mixed reality.",

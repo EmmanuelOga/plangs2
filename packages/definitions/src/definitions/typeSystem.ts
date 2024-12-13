@@ -2,7 +2,7 @@ import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
   g.typeSystem.set("tsys+affine", {
-    name: "Affine Type System",
+    name: "Affine",
     keywords: ["affine"],
     description: "An affine type system enforces that variables are used at most once, allowing for optimizations such as memory reuse.",
     extHomeURL: "https://en.wikipedia.org/wiki/Affine_type_system",
@@ -17,70 +17,70 @@ export function define(g: PlangsGraph) {
   });
 
   g.typeSystem.set("tsys+dependent", {
-    name: "Dependent Typing",
+    name: "Dependent",
     keywords: ["dependent"],
     description: "Dependent typing is a type system where types depend on terms, allowing for more expressive type constraints.",
     extHomeURL: "https://en.wikipedia.org/wiki/Dependent_typing",
   });
 
   g.typeSystem.set("tsys+duck", {
-    name: "Duck Typing",
+    name: "Duck",
     keywords: ["duck"],
     description: "Duck typing is a style of dynamic typing where an object's behavior determines its type rather than its inheritance.",
     extHomeURL: "https://en.wikipedia.org/wiki/Duck_typing",
   });
 
   g.typeSystem.set("tsys+dynamic", {
-    name: "Dynamic Typing",
+    name: "Dynamic",
     keywords: ["dynamic"],
     description: "Dynamic typing defers type checking until runtime, allowing variables to hold different types at different times.",
     extHomeURL: "https://en.wikipedia.org/wiki/Dynamic_typing",
   });
 
   g.typeSystem.set("tsys+flow", {
-    name: "Flow-Sensitive Typing",
+    name: "Flow-Sensitive",
     keywords: ["flow"],
     description: "Flow-sensitive typing is a type system where the types of variables can change based on control flow in the program.",
     extHomeURL: "https://en.wikipedia.org/wiki/Flow-sensitive_typing",
   });
 
   g.typeSystem.set("tsys+generic", {
-    name: "Generic Programming",
+    name: "Generic",
     keywords: ["generic"],
     description: "Generic programming uses algorithms that can work with several different but related data types.",
     extHomeURL: "https://en.wikipedia.org/wiki/Generic_programming",
   });
 
   g.typeSystem.set("tsys+gradual", {
-    name: "Gradual Typing",
+    name: "Gradual",
     keywords: ["gradual"],
     description: "Gradual typing allows mixing statically and dynamically typed code, progressively introducing type annotations.",
     extHomeURL: "https://en.wikipedia.org/wiki/Gradual_typing",
   });
 
   g.typeSystem.set("tsys+inferred", {
-    name: "Inferred Type System",
+    name: "Inferred",
     keywords: ["hindley", "implicit", "inferred", "milner"],
     description: "A type inference system where types are automatically deduced without requiring explicit type annotations.",
     extHomeURL: "https://en.wikipedia.org/wiki/Type_inference",
   });
 
   g.typeSystem.set("tsys+latent", {
-    name: "Latent Typing",
+    name: "Latent",
     keywords: ["latent"],
     description: "Latent typing is a dynamic typing model where type constraints are deferred until runtime, similar to duck typing.",
     extHomeURL: "https://en.wikipedia.org/wiki/Latent_typing",
   });
 
   g.typeSystem.set("tsys+manifest", {
-    name: "Manifest Typing",
+    name: "Manifest",
     keywords: ["manifest"],
     description: "Manifest typing is a type system in which all variables are explicitly typed in the code, usually associated with static typing.",
     extHomeURL: "https://en.wikipedia.org/wiki/Manifest_typing",
   });
 
   g.typeSystem.set("tsys+nominal", {
-    name: "Nominal Typing",
+    name: "Nominal",
     keywords: ["nominal", "nominative"],
     description:
       "Nominal typing is a type system where compatibility between types is determined by explicit declarations or names, rather than structure.",
@@ -88,7 +88,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.typeSystem.set("tsys+object", {
-    name: "Object-Oriented Typing",
+    name: "Object-Oriented",
     keywords: ["object"],
     description:
       "Object-oriented typing refers to type systems that manage and enforce types for objects and classes, focusing on inheritance and polymorphism.",
@@ -96,35 +96,35 @@ export function define(g: PlangsGraph) {
   });
 
   g.typeSystem.set("tsys+optional", {
-    name: "Optional Typing",
+    name: "Optional",
     keywords: ["optional"],
     description: "Optional typing allows for type annotations to be included or omitted, offering flexibility between static and dynamic typing.",
     extHomeURL: "https://en.wikipedia.org/wiki/Optional_typing",
   });
 
   g.typeSystem.set("tsys+polymorphic", {
-    name: "Polymorphic Typing",
+    name: "Polymorphic",
     keywords: ["polymorphic"],
     description: "Polymorphic typing allows types to be parameterized and reused with different data types, enhancing code reusability.",
     extHomeURL: "https://en.wikipedia.org/wiki/Polymorphism_(computer_science)",
   });
 
   g.typeSystem.set("tsys+rtti", {
-    name: "Run-Time Type Information (RTTI)",
+    name: "RTTI",
     keywords: ["rtti", "run-time"],
     description: "RTTI is a feature that allows a program to retrieve type information about an object during runtime.",
     extHomeURL: "https://en.wikipedia.org/wiki/Run-time_type_information",
   });
 
   g.typeSystem.set("tsys+safe", {
-    name: "Type Safe",
+    name: "Safe",
     keywords: ["safe"],
     description: "Type safety ensures that operations are performed on compatible types, preventing unintended behavior and runtime errors.",
     extHomeURL: "https://en.wikipedia.org/wiki/Type_safety",
   });
 
   g.typeSystem.set("tsys+static", {
-    name: "Static Typing",
+    name: "Static",
     keywords: ["static"],
     description:
       "Static typing checks type correctness at compile-time, reducing runtime errors by ensuring variables are properly typed before execution.",
@@ -132,28 +132,28 @@ export function define(g: PlangsGraph) {
   });
 
   g.typeSystem.set("tsys+string", {
-    name: "String Typing",
+    name: "String",
     keywords: ["string"],
     description: "String typing refers to the type system's handling and validation of string data types in programming languages.",
     extHomeURL: "https://en.wikipedia.org/wiki/String_(programming)",
   });
 
   g.typeSystem.set("tsys+strong", {
-    name: "Strong Typing",
+    name: "Strong",
     keywords: ["strong", "strongly-typed"],
     description: "Strong typing enforces strict type rules, ensuring that variables cannot be implicitly cast or used in an unintended way.",
     extHomeURL: "https://en.wikipedia.org/wiki/Strong_typing",
   });
 
   g.typeSystem.set("tsys+structural", {
-    name: "Structural Typing",
+    name: "Structural",
     keywords: ["structural"],
     description: "Structural typing bases type compatibility on the structure of data rather than explicit type declarations or names.",
     extHomeURL: "https://en.wikipedia.org/wiki/Structural_typing",
   });
 
   g.typeSystem.set("tsys+uniqueness", {
-    name: "Uniqueness Typing",
+    name: "Uniqueness",
     keywords: ["unique"],
     description:
       "Uniqueness typing enforces that certain values are used only once, allowing optimizations like in-place updates in functional programming.",
@@ -168,7 +168,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.typeSystem.set("tsys+weak", {
-    name: "Weak Typing",
+    name: "Weak",
     keywords: ["weak"],
     description:
       "Weak typing allows for more flexible type conversions, where variables can be implicitly cast between types, sometimes leading to unexpected results.",
