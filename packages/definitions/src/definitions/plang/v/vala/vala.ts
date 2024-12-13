@@ -23,7 +23,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Vala is an object-oriented language that generates C code using the GObject system.",
       githubStars: 824,
       extGithubPath: "GNOME/vala",
-      ghRepoCreated: "2007-12-10",
     })
     .relCompilesTo.add("pl+c")
     .relInfluencedBy.add("pl+boo", "pl+c", "pl+c-sharp", "pl+d")

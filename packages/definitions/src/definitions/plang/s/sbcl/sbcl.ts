@@ -27,7 +27,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "SBCL is an open-source, high-performance Common Lisp implementation derived from CMUCL.",
       githubStars: 1900,
       extGithubPath: "sbcl/sbcl",
-      ghRepoCreated: "2011-01-21",
     })
     .relDialectOf.add("pl+common-lisp")
     .relInfluencedBy.add("pl+common-lisp")

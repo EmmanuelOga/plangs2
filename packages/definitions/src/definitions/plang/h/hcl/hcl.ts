@@ -27,7 +27,6 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://github.com/hashicorp/hcl",
       githubStars: 5300,
       extGithubPath: "hashicorp/hcl",
-      ghRepoCreated: "2014-07-30",
     })
     .relCompilesTo.add("pl+go")
     .relLicenses.add("lic+mpl")

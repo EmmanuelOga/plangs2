@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Jython is a Python implementation for the Java platform, enabling Python code to run on the JVM.",
       githubStars: 1300,
       extGithubPath: "jython/jython",
-      ghRepoCreated: "2011-02-17",
     })
     .relImplements.add("pl+python")
     .relInfluencedBy.add("pl+java", "pl+python")

@@ -24,7 +24,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Cython is an optimising static compiler for Python and Cython extensions improving performance and interoperability with C.",
       githubStars: 9600,
       extGithubPath: "cython/cython",
-      ghRepoCreated: "2010-01-01",
     })
     .relCompilesTo.add("pl+c")
     .relDialectOf.add("pl+python")

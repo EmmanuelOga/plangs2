@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Extempore is a high-performance language for real-time audiovisual computing and live coding.",
       extHomeURL: "https://extemporelang.github.io/",
       githubStars: 1400,
-      ghRepoCreated: "2012-01-15",
     })
     .relImplements.add("pl+scheme")
     .relInfluencedBy.add("pl+lisp", "pl+scheme")

@@ -24,7 +24,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "NetLogo is a multi-agent environment for modeling complex systems.",
       githubStars: 1000,
       extGithubPath: "NetLogo/NetLogo",
-      ghRepoCreated: "2011-08-18",
     })
     .relDialectOf.add("pl+lisp")
     .relLicenses.add("lic+gnu-gpl")

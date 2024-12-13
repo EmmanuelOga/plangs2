@@ -28,7 +28,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Racket is a multi-paradigm language derived from Lisp and Scheme, known for powerful macros and libraries.",
       githubStars: 4800,
       extGithubPath: "racket/racket",
-      ghRepoCreated: "2004-06-05",
     })
     .relDialectOf.add("pl+lisp", "pl+scheme")
     .relInfluencedBy.add("pl+eiffel", "pl+lisp", "pl+r5rs", "pl+scheme")

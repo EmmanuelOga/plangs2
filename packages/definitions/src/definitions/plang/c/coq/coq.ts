@@ -27,7 +27,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Coq is an interactive theorem prover focused on formal verification and proof checking.",
       githubStars: 4900,
       extGithubPath: "coq/coq",
-      ghRepoCreated: "2014-03-31",
     })
     .relInfluencedBy.add("pl+ocaml")
     .relLicenses.add("lic+lgpl")

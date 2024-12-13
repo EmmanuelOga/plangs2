@@ -20,7 +20,6 @@ export function define(g: PlangsGraph) {
         "SWI-Prolog is an open-source implementation of Prolog, focused on versatility and rich libraries for applications like the semantic web.",
       githubStars: 991,
       extGithubPath: "SWI-Prolog/swipl-devel",
-      ghRepoCreated: "2012-11-05",
     })
     .relImplements.add("pl+prolog")
     .relInfluencedBy.add("pl+prolog")

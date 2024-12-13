@@ -24,7 +24,6 @@ export function define(g: PlangsGraph) {
       created: "2012",
       shortDesc: "TypeScript is a strongly typed superset of JavaScript that compiles to plain JavaScript.",
       githubStars: 101000,
-      ghRepoCreated: "2012-10-01",
     })
     .relCompilesTo.add("pl+javascript")
     .relInfluencedBy.add("pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+java", "pl+javascript")

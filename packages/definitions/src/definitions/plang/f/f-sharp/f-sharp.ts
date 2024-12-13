@@ -25,7 +25,6 @@ export function define(g: PlangsGraph) {
       links: [{ url: "https://docs.microsoft.com/en-us/dotnet/fsharp/", title: "F# Documentation" }],
       githubStars: 3900,
       extGithubPath: "dotnet/fsharp",
-      ghRepoCreated: "2012-08-17",
     })
     .relDialectOf.add("pl+ocaml")
     .relInfluencedBy.add("pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ocaml", "pl+python", "pl+scala", "pl+standard-ml")

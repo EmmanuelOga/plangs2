@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Amber is a language compiling into Bash with modern syntax and safety features.",
       githubStars: 540,
       extGithubPath: "amber-lang/amber",
-      ghRepoCreated: "2015-06-10",
     })
     .relCompilesTo.add("pl+bash")
     .relLicenses.add("lic+mit")

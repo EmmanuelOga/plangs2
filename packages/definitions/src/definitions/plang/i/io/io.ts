@@ -25,7 +25,6 @@ export function define(g: PlangsGraph) {
         "Io is a pure object-oriented language with a prototype-based model, inspired by Smalltalk, Self, and others, emphasizing simplicity, flexibility, and concurrency.",
       githubStars: 2700,
       extGithubPath: "IoLanguage/io",
-      ghRepoCreated: "2011-12-12",
     })
     .relInfluencedBy.add("pl+lisp", "pl+lua", "pl+self")
     .relLicenses.add("lic+bsd")

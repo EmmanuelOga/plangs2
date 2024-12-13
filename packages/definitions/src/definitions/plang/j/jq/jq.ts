@@ -23,7 +23,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "jq is a lightweight and flexible command-line JSON processor.",
       githubStars: 30700,
       extGithubPath: "jqlang/jq",
-      ghRepoCreated: "2012-11-13",
     })
     .relInfluencedBy.add("pl+haskell")
     .relLicenses.add("lic+mit", "lic+public-domain")

@@ -25,7 +25,6 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.vim.org",
       githubStars: 36900,
       extGithubPath: "vim/vim",
-      ghRepoCreated: "2012-11-22",
     })
     .relLicenses.add("lic+gnu-gpl")
     .relParadigms.add("para+functional", "para+imperative", "para+oop", "para+scripting")

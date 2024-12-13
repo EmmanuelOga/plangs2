@@ -23,7 +23,6 @@ export function define(g: PlangsGraph) {
       created: "2009",
       shortDesc: "Mustache is a logic-less web template system using braces `{{}}` for templating.",
       githubStars: 3000,
-      ghRepoCreated: "2011-08-15",
     })
     .relCompilesTo.add("pl+javascript")
     .relLicenses.add("lic+mit")

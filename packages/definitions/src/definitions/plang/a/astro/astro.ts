@@ -27,7 +27,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Astro is a modern framework for building fast, content-focused websites using static site generation.",
       links: [{ url: "https://docs.astro.build/", title: "Astro Documentation" }],
       githubStars: 47600,
-      ghRepoCreated: "2020-06-06",
     })
     .relCompilesTo.add("pl+javascript", "pl+svelte", "pl+typescript", "pl+vue")
     .relLicenses.add("lic+mit")

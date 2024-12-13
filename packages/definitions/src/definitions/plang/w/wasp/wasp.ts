@@ -20,7 +20,6 @@ export function define(g: PlangsGraph) {
         { url: "https://github.com/wasp-lang/wasp", title: "Wasp on GitHub" },
         { url: "https://wasp-lang.dev/docs", title: "Wasp Documentation" },
       ],
-      ghRepoCreated: "2021-05-01",
     })
     .relCompilesTo.add("pl+javascript")
     .relInfluencedBy.add("pl+javascript")

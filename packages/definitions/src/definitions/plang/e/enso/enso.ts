@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       shortDesc: "Enso is a visual, data-centric programming language designed for efficient collaboration.",
       githubStars: 7400,
-      ghRepoCreated: "2021-01-15",
     })
     .relLicenses.add("lic+agpl", "lic+apache")
     .relParadigms.add("para+data-driven", "para+functional", "para+multi", "para+visual")

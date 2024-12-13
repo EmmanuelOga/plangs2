@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Flix is a functional, imperative, and logic language focusing on type and effect systems.",
       githubStars: 2200,
       extGithubPath: "flix/flix",
-      ghRepoCreated: "2016-04-03",
     })
     .relInfluencedBy.add("pl+f-sharp", "pl+go", "pl+haskell", "pl+ocaml", "pl+scala")
     .relLicenses.add("lic+apache")

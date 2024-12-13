@@ -18,7 +18,6 @@ export function define(g: PlangsGraph) {
       created: "2019",
       shortDesc: "C3 is a modern enhancement of C with module systems, semantic macros, and improved error handling, maintaining C compatibility.",
       githubStars: 3100,
-      ghRepoCreated: "2019-05-22",
     })
     .relInfluencedBy.add("pl+c")
     .relLicenses.add("lic+lgpl", "lic+mit")

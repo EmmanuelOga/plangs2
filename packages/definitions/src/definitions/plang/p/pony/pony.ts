@@ -22,7 +22,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Pony is an open-source, object-oriented, actor-model, secure programming language.",
       githubStars: 5700,
       extGithubPath: "ponylang/ponyc",
-      ghRepoCreated: "2015-09-24",
     })
     .relInfluencedBy.add("pl+erlang", "pl+scala")
     .relLicenses.add("lic+bsd")

@@ -23,7 +23,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "JRuby is a Java-based implementation of Ruby, integrating closely with Java for two-way access.",
       githubStars: 3800,
       extGithubPath: "jruby/jruby",
-      ghRepoCreated: "2007-05-17",
     })
     .relImplements.add("pl+ruby")
     .relInfluencedBy.add("pl+ruby")

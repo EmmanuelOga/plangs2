@@ -30,7 +30,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Dart is a language by Google for building web, mobile, and server apps, with tools to compile to JavaScript and WebAssembly.",
       githubStars: 10300,
       extGithubPath: "dart-lang/sdk",
-      ghRepoCreated: "2011-10-10",
     })
     .relCompilesTo.add("pl+javascript")
     .relInfluencedBy.add("pl+c", "pl+c++", "pl+c-sharp", "pl+erlang", "pl+javascript", "pl+ruby", "pl+typescript")

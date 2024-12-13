@@ -26,7 +26,6 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       githubStars: 64100,
       extGithubPath: "python/cpython",
-      ghRepoCreated: "2005-05-17",
     })
     .relInfluencedBy.add("pl+ada", "pl+apl", "pl+c", "pl+c++", "pl+haskell", "pl+lisp", "pl+perl", "pl+r5rs", "pl+scheme", "pl+standard-ml")
     .relLicenses.add("lic+python")

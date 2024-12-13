@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Flutter is a Google toolkit for creating natively compiled cross-platform apps from a single codebase.",
       githubStars: 167000,
       extGithubPath: "flutter/flutter",
-      ghRepoCreated: "2015-08-18",
     })
     .relCompilesTo.add("pl+javascript")
     .relImplements.add("pl+dart")

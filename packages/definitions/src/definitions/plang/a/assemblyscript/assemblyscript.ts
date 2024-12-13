@@ -19,7 +19,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "AssemblyScript compiles a TypeScript variant to WebAssembly.",
       githubStars: 17000,
       extGithubPath: "AssemblyScript/assemblyscript",
-      ghRepoCreated: "2017-01-25",
     })
     .relCompilesTo.add("pl+webassembly")
     .relDialectOf.add("pl+javascript", "pl+typescript")

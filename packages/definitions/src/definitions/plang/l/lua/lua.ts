@@ -24,7 +24,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Lua is a lightweight, high-level language designed for embedding in applications.",
       githubStars: 8600,
       extGithubPath: "lua/lua",
-      ghRepoCreated: "2020-07-21",
     })
     .relInfluencedBy.add("pl+awk", "pl+c", "pl+c++", "pl+lisp", "pl+r5rs", "pl+scheme", "pl+self")
     .relLicenses.add("lic+mit")

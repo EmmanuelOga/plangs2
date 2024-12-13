@@ -17,7 +17,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Arduino is an open-source platform for creating interactive electronics projects, using a C/C++-based language.",
       githubStars: 14000,
       extGithubPath: "arduino/Arduino",
-      ghRepoCreated: "2012-08-02",
     })
     .relWrittenWith.add("pl+c++")
     .relLicenses.add("lic+cc-by", "lic+gnu-gpl", "lic+lgpl")

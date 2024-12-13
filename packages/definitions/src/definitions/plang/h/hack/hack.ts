@@ -24,7 +24,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Hack is a PHP-influenced language with static and gradual typing, used on the HHVM platform.",
       githubStars: 18200,
       extGithubPath: "facebook/hhvm",
-      ghRepoCreated: "2013-11-03",
     })
     .relDialectOf.add("pl+php")
     .relImplements.add("pl+php")

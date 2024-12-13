@@ -24,7 +24,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Hy is a Lisp dialect embedded in Python, facilitating seamless integration with Python libraries and syntax.",
       githubStars: 5100,
       extGithubPath: "hylang/hy",
-      ghRepoCreated: "2013-02-18",
     })
     .relCompilesTo.add("pl+python")
     .relDialectOf.add("pl+lisp")

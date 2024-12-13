@@ -21,7 +21,6 @@ export function define(g: PlangsGraph) {
       created: "1987",
       isTranspiler: false,
       shortDesc: "Clean is a functional programming language known for uniqueness typing and lazy evaluation.",
-      ghRepoCreated: "2017-05-07",
     })
     .relInfluencedBy.add("pl+haskell")
     .relLicenses.add("lic+bsd")

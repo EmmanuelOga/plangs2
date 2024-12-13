@@ -22,7 +22,6 @@ export function define(g: PlangsGraph) {
       shortDesc:
         "Janet is a versatile, lightweight programming language, ideal for embedded scripting in C/C++ with functional and imperative paradigms.",
       githubStars: 3600,
-      ghRepoCreated: "2012-12-12",
     })
     .relInfluencedBy.add("pl+scheme")
     .relLicenses.add("lic+mit")

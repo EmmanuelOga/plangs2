@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       created: "2021",
       shortDesc: "Nickel is a lightweight configuration language designed for generating modular and reusable configuration files.",
       githubStars: 2400,
-      ghRepoCreated: "2020-03-15",
     })
     .relCompilesTo.add("pl+json", "pl+nix", "pl+rust", "pl+xml", "pl+yaml")
     .relInfluencedBy.add("pl+rust")

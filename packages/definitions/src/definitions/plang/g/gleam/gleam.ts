@@ -25,7 +25,6 @@ export function define(g: PlangsGraph) {
         "Gleam is a general-purpose, functional language that compiles to Erlang and JavaScript, featuring static, inferred typing for concurrent programming.",
       githubStars: 18200,
       extGithubPath: "gleam-lang/gleam",
-      ghRepoCreated: "2016-12-17",
     })
     .relCompilesTo.add("pl+erlang", "pl+javascript")
     .relInfluencedBy.add("pl+elixir", "pl+erlang", "pl+go", "pl+javascript", "pl+ocaml", "pl+rust")

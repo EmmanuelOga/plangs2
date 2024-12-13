@@ -16,7 +16,7 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       shortDesc:
         "Yabasic is a free, open-source BASIC interpreter for Windows and UNIX, supporting simple programming tasks and basic graphical capabilities.",
-      ghRepoCreated: "2017-08-28",
+
       githubStars: 91,
     })
     .relImplements.add("pl+basic")

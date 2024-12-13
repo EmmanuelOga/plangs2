@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "MLton is a whole-program optimizing compiler for Standard ML with SML97 compatibility and advanced optimizations.",
       githubStars: 966,
       extGithubPath: "MLton/mlton",
-      ghRepoCreated: "2011-05-22",
     })
     .relDialectOf.add("pl+standard-ml")
     .relImplements.add("pl+standard-ml")

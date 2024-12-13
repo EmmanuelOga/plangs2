@@ -23,7 +23,6 @@ export function define(g: PlangsGraph) {
       created: "2008",
       shortDesc: "Jinja is a web template engine for Python, known for its flexible syntax and functionality.",
       githubStars: 10400,
-      ghRepoCreated: "2010-03-12",
     })
     .relCompilesTo.add("pl+python")
     .relInfluencedBy.add("pl+python")

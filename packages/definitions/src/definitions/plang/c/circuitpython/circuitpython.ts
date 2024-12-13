@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       created: "2017",
       shortDesc: "CircuitPython, maintained by Adafruit, simplifies Python for microcontroller applications and is implemented in C.",
       githubStars: 4100,
-      ghRepoCreated: "2017-09-20",
     })
     .relImplements.add("pl+python")
     .relInfluencedBy.add("pl+micropython")

@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "MiniZinc is a language for constraint modelling and solving complex combinatorial problems.",
       githubStars: 523,
       extGithubPath: "MiniZinc/libminizinc",
-      ghRepoCreated: "2013-11-21",
     })
     .relLicenses.add("lic+mit", "lic+mpl")
     .relParadigms.add("para+constraint", "para+logic")

@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "GraalVM is a high-performance runtime for multiple languages including Java, Python, and WebAssembly, with polyglot capabilities.",
       githubStars: 20500,
       extGithubPath: "oracle/graal",
-      ghRepoCreated: "2018",
     })
     .relImplements.add("pl+ruby")
     .relInfluencedBy.add("pl+java", "pl+javascript")

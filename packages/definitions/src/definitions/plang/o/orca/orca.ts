@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       shortDesc: "Orca is an esoteric language for creating procedural sequencers for music and visual applications.",
       githubStars: 4600,
-      ghRepoCreated: "2018-11-08",
     })
     .relLicenses.add("lic+mit")
     .relParadigms.add("para+declarative", "para+esoteric", "para+visual")

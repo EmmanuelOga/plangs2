@@ -24,7 +24,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "CoffeeScript compiles into JavaScript, enhancing its brevity with syntactic sugar inspired by Haskell, Ruby, and Python.",
       githubStars: 16500,
       extGithubPath: "jashkenas/coffeescript",
-      ghRepoCreated: "2009-12-13",
     })
     .relCompilesTo.add("pl+javascript")
     .relInfluencedBy.add("pl+haskell", "pl+javascript", "pl+perl", "pl+python", "pl+ruby")

@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       shortDesc: "Inko is a language for efficient, safe concurrent software, with features like static typing and type-safe concurrency.",
       githubStars: 913,
-      ghRepoCreated: "2016-11-07",
     })
     .relInfluencedBy.add("pl+erlang", "pl+go")
     .relLicenses.add("lic+mit", "lic+mpl")

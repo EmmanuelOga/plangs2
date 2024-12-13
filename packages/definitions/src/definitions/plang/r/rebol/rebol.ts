@@ -27,7 +27,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Rebol is a cross-platform multi-paradigm language known for its dialects and simplicity.",
       githubStars: 868,
       extGithubPath: "rebol/rebol",
-      ghRepoCreated: "2011-06-01",
     })
     .relInfluencedBy.add("pl+forth", "pl+lisp", "pl+self")
     .relLicenses.add("lic+apache")

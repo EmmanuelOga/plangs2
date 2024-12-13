@@ -26,7 +26,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Rakudo is the main compiler for the Raku language, targeting MoarVM and JVM.",
       githubStars: 1700,
       extGithubPath: "rakudo/rakudo",
-      ghRepoCreated: "2009-02-15",
     })
     .relImplements.add("pl+raku")
     .relInfluencedBy.add("pl+common-lisp", "pl+haskell", "pl+perl")

@@ -20,7 +20,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Luau is a Lua subset developed by Roblox for game scripting with gradual typing.",
       githubStars: 4100,
       extGithubPath: "Roblox/luau",
-      ghRepoCreated: "2019-10-23",
     })
     .relCompilesTo.add("pl+lua")
     .relDialectOf.add("pl+lua")

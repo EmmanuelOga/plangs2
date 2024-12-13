@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Gravity is a lightweight, embeddable programming language supporting multiple paradigms.",
       extHomeURL: "https://marcobambini.github.io/gravity/",
       githubStars: 4300,
-      ghRepoCreated: "2015-07-21",
     })
     .relInfluencedBy.add("pl+lua", "pl+swift")
     .relLicenses.add("lic+mit")

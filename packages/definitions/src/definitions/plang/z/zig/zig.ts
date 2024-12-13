@@ -25,7 +25,6 @@ export function define(g: PlangsGraph) {
         "Zig is a robust system programming language designed as an improvement over C/C++ with native error handling and performance enhancements.",
       githubStars: 35400,
       extGithubPath: "ziglang/zig",
-      ghRepoCreated: "2015-04-28",
     })
     .relInfluencedBy.add("pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust")
     .relLicenses.add("lic+mit")

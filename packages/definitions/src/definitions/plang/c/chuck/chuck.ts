@@ -25,7 +25,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "ChucK is a concurrent, real-time audio programming language for synthesis and performance.",
       githubStars: 827,
       extGithubPath: "ccrma/chuck",
-      ghRepoCreated: "2016-11-28",
     })
     .relInfluencedBy.add("pl+supercollider")
     .relLicenses.add("lic+gnu-gpl")

@@ -28,7 +28,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Perl is a dynamic, general-purpose language known for its text-processing capabilities.",
       githubStars: 2000,
       extGithubPath: "Perl/perl5",
-      ghRepoCreated: "2017-02-01",
     })
     .relInfluencedBy.add("pl+awk", "pl+basic", "pl+c", "pl+c++", "pl+lisp", "pl+raku", "pl+sed")
     .relLicenses.add("lic+artistic", "lic+gnu-gpl")

@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       shortDesc: "LuaJIT is a high-performance tracing JIT compiler for Lua 5.1, known for its speed and compatibility.",
       githubStars: 4800,
-      ghRepoCreated: "2022-08-21",
     })
     .relDialectOf.add("pl+lua")
     .relImplements.add("pl+lua")

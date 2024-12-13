@@ -27,7 +27,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Rust is a general-purpose programming language emphasizing performance, type safety, and concurrency.",
       githubStars: 99400,
       extGithubPath: "rust-lang/rust",
-      ghRepoCreated: "2010-11-11",
     })
     .relInfluencedBy.add(
       "pl+c",

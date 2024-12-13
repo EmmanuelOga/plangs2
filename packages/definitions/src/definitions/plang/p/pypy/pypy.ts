@@ -26,7 +26,6 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       shortDesc: "PyPy is a high-performance alternative implementation of Python featuring a JIT compiler for speed.",
       githubStars: 1200,
-      ghRepoCreated: "2007-05-29",
     })
     .relDialectOf.add("pl+python")
     .relImplements.add("pl+python")

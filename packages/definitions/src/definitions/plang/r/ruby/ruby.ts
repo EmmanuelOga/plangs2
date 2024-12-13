@@ -30,7 +30,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Ruby is an interpreted, high-level language focused on productivity and simplicity.",
       githubStars: 22200,
       extGithubPath: "ruby/ruby",
-      ghRepoCreated: "2009-08-16",
     })
     .relInfluencedBy.add("pl+basic", "pl+c++", "pl+eiffel", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme")
     .relLicenses.add("lic+bsd", "lic+mit")

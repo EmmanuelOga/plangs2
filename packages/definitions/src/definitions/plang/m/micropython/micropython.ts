@@ -20,7 +20,6 @@ export function define(g: PlangsGraph) {
       ],
       githubStars: 19500,
       extGithubPath: "micropython/micropython",
-      ghRepoCreated: "2013-09-02",
     })
     .relImplements.add("pl+python")
     .relInfluencedBy.add("pl+python")

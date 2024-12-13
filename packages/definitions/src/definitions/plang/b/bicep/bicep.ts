@@ -23,7 +23,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Bicep is a DSL for deploying Azure resources with a simplified syntax.",
       links: [{ url: "https://learn.microsoft.com/azure/azure-resource-manager/bicep/", title: "Microsoft Learn - Bicep Language" }],
       githubStars: 3300,
-      ghRepoCreated: "2020-06-29",
     })
     .relCompilesTo.add("pl+json", "pl+typescript")
     .relImplements.add("pl+json")

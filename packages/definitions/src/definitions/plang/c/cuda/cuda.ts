@@ -26,7 +26,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "CUDA is a parallel computing platform and API model by Nvidia for GPU acceleration.",
       githubStars: 6600,
       extGithubPath: "NVIDIA/cuda-samples",
-      ghRepoCreated: "2014-09-22",
     })
     .relParadigms.add("para+compiled", "para+parallel")
     .relPlatforms.add("plat+linux", "plat+windows")

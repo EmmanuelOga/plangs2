@@ -23,7 +23,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Pure Data (Pd) is an open-source visual programming language for interactive computer music and multimedia.",
       githubStars: 1600,
       extGithubPath: "pure-data/pure-data",
-      ghRepoCreated: "2014-09-23",
     })
     .relLicenses.add("lic+bsd")
     .relParadigms.add("para+concurrent", "para+dataflow", "para+event-driven", "para+visual")

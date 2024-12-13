@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Clozure CL is a free Common Lisp implementation offering full ANSI compliance and several extensions.",
       githubStars: 858,
       extGithubPath: "Clozure/ccl",
-      ghRepoCreated: "2008-11-14",
     })
     .relImplements.add("pl+common-lisp")
     .relLicenses.add("lic+apache")

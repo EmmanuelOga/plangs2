@@ -27,7 +27,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Futhark is a functional, parallel programming language optimized for high-performance GPU and CPU execution.",
       githubStars: 2400,
       extGithubPath: "diku-dk/futhark",
-      ghRepoCreated: "2014-08-19",
     })
     .relCompilesTo.add("pl+cuda")
     .relInfluencedBy.add("pl+apl", "pl+haskell", "pl+standard-ml")

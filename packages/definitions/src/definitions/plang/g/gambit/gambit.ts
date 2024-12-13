@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Gambit is a Scheme implementation with both an interpreter and a C compiler, emphasizing simplicity and performance.",
       githubStars: 1300,
       extGithubPath: "gambit/gambit",
-      ghRepoCreated: "2010-11-12",
     })
     .relCompilesTo.add("pl+c")
     .relDialectOf.add("pl+lisp", "pl+scheme")

@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       shortDesc: "V8 is Google's open-source high-performance JavaScript engine used in Chrome and Node.js.",
       extGithubPath: "v8/v8",
-      ghRepoCreated: "2015-12-11",
+
       githubStars: 23600,
     })
     .relImplements.add("pl+javascript")

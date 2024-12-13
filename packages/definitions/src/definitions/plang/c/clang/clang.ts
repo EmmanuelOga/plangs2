@@ -25,7 +25,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Clang is a compiler front end for C, C++, Objective-C, and Objective-C++, integrating with LLVM.",
       githubStars: 29600,
       extGithubPath: "llvm/llvm-project",
-      ghRepoCreated: "2007-05-21",
     })
     .relImplements.add("pl+c", "pl+c++", "pl+objective-c")
     .relInfluencedBy.add("pl+llvm")

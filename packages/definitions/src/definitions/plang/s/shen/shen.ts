@@ -23,7 +23,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Shen is a multi-paradigm language blending functional and logic programming for symbolic computation.",
       githubStars: 360,
       extGithubPath: "Shen-Language/shen-sources",
-      ghRepoCreated: "2014-06-02",
     })
     .relInfluencedBy.add("pl+prolog", "pl+scheme")
     .relLicenses.add("lic+bsd")

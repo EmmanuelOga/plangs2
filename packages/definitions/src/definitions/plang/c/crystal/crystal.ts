@@ -24,7 +24,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Crystal is a compiled, statically-typed language with Ruby-like syntax and type inference.",
       githubStars: 19500,
       extGithubPath: "crystal-lang/crystal",
-      ghRepoCreated: "2012-08-13",
     })
     .relInfluencedBy.add("pl+ruby")
     .relLicenses.add("lic+apache")

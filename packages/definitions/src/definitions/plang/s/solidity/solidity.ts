@@ -23,7 +23,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Solidity is a statically typed language for smart contracts on the EVM.",
       githubStars: 23500,
       extGithubPath: "ethereum/solidity",
-      ghRepoCreated: "2014-03-09",
     })
     .relInfluencedBy.add("pl+c++", "pl+javascript", "pl+python")
     .relLicenses.add("lic+gnu-gpl")

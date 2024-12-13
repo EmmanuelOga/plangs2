@@ -27,7 +27,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "PowerShell is a shell and scripting language from Microsoft.",
       githubStars: 45800,
       extGithubPath: "PowerShell/PowerShell",
-      ghRepoCreated: "2016-08-18",
     })
     .relInfluencedBy.add("pl+batchfile")
     .relLicenses.add("lic+mit")

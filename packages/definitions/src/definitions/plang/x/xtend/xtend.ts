@@ -23,7 +23,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Xtend is a high-level, JVM language that compiles to Java and supports functional programming features.",
       githubStars: 771,
       extGithubPath: "eclipse-xtext/xtext",
-      ghRepoCreated: "2011-09-07",
     })
     .relCompilesTo.add("pl+java")
     .relInfluencedBy.add("pl+groovy", "pl+java", "pl+scala")

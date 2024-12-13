@@ -24,7 +24,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "V is a statically typed, compiled language emphasizing simplicity and performance.",
       githubStars: 35900,
       extGithubPath: "vlang/v",
-      ghRepoCreated: "2019-06-22",
     })
     .relCompilesTo.add("pl+c")
     .relInfluencedBy.add("pl+go", "pl+nim", "pl+rust", "pl+swift")

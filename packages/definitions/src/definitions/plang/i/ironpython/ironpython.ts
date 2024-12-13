@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "IronPython is an open-source implementation of Python for the .NET framework.",
       githubStars: 2500,
       extGithubPath: "IronLanguages/ironpython3",
-      ghRepoCreated: "2014-02-13",
     })
     .relImplements.add("pl+python")
     .relInfluencedBy.add("pl+.net", "pl+c-sharp")

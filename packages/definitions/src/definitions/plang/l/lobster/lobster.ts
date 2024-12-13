@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       shortDesc: "A statically typed, game-oriented language with Python-like syntax and compile-time memory management.",
       githubStars: 2300,
-      ghRepoCreated: "2017-07-26",
     })
     .relInfluencedBy.add("pl+python")
     .relLicenses.add("lic+apache", "lic+zlib")

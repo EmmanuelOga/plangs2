@@ -24,7 +24,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Red is a programming language supporting imperative and functional paradigms, developed to overcome Rebol's limitations.",
       githubStars: 5600,
       extGithubPath: "red/red",
-      ghRepoCreated: "2012-09-07",
     })
     .relInfluencedBy.add("pl+lisp", "pl+lua", "pl+rebol")
     .relLicenses.add("lic+boost", "lic+bsd")

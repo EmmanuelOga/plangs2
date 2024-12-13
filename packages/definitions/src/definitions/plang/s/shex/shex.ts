@@ -16,7 +16,6 @@ export function define(g: PlangsGraph) {
       created: "2012",
       isTranspiler: false,
       shortDesc: "Shape Expressions (ShEx) is used for RDF data validation and description.",
-      ghRepoCreated: "2014-07-25",
     })
     .relLicenses.add("lic+cc-by")
     .relParadigms.add("para+declarative", "para+dsl", "para+validation")

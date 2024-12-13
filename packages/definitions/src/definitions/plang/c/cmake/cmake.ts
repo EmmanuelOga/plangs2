@@ -28,7 +28,6 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://cmake.org/",
       githubStars: 6900,
       extGithubPath: "Kitware/CMake",
-      ghRepoCreated: "2000-05-06",
     })
     .relCompilesTo.add("pl+makefile")
     .relLicenses.add("lic+bsd")

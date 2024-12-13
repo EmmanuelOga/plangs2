@@ -27,7 +27,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Nim is a statically typed, compiled language focusing on performance and elegant syntax, compilable to C, C++, and JavaScript.",
       githubStars: 16700,
       extGithubPath: "nim-lang/Nim",
-      ghRepoCreated: "2013-04-14",
     })
     .relCompilesTo.add("pl+c++", "pl+javascript")
     .relInfluencedBy.add("pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+python", "pl+rust")

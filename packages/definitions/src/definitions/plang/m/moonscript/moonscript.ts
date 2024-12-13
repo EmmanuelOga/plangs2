@@ -23,7 +23,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "MoonScript is a dynamic scripting language compiling to Lua with CoffeeScript-inspired syntax.",
       githubStars: 3200,
       extGithubPath: "leafo/moonscript",
-      ghRepoCreated: "2012-04-20",
     })
     .relCompilesTo.add("pl+lua")
     .relInfluencedBy.add("pl+c++", "pl+coffeescript", "pl+lua", "pl+scheme")

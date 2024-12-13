@@ -15,7 +15,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "vvvv is a visual programming platform for multimedia applications with a focus on real-time interaction.",
       githubStars: 234,
       extGithubPath: "vvvv/vvvv-sdk",
-      ghRepoCreated: "2011-05-01",
     })
     .relInfluencedBy.add("pl+apl", "pl+max-msp")
     .relParadigms.add("para+dataflow", "para+multi", "para+visual")

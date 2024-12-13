@@ -28,7 +28,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Agda is a dependently typed functional programming language and proof assistant used for writing and verifying proofs.",
       githubStars: 2500,
       extGithubPath: "agda/agda",
-      ghRepoCreated: "2011-01-01",
     })
     .relInfluencedBy.add("pl+coq", "pl+haskell")
     .relLicenses.add("lic+bsd")

@@ -20,7 +20,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Imba is a full-stack web language compiling to JavaScript.",
       extHomeURL: "https://imba.io/",
       githubStars: 6300,
-      ghRepoCreated: "2014-12-21",
     })
     .relCompilesTo.add("pl+javascript")
     .relInfluencedBy.add("pl+coffeescript")

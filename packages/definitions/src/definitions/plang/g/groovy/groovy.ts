@@ -24,7 +24,6 @@ export function define(g: PlangsGraph) {
       shortDesc: "Groovy is a flexible and dynamic language for the Java platform with strong integration capabilities.",
       githubStars: 5200,
       extGithubPath: "apache/groovy",
-      ghRepoCreated: "2014-11-08",
     })
     .relInfluencedBy.add("pl+perl", "pl+python", "pl+ruby")
     .relLicenses.add("lic+apache")
