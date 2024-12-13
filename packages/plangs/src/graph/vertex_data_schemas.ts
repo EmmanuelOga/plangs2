@@ -22,8 +22,6 @@ export type VertexBaseData = {
   extWikipediaPath?: string;
   /** A list of stackoverflow tags used when asking questions about this plang. */
   stackovTags: string[];
-  /** Some important releases. For instance: the latest for each major version. */
-  releases: Release[];
 };
 
 /**
@@ -41,8 +39,6 @@ export type VPlangBaseData = {
   filenames: string[];
   /** Can this particular implementation compile source-code to source-code? */
   isTranspiler: boolean;
-  /** Some important releases. For instance: the latest for each major version. */
-  releases: Release[];
 };
 
 /**
@@ -165,6 +161,8 @@ export type GithubRepo = {
   extGithubPath?: string;
   /** Github Stars, if any. */
   githubStars?: number;
+  /** Some important releases. For instance: the latest for each major version. */
+  releases: Release[];
 };
 
 ////////////////////////////////////////////////////////////////////////////////

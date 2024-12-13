@@ -43,15 +43,31 @@ export function isEmpty(obj: any) {
   return true;
 }
 
-/** Cleanup data **in place**: sort keys, remove blank values. */
+// Maintain an order of keys, with priority for some keys.
+const PRIORITY_KEYS = ["name", "description", "shortDesc", "created"];
+
+/** Cleanup data: return a new object with sorted keys, and remove some blank values. */
 export function cleanup(data: Record<string, any>) {
-  for (const [k, v] of Object.entries(data)) {
+  const entries = Object.entries(data);
+  entries.sort(([keyA], [keyB]) => {
+    const indexA = PRIORITY_KEYS.indexOf(keyA);
+    const indexB = PRIORITY_KEYS.indexOf(keyB);
+
+    if (indexA !== -1 && indexB !== -1) return indexA - indexB;
+    if (indexA !== -1) return -1;
+    if (indexB !== -1) return 1;
+
+    return keyA.localeCompare(keyB);
+  });
+
+  const result: Record<string, any> = {};
+  for (const [k, v] of entries) {
     if (Array.isArray(v)) {
-      if (v.length === 0) delete data[k];
-      else v.sort();
-    } else if (v === null || v === undefined || v === "") {
-      delete data[k];
+      if (v.length > 0) result[k] = [...v].sort();
+    } else if ((v !== null && v !== undefined) || v !== "") {
+      result[k] = v;
     }
   }
-  return data;
+
+  return result;
 }

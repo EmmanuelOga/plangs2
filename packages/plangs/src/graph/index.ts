@@ -4,7 +4,7 @@ import { IterTap } from "@plangs/auxiliar/iter_tap";
 import * as Gen from "./generated";
 
 import { FieldGithub, FieldReleases } from "./vertex_data_fields";
-import type { Release, StrDate } from "./vertex_data_schemas";
+import type { Release, StrDate, VPlangData } from "./vertex_data_schemas";
 
 // Shortcuts to the configuration objects.
 export const rel = Gen.PlangsGraphBase.relConfig;
@@ -89,9 +89,15 @@ export class VPlang extends Gen.VPlangBase {
     return this;
   }
 
-  addStackovTags(stackovTags: string[]): this {
-    arrayMerge((this.data.stackovTags ??= []), stackovTags);
-    return this;
+  /** Override merge to handle some array fields better. */
+  override merge(data: Partial<VPlangData>): this {
+    const { extensions, filenames, releases, ...rest } = data;
+
+    if (extensions) this.addExtensions(extensions);
+    if (filenames) this.addFilenames(filenames);
+    if (releases) this.addReleases(releases);
+
+    return super.merge(rest as VPlangData);
   }
 
   get extensions(): IterTap<string> {

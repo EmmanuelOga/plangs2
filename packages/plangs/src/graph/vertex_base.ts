@@ -109,8 +109,30 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
     return this;
   }
 
+  addKeywords(keywords: string[]): this {
+    arrayMerge((this.data.keywords ??= []), keywords);
+    return this;
+  }
+
   addLinks(links: Link[]): this {
     arrayMerge((this.data.links ??= []), links, (l1, l2) => l1.url === l2.url);
     return this;
+  }
+
+  addStackovTags(stackovTags: string[]): this {
+    arrayMerge((this.data.stackovTags ??= []), stackovTags);
+    return this;
+  }
+
+  /** Override merge to handle some array fields better. */
+  override merge(data: Partial<Data>): this {
+    const { keywords, images, links, stackovTags, ...rest } = data;
+
+    if (images) this.addImages(images);
+    if (keywords) this.addKeywords(keywords);
+    if (links) this.addLinks(links);
+    if (stackovTags) this.addStackovTags(stackovTags);
+
+    return super.merge(rest as Data);
   }
 }

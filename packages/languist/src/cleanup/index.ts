@@ -141,7 +141,7 @@ export function cleanupData(pg: PlangsGraph, update: boolean) {
   }
 }
 
-async function cleanup() {
+export async function cleanup() {
   const pg = new PlangsGraph();
 
   // Switch between: load definitions or load the data.
@@ -159,4 +159,16 @@ async function cleanup() {
 }
 
 // Regenerating a language should result in the same file as before.
-async function regenTest() {}
+async function regenTest() {
+  const pg = new PlangsGraph();
+  await loadDefinitions(pg, { scanImages: false });
+  pg.materialize();
+
+  const py = pg.plang.get("pl+python");
+  if (!py) throw new Error("Python not found!");
+
+  const code = await reformatCode(vertexCodeGen(py));
+  // Add date to the top of the file to make sure it's different.
+  Bun.write(tsLongPath(py), `//${new Date().toISOString()}\n${code}`);
+  console.log("Regenerated Python:", code.length, "bytes");
+}
