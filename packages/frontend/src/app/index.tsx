@@ -58,8 +58,8 @@ async function start() {
 }
 
 // This is a global variable that is set by the build system.
-declare const ENV: "dev" | "prod";
-if (ENV === "dev") {
+declare const PLANGS_ENV: "dev" | "prod";
+if (PLANGS_ENV === "dev") {
   try {
     connectLivereload();
   } catch (err) {

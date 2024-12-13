@@ -19,10 +19,10 @@
     "typescript": "5"
   },
   "scripts": {
-    "js": "esbuild --bundle --define:ENV=\\\"dev\\\" packages/frontend/src/app --sourcemap --outdir=packages/server/static/bundle --watch",
+    "js": "esbuild --bundle --define:PLANGS_ENV=\\\"dev\\\" packages/frontend/src/app --sourcemap --outdir=packages/server/static/bundle --watch",
     "css": "bun x @tailwindcss/cli@next -i ./styles.css -o packages/server/static/bundle/app.css --watch",
     "serve": "bun run --watch --cwd $(pwd)/packages/server src/serve.ts",
-    "genjs": "esbuild --bundle --define:ENV=\\\"prod\\\" packages/frontend/src/app --sourcemap --outdir=$HOME/dev/plangs-out/bundle",
+    "genjs": "esbuild --bundle --minify --define:PLANGS_ENV=\\\"prod\\\" packages/frontend/src/app --sourcemap --outdir=$HOME/dev/plangs-out/bundle",
     "genapp": "bun packages/server/src/generators/site.ts $HOME/dev/plangs-out",
     "genjson": "bun packages/server/src/generators/json.ts .",
     "gengraph": "bun run --watch packages/server/src/generators/graph.ts"
