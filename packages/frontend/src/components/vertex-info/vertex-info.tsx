@@ -63,7 +63,7 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
           class={tw(forGrid && "hidden sm:block", "overflow-hidden", !forGrid && tw("p-4", tw("border-foreground/25 border-dotted", "border-1")))}
           open={open}>
           <summary class="cursor-pointer text-primary">Details</summary>
-          <div class={tw(forGrid ? "flex flex-col" : "grid grid-cols-[auto_1fr]", "gap-4 pt-4")}>
+          <div class={tw(forGrid ? "flex flex-col" : "grid grid-cols-[auto_1fr]", "gap-4", "p-4")}>
             <DetailCell title="General">
               {vertex.created.value && <Pill children={`Appeared ${vertex.created.year}`} />}
               {"releases" in vertex && ret(vertex.releases.last, rel => rel && <Pill children={`Released ${rel.date ?? rel.version}`} />)}
@@ -96,9 +96,9 @@ function ExternalLink({ href, icon }: { href: string; icon: JSX.Element }) {
 
 function DetailCell({ title, children }: { title: string; children: ComponentChildren }) {
   return (
-    <div class={tw("col-span-2 grid grid-cols-subgrid", "pt-2", tw("border-foreground/25 border-dotted", "border-t-1"))} key={title}>
-      <header class="p-2 text-foreground/75">{title}</header>
-      <div class="p-2">{children}</div>
+    <div class={tw("col-span-2 grid grid-cols-subgrid", tw("border-foreground/25 border-dotted", "border-t-1", "pt-4"))} key={title}>
+      <header class="p-1 text-foreground/75">{title}</header>
+      <div class="p-1 ">{children}</div>
     </div>
   );
 }
