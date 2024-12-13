@@ -42,20 +42,15 @@ This simplistic build process just outputs the statically generated contents of 
 ##
 
 BUG: the bundles are not being generated, check python codegen.
+BUG: Fix "restore" functions (save state of info, filters, etc). Seems broken right now.
 
 ## WIP
 
 - [ ] Materialize more relationships: isTranspiler, influence, etc.
 - [ ] Dematerialize? Remove redundancy before re-generating the code.
 
-- [ ] Use the github API to procure more precise information of github repos.
-- [ ] Create a ToolBar component: we need some buttons to interact with eachother.
-
-- [ ] Allow AI enriching all data, not just plangs.
-- [ ] Manually add more data and AI enrich. 
-
-- [ ] Revise data: tags: better-c, educational.
 - [ ] Link asking for help.
+- [ ] Investigate TW css config: breakpoints may be wonky right now.
 
 ## TODO
 
@@ -66,7 +61,6 @@ BUG: the bundles are not being generated, check python codegen.
 ### Backlog
 
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
-- [ ] Add a simple admin interface to locally tweak the data: **maybe out of scope?**
 - [ ] Add tests for frontend code.
 
 - [ ] Add schema.org metadata.
@@ -77,13 +71,33 @@ BUG: the bundles are not being generated, check python codegen.
 - [ ] Simple analytics.
 
 - [ ] Kuzu export.
-
 - [ ] Client side full text search.
 - [ ] Create better guidelines, code of conduct, enable discussions, etc.
 
+## DESIGN
+
+- [ ] Blog posts should generate linkable anchors.
 - [ ] Replace Thumbn SVGs embedding data with PNGs.
 - [ ] Resize all Thumbn to 128x128.
-- [ ] Platform Icons.
+- [ ] Create per platform icons (win, lin, etc) similar to the external links one.
 - [ ] Add support for drag/drop resize of elements (node-info and facets-main).
 - [ ] Gray out facets that won't add to the selection.
 - [ ] Add a table display mode in addition to Grid (some things don't display good on a Grid, like Libraries).
+- [ ] Maybe: only allow sidebar OR filters to be on.
+
+## "ADMIN"
+
+- [ ] Allow AI to crawl for tools
+- [ ] Allow AI to crawl for apps
+- [ ] Allow AI to crawl for libraries
+- [ ] Allow AI to crawl for subsytems
+- [ ] Allow AI to crawl for learning resources
+- [ ] Allow AI to crawl for communities
+
+- [ ] Add a simple admin interface to locally tweak the data: **maybe out of scope?**
+- [ ] Contribution process: CLI tool? Ask type of resource, find URLs, etc.
+
+- [ ] Manually add more data and AI enrich. 
+- [ ] Use the github API to procure more precise information of github repos.
+
+- [ ] Revise data: tags: better-c, educational.

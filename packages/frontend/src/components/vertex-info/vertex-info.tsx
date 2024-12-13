@@ -21,34 +21,31 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
   const forGrid = GRID_PAGES.has(page);
   const rels = relations(vertex);
   return (
-    <div class={tw(VSCROLL, forGrid && "p-4", !forGrid && "mb-16", PROSE_BASIC, "max-w-[unset]")}>
+    <div class={tw(VSCROLL, forGrid && "p-4", !forGrid && "sm:mb-16", PROSE_BASIC, "max-w-[unset]")}>
       {!vertex && (
         <div>
           <h2 class={tw("mt-0!")}>Information</h2>
           <p>
-            <strong class="text-primary">Click</strong> a thumbnail for more info. <strong class="text-primary">Double-click</strong> a thumbnail to
-            go directly to the item's page.
+            <strong class="text-primary">Click</strong> a thumbnail for more info.
           </p>
         </div>
       )}
       {vertex && (
         <div>
-          <div class="float-right flex flex-col items-center pl-4">
-            <div class="flex flex-row gap-4">
-              {ret(vertex.urlHome, url => url && <ExternalLink href={url} icon={HOME} />)}
-              {ret(vertex.urlGithub, url => url && <ExternalLink href={url} icon={GITHUB} />)}
-              {ret(vertex.urlStackov, url => url && <ExternalLink href={url} icon={STACKOV} />)}
-              {ret(vertex.urlReddit, url => url && <ExternalLink href={url} icon={REDDIT} />)}
-              {ret(vertex.urlWikipedia, url => url && <ExternalLink href={url} icon={WIKIPEDIA} />)}
-            </div>
+          <div class="flex flex-row gap-4">
+            <h2 ref={h1Ref} class={tw("m-0!", forGrid && "inline sm:block")}>
+              <a class="text-primary" href={vertex.href}>
+                {vertex.name}
+              </a>
+            </h2>
+            <div class="flex-1" />
+            {ret(vertex.urlHome, url => url && <ExternalLink href={url} icon={HOME} />)}
+            {ret(vertex.urlGithub, url => url && <ExternalLink href={url} icon={GITHUB} />)}
+            {ret(vertex.urlStackov, url => url && <ExternalLink href={url} icon={STACKOV} />)}
+            {ret(vertex.urlReddit, url => url && <ExternalLink href={url} icon={REDDIT} />)}
+            {ret(vertex.urlWikipedia, url => url && <ExternalLink href={url} icon={WIKIPEDIA} />)}
           </div>
-          <h2 ref={h1Ref} class={tw("mt-0!", forGrid && "inline sm:block")}>
-            <a class="text-primary" href={vertex.href}>
-              {vertex.name}
-            </a>
-          </h2>
-          <span class={tw(forGrid ? "dash mx-2 inline-block sm:hidden" : "hidden")}>&#8212;</span>
-          <p class={tw("clear-both", forGrid && "inline sm:block", "hyphens-auto")}>
+          <p class={tw(forGrid && "inline sm:block", "hyphens-auto")}>
             {!forGrid && (
               <div class={tw("float-right ml-2 p-4", tw(BORDER, "border-1"))}>
                 <VertexThumbn vertex={vertex} onlyImg={true} class="h-[6.5rem] w-[6.5rem]" />
@@ -63,7 +60,7 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
           class={tw(forGrid && "hidden sm:block", "overflow-hidden", !forGrid && tw("p-4", tw("border-foreground/25 border-dotted", "border-1")))}
           open={open}>
           <summary class="cursor-pointer text-primary">Details</summary>
-          <div class={tw(forGrid ? "flex flex-col" : "grid grid-cols-[auto_1fr]", "gap-4", "p-4")}>
+          <div class={tw(!forGrid ? "flex flex-col" : "grid grid-cols-[auto_1fr]", "sm:gap-4", "sm:p-4")}>
             <DetailCell title="General">
               {vertex.created.value && <Pill children={`Appeared ${vertex.created.year}`} />}
               {"releases" in vertex && ret(vertex.releases.last, rel => rel && <Pill children={`Released ${rel.date ?? rel.version}`} />)}
@@ -96,7 +93,7 @@ function ExternalLink({ href, icon }: { href: string; icon: JSX.Element }) {
 
 function DetailCell({ title, children }: { title: string; children: ComponentChildren }) {
   return (
-    <div class={tw("col-span-2 grid grid-cols-subgrid", tw("border-foreground/25 border-dotted", "border-t-1", "pt-4"))} key={title}>
+    <div class={tw("col-span-2 grid grid-cols-subgrid", tw("border-foreground/25 border-dotted sm:border-t-1", "pt-4"))} key={title}>
       <header class="p-1 text-foreground/75">{title}</header>
       <div class="p-1 ">{children}</div>
     </div>
@@ -107,13 +104,12 @@ function Pill({ children }: { children: ComponentChildren }) {
   return (
     // shadow-md inset-shadow-sm inset-shadow-white/20 ring ring-blue-600 inset-ring inset-ring-white/15
     <div
-      style="font-size: 1.125rem; height: 2rem;"
       class={tw(
         "inline-flex items-center",
-        "mr-2 mb-3 max-w-full px-2",
-        "border-2 border-secondary",
+        "m-1 px-1.5",
+        "border-1 border-foreground/25",
         "rounded-tl-2xl rounded-br-2xl",
-        "bg-secondary/50 text-foreground",
+        "bg-secondary/75 text-foreground",
         "overflow-ellipsis whitespace-nowrap",
       )}>
       {children}
