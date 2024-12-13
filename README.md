@@ -49,7 +49,6 @@ BUG: Fix "restore" functions (save state of info, filters, etc). Seems broken ri
 - [ ] Materialize more relationships: isTranspiler, influence, etc.
 - [ ] Dematerialize? Remove redundancy before re-generating the code.
 
-- [ ] Link asking for help.
 - [ ] Investigate TW css config: breakpoints may be wonky right now.
 
 ## TODO
@@ -57,6 +56,7 @@ BUG: Fix "restore" functions (save state of info, filters, etc). Seems broken ri
 - [ ] Add an "authors" Vertex to link to Blog post authors.
 - [ ] Tweak backdrop-filter in Safari/Firefox.
 - [ ] Prefetch some URLS on hover.
+- [ ] HOVER of SVGs doesn't really look nice. Use a BG like for languish rankings.
 
 ### Backlog
 
@@ -67,23 +67,20 @@ BUG: Fix "restore" functions (save state of info, filters, etc). Seems broken ri
 - [ ] Add fb opengraph metadata.
 - [ ] Add missing aria attributes.
 
-- [ ] Publish to **somewhere** and add some CDN.
-- [ ] Simple analytics.
-
 - [ ] Kuzu export.
 - [ ] Client side full text search.
-- [ ] Create better guidelines, code of conduct, enable discussions, etc.
 
 ## DESIGN
 
-- [ ] Blog posts should generate linkable anchors.
+- [ ] Add a table display mode in addition to Grid (some things don't display good on a Grid, like Libraries).
+- [ ] Add support for drag/drop resize of elements (node-info and facets-main).
+
+- [ ] Gray out facets that won't add to the selection.
+- [ ] Maybe: only allow sidebar OR filters to be on.
+
 - [ ] Replace Thumbn SVGs embedding data with PNGs.
 - [ ] Resize all Thumbn to 128x128.
 - [ ] Create per platform icons (win, lin, etc) similar to the external links one.
-- [ ] Add support for drag/drop resize of elements (node-info and facets-main).
-- [ ] Gray out facets that won't add to the selection.
-- [ ] Add a table display mode in addition to Grid (some things don't display good on a Grid, like Libraries).
-- [ ] Maybe: only allow sidebar OR filters to be on.
 
 ## "ADMIN"
 
@@ -101,3 +98,10 @@ BUG: Fix "restore" functions (save state of info, filters, etc). Seems broken ri
 - [ ] Use the github API to procure more precise information of github repos.
 
 - [ ] Revise data: tags: better-c, educational.
+
+# RELEASE
+
+- [ ] Link asking for help.
+- [ ] Publish to **somewhere** and add some CDN.
+- [ ] Simple analytics.
+- [ ] Create better guidelines, code of conduct, enable discussions, etc.

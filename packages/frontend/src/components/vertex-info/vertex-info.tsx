@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "preact/hooks";
 
 import { ret } from "@plangs/auxiliar/misc";
-import { GITHUB, HOME, REDDIT, STACKOV, WIKIPEDIA } from "@plangs/frontend/auxiliar/icons";
+import { EXTERN, GITHUB, REDDIT, STACKOV, WIKIPEDIA } from "@plangs/frontend/auxiliar/icons";
 import { BORDER, PROSE_BASIC, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
 import { GRID_PAGES, type PlangsPage } from "@plangs/server/components/layout";
@@ -32,14 +32,14 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
       )}
       {vertex && (
         <div>
-          <div class="flex flex-row gap-4">
+          <div class="flex flex-row gap-5 align-middle">
             <h2 ref={h1Ref} class={tw("m-0!", forGrid && "inline sm:block")}>
               <a class="text-primary" href={vertex.href}>
                 {vertex.name}
               </a>
             </h2>
             <div class="flex-1" />
-            {ret(vertex.urlHome, url => url && <ExternalLink href={url} icon={HOME} />)}
+            {ret(vertex.urlHome, url => url && <ExternalLink href={url} icon={EXTERN} />)}
             {ret(vertex.urlGithub, url => url && <ExternalLink href={url} icon={GITHUB} />)}
             {ret(vertex.urlStackov, url => url && <ExternalLink href={url} icon={STACKOV} />)}
             {ret(vertex.urlReddit, url => url && <ExternalLink href={url} icon={REDDIT} />)}
