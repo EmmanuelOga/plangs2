@@ -41,7 +41,6 @@ This simplistic build process just outputs the statically generated contents of 
 
 ## BUGS
 
-BUG: the bundles are not being generated, check python codegen.
 BUG: Fix "restore" functions (save state of info, filters, etc). Seems broken right now.
 
 ## WIP
