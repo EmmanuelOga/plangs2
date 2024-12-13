@@ -4,6 +4,7 @@ import type { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import { loadDefinitions } from "@plangs/definitions";
 import type { Vertices } from "@plangs/graphgen/library";
 import { tsLongPath, vertexCodeGen } from "@plangs/languist/codegen";
+import { reformatCode } from "@plangs/languist/reformat";
 import { PlangsGraph, type VPlang } from "@plangs/plangs/graph";
 import type { TPlangsVertex, VPlangKey } from "@plangs/plangs/graph/generated";
 import type { AIVPlang } from "@plangs/plangs/graph/vertex_data_schemas";
@@ -128,7 +129,7 @@ export async function aiCompletion(
 
     const path = tsLongPath(pl);
     console.log("Writing result to", path);
-    Bun.write(path, vertexCodeGen(newPl));
+    Bun.write(path, await reformatCode(vertexCodeGen(newPl)));
   } catch (err) {
     return { result: "error", message: `${err}` };
   }

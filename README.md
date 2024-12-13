@@ -39,7 +39,7 @@ $ bun outapp && bun outjs
 
 This simplistic build process just outputs the statically generated contents of the site at `~/dev/plangs-out` (will probably change at some point).
 
-##
+## BUGS
 
 BUG: the bundles are not being generated, check python codegen.
 BUG: Fix "restore" functions (save state of info, filters, etc). Seems broken right now.
@@ -49,26 +49,24 @@ BUG: Fix "restore" functions (save state of info, filters, etc). Seems broken ri
 - [ ] Materialize more relationships: isTranspiler, influence, etc.
 - [ ] Dematerialize? Remove redundancy before re-generating the code.
 
-- [ ] Investigate TW css config: breakpoints may be wonky right now.
-
-## TODO
-
-- [ ] Add an "authors" Vertex to link to Blog post authors.
-- [ ] Tweak backdrop-filter in Safari/Firefox.
-- [ ] Prefetch some URLS on hover.
-- [ ] HOVER of SVGs doesn't really look nice. Use a BG like for languish rankings.
-
-### Backlog
-
-- [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
-- [ ] Add tests for frontend code.
-
 - [ ] Add schema.org metadata.
 - [ ] Add fb opengraph metadata.
 - [ ] Add missing aria attributes.
 
-- [ ] Kuzu export.
-- [ ] Client side full text search.
+- [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
+- [ ] Drag handles for Grid elems.
+- [ ] Add an "authors" Vertex to link to Blog post authors.
+- [ ] Prefetch some URLS on hover.
+- [ ] HOVER of SVGs doesn't really look nice. Use a BG like for languish rankings.
+
+## TODO
+
+- [ ] Investigate TW css config: breakpoints may be wonky right now.
+- [ ] Tweak backdrop-filter in Safari/Firefox.
+
+### Backlog
+
+- [ ] Add tests for frontend code.
 
 ## DESIGN
 
@@ -93,6 +91,7 @@ BUG: Fix "restore" functions (save state of info, filters, etc). Seems broken ri
 
 - [ ] Add a simple admin interface to locally tweak the data: **maybe out of scope?**
 - [ ] Contribution process: CLI tool? Ask type of resource, find URLs, etc.
+- [ ] Would be cool to be able to create a PR from the website itself.
 
 - [ ] Manually add more data and AI enrich. 
 - [ ] Use the github API to procure more precise information of github repos.
@@ -101,7 +100,12 @@ BUG: Fix "restore" functions (save state of info, filters, etc). Seems broken ri
 
 # RELEASE
 
-- [ ] Link asking for help.
 - [ ] Publish to **somewhere** and add some CDN.
 - [ ] Simple analytics.
 - [ ] Create better guidelines, code of conduct, enable discussions, etc.
+- [ ] Link asking for help.
+
+# Other
+
+- [ ] Kuzu export.
+- [ ] Client side full text search.

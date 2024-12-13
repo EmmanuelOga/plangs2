@@ -12,6 +12,7 @@ import { GH_LANGS } from "@plangs/languist/linguist";
 import type { LanguishKeys, LinguistLang } from "@plangs/languist/types";
 import { PlangsGraph, type VPlang } from "@plangs/plangs/graph";
 import { tsLongPath, tsShortPath, vertexCodeGen, verticesCodeGen } from "../codegen";
+import { reformatCode } from "../reformat";
 
 /** Update the VPlang data with Github data. */
 function updateWithGH(pl: VPlang, ghMap: Map<string, LinguistLang>): boolean {
@@ -94,7 +95,7 @@ export async function processGithubAndLanguish() {
 
   console.warn("Languages without updates:", { woGithub: [...woGH], woLanguish: [...woLG] });
 
-  for (const pl of pg.plang.values) Bun.write(tsLongPath(pl), vertexCodeGen(pl));
+  for (const pl of pg.plang.values) Bun.write(tsLongPath(pl), await reformatCode(vertexCodeGen(pl)));
 
   console.warn("CAUTION: matching github data is not a perfect process. Results (git diff) should be manually reviewed.");
 }
@@ -102,17 +103,17 @@ export async function processGithubAndLanguish() {
 const VERTICES_TO_GEN = ["community", "learning", "license", "paradigm", "platform", "tag", "typeSystem"] as const;
 
 /** This regenerates some vertices that are not VPlangs. Useful to reorder the definitions. */
-export function regenNonPlangs(pg: PlangsGraph) {
+export async function regenNonPlangs(pg: PlangsGraph) {
   for (const vertexName of VERTICES_TO_GEN) {
-    Bun.write(tsShortPath(vertexName), verticesCodeGen(pg, vertexName));
+    Bun.write(tsShortPath(vertexName), await reformatCode(verticesCodeGen(pg, vertexName)));
   }
 }
 
 /** Regenerate all Plang vertices. */
-export function regenPlangs(pg: PlangsGraph) {
+export async function regenPlangs(pg: PlangsGraph) {
   for (const pl of pg.plang.values) {
     // This is good place for "migrations", like renaming keys.
-    Bun.write(tsLongPath(pl), vertexCodeGen(pl));
+    Bun.write(tsLongPath(pl), await reformatCode(vertexCodeGen(pl)));
   }
 }
 
@@ -157,4 +158,5 @@ async function cleanup() {
   }
 }
 
-await cleanup();
+// Regenerating a language should result in the same file as before.
+async function regenTest() {}

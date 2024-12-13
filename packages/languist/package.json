@@ -3,8 +3,14 @@
   "description": "Tools for matching Plangs data agasint Languish and Github-Linguist",
   "version": "0.1.0",
   "main": "src/index.ts",
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "dependencies": {
-    "@plangs/auxiliar": "workspace:*"
+    "@plangs/auxiliar": "workspace:*",
+    "@biomejs/js-api": "^0.7.1"
+  },
+  "peerDependencies": {
+    "@biomejs/wasm-nodejs": "^1.9.4"
   }
 }

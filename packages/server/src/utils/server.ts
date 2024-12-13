@@ -7,7 +7,7 @@ import type { JSX } from "preact";
 import render from "preact-render-to-string";
 
 /** Render a JSX tree as HTML, include the doctype. */
-export function vdomToHTML(component: JSX.Element, pretty = true): string {
+export function vdomToHTML(component: JSX.Element): string {
   const html = render(component, {});
   return `<!DOCTYPE html>\n${html}`;
 }

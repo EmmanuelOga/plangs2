@@ -58,7 +58,7 @@ async function generatePages(dstRoot: string) {
     if (page) {
       const dstPath = join(dstRoot, `${path === "/" ? "index" : path}.html`);
       ensureDir(dstPath);
-      Bun.write(dstPath, vdomToHTML(page, false));
+      Bun.write(dstPath, vdomToHTML(page));
     } else {
       console.warn("Page could not be resolved for path:", path);
     }
