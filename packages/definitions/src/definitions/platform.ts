@@ -38,7 +38,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.platform.set("plat+beam", {
-    name: "Erlang BEAM / OTP",
+    name: "Erlang BEAM/OTP",
     keywords: ["beam", "erlang", "otp"],
     description:
       "Erlang Open Telecom Platform (OTP) is a collection of useful middleware, libraries, and tools written in the Erlang programming language.",
@@ -68,7 +68,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.platform.set("plat+embedded", {
-    name: "Embedded Systems",
+    name: "Embedded",
     keywords: ["embedded", "embedded systems", "microcontroller"],
     description:
       "An embedded system is a microprocessor-based hardware system with software designed to perform a specific function, often real-time.",
@@ -120,7 +120,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.platform.set("plat+wasm", {
-    name: "WebAssembly",
+    name: "WASM",
     keywords: ["wasm", "webassembly"],
     description:
       "WebAssembly (Wasm) is a binary instruction format for a stack-based virtual machine, enabling high-performance applications in web environments.",
@@ -128,7 +128,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.platform.set("plat+web", {
-    name: "WebAssembly",
+    name: "WWW",
     keywords: ["web"],
     description:
       "The World Wide Web (WWW) is an information space where documents and other web resources are identified by URLs, interlinked by hypertext links.",
@@ -136,7 +136,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.platform.set("plat+windows", {
-    name: "Microsoft Windows",
+    name: "Windows",
     keywords: ["win32", "win64", "windows", "windows 10", "windows 11"],
     description: "Microsoft Windows is a series of operating systems developed by Microsoft, with versions for both personal computers and servers.",
     extHomeURL: "https://en.wikipedia.org/wiki/Microsoft_Windows",

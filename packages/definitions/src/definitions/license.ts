@@ -2,7 +2,7 @@ import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
   g.license.set("lic+afl", {
-    name: "Academic Free License",
+    name: "AFL",
     keywords: ["afl", "afl-3"],
     description: "The Academic Free License is a permissive free software license with provisions for academic use.",
     spdx: "AFL-3.0",
@@ -12,7 +12,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.license.set("lic+agpl", {
-    name: "Affero General Public License",
+    name: "AGPL",
     keywords: ["agpl", "agpl-3.0-or-later"],
     description:
       "The Affero General Public License is a free software license that requires the source code to be made available to all users who interact with the software over a network.",
@@ -23,7 +23,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.license.set("lic+apache", {
-    name: "Apache License 2.0",
+    name: "Apache 2.0",
     keywords: ["apache", "apache-2"],
     description:
       "The Apache License 2.0 is a permissive free software license written by the Apache Software Foundation, providing an explicit grant of patent rights from contributors to users.",
@@ -34,7 +34,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.license.set("lic+apsl", {
-    name: "Apple Public Source License",
+    name: "APSL",
     keywords: ["apsl"],
     description: "The Apple Public Source License is a free software license used by Apple for its open-source projects.",
     spdx: "APSL-2.0",
@@ -44,7 +44,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.license.set("lic+artistic", {
-    name: "Artistic License 2.0",
+    name: "AL2.0",
     keywords: ["artistic", "artistic-2", "artistic-2.0"],
     description: "The Artistic License 2.0 is a free software license used for the Perl programming language and its associated libraries.",
     spdx: "Artistic-2.0",
@@ -54,7 +54,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.license.set("lic+boost", {
-    name: "Boost Software License",
+    name: "Boost",
     keywords: ["boost"],
     description: "The Boost Software License is a permissive free software license used by the Boost C++ Libraries.",
     spdx: "BSL-1.0",
@@ -75,7 +75,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.license.set("lic+cc-by", {
-    name: "Creative Commons Attribution",
+    name: "CCA",
     keywords: ["cc-by"],
     description:
       "The Creative Commons Attribution license allows for the sharing and adaptation of works, provided that appropriate credit is given.",
@@ -96,7 +96,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.license.set("lic+cpl", {
-    name: "Common Public License",
+    name: "CPL",
     keywords: ["cpl"],
     description: "The Common Public License is a free software license used by IBM for some of its software projects.",
     spdx: "CPL-1.0",
@@ -106,14 +106,14 @@ export function define(g: PlangsGraph) {
   });
 
   g.license.set("lic+dual", {
-    name: "Dual License",
+    name: "Dual",
     keywords: ["dual-license"],
     description: "A dual license allows software to be licensed under two different licenses, providing users with a choice.",
     extHomeURL: "https://en.wikipedia.org/wiki/Dual_license",
   });
 
   g.license.set("lic+epl", {
-    name: "Eclipse Public License",
+    name: "EPL",
     keywords: ["epl"],
     description: "The Eclipse Public License is a free software license used by the Eclipse Foundation for its open-source projects.",
     spdx: "EPL-2.0",
@@ -123,7 +123,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.license.set("lic+gnu-gpl", {
-    name: "GNU General Public License",
+    name: "GPL",
     keywords: ["gpl", "gplv2", "gplv3"],
     description:
       "The GNU General Public License is a free software license that ensures end users have the freedom to run, study, share, and modify the software.",
@@ -134,7 +134,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.license.set("lic+isc", {
-    name: "ISC License",
+    name: "ISC",
     keywords: ["isc"],
     description: "The ISC License is a permissive free software license similar to the MIT License, with simplified terms.",
     spdx: "ISC",
@@ -144,7 +144,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.license.set("lic+lgpl", {
-    name: "GNU Lesser General Public License",
+    name: "LGPL",
     keywords: ["lgpl"],
     description: "The GNU Lesser General Public License is a free software license that allows for linking with proprietary software.",
     spdx: "LGPL-2.1-only",
@@ -154,7 +154,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.license.set("lic+mit", {
-    name: "MIT License",
+    name: "MIT",
     keywords: ["mit"],
     description: "The MIT License is a permissive free software license that is very simple and permissive, with very few restrictions.",
     spdx: "MIT",
@@ -164,7 +164,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.license.set("lic+mpl", {
-    name: "Mozilla Public License",
+    name: "MPL",
     keywords: ["mpl"],
     description: "The Mozilla Public License is a free software license used by Mozilla for its open-source projects.",
     spdx: "MPL-2.0",
@@ -174,7 +174,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.license.set("lic+public-domain", {
-    name: "Public Domain",
+    name: "PD",
     keywords: ["public-domain"],
     description: "Public Domain refers to works that are free from copyright restrictions and can be freely used by anyone.",
     isFSFLibre: false,
@@ -183,7 +183,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.license.set("lic+python", {
-    name: "Python SFL",
+    name: "PySFL",
     keywords: ["python-software-foundation"],
     description: "The Python Software Foundation License is a free software license used for Python and related projects.",
     spdx: "Python-2.0",
@@ -202,7 +202,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.license.set("lic+zlib", {
-    name: "zlib License",
+    name: "zlib",
     keywords: ["zlib"],
     description: "The zlib License is a permissive free software license used for the zlib compression library.",
     spdx: "Zlib",

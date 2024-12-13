@@ -2,14 +2,14 @@ import type { PlangsGraph } from "@plangs/plangs/graph";
 
 export function define(g: PlangsGraph) {
   g.paradigm.set("para+agents", {
-    name: "Agent-oriented",
+    name: "Agents",
     keywords: ["agent"],
     description: "Agent-oriented programming simulates the actions and interactions of autonomous agents.",
     extHomeURL: "https://en.wikipedia.org/wiki/Agent-oriented_programming",
   });
 
   g.paradigm.set("para+array", {
-    name: "Array Based",
+    name: "Array",
     keywords: ["array", "vector"],
     description:
       "In computer science, array programming refers to solutions that allow the application of operations to an entire set of values at once. Such solutions are commonly used in scientific and engineering settings.",
@@ -17,7 +17,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+aspect", {
-    name: "Aspect-oriented",
+    name: "Aspects",
     keywords: ["aspect"],
     description:
       "Aims to increase modularity by allowing the separation of cross-cutting concerns. This allows behaviors that are not central to the business logic (such as logging) to be added to a program without cluttering the code of core functions.",
@@ -33,7 +33,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+async", {
-    name: "Task-Driven Async",
+    name: "Task-Driven",
     keywords: ["async", "task-driven"],
     description:
       "Task-driven asynchronous programming allows tasks to be executed independently, enabling concurrency and efficient resource utilization.",
@@ -41,7 +41,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+bidirectional", {
-    name: "Bidirectional",
+    name: "Bidi",
     keywords: ["bi-directional", "bidirectional"],
     description:
       "Programs in which a single piece of code can be run in several ways, such that the same data are sometimes considered as input, and sometimes as output.",
@@ -49,7 +49,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+compiled", {
-    name: "Compiled Language",
+    name: "Compiled",
     keywords: ["compilation", "compiled", "compiler"],
     description:
       "A compiled language is a programming language for which source code is typically compiled; not interpreted. The term is vague since, in principle, any language can be compiled or interpreted and in practice some languages are both (in different environments). In some environments, source code is first compiled (to an intermediate form; often bytecode) and then interpreted.",
@@ -80,7 +80,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+contracts", {
-    name: "Design by Contract",
+    name: "DbC",
     keywords: ["contracts", "dbc", "design by contract"],
     description:
       "Design by Contract is a software design approach that uses contracts to define the obligations and guarantees of software components.",
@@ -88,7 +88,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+data-driven", {
-    name: "Data-centric",
+    name: "Data-Centric",
     keywords: ["data-driven"],
     description: "Programs describe the data to be matched and the processing required rather than defining a sequence of steps to be taken.",
     extHomeURL: "https://en.wikipedia.org/wiki/Data-driven_programming",
@@ -102,7 +102,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+data-hiding", {
-    name: "Data and Procedure Hiding",
+    name: "Data Hiding",
     keywords: ["hiding", "hiding"],
     description: "Data and procedure hiding restrict access to certain parts of a program's code.",
     extHomeURL: "https://en.wikipedia.org/wiki/Information_hiding",
@@ -132,21 +132,21 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+dsl", {
-    name: "Domain-Specific Language",
+    name: "DSL",
     keywords: ["domain-specific", "dsl"],
     description: "A domain-specific language is tailored to a particular application domain.",
     extHomeURL: "https://en.wikipedia.org/wiki/Domain-specific_language",
   });
 
   g.paradigm.set("para+educational", {
-    name: "Educational",
+    name: "Edu",
     keywords: ["educational"],
     description: "Educational programming languages are designed mainly to teach programming concepts.",
     extHomeURL: "https://en.wikipedia.org/wiki/Educational_programming_language",
   });
 
   g.paradigm.set("para+embedded", {
-    name: "Embedded Systems",
+    name: "Embedded",
     keywords: ["embedded"],
     description: "Embedded systems are specialized computing systems integrated into larger systems.",
     extHomeURL: "https://en.wikipedia.org/wiki/Embedded_system",
@@ -224,14 +224,14 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+language-oriented", {
-    name: "Language-Oriented",
+    name: "Lang-Oriented",
     keywords: ["language-oriented"],
     description: "Language-oriented programming involves the creation of domain-specific languages to solve specific problems.",
     extHomeURL: "https://en.wikipedia.org/wiki/Language_oriented_programming",
   });
 
   g.paradigm.set("para+lazy", {
-    name: "Lazy Evaluation",
+    name: "Lazy Eval",
     keywords: ["lazy"],
     description: "Lazy evaluation delays the evaluation of an expression until its value is needed.",
     extHomeURL: "https://en.wikipedia.org/wiki/Lazy_evaluation",
@@ -245,14 +245,14 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+low-code", {
-    name: "Low-Code Development",
+    name: "Low-Code",
     keywords: ["low-code"],
     description: "Low-code platforms enable software development with minimal hand-coding.",
     extHomeURL: "https://en.wikipedia.org/wiki/Low-code_development_platform",
   });
 
   g.paradigm.set("para+macro", {
-    name: "Macro Processor",
+    name: "Macros",
     keywords: ["macro", "macros"],
     description:
       'A macro (short for "macro instruction") is a rule or pattern that specifies how a certain input should be mapped to a replacement output.',
@@ -267,7 +267,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+metaprogramming", {
-    name: "Metaprogramming",
+    name: "Metaprog",
     keywords: ["meta", "metaprogramming"],
     description: "Metaprogramming refers to writing programs that generate or manipulate other programs.",
     extHomeURL: "https://en.wikipedia.org/wiki/Metaprogramming",
@@ -281,29 +281,28 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+multi", {
-    name: "Multi-paradigm",
+    name: "Multi",
     keywords: ["multi-paradigm", "multiparadigm"],
-    description:
-      "A programming paradigm is a relatively high-level way to conceptualize and structure the implementation of a computer program. Many/most languages are based on more than one paradigm.",
+    description: "Many (most) languages are based on more than one paradigm.",
     extHomeURL: "https://en.wikipedia.org/wiki/Multi-paradigm_programming_language",
   });
 
   g.paradigm.set("para+multi-dispatch", {
-    name: "Multiple Dispatch",
+    name: "Mult-Dispatch",
     keywords: ["multi-dispatch"],
     description: "Multiple dispatch selects a function to invoke based on the runtime types of multiple arguments.",
     extHomeURL: "https://en.wikipedia.org/wiki/Multiple_dispatch",
   });
 
   g.paradigm.set("para+natural-language", {
-    name: "Natural Language",
+    name: "Natural Lang",
     keywords: ["natural language programming"],
     description: "Natural language programming enables the development of software using human language commands.",
     extHomeURL: "https://en.wikipedia.org/wiki/Natural_language_programming",
   });
 
   g.paradigm.set("para+oop", {
-    name: "Object-oriented",
+    name: "Object-Oriented",
     keywords: ["class-based", "object", "oop"],
     description:
       "Based on the concept of objects, which can contain data and code: data in the form of fields (often known as attributes or properties), and code in the form of procedures (often known as methods). In OOP, computer programs are designed by making them out of objects that interact with one another.",
@@ -375,7 +374,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+query", {
-    name: "Query Language",
+    name: "Query",
     keywords: ["query"],
     description: "A query language is used to make queries in databases and information systems.",
     extHomeURL: "https://en.wikipedia.org/wiki/Query_language",
@@ -389,7 +388,7 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+real-time", {
-    name: "Real-Time Computing",
+    name: "Real-Time",
     keywords: ["real-time"],
     description: "Real-time computing involves tasks that must be completed within strict timing constraints.",
     extHomeURL: "https://en.wikipedia.org/wiki/Real-time_computing",
@@ -410,35 +409,35 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+rules", {
-    name: "Rule-Based Processing",
+    name: "Rule-Based",
     keywords: ["rule", "rules"],
     description: "Rule-based processing involves defining rules that control the logic of decision-making systems.",
     extHomeURL: "https://en.wikipedia.org/wiki/Production_system_(computer_science)",
   });
 
   g.paradigm.set("para+scientific", {
-    name: "Scientific Workflow",
+    name: "Scientific",
     keywords: ["scientific"],
     description: "Scientific workflow systems support the automation of complex scientific processes.",
     extHomeURL: "https://en.wikipedia.org/wiki/Scientific_workflow_system",
   });
 
   g.paradigm.set("para+scripting", {
-    name: "Scripting Language",
+    name: "Scripting",
     keywords: ["scripting"],
     description: "Scripting languages are used for automating tasks within a software environment.",
     extHomeURL: "https://en.wikipedia.org/wiki/Scripting_language",
   });
 
   g.paradigm.set("para+shared-memory", {
-    name: "Shared Memory",
+    name: "Shared Mem",
     keywords: ["shared memory"],
     description: "Shared memory systems allow multiple processes to access the same memory space.",
     extHomeURL: "https://en.wikipedia.org/wiki/Shared_memory",
   });
 
   g.paradigm.set("para+simulation", {
-    name: "Simulation Language",
+    name: "Simulation",
     keywords: ["simulation"],
     description: "Simulation languages are specialized for modeling and simulating complex systems.",
     extHomeURL: "https://en.wikipedia.org/wiki/Simulation_language",
@@ -466,14 +465,14 @@ export function define(g: PlangsGraph) {
   });
 
   g.paradigm.set("para+synchronous", {
-    name: "Synchronous",
+    name: "Sync",
     keywords: ["synchronous"],
     description: "Synchronous programming operates in a time-driven manner where operations occur sequentially and in sync with a clock.",
     extHomeURL: "https://en.wikipedia.org/wiki/Synchronous_programming_language",
   });
 
   g.paradigm.set("para+validation", {
-    name: "Data Validation",
+    name: "Validation",
     keywords: ["validation"],
     description: "Data validation ensures that data conforms to predefined rules before it is processed.",
     extHomeURL: "https://en.wikipedia.org/wiki/Data_Validation",
