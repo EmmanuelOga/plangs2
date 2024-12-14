@@ -21,6 +21,15 @@ export class PlangsGraph extends Gen.PlangsGraphBase {
     for (const pl of this.plang.values) pl.relImplements.add(pl.key);
 
     // For each bundle, a bundle supports a language if any of its tools support that language.
+    //
+    // This is related to a "transitive closure" operation: if A -> B -> C, then A -> C.
+    // We can investigate if we should do this for other relationships:
+    //
+    // Some of these are not transitive, like:
+    // License -> App -> Plang is a valid path that doens't imply License -> Plang.
+    //
+    // Possible Plan: generate all possible A -> B -> C paths where A -> C is feasible,
+    // then manually pick the ones that make sense for transitive closure.
     for (const bundle of this.bundle.values) {
       for (const tool of bundle.relTools.values) {
         bundle.relPlangs.add(...tool.relPlangs.keys);

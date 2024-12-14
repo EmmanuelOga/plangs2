@@ -1,3 +1,5 @@
+import { join } from "node:path";
+
 import { reformatCode } from "@plangs/languist/reformat";
 
 import type { GenEdgeSpec, GenGraphSpec, GenVertexSpec } from "./spec";
@@ -222,20 +224,74 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
 
   Bun.write(filePath, await reformatCode(`${notice}\n${imports.join("\n")}\n${code.join("\n")}`, filePath));
 
-  // Generate a color for each vertex.
+  // graphAnalysis<T>(spec, diagramPath);
+}
+
+/**
+ * NOTE: this is very much a debugging aid, which may change or be removed in the future.
+ * We are trying to make sense of the graph and figure out which relationships can be inferred.
+ */
+function graphAnalysis<T extends string>(spec: GenGraphSpec<T>, diagramPath: string) {
   const colors = Object.keys(spec.vertices);
+
   const color = (name: string, offset = 0) => {
-    const h = (offset + Math.round((colors.indexOf(name) * 1000) / colors.length) / 1000) % 1;
-    const s = 0.5;
-    const b = 0.9;
+    const [h, s, v] = [(offset + Math.round((colors.indexOf(name) * 1000) / colors.length) / 1000) % 1, 0.5, 0.9];
     return `${h} ${s} ${b}`;
   };
 
-  // Generate the diagram.
-  const dot = `digraph ${spec.name} {
-    ${mapJoin(Object.entries(spec.vertices), ([name, spec]) => `${name} [style=filled, fillcolor="${color(name)}", fontcolor="black"];`, "\n  ")}
-    ${mapJoin(spec.edges, s => `${s.src[0]} -> ${s.dst[0]} [label="${edgesKey(s)}" color="${color(s.src[0])}"];`, "\n  ")}
-  }`;
+  const all = new Set<string>(Object.keys(spec.vertices));
 
-  Bun.write(diagramPath, dot);
+  // Generate combinations of k elements from an array.
+  const combinations = (arr: string[], k: number): Set<string>[] => {
+    if (k === 0) return [new Set()];
+    if (arr.length === 0) return [];
+    const [first, ...rest] = arr;
+    const combsWithFirst = combinations(rest, k - 1).map(comb => [first, ...comb]);
+    const combsWithoutFirst = combinations(rest, k);
+    return [...combsWithFirst, ...combsWithoutFirst].map(comb => new Set(comb));
+  };
+
+  // Mini graph structure: a vertexName is connected to another if there's an edge between them.
+  // Note this is about the kinds of vertices, not the instances themselves.
+  const edgeMap = new Map<string, Set<string>>();
+  for (const s of spec.edges) {
+    const [src] = s.src;
+    const [dst] = s.dst;
+    const set = edgeMap.get(src) || new Set();
+    if (!edgeMap.has(src)) edgeMap.set(src, set);
+    set.add(dst);
+  }
+
+  // Mini graph analysis: find all 3-combinations of vertices that are connected by at least 2 edges.
+  const hasConn = (a: string, b: string) => (edgeMap.get(a)?.has(b) || edgeMap.get(b)?.has(a) ? 1 : 0);
+  const all3comb = combinations([...all], 3).filter(set => {
+    const [a, b, c] = [...set];
+    return hasConn(a, b) + hasConn(b, c) + hasConn(a, c) > 2;
+  });
+
+  // Place all 3-combinations graphs in a single graph.
+  // We want subgraphs in a single graph, but graphviz requires each node to have a separate id, so we use a counter.
+  let i = 0;
+  const dot = (whitelist: Set<string>) => {
+    i++; // Each subgraph uses the same id postfix, hence the graphs end up in the same diagram but in separate clusters.
+
+    const vertices = Object.keys(spec.vertices).filter(name => whitelist.size === 0 || whitelist.has(name));
+    const edges = spec.edges.filter(s => whitelist.size === 0 || (whitelist.has(s.src[0]) && whitelist.has(s.dst[0])));
+
+    return `subgraph cluster${i++} {
+      ${mapJoin(vertices, name => `${name}${i} [label="${name}", style=filled, fillcolor="${color(name)}", fontcolor="black"];`, "\n  ")}
+      ${mapJoin(edges, s => `${s.src[0]}${i} -> ${s.dst[0]}${i} [label="${s.src[2].toLowerCase()}" color="${color(s.src[0])}"];`, "\n  ")}
+    }`;
+  };
+
+  // To make it more maneageable, we generate a different diagram where the requirement is that the vertex is included.
+  for (const vert of all) {
+    const code = [`digraph ${vert} {\n`];
+    const including = all3comb.filter(set => set.has(vert));
+    if (including.length > 0) {
+      code.push(including.map(dot).join("\n\n"));
+      code.push("}");
+      Bun.write(join(diagramPath, `${vert}-${including.length}.dot`), code.join("\n"));
+    }
+  }
 }

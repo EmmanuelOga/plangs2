@@ -42,4 +42,7 @@
     "[dockerfile]": {
         "editor.defaultFormatter": "ms-azuretools.vscode-docker"
     },
+    "[dot]": {
+        "editor.defaultFormatter": "tintinweb.graphviz-interactive-preview"
+    },
 }
