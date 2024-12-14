@@ -18,6 +18,8 @@ const DEFINTIONS_BASE = join(import.meta.dir, "../../../definitions/src/definiti
  * We also need to save static assets like images and the files on `server/static`.
  */
 async function generatePages(dstRoot: string) {
+  const timestamp = new Date().toISOString();
+
   const pg = new PlangsGraph();
   await loadDefinitions(pg, { scanImages: true });
   await loadPosts(pg);
@@ -58,7 +60,7 @@ async function generatePages(dstRoot: string) {
     if (page) {
       const dstPath = join(dstRoot, `${path === "/" ? "index" : path}.html`);
       ensureDir(dstPath);
-      Bun.write(dstPath, vdomToHTML(page));
+      Bun.write(dstPath, `${vdomToHTML(page)}\n<!-- Generated at ${timestamp} -->`);
     } else {
       console.warn("Page could not be resolved for path:", path);
     }
