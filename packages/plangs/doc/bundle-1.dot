@@ -1,0 +1,17 @@
+digraph bundle {
+
+subgraph cluster23 {
+      bundle24 [label="bundle", style=filled, fillcolor="0.071 0.5 0.9", fontcolor="black"];
+  plang24 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  tool24 [label="tool", style=filled, fillcolor="0.857 0.5 0.9", fontcolor="black"];
+      plang24 -> tool24 [label="tools" color="0.5 0.5 0.9"];
+  plang24 -> plang24 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang24 -> plang24 [label="dialect of" color="0.5 0.5 0.9"];
+  plang24 -> plang24 [label="implements" color="0.5 0.5 0.9"];
+  plang24 -> plang24 [label="influenced by" color="0.5 0.5 0.9"];
+  plang24 -> plang24 [label="written with" color="0.5 0.5 0.9"];
+  bundle24 -> plang24 [label="plangs" color="0.071 0.5 0.9"];
+  tool24 -> plang24 [label="implemented with" color="0.857 0.5 0.9"];
+  bundle24 -> tool24 [label="tools" color="0.071 0.5 0.9"];
+    }
+}

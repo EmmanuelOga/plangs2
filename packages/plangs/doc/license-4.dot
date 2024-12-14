@@ -1,0 +1,60 @@
+digraph license {
+
+subgraph cluster131 {
+      app132 [label="app", style=filled, fillcolor="0 0.5 0.9", fontcolor="black"];
+  license132 [label="license", style=filled, fillcolor="0.357 0.5 0.9", fontcolor="black"];
+  plang132 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+      plang132 -> plang132 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang132 -> plang132 [label="dialect of" color="0.5 0.5 0.9"];
+  plang132 -> plang132 [label="implements" color="0.5 0.5 0.9"];
+  plang132 -> plang132 [label="influenced by" color="0.5 0.5 0.9"];
+  plang132 -> plang132 [label="written with" color="0.5 0.5 0.9"];
+  app132 -> plang132 [label="plangs" color="0 0.5 0.9"];
+  license132 -> plang132 [label="plangs" color="0.357 0.5 0.9"];
+  license132 -> app132 [label="apps" color="0.357 0.5 0.9"];
+    }
+
+subgraph cluster133 {
+      library134 [label="library", style=filled, fillcolor="0.286 0.5 0.9", fontcolor="black"];
+  license134 [label="license", style=filled, fillcolor="0.357 0.5 0.9", fontcolor="black"];
+  plang134 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+      plang134 -> plang134 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang134 -> plang134 [label="dialect of" color="0.5 0.5 0.9"];
+  plang134 -> plang134 [label="implements" color="0.5 0.5 0.9"];
+  plang134 -> plang134 [label="influenced by" color="0.5 0.5 0.9"];
+  plang134 -> plang134 [label="written with" color="0.5 0.5 0.9"];
+  library134 -> plang134 [label="plangs" color="0.286 0.5 0.9"];
+  library134 -> plang134 [label="written with" color="0.286 0.5 0.9"];
+  license134 -> plang134 [label="plangs" color="0.357 0.5 0.9"];
+  license134 -> library134 [label="libraries" color="0.357 0.5 0.9"];
+    }
+
+subgraph cluster135 {
+      license136 [label="license", style=filled, fillcolor="0.357 0.5 0.9", fontcolor="black"];
+  plang136 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  subsystem136 [label="subsystem", style=filled, fillcolor="0.714 0.5 0.9", fontcolor="black"];
+      plang136 -> plang136 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang136 -> plang136 [label="dialect of" color="0.5 0.5 0.9"];
+  plang136 -> plang136 [label="implements" color="0.5 0.5 0.9"];
+  plang136 -> plang136 [label="influenced by" color="0.5 0.5 0.9"];
+  plang136 -> plang136 [label="written with" color="0.5 0.5 0.9"];
+  license136 -> plang136 [label="plangs" color="0.357 0.5 0.9"];
+  subsystem136 -> plang136 [label="plangs" color="0.714 0.5 0.9"];
+  license136 -> subsystem136 [label="subsystems" color="0.357 0.5 0.9"];
+    }
+
+subgraph cluster137 {
+      license138 [label="license", style=filled, fillcolor="0.357 0.5 0.9", fontcolor="black"];
+  plang138 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  tool138 [label="tool", style=filled, fillcolor="0.857 0.5 0.9", fontcolor="black"];
+      plang138 -> tool138 [label="tools" color="0.5 0.5 0.9"];
+  plang138 -> plang138 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang138 -> plang138 [label="dialect of" color="0.5 0.5 0.9"];
+  plang138 -> plang138 [label="implements" color="0.5 0.5 0.9"];
+  plang138 -> plang138 [label="influenced by" color="0.5 0.5 0.9"];
+  plang138 -> plang138 [label="written with" color="0.5 0.5 0.9"];
+  license138 -> plang138 [label="plangs" color="0.357 0.5 0.9"];
+  tool138 -> plang138 [label="implemented with" color="0.857 0.5 0.9"];
+  license138 -> tool138 [label="tools" color="0.357 0.5 0.9"];
+    }
+}

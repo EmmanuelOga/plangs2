@@ -1,0 +1,435 @@
+digraph plang {
+
+subgraph cluster139 {
+      app140 [label="app", style=filled, fillcolor="0 0.5 0.9", fontcolor="black"];
+  community140 [label="community", style=filled, fillcolor="0.143 0.5 0.9", fontcolor="black"];
+  plang140 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+      plang140 -> plang140 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang140 -> plang140 [label="dialect of" color="0.5 0.5 0.9"];
+  plang140 -> plang140 [label="implements" color="0.5 0.5 0.9"];
+  plang140 -> plang140 [label="influenced by" color="0.5 0.5 0.9"];
+  plang140 -> plang140 [label="written with" color="0.5 0.5 0.9"];
+  app140 -> plang140 [label="plangs" color="0 0.5 0.9"];
+  community140 -> app140 [label="apps" color="0.143 0.5 0.9"];
+  community140 -> plang140 [label="plangs" color="0.143 0.5 0.9"];
+    }
+
+subgraph cluster141 {
+      app142 [label="app", style=filled, fillcolor="0 0.5 0.9", fontcolor="black"];
+  learning142 [label="learning", style=filled, fillcolor="0.214 0.5 0.9", fontcolor="black"];
+  plang142 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+      plang142 -> plang142 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang142 -> plang142 [label="dialect of" color="0.5 0.5 0.9"];
+  plang142 -> plang142 [label="implements" color="0.5 0.5 0.9"];
+  plang142 -> plang142 [label="influenced by" color="0.5 0.5 0.9"];
+  plang142 -> plang142 [label="written with" color="0.5 0.5 0.9"];
+  app142 -> plang142 [label="plangs" color="0 0.5 0.9"];
+  learning142 -> app142 [label="apps" color="0.214 0.5 0.9"];
+  learning142 -> plang142 [label="plangs" color="0.214 0.5 0.9"];
+    }
+
+subgraph cluster143 {
+      app144 [label="app", style=filled, fillcolor="0 0.5 0.9", fontcolor="black"];
+  license144 [label="license", style=filled, fillcolor="0.357 0.5 0.9", fontcolor="black"];
+  plang144 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+      plang144 -> plang144 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang144 -> plang144 [label="dialect of" color="0.5 0.5 0.9"];
+  plang144 -> plang144 [label="implements" color="0.5 0.5 0.9"];
+  plang144 -> plang144 [label="influenced by" color="0.5 0.5 0.9"];
+  plang144 -> plang144 [label="written with" color="0.5 0.5 0.9"];
+  app144 -> plang144 [label="plangs" color="0 0.5 0.9"];
+  license144 -> plang144 [label="plangs" color="0.357 0.5 0.9"];
+  license144 -> app144 [label="apps" color="0.357 0.5 0.9"];
+    }
+
+subgraph cluster145 {
+      app146 [label="app", style=filled, fillcolor="0 0.5 0.9", fontcolor="black"];
+  plang146 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  platform146 [label="platform", style=filled, fillcolor="0.571 0.5 0.9", fontcolor="black"];
+      plang146 -> platform146 [label="platforms" color="0.5 0.5 0.9"];
+  plang146 -> plang146 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang146 -> plang146 [label="dialect of" color="0.5 0.5 0.9"];
+  plang146 -> plang146 [label="implements" color="0.5 0.5 0.9"];
+  plang146 -> plang146 [label="influenced by" color="0.5 0.5 0.9"];
+  plang146 -> plang146 [label="written with" color="0.5 0.5 0.9"];
+  app146 -> plang146 [label="plangs" color="0 0.5 0.9"];
+  app146 -> platform146 [label="platforms" color="0 0.5 0.9"];
+    }
+
+subgraph cluster147 {
+      app148 [label="app", style=filled, fillcolor="0 0.5 0.9", fontcolor="black"];
+  plang148 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  post148 [label="post", style=filled, fillcolor="0.643 0.5 0.9", fontcolor="black"];
+      plang148 -> plang148 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang148 -> plang148 [label="dialect of" color="0.5 0.5 0.9"];
+  plang148 -> plang148 [label="implements" color="0.5 0.5 0.9"];
+  plang148 -> plang148 [label="influenced by" color="0.5 0.5 0.9"];
+  plang148 -> plang148 [label="written with" color="0.5 0.5 0.9"];
+  app148 -> plang148 [label="plangs" color="0 0.5 0.9"];
+  post148 -> app148 [label="apps" color="0.643 0.5 0.9"];
+  post148 -> plang148 [label="plangs" color="0.643 0.5 0.9"];
+    }
+
+subgraph cluster149 {
+      app150 [label="app", style=filled, fillcolor="0 0.5 0.9", fontcolor="black"];
+  plang150 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  tag150 [label="tag", style=filled, fillcolor="0.786 0.5 0.9", fontcolor="black"];
+      plang150 -> plang150 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang150 -> plang150 [label="dialect of" color="0.5 0.5 0.9"];
+  plang150 -> plang150 [label="implements" color="0.5 0.5 0.9"];
+  plang150 -> plang150 [label="influenced by" color="0.5 0.5 0.9"];
+  plang150 -> plang150 [label="written with" color="0.5 0.5 0.9"];
+  app150 -> plang150 [label="plangs" color="0 0.5 0.9"];
+  tag150 -> app150 [label="apps tagged" color="0.786 0.5 0.9"];
+  tag150 -> plang150 [label="plangs" color="0.786 0.5 0.9"];
+    }
+
+subgraph cluster151 {
+      bundle152 [label="bundle", style=filled, fillcolor="0.071 0.5 0.9", fontcolor="black"];
+  plang152 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  tool152 [label="tool", style=filled, fillcolor="0.857 0.5 0.9", fontcolor="black"];
+      plang152 -> tool152 [label="tools" color="0.5 0.5 0.9"];
+  plang152 -> plang152 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang152 -> plang152 [label="dialect of" color="0.5 0.5 0.9"];
+  plang152 -> plang152 [label="implements" color="0.5 0.5 0.9"];
+  plang152 -> plang152 [label="influenced by" color="0.5 0.5 0.9"];
+  plang152 -> plang152 [label="written with" color="0.5 0.5 0.9"];
+  bundle152 -> plang152 [label="plangs" color="0.071 0.5 0.9"];
+  tool152 -> plang152 [label="implemented with" color="0.857 0.5 0.9"];
+  bundle152 -> tool152 [label="tools" color="0.071 0.5 0.9"];
+    }
+
+subgraph cluster153 {
+      community154 [label="community", style=filled, fillcolor="0.143 0.5 0.9", fontcolor="black"];
+  learning154 [label="learning", style=filled, fillcolor="0.214 0.5 0.9", fontcolor="black"];
+  plang154 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+      plang154 -> plang154 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang154 -> plang154 [label="dialect of" color="0.5 0.5 0.9"];
+  plang154 -> plang154 [label="implements" color="0.5 0.5 0.9"];
+  plang154 -> plang154 [label="influenced by" color="0.5 0.5 0.9"];
+  plang154 -> plang154 [label="written with" color="0.5 0.5 0.9"];
+  community154 -> plang154 [label="plangs" color="0.143 0.5 0.9"];
+  learning154 -> community154 [label="communities" color="0.214 0.5 0.9"];
+  learning154 -> plang154 [label="plangs" color="0.214 0.5 0.9"];
+    }
+
+subgraph cluster155 {
+      community156 [label="community", style=filled, fillcolor="0.143 0.5 0.9", fontcolor="black"];
+  library156 [label="library", style=filled, fillcolor="0.286 0.5 0.9", fontcolor="black"];
+  plang156 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+      plang156 -> plang156 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang156 -> plang156 [label="dialect of" color="0.5 0.5 0.9"];
+  plang156 -> plang156 [label="implements" color="0.5 0.5 0.9"];
+  plang156 -> plang156 [label="influenced by" color="0.5 0.5 0.9"];
+  plang156 -> plang156 [label="written with" color="0.5 0.5 0.9"];
+  library156 -> plang156 [label="plangs" color="0.286 0.5 0.9"];
+  library156 -> plang156 [label="written with" color="0.286 0.5 0.9"];
+  community156 -> library156 [label="libraries" color="0.143 0.5 0.9"];
+  community156 -> plang156 [label="plangs" color="0.143 0.5 0.9"];
+    }
+
+subgraph cluster157 {
+      community158 [label="community", style=filled, fillcolor="0.143 0.5 0.9", fontcolor="black"];
+  plang158 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  post158 [label="post", style=filled, fillcolor="0.643 0.5 0.9", fontcolor="black"];
+      plang158 -> plang158 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang158 -> plang158 [label="dialect of" color="0.5 0.5 0.9"];
+  plang158 -> plang158 [label="implements" color="0.5 0.5 0.9"];
+  plang158 -> plang158 [label="influenced by" color="0.5 0.5 0.9"];
+  plang158 -> plang158 [label="written with" color="0.5 0.5 0.9"];
+  post158 -> community158 [label="communities" color="0.643 0.5 0.9"];
+  post158 -> plang158 [label="plangs" color="0.643 0.5 0.9"];
+  community158 -> plang158 [label="plangs" color="0.143 0.5 0.9"];
+    }
+
+subgraph cluster159 {
+      community160 [label="community", style=filled, fillcolor="0.143 0.5 0.9", fontcolor="black"];
+  plang160 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  subsystem160 [label="subsystem", style=filled, fillcolor="0.714 0.5 0.9", fontcolor="black"];
+      plang160 -> plang160 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang160 -> plang160 [label="dialect of" color="0.5 0.5 0.9"];
+  plang160 -> plang160 [label="implements" color="0.5 0.5 0.9"];
+  plang160 -> plang160 [label="influenced by" color="0.5 0.5 0.9"];
+  plang160 -> plang160 [label="written with" color="0.5 0.5 0.9"];
+  subsystem160 -> plang160 [label="plangs" color="0.714 0.5 0.9"];
+  community160 -> plang160 [label="plangs" color="0.143 0.5 0.9"];
+  community160 -> subsystem160 [label="subsystems" color="0.143 0.5 0.9"];
+    }
+
+subgraph cluster161 {
+      community162 [label="community", style=filled, fillcolor="0.143 0.5 0.9", fontcolor="black"];
+  plang162 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  tag162 [label="tag", style=filled, fillcolor="0.786 0.5 0.9", fontcolor="black"];
+      plang162 -> plang162 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang162 -> plang162 [label="dialect of" color="0.5 0.5 0.9"];
+  plang162 -> plang162 [label="implements" color="0.5 0.5 0.9"];
+  plang162 -> plang162 [label="influenced by" color="0.5 0.5 0.9"];
+  plang162 -> plang162 [label="written with" color="0.5 0.5 0.9"];
+  tag162 -> community162 [label="communities" color="0.786 0.5 0.9"];
+  tag162 -> plang162 [label="plangs" color="0.786 0.5 0.9"];
+  community162 -> plang162 [label="plangs" color="0.143 0.5 0.9"];
+    }
+
+subgraph cluster163 {
+      community164 [label="community", style=filled, fillcolor="0.143 0.5 0.9", fontcolor="black"];
+  plang164 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  tool164 [label="tool", style=filled, fillcolor="0.857 0.5 0.9", fontcolor="black"];
+      plang164 -> tool164 [label="tools" color="0.5 0.5 0.9"];
+  plang164 -> plang164 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang164 -> plang164 [label="dialect of" color="0.5 0.5 0.9"];
+  plang164 -> plang164 [label="implements" color="0.5 0.5 0.9"];
+  plang164 -> plang164 [label="influenced by" color="0.5 0.5 0.9"];
+  plang164 -> plang164 [label="written with" color="0.5 0.5 0.9"];
+  tool164 -> plang164 [label="implemented with" color="0.857 0.5 0.9"];
+  community164 -> plang164 [label="plangs" color="0.143 0.5 0.9"];
+  community164 -> tool164 [label="tools" color="0.143 0.5 0.9"];
+    }
+
+subgraph cluster165 {
+      learning166 [label="learning", style=filled, fillcolor="0.214 0.5 0.9", fontcolor="black"];
+  library166 [label="library", style=filled, fillcolor="0.286 0.5 0.9", fontcolor="black"];
+  plang166 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+      plang166 -> plang166 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang166 -> plang166 [label="dialect of" color="0.5 0.5 0.9"];
+  plang166 -> plang166 [label="implements" color="0.5 0.5 0.9"];
+  plang166 -> plang166 [label="influenced by" color="0.5 0.5 0.9"];
+  plang166 -> plang166 [label="written with" color="0.5 0.5 0.9"];
+  library166 -> plang166 [label="plangs" color="0.286 0.5 0.9"];
+  library166 -> plang166 [label="written with" color="0.286 0.5 0.9"];
+  learning166 -> library166 [label="libraries" color="0.214 0.5 0.9"];
+  learning166 -> plang166 [label="plangs" color="0.214 0.5 0.9"];
+    }
+
+subgraph cluster167 {
+      learning168 [label="learning", style=filled, fillcolor="0.214 0.5 0.9", fontcolor="black"];
+  plang168 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  post168 [label="post", style=filled, fillcolor="0.643 0.5 0.9", fontcolor="black"];
+      plang168 -> plang168 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang168 -> plang168 [label="dialect of" color="0.5 0.5 0.9"];
+  plang168 -> plang168 [label="implements" color="0.5 0.5 0.9"];
+  plang168 -> plang168 [label="influenced by" color="0.5 0.5 0.9"];
+  plang168 -> plang168 [label="written with" color="0.5 0.5 0.9"];
+  post168 -> learning168 [label="learning resources" color="0.643 0.5 0.9"];
+  post168 -> plang168 [label="plangs" color="0.643 0.5 0.9"];
+  learning168 -> plang168 [label="plangs" color="0.214 0.5 0.9"];
+    }
+
+subgraph cluster169 {
+      learning170 [label="learning", style=filled, fillcolor="0.214 0.5 0.9", fontcolor="black"];
+  plang170 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  subsystem170 [label="subsystem", style=filled, fillcolor="0.714 0.5 0.9", fontcolor="black"];
+      plang170 -> plang170 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang170 -> plang170 [label="dialect of" color="0.5 0.5 0.9"];
+  plang170 -> plang170 [label="implements" color="0.5 0.5 0.9"];
+  plang170 -> plang170 [label="influenced by" color="0.5 0.5 0.9"];
+  plang170 -> plang170 [label="written with" color="0.5 0.5 0.9"];
+  subsystem170 -> plang170 [label="plangs" color="0.714 0.5 0.9"];
+  learning170 -> plang170 [label="plangs" color="0.214 0.5 0.9"];
+  learning170 -> subsystem170 [label="subsystems" color="0.214 0.5 0.9"];
+    }
+
+subgraph cluster171 {
+      learning172 [label="learning", style=filled, fillcolor="0.214 0.5 0.9", fontcolor="black"];
+  plang172 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  tag172 [label="tag", style=filled, fillcolor="0.786 0.5 0.9", fontcolor="black"];
+      plang172 -> plang172 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang172 -> plang172 [label="dialect of" color="0.5 0.5 0.9"];
+  plang172 -> plang172 [label="implements" color="0.5 0.5 0.9"];
+  plang172 -> plang172 [label="influenced by" color="0.5 0.5 0.9"];
+  plang172 -> plang172 [label="written with" color="0.5 0.5 0.9"];
+  tag172 -> learning172 [label="learning resources" color="0.786 0.5 0.9"];
+  tag172 -> plang172 [label="plangs" color="0.786 0.5 0.9"];
+  learning172 -> plang172 [label="plangs" color="0.214 0.5 0.9"];
+    }
+
+subgraph cluster173 {
+      learning174 [label="learning", style=filled, fillcolor="0.214 0.5 0.9", fontcolor="black"];
+  plang174 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  tool174 [label="tool", style=filled, fillcolor="0.857 0.5 0.9", fontcolor="black"];
+      plang174 -> tool174 [label="tools" color="0.5 0.5 0.9"];
+  plang174 -> plang174 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang174 -> plang174 [label="dialect of" color="0.5 0.5 0.9"];
+  plang174 -> plang174 [label="implements" color="0.5 0.5 0.9"];
+  plang174 -> plang174 [label="influenced by" color="0.5 0.5 0.9"];
+  plang174 -> plang174 [label="written with" color="0.5 0.5 0.9"];
+  tool174 -> plang174 [label="implemented with" color="0.857 0.5 0.9"];
+  learning174 -> plang174 [label="plangs" color="0.214 0.5 0.9"];
+  learning174 -> tool174 [label="tools" color="0.214 0.5 0.9"];
+    }
+
+subgraph cluster175 {
+      library176 [label="library", style=filled, fillcolor="0.286 0.5 0.9", fontcolor="black"];
+  license176 [label="license", style=filled, fillcolor="0.357 0.5 0.9", fontcolor="black"];
+  plang176 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+      plang176 -> plang176 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang176 -> plang176 [label="dialect of" color="0.5 0.5 0.9"];
+  plang176 -> plang176 [label="implements" color="0.5 0.5 0.9"];
+  plang176 -> plang176 [label="influenced by" color="0.5 0.5 0.9"];
+  plang176 -> plang176 [label="written with" color="0.5 0.5 0.9"];
+  library176 -> plang176 [label="plangs" color="0.286 0.5 0.9"];
+  library176 -> plang176 [label="written with" color="0.286 0.5 0.9"];
+  license176 -> plang176 [label="plangs" color="0.357 0.5 0.9"];
+  license176 -> library176 [label="libraries" color="0.357 0.5 0.9"];
+    }
+
+subgraph cluster177 {
+      library178 [label="library", style=filled, fillcolor="0.286 0.5 0.9", fontcolor="black"];
+  plang178 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  platform178 [label="platform", style=filled, fillcolor="0.571 0.5 0.9", fontcolor="black"];
+      plang178 -> platform178 [label="platforms" color="0.5 0.5 0.9"];
+  plang178 -> plang178 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang178 -> plang178 [label="dialect of" color="0.5 0.5 0.9"];
+  plang178 -> plang178 [label="implements" color="0.5 0.5 0.9"];
+  plang178 -> plang178 [label="influenced by" color="0.5 0.5 0.9"];
+  plang178 -> plang178 [label="written with" color="0.5 0.5 0.9"];
+  library178 -> plang178 [label="plangs" color="0.286 0.5 0.9"];
+  library178 -> plang178 [label="written with" color="0.286 0.5 0.9"];
+  library178 -> platform178 [label="platforms" color="0.286 0.5 0.9"];
+    }
+
+subgraph cluster179 {
+      library180 [label="library", style=filled, fillcolor="0.286 0.5 0.9", fontcolor="black"];
+  plang180 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  post180 [label="post", style=filled, fillcolor="0.643 0.5 0.9", fontcolor="black"];
+      plang180 -> plang180 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang180 -> plang180 [label="dialect of" color="0.5 0.5 0.9"];
+  plang180 -> plang180 [label="implements" color="0.5 0.5 0.9"];
+  plang180 -> plang180 [label="influenced by" color="0.5 0.5 0.9"];
+  plang180 -> plang180 [label="written with" color="0.5 0.5 0.9"];
+  library180 -> plang180 [label="plangs" color="0.286 0.5 0.9"];
+  library180 -> plang180 [label="written with" color="0.286 0.5 0.9"];
+  post180 -> library180 [label="libraries" color="0.643 0.5 0.9"];
+  post180 -> plang180 [label="plangs" color="0.643 0.5 0.9"];
+    }
+
+subgraph cluster181 {
+      library182 [label="library", style=filled, fillcolor="0.286 0.5 0.9", fontcolor="black"];
+  plang182 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  tag182 [label="tag", style=filled, fillcolor="0.786 0.5 0.9", fontcolor="black"];
+      plang182 -> plang182 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang182 -> plang182 [label="dialect of" color="0.5 0.5 0.9"];
+  plang182 -> plang182 [label="implements" color="0.5 0.5 0.9"];
+  plang182 -> plang182 [label="influenced by" color="0.5 0.5 0.9"];
+  plang182 -> plang182 [label="written with" color="0.5 0.5 0.9"];
+  library182 -> plang182 [label="plangs" color="0.286 0.5 0.9"];
+  library182 -> plang182 [label="written with" color="0.286 0.5 0.9"];
+  tag182 -> library182 [label="libraries" color="0.786 0.5 0.9"];
+  tag182 -> plang182 [label="plangs" color="0.786 0.5 0.9"];
+    }
+
+subgraph cluster183 {
+      license184 [label="license", style=filled, fillcolor="0.357 0.5 0.9", fontcolor="black"];
+  plang184 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  subsystem184 [label="subsystem", style=filled, fillcolor="0.714 0.5 0.9", fontcolor="black"];
+      plang184 -> plang184 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang184 -> plang184 [label="dialect of" color="0.5 0.5 0.9"];
+  plang184 -> plang184 [label="implements" color="0.5 0.5 0.9"];
+  plang184 -> plang184 [label="influenced by" color="0.5 0.5 0.9"];
+  plang184 -> plang184 [label="written with" color="0.5 0.5 0.9"];
+  license184 -> plang184 [label="plangs" color="0.357 0.5 0.9"];
+  subsystem184 -> plang184 [label="plangs" color="0.714 0.5 0.9"];
+  license184 -> subsystem184 [label="subsystems" color="0.357 0.5 0.9"];
+    }
+
+subgraph cluster185 {
+      license186 [label="license", style=filled, fillcolor="0.357 0.5 0.9", fontcolor="black"];
+  plang186 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  tool186 [label="tool", style=filled, fillcolor="0.857 0.5 0.9", fontcolor="black"];
+      plang186 -> tool186 [label="tools" color="0.5 0.5 0.9"];
+  plang186 -> plang186 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang186 -> plang186 [label="dialect of" color="0.5 0.5 0.9"];
+  plang186 -> plang186 [label="implements" color="0.5 0.5 0.9"];
+  plang186 -> plang186 [label="influenced by" color="0.5 0.5 0.9"];
+  plang186 -> plang186 [label="written with" color="0.5 0.5 0.9"];
+  license186 -> plang186 [label="plangs" color="0.357 0.5 0.9"];
+  tool186 -> plang186 [label="implemented with" color="0.857 0.5 0.9"];
+  license186 -> tool186 [label="tools" color="0.357 0.5 0.9"];
+    }
+
+subgraph cluster187 {
+      plang188 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  platform188 [label="platform", style=filled, fillcolor="0.571 0.5 0.9", fontcolor="black"];
+  subsystem188 [label="subsystem", style=filled, fillcolor="0.714 0.5 0.9", fontcolor="black"];
+      plang188 -> platform188 [label="platforms" color="0.5 0.5 0.9"];
+  plang188 -> plang188 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang188 -> plang188 [label="dialect of" color="0.5 0.5 0.9"];
+  plang188 -> plang188 [label="implements" color="0.5 0.5 0.9"];
+  plang188 -> plang188 [label="influenced by" color="0.5 0.5 0.9"];
+  plang188 -> plang188 [label="written with" color="0.5 0.5 0.9"];
+  subsystem188 -> plang188 [label="plangs" color="0.714 0.5 0.9"];
+  subsystem188 -> platform188 [label="platforms" color="0.714 0.5 0.9"];
+    }
+
+subgraph cluster189 {
+      plang190 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  platform190 [label="platform", style=filled, fillcolor="0.571 0.5 0.9", fontcolor="black"];
+  tool190 [label="tool", style=filled, fillcolor="0.857 0.5 0.9", fontcolor="black"];
+      plang190 -> platform190 [label="platforms" color="0.5 0.5 0.9"];
+  plang190 -> tool190 [label="tools" color="0.5 0.5 0.9"];
+  plang190 -> plang190 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang190 -> plang190 [label="dialect of" color="0.5 0.5 0.9"];
+  plang190 -> plang190 [label="implements" color="0.5 0.5 0.9"];
+  plang190 -> plang190 [label="influenced by" color="0.5 0.5 0.9"];
+  plang190 -> plang190 [label="written with" color="0.5 0.5 0.9"];
+  tool190 -> plang190 [label="implemented with" color="0.857 0.5 0.9"];
+  tool190 -> platform190 [label="platforms" color="0.857 0.5 0.9"];
+    }
+
+subgraph cluster191 {
+      plang192 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  post192 [label="post", style=filled, fillcolor="0.643 0.5 0.9", fontcolor="black"];
+  subsystem192 [label="subsystem", style=filled, fillcolor="0.714 0.5 0.9", fontcolor="black"];
+      plang192 -> plang192 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang192 -> plang192 [label="dialect of" color="0.5 0.5 0.9"];
+  plang192 -> plang192 [label="implements" color="0.5 0.5 0.9"];
+  plang192 -> plang192 [label="influenced by" color="0.5 0.5 0.9"];
+  plang192 -> plang192 [label="written with" color="0.5 0.5 0.9"];
+  subsystem192 -> plang192 [label="plangs" color="0.714 0.5 0.9"];
+  post192 -> plang192 [label="plangs" color="0.643 0.5 0.9"];
+  post192 -> subsystem192 [label="subsystems" color="0.643 0.5 0.9"];
+    }
+
+subgraph cluster193 {
+      plang194 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  post194 [label="post", style=filled, fillcolor="0.643 0.5 0.9", fontcolor="black"];
+  tool194 [label="tool", style=filled, fillcolor="0.857 0.5 0.9", fontcolor="black"];
+      plang194 -> tool194 [label="tools" color="0.5 0.5 0.9"];
+  plang194 -> plang194 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang194 -> plang194 [label="dialect of" color="0.5 0.5 0.9"];
+  plang194 -> plang194 [label="implements" color="0.5 0.5 0.9"];
+  plang194 -> plang194 [label="influenced by" color="0.5 0.5 0.9"];
+  plang194 -> plang194 [label="written with" color="0.5 0.5 0.9"];
+  tool194 -> plang194 [label="implemented with" color="0.857 0.5 0.9"];
+  post194 -> plang194 [label="plangs" color="0.643 0.5 0.9"];
+  post194 -> tool194 [label="tools" color="0.643 0.5 0.9"];
+    }
+
+subgraph cluster195 {
+      plang196 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  subsystem196 [label="subsystem", style=filled, fillcolor="0.714 0.5 0.9", fontcolor="black"];
+  tag196 [label="tag", style=filled, fillcolor="0.786 0.5 0.9", fontcolor="black"];
+      plang196 -> plang196 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang196 -> plang196 [label="dialect of" color="0.5 0.5 0.9"];
+  plang196 -> plang196 [label="implements" color="0.5 0.5 0.9"];
+  plang196 -> plang196 [label="influenced by" color="0.5 0.5 0.9"];
+  plang196 -> plang196 [label="written with" color="0.5 0.5 0.9"];
+  subsystem196 -> plang196 [label="plangs" color="0.714 0.5 0.9"];
+  tag196 -> plang196 [label="plangs" color="0.786 0.5 0.9"];
+  tag196 -> subsystem196 [label="subsystems" color="0.786 0.5 0.9"];
+    }
+
+subgraph cluster197 {
+      plang198 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  tag198 [label="tag", style=filled, fillcolor="0.786 0.5 0.9", fontcolor="black"];
+  tool198 [label="tool", style=filled, fillcolor="0.857 0.5 0.9", fontcolor="black"];
+      plang198 -> tool198 [label="tools" color="0.5 0.5 0.9"];
+  plang198 -> plang198 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang198 -> plang198 [label="dialect of" color="0.5 0.5 0.9"];
+  plang198 -> plang198 [label="implements" color="0.5 0.5 0.9"];
+  plang198 -> plang198 [label="influenced by" color="0.5 0.5 0.9"];
+  plang198 -> plang198 [label="written with" color="0.5 0.5 0.9"];
+  tool198 -> plang198 [label="implemented with" color="0.857 0.5 0.9"];
+  tag198 -> plang198 [label="plangs" color="0.786 0.5 0.9"];
+  tag198 -> tool198 [label="tools" color="0.786 0.5 0.9"];
+    }
+}

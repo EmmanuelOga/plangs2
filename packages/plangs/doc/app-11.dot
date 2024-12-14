@@ -1,0 +1,131 @@
+digraph app {
+
+subgraph cluster1 {
+      app2 [label="app", style=filled, fillcolor="0 0.5 0.9", fontcolor="black"];
+  community2 [label="community", style=filled, fillcolor="0.143 0.5 0.9", fontcolor="black"];
+  learning2 [label="learning", style=filled, fillcolor="0.214 0.5 0.9", fontcolor="black"];
+      community2 -> app2 [label="apps" color="0.143 0.5 0.9"];
+  learning2 -> app2 [label="apps" color="0.214 0.5 0.9"];
+  learning2 -> community2 [label="communities" color="0.214 0.5 0.9"];
+    }
+
+subgraph cluster3 {
+      app4 [label="app", style=filled, fillcolor="0 0.5 0.9", fontcolor="black"];
+  community4 [label="community", style=filled, fillcolor="0.143 0.5 0.9", fontcolor="black"];
+  plang4 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+      plang4 -> plang4 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang4 -> plang4 [label="dialect of" color="0.5 0.5 0.9"];
+  plang4 -> plang4 [label="implements" color="0.5 0.5 0.9"];
+  plang4 -> plang4 [label="influenced by" color="0.5 0.5 0.9"];
+  plang4 -> plang4 [label="written with" color="0.5 0.5 0.9"];
+  app4 -> plang4 [label="plangs" color="0 0.5 0.9"];
+  community4 -> app4 [label="apps" color="0.143 0.5 0.9"];
+  community4 -> plang4 [label="plangs" color="0.143 0.5 0.9"];
+    }
+
+subgraph cluster5 {
+      app6 [label="app", style=filled, fillcolor="0 0.5 0.9", fontcolor="black"];
+  community6 [label="community", style=filled, fillcolor="0.143 0.5 0.9", fontcolor="black"];
+  post6 [label="post", style=filled, fillcolor="0.643 0.5 0.9", fontcolor="black"];
+      post6 -> app6 [label="apps" color="0.643 0.5 0.9"];
+  post6 -> community6 [label="communities" color="0.643 0.5 0.9"];
+  community6 -> app6 [label="apps" color="0.143 0.5 0.9"];
+    }
+
+subgraph cluster7 {
+      app8 [label="app", style=filled, fillcolor="0 0.5 0.9", fontcolor="black"];
+  community8 [label="community", style=filled, fillcolor="0.143 0.5 0.9", fontcolor="black"];
+  tag8 [label="tag", style=filled, fillcolor="0.786 0.5 0.9", fontcolor="black"];
+      tag8 -> app8 [label="apps tagged" color="0.786 0.5 0.9"];
+  tag8 -> community8 [label="communities" color="0.786 0.5 0.9"];
+  community8 -> app8 [label="apps" color="0.143 0.5 0.9"];
+    }
+
+subgraph cluster9 {
+      app10 [label="app", style=filled, fillcolor="0 0.5 0.9", fontcolor="black"];
+  learning10 [label="learning", style=filled, fillcolor="0.214 0.5 0.9", fontcolor="black"];
+  plang10 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+      plang10 -> plang10 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang10 -> plang10 [label="dialect of" color="0.5 0.5 0.9"];
+  plang10 -> plang10 [label="implements" color="0.5 0.5 0.9"];
+  plang10 -> plang10 [label="influenced by" color="0.5 0.5 0.9"];
+  plang10 -> plang10 [label="written with" color="0.5 0.5 0.9"];
+  app10 -> plang10 [label="plangs" color="0 0.5 0.9"];
+  learning10 -> app10 [label="apps" color="0.214 0.5 0.9"];
+  learning10 -> plang10 [label="plangs" color="0.214 0.5 0.9"];
+    }
+
+subgraph cluster11 {
+      app12 [label="app", style=filled, fillcolor="0 0.5 0.9", fontcolor="black"];
+  learning12 [label="learning", style=filled, fillcolor="0.214 0.5 0.9", fontcolor="black"];
+  post12 [label="post", style=filled, fillcolor="0.643 0.5 0.9", fontcolor="black"];
+      post12 -> app12 [label="apps" color="0.643 0.5 0.9"];
+  post12 -> learning12 [label="learning resources" color="0.643 0.5 0.9"];
+  learning12 -> app12 [label="apps" color="0.214 0.5 0.9"];
+    }
+
+subgraph cluster13 {
+      app14 [label="app", style=filled, fillcolor="0 0.5 0.9", fontcolor="black"];
+  learning14 [label="learning", style=filled, fillcolor="0.214 0.5 0.9", fontcolor="black"];
+  tag14 [label="tag", style=filled, fillcolor="0.786 0.5 0.9", fontcolor="black"];
+      tag14 -> app14 [label="apps tagged" color="0.786 0.5 0.9"];
+  tag14 -> learning14 [label="learning resources" color="0.786 0.5 0.9"];
+  learning14 -> app14 [label="apps" color="0.214 0.5 0.9"];
+    }
+
+subgraph cluster15 {
+      app16 [label="app", style=filled, fillcolor="0 0.5 0.9", fontcolor="black"];
+  license16 [label="license", style=filled, fillcolor="0.357 0.5 0.9", fontcolor="black"];
+  plang16 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+      plang16 -> plang16 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang16 -> plang16 [label="dialect of" color="0.5 0.5 0.9"];
+  plang16 -> plang16 [label="implements" color="0.5 0.5 0.9"];
+  plang16 -> plang16 [label="influenced by" color="0.5 0.5 0.9"];
+  plang16 -> plang16 [label="written with" color="0.5 0.5 0.9"];
+  app16 -> plang16 [label="plangs" color="0 0.5 0.9"];
+  license16 -> plang16 [label="plangs" color="0.357 0.5 0.9"];
+  license16 -> app16 [label="apps" color="0.357 0.5 0.9"];
+    }
+
+subgraph cluster17 {
+      app18 [label="app", style=filled, fillcolor="0 0.5 0.9", fontcolor="black"];
+  plang18 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  platform18 [label="platform", style=filled, fillcolor="0.571 0.5 0.9", fontcolor="black"];
+      plang18 -> platform18 [label="platforms" color="0.5 0.5 0.9"];
+  plang18 -> plang18 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang18 -> plang18 [label="dialect of" color="0.5 0.5 0.9"];
+  plang18 -> plang18 [label="implements" color="0.5 0.5 0.9"];
+  plang18 -> plang18 [label="influenced by" color="0.5 0.5 0.9"];
+  plang18 -> plang18 [label="written with" color="0.5 0.5 0.9"];
+  app18 -> plang18 [label="plangs" color="0 0.5 0.9"];
+  app18 -> platform18 [label="platforms" color="0 0.5 0.9"];
+    }
+
+subgraph cluster19 {
+      app20 [label="app", style=filled, fillcolor="0 0.5 0.9", fontcolor="black"];
+  plang20 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  post20 [label="post", style=filled, fillcolor="0.643 0.5 0.9", fontcolor="black"];
+      plang20 -> plang20 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang20 -> plang20 [label="dialect of" color="0.5 0.5 0.9"];
+  plang20 -> plang20 [label="implements" color="0.5 0.5 0.9"];
+  plang20 -> plang20 [label="influenced by" color="0.5 0.5 0.9"];
+  plang20 -> plang20 [label="written with" color="0.5 0.5 0.9"];
+  app20 -> plang20 [label="plangs" color="0 0.5 0.9"];
+  post20 -> app20 [label="apps" color="0.643 0.5 0.9"];
+  post20 -> plang20 [label="plangs" color="0.643 0.5 0.9"];
+    }
+
+subgraph cluster21 {
+      app22 [label="app", style=filled, fillcolor="0 0.5 0.9", fontcolor="black"];
+  plang22 [label="plang", style=filled, fillcolor="0.5 0.5 0.9", fontcolor="black"];
+  tag22 [label="tag", style=filled, fillcolor="0.786 0.5 0.9", fontcolor="black"];
+      plang22 -> plang22 [label="transpiling targets" color="0.5 0.5 0.9"];
+  plang22 -> plang22 [label="dialect of" color="0.5 0.5 0.9"];
+  plang22 -> plang22 [label="implements" color="0.5 0.5 0.9"];
+  plang22 -> plang22 [label="influenced by" color="0.5 0.5 0.9"];
+  plang22 -> plang22 [label="written with" color="0.5 0.5 0.9"];
+  app22 -> plang22 [label="plangs" color="0 0.5 0.9"];
+  tag22 -> app22 [label="apps tagged" color="0.786 0.5 0.9"];
+  tag22 -> plang22 [label="plangs" color="0.786 0.5 0.9"];
+    }
+}
