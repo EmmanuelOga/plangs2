@@ -1,4 +1,4 @@
-import { analyzeGraph, generateGraph } from "@plangs/graphgen/index";
+import { analyzeGraph, analyzeGraphTransitivy, generateGraph } from "@plangs/graphgen/index";
 import { PLANGS_GRAPH_SPEC } from "@plangs/plangs/graph/spec";
 
 const argv = process.argv[2] ?? "";
@@ -11,6 +11,10 @@ if (argv === "") {
   console.log("Analyzing graph");
   const diagram = "packages/plangs/doc";
   analyzeGraph(PLANGS_GRAPH_SPEC, diagram);
+} else if (argv === "transitivity") {
+  console.log("Analyzing graph transitivity");
+  const diagram = "packages/plangs/doc";
+  analyzeGraphTransitivy(PLANGS_GRAPH_SPEC, diagram);
 } else {
   console.error("Invalid argument:", argv);
 }

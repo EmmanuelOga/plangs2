@@ -1,11 +1,13 @@
 import { join } from "node:path";
 
+import { Map2 } from "@plangs/auxiliar/map2";
 import { reformatCode } from "@plangs/languist/reformat";
 
 import type { GenEdgeSpec, GenGraphSpec, GenVertexSpec } from "./spec";
 
 const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 const mapJoin = <T>(elems: Iterable<T>, mapper: (item: T) => string, joiner: string) => [...elems].map(mapper).join(joiner);
+const edgesKey = <T extends string>({ src }: GenEdgeSpec<T>) => `${src[0]}${capitalize(src[1])}`;
 
 /** Generate the graph code. */
 export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, filePath: string) {
@@ -14,7 +16,6 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
   const graphClassName = `${spec.name}${graphBase}`;
   const vertexClassName = (vertexName: T) => `${vertexPrefix}${capitalize(vertexName)}`;
   const vertexDataName = (vertexName: T) => `${vertexPrefix}${capitalize(vertexName)}Data`;
-  const edgesKey = ({ src }: GenEdgeSpec<T>) => `${src[0]}${capitalize(src[1])}`;
 
   const edgeComment = (kind: "src" | "dst", s: GenEdgeSpec<T>) => {
     const [srcVertex, srcRelName, srcDesc] = s.src;
@@ -292,4 +293,58 @@ export function analyzeGraph<T extends string>(spec: GenGraphSpec<T>, diagramPat
       Bun.write(join(diagramPath, `${vert}-${including.length}.dot`), code.join("\n"));
     }
   }
+}
+
+export function analyzeGraphTransitivy<T extends string>(spec: GenGraphSpec<T>, diagramPath: string) {
+  // Generate combinations of k elements from an array.
+  const combinations = <T>(arr: T[], k: number): Set<T>[] => {
+    if (k === 0) return [new Set()];
+    if (arr.length === 0) return [];
+    const [first, ...rest] = arr;
+    const combsWithFirst = combinations(rest, k - 1).map(comb => [first, ...comb]);
+    const combsWithoutFirst = combinations(rest, k);
+    return [...combsWithFirst, ...combsWithoutFirst].map(comb => new Set(comb));
+  };
+
+  // Mini graph structure: a vertexName is connected to another if there's an edge between them.
+  // Note this is about the kinds of vertices, not the instances themselves.
+  const edgeMap = new Map2<string, string, Set<string>>();
+  for (const s of spec.edges) {
+    const [src] = s.src;
+    const [dst] = s.dst;
+    const ek = edgesKey(s);
+    const set = edgeMap.get(src, ek) || new Set();
+    if (!edgeMap.has(src, ek)) edgeMap.set(src, ek, set);
+    set.add(dst);
+  }
+  // There's a forward connection from a to b.
+  const cn = (a: string, b: string) => edgeMap.values2(a).some(set => set.has(b));
+
+  const rel = (a: string, b: string, c: string) => [a, b, c].join("->");
+
+  // Mini graph analysis: find all opportunities for transitivity.
+  function transitive(a: string, b: string, c: string) {
+    const result = [];
+    if (cn(a, b) && cn(b, c) && cn(a, c)) result.push(rel(a, b, c)); // a -> b && b -> c && a -> c
+    if (cn(a, c) && cn(c, b) && cn(a, b)) result.push(rel(a, c, b)); // a -> c && c -> b && a -> b
+    if (cn(b, a) && cn(a, c) && cn(b, c)) result.push(rel(b, a, c)); // b -> a && a -> c && b -> c
+    if (cn(b, c) && cn(c, a) && cn(b, a)) result.push(rel(b, c, a)); // b -> c && c -> a && b -> a
+    if (cn(c, a) && cn(a, b) && cn(c, b)) result.push(rel(c, a, b)); // c -> a && a -> b && c -> b
+    if (cn(c, b) && cn(b, a) && cn(c, a)) result.push(rel(c, b, a)); // c -> b && b -> a && c -> a
+    return result;
+  }
+
+  const all = new Set<string>(Object.keys(spec.vertices));
+  // We know that licenses do not cause transitive relations.
+  all.delete("license");
+
+  const results = new Set<string>();
+  for (const [a, b, c] of combinations([...all], 3)) {
+    for (const result of transitive(a, b, c)) {
+      results.add(result);
+    }
+  }
+
+  console.log("Transitive relations:", results.size, "\n");
+  console.log([...results].sort().join("\n"));
 }
