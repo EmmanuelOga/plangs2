@@ -6,16 +6,16 @@ export function define(g: PlangsGraph) {
       name: "Jython",
       description:
         "Jython is an implementation of the Python programming language designed to run on the Java platform. It allows Python code to run on the JVM, providing seamless integration with Java libraries and classes.",
-      keywords: ["jpython", "jvm", "jython"],
-      extensions: [".py"],
-      releases: [{ version: "2.7.4", date: "2024-08-18" }],
-      extWikipediaPath: "Jython",
-      extHomeURL: "http://www.jython.org",
-      created: "2001",
-      isTranspiler: false,
       shortDesc: "Jython is a Python implementation for the Java platform, enabling Python code to run on the JVM.",
-      githubStars: 1300,
+      created: "2001",
+      extensions: [".py"],
       extGithubPath: "jython/jython",
+      extHomeURL: "http://www.jython.org",
+      extWikipediaPath: "Jython",
+      githubStars: 1300,
+      isTranspiler: false,
+      keywords: ["jpython", "jvm", "jython"],
+      releases: [{ version: "2.7.4", date: "2024-08-18" }],
     })
     .relImplements.add("pl+python")
     .relInfluencedBy.add("pl+java", "pl+python")

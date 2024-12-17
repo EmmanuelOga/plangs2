@@ -6,15 +6,15 @@ export function define(g: PlangsGraph) {
       name: "Wing",
       description:
         "Wing is a high-level programming language tailored for cloud infrastructure management, streamlining development for cloud-native and serverless applications with simplified syntax and robust features, enhancing productivity for cloud services like AWS.",
-      keywords: ["cloud", "infrastructure", "serverless"],
-      extensions: [".w", ".wing"],
-      releases: [{ version: "1.0.0", name: "Wing Initial Release", date: "2022-09-01" }],
-      extHomeURL: "https://www.winglang.io/",
-      created: "2022",
-      isTranspiler: false,
       shortDesc: "Wing is designed for managing cloud infrastructure and serverless applications.",
-      githubStars: 5100,
+      created: "2022",
+      extensions: [".w", ".wing"],
       extGithubPath: "winglang/wing",
+      extHomeURL: "https://www.winglang.io/",
+      githubStars: 5100,
+      isTranspiler: false,
+      keywords: ["cloud", "infrastructure", "serverless"],
+      releases: [{ version: "1.0.0", name: "Wing Initial Release", date: "2022-09-01" }],
     })
     .relLicenses.add("lic+mit")
     .relParadigms.add("para+declarative", "para+event-driven", "para+multi", "para+reactive", "para+scripting")

@@ -6,13 +6,13 @@ export function define(g: PlangsGraph) {
       name: "K",
       description:
         "K is a proprietary array processing programming language developed by Arthur Whitney and commercialized by Kx Systems. K serves as the basis for kdb+, an in-memory, column-based database for financial applications, and is influenced by APL and Scheme, renowned for its speed and concise syntax.",
-      keywords: ["kdb", "kdb+"],
-      extWikipediaPath: "K_(programming_language)",
-      extHomeURL: "https://code.kx.com/",
+      shortDesc: "K is a proprietary array language, foundation of kdb+, developed by Kx Systems.",
       created: "1993",
       extensions: [".k"],
+      extHomeURL: "https://code.kx.com/",
+      extWikipediaPath: "K_(programming_language)",
       isTranspiler: false,
-      shortDesc: "K is a proprietary array language, foundation of kdb+, developed by Kx Systems.",
+      keywords: ["kdb", "kdb+"],
     })
     .relInfluencedBy.add("pl+apl", "pl+scheme")
     .relLicenses.add("lic+proprietary")

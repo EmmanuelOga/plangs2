@@ -6,19 +6,19 @@ export function define(g: PlangsGraph) {
       name: "AssemblyScript",
       description:
         "AssemblyScript is designed to compile a variant of TypeScript to WebAssembly. By building upon TypeScript, it offers static typing with a syntax familiar to JavaScript developers, thus enabling efficient compilation to WebAssembly without the need for arcane languages or tools.",
-      keywords: ["assemblyscript", "statically-typed", "typescript", "webassembly"],
+      shortDesc: "AssemblyScript compiles a TypeScript variant to WebAssembly.",
+      created: "2017",
       extensions: [".ts"],
+      extGithubPath: "AssemblyScript/assemblyscript",
+      extHomeURL: "https://www.assemblyscript.org",
+      extWikipediaPath: "AssemblyScript",
+      githubStars: 17000,
       isTranspiler: true,
+      keywords: ["assemblyscript", "statically-typed", "typescript", "webassembly"],
       releases: [
         { version: "0.20.6", name: "AssemblyScript 0.20.6", date: "2022-01-22" },
         { version: "0.27.30", name: "AssemblyScript 0.27.30", date: "2024-09-27" },
       ],
-      extWikipediaPath: "AssemblyScript",
-      extHomeURL: "https://www.assemblyscript.org",
-      created: "2017",
-      shortDesc: "AssemblyScript compiles a TypeScript variant to WebAssembly.",
-      githubStars: 17000,
-      extGithubPath: "AssemblyScript/assemblyscript",
     })
     .relCompilesTo.add("pl+webassembly")
     .relDialectOf.add("pl+javascript", "pl+typescript")

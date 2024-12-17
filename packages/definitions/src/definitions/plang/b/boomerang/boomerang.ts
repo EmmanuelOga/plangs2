@@ -6,17 +6,17 @@ export function define(g: PlangsGraph) {
       name: "Boomerang",
       description:
         "Boomerang is a programming language for writing lenses—well-behaved bidirectional transformations—that operate on ad-hoc, textual data formats.",
+      shortDesc: "Boomerang is a language for bidirectional transformations on textual data formats.",
+      created: "2008",
+      extHomeURL: "http://www.seas.upenn.edu/~harmony/",
+      extWikipediaPath: "Boomerang_(programming_language)",
+      githubStars: 0,
+      isTranspiler: false,
       keywords: ["boomerang"],
       releases: [
         { version: "0.2", name: "Stable Release", date: "2009-09-02" },
         { version: "0.1", name: "Initial Release", date: "2008-01-01" },
       ],
-      extWikipediaPath: "Boomerang_(programming_language)",
-      extHomeURL: "http://www.seas.upenn.edu/~harmony/",
-      created: "2008",
-      isTranspiler: false,
-      shortDesc: "Boomerang is a language for bidirectional transformations on textual data formats.",
-      githubStars: 0,
     })
     .relInfluencedBy.add("pl+ocaml")
     .relLicenses.add("lic+lgpl")

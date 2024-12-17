@@ -6,20 +6,20 @@ export function define(g: PlangsGraph) {
       name: "MicroPython",
       description:
         "MicroPython is an efficient implementation of Python 3 designed to run on microcontrollers and in constrained environments, offering Python's tools, libraries, and syntax for resource-limited devices.",
-      keywords: ["embedded-python", "micro-python", "micropython"],
-      extensions: [".py"],
-      releases: [{ version: "1.24.1", date: "2024-09-29" }],
-      extWikipediaPath: "MicroPython",
-      extHomeURL: "https://micropython.org/",
-      created: "2013",
-      isTranspiler: false,
       shortDesc: "MicroPython is a subset of Python 3 tailored for microcontrollers.",
+      created: "2013",
+      extensions: [".py"],
+      extGithubPath: "micropython/micropython",
+      extHomeURL: "https://micropython.org/",
+      extWikipediaPath: "MicroPython",
+      githubStars: 19500,
+      isTranspiler: false,
+      keywords: ["embedded-python", "micro-python", "micropython"],
       links: [
         { url: "https://github.com/micropython/micropython", title: "GitHub Repository" },
         { url: "https://docs.micropython.org", title: "MicroPython Documentation" },
       ],
-      githubStars: 19500,
-      extGithubPath: "micropython/micropython",
+      releases: [{ version: "1.24.1", date: "2024-09-29" }],
     })
     .relImplements.add("pl+python")
     .relInfluencedBy.add("pl+python")

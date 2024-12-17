@@ -6,16 +6,16 @@ export function define(g: PlangsGraph) {
       name: "CircuitPython",
       description:
         "CircuitPython is an open-source derivative of the MicroPython programming language targeted towards microcontroller applications and educational purposes, primarily maintained by Adafruit Industries. It simplifies Python for use on microcontrollers, enabling easier experimentation for beginners and hobbyists, and it is implemented in C.",
-      keywords: ["", "adafruit", "circuitpython", "python-microcontrollers"],
+      shortDesc: "CircuitPython, maintained by Adafruit, simplifies Python for microcontroller applications and is implemented in C.",
+      created: "2017",
       extensions: [".py"],
-      isTranspiler: false,
-      releases: [{ version: "9.1.4", name: "CircuitPython 9.1.4", date: "2024-09-17" }],
-      extWikipediaPath: "CircuitPython",
       extGithubPath: "adafruit/circuitpython",
       extHomeURL: "https://circuitpython.org/",
-      created: "2017",
-      shortDesc: "CircuitPython, maintained by Adafruit, simplifies Python for microcontroller applications and is implemented in C.",
+      extWikipediaPath: "CircuitPython",
       githubStars: 4100,
+      isTranspiler: false,
+      keywords: ["", "adafruit", "circuitpython", "python-microcontrollers"],
+      releases: [{ version: "9.1.4", name: "CircuitPython 9.1.4", date: "2024-09-17" }],
     })
     .relImplements.add("pl+python")
     .relInfluencedBy.add("pl+micropython")

@@ -6,15 +6,15 @@ export function define(g: PlangsGraph) {
       name: "HotSpot VM",
       description:
         "HotSpot, released as Java HotSpot Performance Engine, is a Java virtual machine for desktop and server computers. Developed initially by Sun Microsystems and later by Oracle Corporation, HotSpot is known for its just-in-time compilation and adaptive optimization techniques, serving as the reference implementation of the Java programming language.",
+      shortDesc: "HotSpot is a Java virtual machine known for its just-in-time compilation and adaptive optimization techniques.",
+      created: "1999",
+      extWikipediaPath: "HotSpot_(virtual_machine)",
+      isTranspiler: false,
       keywords: ["adaptive optimization", "hotspot", "java vm", "just-in-time compilation", "jvm"],
       releases: [
         { version: "23.25-b01", name: "JDK 9", date: "2016-01-01" },
         { version: "23.25", name: "JDK 9", date: "2016-01-01" },
       ],
-      extWikipediaPath: "HotSpot_(virtual_machine)",
-      created: "1999",
-      isTranspiler: false,
-      shortDesc: "HotSpot is a Java virtual machine known for its just-in-time compilation and adaptive optimization techniques.",
     })
     .relImplements.add("pl+java")
     .relInfluencedBy.add("pl+self")

@@ -6,14 +6,14 @@ export function define(g: PlangsGraph) {
       name: "Scopes",
       description:
         "Scopes is a modern programming language emphasizing multi-stage programming, influenced by systems programming and expressive languages like Python and Scheme. It features a borrow checker along with extensive retargeting capabilities for high performance tasks.",
-      keywords: ["borrow checking", "multi-stage programming", "retargetable", "systems programming"],
-      extensions: [".scopes"],
-      releases: [{ version: "0.1", name: "Initial release", date: "2015-01-01" }],
-      filenames: ["scopes"],
-      extHomeURL: "https://hg.sr.ht/~duangle/scopes",
-      created: "2015",
-      isTranspiler: false,
       shortDesc: "Scopes is a modern, multi-stage programming language with a focus on systems programming and expressiveness.",
+      created: "2015",
+      extensions: [".scopes"],
+      extHomeURL: "https://hg.sr.ht/~duangle/scopes",
+      filenames: ["scopes"],
+      isTranspiler: false,
+      keywords: ["borrow checking", "multi-stage programming", "retargetable", "systems programming"],
+      releases: [{ version: "0.1", name: "Initial release", date: "2015-01-01" }],
     })
     .relInfluencedBy.add("pl+c", "pl+python", "pl+scheme")
     .relLicenses.add("lic+mit")

@@ -4,22 +4,22 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+makefile", {
       name: "Makefile",
-      languishRanking: 38,
-      stackovTags: ["makefile"],
-      githubName: "Makefile",
-      githubLangId: "220",
-      githubColor: "#427819",
-      githubPopular: false,
-      githubType: "programming",
       description:
         "Make is a command-line tool used for build automation primarily on Unix-like operating systems. It operates by reading makefiles, which define how to derive target files from source files by comparing timestamps to decide what needs to be rebuilt.",
-      keywords: ["build automation", "dependency management", "makefile", "unix"],
-      extensions: [".mk"],
-      filenames: ["Makefile", "makefile"],
-      extWikipediaPath: "Make_(software)",
-      created: "1976",
-      isTranspiler: true,
       shortDesc: "Make is a tool used for build automation, defining build tasks in makefiles based on file timestamps.",
+      created: "1976",
+      extensions: [".mk"],
+      extWikipediaPath: "Make_(software)",
+      filenames: ["Makefile", "makefile"],
+      githubColor: "#427819",
+      githubLangId: "220",
+      githubName: "Makefile",
+      githubPopular: false,
+      githubType: "programming",
+      isTranspiler: true,
+      keywords: ["build automation", "dependency management", "makefile", "unix"],
+      languishRanking: 38,
+      stackovTags: ["makefile"],
     })
     .relParadigms.add("para+declarative", "para+macro")
     .relPlatforms.add("plat+cross")

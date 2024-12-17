@@ -4,25 +4,25 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+jinja", {
       name: "Jinja",
-      languishRanking: 57,
-      stackovTags: ["jinja2"],
-      githubName: "Jinja",
-      githubLangId: "147",
-      githubColor: "#a52a22",
-      githubPopular: false,
-      githubType: "markup",
       description:
         "Jinja is a web template engine widely used in Python applications for rendering templates. It was developed by Armin Ronacher and offers a familiar syntax borrowed from Python, enabling flexible and sandboxed template design.",
-      keywords: ["jinja", "python"],
+      shortDesc: "Jinja is a web template engine for Python, known for its flexible syntax and functionality.",
+      created: "2008",
       extensions: [".jinja", ".jinja2"],
-      isTranspiler: false,
-      releases: [{ version: "3.1.4", name: "Stable Release", date: "2024-05-05" }],
-      extWikipediaPath: "Jinja_(template_engine)",
       extGithubPath: "pallets/jinja",
       extHomeURL: "http://jinja.pocoo.org/",
-      created: "2008",
-      shortDesc: "Jinja is a web template engine for Python, known for its flexible syntax and functionality.",
+      extWikipediaPath: "Jinja_(template_engine)",
+      githubColor: "#a52a22",
+      githubLangId: "147",
+      githubName: "Jinja",
+      githubPopular: false,
       githubStars: 10400,
+      githubType: "markup",
+      isTranspiler: false,
+      keywords: ["jinja", "python"],
+      languishRanking: 57,
+      releases: [{ version: "3.1.4", name: "Stable Release", date: "2024-05-05" }],
+      stackovTags: ["jinja2"],
     })
     .relCompilesTo.add("pl+python")
     .relInfluencedBy.add("pl+python")

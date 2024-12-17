@@ -6,16 +6,16 @@ export function define(g: PlangsGraph) {
       name: "Seed7",
       description:
         "Seed7 is a general-purpose programming language designed by Thomas Mertes. It stands out due to its extensibility, allowing users to define new syntax and semantics and implements concepts from languages like Pascal, Ada, C, and C++.",
-      keywords: ["seed7"],
-      extensions: [".s7i", ".sd7"],
-      releases: [{ version: "2024-08-12", name: "Stable release", date: "2024-08-12" }],
-      extWikipediaPath: "Seed7",
-      extHomeURL: "https://seed7.sourceforge.net/",
-      created: "2005",
-      isTranspiler: false,
       shortDesc: "Seed7 is a general-purpose language focused on extensibility and defining new syntax and semantics.",
-      githubStars: 236,
+      created: "2005",
+      extensions: [".s7i", ".sd7"],
       extGithubPath: "ThomasMertes/seed7",
+      extHomeURL: "https://seed7.sourceforge.net/",
+      extWikipediaPath: "Seed7",
+      githubStars: 236,
+      isTranspiler: false,
+      keywords: ["seed7"],
+      releases: [{ version: "2024-08-12", name: "Stable release", date: "2024-08-12" }],
     })
     .relInfluencedBy.add("pl+ada", "pl+c", "pl+c++", "pl+pascal")
     .relLicenses.add("lic+gnu-gpl", "lic+lgpl")

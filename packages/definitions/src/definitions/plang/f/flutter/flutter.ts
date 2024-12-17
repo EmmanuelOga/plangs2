@@ -6,16 +6,16 @@ export function define(g: PlangsGraph) {
       name: "Flutter",
       description:
         "Flutter is an open-source UI software development toolkit by Google, used for crafting natively compiled cross-platform applications from a single codebase for mobile, web, and desktop.",
-      keywords: ["flutter"],
-      isTranspiler: true,
-      releases: [{ version: "3.27.0", date: "2024-12-11" }],
-      extensions: [".dart"],
-      extWikipediaPath: "Flutter_(software)",
-      extHomeURL: "https://flutter.dev/",
-      created: "2017",
       shortDesc: "Flutter is a Google toolkit for creating natively compiled cross-platform apps from a single codebase.",
-      githubStars: 167000,
+      created: "2017",
+      extensions: [".dart"],
       extGithubPath: "flutter/flutter",
+      extHomeURL: "https://flutter.dev/",
+      extWikipediaPath: "Flutter_(software)",
+      githubStars: 167000,
+      isTranspiler: true,
+      keywords: ["flutter"],
+      releases: [{ version: "3.27.0", date: "2024-12-11" }],
     })
     .relCompilesTo.add("pl+javascript")
     .relImplements.add("pl+dart")

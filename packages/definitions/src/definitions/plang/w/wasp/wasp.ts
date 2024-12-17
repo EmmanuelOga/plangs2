@@ -4,22 +4,22 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+wasp", {
       name: "Wasp",
-      extHomeURL: "https://wasp-lang.dev",
-      extGithubPath: "wasp-lang/wasp",
-      githubStars: 14000,
-      extensions: [".wasp"],
-      filenames: ["wasp"],
-      isTranspiler: true,
-      releases: [{ version: "0.2.0", name: "Beta Release", date: "2023-08-15" }],
       description:
         "Wasp is a configuration-driven, declarative programming language for building full-stack web applications, focusing on reducing boilerplate and improving developer productivity by efficiently managing both server and client-side code.",
       shortDesc: "Wasp simplifies full-stack web development with a declarative approach.",
       created: "2021",
+      extensions: [".wasp"],
+      extGithubPath: "wasp-lang/wasp",
+      extHomeURL: "https://wasp-lang.dev",
+      filenames: ["wasp"],
+      githubStars: 14000,
+      isTranspiler: true,
       keywords: ["configuration-driven", "declarative language", "full-stack", "wasp", "web development"],
       links: [
         { url: "https://github.com/wasp-lang/wasp", title: "Wasp on GitHub" },
         { url: "https://wasp-lang.dev/docs", title: "Wasp Documentation" },
       ],
+      releases: [{ version: "0.2.0", name: "Beta Release", date: "2023-08-15" }],
     })
     .relCompilesTo.add("pl+javascript")
     .relInfluencedBy.add("pl+javascript")

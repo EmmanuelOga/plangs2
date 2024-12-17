@@ -6,21 +6,21 @@ export function define(g: PlangsGraph) {
       name: ".NET",
       description:
         "A free and open-source, managed computer software framework for Windows, Linux, and macOS operating systems. It is developed by Microsoft employees and the open-source community through the .NET Foundation and is released under the MIT License. .NET is known for its cross-platform capabilities and support for multiple programming paradigms, making it suitable for building a wide range of applications from web and mobile to cloud and microservices.",
-      keywords: [".net", "dotnet"],
+      shortDesc: "A cross-platform, open-source framework known for supporting multiple programming paradigms.",
+      created: "2016",
       extensions: [".csproj", ".fsproj", ".sln", ".vbproj"],
+      extGithubPath: "microsoft/dotnet",
+      extHomeURL: "http://dotnet.microsoft.com/",
+      extWikipediaPath: ".NET",
+      githubPopular: true,
+      githubStars: 14500,
+      isTranspiler: false,
+      keywords: [".net", "dotnet"],
       releases: [
         { version: "7.0", name: ".NET 7", date: "2022-09-08" },
         { version: "8.0", name: ".NET 8", date: "2023-09-14" },
         { version: "9.0", name: ".NET 9", date: "2024-09-12" },
       ],
-      extWikipediaPath: ".NET",
-      extHomeURL: "http://dotnet.microsoft.com/",
-      created: "2016",
-      isTranspiler: false,
-      shortDesc: "A cross-platform, open-source framework known for supporting multiple programming paradigms.",
-      githubStars: 14500,
-      extGithubPath: "microsoft/dotnet",
-      githubPopular: true,
     })
     .relImplements.add("pl+c-sharp", "pl+f-sharp", "pl+visual-basic")
     .relInfluencedBy.add("pl+java")

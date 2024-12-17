@@ -6,16 +6,16 @@ export function define(g: PlangsGraph) {
       name: "IronPython",
       description:
         "IronPython is an open-source implementation of Python, designed to work seamlessly with the .NET and Mono frameworks, allowing for the integration of .NET libraries within Python code. It provides a bridge between Python scripting and the .NET runtime, enabling developers to leverage .NET's extensive libraries.",
-      keywords: ["ironpython", "python"],
-      extensions: [".py", ".pyi"],
-      releases: [{ version: "3.4.1", name: "3.4.1", date: "2023-07-12" }],
-      extWikipediaPath: "IronPython",
-      extHomeURL: "https://ironpython.net/",
-      created: "2006",
-      isTranspiler: false,
       shortDesc: "IronPython is an open-source implementation of Python for the .NET framework.",
-      githubStars: 2500,
+      created: "2006",
+      extensions: [".py", ".pyi"],
       extGithubPath: "IronLanguages/ironpython3",
+      extHomeURL: "https://ironpython.net/",
+      extWikipediaPath: "IronPython",
+      githubStars: 2500,
+      isTranspiler: false,
+      keywords: ["ironpython", "python"],
+      releases: [{ version: "3.4.1", name: "3.4.1", date: "2023-07-12" }],
     })
     .relImplements.add("pl+python")
     .relInfluencedBy.add("pl+.net", "pl+c-sharp")

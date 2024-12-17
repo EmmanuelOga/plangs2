@@ -6,25 +6,25 @@ export function define(g: PlangsGraph) {
       name: "Zig",
       description:
         "Zig is an imperative, general-purpose, statically typed system programming language designed to improve upon C/C++'s features, focusing on robust error handling and performance without hidden control flows or a preprocessor.",
-      keywords: ["zig"],
-      extensions: [".zig", ".zigr", ".zir", ".zon"],
-      releases: [{ version: "0.13.0", name: "Zig 0.13.0", date: "2024-06-06" }],
-      stackovTags: ["zig"],
-      githubName: "Zig",
-      languishRanking: 52,
-      githubLangId: "646424281",
-      githubColor: "#ec915c",
-      githubPopular: false,
-      githubType: "programming",
-      extWikipediaPath: "Zig_(programming_language)",
-      extRedditPath: "Zig",
-      extHomeURL: "https://ziglang.org",
-      created: "2015",
-      isTranspiler: false,
       shortDesc:
         "Zig is a robust system programming language designed as an improvement over C/C++ with native error handling and performance enhancements.",
-      githubStars: 35400,
+      created: "2015",
+      extensions: [".zig", ".zigr", ".zir", ".zon"],
       extGithubPath: "ziglang/zig",
+      extHomeURL: "https://ziglang.org",
+      extRedditPath: "Zig",
+      extWikipediaPath: "Zig_(programming_language)",
+      githubColor: "#ec915c",
+      githubLangId: "646424281",
+      githubName: "Zig",
+      githubPopular: false,
+      githubStars: 35400,
+      githubType: "programming",
+      isTranspiler: false,
+      keywords: ["zig"],
+      languishRanking: 52,
+      releases: [{ version: "0.13.0", name: "Zig 0.13.0", date: "2024-06-06" }],
+      stackovTags: ["zig"],
     })
     .relInfluencedBy.add("pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust")
     .relLicenses.add("lic+mit")
@@ -42,7 +42,7 @@ export function define(g: PlangsGraph) {
       "tag+viz",
     )
     .relTypeSystems.add("tsys+generic", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural")
-    .relWrittenWith.add("pl+zig", "pl+c++");
+    .relWrittenWith.add("pl+c++", "pl+zig");
 
   // TOOLS
 

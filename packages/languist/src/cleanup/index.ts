@@ -172,3 +172,5 @@ async function regenTest() {
   Bun.write(tsLongPath(py), `//${new Date().toISOString()}\n${code}`);
   console.log("Regenerated Python:", code.length, "bytes");
 }
+
+await cleanup();

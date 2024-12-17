@@ -6,13 +6,13 @@ export function define(g: PlangsGraph) {
       name: "Simulink",
       description:
         "Simulink is a graphical programming environment integrated with MATLAB for modeling, simulating, and analyzing dynamic systems, leveraging block diagrams and model-based designs.",
+      shortDesc: "Simulink is a graphical programming environment for dynamic system modeling and analysis integrated with MATLAB.",
+      created: "1984",
+      extHomeURL: "https://www.mathworks.com/products/simulink.html",
+      extWikipediaPath: "Simulink",
+      isTranspiler: false,
       keywords: ["block diagram", "matlab", "model-based design", "simulink"],
       releases: [{ version: "10.7", name: "Simulink Release 10.7", date: "2023-03-16" }],
-      extWikipediaPath: "Simulink",
-      extHomeURL: "https://www.mathworks.com/products/simulink.html",
-      created: "1984",
-      isTranspiler: false,
-      shortDesc: "Simulink is a graphical programming environment for dynamic system modeling and analysis integrated with MATLAB.",
     })
     .relInfluencedBy.add("pl+matlab")
     .relLicenses.add("lic+proprietary")

@@ -6,14 +6,14 @@ export function define(g: PlangsGraph) {
       name: "Jank",
       description:
         "Jank is a general-purpose programming language which embraces the interactive, value-oriented nature of Clojure as well as the desire for native runtime and performance similar to C++. It is strongly compatible with Clojure and considers itself a dialect of Clojure. Jank uses an LLVM-based JIT to compile machine code on-the-fly.",
-      keywords: ["clojure", "jank", "llvm"],
+      shortDesc: "Jank is a Clojure-compatible language with an LLVM-based JIT compiler for native performance.",
+      created: "2015",
       extensions: [".jank"],
       extGithubPath: "jank-lang/jank",
       extHomeURL: "https://jank-lang.org/",
-      created: "2015",
-      isTranspiler: true,
-      shortDesc: "Jank is a Clojure-compatible language with an LLVM-based JIT compiler for native performance.",
       githubStars: 1700,
+      isTranspiler: true,
+      keywords: ["clojure", "jank", "llvm"],
     })
     .relDialectOf.add("pl+clojure")
     .relInfluencedBy.add("pl+clojure")

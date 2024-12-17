@@ -6,14 +6,14 @@ export function define(g: PlangsGraph) {
       name: "Alda",
       description:
         "Alda is a text-based programming language designed for music composition. It allows users to write and play music using a simple syntax in a text editor and execute it through the command line. Its intuitive syntax is accessible for both musicians with no programming background and programmers with limited music knowledge, making it a versatile tool for creative musical expression.",
-      keywords: ["alda", "music composition", "music programming"],
-      extensions: [".alda"],
-      extHomeURL: "https://alda.io/",
-      created: "2015",
-      isTranspiler: false,
       shortDesc: "Alda is a text-based programming language for music composition with simple syntax for musicians and programmers.",
-      githubStars: 5600,
+      created: "2015",
+      extensions: [".alda"],
       extGithubPath: "alda-lang/alda",
+      extHomeURL: "https://alda.io/",
+      githubStars: 5600,
+      isTranspiler: false,
+      keywords: ["alda", "music composition", "music programming"],
     })
     .relLicenses.add("lic+mit")
     .relParadigms.add("para+dsl")

@@ -6,16 +6,16 @@ export function define(g: PlangsGraph) {
       name: "Cilk",
       description:
         "Cilk, Cilk++, Cilk Plus, and OpenCilk are general-purpose programming languages designed for multithreaded parallel computing. They are based on the C and C++ languages and extend them with constructs for parallel loops and the fork-join idiom.",
-      keywords: ["cilk", "cilk plus", "opencilk"],
-      extensions: [".cilk"],
-      releases: [{ version: "2.1", date: "2024-01-13" }],
-      extWikipediaPath: "Cilk",
-      extHomeURL: "https://www.opencilk.org/",
-      created: "1994",
-      isTranspiler: false,
       shortDesc: "Cilk is a family of languages designed for parallel computing extending C and C++.",
-      githubStars: 99,
+      created: "1994",
+      extensions: [".cilk"],
       extGithubPath: "OpenCilk/opencilk-project",
+      extHomeURL: "https://www.opencilk.org/",
+      extWikipediaPath: "Cilk",
+      githubStars: 99,
+      isTranspiler: false,
+      keywords: ["cilk", "cilk plus", "opencilk"],
+      releases: [{ version: "2.1", date: "2024-01-13" }],
     })
     .relDialectOf.add("pl+c")
     .relInfluencedBy.add("pl+c", "pl+c++")

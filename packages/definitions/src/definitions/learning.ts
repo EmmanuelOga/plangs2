@@ -6,8 +6,8 @@ export function define(g: PlangsGraph) {
       name: "From Nand to Tetris",
       description:
         "Nand to Tetris courses, with the book The Elements of Computing Systems, By Noam Nisan and Shimon Schocken (MIT Press). This website contains all the lectures, project materials and tools necessary for building a general-purpose computer system and a modern software hierarchy from the ground up.",
-      kinds: ["book", "course"],
       extHomeURL: "https://www.nand2tetris.org/",
+      kinds: ["book", "course"],
     })
     .relTags.add("tag+embedded", "tag+languages");
 

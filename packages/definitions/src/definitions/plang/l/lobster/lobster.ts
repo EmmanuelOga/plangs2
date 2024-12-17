@@ -6,15 +6,15 @@ export function define(g: PlangsGraph) {
       name: "Lobster",
       description:
         "Lobster is a statically typed programming language with Python-like syntax, emphasizing friendly and efficient features for game development and graphical applications. It provides many features catering to developers such as compile-time memory management and an expressive type system, helping reduce the complexity of code.",
-      keywords: ["game development", "lobster", "statically typed"],
+      shortDesc: "A statically typed, game-oriented language with Python-like syntax and compile-time memory management.",
+      created: "2016",
       extensions: [".lobster"],
-      releases: [{ version: "1.0", name: "Initial Release", date: "2016-01-01" }],
       extGithubPath: "aardappel/lobster",
       extHomeURL: "https://strlen.com/lobster/",
-      created: "2016",
-      isTranspiler: false,
-      shortDesc: "A statically typed, game-oriented language with Python-like syntax and compile-time memory management.",
       githubStars: 2300,
+      isTranspiler: false,
+      keywords: ["game development", "lobster", "statically typed"],
+      releases: [{ version: "1.0", name: "Initial Release", date: "2016-01-01" }],
     })
     .relInfluencedBy.add("pl+python")
     .relLicenses.add("lic+apache", "lic+zlib")

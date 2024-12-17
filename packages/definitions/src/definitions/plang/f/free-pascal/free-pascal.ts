@@ -6,15 +6,15 @@ export function define(g: PlangsGraph) {
       name: "Free Pascal",
       description:
         'Free Pascal is an open-source Pascal and Object Pascal compiler designed to support a wide range of processor architectures and operating systems with its feature-rich environment. It adheres to the "write once, compile anywhere" philosophy and includes functionality for inline assembly and compatibility with multiple Pascal dialects.',
-      keywords: ["cross-platform", "fpc", "freepascal", "object pascal", "pascal"],
-      extensions: [".p", ".pas", ".pp"],
-      releases: [{ version: "3.2.2", date: "2021-05-20" }],
-      extWikipediaPath: "Free_Pascal",
-      extHomeURL: "https://www.freepascal.org/",
+      shortDesc: "Free Pascal is an open-source Pascal compiler supporting multiple architectures and dialects.",
       created: "1993",
+      extensions: [".p", ".pas", ".pp"],
+      extHomeURL: "https://www.freepascal.org/",
+      extWikipediaPath: "Free_Pascal",
       filenames: ["Makefile"],
       isTranspiler: false,
-      shortDesc: "Free Pascal is an open-source Pascal compiler supporting multiple architectures and dialects.",
+      keywords: ["cross-platform", "fpc", "freepascal", "object pascal", "pascal"],
+      releases: [{ version: "3.2.2", date: "2021-05-20" }],
     })
     .relDialectOf.add("pl+pascal")
     .relImplements.add("pl+pascal")
