@@ -259,6 +259,10 @@ export class RelFrom<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
   get size() {
     return this.keys.size;
   }
+
+  toString() {
+    return `RelFrom(${this.from}, ${this.desc})`;
+  }
 }
 
 /** This class provides shrotcuts to work with relationship between vertices directly **to** the vertex. */
@@ -302,5 +306,9 @@ export class RelTo<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
 
   get size() {
     return this.keys.size;
+  }
+
+  toString() {
+    return `RelTo(${this.to}, ${this.desc})`;
   }
 }
