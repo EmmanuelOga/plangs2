@@ -20,6 +20,14 @@ export class PlangsGraph extends Gen.PlangsGraphBase {
       }
     }
 
+    // Data can say a langauge is a transpiler, but we can also infer it.
+    // If a language compiles to another, then it is a transpiler.
+    for (const plang of this.plang.values) {
+      if (!plang.isTranspiler && plang.relCompilesTo.size > 0) {
+        plang.data.isTranspiler = true;
+      }
+    }
+
     return this;
   }
 }
