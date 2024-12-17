@@ -12,7 +12,7 @@ export const PLANG_FACET_PREDICATES = {
   compilesTo: ((pl, flt) => flt.matches(key => pl.relCompilesTo.has(key))) as Pred<Filter<VPlangKey>>,
   createdRecently: ((pl, date) => pl.created.isRecent(date.value as StrDate)) as Pred<ValString>,
   creationYear: ((pl, flt) => ret(pl.created.strYear, plYear => flt.matches(year => plYear === year))) as Pred<Filter<string>>,
-  dialectOf: ((pl, flt) => flt.matches(key => pl.relDialectOf.has(key))) as Pred<Filter<VPlangKey>>,
+  dialectOf: ((pl, flt) => flt.matches(key => pl.key === key || pl.relDialectOf.has(key))) as Pred<Filter<VPlangKey>>,
   extensions: ((pl, flt) => flt.matches(key => pl.extensions.includes(key))) as Pred<Filter<string>>,
   hasLogo: ((pl, val) => val.value === pl.images.some(img => img.kind === "logo")) as Pred<ValBool>,
   hasWikipedia: ((pl, val) => val.value === !!pl.data.extWikipediaPath) as Pred<ValBool>,
