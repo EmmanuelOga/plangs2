@@ -16,7 +16,7 @@ export const PLANG_FACET_PREDICATES = {
   extensions: ((pl, flt) => flt.matches(key => pl.extensions.includes(key))) as Pred<Filter<string>>,
   hasLogo: ((pl, val) => val.value === pl.images.some(img => img.kind === "logo")) as Pred<ValBool>,
   hasWikipedia: ((pl, val) => val.value === !!pl.data.extWikipediaPath) as Pred<ValBool>,
-  implements: ((pl, flt) => flt.matches(key => pl.relImplements.has(key))) as Pred<Filter<VPlangKey>>,
+  implements: ((pl, flt) => flt.matches(key => key === pl.key || pl.relImplements.has(key))) as Pred<Filter<VPlangKey>>,
   influenced: ((pl, flt) => flt.matches(key => pl.relInfluenced.has(key))) as Pred<Filter<VPlangKey>>,
   influencedBy: ((pl, flt) => flt.matches(key => pl.relInfluencedBy.has(key))) as Pred<Filter<VPlangKey>>,
   isPopular: ((pl, val) => val.value === pl.isPopular) as Pred<ValBool>,

@@ -39,6 +39,24 @@ $ bun outapp && bun outjs
 
 This simplistic build process just outputs the statically generated contents of the site at `~/dev/plangs-out` (will probably change at some point).
 
+## Graph inference notes
+
+Some relationships can be used to infer others.
+
+> In `Bundle -> Tool -> Plang` implies `Bundle -> Plang`, meaning a bundle supports a plang if any of its tools supports it.
+
+The example B/T/P demonstrates a transitive relationship. There are other relationships that are possible but should not be used for inference.
+
+> In `Plang -> App -> License`, inferring `Plang -> License` would be wrong, since an App built with Plang doesn't necesarily share the License.
+
+There are some relationships that are simpler to infer.
+
+> In `A -i-> B -i-> C` (i = influenced), A influenced both B _and_ C.
+
+The process of adding a relationship to the data that could be inferred is called "materializing". Right now, we don't materialize many relationships, and the search code usually doesn't try to infer the relationships on the fly.
+
+Both *materializing relationships* and *inferring them on the fly* give possible rooe for more comprenhensive searches. Options for exploring these features include using existing graph databases, RDF based systems of writing our own inference and materialization code.
+
 ## BUGS
 
 BUG: Fix "restore" functions (save state of info, filters, etc). Seems broken right now.

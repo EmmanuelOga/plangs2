@@ -11,25 +11,9 @@ export const rel = Gen.PlangsGraphBase.relConfig;
 export const prop = Gen.PlangsGraphBase.propConfig;
 
 export class PlangsGraph extends Gen.PlangsGraphBase {
-  /**
-   * We can derive / infer some data from the existing data.
-   * We may implement some sort of inference engine in the future,
-   * but for now we can just materialize some simple rules.
-   */
+  /** We can derive / infer some data from the existing data. */
   materialize(): this {
-    // All languages implement themselves.
-    for (const pl of this.plang.values) pl.relImplements.add(pl.key);
-
-    // For each bundle, a bundle supports a language if any of its tools support that language.
-    //
-    // This is related to a "transitive closure" operation: if A -> B -> C, then A -> C.
-    // We can explore whether this approach should be applied to other relationships:
-    //
-    // Some of these relationships are not transitive. For example:
-    // License -> App -> Plang is a valid path that doesn't imply License -> Plang.
-    //
-    // Possible Plan: Generate all possible A -> B -> C paths where A -> C is feasible,
-    // then manually select the ones that make sense to include in the transitive closure.
+    // Bundle -> Tool -> Plang is transitive: a bundle supports all the languages supported by its tools.
     for (const bundle of this.bundle.values) {
       for (const tool of bundle.relTools.values) {
         bundle.relPlangs.add(...tool.relPlangs.keys);
