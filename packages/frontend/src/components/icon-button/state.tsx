@@ -6,7 +6,7 @@ import { ABC, BOOLEAN, CLOSE, DESELECT, FILTER_EDIT, MENU, MOON, RANKING, SUN } 
 import { tw } from "@plangs/frontend/auxiliar/styles";
 import type { FacetsMainElement } from "@plangs/frontend/facets/main";
 
-import { getStore } from "@plangs/frontend/auxiliar/storage";
+import { getCurrentPageStore, getStore } from "@plangs/frontend/auxiliar/storage";
 import type { IconButtonProps } from "./icon-button";
 
 export type IconButtonState = ToggleLights | ToggleHamburguer | ToggleFacetsMenu | ToggleAllAny | ToggleClearFacets | ToggleGridOrder | undefined;
@@ -98,7 +98,7 @@ export class ToggleHamburguer extends IconButtonBaseState<{ mode: "show" | "hide
 /** State for the facets menu. */
 export class ToggleFacetsMenu extends IconButtonBaseState<{ mode: "show" | "hide" }> {
   static initial(disabled = false) {
-    const mode = STORE.load("facets-browser");
+    const mode = getCurrentPageStore().load("facets-browser");
     return new ToggleFacetsMenu({ mode: mode === "show" ? "show" : "hide", disabled });
   }
 
@@ -128,7 +128,7 @@ export class ToggleFacetsMenu extends IconButtonBaseState<{ mode: "show" | "hide
   override runEffects() {
     const fm = elems("facetsMain");
     if (fm.length > 0) fm[0].classList.toggle("hidden", !this.show);
-    STORE.update("facets-browser", this.data.mode);
+    getCurrentPageStore().update("facets-browser", this.data.mode);
   }
 }
 

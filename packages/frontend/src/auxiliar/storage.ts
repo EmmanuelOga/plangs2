@@ -16,8 +16,11 @@ export type StorageKey =
 
 // Alias to avoid errors if server side rendering is used.
 const stapi = (typeof localStorage === "undefined" ? undefined : localStorage) as Storage | undefined;
+const doc = (typeof document === "undefined" ? undefined : document) as Document;
 
 export const getStore = (page: PlangsPage) => new Store(page);
+export const getCurrentPage = () => (doc ? doc.body.dataset.page : "_any_page_") as PlangsPage;
+export const getCurrentPageStore = () => getStore(getCurrentPage());
 
 /**
  * Wrapper for localStorage.

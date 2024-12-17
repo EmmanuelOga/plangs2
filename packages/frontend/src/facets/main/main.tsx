@@ -35,7 +35,7 @@ export function FacetsMain({ page, pg }: { page: PlangsPage; pg: PlangsGraph }) 
           "bg-linear-to-t from-secondary to-background",
         )}>
         <div class={tw("grid grid-cols-[auto_auto]")}>
-          <header class={tw("uppercase", "text-primary", "mb-4", "ml-4")}>Filters</header>
+          <header class={tw("uppercase", "text-primary", "mb-4", "ml-4")}>Filter {page}</header>
 
           {state.nav.groupKeys.map(group => (
             <nav key={group.join("-")} class={tw("sm:mb-6", "min-w-[12rem] max-w-[15rem]", SUBGRID)}>
@@ -70,7 +70,7 @@ export function FacetsMain({ page, pg }: { page: PlangsPage; pg: PlangsGraph }) 
         </div>
       </aside>
 
-      <div class={tw("flex w-full flex-col", "overflow-hidden", "bg-linear-to-b to-secondary/50", "relative")}>
+      <div class={tw("flex w-full flex-col", "overflow-hidden", tw(BORDER, "border-r-1"), "bg-linear-to-b to-secondary/50", "relative")}>
         <state.groupsComponent currentFacetGroup={state.currentGroupKey} />
       </div>
     </FacetsMainContext.Provider>
