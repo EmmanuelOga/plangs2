@@ -57,62 +57,45 @@ The process of adding a relationship to the data that could be inferred is calle
 
 Both *materializing relationships* and *inferring them on the fly* give possible rooe for more comprenhensive searches. Options for exploring these features include using existing graph databases, RDF based systems of writing our own inference and materialization code.
 
-## BUGS
-
-BUG: Fix "restore" functions (save state of info, filters, etc). Seems broken right now.
-
 ## WIP
 
-- [ ] Materialize more relationships: isTranspiler, influence, etc.
-- [ ] Dematerialize? Remove redundancy before re-generating the code.
+* BUG: Fix "restore" functions (save state of info, filters, etc). Seems broken right now.
+
+### Site
 
 - [ ] Add schema.org metadata.
 - [ ] Add fb opengraph metadata.
 - [ ] Add missing aria attributes.
+- [ ] Add an "authors" Vertex to link to Blog post authors.
+
+### UX
 
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
 - [ ] Drag handles for Grid elems.
-- [ ] Add an "authors" Vertex to link to Blog post authors.
+- [ ] Add support for drag/drop resize of elements (node-info and facets-main).
 - [ ] Prefetch some URLS on hover.
 - [ ] HOVER of SVGs doesn't really look nice. Use a BG like for languish rankings.
+- [ ] Maybe: only allow sidebar OR filters to be on.
+- [ ] Gray out facets that won't add to the selection.
 
-## TODO
+## MISC
 
 - [ ] Investigate TW css config: breakpoints may be wonky right now.
-- [ ] Tweak backdrop-filter in Safari/Firefox.
-
-### Backlog
-
 - [ ] Add tests for frontend code.
+- [ ] Tweak backdrop-filter in Safari/Firefox.
 
 ## DESIGN
 
-- [ ] Add a table display mode in addition to Grid (some things don't display good on a Grid, like Libraries).
-- [ ] Add support for drag/drop resize of elements (node-info and facets-main).
-
-- [ ] Gray out facets that won't add to the selection.
-- [ ] Maybe: only allow sidebar OR filters to be on.
-
-- [ ] Replace Thumbn SVGs embedding data with PNGs.
+- [ ] Table display mode: some things don't display good on a Grid, like Libraries.
 - [ ] Resize all Thumbn to 128x128.
-- [ ] Create per platform icons (win, lin, etc) similar to the external links one.
+- [ ] Replace Thumbn SVGs embedding data with PNGs.
+- [ ] Identicons instead of P placeholder.
 
 ## "ADMIN"
 
-- [ ] Allow AI to crawl for tools
-- [ ] Allow AI to crawl for apps
-- [ ] Allow AI to crawl for libraries
-- [ ] Allow AI to crawl for subsytems
-- [ ] Allow AI to crawl for learning resources
-- [ ] Allow AI to crawl for communities
-
-- [ ] Add a simple admin interface to locally tweak the data: **maybe out of scope?**
-- [ ] Contribution process: CLI tool? Ask type of resource, find URLs, etc.
-- [ ] Would be cool to be able to create a PR from the website itself.
-
-- [ ] Manually add more data and AI enrich. 
-- [ ] Use the github API to procure more precise information of github repos.
-
+- [ ] Local: make it easy to edit languages: CLI or /admin on the server.
+- [ ] Remote: explore using the Github API to generate a PR or comment with changes.
+- [ ] Allow AI to crawl things other than Plangs.
 - [ ] Revise data: tags: better-c, educational.
 
 # RELEASE
