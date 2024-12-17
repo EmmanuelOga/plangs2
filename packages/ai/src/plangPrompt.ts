@@ -85,6 +85,7 @@ export async function plangPrompt(pg: PlangsGraph, pl: VPlang): Promise<OpenAIMs
         "The 'description' SHOULD be information dense, but not long, perhaps 1 to 3 sentences.",
         "The 'description' SHOULD NOT include superfluous adjectives or generalization like 'used in many applications', which don't really provide valuable information.",
         "The 'shortDesc' should be an abbreviated, short, one-sentence version of the 'description' field.",
+        "BOTH the 'description' and 'shortDesc' should be unique and not contain the language name; for instance, say: 'A dynamic language' instead of: 'Python is a dynamic language'.",
         "I'll provide some data and an example of what a good result looks like.",
       ].join("\n"),
     },
