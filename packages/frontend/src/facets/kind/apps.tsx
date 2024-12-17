@@ -1,6 +1,6 @@
 import { ValNil, ValNumber } from "@plangs/auxiliar/value";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
-import { storeKey, storeLoad } from "@plangs/frontend/auxiliar/storage";
+import { getStore } from "@plangs/frontend/auxiliar/storage";
 import { FacetsMainState } from "@plangs/frontend/facets/main/state";
 import { bool, defineFacetGroups, table, text } from "@plangs/frontend/facets/main/types";
 import { matchVertices } from "@plangs/plangs/facets";
@@ -44,8 +44,9 @@ export class AppsFacetsState extends FacetsMainState<GK, AppFacetKey> {
   override readonly groupsComponent = COMPONENT;
 
   static initial(pg: PlangsGraph): AppsFacetsState {
-    const currentGroupKey = storeLoad(storeKey(PAGE, "facets-last-group")) ?? NAV.default;
-    const values = FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? storeLoad(storeKey(PAGE, "facet-value")));
+    const store = getStore(PAGE);
+    const currentGroupKey = store.load("facets-last-group") ?? NAV.default;
+    const values = FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? store.load("facet-value"));
     return new AppsFacetsState({ pg, currentGroupKey, values });
   }
 

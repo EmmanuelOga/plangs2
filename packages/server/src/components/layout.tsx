@@ -65,8 +65,7 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
 
         <noscript class={tw("border-primary border-b-1", "bg-background", "p-2 text-center")}>
           <strong>Note!</strong>
-          This site is fully static but requires JavaScript for the best experience. In particular, the search feature will not work without
-          JavaScript.
+          This site requires JavaScript for the best experience. In particular, the search feature will not work without JavaScript.
         </noscript>
 
         <header class={tw("pt-4 pb-2", "flex flex-col", "bg-linear-to-b from-secondary to-background")} style={stripes(false)}>
