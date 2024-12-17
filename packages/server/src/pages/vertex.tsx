@@ -57,7 +57,7 @@ function VertexRelation({ vertex, rel, title }: { vertex: TPlangsVertex; rel: st
       {
         <Table headers={isNews ? ["Date", "Post"] : ["Name", "Keywords", "Description"]}>
           {relVertices.map(vertex => (
-            <tr key={vertex.key}>
+            <tr key={vertex.key} class={tw("hover:bg-hiliteb/10")}>
               {isNews && <td>{(vertex as VPost).date}</td>}
               <td>
                 <a href={vertex.href} title={vertex.name} children={vertex.name} />

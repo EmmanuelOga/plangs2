@@ -2,7 +2,7 @@ import { PROSE, tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
 import { Layout, type PlangsPage } from "@plangs/server/components/layout";
-import { VertexHeader } from "@plangs/server/components/vertex-header";
+import { VertexEntry } from "@plangs/server/components/vertex-entry";
 
 export function VertexReference({
   pg,
@@ -10,7 +10,7 @@ export function VertexReference({
   heading,
   vertexName,
 }: { pg: PlangsGraph; heading: string; vertexName: TPlangsVertexName; page: PlangsPage }) {
-  const entries = [...pg.vertices[vertexName].values].map(vertex => <VertexHeader key={vertex.key} vertex={vertex} />);
+  const entries = [...pg.vertices[vertexName].values].map(vertex => <VertexEntry key={vertex.key} vertex={vertex} />);
   return (
     <Layout page={page} title={META[page]?.title} desc={META[page]?.desc} mainClasses="overflow-y-auto">
       <article class={tw(PROSE, "p-4")}>
